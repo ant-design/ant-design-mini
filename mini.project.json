@@ -3,7 +3,6 @@
   "miniprogramRoot": "demo",
   "axmlStrictCheck": true,
   "component2": true,
-  "node_modules_es6_whitelist": ["@alipay/mini-utils"],
   "exclude": ["dist/**/*"],
   "enableNodeModuleBabelTransform": true
 }

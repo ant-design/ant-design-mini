@@ -1,7 +1,7 @@
 ### 代码克隆
 
 ``` bash
-git clone git@code.alipay.com:antd-mini/antd-mini.git 
+git clone git@github.com:ant-design/ant-design-mini.git
 ```
 
 ### 目录结构
