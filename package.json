@@ -1,7 +1,6 @@
 {
-  "private": true,
   "name": "antd-mini",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "scripts": {
     "dev": "minidev dev --less --typescript",
     "build": "npm run build:component && npm run build:site",
@@ -83,12 +82,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antd-mini.git",
+    "url": "git+https://github.com/ant-design/ant-design-mini.git",
     "branch": "master",
     "platform": "github"
   },
   "bugs": {
-    "url": "https://github.com/xxx/issues"
+    "url": "https://github.com/ant-design/ant-design-mini/issues"
   },
   "keywords": [
     "ant-mini",
@@ -98,5 +97,5 @@
     "alipay"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/antd-mini"
+  "homepage": "https://github.com/ant-design/ant-design-mini"
 }
