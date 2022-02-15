@@ -4,9 +4,7 @@
 &nbsp;
 ![npm](https://img.shields.io/npm/dw/antd-mini)
 &nbsp;
-[![build status](https://github.com/vuejs/vue-next/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/vuejs/vue-next/actions/workflows/ci.yml)
-&nbsp;
-![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mobile)
+![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mini)
 
 ```bash
 $ npm i antd-mini -S
