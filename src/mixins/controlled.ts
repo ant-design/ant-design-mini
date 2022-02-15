@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import equal from "fast-deep-equal";
-import type { IUserComponentOptions } from "@mini-types/app";
+import type { IUserComponentOptions } from "@mini-types/alipay";
 
 /**
  * @description 处理通用受控非受控模式
