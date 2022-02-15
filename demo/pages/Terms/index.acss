@@ -1,0 +1,16 @@
+.button {
+  margin-bottom: 12px;
+}
+
+.text {
+  color: #1677ff;
+}
+
+.title{
+  padding: 12px 0;
+}
+
+.fixed{
+  position: fixed;
+  bottom: 188px;
+}

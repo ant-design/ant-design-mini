@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Popover：结合 PopoverItem 组件",
+  "usingComponents": {
+    "popover": "../../../src/Popover/index",
+    "popover-item": "../../../src/Popover/PopoverItem/index"
+  }
+}

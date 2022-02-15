@@ -1,0 +1,128 @@
+@import (reference) "./variable.less";
+
+@searchBarPrefix: amd-search-bar;
+
+.@{searchBarPrefix} {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: @search-bar-height;
+  padding: 12 * @rpx 24 * @rpx;
+  overflow: hidden;
+  font-size: @font-size-content;
+  box-sizing: border-box;
+  &-focus {
+    background-color: #fff;
+  }
+  &-padding-right {
+    padding-right: 0;
+  }
+  &-container-cancel {
+    padding: 16 * @rpx 0 16 * @rpx 24 * @rpx;
+  }
+  &-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    height: @search-bar-input-height;
+    overflow: hidden;
+    border: 2 * @rpx solid #fff;
+    background-color: @search-bar-fill;
+    border-radius: @search-bar-border-radius;
+    caret-color: var(--am-color-brand-1, @color-brand-1);
+    box-sizing: border-box;
+    &-focus {
+      border: 2 * @rpx solid @color-text-primary;
+      & .a-input-placeholder {
+        font-family: PingFangSC-Regular;
+        font-size: 30 * @rpx;
+        color: #ccc !important;
+        & :first-child {
+          padding-left: 0;
+        }
+      }
+    }
+    .@{searchBarPrefix}-synthetic {
+      padding: 0 8 * @rpx 0 16 * @rpx;
+      z-index: 2;
+      &-icon {
+        color: @search-bar-synthetic-icon-color;
+      }
+    }
+  }
+  &-value {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+    font-size: @search-bar-font-size;
+    line-height: @search-bar-font-size;
+    border: 0 none;
+    background-color: transparent;
+    z-index: 1;
+    color: #333;
+    & .a-input-placeholder {
+      font-family: PingFangSC-Regular;
+      font-size: 30 * @rpx;
+      color: #999;
+      & :first-child {
+        padding-left: 0;
+      }
+    }
+  }
+  &-clear,
+  &-voice {
+    z-index: 2;
+    right: 24 * @rpx;
+    color: @search-bar-clear-icon-color;
+    box-sizing: content-box;
+  }
+  &-clear {
+    &-biz {
+      right: 78 * @rpx;
+    }
+  }
+  &-cancel {
+    height: @search-bar-input-height;
+    padding: 0 8 * @rpx;
+    font-size: 30 * @rpx;
+    line-height: @search-bar-input-height;
+    border-radius: 8 * @rpx;
+    color: #333;
+    &-container {
+      border-radius: 8 * @rpx;
+      &-show {
+        margin-left: 24 * @rpx;
+        margin-right: 16 * @rpx;
+      }
+    }
+  }
+  &-clear-icon {
+    color: @search-bar-clear-icon-color;
+    padding: 11 * @rpx 8 * @rpx;
+    right: 0;
+    margin: 0 16 * @rpx;
+    &-biz {
+      right: 48 * @rpx;
+    }
+    .amd-icon {
+      font-size: 30 * @rpx;
+    }
+  }
+
+  &-biz-icon {
+    color: @search-bar-clear-icon-color;
+    padding: 11 * @rpx 8 * @rpx;
+    right: 0;
+    margin-right: 16 * @rpx;
+    .amd-icon {
+      font-size: 30 * @rpx;
+      color: #999;
+    }
+  }
+}

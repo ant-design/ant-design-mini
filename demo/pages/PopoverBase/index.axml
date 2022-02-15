@@ -1,0 +1,25 @@
+<view class="demo-popover">
+  <popover 
+    placement="{{placement}}"
+    visible="{{show}}"
+    mask="{{false}}"
+    maskClosable="{{true}}"
+    onVisibleChange="onVisibleChange">
+
+    <view class="demo-popover-btn">
+      点击{{show ? '隐藏' : '显示'}} {{placement}}
+    </view>
+
+    <block slot="items">
+      tooltip
+    </block>
+  </popover>
+</view>
+
+<view class="demo-btn-container">
+  <button 
+    class="demo-btn"
+    onTap="onNextPositionTap">
+    下个位置
+  </button>
+</view>

@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Popup",
+  "usingComponents": {
+    "popup": "../../../src/Popup/index",
+    "button": "../../../src/Button/index"
+  }
+}

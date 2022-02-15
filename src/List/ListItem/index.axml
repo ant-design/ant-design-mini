@@ -1,0 +1,71 @@
+<import-sjs name="listItem"
+  from="./index.sjs" />
+
+<view class="amd-list-item  {{className ? className : ''}}"
+  onTap="onTap"
+  hover-class="{{onTap ? 'amd-list-item-hover' : ''}}"
+  hover-start-time="{{20}}"
+  hover-stay-time="{{40}}">
+  <view class="amd-list-item-line {{disabled? 'amd-list-item-line-disabled' : ''}}">
+    <view class="amd-list-item-image-container-placeholder">
+        <image-icon a:if="{{image}}" image="{{image}}"></image-icon>
+      <block a:else >
+        <slot name="image" >
+        </slot>
+      </block> 
+    </view>
+    <view class="amd-list-item-image-container amd-list-item-image-container-{{imageSize}}">
+      <view a:if="{{image}}" class="amd-list-item-image amd-list-item-image-{{imageSize}}">
+        <image-icon image="{{image}}"></image-icon>
+      </view>
+      <block a:else >
+        <slot name="image" >
+        </slot>
+      </block> 
+    </view>
+      <view class="amd-list-item-content-container amd-list-item-content-container-{{imageSize}}">
+      <view class="amd-list-item-content-title-container">
+        <view a:if="{{title}}" class="amd-list-item-content-title">
+          {{title}}
+        </view>
+        <block a:else >
+          <slot name="title"/>
+        </block>
+      </view>
+      <view class="amd-list-item-content-main">
+        <slot/>
+      </view>
+      <view class="amd-list-item-content-brief-container">
+        <view a:if="{{brief}}" class="amd-list-item-content-brief">
+          {{brief}}
+        </view>
+        <block a:else>
+          <slot name="brief"/>
+        </block>
+      </view>
+    </view>
+    <view class="amd-list-item-extra-container">
+      <view class="amd-list-item-extra">
+        <view a:if="{{extra}}">
+          {{extra}}
+        </view>
+        <block a:else>
+          <slot name="extra"></slot>
+        </block>
+      </view>
+      <view class="amd-list-item-extra-brief">
+        <view a:if="{{extraBrief}}">
+          {{extraBrief}}
+        </view>
+        <view a:else>
+          <slot name="extra-brief"></slot>
+        </view>
+      </view>
+    </view>
+    <view class="amd-list-item-arrow" >
+      <icon a:if="{{arrow}}" type="{{listItem.getArrow(arrow)}}" size="x-small" />
+    </view>
+  </view>
+  <view class="line">
+  </view>
+</view>

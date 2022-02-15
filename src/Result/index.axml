@@ -1,0 +1,44 @@
+<import-sjs name="result"
+  from='./index.sjs' />
+<view class="amd-result {{className ? className : ''}}">
+  <view class="amd-result-main">
+    <block a:if="{{type}}">
+      <view class="amd-result-image">
+        <icon type="{{result.iconType(type)}}"
+          className="amd-result-image-{{type}}"
+          size="large" />
+      </view>
+    </block>
+    <block a:else>
+      <block a:if="{{image}}">
+        <image-icon className="amd-result-image"
+          iconSize="large"
+          image="{{image}}" />
+      </block>
+      <block a:else>
+        <slot name="image" />
+      </block>
+    </block>
+    <view class="amd-result-title"
+      a:if="{{title && title.length > 0}}">{{title}}</view>
+    <view class="amd-result-title"
+      a:else>
+      <slot name="title" />
+    </view>
+    <view class="amd-result-message"
+      a:if="{{message && message.length > 0}}">{{message}}</view>
+    <view class="amd-result-message"
+      a:else>
+      <slot name="message" />
+    </view>
+  </view>
+  <view class="amd-result-buttons"
+    a:if="{{buttons}}">
+    <block a:for="{{buttons}}">
+      <button className="amd-button"
+        type="{{item.type}}"
+        data-index="{{index}}"
+        onTap="onButtonTap">{{item.text}}</button>
+    </block>
+  </view>
+</view>

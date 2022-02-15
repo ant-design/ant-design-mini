@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Collapse",
+  "usingComponents": {
+    "collapse": "../../../src/Collapse/index",
+    "collapse-item": "../../../src/Collapse/CollapseItem/index",
+    "icon": "../../../src/Icon/index"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "antd-mini",
+  "version": "1.0.0",
+  "dependencies": {
+    "@alipay/antd-mini": "1.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "app.js",
+  "description": ""
+}

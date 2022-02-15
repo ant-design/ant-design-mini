@@ -1,0 +1,17 @@
+.list {
+  margin-bottom: 24rpx;
+}
+.list:first-child {
+  margin-top: 24rpx;
+}
+.content-title {
+  display: flex;
+}
+
+
+.amd-list-item-extra {
+  white-space: nowrap;
+}
+.amd-list-item-image {
+  color: #1677ff;
+}

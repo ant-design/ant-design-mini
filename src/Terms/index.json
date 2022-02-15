@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "checkbox": "../Checkbox/index",
+    "button":"../Button/index"
+  }
+}

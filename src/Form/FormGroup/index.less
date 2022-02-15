@@ -1,0 +1,24 @@
+@import (reference) "../../List/variable.less";
+
+@formGroupPrefix: amd-form-group;
+
+.@{formGroupPrefix} {
+  &-header {
+    display: flex;
+    align-items: center;
+    font-size: @list-header-size;
+    color: @list-header-color;
+    padding: 16 * @rpx 32 * @rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30 * @rpx;
+    color: #999;
+    line-height: 1.4;
+    &:empty {
+      display: none;
+    }
+  }
+  &-body {
+    position: relative;
+    overflow: hidden;
+  }
+}

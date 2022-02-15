@@ -1,0 +1,30 @@
+<view class="demo">
+  <list radius="{{true}}">
+    <list-item className="demoItem">
+      <label>
+        <checkbox onChange="changeCheckBox" disabled="{{disabled}}"/>
+        <text class="options">复选项 1</text>
+      </label>
+    </list-item>
+    <list-item className="demoItem">
+      <label>
+        <checkbox onChange="changeCheckBox" disabled="{{disabled}}"/>
+        <text class="options">复选项 2</text>
+      </label>
+    </list-item>
+    <list-item className="demoItem">
+      <label>
+        <checkbox onChange="changeCheckBox" disabled="{{disabled}}"/>
+        <text class="options">复选项 3</text>
+      </label>
+    </list-item>
+    <list-item className="demoItem">
+      <label>
+        <checkbox onChange="changeCheckBox" disabled="{{disabled}}"/>
+        <text class="options">复选项 4</text>
+      </label>
+    </list-item>
+  </list>
+
+  <button onTap="onTap" type="primary">disabled: {{disabled}}</button>
+</view>

@@ -1,0 +1,15 @@
+.tagBox {
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+}
+.myTag {
+  margin-right: 16rpx;
+}
+.title{
+  padding-left: 24rpx;
+}
+page{
+  background-color: #fff;
+}

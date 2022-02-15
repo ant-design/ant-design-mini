@@ -1,0 +1,88 @@
+@import (reference) "./variable.less";
+
+@inputItemPrefix: amd-input-item;
+.@{inputItemPrefix} {
+  display: flex;
+  align-items: center;
+  background: @color-fill-grey-inverse;
+  &-disabled {
+    opacity: 0.4;
+  }
+  &-line {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  &-extra {
+    margin-right: 24 * @rpx;
+    margin-left: 16 * @rpx;
+    &:empty {
+      display: none;
+    }
+  }
+  &-layer {
+    display: flex;
+    flex: 1;
+    &-vertical {
+      flex-direction: column;
+      .amd-input-item-label {
+        align-self: flex-start;
+        font-family: PingFangSC-Regular;
+        font-size: 30 * @rpx;
+        color: #666;
+      }
+      .a-input-placeholder {
+        margin-left: -6 * @rpx;
+      }
+      .@{inputItemPrefix}-content {
+        align-self: stretch;
+        color: #333;
+        font-size: 30 * @rpx;
+      }
+    }
+  }
+  &-content {
+    flex: 1;
+    display: flex;
+    align-self: center;
+    padding: 0;
+    font-size: 34 * @rpx;
+    text-align: left;
+    color: #333;
+    caret-color: #1677ff;
+
+    .a-input-placeholder {
+      font-family: PingFangSC-Regular;
+      font-size: 34 * @rpx;
+      color: #ccc;
+    }
+  }
+
+  &-content .a-input-wrap {
+    flex: 1;
+  }
+
+  &-clear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16 * @rpx;
+    &-icon {
+      color: #ccc;
+      font-size: 34 * @rpx;
+    }
+  }
+
+  &-clear.show {
+    visibility: visible;
+  }
+  &-clear.hidden {
+    visibility: hidden;
+    pointer-events: none;
+  }
+  &-placeholder-base {
+    color: #ccc;
+  }
+}

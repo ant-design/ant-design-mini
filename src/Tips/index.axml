@@ -1,0 +1,28 @@
+<view class="amd-tips {{className ? className : ''}}"
+  a:if="{{_show}}">
+  <view class="amd-tips-wrap">
+    <view class="amd-tips-wrap-pseudo">
+      <view class="amd-tips-wrap-pseudo-content">
+        <tips-item image="{{image}}"
+          buttonText="{{buttonText}}"
+          buttonPosition="{{buttonPosition}}"
+          showClose="{{showClose}}"
+          onButtonTap="onButtonTap"
+          onHideTips="onHideTips"
+          title="{{title}}" />
+      </view>
+      <view class="amd-tips-arrow amd-tips-arrow-{{arrowPosition}}"
+        a:if="{{arrowPosition}}" />
+    </view>
+    <!-- 为了实现背景半透明，箭头与背景叠加的而复制一份内容，通过定位实现 -->
+    <view class="amd-tips-wrap-real">
+      <tips-item image="{{image}}"
+        buttonText="{{buttonText}}"
+        buttonPosition="{{buttonPosition}}"
+        showClose="{{showClose}}"
+        onButtonTap="onButtonTap"
+        onHideTips="onHideTips"
+        title="{{title}}" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,143 @@
+<form
+  form="{{form}}" 
+  initialValues="{{initVal}}" 
+  ref="ref"
+  onValuesChange="onValuesChange" 
+  onFinish="onFinish" >
+
+    <form-group 
+      radius="{{true}}" 
+      header="input">
+      <form-item 
+        label="input" 
+        form="{{form}}"
+        arrow="{{true}}" 
+        name="input">
+        <input mode="form"/>
+      </form-item>
+
+      <form-item 
+      label="input" 
+      form="{{form}}"
+      arrow="{{true}}" 
+      name="input1"
+      disabled="{{true}}">
+      <input 
+        mode="form" 
+        disabled="{{true}}"/>
+    </form-item>
+
+    </form-group>
+
+    <form-group 
+      radius="{{true}}" 
+      header="checkbox">
+      <form-item 
+        className="checkbox-item"
+        label="checkbox" 
+        name="checkbox" 
+        form="{{form}}" 
+        position="vertical">
+        <checkbox-group mode="form">
+          <checkbox-item value="a1">复选框文本内容1</checkbox-item>
+          <checkbox-item value="a2">复选框文本内容2</checkbox-item>
+          <checkbox-item value="a3">复选框文本内容3</checkbox-item>
+          <checkbox-item value="a4">复选框文本内容4</checkbox-item>
+          <checkbox-item value="a5">复选框文本内容5</checkbox-item>
+        </checkbox-group>
+      </form-item>
+    </form-group>
+    
+    <form-group 
+      radius="{{true}}" 
+      header="radio">
+      <form-item 
+        className="radio-item"
+        label="radio1" 
+        name="radio" 
+        form="{{form}}" 
+        position="vertical">
+        <radio-group 
+          name="radioList"
+          mode="form">
+          <radio-item value="a1">单选框文本内容</radio-item>
+          <radio-item value="a2">单选框文本内容</radio-item>
+          <radio-item value="a3">单选框文本内容</radio-item>
+          <radio-item value="a4">单选框文本内容</radio-item>
+          <radio-item value="a5">单选框文本内容</radio-item>
+        </radio-group>
+      </form-item>
+    </form-group>
+    
+    <form-group 
+      radius="{{true}}" 
+      header="others">
+      <form-item 
+        label="stepper" 
+        labelWidth="110px"
+        name="stepper" 
+        form="{{form}}" 
+        initialValue="{{19}}">
+        <view slot="extra">
+          <stepper 
+            step="{{1}}" 
+            min="{{15}}" 
+            max="{{20}}" 
+            inputWidth="60px"
+            mode="form" />
+        </view>
+      </form-item>
+      
+      <form-item 
+        label="picker" 
+        labelWidth="110px"
+        name="picker" 
+        form="{{form}}">
+        <picker 
+          cols="{{3}}" 
+          disabled="{{false}}" 
+          pickerholder="请选择" 
+          data="{{pickerList}}"
+          mode="form"
+          onFormat="formatValue" 
+          onDismiss="cancelPicker" 
+          onOk="getPikcerValue">
+          <view slot="title">
+            <text style="color: red;">Picker</text> 选择器</view>
+        </picker>
+      </form-item>
+      
+      <form-item 
+        label="switch" 
+        labelWidth="110px"
+        name="switch" 
+        form="{{form}}">
+        <switch 
+          checked="{{false}}" 
+          controlled="{{false}}"
+          mode="form" />
+      </form-item>
+      
+      <form-item 
+        label="selector" 
+        name="selector" 
+        position="vertical" 
+        form="{{form}}">
+        <selector 
+          items="{{sitems}}" 
+          multiple="{{true}}"
+          mode="form" />
+      </form-item>
+    </form-group>
+
+    <view slot="footer">
+      <button 
+      type="primary" 
+      mode="form"
+      form="{{form}}"
+      htmlType="submit">
+      Submit
+    </button>
+    </view>
+  </form>
+  

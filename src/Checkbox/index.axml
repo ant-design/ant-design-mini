@@ -1,0 +1,20 @@
+<view class="amd-checkbox {{className ? className : ''}} ">
+  <checkbox class="amd-checkbox-base"
+    controlled="{{controlled}}"
+    id="{{id ? id : $id}}"
+    disabled="{{disabled}}"
+    onChange="onChange"
+    checked="{{cValue}}" />
+    <view class="
+      amd-checkbox-fake 
+      {{disabled 
+          ? cValue
+            ? 'amd-checkbox-fake-disabled-checked' 
+            : 'amd-checkbox-fake-disabled-not-checked' 
+          : cValue
+            ? 'amd-checkbox-fake-not-disabled-checked'
+            : 'amd-checkbox-fake-not-disabled-not-checked'}}">
+      <view class="check-not-disabled-path" a:if="{{cValue && !disabled}}"/>
+      <view class="check-disabled-path" a:if="{{cValue && disabled}}"/>
+    </view>
+</view>       

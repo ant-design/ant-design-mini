@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Switch",
+  "usingComponents": {
+    "switch": "../../../src/Switch/index"
+  }
+}

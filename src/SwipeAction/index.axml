@@ -1,0 +1,50 @@
+<view class="amd-swipe-action {{closeSwipe ? 'amd-swipe-action-closeSwipe' : ''}} {{className ? className : ''}}">
+  <view class="amd-swipe-action-wrap">
+    <block a:if="{{right.length > 0}}">
+      <view class="amd-swipe-action-right amd-swipe-action-right-{{$id}}"
+        style="{{rightBtn?'opacity: 1;pointer-events: auto;':'opacity: 0;pointer-events: none;'}}">
+        <block a:for="{{right.slice(0,3)}}">
+          <view class="amd-swipe-action-btn amd-swipe-action-btn-{{item.type}} "
+            hover-class="amd-swipe-action-btn-{{item.type}}-hover"
+            hover-start-time="{{20}}"
+            hover-stay-time="{{30}}"
+            onTap="onRightButtonTap"
+            data-index="{{index}}"
+            data-type="{{item.type}}"
+            data-text="{{item.text}}"
+            key="swipe-right-item-{{index}}">
+            <text class="amd-swipe-action-btn-text">{{item.text}}</text>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block a:if="{{left.length > 0}}">
+      <view class="amd-swipe-action-left amd-swipe-action-left-{{$id}}"
+        style="{{leftBtn?'opacity: 1;pointer-events: auto;':'opacity: 0;pointer-events: none;'}}">
+        <block a:for="{{left.slice(0,3)}}">
+          <view class="amd-swipe-action-btn amd-swipe-action-btn-{{item.type}}"
+            hover-class="amd-swipe-action-btn-{{item.type}}-hover"
+            hover-start-time="{{20}}"
+            hover-stay-time="{{30}}"
+            onTap="onLeftButtonTap"
+            data-index="{{index}}"
+            data-type="{{item.type}}"
+            data-text="{{item.text}}"
+            key="swipe-left-item-{{index}}">
+            <text class="amd-swipe-action-btn-text">{{item.text}}</text>
+          </view>
+        </block>
+      </view>
+    </block>
+    <view class="amd-swipe-action-content"
+      onTap="onSwipeTap"
+      onTouchStart="onSwipeStart"
+      onTouchEnd="onSwipeEnd"
+      catchTouchMove="onSwipeMove"
+      style="transform: translate3d({{itemPosition}}px, 0, 0);transition-duration:{{speed || 15}}ms">
+      <view class="amd-swipe-action-item amd-swipe-action-item-{{$id}}">
+        <slot />
+      </view>
+    </view>
+  </view>
+</view>

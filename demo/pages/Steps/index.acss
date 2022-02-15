@@ -1,0 +1,49 @@
+.demo-steps-class {
+  margin: 20px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.demo-btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.demo-btn {
+  width: 47%;
+}
+
+.stepsSlot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 26rpx;
+  color: #fff;
+}
+
+.stepsSlot:nth-child(1){
+  background-color: #ccc;
+}
+.stepsSlot:nth-child(2){
+  background-color: darkgreen;
+}
+.stepsSlot:nth-child(3){
+  background-color: #f32600;
+}
+
+.amd-steps-item-vertical:last-child .amd-steps-item-line-after {
+  width:2px;
+}
+
+.steps-icon{
+  width: 18px;
+  height: 18px;
+  font-size: 18px !important;
+  background-color: white;
+}
+
+.title{
+  padding: 20rpx 0;
+}

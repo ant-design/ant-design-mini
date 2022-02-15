@@ -1,0 +1,42 @@
+<view class="amd-button {{inline ? 'amd-button-inline' : ''}} {{className ? className : ''}}">
+  <button form-type="{{htmlType}}"
+    hover-class="{{loading ? '' : (activeClassName ? activeClassName : 'amd-button-active')}}"
+    scope="{{scope}}"
+    onTap="onTap"
+    public-id="{{publicId}}"
+    open-type="{{openType}}"
+    disabled="{{disabled || loading}}"
+    type="{{type}}"
+    class="amd-button-content {{type ? `amd-button-content-${type}` : ''}} {{(disabled || loading) ? 'amd-button-content-disabled' : ''}} {{inline ? `amd-button-content-inline amd-button-content-inline-${inlineSize}` : ''}} {{fill ? type ? `amd-button-content-${type}-${fill}` : '' : ''}}">
+    <block a:if="{{loading}}">
+      <view class="amd-button-loading-container {{inline ? 'amd-button-loading-container-inline' : ''}}">
+        <view class="amd-button-loading-text {{inline ? `amd-button-loading-text-${inlineSize}` : '' }}"
+          a:if="{{loadingText}}">{{loadingText}}</view>
+        <view class="amd-button-loading {{inline ? `amd-button-loading-inline amd-button-loading-${inlineSize}` : ''}}">
+          <loading color="currentColor"
+            size="6rpx"
+            hieght="10rpx" />
+        </view>
+      </view>
+    </block>
+    <view class="amd-button-wrap  {{loading ? 'amd-button-loading-show' : ''}}">
+      <block a:if="{{icon}}">
+        <image-icon className="amd-button-icon"
+          iconSize="small"
+          image="{{icon}}" />
+      </block>
+      <block a:else>
+        <view class="amd-button-icon">
+          <slot name="icon" />
+        </view>
+      </block>
+      <view class="amd-button-text">
+        <slot />
+          <view a:if="{{ !inline && subText}}"
+          class="amd-button-subtext">
+            {{subText}}
+          </view>
+      </view>
+    </view>
+  </button>
+</view>

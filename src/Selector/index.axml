@@ -1,0 +1,35 @@
+<import-sjs from="./index.sjs" name="selector" />
+<view class="amd-selector {{className ? className : ''}} {{disabled ? 'amd-selector-disabled' : ''}}">
+    <view class="amd-selector-header-container" >
+      <view 
+        a:if="{{title}}"
+        class="amd-selector-header-title">
+          {{title}}
+          <text class="amd-selector-header-title-tip">
+            {{ title ? multiple ? '(多选)' : '(单选)' : ''}}
+          </text>
+      </view>
+      <view 
+        a:if="{{desc}}"
+        class="amd-selector-header-desc">
+          {{desc}}
+      </view>
+    </view>
+    <view class="amd-selector-content-container">
+      <view a:for="{{items}}" class="amd-selector-content {{items.length <= 2 ? 'amd-selector-content-item2' : ''}}">
+        <view
+          class="amd-selector-item {{item.disabled ? 'amd-selector-item-disabled' : ''}} {{selector.getFixedValue(cValue, multiple).indexOf(item.value) !== -1 ? 'amd-selector-item-active' :''}}"
+          data-value="{{item.value}}"
+          data-text="{{item.text}}"
+          data-disabled="{{item.disabled}}"
+          onTap="onChange">
+          <view class="amd-selector-item-text"
+            a:if="{{item.text}}">{{item.text}}</view>
+          <view class="amd-selector-item-subtext"
+            a:if="{{item.subText}}">{{item.subText}}</view>
+          <view class="amd-selector-item-badge-active"
+              a:if="{{selector.getFixedValue(cValue, multiple).indexOf(item.value) !== -1}}" />
+        </view>
+      </view>
+  </view>
+</view>

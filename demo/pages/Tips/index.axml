@@ -1,0 +1,79 @@
+<!--Tips组件展示-->
+<view class="display-area">
+  <tips 
+    className="tipsPosition"
+    title="{{tipsTitle}}"
+    buttonText="{{tipsButton}}"
+    buttonPosition="{{buttonPosition}}"
+    image="{{tipsImage ? image : ''}}"
+    showClose="{{tipsClose}}"
+    arrowPosition="{{arrowPosition}}"
+    onButtonTap="onButtonTap"/>
+</view>
+
+<!--交互区域-->
+<view class="controle-area">
+  <view class="wrap">
+    <view class="title">tips 的 箭头位置控制</view>
+    <view class="content">
+      <radio-group 
+        class="arrow-radio-group"
+        name="tipsArrow"
+        onChange="tipsArrowChange">
+        <block a:for="{{tipsArrow}}">
+          <label 
+            class="{{item.name===''?'normal':item.name}} radio"
+            key="label-{{index}}">
+            <text class="radio-text">
+              <radio 
+                value="{{item.name}}"
+                checked="{{item.checked}}" />
+                {{item.value}}</text>
+          </label>
+        </block>
+      </radio-group>
+    </view>
+  </view>
+  <view class="wrap">
+    <view class="title">tips 的 title</view>
+    <view class="content">
+      <input 
+        type="text"
+        value="这是一个提示框" 
+        onInput="inputTitle"/>
+    </view>
+  </view>
+  <view class="wrap">
+    <view class="title">tips 的 buttonText</view>
+    <view class="content">
+      <input 
+        type="text"
+        value="操作按钮"
+        onInput="inputButtonText" />
+    </view>
+  </view>
+  <view class="wrap">
+    <view class="title">tips 的 image</view>
+    <view class="content">
+      <switch 
+        checked="{{true}}"
+        onChange="tipsImageSwitch" />
+    </view>
+  </view>
+  <view class="wrap">
+    <view class="title">tips 的 close 显示</view>
+    <view class="content">
+      <switch 
+        checked="{{true}}"
+        onChange="tipsCloseSwitch" />
+    </view>
+  </view>
+  <view class="wrap">
+    <view class="title">tips 的 button 位置：{{buttonPosition}}</view>
+    <view class="content">
+      <switch 
+        checked="{{true}}"
+        onChange="tipsButtonPosition" />
+    </view>
+  </view>
+</view>

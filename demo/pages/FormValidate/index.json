@@ -1,0 +1,12 @@
+{
+    "defaultTitle": "Form",
+    "usingComponents": {
+        "form": "../../../src/Form/index",
+        "form-item": "../../../src/Form/FormItem/index",
+        "form-group": "../../../src/Form/FormGroup/index",
+        "input": "../../../src/InputItem/index",
+        "button":"../../../src/Button/index",
+        "picker":"../../../src/Picker/index",
+        "selector":"../../../src/Selector/index"
+    }
+}

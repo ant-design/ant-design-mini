@@ -1,0 +1,227 @@
+@import (reference) "./variable.less";
+
+@tabsPrefix: amd-tabs;
+
+.@{tabsPrefix} {
+  width: 100%;
+  &-bar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-content: stretch;
+    background-color: @tabs-inverse-color;
+    box-sizing: border-box;
+    &-underline {
+      border-bottom: @border-width-standard solid @color-divider-line;
+    }
+    &-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    &-fade {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 9;
+      width: 72 * @pixelSize;
+      background-color: @tabs-inverse-color;
+      pointer-events: none;
+      &-left {
+        left: 0;
+        mask-image: linear-gradient(to right, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
+        mask-image: linear-gradient(to right, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
+      }
+      &-right {
+        // right: 0;
+        right: 104rpx;
+        mask-image: linear-gradient(to left, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
+        mask-image: linear-gradient(to left, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
+      }
+    }
+    &-plus {
+      display: flex;
+      width: 88rpx;
+      height: 88rpx;
+      align-self: center;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-left: @h-spacing-standard;
+      margin-right: @h-spacing-large;
+      order: 1;
+      &:empty {
+        display: none;
+        ~ .@{tabsPrefix}-bar-fade-right {
+          right: 0;
+        }
+      }
+    }
+    &-scroll-view {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      will-change: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    // 选项卡最后两项间距控制
+    &-wrap {
+      display: flex;
+      &-capsule {
+        flex: 1;
+      }
+
+      &:nth-of-type(2) .@{tabsPrefix}-bar-capsule,
+      &:nth-of-type(2) .@{tabsPrefix}-bar-mixin {
+        margin-left: @h-spacing-large;
+      }
+      &:nth-last-of-type(2) .@{tabsPrefix}-bar-capsule,
+      &:nth-last-of-type(2) .@{tabsPrefix}-bar-mixin {
+        margin-right: @h-spacing-large;
+      }
+    }
+    // 选项卡的通用样式
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1 0 auto;
+      font-size: @font-size-list;
+      white-space: nowrap;
+      color: @tabs-basis-color;
+      &-placeholder {
+        flex: 0 2rpx;
+        width: 2rpx;
+        height: 100%;
+        color: @tabs-inverse-color;
+        background-color: @tabs-inverse-color;
+      }
+    }
+    // 基础类型 tab 选项卡样式
+    &-basis {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 0 @h-spacing-large;
+      padding-top: @v-spacing-standard;
+      padding-bottom: @v-spacing-standard;
+      box-sizing: border-box;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 100%;
+        height: 4 * @rpx;
+        overflow: hidden;
+        font-size: 0;
+        border-radius: @corner-radius-circle;
+        box-sizing: border-box;
+        transform: translate3d(-50%, 0, 0);
+      }
+      // &:active::before {
+      //   content: "";
+      //   position: absolute;
+      //   top: 0;
+      //   bottom: 0;
+      //   left: -@h-spacing-large;
+      //   right: -@h-spacing-large;
+      //   border-radius: @corner-radius-md-plus;
+      //   background-color: rgba(0, 0, 0, 0.08);
+      // }
+    }
+    &-basis&-active {
+      color: @tabs-active-color;
+      &:after {
+        background-color: @tabs-active-decorate-color;
+      }
+    }
+    // 胶囊类型选项卡样式
+    &-capsule {
+      padding: @v-spacing-large 0;
+      margin: 0 @h-spacing-large / 2;
+      box-sizing: border-box;
+      &-title {
+        flex: 1;
+        justify-content: center;
+        margin-right: 0;
+        padding: @v-spacing-standard 30 * @rpx;
+        font-size: 30 * @rpx;
+        text-align: center;
+        line-height: @line-height-base;
+        border-radius: 10vh;
+        background-color: #F5F5F5;
+        border-bottom: 0 none;
+      }
+      &-badge {
+        margin-left: @size-1;
+        font-size: 26 * @rpx;
+        color: @tabs-weaken-color;
+      }
+    }
+    &-capsule&-active &-capsule-title {
+      color: @tabs-inverse-color;
+      background-color: @tabs-active-decorate-color;
+    }
+    &-capsule&-active &-capsule-badge {
+      color: @tabs-inverse-color;
+      opacity: 0.6;
+    }
+
+    // 混合类型的选项卡样式
+    &-mixin {
+      flex-direction: column;
+      margin: 0 @h-spacing-standard;
+      padding: @v-spacing-large 0;
+      text-align: center;
+
+      &-title {
+        margin: 2 * @rpx 0;
+      }
+
+      &-subtitle {
+        padding: 0 @h-spacing-standard;
+        font-size: @font-size-content;
+        line-height: @line-height-paragraph;
+        color: @tabs-weaken-color;
+        border-radius: 50vh;
+        background-color: #F5F5F5;
+        margin: 2 * @rpx 0;
+      }
+    }
+    &-mixin&-active &-mixin-title {
+      color: @tabs-active-color;
+    }
+    &-mixin&-active &-mixin-subtitle {
+      color: @tabs-inverse-color;
+      background-color: @tabs-active-decorate-color;
+    }
+    // 禁用态选项卡样式
+    &-disabled {
+      opacity: @opacity-disabled;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+  &-content {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    overflow: hidden;
+    height: auto;
+    background-color: @color-fill-grey-inverse;
+    &_H100 {
+      height: 100% !important;
+    }
+  }
+  &-slides {
+    width: 100%;
+    display: flex;
+  }
+}

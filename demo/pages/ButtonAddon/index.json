@@ -1,0 +1,8 @@
+{
+    "defaultTitle": "Button",
+    "usingComponents": {
+      "button": "../../../src/Button/index",
+      "checkbox": "../../../src/Checkbox/index"
+    }
+  }
+  

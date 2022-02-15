@@ -1,0 +1,43 @@
+<button onTap="changeCheckboxShow" type="primary">show on/off</button>
+
+<view class="changedFields">
+    changedFields: {{changedFields}}
+</view>
+<view class="allFields">
+    allFields: {{allFields}}
+</view>
+<form 
+  form="{{form}}"
+  onValuesChange="onValuesChange" >
+    <form-group 
+        radius="{{true}}" 
+        header="checkbox">
+        <form-item 
+          label="checkbox"
+          position="vertical" 
+          name="checkbox" 
+          form="{{form}}">
+        <checkbox-group 
+          a:if="{{checkboxShow}}" 
+          mode="form"
+          uid="{{uid}}">
+            <checkbox-item value="a1" uid="{{uid}}">复选框文本内容1</checkbox-item>
+            <checkbox-item value="a2" uid="{{uid}}">复选框文本内容2</checkbox-item>
+            <checkbox-item value="a3" uid="{{uid}}">复选框文本内容3</checkbox-item>
+            <checkbox-item value="a4" uid="{{uid}}">复选框文本内容4</checkbox-item>
+            <checkbox-item value="a5" uid="{{uid}}">复选框文本内容5</checkbox-item>
+        </checkbox-group>
+      </form-item>
+    </form-group>
+    
+    <form-group 
+      radius="{{true}}" 
+      header="input">
+        <form-item 
+          label="input" 
+          name="input" 
+          form="{{form}}">
+            <input mode="form"/>
+        </form-item>
+    </form-group>
+</form>

@@ -1,0 +1,93 @@
+<view class="demo-popover">
+  <popover 
+    placement="bottom-right"
+    visible="{{show}}"
+    onVisibleChange="onVisibleChange">
+
+    <view class="demo-popover-btn-1">
+      mode : dark
+    </view>
+
+    <block slot="items">
+      <popover-item 
+        onTap="itemTap"
+        icon="ScanningOutline"
+        data-index="{{1}}">
+        扫一扫
+      </popover-item>
+
+      <popover-item 
+        onTap="itemTap"
+        icon="ReceivePaymentOutline"
+        data-index="{{2}}">
+        付钱/收钱
+    </popover-item>
+
+      <popover-item 
+        onTap="itemTap"
+        icon="TransportQRcodeOutline"
+        data-index="{{3}}">
+        乘车码
+    </popover-item>
+      
+      <popover-item 
+        onTap="itemTap"
+        data-index="{{4}}">
+        <image
+          slot="icon"
+          mode="scaleToFill"
+          src="{{url}}"
+          style="width: 100%;height: 100%;"/>
+        icon 插槽
+      </popover-item>
+    </block>
+  </popover>
+  
+</view>
+  <view class="demo-popover">
+  <popover 
+  placement="bottom-right"
+  mode="light"
+  visible="{{show}}"
+  onVisibleChange="onVisibleChange">
+
+  <view class="demo-popover-btn-2">
+    mode : light
+  </view>
+
+  <block slot="items">
+    <popover-item 
+      onTap="itemTap"
+      icon="ScanningOutline"
+      data-index="{{1}}">
+      扫一扫
+    </popover-item>
+
+    <popover-item 
+      onTap="itemTap"
+      icon="ReceivePaymentOutline"
+      data-index="{{2}}">
+      付钱/收钱
+  </popover-item>
+
+    <popover-item 
+      onTap="itemTap"
+      icon="TransportQRcodeOutline"
+      data-index="{{3}}">
+      乘车码
+  </popover-item>
+    
+    <popover-item 
+      onTap="itemTap"
+      data-index="{{4}}">
+      <image
+        slot="icon"
+        mode="scaleToFill"
+        src="{{url}}"
+        style="width: 100%;height: 100%;"/>
+      icon 插槽
+    </popover-item>
+
+  </block>
+</popover>
+</view>

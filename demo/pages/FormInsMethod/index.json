@@ -1,0 +1,9 @@
+
+{
+    "defaultTitle": "组件实例方法使用",
+    "usingComponents": {
+        "form": "../../../src/Form/index",
+        "form-item": "../../../src/Form/FormItem/index",
+        "input": "../../../src/InputItem/index"
+    }
+}

@@ -1,0 +1,51 @@
+<view class="amd-verify-code-item {{className ? className : ''}}">
+  <view class="amd-verify-code-item-line">
+    <view
+      class="amd-verify-code-item-layer {{layer === 'vertical' ?'amd-verify-code-item-layer-vertical' : 'amd-verify-code-item-layer-normal'}}">
+      <view a:if="{{$slots.$default}}"
+        class="amd-verify-code-item-label {{labelCls ? labelCls : ''}}">
+        <label for="{{id ? id : `amdVerify_${$id}`}}">
+          <slot /></label>
+      </view>
+      <view a:elif="{{!$slots.$default && label}}"
+        class="amd-verify-code-item-label {{labelCls ? labelCls : ''}}">
+        <label for="{{id ? id : `amdVerify_${$id}`}}">{{label}}</label>
+      </view>
+      <input enableNative="{{enableNative}}"
+        class="amd-verify-code-item-content {{inputCls ? inputCls : ''}}"
+        id="{{id ? id : `amdVerify_${$id}`}}"
+        name="{{name}}"
+        disabled="{{disabled}}"
+        value="{{cValue}}"
+        type="{{type}}"
+        password="{{password}}"
+        placeholder="{{placeholder}}"
+        placeholder-class="amd-verify-code-item-placeholder-base {{placeholderClass ? placeholderClass : ''}}"
+        placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}"
+        maxlength="{{maxLength}}"
+        focus="{{autoFocus}}"
+        confirm-type="{{confirmType}}"
+        confirm-hold="{{confirmHold}}"
+        cursor="{{cursor}}"
+        selection-start="{{selectionStart}}"
+        selection-end="{{selectionEnd}}"
+        random-number="{{randomNumber}}"
+        controlled="{{controlled}}"
+        onInput="onChange"
+        onConfirm="onConfirm"
+        onFocus="onFocus"
+        onBlur="onBlur" />
+    </view>
+    <view class="amd-verify-code-item-clear {{cValue.length > 0 && _focus ? 'show' : 'hidden'}}"
+      onTap="onClear"
+      a:if="{{clear}}">
+      <icon size="x-small"
+        class="amd-verify-code-item-clear-icon"
+        type="CloseCircleOutline" />
+    </view>
+    <view class="amd-verify-code-item-action {{_actionActive ? 'active' : 'inactive'}}"
+      onTap="{{_actionActive ? 'onTapSend' : ''}}">{{
+        _actionActive ? (actedBefore ? txtSendAgain : txtSend) : `${_countDown}${txtCountDown}`
+      }}</view>
+  </view>
+</view>

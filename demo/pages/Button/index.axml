@@ -1,0 +1,45 @@
+<view class="container">
+
+  <button 
+    a:for="{{list}}" 
+    type="{{item.type}}" 
+    subText="{{subText}}" 
+    disabled="{{disabled}}" 
+    loading="{{showLoading}}" 
+    loadingText="正在加载"
+    fill="{{fill}}"
+    onTap="onTap" >
+    {{item.type}}
+  </button>
+
+  <view class="changeItem">
+    <checkbox 
+      id="subText"
+      onChange='onShowSubText' />
+    <label for="subText">是否显示副标题</label>
+  </view>
+  
+  <view class="changeItem">
+    <checkbox 
+      id="disabled"
+      onChange='onDisableChange' />
+    <label for="disabled">是否禁用</label>
+  </view>
+  
+  <view class="changeItem">
+    <checkbox 
+      id="loading"
+      controlled="{{true}}" 
+      checked="{{loadingChangeValue}}" 
+      onChange='onLoadingChange'  />
+    <label for="loading">是否显示 loading</label>
+  </view>
+
+  <view class="changeItem">
+    <radio-group onChange="onFillChange">
+      <label a:for="{{fillList}}">
+        <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.label}}
+      </label>
+    </radio-group> 
+  </view>
+</view>

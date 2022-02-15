@@ -1,0 +1,76 @@
+@import (reference) "./variable.less";
+
+@swipeActionPrefix: amd-swipe-action;
+
+.@{swipeActionPrefix} {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  &-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  &-content {
+    position: relative;
+    z-index: 2;
+    transition: transform 200ms ease-out;
+  }
+  &-right,
+  &-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+  }
+  &-right {
+    right: 0;
+  }
+  &-left {
+    left: 0;
+  }
+  &-btn {
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+    padding: 0 @swipe-action-radius-spacing;
+    color: @color-text-base;
+    &-text {
+      align-self: center;
+    }
+    &-default {
+      background-color: @swipe-action-default-color;
+      &-hover {
+        background-color: darken(@swipe-action-default-color, 10%);
+      }
+    }
+    &-primary {
+      background-color: @swipe-action-primary-color;
+      &-hover {
+        background-color: lighten(@swipe-action-primary-color, 10%);
+      }
+    }
+    &-danger {
+      background-color: @swipe-action-danger-color;
+      &-hover {
+        background-color: lighten(@swipe-action-danger-color, 10%);
+      }
+    }
+  }
+}
+
+.amd-swipe-action-btn {
+  display: box;
+  display: flex;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  justify-content: center;
+  align-self: stretch;
+  align-self: stretch;
+  padding: 0 40rpx;
+  color: #fff;
+}

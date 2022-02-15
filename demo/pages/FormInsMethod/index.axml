@@ -1,0 +1,18 @@
+<form form="{{form}}" ref="ref">
+    <form-item 
+      a:for="{{list}}" 
+      label="{{item.name}}" 
+      labelWidth="110px"
+      name="{{item.name}}"  
+      form="{{form}}">
+        <input 
+          placeholder="{{item.name}}" 
+          mode="form" />
+    </form-item>
+</form>
+
+<button onTap="setFieldsValue" type="primary">设置表单值</button>
+<button onTap="getCompInstance" type="primary">获取组件 [真实] 实例</button>
+<view class="ins">
+  ins: {{ins}}
+</view>

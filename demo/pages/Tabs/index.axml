@@ -1,0 +1,186 @@
+<tabs 
+  index="{{index}}" 
+  type="{{type}}" 
+  animation="{{animation}}" 
+  swipeable="{{swipeable}}" 
+  sticky="{{sticky}}"
+  onChange="changeTab">
+
+  <view a:if="{{plusSlot}}" slot="plus" >
+    <icon 
+      size="small"
+      type="AddOutline" 
+      className="plus-icon"
+      onTap="iconClick" />
+  </view>
+
+  <view 
+    a:if="{{titleSlot}}"
+    slot-scope="prop" 
+    slot="title">
+  {{prop.tab.title + ' slot'}}
+  </view> 
+
+  <block a:for="{{tabs}}">
+    <tab-content 
+      a:if="{{index === 1}}" 
+      tab="{{item}}">
+      <view>
+        {{item.title}}
+          <view 
+            a:for="{{height}}">
+            ........根据内容自适应高度........
+          </view>
+      </view>
+    </tab-content>
+
+    <tab-content 
+      a:elif="{{index === 3}}"
+      tab="{{item}}">
+      <view style="height: 30vh">
+        ........{{item.title}}........
+        <text>父级设置了高度后的变化</text>
+      </view>
+    </tab-content>
+
+    <tab-content tab="{{item}}" a:else>
+      <view style="height: 20vh">
+        ........{{item.title}}........
+      </view>
+    </tab-content>
+
+  </block>
+</tabs>
+
+<text 
+  a:if="{{!canSwipe}}" 
+  class="tips">
+  当前未开启 component2 编译，无法使用 swipeable 属性。
+</text>
+
+<view class="demo-title">tabs选项数量:</view>
+<radio-group 
+  class="radio-group"
+  name="tabsNumber" 
+  onChange="tabsNumberChange" >
+  <label 
+    class="radio" 
+    a:for="{{tabsNumber}}">
+    <radio 
+      value="{{item.name}}" 
+      checked="{{item.checked}}" />
+    <text 
+      class="radio-text">
+      {{item.value}}
+    </text>
+  </label>
+</radio-group>
+
+<view class="demo-title">type:</view>
+<radio-group 
+  class="radio-group" 
+  name="tabsType"
+  onChange="tabsTypeChange" >
+  <label 
+    class="radio" 
+    a:for="{{tabsType}}">
+    <radio 
+      value="{{item.name}}" 
+      checked="{{item.checked}}" />
+    <text 
+      class="radio-text">
+      {{item.value}}
+    </text>
+  </label>
+</radio-group>
+
+<view class="demo-title">animation:</view>
+<radio-group 
+  class="radio-group" 
+  name="tabsAnimation"
+  onChange="tabsAnimationChange" >
+  <label 
+    class="radio" 
+    a:for="{{tabsAnimation}}">
+    <radio 
+      value="{{item.name}}" 
+      checked="{{item.checked}}" />
+    <text 
+      class="radio-text">
+      {{item.value}}
+    </text>
+  </label>
+</radio-group>
+
+<view class="demo-title">swipeable:</view>
+<radio-group 
+  class="radio-group" 
+  name="tabsSwipeable"
+  onChange="tabsSwipeableChange" >
+  <label 
+    class="radio" 
+    a:for="{{tabsSwipeable}}">
+    <radio 
+      value="{{item.name}}" 
+      checked="{{item.checked}}" 
+      disabled="{{!canSwipe}}" />
+    <text 
+      class="radio-text">
+      {{item.value}}
+    </text>
+  </label>
+</radio-group>
+
+<view class="demo-title">slot-scope: title</view>
+<radio-group 
+  class="radio-group" 
+  name="tabsTitleSlotScope"
+  onChange="tabsTitleSlotScopeChange" >
+  <label 
+    class="radio" 
+    a:for="{{tabsTitleSlotScope}}">
+    <radio 
+      value="{{item.name}}" 
+      checked="{{item.checked}}"/>
+    <text 
+      class="radio-text">
+      {{item.value}}
+    </text>
+  </label>
+</radio-group>
+
+<view class="demo-title">sticky:</view>
+<radio-group 
+  class="radio-group" 
+  name="tabsSticky"
+  onChange="tabsStickyChange" >
+  <label 
+    class="radio" 
+    a:for="{{tabsSticky}}">
+    <radio 
+      value="{{item.name}}" 
+      checked="{{item.checked}}"/>
+    <text 
+      class="radio-text">
+      {{item.value}}
+    </text>
+  </label>
+</radio-group>
+
+<view class="demo-title">slot-scope: plus</view>
+<radio-group 
+  class="radio-group" 
+  name="tabsPlusSlotScope"
+  onChange="tabsPlusSlotScopeChange" >
+  <label 
+    class="radio" 
+    a:for="{{tabsPlusSlotScope}}">
+    <radio 
+      value="{{item.name}}" 
+      checked="{{item.checked}}"/>
+    <text 
+      class="radio-text">
+      {{item.value}}
+    </text>
+  </label>
+</radio-group>

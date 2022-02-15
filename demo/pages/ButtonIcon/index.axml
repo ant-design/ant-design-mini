@@ -1,0 +1,20 @@
+  <button 
+    type="primary" 
+    icon="AppOutline"
+    onTap="onTap" >
+    Icon
+  </button>
+
+  <button 
+    type="primary" 
+    icon="{{url}}"
+    onTap="onTap" >
+    Icon
+  </button>
+
+  <button 
+    type="primary" 
+    onTap="onTap" >
+    <view class="button-icon" slot="icon">※</view>
+  </button>
+  

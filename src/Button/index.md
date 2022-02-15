@@ -1,0 +1,85 @@
+---
+title: Button
+group:
+  path: /form
+  title: 表单类组件
+---
+# Button
+
+按钮
+
+## 代码示例
+
+### 基础使用
+<code src='../../demo/pages/Button'></code>
+
+### 内联按钮
+
+<code src='../../demo/pages/ButtonInline'></code>
+
+### 自定义Icon
+<code src='../../demo/pages/ButtonIcon'></code>
+
+### 辅助按钮
+<code src='../../demo/pages/ButtonAddon'></code>
+
+## API
+
+### 属性
+
+| 属性 | 类型 | 必填 | 默认值 | 说明 |
+| -----|-----|-----|-----|----- |
+| publicId | string | 否 | - | 生活号 id，必须是当前小程序同主体且已关联的生活号，open-type="lifestyle" 时有效。 |
+| openType | string | 否 | - | 开放能力。 |
+| scope | string | 否 | - | 当 openType 为 getAuthorize 时有效。 |
+| type | 'default' &verbar; 'primary' &verbar; 'danger' &verbar; 'ghost' &verbar; 'danger-ghost' &verbar; 'light' | 否 | "default" | 按钮类型 default=辅助按钮 primary=品牌色按钮 danger=危险按钮 ghost=primary+ghost danger-ghost=danger+ghost light=弱按钮 |
+| disabled | boolean | 否 | false | 是否禁用 |
+| activeClassName | string | 否 | - | 按下时的类名 |
+| subText | string | 否 | - | 辅助文字，显示在第二行 |
+| inline | boolean | 否 | false | 内联，不撑满父级宽度 |
+| inlineSize | 'small' &verbar; 'medium' &verbar; 'large' | 否 | "medium" | 内联尺寸 |
+| icon | string | 否 | - | 按钮左侧图标 |
+| loading | boolean | 否 | false | 是否加载中，加载中时不可点击 |
+| loadingText | string | 否 | - | 加载中时的文字 |
+| htmlType | 'button' &verbar; 'submit' &verbar; 'reset' | 否 | "button" | 按钮原生类型，在表单提交时有效 |
+| mode | string | 否 | - | 结合表单使用时，设置 mode 值为 'form' |
+| form | string | 否 | - | 结合表单使用时，需要设置为所在表单组件的 form 值 |
+| className | string | 否 | - | 类名 |
+
+### 事件
+
+| 事件名 | 说明 | 类型 |
+| -----|-----|-----|
+| onTap | 点击按钮，触发此回调 | ( e: [`Event`](https://opendocs.alipay.com/mini/framework/event-object) ) => void  |
+
+### 插槽
+| 名称 | 说明 |
+| ----|----|
+| icon | 图标插槽 |
+
+### 样式类
+
+| 类名 | 说明 |
+| -----|-----|
+| amd-button | 整体样式 |
+| amd-button-content | 按钮内容样式 |
+| amd-button-loading-container | 加载区域样式 |
+| amd-button-loading-text | 加载区域文字样式 |
+| amd-button-loading | 加载动画样式 |
+| amd-button-wrap | 加载区域右侧样式 |
+| amd-button-icon | 图标样式 |
+| amd-button-text | 按钮文字样式 |
+| amd-button-subtext | 副标题样式 |
+
+<style> 
+table th:first-of-type { width: 180px; } 
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
+    width: 140px
+} 
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
+    width: 30px
+} 
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
+    width: 50px
+} 
+</style> 

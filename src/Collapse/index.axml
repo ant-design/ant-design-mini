@@ -1,0 +1,3 @@
+<view class="amd-collapse {{className ? className : ''}}" onTap="onChange">
+  <slot />
+</view>

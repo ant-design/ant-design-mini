@@ -1,0 +1,25 @@
+<view class="amd-list {{className ? className : ''}} {{radius ? 'amd-list-radius' : ''}}">
+  <block a:if="{{header}}">
+    <view class="amd-list-header">
+      {{header}}
+    </view>
+  </block>
+  <block a:else>
+    <view class="amd-list-header">
+      <slot name="header" />
+    </view>
+  </block>
+  <view class="amd-list-body">
+    <slot />
+  </view>
+  <block a:if="{{footer}}">
+    <view class="amd-list-footer">
+      {{footer}}
+    </view>
+  </block>
+  <block a:else>
+    <view class="amd-list-footer">
+      <slot name="footer" />
+    </view>
+  </block>
+</view>

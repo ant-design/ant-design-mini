@@ -1,0 +1,90 @@
+<input onInput="searchIcon"
+  class="searchInput"
+  placeholder="查找 icon" />
+<view class="icon-sum" >
+  目前共有 <text> {{ typeLen }} </text> 个 icon图标类型。
+</view>
+<view class="icon-list">
+  <block a:if="{{searchIcon.length > 0}}">
+    <view class="title">Outline</view>
+    <block a:for="{{searchIcon}}">
+      <block a:if="{{item.indexOf('Outline') > 1}}">
+        <view class="icon-item">
+          <am-icon type="{{item}}"
+            color="#1677ff"
+            size="small"
+            onTap="clickIcon"
+            data-info="icon {{item}} is clicked." />
+          <text class="icon-desc">{{item}}</text>
+        </view>
+      </block>
+    </block>
+    <view class="title">Fill</view>
+    <block a:for="{{searchIcon}}">
+      <block a:if="{{item.indexOf('Fill') > 1}}">
+        <view class="icon-item">
+          <am-icon type="{{item}}"
+            color="#1677ff"
+            size="small"
+            onTap="clickIcon"
+            data-info="icon {{item}} is clicked." />
+          <text class="icon-desc">{{item}}</text>
+        </view>
+      </block>
+    </block>
+    <view class="title">Others</view>
+    <block a:for="{{searchIcon}}">
+      <block a:if="{{item.indexOf('Fill') === -1 && item.indexOf('Outline') === -1}}">
+        <view class="icon-item">
+          <am-icon type="{{item}}"
+            color="#1677ff"
+            size="small"
+            onTap="clickIcon"
+            data-info="icon {{item}} is clicked." />
+          <text class="icon-desc">{{item}}</text>
+        </view>
+      </block>
+    </block>
+  </block>
+  <block a:else>
+    <view class="title">Outline</view>
+    <block a:for="{{iconTypes}}">
+      <block a:if="{{item.indexOf('Outline') > 1}}">
+        <view class="icon-item">
+          <am-icon type="{{item}}"
+            color="#1677ff"
+            size="small"
+            onTap="clickIcon"
+            data-info="icon {{item}} is clicked." />
+          <text class="icon-desc">{{item}}</text>
+        </view>
+      </block>
+    </block>
+    <view class="title">Fill</view>
+    <block a:for="{{iconTypes}}">
+      <block a:if="{{item.indexOf('Fill') > 1}}">
+        <view class="icon-item">
+          <am-icon type="{{item}}"
+            color="#1677ff"
+            size="small"
+            onTap="clickIcon"
+            data-info="icon {{item}} is clicked." />
+          <text class="icon-desc">{{item}}</text>
+        </view>
+      </block>
+    </block>
+    <view class="title">Others</view>
+    <block a:for="{{iconTypes}}">
+      <block a:if="{{item.indexOf('Fill') === -1 && item.indexOf('Outline') === -1}}">
+        <view class="icon-item">
+          <am-icon type="{{item}}"
+            color="#1677ff"
+            size="small"
+            onTap="clickIcon"
+            data-info="icon {{item}} is clicked." />
+          <text class="icon-desc">{{item}}</text>
+        </view>
+      </block>
+    </block>
+  </block>
+</view>

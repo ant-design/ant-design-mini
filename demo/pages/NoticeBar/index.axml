@@ -1,0 +1,66 @@
+<view class="demo-item">
+  <view class="space"></view>
+  四种类型
+  <view class="space"></view>
+  <notice 
+    type="default"
+    showIcon="{{true}}">
+    default
+  </notice>
+  <view class="space"></view>
+  <notice 
+    type="error"
+    showIcon="{{true}}">
+    error
+  </notice>
+  <view class="space"></view>
+  <notice 
+    type="info"
+    showIcon="{{true}}">
+    info
+  </notice>
+  <view class="space"></view>
+  <notice 
+    type="primary"
+    showIcon="{{true}}">
+    primary
+  </notice>
+
+<view class="space"></view>
+  内容过长
+  <view class="space"></view>
+  <view a:for="{{typeList}}">
+    <notice 
+      type="{{item}}"
+      showIcon="{{true}}" 
+      enableMarquee="{{true}}"
+      loop="{{true}}"
+      onTap="clickPress"
+      mode="link">
+      文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
+    </notice>
+    <view class="space"></view>
+  </view>
+
+  点击事件
+  <view class="space"></view>
+  <notice 
+    type="primary"
+    showIcon="{{true}}"
+    mode="closeable"
+    actions="{{actionsText1}}"
+    onActionTap="onActionTap"
+    onTap="clickClose">
+    action 数量：1
+  </notice>
+  <view class="space"></view>
+  <notice 
+    type="primary"
+    showIcon="{{true}}"
+    actions="{{actionsText2}}"
+    mode="link"
+    onTap="clickPress"
+    onActionTap="onActionTap">
+    action 数量：2
+  </notice>
+</view>

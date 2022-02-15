@@ -1,0 +1,15 @@
+.btns {
+  display: flex;
+  padding: 0 24rpx 24rpx;
+  justify-content: space-between;
+}
+
+.btns button {
+  flex: 1;
+  margin-right: 12rpx;
+}
+
+.btns button~button {
+  margin-right: 0;
+  margin-left: 12rpx;
+}
