@@ -31,7 +31,6 @@
     "async-validator": "^4.0.7"
   },
   "devDependencies": {
-    "@ali/minist": "latest",
     "@babel/core": "^7.6.4",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.11.5",
