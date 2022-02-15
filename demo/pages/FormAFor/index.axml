@@ -1,0 +1,25 @@
+<button onTap="sub" type="primary">减少表单项</button>
+<button onTap="add" type="warn">新增表单项</button>
+
+<form 
+    form="{{form}}" 
+    onValuesChange="onValuesChange">
+    <form-item 
+        a:for="{{list}}" 
+        label="{{item.name}}" 
+        labelWidth="110px"
+        name="{{item.name}}" 
+        form="{{form}}">
+        <input 
+            placeholder="{{item.name}}" 
+            mode="form" />
+    </form-item>
+</form>
+
+<view class="changedFields">
+    changedFields: {{changedFields}}
+</view>
+
+<view class="allFields">
+    allFields: {{allFields}}
+</view>

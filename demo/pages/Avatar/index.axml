@@ -1,0 +1,21 @@
+<white-space />
+<container title="四种尺寸">
+  <view class="demo-avatar-size">
+    <view class="demo-avatar-size-container">
+      <avatar size="large" />
+      <text>large</text>
+    </view>
+    <view class="demo-avatar-size-container">
+      <avatar />
+      <text>默认值：medium</text>
+    </view>
+    <view class="demo-avatar-size-container">
+      <avatar size="small" />
+      <text>small</text>
+    </view>
+    <view class="demo-avatar-size-container">
+      <avatar size="x-small" />
+      <text>x-small</text>
+    </view>
+  </view>
+</container>

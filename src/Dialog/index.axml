@@ -1,0 +1,32 @@
+<popup 
+  className="amd-dialog {{className ? className : ''}} amd-dialog-{{direction}}"
+  visible="{{visible}}" 
+  maskClosable="{{maskClosable}}"
+  duration="{{duration}}"
+  onClose="onClose">
+  <view class="amd-dialog-content">
+    <view class="amd-dialog-content-image-container">
+    <image class="amd-dialog-content-image amd-dialog-content-image-{{imageSize}}"
+      src="{{image}}"
+      a:if="{{image}}" />
+    </view>
+    <view class="amd-dialog-content-title">
+        {{title}}
+    </view>
+    <view class="amd-dialog-content-content">
+      {{content}}
+    </view>
+    <view class="amd-dialog-content-extra">
+      <slot/>
+    </view>
+      <view class="amd-dialog-content-button-container amd-dialog-content-button-container-{{direction}}">
+        <view 
+            a:for="{{direction === 'vertical' ? buttonText.slice(0, 3) : buttonText.slice(0, 2)}}" 
+            class="amd-dialog-content-button" 
+            data-index="{{index}}"
+            onTap="onButtonTap">
+          <button size="default" type="primary" fill="none" className="{{index=== 0 ? 'amd-dialog-content-button-first' : ''}}">{{item}}</button>
+        </view>
+      </view>
+  </view>
+</popup>

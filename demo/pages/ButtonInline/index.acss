@@ -1,0 +1,18 @@
+.container {
+  padding: 20rpx;
+}
+
+.container button {
+  margin-bottom: 24rpx;
+  margin-right: 10rpx;
+}
+
+.changeItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.changeItem label {
+  margin-left: 8rpx;
+}

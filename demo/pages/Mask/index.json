@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Mask",
+  "usingComponents": {
+    "mask": "../../../src/Mask/index"
+  }
+}

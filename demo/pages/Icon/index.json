@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Icon",
+  "usingComponents": {
+    "am-icon": "../../../src/Icon/index"
+  }
+}

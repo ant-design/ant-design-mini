@@ -1,0 +1,36 @@
+.vtabItem {
+  transition: all 200ms linear;
+  background-color: #fff;
+}
+
+.currentItem {
+  color: #f00;
+  background-color: #fff;
+}
+
+.vtabItem text {
+  display: block;
+  height: 100vh;
+}
+.badge {
+  background: #ff411c;
+  height: 9px;
+  width: 9px;
+  border-radius: 50%;
+}
+.badge-num {
+  background: #ff411c;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+}
+
+.icon .amd-icon {
+  font-size: 14px;
+  color: #ff411c;
+}

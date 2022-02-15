@@ -1,0 +1,59 @@
+<import-sjs name="collapseItem" from="./index.sjs" />
+
+<view class="amd-collapse-item 
+    {{className ? className : ''}} 
+    {{_isActive ? 'amd-collapse-item-active' : ''}} 
+    {{disabled ? 'amd-collapse-item-disabled' : ''}}">
+    <view 
+        class="amd-collapse-item-title" 
+        data-active="{{_isActive}}" 
+        data-lastAction="{{lastAction}}" 
+        data-disabled="{{disabled}}"  
+        onTap="{{supportSjs ?  collapseItem.handleEvent : '_changeItem'}}">
+        <view class="amd-collapse-item-title-icon" a:if="{{icon}}">
+            <image-icon 
+            image="{{icon}}" />
+        </view>
+        <view class="amd-collapse-item-line">
+        <view class="amd-collapse-item-title-node">
+            <view a:if="{{title}}">{{title}}</view>
+            <view a:else>
+                <slot name="title" />
+            </view>
+        </view>
+        <view class="amd-collapse-item-brief-container">
+            <view class="amd-collapse-item-brief-node">
+                <view a:if="{{brief}}">{{brief}}</view>
+                <view a:else>
+                    <slot name="brief" />
+                </view>
+            </view>
+            <am-icon class="amd-collapse-item-title-arrow" type="{{_isActive ? expandIcon : closeIcon}}" size="x-small" />  
+        </view>
+    </view>
+    </view>
+    <view a:if="{{supportSjs}}" class="amd-collapse-item-content-wrap 
+            amd-collapse-item-content-wrap-transition
+            {{_isActive ? 'amd-collapse-item-content-wrap-active' : 'amd-collapse-item-content-wrap-non-active'}}
+            {{_first <=1 && !_isActive ? 'amd-collapse-item-content-wrap-first':''}}
+            {{`amd-collapse-item-content-${$id}`}}" onTransitionEnd="{{collapseItem.clearStyle}}"
+            onAnimationStart="{{collapseItem.fire}}"
+            data-active="{{_isActive}}"
+            data-lastAction="{{lastAction}}"
+            data-first="{{_first}}"
+            data-accordion="{{accordion}}"
+            >
+        <view class="amd-collapse-item-content-container">
+            <view class="amd-collapse-item-content">
+                <slot />
+            </view>
+        </view>
+        <view class="collapse-line"/>
+    </view>
+    <view a:else class="amd-collapse-item-content-wrap {{ _first > 0 ? 'amd-collapse-item-content-wrap-transition' : ''}}" style="height: {{_isActive ? contentHeight : '0px'}}" onTransitionEnd="resetContentHeight">
+        <view class="amd-collapse-item-content {{`amd-collapse-item-content-${$id}`}}">
+            <slot />
+        </view>
+    </view>
+    <view class="collapse-line"/>
+</view>

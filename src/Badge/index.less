@@ -1,0 +1,100 @@
+@import (reference) "./variable.less";
+
+@badgePrefix: amd-badge;
+
+.@{badgePrefix} {
+  display: inline-block;
+  position: relative;
+  &-content {
+    position: absolute;
+    display: flex;
+    height: 28 * @rpx;
+    align-self: center;
+    align-items: center;
+    font-size: 18 * @rpx;
+    padding: 4 * @rpx 8 * @rpx;
+    box-sizing: border-box;
+    word-break: keep-all;
+    justify-content: center;
+    top: 0;
+    left: 100%;
+    transform: translate(-50%, -50%);
+
+    &-stroke {
+      border: 2 * @rpx solid white;
+    }
+    &-text {
+      padding-left: 4 * @rpx;
+      &:empty {
+        display: none;
+      }
+      .amd-badge-icon-container:empty ~ & {
+        padding-left: 0;
+      }
+    }
+    .amd-icon {
+      font-size: 18 * @rpx;
+      color: white;
+    }
+    &-top-left {
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+    &-top-center {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &-top-right {
+      top: 0;
+      left: 100%;
+      transform: translate(-50%, -50%);
+    }
+    &-left {
+      top: 50%;
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+    &-right {
+      top: 50%;
+      left: 100%;
+      transform: translate(-50%, -50%);
+    }
+    &-bottom-left {
+      top: 100%;
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+    &-bottom-center {
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &-bottom-right {
+      top: 100%;
+      left: 100%;
+      transform: translate(-50%, -50%);
+    }
+
+    &-not-dot {
+      min-width: 28 * @rpx;
+      height: 28 * @rpx;
+      border-radius: 28 * @rpx;
+      display: flex;
+    }
+  }
+  &-dot {
+    width: 20 * @rpx;
+    height: 20 * @rpx;
+    border-radius: 50%;
+    &-stroke {
+      border: 2 * @rpx solid white;
+    }
+  }
+  &-number,
+  &-text,
+  &-bubble {
+    color: white;
+  }
+}

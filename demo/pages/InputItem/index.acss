@@ -1,0 +1,54 @@
+.demoList {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 0 12px
+}
+.amd-input-item-title {
+  margin-top: 12px;
+  font-family: PingFangSC-Regular;
+  font-size: 17px;
+  color: #666666;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.amd-list-item-line {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-align-self: stretch;
+  align-self: stretch;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0px 0px;
+}
+
+.amd-list-input-item-arrow {
+  height: 15px;
+  width: 7.5px;
+}
+.amd-list-input-item-phone {
+  height: 18px;
+  width: 16px;
+}
+
+.amd-list-input-item-code {
+  font-family: PingFangSC-Regular;
+  font-size: 17px;
+  color: #1677ff;
+  text-align: center;
+}
+.amd-list-input-item-line {
+  color: #EEEEEE;
+  margin: 0 12px 0 10px;
+}
+
+
+
+

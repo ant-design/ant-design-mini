@@ -1,0 +1,31 @@
+<import-sjs from="./index.sjs" name="filter" />
+<view class="amd-filter {{className ? className : ''}}">
+  <view class="amd-filter-bar">
+    <block a:for="{{placeHolderObj}}">
+      <view class="amd-filter-bar-item">
+          <view 
+            class="amd-filter-bar-text {{activeObj[index] ? 'amd-filter-bar-text-active' : ''}}"
+            hover-class="amd-filter-bar-text-hover"
+            hover-start-time="{{20}}"
+            hover-stay-time="{{50}}"
+            data-filterItemId="{{index}}"
+            onTap="showFilterItem">
+            <view class="amd-filter-bar-text-title amd-filter-bar-text-title-{{filter.getFilterItemLen(placeHolderObj)}}">
+              <slot name="title" title="{{item}}">
+                {{item}}
+              </slot>
+            </view>
+              <slot name="icon" title="{{item}}" active="{{currentFilterItemId === index}}">
+                <icon 
+                  type="DownFill"
+                  className="amd-filter-bar-text-icon {{currentFilterItemId === index ? 'amd-filter-bar-text-icon-up' : ''}}"
+                  size="x-small" />
+              </slot>
+          </view>
+      </view>
+    </block>
+  </view>
+  <view class="amd-filter-items">
+    <slot />
+  </view>
+</view>

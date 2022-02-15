@@ -1,0 +1,18 @@
+<view class="amd-popover-item {{className ? className : ''}}"
+  hover-class="amd-popover-item-hover"
+  hover-start-time="20"
+  hover-stay-time="20"
+  onTap="onTap">
+  <view class="amd-popover-item-icon">
+    <block a:if="{{icon}}">
+      <image-icon className="amd-popover-item-icon-item"
+        image="{{icon}}" />
+    </block>
+    <block a:else>
+      <slot name="icon" />
+    </block>
+  </view>
+  <view class="amd-popover-item-text">
+    <slot />
+  </view>
+</view>

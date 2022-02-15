@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "RadioGroup",
+  "usingComponents": {
+    "radio-group": "../../../src/RadioGroup/index",
+    "radio-item": "../../../src/RadioGroup/RadioItem/index"
+  }
+}

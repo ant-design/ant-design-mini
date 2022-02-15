@@ -1,0 +1,7 @@
+<switch class="amd-switch {{className ? className : ''}} amd-switch-{{size}}"
+  id="{{id ? id : $id}}"
+  name="{{name}}"
+  disabled="{{disabled}}"
+  onChange="onChange"
+  checked="{{cValue}}"
+  controlled="{{controlled}}" />

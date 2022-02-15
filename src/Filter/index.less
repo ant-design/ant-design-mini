@@ -1,0 +1,80 @@
+@import (reference) "../_base/index.less";
+@import "../style/mixins/hairline";
+
+@filterPrefix: amd-filter;
+
+.@{filterPrefix} {
+  position: relative;
+  &-bar {
+    position: relative;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    background-color: @color-fill-grey-inverse;
+    box-sizing: border-box;
+    .hairline("bottom");
+
+    &-text {
+      display: flex;
+      justify-content: center;
+      font-size: 26 * @rpx;
+      padding: @h-spacing-large;
+      align-items: center;
+      align-self: center;
+      line-height: 1.4;
+      &-active {
+        color: @color-text-primary;
+      }
+      &-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        -webkit-line-clamp: 1;
+        line-height: 40 * @rpx;
+        &-2 {
+          max-width: 246 * @rpx;
+        }
+        &-3 {
+          max-width: 170 * @rpx;
+        }
+        &-4 {
+          max-width: 106 * @rpx;
+        }
+      }
+
+      &-icon {
+        margin-left: @size-1;
+        font-size: 18 * @rpx;
+        transition: transform 200ms linear;
+        color: #D8D8D8;
+        &-up {
+          transform: rotate(180deg);
+        }
+      }
+      &-hover {
+        opacity: 0.6;
+      }
+    }
+
+    &-item {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      &:first-child {
+        justify-content: flex-start;
+      }
+      &:last-child {
+        justify-content: flex-end;
+      }
+      &:nth-child(2) {
+        justify-content: center;
+      }
+      &:first-child:nth-last-child(2) {
+        justify-content: center;
+      }
+    }
+  }
+  &-items {
+    position: relative;
+  }
+}

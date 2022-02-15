@@ -1,0 +1,146 @@
+<view class="filter-num"> 两项筛选 </view>
+
+<filter 
+  uid="filter-1" 
+  className="filter-1">
+  <filter-item
+    uid="filter-1"
+    placeholder="筛选项一"
+    value="3"
+    items="{{items}}"
+    type="default" 
+    ref="ref"
+    onChange="changeSelect"
+    onOpen="onOpen"/>
+
+  <filter-item 
+    uid="filter-1"
+    placeholder="筛选项二"
+    value="{{value}}"
+    items="{{items1}}"
+    type="multiple" 
+    onChange="changeSelect"
+    onOpen="onOpen"
+    />
+
+</filter>
+
+<view class="filter-num"> 三项筛选 </view>
+<filter
+  uid="filter-2" 
+  className="filter-2">
+  <filter-item
+    uid="filter-2"
+    placeholder="筛选项一"
+    value="3"
+    items="{{items}}"
+    type="default" 
+    ref="ref"
+    onChange="changeSelect"
+    onOpen="onOpen"/>
+
+  <filter-item 
+    uid="filter-2"
+    placeholder="筛选项二"
+    value="{{value}}"
+    items="{{items1}}"
+    type="multiple" 
+    onChange="changeSelect"
+    onOpen="onOpen"
+    />
+
+  <filter-item 
+    uid="filter-2"
+    placeholder="筛选项过长长长长长长长"
+    value=""
+    items="{{items}}" 
+    onChange="changeSelect"
+    onOpen="onOpen"/>
+
+</filter>
+
+<view class="filter-num"> 四项筛选 </view>
+<filter
+  uid="filter-3" 
+  className="filter-3">
+  <filter-item
+    uid="filter-3"
+    placeholder="筛选项一"
+    value="3"
+    items="{{items}}"
+    type="default" 
+    ref="ref"
+    onChange="changeSelect"
+    onOpen="onOpen"/>
+
+  <filter-item 
+    uid="filter-3"
+    placeholder="筛选项二"
+    value="{{value}}"
+    items="{{items1}}"
+    type="multiple" 
+    onChange="changeSelect"
+    onOpen="onOpen"
+    />
+
+    <filter-item
+    uid="filter-3"
+    placeholder="筛选项三"
+    value="3"
+    items="{{items}}"
+    type="default" 
+    ref="ref"
+    onChange="changeSelect"
+    onOpen="onOpen"/>
+
+  <filter-item 
+    uid="filter-3"
+    placeholder="筛选项四"
+    value="{{value}}"
+    items="{{items1}}"
+    type="multiple" 
+    onChange="changeSelect"
+    onOpen="onOpen"
+    />
+
+</filter>
+
+<view class="filter-num"> 插槽：title 与 icon </view>
+
+<filter 
+  uid="filter-4" 
+  className="filter-4">
+
+  <view 
+    slot-scope="item" 
+    slot="title">
+    {{item.title === '筛选项一' ? '筛选项 1' : '筛选项 2'}}
+  </view>
+
+  <view slot="icon" slot-scope="item">
+    <icon 
+      type="DownOutline" 
+      className="amd-filter-bar-text-icon {{item.active ? 'amd-filter-bar-text-icon-up' : ''}}" />
+  </view>
+
+  <filter-item
+    uid="filter-4"
+    placeholder="筛选项一"
+    value="3"
+    items="{{items}}"
+    type="default" 
+    ref="ref"
+    onChange="changeSelect"
+    onOpen="onOpen"/>
+
+  <filter-item 
+    uid="filter-4"
+    placeholder="筛选项二"
+    value="{{value}}"
+    items="{{items1}}"
+    type="multiple" 
+    onChange="changeSelect"
+    onOpen="onOpen"
+    />
+
+</filter>

@@ -1,0 +1,180 @@
+@import (reference) "../variable.less";
+@import "../../style/mixins/hairline.less";
+
+@listItemPrefix: amd-list-item;
+
+.@{listItemPrefix} {
+  align-items: center;
+  background-color: @list-background-color;
+  color: #333;
+  line-height: 1.4;
+  &-hover {
+    background-color: #eee;
+  }
+
+  &:last-child {
+    .line {
+      display: none;
+    }
+  }
+
+  &-line {
+    flex: 1;
+    display: flex;
+    padding: 24 * @rpx;
+    align-items: center;
+    .hairline("bottom");
+
+    &-disabled {
+      opacity: 0.4;
+    }
+  }
+
+  &-image {
+    &-container {
+      display: flex;
+      flex-direction: column;
+      &:empty {
+        display: none;
+      }
+    &-placeholder {
+      display: none;
+      position: absolute;
+      &&:empty ~ .amd-list-item-content-container {
+        padding-left: 0 * @rpx !important;
+      }
+    }
+
+    &-small {
+      width: 52 * @rpx;
+      height: 52 * @rpx;
+      overflow: hidden;
+    }
+
+    &-medium {
+      width: 72 * @rpx;
+      height: 72 * @rpx;
+      overflow: hidden;
+    }
+
+    &-large {
+      width: 124 * @rpx;
+      height: 124 * @rpx;
+      overflow: hidden;
+    }
+  }
+
+  &-small {
+    width: 52 * @rpx;
+    height: 52 * @rpx;
+    overflow: hidden;
+      & .amd-icon {
+        font-size: 52 * @rpx;
+      }
+      & image {
+        width: 52 * @rpx;
+        height: 52 * @rpx;
+        overflow: hidden;
+      }
+  }
+
+  &-medium {
+    width: 72 * @rpx;
+    height: 72 * @rpx;
+    overflow: hidden;
+    & .amd-icon {
+      font-size: 72 * @rpx;
+    }
+    & image {
+      width: 72 * @rpx;
+      height: 72 * @rpx;
+      overflow: hidden;
+    }
+  }
+
+  &-large {
+    width: 124 * @rpx;
+    height: 124 * @rpx;
+    overflow: hidden;
+    & .amd-icon {
+      font-size: 124 * @rpx;
+    }
+    & image {
+      width: 124 * @rpx;
+      height: 124 * @rpx;
+      overflow: hidden;
+    }
+  }
+  }
+
+  &-content {
+    &-container {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      &-small {
+        padding-left: 24 * @rpx;
+      }
+      &-medium {
+        padding-left: 28 * @rpx;
+      }
+      &-large {
+        padding-left: 32 * @rpx;
+      }
+    }
+
+    &-main {
+      font-size: 34 * @rpx;
+    }
+    &-title {
+      &-container {
+        font-size: 26 * @rpx;
+        color: #999;
+      }
+    }
+    &-brief {
+      &-container {
+        font-size: 26 * @rpx;
+        color: #999;
+      }
+    }
+  }
+
+   &-extra {
+     font-size: 34 * @rpx;
+     display: flex;
+     flex-direction: row-reverse;
+     &:empty {
+       display: none;
+     }
+     &-container {
+       display: flex;
+       flex-direction: column;
+     }
+
+     &-brief {
+       display: flex;
+       flex-direction: row-reverse;
+       font-size: 30 * @rpx;
+       color: #999;
+     }
+   }
+
+  &-arrow {
+    margin-left: 8 * @rpx;
+    color: @color-text-weak;
+    display: flex;
+    align-items: center;
+    .amd-icon {
+      font-size: 36 * @rpx;
+    }
+  }
+
+  .line {
+    height: 1 * @rpx;
+    background-color: #eee;
+    width: calc(100% - 24 * @rpx);
+    position: absolute;
+    right: 0;
+  }
+}

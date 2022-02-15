@@ -1,0 +1,70 @@
+<view
+  class="amd-steps-item amd-steps-item-{{_direction}} 
+  {{index < _index? 'amd-steps-item-finish' : ''}} 
+  {{index === _index? 'amd-steps-item-active' : ''}} 
+  {{index > _index? 'amd-steps-item-non-active' : ''}} 
+  {{fail ? 'amd-steps-item-fail' : ''}} 
+  {{className ? className : ''}}">
+  <view class="amd-steps-item-indicator amd-steps-item-indicator-{{_direction}}">
+      <block a:if="{{index <= _index && !fail}}">
+        <!-- 激活 icon -->
+        <image-icon  
+          a:if="{{activeIcon}}" 
+          iconSize="x-small"
+          image="{{activeIcon}}"
+          class="amd-steps-item-indicator-icon amd-steps-item-active-icon" />
+        <view a:else class="amd-steps-item-indicator-icon amd-steps-item-active-icon">
+          <slot name="activeIcon">
+            <view class="amd-steps-item-active-icon-default">
+            </view>
+          </slot>
+        </view>
+      </block>
+      <block a:elif="{{index <= _index && fail}}">
+        <!-- 错误失败项 icon -->
+          <image-icon 
+          a:if="{{failIcon}}" 
+          iconSize="x-small"
+          image="{{failIcon}}" 
+          class="amd-steps-item-indicator-icon amd-steps-item-fail-icon" />
+          <view a:else class="amd-steps-item-indicator-icon amd-steps-item-fail-icon">
+          <slot name="failIcon" >
+            <view class="amd-steps-item-fail-icon-default"/>
+          </slot>
+        </view>
+      </block>
+      <block a:else>
+        <!-- 未激活项 icon -->
+        <view a:if="{{icon}}" >
+          <image-icon 
+          iconSize="x-small"
+          image="{{icon}}"
+          class="amd-steps-item-indicator-icon amd-steps-item-non-active-icon"
+          />
+        </view>
+        <view a:else class="amd-steps-item-indicator-icon amd-steps-item-non-active-icon">
+          <slot name="icon">
+            <view class="amd-steps-item-non-active-icon-default"/>
+          </slot>
+        </view>
+      </block>
+  </view>
+  <view class="amd-steps-item-text">
+    <view class="amd-steps-item-title {{index <= _index && fail ? 'amd-steps-item-title-fail' :''}}">
+      <block a:if="{{title}}">
+        {{title}}
+      </block>
+      <block a:else>
+        <slot name="title"></slot>
+      </block>
+    </view>
+    <view class="amd-steps-item-desc">
+      <block a:if="{{desc}}">
+        {{desc}}
+      </block>
+      <block a:else>
+        <slot name="desc"></slot>
+      </block>
+    </view>
+  </view>
+</view>

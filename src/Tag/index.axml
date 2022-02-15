@@ -1,0 +1,8 @@
+<view class="amd-tag amd-tag-{{type}} amd-tag-{{color}} {{className ? className : ''}}">
+  <view class="amd-tag-icon-container" a:if="{{icon}}">
+    <am-icon type="{{icon}}" size="x-small" />
+  </view>
+  <view class="amd-tag-content">
+    <slot />
+  </view>
+</view>

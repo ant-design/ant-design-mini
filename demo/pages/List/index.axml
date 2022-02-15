@@ -1,0 +1,81 @@
+<view class="radio-group-container">
+  radius: 
+    <radio-group 
+      class="radio-group" 
+      onChange="setRadius" >
+      <radio value="{{true}}" />是
+      <radio value="{{false}}" checked  />否
+    </radio-group>
+</view>
+
+<whitespace />
+
+<list 
+  radius="{{radius}}" 
+  header="单行列表">
+  
+  <list-item 
+    extra=""
+    extraBrief="次要信息"
+    arrow="right">
+      单行列表
+  </list-item>
+
+  <list-item
+    disabled="{{true}}">
+    禁用状态
+    <switch slot="extra" />
+  </list-item>
+
+  <view slot="footer">箭头分为：
+    <text style="color: #1677ff;">up/right/down</text>
+  </view>
+</list>
+
+<whitespace />
+
+<list radius="{{radius}}" >
+  <view slot="header">
+    两行列表，列表含有 onTap，可点击
+  </view>
+
+  <list-item 
+    a:for="{{list}}" 
+    data-info="{{item.info}}" 
+    image="{{item.image}}" 
+    title="{{index === 0 ? '标题' : ''}}"
+    brief="{{index !== 0 ? '描述信息' : ''}}"
+    extra='次要信息'
+    extraBrief="{{index !== 0 ? '次要辅助信息' : ''}}"
+    arrow="{{item.arrow}}"
+    imageSize="medium" 
+    onTap="listClick">
+    <view slot="image" class="customImage">自定义</view>
+    {{item.content}}
+  </list-item>
+  
+</list>
+
+
+<list 
+  radius="{{radius}}" 
+  header="三行列表"
+  footer="以上列表含有 onTap，可点击">
+  <list-item 
+    a:for="{{list}}" 
+    title="标题"
+    brief="描述信息"
+    data-info="{{item.info}}" 
+    image="{{item.image}}" 
+    extra='次要信息'
+    extraBrief="{{index !== 0 ? '次要辅助信息' : ''}}"
+    arrow="{{item.arrow}}" 
+    imageSize="large"
+    onTap="listClick">
+    <view slot="image" class="customImage">自定义</view>
+    {{item.content}}
+  </list-item>
+  
+</list>
+
+<whitespace />

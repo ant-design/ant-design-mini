@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Tag",
+  "usingComponents": {
+    "tag": "../../../src/Tag/index"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "List",
+  "usingComponents": {
+    "list": "../../../src/List/index",
+    "list-item": "../../../src/List/ListItem/index",
+    "whitespace": "../../components/WhiteSpace/index",
+    "switch": "../../../src/Switch/index"
+  }
+}

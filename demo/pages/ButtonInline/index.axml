@@ -1,0 +1,102 @@
+<view class="container">
+  <view class="inline-size">inlineSize: x-small</view>
+  <view class="container-small">
+  <button 
+    a:for="{{list}}" 
+    type="{{item.type}}" 
+    inline="{{true}}"
+    inlineSize="x-small"
+    subText="{{subText}}" 
+    disabled="{{disabled}}" 
+    loading="{{showLoading}}" 
+    loadingText="正在加载"
+    onTap="onTap" >
+    {{item.type}}
+  </button>
+
+  <view class="inline-size">inlineSize: small</view>
+  <view class="container-small">
+  <button 
+    a:for="{{list}}" 
+    type="{{item.type}}" 
+    inline="{{true}}"
+    inlineSize="small"
+    subText="{{subText}}" 
+    disabled="{{disabled}}" 
+    loading="{{showLoading}}" 
+    loadingText="正在加载"
+    onTap="onTap" >
+    {{item.type}}
+  </button>
+  <view>
+    <view class="inline-size">nlineSize: medium</view>
+  <view class="container-medium">
+  <button 
+    a:for="{{list}}" 
+    type="{{item.type}}" 
+    inline="{{true}}"
+    inlineSize="medium"
+    subText="{{subText}}" 
+    disabled="{{disabled}}" 
+    loading="{{showLoading}}" 
+    loadingText="正在加载"
+    onTap="onTap" >
+    {{item.type}}
+  </button>
+  </view>
+
+  </view>
+  <view class="inline-size">inlineSize: large</view>
+  <view class="container-large">
+  <button 
+    a:for="{{list}}" 
+    type="{{item.type}}" 
+    inline="{{true}}"
+    inlineSize="large"
+    subText="{{subText}}" 
+    disabled="{{disabled}}" 
+    loading="{{showLoading}}" 
+    loadingText="正在加载"
+    onTap="onTap" >
+    {{item.type}}
+  </button>
+  </view>
+
+  <view class="inline-size">inlineSize: x-large</view>
+  <view class="container-x-large">
+  <button 
+    a:for="{{list}}" 
+    type="{{item.type}}" 
+    inline="{{true}}"
+    inlineSize="x-large"
+    subText="{{subText}}" 
+    disabled="{{disabled}}" 
+    loading="{{showLoading}}" 
+    loadingText="正在加载"
+    onTap="onTap" >
+    {{item.type}}
+  </button>
+
+  <view class="changeItem">
+    <checkbox 
+      id="subText"
+      onChange='onShowSubText' />
+    <label for="subText">是否显示副标题</label>
+  </view>
+  
+  <view class="changeItem">
+    <checkbox 
+      id="disabled"
+      onChange='onDisableChange' />
+    <label for="disabled">是否禁用</label>
+  </view>
+  
+  <view class="changeItem">
+    <checkbox 
+      id="loading"
+      controlled="{{true}}" 
+      checked="{{loadingChangeValue}}" 
+      onChange='onLoadingChange'  />
+    <label for="loading">是否显示 loading</label>
+  </view>
+</view>

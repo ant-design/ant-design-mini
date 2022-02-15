@@ -1,0 +1,64 @@
+@import (reference) "../../_base/index.less";
+@import "../index.less";
+
+@checkBoxItemPrefix: amd-checkbox-item;
+
+.@{checkBoxItemPrefix} {
+  flex: 1 100%;
+  display: flex;
+  .amd-list-item {
+    flex: 1 100%;
+    &-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-content-container {
+      padding-left: 16 * @rpx;
+    }
+
+    &-content-main {
+      display: flex;
+      align-items: center;
+    }
+
+    &-fake {
+      .amd-icon {
+        font-size: 24 * @rpx;
+        font-weight: 800;
+      }
+      &-disabled {
+        &-checked {
+          background-color: #f5f5f5;
+          border-color: #d0d0d0;
+          color: #b7b7b7;
+        }
+        &-not-checked {
+          background-color: #f5f5f5;
+          border-color: #d0d0d0;
+          color: #f5f5f5;
+        }
+      }
+      &-not-disabled {
+        &-checked {
+        background-color: #1677ff;
+        border-color: #1677ff;
+        color: white;
+        }
+        &-not-checked {
+          color: white;
+        }
+      }
+    }
+    .amd-checkbox-item-content {
+      &-disabled {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .amd-list-item:last-child .line {
+    display: inline;
+  }
+}

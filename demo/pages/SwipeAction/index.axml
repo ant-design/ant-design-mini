@@ -1,0 +1,72 @@
+<view class="page">
+<view class="text" >
+  单个滑动操作组件(删除时消失)
+</view>
+<list radius="{{true}}">
+<swipe-action
+    a:for="{{singleListDelete}}" 
+    a:key="id"
+    data-index="{{index}}"
+    autoClose="{{item.autoClose}}" 
+    right="{{item.right}}" 
+    speed="{{item.speed}}"
+    extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
+    onRightButtonTap="onSingleRightItemClickDelete" 
+    >
+    <list-item 
+      arrow="right" 
+      data-index="{{index}}"
+      data-content="{{item.content}}"
+      onTap="onItemClick">
+      {{item.content}}
+    </list-item>
+</swipe-action>
+</list>
+<view class="text">
+  单个滑动操作组件(删除时不消失)
+</view>
+<list radius="{{true}}">
+  <swipe-action
+      a:for="{{singleList}}" 
+      a:key="id"
+      data-index="{{index}}"
+      autoClose="{{item.autoClose}}" 
+      right="{{item.right}}" 
+      speed="{{item.speed}}"
+      extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
+      onRightButtonTap="onSingleRightItemClick" 
+      >
+      <list-item 
+        arrow="right" 
+        data-index="{{index}}"
+        data-content="{{item.content}}"
+        onTap="onItemClick">
+         {{item.content}}
+      </list-item>
+  </swipe-action>
+  </list>
+<view class="text">
+  滑动操作组件列表
+</view>
+<list radius="{{true}}">
+  <swipe-action 
+    a:for="{{multiList}}" 
+    a:key="id"
+    data-index="{{index}}"
+    autoClose="{{item.autoClose}}" 
+    right="{{item.right}}" 
+    left="{{item.left}}" 
+    speed="{{item.speed}}"
+    extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
+    onRightButtonTap="onMultiRightItemClick" 
+    onLeftButtonTap="onMultiLeftItemClick">
+    <list-item 
+      arrow="right" 
+      data-index="{{index}}" 
+      data-content="{{item.content}}"
+      onTap="onItemClick">
+        {{item.content}}
+    </list-item>
+  </swipe-action>
+</list>
+</view>

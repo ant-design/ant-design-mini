@@ -1,0 +1,29 @@
+<view class="amd-terms {{fixed ? 'amd-terms-fixed' : ''}} {{className ? className : ''}}">
+  <view class="amd-terms-term">
+    <checkbox 
+      a:if="{{hasCheckbox}}" 
+      id="{{`amd-terms-${$id}`}}" 
+      className="amd-terms-term-checkbox" 
+      name="{{name}}" 
+      onChange="onChange"/>
+    <label a:if="{{term}}" for="{{`amd-terms-${$id}`}}">{{term}}</label>
+    <view a:else class="amd-terms-term-content">
+      <slot/>
+    </view>
+  </view>
+  <view class="amd-terms-button-container">
+    <button 
+      type="primary" 
+      className="amd-terms-main-button" 
+      disabled="{{disabled}}"
+      onTap="onMainBtnTap">
+      {{mainButtonText}}
+    </button>
+    <button 
+      a:if="{{!hasCheckbox}}"
+      onTap="onSubBtnTap"
+      className="amd-terms-addon-button">
+      {{addonButtonText}}
+    </button>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+.list-like {
+  display: flex;
+  background: #fff;
+  padding: 12px;
+  justify-content: space-between;
+}
+
+.list-like-black{
+  display: flex;
+  background: #000;
+  padding: 12px;
+  justify-content: space-between;
+}
+
+.inner {
+  height: 24px;
+  width: 44px;
+  background-color: #ddd;
+}
+
+.intro {
+  margin-left: 12px;
+}
+
+.container {
+  padding: 10px;
+  background-color: #333;
+  color: #f8f8f8;
+  font-size: 20px;
+}
+
+.content {
+  background-color: #333;
+  color: #333;
+}
+
+.title{
+  padding: 24rpx
+}

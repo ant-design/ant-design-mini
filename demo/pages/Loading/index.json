@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Loading",
+  "usingComponents": {
+    "loading": "../../../src/Loading/index",
+    "am-icon": "../../../src/Icon/index",
+    "whitespace": "../../components/WhiteSpace/index"
+  }
+}

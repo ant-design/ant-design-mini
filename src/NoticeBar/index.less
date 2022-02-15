@@ -1,0 +1,99 @@
+@import (reference) "./variable.less";
+
+@noticeBarPrefix: amd-notice-bar;
+
+.@{noticeBarPrefix} {
+  position: relative;
+  display: flex;
+  height: 75 * @rpx;
+  align-items: center;
+  overflow: hidden;
+  padding: @v-spacing-standard @h-spacing-large;
+  font-size: @notice-font-size;
+  color: @notice-color;
+  background-color: @notice-background-color;
+  border: 1px solid @notice-border-color;
+  box-sizing: border-box;
+  &-scroll-left,
+  &-scroll-right {
+    width: 16 * @rpx;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+    background-size: 100%;
+    pointer-events: none;
+    background-color: @color-golden-3;
+    background-color: var(--am-notice-bgc, @color-golden-3);
+  }
+  &-scroll-left {
+    left: 0;
+    mask-image: linear-gradient(to right, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
+    mask-image: linear-gradient(to right, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
+  }
+  &-scroll-right {
+    right: 0;
+    mask-image: linear-gradient(to left, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
+    mask-image: linear-gradient(to left, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
+  }
+  &-error {
+    color: @notice-error-color;
+    background-color: @notice-error-background-color;
+    border: 1px solid #D9281E;
+    &-scroll-left,
+    &-scroll-right {
+      background: @notice-error-background-color;
+    }
+  }
+  &-primary {
+    color: @notice-primary-color;
+    background-color: @notice-primary-background-color;
+    border: 1px solid @notice-primary-border-color;
+    &-scroll-left,
+    &-scroll-right {
+      background: @notice-primary-background-color;
+    }
+  }
+  &-info {
+    color: white;
+    border: 1px solid #999;
+    background: #ABABAB;
+    &-scroll-left,
+    &-scroll-right {
+      background: #ABABAB;
+    }
+  }
+  &-icon {
+    margin-right: @h-spacing-standard;
+    font-size: 36 * @rpx;
+  }
+  &-content {
+    position: relative;
+    z-index: 2;
+    flex: 1 100%;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: @default-line-height;
+  }
+  &-marquee {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  &-operation {
+    display: flex;
+    align-items: center;
+    &-icon {
+      margin-left: 24 * @rpx;
+    }
+    &-text {
+      margin-left: 24 * @rpx;
+      white-space: nowrap;
+    }
+  }
+}
+
+.amd-icon-size-x-small {
+  font-size: 18px;
+}

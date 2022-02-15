@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Selector",
+  "usingComponents": {
+    "selector": "../../../src/Selector/index",
+    "button": "../../../src/Button/index"
+  }
+}

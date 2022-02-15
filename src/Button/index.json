@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "loading": "../LoadingMini/index",
+    "icon": "../Icon/index",
+    "image-icon": "../ImageIcon/index"
+  }
+}

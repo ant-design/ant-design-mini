@@ -1,0 +1,31 @@
+.container-1,
+.container-2 {
+  display: flex;
+  padding: 0 12px;
+  margin: 12px 0;
+}
+
+.container-3,
+.container-4 {
+  padding: 0 12px;
+  margin: 12px 0;
+}
+
+
+.container-1 .amd-button:first-child,
+.container-2 .amd-button:first-child,
+.container-3 .amd-button:first-child,
+.container-4 .amd-button:first-child {
+  margin-right: 6px;
+}
+
+.container-1 .amd-button:last-child,
+.container-2 .amd-button:last-child,
+.container-3 .amd-button:last-child,
+.container-4 .amd-button:last-child {
+  margin-right: 6px;
+}
+
+.amd-button {
+  flex: 1;
+}

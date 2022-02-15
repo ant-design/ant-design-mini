@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "selector": "../../Selector/index",
+    "button": "../../Button/index"
+  }
+}

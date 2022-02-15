@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "CheckBoxGroup",
+  "usingComponents": {
+    "checkbox-group": "../../../src/CheckboxGroup/index",
+    "checkbox-item": "../../../src/CheckboxGroup/CheckboxItem/index"
+  }
+}

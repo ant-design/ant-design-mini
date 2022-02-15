@@ -1,0 +1,15 @@
+{
+  "overrides": [
+    {
+      "files": "*.axml",
+      "options": {
+        "parser": "html",
+        "printWidth": 40,
+        "tabWidth": 2,
+        "useTabs":true,
+        "bracketSameLine":true,
+        "bracketSpacing":true
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "component2": true,
+  "axmlStrictCheck": false,
+  "enableAppxNg": true,
+  "exclude": [
+    "miniapptools_dist/**/*"
+  ]
+}

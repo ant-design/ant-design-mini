@@ -1,0 +1,21 @@
+@import (reference) "../style/themes/default.less";
+
+.amd-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-color: @color-product-mask;
+  background-color: var(--am-mask-backgroundColor, @color-product-mask);
+  &__m {
+    background-color: @color-marketing-mask;
+    background-color: var(--am-mask-market-backgroundColor, @color-marketing-mask);
+  }
+  &__fix {
+    width: 300vw;
+    height: 300vh;
+    transform: translate3d(-100vw, -100vh, 0);
+  }
+}

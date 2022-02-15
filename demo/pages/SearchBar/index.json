@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Search-bar",
+  "usingComponents": {
+    "search-bar": "../../../src/SearchBar/index",
+    "switch": "../../../src/Switch/index"
+  }
+}

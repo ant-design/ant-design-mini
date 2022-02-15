@@ -1,0 +1,196 @@
+@import (reference) "./variable.less";
+@import "../style/mixins/hairline.less";
+
+@popoverPrefix: amd-popover;
+
+.@{popoverPrefix} {
+  position: relative;
+  &-content {
+    position: absolute;
+    min-width: 160 * @rpx;
+    max-width: 340 * @rpx;
+    font-size: @popover-font-size;
+    z-index: 999;
+    &-bg {
+      position: relative;
+    }
+  }
+  &-inner {
+    position: relative;
+    background-color: #181818;
+    border-radius: 16 * @rpx;
+    overflow: hidden;
+    box-shadow: 0 0 4 * @rpx rgb(0 0 0 / 20%);
+    &-real {
+      position: absolute;
+      transform: translate3d(0, -100%, 0);
+      background-color: transparent;
+      color: #fff;
+      z-index: 1000;
+    }
+    &-light {
+      background-color: #FEFEFE;
+      box-shadow: 0 4 * @rpx 10 * @rpx 0 rgb(51 51 51 / 20%);
+      color: #333;
+      .amd-popover-item-text {
+        color: #333;
+      }
+      .amd-popover-item {
+        .hairline-popover("bottom", #eee) !important;
+        &-hover {
+          background: #eee;
+        }
+        .amd-popover-item-icon-item {
+          .amd-icon {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+  &-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 17 * @rpx solid #181818;
+    border-left: 17 * @rpx solid transparent;
+    border-right: 17 * @rpx solid transparent;
+    z-index: 1;
+    &-light {
+      border-bottom: 17 * @rpx solid white;
+   }
+  }
+  /* popover position: top */
+  &-top {
+    top: -7px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
+  &-top-left {
+    top: -7px;
+    left: 0;
+    transform: translate(0, -100%);
+  }
+  &-top-right {
+    top: -7px;
+    right: 0;
+    transform: translate(0, -100%);
+  }
+  /* popover position: right */
+  &-right {
+    top: 50%;
+    right: -7px;
+    transform: translate(100%, -50%);
+  }
+  &-right-top {
+    top: 0;
+    right: -7px;
+    transform: translateX(100%);
+  }
+  &-right-bottom {
+    bottom: 0;
+    right: -7px;
+    transform: translateX(100%);
+  }
+  /* popover position: bottom */
+  &-bottom {
+    bottom: -7px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+  }
+  &-bottom-right {
+    bottom: -7px;
+    right: 0;
+    transform: translateY(100%);
+  }
+  &-bottom-left {
+    bottom: -7px;
+    left: 0;
+    transform: translateY(100%);
+  }
+  /* popover position: left */
+  &-left {
+    top: 50%;
+    left: -7px;
+    transform: translate(-100%, -50%);
+  }
+  &-left-top {
+    top: 0;
+    left: -7px;
+    transform: translateX(-100%);
+  }
+  &-left-bottom {
+    bottom: 0;
+    left: -7px;
+    transform: translateX(-100%);
+  }
+  /* arrow position: top */
+  &-top &-arrow,
+  &-top-left &-arrow,
+  &-top-right &-arrow {
+    transform: translateY(100%) rotate(180deg);
+    bottom: 1px;
+  }
+  &-top &-arrow {
+    transform: translate(-50%, 100%) rotate(180deg);
+    left: 50%;
+  }
+  &-top-right &-arrow {
+    right: 24 * @rpx;
+  }
+  &-top-left &-arrow {
+    left: 24 * @rpx;
+  }
+  /* arrow position: right */
+  &-right &-arrow,
+  &-right-top &-arrow,
+  &-right-bottom &-arrow {
+    transform: translateX(-75%) rotate(-90deg);
+    left: 0;
+  }
+  &-right &-arrow {
+    transform: translate(-75%, -50%) rotate(-90deg);
+    top: 50%;
+  }
+  &-right-bottom &-arrow {
+    bottom: 24 * @rpx;
+  }
+  &-right-top &-arrow {
+    top: 24 * @rpx;
+  }
+  /* arrow position: bottom */
+  &-bottom &-arrow,
+  &-bottom-left &-arrow,
+  &-bottom-right &-arrow {
+    transform: translateY(-100%);
+  }
+  &-bottom &-arrow {
+    transform: translate(-50%, -100%);
+    left: 50%;
+    top: 2 * @rpx;
+  }
+  &-bottom-left &-arrow {
+    left: 24 * @rpx;
+    top: 2 * @rpx;
+  }
+  &-bottom-right &-arrow {
+    right: 24 * @rpx;
+    top: 2 * @rpx;
+  }
+  /* arrow position: left */
+  &-left &-arrow,
+  &-left-top &-arrow,
+  &-left-bottom &-arrow {
+    transform: translateX(75%) rotate(90deg);
+  }
+  &-left &-arrow {
+    transform: translate(75%, -50%) rotate(90deg);
+    top: 50%;
+  }
+  &-left-top &-arrow {
+    top: 24 * @rpx;
+  }
+  &-left-bottom &-arrow {
+    bottom: 24 * @rpx;
+  }
+}

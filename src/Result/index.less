@@ -1,0 +1,71 @@
+@import (reference) "./variable.less";
+@import "../style/mixins/hairline.less";
+
+@resultPrefix: amd-result;
+
+.@{resultPrefix} {
+  position: relative;
+  text-align: center;
+  line-height: normal;
+  box-sizing: border-box;
+  .hairline("bottom");
+  &-main {
+    padding: @size-8 @result-spacing-LR;
+    margin-bottom: @size-5;
+    background-color: @result-main-background;
+  }
+  &-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: @result-img-size;
+    height: @result-img-size;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+    line-height: @result-img-size;
+    & + .@{resultPrefix}-title,
+    & + .@{resultPrefix}-message {
+      padding-top: @size-5;
+    }
+    &-success {
+      color: @color-text-primary;
+    }
+    &-danger {
+      color: @color-text-warning;
+    }
+    &-info {
+      color: @color-text-primary;
+    }
+    &-warn {
+      color: @color-orange-1;
+    }
+    &-wait {
+      color: @color-pomonagreen-1;
+    }
+  }
+  &-title {
+    font-size: @result-title-size;
+    color: @result-title-color;
+    &:empty {
+      display: none;
+    }
+  }
+  &-message {
+    padding-top: @size-2;
+    font-size: @result-desc-size;
+    color: @result-desc-color;
+    &:empty {
+      display: none;
+    }
+  }
+  &-buttons {
+    padding: 0 @result-spacing-LR;
+    .amd-button {
+      margin-bottom: @h-spacing-large;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
