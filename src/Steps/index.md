@@ -1,8 +1,9 @@
 ---
-title: Steps
+nav:
+  path: /components
 group:
-  path: /display
   title: 数据展示
+toc: false
 ---
 # Steps
 步骤条，分步展示当前进展，配合 `StepItem` 组件使用

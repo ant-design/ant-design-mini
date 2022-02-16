@@ -1,10 +1,10 @@
 ---
-title: Picker
+nav:
+  path: /components
 group:
-  path: /form
   title: 表单类组件
+toc: false
 ---
-
 # Picker
 内部采用 PickerView组件实现
 ## 注意事项

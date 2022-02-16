@@ -1,8 +1,9 @@
 ---
-title: SearchBar
+nav:
+  path: /components
 group:
-  path: /display
   title: 数据展示
+toc: false
 ---
 
 # SearchBar

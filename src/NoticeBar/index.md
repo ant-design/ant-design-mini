@@ -1,8 +1,9 @@
 ---
-title: NoticeBar
+nav:
+  path: /components
 group:
-  path: /guide
   title: 导航
+toc: false
 ---
 # NoticeBar
 消息通知栏组件。

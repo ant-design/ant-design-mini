@@ -1,8 +1,9 @@
 ---
-title: Tips
+nav:
+  path: /components
 group:
-  path: /guide
   title: 导航
+toc: false
 ---
 # Tips
 ## 代码示例

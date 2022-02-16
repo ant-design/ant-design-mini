@@ -1,9 +1,11 @@
 ---
-title: Icon
+nav:
+  path: /components
 group:
-  path: /display
   title: 数据展示
+toc: false
 ---
+
 # Icon
 
 ## 代码示例

@@ -1,9 +1,11 @@
 ---
-title: CheckboxGroup
+nav:
+  path: /components
 group:
-  path: /form
   title: 表单类组件
+toc: false
 ---
+
 # CheckboxGroup
 
 复选框组合，内部由多个 CheckboxItem 组成。

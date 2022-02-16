@@ -1,8 +1,9 @@
 ---
-title: Form
+nav:
+  path: /components
 group:
-  path: /experimental
   title: 实验性质的组件
+toc: false
 ---
 
 # Form

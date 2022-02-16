@@ -1,8 +1,9 @@
 ---
-title: Button
+nav:
+  path: /components
 group:
-  path: /form
   title: 表单类组件
+toc: false
 ---
 # Button
 

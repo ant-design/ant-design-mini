@@ -1,8 +1,9 @@
 ---
-title: Loading
+nav:
+  path: /components
 group:
-  path: /feedback
   title: 反馈
+toc: false
 ---
 # Loading
 加载动画
