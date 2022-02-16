@@ -18,4 +18,4 @@ antd-mini 是支付宝小程序 UI 组件库，遵循 ant design 规范。目前
 
 如果你想深入参与讨论，可以加入我们的社区钉钉群：[35097715]
 
-  <img src="https://gw.alipayobjects.com/mdn/rms_e06820/afts/img/A*YzmtQ7jTWtAAAAAAAAAAAAAAARQnAQ" alt="dingding" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_e06820/afts/img/A*YzmtQ7jTWtAAAAAAAAAAAAAAARQnAQ" width="260" alt="dingding" />
