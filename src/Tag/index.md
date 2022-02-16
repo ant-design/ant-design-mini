@@ -1,8 +1,9 @@
 ---
-title: Tag
+nav:
+  path: /components
 group:
-  path: /guide
   title: 导航
+toc: false
 ---
 # Tag
 

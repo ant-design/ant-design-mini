@@ -1,8 +1,9 @@
 ---
-title: Dialog
+nav:
+  path: /components
 group:
-  path: /feedback
   title: 反馈
+toc: false
 ---
 # Dialog
 

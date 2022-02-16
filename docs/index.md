@@ -10,7 +10,7 @@ hero:
     - text: 组件列表
       link: /components
     - text: 参与共建
-      link: /guide/coopreation
+      link: /guide/cooperation
 footer: Open-source MIT Licensed | Copyright © 2016-present Alipay.com<br />Powered by [dumi](https://d.umijs.org)
 ---
 
@@ -30,5 +30,6 @@ antd-mini 是支付宝小程序 UI 组件库，遵循 ant design 规范。目前
 如果你发现了 bug 或者是希望 antd-mini 增加一些特性，可以[提交 issue](https://github.com/ant-design/)。
 
 
-如果你想深入参与讨论，可以加入我们的社区钉钉群：
+如果你想深入参与讨论，可以加入我们的社区钉钉群：35097715
 
+  <img src="https://gw.alipayobjects.com/mdn/rms_e06820/afts/img/A*YzmtQ7jTWtAAAAAAAAAAAAAAARQnAQ" width="260" alt="dingding" />

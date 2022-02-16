@@ -25,7 +25,7 @@ export default {
       // },
       {
         title: '仓库地址',
-        path: 'https://github.com/ant-design/',
+        path: 'https://github.com/ant-design/ant-design-mini',
       }],
     '/components': [{
       title: 'basic',

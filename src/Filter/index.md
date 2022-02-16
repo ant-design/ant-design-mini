@@ -1,10 +1,10 @@
 ---
-title: Filter
+nav:
+  path: /components
 group:
-  path: /display
   title: 数据展示
+toc: false
 ---
-
 # Filter
 
 用作标签卡筛选，内部结合 `Selector` 组件实现。

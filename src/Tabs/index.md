@@ -1,8 +1,9 @@
 ---
-title: Tabs
+nav:
+  path: /components
 group:
-  path: /guide
   title: 导航
+toc: false
 ---
 # Tabs
 标签栏，内部配合 TabItem 使用。

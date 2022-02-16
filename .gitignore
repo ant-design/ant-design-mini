@@ -26,3 +26,7 @@
 # ide
 /.vscode
 /.idea
+
+# other
+/.mini-ide
+/.minidev

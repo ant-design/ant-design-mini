@@ -1,9 +1,11 @@
 ---
-title: Collapse
+nav:
+  path: /components
 group:
-  path: /display
   title: 数据展示
+toc: false
 ---
+
 # Collapse
 
 可以折叠 / 展开的内容区域。

@@ -1,10 +1,10 @@
 ---
-title: List
+nav:
+  path: /components
 group:
-  path: /display
   title: 数据展示
+toc: false
 ---
-
 
 # List
 列表，内部配合 ListItem 使用。

@@ -1,8 +1,9 @@
 ---
-title: Badge
+nav:
+  path: /components
 group:
-  path: /guide
   title: 导航
+toc: false
 ---
 
 # Badge

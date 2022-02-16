@@ -1,8 +1,10 @@
 ---
-title: Avatar
+nav:
+  path: /components
 group:
-  path: /display
   title: 数据展示
+  order: 1
+toc: false
 ---
 
 # Avatar
