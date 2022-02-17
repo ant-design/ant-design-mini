@@ -1,15 +1,12 @@
 {
   "name": "antd-mini-demo",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "antd-mini": "latest"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "main": "app.js",
-  "description": ""
+  "description": "antd-mini 组件库示例"
 }
