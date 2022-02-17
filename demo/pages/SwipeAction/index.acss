@@ -13,7 +13,6 @@
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   order: 1;
-  padding-left: calc(52rpx + 124rpx);
   font-size: 28rpx;
   color: #333;
 }
