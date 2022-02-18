@@ -1,7 +1,5 @@
-import { components } from './components';
-
 export default {
-  title: 'antd-mini',
+  title: 'Ant Design Mini',
   favicon: 'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
   logo: 'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
   outputPath: 'docs-dist',
@@ -19,18 +17,10 @@ export default {
         title: '组件',
         path: '/components',
       },
-      // {
-      //   title: '发布日志',
-      //   path: '/components',
-      // },
       {
         title: '仓库地址',
         path: 'https://github.com/ant-design/ant-design-mini',
       }],
-    '/components': [{
-      title: 'basic',
-      children: components.basic,
-    }],
   },
   menus: {
     '/': [

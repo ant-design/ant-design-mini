@@ -1,42 +1,32 @@
-# Contributing to antd-mini
+---
+toc: false
+---
 
-The following is a set of guidelines for contributing to ``antd-mini``. Please spend several minutes in reading these guidelines before you create an issue or pull request.
+## 参与 antd-mini 建设
 
-Anyway, these are just guidelines, not rules, use your best judgment and feel free to propose changes to this document in a pull request.
+antd-mini 的发展离不开社区的每一位用户，这里有一些信息可以帮助你参与共建。
 
+### 项目运作流程
 
-## Do your homework before asking a question
+### issue
 
-It's a great idea to read Eric Steven Raymond's [How To Ask Questions The Smart Way](http://www.catb.org/esr/faqs/smart-questions.html) twice before asking a question. But if you are busy now, I recommend to read [Don't post homework questions](http://www.catb.org/esr/faqs/smart-questions.html#homework) first.
+如果你有组件库的相关使用问题或需求，可以前往 issue 区域搜索或者提问。我们提供了多种 issue 模板，请根据需要选择对应模板。同时，也非常欢迎你为其他同学解惑。
 
-The following guidelines are about *How to avoid Homework Questions*.
+#### feature request
 
-### 1. Read the documentation.
+如果现有的组件不能满足你的开发需求，请提交 issue 来描述你的需求。当然，并不是每一个 FR 都会实现。因为 antd-mini 的定位是一个基础组件库，而非业务组件库。我们会讨论每一个 FR，确认是一个基础组件需求后，我们就会进入开发流程。
 
-It sad but true that someone just glance(not read) [antd-mini's documentation](). Please read the documentation closely.
+#### bug
 
-### 2. Read the FAQ and search the issues list of antd-mini
+提交 issue 时，请尽可能多地提供 bug 相关信息，以帮助我们更快地复现并解决。
 
-Your questions may be asked and solved by others. So please spend several minutes on searching. Remember [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), both code and questions.
+下面是一些注意事项：
 
-* [Issues list]()
+- 设备信息、客户端版本、组件库版本、组件等
+- 你期望的组件行为是什么，实际上组件的行为是什么
+- 详细描述复习步骤
+- 尽可能提供能够复现 demo 以方便我们快速定位问题
 
-## Close your issue if it's solved
+### 贡献代码
 
-It is a good habit which will save maintainers' time. Thank you!
-
-## Providing a demo while reporting a bug
-
-It would be helpful to provide a demo which can re-produce the bug 100%. Please give us the steps in detail that can help us re-producing the bug you met. Then, create an issue. The most important thing is: double check before claiming that you have found a bug.
-
-## Tips about Feature Request
-
-If you believe that ``antd-mini`` should provide some features, but it does not. You could create an issue to discuss.
-
-## Tips about Pull Request
-
-It's welcomed to pull request. And there are some tips about that:
-
-1. It is a good habit to create a feature request issue to disscuss whether the feature is necessary before you implement it. However, it's unnecessary to create an issue to claim that you found a typo or improved the readability of documentaion, just create a pull request.
-2. Rebase before creating a PR to keep commit history clear.
-3. Add some descriptions and refer relative issues for you PR.s
+非常欢迎各位为 antd-mini 贡献代码，这里有一份[贡献指南](https://github.com/ant-design/ant-design-mini/blob/main/docs/guide/contribute.md)。在贡献代码之前，请提交 RFC issue 并详细描述你的改动，以便我们能够在 RFC 中充分讨论，节省双方的时间。

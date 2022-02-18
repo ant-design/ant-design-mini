@@ -14,7 +14,7 @@ antd-mobile 是 h5 组件库，antd-mini 是支付宝小程序组件库。两者
 
 ### 升级指南
 
-虽然 mini-antui、mini-ali-ui 与 antd-mini 可以共存，但是 mini-antui 与 mini-ali-ui 已经停止维护，建议大家升级至 antd-mini。使用方法上没有变化，但是组件组件名称及 API 会有 breaking change。详细的对比信息见语雀：https://yuque.antfin.com/antd-mini/ocwmzg/oug44q。
+虽然 mini-antui、mini-ali-ui 与 antd-mini 可以共存，但是 mini-antui 与 mini-ali-ui 已经停止维护，建议大家升级至 antd-mini。使用方法上没有变化，但是组件组件名称及 API 会有 breaking change。
 
 ### 主题修改
 
