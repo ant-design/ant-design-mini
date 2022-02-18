@@ -24,7 +24,7 @@ export default () => {
           <img
             className={styles.headerImage}
             alt='header-image'
-            src='https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*72wxQ7yN4tEAAAAAAAAAAAAAARQnAQ'
+            src='https://gw.alipayobjects.com/zos/bmw-prod/b7b7baab-2b0e-4a38-bbb8-b0e1f74b14ff.svg'
           />
         </div>
         {/* 新手指引 */}
@@ -34,11 +34,12 @@ export default () => {
             <div className={styles.guidanceCard}>
               <div>
                 <p>{'快速开始'}</p>
-                <p>
+                <p style={{height:"52px"}}>
                   {'安装依赖、引入组件，即可使用'}
                 </p>
                 <a href={'/guide/quick-start'}>
-                  {'查看详情'} &gt;
+                  {'查看详情'} 
+                  <div style={{display:"inline-block",width:"16px", height:"16px", backgroundImage:'url(https://gw.alipayobjects.com/zos/bmw-prod/5f07b426-aa80-47ea-9ad5-9f795deb5556.svg)'}}></div>
                 </a>
               </div>
               <img
@@ -52,7 +53,9 @@ export default () => {
                 <p>
                   {'我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下'}
                 </p>
-                <a href={'/guide/faq'}>FAQ &gt;</a>
+                <a href={'/guide/faq'}>FAQ
+                <div style={{display:"inline-block",width:"16px", height:"16px", backgroundImage:'url(https://gw.alipayobjects.com/zos/bmw-prod/5f07b426-aa80-47ea-9ad5-9f795deb5556.svg)'}}></div>
+                </a>
               </div>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/0e5fba68-b7d4-4170-9fe2-3b0c2ba6350a.svg'

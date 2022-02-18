@@ -1,13 +1,25 @@
 export default {
-  title: 'Ant Design Mini',
+  title:" ",
   favicon: 'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
-  logo: 'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
+  logo: 'https://gw.alipayobjects.com/zos/bmw-prod/ee73c8e3-3932-417a-aa39-4b4b642d5b3a.svg',
   outputPath: 'docs-dist',
   locales: [['zh', '中文']],
   mode: 'site',
   hash: true,
   plugins: ['./plugin/index.ts'],
   headScripts: [{ src: 'https://gw.alipayobjects.com/os/lib/ali/mini-simulator/9.1.5/dist/index.js' }],
+  styles:[`
+  #root .__dumi-default-navbar {
+    padding-left: 32px;
+  }
+  #root .__dumi-default-navbar-logo{
+    padding-left: 200px;
+  }
+  #root .__dumi-default-navbar{
+    box-shadow: none;
+    border-bottom: 1px solid #ebedf1;
+  }
+  `],
   navs: {
     zh: [
       {
