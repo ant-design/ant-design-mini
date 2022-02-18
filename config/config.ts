@@ -5,6 +5,7 @@ export default {
   outputPath: 'docs-dist',
   locales: [['zh', '中文']],
   mode: 'site',
+  hash: true,
   plugins: ['./plugin/index.ts'],
   headScripts: [{ src: 'https://gw.alipayobjects.com/os/lib/ali/mini-simulator/9.1.5/dist/index.js' }],
   navs: {
