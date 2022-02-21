@@ -1,6 +1,5 @@
 ---
 title: Ant Design Mini
-sidemenu: false
 gapless: true
 ---
 
