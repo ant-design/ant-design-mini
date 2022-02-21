@@ -1,0 +1,26 @@
+<view class="amd-container {{className ? className : ''}}">
+  <view class="amd-container-header">
+    <image class="amd-container-header-image"
+      src="{{image}}"
+      a:if="{{image}}" />
+    <block a:if="{{title}}">
+      <view class="amd-container-header-title {{!image ? 'amd-container-header-title-noImage' : ''}}">
+        {{title}}
+      </view>
+    </block>
+    <block a:else>
+      <view class="amd-container-header-title {{!image ? 'amd-container-header-title-noImage' : ''}}">
+        <slot name="title" />
+      </view>
+    </block>
+    <view class="amd-container-header-icon"
+      onTap="onIconTap"
+      a:if="{{icon}}">
+      <icon type="{{icon}}"
+        size="x-small" />
+    </view>
+  </view>
+  <view class="amd-container-content">
+    <slot />
+  </view>
+</view>

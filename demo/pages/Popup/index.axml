@@ -1,0 +1,71 @@
+<view>
+
+  <popup
+    visible="{{showTop}}"
+    maskClosable="{{true}}"
+    position="top"
+    onClose="onPopupClose"
+    showCloseIcon="{{true}}">
+  </popup>
+
+  <popup
+    visible="{{showBottom}}"
+    maskClosable="{{true}}"
+    position="bottom"
+    onClose="onPopupClose">
+  </popup>
+
+  <popup
+    visible="{{showLeft}}"
+    maskClosable="{{true}}"
+    showCloseIcon="{{true}}"
+    position="left"
+    onClose="onPopupClose">
+  </popup>
+
+  <popup
+    visible="{{showRight}}"
+    maskClosable="{{false}}"
+    showCloseIcon="{{true}}"
+    position="right"
+    onClose="onPopupClose">
+  </popup>
+
+  <popup
+    visible="{{showCenter}}"
+    maskClosable="{{true}}"
+    position="center"
+    showCloseIcon="{{true}}"
+    onClose="onPopupClose">
+    <scroll-view
+      scroll-y="{{true}}"
+      class="box center"
+      disable-lower-scroll="out-of-bounds"
+      disable-upper-scroll="out-of-bounds">
+      <view class="centerContent"> 试一下滚动 </view>
+    </scroll-view>
+  </popup>
+
+  <popup
+    visible="{{showCenterScoll}}"
+    maskClosable="{{true}}"
+    position="center"
+    disableScroll="{{false}}"
+    animation="{{false}}"
+    onClose="onPopupClose">
+    <scroll-view
+      scroll-y="{{true}}"
+      class="box center">
+      <view class="centerContent"> 试一下滚动 </view>
+    </scroll-view>
+  </popup>
+
+  <view class="btn-container">
+    <button onTap="onTopBtnTap">上（点击遮罩层关闭）</button>
+    <button onTap="onButtomBtnTap">下（点击遮罩层关闭）</button>
+    <button onTap="onLeftBtnTap">左（点击遮罩层关闭）</button>
+    <button onTap="onRightBtnTap">右 maskCloseable 为 false</button>
+    <button onTap="onCenterBtnTap"> 弹窗内部滚动 - 禁用页面滚动 </button>
+    <button onTap="onCenterBtnScrollTap"> 弹窗内部滚动 - 无动画 - 允许页面滚动 </button>
+  </view>
+</view>

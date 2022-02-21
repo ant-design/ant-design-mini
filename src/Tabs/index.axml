@@ -1,0 +1,93 @@
+<view class="amd-tabs {{className ? className : ''}}">
+  <view class="amd-tabs-bar {{type === 'basis'?'amd-tabs-bar-underline':''}} {{sticky ?'amd-tabs-bar-sticky':''}}">
+    <view class="amd-tabs-bar-plus">
+      <slot name="plus" />
+    </view>
+    <view class="amd-tabs-bar-fade amd-tabs-bar-fade-left"
+      a:if="{{_leftFade}}" />
+    <view class="amd-tabs-bar-fade amd-tabs-bar-fade-right"
+      a:if="{{_rightFade}}" />
+    <scroll-view class="amd-tabs-bar-scroll-view"
+      id="amd-tabs-bar-scroll-view-{{$id}}"
+      scroll-left="{{_scrollLeft}}"
+      scroll-into-view="amd-tabs-bar-item-{{_swipeableIndex}}"
+      scroll-x="{{true}}"
+      scroll-with-animation="{{true}}"
+      scroll-animation-duration="{{300}}">
+      <!-- onAppear 控制阴影显示/隐藏 「左」 -->
+      <view class="amd-tabs-bar-item-placeholder"
+        onAppear="appearLeft"
+        onDisappear="disappearLeft">.</view>
+      <view a:for="{{_tabs}}" key="{{item.title}}" class="amd-tabs-bar-wrap {{`amd-tabs-bar-wrap-${type}`}}">
+          <!-- basis 基础类型 -->
+          <view 
+            a:if="{{type === 'basis'}}"
+            class="amd-tabs-bar-item amd-tabs-bar-basis {{currentIndex === index?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
+            id="amd-tabs-bar-item-{{index}}"
+            onTap="onChange"
+            data-index="{{index}}">
+          <!-- 添加作用域插槽 -->
+          <slot name="title" tab="{{item}}">{{item.title}}
+          </slot>
+          </view>
+          <!-- capsule 胶囊类型 -->
+          <view 
+            a:elif="{{type === 'capsule'}}"
+            class="amd-tabs-bar-item amd-tabs-bar-capsule {{currentIndex === index?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
+            id="amd-tabs-bar-item-{{index}}"
+            onTap="onChange"
+            data-index="{{index}}">
+            <view class="amd-tabs-bar-capsule-title">
+              {{item.title}}
+              <text class="amd-tabs-bar-capsule-badge"
+                a:if="{{item.badge}}">({{item.badge}})</text>
+            </view>
+          </view>
+
+          <!-- mixin 混合类型 -->
+          <view 
+            a:else
+            class="amd-tabs-bar-item amd-tabs-bar-mixin {{currentIndex === index?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
+            id="amd-tabs-bar-item-{{index}}"
+            onTap="onChange"
+            data-index="{{index}}">
+            <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>
+            <view class="amd-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
+          </view>
+        </view>
+
+      <!-- onAppear 控制阴影显示/隐藏「右」-->
+      <view class="amd-tabs-bar-item-placeholder"
+        onAppear="appearRight"
+        onDisappear="disappearRight">.</view>
+    </scroll-view>
+  </view>
+    <view a:if="{{component2}}" style="{{_tabContentHeight ? `height: ${_tabContentHeight}px;`: ''}}">
+      <swiper circular="{{false}}"
+        indicator-dots="{{false}}"
+        current="{{currentIndex}}"
+        interval="99999999"
+        duration="{{_swipeableAnimation || animation ? 300 : 1}}"
+        autoplay="{{false}}"
+        disable-touch="{{_swipeable}}"
+        disable-update-direction="{{true}}"
+        id="amd-tabs-content-{{$id}}"
+        class="amd-tabs-content {{_tabContentHeight ? 'amd-tabs-content_H100': ''}}"
+        adjust-height='current'
+        onChange="handleSwiperChange">
+        <!--2.7.5 及以上自适应高度；2.6.4 - 2.7.4 强制刷新；2.6.4 一下只能手动查询高度-->
+        {{isForceUpdate ? _forceRefreshSwiper : ''}}
+        <slot />
+      </swiper>
+    </view>
+    <view a:else class="amd-tabs-content">
+      <view class="amd-tabs-slides {{currentIndex === index?'amd-tabs-slides-height':''}}"
+        id="amd-tabs-content-{{$id}}"
+        style="
+        transform: translate3d({{-currentIndex * 100}}%, 0, 0);
+        transition-duration: {{animation?'300ms':''}}; {{_tabContentHeight?`height: ${_tabContentHeight}px;`:'height: auto;'}}
+      ">
+        <slot />
+      </view>
+    </view>
+</view>

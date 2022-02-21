@@ -1,0 +1,28 @@
+<view class="amd-filter-item {{className ? className : ''}}"
+  id="filterItem-{{$id}}"
+  style="{{show ? 'transform: scaleY(1);' : 'transform: scaleY(0);'}}">
+  <view class="amd-filter-item-content {{type === 'multiple' ? 'amd-filter-item-content-multiple' : ''}}">
+    <view class="amd-filter-item-content-wrap">
+      <selector onChange="onChange"
+        value="{{_value}}"
+        items="{{items}}"
+        multiple="{{type === 'multiple'}}" />
+    </view>
+    <block a:if="{{type === 'multiple'}}">
+      <view class="amd-filter-item-btns">
+        <button 
+          className="amd-filter-item-btns-button"
+          type="default"
+          onTap="resetSelector">
+          重置
+        </button>
+        <button 
+          className="amd-filter-item-btns-button"
+          type="primary"
+          onTap="confirmSelector">
+          确定
+        </button>
+      </view>
+    </block>
+  </view>
+</view>

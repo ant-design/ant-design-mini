@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Notice",
+  "usingComponents": {
+    "notice": "../../../src/NoticeBar/index"
+  }
+}

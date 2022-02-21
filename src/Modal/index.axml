@@ -1,0 +1,43 @@
+<popup 
+  className="amd-modal {{className ? className : ''}}"
+  visible="{{visible}}" 
+  duration="{{duration}}"
+  maskClosable="{{maskClosable}}"
+  onClose="onClose">
+  <view class="amd-modal-content">
+    <view class="amd-modal-content-image-container">
+      <image class="amd-modal-content-image amd-modal-content-image-{{imageSize}}"
+      src="{{image}}"
+      a:if="{{image}}" />
+    </view>
+    <view class="amd-modal-content-comb">
+      <view class="amd-modal-content-title">
+        {{title}}
+      </view>
+      <view class="amd-modal-content-content">{{content}}</view>
+      <view class="amd-modal-content-extra">
+        <slot />
+      </view>
+    </view>
+    <view class="amd-modal-buttons-container">
+      <button
+        type="primary"
+        data-type="main"
+        onTap="onButtonTap">
+          {{mainButtonText || '主操作'}}
+      </button>
+      <view 
+        class="amd-modal-buttons-addon"
+        a:if="{{addonButtonText}}"
+        data-type="addon"
+        onTap="onButtonTap"
+        >
+        {{addonButtonText || '辅助操作'}}
+      </view>
+    </view>
+  </view>
+    <amd-icon 
+      type="CloseOutline" 
+      onTap="onClose" 
+      className="amd-modal-close"/>
+</popup>

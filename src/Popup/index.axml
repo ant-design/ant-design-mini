@@ -1,0 +1,22 @@
+<import-sjs from="./index.sjs" name="_sjs" />
+
+<view
+  class="amd-popup {{classNames}}"
+  style="z-index:{{zIndex}};"
+  a:if="{{visible}}"
+  onTouchMove="{{disableScroll && supportSjs ? _sjs.disableScrollEvent : ''}}"
+>
+  <view class="amd-popup-mask" onTap="onMaskClose" />
+  <view
+    class="amd-popup-content amd-popup-{{position}}"
+    style="{{animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : ''}}"
+    onTouchMove="{{disableScroll && supportSjs ? _sjs.enableScrollEvent : ''}}"
+  >
+  <view class="amd-popup-close-container" a:if="{{showCloseIcon}}">
+    <icon type="CloseOutline" size="x-small" onTap="onClose"/>
+  </view>
+    <view>
+      <slot />
+    </view>
+  </view>
+</view>

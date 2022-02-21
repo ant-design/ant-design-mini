@@ -1,0 +1,18 @@
+<view class="amd-popover {{className ? className : ''}}">
+  <view onTap="onVisibleChange">
+    <slot />
+  </view>
+  <view class="amd-popover-container"
+    a:if="{{visible}}">
+    <view class="amd-popover-content amd-popover-{{placement}}">
+      <view class="amd-popover-arrow {{mode==='light' ? 'amd-popover-arrow-light' : ''}}"></view>
+      <view class="amd-popover-content-bg">
+        <view class="amd-popover-inner {{mode==='light' ? 'amd-popover-inner-light' : ''}}">
+          <view class="amd-popover-inner-pseudo">
+            <slot name="items"></slot>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

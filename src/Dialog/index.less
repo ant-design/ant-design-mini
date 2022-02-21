@@ -1,0 +1,115 @@
+@import (reference) "../Modal/variable.less";
+@import "../style//mixins/hairline.less";
+
+@collapsePrefix: amd-dialog;
+
+.@{collapsePrefix} {
+  &-horizontal {
+    .amd-popup-content.amd-popup-center {
+      padding-bottom: 0;
+    }
+  }
+  &-content {
+    width: 560 * @rpx;
+    overflow: hidden;
+    background-color: @modal-background-color;
+    border-radius: @modal-radius;
+    display: flex;
+    flex-direction: column;
+
+    &-image {
+      display: block;
+      margin: 40 * @rpx auto 0 auto;
+
+      &-medium {
+        width: 160 * @rpx;
+        height: 160 * @rpx;
+      }
+
+      &-large {
+        width: 280 * @rpx;
+        height: 280 * @rpx;
+      }
+
+      &-x-large {
+        height: 312 * @rpx;
+        margin-top: 0;
+      }
+    }
+
+    &-title {
+      margin: 24 * @rpx auto 16 * @rpx auto;
+      font-size: 36 * @rpx;
+      color: #333;
+      font-family: PingFangSC-Medium;
+      text-align: center;
+      &:empty {
+        display: none;
+      }
+      &:empty ~ .amd-dialog-content-content {
+        margin-bottom: 5 * @rpx;
+        margin-top: 16 * @rpx;
+      }
+    }
+
+    &-image-container:empty ~ &-title {
+      margin: 40 * @rpx auto 16 * @rpx auto;
+    }
+
+    &-content {
+      color: #333;
+      font-size: 30 * @rpx;
+      padding: 0 24 * @rpx 16 * @rpx 24 * @rpx;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    &-extra {
+      padding: 0 24 * @rpx 16 * @rpx 24 * @rpx;
+      &:empty {
+        display: none;
+      }
+    }
+
+    &-button {
+      position: relative;
+      font-size: 36 * @rpx;
+      color: #1677ff;
+      text-align: center;
+      .amd-button-content {
+        border-radius: 0;
+      }
+      &-container {
+        margin-top: 24 * @rpx;
+        &-vertical {
+          display: flex;
+          flex-direction: column;
+          .amd-dialog-content-button {
+            border-top: 1px solid #eee;
+            &:first-child {
+              font-family: PingFangSC-Medium;
+            }
+          }
+        }
+        &-horizontal {
+          display: flex;
+          flex-direction: row;
+          border-top: 1px solid #eee;
+          .amd-dialog-content-button {
+            flex: 1;
+            &-first {
+              border-right: 1px solid #eee;
+            }
+            &:last-child {
+              font-family: PingFangSC-Medium;
+            }
+          }
+        }
+      }
+    }
+  }
+  .amd-popup-content.amd-popup-center {
+    min-height: 0;
+    padding: 0;
+  }
+}

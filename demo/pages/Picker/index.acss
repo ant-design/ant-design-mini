@@ -1,0 +1,15 @@
+page {
+  background-color: #e6e6e6;
+}
+
+.pickerTips {
+  padding: 24rpx;
+}
+
+.pickerTips text {
+  color: #1677ff;
+}
+
+.pickerItem {
+  display: inline-block;
+}

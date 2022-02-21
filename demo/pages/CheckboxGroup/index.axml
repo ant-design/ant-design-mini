@@ -1,0 +1,32 @@
+<checkbox-group 
+  uid="{{uid}}"
+  value="{{value}}"
+  disabled="{{disabled}}"
+  radius="{{radius}}"
+  controlled="{{controlled}}"
+  header="CheckBoxGroup demo"
+  footer="CheckBoxGroup 模式相比 CheckBox 功能有所加强"
+  onChange="checkBoxGroupChange">
+
+  <checkbox-item 
+    a:for="{{list}}"
+    value="{{item.value}}"  
+    disabled="{{item.disabled}}" 
+    uid="{{uid}}">
+      {{item.value}}
+    </checkbox-item>
+
+</checkbox-group>
+
+<view class="btns">
+  <button onTap="selectAll">全选</button>
+  <button onTap="selectNone">全不选</button>
+</view>
+<view class="btns">
+  <button onTap="enableAll">都可用</button>
+  <button onTap="disableAll">全部禁用</button>
+</view>
+<view class="btns">
+  <button onTap="controlledTrue">受控模式</button>
+  <button onTap="controlledFalse">非受控模式</button>
+</view>

@@ -1,0 +1,100 @@
+@import (reference) "./variable.less";
+
+@modalPrefix: amd-modal;
+
+.@{modalPrefix} {
+  &-content {
+    width: 560 * @rpx;
+    overflow: hidden;
+    background-color: @modal-background-color;
+    border-radius: @modal-radius;
+    display: flex;
+    flex-direction: column;
+    &-background {
+      width: 100%;
+      height: 312 * @rpx;
+    }
+    &-comb {
+      z-index: 1;
+      margin: 0 24 * @rpx;
+    }
+    &-image {
+      display: block;
+      margin: 40 * @rpx auto 0 auto;
+      &-medium {
+        width: 160 * @rpx;
+        height: 160 * @rpx;
+      }
+      &-large {
+        width: 280 * @rpx;
+        height: 280 * @rpx;
+      }
+      &-x-large {
+        height: 312 * @rpx;
+        margin-top: 0;
+      }
+    }
+    &-title {
+      margin-top: 24 * @rpx;
+      font-size: @font-size-title;
+      line-height: @line-height-paragraph;
+      text-align: center;
+      font-family: PingFangSC-Medium;
+      color: @modal-title-color;
+    }
+
+    &-image-container:empty ~ &-comb {
+      margin-top: 16 * @rpx;
+    }
+
+    &-content {
+      overflow: hidden;
+      line-height: 1.4;
+      font-size: @modal-content-size;
+      color: @modal-content-color;
+      text-align: center;
+      margin: 16 * @rpx 0;
+    }
+
+    &-extra {
+      margin-bottom: 16 * @rpx;
+    }
+  }
+  &-buttons {
+    &-container {
+      display: flex;
+      flex-direction: column;
+      margin: 24 * @rpx;
+    }
+    &-addon {
+      color: #1677ff;
+      text-align: center;
+      font-size: 36 * @rpx;
+      line-height: 50 * @rpx;
+      margin-top: 40 * @rpx;
+    }
+  }
+  &-close {
+    position: absolute;
+    right: 16 * @rpx;
+    top: 13 * @rpx;
+    z-index: 3;
+    width: 52 * @rpx;
+    height: 58 * @rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36 * @rpx;
+    color: #999;
+    &-dark {
+      color: @color-text-subtitle;
+    }
+    &-light {
+      color: @color-fill-grey-inverse;
+    }
+  }
+  .amd-popup-content.amd-popup-center {
+    min-height: 0;
+    padding: 0;
+  }
+}

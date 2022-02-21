@@ -1,0 +1,6 @@
+<view class="amd-form amd-form-{{className}}">
+<slot></slot>
+<view class="amd-form-footer">
+    <slot name="footer"/>
+</view>
+</view>

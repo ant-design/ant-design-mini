@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tap-modal":"../TapModal/index"
+  }
+}

@@ -1,0 +1,44 @@
+<view class="amd-stepper {{className ? className : ''}}"
+  min="{{min}}"
+  max="{{max}}"
+  step="{{step}}"
+  precision="{{precision}}">
+  <button 
+    className="amd-stepper-handler-down"
+    data-mode="minus"
+    disabled="{{disabled || cValue <= min}}"
+    onTap="onChange">
+    <view class="amd-stepper-handler-down-inner">
+      <icon type="MinusOutline"
+      size="x-small" />
+    </view>
+  </button>
+
+  <view class="amd-stepper-input-wrap">
+    <input class="amd-stepper-input {{disabled? 'amd-stepper-input-disabled' : ''}}"
+      style="{{inputWidth ? `width: ${inputWidth}`: ''}}"
+      type="{{type}}"
+      disabled="{{disabled}}"
+      id="{{id ? id : $id }}"
+      name="{{name ? name : ''}}"
+      onInput="onInput"
+      focus="{{autoFocus}}"
+      onFocus="onFocus"
+      onBlur="onBlur"
+      onConfirm="onConfirm"
+      value="{{_value || cValue + ''}}"
+      controlled="{{controlled}}"
+      enableNative="{{enableNative}}" />
+  </view>
+
+  <button 
+    fill="none"
+    className="amd-stepper-handler-up"
+    data-mode="add"
+    disabled="{{disabled || cValue >= max}}"
+    onTap="onChange">
+    <view class="amd-stepper-handler-up-inner">
+        <icon type="AddOutline"/>
+    </view>
+  </button>
+</view>

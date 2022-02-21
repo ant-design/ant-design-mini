@@ -1,0 +1,24 @@
+@import (reference) "./variable.less";
+
+@stepsPrefix: amd-steps;
+
+.@{stepsPrefix} {
+  display: flex;
+  overflow: hidden;
+  background-color: @color-fill-grey-inverse;
+  &-horizontal {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  &-vertical {
+    display: block;
+    padding: 64 * @rpx;
+  }
+  &-item:last-child &-item-indicator-vertical::after {
+    display: none;
+    }
+}
+
+.amd-steps-item-vertical:last-child {
+  padding-bottom: 0;
+}

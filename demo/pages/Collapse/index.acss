@@ -1,0 +1,15 @@
+.item-content {
+  font-size: 34rpx;
+  color: #333;
+  line-height: 48rpx;
+  background-color: white;
+}
+.collapse-disable{
+  margin: 24rpx 0;
+  font-size: 34rpx;
+  color: #333;
+  line-height: 48rpx;
+}
+.amd-icon{
+  font-size: 22px;
+}

@@ -1,0 +1,35 @@
+<form onValuesChange="onValuesChange" form="{{form}}" initialValues="{{initVal}}">
+  
+  <form-group 
+    radius="{{true}}" 
+    header="input">
+    <form-item 
+      label="input1" 
+      labelWidth="110px"
+      form="{{form}}" 
+      name="input1">
+      <input mode="form"/>
+    </form-item>
+  </form-group>
+  
+  <form-group 
+    radius="{{true}}" 
+    header="input">
+    <form-item 
+      label="input2"
+      labelWidth="110px" 
+      form="{{form}}" 
+      name="input2">
+      <input mode="form"/>
+    </form-item>
+  </form-group>
+  
+</form>
+
+<view class="changedFields">
+  changedFields: {{changedFields}}
+</view>
+
+<view class="allFields">
+  allFields: {{allFields}}
+</view>

@@ -1,0 +1,3 @@
+<view class="{{className}} amd-safe-area {{position === 'both' ? 'amd-safe-area-top amd-safe-area-bottom' : position==='bottom' ? 'amd-safe-area-bottom' : 'amd-safe-area-top'}}">
+    <slot/>
+</view>

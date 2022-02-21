@@ -1,0 +1,84 @@
+<view>
+  <dialog
+    title="标题单行"
+    content="标题内容"
+    buttonText="{{['长文案主操作', '更多','取消']}}"
+    visible="{{isVerticalShow}}"
+    direction="vertical"
+    maskClosable="{{true}}"
+    onClose="onVerticalClose"
+    onButtonTap="onVerticalButtonTap">
+  </dialog>
+
+  <dialog
+    title="标题单行"
+    content="标题内容"
+    buttonText="{{['辅助操作', '主操作']}}"
+    visible="{{isHoriShow}}"
+    maskClosable="{{true}}"
+    direction="horizontal"
+    onClose="onHoriClose"
+    onButtonTap="onHoriButtonTap"/>
+
+  <dialog
+    title="标题单行"
+    content="标题内容"
+    buttonText="{{['辅助操作', '主操作']}}"
+    visible="{{isCusDialogShow}}"
+    maskClosable="{{true}}"
+    direction="horizontal"
+    onClose="onCusClose"
+    onButtonTap="onHoriButtonTap">
+    <view class="input-container">
+      <input-item placeholder="给朋友留言"></input-item>
+    </view>
+  </dialog>
+
+  <dialog
+    title="标题单行"
+    content="标题内容"
+    buttonText="{{['辅助操作', '主操作']}}"
+    imageSize="medium"
+    image="{{url}}" 
+    visible="{{isSImgDialogShow}}" 
+    maskClosable="{{true}}"
+    direction="horizontal"
+    onClose="onSImgClose"
+    onButtonTap="onHoriButtonTap"/>
+
+  <dialog
+    title="标题单行"
+    content="标题内容"
+    buttonText="{{['辅助操作', '主操作']}}"
+    imageSize="large"
+    image="{{url}}" 
+    visible="{{isMImgDialogShow}}" 
+    maskClosable="{{true}}"
+    direction="horizontal"
+    onClose="onMImgClose"
+    onButtonTap="onHoriButtonTap"/>
+
+  <dialog
+    title="标题单行"
+    content="标题内容"
+    buttonText="{{['辅助操作', '主操作']}}"
+    imageSize="x-large"
+    image="{{url}}" 
+    visible="{{isLImgDialogShow}}" 
+    maskClosable="{{true}}"
+    direction="horizontal"
+    onClose="onLImgClose"
+    onButtonTap="onHoriButtonTap"/>
+  
+  <button class="space" onTap="openVertical">纵向</button>
+  
+  <button class="space" onTap="openHori">横向</button>
+
+  <button class="space" onTap="openCus">自定义组件</button>
+  
+  <button class="space" onTap="openSImg">带小图</button>
+  
+  <button class="space" onTap="openMImg">带中图</button>
+
+  <button class="space" onTap="openLImg">带大图</button>
+</view>

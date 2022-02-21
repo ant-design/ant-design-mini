@@ -1,0 +1,8 @@
+{
+  "enableAppxNg": true,
+  "miniprogramRoot": "demo",
+  "axmlStrictCheck": true,
+  "component2": true,
+  "exclude": ["dist/**/*"],
+  "enableNodeModuleBabelTransform": true
+}

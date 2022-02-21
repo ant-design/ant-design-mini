@@ -1,0 +1,37 @@
+<view>
+  <result title="{{title}}"
+    message="{{message}}"
+    type="{{type}}"
+    image="{{image}}"
+    buttons="{{buttons}}"
+    onButtonTap="buttonTap">
+    <view slot="image"
+      a:if="{{type === '' && image === ''}}"
+      style="width: 50px;height: 50px;margin: 0 auto 24rpx;background-color: red;border-radius: 50%;">slot image</view>
+    <view slot="message">这里是通过 <text style="color: red;">slot</text> 插槽加入的内容，加入更多自定义内容。</view>
+  </result>
+  <view style="padding: 24rpx;">
+    <radio-group class="radio-group"
+      onChange="radioChange"
+      name="lib">
+      <label class="radio"
+        a:for="{{items}}"
+        key="label-{{index}}">
+        <radio value="{{item.name}}"
+          checked="{{item.checked}}" />
+        <text class="radio-text">{{item.value}}</text>
+      </label>
+    </radio-group>
+    <view style="padding:24rpx 0;font-weight: bold;">标题</view>
+    <input value="{{title}}"
+      onInput="titleChange"
+      style="padding: 8rpx 16rpx;font-size: 30rpx;border: 1px solid #eee;" />
+    <view style="padding:24rpx 0;font-weight: bold;">描述</view>
+    <textarea value="{{message}}"
+      onInput="subtitleChange"
+      style="margin-bottom: 24rpx;padding: 16rpx 16rpx 50rpx;font-size: 30rpx;border: 1px solid #eee;" />
+    <view class="showBtn">
+      <checkbox onChange='onChange' id="showBtn" /><label for="showBtn" class="btnLabel">显示按钮</label>
+    </view>
+  </view>
+</view>

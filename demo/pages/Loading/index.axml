@@ -1,0 +1,30 @@
+type: mini
+<loading type="mini"></loading>
+
+type: spin
+<view>
+  
+<loading size="x-large" />
+
+<loading text="加载中" size="large" />
+
+<loading delay="{{3500}}" text="3500ms 后出现" />
+
+<whitespace/>
+
+<view class="theme">
+  <loading size="x-large" theme="light" />
+  <loading text="加载中" size="large" theme="light" />
+  <loading delay="{{3500}}" text="3500ms 后出现" theme="light" />
+</view>
+
+<whitespace/>
+
+<loading text="自定义加载">
+  <am-icon slot="indicator"
+    type="HeartFill" />
+</loading>
+
+<whitespace/>
+
+</view>

@@ -1,0 +1,16 @@
+<view 
+  class="pickerTips"
+  onTap="openPicker">当前选择的元素：
+  <picker cols="{{3}}"
+    className="pickerItem"
+    disabled="{{false}}"
+    onFormat="formatValue"
+    onDismiss="cancelPicker"
+    onOk="getPikcerValue"
+    value="{{value}}"
+    onChange="changePikcer"
+    pickerholder="请选择"
+    data="{{pickerList}}">
+    <view slot="title"><text style="color: red;">Picker</text> 选择器</view>
+  </picker>
+</view>

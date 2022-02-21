@@ -1,0 +1,3 @@
+<view class="amd-steps amd-steps-{{direction}} {{className ? className : ''}}" onTap="onChange">
+  <slot />
+</view>

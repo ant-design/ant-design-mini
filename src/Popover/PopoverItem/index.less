@@ -1,0 +1,58 @@
+@import (reference) "../variable.less";
+@import "../../style/mixins/hairline.less";
+
+@popoverItemPrefix: amd-popover-item;
+
+.@{popoverItemPrefix} {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 290 * @rpx;
+  padding: 26 * @rpx 40 * @rpx;
+  white-space: nowrap;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 30 * @rpx;
+  .hairline-popover("bottom", #333);
+  &:last-child::before,
+  &:last-child::after {
+    display: none;
+  }
+  &-hover {
+    background-color: #333;
+  }
+  &-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48 * @rpx;
+    height: 48 * @rpx;
+    margin-right: 16 * @rpx;
+    overflow: hidden;
+    text-align: left;
+    .amd-icon {
+      display: flex;
+      align-items: center;
+      font-size: 32 * @rpx;
+      color: #fff;
+    }
+    &-item {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      &-image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &:empty {
+      display: none;
+    }
+  }
+  &-text {
+    color: #fff;
+    font-size: 30 * @rpx;
+    font-family: PingFangSC-Regular;
+  }
+}

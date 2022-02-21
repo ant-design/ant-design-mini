@@ -1,0 +1,26 @@
+.demo-popover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 450px;
+}
+
+.demo-popover-btn {
+  width: 80px;
+  height: 40px;
+  padding: 20px 10px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+}
+
+.demo-btn-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.demo-btn {
+  width: 45%;
+}

@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Picker",
+  "usingComponents": {
+    "picker": "../../../src/Picker/index"
+  }
+}

@@ -1,0 +1,81 @@
+<view>
+  <modal
+    title="基础弹窗功能"
+    visible="{{isBaseModalShow}}"
+    content="说明提示用户解决方案。"
+    mainButtonText="主按钮"
+    addonButtonText="辅助按钮"
+    maskClosable="{{true}}"
+    onClose="closeBaseModal"
+    onButtonTap="onButtonTap">
+  </modal>
+
+  <modal 
+    title="自定义弹框内容"
+    content="说明提示用户解决方案。"
+    visible="{{isCustomModalShow}}"
+    onClose="closeCustomModal"   
+    mainButtonText="主按钮"
+    addonButtonText="辅助按钮"
+    maskClosable="{{true}}"
+    onButtonTap="onButtonTap">
+      <slider value="5" step="5" />
+  </modal>
+
+  <modal 
+    title="过渡动画关闭"
+    duration="{{0}}"
+    visible="{{isDurationModalShow}}"
+    content="组件 duration 值为0" 
+    onClose="closeDurationModal"
+    onButtonTap="onButtonTap">
+  </modal>
+
+  <modal 
+    title="带图弹窗-小图"
+    imageSize="medium"
+    image="{{url}}"
+    visible="{{isSImgModalShow}}" 
+    content="说明提示用户解决方案。" 
+    mainButtonText="主按钮"
+    addonButtonText="辅助按钮"
+    onClose="closeSImgModal"
+    onButtonTap="onButtonTap">
+  </modal>
+
+  <modal 
+    title="带图弹窗-中图"
+    imageSize="large"
+    image="{{url}}" 
+    visible="{{isMImgModalShow}}" 
+    content="说明提示用户解决方案。"
+    mainButtonText="主按钮"
+    addonButtonText="辅助按钮"
+    onClose="closeMImgModal"
+    onButtonTap="onButtonTap">
+  </modal>
+
+  <modal 
+  title="带图弹窗-大图"
+  imageSize="x-large"
+  image="{{url}}" 
+  visible="{{isLImgModalShow}}" 
+  content="说明提示用户解决方案。"
+  mainButtonText="主按钮"
+  addonButtonText="辅助按钮"
+  onClose="closeLImgModal"
+  onButtonTap="onButtonTap">
+</modal>
+
+  <button class="space" onTap="openBaseModal">基础文本弹窗</button>
+
+  <button class="space" onTap="openDurationModal">过渡动画关闭</button>
+
+  <button class="space" onTap="openCustomModal">自定义弹框内容</button>
+
+  <button class="space" onTap="openSImgModal">带图弹窗-小图</button>
+
+  <button class="space" onTap="openMImgModal">带图弹窗-中图</button>
+
+  <button class="space" onTap="openLImgModal">带图弹窗-大图</button>
+</view>

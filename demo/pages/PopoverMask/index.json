@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "PopoverBase",
+  "usingComponents": {
+    "popover": "../../../src/Popover/index",
+    "popover-item": "../../../src/Popover/PopoverItem/index"
+  }
+}

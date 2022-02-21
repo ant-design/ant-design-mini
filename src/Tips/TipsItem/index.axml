@@ -1,0 +1,27 @@
+<view class="amd-tips-content amd-tips-content-{{buttonPosition}}">
+  <view class="amd-tips-content-core">
+    <image 
+      a:if="{{image}}"
+      class="amd-tips-image"
+      src="{{image}}" />
+      <view class="amd-tips-title">{{title}}</view>
+  </view>
+  <view class="amd-tips-button-container amd-tips-button-container-{{buttonPosition}}">
+    <button 
+    a:if="{{buttonText}}"
+    className="amd-tips-button"
+    inline="{{true}}"
+    inlineSize="small"
+    onTap="onButtonTap">
+      {{buttonText}}
+  </button>
+  </view>
+</view>
+<view 
+  a:if="{{showClose}}"
+  class="amd-tips-close">
+  <icon 
+    type="CloseOutline"
+    size="x-small"
+    onTap="onHideTips" />
+</view>

@@ -1,0 +1,31 @@
+<view 
+  a:for="{{items}}"
+  class="list-like" 
+  index="{{index}}" >
+  <badge 
+    type="{{item.type}}" 
+    text="{{item.text}}"
+    iconType="{{item.iconType}}"
+    position="{{item.position}}">
+      <view class="inner"/>
+  </badge>
+  <text class="intro">{{item.info}}</text>
+</view>
+
+<view class="title">
+ 带有描边，stroke: true
+</view>
+<view 
+  a:for="{{items}}"
+  class="list-like-black" 
+  index="{{index}}" >
+  <badge 
+    type="{{item.type}}" 
+    text="{{item.text}}"
+    iconType="{{item.iconType}}"
+    position="{{item.position}}"
+    stroke="true">
+      <view class="inner"/>
+  </badge>
+  <text class="intro">{{item.info}}</text>
+</view>
