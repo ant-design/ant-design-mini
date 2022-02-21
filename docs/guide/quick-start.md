@@ -8,7 +8,7 @@ toc: false
 
 1. 安装依赖
 ``` bash
-$ npm i antd-mini -S
+$ npm i antd-mini@beta -S
 ```
 <br>
 

@@ -8,7 +8,10 @@ export default () => {
       <div className={styles.main}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <h1 className={styles.title}>Ant Design Mini</h1>
+            <div className={styles.title}>
+              <img src={"https://gw.alipayobjects.com/zos/bmw-prod/a6c49477-1376-46d3-bcc0-8d0459c8c475.svg"} width={289} height={46}>
+              </img>
+            </div>
             <p className={styles.description}>
               {'支付宝小程序 UI 组件库'}
             </p>
@@ -85,9 +88,9 @@ export default () => {
             <li>钉钉交流反馈群</li>
             <li>
               <img
-                src="https://gw.alipayobjects.com/mdn/rms_e06820/afts/img/A*YzmtQ7jTWtAAAAAAAAAAAAAAARQnAQ"
+                src="https://gw.alipayobjects.com/mdn/rms_e06820/afts/img/A*zqzbSY14uy8AAAAAAAAAAAAAARQnAQ"
                 alt='ding-group'
-                width={240}
+                width={140}
               />
             </li>
           </ul>

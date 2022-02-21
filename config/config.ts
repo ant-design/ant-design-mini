@@ -1,7 +1,7 @@
 export default {
   title:" ",
   favicon: 'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
-  logo: 'https://gw.alipayobjects.com/zos/bmw-prod/ee73c8e3-3932-417a-aa39-4b4b642d5b3a.svg',
+  logo: 'https://gw.alipayobjects.com/zos/bmw-prod/d1971355-ffff-44ef-9e20-1bc9a237d463.svg',
   outputPath: 'docs-dist',
   locales: [['zh', '中文']],
   mode: 'site',
