@@ -1,14 +1,24 @@
 export default {
-  title:" ",
+  title: " ",
   favicon: 'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
   logo: 'https://gw.alipayobjects.com/zos/bmw-prod/d1971355-ffff-44ef-9e20-1bc9a237d463.svg',
   outputPath: 'docs-dist',
   locales: [['zh', '中文']],
   mode: 'site',
   hash: true,
-  plugins: ['./plugin/index.ts'],
-  headScripts: [{ src: 'https://gw.alipayobjects.com/os/lib/ali/mini-simulator/9.1.5/dist/index.js' }],
-  styles:[`
+  plugins: ['./plugin/index.ts','./docs/mobile/index.ts'],
+  headScripts: [
+    { src: 'https://unpkg.com/current-device/umd/current-device.min.js' },
+    { src: 'https://gw.alipayobjects.com/os/lib/ali/mini-simulator/9.1.5/dist/index.js' }
+  ],
+  scripts:[
+    `
+    if(device.mobile() && !window.location.pathname.startsWith('/mobile')){
+      window.location.href="/mobile"
+    }
+    `
+  ],
+  styles: [`
   #root .__dumi-default-navbar {
     padding-left: 32px;
   }
