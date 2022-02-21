@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.2-beta.1",
   "scripts": {
     "dev": "minidev dev --less --typescript --no-source-map",
     "build": "npm run build:component && npm run build:site",
