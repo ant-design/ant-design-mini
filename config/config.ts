@@ -19,6 +19,9 @@ export default {
     box-shadow: none;
     border-bottom: 1px solid #ebedf1;
   }
+  #root .__dumi-default-device[data-device-type="iOS"] {
+    display: none;
+  }
   `],
   navs: {
     zh: [
