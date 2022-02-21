@@ -1,12 +1,19 @@
 /** @format */
 import { Parser } from "./parse";
-export function text(parser: Parser) {
+export function text(parser: Parser, tag = false) {
   const start = parser.index++;
 
-  while (parser.index < parser.template.length && !parser.startWith("<")) {
+  while (
+    parser.index < parser.template.length &&
+    !parser.startWith("<") &&
+    !parser.startWith("{")
+  ) {
     parser.index++;
   }
 
+  if (tag) {
+    return;
+  }
   const node = {
     start,
     end: parser.index,

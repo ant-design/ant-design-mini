@@ -1,8 +1,9 @@
 /** @format */
+import { Node as acronNode } from "acorn";
 
 export type TAttribute = {
   attrName: string;
-  attrValue: string | true | undefined;
+  attrValue: boolean | undefined | INode[];
   start: number;
   end: number;
 };
@@ -14,6 +15,7 @@ export interface INode {
   children: INode[];
   content: string | undefined;
   attribute: TAttribute[];
+  expression?: acronNode;
 }
 
 export interface IParser {

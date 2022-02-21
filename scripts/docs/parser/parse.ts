@@ -65,4 +65,13 @@ export class Parser implements IParser {
       this.index++;
     }
   }
+  readBetween(str: string) {
+    const start = this.index++;
+    while (this.index < this.template.length) {
+      if (this.template[this.index++] === str) {
+        break;
+      }
+    }
+    return this.template.slice(start + 1, this.index - 1);
+  }
 }

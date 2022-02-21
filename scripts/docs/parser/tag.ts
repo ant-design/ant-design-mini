@@ -1,7 +1,6 @@
-/** @format */
 import { Parser } from "./parse";
 import type { INode, TAttribute } from "./types/index";
-
+import { mustache } from "./mustache";
 export function tag(parser: Parser) {
   const parentNode = parser.getCurrentNode();
   const start = parser.index++;
@@ -63,7 +62,12 @@ function parseAttr(parser: Parser): TAttribute | null {
   const start = parser.index;
   const attrName = parserAttrName(parser);
   if (!attrName) return null;
-  const attrValue = parseAttrValue(parser);
+  const rawAttrValue = parseRawAttrValue(parser);
+
+  const attrValue =
+    typeof rawAttrValue === "string"
+      ? parseAttrValue(rawAttrValue)
+      : rawAttrValue;
   return {
     start,
     attrName,
@@ -76,10 +80,16 @@ function parserAttrName(parser: Parser) {
   return parser.readBefore(/[=\s/>]/);
 }
 
-function parseAttrValue(parser: Parser) {
+function parseRawAttrValue(parser: Parser) {
   if (parser.eat("=")) {
-    return parser.readBefore(/[\s>/\r\n\t]/);
+    parser.eatWhiteSpace();
+    return parser.readBetween('"') || parser.readBetween("'");
   } else {
     return true;
   }
+}
+
+function parseAttrValue(rawAttrValue: string): INode[] {
+  const parser = new Parser(rawAttrValue);
+  return parser.fragment.children;
 }

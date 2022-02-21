@@ -12,7 +12,7 @@
     "lint:code:fix": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\" --fix",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "prepublishOnly": "npm run build:component",
-    "test": "jest"
+    "test": "jest -u"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
@@ -38,9 +38,11 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
     "@mini-types/alipay": "^1.0.2",
+    "@types/acorn": "^4.0.6",
     "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
+    "acorn": "^8.7.0",
     "alipay-style": "^0.1.0",
     "axios": "^0.24.0",
     "chalk": "^4.1.0",

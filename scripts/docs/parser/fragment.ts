@@ -10,8 +10,8 @@ export function fragment(
   if (parser.startWith("<")) {
     return tag;
   }
-  // if (parser.eat("{")) {
-  //   return mustache;
-  // }
+  if (parser.startWith("{")) {
+    return mustache;
+  }
   return text;
 }
