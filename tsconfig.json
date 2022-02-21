@@ -8,9 +8,20 @@
     "jsx": "react",
     "moduleResolution": "node",
     "noImplicitThis": true,
-    "types": ["@mini-types/alipay"]
+    "strict": true,
+    "types": [
+      "@mini-types/alipay",
+      "jest"
+    ]
   },
-  "lib": ["ES2015"],
-  "include": ["**/*"],
-  "exclude": ["node_modules","src/**/*.js"]
+  "lib": [
+    "ES2015"
+  ],
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/*.js"
+  ]
 }
