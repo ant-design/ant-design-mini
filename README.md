@@ -7,7 +7,7 @@
 ![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mini)
 
 ```bash
-$ npm i antd-mini@beta -S
+$ npm i antd-mini -S
 ```
 
 antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。你可以扫描下方的支付宝二维码体验，或者访问[官网](https://mini.ant.design/)以获取更多信息。
