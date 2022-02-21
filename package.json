@@ -2,11 +2,11 @@
   "name": "antd-mini",
   "version": "0.0.1-alpha.2",
   "scripts": {
-    "dev": "minidev dev --less --typescript",
+    "dev": "minidev dev --less --typescript --no-source-map",
     "build": "npm run build:component && npm run build:site",
     "build:component": "NODE_ENV=production node scripts/compile.js",
     "build:site": "dumi build",
-    "build:demo": "minidev build --output=$PWD/dist --typescript --less",
+    "build:demo": "minidev build --output=$PWD/dist --typescript --less --no-source-map",
     "deploy:docs": "gh-pages -d docs-dist",
     "lint:code": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\"",
     "lint:code:fix": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\" --fix",
