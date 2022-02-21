@@ -53,7 +53,7 @@ export function getRenderProps(path: string) {
           appCdnBaseUrl: `http://localhost:${process.argv[3]}/`,
           pages,
         }
-      : { tarUrl: `${process.argv[3]}`, pages };
+      : { appCdnBaseUrl:"https://gw.alipayobjects.com/os/gzmsfesa-sffminipkg_prod/package/alipay/com_alipay_alipaywallet/2021001172665758/0_1_2202171349_9/", pages };
 
   return props;
 }
