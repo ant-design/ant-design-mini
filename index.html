@@ -23,13 +23,14 @@
         border-bottom: 1px solid #ebedf1;
       }
     </style>
-    <link rel="stylesheet" href="/umi.b8cf07a1.css" />
+    <link rel="stylesheet" href="/umi.8f7b3507.css" />
     <script>
       window.routerBase = "/";
     </script>
     <script>
       //! umi version: 3.5.20
     </script>
+    <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
     <script src="https://gw.alipayobjects.com/os/lib/ali/mini-simulator/9.1.5/dist/index.js"></script>
     <script>
       !(function () {
@@ -46,6 +47,11 @@
   <body>
     <div id="root"></div>
 
-    <script src="/umi.494f779a.js"></script>
+    <script>
+      if (device.mobile() && !window.location.pathname.startsWith("/mobile")) {
+        window.location.href = "/mobile";
+      }
+    </script>
+    <script src="/umi.f585004a.js"></script>
   </body>
 </html>
