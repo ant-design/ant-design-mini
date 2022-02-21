@@ -82,14 +82,9 @@ exports.default = (function (props) {
     let simulator;
     const propsDeferer = new Promise(((resolve) => {
       if (process.env.NODE_ENV === 'development') {
-        // dev 环境用 transformer 返回的本地地址
         resolve({ appCdnBaseUrl: props.appCdnBaseUrl });
       } else {
-        // prod 环境用 render.alipay.com 302 后的 CDN 地址，避免云构建解压报错
-        // @ts-ignore
-        window.fetch(`${window.publicPath}ng-main.tar`, { method: 'HEAD' }).then((res) => {
-          resolve({ tarUrl: res.url });
-        });
+        resolve({ appCdnBaseUrl: "https://gw.alipayobjects.com/os/gzmsfesa-sffminipkg_prod/package/alipay/com_alipay_alipaywallet/2021001172665758/0_1_2202171349_9/"})
       }
     }));
     // 等待 props 获取
