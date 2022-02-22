@@ -10,7 +10,7 @@ export function fragment(
   if (parser.startWith("<")) {
     return tag;
   }
-  if (parser.startWith("{")) {
+  if (parser.startWith("{{")) {
     return mustache;
   }
   return text;

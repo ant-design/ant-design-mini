@@ -6,7 +6,6 @@ import { IBaseProps, IconType } from '../_base';
  * 常用于表单提交、界面跳转、模块引导点击。具体用法和小程序框架中 button 保持一致，在 button 基础上做了样式的封装。
  * 封装后的按钮可改变按钮形态、增加 loading，以及内置了几种不同样式的按钮。
  */
-
 export interface IButtonProps extends IBaseProps {
   /**
    * @description 按钮类型

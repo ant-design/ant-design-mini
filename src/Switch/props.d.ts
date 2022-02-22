@@ -1,8 +1,8 @@
 import { IBaseFormItemPropsWithOutFocus } from '../_base';
+
 /**
  * @description 开关。
  */
-
 export interface ISwitchProps extends IBaseFormItemPropsWithOutFocus<boolean> {
   /**
    * @description 是否勾选
@@ -19,4 +19,5 @@ export interface ISwitchProps extends IBaseFormItemPropsWithOutFocus<boolean> {
   */
   size?: 'medium' | 'small' | 'x-small';
 }
+
 export declare const SwitchDefaultProps: Partial<ISwitchProps>;

@@ -30,3 +30,14 @@ export interface IParser {
   eatWhiteSpace: () => void;
   startWith: (str: string) => boolean;
 }
+
+/**
+ * 生成 markdown 文件的资源
+ */
+export interface IResource {
+  slot: { key: string, value: string }[][],
+  class: string[],
+  addSlot: (val: { key: string, value: string }[]) => void
+  addClass: (val: string[]) => void,
+  reset:()=>void
+}

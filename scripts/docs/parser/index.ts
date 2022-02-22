@@ -1,2 +1,1 @@
-/** @format */
-import { Parser } from "./parse";
+export * from './axml'

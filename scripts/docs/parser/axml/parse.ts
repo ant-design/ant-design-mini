@@ -1,11 +1,16 @@
 /** @format */
-import { INode, IParser } from "./types/index";
+import { INode, IParser,IResource } from "../../types/index";
 import { fragment } from "./fragment";
+import {Resource} from "../../resource/index"
 export class Parser implements IParser {
+
   template: string;
   stack: INode[];
   index: number;
   fragment: INode;
+
+  public static resource = new Resource()
+
   constructor(template: string) {
     this.template = template;
     this.index = 0;
