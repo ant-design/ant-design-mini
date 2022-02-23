@@ -17,7 +17,7 @@ antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。你可
 目前还在不断完善和打磨中，如果你想在生产环境接入使用，请**务必仔细阅读[常见问题和解答](/docs/guide/faq.md)**。
 
 
-如果你发现了 bug 或者是希望 antd-mini 增加一些特性，可以[提交 issue](https://github.com/ant-design/ant-design-mini/issues)。也欢迎参与共建，这里有一份[贡献指南](https://github.com/ant-design/ant-design-mini/blob/main/docs/guide/contribute.md)。
+如果你发现了 bug 或者是希望 antd-mini 增加一些特性，可以[提交 issue](https://github.com/ant-design/ant-design-mini/issues)。也欢迎参与共建，这里有一份[贡献指南](/CONTRIBUTE.md)。
 
 如果你想深入参与讨论，可以加入我们的社区钉钉群：35097715
 
