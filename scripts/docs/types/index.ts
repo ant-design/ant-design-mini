@@ -41,3 +41,15 @@ export interface IResource {
   addClass: (val: string[]) => void,
   reset:()=>void
 }
+
+export interface IDocsAPI {
+  description: string,
+  default: string,
+  name: string,
+  types: string
+}
+
+export interface IDocsRes {
+  description:string | undefined,
+  apis:IDocsAPI[] | undefined
+}

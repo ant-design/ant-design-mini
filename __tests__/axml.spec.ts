@@ -42,7 +42,7 @@ describe("axml parse", () => {
   it("parse component", ()=>{
     const fs = require("fs")
     const template = fs.readFileSync(`${process.cwd()}/src/Form/FormItem/index.axml`, 'utf-8')
-    const parser = parse(template);
-    console.log(Parser.resource.class, Parser.resource.slot)
+    parse(template);
+    expect(JSON.stringify(Parser.resource)).toMatchSnapshot()
   })
 });
