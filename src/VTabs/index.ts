@@ -1,7 +1,7 @@
 import { VTabsDefaultProps } from './props';
 import { getTabArray, componentContext } from './context';
 import { objectValues } from '../_util/tools';
-import { IBoundingClientRect } from "../_base"
+import { IBoundingClientRect, IScrollOffset } from "../_base"
 
 Component({
   props: VTabsDefaultProps,
@@ -73,7 +73,7 @@ Component({
           .select(`#amd-vtabs-content-slides-${this.$id}`)
           .scrollOffset()
           .exec((ret) => {
-            resolve((<my.ScrollOffset>ret[0]).scrollTop);
+            resolve((<IScrollOffset>ret[0]).scrollTop);
           });
       });
 

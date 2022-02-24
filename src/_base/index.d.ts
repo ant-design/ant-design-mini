@@ -67,3 +67,7 @@ export interface IBoundingClientRect {
    */
   height: number;
 }
+
+export interface IScrollOffset {
+  scrollTop: number
+}
