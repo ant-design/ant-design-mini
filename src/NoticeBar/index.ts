@@ -1,5 +1,6 @@
 import { NoticeBarDefaultProps } from './props';
 import { log } from '../_util/console';
+import { IBoundingClientRect } from "../_base"
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop = () => { };
@@ -129,8 +130,8 @@ Component({
           .boundingClientRect()
           .exec((ret) => {
             // eslint-disable-next-line max-len
-            const _overflowWidth = (ret && ret[0] && ret[1] && ((<my.IBoundingClientRect>ret[0]).width - (<my.IBoundingClientRect>ret[1]).width)) || 0;
-            const _viewWidth = (<my.IBoundingClientRect>ret[1])?.width || 0;
+            const _overflowWidth = (ret && ret[0] && ret[1] && ((<IBoundingClientRect>ret[0]).width - (<IBoundingClientRect>ret[1]).width)) || 0;
+            const _viewWidth = (<IBoundingClientRect>ret[1])?.width || 0;
             let marqueeScrollWidth = _overflowWidth;
             if (loop) {
               marqueeScrollWidth = _overflowWidth + _viewWidth;
