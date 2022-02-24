@@ -1,7 +1,8 @@
 /** @format */
-import { INode, IParser,IResource } from "../../types/index";
+import { INode, IParser } from "../../types/index";
 import { fragment } from "./fragment";
-import {Resource} from "../../resource/index"
+import { resource } from "../../resource/index"
+
 export class Parser implements IParser {
 
   template: string;
@@ -9,7 +10,7 @@ export class Parser implements IParser {
   index: number;
   fragment: INode;
 
-  public static resource = new Resource()
+  public static resource = resource;
 
   constructor(template: string) {
     this.template = template;

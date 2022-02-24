@@ -3,6 +3,7 @@ import traverse from "@babel/traverse"
 import generate from '@babel/generator';
 import * as t from '@babel/types';
 import { IDocsAPI, IDocsRes } from "../../types/index";
+import { Resource } from "../../resource";
 
 const fs = require("fs")
 const path_ = require("path")
@@ -15,16 +16,14 @@ function getContentByPath(filePath: string): string {
     return fs.readFileSync(filePath, 'utf-8')
 }
 
-export function getDocsRes(filePath: string) {
+export function getDocsRes(filePath: string, resource: Resource) {
     const content = getContentByPath(filePath)
     const ast = parse(content, {
         sourceType: 'module',
         plugins: ['typescript']
     })
     const target = getDefaultPropsTypeName(ast)
-    const docsRes: IDocsRes = { description: undefined, apis: [] }
-    getExtends(filePath, target, docsRes)
-    return docsRes;
+    getExtends(filePath, target, resource)
 }
 
 function getDefaultPropsTypeName(ast: ParseResult<t.File>) {
@@ -53,7 +52,7 @@ function getDefaultPropsTypeName(ast: ParseResult<t.File>) {
 }
 
 
-function getExtends(filePath: string, target: string, docsRes: IDocsRes, genTypes?: string[]) {
+function getExtends(filePath: string, target: string, resource: Resource, genTypes?: string[]) {
     const content = fs.readFileSync(filePath, 'utf-8') as string
     // TODO 类型精确一点
     // @ts-ignore 
@@ -71,9 +70,9 @@ function getExtends(filePath: string, target: string, docsRes: IDocsRes, genType
                 if (path.node.id.name === target) {
                     // 组件的描述
                     const potentialDes = path.parentPath.node.leadingComments?.[0].value
-                    if (potentialDes && !docsRes.description) {
+                    if (potentialDes && !resource.desc) {
                         const { description } = processComment(potentialDes)
-                        docsRes.description = description
+                        resource.addDesc(description)
                     }
 
                     // 获取泛型参数
@@ -89,7 +88,7 @@ function getExtends(filePath: string, target: string, docsRes: IDocsRes, genType
                             value: item.default
                         }
                     })
-                    
+
                     // 将泛型变量替换成真正的泛型的值
                     path.node.body.body.map(item => {
                         if (item.typeAnnotation?.start && item.typeAnnotation.end) {
@@ -113,11 +112,14 @@ function getExtends(filePath: string, target: string, docsRes: IDocsRes, genType
                                                 const newCode = `interface ITES { 
                                                 ${generate(item).code} 
                                                 }`
-                                                const api = processAPI(parse(newCode, {
+                                                const res = processAPI(parse(newCode, {
                                                     sourceType: 'module',
                                                     plugins: ['typescript']
                                                 }), newCode)
-                                                docsRes.apis?.push(api)
+                                                if(res){
+                                                    if(res[0]==="prop") resource.addApiProp(res[1])
+                                                    if(res[0]==="method") resource.addApiMethod(res[1])
+                                                }
                                             }
                                         }
                                     }
@@ -128,11 +130,14 @@ function getExtends(filePath: string, target: string, docsRes: IDocsRes, genType
                                 const newCode = `interface ITES { 
                                     ${generate(item).code} 
                                     }`
-                                const api = processAPI(parse(newCode, {
+                                const res = processAPI(parse(newCode, {
                                     sourceType: 'module',
                                     plugins: ['typescript']
                                 }), newCode)
-                                docsRes.apis?.push(api)
+                                if(res){
+                                    if(res[0]==="prop") resource.addApiProp(res[1])
+                                    if(res[0]==="method") resource.addApiMethod(res[1])
+                                }
                             }
                         }
                     })
@@ -152,7 +157,7 @@ function getExtends(filePath: string, target: string, docsRes: IDocsRes, genType
                                     }
                                     return 'any'
                                 })
-                                getExtends(res, item.expression.name, docsRes, genArray)
+                                getExtends(res, item.expression.name, resource, genArray)
                             }
                         })
                     }
@@ -195,17 +200,18 @@ function getExtendsPath(ast: ParseResult<t.File>, target: string, filePath: stri
  * 读取 API 的描述与默认值
  * @param node 需要处理的节点
  */
-function processAPI(ast: ParseResult<t.File>, content: string) {
-    const api: IDocsAPI = {
-        description: "",
-        default: "",
-        name: "",
-        types: ""
-    }
+function processAPI(ast: ParseResult<t.File>, content: string):['method' | 'prop', IDocsAPI] | void {
 
     const interfaceNode = ast.program.body[0]
 
     if (interfaceNode.type === "TSInterfaceDeclaration") {
+        const api: IDocsAPI = {
+            description: "",
+            default: "",
+            name: "",
+            types: ""
+        }
+        let nodeType: 'method' | 'prop' = 'prop'
         const node = interfaceNode.body.body[0]
         if (node.leadingComments) {
             const comment = node.leadingComments[0].value;
@@ -213,9 +219,7 @@ function processAPI(ast: ParseResult<t.File>, content: string) {
             api.description = description
             api.default = defaultValue
         }
-        // TODO 考虑两种写法
-        // a: () => void
-        // a() : void
+
         if (node.type === 'TSPropertySignature') {
             if (node.key.type === "Identifier") {
                 api.name = node.key.name
@@ -223,9 +227,16 @@ function processAPI(ast: ParseResult<t.File>, content: string) {
             if (node.typeAnnotation?.typeAnnotation.start && node.typeAnnotation?.typeAnnotation.end) {
                 api.types = content.slice(node.typeAnnotation?.typeAnnotation.start, node.typeAnnotation?.typeAnnotation.end)
             }
+            // TODO 考虑两种写法，可以通过 eslint 规定 只能 写 后一种类型
+            // a: () => void
+            // a() : void
+            if (node.typeAnnotation?.typeAnnotation.type === "TSFunctionType") {
+                nodeType = 'method'
+            }
         }
+        return [nodeType, api]
     }
-    return api
+
 }
 
 function processComment(comment: string) {

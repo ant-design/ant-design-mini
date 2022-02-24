@@ -40,7 +40,7 @@ export function text(parser: Parser) {
     children: [],
     attribute: []
   };
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   parser.getCurrentNode().children.push(node);
 }

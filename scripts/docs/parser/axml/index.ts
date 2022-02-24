@@ -1,3 +1,6 @@
-// get class name and slot name form axml file
 export * from "./parse";
+import { Parser } from "./parse";
 
+export function parse(template: string) {
+    return new Parser(template)
+}

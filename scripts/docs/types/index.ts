@@ -31,17 +31,6 @@ export interface IParser {
   startWith: (str: string) => boolean;
 }
 
-/**
- * 生成 markdown 文件的资源
- */
-export interface IResource {
-  slot: { key: string, value: string }[][],
-  class: string[],
-  addSlot: (val: { key: string, value: string }[]) => void
-  addClass: (val: string[]) => void,
-  reset:()=>void
-}
-
 export interface IDocsAPI {
   description: string,
   default: string,
@@ -49,7 +38,20 @@ export interface IDocsAPI {
   types: string
 }
 
+// export interface IDocsRes {
+//   description: string | undefined,
+//   apis: IDocsAPI[] | undefined
+// }
+
 export interface IDocsRes {
-  description:string | undefined,
-  apis:IDocsAPI[] | undefined
+  title: string;
+  desc: string;
+  api: {
+    prop?: IDocsAPI[],
+    method?: IDocsAPI[]
+  },
+  slot: Record<string,string>[][],
+  class: string[],
+  cssVar: string[],
+  tips?: string[]
 }

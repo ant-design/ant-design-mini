@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`less parse base 1`] = `
+Array [
+  "--am-mask-backgroundColor",
+  "--am-mask-market-backgroundColor",
+]
+`;

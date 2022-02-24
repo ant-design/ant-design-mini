@@ -1,6 +1,10 @@
 import { parse, Parser } from "../scripts/docs";
 
 describe("axml parse", () => {
+  beforeEach(()=>{
+    Parser.resource.reset();
+  })
+
   it("parse comment", () => {
     const parser = parse("<!-- d -->");
     expect(JSON.stringify(parser.fragment)).toMatchSnapshot();
