@@ -49,7 +49,10 @@ export default {
     box-shadow: none;
     border-bottom: 1px solid #ebedf1;
   }
-  a[title='站长统计'] {
+  a[title='站长统计']  {
+    display: none;
+  }
+  #root .__dumi-default-device[data-device-type="iOS"] {
     display: none;
   }
   `],
