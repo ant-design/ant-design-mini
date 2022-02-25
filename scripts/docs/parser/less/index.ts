@@ -1,11 +1,14 @@
 import { render } from "less";
 import * as csstree from "css-tree";
 import { Resource } from "../../resource";
+import { getConentByPath } from "../../utils/index";
+
 
 export async function getCssVar(componentPath: string, resource: Resource, prefix = '--am') {
-    const fs = require("fs");
+
     const entryPath = `${componentPath}/index.less`;
-    const content = fs.readFileSync(entryPath, 'utf-8') as string;
+    const content = getConentByPath(entryPath)
+    if(!content) return
     // 1. 编译成 css 
     const res = await render(content, { paths: [componentPath] });
     // 2. 提取 css 变量
@@ -16,7 +19,7 @@ export async function getCssVar(componentPath: string, resource: Resource, prefi
             if (context?.type === "Identifier") {
                 const name = context.name as string;
                 if (name.startsWith(prefix)) {
-                    resource.assCss(name)
+                    resource.addCss(name)
                 }
             }
         }

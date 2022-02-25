@@ -4,26 +4,19 @@ import generate from '@babel/generator';
 import * as t from '@babel/types';
 import { IDocsAPI, IDocsRes } from "../../types/index";
 import { Resource } from "../../resource";
+import { getConentByPath } from "../../utils"
 
-const fs = require("fs")
 const path_ = require("path")
 
-/**
- * @param filePath props.d.ts 路径
- * @returns 
- */
-function getContentByPath(filePath: string): string {
-    return fs.readFileSync(filePath, 'utf-8')
-}
-
 export function getDocsRes(filePath: string, resource: Resource) {
-    const content = getContentByPath(filePath)
+    const content = getConentByPath(`${filePath}/props.d.ts`)
+    if (!content) return
     const ast = parse(content, {
         sourceType: 'module',
         plugins: ['typescript']
     })
     const target = getDefaultPropsTypeName(ast)
-    getExtends(filePath, target, resource)
+    getExtends(`${filePath}/props.d.ts`, target, resource)
 }
 
 function getDefaultPropsTypeName(ast: ParseResult<t.File>) {
@@ -53,16 +46,15 @@ function getDefaultPropsTypeName(ast: ParseResult<t.File>) {
 
 
 function getExtends(filePath: string, target: string, resource: Resource, genTypes?: string[]) {
-    const content = fs.readFileSync(filePath, 'utf-8') as string
+    const content = getConentByPath(filePath) as string
     // TODO 类型精确一点
     // @ts-ignore 
     let genParams: any
-
     const ast = parse(content, {
         sourceType: 'module',
         plugins: ['typescript']
     })
-
+    
     traverse(ast, {
         TSInterfaceDeclaration(path) {
             if (path.node.id.type === "Identifier") {
@@ -103,10 +95,17 @@ function getExtends(filePath: string, target: string, resource: Resource, genTyp
                                                 const node = genParams?.find(li => li.name === genName)
 
                                                 if (node) {
+                                                    let type
+                                                    if (typeof node.value !== "string") {
+                                                        type = content.slice(node.value.start, node.value.end) || content.slice(node.default.start, node.default.end)
+                                                    } else {
+                                                        type = node.value || content.slice(node.default.start, node.default.end)
+                                                    }
+
                                                     // 泛型的变量名称
-                                                    const type = node.value || content.slice(node.default.start, node.default.end)
                                                     genItem.typeAnnotation.typeAnnotation.typeName.name = type
                                                 }
+
                                                 // 解析掉 泛型 生成新的 code
                                                 item.trailingComments = null
                                                 const newCode = `interface ITES { 
@@ -116,9 +115,10 @@ function getExtends(filePath: string, target: string, resource: Resource, genTyp
                                                     sourceType: 'module',
                                                     plugins: ['typescript']
                                                 }), newCode)
-                                                if(res){
-                                                    if(res[0]==="prop") resource.addApiProp(res[1])
-                                                    if(res[0]==="method") resource.addApiMethod(res[1])
+
+                                                if (res) {
+                                                    if (res[0] === "prop") resource.addApiProp(res[1])
+                                                    if (res[0] === "method") resource.addApiMethod(res[1])
                                                 }
                                             }
                                         }
@@ -134,9 +134,9 @@ function getExtends(filePath: string, target: string, resource: Resource, genTyp
                                     sourceType: 'module',
                                     plugins: ['typescript']
                                 }), newCode)
-                                if(res){
-                                    if(res[0]==="prop") resource.addApiProp(res[1])
-                                    if(res[0]==="method") resource.addApiMethod(res[1])
+                                if (res) {
+                                    if (res[0] === "prop") resource.addApiProp(res[1])
+                                    if (res[0] === "method") resource.addApiMethod(res[1])
                                 }
                             }
                         }
@@ -200,7 +200,7 @@ function getExtendsPath(ast: ParseResult<t.File>, target: string, filePath: stri
  * 读取 API 的描述与默认值
  * @param node 需要处理的节点
  */
-function processAPI(ast: ParseResult<t.File>, content: string):['method' | 'prop', IDocsAPI] | void {
+function processAPI(ast: ParseResult<t.File>, content: string): ['method' | 'prop', IDocsAPI] | void {
 
     const interfaceNode = ast.program.body[0]
 

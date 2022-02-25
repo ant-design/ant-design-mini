@@ -6,8 +6,8 @@ export class Resource implements IDocsRes {
     title: string;
     desc: string;
     api: {
-        prop?: IDocsAPI[],
-        method?: IDocsAPI[]
+        prop: IDocsAPI[],
+        method: IDocsAPI[]
     }
     cssVar: string[];
     tips: string[] | undefined;
@@ -18,7 +18,7 @@ export class Resource implements IDocsRes {
         this.tips = []
         this.title = ""
         this.desc = ""
-        this.api = {}
+        this.api = {prop:[],method:[]}
     }
     addApiProp(val: IDocsAPI){
         this.api.prop?.push(val)
@@ -32,7 +32,8 @@ export class Resource implements IDocsRes {
     addSlot(val: { key: string; value: string; }[]) {
         this.slot.push(val);
     }
-    assCss(val: string) {
+    addCss(val: string) {
+        
         this.cssVar.push(val);
     }
     addDesc(val:string){
@@ -45,9 +46,13 @@ export class Resource implements IDocsRes {
         this.tips?.push(val)
     }
     reset() {
-        this.class.length = 0;
-        this.slot.length = 0;
-        this.cssVar.length = 0;
+        this.class = []
+        this.slot = []
+        this.cssVar = []
+        this.tips = []
+        this.title = ""
+        this.desc = ""
+        this.api = {prop:[],method:[]}
     }
 }
 

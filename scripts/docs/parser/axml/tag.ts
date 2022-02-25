@@ -139,11 +139,12 @@ function collectClass(key: string, value: INode[]): string[] {
   return []
 }
 function processClassValue(value: INode[]): string[] {
-  const res = value.reduce((prev, cur, idx) => {
+  const res = value.reduce((prev, cur) => {
     if (cur.tagName === 'Text' && cur.content) {
       prev.push(cur.content)
     }
-    if(prev[prev.length-1].endsWith('-') && cur.tagName==='Mustache' && cur.content){
+
+    if(prev.length>1 &&prev[prev.length-1].endsWith('-') && cur.tagName==='Mustache' && cur.content){
       prev.push(`${prev[prev.length-1]}${cur.content}`)
     }
     if (cur.expression && cur.expression.type == "ConditionalExpression") {
