@@ -1,9 +1,10 @@
 import { IBaseProps } from '../_base';
+
 /**
  * @description 手风琴，内部由多个 CollapseItem 组成。
  */
-
 export interface ICollapseProps extends IBaseProps {
+  uid?: string;
   /**
    * @description 当前激活的索引
    * @default []
