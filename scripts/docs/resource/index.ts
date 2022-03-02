@@ -24,7 +24,7 @@ export class Resource implements IDocsRes {
         this.api.prop?.push(val)
     }
     addApiMethod(val: IDocsAPI){
-        this.api.method?.push(val)
+        this.api.method.push(val)
     }
     addClass(val: string[]) {
         this.class.push(...val);

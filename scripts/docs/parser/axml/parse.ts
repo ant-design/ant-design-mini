@@ -1,7 +1,7 @@
 /** @format */
 import { INode, IParser } from "../../types/index";
 import { fragment } from "./fragment";
-import { resource } from "../../resource/index"
+import { Resource } from "../../resource/index"
 
 export class Parser implements IParser {
 
@@ -9,10 +9,9 @@ export class Parser implements IParser {
   stack: INode[];
   index: number;
   fragment: INode;
+  resource: Resource;
 
-  public static resource = resource;
-
-  constructor(template: string) {
+  constructor(template: string, resource:Resource) {
     this.template = template;
     this.index = 0;
     this.fragment = {
@@ -24,7 +23,8 @@ export class Parser implements IParser {
       content: this.template,
     };
     this.stack = [this.fragment];
-
+    this.resource = resource;
+    
     this.eatWhiteSpace();
     let state = fragment;
 

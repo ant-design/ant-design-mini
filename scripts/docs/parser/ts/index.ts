@@ -2,7 +2,7 @@ import { parse, ParseResult } from "@babel/parser"
 import traverse from "@babel/traverse"
 import generate from '@babel/generator';
 import * as t from '@babel/types';
-import { IDocsAPI, IDocsRes } from "../../types/index";
+import { IDocsAPI } from "../../types/index";
 import { Resource } from "../../resource";
 import { getConentByPath } from "../../utils"
 
@@ -54,7 +54,7 @@ function getExtends(filePath: string, target: string, resource: Resource, genTyp
         sourceType: 'module',
         plugins: ['typescript']
     })
-    
+
     traverse(ast, {
         TSInterfaceDeclaration(path) {
             if (path.node.id.type === "Identifier") {
@@ -87,6 +87,7 @@ function getExtends(filePath: string, target: string, resource: Resource, genTyp
                             // 泛型变量
                             if (item.typeAnnotation.typeAnnotation.type === "TSFunctionType") {
                                 item.typeAnnotation.typeAnnotation.parameters.forEach(genItem => {
+                                    // console.log(JSON.stringify(genItem))
                                     if (genItem.typeAnnotation?.type === "TSTypeAnnotation") {
                                         if (genItem.typeAnnotation.typeAnnotation.type === "TSTypeReference") {
                                             if (genItem.typeAnnotation.typeAnnotation.typeName.type === "Identifier") {
@@ -102,47 +103,23 @@ function getExtends(filePath: string, target: string, resource: Resource, genTyp
                                                         type = node.value || content.slice(node.default.start, node.default.end)
                                                     }
 
-                                                    // 泛型的变量名称
+                                                    // 设置泛型的变量名称
                                                     genItem.typeAnnotation.typeAnnotation.typeName.name = type
                                                 }
-
-                                                // 解析掉 泛型 生成新的 code
-                                                item.trailingComments = null
-                                                const newCode = `interface ITES { 
-                                                ${generate(item).code} 
-                                                }`
-                                                const res = processAPI(parse(newCode, {
-                                                    sourceType: 'module',
-                                                    plugins: ['typescript']
-                                                }), newCode)
-
-                                                if (res) {
-                                                    if (res[0] === "prop") resource.addApiProp(res[1])
-                                                    if (res[0] === "method") resource.addApiMethod(res[1])
-                                                }
                                             }
-                                        }
+                                        } 
                                     }
                                 })
+                                // 统一解析处理，生成解析后的信息
+                                processTSProperty(item, resource)
                             } else {
-                                item.trailingComments = null
-                                // 随便拼装个接口，否则直接 parse 会报错
-                                const newCode = `interface ITES { 
-                                    ${generate(item).code} 
-                                    }`
-                                const res = processAPI(parse(newCode, {
-                                    sourceType: 'module',
-                                    plugins: ['typescript']
-                                }), newCode)
-                                if (res) {
-                                    if (res[0] === "prop") resource.addApiProp(res[1])
-                                    if (res[0] === "method") resource.addApiMethod(res[1])
-                                }
+                                // 属性
+                                processTSProperty(item, resource)
                             }
                         }
                     })
 
-                    // 获取继承的类型信息，继承多个的情况一般不会出现
+                    // 获取继承的类型信息，antd-mini 中继承多个的情况一般不会出现
                     // dfs 一下
                     if (path.node.extends) {
                         path.node.extends.forEach(item => {
@@ -221,6 +198,7 @@ function processAPI(ast: ParseResult<t.File>, content: string): ['method' | 'pro
         }
 
         if (node.type === 'TSPropertySignature') {
+            // console.log(JSON.stringify(node))
             if (node.key.type === "Identifier") {
                 api.name = node.key.name
             }
@@ -234,6 +212,7 @@ function processAPI(ast: ParseResult<t.File>, content: string): ['method' | 'pro
                 nodeType = 'method'
             }
         }
+        // console.log(JSON.stringify(node))
         return [nodeType, api]
     }
 
@@ -260,5 +239,24 @@ function processComment(comment: string) {
     return {
         description: res.description.replace('@description', '').trim(),
         defaultValue: res.default.replace('@default', '').trim()
+    }
+}
+
+function processTSProperty(ast: t.TSTypeElement, resource: Resource) {
+    ast.trailingComments = null
+    // 随便拼的，为了让 babel 解析
+    // TODO 优化
+    const newCode = `interface ITES { 
+    ${generate(ast).code} 
+    }`
+
+    const res = processAPI(parse(newCode, {
+        sourceType: 'module',
+        plugins: ['typescript']
+    }), newCode)
+
+    if (res) {
+        if (res[0] === "prop") resource.addApiProp(res[1])
+        if (res[0] === "method") resource.addApiMethod(res[1])
     }
 }

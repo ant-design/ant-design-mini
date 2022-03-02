@@ -14,25 +14,21 @@ export interface ITabsProps extends IBaseProps {
    * @description 当前激活的索引
    * @default 0
    */
-
   index?: number;
   /**
    * @description tab 切换时的回调
    */
-
   onChange?: (index: number) => void;
   /**
    * @description 是否有过渡动画
    * @default false
    */
-
   animation?: boolean;
   /**
    * @description 是否支持手势切换
    * @default false
    */
   swipeable?: boolean;
-
   /**
    * @description 是否支持吸顶
    * @default false

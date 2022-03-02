@@ -55,7 +55,7 @@ export function tag(parser: Parser) {
       }
       return prev
     }, [] as { key: string, value: string }[])
-    Parser.resource.addSlot(slot)
+    parser.resource.addSlot(slot)
   }
 
   parser.eatWhiteSpace();
@@ -87,7 +87,7 @@ function parseAttr(parser: Parser): TAttribute | null {
 
   if (typeof attrValue !== "boolean") {
     const res =  collectClass(attrName, attrValue)
-    Parser.resource.addClass(res)
+    parser.resource.addClass(res)
   }
 
   return {

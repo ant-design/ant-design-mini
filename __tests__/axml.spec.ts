@@ -1,12 +1,13 @@
-import { parse, Parser } from "../scripts/docs";
+import { parse } from "../scripts/docs";
+import { resource } from "../scripts/docs";
 
 describe("axml parse", () => {
-  beforeEach(()=>{
-    Parser.resource.reset();
+  beforeEach(() => {
+    resource.reset();
   })
 
-  it("parse component", ()=>{
-    parse(`${process.cwd()}/src/Dialog`);
-    console.log(JSON.stringify(Parser.resource));
+  it("parse component", () => {
+    parse(`${process.cwd()}/src/Tabs`, resource);
+    expect(JSON.stringify(resource)).toMatchSnapshot();
   })
 });
