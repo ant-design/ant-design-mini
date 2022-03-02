@@ -6,21 +6,35 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
     />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
     <link
       rel="shortcut icon"
       type="image/x-icon"
       href="https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg"
     />
     <style>
+      html {
+        touch-action: manipulation;
+      }
       #root .__dumi-default-navbar {
         padding-left: 32px;
       }
       #root .__dumi-default-navbar-logo {
         padding-left: 200px;
+        text-indent: -10000px;
       }
       #root .__dumi-default-navbar {
         box-shadow: none;
         border-bottom: 1px solid #ebedf1;
+      }
+      a[title="站长统计"] {
+        display: none;
+      }
+      #root .__dumi-default-device[data-device-type="iOS"] {
+        display: none;
       }
     </style>
     <link rel="stylesheet" href="/umi.8f7b3507.css" />
@@ -32,6 +46,7 @@
     </script>
     <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
     <script src="https://gw.alipayobjects.com/os/lib/ali/mini-simulator/9.1.5/dist/index.js"></script>
+    <script src="https://v1.cnzz.com/z_stat.php?id=1280900245&amp;web_id=1280900245"></script>
     <script>
       !(function () {
         var e = localStorage.getItem("dumi:prefers-color"),
@@ -48,10 +63,24 @@
     <div id="root"></div>
 
     <script>
+      var a = document.querySelector(".__dumi-default-navbar-logo");
+      a.innerHTML = "";
       if (device.mobile() && !window.location.pathname.startsWith("/mobile")) {
         window.location.href = "/mobile";
       }
     </script>
-    <script src="/umi.f585004a.js"></script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-WWGN4HC");
+    </script>
+    <script src="/umi.77e59a8d.js"></script>
   </body>
 </html>
