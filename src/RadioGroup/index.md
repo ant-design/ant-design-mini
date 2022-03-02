@@ -3,6 +3,7 @@ nav:
   path: /components
 group:
   title: 表单类组件
+  order: 3
 toc: false
 ---
 # RadioGroup

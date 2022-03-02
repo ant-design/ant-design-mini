@@ -3,6 +3,7 @@ nav:
   path: /components
 group:
   title: 数据展示
+  order: 1
 toc: false
 ---
 # Filter
