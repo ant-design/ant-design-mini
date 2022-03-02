@@ -4,6 +4,7 @@ import { getTabArray, componentContext } from './context';
 import { log } from '../_util/console';
 import { objectValues } from '../_util/tools';
 import { compareVersion } from '../_util/compareVersion';
+import { IBoundingClientRect } from "../_base"
 
 const canSwipeable = my.canIUse('swiper.disable-touch');
 const component2 = my.canIUse('component2');
@@ -59,18 +60,18 @@ Component({
         .boundingClientRect()
         .exec((ret) => {
           const { _tabsViewportWidth } = this.data;
-          if (!(<my.IBoundingClientRect>ret[0])) {
+          if (!(<IBoundingClientRect>ret[0])) {
             // 当获取到的索引值无法匹配时显示错误提示
             log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
           } else {
             // 正确的索引值在初次加载时高亮展示当前 tab
             // eslint-disable-next-line no-lonely-if
-            if ((<my.IBoundingClientRect>ret[0]).left > _tabsViewportWidth / 2) {
+            if ((<IBoundingClientRect>ret[0]).left > _tabsViewportWidth / 2) {
               this.setData({
                 _scrollLeft:
-                (<my.IBoundingClientRect>ret[0]).left -
+                (<IBoundingClientRect>ret[0]).left -
                 _tabsViewportWidth / 2 +
-                (<my.IBoundingClientRect>ret[0]).width / 2,
+                (<IBoundingClientRect>ret[0]).width / 2,
                 _leftFade: true,
                 _swipeableAnimation: animation,
               });
@@ -102,10 +103,10 @@ Component({
         .exec((ret) => {
           let { _tabsViewportWidth } = this.data;
           _tabsViewportWidth = Math.floor(_tabsViewportWidth);
-          let left = Math.floor((<my.IBoundingClientRect>ret[0]).left) + this.data._scrollLeft;
-          const width = Math.floor((<my.IBoundingClientRect>ret[0]).width);
+          let left = Math.floor((<IBoundingClientRect>ret[0]).left) + this.data._scrollLeft;
+          const width = Math.floor((<IBoundingClientRect>ret[0]).width);
 
-          if (!(<my.IBoundingClientRect>ret[0])) {
+          if (!(<IBoundingClientRect>ret[0])) {
             // 当获取到的索引值无法匹配时显示错误提示
             log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
           } else {
@@ -150,7 +151,7 @@ Component({
         .boundingClientRect()
         .exec((ret) => {
           this.setData({
-            _tabContentHeight: (<my.IBoundingClientRect>ret[0])[tabIndex]?.height,
+            _tabContentHeight: (<IBoundingClientRect>ret[0])[tabIndex]?.height,
           });
         });
     },
@@ -194,7 +195,7 @@ Component({
         .boundingClientRect()
         .exec((ret) => {
           this.setData({
-            _tabsViewportWidth: (<my.IBoundingClientRect>ret[0]).width,
+            _tabsViewportWidth: (<IBoundingClientRect>ret[0]).width,
           });
         });
     },

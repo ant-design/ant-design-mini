@@ -1,6 +1,7 @@
 import { VTabsDefaultProps } from './props';
 import { getTabArray, componentContext } from './context';
 import { objectValues } from '../_util/tools';
+import { IBoundingClientRect, IScrollOffset } from "../_base"
 
 Component({
   props: VTabsDefaultProps,
@@ -63,7 +64,7 @@ Component({
           .select(`#amd-vtabs-content-slides-${this.$id}`)
           .boundingClientRect()
           .exec((ret) => {
-            resolve((<my.IBoundingClientRect>ret[0]).height);
+            resolve((<IBoundingClientRect>ret[0]).height);
           });
       });
 
@@ -72,7 +73,7 @@ Component({
           .select(`#amd-vtabs-content-slides-${this.$id}`)
           .scrollOffset()
           .exec((ret) => {
-            resolve((<my.ScrollOffset>ret[0]).scrollTop);
+            resolve((<IScrollOffset>ret[0]).scrollTop);
           });
       });
 
@@ -95,7 +96,7 @@ Component({
         if (i === 0) {
           this.indexTop[0] = 0;
         } else {
-          this.indexTop[i] = this.indexTop[i - 1] + (<my.IBoundingClientRect>rects[i - 1])?.height;
+          this.indexTop[i] = this.indexTop[i - 1] + (<IBoundingClientRect>rects[i - 1])?.height;
         }
 
         prevHeight += height;
