@@ -1,14 +1,30 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { fork } = require('child_process');
+const { fork } = require("child_process");
+
+function once(fn) {
+  let flag = false;
+  return function (...args) {
+    if (flag) return;
+    flag = true;
+    fn(...args)
+  };
+}
+
+const  onceDone = once(
+  (devServer) => {
+    fork(`${process.cwd()}/node_modules/dumi/bin/dumi.js`, [
+      "dev",
+      `${devServer.port}`,
+    ]);
+  }
+)
 
 module.exports = {
-  name: 'umi',
+  name: "umi",
   contribute: (registry) => {
     // const logger = injector.get(Symbol.for('ILogger'));
     registry.hooks.onCreateDevServer(({ devServer }) => {
-      devServer.on('done', () => {
-        fork(`${process.cwd()}/node_modules/dumi/bin/dumi.js`, ['dev', `${devServer.port}`]);
-      });
+      devServer.on("done",()=>onceDone(devServer));
     });
 
     // registry.hooks.onDidRunLocalBuild(() => {

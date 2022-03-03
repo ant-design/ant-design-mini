@@ -11,14 +11,17 @@
     "strict": true,
     "types": [
       "@mini-types/alipay",
-      "jest"
+      "jest",
+      "node"
     ]
   },
   "lib": [
     "ES2015"
   ],
   "include": [
-    "**/*"
+    "src/**/*.ts",
+    "scripts/docs/**/*.ts",
+    "__tests__/**/*.ts"
   ],
   "exclude": [
     "node_modules",

@@ -1,5 +1,6 @@
 /** @format */
 import { Node as acronNode } from "acorn";
+import {Resource} from "../resource";
 
 export type TAttribute = {
   attrName: string;
@@ -55,3 +56,5 @@ export interface IDocsRes {
   cssVar: string[],
   tips?: string[]
 }
+
+export type TCompResNode = {component: string, resource:Resource}[]

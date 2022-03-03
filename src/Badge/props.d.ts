@@ -2,14 +2,13 @@ import { IBaseProps } from '../_base';
 /**
  * @description 徽标，红点、数字或文字。用于告诉用户待处理的事物或更新数。
  */
-
 export interface IBadgeProps extends IBaseProps {
   /**
    * @description badge 类型
-   * @default dot
+   * @default 'dot'
    */
    type?: 'dot' | 'number' | 'text' | 'bubble';
-     /**
+  /**
    * @description 数字内容，超过 99 会自动变成 99+
    */
   number?: number;

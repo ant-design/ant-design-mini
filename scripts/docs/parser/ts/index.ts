@@ -203,7 +203,8 @@ function processAPI(ast: ParseResult<t.File>, content: string): ['method' | 'pro
                 api.name = node.key.name
             }
             if (node.typeAnnotation?.typeAnnotation.start && node.typeAnnotation?.typeAnnotation.end) {
-                api.types = content.slice(node.typeAnnotation?.typeAnnotation.start, node.typeAnnotation?.typeAnnotation.end)
+                // markdown 文件中 | 要转义一下，否则渲染会有问题
+                api.types = content.slice(node.typeAnnotation?.typeAnnotation.start, node.typeAnnotation?.typeAnnotation.end).replace(/\|/g, "&verbar;")
             }
             // TODO 考虑两种写法，可以通过 eslint 规定 只能 写 后一种类型
             // a: () => void
