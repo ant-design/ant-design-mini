@@ -1,4 +1,4 @@
-import { getDocsRes,Resource } from "../scripts/docs";
+import { getDocsRes,Resource } from "../scripts/docs/src";
 
 describe("ts interface parse", () => {
     it('base', ()=>{

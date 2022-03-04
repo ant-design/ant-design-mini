@@ -2,7 +2,7 @@ import { parse, ParseResult } from "@babel/parser";
 import traverse from "@babel/traverse";
 import generate from '@babel/generator';
 import * as t from '@babel/types';
-import { IDocsAPI } from "../../types/index";
+import { IDocsAPI } from "../../types";
 import { Resource } from "../../resource";
 import { getConentByPath } from "../../utils";
 

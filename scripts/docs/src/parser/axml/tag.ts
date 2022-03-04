@@ -3,6 +3,7 @@ import { Node } from "acorn"
 import type { INode, TAttribute } from "../../types/index";
 import { mustacheCore } from "./mustache";
 import { textTag } from "./text";
+import { parse } from "path";
 
 export function tag(parser: Parser) {
   const parentNode = parser.getCurrentNode();
@@ -44,17 +45,37 @@ export function tag(parser: Parser) {
 
   // 自己定义了名为 slot 的组件？概率几乎为 0....
   if (tagName === 'slot') {
+    let slotDesc = ""
+    // 关注与 slot 相邻的注释
+    // example: 
+    // <!-- comment -->
+    // <slot/>
+    const maybeCommentNodeIdx = parser.getCurrentNode().children.findIndex(node => node.tagName === "Comment");
+    if(maybeCommentNodeIdx > -1){
+      const isCommentNode = parser.getCurrentNode().children.every((node,idx)=>{
+        if(idx <= maybeCommentNodeIdx) return true
+        return node.tagName==="Text" && node.content && /\s|[\r\n]/g.test(node.content)
+       })
+       
+       if(isCommentNode){
+         const commentNode= parser.getCurrentNode().children[maybeCommentNodeIdx]
+         slotDesc = commentNode.content?.replace("<!--","").replace("-->","").trim() || ""
+       }
+    }
+
+    console.log(slotDesc)
     // 只收集具名插槽和作用域插槽
     const slot = attrArray.reduce((prev, cur) => {
       // 只考虑当前组件库中最简单的写法
       if (Array.isArray(cur.attrValue) && cur.attrValue[0].content) {
         prev.push({
           key: cur.attrName,
-          value: cur.attrValue[0].content
+          value: cur.attrValue[0].content,
+          decs: slotDesc
         })
       }
       return prev
-    }, [] as { key: string, value: string }[])
+    }, [] as { key: string, value: string, decs: string }[])
     parser.resource.addSlot(slot)
   }
 

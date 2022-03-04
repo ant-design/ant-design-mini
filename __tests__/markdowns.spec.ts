@@ -1,4 +1,4 @@
-import { read } from "../scripts/docs";
+import { read } from "../scripts/docs/src";
 
 jest.setTimeout(1000000);
 

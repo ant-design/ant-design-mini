@@ -1,4 +1,4 @@
-import { getCssVar,resource } from "../scripts/docs/index"
+import { getCssVar,resource } from "../scripts/docs/src"
 
 describe("less parse", () => {
     it('base', async () => {
