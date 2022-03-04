@@ -81,9 +81,7 @@ ${node[0].resource.desc}
     }
 
     const autoContent = genAutoContent(node)
-    const newContent = prefixConent + autoContent + style;
-    console.log(newContent)
-    return newContent
+    return  prefixConent + autoContent + style;
 }
 
 
