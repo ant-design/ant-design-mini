@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { IBaseProps } from '../_base';
 /**
- * @description 加载，用于提示局部或页面在加载中。
+ * @description 遮罩层
  */
 export interface IMaskProps extends IBaseProps {
     maskZindex: string,

@@ -1,10 +1,10 @@
-import { parse, ParseResult } from "@babel/parser"
-import traverse from "@babel/traverse"
+import { parse, ParseResult } from "@babel/parser";
+import traverse from "@babel/traverse";
 import generate from '@babel/generator';
 import * as t from '@babel/types';
-import { IDocsAPI } from "../../types/index";
+import { IDocsAPI } from "../../types";
 import { Resource } from "../../resource";
-import { getConentByPath } from "../../utils"
+import { getConentByPath } from "../../utils";
 
 const path_ = require("path")
 
@@ -107,7 +107,7 @@ function getExtends(filePath: string, target: string, resource: Resource, genTyp
                                                     genItem.typeAnnotation.typeAnnotation.typeName.name = type
                                                 }
                                             }
-                                        } 
+                                        }
                                     }
                                 })
                                 // 统一解析处理，生成解析后的信息
@@ -198,11 +198,21 @@ function processAPI(ast: ParseResult<t.File>, content: string): ['method' | 'pro
         }
 
         if (node.type === 'TSPropertySignature') {
-            // console.log(JSON.stringify(node))
+
             if (node.key.type === "Identifier") {
                 api.name = node.key.name
             }
-            if (node.typeAnnotation?.typeAnnotation.start && node.typeAnnotation?.typeAnnotation.end) {
+
+            if (node.typeAnnotation?.typeAnnotation.type === "TSTypeLiteral") {
+
+                const res = node.typeAnnotation.typeAnnotation.members.reduce((prev, cur) => {
+                    if (cur.start && cur.end) {
+                        prev += `${content.slice(cur.start, cur.end)} `
+                    }
+                    return prev
+                }, " ")
+                api.types = `{${res}}`
+            } else if (node.typeAnnotation?.typeAnnotation.start && node.typeAnnotation?.typeAnnotation.end) {
                 // markdown 文件中 | 要转义一下，否则渲染会有问题
                 api.types = content.slice(node.typeAnnotation?.typeAnnotation.start, node.typeAnnotation?.typeAnnotation.end).replace(/\|/g, "&verbar;")
             }

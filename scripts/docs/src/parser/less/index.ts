@@ -3,7 +3,6 @@ import * as csstree from "css-tree";
 import { Resource } from "../../resource";
 import { getConentByPath } from "../../utils/index";
 
-
 export async function getCssVar(componentPath: string, resource: Resource, prefix = '--am') {
 
     const entryPath = `${componentPath}/index.less`;

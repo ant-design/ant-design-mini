@@ -29,7 +29,7 @@ export class Resource implements IDocsRes {
     addClass(val: string[]) {
         this.class.push(...val);
     }
-    addSlot(val: { key: string; value: string; }[]) {
+    addSlot(val: { key: string; value: string; decs:string }[]) {
         this.slot.push(val);
     }
     addCss(val: string) {

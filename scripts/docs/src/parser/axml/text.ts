@@ -1,16 +1,26 @@
 /** @format */
 import { Parser } from "./parse";
 import { INode } from "../../types";
-export function textTag(parser: Parser):INode {
+import { mustacheCore } from "../axml/mustache";
+
+export function textTag(parser: Parser): INode {
   const start = parser.index;
+  const children: INode[] = []
+
   while (
     parser.index < parser.template.length &&
     !parser.startWith("'") &&
     !parser.startWith('"') &&
     !parser.startWith("{{") &&
-    !parser.startWith(" ") 
+    !parser.startWith(" ")
   ) {
     parser.index++;
+
+    // no eatSpace ant try parser mustache
+    // expample: <view class="amd-popup-{{position}}">
+    if (parser.startWith("{{")) {
+      children.push(mustacheCore(parser))
+    }
   }
 
   return {
@@ -18,7 +28,7 @@ export function textTag(parser: Parser):INode {
     start,
     end: parser.index,
     content: parser.template.slice(start, parser.index),
-    children: [],
+    children,
     attribute: []
   };
 }
@@ -32,7 +42,7 @@ export function text(parser: Parser) {
   ) {
     parser.index++;
   }
-  const node:INode={
+  const node: INode = {
     tagName: "Text",
     start,
     end: parser.index,

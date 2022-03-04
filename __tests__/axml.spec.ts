@@ -1,5 +1,5 @@
-import { parse } from "../scripts/docs";
-import { resource } from "../scripts/docs";
+import { parse } from "../scripts/docs/src";
+import { resource } from "../scripts/docs/src";
 
 describe("axml parse", () => {
   beforeEach(() => {
