@@ -7,3 +7,7 @@ export function getConentByPath(filePath:string){
         // console.log(filePath, err)
     }
 }
+
+export function writeContentByPath(filePath:string, content:string){
+    fs.writeFileSync(`${filePath}`, 'utf-8')
+}

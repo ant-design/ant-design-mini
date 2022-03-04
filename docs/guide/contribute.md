@@ -74,3 +74,19 @@ $ npm run dev
   2. 使用 fix(scope): xxx 来描述一个 bug fixes 的 commit；
   3. 使用 chore(scope): xxx 来来描述一个无关 feature 和 bug fixes 的小调整；
 - issue：如果改动与 issue 相关，请在 Commit Message 中带上 issue 参数，如：fix(scope): [#1] xxxxxx；
+
+
+#### 5. 组件库文档
+
+组件库文档文件 `src/**/*.md` 中除 tips 及 demo 部分外，均为自动生成。请勿直接在 markdown 中修改相关内容。
+
+机制如下：
+  axml ---parse---> class info, slot info
+  prop ---parse---> api info
+  less ---parse---> css var info
+
+文档有不足之处，请提交 issue 反馈。
+
+#### 6. 组件测试
+
+支付宝小程序目前没有测试工具，因此难以测试。但是对于一些比较复杂的函数，我们建议增加单测以提高可靠性。
