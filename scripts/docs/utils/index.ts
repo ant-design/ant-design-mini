@@ -9,5 +9,5 @@ export function getConentByPath(filePath:string){
 }
 
 export function writeContentByPath(filePath:string, content:string){
-    fs.writeFileSync(`${filePath}`, 'utf-8')
+    fs.writeFileSync(`${filePath}`, content)
 }
