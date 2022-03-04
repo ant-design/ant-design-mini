@@ -1,7 +1,6 @@
-import { read } from "../scripts/docs/markdown";
-// import { resource } from "../scripts/docs/resource";
+import { read } from "../scripts/docs";
 
-// jest.setTimeout(1000000);
+jest.setTimeout(1000000);
 
 describe("ts interface parse", () => {
     it('read', async () => {

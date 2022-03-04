@@ -4,4 +4,4 @@ import { resource } from "./resource"
 
 export * from "./parser"
 export * from "./resource"
-
+export * from "./markdown"
