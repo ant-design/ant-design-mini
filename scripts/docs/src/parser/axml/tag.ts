@@ -51,16 +51,16 @@ export function tag(parser: Parser) {
     // <!-- comment -->
     // <slot/>
     const maybeCommentNodeIdx = parser.getCurrentNode().children.findIndex(node => node.tagName === "Comment");
-    if(maybeCommentNodeIdx > -1){
-      const isCommentNode = parser.getCurrentNode().children.every((node,idx)=>{
-        if(idx <= maybeCommentNodeIdx) return true
-        return node.tagName==="Text" && node.content && /\s|[\r\n]/g.test(node.content)
-       })
-       
-       if(isCommentNode){
-         const commentNode= parser.getCurrentNode().children[maybeCommentNodeIdx]
-         slotDesc = commentNode.content?.replace("<!--","").replace("-->","").trim() || ""
-       }
+    if (maybeCommentNodeIdx > -1) {
+      const isCommentNode = parser.getCurrentNode().children.every((node, idx) => {
+        if (idx <= maybeCommentNodeIdx) return true
+        return node.tagName === "Text" && node.content && /\s|[\r\n]/g.test(node.content)
+      })
+
+      if (isCommentNode) {
+        const commentNode = parser.getCurrentNode().children[maybeCommentNodeIdx]
+        slotDesc = commentNode.content?.replace("<!--", "").replace("-->", "").trim() || ""
+      }
     }
 
     // 只收集具名插槽和作用域插槽
@@ -106,7 +106,7 @@ function parseAttr(parser: Parser): TAttribute | null {
   const attrValue = parseRawAttrValue(parser)
 
   if (typeof attrValue !== "boolean") {
-    const res =  collectClass(attrName, attrValue)
+    const res = collectClass(attrName, attrValue).filter(item => item !== "")
     parser.resource.addClass(res)
   }
 
@@ -162,11 +162,11 @@ function processClassValue(value: INode[]): string[] {
   const res = value.reduce((prev, cur) => {
     if (cur.tagName === 'Text' && cur.content) {
       // 换行
-      prev.push(cur.content.replace(/\n/g,"").trim())
+      prev.push(cur.content.replace(/\n/g, "").trim())
     }
 
-    if(prev.length>1 &&prev[prev.length-1].endsWith('-') && cur.tagName==='Mustache' && cur.content){
-      prev.push(`${prev[prev.length-1]}${cur.content.replace(/\n/g,"").trim()}`)
+    if (prev.length > 1 && prev[prev.length - 1].endsWith('-') && cur.tagName === 'Mustache' && cur.content) {
+      prev.push(`${prev[prev.length - 1]}${cur.content.replace(/\n/g, "").trim()}`)
     }
     if (cur.expression && cur.expression.type == "ConditionalExpression") {
       prev.push(...processExpression(cur.expression))
