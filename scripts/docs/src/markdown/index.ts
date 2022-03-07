@@ -93,7 +93,7 @@ ${node[0].resource.desc}
     }
 
     const apiConent = genAPIConent(node)
-    return prefixConent + apiConent + cssVarContent + classContent + + style;
+    return prefixConent + apiConent + cssVarContent + classContent + style;
 }
 
 

@@ -9,5 +9,6 @@ export function getConentByPath(filePath:string){
 }
 
 export function writeContentByPath(filePath:string, content:string){
+    console.log(content)
     fs.writeFileSync(`${filePath}`, content)
 }
