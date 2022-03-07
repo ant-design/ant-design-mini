@@ -153,18 +153,19 @@ function genClassConent(
                     return prev;
                 }, shouldAddComponentName ? `${prefix}${CLASS_TABLE_PREFIX}` : `${CLASS_TABLE_PREFIX}`)
             } else {
-                classContent += item.resource.uniqueClass.reduce((prev, cur) => {
+                classContent += uniqueClass.reduce((prev, cur) => {
                     prev += `| ${cur} | - |\n`;
                     return prev;
                 }, shouldAddComponentName ? `${prefix}${CLASS_TABLE_PREFIX}` : `${CLASS_TABLE_PREFIX}`);
             }
         })
     } else {
+        
         node.forEach(item => {
             const prefix = `\n\n #### ${item.component}\n\n`;
-
-            if (item.resource.uniqueClass.length > 0) {
-                classContent += item.resource.uniqueClass.reduce((prev, cur) => {
+            const uniqueClass = Array.from(new Set(item.resource.class))
+            if (uniqueClass.length > 0) {
+                classContent += uniqueClass.reduce((prev, cur) => {
                     prev += `| ${cur} | - |\n`;
                     return prev;
                 }, shouldAddComponentName ? `${prefix}${CLASS_TABLE_PREFIX}` : `${CLASS_TABLE_PREFIX}`);

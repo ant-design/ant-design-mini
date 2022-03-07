@@ -161,11 +161,12 @@ function collectClass(key: string, value: INode[]): string[] {
 function processClassValue(value: INode[]): string[] {
   const res = value.reduce((prev, cur) => {
     if (cur.tagName === 'Text' && cur.content) {
-      prev.push(cur.content)
+      // 换行
+      prev.push(cur.content.replace(/\n/g,"").trim())
     }
 
     if(prev.length>1 &&prev[prev.length-1].endsWith('-') && cur.tagName==='Mustache' && cur.content){
-      prev.push(`${prev[prev.length-1]}${cur.content}`)
+      prev.push(`${prev[prev.length-1]}${cur.content.replace(/\n/g,"").trim()}`)
     }
     if (cur.expression && cur.expression.type == "ConditionalExpression") {
       prev.push(...processExpression(cur.expression))
