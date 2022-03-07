@@ -93,7 +93,7 @@ ${node[0].resource.desc}
     }
 
     const apiConent = genAPIConent(node)
-    return prefixConent + apiConent + cssVarContent + classContent +  + style;
+    return prefixConent + apiConent + cssVarContent + classContent + + style;
 }
 
 
@@ -134,18 +134,17 @@ function genClassConent(
         node.forEach(item => {
             const prefix = `\n\n #### ${item.component}\n\n`;
             const oldContent = oldClass[item.component]
-            const contentMap = item.resource.class.reduce((prev, cur) => {
+            const uniqueClass = Array.from(new Set(item.resource.class))
+            const contentMap = uniqueClass.reduce((prev, cur) => {
                 prev[cur] = ""
                 return prev
             }, {} as Record<string, string>)
-            console.log(oldClass)
+
             if (oldContent) {
-                for (let i = 0; i < oldContent.length; i++) {
-                    for (let j = 0; j < item.resource.class.length; j++) {
-                        if (item.resource.class[j] !== oldContent[i].key) {
-                            j++
-                        } else {
-                            contentMap[oldContent[i].key] = oldContent[i].val
+                for (let i = 0; i < uniqueClass.length; i++) {
+                    for (let j = 0; j < oldContent.length; j++) {
+                        if (uniqueClass[i] === oldContent[j].key) {
+                            contentMap[uniqueClass[i]] = oldContent[j].val
                         }
                     }
                 }
@@ -154,7 +153,7 @@ function genClassConent(
                     return prev;
                 }, shouldAddComponentName ? `${prefix}${CLASS_TABLE_PREFIX}` : `${CLASS_TABLE_PREFIX}`)
             } else {
-                classContent += item.resource.class.reduce((prev, cur) => {
+                classContent += item.resource.uniqueClass.reduce((prev, cur) => {
                     prev += `| ${cur} | - |\n`;
                     return prev;
                 }, shouldAddComponentName ? `${prefix}${CLASS_TABLE_PREFIX}` : `${CLASS_TABLE_PREFIX}`);
@@ -164,15 +163,15 @@ function genClassConent(
         node.forEach(item => {
             const prefix = `\n\n #### ${item.component}\n\n`;
 
-            if (item.resource.class.length > 0) {
-                classContent += item.resource.class.reduce((prev, cur) => {
+            if (item.resource.uniqueClass.length > 0) {
+                classContent += item.resource.uniqueClass.reduce((prev, cur) => {
                     prev += `| ${cur} | - |\n`;
                     return prev;
                 }, shouldAddComponentName ? `${prefix}${CLASS_TABLE_PREFIX}` : `${CLASS_TABLE_PREFIX}`);
             }
         })
     }
-    console.log(classContent)
+
     return `${CLASS_PREFIX}${classContent}`
 }
 
@@ -195,13 +194,11 @@ function genCssVarConent(
             if (oldContent) {
                 for (let i = 0; i < oldContent.length; i++) {
                     for (let j = 0; j < item.resource.cssVar.length; j++) {
-                        if (item.resource.cssVar[j] !== oldContent[i].key) {
-                            j++
-                        } else {
+                        if (item.resource.cssVar[j] === oldContent[i].key) {
                             contentMap[oldContent[i].key] = oldContent[i].val
-                        }
                     }
                 }
+            }
                 cssVarContent += Object.keys(contentMap).reduce((prev, cur) => {
                     prev += `| ${cur} | ${contentMap[cur] || '-'} |\n`;
                     return prev;
@@ -254,8 +251,18 @@ function getClassContent(token: marked.TokensList) {
     const start = token.findIndex((item) => {
         return item.raw.includes('样式类')
     });
-    const end = token.findIndex((item) => {
+    if (start !== -1) {
+        const target = token.slice(start + 1)
+        return genMetaForClassAndCss(target)
+    }
+}
+
+function getCssVarContent(token: marked.TokensList) {
+    const start = token.findIndex((item) => {
         return item.raw.includes('CSS 变量')
+    });
+    const end = token.findIndex((item) => {
+        return item.raw.includes('样式类')
     });
     if (start !== -1) {
         const target = end === -1 ? token.slice(start + 1) : token.slice(start + 1, end)
@@ -263,21 +270,10 @@ function getClassContent(token: marked.TokensList) {
     }
 }
 
-function getCssVarContent(token: marked.TokensList) {
-    const idx = token.findIndex((item) => {
-        return item.raw.includes('CSS 变量')
-    });
-    if (idx !== -1) {
-        const target = token.slice(idx + 1)
-        return genMetaForClassAndCss(target)
-    }
-}
-
 function genMetaForClassAndCss(target: marked.Token[]) {
-    let curComponent:string
-    console.log(target)
-    const isMultiComponent = target.some(item=>item.type==="heading")
-    if(isMultiComponent){
+    let curComponent: string
+    const isMultiComponent = target.some(item => item.type === "heading")
+    if (isMultiComponent) {
         return target.reduce((prev, cur) => {
             if (cur.type === "heading") {
                 curComponent = cur.raw.replace(/[\#\s\n]/g, "")
@@ -285,23 +281,23 @@ function genMetaForClassAndCss(target: marked.Token[]) {
             } else if (cur.type === "table") {
                 // 对于单个组件，是不会有组件标题的
                 // 对于 Form/FormItem 这种，会有标题
-                    cur.rows.forEach(row => {
-                        const [cssVarName, cssVarVal] = row
-                        prev[curComponent].push({ key: cssVarName.text, val: cssVarVal.text })
-                    })
+                cur.rows.forEach(row => {
+                    const [cssVarName, cssVarVal] = row
+                    prev[curComponent].push({ key: cssVarName.text, val: cssVarVal.text })
+                })
             }
             return prev
         }, {} as Record<string, { key: string, val: string }[]>)
-    }else{
+    } else {
         return target.reduce((prev, cur) => {
             if (cur.type === "table") {
-                    cur.rows.forEach(row => {
-                        const [cssVarName, cssVarVal] = row
-                        prev[currentProcessComponent].push({ key: cssVarName.text, val: cssVarVal.text })
-                    })
+                cur.rows.forEach(row => {
+                    const [cssVarName, cssVarVal] = row
+                    prev[currentProcessComponent].push({ key: cssVarName.text, val: cssVarVal.text })
+                })
             }
             return prev
-        }, {[currentProcessComponent]:[]} as Record<string, { key: string, val: string }[]>)
+        }, { [currentProcessComponent]: [] } as Record<string, { key: string, val: string }[]>)
     }
 
 }
