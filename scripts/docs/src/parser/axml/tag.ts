@@ -63,7 +63,6 @@ export function tag(parser: Parser) {
        }
     }
 
-    console.log(slotDesc)
     // 只收集具名插槽和作用域插槽
     const slot = attrArray.reduce((prev, cur) => {
       // 只考虑当前组件库中最简单的写法
