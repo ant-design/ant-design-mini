@@ -40,3 +40,34 @@ export interface IBaseFormItemProps<V = any> extends IBaseFormItemPropsWithOutFo
     onBlur?: (v: V) => void;
 }
 export declare type IconType = string;
+
+export interface IBoundingClientRect {
+  /**
+   * @summary 上边界
+   */
+  top: number;
+  /**
+   * @summary 右边界
+   */
+  right: number;
+  /**
+   * @summary 下边界
+   */
+  bottom: number;
+  /**
+   * @summary 左边界
+   */
+  left: number;
+  /**
+   * @summary 宽度
+   */
+  width: number;
+  /**
+   * @summary 高度
+   */
+  height: number;
+}
+
+export interface IScrollOffset {
+  scrollTop: number
+}

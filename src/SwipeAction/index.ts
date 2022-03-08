@@ -1,5 +1,6 @@
 import { SwipeActionDefaultProps } from './props';
 import { ComponentContext } from '../_util/context';
+import { IBoundingClientRect } from "../_base"
 
 const swipeIdContext = new ComponentContext();
 
@@ -31,13 +32,13 @@ Component({
         .select(`.amd-swipe-action-right-${this.$id}`)
         .boundingClientRect()
         .exec((ret) => {
-          this.rightBtnWidth = (ret && ret[0] && (<my.IBoundingClientRect>ret[0]).width) || 0;
+          this.rightBtnWidth = (ret && ret[0] && (<IBoundingClientRect>ret[0]).width) || 0;
         });
       my.createSelectorQuery()
         .select(`.amd-swipe-action-left-${this.$id}`)
         .boundingClientRect()
         .exec((ret) => {
-          this.leftBtnWidth = (ret && ret[0] && (<my.IBoundingClientRect>ret[0]).width) || 0;
+          this.leftBtnWidth = (ret && ret[0] && (<IBoundingClientRect>ret[0]).width) || 0;
         });
     },
     onSwipeTap() {
