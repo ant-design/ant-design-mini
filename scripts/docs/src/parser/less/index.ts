@@ -1,12 +1,12 @@
 import { render } from "less";
 import * as csstree from "css-tree";
 import { Resource } from "../../resource";
-import { getConentByPath } from "../../utils/index";
+import { getContentByPath } from "../../utils/index";
 
 export async function getCssVar(componentPath: string, resource: Resource, prefix = '--am') {
 
     const entryPath = `${componentPath}/index.less`;
-    const content = getConentByPath(entryPath)
+    const content = getContentByPath(entryPath)
     if(!content) return
     // 1. 编译成 css 
     const res = await render(content, { paths: [componentPath] });

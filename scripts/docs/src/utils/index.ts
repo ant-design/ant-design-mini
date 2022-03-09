@@ -1,5 +1,5 @@
 const fs = require("fs")
-export function getConentByPath(filePath:string){
+export function getContentByPath(filePath:string){
     try{
         const content = fs.readFileSync(filePath, 'utf-8') as string
         return content

@@ -1,6 +1,6 @@
 import { Resource } from "../";
 import { parse, getCssVar, getDocsRes } from "../parser"
-import { getConentByPath } from "../utils";
+import { getContentByPath } from "../utils";
 import { TCompResNode } from "../types";
 import { marked } from 'marked'
 import { writeContentByPath } from '../utils/index'
@@ -45,8 +45,8 @@ export async function read(entry = `${process.cwd()}/src`, deep = 1) {
             if (componentName) {
                 currentProcessComponent = componentName
                 const mdFilePath = `${item}/index.md`;
-                const conent = getConentByPath(mdFilePath)
-                const newContent = genNewMarkdown(componentName as keyof typeof ComponentGroupMap, conent, node)
+                const content = getContentByPath(mdFilePath)
+                const newContent = genNewMarkdown(componentName as keyof typeof ComponentGroupMap, content, node)
                 writeContentByPath(mdFilePath, newContent)
             }
             // 重置一下
@@ -60,24 +60,24 @@ function parseComponentName(filePath: string) {
     return componentName && componentName[0]
 }
 
-export function genNewMarkdown(componentName: keyof typeof ComponentGroupMap, oldConent: string | undefined, node: TCompResNode) {
-    let prefixConent = "";
+export function genNewMarkdown(componentName: keyof typeof ComponentGroupMap, oldContent: string | undefined, node: TCompResNode) {
+    let prefixContent = "";
     let style = "\n\n";
     let cssVarContent = "";
     let classContent = ""
-    if (oldConent) {
+    if (oldContent) {
         const {
-            prefixConent: oldPrefixConent,
+            prefixContent: oldPrefixContent,
             style: oldStyle,
             cssVarContent: oldCssVarContent,
             classContent: oldClassContent
-        } = parseOldMarkdown(oldConent);
-        prefixConent = oldPrefixConent;
+        } = parseOldMarkdown(oldContent);
+        prefixContent = oldPrefixContent;
         style += oldStyle;
-        cssVarContent = genCssVarConent(node, oldCssVarContent);
-        classContent = genClassConent(node, oldClassContent);
+        cssVarContent = genCssVarContent(node, oldCssVarContent);
+        classContent = genClassContent(node, oldClassContent);
     } else {
-        prefixConent = `---
+        prefixContent = `---
 nav:
   path: /components
 group:
@@ -88,16 +88,16 @@ toc: false
 # ${componentName}
 ${node[0].resource.desc}
 `;
-        cssVarContent = genCssVarConent(node);
-        classContent = genClassConent(node);
+        cssVarContent = genCssVarContent(node);
+        classContent = genClassContent(node);
     }
 
-    const apiConent = genAPIConent(node)
-    return prefixConent + apiConent + cssVarContent + classContent + style;
+    const apiContent = genAPIContent(node)
+    return prefixContent + apiContent + cssVarContent + classContent + style;
 }
 
 
-function genAPIConent(node: TCompResNode): string {
+function genAPIContent(node: TCompResNode): string {
     let propContent = ""
     let methodContent = ""
     const shouldAddComponentName = node.length > 1
@@ -124,7 +124,7 @@ function genAPIConent(node: TCompResNode): string {
     return `${API_PREFIX}\n${PROP_PREIFX}\n${propContent}\n${METHOD_PREFIX}\n${methodContent}\n`;
 }
 
-function genClassConent(
+function genClassContent(
     node: TCompResNode,
     oldClass?: Record<string, { key: string, val: string }[]>): string {
     let classContent = ""
@@ -176,7 +176,7 @@ function genClassConent(
     return `${CLASS_PREFIX}${classContent}`
 }
 
-function genCssVarConent(
+function genCssVarContent(
     node: TCompResNode,
     oldCssVar?: Record<string, { key: string, val: string }[]>
 ): string {
@@ -227,7 +227,7 @@ function genCssVarConent(
 function parseOldMarkdown(content: string) {
     const token = marked.lexer(content);
     return {
-        prefixConent: getPrefixContent(token),
+        prefixContent: getPrefixContent(token),
         style: getStyleRaw(token),
         cssVarContent: getCssVarContent(token),
         classContent: getClassContent(token)
