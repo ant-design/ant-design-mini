@@ -6,7 +6,7 @@ import { marked } from 'marked'
 import { writeContentByPath } from '../utils/index'
 import {
     API_PREFIX,
-    PROP_PREIFX,
+    PROP_PREFIX,
     METHOD_PREFIX,
     CLASS_PREFIX,
     CSS_VAR_PREFIX,
@@ -121,7 +121,7 @@ function genAPIContent(node: TCompResNode): string {
 
     })
 
-    return `${API_PREFIX}\n${PROP_PREIFX}\n${propContent}\n${METHOD_PREFIX}\n${methodContent}\n`;
+    return `${API_PREFIX}\n${PROP_PREFIX}\n${propContent}\n${METHOD_PREFIX}\n${methodContent}\n`;
 }
 
 function genClassContent(

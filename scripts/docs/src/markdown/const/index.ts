@@ -1,5 +1,5 @@
 export const API_PREFIX = '## API \n\n';
-export const PROP_PREIFX = '### 属性 \n\n';
+export const PROP_PREFIX = '### 属性 \n\n';
 export const METHOD_PREFIX = '### 事件 \n\n';
 export const CLASS_PREFIX = '### 样式类 \n\n';
 export const CSS_VAR_PREFIX = '### CSS 变量 \n\n';
