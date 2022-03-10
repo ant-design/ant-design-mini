@@ -4,12 +4,12 @@ import generate from '@babel/generator';
 import * as t from '@babel/types';
 import { IDocsAPI } from "../../types";
 import { Resource } from "../../resource";
-import { getConentByPath } from "../../utils";
+import { getContentByPath } from "../../utils";
 
 const path_ = require("path")
 
 export function getDocsRes(filePath: string, resource: Resource) {
-    const content = getConentByPath(`${filePath}/props.d.ts`)
+    const content = getContentByPath(`${filePath}/props.d.ts`)
     if (!content) return
     const ast = parse(content, {
         sourceType: 'module',
@@ -46,7 +46,7 @@ function getDefaultPropsTypeName(ast: ParseResult<t.File>) {
 
 
 function getExtends(filePath: string, target: string, resource: Resource, genTypes?: string[]) {
-    const content = getConentByPath(filePath) as string
+    const content = getContentByPath(filePath) as string
     // TODO 类型精确一点
     // @ts-ignore 
     let genParams: any
