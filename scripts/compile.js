@@ -18,7 +18,7 @@ const env = { jsUnitRpx: isRpx };
 gulp.task('less', () => gulp.src(`${src}/**/index.less`)
   .pipe(less({
     modifyVars: {
-      '@pixelSize': isRpx ? '1rpx' : '0.5px',
+      '@rpx': isRpx ? '1rpx': '0.5px'
     },
   }))
   // eslint-disable-next-line no-console
