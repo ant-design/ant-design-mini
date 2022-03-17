@@ -79,7 +79,7 @@ Page({
               {
                 name: 'Popover',
                 nameZN: '气泡菜单',
-                path: '/pages/Popover/index',
+                path: '/pages/PopoverBase/index',
               },
               {
                 name: 'Popup',

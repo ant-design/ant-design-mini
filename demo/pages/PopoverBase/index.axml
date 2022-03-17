@@ -11,7 +11,7 @@
     </view>
 
     <block slot="items">
-      tooltip
+      <view class="demo-popover-tooltip">tooltip</view>
     </block>
   </popover>
 </view>
