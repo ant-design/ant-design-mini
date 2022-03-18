@@ -1,5 +1,6 @@
 <view class="amd-tabs {{className ? className : ''}}">
-  <view class="amd-tabs-bar {{type === 'basis'?'amd-tabs-bar-underline':''}} {{sticky ?'amd-tabs-bar-sticky':''}}">
+  <view class="amd-tabs-bar {{type === 'basis'?'amd-tabs-bar-underline':''}}"
+    style="{{sticky ? `position: sticky; top: ${stickyTop}; z-index: 999;`: ''}}">
     <view class="amd-tabs-bar-plus">
       <slot name="plus" />
     </view>
@@ -17,7 +18,7 @@
       <!-- onAppear 控制阴影显示/隐藏 「左」 -->
       <view class="amd-tabs-bar-item-placeholder"
         onAppear="appearLeft"
-        onDisappear="disappearLeft">.</view>
+        onDisappear="disappearLeft"></view>
       <view a:for="{{_tabs}}" key="{{item.title}}" class="amd-tabs-bar-wrap {{`amd-tabs-bar-wrap-${type}`}}">
           <!-- basis 基础类型 -->
           <view 
@@ -59,7 +60,7 @@
       <!-- onAppear 控制阴影显示/隐藏「右」-->
       <view class="amd-tabs-bar-item-placeholder"
         onAppear="appearRight"
-        onDisappear="disappearRight">.</view>
+        onDisappear="disappearRight"></view>
     </scroll-view>
   </view>
     <view a:if="{{component2}}" style="{{_tabContentHeight ? `height: ${_tabContentHeight}px;`: ''}}">
