@@ -3,6 +3,7 @@ Page({
   data: {
     placement: placement[0],
     show: false,
+    showMask: true,
   },
   onNextPositionTap() {
     let index = placement.indexOf(this.data.placement);
@@ -12,9 +13,17 @@ Page({
       placement: placement[index],
     });
   },
-  onVisibleChange(e) {
+  onVisibleChange(visible, mode) {
     this.setData({
-      show: e,
+      show: visible,
+    });
+    if (mode==='mask') {
+      my.showToast({content: '点击mask关闭', duration:1000 });
+    }
+  },
+  onToggleMask(){
+    this.setData({
+      showMask: !this.data.showMask,
     });
   },
 });

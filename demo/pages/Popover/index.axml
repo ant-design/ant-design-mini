@@ -2,6 +2,7 @@
   <popover 
     placement="bottom-right"
     visible="{{show}}"
+    mask="{{showMask}}"
     onVisibleChange="onVisibleChange">
 
     <view class="demo-popover-btn-1">
@@ -91,3 +92,8 @@
   </block>
 </popover>
 </view>
+<button 
+  class="demo-btn"
+  onTap="onToggleMask">
+  {{showMask?'隐藏':'显示'}}蒙层
+</button>

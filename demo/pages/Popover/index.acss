@@ -14,6 +14,7 @@
   background-color: #fff;
   border: 1px solid #dddddd;
   border-radius: 4px;
+  text-align: center;
 }
 .demo-popover-btn-2 {
   width: 80px;
@@ -23,7 +24,14 @@
   background-color: #fff;
   border: 1px solid #dddddd;
   border-radius: 4px;
+  text-align: center;
 }
-page{
+page {
   background-color: #f7f7fa;
+}
+.demo-btn {
+  position: fixed;
+  bottom: 10rpx;
+  width: 40%;
+  left: 30%;
 }
