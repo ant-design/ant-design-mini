@@ -8,7 +8,7 @@ Page({
     let index = placement.indexOf(this.data.placement);
     index = index >= placement.length - 1 ? 0 : index + 1;
     this.setData({
-      show: !this.data.show,
+      show: true,
       placement: placement[index],
     });
   },

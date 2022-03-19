@@ -24,3 +24,10 @@
 .demo-btn {
   width: 45%;
 }
+
+.demo-popover-items {
+  color: #fff;
+  padding: 20rpx;
+  white-space: nowrap;
+  font-size: 28rpx;
+}

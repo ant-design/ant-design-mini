@@ -10,9 +10,9 @@
       点击{{show ? '隐藏' : '显示'}} {{placement}}
     </view>
 
-    <block slot="items">
+    <view slot="items" class="demo-popover-items">
       tooltip
-    </block>
+    </view>
   </popover>
 </view>
 
