@@ -63,7 +63,8 @@
         onDisappear="disappearRight"></view>
     </scroll-view>
   </view>
-    <view a:if="{{component2}}" style="{{_tabContentHeight ? `height: ${_tabContentHeight}px;`: ''}}">
+    <!--2.0 不支持 adjust-content，用丐版 swiper 代替-->
+    <view a:if="{{ !fallback && isBaseSwiper}}" style="{{_tabContentHeight ? `height: ${_tabContentHeight}px;`: ''}}">
       <swiper circular="{{false}}"
         indicator-dots="{{false}}"
         current="{{currentIndex}}"
@@ -81,7 +82,7 @@
         <slot />
       </swiper>
     </view>
-    <view a:else class="amd-tabs-content">
+    <view a:elif="{{!fallback && !isBaseSwiper}}" class="amd-tabs-content">
       <view class="amd-tabs-slides {{currentIndex === index?'amd-tabs-slides-height':''}}"
         id="amd-tabs-content-{{$id}}"
         style="
@@ -90,5 +91,10 @@
       ">
         <slot />
       </view>
+    </view>
+    
+    <!--fallback 用户自己控制显示选项 -->
+    <view a:elif="{{fallback}}" class="amd-tabs-content">
+        <slot />
     </view>
 </view>

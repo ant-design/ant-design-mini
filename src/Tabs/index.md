@@ -16,6 +16,9 @@ toc: false
 ## 代码示例
 <code src='../../demo/pages/Tabs'></code>
 
+### fallback
+<code src='../../demo/pages/TabsFallback'></code>
+
 ## API
 
 ### 属性

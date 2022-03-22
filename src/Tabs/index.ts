@@ -16,6 +16,8 @@ const isForceUpdate = compareVersion(my.SDKVersion, '2.6.4') >= 0 && compareVers
 
 const isMoreThan275 = compareVersion(my.SDKVersion, '2.7.5') >= 0;
 
+const isBaseSwiper = compareVersion(my.SDKVersion, '2.0.0') >= 0;
+
 Component({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   props: TabsDefaultProps,
@@ -31,6 +33,7 @@ Component({
     _tabContentHeight: 0,
     currentIndex: 0,
     component2,
+    isBaseSwiper,
     _forceRefreshSwiper: 0,
     _isForceUpdate: isForceUpdate,
   },

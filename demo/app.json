@@ -18,6 +18,7 @@
     "pages/Modal/index",
     "pages/SwipeAction/index",
     "pages/Tabs/index",
+    "pages/TabsFallback/index",
     "pages/VTabs/index",
     "pages/Stepper/index",
     "pages/Steps/index",
