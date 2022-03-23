@@ -12,6 +12,8 @@ toc: false
 ## 注意事项
 
 - 目前仅支持一个页面中使用一次 **Tabs** 组件；
+- 在基础库 2.x 版本下，内嵌 scroll-view 产生 scroll-view 无法滚动的情况，建议scroll-view 阻止 touch 事件冒泡：catchTouchStart、catchTouchMove。详见[官方文档](https://opendocs.alipay.com/mini/component/scroll-view)
+- Tabs 内部使用 transform 样式以进行轮播，会导致内嵌弹层显示问题，建议内部不嵌套包含弹层的组件或者使用 fallback 属性，以自己实现简单版的“轮播”，详见下方 fallback 的 demo。
 
 ## 代码示例
 <code src='../../demo/pages/Tabs'></code>

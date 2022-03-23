@@ -1,5 +1,5 @@
 import { TabItemDefaultProps } from './props';
-import { getTabArray, componentContext } from '../context';
+import { getTabArray, componentContext, componentContextFallback } from '../context';
 import { log } from '../../_util/console';
 import { objectValues } from '../../_util/tools';
 
@@ -10,9 +10,15 @@ Component({
   props: TabItemDefaultProps,
   data: {
     component2,
+    fallback: false
   },
   didMount() {
     this._getTabInfo('didMount');
+    componentContextFallback.onUpdate(v => {
+      this.setData({
+        fallback: v
+      })
+    })
   },
   didUpdate() {
     this._getTabInfo();

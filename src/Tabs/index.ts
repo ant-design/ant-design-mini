@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { TabsDefaultProps } from './props';
-import { getTabArray, componentContext } from './context';
+import { getTabArray, componentContext, componentContextFallback } from './context';
 import { log } from '../_util/console';
 import { objectValues } from '../_util/tools';
 import { compareVersion } from '../_util/compareVersion';
@@ -47,6 +47,7 @@ Component({
         _tabs: value,
       });
     });
+    componentContextFallback.update(this.props.fallback)
     const { index, animation } = this.props;
     this.setData({
       _tabs: objectValues(getTabArray),
@@ -95,7 +96,11 @@ Component({
     }
   },
   didUpdate(prevProps, prevData) {
-    const { index, animation } = this.props;
+    const { index, animation,fallback } = this.props;
+    
+    if(prevProps.fallback !== fallback){
+      componentContextFallback.update(fallback)
+    }
 
     if (prevProps.index !== index && prevData.currentIndex === this.data.currentIndex) {
       this._getTabsWidth();
@@ -213,6 +218,18 @@ Component({
         // 获取当前元素的 offsetLeft 值
         this.currentLeft = e?.currentTarget?.offsetLeft;
         return onChange(index);
+      }
+    },
+    handleSwiperTouchStart(e){
+      const {onTouchStart} = this.props;
+      if(typeof onTouchStart==="function"){
+        onTouchStart(e)
+      }
+    },
+    handleSwiperTransition(e){
+      const {onTransition} = this.props;
+      if(typeof onTransition==="function"){
+        onTransition(e)
       }
     },
     appearLeft() {
