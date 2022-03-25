@@ -7,13 +7,6 @@
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}">
   <view class="amd-list-item-line {{disabled? 'amd-list-item-line-disabled' : ''}}">
-    <view class="amd-list-item-image-container-placeholder">
-        <image-icon a:if="{{image}}" image="{{image}}"></image-icon>
-      <block a:else >
-        <slot name="image" >
-        </slot>
-      </block> 
-    </view>
     <view class="amd-list-item-image-container amd-list-item-image-container-{{imageSize}}">
       <view a:if="{{image}}" class="amd-list-item-image amd-list-item-image-{{imageSize}}">
         <image-icon image="{{image}}"></image-icon>
