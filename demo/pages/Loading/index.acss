@@ -1,6 +1,0 @@
-page{
-  padding: 24rpx;
-}
-.theme {
-  background-color: rgba(0, 0, 0, 0.7);
-}
