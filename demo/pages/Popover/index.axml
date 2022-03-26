@@ -1,93 +1,95 @@
-<view class="demo-popover">
-  <popover 
-    placement="bottom-right"
-    visible="{{show}}"
-    onVisibleChange="onVisibleChange">
+<view>
+  <demo-block title="深色的气泡菜单">
+    <view class="wrap">
+      <popover 
+        placement="bottom-left"
+        visible="{{showDark}}"
+        onVisibleChange="handleDarkVisibleChange">
+        <button inline inlineSize="large">点我</button>
+        <block slot="items">
+          <popover-item 
+            onTap="handleTapItem"
+            icon="ScanningOutline"
+            data-type="showDark"
+            data-name="扫一扫">
+            扫一扫
+          </popover-item>
 
-    <view class="demo-popover-btn-1">
-      mode : dark
+          <popover-item 
+            onTap="handleTapItem"
+            icon="ReceivePaymentOutline"
+            data-type="showDark"
+            data-name="付钱/收钱">
+            付钱/收钱
+          </popover-item>
+
+          <popover-item 
+            onTap="handleTapItem"
+            icon="TransportQRcodeOutline"
+            data-type="showDark"
+            data-name="乘车码">
+            乘车码
+          </popover-item>
+          <popover-item 
+            onTap="handleTapItem"
+            data-type="showDark"
+            data-name="icon 插槽">
+            <image
+              slot="icon"
+              mode="scaleToFill"
+              src="{{url}}"
+              style="width: 100%;height: 100%;"/>
+            icon 插槽
+          </popover-item>
+        </block>
+      </popover>
     </view>
+  </demo-block>
+  <demo-block title="浅色的气泡菜单">
+    <view class="wrap">
+      <popover 
+        placement="bottom-left"
+        visible="{{showLight}}"
+        mode="light"
+        onVisibleChange="handleLightVisibleChange">
+        <button inline inlineSize="large">点我</button>
+        <block slot="items">
+          <popover-item 
+            onTap="handleTapItem"
+            icon="ScanningOutline"
+            data-type="showLight"
+            data-name="扫一扫">
+            扫一扫
+          </popover-item>
 
-    <block slot="items">
-      <popover-item 
-        onTap="itemTap"
-        icon="ScanningOutline"
-        data-index="{{1}}">
-        扫一扫
-      </popover-item>
+          <popover-item 
+            onTap="handleTapItem"
+            icon="ReceivePaymentOutline"
+            data-type="showLight"
+            data-name="付钱/收钱">
+            付钱/收钱
+          </popover-item>
 
-      <popover-item 
-        onTap="itemTap"
-        icon="ReceivePaymentOutline"
-        data-index="{{2}}">
-        付钱/收钱
-    </popover-item>
-
-      <popover-item 
-        onTap="itemTap"
-        icon="TransportQRcodeOutline"
-        data-index="{{3}}">
-        乘车码
-    </popover-item>
-      
-      <popover-item 
-        onTap="itemTap"
-        data-index="{{4}}">
-        <image
-          slot="icon"
-          mode="scaleToFill"
-          src="{{url}}"
-          style="width: 100%;height: 100%;"/>
-        icon 插槽
-      </popover-item>
-    </block>
-  </popover>
-  
-</view>
-  <view class="demo-popover">
-  <popover 
-  placement="bottom-right"
-  mode="light"
-  visible="{{show}}"
-  onVisibleChange="onVisibleChange">
-
-  <view class="demo-popover-btn-2">
-    mode : light
-  </view>
-
-  <block slot="items">
-    <popover-item 
-      onTap="itemTap"
-      icon="ScanningOutline"
-      data-index="{{1}}">
-      扫一扫
-    </popover-item>
-
-    <popover-item 
-      onTap="itemTap"
-      icon="ReceivePaymentOutline"
-      data-index="{{2}}">
-      付钱/收钱
-  </popover-item>
-
-    <popover-item 
-      onTap="itemTap"
-      icon="TransportQRcodeOutline"
-      data-index="{{3}}">
-      乘车码
-  </popover-item>
-    
-    <popover-item 
-      onTap="itemTap"
-      data-index="{{4}}">
-      <image
-        slot="icon"
-        mode="scaleToFill"
-        src="{{url}}"
-        style="width: 100%;height: 100%;"/>
-      icon 插槽
-    </popover-item>
-
-  </block>
-</popover>
+            <popover-item 
+              onTap="handleTapItem"
+              icon="TransportQRcodeOutline"
+              data-type="showLight"
+              data-name="乘车码">
+              乘车码
+          </popover-item>
+          <popover-item 
+            onTap="handleTapItem"
+            data-type="showLight"
+            data-name="icon 插槽">
+            <image
+              slot="icon"
+              mode="scaleToFill"
+              src="{{url}}"
+              style="width: 100%;height: 100%;"/>
+            icon 插槽
+          </popover-item>
+        </block>
+      </popover>
+    </view>
+  </demo-block>
 </view>
