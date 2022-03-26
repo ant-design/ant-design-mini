@@ -1,6 +1,8 @@
 {
-    "usingComponents":{
-        "dialog": "../../../src/Dialog/index",
-        "input-item": "../../../src/InputItem/index"
-    }
+  "usingComponents": {
+    "dialog": "../../../src/Dialog/index",
+    "input-item": "../../../src/InputItem/index",
+    "button": "../../../src/Button/index",
+    "demo-block": "../../components/DemoBlock/index"
+  }
 }

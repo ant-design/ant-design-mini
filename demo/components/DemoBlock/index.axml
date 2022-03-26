@@ -1,0 +1,8 @@
+<view class="demo-block">
+  <view class="demo-block-title">
+    {{title}}
+  </view>
+  <view class="demo-block-content {{space?'':'demo-block-content-nospace'}}">
+    <slot/>
+  </view>
+</view>

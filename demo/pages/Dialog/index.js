@@ -1,5 +1,6 @@
 Page({
   data: {
+    isNoBtnShow: false,
     isVerticalShow: false,
     isHoriShow: false,
     isSImgDialogShow: false,
@@ -8,74 +9,48 @@ Page({
     isCusDialogShow: false,
     url: 'https://gw.alipayobjects.com/zos/rmsportal/yFeFExbGpDxvDYnKHcrs.png',
   },
-  onVerticalButtonTap() {
+  handleClose() {
     this.setData({
+      isNoBtnShow: false,
       isVerticalShow: false,
-    });
-  },
-  onHoriButtonTap() {
-    this.setData({
       isHoriShow: false,
+      isSImgDialogShow: false,
+      isMImgDialogShow: false,
+      isLImgDialogShow: false,
+      isCusDialogShow: false,
     });
   },
-  onVerticalClose() {
-    this.setData({
-      isVerticalShow: false,
-    });
-  },
-  onHoriClose() {
-    this.setData({
-      isHoriShow: false,
-    });
-  },
-  openVertical() {
+  handleOpenVertical() {
     this.setData({
       isVerticalShow: true,
     });
   },
-  openHori() {
+  handleOpenHori() {
     this.setData({
       isHoriShow: true,
     });
   },
-  openSImg() {
+  handleOpenSImg() {
     this.setData({
       isSImgDialogShow: true,
     });
   },
-  openMImg() {
+  handleOpenMImg() {
     this.setData({
       isMImgDialogShow: true,
     });
   },
-  openLImg() {
+  handleOpenLImg() {
     this.setData({
       isLImgDialogShow: true,
     });
   },
-  openCus() {
+  handleOpenCus() {
     this.setData({
       isCusDialogShow: true,
     });
   },
-  onSImgClose() {
-    this.setData({
-      isSImgDialogShow: false,
-    });
-  },
-  onMImgClose() {
-    this.setData({
-      isMImgDialogShow: false,
-    });
-  },
-  onLImgClose() {
-    this.setData({
-      isLImgDialogShow: false,
-    });
-  },
-  onCusClose() {
-    this.setData({
-      isCusDialogShow: false,
-    });
+  handleOpenNoBtn() {
+    this.setData({ isNoBtnShow: true });
   },
 });

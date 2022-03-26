@@ -2,6 +2,7 @@
   "component2": true,
   "axmlStrictCheck": false,
   "enableAppxNg": true,
+  "enableHMR": true,
   "exclude": [
     "miniapptools_dist/**/*"
   ]

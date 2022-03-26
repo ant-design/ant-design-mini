@@ -2,6 +2,7 @@
   "enableAppxNg": true,
   "miniprogramRoot": "demo",
   "axmlStrictCheck": true,
+  "enableHMR": true,
   "component2": true,
   "exclude": ["dist/**/*"],
   "enableNodeModuleBabelTransform": true

@@ -36,7 +36,6 @@
     "pages/Tips/index",
     "pages/Mask/index",
     "pages/Avatar/index",
-    "pages/AvatarDesc/index",
     "pages/Loading/index",
     "pages/Checkbox/index",
     "pages/CheckboxControlled/index",

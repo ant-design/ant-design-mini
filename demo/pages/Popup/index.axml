@@ -1,71 +1,47 @@
 <view>
-
-  <popup
-    visible="{{showTop}}"
-    maskClosable="{{true}}"
-    position="top"
-    onClose="onPopupClose"
-    showCloseIcon="{{true}}">
+  <popup visible="{{basicShow}}" maskClosable="{{maskClosable}}" position="{{position}}" animation="{{animation}}" onClose="handlePopupClose" 
+    showCloseIcon="{{showCloseIcon}}">
   </popup>
-
-  <popup
-    visible="{{showBottom}}"
-    maskClosable="{{true}}"
-    position="bottom"
-    onClose="onPopupClose">
-  </popup>
-
-  <popup
-    visible="{{showLeft}}"
-    maskClosable="{{true}}"
-    showCloseIcon="{{true}}"
-    position="left"
-    onClose="onPopupClose">
-  </popup>
-
-  <popup
-    visible="{{showRight}}"
-    maskClosable="{{false}}"
-    showCloseIcon="{{true}}"
-    position="right"
-    onClose="onPopupClose">
-  </popup>
-
-  <popup
-    visible="{{showCenter}}"
-    maskClosable="{{true}}"
-    position="center"
-    showCloseIcon="{{true}}"
-    onClose="onPopupClose">
-    <scroll-view
-      scroll-y="{{true}}"
-      class="box center"
-      disable-lower-scroll="out-of-bounds"
-      disable-upper-scroll="out-of-bounds">
-      <view class="centerContent"> 试一下滚动 </view>
+  <popup visible="{{showCenterDisableScoll}}" maskClosable="{{maskClosable}}" position="center" animation="{{animation}}" 
+    onClose="handlePopupClose" showCloseIcon="{{showCloseIcon}}">
+    <scroll-view scroll-y="{{true}}" class="box center" disable-lower-scroll="out-of-bounds" disable-upper-scroll="out-of-bounds">
+      <view class="centerContent"> 试一下滚动</view>
     </scroll-view>
   </popup>
-
-  <popup
-    visible="{{showCenterScoll}}"
-    maskClosable="{{true}}"
-    position="center"
-    disableScroll="{{false}}"
-    animation="{{false}}"
-    onClose="onPopupClose">
-    <scroll-view
-      scroll-y="{{true}}"
-      class="box center">
-      <view class="centerContent"> 试一下滚动 </view>
+  
+  <popup visible="{{showCenterScoll}}" maskClosable="{{maskClosable}}" position="center" animation="{{animation}}" onClose="handlePopupClose" 
+    showCloseIcon="{{showCloseIcon}}" disableScroll="{{false}}">
+    <scroll-view scroll-y="{{true}}" class="box center">
+      <view class="centerContent"> 试一下滚动</view>
     </scroll-view>
   </popup>
-
-  <view class="btn-container">
-    <button onTap="onTopBtnTap">上（点击遮罩层关闭）</button>
-    <button onTap="onButtomBtnTap">下（点击遮罩层关闭）</button>
-    <button onTap="onLeftBtnTap">左（点击遮罩层关闭）</button>
-    <button onTap="onRightBtnTap">右 maskCloseable 为 false</button>
-    <button onTap="onCenterBtnTap"> 弹窗内部滚动 - 禁用页面滚动 </button>
-    <button onTap="onCenterBtnScrollTap"> 弹窗内部滚动 - 无动画 - 允许页面滚动 </button>
-  </view>
+  <list>
+    <list-item>
+      显示关闭按钮
+      <switch slot="extra" checked="{{showCloseIcon}}" controlled onChange="handleChangeShowCloseIcon" />
+    </list-item>
+    <list-item>
+      可点击遮罩层关闭
+      <switch slot="extra" checked="{{maskClosable}}" controlled onChange="handleChangeMaskClosable" />
+    </list-item>
+    <list-item>
+      开启过渡动画
+      <switch slot="extra" checked="{{animation}}" controlled onChange="handleChangeAnimation" />
+    </list-item>
+  </list>
+  <demo-block title="不同位置">
+    <view class="btn-list">
+      <button data-position="top" onTap="handleShowBasic">顶部弹出</button>
+      <button data-position="bottom" onTap="handleShowBasic">底部弹出</button>
+      <button data-position="left" onTap="handleShowBasic">左侧弹出</button>
+      <button data-position="right" onTap="handleShowBasic">右侧弹出</button>
+      <button data-position="center" onTap="handleShowBasic">中间弹出</button>
+    </view>
+  </demo-block>
+  <demo-block title="设置disableScroll">
+    <view class="btn-list">
+      <button onTap="handleShowDisableScroll">弹窗内部滚动 - 禁用页面滚动</button>
+      <button onTap="handleShowScroll">弹窗内部滚动 - 允许页面滚动</button>
+    </view>
+  </demo-block>
 </view>

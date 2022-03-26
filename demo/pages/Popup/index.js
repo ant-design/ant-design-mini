@@ -1,50 +1,56 @@
 Page({
   data: {
-    showLeft: false,
-    showRight: false,
-    showTop: false,
-    showBottom: false,
-    showCenter: false,
+    position: '',
+    basicShow: false,
+    maskClosable: true,
+    showCloseIcon: true,
+    animation: true,
     showCenterScoll: false,
+    showCenterDisableScoll: false,
   },
-  onTopBtnTap() {
+  handlePopupClose() {
     this.setData({
-      showTop: true,
+      basicShow: false,
+      showCenterScoll: false,
+      showCenterDisableScoll: false,
     });
   },
-  onRightBtnTap() {
+  handleShowBasic(e) {
+    const { position } = e.target.dataset;
     this.setData({
-      showRight: true,
+      position,
+      basicShow: true,
     });
   },
-  onLeftBtnTap() {
+  handleShowDisableScroll() {
     this.setData({
-      showLeft: true,
+      showCenterDisableScoll: true,
     });
   },
-  onButtomBtnTap() {
-    this.setData({
-      showBottom: true,
-    });
-  },
-  onCenterBtnTap() {
-    this.setData({
-      showCenter: true,
-    });
-  },
-  onCenterBtnScrollTap() {
+  handleShowScroll() {
     this.setData({
       showCenterScoll: true,
     });
   },
-  onPopupClose() {
-    this.setData({
-      showLeft: false,
-      showRight: false,
-      showTop: false,
-      showBottom: false,
-      showCenter: false,
-      showCenterScoll: false,
-    });
+  handleChangeMaskClosable(checked) {
+    const { showCloseIcon } = this.data;
+    if (!showCloseIcon && !checked) {
+      return my.alert({
+        content: '同时隐藏关闭按钮和蒙层关闭事件将无法关闭弹出层',
+      });
+    }
+    this.setData({ maskClosable: checked });
+  },
+  handleChangeShowCloseIcon(checked) {
+    const { maskClosable } = this.data;
+    if (!maskClosable && !checked) {
+      return my.alert({
+        content: '同时隐藏关闭按钮和蒙层关闭事件将无法关闭弹出层',
+      });
+    }
+    this.setData({ showCloseIcon: checked });
+  },
+  handleChangeAnimation(checked) {
+    this.setData({ animation: checked });
   },
 });
