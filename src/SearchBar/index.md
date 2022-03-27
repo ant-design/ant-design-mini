@@ -35,6 +35,7 @@ toc: false
 | cancelText | string | 否 | "取消" | 取消按钮文案 |
 | maxLength | number | 否 | - | 最大长度 |
 | showBizIcon | boolean | 否 | false | 是否展示额外图标 |
+| bizIconType | string | 否 | "AudioFill" | 额外图标类型 |
 | autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |

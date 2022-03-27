@@ -8,7 +8,7 @@
     <loading size="medium" text="medium" />
     <loading size="small" text="small" />
   </demo-block>
-  <demo-block title="theme: light" class="light-bg">
+  <demo-block title="theme: light" background="rgba(0, 0, 0, 0.7)">
     <loading size="x-large" text="x-large" theme="light" />
     <loading size="large" text="large" theme="light" />
     <loading size="medium" text="medium" theme="light" />

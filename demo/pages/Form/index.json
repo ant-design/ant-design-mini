@@ -4,7 +4,6 @@
         "form": "../../../src/Form/index",
         "form-item": "../../../src/Form/FormItem/index",
         "input": "../../../src/InputItem/index",
-        "my":"../../components/test/index",
         "button":"../../../src/Button/index",
         "checkbox":"../../../src/Checkbox/index",
         "stepper":"../../../src/Stepper/index",
