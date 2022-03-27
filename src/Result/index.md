@@ -33,6 +33,13 @@ toc: false
 | -----|-----|-----|
 | onButtonTap | 弹窗关闭时，触发回调 | (idx: number) => void |
 
+### 插槽
+| 名称 | 说明 |
+| ----|----|
+| title | 标题 |
+| message | 描述 |
+| image | 图标 |
+
 ### 样式类
 
 | 类名 | 说明 |

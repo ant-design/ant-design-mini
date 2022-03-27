@@ -2,7 +2,7 @@
   <view class="demo-block-title">
     {{title}}
   </view>
-  <view class="demo-block-content {{space?'':'demo-block-content-nospace'}}">
+  <view class="demo-block-content" style="padding:{{padding}};">
     <slot/>
   </view>
 </view>

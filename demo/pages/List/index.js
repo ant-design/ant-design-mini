@@ -4,7 +4,8 @@ Page({
     list: [
       {
         info: '第一个 list-item 被点击',
-        image: 'https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ',
+        image:
+          'https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ',
         arrow: 'right',
         content: '第一个 list-item',
       },
@@ -28,9 +29,9 @@ Page({
       content: e.currentTarget.dataset.info,
     });
   },
-  setRadius(e) {
+  handleSetRadius(checked) {
     this.setData({
-      radius: e.detail.value,
+      radius: checked,
     });
   },
 });
