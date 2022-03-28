@@ -6,5 +6,6 @@ export const TabsDefaultProps = {
   sticky: false,
   stickyTop: 0,
   fallback:false,
+  touchAngle: 45,
   onGetRef: () => {},
 };
