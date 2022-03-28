@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
-const { exec } = require("child_process");
+const { exec, fork } = require("child_process");
 const PKG_JSON_PATH = "../../package.json";
 
-// 拿到版本信息
+// 拿到版本信息, 以 antd-mini 为基准
 function getVersion(depName = "antd-mini") {
   return new Promise((resolve, reject) => {
     exec(`npm info ${depName}`, function (error, stdout, stderr) {
@@ -114,7 +114,7 @@ function npmPublish(oldVersion, newVersion, tag) {
           const antdMiniPkgJsonStr = publish("antd-mini", tag, newVersion);
           publish("antd-mini-rpx", tag, newVersion);
           // 回写
-          // writePkgJson(antdMiniPkgJsonStr);
+          writePkgJson(antdMiniPkgJsonStr);
           console.log("发布完成")
           resolve(newVersion);
         }
@@ -130,8 +130,8 @@ function writePkgJson(str) {
 // TODO
 function publish(npmName, tag, version) {
   const pkgJsonStr = updatePkgJson(npmName, version);
-  //   writePkgJson(pkgJsonStr)
-  //   fork(`npm publish --tag=${tag}`);
+  writePkgJson(pkgJsonStr)
+  fork(`npm publish --tag=${tag}`);
   return pkgJsonStr;
 }
 
@@ -162,8 +162,8 @@ function gitSync(newVersion){
       const { git } = res;
       if (git === "是") {
         // tag + 分支
-        // exec(`git tag ${newVersion}`);
-        // exec(`git push origin ${newVersion}:${newVersion}`);
+        exec(`git tag ${newVersion}`);
+        exec(`git push origin ${newVersion}:${newVersion}`);
         console.log("git 同步完成")
       }
       resolve()
