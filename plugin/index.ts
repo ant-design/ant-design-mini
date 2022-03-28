@@ -30,7 +30,7 @@ export default (api: IApi) => {
         return {
           rendererProps: getRenderProps(sourcesPath),
           previewerProps: {
-            sources: getBlockDepsFiles(require(`${process.cwd()}/package.json`).name, sourcesPath),
+            sources: sortSources(getBlockDepsFiles(require(`${process.cwd()}/package.json`).name, sourcesPath)),
             dependencies: getBlockDepsNPM(`${process.cwd()}/package.json`),
             hideActions: ['CSB', 'RIDDLE'],
             simulator: false,
@@ -40,6 +40,33 @@ export default (api: IApi) => {
     }),
   });
 };
+
+function sortSources(sources) {
+  const suffixSortMap = {
+    axml: 0,
+    js: 1,
+    ts: 2,
+    acss: 3,
+    less: 4,
+    json: 5,
+  };
+  const entries = Object.entries(sources)
+    .map((v) => {
+      const suffix = v[0].split('.').pop();
+      const sort = suffixSortMap[suffix];
+      return {
+        key: v[0],
+        value: v[1],
+        sort: Number.isInteger(sort) ? sort : 999,
+      };
+    })
+    .sort((x, y) => x.sort - y.sort);
+  const a = entries.reduce((re, v) => {
+    re[v.key] = v.value;
+    return re;
+  }, {});
+  return a;
+}
 
 export function getRenderProps(path: string) {
   const prefix = path.match(/.*(\/demo\/)(pages\/.+)/)[2];
