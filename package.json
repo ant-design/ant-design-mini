@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "0.0.2",
+  "version": "0.0.2-alpha.1",
   "scripts": {
     "dev": "minidev dev --less --typescript --no-source-map",
     "build": "npm run build:component && npm run build:site",
@@ -81,7 +81,7 @@
     "gulp-if": "^3.0.0",
     "gulp-inject-envs": "^1.0.0",
     "gulp-less": "^5.0.0",
-    "gulp-rename": "^1.2.3",    
+    "gulp-rename": "^1.2.3",
     "inquirer": "^8.2.1",
     "jest": "^27.5.1",
     "less": "^4.1.2",

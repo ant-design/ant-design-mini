@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
-const { exec, fork } = require("child_process");
-const PKG_JSON_PATH = "../../package.json";
+const { exec, execSync } = require("child_process");
+const { cwd } = require("process");
+const PKG_JSON_PATH =  `${cwd()}/package.json`;
 
 // 拿到版本信息, 以 antd-mini 为基准
 function getVersion(depName = "antd-mini") {
@@ -131,8 +132,7 @@ function writePkgJson(str) {
 function publish(npmName, tag, version) {
   const pkgJsonStr = updatePkgJson(npmName, version);
   writePkgJson(pkgJsonStr)
-  fork(`npm publish --tag=${tag}`);
-  return pkgJsonStr;
+  execSync(`npm publish --tag=${tag}`);
 }
 
 function updatePkgJson(npmName, version) {
@@ -162,8 +162,8 @@ function gitSync(newVersion){
       const { git } = res;
       if (git === "是") {
         // tag + 分支
-        exec(`git tag ${newVersion}`);
-        exec(`git push origin ${newVersion}:${newVersion}`);
+        execSync(`git tag ${newVersion}`);
+        execSync(`git push origin ${newVersion}:${newVersion}`);
         console.log("git 同步完成")
       }
       resolve()
@@ -196,4 +196,6 @@ getVersion().then((versionInfo) => {
     .catch((error) => {
       console.log(error);
     });
-});
+}).catch(err=>{
+  console.log(err)
+})
