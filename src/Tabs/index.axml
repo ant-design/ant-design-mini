@@ -68,7 +68,6 @@
       <swiper circular="{{false}}"
         indicator-dots="{{false}}"
         current="{{currentIndex}}"
-        interval="99999999"
         duration="{{_swipeableAnimation || animation ? 300 : 1}}"
         autoplay="{{false}}"
         disable-touch="{{_swipeable}}"
@@ -84,19 +83,14 @@
         <slot />
       </swiper>
     </view>
-    <view a:elif="{{!fallback && !isBaseSwiper}}" class="amd-tabs-content">
-      <view class="amd-tabs-slides {{currentIndex === index?'amd-tabs-slides-height':''}}"
+    <view a:else class="{{ fallback ? '' : amd-tabs-content }}">
+      <view class = "{{ fallback ? '' : 'amd-tabs-slides'}} {{ currentIndex === index ? 'amd-tabs-slides-height' :''}}"
         id="amd-tabs-content-{{$id}}"
-        style="
-        transform: translate3d({{-currentIndex * 100}}%, 0, 0);
-        transition-duration: {{animation?'300ms':''}}; {{_tabContentHeight?`height: ${_tabContentHeight}px;`:'height: auto;'}}
-      ">
+        style="{{ fallback 
+          ? ''
+          : `transform: translate3d(${-currentIndex * 100}%, 0, 0); transition-duration: ${animation?'300ms':''}; ${_tabContentHeight?`height: ${_tabContentHeight}px;`:'height: auto;'}`
+        }}">
         <slot />
       </view>
-    </view>
-
-    <!--fallback 用户自己控制显示选项 -->
-    <view a:elif="{{fallback}}" class="amd-tabs-content">
-        <slot />
     </view>
 </view>

@@ -1,23 +1,14 @@
-<block  a:if="{{fallback}}" >
-  <view  
-    style="{{style}}"
-    class="amd-tabs-item amd-tabs-item-pane {{className ? className : ''}}" 
-    key="tabs-item-{{$id}}">
-      <slot />
-  </view>
-</block>
-<block a:else>
-  <view 
-    a:if="{{!component2}}" 
-    class="amd-tabs-item amd-tabs-item-pane {{className ? className : ''}}"
-    key="tabs-pane-{{$id}}" 
-    style="align-self: flex-start;">
+<view  
+  a:if="{{fallback}}"
+  style="{{style ? style : 'width:100%'}}"
+  class="{{className}}" 
+  key="tabs-item-{{$id}}">
     <slot />
-  </view>
-  <view 
-    a:else 
-    style="{{style}}"
-    class="amd-tabs-item amd-tabs-item-pane amd-tabs-item-swiper {{className ? className : ''}}" key="tabs-item-{{$id}}">
+</view>
+<view 
+  a:else
+  class="amd-tabs-item amd-tabs-item-pane {{ !isBaseSwiper ? '' : 'amd-tabs-item-swiper'}} {{className ? className : ''}}"
+  key="tabs-pane-{{$id}}" 
+  style="{{ !isBaseSwiper ? 'align-self: flex-start' : style }}">
     <slot />
-  </view>
-</block>
+</view>
