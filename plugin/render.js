@@ -216,10 +216,10 @@ function debounce(fn, delay) {
     }, delay);
   };
 }
-function navigateTo(path) {
+function reLaunch(path) {
   if (simulator && prevPath !== path) {
     simulator.evaluateJavaScriptInWorker(
-      'my.navigateTo({url:"/'.concat(path, '"})')
+      'my.reLaunch({url:"/'.concat(path, '"})')
     );
     prevPath = path;
   }
@@ -245,7 +245,7 @@ function proxyHistory(method) {
   var method = fn;
   window.history[method] = proxyHistory(method);
 });
-var debounceNavigateTo = debounce(navigateTo, 150);
+var debounceReLaunch = debounce(reLaunch, 150);
 
 function genSimulator(){
   if (!simulatorContainer) {
@@ -260,7 +260,7 @@ function genSimulator(){
 
 exports.default = function (props) {
   genSimulator()
-  debounceNavigateTo(props.pages);
+  debounceReLaunch(props.pages);
   var _a = (0, react_1.useState)({ width: 395, height: 740 }),
     lyraSize = _a[0],
     setLyraSize = _a[1];
