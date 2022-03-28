@@ -1,0 +1,13 @@
+diff --git a/node_modules/@umijs/preset-dumi/lib/transformer/remark/previewer/index.js b/node_modules/@umijs/preset-dumi/lib/transformer/remark/previewer/index.js
+index 60bf95e..6eb2fd7 100644
+--- a/node_modules/@umijs/preset-dumi/lib/transformer/remark/previewer/index.js
++++ b/node_modules/@umijs/preset-dumi/lib/transformer/remark/previewer/index.js
+@@ -197,7 +197,7 @@ function getDependentFiles(props, demoFilePath) {
+ function transformCode(node, mdAbsPath, pTransformer, rendererProps) {
+   // export third-party transformer directly
+   if (pTransformer.type !== 'builtin') {
+-    return `() => React.createElement(${(0, _utils2.decodeImportRequireWithAutoDynamic)((0, _utils2.encodeImportRequire)(pTransformer.component), `demos_${pTransformer.type}`)}, ${JSON.stringify(rendererProps)}, [])`;
++    return `{ component: require('${pTransformer.component}').default, props: ${JSON.stringify(rendererProps)}}`;
+   } // export external demo directly
+ 
+ 

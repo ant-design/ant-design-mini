@@ -1,0 +1,14 @@
+diff --git a/node_modules/dumi-theme-mobile/es/layouts/index.js b/node_modules/dumi-theme-mobile/es/layouts/index.js
+index 173d81e..2d33004 100644
+--- a/node_modules/dumi-theme-mobile/es/layouts/index.js
++++ b/node_modules/dumi-theme-mobile/es/layouts/index.js
+@@ -81,7 +81,7 @@ var MobileLayout = function MobileLayout(_ref) {
+   React.createElement("div", {
+     className: "__dumi-default-device",
+     "data-mode": mode
+-  }, /*#__PURE__*/React.createElement(demos[demo.identifier].component))));
++  }, /*#__PURE__*/React.createElement(demos[demo.identifier].component.component,demos[demo.identifier].component.props))));
+ };
+ 
+ export default MobileLayout;
+\ No newline at end of file
