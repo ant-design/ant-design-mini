@@ -34,7 +34,8 @@ toc: false
 | publicId | string | 否 | - | 生活号 id，必须是当前小程序同主体且已关联的生活号，open-type="lifestyle" 时有效。 |
 | openType | string | 否 | - | 开放能力。 |
 | scope | string | 否 | - | 当 openType 为 getAuthorize 时有效。 |
-| type | 'default' &verbar; 'primary' &verbar; 'danger' &verbar; 'ghost' &verbar; 'danger-ghost' &verbar; 'light' | 否 | "default" | 按钮类型 default=辅助按钮 primary=品牌色按钮 danger=危险按钮 ghost=primary+ghost danger-ghost=danger+ghost light=弱按钮 |
+| type | `default` &verbar; `primary` &verbar; `warn` &verbar; `danger` &verbar; `success` &verbar; `light` | 否 | `default` | 按钮类型 default=辅助按钮<br> primary=品牌色按钮<br>  warn=警示按钮<br>  danger=危险按钮<br>  success=成功按钮<br>  light=弱按钮 |
+| fill | `outline` &verbar; `solid` &verbar; `none` | 否 | `solid` | 填充样式 |
 | disabled | boolean | 否 | false | 是否禁用 |
 | activeClassName | string | 否 | - | 按下时的类名 |
 | subText | string | 否 | - | 辅助文字，显示在第二行 |
