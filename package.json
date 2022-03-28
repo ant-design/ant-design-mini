@@ -8,7 +8,7 @@
     "build:component:rpx": "NODE_ENV=production node scripts/compile.js --rpx",
     "build:site": "dumi build",
     "build:demo": "minidev build --output=$PWD/dist --typescript --less --no-source-map",
-    "deploy:docs": "echo 'mini.ant.design' > ./docs-dist/CNAME && gh-pages -d docs-dist",
+    "deploy:docs": "npm run build:site && echo 'mini.ant.design' > ./docs-dist/CNAME && gh-pages -d docs-dist",
     "lint:code": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\"",
     "lint:code:fix": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\" --fix",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
