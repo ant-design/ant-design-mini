@@ -78,7 +78,7 @@
         onChange="handleSwiperChange"
         onTouchStart="handleSwiperTouchStart"
         onTransition="handleSwiperTransition"
-        touch-angle="touchAngle">
+        touch-angle="{{touchAngle}}">
         <!--2.7.5 及以上自适应高度；2.6.4 - 2.7.4 强制刷新；2.6.4 一下只能手动查询高度-->
         {{isForceUpdate ? _forceRefreshSwiper : ''}}
         <slot />
