@@ -24,3 +24,8 @@
 .demo-btn {
   width: 45%;
 }
+
+.demo-popover-tooltip {
+  color: #fff;
+  text-align: center;
+}
