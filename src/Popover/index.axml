@@ -4,6 +4,8 @@
   </view>
   <view class="amd-popover-container"
     a:if="{{visible}}">
+    <!-- 蒙层 -->
+    <mask show="{{mask}}" fixMaskFull="{{fixMaskFull}}" maskZindex="{{99}}" onMaskTap="onMaskTap"></mask>
     <view class="amd-popover-content amd-popover-{{placement}}">
       <view class="amd-popover-arrow {{mode==='light' ? 'amd-popover-arrow-light' : ''}}"></view>
       <view class="amd-popover-content-bg">

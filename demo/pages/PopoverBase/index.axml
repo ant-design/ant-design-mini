@@ -2,17 +2,18 @@
   <popover 
     placement="{{placement}}"
     visible="{{show}}"
-    mask="{{false}}"
+    mask="{{showMask}}"
     maskClosable="{{true}}"
     onVisibleChange="onVisibleChange">
 
     <view class="demo-popover-btn">
       点击{{show ? '隐藏' : '显示'}} {{placement}}
     </view>
+    
+    <view slot="items" class="demo-popover-items">
+      tooltip
+    </view>
 
-    <block slot="items">
-      <view class="demo-popover-tooltip">tooltip</view>
-    </block>
   </popover>
 </view>
 
@@ -21,5 +22,10 @@
     class="demo-btn"
     onTap="onNextPositionTap">
     下个位置
+  </button>
+  <button 
+    class="demo-btn"
+    onTap="onToggleMask">
+    {{showMask?'隐藏':'显示'}}蒙层
   </button>
 </view>

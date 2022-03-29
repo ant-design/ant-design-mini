@@ -25,7 +25,9 @@
   width: 45%;
 }
 
-.demo-popover-tooltip {
+.demo-popover-items {
   color: #fff;
-  text-align: center;
+  padding: 20rpx;
+  white-space: nowrap;
+  font-size: 28rpx;
 }
