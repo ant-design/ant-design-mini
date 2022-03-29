@@ -12,8 +12,7 @@ toc: false
 容器依据最佳实践统一了子元素的间距、圆角。
 
 ## 代码示例
-
-
+<code src='../../demo/pages/Container'></code>
 
 ## API
 

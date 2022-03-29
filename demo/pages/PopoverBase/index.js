@@ -16,6 +16,7 @@ Page({
   data: {
     placement: placement[0],
     show: true,
+    showMask: false,
     showLight: true,
     showDark: true,
   },
@@ -33,12 +34,21 @@ Page({
     let index = placement.indexOf(this.data.placement);
     index = index >= placement.length - 1 ? 0 : index + 1;
     this.setData({
+      show: true,
       placement: placement[index],
     });
   },
-  handleVisibleChange(e) {
+  handleVisibleChange(visible, mode) {
     this.setData({
-      show: e,
+      show: visible,
+    });
+    if (mode === 'mask') {
+      my.showToast({ content: '点击mask关闭', duration: 2000 });
+    }
+  },
+  handleToggleMask() {
+    this.setData({
+      showMask: !this.data.showMask,
     });
   },
 });

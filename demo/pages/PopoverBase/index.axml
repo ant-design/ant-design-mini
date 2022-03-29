@@ -5,7 +5,7 @@
         placement="bottom"
         visible="{{showDark}}"
         onVisibleChange="handleDarkVisibleChange">
-        <button inlineSize="large" inline>点我</button>
+        <button inlineSize="large" inline>点我{{showDark ? '隐藏' : '显示'}}</button>
         <view slot="items" class="tooltip">Hello World</view>
       </popover>
     </view>
@@ -17,7 +17,7 @@
         mode="light"
         visible="{{showLight}}"
         onVisibleChange="handleLightVisibleChange">
-        <button inlineSize="large" inline>点我</button>
+        <button inlineSize="large" inline>点我{{showLight ? '隐藏' : '显示'}}</button>
         <view slot="items" class="tooltip">Hello World</view>
       </popover>
     </view>
@@ -27,6 +27,7 @@
       <popover 
         placement="{{placement}}"
         visible="{{show}}"
+        mask="{{showMask}}"
         onVisibleChange="handleVisibleChange">
         <view class="multi">
           <view>点击{{show ? '隐藏' : '显示'}}</view>
@@ -42,6 +43,17 @@
         </view>
       </popover>
     </view>
-    <button onTap="handleNextPosition">下个位置</button>
+    <view class="demo-btn-container">
+      <button 
+        class="demo-btn"
+        onTap="handleNextPosition">
+        下个位置
+      </button>
+      <button 
+        class="demo-btn"
+        onTap="handleToggleMask">
+        {{showMask?'隐藏':'显示'}}蒙层
+      </button>
+    </view>
   </demo-block>
 </view>

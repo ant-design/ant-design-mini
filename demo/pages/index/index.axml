@@ -3,7 +3,8 @@
   onInput="onSearch"
   onClear="onClearSearch"
   onSubmit="onSearch" />
-<list a:for="{{componentList}}"
+<list 
+  a:for="{{componentList}}"
   key="componentList"
   className="list"
   radius="{{true}}">

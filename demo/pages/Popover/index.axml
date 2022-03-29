@@ -4,6 +4,7 @@
       <popover 
         placement="bottom-left"
         visible="{{showDark}}"
+        mask
         onVisibleChange="handleDarkVisibleChange">
         <button inline inlineSize="large">点我{{showDark?'关闭':'显示'}}</button>
         <block slot="items">
@@ -51,6 +52,7 @@
         placement="bottom-left"
         visible="{{showLight}}"
         mode="light"
+        mask
         onVisibleChange="handleLightVisibleChange">
         <button inline inlineSize="large">点我{{showLight?'关闭':'显示'}}</button>
         <block slot="items">
