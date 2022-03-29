@@ -231,7 +231,6 @@ Page({
         ],
       },
     ],
-    finding: false,
     searchResult: [],
   },
   onLoad() {
@@ -248,13 +247,11 @@ Page({
   },
   onShow() {
     this.setData({
-      finding: false,
       searchResult: [],
     });
   },
   onClearSearch() {
     this.setData({
-      finding: false,
       searchResult: [],
     });
   },
@@ -268,12 +265,10 @@ Page({
         }
       });
       this.setData({
-        finding: true,
         searchResult: result,
       });
     } else {
       this.setData({
-        finding: false,
         searchResult: [],
       });
     }

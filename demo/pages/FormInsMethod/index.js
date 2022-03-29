@@ -1,26 +1,20 @@
 Page({
   data: {
-    list: [
-      { name: 'field1', placeholder: 'field1' },
-      { name: 'field2', placeholder: 'field2' },
-      { name: 'field3', placeholder: 'field3' },
-    ],
-    form: 'formInsMethod',
-    ins: '',
+    form: 'form',
   },
-  setFieldsValue() {
-    this.formInstance.setFieldsValue(this.data.form, {
-      field1: '1',
-      field2: '2',
-      field3: '3',
+  handleValuesChange(value, values) {
+    console.log(value, values);
+  },
+  handleSubmit(e) {
+    my.alert({ title: '提交', content: JSON.stringify(e) });
+  },
+  getForm(ref) {
+    this.formRef = ref;
+  },
+  handleSetValue() {
+    this.formRef.setFieldsValue(this.data.form, {
+      account: '18888888888',
+      password: '666666',
     });
   },
-  getCompInstance() {
-    const ins = JSON.stringify(this.formInstance.getCompInstance(), undefined, 4);
-    this.setData({ ins });
-  },
-  ref(ins) {
-    this.formInstance = ins;
-  },
 });
-

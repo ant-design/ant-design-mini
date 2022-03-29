@@ -3,17 +3,14 @@
   "usingComponents": {
     "form": "../../../src/Form/index",
     "form-item": "../../../src/Form/FormItem/index",
+    "form-group": "../../../src/Form/FormGroup/index",
     "input-item": "../../../src/InputItem/index",
     "button": "../../../src/Button/index",
+    "switch": "../../../src/Switch/index",
     "checkbox": "../../../src/Checkbox/index",
-    "stepper": "../../../src/Stepper/index",
-    "picker": "../../../src/Picker/index",
-    "checkbox-group": "../../../src/CheckboxGroup/index",
-    "checkbox-item": "../../../src/CheckboxGroup/CheckboxItem/index",
     "radio-group": "../../../src/RadioGroup/index",
     "radio-item": "../../../src/RadioGroup/RadioItem/index",
-    "switch": "../../../src/Switch/index",
-    "selector": "../../../src/Selector/index",
-    "form-group": "../../../src/Form/FormGroup/index"
+    "stepper": "../../../src/Stepper/index",
+    "selector": "../../../src/Selector/index"
   }
 }

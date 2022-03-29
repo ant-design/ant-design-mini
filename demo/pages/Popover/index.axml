@@ -5,7 +5,7 @@
         placement="bottom-left"
         visible="{{showDark}}"
         onVisibleChange="handleDarkVisibleChange">
-        <button inline inlineSize="large">点我</button>
+        <button inline inlineSize="large">点我{{showDark?'关闭':'显示'}}</button>
         <block slot="items">
           <popover-item 
             onTap="handleTapItem"
@@ -52,7 +52,7 @@
         visible="{{showLight}}"
         mode="light"
         onVisibleChange="handleLightVisibleChange">
-        <button inline inlineSize="large">点我</button>
+        <button inline inlineSize="large">点我{{showLight?'关闭':'显示'}}</button>
         <block slot="items">
           <popover-item 
             onTap="handleTapItem"

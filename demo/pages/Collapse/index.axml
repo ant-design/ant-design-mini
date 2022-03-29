@@ -9,34 +9,34 @@
         title="第一项" 
         uid="collapse-0" 
         name="item-0">
-        陌上花开蝴蝶飞，江山犹似昔人非。
+        君不见，黄河之水天上来，奔流到海不复回。君不见，高堂明镜悲白发，朝如青丝暮成雪。
       </collapse-item>
       
       <collapse-item 
         name="item-1" 
         title="第二项" 
         uid="collapse-0">
-        遗民几度垂垂老，游女长歌缓缓归。
+        人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。
       </collapse-item>
     
       <collapse-item 
         title="第三项" 
         name="item-2" 
         uid="collapse-0">
-        陌上山花无数开，路人争看翠辇来。
+        烹羊宰牛且为乐，会须一饮三百杯。岑夫子，丹丘生，将进酒，杯莫停。
       </collapse-item>
       
       <collapse-item 
         title="第四项" 
         name="item-3" 
         uid="collapse-0">
-        若为留得堂堂在，且更从教缓缓归。
+        与君歌一曲，请君为我倾耳听。钟鼓馔玉不足贵，但愿长醉不愿醒。
       </collapse-item>
     </collapse>
   </demo-block>
   <demo-block title="手风琴模式">
     <collapse 
-      name="{{['item-0']}}" 
+      name="{{['item-3']}}" 
       onChange="onChange" 
       uid="collapse-1" 
       accordion>
@@ -44,28 +44,28 @@
         title="第一项" 
         uid="collapse-1" 
         name="item-0">
-        陌上花开蝴蝶飞，江山犹似昔人非。
+        古来圣贤皆寂寞，惟有饮者留其名。
       </collapse-item>
       
       <collapse-item 
         name="item-1" 
         title="第二项" 
         uid="collapse-1">
-        遗民几度垂垂老，游女长歌缓缓归。
+        陈王昔时宴平乐，斗酒十千恣欢谑。
       </collapse-item>
     
       <collapse-item 
         title="第三项" 
         name="item-2" 
         uid="collapse-1">
-        陌上山花无数开，路人争看翠辇来。
+        主人何为言少钱，径须沽取对君酌。
       </collapse-item>
       
       <collapse-item 
         title="第四项" 
         name="item-3" 
         uid="collapse-1">
-        若为留得堂堂在，且更从教缓缓归。
+        五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。
       </collapse-item>
     </collapse>
   </demo-block>

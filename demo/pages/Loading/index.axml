@@ -1,14 +1,14 @@
 <view class="demo">
-  <demo-block title="type: mini">
+  <demo-block title="mini类型">
     <loading type="mini"></loading>
   </demo-block>
-  <demo-block title="theme: dark">
+  <demo-block title="dark颜色">
     <loading size="x-large" text="x-large" />
     <loading size="large" text="large" />
     <loading size="medium" text="medium" />
     <loading size="small" text="small" />
   </demo-block>
-  <demo-block title="theme: light" background="rgba(0, 0, 0, 0.7)">
+  <demo-block title="light颜色" background="rgba(0, 0, 0, 0.7)">
     <loading size="x-large" text="x-large" theme="light" />
     <loading size="large" text="large" theme="light" />
     <loading size="medium" text="medium" theme="light" />

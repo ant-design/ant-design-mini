@@ -1,15 +1,14 @@
 Page({
   data: {
-    value: 5.98,
+    value: 99,
   },
-  callBackFn(value) {
-    my.alert({
-      title: `value: ${value}`,
-    });
+  handleChange(value) {
+    this.setData({ value });
   },
-  modifyValue() {
-    this.setData({
-      value: 9,
-    });
+  handleAddValue() {
+    this.setData({ value: this.data.value + 1 });
+  },
+  handleMinusValue() {
+    this.setData({ value: this.data.value - 1 });
   },
 });

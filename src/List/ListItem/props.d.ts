@@ -10,7 +10,7 @@ export interface IListItemProps extends IBaseProps {
    */
   image: IconType;
   /**
-   * @description 左侧图片
+   * @description 图片尺寸
    */
   imageSize: 'small' | 'medium' | 'large';
   /**
@@ -41,6 +41,6 @@ export interface IListItemProps extends IBaseProps {
   /**
    * @description 点击整行回调
    */
-  onTap?: (event?: T) => void;
+  onTap?: (event?: any) => void;
 }
 export declare const ListItemDefaultProps: Partial<IListItemProps>;

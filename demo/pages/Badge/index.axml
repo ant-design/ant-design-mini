@@ -84,6 +84,14 @@
       </badge>
     </view>
   </demo-block>
+  <demo-block title="自定义背景色">
+    <badge 
+      type="dot" 
+      bgColor="green"
+      position="top-right">
+      <view class="box"/>
+    </badge>
+  </demo-block>
   <demo-block title="自定义图标">
     <badge 
       type="text" 
