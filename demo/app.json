@@ -17,6 +17,7 @@
     "pages/ButtonAddon/index",
     "pages/Modal/index",
     "pages/SwipeAction/index",
+    "pages/SwipeActionRef/index",
     "pages/Tabs/index",
     "pages/VTabs/index",
     "pages/Stepper/index",

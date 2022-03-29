@@ -1,0 +1,27 @@
+
+<swipe-action
+    data-index="{{index}}"
+    right="{{[{
+        type: 'default',
+        text: '新增一个',
+      }, {
+        type: 'primary',
+        text: '取消收藏',
+      }, {
+        type: 'danger',
+        text: '删除',
+      }]}}" 
+    onRightButtonTap="onSingleRightItemClickDelete" 
+    onGetRef="getRef"
+    >
+    <list-item 
+      arrow="right" 
+      data-index="{{index}}"
+      onTap="onItemClick">
+      组件实例方法
+    </list-item>
+</swipe-action>
+
+<button onTap="resetPosition">
+    reset
+</button>
