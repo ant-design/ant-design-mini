@@ -63,30 +63,31 @@ Component({
         .select(`#amd-tabs-bar-item-${index}`)
         .boundingClientRect()
         .exec((ret) => {
-          const { _tabsViewportWidth } = this.data;
           if (!(<IBoundingClientRect>ret[0])) {
             // 当获取到的索引值无法匹配时显示错误提示
-            log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
-          } else {
-            // 正确的索引值在初次加载时高亮展示当前 tab
-            // eslint-disable-next-line no-lonely-if
-            if ((<IBoundingClientRect>ret[0]).left > _tabsViewportWidth / 2) {
-              this.setData({
-                _scrollLeft:
+            return log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
+          }
+
+          const { _tabsViewportWidth } = this.data;
+          // 正确的索引值在初次加载时高亮展示当前 tab
+          // eslint-disable-next-line no-lonely-if
+          if ((<IBoundingClientRect>ret[0]).left > _tabsViewportWidth / 2) {
+            this.setData({
+              _scrollLeft:
                 (<IBoundingClientRect>ret[0]).left -
                 _tabsViewportWidth / 2 +
                 (<IBoundingClientRect>ret[0]).width / 2,
-                _leftFade: true,
-                _swipeableAnimation: animation,
-              });
-            } else {
-              this.setData({
-                _scrollLeft: 0,
-                _leftFade: false,
-                _swipeableAnimation: animation,
-              });
-            }
+              _leftFade: true,
+              _swipeableAnimation: animation,
+            });
+          } else {
+            this.setData({
+              _scrollLeft: 0,
+              _leftFade: false,
+              _swipeableAnimation: animation,
+            });
           }
+
         });
       this._autoHeight(index);
     }
@@ -96,9 +97,9 @@ Component({
     }
   },
   didUpdate(prevProps, prevData) {
-    const { index, animation,fallback } = this.props;
-    
-    if(prevProps.fallback !== fallback){
+    const { index, animation, fallback } = this.props;
+
+    if (prevProps.fallback !== fallback) {
       componentContextFallback.update(fallback)
     }
 
@@ -109,36 +110,37 @@ Component({
         .select(`#amd-tabs-bar-item-${index}`)
         .boundingClientRect()
         .exec((ret) => {
+          if (!(<IBoundingClientRect>ret[0])) {
+            // 当获取到的索引值无法匹配时显示错误提示
+            return log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
+          }
+
           let { _tabsViewportWidth } = this.data;
           _tabsViewportWidth = Math.floor(_tabsViewportWidth);
           let left = Math.floor((<IBoundingClientRect>ret[0]).left) + this.data._scrollLeft;
           const width = Math.floor((<IBoundingClientRect>ret[0]).width);
 
-          if (!(<IBoundingClientRect>ret[0])) {
-            // 当获取到的索引值无法匹配时显示错误提示
-            log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
-          } else {
-            // 正确的索引值在初次加载时高亮展示当前 tab
-            if (this.changeTap) {
-              left = this.currentLeft;
-              this.changeTap = false;
-            }
-            if (left > _tabsViewportWidth / 2) {
-              this.setData({
-                _scrollLeft: left - _tabsViewportWidth / 2 + width / 2,
-                _leftFade: true,
-                currentIndex: index,
-                _swipeableAnimation: animation,
-              });
-            } else {
-              this.setData({
-                _scrollLeft: 0,
-                _leftFade: false,
-                currentIndex: index,
-                _swipeableAnimation: animation,
-              });
-            }
+          // 正确的索引值在初次加载时高亮展示当前 tab
+          if (this.changeTap) {
+            left = this.currentLeft;
+            this.changeTap = false;
           }
+          if (left > _tabsViewportWidth / 2) {
+            this.setData({
+              _scrollLeft: left - _tabsViewportWidth / 2 + width / 2,
+              _leftFade: true,
+              currentIndex: index,
+              _swipeableAnimation: animation,
+            });
+          } else {
+            this.setData({
+              _scrollLeft: 0,
+              _leftFade: false,
+              currentIndex: index,
+              _swipeableAnimation: animation,
+            });
+          }
+
         });
       this._autoHeight(index);
     }
@@ -151,6 +153,7 @@ Component({
   methods: {
     _autoHeight(tabIndex) {
       if (isShouldNotCalHeight) return;
+      if (this.props.fallback) return
       // tabItem 自适应高度的处理
       // 获取每个 item-pane 的高度，通过传入当前 tab 的 index 值
       // 动态修改 _tabContentHeight 后在 axml 中插入修改
@@ -158,9 +161,11 @@ Component({
         .selectAll(`#amd-tabs-content-${this.$id} .amd-tabs-item-pane`)
         .boundingClientRect()
         .exec((ret) => {
-          this.setData({
-            _tabContentHeight: (<IBoundingClientRect>ret[0])[tabIndex]?.height,
-          });
+          if (ret && ret[0]) {
+            this.setData({
+              _tabContentHeight: (<IBoundingClientRect>ret[0])[tabIndex]?.height,
+            });
+          }
         });
     },
     handleSwiperChange(e) {
@@ -202,9 +207,11 @@ Component({
         .select(`#amd-tabs-bar-scroll-view-${this.$id}`)
         .boundingClientRect()
         .exec((ret) => {
-          this.setData({
-            _tabsViewportWidth: (<IBoundingClientRect>ret[0]).width,
-          });
+          if (ret && ret[0]) {
+            this.setData({
+              _tabsViewportWidth: (<IBoundingClientRect>ret[0]).width,
+            });
+          }
         });
     },
     onChange(e) {
@@ -220,15 +227,15 @@ Component({
         return onChange(index);
       }
     },
-    handleSwiperTouchStart(e){
-      const {onTouchStart} = this.props;
-      if(typeof onTouchStart==="function"){
+    handleSwiperTouchStart(e) {
+      const { onTouchStart } = this.props;
+      if (typeof onTouchStart === "function") {
         onTouchStart(e)
       }
     },
-    handleSwiperTransition(e){
-      const {onTransition} = this.props;
-      if(typeof onTransition==="function"){
+    handleSwiperTransition(e) {
+      const { onTransition } = this.props;
+      if (typeof onTransition === "function") {
         onTransition(e)
       }
     },
@@ -266,7 +273,8 @@ Component({
     return isMoreThan275 ?
       { getCompInstance: () => this }
       :
-      { getCompInstance: () => this,
+      {
+        getCompInstance: () => this,
         updateHeight,
       };
   },
