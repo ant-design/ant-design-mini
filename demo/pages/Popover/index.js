@@ -26,9 +26,4 @@ Page({
     });
     my.showToast({ content: `点击了${e.target.dataset.name}` });
   },
-  onToggleMask() {
-    this.setData({
-      showMask: !this.data.showMask,
-    });
-  },
 });
