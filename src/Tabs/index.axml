@@ -84,7 +84,7 @@
         <slot />
       </swiper>
     </view>
-    <view a:else class="{{ fallback ? '' : amd-tabs-content }}">
+    <view a:else class="{{ fallback ? '' : 'amd-tabs-content' }}">
       <view class = "{{ fallback ? '' : 'amd-tabs-slides'}} {{ currentIndex === index ? 'amd-tabs-slides-height' :''}}"
         id="amd-tabs-content-{{$id}}"
         style="{{ fallback 
