@@ -11,7 +11,12 @@ toc: false
 
 ## 代码示例
 
+### 基础示例
+
 <code src='../../demo/pages/SwipeAction'></code>
+
+### 组件实例方法
+<code src='../../demo/pages/SwipeActionRef'></code>
 
 ## API
 

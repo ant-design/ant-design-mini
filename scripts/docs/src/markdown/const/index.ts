@@ -7,6 +7,20 @@ export const PROP_TABLE_PREFIX = `| 属性 | 类型 | 必填 | 默认值 | 说�
 export const METHOD_TABLE_PREFIX = `| 事件名 | 说明 | 类型 |\n| -----|-----|----- |\n`;
 export const CLASS_TABLE_PREFIX = `| 类名 | 说明 |\n| -----|----- |\n`;
 export const CSS_VAR_TABLE_PREFIX = `| CSS 变量名称 | 说明 |\n| -----|----- |\n`;
+export const EXCLUED_DIR = ['.umi', 'Avatar', 'Badge',
+    'Button', 'Checkbox', 'CheckboxGroup',
+    'Collapse', 'Container', 'Dialog',
+    'Filter', 'Form', 'Icon',
+    'ImageIcon', 'InputItem', 'List',
+    'Loading', 'LoadingMini', 'Mask',
+    'Modal', 'NoticeBar', 'Picker',
+    'Popover', 'Popup', 'RadioGroup',
+    'Result', 'SafeArea', 'SearchBar',
+    'Selector', 'Stepper', 'Steps',
+    'SwipeAction', 'Switch', 'Tabs',
+    'Tag', 'TapModal', 'Terms',
+    'Tips', 'VTabs', '_base',
+    '_util', 'mixins', 'style']
 
 export const ComponentGroupMap = {
     'Avatar': '数据展示',
@@ -42,4 +56,12 @@ export const ComponentGroupMap = {
     'Terms': '表单类组件',
     'Tips': '导航',
     'VTabs': '导航',
+    'Image': '数据展示',
+    'Cascader': '表单类组件',
+    'Slider':'表单类组件',
+    'Toast': '数据展示',
+    'Mask':'数据展示',
+    'FloatingPanel': '数据展示',
+    'ActionSheet':'数据展示',
+    'ImageUpload':'表单类组件'
 }

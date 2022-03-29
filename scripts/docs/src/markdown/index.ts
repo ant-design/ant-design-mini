@@ -14,7 +14,8 @@ import {
     PROP_TABLE_PREFIX,
     METHOD_TABLE_PREFIX,
     CLASS_TABLE_PREFIX,
-    ComponentGroupMap
+    ComponentGroupMap,
+    EXCLUED_DIR
 } from "./const";
 
 // 生成 markdown
@@ -22,8 +23,7 @@ const fs = require("fs");
 let node: TCompResNode = [];
 let currentProcessComponent = ""
 export async function read(entry = `${process.cwd()}/src`, deep = 1) {
-    const exclude = ['_base', '_util', '.umi', 'mixins', 'style', '.umi-production', 'LoadingMini', 'TapModal', 'ImageIcon'];
-    const filterDir = (fs.readdirSync(entry) as string[]).filter(item => !exclude.includes(item)).map(item => `${entry}/${item}`);
+    const filterDir = (fs.readdirSync(entry) as string[]).filter(item => !EXCLUED_DIR.includes(item)).map(item => `${entry}/${item}`);
 
     for (let i = 0; i < filterDir.length; i++) {
         const item = filterDir[i];

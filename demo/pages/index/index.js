@@ -4,169 +4,37 @@ Page({
       {
         components: [
           {
-            type: '布局导航',
+            type: '数据展示',
             list: [
               {
-                name: 'List',
-                nameZN: '列表',
-                path: '/pages/List/index',
-              },
-              {
-                name: 'Tabs',
-                nameZN: 'Tabs',
-                path: '/pages/Tabs/index',
-              },
-              {
-                name: 'VTabs',
-                nameZN: 'VTabs',
-                path: '/pages/VTabs/index',
-              },
-              {
-                name: 'Steps',
-                nameZN: '步骤进度条',
-                path: '/pages/Steps/index',
-              },
-              {
-                name: 'Terms',
-                nameZN: '协议',
-                path: '/pages/Terms/index',
+                name: 'Avatar',
+                nameZN: '头像',
+                path: '/pages/Avatar/index',
               },
               {
                 name: 'Collapse',
                 nameZN: '折叠面板',
                 path: '/pages/Collapse/index',
               },
-            ],
-          },
-        ],
-      },
-      {
-        components: [
-          {
-            type: '操作浮层',
-            list: [
               {
-                name: 'Popover',
-                nameZN: '气泡菜单',
-                path: '/pages/Popover/index',
+                name: 'Container',
+                nameZN: '容器',
+                path: '/pages/Container/index',
               },
               {
-                name: 'Modal',
-                nameZN: 'Modal',
-                path: '/pages/Modal/index',
+                name: 'Filter',
+                nameZN: '筛选',
+                path: '/pages/Filter/index',
               },
               {
-                name: 'Dialog',
-                nameZN: 'Dialog',
-                path: '/pages/Dialog/index',
+                name: 'Icon',
+                nameZN: '图标',
+                path: '/pages/Icon/index',
               },
               {
-                name: 'Popup',
-                nameZN: '弹出菜单',
-                path: '/pages/Popup/index',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        components: [
-          {
-            type: '结果类',
-            list: [
-              {
-                name: 'Result',
-                nameZN: '信息状态、操作结果',
-                path: '/pages/Result/index',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        components: [
-          {
-            type: '提示引导',
-            list: [
-              {
-                name: 'Tips',
-                nameZN: '小提示、向导提示',
-                path: '/pages/Tips/index',
-              },
-              {
-                name: 'NoticeBar',
-                nameZN: '公告',
-                path: '/pages/NoticeBar/index',
-              },
-              {
-                name: 'Badge',
-                nameZN: '红点，徽标',
-                path: '/pages/Badge/index',
-              },
-              {
-                name: 'Tag',
-                nameZN: ' 标签',
-                path: '/pages/Tag/index',
-              },
-              {
-                name: 'Mask',
-                nameZN: '背景蒙层',
-                path: '/pages/Mask/index',
-                deprecated: true,
-              },
-              {
-                name: 'Avatar',
-                nameZN: '头像',
-                path: '/pages/Avatar/index',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        components: [
-          {
-            type: '表单类',
-            list: [
-              {
-                name: 'Form',
-                nameZN: '表单',
-                path: '/pages/Form/index',
-              },
-              {
-                name: 'Button',
-                nameZN: '按钮',
-                path: '/pages/Button/index',
-              },
-              {
-                name: 'Switch',
-                nameZN: '开关',
-                path: '/pages/Switch/index',
-              },
-              {
-                name: 'RadioGroup',
-                nameZN: '单选框',
-                path: '/pages/RadioGroup/index',
-              },
-              {
-                name: 'Checkbox',
-                nameZN: '复选框',
-                path: '/pages/Checkbox/index',
-              },
-              {
-                name: 'CheckboxGroup',
-                nameZN: '复选框',
-                path: '/pages/CheckboxGroup/index',
-              },
-              {
-                name: 'InputItem',
-                nameZN: '输入框',
-                path: '/pages/InputItem/index',
-              },
-              {
-                name: 'Picker',
-                nameZN: '选择框',
-                path: '/pages/Picker/index',
+                name: 'List',
+                nameZN: '列表',
+                path: '/pages/List/index',
               },
               {
                 name: 'SearchBar',
@@ -174,29 +42,55 @@ Page({
                 path: '/pages/SearchBar/index',
               },
               {
-                name: 'Stepper',
-                nameZN: '步进器',
-                path: '/pages/Stepper/index',
+                name: 'Steps',
+                nameZN: '步骤进度条',
+                path: '/pages/Steps/index',
               },
-              {
-                name: 'Selector',
-                nameZN: '选择器',
-                path: '/pages/Selector/index',
-              },
-              {
-                name: 'Filter',
-                nameZN: '筛选',
-                path: '/pages/Filter/index',
-              },
-            ],
+            ]
           },
         ],
       },
       {
         components: [
           {
-            type: '手势类',
+            type: '反馈',
             list: [
+              {
+                name: 'Dialog',
+                nameZN: '对话框',
+                path: '/pages/Dialog/index',
+              },
+              {
+                name: 'Loading',
+                nameZN: '加载效果',
+                path: '/pages/Loading/index',
+              },
+              // {
+              //   name: 'Mask',
+              //   nameZN: '背景蒙层',
+              //   path: '/pages/Mask/index',
+              //   deprecated: true,
+              // },
+              {
+                name: 'Modal',
+                nameZN: '通用弹窗',
+                path: '/pages/Modal/index',
+              },
+              {
+                name: 'Popover',
+                nameZN: '气泡菜单',
+                path: '/pages/PopoverBase/index',
+              },
+              {
+                name: 'Popup',
+                nameZN: '弹出菜单',
+                path: '/pages/Popup/index',
+              },
+              {
+                name: 'Result',
+                nameZN: '信息状态、操作结果',
+                path: '/pages/Result/index',
+              },
               {
                 name: 'SwipeAction',
                 nameZN: '滑动删除',
@@ -209,21 +103,114 @@ Page({
       {
         components: [
           {
-            type: '其他',
+            type: '表单类组件',
             list: [
               {
-                name: 'Icon',
-                nameZN: '图标',
-                path: '/pages/Icon/index',
+                name: 'Button',
+                nameZN: '按钮',
+                path: '/pages/Button/index',
               },
               {
-                name: 'Loading',
-                nameZN: 'loading 加载',
-                path: '/pages/Loading/index',
+                name: 'Checkbox',
+                nameZN: '复选框',
+                path: '/pages/Checkbox/index',
+              },
+              {
+                name: 'CheckboxGroup',
+                nameZN: '复选框',
+                path: '/pages/CheckboxGroup/index',
+              },
+              {
+                name: 'Input',
+                nameZN: '输入框',
+                path: '/pages/InputItem/index',
+              },
+              {
+                name: 'Picker',
+                nameZN: '选择框',
+                path: '/pages/Picker/index',
+              },
+              {
+                name: 'RadioGroup',
+                nameZN: '单选框',
+                path: '/pages/RadioGroup/index',
+              },
+              {
+                name: 'Selector',
+                nameZN: '选择器',
+                path: '/pages/Selector/index',
+              },
+              {
+                name: 'Stepper',
+                nameZN: '步进器',
+                path: '/pages/Stepper/index',
+              },
+              {
+                name: 'Switch',
+                nameZN: '开关',
+                path: '/pages/Switch/index',
+              },
+              {
+                name: 'Terms',
+                nameZN: '协议',
+                path: '/pages/Terms/index',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        components: [
+          {
+            type: '导航',
+            list: [
+              {
+                name: 'Badge',
+                nameZN: '红点，徽标',
+                path: '/pages/Badge/index',
+              },
+              {
+                name: 'NoticeBar',
+                nameZN: '公告',
+                path: '/pages/NoticeBar/index',
+              },
+              {
+                name: 'Tabs',
+                nameZN: '横向Tabs',
+                path: '/pages/Tabs/index',
+              },
+              {
+                name: 'Tag',
+                nameZN: ' 标签',
+                path: '/pages/Tag/index',
+              },
+              {
+                name: 'Tips',
+                nameZN: '小提示、向导提示',
+                path: '/pages/Tips/index',
+              },
+              {
+                name: 'VTabs',
+                nameZN: '纵向Tabs',
+                path: '/pages/VTabs/index',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        components: [
+          {
+            type: '实验性质的组件',
+            list: [    
+              {
+                name: 'Form',
+                nameZN: '表单',
+                path: '/pages/Form/index',
               },
               {
                 name: 'SafeArea',
-                nameZN: 'SafeArea',
+                nameZN: '刘海屏安全区域',
                 path: '/pages/SafeArea/index',
               },
             ],
