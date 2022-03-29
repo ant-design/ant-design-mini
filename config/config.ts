@@ -55,6 +55,46 @@ export default {
   #root .__dumi-default-device[data-device-type="iOS"] {
     display: none;
   }
+  #root .__dumi-default-menu-inner ul li ul {
+    padding-left: 0;
+  }
+  #root .__dumi-default-menu-inner > ul ul a.active {
+    background-color: #EDF3FF;
+    color: #1677ff;
+  }
+  #root .__dumi-default-menu-inner ul li.active a::before,  #root  .__dumi-default-menu-inner ul li a.active::before{
+    display: none;
+  }
+  #root .__dumi-default-menu-inner ul li.active a::after,  #root  .__dumi-default-menu-inner ul li a.active::after{
+    position: absolute;
+    content:'';
+    right: 1px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #1677FF;
+  }
+  #root .__dumi-default-navbar nav > span > a:hover,#root  .__dumi-default-navbar nav > span > a.active {
+    color: #1677ff;
+  }
+  #root .__dumi-default-navbar nav > span > a.active::after {
+    background: #1677FF;
+  }
+  @media only screen and (min-width: 768px) {
+    #root .__dumi-default-menu[data-mode='site'] {
+      width: 240px;
+    }
+    #root .__dumi-default-menu[data-mode='site'] .__dumi-default-menu-list > li > a ~ ul {
+      margin-left: 0;
+    }
+    #root .__dumi-default-menu[data-mode='site'] .__dumi-default-menu-list > li > a {
+      padding-left: 40px;
+    }
+    #root .__dumi-default-menu-inner > ul ul a {
+      padding-left: 40px;
+    }
+  }
+  @media only screen and (min-width: 768px)
   `],
   navs: {
     zh: [

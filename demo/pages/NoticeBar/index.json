@@ -1,6 +1,8 @@
 {
   "defaultTitle": "Notice",
   "usingComponents": {
-    "notice": "../../../src/NoticeBar/index"
+    "notice": "../../../src/NoticeBar/index",
+    "white-space": "../../components/WhiteSpace/index",
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

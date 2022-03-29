@@ -1,6 +1,7 @@
 {
   "defaultTitle": "Result",
   "usingComponents": {
-    "result": "../../../src/Result/index"
+    "result": "../../../src/Result/index",
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

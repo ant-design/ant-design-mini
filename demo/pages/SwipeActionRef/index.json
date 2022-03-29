@@ -1,9 +1,9 @@
 {
     "defaultTitle": "Swipe-Action",
     "usingComponents": {
-      "list": "../../../src/List/index",
       "list-item": "../../../src/List/ListItem/index",
-      "swipe-action": "../../../src/SwipeAction/index"
+      "swipe-action": "../../../src/SwipeAction/index",
+      "demo-block": "../../components/DemoBlock/index"
     }
   }
   

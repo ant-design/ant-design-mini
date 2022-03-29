@@ -19,10 +19,6 @@ toc: false
 
 <code src='../../demo/pages/Checkbox'></code>
 
-### 受控模式
-
-<code src='../../demo/pages/CheckboxControlled'></code>
-
 ## API
 
 ### 属性

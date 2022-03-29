@@ -198,9 +198,9 @@ var simulatorContainer = document.querySelector(".simulatorContainer");
 var simulator;
 var prevPath = "";
 var DEFAULT_STYLE =
-  "width:390px; height:740px; position:fixed; top:150px; right:50px";
+  "width:390px; height:740px; position:fixed; top:120px; right:50px";
 var DISAPPEAR_STYLE =
-  "width:390px; height:740px; position:fixed; top:150px; right:50px; display:none";
+  "width:390px; height:740px; position:fixed; top:120px; right:50px; display:none";
 function debounce(fn, delay) {
   var _this = this;
   var timer = null;

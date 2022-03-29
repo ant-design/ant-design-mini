@@ -42,7 +42,7 @@ toc: false
 #### Popover
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onVisibleChange | 组件隐藏/显示切换，触发回调 | ( visible: boolean, mode: 'component' &verbar; 'mask' ) => void |
+| onVisibleChange | 组件隐藏/显示切换，触发回调 | ( visible: boolean, mode: `component` &verbar; `mask` ) => void |
 
 #### PopoverItem
 | 事件名 | 说明 | 类型 |

@@ -14,35 +14,21 @@ Page({
       { value: 'none', label: 'none' },
     ],
     fill: 'solid',
-    title: '按钮操作 Normal',
-    subText: '',
+    showSubText: false,
     disabled: false,
     showLoading: false,
     icon: '',
   },
-  onDisableChange(e) {
-    this.setData({
-      disabled: e,
-    });
+  handleChangeShowSubText(checked) {
+    this.setData({ showSubText: checked });
   },
-  onLoadingChange(e) {
-    this.setData({
-      showLoading: e,
-      loadingChangeValue: e,
-    });
+  handleChangeDisabled(checked) {
+    this.setData({ disabled: checked });
   },
-  onShowSubText(e) {
-    if (e) {
-      this.setData({
-        subText: '副标题',
-      });
-    } else {
-      this.setData({
-        subText: '',
-      });
-    }
+  handleChangeShowLoading(checked) {
+    this.setData({ showLoading: checked });
   },
-  onFillChange(e) {
+  handleChangeFill(e) {
     this.setData({
       fill: e.detail.value,
     });

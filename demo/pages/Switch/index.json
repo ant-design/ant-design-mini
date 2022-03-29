@@ -1,6 +1,7 @@
 {
   "defaultTitle": "Switch",
   "usingComponents": {
-    "switch": "../../../src/Switch/index"
+    "switch": "../../../src/Switch/index",
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

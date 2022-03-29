@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "Form",
+  "usingComponents": {
+    "form": "../../../src/Form/index",
+    "form-item": "../../../src/Form/FormItem/index",
+    "input-item": "../../../src/InputItem/index",
+    "button": "../../../src/Button/index",
+    "radio-group": "../../../src/RadioGroup/index",
+    "radio-item": "../../../src/RadioGroup/RadioItem/index"
+  }
+}

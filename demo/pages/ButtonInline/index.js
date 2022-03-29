@@ -8,31 +8,13 @@ Page({
       { type: 'success' },
       { type: 'light' },
     ],
-    title: '按钮操作 Normal',
-    subText: '',
     disabled: false,
     showLoading: false,
   },
-  onDisableChange(e) {
-    this.setData({
-      disabled: e,
-    });
+  handleChangeDisabled(checked) {
+    this.setData({ disabled: checked });
   },
-  onLoadingChange(e) {
-    this.setData({
-      showLoading: e,
-      loadingChangeValue: e,
-    });
-  },
-  onShowSubText(e) {
-    if (e) {
-      this.setData({
-        subText: '副标题',
-      });
-    } else {
-      this.setData({
-        subText: '',
-      });
-    }
+  handleChangeShowLoading(checked) {
+    this.setData({ showLoading: checked });
   },
 });

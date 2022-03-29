@@ -1,109 +1,73 @@
-<button onTap="onTap">受控</button>
-<collapse 
-  className="demo-collapse" 
-  name="{{name}}" 
-  onChange="onChange" 
-  uid="collapse-0" 
-  accordion="{{false}}">
+<view>
+  <demo-block title="基础用法">
+    <collapse 
+      name="{{['item-0']}}" 
+      onChange="onChange" 
+      uid="collapse-0" 
+      accordion="{{false}}">
+      <collapse-item 
+        title="第一项" 
+        uid="collapse-0" 
+        name="item-0">
+        君不见，黄河之水天上来，奔流到海不复回。君不见，高堂明镜悲白发，朝如青丝暮成雪。
+      </collapse-item>
+      
+      <collapse-item 
+        name="item-1" 
+        title="第二项" 
+        uid="collapse-0">
+        人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。
+      </collapse-item>
+    
+      <collapse-item 
+        title="第三项" 
+        name="item-2" 
+        uid="collapse-0">
+        烹羊宰牛且为乐，会须一饮三百杯。岑夫子，丹丘生，将进酒，杯莫停。
+      </collapse-item>
+      
+      <collapse-item 
+        title="第四项" 
+        name="item-3" 
+        uid="collapse-0">
+        与君歌一曲，请君为我倾耳听。钟鼓馔玉不足贵，但愿长醉不愿醒。
+      </collapse-item>
+    </collapse>
+  </demo-block>
+  <demo-block title="手风琴模式">
+    <collapse 
+      name="{{['item-3']}}" 
+      onChange="onChange" 
+      uid="collapse-1" 
+      accordion>
+      <collapse-item 
+        title="第一项" 
+        uid="collapse-1" 
+        name="item-0">
+        古来圣贤皆寂寞，惟有饮者留其名。
+      </collapse-item>
+      
+      <collapse-item 
+        name="item-1" 
+        title="第二项" 
+        uid="collapse-1">
+        陈王昔时宴平乐，斗酒十千恣欢谑。
+      </collapse-item>
+    
+      <collapse-item 
+        title="第三项" 
+        name="item-2" 
+        uid="collapse-1">
+        主人何为言少钱，径须沽取对君酌。
+      </collapse-item>
+      
+      <collapse-item 
+        title="第四项" 
+        name="item-3" 
+        uid="collapse-1">
+        五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。
+      </collapse-item>
+    </collapse>
+  </demo-block>
 
-  <collapse-item 
-    title="自适应高度" 
-    uid="collapse-0" 
-    name="item-0">
-    <view class="item-content">
-      <block a:for="{{randomLine}}">
-        <view>自适应高度的内容区域 共 {{index + 1}} 行</view>
-      </block>
-    </view>
-  </collapse-item>
-  
-  <collapse-item 
-    name="item-1" 
-    uid="collapse-0">
-    <view slot="title">
-      <text style="color: red;">title 插槽</text>
-    </view>
-    <view class="item-content content2">
-      <view>内容区域</view>
-    </view>
-  </collapse-item>
-
-  <collapse-item 
-    title="标题" 
-    name="item-2" 
-    uid="collapse-0">
-    <view class="item-content content3">
-      <view>内容区域</view>
-    </view>
-  </collapse-item>
-  
-  <collapse-item 
-  title="标题" 
-  name="item-3" 
-  uid="collapse-0">
-  <view class="item-content content3">
-    <view>内容区域</view>
-  </view>
-</collapse-item>
-</collapse>
-
-
-<view class="collapse-disable">
-  禁用状态
 </view>
-<collapse 
-  className="demo-collapse" 
-  uid="collapse-1" 
-  accordion="{{false}}">
-
-  <collapse-item 
-    title="item-1" 
-    uid="collapse-1" 
-    name="item-0"
-    disabled="{{true}}">
-    <view class="item-content">
-      <block a:for="{{randomLine}}">
-        <view>item-1</view>
-      </block>
-    </view>
-  </collapse-item>
-  
-  <collapse-item 
-    name="item-1" 
-    uid="collapse-1"
-    title="item-2">
-    item-2
-  </collapse-item>
-</collapse>
-
-
-<view class="collapse-disable">
-  自定义图标
-</view>
-<collapse 
-  className="demo-collapse" 
-  uid="collapse-2" 
-  accordion="{{false}}">
-  <collapse-item 
-    uid="collapse-2" 
-    name="item-0">
-    <view slot="title">
-      <icon type="FireFill" size="small"/>
-      <text style="color: red; padding-left:12px">title 插槽</text>
-    </view>
-    自定义图标
-  </collapse-item>
-  
-  <collapse-item 
-    name="item-1" 
-    uid="collapse-2"
-    expandIcon="AddOutline"
-    closeIcon="MinusOutline"
-    brief="辅助信息">
-    <view slot="title">
-      <text style="color: red; padding-right:8px">title 插槽</text>
-      <icon type="FireFill" size="small"/>
-    </view>
-    自定义图标
-  </collapse-item>
-</collapse>

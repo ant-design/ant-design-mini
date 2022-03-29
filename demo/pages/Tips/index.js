@@ -1,64 +1,53 @@
 Page({
   data: {
-    image: 'https://gw.alipayobjects.com/zos/rmsportal/AzRAgQXlnNbEwQRvEwiu.png',
+    image:
+      'https://gw.alipayobjects.com/zos/rmsportal/AzRAgQXlnNbEwQRvEwiu.png',
     tipsArrow: [
-      { name: '', value: '无箭头', checked: true },
-      { name: 'top-left', value: 'top-left' },
-      { name: 'top-center', value: 'top-center' },
-      { name: 'top-right', value: 'top-right' },
-      { name: 'left', value: 'left' },
-      { name: 'right', value: 'right' },
-      { name: 'bottom-left', value: 'bottom-left' },
-      { name: 'bottom-center', value: 'bottom-center' },
-      { name: 'bottom-right', value: 'bottom-right' },
+      { name: '', value: '0' },
+      { name: 'top-left', value: '1' },
+      { name: 'top-center', value: '2' },
+      { name: 'top-right', value: '3' },
+      { name: 'left', value: '4' },
+      { name: 'right', value: '5' },
+      { name: 'bottom-left', value: '6' },
+      { name: 'bottom-center', value: '7' },
+      { name: 'bottom-right', value: '8' },
     ],
-    tipsTitle: '这是一个提示框',
-    tipsButton: '操作按钮',
-    tipsImage: true,
-    tipsClose: true,
-    arrowPosition: '',
+    title: '这是一个提示框',
+    buttonText: '操作按钮',
+    showImage: true,
+    showClose: true,
+    arrowPosition: '2',
     buttonPosition: 'right',
   },
-  onClose() {
+  handleChangeShowImage(checked) {
+    this.setData({ showImage: checked });
+  },
+  handleChangeShowClose(checked) {
+    this.setData({ showClose: checked });
+  },
+  handleChangeTitle(value) {
+    this.setData({ title: value });
+  },
+  handleChangeButtonText(value) {
+    this.setData({ buttonText: value });
+  },
+  handleChangeButtonPosition(value) {
+    this.setData({ buttonPosition: value });
+  },
+  handleChangeArrowPosition(value) {
+    this.setData({ arrowPosition: value });
+  },
+  handleClose() {
     my.alert({
       title: '关闭标签被点击',
       content: 'Tips 组件关闭',
     });
   },
-  onButtonTap() {
+  handleTapBtn() {
     my.alert({
       title: '按钮被点击',
       content: '页面中的 onButtonTap 被点击了',
-    });
-  },
-  inputTitle(e) {
-    this.setData({
-      tipsTitle: e.detail.value,
-    });
-  },
-  inputButtonText(e) {
-    this.setData({
-      tipsButton: e.detail.value,
-    });
-  },
-  tipsImageSwitch(e) {
-    this.setData({
-      tipsImage: e.detail.value,
-    });
-  },
-  tipsCloseSwitch(e) {
-    this.setData({
-      tipsClose: e.detail.value,
-    });
-  },
-  tipsArrowChange(e) {
-    this.setData({
-      arrowPosition: e.detail.value,
-    });
-  },
-  tipsButtonPosition(e) {
-    this.setData({
-      buttonPosition: e.detail.value === true ? 'bottom' : 'right',
     });
   },
 });

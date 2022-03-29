@@ -17,10 +17,6 @@ toc: false
 
 <code src="../../demo/pages/Avatar"></code>
 
-### 带有 name 和 desc
-
-<code src="../../demo/pages/AvatarDesc"></code>
-
 
 ## API
 
@@ -28,7 +24,7 @@ toc: false
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | --- | --- | --- | --- | --- |
-| size | `'x-small'` &verbar; `'small'` &verbar; `'medium'` &verbar; `'large'` | 否 | "medium" | x-small(80 x 80)；small(88 x 88)；medium(104 x 104)；large(120 x 120) |
+| size | `'x-small'` &verbar; `'small'` &verbar; `'medium'` &verbar; `'large'` | 否 | `medium` | x-small(80 x 80)；small(88 x 88)；medium(104 x 104)；large(120 x 120) |
 | src | string | 否 | - | 头像地址，默认为灰色的内置图片 |
 | name | string | 否 | - | 第一行信息 |
 | desc | string | 否 | - | 第二行补充信息，当 name 不存在时，不显示；当 size=x-small，不显示 |

@@ -1,37 +1,3 @@
-.demo-popover {
+.wrap {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 300px;
-}
-
-.demo-popover-btn-1 {
-  width: 80px;
-  height: 40px;
-  padding: 20px 10px;
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
-  text-align: center;
-}
-.demo-popover-btn-2 {
-  width: 80px;
-  height: 40px;
-  padding: 20px 10px;
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
-  text-align: center;
-}
-page {
-  background-color: #f7f7fa;
-}
-.demo-btn {
-  position: fixed;
-  bottom: 10rpx;
-  width: 40%;
-  left: 30%;
 }

@@ -1,26 +1,29 @@
-
 Page({
   data: {
-    show: true,
-    showMask: false,
+    showLight: false,
+    showDark: false,
     url: 'https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ',
   },
-  onVisibleChange(visible, mode) {
+  handleLightVisibleChange(e, mode) {
     this.setData({
-      show: visible,
+      showLight: e,
     });
-    if (mode==='mask') {
-      my.showToast({content: '点击mask关闭', duration:1000 });
+    if (mode === 'mask') {
+      my.showToast({ content: '点击mask关闭', duration: 2000 });
     }
   },
-  itemTap(e) {
-    my.alert({
-      content: `点击_${e.currentTarget.dataset.index}`,
-    });
-  },
-  onToggleMask(){
+  handleDarkVisibleChange(e, mode) {
     this.setData({
-      showMask: !this.data.showMask,
+      showDark: e,
     });
+    if (mode === 'mask') {
+      my.showToast({ content: '点击mask关闭', duration: 2000 });
+    }
+  },
+  handleTapItem(e) {
+    this.setData({
+      [e.target.dataset.type]: false,
+    });
+    my.showToast({ content: `点击了${e.target.dataset.name}` });
   },
 });

@@ -1,4 +1,4 @@
-<view>
+<view class="demo">
   <modal
     title="基础弹窗功能"
     visible="{{isBaseModalShow}}"
@@ -66,16 +66,18 @@
   onClose="closeLImgModal"
   onButtonTap="onButtonTap">
 </modal>
-
-  <button class="space" onTap="openBaseModal">基础文本弹窗</button>
-
-  <button class="space" onTap="openDurationModal">过渡动画关闭</button>
-
-  <button class="space" onTap="openCustomModal">自定义弹框内容</button>
-
-  <button class="space" onTap="openSImgModal">带图弹窗-小图</button>
-
-  <button class="space" onTap="openMImgModal">带图弹窗-中图</button>
-
-  <button class="space" onTap="openLImgModal">带图弹窗-大图</button>
+  <demo-block title="基础用法">
+    <view class="btn-list">
+      <button onTap="openBaseModal">基础文本弹窗</button>
+      <button onTap="openDurationModal">过渡动画关闭</button>
+      <button onTap="openCustomModal">自定义弹框内容</button>
+    </view>
+  </demo-block>
+  <demo-block title="带图弹窗">
+    <view class="btn-list">
+      <button  onTap="openSImgModal">带图弹窗-小图</button>
+      <button  onTap="openMImgModal">带图弹窗-中图</button>
+      <button  onTap="openLImgModal">带图弹窗-大图</button>
+    </view>
+  </demo-block>
 </view>

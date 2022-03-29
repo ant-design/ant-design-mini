@@ -41,13 +41,13 @@ Page({
     ],
     value: '1',
   },
-  changeValue(e) {
+  handleChangeValue(e) {
     const { value } = e.currentTarget.dataset;
     this.setData({
       value,
     });
   },
-  onChange(e) {
+  handleChange(e) {
     this.setData({
       value: e,
     });

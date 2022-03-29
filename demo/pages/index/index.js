@@ -218,7 +218,6 @@ Page({
         ],
       },
     ],
-    finding: false,
     searchResult: [],
   },
   onLoad() {
