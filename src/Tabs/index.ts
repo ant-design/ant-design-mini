@@ -63,9 +63,10 @@ Component({
         .select(`#amd-tabs-bar-item-${index}`)
         .boundingClientRect()
         .exec((ret) => {
-          if (!(<IBoundingClientRect>ret[0])) {
+          if (!ret || !ret[0]) {
             // 当获取到的索引值无法匹配时显示错误提示
-            return log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
+            log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
+            return 
           }
 
           const { _tabsViewportWidth } = this.data;
@@ -110,9 +111,10 @@ Component({
         .select(`#amd-tabs-bar-item-${index}`)
         .boundingClientRect()
         .exec((ret) => {
-          if (!(<IBoundingClientRect>ret[0])) {
+          if (!ret || !ret[0]) {
             // 当获取到的索引值无法匹配时显示错误提示
-            return log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
+            log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
+            return;
           }
 
           let { _tabsViewportWidth } = this.data;
