@@ -79,6 +79,8 @@ export default {
   }
   #root .__dumi-default-navbar nav > span > a.active::after {
     background: #1677FF;
+    bottom: auto;
+    top: 0;
   }
   @media only screen and (min-width: 768px) {
     #root .__dumi-default-menu[data-mode='site'] {
@@ -94,7 +96,6 @@ export default {
       padding-left: 40px;
     }
   }
-  @media only screen and (min-width: 768px)
   `],
   navs: {
     zh: [
