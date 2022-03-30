@@ -1,8 +1,8 @@
 .badge-list {
   display: flex;
-  .amd-badge {
-    margin-right: 32rpx;
-  }
+}
+.badge-list .amd-badge {
+  margin-right: 32rpx;
 }
 .box {
   background: #eee;
@@ -10,7 +10,8 @@
   height: 40px;
   display: block;
   border-radius: 8px;
-  &.dark {
-    background: #666666;
-  }
+}
+
+.box.dark {
+  background: #666666;
 }
