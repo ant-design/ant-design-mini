@@ -272,7 +272,7 @@ exports.default = function (props) {
         } else {
           resolve({
             appCdnBaseUrl:
-              "https://gw.alipayobjects.com/os/gzmsfesa-sffminipkg_prod/package/alipay/com_alipay_alipaywallet/2021001172665758/0_1_2202171349_9/",
+              "https://mdn.alipayobjects.com/yaoyy/uri/file/as/apwallet/1648618490590/2021003121607088/",
           });
         }
       });
