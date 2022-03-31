@@ -65,6 +65,7 @@ export default {
   #root .__dumi-default-menu-inner ul li.active a::before,  #root  .__dumi-default-menu-inner ul li a.active::before{
     display: none;
   }
+  /** 左侧选中状态竖线 */
   #root .__dumi-default-menu-inner ul li.active a::after,  #root  .__dumi-default-menu-inner ul li a.active::after{
     position: absolute;
     content:'';
@@ -74,9 +75,11 @@ export default {
     width: 2px;
     background: #1677FF;
   }
+  /** 左侧导航选中状态 */
   #root .__dumi-default-navbar nav > span > a:hover,#root  .__dumi-default-navbar nav > span > a.active {
     color: #1677ff;
   }
+  /** header选中状态上划线 */
   #root .__dumi-default-navbar nav > span > a.active::after {
     background: #1677FF;
     bottom: auto;
@@ -85,6 +88,7 @@ export default {
   @media only screen and (min-width: 768px) {
     #root .__dumi-default-menu[data-mode='site'] {
       width: 240px;
+      padding-top: 24px;
     }
     #root .__dumi-default-menu[data-mode='site'] .__dumi-default-menu-list > li > a ~ ul {
       margin-left: 0;
@@ -95,6 +99,69 @@ export default {
     #root .__dumi-default-menu-inner > ul ul a {
       padding-left: 40px;
     }
+  }
+  /** 标题 */
+  #root .__dumi-default-menu-inner > ul > li > a:not([href]) {
+    color: #8C8B8C !important;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    padding-top: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #D8D8D8;
+    margin-bottom: 8px;
+    padding-left: 0!important;
+    margin-left: 40px;
+    margin-right: 24px;
+  }
+  /** a标签 */
+  #root .__dumi-default-menu-inner ul li a,  #root .__dumi-default-menu-inner ul li > span {
+    line-height:  38px;
+    color: #000;
+    font-size: 14px;
+  }
+  #root .__dumi-default-previewer-actions {
+    height: 0;
+    position: relative;
+  }
+  #root .__dumi-default-icon {
+    position: absolute;
+    top: 40px;
+    right: 24px;
+    margin-right: 0;
+    z-index: 100;
+  }
+  #root .__dumi-default-previewer {
+    border: none;
+  }
+  #root .__dumi-default-previewer-source-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  /** 当前激活的demo项 */
+  #root .__dumi-default-previewer-target {
+    border: 1px solid #1677ff;
+  }
+  /** 选中底部线条 */
+  #root .__dumi-default-tabs-ink-bar {
+    background: #1677ff;
+  }
+  #root .__dumi-default-previewer-source-tab {
+    border: none;
+    background: rgba(0,0,0,.02);
+  }
+  #root .__dumi-default-tabs-tab-active {
+    color: #1677ff;
+  }
+  #root .__dumi-default-code-block {
+    padding: 16px 24px;
+  }
+  #root .__dumi-default-code-block pre[class*="language-"] {
+    padding: 0;
+  }
+  /** 底部github编辑、最后更新时间 */
+  #root .__dumi-default-layout-footer-meta > a, #root .__dumi-default-layout-footer-meta > span:last-child::before {
+    color: #1677ff;
   }
   `],
   navs: {
