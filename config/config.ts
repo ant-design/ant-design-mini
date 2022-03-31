@@ -142,6 +142,10 @@ export default {
   #root .__dumi-default-previewer-target {
     border: 1px solid #1677ff;
   }
+  /** 当组件只有一个demo时使用js控制，添加onlyOnePreviewer的class去除选中效果 */
+  #root .__dumi-default-mobile-previewer.onlyOnePreviewer  .__dumi-default-previewer-target {
+    border: none;
+  } 
   /** 选中底部线条 */
   #root .__dumi-default-tabs-ink-bar {
     background: #1677ff;

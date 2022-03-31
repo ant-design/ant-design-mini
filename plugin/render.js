@@ -318,6 +318,15 @@ exports.default = function (props) {
           )
         );
       });
+      // 当组件只有一个demo时使用js控制，添加onlyOnePreviewer的class去除选中效果
+      var previewers = document.querySelectorAll('.__dumi-default-mobile-previewer');
+      if( previewers.length === 1) {
+        previewers[0].classList.add('onlyOnePreviewer');
+      }else {
+        previewers.forEach(function(el) {
+          el.classList.remove('onlyOnePreviewer');
+        })
+      }
     },
     [props.appCdnBaseUrl]
   );
