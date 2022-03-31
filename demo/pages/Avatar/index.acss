@@ -5,7 +5,8 @@
 .list-item {
   margin-right: 24rpx;
   text-align: left;
-  .size-text {
-    padding-top: 12rpx;
-  }
+}
+
+.list-item .size-text {
+  padding-top: 12rpx;
 }
