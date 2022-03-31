@@ -1,0 +1,88 @@
+@import (reference) "./variable.less";
+
+@uploaderPrefix: amd-uploader;
+
+.@{uploaderPrefix} {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-show {
+    position: relative;
+  }
+
+  &-image,
+  &-demo-image {
+    margin: 4 * @rpx 8 * @rpx;
+    border-radius: 8 * @rpx;
+  }
+
+  &-demo-image-tip {
+    position: absolute;
+    top: 4 * @rpx;
+    left: 8 * @rpx;
+    width: 72 * @rpx;
+    height: 36 * @rpx;
+    background: url(https://gw.alipayobjects.com/zos/bmw-prod/fd8750b2-e015-4d6c-a82d-b8b920454eee.svg) no-repeat;
+    background-size: cover;
+  }
+
+  &-image-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: 4 * @rpx 8 * @rpx;
+    font-size: 20 * @rpx;
+    color: #fff;
+    height: 40 * @rpx;
+    border-radius: 0 0 8 * @rpx 8 * @rpx;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.80) 100%);
+  }
+
+  &-image-error {
+    box-sizing: border-box;
+    border: 2 * @rpx solid #FF3141;
+    border-radius: 8 * @rpx;
+  }
+
+  &-close {
+    width: 44 * @rpx;
+    height: 44 * @rpx;
+    position: absolute;
+    top: -4 * @rpx;
+    right: 0 * @rpx;
+    background: url(https://gw.alipayobjects.com/zos/bmw-prod/6aa923d5-3848-42ec-b1ea-a6389cabc03a.svg) no-repeat;
+    background-size: cover;
+  }
+
+  &-add-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4 * @rpx 8 * @rpx 12 * @rpx;
+    background-color: @uploader-background-color;
+    border-radius: @corner-radius-lg;
+  }
+
+  &-loading {
+    position: absolute;
+    z-index: 9;
+    margin: 4 * @rpx 8 * @rpx;
+    border-radius: 8 * @rpx;
+    background-color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .amd-loading-spin-icon {
+      padding-top: 16 * @rpx;
+      width: 40 * @rpx;
+      height: 40 * @rpx;
+    }
+
+    .amd-loading-spin-text {
+      font-size: 26 * @rpx;
+      color: #fff;
+    }
+  }
+}

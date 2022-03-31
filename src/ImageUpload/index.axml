@@ -1,0 +1,27 @@
+<view class="amd-uploader">
+  <view a:if="{{demoImage}}" class="amd-uploader-show" onTap="onPreviewDemoImage">
+    <view class="amd-uploader-demo-image-tip" />
+    <image class="amd-uploader-demo-image" mode="scaleToFill" src="{{demoImage}}" style="{{`height:${height}px;width:${width}px`}}" />
+  </view>
+  <view a:for="{{fileList}}" class="amd-uploader-show">
+    <view class="amd-uploader-close" a:if="{{item.status !== 'pending'}}" onTap="onDeleteImage" data-delete-image-index="{{index}}" />
+    <view class="amd-uploader-loading" a:else style="{{`height:${height}px;width:${width}px`}}">
+      <loading className="amd-uploader-loading-icon" theme="light" text="上传中..." />
+    </view>
+    <slot name='label'>
+      <view class="amd-uploader-image-label" a:if="{{item.description}}" style="{{`width:${width}px;top:calc(${height}px - 20px)`}}">
+        <!-- 一个疑问，新增的图片怎么加标签呢 -->
+        {{item.description}}
+      </view>
+    </slot>
+    <image class="amd-uploader-image {{item.status === 'error' ? `amd-uploader-image-error`: ''}}" onTap="onPreviewImage" 
+      mode="{{mode}}" src="{{item.url}}" data-preview-image-index="{{index}}" style="{{`height:${height}px;width:${width}px`}}" />
+  </view>
+  
+  <view a:if="{{fileList.length < maxCount}}" class="amd-uploader-add-image-wrapper" style="{{`height:${height}px;width:${width}px`}}" 
+    onTap="onChooseImage">
+    <slot name='uploadIcon'>
+      <am-icon size="small" type="AddOutline" color="#333" />
+    </slot>
+  </view>
+</view>

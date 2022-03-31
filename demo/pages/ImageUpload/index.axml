@@ -1,0 +1,87 @@
+<view class="demo-uploader">
+  <view class="demo-uploader-title">基本用法</view>
+  <view class="demo-uploader-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{2}}"
+      defaultValue="{{value_1}}"
+      onChange="onChange"
+    />
+  </view>
+
+  <view class="demo-uploader-title">上传状态</view>
+  <view class="demo-uploader-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{8}}"
+      defaultValue="{{value_2}}"
+      onChange="onChange"
+    />
+  </view>
+  <view class="demo-uploader-title">带示例图片</view>
+  <view class="demo-uploader-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{2}}"
+      demoImage="{{demoImage}}"
+      onChange="onChange"
+    />
+  </view>
+  <view class="demo-uploader-title">自定义标签</view>
+  <view class="demo-uploader-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{4}}"
+      defaultValue="{{value_3}}"
+      onChange="onChange"
+    />
+  </view>
+  <view class="demo-uploader-title">自定义上传图标</view>
+  <view class="demo-uploader-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{3}}"
+      onChange="onChange"
+    >
+      <view slot="uploadIcon">
+        <am-icon type="CameraOutline" color="#999" size="small"/>
+      </view>
+    </uploader>
+  </view>
+  <view class="demo-uploader-title">自定义容器大小</view>
+  <view class="demo-uploader-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{2}}"
+      width="168"
+      height="120"
+      onChange="onChange"
+    />
+  </view>
+  <view class="demo-uploader-title">删除图片确认</view>
+  <view class="demo-uploader-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{2}}"
+      defaultValue="{{value_1}}"
+      onDelete="onDelete"
+    />
+  </view>
+  <view class="demo-uploader-title">限制上传图片大小和类型</view>
+  <view class="demo-uploader-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{2}}"
+      defaultValue="{{value_1}}"
+      onBeforeUpload="onBeforeUpload"
+    />
+  </view>
+  <view class="demo-uploader-title">自定义上传方法</view>
+  <view class="demo-uploader-show">
+    <uploader 
+      maxCount="{{2}}"
+      defaultValue="{{value_1}}"
+      onUpload="onUpload"
+    />
+  </view>
+</view>

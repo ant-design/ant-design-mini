@@ -155,6 +155,11 @@ Page({
                 nameZN: '协议',
                 path: '/pages/Terms/index',
               },
+              {
+                name: 'ImageUpload',
+                nameZN: '图片上传',
+                path: '/pages/ImageUpload/index',
+              }
             ],
           },
         ],
