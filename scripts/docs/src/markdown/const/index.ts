@@ -9,7 +9,7 @@ export const CLASS_TABLE_PREFIX = `| 类名 | 说明 |\n| -----|----- |\n`;
 export const CSS_VAR_TABLE_PREFIX = `| CSS 变量名称 | 说明 |\n| -----|----- |\n`;
 export const EXCLUED_DIR = ['.umi', 'Avatar', 'Badge',
     'Button', 'Checkbox', 'CheckboxGroup',
-    'Collapse', 'Container', 'Dialog',
+    'Collapse', 'Card', 'Dialog',
     'Filter', 'Form', 'Icon',
     'ImageIcon', 'InputItem', 'List',
     'Loading', 'LoadingMini', 'Mask',
@@ -29,7 +29,7 @@ export const ComponentGroupMap = {
     'Checkbox': '表单类组件',
     'CheckboxGroup': '表单类组件',
     'Collapse': '数据展示',
-    'Container': '数据展示',
+    'Card': '数据展示',
     'Dialog': '反馈',
     'Filter': '数据展示',
     'Form': '实验性质组件',

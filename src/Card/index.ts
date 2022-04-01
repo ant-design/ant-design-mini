@@ -1,13 +1,13 @@
-import { ContainerDefaultProps } from './props';
+import { CardDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import { log } from '../_util/console';
 
 Component({
-  props: ContainerDefaultProps,
+  props: CardDefaultProps,
   didMount() {
     const { onIconTap, icon } = this.props;
     if (!icon && onIconTap) {
-      log.error('Container', '未设置 icon 属性值或者值为空，onIconTap 将无效。');
+      log.error('Card', '未设置 icon 属性值或者值为空，onIconTap 将无效。');
     }
   },
   methods: {

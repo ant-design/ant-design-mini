@@ -21,7 +21,7 @@ Page({
         list: [
           {
             name: 'Tabs',
-            nameZN: '横向Tabs',
+            nameZN: '选项卡',
             path: '/pages/Tabs/index',
           },
           {
@@ -45,9 +45,9 @@ Page({
             path: '/pages/Collapse/index',
           },
           {
-            name: 'Container',
-            nameZN: '容器',
-            path: '/pages/Container/index',
+            name: 'Card',
+            nameZN: '卡片',
+            path: '/pages/Card/index',
           },
           {
             name: 'Steps',
