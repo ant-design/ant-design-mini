@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: 导航
-  order: 3
+  title: 信息展示
+  order: 8
 toc: false
 ---
 # Tag

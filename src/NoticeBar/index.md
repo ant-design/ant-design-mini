@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: 导航
-  order: 3
+  title: 引导提示
+  order: 14
 toc: false
 ---
 # NoticeBar

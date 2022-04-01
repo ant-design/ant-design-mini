@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 实验性质的组件
-  order: 5
+  order: 16
 toc: false
 ---
 

@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 导航
-  order: 3
+  order: 6
 toc: false
 ---
 

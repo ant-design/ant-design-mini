@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: 表单类组件
-  order: 3
+  title: 通用
+  order: 2
 toc: false
 ---
 # Button

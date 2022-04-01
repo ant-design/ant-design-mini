@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 反馈
-  order: 2
+  order: 12
 toc: false
 ---
 # Popover

@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: 数据展示
-  order: 1
+  title: 信息展示
+  order: 8
 toc: false
 ---
 
