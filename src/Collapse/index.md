@@ -24,9 +24,9 @@ toc: false
 ### 基础使用
 <code src='../../demo/pages/Collapse'></code>
 
-### 手风琴模式
+### 自定义模式
 
-<code src='../../demo/pages/CollapseAccordion'></code>
+<code src='../../demo/pages/CollapseCustom'></code>
 
 ## API
 

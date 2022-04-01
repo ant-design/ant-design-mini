@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "Collapse：手风琴模式",
-  "usingComponents": {
-    "collapse": "../../../src/Collapse/index",
-    "collapse-item": "../../../src/Collapse/CollapseItem/index"
-  }
-}

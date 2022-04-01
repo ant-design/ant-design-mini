@@ -3,6 +3,6 @@
   "usingComponents": {
     "avatar": "../../../src/Avatar/index",
     "white-space": "../../components/WhiteSpace/index",
-    "container": "../../../src/Container/index"
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

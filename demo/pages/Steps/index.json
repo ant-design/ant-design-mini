@@ -3,6 +3,8 @@
   "usingComponents": {
     "steps": "../../../src/Steps/index",
     "step-item": "../../../src/Steps/StepItem/index",
-    "icon":"../../../src/Icon/index"
+    "icon": "../../../src/Icon/index",
+    "button": "../../../src/Button/index",
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

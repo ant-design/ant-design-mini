@@ -20,20 +20,17 @@ toc: false
 ### 基本使用
 <code src="../../demo/pages/FormBasic" ></code>
 
-### 表单校验
-<code src="../../demo/pages/FormValidate" ></code>
+### 结合表单组件
+<code src="../../demo/pages/Form" ></code>
 
-### 结合 a:for 指令
-<code src="../../demo/pages/FormAFor" ></code>
+### 表单分组
+<code src="../../demo/pages/FormGroup" ></code>
 
-### 结合 a:if 指令
-<code src="../../demo/pages/FormAIf" ></code>
+### 动态表单
+<code src="../../demo/pages/FormDynamic" ></code>
 
 ### 实例方法使用
 <code src="../../demo/pages/FormInsMethod" ></code>
-
-### 结合表单组件
-<code src="../../demo/pages/Form" ></code>
 
 ## API
 
@@ -60,6 +57,7 @@ toc: false
 | name | string | 是 | default | 字段 uid |
 | label | string | 否 | - | 字段名称 |
 | arrow | boolean | 否 | false | 表单项右侧箭头 |
+| required | boolean | 否 | false | 是否必填，label展示必填标识 |
 | className | string | 否 | "" | 类名 |
 
 ### 事件
@@ -97,8 +95,8 @@ toc: false
 #### Form
 | 类名 | 说明 |
 | -----|-----|
-| onValuesChange | 字段更新，触发此回调 |
-| onFinish | 表单提交后，触发此回调 |
+| amd-form | 整体样式 |
+| amd-form-footer | footer 样式 |
 
 #### FormGroup
 | 类名 | 说明 |

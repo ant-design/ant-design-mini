@@ -2,6 +2,10 @@
   "defaultTitle": "Popup",
   "usingComponents": {
     "popup": "../../../src/Popup/index",
-    "button": "../../../src/Button/index"
+    "demo-block": "../../components/DemoBlock/index",
+    "button": "../../../src/Button/index",
+    "list": "../../../src/List/index",
+    "list-item": "../../../src/List/ListItem/index",
+    "switch": "../../../src/Switch/index"
   }
 }

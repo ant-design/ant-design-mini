@@ -1,6 +1,6 @@
-<view class="demo-uploader">
-  <view class="demo-uploader-title">基本用法</view>
-  <view class="demo-uploader-show">
+<view class="demo-image-upload">
+  <view class="demo-image-upload-title">基本用法</view>
+  <view class="demo-image-upload-show">
     <uploader 
       action='{{action}}'
       maxCount="{{2}}"
@@ -9,8 +9,8 @@
     />
   </view>
 
-  <view class="demo-uploader-title">上传状态</view>
-  <view class="demo-uploader-show">
+  <view class="demo-image-upload-title">上传状态</view>
+  <view class="demo-image-upload-show">
     <uploader 
       action='{{action}}'
       maxCount="{{8}}"
@@ -18,8 +18,8 @@
       onChange="onChange"
     />
   </view>
-  <view class="demo-uploader-title">带示例图片</view>
-  <view class="demo-uploader-show">
+  <view class="demo-image-upload-title">带示例图片</view>
+  <view class="demo-image-upload-show">
     <uploader 
       action='{{action}}'
       maxCount="{{2}}"
@@ -27,8 +27,8 @@
       onChange="onChange"
     />
   </view>
-  <view class="demo-uploader-title">自定义标签</view>
-  <view class="demo-uploader-show">
+  <view class="demo-image-upload-title">自定义标签</view>
+  <view class="demo-image-upload-show">
     <uploader 
       action='{{action}}'
       maxCount="{{4}}"
@@ -36,8 +36,8 @@
       onChange="onChange"
     />
   </view>
-  <view class="demo-uploader-title">自定义上传图标</view>
-  <view class="demo-uploader-show">
+  <view class="demo-image-upload-title">自定义上传图标</view>
+  <view class="demo-image-upload-show">
     <uploader 
       action='{{action}}'
       maxCount="{{3}}"
@@ -48,8 +48,8 @@
       </view>
     </uploader>
   </view>
-  <view class="demo-uploader-title">自定义容器大小</view>
-  <view class="demo-uploader-show">
+  <view class="demo-image-upload-title">自定义容器大小</view>
+  <view class="demo-image-upload-show">
     <uploader 
       action='{{action}}'
       maxCount="{{2}}"
@@ -58,8 +58,8 @@
       onChange="onChange"
     />
   </view>
-  <view class="demo-uploader-title">删除图片确认</view>
-  <view class="demo-uploader-show">
+  <view class="demo-image-upload-title">删除图片确认</view>
+  <view class="demo-image-upload-show">
     <uploader 
       action='{{action}}'
       maxCount="{{2}}"
@@ -67,8 +67,8 @@
       onDelete="onDelete"
     />
   </view>
-  <view class="demo-uploader-title">限制上传图片大小和类型</view>
-  <view class="demo-uploader-show">
+  <view class="demo-image-upload-title">限制上传图片大小和类型</view>
+  <view class="demo-image-upload-show">
     <uploader 
       action='{{action}}'
       maxCount="{{2}}"
@@ -76,8 +76,8 @@
       onBeforeUpload="onBeforeUpload"
     />
   </view>
-  <view class="demo-uploader-title">自定义上传方法</view>
-  <view class="demo-uploader-show">
+  <view class="demo-image-upload-title">自定义上传方法</view>
+  <view class="demo-image-upload-show">
     <uploader 
       maxCount="{{2}}"
       defaultValue="{{value_1}}"

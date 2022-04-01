@@ -1,5 +1,6 @@
 
-<swipe-action
+<demo-block title="组件实例方法">
+  <swipe-action
     data-index="{{index}}"
     right="{{[{
         type: 'default',
@@ -20,8 +21,10 @@
       onTap="onItemClick">
       组件实例方法
     </list-item>
-</swipe-action>
+  </swipe-action>
+  <button onTap="resetPosition" style="margin-top:24rpx;">
+    控制关闭
+  </button>
+</demo-block>
 
-<button onTap="resetPosition">
-    reset
-</button>
+

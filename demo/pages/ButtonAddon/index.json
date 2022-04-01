@@ -2,7 +2,7 @@
     "defaultTitle": "Button",
     "usingComponents": {
       "button": "../../../src/Button/index",
-      "checkbox": "../../../src/Checkbox/index"
+      "demo-block": "../../components/DemoBlock/index"
     }
   }
   

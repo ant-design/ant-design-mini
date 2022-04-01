@@ -3,6 +3,6 @@
   "usingComponents": {
     "modal": "../../../src/Modal/index",
     "button": "../../../src/Button/index",
-    "amd-icon": "../../../src/Icon/index"
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

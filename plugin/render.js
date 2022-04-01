@@ -198,9 +198,9 @@ var simulatorContainer = document.querySelector(".simulatorContainer");
 var simulator;
 var prevPath = "";
 var DEFAULT_STYLE =
-  "width:390px; height:740px; position:fixed; top:150px; right:50px";
+  "width:390px; height:740px; position:fixed; top:120px; right:50px";
 var DISAPPEAR_STYLE =
-  "width:390px; height:740px; position:fixed; top:150px; right:50px; display:none";
+  "width:390px; height:740px; position:fixed; top:120px; right:50px; display:none";
 function debounce(fn, delay) {
   var _this = this;
   var timer = null;
@@ -272,7 +272,7 @@ exports.default = function (props) {
         } else {
           resolve({
             appCdnBaseUrl:
-              "https://gw.alipayobjects.com/os/gzmsfesa-sffminipkg_prod/package/alipay/com_alipay_alipaywallet/2021001172665758/0_1_2202171349_9/",
+              "https://mdn.alipayobjects.com/yaoyy/uri/file/as/apwallet/1648645831548/2021003121607088/",
           });
         }
       });

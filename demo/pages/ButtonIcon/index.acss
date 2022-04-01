@@ -1,8 +1,0 @@
-.amd-button{
-  margin: 20px 5px;
-}
-
-.button-icon {
-  font-size: 20px;
-  color: inherit;
-}

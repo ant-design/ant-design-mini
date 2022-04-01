@@ -1,8 +1,0 @@
-{
-    "defaultTitle": "结合 a:for 指令使用",
-    "usingComponents": {
-        "form": "../../../src/Form/index",
-        "form-item": "../../../src/Form/FormItem/index",
-        "input": "../../../src/InputItem/index"
-    }
-}

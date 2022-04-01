@@ -1,15 +1,11 @@
-.filter-num{
- padding: 20rpx;
+.filter-1 .amd-filter-item {
+  z-index: 2;
 }
 
-.filter-1 .amd-filter-item{
-        z-index: 2;
+.filter-2 .amd-filter-item {
+  z-index: 2;
 }
 
-.filter-2 .amd-filter-item{
-    z-index: 2;
-}
-
-.filter-3 .amd-filter-item{
-    z-index: 2;
+.filter-3 .amd-filter-item {
+  z-index: 2;
 }
