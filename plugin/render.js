@@ -257,7 +257,34 @@ function genSimulator(){
     body.appendChild(simulatorContainer);
   }
 }
-
+// dumi不支持左侧边栏添加描述，使用js插入
+const allComponents = require('../demo/utils/constants.ts').allComponents;
+function setSlideMenuDesc(){
+  var allSpan = document.querySelectorAll('.__dumi-default-menu-inner > ul ul a>span');
+  allSpan.forEach(function(el) {
+    if(el.innerHTML.indexOf('<span')<0) {
+      var find = allComponents.find(function(v) {
+        return v.name === el.innerHTML;
+      });
+      if(find){
+        var descEl = document.createElement('span');
+        descEl.innerHTML = find.nameZN;
+        el.appendChild(descEl);
+      }
+    }
+  });
+}
+// 当组件只有一个demo时使用js控制，添加onlyOnePreviewer的class去除选中效果
+function removeDemoSourceBorder() {
+  var previewers = document.querySelectorAll('.__dumi-default-mobile-previewer');
+  if( previewers.length === 1) {
+    previewers[0].classList.add('onlyOnePreviewer');
+  }else {
+    previewers.forEach(function(el) {
+      el.classList.remove('onlyOnePreviewer');
+    })
+  }
+}
 exports.default = function (props) {
   genSimulator()
   debounceReLaunch(props.pages);
@@ -318,15 +345,8 @@ exports.default = function (props) {
           )
         );
       });
-      // 当组件只有一个demo时使用js控制，添加onlyOnePreviewer的class去除选中效果
-      var previewers = document.querySelectorAll('.__dumi-default-mobile-previewer');
-      if( previewers.length === 1) {
-        previewers[0].classList.add('onlyOnePreviewer');
-      }else {
-        previewers.forEach(function(el) {
-          el.classList.remove('onlyOnePreviewer');
-        })
-      }
+      removeDemoSourceBorder();
+      setSlideMenuDesc();
     },
     [props.appCdnBaseUrl]
   );

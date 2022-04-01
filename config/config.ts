@@ -58,8 +58,13 @@ export default {
   #root .__dumi-default-menu-inner ul li ul {
     padding-left: 0;
   }
-  #root .__dumi-default-menu-inner > ul ul a.active {
+  /** 侧边栏选中状态 */
+  #root .__dumi-default-menu-inner > ul ul a.active{
     background-color: #EDF3FF;
+    color: #1677ff;
+  }
+  /** 侧边栏悬停状态 */
+  #root .__dumi-default-menu-inner > ul ul a:hover {
     color: #1677ff;
   }
   #root .__dumi-default-menu-inner ul li.active a::before,  #root  .__dumi-default-menu-inner ul li a.active::before{
@@ -76,9 +81,7 @@ export default {
     background: #1677FF;
   }
   /** 左侧导航选中状态 */
-  #root .__dumi-default-navbar nav > span > a:hover,#root  .__dumi-default-navbar nav > span > a.active {
-    color: #1677ff;
-  }
+
   /** header选中状态上划线 */
   #root .__dumi-default-navbar nav > span > a.active::after {
     background: #1677FF;
@@ -166,6 +169,16 @@ export default {
   /** 底部github编辑、最后更新时间 */
   #root .__dumi-default-layout-footer-meta > a, #root .__dumi-default-layout-footer-meta > span:last-child::before {
     color: #1677ff;
+  }
+  /** 左侧标题描述 */
+  #root .__dumi-default-menu-inner > ul ul a>span>span {
+    display: inline;
+    padding-left: 8px;
+    color: rgba(0,0,0,.45);
+  }
+  /** 描述选中态 */
+  #root .__dumi-default-menu-inner > ul ul a.active>span>span,  #root .__dumi-default-menu-inner > ul ul a:hover>span>span {
+    color: #1677ff73;
   }
   `],
   navs: {
