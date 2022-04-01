@@ -1,31 +1,59 @@
-<view class="demo-popover">
-  <popover 
-    placement="{{placement}}"
-    visible="{{show}}"
-    mask="{{showMask}}"
-    maskClosable="{{true}}"
-    onVisibleChange="onVisibleChange">
-
-    <view class="demo-popover-btn">
-      点击{{show ? '隐藏' : '显示'}} {{placement}}
+<view>
+  <demo-block title="基本气泡">
+    <view class="wrap dark">
+      <popover 
+        placement="bottom"
+        visible="{{showDark}}"
+        onVisibleChange="handleDarkVisibleChange">
+        <button inlineSize="large" inline>点我{{showDark ? '隐藏' : '显示'}}</button>
+        <view slot="items" class="tooltip">Hello World</view>
+      </popover>
     </view>
-    
-    <view slot="items" class="demo-popover-items">
-      tooltip
+  </demo-block>
+  <demo-block title="浅色模式">
+    <view class="wrap">
+      <popover 
+        placement="right"
+        mode="light"
+        visible="{{showLight}}"
+        onVisibleChange="handleLightVisibleChange">
+        <button inlineSize="large" inline>点我{{showLight ? '隐藏' : '显示'}}</button>
+        <view slot="items" class="tooltip">Hello World</view>
+      </popover>
     </view>
-
-  </popover>
-</view>
-
-<view class="demo-btn-container">
-  <button 
-    class="demo-btn"
-    onTap="onNextPositionTap">
-    下个位置
-  </button>
-  <button 
-    class="demo-btn"
-    onTap="onToggleMask">
-    {{showMask?'隐藏':'显示'}}蒙层
-  </button>
+  </demo-block>
+  <demo-block title="多种位置" className="multi-demo">
+    <view class="multi-wrap">
+      <popover 
+        placement="{{placement}}"
+        visible="{{show}}"
+        mask="{{showMask}}"
+        onVisibleChange="handleVisibleChange">
+        <view class="multi">
+          <view>点击{{show ? '隐藏' : '显示'}}</view>
+          <view>
+            {{placement}}
+          </view>
+        </view>
+        <view slot="items" class="tooltip">
+          <view>Popover</view> 
+          <view>
+            Content
+          </view>
+        </view>
+      </popover>
+    </view>
+    <view class="demo-btn-container">
+      <button 
+        class="demo-btn"
+        onTap="handleNextPosition">
+        下个位置
+      </button>
+      <button 
+        class="demo-btn"
+        onTap="handleToggleMask">
+        {{showMask?'隐藏':'显示'}}蒙层
+      </button>
+    </view>
+  </demo-block>
 </view>

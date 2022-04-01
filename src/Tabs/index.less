@@ -14,11 +14,6 @@
     &-underline {
       border-bottom: @border-width-standard solid @color-divider-line;
     }
-    &-sticky {
-      position: sticky;
-      top: 0;
-      z-index: 99;
-    }
     &-fade {
       position: absolute;
       top: 0;
@@ -29,20 +24,17 @@
       pointer-events: none;
       &-left {
         left: 0;
-        mask-image: linear-gradient(to right, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
-        mask-image: linear-gradient(to right, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
+        background: linear-gradient(90deg,#fff,hsla(0,0%,100%,0));
       }
       &-right {
-        // right: 0;
-        right: 104rpx;
-        mask-image: linear-gradient(to left, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
-        mask-image: linear-gradient(to left, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
+        right: 104 * @rpx;
+        background: linear-gradient(270deg,#fff,hsla(0,0%,100%,0));
       }
     }
     &-plus {
       display: flex;
-      width: 88rpx;
-      height: 88rpx;
+      width: 88 * @rpx;
+      height: 88 * @rpx;
       align-self: center;
       align-items: center;
       justify-content: center;
@@ -96,8 +88,8 @@
       white-space: nowrap;
       color: @tabs-basis-color;
       &-placeholder {
-        flex: 0 2rpx;
-        width: 2rpx;
+        flex: 0 2 * @rpx;
+        width: 2 * @rpx;
         height: 100%;
         color: @tabs-inverse-color;
         background-color: @tabs-inverse-color;

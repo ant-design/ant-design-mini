@@ -1,30 +1,38 @@
 <view class="demo">
-  <list radius="{{true}}">
-    <list-item className="demoItem">
+  <demo-block title="基础用法" padding="0">
+    <list>
+      <list-item className="demo-item">
+        <label>
+          <checkbox onChange="handleChange" />
+        </label>
+      </list-item>
+      <list-item className="demo-item">
+        <label>
+          <checkbox onChange="handleChange" />
+          <text>有描述的复选框</text>
+        </label>
+      </list-item>
+      <list-item className="demo-item">
+        <label>
+          <checkbox checked onChange="handleChange" />
+          <text>默认选中</text>
+        </label>
+      </list-item>
+      <list-item className="demo-item">
+        <label>
+          <checkbox disabled />
+          <text>禁用状态</text>
+        </label>
+      </list-item>
+    </list>
+  </demo-block>
+  <demo-block title="受控模式">
+    <list-item className="demo-item">
       <label>
-        <checkbox onChange="changeCheckBox" disabled="{{disabled}}"/>
-        <text class="options">复选项 1</text>
+        <checkbox controlled onChange="handleChangeControlledValue" checked="{{checked}}" />
+        <text>受控项</text>
       </label>
     </list-item>
-    <list-item className="demoItem">
-      <label>
-        <checkbox onChange="changeCheckBox" disabled="{{disabled}}"/>
-        <text class="options">复选项 2</text>
-      </label>
-    </list-item>
-    <list-item className="demoItem">
-      <label>
-        <checkbox onChange="changeCheckBox" disabled="{{disabled}}"/>
-        <text class="options">复选项 3</text>
-      </label>
-    </list-item>
-    <list-item className="demoItem">
-      <label>
-        <checkbox onChange="changeCheckBox" disabled="{{disabled}}"/>
-        <text class="options">复选项 4</text>
-      </label>
-    </list-item>
-  </list>
-
-  <button onTap="onTap" type="primary">disabled: {{disabled}}</button>
+    <button className="btn" type="primary" onTap="handleChangeControlledValue">切换状态</button>
+  </demo-block>
 </view>

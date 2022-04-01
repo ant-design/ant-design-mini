@@ -46,7 +46,7 @@ Page({
                 nameZN: '步骤进度条',
                 path: '/pages/Steps/index',
               },
-            ]
+            ],
           },
         ],
       },
@@ -207,7 +207,7 @@ Page({
         components: [
           {
             type: '实验性质的组件',
-            list: [    
+            list: [
               {
                 name: 'Form',
                 nameZN: '表单',

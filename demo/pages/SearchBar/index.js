@@ -3,49 +3,51 @@ Page({
     value: '',
     showVoice: false,
     showBizIcon: false,
+    basicValue: '',
+    withCancelValue: '',
+    voiceValue: '',
+    focusWithCancelValue: '',
+    focusWithCancelFocus: false,
   },
-  handleInput(value) {
-    if (this.data.controlled) {
-      this.setData({
-        value,
-      });
-    }
+  handleBasicInput(value) {
+    this.setData({ basicValue: value });
   },
-  handleClear() {
-    if (this.data.controlled) {
-      this.setData({
-        value: '',
-      });
-    }
+  handleBasicClear() {
+    this.setData({ basicValue: '' });
   },
-  handleFocus(e) {
-    // eslint-disable-next-line no-console
-    console.log('focus', e);
+  handleWithCancelInput(value) {
+    this.setData({ withCancelValue: value });
   },
-  handleBlur(e) {
-    // eslint-disable-next-line no-console
-    console.log('blur', e);
+  handleWithCancelClear() {
+    this.setData({ withCancelValue: '' });
   },
-  handleCancel() {
-    if (this.data.controlled) {
-      this.setData({
-        value: '',
-      });
-    }
+  handleCancelWithCancel() {
+    this.setData({ withCancelValue: '' });
+    my.showToast({ content: 'click cancel', duration: 1000 });
   },
-  handleVoice() {
-    // eslint-disable-next-line no-console
-    console.log('press vocie icon');
+  handleVoiceInput(value) {
+    this.setData({ voiceValue: value });
   },
-  handleSubmit(value) {
-    my.alert({
-      content: value,
-    });
+  handleVoiceClear() {
+    this.setData({ voiceValue: '' });
   },
-  showVoiceChange(e) {
-    this.setData({
-      showVoice: e.detail.value,
-      showBizIcon: e.detail.value,
-    });
+  handleTapVoice() {
+    my.showToast({ content: 'click voice', duration: 1000 });
+  },
+  handleFocusWithCancelInput(value) {
+    this.setData({ focusWithCancelValue: value });
+  },
+  handleFocusWithCancelClear() {
+    this.setData({ focusWithCancelValue: '' });
+  },
+  handleFocusCancelWithCancel() {
+    this.setData({ focusWithCancelValue: '' });
+    my.showToast({ content: 'click cancel', duration: 1000 });
+  },
+  handleFocusCancelWithFocus() {
+    this.setData({ focusWithCancelFocus: true });
+  },
+  handleFocusCancelWithBlur() {
+    this.setData({ focusWithCancelFocus: false });
   },
 });

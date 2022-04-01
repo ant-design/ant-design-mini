@@ -1,4 +1,6 @@
-.ins{
-    font-size: large;
-    margin:20px 0
+.demo {
+  padding: 24rpx;
+}
+.btn {
+  margin: 12px;
 }

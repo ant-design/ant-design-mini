@@ -8,21 +8,21 @@ Page({
       [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
     ],
   },
-  cancelPicker() {
+  handleCancelPicker() {
     my.showToast({
       content: '取消操作，关闭 picker，无回调。',
     });
   },
-  changePikcer(v) {
+  handleChangePikcer(v) {
     // eslint-disable-next-line no-console
     console.log('changePikcer', v);
   },
-  getPikcerValue(v) {
+  handleOk(v) {
     my.showToast({
       content: `点击确定，当前选择的数组 index 为：${v}`,
     });
   },
   formatValue(v) {
-    return v.join('+');
+    return v.join('-');
   },
 });

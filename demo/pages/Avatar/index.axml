@@ -1,21 +1,27 @@
-<white-space />
-<container title="四种尺寸">
-  <view class="demo-avatar-size">
-    <view class="demo-avatar-size-container">
-      <avatar size="large" />
-      <text>large</text>
+<view class="demo">
+  <demo-block title="基础用法-四种尺寸">
+    <view class="demo-list">
+      <view class="list-item" a:for="{{basicList}}">
+        <avatar size="{{item.size}}" src="{{item.src}}" />
+        <view class="size-text">
+          {{item.size}}
+        </view>
+      </view>
     </view>
-    <view class="demo-avatar-size-container">
-      <avatar />
-      <text>默认值：medium</text>
-    </view>
-    <view class="demo-avatar-size-container">
-      <avatar size="small" />
-      <text>small</text>
-    </view>
-    <view class="demo-avatar-size-container">
-      <avatar size="x-small" />
-      <text>x-small</text>
-    </view>
-  </view>
-</container>
+  </demo-block>
+  <demo-block title="默认图，不传src时默认展示灰色的内置图片">
+    <avatar/>
+  </demo-block>
+  <demo-block title="带有name和desc">
+    <avatar name="用户名 x-small，desc不显示" desc="摘要信息" size="x-small" src="{{basicList[0].src}}" />
+    <white-space />
+    <avatar name="用户名 small" desc="摘要信息" size="small" src="{{basicList[1].src}}" />
+    <white-space />
+    <avatar name="用户名 medium" desc="摘要信息" size="medium" src="{{basicList[2].src}}" />
+    <white-space />
+    <avatar name="用户名 large" desc="摘要信息" size="large" src="{{basicList[3].src}}" />
+  </demo-block>
+  <demo-block title="仅有 desc 时，name不显示">
+    <avatar desc="摘要信息" src="{{basicList[0].src}}" />
+  </demo-block>
+</view>

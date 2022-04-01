@@ -1,6 +1,7 @@
 {
   "defaultTitle": "Tag",
   "usingComponents": {
-    "tag": "../../../src/Tag/index"
+    "tag": "../../../src/Tag/index",
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

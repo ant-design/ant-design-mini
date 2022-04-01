@@ -1,22 +1,38 @@
 <view>
-  <search-bar 
-    value="{{value}}"
-    disabled="{{false}}"
-    maxLength="{{20}}"
-    showVoice="{{showVoice}}"
-    showBizIcon="{{showBizIcon}}"
-    showCancelButton="{{true}}"
-    placeholder="搜索词"
-    onInput="handleInput"
-    onClear="handleClear"
-    onFocus="handleFocus"
-    onBlur="handleBlur"
-    onCancel="handleCancel"
-    onSubmit="handleSubmit"
-    enableNative="{{false}}"
-    onVoiceTap="handleVoice" />
-</view>
-<view style="padding: 24rpx">
-  <checkbox onChange='showVoiceChange'
-    id="showVoice" /><label for="showVoice">是否展示Voice图标</label>
+  <demo-block title="基础用法" background="#f5f5f5" padding="0">
+    <search-bar 
+      placeholder="请输入内容" 
+      value="{{basicValue}}" 
+      onInput="handleBasicInput" 
+      onClear="handleBasicClear"/>
+  </demo-block>
+  <demo-block title="带取消按钮" background="#f5f5f5" padding="0">
+    <search-bar 
+      placeholder="请输入内容" 
+      showCancelButton
+      value="{{withCancelValue}}" 
+      onInput="handleWithCancelInput" 
+      onClear="handleBasicClear"
+      onCancel="handleCancelWithCancel"/>
+  </demo-block>
+  <demo-block title="额外Voice图标" background="#f5f5f5" padding="0">
+    <search-bar 
+      placeholder="请输入内容" 
+      showBizIcon
+      value="{{voiceValue}}" 
+      onInput="handleVoiceInput" 
+      onClear="handleVoiceClear"
+      onBizIconTap="handleTapVoice"/>
+  </demo-block>
+  <demo-block title="聚焦显示取消按钮" background="#f5f5f5" padding="0">
+    <search-bar 
+      placeholder="请输入内容" 
+      value="{{focusWithCancelValue}}" 
+      showCancelButton="{{focusWithCancelFocus}}"
+      onInput="handleFocusWithCancelInput" 
+      onClear="handleFocusWithCancelClear"
+      onCancel="handleFocusCancelWithCancel"
+      onBlur="handleFocusCancelWithBlur"
+      onFocus="handleFocusCancelWithFocus"/>
+  </demo-block>
 </view>

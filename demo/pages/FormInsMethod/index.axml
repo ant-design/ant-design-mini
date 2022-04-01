@@ -1,18 +1,28 @@
-<form form="{{form}}" ref="ref">
-    <form-item 
-      a:for="{{list}}" 
-      label="{{item.name}}" 
-      labelWidth="110px"
-      name="{{item.name}}"  
-      form="{{form}}">
-        <input 
-          placeholder="{{item.name}}" 
-          mode="form" />
-    </form-item>
-</form>
-
-<button onTap="setFieldsValue" type="primary">设置表单值</button>
-<button onTap="getCompInstance" type="primary">获取组件 [真实] 实例</button>
-<view class="ins">
-  ins: {{ins}}
+<view class="demo">
+  <form 
+      form="{{form}}" 
+      ref="getForm"
+      onFinish="handleSubmit"
+      onValuesChange="handleValuesChange">
+      <form-item
+          label="账号"
+          name="account"
+          form="{{form}}">
+          <input-item mode="form" placeholder="请输入账号"/>
+      </form-item>
+      <form-item
+          label="密码"
+          name="password"
+          form="{{form}}">
+          <input-item mode="form" password placeholder="请输入密码"/>
+      </form-item>
+      <button 
+          slot="footer"
+          type="primary" 
+          mode="form"
+          form="{{form}}"
+          htmlType="submit">登录
+      </button>
+  </form>
+  <button onTap="handleSetValue" className="btn">设置表单数据</button>
 </view>

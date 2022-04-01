@@ -1,16 +1,14 @@
 Page({
   data: {
-    disabled: false,
+    checked: false,
   },
-  changeCheckBox(v) {
+  handleChange(v) {
     my.showToast({
-      content: `当前 checkbox 状态为： ${v}，${v ? '选中' : '未选中'} 状态。`,
+      content: `当前 checkbox 状态为： ${v ? '选中' : '未选中'} 状态。`,
       duration: 1000,
     });
   },
-  onTap() {
-    this.setData({
-      disabled: !this.data.disabled,
-    });
+  handleChangeControlledValue() {
+    this.setData({ checked: !this.data.checked });
   },
 });

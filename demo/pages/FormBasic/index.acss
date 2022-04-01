@@ -1,4 +1,3 @@
-.changedFields, .allFields{
-    font-size: large;
-    margin:20px 0
+.demo {
+  padding: 24rpx;
 }
