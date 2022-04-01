@@ -46,7 +46,6 @@
     "pages/Selector/index",
     "pages/SafeArea/index",
     "pages/Dialog/index",
-    "pages/FormValidate/index",
     "pages/Container/index",
     "pages/ImageUpload/index"
   ],
