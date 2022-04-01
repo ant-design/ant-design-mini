@@ -7,6 +7,5 @@ export const UploaderDefaultProps = {
   maxCount: 1,
   mode: 'scaleToFill',
   preview: true,
-  width: 80,
-  value: [],
+  width: 80
 };

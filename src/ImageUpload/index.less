@@ -1,8 +1,8 @@
 @import (reference) "./variable.less";
 
-@uploaderPrefix: amd-uploader;
+@imageUploadPrefix: amd-image-upload;
 
-.@{uploaderPrefix} {
+.@{imageUploadPrefix} {
   display: flex;
   flex-wrap: wrap;
 
@@ -12,17 +12,17 @@
 
   &-image,
   &-demo-image {
-    margin: 4 * @rpx 8 * @rpx;
-    border-radius: 8 * @rpx;
+    margin: @image-upload-common-margin;
+    border-radius: @corner-radius-md;
   }
 
   &-demo-image-tip {
     position: absolute;
-    top: 4 * @rpx;
-    left: 8 * @rpx;
-    width: 72 * @rpx;
-    height: 36 * @rpx;
-    background: url(https://gw.alipayobjects.com/zos/bmw-prod/fd8750b2-e015-4d6c-a82d-b8b920454eee.svg) no-repeat;
+    top: @image-upload-size-base;
+    left: @size-1;
+    width: @size-9;
+    height: @image-upload-size-base * 9;
+    background: url(@image-upload-example-tip-url) no-repeat;
     background-size: cover;
   }
 
@@ -31,27 +31,27 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    margin: 4 * @rpx 8 * @rpx;
-    font-size: 20 * @rpx;
-    color: #fff;
-    height: 40 * @rpx;
-    border-radius: 0 0 8 * @rpx 8 * @rpx;
+    margin: @image-upload-common-margin;
+    font-size: @image-upload-size-base * 5;
+    color: @color-fill-grey-inverse;
+    height: @size-5;
+    border-radius: 0 0 @corner-radius-md @corner-radius-md;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.80) 100%);
   }
 
   &-image-error {
     box-sizing: border-box;
-    border: 2 * @rpx solid #FF3141;
-    border-radius: 8 * @rpx;
+    border: @border-width-standard solid @color-red-1;
+    border-radius: @corner-radius-md;
   }
 
   &-close {
-    width: 44 * @rpx;
-    height: 44 * @rpx;
+    width: @image-upload-close-tip-width;
+    height: @image-upload-close-tip-height;
     position: absolute;
-    top: -4 * @rpx;
-    right: 0 * @rpx;
-    background: url(https://gw.alipayobjects.com/zos/bmw-prod/6aa923d5-3848-42ec-b1ea-a6389cabc03a.svg) no-repeat;
+    top: @image-upload-size-base * -1;
+    right: 0;
+    background: url(@image-upload-close-tip-url) no-repeat;
     background-size: cover;
   }
 
@@ -59,30 +59,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 4 * @rpx 8 * @rpx 12 * @rpx;
-    background-color: @uploader-background-color;
+    margin: @image-upload-add-image-container-margin;
+    background-color: @color-divider-background;
     border-radius: @corner-radius-lg;
   }
 
   &-loading {
     position: absolute;
-    z-index: 9;
-    margin: 4 * @rpx 8 * @rpx;
-    border-radius: 8 * @rpx;
+    margin: @image-upload-common-margin;
+    border-radius: @corner-radius-md;
     background-color: rgba(0, 0, 0, 0.55);
     display: flex;
     justify-content: center;
     align-items: center;
 
     .amd-loading-spin-icon {
-      padding-top: 16 * @rpx;
-      width: 40 * @rpx;
-      height: 40 * @rpx;
+      padding-top: @v-spacing-standard;
+      width: @image-upload-size-base * 10;
+      height: @image-upload-size-base * 10;
     }
 
     .amd-loading-spin-text {
-      font-size: 26 * @rpx;
-      color: #fff;
+      font-size: @font-size-content;
+      color: @color-fill-grey-inverse;
     }
   }
 }
