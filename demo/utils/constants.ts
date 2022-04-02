@@ -65,7 +65,7 @@ export const componentList = [
         name: 'Tag',
         nameZN: ' 标签',
         path: '/pages/Tag/index',
-      },
+      }
     ],
   },
   {
