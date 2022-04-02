@@ -1,0 +1,6 @@
+{
+    "usingComponents":{
+        "float-panel": "../../../src/FloatPanel/index"
+    },
+    "allowsBounceVertical": "NO"
+}

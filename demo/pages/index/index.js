@@ -36,6 +36,11 @@ Page({
                 nameZN: '折叠面板',
                 path: '/pages/Collapse/index',
               },
+              {
+                name: 'Container',
+                nameZN: '基础容器',
+                path: '/pages/Container/index',
+              },
             ],
           },
         ],
@@ -202,6 +207,16 @@ Page({
                 nameZN: '滑动删除',
                 path: '/pages/SwipeAction/index',
               },
+              {
+                name: 'FloatPanel',
+                nameZN: '浮动面板',
+                path: '/pages/FloatPanel/index',
+              },
+              {
+                name: 'FloatPanelEvent',
+                nameZN: '浮动面板事件监听',
+                path: '/pages/FloatPanelEvent/index',
+              }
             ],
           },
         ],

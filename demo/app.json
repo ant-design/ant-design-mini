@@ -46,7 +46,10 @@
     "pages/Form/index",
     "pages/SafeArea/index",
     "pages/Dialog/index",
-    "pages/FormValidate/index"
+    "pages/FormValidate/index",
+    "pages/FloatPanel/index",
+    "pages/FloatPanelEvent/index",
+    "pages/Container/index"
   ],
   "window": {
     "enableWK": "YES",

@@ -1,0 +1,75 @@
+
+<view class="title">标题在容器内</view>
+<white-space />
+<view>
+  <container title="标题" titleImage="{{titleImage}}" icon="HeartOutline" headerInBox="{{true}}">
+    <view slot="headerRight">右部内容</view>
+    <view class="demo-avatar-size">
+      <view class="demo-avatar-size-container">
+        <avatar size="large" />
+        <text>large</text>
+      </view>
+      <view class="demo-avatar-size-container">
+        <avatar />
+        <text>默认值：medium</text>
+      </view>
+      <view class="demo-avatar-size-container">
+        <avatar size="small" />
+        <text>small</text>
+      </view>
+      <view class="demo-avatar-size-container">
+        <avatar size="x-small" />
+        <text>x-small</text>
+      </view>
+    </view>
+  </container>
+</view>
+
+<white-space />
+<white-space />
+
+<view class="title">标题在容器外</view>
+
+
+<view>
+  <container title="标题" titleImage="{{titleImage}}" icon="HeartOutline" headerInBox="{{false}}">
+    <view slot="headerRight">右部内容</view>
+    <view class="demo-avatar-size">
+      <view class="demo-avatar-size-container">
+        <avatar size="large" />
+        <text>large</text>
+      </view>
+      <view class="demo-avatar-size-container">
+        <avatar />
+        <text>默认值：medium</text>
+      </view>
+      <view class="demo-avatar-size-container">
+        <avatar size="small" />
+        <text>small</text>
+      </view>
+      <view class="demo-avatar-size-container">
+        <avatar size="x-small" />
+        <text>x-small</text>
+      </view>
+    </view>
+  </container>
+</view>
+
+<white-space />
+<white-space />
+
+<view class="title">容器内多个盒子</view>
+<view>
+  <container title="标题" titleImage="{{titleImage}}" icon="HeartOutline" headerInBox="{{true}}" multiBox="{{3}}">
+    <view slot="headerRight">右部内容</view>
+    <view class="box1" slot="box1">
+      box1的内容
+    </view>
+    <view class="box2" slot="box2">
+      box2的内容
+    </view>
+    <view class="box3" slot="box3">
+      box3的内容
+    </view>
+  </container>
+</view>

@@ -1,0 +1,34 @@
+<map />
+<view class="buttonWrapper">
+    <Button class="button" onTap="handleToggleMask" inlineSize="small" inline>
+        {{button1Text}}
+    </Button>
+</view>
+
+<float-panel
+    className="wrapper"
+    maxHeight="{{0.7}}"
+    withMask="{{withMask}}"
+>
+    <view slot="header" class="title">
+        <text>
+            头部区域
+        </text>
+    </view> 
+    <view class="content" slot="content">
+        <view class="item" a:for="{{isvList1}}">
+            <view class="left">
+                名称: {{item.name}} 
+            </view>
+            <view class="right">
+                价格: {{item.price}}
+            </view>
+        </view>
+    </view>
+    <view slot="footer" class="title">
+        底部内容
+    </view>
+</float-panel>
+
+<view class="safe-area"></view>
+
