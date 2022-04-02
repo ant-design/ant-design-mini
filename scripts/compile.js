@@ -31,7 +31,9 @@ gulp.task('less', () => gulp.src(`${src}/**/index.less`)
   .pipe(gulp.dest(dist)));
 
 
-gulp.task('js', () => gulp.src(`${src}/**/props.js`)
+gulp.task('js', () => gulp.src(`${src}/**/props.js`).pipe(babel({
+  presets:['@babel/preset-env']
+}))
   .pipe(gulp.dest(dist)));
 
 gulp.task('json', () => gulp.src(`${src}/**/*.json`)
@@ -46,7 +48,9 @@ gulp.task('sjs', () => gulp.src(`${src}/**/*.sjs`)
 gulp.task('ts', () => gulp.src(`${src}/**/*.ts`)
   .pipe(gulpif((file) => {
     return !file.path.endsWith('.d.ts');
-  }, babel()))
+  }, babel({
+    presets:['@babel/preset-env']
+  })))
   .pipe(injectEnvs(env))
   .on('error', (err) => {
     // eslint-disable-next-line no-console
