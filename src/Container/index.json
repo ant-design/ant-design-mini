@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "icon": "../Icon/index"
+    "header": "./ContainerHeader"
   }
 }
