@@ -159,6 +159,11 @@ Page({
                 name: 'ImageUpload',
                 nameZN: '图片上传',
                 path: '/pages/ImageUpload/index',
+              },
+              {
+                name: 'VideoUpload',
+                nameZN: '视频上传',
+                path: '/pages/VideoUpload/index',
               }
             ],
           },

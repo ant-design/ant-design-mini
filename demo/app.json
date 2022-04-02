@@ -47,7 +47,8 @@
     "pages/SafeArea/index",
     "pages/Dialog/index",
     "pages/Container/index",
-    "pages/ImageUpload/index"
+    "pages/ImageUpload/index",
+    "pages/VideoUpload/index"
   ],
   "window": {
     "enableWK": "YES",

@@ -45,13 +45,10 @@ Page({
     return new Promise((resolve) => {
       my.confirm({
         title: '是否确认删除图片',
-        okButton: '确定',
-        cancelButton: '取消'
-      }, (e) => {
-        if (e.confirm) {
-          resolve(true);
-        } else {
-          resolve(false);
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        success: (e) => {
+          resolve(e.confirm);
         }
       });
     })

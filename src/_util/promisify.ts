@@ -48,6 +48,15 @@ declare namespace My {
     tempFiles: Array<TempFile>;
   }
 
+  interface ChooseVideo {
+    tempFilePath: String;
+    duration: Number;
+    size: Number;
+    height: Number;
+    width: Number;
+    success: boolean;
+  }
+
   interface UploadFile {
     data: string;
     statusCode: string | number;
@@ -56,6 +65,7 @@ declare namespace My {
 }
 
 export const chooseImage: (option: any) => Promise<My.ChooseImage> = promisifyMy('chooseImage');
+export const chooseVideo: (option: any) => Promise<My.ChooseVideo> = promisifyMy('chooseVideo');
 export const uploadFile: (option: any) => Promise<My.UploadFile> = promisifyMy('uploadFile');
 export const imageViewer: (option: any) => void = promisifyCall('imageViewer');
 

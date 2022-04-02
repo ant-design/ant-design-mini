@@ -7,5 +7,6 @@ export const UploaderDefaultProps = {
   maxCount: 1,
   mode: 'scaleToFill',
   preview: true,
+  sourceType: ['camera', 'album'],
   width: 80
 };

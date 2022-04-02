@@ -1,0 +1,30 @@
+<view class="amd-video-upload">
+  <view a:if="{{demoVideo}}" class="amd-video-upload-show" onTap="onPreviewDemoVideo">
+    <video class="amd-video-upload-demo-video" src="{{demoVideo}}" show-center-play-btn="{{false}}" show-fullscreen-btn="{{false}}" 
+      show-play-btn="{{false}}" show-mute-btn="{{false}}" show-thin-progress-bar="{{false}}" poster-size="cover" style="{{`height:${height}px;width:${width}px`}}" />
+    <cover-view class="amd-video-upload-demo-video-tip" />
+    <cover-view class="amd-video-upload-click-area" onTap="onPreviewVideo" data-preview-video-url="{{demoVideo}}" style="{{`height:${height}px;width:${width}px`}}">
+      <view class="amd-video-upload-play-icon" />
+    </cover-view>
+  </view>
+  <view a:for="{{fileList}}" class="amd-video-upload-show">
+    <video class="amd-video-upload-video {{item.status === 'error' ? `amd-video-upload-video-error`: ''}}" src="{{item.url}}" 
+      show-center-play-btn="{{false}}" show-fullscreen-btn="{{false}}" show-play-btn="{{false}}" show-mute-btn="{{false}}" 
+      show-thin-progress-bar="{{false}}" poster-size="cover" style="{{`height:${height}px;width:${width}px`}}" />
+    <cover-view class="amd-video-upload-click-area" a:if="{{item.status !== 'pending'}}" onTap="onPreviewVideo" data-preview-video-url="{{item.url}}" 
+      style="{{`height:${height}px;width:${width}px`}}">
+      <view class="amd-video-upload-play-icon" />
+    </cover-view>
+    <cover-view class="amd-video-upload-close" a:if="{{item.status !== 'pending'}}" onTap="onDeleteVideo" data-delete-image-index="{{index}}" />
+    <view class="amd-video-upload-loading" a:else style="{{`height:${height}px;width:${width}px`}}">
+      <loading className="amd-video-upload-loading-icon" theme="light" text="上传中..." />
+    </view>
+  </view>
+  <view class="amd-video-upload-add-video-wrapper" style="{{`height:${height}px;width:${width}px`}}" onTap="onChooseVideo">
+    <slot name='uploadIcon'>
+      <am-icon size="small" type="AddOutline" color="#333" />
+    </slot>
+  </view>
+  <video id="{{id||'myVideo'}}" style="{{width: 0,height: 0}}" src="{{playVideoUrl}}" enable-progress-gesture="{{false}}" 
+    onPlay="onPlay" onFullScreenChange="onFullScreenChange" />
+</view>

@@ -1,37 +1,43 @@
-import { UploaderDefaultProps, IUploaderData, File } from './props';
-import { chooseImage, imageViewer, uploadFile } from '../_util/promisify';
+import { VideoUploadDefaultProps, IVideoUploadData, File } from './props';
+import { chooseVideo, uploadFile } from '../_util/promisify';
 
 Component({
-  props: UploaderDefaultProps,
+  props: VideoUploadDefaultProps,
   data: {
     fileList: [],
-  } as IUploaderData,
+    playVideoUrl: '',
+  } as IVideoUploadData,
   didMount() {
-    const { defaultValue } = this.props;
+    const { defaultValue, id } = this.props;
+    // @ts-ignore
+    this.videoContext = my.createVideoContext(id || 'myVideo');
     this.setData({
       fileList: defaultValue
     });
   },
   methods: {
-    async onChooseImage() {
-      const { fileList } = this.data;
-      const { maxCount, sourceType } = this.props;
+    async onChooseVideo() {
+      const { camera, maxDuration, sourceType } = this.props;
 
-      const chooseImageRes = await chooseImage({
-        count: maxCount - fileList.length,
-        sourceType
+      const chooseVideoRes = await chooseVideo({
+        camera,
+        sourceType,
+        maxDuration,
       });
 
-      if (chooseImageRes && chooseImageRes.success) {
-        const tasks = chooseImageRes.tempFiles.map((file) => this.uploadFile(file));
-        await Promise.all(tasks);
+      if (chooseVideoRes) {
+        const { size, tempFilePath, duration } = chooseVideoRes;
+        this.uploadFile({
+          duration,
+          size,
+          tempFilePath
+        })
       }
     },
-
     async uploadFile(file) {
-      const { action, fileName, formData, onBeforeUpload, onUpload } = this.props;
+      const { action, filename, formData, onBeforeUpload, onUpload } = this.props;
       const { fileList } = this.data;
-      const { path } = file;
+      const { tempFilePath } = file;
 
       try {
         if (onBeforeUpload) {
@@ -40,8 +46,8 @@ Component({
         }
 
         const tempFileList = fileList.concat([{
-          key: path,
-          url: path,
+          key: tempFilePath,
+          url: tempFilePath,
           thumbUrl: '',
           status: 'pending'
         }]);
@@ -53,40 +59,39 @@ Component({
         if (action) {
           const res = await uploadFile({
             url: action,
-            fileType: 'image',
-            fileName: `${fileName}_${Date.now()}`,
-            filePath: path,
-            formData: formData || {},
-            hideLoading: true,
+            fileType: 'video',
+            fileName: `${filename}_${Date.now()}`,
+            filePath: tempFilePath,
+            formData,
+            hideLoading: true
           });
 
           /** 这里uploadFile api接口类型定义有问题，ide返回的是string，真机返回的是number，作下兼容 */
           if (res.statusCode === 200 || res.statusCode === '200') {
-            this.updateFileList(path, 'done');
+            this.updateFileList(tempFilePath, 'done');
           } else {
-            this.updateFileList(path, 'error');
+            this.updateFileList(tempFilePath, 'error');
           }
           return;
         }
 
         if (onUpload) {
           const onUploadRes = await onUpload.call(this.props, {
-            key: path,
-            url: path,
+            key: tempFilePath,
+            url: tempFilePath,
             thumbUrl: '',
             status: 'pending'
           });
-          this.updateFileList(path, onUploadRes.status);
+          this.updateFileList(tempFilePath, onUploadRes.status);
         }
       } catch (e) {
-        this.updateFileList(path, 'error');
+        this.updateFileList(tempFilePath, 'error');
         my.showToast({
           content: e.errorMessage || e.errorMsg || e.message || '上传失败，请重试',
           type: 'fail',
         });
       }
     },
-
     updateFileList(path, status) {
       const { fileList } = this.data;
       const { onChange } = this.props;
@@ -107,8 +112,7 @@ Component({
 
       onChange && onChange.call(this.props, tempFileList);
     },
-
-    async onDeleteImage(e) {
+    async onDeleteVideo(e) {
       const { fileList } = this.data;
       const { onDelete, onChange } = this.props;
       const { deleteImageIndex } = e.target.dataset;
@@ -124,36 +128,25 @@ Component({
       });
       onChange && onChange.call(this.props, tempFileList);
     },
+    onPreviewVideo(e) {
+      const { previewVideoUrl } = e.target.dataset;
 
-    onPreviewImage(e) {
-      const { fileList } = this.data;
-      const { preview, enableShowPhotoDownload, onPreview } = this.props;
-      const { previewImageIndex } = e.target.dataset;
+      this.setData({
+        playVideoUrl: previewVideoUrl
+      }, () => {
+        this.videoContext.play();
+      });
 
-      if (!preview) return;
-
-      if (onPreview) {
-        onPreview.call(this.props, fileList);
-        return;
-      }
-
-      imageViewer({
-        images: fileList.map((file) => ({
-          u: file.url
-        })),
-        init: previewImageIndex,
-        enableShowPhotoDownload
+    },
+    onPlay() {
+      this.videoContext.requestFullScreen({
+        direction: 0
       });
     },
-
-    onPreviewDemoImage() {
-      const { demoImage } = this.props;
-      imageViewer({
-        images: [{
-          u: demoImage
-        }],
-        init: 0
-      })
+    onFullScreenChange(e) {
+      if (!e.detail.fullScreen) {
+        this.videoContext.pause();
+      }
     }
   }
 })

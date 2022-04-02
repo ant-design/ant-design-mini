@@ -98,6 +98,12 @@ export interface IUploaderProps extends IBaseProps {
   preview?: boolean;
 
   /**
+   * @description 视频选择的来源
+   * @default ['album', 'camera']
+   */
+  sourceType?: ['album'] | ['camera'] | ['album', 'camera'];
+
+  /**
    * @description 自定义容器宽度
    * @default 80
    */
