@@ -16,16 +16,14 @@ Component({
       }));
     componentValue.onUpdate(this.props.uid,
       (this.checkedListener = (v) => {
-        if (v) {
-          if (v.indexOf(this.props.value) !== -1) {
-            this.setData({
-              _checked: true,
-            });
-          } else {
-            this.setData({
-              _checked: false,
-            });
-          }
+        if (v === this.props.value) {
+          this.setData({
+            _checked: true,
+          });
+        } else {
+          this.setData({
+            _checked: false,
+          });
         }
       }));
   },

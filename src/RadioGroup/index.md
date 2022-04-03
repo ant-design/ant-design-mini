@@ -34,7 +34,7 @@ toc: false
 #### RadioItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| value | string | 否 | - | Radio 携带的 value 值, 在原生 form 表单提交的时候有用；在 RadioGroup 时亦有用 |
+| value | any | 否 | - | Radio 携带的 value 值, 在原生 form 表单提交的时候有用；在 RadioGroup 时亦有用 |
 | disabled | boolean | 否 | false | 是否禁用 |
 | className | string | 否 | - | 类名 |
 | uid | string | 是 | - | `必须全局唯一`，需与外部的 RadioGroup 组件的 uid 一致 |
@@ -43,7 +43,7 @@ toc: false
 #### RadioGroup
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 选中项发生变化，触发回调 | (v: string) => void |
+| onChange | 选中项发生变化，触发回调 | (v: any) => void |
 
 ### 插槽
 #### RadioGroup
