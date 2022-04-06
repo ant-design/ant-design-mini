@@ -2,6 +2,7 @@ Page({
   data: {
     showLight: false,
     showDark: false,
+    showNoIcon: false,
     url: 'https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ',
   },
   handleLightVisibleChange(e, mode) {
@@ -15,6 +16,14 @@ Page({
   handleDarkVisibleChange(e, mode) {
     this.setData({
       showDark: e,
+    });
+    if (mode === 'mask') {
+      my.showToast({ content: '点击mask关闭', duration: 2000 });
+    }
+  },
+  handleNoIconVisibleChange(e, mode) {
+    this.setData({
+      showNoIcon: e,
     });
     if (mode === 'mask') {
       my.showToast({ content: '点击mask关闭', duration: 2000 });

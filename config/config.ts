@@ -136,6 +136,7 @@ export default {
   }
   #root .__dumi-default-previewer {
     border: none;
+    box-shadow: none;
   }
   #root .__dumi-default-previewer-source-wrapper {
     border-radius: 12px;

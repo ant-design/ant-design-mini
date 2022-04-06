@@ -1,39 +1,54 @@
 <view class="demo">
-  <demo-block title="不同状态">
+  <demo-block title="填充模式">
+    <view class="btn-list">
+      <button 
+        type="primary"
+        fill="solid">
+        solid
+      </button>
+      <button 
+        type="primary"
+        fill="outline">
+        outline
+      </button>
+      <button 
+        type="primary"
+        fill="none">
+        none
+      </button>
+    </view>
+  </demo-block>
+  <demo-block title="语义按钮">
     <view class="btn-list">
       <button 
         a:for="{{list}}" 
-        type="{{item.type}}" 
-        subText="{{showSubText?'副标题':''}}" 
-        disabled="{{disabled}}" 
-        loading="{{showLoading}}" 
-        loadingText="正在加载"
-        fill="{{fill}}"
-        onTap="onTap" >
+        type="{{item.type}}">
         {{item.type}}
       </button>
     </view>
   </demo-block>
-  <list radius>
-    <list-item>
-      是否显示副标题
-      <switch slot="extra" checked="{{showSubText}}" controlled onChange="handleChangeShowSubText"/>
-    </list-item>
-    <list-item>
-      是否禁用
-      <switch slot="extra" checked="{{disabled}}" controlled onChange="handleChangeDisabled"/>
-    </list-item>
-    <list-item>
-      是否显示 loading
-      <switch slot="extra" checked="{{showLoading}}" controlled onChange="handleChangeShowLoading"/>
-    </list-item>
-    <list-item>
-      填充样式
-      <radio-group slot="extra" onChange="handleChangeFill">
-        <label a:for="{{fillList}}">
-          <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.label}}
-        </label>
-      </radio-group> 
-    </list-item>
-  </list>
+  <demo-block title="禁用状态">
+    <button 
+      disabled
+      type="primary">
+      禁用状态
+    </button>
+  </demo-block>
+  <demo-block title="加载状态">
+    <button 
+      loading
+      type="primary"
+      loadingText="正在加载">
+      加载状态
+    </button>
+  </demo-block>
+  <demo-block title="含有副标题">
+    <view class="btn-list">
+      <button 
+        subText="副标题"
+        type="primary">
+        按钮
+      </button>
+    </view>
+  </demo-block>
 </view>

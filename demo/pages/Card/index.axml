@@ -1,12 +1,12 @@
-<view class="demo-container">
-  <container
-    title="卡片demo"
+<view class="demo-card">
+  <card
+    title="基础用法"
     image="{{imageUrl}}"
     icon="SetOutline"
     onIconTap="onIconTap"
   >
-    <view class="demo-container-container">
+    <view class="demo-card-container">
       这是 card 自定义内容
     </view>
-  </container>
+  </card>
 </view>

@@ -1,7 +1,7 @@
-.demo-container {
+.demo-card {
   padding-top: 24rpx;
 }
 
-.demo-container-container {
+.demo-card-container {
   padding: 24rpx;
 }

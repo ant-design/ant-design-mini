@@ -19,7 +19,7 @@ export const componentList = [
     list: [
       {
         name: 'Tabs',
-        nameZN: '选项卡',
+        nameZN: '标签页',
         path: '/pages/Tabs/index',
       },
       {
@@ -46,6 +46,10 @@ export const componentList = [
         name: 'Card',
         nameZN: '卡片',
         path: '/pages/Card/index',
+      },  {
+        name: 'List',
+        nameZN: '列表',
+        path: '/pages/List/index',
       },
       {
         name: 'Steps',
@@ -78,6 +82,11 @@ export const componentList = [
         path: '/pages/CheckboxGroup/index',
       },
       {
+        name: 'Filter',
+        nameZN: '筛选卡',
+        path: '/pages/Filter/index',
+      },
+      {
         name: 'Input',
         nameZN: '输入框',
         path: '/pages/InputItem/index',
@@ -91,6 +100,11 @@ export const componentList = [
         name: 'RadioGroup',
         nameZN: '单选框',
         path: '/pages/RadioGroup/index',
+      },
+      {
+        name: 'SearchBar',
+        nameZN: '搜索框',
+        path: '/pages/SearchBar/index',
       },
       {
         name: 'Selector',

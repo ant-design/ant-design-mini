@@ -1,6 +1,6 @@
 {
   "defaultTitle": "Card",
   "usingComponents": {
-    "container": "../../../src/Card/index"
+    "card": "../../../src/Card/index"
   }
 }

@@ -3,28 +3,32 @@
     <list>
       <list-item className="demo-item">
         <label>
-          <checkbox onChange="handleChange" />
+          <checkbox/>
         </label>
       </list-item>
       <list-item className="demo-item">
         <label>
-          <checkbox onChange="handleChange" />
+          <checkbox />
           <text>有描述的复选框</text>
         </label>
       </list-item>
-      <list-item className="demo-item">
-        <label>
-          <checkbox checked onChange="handleChange" />
-          <text>默认选中</text>
-        </label>
-      </list-item>
-      <list-item className="demo-item">
-        <label>
-          <checkbox disabled />
-          <text>禁用状态</text>
-        </label>
-      </list-item>
     </list>
+  </demo-block>
+  <demo-block title="默认选中" padding="0">
+    <list-item className="demo-item">
+      <label>
+        <checkbox checked />
+        <text>默认选中</text>
+      </label>
+    </list-item>
+  </demo-block>
+  <demo-block title="禁用状态" padding="0">
+    <list-item className="demo-item">
+      <label>
+        <checkbox disabled checked/>
+        <text>禁用状态</text>
+      </label>
+    </list-item>
   </demo-block>
   <demo-block title="受控模式">
     <list-item className="demo-item">
