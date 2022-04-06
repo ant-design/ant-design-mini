@@ -8,7 +8,15 @@ toc: false
 ---
 # Tips
 ## 代码示例
+
+### 基础使用
 <code src='../../demo/pages/Tips'></code>
+
+### 插槽
+<code src='../../demo/pages/TipsSlot'></code>
+
+### 关闭组件
+<code src='../../demo/pages/TipsClose'></code>
 
 ## API
 

@@ -1,0 +1,7 @@
+{
+    "defaultTitle": "TipsSlot",
+    "usingComponents": {
+      "tips": "../../../src/Tips/index"
+    }
+  }
+  

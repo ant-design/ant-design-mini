@@ -4,7 +4,11 @@
       a:if="{{image}}"
       class="amd-tips-image"
       src="{{image}}" />
-      <view class="amd-tips-title">{{title}}</view>
+      <view class="amd-tips-title">
+        <slot>
+          {{title}}
+        </slot>
+      </view>
   </view>
   <view class="amd-tips-button-container amd-tips-button-container-{{buttonPosition}}">
     <button 
