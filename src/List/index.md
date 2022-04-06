@@ -21,18 +21,22 @@ toc: false
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | radius | boolean | 否 | false | 是否带圆角 |
-| header | `string` | 否 | - | 头部说明 |
-| footer | `string` | 否 | - | 底部说明 |
+| header | string | 否 | - | 头部说明 |
+| footer | string | 否 | - | 底部说明 |
 | className | string | 否 | - | 类名 |
 
 #### ListItem
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| image | `string` | 否 | - | 左侧图片 |
-| arrow | `'right'` &verbar; `'up'` &verbar; `'down'` | 否 | - | 箭头方向，不传表示没有箭头 |
-| extra | `string` | 否 | - | 右侧额外内容 |
-| brief | `string` | 否 | - | 第二行信息 |
+| image | string | 否 | - | 左侧图片 |
+| imageSize |  'small' | 'medium' | 'large' | 否 | 'small' | 左侧图片大小 |
+| arrow | 'right' &verbar; 'up' &verbar; 'down' | 否 | - | 箭头方向，不传表示没有箭头 |
+| title | string | 否 | - | 标题信息 |
+| brief | string | 否 | - | 第二行信息 |
+| extra | string | 否 | - | 右侧额外内容 |
+| extraBrief | string | 否 | - | 右侧辅助信息 |
+| disabled | boolean | 否 | false | 是否禁用 |
 | className | string | 否 | - | 类名 |
 
 
@@ -82,7 +86,7 @@ toc: false
 <style> 
 table th:first-of-type { width: 180px; } 
 .__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
+    width: 160px
 } 
 .__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
     width: 30px

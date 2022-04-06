@@ -23,7 +23,7 @@ toc: false
 | -----|-----|-----|-----|----- |
 | label | string &verbar; slot | 否 | - | 标签文案 |
 | controlled | boolean | 否 | false | 是否受控模式 |
-| type | 'text' &verbar; 'number' &verbar; 'idcard' &verbar; 'digit' &verbar; 'numberpad' &verbar; 'digitpad' &verbar; 'idcardpad' | 否 | "text" | 输入框的类型 |
+| type | 'text' &verbar; 'number' &verbar; 'idcard' &verbar; 'digit' &verbar; 'numberpad' &verbar; 'digitpad' &verbar; 'idcardpad' | 否 | 'text' | 输入框的类型 |
 | password | boolean | 否 | false | 是否是密码类型。 |
 | placeholder | string | 否 | - | 占位符。 |
 | placeholderClass | string | 否 | - | 指定 placeholder 的样式类。 |
@@ -36,7 +36,7 @@ toc: false
 | selectionEnd | number | 否 | -1 | 获取光标时，选中文本对应的焦点光标结束位置，需要和 selection-start 配合使用。 |
 | randomNumber | boolean | 否 | false | 当 type 为 number, digit, idcard 数字键盘是否随机排列。 |
 | enableNative | boolean | 否 | - | 是否启用 Native 渲染 |
-| layer | 'horizontal' &verbar; 'vertical' | 否 | "horizontal" | input 排列位置 |
+| layer | 'horizontal' &verbar; 'vertical' | 否 | 'horizontal' | input 排列位置 |
 | inputCls | string | 否 | - | input 输入框的样式类名 |
 | labelCls | string | 否 | - | label 区域的样式类名 |
 | value | string | 否 | - | 输入框的值 |

@@ -19,7 +19,7 @@ toc: false
 ### 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| position | `'bottom'` &verbar; `'top'` &verbar; `'both'` | 否 | both | 安全区位置 |
+| position | 'bottom' &verbar; 'top' &verbar; 'both' | 否 | 'both' | 安全区位置 |
 | className | string | 否 | '' | 类名 |
 
 

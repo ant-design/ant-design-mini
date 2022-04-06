@@ -7,7 +7,7 @@ group:
 toc: false
 ---
 # Tabs
-标签栏，内部配合 TabItem 使用。
+标签页，内部配合 TabItem 使用。
 
 ## 注意事项
 
@@ -23,7 +23,7 @@ toc: false
 #### Tabs
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| type | 'basis' &verbar; 'capsule' &verbar; 'mixin' &verbar; 'title' | 否 | "basis" | 类型，basis(基础)，capsule(胶囊)，mixin(混合) |
+| type | 'basis' &verbar; 'capsule' &verbar; 'mixin' &verbar; 'title' | 否 | 'basis' | 类型，basis(基础)，capsule(胶囊)，mixin(混合) |
 | index | number | 否 | 0 | 当前激活的索引 |
 | animation | boolean | 否 | false | 是否有过渡动画 |
 | swipeable | boolean | 否 | false | 是否支持手势切换 |

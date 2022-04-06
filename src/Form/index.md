@@ -56,6 +56,7 @@ toc: false
 | Form | string | 是 | default | 表单 uid |
 | name | string | 是 | default | 字段 uid |
 | label | string | 否 | - | 字段名称 |
+| position | 'horizontal' &verbar;  'vertical' | 否 | 'horizontal' | 布局 |
 | arrow | boolean | 否 | false | 表单项右侧箭头 |
 | required | boolean | 否 | false | 是否必填，label展示必填标识 |
 | className | string | 否 | "" | 类名 |

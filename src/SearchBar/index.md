@@ -27,15 +27,15 @@ toc: false
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | controlled | boolean | 否 | false | 是否受控模式 |
-| borderColor | string | "" | false | 输入框边框颜色 |
+| borderColor | string | '' | false | 输入框边框颜色 |
 | enableNative | boolean | 否 | - | 是否启用 Native 渲染 |
 | value | string | 否 | - | 搜索框的值 |
 | placeholder | string | 否 | - | 提示文字 |
 | showCancelButton | boolean | 否 | false | 是否显示取消按钮 |
-| cancelText | string | 否 | "取消" | 取消按钮文案 |
+| cancelText | string | 否 | '取消' | 取消按钮文案 |
 | maxLength | number | 否 | - | 最大长度 |
 | showBizIcon | boolean | 否 | false | 是否展示额外图标 |
-| bizIconType | string | 否 | "AudioFill" | 额外图标类型 |
+| bizIconType | string | 否 | 'AudioFill' | 额外图标类型 |
 | autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |

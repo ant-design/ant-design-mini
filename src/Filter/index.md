@@ -28,7 +28,7 @@ toc: false
 #### FilterItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| type | `'default'` &verbar; `'multiple'` | 否 | "default" | 类型 default=单选 multiple=多选  |
+| type | 'default' &verbar; 'multiple' | 否 | 'default' | 类型 default=单选 multiple=多选  |
 | value | any | 否 | - | 每一项的值，该组件仅支持受控模式 |
 | items | {value: string; text: string; subText: string}[] | 否 | - | type=default type=multiple 有效|
 | placeholder | string | 否 | - | 当该项值为空的时候显示文案 |

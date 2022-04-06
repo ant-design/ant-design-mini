@@ -28,7 +28,7 @@ toc: false
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
 | className | string | 否 | - | 类名 |
-| mode | 'noraml' &verbar; 'form' | 否 | normal | 配合From/FormItem组件使用时，需设置为 from |
+| mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
 | uid | string | 是 | - | `必须全局唯一`，需与内部的 RadioItem 组件的 uid 一致 |
 
 #### RadioItem

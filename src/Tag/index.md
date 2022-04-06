@@ -17,8 +17,8 @@ toc: false
 ### 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| type | 'outline' &verbar; 'fill' &verbar; 'fill-light' | 否 | "fill" | 类型 |
-| color | 'primary' &verbar; 'success' &verbar; 'warn' &verbar; 'danger' | 否 | "primary" | 标签颜色, 内建 primary(蓝), success(绿), warn(黄), danger(红) |
+| type | 'outline' &verbar; 'fill' &verbar; 'fill-light' | 否 | 'fill' | 类型 |
+| color | 'primary' &verbar; 'success' &verbar; 'warn' &verbar; 'danger' | 否 | 'primary' | 标签颜色, 内建 primary(蓝), success(绿), warn(黄), danger(红) |
 | icon | string| 否 | - | 图标 |
 | className | string | 否 | - | 类名 |
 

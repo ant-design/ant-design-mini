@@ -22,7 +22,7 @@ toc: false
 | title | string | 否 | - | 标题 |
 | content | string | 是 | - | 内容 |
 | image | string | 否 | - | 缩略图 |
-| imageSize | 'medium' &verbar; 'large' &verbar; 'x-large' | 否 | "medium" | 缩略图尺寸 |
+| imageSize | 'medium' &verbar; 'large' &verbar; 'x-large' | 否 | 'medium' | 缩略图尺寸 |
 | visible | boolean | 是 | false | 是否可见，受控模式 |
 | duration | number | 否 | - | 过渡动画时长，单位毫秒 |
 | mainButtonText | string | 否 | '主操作' | 主按钮 |

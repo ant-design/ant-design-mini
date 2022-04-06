@@ -16,12 +16,12 @@ toc: false
 ### 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| mode | 'link' &verbar; 'closeable' | 否 | - | 通告类型，link 表示连接，整行可点；closeable 表示点击 x 可以关闭；不填时表示你右侧没有图标 |
+| mode | 'link' &verbar; 'closeable' | 否 | - | 通告类型，'link' 表示连接，整行可点；'closeable' 表示点击 x 可以关闭；不填时表示你右侧没有图标 |
 | actions | string[] | 否 | - | 行动点，最多两个行动点，当有 action 时，mode 失效 |
 | showIcon | boolean | 否 | false | 是否显示左侧的图标 |
 | enableMarquee | boolean | 否 | false | 是否开启滚动动画 |
 | loop | boolean | 否 | false | 是否循环滚动，enableMarquee 为 true 时有效 |
-| type | 'default' &verbar; 'info' &verbar; 'error' &verbar; 'primary' | 否 | "default" | 提示类型 default 橙色，info 灰色，error 红色，primary 蓝色 |
+| type | 'default' &verbar; 'info' &verbar; 'error' &verbar; 'primary' | 否 | 'default' | 提示类型 'default' 橙色，'info' 灰色，'error' 红色，'primary' 蓝色 |
 | className | string | 否 | - | 类名 |
 
 ### 事件

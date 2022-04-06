@@ -43,7 +43,7 @@ toc: false
 #### CollapseItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| title | `string` | 否 | - | 标题栏内容 |
+| title | string | 否 | - | 标题栏内容 |
 | name | string | 是 | - | 标识，必须唯一 |
 | className | string | 否 | - | 类名 |
 | uid | string | 是 | - | `必须全局唯一`，需与外部 Collapse 组件的 uid 一致  |

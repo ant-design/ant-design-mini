@@ -17,15 +17,15 @@ toc: false
 ### 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| type | 'spin' &verbar; 'mini' | 否 | "spin" | 组件类型 |
+| type | 'spin' &verbar; 'mini' | 否 | 'spin' | 组件类型 |
 | delay | number | 否 | - | 延时显示加载状态，单位 ms |
 | loading | boolean | 否 | true | 是否加载中 |
 | color | string | 否 | "#999" | 点的颜色，仅限 mini loading |
-| size | `'x-large'` &verbar; `'large'` &verbar; `'medium'` &verbar; `'small'` | 否 | "medium" | type 为 spin 时，组件的尺寸 |
+| size | 'x-large' &verbar; 'large' &verbar; 'medium' &verbar; 'small' | 否 | 'medium' | type 为 spin 时，组件的尺寸 |
 | miniSize | string | 否 | "200rpx" | type 为 mini 时，组件的尺寸 |
 | text | string | 否 | - | 加载中文案，仅限 spin loading |
-| indicator | `string` | 否 | - | 自定义加载中的指示器，仅限 spin loading |
-| theme | `'dark'` &verbar; `'light'` | 否 | "dark" | 颜色，dark/深色、 light/浅色，仅限 spin loading |
+| indicator | string | 否 | - | 自定义加载中的指示器，仅限 spin loading |
+| theme | 'dark' &verbar; 'light' | 否 | "dark" | 颜色，dark/深色、 light/浅色，仅限 spin loading |
 | className | string | 否 | - | 类名 |
     
 ### 插槽

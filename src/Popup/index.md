@@ -31,7 +31,7 @@ toc: false
 | disableScroll | boolean | 否 | true | 弹窗展示时，是否禁止页面滚动 |
 | animation | boolean | 否 | true | 是否开启过渡动画 |
 | duration | number | 否 | 300 | 过渡动画时长，单位毫秒 |
-| position | `'center'` &verbar; `'top'` &verbar; `'bottom'` &verbar; `'left'` &verbar; `'right'` | 否 | `center` | 弹窗布局 |
+| position | 'center' &verbar; 'top' &verbar; 'bottom' &verbar; 'left' &verbar; 'right' | 否 | 'center' | 弹窗布局 |
 | zIndex | number | 否 | 998 | 弹窗层级 |
 
 
