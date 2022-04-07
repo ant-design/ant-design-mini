@@ -114,6 +114,7 @@ Component({
       onChange && onChange.call(this.props, tempFileList);
     },
     async onPreviewFile(e) {
+      const { onPreviewFail } = this.props;
       const { info } = e.target.dataset;
       const { url, tempFilePath, index } = info;
       const isTempFile = url.startsWith('https://resource');
@@ -142,6 +143,11 @@ Component({
       }
 
       if (!this.toastLock) {
+        if (onPreviewFail) {
+          onPreviewFail.call(this.props, url);
+          return;
+        }
+        
         this.toastLock = true;
         my.showToast({
           content: '暂不支持预览该类型文件',
@@ -154,8 +160,6 @@ Component({
     },
     tempFile(tempFilePath, index) {
       const { fileList } = this.data;
-      // const { onChange } = this.props;
-
       const tempFileList = fileList.map((file, fileIndex) => {
         if (fileIndex === index) {
           return {

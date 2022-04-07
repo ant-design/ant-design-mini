@@ -45,6 +45,9 @@ Page({
       });
     })
   },
+  onPreviewFail(v) {
+    console.log('不支持预览该格式的文件地址为：', v);
+  },
   onBeforeUpload(file, fileList) {
     console.log('当前上传的文件和已上传的文件分别是：', file, fileList);
     return new Promise((resolve) => {

@@ -123,7 +123,7 @@ export interface IUploaderProps extends IBaseProps {
   /**
    * @description 已上传的文件列表变化时触发
    */
-  onChange?: (v: Array<File>) => {};
+  onChange?: (v: Array<File>) => void;
 
   /**
    * @description 删除当前列表中的图片时触发，包括上传成功和上传失败的图片，如果返回 false 表示阻止删除，支持返回 Promise
@@ -133,7 +133,7 @@ export interface IUploaderProps extends IBaseProps {
   /**
    * @description 点击图片进行预览时触发，会覆盖默认的预览功能
    */
-  onPreview?: (v: Array<File>) => {};
+  onPreview?: (v: Array<File>) => void;
 
   /** 
    * @description 图片上传方法，当不存在https服务器时，支持自定义上传方式，只在不存在action字段时生效

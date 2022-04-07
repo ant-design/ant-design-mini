@@ -12,6 +12,7 @@
     <file-upload 
       action="{{action}}"
       defaultValue="{{value_2}}"
+      onPreviewFail="onPreviewFail"
     />
   </view>
   <view class="demo-file-upload-title">自定义上传入口</view>

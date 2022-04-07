@@ -82,6 +82,11 @@ export interface IUploaderProps extends IBaseProps {
    */
   onDelete?: (v: File) => boolean | Promise<boolean> | void;
 
+  /**
+   * @description 预览不支持的文件格式时触发（目前只支持预览pdf）
+   */
+  onPreviewFail?: (v: string) => void;
+
   /** 
    * @description 文件上传方法，当不存在https服务器时，支持自定义上传方式，只在不存在action字段时生效
    */
