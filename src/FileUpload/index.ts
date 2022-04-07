@@ -3,6 +3,7 @@ import { chooseFileFromDisk, downloadFile } from '../_util/promisify';
 
 Component({
   props: UploaderDefaultProps,
+  toastLock: false,
   data: {
     fileList: [],
   } as IUploaderData,
@@ -140,10 +141,16 @@ Component({
         return;
       }
 
-      my.showToast({
-        content: '暂不支持预览该类型文件',
-        type: 'fail',
-      })
+      if (!this.toastLock) {
+        this.toastLock = true;
+        my.showToast({
+          content: '暂不支持预览该类型文件',
+          type: 'fail',
+          complete: () => {
+            this.toastLock = false;
+          }
+        });
+      }
     },
     tempFile(tempFilePath, index) {
       const { fileList } = this.data;
@@ -168,11 +175,17 @@ Component({
         filePath: url,
         fileType: 'pdf',
         fail: (e) => {
-          my.showToast({
-            content: e.errorMessage,
-            type: 'fail',
-          });
-        }
+          if (!this.toastLock) {
+            this.toastLock = true;
+            my.showToast({
+              content: e.errorMessage,
+              type: 'fail',
+              complete: () => {
+                this.toastLock = false;
+              }
+            });
+          }
+        },
       })
     },
     async onDeleteFile(e) {

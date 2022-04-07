@@ -3,43 +3,30 @@ Page({
     action: 'https://httpbin.org/post',
     value_1: [{
       key: '111',
-      url: 'https://gw.alipayobjects.com/os/bmw-prod/2230c411-2bc6-4124-b61e-38091dbf038d.pdf',
+      url: 'https://gw.alipayobjects.com/os/bmw-prod/e9f1b9ec-e0a3-46ed-b8e0-7f0ab2e95228.pdf', //网络资源
       description: 'XXXXXX资料.pdf',
       status: 'done',
       size: '100.9KB'
     }],
     value_2: [{
       key: '111',
-      url: 'https://resource/apml625acb84fbb5ec58eea65137838df523.pdf',
+      url: 'https://resource/xxx.pdf', // 这种是本地暂存文件路径
       description: 'XXXXXX资料.pdf',
       status: 'done',
       size: '100.9KB'
     }, {
       key: '111',
-      url: 'https://resource/apml625acb84fbb5ec58eea65137838df523.zip',
+      url: 'https://resource/xxx.zip',
       description: 'XXXXXX资料.zip',
       status: 'pending',
       size: '100.9KB',
       progress: 50
     }, {
       key: '111',
-      url: 'https://resource/apml625acb84fbb5ec58eea65137838df523.doc',
+      url: 'https://resource/xxx.doc',
       description: 'XXXXXX资料.doc',
       status: 'error',
       size: '100.9KB'
-    }],
-    value_3: [{
-      key: '111',
-      url: 'https://resource/apml625acb84fbb5ec58eea65137838df523.xls',
-      description: 'XXXXXX资料.xls',
-      status: 'done',
-      size: '100.9KB'
-    }, {
-      key: '111',
-      url: 'https://resource/apml625acb84fbb5ec58eea65137838df523.txt',
-      description: '通用文件.apk',
-      status: 'done',
-      size: '20.9MB'
     }]
   },
   onChange(v) {
