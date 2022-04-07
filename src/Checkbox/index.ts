@@ -4,11 +4,14 @@ import formMixin from '../mixins/form';
 
 Component({
   props: CheckboxDefaultProps,
-  mixins: [controlled('checked'), formMixin()],
+  mixins: [controlled({
+    propsValue: 'checked',
+    defaultPropsValue: false
+  }), formMixin()],
   methods: {
-    onChange(v) {
-      const { value } = v.detail;
-      this.cOnChange(value);
+    onChange(e) {
+      const { value } = e.detail;
+      this.triggerChange(value);
     },
   },
 });

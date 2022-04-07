@@ -1,10 +1,8 @@
 import { InputItemDefaultProps } from './props';
 import controlled from '../mixins/controlled';
-import formMixin from '../mixins/form';
-import { store } from '../Form/store';
 
 Component({
-  mixins: [controlled(), formMixin()],
+  mixins: [controlled()],
   props: InputItemDefaultProps,
   data: {
     showClear: false,
@@ -15,6 +13,7 @@ Component({
         showClear: false,
       });
     },
+  
     showClear() {
       this.setData({
         showClear: true,
@@ -39,6 +38,7 @@ Component({
         onConfirm(value);
       }
     },
+
     // 展示无需蒙层
     onFocus(e) {
       this.showClear();
@@ -48,35 +48,20 @@ Component({
         onFocus(value);
       }
     },
+  
     onChange(e) {
-      const { onChange } = this.props;
-      if (onChange) {
-        const { value } = e.detail;
-        this.cOnChange(value);
-      }
+      const { value } = e.detail;
+      this.triggerChange(value)
     },
-    triggerOnValuesChange() {
-      // 触发
-      const { form: formFn, field: fieldFn } = this.props._getCurrentField();
-      const form = formFn();
-      const field = fieldFn();
-      if (form && field) {
-        store.trigger(form, field, '');
-      }
-    },
+  
     onClear() {
       this.hideClear();
-      const { onClear, controlled } = this.props;
+      this.triggerChange('')
+      const { onClear } = this.props;
       if (onClear) {
         onClear('');
       }
-      if (!controlled) {
-        this.setData({
-          cValue: '',
-        });
-        // 非受控模式下生效
-        this.triggerOnValuesChange();
-      }
+   
     },
   },
 });

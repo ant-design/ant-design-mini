@@ -8,7 +8,6 @@ export const InputItemDefaultProps = {
   selectionStart: -1,
   selectionEnd: -1,
   randomNumber: false,
-  layer: 'horizontal',
   clear: true,
   autoFocus: false,
   disabled: false,

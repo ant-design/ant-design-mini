@@ -21,10 +21,11 @@ toc: false
 ### 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| label | string &verbar; slot | 否 | - | 标签文案 |
-| controlled | boolean | 否 | false | 是否受控模式 |
+| className | string | 否 | - | 类名 |
+| value | string | 否 | - | 输入框的值 |
 | type | 'text' &verbar; 'number' &verbar; 'idcard' &verbar; 'digit' &verbar; 'numberpad' &verbar; 'digitpad' &verbar; 'idcardpad' | 否 | "text" | 输入框的类型 |
 | password | boolean | 否 | false | 是否是密码类型。 |
+| disabled | boolean | 否 | false | 是否禁用 |
 | placeholder | string | 否 | - | 占位符。 |
 | placeholderClass | string | 否 | - | 指定 placeholder 的样式类。 |
 | placeholderStyle | string | 否 | - | 指定 placeholder 的样式，可设置间距。 |
@@ -39,24 +40,25 @@ toc: false
 | layer | 'horizontal' &verbar; 'vertical' | 否 | "horizontal" | input 排列位置 |
 | inputCls | string | 否 | - | input 输入框的样式类名 |
 | labelCls | string | 否 | - | label 区域的样式类名 |
-| value | string | 否 | - | 输入框的值 |
 | clear | boolean | 否 | true | 显示清除图标 |
+| controlled | boolean | 否 | false | 是否受控模式 |
+| alwaysSystem | boolean | 否 | false | 是否强制使用系统键盘和 Web-view 创建的 input 元素。为 true 时，confirm-type、confirm-hold 可能失效。 |
 | autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
 | ref | React.Ref | 否 | - | 用于操作表单的实例，有 focus 和 blur 两个方法 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
-| disabled | boolean | 否 | false | 是否禁用 |
 | mode | 'noraml' &verbar; 'form' | 否 | normal | 配合From/FormItem组件使用时，需设置为 from |
-| className | string | 否 | - | 类名 |
+
 
 ### 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
+| onChange | 输入时触发此回调 | (v: string) => void |
 | onConfirm | 	点击键盘完成时触发此回调 | (v: string) => void |
 | onClear | 清除输入内容时触发此回调 | (v: string) => void |
 | onFocus | 聚焦时触发触发此回调 | (v: string) => void |
 | onBlur | 失焦时触发此回调 | (v: string) => void |
-| onChange | 输入时触发此回调 | (v: string) => void |
+| onBlur | 失焦时触发此回调 | (v: string) => void |
 
 ### 样式类
 | 类名 | 说明 | 
@@ -64,26 +66,22 @@ toc: false
 | amd-input-item | 	整体样式 |
 | amd-input-item-line | 整体样式 |
 | amd-input-item-layer | 左侧内容区域样式 |
-| amd-input-item-layer-vertical | 左侧内容区域样式 |
-| amd-input-item-layer-normal | 左侧内容区域样式 |
-| amd-input-item-label | 标签样式 |
 | amd-input-item-content | Input 组件样式 |
 | amd-input-item-clear | 清除图标区域样式 |
 | amd-input-item-clear-icon | 清除图标样式 |
-| amd-input-item-extra | 额外区域样式 |
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(3) th:first-of-type  {
-    width: 300px
-} 
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
+.__dumi-default-layout-content article table:nth-of-type(3) th:first-of-type {
+    width: 300px;
+}
 </style> 

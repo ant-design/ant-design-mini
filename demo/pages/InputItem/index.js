@@ -2,6 +2,7 @@ Page({
   data: {
     name: '王五',
     cardNo: '1234****',
+    value: '123'
   },
   handleItemChange(e) {
     // eslint-disable-next-line no-console
@@ -23,4 +24,10 @@ Page({
     // eslint-disable-next-line no-console
     console.log('onItemClear');
   },
+
+  handleControlledItemChange(v)  {
+    this.setData({
+      value: v
+    })
+  }
 });

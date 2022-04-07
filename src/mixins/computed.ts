@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import deepEqual from 'fast-deep-equal';
+import equal from 'fast-deep-equal';
 
 function computedData(this: any) {
   const nextData = this.computed(this.props);
@@ -13,10 +13,9 @@ function computedData(this: any) {
     if (typeof nextData[item] === 'function') {
       return prev;
     }
-    if (deepEqual(this.data[item], nextData[item])) {
+    if (equal(this.data[item], nextData[item])) {
       return prev;
     }
-
     // eslint-disable-next-line no-param-reassign
     prev[item] = nextData[item];
     return prev;

@@ -10,7 +10,7 @@ import type { IUserComponentOptions } from "@mini-types/alipay";
  *  mixins: [controlled],
  *  methods: {
  *    handleChange(e) {
- *      this.cOnChange(e.detail.value)
+ *      this.triggerChange(e.detail.value)
  *    }
  *  }
  * }
@@ -19,54 +19,61 @@ import type { IUserComponentOptions } from "@mini-types/alipay";
  *
  *
  * export default {
- *  mixins: [controlled('checked')],
+ *  mixins: [controlled({propsValue: 'checked', propsTriggerChange: 'onChange', defaultPropsValue: false  })],
  *  methods: {
  *    handleChange(e) {
- *      this.cOnChange(e.detail.value)
+ *      this.triggerChange(e.detail.value)
  *    }
  *  }
  * }
  *
  * <checkbox onChange="handleChange" checked="{{cValue}}" />
  */
-export default (
-  propsValue = "value"
-): IUserComponentOptions<
-  { cValue: any },
-  { value: any; onInput: (v: any) => void; [prop: string]: any },
-  { cOnChange: (v: any, v1?: any) => void; cOnInput: (v: any) => void },
-  { cTrigger: (v: any) => void },
-  Record<string, unknown>
-> => ({
-  data: {
-    cValue: null,
-  },
-  didMount() {
-    this.cTrigger = (v) => {
-      this.setData({
-        cValue: v,
-      });
-    };
-    this.cTrigger(this.props[propsValue]);
-  },
-  didUpdate(prevProps) {
-    const value = this.props[propsValue];
-    if (!equal(prevProps[propsValue], value)) {
-      this.cTrigger(value);
+
+type ControlledMixInParams  = {
+  propsValue?: string, 
+  propsTriggerChange?: string,
+  defaultPropsValue? :  any 
+}
+
+export default ( params: ControlledMixInParams = {}): IUserComponentOptions<
+{ cValue: any },
+{ [prop: string]: any },
+{ triggerChange: (v: any) => void },
+{},
+Record<string, unknown>,
+[]
+> => {
+  const { propsValue = 'value', propsTriggerChange = 'onChange',  defaultPropsValue = ''}  = params
+  return {
+    data: {
+      cValue: defaultPropsValue
+    },
+  
+    didMount() {
+      if (propsValue in this.props) {
+        this.setData({
+          cValue: this.props[propsValue]
+        })
+      }
+    },
+  
+    didUpdate(prevProps) {
+      const value = this.props[propsValue];
+      if (!equal(prevProps[propsValue], value) && !equal(this.data.cValue, value)) {
+        this.setData({
+          cValue: value
+        })
+      }
+    },
+  
+    methods: {
+      triggerChange(value) {
+        this.props[propsTriggerChange]?.(value)
+        this.setData({
+          cValue: value
+        })
+      }
     }
-  },
-  methods: {
-    cOnChange(v: any, v1?: any) {
-      if (!this.props.controlled) {
-        this.cTrigger(v);
-      }
-      this.props.onChange?.(v, v1);
-    },
-    cOnInput(v: any) {
-      if (!this.props.controlled) {
-        this.cTrigger(v);
-      }
-      this.props.onInput?.(v);
-    },
-  },
-});
+  }
+}
