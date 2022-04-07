@@ -5,35 +5,35 @@
 .@{fileUploadPrefix} {
   &-button {
     width: fit-content;
-    margin-left: 16 * @rpx;
+    margin-left: @h-spacing-standard;
   }
 
   &-list-wrapper {
-    margin-top: 16 * @rpx;
+    margin-top: @v-spacing-standard;
   }
 
   &-error-status {
-    color: #ff3141;
+    color: @color-text-warning;
   }
 
   &-close-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 74 * @rpx;
-    width: 64 * @rpx;
+    height: @size-9;
+    width: @size-8;
   }
 
   .amd-list-item-content-main {
-    font-size: 30rpx;
+    font-size: @font-size-subtitle;
   }
 
   .amd-list-item-content-brief-container {
-    font-size: 24rpx;
-    height: 32rpx;
+    font-size: @font-size-subcontent;
+    height: @size-4;
 
     .amd-file-upload-brief-pending {
-      margin-top: 14rpx;
+      margin-top: 14 * @rpx;
     }
   }
 }
