@@ -1,0 +1,39 @@
+@import (reference) "./variable.less";
+
+@fileUploadPrefix: amd-file-upload;
+
+.@{fileUploadPrefix} {
+  &-button {
+    width: fit-content;
+    margin-left: 16 * @rpx;
+  }
+
+  &-list-wrapper {
+    margin-top: 16 * @rpx;
+  }
+
+  &-error-status {
+    color: #ff3141;
+  }
+
+  &-close-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 74 * @rpx;
+    width: 64 * @rpx;
+  }
+
+  .amd-list-item-content-main {
+    font-size: 30rpx;
+  }
+
+  .amd-list-item-content-brief-container {
+    font-size: 24rpx;
+    height: 32rpx;
+
+    .amd-file-upload-brief-pending {
+      margin-top: 14rpx;
+    }
+  }
+}

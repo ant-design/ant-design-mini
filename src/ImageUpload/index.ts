@@ -1,5 +1,5 @@
 import { UploaderDefaultProps, IUploaderData, File } from './props';
-import { chooseImage, imageViewer, uploadFile } from '../_util/promisify';
+import { chooseImage, previewImage, uploadFile } from '../_util/promisify';
 
 Component({
   props: UploaderDefaultProps,
@@ -81,7 +81,7 @@ Component({
       } catch (e) {
         this.updateFileList(path, 'error');
         my.showToast({
-          content: e.errorMessage || e.errorMsg || e.message || '上传失败，请重试',
+          content: e.errorMessage || '上传失败，请重试',
           type: 'fail',
         });
       }
@@ -127,7 +127,7 @@ Component({
 
     onPreviewImage(e) {
       const { fileList } = this.data;
-      const { preview, enableShowPhotoDownload, onPreview } = this.props;
+      const { preview, enableShowPhotoDownload, enableSavePhoto, onPreview } = this.props;
       const { previewImageIndex } = e.target.dataset;
 
       if (!preview) return;
@@ -137,22 +137,20 @@ Component({
         return;
       }
 
-      imageViewer({
-        images: fileList.map((file) => ({
-          u: file.url
-        })),
-        init: previewImageIndex,
-        enableShowPhotoDownload
+      previewImage({
+        current: previewImageIndex,
+        urls: fileList.map((file) => file.url),
+        enableShowPhotoDownload,
+        enablesavephoto: enableSavePhoto
       });
     },
 
     onPreviewDemoImage() {
       const { demoImage } = this.props;
-      imageViewer({
-        images: [{
-          u: demoImage
-        }],
-        init: 0
+
+      previewImage({
+        urls: [demoImage],
+        current: 0,
       })
     }
   }

@@ -63,6 +63,12 @@ export interface IUploaderProps extends IBaseProps {
   enableShowPhotoDownload: boolean;
 
   /**
+   * @description 照片支持长按下载
+   * @default false
+   */
+  enableSavePhoto: boolean;
+
+  /**
    * @description 上传图片的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到图片二进制内容
    */
   fileName?: string;

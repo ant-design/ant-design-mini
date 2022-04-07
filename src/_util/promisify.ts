@@ -57,15 +57,32 @@ declare namespace My {
     success: boolean;
   }
 
+  interface ChooseFileFromDisk {
+    apFilePath: string;
+    success: boolean;
+  }
+
   interface UploadFile {
     data: string;
     statusCode: string | number;
     header: string;
   }
+
+  interface GetFileInfo {
+    digest: string;
+    size: number;
+  }
+
+  interface DownloadFile {
+    apFilePath: string;
+  }
 }
 
 export const chooseImage: (option: any) => Promise<My.ChooseImage> = promisifyMy('chooseImage');
 export const chooseVideo: (option: any) => Promise<My.ChooseVideo> = promisifyMy('chooseVideo');
+export const chooseFileFromDisk: (option?: any) => Promise<My.ChooseFileFromDisk> = promisifyMy('chooseFileFromDisk');
 export const uploadFile: (option: any) => Promise<My.UploadFile> = promisifyMy('uploadFile');
-export const imageViewer: (option: any) => void = promisifyCall('imageViewer');
+export const getFileInfo: (option: any) => Promise<My.GetFileInfo> = promisifyMy('getFileInfo');
+export const previewImage: (option: any) => void = promisifyMy('previewImage');
+export const downloadFile: (option: any) => Promise<My.DownloadFile> = promisifyMy('downloadFile');
 

@@ -1,0 +1,10 @@
+.demo-file-upload-show {
+  /* padding-left: 16rpx; */
+  /* padding-top: 8rpx; */
+}
+
+.demo-file-upload-title {
+  font-size: 28rpx;
+  padding: 16rpx;
+  height: 32rpx;
+}
