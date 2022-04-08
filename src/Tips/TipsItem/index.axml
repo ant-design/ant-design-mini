@@ -10,9 +10,8 @@
         </slot>
       </view>
   </view>
-  <view class="amd-tips-button-container amd-tips-button-container-{{buttonPosition}}">
+  <view a:if="{{buttonText}}" class="amd-tips-button-container amd-tips-button-container-{{buttonPosition}}">
     <button 
-    a:if="{{buttonText}}"
     className="amd-tips-button"
     inline="{{true}}"
     inlineSize="small"
