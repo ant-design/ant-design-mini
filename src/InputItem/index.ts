@@ -1,8 +1,9 @@
 import { InputItemDefaultProps } from './props';
 import controlled from '../mixins/controlled';
+import formed from  '../Form/mixin'
 
 Component({
-  mixins: [controlled()],
+  mixins: [controlled(), formed()],
   props: InputItemDefaultProps,
   data: {
     showClear: false,

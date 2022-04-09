@@ -28,7 +28,10 @@
       </view>
     </view>
   </view>
-  <view class="amd-form-item-error-info {{disabled ? 'amd-form-item-error-info-disabled' : ''}} amd-form-item-error-info-{{position}}" style="{{position==='horizontal' ? labelWidth ? `padding-left: ${labelWidth}` : `padding-left: ${defaultLabelWidth}` : ''}}" a:if="{{!!errorInfo}}">
+  <view
+    class="amd-form-item-error-info {{disabled ? 'amd-form-item-error-info-disabled' : ''}} amd-form-item-error-info-{{position}}"
+    style="{{position==='horizontal' ? labelWidth ? `padding-left: ${labelWidth}` : `padding-left: ${defaultLabelWidth}` : ''}}"
+    a:if="{{!!errorInfo}}">
     {{errorInfo.message}}
   </view>
   <view class="form-line"/>

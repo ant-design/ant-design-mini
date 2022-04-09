@@ -1,42 +1,38 @@
-import { store } from '../store';
+
+import formStoreFactory from '../store'
+import { cacheFieldName } from '../cache'
 
 Component({
   props: {
     rules: [],
     name: 'default',
-    form: 'default',
-    initialValue: '',
     position: 'horizontal',
     required: false,
+    label: '',
   },
+
   data: {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    setData: () => {},
     errorInfo: null,
-    defaultLabelWidth: '',
+    submitDisable: false,
+    defaultLabelWidth:  0
   },
+
   onInit() {
-    const { form, name: field, rules, initialValue, required } = this.props;
-    if (form && field) {
-      this.$page.data._getCurrentField = () => {
-        return { form: () => this.props.form, field: () => this.props.name };
-      };
-      store.bootstrap(form, field, rules, initialValue, required);
-    }
+    const pageId = this.$page.$id;
+    const { form: uid } = this.props
+    this.store = formStoreFactory.getStore({ pageId, uid })
+    cacheFieldName(function() {
+      return this.props.name
+    }.bind(this))
+    this.setFieldRules();
+    this.onBindErrorInfoChange = this.onErrorInfoChange.bind(this);
+    this.store.onErrorInfoChange(this.onBindErrorInfoChange);
   },
+
   didMount() {
-    this.data.setData = this.$page.data._currentSetData;
-    if (!this.data.setData) return;
-    const { form, name: field } = this.props;
-    if (form && field) {
-      store.setValueAfterUpdate(this.data.setData, form, field);
-      store.setFieldUpdateInfoFn(form, field, this.updateErrorInfo.bind(this));
-
-      if (field === 'submit') {
-        store.setUpdateSubmitButtonStatusFn(form, field, this.updateSubmitButtonStatus.bind(this));
-      }
-    }
-
+    cacheFieldName(function() {
+      return ''
+    }.bind(this))
     my.createSelectorQuery()
       .select('.amd-form-item-label-horizontal')
       .boundingClientRect()
@@ -48,24 +44,46 @@ Component({
         }
       });
   },
-  didUpdate(prevProps) {
-    const currentField = prevProps.name;
-    const { form, name: nextField } = this.props;
-    if (currentField && nextField && currentField !== nextField) {
-      store.setValueAfterUpdate(this.data.setData, form, nextField);
-      store.updateFieldSet(form, currentField, nextField);
-    }
-  },
+
   didUnmount() {
-    const { form, name: field } = this.props;
-    store.delFieldSet(form, field);
+    this.store?.offValuesChange(this.onBindErrorInfoChange);
   },
+
   methods: {
+    setFieldRules() {
+      const { name, required, label, rules } = this.props;
+      let fieldRules = [];
+      if (rules instanceof Array) {
+        fieldRules = [...rules];
+      } else {
+        fieldRules = [rules];
+      }
+      const hasRequiredRule = fieldRules.some(rule => rule.required);
+      if (required && !hasRequiredRule) {
+        const requiredItem = { required: true, message: `请输入${label || name}` };
+        fieldRules = [requiredItem, ...fieldRules];
+      }
+      if (fieldRules?.length > 0) {
+        this.store.setFieldRules(name, fieldRules);
+      }
+    },
+
+    onErrorInfoChange(formErrorInfo, options) {
+      const fieldName = options?.fieldName
+      if (!(fieldName && fieldName !== this.props.name)) {
+        this.setData({
+          errorInfo: formErrorInfo[this.props.name]?.[0] || {},
+        });
+      }
+    },
+
     updateErrorInfo(payload) {
       this.setData({ errorInfo: payload });
     },
+  
     updateSubmitButtonStatus(payload) {
       this.setData({ submitDisable: !!payload });
     },
-  },
+  }
+
 });

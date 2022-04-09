@@ -5,29 +5,6 @@ import type { IUserComponentOptions } from "@mini-types/alipay";
 /**
  * @description 处理通用受控非受控模式
  * @param propsValue 一般是 'value', 也可能是 'checked', 甚至是自定的，比如 'activeIndex'
- *
- * export default {
- *  mixins: [controlled],
- *  methods: {
- *    handleChange(e) {
- *      this.triggerChange(e.detail.value)
- *    }
- *  }
- * }
- *
- * <input onChange="handleChange" value="{{cValue}}" />
- *
- *
- * export default {
- *  mixins: [controlled({propsValue: 'checked', propsTriggerChange: 'onChange', defaultPropsValue: false  })],
- *  methods: {
- *    handleChange(e) {
- *      this.triggerChange(e.detail.value)
- *    }
- *  }
- * }
- *
- * <checkbox onChange="handleChange" checked="{{cValue}}" />
  */
 
 type ControlledMixInParams  = {
@@ -40,7 +17,7 @@ export default ( params: ControlledMixInParams = {}): IUserComponentOptions<
 { cValue: any },
 { [prop: string]: any },
 { triggerChange: (v: any) => void },
-{},
+Record<string, unknown>,
 Record<string, unknown>,
 []
 > => {
@@ -69,7 +46,7 @@ Record<string, unknown>,
   
     methods: {
       triggerChange(value) {
-        this.props[propsTriggerChange]?.(value)
+        this.props[propsTriggerChange]?.bind(this)(value)
         this.setData({
           cValue: value
         })

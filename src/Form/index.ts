@@ -1,8 +1,10 @@
-import { store } from './store';
+import formStoreFactory from './store';
 
 Component({
   props: {
-    onValuesChange: function onValuesChange(changedValues, totalValues) {
+    initialValues: {
+    },
+    onValuesChange: (changedValues, totalValues) => {
       return {
         changedValues,
         totalValues,
@@ -11,27 +13,65 @@ Component({
     onFinish: function onFinish(totalValues) {
       return totalValues;
     },
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     onFinishFailed: function onFinishFailed() {},
     className: '',
-    form: 'default',
-    initialValues: {},
   },
-  onInit() {
-    const { form, initialValues, onValuesChange, onFinish } = this.props;
-    if (!form) {
-      throw new Error('no form name');
-    } // setup initval
 
-    store.init(form, initialValues, onValuesChange, onFinish);
+  onInit() {
+    const pageId = this.$page.$id;
+    const { form: uid } = this.props
+    this.store = formStoreFactory.createStore({ pageId, uid })
+    this.store.setFieldsValue(this.props.initialValues, { silent: true });
+    this.onBindChangeFormFieldValue = this.onChangeFormFieldValue.bind(this);
+    this.store.onValuesChange(this.onBindChangeFormFieldValue)
+    this.onBindSubmit = this.onSubmit.bind(this);
+    this.store.onSubmit(this.onBindSubmit)
   },
-  didUnmount: function didUnmount() {
-    store.tear(this.props.form);
+
+  didMount() {
+    this.store.initValidator()
   },
+
+  didUnmount() {
+    const pageId = this.$page.$id;
+    const { form: uid } = this.props;
+    this.store.offValuesChange(this.onBindChangeFormFieldValue)
+    this.store.offSubmit(this.onBindSubmit)
+    formStoreFactory.destroyStore({  pageId, uid  })
+  },
+
+  methods: {
+    onChangeFormFieldValue(changedValues,  values, options) {
+      if (!options?.silent) {
+        this.props.onValuesChange?.(changedValues, values)
+      }
+    },
+
+    async onSubmit() {
+      const { valid, errors  } = await this.store.validate();
+      if (valid) {
+        const values = this.store.getFieldsValue();
+        this.props.onFinish?.(values)
+        return
+      }
+      this.props.onFinishFailed?.(errors)
+    }
+  },
+
   ref() {
     return {
-      getCompInstance: () => this,
-      setFieldsValue: (form, value) => store.setFieldsValue(form, value),
+      setFieldsValue: function (values) {
+        this.store.setFieldsValue(values, { silent: true});
+      }.bind(this),
+
+      getFieldsValue: function () {
+        return this.store.getFieldsValue();
+      }.bind(this),
+
+      validate: async function () {
+        const errorInfo = await this.store.validate();
+        return errorInfo;
+      }.bind(this),
     };
   },
 });
