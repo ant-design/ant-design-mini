@@ -2,22 +2,22 @@ import { StepperDefaultProps } from './props';
 import computed from '../mixins/computed';
 import controlled from '../mixins/controlled';
 import { upStep, downStep } from './utils';
-import formMixin from '../mixins/form';
+import formed from '../Form/mixin';
 
 Component({
-  mixins: [computed, controlled(), formMixin()],
+  mixins: [computed, controlled(), formed()],
   props: StepperDefaultProps,
   data: {
     confirm: false,
     _value: null,
   } as {
-    confirm: boolean,
-    _value: string,
-    cValue: number,
-    minusDisabled: boolean,
-    addDisabled: boolean,
-    min: number,
-    max: number,
+    confirm: boolean;
+    _value: string;
+    cValue: number;
+    minusDisabled: boolean;
+    addDisabled: boolean;
+    min: number;
+    max: number;
   },
   didMount() {
     const { min, max, cValue } = this.data;
@@ -73,7 +73,7 @@ Component({
         this.setData({
           _value: null,
         });
-        this.cOnChange(this.getInputValue(value));
+        this.triggerChange(this.getInputValue(value));
         this.props.onBlur?.(this.getInputValue(value));
       }
     },
@@ -83,7 +83,7 @@ Component({
         _value: null,
         confirm: true,
       });
-      this.cOnChange(this.getInputValue(value));
+      this.triggerChange(this.getInputValue(value));
     },
     getInputValue(inputValue) {
       const { min, max } = this.props;
@@ -107,11 +107,11 @@ Component({
         if (mode === 'minus') {
           // 【减】按钮的操作
           const minusTemp = downStep(cValue, step, precision);
-          this.cOnChange(Math.max(minusTemp, min));
+          this.triggerChange(Math.max(minusTemp, min));
         } else if (mode === 'add') {
           // 【加】按钮的操作
           const addTemp = upStep(cValue, step, precision);
-          this.cOnChange(Math.min(addTemp, max));
+          this.triggerChange(Math.min(addTemp, max));
         }
       }
     },

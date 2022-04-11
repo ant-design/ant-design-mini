@@ -1,35 +1,30 @@
 <view class="demo">
   <form 
-    form="{{form}}" 
     onFinish="handleSubmit"
     initialValues="{{initialValues}}"
     onValuesChange="handleValuesChange">
     <form-item
       required
       label="input"
-      name="input"
-      form="{{form}}">
-      <input-item mode="form" placeholder="请输入"/>
+      name="input">
+      <input-item placeholder="请输入"/>
     </form-item>
     <form-item
       required
       label="password"
       name="password"
-      rules="{{[{ pattern: /\d{6}/, message: '密码必须是6位数字' },]}}"
-      form="{{form}}">
-      <input-item mode="form" placeholder="请输入" password/>
+      rules="{{[{ pattern: /\d{6}/, message: '密码必须是6位数字' }]}}">
+      <input-item placeholder="请输入" password/>
     </form-item>
     <form-item
       label="stepper"
-      name="stepper"
-      form="{{form}}">
+      name="stepper">
       <stepper 
-        mode="form"
         min="{{0}}"
         max="{{100}}"
         step="{{1}}"/>
     </form-item>
-    <form-item
+    <!-- <form-item
       label="switch"
       name="switch"
       form="{{form}}">
@@ -77,7 +72,7 @@
         <radio-item value="a3">单选三</radio-item>
       </radio-group>
     </form-item>
-    <form-item 
+    <form-item
       label="checkboxGroup" 
       required
       name="checkboxGroup" 
@@ -88,12 +83,10 @@
         <checkbox-item value="a2">复选框2</checkbox-item>
         <checkbox-item value="a3">复选框3</checkbox-item>
       </checkbox-group>
-    </form-item>
+    </form-item> -->
     <button 
       slot="footer"
       type="primary" 
-      mode="form"
-      form="{{form}}"
       htmlType="submit">提交
     </button>
   </form>

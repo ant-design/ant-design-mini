@@ -1,5 +1,5 @@
-import { getFieldName } from './cache'
-import formStoreFactory from './store'
+import { getFieldName } from './cache';
+import formStoreFactory from './store';
 
 export default () => {
   return {
@@ -9,18 +9,24 @@ export default () => {
           this.store.setFieldsValue({
             [this.fieldName]: v,
           });
-          this.store.validate({ fieldName: this.fieldName  });
+          this.store.validate({ fieldName: this.fieldName });
         }
       },
     },
 
     onInit() {
-      const fieldName = getFieldName() 
+      const fieldName = getFieldName();
       if (fieldName) {
         const pageId = this.$page.$id;
-        const { form: uid } = this.props
-        this.store = formStoreFactory.getStore({ pageId, uid })
-        this.onBindChangeFormFieldValue = this.onChangeFormFieldValue.bind(this);
+        const { form: uid } = this.props;
+        const store = formStoreFactory.getStore({ pageId, uid });
+        if (store.checkFieldInited(fieldName)) {
+          return;
+        }
+        store.addField(fieldName);
+        this.store = store;
+        this.onBindChangeFormFieldValue =
+          this.onChangeFormFieldValue.bind(this);
         this.store.onValuesChange(this.onBindChangeFormFieldValue);
         this.fieldName = fieldName;
         const value = this.store.getFieldValue(this.fieldName);
@@ -41,7 +47,10 @@ export default () => {
     },
 
     didUnmount() {
-      this.store?.offValuesChange(this.onBindChangeFormFieldValue);
+      if (this.store) {
+        this.store.offValuesChange(this.onBindChangeFormFieldValue);
+        this.store.removeField(this.fieldName);
+      }
     },
   };
 };
