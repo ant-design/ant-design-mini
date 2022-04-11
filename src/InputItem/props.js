@@ -8,6 +8,7 @@ export const InputItemDefaultProps = {
   selectionStart: -1,
   selectionEnd: -1,
   randomNumber: false,
+  alwaysSystem: false,
   clear: true,
   autoFocus: false,
   disabled: false,

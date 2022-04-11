@@ -30,7 +30,7 @@ toc: false
 | placeholderClass | string | 否 | - | 指定 placeholder 的样式类。 |
 | placeholderStyle | string | 否 | - | 指定 placeholder 的样式，可设置间距。 |
 | maxLength | number | 否 | 140 | 最大长度。 |
-| confirmType | 'done' &verbar; 'go' &verbar; 'next' &verbar; 'search' &verbar; 'send' | 否 | "done" | 设置键盘右下角按钮的文字，有效值：done（显示“完成”）、go（显示“前往”）、next（显示“下一个”）、search（显示“搜索”）、send（显示“发送”），平台不同显示的文字略有差异。注意：只有在 type=text 时有效。 |
+| confirmType | 'done' &verbar; 'go' &verbar; 'next' &verbar; 'search' &verbar; 'send' | 否 | 'done' | 设置键盘右下角按钮的文字，有效值：done（显示“完成”）、go（显示“前往”）、next（显示“下一个”）、search（显示“搜索”）、send（显示“发送”），平台不同显示的文字略有差异。注意：只有在 type=text 时有效。 |
 | confirmHold | boolean | 否 | false | 点击键盘右下角按钮时是否保持键盘不收起状态。 |
 | cursor | number | 否 | - | 指定 focus 时的光标位置。 |
 | selectionStart | number | 否 | -1 | 获取光标时，选中文本对应的焦点光标起始位置，需要和 selection-end 配合使用。 |
@@ -47,7 +47,6 @@ toc: false
 | ref | React.Ref | 否 | - | 用于操作表单的实例，有 focus 和 blur 两个方法 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
-| mode | 'noraml' &verbar; 'form' | 否 | normal | 配合From/FormItem组件使用时，需设置为 from |
 
 
 ### 事件

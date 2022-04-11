@@ -22,7 +22,6 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
     const pageId = this.$page.$id;
     const { form: uid } = this.props
     this.store = formStoreFactory.createStore({ pageId, uid })
-    this.store.setFieldsValue(this.props.initialValues, { silent: true });
     this.onBindChangeFormFieldValue = this.onChangeFormFieldValue.bind(this);
     this.store.onValuesChange(this.onBindChangeFormFieldValue)
     this.onBindSubmit = this.onSubmit.bind(this);
@@ -30,7 +29,7 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
   },
 
   didMount() {
-    this.store.initValidator()
+    this.store.setFieldsValue(this.props.initialValues, { silent: true });
   },
 
   didUnmount() {
