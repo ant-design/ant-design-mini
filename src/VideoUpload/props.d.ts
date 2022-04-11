@@ -106,7 +106,7 @@ export interface IVideoUploadProps extends IBaseProps {
   /**
    * @description 已上传的文件列表变化时触发
    */
-  onChange?: (v: Array<File>) => {};
+  onChange?: (v: Array<File>) => void;
 
   /**
    * @description 删除当前列表中的视频时触发，包括上传成功和上传失败的视频，如果返回 false 表示阻止删除，支持返回 Promise

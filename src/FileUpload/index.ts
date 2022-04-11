@@ -65,6 +65,7 @@ Component({
             hideLoading: true,
           });
 
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           uploadFileTask.onProgressUpdate(({ progress }) => {
             if (progress === 100) {

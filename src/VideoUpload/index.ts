@@ -9,6 +9,8 @@ Component({
   } as IVideoUploadData,
   didMount() {
     const { defaultValue, id } = this.props;
+    
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     this.videoContext = my.createVideoContext(id || 'myVideo');
     this.setData({
