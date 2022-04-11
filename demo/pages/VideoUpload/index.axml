@@ -5,6 +5,7 @@
       action="{{action}}"
       defaultValue="{{value_1}}"
       id="myVideo_1"
+      maxCount="{{1}}"
       sourceType="{{['album']}}"
       onChange="onChange"
     />
@@ -15,6 +16,7 @@
       action="{{action}}"
       defaultValue="{{value_2}}"
       id="myVideo_2"
+      maxCount="{{6}}"
       onChange="onChange"
     />
   </view>
@@ -24,6 +26,7 @@
       action="{{action}}"
       id="myVideo_3"
       demoVideo="{{demoVideo}}"
+      maxCount="{{2}}"
       onChange="onChange"
     />
   </view>
@@ -32,6 +35,7 @@
     <uploader 
       action="{{action}}"
       id="myVideo_4"
+      maxCount="{{2}}"
       onChange="onChange"
     >
       <view slot="uploadIcon">
@@ -46,6 +50,7 @@
       id="myVideo_5"
       width="168"
       height="120"
+      maxCount="{{2}}"
       onChange="onChange"
     />
   </view>
@@ -55,6 +60,7 @@
       action="{{action}}"
       id="myVideo_6"
       defaultValue="{{value_1}}"
+      maxCount="{{2}}"
       onDelete="onDelete"
     />
   </view>
@@ -64,6 +70,7 @@
       action="{{action}}"
       id="myVideo_7"
       defaultValue="{{value_1}}"
+      maxCount="{{2}}"
       onBeforeUpload="onBeforeUpload"
     />
   </view>
@@ -72,6 +79,7 @@
     <uploader 
       id="myVideo_8"
       defaultValue="{{value_1}}"
+      maxCount="{{2}}"
       onUpload="onUpload"
     />
   </view>

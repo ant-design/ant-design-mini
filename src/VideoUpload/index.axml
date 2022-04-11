@@ -20,7 +20,8 @@
       <loading className="amd-video-upload-loading-icon" theme="light" text="上传中..." />
     </view>
   </view>
-  <view class="amd-video-upload-add-video-wrapper" style="{{`height:${height}px;width:${width}px`}}" onTap="onChooseVideo">
+  <view a:if="{{fileList.length < maxCount}}" class="amd-video-upload-add-video-wrapper" style="{{`height:${height}px;width:${width}px`}}" 
+    onTap="onChooseVideo">
     <slot name='uploadIcon'>
       <am-icon size="small" type="AddOutline" color="#333" />
     </slot>

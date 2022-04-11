@@ -68,7 +68,7 @@ export interface IVideoUploadProps extends IBaseProps {
    * @description 自定义容器高度
    * @default 80
    */
-   height?: number | string;
+  height?: number | string;
 
   /**
    * @description video播放器标识
@@ -96,7 +96,7 @@ export interface IVideoUploadProps extends IBaseProps {
    * @description 自定义容器宽度
    * @default 80
    */
-   width?: number | string;
+  width?: number | string;
 
   /**
    * @description 视频上传前的回调函数，返回 false 可终止视频上传，支持返回 Promise

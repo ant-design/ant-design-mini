@@ -3,7 +3,7 @@
   <view class="demo-image-upload-show">
     <uploader 
       action='{{action}}'
-      maxCount="{{2}}"
+      maxCount="{{1}}"
       defaultValue="{{value_1}}"
       onChange="onChange"
     />
