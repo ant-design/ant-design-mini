@@ -1,7 +1,7 @@
 <import-sjs from="./index.sjs" name="fileUpload" />
 
 <view class="amd-file-upload">
-  <view onTap="onChooseFile" class="amd-file-upload-button">
+  <view a:if="{{fileList.length < maxCount}}" onTap="onChooseFile" class="amd-file-upload-button">
     <slot name="uploadButton">
       <button type="primary" inline="{{true}}" inlineSize="medium">上传文件</button>
     </slot>
@@ -18,7 +18,8 @@
           {{item.size}}
         </view>
       </view>
-      <view slot="extra" class="amd-file-upload-close-icon" a:if="{{item.status!=='pending' || item.progress === 100}}" data-delete-file-index="{{index}}" catchTap="onDeleteFile">
+      <view slot="extra" class="amd-file-upload-close-icon" a:if="{{item.status!=='pending' || item.progress === 100}}" data-delete-file-index="{{index}}" 
+        catchTap="onDeleteFile">
         <am-icon type="CloseCircleFill" size="x-small" color="#ccc"></am-icon>
       </view>
       <view class="{{item.status === 'error'?'amd-file-upload-error-status':''}}">

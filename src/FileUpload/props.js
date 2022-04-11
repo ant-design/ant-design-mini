@@ -1,5 +1,6 @@
 export const UploaderDefaultProps = {
   defaultValue: [],
   fileName: 'file',
-  formData: {}
+  formData: {},
+  maxCount: 1
 }

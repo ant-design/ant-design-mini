@@ -68,6 +68,12 @@ export interface IUploaderProps extends IBaseProps {
   formData?: any;
 
   /**
+   * @description 上传文件的最大数量
+   * @default 1
+   */
+   maxCount?: number;
+
+  /**
    * @description 文件上传前的回调函数，返回 false 可终止文件上传，支持返回 Promise
    */
   onBeforeUpload?: (v: File, u: Array<File>) => boolean | Promise<boolean> | void;
