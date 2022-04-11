@@ -1,10 +1,10 @@
 Page({
   data: {
     isBaseModalShow: false,
-    isDurationModalShow: false,
+    isCloseableModalShow: false,
+    isCustomBtnModalShow: false,
+    isMainBtnModalShow: false,
     isCustomModalShow: false,
-    isSImgModalShow: false,
-    isMImgModalShow: false,
     isLImgModalShow: false,
     url: 'https://gw.alipayobjects.com/zos/rmsportal/yFeFExbGpDxvDYnKHcrs.png',
   },
@@ -14,11 +14,23 @@ Page({
   closeBaseModal() {
     this.commonHide('isBaseModalShow');
   },
-  openDurationModal() {
-    this.commonShow('isDurationModalShow');
+  openCloseableModal() {
+    this.commonShow('isCloseableModalShow');
   },
-  closeDurationModal() {
-    this.commonHide('isDurationModalShow');
+  closeCloseableModal() {
+    this.commonHide('isCloseableModalShow');
+  },
+  openCustomBtnModal() {
+    this.commonShow('isCustomBtnModalShow');
+  },
+  closeCustomBtnModal() {
+    this.commonHide('isCustomBtnModalShow');
+  },
+  openMainBtnModal() {
+    this.commonShow('isMainBtnModalShow');
+  },
+  closeMainBtnModal() {
+    this.commonHide('isMainBtnModalShow');
   },
   openCustomModal() {
     this.commonShow('isCustomModalShow');
@@ -26,27 +38,15 @@ Page({
   closeCustomModal() {
     this.commonHide('isCustomModalShow');
   },
-  openSImgModal() {
-    this.commonShow('isSImgModalShow');
-  },
-  closeSImgModal() {
-    this.commonHide('isSImgModalShow');
-  },
-  openMImgModal() {
-    this.commonShow('isMImgModalShow');
-  },
-  closeMImgModal() {
-    this.commonHide('isMImgModalShow');
-  },
   openLImgModal() {
     this.commonShow('isLImgModalShow');
   },
   closeLImgModal() {
     this.commonHide('isLImgModalShow');
   },
-  onButtonTap(type) {
+  handleButtonTap(type) {
     my.alert({
-      title: type,
+      title: `点击了${type === 'main' ? '主按钮' : '辅助按钮'}`,
     });
   },
   commonShow(prop) {

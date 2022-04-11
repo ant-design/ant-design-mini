@@ -1,11 +1,9 @@
-<button  
-    type="primary" 
-    onTap="onTap">
+<view class="demo">
+    
+    <tips title="受控关闭" showClose="{{true}}" onClose="onClose" visible="{{visible}}" />
+    
+    <button class="btn" type="primary" onTap="onTap">
         {{visible === true ? '关闭' : '开启'}}
-</button>
+    </button>
+</view>
 
-<tips 
-    title="受控关闭"
-    showClose="{{true}}" 
-    onClose="onClose" 
-    visible="{{visible}}"/>

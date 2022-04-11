@@ -1,11 +1,18 @@
 <view>
   <dialog
-    title="无操作按钮"
-    content="点击蒙层关闭"
-    buttonText="{{[]}}"
+    content="人在天边月上明"
+    buttonText="{{['我知道了']}}"
     visible="{{isNoBtnShow}}"
-    maskClosable="{{true}}"
+    onButtonTap="handleClose"
     onClose="handleClose">
+  </dialog>
+  <dialog
+    content="人在天边月上明"
+    buttonText="{{['我知道了']}}"
+    visible="{{isMaskClosableShow}}"
+    onButtonTap="handleClose"
+    onClose="handleClose"
+    maskClosable>
   </dialog>
   <dialog
     title="纵向"
@@ -15,7 +22,7 @@
     direction="vertical"
     maskClosable="{{true}}"
     onClose="handleClose"
-    onButtonTap="handleClose">
+    onButtonTap="handleButtonTap">
   </dialog>
 
   <dialog
@@ -26,7 +33,7 @@
     maskClosable="{{true}}"
     direction="horizontal"
     onClose="handleClose"
-    onButtonTap="handleClose"/>
+    onButtonTap="handleButtonTap"/>
 
   <dialog
     title="自定义组件"
@@ -43,30 +50,6 @@
   </dialog>
 
   <dialog
-    title="带小图"
-    content="标题内容"
-    buttonText="{{['辅助操作', '主操作']}}"
-    imageSize="medium"
-    image="{{url}}" 
-    visible="{{isSImgDialogShow}}" 
-    maskClosable="{{true}}"
-    direction="horizontal"
-    onClose="handleClose"
-    onButtonTap="handleClose"/>
-
-  <dialog
-    title="带中图"
-    content="标题内容"
-    buttonText="{{['辅助操作', '主操作']}}"
-    imageSize="large"
-    image="{{url}}" 
-    visible="{{isMImgDialogShow}}" 
-    maskClosable="{{true}}"
-    direction="horizontal"
-    onClose="handleClose"
-    onButtonTap="handleClose"/>
-
-  <dialog
     title="带大图"
     content="标题内容"
     buttonText="{{['辅助操作', '主操作']}}"
@@ -79,17 +62,20 @@
     onButtonTap="handleClose"/>
   <demo-block title="基础用法">
     <view class="btn-list">
-      <button  onTap="handleOpenVertical">纵向</button>
-      <button  onTap="handleOpenHori">横向</button>
-      <button  onTap="handleOpenCus">自定义组件</button>
-      <button  onTap="handleOpenNoBtn">无操作按钮</button>
+      <button  onTap="handleOpenNoBtn">最简单的小对话框</button>
+      <button  onTap="handleOpenMaskClosable">点击遮罩关闭</button>
     </view>
   </demo-block>
-  <demo-block title="带图">
+  <demo-block title="操作按钮">
     <view class="btn-list">
-      <button  onTap="handleOpenSImg">带小图</button>
-      <button  onTap="handleOpenMImg">带中图</button>
-      <button  onTap="handleOpenLImg">带大图</button>
+      <button  onTap="handleOpenVertical">纵向</button>
+      <button  onTap="handleOpenHori">横向</button>
+    </view>
+  </demo-block>
+  <demo-block title="内容区域">
+    <view class="btn-list">
+      <button  onTap="handleOpenCus">自定义内容区域</button>
+      <button  onTap="handleOpenLImg">带图</button>
     </view>
   </demo-block>
 </view>
