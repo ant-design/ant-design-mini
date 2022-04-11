@@ -38,7 +38,7 @@ toc: false
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
 | onBeforeUpload | 视频上传前的回调函数，返回 false 可终止视频上传，支持返回 Promise | (v: File, u: Array<File>) => boolean &verbar; Promise<boolean> &verbar; void |
-| onChange | 已上传的文件列表变化时触发 | (v: Array<File>) => {} |
+| onChange | 已上传的文件列表变化时触发 | (v: Array<File>) => void |
 | onDelete | 删除当前列表中的视频时触发，包括上传成功和上传失败的视频，如果返回 false 表示阻止删除，支持返回 Promise | (v: File) => boolean &verbar; Promise<boolean> &verbar; void |
 | onUpload | 视频上传方法，当不存在https服务器时，支持自定义上传方式，只在不存在action字段时生效 | (v: File) => Promise<File> |
 

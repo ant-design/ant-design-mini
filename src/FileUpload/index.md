@@ -24,6 +24,7 @@ toc: false
 | defaultValue | Array<File> | - | [] | 默认已上传的文件列表 |
 | fileName | string | - | - | 上传的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到文件二进制内容 |
 | formData | any | - | {} | 上传时其他额外的 form 数据对象。 |
+| maxCount | number | - | 1 | 上传文件的最大数量 |
 | className | string | - | - | 类名 |
 
 ### 事件 
@@ -32,7 +33,7 @@ toc: false
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
 | onBeforeUpload | 文件上传前的回调函数，返回 false 可终止文件上传，支持返回 Promise | (v: File, u: Array<File>) => boolean &verbar; Promise<boolean> &verbar; void |
-| onChange | 已上传的文件列表变化时触发 | (v: Array<File>) => {} |
+| onChange | 已上传的文件列表变化时触发 | (v: Array<File>) => void |
 | onDelete | 删除当前列表中的文件时触发，包括上传成功和上传失败的文件，如果返回 false 表示阻止删除，支持返回 Promise | (v: File) => boolean &verbar; Promise<boolean> &verbar; void |
 | onPreviewFail | 预览不支持的文件格式时触发（目前只支持预览pdf） | (v: string) => void |
 | onUpload | 文件上传方法，当不存在https服务器时，支持自定义上传方式，只在不存在action字段时生效 | (v: File) => Promise<File> |
