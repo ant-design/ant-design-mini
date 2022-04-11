@@ -36,4 +36,8 @@
     <switch 
       disabled="{{true}}"/>
   </demo-block>
+  <demo-block title="加载状态">
+    <switch 
+      loading="{{true}}"/>
+  </demo-block>
 </view>

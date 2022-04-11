@@ -28,6 +28,7 @@ toc: false
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 | disabled | boolean | 否 | false | 是否禁用 |
+| loading | boolean | 否 | false | 是否加载状态 |
 | color | string | 否 | #1677ff | 选中背景色 |
 | checkedText | string | 否 | - | 选中时的内容 |
 | uncheckedText | string | 否 | - | 非选中时的内容 |

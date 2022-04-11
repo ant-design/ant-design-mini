@@ -2,6 +2,12 @@
 
 @switchPrefix: amd-switch;
 
+@keyframes loading-rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
 .@{switchPrefix} {
   display: inline-block;
   vertical-align: middle;
@@ -30,6 +36,14 @@
   &-disabled {
     opacity: 0.4;
     pointer-events: none;
+  }
+  &-loading {
+    pointer-events: none;
+  }
+  &-loading-icon {
+    font-size: 20 * @rpx;
+    animation: loading-rotate 1s linear infinite;
+    color: @color-text-primary;
   }
   &-handle {
     display: flex;

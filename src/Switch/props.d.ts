@@ -9,6 +9,10 @@ export interface ISwitchProps extends IBaseFormItemPropsWithOutFocus<boolean> {
    */
   checked?: boolean;
   /**
+   * @description 是否加载状态
+   */
+  loading?: boolean;
+  /**
    * @description 是否受控模式
    * @default false
    */
