@@ -26,6 +26,11 @@ export interface ITipsProps extends IBaseProps {
    */
   showClose?: boolean;
   /**
+   * @description 是否显示 Tips 组件
+   * @default true
+   */
+  visible?: boolean;
+  /**
    * @description 关闭按钮位置
    * @default right
    */

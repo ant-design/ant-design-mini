@@ -4,21 +4,24 @@ import { log } from '../_util/console';
 Component({
   props: TipsDefaultProps,
   data: {
-    _show: true,
+    _show: false
   },
   didMount() {
-    this.showError();
+    this.setData({
+      _show: this.props.visible
+    })
   },
-  didUpdate() {
-    this.showError();
+  didUpdate(prevProps) {
+    if(prevProps.visible !== this.props.visible){
+      this.setData({
+        _show: this.props.visible
+      })
+      if(this.props.visible === false){
+        this.beforeClose()
+      }
+    }
   },
   methods: {
-    showError() {
-      const { title } = this.props;
-      if (!title) {
-        log.warn('Tips', '缺少 title 属性。');
-      }
-    },
     onButtonTap() {
       const { onButtonTap } = this.props;
       if (onButtonTap) {
@@ -29,6 +32,12 @@ Component({
       this.setData({
         _show: t,
       });
+      this.beforeClose()
     },
+    beforeClose(){
+      if(typeof this.props.onClose ==="function"){
+        this.props.onClose()
+      }
+    }
   },
 });

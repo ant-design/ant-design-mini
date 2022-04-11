@@ -3,26 +3,27 @@ nav:
   path: /components
 group:
   title: 反馈
-  order: 2
+  order: 12
 toc: false
 ---
-# Modal
-
+# Modal 弹窗
+## 何时使用
 当应用中需要比较明显的对用户当前的操作行为进行警示或提醒时，可以使用对话框。用户需要针对对话框进行操作后方可结束。
 
 ## 代码示例
+### 基本使用
 <code src='../../demo/pages/Modal'></code>
 
-## API
 
-### 属性
+
+## 属性
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | title | string | 否 | - | 标题 |
 | content | string | 是 | - | 内容 |
 | image | string | 否 | - | 缩略图 |
-| imageSize | 'medium' &verbar; 'large' &verbar; 'x-large' | 否 | "medium" | 缩略图尺寸 |
+| imageSize | 'medium' &verbar; 'large' &verbar; 'x-large' | 否 | 'medium' | 缩略图尺寸 |
 | visible | boolean | 是 | false | 是否可见，受控模式 |
 | duration | number | 否 | - | 过渡动画时长，单位毫秒 |
 | mainButtonText | string | 否 | '主操作' | 主按钮 |
@@ -30,19 +31,19 @@ toc: false
 | maskClosable | boolean | 否 | true | 点击蒙层关闭 |
 | className | string | 否 | - | 类名 |
 
-### 事件
+## 事件
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onButtonTap | 点击 Modal 组件内部按钮，触发回调 | (type: 'marin' | 'addon' ) => void |
 | onClose | 点击 close 图标触发回调 | () => void |
 
-### 插槽
+## 插槽
 | 名称 | 说明 |
 | ----|----|
 | default | 弹窗内容 |
 
-### 样式类
+## 样式类
 | 类名 | 说明 |
 | ----|----|
 | amd-modal | 整体样式 |

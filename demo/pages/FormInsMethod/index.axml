@@ -3,6 +3,7 @@
       form="{{form}}" 
       ref="getForm"
       onFinish="handleSubmit"
+      initialValues="{{initialValues}}"
       onValuesChange="handleValuesChange">
       <form-item
           label="账号"
@@ -16,13 +17,15 @@
           form="{{form}}">
           <input-item mode="form" password placeholder="请输入密码"/>
       </form-item>
-      <button 
-          slot="footer"
-          type="primary" 
-          mode="form"
-          form="{{form}}"
-          htmlType="submit">登录
-      </button>
+      <view slot="footer">
+        <button 
+            slot="footer"
+            type="primary" 
+            mode="form"
+            form="{{form}}"
+            htmlType="submit">登录
+        </button>
+      </view>
   </form>
-  <button onTap="handleSetValue" className="btn">设置表单数据</button>
+  <button onTap="handleSetValue" className="btn">重置</button>
 </view>

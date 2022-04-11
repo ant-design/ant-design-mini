@@ -4,7 +4,7 @@
   disabled="{{disabled}}"
   radius="{{radius}}"
   controlled="{{controlled}}"
-  header="CheckBoxGroup demo"
+  header="基础用法"
   footer="CheckBoxGroup 模式相比 CheckBox 功能有所加强"
   onChange="checkBoxGroupChange">
 

@@ -1,72 +1,55 @@
 <view class="demo">
-  <demo-block title="inlineSize: x-small">
+  <demo-block title="填充模式">
     <view class="container">
       <button 
-        a:for="{{list}}" 
-        type="{{item.type}}" 
-        inline="{{true}}"
-        inlineSize="x-small"
-        disabled="{{disabled}}" 
-        loading="{{showLoading}}" 
-        loadingText="正在加载"
-        onTap="onTap" >
-        {{item.type}}
+        a:for="{{fills}}" 
+        fill="{{item}}" 
+        type="primary"
+        inline="{{true}}" >
+        {{item}}
       </button>
     </view>
   </demo-block>
-  <demo-block title="inlineSize: medium">
+  <demo-block title="语义按钮">
     <view class="container">
       <button 
-        a:for="{{list}}" 
-        type="{{item.type}}" 
-        inline="{{true}}"
-        inlineSize="small"
-        disabled="{{disabled}}" 
-        loading="{{showLoading}}" 
-        loadingText="正在加载"
-        onTap="onTap" >
-        {{item.type}}
+        a:for="{{types}}" 
+        type="{{item}}" 
+        inline="{{true}}" >
+        {{item}}
       </button>
     </view>
   </demo-block>
-  <demo-block title="inlineSize: large">
+  <demo-block title="按钮尺寸">
     <view class="container">
       <button 
-        a:for="{{list}}" 
-        type="{{item.type}}" 
+        a:for="{{sizes}}" 
+        type="primary" 
         inline="{{true}}"
-        inlineSize="large"
-        disabled="{{disabled}}" 
-        loading="{{showLoading}}" 
-        loadingText="正在加载"
-        onTap="onTap" >
-        {{item.type}}
+        inlineSize="{{item}}">
+        {{item}}
       </button>
     </view>
   </demo-block>
-  <demo-block title="inlineSize: x-large">
+  <demo-block title="禁用状态">
     <view class="container">
       <button 
-        a:for="{{list}}" 
-        type="{{item.type}}" 
+        type="primary" 
         inline="{{true}}"
-        inlineSize="x-large"
-        disabled="{{disabled}}" 
-        loading="{{showLoading}}" 
-        loadingText="正在加载"
-        onTap="onTap" >
-        {{item.type}}
+        disabled="{{true}}">
+        禁用状态
       </button>
     </view>
   </demo-block>
-  <list radius>
-    <list-item>
-      是否禁用
-      <switch slot="extra" checked="{{disabled}}" controlled onChange="handleChangeDisabled"/>
-    </list-item>
-    <list-item>
-      是否显示 loading
-      <switch slot="extra" checked="{{showLoading}}" controlled onChange="handleChangeShowLoading"/>
-    </list-item>
-  </list>
+  <demo-block title="加载状态">
+    <view class="container">
+      <button 
+        type="primary" 
+        inline="{{true}}"
+        loading="{{true}}" 
+        loadingText="正在加载">
+        加载状态
+      </button>
+    </view>
+  </demo-block>
 </view>

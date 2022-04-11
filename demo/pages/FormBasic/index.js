@@ -1,5 +1,11 @@
 Page({
   data: {
+    form: 'form',
+    formV: 'formV',
+    initialValues: {
+      quantity: 1,
+      needDelivery: false,
+    },
   },
   handleValuesChange(value, values) {
     console.log(value, values);
