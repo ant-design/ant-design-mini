@@ -85,8 +85,8 @@ export class FormStore extends EventEmitter {
     this.emitErrorInfoChange(errorInfo, options);
   }
 
-  validate(options) {
-    return new Promise((resovle) => {
+  validate(options?: Record<string, any>): Promise<{ valid: boolean, errors?: Record<string, any>}> {
+    return new Promise(resovle => {
       const allValues = this.getFieldsValue();
       this.getValidator()
         .validate(allValues)
