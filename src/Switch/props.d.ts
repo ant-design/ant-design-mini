@@ -14,9 +14,16 @@ export interface ISwitchProps extends IBaseFormItemPropsWithOutFocus<boolean> {
    */
   controlled?: boolean;
   /**
-   * @description 尺寸
-   * @default medium
-  */
-  size?: 'medium' | 'small' | 'x-small';
+   * @description 选中时的颜色
+   */
+  color?: string;
+  /**
+   * @description 选中时的内容
+   */
+  checkedText?: string;
+  /**
+   * @description 非选中时的内容
+   */
+  uncheckedText?: string;
 }
 export declare const SwitchDefaultProps: Partial<ISwitchProps>;

@@ -1,118 +1,62 @@
-@import (reference) "./variable.less";
+@import (reference) './variable.less';
 
 @switchPrefix: amd-switch;
 
 .@{switchPrefix} {
-  .checkbox {
-    width: @switch-width;
-    height: @switch-height;
-    border-radius: @corner-radius-circle;
-  }
-  .checkbox:after {
-    left: 4 * @rpx;
-    top: 4 * @rpx;
-    width: 54 * @rpx;
-    height: 54 * @rpx;
-    border-radius: @corner-radius-circle;
-  }
-  .checkbox:before {
-    left: 4 * @rpx;
-    top: 4 * @rpx;
-    width: 94 * @rpx;
-    height: 54 * @rpx;
-    border-radius: @corner-radius-circle;
-  }
-  &.a-switch-android .checkbox {
-    width: 144 * @rpx;
-    height: 46 * @rpx;
-    border-radius: 6 * @rpx;
-  }
-  &.a-switch-android .checkbox:after {
-    left: 2 * @rpx;
-    top: 2 * @rpx;
-    width: 70 * @rpx;
-    height: 42 * @rpx;
-    border-radius: 4 * @rpx;
-  }
-  .a-switch-checkbox.a-switch-checkbox:checked ~ .checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  position: relative;
+  align-self: center;
+  min-width: @switch-width;
+  height: @switch-height;
+  box-sizing: border-box;
+  border: @switch-border solid #e5e5e5;
+  border-radius: @switch-height * 0.5;
+  background: #fff;
+  overflow: hidden;
+  line-height: @switch-height;
+  &-checked {
     background: @switch-fill;
+    border-color: @switch-fill;
+    .@{switchPrefix}-handle {
+      left: calc(100% - (@switch-height - 2 * @switch-border));
+    }
+    .@{switchPrefix}-inner {
+      color: #fff;
+      margin: 0 (@switch-height - @switch-border * 2 + 10 * @rpx) 0 16 * @rpx;
+    }
   }
-  .a-switch-checkbox.a-switch-checkbox:checked ~ .checkbox::after {
-    transform: translateX(40 * @rpx);
+  &-disabled {
+    opacity: 0.4;
+    pointer-events: none;
   }
-  &.a-switch-android .a-switch-checkbox.a-switch-checkbox:checked ~ .checkbox::after {
-    transform: translateX(70 * @rpx);
+  &-handle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: @switch-height - 2 * @switch-border;
+    height: @switch-height - 2 * @switch-border;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transition: all 200ms;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 11.5px 0 rgba(0, 0, 0, 0.08),
+      -1px 2px 2px 0 rgba(0, 0, 0, 0.1);
   }
-
-  &-small {
-    .checkbox {
-      width: @switch-width-small;
-      height: @switch-height-small;
-      border-radius: @corner-radius-circle;
-    }
-    .checkbox:after {
-      width: 36 * @rpx;
-      height: 36 * @rpx;
-      border-radius: @corner-radius-circle;
-    }
-    .checkbox:before {
-      width: 36 * @rpx;
-      height: 36 * @rpx;
-      border-radius: @corner-radius-circle;
-    }
-    // &.a-switch-android .checkbox {
-    //   width: 144 * @rpx;
-    //   height: 46 * @rpx;
-    //   border-radius: 6 * @rpx;
-    // }
-    // &.a-switch-android .checkbox:after {
-    //   left: 2 * @rpx;
-    //   top: 2 * @rpx;
-    //   width: 70 * @rpx;
-    //   height: 42 * @rpx;
-    //   border-radius: 4 * @rpx;
-    // }
-    .a-switch-checkbox.a-switch-checkbox:checked ~ .checkbox::after {
-      transform: translateX(30 * @rpx);
-    }
-    // &.a-switch-android .a-switch-checkbox.a-switch-checkbox:checked ~ .checkbox::after {
-    //   transform: translateX(36 * @rpx);
-    // }
-  }
-
-  &-x-small {
-    .checkbox {
-      width: @switch-width-x-small;
-      height: @switch-height-x-small;
-      border-radius: @corner-radius-circle;
-    }
-    .checkbox:after {
-      width: 26 * @rpx;
-      height: 26 * @rpx;
-      border-radius: @corner-radius-circle;
-    }
-    .checkbox:before {
-      width: 26 * @rpx;
-      height: 26 * @rpx;
-      border-radius: @corner-radius-circle;
-    }
-    // &.a-switch-android .checkbox {
-    //   width: 144 * @rpx;
-    //   height: 46 * @rpx;
-    //   border-radius: 6 * @rpx;
-    // }
-    // &.a-switch-android .checkbox:after {
-    //   left: 2 * @rpx;
-    //   top: 2 * @rpx;
-    //   width: 70 * @rpx;
-    //   height: 42 * @rpx;
-    //   border-radius: 4 * @rpx;
-    // }
-    .a-switch-checkbox.a-switch-checkbox:checked ~ .checkbox::after {
-      transform: translateX(20 * @rpx);
-    }
-    // &.a-switch-android .a-switch-checkbox.a-switch-checkbox:checked ~ .checkbox::after {
-    //   transform: translateX(36 * @rpx);
-    // }
+  &-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10 * @rpx 0 (@switch-height - @switch-border * 2 + 10 * @rpx);
+    height: 100%;
+    color: #999;
+    transition: margin 200ms;
+    font-size: 30 * @rpx;
   }
 }

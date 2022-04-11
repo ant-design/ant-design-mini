@@ -12,8 +12,6 @@ toc: false
 ## 何时使用
 - 需要表示开关状态/两种状态之间的切换时
 - 和 checkbox 的区别是，切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合
-## 注意事项
-- 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `mode` 的值为 `form`。
 
 ## 代码示例
 ### 基本使用
@@ -30,8 +28,9 @@ toc: false
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 | disabled | boolean | 否 | false | 是否禁用 |
-| mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
-| size | 'medium' &verbar; 'small' &verbar; 'x-small' | 否 | medium | 组件尺寸 |
+| color | string | 否 | #1677ff | 选中背景色 |
+| checkedText | string | 否 | - | 选中时的内容 |
+| uncheckedText | string | 否 | - | 非选中时的内容 |
 | className | string | 否 | - | 类名 |
 
 ## 事件
@@ -40,10 +39,18 @@ toc: false
 | onChange | 点击 switch  ，触发此回调 | ( e: boolean ) => void  |
 
 
+## 插槽
+| 名称 | 说明 |
+| ----|----|
+| checked | 选中时的内容插槽 |
+| unchecked | 非选中时的内容插槽 |
+
 ## 样式类
 | 类名 | 说明 |
 | -----|-----|
 | amd-switch | 整体样式 |
+| amd-switch-checked | 选中时的样式 |
+| amd-switch-disabled | 禁用时的样式 |
 
 <style> 
 table th:first-of-type { width: 180px; } 

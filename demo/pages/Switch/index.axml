@@ -1,28 +1,39 @@
 <view>
   <demo-block title="基础用法">
     <switch 
-      onChange="handleChangeNoControl" />
+      controlled="{{false}}"
+      checked="{{false}}" 
+      disabled="{{false}}"/>
   </demo-block>
-  <demo-block title="受控模式">
+  <demo-block title="受控组件">
     <switch 
       controlled="{{true}}"
       checked="{{value}}" 
-      disabled="{{false}}" 
       onChange="handleChangeValue"/>
   </demo-block>
   <demo-block title="有默认值">
     <switch 
-      checked="{{true}}" />
+      checked="{{true}}"/>
+  </demo-block>
+  <demo-block title="文字和图标">
+    <switch 
+      checkedText="开"
+      uncheckedText="关"/>
+    <switch>
+      <am-icon type="CheckOutline" slot="checked" size="x-small"/>
+      <am-icon type="CloseOutline" slot="unchecked"  size="x-small"/>
+    </switch>
+  </demo-block>
+  <demo-block title="自定义颜色">
+    <switch 
+      checked="{{true}}"
+      color="#00b578"/>
   </demo-block>
   <demo-block title="禁用状态">
     <switch 
+      checked="{{true}}"
       disabled="{{true}}"/>
-  </demo-block>
-  <demo-block title="按钮尺寸">
-    <view 
-      a:for="{{sizeList}}"
-      class="switch-item">
-      <switch  size="{{item}}"/>  
-    </view>
+    <switch 
+      disabled="{{true}}"/>
   </demo-block>
 </view>

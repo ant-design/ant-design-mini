@@ -1,8 +1,10 @@
-<switch class="amd-switch {{className ? className : ''}} amd-switch-{{size}}"
-  id="{{id ? id : $id}}"
-  name="{{name}}"
-  disabled="{{disabled}}"
-  onChange="onChange"
-  checked="{{cValue}}"
-  controlled="{{controlled}}"
-/>
+<view 
+  class="amd-switch {{className ? className : ''}} amd-switch-{{size}} {{cValue?'amd-switch-checked':''}}  {{disabled?'amd-switch-disabled':''}}"
+  style="{{cValue&&color?'background:'+color + '; border-color:' + color:''}};"
+  catchTap="onChange">
+  <view class="amd-switch-handle"/>
+  <view class="amd-switch-inner">
+    <slot name="checked" a:if="{{cValue}}">{{checkedText}}</slot>
+    <slot name="unchecked" a:else>{{uncheckedText}}</slot>
+  </view>
+</view>
