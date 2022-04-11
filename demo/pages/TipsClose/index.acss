@@ -1,0 +1,9 @@
+.btn {
+  margin: 24rpx 0;
+  display: block;
+}
+.demo {
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx;
+}

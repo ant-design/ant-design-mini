@@ -14,6 +14,11 @@ toc: false
 ### 基本使用
 <code src='../../demo/pages/Tips'></code>
 
+### 插槽
+<code src='../../demo/pages/TipsSlot'></code>
+
+### 关闭组件
+<code src='../../demo/pages/TipsClose'></code>
 
 
 ## 属性
@@ -57,4 +62,7 @@ table th:first-of-type { width: 180px; }
 .__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(2)  {
     width: 300px
 } 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after , .__dumi-default-mobile-previewer:nth-of-type(4)::after {
+    border-bottom: none!important;
+}
 </style> 

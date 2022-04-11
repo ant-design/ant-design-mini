@@ -1,18 +1,24 @@
 import { TabItemDefaultProps } from './props';
-import { getTabArray, componentContext } from '../context';
+import { getTabArray, componentContext, componentContextFallback } from '../context';
 import { log } from '../../_util/console';
 import { objectValues } from '../../_util/tools';
+import { compareVersion } from '../../_util/compareVersion';
 
 let n = 0;
-const component2 = my.canIUse('component2');
-
+const isBaseSwiper = compareVersion('2.0.0', my.SDKVersion) < 0 ? true :false
 Component({
   props: TabItemDefaultProps,
   data: {
-    component2,
+    isBaseSwiper,
+    fallback: false
   },
   didMount() {
     this._getTabInfo('didMount');
+    componentContextFallback.onUpdate(v => {
+      this.setData({
+        fallback: v
+      })
+    })
   },
   didUpdate() {
     this._getTabInfo();
