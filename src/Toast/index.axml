@@ -1,0 +1,7 @@
+<view class="amd-toast-wrapper {{className}} {{icon ? 'amd-toastWithIcon-wrapper' : ''}}" a:if="{{show}}">
+    <icon a:if="{{icon}}" type="{{icon}}" class="amd-toast-icon" />
+
+    <text>
+        {{content}}
+    </text>
+</view>
