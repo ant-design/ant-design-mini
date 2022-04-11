@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Container",
+  "usingComponents": {
+    "container": "../../../src/Container/index"
+  }
+}

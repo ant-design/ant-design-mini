@@ -7,18 +7,21 @@ group:
 toc: false
 ---
 
-# Switch
-
+# Switch 开关
+开关选择器
+## 何时使用
+- 需要表示开关状态/两种状态之间的切换时
+- 和 checkbox 的区别是，切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合
 ## 注意事项
 - 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `mode` 的值为 `form`。
 
 ## 代码示例
-
+### 基本使用
 <code src='../../demo/pages/Switch'></code>
 
-## API
 
-### 属性
+
+## 属性
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
@@ -31,13 +34,13 @@ toc: false
 | size | 'medium' &verbar; 'small' &verbar; 'x-small' | 否 | medium | 组件尺寸 |
 | className | string | 否 | - | 类名 |
 
-### 事件
+## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 点击 switch  ，触发此回调 | ( e: boolean ) => void  |
 
 
-### 样式类
+## 样式类
 | 类名 | 说明 |
 | -----|-----|
 | amd-switch | 整体样式 |

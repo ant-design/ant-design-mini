@@ -6,19 +6,23 @@ group:
   order: 6
 toc: false
 ---
-# Tabs
-标签页，内部配合 TabItem 使用。
+# Tabs 标签页
+内容组之间进行导航切换
+## 何时使用
+- 内容组之间进行导航切换
+- 当前内容需要分成同层级结构的组，进行内容切换展示，用在表单或者标准列表界面的顶部
 
 ## 注意事项
 
 - 目前仅支持一个页面中使用一次 **Tabs** 组件；
 
 ## 代码示例
+### 基本使用
 <code src='../../demo/pages/Tabs'></code>
 
-## API
 
-### 属性
+
+## 属性
 
 #### Tabs
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -38,26 +42,26 @@ toc: false
 | tab | {title: string; subTitle?: string; badge?: number; disabled?: boolean}[]| 是 | - | 每一项 tab 内容 |
 | className | string | 否 | - | 类名 |
 
-### 事件
+## 事件
 
 #### Tabs
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 面板切换时候，触发回调 |(index: number) => void|
 
-### 插槽
+## 插槽
 #### Tabs
 | 名称 | 说明 |
 | ----|----|
 | plus | 表单项额外内容 |
 
-### 作用域插槽
+## 作用域插槽
 #### Tabs
 | 名称 | 说明 |
 | ----|----|
 | title | 自定义 tab 标题样式 |
 
-### 样式类
+## 样式类
 #### Tabs
 | 类名 | 说明 |
 | -----|-----|

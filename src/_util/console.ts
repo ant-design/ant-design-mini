@@ -10,7 +10,7 @@ export enum EComponents {
   CheckboxItem = 'CheckboxItem',
   Collapse = 'Collapse',
   CollapseItem = 'CollapseItem',
-  Card = 'Card',
+  Container = 'Container',
   DatePicker = 'DatePicker',
   Filter = 'Filter',
   Footer = 'Footer',

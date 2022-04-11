@@ -43,9 +43,9 @@ export const componentList = [
         path: '/pages/Collapse/index',
       },
       {
-        name: 'Card',
-        nameZN: '卡片',
-        path: '/pages/Card/index',
+        name: 'Container',
+        nameZN: '容器',
+        path: '/pages/Container/index',
       },  {
         name: 'List',
         nameZN: '列表',

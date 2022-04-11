@@ -6,15 +6,17 @@ group:
   order: 12
 toc: false
 ---
-# Loading
-加载动画
-
+# Loading 加载中
+用于页面和区块的加载中状态
+## 何时使用
+页面局部处于等待异步数据或正在渲染过程时，合适的加载动效会有效缓解用户的焦虑
 ## 代码示例
+### 基本使用
 <code src='../../demo/pages/Loading'></code>
 
-## API
 
-### 属性
+
+## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | type | 'spin' &verbar; 'mini' | 否 | 'spin' | 组件类型 |
@@ -28,13 +30,13 @@ toc: false
 | theme | 'dark' &verbar; 'light' | 否 | "dark" | 颜色，dark/深色、 light/浅色，仅限 spin loading |
 | className | string | 否 | - | 类名 |
     
-### 插槽
+## 插槽
 | 名称 | 说明 |
 | ----|----|
 | indicator | 自定义加载中的指示器 |
 | text | 自定义text |
 
-### 样式类
+## 样式类
 | 类名 | 说明 |
 | ----|----|
 | amd-loading | 整体样式 |

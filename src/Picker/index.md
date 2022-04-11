@@ -6,18 +6,21 @@ group:
   order: 10
 toc: false
 ---
-# Picker
-内部采用 PickerView组件实现
+# Picker 选择器
+Picker 选择器	显示一个或多个选项集合的的可滚动列表
+## 何时使用
+- 提供一组或多组关联选项供用户选择
+- 当少于5个选项时，建议直接将选项平铺，使用 Radio 是更好的选择
 ## 注意事项
 - 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `mode` 的值为 `form`。
 
 ## 代码示例
-
+### 基本使用
 <code src='../../demo/pages/Picker'></code>
 
-## API
 
-### 属性
+
+## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | controlled | boolean | 否 | false | - |
@@ -34,7 +37,7 @@ toc: false
 | mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
 | className | string | 否 | - | 类名 |
 
-### 事件
+## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onFormat | 选中值的文本格式 | (v: (string &#124; number)[]) => string |
@@ -48,7 +51,7 @@ toc: false
 | label | 文本区域标签名称 |
 | title | 弹窗窗体标题名称 |
 
-### 样式类
+## 样式类
 | 类名 | 说明 |
 | -----|-----|
 | amd-picker | 文本展示区域样式 |

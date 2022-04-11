@@ -7,15 +7,17 @@ group:
 toc: false
 ---
 
-# List
-列表，内部配合 ListItem 使用。
+# List 列表
+通用列表
+## 何时使用
+以列表的形式干净高效的承载文字、列表、图片、段落等
 ## 代码示例
-
+### 基本使用
 <code src='../../demo/pages/List'></code>
 
-## API
 
-### 属性
+
+## 属性
 
 #### List
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -40,7 +42,7 @@ toc: false
 | className | string | 否 | - | 类名 |
 
 
-### 插槽
+## 插槽
 
 #### List
 | 名称 | 说明 |
@@ -55,14 +57,14 @@ toc: false
 | extra | 右侧内容插槽 |
 | image | 左侧图标插槽 |
 
-### 事件
+## 事件
 
 #### ListItem
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onTap | 点击图标，触发此回调 | ( e: [`Event`](https://opendocs.alipay.com/mini/framework/event-object) ) => void |
 
-### 样式类
+## 样式类
 #### List
 | 类名 | 说明 |
 | -----|-----|

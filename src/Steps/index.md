@@ -6,13 +6,16 @@ group:
   order: 8
 toc: false
 ---
-# Steps
-步骤条，分步展示当前进展，配合 `StepItem` 组件使用
+# Steps 步骤条
+引导用户按照流程完成任务的导航条
+## 何时使用
+当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务
 ## 代码示例
+### 基本使用
 <code src='../../demo/pages/Steps'></code>
 
-## API
-### 属性
+
+## 属性
   
 #### Steps
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -34,7 +37,7 @@ toc: false
 | failIcon | string &verbar; slot | 否 | - | 失败步骤图标，横向和纵向都有各自的默认图标 |
 | className | string | 否 | - | 类名 |
   
-### 插槽
+## 插槽
 
 #### StepItem
 | 名称 | 说明 |

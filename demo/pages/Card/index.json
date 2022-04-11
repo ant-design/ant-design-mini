@@ -1,6 +1,0 @@
-{
-  "defaultTitle": "Card",
-  "usingComponents": {
-    "card": "../../../src/Card/index"
-  }
-}

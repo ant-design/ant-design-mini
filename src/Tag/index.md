@@ -6,15 +6,19 @@ group:
   order: 8
 toc: false
 ---
-# Tag
+# Tag 标签
+进行标记和分类的小标签
+## 何时使用
+- 用于标记事物的属性和维度
+- 进行分类
 
-标签组件
 ## 代码示例
+### 基本使用
 <code src='../../demo/pages/Tag'></code>
 
-## API
 
-### 属性
+
+## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | type | 'outline' &verbar; 'fill' &verbar; 'fill-light' | 否 | 'fill' | 类型 |
@@ -22,12 +26,12 @@ toc: false
 | icon | string| 否 | - | 图标 |
 | className | string | 否 | - | 类名 |
 
-### 插槽
+## 插槽
 | 名称 | 说明 |
 | ----|----|
 | icon | 图标插槽 |
 
-### 样式类
+## 样式类
 | 类名 | 说明 |
 | ----|----|
 | amd-tag | 整体样式 |

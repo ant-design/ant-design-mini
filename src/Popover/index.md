@@ -6,20 +6,21 @@ group:
   order: 12
 toc: false
 ---
-# Popover
-
-气泡，内部可以配合 PopoverItem 使用。
+# Popover 气泡菜单
+点击元素，弹出气泡式的菜单
+## 何时使用
+用于功能的导航，只可由导航栏上图标唤起，通常用于收纳低频使用的功能
 ## 代码示例
 
-### 基础使用
+### 基本使用
 <code src='../../demo/pages/PopoverBase'></code>
 
 ### 结合 PopoverItem 组件使用
 <code src='../../demo/pages/Popover'></code>
 
-## API
 
-### 属性
+
+## 属性
 
 #### Popover
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -38,7 +39,7 @@ toc: false
 | icon | string | 否 | - | 图标类型 |
 | className | string | 否 | - | 类名 |
 
-### 事件
+## 事件
 #### Popover
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
@@ -49,7 +50,7 @@ toc: false
 | -----|-----|-----|
 | onTap | 点击组件，触发回调 | () => void |
 
-### 插槽
+## 插槽
 #### Popover
 | 名称 | 说明 |
 | ----|----|
@@ -60,7 +61,7 @@ toc: false
 | -----|-----|
 | icon | 图标插槽 |
 
-### 样式类
+## 样式类
 #### Popover
 | 类名 | 说明 |
 | ----|----|

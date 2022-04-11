@@ -1,7 +1,0 @@
-.demo-card {
-  padding-top: 24rpx;
-}
-
-.demo-card-container {
-  padding: 24rpx;
-}

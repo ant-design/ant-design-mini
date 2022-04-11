@@ -7,20 +7,22 @@ group:
 toc: false
 ---
 
-# SwipeAction
+# SwipeAction 滑动操作
+列表的功能扩展
+## 何时使用
+通过滑动操作来展示隐藏的功能菜单
 
 ## 代码示例
 
-### 基础示例
-
+### 基本使用
 <code src='../../demo/pages/SwipeAction'></code>
 
 ### 组件实例方法
 <code src='../../demo/pages/SwipeActionRef'></code>
 
-## API
 
-### 属性
+
+## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | autoClose | boolean | 否 | false | 点击按钮是是否会自动收起 |
@@ -29,13 +31,13 @@ toc: false
 | right | { text: string, type: 'default' &verbar; 'primary' &verbar; 'danger'; className: string }[] | 否 | - | 左滑漏出右侧操作区 |
 | className | string | 否 | - | 类名 |
 
-### 事件
+## 事件
 | 事件名 | 说明 | 类型 | 补充 |
 | -----|-----|-----|-----|
 | onLeftButtonTap | 点击左侧按钮，触发回调 | (v: number) => void | 从左往右起，第 n 个按钮 |
 | onRightButtonTap | 点击右侧按钮，触发回调 | (v: number) => void | 从左往右起，第 n 个按钮  |
 
-### 样式类
+## 样式类
 | 类名 | 说明 |
 | ----|----|
 | amd-swipe-action| 整体样式 |
@@ -59,4 +61,7 @@ table th:first-of-type { width: 180px; }
 .__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
     width: 40px
 } 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after {
+    border-bottom: none!important;
+}
 </style>
