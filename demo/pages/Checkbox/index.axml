@@ -12,6 +12,12 @@
           <text>有描述的复选框</text>
         </label>
       </list-item>
+      <list-item className="demo-item">
+        <label>
+          <checkbox color="#00b578" checked/>
+          <text>指定颜色</text>
+        </label>
+      </list-item>
     </list>
   </demo-block>
   <demo-block title="默认选中" padding="0">
