@@ -3,28 +3,38 @@
     <list>
       <list-item className="demo-item">
         <label>
-          <checkbox value="123" checked="{{checked}}" onChange="handleChange" />
+          <checkbox/>
         </label>
       </list-item>
       <list-item className="demo-item">
         <label>
-          <checkbox  checked="{{checked}}" onChange="handleChange" />
+          <checkbox />
           <text>有描述的复选框</text>
         </label>
       </list-item>
       <list-item className="demo-item">
         <label>
-          <checkbox checked="{{true}}" onChange="handleChange" />
-          <text>默认选中</text>
-        </label>
-      </list-item>
-      <list-item className="demo-item">
-        <label>
-          <checkbox disabled />
-          <text>禁用状态</text>
+          <checkbox color="#00b578" checked/>
+          <text>指定颜色</text>
         </label>
       </list-item>
     </list>
+  </demo-block>
+  <demo-block title="默认选中" padding="0">
+    <list-item className="demo-item">
+      <label>
+        <checkbox checked />
+        <text>默认选中</text>
+      </label>
+    </list-item>
+  </demo-block>
+  <demo-block title="禁用状态" padding="0">
+    <list-item className="demo-item">
+      <label>
+        <checkbox disabled checked/>
+        <text>禁用状态</text>
+      </label>
+    </list-item>
   </demo-block>
   <demo-block title="受控模式">
     <list-item className="demo-item">

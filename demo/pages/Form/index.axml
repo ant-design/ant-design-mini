@@ -24,15 +24,12 @@
         max="{{100}}"
         step="{{1}}"/>
     </form-item>
-    <!-- <form-item
+    <form-item
       label="switch"
-      name="switch"
-      form="{{form}}">
-      <switch 
-        mode="form"
-      />
+      name="switch">
+      <switch/>
     </form-item>
-    <form-item 
+    <!-- <form-item 
       label="picker" 
       labelWidth="110px"
       name="picker" 

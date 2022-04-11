@@ -1,82 +1,127 @@
 <view class="demo">
-  <demo-block title="横向">
+  <demo-block title="横向步骤条">
     <steps 
       index="{{1}}" 
       direction="horizontal"
-      uid="steps-2">
-      <step-item 
-        index="{{0}}" 
-        title="第一步" 
-        desc="desc 部分的内容" 
-        uid="steps-2"
-      />
-      
-      <step-item 
-        index="{{1}}" 
-        desc="第二步"
-        fail="{{failIndex}}"
-        uid="steps-2">
-        <view slot="title">title slot</view>
-      </step-item>
-      
-      <step-item 
-        index="{{2}}" 
-        title="第三步"
-        uid="steps-2">
-        <view slot="desc"> desc slot </view>
-      </step-item>
-    </steps>  
-  </demo-block>
-  <demo-block title="纵向">
-    <steps 
-      index="{{activeIndex}}" 
-      direction="{{direction}}"
       uid="steps-1">
       <step-item 
         index="{{0}}" 
         title="第一步" 
-        desc="desc 部分的内容" 
-        uid="steps-1"/>
-      
+        desc="描述" 
+        uid="steps-1"
+      />
+
       <step-item 
         index="{{1}}" 
-        desc="第二步"
-        fail="{{failIndex}}"
+        desc="描述"
         uid="steps-1">
-        <view slot="title">title slot</view>
+        <view slot="title">第二步</view>
       </step-item>
       
       <step-item 
         index="{{2}}" 
         title="第三步"
         uid="steps-1">
-        <view slot="desc"> desc slot </view>
+        <view slot="desc">描述</view>
+      </step-item>
+    </steps>  
+  </demo-block>
+  <demo-block title="横向步骤条失败">
+    <steps 
+      index="{{2}}" 
+      uid="steps-2">
+      <step-item 
+        index="{{0}}" 
+        title="第一步" 
+        uid="steps-2"/>
+      <step-item 
+        index="{{1}}" 
+        title="第二步"
+        uid="steps-2">
+      </step-item>
+      
+      <step-item 
+        fail
+        index="{{2}}" 
+        title="第三步"
+        uid="steps-2">
       </step-item>
       
       <step-item 
         index="{{3}}" 
         title="第四步"
-        uid="steps-1">
+        uid="steps-2">
       </step-item>
     </steps>
-    <view class="demo-btn-container">
-      <button class="demo-btn" onTap="handlePreStep" disabled="{{activeIndex===0}}">上一步</button>
-      <button class="demo-btn" onTap="handleNextStep"  disabled="{{activeIndex===3}}">下一步</button>
-    </view>
-    <view class="demo-btn-container">
-      <button onTap="handleSetFailIndex" className="full-btn">{{failIndex?'隐藏':'显示'}}错误项</button>
-    </view>
   </demo-block>
-  <demo-block title="自定义图标">
+  <demo-block title="纵向步骤条">
     <steps 
+      direction="vertical"
       index="{{2}}" 
-      direction="horizontal"
       uid="steps-3">
       <step-item 
         index="{{0}}" 
         title="第一步" 
-        desc="desc 部分的内容" 
+        uid="steps-3"/>
+      <step-item 
+        index="{{1}}" 
+        title="第二步"
         uid="steps-3">
+      </step-item>
+      
+      <step-item 
+        index="{{2}}" 
+        title="第三步"
+        uid="steps-3">
+      </step-item>
+      
+      <step-item 
+        index="{{3}}" 
+        title="第四步"
+        uid="steps-3">
+      </step-item>
+    </steps>
+  </demo-block>
+  <demo-block title="纵向步骤条失败">
+    <steps 
+      direction="vertical"
+      index="{{2}}" 
+      uid="steps-4">
+      <step-item 
+        index="{{0}}" 
+        title="第一步" 
+        uid="steps-4"/>
+      <step-item 
+        index="{{1}}" 
+        title="第二步"
+        uid="steps-4">
+      </step-item>
+      
+      <step-item 
+        fail
+        index="{{2}}" 
+        title="第三步"
+        uid="steps-4">
+      </step-item>
+      
+      <step-item 
+        index="{{3}}" 
+        title="第四步"
+        uid="steps-4">
+      </step-item>
+    </steps>
+  </demo-block>
+  
+  <demo-block title="自定义图标">
+    <steps 
+      index="{{2}}" 
+      direction="horizontal"
+      uid="steps-5">
+      <step-item 
+        index="{{0}}" 
+        title="第一步" 
+        desc="desc 部分的内容" 
+        uid="steps-5">
           <icon slot="activeIcon" type="FireFill" className="steps-icon"/>
       </step-item>
       
@@ -84,7 +129,7 @@
         index="{{1}}" 
         desc="第二步"
         fail="{{true}}"
-        uid="steps-3">
+        uid="steps-5">
         <icon slot="failIcon" type="CloseCircleFill" className="steps-icon"/>
         <view slot="title">title slot</view>
       </step-item>
@@ -92,7 +137,7 @@
       <step-item 
         index="{{2}}" 
         title="第三步"
-        uid="steps-3">
+        uid="steps-5">
         <view slot="desc"> desc slot </view>
         <icon slot="failIcon" class="steps-icon"/>
       </step-item>
@@ -100,7 +145,7 @@
       <step-item 
         index="{{3}}" 
         title="第四步"
-        uid="steps-3">
+        uid="steps-5">
         <icon slot="icon" type="AAOutline" className="steps-icon"/>
       </step-item>
     </steps>

@@ -23,9 +23,9 @@ Page({
       },
     ],
   },
-  listClick(e) {
+  handleTap(e) {
     my.alert({
-      title: 'item onTap',
+      title: 'onTap',
       content: e.currentTarget.dataset.info,
     });
   },

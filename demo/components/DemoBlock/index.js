@@ -1,6 +1,6 @@
 Component({
   props: {
-    padding: '24rpx',
+    padding: '16rpx',
     background: '#fff',
     className: '',
     title: '',

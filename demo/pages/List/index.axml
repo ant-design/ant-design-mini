@@ -1,72 +1,47 @@
 <view>
   <list header="基础用法"  radius="{{radius}}">
-    <list-item>第一项</list-item>
-    <list-item>第二项</list-item>
-    <list-item>第三项</list-item>
+    <list-item>1</list-item>
+    <list-item>2</list-item>
+    <list-item>3</list-item>
   </list>
-  <white-space />
+  <list header="可点击列表"  radius="{{radius}}">
+    <list-item image="UnorderedListOutline" arrow="right" onTap="handleTap" data-info="账单">账单</list-item>
+    <list-item image="PayCircleOutline" arrow="right" onTap="handleTap" data-info="总资产">总资产</list-item>
+    <list-item image="SetOutline" arrow="right" onTap="handleTap" data-info="设置">设置</list-item>
+  </list>
   <list 
     radius="{{radius}}" 
-    header="单行列表">
+    header="复杂布局">
     <list-item>
       圆角
       <switch slot="extra" checked="{{radius}}" onChange="handleSetRadius"/>
     </list-item>
     <list-item 
-      extraBrief="次要信息"
+      extraBrief="未开启"
       arrow="right">
-        单行列表
+        大字号模式
     </list-item>
-    <view slot="footer">箭头分为：
-      <text style="color: #1677ff;">up/right/down</text>
-    </view>
-  </list>
-  <white-space />
-  <list radius="{{radius}}"  header="两行列表，列表含有 onTap，可点击">
     <list-item 
-      a:for="{{list}}" 
-      data-info="{{item.info}}" 
-      image="{{item.image}}" 
-      title="{{index === 0 ? '标题' : ''}}"
-      brief="{{index !== 0 ? '描述信息' : ''}}"
-      extra='次要信息'
-      extraBrief="{{index !== 0 ? '次要辅助信息' : ''}}"
-      arrow="{{item.arrow}}"
-      imageSize="medium" 
-      onTap="listClick">
-      <view slot="image" class="customImage">自定义</view>
-      {{item.content}}
+      brief="管理已授权的产品和设备"
+      arrow="{{item.arrow}}">
+      授权管理
     </list-item>
-  </list>
-  <white-space />
-  <list 
-    radius="{{radius}}" 
-    header="三行列表">
     <list-item 
-      a:for="{{list}}" 
       title="标题"
       brief="描述信息"
-      data-info="{{item.info}}" 
-      image="{{item.image}}" 
-      extra='次要信息'
-      extraBrief="{{index !== 0 ? '次要辅助信息' : ''}}"
-      arrow="{{item.arrow}}" 
+      image="AlipaySquareFill" 
+      extra="次要信息"
       imageSize="large"
-      onTap="listClick">
-      <view slot="image" class="customImage">自定义</view>
-      {{item.content}}
+      extraBrief="次要辅助信息"
+      arrow="right">
+      三行列表
     </list-item>
   </list>
-  <white-space />
   <list 
     radius="{{radius}}" 
-    header="列表项禁用">
-    <list-item 
-      extraBrief="次要信息"
-      disabled
-      arrow="right">
-        单行列表
-    </list-item>
+    header="禁用状态">
+    <list-item disabled image="UnorderedListOutline" arrow="right" data-info="账单">账单</list-item>
+    <list-item disabled image="PayCircleOutline" arrow="right" data-info="总资产">总资产</list-item>
   </list>
   <white-space />
 </view>

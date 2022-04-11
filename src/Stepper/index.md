@@ -2,23 +2,25 @@
 nav:
   path: /components
 group:
-  title: 表单类组件
-  order: 3
+  title: 信息输入
+  order: 10
 toc: false
 ---
 
-# Stepper
-
+# Stepper 步进器
+一种两段式控制，增加、减少或修改数值
+## 何时使用
+用于在一定范围内输入、调整当前数值
 ## 注意事项
 - 输入最大（最小）值无提示，失去焦点后，超过最大（最小）值时系统会自动回显数值为最大值；
-- 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `mode` 的值为 `form`。
 
 ## 代码示例
+### 基本使用
 <code src='../../demo/pages/Stepper'></code>
 
-## API
 
-### 属性
+
+## 属性
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
@@ -34,17 +36,17 @@ toc: false
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 | disabled | boolean | 否 | false | 是否禁用 |
-| mode | 'noraml' &verbar; 'form' | 否 | normal | 配合From/FormItem组件使用时，需设置为 from |
+| mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
 | className | string | 否 | - | 类名 |
 
-### 事件
+## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onFocus | 聚焦时，触发此回调 | ( e: number ) => void  |
 | onBlur | 失去焦点时，触发此回调 | ( e: number ) => void  |
 | onChange | 数据变化后，触发此回调 | ( e: number ) => void  |
 
-### 样式类
+## 样式类
 | 类名 | 说明 |
 | -----|-----|
 | amd-stepper | 整体样式 |

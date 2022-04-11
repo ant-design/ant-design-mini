@@ -9,9 +9,9 @@ Component({
     defaultPropsValue: false
   }), formed()],
   methods: {
-    onChange(e) {
-      const { value } = e.detail;
-      this.triggerChange(value);
+    onChange() {
+      const { cValue } = this.data;
+      this.triggerChange(!cValue);
     },
   },
 });

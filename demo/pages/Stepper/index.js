@@ -1,6 +1,6 @@
 Page({
   data: {
-    value: 99,
+    value: 0,
   },
   handleChange(value) {
     // this.setData({ value });

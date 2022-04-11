@@ -3,7 +3,8 @@ import { IBaseFormItemPropsWithOutFocus } from '../_base';
  * @description 复选框，表单组件。
  */
 
-export interface ICheckboxProps extends IBaseFormItemPropsWithOutFocus<boolean> {
+export interface ICheckboxProps
+  extends IBaseFormItemPropsWithOutFocus<boolean> {
   /**
    * @description checkbox 携带的 value 值, 在原生 form 表单提交的时候有用；在 CheckboxGroup 时亦有用
    */
@@ -13,5 +14,9 @@ export interface ICheckboxProps extends IBaseFormItemPropsWithOutFocus<boolean> 
    */
 
   checked?: boolean;
+  /**
+   * @description checkbox 的颜色，同 CSS 色值
+   */
+  color?: string;
 }
 export declare const CheckboxDefaultProps: Partial<ICheckboxProps>;

@@ -2,23 +2,24 @@
 nav:
   path: /components
 group:
-  title: 表单类组件
-  order: 3
+  title: 信息输入
+  order: 10
 toc: false
 ---
 
-# Input
+# Input 输入框
+通过键盘输入内容，是最基础的表单域包装
+## 何时使用
+一般用在表单页进行信息的收集，提供文本框、选择框两种类型
 
-## 注意事项
-- 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `mode` 的值为 `form`。
 
 ## 代码示例
-
+### 基本使用
 <code src='../../demo/pages/InputItem'></code>
 
-## API
 
-### 属性
+
+## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | className | string | 否 | - | 类名 |
@@ -37,7 +38,7 @@ toc: false
 | selectionEnd | number | 否 | -1 | 获取光标时，选中文本对应的焦点光标结束位置，需要和 selection-start 配合使用。 |
 | randomNumber | boolean | 否 | false | 当 type 为 number, digit, idcard 数字键盘是否随机排列。 |
 | enableNative | boolean | 否 | - | 是否启用 Native 渲染 |
-| layer | 'horizontal' &verbar; 'vertical' | 否 | "horizontal" | input 排列位置 |
+| layer | 'horizontal' &verbar; 'vertical' | 否 | 'horizontal' | input 排列位置 |
 | inputCls | string | 否 | - | input 输入框的样式类名 |
 | labelCls | string | 否 | - | label 区域的样式类名 |
 | clear | boolean | 否 | true | 显示清除图标 |
@@ -49,7 +50,7 @@ toc: false
 | name | string | 否 | - | 表单元素 name |
 
 
-### 事件
+## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 输入时触发此回调 | (v: string) => void |
@@ -59,7 +60,7 @@ toc: false
 | onBlur | 失焦时触发此回调 | (v: string) => void |
 | onBlur | 失焦时触发此回调 | (v: string) => void |
 
-### 样式类
+## 样式类
 | 类名 | 说明 | 
 | -----|-----|
 | amd-input-item | 	整体样式 |

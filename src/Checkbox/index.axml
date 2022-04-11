@@ -2,13 +2,16 @@
   <checkbox
     class="amd-checkbox-base"
     controlled="{{controlled}}"
+    color="{{color}}"
     id="{{id ? id : $id}}"
     disabled="{{disabled}}"
     onChange="onChange"
     checked="{{cValue}}"
     value="{{value}}"
   />
-    <view class="amd-checkbox-fake 
+    <view 
+      style="{{!disabled&&cValue&&color?'background:'+color + '; border-color:' + color:''}}"
+      class="amd-checkbox-fake 
       {{disabled 
           ? cValue
             ? 'amd-checkbox-fake-disabled-checked' 

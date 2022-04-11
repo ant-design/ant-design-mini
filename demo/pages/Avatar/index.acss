@@ -1,6 +1,6 @@
 .demo-list {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 .list-item {
   margin-right: 24rpx;
