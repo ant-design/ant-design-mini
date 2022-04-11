@@ -1,1 +1,3 @@
-export const TabItemDefaultProps = {};
+export const TabItemDefaultProps = {
+    uid: "tabs"
+};

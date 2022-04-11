@@ -8,4 +8,5 @@ export const TabsDefaultProps = {
   fallback:false,
   touchAngle: 45,
   onGetRef: () => {},
+  uid: 'tabs'
 };
