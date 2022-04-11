@@ -37,3 +37,13 @@ export interface IStepperProps extends IBaseFormItemProps<number> {
    inputWidth?: string;
 }
 export declare const StepperDefaultProps: Partial<IStepperProps>;
+
+export interface IStepperData {
+  confirm: boolean,
+  _value: string,
+  cValue: number,
+  minusDisabled: boolean,
+  addDisabled: boolean,
+  min: number,
+  max: number,
+}

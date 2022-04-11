@@ -3,10 +3,11 @@
         onFinish="handleSubmit"
         onFinishFailed="handleFinishFailed"
         onValuesChange="handleValuesChange">
-        <form-item
+        <form-item 
             label="账号"
             name="account"
             required
+            position="vertical"
         >
             <input-item placeholder="请输入账号"/>
         </form-item>

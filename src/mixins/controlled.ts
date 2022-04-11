@@ -47,9 +47,12 @@ Record<string, unknown>,
     methods: {
       triggerChange(value) {
         this.props[propsTriggerChange]?.bind(this)(value)
-        this.setData({
-          cValue: value
-        })
+        if (!this.props.controlled) {
+          this.setData({
+            cValue: value
+          })
+        }
+       
       }
     }
   }

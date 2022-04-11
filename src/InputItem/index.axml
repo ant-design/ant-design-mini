@@ -6,7 +6,7 @@
         id="{{id ? id : `amdInput_${$id}`}}"
         name="{{name}}"
         disabled="{{disabled}}"
-        value="{{controlled? value : cValue}}"
+        value="{{cValue}}"
         type="{{type}}"
         password="{{password}}" 
         placeholder="{{placeholder}}"

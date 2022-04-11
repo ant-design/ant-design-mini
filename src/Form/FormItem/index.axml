@@ -15,6 +15,11 @@
       <!--field-->
       <view class="amd-form-item-field amd-form-item-field-{{position}}">
         <slot/>
+        <view
+          class="amd-form-item-error-info {{disabled ? 'amd-form-item-error-info-disabled' : ''}} amd-form-item-error-info-{{position}}"
+          a:if="{{!!errorInfo}}">
+          {{errorInfo.message}}
+        </view>
       </view>
     </view>
     <view class="amd-form-item-other {{disabled ? 'amd-form-item-other-disabled' : ''}}">
@@ -27,12 +32,6 @@
         <icon type="RightOutline" size="x-small"/>
       </view>
     </view>
-  </view>
-  <view
-    class="amd-form-item-error-info {{disabled ? 'amd-form-item-error-info-disabled' : ''}} amd-form-item-error-info-{{position}}"
-    style="{{position==='horizontal' ? labelWidth ? `padding-left: ${labelWidth}` : `padding-left: ${defaultLabelWidth}` : ''}}"
-    a:if="{{!!errorInfo}}">
-    {{errorInfo.message}}
   </view>
   <view class="form-line"/>
 </view>

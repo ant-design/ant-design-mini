@@ -1,8 +1,9 @@
 
 import formStoreFactory from '../store'
 import { cacheFieldName } from '../cache'
+import { IComponentProps, IComponentData, IComponentMethods, IComponentExtraThis } from './props'
 
-Component({
+Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThis>({
   props: {
     rules: [],
     name: 'default',
@@ -13,15 +14,13 @@ Component({
 
   data: {
     errorInfo: null,
-    submitDisable: false,
-    defaultLabelWidth:  0
   },
 
   onInit() {
     const pageId = this.$page.$id;
     const { form: uid } = this.props
     this.store = formStoreFactory.getStore({ pageId, uid })
-    cacheFieldName(function() {
+    cacheFieldName(function(this: any) {
       return this.props.name
     }.bind(this))
     this.setFieldRules();
@@ -33,16 +32,6 @@ Component({
     cacheFieldName(function() {
       return ''
     }.bind(this))
-    my.createSelectorQuery()
-      .select('.amd-form-item-label-horizontal')
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0] && ret[0].width) {
-          this.setData({
-            defaultLabelWidth: `${ret[0].width}px`,
-          });
-        }
-      });
   },
 
   didUnmount() {
@@ -79,10 +68,6 @@ Component({
 
     updateErrorInfo(payload) {
       this.setData({ errorInfo: payload });
-    },
-  
-    updateSubmitButtonStatus(payload) {
-      this.setData({ submitDisable: !!payload });
     },
   }
 

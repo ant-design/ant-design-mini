@@ -1,6 +1,6 @@
 import { SwitchDefaultProps } from './props';
 import controlled from '../mixins/controlled';
-import formMixin from '../mixins/form';
+import formMixin from '../Form/mixin';
 
 Component({
   props: SwitchDefaultProps,

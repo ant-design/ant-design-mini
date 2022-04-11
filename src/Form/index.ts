@@ -1,6 +1,7 @@
 import formStoreFactory from './store';
+import { IComponentProps, IComponentData, IComponentMethods, IComponentExtraThis } from './props'
 
-Component({
+Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThis>({
   props: {
     initialValues: {
     },
@@ -60,15 +61,15 @@ Component({
 
   ref() {
     return {
-      setFieldsValue: function (values) {
+      setFieldsValue: function ( this:any, values) {
         this.store.setFieldsValue(values, { silent: true});
       }.bind(this),
 
-      getFieldsValue: function () {
+      getFieldsValue: function (this: any) {
         return this.store.getFieldsValue();
       }.bind(this),
 
-      validate: async function () {
+      validate: async function (this: any) {
         const errorInfo = await this.store.validate();
         return errorInfo;
       }.bind(this),

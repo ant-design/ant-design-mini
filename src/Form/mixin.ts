@@ -1,7 +1,19 @@
+import type { IUserComponentOptions } from "@mini-types/alipay";
 import { getFieldName } from './cache'
-import formStoreFactory from './store'
+import formStoreFactory, { FormStore } from './store'
+import { IComponentData } from './props'
 
-export default () => {
+
+export default (): IUserComponentOptions<IComponentData, {
+  onChange(v): void,
+  form?: string
+}, {
+  onChangeFormFieldValue(changedValues):void
+}, {
+  store: FormStore,
+  fieldName?: string
+},
+Record<string, unknown>,[]> => {
   return {
     props: {
       onChange(v) {

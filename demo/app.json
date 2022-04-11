@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/Form/index",
+    "pages/FormTest/index",
     "pages/FormBasic/index",
     "pages/FormDynamic/index",
     "pages/FormGroup/index",

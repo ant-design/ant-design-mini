@@ -1,8 +1,8 @@
-import { StepperDefaultProps } from './props';
+import { StepperDefaultProps,  IStepperData } from './props';
 import computed from '../mixins/computed';
 import controlled from '../mixins/controlled';
+import  formMixin from '../Form/mixin'
 import { upStep, downStep } from './utils';
-import formMixin from '../mixins/form';
 
 Component({
   mixins: [computed, controlled(), formMixin()],
@@ -10,15 +10,7 @@ Component({
   data: {
     confirm: false,
     _value: null,
-  } as {
-    confirm: boolean,
-    _value: string,
-    cValue: number,
-    minusDisabled: boolean,
-    addDisabled: boolean,
-    min: number,
-    max: number,
-  },
+  } as IStepperData,
   didMount() {
     const { min, max, cValue } = this.data;
     if (cValue < min) {
@@ -47,6 +39,7 @@ Component({
       }
       return { min, max, cValue };
     },
+
     onInput(e) {
       const { value } = e.detail;
       if (value === '') {
@@ -59,10 +52,12 @@ Component({
         });
       }
     },
+  
     onFocus(e) {
       const { value } = e.detail;
       this.props.onFocus?.(value);
     },
+  
     onBlur(e) {
       if (this.data.confirm) {
         this.setData({
@@ -73,18 +68,20 @@ Component({
         this.setData({
           _value: null,
         });
-        this.cOnChange(this.getInputValue(value));
+        this.triggerChange(this.getInputValue(value));
         this.props.onBlur?.(this.getInputValue(value));
       }
     },
+  
     onConfirm(e) {
       const { value } = e.detail;
       this.setData({
         _value: null,
         confirm: true,
       });
-      this.cOnChange(this.getInputValue(value));
+      this.triggerChange(this.getInputValue(value));
     },
+  
     getInputValue(inputValue) {
       const { min, max } = this.props;
       let inputValueTemp = null;
@@ -99,6 +96,7 @@ Component({
         return inputValueTemp;
       }
     },
+  
     onChange(e) {
       const { step, disabled, precision } = this.props;
       const { min, max, cValue } = this.data;
@@ -107,11 +105,11 @@ Component({
         if (mode === 'minus') {
           // 【减】按钮的操作
           const minusTemp = downStep(cValue, step, precision);
-          this.cOnChange(Math.max(minusTemp, min));
+          this.triggerChange(Math.max(minusTemp, min))
         } else if (mode === 'add') {
           // 【加】按钮的操作
           const addTemp = upStep(cValue, step, precision);
-          this.cOnChange(Math.min(addTemp, max));
+          this.triggerChange(Math.min(addTemp, max));
         }
       }
     },

@@ -1,7 +1,7 @@
 
 import Schema from 'async-validator';
 import EventEmitter from '../_util/eventEmitter'
-class FormStore extends EventEmitter {
+export class FormStore extends EventEmitter {
   private formData: Record<string, any>;
   private errorInfo: Record<string, any>;
   private rules:  Record<string, any>;
@@ -76,7 +76,7 @@ class FormStore extends EventEmitter {
     this.emitErrorInfoChange(errorInfo, options);
   }
 
-  validate(options) {
+  validate(options?: Record<string, any>): Promise<{ valid: boolean, errors?: Record<string, any>}> {
     return new Promise(resovle => {
       const allValues = this.getFieldsValue();
       this.validator.validate(allValues).then(() => {

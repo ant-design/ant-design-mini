@@ -3,6 +3,6 @@
   name="{{name}}"
   disabled="{{disabled}}"
   onChange="onChange"
-  checked="{{controlled? checked : cValue}}"
+  checked="{{cValue}}"
   controlled="{{controlled}}"
 />
