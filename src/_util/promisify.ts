@@ -30,57 +30,59 @@ function promisifyCall(name) {
   };
 }
 
-interface TempFile {
-  /**
-   * @description 本地临时文件路径（本地路径）
-   */
-  path: string;
-  /**
-   * @description 本地临时文件大小，单位为 B
-   */
-  size: number;
+declare namespace My {
+  interface TempFile {
+    /**
+     * @description 本地临时文件路径（本地路径）
+     */
+    path: string;
+    /**
+     * @description 本地临时文件大小，单位为 B
+     */
+    size: number;
+  }
+
+  interface ChooseImage {
+    apFilePaths: Array<string>;
+    success: boolean;
+    tempFiles: Array<TempFile>;
+  }
+
+  interface ChooseVideo {
+    tempFilePath: string;
+    duration: number;
+    size: number;
+    height: number;
+    width: number;
+    success: boolean;
+  }
+
+  interface ChooseFileFromDisk {
+    apFilePath: string;
+    success: boolean;
+  }
+
+  interface UploadFile {
+    data: string;
+    statusCode: string | number;
+    header: string;
+  }
+
+  interface GetFileInfo {
+    digest: string;
+    size: number;
+  }
+
+  interface DownloadFile {
+    apFilePath: string;
+  }
 }
 
-interface ChooseImage {
-  apFilePaths: Array<string>;
-  success: boolean;
-  tempFiles: Array<TempFile>;
-}
-
-interface ChooseVideo {
-  tempFilePath: string;
-  duration: number;
-  size: number;
-  height: number;
-  width: number;
-  success: boolean;
-}
-
-interface ChooseFileFromDisk {
-  apFilePath: string;
-  success: boolean;
-}
-
-interface UploadFile {
-  data: string;
-  statusCode: string | number;
-  header: string;
-}
-
-interface GetFileInfo {
-  digest: string;
-  size: number;
-}
-
-interface DownloadFile {
-  apFilePath: string;
-}
-
-export const chooseImage: (option: any) => Promise<ChooseImage> = promisifyMy('chooseImage');
-export const chooseVideo: (option: any) => Promise<ChooseVideo> = promisifyMy('chooseVideo');
-export const chooseFileFromDisk: (option?: any) => Promise<ChooseFileFromDisk> = promisifyMy('chooseFileFromDisk');
-export const uploadFile: (option: any) => Promise<UploadFile> = promisifyMy('uploadFile');
-export const getFileInfo: (option: any) => Promise<GetFileInfo> = promisifyMy('getFileInfo');
+export const chooseImage: (option: any) => Promise<My.ChooseImage> = promisifyMy('chooseImage');
+export const chooseVideo: (option: any) => Promise<My.ChooseVideo> = promisifyMy('chooseVideo');
+export const chooseFileFromDisk: (option?: any) => Promise<My.ChooseFileFromDisk> = promisifyMy('chooseFileFromDisk');
+export const uploadFile: (option: any) => Promise<My.UploadFile> = promisifyMy('uploadFile');
+export const getFileInfo: (option: any) => Promise<My.GetFileInfo> = promisifyMy('getFileInfo');
 export const previewImage: (option: any) => void = promisifyMy('previewImage');
-export const downloadFile: (option: any) => Promise<DownloadFile> = promisifyMy('downloadFile');
+export const downloadFile: (option: any) => Promise<My.DownloadFile> = promisifyMy('downloadFile');
 
