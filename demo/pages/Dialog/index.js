@@ -1,81 +1,55 @@
 Page({
   data: {
+    isNoBtnShow: false,
+    isMaskClosableShow: false,
     isVerticalShow: false,
     isHoriShow: false,
-    isSImgDialogShow: false,
-    isMImgDialogShow: false,
     isLImgDialogShow: false,
     isCusDialogShow: false,
     url: 'https://gw.alipayobjects.com/zos/rmsportal/yFeFExbGpDxvDYnKHcrs.png',
   },
-  onVerticalButtonTap() {
+  handleClose() {
     this.setData({
+      isNoBtnShow: false,
+      isMaskClosableShow: false,
       isVerticalShow: false,
-    });
-  },
-  onHoriButtonTap() {
-    this.setData({
       isHoriShow: false,
+      isLImgDialogShow: false,
+      isCusDialogShow: false,
     });
   },
-  onVerticalClose() {
-    this.setData({
-      isVerticalShow: false,
+  handleButtonTap(index) {
+    my.alert({
+      title: `点击了第${index + 1}个按钮`,
+      complete: () => {
+        this.handleClose();
+      },
     });
   },
-  onHoriClose() {
-    this.setData({
-      isHoriShow: false,
-    });
+  handleOpenNoBtn() {
+    this.setData({ isNoBtnShow: true });
   },
-  openVertical() {
+  handleOpenMaskClosable() {
+    this.setData({ isMaskClosableShow: true });
+  },
+  handleOpenVertical() {
     this.setData({
       isVerticalShow: true,
     });
   },
-  openHori() {
+  handleOpenHori() {
     this.setData({
       isHoriShow: true,
     });
   },
-  openSImg() {
-    this.setData({
-      isSImgDialogShow: true,
-    });
-  },
-  openMImg() {
-    this.setData({
-      isMImgDialogShow: true,
-    });
-  },
-  openLImg() {
+  handleOpenLImg() {
     this.setData({
       isLImgDialogShow: true,
     });
   },
-  openCus() {
+  handleOpenCus() {
     this.setData({
       isCusDialogShow: true,
-    });
-  },
-  onSImgClose() {
-    this.setData({
-      isSImgDialogShow: false,
-    });
-  },
-  onMImgClose() {
-    this.setData({
-      isMImgDialogShow: false,
-    });
-  },
-  onLImgClose() {
-    this.setData({
-      isLImgDialogShow: false,
-    });
-  },
-  onCusClose() {
-    this.setData({
-      isCusDialogShow: false,
     });
   },
 });

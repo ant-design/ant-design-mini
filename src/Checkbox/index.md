@@ -2,30 +2,28 @@
 nav:
   path: /components
 group:
-  title: 表单类组件
-  order: 3
+  title: 信息输入
+  order: 10
 toc: false
 ---
 
-# Checkbox
-复选框，表单组件。
+# Checkbox 复选框
+在一组可选项中进行多选
+## 何时使用
+- 在一组可选项中进行多项选择时
+- 单独使用可以表示两种状态之间的切换，和 switch 类似。区别在于切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合
 
 ## 注意事项
 - 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `mode` 的值为 `form`。
 
 ## 代码示例
 
-### 基础使用
-
+### 基本使用
 <code src='../../demo/pages/Checkbox'></code>
 
-### 受控模式
 
-<code src='../../demo/pages/CheckboxControlled'></code>
 
-## API
-
-### 属性
+## 属性
     
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
@@ -38,12 +36,12 @@ toc: false
 | className | string | 否 | - | 类名 |
 
 
-### 事件
+## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 选中状态改变，触发回调 | (e: Event) => void|
 
-### 样式类
+## 样式类
 | 类名 | 说明 |
 | -----|-----|
 | amd-checkbox | 标签样式 |

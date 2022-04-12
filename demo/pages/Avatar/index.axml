@@ -1,21 +1,30 @@
-<white-space />
-<container title="四种尺寸">
-  <view class="demo-avatar-size">
-    <view class="demo-avatar-size-container">
-      <avatar size="large" />
-      <text>large</text>
+<view class="demo">
+  <demo-block title="基础用法-四种尺寸">
+    <view class="demo-list">
+      <view class="list-item" a:for="{{images}}">
+        <avatar src="{{item}}" />
+      </view>
     </view>
-    <view class="demo-avatar-size-container">
-      <avatar />
-      <text>默认值：medium</text>
+  </demo-block>
+  <demo-block title="占位头像">
+    <avatar/>
+  </demo-block>
+  <demo-block title="不同大小">
+    <view class="demo-list">
+      <view class="list-item" a:for="{{sizes}}">
+        <avatar size="{{item}}" src="{{images[0]}}" />
+      </view>
     </view>
-    <view class="demo-avatar-size-container">
-      <avatar size="small" />
-      <text>small</text>
-    </view>
-    <view class="demo-avatar-size-container">
-      <avatar size="x-small" />
-      <text>x-small</text>
-    </view>
-  </view>
-</container>
+  </demo-block>
+  <demo-block title="配合列表使用" padding="0">
+    <list-item>
+      <avatar name="Novlee Spicer" desc="Deserunt dolor ea eaque eos" src="{{images[0]}}" />
+    </list-item>
+    <list-item>
+      <avatar desc="仅有 desc 时，name不显示" src="{{images[0]}}" />
+    </list-item>
+    <list-item>
+      <avatar name="size=x-small，desc不显示" desc="摘要信息" size="x-small" src="{{images[0]}}" />
+    </list-item>
+  </demo-block>
+</view>

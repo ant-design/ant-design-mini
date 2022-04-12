@@ -3,6 +3,10 @@
   "usingComponents": {
     "list": "../../../src/List/index",
     "list-item": "../../../src/List/ListItem/index",
-    "tips": "../../../src/Tips/index"
+    "input-item": "../../../src/InputItem/index",
+    "tips": "../../../src/Tips/index",
+    "switch": "../../../src/Switch/index",
+    "radio-group": "../../../src/RadioGroup/index",
+    "radio-item": "../../../src/RadioGroup/RadioItem/index"
   }
 }

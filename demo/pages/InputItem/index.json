@@ -1,9 +1,7 @@
 {
-  "defaultTitle": "Input-item",
+  "defaultTitle": "InputItem",
   "usingComponents": {
-    "list": "../../../src/List/index",
-    "list-item": "../../../src/List/ListItem/index",
     "input-item": "../../../src/InputItem/index",
-    "amd-icon": "../../../src/Icon/index"
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

@@ -2,6 +2,9 @@
   "defaultTitle": "Button",
   "usingComponents": {
     "button": "../../../src/Button/index",
-    "checkbox": "../../../src/Checkbox/index"
+    "list": "../../../src/List/index",
+    "list-item": "../../../src/List/ListItem/index",
+    "switch": "../../../src/Switch/index",
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

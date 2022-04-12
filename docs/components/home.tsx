@@ -2,6 +2,9 @@ import React from 'react'
 import styles from './home.less'
 
 export default () => {
+  const simulator = document.querySelector("#simulatorContainer");
+  // @ts-ignore
+  if(simulator) simulator.style.display = 'none';
   return (
     <div className={styles.homePage}>
       {/* 内容部分 */}

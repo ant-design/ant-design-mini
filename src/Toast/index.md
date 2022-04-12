@@ -6,8 +6,11 @@ group:
   order: 2
 toc: false
 ---
-# Toast
+# Toast 轻提示
+## 何时使用
+对操作结果的轻量级反馈，无需用户操作即可自行消失
 ## 代码示例
+### 基本使用
 <code src='../../demo/pages/Toast'></code>
 
 ## API

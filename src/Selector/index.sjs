@@ -14,6 +14,13 @@ const getFixedValue = (value, multiple) => {
   return [];
 };
 
+const getIsCurItemSelected = (value, multiple, itemValue) => {
+  const fixedValue = getFixedValue(value, multiple);
+
+  return fixedValue.indexOf(itemValue) !== -1;
+}
+
+
 export default {
-  getFixedValue,
+  getIsCurItemSelected,
 };

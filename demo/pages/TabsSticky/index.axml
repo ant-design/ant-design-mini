@@ -1,0 +1,31 @@
+
+<view style="height:200px; z-index:999;background-color:red">
+dd
+</view>
+<tabs 
+  index="{{index}}" 
+  type="basic" 
+  swipeable="{{true}}" 
+  sticky="{{true}}"
+  stickyTop="50px"
+  onChange="changeTab">
+  <block a:for="{{tabs}}">
+    <tab-content 
+      tab="{{item}}">
+      <view>
+      {{index}}
+          <view 
+            a:for="{{200}}">
+            ........根据内容自适应高度........
+          </view>
+      </view>
+    </tab-content>
+  </block>
+</tabs>
+
+
+<text 
+  a:if="{{!canSwipe}}" 
+  class="tips">
+  当前未开启 component2 编译，无法使用 swipeable 属性。
+</text>

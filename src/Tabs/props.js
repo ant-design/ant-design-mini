@@ -4,5 +4,8 @@ export const TabsDefaultProps = {
   animation: false,
   swipeable: false,
   sticky: false,
+  stickyTop: 0,
+  fallback:false,
+  touchAngle: 45,
   onGetRef: () => {},
 };

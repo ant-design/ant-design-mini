@@ -13,7 +13,7 @@ export interface IPopoverProps extends IBaseProps {
   /**
    * @description visible 变更时回调
    */
-  onVisibleChange?: (visible: boolean) => void;
+  onVisibleChange?: (visible: boolean, from: 'component' | 'mask') => void;
   /**
    * @description 方向
    * @default "bottom-right"
@@ -23,6 +23,21 @@ export interface IPopoverProps extends IBaseProps {
    * @description 组件显示模式
    * @default dark
    */
-  mode?: 'dark' | 'light'
+  mode?: 'dark' | 'light',
+  /**
+   * @description 是否展示蒙层
+   * @default false
+   */
+  mask?: boolean;
+  /**
+   * @description 是否可点击蒙层关闭
+   * @default true
+   */
+  maskClosable?: boolean;
+  /**
+   * @description 用以解决遮罩层受到 transform 影响而显示不全的问题
+   * @default false
+   */
+  fixMaskFull?: boolean;
 }
 export declare const PopoverDefaultProps: Partial<IPopoverProps>;

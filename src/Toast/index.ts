@@ -9,7 +9,7 @@ Component({
     didUpdate (prev) {
         if (!prev.visible && this.props.visible) {
             this.handleShowToast()
-        } else if (!this.props.visible) {
+        } else if (!this.props.visible && this.data.show) {
             this.setData({ show: false })
         }
     },

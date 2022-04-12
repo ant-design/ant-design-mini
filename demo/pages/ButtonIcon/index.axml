@@ -1,20 +1,23 @@
-  <button 
-    type="primary" 
-    icon="AppOutline"
-    onTap="onTap" >
-    Icon
-  </button>
-
-  <button 
-    type="primary" 
-    icon="{{url}}"
-    onTap="onTap" >
-    Icon
-  </button>
-
-  <button 
-    type="primary" 
-    onTap="onTap" >
-    <view class="button-icon" slot="icon">※</view>
-  </button>
-  
+  <demo-block title="自定义图标">
+    <view class="btn-list">
+      <button 
+        type="primary" 
+        icon="AppOutline"
+        onTap="handleTap" >
+        Icon
+      </button>
+    
+      <button 
+        type="primary" 
+        icon="{{url}}"
+        onTap="handleTap" >
+        Image
+      </button>
+    
+      <button 
+        type="primary" 
+        onTap="handleTap" >
+        <view slot="icon">※</view>使用icon slot
+      </button>
+    </view>
+  </demo-block>

@@ -1,65 +1,56 @@
 <view>
   <dialog
-    title="标题单行"
+    content="人在天边月上明"
+    buttonText="{{['我知道了']}}"
+    visible="{{isNoBtnShow}}"
+    onButtonTap="handleClose"
+    onClose="handleClose">
+  </dialog>
+  <dialog
+    content="人在天边月上明"
+    buttonText="{{['我知道了']}}"
+    visible="{{isMaskClosableShow}}"
+    onButtonTap="handleClose"
+    onClose="handleClose"
+    maskClosable>
+  </dialog>
+  <dialog
+    title="纵向"
     content="标题内容"
     buttonText="{{['长文案主操作', '更多','取消']}}"
     visible="{{isVerticalShow}}"
     direction="vertical"
     maskClosable="{{true}}"
-    onClose="onVerticalClose"
-    onButtonTap="onVerticalButtonTap">
+    onClose="handleClose"
+    onButtonTap="handleButtonTap">
   </dialog>
 
   <dialog
-    title="标题单行"
+    title="横向"
     content="标题内容"
     buttonText="{{['辅助操作', '主操作']}}"
     visible="{{isHoriShow}}"
     maskClosable="{{true}}"
     direction="horizontal"
-    onClose="onHoriClose"
-    onButtonTap="onHoriButtonTap"/>
+    onClose="handleClose"
+    onButtonTap="handleButtonTap"/>
 
   <dialog
-    title="标题单行"
+    title="自定义组件"
     content="标题内容"
     buttonText="{{['辅助操作', '主操作']}}"
     visible="{{isCusDialogShow}}"
     maskClosable="{{true}}"
     direction="horizontal"
-    onClose="onCusClose"
-    onButtonTap="onHoriButtonTap">
+    onClose="handleClose"
+    onButtonTap="handleClose">
     <view class="input-container">
       <input-item placeholder="给朋友留言"></input-item>
     </view>
   </dialog>
 
   <dialog
-    title="标题单行"
-    content="标题内容"
-    buttonText="{{['辅助操作', '主操作']}}"
-    imageSize="medium"
-    image="{{url}}" 
-    visible="{{isSImgDialogShow}}" 
-    maskClosable="{{true}}"
-    direction="horizontal"
-    onClose="onSImgClose"
-    onButtonTap="onHoriButtonTap"/>
-
-  <dialog
-    title="标题单行"
-    content="标题内容"
-    buttonText="{{['辅助操作', '主操作']}}"
-    imageSize="large"
-    image="{{url}}" 
-    visible="{{isMImgDialogShow}}" 
-    maskClosable="{{true}}"
-    direction="horizontal"
-    onClose="onMImgClose"
-    onButtonTap="onHoriButtonTap"/>
-
-  <dialog
-    title="标题单行"
+    title="带大图"
     content="标题内容"
     buttonText="{{['辅助操作', '主操作']}}"
     imageSize="x-large"
@@ -67,18 +58,24 @@
     visible="{{isLImgDialogShow}}" 
     maskClosable="{{true}}"
     direction="horizontal"
-    onClose="onLImgClose"
-    onButtonTap="onHoriButtonTap"/>
-  
-  <button class="space" onTap="openVertical">纵向</button>
-  
-  <button class="space" onTap="openHori">横向</button>
-
-  <button class="space" onTap="openCus">自定义组件</button>
-  
-  <button class="space" onTap="openSImg">带小图</button>
-  
-  <button class="space" onTap="openMImg">带中图</button>
-
-  <button class="space" onTap="openLImg">带大图</button>
+    onClose="handleClose"
+    onButtonTap="handleClose"/>
+  <demo-block title="基础用法">
+    <view class="btn-list">
+      <button  onTap="handleOpenNoBtn">最简单的小对话框</button>
+      <button  onTap="handleOpenMaskClosable">点击遮罩关闭</button>
+    </view>
+  </demo-block>
+  <demo-block title="操作按钮">
+    <view class="btn-list">
+      <button  onTap="handleOpenVertical">纵向</button>
+      <button  onTap="handleOpenHori">横向</button>
+    </view>
+  </demo-block>
+  <demo-block title="内容区域">
+    <view class="btn-list">
+      <button  onTap="handleOpenCus">自定义内容区域</button>
+      <button  onTap="handleOpenLImg">带图</button>
+    </view>
+  </demo-block>
 </view>

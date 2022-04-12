@@ -1,8 +1,13 @@
-<view a:if="{{!component2}}" class="amd-tabs-item amd-tabs-item-pane {{className ? className : ''}}"
-  key="tabs-pane-{{$id}}" style="align-self: flex-start;">
+<view a:if="{{!isBaseSwiper}}" 
+  class="amd-tabs-item amd-tabs-item-pane {{className ? className : ''}}"
+  key="tabs-pane-{{$id}}" 
+  style="align-self: flex-start;">
   <slot />
 </view>
-<view a:else style="{{style}}"
-  class="amd-tabs-item amd-tabs-item-pane amd-tabs-item-swiper {{className ? className : ''}}" key="tabs-item-{{$id}}">
+<view 
+  a:else 
+  style="{{style}}" 
+  class="{{fallback ? '' : 'amd-tabs-item amd-tabs-item-pane amd-tabs-item-swiper'}} {{className ? className : ''}}" 
+  key="tabs-item-{{$id}}">
   <slot />
 </view>

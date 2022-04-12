@@ -21,8 +21,8 @@
     key="componentList"
     className="list"
     radius="{{true}}">
-    <view slot="header">{{item.components[0].type}}</view>
-    <block a:for="{{item.components[0].list}}"
+    <view slot="header">{{item.type}}</view>
+    <block a:for="{{item.list}}"
       a:for-item="itemList">
       <list-item arrow="right"
         onTap="listPress"

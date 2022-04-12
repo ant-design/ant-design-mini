@@ -1,45 +1,54 @@
-<view class="container">
-
-  <button 
-    a:for="{{list}}" 
-    type="{{item.type}}" 
-    subText="{{subText}}" 
-    disabled="{{disabled}}" 
-    loading="{{showLoading}}" 
-    loadingText="正在加载"
-    fill="{{fill}}"
-    onTap="onTap" >
-    {{item.type}}
-  </button>
-
-  <view class="changeItem">
-    <checkbox 
-      id="subText"
-      onChange='onShowSubText' />
-    <label for="subText">是否显示副标题</label>
-  </view>
-  
-  <view class="changeItem">
-    <checkbox 
-      id="disabled"
-      onChange='onDisableChange' />
-    <label for="disabled">是否禁用</label>
-  </view>
-  
-  <view class="changeItem">
-    <checkbox 
-      id="loading"
-      controlled="{{true}}" 
-      checked="{{loadingChangeValue}}" 
-      onChange='onLoadingChange'  />
-    <label for="loading">是否显示 loading</label>
-  </view>
-
-  <view class="changeItem">
-    <radio-group onChange="onFillChange">
-      <label a:for="{{fillList}}">
-        <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.label}}
-      </label>
-    </radio-group> 
-  </view>
+<view class="demo">
+  <demo-block title="填充模式">
+    <view class="btn-list">
+      <button 
+        type="primary"
+        fill="solid">
+        solid
+      </button>
+      <button 
+        type="primary"
+        fill="outline">
+        outline
+      </button>
+      <button 
+        type="primary"
+        fill="none">
+        none
+      </button>
+    </view>
+  </demo-block>
+  <demo-block title="语义按钮">
+    <view class="btn-list">
+      <button 
+        a:for="{{list}}" 
+        type="{{item.type}}">
+        {{item.type}}
+      </button>
+    </view>
+  </demo-block>
+  <demo-block title="禁用状态">
+    <button 
+      disabled
+      type="primary">
+      禁用状态
+    </button>
+  </demo-block>
+  <demo-block title="加载状态">
+    <button 
+      loading
+      type="primary"
+      loadingText="正在加载">
+      加载状态
+    </button>
+  </demo-block>
+  <demo-block title="含有副标题">
+    <view class="btn-list">
+      <button 
+        subText="副标题"
+        type="primary">
+        按钮
+      </button>
+    </view>
+  </demo-block>
 </view>

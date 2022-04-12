@@ -18,11 +18,6 @@ export interface IBadgeProps extends IBaseProps {
    */
   text?: string | number;
   /**
-   * @description 是否为气泡形态(带箭头)
-   * @default false
-   */
-  bubble?: boolean;
-  /**
    * @description 相对于 children 所在访问，left-top(左上角) top-right(右上角)
    * @default "top-right"
    */
@@ -32,5 +27,13 @@ export interface IBadgeProps extends IBaseProps {
    * @default false
    */
   stroke?: boolean;
+  /**
+   * @description 自定义图标
+   */
+  iconType?: string;
+  /**
+   * @description 背景色
+   */
+  bgColor?: string;
 }
 export declare const BadgeDefaultProps: Partial<IBadgeProps>;

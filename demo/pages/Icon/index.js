@@ -154,30 +154,14 @@ Page({
       'ShopbagOutline',
       'MessageOutline',
     ],
-    searchIcon: [],
-    typeLen: 0,
+    searchValue: '',
   },
-  onLoad() {
-    const { iconTypes } = this.data;
-    this.setData({
-      typeLen: iconTypes.length,
-    });
+  handleSearchChange(value) {
+    this.setData({ searchValue: value });
   },
-  searchIcon(e) {
-    const inputValue = e.detail.value;
-    const searchIcon = [];
-    this.data.iconTypes.forEach((evalue) => {
-      if (evalue.match(inputValue)) {
-        searchIcon.push(evalue);
-        this.setData({
-          searchIcon,
-        });
-      }
-    });
-  },
-  clickIcon(e) {
+  handleClickIcon(e) {
     my.showToast({
-      content: e.currentTarget.dataset.info,
+      content: `click ${e.currentTarget.dataset.info}`,
     });
   },
 });
