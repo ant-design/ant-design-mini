@@ -1,15 +1,11 @@
-<list className="amd-radio-group {{className ? className : ''}}"
+<list 
+  className="amd-radio-group {{className ? className : ''}}"
   radius="{{radius}}">
-  <block a:if="{{header}}">
-    <view class="amd-list-header">
+  <view class="amd-list-header">
+    <slot name="header">
       {{header}}
-    </view>
-  </block>
-  <block a:else>
-    <view class="amd-list-header">
-      <slot name="header" />
-    </view>
-  </block>
+    </slot>
+  </view>
   <radio-group id="{{id ? id : $id}}"
     name="{{name ? name : ''}}"
     disabled="{{_disabled}}">
@@ -17,14 +13,9 @@
       <slot />
     </view>
   </radio-group>
-  <block a:if="{{footer}}">
-    <view class="amd-list-footer">
+  <view class="amd-list-footer">
+    <slot name="footer">
       {{footer}}
-    </view>
-  </block>
-  <block a:else>
-    <view class="amd-list-footer">
-      <slot name="footer" />
-    </view>
-  </block>
+    </slot>
+  </view>
 </list>

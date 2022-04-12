@@ -1,14 +1,15 @@
-import type { IUserComponentOptions } from "@mini-types/alipay";
-import { getFieldName } from './cache'
-import formStoreFactory, { FormStore } from './store'
-import { IComponentData } from './props'
+import type { IUserComponentOptions } from '@mini-types/alipay';
+import { getFieldName } from './cache';
+import formStoreFactory, { FormStore } from './store';
+import { IComponentData } from './props';
 
 type ControlledMixInParams  = {
   propsTriggerChange?: string,
 }
 
 export default (params: ControlledMixInParams = { propsTriggerChange: 'onChange' }): IUserComponentOptions<IComponentData, Record<string, any>, {
-  onChangeFormFieldValue(changedValues):void
+  onChangeFormFieldValue(changedValues):void;
+  defineOnchange(): void;
 }, {
   store: FormStore,
   fieldName?: string
@@ -16,21 +17,10 @@ export default (params: ControlledMixInParams = { propsTriggerChange: 'onChange'
 Record<string, unknown>,[]> => {
   const { propsTriggerChange = 'onChange' } = params
   return {
-    props: {
-      [propsTriggerChange]: function(v)  {
-        if (this.fieldName) {
-          console.log('this.fieldName', this.fieldName)
-          this.store.setFieldsValue({
-            [this.fieldName]: v,
-          });
-          this.store.validate({ fieldName: this.fieldName });
-        }
-      }
-    },
-
     onInit() {
       const fieldName = getFieldName();
       if (fieldName) {
+        this.defineOnchange();
         const pageId = this.$page.$id;
         const { form: uid } = this.props;
         const store = formStoreFactory.getStore({ pageId, uid });
@@ -51,8 +41,30 @@ Record<string, unknown>,[]> => {
     },
 
     methods: {
+      defineOnchange() {
+        this._onChange = this.props[propsTriggerChange];
+        Object.defineProperty(this.props, propsTriggerChange, {
+          get: () => {
+            return (v) => {
+              if (this.fieldName) {
+                this.store.setFieldsValue({
+                  [this.fieldName]: v,
+                });
+                this.store.validate({ fieldName: this.fieldName });
+              }
+              if (this._onChange) {
+                //@ts-ignore
+                this._onChange(v);
+              }
+            };
+          },
+          set: (originFn) => {
+            this._onChange = originFn;
+          },
+        });
+      },
       onChangeFormFieldValue(changedValues) {
-        if (changedValues[this.fieldName]) {
+        if (this.fieldName in changedValues) {
           this.setData({
             cValue: changedValues[this.fieldName],
           });

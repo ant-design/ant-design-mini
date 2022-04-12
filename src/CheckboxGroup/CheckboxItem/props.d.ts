@@ -14,8 +14,8 @@ export interface ICheckboxItemProps extends IBaseProps {
    */
   disabled?: boolean;
   /**
-   * @description 唯一id，用以与 CheckboxGroup 建立父子关系
-   * @default "CheckboxGroup"
+   * @description 当页面有多个CheckboxGroup时需传入，`必须全局唯一`，与外部的 CheckboxGroup 组件的 uid 一致
+   * @default 'CheckboxGroup'
    */
   uid?: string;
 }

@@ -1,11 +1,12 @@
 import { CheckboxGroupDefaultProps } from './props';
 import equal from 'fast-deep-equal';
 import { store } from './context';
-import formMixin from '../mixins/form';
+import controlled from '../mixins/controlled';
+import formed from '../Form/mixin';
 
 Component({
   props: CheckboxGroupDefaultProps,
-  mixins: [formMixin()],
+  mixins: [controlled({ defaultPropsValue: [] }), formed()],
   didMount() {
     const { uid, value } = this.props;
     const getGroupPropsVal = (key: string) => {
@@ -16,8 +17,8 @@ Component({
           }
           return this.props.onChange;
         case 'value':
-          if (Array.isArray(this.props.value)) {
-            return this.props.value;
+          if (Array.isArray(this.data.cValue)) {
+            return this.data.cValue;
           }
           return [];
         default:
@@ -26,12 +27,14 @@ Component({
     };
     store.setGroupPropsVal(this.props.uid, getGroupPropsVal);
     if (Array.isArray(value) && value.length > 0) {
-      store.updateGroupValue(uid);
+      store.updateGroupValue(uid, value);
     }
   },
-  didUpdate(prevProps) {
-    const { uid: newUID, disabled: newDisabled, value: newValue } = this.props;
-    const { uid: oldUID, disabled: oldDisabled, value: oldValue } = prevProps;
+  didUpdate(prevProps, prevData) {
+    const { uid: newUID, disabled: newDisabled } = this.props;
+    const { uid: oldUID, disabled: oldDisabled } = prevProps;
+    const { cValue: newValue } = this.data;
+    const { cValue: oldValue } = prevData;
     store.updateGroup(
       newUID,
       {
@@ -39,7 +42,7 @@ Component({
         isDisabledChanged: newDisabled !== oldDisabled,
         isValueChange: !equal(newValue, oldValue),
       },
-      { oldUID },
+      { oldUID }
     );
   },
   didUnmount() {
@@ -49,11 +52,8 @@ Component({
   methods: {
     onChange(val) {
       if (this.props.onChange) {
-        this.props.onChange.call(this, val);
+        this.props.onChange(val);
       }
-    },
-    _updateFieldValue(v) {
-      store.updateGroupValue(this.props.uid, v);
     },
   },
 });

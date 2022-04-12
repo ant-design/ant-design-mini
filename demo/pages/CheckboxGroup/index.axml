@@ -23,10 +23,10 @@
   <button onTap="selectNone">全不选</button>
 </view>
 <view class="btns">
-  <button onTap="enableAll">都可用</button>
-  <button onTap="disableAll">全部禁用</button>
+  <button onTap="enableAll" type="{{disabled?'':'primary'}}">都可用</button>
+  <button onTap="disableAll" type="{{!disabled?'':'primary'}}">全部禁用</button>
 </view>
 <view class="btns">
-  <button onTap="controlledTrue">受控模式</button>
-  <button onTap="controlledFalse">非受控模式</button>
+  <button onTap="controlledFalse" type="{{controlled?'':'primary'}}">非受控模式</button>
+  <button onTap="controlledTrue"  type="{{!controlled?'':'primary'}}">受控模式</button>
 </view>

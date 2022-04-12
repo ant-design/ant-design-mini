@@ -16,38 +16,27 @@ Component({
       }
     },
     onInput(e) {
-      const { onInput } = this.props;
-      if (onInput) {
-        const { value } = e.detail;
-        this.cOnInput(value);
-      }
+      const { value } = e.detail;
+      this.triggerChange(value);
     },
     onClear() {
       const { onClear } = this.props;
+      this.triggerChange('');
       if (onClear) {
         onClear('');
-      }
-      this.clearcValue();
-    },
-    clearcValue() {
-      const { controlled: propsControlled } = this.props;
-      if (!propsControlled) {
-        this.setData({
-          cValue: '',
-        });
       }
     },
     onCancel() {
       const { onCancel } = this.props;
+      this.triggerChange('');
       if (onCancel) {
         onCancel('');
       }
-      this.clearcValue();
     },
     onBizIconTap() {
-      if (typeof this.props.onBizIconTap === 'function') {
+      if (this.props.onBizIconTap) {
         this.props.onBizIconTap();
-      } else if (typeof this.props.onVoiceTap === 'function') {
+      } else if (this.props.onVoiceTap) {
         this.props.onVoiceTap();
       }
     },

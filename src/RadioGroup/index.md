@@ -14,7 +14,6 @@ Radio 所有选项默认可见，方便用户在比较中选择，因此选项�
 ## 注意事项
 - 内部配合 RadioItem 使用。
 - RadioGroup 组件与 RadioItem 组件必须有相同的 uid，且 uid 全局唯一。
-- 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，`RadioGroup` 组件需要设置 `mode` 的值为 `form`。
 
 ## 代码示例
 ### 基本使用
@@ -31,8 +30,7 @@ Radio 所有选项默认可见，方便用户在比较中选择，因此选项�
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
 | className | string | 否 | - | 类名 |
-| mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
-| uid | string | 是 | - | `必须全局唯一`，需与内部的 RadioItem 组件的 uid 一致 |
+| uid | string | 否 | - | 当页面有多个RadioGroup时需传入，`必须全局唯一`，与内部的 RadioItem 组件的 uid 一致 |
 
 #### RadioItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -40,7 +38,7 @@ Radio 所有选项默认可见，方便用户在比较中选择，因此选项�
 | value | string | 否 | - | Radio 携带的 value 值, 在原生 form 表单提交的时候有用；在 RadioGroup 时亦有用 |
 | disabled | boolean | 否 | false | 是否禁用 |
 | className | string | 否 | - | 类名 |
-| uid | string | 是 | - | `必须全局唯一`，需与外部的 RadioGroup 组件的 uid 一致 |
+| uid | string | 否 | - | 当页面有多个RadioGroup时需传入，`必须全局唯一`，需与外部的 RadioGroup 组件的 uid 一致 |
 
 ## 事件
 #### RadioGroup
