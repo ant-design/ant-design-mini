@@ -1,26 +1,22 @@
+const initialValues = {
+  account: '',
+  password: '',
+};
 Page({
   data: {
-    list: [
-      { name: 'field1', placeholder: 'field1' },
-      { name: 'field2', placeholder: 'field2' },
-      { name: 'field3', placeholder: 'field3' },
-    ],
-    form: 'formInsMethod',
-    ins: '',
+    form: 'form',
+    initialValues,
   },
-  setFieldsValue() {
-    this.formInstance.setFieldsValue(this.data.form, {
-      field1: '1',
-      field2: '2',
-      field3: '3',
-    });
+  handleValuesChange(value, values) {
+    console.log(value, values);
   },
-  getCompInstance() {
-    const ins = JSON.stringify(this.formInstance.getCompInstance(), undefined, 4);
-    this.setData({ ins });
+  handleSubmit(e) {
+    my.alert({ title: '提交', content: JSON.stringify(e) });
   },
-  ref(ins) {
-    this.formInstance = ins;
+  getForm(ref) {
+    this.formRef = ref;
+  },
+  handleSetValue() {
+    this.formRef.setFieldsValue(this.data.form, initialValues);
   },
 });
-

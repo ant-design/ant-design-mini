@@ -2,24 +2,25 @@
 nav:
   path: /components
 group:
-  title: 数据展示
-  order: 1
+  title: 信息输入
+  order: 10
 toc: false
 ---
-# Filter
-
-用作标签卡筛选，内部结合 `Selector` 组件实现。
+# Filter 筛选卡
+向下弹出的菜单面板
+## 何时使用
+用于筛选、排序并更改当前页面内容展示范围或顺序
 ## 注意事项
 
 - 目前仅支持一个页面中使用`一次` Filter 组件；
 - 需要配合 `FilterItem` 组件使用;
 
 ## 代码示例
-
+### 基本使用
 <code src='../../demo/pages/Filter'></code>
 
-## API
-### 属性
+
+## 属性
 #### Filter
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
@@ -28,13 +29,13 @@ toc: false
 #### FilterItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| type | `'default'` &verbar; `'multiple'` | 否 | "default" | 类型 default=单选 multiple=多选  |
+| type | 'default' &verbar; 'multiple' | 否 | 'default' | 类型 default=单选 multiple=多选  |
 | value | any | 否 | - | 每一项的值，该组件仅支持受控模式 |
 | items | {value: string; text: string; subText: string}[] | 否 | - | type=default type=multiple 有效|
 | placeholder | string | 否 | - | 当该项值为空的时候显示文案 |
 | className | string | 否 | - | 类名 |
 
-### 事件
+## 事件
 #### FilterItem
 
 | 事件名 | 说明 | 类型 |

@@ -1,9 +1,12 @@
 {
-    "defaultTitle": "Form",
-    "usingComponents": {
-        "form": "../../../src/Form/index",
-        "form-item": "../../../src/Form/FormItem/index",
-        "form-group": "../../../src/Form/FormGroup/index",
-        "input": "../../../src/InputItem/index"
-    }
+  "defaultTitle": "Form",
+  "usingComponents": {
+    "form": "../../../src/Form/index",
+    "form-item": "../../../src/Form/FormItem/index",
+    "input-item": "../../../src/InputItem/index",
+    "button": "../../../src/Button/index",
+    "switch": "../../../src/Switch/index",
+    "stepper": "../../../src/Stepper/index",
+    "demo-block": "../../components/DemoBlock/index"
+  }
 }

@@ -1,16 +1,15 @@
-
-  <view class="amd-input-item-title">
-    基本的输入框
-  </view>
-    <input-item placeholder="请输入姓名" value="{{name}}" clear="{{false}}" type="text" onChange="onItemChange" onFocus="onItemFocus" onBlur="onItemBlur" onConfirm="onItemConfirm" >
-  </input-item>
-  <view class="amd-input-item-title">
-    带清除按钮
-  </view>
-    <input-item placeholder="请输入卡号" clear="{{true}}" value="{{cardNo}}" type="text" onChange="onItemChange" onClear="onItemClear">
-  </input-item>
-  <view class="amd-input-item-title">
-    禁用状态
-  </view>
-    <input-item value="被禁用的输入框" disabled="{{true}}" clear="{{true}}" type="text" onChange="onItemChange" onClear="onItemClear">
-  </input-item>
+<view>
+  <demo-block title="基础用法">
+    <input-item placeholder="请输入内容" clear="{{false}}" type="text" onChange="handleItemChange" onFocus="handleItemFocus" onBlur="handleItemBlur" onConfirm="handleItemConfirm" >
+    </input-item>
+  </demo-block>
+  <demo-block title="带清除按钮">
+    <input-item placeholder="请输入内容" clear="{{true}}" type="text" onChange="handleItemChange" onClear="handleItemClear">
+    </input-item>
+  </demo-block>
+  <demo-block title="禁用状态">
+    <input-item placeholder="被禁用的输入框" disabled="{{true}}" clear="{{true}}" type="text" onChange="handleItemChange" onClear="handleItemClear">
+    </input-item>
+  </demo-block>
+</view>
+  

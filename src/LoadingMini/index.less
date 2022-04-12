@@ -1,4 +1,6 @@
 @import (reference) "../style/themes/default.less";
+@import (reference) "../_base/index.less";
+
 .am-loading {
   &-wrap {
     display: flex;
@@ -6,15 +8,15 @@
     align-items: center;
     width: @size-1;
     height: @size-1;
-    min-width: 66 * @pixelSize;
-    min-height: 66 * @pixelSize;
+    min-width: 66 * @rpx;
+    min-height: 66 * @rpx;
   }
   &-item {
-    flex: 0 0 8 * @pixelSize;
-    min-width: 6 * @pixelSize;
-    min-height: 6 * @pixelSize;
-    max-width: 8 * @pixelSize;
-    max-height: 8 * @pixelSize;
+    flex: 0 0 8 * @rpx;
+    min-width: 6 * @rpx;
+    min-height: 6 * @rpx;
+    max-width: 8 * @rpx;
+    max-height: 8 * @rpx;
     overflow: hidden;
     margin-right: @h-spacing-standard;
     font-size: 0;

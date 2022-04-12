@@ -1,7 +1,7 @@
 {
-  "defaultTitle": "Search-bar",
+  "defaultTitle": "SearchBar",
   "usingComponents": {
     "search-bar": "../../../src/SearchBar/index",
-    "switch": "../../../src/Switch/index"
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

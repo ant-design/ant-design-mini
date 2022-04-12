@@ -1,41 +1,33 @@
-<list>
-  <list-item>
-    Show number value
-    <view slot="extra">
-
-      <stepper 
-        step="{{1}}"
-        min="{{15}}"
-        max="{{20}}"
-        value="{{137}}"
-        inputWidth="60px"
-        onChange="callBackFn" />
-
-    </view>
-  </list-item>
-  <list-item>
-    step: 0.01
-    <view slot="extra">
-
-      <stepper 
-        step="{{0.01}}"
-        value="{{value}}"
-        min="{{6}}" 
-        onChange="callBackFn"/>
-        
-    </view>
-  </list-item>
-  <list-item>
-    Disabled
-    <view slot="extra">
-      
-      <stepper 
-        value="{{11}}"
-        min="{{2}}"
-        disabled 
-        onChange="callBackFn"/>
-        
-    </view>
-  </list-item>
-</list>
-<button onTap="modifyValue">修改setper初始值</button>
+<view>
+  <demo-block title="基础用法">
+    <stepper 
+      step="{{1}}"
+      value="{{0}}"
+      inputWidth="60px"/>
+  </demo-block>
+  <demo-block title="受控组件">
+    <stepper 
+      controlled
+      step="{{1}}"
+      value="{{value}}"
+      inputWidth="60px"
+      onChange="handleChange" />
+  </demo-block>
+  <demo-block title="步长设置">
+    <stepper 
+      step="{{0.01}}"
+      value="{{0}}"/>
+  </demo-block>
+  <demo-block title="限制输入范围">
+    <stepper 
+      min="{{0}}"
+      max="{{10}}"
+      step="{{1}}"
+      value="{{0}}"/>
+  </demo-block>
+  <demo-block title="禁用状态">
+    <stepper 
+      value="{{0}}"
+      disabled/>
+  </demo-block>
+</view>

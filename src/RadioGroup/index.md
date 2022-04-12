@@ -2,11 +2,14 @@
 nav:
   path: /components
 group:
-  title: 表单类组件
-  order: 3
+  title: 信息输入
+  order: 10
 toc: false
 ---
-# RadioGroup
+# RadioGroup 单选框
+在一组可选项中进行单选
+## 何时使用
+Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多
 
 ## 注意事项
 - 内部配合 RadioItem 使用。
@@ -14,12 +17,12 @@ toc: false
 - 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，`RadioGroup` 组件需要设置 `mode` 的值为 `form`。
 
 ## 代码示例
-
+### 基本使用
 <code src='../../demo/pages/RadioGroup'></code>
 
-## API
 
-### 属性
+
+## 属性
 #### RadioGroup
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
@@ -28,7 +31,7 @@ toc: false
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
 | className | string | 否 | - | 类名 |
-| mode | 'noraml' &verbar; 'form' | 否 | normal | 配合From/FormItem组件使用时，需设置为 from |
+| mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
 | uid | string | 是 | - | `必须全局唯一`，需与内部的 RadioItem 组件的 uid 一致 |
 
 #### RadioItem
@@ -39,20 +42,20 @@ toc: false
 | className | string | 否 | - | 类名 |
 | uid | string | 是 | - | `必须全局唯一`，需与外部的 RadioGroup 组件的 uid 一致 |
 
-### 事件
+## 事件
 #### RadioGroup
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 选中项发生变化，触发回调 | (v: string) => void |
 
-### 插槽
+## 插槽
 #### RadioGroup
 | 插槽名 | 说明 |
 | -----|-----|
 | header | 头部说明  |
 | footer | 底部说明 |
 
-### 样式类
+## 样式类
 #### RadioGroup
 | 类名 | 说明 |
 | -----|-----|

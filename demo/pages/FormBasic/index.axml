@@ -1,35 +1,86 @@
-<form onValuesChange="onValuesChange" form="{{form}}" initialValues="{{initVal}}">
-  
-  <form-group 
-    radius="{{true}}" 
-    header="input">
-    <form-item 
-      label="input1" 
-      labelWidth="110px"
-      form="{{form}}" 
-      name="input1">
-      <input mode="form"/>
-    </form-item>
-  </form-group>
-  
-  <form-group 
-    radius="{{true}}" 
-    header="input">
-    <form-item 
-      label="input2"
-      labelWidth="110px" 
-      form="{{form}}" 
-      name="input2">
-      <input mode="form"/>
-    </form-item>
-  </form-group>
-  
-</form>
-
-<view class="changedFields">
-  changedFields: {{changedFields}}
-</view>
-
-<view class="allFields">
-  allFields: {{allFields}}
+<view class="demo">
+    <demo-block title="水平布局表单" padding="0">
+        <form 
+            form="{{form}}" 
+            initialValues="{{initialValues}}"
+            onFinish="handleSubmit"
+            onValuesChange="handleValuesChange">
+            <form-item
+                label="姓名"
+                name="account"
+                required
+                form="{{form}}">
+                <input-item mode="form" placeholder="请输入姓名"/>
+            </form-item>
+            <form-item
+                label="地址"
+                name="address"
+                form="{{form}}">
+                <input-item mode="form" password placeholder="请输入地址"/>
+            </form-item>
+            <form-item
+                label="数量"
+                name="quantity"
+                form="{{form}}">
+                <stepper step="{{1}}"  min="{{0}}" mode="form"/>
+            </form-item>
+            <form-item
+                label="送货上门"
+                name="needDelivery"
+                form="{{form}}">
+                <switch mode="form"/>
+            </form-item>
+            <button 
+                slot="footer"
+                type="primary" 
+                mode="form"
+                form="{{form}}"
+                htmlType="submit">提交
+            </button>
+        </form>
+    </demo-block>
+    <demo-block title="垂直布局表单" padding="0">
+        <form 
+            form="{{formV}}" 
+            initialValues="{{initialValues}}"
+            onFinish="handleSubmit"
+            onValuesChange="handleValuesChange">
+            <form-item
+                label="姓名"
+                position="vertical" 
+                name="account"
+                required
+                form="{{formV}}">
+                <input-item mode="form" placeholder="请输入姓名"/>
+            </form-item>
+            <form-item
+                label="地址"
+                position="vertical" 
+                name="address"
+                form="{{formV}}">
+                <input-item mode="form" password placeholder="请输入地址"/>
+            </form-item>
+            <form-item
+                label="数量"
+                position="vertical" 
+                name="quantity"
+                form="{{formV}}">
+                <stepper step="{{1}}"  min="{{0}}" mode="form"/>
+            </form-item>
+            <form-item
+                label="送货上门"
+                position="vertical" 
+                name="needDelivery"
+                form="{{formV}}">
+                <switch mode="form"/>
+            </form-item>
+            <button 
+                slot="footer"
+                type="primary" 
+                mode="form"
+                form="{{formV}}"
+                htmlType="submit">提交
+            </button>
+        </form>
+    </demo-block>
 </view>

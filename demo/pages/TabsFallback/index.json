@@ -1,0 +1,9 @@
+{
+    "defaultTitle": "Tabs",
+    "usingComponents": {
+      "tabs": "../../../src/Tabs/index",
+      "tab-content": "../../../src/Tabs/TabItem/index",
+      "icon": "../../../src/Icon/index"
+    }
+  }
+  

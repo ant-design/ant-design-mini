@@ -22,6 +22,8 @@ Component({
       }
     };
     swipeIdContext.onUpdate(this.swipeActionItemId);
+
+    this.props.onGetRef(this.getRef());
   },
   didUnmount() {
     swipeIdContext.offUpdate(this.swipeActionItemId);
@@ -178,5 +180,25 @@ Component({
         return onRightButtonTap(index, text, type, extraInfo);
       }
     },
+    getRef() {
+      return {
+        getCompInstance: () => this,
+        setItemPosition: (idx) => {
+          this.setData({
+            itemPosition: idx,
+          });
+        }
+      };
+    },
+  },
+  ref() {
+    return {
+      getCompInstance: () => this,
+      setItemPosition: (idx) => {
+        this.setData({
+          itemPosition: idx,
+        });
+      }
+    };
   },
 });

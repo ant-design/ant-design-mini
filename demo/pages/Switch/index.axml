@@ -1,35 +1,28 @@
-<view class="page-description">非受控模式</view>
-<switch 
-  controlled="{{false}}"
-  checked="{{false}}" 
-  disabled="{{false}}" 
-  data-a="d"
-  onChange="switchChange" />
-
-<view class="page-description">受控模式：switch 当前状态为 {{value}}</view>
-<view class="switch-item">
-  <switch 
-    controlled="{{true}}"
-    checked="{{value}}" 
-    disabled="{{false}}" 
-    onChange="changeValue"/>
-</view>
-
-<view class="page-description">disabled: true</view>
-<view class="switch-item">
-  <switch disabled="{{true}}"/>
-</view>
-<view class="switch-item">
-  <switch 
-    disabled="{{true}}"
-    checked="{{true}}"/>
-</view>
-
-<view 
-  a:for="{{sizeList}}"
-  class="switch-item">
-  Size: {{item}}
-  <view>
-    <switch size="{{item}}"/>   
-  </view>
+<view>
+  <demo-block title="基础用法">
+    <switch 
+      onChange="handleChangeNoControl" />
+  </demo-block>
+  <demo-block title="受控模式">
+    <switch 
+      controlled="{{true}}"
+      checked="{{value}}" 
+      disabled="{{false}}" 
+      onChange="handleChangeValue"/>
+  </demo-block>
+  <demo-block title="有默认值">
+    <switch 
+      checked="{{true}}" />
+  </demo-block>
+  <demo-block title="禁用状态">
+    <switch 
+      disabled="{{true}}"/>
+  </demo-block>
+  <demo-block title="按钮尺寸">
+    <view 
+      a:for="{{sizeList}}"
+      class="switch-item">
+      <switch  size="{{item}}"/>  
+    </view>
+  </demo-block>
 </view>

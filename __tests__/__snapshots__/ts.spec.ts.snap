@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ts interface parse base 1`] = `"{\\"class\\":[],\\"slot\\":[],\\"cssVar\\":[],\\"tips\\":[],\\"title\\":\\"\\",\\"desc\\":\\"标签栏内部元素，必须配合 Tabs 使用。\\",\\"api\\":{\\"prop\\":[{\\"description\\":\\"每一项 tab 内容\\",\\"default\\":\\"\\",\\"name\\":\\"tab\\",\\"types\\":\\"{ title: string; subTitle?: string; badge?: number; disabled?: boolean; }\\"},{\\"description\\":\\"类名\\",\\"default\\":\\"\\",\\"name\\":\\"className\\",\\"types\\":\\"string\\"}],\\"method\\":[]}}"`;

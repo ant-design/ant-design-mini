@@ -3,6 +3,7 @@
   "usingComponents": {
     "collapse": "../../../src/Collapse/index",
     "collapse-item": "../../../src/Collapse/CollapseItem/index",
-    "icon": "../../../src/Icon/index"
+    "icon": "../../../src/Icon/index",
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

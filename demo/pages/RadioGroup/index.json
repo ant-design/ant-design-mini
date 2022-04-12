@@ -2,6 +2,7 @@
   "defaultTitle": "RadioGroup",
   "usingComponents": {
     "radio-group": "../../../src/RadioGroup/index",
-    "radio-item": "../../../src/RadioGroup/RadioItem/index"
+    "radio-item": "../../../src/RadioGroup/RadioItem/index",
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

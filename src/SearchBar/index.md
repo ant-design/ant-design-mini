@@ -2,16 +2,15 @@
 nav:
   path: /components
 group:
-  title: 数据展示
-  order: 1
+  title: 信息输入
+  order: 10
 toc: false
 ---
 
-# SearchBar
-
-- 搜索提供了用户进行文本查询的功能，用户可以针对当前页面的内容通过精确搜索和模糊搜索进行内容筛选和定位，提高查询效率。
-- 搜索栏激活后出现取消按钮。
-- 内部通过 input 组件实现。
+# SearchBar 搜索框
+搜索场景的输入框组件
+## 何时使用
+搜索场景的输入框组件	在信息池中缩小范围，快速而轻松地获取目标信息
 
 ## 注意事项
 
@@ -19,29 +18,30 @@ toc: false
 
 - SearchBar 输入框在手写输入情况下，部分安卓手机会出现连续输入现象，只需要将 controlled 属性设置为 false 即可。
 ## 代码示例
-
+### 基本使用
 <code src='../../demo/pages/SearchBar'></code>
 
-## API
-### 属性
+
+## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | controlled | boolean | 否 | false | 是否受控模式 |
-| borderColor | string | "" | false | 输入框边框颜色 |
+| borderColor | string | '' | false | 输入框边框颜色 |
 | enableNative | boolean | 否 | - | 是否启用 Native 渲染 |
 | value | string | 否 | - | 搜索框的值 |
 | placeholder | string | 否 | - | 提示文字 |
 | showCancelButton | boolean | 否 | false | 是否显示取消按钮 |
-| cancelText | string | 否 | "取消" | 取消按钮文案 |
+| cancelText | string | 否 | '取消' | 取消按钮文案 |
 | maxLength | number | 否 | - | 最大长度 |
 | showBizIcon | boolean | 否 | false | 是否展示额外图标 |
+| bizIconType | string | 否 | 'AudioFill' | 额外图标类型 |
 | autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 | disabled | boolean | 否 | false | 是否禁用 |
 | className | string | 否 | - | 类名 |
 
-### 事件
+## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onVoiceTap | 点击话筒图标，触发此回调 | () => void |
@@ -54,7 +54,7 @@ toc: false
 | onChange | 输入文本，触发此回调 | ( v: string ) => void |
 | onBizIconTap | 点击辅助图标，触发此回调 | ( ) => void |
 
-### 样式类
+## 样式类
 | 类名 | 说明 |
 | -----|-----|
 | amd-search-bar | 整体样式 |

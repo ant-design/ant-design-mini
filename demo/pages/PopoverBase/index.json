@@ -2,6 +2,7 @@
   "defaultTitle": "PopoverBase",
   "usingComponents": {
     "popover": "../../../src/Popover/index",
-    "popover-item": "../../../src/Popover/PopoverItem/index"
+    "demo-block": "../../components/DemoBlock/index",
+    "button": "../../../src/Button/index"
   }
 }

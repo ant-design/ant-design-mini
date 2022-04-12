@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`less parse base 1`] = `"{\\"class\\":[],\\"slot\\":[],\\"cssVar\\":[\\"--am-mask-backgroundColor\\",\\"--am-mask-market-backgroundColor\\"],\\"tips\\":[],\\"title\\":\\"\\",\\"desc\\":\\"\\",\\"api\\":{\\"prop\\":[],\\"method\\":[]}}"`;

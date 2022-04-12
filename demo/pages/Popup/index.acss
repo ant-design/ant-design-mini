@@ -1,26 +1,3 @@
-.btn-container {
-  width: 100%;
-  height: 100vh;
-  padding-bottom: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-.box.top,
-.box.bottom {
-  height: 200px;
-}
-
-.box.left,
-.box.right {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  height: 100%;
-}
-
 .box {
   display: flex;
   justify-content: center;

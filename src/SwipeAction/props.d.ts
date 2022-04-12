@@ -1,5 +1,9 @@
 import { IBaseProps } from '../_base';
 
+interface ISwipeActionRef {
+  getCompInstance: () => any,
+  setItemPosition: (idx: number) => void
+}
 export interface ISwipeButton extends IBaseProps {
   /**
    * @description 按钮文字
@@ -61,8 +65,11 @@ export interface ISwipeActionProps extends IBaseProps {
    * extraInfo包含若干属性，支持用户传入附加参数，以实现组件使用者的删除逻辑
    * 属性添加方式参考demo示例
    */
-
   onRightButtonTap?:
   (index: number, text: string, type: string, extraInfo?: unknown) => void;
+  /**
+   * @description 获取组件实例与设置滑动距离
+  */
+  onGetRef?: ISwipeActionRef;
 }
 export declare const SwipeActionDefaultProps: Partial<ISwipeActionProps>;

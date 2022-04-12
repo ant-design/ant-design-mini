@@ -1,3 +1,7 @@
-<mask type="{{type}}" show="{{show}}" maskZindex="{{maskZindex}}" onMaskTap="maskClick"></mask>
-<view a:if="{{type === 'market'}}">营销弹窗蒙层，type="{{type}}"</view>
-<view a:if="{{type === 'product'}}">产品弹窗蒙层，type="{{type}}"</view>
+<mask type="{{type}}" show="{{show}}" maskZindex="{{maskZindex}}" onMaskTap="handleClickMask" />
+<demo-block title="基础用法">
+    <view class="btn-list">
+        <button data-type="product" onTap="handleClickBtn">显示product类型的遮罩层</button>
+        <button data-type="market" onTap="handleClickBtn">显示market类型的遮罩层</button>
+    </view>
+</demo-block>

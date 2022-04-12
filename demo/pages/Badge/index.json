@@ -1,7 +1,7 @@
 {
   "defaultTitle": "Badge",
   "usingComponents": {
-    "list-item": "../../../src/List/ListItem/index",
-    "badge": "../../../src/Badge/index"
+    "badge": "../../../src/Badge/index",
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

@@ -1,4 +1,5 @@
-<view class="amd-tips {{className ? className : ''}}"
+<view 
+  class="amd-tips {{className ? className : ''}}"
   a:if="{{_show}}">
   <view class="amd-tips-wrap">
     <view class="amd-tips-wrap-pseudo">
@@ -9,7 +10,9 @@
           showClose="{{showClose}}"
           onButtonTap="onButtonTap"
           onHideTips="onHideTips"
-          title="{{title}}" />
+          title="{{title}}">
+            <slot/>
+          </tips-item>>
       </view>
       <view class="amd-tips-arrow amd-tips-arrow-{{arrowPosition}}"
         a:if="{{arrowPosition}}" />
@@ -22,7 +25,9 @@
         showClose="{{showClose}}"
         onButtonTap="onButtonTap"
         onHideTips="onHideTips"
-        title="{{title}}" />
+        title="{{title}}" >
+          <slot/>
+    </tips-item>
     </view>
   </view>
 </view>
