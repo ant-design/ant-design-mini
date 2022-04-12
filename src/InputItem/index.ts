@@ -1,6 +1,6 @@
 import { InputItemDefaultProps } from './props';
 import controlled from '../mixins/controlled';
-import formed from  '../Form/mixin'
+import formed from '../Form/mixin';
 
 Component({
   mixins: [controlled(), formed()],
@@ -14,7 +14,7 @@ Component({
         showClear: false,
       });
     },
-  
+
     showClear() {
       this.setData({
         showClear: true,
@@ -49,20 +49,19 @@ Component({
         onFocus(value);
       }
     },
-  
+
     onChange(e) {
       const { value } = e.detail;
-      this.triggerChange(value)
+      this.triggerChange(value);
     },
-  
+
     onClear() {
       this.hideClear();
-      this.triggerChange('')
+      this.triggerChange('');
       const { onClear } = this.props;
       if (onClear) {
         onClear('');
       }
-   
     },
   },
 });

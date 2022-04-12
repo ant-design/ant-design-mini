@@ -7,7 +7,7 @@
       required
       label="input"
       name="input">
-      <input-item placeholder="请输入"/>
+      <input-item placeholder="请输入" onChange="handleInputChange"/>
     </form-item>
     <form-item
       required

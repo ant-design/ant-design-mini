@@ -6,11 +6,12 @@ import { IComponentData } from './props';
 export default (): IUserComponentOptions<
   IComponentData,
   {
-    onChange(v): void;
     form?: string;
+    onChange(v): void;
   },
   {
     onChangeFormFieldValue(changedValues): void;
+    defineOnchange(): void;
   },
   {
     store: FormStore;
@@ -20,20 +21,10 @@ export default (): IUserComponentOptions<
   []
 > => {
   return {
-    props: {
-      onChange(v) {
-        if (this.fieldName) {
-          this.store.setFieldsValue({
-            [this.fieldName]: v,
-          });
-          this.store.validate({ fieldName: this.fieldName });
-        }
-      },
-    },
-
     onInit() {
       const fieldName = getFieldName();
       if (fieldName) {
+        this.defineOnchange();
         const pageId = this.$page.$id;
         const { form: uid } = this.props;
         const store = formStoreFactory.getStore({ pageId, uid });
@@ -54,6 +45,28 @@ export default (): IUserComponentOptions<
     },
 
     methods: {
+      defineOnchange() {
+        this._onChange = this.props.onChange;
+        Object.defineProperty(this.props, 'onChange', {
+          get: () => {
+            return (v) => {
+              if (this.fieldName) {
+                this.store.setFieldsValue({
+                  [this.fieldName]: v,
+                });
+                this.store.validate({ fieldName: this.fieldName });
+              }
+              if (this._onChange) {
+                //@ts-ignore
+                this._onChange(v);
+              }
+            };
+          },
+          set: (originFn) => {
+            this._onChange = originFn;
+          },
+        });
+      },
       onChangeFormFieldValue(changedValues) {
         if (this.fieldName in changedValues) {
           this.setData({
