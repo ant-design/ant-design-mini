@@ -37,7 +37,7 @@
                     data="{{times}}"
                     onOk="handleTimeSelect"
                 >
-                    选择
+                    {{showTime}}
                 </picker>
             </form-item>
             <button 

@@ -7,6 +7,7 @@ Page({
       needDelivery: false,
       time: ['Tues', 'am']
     },
+    showTime: '请选择',
     times: [
       [
         { label: '周一', value: 'Mon' },
@@ -23,6 +24,10 @@ Page({
   },
   handleTimeSelect(time, timeColumn)  {
     console.log('time', time, 'timeColumn', timeColumn)
+    this.setData({
+      showTime: `${timeColumn[0].label}-${timeColumn[1].label} `
+    })
+
   },
   handleValuesChange(value, values) {
     console.log(value, values);

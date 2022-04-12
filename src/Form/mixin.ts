@@ -45,7 +45,7 @@ Record<string, unknown>,[]> => {
         this._onChange = this.props[propsTriggerChange];
         Object.defineProperty(this.props, propsTriggerChange, {
           get: () => {
-            return (v) => {
+            return (v, ...args) => {
               if (this.fieldName) {
                 this.store.setFieldsValue({
                   [this.fieldName]: v,
@@ -54,7 +54,7 @@ Record<string, unknown>,[]> => {
               }
               if (this._onChange) {
                 //@ts-ignore
-                this._onChange(v);
+                this._onChange(v, ...args);
               }
             };
           },
