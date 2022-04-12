@@ -32,8 +32,7 @@
     <!-- <form-item 
       label="picker" 
       labelWidth="110px"
-      name="picker" 
-      form="{{form}}">
+      name="picker">
       <picker 
         cols="{{3}}" 
         disabled="{{false}}" 
@@ -46,24 +45,22 @@
         <view slot="title">
           <text style="color: red;">Picker</text> 选择器</view>
       </picker>
-    </form-item>
+    </form-item> -->
     <form-item 
       label="selector" 
+      required
       name="selector" 
-      position="vertical" 
-      form="{{form}}">
+      position="vertical">
       <selector 
         items="{{selectorItems}}" 
-        multiple
-        mode="form" />
+        multiple/>
     </form-item>
     <form-item 
       label="radio" 
       required
       name="radio" 
-      position="vertical" 
-      form="{{form}}">
-      <radio-group mode="form">
+      position="vertical">
+      <radio-group>
         <radio-item value="a1">单选一</radio-item>
         <radio-item value="a2">单选二</radio-item>
         <radio-item value="a3">单选三</radio-item>
@@ -73,14 +70,13 @@
       label="checkboxGroup" 
       required
       name="checkboxGroup" 
-      position="vertical" 
-      form="{{form}}">
-      <checkbox-group mode="form">
+      position="vertical">
+      <checkbox-group>
         <checkbox-item value="a1">复选框1</checkbox-item>
         <checkbox-item value="a2">复选框2</checkbox-item>
         <checkbox-item value="a3">复选框3</checkbox-item>
       </checkbox-group>
-    </form-item> -->
+    </form-item>
     <button 
       slot="footer"
       type="primary" 

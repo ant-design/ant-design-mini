@@ -4,6 +4,9 @@ Page({
     initialValues: {
       stepper: 20,
       switch: false,
+      radio: 'a2',
+      selector: ['1'],
+      checkboxGroup: ['a2'],
       picker: ['2012', '12', 12],
     },
     selectorItems: [
@@ -58,5 +61,8 @@ Page({
   },
   handleSubmit(e) {
     my.alert({ title: '提交', content: JSON.stringify(e) });
+  },
+  handleInputChange(value) {
+    console.log(value, 'input change');
   },
 });

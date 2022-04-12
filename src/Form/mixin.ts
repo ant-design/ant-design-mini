@@ -1,18 +1,24 @@
-import type { IUserComponentOptions } from "@mini-types/alipay";
-import { getFieldName } from './cache'
-import formStoreFactory, { FormStore } from './store'
-import { IComponentData } from './props'
+import type { IUserComponentOptions } from '@mini-types/alipay';
+import { getFieldName } from './cache';
+import formStoreFactory, { FormStore } from './store';
+import { IComponentData } from './props';
 
-export default (): IUserComponentOptions<IComponentData, {
-  onChange(v): void,
-  form?: string
-}, {
-  onChangeFormFieldValue(changedValues):void
-}, {
-  store: FormStore,
-  fieldName?: string
-},
-Record<string, unknown>,[]> => {
+export default (): IUserComponentOptions<
+  IComponentData,
+  {
+    onChange(v): void;
+    form?: string;
+  },
+  {
+    onChangeFormFieldValue(changedValues): void;
+  },
+  {
+    store: FormStore;
+    fieldName?: string;
+  },
+  Record<string, unknown>,
+  []
+> => {
   return {
     props: {
       onChange(v) {
@@ -49,7 +55,7 @@ Record<string, unknown>,[]> => {
 
     methods: {
       onChangeFormFieldValue(changedValues) {
-        if (changedValues[this.fieldName]) {
+        if (this.fieldName in changedValues) {
           this.setData({
             cValue: changedValues[this.fieldName],
           });

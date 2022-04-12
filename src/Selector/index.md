@@ -11,8 +11,6 @@ toc: false
 在一组选项中选择一个或多个
 ## 何时使用
 提供多个选项供用户选择，一般在筛选和表单中使用
-## 注意事项
-- 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `mode` 的值为 `form`。
 
 ## 代码示例
 ### 基本使用
@@ -24,7 +22,7 @@ toc: false
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | controlled | boolean | 否 | false | 是否受控 |
-| value | string[] | 否 | - | 已选择项, 取 items 每一项的 value |
+| value | string &verbar; string[] | 否 | - | 已选择项, items 每一项的 value, multiple=true时传value的数组 |
 | items | {text:string; value:string; subText: string; disabled: boolean}[] | 是 | - | 可选项 |
 | activeItemClassName | string | 否 | - | 每一项激活时新加类名 |
 | multiple | boolean | 否 | false | 是否允许多选，标签栏显示的时候会显示当前单选/多选的状态 |
@@ -33,7 +31,6 @@ toc: false
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 | disabled | boolean | 否 | false | 是否禁用 |
-| mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
 | className | string | 否 | - | 类名 |
 
 ## 事件

@@ -1,33 +1,30 @@
 import { SelectorDefaultProps } from './props';
 import controlled from '../mixins/controlled';
-import formMixin from '../mixins/form';
+import formed from '../Form/mixin';
 
 const getFixedValue = (value, multiple) => {
   let fixedValue;
   if (multiple) {
-    fixedValue = value;
+    fixedValue = value || [];
   } else {
-    fixedValue = value?.slice(0, 1);
+    fixedValue = (value || []).slice(0, 1);
   }
 
   return fixedValue;
 };
 
 Component({
-  mixins: [controlled(), formMixin()],
+  mixins: [controlled({ defaultPropsValue: [] }), formed()],
   props: SelectorDefaultProps,
-  data: {} as {
-    cValue?: string[];
-    items: [];
-  },
+  data: {},
   methods: {
     onChange(e) {
-      const { disabled, value, text } = e.currentTarget.dataset;
+      const { disabled, value } = e.currentTarget.dataset;
       const { multiple, items } = this.props;
       if (!disabled && !this.props.disabled) {
-        let nextValue: string[];
         const fixedValue = getFixedValue(this.data.cValue, multiple);
         if (multiple) {
+          let nextValue: string[];
           // 之前已经选中，删除它
           if (fixedValue?.indexOf(value) !== -1) {
             nextValue = fixedValue?.filter((item) => {
@@ -39,11 +36,14 @@ Component({
           }
           // 将 value 重新按 options 排序
           const sortValue = (v: string[]) => {
-            return items.map((item) => item.value).filter((item) => v.indexOf(item) !== -1);
+            return items
+              .map((item) => item.value)
+              .filter((item) => v.indexOf(item) !== -1);
           };
           nextValue = sortValue(nextValue);
-          this.cOnChange(nextValue);
+          this.triggerChange(nextValue);
         } else {
+          let nextValue = '';
           // 单选
           // 取消选中
           // eslint-disable-next-line no-lonely-if
@@ -53,7 +53,7 @@ Component({
             // 选中
             nextValue = value;
           }
-          this.cOnChange(nextValue, text);
+          this.triggerChange(nextValue);
         }
       }
     },

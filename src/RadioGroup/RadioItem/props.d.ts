@@ -14,5 +14,10 @@ export interface IRadioItemProps extends IBaseProps {
    */
 
   disabled?: boolean;
+  /**
+   * @description 当页面有多个RadioGroup时需传入，`必须全局唯一`，与内部的 RadioItem 组件的 uid 一致
+   * @default 'RadioGroup'
+   */
+  uid?: string;
 }
 export declare const RadioItemDefaultProps: Partial<IRadioItemProps>;
