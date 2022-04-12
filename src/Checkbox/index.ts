@@ -1,16 +1,13 @@
 import { CheckboxDefaultProps } from './props';
 import controlled from '../mixins/controlled';
-import formMixin from '../mixins/form';
+import formed from '../Form/mixin';
 
 Component({
   props: CheckboxDefaultProps,
-  mixins: [
-    controlled({
-      propsValue: 'checked',
-      defaultPropsValue: false,
-    }),
-    formMixin(),
-  ],
+  mixins: [controlled({
+    propsValue: 'checked',
+    defaultPropsValue: false
+  }), formed()],
   methods: {
     onChange(e) {
       const { value } = e.detail;

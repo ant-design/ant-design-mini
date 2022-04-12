@@ -1,13 +1,10 @@
-<import-sjs from="./index.sjs" name="_sjs" />
-<view
-  class="amd-picker {{disabled ? 'amd-picker-disabled' : ''}} {{className ? className : ''}}"
+<view class="amd-picker {{disabled ? 'amd-picker-disabled' : ''}} {{className ? className : ''}}"
   onTap="triggerPicker"
->
-  <slot />
+  onFormat="formatValueFn">
+  <slot name="label" />
+  {{showValue && !isDatePicker ? showValue : pickerholder}}
 </view>
-
-<popup
-  className="amd-picker-popup"
+<popup className="amd-picker-popup"
   position="bottom"
   visible="{{visible}}">
   <view class="amd-picker-header">
@@ -32,16 +29,14 @@
   </view>
   <view class="amd-picker-content">
     <block a:if="{{data}}">
-      <picker-view value="{{_sjs.getSelectedIndex(data,  cValue)}}"
+      <picker-view value="{{valueIndex}}"
         style="backgroundColor: {{backgroundColor}}"
         onChange="onChange">
         <block a:for="{{data}}"
           a:for-item="dataRoot"
           a:for-index="dataIndex">
           <picker-view-column a:if="{{dataIndex < cols}}">
-              <view a:for="{{dataRoot}}" class="amd-picker-content-item">
-                {{_sjs.getPickerViewLabel(item)}}
-              </view>
+              <view a:for="{{dataRoot}}" class="amd-picker-content-item">{{item}}</view>
           </picker-view-column>
         </block>
       </picker-view>
