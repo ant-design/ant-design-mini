@@ -1,26 +1,29 @@
 import { PickerDefaultProps } from './props';
 import controlled from '../mixins/controlled';
-import formed from '../Form/mixin'
+import formed from '../Form/mixin';
+import { getMatchedValuesByValue, getMatchedValuesByIndex } from './utils'
 
 Component({
   mixins: [controlled({
     defaultPropsValue: [],
     propsTriggerChange: 'onOk'
-  }),  formed()],
+  }), formed({
+    propsTriggerChange: 'onOk'
+  })],
   props:  PickerDefaultProps,
   data: {
     visible: false,
   },
 
   didMount() {
-    this.temp = null
+    this.tempSelectedIndex = null
   },
 
   methods: {  
     triggerPicker() {
       const { disabled, onTriggerPicker } = this.props;     
       if (!disabled) {
-        this.temp = null;
+        this.tempSelectedIndex = null;
         this.setData({
           visible: true,
         });
@@ -32,10 +35,10 @@ Component({
   
     onDismiss() {
       const { onDismiss } = this.props;
+      this.setData({
+        visible: false,
+      });
       if (onDismiss) {
-        this.setData({
-          visible: false,
-        });
         return onDismiss();
       }
     },
@@ -43,25 +46,22 @@ Component({
     onChange(e) {
       const { onChange } = this.props;
       const  { value: selectedIndex } = e.detail
-      this.temp  = selectedIndex;
-      const value = this.temp.map((v, index) => {
-        return  this.props.data[index][v]
-      })
+      this.tempSelectedIndex  = selectedIndex;
+      const { matchedColumn,  matchedValues } = getMatchedValuesByIndex(this.props.data, this.tempSelectedIndex)
       if (onChange) {
-        onChange.call(this.props, value);
+        onChange(matchedValues, matchedColumn);
       }
     },
   
     onOk() {
-      let value = ''
-      if (this.temp) {
-        value = this.temp.map((v, index) => {
-          return  this.props.data[index][v]
-        })
+      let result;
+      if (this.tempSelectedIndex) {
+        result = getMatchedValuesByIndex(this.props.data, this.tempSelectedIndex)
       } else {
-        value = this.data.cValue
+        result = getMatchedValuesByValue(this.props.data, this.data.cValue)
       }
-      this.triggerChange(value)
+      const { matchedColumn,  matchedValues } = result
+      this.triggerChange(matchedValues, matchedColumn )
       this.setData({
         visible: false
       })

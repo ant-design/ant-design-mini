@@ -38,7 +38,7 @@
         <block a:for="{{data}}"
           a:for-item="dataRoot"
           a:for-index="dataIndex">
-          <picker-view-column a:if="{{dataIndex < cols}}">
+          <picker-view-column a:if="{{dataIndex < data.length}}">
               <view a:for="{{dataRoot}}" class="amd-picker-content-item">
                 {{_sjs.getPickerViewLabel(item)}}
               </view>

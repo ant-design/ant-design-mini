@@ -1,24 +1,24 @@
 function getPickerViewLabel(item) {
-  if(typeof item === 'object' && item.label) return  item.label
+  if(typeof item === 'object' && typeof item.label === 'string') return  item.label  || ''
   return item
 }
 
 function getSelectedIndex(columns, cValue) {
-  const selected = [];
+  const selectedIndex = [];
   for (let i = 0; i < columns.length; i++) {
-    const column = columns[i]
-    let j;
-    for (j = 0; j < column.length; j++) {
-      if (column[j] ===  cValue[i]){
-        selected[i] = j;
-        break;
-      }
+    const column = columns[i];
+    let compareValue  =  cValue[i]
+    if (compareValue  === undefined) {
+      selectedIndex[i] = 0
+      break;
     }
-    if (j === column.length){
-      selected[i] = -1
-    }
+    let index  = column.findIndex(c => {
+      return c === compareValue || c.value === compareValue
+    })
+    if (index === -1) { index  = 0 }
+    selectedIndex[i]  = index
   }
-  return selected
+  return selectedIndex
 }
 
 export default {

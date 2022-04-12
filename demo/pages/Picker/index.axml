@@ -31,7 +31,7 @@
         onOk="handleTimeOk"
         data="{{basicColumns}}">
         <view slot="title"><text style="color: red;">Picker</text> 选择器</view>
-        <text>{{time}}11</text>
+        <text>{{time || '时间'}}</text>
       </picker>
     </list-item>
   </list>

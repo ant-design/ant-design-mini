@@ -1,0 +1,13 @@
+{
+  "defaultTitle": "Form",
+  "usingComponents": {
+    "form": "../../../../src/Form/index",
+    "form-item": "../../../../src/Form/FormItem/index",
+    "input-item": "../../../../src/InputItem/index",
+    "button": "../../../../src/Button/index",
+    "switch": "../../../../src/Switch/index",
+    "stepper": "../../../../src/Stepper/index",
+    "picker": "../../../../src/Picker/index",
+    "demo-block": "../../../components/DemoBlock/index"
+  }
+}

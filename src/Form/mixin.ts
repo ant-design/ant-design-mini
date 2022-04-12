@@ -3,26 +3,29 @@ import { getFieldName } from './cache'
 import formStoreFactory, { FormStore } from './store'
 import { IComponentData } from './props'
 
-export default (): IUserComponentOptions<IComponentData, {
-  onChange(v): void,
-  form?: string
-}, {
+type ControlledMixInParams  = {
+  propsTriggerChange?: string,
+}
+
+export default (params: ControlledMixInParams = { propsTriggerChange: 'onChange' }): IUserComponentOptions<IComponentData, Record<string, any>, {
   onChangeFormFieldValue(changedValues):void
 }, {
   store: FormStore,
   fieldName?: string
 },
 Record<string, unknown>,[]> => {
+  const { propsTriggerChange = 'onChange' } = params
   return {
     props: {
-      onChange(v) {
+      [propsTriggerChange]: function(v)  {
         if (this.fieldName) {
+          console.log('this.fieldName', this.fieldName)
           this.store.setFieldsValue({
             [this.fieldName]: v,
           });
           this.store.validate({ fieldName: this.fieldName });
         }
-      },
+      }
     },
 
     onInit() {
