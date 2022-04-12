@@ -43,25 +43,26 @@ toc: false
 | CSS 变量名称 | 说明 |
 | -----|----- |
 ### 样式类 
+以下样式类只在对应type下才会被使用
 
 | 类名 | 说明 |
 | -----|----- |
 | amd-loading | 整体样式 |
-| amd-loading-spin-container | type 为 'spin' 时外层容器的样式 |
-| amd-loading-mini-container | type 为 'mini' 时外层容器的样式 |
-| amd-loading-spin | type 为 'spin' 时内层容器的样式 |
-| amd-loading-spin-dark | type 为 'spin' 时深色模式的样式 |
-| amd-loading-spin-light | type 为 'spin' 时浅色模式的样式 |
-| amd-loading-spin-icon | type 为 'spin' 时加载图标外层样式 |
-| amd-loading-spin-icon-indicator | type 为 'spin' 时自定义加载图标外层样式 |
-| amd-loading-spin-icon-small | type 为 'spin' 时加载图标样式 |
-| amd-loading-spin-icon-medium | type 为 'spin' 时加载图标样式 |
-| amd-loading-spin-icon-large | type 为 'spin' 时加载图标样式 |
-| amd-loading-spin-icon-x-large | type 为 'spin' 时加载图标样式 |
-| amd-loading-spin-text | type 为 'spin' 时的加载文案样式 |
-| amd-loading-spin-text-dark | type 为 'spin' 时深色模式下的加载文案样式 |
-| amd-loading-spin-text-light | type 为 'spin' 时浅色模式下的加载文案样式 |
-| amd-loading-mini | type 为 'mini' 时外层容器的样式 |
-| amd-loading-mini-item | type 为 'mini' 时所有加载点的样式 |
+| amd-loading-spin-container | 外层容器样式 |
+| amd-loading-spin | 内层容器样式 |
+| amd-loading-spin-dark | 深色模式样式 |
+| amd-loading-spin-light | 浅色模式样式 |
+| amd-loading-spin-icon | 加载图标外层样式 |
+| amd-loading-spin-icon-indicator | 自定义加载图标外层样式 |
+| amd-loading-spin-icon-small | 加载图标样式 |
+| amd-loading-spin-icon-medium | 加载图标样式 |
+| amd-loading-spin-icon-large | 加载图标样式 |
+| amd-loading-spin-icon-x-large | 加载图标样式 |
+| amd-loading-spin-text | 加载文案样式 |
+| amd-loading-spin-text-dark | 深色模式下加载文案样式 |
+| amd-loading-spin-text-light | 浅色模式下加载文案样式 |
+| amd-loading-mini-container | 外层容器样式 |
+| amd-loading-mini | 外层容器样式 |
+| amd-loading-mini-item | 所有加载点的样式 |
 
 
