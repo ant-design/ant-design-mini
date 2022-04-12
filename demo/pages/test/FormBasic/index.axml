@@ -43,7 +43,6 @@
             <button 
                 slot="footer"
                 type="primary" 
-                form="{{form}}"
                 htmlType="submit">提交
             </button>
         </form>

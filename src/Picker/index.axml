@@ -3,9 +3,8 @@
   class="amd-picker {{disabled ? 'amd-picker-disabled' : ''}} {{className ? className : ''}}"
   onTap="triggerPicker"
 >
-  <slot />
+  <slot>{{formatValue||placeholder}}</slot>
 </view>
-
 <popup
   className="amd-picker-popup"
   position="bottom"
@@ -17,12 +16,9 @@
       hover-stay-time="50"
       onTap="onDismiss">{{dismissText}}</view>
     <view class="amd-picker-header-item amd-picker-header-title">
-      <block a:if="{{title}}">
+      <slot name="title">
         {{title}}
-      </block>
-      <block a:else>
-        <slot name="title" />
-      </block>
+      </slot>
     </view>
     <view class="amd-picker-header-item"
       hover-class="amd-picker-header-item-hover"
@@ -32,10 +28,12 @@
   </view>
   <view class="amd-picker-content">
     <block a:if="{{data}}">
-      <picker-view value="{{_sjs.getSelectedIndex(data,  cValue)}}"
+      <picker-view 
+        value="{{_sjs.getSelectedIndex(data,  cValue)}}"
         style="backgroundColor: {{backgroundColor}}"
         onChange="onChange">
-        <block a:for="{{data}}"
+        <block 
+          a:for="{{data}}"
           a:for-item="dataRoot"
           a:for-index="dataIndex">
           <picker-view-column a:if="{{dataIndex < data.length}}">
