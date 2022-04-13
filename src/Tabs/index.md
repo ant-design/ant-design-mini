@@ -120,4 +120,7 @@ table th:first-of-type { width: 180px; }
 .__dumi-default-layout-content article table:nth-of-type(6) th:nth-of-type(2)  {
     width: 300px
 } 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after {
+    border-bottom: none!important;
+}
 </style> 
