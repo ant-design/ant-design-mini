@@ -3,24 +3,25 @@ nav:
   path: /components
 group:
   title: 反馈
-  order: 2
+  order: 12
 toc: false
 ---
 
-# Popup
-
-弹窗，可在其中加入具体内容，展示更多信息供用户使用。
+# Popup 弹出层
+从屏幕滑出或弹出一块自定义内容区
+## 何时使用
+用于展示弹窗、信息提示、选择输入、切换等内容，支持多个弹出层叠加展示
 
 ## 注意事项
 - maskClosable 为 false 时，onClose 函数不触发
 
 ## 代码示例
-
+### 基本使用
 <code src='../../demo/pages/Popup'></code>
 
-## API
 
-### 属性
+
+## 属性
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
@@ -31,18 +32,18 @@ toc: false
 | disableScroll | boolean | 否 | true | 弹窗展示时，是否禁止页面滚动 |
 | animation | boolean | 否 | true | 是否开启过渡动画 |
 | duration | number | 否 | 300 | 过渡动画时长，单位毫秒 |
-| position | `'center'` &verbar; `'top'` &verbar; `'bottom'` &verbar; `'left'` &verbar; `'right'` | 否 | `center` | 弹窗布局 |
+| position | 'center' &verbar; 'top' &verbar; 'bottom' &verbar; 'left' &verbar; 'right' | 否 | 'center' | 弹窗布局 |
 | zIndex | number | 否 | 998 | 弹窗层级 |
 
 
 
-### 事件
+## 事件
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onClose | 弹窗关闭时，触发回调 | ( visible: boolean ) => void |
 
-### 样式类
+## 样式类
 
 | 类名 | 说明 |
 | ----|----|

@@ -10,6 +10,7 @@ toc: false
 加载，用于提示局部或页面在加载中。
 
 ## 代码示例
+### 基本使用
 <code src='../../demo/pages/Loading'></code>
 ## API 
 

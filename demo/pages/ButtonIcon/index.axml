@@ -1,4 +1,4 @@
-  <demo-block title="自定义Icon">
+  <demo-block title="自定义图标">
     <view class="btn-list">
       <button 
         type="primary" 

@@ -1,6 +1,5 @@
 .demo {
-  padding: 24rpx;
 }
 .btn {
-  margin: 12px;
+  margin: 0 12px;
 }

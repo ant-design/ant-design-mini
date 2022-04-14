@@ -3,11 +3,17 @@ nav:
   path: /components
 group:
   title: 实验性质的组件
-  order: 5
+  order: 16
 toc: false
 ---
 
-# Form
+# Form 表单
+Form 表单	高性能表单控件，自带数据域管理。包含数据录入、校验以及对应样式
+
+
+## 何时使用
+- 用于创建一个实体或收集信息
+- 需要对输入的数据类型进行校验时
 
 ## 注意事项
 - 使用条件：小程序项目需开启 `Component2` 选项
@@ -32,9 +38,9 @@ toc: false
 ### 实例方法使用
 <code src="../../demo/pages/FormInsMethod" ></code>
 
-## API
 
-### 属性
+
+## 属性
 
 #### Form
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -56,11 +62,12 @@ toc: false
 | Form | string | 是 | default | 表单 uid |
 | name | string | 是 | default | 字段 uid |
 | label | string | 否 | - | 字段名称 |
+| position | 'horizontal' &verbar;  'vertical' | 否 | 'horizontal' | 布局 |
 | arrow | boolean | 否 | false | 表单项右侧箭头 |
 | required | boolean | 否 | false | 是否必填，label展示必填标识 |
 | className | string | 否 | "" | 类名 |
 
-### 事件
+## 事件
 
 #### Form
 | 事件名 | 说明 | 类型 |
@@ -68,7 +75,7 @@ toc: false
 | onValuesChange | 字段更新，触发此回调 | ( changedFields: `Record<string, any>`, allFields: `Record<string, any>` ) => void |
 | onFinish | 表单提交后，触发此回调 | ( changedFields: `Record<string, any>`, allFields: `Record<string, any>` ) => void |
 
-### 插槽
+## 插槽
 
 #### FormGroup
 | 名称 | 说明 |
@@ -81,7 +88,7 @@ toc: false
 | ----|----|
 | extra | 表单项额外内容 |
 
-### 实例方法
+## 实例方法
 
 #### Form
 | 事件名 | 说明 | 类型 |
@@ -90,7 +97,7 @@ toc: false
 | setFieldsValue | 设置表单字段值 | ( formName: `string`, fieldsVals: `Record<string, any>` ) => void |
 
 
-### 样式类
+## 样式类
 
 #### Form
 | 类名 | 说明 |
@@ -150,5 +157,8 @@ table th:first-of-type { width: 180px; }
 }
 .__dumi-default-layout-content article table:nth-of-type(7) th:nth-of-type(2)  {
     width: 180px
+}
+.__dumi-default-mobile-previewer:nth-of-type(2)::after,.__dumi-default-mobile-previewer:nth-of-type(4)::after,.__dumi-default-mobile-previewer:nth-of-type(6)::after,.__dumi-default-mobile-previewer:nth-of-type(8)::after  {
+    border-bottom: none!important;
 }
 </style> 
