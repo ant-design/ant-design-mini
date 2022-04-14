@@ -50,7 +50,8 @@
     "pages/SafeArea/index",
     "pages/Dialog/index",
     "pages/Container/index",
-    "pages/test/FormBasic/index"
+    "pages/test/FormBasic/index",
+    "pages/test/CheckboxGroup/index"
   ],
   "window": {
     "enableWK": "YES",
