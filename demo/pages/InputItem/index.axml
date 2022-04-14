@@ -1,14 +1,14 @@
 <view>
-  <demo-block title="基本的输入框">
-    <input-item placeholder="请输入姓名" value="{{name}}" clear="{{false}}" type="text" onChange="handleItemChange" onFocus="handleItemFocus" onBlur="handleItemBlur" onConfirm="handleItemConfirm" >
+  <demo-block title="基础用法">
+    <input-item placeholder="请输入内容" clear="{{false}}" type="text" onChange="handleItemChange" onFocus="handleItemFocus" onBlur="handleItemBlur" onConfirm="handleItemConfirm" >
     </input-item>
   </demo-block>
   <demo-block title="带清除按钮">
-    <input-item placeholder="请输入卡号" clear="{{true}}" value="{{cardNo}}" type="text" onChange="handleItemChange" onClear="handleItemClear">
+    <input-item placeholder="请输入内容" clear="{{true}}" type="text" onChange="handleItemChange" onClear="handleItemClear">
     </input-item>
   </demo-block>
   <demo-block title="禁用状态">
-    <input-item value="被禁用的输入框" disabled="{{true}}" clear="{{true}}" type="text" onChange="handleItemChange" onClear="handleItemClear">
+    <input-item placeholder="被禁用的输入框" disabled="{{true}}" clear="{{true}}" type="text" onChange="handleItemChange" onClear="handleItemClear">
     </input-item>
   </demo-block>
 </view>

@@ -2,29 +2,32 @@
   <demo-block title="基础用法">
     <stepper 
       step="{{1}}"
-      value="{{99}}"
+      value="{{0}}"
       inputWidth="60px"/>
   </demo-block>
-  <demo-block title="受控模式">
+  <demo-block title="受控组件">
     <stepper 
       controlled
       step="{{1}}"
       value="{{value}}"
       inputWidth="60px"
       onChange="handleChange" />
-    <view class="actions">
-      <button onTap="handleMinusValue">-1</button>
-      <button onTap="handleAddValue">+1</button>
-    </view>
   </demo-block>
-  <demo-block title="步长0.01">
+  <demo-block title="步长设置">
     <stepper 
       step="{{0.01}}"
-      value="{{6.66}}"/>
+      value="{{0}}"/>
+  </demo-block>
+  <demo-block title="限制输入范围">
+    <stepper 
+      min="{{0}}"
+      max="{{10}}"
+      step="{{1}}"
+      value="{{0}}"/>
   </demo-block>
   <demo-block title="禁用状态">
     <stepper 
-      value="{{99}}"
+      value="{{0}}"
       disabled/>
   </demo-block>
 </view>

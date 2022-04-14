@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Container：容器",
+  "defaultTitle": "Container",
   "usingComponents": {
     "container": "../../../src/Container/index"
   }

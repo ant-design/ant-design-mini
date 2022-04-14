@@ -7,6 +7,7 @@ const cleanCss = require('gulp-clean-css');
 const babel = require('gulp-babel');
 const gulpif = require('gulp-if');
 const injectEnvs = require('gulp-inject-envs');
+const ts = require('gulp-typescript');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const dist = isProduction ? path.join(__dirname, '../es') : path.join(__dirname, '../demo/es');
@@ -48,8 +49,14 @@ gulp.task('sjs', () => gulp.src(`${src}/**/*.sjs`)
 gulp.task('ts', () => gulp.src(`${src}/**/*.ts`)
   .pipe(gulpif((file) => {
     return !file.path.endsWith('.d.ts');
-  }, babel({
-    presets:['@babel/preset-env']
+  }, ts({
+    noEmitOnError:false,
+    isolatedModules:true,
+    importHelpers: true,
+    esModuleInterop: true,
+    noImplicitThis: true,
+    allowSyntheticDefaultImports: true,
+    target: 'ES5'
   })))
   .pipe(injectEnvs(env))
   .on('error', (err) => {

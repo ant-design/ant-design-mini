@@ -5,6 +5,7 @@ import { compareVersion } from '../../_util/compareVersion';
 import { tabsStore } from "../../_util/tabsStore";
 
 const isBaseSwiper = compareVersion('2.0.0', my.SDKVersion) < 0 ? true : false
+
 Component({
   props: TabItemDefaultProps,
   data: {

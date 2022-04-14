@@ -1,6 +1,6 @@
 <list className="amd-checkbox-group {{className ? className : ''}}" radius="{{radius}}">
   <view class="amd-list-header">
-    <slot name="header">{{footer}}</slot>
+    <slot name="header">{{header}}</slot>
   </view>
   <checkbox-group id="{{id ? id : $id}}" name="{{name ? name : ''}}" disabled="{{_disabled}}">
     <view class="amd-list-body">

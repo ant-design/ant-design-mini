@@ -112,10 +112,15 @@ function npmPublish(oldVersion, newVersion, tag) {
       .then((res) => {
         const { confirm } = res;
         if (confirm === "是") {
-          const antdMiniPkgJsonStr = publish("antd-mini", tag, newVersion);
+          console.log('发布中 ...')
+          const originPkgJson = require(PKG_JSON_PATH);
+          publish("antd-mini", tag, newVersion);
           publish("antd-mini-rpx", tag, newVersion);
-          // 回写
-          writePkgJson(antdMiniPkgJsonStr);
+          // 只回写正式版的 package.json
+          if(tag === "latest"){
+            originPkgJson.version = newVersion
+          }
+          writePkgJson(JSON.stringify(originPkgJson, null, 2));
           console.log("发布完成")
           resolve(newVersion);
         }
@@ -128,7 +133,7 @@ function writePkgJson(str) {
   fs.writeFileSync(PKG_JSON_PATH, str, { encoding: "utf-8" });
 }
 
-// TODO
+
 function publish(npmName, tag, version) {
   const pkgJsonStr = updatePkgJson(npmName, version);
   writePkgJson(pkgJsonStr)
@@ -140,9 +145,9 @@ function updatePkgJson(npmName, version) {
   pkgJson.name = npmName;
   pkgJson.version = version;
   if (npmName === "antd-mini") {
-    pkgJson.prepublishOnly = "npm run build:component";
+    pkgJson.scripts.prepublishOnly = "npm run build:component";
   } else if (npmName === "antd-mini-rpx") {
-    pkgJson.prepublishOnly = "npm run build:component:rpx";
+    pkgJson.scripts.prepublishOnly = "npm run build:component:rpx";
   }
   return JSON.stringify(pkgJson, null, 2);
 }

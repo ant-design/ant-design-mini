@@ -1,6 +1,6 @@
 <view class="demo-container">
   <container
-    title="容器demo"
+    title="基础用法"
     image="{{imageUrl}}"
     icon="SetOutline"
     onIconTap="onIconTap"

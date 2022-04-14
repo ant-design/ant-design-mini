@@ -2,17 +2,26 @@
 nav:
   path: /components
 group:
-  title: 导航
-  order: 3
+  title: 引导提示
+  order: 14
 toc: false
 ---
-# Tips
+# Tips 向导提示
+弹出式气泡
+## 何时使用
+强化界面中的某个元素对用户的提示信息
 ## 代码示例
+### 基本使用
 <code src='../../demo/pages/Tips'></code>
 
-## API
+### 插槽
+<code src='../../demo/pages/TipsSlot'></code>
 
-### 属性
+### 关闭组件
+<code src='../../demo/pages/TipsClose'></code>
+
+
+## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | image | string | 否 | - | 需要使用的图片 url |
@@ -23,12 +32,12 @@ toc: false
 | buttonPosition | 'right' &verbar; 'bottom' | 否 | 'right' | 文字按钮的位置，默认为右边 |
 | className | string | 否 | - | 类名 |
 
-### 事件
+## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onButtonTap | 点击按钮，触发回调 | () => void |
 
-### 样式类
+## 样式类
 | 类名 | 说明 |
 | ----|----|
 | amd-tips | 整体样式 |
@@ -53,4 +62,7 @@ table th:first-of-type { width: 180px; }
 .__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(2)  {
     width: 300px
 } 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after , .__dumi-default-mobile-previewer:nth-of-type(4)::after {
+    border-bottom: none!important;
+}
 </style> 
