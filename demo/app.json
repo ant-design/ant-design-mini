@@ -51,7 +51,8 @@
     "pages/Dialog/index",
     "pages/Container/index",
     "pages/DatePicker/index",
-    "pages/test/FormBasic/index"
+    "pages/test/FormBasic/index",
+    "pages/test/CheckboxGroup/index"
   ],
   "window": {
     "enableWK": "YES",

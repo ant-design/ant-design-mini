@@ -1,0 +1,6 @@
+<checkbox-group onChange="onChange" value="{{value}}">
+  <label class="checkbox" a:for="{{items}}" key="label-{{index}}">
+    <checkbox value="{{item.value}}" disabled="{{item.disabled}}" />
+    <text class="checkbox-text">{{item.value}}</text>
+  </label>
+</checkbox-group>
