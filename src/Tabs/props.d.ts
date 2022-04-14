@@ -9,7 +9,7 @@ export interface ITabsProps extends IBaseProps {
    * @description 类型，basis(基础)，capsule(胶囊)，mixin(混合)
    * @default "basis"
    */
-  uid:string;
+  uid: string;
   /**
    * @description 类型，basis(基础)，capsule(胶囊)，mixin(混合)
    * @default "basis"
