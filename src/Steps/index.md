@@ -2,23 +2,26 @@
 nav:
   path: /components
 group:
-  title: 数据展示
-  order: 1
+  title: 信息展示
+  order: 8
 toc: false
 ---
-# Steps
-步骤条，分步展示当前进展，配合 `StepItem` 组件使用
+# Steps 步骤条
+引导用户按照流程完成任务的导航条
+## 何时使用
+当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务
 ## 代码示例
+### 基本使用
 <code src='../../demo/pages/Steps'></code>
 
-## API
-### 属性
+
+## 属性
   
 #### Steps
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | index | number | 否 | 0 | 当前步骤, 受控 |
-| direction | `'horizontal'` &verbar; `'vertical'` | 否 | "horizontal" | 方向 |
+| direction | 'horizontal' &verbar; 'vertical' | 否 | 'horizontal' | 方向 |
 | className | string | 否 | - | 类名 |
     
 #### StepItem
@@ -26,15 +29,15 @@ toc: false
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | index | number | 是 | - | 小程序必填，用于标记当前是第几步，必须按顺序递增 |
-| title | `string` &verbar; `slot` | 是 | - | 标题 |
-| desc | `string` &verbar; `slot` | 否 | - | 补充信息 |
+| title | string &verbar; slot | 是 | - | 标题 |
+| desc | string &verbar; slot | 否 | - | 补充信息 |
 | fail | boolean | 否 | false | 是否失败步骤 |
-| icon | `string` &verbar; `slot` &verbar; `string` | 否 | - | 图标，横向和纵向都有各自的默认图标 |
-| activeIcon | `string` &verbar; `slot` &verbar; `string` | 否 | - | 激活步骤图标，横向和纵向都有各自的默认图标 |
-| failIcon | `string` &verbar; `slot` &verbar; `string` | 否 | - | 失败步骤图标，横向和纵向都有各自的默认图标 |
+| icon | string &verbar; slot | 否 | - | 图标，横向和纵向都有各自的默认图标 |
+| activeIcon | string &verbar; slot | 否 | - | 激活步骤图标，横向和纵向都有各自的默认图标 |
+| failIcon | string &verbar; slot | 否 | - | 失败步骤图标，横向和纵向都有各自的默认图标 |
 | className | string | 否 | - | 类名 |
   
-### 插槽
+## 插槽
 
 #### StepItem
 | 名称 | 说明 |

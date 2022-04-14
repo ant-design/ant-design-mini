@@ -1,10 +1,9 @@
 Page({
   data: {
     isNoBtnShow: false,
+    isMaskClosableShow: false,
     isVerticalShow: false,
     isHoriShow: false,
-    isSImgDialogShow: false,
-    isMImgDialogShow: false,
     isLImgDialogShow: false,
     isCusDialogShow: false,
     url: 'https://gw.alipayobjects.com/zos/rmsportal/yFeFExbGpDxvDYnKHcrs.png',
@@ -12,13 +11,26 @@ Page({
   handleClose() {
     this.setData({
       isNoBtnShow: false,
+      isMaskClosableShow: false,
       isVerticalShow: false,
       isHoriShow: false,
-      isSImgDialogShow: false,
-      isMImgDialogShow: false,
       isLImgDialogShow: false,
       isCusDialogShow: false,
     });
+  },
+  handleButtonTap(index) {
+    my.alert({
+      title: `点击了第${index + 1}个按钮`,
+      complete: () => {
+        this.handleClose();
+      },
+    });
+  },
+  handleOpenNoBtn() {
+    this.setData({ isNoBtnShow: true });
+  },
+  handleOpenMaskClosable() {
+    this.setData({ isMaskClosableShow: true });
   },
   handleOpenVertical() {
     this.setData({
@@ -30,16 +42,6 @@ Page({
       isHoriShow: true,
     });
   },
-  handleOpenSImg() {
-    this.setData({
-      isSImgDialogShow: true,
-    });
-  },
-  handleOpenMImg() {
-    this.setData({
-      isMImgDialogShow: true,
-    });
-  },
   handleOpenLImg() {
     this.setData({
       isLImgDialogShow: true,
@@ -49,8 +51,5 @@ Page({
     this.setData({
       isCusDialogShow: true,
     });
-  },
-  handleOpenNoBtn() {
-    this.setData({ isNoBtnShow: true });
   },
 });

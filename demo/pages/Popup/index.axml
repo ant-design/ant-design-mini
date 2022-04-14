@@ -15,6 +15,15 @@
       <view class="centerContent"> 试一下滚动</view>
     </scroll-view>
   </popup>
+  <demo-block title="弹出位置">
+    <view class="btn-list">
+      <button data-position="top" onTap="handleShowBasic">顶部弹出</button>
+      <button data-position="bottom" onTap="handleShowBasic">底部弹出</button>
+      <button data-position="left" onTap="handleShowBasic">左侧弹出</button>
+      <button data-position="right" onTap="handleShowBasic">右侧弹出</button>
+      <button data-position="center" onTap="handleShowBasic">中间弹出</button>
+    </view>
+  </demo-block>
   <list>
     <list-item>
       显示关闭按钮
@@ -29,15 +38,6 @@
       <switch slot="extra" checked="{{animation}}" controlled onChange="handleChangeAnimation" />
     </list-item>
   </list>
-  <demo-block title="不同位置">
-    <view class="btn-list">
-      <button data-position="top" onTap="handleShowBasic">顶部弹出</button>
-      <button data-position="bottom" onTap="handleShowBasic">底部弹出</button>
-      <button data-position="left" onTap="handleShowBasic">左侧弹出</button>
-      <button data-position="right" onTap="handleShowBasic">右侧弹出</button>
-      <button data-position="center" onTap="handleShowBasic">中间弹出</button>
-    </view>
-  </demo-block>
   <demo-block title="设置disableScroll">
     <view class="btn-list">
       <button onTap="handleShowDisableScroll">弹窗内部滚动 - 禁用页面滚动</button>

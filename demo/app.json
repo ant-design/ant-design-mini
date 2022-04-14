@@ -37,6 +37,8 @@
     "pages/CollapseCustom/index",
     "pages/Tag/index",
     "pages/Tips/index",
+    "pages/TipsSlot/index",
+    "pages/TipsClose/index",
     "pages/Mask/index",
     "pages/Avatar/index",
     "pages/Loading/index",

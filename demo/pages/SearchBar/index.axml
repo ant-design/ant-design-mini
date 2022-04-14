@@ -6,7 +6,7 @@
       onInput="handleBasicInput" 
       onClear="handleBasicClear"/>
   </demo-block>
-  <demo-block title="带取消按钮" background="#f5f5f5" padding="0">
+  <demo-block title="取消按钮常显" background="#f5f5f5" padding="0">
     <search-bar 
       placeholder="请输入内容" 
       showCancelButton
@@ -15,16 +15,7 @@
       onClear="handleBasicClear"
       onCancel="handleCancelWithCancel"/>
   </demo-block>
-  <demo-block title="额外Voice图标" background="#f5f5f5" padding="0">
-    <search-bar 
-      placeholder="请输入内容" 
-      showBizIcon
-      value="{{voiceValue}}" 
-      onInput="handleVoiceInput" 
-      onClear="handleVoiceClear"
-      onBizIconTap="handleTapVoice"/>
-  </demo-block>
-  <demo-block title="聚焦显示取消按钮" background="#f5f5f5" padding="0">
+  <demo-block title="获取焦点后显示取消按钮" background="#f5f5f5" padding="0">
     <search-bar 
       placeholder="请输入内容" 
       value="{{focusWithCancelValue}}" 
@@ -34,5 +25,14 @@
       onCancel="handleFocusCancelWithCancel"
       onBlur="handleFocusCancelWithBlur"
       onFocus="handleFocusCancelWithFocus"/>
+  </demo-block>
+  <demo-block title="额外Voice图标" background="#f5f5f5" padding="0">
+    <search-bar 
+      placeholder="请输入内容" 
+      showBizIcon
+      value="{{voiceValue}}" 
+      onInput="handleVoiceInput" 
+      onClear="handleVoiceClear"
+      onBizIconTap="handleTapVoice"/>
   </demo-block>
 </view>

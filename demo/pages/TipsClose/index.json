@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "button": "../../../src/Button",
+    "tips": "../../../src/Tips"
+  }
+}

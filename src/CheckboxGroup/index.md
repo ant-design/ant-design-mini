@@ -2,13 +2,12 @@
 nav:
   path: /components
 group:
-  title: 表单类组件
-  order: 3
+  title: 信息输入
+  order: 10
 toc: false
 ---
 
-# CheckboxGroup
-
+# CheckboxGroup 复选框组
 复选框组合，内部由多个 CheckboxItem 组成。
 
 ## 注意事项
@@ -18,12 +17,12 @@ toc: false
 - 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `ChecboxGroup` 组件的 `mode` 的值为 `form`。
 
 ## 代码示例
-
+### 基本使用
 <code src='../../demo/pages/CheckboxGroup'></code>
 
-## API
 
-### 属性
+
+## 属性
 
 #### CheckboxGroup
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -33,7 +32,7 @@ toc: false
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
 | className | string | 否 | - | 类名 |
-| mode | 'noraml' &verbar; 'form' | 否 | normal | 配合From/FormItem组件使用时，需设置为 from |
+| mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
 | uid | string | 是 | - | `必须全局唯一`，需与内部的 CheckboxItem 组件的 uid 一致 |
 
 #### CheckboxItem
@@ -45,14 +44,14 @@ toc: false
 | className | string | 否 | - | 类名 |
 | uid | string | 是 | - | `必须全局唯一`，需与内部的 CheckboxGroup 组件的 uid 一致 |
 
-### 事件
+## 事件
 
 #### CheckboxGroup
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 勾选状态变化时，触发此函数 |-----|
 
-### 插槽
+## 插槽
 
 #### CheckboxGroup
 | 名称 | 说明 |
@@ -60,7 +59,7 @@ toc: false
 | header | 头部内容插槽 |
 | footer | 底部内容插槽 |
 
-### 样式类
+## 样式类
 
 #### CheckboxGroup
 | 类名 | 说明 |

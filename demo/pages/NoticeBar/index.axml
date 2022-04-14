@@ -1,5 +1,5 @@
 <view>
-  <demo-block title="四种类型" padding="0">
+  <demo-block title="通告栏语义" padding="0">
     <notice 
       type="default"
       showIcon>
@@ -24,6 +24,14 @@
       primary
     </notice>
   </demo-block>
+  <demo-block title="可关闭" padding="0">
+    <notice 
+      showIcon
+      onTap="handleClose"
+      mode="closeable">
+      这条通知可以关闭
+    </notice>
+  </demo-block>
   <demo-block title="超长滚动" padding="0">
     <block a:for="{{typeList}}">
       <notice 
@@ -38,18 +46,8 @@
       <white-space/>
     </block>
   </demo-block>
-  <demo-block title="可关闭" padding="0">
-    <notice 
-      type="primary"
-      showIcon
-      onTap="handleClose"
-      mode="closeable">
-      这条通知可以关闭
-    </notice>
-  </demo-block>
   <demo-block title="自定义" padding="0">
     <notice 
-      type="primary"
       showIcon
       actions="{{actionsText2}}"
       mode="link"

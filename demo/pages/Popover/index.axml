@@ -1,12 +1,12 @@
 <view>
-  <demo-block title="深色的气泡菜单">
+  <demo-block title="深色气泡菜单">
     <view class="wrap">
       <popover 
         placement="bottom-left"
         visible="{{showDark}}"
         mask
         onVisibleChange="handleDarkVisibleChange">
-        <button inline inlineSize="large">点我{{showDark?'关闭':'显示'}}</button>
+        <button inline inlineSize="large">点我</button>
         <block slot="items">
           <popover-item 
             onTap="handleTapItem"
@@ -46,7 +46,7 @@
       </popover>
     </view>
   </demo-block>
-  <demo-block title="浅色的气泡菜单">
+  <demo-block title="浅色气泡菜单">
     <view class="wrap">
       <popover 
         placement="bottom-left"
@@ -54,7 +54,7 @@
         mode="light"
         mask
         onVisibleChange="handleLightVisibleChange">
-        <button inline inlineSize="large">点我{{showLight?'关闭':'显示'}}</button>
+        <button inline inlineSize="large">点我</button>
         <block slot="items">
           <popover-item 
             onTap="handleTapItem"
@@ -94,4 +94,38 @@
       </popover>
     </view>
   </demo-block>
+  <demo-block title="无图标气泡菜单">
+    <view class="wrap">
+      <popover 
+        placement="bottom-left"
+        visible="{{showNoIcon}}"
+        mask
+        onVisibleChange="handleNoIconVisibleChange">
+        <button inline inlineSize="large">点我</button>
+        <block slot="items">
+          <popover-item 
+            onTap="handleTapItem"
+            data-type="showNoIcon"
+            data-name="扫一扫">
+            扫一扫
+          </popover-item>
+
+          <popover-item 
+            onTap="handleTapItem"
+            data-type="showNoIcon"
+            data-name="付钱/收钱">
+            付钱/收钱
+          </popover-item>
+
+          <popover-item 
+            onTap="handleTapItem"
+            data-type="showNoIcon"
+            data-name="乘车码">
+            乘车码
+          </popover-item>
+        </block>
+      </popover>
+    </view>
+  </demo-block>
+  
 </view>

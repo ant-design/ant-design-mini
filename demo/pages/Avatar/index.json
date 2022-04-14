@@ -2,7 +2,7 @@
   "defaultTitle": "Avatar",
   "usingComponents": {
     "avatar": "../../../src/Avatar/index",
-    "white-space": "../../components/WhiteSpace/index",
+    "list-item": "../../../src/List/ListItem/index",
     "demo-block": "../../components/DemoBlock/index"
   }
 }

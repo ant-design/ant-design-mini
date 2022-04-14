@@ -1,7 +1,5 @@
 Page({
   data: {
-    name: '王五',
-    cardNo: '1234****',
   },
   handleItemChange(e) {
     // eslint-disable-next-line no-console

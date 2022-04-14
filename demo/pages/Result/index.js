@@ -12,7 +12,7 @@ Page({
     ],
   },
   handleTabBtn(e) {
-    my.showToast({
+    my.alert({
       content: `当前点击的是第 ${e + 1} 个按钮：${this.data.buttons[e].text}`,
     });
   },

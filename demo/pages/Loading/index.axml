@@ -1,27 +1,27 @@
 <view class="demo">
-  <demo-block title="mini类型">
+  <demo-block title="基础用法" padding="0">
     <loading type="mini"></loading>
   </demo-block>
-  <demo-block title="dark颜色">
-    <loading size="x-large" text="x-large" />
-    <loading size="large" text="large" />
-    <loading size="medium" text="medium" />
-    <loading size="small" text="small" />
+  <demo-block title="主题色 Loading"  padding="0">
+    <loading type="mini" color="#1677ff"></loading>
   </demo-block>
-  <demo-block title="light颜色" background="rgba(0, 0, 0, 0.7)">
+  <demo-block title="spin">
+    <loading type="spin" size="x-large" text="x-large" />
+    <loading type="spin" size="large" text="large" />
+    <loading type="spin" size="medium" text="medium" />
+    <loading type="spin" size="small" text="small" />
+  </demo-block>
+  <demo-block title="浅色spin" background="rgba(0, 0, 0, 0.7)">
     <loading size="x-large" text="x-large" theme="light" />
     <loading size="large" text="large" theme="light" />
     <loading size="medium" text="medium" theme="light" />
     <loading size="small" text="small" theme="light" />
   </demo-block>
   <demo-block title="延迟3000ms出现">
-    <loading size="x-large" text="x-large" delay="{{3000}}" />
-    <loading size="large" text="large" delay="{{3000}}" />
-    <loading size="medium" text="medium" delay="{{3000}}" />
-    <loading size="small" text="small" delay="{{3000}}" />
+    <loading  delay="{{3000}}" />
   </demo-block>
-  <demo-block title="自定义加载">
-    <loading text="自定义加载">
+  <demo-block title="自定义图标">
+    <loading text="自定义图标">
       <am-icon slot="indicator" type="HeartFill" />
     </loading>
   </demo-block>
