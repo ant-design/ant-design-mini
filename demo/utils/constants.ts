@@ -97,6 +97,11 @@ export const componentList = [
         path: '/pages/Picker/index',
       },
       {
+        name: 'DatePicker',
+        nameZN: '日期选择器',
+        path: '/pages/DatePicker/index',
+      },
+      {
         name: 'RadioGroup',
         nameZN: '单选框',
         path: '/pages/RadioGroup/index',
@@ -140,6 +145,11 @@ export const componentList = [
         name: 'Loading',
         nameZN: '加载中',
         path: '/pages/Loading/index',
+      },
+      {
+        name: 'Mask',
+        nameZN: '蒙层',
+        path: '/pages/Mask/index',
       },
       {
         name: 'Modal',

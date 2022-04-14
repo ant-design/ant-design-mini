@@ -1,0 +1,23 @@
+<demo-block title="基础用法" padding="0">
+    <list-item>
+    请选择时间
+    <date-picker 
+        slot="extra"
+        placeholder="选择"
+        onOk="handleOk"
+        format="YYYY-MM-DD"
+        title="时间"/>
+    </list-item>
+</demo-block>
+<demo-block title="选择精度" padding="0">
+    <list-item>
+    请选择时间
+    <date-picker 
+        slot="extra"
+        precision="second"
+        format="YYYY-MM-DD HH:mm:ss"
+        placeholder="选择"
+        onOk="handleOk"
+        title="时间"/>
+    </list-item>
+</demo-block>

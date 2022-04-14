@@ -11,7 +11,7 @@ export function getMatchedValuesByValue(columns, value) {
   for (let i = 0; i < columns.length; i++) {
     const column = columns[i];
     const compareValue = value[i]
-    if (compareValue === undefined) {
+    if (compareValue === undefined || compareValue === null) {
       index = 0;
     } else {
       index  = column.findIndex(c => {
@@ -36,7 +36,7 @@ export function getMatchedValuesByIndex(columns, selectedIndex) {
     const column = columns[i];
     const compareValue = selectedIndex[i]
     index = null;
-    if (compareValue === undefined) {
+    if (compareValue === undefined || compareValue === null) {
       index = 0;
     } else {
       index = compareValue;

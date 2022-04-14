@@ -6,17 +6,10 @@ group:
   order: 10
 toc: false
 ---
-# Picker 选择器
-Picker 选择器	显示一个或多个选项集合的的可滚动列表
-## 何时使用
-- 提供一组或多组关联选项供用户选择
-- 当少于5个选项时，建议直接将选项平铺，使用 Radio 是更好的选择
-
-## 说明
-显示区域内容可以使用 默认插槽/onFormat/placeholder三种方式指定，优先级slot>onFormat>placeholder
+# DatePicker 时间选择器
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Picker'></code>
+<code src='../../demo/pages/DatePicker'></code>
 
 
 
@@ -24,8 +17,10 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | controlled | boolean | 否 | false | - |
-| data | {value: string &#124; number; label: string}[]| 是 | - | picker 数据 |
-| value | (string &#124; number)[] | 否 | - | picker 数据 |
+| format | string | 否 | - | 时间格式化显示YYYY-MM-DD |
+| min | Date | 否 | 十年前 | 最小值 |
+| max | Date | 否 | 十年后 | 最大值 |
+| value | Date | 否 | - | 选中的时间 |
 | placeholder | string | 否 | - | 提示文案 |
 | title | string | 否 | - | 标题 |
 | okText | string | 否 | '确定' | 确认按钮文案 |
@@ -43,21 +38,15 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible:boolean) => void |
 
 ## 插槽
-| 名称 | 说明 | 类型 |
-| -----|-----|-----|
-| default | 文本区域标签名称 | 作用域插槽 |
-| title | 弹窗窗体标题名称 |  - |
-
+| 名称 | 说明 |
+| -----|-----|
+| default | 文本区域标签名称 |
+| title | 弹窗窗体标题名称 |
 
 ## 样式类
 | 类名 | 说明 |
 | -----|-----|
-| amd-picker | 文本展示区域样式 |
-| amd-picker-popup | 弹窗整体样式 |
-| amd-picker-header | 弹窗头部区域样式 |
-| amd-picker-header-item | 弹窗头部区域文本样式 |
-| amd-picker-content | 选择区域样式 |
-| amd-picker-content-item | 选择区域单个选项样式 |
+| amd-date-picker | 文本展示区域样式 |
 
 
 <style> 

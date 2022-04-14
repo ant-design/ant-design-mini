@@ -1,9 +1,9 @@
 <import-sjs from="./index.sjs" name="_sjs" />
 <view
   class="amd-picker {{disabled ? 'amd-picker-disabled' : ''}} {{className ? className : ''}}"
-  onTap="triggerPicker"
+  onTap="onOpen"
 >
-  <slot>{{formatValue||placeholder}}</slot>
+  <slot value="{{cValue}}">{{formatValue||placeholder}}</slot>
 </view>
 <popup
   className="amd-picker-popup"
@@ -30,7 +30,6 @@
     <block a:if="{{data}}">
       <picker-view 
         value="{{_sjs.getSelectedIndex(data,  cValue)}}"
-        style="backgroundColor: {{backgroundColor}}"
         onChange="onChange">
         <block 
           a:for="{{data}}"

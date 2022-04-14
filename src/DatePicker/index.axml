@@ -1,0 +1,16 @@
+<import-sjs from="./index.sjs" name="_sjs" />
+<picker 
+    className="amd-date-picker"
+    data="{{data}}"
+    value="{{_sjs.getPickerValue(data,currentValue||cValue)}}"
+    controlled
+    title="{{title}}" 
+    placeholder="{{placeholder}}"
+    okText="{{okText}}"
+    dismissText="{{dismissText}}"
+    onChange="onChange"
+    onDismiss="onDismiss"
+    onOk="onOk"
+    onTriggerPicker="onTriggerPicker"
+    onFormat="onFormat">
+</picker>

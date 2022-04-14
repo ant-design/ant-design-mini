@@ -32,23 +32,32 @@ Component({
       const { cValue } = this.data;
       const realValue = value || cValue;
       let formatValue = '';
-      if (onFormat && realValue && realValue.length > 0) {
+      if (
+        onFormat &&
+        realValue &&
+        realValue.length > 0 &&
+        realValue.every((v) => v !== undefined)
+      ) {
         formatValue = onFormat(realValue, data);
       }
       if (this.data.formatValue !== formatValue) {
         this.setData({ formatValue });
       }
     },
-    triggerPicker() {
-      const { disabled, onTriggerPicker } = this.props;
+    onOpen() {
+      const { disabled } = this.props;
       if (!disabled) {
         this.tempSelectedIndex = null;
         this.setData({
           visible: true,
         });
+        this.triggerPicker(true);
       }
+    },
+    triggerPicker(visible) {
+      const { onTriggerPicker } = this.props;
       if (onTriggerPicker) {
-        onTriggerPicker.call(this.props);
+        onTriggerPicker(visible);
       }
     },
 
@@ -57,6 +66,7 @@ Component({
       this.setData({
         visible: false,
       });
+      this.triggerPicker(false);
       if (onDismiss) {
         return onDismiss();
       }
@@ -87,6 +97,7 @@ Component({
       }
       const { matchedColumn, matchedValues } = result;
       this.triggerChange(matchedValues, matchedColumn);
+      this.triggerPicker(false);
       this.setData({
         visible: false,
       });

@@ -1,27 +1,28 @@
 import { IBaseFormItemPropsWithOutFocus } from '../_base';
 
-export interface PickerData {
-  value: PickerValue[0];
-  label: string;
-  children?: PickerData[];
-}
-export declare type PickerValue = (string | number)[];
+export type PickerValue = Date;
 /**
- * @description 选择器，包括一个或多个不同值的可滚动列表，每个值可以在视图的中心以较暗的文本形式显示。当用户激活 **Picker** 后，将会从底部弹出。
+ * @description 对话框
  */
-export interface IPickerProps
-  extends IBaseFormItemPropsWithOutFocus<PickerValue> {
+export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
-   * @description picker 数据
+   * @description 时间格式化显示YYYY-MM-DD
    */
-  value?: PickerValue;
+  format?: string;
   /**
-   * @description value 显示在输入框的格式
+   * @description 最小值
+   * @default 十年前
    */
-  onFormat?: (
-    value: PickerValue,
-    data: Omit<PickerData, 'children'>[][]
-  ) => string;
+  min?: Date;
+  /**
+   * @description 最大值
+   * @default 十年后
+   */
+  max?: Date;
+  /**
+   * @description 当前数据
+   */
+  value: PickerValue;
   /**
    * @description 标题
    */
@@ -46,10 +47,6 @@ export interface IPickerProps
    */
   controlled?: boolean;
   /**
-   * @description picker 数据
-   */
-  data: Omit<PickerData, 'children'>[][];
-  /**
    * @description 点击确认回调
    */
   onOk?: (value: PickerValue) => void;
@@ -62,8 +59,19 @@ export interface IPickerProps
    */
   onChange?: (value: PickerValue) => void;
   /**
+   * @description 精度
+   * @default 'day'
+   */
+  precision: 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second';
+  // | 'week'
+  // | 'week-day';
+  /**
+   * @description value 显示在输入框的格式
+   */
+  onFormat?: (value: PickerValue, data: number[][]) => string;
+  /**
    * @description 切换显示隐藏
    */
   onTriggerPicker?: (visible) => void;
 }
-export declare const PickerDefaultProps: Partial<IPickerProps>;
+export declare const DatePickerDefaultProps: Partial<IDatePickerProps>;

@@ -7,13 +7,12 @@
         className="pickerItem"
         disabled="{{false}}"
         onDismiss="handleCancelPicker"
-        onOk="handleOk"
         value="{{value}}"
         onChange="handleChangePikcer"
         placeholder="请选择"
         data="{{pickerList}}">
         <view slot="title"><text style="color: red;">Picker</text> 选择器</view>
-        <text>{{value.join('-')}}</text>
+        <text slot-scope="props">{{props.value.join('-')}}</text>
       </picker>
     </list-item>
   </list>
@@ -26,7 +25,7 @@
       <picker 
         slot="extra"
         placeholder="时间"
-        onOk="handleTimeOk"
+        onChange="handleChangePikcer"
         title="请选择时间"
         onFormat="formatTime"
         data="{{basicColumns}}"/>

@@ -8,9 +8,8 @@ function getSelectedIndex(columns, cValue) {
   for (let i = 0; i < columns.length; i++) {
     const column = columns[i];
     let compareValue  =  cValue[i]
-    if (compareValue  === undefined) {
+    if (compareValue  === undefined || compareValue  === null) {
       selectedIndex[i] = 0
-      break;
     }
     let index  = column.findIndex(c => {
       return c === compareValue || c.value === compareValue

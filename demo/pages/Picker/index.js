@@ -42,16 +42,14 @@ Page({
       content: '取消操作，关闭 picker',
     });
   },
-  handleChangePikcer(v) {
+  handleChangePikcer(value, column) {
     // eslint-disable-next-line no-console
-    console.log('changePikcer', v);
+    console.log('changePikcer', value, column);
   },
-  handleOk(v) {
-    this.setData({
-      value: v,
-    });
+  handleOk(value, column) {
+    console.log('onOk', value, column);
     my.showToast({
-      content: `点击确定，当前选择的值为：${v}`,
+      content: `点击确定，当前选择的值为：${value}`,
     });
   },
   formatTime(value, data) {
