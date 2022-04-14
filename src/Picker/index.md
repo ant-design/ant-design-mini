@@ -23,15 +23,13 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表
 ## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| controlled | boolean | 否 | false | - |
-| data | {value: string &#124; number; label: string}[]| 是 | - | picker 数据 |
 | value | (string &#124; number)[] | 否 | - | picker 数据 |
+| data | {value: string &#124; number; label: string}[]| 是 | - | picker 数据 |
 | placeholder | string | 否 | - | 提示文案 |
-| title | string | 否 | - | 标题 |
+| disabled | boolean | 否 | false | 是否禁用 |
+| title | string | 否 | - | 弹出框标题 |
 | okText | string | 否 | '确定' | 确认按钮文案 |
 | dismissText | string | 否 | '取消' | 取消文案 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| className | string | 否 | - | 类名 |
 
 ## 事件
 | 事件名 | 说明 | 类型 |

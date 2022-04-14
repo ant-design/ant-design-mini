@@ -36,13 +36,4 @@
       </label>
     </list-item>
   </demo-block>
-  <demo-block title="受控模式">
-    <list-item className="demo-item">
-      <label>
-        <checkbox controlled onChange="handleChangeControlledValue"/>
-        <text>受控项</text>
-      </label>
-    </list-item>
-    <button className="btn" type="primary" onTap="handleChangeControlledValue">切换状态</button>
-  </demo-block>
 </view>

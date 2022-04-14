@@ -21,17 +21,13 @@ toc: false
 ## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| controlled | boolean | 否 | false | 是否受控 |
 | value | string &verbar; string[] | 否 | - | 已选择项, items 每一项的 value, multiple=true时传value的数组 |
 | items | {text:string; value:string; subText: string; disabled: boolean}[] | 是 | - | 可选项 |
-| activeItemClassName | string | 否 | - | 每一项激活时新加类名 |
 | multiple | boolean | 否 | false | 是否允许多选，标签栏显示的时候会显示当前单选/多选的状态 |
+| disabled | boolean | 否 | false | 是否禁用 |
+| activeItemClassName | string | 否 | - | 每一项激活时新加类名 |
 | title | string | 否 | '' | 标签栏标题 |
 | desc | string | 否 | '' | 标签栏说明|
-| id | string | 否 | - | 表单元素 id |
-| name | string | 否 | - | 表单元素 name |
-| disabled | boolean | 否 | false | 是否禁用 |
-| className | string | 否 | - | 类名 |
 
 ## 事件
 | 事件名 | 说明 | 类型 |
