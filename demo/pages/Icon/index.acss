@@ -5,21 +5,25 @@
 .sum {
   padding: 24rpx;
 }
-.sum > text {
+
+.sum>text {
   color: red;
 }
+
 .list-title {
   color: red;
   font-size: 32rpx;
   font-weight: bold;
   padding: 24rpx;
 }
+
 .icon-list {
   display: flex;
   flex-wrap: wrap;
   padding: 24rpx;
   background: #fff;
 }
+
 .icon-item {
   display: flex;
   flex-direction: row;
@@ -40,4 +44,12 @@
   text-align: center;
   word-wrap: break-word;
   word-break: break-all;
+}
+
+.icon-item-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
 }

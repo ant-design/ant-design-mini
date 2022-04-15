@@ -1,15 +1,18 @@
 <view class="demo">
   <search-bar placeholder="搜索" onInput="handleSearchChange" borderColor="#1677ff" />
   <view class="sum" a:if="{{!searchValue}}">
-    目前共有<text>{{iconTypes.length}}</text>个图标类型
+    目前共有
+    <text>{{iconTypes.length}}</text>个图标类型
   </view>
   <view class="list-title">
     线框风格
   </view>
   <view class="icon-list">
     <view class="icon-item" a:for="{{iconTypes}}" a:if="{{item.indexOf('Outline') > 1&&item.toUpperCase().indexOf(searchValue.toUpperCase())>-1}}">
-      <am-icon type="{{item}}" color="#1677ff" size="small" onTap="handleClickIcon" data-info="{{item}}" />
-      <text class="icon-desc">{{item}}</text>
+      <view class="icon-item-wrapper" onTap="handleClickIcon" data-info="{{item}}">
+        <am-icon type="{{item}}" color="#1677ff" size="small" />
+        <text class="icon-desc">{{item}}</text>
+      </view>
     </view>
   </view>
   <view class="list-title">
@@ -17,8 +20,10 @@
   </view>
   <view class="icon-list">
     <view class="icon-item" a:for="{{iconTypes}}" a:if="{{item.indexOf('Fill') > 1&&item.toUpperCase().indexOf(searchValue.toUpperCase())>-1}}">
-      <am-icon type="{{item}}" color="#1677ff" size="small" onTap="handleClickIcon" data-info="{{item}}" />
-      <text class="icon-desc">{{item}}</text>
+      <view class="icon-item-wrapper" onTap="handleClickIcon" data-info="{{item}}">
+        <am-icon type="{{item}}" color="#1677ff" size="small" onTap="handleClickIcon" data-info="{{item}}" />
+        <text class="icon-desc">{{item}}</text>
+      </view>
     </view>
   </view>
   

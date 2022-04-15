@@ -32,6 +32,15 @@ export default {
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WWGN4HC');
+    `,
+    `
+    if(window.location.pathname==='/components/icon'){
+      window.addEventListener('message', async (e) => {
+        if(e.data.iconType) {
+          await navigator.clipboard.writeText(e.data.iconType);
+        }
+      })
+    }
     `
   ],
   styles: [`

@@ -160,8 +160,12 @@ Page({
     this.setData({ searchValue: value });
   },
   handleClickIcon(e) {
+    const { info } = e.target.dataset;
+
+    top.postMessage({ iconType: info }, '*');
+
     my.showToast({
-      content: `click ${e.currentTarget.dataset.info}`,
+      content: `${info} 已复制到剪贴板`,
     });
   },
 });
