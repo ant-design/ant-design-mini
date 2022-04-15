@@ -24,18 +24,12 @@ function getYears(min: Dayjs, max: Dayjs) {
 function getMonths(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
   let start = 1;
   let end = 12;
-  console.log(
-    min.format('YYYY-MM-DD'),
-    max.format('YYYY-MM-DD'),
-    currentPicker.format('YYYY-MM-DD')
-  );
   if (
     currentPicker
       .clone()
       .set('month', start - 1)
       .isBefore(min)
   ) {
-    console.error(min.month(), 222);
     start = min.month() + 1;
   }
   if (
@@ -44,7 +38,6 @@ function getMonths(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
       .set('month', end - 1)
       .isAfter(max)
   ) {
-    console.error(min.month(), 3333);
     end = max.month() + 1;
   }
   return getArray(start, end);
@@ -139,4 +132,28 @@ export function getRangeData(
 export function getDateByValue(value) {
   //@ts-ignore
   return new Date(...value.map((v, i) => (i === 1 ? v - 1 : v)));
+}
+
+/**
+ * date转换为value数组
+ * @param value
+ * @returns
+ */
+export function getValueByDate(date, data) {
+  const fields = [
+    'getFullYear',
+    'getMonth',
+    'getDate',
+    'getHours',
+    'getMinutes',
+    'getSeconds',
+  ];
+  const value = [];
+  for (let i = 0; i < data.length; i++) {
+    value.push(date[fields[i]]());
+    if (i === 1) {
+      value[1] = value[1] + 1;
+    }
+  }
+  return value;
 }

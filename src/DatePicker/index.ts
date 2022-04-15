@@ -1,13 +1,17 @@
 import { DatePickerDefaultProps } from './props';
 import dayjs from 'dayjs';
 import controlled from '../mixins/controlled';
+import formed from '../Form/mixin';
 import equal from 'fast-deep-equal';
-import { getRangeData, getDateByValue } from './util';
+import { getRangeData, getDateByValue, getValueByDate } from './util';
 
 Component({
   mixins: [
     controlled({
-      defaultPropsValue: [],
+      defaultPropsValue: null,
+      propsTriggerChange: 'onOk',
+    }),
+    formed({
       propsTriggerChange: 'onOk',
     }),
   ],
@@ -19,9 +23,6 @@ Component({
   },
   didMount() {
     this.generateData();
-  },
-  didUpdate() {
-    console.log('update');
   },
   methods: {
     getMin() {
@@ -44,9 +45,8 @@ Component({
         return;
       }
       let currentPicker = dayjs();
-      //@ts-ignore
-      if (this.tempSelectedValues) {
-        currentPicker = dayjs(getDateByValue(this.tempSelectedValues));
+      if (this.tempSelectedIndex) {
+        currentPicker = dayjs(getDateByValue(this.tempSelectedIndex));
       }
       if (currentPicker < min || currentPicker > max) {
         currentPicker = min;
@@ -56,14 +56,14 @@ Component({
         this.setData({ data: newData });
       }
     },
-    onChange(selectedValues) {
-      this.setData({ currentValue: selectedValues });
+    onChange(selectedIndex) {
+      this.setData({ currentValue: selectedIndex });
       //@ts-ignore
-      this.tempSelectedValues = selectedValues;
+      this.tempSelectedIndex = selectedIndex;
       this.generateData();
-      const { onChange } = this.props;
-      if (onChange) {
-        onChange(selectedValues);
+      const { onPickerChange } = this.props;
+      if (onPickerChange) {
+        onPickerChange(getDateByValue(selectedIndex), selectedIndex);
       }
     },
     onDismiss() {
@@ -72,22 +72,25 @@ Component({
         onDismiss();
       }
     },
-    onOk(values, columns) {
-      this.triggerChange(values, columns);
+    onOk(values) {
+      this.triggerChange(getDateByValue(values), values);
     },
-    onFormat(values, columns) {
+    onFormat(values) {
       const { onFormat, format } = this.props;
       const { cValue } = this.data;
       if (onFormat) {
-        return onFormat(values, columns);
+        return onFormat(cValue, values);
       }
-      if (format && cValue && cValue.length > 0) {
-        return dayjs(getDateByValue(cValue)).format(format);
+      if (format && cValue) {
+        return dayjs(cValue).format(format);
       }
       return '';
     },
     onTriggerPicker(visible) {
-      this.setData({ currentValue: null });
+      const { cValue, data } = this.data;
+      this.setData({
+        currentValue: cValue ? getValueByDate(cValue, data) : null,
+      });
       const { onTriggerPicker } = this.props;
       if (onTriggerPicker) {
         onTriggerPicker(visible);

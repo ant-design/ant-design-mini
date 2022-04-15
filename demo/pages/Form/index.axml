@@ -30,15 +30,22 @@
       <switch/>
     </form-item>
     <form-item 
+      label="date-picker" 
+      labelWidth="110px"
+      name="datePicker">
+      <date-picker 
+        placeholder="请选择" 
+        format="YYYY-MM-DD">
+      </date-picker>
+    </form-item>
+    <form-item 
       label="picker" 
       labelWidth="110px"
       name="picker">
       <picker 
-        pickerholder="请选择" 
+        placeholder="请选择" 
         data="{{pickerList}}"
         onFormat="formatValue">
-        <view slot="title">
-          <text style="color: red;">Picker</text> 选择器</view>
       </picker>
     </form-item>
     <form-item 

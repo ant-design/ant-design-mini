@@ -39,7 +39,7 @@
       <picker 
         cols="{{3}}" 
         disabled="{{false}}" 
-        pickerholder="请选择" 
+        placeholder="请选择" 
         data="{{pickerList}}"
         onFormat="formatValue" 
         onDismiss="cancelPicker" 

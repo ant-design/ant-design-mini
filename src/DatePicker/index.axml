@@ -13,4 +13,5 @@
     onOk="onOk"
     onTriggerPicker="onTriggerPicker"
     onFormat="onFormat">
+    <slot name="title" slot="title"/>
 </picker>

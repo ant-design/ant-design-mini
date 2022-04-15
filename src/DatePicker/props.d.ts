@@ -57,7 +57,7 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
-  onChange?: (value: PickerValue) => void;
+  onPickerChange?: (value: PickerValue, dateArr: number[]) => void;
   /**
    * @description 精度
    * @default 'day'
@@ -66,9 +66,9 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   // | 'week'
   // | 'week-day';
   /**
-   * @description value 显示在输入框的格式
+   * @description 选中值的文本显示格式
    */
-  onFormat?: (value: PickerValue, data: number[][]) => string;
+  onFormat?: (value: PickerValue, dateArr: number[]) => string;
   /**
    * @description 切换显示隐藏
    */

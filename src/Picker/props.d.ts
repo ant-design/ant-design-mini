@@ -16,7 +16,7 @@ export interface IPickerProps
    */
   value?: PickerValue;
   /**
-   * @description value 显示在输入框的格式
+   * @description 选中值的文本显示格式
    */
   onFormat?: (
     value: PickerValue,
