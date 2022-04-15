@@ -7,7 +7,7 @@ group:
 toc: false
 ---
 # Picker 选择器
-Picker 选择器	显示一个或多个选项集合的的可滚动列表
+Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比较于原生picker实现了ios跟android端体验一致
 ## 何时使用
 - 提供一组或多组关联选项供用户选择
 - 当少于5个选项时，建议直接将选项平铺，使用 Radio 是更好的选择
@@ -23,8 +23,8 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表
 ## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| value | (string &#124; number)[] | 否 | - | picker 数据 |
-| data | {value: string &#124; number; label: string}[]| 是 | - | picker 数据 |
+| value | (string &#124; number)[] | 否 | - | 选中数据 |
+| data | valueLike[][]| 是 | - | picker 数据，valueLike为 string &#124; number 或<br> {value: string &#124; number; label: string} |
 | placeholder | string | 否 | - | 提示文案 |
 | disabled | boolean | 否 | false | 是否禁用 |
 | title | string | 否 | - | 弹出框标题 |

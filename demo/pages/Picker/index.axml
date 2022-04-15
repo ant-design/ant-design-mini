@@ -1,32 +1,28 @@
 <demo-block title="基础用法" padding="0">
   <list>
     <list-item>
-      点击右侧选择
+      选择城市
       <picker 
         slot="extra"
-        className="pickerItem"
-        disabled="{{false}}"
         onDismiss="handleCancelPicker"
         value="{{value}}"
-        onChange="handleChangePikcer"
         placeholder="请选择"
+        title="请选择"
         data="{{pickerList}}">
-        <view slot="title"><text style="color: red;">Picker</text> 选择器</view>
-        <text slot-scope="props">{{props.value.join('-')}}</text>
+        <text slot-scope="props">{{props.value[0]}}</text>
       </picker>
     </list-item>
   </list>
 </demo-block>
 
-<demo-block title="基础用法" padding="0">
+<demo-block title="复杂类型数据" padding="0">
   <list>
     <list-item>
       请选择时间
       <picker 
         slot="extra"
-        placeholder="时间"
-        onChange="handleChangePikcer"
-        title="请选择时间"
+        placeholder="请选择"
+        title="请选择"
         onFormat="formatTime"
         data="{{basicColumns}}"/>
     </list-item>
