@@ -1,81 +1,35 @@
 <view class="demo">
   <form 
-    onFinish="handleSubmit"
     initialValues="{{initialValues}}"
-    onValuesChange="handleValuesChange">
+    onValuesChange="handleValuesChange"
+    onFinish="handleSubmit"
+  >
     <form-item
       required
-      label="input"
-      name="input">
-      <input-item placeholder="请输入" onChange="handleInputChange"/>
+      label="姓名"
+      name="name">
+      <input-item placeholder="请输入姓名" />
     </form-item>
     <form-item
       required
-      label="password"
-      name="password"
-      rules="{{[{ pattern: /\d{6}/, message: '密码必须是6位数字' }]}}">
-      <input-item placeholder="请输入" password/>
+      label="地址"
+      name="address"
+      help='详情地址'
+      rules="{{[]}}"
+    >
+      <input-item placeholder="请输入地址"/>
     </form-item>
     <form-item
-      label="stepper"
-      name="stepper">
-      <stepper 
-        min="{{0}}"
-        max="{{100}}"
-        step="{{1}}"/>
+      label="生日"
+      name="birthday">
     </form-item>
-    <form-item
-      label="switch"
-      name="switch">
-      <switch/>
-    </form-item>
-    <!-- <form-item 
-      label="picker" 
-      labelWidth="110px"
-      name="picker">
-      <picker 
-        cols="{{3}}" 
-        disabled="{{false}}" 
-        pickerholder="请选择" 
-        data="{{pickerList}}"
-        mode="form"
-        onFormat="formatValue" 
-        onDismiss="cancelPicker" 
-        onOk="getPikcerValue">
-        <view slot="title">
-          <text style="color: red;">Picker</text> 选择器</view>
-      </picker>
-    </form-item> -->
     <form-item 
-      label="selector" 
-      required
-      name="selector" 
+      label="喜爱的水果 " 
+      name="favoriteFruits" 
       position="vertical">
       <selector 
         items="{{selectorItems}}" 
         multiple/>
-    </form-item>
-    <form-item 
-      label="radio" 
-      required
-      name="radio" 
-      position="vertical">
-      <radio-group>
-        <radio-item value="a1">单选一</radio-item>
-        <radio-item value="a2">单选二</radio-item>
-        <radio-item value="a3">单选三</radio-item>
-      </radio-group>
-    </form-item>
-    <form-item
-      label="checkboxGroup" 
-      required
-      name="checkboxGroup" 
-      position="vertical">
-      <checkbox-group>
-        <checkbox-item value="a1">复选框1</checkbox-item>
-        <checkbox-item value="a2">复选框2</checkbox-item>
-        <checkbox-item value="a3">复选框3</checkbox-item>
-      </checkbox-group>
     </form-item>
     <button 
       slot="footer"
