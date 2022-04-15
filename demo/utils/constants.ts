@@ -161,6 +161,11 @@ export const componentList = [
         nameZN: '操作结果',
         path: '/pages/Result/index',
       },
+      {
+        name: 'Toast',
+        nameZN: '轻提示',
+        path: '/pages/Toast/index',
+      },
     ],
   },
   {

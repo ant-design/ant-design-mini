@@ -48,7 +48,8 @@
     "pages/Selector/index",
     "pages/SafeArea/index",
     "pages/Dialog/index",
-    "pages/Container/index"
+    "pages/Container/index",
+    "pages/Toast/index"
   ],
   "window": {
     "enableWK": "YES",
