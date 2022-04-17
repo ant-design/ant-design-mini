@@ -1,6 +1,12 @@
-export let getFieldName  = () => {
-  return ''
+function noopGetFieldInfo() {
+  return null;
 }
-export const  cacheFieldName = function(fn) {
-  getFieldName = fn;
+export let getFieldInfo = noopGetFieldInfo;
+
+export function cacheFieldInfo(fn) {
+  getFieldInfo = fn;
+}
+
+export function clearFieldInfo() {
+  getFieldInfo = noopGetFieldInfo;
 }

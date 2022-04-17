@@ -10,7 +10,7 @@
         <view class="amd-form-item-label-content" >
           {{label}}
         </view>
-        <text class="amd-form-item-label-norequired" a:if="{{position === 'vertical' && !required}}">(选填)</text>
+        <!-- <text class="amd-form-item-label-norequired" a:if="{{position === 'vertical' && !required}}">(选填)</text> -->
       </view>
       <!--field-->
       <view class="amd-form-item-field amd-form-item-field-{{position}}">

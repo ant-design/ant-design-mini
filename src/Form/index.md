@@ -18,8 +18,7 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 ## 注意事项
 - 使用条件：小程序项目需开启 `Component2` 选项
 - 配合 a:for 指令使用时，推荐指定 key 值，否则可能出现异常情况
-- Form 标签的 form 属性值与其内部 FormItem 标签 的form 属性值必须相同，且`全局唯一`；内部的 FormItem 标签的 name 属性必须`唯一`。详见下方代码示例。
-- 配合组件库内的表单组件使用时候，需表单组件的 `mode` 属性值为 `form`。
+- 当页面内有多个表单实例时，Form 标签的 form 属性值与其内部 FormItem 标签 的form 属性值必须相同，且`全局唯一`；内部的 FormItem 标签的 name 属性必须`唯一`。详见下方代码示例。
 
 ## 代码示例
 
@@ -47,25 +46,22 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | -----|:-----:|:-----:|:-----:|----- |
 | form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且页面唯一 |
 | initialValues | Record<sring, any> | 否 | - | 表单初始值 |
-| className | string | 否 | - | 类名 |
 
 #### FromGroup
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|:-----:|:-----:|:-----:|----- |
 | header | string | 否 | - | FormGroup 名称 |
 | radius | boolean | 否 | false | FormGroup 形状是否为圆角 |
-| className | string | 否 | - | 类名 |
 
 #### FormItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|:-----:|:-----:|:-----:|----- |
-| form | string | 是 | - | 表单 uid，当前页面有多个表单实例时必传且页面唯一 |
+| form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且页面唯一 |
 | name | string | 是 | - | 字段 uid |
 | label | string | 否 | - | 字段名称 |
 | position | 'horizontal' &verbar;  'vertical' | 否 | 'horizontal' | 布局 |
 | arrow | boolean | 否 | false | 表单项右侧箭头 |
 | required | boolean | 否 | false | 是否必填，label展示必填标识 |
-| className | string | 否 | '' | 类名 |
 
 ## 事件
 
