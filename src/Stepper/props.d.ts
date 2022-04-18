@@ -34,6 +34,18 @@ export interface IStepperProps extends IBaseFormItemProps<number> {
   /**
    * @description 输入框宽度
    */
-   inputWidth?: string;
+  inputWidth?: string;
+  /**
+   * @description 输入框宽度
+   */
+  onFocus?: ( e: number ) => void
+  /**
+   * @description 输入框宽度
+   */
+  onBlur?: ( e: number ) => void
+  /**
+   * @description 输入框宽度
+   */
+  onChange?: ( e: number, dataSet: Record<string, any> ) => void
 }
 export declare const StepperDefaultProps: Partial<IStepperProps>;
