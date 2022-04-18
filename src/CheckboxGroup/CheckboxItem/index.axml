@@ -9,6 +9,10 @@
         value="{{value}}"
         checked="{{_checked}}"
         controlled="{{true}}"
+        icon="{{icon}}"
+        checkedIcon="{{checkedIcon}}"
+        disabledIcon="{{disabledIcon}}"
+        disabledCheckedIcon="{{disabledCheckedIcon}}"
         disabled="{{_disabled||disabled}}" />
     </view>
     <view class="amd-checkbox-item-content {{_disabled||disabled ? 'amd-checkbox-item-content-disabled': ''}}">

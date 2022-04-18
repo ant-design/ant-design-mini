@@ -18,5 +18,21 @@ export interface ICheckboxProps
    * @description checkbox 的颜色，同 CSS 色值
    */
   color?: string;
+  /**
+   * @description 自定义图标
+   */
+  icon?: string;
+  /**
+   * @description 自定义选中图标
+   */
+  checkedIcon?: string;
+  /**
+   * @description 禁用状态自定义图标
+   */
+  disabledIcon?: string;
+  /**
+   * @description 禁用状态选中自定义图标
+   */
+  disabledCheckedIcon?: string;
 }
 export declare const CheckboxDefaultProps: Partial<ICheckboxProps>;

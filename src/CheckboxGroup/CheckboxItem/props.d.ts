@@ -18,5 +18,21 @@ export interface ICheckboxItemProps extends IBaseProps {
    * @default 'CheckboxGroup'
    */
   uid?: string;
+  /**
+   * @description 自定义图标
+   */
+  icon?: string;
+  /**
+   * @description 自定义选中图标
+   */
+  checkedIcon?: string;
+  /**
+   * @description 禁用状态自定义图标
+   */
+  disabledIcon?: string;
+  /**
+   * @description 禁用状态选中自定义图标
+   */
+  disabledCheckedIcon?: string;
 }
 export declare const CheckboxItemDefaultProps: Partial<ICheckboxItemProps>;

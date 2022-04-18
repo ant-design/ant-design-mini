@@ -6,6 +6,12 @@
 label > text {
   padding-left: 12rpx;
 }
-.btn {
-  margin-top: 24rpx;
+.demo-item-icon .amd-checkbox-fake-not-disabled-not-checked .amd-icon {
+  color: #d0d0d0;
+  font-size: 46rpx;
+}
+.demo-item-icon .amd-checkbox-fake-not-disabled-checked .amd-icon {
+  color: #1677ff;
+  background: transparent;
+  font-size: 46rpx;
 }

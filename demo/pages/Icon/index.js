@@ -42,6 +42,8 @@ Page({
       'QuestionCircleFill',
       'QuestionCircleOutline',
       'UpCircleOutline',
+      'SmileOutline',
+      'SmileFill',
       'FrownOutline',
       'DownCircleOutline',
       'ExclamationCircleOutline',
