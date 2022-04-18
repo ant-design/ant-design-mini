@@ -7,7 +7,7 @@ export interface IRadioItemProps extends IBaseProps {
   /**
    * @description Radio 携带的 value 值, 在原生 form 表单提交的时候有用；在 RadioGroup 时亦有用
    */
-  value?: string;
+  value?: any;
   /**
    * @description 是否禁用
    * @default false

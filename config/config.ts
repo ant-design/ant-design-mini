@@ -32,6 +32,15 @@ export default {
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WWGN4HC');
+    `,
+    `
+    if(window.location.pathname==='/components/icon'){
+      window.addEventListener('message', async (e) => {
+        if(e.data.iconType) {
+          await navigator.clipboard.writeText(e.data.iconType);
+        }
+      })
+    }
     `
   ],
   styles: [`
@@ -57,6 +66,19 @@ export default {
   }
   #root .__dumi-default-menu-inner ul li ul {
     padding-left: 0;
+  }
+  #root .__dumi-default-navbar nav > span > a:hover,#root  .__dumi-default-navbar nav > span > a.active {
+    color: #1677ff;
+  }
+  #root .__dumi-default-menu[data-mode='site'] .__dumi-default-menu-list > li > a.active {
+    color: #1677ff;
+    background-color: #EDF3FF;
+  }
+  #root .__dumi-default-menu[data-mode="site"] .__dumi-default-menu-list > li > a:hover {
+    color: #1677ff;
+  }
+  #root .markdown a {
+    color: #1677ff;
   }
   /** 侧边栏选中状态 */
   #root .__dumi-default-menu-inner > ul ul a.active{
