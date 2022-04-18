@@ -1,0 +1,74 @@
+<view class="demo">
+  <form 
+    onValuesChange="handleValuesChange"
+    onFinishFailed="handleFinishFailed"
+    onFinish="handleSubmit"
+  >
+    <form-item
+      label="开关"
+      name="switch">
+      <switch />
+    </form-item>
+    <form-item
+      label="复选框"
+      name="checkbox">
+      <checkbox/>
+    </form-item>
+    <form-item 
+      label="复选框组" 
+      position="vertical"
+      name="checkboxGroup">
+      <checkbox-group uid="uid1">
+        <checkbox-item  value="{{'复选框1'}}" uid="uid1">
+          复选框1
+        </checkbox-item>
+        <checkbox-item  value="{{'复选框2'}}" uid="uid1">
+          复选框2
+        </checkbox-item>
+      </checkbox-group>
+    </form-item>
+    <form-item 
+      label="单选框组" 
+      position="vertical"
+      name="radioGroup">
+      <radio-group uid="uid2">
+        <radio-item value="{{'单选框1'}}" uid="uid2">
+          单选框1
+        </radio-item>
+        <radio-item  value="{{'单选框2'}}" uid="uid2">
+          单选框2
+        </radio-item>
+      </radio-group>
+    </form-item>
+    <form-item
+      label="步进器"
+      name="stepper">
+      <stepper />
+    </form-item>
+    <form-item
+      label="选择器"
+      name="picker">
+      <picker data="{{pickerData}}"  placeholder='请选择'></picker>
+    </form-item>
+    <form-item 
+      label="时间选择" 
+      name="datePicker" 
+    >
+      <date-picker  placeholder='请选择' />
+    </form-item>
+    <form-item 
+      label="选择组" 
+      name="selector" 
+      position="vertical"
+    >
+      <selector 
+        items="{{selectorItems}}" 
+        multiple />
+    </form-item>
+    <button 
+      slot="footer"
+      type="primary" 
+      htmlType="submit">提交
+    </button>
+  </form>
+</view>
