@@ -38,8 +38,11 @@ toc: false
 | -----|-----|-----|-----|----- |
 | value | string | 否 | - | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用；在 CheckboxGroup 时亦有用 |
 | disabled | boolean | 否 | false | 是否禁用 |
-| className | string | 否 | - | 类名 |
 | uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`必须全局唯一`，与外部的 CheckboxGroup 组件的 uid 一致 |
+| icon | string | 否 | - | 自定义图标，支持Icon type或图片路径 |
+| checkedIcon | string | 否 | - | 自定义选中状态的图标，支持Icon type或图片路径 |
+| disabledIcon | string | 否 | - | 自定义禁用状态的图标，支持Icon type或图片路径 |
+| disabledCheckedIcon | string | 否 | - | 自定义禁用选中状态的图标，支持Icon type或图片路径 |
 
 ## 事件
 

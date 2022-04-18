@@ -36,4 +36,18 @@
       </label>
     </list-item>
   </demo-block>
+  <demo-block title="自定义图标" padding="0">
+    <list-item className="demo-item demo-item-icon">
+      <label>
+        <checkbox icon="SmileOutline" checkedIcon="SmileFill"/>
+        <text>自定义图标（Icon）</text>
+      </label>
+    </list-item>
+    <list-item className="demo-item demo-item-image">
+      <label>
+        <checkbox color="transparent" checked checkedIcon="https://gw.alipayobjects.com/mdn/rms_ffbcbf/afts/img/A*2oqcRL38fWwAAAAAAAAAAAAAARQnAQ"/>
+        <text>自定义图标（图片）</text>
+      </label>
+    </list-item>
+  </demo-block>
 </view>

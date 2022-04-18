@@ -17,6 +17,12 @@
     <loading size="medium" text="medium" theme="light" />
     <loading size="small" text="small" theme="light" />
   </demo-block>
+  <demo-block title="自定义颜色">
+    <loading size="x-large" text="x-large" color="#ff0000" />
+    <loading size="large" text="large" color="#ff0000" />
+    <loading size="medium" text="medium" color="#ff0000" />
+    <loading size="small" text="small" color="#ff0000" />
+  </demo-block>
   <demo-block title="延迟3000ms出现">
     <loading  delay="{{3000}}" />
   </demo-block>

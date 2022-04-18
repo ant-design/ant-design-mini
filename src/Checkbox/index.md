@@ -29,6 +29,10 @@ toc: false
 | disabled | boolean | 否 | false | 是否禁用 |
 | color | string | 否 | false | checkbox 的颜色，同 CSS 色值 |
 | value | string | 否 | - | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用；在 CheckboxGroup 时亦有用 |
+| icon | string | 否 | - | 自定义图标，支持Icon type或图片路径 |
+| checkedIcon | string | 否 | - | 自定义选中状态的图标，支持Icon type或图片路径 |
+| disabledIcon | string | 否 | - | 自定义禁用状态的图标，支持Icon type或图片路径 |
+| disabledCheckedIcon | string | 否 | - | 自定义禁用选中状态的图标，支持Icon type或图片路径 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 
@@ -45,6 +49,7 @@ toc: false
 | amd-checkbox | 标签样式 |
 | amd-checkbox-base | 原始 checkbox 样式 |
 | amd-checkbox-fake | checkbox 组件未选中样式 |
+| amd-checkbox-fake-custom | 自定义图标时的样式 |
 | amd-checkbox-disabled | checkbox 组件选中后样式 |
 
 <style> 

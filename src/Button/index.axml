@@ -13,7 +13,9 @@
         <view class="amd-button-loading-text {{inline ? `amd-button-loading-text-${inlineSize}` : '' }}"
           a:if="{{loadingText}}">{{loadingText}}</view>
         <view class="amd-button-loading {{inline ? `amd-button-loading-inline amd-button-loading-${inlineSize}` : ''}}">
-          <loading color="currentColor"
+          <loading 
+            type="mini"
+            color="currentColor"
             size="6rpx"
             hieght="10rpx" />
         </view>

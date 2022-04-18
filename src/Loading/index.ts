@@ -1,12 +1,8 @@
 import { LoadingDefaultProps } from './props';
 
-/**
- * 注意，delay 的变更不能实时生效
- */
 Component({
   props: LoadingDefaultProps,
   data: {
-    // 决定实际是否渲染加载中状态
     _loading: false,
   },
   didMount() {

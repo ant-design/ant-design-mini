@@ -1,9 +1,18 @@
+import formStoreFactory from '../store';
+import { cacheFieldInfo, clearFieldInfo } from '../cache';
+import {
+  IComponentProps,
+  IComponentData,
+  IComponentMethods,
+  IComponentExtraThis,
+} from './props';
 
-import formStoreFactory from '../store'
-import { cacheFieldName } from '../cache'
-import { IComponentProps, IComponentData, IComponentMethods, IComponentExtraThis } from './props'
-
-Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThis>({
+Component<
+  IComponentData,
+  IComponentProps,
+  IComponentMethods,
+  IComponentExtraThis
+>({
   props: {
     rules: [],
     name: 'default',
@@ -18,20 +27,20 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
 
   onInit() {
     const pageId = this.$page.$id;
-    const { form: uid } = this.props
-    this.store = formStoreFactory.getStore({ pageId, uid })
-    cacheFieldName(function(this: any) {
-      return this.props.name
-    }.bind(this))
+    const { form: uid } = this.props;
+    this.store = formStoreFactory.getStore({ pageId, uid });
+    cacheFieldInfo(
+      function (this: any) {
+        return { fieldName: this.props.name, form: this.props.form };
+      }.bind(this)
+    );
     this.setFieldRules();
     this.onBindErrorInfoChange = this.onErrorInfoChange.bind(this);
     this.store.onErrorInfoChange(this.onBindErrorInfoChange);
   },
 
   didMount() {
-    cacheFieldName(function() {
-      return ''
-    }.bind(this))
+    clearFieldInfo();
   },
 
   didUnmount() {
@@ -47,9 +56,12 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
       } else {
         fieldRules = [rules];
       }
-      const hasRequiredRule = fieldRules.some(rule => rule.required);
+      const hasRequiredRule = fieldRules.some((rule) => rule.required);
       if (required && !hasRequiredRule) {
-        const requiredItem = { required: true, message: `请输入${label || name}` };
+        const requiredItem = {
+          required: true,
+          message: `请输入${label || name}`,
+        };
         fieldRules = [requiredItem, ...fieldRules];
       }
       if (fieldRules?.length > 0) {
@@ -58,7 +70,7 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
     },
 
     onErrorInfoChange(formErrorInfo, options) {
-      const fieldName = options?.fieldName
+      const fieldName = options?.fieldName;
       if (!(fieldName && fieldName !== this.props.name)) {
         this.setData({
           errorInfo: formErrorInfo[this.props.name]?.[0] || {},
@@ -69,6 +81,5 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
     updateErrorInfo(payload) {
       this.setData({ errorInfo: payload });
     },
-  }
-
+  },
 });

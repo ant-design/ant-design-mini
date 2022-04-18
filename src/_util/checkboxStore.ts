@@ -2,22 +2,21 @@ import { BaseStore } from './baseStore';
 import { objectEntries } from './tools';
 
 type checkboxVal = {
-    getChecked: () => boolean;
-    setDisabled(_disabled: boolean): void;
-    setChecked(_checked: boolean): void;
-    getItemPropsVal: CallableFunction;
-  };
+  getChecked: () => boolean;
+  setDisabled(_disabled: boolean): void;
+  setChecked(_checked: boolean): void;
+  getItemPropsVal: CallableFunction;
+};
 
-  type checkboxItemChangedPropsMap = {
-    isUIDChanged: boolean;
-    isDisabledChanged: boolean;
-    isValueChange: boolean;
-  };
+type checkboxItemChangedPropsMap = {
+  isUIDChanged: boolean;
+  isDisabledChanged: boolean;
+  isValueChange: boolean;
+};
 
-  type checkboxIetmPrevProps = {
-    oldUID: string;
-  };
-
+type checkboxIetmPrevProps = {
+  oldUID: string;
+};
 
 export class CheckBoxStore extends BaseStore<checkboxVal> {
   checkControlledByUID(uid: string): boolean {
@@ -26,8 +25,12 @@ export class CheckBoxStore extends BaseStore<checkboxVal> {
 
   updateGroup(
     newUID: string,
-    { isUIDChanged, isDisabledChanged, isValueChange }: checkboxItemChangedPropsMap,
-    { oldUID }: checkboxIetmPrevProps,
+    {
+      isUIDChanged,
+      isDisabledChanged,
+      isValueChange,
+    }: checkboxItemChangedPropsMap,
+    { oldUID }: checkboxIetmPrevProps
   ): void {
     if (isUIDChanged) {
       this.updateGroupUID(oldUID, newUID);
@@ -43,10 +46,10 @@ export class CheckBoxStore extends BaseStore<checkboxVal> {
   }
 
   /**
-     * 修改 CheckboxGroup 的 value 以改变 CheckboxItem 的选中状态
-     * @param uid CheckboxGroup 与 其子 CheckboxItem 共同的 uid
-     * @param value 外部传入的值
-     */
+   * 修改 CheckboxGroup 的 value 以改变 CheckboxItem 的选中状态
+   * @param uid CheckboxGroup 与 其子 CheckboxItem 共同的 uid
+   * @param value 外部传入的值
+   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   updateGroupValue(uid: string, value?: any[]): void {
     if (this.itemsMap[uid] && this.itemsMap[uid].items) {
@@ -85,12 +88,16 @@ export class CheckBoxStore extends BaseStore<checkboxVal> {
 
   triggerItem(uid: string, id: string, checked: boolean): void {
     if (this.itemsMap[uid] && this.getItem(uid, id)) {
-      this.getItem(uid, id).setChecked(checked);
-
+      if (!this.checkControlledByUID(uid)) {
+        this.getItem(uid, id).setChecked(checked);
+      }
       const onChange = this.itemsMap[uid].getGroupPropsVal('onChange');
       if (onChange) {
         const value = objectEntries(this.itemsMap[uid].items)
-          .filter(([, val]) => {
+          .filter(([key, val]) => {
+            if (key === id) {
+              return checked;
+            }
             return val && val.getChecked() === true;
           })
           .map(([, val]) => val.getItemPropsVal('value')) as string[];
@@ -113,4 +120,3 @@ export class CheckBoxStore extends BaseStore<checkboxVal> {
     }
   }
 }
-

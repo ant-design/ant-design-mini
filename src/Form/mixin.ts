@@ -1,28 +1,36 @@
 import type { IUserComponentOptions } from '@mini-types/alipay';
-import { getFieldName } from './cache';
+import { getFieldInfo } from './cache';
 import formStoreFactory, { FormStore } from './store';
 import { IComponentData } from './props';
 
-type ControlledMixInParams  = {
-  propsTriggerChange?: string,
-}
+type ControlledMixInParams = {
+  propsTriggerChange?: string;
+};
 
-export default (params: ControlledMixInParams = { propsTriggerChange: 'onChange' }): IUserComponentOptions<IComponentData, Record<string, any>, {
-  onChangeFormFieldValue(changedValues):void;
-  defineOnchange(): void;
-}, {
-  store: FormStore,
-  fieldName?: string
-},
-Record<string, unknown>,[]> => {
-  const { propsTriggerChange = 'onChange' } = params
+export default (
+  params: ControlledMixInParams = { propsTriggerChange: 'onChange' }
+): IUserComponentOptions<
+  IComponentData,
+  Record<string, any>,
+  {
+    onChangeFormFieldValue(changedValues): void;
+    defineOnchange(): void;
+  },
+  {
+    store: FormStore;
+    fieldName?: string;
+  },
+  Record<string, unknown>,
+  []
+> => {
+  const { propsTriggerChange = 'onChange' } = params;
   return {
     onInit() {
-      const fieldName = getFieldName();
-      if (fieldName) {
+      const fieldInfo = getFieldInfo();
+      if (fieldInfo) {
+        const { fieldName, form: uid } = fieldInfo;
         this.defineOnchange();
         const pageId = this.$page.$id;
-        const { form: uid } = this.props;
         const store = formStoreFactory.getStore({ pageId, uid });
         if (store.checkFieldInited(fieldName)) {
           return;

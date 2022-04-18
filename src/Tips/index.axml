@@ -12,7 +12,7 @@
           onHideTips="onHideTips"
           title="{{title}}">
             <slot/>
-          </tips-item>>
+          </tips-item>
       </view>
       <view class="amd-tips-arrow amd-tips-arrow-{{arrowPosition}}"
         a:if="{{arrowPosition}}" />
