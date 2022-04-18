@@ -25,13 +25,14 @@ Component({
           return this.props[key];
       }
     };
-    store.setGroupPropsVal(this.props.uid, getGroupPropsVal);
+    const key = `${this.$page}-${uid}`;
+    store.setGroupPropsVal(key, getGroupPropsVal);
     if (disabled) {
-      store.updateGroupDisabled(uid, disabled);
+      store.updateGroupDisabled(key, disabled);
     }
 
     if (Array.isArray(value) && value.length > 0) {
-      store.updateGroupValue(uid, value);
+      store.updateGroupValue(key, value);
     }
   },
   didUpdate(prevProps, prevData) {
@@ -39,25 +40,26 @@ Component({
     const { uid: oldUID, disabled: oldDisabled } = prevProps;
     const { cValue: newValue } = this.data;
     const { cValue: oldValue } = prevData;
+    const newKey = `${this.$page}-${newUID}`;
+    const oldKey = `${this.$page}-${oldUID}`;
     store.updateGroup(
-      newUID,
+      newKey,
       {
         isUIDChanged: newUID !== oldUID,
         isDisabledChanged: newDisabled !== oldDisabled,
         isValueChange: !equal(newValue, oldValue),
       },
-      { oldUID }
+      { oldUID: oldKey }
     );
   },
   didUnmount() {
     const { uid } = this.props;
-    store.removeGroup(uid);
+    const key = `${this.$page}-${uid}`;
+    store.removeGroup(key);
   },
   methods: {
     onChange(val) {
-      if (this.props.onChange) {
-        this.props.onChange(val);
-      }
+      this.triggerChange(val);
     },
   },
 });

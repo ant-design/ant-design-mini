@@ -23,6 +23,11 @@ export interface IBaseFormItemPropsWithOutFocus<V = any> extends IBaseProps {
      * @description 表单触发变更回调
      */
     onChange?: (v: V) => void;
+    /**
+     * @description 是否受控
+     * @default false
+     */
+    controlled?: boolean;
 }
 export interface IBaseFormItemProps<V = any> extends IBaseFormItemPropsWithOutFocus<V> {
     /**
