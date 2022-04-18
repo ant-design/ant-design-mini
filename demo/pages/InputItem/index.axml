@@ -2,7 +2,6 @@
   <demo-block title="基本的输入框">
     <input-item
       placeholder="请输入姓名"
-      value="{{name}}"
       clear="{{false}}"
       type="text"
       onChange="handleItemChange"
@@ -13,9 +12,8 @@
   </demo-block>
   <demo-block title="带清除按钮">
     <input-item
-      placeholder="请输入卡号"
+      placeholder="请输入内容"
       clear="{{true}}"
-      value="{{cardNo}}"
       type="text"
       onChange="handleItemChange"
       onClear="handleItemClear" >
@@ -31,13 +29,41 @@
       onClear="handleItemClear">
     </input-item>
   </demo-block>
-  <demo-block title="受控模式">
-    <input-item
-      value="{{value}}"
-      controlled="{{true}}"
-      type="text"
-      onClear="handleItemClear">
-    </input-item>
+  <demo-block title="配合列表使用（垂直布局）" padding="0">
+    <form form="veritcal">
+      <form-item 
+        form="veritcal"
+        name="name" 
+        label="用户名" 
+        position="vertical">
+        <input-item placeholder="请输入用户名"/>
+      </form-item>
+      <form-item 
+        form="veritcal"
+        name="password" 
+        label="密码" 
+        position="vertical">
+        <input-item placeholder="请输入密码" password  type="text"/>
+      </form-item>
+    </form>
+  </demo-block>
+  <demo-block title="配合列表使用（左右布局）" padding="0">
+    <form form="horizontal">
+      <form-item 
+       form="horizontal"
+        name="name" 
+        label="用户名" 
+        position="horizontal">
+        <input-item placeholder="请输入用户名"/>
+      </form-item>
+      <form-item 
+        form="horizontal"
+        name="password" 
+        label="密码" 
+        position="horizontal">
+        <input-item placeholder="请输入密码" password  type="text"/>
+      </form-item>
+    </form>
   </demo-block>
 </view>
 

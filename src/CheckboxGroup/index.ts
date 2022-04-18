@@ -8,7 +8,7 @@ Component({
   props: CheckboxGroupDefaultProps,
   mixins: [controlled({ defaultPropsValue: [] }), formed()],
   didMount() {
-    const { uid, value } = this.props;
+    const { uid, value, disabled } = this.props;
     const getGroupPropsVal = (key: string) => {
       switch (key) {
         case 'onChange':
@@ -26,6 +26,10 @@ Component({
       }
     };
     store.setGroupPropsVal(this.props.uid, getGroupPropsVal);
+    if (disabled) {
+      store.updateGroupDisabled(uid, disabled);
+    }
+
     if (Array.isArray(value) && value.length > 0) {
       store.updateGroupValue(uid, value);
     }

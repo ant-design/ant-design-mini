@@ -8,6 +8,7 @@
     "checkbox": "../../../src/Checkbox/index",
     "stepper": "../../../src/Stepper/index",
     "picker": "../../../src/Picker/index",
+    "date-picker": "../../../src/DatePicker/index",
     "checkbox-group": "../../../src/CheckboxGroup/index",
     "checkbox-item": "../../../src/CheckboxGroup/CheckboxItem/index",
     "radio-group": "../../../src/RadioGroup/index",

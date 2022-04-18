@@ -1,35 +1,31 @@
 <view class="demo">
-  <form form="{{form}}">
+  <form>
     <form-group radius header="基本信息">
       <form-item
         required
         label="姓名"
-        name="name"
-        form="{{form}}">
-        <input-item mode="form" placeholder="请输入姓名"/>
+        name="name">
+        <input-item placeholder="请输入姓名"/>
       </form-item>
       <form-item
         required
         label="地址"
-        name="address"
-        form="{{form}}">
-        <input-item mode="form" placeholder="请输入地址"/>
+        name="address">
+        <input-item placeholder="请输入地址"/>
       </form-item>
     </form-group>
     <form-group radius header="联系方式">
       <form-item
         required
         label="手机号"
-        name="phone"
-        form="{{form}}">
-        <input-item mode="form" placeholder="请输入手机号"/>
+        name="phone">
+        <input-item placeholder="请输入手机号"/>
       </form-item>
       <form-item
         required
         label="邮箱"
-        name="email"
-        form="{{form}}">
-        <input-item mode="form" placeholder="请输入邮箱"/>
+        name="email">
+        <input-item placeholder="请输入邮箱"/>
       </form-item>
     </form-group>
   </form>

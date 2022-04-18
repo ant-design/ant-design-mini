@@ -22,7 +22,6 @@ toc: false
 ## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| className | string | 否 | - | 类名 |
 | value | string | 否 | - | 输入框的值 |
 | type | 'text' &verbar; 'number' &verbar; 'idcard' &verbar; 'digit' &verbar; 'numberpad' &verbar; 'digitpad' &verbar; 'idcardpad' | 否 | "text" | 输入框的类型 |
 | password | boolean | 否 | false | 是否是密码类型。 |
@@ -38,14 +37,12 @@ toc: false
 | selectionEnd | number | 否 | -1 | 获取光标时，选中文本对应的焦点光标结束位置，需要和 selection-start 配合使用。 |
 | randomNumber | boolean | 否 | false | 当 type 为 number, digit, idcard 数字键盘是否随机排列。 |
 | enableNative | boolean | 否 | - | 是否启用 Native 渲染 |
-| layer | 'horizontal' &verbar; 'vertical' | 否 | 'horizontal' | input 排列位置 |
 | inputCls | string | 否 | - | input 输入框的样式类名 |
 | labelCls | string | 否 | - | label 区域的样式类名 |
 | clear | boolean | 否 | true | 显示清除图标 |
 | controlled | boolean | 否 | false | 是否受控模式 |
 | alwaysSystem | boolean | 否 | false | 是否强制使用系统键盘和 Web-view 创建的 input 元素。为 true 时，confirm-type、confirm-hold 可能失效。 |
 | autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
-| ref | React.Ref | 否 | - | 用于操作表单的实例，有 focus 和 blur 两个方法 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 
@@ -57,7 +54,6 @@ toc: false
 | onConfirm | 	点击键盘完成时触发此回调 | (v: string) => void |
 | onClear | 清除输入内容时触发此回调 | (v: string) => void |
 | onFocus | 聚焦时触发触发此回调 | (v: string) => void |
-| onBlur | 失焦时触发此回调 | (v: string) => void |
 | onBlur | 失焦时触发此回调 | (v: string) => void |
 
 ## 样式类

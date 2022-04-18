@@ -49,12 +49,12 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
 
     async onSubmit() {
       const { valid, errors  } = await this.store.validate();
+      const values = this.store.getFieldsValue();
       if (valid) {
-        const values = this.store.getFieldsValue();
         this.props.onFinish?.(values)
         return
       }
-      this.props.onFinishFailed?.(errors)
+      this.props.onFinishFailed?.(values, errors)
     }
   },
 

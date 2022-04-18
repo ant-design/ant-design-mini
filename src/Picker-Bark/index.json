@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "popup": "../Popup/index",
-    "tap-modal" : "../TapModal/index"
-  }
-}

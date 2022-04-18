@@ -24,20 +24,17 @@ toc: false
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| controlled | boolean | 否 | false | 是否受控 |
 | value | number | 否 | - | 输入框的值, 表单提交的时候有效 |
-| type | 'number' &verbar; 'digit' | 否 | - | 输入框的值, 表单提交的时候有效 |
 | min | number | 否 | - | 最小值 |
 | max | number | 否 | - | 最大值 |
 | step | number | 否 | 1 | 每次加减的值 |
+| disabled | boolean | 否 | false | 是否禁用 |
+| type | 'number' &verbar; 'digit' | 否 | - | input唤起的键盘类型 |
 | inputWidth | string | 否 | - | 输入框宽度 |
 | precision | number | 否 | - | 计算精度，保留几位小数<br/>https://github.com/ant-design/ant-design/issues/5998 |
 | autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
-| disabled | boolean | 否 | false | 是否禁用 |
-| mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
-| className | string | 否 | - | 类名 |
 
 ## 事件
 | 事件名 | 说明 | 类型 |

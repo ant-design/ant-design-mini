@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "popup": "../Popup/index"
+    "picker": "../Picker/index"
   }
 }

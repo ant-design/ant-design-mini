@@ -25,13 +25,13 @@ toc: false
     
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| value | string | 否 | - | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用；在 CheckboxGroup 时亦有用 |
 | checked | boolean | 否 | - | checkbox 是否选中 |
-| id | string | 否 | - | 表单元素 id |
-| name | string | 否 | - | 表单元素 name |
 | disabled | boolean | 否 | false | 是否禁用 |
 | color | string | 否 | false | checkbox 的颜色，同 CSS 色值 |
-| className | string | 否 | - | 类名 |
+| value | string | 否 | - | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用；在 CheckboxGroup 时亦有用 |
+| id | string | 否 | - | 表单元素 id |
+| name | string | 否 | - | 表单元素 name |
+
 
 
 ## 事件

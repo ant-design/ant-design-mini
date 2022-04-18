@@ -1,79 +1,85 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/**
- * @description 表单组件绑定处理
- */
-
-import { store } from '../Form/store';
-import { isMoreThan106 } from '../_util/compareVersion';
+import { getFieldName } from '../Form/cache';
+import formStoreFactory, { FormStore } from '../Form/store';
+import type { IUserComponentOptions } from '@mini-types/alipay';
 
 
-export default () => {
+type FormMixInParams  = {
+  propsTriggerChange?: string,
+}
+
+export default (params: FormMixInParams = { propsTriggerChange: 'onChange' }): IUserComponentOptions<
+{ cValue: any },
+{ [prop: string]: any },
+{
+  onChangeFormFieldValue(changedValues):void;
+  defineOnchange(): void;
+},
+{
+  store: FormStore,
+  fieldName?: string
+},
+Record<string, unknown>,
+[]
+> => {
+  const {  propsTriggerChange } = params
   return {
-    props: {
-      onChange(e) {
-        const getCurrentField = this._getCurrentField || this.props._getCurrentField;
-        if (!getCurrentField) return;
-        const { form: formFn, field: fieldFn } = getCurrentField();
-        const form = formFn();
-        const field = fieldFn();
-        if (form && field) {
-          store.trigger(form, field, e);
+    onInit() {
+      const fieldName = getFieldName();
+      if (fieldName)  {
+        this.defineOnchange();
+        const pageId = this.$page.$id;
+        const { form: uid } = this.props;
+        const store = formStoreFactory.getStore({ pageId, uid });
+        if (store.checkFieldInited(fieldName)) {
+          return;
+        }
+        store.addField(fieldName);
+        this.store = store;
+        this.onBindChangeFormFieldValue = this.onChangeFormFieldValue.bind(this);
+        this.store.onValuesChange(this.onBindChangeFormFieldValue);
+        this.fieldName = fieldName;
+        const value = this.store.getFieldValue(this.fieldName);
+        this.setData({
+          cValue: value,
+        });
+      }
+    },
+    methods: {
+      defineOnchange() {
+        this._onChange = this.props[propsTriggerChange];
+        Object.defineProperty(this.props, propsTriggerChange, {
+          get: () => {
+            return (v, ...args) => {
+              if (this.fieldName) {
+                this.store.setFieldsValue({
+                  [this.fieldName]: v,
+                });
+                this.store.validate({ fieldName: this.fieldName });
+              }
+              if (this._onChange) {
+                //@ts-ignore
+                this._onChange(v, ...args);
+              }
+            };
+          },
+          set: (originFn) => {
+            this._onChange = originFn;
+          },
+        });
+      },
+      onChangeFormFieldValue(changedValues) {
+        if (this.fieldName in changedValues) {
+          this.setData({
+            cValue: changedValues[this.fieldName],
+          });
         }
       },
-      _getCurrentField() {
-        return { form: () => '', field: () => '' };
-      },
-      value: '',
-      checked: false,
-      valuePropName: 'cValue',
-      mode: 'normal',
     },
-    onInit() {
-      if (isMoreThan106 && isNotFormMode(this.props.mode)) return;
-
-      const getCurrentField = this.$page.data._getCurrentField;
-      if (!getCurrentField) return;
-      this.props._getCurrentField = getCurrentField;
-      const { form: formFn, field: fieldFn } = getCurrentField();
-      const form = formFn();
-      const field = fieldFn();
-      store.addFieldSet(form, field);
-
-      // 初始值设定
-      const initVal = store.getInitValByField(form, field);
-      this.props.value = initVal;
-      // terms组件
-      if (typeof initVal === 'boolean') {
-        this.props.checked = initVal;
-      }
-
-      // 兼容一下 checkbox-group
-      const commonUpdateFieldValue = (v) => {
-        this.props.value = v;
-        this.setData({
-          [this.props.valuePropName]: v,
-        });
-      };
-
-      const updateFieldValue = this._updateFieldValue || commonUpdateFieldValue;
-
-      store.addUpdateFiledValue(form, field, updateFieldValue.bind(this));
-    },
-    didMount() {
-      if (isMoreThan106 && isNotFormMode(this.props.mode)) {
-        this.$page.data._currentSetData = null;
-      } else {
-        this.$page.data._currentSetData = this.setData;
+    didUnmount() {
+      if (this.store) {
+        this.store.offValuesChange(this.onBindChangeFormFieldValue);
+        this.store.removeField(this.fieldName);
       }
     },
   };
 };
-
-/**
- * 判断组件是否为表单模式
- * @param props 组件 props
- * @returns
- */
-export function isNotFormMode(mode: string): boolean {
-  return mode !== 'form';
-}

@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/Form/index",
+    "pages/FormType/index",
     "pages/FormTest/index",
     "pages/FormBasic/index",
     "pages/FormDynamic/index",
@@ -50,6 +51,7 @@
     "pages/SafeArea/index",
     "pages/Dialog/index",
     "pages/Container/index",
+    "pages/DatePicker/index",
     "pages/test/FormBasic/index",
     "pages/test/CheckboxGroup/index"
   ],
@@ -58,7 +60,7 @@
     "enableDSL": "YES",
     "enableJSC": "YES",
     "defaultTitle": "小程序版 antd-mini 库",
-    "backgroundColor": "#F5F5F9",
+    "backgroundColor": "#FAFBFC",
     "pullRefresh": false,
     "allowsBounceVertical": true
   },

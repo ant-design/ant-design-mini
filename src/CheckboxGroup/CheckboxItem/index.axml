@@ -9,9 +9,9 @@
         value="{{value}}"
         checked="{{_checked}}"
         controlled="{{true}}"
-        disabled="{{_disabled}}" />
+        disabled="{{_disabled||disabled}}" />
     </view>
-    <view class="amd-checkbox-item-content {{_disabled ? 'amd-checkbox-item-content-disabled': ''}}">
+    <view class="amd-checkbox-item-content {{_disabled||disabled ? 'amd-checkbox-item-content-disabled': ''}}">
       <slot />
     </view>
   </list-item>

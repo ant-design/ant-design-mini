@@ -22,6 +22,11 @@ export interface IStepperProps extends IBaseFormItemProps<number> {
    */
   step?: number;
   /**
+   * @description input唤起的键盘类型
+   * @default 'digit'
+   */
+  type?: 'number' | 'digit';
+  /**
    * @description 计算精度，保留几位小数
    * https://github.com/ant-design/ant-design/issues/5998
    */
@@ -34,16 +39,16 @@ export interface IStepperProps extends IBaseFormItemProps<number> {
   /**
    * @description 输入框宽度
    */
-   inputWidth?: string;
+  inputWidth?: string;
 }
 export declare const StepperDefaultProps: Partial<IStepperProps>;
 
 export interface IStepperData {
-  confirm: boolean,
-  _value: string,
-  cValue: number,
-  minusDisabled: boolean,
-  addDisabled: boolean,
-  min: number,
-  max: number,
+  confirm: boolean;
+  _value: string;
+  cValue: number;
+  minusDisabled: boolean;
+  addDisabled: boolean;
+  min: number;
+  max: number;
 }

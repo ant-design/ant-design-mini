@@ -8,13 +8,12 @@ toc: false
 ---
 
 # CheckboxGroup 复选框组
-复选框组合，内部由多个 CheckboxItem 组成。
+复选框组合，内部由多个 CheckboxItem 组成，通过value来指定选中项。
 
 ## 注意事项
 
 - 复选框组内部子元素，必须配合 CheckboxGroup 使用，有单独使用需求的请使用 Checkbox。
 - CheckboxGroup 组件与 CheckboxItem 组件必须有相同的 uid，且 uid 全局唯一。
-- 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `ChecboxGroup` 组件的 `mode` 的值为 `form`。
 
 ## 代码示例
 ### 基本使用
@@ -29,10 +28,9 @@ toc: false
 | -----|-----|-----|-----|----- |
 | value | string[] | 否 | - | CheckboxGroup 的值，决定子元素是否勾选 |
 | radius | boolean | 否 | false | 是否带圆角 |
+| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`必须全局唯一`，与内部的 CheckboxItem 组件的 uid 一致 |
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
-| className | string | 否 | - | 类名 |
-| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`必须全局唯一`，与内部的 CheckboxItem 组件的 uid 一致 |
 
 #### CheckboxItem
 

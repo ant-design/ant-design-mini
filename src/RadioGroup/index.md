@@ -7,7 +7,7 @@ group:
 toc: false
 ---
 # RadioGroup 单选框
-在一组可选项中进行单选
+在一组可选项中进行单选，通过value来指定选中项
 ## 何时使用
 Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多
 
@@ -27,10 +27,9 @@ Radio 所有选项默认可见，方便用户在比较中选择，因此选项�
 | -----|-----|-----|-----|----- |
 | value | string | 否 | - | RadioGroup 的值，决定子元素是否勾选 |
 | radius | boolean | 否 | false | 是否带圆角 |
+| uid | string | 否 | - | 当页面有多个RadioGroup时需传入，`必须全局唯一`，与内部的 RadioItem 组件的 uid 一致 |
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
-| className | string | 否 | - | 类名 |
-| uid | string | 否 | - | 当页面有多个RadioGroup时需传入，`必须全局唯一`，与内部的 RadioItem 组件的 uid 一致 |
 
 #### RadioItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
