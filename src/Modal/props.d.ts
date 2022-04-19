@@ -6,56 +6,80 @@ import { IBaseProps } from '../_base';
 
 export interface IModalProps extends IBaseProps {
   /**
-   * @description 标题
-   */
-  title: string;
-  /**
-   * @description 内容
-   */
-  content: string;
-  /**
-   * @description 缩略图
-   */
-  image?: string;
-  /**
-   * @description 缩略图尺寸
-   * @default "medium"
-   */
-  imageSize?: 'medium' | 'large' | 'x-large';
-  /**
-   * @description 是否可见，受控模式
-   * @default false
-   */
-  visible: boolean;
-  /**
- * @description 点击蒙层关闭
- * @default true
- */
-  maskClosable: boolean;
-  /**
-   * @description 主按钮文本
-   */
-  mainButtonText: string
-  /**
    * @description 辅助按钮文本
    */
-  addonButtonText: string
+  addonButtonText: string;
+
   /**
    * @description 关闭图标的颜色，用于在深色和浅色背景上切换，不传时表示无关闭图标
    */
   closeType?: 'dark' | 'light';
+
+  /**
+   * @description 内容
+   */
+  content: string;
+
   /**
    * @description 弹窗动画时长，单位 ms
    * @default 300
    */
   duration: number;
+
   /**
-   * @description 触发关闭时回调
+   * @description 缩略图
    */
-  onClose?: () => void;
+  image?: string;
+
+  /**
+   * @description 缩略图尺寸
+   * @default "medium"
+   */
+  imageSize?: 'medium' | 'large' | 'x-large';
+
+  /**
+   * @description 主按钮文本
+   */
+  mainButtonText: string
+
+  /**
+   * @description 点击蒙层关闭
+   * @default true
+   */
+  maskClosable: boolean;
+
+  /**
+   * @description 是否展示操作按钮
+   * @default true
+   */
+  showBtn: boolean;
+
+  /**
+   * @description 是否展示关闭按钮
+   * @default true
+   */
+  showCloseIcon: boolean;
+
+  /**
+   * @description 标题
+   */
+  title: string;
+
+  /**
+   * @description 是否可见，受控模式
+   * @default false
+   */
+  visible: boolean;
+
   /**
    * @description 点击按钮回调
    */
   onButtonTap?: (type: 'main' | 'addon' | 'cancel') => void;
+
+  /**
+   * @description 触发关闭时回调
+   */
+  onClose?: () => void;
 }
+
 export declare const ModalDefaultProps: Partial<IModalProps>;

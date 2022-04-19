@@ -6,6 +6,7 @@ Page({
     isMainBtnModalShow: false,
     isCustomModalShow: false,
     isLImgModalShow: false,
+    isNoBtnModalShow: false,
     url: 'https://gw.alipayobjects.com/zos/rmsportal/yFeFExbGpDxvDYnKHcrs.png',
   },
   openBaseModal() {
@@ -43,6 +44,12 @@ Page({
   },
   closeLImgModal() {
     this.commonHide('isLImgModalShow');
+  },
+  openNoBtnModal() {
+    this.commonShow('isNoBtnModalShow');
+  },
+  closeNoBtnModal() {
+    this.commonHide('isNoBtnModalShow');
   },
   handleButtonTap(type) {
     my.alert({

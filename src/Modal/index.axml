@@ -4,6 +4,12 @@
   duration="{{duration}}"
   maskClosable="{{maskClosable}}"
   onClose="onClose">
+  <amd-icon 
+    a:if="{{showCloseIcon}}"
+    type="CloseOutline" 
+    onTap="onClose" 
+    className="amd-modal-close"
+  />
   <view class="amd-modal-content">
     <view class="amd-modal-content-image-container">
       <image class="amd-modal-content-image amd-modal-content-image-{{imageSize}}"
@@ -14,12 +20,16 @@
       <view class="amd-modal-content-title">
         {{title}}
       </view>
-      <view class="amd-modal-content-content">{{content}}</view>
+      <view class="amd-modal-content-content">
+        <slot name='content'>
+          {{content}}
+        </slot>
+      </view>
       <view class="amd-modal-content-extra">
         <slot />
       </view>
     </view>
-    <view class="amd-modal-buttons-container">
+    <view a:if="{{showBtn}}" class="amd-modal-buttons-container">
       <button
         type="primary"
         data-type="main"
@@ -36,8 +46,4 @@
       </view>
     </view>
   </view>
-    <amd-icon 
-      type="CloseOutline" 
-      onTap="onClose" 
-      className="amd-modal-close"/>
 </popup>

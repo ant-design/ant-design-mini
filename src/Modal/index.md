@@ -14,22 +14,20 @@ toc: false
 ### 基本使用
 <code src='../../demo/pages/Modal'></code>
 
-
-
 ## 属性
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| title | string | 否 | - | 标题 |
+| addonButtonText | string | 否 | '辅助操作' | 辅助按钮，第二个按钮 |
 | content | string | 是 | - | 内容 |
+| className | string | 否 | - | 类名 |
+| duration | number | 否 | - | 过渡动画时长，单位毫秒 |
 | image | string | 否 | - | 缩略图 |
 | imageSize | 'medium' &verbar; 'large' &verbar; 'x-large' | 否 | 'medium' | 缩略图尺寸 |
-| visible | boolean | 是 | false | 是否可见，受控模式 |
-| duration | number | 否 | - | 过渡动画时长，单位毫秒 |
 | mainButtonText | string | 否 | '主操作' | 主按钮 |
-| addonButtonText | string | 否 | '辅助操作' | 辅助按钮，第二个按钮 |
 | maskClosable | boolean | 否 | true | 点击蒙层关闭 |
-| className | string | 否 | - | 类名 |
+| title | string | 否 | - | 标题 |
+| visible | boolean | 是 | false | 是否可见，受控模式 |
 
 ## 事件
 
@@ -41,7 +39,7 @@ toc: false
 ## 插槽
 | 名称 | 说明 |
 | ----|----|
-| default | 弹窗内容 |
+| content | 自定义弹窗内容 |
 
 ## 样式类
 | 类名 | 说明 |
