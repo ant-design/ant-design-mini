@@ -1,0 +1,14 @@
+<view class="demo-empty">
+  <empty a:if="{{mode==='page'}}" onSubBtnClick='onSubBtnClick' onMainBtnClick='onMainBtnClick' />
+  
+  <container a:else title="模块标题">
+    <empty onSubBtnClick='onSubBtnClick' onMainBtnClick='onMainBtnClick' mode="section" />
+  </container>
+  
+  <radio-group class="demo-empty-mode-switch" onChange="handleChangeMode" name="modeList">
+    <label a:for="{{modeList}}" class="demo-empty-mode-switch-item">
+      <radio value="{{item.name}}" checked="{{item.checked}}" />
+      <text>{{item.value}}</text>
+    </label>
+  </radio-group>
+</view>

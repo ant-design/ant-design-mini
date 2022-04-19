@@ -1,0 +1,21 @@
+<view class="amd-empty">
+  <view class="amd-empty-{{mode}}">
+    <view class="amd-empty-{{mode}}-image" />
+    <view class="amd-empty-{{mode}}-text">
+      <view class="amd-empty-{{mode}}-text-main">
+        {{mainText}}
+      </view>
+      <view class="amd-empty-{{mode}}-text-sub">
+        {{subText}}
+      </view>
+    </view>
+    <view class="amd-empty-{{mode}}-btn">
+      <button class="amd-empty-{{mode}}-btn-sub" type='primary' fill="outline" inline onTap="onSubBtnClick">
+        {{subButtonText}}
+      </button>
+      <button class="amd-empty-{{mode}}-btn-main" type='primary' inline onTap="onMainBtnClick">
+        {{mainButtonText}}
+      </button>
+    </view>
+  </view>
+</view>

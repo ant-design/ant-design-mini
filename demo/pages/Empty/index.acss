@@ -1,0 +1,19 @@
+.demo-empty {
+  padding-top: 24rpx;
+}
+
+.demo-empty-mode-switch {
+  position: fixed;
+  width: 718rpx;
+  padding: 16rpx;
+  background-color: #fff;
+  bottom: 0;
+}
+
+.demo-empty-mode-switch-item {
+  margin-right: 24rpx;
+}
+
+.amd-container-content {
+  padding-bottom: 24rpx;
+}
