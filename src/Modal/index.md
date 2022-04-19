@@ -26,6 +26,8 @@ toc: false
 | imageSize | 'medium' &verbar; 'large' &verbar; 'x-large' | 否 | 'medium' | 缩略图尺寸 |
 | mainButtonText | string | 否 | '主操作' | 主按钮 |
 | maskClosable | boolean | 否 | true | 点击蒙层关闭 |
+| showBtn | boolean | 否 | true | 是否展示操作按钮 |
+| showCloseIcon | boolean | 否 | true | 是否展示关闭按钮 |
 | title | string | 否 | - | 标题 |
 | visible | boolean | 是 | false | 是否可见，受控模式 |
 
@@ -39,7 +41,7 @@ toc: false
 ## 插槽
 | 名称 | 说明 |
 | ----|----|
-| content | 自定义弹窗内容 |
+| content | 自定义弹窗内容，content字段会失效 |
 
 ## 样式类
 | 类名 | 说明 |
