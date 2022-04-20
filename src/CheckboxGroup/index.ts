@@ -25,7 +25,7 @@ Component({
           return this.props[key];
       }
     };
-    const key = `${this.$page}-${uid}`;
+    const key = `${this.$page.$id}-${uid}`;
     store.setGroupPropsVal(key, getGroupPropsVal);
     if (disabled) {
       store.updateGroupDisabled(key, disabled);
@@ -40,8 +40,8 @@ Component({
     const { uid: oldUID, disabled: oldDisabled } = prevProps;
     const { cValue: newValue } = this.data;
     const { cValue: oldValue } = prevData;
-    const newKey = `${this.$page}-${newUID}`;
-    const oldKey = `${this.$page}-${oldUID}`;
+    const newKey = `${this.$page.$id}-${newUID}`;
+    const oldKey = `${this.$page.$id}-${oldUID}`;
     store.updateGroup(
       newKey,
       {
@@ -54,7 +54,7 @@ Component({
   },
   didUnmount() {
     const { uid } = this.props;
-    const key = `${this.$page}-${uid}`;
+    const key = `${this.$page.$id}-${uid}`;
     store.removeGroup(key);
   },
   methods: {

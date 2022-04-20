@@ -1,3 +1,4 @@
+<import-sjs from="./index.sjs" name="_sjs" />
 <template name="icon">
   <block a:if="{{url}}">
     <image mode="scaleToFill" class="amd-checkbox-fake-image" src="{{url}}" a:if="{{url.indexOf('http')===0||url.indexOf('data:')===0||url.indexOf('.')===0||url.indexOf('/')===0}}"/>
@@ -5,30 +6,30 @@
   </block>
  
 </template>
-<view class="amd-checkbox {{className ? className : ''}} ">
+<view class="amd-checkbox {{_sjs.isDisabled(disabled,_disabled)?'amd-checkbox-disabled':''}} {{cValue?'amd-checkbox-checked':''}} {{className ? className : ''}} ">
   <checkbox
     class="amd-checkbox-base"
     controlled="{{controlled}}"
     color="{{color}}"
     id="{{id ? id : $id}}"
-    disabled="{{disabled}}"
+    disabled="{{_sjs.isDisabled(disabled,_disabled)}}"
     onChange="onChange"
     checked="{{cValue}}"
     value="{{value}}"
   />
     <view 
-      style="{{!disabled&&cValue&&color?'background:'+color + '; border-color:' + color:''}}"
+      style="{{!_sjs.isDisabled(disabled,_disabled)&&cValue&&color?'background:'+color + '; border-color:' + color:''}}"
       class="amd-checkbox-fake 
-      {{disabled 
+      {{_sjs.isDisabled(disabled,_disabled) 
           ? cValue
             ? 'amd-checkbox-fake-disabled-checked' + (disabledCheckedIcon? ' amd-checkbox-fake-custom' : '')
             : 'amd-checkbox-fake-disabled-not-checked' + (disabledIcon? ' amd-checkbox-fake-custom' : '')
           : cValue
             ? 'amd-checkbox-fake-not-disabled-checked' + (checkedIcon? ' amd-checkbox-fake-custom' : '')
             : 'amd-checkbox-fake-not-disabled-not-checked' + (icon? ' amd-checkbox-fake-custom' : '')}}">
-        <template is="icon"  a:if="{{!cValue && !disabled}}" data="{{url:icon}}"/>
-        <template is="icon"  a:if="{{!cValue && disabled}}" data="{{url:disabledIcon}}"/>
-        <template is="icon"  a:if="{{cValue && !disabled}}" data="{{url:checkedIcon||'CheckOutline'}}"/>
-        <template is="icon"  a:if="{{cValue && disabled}}" data="{{url:disabledCheckedIcon||'CheckOutline'}}"/>
+        <template is="icon"  a:if="{{!cValue && !_sjs.isDisabled(disabled,_disabled)}}" data="{{url:icon}}"/>
+        <template is="icon"  a:if="{{!cValue && _sjs.isDisabled(disabled,_disabled)}}" data="{{url:disabledIcon}}"/>
+        <template is="icon"  a:if="{{cValue && !_sjs.isDisabled(disabled,_disabled)}}" data="{{url:checkedIcon||'CheckOutline'}}"/>
+        <template is="icon"  a:if="{{cValue && _sjs.isDisabled(disabled,_disabled)}}" data="{{url:disabledCheckedIcon||'CheckOutline'}}"/>
     </view>
 </view>       

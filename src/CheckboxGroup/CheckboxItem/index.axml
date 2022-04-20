@@ -1,22 +1,20 @@
 <label class="amd-checkbox-item {{className ? className : ''}}">
   <list-item>
-    <view class="amd-checkbox {{className ? className : ''}}"
-      slot="image">
-      <checkbox 
-        id="{{id ? id : $id}}"
-        name="{{name}}"
-        onChange="onItemChange"
-        value="{{value}}"
-        checked="{{_checked}}"
-        controlled="{{true}}"
-        icon="{{icon}}"
-        checkedIcon="{{checkedIcon}}"
-        disabledIcon="{{disabledIcon}}"
-        disabledCheckedIcon="{{disabledCheckedIcon}}"
-        disabled="{{_disabled||disabled}}" />
-    </view>
-    <view class="amd-checkbox-item-content {{_disabled||disabled ? 'amd-checkbox-item-content-disabled': ''}}">
-      <slot />
-    </view>
+    <checkbox 
+      id="{{id ? id : $id}}"
+      name="{{name}}"
+      uid="{{uid}}"
+      onChange="onChange"
+      value="{{value}}"
+      checked="{{_checked}}"
+      controlled="{{controlled}}"
+      icon="{{icon}}"
+      checkedIcon="{{checkedIcon}}"
+      disabledIcon="{{disabledIcon}}"
+      disabledCheckedIcon="{{disabledCheckedIcon}}"
+      disabled="{{disabled}}" />
+      <view class="amd-checkbox-item-content">
+        <slot />
+      </view>
   </list-item>
 </label>

@@ -47,10 +47,11 @@ toc: false
 | 类名 | 说明 |
 | -----|-----|
 | amd-checkbox | 标签样式 |
+| amd-checkbox-disabled | checkbox 组件禁用样式 |
+| amd-checkbox-checked | checkbox 组件禁用样式 |
 | amd-checkbox-base | 原始 checkbox 样式 |
 | amd-checkbox-fake | checkbox 组件未选中样式 |
 | amd-checkbox-fake-custom | 自定义图标时的样式 |
-| amd-checkbox-disabled | checkbox 组件选中后样式 |
 
 <style> 
 table th:first-of-type { width: 180px; } 

@@ -1,4 +1,1 @@
-export const CheckboxItemDefaultProps = {
-  disabled: false,
-  uid: 'CheckboxGroup',
-};
+export const CheckboxItemDefaultProps = {};

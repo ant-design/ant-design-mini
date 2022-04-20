@@ -9,7 +9,20 @@
   margin-right: 12rpx;
 }
 
-.btns button~button {
+.btns button ~ button {
   margin-right: 0;
   margin-left: 12rpx;
+}
+.checkbox-group .amd-checkbox-group-body {
+  background: #fff;
+  padding: 24rpx;
+}
+.checkbox-group label {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 24rpx;
+}
+
+.checkbox-group .amd-checkbox {
+  margin-right: 10rpx;
 }
