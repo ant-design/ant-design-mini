@@ -32,8 +32,8 @@ Component({
         valueIndex: changeValue,
       });
     };
-    if (!this.$page.data._getCurrentField) return;
-    const { form: formFn, field: fieldFn } = this.$page.data._getCurrentField();
+    if (!this.$page._getCurrentField) return;
+    const { form: formFn, field: fieldFn } = this.$page._getCurrentField();
     const form = formFn();
     const field = fieldFn();
     store.addUpdateFiledValue(form, field, updatePickerFiledValue);
