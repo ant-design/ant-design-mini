@@ -25,7 +25,7 @@ Component({
     }
   },
   didMount() {
-    this.data.setData = this.$page.data._currentSetData;
+    this.data.setData = this.$page._currentSetData;
     if (!this.data.setData) return;
     const { form, name: field } = this.props;
     if (form && field) {

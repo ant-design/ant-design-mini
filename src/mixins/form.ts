@@ -61,9 +61,9 @@ export default () => {
     },
     didMount() {
       if (isMoreThan106 && isNotFormMode(this.props.mode)) {
-        this.$page.data._currentSetData = null;
+        this.$page._currentSetData = null;
       } else {
-        this.$page.data._currentSetData = this.setData;
+        this.$page._currentSetData = this.setData;
       }
     },
   };
