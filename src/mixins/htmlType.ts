@@ -8,7 +8,7 @@ export default () => ({
       this.props._submit = () => {
         store.onFinish(() => this.props.form);
       };
-      this.$page.data._getCurrentField = null;
+      this.$page._getCurrentField = null;
     }
   },
 });

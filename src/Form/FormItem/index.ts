@@ -18,7 +18,7 @@ Component({
   onInit() {
     const { form, name: field, rules, initialValue, required } = this.props;
     if (form && field) {
-      this.$page.data._getCurrentField = () => {
+      this.$page._getCurrentField = () => {
         return { form: () => this.props.form, field: () => this.props.name };
       };
       store.bootstrap(form, field, rules, initialValue, required);
