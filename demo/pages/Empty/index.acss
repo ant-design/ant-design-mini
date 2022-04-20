@@ -4,6 +4,7 @@
 
 .demo-empty-mode-switch {
   position: fixed;
+  z-index: 9;
   width: 718rpx;
   padding: 16rpx;
   background-color: #fff;
@@ -16,4 +17,17 @@
 
 .amd-container-content {
   padding-bottom: 24rpx;
+}
+
+.demo-empty-container {
+  margin-bottom: 16rpx;
+}
+
+.demo-empty-whitespace {
+  height: 104rpx;
+}
+
+.demo-empty-container-image {
+  width: 200rpx;
+  height: 170rpx;
 }

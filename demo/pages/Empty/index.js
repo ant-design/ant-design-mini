@@ -1,5 +1,6 @@
 Page({
   data: {
+    imageUrl: 'https://gw.alipayobjects.com/mdn/rms_7cc883/afts/img/A*PG7NQoXbN38AAAAAAAAAAAAAARQnAQ',
     mode: 'page',
     modeList: [{
       name: 'page',

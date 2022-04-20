@@ -1,10 +1,8 @@
-@import (reference) "../_base/index.less";
+@import (reference) "./variable.less";
 
 @emptyPrefix: amd-empty;
 
 .@{emptyPrefix} {
-  font-family: PingFangSC-Regular;
-
   &-page {
     text-align: center;
     padding-top: 25vh;
@@ -13,81 +11,68 @@
       margin: 0 auto;
       width: 400 * @rpx;
       height: 340 * @rpx;
-      background: url(https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ) no-repeat;
+      background: url(@empty-image-url) no-repeat;
       background-size: contain;
     }
 
     &-text {
-      margin-top: 40 * @rpx;
+      margin-top: @empty-margin-large;
 
       &-main {
-        color: #333;
-        font-size: 40 * @rpx;
+        color: @color-text-title;
+        font-size: @empty-font-size-large;
       }
 
       &-sub {
-        color: #999;
-        font-size: 26 * @rpx;
-        margin-top: 16 * @rpx;
+        color: @color-text-subtitle;
+        font-size: @empty-font-size-common;
+        margin-top: @v-spacing-standard;
       }
     }
 
     &-btn {
-      margin-top: 40 * @rpx;
+      margin-top: @empty-margin-large;
 
-      &-main {
-        margin-left: 24 * @rpx;
+      &-main,
+      &-sub {
+        margin: 0 @empty-margin-small;
       }
     }
   }
 
   &-section {
     text-align: center;
-    margin-top: 40 * @rpx;
+    margin-top: @empty-margin-large;
 
     &-image {
       margin: 0 auto;
       width: 200 * @rpx;
       height: 170 * @rpx;
-      background: url(https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ) no-repeat;
+      background: url(@empty-image-url) no-repeat;
       background-size: contain;
     }
 
     &-text {
-      margin-top: 40 * @rpx;
+      margin-top: @v-spacing-large;
 
       &-main {
-        color: #333;
-        font-size: 40 * @rpx;
+        color: @color-text-title;
+        font-size: @empty-font-size-large;
       }
 
       &-sub {
-        color: #999;
-        font-size: 26 * @rpx;
-        margin-top: 16 * @rpx;
-      }
-    }
-
-    &-text {
-      margin-top: 40 * @rpx;
-
-      &-main {
-        color: #333;
-        font-size: 40 * @rpx;
-      }
-
-      &-sub {
-        color: #999;
-        font-size: 26 * @rpx;
-        margin-top: 16 * @rpx;
+        color: @color-text-subtitle;
+        font-size: @empty-font-size-common;
+        margin-top: @v-spacing-standard;
       }
     }
 
     &-btn {
-      margin-top: 40 * @rpx;
+      margin-top: @empty-margin-large;
 
-      &-main {
-        margin-left: 24 * @rpx;
+      &-main,
+      &-sub {
+        margin: 0 @empty-margin-small;
       }
     }
   }
