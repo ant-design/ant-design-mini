@@ -11,6 +11,7 @@
   </checkbox-item>
 
 </checkbox-group>
+
 <checkbox-group 
   uid="group2"
   value="{{['orange','banner']}}"
@@ -40,4 +41,18 @@
 
 </checkbox-group>
 
+<checkbox-group 
+  uid="group4"
+  className="checkbox-group"
+  onChange="handleChange"
+  header="搭配Checkbox使用">
+  <label  a:for="{{list}}">
+    <checkbox 
+      value="{{item.value}}"  
+      uid="group4">
+   </checkbox>
+   {{item.label}}
+  </label>
+  
 
+</checkbox-group>

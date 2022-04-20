@@ -1,6 +1,23 @@
-@import (reference) "../_base/index.less";
+@import (reference) "./variable.less";
 
-.amd-list-header:empty,
-.amd-list-footer:empty {
-  display: none;
+@checkboxGroupPrefix: amd-checkbox-group;
+
+.@{checkboxGroupPrefix}  {
+  &-header:empty,
+  &-footer:empty {
+    display: none;
+  }
+  &-header,
+  &-footer {
+    display: flex;
+    align-items: center;
+    padding: @v-spacing-standard @v-spacing-large;
+    line-height: 1.4;
+    font-size: 30 * @rpx;
+    color: @heckbox-header-color;
+  }
+  &-body {
+    position: relative;
+    overflow: hidden;
+  }
 }

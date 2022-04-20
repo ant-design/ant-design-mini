@@ -1,0 +1,19 @@
+.price {
+  display: flex;
+  align-items: center;
+}
+.price-input, .price-currency {
+  border: 1px solid #eee;
+  width: 100rpx;
+  height: 70rpx;
+  border-radius: 5rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.price-currency {
+  margin-left: 10rpx;
+}

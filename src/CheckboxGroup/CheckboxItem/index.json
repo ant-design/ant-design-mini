@@ -2,7 +2,6 @@
   "component": true,
   "usingComponents": {
     "list-item": "../../List/ListItem/index",
-    "checkbox":"../../Checkbox/index",
-    "icon":"../../Icon/index"
+    "checkbox":"../../Checkbox/index"
   }
 }

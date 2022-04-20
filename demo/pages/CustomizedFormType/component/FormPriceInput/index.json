@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "price-input": "../PriceInput/index"
+  }
+}
