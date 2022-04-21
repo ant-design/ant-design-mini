@@ -45,7 +45,7 @@ toc: false
 | -----|-----|-----|
 | onFocus | 聚焦时，触发此回调 | ( e: number ) => void  |
 | onBlur | 失去焦点时，触发此回调 | ( e: number ) => void  |
-| onChange | 数据变化后，触发此回调 | ( e: number ) => void  |
+| onChange | 数据变化后，触发此回调 | ( e: number, dataSet: Record<string, any> ) => void  |
 
 ## 样式类
 | 类名 | 说明 |
