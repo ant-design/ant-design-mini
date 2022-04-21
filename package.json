@@ -17,7 +17,8 @@
     "test:less": "jest __tests__/less.spec.ts",
     "test:markdown": "jest __tests__/markdowns.spec.ts",
     "test:axml": "jest __tests__/axml.spec.ts",
-    "test:ts": "jest __tests__/ts.spec.ts"
+    "test:ts": "jest __tests__/ts.spec.ts",
+    "postpublish": "tnpm-sync"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
@@ -99,6 +100,7 @@
     "request": "^2.88.2",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0",
+    "tnpm-sync": "^1.0.1",
     "ts-jest": "^27.1.3",
     "typescript": "^4.0.0",
     "yorkie": "^2.0.0"
