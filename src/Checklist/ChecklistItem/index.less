@@ -1,0 +1,70 @@
+@import (reference) "../variable.less";
+@import "../../style/mixins/hairline.less";
+
+@checklistItemPrefix: amd-checklist-item;
+
+.@{checklistItemPrefix} {
+  background-color: #fff;
+
+  &-hover {
+    background-color: #eee;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    padding: 24 * @rpx;
+  }
+
+  &-image {
+    width: 72 * @rpx;
+    height: 72 * @rpx;
+    border-radius: 8 * @rpx;
+  }
+
+  &-text {
+    flex: 1;
+    margin-left: 24 * @rpx;
+
+    &-no-image {
+      margin-left: 0;
+    }
+
+    &-title {
+      color: #333;
+      font-size: 34 * @rpx;
+      line-height: 48 * @rpx;
+    }
+
+    &-description {
+      font-size: 26 * @rpx;
+      color: #999;
+      margin-top: 2 * @rpx;
+      line-height: 36 * @rpx;
+    }
+
+    &-disabled {
+      color: #999;
+    }
+  }
+
+  &-checked {
+    &-disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &:last-child {
+    .amd-checklist-item-line {
+      display: none;
+    }
+  }
+
+  &-line {
+    height: 1 * @rpx;
+    background-color: #eee;
+    width: calc(100% - 24 * @rpx);
+    position: absolute;
+    right: 0;
+  }
+}
