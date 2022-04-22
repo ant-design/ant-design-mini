@@ -9,6 +9,7 @@ Component({
   },
   didMount() {
     const { uid } = this.props;
+    const key = `${this.$page.$id}-${uid}`;
     const setItemIndex = (index: number) => this.setData({
       _index: index,
     });
@@ -16,13 +17,14 @@ Component({
       _direction: direction,
     });
 
-    context.addItem(uid, `${this.$id}`, {
+    context.addItem(key, `${this.$id}`, {
       setItemIndex,
       setItemDirection,
     });
   },
   didUnmount() {
-    context.removeItem(this.props.uid, `${this.$id}`);
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    context.removeItem(key, `${this.$id}`);
   },
   methods: {},
 });

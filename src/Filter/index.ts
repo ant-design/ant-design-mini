@@ -24,6 +24,7 @@ Component({
     currentFilterItemId: '',
   },
   didMount() {
+    const key = `${this.$page.$id}-${this.props.uid}`;
     const setGroupDataVal = (val: TPlaceholderArray | TActiveArray | TCurrentFilterItemId) => {
       switch (val.key) {
         case 'placeHolderArray':
@@ -47,15 +48,19 @@ Component({
     };
     const getGroupDataVal = () => this.data.placeHolderObj;
 
-    context.addGroup(this.props.uid);
-    context.setGroupDataVal(this.props.uid, setGroupDataVal);
-    context.getGroupDataVal(this.props.uid, getGroupDataVal);
-    context.updateGroupValue(this.props.uid);
+    context.addGroup(key);
+    context.setGroupDataVal(key, setGroupDataVal);
+    context.getGroupDataVal(key, getGroupDataVal);
+    context.updateGroupValue(key);
   },
-
+  didUnmount() {
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    context.removeGroup(key);
+  },
   methods: {
     showFilterItem(e) {
-      const group = context.getGroup(this.props.uid);
+      const key = `${this.$page.$id}-${this.props.uid}`;
+      const group = context.getGroup(key);
       if (group) {
         objectEntries(group.items).forEach(([, v]) => {
           if (v.getid() === e.currentTarget.dataset.filterItemId) {
