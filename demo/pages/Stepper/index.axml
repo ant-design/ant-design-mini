@@ -7,7 +7,6 @@
   </demo-block>
   <demo-block title="受控组件">
     <stepper 
-      data-a="a"
       controlled
       step="{{1}}"
       value="{{value}}"

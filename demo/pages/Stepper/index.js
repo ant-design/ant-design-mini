@@ -2,9 +2,8 @@ Page({
   data: {
     value: 0,
   },
-  handleChange(value, dataSet) {
+  handleChange(value) {
     this.setData({ value });
-    console.log(dataSet)
   },
   handleAddValue() {
     this.setData({ value: this.data.value + 1 });

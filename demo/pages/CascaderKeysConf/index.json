@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Cascader 默认值及自定义配置",
+  "usingComponents": {
+    "cascader": "../../../src/Cascader/index",
+    "button": "../../../src/Button/index",
+    "demo-block": "../../components/DemoBlock/index"
+  }
+}

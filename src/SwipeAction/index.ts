@@ -165,7 +165,7 @@ Component({
         });
       }
       if (onLeftButtonTap) {
-        return onLeftButtonTap(index, text, type, extraInfo, this.getDataSet());
+        return onLeftButtonTap(index, text, type, extraInfo);
       }
     },
     onRightButtonTap(e) {
@@ -177,7 +177,7 @@ Component({
         });
       }
       if (onRightButtonTap) {
-        return onRightButtonTap(index, text, type, extraInfo, this.getDataSet());
+        return onRightButtonTap(index, text, type, extraInfo);
       }
     },
     getRef() {
@@ -190,15 +190,6 @@ Component({
         }
       };
     },
-    getDataSet(){
-      return Object.entries(this.props).reduce((prev,cur)=>{
-        const [key, val] = cur
-        if(key.startsWith('data-')){
-          prev[key.replace('data-','')] = val
-        }
-        return prev
-      },{})
-    }
   },
   ref() {
     return {

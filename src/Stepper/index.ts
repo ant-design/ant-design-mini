@@ -73,7 +73,7 @@ Component({
         this.setData({
           _value: null,
         });
-        this.cOnChange(this.getInputValue(value), this.getDataSet());
+        this.cOnChange(this.getInputValue(value));
         this.props.onBlur?.(this.getInputValue(value));
       }
     },
@@ -83,7 +83,7 @@ Component({
         _value: null,
         confirm: true,
       });
-      this.cOnChange(this.getInputValue(value), this.getDataSet());
+      this.cOnChange(this.getInputValue(value));
     },
     getInputValue(inputValue) {
       const { min, max } = this.props;
@@ -107,22 +107,13 @@ Component({
         if (mode === 'minus') {
           // 【减】按钮的操作
           const minusTemp = downStep(cValue, step, precision);
-          this.cOnChange(Math.max(minusTemp, min), this.getDataSet());
+          this.cOnChange(Math.max(minusTemp, min));
         } else if (mode === 'add') {
           // 【加】按钮的操作
           const addTemp = upStep(cValue, step, precision);
-          this.cOnChange(Math.min(addTemp, max), this.getDataSet());
+          this.cOnChange(Math.min(addTemp, max));
         }
       }
     },
-    getDataSet(){
-      return Object.entries(this.props).reduce((prev,cur)=>{
-        const [key, val] = cur
-        if(key.startsWith('data-')){
-          prev[key.replace('data-','')] = val
-        }
-        return prev
-      },{})
-    }
   },
 });

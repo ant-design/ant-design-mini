@@ -1,0 +1,45 @@
+<popup 
+  className="amd-cascader {{className ? className : ''}}"
+  visible="{{visible}}" 
+  maskClosable="{{maskClosable}}"
+  duration="{{duration}}"
+  position="bottom"
+  onClose="onClose"
+  showCloseIcon>
+  <view class="amd-cascader-content">
+    <view class="amd-cascader-content-title" a:if="{{!!title}}">
+    {{title}}
+    </view>
+    <view class="amd-cascader-content-content">
+      <tabs 
+  index="{{curIdx}}" 
+  type="basis" 
+  sticky="{{true}}"
+  swipeable="{{true}}"
+  animation="{{true}}"
+  onChange="changeTab">
+  <block a:for="{{tabs}}">
+  
+    <tab-content 
+      style="{{curIdx==index ? '' : 'display:none'}}"
+      tab="{{item}}">
+      <view style="height:700rpx;overflow:auto">
+          <view 
+            a:for="{{options[curIdx]}}" a:for-item="node" style="padding:20rpx;display:flex;align-items: center;" data-node_index="{{curIdx}}" data-node_data="{{node}}"  onTap="nodeTapHandle">
+            <view className="{{node.disabled ? 'amd-cascader-node-disabled' : ''}}">{{node[titleKey]}}</view> 
+            <view a:if="{{node[valueKey]==tabs[curIdx][valueKey]}}" style="margin-left:auto">
+              <view a:if="{{!tapLoading}}">
+              <icon type="CheckOutline" size="small" color="#1677ff"/>
+              </view>
+              <view a:else >
+              <loading type="mini" height="30rpx" color="#1677ff"></loading>
+              </view>
+            </view>
+          </view>
+      </view>
+    </tab-content>
+  </block>
+</tabs>
+    </view>
+  </view>
+</popup>

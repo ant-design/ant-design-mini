@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Cascader",
+  "usingComponents": {
+    "cascader": "../../../src/Cascader/index",
+    "button": "../../../src/Button/index",
+    "demo-block": "../../components/DemoBlock/index"
+  }
+}

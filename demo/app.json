@@ -42,6 +42,8 @@
     "pages/Mask/index",
     "pages/Avatar/index",
     "pages/Loading/index",
+    "pages/Cascader/index",
+    "pages/CascaderKeysConf/index",
     "pages/Checkbox/index",
     "pages/CheckboxGroup/index",
     "pages/RadioGroup/index",

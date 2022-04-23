@@ -15,12 +15,11 @@ toc: false
 ## API 
 
 
-### 属性 
+## 属性 
 
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| className | string | - | - | 类名 |
 | color | string | - | '#999' | 加载时的颜色，当 type 为 'spin' 时，只支持十六进制颜色码，如'#fff' |
 | delay | number | - | - | 延时显示加载状态，单位 ms, 注意，delay 的变更不能实时生效，当 type 为 'spin' 时生效 |
 | height | string | - | '200rpx' | 加载图标高度，不传则默认与 size 大小一致，当 type 为 'mini' 时生效 |
@@ -30,40 +29,34 @@ toc: false
 | text | string | - | - | 加载中文案，当 type 为 'spin' 时生效 |
 | theme | 'dark' &verbar; 'light' | - | "dark" | 颜色，dark/深色, light/浅色，当 type 为 'spin' 时生效 |
 | type | 'spin' &verbar; 'mini' | - | 'spin' | 加载样式类型 |
+| className | string | - | - | 类名 |
 
-### 事件 
+## 事件 
 
-### 插槽
-| 名称 | 说明 |
-| ----|----|
-| indicator | 自定义加载中的指示器，type 为 'spin' 时生效 |
-| text | 自定义text，type 为 'spin' 时生效 |
 
-### CSS 变量 
+
+## CSS 变量 
 
 | CSS 变量名称 | 说明 |
 | -----|----- |
-### 样式类 
-以下样式类只在对应type下才会被使用
+## 样式类 
 
 | 类名 | 说明 |
 | -----|----- |
-| amd-loading | 整体样式 |
-| amd-loading-spin-container | 外层容器样式 |
-| amd-loading-spin | 内层容器样式 |
-| amd-loading-spin-dark | 深色模式样式 |
-| amd-loading-spin-light | 浅色模式样式 |
-| amd-loading-spin-icon | 加载图标外层样式 |
-| amd-loading-spin-icon-indicator | 自定义加载图标外层样式 |
-| amd-loading-spin-icon-small | 加载图标样式 |
-| amd-loading-spin-icon-medium | 加载图标样式 |
-| amd-loading-spin-icon-large | 加载图标样式 |
-| amd-loading-spin-icon-x-large | 加载图标样式 |
-| amd-loading-spin-text | 加载文案样式 |
-| amd-loading-spin-text-dark | 深色模式下加载文案样式 |
-| amd-loading-spin-text-light | 浅色模式下加载文案样式 |
-| amd-loading-mini-container | 外层容器样式 |
-| amd-loading-mini | 外层容器样式 |
-| amd-loading-mini-item | 所有加载点的样式 |
+| amd-loading | - |
+| amd-loading-spin-container | - |
+| amd-loading-mini-container | - |
+| amd-loading-spin | - |
+| amd-loading-spin-{{theme}} | - |
+| amd-loading-spin-icon | - |
+| amd-loading-spin-icon-indicator | - |
+| amd-loading-spin-icon-{{size}} | - |
+| amd-loading-spin-text | - |
+| amd-loading-spin-text-{{theme}} | - |
+| amd-loading-mini | - |
+| amd-loading-mini-item | - |
+| amd-loading-mini-item__1 | - |
+| amd-loading-mini-item__2 | - |
+| amd-loading-mini-item__3 | - |
 
 

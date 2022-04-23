@@ -1,0 +1,29 @@
+@import (reference) "../Modal/variable.less";
+@import "../style//mixins/hairline.less";
+
+@collapsePrefix: amd-cascader;
+
+.@{collapsePrefix} {
+  &-horizontal {
+    .amd-popup-content.amd-popup-center {
+      padding-bottom: 0;
+    }
+  }
+
+  .amd-cascader-content-title {
+    padding-top: 20 * @rpx;
+    text-align: center;
+  }
+  .amd-cascader-content-content{
+    padding-top: 50 * @rpx;
+  }
+  .amd-cascader-node-disabled{
+    color: #999;
+  }
+
+  .amd-popup-content.amd-popup-bottom {
+    height: 860 * @rpx;
+    min-height: 0;
+    padding: 10 * @rpx;
+  }
+}

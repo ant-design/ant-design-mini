@@ -1,0 +1,13 @@
+{
+  "component": true,
+  "usingComponents": {
+    "button": "../Button/index",
+    "amd-icon": "../Icon/index",
+    "popup": "../Popup/index",
+    "tap-modal": "../TapModal/index",
+    "tabs": "../Tabs/index",
+    "tab-content": "../Tabs/TabItem/index",
+    "icon": "../Icon/index",
+    "loading":"../Loading/index"
+  }
+}
