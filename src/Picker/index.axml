@@ -29,7 +29,7 @@
   <view class="amd-picker-content">
     <block a:if="{{data}}">
       <picker-view 
-        value="{{_sjs.getSelectedIndex(data,  cValue)}}"
+        value="{{selectedIndex}}"
         onChange="onChange">
         <block 
           a:for="{{data}}"

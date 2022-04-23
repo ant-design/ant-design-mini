@@ -9,7 +9,6 @@
         placeholder="请选择"
         title="请选择"
         data="{{pickerList}}">
-        <text slot-scope="props">{{props.value[0]}}</text>
       </picker>
     </list-item>
   </list>

@@ -1,5 +1,6 @@
 import { PickerDefaultProps } from './props';
 import controlled from '../mixins/controlled';
+import computed from '../mixins/computed';
 import formed from '../Form/mixin';
 import { getMatchedValuesByValue, getMatchedValuesByIndex } from './utils';
 
@@ -12,6 +13,7 @@ Component({
     formed({
       propsTriggerChange: 'onOk',
     }),
+    computed()
   ],
   props: PickerDefaultProps,
   data: {
@@ -21,13 +23,26 @@ Component({
 
   didMount() {
     this.tempSelectedIndex = null;
-    this.formatText(this.props.value);
+    // this.formatText(this.props.value);
   },
   didUpdate() {
-    this.formatText();
+    // this.formatText();
   },
   methods: {
-    formatText(value?) {
+    computed(options) { 
+      let value;
+      if (options?.lifeCycle  === 'didMount') {
+        value =  this.props.value
+      }
+      const formatValue = this.getterFormatText(value);
+      const selectedIndex = this.getterSelectedIndex();
+      return {
+        formatValue,
+        selectedIndex
+      };
+    },
+
+    getterFormatText(value?) {
       const { onFormat, data } = this.props;
       const { cValue } = this.data;
       const realValue = value || cValue;
@@ -40,10 +55,28 @@ Component({
       ) {
         formatValue = onFormat(realValue, data);
       }
-      if (this.data.formatValue !== formatValue) {
-        this.setData({ formatValue });
-      }
+      return formatValue
     },
+
+    getterSelectedIndex() {
+      const selectedIndex = [];
+      const columns = this.props.data;
+      const { cValue }  = this.data
+      for (let i = 0; i < columns.length; i++) {
+        const column = columns[i];
+        const compareValue  =  cValue[i]
+        if (compareValue  === undefined || compareValue  === null) {
+          selectedIndex[i] = 0
+        }
+        let index  = column.findIndex(c => {
+          return c === compareValue || c.value === compareValue
+        })
+        if (index === -1) { index  = 0 }
+        selectedIndex[i]  = index
+      }
+      return selectedIndex
+    },
+
     onOpen() {
       const { disabled } = this.props;
       if (!disabled) {
@@ -54,6 +87,7 @@ Component({
         this.triggerPicker(true);
       }
     },
+
     triggerPicker(visible) {
       const { onTriggerPicker } = this.props;
       if (onTriggerPicker) {
