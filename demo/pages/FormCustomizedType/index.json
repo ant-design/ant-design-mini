@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Form",
+  "usingComponents": {
+    "form": "../../../src/Form/index",
+    "form-item": "../../../src/Form/FormItem/index",
+    "button": "../../../src/Button/index",
+    "form-price-input": "./component/FormPriceInput/index"
+  }
+}

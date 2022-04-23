@@ -4,7 +4,8 @@ export interface IComponentProps {
   position?: 'vertical' | 'horizontal';
   required?: boolean;
   label?: string;
-  form?: string
+  form?: string;
+  initialValue?: any;
 }
 
 export interface IComponentData {

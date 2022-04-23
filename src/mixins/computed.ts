@@ -1,6 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import equal from 'fast-deep-equal';
 
+function computedData1() {
+  let isTriggerComputed = true;
+  return  function render() {
+    if (isTriggerComputed)  {
+      const changedData = this.computed()
+      isTriggerComputed = false
+      this.setData(changedData, () =>  {
+        isTriggerComputed  =  true
+      })
+    }
+  }
+}
+
 function computedData(this: any) {
   const nextData = this.computed(this.props);
   // 浅比较就行了
@@ -34,5 +47,6 @@ export default {
   },
   didUpdate(): void {
     computedData.call(this);
+    computedData1().call(this)
   },
 };

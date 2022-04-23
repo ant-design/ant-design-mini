@@ -12,4 +12,5 @@ export const InputItemDefaultProps = {
   clear: true,
   autoFocus: false,
   disabled: false,
+  value: ''
 };

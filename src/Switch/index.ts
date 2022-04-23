@@ -7,7 +7,9 @@ Component({
   mixins: [controlled({
     propsValue: 'checked',
     defaultPropsValue: false
-  }), formed()],
+  }), formed({
+    propsValue: 'checked',
+  })],
   methods: {
     onChange() {
       const { cValue } = this.data;

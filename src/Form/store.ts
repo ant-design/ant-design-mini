@@ -25,15 +25,29 @@ export class FormStore extends EventEmitter {
   emitValuesChange(changedValue, allValue, options) {
     this.emit('valuesChange', changedValue, allValue, options);
   }
+
   addField(fieldName) {
     this.fields.push(fieldName);
   }
+
   removeField(fieldName) {
     this.fields.splice(this.fields.indexOf(fieldName), 1);
     delete this.formData[fieldName];
     delete this.rules[fieldName];
     delete this.errorInfo[fieldName];
   }
+
+  setFieldsValueByFormItemInitial(values =  {}, options) {
+    Object.keys(values).forEach(fieldName => {
+      if (values[fieldName] !== undefined) {
+        this.formData[fieldName] = values[fieldName];
+        this.emitValuesChange({ [fieldName]: values[fieldName] }, this.formData, options);
+      } else {
+        this.emitValuesChange({ [fieldName]: values[fieldName] }, this.formData, { ...options, syncFormItem: true  });
+      }
+    });
+  }
+
   setFieldsValue(values = {}, options = {}) {
     Object.keys(values).forEach((key) => {
       if (this.checkFieldInited(key)) {
@@ -42,9 +56,11 @@ export class FormStore extends EventEmitter {
     });
     this.emitValuesChange(values, this.formData, options);
   }
+
   checkFieldInited(fieldName) {
     return this.fields.indexOf(fieldName) > -1;
   }
+
   getFieldsValue() {
     return this.formData;
   }
@@ -121,59 +137,69 @@ export class FormStore extends EventEmitter {
 
 type params = {
   uid?: string;
-  pageId?: string;
+  pageId: string;
+  componentId?: string;
+  fieldName?:  string;
 };
 
 const formStoreFactory = (() => {
   const instances = {};
-  const defaultUid = 'the-one';
-  // page级别是不是uniqueForm
-  const getPageFormCount = function ({ pageId }: params) {
+
+  const getFormKey = function({ pageId, componentId, uid }: params) {
+    let key = `${pageId}-${componentId}`
+    if (uid) {
+      key = `${pageId}-multiform-${uid}`
+    }
+    return key;
+  }
+
+  const  checkDuplicate  = function(key) {
     const uids = Object.keys(instances);
-    return uids.filter((key) => key.indexOf(`${pageId}-`) > -1).length;
-  };
-  const checkDuplicate = function ({ uid, pageId }: params) {
-    const uids = Object.keys(instances);
-    return uids.some((key) => key === `${pageId}-${uid}`);
-  };
+    if (uids.length === 0) return false
+    return uids.some(formKey => formKey === key)
+  }
 
   return {
-    createStore({ uid, pageId }: params) {
-      const count = getPageFormCount({ pageId });
-      const isUniqueForm = count === 0;
-      if (isUniqueForm) {
-        const key = `${pageId}-${uid || defaultUid}`;
-        instances[key] = new FormStore();
-        return instances[key];
+    createStore({ pageId, componentId, uid }: params) {
+      const key = getFormKey({ pageId, componentId, uid });
+      const count = this.getCurrentPaggeInstanceCount({pageId});
+      if (count > 0) {
+        if (!uid) 
+        throw new Error('more than one forms exist in current page, props form is required in Form and FormItem')
       }
-      if (!uid) {
-        throw Error('页面存在多个form, 需指定form属性，确定唯一uid');
+      const isDuplicatedFormKey = checkDuplicate(key)
+      if (isDuplicatedFormKey) {
+        throw new Error(`${uid} already exited, make sure prop form be unique in current page`);
       }
-      const isDuplicated = checkDuplicate({ uid, pageId });
-      if (isDuplicated) {
-        throw Error(`页面存在多个form, 已存在uid为${uid}的Form`);
-      }
-      const key = `${pageId}-${uid}`;
       instances[key] = new FormStore();
       return instances[key];
     },
 
-    getStore({ uid, pageId }: params) {
-      const count = getPageFormCount({ pageId });
-      const isUniqueForm = count === 1;
-      if (!isUniqueForm && !uid) {
-        throw Error('页面存在多个form, 需指定form属性，确定唯一uid');
+    getStore({ pageId, componentId, uid, fieldName }: params) {
+      const key = getFormKey({ pageId, componentId, uid })
+      const count = this.getCurrentPaggeInstanceCount({ pageId });
+      if (count > 1 && !uid) {
+        throw new Error('more than one forms exist in current page, props form is required in FormItem')
       }
-      const key = `${pageId}-${uid || defaultUid}`;
-      const instance = instances[key];
+      let instance = instances[key];
+      // 当前页面只有1个且存在动态FormItem时，取当前页面的store
+      if (!instance && count === 1 && !componentId) {
+        const uids = Object.keys(instances).filter(key  =>  key.indexOf(`${pageId}-`) === 0);
+        instance =instances[uids[0]]
+      }
       if (!instance) {
-        throw Error(`页面没有uid${uid}的Form`);
+        throw Error(`uid ${uid} was not found in current page, make sure prop form in ${fieldName} FormItem be consistent with its in Parent Form `);
       }
       return instance;
     },
 
-    destroyStore({ uid, pageId }: params) {
-      const key = `${pageId}-${uid || defaultUid}`;
+    getCurrentPaggeInstanceCount({ pageId  }) {
+      const uids = Object.keys(instances).filter(key  =>  key.indexOf(`${pageId}-`) === 0);
+      return uids.length
+    },
+
+    destroyStore({ pageId, componentId, uid }: params) {
+      const key = getFormKey({ pageId, componentId, uid })
       delete instances[key];
     },
   };

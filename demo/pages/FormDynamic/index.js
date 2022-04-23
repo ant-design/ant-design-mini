@@ -1,6 +1,5 @@
 Page({
   data: {
-    form: 'form',
     initialValues: {
       type: 'password',
     },
@@ -9,10 +8,11 @@ Page({
     },
   },
   handleValuesChange(value, values) {
-    console.log(value, values);
+    console.log('values', values);
     this.setData({ values });
   },
-  handleSubmit(e) {
-    my.alert({ title: '提交', content: JSON.stringify(e) });
+  handleSubmit(values) {
+    console.log('values', values)
+    my.alert({ title: '提交', content: JSON.stringify(values) });
   },
 });

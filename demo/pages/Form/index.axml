@@ -1,6 +1,5 @@
 <view class="demo">
   <form 
-    initialValues="{{initialValues}}"
     onValuesChange="handleValuesChange"
     onFinishFailed="handleFinishFailed"
     onFinish="handleSubmit"

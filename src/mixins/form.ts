@@ -1,18 +1,18 @@
-import { getFieldName } from '../Form/cache';
+import { getFieldInfo, clearFieldInfo, getFormInfo } from '../Form/cache';
 import formStoreFactory, { FormStore } from '../Form/store';
 import type { IUserComponentOptions } from '@mini-types/alipay';
 
 
 type FormMixInParams  = {
   propsTriggerChange?: string,
+  propsValue?: string
 }
 
-export default (params: FormMixInParams = { propsTriggerChange: 'onChange' }): IUserComponentOptions<
-{ cValue: any },
+export default (params: FormMixInParams = { propsTriggerChange: 'onChange', propsValue:  'value' }): IUserComponentOptions<
+{ value: any },
 { [prop: string]: any },
 {
-  onChangeFormFieldValue(changedValues):void;
-  defineOnchange(): void;
+  onChangeFormFieldValue(changedValues, options):void;
 },
 {
   store: FormStore,
@@ -21,65 +21,57 @@ export default (params: FormMixInParams = { propsTriggerChange: 'onChange' }): I
 Record<string, unknown>,
 []
 > => {
-  const {  propsTriggerChange } = params
+  const {  propsTriggerChange  = 'onChange', propsValue = 'value' } = params
   return {
+    data: {
+      value: null,
+    },
     onInit() {
-      const fieldName = getFieldName();
-      if (fieldName)  {
-        this.defineOnchange();
+      const fieldInfo = getFieldInfo();
+      if (fieldInfo)  {
+        const { fieldName, form: uid } = fieldInfo;
         const pageId = this.$page.$id;
-        const { form: uid } = this.props;
-        const store = formStoreFactory.getStore({ pageId, uid });
-        if (store.checkFieldInited(fieldName)) {
-          return;
-        }
-        store.addField(fieldName);
+        const formInfo =  getFormInfo()
+        const store = formStoreFactory.getStore({ pageId, componentId: formInfo?.id, uid,  fieldName });
         this.store = store;
         this.onBindChangeFormFieldValue = this.onChangeFormFieldValue.bind(this);
         this.store.onValuesChange(this.onBindChangeFormFieldValue);
         this.fieldName = fieldName;
-        const value = this.store.getFieldValue(this.fieldName);
-        this.setData({
-          cValue: value,
-        });
+        // 只有FormItem的孩子受影响， FormItem的后代不需要订阅相关信息
+        clearFieldInfo()
       }
     },
     methods: {
-      defineOnchange() {
+      [propsTriggerChange](v, ...args) {
         this._onChange = this.props[propsTriggerChange];
-        Object.defineProperty(this.props, propsTriggerChange, {
-          get: () => {
-            return (v, ...args) => {
-              if (this.fieldName) {
-                this.store.setFieldsValue({
-                  [this.fieldName]: v,
-                });
-                this.store.validate({ fieldName: this.fieldName });
-              }
-              if (this._onChange) {
-                //@ts-ignore
-                this._onChange(v, ...args);
-              }
-            };
-          },
-          set: (originFn) => {
-            this._onChange = originFn;
-          },
-        });
-      },
-      onChangeFormFieldValue(changedValues) {
-        if (this.fieldName in changedValues) {
-          this.setData({
-            cValue: changedValues[this.fieldName],
+        if (this.fieldName) {
+          this.store.setFieldsValue({
+            [this.fieldName]: v,
           });
+          this.store.validate({ fieldName: this.fieldName });
+          if (this._onChange) {
+            this._onChange(v, ...args);
+          }
+        }
+      },
+    
+      onChangeFormFieldValue(changedValues, options) {
+        if (this.fieldName in changedValues) {
+          if (options?.syncFormItem)  {
+            this.store.setFieldsValue({
+              [this.fieldName]: this.props[propsValue],
+            }, { formSilent: options?.formSilent })
+          } else {
+            this.setData({
+              value: changedValues[this.fieldName],
+            });
+          }
         }
       },
     },
+
     didUnmount() {
-      if (this.store) {
-        this.store.offValuesChange(this.onBindChangeFormFieldValue);
-        this.store.removeField(this.fieldName);
-      }
+      this.store?.offValuesChange(this.onBindChangeFormFieldValue);
     },
   };
 };

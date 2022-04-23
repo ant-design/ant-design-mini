@@ -1,5 +1,5 @@
 import formStoreFactory from '../store';
-import { cacheFieldInfo, clearFieldInfo } from '../cache';
+import { cacheFieldInfo, clearFieldInfo, getFormInfo } from '../cache';
 import {
   IComponentProps,
   IComponentData,
@@ -15,7 +15,7 @@ Component<
 >({
   props: {
     rules: [],
-    name: 'default',
+    name: '',
     position: 'horizontal',
     required: false,
     label: '',
@@ -27,8 +27,16 @@ Component<
 
   onInit() {
     const pageId = this.$page.$id;
-    const { form: uid } = this.props;
-    this.store = formStoreFactory.getStore({ pageId, uid });
+    const { form: uid, name: fieldName } = this.props;
+    const formInfo =  getFormInfo()
+    this.store = formStoreFactory.getStore({ pageId, componentId: formInfo?.id, uid, fieldName });
+    if (!fieldName) {
+      throw new Error('props name is required in FormItem')
+    }
+    if (this.store.checkFieldInited(fieldName)) {
+      console.warn(`${fieldName} fieldItem already existed`)
+    }
+    this.store.addField(fieldName);
     cacheFieldInfo(
       function (this: any) {
         return { fieldName: this.props.name, form: this.props.form };
@@ -40,11 +48,20 @@ Component<
   },
 
   didMount() {
+    const { name: fieldName } = this.props
+    let formSilent  = true
+    // 如果是form初始化之后动态添加的，silent为false，还需要触发form的onValuesChange
+    if (getFormInfo() === null) {
+      formSilent  = false
+    }
+    this.store?.setFieldsValueByFormItemInitial({ [fieldName]: this.props.initialValue }, { formSilent });
     clearFieldInfo();
   },
 
   didUnmount() {
+    const { name: fieldName } = this.props;
     this.store?.offValuesChange(this.onBindErrorInfoChange);
+    this.store?.removeField(fieldName);
   },
 
   methods: {

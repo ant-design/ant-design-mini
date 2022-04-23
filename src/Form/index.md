@@ -23,7 +23,7 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 ## 代码示例
 
 ### 基本使用
-<code src="../../demo/pages/FormBasic" ></code>
+<code src="../../demo/pages/FormMulti" ></code>
 
 ### 结合表单组件
 <code src="../../demo/pages/Form" ></code>
@@ -120,41 +120,41 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(4)  {
-    width: 50px
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
 }
-.__dumi-default-layout-content article table:nth-of-type(4) th:nth-of-type(2)  {
-    width: 180px
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
 }
-.__dumi-default-layout-content article table:nth-of-type(7) th:nth-of-type(2)  {
-    width: 180px
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
 }
-.__dumi-default-mobile-previewer:nth-of-type(2)::after,.__dumi-default-mobile-previewer:nth-of-type(4)::after,.__dumi-default-mobile-previewer:nth-of-type(6)::after,.__dumi-default-mobile-previewer:nth-of-type(8)::after  {
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4) {
+    width: 50px;
+}
+.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(4) {
+    width: 50px;
+}
+.__dumi-default-layout-content article table:nth-of-type(4) th:nth-of-type(2) {
+    width: 180px;
+}
+.__dumi-default-layout-content article table:nth-of-type(7) th:nth-of-type(2) {
+    width: 180px;
+}
+.__dumi-default-mobile-previewer:nth-of-type(2)::after,.__dumi-default-mobile-previewer:nth-of-type(4)::after,.__dumi-default-mobile-previewer:nth-of-type(6)::after,.__dumi-default-mobile-previewer:nth-of-type(8)::after {
     border-bottom: none!important;
 }
 </style> 

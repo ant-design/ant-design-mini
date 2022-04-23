@@ -1,0 +1,20 @@
+<form
+  initialValues="{{formData}}"
+  ref="saveRefForm"
+  onFinish="onFinish"
+  onValuesChange="onFormValuesChange"
+>
+  <form-item
+    label='金额'
+    name='money'
+  >
+    <form-price-input clear="{{true}}" />
+  </form-item>
+  <button 
+    type="primary" 
+    htmlType="submit"
+  >
+    Submit
+  </button>
+</form>
+<button onTap="onChangeField">Change Field Value</button>

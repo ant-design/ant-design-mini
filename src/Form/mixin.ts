@@ -1,19 +1,20 @@
 import type { IUserComponentOptions } from '@mini-types/alipay';
-import { getFieldInfo } from './cache';
+import { getFieldInfo, clearFieldInfo, getFormInfo } from './cache';
 import formStoreFactory, { FormStore } from './store';
 import { IComponentData } from './props';
 
 type ControlledMixInParams = {
   propsTriggerChange?: string;
+  propsValue?: string;
 };
 
 export default (
-  params: ControlledMixInParams = { propsTriggerChange: 'onChange' }
+  params: ControlledMixInParams = { propsTriggerChange: 'onChange', propsValue: 'value'}
 ): IUserComponentOptions<
   IComponentData,
   Record<string, any>,
   {
-    onChangeFormFieldValue(changedValues): void;
+    onChangeFormFieldValue(changedValues,  allValues,  options): void;
     defineOnchange(): void;
   },
   {
@@ -23,7 +24,7 @@ export default (
   Record<string, unknown>,
   []
 > => {
-  const { propsTriggerChange = 'onChange' } = params;
+  const { propsTriggerChange = 'onChange', propsValue = 'value' } = params;
   return {
     onInit() {
       const fieldInfo = getFieldInfo();
@@ -31,23 +32,17 @@ export default (
         const { fieldName, form: uid } = fieldInfo;
         this.defineOnchange();
         const pageId = this.$page.$id;
-        const store = formStoreFactory.getStore({ pageId, uid });
-        if (store.checkFieldInited(fieldName)) {
-          return;
-        }
-        store.addField(fieldName);
+        const formInfo =  getFormInfo()
+        const store = formStoreFactory.getStore({ pageId, componentId: formInfo?.id, uid, fieldName });
         this.store = store;
         this.onBindChangeFormFieldValue =
           this.onChangeFormFieldValue.bind(this);
-        this.store.onValuesChange(this.onBindChangeFormFieldValue);
+        this.store?.onValuesChange(this.onBindChangeFormFieldValue);
         this.fieldName = fieldName;
-        const value = this.store.getFieldValue(this.fieldName);
-        this.setData({
-          cValue: value,
-        });
+        // 只有FormItem的孩子受影响， FormItem的后代不需要订阅相关信息
+        clearFieldInfo()
       }
     },
-
     methods: {
       defineOnchange() {
         this._onChange = this.props[propsTriggerChange];
@@ -61,7 +56,6 @@ export default (
                 this.store.validate({ fieldName: this.fieldName });
               }
               if (this._onChange) {
-                //@ts-ignore
                 this._onChange(v, ...args);
               }
             };
@@ -71,20 +65,24 @@ export default (
           },
         });
       },
-      onChangeFormFieldValue(changedValues) {
+
+      onChangeFormFieldValue(changedValues, allValues, options) {
         if (this.fieldName in changedValues) {
-          this.setData({
-            cValue: changedValues[this.fieldName],
-          });
+          if (options?.syncFormItem)  {
+            this.store.setFieldsValue({
+              [this.fieldName]: this.props[propsValue],
+            }, { formSilent: options?.formSilent })
+          } else {
+            this.setData({
+              cValue: changedValues[this.fieldName],
+            });
+          }
         }
       },
     },
 
     didUnmount() {
-      if (this.store) {
-        this.store.offValuesChange(this.onBindChangeFormFieldValue);
-        this.store.removeField(this.fieldName);
-      }
+      this.store?.offValuesChange(this.onBindChangeFormFieldValue);
     },
   };
 };

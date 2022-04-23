@@ -1,11 +1,11 @@
 export default class EventEmitter {
   protected listeners: Record<string, Array<Function>>;
 
-  protected maxListener: Number;
+  protected maxListener: number;
 
   constructor() {
     this.listeners = {};
-    this.maxListener = 10;
+    this.maxListener = 100;
   }
 
   addListener(event, cb) {
