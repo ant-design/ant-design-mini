@@ -285,7 +285,7 @@
       window.routerBase = "/";
     </script>
     <script>
-      //! umi version: 3.5.21
+      //! umi version: 3.5.23
     </script>
     <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
     <script src="https://gw.alipayobjects.com/os/lib/ali/mini-simulator/9.1.5/dist/index.js"></script>
@@ -324,6 +324,15 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-WWGN4HC");
     </script>
-    <script src="/umi.3b031459.js"></script>
+    <script>
+      if (window.location.pathname === "/components/icon") {
+        window.addEventListener("message", async (e) => {
+          if (e.data.iconType) {
+            await navigator.clipboard.writeText(e.data.iconType);
+          }
+        });
+      }
+    </script>
+    <script src="/umi.b8f5bfee.js"></script>
   </body>
 </html>
