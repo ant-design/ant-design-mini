@@ -4,14 +4,14 @@ import * as fs from 'fs';
 
 export default (api: IApi) => {
   process.env.DUMI_THEME = path.resolve(
-    require.resolve('dumi-theme-mobile/package.json'),
+    require.resolve('dumi-theme-antd-mini/package.json'),
     '../es',
   );
   api.register({
     key: 'dumi.registerCompiletime',
     fn: () => ({
       name: 'CustomDemoPreviewer',
-      component: path.join(__dirname, './render.js'),
+      component: path.join(__dirname, './render'),
       transformer(opts) {
         if (opts.attrs && opts.attrs.src && opts.attrs.src.endsWith('.tsx')) {
           return null;
@@ -27,9 +27,11 @@ export default (api: IApi) => {
           opts.attrs.src,
           opts.mdAbsPath,
         );
+        const rendererProps = getRenderProps(sourcesPath);
         return {
-          rendererProps: getRenderProps(sourcesPath),
+          rendererProps: rendererProps,
           previewerProps: {
+            page: rendererProps.page,
             sources: sortSources(getBlockDepsFiles(require(`${process.cwd()}/package.json`).name, sourcesPath)),
             dependencies: getBlockDepsNPM(`${process.cwd()}/package.json`),
             hideActions: ['CSB', 'RIDDLE'],
@@ -72,15 +74,18 @@ export function getRenderProps(path: string) {
   const prefix = path.match(/.*(\/demo\/)(pages\/.+)/)[2];
   const demoAxmlFile = fs.readdirSync(path).find((file) => file.endsWith('.axml'));
   const tail = demoAxmlFile.match(/(.+)\.axml$/)[1];
-  const pages = `${prefix}/${tail}`;
+  const page = `${prefix}/${tail}`;
 
   const props
     = process.env.NODE_ENV === 'development'
-      ?  {
-          appCdnBaseUrl: `http://localhost:${process.argv[3]}/`,
-          pages,
-        }
-      : { appCdnBaseUrl:"https://gw.alipayobjects.com/os/gzmsfesa-sffminipkg_prod/package/alipay/com_alipay_alipaywallet/2021001172665758/0_1_2202171349_9/", pages };
+      ? {
+        appCdnBaseUrl: /^http/.test(process.argv[3]) ? process.argv[3].replace(/\/$/, '') + '/' : `http://localhost:${process.argv[3]}/`,
+        page,
+      }
+      : {
+        appCdnBaseUrl: "https://gw.alipayobjects.com/os/miniassets/antd-mini-demo/0.0.8/1651422354285/",
+        page
+      };
 
   return props;
 }
@@ -108,7 +113,7 @@ export function getBlockDepsFiles(
       };
     }
     return r;
-  }, {} as Record<string, { path : string; content?: string }>);
+  }, {} as Record<string, { path: string; content?: string }>);
 }
 function CorrentPathInJson(jsonPath: string, pkgName: string): string {
   try {
