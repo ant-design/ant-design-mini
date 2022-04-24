@@ -23,17 +23,6 @@ export interface IEmptyProps extends IBaseProps {
    */
   mode: 'page' | 'section';
 
-  /**
-   * @description 是否展示主文案
-   * @default true
-   */
-  showMainText: boolean;
-
-  /**
-   * @description 是否展示副文案
-   * @default true
-   */
-  showSubText: boolean;
 
   /**
    * @description 左侧次操作按钮文案

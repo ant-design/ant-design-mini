@@ -12,7 +12,7 @@
       <empty mode="section" mainText="自定义主文案" subText="自定义副文案" />
     </container>
     <container title="局部空状态-隐藏" class="demo-empty-container">
-      <empty mode="section" showMainText="{{false}}" subText="自定义副文案" />
+      <empty mode="section" mainText="" subText="自定义副文案" />
     </container>
     <container title="局部空状态-自定义空状态图">
       <empty mode="section">

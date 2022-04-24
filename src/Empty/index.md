@@ -19,10 +19,8 @@ toc: false
 | -----|-----|-----|-----|----- |
 | className | string | - | - | 类名 |
 | mainButtonText | string | - | '操作2' | 右侧主操作按钮文案 |
-| mainText | string | - | '这里什么都没有' | 主文案 |
+| mainText | string | - | '' | 主文案 |
 | mode | 'page' &verbar; 'section' | - | 'page' | 空状态模式, 'page'表示整页空状态，'section'表示局部空状态 |
-| showMainText | boolean | - | true | 是否展示主文案 |
-| showSubText | boolean | - | true | 是否展示副文案 |
 | subButtonText | string | - | '操作1' | 左侧次操作按钮文案 |
 | subText | string | - | '看看其它的吧' | 副文案 |
 
