@@ -10,13 +10,15 @@ Component({
     this.updateItemData();
   },
   didUnmount() {
-    context.removeGroup(this.props.uid);
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    context.removeGroup(key);
   },
   methods: {
     updateItemData() {
       const { index, direction, uid } = this.props;
-      context.updateItemIndex(uid, index);
-      context.updateItemDirection(uid, direction);
+      const key = `${this.$page.$id}-${uid}`;
+      context.updateItemIndex(key, index);
+      context.updateItemDirection(key, direction);
     },
   },
 });

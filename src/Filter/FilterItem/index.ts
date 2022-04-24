@@ -10,14 +10,21 @@ Component({
     prevValue: [],
   },
   didMount() {
+    const key = `${this.$page.$id}-${this.props.uid}`;
     const getValue = () => this.props.value;
     const isMult = () => this.props.type === 'multiple';
     const setValue = (val: string[]) => this.setData({
       _value: val,
     });
-    const setShow = (show: boolean) => this.setData({
-      show,
-    });
+    const setShow = (show: boolean) => {
+      const { onOpen } = this.props;
+      this.setData({
+        show,
+      });
+      if (show && onOpen) {
+        onOpen();
+      }
+    };
     const getShow = () => this.data.show;
     const setPrevValue = (prevValue: any[]) => this.setData({
       prevValue,
@@ -25,8 +32,8 @@ Component({
     const getCurValue = () => this.data.curValue;
     const getPlaceHolder = () => this.props.placeholder || '';
     const getid = () => `${this.$id}`;
-    context.addItem(this.props.uid, `${this.$id}`, { isMult, getValue, setValue, getPlaceHolder, setShow, getid, getShow, setPrevValue, getCurValue });
-    context.updateItemValue(this.props.uid, `${this.$id}`);
+    context.addItem(key, `${this.$id}`, { isMult, getValue, setValue, getPlaceHolder, setShow, getid, getShow, setPrevValue, getCurValue });
+    context.updateItemValue(key, `${this.$id}`);
     this.setData({
       curValue: getValue(),
     });
@@ -53,7 +60,7 @@ Component({
         this.props.onChange(v);
         return;
       }
-
+      const key = `${this.$page.$id}-${this.props.uid}`;
       this.setData({
         show: false,
       });
@@ -64,7 +71,7 @@ Component({
       // 箭头动画
       this.resetArrow();
       // 更改占位符
-      const group = context.getGroup(this.props.uid);
+      const group = context.getGroup(key);
       if (group) {
         const placeHolderArray = group.getGroupDataVal();
         placeHolderArray[this.$id] = label;
@@ -85,7 +92,8 @@ Component({
       this.resetArrow();
     },
     resetArrow() {
-      const group = context.getGroup(this.props.uid);
+      const key = `${this.$page.$id}-${this.props.uid}`;
+      const group = context.getGroup(key);
       if (group) {
         group.setGroupDataVal({ key: 'currentFilterItemId', val: '' });
       }
@@ -97,7 +105,8 @@ Component({
     },
 
     setActive(active: boolean) {
-      const group = context.getGroup(this.props.uid);
+      const key = `${this.$page.$id}-${this.props.uid}`;
+      const group = context.getGroup(key);
       if (group) {
         const val = { [this.$id]: active };
         group.setGroupDataVal({ key: 'activeArray', val });
