@@ -16,9 +16,15 @@ Component({
     const setValue = (val: string[]) => this.setData({
       _value: val,
     });
-    const setShow = (show: boolean) => this.setData({
-      show,
-    });
+    const setShow = (show: boolean) => {
+      const { onOpen } = this.props;
+      this.setData({
+        show,
+      });
+      if (show && onOpen) {
+        onOpen();
+      }
+    };
     const getShow = () => this.data.show;
     const setPrevValue = (prevValue: any[]) => this.setData({
       prevValue,

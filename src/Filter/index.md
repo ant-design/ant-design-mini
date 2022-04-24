@@ -42,7 +42,6 @@ toc: false
 | -----|-----|-----|
 | onChange | 选中的选项变更后，触发此回调 | ( changedFields: `Record<string, any>`, allFields: `Record<string, any>` ) => void |
 | onOpen | 打开选择面板时，触发此回调 | () => void |
-| onFormat | 组件标题格式，`必须要有返回值` | (v: any) => any |
 
 ## 样式类
 #### Filter
