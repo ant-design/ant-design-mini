@@ -34,7 +34,6 @@ toc: false
 | description | string | 否 | - | 当前选项的描述文案 |
 | disabled | boolean | 否 | false | 当前选项是否禁用 |
 | image | string | 否 | - | 当前选项的图片 |
-| multiple | boolean | 否 | false | 是否支持多选 |
 | value | string &verbar; number | 是 | - | 当前选项的选项值 |
 | readOnly | boolean | 否 | false | 当前选项是否只读 |
 
