@@ -1,0 +1,31 @@
+<view class="demo-empty">
+  <empty a:if="{{mode==='page'}}" onSubBtnClick="onSubBtnClick" onMainBtnClick="onMainBtnClick" />
+  
+  <view a:else>
+    <container title="局部空状态" class="demo-empty-container">
+      <empty mode="section" onSubBtnClick="onSubBtnClick" onMainBtnClick="onMainBtnClick" />
+    </container>
+    <container title="局部空状态-只有主操作按钮" class="demo-empty-container">
+      <empty mode="section" onMainBtnClick="onMainBtnClick" />
+    </container>
+    <container title="局部空状态-隐藏操作按钮" class="demo-empty-container">
+      <empty mode="section" mainText="自定义主文案" subText="自定义副文案" />
+    </container>
+    <container title="局部空状态-隐藏" class="demo-empty-container">
+      <empty mode="section" mainText="" subText="自定义副文案" />
+    </container>
+    <container title="局部空状态-自定义空状态图">
+      <empty mode="section">
+        <image slot="image" src="{{imageUrl}}" class="demo-empty-container-image"/>
+      </empty>
+    </container>
+    <view class="demo-empty-whitespace" />
+  </view>
+  
+  <radio-group class="demo-empty-mode-switch" onChange="handleChangeMode" name="modeList">
+    <label a:for="{{modeList}}" class="demo-empty-mode-switch-item">
+      <radio value="{{item.name}}" checked="{{item.checked}}" />
+      <text>{{item.value}}</text>
+    </label>
+  </radio-group>
+</view>

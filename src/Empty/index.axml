@@ -1,0 +1,23 @@
+<view class="amd-empty">
+  <view class="amd-empty-{{mode}}">
+    <slot name='image'>
+      <view class="amd-empty-{{mode}}-image" />
+    </slot>
+    <view a:if="{{mainText || subText}}" class="amd-empty-{{mode}}-text">
+      <view a:if="{{mainText}}" class="amd-empty-{{mode}}-text-main">
+        {{mainText}}
+      </view>
+      <view a:if="{{subText}}" class="amd-empty-{{mode}}-text-sub">
+        {{subText}}
+      </view>
+    </view>
+    <view a:if="{{onSubBtnClick || onMainBtnClick}}" class="amd-empty-{{mode}}-btn">
+      <button a:if="{{onSubBtnClick}}" class="amd-empty-{{mode}}-btn-sub" type='primary' fill="outline" inline onTap="onSubBtnClick">
+        {{subButtonText}}
+      </button>
+      <button a:if="{{onMainBtnClick}}" class="amd-empty-{{mode}}-btn-main" type='primary' inline onTap="onMainBtnClick">
+        {{mainButtonText}}
+      </button>
+    </view>
+  </view>
+</view>
