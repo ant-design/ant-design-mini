@@ -6,6 +6,8 @@ export interface IComponentProps {
   label?: string;
   form?: string;
   initialValue?: any;
+  validateFirst?: boolean;
+  dependencies?: string[]
 }
 
 export interface IComponentData {
@@ -15,7 +17,8 @@ export interface IComponentData {
 export interface IComponentMethods {
   setFieldRules(): void;
   onErrorInfoChange(formErrorInfo, options): void;
-  updateErrorInfo(payload): void
+  updateErrorInfo(payload): void;
+  setValidateOptions(fieldName, options): void
 }
 
 export interface IComponentExtraThis {

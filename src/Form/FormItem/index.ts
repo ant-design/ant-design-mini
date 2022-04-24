@@ -19,6 +19,8 @@ Component<
     position: 'horizontal',
     required: false,
     label: '',
+    dependencies: [],
+    validateFirst: false,
   },
 
   data: {
@@ -39,10 +41,16 @@ Component<
     this.store.addField(fieldName);
     cacheFieldInfo(
       function (this: any) {
-        return { fieldName: this.props.name, form: this.props.form };
+        const { name: fieldName, form, dependencies }  = this.props
+        return {
+          fieldName,
+          form,
+          dependencies
+        };
       }.bind(this)
     );
     this.setFieldRules();
+    this.setValidateOptions();
     this.onBindErrorInfoChange = this.onErrorInfoChange.bind(this);
     this.store.onErrorInfoChange(this.onBindErrorInfoChange);
   },
@@ -56,6 +64,19 @@ Component<
     }
     this.store?.setFieldsValueByFormItemInitial({ [fieldName]: this.props.initialValue }, { formSilent });
     clearFieldInfo();
+  },
+
+  didUpdate(prevProps) {
+    if (prevProps.rules !== this.props.rules ||
+      prevProps.required !== this.props.required ||
+      prevProps.label !== this.props.label) {
+        this.setFieldRules()
+      }
+    if (prevProps.dependencies !== this.props.dependencies ||
+      prevProps.validateFirst !== this.props.validateFirst) {
+        this.setValidateOptions()
+      }
+
   },
 
   didUnmount() {
@@ -86,13 +107,22 @@ Component<
       }
     },
 
-    onErrorInfoChange(formErrorInfo, options) {
-      const fieldName = options?.fieldName;
-      if (!(fieldName && fieldName !== this.props.name)) {
-        this.setData({
-          errorInfo: formErrorInfo[this.props.name]?.[0] || {},
-        });
-      }
+    setValidateOptions()  {
+      const { name: fieldName, dependencies, validateFirst } = this.props;
+      this.store?.setValidateOptions(fieldName,  {
+        dependencies,
+        validateFirst
+      })
+    },
+
+    onErrorInfoChange(formErrorInfo, updatedFields) {
+      updatedFields.forEach(field  => {
+        if (field === this.props.name) {
+          this.setData({
+            errorInfo: formErrorInfo[this.props.name] || [],
+          });
+        }
+      })
     },
 
     updateErrorInfo(payload) {

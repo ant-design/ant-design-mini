@@ -48,7 +48,7 @@ Record<string, unknown>,
           this.store.setFieldsValue({
             [this.fieldName]: v,
           });
-          this.store.validate({ fieldName: this.fieldName });
+          this.store.validate([this.fieldName]);
           if (this._onChange) {
             this._onChange(v, ...args);
           }

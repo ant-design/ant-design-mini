@@ -3,8 +3,9 @@ import EventEmitter from '../_util/eventEmitter'
 export class FormStore extends EventEmitter {
   private formData: Record<string, any>;
   private errorInfo: Record<string, any>;
-  private rules: Record<string, any>;
   private fields: string[];
+  private rules: Record<string, any>;
+  private validateOptions:  Record<string,  any>;
 
   constructor() {
     super();
@@ -12,6 +13,7 @@ export class FormStore extends EventEmitter {
     this.formData = {};
     this.errorInfo = {};
     this.rules = {};
+    this.validateOptions = {}
   }
 
   onValuesChange(cb) {
@@ -35,6 +37,7 @@ export class FormStore extends EventEmitter {
     delete this.formData[fieldName];
     delete this.rules[fieldName];
     delete this.errorInfo[fieldName];
+    delete this.validateOptions[fieldName]
   }
 
   setFieldsValueByFormItemInitial(values =  {}, options) {
@@ -90,36 +93,70 @@ export class FormStore extends EventEmitter {
     this.emit('errorInfoChange', errorInfo, fieldName);
   }
 
-  setErrorInfo(errorInfo, options) {
-    const fieldName = options?.fieldName;
-    // 如果指定了fieldName，只更新该field下的errorInfo
-    if (fieldName) {
+  setErrorInfo(errorInfo, validateFields) {
+    const updatedFields = validateFields.slice();
+    validateFields.forEach(field => {
+      const dependencies = this.getFieldDependencies(field, []);
+      dependencies.forEach(d  => {
+        if (updatedFields.indexOf(d) ===  -1) {
+          updatedFields.push(d)
+        }
+      })
+    })
+    updatedFields.forEach(fieldName => {
       this.errorInfo[fieldName] = errorInfo[fieldName];
-    } else {
-      this.errorInfo = errorInfo;
-    }
-    this.emitErrorInfoChange(errorInfo, options);
+    })
+    this.emitErrorInfoChange(errorInfo, updatedFields);
   }
 
-  validate(options?: Record<string, any>): Promise<{ valid: boolean, errors?: Record<string, any>}> {
+  validate(validateFields): Promise<{ valid: boolean, errors?: Record<string, any>}> {
+    if  (validateFields === undefined) {
+      validateFields  = this.fields
+    }
     return new Promise(resovle => {
       const allValues = this.getFieldsValue();
       this.getValidator()
-        .validate(allValues)
+        .validate(allValues, {
+          firstFields: this.getValidateFirstFields(),
+        })
         .then(() => {
-          this.setErrorInfo({}, options);
+          this.setErrorInfo({}, validateFields);
           resovle({
             valid: true,
           });
         })
         .catch(({ fields: errorInfo }) => {
-          this.setErrorInfo(errorInfo, options);
+          this.setErrorInfo(errorInfo, validateFields);
           resovle({
             valid: false,
             errors: errorInfo,
           });
         });
     });
+  }
+
+  setValidateOptions(fieldName,  options = {}) {
+    this.validateOptions[fieldName] =  {
+      ...this.validateOptions[fieldName],
+      ...options
+    }
+  }
+
+  getValidateFirstFields() {
+    const firstFields = Object.keys(this.validateOptions)
+      .filter(fieldName => this.validateOptions[fieldName].validateFirst)
+    return firstFields
+  }
+
+  getFieldDependencies(fieldName, result = [])  {
+    const dependencies = this.validateOptions[fieldName]?.dependencies ||  [];
+    dependencies.forEach(d => {
+      if (result.indexOf(d) === -1  && this.fields.indexOf(d) > -1) {
+        result.push(d);
+        this.getFieldDependencies(d, result)
+      }
+    })
+    return result;
   }
 
   onSubmit(cb) {
@@ -165,7 +202,7 @@ const formStoreFactory = (() => {
       const count = this.getCurrentPaggeInstanceCount({pageId});
       if (count > 0) {
         if (!uid) 
-        throw new Error('more than one forms exist in current page, props form is required in Form and FormItem')
+        throw new Error('more than one forms exist in current page, prop form is required in Form and FormItem')
       }
       const isDuplicatedFormKey = checkDuplicate(key)
       if (isDuplicatedFormKey) {
@@ -179,7 +216,7 @@ const formStoreFactory = (() => {
       const key = getFormKey({ pageId, componentId, uid })
       const count = this.getCurrentPaggeInstanceCount({ pageId });
       if (count > 1 && !uid) {
-        throw new Error('more than one forms exist in current page, props form is required in FormItem')
+        throw new Error('more than one forms exist in current page, prop form is required in FormItem')
       }
       let instance = instances[key];
       // 当前页面只有1个且存在动态FormItem时，取当前页面的store

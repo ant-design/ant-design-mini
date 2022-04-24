@@ -1,0 +1,47 @@
+<view class="demo">
+  <form 
+    onValuesChange="handleValuesChange"
+    onFinishFailed="handleFinishFailed"
+    onFinish="handleSubmit"
+    ref="saveRef"
+  >
+    <form-item
+      label="账号"
+      required
+      rules="{{accountRules}}"
+      name="account"
+      validateFirst="{{true}}"
+    >
+      <input-item placeholder="请输入账号" />
+    </form-item>
+    <form-item
+      label="邮箱"
+      rules="{{[{ type: 'email', warningOnly: true,  message: '邮箱格式不正确'}]}}"
+      name="email">
+      <input-item placeholder="请输入邮箱" />
+    </form-item>
+    <form-item
+      required
+      label="密码"
+      name="password"
+      rules="{{[{ type: 'string', min: 5,  message:  '密码不能少于5个字符'}]}}"
+      dependencies="{{['checkPassword']}}"
+    >
+      <input-item placeholder="请输入密码"/>
+    </form-item>
+    <form-item 
+      required
+      label="确认密码" 
+      name="checkPassword"
+      rules="{{checkPasswordRules}}"
+    >
+      <input-item placeholder="请输入确认密码"/>
+    </form-item>
+    <button 
+      slot="footer"
+      type="primary" 
+      htmlType="submit">提交
+    </button>
+  </form>
+  <button onTap="handleValidateAccount">校验账号</button>
+</view>

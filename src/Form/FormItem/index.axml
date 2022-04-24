@@ -17,8 +17,10 @@
         <slot/>
         <view
           class="amd-form-item-error-info {{disabled ? 'amd-form-item-error-info-disabled' : ''}} amd-form-item-error-info-{{position}}"
-          a:if="{{!!errorInfo}}">
-          {{errorInfo.message}}
+          a:if="{{errorInfo.length > 0}}">
+          <view a:for="{{errorInfo}}">
+            {{ item.message}}
+          </view>
         </view>
       </view>
     </view>

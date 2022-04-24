@@ -1,6 +1,5 @@
 Page({
   data: {
-    form: 'form',
     initialValues: {
       name: '',
       address:  '',
@@ -18,6 +17,9 @@ Page({
       value: 'orange'
     }]
   },
+  saveRef(ref) {
+    this.formRef = ref;
+  },
   handleValuesChange(value, values) {
     console.log(value, values);
   },
@@ -28,4 +30,9 @@ Page({
   handleSubmit(e) {
     my.alert({ title: '提交', content: JSON.stringify(e) });
   },
+  handleSetFavoriteFruit() {
+    this.formRef.setFieldsValue({
+      favoriteFruits: ['orange', 'banana' ]
+    })
+  }
 });

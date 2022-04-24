@@ -4,5 +4,6 @@
   "axmlStrictCheck": true,
   "component2": true,
   "exclude": ["dist/**/*"],
-  "enableNodeModuleBabelTransform": true
+  "enableNodeModuleBabelTransform": true,
+  "node_modules_es6_whitelist": ["@babel/core"]
 }

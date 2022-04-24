@@ -23,7 +23,6 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
     const pageId = this.$page.$id;
     const componentId = this.$id;
     const { form: uid } = this.props
-    console.log('uid', uid)
     this.store = formStoreFactory.createStore({ pageId, componentId, uid })
     this.onBindChangeFormFieldValue = this.onChangeFormFieldValue.bind(this);
     this.store.onValuesChange(this.onBindChangeFormFieldValue)
@@ -75,8 +74,8 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
         return this.store.getFieldsValue();
       }.bind(this),
 
-      validate: async function (this: any) {
-        const errorInfo = await this.store.validate();
+      validate: async function (this: any, validateFields) {
+        const errorInfo = await this.store.validate(validateFields);
         return errorInfo;
       }.bind(this),
     };
