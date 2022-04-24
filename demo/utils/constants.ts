@@ -166,6 +166,11 @@ export const componentList = [
         nameZN: '操作结果',
         path: '/pages/Result/index',
       },
+      {
+        name: 'Empty',
+        nameZN: '空状态',
+        path: '/pages/Empty/index',
+      },
     ],
   },
   {

@@ -18,7 +18,8 @@ Component({
     closeIcon: '',
   },
   didMount() {
-    const { uid, name, disabled, expandIcon, closeIcon } = this.props;
+    const { name, disabled, expandIcon, closeIcon } = this.props;
+    const key = `${this.$page.$id}-${this.props.uid}`;
     if (typeof name !== 'string') {
       log.error('CollapseItem', 'name 作为唯一的标识，属必填字段，类型为 string。');
     }
@@ -40,7 +41,7 @@ Component({
     const getSupportSjs = () => this.data.supportSjs;
     const getDisabled = () => this.props.disabled;
     context.addItem(
-      uid,
+      key,
       `${this.$id}`,
       {
         setActive,
@@ -59,12 +60,13 @@ Component({
     );
 
     try {
-      context.updateItemValue(uid, `${this.$id}`);
+      context.updateItemValue(key, `${this.$id}`);
     // eslint-disable-next-line no-empty
     } catch (err) {}
   },
   didUnmount() {
-    context.removeItem(this.props.uid, `${this.$id}`);
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    context.removeItem(key, `${this.$id}`);
   },
   didUpdate(prevProps) {
     if (prevProps.disabled !== this.props.disabled) {
@@ -86,13 +88,14 @@ Component({
   methods: {
     _changeItem() {
       if (this.props.disabled) return;
+      const key = `${this.$page.$id}-${this.props.uid}`;
       if (this.data.supportSjs) {
         // for 2.0
-        context.triggerItem(this.props.uid, `${this.$id}`, !this.data._isActive);
+        context.triggerItem(key, `${this.$id}`, !this.data._isActive);
         return;
       }
 
-      const group = context.getGroup(this.props.uid);
+      const group = context.getGroup(key);
       if (group) {
         const accordion = group ? group.getGroupPropsVal('accordion') : false;
         if (accordion) {
@@ -177,7 +180,8 @@ Component({
               contentHeight: '0px',
               _first: this.data._first + 1,
             }, () => {
-              context.onChangeByTrigger(this.props.uid);
+              const key = `${this.$page.$id}-${this.props.uid}`;
+              context.onChangeByTrigger(key);
             });
           }, 10);
         });
@@ -189,7 +193,8 @@ Component({
             contentHeight,
             _first: this.data._first + 1,
           }, () => {
-            context.onChangeByTrigger(this.props.uid);
+            const key = `${this.$page.$id}-${this.props.uid}`;
+            context.onChangeByTrigger(key);
           });
         });
       }

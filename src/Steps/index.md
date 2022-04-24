@@ -22,6 +22,7 @@ toc: false
 | -----|-----|-----|-----|----- |
 | index | number | 否 | 0 | 当前步骤, 受控 |
 | direction | 'horizontal' &verbar; 'vertical' | 否 | 'horizontal' | 方向 |
+| uid | string | 否 | - | 当页面有多个Steps时需传入，`必须页面唯一`，与内部的 StepItem 组件的 uid 一致 |
 | className | string | 否 | - | 类名 |
     
 #### StepItem
@@ -35,6 +36,7 @@ toc: false
 | icon | string &verbar; slot | 否 | - | 图标，横向和纵向都有各自的默认图标 |
 | activeIcon | string &verbar; slot | 否 | - | 激活步骤图标，横向和纵向都有各自的默认图标 |
 | failIcon | string &verbar; slot | 否 | - | 失败步骤图标，横向和纵向都有各自的默认图标 |
+| uid | string | 否 | - | 当页面有多个Steps时需传入，`必须页面唯一`，与外部的 Steps 组件的 uid 一致 |
 | className | string | 否 | - | 类名 |
   
 ## 插槽

@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Empty",
+  "usingComponents": {
+    "empty": "../../../src/Empty/index",
+    "container": "../../../src/Container/index"
+  }
+}
