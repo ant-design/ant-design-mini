@@ -1,29 +1,51 @@
-<demo-block title="基础用法" padding="0">
+<demo-block title="基础用法">
   <list>
     <list-item>
       选择城市
       <picker 
         slot="extra"
         onDismiss="handleCancelPicker"
+        onOk="handleOk"
         value="{{value}}"
         placeholder="请选择"
         title="请选择"
-        data="{{pickerList}}">
+        onChange="handleChange"
+        data="{{cityList}}">
       </picker>
     </list-item>
   </list>
 </demo-block>
 
-<demo-block title="复杂类型数据" padding="0">
+<demo-block title="对象用法"  padding="0">
+  <list>
+    <list-item>
+      选择日期
+      <picker 
+        slot="extra"
+        onDismiss="handleCancelPicker"
+        onOk="handleOk"
+        placeholder="请选择"
+        title="请选择"
+        onChange="handleChange"
+        data="{{weekList}}">
+      </picker>
+    </list-item>
+  </list>
+</demo-block>
+
+<demo-block title="多列复杂类型数据" padding="0">
   <list>
     <list-item>
       请选择时间
       <picker 
         slot="extra"
         placeholder="请选择"
+        value="{{['Tues', 'pm']}}"
         title="请选择"
+        onOk="handleOk"
         onFormat="formatTime"
-        data="{{basicColumns}}"/>
+        data="{{columns}}">
+      </picker>
     </list-item>
   </list>
 </demo-block>

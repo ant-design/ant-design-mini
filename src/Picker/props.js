@@ -5,5 +5,10 @@ export const PickerDefaultProps = {
   disabled: false,
   value:  [],
   data: [[]],
-  onFormat: (value) => {return  value.join('-')}
+  onFormat: (value, column) => { 
+    if  (column instanceof Array) {
+      return  column.map(c  => c  && c.label || value ).join('-')
+    }
+    return column && column.label || column
+  }
 };

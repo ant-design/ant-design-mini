@@ -15,26 +15,32 @@ Component({
       propsTriggerChange: 'onOk',
     }),
   ],
+
   props: DatePickerDefaultProps,
+
   data: {
     currentValue: [],
     visible: false,
     data: [],
   },
+
   didMount() {
     this.generateData();
   },
+
   methods: {
     getMin() {
       const { min } = this.props;
       //@ts-ignore
       return min ? dayjs(min) : dayjs().subtract(10, 'year');
     },
+  
     getMax() {
       const { max } = this.props;
       //@ts-ignore
       return max ? dayjs(max) : dayjs().add(10, 'year');
     },
+  
     generateData() {
       const { precision } = this.props;
       const { data } = this.data;
@@ -56,6 +62,7 @@ Component({
         this.setData({ data: newData });
       }
     },
+  
     onChange(selectedIndex) {
       this.setData({ currentValue: selectedIndex });
       //@ts-ignore
@@ -66,20 +73,24 @@ Component({
         onPickerChange(getDateByValue(selectedIndex), selectedIndex);
       }
     },
+  
     onDismiss() {
       const { onDismiss } = this.props;
       if (onDismiss) {
         onDismiss();
       }
     },
+  
     onOk(values) {
       this.triggerChange(getDateByValue(values), values);
     },
+  
     onFormat(values) {
       const { onFormat } = this.props;
       const { cValue } = this.data;
       return onFormat.call(this, cValue, values );
     },
+  
     onTriggerPicker(visible) {
       const { cValue, data } = this.data;
       this.setData({

@@ -27,12 +27,12 @@
       onTap="onOk">{{okText}}</view>
   </view>
   <view class="amd-picker-content">
-    <block a:if="{{data}}">
+    <block a:if="{{columns}}">
       <picker-view 
         value="{{selectedIndex}}"
         onChange="onChange">
         <block 
-          a:for="{{data}}"
+          a:for="{{columns}}"
           a:for-item="dataRoot"
           a:for-index="dataIndex">
           <picker-view-column a:if="{{dataIndex < data.length}}">

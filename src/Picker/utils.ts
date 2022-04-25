@@ -4,7 +4,10 @@ function getColumnValue(columnItem)  {
   return columnItem
 }
 
-export function getMatchedValuesByValue(columns, value) {
+export function getMatchedItemByValue(columns, value, single) {
+  if (single) {
+    value  = [value]
+  }
   const matchedValues = []
   const matchedColumn = []
   let index = null;
@@ -23,12 +26,12 @@ export function getMatchedValuesByValue(columns, value) {
     matchedValues[i] = getColumnValue(column[index])
   }
   return { 
-    matchedColumn,
-    matchedValues
+    matchedColumn: single? matchedColumn[0]: matchedColumn,
+    matchedValues: single? matchedValues[0]: matchedValues
   }
 }
 
-export function getMatchedValuesByIndex(columns, selectedIndex) {
+export function getMatchedItemByIndex(columns, selectedIndex, single) {
   const matchedValues = []
   const matchedColumn = []
   let index = null;
@@ -47,8 +50,8 @@ export function getMatchedValuesByIndex(columns, selectedIndex) {
   }
  
   return { 
-    matchedColumn,
-    matchedValues
+    matchedColumn:  single? matchedColumn[0]: matchedColumn,
+    matchedValues:  single?  matchedValues[0]:  matchedValues
   }
 }
 
