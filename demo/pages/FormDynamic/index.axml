@@ -29,7 +29,7 @@
         <form-item
             a:if="{{values.type==='code'}}"
             label="验证码"
-            name="password"
+            name="code"
             initialValue="123"
         >
             <input-item password placeholder="请输入验证码"/>

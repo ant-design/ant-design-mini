@@ -5,10 +5,10 @@ Component({
   data: {
     number: 1,
     currency: 'rmb',
-    array: [
+    array: [[
       'rmb',
       'dollar',
-    ],
+    ]],
   },
   methods: {
     triggerChange(changedValue) {
@@ -34,9 +34,8 @@ Component({
         number: newNumber,
       });
     },
-    onCurrencyChange(e) {
-      const { array } = this.data;
-      const newCurrency = array[e.detail.value];
+    onCurrencyChange(value) {
+      const newCurrency = value[0]
       if (!('currency' in this.props.value)) {
         this.setData({
           currency: newCurrency,
