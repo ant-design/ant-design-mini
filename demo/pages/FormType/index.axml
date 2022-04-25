@@ -1,4 +1,4 @@
-<view class="demo">
+<demo-block title="表单控件类型" padding="0">
   <form 
     onValuesChange="handleValuesChange"
     onFinishFailed="handleFinishFailed"
@@ -71,4 +71,4 @@
       htmlType="submit">提交
     </button>
   </form>
-</view>
+</demo-block>

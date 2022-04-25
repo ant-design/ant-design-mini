@@ -29,6 +29,7 @@ toc: false
 | max | number | 否 | - | 最大值 |
 | step | number | 否 | 1 | 每次加减的值 |
 | disabled | boolean | 否 | false | 是否禁用 |
+| inputReadOnly | boolean | 否 | false | 输入框是否只读 |
 | type | 'number' &verbar; 'digit' | 否 | - | input唤起的键盘类型 |
 | inputWidth | string | 否 | - | 输入框宽度 |
 | precision | number | 否 | - | 计算精度，保留几位小数<br/>https://github.com/ant-design/ant-design/issues/5998 |
@@ -57,14 +58,14 @@ toc: false
 | amd-stepper-input | 输入框样式 |
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
 </style> 

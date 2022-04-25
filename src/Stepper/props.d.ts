@@ -40,6 +40,10 @@ export interface IStepperProps extends IBaseFormItemProps<number> {
    * @description 输入框宽度
    */
   inputWidth?: string;
+  /**
+   * @description 输入框是否禁用
+   */
+  inputReadOnly?: boolean;
 }
 export declare const StepperDefaultProps: Partial<IStepperProps>;
 

@@ -1,11 +1,11 @@
 import { IBaseFormItemPropsWithOutFocus } from '../_base';
 
 export interface PickerData {
-  value: PickerValue[0];
+  value: PickerValue;
   label: string;
   children?: PickerData[];
 }
-export declare type PickerValue = (string | number)[];
+export declare type PickerValue = string| number| (string | number)[];
 /**
  * @description 选择器，包括一个或多个不同值的可滚动列表，每个值可以在视图的中心以较暗的文本形式显示。当用户激活 **Picker** 后，将会从底部弹出。
  */
@@ -20,6 +20,7 @@ export interface IPickerProps
    */
   onFormat?: (
     value: PickerValue,
+    column: PickerValue,
     data: Omit<PickerData, 'children'>[][]
   ) => string;
   /**

@@ -1,6 +1,5 @@
-<view class="demo">
-  <demo-block title="填充模式">
-    <view class="btn-list">
+<demo-block title="填充模式">
+    <view class="btn-list  btn-list-default">
       <button 
         type="primary"
         fill="solid">
@@ -51,4 +50,3 @@
       </button>
     </view>
   </demo-block>
-</view>

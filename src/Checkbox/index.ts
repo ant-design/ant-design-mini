@@ -13,7 +13,9 @@ Component({
       propsValue: 'checked',
       defaultPropsValue: false,
     }),
-    formed(),
+    formed({
+      propsValue: 'checked',
+    }),
   ],
   didMount() {
     const { uid } = this.props;

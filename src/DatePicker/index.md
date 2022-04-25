@@ -26,6 +26,10 @@ toc: false
 | title | string | 否 | - | 弹出框标题 |
 | okText | string | 否 | '确定' | 确认按钮文案 |
 | dismissText | string | 否 | '取消' | 取消文案 |
+| maskStyle | string | 否 | | 蒙层的样式 |
+| maskClass | string | 否 |  | 蒙层的类名 |
+| indicatorStyle | string | 否 |  | 选中框样式 |
+| indicatorClass | string | 否 |  | 	选中框的类名 |
 
 ## 事件
 | 事件名 | 说明 | 类型 |
@@ -48,15 +52,15 @@ toc: false
 
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
 
 </style> 

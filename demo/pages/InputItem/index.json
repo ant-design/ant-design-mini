@@ -4,6 +4,7 @@
     "input-item": "../../../src/InputItem/index",
     "demo-block": "../../components/DemoBlock/index",
     "form": "../../../src/Form/index",
-    "form-item": "../../../src/Form/FormItem/index"
+    "form-item": "../../../src/Form/FormItem/index",
+    "list-item": "../../../src/List/ListItem/index"
   }
 }

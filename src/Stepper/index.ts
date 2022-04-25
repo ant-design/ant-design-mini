@@ -5,7 +5,7 @@ import  formed from '../Form/mixin'
 import { upStep, downStep } from './utils';
 
 Component({
-  mixins: [computed, controlled(), formed()],
+  mixins: [computed(), controlled(), formed()],
   props: StepperDefaultProps,
   data: {
     confirm: false,

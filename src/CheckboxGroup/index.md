@@ -23,7 +23,7 @@ toc: false
 | -----|-----|-----|-----|----- |
 | value | string[] | 否 | - | CheckboxGroup 的值，决定子元素是否勾选 |
 | radius | boolean | 否 | false | 是否带圆角 |
-| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`必须全局唯一`，与内部的 CheckboxItem 组件的 uid 一致 |
+| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`页面内uid必须唯一`，与内部的 CheckboxItem 组件的 uid 一致 |
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
 
@@ -75,23 +75,23 @@ toc: false
 | amd-checkbox-item-content | 内容区样式 |
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4) {
+    width: 50px;
+}
 </style> 

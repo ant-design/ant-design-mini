@@ -5,8 +5,8 @@ Component({
   mixins: [computed],
   props: BadgeDefaultProps,
   methods: {
-    computed(props) {
-      const { text } = props;
+    computed() {
+      const { text } = this.props;
       let overCount = false;
       if (typeof text === 'number') {
         if (text >= 100) {

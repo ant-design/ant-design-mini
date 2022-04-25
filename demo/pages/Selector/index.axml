@@ -1,35 +1,39 @@
-<selector 
-  title="单选"
-  value="1"
-  items="{{items1}}"/>
+<demo-block title="单选"  padding="0">
+  <selector 
+    value="1"
+    items="{{items1}}"/>
+</demo-block>
 
-<selector 
-  title="单选"
-  value="2"
-  desc="选项带有副标题"
-  items="{{items2}}"/>
+<demo-block title="单选(选项带有副标题)" padding="0">
+  <selector 
+    value="2"
+    items="{{items2}}"/>
+</demo-block>
 
-<selector 
-  title="多选"
-  value="{{['1','2']}}"
-  items="{{items1}}"
-  multiple="{{true}}"/>
+<demo-block title="多选" padding="0">
+  <selector 
+    value="{{['1','2']}}"
+    items="{{items1}}"
+    multiple="{{true}}"/>
+</demo-block>
 
+<demo-block title="全禁用" padding="0">
 <selector 
-  title="全禁用"
   value="{{['1','2']}}"
   items="{{items1}}"
   disabled="{{true}}"
   multiple="{{true}}"/>
+</demo-block>
 
+<demo-block title="部分禁用" padding="0">
 <selector 
-  title="部分禁用"
   value="{{['1','2']}}"
   items="{{items3}}"
   multiple="{{true}}"/>
+</demo-block>
 
+<demo-block title="更改值" padding="0">
 <selector 
-  title="更改值"
   value="{{value}}"
   items="{{items1}}"
   onChange="handleChange"/>
@@ -44,3 +48,5 @@
     改变选中值为： 3
   </button>
 </view>
+</demo-block>
+
