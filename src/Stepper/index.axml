@@ -2,7 +2,8 @@
   min="{{min}}"
   max="{{max}}"
   step="{{step}}"
-  precision="{{precision}}">
+  precision="{{precision}}"
+  onTap="test">
   <button 
     className="amd-stepper-handler-down"
     data-mode="minus"
