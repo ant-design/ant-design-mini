@@ -1,4 +1,4 @@
-<view class="demo">
+<demo-block title="动态表单项" padding="0">
     <form 
         initialValues="{{initialValues}}"
         onFinish="handleSubmit"
@@ -40,4 +40,4 @@
             htmlType="submit">登录
         </button>
     </form>
-</view>
+</demo-block>

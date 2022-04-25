@@ -1,4 +1,4 @@
-<view class="demo">
+<demo-block title="表单验证">
   <form 
     onValuesChange="handleValuesChange"
     onFinishFailed="handleFinishFailed"
@@ -44,4 +44,4 @@
     </button>
   </form>
   <button onTap="handleValidateAccount">校验账号</button>
-</view>
+</demo-block>

@@ -29,6 +29,10 @@
   <view class="amd-picker-content">
     <block a:if="{{columns}}">
       <picker-view 
+        mask-style="{{maskStyle}}"
+        mask-class="{{ maskClass}}"
+        indicator-style="{{indicatorStyle}}"
+        indicator-class="{{indicatorClass}}"
         value="{{selectedIndex}}"
         onChange="onChange">
         <block 

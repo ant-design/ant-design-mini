@@ -1,3 +1,4 @@
+<demo-block title="自定义表单控件" padding="0">
 <form
   initialValues="{{formData}}"
   ref="saveRefForm"
@@ -18,3 +19,4 @@
   </button>
 </form>
 <button onTap="onChangeField">Change Field Value</button>
+</demo-block>

@@ -1,5 +1,5 @@
-<view class="demo">
-  <list radius="{{true}}" header="单个滑动操作组件(删除时消失)">
+<demo-block title="单个滑动操作组件(删除时消失)" padding="0">
+  <list radius="{{true}}">
     <swipe-action
         a:for="{{singleListDelete}}" 
         a:key="id"
@@ -19,7 +19,9 @@
         </list-item>
     </swipe-action>
   </list>  
-  <list radius="{{true}}" header="单个滑动操作组件(删除时消失)">
+</demo-block>
+<demo-block title="单个滑动操作组件(删除时消失)"  padding="0">
+  <list radius="{{true}}">
     <swipe-action
         a:for="{{singleList}}" 
         a:key="id"
@@ -39,7 +41,9 @@
         </list-item>
     </swipe-action>
   </list>
-  <list radius="{{true}}" header="滑动操作组件列表">
+</demo-block>
+<demo-block title="滑动操作组件列表" padding="0">
+  <list radius="{{true}}">
     <swipe-action 
       a:for="{{multiList}}" 
       a:key="id"
@@ -60,4 +64,4 @@
       </list-item>
     </swipe-action>
   </list>
-</view>
+</demo-block>

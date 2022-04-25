@@ -1,4 +1,4 @@
-<view class="demo">
+<demo-block title="表单分组">
   <form>
     <form-group radius header="基本信息">
       <form-item
@@ -29,4 +29,4 @@
       </form-item>
     </form-group>
   </form>
-</view>
+</demo-block>

@@ -31,4 +31,10 @@
       value="{{0}}"
       disabled/>
   </demo-block>
+  <demo-block title="输入框只读状态">
+    <stepper 
+      value="{{0}}"
+      inputReadOnly="{{true}}"
+    />
+  </demo-block>
 </view>

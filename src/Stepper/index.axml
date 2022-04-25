@@ -16,7 +16,14 @@
   </button>
 
   <view class="amd-stepper-input-wrap">
-    <input class="amd-stepper-input {{disabled? 'amd-stepper-input-disabled' : ''}}"
+    <text
+      class="amd-stepper-input {{disabled? 'amd-stepper-input-disabled' : ''}}"
+      a:if="{{inputReadOnly}}">
+      {{cValue}}
+    </text>
+    <input
+      a:if="{{!inputReadOnly}}"
+      class="amd-stepper-input {{disabled? 'amd-stepper-input-disabled' : ''}}"
       style="{{inputWidth ? `width: ${inputWidth}`: ''}}"
       type="{{type}}"
       disabled="{{disabled}}"

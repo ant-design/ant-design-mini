@@ -1,8 +1,9 @@
+
+<demo-block title="基础用法">
 <checkbox-group 
   uid="group1"
   onChange="handleChange"
-  header="基础用法">
-
+>
   <checkbox-item 
     a:for="{{list}}"
     value="{{item.value}}"  
@@ -11,12 +12,13 @@
   </checkbox-item>
 
 </checkbox-group>
+</demo-block>
 
+<demo-block title="部分禁用">
 <checkbox-group 
   uid="group2"
   value="{{['orange','banner']}}"
-  header="部分禁用">
-
+>
   <checkbox-item 
     a:for="{{list}}"
     value="{{item.value}}"  
@@ -24,13 +26,14 @@
     uid="group2">
       {{item.label}}
   </checkbox-item>
-
 </checkbox-group>
+</demo-block>
+
+<demo-block title="整组禁用">
 <checkbox-group 
   uid="group3"
   value="{{['orange','banner']}}"
-  disabled="{{true}}"
-  header="整组禁用">
+  disabled="{{true}}">
 
   <checkbox-item 
     a:for="{{list}}"
@@ -38,14 +41,15 @@
     uid="group3">
       {{item.label}}
   </checkbox-item>
-
 </checkbox-group>
+</demo-block>
 
+<demo-block title="搭配Checkbox使用">
 <checkbox-group 
   uid="group4"
   className="checkbox-group"
   onChange="handleChange"
-  header="搭配Checkbox使用">
+>
   <label  a:for="{{list}}">
     <checkbox 
       value="{{item.value}}"  
@@ -53,6 +57,5 @@
    </checkbox>
    {{item.label}}
   </label>
-  
-
 </checkbox-group>
+</demo-block>

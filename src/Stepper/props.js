@@ -4,5 +4,6 @@ export const StepperDefaultProps = {
   autoFocus: false,
   disabled: false,
   type: 'digit',
-  value: 0
+  value: 0,
+  inputReadOnly: false,
 };

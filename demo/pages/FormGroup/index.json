@@ -1,6 +1,7 @@
 {
   "defaultTitle": "Form",
   "usingComponents": {
+    "demo-block": "../../components/DemoBlock/index",
     "form": "../../../src/Form/index",
     "form-item": "../../../src/Form/FormItem/index",
     "form-group": "../../../src/Form/FormGroup/index",
