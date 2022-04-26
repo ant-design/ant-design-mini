@@ -5,4 +5,5 @@ export const PopoverDefaultProps = {
   placement: 'bottom-right',
   mode: 'dark',
   fixMaskFull: false,
+  transparentMask: false
 };

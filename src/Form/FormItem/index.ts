@@ -25,27 +25,33 @@ Component<
 
   data: {
     errorInfo: null,
+    helpVisible: false,
   },
 
   onInit() {
     const pageId = this.$page.$id;
     const { form: uid, name: fieldName } = this.props;
-    const formInfo =  getFormInfo()
-    this.store = formStoreFactory.getStore({ pageId, componentId: formInfo?.id, uid, fieldName });
+    const formInfo = getFormInfo();
+    this.store = formStoreFactory.getStore({
+      pageId,
+      componentId: formInfo?.id,
+      uid,
+      fieldName,
+    });
     if (!fieldName) {
-      throw new Error('props name is required in FormItem')
+      throw new Error('props name is required in FormItem');
     }
     if (this.store.checkFieldInited(fieldName)) {
-      console.warn(`${fieldName} fieldItem already existed`)
+      console.warn(`${fieldName} fieldItem already existed`);
     }
     this.store.addField(fieldName);
     cacheFieldInfo(
       function (this: any) {
-        const { name: fieldName, form, dependencies }  = this.props
+        const { name: fieldName, form, dependencies } = this.props;
         return {
           fieldName,
           form,
-          dependencies
+          dependencies,
         };
       }.bind(this)
     );
@@ -56,27 +62,33 @@ Component<
   },
 
   didMount() {
-    const { name: fieldName } = this.props
-    let formSilent  = true
+    const { name: fieldName } = this.props;
+    let formSilent = true;
     // 如果是form初始化之后动态添加的，silent为false，还需要触发form的onValuesChange
     if (getFormInfo() === null) {
-      formSilent  = false
+      formSilent = false;
     }
-    this.store?.setFieldsValueByFormItemInitial({ [fieldName]: this.props.initialValue }, { formSilent });
+    this.store?.setFieldsValueByFormItemInitial(
+      { [fieldName]: this.props.initialValue },
+      { formSilent }
+    );
     clearFieldInfo();
   },
 
   didUpdate(prevProps) {
-    if (prevProps.rules !== this.props.rules ||
+    if (
+      prevProps.rules !== this.props.rules ||
       prevProps.required !== this.props.required ||
-      prevProps.label !== this.props.label) {
-        this.setFieldRules()
-      }
-    if (prevProps.dependencies !== this.props.dependencies ||
-      prevProps.validateFirst !== this.props.validateFirst) {
-        this.setValidateOptions()
-      }
-
+      prevProps.label !== this.props.label
+    ) {
+      this.setFieldRules();
+    }
+    if (
+      prevProps.dependencies !== this.props.dependencies ||
+      prevProps.validateFirst !== this.props.validateFirst
+    ) {
+      this.setValidateOptions();
+    }
   },
 
   didUnmount() {
@@ -107,26 +119,34 @@ Component<
       }
     },
 
-    setValidateOptions()  {
+    setValidateOptions() {
       const { name: fieldName, dependencies, validateFirst } = this.props;
-      this.store?.setValidateOptions(fieldName,  {
+      this.store?.setValidateOptions(fieldName, {
         dependencies,
-        validateFirst
-      })
+        validateFirst,
+      });
     },
 
     onErrorInfoChange(formErrorInfo, updatedFields) {
-      updatedFields.forEach(field  => {
+      updatedFields.forEach((field) => {
         if (field === this.props.name) {
           this.setData({
             errorInfo: formErrorInfo[this.props.name] || [],
           });
         }
-      })
+      });
     },
 
     updateErrorInfo(payload) {
       this.setData({ errorInfo: payload });
+    },
+    onToggleVisible() {
+      this.setData({ helpVisible: !this.data.helpVisible });
+    },
+    onHelpVisibleChange(visible, type) {
+      if (type === 'mask') {
+        this.setData({ helpVisible: visible });
+      }
     },
   },
 });

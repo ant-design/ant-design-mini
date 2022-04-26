@@ -7,11 +7,13 @@ export interface IComponentProps {
   form?: string;
   initialValue?: any;
   validateFirst?: boolean;
-  dependencies?: string[]
+  dependencies?: string[];
+  help?: string;
 }
 
 export interface IComponentData {
-  errorInfo: Record<string, any>
+  errorInfo: Record<string, any>;
+  helpVisible: boolean;
 }
 
 export interface IComponentMethods {
@@ -19,6 +21,8 @@ export interface IComponentMethods {
   onErrorInfoChange(formErrorInfo, options): void;
   updateErrorInfo(payload): void;
   setValidateOptions(): void
+  onToggleVisible(): void;
+  onHelpVisibleChange(visible:boolean, type: string): void;
 }
 
 export interface IComponentExtraThis {

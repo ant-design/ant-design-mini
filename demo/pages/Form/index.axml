@@ -30,7 +30,7 @@
       </date-picker>
     </form-item>
     <form-item 
-      label="喜爱的水果 " 
+      label="喜爱的水果" 
       name="favoriteFruits" 
       position="vertical">
       <selector 

@@ -1,5 +1,5 @@
 <view
-  class="amd-mask {{type === 'market'?'amd-mask__m':''}} {{fixMaskFull ? 'amd-mask__fix' : ''}}"
+  class="amd-mask {{className||''}} {{type === 'market'?'amd-mask__m':''}} {{fixMaskFull ? 'amd-mask__fix' : ''}}"
   style="{{show?'':'display: none;'}}{{maskZindex?'z-index: ' + maskZindex + ';':''}}"
   onTap="onMaskClick"
 ></view>

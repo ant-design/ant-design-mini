@@ -9,6 +9,17 @@
         <view class="amd-form-item-label-required" a:if="{{position === 'horizontal' && required}}" >*</view>
         <view class="amd-form-item-label-content" >
           {{label}}
+          <popover 
+            a:if="{{help}}"
+            placement="top" 
+            visible="{{helpVisible}}" 
+            mask 
+            maskClosable 
+            onVisibleChange="onHelpVisibleChange"
+            transparentMask>
+            <view slot="items" class="amd-form-item-label-content-help-content">{{help}}</view>
+            <icon type="QuestionCircleOutline" size="x-small" onTap="onToggleVisible"/>
+          </popover>
         </view>
         <!-- <text class="amd-form-item-label-norequired" a:if="{{position === 'vertical' && !required}}">(选填)</text> -->
       </view>

@@ -30,6 +30,7 @@ toc: false
 | placement | 'top' &verbar; 'top-right' &verbar; 'top-left' &verbar; 'bottom' &verbar; 'bottom-left' &verbar; 'bottom-right' &verbar; 'left' &verbar; 'left-top' &verbar; 'left-bottom' &verbar; 'right' &verbar; 'right-top' &verbar; 'right-bottom' | 否 | 'bottom-right' | 方向 |
 | className | string | 否 | - | 类名 |
 | mask | boolean | 否 | false | 是否展示蒙层 |
+| transparentMask | boolean | 否 | false | 蒙层是否透明 |
 | maskClosable | boolean | 否 | true | 是否可点击蒙层关闭 |
 | fixMaskFull | boolean | 否 | false | 用以解决遮罩层受到 transform 影响而显示不全的问题 |
 

@@ -1,10 +1,10 @@
-@import (reference) "../../_base/index.less";
+@import (reference) '../../_base/index.less';
 
 @formItemPrefix: amd-form-item;
 
 .@{formItemPrefix} {
   background-color: #fff;
-  padding: 24 * @rpx 24 * @rpx 24 * @rpx  32 * @rpx;
+  padding: 24 * @rpx 24 * @rpx 24 * @rpx 32 * @rpx;
   position: relative;
 
   &-disabled {
@@ -24,8 +24,6 @@
     align-items: center;
     align-self: stretch;
     max-width: 100%;
-    overflow: hidden;
-
     &-disabled {
       opacity: 0.4;
     }
@@ -36,15 +34,15 @@
   }
 
   &-error-info {
-      font-family: PingFangSC-Regular;
-      font-size: 13px;
-      color: #ff3141;
-      line-height: 37 * @rpx;
-      text-align: left;
-      margin-top: 8 * @rpx;
-      &-disabled {
-        opacity: 0.4;
-      }
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #ff3141;
+    line-height: 37 * @rpx;
+    text-align: left;
+    margin-top: 8 * @rpx;
+    &-disabled {
+      opacity: 0.4;
+    }
   }
 
   &-label {
@@ -54,7 +52,22 @@
     line-height: 48 * @rpx;
 
     &-content {
-      overflow: hidden;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      .amd-icon {
+        margin-left: 4 * @rpx;
+      }
+      .amd-popover-content {
+        min-width: 0;
+      }
+      &-help-content {
+        color: #fff;
+        font-size: 30 * @rpx;
+        text-align: center;
+        white-space: nowrap;
+        padding: 8 * @rpx 12 * @rpx;
+      }
     }
 
     &-horizontal {
@@ -78,7 +91,7 @@
       left: 16 * @rpx;
       font-family: PingFangSC-Regular;
       font-size: 30 * @rpx;
-      color: #FF3141;
+      color: #ff3141;
     }
 
     &-norequired {
