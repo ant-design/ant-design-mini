@@ -23,7 +23,7 @@ toc: false
 | -----|-----|-----|-----|----- |
 | value | string[] | 否 | - | CheckboxGroup 的值，决定子元素是否勾选 |
 | radius | boolean | 否 | false | 是否带圆角 |
-| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`页面内uid必须唯一`，与内部的 CheckboxItem 组件的 uid 一致 |
+| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`页面内uid必须唯一`，与内部的 CheckboxItem/Checkbox 组件的 uid 一致 |
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
 
@@ -39,6 +39,7 @@ toc: false
 | checkedIcon | string | 否 | - | 自定义选中状态的图标，支持Icon type或图片路径 |
 | disabledIcon | string | 否 | - | 自定义禁用状态的图标，支持Icon type或图片路径 |
 | disabledCheckedIcon | string | 否 | - | 自定义禁用选中状态的图标，支持Icon type或图片路径 |
+| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`页面内uid必须唯一`，与外部的 Checkboxgroup 组件的 uid 一致 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 

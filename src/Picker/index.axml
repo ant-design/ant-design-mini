@@ -3,7 +3,14 @@
   class="amd-picker {{disabled ? 'amd-picker-disabled' : ''}} {{className ? className : ''}}"
   onTap="onOpen"
 >
-  <slot value="{{cValue}}">{{formatValue||placeholder}}</slot>
+  <slot value="{{cValue}}">
+    <view a:if="{{formatValue}}" class="amd-picker-text">
+      {{formatValue}}
+    </view>
+    <view a:elif="{{placeholder}}" class="amd-picker-placeholder">
+      {{placeholder}}
+    </view>
+  </slot>
 </view>
 <popup
   className="amd-picker-popup"

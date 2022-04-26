@@ -12,6 +12,7 @@ toc: false
 ## 何时使用
 - 在一组可选项中进行多项选择时
 - 单独使用可以表示两种状态之间的切换，和 switch 类似。区别在于切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合
+- 支持搭配CheckboxGroup一起使用
 
 
 ## 代码示例
@@ -33,6 +34,7 @@ toc: false
 | checkedIcon | string | 否 | - | 自定义选中状态的图标，支持Icon type或图片路径 |
 | disabledIcon | string | 否 | - | 自定义禁用状态的图标，支持Icon type或图片路径 |
 | disabledCheckedIcon | string | 否 | - | 自定义禁用选中状态的图标，支持Icon type或图片路径 |
+| uid | string | 否 | - | 当搭配Checkboxgroup且页面有多个CheckboxGroup时需传入，`页面内uid必须唯一`，与外部的 Checkboxgroup 组件的 uid 一致 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 

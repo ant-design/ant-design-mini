@@ -1,5 +1,5 @@
-@import (reference) "./variable.less";
-@import "../style/mixins/hairline.less";
+@import (reference) './variable.less';
+@import '../style/mixins/hairline.less';
 
 @pickerPrefix: amd-picker;
 
@@ -8,7 +8,9 @@
   &-disabled {
     color: @color-text-weak;
   }
-
+  &-placeholder {
+    color: @picker-placeholder-color;
+  }
   &-header {
     position: relative;
     display: flex;
@@ -16,7 +18,7 @@
     justify-content: space-between;
     padding: @picker-header-padding;
     box-sizing: border-box;
-    .hairline-picker("bottom");
+    .hairline-picker('bottom');
 
     &-item {
       display: flex;
@@ -45,7 +47,8 @@
       font-size: @picker-item-size;
     }
   }
-  .a-picker-view-picker-indicator:before, .a-picker-view-picker-indicator:after {
+  .a-picker-view-picker-indicator:before,
+  .a-picker-view-picker-indicator:after {
     background-color: #e5e5e5;
   }
 }

@@ -57,6 +57,7 @@ type PickerColumnItem = string | number | {
 | 类名 | 说明 |
 | -----|-----|
 | amd-picker | 文本展示区域样式 |
+| amd-picker-placeholder | placeholder样式 |
 | amd-picker-popup | 弹窗整体样式 |
 | amd-picker-header | 弹窗头部区域样式 |
 | amd-picker-header-item | 弹窗头部区域文本样式 |
