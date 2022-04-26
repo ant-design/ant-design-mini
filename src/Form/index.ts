@@ -17,6 +17,7 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
     },
     onFinishFailed: function onFinishFailed() {},
     className: '',
+    requiredMarkStyle: 'asterisk',
   },
 
   onInit() {

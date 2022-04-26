@@ -1,20 +1,68 @@
-@import (reference) "../_base/index.less";
+@import (reference) '../_base/index.less';
 
 .amd-form {
+  &-require-style {
+    &-asterisk {
+      .amd-form-item-label-required .amd-form-item-label-text {
+        &::before {
+          content: '*';
+          position: absolute;
+          left: -18 * @rpx;
+          font-family: PingFangSC-Regular;
+          font-size: 30 * @rpx;
+          color: @color-text-warning;
+        }
+      }
+    }
+    &-text-required {
+      .amd-form-item-label-required .amd-form-item-label-text {
+        &::after {
+          padding-left: 4 * @rpx;
+          content: '(必填)';
+          display: block;
+          left: -18 * @rpx;
+          font-family: PingFangSC-Regular;
+          font-size: 30 * @rpx;
+          color: @color-text-weak;
+        }
+      }
+    }
+    &-text-optional {
+      .amd-form-item-label .amd-form-item-label-text {
+        &::after {
+          padding-left: 4 * @rpx;
+          content: '(选填)';
+          display: block;
+          left: -18 * @rpx;
+          font-family: PingFangSC-Regular;
+          font-size: 30 * @rpx;
+          color: @color-text-weak;
+        }
+      }
+      .amd-form-item-label-required .amd-form-item-label-text {
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
   .amd-form-item:last-child {
     .form-line {
-        display: none;
+      display: none;
     }
   }
   .amd-form-group {
     .amd-form-item:last-child {
-        .form-line {
-            display: none;
-        }
+      .form-line {
+        display: none;
       }
+    }
   }
 
   .amd-form-footer {
     padding: 40 * @rpx 24 * @rpx 24 * @rpx 24 * @rpx;
+    &:empty {
+      display: none;
+    }
   }
 }

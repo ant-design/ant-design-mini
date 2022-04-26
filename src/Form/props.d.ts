@@ -6,7 +6,8 @@ export interface IComponentProps {
   onFinishFailed?: (errorInfo) => any;
   className?:  string;
   form?: string;
-}
+  requiredMarkStyle?: 	'asterisk' | 'text-required' | 'text-optional';
+} 
 
 export type IComponentData = Record<string, any>;
 

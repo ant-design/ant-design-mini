@@ -9,6 +9,7 @@
     "pages/FormInsMethod/index",
     "pages/FormMulti/index",
     "pages/FormValidate/index",
+    "pages/FormRequiredMarkStyle/index",
     "pages/List/index",
     "pages/Icon/index",
     "pages/Switch/index",

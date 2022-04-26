@@ -30,6 +30,8 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 
 ### 表单分组
 <code src="../../demo/pages/FormGroup" ></code>
+### 必填展示样式
+<code src="../../demo/pages/FormRequiredMarkStyle" ></code>
 
 ### 动态表单
 <code src="../../demo/pages/FormDynamic" ></code>
@@ -46,6 +48,7 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | -----|:-----:|:-----:|:-----:|----- |
 | form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且页面唯一 |
 | initialValues | Record<sring, any> | 否 | - | 表单初始值 |
+| requiredMarkStyle | 'asterisk' &verbar;  'text-required' &verbar;  'text-optional' | 否 | 'asterisk' | 必填选填的标记样式	 |
 
 #### FromGroup
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
