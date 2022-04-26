@@ -48,6 +48,7 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | -----|:-----:|:-----:|:-----:|----- |
 | form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且页面唯一 |
 | initialValues | Record<sring, any> | 否 | - | 表单初始值 |
+| position | 'horizontal' &verbar;  'vertical' | 否 | 'horizontal' | 布局 |
 | requiredMarkStyle | 'asterisk' &verbar;  'text-required' &verbar;  'text-optional' | 否 | 'asterisk' | 必填选填的标记样式	 |
 
 #### FromGroup
@@ -62,7 +63,7 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且页面唯一 |
 | name | string | 是 | - | 字段 uid |
 | label | string | 否 | - | 字段名称 |
-| position | 'horizontal' &verbar;  'vertical' | 否 | 'horizontal' | 布局 |
+| position | 'horizontal' &verbar;  'vertical' | 否 | - | 布局，优先级高于Form的position |
 | arrow | boolean | 否 | false | 表单项右侧箭头 |
 | required | boolean | 否 | false | 是否必填，label展示必填标识 |
 

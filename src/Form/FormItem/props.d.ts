@@ -1,7 +1,7 @@
 export interface IComponentProps {
   rules?: any [];
   name: string;
-  position?: 'vertical' | 'horizontal';
+  position?: '' | 'vertical' | 'horizontal';
   required?: boolean;
   label?: string;
   form?: string;

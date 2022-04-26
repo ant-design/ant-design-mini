@@ -1,4 +1,5 @@
 @import (reference) '../../_base/index.less';
+@import (reference) '../index.less';
 
 @formItemPrefix: amd-form-item;
 
@@ -29,8 +30,7 @@
   &-content {
     flex: 1;
     &-horizontal {
-      display: flex;
-      align-items: center;
+      .formItemContentHorizontal();
     }
   }
   &-error-info {
@@ -74,19 +74,11 @@
     }
 
     &-horizontal {
-      width: 170 * @rpx;
-      margin-right: 24 * @rpx;
-      font-family: PingFangSC-Regular;
-      color: #666;
-      font-size: 34 * @rpx;
-      line-height: 48 * @rpx;
+      .formItemLabelHorizontal();
     }
 
     &-vertical {
-      font-size: 30 * @rpx;
-      line-height: 42 * @rpx;
-      color: #666;
-      margin-bottom: 8 * @rpx;
+      .formItemLabelVertical();
     }
 
     &-disabled {
@@ -95,9 +87,6 @@
   }
   &-field {
     flex: 1;
-    &-horizontal {
-      text-align: right;
-    }
   }
 
   &-arrow {

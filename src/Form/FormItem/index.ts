@@ -16,7 +16,7 @@ Component<
   props: {
     rules: [],
     name: '',
-    position: 'horizontal',
+    position: '',
     required: false,
     label: '',
     dependencies: [],

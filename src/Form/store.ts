@@ -109,7 +109,7 @@ export class FormStore extends EventEmitter {
     this.emitErrorInfoChange(errorInfo, updatedFields);
   }
 
-  validate(validateFields): Promise<{ valid: boolean, errors?: Record<string, any>}> {
+  validate(validateFields?): Promise<{ valid: boolean, errors?: Record<string, any>}> {
     if  (validateFields === undefined) {
       validateFields  = this.fields
     }
@@ -175,7 +175,7 @@ export class FormStore extends EventEmitter {
 type params = {
   uid?: string;
   pageId: string;
-  componentId?: string;
+  componentId?: number;
   fieldName?:  string;
 };
 

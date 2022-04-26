@@ -3,10 +3,11 @@ export interface IComponentProps {
   initialValues?: Record<string, any>;
   onValuesChange?: (changedValues, totalValues) => any;
   onFinish?: (totalValues) => any;
-  onFinishFailed?: (errorInfo) => any;
+  onFinishFailed?: (value, errorInfo) => any;
   className?:  string;
   form?: string;
-  requiredMarkStyle?: 	'asterisk' | 'text-required' | 'text-optional';
+  requiredMarkStyle?: 'asterisk' | 'text-required' | 'text-optional';
+  position?: 'vertical' | 'horizontal';
 } 
 
 export type IComponentData = Record<string, any>;

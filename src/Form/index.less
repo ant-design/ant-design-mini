@@ -1,6 +1,46 @@
 @import (reference) '../_base/index.less';
 
-.amd-form {
+@formPrefix: amd-form;
+
+.formItemLabelHorizontal() {
+  width: 170 * @rpx;
+  margin-right: 24 * @rpx;
+  font-family: PingFangSC-Regular;
+  color: #666;
+  font-size: 34 * @rpx;
+  line-height: 48 * @rpx;
+}
+.formItemLabelVertical() {
+  font-size: 30 * @rpx;
+  line-height: 42 * @rpx;
+  color: #666;
+  margin-bottom: 8 * @rpx;
+}
+.formItemContentHorizontal() {
+  display: flex;
+  align-items: center;
+}
+.@{formPrefix} {
+  // 覆盖FormItem布局样式
+  &-position {
+    &-horizontal {
+      .amd-form-item-content:not(.amd-form-item-content-vertical) {
+        .formItemContentHorizontal();
+      }
+      .amd-form-item-content.amd-form-item-content-vertical {
+        display: block;
+      }
+      .amd-form-item-label:not(.amd-form-item-label-vertical) {
+        .formItemLabelHorizontal();
+      }
+    }
+
+    &-vertical {
+      .amd-form-item-label:not(.amd-form-item-label-horizontal) {
+        .formItemLabelVertical();
+      }
+    }
+  }
   &-require-style {
     &-asterisk {
       .amd-form-item-label-required .amd-form-item-label-text {
@@ -46,12 +86,7 @@
       }
     }
   }
-  .amd-form-item:last-child {
-    .form-line {
-      display: none;
-    }
-  }
-  .amd-form-group {
+  &-group {
     .amd-form-item:last-child {
       .form-line {
         display: none;
@@ -59,7 +94,7 @@
     }
   }
 
-  .amd-form-footer {
+  &-footer {
     padding: 40 * @rpx 24 * @rpx 24 * @rpx 24 * @rpx;
     &:empty {
       display: none;
