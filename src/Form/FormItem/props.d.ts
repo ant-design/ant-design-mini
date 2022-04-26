@@ -18,7 +18,7 @@ export interface IComponentMethods {
   setFieldRules(): void;
   onErrorInfoChange(formErrorInfo, options): void;
   updateErrorInfo(payload): void;
-  setValidateOptions(fieldName, options): void
+  setValidateOptions(): void
 }
 
 export interface IComponentExtraThis {
