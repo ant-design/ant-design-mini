@@ -6,7 +6,7 @@
   hover-class="{{onTap ? 'amd-list-item-hover' : ''}}"
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}">
-  <view class="amd-list-item-line {{disabled? 'amd-list-item-line-disabled' : ''}}">
+  <view class="amd-list-item-line {{last?'amd-list-item-line-last':''}} {{disabled? 'amd-list-item-line-disabled' : ''}}">
     <view class="amd-list-item-image-container-placeholder">
         <image-icon a:if="{{image}}" image="{{image}}"></image-icon>
       <block a:else >
@@ -65,7 +65,5 @@
     <view class="amd-list-item-arrow" >
       <icon a:if="{{arrow}}" type="{{listItem.getArrow(arrow)}}" size="x-small" />
     </view>
-  </view>
-  <view class="line">
   </view>
 </view>

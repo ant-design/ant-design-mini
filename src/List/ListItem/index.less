@@ -1,5 +1,5 @@
-@import (reference) "../variable.less";
-@import "../../style/mixins/hairline.less";
+@import (reference) '../variable.less';
+@import '../../style/mixins/hairline.less';
 
 @listItemPrefix: amd-list-item;
 
@@ -12,21 +12,20 @@
     background-color: #eee;
   }
 
-  &:last-child {
-    .line {
-      display: none;
-    }
-  }
-
   &-line {
     flex: 1;
     display: flex;
     padding: 24 * @rpx;
     align-items: center;
-    .hairline("bottom");
-
+    position: relative;
+    .hairline('bottom');
     &-disabled {
       opacity: 0.4;
+    }
+    &-last{
+      &::after {
+        display: none;
+      }
     }
   }
 
@@ -37,11 +36,30 @@
       &:empty {
         display: none;
       }
-    &-placeholder {
-      display: none;
-      position: absolute;
-      &&:empty ~ .amd-list-item-content-container {
-        padding-left: 0 * @rpx !important;
+      &-placeholder {
+        display: none;
+        position: absolute;
+        &&:empty ~ .amd-list-item-content-container {
+          padding-left: 0 * @rpx !important;
+        }
+      }
+
+      &-small {
+        width: 52 * @rpx;
+        height: 52 * @rpx;
+        overflow: hidden;
+      }
+
+      &-medium {
+        width: 72 * @rpx;
+        height: 72 * @rpx;
+        overflow: hidden;
+      }
+
+      &-large {
+        width: 124 * @rpx;
+        height: 124 * @rpx;
+        overflow: hidden;
       }
     }
 
@@ -49,25 +67,6 @@
       width: 52 * @rpx;
       height: 52 * @rpx;
       overflow: hidden;
-    }
-
-    &-medium {
-      width: 72 * @rpx;
-      height: 72 * @rpx;
-      overflow: hidden;
-    }
-
-    &-large {
-      width: 124 * @rpx;
-      height: 124 * @rpx;
-      overflow: hidden;
-    }
-  }
-
-  &-small {
-    width: 52 * @rpx;
-    height: 52 * @rpx;
-    overflow: hidden;
       & .amd-icon {
         font-size: 52 * @rpx;
       }
@@ -76,35 +75,35 @@
         height: 52 * @rpx;
         overflow: hidden;
       }
-  }
-
-  &-medium {
-    width: 72 * @rpx;
-    height: 72 * @rpx;
-    overflow: hidden;
-    & .amd-icon {
-      font-size: 72 * @rpx;
     }
-    & image {
+
+    &-medium {
       width: 72 * @rpx;
       height: 72 * @rpx;
       overflow: hidden;
+      & .amd-icon {
+        font-size: 72 * @rpx;
+      }
+      & image {
+        width: 72 * @rpx;
+        height: 72 * @rpx;
+        overflow: hidden;
+      }
     }
-  }
 
-  &-large {
-    width: 124 * @rpx;
-    height: 124 * @rpx;
-    overflow: hidden;
-    & .amd-icon {
-      font-size: 124 * @rpx;
-    }
-    & image {
+    &-large {
       width: 124 * @rpx;
       height: 124 * @rpx;
       overflow: hidden;
+      & .amd-icon {
+        font-size: 124 * @rpx;
+      }
+      & image {
+        width: 124 * @rpx;
+        height: 124 * @rpx;
+        overflow: hidden;
+      }
     }
-  }
   }
 
   &-content {
@@ -140,25 +139,25 @@
     }
   }
 
-   &-extra {
-     font-size: 34 * @rpx;
-     display: flex;
-     flex-direction: row-reverse;
-     &:empty {
-       display: none;
-     }
-     &-container {
-       display: flex;
-       flex-direction: column;
-     }
+  &-extra {
+    font-size: 34 * @rpx;
+    display: flex;
+    flex-direction: row-reverse;
+    &:empty {
+      display: none;
+    }
+    &-container {
+      display: flex;
+      flex-direction: column;
+    }
 
-     &-brief {
-       display: flex;
-       flex-direction: row-reverse;
-       font-size: 30 * @rpx;
-       color: #999;
-     }
-   }
+    &-brief {
+      display: flex;
+      flex-direction: row-reverse;
+      font-size: 30 * @rpx;
+      color: #999;
+    }
+  }
 
   &-arrow {
     margin-left: 8 * @rpx;
