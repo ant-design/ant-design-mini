@@ -39,7 +39,8 @@ Component({
   },
   didMount() {
     const setGroupDataVal = () =>{
-      const group = tabsStore.getGroup(this.props.uid)
+      const key = `${this.$page.$id}-${this.props.uid}`;
+      const group = tabsStore.getGroup(key)
       if(group){
           const items = objectValues(group.items).reduce((prev,cur)=>{
             if(cur) prev.push(cur.getTabsItemVal())
@@ -50,8 +51,8 @@ Component({
           })
       }
     }
-
-    tabsStore.setGroupDataVal(this.props.uid, ()=>setTimeout(setGroupDataVal,50));
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    tabsStore.setGroupDataVal(key, ()=>setTimeout(setGroupDataVal,50));
     setGroupDataVal();
     this.updateTabsItemFallbackVal(this.props.fallback)
 
@@ -157,11 +158,13 @@ Component({
     this._useSwipeable(this.props.swipeable);
   },
   didUnmount() {
-    tabsStore.removeGroup(this.props.uid)
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    tabsStore.removeGroup(key);
   },
   methods: {
     updateTabsItemFallbackVal(v: boolean){
-      const group = tabsStore.getGroup(this.props.uid)
+      const key = `${this.$page.$id}-${this.props.uid}`;
+      const group = tabsStore.getGroup(key)
       if(group){
         objectValues(group.items).forEach(item=>{
           // @ts-ignore

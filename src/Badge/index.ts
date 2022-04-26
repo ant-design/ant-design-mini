@@ -2,7 +2,7 @@ import { BadgeDefaultProps } from './props';
 import computed from '../mixins/computed';
 
 Component({
-  mixins: [computed],
+  mixins: [computed()],
   props: BadgeDefaultProps,
   methods: {
     computed() {

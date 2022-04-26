@@ -59,14 +59,14 @@ export interface ISwipeActionProps extends IBaseProps {
    * 属性添加方式参考demo示例
    */
   onLeftButtonTap?:
-  (index: number, text: string, type: string, extraInfo?: unknown) => void;
+  (index: number, text: string, type: string, extraInfo: unknown, dateSet: Record<string, any>) => void;
   /**
    * @description 点击右侧按钮回调，extraInfo是一个对象，
    * extraInfo包含若干属性，支持用户传入附加参数，以实现组件使用者的删除逻辑
    * 属性添加方式参考demo示例
    */
   onRightButtonTap?:
-  (index: number, text: string, type: string, extraInfo?: unknown) => void;
+  (index: number, text: string, type: string, extraInfo: unknown, dateSet: Record<string, any>) => void;
   /**
    * @description 获取组件实例与设置滑动距离
   */

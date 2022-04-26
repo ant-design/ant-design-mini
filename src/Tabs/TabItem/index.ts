@@ -1,6 +1,5 @@
 import { TabItemDefaultProps } from './props';
 import { log } from '../../_util/console';
-import { objectValues } from '../../_util/tools';
 import { compareVersion } from '../../_util/compareVersion';
 import { tabsStore } from "../../_util/tabsStore";
 
@@ -14,11 +13,11 @@ Component({
   },
   didMount() {
     // 更新 fallback 值
-    console.log(this.props.tab)
+    const key = `${this.$page.$id}-${this.props.uid}`;
     const setFallback = (v: boolean) => this.setData({ fallback: v });
     // 注册 item
     const getTabsItemVal = () => this.props.tab
-    tabsStore.addItem(this.props.uid, `${this.$id}`, {setFallback, getTabsItemVal});
+    tabsStore.addItem(key, `${this.$id}`, {setFallback, getTabsItemVal});
     // 更新视图
     // console.log(tabsStore)
     this.update()
@@ -28,8 +27,8 @@ Component({
     this.update()
   },
   didUnmount() {
-    tabsStore.removeItem(this.props.uid, `${this.$id}`)    
-    console.log(tabsStore)
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    tabsStore.removeItem(key, `${this.$id}`)    
   },
   methods: {
     _tabError(tab) {
@@ -41,7 +40,8 @@ Component({
       }
     },
     update(){
-      const group  = tabsStore.getGroup(this.props.uid)
+      const key = `${this.$page.$id}-${this.props.uid}`;
+      const group  = tabsStore.getGroup(key)
       if(group && group.setGroupDataVal) group.setGroupDataVal()
     }
   },

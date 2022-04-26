@@ -272,7 +272,7 @@ exports.default = function (props) {
         } else {
           resolve({
             appCdnBaseUrl:
-              "https://mdn.alipayobjects.com/yaoyy/uri/file/as/apwallet/1649751914665/2021003121607088/",
+              "https://mdn.alipayobjects.com/yaoyy/uri/file/as/apwallet/1650774651603/2021003121607088/",
           });
         }
       });

@@ -41,6 +41,18 @@ export interface IStepperProps extends IBaseFormItemProps<number> {
    */
   inputWidth?: string;
   /**
+   * @description 输入框宽度
+   */
+  onFocus?: ( e: number ) => void
+  /**
+   * @description 输入框宽度
+   */
+  onBlur?: ( e: number ) => void
+  /**
+   * @description 输入框宽度
+   */
+  onChange?: ( e: number, dataSet: Record<string, any> ) => void
+  /**
    * @description 输入框是否禁用
    */
   inputReadOnly?: boolean;

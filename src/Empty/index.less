@@ -1,0 +1,79 @@
+@import (reference) "./variable.less";
+
+@emptyPrefix: amd-empty;
+
+.@{emptyPrefix} {
+  &-page {
+    text-align: center;
+    padding-top: 25vh;
+
+    &-image {
+      margin: 0 auto;
+      width: 400 * @rpx;
+      height: 340 * @rpx;
+      background: url(@empty-image-url) no-repeat;
+      background-size: contain;
+    }
+
+    &-text {
+      margin-top: @empty-margin-large;
+
+      &-main {
+        color: @color-text-title;
+        font-size: @empty-font-size-large;
+      }
+
+      &-sub {
+        color: @color-text-subtitle;
+        font-size: @empty-font-size-common;
+        margin-top: @v-spacing-standard;
+      }
+    }
+
+    &-btn {
+      margin-top: @empty-margin-large;
+
+      &-main,
+      &-sub {
+        margin: 0 @empty-margin-small;
+      }
+    }
+  }
+
+  &-section {
+    text-align: center;
+    margin-top: @empty-margin-large;
+
+    &-image {
+      margin: 0 auto;
+      width: 200 * @rpx;
+      height: 170 * @rpx;
+      background: url(@empty-image-url) no-repeat;
+      background-size: contain;
+    }
+
+    &-text {
+      margin-top: @v-spacing-large;
+
+      &-main {
+        color: @color-text-title;
+        font-size: @empty-font-size-large;
+      }
+
+      &-sub {
+        color: @color-text-subtitle;
+        font-size: @empty-font-size-common;
+        margin-top: @v-spacing-standard;
+      }
+    }
+
+    &-btn {
+      margin-top: @empty-margin-large;
+
+      &-main,
+      &-sub {
+        margin: 0 @empty-margin-small;
+      }
+    }
+  }
+}
