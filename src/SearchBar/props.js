@@ -7,4 +7,5 @@ export const SearchBarDefaultProps = {
   autoFocus: false,
   disabled: false,
   bizIconType: 'AudioOutline',
+  type: 'text',
 };

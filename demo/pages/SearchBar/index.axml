@@ -35,4 +35,12 @@
       onClear="handleVoiceClear"
       onBizIconTap="handleTapVoice"/>
   </demo-block>
+  <demo-block title="支持唤起数字键盘" background="#f5f5f5" padding="0">
+    <search-bar 
+      placeholder="请输入内容" 
+      value="{{numberValue}}" 
+      type="number"
+      onInput="handleNumberInput" 
+      onClear="handleNumberClear"/>
+  </demo-block>
 </view>
