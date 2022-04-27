@@ -46,7 +46,7 @@ export const componentList = [
         name: 'Container',
         nameZN: '容器',
         path: '/pages/Container/index',
-      },  {
+      }, {
         name: 'List',
         nameZN: '列表',
         path: '/pages/List/index',
@@ -221,6 +221,21 @@ export const componentList = [
         nameZN: '安全区',
         path: '/pages/SafeArea/index',
       },
+      {
+        name: 'ImageUpload',
+        nameZN: '图片上传',
+        path: '/pages/ImageUpload/index',
+      },
+      {
+        name: 'VideoUpload',
+        nameZN: '视频上传',
+        path: '/pages/VideoUpload/index',
+      },
+      {
+        name: 'FileUpload',
+        nameZN: '文件上传',
+        path: '/pages/FileUpload/index'
+      }
     ],
   },
 ];

@@ -6,10 +6,15 @@ import { IComponentData } from './props';
 type ControlledMixInParams = {
   propsTriggerChange?: string;
   propsValue?: string;
+  dataValue?: string;
 };
 
 export default (
-  params: ControlledMixInParams = { propsTriggerChange: 'onChange', propsValue: 'value'}
+  params: ControlledMixInParams = {
+    propsTriggerChange: 'onChange',
+    propsValue: 'value',
+    dataValue: 'cValue'
+  }
 ): IUserComponentOptions<
   IComponentData,
   Record<string, any>,
@@ -24,7 +29,7 @@ export default (
   Record<string, unknown>,
   []
 > => {
-  const { propsTriggerChange = 'onChange', propsValue = 'value' } = params;
+  const { propsTriggerChange = 'onChange', propsValue = 'value', dataValue = 'cValue' } = params;
   return {
     onInit() {
       const fieldInfo = getFieldInfo();
@@ -74,7 +79,7 @@ export default (
             }, { formSilent: options?.formSilent })
           } else {
             this.setData({
-              cValue: changedValues[this.fieldName],
+              [dataValue]: changedValues[this.fieldName],
             });
           }
         }

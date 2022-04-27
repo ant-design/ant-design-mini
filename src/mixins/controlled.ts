@@ -10,13 +10,14 @@ import type { IUserComponentOptions } from '@mini-types/alipay';
 type ControlledMixInParams = {
   propsValue?: string;
   propsTriggerChange?: string;
+  dataValue?: string;
   defaultPropsValue?: any;
 };
 
 export default (
   params: ControlledMixInParams = {}
 ): IUserComponentOptions<
-  { cValue: any },
+  Record<string, any>,
   { [prop: string]: any },
   { triggerChange: (v: any) => void },
   Record<string, unknown>,
@@ -25,18 +26,19 @@ export default (
 > => {
   const {
     propsValue = 'value',
+    dataValue='cVaule',
     propsTriggerChange = 'onChange',
     defaultPropsValue = '',
   } = params;
   return {
     data: {
-      cValue: defaultPropsValue,
+      [dataValue]: defaultPropsValue,
     },
 
     didMount() {
       if (propsValue in this.props) {
         this.setData({
-          cValue: this.props[propsValue],
+          [dataValue]: this.props[propsValue],
         });
       }
     },
@@ -45,10 +47,10 @@ export default (
       const value = this.props[propsValue];
       if (
         !equal(prevProps[propsValue], value) &&
-        !equal(this.data.cValue, value)
+        !equal(this.data[dataValue], value)
       ) {
         this.setData({
-          cValue: value,
+          [dataValue]: value,
         });
       }
     },
@@ -58,7 +60,7 @@ export default (
         this.props[propsTriggerChange]?.bind(this)(value, ...args);
         if (!this.props.controlled) {
           this.setData({
-            cValue: value,
+            [dataValue]: value,
           });
         }
       },

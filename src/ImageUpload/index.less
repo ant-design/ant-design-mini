@@ -1,0 +1,87 @@
+@import (reference) "./variable.less";
+
+@imageUploadPrefix: amd-image-upload;
+
+.@{imageUploadPrefix} {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-show {
+    position: relative;
+  }
+
+  &-image,
+  &-demo-image {
+    margin: @image-upload-common-margin;
+    border-radius: @corner-radius-md;
+  }
+
+  &-demo-image-tip {
+    position: absolute;
+    top: @image-upload-size-base;
+    left: @size-1;
+    width: @size-9;
+    height: @image-upload-size-base * 9;
+    background: url(@image-upload-example-tip-url) no-repeat;
+    background-size: cover;
+  }
+
+  &-image-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: @image-upload-common-margin;
+    font-size: @image-upload-size-base * 5;
+    color: @color-fill-grey-inverse;
+    height: @size-5;
+    border-radius: 0 0 @corner-radius-md @corner-radius-md;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.80) 100%);
+  }
+
+  &-image-error {
+    box-sizing: border-box;
+    border: @border-width-standard solid @color-red-1;
+    border-radius: @corner-radius-md;
+  }
+
+  &-close {
+    width: @image-upload-close-tip-width;
+    height: @image-upload-close-tip-height;
+    position: absolute;
+    top: @image-upload-size-base * -1;
+    right: 0;
+    background: url(@image-upload-close-tip-url) no-repeat;
+    background-size: cover;
+  }
+
+  &-add-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: @image-upload-add-image-container-margin;
+    background-color: @color-divider-background;
+    border-radius: @corner-radius-lg;
+  }
+
+  &-loading {
+    position: absolute;
+    margin: @image-upload-common-margin;
+    border-radius: @corner-radius-md;
+    background-color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .amd-loading-spin-icon {
+      padding-top: @v-spacing-standard;
+      width: @image-upload-size-base * 10;
+      height: @image-upload-size-base * 10;
+    }
+
+    .amd-loading-spin-text {
+      font-size: @font-size-content;
+      color: @color-fill-grey-inverse;
+    }
+  }
+}

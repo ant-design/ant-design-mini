@@ -56,7 +56,10 @@
     "pages/test/FormBasic/index",
     "pages/test/CheckboxGroup/index",
     "pages/Checklist/index",
-    "pages/Empty/index"
+    "pages/Empty/index",
+    "pages/ImageUpload/index",
+    "pages/VideoUpload/index",
+    "pages/FileUpload/index"
   ],
   "window": {
     "enableWK": "YES",

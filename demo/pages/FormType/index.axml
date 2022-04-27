@@ -3,6 +3,7 @@
     onValuesChange="handleValuesChange"
     onFinishFailed="handleFinishFailed"
     onFinish="handleSubmit"
+    initialValues="{{initialValues}}"
   >
     <form-item
       label="开关"
@@ -10,11 +11,20 @@
       <switch />
     </form-item>
     <form-item
+      label="图片"
+      name="image"
+      position="vertical"
+    >
+      <image-upload
+        onUpload="handleUpload"
+      />
+    </form-item>
+    <!-- <form-item
       label="复选框"
       name="checkbox">
       <checkbox/>
-    </form-item>
-    <form-item 
+    </form-item> -->
+    <!-- <form-item 
       label="复选框组" 
       position="vertical"
       name="checkboxGroup">
@@ -39,8 +49,8 @@
           单选框2
         </radio-item>
       </radio-group>
-    </form-item>
-    <form-item
+    </form-item> -->
+    <!-- <form-item
       label="步进器"
       name="stepper">
       <stepper />
@@ -49,8 +59,8 @@
       label="选择器"
       name="picker">
       <picker data="{{pickerData}}"  placeholder='请选择'></picker>
-    </form-item>
-    <form-item 
+    </form-item> -->
+    <!-- <form-item 
       label="时间选择" 
       name="datePicker" 
     >
@@ -64,7 +74,7 @@
       <selector 
         items="{{selectorItems}}" 
         multiple />
-    </form-item>
+    </form-item> -->
     <button 
       slot="footer"
       type="primary" 

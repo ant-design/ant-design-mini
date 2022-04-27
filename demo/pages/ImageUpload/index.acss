@@ -1,0 +1,10 @@
+.demo-image-upload-show {
+  padding: 8rpx;
+  background-color: #fff;
+}
+
+.demo-image-upload-title {
+  font-size: 28rpx;
+  padding: 16rpx;
+  height: 32rpx;
+}
