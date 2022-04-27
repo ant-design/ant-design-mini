@@ -20,6 +20,9 @@
   display: flex;
   align-items: center;
 }
+.formItemFieldHorizontal() {
+  text-align: right;
+}
 .@{formPrefix} {
   // 覆盖FormItem布局样式
   &-position {
@@ -32,6 +35,9 @@
       }
       .amd-form-item-label:not(.amd-form-item-label-vertical) {
         .formItemLabelHorizontal();
+      }
+      .amd-form-item-field:not(.amd-form-item-field-vertical) {
+        .formItemFieldHorizontal();
       }
     }
 
@@ -99,5 +105,11 @@
     &:empty {
       display: none;
     }
+  }
+  .amd-radio-item:last-child .amd-list-item-line::after {
+    display: none;
+  }
+  .amd-checkbox-item:last-child .amd-list-item-line::after {
+    display: none;
   }
 }
