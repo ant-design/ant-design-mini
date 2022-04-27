@@ -1,0 +1,21 @@
+<textarea
+  class="amd-textarea  {{className ? className : ''}} {{ disabled? 'amd-textarea-disabled': ''}}"
+  id="{{id ? id : `amdTextarea_${$id}`}}"
+  value="{{cValue}}"
+  name="{{name}}"
+  placeholder="{{placeholder}}"
+  placeholder-style="{{placeholderStyle}}"
+  placeholder-class="{{placeholderClass}}"
+  disabled="{{disabled}}"
+  maxlength="{{maxLength}}"
+  focus="{{autoFocus}}"
+  auto-height="{{autoHeight}}"
+  show-count="{{showCount}}"
+  controlled="{{controlled}}"
+  enableNative="{{enableNative}}"
+  onInput="onChange"
+  onFocus="onFocus"
+  onBlur="onBlur"
+  onConfirm="onConfirm"
+/>
+

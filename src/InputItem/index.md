@@ -38,7 +38,6 @@ toc: false
 | randomNumber | boolean | 否 | false | 当 type 为 number, digit, idcard 数字键盘是否随机排列。 |
 | enableNative | boolean | 否 | - | 是否启用 Native 渲染 |
 | inputCls | string | 否 | - | input 输入框的样式类名 |
-| labelCls | string | 否 | - | label 区域的样式类名 |
 | clear | boolean | 否 | true | 显示清除图标 |
 | controlled | boolean | 否 | false | 是否受控模式 |
 | alwaysSystem | boolean | 否 | false | 是否强制使用系统键盘和 Web-view 创建的 input 元素。为 true 时，confirm-type、confirm-hold 可能失效。 |

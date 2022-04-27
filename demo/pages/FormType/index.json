@@ -15,6 +15,7 @@
     "radio-item": "../../../src/RadioGroup/RadioItem/index",
     "switch": "../../../src/Switch/index",
     "selector": "../../../src/Selector/index",
+    "textarea": "../../../src/TextArea/index",
     "form-group": "../../../src/Form/FormGroup/index"
   }
 }

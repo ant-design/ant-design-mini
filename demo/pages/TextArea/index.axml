@@ -1,0 +1,19 @@
+<demo-block title="基本的输入框组件">
+  <text-area>
+  </text-area>
+</demo-block>
+
+
+<demo-block title="根据内容自动调整高度">
+  <text-area autoHeight="{{true}}">
+  </text-area>
+</demo-block>
+
+
+<demo-block title="禁用状态">
+  <text-area
+    disabled="{{true}}"
+    value="{{value}}"
+    >
+  </text-area>
+</demo-block>
