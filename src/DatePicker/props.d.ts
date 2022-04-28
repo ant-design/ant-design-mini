@@ -6,9 +6,9 @@ export type PickerValue = Date;
  */
 export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
-   * @description 时间格式化显示YYYY-MM-DD
+   * @description 时间格式化显示，例如YYYY-MM-DD
    */
-  format?: string;
+  format: string;
   /**
    * @description 最小值
    * @default 十年前
@@ -49,7 +49,7 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 点击确认回调
    */
-  onOk?: (value: PickerValue) => void;
+  onOk?: (date: PickerValue, dateStr: string, dateArr: number[]) => void;
   /**
    * @description 点击取消回调
    */
@@ -57,7 +57,11 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
-  onPickerChange?: (value: PickerValue, dateArr: number[]) => void;
+  onPickerChange?: (
+    date: PickerValue,
+    dateStr: string,
+    dateArr: number[]
+  ) => void;
   /**
    * @description 精度
    * @default 'day'
@@ -68,7 +72,7 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 选中值的文本显示格式
    */
-  onFormat?: (value: PickerValue, dateArr: number[]) => string;
+  onFormat?: (date: PickerValue, dateStr: string, dateArr: number[]) => string;
   /**
    * @description 切换显示隐藏
    */

@@ -34,13 +34,13 @@ Component({
       //@ts-ignore
       return min ? dayjs(min) : dayjs().subtract(10, 'year');
     },
-  
+
     getMax() {
       const { max } = this.props;
       //@ts-ignore
       return max ? dayjs(max) : dayjs().add(10, 'year');
     },
-  
+
     generateData() {
       const { precision } = this.props;
       const { data } = this.data;
@@ -62,35 +62,39 @@ Component({
         this.setData({ data: newData });
       }
     },
-  
+
     onChange(selectedIndex) {
       this.setData({ currentValue: selectedIndex });
       //@ts-ignore
       this.tempSelectedIndex = selectedIndex;
       this.generateData();
-      const { onPickerChange } = this.props;
+      const { onPickerChange, format } = this.props;
       if (onPickerChange) {
-        onPickerChange(getDateByValue(selectedIndex), selectedIndex);
+        const date = getDateByValue(selectedIndex);
+
+        onPickerChange(date, dayjs(date).format(format), selectedIndex);
       }
     },
-  
+
     onDismiss() {
       const { onDismiss } = this.props;
       if (onDismiss) {
         onDismiss();
       }
     },
-  
+
     onOk(values) {
-      this.triggerChange(getDateByValue(values), values);
+      const { format } = this.props;
+      const date = getDateByValue(values);
+      this.triggerChange(date, dayjs(date).format(format), values);
     },
-  
+
     onFormat(values) {
-      const { onFormat } = this.props;
+      const { onFormat, format } = this.props;
       const { cValue } = this.data;
-      return onFormat.call(this, cValue, values );
+      return onFormat.call(this, cValue, dayjs(cValue).format(format), values);
     },
-  
+
     onTriggerPicker(visible) {
       const { cValue, data } = this.data;
       this.setData({
