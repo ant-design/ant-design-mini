@@ -1,7 +1,7 @@
 {
   "defaultTitle": "TextArea",
   "usingComponents": {
-    "textarea": "../../../src/TextArea1/index",
+    "textarea": "../../../src/TextArea/index",
     "demo-block": "../../components/DemoBlock/index"
   }
 }
