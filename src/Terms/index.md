@@ -9,9 +9,6 @@ toc: false
 
 # Terms 协议
 
-## 注意事项
-- 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `mode` 的值为 `form`。
-
 ## 代码示例
 ### 基本使用
 <code src='../../demo/pages/Terms'></code>
