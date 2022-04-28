@@ -7,14 +7,14 @@ group:
 toc: false
 ---
 
-# Textarea 文本域
+# TextArea 文本域
 通过键盘输入内容，是最基础的表单域包装
 ## 何时使用
 一般用在表单页进行信息的收集
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Textarea'></code>
+<code src='../../demo/pages/TextArea/'></code>
 
 ## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |

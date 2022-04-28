@@ -55,7 +55,7 @@ export enum EComponents {
   TabItem = 'TabItem',
   Tag = 'Tag',
   Terms = 'Terms',
-  Textarea = 'Textarea',
+  TextArea = 'TextArea',
   Tips = 'Tips',
   Title = 'Title',
   VerifyCode = 'VerifyCode',

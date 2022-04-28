@@ -1,6 +1,6 @@
 <textarea
   class="amd-textarea  {{className ? className : ''}} {{ disabled? 'amd-textarea-disabled': ''}}"
-  id="{{id ? id : `amdTextarea_${$id}`}}"
+  id="{{id ? id : `amdTextArea_${$id}`}}"
   value="{{cValue}}"
   name="{{name}}"
   placeholder="{{placeholder}}"

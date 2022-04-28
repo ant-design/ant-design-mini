@@ -2,14 +2,10 @@
   <textarea>
   </textarea>
 </demo-block>
-
-
 <demo-block title="根据内容自动调整高度">
   <textarea autoHeight="{{true}}">
   </textarea>
 </demo-block>
-
-
 <demo-block title="禁用状态">
   <textarea
     disabled="{{true}}"

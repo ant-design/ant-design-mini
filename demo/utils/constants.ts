@@ -97,9 +97,9 @@ export const componentList = [
         path: '/pages/InputItem/index',
       },
       {
-        name: 'Textarea',
+        name: 'TextArea',
         nameZN: '文本域',
-        path: '/pages/Textarea/index',
+        path: '/pages/TextArea/index',
       },
       {
         name: 'Picker',

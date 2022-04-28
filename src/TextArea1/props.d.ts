@@ -37,11 +37,6 @@ export interface ITextAreaItemProps extends IBaseFormItemProps {
    * @description 是否禁用
    */
   disabled?:boolean;
-  
-  /**
-   * @description 获取焦点
-   */
-  autoFocus?:boolean;
 
   /**
    * @description 是否自动增高
