@@ -15,6 +15,11 @@
       <checkbox/>
     </form-item>
     <form-item
+      label="输入框"
+      name="input">
+      <input-item />
+    </form-item>
+    <form-item
       label="文本域"
       position="vertical"
       name="textarea"

@@ -1,4 +1,4 @@
-@import (reference) '../_base/index.less';
+@import (reference) "../_base/index.less";
 
 @formPrefix: amd-form;
 
@@ -11,7 +11,7 @@
   line-height: 48 * @rpx;
 }
 .formItemLabelVertical() {
-  font-size: 30 * @rpx;
+  font-size: 34 * @rpx;
   line-height: 42 * @rpx;
   color: #666;
   margin-bottom: 8 * @rpx;
@@ -51,7 +51,7 @@
     &-asterisk {
       .amd-form-item-label-required .amd-form-item-label-text {
         &::before {
-          content: '*';
+          content: "*";
           position: absolute;
           left: -18 * @rpx;
           font-family: PingFangSC-Regular;
@@ -64,7 +64,7 @@
       .amd-form-item-label-required .amd-form-item-label-text {
         &::after {
           padding-left: 4 * @rpx;
-          content: '(必填)';
+          content: "(必填)";
           display: block;
           left: -18 * @rpx;
           font-family: PingFangSC-Regular;
@@ -77,7 +77,7 @@
       .amd-form-item-label .amd-form-item-label-text {
         &::after {
           padding-left: 4 * @rpx;
-          content: '(选填)';
+          content: "(选填)";
           display: block;
           left: -18 * @rpx;
           font-family: PingFangSC-Regular;

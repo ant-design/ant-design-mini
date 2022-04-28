@@ -4,6 +4,7 @@
     "demo-block": "../../components/DemoBlock/index",
     "form": "../../../src/Form/index",
     "form-item": "../../../src/Form/FormItem/index",
+    "input-item": "../../../src/InputItem/index",
     "button": "../../../src/Button/index",
     "checkbox": "../../../src/Checkbox/index",
     "stepper": "../../../src/Stepper/index",
