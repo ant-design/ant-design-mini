@@ -140,7 +140,7 @@ Component<
     updateErrorInfo(payload) {
       this.setData({ errorInfo: payload });
     },
-    onToggleVisible() {
+    onToggleHelpVisible() {
       this.setData({ helpVisible: !this.data.helpVisible });
     },
     onHelpVisibleChange(visible, type) {

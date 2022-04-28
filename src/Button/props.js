@@ -5,6 +5,5 @@ export const ButtonDefaultProps = {
   inlineSize: 'medium',
   loading: false,
   htmlType: 'button',
-  _submit: undefined,
   fill: 'solid',
 };

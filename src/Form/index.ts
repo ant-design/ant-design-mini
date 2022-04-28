@@ -37,7 +37,7 @@ Component<IComponentData, IComponentProps, IComponentMethods, IComponentExtraThi
 
   didMount() {
     this.store?.setFieldsValue(this.props.initialValues, { formSilent: true });
-    clearFormInfo()
+    clearFormInfo();
   },
 
   didUnmount() {

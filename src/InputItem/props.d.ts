@@ -87,5 +87,13 @@ export interface IInputItemProps extends IBaseFormItemProps {
    * @description 是否启用 Native 渲染，参照原生input enableNative属性说明
    */
   enableNative?:boolean;
+  /**
+  * @description 清除输入内容时触发此回调
+  */
+  onClear?: (v: string) => void;
+  /**
+  * @description 点击键盘完成时触发此回调
+  */
+   onConfirm?: (v: string) => void;
 }
 export declare const InputItemDefaultProps: Partial<IInputItemProps>;

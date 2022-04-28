@@ -51,12 +51,6 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | position | 'horizontal' &verbar;  'vertical' | 否 | 'horizontal' | 布局 |
 | requiredMarkStyle | 'asterisk' &verbar;  'text-required' &verbar;  'text-optional' | 否 | 'asterisk' | 必填选填的标记样式	 |
 
-#### FromGroup
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|:-----:|:-----:|:-----:|----- |
-| header | string | 否 | - | FormGroup 名称 |
-| radius | boolean | 否 | false | FormGroup 形状是否为圆角 |
-
 #### FormItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|:-----:|:-----:|:-----:|----- |
@@ -66,6 +60,30 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | position | 'horizontal' &verbar;  'vertical' | 否 | - | 布局，优先级高于Form的position |
 | arrow | boolean | 否 | false | 表单项右侧箭头 |
 | required | boolean | 否 | false | 是否必填，label展示必填标识 |
+| initialValue | any| 否 | - | 表单初始值 |
+| rules | [Rule](#rule)[] | 否 | [] | 校验规则，设置字段的校验逻辑。点击[此处](#rule)查看示例 |
+| validateFirst | boolean | 否 | false | 当某一规则校验不通过时，是否停止剩下的规则的校验 |
+| dependencies | string[] | 否 | [] | 当字段间存在依赖关系时使用。如果一个字段设置了 dependencies 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验 |
+
+#### FromGroup
+| 属性 | 类型 | 必填 | 默认值 | 说明 |
+| -----|:-----:|:-----:|:-----:|----- |
+| header | string | 否 | - | FormGroup 名称 |
+| radius | boolean | 否 | false | FormGroup 形状是否为圆角 |
+
+#### Rule
+
+| 名称 | 说明 | 类型 | 
+| -----|:-----:|:-----:|
+| message | string | 错误信息，不设置时会自动生成 | 
+| required | boolean | 是否为必填字段 | 
+| pattern | RegExp | 正则表达式匹配 | 
+| type | string | 类型，常见有 string &verbar; number &verbar; boolean &verbar; url &verbar; email。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | 
+| enum | any[] | 是否匹配枚举中的值（需要将 type 设置为 enum） | 
+| len | number | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | 
+| max | number | 必须设置 type：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | 
+| min | number | 必须设置 type：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | 
+| whitespace | boolean | 如果字段仅包含空格则校验不通过，只在 type: 'string' 时生效 | 
 
 ## 事件
 
@@ -158,7 +176,17 @@ table th:first-of-type { width: 180px; }
 .__dumi-default-layout-content article table:nth-of-type(7) th:nth-of-type(2) {
     width: 180px;
 }
-.__dumi-default-mobile-previewer:nth-of-type(2)::after,.__dumi-default-mobile-previewer:nth-of-type(4)::after,.__dumi-default-mobile-previewer:nth-of-type(6)::after,.__dumi-default-mobile-previewer:nth-of-type(8)::after {
+#rule ~ .__dumi-default-table th:nth-of-type(1) {
+    width: 20%;
+}
+#rule ~ .__dumi-default-table th:nth-of-type(2) {
+    width: 20%;
+}
+.__dumi-default-mobile-previewer:nth-of-type(2)::after,
+.__dumi-default-mobile-previewer:nth-of-type(4)::after,
+.__dumi-default-mobile-previewer:nth-of-type(6)::after,
+.__dumi-default-mobile-previewer:nth-of-type(8)::after,
+.__dumi-default-mobile-previewer:nth-of-type(10)::after {
     border-bottom: none!important;
 }
 </style> 

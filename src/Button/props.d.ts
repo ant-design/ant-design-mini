@@ -74,5 +74,9 @@ export interface IButtonProps extends IBaseProps {
    * @description 当 openType 为 getAuthorize 时有效。
    */
   fill?: 'outline' | 'solid' | 'none';
+  /**
+   * @description 表单 uid，当htmlType = 'submit' 且页面有多个表单时必传
+   */
+  form?: string;
 }
 export declare const ButtonDefaultProps: Partial<IButtonProps>;

@@ -43,8 +43,7 @@ toc: false
 | loading | boolean | 否 | false | 是否加载中，加载中时不可点击 |
 | loadingText | string | 否 | - | 加载中时的文字 |
 | htmlType | 'button' &verbar; 'submit' &verbar; 'reset' | 否 | 'button' | 按钮原生类型，在表单提交时有效 |
-| mode | string | 否 | - | 结合表单使用时，设置 mode 值为 'form' |
-| form | string | 否 | - | 结合表单使用时，需要设置为所在表单组件的 form 值 |
+| form | string | 否 | - | 表单 uid，当htmlType = 'submit' 且页面有多个表单时必传 |
 | className | string | 否 | - | 类名 |
 
 ## 事件

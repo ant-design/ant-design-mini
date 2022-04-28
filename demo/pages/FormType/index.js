@@ -22,5 +22,5 @@ Page({
   handleSubmit(values) {
     console.log('values',  values)
     my.alert({ title: '提交', content: JSON.stringify(values) });
-  }
+  },
 });

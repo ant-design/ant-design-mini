@@ -16,7 +16,7 @@
           onVisibleChange="onHelpVisibleChange"
           transparentMask>
           <view slot="items" class="amd-form-item-label-help-content">{{help}}</view>
-          <icon type="QuestionCircleOutline" size="x-small" onTap="onToggleVisible"/>
+          <icon type="QuestionCircleOutline" size="x-small" onTap="onToggleHelpVisible"/>
         </popover>
       </view>
       <!--field-->

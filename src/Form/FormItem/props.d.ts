@@ -21,7 +21,7 @@ export interface IComponentMethods {
   onErrorInfoChange(formErrorInfo, options): void;
   updateErrorInfo(payload): void;
   setValidateOptions(): void
-  onToggleVisible(): void;
+  onToggleHelpVisible(): void;
   onHelpVisibleChange(visible:boolean, type: string): void;
 }
 
