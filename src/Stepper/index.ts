@@ -1,11 +1,10 @@
 import { StepperDefaultProps,  IStepperData } from './props';
 import computed from '../mixins/computed';
-import controlled from '../mixins/controlled';
 import  formed from '../Form/mixin'
 import { upStep, downStep } from './utils';
 
 Component({
-  mixins: [computed(), controlled(), formed()],
+  mixins: [computed(), formed()],
   props: StepperDefaultProps,
   data: {
     confirm: false,

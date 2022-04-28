@@ -39,6 +39,6 @@ Page({
   },
 
   formatTime(value, column) {
-    return column.map(c => c.label).join('')
+    return column.map(c => c && c.label).join('')
   },
 });

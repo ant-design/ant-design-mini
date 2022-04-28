@@ -1,22 +1,20 @@
 import { PickerDefaultProps } from './props';
-import controlled from '../mixins/controlled';
 import computed from '../mixins/computed';
 import formed from '../Form/mixin';
-import { getMatchedItemByValue, getMatchedItemByIndex } from './utils';
+import { getMatchedItemByValue, getMatchedItemByIndex, getStrictMatchedItemByValue } from './utils';
 
 Component({
   mixins: [
-    controlled({
-      defaultPropsValue: [],
-      propsTriggerChange: 'onOk',
-    }),
     formed({
+      defaultPropsValue: null,
       propsTriggerChange: 'onOk',
     }),
     computed(),
   ],
 
   props: PickerDefaultProps,
+
+  single: false,
 
   data: {
     visible: false,
@@ -58,12 +56,8 @@ Component({
       const { onFormat } = this.props;
       const { cValue, columns } = this.data;
       let formatValue = '';
-      if (
-        cValue
-      ) {
-        const { matchedColumn } =  getMatchedItemByValue(columns, cValue, this.single)
-        formatValue = onFormat(cValue, matchedColumn, this.props.data);
-      }
+      const { matchedColumn } =  getStrictMatchedItemByValue(columns, cValue, this.single)
+      formatValue = onFormat(cValue, matchedColumn, this.props.data);
       return formatValue
     },
 

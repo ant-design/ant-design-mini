@@ -1,6 +1,6 @@
 <view class="price">
   <input class="price-input" value="{{value.number || number}}" onInput="onNumberChange"/>
-  <picker value="{{value.currency || currency}}" onChange="onCurrencyChange"  data="{{array}}">
+  <picker value="{{value.currency || currency}}" onOk="onCurrencyChange"  data="{{array}}">
     <text class="price-currency">{{value.currency || currency }}</text>
   </picker>
 </view>

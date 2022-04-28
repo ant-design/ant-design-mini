@@ -22,3 +22,10 @@ export interface IComponentExtraThis {
   onBindChangeFormFieldValue(): void;
   onBindSubmit(): void;
 }
+
+export type FormMixInParams = {
+  propsTriggerChange?: string;
+  propsValue?: string;
+  defaultPropsValue?: any;
+  dataValue?: string
+};

@@ -1,17 +1,13 @@
 import { DatePickerDefaultProps } from './props';
 import dayjs from 'dayjs';
-import controlled from '../mixins/controlled';
 import formed from '../Form/mixin';
 import equal from 'fast-deep-equal';
 import { getRangeData, getDateByValue, getValueByDate } from './util';
 
 Component({
   mixins: [
-    controlled({
-      defaultPropsValue: null,
-      propsTriggerChange: 'onOk',
-    }),
     formed({
+      defaultPropsValue: null,
       propsTriggerChange: 'onOk',
     }),
   ],

@@ -4,6 +4,29 @@ function getColumnValue(columnItem)  {
   return columnItem
 }
 
+export  function getStrictMatchedItemByValue(columns, value,  single)  {
+  if (single) {
+    value  = [value]
+  }
+  const matchedValues = []
+  const matchedColumn = []
+  let index = null;
+  for (let i = 0; i < columns.length; i++) {
+    const column = columns[i];
+    const compareValue = value[i]
+    index  = column.findIndex(c => {
+      return c === compareValue || c.value === compareValue
+    })
+    matchedColumn[i]  = column[index]
+    matchedValues[i] = getColumnValue(column[index])
+  }
+  return { 
+    matchedColumn: single? matchedColumn?.[0]: matchedColumn,
+    matchedValues: single? matchedValues?.[0]: matchedValues
+  }
+}
+
+// 如果找不到value对应的item项目，返回第一项
 export function getMatchedItemByValue(columns, value, single) {
   if (single) {
     value  = [value]

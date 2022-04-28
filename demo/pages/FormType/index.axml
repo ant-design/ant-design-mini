@@ -30,11 +30,11 @@
       label="复选框组" 
       position="vertical"
       name="checkboxGroup">
-      <checkbox-group uid="uid1">
-        <checkbox-item  value="{{'复选框1'}}" uid="uid1">
+      <checkbox-group>
+        <checkbox-item  value="{{'复选框1'}}">
           复选框1
         </checkbox-item>
-        <checkbox-item  value="{{'复选框2'}}" uid="uid1">
+        <checkbox-item  value="{{'复选框2'}}">
           复选框2
         </checkbox-item>
       </checkbox-group>
@@ -43,11 +43,11 @@
       label="单选框组" 
       position="vertical"
       name="radioGroup">
-      <radio-group uid="uid2">
-        <radio-item value="{{'单选框1'}}" uid="uid2">
+      <radio-group>
+        <radio-item value="{{'单选框1'}}">
           单选框1
         </radio-item>
-        <radio-item  value="{{'单选框2'}}" uid="uid2">
+        <radio-item  value="{{'单选框2'}}">
           单选框2
         </radio-item>
       </radio-group>

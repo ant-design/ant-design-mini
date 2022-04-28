@@ -3,8 +3,8 @@ export const PickerDefaultProps = {
   okText: '确定',
   dismissText: '取消',
   disabled: false,
-  value:  [],
-  data: [[]],
+  value:  '',
+  data: [],
   onFormat: (value, column) => { 
     if  (column instanceof Array) {
       return  column.map(c  => c  && c.label || value ).join('-')

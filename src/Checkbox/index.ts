@@ -1,5 +1,4 @@
 import { CheckboxDefaultProps } from './props';
-import controlled from '../mixins/controlled';
 import formed from '../Form/mixin';
 import { store } from '../CheckboxGroup/context';
 
@@ -9,12 +8,9 @@ Component({
     _disabled: false,
   },
   mixins: [
-    controlled({
-      propsValue: 'checked',
-      defaultPropsValue: false,
-    }),
     formed({
       propsValue: 'checked',
+      defaultPropsValue: false,
     }),
   ],
   didMount() {

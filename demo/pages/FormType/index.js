@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 Page({
   data: {
-    pickerData: [['杭州', '宁波', '上海', '苏州']],
+    pickerData: ['杭州', '宁波', '上海', '苏州'],
     selectorItems: [
       {
         text: '选项一',

@@ -1,12 +1,13 @@
 import { CheckboxGroupDefaultProps } from './props';
 import equal from 'fast-deep-equal';
 import { store } from './context';
-import controlled from '../mixins/controlled';
 import formed from '../Form/mixin';
 
 Component({
   props: CheckboxGroupDefaultProps,
-  mixins: [controlled({ defaultPropsValue: [] }), formed()],
+  mixins: [formed({
+    defaultPropsValue: []
+  })],
   didMount() {
     const { uid, value, disabled } = this.props;
     const getGroupPropsVal = (key: string) => {

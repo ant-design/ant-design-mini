@@ -1,14 +1,12 @@
 import { SwitchDefaultProps } from './props';
-import controlled from '../mixins/controlled';
 import formed from '../Form/mixin';
 
 Component({
   props: SwitchDefaultProps,
-  mixins: [controlled({
+  mixins: [formed({
     propsValue: 'checked',
     defaultPropsValue: false
-  }), formed({
-    propsValue: 'checked',
+
   })],
   methods: {
     onChange() {

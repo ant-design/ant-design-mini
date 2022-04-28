@@ -1,5 +1,4 @@
 import { SelectorDefaultProps } from './props';
-import controlled from '../mixins/controlled';
 import formed from '../Form/mixin';
 
 const getFixedValue = (value, multiple) => {
@@ -14,7 +13,9 @@ const getFixedValue = (value, multiple) => {
 };
 
 Component({
-  mixins: [controlled({ defaultPropsValue: [] }), formed()],
+  mixins: [formed({
+    defaultPropsValue: []
+  })],
   props: SelectorDefaultProps,
   data: {},
   methods: {

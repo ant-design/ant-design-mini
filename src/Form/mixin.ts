@@ -1,21 +1,23 @@
 import type { IUserComponentOptions } from '@mini-types/alipay';
 import { getFieldInfo, clearFieldInfo, getFormInfo } from './cache';
 import formStoreFactory, { FormStore } from './store';
-import { IComponentData } from './props';
-
-type ControlledMixInParams = {
-  propsTriggerChange?: string;
-  propsValue?: string;
-};
+import { IComponentData, FormMixInParams } from './props';
+import equal from 'fast-deep-equal';
 
 export default (
-  params: ControlledMixInParams = { propsTriggerChange: 'onChange', propsValue: 'value'}
+  params: FormMixInParams = {
+    propsTriggerChange: 'onChange',
+    propsValue: 'value',
+    defaultPropsValue: '',
+    dataValue:  'cValue'
+  }
 ): IUserComponentOptions<
   IComponentData,
   Record<string, any>,
   {
     onChangeFormFieldValue(changedValues,  allValues,  options): void;
     defineOnchange(): void;
+    triggerChange(v: any): void;
   },
   {
     store: FormStore;
@@ -24,8 +26,16 @@ export default (
   Record<string, unknown>,
   []
 > => {
-  const { propsTriggerChange = 'onChange', propsValue = 'value' } = params;
+  const {
+    propsTriggerChange = 'onChange',
+    propsValue = 'value',
+    defaultPropsValue = '',
+    dataValue  = 'cValue'
+   } = params;
   return {
+    data: {
+      [dataValue]: defaultPropsValue,
+    },
     onInit() {
       const fieldInfo = getFieldInfo();
       if (fieldInfo) {
@@ -43,6 +53,28 @@ export default (
         clearFieldInfo()
       }
     },
+
+    didMount() {
+      if (propsValue in this.props) {
+        console.log('11')
+        this.setData({
+          [dataValue]: this.props[propsValue],
+        });
+      }
+    },
+
+    didUpdate(prevProps) {
+      const value = this.props[propsValue];
+      if (
+        !equal(prevProps[propsValue], value) &&
+        !equal(this.data[dataValue], value)
+      ) {
+        this.setData({
+          [dataValue]: value,
+        });
+      }
+    },
+
     methods: {
       defineOnchange() {
         this._onChange = this.props[propsTriggerChange];
@@ -50,6 +82,7 @@ export default (
           get: () => {
             return (v, ...args) => {
               if (this.fieldName) {
+                console.log('propsTriggerChange', propsTriggerChange)
                 this.store.setFieldsValue({
                   [this.fieldName]: v,
                 });
@@ -74,9 +107,18 @@ export default (
             }, { formSilent: options?.formSilent })
           } else {
             this.setData({
-              cValue: changedValues[this.fieldName],
+              [dataValue]: changedValues[this.fieldName],
             });
           }
+        }
+      },
+
+      triggerChange(value, ...args) {
+        this.props[propsTriggerChange]?.bind(this)(value, ...args);
+        if (!this.props.controlled) {
+          this.setData({
+            [dataValue]: value,
+          });
         }
       },
     },

@@ -1,11 +1,10 @@
 import { RadioGroupDefaultProps } from './props';
 import { componentContext, componentDisabled, componentValue } from './context';
-import controlled from '../mixins/controlled';
 import formed from '../Form/mixin';
 
 Component({
   props: RadioGroupDefaultProps,
-  mixins: [controlled(), formed()],
+  mixins: [formed()],
   didMount() {
     const { uid, value, disabled } = this.props;
     // 用于触发 item.checked 更新

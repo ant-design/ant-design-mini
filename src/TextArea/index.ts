@@ -1,9 +1,8 @@
 import { TextAreaDefaultProps } from './props';
-import controlled from '../mixins/controlled';
 import formed from '../Form/mixin';
 
 Component({
-  mixins: [controlled(), formed()],
+  mixins: [formed()],
   props: TextAreaDefaultProps,
   data: {
   },

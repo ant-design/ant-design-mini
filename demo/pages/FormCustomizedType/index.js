@@ -15,6 +15,9 @@ Page({
   },
   onFinish() {
     const values = this.formRef.getFieldsValue();
+    my.alert({
+      content: JSON.stringify(values.money, null, 2)
+    })
     console.log('values', values);
   },
   onChangeField() {
