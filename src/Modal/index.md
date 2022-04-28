@@ -35,7 +35,7 @@ toc: false
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onButtonTap | 点击 Modal 组件内部按钮，触发回调 | (type: 'marin' | 'addon' ) => void |
+| onButtonTap | 点击 Modal 组件内部按钮，触发回调 | (type: 'main' \| 'addon' ) => void |
 | onClose | 点击 close 图标触发回调 | () => void |
 
 ## 插槽
