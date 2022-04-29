@@ -32,6 +32,7 @@
     "pages/Filter/index",
     "pages/SearchBar/index",
     "pages/Popup/index",
+    "pages/Rate/index",
     "pages/Result/index",
     "pages/Collapse/index",
     "pages/CollapseCustom/index",

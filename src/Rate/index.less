@@ -1,0 +1,33 @@
+@import (reference) "../Modal/variable.less";
+@import "../style//mixins/hairline.less";
+
+@collapsePrefix: amd-rate;
+
+.@{collapsePrefix} {
+  display: inline-flex;
+
+  &-box {
+    position: relative;
+  }
+
+  &-star {
+    padding: 48 * @rpx / 8;
+    // line-height: 48 * @rpx;
+    // font-size: 48 * @rpx;
+    color: #ccc;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    &-half {
+      padding-right: 0;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &-readonly {
+    }
+  }
+}

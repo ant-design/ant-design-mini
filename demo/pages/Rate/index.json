@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Rate",
+  "usingComponents": {
+    "rate": "../../../src/Rate/index",
+    "demo-block": "../../components/DemoBlock/index",
+    "dialog": "antd-mini/es/Dialog/index"
+  }
+}

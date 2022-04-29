@@ -1,0 +1,78 @@
+<view>
+  <dialog
+    content="{{`改变值为:${demo7.value}`}}"
+    buttonText="{{['我知道了']}}"
+    visible="{{visible}}"
+    onButtonTap="handleClose"
+    onClose="handleClose">
+  </dialog>
+  <demo-block title="基础用法">
+    <rate value="{{demo1.value}}">
+    </rate>
+  </demo-block>
+  <demo-block title="调节大小">
+      <view>
+        <rate 
+        value="{{demo2.value}}"
+        inlineSize="x-small"
+        >
+        </rate>
+      </view>
+      <view>
+        <rate 
+          value="{{demo2.value}}"
+          inlineSize="small"
+          >
+        </rate>
+      </view>
+      <view>
+        <rate 
+          value="{{demo2.value}}"
+          inlineSize="large"
+          >
+        </rate>
+      </view>
+  </demo-block>
+  <demo-block title="开启半选">
+    <rate 
+    allowHalf="{{demo3.allowHalf}}"
+    value="{{demo3.value}}"
+    >
+  </rate>
+  </demo-block>
+  <demo-block title="最大值">
+    <rate 
+    value="{{demo4.value}}"
+    count="{{demo4.count}}"
+    >
+    </rate>
+  </demo-block>
+  <demo-block title="只读">
+    <rate 
+    readOnly="{{demo5.readOnly}}"
+    value="{{demo5.value}}"
+    count="{{demo5.count}}"
+    >
+    </rate>
+  </demo-block>
+  <demo-block title="自定义图标颜色">
+    <rate 
+    value="{{demo6.value}}"
+    iconType="{{demo6.iconType}}"
+    activeColor="{{demo6.activeColor}}"
+    >
+    </rate>
+  </demo-block>
+  <demo-block title="全功能">
+    <rate 
+    readOnly="{{demo7.readOnly}}"
+    allowClear="{{demo7.allowClear}}"
+    allowHalf="{{demo7.allowHalf}}"
+    iconType="{{demo7.iconType}}"
+    activeColor="{{demo7.activeColor}}"
+    value="{{demo7.value}}"
+    count="{{demo7.count}}"
+    onChange="onChange">
+    </rate>
+  </demo-block>
+</view>

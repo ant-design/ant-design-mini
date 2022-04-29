@@ -127,6 +127,11 @@ export const componentList = [
         path: '/pages/Switch/index',
       },
       {
+        name: 'Rate',
+        nameZN: '评分',
+        path: '/pages/Rate/index',
+      },
+      {
         name: 'Terms',
         nameZN: '协议',
         path: '/pages/Terms/index',

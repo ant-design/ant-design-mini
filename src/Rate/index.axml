@@ -1,0 +1,12 @@
+<view class="amd-rate {{className ? className : ''}}">
+    <view a:for="{{count}}" a:for-item="v" a:for-index="index">
+        <view  class="amd-rate-box">
+            <view style="{{activeColor && currentValue >= index + 0.5 ? `color: ${activeColor};` : ''}}" a:if="{{allowHalf}}" data-value="{{index + 0.5}}" onTap="clickHandle" class="amd-rate-star {{allowHalf?'amd-rate-star-half':''}} {{readOnly?'amd-rate-star-readonly':''}}">
+                <amd-icon size="{{inlineSize}}" class="amd-input-item-clear-icon" type="{{iconType}}" ></amd-icon>
+            </view>
+            <view style="{{activeColor && currentValue >= index + 1 ? `color: ${activeColor};` : ''}}" data-value="{{index + 1}}" onTap="clickHandle" class="amd-rate-star {{readOnly?'amd-rate-star-readonly':''}}">
+                <amd-icon size="{{inlineSize}}" class="amd-input-item-clear-icon" type="{{iconType}}" ></amd-icon>
+            </view>
+        </view>
+    </view>
+</view>
