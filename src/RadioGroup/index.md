@@ -27,7 +27,7 @@ Radio 所有选项默认可见，方便用户在比较中选择，因此选项�
 | -----|-----|-----|-----|----- |
 | value | string | 否 | - | RadioGroup 的值，决定子元素是否勾选 |
 | radius | boolean | 否 | false | 是否带圆角 |
-| uid | string | 否 | - | 当页面有多个RadioGroup时需传入，`必须全局唯一`，与内部的 RadioItem 组件的 uid 一致 |
+| uid | string | 否 | - | 当页面有多个RadioGroup时需传入，`必须页面唯一`，与内部的 RadioItem 组件的 uid 一致 |
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
 
@@ -37,7 +37,7 @@ Radio 所有选项默认可见，方便用户在比较中选择，因此选项�
 | value | any | 否 | - | Radio 携带的 value 值, 在原生 form 表单提交的时候有用；在 RadioGroup 时亦有用 |
 | disabled | boolean | 否 | false | 是否禁用 |
 | className | string | 否 | - | 类名 |
-| uid | string | 否 | - | 当页面有多个RadioGroup时需传入，`必须全局唯一`，需与外部的 RadioGroup 组件的 uid 一致 |
+| uid | string | 否 | - | 当页面有多个RadioGroup时需传入，`必须页面唯一`，需与外部的 RadioGroup 组件的 uid 一致 |
 
 ## 事件
 #### RadioGroup

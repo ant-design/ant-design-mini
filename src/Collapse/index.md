@@ -42,7 +42,7 @@ toc: false
 | -----|-----|-----|-----|----- |
 | title | string | 否 | - | 标题栏内容 |
 | name | string | 是 | - | 标识，必须唯一 |
-| uid | string | 否 | - | 当页面有多个Collapse时需传入，`必须页面唯一` ，与外部的 CollapseItem 组件的 uid 一致 |
+| uid | string | 否 | - | 当页面有多个Collapse时需传入，`必须页面唯一` ，与外部的 Collapse 组件的 uid 一致 |
 | className | string | 否 | - | 类名 |
 
 ## 事件
@@ -61,20 +61,14 @@ toc: false
 #### Collapse
 | 类名 | 说明 |
 | -----|-----|
-| amd-avatar | 整体样式 |
-| amd-avatar-src | 图片样式 |
-| amd-avatar-content | 头像描述样式 |
-| amd-avatar-name | name 样式 |
-| amd-avatar-desc | desc 样式 |
+| amd-collapse | 整体样式 |
 
 #### CollapseItem
 | 类名 | 说明 |
 | -----|-----|
-| amd-avatar | 整体样式 |
-| amd-avatar-src | 图片样式 |
-| amd-avatar-content | 头像描述样式 |
-| amd-avatar-name | name 样式 |
-| amd-avatar-desc | desc 样式 |
+| amd-collapse-item | 整体样式 |
+| amd-collapse-item-title | 标题样式 |
+| amd-collapse-item-content | 内容样式 |
 
 <style> 
 table th:first-of-type { width: 180px; } 

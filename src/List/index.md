@@ -32,7 +32,7 @@ toc: false
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | image | string | 否 | - | 左侧图片 |
-| imageSize |  'small' | 'medium' | 'large' | 否 | 'small' | 左侧图片大小 |
+| imageSize |  'small'  &verbar; 'medium'  &verbar; 'large' | 否 | 'small' | 左侧图片大小 |
 | arrow | 'right' &verbar; 'up' &verbar; 'down' | 否 | - | 箭头方向，不传表示没有箭头 |
 | title | string | 否 | - | 标题信息 |
 | brief | string | 否 | - | 第二行信息 |

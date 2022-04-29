@@ -21,9 +21,9 @@ toc: false
 #### CheckboxGroup
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| value | string[] | 否 | - | CheckboxGroup 的值，决定子元素是否勾选 |
+| value | string[] | 否 | [] | CheckboxGroup 的值，决定子元素是否勾选 |
 | radius | boolean | 否 | false | 是否带圆角 |
-| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`页面内uid必须唯一`，与内部的 CheckboxItem/Checkbox 组件的 uid 一致 |
+| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与内部的 CheckboxItem/Checkbox 组件的 uid 一致 |
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
 
@@ -31,7 +31,7 @@ toc: false
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| checked | boolean | 否 | - | checkbox 是否选中 |
+| checked | boolean | 否 | - | 是否选中 |
 | disabled | boolean | 否 | false | 是否禁用 |
 | color | string | 否 | false | checkbox 的颜色，同 CSS 色值 |
 | value | string | 否 | - | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用；在 CheckboxGroup 时亦有用 |
@@ -39,7 +39,7 @@ toc: false
 | checkedIcon | string | 否 | - | 自定义选中状态的图标，支持Icon type或图片路径 |
 | disabledIcon | string | 否 | - | 自定义禁用状态的图标，支持Icon type或图片路径 |
 | disabledCheckedIcon | string | 否 | - | 自定义禁用选中状态的图标，支持Icon type或图片路径 |
-| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`页面内uid必须唯一`，与外部的 Checkboxgroup 组件的 uid 一致 |
+| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与外部的 Checkboxgroup 组件的 uid 一致 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 

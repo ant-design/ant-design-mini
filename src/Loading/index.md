@@ -39,10 +39,7 @@ toc: false
 | indicator | 自定义加载中的指示器，type 为 'spin' 时生效 |
 | text | 自定义text，type 为 'spin' 时生效 |
 
-### CSS 变量 
 
-| CSS 变量名称 | 说明 |
-| -----|----- |
 ### 样式类 
 以下样式类只在对应type下才会被使用
 

@@ -57,7 +57,7 @@ toc: false
 | amd-popup-left | 内容样式 |
 | amd-popup-right | 内容样式 |
 | amd-popup-center | 内容样式 |
-| amd-popup-close-container | 关闭图标区域样式 |
+| amd-popup-close-content | 关闭图标区域样式 |
 | amd-popup-close-container | 关闭图标样式 |
 
 

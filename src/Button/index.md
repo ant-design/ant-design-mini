@@ -35,16 +35,16 @@ toc: false
 | type | 'default' &verbar; 'primary' &verbar; 'warn' &verbar; 'danger' &verbar; 'success' &verbar; 'light' | 否 | 'default' | 按钮类型 default=辅助按钮<br> primary=品牌色按钮<br>  warn=警示按钮<br>  danger=危险按钮<br>  success=成功按钮<br>  light=弱按钮 |
 | fill | 'outline' &verbar; 'solid' &verbar; 'none' | 否 | 'solid' | 填充样式 |
 | disabled | boolean | 否 | false | 是否禁用 |
-| activeClassName | string | 否 | - | 按下时的类名 |
 | subText | string | 否 | - | 辅助文字，显示在第二行 |
 | inline | boolean | 否 | false | 内联，不撑满父级宽度 |
 | inlineSize | 'small' &verbar; 'medium' &verbar; 'large'  &verbar; 'x-large' | 否 | 'medium' | 内联尺寸 |
-| icon | string | 否 | - | 按钮左侧图标 |
+| icon | string | 否 | - | 按钮左侧图标，支持[Icon](./icon#代码示例)和图片路径 |
 | loading | boolean | 否 | false | 是否加载中，加载中时不可点击 |
 | loadingText | string | 否 | - | 加载中时的文字 |
 | htmlType | 'button' &verbar; 'submit' &verbar; 'reset' | 否 | 'button' | 按钮原生类型，在表单提交时有效 |
 | form | string | 否 | - | 表单 uid，当htmlType = 'submit' 且页面有多个表单时必传 |
 | className | string | 否 | - | 类名 |
+| activeClassName | string | 否 | - | 按下时的类名 |
 
 ## 事件
 

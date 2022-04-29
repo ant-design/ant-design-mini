@@ -25,10 +25,10 @@ toc: false
 ## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| autoClose | boolean | 否 | false | 点击按钮是是否会自动收起 |
-| disabled | boolean | 否 | false | 是否禁止操作 |
 | left | { text: string, type: 'default' &verbar; 'primary' &verbar; 'danger'; className: string } [] | 否 | - | 右滑漏出左侧操作区 |
 | right | { text: string, type: 'default' &verbar; 'primary' &verbar; 'danger'; className: string }[] | 否 | - | 左滑漏出右侧操作区 |
+| autoClose | boolean | 否 | false | 点击按钮是是否会自动收起 |
+| disabled | boolean | 否 | false | 是否禁止操作 |
 | className | string | 否 | - | 类名 |
 
 ## 事件

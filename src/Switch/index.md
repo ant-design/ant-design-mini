@@ -33,7 +33,7 @@ toc: false
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 点击 switch  ，触发此回调 | ( e: boolean ) => void  |
+| onChange | 点击 switch  ，触发此回调 | ( checked: boolean ) => void  |
 
 
 ## 插槽
