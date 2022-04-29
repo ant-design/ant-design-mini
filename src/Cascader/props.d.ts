@@ -6,11 +6,14 @@ import { IBaseProps } from '../_base';
  * @description 级联选择
  */
 
-export interface Option {
-  value?: any;
-  label?: any;
+type Option = {
+  value?: string | number;
+  label?: string | number;
   children?: Option[];
-  disabled?: boolean
+  disabled?: boolean,
+  leaf?: boolean;
+  level?: number;
+  [key: PropertyKey]: any;
 }
 
 export interface ICascaderProps extends IBaseProps {
@@ -20,9 +23,14 @@ export interface ICascaderProps extends IBaseProps {
   */
   visible: boolean;
   /**
+  * @description 是否开启异步加载
+  * @default false
+  */
+  lazy: boolean;
+  /**
   * @description 对话框标题
   */
-  title?: String;
+  title?: string;
   /**
   * @description 对话框按钮排列方向
   */
@@ -35,7 +43,7 @@ export interface ICascaderProps extends IBaseProps {
   /**
   * @description 选项
   */
-  options?: Omit<Option, 'children' | 'disabled'>[][];
+  options?: Option[][];
   /**
   * @description 数据值
   * @default []
@@ -60,10 +68,14 @@ export interface ICascaderProps extends IBaseProps {
   /**
   * @description 子配置
   */
-  onChange?: Function;
+  onChange?: (item: Option, items: Array<Option>) => void;
   /**
   * @description 关闭事件
   */
-  onClose?: Function;
+  onClose?: () => void;
+  /**
+  * @description 异步请求
+  */
+  onLazyLoad?: (node: Option, resolve: any) => void;
 }
 export declare const CascaderDefaultProps: Partial<ICascaderProps>;
