@@ -1,8 +1,8 @@
 Page({
   data: {
     isCascaderClosableShow: false,
-    areaValue: ['1112', '11121','111213'],
-    areaName: ['湖南', '湖南1','湖南13'],
+    areaValue: ['1112', '11121', '111213'],
+    areaName: ['湖南', '湖南1', '湖南13'],
     confirmIcon: 'HeartOutline',
     areaOptions: [
       {
@@ -82,7 +82,6 @@ Page({
     });
   },
   handleChange(e, list) {
-    console.log(e, list,'e, list')
     this.setData({
       areaValue: list.map(i => i.value),
       areaName: list.map(i => i.title)
@@ -93,7 +92,6 @@ Page({
   },
   onLazyLoad(node, resolve) {
     setTimeout(() => {
-      console.log(node,'node.level')
       resolve([1, 2, 3].map(num => {
         return {
           value: `${node.value}${num}`,
