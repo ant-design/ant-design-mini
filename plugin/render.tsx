@@ -39,7 +39,7 @@ export default function (props: {
   }, [page, ref]);
 
   return <div id="lyra-container" style={{
-    width: 395,
+    width: 370,
     height: 740
   }}></div>
 };
