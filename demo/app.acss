@@ -4,7 +4,8 @@ page {
 .btn-list {
   display: flex;
   flex-direction: column;
-  .amd-button {
-    margin-bottom: 16rpx;
-  }
+  
+}
+.btn-list .amd-button {
+  margin-bottom: 16rpx;
 }
