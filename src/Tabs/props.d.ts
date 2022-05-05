@@ -64,5 +64,15 @@ export interface ITabsProps extends IBaseProps {
    * @default 45
    */
   touchAngle?: number;
+  /**
+   * @description 内部 swiper 组件属性 swipe-ratio。用户手势时触发切换的滑动距离阈值，当滑动距离超过阈值时进行 `swiper-item` 切换。数值越小则需要用户手势移动距离越大才能触发切换。
+   * @default 0.2
+   */
+  swipeRatio?: number
+  /**
+   * @description 内部 swiper 组件属性 swipe-speed。计算用户手势时产生的滑动距离，数值越小则需要用户手势相同位移下 `swiper-item` 位移越小
+   * @default 0.05
+   */
+  swipeSpeed?: number
 }
 export declare const TabsDefaultProps: Partial<ITabsProps>;
