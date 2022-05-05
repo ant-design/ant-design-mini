@@ -15,7 +15,8 @@ export  function getStrictMatchedItemByValue(columns, value,  single)  {
     const column = columns[i];
     const compareValue = value[i]
     index  = column.findIndex(c => {
-      return c === compareValue || c.value === compareValue
+      const columnValue = getColumnValue(c)
+      return columnValue  === compareValue
     })
     matchedColumn[i]  = column[index]
     matchedValues[i] = getColumnValue(column[index])
@@ -41,7 +42,8 @@ export function getMatchedItemByValue(columns, value, single) {
       index = 0;
     } else {
       index  = column.findIndex(c => {
-        return c === compareValue || c.value === compareValue
+        const columnValue  = getColumnValue(c)
+        return columnValue  === compareValue
       })
       if (index === -1) { index  = 0 } // 没有找到， 默认选择第一个
     }
