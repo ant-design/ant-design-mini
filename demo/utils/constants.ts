@@ -117,6 +117,11 @@ export const componentList = [
         path: '/pages/Selector/index',
       },
       {
+        name: 'Slider',
+        nameZN: '滑动输入条',
+        path: '/pages/Slider/index',
+      },
+      {
         name: 'Stepper',
         nameZN: '步进器',
         path: '/pages/Stepper/index',
@@ -136,6 +141,11 @@ export const componentList = [
   {
     type: '反馈',
     list: [
+      {
+        name: 'Empty',
+        nameZN: '空状态',
+        path: '/pages/Empty/index',
+      },
       {
         name: 'Dialog',
         nameZN: '对话框',
@@ -165,12 +175,7 @@ export const componentList = [
         name: 'Result',
         nameZN: '操作结果',
         path: '/pages/Result/index',
-      },
-      {
-        name: 'Empty',
-        nameZN: '空状态',
-        path: '/pages/Empty/index',
-      },
+      }
     ],
   },
   {
