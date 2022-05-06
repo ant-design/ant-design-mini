@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Skeleton",
+  "usingComponents": {
+    "skeleton": "../../../src/Skeleton/index",
+    "demo-block": "../../components/DemoBlock/index"
+  }
+}

@@ -50,6 +50,7 @@
     "pages/CheckboxGroup/index",
     "pages/RadioGroup/index",
     "pages/Selector/index",
+    "pages/Skeleton/index",
     "pages/SafeArea/index",
     "pages/Dialog/index",
     "pages/Container/index"

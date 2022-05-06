@@ -1,0 +1,2 @@
+<view class="amd-skeleton {{className ? className : ''}} {{animated ? 'amd-skeleton-animated' : ''}}">
+</view>

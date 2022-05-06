@@ -1,0 +1,21 @@
+<view>
+  <demo-block title="基础用法">
+    <view class="container">
+      <skeleton />
+    </view>
+  </demo-block>
+  <demo-block title="动画效果">
+    <view class="container">
+      <skeleton animated />
+    </view>
+  </demo-block>
+  <demo-block title="全功能">
+    <view class="container">
+        <skeleton animated className="radius"/>
+        <skeleton animated className="title"/>
+        <view a:for="{{5}}">
+          <skeleton animated className="item" />
+        </view>
+    </view>
+  </demo-block>
+</view>

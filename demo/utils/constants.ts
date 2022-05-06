@@ -167,6 +167,11 @@ export const componentList = [
         path: '/pages/Popup/index',
       },
       {
+        name: 'Skeleton',
+        nameZN: '骨架屏',
+        path: '/pages/Skeleton/index',
+      },
+      {
         name: 'Result',
         nameZN: '操作结果',
         path: '/pages/Result/index',

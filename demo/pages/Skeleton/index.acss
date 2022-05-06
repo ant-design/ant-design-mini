@@ -1,0 +1,18 @@
+
+.container{
+    padding: 40rpx 0;
+}
+.radius{
+    width: 300rpx;
+    border-radius: 50%;
+    height: 300rpx;
+}
+.title {
+    margin-top: 20rpx;
+    width: 20%;
+    border-radius: 7rpx;
+}
+.item {
+    border-radius: 7rpx;
+    margin-top: 20rpx;
+}
