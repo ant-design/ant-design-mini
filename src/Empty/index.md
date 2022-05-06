@@ -2,12 +2,11 @@
 nav:
   path: /components
 group:
-  title: 其他
+  title: 反馈
 toc: false
 ---
 
-# Empty
-空状态
+# Empty 空状态
 ## 代码示例
 ### 基本使用
 <code src='../../demo/pages/Empty'></code>

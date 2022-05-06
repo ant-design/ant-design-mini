@@ -1,0 +1,73 @@
+<template name='slider-handler'>
+  <view
+    class="amd-slider-handler"
+    style="left: {{position}}%;"
+  >
+    <view
+      a:if="{{!icon}}" 
+      class="amd-slider-handler-icon-default"
+    >
+      <view class="amd-slider-handler-icon-default-line1"/>
+      <view class="amd-slider-handler-icon-default-line2"/>
+      <view class="amd-slider-handler-icon-default-line3"/>
+    </view>
+    <slot name="icon">
+      <view 
+        a:if="{{icon}}" 
+        class="amd-slider-handler-icon-from-props"
+      >
+        <amd-icon
+          class="amd-slider-handler-icon-from-props-icon"
+          type="{{icon}}"
+          size="small"
+        />
+      </view>
+    </slot>
+  </view>
+</template>
+
+<view 
+  class="amd-slider"
+  style="opacity: {{disabled ? '0.4' : '1'}};"
+>
+    <view 
+      class="amd-slider-track {{showNumber ? 'amd-slider-track-number' : ''}}" 
+    >
+      <view 
+        class="amd-slider-track-touch-area"
+        id="{{sliderId}}"
+        onTouchStart="handleTrackTouchStart"
+        onTouchEnd="handleTrackTouchEnd"
+        onTouchMove="handleTrackTouchMove"
+        onTouchCancel="handleTrackTouchCancel"
+      >
+        <view 
+          class="amd-slider-track-fill"
+        >
+          <view class="amd-slider-track-fill-background" /> 
+          <view 
+            class="amd-slider-track-fill-front"
+            style="width: {{sliderWidth}}%; left: {{sliderLeft}}%"
+          /> 
+
+
+          <view class="amd-slider-ticks">
+            <view 
+              a:for="{{tickList}}" 
+              class= "amd-slider-tick amd-slider-tick-{{item.left >= sliderLeft && item.left <= sliderLeft + sliderWidth ? 'front' : 'back' }}"
+              style="left: {{item.left}}%;"
+          >
+            <view a:if={{showNumber}} class="amd-slider-tick-number">
+              {{item.value}}
+            </view>
+          </view>
+          </view>
+
+          <template a:if="{{range}}" is="slider-handler" data="{{ position: sliderLeft, icon: icon}}"/>
+          <template is="slider-handler" data="{{ position: sliderLeft + sliderWidth, icon: icon}}"/>
+        </view>
+
+      </view>
+
+    </view>
+<view>

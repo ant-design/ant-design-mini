@@ -2,11 +2,11 @@
 nav:
   path: /components
 group:
-  title: 其他
+  title: 信息展示
 toc: false
 ---
 
-# Checklist
+# Checklist 可勾选列表
 
 ## 代码示例
 
