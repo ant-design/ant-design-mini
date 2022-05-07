@@ -5,11 +5,16 @@ import formed from '../Form/mixin';
 
 Component({
   props: CheckboxGroupDefaultProps,
-  mixins: [formed({
-    defaultPropsValue: []
-  })],
+  mixins: [
+    formed({
+      defaultPropsValue: [],
+    }),
+  ],
   didMount() {
     const { uid, value, disabled } = this.props;
+    if (!uid) {
+      throw new Error('prop uid is required in Checkboxgroup');
+    }
     const getGroupPropsVal = (key: string) => {
       switch (key) {
         case 'onChange':
