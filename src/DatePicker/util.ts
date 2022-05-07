@@ -131,7 +131,7 @@ export function getRangeData(
  */
 export function getDateByValue(value) {
   //@ts-ignore
-  return new Date(...value.map((v, i) => (i === 1 ? v - 1 : v)));
+  return new Date(...value.map((v, i) => String(i === 1 ? v - 1 : v)));
 }
 
 /**
