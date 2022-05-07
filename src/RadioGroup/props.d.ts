@@ -16,5 +16,10 @@ export interface IRadioGroupProps
    * @default 'RadioGroup'
    */
   uid?: string;
+  /**
+   * @description 布局
+   * @default 'vertical'
+   */
+  position?: 'vertical' | 'horizontal';
 }
 export declare const RadioGroupDefaultProps: Partial<IRadioGroupProps>;

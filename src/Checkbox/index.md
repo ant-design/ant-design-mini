@@ -89,9 +89,9 @@ toc: false
 | 类名 | 说明 |
 | -----|-----|
 | amd-checkbox-group |整体样式|
-| amd-checkbox-header | 头部内容样式 |
-| amd-checkbox-body | 内部内容样式 |
-| amd-checkbox-footer |底部内容样式|
+| amd-checkbox-group-header | 头部内容样式 |
+| amd-checkbox-group-body | 内部内容样式 |
+| amd-checkbox-group-footer |底部内容样式|
 
 #### CheckboxItem
 

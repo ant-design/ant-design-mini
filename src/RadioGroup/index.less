@@ -1,1 +1,22 @@
-@import (reference) "./variable.less";
+@import (reference) './variable.less';
+
+@radioGroupPrefix: amd-radio-group;
+
+.@{radioGroupPrefix} {
+  &-horizontal {
+    .@{radioGroupPrefix}-body {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      .amd-list-item-line {
+        padding-right: 0;
+      }
+      .amd-radio-item {
+        flex-flow: 0;
+      }
+      .amd-list-item-line::after {
+        display: none;
+      }
+    }
+  }
+}
