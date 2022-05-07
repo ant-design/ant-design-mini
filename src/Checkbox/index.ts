@@ -53,8 +53,8 @@ Component({
   },
   methods: {
     isInCheckboxGroup() {
-      const { value } = this.props;
-      return value !== undefined;
+      const { uid } = this.props;
+      return uid !== undefined;
     },
     onChange(e) {
       const { value } = e.detail;

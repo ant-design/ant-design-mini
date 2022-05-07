@@ -8,7 +8,6 @@ Page({
       'FaceRecognitionOutline',
       'StarFill',
       'EyeInvisibleFill',
-      'SmileFill',
       'FrownFill',
       'BankcardOutline',
       'HeartOutline',

@@ -20,10 +20,14 @@ toc: false
 ### 基本使用
 <code src='../../demo/pages/Checkbox'></code>
 
+### 搭配CheckboxGroup
+<code src='../../demo/pages/CheckboxGroup'></code>
+
 
 
 ## 属性
     
+#### Checkbox/CheckboxItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | checked | boolean | 否 | false | 是否选中 |
@@ -34,18 +38,44 @@ toc: false
 | checkedIcon | string | 否 | - | 自定义选中状态的图标，支持Icon type或图片路径 |
 | disabledIcon | string | 否 | - | 自定义禁用状态的图标，支持Icon type或图片路径 |
 | disabledCheckedIcon | string | 否 | - | 自定义禁用选中状态的图标，支持Icon type或图片路径 |
-| uid | string | 否 | - | 当搭配Checkboxgroup且页面有多个CheckboxGroup时需传入，`必须页面唯一`，与外部的 CheckboxGroup 组件的 uid 一致 |
+| uid | string | 否 | - | 当搭配Checkboxgroup时需传入，`必须页面唯一`，与外部的 CheckboxGroup 组件的 uid 一致 |
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
+
+#### CheckboxGroup
+| 属性 | 类型 | 必填 | 默认值 | 说明 |
+| -----|-----|-----|-----|----- |
+| value | string[] | 否 | [] | CheckboxGroup 的值，决定子元素是否勾选 |
+| radius | boolean | 否 | false | 是否带圆角 |
+| uid | string | 是 | - | `必须页面唯一`，与内部的 CheckboxItem/Checkbox 组件的 uid 一致 |
+| header | string | 否 | - | 头部说明 |
+| footer | string | 否 | - | 底部说明 |
 
 
 
 ## 事件
+
+#### Checkbox
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 选中状态改变，触发回调 | (e: Event) => void|
+| onChange | 选中状态改变，触发回调 | (checked: boolean) => void|
+
+#### CheckboxGroup
+| 事件名 | 说明 | 类型 |
+| -----|-----|-----|
+| onChange | 勾选状态变化时，触发此函数 | (value: string[]) => void |
+
+## 插槽
+
+#### CheckboxGroup
+| 名称 | 说明 |
+| ----|----|
+| header | 头部内容插槽 |
+| footer | 底部内容插槽 |
 
 ## 样式类
+
+#### Checkbox
 | 类名 | 说明 |
 | -----|-----|
 | amd-checkbox | 标签样式 |
@@ -54,6 +84,21 @@ toc: false
 | amd-checkbox-base | 原始 checkbox 样式 |
 | amd-checkbox-fake | checkbox 组件未选中样式 |
 | amd-checkbox-fake-custom | 自定义图标时的样式 |
+
+#### CheckboxGroup
+| 类名 | 说明 |
+| -----|-----|
+| amd-checkbox-group |整体样式|
+| amd-checkbox-header | 头部内容样式 |
+| amd-checkbox-body | 内部内容样式 |
+| amd-checkbox-footer |底部内容样式|
+
+#### CheckboxItem
+
+| 类名 | 说明 |
+| -----|-----|
+| amd-checkbox-item | 整体样式 |
+| amd-checkbox-item-content | 内容区样式 |
 
 <style> 
 table th:first-of-type { width: 180px; } 
@@ -66,4 +111,7 @@ table th:first-of-type { width: 180px; }
 .__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
     width: 50px
 } 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after {
+    border-bottom: none!important;
+}
 </style> 

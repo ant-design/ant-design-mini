@@ -18,7 +18,7 @@
     value="{{value}}"
   />
     <view 
-      style="{{!_sjs.isDisabled(disabled,_disabled)&&cValue&&color?'background:'+color + '; border-color:' + color:''}}"
+      style="{{!_sjs.isDisabled(disabled,_disabled)&&cValue&&color?'color:'+color + '; border-color:' + color:''}}"
       class="amd-checkbox-fake 
       {{_sjs.isDisabled(disabled,_disabled) 
           ? cValue
@@ -29,7 +29,7 @@
             : 'amd-checkbox-fake-not-disabled-not-checked' + (icon? ' amd-checkbox-fake-custom' : '')}}">
         <template is="icon"  a:if="{{!cValue && !_sjs.isDisabled(disabled,_disabled)}}" data="{{url:icon}}"/>
         <template is="icon"  a:if="{{!cValue && _sjs.isDisabled(disabled,_disabled)}}" data="{{url:disabledIcon}}"/>
-        <template is="icon"  a:if="{{cValue && !_sjs.isDisabled(disabled,_disabled)}}" data="{{url:checkedIcon||'CheckOutline'}}"/>
+        <template is="icon"  a:if="{{cValue && !_sjs.isDisabled(disabled,_disabled)}}" data="{{url:checkedIcon||'CheckCircleFill'}}"/>
         <template is="icon"  a:if="{{cValue && _sjs.isDisabled(disabled,_disabled)}}" data="{{url:disabledCheckedIcon||'CheckOutline'}}"/>
     </view>
 </view>       
