@@ -25,6 +25,7 @@ toc: false
 | items | {text:string; value:string; subText: string; disabled: boolean}[] | 是 | - | 可选项 |
 | multiple | boolean | 否 | false | 是否允许多选，标签栏显示的时候会显示当前单选/多选的状态 |
 | disabled | boolean | 否 | false | 是否禁用 |
+| className | string | 否 | - | 类名 |
 | activeItemClassName | string | 否 | - | 每一项激活时新加类名 |
 | title | string | 否 | '' | 标签栏标题 |
 | desc | string | 否 | '' | 标签栏说明|
@@ -48,14 +49,14 @@ toc: false
 | amd-selector-item-badge-active | 激活状态下徽标样式 |
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
 </style> 

@@ -18,6 +18,7 @@
   <view class="amd-stepper-input-wrap">
     <text
       class="amd-stepper-input {{disabled? 'amd-stepper-input-disabled' : ''}}"
+      style="{{inputWidth ? `width: ${inputWidth}`: ''}}"
       a:if="{{inputReadOnly}}">
       {{cValue}}
     </text>

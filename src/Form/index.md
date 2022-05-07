@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 实验性质的组件
+  title: 信息输入
   order: 16
 toc: false
 ---
@@ -17,9 +17,8 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 
 ## 注意事项
 - 使用条件：小程序项目需开启 `Component2` 选项
+- 当页面内有多个表单实例时，Form 标签的 form 属性值与其内部 FormItem 标签 的form 属性值必须相同，且`页面唯一`。
 - 配合 a:for 指令使用时，推荐指定 key 值，否则可能出现异常情况
-- 当页面内有多个表单实例时，Form 标签的 form 属性值与其内部 FormItem 标签 的form 属性值必须相同，且`页面唯一`；内部的 FormItem 标签的 name 属性必须`一致`。详见下方代码示例。
-
 ## 代码示例
 
 ### 基本使用

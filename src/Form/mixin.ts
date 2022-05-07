@@ -56,7 +56,6 @@ export default (
 
     didMount() {
       if (propsValue in this.props) {
-        console.log('11')
         this.setData({
           [dataValue]: this.props[propsValue],
         });

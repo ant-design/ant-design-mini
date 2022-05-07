@@ -18,7 +18,7 @@
     <view class="amd-selector-content-container">
       <view a:for="{{items}}" class="amd-selector-content {{items.length <= 2 ? 'amd-selector-content-item2' : ''}}">
         <view
-          class="amd-selector-item {{item.disabled ? 'amd-selector-item-disabled' : ''}} {{selector.getIsCurItemSelected(cValue, multiple, item.value) ? 'amd-selector-item-active' :''}}"
+          class="amd-selector-item {{item.disabled ? 'amd-selector-item-disabled' : ''}} {{selector.getIsCurItemSelected(cValue, multiple, item.value) ? selector.getSelectedClassName(activeItemClassName) :''}}"
           data-value="{{item.value}}"
           data-text="{{item.text}}"
           data-disabled="{{item.disabled}}"

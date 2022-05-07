@@ -14,6 +14,7 @@ Component({
     }),
   ],
   didMount() {
+    if (!this.isInCheckboxGroup()) return;
     const { uid } = this.props;
     const key = `${this.$page.$id}-${uid}`;
     const setDisabled = (_disabled: boolean) => this.setData({ _disabled });
@@ -35,6 +36,7 @@ Component({
     } catch (err) {}
   },
   didUpdate(prevProps) {
+    if (!this.isInCheckboxGroup()) return;
     const { uid, value } = this.props;
     const { value: oldValue } = prevProps;
     if (value !== oldValue) {
@@ -44,16 +46,23 @@ Component({
     }
   },
   didUnmount() {
+    if (!this.isInCheckboxGroup()) return;
     const { uid } = this.props;
     const key = `${this.$page.$id}-${uid}`;
     store.removeItem(key, `${this.$id}`);
   },
   methods: {
+    isInCheckboxGroup() {
+      const { value } = this.props;
+      return value !== undefined;
+    },
     onChange(e) {
       const { value } = e.detail;
-      const { uid } = this.props;
-      const key = `${this.$page.$id}-${uid}`;
-      store.triggerItem(key, `${this.$id}`, value);
+      if (this.isInCheckboxGroup()) {
+        const { uid } = this.props;
+        const key = `${this.$page.$id}-${uid}`;
+        store.triggerItem(key, `${this.$id}`, value);
+      }
       this.triggerChange(value);
     },
   },
