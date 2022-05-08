@@ -1,6 +1,7 @@
 {
   "name": "antd-mini",
   "version": "0.0.2-alpha.1",
+  "main": "index.js",
   "scripts": {
     "dev": "minidev dev --less --typescript --no-source-map",
     "dev:site": "dumi dev",
@@ -106,7 +107,8 @@
     "yorkie": "^2.0.0"
   },
   "files": [
-    "es"
+    "es",
+    "index.js"
   ],
   "repository": {
     "type": "git",
