@@ -55,8 +55,6 @@
     "pages/Dialog/index",
     "pages/Container/index",
     "pages/DatePicker/index",
-    "pages/test/FormBasic/index",
-    "pages/test/CheckboxGroup/index",
     "pages/Checklist/index",
     "pages/Empty/index"
   ],

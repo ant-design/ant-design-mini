@@ -14,23 +14,12 @@
       name="checkbox">
       <checkbox/>
     </form-item>
-    <form-item
-      label="输入框"
-      name="input">
-      <input-item />
-    </form-item>
-    <form-item
-      label="文本域"
-      position="vertical"
-      name="textarea"
-    >
-      <textarea/>
-    </form-item>
+
     <form-item 
       label="复选框组" 
       position="vertical"
       name="checkboxGroup">
-      <checkbox-group>
+      <checkbox-group   position="horizontal">
         <checkbox-item  value="{{'复选框1'}}">
           复选框1
         </checkbox-item>
@@ -43,7 +32,7 @@
       label="单选框组" 
       position="vertical"
       name="radioGroup">
-      <radio-group>
+      <radio-group position="horizontal">
         <radio-item value="{{'单选框1'}}">
           单选框1
         </radio-item>
@@ -76,6 +65,13 @@
       <selector 
         items="{{selectorItems}}" 
         multiple />
+    </form-item>
+    <form-item
+    label="文本域"
+    position="vertical"
+    name="textarea"
+    >
+      <textarea/>
     </form-item>
     <button 
       slot="footer"

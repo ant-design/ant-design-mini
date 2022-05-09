@@ -50,24 +50,25 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 #### Form
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|:-----:|:-----:|:-----:|----- |
-| form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且`页面唯一` |
 | initialValues | Record<sring, any> | 否 | - | 表单初始值 |
 | position | 'horizontal' &verbar;  'vertical' | 否 | 'horizontal' | 布局 |
 | requiredMarkStyle | 'asterisk' &verbar;  'text-required' &verbar;  'text-optional' | 否 | 'asterisk' | 必填选填的标记样式	 |
+| form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且`页面唯一` |
+| className | string | 否 | - | 类名 |
 
 #### FormItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|:-----:|:-----:|:-----:|----- |
-| form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且`页面唯一` |
-| name | string | 是 | - | 字段 uid |
-| label | string | 否 | - | 字段名称 |
+| name | string | 是 | - | 字段key |
+| label | string | 否 | - | 字段显示名称 |
 | position | 'horizontal' &verbar;  'vertical' | 否 | - | 布局，优先级高于Form的position |
 | arrow | boolean | 否 | false | 表单项右侧箭头 |
 | required | boolean | 否 | false | 是否必填，label展示必填标识 |
-| initialValue | any| 否 | - | 表单初始值 |
+| initialValue | any| 否 | - | 表单初始值,优先级低于Form的initialValues |
 | rules | [Rule](#rule)[] | 否 | [] | 校验规则，设置字段的校验逻辑。点击[查看](#rule) |
 | validateFirst | boolean | 否 | false | 当某一规则校验不通过时，是否停止剩下的规则的校验 |
 | dependencies | string[] | 否 | [] | 当字段间存在依赖关系时使用。如果一个字段设置了 dependencies 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验 |
+| form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且`页面唯一` |
 
 #### FromGroup
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -95,7 +96,8 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onValuesChange | 字段更新，触发此回调 | ( changedFields: `Record<string, any>`, allFields: `Record<string, any>` ) => void |
-| onFinish | 表单提交后，触发此回调 | ( changedFields: `Record<string, any>`, allFields: `Record<string, any>` ) => void |
+| onFinish | 表单提交验证成功后，触发此回调 | ( changedFields: `Record<string, any>`, allFields: `Record<string, any>` ) => void |
+| onFinishFailed | 表单提交验证失败后，触发此回调 | ( allFields: `Record<string, any>`, errors: `Record<string, any>` ) => void |
 
 ## 插槽
 
