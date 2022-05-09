@@ -14,6 +14,21 @@
   </checkbox-group>
 </demo-block>
 
+<demo-block title="横向布局">
+  <checkbox-group 
+    uid="group4"
+    position="horizontal"
+    onChange="handleChange"
+  >
+  <checkbox-item 
+    a:for="{{list}}"
+    value="{{item.value}}"  
+    uid="group4">
+      {{item.label}}
+  </checkbox-item>
+  </checkbox-group>
+</demo-block>
+
 <demo-block title="部分禁用">
   <checkbox-group 
     uid="group2"
@@ -41,21 +56,5 @@
       uid="group3">
         {{item.label}}
     </checkbox-item>
-  </checkbox-group>
-</demo-block>
-
-<demo-block title="搭配Checkbox使用">
-  <checkbox-group 
-    uid="group4"
-    className="checkbox-group"
-    onChange="handleChange"
-  >
-    <label  a:for="{{list}}">
-      <checkbox 
-        value="{{item.value}}"  
-        uid="group4">
-    </checkbox>
-    {{item.label}}
-    </label>
   </checkbox-group>
 </demo-block>

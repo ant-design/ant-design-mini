@@ -16,5 +16,10 @@ export interface ICheckboxGroupProps
    * @default 'CheckboxGroup'
    */
   uid?: string;
+  /**
+   * @description 布局
+   * @default 'vertical'
+   */
+  position?: 'vertical' | 'horizontal';
 }
 export declare const CheckboxGroupDefaultProps: Partial<ICheckboxGroupProps>;

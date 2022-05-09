@@ -1,1 +1,3 @@
-export const CheckboxItemDefaultProps = {};
+export const CheckboxItemDefaultProps = {
+  uid: 'CheckboxGroup',
+};
