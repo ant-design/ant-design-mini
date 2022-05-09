@@ -4,6 +4,7 @@
     data="{{data}}"
     value="{{_sjs.getPickerValue(data,currentValue||cValue)}}"
     controlled
+    disabled="{{disabled}}"
     title="{{title}}" 
     placeholder="{{placeholder}}"
     okText="{{okText}}"

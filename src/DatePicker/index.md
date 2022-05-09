@@ -21,6 +21,7 @@ toc: false
 | format | string | 否 | - | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)|
 | min | Date | 否 | 十年前 | 最小值 |
 | max | Date | 否 | 十年后 | 最大值 |
+| precision | 'year' &verbar; 'month' &verbar; 'day' &verbar; 'hour' &verbar; 'minute' &verbar; 'second' | 否 | 'day' | 选择精度 |
 | disabled | boolean | 否 | false | 是否禁用 |
 | placeholder | string | 否 | - | 提示文案 |
 | title | string | 否 | - | 弹出框标题 |

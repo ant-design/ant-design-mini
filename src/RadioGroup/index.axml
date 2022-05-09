@@ -1,5 +1,5 @@
 <list 
-  className="amd-radio-group {{className ? className : ''}}"
+  className="amd-radio-group {{className ? className : ''}} amd-radio-group-{{position}}"
   radius="{{radius}}">
   <view class="amd-list-header">
     <slot name="header">
@@ -9,11 +9,11 @@
   <radio-group id="{{id ? id : $id}}"
     name="{{name ? name : ''}}"
     disabled="{{_disabled}}">
-    <view class="amd-list-body">
+    <view class="amd-radio-group-body">
       <slot />
     </view>
   </radio-group>
-  <view class="amd-list-footer">
+  <view class="amd-radio-group-footer">
     <slot name="footer">
       {{footer}}
     </slot>

@@ -21,24 +21,29 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 - 配合 a:for 指令使用时，推荐指定 key 值，否则可能出现异常情况
 ## 代码示例
 
-### 基本使用
-<code src="../../demo/pages/FormMulti" ></code>
-
-### 结合表单组件
+### 基础使用
 <code src="../../demo/pages/Form" ></code>
 
-### 表单分组
-<code src="../../demo/pages/FormGroup" ></code>
-### 必填展示样式
-<code src="../../demo/pages/FormRequiredMarkStyle" ></code>
+### 表单验证
+<code src="../../demo/pages/FormValidate" ></code>
+
+### 表单类型
+<code src="../../demo/pages/FormType" ></code>
 
 ### 动态表单
 <code src="../../demo/pages/FormDynamic" ></code>
 
+### 表单分组
+<code src="../../demo/pages/FormGroup" ></code>
+
+### 必填展示样式
+<code src="../../demo/pages/FormRequiredMarkStyle" ></code>
+
 ### 实例方法使用
 <code src="../../demo/pages/FormInsMethod" ></code>
 
-
+### 页面多个表单 - 指定uid
+<code src="../../demo/pages/FormMulti" ></code>
 
 ## 属性
 

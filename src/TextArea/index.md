@@ -14,7 +14,7 @@ toc: false
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/TextArea/'></code>
+<code src='../../demo/pages/TextArea'></code>
 
 ## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |

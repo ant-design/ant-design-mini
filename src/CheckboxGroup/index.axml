@@ -1,4 +1,4 @@
-<list className="amd-checkbox-group {{className ? className : ''}}" radius="{{radius}}">
+<list className="amd-checkbox-group {{className ? className : ''}}  amd-checkbox-group-{{position}}" radius="{{radius}}">
   <view class="amd-checkbox-group-header">
     <slot name="header">{{header}}</slot>
   </view>

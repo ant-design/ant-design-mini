@@ -1,61 +1,60 @@
 
 <demo-block title="基础用法">
-<checkbox-group 
-  uid="group1"
-  onChange="handleChange"
->
+  <checkbox-group 
+    uid="group1"
+    onChange="handleChange"
+  >
+    <checkbox-item 
+      a:for="{{list}}"
+      value="{{item.value}}"  
+      uid="group1">
+        {{item.label}}
+    </checkbox-item>
+
+  </checkbox-group>
+</demo-block>
+
+<demo-block title="横向布局">
+  <checkbox-group 
+    uid="group4"
+    position="horizontal"
+    onChange="handleChange"
+  >
   <checkbox-item 
     a:for="{{list}}"
     value="{{item.value}}"  
-    uid="group1">
+    uid="group4">
       {{item.label}}
   </checkbox-item>
-
-</checkbox-group>
+  </checkbox-group>
 </demo-block>
 
 <demo-block title="部分禁用">
-<checkbox-group 
-  uid="group2"
-  value="{{['orange','banner']}}"
->
-  <checkbox-item 
-    a:for="{{list}}"
-    value="{{item.value}}"  
-    disabled="{{index===1}}"
-    uid="group2">
-      {{item.label}}
-  </checkbox-item>
-</checkbox-group>
+  <checkbox-group 
+    uid="group2"
+    value="{{['orange','banner']}}"
+  >
+    <checkbox-item 
+      a:for="{{list}}"
+      value="{{item.value}}"  
+      disabled="{{index===1}}"
+      uid="group2">
+        {{item.label}}
+    </checkbox-item>
+  </checkbox-group>
 </demo-block>
 
 <demo-block title="整组禁用">
-<checkbox-group 
-  uid="group3"
-  value="{{['orange','banner']}}"
-  disabled="{{true}}">
+  <checkbox-group 
+    uid="group3"
+    value="{{['orange','banner']}}"
+    disabled="{{true}}">
 
-  <checkbox-item 
-    a:for="{{list}}"
-    value="{{item.value}}"  
-    uid="group3">
-      {{item.label}}
-  </checkbox-item>
-</checkbox-group>
-</demo-block>
-
-<demo-block title="搭配Checkbox使用">
-<checkbox-group 
-  uid="group4"
-  className="checkbox-group"
-  onChange="handleChange"
->
-  <label  a:for="{{list}}">
-    <checkbox 
+    <checkbox-item 
+      a:for="{{list}}"
       value="{{item.value}}"  
-      uid="group4">
-   </checkbox>
-   {{item.label}}
-  </label>
-</checkbox-group>
+      uid="group3">
+        {{item.label}}
+    </checkbox-item>
+  </checkbox-group>
 </demo-block>
