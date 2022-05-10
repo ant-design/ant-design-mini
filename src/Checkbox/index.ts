@@ -62,8 +62,9 @@ Component({
         const { uid } = this.props;
         const key = `${this.$page.$id}-${uid}`;
         store.triggerItem(key, `${this.$id}`, value);
+      } else {
+        this.triggerChange(value);
       }
-      this.triggerChange(value);
     },
   },
 });
