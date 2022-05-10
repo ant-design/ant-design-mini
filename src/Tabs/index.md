@@ -28,22 +28,22 @@ toc: false
 ## 属性
 
 #### Tabs
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| type | 'basis' &verbar; 'capsule' &verbar; 'mixin' &verbar; 'title' | 否 | 'basis' | 类型，basis(基础)，capsule(胶囊)，mixin(混合) |
-| index | number | 否 | 0 | 当前激活的索引 |
-| animation | boolean | 否 | false | 是否有过渡动画 |
-| swipeable | boolean | 否 | false | 是否支持手势切换 |
-| sticky | boolean | 否 | false | 是否支持吸顶 |
-| plus | string &verbar; slot | 否 | - | 右上角操作按钮，自定义节点 |
-| title | slot-scope | 否 | - | 自定义 tab 标题样式，仅在 type 为 basis 时可用 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| type | 类型，basis(基础)，capsule(胶囊)，mixin(混合) | 'basis' &verbar; 'capsule' &verbar; 'mixin' &verbar; 'title'  | 'basis' |
+| index | 当前激活的索引| number | 0 |
+| animation | 是否有过渡动画  | boolean | false |
+| swipeable |  是否支持手势切换    | boolean | false | 
+| sticky | 是否支持吸顶   | boolean | false | 
+| plus |  右上角操作按钮，自定义节点 |  string &verbar; slot | - |
+| title |自定义 tab 标题样式，仅在 type 为 basis 时可用    |  slot-scope | - |
+| className | 类名 | string | - |
 
 #### TabItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| tab | {title: string; subTitle?: string; badge?: number; disabled?: boolean}[]| 是 | - | 每一项 tab 内容 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| tab |每一项 tab 内容|  {title: string; subTitle?: string; badge?: number; disabled?: boolean}[] | - |
+| className | 类名 | string | - |
 
 ## 事件
 
@@ -95,32 +95,3 @@ toc: false
 | -----|-----|
 | amd-tabs-item | 整体样式 |
 | amd-tabs-item-pane | 整体样式 |
-
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(6) th:nth-of-type(2)  {
-    width: 300px
-} 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after {
-    border-bottom: none!important;
-}
-</style> 

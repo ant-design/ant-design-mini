@@ -19,20 +19,20 @@ toc: false
 ## 属性 
 
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| maskZindex | string | - | - |  |
-| type | 'product' &verbar; 'market' | 'product' | - |  |
-| show | boolean | - | - |  |
-| fixMaskFull | false | - | - |  |
-| className | string | - | - | 类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| maskZindex | 背景层级  | string | - |
+| type | | 类型 | 'product' | 'market' | 'product'  |
+| show | 是否展示  | boolean| false |
+| fixMaskFull | 是否兼容透明头  | false | - |
+| className |  类名 | string | - |
 
 ## 事件 
 
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
-| onMaskTap |  | (v: Record<string, any>) => void |
+| onMaskTap | 点击蒙层 | (v: Record<string, any>) => void |
 
 ## CSS 变量 
 

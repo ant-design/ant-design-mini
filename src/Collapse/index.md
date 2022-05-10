@@ -30,20 +30,20 @@ toc: false
 ## 属性
 
 #### Collapse
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| name | string[] | 否 | [] | 当前激活的索引 |
-| accordion | boolean | 否 | - | 是否是手风琴模式，仅一个内容被展开 |
-| uid | string | 否 | - | 当页面有多个Collapse时需传入，`必须页面唯一` ，与内部的 CollapseItem 组件的 uid 一致 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| name |  当前激活的索引 | string[] | [] |
+| accordion |  是否是手风琴模式，仅一个内容被展开| boolean | - | 
+| uid |  当页面有多个Collapse时需传入，`必须页面唯一` ，与内部的 CollapseItem 组件的 uid 一致 | string | - |
+| className |  类名 | string | - |
 
 #### CollapseItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| title | string | 否 | - | 标题栏内容 |
-| name | string | 是 | - | 标识，必须唯一 |
-| uid | string | 否 | - | 当页面有多个Collapse时需传入，`必须页面唯一` ，与外部的 Collapse 组件的 uid 一致 |
-| className | string | 否 | - | 类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| title |  标题栏内容 | string | - |
+| name |  标识，必须唯一 | string | - |
+| uid |  当页面有多个Collapse时需传入，`必须页面唯一` ，与外部的 Collapse 组件的 uid 一致 | string| - |
+| className |  类名 | string | - |
 
 ## 事件
 #### Collapse
@@ -69,28 +69,3 @@ toc: false
 | amd-collapse-item | 整体样式 |
 | amd-collapse-item-title | 标题样式 |
 | amd-collapse-item-content | 内容样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after {
-    border-bottom: none!important;
-}
-</style> 

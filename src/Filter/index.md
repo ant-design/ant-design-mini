@@ -20,20 +20,20 @@ toc: false
 
 ## 属性
 #### Filter
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| uid | string | 否 | - | 当页面有多个Filter时需传入，`必须页面唯一`，与内部的 FilterItem 组件的 uid 一致 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| uid | 当页面有多个Filter时需传入，`必须页面唯一`，与内部的 FilterItem 组件的 uid 一致  | string | - |
+| className |  类名 | string | - |
 
 #### FilterItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| type | 'default' &verbar; 'multiple' | 否 | 'default' | 类型 default=单选 multiple=多选  |
-| value | any | 否 | - | 每一项的值，该组件仅支持受控模式 |
-| items | {value: string; text: string; subText: string}[] | 否 | - | type=default type=multiple 有效|
-| placeholder | string | 否 | - | 当该项值为空的时候显示文案 |
-| uid | string | 否 | - | 当页面有多个Filter时需传入，`必须页面唯一`，与外部的 Filter 组件的 uid 一致 |
-| className | string | 否 | - | 类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| value | 每一项的值，该组件仅支持受控模式| any | - |
+| type | 类型 default=单选 multiple=多选 | 'default' &verbar; 'multiple' | 'default' |
+| items | type=default type=multiple 有效  | {value: string; text: string; subText: string}[] | - |
+| placeholder |  当该项值为空的时候显示文案 | string | - |
+| uid | 当页面有多个Filter时需传入，`必须页面唯一`，与外部的 Filter 组件的 uid 一致 | string | - |
+| className |  类名 | string | - |
 
 ## 事件
 #### FilterItem
@@ -62,28 +62,3 @@ toc: false
 | amd-filter-item-content-wrap | 选择面板区域样式   |
 | amd-filter-item-btns | 按钮区域样式   |
 | amd-filter-item-btns-button  | 重置/确定按钮样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-}
-.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(2)  {
-    width: 210px
-} 
-</style> 

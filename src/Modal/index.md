@@ -18,18 +18,18 @@ toc: false
 
 ## 属性
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| title | string | 否 | - | 标题 |
-| content | string | 是 | - | 内容 |
-| image | string | 否 | - | 缩略图 |
-| imageSize | 'medium' &verbar; 'large' &verbar; 'x-large' | 否 | 'medium' | 缩略图尺寸 |
-| visible | boolean | 是 | false | 是否可见，受控模式 |
-| duration | number | 否 | - | 过渡动画时长，单位毫秒 |
-| mainButtonText | string | 否 | '主操作' | 主按钮 |
-| addonButtonText | string | 否 | '辅助操作' | 辅助按钮，第二个按钮 |
-| maskClosable | boolean | 否 | true | 点击蒙层关闭 |
-| className | string | 否 | - | 类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| title |  标题 | string | - |
+| content | 内容 | string | - | 
+| image |  缩略图 | string | - |
+| imageSize | 缩略图尺寸 |  'medium' &verbar; 'large' &verbar; 'x-large' | 'medium' |
+| visible | 是否可见，受控模式 | boolean  | false |
+| duration | 过渡动画时长，单位毫秒 | number | - |
+| mainButtonText | 主按钮  | string | '主操作' |
+| addonButtonText | 辅助按钮，第二个按钮  | string | '辅助操作' |
+| maskClosable | 点击蒙层关闭| boolean  | true |
+| className |  类名 | string | - |
 
 ## 事件
 
@@ -56,19 +56,3 @@ toc: false
 | amd-modal-buttons-container | 弹窗按钮区域整体样式 |
 | amd-modal-buttons-addon | 辅助按钮样式 |
 | amd-modal-close | close 图标样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(4) th:first-of-type  {
-    width: 300px
-} 
-</style> 

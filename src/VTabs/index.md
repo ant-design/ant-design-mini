@@ -24,16 +24,16 @@ toc: false
 
 #### VTabs
     
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| index | number | 否 | 0 | 当前激活的索引 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| index |  当前激活的索引 | number | 0 |
+| className |  类名 | string | - |
 
 #### VTabsItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| tab | {title: string; disabled?: boolean, badge?: {type: 'dot' &verbar; 'number' &verbar; 'text', text: number | string }}[] | 是 | - | 每一项 tab 内容 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 ｜
+| -----|-----|-----|-----|
+| tab | 每一项 tab 内容 |  {title: string; disabled?: boolean, badge?: {type: 'dot' &verbar; 'number' &verbar; 'text', text: number &verbar; string }}[] | - |
+| className | 类名 | string| - |
 
 ## 事件
 
@@ -73,29 +73,3 @@ toc: false
 | 类名 | 说明 |
 | -----|-----|
 | amd-vtabs-item | 整体样式 |
-
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(4) th:nth-of-type(2)  {
-    width: 300px
-} 
-</style> 

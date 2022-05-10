@@ -18,24 +18,24 @@ toc: false
 ### 基本使用
 <code src='../../demo/pages/Stepper'></code>
 
-
-
 ## 属性
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| value | number | 否 | - | 输入框的值, 表单提交的时候有效 |
-| min | number | 否 | - | 最小值 |
-| max | number | 否 | - | 最大值 |
-| step | number | 否 | 1 | 每次加减的值 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| inputReadOnly | boolean | 否 | false | 输入框是否只读 |
-| type | 'number' &verbar; 'digit' | 否 | - | input唤起的键盘类型 |
-| inputWidth | string | 否 | - | 输入框宽度 |
-| precision | number | 否 | - | 计算精度，保留几位小数<br/>https://github.com/ant-design/ant-design/issues/5998 |
-| autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
-| id | string | 否 | - | 表单元素 id |
-| name | string | 否 | - | 表单元素 name |
+| 属性 | 说明 |  类型 | 默认值 |
+| -----|-----|-----|-----|
+| value | 输入框的值, 表单提交的时候有效  | number| - |
+| min |  最小值 | number | - |
+| max |  最大值 | number | - |
+| step | 每次加减的值 | number| 1 | 
+| disabled |  是否禁用 | boolean | false | 
+| inputReadOnly |  输入框是否只读 | boolean | false |
+| type |  input唤起的键盘类型 | 'number' &verbar; 'digit' | - |
+| inputWidth | 输入框宽度| string | - |
+| precision | 计算精度，保留几位小数<br/>https://github.com/ant-design/ant-design/issues/5998  | number| - |
+| autoFocus |  自动聚焦，ios 可能会失效  | boolean | false |
+| id | 表单元素 id| string | - |
+| name | 表单元素 name | string | - | 
+| className | 类名 | string | - |
+
 
 ## 事件
 | 事件名 | 说明 | 类型 |
@@ -56,16 +56,3 @@ toc: false
 | amd-stepper-handler-up-inner | +/- 图标样式 |
 | amd-stepper-input-wrap | 输入框区域样式 |
 | amd-stepper-input | 输入框样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-</style> 

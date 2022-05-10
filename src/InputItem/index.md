@@ -20,31 +20,31 @@ toc: false
 
 
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| value | string | 否 | - | 输入框的值 |
-| type | 'text' &verbar; 'number' &verbar; 'idcard' &verbar; 'digit' &verbar; 'numberpad' &verbar; 'digitpad' &verbar; 'idcardpad' | 否 | "text" | 输入框的类型 |
-| password | boolean | 否 | false | 是否是密码类型。 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| placeholder | string | 否 | - | 占位符。 |
-| placeholderClass | string | 否 | - | 指定 placeholder 的样式类。 |
-| placeholderStyle | string | 否 | - | 指定 placeholder 的样式，可设置间距。 |
-| maxLength | number | 否 | 140 | 最大长度。 |
-| confirmType | 'done' &verbar; 'go' &verbar; 'next' &verbar; 'search' &verbar; 'send' | 否 | 'done' | 设置键盘右下角按钮的文字，有效值：done（显示“完成”）、go（显示“前往”）、next（显示“下一个”）、search（显示“搜索”）、send（显示“发送”），平台不同显示的文字略有差异。注意：只有在 type=text 时有效。 |
-| confirmHold | boolean | 否 | false | 点击键盘右下角按钮时是否保持键盘不收起状态。 |
-| cursor | number | 否 | - | 指定 focus 时的光标位置。 |
-| selectionStart | number | 否 | -1 | 获取光标时，选中文本对应的焦点光标起始位置，需要和 selection-end 配合使用。 |
-| selectionEnd | number | 否 | -1 | 获取光标时，选中文本对应的焦点光标结束位置，需要和 selection-start 配合使用。 |
-| randomNumber | boolean | 否 | false | 当 type 为 number, digit, idcard 数字键盘是否随机排列。 |
-| enableNative | boolean | 否 | - | 是否启用 Native 渲染 |
-| inputCls | string | 否 | - | input 输入框的样式类名 |
-| clear | boolean | 否 | true | 显示清除图标 |
-| controlled | boolean | 否 | false | 是否受控模式 |
-| alwaysSystem | boolean | 否 | false | 是否强制使用系统键盘和 Web-view 创建的 input 元素。为 true 时，confirm-type、confirm-hold 可能失效。 |
-| autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
-| id | string | 否 | - | 表单元素 id |
-| name | string | 否 | - | 表单元素 name |
-
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| value |  输入框的值 | string | - |
+| type | 输入框的类型 | 'text' &verbar; 'number' &verbar; 'idcard' &verbar; 'digit' &verbar; 'numberpad' &verbar; 'digitpad' &verbar; 'idcardpad' | "text" |
+| password | 是否是密码类型  | boolean | false |
+| disabled | 是否禁用  | boolean | false |
+| placeholder | 占位符 | string | - |
+| placeholderClass | 指定 placeholder 的样式类 | string | - |
+| placeholderStyle | 指定 placeholder 的样式，可设置间距  | string| - |
+| maxLength | 最大长度  | number | 140 | 
+| confirmType |设置键盘右下角按钮的文字，有效值：done（显示“完成”）、go（显示“前往”）、next（显示“下一个”）、search（显示“搜索”）、send（显示“发送”），平台不同显示的文字略有差异。注意：只有在 type=text 时有效 |  'done' &verbar; 'go' &verbar; 'next' &verbar; 'search' &verbar; 'send' | 'done' | 
+| confirmHold |  点击键盘右下角按钮时是否保持键盘不收起状态 | boolean | false |
+| cursor |  指定 focus 时的光标位置 | number | - |
+| selectionStart |  获取光标时，选中文本对应的焦点光标起始位置，需要和 selection-end 配合使用| number | -1 | 
+| selectionEnd |  获取光标时，选中文本对应的焦点光标结束位置，需要和 selection-start 配合使用 | number | -1 |
+| randomNumber |  当 type 为 number, digit, idcard 数字键盘是否随机排列 | boolean | false |
+| enableNative |  是否启用 Native 渲染 | boolean| - |
+| inputCls |  input 输入框的样式类名  | string | - |
+| clear |  显示清除图标 | boolean | true |
+| controlled |  是否受控模式 | boolean | false |
+| alwaysSystem |  是否强制使用系统键盘和 Web-view 创建的 input 元素。为 true 时，confirm-type、confirm-hold 可能失效。 | boolean | false |
+| autoFocus | 自动聚焦，ios 可能会失效 | boolean | false |
+| id | 表单元素 id| string | - |
+| name |  表单元素 name | string | - |
+| className |  类名 | string | - |
 
 ## 事件
 | 事件名 | 说明 | 类型 |
@@ -64,19 +64,3 @@ toc: false
 | amd-input-item-content | Input 组件样式 |
 | amd-input-item-clear | 清除图标区域样式 |
 | amd-input-item-clear-icon | 清除图标样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(3) th:first-of-type {
-    width: 300px;
-}
-</style> 

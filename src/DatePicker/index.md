@@ -15,22 +15,23 @@ toc: false
 
 
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| value | Date | 否 | - | 选中的时间 |
-| format | string | 否 | - | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)|
-| min | Date | 否 | 十年前 | 最小值 |
-| max | Date | 否 | 十年后 | 最大值 |
-| precision | 'year' &verbar; 'month' &verbar; 'day' &verbar; 'hour' &verbar; 'minute' &verbar; 'second' | 否 | 'day' | 选择精度 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| placeholder | string | 否 | - | 提示文案 |
-| title | string | 否 | - | 弹出框标题 |
-| okText | string | 否 | '确定' | 确认按钮文案 |
-| dismissText | string | 否 | '取消' | 取消文案 |
-| maskStyle | string | 否 | | 蒙层的样式 |
-| maskClass | string | 否 |  | 蒙层的类名 |
-| indicatorStyle | string | 否 |  | 选中框样式 |
-| indicatorClass | string | 否 |  | 	选中框的类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| value |  选中的时间 | Date | - |
+| format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format) | string | - |
+| min |  最小值 | Date | 十年前 |
+| max | 最大值 | Date | 十年后 |
+| precision | 选择精度 | 'year' &verbar; 'month' &verbar; 'day' &verbar; 'hour' &verbar; 'minute' &verbar; 'second' | 'day' |
+| disabled |  是否禁用 | boolean | false |
+| placeholder | 提示文案 | string | - | 
+| title |  弹出框标题 | string | - |
+| okText | 确认按钮文案 | string | '确定' |
+| dismissText |  取消文案 | string | '取消' |  |
+| maskStyle | 蒙层的样式 | string | - | 
+| maskClass |  蒙层的类名 | string | - |
+| indicatorStyle | 选中框样式  | string | - |
+| indicatorClass | 选中框的类名 | string | - | 
+| className | 类名| string | - |
 
 ## 事件
 | 事件名 | 说明 | 类型 |
@@ -50,18 +51,3 @@ toc: false
 | 类名 | 说明 |
 | -----|-----|
 | amd-date-picker | 文本展示区域样式 |
-
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-
-</style> 

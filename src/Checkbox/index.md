@@ -31,44 +31,46 @@ toc: false
 ## 属性
     
 #### Checkbox
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| checked | boolean | 否 | false | 是否选中 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| color | string | 否 | false | checkbox 的颜色，同 CSS 色值 |
-| value | string | 否 | - | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用|
-| icon | string | 否 | - | 自定义图标，支持[Icon](./icon#代码示例)和图片路径 |
-| checkedIcon | string | 否 | - | 自定义选中状态的图标，支持Icon type或图片路径 |
-| disabledIcon | string | 否 | - | 自定义禁用状态的图标，支持Icon type或图片路径 |
-| disabledCheckedIcon | string | 否 | - | 自定义禁用选中状态的图标，支持Icon type或图片路径 |
-| id | string | 否 | - | 表单元素 id |
-| name | string | 否 | - | 表单元素 name |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| checked | 是否选中  | boolean | false |
+| disabled | 是否禁用  | boolean | false |
+| color | checkbox 的颜色，同 CSS 色值 | string | false |
+| value | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用 | string | - |
+| icon | 自定义图标，支持[Icon](./icon#代码示例)和图片路径  | string | - |
+| checkedIcon | 自定义选中状态的图标，支持Icon type或图片路径 | string | - ｜
+| disabledIcon | 自定义禁用状态的图标，支持Icon type或图片路径 | string | - |
+| disabledCheckedIcon |  自定义禁用选中状态的图标，支持Icon type或图片路径 | string | - |
+| id | 表单元素 id | string | - |
+| name | 表单元素 name  | string | - | 
+| className | 类名| string | - |
 
 #### CheckboxGroup
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| value | string[] | 否 | [] | CheckboxGroup 的值，决定子元素是否勾选 |
-| radius | boolean | 否 | false | 是否带圆角 |
-| position | 'horizontal' &verbar;  'vertical' | 否 | 'vertical' | 布局 |
-| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与内部的 CheckboxItem 组件的 uid 一致 |
-| header | string | 否 | - | 头部说明 |
-| footer | string | 否 | - | 底部说明 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| value | CheckboxGroup 的值，决定子元素是否勾选 | string[] | [] |
+| radius |  是否带圆角 | boolean | false |
+| position | 布局 | 'horizontal' &verbar;  'vertical' | 'vertical' | 
+| uid |  当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与内部的 CheckboxItem 组件的 uid 一致 | string | - |
+| header |  头部说明 | string | - |
+| footer |  底部说明 | string | - |
+| className | 类名| string | - |
 
 #### CheckboxItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| checked | boolean | 否 | false | 是否选中 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| color | string | 否 | false | checkbox 的颜色，同 CSS 色值 |
-| value | string | 否 | - | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用；在 CheckboxGroup 时亦有用 |
-| icon | string | 否 | - | 自定义图标，支持[Icon](./icon#代码示例)和图片路径 |
-| checkedIcon | string | 否 | - | 自定义选中状态的图标，支持Icon type或图片路径 |
-| disabledIcon | string | 否 | - | 自定义禁用状态的图标，支持Icon type或图片路径 |
-| disabledCheckedIcon | string | 否 | - | 自定义禁用选中状态的图标，支持Icon type或图片路径 |
-| uid | string | 否 | - | 当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与外部的 CheckboxGroup 组件的 uid 一致 |
-| id | string | 否 | - | 表单元素 id |
-| name | string | 否 | - | 表单元素 name |
-
+| 属性 | 说明 | 类型 | 默认值 | 
+| -----|-----|-----|-----|
+| checked |  是否选中 | boolean | false | 
+| disabled | 是否禁用 | boolean | false |
+| color | checkbox 的颜色，同 CSS 色值 | string | false |
+| value |  checkbox 携带的 value 值, 在原生 form 表单提交的时候有用；在 CheckboxGroup 时亦有用 | string | - |
+| icon | 自定义图标，支持[Icon](./icon#代码示例)和图片路径 | string | - | 
+| checkedIcon | 自定义选中状态的图标，支持Icon type或图片路径 | string | - |
+| disabledIcon | 自定义禁用状态的图标，支持Icon type或图片路径 | string | - |
+| disabledCheckedIcon | 自定义禁用选中状态的图标，支持Icon type或图片路径  | string | - |
+| uid |  当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与外部的 CheckboxGroup 组件的 uid 一致  | string | - ｜
+| id |  表单元素 id | string | - |
+| name | 表单元素 name | string | - | 
+| className | 类名| string | - |
 
 ## 事件
 
@@ -116,19 +118,3 @@ toc: false
 | -----|-----|
 | amd-checkbox-item | 整体样式 |
 | amd-checkbox-item-content | 内容区样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-mobile-previewer:nth-of-type(2)::after {
-    border-bottom: none!important;
-}
-</style> 

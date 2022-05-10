@@ -16,10 +16,10 @@ toc: false
 
 
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| position | 'bottom' &verbar; 'top' &verbar; 'both' | 否 | 'both' | 安全区位置 |
-| className | string | 否 | '' | 类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| position |  安全区位置| 'bottom' &verbar; 'top' &verbar; 'both'  | 'both' |
+| className | 类名  | string | - |
 
 
 ## 样式类
@@ -28,16 +28,3 @@ toc: false
 | amd-safe-area | 整体样式 |
 | amd-safe-area-top | 顶部安全区域 |
 | amd-safe-area-bottom | 底部安全区域 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

@@ -18,14 +18,14 @@ toc: false
 
     
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| type | 'success' &verbar; 'danger' &verbar; 'info' &verbar; 'warn' &verbar; 'wait' | 否 | - | 内置类型 success=成功 danger=错误/危险 info=信息提示 wait=等待处理 |
-| image | string &verbar; slot | 否 | - | 自定义图片，如果配置了 type， 则不生效 |
-| title | string &verbar; slot | 否 | - | 主文案 |
-| message | string &verbar; slot | 否 | - | 副文案 |
-| buttons | {text: string; type: 'default' &verbar; 'primary' &verbar; 'warn' &verbar; 'danger' &verbar; 'success' &verbar; 'light'}[] | 否 | - | 按钮类型 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| type | 内置类型 success=成功 danger=错误/危险 info=信息提示 wait=等待处理 | 'success' &verbar; 'danger' &verbar; 'info' &verbar; 'warn' &verbar; 'wait' | - |
+| image |  自定义图片，如果配置了 type， 则不生效 | string &verbar; slot | - |
+| title | 主文案 | string &verbar; slot | - |
+| message |  副文案 |  string &verbar; slot | - |
+| buttons | 按钮类型 | {text: string; type: 'default' &verbar; 'primary' &verbar; 'warn' &verbar; 'danger' &verbar; 'success' &verbar; 'light'}[] | - |  |
+| className |  类名 | string | - |
 
 ## 事件
 

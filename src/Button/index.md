@@ -27,24 +27,24 @@ toc: false
 
 ## 属性
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| publicId | string | 否 | - | 生活号 id，必须是当前小程序同主体且已关联的生活号，open-type="lifestyle" 时有效。 |
-| openType | string | 否 | - | 开放能力。 |
-| scope | string | 否 | - | 当 openType 为 getAuthorize 时有效。 |
-| type | 'default' &verbar; 'primary' &verbar; 'warn' &verbar; 'danger' &verbar; 'success' &verbar; 'light' | 否 | 'default' | 按钮类型 default=辅助按钮<br> primary=品牌色按钮<br>  warn=警示按钮<br>  danger=危险按钮<br>  success=成功按钮<br>  light=弱按钮 |
-| fill | 'outline' &verbar; 'solid' &verbar; 'none' | 否 | 'solid' | 填充样式 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| subText | string | 否 | - | 辅助文字，显示在第二行 |
-| inline | boolean | 否 | false | 内联，不撑满父级宽度 |
-| inlineSize | 'small' &verbar; 'medium' &verbar; 'large'  &verbar; 'x-large' | 否 | 'medium' | 内联尺寸 |
-| icon | string | 否 | - | 按钮左侧图标，支持[Icon](./icon#代码示例)和图片路径 |
-| loading | boolean | 否 | false | 是否加载中，加载中时不可点击 |
-| loadingText | string | 否 | - | 加载中时的文字 |
-| htmlType | 'button' &verbar; 'submit' &verbar; 'reset' | 否 | 'button' | 按钮原生类型，在表单提交时有效 |
-| form | string | 否 | - | 表单 uid，当htmlType = 'submit' 且页面有多个表单时必传 |
-| className | string | 否 | - | 类名 |
-| activeClassName | string | 否 | - | 按下时的类名 |
+| 属性 | 说明 | 类型 | 默认值  |
+| -----|-----|-----|-----|
+| type | 填充样式 按钮类型 default=辅助按钮<br> primary=品牌色按钮<br>  warn=警示按钮<br>  danger=危险按钮<br>  success=成功按钮<br>  light=弱按钮 | 'default' &verbar; 'primary' &verbar; 'warn' &verbar; 'danger' &verbar; 'success' &verbar; 'light' | 'default' | 
+| fill | 填充样式  | 'outline' &verbar; 'solid' &verbar; 'none' | 'solid'  |
+| disabled | 是否禁用  | boolean | false  |
+| subText | 辅助文字，显示在第二行 | string | - |
+| publicId | 生活号 id，必须是当前小程序同主体且已关联的生活号，open-type="lifestyle" 时有效。 | string | - |
+| openType | 开放能力 | string | - |
+| scope | 当 openType 为 getAuthorize 时有效 | string | - |
+| inline | 内联，不撑满父级宽度  | boolean | false |
+| inlineSize | 内联尺寸 | 'small' &verbar; 'medium' &verbar; 'large'  &verbar; 'x-large' | 'medium' |
+| icon |按钮左侧图标，支持[Icon](./icon#代码示例)和图片路径| string | - |
+| loading | 是否加载中，加载中时不可点击 | boolean | false |
+| loadingText| 加载中时的文字  | string | - |
+| htmlType | 按钮原生类型，在表单提交时有效  | 'button' &verbar; 'submit' &verbar; 'reset' | 'button' |
+| form | 表单 uid，当htmlType = 'submit' 且页面有多个表单时必传 | string | - |
+| className | 类名  | string | - |
+| activeClassName | 按下时的类名 | string | - |
 
 ## 事件
 
@@ -70,19 +70,3 @@ toc: false
 | amd-button-icon | 图标样式 |
 | amd-button-text | 按钮文字样式 |
 | amd-button-subtext | 副标题样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after,.__dumi-default-mobile-previewer:nth-of-type(4)::after,.__dumi-default-mobile-previewer:nth-of-type(6)::after {
-    border-bottom: none!important;
-}
-</style> 

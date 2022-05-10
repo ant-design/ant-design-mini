@@ -17,14 +17,14 @@ toc: false
 
 ## 属性
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| fixed | boolean | 否 | false | 是否固定在底部 |
-| hasCheckbox | boolean | 否 | true | 是否需要勾选框 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| mainButtonText | string | 是 | '同意' | 主按钮文本 |
-| addonButtonText | string | 否 |  | 辅助按钮文本 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| fixed |  是否固定在底部  | boolean | false | 
+| hasCheckbox | 是否需要勾选框   | boolean | true | 
+| disabled |  是否禁用 | boolean | false |
+| mainButtonText | 主按钮文本 | string | '同意' |
+| addonButtonText |  辅助按钮文本  | string | - |
+| className |  类名 | string | - |
 
 
 ## 事件
@@ -47,16 +47,3 @@ toc: false
 | amd-terms-term | term 区域样式 |
 | amd-terms-term-checkbox | checkbox 组件样式 |
 | amd-terms-content | 内容区域样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-}  
-</style> 

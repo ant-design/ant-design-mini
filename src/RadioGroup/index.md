@@ -20,27 +20,29 @@ Radio 所有选项默认可见，方便用户在比较中选择，因此选项�
 
 ## 属性
 #### RadioGroup
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| value | string | 否 | - | RadioGroup 的值，决定子元素是否勾选 |
-| radius | boolean | 否 | false | 是否带圆角 |
-| position | 'horizontal' &verbar;  'vertical' | 否 | 'vertical' | 布局 |
-| uid | string | 否 | - | 当页面有多个RadioGroup时需传入，`必须页面唯一`，与内部的 RadioItem 组件的 uid 一致 |
-| header | string | 否 | - | 头部说明 |
-| footer | string | 否 | - | 底部说明 |
+| 属性 |  说明  | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| value |  RadioGroup 的值，决定子元素是否勾选  | string | - |
+| radius |  是否带圆角   | boolean | false |
+| position | 布局  | 'horizontal' &verbar;  'vertical' | 'vertical' | 
+| uid |当页面有多个RadioGroup时需传入，`必须页面唯一`，与内部的 RadioItem 组件的 uid 一致  | string | - |
+| header | 头部说明 | string | - | 
+| footer | 底部说明  | string | - |
+| className |  类名 | string | - |
+
 
 #### RadioItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| value | any | 否 | - | Radio 携带的 value 值, 在原生 form 表单提交的时候有用；在 RadioGroup 时亦有用 |
-| color | string | 否 | false | radio 的颜色，同 CSS 色值 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| icon | string | 否 | - | 自定义图标，支持[Icon](./icon#代码示例)和图片路径 |
-| checkedIcon | string | 否 | - | 自定义选中状态的图标，支持Icon type或图片路径 |
-| disabledIcon | string | 否 | - | 自定义禁用状态的图标，支持Icon type或图片路径 |
-| disabledCheckedIcon | string | 否 | - | 自定义禁用选中状态的图标，支持Icon type或图片路径 |
-| className | string | 否 | - | 类名 |
-| uid | string | 否 | - | 当页面有多个RadioGroup时需传入，`必须页面唯一`，需与外部的 RadioGroup 组件的 uid 一致 |
+| 属性 |  说明 | 类型 | 默认值 | 
+| -----|-----|-----|-----|
+| value | Radio 携带的 value 值, 在原生 form 表单提交的时候有用；在 RadioGroup 时亦有用 | any  | - |
+| color | radio 的颜色，同 CSS 色值  | string| false |
+| disabled | 是否禁用  | boolean | false |
+| icon | 自定义图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
+| checkedIcon | 自定义选中状态的图标，支持Icon type或图片路径  | string | - |
+| disabledIcon | 自定义禁用状态的图标，支持Icon type或图片路径 | string | - |
+| disabledCheckedIcon | 自定义禁用选中状态的图标，支持Icon type或图片路径 | string | - |
+| uid | 当页面有多个RadioGroup时需传入，`必须页面唯一`，需与外部的 RadioGroup 组件的 uid 一致  | string | - | 
+| className |  类名 | string | - |
 
 ## 事件
 #### RadioGroup
@@ -70,25 +72,3 @@ Radio 所有选项默认可见，方便用户在比较中选择，因此选项�
 | amd-radio-item-wrap | 整体样式 |
 | amd-radio-item-base | radio 组件样式 |
 | amd-radio-item-fake | 选中状态下 radio 组件样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

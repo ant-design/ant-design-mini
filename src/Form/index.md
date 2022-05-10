@@ -48,47 +48,47 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 ## 属性
 
 #### Form
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|:-----:|:-----:|:-----:|----- |
-| initialValues | Record<sring, any> | 否 | - | 表单初始值 |
-| position | 'horizontal' &verbar;  'vertical' | 否 | 'horizontal' | 布局 |
-| requiredMarkStyle | 'asterisk' &verbar;  'text-required' &verbar;  'text-optional' | 否 | 'asterisk' | 必填选填的标记样式	 |
-| form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且`页面唯一` |
-| className | string | 否 | - | 类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|:-----:|:-----:|:-----:|
+| initialValues | 表单初始值 |  Record<sring, any> | - |
+| position | 布局 | 'horizontal' &verbar;  'vertical'  | 'horizontal' |
+| requiredMarkStyle | 必填选填的标记样式 |  'asterisk' &verbar;  'text-required' &verbar;  'text-optional' | 'asterisk' |
+| form | 表单 uid，当前页面有多个表单实例时必传且`页面唯一` | string | - |
+| className |  类名 | string | - |
 
 #### FormItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|:-----:|:-----:|:-----:|----- |
-| name | string | 是 | - | 字段key |
-| label | string | 否 | - | 字段显示名称 |
-| position | 'horizontal' &verbar;  'vertical' | 否 | - | 布局，优先级高于Form的position |
-| arrow | boolean | 否 | false | 表单项右侧箭头 |
-| required | boolean | 否 | false | 是否必填，label展示必填标识 |
-| initialValue | any| 否 | - | 表单初始值,优先级低于Form的initialValues |
-| rules | [Rule](#rule)[] | 否 | [] | 校验规则，设置字段的校验逻辑。点击[查看](#rule) |
-| validateFirst | boolean | 否 | false | 当某一规则校验不通过时，是否停止剩下的规则的校验 |
-| dependencies | string[] | 否 | [] | 当字段间存在依赖关系时使用。如果一个字段设置了 dependencies 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验 |
-| form | string | 否 | - | 表单 uid，当前页面有多个表单实例时必传且`页面唯一` |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|:-----:|:-----:|:-----:|
+| name | 字段key  | string| - |
+| label | 字段显示名称  | string | - |
+| position | 布局，优先级高于Form的position  |  'horizontal' &verbar;  'vertical' | - |
+| arrow | 表单项右侧箭头 | boolean | false |
+| required | 是否必填，label展示必填标识 | boolean | false |
+| initialValue |  表单初始值,优先级低于Form的initialValues | any | - |
+| rules |  校验规则，设置字段的校验逻辑。点击[查看](#rule) | [Rule](#rule)[] | [] |
+| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验 | boolean | false |
+| dependencies | 当字段间存在依赖关系时使用。如果一个字段设置了 dependencies 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验  | string[]  | [] |
+| form |  表单 uid，当前页面有多个表单实例时必传且`页面唯一` | string | - |
 
 #### FromGroup
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|:-----:|:-----:|:-----:|----- |
-| header | string | 否 | - | FormGroup 名称 |
-| radius | boolean | 否 | false | FormGroup 形状是否为圆角 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|:-----:|:-----:|:-----:|
+| header | FormGroup 名称 | string | - |
+| radius | FormGroup 形状是否为圆角 | boolean | false |
 
 #### Rule
 
 | 名称 | 说明 | 类型 | 
 | -----|:-----:|:-----:|
-| message | string | 错误信息，不设置时会自动生成 | 
-| required | boolean | 是否为必填字段 | 
-| pattern | RegExp | 正则表达式匹配 | 
-| type | string | 类型，常见有 string &verbar; number &verbar; boolean &verbar; url &verbar; email。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | 
-| enum | any[] | 是否匹配枚举中的值（需要将 type 设置为 enum） | 
-| len | number | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | 
-| max | number | 必须设置 type：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | 
-| min | number | 必须设置 type：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | 
-| whitespace | boolean | 如果字段仅包含空格则校验不通过，只在 type: 'string' 时生效 | 
+| message | 错误信息，不设置时会自动生成 |  string | 
+| required | 是否为必填字段  | boolean | 
+| pattern |  正则表达式匹配 | RegExp | 
+| type | 类型，常见有 string &verbar; number &verbar; boolean &verbar; url &verbar; email。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | string  | 
+| enum |  是否匹配枚举中的值（需要将 type 设置为 enum） | any[] | 
+| len |  类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度  | number | 
+| max |  必须设置 type：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number | 
+| min |  必须设置 type：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度  |number | 
+| whitespace | 如果字段仅包含空格则校验不通过，只在 type: 'string' 时生效 | boolean | 
 
 ## 事件
 
@@ -145,55 +145,3 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | amd-form-item-field | 字段样式 |
 | amd-form-item-extra | 额外内容样式 |
 | amd-form-item-arrow | 箭头样式 |
-
-
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(4) th:nth-of-type(2) {
-    width: 180px;
-}
-.__dumi-default-layout-content article table:nth-of-type(7) th:nth-of-type(2) {
-    width: 180px;
-}
-#rule ~ .__dumi-default-table th:nth-of-type(1) {
-    width: 20%;
-}
-#rule ~ .__dumi-default-table th:nth-of-type(2) {
-    width: 20%;
-}
-.__dumi-default-mobile-previewer:nth-of-type(2)::after,
-.__dumi-default-mobile-previewer:nth-of-type(4)::after,
-.__dumi-default-mobile-previewer:nth-of-type(6)::after,
-.__dumi-default-mobile-previewer:nth-of-type(8)::after,
-.__dumi-default-mobile-previewer:nth-of-type(10)::after {
-    border-bottom: none!important;
-}
-</style> 

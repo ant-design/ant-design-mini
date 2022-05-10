@@ -66,6 +66,13 @@ const config: IConfig = {
   a[title='站长统计']  {
     display: none;
   }
+  #root .__dumi-default-device {
+    margin-left: 8px;
+  }
+  #simulatorContainer {
+    top: 100px !important;
+    height: 700px !important;
+  }
   #root .__dumi-default-device[data-device-type="iOS"] {
     display: none;
   }
@@ -238,6 +245,21 @@ const config: IConfig = {
     margin-top: 24px;
     margin-bottom: 16px;
   }
+}
+.__dumi-default-layout-content article table th:first-of-type { width: 100px; }
+.__dumi-default-layout-content article table td:first-of-type { width: 100px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+  width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
+.__dumi-default-layout-content article table:nth-of-type(4) th:first-of-type {
+    width: 300px;
+}
   `],
   navs: {
     zh: [

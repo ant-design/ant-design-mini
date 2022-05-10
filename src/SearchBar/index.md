@@ -23,27 +23,28 @@ toc: false
 
 
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| controlled | boolean | 否 | false | 是否受控模式 |
-| borderColor | string | 否 | - | 输入框边框颜色 |
-| enableNative | boolean | 否 | - | 是否启用 Native 渲染 |
-| value | string | 否 | - | 搜索框的值 |
-| placeholder | string | 否 | - | 提示文字 |
-| showCancelButton | boolean | 否 | false | 是否显示取消按钮 |
-| cancelText | string | 否 | '取消' | 取消按钮文案 |
-| maxLength | number | 否 | - | 最大长度 |
-| showBizIcon | boolean | 否 | false | 是否展示额外图标 |
-| bizIconType | string | 否 | 'AudioFill' | 额外图标类型，同[Icon](./icon#代码示例) |
-| autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
-| id | string | 否 | - | 表单元素 id |
-| name | string | 否 | - | 表单元素 name |
-| disabled | boolean | 否 | false | 是否禁用 |
-| className | string | 否 | - | 类名 |
+| 属性 |  说明 | 类型 | 默认值 | 
+| -----|-----|-----|-----|
+| value | 搜索框的值 | string | - |
+| borderColor |  输入框边框颜色 | string | - |
+| enableNative |  是否启用 Native 渲染 | boolean | - |
+| placeholder | 提示文字 | string | - |
+| showCancelButton | 是否显示取消按钮 | boolean | false |
+| cancelText |  取消按钮文案  | string | '取消' |
+| maxLength |  最大长度 | number | - |
+| showBizIcon | 是否展示额外图标 | boolean | false |
+| bizIconType | 额外图标类型，同[Icon](./icon#代码示例)  | string | 'AudioFill' |
+| autoFocus | 自动聚焦，ios 可能会失效  | boolean | false |
+| id |  表单元素 id | string | - |
+| name | 表单元素 name | string | - |
+| disabled | 是否禁用 | boolean | false |
+| controlled |   是否受控模式 | boolean | false |
+| className | 类名  | string | - |
 
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
+| onChange | 输入文本，触发此回调 | ( v: string ) => void |
 | onVoiceTap | 点击话筒图标，触发此回调 | () => void |
 | onInput | 监听输入框输入动作，触发此回调 | ( v: string ) => void |
 | onSubmit | input 组件的 onConfirm 事件 | ( v: string ) => void |
@@ -51,7 +52,6 @@ toc: false
 | onClear | 点击清除图标，触发此回调 | ( v: string ) => void |
 | onFocus | 输入框对焦，触发此回调 | ( v: string ) => void |
 | onBlur | 输入框失焦，触发此回调 | ( v: string ) => void |
-| onChange | 输入文本，触发此回调 | ( v: string ) => void |
 | onBizIconTap | 点击辅助图标，触发此回调 | ( ) => void |
 
 ## 样式类
@@ -64,16 +64,3 @@ toc: false
 | amd-search-bar-value | input 组件样式 |
 | amd-search-bar-clear-icon | 清除图标样式 |
 | amd-search-bar-biz-icon | 额外图标样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

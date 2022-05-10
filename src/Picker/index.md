@@ -23,19 +23,21 @@ type PickerColumnItem = string | number | {
   value: string|number
 }
 ```
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| value |  PickerColumnItem  &#124;  (PickerColumnItem)[]  | 否 | - | 选中数据 |
-| data | PickerColumnItem[][]| 是 | - | picker 数据，配置每一列的选项 |
-| placeholder | string | 否 | - | 提示文案 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| title | string | 否 | - | 弹出框标题 |
-| okText | string | 否 | '确定' | 确认按钮文案 |
-| dismissText | string | 否 | '取消' | 取消文案 |
-| maskStyle | string | 否 | | 蒙层的样式 |
-| maskClass | string | 否 |  | 蒙层的类名 |
-| indicatorStyle | string | 否 |  | 选中框样式 |
-| indicatorClass | string | 否 |  | 	选中框的类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| value | 选中数据   | PickerColumnItem  &#124;  (PickerColumnItem)[] | - |
+| data | picker 数据，配置每一列的选项 | PickerColumnItem[][] | - |
+| placeholder | 提示文案  | string | - |
+| disabled | 是否禁用  | boolean | false |
+| title |  弹出框标题 | string | - |
+| okText |  确认按钮文案 | string | '确定' |
+| dismissText | 取消文案  | string | '取消' |
+| maskStyle | 蒙层的样式 | string | -| 
+| maskClass | 蒙层的类名 | string | - |
+| indicatorStyle | 选中框样式  | string | - |
+| indicatorClass | 选中框的类名  | string | - |
+| className |  类名 | string | - |
+
 
 ## 事件
 | 事件名 | 说明 | 类型 |
@@ -63,22 +65,3 @@ type PickerColumnItem = string | number | {
 | amd-picker-header-item | 弹窗头部区域文本样式 |
 | amd-picker-content | 选择区域样式 |
 | amd-picker-content-item | 选择区域单个选项样式 |
-
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-#root .__dumi-default-code-block {
-  font-size: 13px;
-  background-color: #f5f7fa;
-}
-
-</style> 

@@ -19,12 +19,12 @@ toc: false
 
 
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| type | 'outline' &verbar; 'fill' &verbar; 'fill-light' | 否 | 'fill' | 类型 |
-| color | 'primary' &verbar; 'success' &verbar; 'warn' &verbar; 'danger' | 否 | 'primary' | 标签颜色, 内建 primary(蓝), success(绿), warn(黄), danger(红) |
-| icon | string| 否 | - | 图标 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明  | 类型  | 默认值 |
+| -----|-----|-----|-----|
+| type | 类型  | 'outline' &verbar; 'fill' &verbar; 'fill-light' | 'fill' |
+| color | 标签颜色, 内建 primary(蓝), success(绿), warn(黄), danger(红) | 'primary' &verbar; 'success' &verbar; 'warn' &verbar; 'danger' | 'primary' |
+| icon | 图标 | string | - |
+| className | 类名 | string | - |
 
 ## 插槽
 | 名称 | 说明 |
@@ -44,33 +44,3 @@ toc: false
 | amd-tag-danger | 整体样式 |
 | amd-tag-icon-container | 图标区域样式 |
 | amd-tag-content | 默认插槽内容样式 |
-
-
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(4) th:nth-of-type(2)  {
-    width: 300px
-} 
-.__dumi-default-layout-content article table:nth-of-type(5) th:nth-of-type(2)  {
-    width: 300px
-} 
-</style> 

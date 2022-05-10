@@ -23,22 +23,23 @@ toc: false
 ## 属性
 
 #### Popover
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| visible | boolean | 否 | false | 是否可见 |
-| mode | 'dark' &verbar; 'light' | 否 | 'dark' | 组件显示模式 |
-| placement | 'top' &verbar; 'top-right' &verbar; 'top-left' &verbar; 'bottom' &verbar; 'bottom-left' &verbar; 'bottom-right' &verbar; 'left' &verbar; 'left-top' &verbar; 'left-bottom' &verbar; 'right' &verbar; 'right-top' &verbar; 'right-bottom' | 否 | 'bottom-right' | 方向 |
-| className | string | 否 | - | 类名 |
-| mask | boolean | 否 | false | 是否展示蒙层 |
-| transparentMask | boolean | 否 | false | 蒙层是否透明 |
-| maskClosable | boolean | 否 | true | 是否可点击蒙层关闭 |
-| fixMaskFull | boolean | 否 | false | 用以解决遮罩层受到 transform 影响而显示不全的问题 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| visible |  是否可见  | boolean | false |
+| mode | 组件显示模式 | 'dark' &verbar; 'light' | 'dark' |
+| placement | 方向 | 'top' &verbar; 'top-right' &verbar; 'top-left' &verbar; 'bottom' &verbar; 'bottom-left' &verbar; 'bottom-right' &verbar; 'left' &verbar; 'left-top' &verbar; 'left-bottom' &verbar; 'right' &verbar; 'right-top' &verbar; 'right-bottom' | 'bottom-right' |
+| mask |  是否展示蒙层 | boolean | false |
+| transparentMask |  蒙层是否透明 | boolean | false | 
+| maskClosable |  是否可点击蒙层关闭 | boolean | true | 
+| fixMaskFull |  用以解决遮罩层受到 transform 影响而显示不全的问题 | boolean | false |
+| className |  类名 | string | - |
+
 
 #### PopoverItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| icon | string | 否 | - | 图标类型 |
-| className | string | 否 | - | 类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| icon |  图标类型  | string | - |
+| className | 类名  | string | - |
 
 ## 事件
 #### Popover
@@ -80,34 +81,3 @@ toc: false
 | amd-popover-item-icon | 图标样式|
 | amd-popover-item-icon-item | 图标样式|
 | amd-popover-item-text | 文字样式|
-
-<style>
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 110px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 110px
-} 
-.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(2)  {
-    width: 200px
-} 
-.__dumi-default-layout-content article table:nth-of-type(4) th:nth-of-type(2)  {
-    width: 200px
-} 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after {
-    border-bottom: none!important;
-}
-</style>

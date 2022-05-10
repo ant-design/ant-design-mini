@@ -18,26 +18,26 @@ toc: false
 ## 属性
   
 #### Steps
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| index | number | 否 | 0 | 当前步骤, 受控 |
-| direction | 'horizontal' &verbar; 'vertical' | 否 | 'horizontal' | 方向 |
-| uid | string | 否 | - | 当页面有多个Steps时需传入，`必须页面唯一`，与内部的 StepItem 组件的 uid 一致 |
-| className | string | 否 | - | 类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| index |   当前步骤, 受控 | number | 0 | 
+| direction | 方向 | 'horizontal' &verbar; 'vertical' | 'horizontal' |
+| uid | 当页面有多个Steps时需传入，`必须页面唯一`，与内部的 StepItem 组件的 uid 一致 | string | - |
+| className | 类名 | string | - |
     
 #### StepItem
     
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| index | number | 是 | - | 小程序必填，用于标记当前是第几步，必须按顺序递增 |
-| title | string &verbar; slot | 是 | - | 标题 |
-| desc | string &verbar; slot | 否 | - | 补充信息 |
-| fail | boolean | 否 | false | 是否失败步骤 |
-| icon | string &verbar; slot | 否 | - | 图标，横向和纵向都有各自的默认图标 |
-| activeIcon | string &verbar; slot | 否 | - | 激活步骤图标，横向和纵向都有各自的默认图标 |
-| failIcon | string &verbar; slot | 否 | - | 失败步骤图标，横向和纵向都有各自的默认图标 |
-| uid | string | 否 | - | 当页面有多个Steps时需传入，`必须页面唯一`，与外部的 Steps 组件的 uid 一致 |
-| className | string | 否 | - | 类名 |
+| 属性 |   说明 | 类型  | 默认值 |
+| -----|-----|-----|-----|
+| index |  标记当前是第几步，必须按顺序递增`必填` | number | - |
+| title | 标题`必填` |  string &verbar; slot | - |
+| desc | 补充信息 | string &verbar; slot | - |
+| fail | 是否失败步骤 | boolean | false |
+| icon | 图标，横向和纵向都有各自的默认图标 | string &verbar; slot  | - |
+| activeIcon | 激活步骤图标，横向和纵向都有各自的默认图标  | string &verbar; slot | - |
+| failIcon | 失败步骤图标，横向和纵向都有各自的默认图标  | string &verbar; slot | - |
+| uid |  当页面有多个Steps时需传入，`必须页面唯一`，与外部的 Steps 组件的 uid 一致  | string | - |
+| className |  类名  | string | - |
   
 ## 插槽
 
@@ -72,25 +72,3 @@ toc: false
 | amd-steps-item-text  | 文字区域样式 |
 | amd-steps-item-title  | 标题样式 |
 | amd-steps-item-desc  | 补充说明样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

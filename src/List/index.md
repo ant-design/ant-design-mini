@@ -20,27 +20,27 @@ toc: false
 ## 属性
 
 #### List
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| radius | boolean | 否 | false | 是否带圆角 |
-| header | string | 否 | - | 头部说明 |
-| footer | string | 否 | - | 底部说明 |
-| className | string | 否 | - | 类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| radius | 是否带圆角  | boolean | false |
+| header | 头部说明 | string | - |
+| footer | 底部说明 | string | - |
+| className | 类名 | string | - |
 
 #### ListItem
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| image | string | 否 | - | 左侧图片 |
-| imageSize |  'small'  &verbar; 'medium'  &verbar; 'large' | 否 | 'small' | 左侧图片大小 |
-| arrow | 'right' &verbar; 'up' &verbar; 'down' | 否 | - | 箭头方向，不传表示没有箭头 |
-| title | string | 否 | - | 标题信息 |
-| brief | string | 否 | - | 第二行信息 |
-| extra | string | 否 | - | 右侧额外内容 |
-| extraBrief | string | 否 | - | 右侧辅助信息 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| last | boolean | 否 | false | 用于处理下划线是否显示 |
-| className | string | 否 | - | 类名 |
+| 属性 |  说明 |类型| 默认值 |
+| -----|-----|-----|-----|
+| image |  左侧图片  | string | - |
+| imageSize |  左侧图片大小 | 'small'  &verbar; 'medium'  &verbar; 'large' | 'small' |
+| arrow |  箭头方向，不传表示没有箭头  | 'right' &verbar; 'up' &verbar; 'down' | - |
+| title |  标题信息 | string | - |
+| brief |  第二行信息 | string | - |
+| extra |  右侧额外内容| string | - |
+| extraBrief | 右侧辅助信息  | string | - |
+| disabled |   是否禁用 | boolean | false |
+| last |  用于处理下划线是否显示 | boolean | false |
+| className | 类名 | string | - |
 
 
 ## 插槽
@@ -85,25 +85,3 @@ toc: false
 | amd-list-item-brief | brief 样式 |
 | amd-list-item-extra | extra 样式 |
 | amd-list-item-arrow| 右侧 arrow 样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 160px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

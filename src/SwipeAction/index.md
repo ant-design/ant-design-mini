@@ -23,13 +23,13 @@ toc: false
 
 
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| left | { text: string, type: 'default' &verbar; 'primary' &verbar; 'danger'; className: string } [] | 否 | - | 右滑漏出左侧操作区 |
-| right | { text: string, type: 'default' &verbar; 'primary' &verbar; 'danger'; className: string }[] | 否 | - | 左滑漏出右侧操作区 |
-| autoClose | boolean | 否 | false | 点击按钮是是否会自动收起 |
-| disabled | boolean | 否 | false | 是否禁止操作 |
-| className | string | 否 | - | 类名 |
+| 属性 |  说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| left | 右滑漏出左侧操作区 | { text: string, type: 'default' &verbar; 'primary' &verbar; 'danger'; className: string } [] | - |
+| right | 左滑漏出右侧操作区 | { text: string, type: 'default' &verbar; 'primary' &verbar; 'danger'; className: string }[] | - |
+| autoClose | 点击按钮是是否会自动收起 | boolean | false |
+| disabled | 是否禁止操作 | boolean | false |
+| className |  类名 | string | - |
 
 ## 事件
 | 事件名 | 说明 | 类型 | 补充 |
@@ -49,19 +49,3 @@ toc: false
 | amd-swipe-action-btn-text | 按钮文字样式 |
 | amd-swipe-action-content | 表层区域样式 |
 | amd-swipe-action-item | 表层区域内容样式 |
-
-<style>
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 260px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 40px
-} 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after {
-    border-bottom: none!important;
-}
-</style>

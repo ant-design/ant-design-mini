@@ -22,15 +22,15 @@ toc: false
 
 
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| image | string | 否 | - | 需要使用的图片 url |
-| title | string | 是 | - | 提示文字 |
-| arrowPosition | 'top-left' &verbar; 'top-center' &verbar; 'top-right' &verbar; 'left' &verbar; 'right' &verbar; 'bottom-left' &verbar; 'bottom-center' &verbar; 'bottom-right' | 否 | - | 箭头位置，不传时表示没有箭头 |
-| buttonText | string | 否 | - | 按钮文字 |
-| showClose | boolean | 否 | false | 是否有关闭按钮 |
-| buttonPosition | 'right' &verbar; 'bottom' | 否 | 'right' | 文字按钮的位置，默认为右边 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| image | 需要使用的图片 url | string | - |
+| title | 提示文字  | string | - |
+| arrowPosition |箭头位置，不传时表示没有箭头  |  'top-left' &verbar; 'top-center' &verbar; 'top-right' &verbar; 'left' &verbar; 'right' &verbar; 'bottom-left' &verbar; 'bottom-center' &verbar; 'bottom-right' | - |
+| buttonText |  按钮文字 | string | -  |
+| showClose | 是否有关闭按钮 | boolean | false |
+| buttonPosition | 文字按钮的位置，默认为右边 | 'right' &verbar; 'bottom' | 'right' |
+| className |  类名 | string | - |
 
 ## 事件
 | 事件名 | 说明 | 类型 |
@@ -46,23 +46,3 @@ toc: false
 | amd-tips-wrap-pseudo-content | 表面内容区域样式 |
 | amd-tips-arrow | 箭头样式 |
 | amd-tips-wrap-real | 真实内容区域样式 |
-
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(2)  {
-    width: 300px
-} 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after , .__dumi-default-mobile-previewer:nth-of-type(4)::after {
-    border-bottom: none!important;
-}
-</style> 
