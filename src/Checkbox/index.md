@@ -38,7 +38,7 @@ toc: false
 | color | checkbox 的颜色，同 CSS 色值 | string | false |
 | value | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用 | string | - |
 | icon | 自定义图标，支持[Icon](./icon#代码示例)和图片路径  | string | - |
-| checkedIcon | 自定义选中状态的图标，支持Icon type或图片路径 | string | - ｜
+| checkedIcon | 自定义选中状态的图标，支持Icon type或图片路径 | string | -  |
 | disabledIcon | 自定义禁用状态的图标，支持Icon type或图片路径 | string | - |
 | disabledCheckedIcon |  自定义禁用选中状态的图标，支持Icon type或图片路径 | string | - |
 | id | 表单元素 id | string | - |
@@ -58,7 +58,7 @@ toc: false
 
 #### CheckboxItem
 | 属性 | 说明 | 类型 | 默认值 | 
-| -----|-----|-----|-----|
+| -----|-----|-----|----- |
 | checked |  是否选中 | boolean | false | 
 | disabled | 是否禁用 | boolean | false |
 | color | checkbox 的颜色，同 CSS 色值 | string | false |
@@ -67,7 +67,7 @@ toc: false
 | checkedIcon | 自定义选中状态的图标，支持Icon type或图片路径 | string | - |
 | disabledIcon | 自定义禁用状态的图标，支持Icon type或图片路径 | string | - |
 | disabledCheckedIcon | 自定义禁用选中状态的图标，支持Icon type或图片路径  | string | - |
-| uid |  当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与外部的 CheckboxGroup 组件的 uid 一致  | string | - ｜
+| uid |  当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与外部的 CheckboxGroup 组件的 uid 一致  | string | - |
 | id |  表单元素 id | string | - |
 | name | 表单元素 name | string | - | 
 | className | 类名| string | - |
