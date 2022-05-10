@@ -19,11 +19,6 @@ export interface ICheckboxProps
    */
   color?: string;
   /**
-   * @description 当搭配CheckboxGroup使用且页面有多个CheckboxGroup时需传入，`必须全局唯一`，与外部的 CheckboxGroup 组件的 uid 一致
-   * @default 'CheckboxGroup'
-   */
-  uid?: string;
-  /**
    * @description 自定义图标
    */
   icon?: string;

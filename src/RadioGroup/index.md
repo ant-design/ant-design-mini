@@ -35,12 +35,12 @@ Radio 所有选项默认可见，方便用户在比较中选择，因此选项�
 | 属性 |  说明 | 类型 | 默认值 | 
 | -----|-----|-----|-----|
 | value | Radio 携带的 value 值, 在原生 form 表单提交的时候有用；在 RadioGroup 时亦有用 | any  | - |
-| color | radio 的颜色，同 CSS 色值  | string| false |
+| color | 选中的颜色，同 CSS 色值 ，同 CSS 色值  | string| false |
 | disabled | 是否禁用  | boolean | false |
-| icon | 自定义图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
-| checkedIcon | 自定义选中状态的图标，支持Icon type或图片路径  | string | - |
-| disabledIcon | 自定义禁用状态的图标，支持Icon type或图片路径 | string | - |
-| disabledCheckedIcon | 自定义禁用选中状态的图标，支持Icon type或图片路径 | string | - |
+| icon | 自定义未选中图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
+| checkedIcon | 自定义选中状态的图标，支持[Icon](./icon#代码示例)和图片路径  | string | - |
+| disabledIcon | 自定义禁用状态的图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
+| disabledCheckedIcon | 自定义禁用选中状态的图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
 | uid | 当页面有多个RadioGroup时需传入，`必须页面唯一`，需与外部的 RadioGroup 组件的 uid 一致  | string | - | 
 | className |  类名 | string | - |
 

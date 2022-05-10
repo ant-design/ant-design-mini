@@ -13,9 +13,6 @@ toc: false
 - 在一组可选项中进行多项选择时
 - 单独使用可以表示两种状态之间的切换，和 switch 类似。区别在于切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合
 
-## 注意事项
-- 单独使用Checkbox请勿传入uid属性
-- CheckboxItem必须和CheckboxGroup搭配使用
 
 
 ## 代码示例
@@ -35,12 +32,12 @@ toc: false
 | -----|-----|-----|-----|
 | checked | 是否选中  | boolean | false |
 | disabled | 是否禁用  | boolean | false |
-| color | checkbox 的颜色，同 CSS 色值 | string | false |
+| color | 选中的颜色，同 CSS 色值 | string | false |
 | value | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用 | string | - |
-| icon | 自定义图标，支持[Icon](./icon#代码示例) type或图片路径  | string | - |
-| checkedIcon | 自定义选中状态的图标，支持[Icon](./icon#代码示例) type或图片路径 | string | -  |
-| disabledIcon | 自定义禁用状态的图标，支持[Icon](./icon#代码示例) type或图片路径 | string | - |
-| disabledCheckedIcon |  自定义禁用选中状态的图标，支持Icon type或图片路径 | string | - |
+| icon | 自定义未选中图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
+| checkedIcon | 自定义选中状态的图标，支持[Icon](./icon#代码示例)和图片路径  | string | - |
+| disabledIcon | 自定义禁用状态的图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
+| disabledCheckedIcon | 自定义禁用选中状态的图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
 | id | 表单元素 id | string | - |
 | name | 表单元素 name  | string | - | 
 | className | 类名| string | - |
@@ -63,10 +60,10 @@ toc: false
 | disabled | 是否禁用 | boolean | false |
 | color | checkbox 的颜色，同 CSS 色值 | string | false |
 | value |  checkbox 携带的 value 值, 在原生 form 表单提交的时候有用；在 CheckboxGroup 时亦有用 | string | - |
-| icon | 自定义图标，支持[Icon](./icon#代码示例)和图片路径 | string | - | 
-| checkedIcon | 自定义选中状态的图标，支持Icon type或图片路径 | string | - |
-| disabledIcon | 自定义禁用状态的图标，支持Icon type或图片路径 | string | - |
-| disabledCheckedIcon | 自定义禁用选中状态的图标，支持Icon type或图片路径  | string | - |
+| icon | 自定义未选中图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
+| checkedIcon | 自定义选中状态的图标，支持[Icon](./icon#代码示例)和图片路径  | string | - |
+| disabledIcon | 自定义禁用状态的图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
+| disabledCheckedIcon | 自定义禁用选中状态的图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
 | uid |  当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与外部的 CheckboxGroup 组件的 uid 一致  | string | - |
 | id |  表单元素 id | string | - |
 | name | 表单元素 name | string | - | 

@@ -1,4 +1,3 @@
-
 <demo-block title="基础用法">
   <checkbox-group 
     uid="group1"
@@ -56,5 +55,21 @@
       uid="group3">
         {{item.label}}
     </checkbox-item>
+  </checkbox-group>
+</demo-block>
+
+<demo-block title="自定义图标">
+  <checkbox-group 
+    uid="group5"
+    onChange="handleChange"
+  >
+    <checkbox-item 
+      a:for="{{list}}"
+      value="{{item.value}}"  
+      icon="SmileOutline" checkedIcon="SmileFill"
+      uid="group5">
+        {{item.label}}
+    </checkbox-item>
+
   </checkbox-group>
 </demo-block>

@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "list-item": "../../List/ListItem/index",
-    "checkbox":"../../Checkbox/index"
+    "amd-icon": "../../Icon/index"
   }
 }
