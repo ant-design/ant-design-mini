@@ -117,7 +117,7 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 #### Form
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| setFieldsValue | 设置表单字段值 | ( fieldValues: `Record<string, any>` ) => void |
+| setFieldsValue | 设置表单字段值 | (fieldValues: `Record<string, any>`, triggerValidate?: boolean ) => void |
 | getFieldsValue | 获取表单字段值 | () => `Reacord<string,any>`|
 | validate | 校验表单字段 | ( validateFields?: string[] ) => void |
 

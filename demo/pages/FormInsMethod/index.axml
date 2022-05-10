@@ -7,12 +7,14 @@
       onValuesChange="handleValuesChange">
       <form-item
           label="账号"
+          required
           name="account"
           form="{{form}}">
           <input-item mode="form" placeholder="请输入账号"/>
       </form-item>
       <form-item
           label="密码"
+          required
           name="password"
           form="{{form}}">
           <input-item mode="form" password placeholder="请输入密码"/>
