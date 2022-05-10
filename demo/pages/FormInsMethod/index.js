@@ -17,6 +17,6 @@ Page({
     this.formRef = ref;
   },
   handleSetValue() {
-    this.formRef.setFieldsValue(this.data.form, initialValues);
+    this.formRef.setFieldsValue(initialValues);
   },
 });
