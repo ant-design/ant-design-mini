@@ -37,9 +37,9 @@ toc: false
 | disabled | 是否禁用  | boolean | false |
 | color | checkbox 的颜色，同 CSS 色值 | string | false |
 | value | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用 | string | - |
-| icon | 自定义图标，支持[Icon](./icon#代码示例)和图片路径  | string | - |
-| checkedIcon | 自定义选中状态的图标，支持Icon type或图片路径 | string | -  |
-| disabledIcon | 自定义禁用状态的图标，支持Icon type或图片路径 | string | - |
+| icon | 自定义图标，支持[Icon](./icon#代码示例) type或图片路径  | string | - |
+| checkedIcon | 自定义选中状态的图标，支持[Icon](./icon#代码示例) type或图片路径 | string | -  |
+| disabledIcon | 自定义禁用状态的图标，支持[Icon](./icon#代码示例) type或图片路径 | string | - |
 | disabledCheckedIcon |  自定义禁用选中状态的图标，支持Icon type或图片路径 | string | - |
 | id | 表单元素 id | string | - |
 | name | 表单元素 name  | string | - | 
