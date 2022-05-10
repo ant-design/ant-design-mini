@@ -46,3 +46,11 @@ toc: false
 | amd-tips-wrap-pseudo-content | 表面内容区域样式 |
 | amd-tips-arrow | 箭头样式 |
 | amd-tips-wrap-real | 真实内容区域样式 |
+
+<style> 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after,
+.__dumi-default-mobile-previewer:nth-of-type(4)::after,
+.__dumi-default-mobile-previewer:nth-of-type(6)::after {
+    border-bottom: none!important;
+}
+</style>

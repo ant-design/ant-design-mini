@@ -69,3 +69,9 @@ toc: false
 | amd-collapse-item | 整体样式 |
 | amd-collapse-item-title | 标题样式 |
 | amd-collapse-item-content | 内容样式 |
+
+<style> 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after {
+    border-bottom: none!important;
+}
+</style>

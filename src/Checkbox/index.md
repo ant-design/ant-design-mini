@@ -115,3 +115,9 @@ toc: false
 | -----|-----|
 | amd-checkbox-item | 整体样式 |
 | amd-checkbox-item-content | 内容区样式 |
+
+<style> 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after {
+    border-bottom: none!important;
+}
+</style>

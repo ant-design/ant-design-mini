@@ -81,3 +81,9 @@ toc: false
 | amd-popover-item-icon | 图标样式|
 | amd-popover-item-icon-item | 图标样式|
 | amd-popover-item-text | 文字样式|
+
+<style> 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after {
+    border-bottom: none!important;
+}
+</style>

@@ -70,3 +70,13 @@ toc: false
 | amd-button-icon | 图标样式 |
 | amd-button-text | 按钮文字样式 |
 | amd-button-subtext | 副标题样式 |
+
+
+<style> 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after,
+.__dumi-default-mobile-previewer:nth-of-type(4)::after,
+.__dumi-default-mobile-previewer:nth-of-type(6)::after,
+.__dumi-default-mobile-previewer:nth-of-type(8)::after {
+    border-bottom: none!important;
+}
+</style>

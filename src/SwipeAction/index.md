@@ -49,3 +49,9 @@ toc: false
 | amd-swipe-action-btn-text | 按钮文字样式 |
 | amd-swipe-action-content | 表层区域样式 |
 | amd-swipe-action-item | 表层区域内容样式 |
+
+<style> 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after {
+    border-bottom: none!important;
+}
+</style>

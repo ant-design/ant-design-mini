@@ -95,3 +95,9 @@ toc: false
 | -----|-----|
 | amd-tabs-item | 整体样式 |
 | amd-tabs-item-pane | 整体样式 |
+
+<style> 
+.__dumi-default-mobile-previewer:nth-of-type(2)::after {
+    border-bottom: none!important;
+}
+</style>
