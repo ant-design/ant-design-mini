@@ -1,7 +1,40 @@
-.demo-container {
-  padding-top: 24rpx;
+page {
+  padding: 12px;
 }
 
-.demo-container-container {
+.demo-avatar-size {
+  display: flex;
+  justify-content: space-between;
+}
+
+.demo-avatar-size-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.demo-avatar-size-container text {
+  padding-top: 16rpx;
+  font-size: 26rpx;
+}
+
+.demo-avatar-content {
   padding: 24rpx;
+}
+
+.title {
+  padding-bottom: 16rpx;
+  margin-bottom: 16rpx;
+  line-height: 1.5;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+.box1,.box2,.box3 {
+  background-color: #F3F3F3;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
