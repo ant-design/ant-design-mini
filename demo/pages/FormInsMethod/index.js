@@ -4,7 +4,6 @@ const initialValues = {
 };
 Page({
   data: {
-    form: 'form',
     initialValues,
   },
   handleValuesChange(value, values) {
