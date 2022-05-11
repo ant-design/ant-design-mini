@@ -1,0 +1,11 @@
+<view class="amd-toast-wrapper {{className}} {{icon ? 'amd-toastWithIcon-wrapper' : ''}}" a:if="{{show}}">
+    <icon a:if="{{icon}}" type="{{icon}}" class="amd-toast-icon" />
+
+    <view class="amd-toast-text-body">
+        <view class="amd-toast-text-box">
+            <view class="amd-toast-text-content">
+                {{content.substring(0, 24)}}
+            </view>
+        </view>
+    </view>
+</view>
