@@ -171,6 +171,11 @@ export const componentList = [
         nameZN: '空状态',
         path: '/pages/Empty/index',
       },
+      {
+        name: 'Toast',
+        nameZN: '轻提示',
+        path: '/pages/Toast/index',
+      },
     ],
   },
   {

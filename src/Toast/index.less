@@ -1,0 +1,58 @@
+@import (reference) "./variable.less";
+
+.amd-toast-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    font-family: PingFangSC-Regular;
+    z-index: 999;
+    color: #FFFFFF;
+
+    padding: 24 * @rpx;
+    
+    opacity: 0.75;
+    background: #000000;
+    border-radius: 16 * @rpx;
+    font-family: PingFangSC-Regular;
+    
+    position: absolute;
+    
+    .amd-toast-icon, .amd-toast-image {
+        margin-bottom: 16 * @rpx;
+    }
+
+    .amd-toast-image {
+        width: 80 * @rpx;
+        height: 80 * @rpx;
+    }
+    
+    .amd-toast-text-body {
+        display: flex;
+        width: 380 * @rpx;
+        max-height: 84 * @rpx;
+        justify-content: center;
+    }
+    
+    .amd-toast-text-box {
+        min-width: 0;
+        max-height: 84 * @rpx;
+    }
+    
+    .amd-toast-text-content {
+        font-size: 30 * @rpx;
+        line-height: 42 * @rpx;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.amd-toastWithIcon-wrapper {
+    width: 280 * @rpx;
+    height: 280 * @rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
