@@ -146,6 +146,26 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | amd-form-item-extra | 额外内容样式 |
 | amd-form-item-arrow | 箭头样式 |
 
+## FAQ
+#### Form如何支持自定义表单控件
+  自定义或第三方的表单控件，也可以与 Form 组件一起使用。该组件遵循以下的约定：
+  > 1. 提供受控属性 value 或其它与 valuePropName 的值同名的属性。
+  > 2. 提供 onChange 事件或 trigger 的值同名的事件。
+
+  假设price-input符合上诉条件, 引入antd-mini/mixin/form做如下封装
+  ```javascript
+  // axml
+  <price-input onChange="onChange" value="{{value}}"> 
+  
+  // js
+  import formed from 'antd-mini/es/mixins/form'
+  Component({
+    mixins: [formed()],
+  });
+  ```
+
+  完整代码请参考[此处](https://github.com/ant-design/ant-design-mini/tree/feat/master/demo/pages/FormCustomizedType)
+
 <style> 
 .__dumi-default-mobile-previewer:nth-of-type(2)::after,
 .__dumi-default-mobile-previewer:nth-of-type(4)::after,
