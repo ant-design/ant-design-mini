@@ -115,7 +115,7 @@ Component({
     getDataSet(){
       return Object.entries(this.props).reduce((prev,cur)=>{
         const [key, val] = cur
-        if(key.startsWith('data-')){
+        if(key.indexOf('data-') === 0) {
           prev[key.replace('data-','')] = val
         }
         return prev

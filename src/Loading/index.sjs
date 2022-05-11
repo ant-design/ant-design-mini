@@ -1,5 +1,5 @@
 export function getLoadingColor(theme, color) {
-  if (color && color.startsWith('#') && color !== '#999') {
+  if (color && color.indexOf('#')===0 && color !== '#999') {
     return `%23${color.slice(1)}`;
   }
 
