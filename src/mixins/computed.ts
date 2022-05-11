@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import deepEqual from 'fast-deep-equal';
 
-function computedData(this: any) {
-  const nextData = this.computed(this.props);
+function computedData(options) {
+  const nextData = this.computed(options);
   // 浅比较就行了
   const changedData = Object.keys(nextData).reduce((prev, item) => {
     // 移除 _ $ 开头的保留 props
@@ -31,9 +31,9 @@ function computedData(this: any) {
 
 export default {
   didMount(): void {
-    computedData.call(this);
+    computedData.call(this, { lifeCycle: 'didMount'});
   },
   didUpdate(): void {
-    computedData.call(this);
+    computedData.call(this, { lifeCycle: 'didUpdate'})
   },
 };

@@ -1,79 +1,77 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/**
- * @description 表单组件绑定处理
- */
-
-import { store } from '../Form/store';
-import { isMoreThan106 } from '../_util/compareVersion';
+import { getFieldInfo, clearFieldInfo, getFormInfo } from '../Form/cache';
+import formStoreFactory, { FormStore } from '../Form/store';
+import type { IUserComponentOptions } from '@mini-types/alipay';
 
 
-export default () => {
+type FormMixInParams  = {
+  propsTriggerChange?: string,
+  propsValue?: string
+}
+
+export default (params: FormMixInParams = { propsTriggerChange: 'onChange', propsValue:  'value' }): IUserComponentOptions<
+{ value: any },
+{ [prop: string]: any },
+{
+  onChangeFormFieldValue(changedValues, options):void;
+},
+{
+  store: FormStore,
+  fieldName?: string
+},
+Record<string, unknown>,
+[]
+> => {
+  const {  propsTriggerChange  = 'onChange', propsValue = 'value' } = params
   return {
-    props: {
-      onChange(e) {
-        const getCurrentField = this._getCurrentField || this.props._getCurrentField;
-        if (!getCurrentField) return;
-        const { form: formFn, field: fieldFn } = getCurrentField();
-        const form = formFn();
-        const field = fieldFn();
-        if (form && field) {
-          store.trigger(form, field, e);
-        }
-      },
-      _getCurrentField() {
-        return { form: () => '', field: () => '' };
-      },
-      value: '',
-      checked: false,
-      valuePropName: 'cValue',
-      mode: 'normal',
+    data: {
+      value: null,
     },
     onInit() {
-      if (isMoreThan106 && isNotFormMode(this.props.mode)) return;
-
-      const getCurrentField = this.$page._getCurrentField;
-      if (!getCurrentField) return;
-      this.props._getCurrentField = getCurrentField;
-      const { form: formFn, field: fieldFn } = getCurrentField();
-      const form = formFn();
-      const field = fieldFn();
-      store.addFieldSet(form, field);
-
-      // 初始值设定
-      const initVal = store.getInitValByField(form, field);
-      this.props.value = initVal;
-      // terms组件
-      if (typeof initVal === 'boolean') {
-        this.props.checked = initVal;
+      const fieldInfo = getFieldInfo();
+      if (fieldInfo)  {
+        const { fieldName, form: uid } = fieldInfo;
+        const pageId = this.$page.$id;
+        const formInfo =  getFormInfo()
+        const store = formStoreFactory.getStore({ pageId, componentId: formInfo?.id, uid,  fieldName });
+        this.store = store;
+        this.onBindChangeFormFieldValue = this.onChangeFormFieldValue.bind(this);
+        this.store.onValuesChange(this.onBindChangeFormFieldValue);
+        this.fieldName = fieldName;
+        // 只有FormItem的孩子受影响， FormItem的后代不需要订阅相关信息
+        clearFieldInfo()
       }
-
-      // 兼容一下 checkbox-group
-      const commonUpdateFieldValue = (v) => {
-        this.props.value = v;
-        this.setData({
-          [this.props.valuePropName]: v,
-        });
-      };
-
-      const updateFieldValue = this._updateFieldValue || commonUpdateFieldValue;
-
-      store.addUpdateFiledValue(form, field, updateFieldValue.bind(this));
     },
-    didMount() {
-      if (isMoreThan106 && isNotFormMode(this.props.mode)) {
-        this.$page._currentSetData = null;
-      } else {
-        this.$page._currentSetData = this.setData;
-      }
+    methods: {
+      [propsTriggerChange](v, ...args) {
+        this._onChange = this.props[propsTriggerChange];
+        if (this.fieldName) {
+          this.store.setFieldsValue({
+            [this.fieldName]: v,
+          });
+          this.store.validate([this.fieldName]);
+          if (this._onChange) {
+            this._onChange(v, ...args);
+          }
+        }
+      },
+    
+      onChangeFormFieldValue(changedValues, options) {
+        if (this.fieldName in changedValues) {
+          if (options?.syncFormItem)  {
+            this.store.setFieldsValue({
+              [this.fieldName]: this.props[propsValue],
+            }, { formSilent: options?.formSilent })
+          } else {
+            this.setData({
+              value: changedValues[this.fieldName],
+            });
+          }
+        }
+      },
+    },
+
+    didUnmount() {
+      this.store?.offValuesChange(this.onBindChangeFormFieldValue);
     },
   };
 };
-
-/**
- * 判断组件是否为表单模式
- * @param props 组件 props
- * @returns
- */
-export function isNotFormMode(mode: string): boolean {
-  return mode !== 'form';
-}

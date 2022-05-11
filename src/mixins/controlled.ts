@@ -1,72 +1,67 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import equal from "fast-deep-equal";
-import type { IUserComponentOptions } from "@mini-types/alipay";
+import equal from 'fast-deep-equal';
+import type { IUserComponentOptions } from '@mini-types/alipay';
 
 /**
  * @description 处理通用受控非受控模式
  * @param propsValue 一般是 'value', 也可能是 'checked', 甚至是自定的，比如 'activeIndex'
- *
- * export default {
- *  mixins: [controlled],
- *  methods: {
- *    handleChange(e) {
- *      this.cOnChange(e.detail.value)
- *    }
- *  }
- * }
- *
- * <input onChange="handleChange" value="{{cValue}}" />
- *
- *
- * export default {
- *  mixins: [controlled('checked')],
- *  methods: {
- *    handleChange(e) {
- *      this.cOnChange(e.detail.value)
- *    }
- *  }
- * }
- *
- * <checkbox onChange="handleChange" checked="{{cValue}}" />
  */
+
+type ControlledMixInParams = {
+  propsValue?: string;
+  propsTriggerChange?: string;
+  defaultPropsValue?: any;
+};
+
 export default (
-  propsValue = "value"
+  params: ControlledMixInParams = {}
 ): IUserComponentOptions<
   { cValue: any },
-  { value: any; onInput: (v: any) => void; [prop: string]: any },
-  { cOnChange: (v: any, v1?: any) => void; cOnInput: (v: any) => void },
-  { cTrigger: (v: any) => void },
-  Record<string, unknown>
-> => ({
-  data: {
-    cValue: null,
-  },
-  didMount() {
-    this.cTrigger = (v) => {
-      this.setData({
-        cValue: v,
-      });
-    };
-    this.cTrigger(this.props[propsValue]);
-  },
-  didUpdate(prevProps) {
-    const value = this.props[propsValue];
-    if (!equal(prevProps[propsValue], value)) {
-      this.cTrigger(value);
-    }
-  },
-  methods: {
-    cOnChange(v: any, v1?: any) {
-      if (!this.props.controlled) {
-        this.cTrigger(v);
-      }
-      this.props.onChange?.(v, v1);
+  { [prop: string]: any },
+  { triggerChange: (v: any) => void },
+  Record<string, unknown>,
+  Record<string, unknown>,
+  []
+> => {
+  const {
+    propsValue = 'value',
+    propsTriggerChange = 'onChange',
+    defaultPropsValue = '',
+  } = params;
+  return {
+    data: {
+      cValue: defaultPropsValue,
     },
-    cOnInput(v: any) {
-      if (!this.props.controlled) {
-        this.cTrigger(v);
+
+    didMount() {
+      if (propsValue in this.props) {
+        this.setData({
+          cValue: this.props[propsValue],
+        });
       }
-      this.props.onInput?.(v);
     },
-  },
-});
+
+    didUpdate(prevProps) {
+      const value = this.props[propsValue];
+      if (
+        !equal(prevProps[propsValue], value) &&
+        !equal(this.data.cValue, value)
+      ) {
+        this.setData({
+          cValue: value,
+        });
+      }
+    },
+
+    methods: {
+      triggerChange(value, ...args) {
+        this.props[propsTriggerChange]?.bind(this)(value, ...args);
+        if (!this.props.controlled) {
+          this.setData({
+            cValue: value,
+          });
+        }
+      },
+    },
+  };
+};

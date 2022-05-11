@@ -1,12 +1,14 @@
 @import (reference) "../../_base/index.less";
+@import (reference) "../index.less";
+@import "../../style/mixins/hairline.less";
 
 @formItemPrefix: amd-form-item;
 
 .@{formItemPrefix} {
   background-color: #fff;
-  padding: 24 * @rpx 24 * @rpx 24 * @rpx  32 * @rpx;
+  padding: 24 * @rpx 24 * @rpx 24 * @rpx 32 * @rpx;
   position: relative;
-
+  .hairline("bottom");
   &-disabled {
     opacity: 0.4;
   }
@@ -18,36 +20,30 @@
   &-line {
     display: flex;
     flex: 1;
-    // position: relative;
-    flex: 1;
-    display: flex;
     align-items: center;
     align-self: stretch;
     max-width: 100%;
-    overflow: hidden;
-
+    position: relative;
     &-disabled {
       opacity: 0.4;
     }
-
-    &-brief {
-      justify-content: space-between;
+  }
+  &-content {
+    flex: 1;
+    &-horizontal {
+      .formItemContentHorizontal();
     }
   }
-
   &-error-info {
-      font-family: PingFangSC-Regular;
-      font-size: 13px;
-      color: #ff3141;
-      line-height: 37 * @rpx;
-      text-align: left;
-      margin-top: 8 * @rpx;
-      &-disabled {
-        opacity: 0.4;
-      }
-      &-horizontal {
-        margin-left: 24 * @rpx;
-      }
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #ff3141;
+    line-height: 37 * @rpx;
+    text-align: left;
+    margin-top: 8 * @rpx;
+    &-disabled {
+      opacity: 0.4;
+    }
   }
 
   &-label {
@@ -55,40 +51,35 @@
     align-items: center;
     font-size: 34 * @rpx;
     line-height: 48 * @rpx;
-
-    &-content {
-      overflow: hidden;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &-text {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .amd-icon {
+      margin-left: 4 * @rpx;
+    }
+    .amd-popover-content {
+      min-width: 0;
+    }
+    &-help-content {
+      color: #fff;
+      font-size: 30 * @rpx;
+      text-align: center;
+      white-space: nowrap;
+      padding: 8 * @rpx 12 * @rpx;
     }
 
     &-horizontal {
-      width: 170 * @rpx;
-      margin-right: 24 * @rpx;
-      font-family: PingFangSC-Regular;
-      color: #666;
-      font-size: 34 * @rpx;
-      line-height: 48 * @rpx;
+      .formItemLabelHorizontal();
     }
 
     &-vertical {
-      font-size: 30 * @rpx;
-      line-height: 42 * @rpx;
-      color: #666;
-      margin-bottom: 8 * @rpx;
-    }
-
-    &-required {
-      position: absolute;
-      left: 16 * @rpx;
-      font-family: PingFangSC-Regular;
-      font-size: 30 * @rpx;
-      color: #FF3141;
-    }
-
-    &-norequired {
-      margin-left: 8 * @rpx;
-      font-family: PingFangSC-Regular;
-      font-size: 30 * @rpx;
-      color: #999;
+      .formItemLabelVertical();
     }
 
     &-disabled {
@@ -98,20 +89,7 @@
   &-field {
     flex: 1;
     &-horizontal {
-      text-align: right;
-    }
-  }
-
-  &-content {
-    &-horizontal {
-      display: flex;
-      flex: 1;
-      justify-content: space-between;
-    }
-    &-vertical {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
+      .formItemFieldHorizontal();
     }
   }
 
@@ -143,14 +121,5 @@
     &:empty {
       display: none;
     }
-  }
-
-  .form-line {
-    height: 1px;
-    background-color: #eee;
-    width: calc(100% - 32 * @rpx);
-    position: absolute;
-    bottom: 0;
-    right: 0;
   }
 }

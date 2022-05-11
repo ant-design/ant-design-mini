@@ -5,16 +5,30 @@
       <view 
         a:if="{{!!label}}"
         style="{{labelWidth ? `width: ${labelWidth}` : ''}}"
-        class="amd-form-item-label {{disabled ? 'amd-form-item-label-disabled' : ''}} amd-form-item-label-{{position}}">
-        <view class="amd-form-item-label-required" a:if="{{position === 'horizontal' && required}}" >*</view>
-        <view class="amd-form-item-label-content" >
-          {{label}}
-        </view>
-        <text class="amd-form-item-label-norequired" a:if="{{position === 'vertical' && !required}}">(选填)</text>
+        class="amd-form-item-label {{disabled ? 'amd-form-item-label-disabled' : ''}} amd-form-item-label-{{position}} {{required?'amd-form-item-label-required':''}}">
+        <view class="amd-form-item-label-text">{{label}}</view>
+        <popover 
+          a:if="{{help}}"
+          placement="top" 
+          visible="{{helpVisible}}" 
+          mask 
+          maskClosable 
+          onVisibleChange="onHelpVisibleChange"
+          transparentMask>
+          <view slot="items" class="amd-form-item-label-help-content">{{help}}</view>
+          <icon type="QuestionCircleOutline" size="x-small" onTap="onToggleHelpVisible"/>
+        </popover>
       </view>
       <!--field-->
       <view class="amd-form-item-field amd-form-item-field-{{position}}">
         <slot/>
+        <view
+          class="amd-form-item-error-info {{disabled ? 'amd-form-item-error-info-disabled' : ''}} amd-form-item-error-info-{{position}}"
+          a:if="{{errorInfo.length > 0}}">
+          <view a:for="{{errorInfo}}">
+            {{ item.message}}
+          </view>
+        </view>
       </view>
     </view>
     <view class="amd-form-item-other {{disabled ? 'amd-form-item-other-disabled' : ''}}">
@@ -28,8 +42,4 @@
       </view>
     </view>
   </view>
-  <view class="amd-form-item-error-info {{disabled ? 'amd-form-item-error-info-disabled' : ''}} amd-form-item-error-info-{{position}}" style="{{position==='horizontal' ? labelWidth ? `padding-left: ${labelWidth}` : `padding-left: ${defaultLabelWidth}` : ''}}" a:if="{{!!errorInfo}}">
-    {{errorInfo.message}}
-  </view>
-  <view class="form-line"/>
 </view>

@@ -1,71 +1,154 @@
-import { store } from '../store';
+import formStoreFactory from '../store';
+import { cacheFieldInfo, clearFieldInfo, getFormInfo } from '../cache';
+import {
+  IComponentProps,
+  IComponentData,
+  IComponentMethods,
+  IComponentExtraThis,
+} from './props';
 
-Component({
+Component<
+  IComponentData,
+  IComponentProps,
+  IComponentMethods,
+  IComponentExtraThis
+>({
   props: {
     rules: [],
-    name: 'default',
-    form: 'default',
-    initialValue: '',
-    position: 'horizontal',
+    name: '',
+    position: '',
     required: false,
+    label: '',
+    dependencies: [],
+    validateFirst: false,
   },
+
   data: {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    setData: () => {},
     errorInfo: null,
-    defaultLabelWidth: '',
+    helpVisible: false,
   },
+
   onInit() {
-    const { form, name: field, rules, initialValue, required } = this.props;
-    if (form && field) {
-      this.$page._getCurrentField = () => {
-        return { form: () => this.props.form, field: () => this.props.name };
-      };
-      store.bootstrap(form, field, rules, initialValue, required);
+    const pageId = this.$page.$id;
+    const { form: uid, name: fieldName } = this.props;
+    const formInfo = getFormInfo();
+    this.store = formStoreFactory.getStore({
+      pageId,
+      componentId: formInfo?.id,
+      uid,
+      fieldName,
+    });
+    if (!fieldName) {
+      throw new Error('props name is required in FormItem');
+    }
+    if (this.store.checkFieldInited(fieldName)) {
+      console.warn(`${fieldName} fieldItem already existed`);
+    }
+    this.store.addField(fieldName);
+    cacheFieldInfo(
+      function (this: any) {
+        const { name: fieldName, form, dependencies } = this.props;
+        return {
+          fieldName,
+          form,
+          dependencies,
+        };
+      }.bind(this)
+    );
+    this.setFieldRules();
+    this.setValidateOptions();
+    this.onBindErrorInfoChange = this.onErrorInfoChange.bind(this);
+    this.store.onErrorInfoChange(this.onBindErrorInfoChange);
+  },
+
+  didMount() {
+    const { name: fieldName } = this.props;
+    let formSilent = true;
+    // 如果是form初始化之后动态添加的，silent为false，还需要触发form的onValuesChange
+    if (getFormInfo() === null) {
+      formSilent = false;
+    }
+    this.store?.setFieldsValueByFormItemInitial(
+      { [fieldName]: this.props.initialValue },
+      { formSilent }
+    );
+    clearFieldInfo();
+  },
+
+  didUpdate(prevProps) {
+    if (
+      prevProps.rules !== this.props.rules ||
+      prevProps.required !== this.props.required ||
+      prevProps.label !== this.props.label
+    ) {
+      this.setFieldRules();
+    }
+    if (
+      prevProps.dependencies !== this.props.dependencies ||
+      prevProps.validateFirst !== this.props.validateFirst
+    ) {
+      this.setValidateOptions();
     }
   },
-  didMount() {
-    this.data.setData = this.$page._currentSetData;
-    if (!this.data.setData) return;
-    const { form, name: field } = this.props;
-    if (form && field) {
-      store.setValueAfterUpdate(this.data.setData, form, field);
-      store.setFieldUpdateInfoFn(form, field, this.updateErrorInfo.bind(this));
 
-      if (field === 'submit') {
-        store.setUpdateSubmitButtonStatusFn(form, field, this.updateSubmitButtonStatus.bind(this));
+  didUnmount() {
+    const { name: fieldName } = this.props;
+    this.store?.offValuesChange(this.onBindErrorInfoChange);
+    this.store?.removeField(fieldName);
+  },
+
+  methods: {
+    setFieldRules() {
+      const { name, required, label, rules } = this.props;
+      let fieldRules = [];
+      if (rules instanceof Array) {
+        fieldRules = [...rules];
+      } else {
+        fieldRules = [rules];
       }
-    }
+      const hasRequiredRule = fieldRules.some((rule) => rule.required);
+      if (required && !hasRequiredRule) {
+        const requiredItem = {
+          required: true,
+          message: `请输入${label || name}`,
+        };
+        fieldRules = [requiredItem, ...fieldRules];
+      }
+      if (fieldRules?.length > 0) {
+        this.store.setFieldRules(name, fieldRules);
+      }
+    },
 
-    my.createSelectorQuery()
-      .select('.amd-form-item-label-horizontal')
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0] && ret[0].width) {
+    setValidateOptions() {
+      const { name: fieldName, dependencies, validateFirst } = this.props;
+      this.store?.setValidateOptions(fieldName, {
+        dependencies,
+        validateFirst,
+      });
+    },
+
+    onErrorInfoChange(formErrorInfo, updatedFields) {
+      updatedFields.forEach((field) => {
+        if (field === this.props.name) {
           this.setData({
-            defaultLabelWidth: `${ret[0].width}px`,
+            errorInfo: formErrorInfo[this.props.name] || [],
           });
         }
       });
-  },
-  didUpdate(prevProps) {
-    const currentField = prevProps.name;
-    const { form, name: nextField } = this.props;
-    if (currentField && nextField && currentField !== nextField) {
-      store.setValueAfterUpdate(this.data.setData, form, nextField);
-      store.updateFieldSet(form, currentField, nextField);
-    }
-  },
-  didUnmount() {
-    const { form, name: field } = this.props;
-    store.delFieldSet(form, field);
-  },
-  methods: {
+    },
+
     updateErrorInfo(payload) {
       this.setData({ errorInfo: payload });
     },
-    updateSubmitButtonStatus(payload) {
-      this.setData({ submitDisable: !!payload });
+  
+    onToggleHelpVisible() {
+      this.setData({ helpVisible: !this.data.helpVisible });
+    },
+  
+    onHelpVisibleChange(visible, type) {
+      if (type === 'mask') {
+        this.setData({ helpVisible: visible });
+      }
     },
   },
 });
