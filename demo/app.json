@@ -50,7 +50,8 @@
     "pages/Dialog/index",
     "pages/Container/index",
     "pages/Checklist/index",
-    "pages/Empty/index"
+    "pages/Empty/index",
+    "pages/Toast/index"
   ],
   "window": {
     "enableWK": "YES",
