@@ -6,6 +6,7 @@ Page({
     basicValue: '',
     withCancelValue: '',
     voiceValue: '',
+    numberValue: '',
     focusWithCancelValue: '',
     focusWithCancelFocus: false,
   },
@@ -49,5 +50,11 @@ Page({
   },
   handleFocusCancelWithBlur() {
     this.setData({ focusWithCancelFocus: false });
+  },
+  handleNumberInput(value) {
+    this.setData({ numberValue: value });
+  },
+  handleNumberClear() {
+    this.setData({ numberValue: '' });
   },
 });
