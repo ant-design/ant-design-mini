@@ -1,4 +1,4 @@
-import { componentList, allComponents } from '../../utils/constants.ts';
+import { componentList, allComponents } from '../../utils/constants';
 
 Page({
   data: {

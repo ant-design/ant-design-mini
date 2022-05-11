@@ -60,9 +60,19 @@ export interface ITabsProps extends IBaseProps {
    */
   fallback?: boolean;
   /**
-   * @description 内部 swiper 组件属性 touch-angle。计算用户手势时所依赖的滑动角度。角度根据 touchstart 事件和首次 touchmove 事件的坐标计算得出。数值越小越对用户的滑动方向准确度要求越高。
+   * @description 用户左右滑动手势生效的滑动角度。角度根据 touchstart 事件和首次 touchmove 事件的坐标计算得出。数值越小越对用户的滑动方向准确度要求越高
    * @default 45
    */
   touchAngle?: number;
+  /**
+   * @description 用户左右滑动手势触发切换的阈值，当滑动距离超过阈值时进行 `swiper-item` 切换
+   * @default 0.2
+   */
+  swipeRatio?: number
+  /**
+   * @description 用户左右滑动手势对应的滑动距离，数值越小则需要用户手势相同位移下 `swiper-item` 位移越小
+   * @default 0.05
+   */
+  swipeSpeed?: number
 }
 export declare const TabsDefaultProps: Partial<ITabsProps>;

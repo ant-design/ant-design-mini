@@ -26,37 +26,37 @@ toc: false
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
+| value | string | 否 | - | 搜索框的值 |
+| autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
 | bizIconType | string | 否 | 'AudioFill' | 辅助图标类型 |
 | cancelText | string | 否 | "取消" | 取消按钮文案 |
+| className | string | 否 | - | 类名 |
 | controlled | boolean | 否 | false | 是否受控模式 |
+| disabled | boolean | 否 | false | 是否禁用 |
 | enableNative | boolean | 否 | false | 是否启用 Native 渲染 |
+| id | string |  | 否 | 表单元素 id |
 | maxLength | number | 否 | - | 最大长度 |
+| name | string | 否 | - | 表单元素 name |
 | placeholder | string | 否 | - | 提示文字 |
 | showBizIcon | boolean | 否 | false | 是否展示辅助图标 |
 | showCancelButton | boolean | 否 | false | 是否显示取消按钮 |
 | showVoice | boolean | 否 | false | 是否展示语音图标 |
 | type | 'text' &verbar; 'number' &verbar; 'idcard' &verbar; 'digit' &verbar; 'numberpad' &verbar; 'digitpad' &verbar; 'idcardpad' | 否 | 'text' | 搜索框的类型 |
-| value | string | 否 | - | 搜索框的值 |
-| autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
-| id | string |  | 否 | 表单元素 id |
-| name | string | 否 | - | 表单元素 name |
-| disabled | boolean | 否 | false | 是否禁用 |
-| className | string | 否 | - | 类名 |
 
 ## 事件 
 
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
+| onChange | 表单触发变更回调 | (v: any) => void |
+| onBlur | 失去焦点时触发回调 | (v: string) => void |
 | onBizIconTap | 点击语音图标回调 | () => void |
 | onCancel | 点击取消回调 | (v: string) => void |
 | onClear | 点击删除回调 | (v: string) => void |
+| onFocus | 聚焦时触发回调 | (v: string) => void |
 | onInput | input 输入回调 | (v: string) => void |
 | onSubmit | submit 回调 | (v: string) => void |
 | onVoiceTap | 点击语音图标回调 | () => void |
-| onFocus | 聚焦时触发回调 | (v: string) => void |
-| onBlur | 失去焦点时触发回调 | (v: string) => void |
-| onChange | 表单触发变更回调 | (v: any) => void |
 
 ## 样式类 
 
