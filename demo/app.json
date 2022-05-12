@@ -52,7 +52,8 @@
     "pages/Checklist/index",
     "pages/Empty/index",
     "pages/FloatPanel/index",
-    "pages/FloatPanelEvent/index"
+    "pages/FloatPanelEvent/index",
+    "pages/Toast/index"
   ],
   "window": {
     "enableWK": "YES",
