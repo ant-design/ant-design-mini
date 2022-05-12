@@ -241,6 +241,11 @@ const config: IConfig = {
     margin-bottom: 16px;
     display: inline-block!important;
   }
+  /** 判断只有一个article节点为非组件页面，还原h3样式 */
+  #root .__dumi-default-mobile-content>article:last-child:first-child .markdown h3 {
+    padding-left: 0;
+    display: block!important;
+  }
   #root .markdown h4 {
     margin-top: 24px;
     margin-bottom: 16px;
