@@ -66,6 +66,11 @@ export const componentList = [
         nameZN: ' 标签',
         path: '/pages/Tag/index',
       },
+      {
+        name: 'FloatPanel',
+        nameZN: '滑动面板',
+        path: '/pages/FloatPanel/index',
+      },
     ],
   },
   {

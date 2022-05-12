@@ -50,7 +50,9 @@
     "pages/Dialog/index",
     "pages/Container/index",
     "pages/Checklist/index",
-    "pages/Empty/index"
+    "pages/Empty/index",
+    "pages/FloatPanel/index",
+    "pages/FloatPanelEvent/index"
   ],
   "window": {
     "enableWK": "YES",
