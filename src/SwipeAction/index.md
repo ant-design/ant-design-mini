@@ -34,8 +34,8 @@ toc: false
 ## 事件
 | 事件名 | 说明 | 类型 | 补充 |
 | -----|-----|-----|-----|
-| onLeftButtonTap | 点击左侧按钮，触发回调 | (v: number) => void | 从左往右起，第 n 个按钮 |
-| onRightButtonTap | 点击右侧按钮，触发回调 | (v: number) => void | 从左往右起，第 n 个按钮  |
+| onLeftButtonTap | 点击左侧按钮，触发回调 | (index: number, text: string, type: string, extraInfo?: unknown, dateSet: Record<string, any>) => void | 从左往右起，第 n 个按钮 |
+| onRightButtonTap | 点击右侧按钮，触发回调 | (index: number, text: string, type: string, extraInfo?: unknown, dateSet: Record<string, any>) => void | 从左往右起，第 n 个按钮  |
 
 ## 样式类
 | 类名 | 说明 |

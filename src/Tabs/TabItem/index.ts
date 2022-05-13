@@ -1,11 +1,10 @@
 import { TabItemDefaultProps } from './props';
-import { getTabArray, componentContext, componentContextFallback } from '../context';
 import { log } from '../../_util/console';
-import { objectValues } from '../../_util/tools';
 import { compareVersion } from '../../_util/compareVersion';
+import { tabsStore } from "../../_util/tabsStore";
 
-let n = 0;
-const isBaseSwiper = compareVersion('2.0.0', my.SDKVersion) < 0 ? true :false
+const isBaseSwiper = compareVersion('2.0.0', my.SDKVersion) < 0 ? true : false
+
 Component({
   props: TabItemDefaultProps,
   data: {
@@ -13,21 +12,23 @@ Component({
     fallback: false
   },
   didMount() {
-    this._getTabInfo('didMount');
-    componentContextFallback.onUpdate(v => {
-      this.setData({
-        fallback: v
-      })
-    })
+    // 更新 fallback 值
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    const setFallback = (v: boolean) => this.setData({ fallback: v });
+    // 注册 item
+    const getTabsItemVal = () => this.props.tab
+    tabsStore.addItem(key, `${this.$id}`, {setFallback, getTabsItemVal});
+    // 更新视图
+    // console.log(tabsStore)
+    this.update()
   },
   didUpdate() {
-    this._getTabInfo();
+    // 更新视图
+    this.update()
   },
   didUnmount() {
-    delete getTabArray[this.uid];
-    setTimeout(() => {
-      componentContext.update(objectValues(getTabArray));
-    }, 0);
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    tabsStore.removeItem(key, `${this.$id}`)    
   },
   methods: {
     _tabError(tab) {
@@ -37,22 +38,11 @@ Component({
       } else if (!tab?.title) {
         log.error('TabItem', `tab 的值中缺少关键 title 值，当前的 tab 值为 ${JSON.stringify(tab)}`);
       }
-      if (tab?.badge && typeof tab?.badge !== 'number') {
-        log.error('TabItem', `tab 中的 badge 类型不匹配，当前的 badge 值为 ${tab?.badge}， 类型为 ${typeof tab?.badge}`);
-      }
     },
-    _getTabInfo(lifeCycle?: string) {
-      // 获取每个 tab-item 中的 tab 值
-      // 如果是 didMount 时对 uid 的值做累加处理
-      if (lifeCycle === 'didMount') {
-        this.uid = n++;
-      }
-      const { tab } = this.props;
-      this._tabError(tab);
-      getTabArray[this.uid] = tab;
-      setTimeout(() => {
-        componentContext.update(objectValues(getTabArray));
-      }, 0);
-    },
+    update(){
+      const key = `${this.$page.$id}-${this.props.uid}`;
+      const group  = tabsStore.getGroup(key)
+      if(group && group.setGroupDataVal) group.setGroupDataVal()
+    }
   },
 });

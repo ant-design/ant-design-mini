@@ -1,6 +1,6 @@
 Page({
   data: {
-    action: 'https://httpbin.org/post',
+    action: 'https://run.mocky.io/v3/b098fdcc-ae65-4dc7-be4b-64b81796e1d9',
     value_1: [{
       key: '111',
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',

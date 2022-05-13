@@ -38,5 +38,10 @@ export interface IFilterItemProps extends IBaseProps {
    * @description 显示文案转换逻辑
    */
   onFormat?: (v: any) => string;
+  /**
+   * @description 当页面有多个Filter时需传入，页面唯一，与外部的Filter组件的 uid 一致
+   * @default 'filter'
+   */
+  uid?: string;
 }
 export declare const FilterItemDefaultProps: Partial<IFilterItemProps>;

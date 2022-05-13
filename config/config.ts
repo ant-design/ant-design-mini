@@ -1,4 +1,7 @@
-export default {
+import type { IConfig } from 'dumi'
+
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+const config: IConfig = {
   title: 'Ant Design Mini',
   favicon: 'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
   logo: 'https://gw.alipayobjects.com/zos/bmw-prod/d1971355-ffff-44ef-9e20-1bc9a237d463.svg',
@@ -15,14 +18,13 @@ export default {
     },
   ],
   headScripts: [
-    { src: 'https://unpkg.com/current-device/umd/current-device.min.js' },
-    { src: 'https://gw.alipayobjects.com/os/lib/ali/mini-simulator/9.1.5/dist/index.js' },
+    { src: 'https://gw.alipayobjects.com/os/lib/current-device/0.10.2/umd/current-device.min.js' },
     { src: 'https://v1.cnzz.com/z_stat.php?id=1280900245&web_id=1280900245' }
   ],
   scripts: [
     `
     var a = document.querySelector(".__dumi-default-navbar-logo")
-    a.innerHTML = '';
+    a && (a.innerHTML = '');
     if(device.mobile() && !window.location.pathname.startsWith('/mobile')){
       window.location.href="/mobile"
     }
@@ -32,11 +34,23 @@ export default {
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WWGN4HC');
+    `,
+    `
+    if(window.location.pathname==='/components/icon'){
+      window.addEventListener('message', async (e) => {
+        if(e.data.iconType) {
+          await navigator.clipboard.writeText(e.data.iconType);
+        }
+      })
+    }
     `
   ],
   styles: [`
   html {
     touch-action: manipulation;
+  }
+  #root .__dumi-default-dark {
+    display: none;
   }
   #root .__dumi-default-navbar {
     padding-left: 32px;
@@ -136,24 +150,6 @@ export default {
     color: #000;
     font-size: 14px;
   }
-  #root .__dumi-default-previewer-actions {
-    height: 0;
-    position: relative;
-  }
-  #root .__dumi-default-icon {
-    position: absolute;
-    top: 56px;
-    right: 24px;
-    margin-right: 0;
-    z-index: 100;
-  }
-  #root .__dumi-default-previewer {
-    border: none;
-    box-shadow: none;
-    background: #FAFBFC;
-    border-radius: 12px;
-    overflow: hidden;
-  }
   #root .__dumi-default-table {
     margin-top: 0;
     margin-bottom: 0;
@@ -161,10 +157,6 @@ export default {
   #root .__dumi-default-table-content {
     border-radius: 12px;
     border: 1px solid #ebedf1;
-  }
-  /** 当前激活的demo项 */
-  #root .__dumi-default-previewer-target {
-    background: #697B8C0D;
   }
   /** 选中底部线条 */
   #root .__dumi-default-tabs-ink-bar {
@@ -179,13 +171,6 @@ export default {
   }
   #root .__dumi-default-tabs-tab-active {
     color: #1677ff;
-  }
-  #root .__dumi-default-code-block {
-    padding: 16px 24px;
-    background: none;
-  }
-  #root .__dumi-default-code-block pre[class*="language-"] {
-    padding: 0;
   }
   /** 底部github编辑、最后更新时间 */
   #root .__dumi-default-layout-footer-meta > a, #root .__dumi-default-layout-footer-meta > span:last-child::before {
@@ -253,26 +238,6 @@ export default {
     margin-top: 24px;
     margin-bottom: 16px;
   }
-  /** 代码块边框 */
-  #root .__dumi-default-mobile-previewer {
-    position: relative;
-    padding: 0 24px;
-  }
-  #root .__dumi-default-mobile-previewer::after {
-    pointer-events: none;
-    content:'';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -72px;
-    bottom: -24px;
-    border: 1px solid #E6E6E6;
-    border-radius: 12px;
-  }
-  #root .__dumi-default-mobile-previewer ~ .__dumi-default-mobile-previewer::after {
-    border-top: none;
-  }
-
   `],
   navs: {
     zh: [
@@ -315,4 +280,17 @@ export default {
       },
     ],
   },
+
+  chainWebpack(config) {
+    // @ts-ignore
+    config.plugin('MonacoWebpackPlugin').use(MonacoWebpackPlugin, [
+      {
+        languages: ['javascript', 'typescript', 'json', 'css', 'html', 'xml'],
+        publicPath:
+          process.env.NODE_ENV === 'development' ? 'http://localhost:8000/' : 'https://gw.alipayobjects.com/a/minidev/',
+      },
+    ])
+  }
 };
+
+export default config;

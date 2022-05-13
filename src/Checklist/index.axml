@@ -1,0 +1,22 @@
+<view class="amd-checklist">
+  <view class="amd-checklist-body">
+    <checklist-item
+      a:for="{{options}}"
+      value="{{value}}"
+      optionValue="{{item.value}}"
+      description="{{item.description}}"
+      disabled="{{item.disabled}}"
+      readOnly="{{item.readOnly}}"
+      image="{{item.image}}"
+      multiple="{{multiple}}"
+      onChange="onChange"
+    >
+      {{item.title}}
+      <view slot="icon">
+        <slot name="icon">
+          <icon type="CheckOutline" size="x-small" color="#1677ff" class="amd-checklist-item-check-icon" />
+        </slot>
+      </view>
+    </checklist-item>
+  </view>
+</view>

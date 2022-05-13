@@ -60,6 +60,9 @@ Component({
             hideLoading: true,
           });
 
+          console.log(res)
+          console.log(JSON.parse(res.data))
+
           /** 这里uploadFile api接口类型定义有问题，ide返回的是string，真机返回的是number，作下兼容 */
           if (res.statusCode === 200 || res.statusCode === '200') {
             this.updateFileList(path, 'done');
@@ -104,6 +107,8 @@ Component({
       this.setData({
         fileList: tempFileList
       });
+
+      console.log(tempFileList);
 
       onChange && onChange.call(this.props, tempFileList);
     },

@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { TabsDefaultProps } from './props';
-import { getTabArray, componentContext, componentContextFallback } from './context';
 import { log } from '../_util/console';
 import { objectValues } from '../_util/tools';
 import { compareVersion } from '../_util/compareVersion';
-import { IBoundingClientRect } from "../_base"
+import { IBoundingClientRect } from "../_base";
+import { tabsStore } from "../_util/tabsStore";
 
 const canSwipeable = my.canIUse('swiper.disable-touch');
 const component2 = my.canIUse('component2');
-let hasTab = false;
+
 
 const isShouldNotCalHeight = component2 && compareVersion(my.SDKVersion, '2.6.4') >= 0;
 
@@ -38,21 +38,29 @@ Component({
     _isForceUpdate: isForceUpdate,
   },
   didMount() {
-    if (hasTab) {
-      log.error('Tabs', '目前仅支持在一个页面中使用一个 Tabs 组件。');
+    const setGroupDataVal = () =>{
+      const key = `${this.$page.$id}-${this.props.uid}`;
+      const group = tabsStore.getGroup(key)
+      if(group){
+          const items = objectValues(group.items).reduce((prev,cur)=>{
+            if(cur) prev.push(cur.getTabsItemVal())
+            return prev
+          },[])
+          this.setData({
+            _tabs: items
+          })
+      }
     }
-    hasTab = true;
-    componentContext.onUpdate((value) => {
-      this.setData({
-        _tabs: value,
-      });
-    });
-    componentContextFallback.update(this.props.fallback)
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    tabsStore.setGroupDataVal(key, ()=>setTimeout(setGroupDataVal,50));
+    setGroupDataVal();
+    this.updateTabsItemFallbackVal(this.props.fallback)
+
     const { index, animation } = this.props;
     this.setData({
-      _tabs: objectValues(getTabArray),
       currentIndex: index,
     });
+
     this._getTabsWidth();
     this._useSwipeable(this.props.swipeable);
     if (typeof index !== 'number') {
@@ -98,10 +106,11 @@ Component({
     }
   },
   didUpdate(prevProps, prevData) {
+    
     const { index, animation, fallback } = this.props;
 
     if (prevProps.fallback !== fallback) {
-      componentContextFallback.update(fallback)
+      this.updateTabsItemFallbackVal(fallback)
     }
 
     if (prevProps.index !== index && prevData.currentIndex === this.data.currentIndex) {
@@ -149,10 +158,20 @@ Component({
     this._useSwipeable(this.props.swipeable);
   },
   didUnmount() {
-    hasTab = false;
-    componentContext.clearEvent();
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    tabsStore.removeGroup(key);
   },
   methods: {
+    updateTabsItemFallbackVal(v: boolean){
+      const key = `${this.$page.$id}-${this.props.uid}`;
+      const group = tabsStore.getGroup(key)
+      if(group){
+        objectValues(group.items).forEach(item=>{
+          // @ts-ignore
+          item.setFallback(v)
+        })
+      }
+    },
     _autoHeight(tabIndex) {
       if (isShouldNotCalHeight) return;
       if (this.props.fallback) return

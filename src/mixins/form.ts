@@ -31,7 +31,7 @@ export default () => {
     onInit() {
       if (isMoreThan106 && isNotFormMode(this.props.mode)) return;
 
-      const getCurrentField = this.$page.data._getCurrentField;
+      const getCurrentField = this.$page._getCurrentField;
       if (!getCurrentField) return;
       this.props._getCurrentField = getCurrentField;
       const { form: formFn, field: fieldFn } = getCurrentField();
@@ -61,9 +61,9 @@ export default () => {
     },
     didMount() {
       if (isMoreThan106 && isNotFormMode(this.props.mode)) {
-        this.$page.data._currentSetData = null;
+        this.$page._currentSetData = null;
       } else {
-        this.$page.data._currentSetData = this.setData;
+        this.$page._currentSetData = this.setData;
       }
     },
   };

@@ -1,0 +1,40 @@
+<view class="demo-checklist">
+  <view class="demo-checklist-label">简单布局-单选</view>
+  <checklist 
+    defaultValue="{{[1]}}"
+    options="{{options_1}}"
+    onChange="onChange"
+  />
+  <view class="demo-checklist-label">复杂布局-多选</view>
+  <checklist 
+    defaultValue="{{defaultValue}}" 
+    options="{{options_2}}"
+    multiple
+    onChange="onChange"
+  />
+  <view class="demo-checklist-label">禁用状态</view>
+  <checklist 
+    defaultValue="{{[2]}}"
+    options="{{options_3}}"
+    multiple
+    onChange="onChange"
+  />
+  <view class="demo-checklist-label">只读状态</view>
+  <checklist 
+    defaultValue="{{[2]}}"
+    options="{{options_4}}"
+    multiple
+    onChange="onChange"
+  />
+  <view class="demo-checklist-label">自定义勾选图标</view>
+  <checklist 
+    defaultValue="{{[2]}}"
+    options="{{options_3}}"
+    multiple
+    onChange="onChange"
+  >
+    <view slot="icon">
+      <icon color='red' type="LikeOutline" size="x-small" class="demo-checklist-checked-icon"/>
+    </view>
+  </checklist>
+</view>

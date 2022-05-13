@@ -82,6 +82,11 @@ export const componentList = [
         path: '/pages/CheckboxGroup/index',
       },
       {
+        name: 'CheckList',
+        nameZN: '可勾选列表',
+        path: '/pages/Checklist/index',
+      },
+      {
         name: 'Filter',
         nameZN: '筛选卡',
         path: '/pages/Filter/index',
@@ -160,6 +165,11 @@ export const componentList = [
         name: 'Result',
         nameZN: '操作结果',
         path: '/pages/Result/index',
+      },
+      {
+        name: 'Empty',
+        nameZN: '空状态',
+        path: '/pages/Empty/index',
       },
     ],
   },

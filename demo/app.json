@@ -51,7 +51,9 @@
     "pages/Container/index",
     "pages/ImageUpload/index",
     "pages/VideoUpload/index",
-    "pages/FileUpload/index"
+    "pages/FileUpload/index",
+    "pages/Checklist/index",
+    "pages/Empty/index"
   ],
   "window": {
     "enableWK": "YES",
