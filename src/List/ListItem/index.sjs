@@ -8,6 +8,6 @@ const getArrow = (arrow) => {
   return arrow ? arrowType[arrow] : '';
 };
 
-const test = () => false;
-
-export default { getArrow, test };
+export default { 
+  getArrow 
+};
