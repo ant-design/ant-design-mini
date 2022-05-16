@@ -27,15 +27,6 @@
       onChange="onChange"
     />
   </view>
-  <view class="demo-image-upload-title">自定义标签</view>
-  <view class="demo-image-upload-show">
-    <uploader 
-      action='{{action}}'
-      maxCount="{{4}}"
-      defaultValue="{{value_3}}"
-      onChange="onChange"
-    />
-  </view>
   <view class="demo-image-upload-title">自定义上传图标</view>
   <view class="demo-image-upload-show">
     <uploader 
@@ -82,6 +73,7 @@
       maxCount="{{2}}"
       defaultValue="{{value_1}}"
       onUpload="onUpload"
+      onChange="onChange"
     />
   </view>
 </view>

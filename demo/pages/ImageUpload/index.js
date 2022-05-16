@@ -1,6 +1,6 @@
 Page({
   data: {
-    action: 'https://run.mocky.io/v3/b098fdcc-ae65-4dc7-be4b-64b81796e1d9',
+    action: 'https://www.fastmock.site/mock/b3a1128da69d22edd307be51154c913d/upload/image',
     value_1: [{
       key: '111',
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
@@ -38,6 +38,7 @@ Page({
     demoImage: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*8cMtRYFpz88AAAAAAAAAAAAAARQnAQ'
   },
   onChange(v) {
+    // 这里的数据包括上传失败和成功的图片列表，如果需要筛选出上传成功的图片需要在此处理
     console.log('当前已上传的图片列表：', v);
   },
   onDelete(v) {
@@ -73,8 +74,9 @@ Page({
       setTimeout(() => {
         resolve({
           ...file,
-          status: 'done' // 或者 'error'
-        })
+          status: 'done', // 或者 'error'
+          url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ', // 'error'时应为''
+        });
       }, 3000)
     })
   }

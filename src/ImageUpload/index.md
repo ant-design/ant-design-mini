@@ -61,7 +61,6 @@ toc: false
 | amd-image-upload-close | 已上传图片右上角关闭按钮样式 |
 | amd-image-upload-loading | 上传中加载中样式 |
 | amd-image-upload-loading-icon | 上传中加载中图标 |
-| amd-image-upload-image-label | 已上传图片内底部标签文案 |
 | amd-image-upload-image | 已上传图片区域样式 |
 | amd-image-upload-add-image-wrapper | 点击上传图片区域整体样式 |
 

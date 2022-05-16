@@ -12,17 +12,17 @@ export interface File {
   url: string;
 
   /**
-   * @description 略缩图的资源地址
-   */
-  thumbUrl?: string;
-
-  /**
    * @description 上传状态
    */
   status?: 'pending' | 'done' | 'error';
 
   /**
-   * @description 图片标签描述
+   * @description 图片的本地地址
+   */
+  localPath?: string;
+
+  /**
+   * @description 图片描述
    */
   description: string;
 

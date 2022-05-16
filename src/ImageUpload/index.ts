@@ -40,9 +40,10 @@ Component({
         }
 
         const tempFileList = fileList.concat([{
+          /** 这里以图片的本地地址作为key */
           key: path,
-          url: path,
-          thumbUrl: '',
+          url: '',
+          localPath: path,
           status: 'pending'
         }]);
 
@@ -60,14 +61,22 @@ Component({
             hideLoading: true,
           });
 
-          console.log(res)
-          console.log(JSON.parse(res.data))
-
           /** 这里uploadFile api接口类型定义有问题，ide返回的是string，真机返回的是number，作下兼容 */
           if (res.statusCode === 200 || res.statusCode === '200') {
-            this.updateFileList(path, 'done');
+            const data = JSON.parse(res.data);
+            if (data.success && data.data && data.data.url) {
+              this.updateFileList(path, 'done', data.data.url);
+            } else {
+              this.updateFileList(path, 'error');
+              my.showToast({
+                content: '接口返回格式有误'
+              });
+            }
           } else {
             this.updateFileList(path, 'error');
+            my.showToast({
+              content: '上传失败，请重试'
+            })
           }
           return;
         }
@@ -75,11 +84,11 @@ Component({
         if (onUpload) {
           const onUploadRes = await onUpload.call(this.props, {
             key: path,
-            url: path,
-            thumbUrl: '',
+            url: '',
+            localPath: path,
             status: 'pending'
           });
-          this.updateFileList(path, onUploadRes.status);
+          this.updateFileList(path, onUploadRes.status, onUploadRes.url);
         }
       } catch (e) {
         this.updateFileList(path, 'error');
@@ -90,14 +99,15 @@ Component({
       }
     },
 
-    updateFileList(path, status) {
+    updateFileList(path, status, url?) {
       const { fileList } = this.data;
       const { onChange } = this.props;
 
       const tempFileList = fileList.map((file) => {
-        if (file.url === path) {
+        if (file.key === path) {
           return {
             ...file,
+            url: url ? url : '',
             status
           } as File;
         }
@@ -107,8 +117,6 @@ Component({
       this.setData({
         fileList: tempFileList
       });
-
-      console.log(tempFileList);
 
       onChange && onChange.call(this.props, tempFileList);
     },
