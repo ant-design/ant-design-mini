@@ -10,9 +10,9 @@ type CustomizedNode = string;
 
 interface ISliderProps extends IBaseProps {
   /**
-   * @description 默认值
+   * @description 当前值
    */
-  defaultValue?: SliderValue;
+  value?: SliderValue;
 
   /**
    * @description 是否禁用
@@ -60,11 +60,6 @@ interface ISliderProps extends IBaseProps {
    * @default false
    */
   ticks?: boolean;
-
-  /**
-   * @description 当前值
-   */
-  value?: SliderValue;
 
   /**
    * @description 输入变化的时候触发， 参数为滑动组件的当前值

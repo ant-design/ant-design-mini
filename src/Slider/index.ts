@@ -1,3 +1,4 @@
+import equal from 'fast-deep-equal';
 import { sliderDefaultProps, SliderValue, ISliderProps } from './props';
 
 let globalId = 0;
@@ -10,52 +11,43 @@ Component({
     sliderWidth: 0,
     tickList: []
   },
-  currentDefaultValue: undefined,
+  defaultValue: undefined,
   sliderId: '',
-  rawValue: undefined,
-  onInit() {
+
+  didMount() {
+    const { value } = this.props;
     // 生成一个当前组件的唯一ID
     globalId += 1;
     const sliderId = `amd-slider-id-${globalId}`;
     this.sliderId = sliderId;
     this.setData({
-      sliderId,
+      sliderId
     });
+    this.updateByProps(value);
+    (this.defaultValue as SliderValue) = value;
   },
 
-  deriveDataFromProps(nextProps) {
-    // TODO props type check
-    
-    const min = nextProps.min ?? this.props.min ?? sliderDefaultProps.min;
-    const max = nextProps.max ?? this.props.max ?? sliderDefaultProps.max;
-    const step = nextProps.step ?? this.props.step ?? sliderDefaultProps.step ?? 1;
-    const range = nextProps.range ?? this.props.range;
-    const showTicks = nextProps.ticks ?? this.props.ticks;
-
-    const rawValue = this.fitSliderValue(
-      // @ts-ignore
-      this.getNewRawValueFromNextProps(nextProps, this.data.rawValue, this.currentDefaultValue),
-      min,
-      max,
-      step,
-      range
-    );
-
-    (this.rawValue as SliderValue) = rawValue;
-
-    this.updateRawValue(rawValue, step);
-
-    if (showTicks) {
-      this.setTickList(step, min, max);
+  didUpdate(prevProps) {
+    if (!equal(this.props, prevProps)) {
+      /** 暂时不支持受控模式，默认都采用初始值，后面表单统一处理 */
+      this.updateByProps(this.defaultValue);
     }
-
-    (this.currentDefaultValue as SliderValue) = nextProps.defaultValue;
   },
 
   methods: {
+    updateByProps(newValue) {
+      const { min, max, step, range, ticks } = this.props;
+      const rawValue = this.fitSliderValue(newValue, min, max, step, range);
+
+      this.updateRawValue(rawValue, step);
+
+      if (ticks) {
+        this.setTickList(step, min, max);
+      }
+    },
+
     updateRawValue(rawValue: SliderValue, step = 1) {
       const prevValue = this.getRoundedValue(this.data.rawValue, step);
-
       const currentValue = this.getRoundedValue(rawValue, step);
 
       this.setData({
@@ -75,7 +67,6 @@ Component({
       }
 
       if (typeof rawValue === 'number') {
-
         return Math.round(rawValue / step) * step;
       }
 
@@ -88,7 +79,6 @@ Component({
     setSliderStyleByRawValue(roundedValue: SliderValue) {
       let leftValue = 0;
       let rightValue = 0;
-
       const max = this.props.max ?? sliderDefaultProps.max;
       const min = this.props.min ?? sliderDefaultProps.min;
 
@@ -113,7 +103,6 @@ Component({
 
     setTickList(step: number, min: number, max: number) {
       const tickList = [];
-
       const stepCount = (max - min) / step;
 
       for (let i = 0; i <= stepCount; i += 1) {
@@ -170,12 +159,9 @@ Component({
 
                 const leftValue = currentValue[0];
                 const rightValue = currentValue[1];
-
                 const leftDistance = Math.abs(leftValue - value);
                 const rightDistance = Math.abs(rightValue - value);
-
                 const isFarFromLeft = leftDistance > rightDistance;
-
                 const farValue = isFarFromLeft ? leftValue : rightValue;
 
                 this.updateRawValue(
@@ -249,24 +235,7 @@ Component({
       return [(Math.max(min, leftValue)), Math.min(max, rightValue)] as SliderValue;
     },
 
-    getNewRawValueFromNextProps(nextProps: Partial<ISliderProps>, currentValue: SliderValue, currentDefaultValue: SliderValue) {
-      // 优先使用 props 的 value 作为 raw value
-      if (nextProps.value !== undefined) {
-        return this.cloneSliderValue(nextProps.value);
-      }
-
-      // 判断 defaultValue 是否有值 并且值有变化
-      if (
-        nextProps.defaultValue !== undefined &&
-        !this.isSliderValueEqual(nextProps.defaultValue, currentDefaultValue)
-      ) {
-        return this.cloneSliderValue(nextProps.defaultValue);
-      }
-
-      return this.cloneSliderValue(currentValue);
-    },
-
-    handleTrackTouchStart(e, a) {
+    handleTrackTouchStart(e) {
       this.onTouchChanged(e);
     },
 
@@ -277,7 +246,5 @@ Component({
     handleTrackTouchEnd(e) {
       this.onTouchChanged(e);
     },
-
-    handleTrackTouchCancel(e) { },
   },
 });

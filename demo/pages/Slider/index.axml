@@ -1,4 +1,4 @@
-<view/>
+<view>
   <demo-block title="当前操作的组件的数值">
     <view>
     {{currentValue.length ? `[${currentValue[0]}, ${currentValue[1]}]`: currentValue}}
@@ -9,7 +9,7 @@
     <slider
       min="{{0}}"
       max="{{100}}"
-      defaultValue="{{80}}"
+      value="{{80}}"
       step={{20}}
       onChange="handleSliderChange"
       ticks
@@ -20,7 +20,7 @@
     <slider
       min="{{0}}"
       max="{{100}}"
-      defaultValue="{{[10, 50]}}"
+      value="{{[10, 50]}}"
       step={{10}}
       onChange="handleSliderChange"
       ticks
@@ -32,7 +32,7 @@
     <slider
       min="{{0}}"
       max="{{100}}"
-      defaultValue="{{80}}"
+      value="{{80}}"
       onChange="handleSliderChange"
     />
   </demo-block>
@@ -41,7 +41,7 @@
     <slider
       min="{{0}}"
       max="{{100}}"
-      defaultValue="{{[20, 60]}}"
+      value="{{[20, 60]}}"
       range
       onChange="handleSliderChange"
     />
@@ -51,7 +51,7 @@
     <slider
       min="{{0}}"
       max="{{100}}"
-      defaultValue="{{80}}"
+      value="{{80}}"
       step={{20}}
       onChange="handleSliderChange"
       ticks
@@ -63,7 +63,7 @@
     <slider
       min="{{0}}"
       max="{{100}}"
-      defaultValue="{{80}}"
+      value="{{80}}"
       step={{20}}
       onChange="handleSliderChange"
       ticks
@@ -76,11 +76,11 @@
     <slider
       min="{{0}}"
       max="{{100}}"
-      defaultValue="{{80}}"
+      value="{{80}}"
       step={{20}}
       onChange="handleSliderChange"
       ticks
       disabled
     />
   </demo-block>
-<view>
+</view>
