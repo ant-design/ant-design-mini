@@ -13,7 +13,7 @@
     "lint:code": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\"",
     "lint:code:fix": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\" --fix",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "prepublishOnly": "npm run build:component:rpx",
+    "prepublishOnly": "npm run build:component",
     "pub": "node scripts/publish.js",
     "test:less": "jest __tests__/less.spec.ts",
     "test:markdown": "jest __tests__/markdowns.spec.ts",
