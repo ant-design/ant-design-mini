@@ -6,12 +6,11 @@ let globalId = 0;
 Component({
   props: sliderDefaultProps,
   data: {
-    rawValue: undefined,
+    value: undefined,
     sliderLeft: 0,
     sliderWidth: 0,
     tickList: []
   },
-  defaultValue: undefined,
   sliderId: '',
 
   didMount() {
@@ -24,59 +23,58 @@ Component({
       sliderId
     });
     this.updateByProps(value);
-    (this.defaultValue as SliderValue) = value;
   },
 
   didUpdate(prevProps) {
     if (!equal(this.props, prevProps)) {
-      /** 暂时不支持受控模式，默认都采用初始值，后面表单统一处理 */
-      this.updateByProps(this.defaultValue);
+      /** 受控模式下只取最新value，否则保持当前data的值不变 */
+      this.updateByProps(this.props.controlled ? this.props.value : this.data.value);
     }
   },
 
   methods: {
     updateByProps(newValue) {
       const { min, max, step, range, ticks } = this.props;
-      const rawValue = this.fitSliderValue(newValue, min, max, step, range);
+      const value = this.fitSliderValue(newValue, min, max, step, range);
 
-      this.updateRawValue(rawValue, step);
+      this.updateValue(value, step);
 
       if (ticks) {
         this.setTickList(step, min, max);
       }
     },
 
-    updateRawValue(rawValue: SliderValue, step = 1) {
-      const prevValue = this.getRoundedValue(this.data.rawValue, step);
-      const currentValue = this.getRoundedValue(rawValue, step);
+    updateValue(value: SliderValue, step = 1) {
+      const prevValue = this.getRoundedValue(this.data.value, step);
+      const currentValue = this.getRoundedValue(value, step);
 
       this.setData({
-        rawValue,
+        value,
       });
 
-      this.setSliderStyleByRawValue(currentValue);
+      this.setSliderStyleByValue(currentValue);
 
       if (!this.isSliderValueEqual(currentValue, prevValue)) {
         this.props.onChange?.(currentValue);
       }
     },
 
-    getRoundedValue(rawValue: SliderValue, step = 1) {
-      if (rawValue === undefined) {
+    getRoundedValue(value: SliderValue, step = 1) {
+      if (value === undefined) {
         return 0;
       }
 
-      if (typeof rawValue === 'number') {
-        return Math.round(rawValue / step) * step;
+      if (typeof value === 'number') {
+        return Math.round(value / step) * step;
       }
 
       return [
-        Math.round(rawValue[0] / step) * step,
-        Math.round(rawValue[1] / step) * step,
+        Math.round(value[0] / step) * step,
+        Math.round(value[1] / step) * step,
       ] as SliderValue;
     },
 
-    setSliderStyleByRawValue(roundedValue: SliderValue) {
+    setSliderStyleByValue(roundedValue: SliderValue) {
       let leftValue = 0;
       let rightValue = 0;
       const max = this.props.max ?? sliderDefaultProps.max;
@@ -138,7 +136,7 @@ Component({
                 touchPosition * (this.props.max - this.props.min);
 
               if (!this.props.range) {
-                this.updateRawValue(
+                this.updateValue(
                   this.fitSliderValue(
                     value,
                     this.props.min,
@@ -150,7 +148,7 @@ Component({
                 );
               } else {
                 const currentValue = this.fitSliderValue(
-                  this.data.rawValue,
+                  this.data.value,
                   this.props.min,
                   this.props.max,
                   this.props.step,
@@ -164,7 +162,7 @@ Component({
                 const isFarFromLeft = leftDistance > rightDistance;
                 const farValue = isFarFromLeft ? leftValue : rightValue;
 
-                this.updateRawValue(
+                this.updateValue(
                   this.fitSliderValue(
                     [value, farValue],
                     this.props.min,
