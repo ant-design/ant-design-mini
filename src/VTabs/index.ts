@@ -123,6 +123,7 @@ Component({
         this.setData({
           wrapScrollTop: { _v: this.indexTop[index] },
         });
+        this.curScrollBarIndex = index;
         this.moveScrollBar(index);
       }
     },
@@ -175,7 +176,9 @@ Component({
           scrollTop < this.anchorMap[keys[i + 1]]) {
           // 如果每个 vtabItem 高度小于 scroll-view 高度，到达底部后就不需要根据 scrollTop 再去判断左侧的选择项
           if (scrollTop + this.wrapHeight < this.scrollWrapHeight) {
-            this.moveScrollBar(i);
+            this.moveScrollBar(this.curScrollBarIndex || i);
+            // 滚动时清空点击左侧bar的数据
+            this.curScrollBarIndex = '';
           }
           break;
         }
