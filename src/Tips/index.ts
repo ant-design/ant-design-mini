@@ -1,27 +1,39 @@
 import { TipsDefaultProps } from './props';
-import { log } from '../_util/console';
 
 Component({
   props: TipsDefaultProps,
   data: {
-    _show: false
+    _show: false,
+    textType: 'multi',
   },
   didMount() {
     this.setData({
-      _show: this.props.visible
-    })
+      _show: this.props.visible,
+    });
+    this.getTextType();
   },
   didUpdate(prevProps) {
-    if(prevProps.visible !== this.props.visible){
+    if (prevProps.visible !== this.props.visible) {
       this.setData({
-        _show: this.props.visible
-      })
-      if(this.props.visible === false){
-        this.beforeClose()
+        _show: this.props.visible,
+      });
+      if (this.props.visible === false) {
+        this.beforeClose();
       }
     }
+    this.getTextType();
   },
   methods: {
+    getTextType() {
+      my.createSelectorQuery()
+        .select(`.amd-tips-${this.$id} .amd-tips-title`)
+        .boundingClientRect()
+        .exec((ret) => {
+          if (ret && ret[0] && ret[0].height) {
+            this.setData({ textType: ret[0].height < 30 ? 'single' : 'multi' });
+          }
+        });
+    },
     onButtonTap() {
       const { onButtonTap } = this.props;
       if (onButtonTap) {
@@ -32,12 +44,12 @@ Component({
       this.setData({
         _show: t,
       });
-      this.beforeClose()
+      this.beforeClose();
     },
-    beforeClose(){
-      if(typeof this.props.onClose ==="function"){
-        this.props.onClose()
+    beforeClose() {
+      if (typeof this.props.onClose === 'function') {
+        this.props.onClose();
       }
-    }
+    },
   },
 });
