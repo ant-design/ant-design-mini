@@ -21,7 +21,9 @@ Component({
         this.beforeClose();
       }
     }
-    this.getTextType();
+    if (prevProps.title !== this.props.title) {
+      this.getTextType();
+    }
   },
   methods: {
     getTextType() {
