@@ -10,7 +10,7 @@
             payload="{{index}}"
             onTap="onChange">
             <view class="amd-vtabs-bar-item {{_index - index?'' : 'amd-vtabs-bar-item-active'}} {{item.disabled?'amd-vtabs-bar-item-disabled' : '' }}"
-              style="{{_index + 1 === index ? 'border-radius: 0 16rpx 0 0': ''}}"
+              style="{{`${_index + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${_index - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
               >
               <badge a:if="{{item.badge}}" type="{{item.badge.type}}" bubble="{{!!item.badge.bubble}}" text="{{item.badge.text}}">
               <text class="amd-vtabs-bar-item-title">
