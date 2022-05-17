@@ -1,10 +1,9 @@
 page {
-  background-color: #f5f5f5;
+  background-color: rgb(250 251 252);
 }
 .btn-list {
   display: flex;
   flex-direction: column;
-  
 }
 .btn-list .amd-button {
   margin-bottom: 16rpx;
