@@ -36,6 +36,10 @@
       a[title="站长统计"] {
         display: none;
       }
+      #simulatorContainer {
+        top: 100px !important;
+        height: 700px !important;
+      }
       #root .__dumi-default-device[data-device-type="iOS"] {
         display: none;
       }
@@ -272,9 +276,17 @@
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
         j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        j.src = "https://www.googletagmanager.com/gtag/js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-WWGN4HC");
+      })(window, document, "script", "dataLayer", "G-M5MFVPJE7L");
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-M5MFVPJE7L");
     </script>
     <script>
       if (window.location.pathname === "/components/icon") {
@@ -285,6 +297,6 @@
         });
       }
     </script>
-    <script src="/umi.03668a66.js"></script>
+    <script src="/umi.14aaf297.js"></script>
   </body>
 </html>
