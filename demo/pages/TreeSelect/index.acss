@@ -1,0 +1,10 @@
+.demo-tree-select-title {
+  font-size: 32rpx;
+  color: #999;
+  padding: 36rpx 0 16rpx 16rpx;
+}
+
+.demo-tree-select-card {
+  background-color: #fff;
+  padding: 24rpx;
+}

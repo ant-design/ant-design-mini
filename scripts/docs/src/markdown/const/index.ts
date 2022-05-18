@@ -14,9 +14,9 @@ export const EXCLUED_DIR = ['.umi', 'Avatar', 'Badge',
     'ImageIcon', 'InputItem', 'List', 'Loading',
     'Mask', 'Modal', 'NoticeBar', 'Picker',
     'Popover', 'Popup', 'RadioGroup',
-    'Result', 'SafeArea', 'Selector', 'Stepper',
-    'Steps', 'SwipeAction', 'Switch', 'Tabs',
-    'Tag', 'TapModal', 'Terms',
+    'Result', 'SafeArea', 'Selector', 'SearchBar',
+    'Stepper', 'Steps', 'SwipeAction', 'Switch',
+    'Tabs', 'Tag', 'TapModal', 'Terms',
     'Tips', 'VTabs', '_base',
     '_util', 'mixins', 'style']
 

@@ -1,0 +1,31 @@
+<import-sjs name="treeSelect" from="./index.sjs"/>
+
+<view class="amd-tree-select" a:if="{{visible}}">
+  <view 
+    a:for="{{levelList}}"
+    a:for-item="level"
+    a:for-index="levelIndex"
+    class="amd-tree-select-level amd-tree-select-level-{{levelIndex}} {{levelIndex===1 && levelList.length ===2 ? 'amd-tree-select-two-level-second': ''}}"
+  >
+    <view
+      class="{{treeSelect.getItemClassNameByData(selected, levelIndex, option)}}"
+      a:for="{{level}}"
+      a:for-item="option"
+      a:for-index="optionIndex"
+      onTap="handleOptionTap"
+      data-value="{{option.value}}"
+      data-level="{{levelIndex}}"
+    >
+      <view
+        class="amd-tree-select-level-item-text"
+      >
+        {{option.label}}
+      </view>
+      <view
+        a:if="{{selected[levelIndex] === option.value}}"
+        class="{{levelIndex===0 ? 'amd-tree-select-level-item-flag' : ''}}" 
+      />
+
+    </view>
+  </view>
+</view>
