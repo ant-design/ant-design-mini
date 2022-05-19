@@ -56,7 +56,6 @@ Component({
           levelList.push(level);
         } else if (level.length) {
           newSelectedList.push('')
-          // currentOptions = foundOption.children ?? [];
           levelList.push(level);
         }
       })
@@ -71,7 +70,6 @@ Component({
       const { value, level } = e.currentTarget.dataset;
       const { selected, levelList } = this.data
 
-      console.log('===', value, level, levelList.length, selected, selected[level], value)
       // 如果当前点击的不是最后一级菜单且点击的选项就是当前选中的选项，则不进行操作
       if (selected[level] === value && (level < levelList.length - 1)) return;
 
