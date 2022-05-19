@@ -1,4 +1,4 @@
-@import (reference) "./variable.less";
+@import (reference) './variable.less';
 
 @tipsPrefix: amd-tips;
 
@@ -10,29 +10,16 @@
     color: @color-text-base;
     border-radius: @corner-radius-lg;
     max-width: 702 * @rpx;
-    &-pseudo {
-      opacity: 0.75;
-      background: #000;
-      border-radius: @corner-radius-lg;
-      z-index: 5;
-      &-content {
-        opacity: 0;
-        display: flex;
-        align-items: center;
-        padding: @v-spacing-standard @h-spacing-large;
-        pointer-events: none;
-      }
-    }
-    &-real {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    &-content {
       display: flex;
       align-items: center;
-      padding: 10 * @rpx @h-spacing-large;
-      border-radius: @corner-radius-lg;
+      padding: @v-spacing-standard @h-spacing-large;
+    }
+  }
+  &-single {
+    :not(.@{tipsPrefix}-content-bottom) ~ .@{tipsPrefix}-close {
+      align-self: center;
     }
   }
   &-content {
@@ -50,6 +37,7 @@
     box-sizing: content-box;
     margin-top: 6 * @rpx;
     margin-bottom: 6 * @rpx;
+    flex-shrink: 0;
   }
   &-close {
     align-self: flex-start;
@@ -74,11 +62,6 @@
         align-items: center;
       }
     }
-  }
-  &-title {
-    display: flex;
-    flex: 1;
-    align-items: center;
   }
   &-arrow {
     position: absolute;
