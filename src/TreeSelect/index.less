@@ -1,8 +1,8 @@
-@import (reference) "../_base/index.less";
+@import (reference) "./variable.less";
 
-@collapsePrefix: amd-tree-select;
+@treeSelectPrefix: amd-tree-select;
 
-.@{collapsePrefix} {
+.@{treeSelectPrefix} {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,11 +10,12 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color: @color-divider-line;
   display: flex;
   flex-direction: row;
   align-items: center;
   z-index: 999;
+
 
 
   &-level {
@@ -24,61 +25,59 @@
     position: relative;
 
     &-0 {
-      background-color: #f5f5f5;
+      background-color: @color-divider-background;
     }
 
     &-1 {
-      background-color: #fAfAfA;
+      background-color: @tree-select-background-color-gray-middle;
     }
 
     &-2 {
-      background-color: #fff;
+      background-color: @color-fill-grey-inverse;
     }
 
 
     &-item {
       position: relative;
       width: 100%;
-      height: 101*@rpx;
-      line-height: 101*@rpx;
-      color: #333;
-      font-size: 26*@rpx;
-      background-color: #00000000;
+      height: 101 * @rpx;
+      line-height: 101 * @rpx;
+      color: @color-text-title;
+      font-size: @font-size-content;
 
       &-selected {
         position: relative;
         width: 100%;
-        height: 101*@rpx;
-        line-height: 101*@rpx;
-        font-size: 26*@rpx;
-        background-color: #fff;
+        height: 101 * @rpx;
+        line-height: 101 * @rpx;
+        font-size: @font-size-content;
+        background-color: @color-fill-grey-inverse;
         color: @color-fill-primary;
       }
 
       &-disabled {
         position: relative;
         width: 100%;
-        height: 101*@rpx;
-        line-height: 101*@rpx;
-        font-size: 26*@rpx;
-        background-color: #00000000;
-        color: #333333;
-        opacity: 40%;
+        height: 101 * @rpx;
+        line-height: 101 * @rpx;
+        font-size: @font-size-content;
+        color: @color-text-title;
+        opacity: @opacity-disabled;
       }
 
       &-text {
         position: absolute;
-        left: 24*@rpx;
+        left: @h-spacing-large;
       }
 
       &-flag {
         position: absolute;
-        width: 4*@rpx;
-        height: 37*@rpx;
-        top: 32*@rpx;
-        left: 4*@rpx;
+        width: 4 * @rpx;
+        height: 37 * @rpx;
+        top: 32 * @rpx;
+        left: 4 * @rpx;
         background-color: @color-fill-primary;
-        border-radius: 4*@rpx;
+        border-radius: @corner-radius-sm;
       }
     }
   }
