@@ -7,18 +7,19 @@ Component({
     levelList: []
   },
   didMount() {
-    this.updateOptions(this.props.options);
+    this.updateOptions(this.props.options, this.props.value);
+
   },
   didUpdate(prevProps) {
     if (prevProps.options !== this.props.options) {
-      this.updateOptions(this.props.options);
+      this.updateOptions(this.props.options, this.props.value);
     }
-    console.log(this.data.levelList)
   },
   methods: {
     updateOptions(options = [], defaultSelected = []) {
       const selected = defaultSelected.map((s) => s);
       const newSelectedList: TreeSelectValue[] = [];
+
       while (selected.length < 3) {
         // 补全3个选项
         selected.push(null);
@@ -70,6 +71,7 @@ Component({
       const { value, level } = e.currentTarget.dataset;
       const { selected, levelList } = this.data
 
+      console.log('===', value, level, levelList.length, selected, selected[level], value)
       // 如果当前点击的不是最后一级菜单且点击的选项就是当前选中的选项，则不进行操作
       if (selected[level] === value && (level < levelList.length - 1)) return;
 
@@ -102,6 +104,7 @@ Component({
           const node = stack.pop();
 
           const level = propertiesMap.get(node).level;
+
 
           if (value === node.value && level === level && node !== root) {
             if (node.disabled) return;
