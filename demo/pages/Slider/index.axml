@@ -1,0 +1,86 @@
+<view/>
+  <demo-block title="当前操作的组件的数值">
+    <view>
+    {{currentValue.length ? `[${currentValue[0]}, ${currentValue[1]}]`: currentValue}}
+    </view>
+  </demo-block>
+
+  <demo-block title="节点, 单滑块">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      defaultValue="{{80}}"
+      step={{20}}
+      onChange="handleSliderChange"
+      ticks
+    />
+  </demo-block>
+
+  <demo-block title="节点, 双滑快">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      defaultValue="{{[10, 50]}}"
+      step={{10}}
+      onChange="handleSliderChange"
+      ticks
+      range
+    />
+  </demo-block>
+
+  <demo-block title="无节点, 单滑块">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      defaultValue="{{80}}"
+      onChange="handleSliderChange"
+    />
+  </demo-block>
+
+  <demo-block title="无节点, 双滑快">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      defaultValue="{{[20, 60]}}"
+      range
+      onChange="handleSliderChange"
+    />
+  </demo-block>
+
+  <demo-block title="节点, 显示数据">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      defaultValue="{{80}}"
+      step={{20}}
+      onChange="handleSliderChange"
+      ticks
+      showNumber
+    />
+  </demo-block>
+
+  <demo-block title="自定义图标">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      defaultValue="{{80}}"
+      step={{20}}
+      onChange="handleSliderChange"
+      ticks
+      showNumber
+      icon="MoreOutline"
+    />
+  </demo-block>
+
+  <demo-block title="禁用状态">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      defaultValue="{{80}}"
+      step={{20}}
+      onChange="handleSliderChange"
+      ticks
+      disabled
+    />
+  </demo-block>
+<view>

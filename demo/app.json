@@ -51,6 +51,7 @@
     "pages/Container/index",
     "pages/Checklist/index",
     "pages/Empty/index",
+    "pages/Slider/index",
     "pages/TreeSelect/index"
   ],
   "window": {
