@@ -1,10 +1,19 @@
-<view class="amd-picker {{disabled ? 'amd-picker-disabled' : ''}} {{className ? className : ''}}"
-  onTap="triggerPicker"
-  onFormat="formatValueFn">
-  <slot name="label" />
-  {{showValue && !isDatePicker ? showValue : pickerholder}}
+<import-sjs from="./index.sjs" name="_sjs" />
+<view
+  class="amd-picker {{disabled ? 'amd-picker-disabled' : ''}} {{className ? className : ''}}"
+  onTap="onOpen"
+>
+  <slot value="{{cValue}}">
+    <view a:if="{{formatValue}}" class="amd-picker-text">
+      {{formatValue}}
+    </view>
+    <view a:elif="{{placeholder}}" class="amd-picker-placeholder">
+      {{placeholder}}
+    </view>
+  </slot>
 </view>
-<popup className="amd-picker-popup"
+<popup
+  className="amd-picker-popup"
   position="bottom"
   visible="{{visible}}">
   <view class="amd-picker-header">
@@ -14,12 +23,9 @@
       hover-stay-time="50"
       onTap="onDismiss">{{dismissText}}</view>
     <view class="amd-picker-header-item amd-picker-header-title">
-      <block a:if="{{title}}">
+      <slot name="title">
         {{title}}
-      </block>
-      <block a:else>
-        <slot name="title" />
-      </block>
+      </slot>
     </view>
     <view class="amd-picker-header-item"
       hover-class="amd-picker-header-item-hover"
@@ -28,15 +34,22 @@
       onTap="onOk">{{okText}}</view>
   </view>
   <view class="amd-picker-content">
-    <block a:if="{{data}}">
-      <picker-view value="{{valueIndex}}"
-        style="backgroundColor: {{backgroundColor}}"
+    <block a:if="{{columns}}">
+      <picker-view 
+        mask-style="{{maskStyle}}"
+        mask-class="{{ maskClass}}"
+        indicator-style="{{indicatorStyle}}"
+        indicator-class="{{indicatorClass}}"
+        value="{{selectedIndex}}"
         onChange="onChange">
-        <block a:for="{{data}}"
+        <block 
+          a:for="{{columns}}"
           a:for-item="dataRoot"
           a:for-index="dataIndex">
-          <picker-view-column a:if="{{dataIndex < cols}}">
-              <view a:for="{{dataRoot}}" class="amd-picker-content-item">{{item}}</view>
+          <picker-view-column a:if="{{dataIndex < data.length}}">
+              <view a:for="{{dataRoot}}" class="amd-picker-content-item">
+                {{_sjs.getPickerViewLabel(item)}}
+              </view>
           </picker-view-column>
         </block>
       </picker-view>
