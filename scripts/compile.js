@@ -25,7 +25,7 @@ gulp.task('less', () => gulp.src(`${src}/**/index.less`)
   }))
   // eslint-disable-next-line no-console
   .on('error', (e) => console.error(e))
-  // .pipe(gulpif(isProduction, cleanCss()))
+  .pipe(gulpif(isProduction, cleanCss()))
   .pipe(rename({
     extname: '.acss',
   }))
