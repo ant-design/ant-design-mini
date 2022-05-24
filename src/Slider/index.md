@@ -21,9 +21,10 @@ toc: false
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| className | string | 否 | - | 类名 |
-| defaultValue | SliderValue | 否 | - | 默认值 |
+| controlled | boolean | 否 | false | 是否受控模式 |
+| value | SliderValue | 否 | - | 当前值 |
 | disabled | boolean | 否 | false | 是否禁用 |
+| className | string | 否 | - | 类名 |
 | icon | string | 否 | - | 自定义滑块的图标， 需要使用 antd-mini 的 icon 的 type 值 |
 | max | number | 否 | 100 | 最大值 |
 | min | number | 否 | 0 | 最小值 |
@@ -31,7 +32,6 @@ toc: false
 | showNumber | boolean | 否 | false | 是否展示刻度上的数据 |
 | step | number | 否 | 1 | 步距，取值必须大于 0，并且可被 (max - min) 整除 |
 | ticks | boolean | 否 | false | 是否显示刻度 |
-| value | SliderValue | 否 | - | 当前值 |
 
 ## 事件 
 
