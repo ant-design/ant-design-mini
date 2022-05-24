@@ -1,3 +1,3 @@
-.switch-item {
-  margin-bottom: 24rpx;
+.amd-switch {
+  margin-right: 16rpx;
 }
