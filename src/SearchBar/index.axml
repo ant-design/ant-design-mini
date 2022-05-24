@@ -7,7 +7,7 @@
         size="x-small" />
     </view>
     <input class="amd-search-bar-value"
-      type="text"
+      type="{{type}}"
       confirm-type="search"
       id="{{id}}"
       name="{{name}}"

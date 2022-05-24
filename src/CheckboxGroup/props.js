@@ -3,5 +3,4 @@ export const CheckboxGroupDefaultProps = {
   radius: false,
   uid: 'CheckboxGroup',
   controlled: false,
-  value: [],
 };
