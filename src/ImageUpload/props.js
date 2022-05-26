@@ -1,5 +1,6 @@
 export const UploaderDefaultProps = {
-  defaultValue: [],
+  value: [],
+  controlled: false,
   enableShowPhotoDownload: false,
   enableSavePhoto: false,
   filename: 'image',

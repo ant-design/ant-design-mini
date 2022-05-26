@@ -1,6 +1,5 @@
-.demo-file-upload-show {
-  /* padding-left: 16rpx; */
-  /* padding-top: 8rpx; */
+.demo-file-upload {
+  padding-bottom: 80rpx;
 }
 
 .demo-file-upload-title {

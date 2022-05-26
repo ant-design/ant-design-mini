@@ -9,7 +9,7 @@ export interface File {
   /**
    * @description 文件的资源地址
    */
-  url: string;
+  url?: string;
 
   /**
    * @description 上传状态
@@ -19,29 +19,24 @@ export interface File {
   /**
    * @description 文件在本地的缓存地址
    */
-  tempFilePath: string;
+  localPath?: string;
 
   /**
    * @description 文件标签描述（md5）
    */
-  description: string;
+  description?: string;
 
   /**
-   * @description 附带一些额外信息，可以业务中自己随意定义
+   * @description 当前文件的大小
    */
-  extra?: any;
-
-  /**
-   * @description 
-   */
-  size: number
+  size?: number
 }
 
 export interface IUploaderData {
   /**
    * @description 图片数据
    */
-  fileList: Array<File>
+  fileList: File[]
 }
 
 export interface IUploaderProps extends IBaseProps {
@@ -54,7 +49,7 @@ export interface IUploaderProps extends IBaseProps {
    * @description 默认已上传的文件列表
    * @default []
    */
-  defaultValue?: Array<File>;
+  defaultValue?: File[];
 
   /**
    * @description 上传的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到文件二进制内容
@@ -76,12 +71,12 @@ export interface IUploaderProps extends IBaseProps {
   /**
    * @description 文件上传前的回调函数，返回 false 可终止文件上传，支持返回 Promise
    */
-  onBeforeUpload?: (v: File, u: Array<File>) => boolean | Promise<boolean> | void;
+  onBeforeUpload?: (v: File, u: File[]) => boolean | Promise<boolean> | void;
 
   /**
    * @description 已上传的文件列表变化时触发
    */
-  onChange?: (v: Array<File>) => void;
+  onChange?: (v: File[]) => void;
 
   /**
    * @description 删除当前列表中的文件时触发，包括上传成功和上传失败的文件，如果返回 false 表示阻止删除，支持返回 Promise

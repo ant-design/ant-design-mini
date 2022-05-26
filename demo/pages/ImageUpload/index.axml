@@ -4,7 +4,7 @@
     <uploader 
       action='{{action}}'
       maxCount="{{1}}"
-      defaultValue="{{value_1}}"
+      value="{{value_1}}"
       onChange="onChange"
     />
   </view>
@@ -14,7 +14,7 @@
     <uploader 
       action='{{action}}'
       maxCount="{{8}}"
-      defaultValue="{{value_2}}"
+      value="{{value_2}}"
       onChange="onChange"
     />
   </view>
@@ -54,7 +54,7 @@
     <uploader 
       action='{{action}}'
       maxCount="{{2}}"
-      defaultValue="{{value_1}}"
+      value="{{value_1}}"
       onDelete="onDelete"
     />
   </view>
@@ -63,7 +63,7 @@
     <uploader 
       action='{{action}}'
       maxCount="{{2}}"
-      defaultValue="{{value_1}}"
+      value="{{value_1}}"
       onBeforeUpload="onBeforeUpload"
     />
   </view>
@@ -71,7 +71,7 @@
   <view class="demo-image-upload-show">
     <uploader 
       maxCount="{{2}}"
-      defaultValue="{{value_1}}"
+      value="{{value_1}}"
       onUpload="onUpload"
       onChange="onChange"
     />

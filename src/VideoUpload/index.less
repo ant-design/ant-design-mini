@@ -26,16 +26,11 @@
     background-size: cover;
   }
 
-  &-video-error {
-    box-sizing: border-box;
-    border: @border-width-standard solid @color-red-1;
-    border-radius: @corner-radius-md;
-  }
-
   &-close {
     width: @video-upload-close-tip-width;
     height: @video-upload-close-tip-height;
     position: absolute;
+    z-index: 99;
     top: @video-upload-size-base * -1;
     right: 0;
     background: url(@video-upload-close-tip-url) no-repeat;
@@ -71,25 +66,45 @@
     background-size: cover;
   }
 
-  &-loading {
+  &-cover {
     position: absolute;
     top: 0;
     margin: @video-upload-common-margin;
     border-radius: @corner-radius-md;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .amd-loading-spin-icon {
-      padding-top: @v-spacing-standard;
-      width: @video-upload-size-base * 10;
-      height: @video-upload-size-base * 10;
+    &-loading {
+      text-align: center;
+
+      &-icon {
+        margin: 0 auto;
+        width: 48rpx;
+        height: 48rpx;
+        font-size: 48rpx;
+      }
+
+      &-text {
+        color: #fff;
+        font-size: 24rpx;
+        margin-top: 8rpx;
+      }
     }
 
-    .amd-loading-spin-text {
-      font-size: @font-size-content;
-      color: @color-fill-grey-inverse;
+    &-error {
+      text-align: center;
+
+      &-icon {
+        font-size: 48rpx;
+      }
+
+      &-text {
+        color: #fff;
+        font-size: 24rpx;
+        margin-top: 8rpx;
+      }
     }
   }
 }

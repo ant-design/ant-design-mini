@@ -1,9 +1,9 @@
 Page({
   data: {
-    action: 'https://httpbin.org/post',
+    action: 'https://www.fastmock.site/mock/b3a1128da69d22edd307be51154c913d/upload/video',
     value_1: [{
       key: '111',
-      url: 'XNTg1Njg5NzkwMA==',
+      url: 'https://gw.alipayobjects.com/v/rms_226d75/afts/video/A*lg2qQJsuBF0AAAAAAAAAAAAAARQnAQ/720P',
       status: 'done'
     }],
     value_2: [{
@@ -57,7 +57,8 @@ Page({
       setTimeout(() => {
         resolve({
           ...file,
-          status: 'done' // 或者 'error'
+          status: 'done', // 或者 'error',
+          url: 'https://gw.alipayobjects.com/v/rms_226d75/afts/video/A*lg2qQJsuBF0AAAAAAAAAAAAAARQnAQ/720P', //error为''
         })
       }, 3000)
     })

@@ -2,26 +2,30 @@
 nav:
   path: /components
 group:
-  title: 表单类组件
+  title: 信息输入
 toc: false
 ---
 
-# ImageUpload
+# ImageUpload 图片上传
+
+用于将图片上传到服务器，并简略展示上传文件的信息以及提供预览功能。
+
+## 何时使用
+
+需要将本地图片或拍照后上传到服务器时使用
 
 ## 代码示例
+### 基本使用
 
 <code src='../../demo/pages/ImageUpload'></code>
 
-## API 
-
-
-### 属性 
-
+## 属性 
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| action | string | - | - | 上传图片的服务器地址，只支持https地址 |
-| defaultValue | Array<File> | - | [] | 默认已上传的图片列表 |
+| value | File[] | - | [] | 已上传的图片列表 |
+| controlled | boolean | - | false | 是否受控 |
+| action | string | 否 | - | 上传图片的服务器地址，只支持https地址 |
 | demoImage | string | - | - | 上传图片时的示例图片 |
 | enableShowPhotoDownload | boolean | - | false | 预览图片时是否暂时下载按钮，只有在不存在onPreview字段时生效 |
 | enableSavePhoto | boolean | - | false | 照片支持长按下载 |
@@ -35,22 +39,27 @@ toc: false
 | width | number &verbar; string | - | 80 | 自定义容器宽度 |
 | className | string | - | - | 类名 |
 
-### 事件 
+## 事件 
 
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
-| onBeforeUpload | 图片上传前的回调函数，返回 false 可终止图片上传，支持返回 Promise | (v: File, u: Array<File>) => boolean &verbar; Promise<boolean> &verbar; void |
-| onChange | 已上传的文件列表变化时触发 | (v: Array<File>) => void |
-| onDelete | 删除当前列表中的图片时触发，包括上传成功和上传失败的图片，如果返回 false 表示阻止删除，支持返回 Promise | (v: File) => boolean &verbar; Promise<boolean> &verbar; void |
-| onPreview | 点击图片进行预览时触发，会覆盖默认的预览功能 | (v: Array<File>) => void |
-| onUpload | 图片上传方法，当不存在https服务器时，支持自定义上传方式，只在不存在action字段时生效 | (v: File) => Promise<File> |
+| onBeforeUpload | 图片上传前的回调函数，返回 false 可终止图片上传，支持返回 Promise | (v: File, u: File[]) => boolean &verbar; Promise\<boolean\> &verbar; void |
+| onChange | 已上传的文件列表变化时触发 | (v: File[]) => void |
+| onDelete | 删除当前列表中的图片时触发，包括上传成功和上传失败的图片，如果返回 false 表示阻止删除，支持返回 Promise | (v: File) => boolean &verbar; Promise\<boolean\> &verbar; void |
+| onPreview | 点击图片进行预览时触发，会覆盖默认的预览功能 | (v:File[]) => void |
+| onUpload | 图片上传方法，当不存在https服务器时，支持自定义上传方式，只在不存在action字段时生效 | (v: File) => Promise\<File\> |
 
-### CSS 变量 
+## File
 
-| CSS 变量名称 | 说明 |
-| -----|----- |
-### 样式类 
+| 字段名 | 说明 | 类型 |
+| -----|-----|----- |
+| key | 唯一标识 | string |
+| url | 图片的资源地址 | string |
+| localPath | 上传图片的本地地址 | string |
+| status | 上传状态 | 'pending' | 'done' | 'error' |
+
+## 样式类 
 
 | 类名 | 说明 |
 | -----|----- |

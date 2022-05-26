@@ -15,20 +15,27 @@ Component({
   },
   methods: {
     async onChooseFile() {
-      const chooseFileFromDiskRes = await chooseFileFromDisk();
-      if (chooseFileFromDiskRes && chooseFileFromDiskRes.success) {
-        const path = chooseFileFromDiskRes.apFilePath;
-        const fileType = path.split('.').pop();
+      try {
+        const chooseFileFromDiskRes = await chooseFileFromDisk();
 
-        const getFileInfoRes = await my.getFileInfo({
-          apFilePath: path,
-          digestAlgorithm: 'md5',
-        })
+        if (chooseFileFromDiskRes && chooseFileFromDiskRes.success) {
+          const path = chooseFileFromDiskRes.apFilePath;
+          const fileType = path.split('.').pop();
 
-        this.uploadFile({
-          description: `${getFileInfoRes.digest.slice(0, 16)}.${fileType}`,
-          size: getFileInfoRes.size,
-          path,
+          const getFileInfoRes = await my.getFileInfo({
+            apFilePath: path,
+            digestAlgorithm: 'md5',
+          });
+
+          this.uploadFile({
+            description: `${getFileInfoRes.digest.slice(0, 16)}.${fileType}`,
+            size: getFileInfoRes.size,
+            path,
+          });
+        }
+      } catch (e) {
+        my.showToast({
+          content: e.errorMessage
         });
       }
     },
@@ -45,7 +52,8 @@ Component({
 
         const tempFileList = fileList.concat([{
           key: path,
-          url: path,
+          localPath: path,
+          url: '',
           description,
           status: 'pending',
           size: this.getFileSize(size),
@@ -79,21 +87,23 @@ Component({
         if (onUpload) {
           const onUploadRes = await onUpload.call(this.props, {
             key: path,
-            url: path,
-            thumbUrl: '',
-            status: 'pending'
+            url: '',
+            description,
+            localPath: path,
+            status: 'pending',
+            size: this.getFileSize(size),
           });
-          this.updateFileList(path, onUploadRes.status);
+          this.updateFileList(onUploadRes.url, onUploadRes.status);
         }
       } catch (e) {
-        this.updateFileList(path, 'error');
+        this.updateFileList('', 'error');
         my.showToast({
           content: e.errorMessage || '上传失败，请重试',
           type: 'fail',
         });
       }
     },
-    updateFileList(path, status, progress = 100) {
+    updateFileList(url, status, progress = 100) {
       const { fileList } = this.data;
       const { onChange } = this.props;
 
@@ -101,6 +111,7 @@ Component({
         if (file.url === path) {
           return {
             ...file,
+            url,
             status,
             progress
           } as File;
@@ -148,7 +159,7 @@ Component({
           onPreviewFail.call(this.props, url);
           return;
         }
-        
+
         this.toastLock = true;
         my.showToast({
           content: '暂不支持预览该类型文件',

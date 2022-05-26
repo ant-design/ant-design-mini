@@ -1,6 +1,6 @@
 Page({
   data: {
-    action: 'https://httpbin.org/post',
+    action: 'https://www.fastmock.site/mock/b3a1128da69d22edd307be51154c913d/upload/file',
     value_1: [{
       key: '111',
       url: 'https://gw.alipayobjects.com/os/bmw-prod/e9f1b9ec-e0a3-46ed-b8e0-7f0ab2e95228.pdf', //网络资源
@@ -68,7 +68,8 @@ Page({
       setTimeout(() => {
         resolve({
           ...file,
-          status: 'done' // 或者 'error'
+          status: 'done', // 或者 'error',
+          url: 'https://gw.alipayobjects.com/os/bmw-prod/e9f1b9ec-e0a3-46ed-b8e0-7f0ab2e95228.pdf', //error为''
         })
       }, 3000)
     })

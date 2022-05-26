@@ -54,6 +54,9 @@ Component({
         valueIndex: pValueIndex,
       });
     }
+    if (!equal(prevProps.data, this.props.data)) {
+      this.dataList =  this.props.data
+    }
     this.correctChangeValue(prevProps.data, this.props.data);
   },
   methods: {

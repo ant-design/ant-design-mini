@@ -12,9 +12,9 @@ export interface File {
   url: string;
 
   /**
-   * @description 视频略缩图的资源地址
+   * @description 视频的本地地址
    */
-  thumbUrl?: string;
+  localPath?: string;
 
   /**
    * @description 上传状态
@@ -31,6 +31,18 @@ export interface IVideoUploadData {
 
 export interface IVideoUploadProps extends IBaseProps {
   /**
+   * @description 默认已上传的视频列表
+   * @default []
+   */
+  value?: File[];
+
+  /**
+   * @description 是否受控
+   * @default false
+   */
+  controlled: boolean;
+
+  /**
    * @description 上传视频的服务器地址，只支持https地址
    */
   action?: string;
@@ -40,12 +52,6 @@ export interface IVideoUploadProps extends IBaseProps {
    * @default 'back'
    */
   camera: string;
-
-  /**
-   * @description 默认已上传的视频列表
-   * @default []
-   */
-  defaultValue?: Array<File>;
 
   /**
    * @description 上传视频时的示例

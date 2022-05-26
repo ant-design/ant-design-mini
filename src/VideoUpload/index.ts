@@ -1,6 +1,7 @@
 import { VideoUploadDefaultProps, IVideoUploadData, File } from './props';
 import { chooseVideo, uploadFile } from '../_util/promisify';
 
+
 Component({
   props: VideoUploadDefaultProps,
   data: {
@@ -8,13 +9,13 @@ Component({
     playVideoUrl: '',
   } as IVideoUploadData,
   didMount() {
-    const { defaultValue, id } = this.props;
-    
+    const { value, id } = this.props;
+
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     this.videoContext = my.createVideoContext(id || 'myVideo');
     this.setData({
-      fileList: defaultValue
+      fileList: value
     });
   },
   methods: {
@@ -49,8 +50,8 @@ Component({
 
         const tempFileList = fileList.concat([{
           key: tempFilePath,
-          url: tempFilePath,
-          thumbUrl: '',
+          url: '',
+          localPath: tempFilePath,
           status: 'pending'
         }]);
 
@@ -70,9 +71,20 @@ Component({
 
           /** 这里uploadFile api接口类型定义有问题，ide返回的是string，真机返回的是number，作下兼容 */
           if (res.statusCode === 200 || res.statusCode === '200') {
-            this.updateFileList(tempFilePath, 'done');
+            const data = JSON.parse(res.data);
+            if (data.success && data.data && data.data.url) {
+              this.updateFileList(tempFilePath, 'done', data.data.url);
+            } else {
+              this.updateFileList(tempFilePath, 'error');
+              my.showToast({
+                content: '接口返回格式有误'
+              });
+            }
           } else {
             this.updateFileList(tempFilePath, 'error');
+            my.showToast({
+              content: '上传失败，请重试'
+            });
           }
           return;
         }
@@ -80,11 +92,11 @@ Component({
         if (onUpload) {
           const onUploadRes = await onUpload.call(this.props, {
             key: tempFilePath,
-            url: tempFilePath,
-            thumbUrl: '',
+            url: '',
+            localPath: tempFilePath,
             status: 'pending'
           });
-          this.updateFileList(tempFilePath, onUploadRes.status);
+          this.updateFileList(tempFilePath, onUploadRes.status, onUploadRes.url);
         }
       } catch (e) {
         this.updateFileList(tempFilePath, 'error');
@@ -94,14 +106,15 @@ Component({
         });
       }
     },
-    updateFileList(path, status) {
+    updateFileList(path, status, url?) {
       const { fileList } = this.data;
       const { onChange } = this.props;
 
       const tempFileList = fileList.map((file) => {
-        if (file.url === path) {
+        if (file.key === path) {
           return {
             ...file,
+            url: url ? url : '',
             status
           } as File;
         }

@@ -1,15 +1,18 @@
 import { UploaderDefaultProps, IUploaderData, File } from './props';
 import { chooseImage, previewImage, uploadFile } from '../_util/promisify';
+import controlled from '../mixins/controlled';
+import formMixin from '../mixins/form';
 
 Component({
+  mixins: [controlled(), formMixin()],
   props: UploaderDefaultProps,
   data: {
     fileList: [],
   } as IUploaderData,
   didMount() {
-    const { defaultValue } = this.props;
+    const { value } = this.props;
     this.setData({
-      fileList: defaultValue
+      fileList: value
     });
   },
   methods: {

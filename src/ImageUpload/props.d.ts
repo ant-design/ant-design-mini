@@ -12,24 +12,14 @@ export interface File {
   url: string;
 
   /**
-   * @description 上传状态
-   */
-  status?: 'pending' | 'done' | 'error';
-
-  /**
    * @description 图片的本地地址
    */
   localPath?: string;
 
   /**
-   * @description 图片描述
+   * @description 上传状态
    */
-  description: string;
-
-  /**
-   * @description 附带一些额外信息，可以业务中自己随意定义
-   */
-  extra?: any;
+  status?: 'pending' | 'done' | 'error';
 }
 
 export interface IUploaderData {
@@ -46,10 +36,16 @@ export interface IUploaderProps extends IBaseProps {
   action?: string;
 
   /**
-   * @description 默认已上传的图片列表
+   * @description 是否受控
+   * @default false
+   */
+  controlled: boolean;
+
+  /**
+   * @description 已上传的图片列表
    * @default []
    */
-  defaultValue?: Array<File>;
+  value?: Array<File>;
 
   /**
    * @description 上传图片时的示例图片
