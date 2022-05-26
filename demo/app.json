@@ -53,7 +53,9 @@
     "pages/VideoUpload/index",
     "pages/FileUpload/index",
     "pages/Checklist/index",
-    "pages/Empty/index"
+    "pages/Empty/index",
+    "pages/Slider/index",
+    "pages/TreeSelect/index"
   ],
   "window": {
     "enableWK": "YES",
