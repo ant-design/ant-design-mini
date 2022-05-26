@@ -10,6 +10,7 @@
     "pages/Icon/index",
     "pages/Switch/index",
     "pages/Picker/index",
+    "pages/DatePicker/index",
     "pages/InputItem/index",
     "pages/Badge/index",
     "pages/Button/index",

@@ -102,6 +102,11 @@ export const componentList = [
         path: '/pages/Picker/index',
       },
       {
+        name: 'DatePicker',
+        nameZN: '时间选择器',
+        path: '/pages/DatePicker/index',
+      },
+      {
         name: 'RadioGroup',
         nameZN: '单选框',
         path: '/pages/RadioGroup/index',

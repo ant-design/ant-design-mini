@@ -9,7 +9,6 @@ Component({
   mixins: [computed, controlled(), formMixin()],
   props: PickerDefaultProps,
   data: {
-    visible: false,
     formatValue: '',
     columns: []
   },
