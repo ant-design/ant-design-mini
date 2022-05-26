@@ -1,0 +1,84 @@
+<view class="amd-video-upload">
+  <view 
+    a:if="{{demoVideo}}" 
+    class="amd-video-upload-show" 
+    onTap="onPreviewDemoVideo"
+  >
+    <video 
+      class="amd-video-upload-demo-video" 
+      src="{{demoVideo}}" 
+      show-center-play-btn="{{false}}" 
+      show-fullscreen-btn="{{false}}" 
+      show-play-btn="{{false}}" 
+      show-mute-btn="{{false}}" 
+      show-thin-progress-bar="{{false}}" 
+      poster-size="cover" 
+      style="{{`height:${height}px;width:${width}px`}}" 
+    />
+    <cover-view class="amd-video-upload-demo-video-tip" />
+    <cover-view 
+      class="amd-video-upload-click-area" 
+      data-preview-video-url="{{demoVideo}}" 
+      style="{{`height:${height}px;width:${width}px`}}"
+      onTap="onPreviewVideo" 
+    >
+      <view class="amd-video-upload-play-icon" />
+    </cover-view>
+  </view>
+  <view a:for="{{fileList}}" class="amd-video-upload-show">
+    <video 
+      class="amd-video-upload-video" 
+      src="{{item.localPath || item.url || item.key}}" 
+      show-center-play-btn="{{false}}" 
+      show-fullscreen-btn="{{false}}" 
+      show-play-btn="{{false}}" 
+      show-mute-btn="{{false}}" 
+      show-thin-progress-bar="{{false}}"
+      poster-size="cover" 
+      style="{{`height:${height}px;width:${width}px`}}" 
+    />
+    <cover-view 
+      class="amd-video-upload-click-area" 
+      a:if="{{item.status === 'done'}}"  
+      data-preview-video-url="{{item.localPath || item.url || item.key}}" 
+      style="{{`height:${height}px;width:${width}px`}}"
+      onTap="onPreviewVideo"
+    >
+      <view class="amd-video-upload-play-icon" />
+    </cover-view>
+    <cover-view 
+      class="amd-video-upload-close" 
+      a:if="{{item.status !== 'pending'}}" 
+      data-delete-image-index="{{index}}" 
+      onTap="onDeleteVideo" 
+    />
+    <view a:if="{{item.status === 'pending' || item.status === 'error'}}" class="amd-video-upload-cover" style="{{`height:${height}px;width:${width}px`}}">
+      <view a:if="{{item.status === 'pending'}}" class="amd-video-upload-cover-loading">
+        <view class="amd-video-upload-cover-loading-icon" style="background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%2224%2024%2048%2048%22%3E%3CanimateTransform%20attributeName%3D%22transform%22%20type%3D%22rotate%22%20repeatCount%3D%22indefinite%22%20from%3D%220%22%20to%3D%22360%22%20dur%3D%221400ms%22%3E%3C%2FanimateTransform%3E%3Ccircle%20cx%3D%2248%22%20cy%3D%2248%22%20r%3D%2220%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223%22%20transform%3D%22translate%5C\(0%2C0%5C\)%22%3E%3Canimate%20attributeName%3D%22stroke-dasharray%22%20values%3D%221px%2C%20200px%3B100px%2C%20200px%3B100px%2C%20200px%22%20dur%3D%221400ms%22%20repeatCount%3D%22indefinite%22%3E%3C%2Fanimate%3E%3Canimate%20attributeName%3D%22stroke-dashoffset%22%20values%3D%220px%3B-15px%3B-125px%22%20dur%3D%221400ms%22%20repeatCount%3D%22indefinite%22%3E%3C%2Fanimate%3E%3C%2Fcircle%3E%3C%2Fsvg%3E);"/>
+        <view class="amd-video-upload-cover-loading-text">上传中...</view>
+      </view>
+      <view a:if="{{item.status === 'error'}}" class="amd-video-upload-cover-error">
+        <am-icon class="amd-video-upload-cover-error-icon" type="CloseCircleOutline" color="#fff" size="small" />
+        <view class="amd-video-upload-cover-error-text">上传失败</view>
+      </view>
+    </view>
+  </view>
+  <view 
+    a:if="{{fileList.length < maxCount}}" 
+    class="amd-video-upload-add-video-wrapper" 
+    style="{{`height:${height}px;width:${width}px`}}" 
+    onTap="onChooseVideo"
+  >
+    <slot name='uploadIcon'>
+      <am-icon size="small" type="AddOutline" color="#333" />
+    </slot>
+  </view>
+  <video 
+    id="{{id||'myVideo'}}" 
+    style="{{width: 0,height: 0}}" 
+    src="{{playVideoUrl}}" 
+    enable-progress-gesture="{{false}}" 
+    onPlay="onPlay" 
+    onFullScreenChange="onFullScreenChange" 
+  />
+</view>

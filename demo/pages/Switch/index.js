@@ -1,16 +1,13 @@
+
 Page({
   data: {
     value: false,
-    sizeList: ['medium', 'small', 'x-small'],
   },
-  handleChangeNoControl(e) {
+  handleChange(checked) {
+    console.log('change checked', checked)
     my.alert({
-      title: `当前 switch 为 ${e ? '打开' : '关闭'} 状态。`,
+      title: `当前 switch 为 ${checked ? '打开' : '关闭'} 状态。`,
     });
   },
-  handleChangeValue(e) {
-    this.setData({
-      value: e,
-    });
-  },
+
 });
