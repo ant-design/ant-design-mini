@@ -72,11 +72,6 @@ export const componentList = [
     type: '信息录入',
     list: [
       {
-        name: 'Cascader',
-        nameZN: '级联选择',
-        path: '/pages/Cascader/index',
-      },
-      {
         name: 'Checkbox',
         nameZN: '复选框',
         path: '/pages/Checkbox/index',

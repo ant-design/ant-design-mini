@@ -56,7 +56,6 @@ export const ComponentGroupMap = {
     'Tips': '导航',
     'VTabs': '导航',
     'Image': '数据展示',
-    'Cascader': '表单类组件',
     'Slider': '表单类组件',
     'Toast': '数据展示',
     'Mask': '数据展示',

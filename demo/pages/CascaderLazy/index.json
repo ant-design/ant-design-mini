@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "异步请求",
-  "usingComponents": {
-    "cascader": "../../../src/Cascader/index",
-    "button": "../../../src/Button/index",
-    "demo-block": "../../components/DemoBlock/index"
-  }
-}
