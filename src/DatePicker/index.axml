@@ -1,8 +1,7 @@
-<import-sjs from="./index.sjs" name="_sjs" />
 <picker 
     className="amd-date-picker"
     data="{{data}}"
-    value="{{_sjs.getPickerValue(data,currentValue||cValue)}}"
+    value="{{pikerValue}}"
     controlled
     disabled="{{disabled}}"
     title="{{title}}" 

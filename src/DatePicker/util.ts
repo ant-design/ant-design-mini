@@ -40,6 +40,7 @@ function getMonths(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
   ) {
     end = max.month() + 1;
   }
+
   return getArray(start, end, '月');
 }
 
@@ -58,8 +59,8 @@ function getDates(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
 }
 
 function getHours(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
-  let start = 1;
-  let end = 24;
+  let start = 0;
+  let end = 23;
   if (currentPicker.clone().set('hour', start).isBefore(min)) {
     start = min.hour();
   }
@@ -94,7 +95,7 @@ export function getRangeData(
   precision: keyof typeof precisionLengthRecord,
   min: Dayjs,
   max: Dayjs,
-  currentPicker: Dayjs
+  currentPickerDay: Dayjs
 ) {
   const data = [];
   const len = precisionLengthRecord[precision];
@@ -105,19 +106,19 @@ export function getRangeData(
         data.push(getYears(min, max));
         break;
       case 1:
-        data.push(getMonths(min, max, currentPicker));
+        data.push(getMonths(min, max, currentPickerDay));
         break;
       case 2:
-        data.push(getDates(min, max, currentPicker));
+        data.push(getDates(min, max, currentPickerDay));
         break;
       case 3:
-        data.push(getHours(min, max, currentPicker));
+        data.push(getHours(min, max, currentPickerDay));
         break;
       case 4:
-        data.push(getMinutes(min, max, currentPicker));
+        data.push(getMinutes(min, max, currentPickerDay));
         break;
       case 5:
-        data.push(getSeconds(min, max, currentPicker));
+        data.push(getSeconds(min, max, currentPickerDay));
         break;
     }
   }
@@ -139,7 +140,10 @@ export function getDateByValue(value) {
  * @param value
  * @returns
  */
-export function getValueByDate(date, data) {
+export function getValueByDate(
+  date,
+  precision: keyof typeof precisionLengthRecord
+) {
   const fields = [
     'getFullYear',
     'getMonth',
@@ -149,7 +153,7 @@ export function getValueByDate(date, data) {
     'getSeconds',
   ];
   const value = [];
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < precisionLengthRecord[precision]; i++) {
     value.push(date[fields[i]]());
     if (i === 1) {
       value[1] = value[1] + 1;

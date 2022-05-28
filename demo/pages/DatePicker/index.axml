@@ -2,6 +2,7 @@
     <list-item>
         请选择日期
         <date-picker 
+            min="{{min}}"
             slot="extra"
             value="{{defaultDate}}"
             placeholder="请选择"
@@ -49,5 +50,18 @@
             format="YYYY-MM-DD"
             disabled>
         </date-picker>
+    </list-item>
+</demo-block>
+<demo-block title="时间范围选择" padding="0">
+    <list-item>
+        请选择日期范围
+        <range-picker 
+            slot="extra"
+            value="{{defaultDateRange}}"
+            min="{{min}}"
+            onPickerChange="handlePickerRangeChange"
+            onOk="handleRangeOk"
+            format="YYYY-MM-DD">
+        </range-picker>
     </list-item>
 </demo-block>
