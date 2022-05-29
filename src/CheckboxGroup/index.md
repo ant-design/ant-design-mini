@@ -31,6 +31,7 @@ toc: false
 | radius | boolean | 否 | false | 是否带圆角 |
 | header | string | 否 | - | 头部说明 |
 | footer | string | 否 | - | 底部说明 |
+| disabled | boolean | 否 | false | 是否禁用 |
 | className | string | 否 | - | 类名 |
 | mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
 | uid | string | 是 | - | `必须全局唯一`，需与内部的 CheckboxItem 组件的 uid 一致 |
@@ -80,23 +81,23 @@ toc: false
 | amd-checkbox-checked | 选中 checkbox 样式 |
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4) {
+    width: 50px;
+}
 </style> 

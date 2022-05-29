@@ -128,10 +128,7 @@ Component({
       this.setData({
         cValue: matchedValues,
       });
-      console.log('this.props', this.props)
-      console.log('this.props.onOK',this.props.onOk)
       if (this.props.onOk)  {
-        console.log('111')
         this.props.onOk.call(this, matchedValues, matchedColumn )
       }
       this.triggerPicker(false);
