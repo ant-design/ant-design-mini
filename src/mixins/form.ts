@@ -22,8 +22,6 @@ export default ({trigger = 'onChange'} = {}) => {
       _getCurrentField() {
         return { form: () => '', field: () => '' };
       },
-      value: '',
-      checked: false,
       valuePropName: 'cValue',
       mode: 'normal',
     },

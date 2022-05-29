@@ -32,7 +32,7 @@ export default (api: IApi) => {
           rendererProps: rendererProps,
           previewerProps: {
             page: rendererProps.page,
-            sources: sortSources(getBlockDepsFiles(require(`${process.cwd()}/package.json`).name, sourcesPath)),
+            sources: sortSources(getBlockDepsFiles('antd-mini', sourcesPath)),
             dependencies: getBlockDepsNPM(`${process.cwd()}/package.json`),
             hideActions: ['CSB', 'RIDDLE'],
             simulator: false,
