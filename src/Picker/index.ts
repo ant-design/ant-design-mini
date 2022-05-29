@@ -2,11 +2,10 @@ import { PickerDefaultProps } from './props';
 import computed from '../mixins/computed';
 import controlled from '../mixins/controlled';
 import formMixin from '../mixins/form';
-import { store } from '../Form/store';
 import { getMatchedItemByValue, getMatchedItemByIndex, getStrictMatchedItemByValue } from './utils';
 
 Component({
-  mixins: [computed, controlled(), formMixin()],
+  mixins: [computed, controlled(), formMixin({ trigger: 'onOk' })],
   props: PickerDefaultProps,
   data: {
     visible: false,
@@ -15,24 +14,6 @@ Component({
   },
   tempSelectedIndex: null,
   single: false,
-  onInit() {
-    const updatePickerFiledValue = (v) => {
-      const changeValue = v.map((item, index) => {
-        return this.props.data[index].findIndex((target) => item === target);
-      });
-      this.formatValue = v;
-      const showValue = this.props.onFormat ? this.props.onFormat(v) : noop(v);
-      this.setData({
-        showValue,
-        valueIndex: changeValue,
-      });
-    };
-    if (!this.$page._getCurrentField) return;
-    const { form: formFn, field: fieldFn } = this.$page._getCurrentField();
-    const form = formFn();
-    const field = fieldFn();
-    store.addUpdateFiledValue(form, field, updatePickerFiledValue);
-  },
   methods: {
     computed() {
       const columns = this.getterColumns()
@@ -128,7 +109,7 @@ Component({
         this.single
       );
       if (onChange) {
-        onChange(matchedValues, matchedColumn);
+        onChange.call(this, matchedValues, matchedColumn);
       }
     },
 
@@ -147,8 +128,11 @@ Component({
       this.setData({
         cValue: matchedValues,
       });
+      console.log('this.props', this.props)
+      console.log('this.props.onOK',this.props.onOk)
       if (this.props.onOk)  {
-        this.props.onOk(matchedValues, matchedColumn )
+        console.log('111')
+        this.props.onOk.call(this, matchedValues, matchedColumn )
       }
       this.triggerPicker(false);
       this.setData({

@@ -50,7 +50,7 @@
         mode="form"
         onFormat="formatValue" 
         onDismiss="cancelPicker" 
-        onOk="getPikcerValue">
+      >
         <view slot="title">
           <text style="color: red;">Picker</text> 选择器</view>
       </picker>
