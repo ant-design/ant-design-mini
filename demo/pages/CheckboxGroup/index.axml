@@ -2,7 +2,6 @@
   <checkbox-group 
     uid="group1"
     onChange="handleChange"
-    value="{{value}}"
   >
     <checkbox-item 
       a:for="{{list}}"
@@ -10,9 +9,7 @@
       uid="group1">
         {{item.label}}
     </checkbox-item>
-
   </checkbox-group>
-  <button onTap="onHanleChange">hanlde</button>
 </demo-block>
 
 

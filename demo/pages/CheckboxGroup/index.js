@@ -8,11 +8,6 @@ Page({
     ],
   },
 
-  onHanleChange() {
-    this.setData({
-      value: ['orange', 'banner']
-    })
-  },
   handleChange(value) {
     console.log('onChange', value);
   },
