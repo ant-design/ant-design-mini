@@ -8,26 +8,29 @@ Component({
   mixins: [controlled(), formMixin()],
   didMount() {
     const { uid, value, disabled } = this.props;
+    const key = `${this.$page.$id}-${uid}`;
     // 用于触发 item.checked 更新
-    componentValue.update(uid, value);
+    componentValue.update(key, value);
     // 用于触发 item.disabled 更新
-    componentDisabled.update(uid, disabled);
+    componentDisabled.update(key, disabled);
 
-    componentContext.onUpdate(uid, (v) => {
+    componentContext.onUpdate(key, (v) => {
       this.cOnChange(v);
     });
   },
   didUpdate(prevProps) {
     const { disabled, uid } = this.props;
+    const key = `${this.$page.$id}-${uid}`;
     if (disabled !== prevProps.disabled) {
-      componentDisabled.update(uid, disabled);
+      componentDisabled.update(key, disabled);
     }
-    componentValue.update(uid, this.data.cValue);
+    componentValue.update(key, this.data.cValue);
   },
   didUnmount() {
     const { uid } = this.props;
-    componentContext.clearEvent(uid);
-    componentDisabled.clearEvent(uid);
-    componentValue.clearEvent(uid);
+    const key = `${this.$page.$id}-${uid}`;
+    componentContext.clearEvent(key);
+    componentDisabled.clearEvent(key);
+    componentValue.clearEvent(key);
   },
 });
