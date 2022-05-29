@@ -74,6 +74,10 @@ const config: IConfig = {
     top: 100px !important;
     height: 700px !important;
   }
+  #root .__dumi-default-device {
+    margin-left: 5px;
+    width: 370px;
+  }
   #root .__dumi-default-device[data-device-type="iOS"] {
     display: none;
   }
@@ -180,6 +184,7 @@ const config: IConfig = {
   #root .__dumi-default-tabs-tab-active {
     color: #1677ff;
   }
+
   /** 底部github编辑、最后更新时间 */
   #root .__dumi-default-layout-footer-meta > a, #root .__dumi-default-layout-footer-meta > span:last-child::before {
     color: #1677ff;

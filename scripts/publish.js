@@ -142,13 +142,7 @@ function publish(npmName, tag, version) {
 
 function updatePkgJson(npmName, version) {
   const pkgJson = require(PKG_JSON_PATH);
-  pkgJson.name = npmName;
   pkgJson.version = version;
-  if (npmName === "antd-mini") {
-    pkgJson.scripts.prepublishOnly = "npm run build:component";
-  } else if (npmName === "antd-mini-rpx") {
-    pkgJson.scripts.prepublishOnly = "npm run build:component:rpx";
-  }
   return JSON.stringify(pkgJson, null, 2);
 }
 
