@@ -1,4 +1,4 @@
-@import (reference) "./variable.less";
+@import (reference) './variable.less';
 
 @listPrefix: amd-list;
 
@@ -28,5 +28,11 @@
   &-body {
     position: relative;
     overflow: hidden;
+    // 隐藏最后一根分割线
+    > .amd-list-item:last-child {
+      .amd-list-item-line::after {
+        display: none;
+      }
+    }
   }
 }

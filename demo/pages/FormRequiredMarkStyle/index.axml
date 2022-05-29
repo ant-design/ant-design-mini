@@ -1,0 +1,63 @@
+<view class="tip">
+    Form 支持三种必填选填的展示样式
+</view>
+<demo-block title="星号" padding="0">
+    <form form="{{form1}}" requiredMarkStyle="asterisk">
+        <form-item 
+            position="vertical"
+            label="姓名" 
+            name="name"
+            required 
+            form="{{form1}}">
+            <input-item placeholder="请输入姓名"/>
+        </form-item>
+        <form-item 
+            position="vertical"
+            label="地址" 
+            name="address"
+            help="详细地址"  
+            form="{{form1}}">
+            <input-item placeholder="请输入地址"/>
+        </form-item>
+    </form>
+</demo-block>
+<demo-block title="文字-必填" padding="0">
+    <form form="{{form2}}" requiredMarkStyle="text-required">
+        <form-item 
+            position="vertical"
+            label="姓名" 
+            name="name"
+            required 
+            form="{{form2}}">
+            <input-item placeholder="请输入姓名"/>
+        </form-item>
+        <form-item 
+            position="vertical"
+            label="地址" 
+            name="address"
+            help="详细地址"  
+            form="{{form2}}">
+            <input-item placeholder="请输入地址"/>
+        </form-item>
+    </form>
+</demo-block>
+<demo-block title="文字-选填" padding="0">
+    <form form="{{form3}}" requiredMarkStyle="text-optional">
+        <form-item 
+            position="vertical"
+            label="姓名" 
+            name="name"
+            required 
+            form="{{form3}}">
+            <input-item placeholder="请输入姓名"/>
+        </form-item>
+        <form-item 
+            position="vertical"
+            label="地址" 
+            name="address"
+            help="详细地址"  
+            form="{{form3}}">
+            <input-item placeholder="请输入地址"/>
+        </form-item>
+    </form>
+</demo-block>

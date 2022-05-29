@@ -39,6 +39,11 @@ export interface IListItemProps extends IBaseProps {
    */
   disabled: boolean;
   /**
+   * @description 用于处理下划线是否显示
+   * @default false
+   */
+  last: boolean;
+  /**
    * @description 点击整行回调
    */
   onTap?: (event?: any) => void;

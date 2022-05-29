@@ -50,7 +50,7 @@
         mode="form"
         onFormat="formatValue" 
         onDismiss="cancelPicker" 
-        onOk="getPikcerValue">
+      >
         <view slot="title">
           <text style="color: red;">Picker</text> 选择器</view>
       </picker>
@@ -71,7 +71,7 @@
       name="radio" 
       position="vertical" 
       form="{{form}}">
-      <radio-group mode="form">
+      <radio-group mode="form" position="horizontal">
         <radio-item value="a1">单选一</radio-item>
         <radio-item value="a2">单选二</radio-item>
         <radio-item value="a3">单选三</radio-item>
@@ -83,7 +83,7 @@
       name="checkboxGroup" 
       position="vertical" 
       form="{{form}}">
-      <checkbox-group mode="form">
+      <checkbox-group mode="form" position="horizontal">
         <checkbox-item value="a1">复选框1</checkbox-item>
         <checkbox-item value="a2">复选框2</checkbox-item>
         <checkbox-item value="a3">复选框3</checkbox-item>
