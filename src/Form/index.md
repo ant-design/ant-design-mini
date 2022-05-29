@@ -48,7 +48,7 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 #### Form
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|:-----:|:-----:|:-----:|----- |
-| form | string | 是 | [] | 表单 uid |
+| form | string | 是 | - | 表单 uid |
 | initialValues | Record<sring, any> | 否 | - | 表单初始值 |
 | position | 布局 | 'horizontal' &verbar;  'vertical'  | 'horizontal' |
 | requiredMarkStyle | 必填选填的标记样式 |  'asterisk' &verbar;  'text-required' &verbar;  'text-optional' | 'asterisk' |
