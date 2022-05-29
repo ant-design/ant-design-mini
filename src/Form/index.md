@@ -35,6 +35,9 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 ### 动态表单
 <code src="../../demo/pages/FormDynamic" ></code>
 
+### 必填展示样式
+<code src="../../demo/pages/FormRequiredMarkStyle" ></code>
+
 ### 实例方法使用
 <code src="../../demo/pages/FormInsMethod" ></code>
 
@@ -47,6 +50,8 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | -----|:-----:|:-----:|:-----:|----- |
 | form | string | 是 | [] | 表单 uid |
 | initialValues | Record<sring, any> | 否 | - | 表单初始值 |
+| position | 布局 | 'horizontal' &verbar;  'vertical'  | 'horizontal' |
+| requiredMarkStyle | 必填选填的标记样式 |  'asterisk' &verbar;  'text-required' &verbar;  'text-optional' | 'asterisk' |
 | className | string | 否 | - | 类名 |
 
 #### FromGroup
@@ -62,7 +67,7 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | form | string | 是 | default | 表单 uid |
 | name | string | 是 | default | 字段 uid |
 | label | string | 否 | - | 字段名称 |
-| position | 'horizontal' &verbar;  'vertical' | 否 | 'horizontal' | 布局 |
+| position | 布局，优先级高于Form的position  |  'horizontal' &verbar;  'vertical' | 'horizontal' |
 | arrow | boolean | 否 | false | 表单项右侧箭头 |
 | required | boolean | 否 | false | 是否必填，label展示必填标识 |
 | help | string | 否 | - | label的解释说明 |
@@ -159,7 +164,8 @@ table th:first-of-type { width: 180px; }
 .__dumi-default-layout-content article table:nth-of-type(7) th:nth-of-type(2) {
     width: 180px;
 }
-.__dumi-default-mobile-previewer:nth-of-type(2)::after,.__dumi-default-mobile-previewer:nth-of-type(4)::after,.__dumi-default-mobile-previewer:nth-of-type(6)::after,.__dumi-default-mobile-previewer:nth-of-type(8)::after {
+.__dumi-default-mobile-previewer:nth-of-type(2)::after,.__dumi-default-mobile-previewer:nth-of-type(4)::after,.__dumi-default-mobile-previewer:nth-of-type(6)::after,.__dumi-default-mobile-previewer:nth-of-type(8)::after
+,.__dumi-default-mobile-previewer:nth-of-type(10)::after {
     border-bottom: none!important;
 }
 </style> 
