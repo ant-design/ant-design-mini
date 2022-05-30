@@ -1,5 +1,6 @@
 export const TabsDefaultProps = {
   type: 'basis',
+  adjustHeight: 'current',
   index: 0,
   animation: false,
   swipeable: false,

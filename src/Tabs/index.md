@@ -30,17 +30,18 @@ toc: false
 #### Tabs
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| type | 'basis' &verbar; 'capsule' &verbar; 'mixin' &verbar; 'title' | 否 | 'basis' | 类型，basis(基础)，capsule(胶囊)，mixin(混合) |
-| index | number | 否 | 0 | 当前激活的索引 |
+| adjustHeight | string | 否 | 'current' | 自动以指定滑块的高度为整个容器的高度 |
 | animation | boolean | 否 | false | 是否有过渡动画 |
-| swipeable | boolean | 否 | false | 是否支持手势切换 |
+| className | string | 否 | - | 类名 |
+| index | number | 否 | 0 | 当前激活的索引 |
+| plus | string &verbar; slot | 否 | - | 右上角操作按钮，自定义节点 |
 | sticky | boolean | 否 | false | 是否支持吸顶 |
-| touchAngle | number | 否 | 45 | 用户左右滑动手势生效的滑动角度。角度根据 touchstart 事件和首次 touchmove 事件的坐标计算得出。数值越小越对用户的滑动方向准确度要求越高 |
 | swipeRatio | number | 否 | 0.2 | 用户左右滑动手势触发切换的阈值，当滑动距离超过阈值时进行 `swiper-item` 切换 |
 | swipeSpeed | number | 否 | 0.05 | 用户左右滑动手势对应的滑动距离，数值越小则需要用户手势相同位移下 `swiper-item` 位移越小 |
-| plus | string &verbar; slot | 否 | - | 右上角操作按钮，自定义节点 |
+| swipeable | boolean | 否 | false | 是否支持手势切换 |
 | title | slot-scope | 否 | - | 自定义 tab 标题样式，仅在 type 为 basis 时可用 |
-| className | string | 否 | - | 类名 |
+| touchAngle | number | 否 | 45 | 用户左右滑动手势生效的滑动角度。角度根据 touchstart 事件和首次 touchmove 事件的坐标计算得出。数值越小越对用户的滑动方向准确度要求越高 |
+| type | 'basis' &verbar; 'capsule' &verbar; 'mixin' &verbar; 'title' | 否 | 'basis' | 类型，basis(基础)，capsule(胶囊)，mixin(混合) |
 
 #### TabItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -54,6 +55,8 @@ toc: false
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 面板切换时候，触发回调 |(index: number) => void|
+| onTouchStart | 内部 swiper 组件的 onTouchStart 事件（仅在基础库 2.x 版本生效） |(e: any) => void|
+| onTransition | 内部 swiper 组件的 onTransition 事件（仅在基础库 2.x 版本生效） |(e: any) => void|
 
 ## 插槽
 #### Tabs

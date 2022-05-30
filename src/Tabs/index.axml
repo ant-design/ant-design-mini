@@ -74,7 +74,7 @@
         disable-update-direction="{{true}}"
         id="amd-tabs-content-{{$id}}"
         class="amd-tabs-content {{_tabContentHeight ? 'amd-tabs-content_H100': ''}}"
-        adjust-height='current'
+        adjust-height="{{adjustHeight}}"
         onChange="handleSwiperChange"
         onTouchStart="handleSwiperTouchStart"
         onTransition="handleSwiperTransition"
