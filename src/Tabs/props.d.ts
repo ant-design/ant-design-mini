@@ -18,6 +18,36 @@ export interface ITabsProps extends IBaseProps {
   adjustHeight: 'first' | 'current' | 'highest' | 'none';
 
   /**
+   * @description swiper-item 可见时的 class
+   * @default ''
+   */
+  activeClass: string;
+
+  /**
+   * @description 前边距，单位 px，1.9.0 暂时只支持水平方向。
+   * @default '0px'
+   */
+  previousMargin: string;
+
+  /**
+   * @description 后边距，单位 px，1.9.0 暂时只支持水平方向。
+   * @default '0px'
+   */
+  nextMargin: string;
+
+  /**
+   * @description 切换缓动动画类型。
+   * @default 'default'
+   */
+  easingFunction: string;
+
+  /**
+   * @description 当 swiper-item 个数大于等于 2，关闭 circular 并且开启 previous-margin 或 next-margin 时，可以指定这个边距是否应用到第一个、最后一个元素。
+   * @default false
+   */
+  snapToEdge: boolean;
+
+  /**
    * @description 类型，basis(基础)，capsule(胶囊)，mixin(混合)
    * @default "basis"
    */
@@ -93,5 +123,10 @@ export interface ITabsProps extends IBaseProps {
    * @default 0
    */
   onTransition?: (e: any) => void;
+
+  /**
+   * @description 内部 swiper 组件的 onAnimationEnd 事件（仅在基础库 1.50.0 以上版本生效）
+   */
+  onAnimationEnd?: (e: any) => void;
 }
 export declare const TabsDefaultProps: Partial<ITabsProps>;

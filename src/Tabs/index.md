@@ -31,10 +31,15 @@ toc: false
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | adjustHeight | string | 否 | 'current' | 自动以指定滑块的高度为整个容器的高度 |
+| activeClass | string | 否 |  ''  |  swiper-item 可见时的 class |
 | animation | boolean | 否 | false | 是否有过渡动画 |
 | className | string | 否 | - | 类名 |
+| easingFunction | string  | 否 | 'default' | 切换缓动动画类型 |
 | index | number | 否 | 0 | 当前激活的索引 |
+| nextMargin | string  | 否 | '0px' | 后边距，单位 px，1.9.0 暂时只支持水平方向 |
 | plus | string &verbar; slot | 否 | - | 右上角操作按钮，自定义节点 |
+| previousMargin | string  | 否 | '0px' | 前边距，单位 px，1.9.0 暂时只支持水平方向 |
+| snapToEdge | boolean  | 否 | false | 当 swiper-item 个数大于等于 2，关闭 circular 并且开启 previous-margin 或 next-margin 时，可以指定这个边距是否应用到第一个、最后一个元素 |
 | sticky | boolean | 否 | false | 是否支持吸顶 |
 | swipeRatio | number | 否 | 0.2 | 用户左右滑动手势触发切换的阈值，当滑动距离超过阈值时进行 `swiper-item` 切换 |
 | swipeSpeed | number | 否 | 0.05 | 用户左右滑动手势对应的滑动距离，数值越小则需要用户手势相同位移下 `swiper-item` 位移越小 |
@@ -55,6 +60,7 @@ toc: false
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 面板切换时候，触发回调 |(index: number) => void|
+| onAnimationEnd | 内部 swiper 组件的 onAnimationEnd 事件（仅在基础库 1.50.0 以上版本生效）|(e: any) => void=> void|
 | onTouchStart | 内部 swiper 组件的 onTouchStart 事件（仅在基础库 2.x 版本生效） |(e: any) => void|
 | onTransition | 内部 swiper 组件的 onTransition 事件（仅在基础库 2.x 版本生效） |(e: any) => void|
 
@@ -104,28 +110,28 @@ toc: false
 
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(6) th:nth-of-type(2)  {
-    width: 300px
-} 
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4) {
+    width: 50px;
+}
+.__dumi-default-layout-content article table:nth-of-type(6) th:nth-of-type(2) {
+    width: 300px;
+}
 .__dumi-default-mobile-previewer:nth-of-type(2)::after {
     border-bottom: none!important;
 }

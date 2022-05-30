@@ -11,5 +11,10 @@ export const TabsDefaultProps = {
   swipeRatio: 0.2,
   swipeSpeed: 0.05,
   onGetRef: () => {},
-  uid: 'tabs'
+  uid: 'tabs',
+  activeClass: '',
+  previousMargin: '0px',
+  nextMargin: '0px',
+  easingFunction: 'default',
+  snapToEdge: false
 };
