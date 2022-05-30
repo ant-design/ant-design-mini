@@ -1,0 +1,79 @@
+<view class="demo-image-upload">
+  <view class="demo-image-upload-title">基本用法</view>
+  <view class="demo-image-upload-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{1}}"
+      value="{{value_1}}"
+      onChange="onChange"
+    />
+  </view>
+
+  <view class="demo-image-upload-title">上传状态</view>
+  <view class="demo-image-upload-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{8}}"
+      value="{{value_2}}"
+      onChange="onChange"
+    />
+  </view>
+  <view class="demo-image-upload-title">带示例图片</view>
+  <view class="demo-image-upload-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{2}}"
+      demoImage="{{demoImage}}"
+      onChange="onChange"
+    />
+  </view>
+  <view class="demo-image-upload-title">自定义上传图标</view>
+  <view class="demo-image-upload-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{3}}"
+      onChange="onChange"
+    >
+      <view slot="uploadIcon">
+        <am-icon type="CameraOutline" color="#999" size="small"/>
+      </view>
+    </uploader>
+  </view>
+  <view class="demo-image-upload-title">自定义容器大小</view>
+  <view class="demo-image-upload-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{2}}"
+      width="168"
+      height="120"
+      onChange="onChange"
+    />
+  </view>
+  <view class="demo-image-upload-title">删除图片确认</view>
+  <view class="demo-image-upload-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{2}}"
+      value="{{value_1}}"
+      onDelete="onDelete"
+    />
+  </view>
+  <view class="demo-image-upload-title">限制上传图片大小和类型</view>
+  <view class="demo-image-upload-show">
+    <uploader 
+      action='{{action}}'
+      maxCount="{{2}}"
+      value="{{value_1}}"
+      onBeforeUpload="onBeforeUpload"
+    />
+  </view>
+  <view class="demo-image-upload-title">自定义上传方法</view>
+  <view class="demo-image-upload-show">
+    <uploader 
+      maxCount="{{2}}"
+      value="{{value_1}}"
+      onUpload="onUpload"
+      onChange="onChange"
+    />
+  </view>
+</view>
