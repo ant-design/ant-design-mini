@@ -5,6 +5,7 @@
     mainButtonText="我知道了"
     addonButtonText=""
     maskClosable="{{false}}"
+    title="标题"
     onClose="closeBaseModal"
     onButtonTap="closeBaseModal">
   </modal>
@@ -23,7 +24,8 @@
     content="人在天边月上明，风初紧，吹入画帘旌"
     mainButtonText="在线阅读"
     addonButtonText="下载文件"
-    maskClosable="{{false}}"
+    maskClosable="{{true}}"
+    showCloseIcon="{{false}}"
     onClose="closeCustomBtnModal"
     onButtonTap="handleButtonTap">
   </modal>
@@ -32,9 +34,22 @@
     content="人在天边月上明，风初紧，吹入画帘旌"
     mainButtonText="在线阅读"
     addonButtonText=""
-    maskClosable="{{false}}"
+    maskClosable="{{true}}"
+    showCloseIcon="{{false}}"
     onClose="closeMainBtnModal"
     onButtonTap="handleButtonTap">
+  </modal>
+  <modal
+    visible="{{isNoBtnModalShow}}"
+    maskClosable="{{true}}"
+    showBtn="{{false}}"
+    onClose="closeNoBtnModal">
+    <view slot='content'>
+      <view>故人西辞黄鹤楼，</view>
+      <view>烟花三月下扬州。</view>
+      <view>孤帆远影碧空尽，</view>
+      <view>唯见长江天际流。</view>
+    </view>
   </modal>
 
   <modal 
@@ -70,6 +85,7 @@
     <view class="btn-list">
       <button onTap="openCustomBtnModal">自定义按钮</button>
       <button onTap="openMainBtnModal">只有主按钮</button>
+      <button onTap="openNoBtnModal">隐藏按钮</button>
     </view>
   </demo-block>
   <demo-block title="内容区域">
