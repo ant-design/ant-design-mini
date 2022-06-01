@@ -46,7 +46,7 @@ export const componentList = [
         name: 'Container',
         nameZN: '容器',
         path: '/pages/Container/index',
-      },  {
+      }, {
         name: 'List',
         nameZN: '列表',
         path: '/pages/List/index',
@@ -122,6 +122,11 @@ export const componentList = [
         path: '/pages/Selector/index',
       },
       {
+        name: 'Slider',
+        nameZN: '滑动输入条',
+        path: '/pages/Slider/index',
+      },
+      {
         name: 'Stepper',
         nameZN: '步进器',
         path: '/pages/Stepper/index',
@@ -141,6 +146,11 @@ export const componentList = [
   {
     type: '反馈',
     list: [
+      {
+        name: 'Empty',
+        nameZN: '空状态',
+        path: '/pages/Empty/index',
+      },
       {
         name: 'Dialog',
         nameZN: '对话框',
@@ -216,6 +226,21 @@ export const componentList = [
         nameZN: '安全区',
         path: '/pages/SafeArea/index',
       },
+      {
+        name: 'ImageUpload',
+        nameZN: '图片上传',
+        path: '/pages/ImageUpload/index',
+      },
+      {
+        name: 'VideoUpload',
+        nameZN: '视频上传',
+        path: '/pages/VideoUpload/index',
+      },
+      {
+        name: 'FileUpload',
+        nameZN: '文件上传',
+        path: '/pages/FileUpload/index'
+      }
     ],
   },
 ];

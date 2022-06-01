@@ -8,15 +8,15 @@ export const METHOD_TABLE_PREFIX = `| 事件名 | 说明 | 类型 |\n| -----|---
 export const CLASS_TABLE_PREFIX = `| 类名 | 说明 |\n| -----|----- |\n`;
 export const CSS_VAR_TABLE_PREFIX = `| CSS 变量名称 | 说明 |\n| -----|----- |\n`;
 export const EXCLUED_DIR = ['.umi', 'Avatar', 'Badge',
-    'Button', 'Checkbox', 'CheckboxGroup',
-    'Checklist', 'Collapse', 'Container', 'Dialog',
-    'Empty', 'Filter', 'Form', 'Icon',
+    'Button', 'Checkbox', 'CheckboxGroup', 'Checklist',
+    'Collapse', 'Container', 'Dialog', 'Empty',
+    'Filter', 'Form', 'Icon',
     'ImageIcon', 'InputItem', 'List', 'Loading',
     'Mask', 'Modal', 'NoticeBar', 'Picker',
     'Popover', 'Popup', 'RadioGroup',
-    'Result', 'SafeArea', 'Selector', 'Stepper',
-    'Steps', 'SwipeAction', 'Switch', 'Tabs',
-    'Tag', 'TapModal', 'Terms',
+    'Result', 'SafeArea', 'Selector', 'SearchBar',
+    'Stepper', 'Steps', 'SwipeAction', 'Switch',
+    'Tabs', 'Tag', 'TapModal', 'Terms',
     'Tips', 'VTabs', '_base',
     '_util', 'mixins', 'style']
 
