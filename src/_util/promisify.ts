@@ -1,7 +1,7 @@
 /*
  *@Description: 把所有my.xx的方法变成promise
  */
-function promisifyMy(name: string) {
+ function promisifyMy(name: string) {
   return function (options: any): any {
     return new Promise((resolve, reject) => {
       my[name]({

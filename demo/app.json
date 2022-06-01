@@ -60,7 +60,9 @@
     "pages/Toast/index",
     "pages/Slider/index",
     "pages/TreeSelect/index",
-    "pages/Slider/index"
+    "pages/Slider/index",
+    "pages/ImageUpload/index",
+    "pages/VideoUpload/index"
   ],
   "window": {
     "enableWK": "YES",
