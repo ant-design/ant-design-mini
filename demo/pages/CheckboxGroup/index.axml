@@ -1,32 +1,75 @@
-<checkbox-group 
-  uid="{{uid}}"
-  value="{{value}}"
-  disabled="{{disabled}}"
-  radius="{{radius}}"
-  controlled="{{controlled}}"
-  header="基础用法"
-  footer="CheckBoxGroup 模式相比 CheckBox 功能有所加强"
-  onChange="checkBoxGroupChange">
+<demo-block title="基础用法">
+  <checkbox-group 
+    uid="group1"
+    onChange="handleChange"
+  >
+    <checkbox-item 
+      a:for="{{list}}"
+      value="{{item.value}}"  
+      uid="group1">
+        {{item.label}}
+    </checkbox-item>
+  </checkbox-group>
+</demo-block>
 
+
+<demo-block title="横向布局">
+  <checkbox-group 
+    uid="group4"
+    position="horizontal"
+    onChange="handleChange"
+  >
   <checkbox-item 
     a:for="{{list}}"
     value="{{item.value}}"  
-    disabled="{{item.disabled}}" 
-    uid="{{uid}}">
-      {{item.value}}
+    uid="group4">
+      {{item.label}}
+  </checkbox-item>
+  </checkbox-group>
+</demo-block>
+
+<demo-block title="部分禁用">
+  <checkbox-group 
+    uid="group2"
+    value="{{['orange','banner']}}"
+  >
+    <checkbox-item 
+      a:for="{{list}}"
+      value="{{item.value}}"  
+      disabled="{{index===1}}"
+      uid="group2">
+        {{item.label}}
+    </checkbox-item>
+  </checkbox-group>
+</demo-block>
+
+<demo-block title="整组禁用">
+  <checkbox-group 
+    uid="group3"
+    value="{{['orange','banner']}}"
+    disabled="{{true}}">
+
+    <checkbox-item 
+      a:for="{{list}}"
+      value="{{item.value}}"  
+      uid="group3">
+        {{item.label}}
+    </checkbox-item>
+  </checkbox-group>
+</demo-block>
+
+<demo-block title="自定义图标">
+  <checkbox-group 
+    uid="group5"
+    onChange="handleChange"
+  >
+    <checkbox-item 
+      a:for="{{list}}"
+      value="{{item.value}}"  
+      icon="SmileOutline" checkedIcon="SmileFill"
+      uid="group5">
+        {{item.label}}
     </checkbox-item>
 
-</checkbox-group>
-
-<view class="btns">
-  <button onTap="selectAll">全选</button>
-  <button onTap="selectNone">全不选</button>
-</view>
-<view class="btns">
-  <button onTap="enableAll">都可用</button>
-  <button onTap="disableAll">全部禁用</button>
-</view>
-<view class="btns">
-  <button onTap="controlledTrue">受控模式</button>
-  <button onTap="controlledFalse">非受控模式</button>
-</view>
+  </checkbox-group>
+</demo-block>

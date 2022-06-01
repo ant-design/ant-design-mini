@@ -6,6 +6,3 @@
 label > text {
   padding-left: 12rpx;
 }
-.btn {
-  margin-top: 24rpx;
-}

@@ -32,9 +32,13 @@ const config: IConfig = {
     `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WWGN4HC');
+    'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','G-M5MFVPJE7L');
     `,
+    `window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M5MFVPJE7L');`,
     `
     if(window.location.pathname==='/components/icon'){
       window.addEventListener('message', async (e) => {
@@ -65,6 +69,14 @@ const config: IConfig = {
   }
   a[title='站长统计']  {
     display: none;
+  }
+  #simulatorContainer {
+    top: 100px !important;
+    height: 700px !important;
+  }
+  #root .__dumi-default-device {
+    margin-left: 5px;
+    width: 370px;
   }
   #root .__dumi-default-device[data-device-type="iOS"] {
     display: none;
@@ -172,6 +184,7 @@ const config: IConfig = {
   #root .__dumi-default-tabs-tab-active {
     color: #1677ff;
   }
+
   /** 底部github编辑、最后更新时间 */
   #root .__dumi-default-layout-footer-meta > a, #root .__dumi-default-layout-footer-meta > span:last-child::before {
     color: #1677ff;

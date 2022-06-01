@@ -6,6 +6,7 @@
     "pages/FormDynamic/index",
     "pages/FormGroup/index",
     "pages/FormInsMethod/index",
+    "pages/FormRequiredMarkStyle/index",
     "pages/List/index",
     "pages/Icon/index",
     "pages/Switch/index",
