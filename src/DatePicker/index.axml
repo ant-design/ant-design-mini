@@ -1,5 +1,6 @@
 <picker 
     className="amd-date-picker"
+    popClassName="amd-date-picker-popup"
     data="{{data}}"
     value="{{pikerValue}}"
     controlled

@@ -10,7 +10,8 @@ Component({
   props: PickerDefaultProps,
   data: {
     formatValue: '',
-    columns: []
+    columns: [],
+    visible: false,
   },
   tempSelectedIndex: null,
   single: false,
