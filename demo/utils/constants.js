@@ -107,6 +107,11 @@ export const componentList = [
         path: '/pages/Picker/index',
       },
       {
+        name: 'TreeSelect',
+        nameZN: '树形选择器',
+        path:  '/pages/TreeSelect/index',
+      },
+      {
         name: 'RadioGroup',
         nameZN: '单选框',
         path: '/pages/RadioGroup/index',
@@ -235,11 +240,6 @@ export const componentList = [
         name: 'VideoUpload',
         nameZN: '视频上传',
         path: '/pages/VideoUpload/index',
-      },
-      {
-        name: 'FileUpload',
-        nameZN: '文件上传',
-        path: '/pages/FileUpload/index'
       }
     ],
   },
