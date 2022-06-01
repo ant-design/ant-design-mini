@@ -51,7 +51,8 @@
     "pages/Dialog/index",
     "pages/Container/index",
     "pages/Checklist/index",
-    "pages/Empty/index"
+    "pages/Empty/index",
+    "pages/BladeView/index"
   ],
   "window": {
     "enableWK": "YES",
