@@ -59,7 +59,8 @@
     "pages/FloatPanelEvent/index",
     "pages/Toast/index",
     "pages/Slider/index",
-    "pages/TreeSelect/index"
+    "pages/TreeSelect/index",
+    "pages/Slider/index"
   ],
   "window": {
     "enableWK": "YES",

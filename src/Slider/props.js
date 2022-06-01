@@ -1,4 +1,5 @@
 export const sliderDefaultProps = {
+  controlled: false,
   min: 0,
   max: 100,
   step: 1,

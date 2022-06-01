@@ -11,18 +11,16 @@
       <view class="amd-slider-handler-icon-default-line2"/>
       <view class="amd-slider-handler-icon-default-line3"/>
     </view>
-    <slot name="icon">
-      <view 
-        a:if="{{icon}}" 
-        class="amd-slider-handler-icon-from-props"
-      >
-        <amd-icon
-          class="amd-slider-handler-icon-from-props-icon"
-          type="{{icon}}"
-          size="small"
-        />
-      </view>
-    </slot>
+    <view
+      a:if="{{icon}}" 
+      class="amd-slider-handler-icon-from-props"
+    >
+      <amd-icon
+        class="amd-slider-handler-icon-from-props-icon"
+        type="{{icon}}"
+        size="small"
+      />
+    </view>
   </view>
 </template>
 
@@ -39,7 +37,6 @@
         onTouchStart="handleTrackTouchStart"
         onTouchEnd="handleTrackTouchEnd"
         onTouchMove="handleTrackTouchMove"
-        onTouchCancel="handleTrackTouchCancel"
       >
         <view 
           class="amd-slider-track-fill"
@@ -66,8 +63,6 @@
           <template a:if="{{range}}" is="slider-handler" data="{{ position: sliderLeft, icon: icon}}"/>
           <template is="slider-handler" data="{{ position: sliderLeft + sliderWidth, icon: icon}}"/>
         </view>
-
       </view>
-
     </view>
 <view>
