@@ -197,6 +197,9 @@ const mockingTwoLevelOptions = [
 
 Page({
   data: {
+    defaultValue: ['安徽', '芜湖', '弋江区'],
+    defaultValueTreeSelectEnable: false,
+
     threeLevelTreeSelectEnable: false,
     mockingThreeLevelOptions: [],
     threeLevelSelectedOptions: [],
@@ -218,6 +221,12 @@ Page({
     })
   },
 
+  onDefaultValueThreeLevelTreeSelectToggle() {
+    this.setData({
+      defaultValueTreeSelectEnable: !this.data.defaultValueTreeSelectEnable,
+    })
+  },
+
   onTwoLevelTreeSelectToggle() {
     this.setData({
       twoLevelTreeSelectEnable: !this.data.twoLevelTreeSelectEnable,
@@ -226,7 +235,6 @@ Page({
 
 
   handleChange(options) {
-    console.log('options', options)
     if (options.length === 3) {
       this.setData({
         threeLevelTreeSelectEnable: false,
@@ -241,4 +249,14 @@ Page({
       })
     }
   },
+
+  handleDefaultValueChange(options) {
+    console.log('===options', options)
+    if (options.length === 3) {
+      this.setData({
+        defaultValue: options,
+        defaultValueTreeSelectEnable: false
+      });
+    }
+  }
 });

@@ -7,13 +7,13 @@ Component({
     levelList: []
   },
   didMount() {
-    this.updateOptions(this.props.options);
+    this.updateOptions(this.props.options, this.props.value);
+
   },
   didUpdate(prevProps) {
     if (prevProps.options !== this.props.options) {
-      this.updateOptions(this.props.options);
+      this.updateOptions(this.props.options, this.props.value);
     }
-    console.log(this.data.levelList)
   },
   methods: {
     updateOptions(options = [], defaultSelected = []) {
@@ -55,7 +55,6 @@ Component({
           levelList.push(level);
         } else if (level.length) {
           newSelectedList.push('')
-          // currentOptions = foundOption.children ?? [];
           levelList.push(level);
         }
       })
