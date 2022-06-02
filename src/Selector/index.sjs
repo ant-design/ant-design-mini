@@ -19,5 +19,4 @@ const getIsCurItemSelected = (value, multiple, itemValue) => {
 
 export default {
   getIsCurItemSelected,
-  getFixedValue
 };
