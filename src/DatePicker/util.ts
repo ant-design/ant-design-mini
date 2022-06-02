@@ -161,3 +161,18 @@ export function getValueByDate(
   }
   return value;
 }
+
+/**
+ * 是否有效日期，主要处理月份对应可选日期
+ * @param value
+ */
+export function getValidValue(value) {
+  if (value.length > 2) {
+    const maxDate = new Date(value[0], value[1], 0).getDate();
+    if (value[2] > maxDate) {
+      value = value.slice();
+      value[2] = maxDate;
+    }
+  }
+  return value;
+}

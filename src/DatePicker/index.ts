@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import formMixin from '../mixins/form';
 import computed from '../mixins/computed';
 import equal from 'fast-deep-equal';
-import { getRangeData, getDateByValue, getValueByDate } from './util';
+import { getRangeData, getDateByValue, getValueByDate,getValidValue } from './util';
 
 Component({
   mixins: [computed, formMixin()],
@@ -91,8 +91,8 @@ Component({
         this.setData({ data: newData });
       }
     },
-
     onChange(selectedIndex) {
+      selectedIndex = getValidValue(selectedIndex);
       const { onPickerChange, format, precision } = this.props;
       let date = getDateByValue(selectedIndex);
       const min = this.getMin();

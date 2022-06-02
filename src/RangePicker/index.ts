@@ -7,6 +7,7 @@ import {
   getRangeData,
   getDateByValue,
   getValueByDate,
+  getValidValue,
 } from '../DatePicker/util';
 export {
   getRangeData,
@@ -144,6 +145,7 @@ Component({
     },
 
     onChange(selectedIndex) {
+      selectedIndex = getValidValue(selectedIndex);
       const { onPickerChange, format, precision } = this.props;
       let date = getDateByValue(selectedIndex);
       const min = this.getMin();
