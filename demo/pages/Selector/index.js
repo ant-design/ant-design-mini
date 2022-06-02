@@ -3,7 +3,7 @@ Page({
     items1: [
       { text: '选项一', value: '1' },
       { text: '选项二', value: '2' },
-      { text: '选项三', value: '3' }],
+      { text: '选项三', value: '11' }],
     items2: [
       { text: '选项一', subText: '副标题一', value: '1' },
       { text: '选项二', subText: '副标题二', value: '2' },
