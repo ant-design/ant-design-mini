@@ -20,7 +20,6 @@
         <view
           class="amd-selector-item {{item.disabled ? 'amd-selector-item-disabled' : ''}} {{selector.getIsCurItemSelected(cValue, multiple, item.value) ? 'amd-selector-item-active' :''}}"
           data-value="{{item.value}}"
-          data-text="{{item.text}}"
           data-disabled="{{item.disabled}}"
           onTap="onChange">
           <view class="amd-selector-item-text"
