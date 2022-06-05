@@ -62,7 +62,8 @@
     "pages/TreeSelect/index",
     "pages/Slider/index",
     "pages/ImageUpload/index",
-    "pages/VideoUpload/index"
+    "pages/VideoUpload/index",
+    "pages/BladeView/index"
   ],
   "window": {
     "enableWK": "YES",
