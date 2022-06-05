@@ -15,9 +15,12 @@ const groups = Array(26)
 Page({
   data: {
     groups,
-    selectValue: undefined,
+    value: '',
   },
-  onSelectItem(item) {
-    this.setData({ selectValue: item.value });
+  onChange(item) {
+    this.setData({ value: item.value });
+    my.confirm(({
+      content: `你当前选择的选项为${item.label}，对应值为${item.value}`
+    }))
   },
 });

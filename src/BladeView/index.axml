@@ -1,5 +1,5 @@
 
-<view class="amd-blade-view-container">
+<view class="amd-blade-view">
   <!-- content -->
   <scroll-view
     class="amd-blade-view-body"
@@ -32,7 +32,7 @@
           data-group="{{group}}"
           onTap="onTapItem"
         >
-          <view class="amd-blade-view-body-group-item-text {{ index ? 'notFirstBorder': '' }} {{selectValue===item.value ? 'selected' : ''}}">
+          <view class="amd-blade-view-body-group-item-text {{ index ? 'notFirstBorder': '' }} {{value===item.value ? 'selected' : ''}}">
             {{item.label}}
           </view>
         </view>
@@ -43,6 +43,7 @@
   <!-- sidebar -->
   <view
     class="amd-blade-view-sidebar"
+    disable-scroll="{{true}}"
     onTouchStart="onTouchStart"
     onTouchMove="onTouchMove"
     onTouchEnd="onTouchEnd"
