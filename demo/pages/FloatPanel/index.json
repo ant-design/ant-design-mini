@@ -1,0 +1,8 @@
+{
+    "usingComponents":{
+        "float-panel": "../../../src/FloatPanel/index",
+        "list": "../../../src/List/index",
+        "list-item": "../../../src/List/ListItem/index"
+    },
+    "allowsBounceVertical": "NO"
+}

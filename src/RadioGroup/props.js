@@ -3,4 +3,5 @@ export const RadioGroupDefaultProps = {
   radius: false,
   uid: 'RadioGroup',
   position: 'vertical',
+  value: ''
 };
