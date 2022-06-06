@@ -66,6 +66,11 @@ export const componentList = [
         nameZN: ' 标签',
         path: '/pages/Tag/index',
       },
+      {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
+      },
     ],
   },
   {
