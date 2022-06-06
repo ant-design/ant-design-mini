@@ -171,6 +171,11 @@ export const componentList = [
         nameZN: '空状态',
         path: '/pages/Empty/index',
       },
+      {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
+      },
     ],
   },
   {
