@@ -1,0 +1,32 @@
+
+
+.wrapper {
+  margin: 20px;
+}
+
+.wrapper .line1 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+
+.wrapper .line1 .input {
+  border: 1px solid grey;
+  height: 14px;
+  margin-left: 12px;
+}
+
+.wrapper .line2 {
+  margin-top: 20px;
+}
+
+.progress-bar1 {
+  width: 200px;
+  height: 200px;
+}
+
+.progress-bar2 {
+  width: 200px;
+  height: 200px;
+}
