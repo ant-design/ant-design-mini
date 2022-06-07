@@ -57,5 +57,12 @@ Page({
       toast3Show: false,
       toast5Show: true,
     })
+  },
+
+  handleCloseToast(e) {
+    const { index }  = e.target.dataset;
+    this.setData({
+      [`toast${index}Show`]: false
+    })
   }
 });

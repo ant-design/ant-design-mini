@@ -1,4 +1,5 @@
-import { ToastDefaultProps } from './props'
+import { ToastDefaultProps } from './props';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
     props: ToastDefaultProps,
@@ -20,9 +21,12 @@ Component({
     },
     methods: {
         closeMask () {
-            clearInterval(this.data.timer)
+            if (this.data.timer) {
+                clearTimeout(this.data.timer)
+            }
             this.setData({ show: false, timer: null })
-            this.props.onClose?.()
+
+            this.props.onClose?.(fmtEvent(this.props, {}))
         },
         handleShowToast () {
             this.setData({ show: true })

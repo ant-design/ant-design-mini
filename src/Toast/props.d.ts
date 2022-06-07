@@ -7,7 +7,7 @@ export interface IToastProps extends IBaseProps {
     /**
      * @description Toast 完全关闭后的回调
      */
-    onClose?: () => void;
+    onClose?: (e) => void;
     /**
      * @description Toast 文本内容
      */
