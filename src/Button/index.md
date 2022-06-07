@@ -4,7 +4,7 @@ nav:
 group:
   title: 通用
   order: 2
-toc: false
+toc: 'content'
 ---
 # Button 按钮
 用于开始一个即时操作
@@ -73,16 +73,16 @@ toc: false
 | amd-button-subtext | 副标题样式 |
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
 .__dumi-default-mobile-previewer:nth-of-type(2)::after,.__dumi-default-mobile-previewer:nth-of-type(4)::after,.__dumi-default-mobile-previewer:nth-of-type(6)::after {
     border-bottom: none!important;
 }

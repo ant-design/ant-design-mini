@@ -1,6 +1,6 @@
 import type { IConfig } from 'dumi'
 
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+// const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const config: IConfig = {
   title: 'Ant Design Mini',
   favicon: 'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
@@ -78,6 +78,11 @@ const config: IConfig = {
     margin-left: 5px;
     width: 370px;
   }
+  #root .__dumi-default-layout-content {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
   #root .__dumi-default-device[data-device-type="iOS"] {
     display: none;
   }
@@ -296,13 +301,13 @@ const config: IConfig = {
 
   chainWebpack(config) {
     // @ts-ignore
-    config.plugin('MonacoWebpackPlugin').use(MonacoWebpackPlugin, [
-      {
-        languages: ['javascript', 'typescript', 'json', 'css', 'html', 'xml'],
-        publicPath:
-          process.env.NODE_ENV === 'development' ? 'http://localhost:8000/' : 'https://gw.alipayobjects.com/a/minidev/',
-      },
-    ])
+    // config.plugin('MonacoWebpackPlugin').use(MonacoWebpackPlugin, [
+    //   {
+    //     languages: ['javascript', 'typescript', 'json', 'css', 'html', 'xml'],
+    //     publicPath:
+    //       process.env.NODE_ENV === 'development' ? 'http://localhost:8000/' : 'https://gw.alipayobjects.com/a/minidev/',
+    //   },
+    // ])
   }
 };
 
