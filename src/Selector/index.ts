@@ -3,13 +3,14 @@ import controlled from '../mixins/controlled';
 import formMixin from '../mixins/form';
 
 const getFixedValue = (value, multiple) => {
-  let fixedValue;
-  if (multiple) {
-    fixedValue = value;
-  } else {
-    fixedValue = value?.slice(0, 1);
+  let fixedValue = [];
+  if (value === null) {
+    fixedValue = []
+  } else if (multiple && Array.isArray(value)) {
+    fixedValue = value
+  } else if (!Array.isArray(value)) {
+    fixedValue =  [value]
   }
-
   return fixedValue;
 };
 
@@ -18,11 +19,10 @@ Component({
   props: SelectorDefaultProps,
   data: {} as {
     cValue?: string[];
-    items: [];
   },
   methods: {
     onChange(e) {
-      const { disabled, value, text } = e.currentTarget.dataset;
+      const { disabled, value } = e.currentTarget.dataset;
       const { multiple, items } = this.props;
       if (!disabled && !this.props.disabled) {
         let nextValue: string[];
@@ -42,7 +42,8 @@ Component({
             return items.map((item) => item.value).filter((item) => v.indexOf(item) !== -1);
           };
           nextValue = sortValue(nextValue);
-          this.cOnChange(nextValue);
+          const selectedItems = nextValue.map(v => items.filter(item => item.value === v)?.[0])
+          this.cOnChange(nextValue, selectedItems);
         } else {
           // 单选
           // 取消选中
@@ -53,7 +54,8 @@ Component({
             // 选中
             nextValue = value;
           }
-          this.cOnChange(nextValue, text);
+          const selectedItem = items.filter(item => item.value === nextValue)?.[0] ||  null
+          this.cOnChange(nextValue,  selectedItem);
         }
       }
     },

@@ -20,7 +20,7 @@
   </modal>
   <modal
     visible="{{isCustomBtnModalShow}}"
-    content="人在天边月上明，风初紧，吹入画帘旌"
+    content="人在天边月上明"
     mainButtonText="在线阅读"
     addonButtonText="下载文件"
     maskClosable="{{false}}"
@@ -29,7 +29,7 @@
   </modal>
   <modal
     visible="{{isMainBtnModalShow}}"
-    content="人在天边月上明，风初紧，吹入画帘旌"
+    content="人在天边月上明"
     mainButtonText="在线阅读"
     addonButtonText=""
     maskClosable="{{false}}"
