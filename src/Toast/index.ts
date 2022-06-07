@@ -4,13 +4,13 @@ Component({
     props: ToastDefaultProps,
     data: {
         show: false,
+        timer: null,
     },
-    timer: null,
     didUpdate (prev) {
         if (!prev.visible && this.props.visible) {
             this.handleShowToast()
         } else if (!this.props.visible && this.data.show) {
-            this.setData({ show: false })
+            this.closeMask()
         }
     },
     didMount () {
@@ -19,13 +19,23 @@ Component({
         }
     },
     methods: {
+        closeMask () {
+            clearInterval(this.data.timer)
+            this.setData({ show: false, timer: null })
+            this.props.onClose?.()
+        },
         handleShowToast () {
             this.setData({ show: true })
             if (this.props.duration > 0) {
-                setTimeout(() => {
-                    this.setData({ show: false })
-                    this.props.afterClose?.()
+                const timer = setTimeout(() => {
+                    this.closeMask()
                 }, this.props.duration)
+                this.setData({ timer })
+            }
+        },
+        handleClickMask () {
+            if (this.props.showMask && this.props.maskCloseable) {
+                this.closeMask()
             }
         }
     }

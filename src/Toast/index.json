@@ -1,6 +1,7 @@
 {
     "component": true,
     "usingComponents": {
-        "icon": "../Icon/index"
+        "icon": "../Icon/index",
+        "mask": "../Mask/index"
     }
 }

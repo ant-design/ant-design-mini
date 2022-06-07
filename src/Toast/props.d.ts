@@ -7,7 +7,7 @@ export interface IToastProps extends IBaseProps {
     /**
      * @description Toast 完全关闭后的回调
      */
-    afterClose?: () => void;
+    onClose?: () => void;
     /**
      * @description Toast 文本内容
      */
@@ -16,6 +16,10 @@ export interface IToastProps extends IBaseProps {
      * @description Toast 图标
      */
     icon?: IconType;
+    /**
+     * @description Toast 图片，与 icon 互斥，优先展示 icon
+     */
+    image?: string;
     /**
      * @description Toast 持续时间
      * @default 2000
@@ -29,5 +33,13 @@ export interface IToastProps extends IBaseProps {
      * @description 是否展示 Toast
      */
     visible: boolean;
+    /**
+     * @description 是否展示蒙层
+     */
+    showMask: boolean;
+    /**
+     * @description 点击蒙层是否隐藏 Toast
+     */
+    maskCloseable: boolean;
 }
 export declare const ToastDefaultProps: Partial<IToastProps>;

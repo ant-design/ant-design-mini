@@ -1,8 +1,10 @@
 .toastWrapper {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
+
+}
+
+.image {
+  width: 80rpx;
+  height: 80rpx;
 }
 
 .button {

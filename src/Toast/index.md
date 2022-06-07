@@ -25,12 +25,13 @@ toc: false
 | icon | string | 否 | - | Toast 图标 |
 | duration | number | 否 | 2000 | Toast 持续时间 |
 | className | string | 否 | - | 类名 |
-| visible | boolean | 是 | false | 类名 |
+| visible | boolean | 是 | false | 是否隐藏 |
+| showMask | boolean | 否 | false | 是否展示蒙层 |
 
 ### 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| afterClose | Toast 关闭后的回调 | () => void |
+| onClose | Toast 关闭后的回调 | () => void |
 
 ### 样式类
 | 类名 | 说明 |

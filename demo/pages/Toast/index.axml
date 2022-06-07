@@ -10,6 +10,10 @@
   带图标 Toast
 </button>
 
+<button onTap="handleShowToast5" class="button" inline="{{true}}" inlineSize="{{medium}}">
+  带图片 Toast
+</button>
+
 <button onTap="handleShowToast3" class="button" inline="{{true}}" inlineSize="{{medium}}">
   提示持续时间3s
 </button>
@@ -20,4 +24,6 @@
 
 <toast content="{{content2}}" icon="{{icon2}}" visible="{{toast2Show}}" duration="{{0}}" class="toastWrapper" />
 
-<toast content="{{content3}}" visible="{{toast3Show}}" duration="{{3000}}" class="toastWrapper" />
+<toast content="{{content2}}" image="{{image1}}" visible="{{toast5Show}}" duration="{{0}}" class="toastWrapper" />
+
+<toast content="{{content3}}" visible="{{toast3Show}}" duration="{{3000}}" class="toastWrapper"  showMask="{{true}}" maskCloseable="{{true}}" />
