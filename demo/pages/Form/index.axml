@@ -43,8 +43,6 @@
       name="picker" 
       form="{{form}}">
       <picker 
-        cols="{{3}}" 
-        disabled="{{false}}" 
         pickerholder="请选择" 
         data="{{pickerList}}"
         mode="form"
