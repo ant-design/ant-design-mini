@@ -2,6 +2,9 @@ import { IApi } from 'dumi';
 import * as path from 'path';
 import * as fs from 'fs';
 
+const CDN_URL =
+  'http://opendocstwa-afx-31319.gz00b.dev.alipay.net/openbox/mini/docs/oooo';
+
 export default (api: IApi) => {
   api.register({
     key: 'dumi.registerCompiletime',
@@ -33,8 +36,7 @@ function getHerboxUrl(opts) {
     .find((file) => file.endsWith('.axml'));
   const tail = demoAxmlFile.match(/(.+)\.axml$/)[1];
   const page = `${prefix}/${tail}`;
-  console.log(page);
-  return 'http://opendocstwa-afx-31319.gz00b.dev.alipay.net/openbox/mini/docs/oooo?view=preview&defaultPage=pages/TipsSlot/index&defaultOpenedFiles=pages/TipsSlot/index&mode=snippets&theme=light';
+  return `${CDN_URL}?view=preview&defaultPage=${page}&defaultOpenedFiles=${page}&mode=snippets&theme=light`;
 }
 
 export function parseAlias(
