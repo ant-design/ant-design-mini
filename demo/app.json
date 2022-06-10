@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/ActionSheet/index",
     "pages/index/index",
+    "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormBasic/index",
     "pages/FormDynamic/index",
