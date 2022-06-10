@@ -167,6 +167,11 @@ export const componentList = [
         path: '/pages/Empty/index',
       },
       {
+        name: 'ActionSheet',
+        nameZN: '动作面板',
+        path: '/pages/ActionSheet/index',
+      },
+      {
         name: 'Dialog',
         nameZN: '对话框',
         path: '/pages/Dialog/index',

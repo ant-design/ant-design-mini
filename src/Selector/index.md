@@ -17,15 +17,22 @@ toc: false
 ## 代码示例
 ### 基本使用
 <code src='../../demo/pages/Selector'></code>
-
-
-
 ## 属性
+
+```typescript
+type SelectorItem = {
+  text: string;
+  value: string|number;
+  subText?: srting;
+  disabled?: boolean;
+}
+```
+<hr />
+
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| controlled | boolean | 否 | false | 是否受控 |
-| value | string[] | 否 | - | 已选择项, 取 items 每一项的 value |
-| items | {text:string; value:string; subText: string; disabled: boolean}[] | 是 | - | 可选项 |
+| value | string &#124; number &#124; string[] &#124; number[]  | 否 | - | 已选择项, 取 items 每一项的 value |
+| items | SelectorItem[] | 是 | - | 可选项 |
 | activeItemClassName | string | 否 | - | 每一项激活时新加类名 |
 | multiple | boolean | 否 | false | 是否允许多选，标签栏显示的时候会显示当前单选/多选的状态 |
 | title | string | 否 | '' | 标签栏标题 |
@@ -39,7 +46,7 @@ toc: false
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 选中值发生变化，触发回调 | (v: string &#124; string[]) => void |
+| onChange | 选中值发生变化，触发回调 | (v: string &#124; string[], selectedItem: SelectItem &#124; SelectItem[] ) => void |
 
 ## 样式类
 | 类名 | 说明 |
@@ -55,14 +62,14 @@ toc: false
 | amd-selector-item-badge-active | 激活状态下徽标样式 |
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
 </style> 
