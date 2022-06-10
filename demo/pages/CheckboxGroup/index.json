@@ -1,8 +1,8 @@
 {
   "defaultTitle": "CheckBoxGroup",
   "usingComponents": {
+    "demo-block": "../../components/DemoBlock/index",
     "checkbox-group": "../../../src/CheckboxGroup/index",
-    "checkbox-item": "../../../src/CheckboxGroup/CheckboxItem/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "checkbox-item": "../../../src/CheckboxGroup/CheckboxItem/index"
   }
 }

@@ -24,5 +24,5 @@ $ npm i antd-mini -S
 
 3. 在 axml 文件中使用
 ``` xml
-<tag><tag/>
+<tag></tag>
 ```

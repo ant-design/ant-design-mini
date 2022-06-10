@@ -13,7 +13,7 @@ Component({
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     setData: () => {},
     errorInfo: null,
-    defaultLabelWidth: '',
+    helpVisible: false,
   },
   onInit() {
     const { form, name: field, rules, initialValue, required } = this.props;
@@ -36,17 +36,6 @@ Component({
         store.setUpdateSubmitButtonStatusFn(form, field, this.updateSubmitButtonStatus.bind(this));
       }
     }
-
-    my.createSelectorQuery()
-      .select('.amd-form-item-label-horizontal')
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0] && ret[0].width) {
-          this.setData({
-            defaultLabelWidth: `${ret[0].width}px`,
-          });
-        }
-      });
   },
   didUpdate(prevProps) {
     const currentField = prevProps.name;
@@ -66,6 +55,14 @@ Component({
     },
     updateSubmitButtonStatus(payload) {
       this.setData({ submitDisable: !!payload });
+    },
+    onToggleHelpVisible() {
+      this.setData({ helpVisible: !this.data.helpVisible });
+    },
+    onHelpVisibleChange(visible, type) {
+      if (type === 'mask') {
+        this.setData({ helpVisible: visible });
+      }
     },
   },
 });
