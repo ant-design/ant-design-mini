@@ -1,8 +1,8 @@
 <map />
 <view class="buttonWrapper">
-    <Button class="button" onTap="handleToggleMask" inlineSize="small" inline>
+    <button class="button" onTap="handleToggleMask" inlineSize="small" inline>
         {{button1Text}}
-    </Button>
+    </button>
 </view>
 
 <float-panel
