@@ -39,8 +39,9 @@ export interface IDateRangePickerProps extends IBaseFormItemPropsWithOutFocus {
   dismissText?: string;
   /**
    * @description 提示文案
+   * @default '请选择'
    */
-  placeholder?: string;
+   placeholder?: string;
   /**
    * @description 是否受控
    * @default false

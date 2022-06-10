@@ -54,10 +54,11 @@
 </demo-block>
 <demo-block title="时间范围选择" padding="0">
     <list-item>
-        请选择日期范围
+        日期范围
         <range-picker 
             slot="extra"
-            value="{{defaultDateRange}}"
+            placeholder="请选择"
+           
             min="{{min}}"
             onPickerChange="handlePickerRangeChange"
             onOk="handleRangeOk"

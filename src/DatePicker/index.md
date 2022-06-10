@@ -24,7 +24,7 @@ toc: false
 | max | 最大值 | Date | 十年后 |
 | precision | 选择精度 | 'year' &verbar; 'month' &verbar; 'day' &verbar; 'hour' &verbar; 'minute' &verbar; 'second' | 'day' |
 | disabled |  是否禁用 | boolean | false |
-| placeholder | 提示文案 | string | - | 
+| placeholder | 提示文案 | string | '请选择' | 
 | title |  弹出框标题 | string | - |
 | okText | 确认按钮文案 | string | '确定' |
 | dismissText |  取消文案 | string | '取消' |  |
@@ -43,7 +43,7 @@ toc: false
 | max | 最大值 | Date | 十年后 |
 | precision | 选择精度 | 'year' &verbar; 'month' &verbar; 'day' &verbar; 'hour' &verbar; 'minute' &verbar; 'second' | 'day' |
 | disabled |  是否禁用 | boolean | false |
-| placeholder | 提示文案 | string | - | 
+| placeholder | 提示文案 | string | '请选择' | 
 | startPlaceholder | 开始时间提示文案 | string | '未选择' | 
 | endPlaceholder | 结束时间提示文案 | string | '未选择' | 
 | splitCharacter | 显示连接符 | string | '~' | 

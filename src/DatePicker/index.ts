@@ -3,10 +3,15 @@ import dayjs from 'dayjs';
 import formMixin from '../mixins/form';
 import computed from '../mixins/computed';
 import equal from 'fast-deep-equal';
-import { getRangeData, getDateByValue, getValueByDate,getValidValue } from './util';
+import {
+  getRangeData,
+  getDateByValue,
+  getValueByDate,
+  getValidValue,
+} from './util';
 
 Component({
-  mixins: [computed, formMixin()],
+  mixins: [computed, formMixin({ trigger: 'onOk' })],
 
   props: DatePickerDefaultProps,
 

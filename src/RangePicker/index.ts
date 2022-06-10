@@ -16,7 +16,7 @@ export {
 } from '../DatePicker/util';
 
 Component({
-  mixins: [computed, formMixin()],
+  mixins: [computed, formMixin({ trigger: 'onOk' })],
 
   props: DateRangePickerDefaultProps,
 
@@ -115,6 +115,7 @@ Component({
         if (max && dayjs(currentStartValue).isAfter(dayjs(max))) {
           currentStartValue = max;
         }
+        currentValue = getValueByDate(currentStartValue, precision);
       }
       this.setData({ currentStartValue, currentEndValue, currentValue });
     },
@@ -229,12 +230,18 @@ Component({
     },
     onChangeCurrentPicker(e) {
       const { type } = e.target.dataset;
-      const { pickerType, currentEndValue, currentStartValue } = this.data;
+      let { pickerType, currentEndValue, currentStartValue } = this.data;
       const { precision } = this.props;
       if (type !== pickerType) {
+        if (type === 'end') {
+          if (!currentEndValue) {
+            currentEndValue = currentStartValue;
+          }
+        }
         let newDate = type === 'start' ? currentStartValue : currentEndValue;
         this.setData({
           pickerType: type,
+          currentEndValue,
           currentValue: newDate ? getValueByDate(newDate, precision) : [],
         });
         this.generateData();
