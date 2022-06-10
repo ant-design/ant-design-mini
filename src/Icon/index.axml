@@ -1,6 +1,6 @@
 <import-sjs name="icon"
   from='./index.sjs' />
 <text class="amd-icon amd-icon-{{type}} {{icon.getSize(size)}} {{className ? className : ''}}"
-  style="{{color ? `color: ${color};` : ''}}"
+  style="{{color ? `color: ${color};` : ''}} {{fontSize ? `font-size: ${fontSize};`: ''}}"
   onTap="onTap">
 </text>
