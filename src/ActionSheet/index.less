@@ -3,6 +3,8 @@
 
 @actionsheetPrefix: amd-actionsheet;
 .@{actionsheetPrefix} {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
   &-title-wrap {
     text-align: center;
     position: relative;
@@ -59,8 +61,6 @@
     padding: 32* @rpx 30* @rpx;
     text-align: center;
     margin: 0 -24* @rpx;
-    margin-bottom: constant(safe-area-inset-bottom);
-    margin-bottom: env(safe-area-inset-bottom);
     &:active {
       background-color: #eee;
     }
@@ -89,6 +89,9 @@
 }
 
 .amd-actionsheet-popup {
-  height: auto;
-  padding-top: 0;
+  .amd-popup-bottom {
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }

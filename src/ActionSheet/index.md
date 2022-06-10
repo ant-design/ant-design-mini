@@ -17,35 +17,39 @@ toc: false
 
 ## 属性 
 
+```typescript
+type IActionItem = {
+  text: string
+  key: string
+  icon: string;
+  description?: string;
+  danger?: boolean;
+  disabled?: boolean;
+}
+```
+<hr />
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| maskZindex | string | - | - |  |
-| type | 'product' &verbar; 'market' | 'product' | - |  |
-| show | boolean | - | - |  |
-| fixMaskFull | false | - | - |  |
+| visible | boolean | 否 | false | 是否可见 |
+| actions | IActionItem[] | 否 | [] | 面板选项列表 |
+| title | string | 否 | - | 标题 |
+| cancelText | string | 否 | 取消 | 取消按钮文字 |
 | className | string | - | - | 类名 |
 
 ## 事件 
 
-
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
-| onMaskTap |  | (v: Record<string, any>) => void |
+| onAction | 点击选项时触发，禁用状态下不会触发 | (item: IActionItem, index, event) => void |
+| onClose | 关闭时触发| (event) => void |
+
 
 ## CSS 变量 
 
 | CSS 变量名称 | 说明 |
 | -----|----- |
-| --am-mask-backgroundColor | - |
-| --am-mask-market-backgroundColor | - |
-
-## 样式类 
-
-| 类名 | 说明 |
-| -----|----- |
-| amd-mask | - |
-| amd-mask__m | - |
-| amd-mask__fix | - |
-
+| --am-actionsheet-danger-color | 危险状态字体颜色 |
+| --am-actionsheet-icon-width | icon宽度 |
+| --am-actionsheet-icon-height | icon高度 |
 
