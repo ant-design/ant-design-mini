@@ -1,30 +1,41 @@
+<template name="icon">
+  <block a:if="{{url}}">
+    <image mode="scaleToFill" class="amd-radio-item-fake-image" src="{{url}}" a:if="{{url.indexOf('http')===0||url.indexOf('data:')===0||url.indexOf('.')===0||url.indexOf('/')===0}}"/>
+    <amd-icon  class="amd-radio-item-fake-icon"  a:else type="{{url}}"/>
+  </block>
+ 
+</template>
 <label class="amd-radio-item">
-  <list-item>
-    <view class="amd-radio-item-wrap {{className ? className : ''}}"
-      slot="image">
-      <radio class="amd-radio-item-base"
-        id="{{id ? id : $id}}"
-        name="{{name}}"
-        onChange="onItemChange"
-        value="{{value}}"
-        checked="{{_checked}}"
-        controlled="{{true}}"
-        disabled="{{_disabled}}" />
-      <view class="
-        amd-radio-item-fake 
-        {{_disabled 
-            ? _checked 
-              ? 'amd-radio-item-fake-disabled-checked' 
-              : 'amd-radio-item-fake-disabled-not-checked' 
-            : _checked 
-              ? 'amd-radio-item-fake-not-disabled-checked'
-              : 'amd-radio-item-fake-not-disabled-not-checked'}}">
-      <view class="check-not-disabled-path" a:if="{{_checked && !_disabled}}"/>
-      <view class="check-disabled-path" a:if="{{_checked && _disabled}}"/>
+  <view hidden="{{hidden}}">
+    <list-item>
+      <view class="amd-radio-item-wrap {{className ? className : ''}}"
+        slot="image">
+        <radio class="amd-radio-item-base"
+          id="{{id ? id : $id}}"
+          name="{{name}}"
+          onChange="onItemChange"
+          value="{{value}}"
+          checked="{{_checked}}"
+          controlled="{{true}}"
+          disabled="{{_disabled}}" />
+        <view 
+          style="{{!_disabled&&_checked&&color?'color:'+color + '; border-color:' + color:''}}"
+          class="amd-radio-item-fake {{_disabled
+            ? _checked
+              ? 'amd-radio-item-fake-disabled-checked' + (disabledCheckedIcon? ' amd-radio-item-fake-custom' : '')
+              : 'amd-radio-item-fake-disabled-not-checked' + (disabledIcon? ' amd-radio-item-fake-custom' : '')
+            : _checked
+              ? 'amd-radio-item-fake-not-disabled-checked' + (checkedIcon? ' amd-radio-item-fake-custom' : '')
+              : 'amd-radio-item-fake-not-disabled-not-checked' + (icon? ' amd-radio-item-fake-custom' : '')}}">
+          <template is="icon"  a:if="{{!_checked && !_disabled}}" data="{{url:icon}}"/>
+          <template is="icon"  a:if="{{!_checked && _disabled}}" data="{{url:disabledIcon}}"/>
+          <template is="icon"  a:if="{{_checked && !_disabled}}" data="{{url:checkedIcon||'CheckCircleFill'}}"/>
+          <template is="icon"  a:if="{{_checked && _disabled}}" data="{{url:disabledCheckedIcon||'CheckOutline'}}"/>
+        </view>
       </view>
-    </view>
-    <view class="{{_disabled ? 'amd-radio-item-disabled' : ''}}">
-      <slot />
-    </view>
-  </list-item>
+      <view class="{{_disabled ? 'amd-radio-item-disabled' : ''}}">
+        <slot />
+      </view>
+    </list-item>
+  </view>
 </label>

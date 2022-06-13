@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Form",
+  "usingComponents": {
+    "form": "../../../src/Form/index",
+    "form-item": "../../../src/Form/FormItem/index",
+    "input-item": "../../../src/InputItem/index",
+    "demo-block": "../../components/DemoBlock/index"
+  }
+}

@@ -23,6 +23,7 @@ toc: false
 | type | string | 是 | "" | icon 图标的类型 |
 | size | 'x-small' &verbar; 'small' &verbar; 'medium' &verbar; 'large' &verbar; 'x-large' | 否 | "medium" | icon 的大小，x-small(16)、small(32)、medium(48)、large(64)、x-large(128)， |
 | color | string | 否 | - | icon 的颜色，即 CSS 中 color 属性的值 |
+| fontSize | string | 否 | - | icon 的大小 |
 | className | string | 否 | - | 类名 |
 
 ## 事件
@@ -37,15 +38,15 @@ toc: false
 | amd-icon | 整体样式 |
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
 
 </style> 

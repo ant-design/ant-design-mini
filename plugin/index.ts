@@ -32,7 +32,7 @@ export default (api: IApi) => {
           rendererProps: rendererProps,
           previewerProps: {
             page: rendererProps.page,
-            sources: sortSources(getBlockDepsFiles(require(`${process.cwd()}/package.json`).name, sourcesPath)),
+            sources: sortSources(getBlockDepsFiles('antd-mini', sourcesPath)),
             dependencies: getBlockDepsNPM(`${process.cwd()}/package.json`),
             hideActions: ['CSB', 'RIDDLE'],
             simulator: false,
@@ -83,7 +83,7 @@ export function getRenderProps(path: string) {
         page,
       }
       : {
-        appCdnBaseUrl: " https://gw.alipayobjects.com/os/miniassets/antd-mini-demo/1652437156419/",
+        appCdnBaseUrl: 'https://gw.alipayobjects.com/os/miniassets/antd-mini-demo/0.0.14/1654173131115/',
         page
       };
 

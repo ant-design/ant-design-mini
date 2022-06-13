@@ -14,5 +14,35 @@ export interface IRadioItemProps extends IBaseProps {
    */
 
   disabled?: boolean;
+  /**
+   * @description 当页面有多个RadioGroup时需传入，`必须全局唯一`，与内部的 RadioItem 组件的 uid 一致
+   * @default 'RadioGroup'
+   */
+  uid?: string;
+  /**
+   * @description checkbox 的颜色，同 CSS 色值
+   */
+  color?: string;
+  /**
+   * @description 自定义图标
+   */
+  icon?: string;
+  /**
+   * @description 自定义选中图标
+   */
+  checkedIcon?: string;
+  /**
+   * @description 禁用状态自定义图标
+   */
+  disabledIcon?: string;
+  /**
+   * @description 禁用状态选中自定义图标
+   */
+  disabledCheckedIcon?: string;
+  /**
+   * @description 是否隐藏当前 checkboxItem
+   * @default false
+   */
+   hidden?: boolean;
 }
 export declare const RadioItemDefaultProps: Partial<IRadioItemProps>;
