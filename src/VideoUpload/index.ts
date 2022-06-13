@@ -1,6 +1,6 @@
+import equal from "fast-deep-equal";
 import { VideoUploadDefaultProps, IVideoUploadData, File } from './props';
 import { chooseVideo, uploadFile } from '../_util/promisify';
-
 
 Component({
   props: VideoUploadDefaultProps,
@@ -17,6 +17,13 @@ Component({
     this.setData({
       fileList: value
     });
+  },
+  didUpdate(prevProps) {
+    if (!equal(prevProps.value, this.props.value)) {
+      this.setData({
+        fileList: this.props.value
+      })
+    }
   },
   methods: {
     async onChooseVideo() {
