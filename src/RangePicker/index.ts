@@ -30,10 +30,13 @@ Component({
   },
 
   didMount() {
-    const { value, min, max } = this.props;
+    const { value, min, max, precision } = this.props;
     if (value && value[0] && value[1] && value[1] >= value[0]) {
       if ((!min || value[0] >= min) && (!max || value[1] <= max)) {
-        this.setData({ cValue: value });
+        this.setData({
+          cValue: value,
+          currentValue: getValueByDate(value[0], precision),
+        });
       } else {
         console.warn('invalid value');
       }
@@ -109,11 +112,11 @@ Component({
         currentValue = getValueByDate(cValue[0], precision);
       } else {
         currentStartValue = new Date();
-        if (min && dayjs(currentStartValue).isBefore(dayjs(min))) {
+        if (
+          (min && dayjs(currentStartValue).isBefore(dayjs(min))) ||
+          (max && dayjs(currentStartValue).isAfter(dayjs(max)))
+        ) {
           currentStartValue = min;
-        }
-        if (max && dayjs(currentStartValue).isAfter(dayjs(max))) {
-          currentStartValue = max;
         }
         currentValue = getValueByDate(currentStartValue, precision);
       }

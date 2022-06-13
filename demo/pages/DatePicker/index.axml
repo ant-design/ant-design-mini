@@ -3,12 +3,12 @@
         请选择日期
         <date-picker 
             min="{{min}}"
+            max="{{max}}"
             slot="extra"
             value="{{defaultDate}}"
             placeholder="请选择"
             onPickerChange="handlePickerChange"
-            onOk="handleOk"
-            format="YYYY-MM-DD">
+            onOk="handleOk">
         </date-picker>
     </list-item>
 </demo-block>
@@ -47,7 +47,6 @@
         <date-picker 
             slot="extra"
             value="{{defaultDate}}"
-            format="YYYY-MM-DD"
             disabled>
         </date-picker>
     </list-item>
@@ -58,11 +57,9 @@
         <range-picker 
             slot="extra"
             placeholder="请选择"
-           
-            min="{{min}}"
+            value="{{defaultDateRange}}"
             onPickerChange="handlePickerRangeChange"
-            onOk="handleRangeOk"
-            format="YYYY-MM-DD">
+            onOk="handleRangeOk">
         </range-picker>
     </list-item>
 </demo-block>

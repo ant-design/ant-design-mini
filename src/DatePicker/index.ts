@@ -22,10 +22,17 @@ Component({
   },
 
   didMount() {
-    const { value, min, max } = this.props;
+    const { value, min, max, precision } = this.props;
     if (value) {
-      if ((!min || value >= min) && (!max || value <= max)) {
-        this.setData({ cValue: value });
+      if (value instanceof Date) {
+        if ((!min || value >= min) && (!max || value <= max)) {
+          this.setData({
+            cValue: value,
+            currentValue: getValueByDate(value, precision),
+          });
+        } else {
+          console.warn('invalid value');
+        }
       } else {
         console.warn('invalid value');
       }
@@ -45,7 +52,7 @@ Component({
         } else {
           const now = new Date();
           if (
-            !(min && dayjs(now).isBefore(dayjs(min))) ||
+            !(min && dayjs(now).isBefore(dayjs(min))) &&
             !(max && dayjs(now).isAfter(dayjs(max)))
           ) {
             pikerValue = getValueByDate(now, precision);
@@ -92,6 +99,7 @@ Component({
         currentPickerDay = min;
       }
       const newData = getRangeData(precision, min, max, currentPickerDay);
+      console.log(newData);
       if (!equal(data, newData)) {
         this.setData({ data: newData });
       }

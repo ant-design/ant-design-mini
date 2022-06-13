@@ -1,7 +1,8 @@
 Page({
   data: {
-    min: new Date('2020/05/20'),
-    defaultDate: new Date('2022/08/08'),
+    min: new Date('2019/01/15'),
+    max: new Date('2021/08/20'),
+    defaultDate: new Date('2019/02/02'),
     defaultDateRange: [new Date('2021/08/08'), new Date('2022/05/20')],
   },
   handlePickerChange(date, dateStr, dateArr) {
