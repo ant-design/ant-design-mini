@@ -23,7 +23,10 @@ type PickerColumnItem = string | number | {
   value: string|number
 }
 ```
-| 属性 |  类型  | 必填 | 默认值 |说明 |
+
+<hr />
+
+| 属性 |  类型  | 必填 |  说明  | 默认值|
 | -----|-----|-----|-----|-----|
 | value | PickerColumnItem  &#124;  (PickerColumnItem)[] | 否|选中数据 | - |
 | data |  PickerColumnItem数组 | 是 |picker 数据，配置每一列的选项 | [] |

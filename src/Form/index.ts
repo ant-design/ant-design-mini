@@ -15,6 +15,8 @@ Component({
     onFinishFailed: function onFinishFailed() {},
     className: '',
     form: 'default',
+    requiredMarkStyle: 'asterisk',
+    position: 'horizontal',
     initialValues: {},
   },
   onInit() {

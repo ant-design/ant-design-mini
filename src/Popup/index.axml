@@ -13,7 +13,7 @@
     onTouchMove="{{disableScroll && supportSjs ? _sjs.enableScrollEvent : ''}}"
   >
   <view class="amd-popup-close-container" a:if="{{showCloseIcon}}">
-    <icon type="CloseOutline" size="x-small" onTap="onClose"/>
+    <icon type="CloseOutline"  onTap="onClose"/>
   </view>
     <view>
       <slot />

@@ -6,9 +6,9 @@ Component({
   props: SwitchDefaultProps,
   mixins: [controlled('checked'), formMixin()],
   methods: {
-    onChange(v) {
-      const { value } = v.detail;
-      this.cOnChange(value);
+    onChange() {
+      const { cValue } = this.data;
+      this.cOnChange(!cValue);
     },
   },
 });

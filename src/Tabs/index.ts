@@ -260,6 +260,12 @@ Component({
         onTransition(e)
       }
     },
+    handleAnimationEnd(e) {
+      const { onAnimationEnd } = this.props;
+      if (typeof onAnimationEnd === "function") {
+        onAnimationEnd(e)
+      }
+    },
     appearLeft() {
       this.setData({
         _leftFade: false,
