@@ -1,4 +1,4 @@
-<demo-block title="简单布局-单选">
+<demo-block title="简单布局-单选" padding="0">
   <checklist 
     value="{{1}}"
     options="{{options_1}}"
@@ -6,8 +6,7 @@
   />
 </demo-block>
 
-<demo-block title="复杂布局-多选">
-  <view class="demo-checklist-label">复杂布局-多选</view>
+<demo-block title="复杂布局-多选"  padding="0">
   <checklist 
     value="{{value}}" 
     options="{{options_2}}"
@@ -15,7 +14,7 @@
     onChange="onChange"
   />
 </demo-block>
-<demo-block title="禁用状态">
+<demo-block title="禁用状态" padding="0">
   <checklist 
     value="{{[2]}}"
     options="{{options_3}}"
@@ -24,7 +23,7 @@
   />
 </demo-block>
 
-<demo-block title="只读状态">
+<demo-block title="只读状态" padding="0">
   <checklist 
     value="{{[2]}}"
     options="{{options_4}}"
@@ -32,7 +31,7 @@
     onChange="onChange"
   />
 </demo-block>
-<demo-block title="自定义勾选图标&&组件内容">
+<demo-block title="自定义勾选图标&&组件内容" padding="0">
   <checklist 
     value="{{[2]}}"
     options="{{options_3}}"

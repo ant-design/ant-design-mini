@@ -1,5 +1,5 @@
 @import (reference) "../variable.less";
-@import "../../style/mixins/hairline.less";
+@import (reference) "../../style/mixins/hairline.less";
 
 @checklistItemPrefix: amd-checklist-item;
 
@@ -70,10 +70,8 @@
   }
 
   &-line {
-    height: @border-width-standard;
-    background-color: @color-divider-line;
-    width: calc(100% - 24 * @rpx);
-    position: absolute;
-    right: 0;
+    margin-left: @h-spacing-large;
+    position: relative;
+    .hairline("bottom",  @color-divider-line);
   }
 }
