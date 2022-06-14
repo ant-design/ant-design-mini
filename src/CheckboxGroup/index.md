@@ -51,23 +51,23 @@ toc: false
 
 
 ## 事件
-
 #### CheckboxGroup
+
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 勾选状态变化时，触发此函数 |(value) => {}|
 
 ## 插槽
-
 #### CheckboxGroup
+
 | 名称 | 说明 |
 | ----|----|
 | header | 头部内容插槽 |
 | footer | 底部内容插槽 |
 
-## 样式类
-
+## 样式类 
 #### CheckboxGroup
+
 | 类名 | 说明 |
 | -----|-----|
 | amd-checkbox-group |整体样式|

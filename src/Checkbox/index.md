@@ -22,7 +22,6 @@ toc: false
 
 ## 属性
     
-#### Checkbox
 | 属性 |  说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | checked | 是否选中  | boolean | false |
@@ -39,17 +38,14 @@ toc: false
 
 
 
-
 ## 事件
 
-#### Checkbox
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 选中状态改变，触发回调 | (checked: boolean) => void|
 
 ## 样式类
 
-#### Checkbox
 | 类名 | 说明 |
 | -----|-----|
 | amd-checkbox | 标签样式 |
