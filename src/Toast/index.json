@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "icon": "../Icon/index",
-    "mask": "../Mask/index"
+    "mask": "../Mask/index",
+    "loading": "../Loading/index"
   }
 }

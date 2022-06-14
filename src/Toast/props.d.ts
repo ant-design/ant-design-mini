@@ -3,6 +3,13 @@ import { IBaseProps, IconType } from '../_base';
  * @description 标签，突出利益点、以及属性说明。
  */
 
+enum EnumToastType {
+  success = "success",
+  warn = "warn",
+  fail = "fail",
+  loading = "loading"
+}
+
 export interface IToastProps extends IBaseProps {
   /**
    * @description Toast 完全关闭后的回调
@@ -41,5 +48,9 @@ export interface IToastProps extends IBaseProps {
    * @description 点击蒙层是否隐藏 Toast
    */
   maskCloseable: boolean;
+  /**
+   * @description 点击蒙层是否隐藏 Toast
+   */
+  type: EnumToastType;
 }
 export declare const ToastDefaultProps: Partial<IToastProps>;

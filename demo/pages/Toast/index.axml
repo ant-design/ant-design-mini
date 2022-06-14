@@ -1,21 +1,25 @@
-<button onTap="handleShowToast1" class="button" inline="{{true}}" inlineSize="{{medium}}">
+<button onTap="handleShowToast" data-index="1" class="button" inline="{{true}}" inlineSize="{{medium}}">
   纯文字 toast
 </button>
 
-<button onTap="handleShowToast4" class="button" inline="{{true}}" inlineSize="{{medium}}">
+<button onTap="handleShowToast" data-index="4" class="button" inline="{{true}}" inlineSize="{{medium}}">
   纯文字 toast，文案过长
 </button>
 
-<button onTap="handleShowToast2" class="button" inline="{{true}}" inlineSize="{{medium}}">
-  带图标 Toast
+<button onTap="handleShowToast" data-index="2" class="button" inline="{{true}}" inlineSize="{{medium}}">
+  自定义Icon
 </button>
 
-<button onTap="handleShowToast5" class="button" inline="{{true}}" inlineSize="{{medium}}">
-  带图片 Toast
+<button onTap="handleShowToast" data-index="5" class="button" inline="{{true}}" inlineSize="{{medium}}">
+  自定义图片
 </button>
 
-<button onTap="handleShowToast3" class="button" inline="{{true}}" inlineSize="{{medium}}">
-  提示持续时间3s
+<button onTap="handleShowToast" data-index="3" class="button" inline="{{true}}" inlineSize="{{medium}}">
+  提示持续3s
+</button>
+
+<button onTap="handleShowToast" data-index="6" class="button" inline="{{true}}" inlineSize="{{medium}}">
+  type = loading
 </button>
 
 <toast
@@ -34,15 +38,19 @@
   visible="{{toast4Show}}"
   data-index="4"
   duration="{{0}}"
+  showMask="{{true}}"
+  maskCloseable="{{true}}"
   onClose="handleCloseToast"
   class="toastWrapper"
 />
 
 <toast
-  content="{{content2}}"
+  content="{{content5}}"
   icon="{{icon2}}"
   visible="{{toast2Show}}"
   duration="{{0}}"
+  showMask="{{true}}"
+  maskCloseable="{{true}}"
   onClose="handleCloseToast"
   data-index="2"
   class="toastWrapper"
@@ -53,6 +61,8 @@
   image="{{image1}}"
   visible="{{toast5Show}}"
   duration="{{0}}"
+  showMask="{{true}}"
+  maskCloseable="{{true}}"
   onClose="handleCloseToast"
   data-index="5"
   class="toastWrapper"/>
@@ -65,5 +75,17 @@
   data-index="3"
   onClose="handleCloseToast"
   showMask="{{true}}"
+  maskCloseable="{{true}}"
+/>
+
+<toast
+  content="{{content2}}"
+  visible="{{toast6Show}}"
+  class="toastWrapper"
+  data-index="6"
+  type="loading"
+  onClose="handleCloseToast"
+  showMask="{{true}}"
+  duration="{{0}}"
   maskCloseable="{{true}}"
 />

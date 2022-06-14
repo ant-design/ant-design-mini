@@ -18,12 +18,28 @@
 
   position: absolute;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   .amd-toast-icon,
-  .amd-toast-image {
+  .amd-toast-image,
+  .amd-toast-normal {
     margin-bottom: 16 * @rpx;
   }
 
-  .amd-toast-image {
+  .amd-toast-normal {
+    height: 80 * @rpx;
+  }
+
+  .amd-toast-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .amd-toast-image,.amd-toast-icon {
     width: 80 * @rpx;
     height: 80 * @rpx;
   }

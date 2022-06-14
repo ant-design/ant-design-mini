@@ -20,6 +20,7 @@ toc: false
 ## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
+| type | string | 否 | - | toast 类型，展示相应图标，支持 success / fail / warning / loading
 | content | string | 是 | - | Toast 文本内容 |
 | icon | Icon类型 | 否 | - | Toast 图标 |
 | image | string | 否 | - | Toast 图标 |
