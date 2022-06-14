@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/Checklist/index",
     "pages/index/index",
     "pages/Form/index",
     "pages/FormBasic/index",
