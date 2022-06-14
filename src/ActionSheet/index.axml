@@ -14,6 +14,7 @@
         <view
           a:for="{{actions}}"
           class="amd-actionsheet-list-item {{ item.disabled && 'amd-actionsheet-list-item-disabled'}}"
+          hover-class="{{ item.disabled ? '': 'amd-actionsheet-list-item-active' }} "
           onTap="onAction"
           data-index="{{index}}"
           data-item="{{item}}"
