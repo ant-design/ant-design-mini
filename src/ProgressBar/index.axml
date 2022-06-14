@@ -1,0 +1,12 @@
+<view class="amd-progressbar-wrapper {{className}}">
+  <view class="amd-progress-outer">
+    <view class="amd-progress-inner" style="width: {{ curProgress * 100 }}%">
+      <slot name="innerIndicator" a:if="{{!showDefaultIndicator}}">
+    </view>
+  </view>
+  <view class="amd-progress-indicator">
+    <text a:if="{{showDefaultIndicator}}">{{ curProgress * 100 }}%</text>
+    <slot name="rightIndicator" a:if="{{!showDefaultIndicator}}">
+  </view>
+  
+</view>
