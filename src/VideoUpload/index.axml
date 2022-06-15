@@ -70,7 +70,7 @@
     onTap="onChooseVideo"
   >
     <slot name='uploadIcon'>
-      <am-icon size="small" type="AddOutline" color="#333" />
+      <am-icon size="small" type="AddOutline" color="#999" />
     </slot>
   </view>
   <video 
