@@ -38,7 +38,7 @@ Component({
     },
 
     async uploadFile(file) {
-      const { action, fileName, formData, onBeforeUpload, onUpload } = this.props;
+      const { action, fileName, formData, onBeforeUpload, onUpload, onAfterUpload } = this.props;
       const { fileList } = this.data;
       const { path } = file;
 
@@ -60,7 +60,7 @@ Component({
           fileList: tempFileList
         });
 
-        if (action) {
+        if (action && !onUpload) {
           const res = await uploadFile({
             url: action,
             fileType: 'image',
@@ -72,13 +72,21 @@ Component({
 
           /** 这里uploadFile api接口类型定义有问题，ide返回的是string，真机返回的是number，作下兼容 */
           if (res.statusCode === 200 || res.statusCode === '200') {
-            const data = JSON.parse(res.data);
-            if (data.success && data.data && data.data.url) {
-              this.updateFileList(path, 'done', data.data.url);
+            const response = JSON.parse(res.data);
+
+            if (onAfterUpload) {
+              const resUrl = await onAfterUpload.call(this.props, response);
+              if (resUrl) {
+                this.updateFileList(path, 'done', resUrl);
+              } else {
+                this.updateFileList(path, 'error');
+              }
+            } else if (response.success && response.data && response.data.url) {
+              this.updateFileList(path, 'done', response.data.url);
             } else {
               this.updateFileList(path, 'error');
               my.showToast({
-                content: '接口返回格式有误'
+                content: '接口返回格式非默认格式，请使用onAfterUpload进行处理'
               });
             }
           } else {
@@ -166,14 +174,5 @@ Component({
         enablesavephoto: enableSavePhoto
       });
     },
-
-    onPreviewDemoImage() {
-      const { demoImage } = this.props;
-
-      previewImage({
-        urls: [demoImage],
-        current: 0,
-      })
-    }
   }
 })

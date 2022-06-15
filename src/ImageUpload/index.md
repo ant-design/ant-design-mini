@@ -48,6 +48,7 @@ toc: false
 | onDelete | 删除当前列表中的图片时触发，包括上传成功和上传失败的图片，如果返回 false 表示阻止删除，支持返回 Promise | (v: File) => boolean &verbar; Promise\<boolean\> &verbar; void |
 | onPreview | 点击图片进行预览时触发，会覆盖默认的预览功能 | (v:File[]) => void |
 | onUpload | 图片上传方法，当不存在https服务器时，支持自定义上传方式，只在不存在action字段时生效 | (v: File) => Promise\<File\> |
+| onAfterUpload | 使用action时，图片上传后的回调函数，当上传接口不为默认的{success: true, data: {url: 'xx'}}时使用，返回void则表示上传失败 | (res) => string |
 
 ## File
 

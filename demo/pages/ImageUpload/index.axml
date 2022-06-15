@@ -6,6 +6,7 @@
       maxCount="{{1}}"
       value="{{value_1}}"
       onChange="onChange"
+      onAfterUpload="onAfterUpload"
     />
   </view>
 
