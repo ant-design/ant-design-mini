@@ -9,7 +9,7 @@
   margin-right: 12rpx;
 }
 
-.btns button~button {
+.btns button ~button {
   margin-right: 0;
   margin-left: 12rpx;
 }

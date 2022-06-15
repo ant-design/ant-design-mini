@@ -6,11 +6,10 @@
 import { store } from '../Form/store';
 import { isMoreThan106 } from '../_util/compareVersion';
 
-
-export default () => {
+export default ({trigger = 'onChange'} = {}) => {
   return {
     props: {
-      onChange(e) {
+      [trigger](e) {
         const getCurrentField = this._getCurrentField || this.props._getCurrentField;
         if (!getCurrentField) return;
         const { form: formFn, field: fieldFn } = getCurrentField();
@@ -23,14 +22,11 @@ export default () => {
       _getCurrentField() {
         return { form: () => '', field: () => '' };
       },
-      value: '',
-      checked: false,
       valuePropName: 'cValue',
       mode: 'normal',
     },
     onInit() {
       if (isMoreThan106 && isNotFormMode(this.props.mode)) return;
-
       const getCurrentField = this.$page._getCurrentField;
       if (!getCurrentField) return;
       this.props._getCurrentField = getCurrentField;

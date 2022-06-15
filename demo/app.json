@@ -6,6 +6,7 @@
     "pages/FormDynamic/index",
     "pages/FormGroup/index",
     "pages/FormInsMethod/index",
+    "pages/FormRequiredMarkStyle/index",
     "pages/List/index",
     "pages/Icon/index",
     "pages/Switch/index",
@@ -51,7 +52,9 @@
     "pages/Container/index",
     "pages/Checklist/index",
     "pages/Empty/index",
-    "pages/Toast/index"
+    "pages/Toast/index",
+    "pages/FloatPanel/index",
+    "pages/FloatPanelEvent/index"
   ],
   "window": {
     "enableWK": "YES",

@@ -85,12 +85,16 @@ export class CheckBoxStore extends BaseStore<checkboxVal> {
 
   triggerItem(uid: string, id: string, checked: boolean): void {
     if (this.itemsMap[uid] && this.getItem(uid, id)) {
-      this.getItem(uid, id).setChecked(checked);
-
+      if (!this.checkControlledByUID(uid)) {
+        this.getItem(uid, id).setChecked(checked);
+      }
       const onChange = this.itemsMap[uid].getGroupPropsVal('onChange');
       if (onChange) {
         const value = objectEntries(this.itemsMap[uid].items)
-          .filter(([, val]) => {
+          .filter(([key, val]) => {
+            if (key === id) {
+              return checked;
+            }
             return val && val.getChecked() === true;
           })
           .map(([, val]) => val.getItemPropsVal('value')) as string[];

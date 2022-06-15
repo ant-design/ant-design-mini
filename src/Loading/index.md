@@ -6,16 +6,14 @@ group:
 toc: false
 ---
 
-# Loading
-加载，用于提示局部或页面在加载中。
+# Loading 加载
+用于提示局部或页面在加载中。
 
 ## 代码示例
 ### 基本使用
 <code src='../../demo/pages/Loading'></code>
-## API 
 
-
-### 属性 
+## 属性 
 
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -31,19 +29,13 @@ toc: false
 | theme | 'dark' &verbar; 'light' | - | "dark" | 颜色，dark/深色, light/浅色，当 type 为 'spin' 时生效 |
 | type | 'spin' &verbar; 'mini' | - | 'spin' | 加载样式类型 |
 
-### 事件 
-
-### 插槽
+## 插槽
 | 名称 | 说明 |
 | ----|----|
 | indicator | 自定义加载中的指示器，type 为 'spin' 时生效 |
 | text | 自定义text，type 为 'spin' 时生效 |
 
-### CSS 变量 
-
-| CSS 变量名称 | 说明 |
-| -----|----- |
-### 样式类 
+## 样式类 
 以下样式类只在对应type下才会被使用
 
 | 类名 | 说明 |

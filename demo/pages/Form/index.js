@@ -51,7 +51,7 @@ Page({
     ],
   },
   formatValue(v) {
-    return v.join('/');
+    return v && v.join('/') || '';
   },
   handleValuesChange(value, values) {
     console.log(value, values);

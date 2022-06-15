@@ -1,26 +1,17 @@
 <view class="amd-container {{className ? className : ''}}">
-  <view class="amd-container-header">
-    <image class="amd-container-header-image"
-      src="{{image}}"
-      a:if="{{image}}" />
-    <block a:if="{{title}}">
-      <view class="amd-container-header-title {{!image ? 'amd-container-header-title-noImage' : ''}}">
-        {{title}}
-      </view>
-    </block>
-    <block a:else>
-      <view class="amd-container-header-title {{!image ? 'amd-container-header-title-noImage' : ''}}">
-        <slot name="title" />
-      </view>
-    </block>
-    <view class="amd-container-header-icon"
-      onTap="onIconTap"
-      a:if="{{icon}}">
-      <icon type="{{icon}}"
-        size="x-small" />
+  <header titleImage="{{titleImage}}" title="{{title}}" headerInBox="{{headerInBox}}">
+    <slot name="headerRight"></slot>
+  </header>
+  <view class="amd-container-content {{ headerInBox ? 'amd-container-content-withHalfRadius' : 'amd-container-content-withRadius' }} {{multiBox ? 'amd-container-content-multibox' : ''}}">
+    <view class="amd-container-content-multibox-box" a:if="{{multiBox >= 1}}">
+      <slot name="box1" />
     </view>
-  </view>
-  <view class="amd-container-content">
-    <slot />
+    <view class="amd-container-content-multibox-box" a:if="{{multiBox > 1}}">
+      <slot name="box2" />
+    </view>
+    <view class="amd-container-content-multibox-box" a:if="{{multiBox > 2}}">
+      <slot name="box3" />
+    </view>
+    <slot a:if="{{!multiBox}}" />
   </view>
 </view>

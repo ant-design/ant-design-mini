@@ -1,0 +1,52 @@
+@import (reference) "./variable.less";
+
+.amd-floatpanel-box {
+  background-color: transparent;
+  transition      : all .2s;
+  overflow        : hidden;
+  z-index         : 1;
+  position: fixed;
+  bottom: 0;
+
+  .amd-floatpanel-arrow-wrapper {
+    padding-bottom : 12 * @rpx;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+
+    .amd-floatpanel-arrow {
+      width          : 68 * @rpx;
+      background-size: 100% 100%;
+    }
+  }
+
+
+  .amd-floatpanel-section {
+    position: relative;
+
+    .amd-floatpanel-section-bg {
+      position        : absolute;
+      top             : 0;
+      left            : 0;
+      background-color: #fff;
+      width           : 100%;
+      height          : 100vh;
+      z-index         : 0;
+    }
+
+    .amd-floatpanel-scroll-view {
+      position: relative;
+      z-index : 1;
+    }
+  }
+}
+
+.amd-floatpanel-background {
+  top             : 0;
+  bottom          : 0;
+  left            : 0;
+  right           : 0;
+  position        : fixed;
+  z-index         : 1;
+  background-color: rgba(0, 0, 0, 0.55);
+}
