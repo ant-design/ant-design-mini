@@ -1,34 +1,39 @@
-<view class="demo-checklist">
-  <view class="demo-checklist-label">简单布局-单选</view>
+<demo-block title="简单布局-单选" padding="0">
   <checklist 
-    defaultValue="{{[1]}}"
+    value="{{1}}"
     options="{{options_1}}"
     onChange="onChange"
   />
-  <view class="demo-checklist-label">复杂布局-多选</view>
+</demo-block>
+
+<demo-block title="复杂布局-多选"  padding="0">
   <checklist 
-    defaultValue="{{defaultValue}}" 
+    value="{{value}}" 
     options="{{options_2}}"
     multiple
     onChange="onChange"
   />
-  <view class="demo-checklist-label">禁用状态</view>
+</demo-block>
+<demo-block title="禁用状态" padding="0">
   <checklist 
-    defaultValue="{{[2]}}"
+    value="{{[2]}}"
     options="{{options_3}}"
     multiple
     onChange="onChange"
   />
-  <view class="demo-checklist-label">只读状态</view>
+</demo-block>
+
+<demo-block title="只读状态" padding="0">
   <checklist 
-    defaultValue="{{[2]}}"
+    value="{{[2]}}"
     options="{{options_4}}"
     multiple
     onChange="onChange"
   />
-  <view class="demo-checklist-label">自定义勾选图标</view>
+</demo-block>
+<demo-block title="自定义勾选图标&&组件内容" padding="0">
   <checklist 
-    defaultValue="{{[2]}}"
+    value="{{[2]}}"
     options="{{options_3}}"
     multiple
     onChange="onChange"
@@ -36,5 +41,8 @@
     <view slot="icon">
       <icon color='red' type="LikeOutline" size="x-small" class="demo-checklist-checked-icon"/>
     </view>
+    <view slot="content" slot-scope="props">
+      title: {{props.item.title}}
+    </view>
   </checklist>
-</view>
+</demo-block>

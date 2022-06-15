@@ -4,58 +4,17 @@
 @containerPrefix: amd-container;
 
 .@{containerPrefix} {
-  margin: 0 @container-spacing;
-  background-color: @container-background-color;
   border-radius: @container-radius;
+
   &-header {
     position: relative;
     display: flex;
-    padding: 0 @container-header-spacing;
-    &:empty {
-      display: none;
-    }
-    &-image {
-      position: absolute;
-      top: @container-header-spacing;
-      left: @container-header-spacing;
-      width: @size-6;
-      height: @size-6;
-      overflow: hidden;
-      margin-right: @h-spacing-standard;
-      z-index: 2;
-    }
+    height: 96 * @rpx;
+
     &-title {
-      position: relative;
-      flex: 1;
-      height: @size-6;
-      padding: @container-header-spacing calc(@size-6 + @h-spacing-standard);
-      overflow: hidden;
-      line-height: 50*@rpx;
-      display: box;
-      text-overflow: ellipsis;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
-      font-weight: bold;
-      font-size: @container-header-size;
-      color: @container-header-color;
-      z-index: 1;
-      .hairline("bottom");
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: @container-header-spacing;
-        background-color: @container-background-color;
-      }
-      &:empty {
-        display: none;
-      }
-      &-noImage {
-        padding-left: 0;
-      }
+
     }
+
     &-icon {
       position: absolute;
       top: @container-header-spacing;
@@ -68,6 +27,32 @@
       margin-left: @h-spacing-standard;
       color: @container-header-icon-color;
       z-index: 2;
+    }
+  }
+
+  &-content {
+    padding: @container-spacing;
+    background-color: @container-background-color;
+
+    &-withRadius {
+      border-radius: @container-radius;
+    }
+
+    &-withHalfRadius {
+      border-radius: 0 0 @container-radius @container-radius;
+    }
+
+    &-multibox {
+      display: flex;
+
+      &-box {
+        overflow: hidden;
+        &:not(:first-of-type) {
+          margin-left: @container-box-spacing;
+        }
+        flex: 1;
+        border-radius: @container-box-radius;
+      }
     }
   }
 }

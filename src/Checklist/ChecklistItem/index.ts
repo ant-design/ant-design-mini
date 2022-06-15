@@ -3,17 +3,29 @@ import { ChecklistItemDefaultProps } from './props';
 
 Component({
   props: ChecklistItemDefaultProps,
+
   data: {
     checked: false
   },
-  deriveDataFromProps(nextProps) {
-    const { value, optionValue } = nextProps;
-    if (equal(this.props.value, value)) return;
 
+  didMount() {
+    const checked = this.getChecked()
     this.setData({
-      checked: value.indexOf(optionValue) !== -1 ? true : false
+      checked
     });
   },
+
+  didUpdate(prevProps) {
+    const { value, item, multiple } = prevProps;
+    if (equal(this.props.value, value) &&
+      equal(this.props.item, item) &&
+      equal(this.props.multiple, multiple)) return;
+    const checked = this.getChecked()
+    this.setData({
+      checked
+    });
+  },
+
   methods: {
     onChecklistItemClick() {
       const { checked } = this.data;
@@ -21,17 +33,39 @@ Component({
       this.setData({
         checked: !checked
       });
-      onChange && onChange.call(this.props, this.getValues(!checked));
+      const value = this.getValues(!checked)
+      onChange && onChange.call(this.props, value);
     },
-    getValues(checked) {
-      const { optionValue, value, multiple } = this.props;
+
+    getChecked() {
+      const { multiple, item, value } = this.props;
       if (!multiple) {
-        return [optionValue];
+        return value === item.value
       }
-      if (checked && !value.includes(optionValue)) {
-        return value.concat([optionValue]);
+      let valueArr = []
+      if (!Array.isArray(value)) {
+        valueArr = [value]
       } else {
-        return value.filter(item => item !== optionValue);
+        valueArr  = value.slice()
+      }
+      return valueArr.indexOf(item.value) > -1
+    },
+  
+    getValues(checked) {
+      const {  multiple, item, value } = this.props;
+      if (!multiple) {
+        return checked ? item.value : '';
+      }
+      let valueArr = value
+      if (!Array.isArray(value)) {
+        valueArr = [value]
+      } else {
+        valueArr  = value.slice()
+      }
+      if (checked && valueArr.indexOf(item.value) === -1) {
+        return valueArr.concat([item.value]);
+      } else {
+        return valueArr.filter(v => v !== item.value);
       }
     }
   },
