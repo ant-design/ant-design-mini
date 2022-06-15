@@ -1,17 +1,4 @@
 <view class="amd-image-upload">
-  <view 
-    a:if="{{demoImage}}" 
-    class="amd-image-upload-show" 
-    onTap="onPreviewDemoImage"
-  >
-    <view class="amd-image-upload-demo-image-tip" />
-    <image 
-      class="amd-image-upload-demo-image" 
-      mode="scaleToFill" 
-      src="{{demoImage}}" 
-      style="{{`height:${height}px;width:${width}px`}}" 
-    />
-  </view>
   <view a:for="{{fileList}}" class="amd-image-upload-show">
     <view 
       class="amd-image-upload-close" 

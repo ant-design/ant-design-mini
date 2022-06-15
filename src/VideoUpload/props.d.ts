@@ -54,12 +54,6 @@ export interface IVideoUploadProps extends IBaseProps {
   camera: string;
 
   /**
-   * @description 上传视频时的示例
-   * @default []
-   */
-  demoVideo?: string;
-
-  /**
    * @description 上传视频的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到视频二进制内容
    */
   filename?: string;

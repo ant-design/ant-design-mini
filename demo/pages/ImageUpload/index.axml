@@ -18,15 +18,6 @@
       onChange="onChange"
     />
   </view>
-  <view class="demo-image-upload-title">带示例图片</view>
-  <view class="demo-image-upload-show">
-    <uploader 
-      action='{{action}}'
-      maxCount="{{2}}"
-      demoImage="{{demoImage}}"
-      onChange="onChange"
-    />
-  </view>
   <view class="demo-image-upload-title">自定义上传图标</view>
   <view class="demo-image-upload-show">
     <uploader 

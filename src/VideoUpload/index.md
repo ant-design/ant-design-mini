@@ -27,7 +27,6 @@ toc: false
 | controlled | boolean | - | false | 是否受控 |
 | action | string | - | - | 上传视频的服务器地址，只支持https地址 |
 | camera | string | - | 'back' | 默认拉起的是前置或者后置摄像头，可选值'back'或'front' |
-| demoVideo | string | - | [] | 上传视频时的示例 |
 | filename | string | - | - | 上传视频的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到视频二进制内容 |
 | formData | any | - | {} | 上传时其他额外的 form 数据对象。 |
 | height | number &verbar; string | - | 80 | 自定义容器高度 |

@@ -48,11 +48,6 @@ export interface IUploaderProps extends IBaseProps {
   value?: Array<File>;
 
   /**
-   * @description 上传图片时的示例图片
-   */
-  demoImage?: string;
-
-  /**
    * @description 预览图片时是否暂时下载按钮，只有在不存在onPreview字段时生效
    * @default false
    */

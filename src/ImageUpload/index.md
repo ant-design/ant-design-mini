@@ -26,7 +26,6 @@ toc: false
 | value | File[] | - | [] | 已上传的图片列表 |
 | controlled | boolean | - | false | 是否受控 |
 | action | string | 否 | - | 上传图片的服务器地址，只支持https地址 |
-| demoImage | string | - | - | 上传图片时的示例图片 |
 | enableShowPhotoDownload | boolean | - | false | 预览图片时是否暂时下载按钮，只有在不存在onPreview字段时生效 |
 | enableSavePhoto | boolean | - | false | 照片支持长按下载 |
 | fileName | string | - | - | 上传图片的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到图片二进制内容 |
