@@ -6,7 +6,7 @@
     <icon a:elif="{{type === 'success'}}" type="CheckOutline" class="amd-toast-icon" />
   </view>
   <icon a:elif="{{icon}}" type="{{icon}}" class="amd-toast-icon" />
-  <view a:elif="{{image}}" style="{{`background-image: url("${image}")`}}" class="amd-toast-image" />
+  <view a:elif="{{image}}" style="background-image: url({{image}})" class="amd-toast-image" />
   <view class="amd-toast-text-body">
     <view class="amd-toast-text-box">
       <view class="amd-toast-text-content">{{content.substring(0, 24)}}</view>
