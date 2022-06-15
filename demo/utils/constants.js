@@ -87,7 +87,7 @@ export const componentList = [
         path: '/pages/CheckboxGroup/index',
       },
       {
-        name: 'CheckList',
+        name: 'Checklist',
         nameZN: '可勾选列表',
         path: '/pages/Checklist/index',
       },
