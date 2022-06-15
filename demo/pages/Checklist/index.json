@@ -2,6 +2,7 @@
   "defaultTitle": "Checklist",
   "usingComponents": {
     "checklist": "../../../src/Checklist/index",
-    "icon": "../../../src/Icon/index"
+    "icon": "../../../src/Icon/index",
+    "demo-block": "../../components/DemoBlock/index"
   }
 }

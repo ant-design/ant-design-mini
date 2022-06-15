@@ -1,5 +1,6 @@
 export const ChecklistDefaultProps = {
-  defaultValue: [],
-  multiple: false
+  value: '',
+  multiple: false,
+  options: []
 };
 
