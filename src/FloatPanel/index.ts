@@ -21,7 +21,7 @@ Component({
   },
   async didMount() {
     this.setData({ mounted: true });
-    let sys = this.props.systemInfo;
+    const sys = this.props.systemInfo;
     if (!sys) {
       const sys = await this.getSystemInfo();
       this.setData({ sys });
@@ -41,7 +41,7 @@ Component({
         this.getWrapperHeight('.amd-floatpanel-scroll-view-content'),
       ]);
       const contentHeight = headerHeight + listHeight + footerHeight;
-      let { windowHeight = 375 } = sys;
+      const { windowHeight = 375 } = sys;
       let maxHeight = windowHeight * (this.props.maxHeight || 0.95);
       // 当内容高度小于 0.95 视窗大小时，缩短面板最大高度
       maxHeight = contentHeight < maxHeight ? contentHeight : maxHeight;
@@ -73,7 +73,7 @@ Component({
       });
     },
     getSystemInfo() {
-      return new Promise((resolve) => {
+      return new Promise((resolve, reject) => {
         my.getSystemInfo({
           success: (res) => {
             resolve(res);
