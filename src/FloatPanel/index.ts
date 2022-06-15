@@ -73,13 +73,13 @@ Component({
       });
     },
     getSystemInfo() {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         my.getSystemInfo({
           success: (res) => {
             resolve(res);
           },
-          fail: (res) => {
-            reject(res);
+          fail: () => {
+            resolve({});
           },
         });
       });
