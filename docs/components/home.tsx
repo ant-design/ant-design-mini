@@ -40,12 +40,12 @@ export default () => {
             <div className={styles.guidanceCard}>
               <div>
                 <p>{'快速开始'}</p>
-                <p style={{height:"52px"}}>
+                <p style={{height: "52px"}}>
                   {'安装依赖、引入组件，即可使用'}
                 </p>
                 <a href={'/guide/quick-start'}>
                   {'查看详情'} 
-                  <div style={{display:"inline-block",width:"16px", height:"16px", backgroundImage:'url(https://gw.alipayobjects.com/zos/bmw-prod/5f07b426-aa80-47ea-9ad5-9f795deb5556.svg)'}}></div>
+                  <div style={{display: "inline-block", width: "16px", height: "16px", backgroundImage: 'url(https://gw.alipayobjects.com/zos/bmw-prod/5f07b426-aa80-47ea-9ad5-9f795deb5556.svg)'}}></div>
                 </a>
               </div>
               <img
@@ -60,7 +60,7 @@ export default () => {
                   {'我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下'}
                 </p>
                 <a href={'/guide/faq'}>FAQ
-                <div style={{display:"inline-block",width:"16px", height:"16px", backgroundImage:'url(https://gw.alipayobjects.com/zos/bmw-prod/5f07b426-aa80-47ea-9ad5-9f795deb5556.svg)'}}></div>
+                <div style={{display: "inline-block", width: "16px", height: "16px", backgroundImage: 'url(https://gw.alipayobjects.com/zos/bmw-prod/5f07b426-aa80-47ea-9ad5-9f795deb5556.svg)'}}></div>
                 </a>
               </div>
               <img
@@ -91,7 +91,7 @@ export default () => {
             <li>钉钉交流反馈群</li>
             <li>
               <img
-                src="https://gw.alipayobjects.com/mdn/rms_e06820/afts/img/A*zqzbSY14uy8AAAAAAAAAAAAAARQnAQ"
+                src="https://gw.alipayobjects.com/mdn/rms_402983/afts/img/A*y5XdQ6fdklYAAAAAAAAAAAAAARQnAQ"
                 alt='ding-group'
                 width={140}
               />

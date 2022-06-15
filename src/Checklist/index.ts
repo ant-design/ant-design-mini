@@ -1,23 +1,29 @@
 import { ChecklistDefaultProps } from './props';
+import controlled from '../mixins/controlled'
 
 Component({
   props: ChecklistDefaultProps,
-  data: {
-    value: []
-  },
+  mixins: [controlled()],
   didMount() {
-    const { defaultValue } = this.props;
-    this.setData({
-      value: defaultValue
-    });
+    const { multiple, value } = this.props
+    if (multiple && !Array.isArray(value)) {
+      this.setData({
+        cValue: []
+      })
+    }
   },
   methods: {
-    onChange(v) {
-      const { onChange } = this.props;
-      this.setData({
-        value: v
-      });
-      onChange && onChange.call(this.props, v);
+    onChange(value) {
+      const { multiple, options } = this.props
+      let items = null
+      if (multiple && Array.isArray(value)) {
+        items = value.map(v => {
+          return options.filter(o => o.value === v)?.[0]
+        })
+      } else {
+        items =  options.filter(o => o.value === value)?.[0];
+      }
+      this.cOnChange(value, items)
     }
   },
 });
