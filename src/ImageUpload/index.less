@@ -1,0 +1,78 @@
+@import (reference) "./variable.less";
+
+@imageUploadPrefix: amd-image-upload;
+
+.@{imageUploadPrefix} {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-show {
+    position: relative;
+  }
+
+  &-image {
+    margin: @image-upload-common-margin;
+    border-radius: @corner-radius-md;
+  }
+
+  &-close {
+    width: @image-upload-close-tip-width;
+    height: @image-upload-close-tip-height;
+    position: absolute;
+    z-index: 99;
+    top: @image-upload-size-base * -1;
+    right: 0;
+    background: url(@image-upload-close-tip-url) no-repeat;
+    background-size: cover;
+  }
+
+  &-add-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: @image-upload-add-image-container-margin;
+    background-color: @color-divider-background;
+    border-radius: @corner-radius-md;
+  }
+
+  &-cover {
+    position: absolute;
+    margin: @image-upload-common-margin;
+    border-radius: @corner-radius-md;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-loading {
+      text-align: center;
+
+      &-icon {
+        margin: 0 auto;
+        width: 48rpx;
+        height: 48rpx;
+        font-size: 48rpx;
+      }
+
+      &-text {
+        color: #fff;
+        font-size: 24rpx;
+        margin-top: 8rpx;
+      }
+    }
+
+    &-error {
+      text-align: center;
+
+      &-icon {
+        font-size: 48rpx;
+      }
+
+      &-text {
+        color: #fff;
+        font-size: 24rpx;
+        margin-top: 8rpx;
+      }
+    }
+  }
+}
