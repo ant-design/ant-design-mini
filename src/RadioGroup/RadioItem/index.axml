@@ -6,7 +6,7 @@
  
 </template>
 <label class="amd-radio-item">
-  <view hidden="{{hidden}}">
+  <view hidden="{{hidden}}" class="amd-radio-item-container">
     <list-item>
       <view class="amd-radio-item-wrap {{className ? className : ''}}"
         slot="image">
