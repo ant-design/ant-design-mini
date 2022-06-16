@@ -16,14 +16,14 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 74 * @rpx;
-        padding-left: 24 * @rpx;
+        height: 70 * @rpx;
+        padding: 0 24 * @rpx;
         color: #999;
-        font-size: 30 * @rpx;
+        font-size: 26 * @rpx;
         background: #f5f5f5;
 
         &.firstBorder {
-          border-top: 1rpx solid #eee;
+          border-top: 1 * @rpx solid #eee;
         }
 
         &.sticky {
@@ -33,8 +33,6 @@
       }
 
       &-item {
-        display: flex;
-        align-items: center;
         padding-left: 24 * @rpx;
         height: 96 * @rpx;
 
@@ -44,9 +42,11 @@
         }
 
         &-text {
+          padding: 24 * @rpx 24 * @rpx 24 * @rpx 0;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          line-height: 48 * @rpx;
 
           &.notFirstBorder {
             border-top: 1 * @rpx solid #eee;
@@ -59,7 +59,7 @@
 
         &-hover {
           background: #eee;
-          opacity: 0.4;
+          opacity: 0.7;
         }
       }
     }
@@ -67,7 +67,8 @@
 
   &-sidebar {
     position: absolute;
-    top: 160 * @rpx;
+    top: 50%;
+    transform: translateY(-50%);
     right: 0;
     overflow: visible;
     z-index: 99;
