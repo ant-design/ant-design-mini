@@ -1,5 +1,5 @@
 <view class="amd-container {{className ? className : ''}}">
-  <header titleImage="{{titleImage}}" title="{{title}}" headerInBox="{{headerInBox}}">
+  <header a:if="{{title || titleImage}}" titleImage="{{titleImage}}" title="{{title}}" headerInBox="{{headerInBox}}">
     <slot name="headerRight"></slot>
   </header>
   <view class="amd-container-content {{ headerInBox ? 'amd-container-content-withHalfRadius' : 'amd-container-content-withRadius' }} {{multiBox ? 'amd-container-content-multibox' : ''}}">
