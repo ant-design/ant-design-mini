@@ -8,11 +8,7 @@ import {
   getDateByValue,
   getValueByDate,
   getValidValue,
-} from '../DatePicker/util';
-export {
-  getRangeData,
-  getDateByValue,
-  getValueByDate,
+  isEqualDate,
 } from '../DatePicker/util';
 
 Component({
@@ -22,116 +18,178 @@ Component({
 
   data: {
     cValue: null,
-    currentValue: [], // 当前开始/结束的选中值，控制picker-view的选中
-    data: [], // 当前可选项，切换开始/结束会变化
+    currentValue: [], // 当前picker选中值，didmound、弹窗打开、切换开始结束、picker变化时更新
+    columns: [], // 当前可选项，didmound、弹窗打开、切换开始结束、picker变化时更新
     pickerType: 'start' as 'start' | 'end',
-    currentStartValue: null, // 展开时开始时间，date格式，有value，则取value[0]，否则取当天，需要判断当天是否在可选范围内
-    currentEndValue: null, // 展开时开始时间，date格式，有value，则取value[1]，否则取开始时间
+    currentStartDate: null, // 展开时开始时间，date格式，有value，则取value[0]，否则取当天，需要判断当天是否在可选范围内
+    currentEndDate: null, // 展开时开始时间，date格式，有value，则取value[1]，否则取开始时间
+    forceUpdate: 0, // 强制更新picker组件，已知需处理的情况：value超限，但是需要更新format，由于picker的参数均未变化，无法触发picker的渲染
   },
 
   didMount() {
-    const { value, min, max, precision } = this.props;
-    if (value && value[0] && value[1] && value[1] >= value[0]) {
-      if ((!min || value[0] >= min) && (!max || value[1] <= max)) {
-        this.setData({
-          cValue: value,
-          currentValue: getValueByDate(value[0], precision),
-        });
-      } else {
-        console.warn('invalid value');
+    this._visible = false;
+    const cValue = this.getValidPropValue();
+    this.setData({
+      cValue,
+    });
+  },
+  didUpdate(prevProps) {
+    if (
+      !isEqualDate(prevProps.value?.[0], this.props.value?.[0]) ||
+      !isEqualDate(prevProps.value?.[1], this.props.value?.[1])
+    ) {
+      const cValue = this.getValidPropValue();
+      this.setData({
+        cValue,
+        forceUpdate: this.data.forceUpdate + 1,
+      });
+      if (this._visible) {
+        // 展开状态才更新picker的数据，否则下次triggerVisible触发
+        this.setCurrentValue();
       }
     }
-    this.generateData();
   },
-
   methods: {
+    // 判断value是否有效
+    getValidPropValue() {
+      const { value, min, max } = this.props;
+      let cValue = null;
+      if (
+        value &&
+        value[0] &&
+        (!min || value[0] >= min) &&
+        (!max || value[0] <= max)
+      ) {
+        cValue = [value[0]];
+      }
+      if (
+        value &&
+        value[1] &&
+        (!min || value[1] >= min) &&
+        (!max || value[1] <= max)
+      ) {
+        if (cValue) {
+          cValue.push(value[1]);
+        } else {
+          cValue = [null, value[1]];
+        }
+      }
+      return cValue;
+    },
     computed() {
-      const { currentStartValue, currentEndValue, pickerType } = this.data;
+      const { currentStartDate, currentEndDate, pickerType } = this.data;
       const { format } = this.props;
       if (pickerType)
         return {
-          currentStartValueStr: currentStartValue
-            ? dayjs(currentStartValue).format(format)
+          currentStartValueStr: currentStartDate
+            ? dayjs(currentStartDate).format(format)
             : '',
-          currentEndValueStr: currentEndValue
-            ? dayjs(currentEndValue).format(format)
+          currentEndValueStr: currentEndDate
+            ? dayjs(currentEndDate).format(format)
             : '',
         };
     },
     getMin() {
       const { min } = this.props;
-      const { pickerType, currentStartValue } = this.data;
+      const { pickerType, currentStartDate, currentEndDate } = this.data;
       let realMin = min;
       if (pickerType === 'end') {
-        if (currentStartValue) {
-          realMin = currentStartValue;
+        if (currentStartDate) {
+          realMin = currentStartDate;
         }
         if (
-          currentStartValue &&
+          currentStartDate &&
           min &&
-          dayjs(currentStartValue).isAfter(dayjs(min))
+          dayjs(currentStartDate).isAfter(dayjs(min))
         ) {
-          realMin = currentStartValue;
+          realMin = currentStartDate;
         }
       }
       //@ts-ignore
-      return realMin ? dayjs(realMin) : dayjs().subtract(10, 'year');
+      let res = realMin ? dayjs(realMin) : dayjs().subtract(10, 'year');
+      // 从end切回start的情况，end取了打开时的十年前，min再取当前时间十年前会出现>max的情况
+      if (currentEndDate && res.isAfter(currentEndDate)) {
+        res = dayjs(currentEndDate);
+      }
+      return res;
     },
 
     getMax() {
       const { max } = this.props;
-      const { pickerType, currentEndValue } = this.data;
+      const { pickerType, currentEndDate } = this.data;
       let realMax = max;
       if (pickerType === 'start') {
-        if (currentEndValue) {
-          realMax = currentEndValue;
+        if (currentEndDate) {
+          realMax = currentEndDate;
         }
         if (
-          currentEndValue &&
+          currentEndDate &&
           max &&
-          dayjs(currentEndValue).isBefore(dayjs(max))
+          dayjs(currentEndDate).isBefore(dayjs(max))
         ) {
-          realMax = currentEndValue;
+          realMax = currentEndDate;
         }
       }
       //@ts-ignore
       return realMax ? dayjs(realMax) : dayjs().add(10, 'year');
     },
-    /**
-     * 每次打开弹窗，重置开始、结束、picker选中值
-     */
+    // didUpdate、弹窗打开、切换pickerType触发
     setCurrentValue() {
-      const { min, max, precision } = this.props;
-      const { cValue } = this.data;
-      let currentStartValue = null;
-      let currentEndValue = null;
-      let currentValue = [];
-      if (cValue) {
-        currentStartValue = cValue[0];
-        currentEndValue = cValue[1];
-        currentValue = getValueByDate(cValue[0], precision);
-      } else {
-        currentStartValue = new Date();
-        if (
-          (min && dayjs(currentStartValue).isBefore(dayjs(min))) ||
-          (max && dayjs(currentStartValue).isAfter(dayjs(max)))
-        ) {
-          currentStartValue = min;
+      const { _visible } = this; // 隐藏状态下从CValue触发，展开状态使用当前数据
+      const { precision } = this.props;
+      const { cValue, pickerType } = this.data;
+      let { currentStartDate, currentEndDate } = this.data;
+      const currentStartDateByCValue = cValue?.[0] || null;
+      const currentEndDateByCValue = cValue?.[1] || null;
+
+      // 展开状态，说明在切换pickerType
+      if (_visible) {
+        if (pickerType === 'start') {
+          // currentStartDate 无需变化
+        } else {
+          // pickerType=end start已存在
+          // 结束时间默认选中开始
+          if (!currentEndDate) {
+            currentEndDate = currentStartDate;
+          }
         }
-        currentValue = getValueByDate(currentStartValue, precision);
+      } else {
+        // 否则是在从cValue初始化
+        currentStartDate = currentStartDateByCValue;
+        currentEndDate = currentEndDateByCValue;
+        // 开始默认取优先取当前时间，不在时间范围内取开始时间
+        if (!currentStartDate) {
+          const min = this.getMin().toDate();
+          const { max } = this.props;
+          currentStartDate = new Date();
+          console.log(min,currentStartDate)
+          if (
+            (min && currentStartDate < min) ||
+            (max && currentStartDate > max) ||
+            (currentEndDateByCValue &&
+              currentStartDate > currentEndDateByCValue)
+          ) {
+            currentStartDate = min;
+          }
+        }
       }
-      this.setData({ currentStartValue, currentEndValue, currentValue });
+      const currentValue = getValueByDate(
+        pickerType === 'start' ? currentStartDate : currentEndDate,
+        precision
+      );
+      this.setData({ currentStartDate, currentEndDate, currentValue });
+      this.generateData();
     },
     /**
-     * 生成当前可选项，展开时、切换picker-view时、切换开始/结束时 触发
+     * 生成选项数据，didmound、picker change、打开弹窗、切换picker type触发
      */
     generateData() {
       const { precision } = this.props;
-      const { data, currentValue } = this.data;
+      const { columns, currentValue } = this.data;
       const min = this.getMin();
       const max = this.getMax();
       if (max < min) {
-        this.setData({ data: [] });
+        this.setData({ columns: [] });
         return;
       }
       let currentPickerDay = dayjs();
@@ -142,9 +200,9 @@ Component({
         currentPickerDay = min;
       }
 
-      const newData = getRangeData(precision, min, max, currentPickerDay);
-      if (!equal(data, newData)) {
-        this.setData({ data: newData });
+      const newColumns = getRangeData(precision, min, max, currentPickerDay);
+      if (!equal(columns, newColumns)) {
+        this.setData({ columns: newColumns });
       }
     },
 
@@ -167,9 +225,9 @@ Component({
         currentValue: selectedIndex,
       };
       if (pickerType === 'start') {
-        newData.currentStartValue = date;
+        newData.currentStartDate = date;
       } else {
-        newData.currentEndValue = date;
+        newData.currentEndDate = date;
       }
       this.setData(newData);
       this.generateData();
@@ -192,29 +250,31 @@ Component({
 
     onOk() {
       const { format, precision } = this.props;
-      const { currentStartValue, currentEndValue } = this.data;
-      let cValue = null;
-      if (currentStartValue && currentEndValue) {
-        cValue = [currentStartValue, currentEndValue];
-      }
+      const { currentStartDate, currentEndDate } = this.data;
+      const cValue = [currentStartDate, currentEndDate];
       this.setData({ cValue });
       if (this.props.onOk) {
         this.props.onOk(
           cValue,
-          cValue ? cValue.map((v) => dayjs(v).format(format)) : null,
-          cValue ? cValue.map((v) => getValueByDate(v, precision)) : null
+          cValue.map((v) => dayjs(v).format(format)),
+          cValue.map((v) => getValueByDate(v, precision))
         );
       }
     },
 
     onFormat() {
-      const { onFormat, format, precision } = this.props;
+      const { onFormat, format, precision, value } = this.props;
       const { cValue } = this.data;
+      const realValue = cValue && cValue[0] && cValue[1] ? cValue : value;
       return onFormat.call(
         this,
-        cValue,
-        cValue ? cValue.map((v) => dayjs(v).format(format)) : null,
-        cValue ? cValue.map((v) => getValueByDate(v, precision)) : null
+        realValue,
+        realValue
+          ? realValue.map((v) => (v ? dayjs(v).format(format) : null))
+          : null,
+        realValue
+          ? realValue.map((v) => (v ? getValueByDate(v, precision) : null))
+          : null
       );
     },
     /**
@@ -230,24 +290,16 @@ Component({
       if (onTriggerPicker) {
         onTriggerPicker(visible);
       }
+      this._visible = visible;
     },
-    onChangeCurrentPicker(e) {
+    onChangeCurrentPickerType(e) {
       const { type } = e.target.dataset;
-      let { pickerType, currentEndValue, currentStartValue } = this.data;
-      const { precision } = this.props;
+      const { pickerType } = this.data;
       if (type !== pickerType) {
-        if (type === 'end') {
-          if (!currentEndValue) {
-            currentEndValue = currentStartValue;
-          }
-        }
-        let newDate = type === 'start' ? currentStartValue : currentEndValue;
         this.setData({
           pickerType: type,
-          currentEndValue,
-          currentValue: newDate ? getValueByDate(newDate, precision) : [],
         });
-        this.generateData();
+        this.setCurrentValue();
       }
     },
   },

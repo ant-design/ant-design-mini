@@ -1,9 +1,8 @@
 <picker 
     className="amd-date-picker"
     popClassName="amd-date-picker-popup"
-    data="{{data}}"
-    value="{{pikerValue}}"
-    controlled
+    data="{{columns}}"
+    value="{{currentValue}}"
     disabled="{{disabled}}"
     title="{{title}}" 
     placeholder="{{placeholder}}"
@@ -17,6 +16,7 @@
     onDismiss="onDismiss"
     onOk="onOk"
     onTriggerPicker="onTriggerPicker"
+    forceUpdate="{{forceUpdate}}"
     onFormat="onFormat">
     <slot name="title" slot="title"/>
 </picker>

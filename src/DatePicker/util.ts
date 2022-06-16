@@ -1,4 +1,4 @@
-import { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 
 function getArray(start, end, suffix) {
   const res = [];
@@ -45,10 +45,8 @@ function getMonths(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
 }
 
 function getDates(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
-  const year = currentPicker.year();
-  const month = currentPicker.month();
   let start = 1;
-  let end = new Date(year, month + 1, 0).getDate();
+  let end = currentPicker.daysInMonth();
   if (currentPicker.clone().set('date', start).isBefore(min)) {
     start = min.date();
   }
@@ -163,7 +161,7 @@ export function getValueByDate(
 }
 
 /**
- * 是否有效日期，主要处理月份对应可选日期
+ * 是否有效日期，主要处理月份对应可选日期，避免当前时间日期超出当月最后一天
  * @param value
  */
 export function getValidValue(value) {
@@ -175,4 +173,16 @@ export function getValidValue(value) {
     }
   }
   return value;
+}
+
+/**
+ * 比较两个date是否是同一时间
+ * @param date1
+ * @param date2
+ */
+export function isEqualDate(date1, date2) {
+  if (date1 instanceof Date && date2 instanceof Date) {
+    return dayjs(date1).isSame(date2);
+  }
+  return date1 === date2;
 }

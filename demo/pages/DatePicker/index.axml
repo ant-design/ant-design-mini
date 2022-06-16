@@ -35,8 +35,8 @@
         请选择时间
         <date-picker 
             slot="extra"
-            precision="second"
-            format="YYYY-MM-DD HH:mm:ss"
+            precision="minute"
+            format="YYYY-MM-DD HH:mm"
             placeholder="选择"
             onOk="handleOk"/>
     </list-item>

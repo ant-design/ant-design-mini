@@ -1,65 +1,74 @@
 import { DatePickerDefaultProps } from './props';
 import dayjs from 'dayjs';
 import formMixin from '../mixins/form';
-import computed from '../mixins/computed';
 import equal from 'fast-deep-equal';
 import {
   getRangeData,
   getDateByValue,
   getValueByDate,
   getValidValue,
+  isEqualDate,
 } from './util';
 
 Component({
-  mixins: [computed, formMixin({ trigger: 'onOk' })],
+  mixins: [formMixin({ trigger: 'onOk' })],
 
   props: DatePickerDefaultProps,
 
   data: {
-    currentValue: [],
-    data: [],
+    currentValue: [], // 当前picker选中值，didmound、弹窗打开、picker变化时更新
+    columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
     cValue: null,
+    forceUpdate: 0, // 强制更新picker组件，已知需处理的情况：value超限，但是需要更新format，由于picker的参数均未变化，无法触发picker的渲染
   },
 
   didMount() {
-    const { value, min, max, precision } = this.props;
-    if (value) {
-      if (value instanceof Date) {
-        if ((!min || value >= min) && (!max || value <= max)) {
-          this.setData({
-            cValue: value,
-            currentValue: getValueByDate(value, precision),
-          });
-        } else {
-          console.warn('invalid value');
-        }
-      } else {
-        console.warn('invalid value');
+    this._visible = false;
+    const cValue = this.getValidPropValue();
+    this.setData({
+      cValue,
+    });
+  },
+  didUpdate(prevProps) {
+    if (!isEqualDate(prevProps.value, this.props.value)) {
+      const cValue = this.getValidPropValue();
+      this.setData({
+        cValue,
+        forceUpdate: this.data.forceUpdate + 1,
+      });
+      // 展开状态才更新picker的数据，否则下次triggerVisible触发
+      if (this._visible) {
+        this.setCurrentValue();
       }
     }
-    this.generateData();
   },
-
   methods: {
-    computed() {
-      const { data, currentValue } = this.data;
+    // 当前选中的picker值，处理无cValue时的情况，优先取当前时间，不在时间范围内取开始时间
+    getCurrentValueWithCValue() {
+      const cValue = this.getValidPropValue();
       const { min, max, precision } = this.props;
-      // currentValue为空为当前时间
-      let pikerValue = [];
-      if (data && data.length) {
-        if (currentValue && currentValue.length) {
-          pikerValue = currentValue;
+      if (cValue) {
+        return getValueByDate(cValue, precision);
+      } else {
+        const now = new Date();
+        if (
+          !(min && dayjs(now).isBefore(dayjs(min))) &&
+          !(max && dayjs(now).isAfter(dayjs(max)))
+        ) {
+          return getValueByDate(now, precision);
         } else {
-          const now = new Date();
-          if (
-            !(min && dayjs(now).isBefore(dayjs(min))) &&
-            !(max && dayjs(now).isAfter(dayjs(max)))
-          ) {
-            pikerValue = getValueByDate(now, precision);
-          }
+          return getValueByDate(this.getMin().toDate(), precision);
         }
       }
-      return { pikerValue };
+    },
+    // 判断value是否有效
+    getValidPropValue() {
+      const { min, max, value } = this.props;
+      let cValue = null;
+      if (value && (!min || value >= min) && (!max || value <= max)) {
+        cValue = value;
+      }
+      return cValue;
     },
     getMin() {
       const { min } = this.props;
@@ -73,22 +82,22 @@ Component({
       return max ? dayjs(max) : dayjs().add(10, 'year');
     },
     /**
-     * 每次打开弹窗，重置开始、结束、picker选中值
+     * didUpdate、弹窗打开触发
      */
     setCurrentValue() {
-      const { cValue } = this.data;
-      const { precision } = this.props;
       this.setData({
-        currentValue: cValue ? getValueByDate(cValue, precision) : [],
+        currentValue: this.getCurrentValueWithCValue(),
       });
+      this.generateData();
     },
+    // 生成选项数据，didmound、picker change、打开弹窗触发
     generateData() {
       const { precision } = this.props;
-      const { data, currentValue } = this.data;
+      const { columns, currentValue } = this.data;
       const min = this.getMin();
       const max = this.getMax();
       if (max < min) {
-        this.setData({ data: [] });
+        this.setData({ columns: [] });
         return;
       }
       let currentPickerDay = dayjs();
@@ -98,10 +107,9 @@ Component({
       if (currentPickerDay < min || currentPickerDay > max) {
         currentPickerDay = min;
       }
-      const newData = getRangeData(precision, min, max, currentPickerDay);
-      console.log(newData);
-      if (!equal(data, newData)) {
-        this.setData({ data: newData });
+      const newColumns = getRangeData(precision, min, max, currentPickerDay);
+      if (!equal(columns, newColumns)) {
+        this.setData({ columns: newColumns });
       }
     },
     onChange(selectedIndex) {
@@ -145,17 +153,19 @@ Component({
     },
 
     onFormat(values) {
-      const { onFormat, format } = this.props;
+      const { onFormat, format, value } = this.props;
       const { cValue } = this.data;
+      const realValue = cValue || value;
       return onFormat.call(
         this,
-        cValue,
-        cValue ? dayjs(cValue).format(format) : null,
+        realValue,
+        realValue ? dayjs(realValue).format(format) : null,
         values
       );
     },
 
     onTriggerPicker(visible) {
+      this._visible = visible;
       const { onTriggerPicker } = this.props;
       if (visible) {
         this.setCurrentValue();

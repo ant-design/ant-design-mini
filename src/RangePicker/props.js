@@ -8,8 +8,8 @@ export const DateRangePickerDefaultProps = {
   endPlaceholder: '未选择',
   onFormat(values, valueStrs) {
     const { format, splitCharacter } = this.props;
-    if (format && valueStrs) {
-      return valueStrs.join(`${splitCharacter}` );
+    if (format && valueStrs && valueStrs[0] && valueStrs[1]) {
+      return valueStrs.join(`${splitCharacter}`);
     }
     return '';
   },
