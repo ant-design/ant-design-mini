@@ -1,6 +1,6 @@
 Page({
   data: {
-    defaultValue: [1, 2],
+    value: [1, 2],
     options_1: [
       {
         value: 1,
