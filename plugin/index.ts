@@ -39,6 +39,40 @@ function getHerboxUrl(opts) {
   return `${CDN_URL}?view=preview&defaultPage=${page}&defaultOpenedFiles=${page}&mode=snippets&theme=light`;
 }
 
+export function getBlockDepsFiles(
+  pkgName: string,
+  blockRootPath: string,
+  parentPath = '',
+) {
+  const files = fs.readdirSync(path.join(blockRootPath, parentPath));
+  return files.reduce((r, file) => {
+    const fileRltPath = path.join(parentPath, file);
+    const fileAbsPath = path.join(blockRootPath, fileRltPath);
+
+    if (fs.lstatSync(fileAbsPath).isDirectory()) {
+      Object.assign(r, getBlockDepsFiles(blockRootPath, fileRltPath));
+    } else if (/\.(ts|js|axml|acss)$/.test(fileAbsPath)) {
+      r[fileRltPath] = {
+        path: fileAbsPath,
+      };
+    } else if (/\.json$/.test(fileAbsPath)) {
+      r[fileRltPath] = {
+        path: fileAbsPath,
+        content: CorrentPathInJson(fileAbsPath, pkgName),
+      };
+    }
+    return r;
+  }, {} as Record<string, { path: string; content?: string }>);
+}
+function CorrentPathInJson(jsonPath: string, pkgName: string): string {
+  try {
+    const content = fs.readFileSync(jsonPath, 'utf-8').toString();
+    return content.replace(/"[^"]*?src\//g, `"${pkgName}/es/`);
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 export function parseAlias(
   cwd: string,
   src: string,
