@@ -1,19 +1,18 @@
 import get from 'lodash/get';
 import debounce from 'lodash/debounce';
 import isEqual from 'lodash/isEqual';
-import { Data, Props, Methods, Instance } from './props.d';
+import { BladeViewDefaultProps } from './props';
 
-const DEVIATION = 10;
+/** 每个sideBarItem的高度 */
+const DEVIATION = 8;
 
-Component<Data, Props, Methods, Instance>({
-  props: {
-    scrollToKey: undefined,
-    data: [],
-    sticky: true,
-    selectValue: undefined,
-    onSelectItem: () => { },
+Component({
+  props: BladeViewDefaultProps,
+  data: {
+    currentKey: '',
+    scrollTop: 0,
+    isTouchingSideBar: false
   },
-  data: { currentKey: '', scrollTop: 0, isTouchingSideBar: false },
   didMount() {
     this.computeTopRange();
     this.computeSideBar();
@@ -64,17 +63,17 @@ Component<Data, Props, Methods, Instance>({
           this.sidebarDistance = res[0].map((item) => ({ top: item.top, key: item.dataset.key }));
         });
     },
+    setNotScrolling() {
+      this.isScrolling = false;
+    },
     // 滚动监听
     onScroll(e) {
       // 判断是否正在滚动
       this.isScrolling = true;
-      this.debounce(() => {
-        this.isScrolling = false;
-      });
+      this.debounce(this.setNotScrolling);
       const { scrollTop } = e.detail;
       // 标题和sidebar联动
       const currentKey = get(
-        //为什么要-10，真机上会有问题，试出来的-10就可以了
         this.topRange.find((item) => scrollTop < item.top - DEVIATION),
         'key',
       );
@@ -97,7 +96,6 @@ Component<Data, Props, Methods, Instance>({
     },
     onTouchMove(e) {
       const currentY = e.changedTouches[0].pageY;
-      // 这里加+10 也是试出来的，解决真机上的问题
       const moveOnElement =
         this.sidebarDistance.find((item) => currentY < item.top + DEVIATION) ||
         this.sidebarDistance[this.sidebarDistance.length - 1];
