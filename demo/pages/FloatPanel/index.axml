@@ -1,0 +1,27 @@
+<map />
+<view class="buttonWrapper">
+	<button class="button" onTap="handleToggleMask" inlineSize="small" inline>
+		{{button1Text}}
+	</button>
+</view>
+
+<float-panel
+className="wrapper"
+maxHeight="{{0.9}}"
+withMask="{{withMask}}"
+>
+<view slot="header" class="title">
+	<text>
+		头部区域
+	</text>
+</view> 
+<view class="content" slot="content">
+	<list radius="{{false}}">
+		<list-item class="noLine" a:for="{{isvList1}}">{{index}}</list-item>
+	</list>
+</view>
+<view slot="footer" class="footer">
+	底部内容
+</view>
+</float-panel>
+

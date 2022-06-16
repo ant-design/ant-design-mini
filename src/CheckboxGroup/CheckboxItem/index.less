@@ -4,61 +4,96 @@
 @checkBoxItemPrefix: amd-checkbox-item;
 
 .@{checkBoxItemPrefix} {
-  flex: 1 100%;
   display: flex;
   .amd-list-item {
     flex: 1 100%;
-    &-image-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .amd-checkbox {
+      margin-right: 16 * @rpx;
     }
-
-    &-content-container {
-      padding-left: 16 * @rpx;
-    }
-
     &-content-main {
       display: flex;
       align-items: center;
     }
-
-    &-fake {
-      .amd-icon {
-        font-size: 24 * @rpx;
-        font-weight: 800;
-      }
-      &-disabled {
-        &-checked {
-          background-color: #f5f5f5;
-          border-color: #d0d0d0;
-          color: #b7b7b7;
-        }
-        &-not-checked {
-          background-color: #f5f5f5;
-          border-color: #d0d0d0;
-          color: #f5f5f5;
-        }
-      }
-      &-not-disabled {
-        &-checked {
-        background-color: #1677ff;
-        border-color: #1677ff;
-        color: white;
-        }
-        &-not-checked {
-          color: white;
-        }
-      }
-    }
-    .amd-checkbox-item-content {
-      &-disabled {
-        opacity: 0.4;
-      }
+    .amd-checkbox-disabled ~ .amd-checkbox-item-content {
+      opacity: 0.4;
     }
   }
+}
 
-  .amd-list-item:last-child .line {
-    display: inline;
+@checkBoxPrefix: amd-checkbox;
+
+.@{checkBoxPrefix} {
+  position: relative;
+  display: inline-block;
+  width: @checkbox-size;
+  height: @checkbox-size;
+  &-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+  }
+  &-fake {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+    border: @checkbox-border-width solid @checkbox-border-color;
+    border-radius: @checkbox-corner-radius;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: background-color 200ms ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-image {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    &-icon {
+      font-size: 48 * @rpx;
+    }
+    &-disabled {
+      &-checked {
+        background-color: @checkbox-disabled-background;
+        border: none;
+        color: #b7b7b7;
+        &:not(.amd-checkbox-fake-custom) {
+          border: @checkbox-border-width solid #d0d0d0;
+          .amd-checkbox-fake-icon {
+            font-size: 26 * @rpx;
+            color: #aaa;
+          }
+        }
+      }
+      &-not-checked {
+        background-color: @checkbox-disabled-background;
+        border-color: #d0d0d0;
+        color: #f5f5f5;
+      }
+    }
+    &-not-disabled {
+      &-checked {
+        border: none;
+        color: @color-fill-primary;
+      }
+      &-not-checked {
+        color: #d0d0d0;
+      }
+    }
+    &-custom {
+      border: none;
+      background-color: #fff;
+    }
   }
 }

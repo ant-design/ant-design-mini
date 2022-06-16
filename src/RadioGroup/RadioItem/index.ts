@@ -8,13 +8,15 @@ Component({
     _disabled: false,
   },
   didMount() {
-    componentDisabled.onUpdate(this.props.uid,
+    const { uid } = this.props;
+    const key = `${this.$page.$id}-${uid}`;
+    componentDisabled.onUpdate(key,
       (this.disabledListener = (d) => {
         this.setData({
           _disabled: this.props.disabled || d,
         });
       }));
-    componentValue.onUpdate(this.props.uid,
+    componentValue.onUpdate(key,
       (this.checkedListener = (v) => {
         if (v === this.props.value) {
           this.setData({
@@ -28,14 +30,18 @@ Component({
       }));
   },
   didUnmount() {
-    componentValue.offUpdate(this.props.uid, this.checkedListener);
-    componentDisabled.offUpdate(this.props.uid, this.disabledListener);
+    const { uid } = this.props;
+    const key = `${this.$page.$id}-${uid}`;
+    componentValue.offUpdate(key, this.checkedListener);
+    componentDisabled.offUpdate(key, this.disabledListener);
   },
   methods: {
     onItemChange(v) {
+      const { uid } = this.props;
+      const key = `${this.$page.$id}-${uid}`;
       const { value } = v.detail;
       if (value) {
-        componentContext.update(this.props.uid, this.props.value);
+        componentContext.update(key, this.props.value);
       }
     },
   },

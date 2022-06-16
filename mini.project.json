@@ -1,8 +1,14 @@
 {
+  "format": 2,
+  "compileOptions": {
+    "typescript": {
+      "transpileOnly": true
+    },
+    "less": true,
+    "component2": true,
+    "enableNodeModuleBabelTransform": true
+  },
+  "uploadExclude": ["dist/**/*"],
   "enableAppxNg": true,
-  "miniprogramRoot": "demo",
-  "axmlStrictCheck": true,
-  "component2": true,
-  "exclude": ["dist/**/*"],
-  "enableNodeModuleBabelTransform": true
+  "miniprogramRoot": "demo"
 }

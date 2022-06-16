@@ -66,6 +66,11 @@ export const componentList = [
         nameZN: ' 标签',
         path: '/pages/Tag/index',
       },
+      {
+        name: 'FloatPanel',
+        nameZN: '滑动面板',
+        path: '/pages/FloatPanel/index',
+      },
     ],
   },
   {
@@ -82,7 +87,7 @@ export const componentList = [
         path: '/pages/CheckboxGroup/index',
       },
       {
-        name: 'CheckList',
+        name: 'Checklist',
         nameZN: '可勾选列表',
         path: '/pages/Checklist/index',
       },
@@ -175,7 +180,17 @@ export const componentList = [
         name: 'Result',
         nameZN: '操作结果',
         path: '/pages/Result/index',
-      }
+      },
+      {
+        name: 'Empty',
+        nameZN: '空状态',
+        path: '/pages/Empty/index',
+      },
+      {
+        name: 'Toast',
+        nameZN: '轻提示',
+        path: '/pages/Toast/index',
+      },
     ],
   },
   {
