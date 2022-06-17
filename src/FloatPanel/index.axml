@@ -17,4 +17,4 @@
     <slot name="footer" />
   </view>
 </view>
-<view a:if="{{withMask}}" class="amd-floatpanel-background" catchTap="{{sjs.handleMaskTap}}"></view>
+<view a:if="{{withMask}}" data-id="{{$id}}" class="amd-floatpanel-background" catchTap="{{sjs.handleMaskTap}}"></view>
