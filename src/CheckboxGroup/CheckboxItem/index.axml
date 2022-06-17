@@ -7,19 +7,19 @@
 </template>
 
 <label class="amd-checkbox-item {{className ? className : ''}}">
-  <view hidden="{{hidden}}">
-  <list-item>
-    <view class="amd-checkbox {{_sjs.isDisabled(disabled,_disabled)?'amd-checkbox-disabled':''}} {{_checked?'amd-checkbox-checked':''}} {{className ? className : ''}} ">
-      <checkbox
-        class="amd-checkbox-base"
-        controlled="{{controlled}}"
-        color="{{color}}"
-        id="{{id ? id : $id}}"
-        disabled="{{_sjs.isDisabled(disabled,_disabled)}}"
-        onChange="onItemChange"
-        checked="{{_checked}}"
-        value="{{value}}"
-      />
+  <view hidden="{{hidden}}" class="amd-checkbox-item-container">
+    <list-item>
+      <view class="amd-checkbox {{_sjs.isDisabled(disabled,_disabled)?'amd-checkbox-disabled':''}} {{_checked?'amd-checkbox-checked':''}} {{className ? className : ''}} ">
+        <checkbox
+          class="amd-checkbox-base"
+          controlled="{{controlled}}"
+          color="{{color}}"
+          id="{{id ? id : $id}}"
+          disabled="{{_sjs.isDisabled(disabled,_disabled)}}"
+          onChange="onItemChange"
+          checked="{{_checked}}"
+          value="{{value}}"
+        />
         <view 
           style="{{!_sjs.isDisabled(disabled,_disabled)&&_checked&&color?'color:'+color + '; border-color:' + color:''}}"
           class="amd-checkbox-fake 
