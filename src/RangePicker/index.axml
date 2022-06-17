@@ -5,7 +5,7 @@
         data-type="{{type}}">
         <view a:if="{{value}}" class="amd-range-picker-selector-item-value">{{value}}</view>
         <view a:else class="amd-range-picker-selector-item-placeholder">{{placeholder}}</view>
-        <amd-icon type="CalendarOutline" className="amd-range-picker-selector-item-icon"/>
+        <amd-icon type="CalendarOutline" className="amd-range-picker-selector-item-icon" a:if="{{precision==='year'||precision==='month'||precision==='day'||precision==='hour'}}"/>
     </view>
 </template>
 <picker 
@@ -30,11 +30,11 @@
     forceUpdate="{{forceUpdate}}"
     onFormat="onFormat">
     <view class="amd-range-picker-selector" slot="content-header">
-      <template is="selector" data="{{placeholder:startPlaceholder,active:pickerType==='start',type:'start',value:currentStartValueStr}}"/>
+      <template is="selector" data="{{placeholder:startPlaceholder,active:pickerType==='start',type:'start',value:currentStartValueStr,precision:precision}}"/>
       <view class="amd-range-picker-selector-split">
         {{splitCharacter}}
       </view>
-      <template is="selector" data="{{placeholder:endPlaceholder,active:pickerType==='end',type:'end',value:currentEndValueStr}}"/>
+      <template is="selector" data="{{placeholder:endPlaceholder,active:pickerType==='end',type:'end',value:currentEndValueStr,precision:precision}}"/>
     </view>
     <slot name="title" slot="title"/>
 </picker>
