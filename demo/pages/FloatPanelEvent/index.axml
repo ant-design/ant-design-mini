@@ -1,0 +1,26 @@
+<map />
+
+<float-panel
+    className="wrapper"
+    maxHeight="{{0.7}}"
+    onScroll="handleScrolllStatus"
+    onContentToBottom="handleContentScrollToLower"
+    ref="saveRef"
+>
+    <view slot="header" class="title">
+        <text>
+            头部区域，通过 onScroll 事件回调监听到面板当前高度为<text style="color: red">{{pos1}}</text>
+        </text>
+    </view> 
+    <view class="content" slot="content">
+        <list radius="{{false}}">
+            <list-item a:for="{{isvList2}}">{{index}}</list-item>
+        </list>
+        <loading text="加载中" a:if="{{showLoading}}" />
+    </view>
+    <view slot="footer" class="title">
+        底部内容
+    </view>
+</float-panel>
+
+<view class="safe-area"></view>
