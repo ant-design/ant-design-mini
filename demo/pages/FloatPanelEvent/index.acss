@@ -54,11 +54,6 @@
 }
 
 .wrapper {
-    position: fixed;
-    z-index: 999;
-    bottom: 0;
-    width: 100%;
-    background-color: transparent;
 }
 
 .wrapper .amd-swiper-section {
