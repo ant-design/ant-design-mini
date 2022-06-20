@@ -39,7 +39,8 @@ toc: false
 | extra | string | 否 | - | 右侧额外内容 |
 | extraBrief | string | 否 | - | 右侧辅助信息 |
 | disabled | boolean | 否 | false | 是否禁用 |
-| last | 用于处理下划线是否显示	| boolean| false
+| last | 用于处理下划线是否显示	| boolean| false|
+| stopPropagation | boolean | false | - | 是否阻止事件冒泡 |
 | className | string | 否 | - | 类名 |
 
 
