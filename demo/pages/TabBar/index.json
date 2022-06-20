@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "List",
+  "usingComponents": {
+    "demo-block": "../../components/DemoBlock/index",
+    "tab-bar": "../../../src/TabBar/index"
+  }
+}
