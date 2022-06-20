@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
     height: 98rpx;
+    box-sizing: border-box;
 }
 
 .content {
@@ -44,19 +45,15 @@
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
     border-radius: 0;
-    height: 98rpx;
+    height: 128rpx;
     background: #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .wrapper {
-    position: fixed;
-    z-index: 999;
-    bottom: 0;
-    width: 100%;
-    background-color: transparent;
 }
 
 .wrapper .amd-swiper-section {
@@ -66,9 +63,18 @@
 .buttonWrapper {
     display: flex;
     position: fixed;
+    align-items: center;
+    justify-content: center;
     top: 0;
     z-index: 9999;
 }
-.buttonWrapper .button {
-  margin-left: 20rpx;
+
+.button {
+    margin: 20rpx;
+}
+
+.map {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://gw.alipayobjects.com/mdn/rms_186a6d/afts/img/A*Z1x_QYGRR1kAAAAAAAAAAAAAARQnAQ");
 }

@@ -36,7 +36,20 @@ function getHerboxUrl(opts) {
     .find((file) => file.endsWith('.axml'));
   const tail = demoAxmlFile.match(/(.+)\.axml$/)[1];
   const page = `${prefix}/${tail}`;
-  return `${CDN_URL}?view=preview&defaultPage=${page}&defaultOpenedFiles=${page}&mode=snippets&theme=light`;
+
+  const props
+    = process.env.NODE_ENV === 'development'
+      ? {
+
+        appCdnBaseUrl: /^http/.test(process.argv[3]) ? process.argv[3].replace(/\/$/, '') + '/' : `http://localhost:${process.argv[3]}/`,
+        page,
+      }
+      : {
+        appCdnBaseUrl: ' https://gw.alipayobjects.com/os/miniassets/antd-mini-demo/0.0.17/1655697084476/',
+        page
+      };
+
+  return props;
 }
 
 export function getBlockDepsFiles(
