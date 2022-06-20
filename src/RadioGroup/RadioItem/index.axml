@@ -7,7 +7,7 @@
 </template>
 <label class="amd-radio-item">
   <view hidden="{{hidden}}" class="amd-radio-item-container">
-    <list-item>
+    <list-item stopPropagation>
       <view class="amd-radio-item-wrap {{className ? className : ''}}"
         slot="image">
         <radio class="amd-radio-item-base"

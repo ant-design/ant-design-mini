@@ -5,7 +5,7 @@
   </block>
  
 </template>
-<view class="amd-checkbox {{disabled?'amd-checkbox-disabled':''}} {{cValue?'amd-checkbox-checked':''}} {{className ? className : ''}} ">
+<view class="amd-checkbox {{disabled?'amd-checkbox-disabled':''}} {{cValue?'amd-checkbox-checked':''}} {{className ? className : ''}} " catchTap="emptyEvent">
   <checkbox
     class="amd-checkbox-base"
     controlled="{{controlled}}"
