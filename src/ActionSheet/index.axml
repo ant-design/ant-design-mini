@@ -13,7 +13,7 @@
       <view class="amd-actionsheet-list">
         <view
           a:for="{{actions}}"
-          class="amd-actionsheet-list-item {{ item.disabled && 'amd-actionsheet-list-item-disabled'}}"
+          class="amd-actionsheet-list-item {{ item.disabled ? 'amd-actionsheet-list-item-disabled' : ''}}"
           hover-class="{{ item.disabled ? '': 'amd-actionsheet-list-item-active' }} "
           onTap="onAction"
           data-index="{{index}}"
@@ -26,7 +26,7 @@
           >
           </view>
           <view class='amd-actionsheet-list-item-content'>
-            <view class="amd-actionsheet-list-item-title {{ item.danger && 'amd-actionsheet-list-item-title-danger'}}">{{item.text}}</view>
+            <view class="amd-actionsheet-list-item-title {{ item.danger ? 'amd-actionsheet-list-item-title-danger' : ''}}">{{item.text}}</view>
             <view a:if="{{item.description}}" class='amd-actionsheet-list-item-description'>{{item.description}}</view>
           </view>
         </view>
