@@ -36,9 +36,10 @@ toc: false
 | onChange | 点击 checkbox ，触发此回调 | ( v : boolean ) => void  |
 | onMainBtnTap | 点击主按钮，触发此回调 | () => void  |
 | onSubBtnTap | 点击辅助按钮，触发此回调 | () => void  |
+
 ## 插槽
 | 名称 | 说明 |
-| ----|----|
+| -----|-----|
 | 默认插槽 | 带协议的文案， 比如 同意<a>《用户授权协议》</a> |
 
 ## 样式类
@@ -51,14 +52,14 @@ toc: false
 | amd-terms-content | 内容区域样式 |
 
 <style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-}  
+table th:first-of-type { width: 180px; }
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
+    width: 140px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
+    width: 30px;
+}
+.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
+    width: 50px;
+}
 </style> 
