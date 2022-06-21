@@ -1,0 +1,24 @@
+
+<demo-block title="基础用法">
+    <rate defaultValue="{{4}}" onRateEnd="handleRateEnd" allowClear="{{true}}" value="{{rate1}}" />
+</demo-block>
+
+<demo-block title="半星">
+    <rate defaultValue="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" />
+</demo-block>
+
+<demo-block title="清除">
+    <view style="display: flex; align-items: center">
+        <rate defaultValue="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" />
+        可清除
+    </view>
+    <view style="display: flex; align-items: center">
+        <rate defaultValue="{{4.5}}" allowHalf="{{true}}" allowClear="{{false}}" />
+        不可清除
+    </view>
+</demo-block>
+
+<demo-block title="自定义图片与样式">
+    <rate defaultValue="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" activeColor="#ff7f7f" />
+    <rate defaultValue="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" activeColor="#ff7f7f" image="https://gw.alipayobjects.com/zos/bmw-prod/d87c2765-9386-4a36-87a8-46f1fb56d108.svg"/>
+</demo-block>
