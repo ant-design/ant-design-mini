@@ -21,10 +21,10 @@ toc: false
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| maskZindex | string | - | - |  |
-| type | 'product' &verbar; 'market' | 'product' | - |  |
-| show | boolean | - | - |  |
-| fixMaskFull | false | - | - |  |
+| maskZindex | string | - | - | 层级 |
+| type | 'product' &verbar; 'market' | 'product' | - | 类别 |
+| show | boolean | - | - | 是否显示 |
+| fixMaskFull | false | - | - | 兼容mask祖父transform定位偏移 |
 | className | string | - | - | 类名 |
 
 ## 事件 
