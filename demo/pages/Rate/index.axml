@@ -1,0 +1,24 @@
+
+<demo-block title="默认用法">
+    <rate onRateEnd="handleRateEnd" allowClear="{{true}}" value="{{rate1}}" onRateEnd="handleRateEnd" />
+</demo-block>
+
+<demo-block title="半星" class="item">
+    <rate value="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" />
+</demo-block>
+
+<demo-block title="禁用" class="item">
+    <rate value="{{4.5}}" disabled="{{true}}" />
+    <rate className="rate" value="{{4}}" disabled="{{true}}" />
+</demo-block>
+
+<demo-block title="只读" class="item">
+    <rate value="{{4.5}}" readOnly="{{true}}" />
+    <rate className="rate" value="{{4}}" readOnly="{{true}}" />
+</demo-block>
+
+<demo-block title="自定义" class="item">
+    <rate value="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" activeColor="#F93A4A" />
+    <rate className="rate" value="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" activeColor="#FF8F1F" />
+    <rate className="rate" value="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" activeColor="#ff7f7f" image="https://gw.alipayobjects.com/zos/bmw-prod/d87c2765-9386-4a36-87a8-46f1fb56d108.svg"/>
+</demo-block>

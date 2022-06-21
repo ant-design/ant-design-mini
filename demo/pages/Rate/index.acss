@@ -1,0 +1,7 @@
+.item {
+    margin-top: 20px;
+}
+
+.rate {
+    margin-top: 8px;
+}
