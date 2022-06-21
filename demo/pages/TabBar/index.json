@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "List",
+  "defaultTitle": "TabBar",
   "usingComponents": {
     "demo-block": "../../components/DemoBlock/index",
     "tab-bar": "../../../src/TabBar/index"
