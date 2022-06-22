@@ -162,7 +162,6 @@ Component({
           const min = this.getMin().toDate();
           const { max } = this.props;
           currentStartDate = new Date();
-          console.log(min,currentStartDate)
           if (
             (min && currentStartDate < min) ||
             (max && currentStartDate > max) ||

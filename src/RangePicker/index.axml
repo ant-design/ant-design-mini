@@ -13,7 +13,6 @@
     popClassName="{{(!currentStartDate||!currentEndDate)?'amd-range-picker-confirm-disabled':''}}"
     data="{{columns}}"
     value="{{currentValue}}"
-    controlled
     disabled="{{disabled}}"
     title="{{title}}" 
     placeholder="{{placeholder}}"
