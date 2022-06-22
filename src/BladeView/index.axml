@@ -1,5 +1,5 @@
 
-<view class="amd-blade-view">
+<view class="amd-blade-view-container">
   <!-- content -->
   <scroll-view
     class="amd-blade-view-body"
@@ -32,8 +32,8 @@
           data-group="{{group}}"
           onTap="onTapItem"
         >
-          <view class="amd-blade-view-body-group-item-text {{ index ? 'notFirstBorder': '' }} {{value===item.value ? 'selected' : ''}}">
-            {{item.label}}
+          <view class="amd-blade-view-body-group-item-text {{ index ? 'notFirstBorder': '' }} {{selectValue===item.value ? 'selected' : ''}}">
+            <slot>{{item.label}}</slot>
           </view>
         </view>
       </view>
@@ -43,16 +43,17 @@
   <!-- sidebar -->
   <view
     class="amd-blade-view-sidebar"
-    disable-scroll="{{true}}"
     onTouchStart="onTouchStart"
     onTouchMove="onTouchMove"
     onTouchEnd="onTouchEnd"
+    disable-scroll="{{true}}"
   >
     <view
       class="amd-blade-view-sidebar-item"
       a:for="{{data}}"
       data-key="{{item.key}}"
       key="{{item.key}}"
+      onTap="onTapSideItem"
     >
       <view
         a:if="{{isTouchingSideBar&&currentKey===item.key}}"
@@ -60,11 +61,7 @@
       >
         {{currentKey}}
       </view>
-      <view
-        class="amd-blade-view-sidebar-item-text {{currentKey===item.key ? 'active' : ''}}"
-        onTap="onTapSideItem"
-        data-key="{{item.key}}"
-      >
+      <view class="amd-blade-view-sidebar-item-text {{currentKey===item.key ? 'active' : ''}}">
         {{item.key}}
       </view>
     </view>

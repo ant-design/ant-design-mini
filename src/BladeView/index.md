@@ -37,6 +37,12 @@ toc: false
 | --------- | ---------------------- | ---------- |
 | onChange | 点击某一项的回调 | <pre>(<br>  item: {<br>    label: string; <br>    value:  string \| number; <br>  },<br>  groups?: {<br>    label: string; <br>    value: string \| number; <br>  }[]<br>) => void; |
 
+## 插槽
+
+| 插槽名称 | 说明                                                       |
+| -------- | ---------------------------------------------------------- |
+| default    | 索引每项自定义内容格式插槽 |
+
 ## 样式类
 
 | 类名                       | 说明             |

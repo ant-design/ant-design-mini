@@ -1,9 +1,9 @@
 <view>
   <blade-view
     data="{{groups}}"
-    scrollToKey="A"
-    value="{{value}}"
-    onChange="onChange"
+    scrollToKey="S"
+    selectValue="{{selectValue}}"
+    onSelectItem="onSelectItem"
     sticky={{false}}
   ></blade-view>
 </view>

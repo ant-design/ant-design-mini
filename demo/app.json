@@ -63,7 +63,8 @@
     "pages/Slider/index",
     "pages/ImageUpload/index",
     "pages/VideoUpload/index",
-    "pages/ProgressBar/index"
+    "pages/ProgressBar/index",
+    "pages/BladeView/index"
   ],
   "window": {
     "enableWK": "YES",
