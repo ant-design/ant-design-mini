@@ -61,7 +61,8 @@
     "pages/ProgressCircle/index",
     "pages/Slider/index",
     "pages/ImageUpload/index",
-    "pages/VideoUpload/index"
+    "pages/VideoUpload/index",
+    "pages/ProgressBar/index"
   ],
   "window": {
     "enableWK": "YES",

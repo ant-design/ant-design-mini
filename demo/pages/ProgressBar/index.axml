@@ -1,0 +1,53 @@
+<view class="wrapper">
+  <list header="控制进度" radius="{{true}}" class="list1">
+    <view class="line1">
+      <text class="label">请输入当前进度(0-100)</text>
+      <input class="input" onChange="handleInputChange1" />
+    </view>
+    <view class="line2">
+      <progress-bar progress="{{progress1}}" />
+    </view>
+  </list>
+
+  <list header="自定义进度条宽高" radius="{{true}}" class="list2">
+    <view class="line1">
+      <text class="label">请输入当前进度(0-100)</text>
+      <input class="input" onChange="handleInputChange2" />
+    </view>
+    <view class="line2">
+      <progress-bar progress="{{progress2}}" />
+    </view>
+  </list>
+
+  <list header="自定义进度条指示器" radius="{{true}}" class="list3">
+    <view class="line1">
+      <text class="label">请输入当前进度(0-100)</text>
+      <input class="input" onChange="handleInputChange3" />
+    </view>
+    <view class="line2">
+      <progress-bar progress="{{progress3}}" showDefaultIndicator="{{false}}">
+        <text slot="rightIndicator" class="indicator1">
+          {{ progress3 / 100 * 20000 }}步
+        </text>
+      </progress-bar>
+    </view>
+
+    <view class="line3">
+      <progress-bar progress="{{progress3}}" showDefaultIndicator="{{false}}">
+        <text slot="innerIndicator" class="indicator2">
+          {{ progress3 }}%
+        </text>
+      </progress-bar>
+    </view>
+  </list>
+
+  <list header="自定义进度条颜色" radius="{{true}}" class="list4">
+    <view class="line1">
+      <text class="label">请输入当前进度(0-100)</text>
+      <input class="input" onChange="handleInputChange4" />
+    </view>
+    <view class="line2">
+      <progress-bar progress="{{progress4}}" />
+    </view>
+  </list>
+</view>

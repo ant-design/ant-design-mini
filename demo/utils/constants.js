@@ -221,6 +221,11 @@ export const componentList = [
         nameZN: '进度圈',
         path: '/pages/ProgressCircle/index',
       },
+      {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
+      },
     ],
   },
   {

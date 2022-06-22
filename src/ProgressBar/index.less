@@ -1,0 +1,31 @@
+@import (reference) "./variable.less";
+
+.amd-progressbar-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.amd-progress-outer {
+  background-color: #D8D8D8;
+  border-radius: 8 * @rpx;
+  width: 606 * @rpx;
+  height: 16 * @rpx;
+  overflow: hidden;
+}
+
+.amd-progress-inner {
+  background-color: #1677FF;
+  border-radius: 8 * @rpx;
+  transition: width 0.3s;
+  height: 100%;
+  position: relative;
+}
+
+.amd-progress-indicator {
+  line-height: 37 * @rpx;
+  margin-left: 16 * @rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 26 * @rpx;
+  color: #999999;
+}
