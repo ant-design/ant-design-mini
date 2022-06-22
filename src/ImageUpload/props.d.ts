@@ -48,11 +48,6 @@ export interface IUploaderProps extends IBaseProps {
   value?: Array<File>;
 
   /**
-   * @description 上传图片时的示例图片
-   */
-  demoImage?: string;
-
-  /**
    * @description 预览图片时是否暂时下载按钮，只有在不存在onPreview字段时生效
    * @default false
    */
@@ -110,6 +105,11 @@ export interface IUploaderProps extends IBaseProps {
    * @default 80
    */
   width?: number | string;
+
+  /**
+   * @description 使用action时，图片上传后的回调函数，当上传接口不为默认的{success: true, data: {url: 'xx'}}时使用，返回void则表示上传失败
+   */
+  onAfterUpload?: (res) => string | void | Promise<string | void>;
 
   /**
    * @description 图片上传前的回调函数，返回 false 可终止图片上传，支持返回 Promise

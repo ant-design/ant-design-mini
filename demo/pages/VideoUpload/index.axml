@@ -8,6 +8,7 @@
       maxCount="{{1}}"
       sourceType="{{['album']}}"
       onChange="onChange"
+      onAfterUpload="onAfterUpload"
     />
   </view>
   <view class="demo-video-upload-title">上传状态</view>
@@ -17,16 +18,6 @@
       value="{{value_2}}"
       id="myVideo_2"
       maxCount="{{6}}"
-      onChange="onChange"
-    />
-  </view>
-  <view class="demo-video-upload-title">带示例视频</view>
-  <view class="demo-video-upload-show">
-    <uploader 
-      action="{{action}}"
-      id="myVideo_3"
-      demoVideo="{{demoVideo}}"
-      maxCount="{{2}}"
       onChange="onChange"
     />
   </view>
@@ -83,4 +74,4 @@
       onUpload="onUpload"
     />
   </view>
-</view>
+</view> 

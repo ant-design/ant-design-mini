@@ -51,8 +51,6 @@
     "pages/SafeArea/index",
     "pages/Dialog/index",
     "pages/Container/index",
-    "pages/ImageUpload/index",
-    "pages/VideoUpload/index",
     "pages/FileUpload/index",
     "pages/Checklist/index",
     "pages/Empty/index",
@@ -61,7 +59,9 @@
     "pages/FloatPanelEvent/index",
     "pages/TabBar/index",
     "pages/ProgressCircle/index",
-    "pages/Slider/index"
+    "pages/Slider/index",
+    "pages/ImageUpload/index",
+    "pages/VideoUpload/index"
   ],
   "window": {
     "enableWK": "YES",

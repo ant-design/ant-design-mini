@@ -85,4 +85,3 @@ export const uploadFile: (option: any) => Promise<My.UploadFile> = promisifyMy('
 export const getFileInfo: (option: any) => Promise<My.GetFileInfo> = promisifyMy('getFileInfo');
 export const previewImage: (option: any) => void = promisifyMy('previewImage');
 export const downloadFile: (option: any) => Promise<My.DownloadFile> = promisifyMy('downloadFile');
-

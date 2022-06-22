@@ -6,6 +6,7 @@
       maxCount="{{1}}"
       value="{{value_1}}"
       onChange="onChange"
+      onAfterUpload="onAfterUpload"
     />
   </view>
 
@@ -15,15 +16,6 @@
       action='{{action}}'
       maxCount="{{8}}"
       value="{{value_2}}"
-      onChange="onChange"
-    />
-  </view>
-  <view class="demo-image-upload-title">带示例图片</view>
-  <view class="demo-image-upload-show">
-    <uploader 
-      action='{{action}}'
-      maxCount="{{2}}"
-      demoImage="{{demoImage}}"
       onChange="onChange"
     />
   </view>
@@ -76,4 +68,4 @@
       onChange="onChange"
     />
   </view>
-</view>
+</view> 

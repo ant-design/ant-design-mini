@@ -26,7 +26,6 @@ toc: false
 | value | File[] | - | [] | 已上传的图片列表 |
 | controlled | boolean | - | false | 是否受控 |
 | action | string | 否 | - | 上传图片的服务器地址，只支持https地址 |
-| demoImage | string | - | - | 上传图片时的示例图片 |
 | enableShowPhotoDownload | boolean | - | false | 预览图片时是否暂时下载按钮，只有在不存在onPreview字段时生效 |
 | enableSavePhoto | boolean | - | false | 照片支持长按下载 |
 | fileName | string | - | - | 上传图片的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到图片二进制内容 |
@@ -49,6 +48,7 @@ toc: false
 | onDelete | 删除当前列表中的图片时触发，包括上传成功和上传失败的图片，如果返回 false 表示阻止删除，支持返回 Promise | (v: File) => boolean &verbar; Promise\<boolean\> &verbar; void |
 | onPreview | 点击图片进行预览时触发，会覆盖默认的预览功能 | (v:File[]) => void |
 | onUpload | 图片上传方法，当不存在https服务器时，支持自定义上传方式，只在不存在action字段时生效 | (v: File) => Promise\<File\> |
+| onAfterUpload | 使用action时，图片上传后的回调函数，当上传接口不为默认的{success: true, data: {url: 'xx'}}时使用，返回void则表示上传失败 | (res) => string |
 
 ## File
 
@@ -65,12 +65,8 @@ toc: false
 | -----|----- |
 | amd-image-upload | 整体样式 |
 | amd-image-upload-show | 已上传图片整体展示区域样式 |
-| amd-image-upload-demo-image-tip | 示例图片左上角标记样式 |
-| amd-image-upload-demo-image | 示例图片展示区域样式 |
 | amd-image-upload-close | 已上传图片右上角关闭按钮样式 |
 | amd-image-upload-loading | 上传中加载中样式 |
 | amd-image-upload-loading-icon | 上传中加载中图标 |
 | amd-image-upload-image | 已上传图片区域样式 |
 | amd-image-upload-add-image-wrapper | 点击上传图片区域整体样式 |
-
-

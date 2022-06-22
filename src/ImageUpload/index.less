@@ -10,20 +10,9 @@
     position: relative;
   }
 
-  &-image,
-  &-demo-image {
+  &-image {
     margin: @image-upload-common-margin;
     border-radius: @corner-radius-md;
-  }
-
-  &-demo-image-tip {
-    position: absolute;
-    top: @image-upload-size-base;
-    left: @size-1;
-    width: @size-9;
-    height: @image-upload-size-base * 9;
-    background: url(@image-upload-example-tip-url) no-repeat;
-    background-size: cover;
   }
 
   &-close {
@@ -43,14 +32,14 @@
     justify-content: center;
     margin: @image-upload-add-image-container-margin;
     background-color: @color-divider-background;
-    border-radius: @corner-radius-lg;
+    border-radius: @corner-radius-md;
   }
 
   &-cover {
     position: absolute;
     margin: @image-upload-common-margin;
     border-radius: @corner-radius-md;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgb(0 0 0 / 40%);
     display: flex;
     justify-content: center;
     align-items: center;

@@ -79,5 +79,16 @@ Page({
         });
       }, 3000)
     })
+  },
+  onAfterUpload(res) {
+    return new Promise((resolve) => {
+      if (res.success) {
+        if (res.data && res.data.url) {
+          resolve(res.data.url);  // resolve('') 则表示上传失败
+        }
+      } else {
+        resolve('');  //则表示上传失败
+      }
+    })
   }
 })
