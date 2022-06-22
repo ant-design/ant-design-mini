@@ -216,6 +216,11 @@ export const componentList = [
         nameZN: '轻提示',
         path: '/pages/Toast/index',
       },
+      {
+        name: 'ProgressCircle',
+        nameZN: '进度圈',
+        path: '/pages/ProgressCircle/index',
+      },
     ],
   },
   {

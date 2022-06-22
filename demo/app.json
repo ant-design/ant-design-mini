@@ -59,7 +59,8 @@
     "pages/Toast/index",
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",
-    "pages/TabBar/index"
+    "pages/TabBar/index",
+    "pages/ProgressCircle/index"
   ],
   "window": {
     "enableWK": "YES",
