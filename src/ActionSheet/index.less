@@ -26,16 +26,19 @@
     padding: 32 * @rpx 30 * @rpx;
     text-align: center;
     position: relative;
+    font-size: 36 * @rpx;
     .hairline("bottom", @color-divider-line);
     &-title-danger {
       color: var(--am-actionsheet-danger-color, @actionsheet-danger-color);
+      font-weight: bold;
     }
     &-description {
       color: @color-text-subtitle;
       font-size: 28* @rpx;
-      margin-top: 4* @rpx;
+      line-height: 40 * @rpx;
+      margin-top: 8* @rpx;
     }
-    &:active {
+    &-active {
       background-color: #eee;
     }
     &:last-child {
@@ -59,6 +62,7 @@
   &-cancel {
     color: #333;
     padding: 32* @rpx 30* @rpx;
+    font-size: 36 * @rpx;
     text-align: center;
     margin: 0 -24* @rpx;
     &:active {
