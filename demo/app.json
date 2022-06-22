@@ -64,7 +64,8 @@
     "pages/ImageUpload/index",
     "pages/VideoUpload/index",
     "pages/ProgressBar/index",
-    "pages/BladeView/index"
+    "pages/BladeView/index",
+    "pages/Rate/index"
   ],
   "window": {
     "enableWK": "YES",
