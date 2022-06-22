@@ -56,15 +56,9 @@
     "pages/FileUpload/index",
     "pages/Checklist/index",
     "pages/Empty/index",
-    "pages/FloatPanel/index",
-    "pages/FloatPanelEvent/index",
     "pages/Toast/index",
-    "pages/Slider/index",
-    "pages/TreeSelect/index",
-    "pages/Slider/index",
-    "pages/ImageUpload/index",
-    "pages/VideoUpload/index",
-    "pages/BladeView/index"
+    "pages/FloatPanel/index",
+    "pages/FloatPanelEvent/index"
   ],
   "window": {
     "enableWK": "YES",

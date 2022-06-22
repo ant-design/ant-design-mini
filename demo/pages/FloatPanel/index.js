@@ -2,8 +2,8 @@
 Page({
     data: {
         isvList1: new Array(20).fill(0),
-        withMask: true,
-        button1Text: '关闭蒙层'
+        withMask: false,
+        button1Text: '关闭蒙层',
     },
     handleToggleMask () {
         this.setData({

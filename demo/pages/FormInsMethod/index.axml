@@ -17,15 +17,13 @@
           form="{{form}}">
           <input-item mode="form" password placeholder="请输入密码"/>
       </form-item>
-      <view slot="footer">
-        <button 
-            slot="footer"
-            type="primary" 
-            mode="form"
-            form="{{form}}"
-            htmlType="submit">登录
-        </button>
-      </view>
+      <button 
+          slot="footer"
+          type="primary" 
+          mode="form"
+          form="{{form}}"
+          htmlType="submit">登录
+      </button>
   </form>
   <button onTap="handleSetValue" className="btn">重置</button>
 </view>

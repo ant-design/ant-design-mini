@@ -38,7 +38,7 @@ toc: false
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 选中项发生变化，触发回调 | (value: string&#124; number&#124; [], column: PickerColumnItem) => void |
+| onChange | 选中项发生变化，触发回调 | (value: string&#124; number&#124; [], column: ChecklistItem) => void |
 
 ## 插槽
 | 名称 | 说明 | 类型 |

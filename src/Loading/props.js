@@ -4,7 +4,7 @@ export const LoadingDefaultProps = {
   theme: 'dark',
   miniSize: '200rpx',
   className: '',
-  color: '#999',
+  color: '#fff',
   height: '',
   type: 'spin',
 };

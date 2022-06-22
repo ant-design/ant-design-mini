@@ -5,13 +5,13 @@
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}"
 >
-  <view class="amd-checklist-item-content">
+  <view class="amd-checklist-item-content {{item.disabled ? 'amd-checklist-item-content-disabled': ''}}">
     <view class="amd-checklist-item-content-box">
       <slot name="content" item="{{item}}"/>
     </view>
     <view
       a:if="{{checked}}"
-      class="amd-checklist-item-content-icon {{item.disabled ? 'amd-checklist-item-checked-disabled': ''}}"
+      class="amd-checklist-item-content-icon "
     >
       <slot name="icon" />
     </view>
