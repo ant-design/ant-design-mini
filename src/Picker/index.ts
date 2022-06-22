@@ -8,9 +8,9 @@ Component({
   mixins: [computed, controlled(), formMixin({ trigger: 'onOk' })],
   props: PickerDefaultProps,
   data: {
-    visible: false,
     formatValue: '',
-    columns: []
+    columns: [],
+    visible: false,
   },
   tempSelectedIndex: null,
   single: false,

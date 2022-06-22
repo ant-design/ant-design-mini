@@ -30,6 +30,7 @@ export interface IPickerProps
   dismissText?: string;
   /**
    * @description 提示文案
+   * @default '请选择'
    */
   placeholder?: string;
   /**

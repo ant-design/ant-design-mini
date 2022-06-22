@@ -5,6 +5,7 @@ Page({
       stepper: 20,
       switch: false,
       picker: ['2012', '12', 12],
+      datePicker: new Date('2022/05/20'),
     },
     selectorItems: [
       {
