@@ -60,7 +60,8 @@
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",
     "pages/TabBar/index",
-    "pages/ProgressCircle/index"
+    "pages/ProgressCircle/index",
+    "pages/Slider/index"
   ],
   "window": {
     "enableWK": "YES",
