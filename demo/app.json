@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/TreeSelect/index",
     "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormBasic/index",
