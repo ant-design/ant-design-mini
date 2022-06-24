@@ -44,3 +44,9 @@
     改变选中值为： 3
   </button>
 </view>
+<selector 
+  title="单选-不允许清空"
+  value="11"
+  avoidEmpty
+  onEmptyTap="handleTapWhenEmpty"
+  items="{{items1}}"/>

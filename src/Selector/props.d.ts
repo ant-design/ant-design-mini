@@ -25,7 +25,8 @@ export interface ISelectorItem {
  * @description 筛选器，可供用户进行单选或者多选。
  */
 
-export interface ISelectorProps extends IBaseFormItemPropsWithOutFocus<string[]> {
+export interface ISelectorProps
+  extends IBaseFormItemPropsWithOutFocus<string[]> {
   /**
    * @description 已选择项, 取 items 每一项的 value
    */
@@ -52,5 +53,14 @@ export interface ISelectorProps extends IBaseFormItemPropsWithOutFocus<string[]>
    * @default false
    */
   controlled?: boolean;
+  /**
+   * @description 是否禁止点击清空
+   * @default false
+   */
+  avoidEmpty?: boolean;
+  /**
+   * @description 点击清空最后一个触发
+   */
+  onEmptyTap?: (value: string, item: ISelectorItem) => void;
 }
 export declare const SelectorDefaultProps: Partial<ISelectorProps>;
