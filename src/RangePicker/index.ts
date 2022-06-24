@@ -16,14 +16,16 @@ Component({
 
   props: DateRangePickerDefaultProps,
 
-  data: {
-    cValue: null,
-    currentValue: [], // 当前picker选中值，didmound、弹窗打开、切换开始结束、picker变化时更新
-    columns: [], // 当前可选项，didmound、弹窗打开、切换开始结束、picker变化时更新
-    pickerType: 'start' as 'start' | 'end',
-    currentStartDate: null, // 展开时开始时间，date格式，有value，则取value[0]，否则取当天，需要判断当天是否在可选范围内
-    currentEndDate: null, // 展开时开始时间，date格式，有value，则取value[1]，否则取开始时间
-    forceUpdate: 0, // 强制更新picker组件，已知需处理的情况：value超限，但是需要更新format，由于picker的参数均未变化，无法触发picker的渲染
+  data() {
+    return {
+      cValue: null,
+      currentValue: [], // 当前picker选中值，didmound、弹窗打开、切换开始结束、picker变化时更新
+      columns: [], // 当前可选项，didmound、弹窗打开、切换开始结束、picker变化时更新
+      pickerType: 'start' as 'start' | 'end',
+      currentStartDate: null, // 展开时开始时间，date格式，有value，则取value[0]，否则取当天，需要判断当天是否在可选范围内
+      currentEndDate: null, // 展开时开始时间，date格式，有value，则取value[1]，否则取开始时间
+      forceUpdate: 0, // 强制更新picker组件，已知需处理的情况：value超限，但是需要更新format，由于picker的参数均未变化，无法触发picker的渲染
+    };
   },
 
   didMount() {
