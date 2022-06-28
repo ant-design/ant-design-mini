@@ -19,7 +19,7 @@ Component({
   data() {
     return {
       cValue: null,
-      currentValue: [], // 当前picker选中值，didmound、弹窗打开、切换开始结束、picker变化时更新
+      currentValue: [], // 当前picker选中值，didmount、弹窗打开、切换开始结束、picker变化时更新
       columns: [], // 当前可选项，didmound、弹窗打开、切换开始结束、picker变化时更新
       pickerType: 'start' as 'start' | 'end',
       currentStartDate: null, // 展开时开始时间，date格式，有value，则取value[0]，否则取当天，需要判断当天是否在可选范围内

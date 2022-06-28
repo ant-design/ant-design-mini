@@ -17,7 +17,7 @@ Component({
 
   data() {
     return {
-      currentValue: [], // 当前picker选中值，didmound、弹窗打开、picker变化时更新
+      currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
       columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
       cValue: null,
       forceUpdate: 0, // 强制更新picker组件，已知需处理的情况：value超限，但是需要更新format，由于picker的参数均未变化，无法触发picker的渲染
@@ -30,7 +30,6 @@ Component({
     this.setData({
       cValue,
     });
-    console.log(this.data)
   },
   didUpdate(prevProps) {
     if (!isEqualDate(prevProps.value, this.props.value)) {
