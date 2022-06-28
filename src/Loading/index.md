@@ -18,16 +18,16 @@ toc: false
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| className | string | - | - | 类名 |
-| color | string | - | '#999' | 加载时的颜色，当 type 为 'spin' 时，只支持十六进制颜色码，如'#fff' |
-| delay | number | - | - | 延时显示加载状态，单位 ms, 注意，delay 的变更不能实时生效，当 type 为 'spin' 时生效 |
-| height | string | - | '200rpx' | 加载图标高度，不传则默认与 size 大小一致，当 type 为 'mini' 时生效 |
-| loading | boolean | - | true | 是否加载中，当 type 为 'spin' 时生效 |
-| miniSize | string | - | '200rpx' | 加载图标宽度，当 type 为 'mini' 时生效 |
-| size | 'x-large' &verbar; 'large' &verbar; 'medium' &verbar; 'small' | - | "medium" | 加载图标尺寸，当 type 为 'spin' 时生效 |
-| text | string | - | - | 加载中文案，当 type 为 'spin' 时生效 |
-| theme | 'dark' &verbar; 'light' | - | "dark" | 颜色，dark/深色, light/浅色，当 type 为 'spin' 时生效 |
-| type | 'spin' &verbar; 'mini' | - | 'spin' | 加载样式类型 |
+| type | 'spin' &verbar; 'mini' | 否 | 'spin' | 加载样式类型 |
+| color | string | 否 | '#999' | 加载时的颜色，当 type 为 'spin' 时，只支持十六进制颜色码，如'#fff' |
+| delay | number | 否 | - | 延时显示加载状态，单位 ms, 注意，delay 的变更不能实时生效，当 type 为 'spin' 时生效 |
+| height | string | 否 | '200rpx' | 加载图标高度，不传则默认与 size 大小一致，当 type 为 'mini' 时生效 |
+| loading | boolean | 否 | true | 是否加载中，当 type 为 'spin' 时生效 |
+| miniSize | string | 否 | '200rpx' | 加载图标宽度，当 type 为 'mini' 时生效 |
+| size | 'x-large' &verbar; 'large' &verbar; 'medium' &verbar; 'small' | 否 | 'medium' | 加载图标尺寸，当 type 为 'spin' 时生效 |
+| text | string | 否 | - | 加载中文案，当 type 为 'spin' 时生效 |
+| theme | 'dark' &verbar; 'light' | 否 | 'dark' | 颜色，dark/深色, light/浅色，当 type 为 'spin' 时生效 |
+| className | string | 否 | - | 类名 |
 
 ## 插槽
 | 名称 | 说明 |
