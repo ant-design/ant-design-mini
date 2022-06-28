@@ -1,0 +1,106 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "The version you want to release, eg: 1.0.0"
+        required: true
+      release_branch:
+        description: "The release branch, eg: v2.14, if run on master, please make sure the release_branch is set"
+        required: false
+        default: "master"
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      # 判断用户是否有管理员权限
+      - name: "Check if user has admin access"
+        uses: "lannonbr/repo-permission-check-action@2.0.0"
+        with:
+          permission: "admin"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
+
+      - uses: mukunku/tag-exists-action@v1.0.0
+        id: checkTag
+        env:
+          TAG: v${{github.event.inputs.version}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Git Identity
+        if: steps.checkTag.outputs.exists == 'false'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 安装依赖并构建
+      - name: Install dependencies & Build
+        if: steps.checkTag.outputs.exists == 'false'
+        run: |
+          npm i
+          npm run build
+
+      # 当 master 分支进行首次版本发布时，需要推送 Tag 到 Git
+      - name: Create Git Tag
+        if: steps.checkTag.outputs.exists == 'false' && github.event.ref == 'refs/heads/master' && github.event.inputs.release_branch != ''
+        uses: pkgdeps/git-tag-action@v2
+        with:
+          version: ${{ github.event.inputs.version }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repo: ${{ github.repository }}
+          git_commit_sha: ${{ github.sha }}
+          git_tag_prefix: "v"
+
+      # 生成 Changelog, 会将内容写入到 ./releaselog.md 中
+      - name: Create Changelog
+        if: steps.checkTag.outputs.exists == 'false'
+        id: release-log
+        run: |
+          npm run changelog
+          npx extract-changelog-release > $LATEST_CHANGELOG
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_SHA: ${{ github.sha }}
+
+      # 在 master 分支运行时，自动切下一个 Release 分支
+      - name: Create And Push Release Branch
+        if: github.event.ref == 'refs/heads/master' && github.event.inputs.release_branch != ''
+        run: |
+          git checkout -b ${{ github.event.inputs.release_branch }}
+          git push origin ${{ github.event.inputs.release_branch }}
+
+      # 在 master 分支运行时，自动基于 Release 分支创建 PR
+      - name: Create Pull Request
+        if: github.event.ref == 'refs/heads/master' && github.event.inputs.release_branch != ''
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            await github.rest.pulls.create({
+              owner: github.repository.owner.login,
+              repo: github.repository.name,
+              title: 'chore(release): v${{ github.event.inputs.version }}',
+              head: '{{ github.event.inputs.release_branch }}',
+              base: 'master',
+              body: process.env.LATEST_CHANGELOG
+            })

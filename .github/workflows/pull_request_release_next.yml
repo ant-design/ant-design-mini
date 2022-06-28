@@ -98,5 +98,5 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const script = require('./scripts/github/notifyPrNextResult.js')
+            const script = require('./scripts/github/createIssueCommentPrNextResult.js')
             return await script({github, context, core})
