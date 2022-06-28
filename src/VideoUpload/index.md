@@ -24,7 +24,6 @@ toc: false
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | value | File[] | - | [] | 已上传的图片列表 |
-| controlled | boolean | - | false | 是否受控 |
 | action | string | - | - | 上传视频的服务器地址，只支持https地址 |
 | camera | string | - | 'back' | 默认拉起的是前置或者后置摄像头，可选值'back'或'front' |
 | filename | string | - | - | 上传视频的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到视频二进制内容 |
@@ -46,17 +45,14 @@ toc: false
 | onChange | 已上传的文件列表变化时触发 | (v: File[]) => void |
 | onDelete | 删除当前列表中的视频时触发，包括上传成功和上传失败的视频，如果返回 false 表示阻止删除，支持返回 Promise | (v: File) => boolean &verbar; Promise\<boolean\> &verbar; void |
 | onUpload | 视频上传方法，当不存在https服务器时，支持自定义上传方式，只在不存在action字段时生效 | (v: File) => Promise\<File\> |
-| onAfterUpload | 使用action时，视频上传后的回调函数，当上传接口不为默认的{success: true, data: {url: 'xx'}}时使用，返回void则表示上传失败 | (res) => string |
+| onAfterUpload | 使用action时，视频上传后的回调函数，当上传接口不为默认的{success: true, data: {url: 'xx'}}时使用，返回void则表示上传失败，返回的string代表的是视频File里的url | (res) => string |
 
 ## File
 
 | 字段名 | 说明 | 类型 |
 | -----|-----|----- |
-| key | 唯一标识 | string |
 | url | 视频的资源地址 | string |
-| localPath | 上传视频的本地地址 | string |
 | status | 上传状态 | 'pending' | 'done' | 'error' |
-
 
 ## 样式类 
 

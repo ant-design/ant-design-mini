@@ -2,38 +2,28 @@ Page({
   data: {
     action: 'https://www.fastmock.site/mock/b3a1128da69d22edd307be51154c913d/upload/image',
     value_1: [{
-      key: '111',
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
       status: 'done'
     }],
     value_2: [{
-      key: '111',
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
       status: 'done'
     }, {
-      key: '111',
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
       status: 'pending'
     }, {
-      key: '111',
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
       status: 'error'
     }],
     value_3: [{
-      key: '111',
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*znK_ToIL8rQAAAAAAAAAAAAAARQnAQ',
       status: 'done',
-      description: '标签1'
     }, {
-      key: '111',
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*kStORbDQxwMAAAAAAAAAAAAAARQnAQ',
       status: 'done',
-      description: '标签2'
     }, {
-      key: '111',
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*K4Z-RLHuliYAAAAAAAAAAAAAARQnAQ',
       status: 'done',
-      description: '标签3'
     }],
     demoImage: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*8cMtRYFpz88AAAAAAAAAAAAAARQnAQ'
   },

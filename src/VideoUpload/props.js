@@ -1,6 +1,5 @@
 export const VideoUploadDefaultProps = {
   value: [],
-  controlled: false,
   camera: 'back',
   filename: 'video',
   formData: {},

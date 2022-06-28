@@ -37,12 +37,6 @@ export interface IVideoUploadProps extends IBaseProps {
   value?: File[];
 
   /**
-   * @description 是否受控
-   * @default false
-   */
-  controlled: boolean;
-
-  /**
    * @description 上传视频的服务器地址，只支持https地址
    */
   action?: string;

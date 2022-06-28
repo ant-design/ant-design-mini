@@ -36,12 +36,6 @@ export interface IUploaderProps extends IBaseProps {
   action?: string;
 
   /**
-   * @description 是否受控
-   * @default false
-   */
-  controlled: boolean;
-
-  /**
    * @description 已上传的图片列表
    * @default []
    */
