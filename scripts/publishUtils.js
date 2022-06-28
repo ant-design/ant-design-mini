@@ -3,6 +3,55 @@ const { exec, execSync } = require('child_process');
 const { cwd } = require('process');
 const PKG_JSON_PATH = `${cwd()}/package.json`;
 
+/**
+ * @param {'latest' | 'alpha' | 'beta'} tag
+ * @param {'Major' | 'minor' | 'patch' | 'other'} versionLevel
+ * @param {string} currentVersion
+ */
+function generateSematicVersion(tag, versionLevel, currentVersion) {
+  let newVersion = '';
+  const [curMajor, curMinor, curPatch, curTag, curNumber] =
+    currentVersion.match(/([0-9a-z]+)(?=[-|.])?/gim);
+
+  if (versionLevel === 'Major') {
+    const major = Number(curMajor) + 1;
+    newVersion = `${
+      tag === 'latest'
+        ? `${major}.0.0`
+        : tag === 'alpha'
+        ? `${major}.0.0-alpha.1`
+        : `${major}.0.0-beta.1`
+    }`;
+  } else if (versionLevel === 'minor') {
+    const minor = Number(curMinor) + 1;
+    newVersion = `${
+      tag === 'latest'
+        ? `${curMajor}.${minor}.0`
+        : tag === 'alpha'
+        ? `${curMajor}.${minor}.0-alpha.1`
+        : `${curMajor}.${minor}.0-beta.1`
+    }`;
+  } else if (versionLevel === 'patch') {
+    const patch = Number(curPatch) + 1;
+    newVersion = `${
+      tag === 'latest'
+        ? `${curMajor}.${curMinor}.${patch}`
+        : tag === 'alpha'
+        ? `${curMajor}.${curMinor}.${patch}-alpha.1`
+        : `${curMajor}.${curMinor}.${patch}-beta.1`
+    }`;
+  } else {
+    // 仅限 alpha 和 beta
+    const newNumber = Number(curNumber) + 1;
+    newVersion = `${
+      tag === 'alpha'
+        ? `${curMajor}.${curMinor}.${curPatch}-alpha.${newNumber}`
+        : `${curMajor}.${curMinor}.${curPatch}-beta.${newNumber}`
+    }`;
+  }
+  return newVersion
+}
+
 // 拿到版本信息, 以 antd-mini 为基准
 function getVersion(depName = 'antd-mini') {
   return new Promise((resolve, reject) => {
@@ -34,8 +83,8 @@ function getVersion(depName = 'antd-mini') {
 function genNewVersion(tag, currentVersion) {
   const choices =
     tag === 'latest'
-      ? ['Major', 'mirror', 'patch']
-      : ['Major', 'mirror', 'patch', 'other'];
+      ? ['Major', 'minor', 'patch']
+      : ['Major', 'minor', 'patch', 'other'];
 
   return new Promise((resolve, reject) => {
     inquirer
@@ -49,46 +98,7 @@ function genNewVersion(tag, currentVersion) {
       ])
       .then((res) => {
         const { version } = res;
-        let newVersion = '';
-        const [curMajor, curMirror, curPatch, curTag, curNumber] =
-          currentVersion.match(/([0-9a-z]+)(?=[-|.])?/gim);
-
-        if (version === 'Major') {
-          const major = Number(curMajor) + 1;
-          newVersion = `${
-            tag === 'latest'
-              ? `${major}.0.0`
-              : tag === 'alpha'
-              ? `${major}.0.0-alpha.1`
-              : `${major}.0.0-beta.1`
-          }`;
-        } else if (version === 'mirror') {
-          const mirror = Number(curMirror) + 1;
-          newVersion = `${
-            tag === 'latest'
-              ? `${curMajor}.${mirror}.0`
-              : tag === 'alpha'
-              ? `${curMajor}.${mirror}.0-alpha.1`
-              : `${curMajor}.${mirror}.0-beta.1`
-          }`;
-        } else if (version === 'patch') {
-          const patch = Number(curPatch) + 1;
-          newVersion = `${
-            tag === 'latest'
-              ? `${curMajor}.${curMirror}.${patch}`
-              : tag === 'alpha'
-              ? `${curMajor}.${curMirror}.${patch}-alpha.1`
-              : `${curMajor}.${curMirror}.${patch}-beta.1`
-          }`;
-        } else {
-          // 仅限 alpha 和 beta
-          const newNumber = Number(curNumber) + 1;
-          newVersion = `${
-            tag === 'alpha'
-              ? `${curMajor}.${curMirror}.${curPatch}-alpha.${newNumber}`
-              : `${curMajor}.${curMirror}.${curPatch}-beta.${newNumber}`
-          }`;
-        }
+        const newVersion = generateSematicVersion(tag, version, currentVersion)
         resolve(newVersion);
       })
       .catch((error) => {
@@ -119,6 +129,10 @@ function npmPublish(oldVersion, newVersion, tag) {
   });
 }
 
+/**
+ * @param {'latest' | 'alpha' | 'beta'} tag
+ * @param {string} newVersion
+ */
 function doPublish(tag, newVersion) {
   console.log('发布中 ...');
   const originPkgJson = require(PKG_JSON_PATH);
@@ -187,5 +201,6 @@ module.exports = {
   publish,
   updatePkgJson,
   gitSync,
-  doPublish
+  doPublish,
+  generateSematicVersion
 };
