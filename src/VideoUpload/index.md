@@ -52,7 +52,7 @@ toc: false
 | 字段名 | 说明 | 类型 |
 | -----|-----|----- |
 | url | 视频的资源地址 | string |
-| status | 上传状态 | 'pending' | 'done' | 'error' |
+| status | 上传状态 | 'pending' \| 'done' \| 'error' |
 
 ## 样式类 
 
