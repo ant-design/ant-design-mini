@@ -1,0 +1,81 @@
+name: Release After PR Merged
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - closed
+
+# Example output: in a PR branch (head) named `feature-1 to a target branch (base) of `release-v1`, you'll see:
+  # github.base_ref: release-v1
+  # github.head_ref: feature-1
+  # github.ref: refs/pull/2/merge
+
+jobs:
+  if_merged:
+    if: "${{  github.event.pull_request.merged == true && startsWith(github.event.pull_request.title, 'chore(release): v') }}"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.base_ref }}
+
+      - name: Setup Version & Tag
+        run: |
+          CURRENT_VERSION=$(echo $PR_TITLE | sed 's/^chore(release): v//')
+          echo "CURRENT_VERSION=${CURRENT_VERSION}" >> $GITHUB_ENV
+          echo "DIST_VERSION=${CURRENT_VERSION}" >> $GITHUB_ENV
+          echo "DIST_TAG=fakeLatest" >> $GITHUB_ENV
+          # 在 checkTag 中使用这个环境变量
+          echo "TAG=${CURRENT_VERSION}" >> $GITHUB_ENV
+          echo $PR_CONTENT >> ./releaselog.md
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_CONTENT: ${{ github.event.pull_request.body }}
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - uses: mukunku/tag-exists-action@v1.0.0
+        id: checkTag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Git Identity
+        if: steps.checkTag.outputs.exists == 'false'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 安装依赖并构建
+      - name: Install dependencies & Build
+        run: |
+          npm i
+          npm run build
+
+      - name: Publish version
+        run: |
+          node ./scripts/publishWithNoPrompt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create Release
+        id: create_release
+        if: steps.checkTag.outputs.exists == 'false'
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.DIST_VERSION }}
+          release_name: v${{ env.DIST_VERSION }}
+          body_path: ./releaselog.md
+          draft: true
+          prerelease: true

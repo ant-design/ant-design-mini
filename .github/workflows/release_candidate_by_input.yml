@@ -51,6 +51,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # 在 master 分支运行时，自动切下一个 Release 分支
+      - name: Create And Push Release Branch
+        if: github.event.ref == 'refs/heads/master' && github.event.inputs.release_branch != ''
+        run: |
+          git checkout -b ${{ github.event.inputs.release_branch }}
+          git push origin ${{ github.event.inputs.release_branch }}
+
       - name: Adding markdown
         if: success()
         run: |
