@@ -79,11 +79,12 @@ export function getRenderProps(path: string) {
   const props
     = process.env.NODE_ENV === 'development'
       ? {
+
         appCdnBaseUrl: /^http/.test(process.argv[3]) ? process.argv[3].replace(/\/$/, '') + '/' : `http://localhost:${process.argv[3]}/`,
         page,
       }
       : {
-        appCdnBaseUrl: 'https://gw.alipayobjects.com/os/miniassets/antd-mini-demo/0.0.14/1654173131115/',
+        appCdnBaseUrl: ' https://gw.alipayobjects.com/os/miniassets/antd-mini-demo/0.0.17/1655697084476/',
         page
       };
 

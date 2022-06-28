@@ -1,12 +1,45 @@
-<view class="demo-container">
-  <container
-    title="基础用法"
-    image="{{imageUrl}}"
-    icon="SetOutline"
-    onIconTap="onIconTap"
-  >
-    <view class="demo-container-container">
-      这是 container 自定义内容
+
+<view class="title">标题在容器内</view>
+<white-space />
+<view>
+  <container title="标题" titleImage="{{titleImage}}" icon="HeartOutline" headerInBox="{{true}}">
+    <view slot="headerRight">右部内容</view>
+     <view class="box1">
+      
+    </view>
+  </container>
+</view>
+
+<white-space />
+<white-space />
+
+<view class="title">标题在容器外</view>
+
+
+<view>
+  <container title="标题" titleImage="{{titleImage}}" icon="HeartOutline" headerInBox="{{false}}">
+    <view slot="headerRight">右部内容</view>
+    <view class="box1">
+      
+    </view>
+  </container>
+</view>
+
+<white-space />
+<white-space />
+
+<view class="title">容器内多个盒子</view>
+<view>
+  <container title="标题" titleImage="{{titleImage}}" icon="HeartOutline" headerInBox="{{true}}" multiBox="{{3}}">
+    <view slot="headerRight">右部内容</view>
+    <view class="box1" slot="box1">
+      box1
+    </view>
+    <view class="box2" slot="box2">
+      box2
+    </view>
+    <view class="box3" slot="box3">
+      box3
     </view>
   </container>
 </view>

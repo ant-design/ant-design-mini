@@ -1,0 +1,20 @@
+<import-sjs from="./index.sjs" name="sjs"></import-sjs>
+<view class="amd-floatpanel-box {{className || ''}}" data-id="{{$id}}" style="height: {{ height || 0 }}px;" onTouchMove="{{sjs.handleTouchMove}}" onTouchEnd="{{sjs.handleTouchEnd}}" onTouchStart="{{sjs.handleTouchStart}}" onTouchCancel="{{sjs.handleTouchEnd}}" data-maxHeight="{{ maxHeight }}" data-minHeight="{{ minHeight }}" data-middleHeight="{{ middleHeight }}" change:data-maxHeight="{{sjs.handleHeightInfoChange}}" data-mounted="{{mounted}}" change:data-mounted="{{sjs.doInit}}">
+  <view class="amd-floatpanel-arrow-wrapper">
+    <view class="amd-floatpanel-arrow" style="background-image: url({{sjs.ARROW_URL[arrow]}}); height: {{arrowHeight}}rpx" />
+  </view>
+  <view class="amd-floatpanel-header">
+    <slot name="header" />
+  </view>
+  <view class="amd-floatpanel-section">
+    <scroll-view class="amd-floatpanel-scroll-view" data-id="{{$id}}" style="height: {{scrollViewHeight}}px" disable-lower-scroll="out-of-bounds" disable-upper-scroll="out-of-bounds" upper-threshold="{{10}}" lower-threshold="{{lowerThreshold}}" onScrollToUpper="{{sjs.onScrollViewScrollToUpper}}" onScrollToLower="{{sjs.onScrollViewScrollToLower}}" onTouchStart="{{sjs.onScrollViewScrollStart}}" onTouchEnd="{{sjs.onScrollViewScrollEnd}}" onTouchCancel="{{sjs.onScrollViewScrollCancel}}" onScroll="{{sjs.onScrollViewScroll}}" scroll-y="{{scrollY}}">
+      <view class="amd-floatpanel-scroll-view-content">
+        <slot name="content" />
+      </view>
+    </scroll-view>
+  </view>
+  <view class="amd-floatpanel-footer">
+    <slot name="footer" />
+  </view>
+</view>
+<view a:if="{{withMask}}" data-id="{{$id}}" class="amd-floatpanel-background" catchTap="{{sjs.handleMaskTap}}"></view>

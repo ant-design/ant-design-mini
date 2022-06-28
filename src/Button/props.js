@@ -7,4 +7,5 @@ export const ButtonDefaultProps = {
   htmlType: 'button',
   _submit: undefined,
   fill: 'solid',
+  stopPropagation: false,
 };
