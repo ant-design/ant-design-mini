@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Slider",
+  "usingComponents": {
+    "slider": "../../../src/Slider/index",
+    "demo-block": "../../components/DemoBlock/index"
+  }
+}
