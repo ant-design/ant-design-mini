@@ -2,7 +2,8 @@
   from="./index.sjs" />
 
 <view class="amd-list-item  {{className ? className : ''}}"
-  onTap="onTap"
+  onTap="{{stopPropagation?'':'onTap'}}"
+  catchTap="{{stopPropagation?'onTap':''}}"
   hover-class="{{onTap ? 'amd-list-item-hover' : ''}}"
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}">

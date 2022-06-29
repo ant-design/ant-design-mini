@@ -10,5 +10,7 @@ Component({
       const { value } = v.detail;
       this.cOnChange(value);
     },
+    // 阻止事件冒泡
+    emptyEvent() {},
   },
 });

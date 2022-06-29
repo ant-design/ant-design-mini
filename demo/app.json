@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormBasic/index",
     "pages/FormDynamic/index",
@@ -52,7 +53,10 @@
     "pages/Dialog/index",
     "pages/Container/index",
     "pages/Checklist/index",
-    "pages/Empty/index"
+    "pages/Empty/index",
+    "pages/Toast/index",
+    "pages/FloatPanel/index",
+    "pages/FloatPanelEvent/index"
   ],
   "window": {
     "enableWK": "YES",

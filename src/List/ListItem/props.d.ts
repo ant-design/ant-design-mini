@@ -47,5 +47,9 @@ export interface IListItemProps extends IBaseProps {
    * @description 点击整行回调
    */
   onTap?: (event?: any) => void;
+  /**
+  * @description 是否阻止事件冒泡
+  */
+  stopPropagation?: boolean;
 }
 export declare const ListItemDefaultProps: Partial<IListItemProps>;

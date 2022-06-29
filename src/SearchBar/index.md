@@ -29,12 +29,12 @@ toc: false
 | value | string | 否 | - | 搜索框的值 |
 | autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
 | bizIconType | string | 否 | 'AudioFill' | 辅助图标类型 |
-| cancelText | string | 否 | "取消" | 取消按钮文案 |
+| cancelText | string | 否 | '取消' | 取消按钮文案 |
 | className | string | 否 | - | 类名 |
 | controlled | boolean | 否 | false | 是否受控模式 |
 | disabled | boolean | 否 | false | 是否禁用 |
 | enableNative | boolean | 否 | false | 是否启用 Native 渲染 |
-| id | string |  | 否 | 表单元素 id |
+| id | string | 否 | - | 表单元素 id |
 | maxLength | number | 否 | - | 最大长度 |
 | name | string | 否 | - | 表单元素 name |
 | placeholder | string | 否 | - | 提示文字 |

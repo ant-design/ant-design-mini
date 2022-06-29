@@ -2,7 +2,7 @@
   "name": "antd-mini",
   "version": "0.0.12",
   "scripts": {
-    "dev": "minidev dev --less --typescript --no-source-map",
+    "dev": "minidev dev --no-source-map",
     "dev:site": "dumi dev",
     "build": "npm run build:component && npm run build:site",
     "build:component": "NODE_ENV=production node scripts/compile.js",

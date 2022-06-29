@@ -32,14 +32,15 @@ toc: false
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | image | string | 否 | - | 左侧图片 |
-| imageSize |  'small' | 'medium' | 'large' | 否 | 'small' | 左侧图片大小 |
+| imageSize |  'small'  &verbar; 'medium'  &verbar; 'large' | 否 | 'small' | 左侧图片大小 |
 | arrow | 'right' &verbar; 'up' &verbar; 'down' | 否 | - | 箭头方向，不传表示没有箭头 |
 | title | string | 否 | - | 标题信息 |
 | brief | string | 否 | - | 第二行信息 |
 | extra | string | 否 | - | 右侧额外内容 |
 | extraBrief | string | 否 | - | 右侧辅助信息 |
 | disabled | boolean | 否 | false | 是否禁用 |
-| last | 用于处理下划线是否显示	| boolean| false
+| last |boolean	| 否 | false|  用于处理下划线是否显示 |
+| stopPropagation | boolean | 否 | false | 是否阻止事件冒泡 |
 | className | string | 否 | - | 类名 |
 
 
