@@ -41,7 +41,7 @@ toc: false
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format) | string | - |
 | min |  最小值 | Date | 十年前 |
 | max | 最大值 | Date | 十年后 |
-| precision | 选择精度 | 'year' &verbar; 'month' &verbar; 'day' &verbar; 'hour' &verbar; 'minute' &verbar; 'second' | 'day' |
+| precision | 选择精度 | 'year' &verbar; 'month' &verbar; 'day' &verbar; 'hour' &verbar; 'minute' | 'day' |
 | disabled |  是否禁用 | boolean | false |
 | placeholder | 提示文案 | string | '请选择' | 
 | startPlaceholder | 开始时间提示文案 | string | '未选择' | 
