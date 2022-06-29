@@ -141,6 +141,11 @@ export const componentList = [
         nameZN: '协议',
         path: '/pages/Terms/index',
       },
+      {
+        name: 'Rate',
+        nameZN: '星级',
+        path: '/pages/Rate/index',
+      },
     ],
   },
   {

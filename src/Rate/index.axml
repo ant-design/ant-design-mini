@@ -1,0 +1,21 @@
+<view class="amd-rate-wrapper" style="--active-color: {{activeColor}}; --inactive-color: {{inactiveColor}}">
+  <view class="amd-rate-star-wrapper">
+    <view 
+      class="amd-rate-star" 
+      a:for="{{maxRate}}" 
+    >
+      <view class="amd-rate-star-{{ index + 0.5 === (value != void 0 ? value : rate) ? 'half' : (index + 1 > (value != void 0 ? value : rate)) ? 'empty' : 'full' }}-left"
+        onTap="handleRateTap"
+        data-type="half"
+        data-rate="{{index + 0.5}}"
+        style="{{ `${ image ? `-webkit-mask-image: url(${image})` : '' }`}}"
+      />
+      <view class="amd-rate-star-{{ index + 0.5 === (value != void 0 ? value : rate) ? 'half' : (index + 1 > (value != void 0 ? value : rate)) ? 'empty' : 'full' }}-right"
+        onTap="handleRateTap"
+        data-type="full"
+        data-rate="{{index + 1}}"
+        style="{{ `${ image ? `-webkit-mask-image: url(${image})` : '' }`}}"
+      />
+    </view>
+  </view>
+</view>

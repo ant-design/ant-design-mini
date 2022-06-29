@@ -56,7 +56,8 @@
     "pages/Empty/index",
     "pages/Toast/index",
     "pages/FloatPanel/index",
-    "pages/FloatPanelEvent/index"
+    "pages/FloatPanelEvent/index",
+    "pages/Rate/index"
   ],
   "window": {
     "enableWK": "YES",
