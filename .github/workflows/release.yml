@@ -53,12 +53,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 安装依赖并构建
-      - name: Install dependencies & Build
+      - name: Install dependencies
         if: steps.checkTag.outputs.exists == 'false'
         run: |
           npm i
-          npm run build
-
 
       - name: Generate Changelog, Version, Commit and Push
         if: steps.checkTag.outputs.exists == 'false' && github.base_ref == 'master' && github.event.inputs.release_branch != ''
