@@ -74,7 +74,7 @@ Component({
       const group = context.getGroup(key);
       if (group) {
         const placeHolderArray = group.getGroupDataVal();
-        placeHolderArray[this.$id] = label;
+        placeHolderArray[this.$id] = label.text;
         group.setGroupDataVal({ key: 'placeHolderArray', val: placeHolderArray });
       }
     },

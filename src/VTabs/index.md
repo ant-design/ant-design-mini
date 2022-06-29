@@ -32,7 +32,7 @@ toc: false
 #### VTabsItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| tab | {title: string; disabled?: boolean, badge?: {type: 'dot' &verbar; 'number' &verbar; 'text', text: number | string }}[] | 是 | - | 每一项 tab 内容 |
+| tab | {title: string; disabled?: boolean, badge?: {type: 'dot' &verbar; 'number' &verbar; 'text', text: number  &verbar;  string }}[] | 是 | - | 每一项 tab 内容 |
 | className | string | 否 | - | 类名 |
 
 ## 事件
