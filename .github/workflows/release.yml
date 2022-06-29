@@ -64,8 +64,8 @@ jobs:
           node ./scripts/publishWithNoPrompt
           git add .
           git commit -am "chore(release): v${DIST_VERSION}"
-          git checkout -b ${{ github.event.inputs.release_branch }}
-          git push origin ${{ github.event.inputs.release_branch }}
+          git checkout -b v${DIST_VERSION}
+          git push origin v${DIST_VERSION}
           npm run changelog
           LATEST_CHANGELOG=$(npx extract-changelog-release)
           echo ${LATEST_CHANGELOG}
@@ -87,7 +87,7 @@ jobs:
               owner: github.repository.owner.login,
               repo: github.repository.name,
               title: 'chore(release): v${{ github.event.inputs.version }}',
-              head: '{{ github.event.inputs.release_branch }}',
+              head: 'v{{ github.event.inputs.version }}',
               base: 'master',
               body: process.env.LATEST_CHANGELOG
             })
