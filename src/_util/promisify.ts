@@ -30,7 +30,7 @@ function promisifyCall(name) {
   };
 }
 
-declare namespace My {
+export declare namespace My {
   interface TempFile {
     /**
      * @description 本地临时文件路径（本地路径）
