@@ -1,0 +1,87 @@
+@import (reference) "./variable.less";
+
+.amd-progressBar-wrapper {
+  // width: 200 * @rpx;
+  // height: 200 * @rpx;
+  position: relative;
+  
+  .amd-progressBar-indicator-default {
+    font-family: PingFangSC-Medium;
+    font-size: 40 * @rpx;
+    color: #333333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 10;
+  }
+
+  .amd-progressBar-indicator-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 10;
+
+    .amd-progressBar-indicator-column-text1 {
+      font-family: PingFangSC-Regular;
+      font-size: 20 * @rpx;
+      color: #999999;
+      line-height: 28 * @rpx;
+      height: 28 * @rpx;
+    }
+
+    .amd-progressBar-indicator-column-text2 {
+      font-family: Helvetica;
+      font-size: 40 * @rpx;
+      color: #333333;
+      height: 51 * @rpx;
+      line-height: 51 * @rpx;
+    }
+
+    .amd-progressBar-indicator-column-text3 {
+      font-family: PingFangSC-Regular;
+      font-size: 20 * @rpx;
+      color: #999999;
+      height: 28 * @rpx;
+      line-height: 28 * @rpx;
+    }
+  }
+
+  // .amd-progressBar-outer {
+  //   width: 200 * @rpx;
+  //   height: 200 * @rpx;
+  //   border-radius: 50%;
+  //   box-shadow: 0 0 0 8 * @rpx inset;
+  //   display: flex;
+  //   background-color: #fff;
+  // }
+
+  // .amd-progressBar-inner1,.amd-progressBar-inner2 {
+  //   flex: 1;
+  //   margin: 0;
+  //   padding: 0;
+  //   height: 184 * @rpx;
+  //   background: #fff;
+  //   border: 8 * @rpx solid;
+  //   box-sizing: content-box;
+  //   position: relative;
+  // }
+
+  // .amd-progressBar-inner1 {
+  //   border-radius: 100 * @rpx 0 0 100 * @rpx;
+  //   border-color: #E5E5E5 transparent #E5E5E5 #E5E5E5;
+  //   transform-origin: 100% 50%;
+  //   z-index: 1;
+  // }
+  // .amd-progressBar-inner2 {
+  //     border-radius: 0 100 * @rpx 100 * @rpx 0;
+  //     border-color: #E5E5E5 #E5E5E5 #E5E5E5 transparent;
+  //     transform-origin: 0 50%;
+  //     z-index: 2;
+  // }
+}
