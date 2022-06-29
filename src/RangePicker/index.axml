@@ -35,5 +35,4 @@
       </view>
       <template is="selector" data="{{placeholder:endPlaceholder,active:pickerType==='end',type:'end',value:currentEndValueStr,precision:precision}}"/>
     </view>
-    <slot name="title" slot="title"/>
 </picker>

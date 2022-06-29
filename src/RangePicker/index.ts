@@ -57,16 +57,14 @@ Component({
       const { value, min, max } = this.props;
       let cValue = null;
       if (
-        value &&
-        value[0] &&
+        value?.[0] instanceof Date &&
         (!min || value[0] >= min) &&
         (!max || value[0] <= max)
       ) {
         cValue = [value[0]];
       }
       if (
-        value &&
-        value[1] &&
+        value?.[1] instanceof Date &&
         (!min || value[1] >= min) &&
         (!max || value[1] <= max)
       ) {

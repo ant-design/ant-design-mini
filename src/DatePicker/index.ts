@@ -47,7 +47,7 @@ Component({
   methods: {
     // 当前选中的picker值，处理无cValue时的情况，优先取当前时间，不在时间范围内取开始时间
     getCurrentValueWithCValue() {
-      const cValue = this.getValidPropValue();
+      const { cValue } = this.data;
       const { min, max, precision } = this.props;
       if (cValue) {
         return getValueByDate(cValue, precision);
@@ -67,7 +67,11 @@ Component({
     getValidPropValue() {
       const { min, max, value } = this.props;
       let cValue = null;
-      if (value && (!min || value >= min) && (!max || value <= max)) {
+      if (
+        value instanceof Date &&
+        (!min || value >= min) &&
+        (!max || value <= max)
+      ) {
         cValue = value;
       }
       return cValue;
