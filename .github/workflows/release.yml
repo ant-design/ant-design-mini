@@ -66,9 +66,23 @@ jobs:
         run: |
           npm run changelog
           LATEST_CHANGELOG=$(npx extract-changelog-release)
+          echo ${LATEST_CHANGELOG}
           echo "LATEST_CHANGELOG=${LATEST_CHANGELOG}" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Commit and push
+        if: github.event.ref == 'refs/heads/master' && github.event.inputs.release_branch != ''
+        run: |
+          npm run publish
+          git add .
+          git commit -am "chore(release): v${DIST_VERSION}"
+          git checkout -b ${{ github.event.inputs.release_branch }}
+          git push origin ${{ github.event.inputs.release_branch }}
+        env:
+          DRY_RUN: true
+          DIST_TAG: latest
+          DIST_VERSION: ${{ github.event.inputs.version }}
 
       # 在 master 分支运行时，自动基于 Release 分支创建 PR
       - name: Create Pull Request

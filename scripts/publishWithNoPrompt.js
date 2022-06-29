@@ -19,9 +19,9 @@ if (!version) {
 
 console.log('version:', version);
 
-doPublish(process.env.DIST_TAG, version);
+doPublish(process.env.DIST_TAG, version, process.env.DRY_RUN);
 
-if (process.env.DIST_VERSION) {
+if (process.env.DIST_VERSION && !process.env.DRY_RUN) {
   // 只对 release 的分支打 Tag
   execSync(`git tag ${process.env.DIST_VERSION}`);
   execSync(
