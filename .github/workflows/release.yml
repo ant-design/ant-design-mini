@@ -59,34 +59,28 @@ jobs:
           npm i
           npm run build
 
-      # 生成 Changelog, 会将内容写入到 ./releaselog.md 中
-      - name: Create Changelog
-        if: steps.checkTag.outputs.exists == 'false'
-        id: release-log
-        run: |
-          npm run changelog
-          LATEST_CHANGELOG=$(npx extract-changelog-release)
-          echo ${LATEST_CHANGELOG}
-          echo "LATEST_CHANGELOG=${LATEST_CHANGELOG}" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate Commit and push
-        if: github.event.ref == 'refs/heads/master' && github.event.inputs.release_branch != ''
+      - name: Generate Changelog, Version, Commit and Push
+        if: steps.checkTag.outputs.exists == 'false' && github.base_ref == 'master' && github.event.inputs.release_branch != ''
         run: |
           npm run publish
           git add .
           git commit -am "chore(release): v${DIST_VERSION}"
           git checkout -b ${{ github.event.inputs.release_branch }}
           git push origin ${{ github.event.inputs.release_branch }}
+          npm run changelog
+          LATEST_CHANGELOG=$(npx extract-changelog-release)
+          echo ${LATEST_CHANGELOG}
+          echo "LATEST_CHANGELOG=${LATEST_CHANGELOG}" >> $GITHUB_ENV
         env:
           DRY_RUN: true
           DIST_TAG: latest
           DIST_VERSION: ${{ github.event.inputs.version }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 在 master 分支运行时，自动基于 Release 分支创建 PR
       - name: Create Pull Request
-        if: github.event.ref == 'refs/heads/master' && github.event.inputs.release_branch != ''
+        if: github.base_ref == 'master' && github.event.inputs.release_branch != ''
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}

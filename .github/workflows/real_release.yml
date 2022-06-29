@@ -24,15 +24,13 @@ jobs:
 
       - name: Setup Version & Tag
         run: |
-          CURRENT_VERSION=$(echo $PR_TITLE | sed 's/^chore(release): v//')
-          echo "CURRENT_VERSION=${CURRENT_VERSION}" >> $GITHUB_ENV
-          echo "DIST_VERSION=${CURRENT_VERSION}" >> $GITHUB_ENV
+          DIST_VERSION=$(node -e "console.log(require('./package.json').version)")
+          echo "DIST_VERSION=${DIST_VERSION}" >> $GITHUB_ENV
           echo "DIST_TAG=fakeLatest" >> $GITHUB_ENV
           # 在 checkTag 中使用这个环境变量
           echo "TAG=${CURRENT_VERSION}" >> $GITHUB_ENV
           echo $PR_CONTENT >> ./releaselog.md
         env:
-          PR_TITLE: ${{ github.event.pull_request.title }}
           PR_CONTENT: ${{ github.event.pull_request.body }}
 
       - name: Use Node.js 14
