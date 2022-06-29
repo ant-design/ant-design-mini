@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "The version you want to release, eg: 1.0.0"
+        description: "The version you want to release, eg: 1.0.0. **no prefix v!**"
         required: true
       release_branch:
-        description: "The release branch, eg: v2.14, if run on master, please make sure the release_branch is set"
+        description: "The release branch, eg: master, if run on master, please make sure the release_branch is set"
         required: false
         default: "master"
 
@@ -84,8 +84,8 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             await github.rest.pulls.create({
-              owner: github.repository.owner.login,
-              repo: github.repository.name,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
               title: 'chore(release): v${{ github.event.inputs.version }}',
               head: 'v{{ github.event.inputs.version }}',
               base: 'master',
