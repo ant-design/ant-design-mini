@@ -59,7 +59,7 @@ jobs:
           npm i
 
       - name: Generate Changelog, Version, Commit and Push
-        if: steps.checkTag.outputs.exists == 'false' && github.base_ref == 'master' && github.event.inputs.release_branch != ''
+        if: steps.checkTag.outputs.exists == 'false' &&  github.event.inputs.release_branch != ''
         run: |
           npm run publish
           git add .
@@ -78,7 +78,7 @@ jobs:
 
       # 在 master 分支运行时，自动基于 Release 分支创建 PR
       - name: Create Pull Request
-        if: github.base_ref == 'master' && github.event.inputs.release_branch != ''
+        if:  github.event.inputs.release_branch != ''
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
