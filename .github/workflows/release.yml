@@ -61,7 +61,7 @@ jobs:
       - name: Generate Changelog, Version, Commit and Push
         if: steps.checkTag.outputs.exists == 'false' &&  github.event.inputs.release_branch != ''
         run: |
-          npm run publish
+          node ./scripts/publishWithNoPrompt
           git add .
           git commit -am "chore(release): v${DIST_VERSION}"
           git checkout -b ${{ github.event.inputs.release_branch }}
