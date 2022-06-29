@@ -87,7 +87,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: 'chore(release): v${{ github.event.inputs.version }}',
-              head: 'v{{ github.event.inputs.version }}',
+              head: 'v${{ github.event.inputs.version }}',
               base: 'master',
               body: process.env.LATEST_CHANGELOG
             })
