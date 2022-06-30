@@ -26,6 +26,17 @@ jobs:
           ref: ${{ github.head_ref }}
 
 
+      - name: Setup Version & Environment Variables
+        run: |
+          DIST_VERSION=$(node -e "console.log(require('./package.json').version)")
+          echo "DIST_VERSION=${DIST_VERSION}" >> $GITHUB_ENV
+          echo "DIST_TAG=fakeLatest" >> $GITHUB_ENV
+          echo "HEAD_SHA=${{ github.head_ref }}" >> $GITHUB_ENV
+          echo $PR_CONTENT >> ./releaselog.md
+        env:
+          PR_CONTENT: ${{ github.event.issue.body }}
+
+
       - uses: actions/github-script@v6
         id: run-check-suite
         with:
@@ -34,16 +45,9 @@ jobs:
             const script = require('./scripts/github/notifyReleaseResult.js')
             return await script('Release', {github, context, core}, 'start')
 
-      - name: Setup Version & Environment Variables
+      - name: Setup CHECK_RUN_ID Environment Variables
         run: |
-          DIST_VERSION=$(node -e "console.log(require('./package.json').version)")
-          echo "DIST_VERSION=${DIST_VERSION}" >> $GITHUB_ENV
-          echo "DIST_TAG=fakeLatest" >> $GITHUB_ENV
-          echo "HEAD_SHA=${{ github.head_ref }}" >> $GITHUB_ENV
           echo "CHECK_RUN_ID=${{steps.run-check-suite.outputs.result}}" >> $GITHUB_ENV
-          echo $PR_CONTENT >> ./releaselog.md
-        env:
-          PR_CONTENT: ${{ github.event.issue.body }}
 
       - name: Use Node.js 14
         uses: actions/setup-node@v1
