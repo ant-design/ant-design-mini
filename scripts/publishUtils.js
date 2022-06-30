@@ -42,7 +42,10 @@ function generateSematicVersion(tag, versionLevel, currentVersion) {
     }`;
   } else {
     // 仅限 alpha 和 beta
-    const newNumber = Number(curNumber) + 1;
+    let newNumber = Number(curNumber) + 1;
+    if (isNaN(newNumber)) {
+      newNumber = 1;
+    }
     newVersion = `${
       tag === 'alpha'
         ? `${curMajor}.${curMinor}.${curPatch}-alpha.${newNumber}`

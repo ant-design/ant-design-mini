@@ -7,12 +7,13 @@ const {
 console.log('dist tag:', process.env.DIST_TAG);
 
 let version = process.env.DIST_VERSION;
+let versionLevel = process.env.DIST_VERSION_LEVEL;
 if (!version) {
   const currentVersion = require('../package.json').version;
   console.log(`currentVersion`, currentVersion);
   version = generateSematicVersion(
     process.env.DIST_TAG,
-    'patch',
+    versionLevel ?? 'patch',
     currentVersion
   );
 }

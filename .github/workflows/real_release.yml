@@ -1,11 +1,7 @@
-name: Release After PR Merged
+name: Release By PR Comment
 
 on:
-  pull_request:
-    branches:
-      - master
-    types:
-      - closed
+  issue_comment:
 
 # Example output: in a PR branch (head) named `feature-1 to a target branch (base) of `release-v1`, you'll see:
   # github.base_ref: release-v1
@@ -13,10 +9,17 @@ on:
   # github.ref: refs/pull/2/merge
 
 jobs:
-  if_merged:
-    if: "${{  github.event.pull_request.merged == true && startsWith(github.event.pull_request.title, 'chore(release): v') }}"
+  if_release_comment:
+    if: "${{ github.event.issue.pull_request && startsWith(github.event.pull_request.title, 'chore(release): v') && startsWith(github.event.comment.body, '/release') }}"
     runs-on: ubuntu-latest
     steps:
+      - name: "Check if user has write access"
+        uses: "lannonbr/repo-permission-check-action@2.0.0"
+        with:
+          permission: "write"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -28,7 +31,7 @@ jobs:
           echo "DIST_VERSION=${DIST_VERSION}" >> $GITHUB_ENV
           echo "DIST_TAG=fakeLatest" >> $GITHUB_ENV
           # 在 checkTag 中使用这个环境变量
-          echo "TAG=${CURRENT_VERSION}" >> $GITHUB_ENV
+          echo "TAG=${DIST_VERSION}" >> $GITHUB_ENV
           echo $PR_CONTENT >> ./releaselog.md
         env:
           PR_CONTENT: ${{ github.event.pull_request.body }}
@@ -57,7 +60,6 @@ jobs:
       - name: Install dependencies & Build
         run: |
           npm i
-          npm run build
 
       - name: Publish version
         run: |
@@ -80,3 +82,63 @@ jobs:
           body_path: ./releaselog.md
           draft: true
           prerelease: true
+
+      - uses: actions/github-script@v6
+        if: success()
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const script = require('./scripts/github/notifyReleaseResult.js')
+            return await script('Release', {github, context, core})
+
+  if_release_candidate_comment:
+    if: "${{ github.event.issue.pull_request && startsWith(github.event.pull_request.title, 'chore(release): v') && startsWith(github.event.comment.body, '/rc') }}"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check if user has write access"
+        uses: "lannonbr/repo-permission-check-action@2.0.0"
+        with:
+          permission: "write"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.base_ref }}
+
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+
+      # 安装依赖并构建
+      - name: Install dependencies & Build
+        run: |
+          npm i
+
+      - name: Publish version
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+          node ./scripts/publishWithNoPrompt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          DIST_TAG: 'fakeLatest'
+          DIST_VERSION_LEVEL: 'other'
+
+      - name: Setup Version & Tag
+        run: |
+          DIST_VERSION=$(node -e "console.log(require('./package.json').version)")
+          echo "DIST_VERSION=${DIST_VERSION}" >> $GITHUB_ENV
+
+      - uses: actions/github-script@v6
+        if: success()
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const script = require('./scripts/github/notifyReleaseResult.js')
+            return await script('Release Candidate', {github, context, core})
