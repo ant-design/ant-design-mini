@@ -22,7 +22,7 @@
           <view
             class="amd-actionsheet-list-item-icon"
             a:if="{{helper.isIconMode(actions)}}"
-            style="background-image: url({{item.icon}})"
+            style="background-image: url('{{item.icon}}')"
           >
           </view>
           <view class='amd-actionsheet-list-item-content'>

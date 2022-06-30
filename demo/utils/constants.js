@@ -117,11 +117,6 @@ export const componentList = [
         path: '/pages/Picker/index',
       },
       {
-        name: 'TreeSelect',
-        nameZN: '树形选择器',
-        path:  '/pages/TreeSelect/index',
-      },
-      {
         name: 'DatePicker',
         nameZN: '时间选择器',
         path: '/pages/DatePicker/index',
@@ -182,14 +177,9 @@ export const componentList = [
     type: '反馈',
     list: [
       {
-        name: 'Empty',
-        nameZN: '空状态',
-        path: '/pages/Empty/index',
-      },
-      {
         name: 'ActionSheet',
         nameZN: '动作面板',
-        path: '/pages/ActionSheet/index',
+        path: '/pages/ActionSheet/index'
       },
       {
         name: 'Dialog',

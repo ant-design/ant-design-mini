@@ -169,7 +169,7 @@ Component({
 
       previewImage({
         current: previewImageIndex,
-        urls: fileList.map((file) => file.url),
+        urls: fileList.map((file) => file.localPath || file.url),
         enableShowPhotoDownload,
         enablesavephoto: enableSavePhoto
       });

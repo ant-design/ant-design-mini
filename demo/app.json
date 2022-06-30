@@ -62,11 +62,11 @@
     "pages/TabBar/index",
     "pages/ProgressCircle/index",
     "pages/Slider/index",
-    "pages/ImageUpload/index",
-    "pages/VideoUpload/index",
     "pages/ProgressBar/index",
     "pages/BladeView/index",
-    "pages/Rate/index"
+    "pages/Rate/index",
+    "pages/ImageUpload/index",
+    "pages/VideoUpload/index"
   ],
   "window": {
     "enableWK": "YES",

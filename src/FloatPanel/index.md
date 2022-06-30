@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 信息展示
-  order: 1
+  order: 8
 toc: false
 ---
 
@@ -39,6 +39,7 @@ toc: false
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onContentToBottom | 内容区域滚动到底部，常用于数据加载 | () => void |
+| onScroll | 面板滚动结束回调 | (status: 'MAX' \| 'MIDDLE' \| 'MIN') => void |
 
 ## 插槽
 

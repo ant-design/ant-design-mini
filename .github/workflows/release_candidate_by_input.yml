@@ -1,0 +1,69 @@
+name: Release Candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "A valid branch or commit hash, eg: v2.14, master"
+        required: true
+        default: 'master'
+
+jobs:
+  rc-version:
+    name: RC Version
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      # 判断用户是否有写权限
+      - name: "Check if user has write access"
+        uses: "lannonbr/repo-permission-check-action@2.0.0"
+        with:
+          permission: "write"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Checkout 到指定分支
+      - uses: actions/checkout@v2
+        if: success()
+        with:
+          ref: ${{ github.event.inputs.ref }}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+
+      # 安装依赖并构建
+      - name: Install dependencies & Build
+        run: |
+          npm i
+          npm run build
+
+      - name: Publish version
+        run: |
+          node ./scripts/publishWithNoPrompt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          DIST_TAG: 'beta'
+
+      - name: Adding markdown
+        if: success()
+        run: |
+          CURRENT_VERSION=$(node -p 'require("./package.json").version')
+          echo '### Released :rocket:' $CURRENT_VERSION >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo $CURRENT_VERSION >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo 'user input ref:' $INPUT_REF >> $GITHUB_STEP_SUMMARY
+          echo '```log' >> $GITHUB_STEP_SUMMARY
+          git log --oneline -1 >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+        env:
+          INPUT_REF: ${{ github.event.inputs.ref }}

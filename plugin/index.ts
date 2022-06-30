@@ -84,7 +84,7 @@ export function getRenderProps(path: string) {
         page,
       }
       : {
-        appCdnBaseUrl: ' https://gw.alipayobjects.com/os/miniassets/antd-mini-demo/0.0.17/1655697084476/',
+        appCdnBaseUrl: 'https://gw.alipayobjects.com/os/miniassets/antd-mini-demo/0.0.18/1656519981049/',
         page
       };
 

@@ -2,20 +2,16 @@ Page({
   data: {
     action: 'https://www.fastmock.site/mock/b3a1128da69d22edd307be51154c913d/upload/video',
     value_1: [{
-      key: '111',
       url: 'https://gw.alipayobjects.com/v/rms_226d75/afts/video/A*lg2qQJsuBF0AAAAAAAAAAAAAARQnAQ/720P',
       status: 'done'
     }],
     value_2: [{
-      key: '111',
       url: 'XNDM0OTQzMDc2OA==',
       status: 'done'
     }, {
-      key: '111',
       url: 'XMzg2Mzc5MzMwMA==',
       status: 'pending'
     }, {
-      key: '111',
       url: 'XMzg2Mzc5MzMwMA==',
       status: 'error'
     }],

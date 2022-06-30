@@ -6,7 +6,7 @@ Component({
   methods: {
     onAction(e) {
       const { item, index } = e.target.dataset;
-      if (item.disabled) return;
+      if (item?.disabled) return;
       const { onClose, onAction } = this.props;
       const event = fmtEvent(this.props, e );
       onClose?.(event);

@@ -24,7 +24,6 @@ toc: false
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | value | File[] | - | [] | 已上传的图片列表 |
-| controlled | boolean | - | false | 是否受控 |
 | action | string | 否 | - | 上传图片的服务器地址，只支持https地址 |
 | enableShowPhotoDownload | boolean | - | false | 预览图片时是否暂时下载按钮，只有在不存在onPreview字段时生效 |
 | enableSavePhoto | boolean | - | false | 照片支持长按下载 |
@@ -48,16 +47,14 @@ toc: false
 | onDelete | 删除当前列表中的图片时触发，包括上传成功和上传失败的图片，如果返回 false 表示阻止删除，支持返回 Promise | (v: File) => boolean &verbar; Promise\<boolean\> &verbar; void |
 | onPreview | 点击图片进行预览时触发，会覆盖默认的预览功能 | (v:File[]) => void |
 | onUpload | 图片上传方法，当不存在https服务器时，支持自定义上传方式，只在不存在action字段时生效 | (v: File) => Promise\<File\> |
-| onAfterUpload | 使用action时，图片上传后的回调函数，当上传接口不为默认的{success: true, data: {url: 'xx'}}时使用，返回void则表示上传失败 | (res) => string |
+| onAfterUpload | 使用action时，图片上传后的回调函数，当上传接口不为默认的{success: true, data: {url: 'xx'}}时使用，返回void则表示上传失败，返回的string代表图片File中的url | (res) => string |
 
 ## File
 
 | 字段名 | 说明 | 类型 |
 | -----|-----|----- |
-| key | 唯一标识 | string |
 | url | 图片的资源地址 | string |
-| localPath | 上传图片的本地地址 | string |
-| status | 上传状态 | 'pending' | 'done' | 'error' |
+| status | 上传状态 | 'pending' \| 'done' \| 'error' |
 
 ## 样式类 
 
