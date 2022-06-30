@@ -64,11 +64,7 @@ Component({
       } else {
         setTimeout(fn, 16)
       }
-<<<<<<< HEAD
-    }
-=======
     },
->>>>>>> origin/ProgressCircle
     drawProgress (rad = 0) {
       const ctx = this.ctx
       const { width, height } = this.props
