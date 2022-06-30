@@ -1,3 +1,6 @@
+# 在 PR 的评论中回复 `/release [dist-tag]` 可以进行本次发布，如 `/release beta`
+# 可不填参数直接评论 `/release`，默认发布到 latest
+
 name: Release By PR Comment
 
 on:
