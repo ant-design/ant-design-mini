@@ -23,15 +23,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.base_ref }}
+          ref: ${{ github.head_ref }}
 
-      - name: Setup Version & Tag
+
+      - uses: actions/github-script@v6
+        id: run-check-suite
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const script = require('./scripts/github/notifyReleaseResult.js')
+            return await script('Release', {github, context, core}, 'start')
+
+      - name: Setup Version & Environment Variables
         run: |
           DIST_VERSION=$(node -e "console.log(require('./package.json').version)")
           echo "DIST_VERSION=${DIST_VERSION}" >> $GITHUB_ENV
           echo "DIST_TAG=fakeLatest" >> $GITHUB_ENV
-          # 在 checkTag 中使用这个环境变量
-          echo "TAG=${DIST_VERSION}" >> $GITHUB_ENV
+          echo "HEAD_SHA=${{ github.head_ref }}" >> $GITHUB_ENV
+          echo "CHECK_RUN_ID=${{steps.run-check-suite.outputs.result}}" >> $GITHUB_ENV
           echo $PR_CONTENT >> ./releaselog.md
         env:
           PR_CONTENT: ${{ github.event.issue.body }}
@@ -41,20 +50,6 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-
-      - uses: mukunku/tag-exists-action@v1.0.0
-        id: checkTag
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Git Identity
-        if: steps.checkTag.outputs.exists == 'false'
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 安装依赖并构建
       - name: Install dependencies & Build
@@ -72,7 +67,6 @@ jobs:
 
       - name: Create Release
         id: create_release
-        if: steps.checkTag.outputs.exists == 'false'
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -83,10 +77,19 @@ jobs:
           draft: true
           prerelease: true
 
+      # 发布失败后，更新 checkRun 状态
+      - uses: actions/github-script@v6
+        if: failure()
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const script = require('./scripts/github/notifyReleaseResult.js')
+            return await script('Release', {github, context, core}, 'failure')
+
       - uses: actions/github-script@v6
         if: success()
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const script = require('./scripts/github/notifyReleaseResult.js')
-            return await script('Release', {github, context, core})
+            return await script('Release', {github, context, core}, 'end')
