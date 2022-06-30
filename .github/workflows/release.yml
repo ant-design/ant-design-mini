@@ -67,9 +67,7 @@ jobs:
           git commit -am "chore(release): v${DIST_VERSION}"
           git checkout -b v${DIST_VERSION}
           git push origin v${DIST_VERSION}
-          LATEST_CHANGELOG=$(npx extract-changelog-release)
-          echo ${LATEST_CHANGELOG}
-          echo "LATEST_CHANGELOG=${LATEST_CHANGELOG}" >> $GITHUB_ENV
+          npx extract-changelog-release > RELEASE_BODY.md
         env:
           SETUP_RELEASE: true
           DIST_TAG: latest
@@ -83,11 +81,14 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
+            const { readFile } = require("fs/promises")
+            const data = await readFile('RELEASE_BODY.md')
+
             await github.rest.pulls.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: 'chore(release): v${{ github.event.inputs.version }}',
               head: 'v${{ github.event.inputs.version }}',
               base: 'master',
-              body: process.env.LATEST_CHANGELOG
+              body: data.toString(),
             })
