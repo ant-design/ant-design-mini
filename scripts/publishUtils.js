@@ -136,13 +136,11 @@ function npmPublish(oldVersion, newVersion, tag) {
  * @param {'latest' | 'alpha' | 'beta'} tag
  * @param {string} newVersion
  */
-function doPublish(tag, newVersion, dryRun = false) {
+function doPublish(tag, newVersion) {
   console.log('发布中 ...');
   const originPkgJson = require(PKG_JSON_PATH);
-  if (!dryRun) {
-    publish('antd-mini', tag, newVersion);
-    publish('antd-mini-rpx', tag, newVersion);
-  }
+  publish('antd-mini', tag, newVersion);
+  publish('antd-mini-rpx', tag, newVersion);
   // 只回写正式版的 package.json
   if (tag === 'latest') {
     originPkgJson.version = newVersion;
@@ -208,5 +206,6 @@ module.exports = {
   gitSync,
   doPublish,
   generateSematicVersion,
-  execSync
+  execSync,
+  PKG_JSON_PATH
 };

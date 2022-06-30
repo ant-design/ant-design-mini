@@ -61,10 +61,17 @@ jobs:
       - name: Generate Changelog, Version, Commit and Push
         if: steps.checkTag.outputs.exists == 'false' &&  github.event.inputs.release_branch != ''
         run: |
+          # Bump version in package.json
           node ./scripts/publishInCI
+          # generate conventional changelog
           npm run changelog
+          # Commit package.json and CHANGELOG.md files
           git add .
           git commit -am "chore(release): v${DIST_VERSION}"
+          # TAG
+          git tag ${DIST_VERSION}
+          git push origin ${DIST_VERSION}:${DIST_VERSION}
+          # Push to origin
           git checkout -b v${DIST_VERSION}
           git push origin v${DIST_VERSION}
           npx extract-changelog-release > RELEASE_BODY.md
