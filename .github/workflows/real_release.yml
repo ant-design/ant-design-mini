@@ -4,19 +4,19 @@ on:
   issue_comment:
 
 # Example output: in a PR branch (head) named `feature-1 to a target branch (base) of `release-v1`, you'll see:
-  # github.base_ref: release-v1
-  # github.head_ref: feature-1
-  # github.ref: refs/pull/2/merge
+# github.base_ref: release-v1
+# github.head_ref: feature-1
+# github.ref: refs/pull/2/merge
 
 jobs:
   if_release_comment:
     if: "${{ github.event.issue.pull_request && startsWith(github.event.issue.title, 'chore(release): v') && startsWith(github.event.comment.body, '/release') }}"
     runs-on: ubuntu-latest
     steps:
-      - name: "Check if user has write access"
-        uses: "lannonbr/repo-permission-check-action@2.0.0"
+      - name: 'Check if user has write access'
+        uses: 'lannonbr/repo-permission-check-action@2.0.0'
         with:
-          permission: "write"
+          permission: 'write'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -32,6 +32,16 @@ jobs:
       - run: |
           echo "HEAD_SHA=${{steps.comment-branch.outputs.head_sha}}" >> $GITHUB_ENV
 
+      - uses: actions/github-script@v6
+        id: get-dist-tag
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const script = require('./scripts/github/cli.js')
+            return await script('dist-tag', {github, context, core})
+        env:
+          COMMENT_CONTENT: ${{ github.event.comment.body }}
+
       - name: Setup Version & Environment Variables
         run: |
           DIST_VERSION=$(node -e "console.log(require('./package.json').version)")
@@ -45,7 +55,6 @@ jobs:
         id: checkTag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 
       - uses: actions/github-script@v6
         id: run-check-suite
@@ -78,7 +87,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          DIST_TAG: beta
+          DIST_TAG: ${{ steps.get-dist-tag.outputs.result }}
 
       - name: Add missing Tag
         if: steps.checkTag.outputs.exists == 'false'
