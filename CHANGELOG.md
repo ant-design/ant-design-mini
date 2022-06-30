@@ -1,3 +1,7 @@
+## 0.0.19-alpha.0 (2022-06-30)
+
+
+
 ## [0.0.12](https://github.com/ant-design/ant-design-mini/compare/0.0.7-alpha.3...0.0.12) (2022-06-28)
 
 
