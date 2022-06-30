@@ -25,13 +25,17 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+
+      - run: |
+          echo "HEAD_SHA=${{steps.comment-branch.outputs.head_sha}}" >> $GITHUB_ENV
 
       - name: Setup Version & Environment Variables
         run: |
           DIST_VERSION=$(node -e "console.log(require('./package.json').version)")
           echo "DIST_VERSION=${DIST_VERSION}" >> $GITHUB_ENV
           echo "DIST_TAG=fakeLatest" >> $GITHUB_ENV
-          echo "HEAD_SHA=${{ github.head_ref }}" >> $GITHUB_ENV
           echo $PR_CONTENT >> ./releaselog.md
         env:
           PR_CONTENT: ${{ github.event.issue.body }}
