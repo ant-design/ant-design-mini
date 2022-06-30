@@ -57,10 +57,10 @@ jobs:
       - name: Adding markdown
         if: success()
         run: |
-          CURRENT_VERSION=$(node -p 'require("./package.json").version')
-          echo '### Released :rocket:' $CURRENT_VERSION >> $GITHUB_STEP_SUMMARY
+          DIST_VERSION=$(node -p 'require("./package.json").version')
+          echo '### Released :rocket:' $DIST_VERSION >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          echo $CURRENT_VERSION >> $GITHUB_STEP_SUMMARY
+          echo $DIST_VERSION >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           echo 'user input ref:' $INPUT_REF >> $GITHUB_STEP_SUMMARY
           echo '```log' >> $GITHUB_STEP_SUMMARY
