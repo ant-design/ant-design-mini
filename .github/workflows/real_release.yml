@@ -64,7 +64,7 @@ jobs:
       - name: Publish version
         run: |
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
-          node ./scripts/publishWithNoPrompt
+          node ./scripts/publishInCI
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

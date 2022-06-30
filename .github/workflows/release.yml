@@ -61,7 +61,7 @@ jobs:
       - name: Generate Changelog, Version, Commit and Push
         if: steps.checkTag.outputs.exists == 'false' &&  github.event.inputs.release_branch != ''
         run: |
-          node ./scripts/publishWithNoPrompt
+          node ./scripts/publishInCI
           npm run changelog
           git add .
           git commit -am "chore(release): v${DIST_VERSION}"
@@ -71,7 +71,7 @@ jobs:
           echo ${LATEST_CHANGELOG}
           echo "LATEST_CHANGELOG=${LATEST_CHANGELOG}" >> $GITHUB_ENV
         env:
-          DRY_RUN: true
+          SETUP_RELEASE: true
           DIST_TAG: latest
           DIST_VERSION: ${{ github.event.inputs.version }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
