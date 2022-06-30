@@ -10,7 +10,7 @@ on:
 
 jobs:
   if_release_comment:
-    if: "${{ github.event.issue.pull_request && startsWith(github.event.pull_request.title, 'chore(release): v') && startsWith(github.event.comment.body, '/release') }}"
+    if: "${{ github.event.issue.pull_request && startsWith(github.event.issue.title, 'chore(release): v') && startsWith(github.event.comment.body, '/release') }}"
     runs-on: ubuntu-latest
     steps:
       - name: "Check if user has write access"
@@ -34,7 +34,7 @@ jobs:
           echo "TAG=${DIST_VERSION}" >> $GITHUB_ENV
           echo $PR_CONTENT >> ./releaselog.md
         env:
-          PR_CONTENT: ${{ github.event.pull_request.body }}
+          PR_CONTENT: ${{ github.event.issue.body }}
 
       - name: Use Node.js 14
         uses: actions/setup-node@v1
