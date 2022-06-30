@@ -86,6 +86,11 @@ export const componentList = [
         nameZN: '分割线',
         path: '/pages/Divider/index',
       },
+      {
+        name: 'Footer',
+        nameZN: '页脚',
+        path: '/pages/Footer/index',
+      },
     ],
   },
   {

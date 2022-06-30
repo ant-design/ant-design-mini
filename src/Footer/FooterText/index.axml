@@ -1,0 +1,3 @@
+<view class="amd-footer-text {{className ? className : ''}}">
+  <slot />
+</view>
