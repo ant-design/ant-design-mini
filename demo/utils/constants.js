@@ -81,6 +81,11 @@ export const componentList = [
         nameZN: '滑动面板',
         path: '/pages/FloatPanel/index',
       },
+      {
+        name: 'Divider',
+        nameZN: '分割线',
+        path: '/pages/Divider/index',
+      },
     ],
   },
   {
