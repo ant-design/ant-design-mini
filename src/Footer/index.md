@@ -2,7 +2,7 @@
 title: Footer
 group:
   path: /display
-  title: 数据展示
+  title: 信息展示
 ---
 # Footer
 
