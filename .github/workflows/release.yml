@@ -62,11 +62,11 @@ jobs:
         if: steps.checkTag.outputs.exists == 'false' &&  github.event.inputs.release_branch != ''
         run: |
           node ./scripts/publishWithNoPrompt
+          npm run changelog
           git add .
           git commit -am "chore(release): v${DIST_VERSION}"
           git checkout -b v${DIST_VERSION}
           git push origin v${DIST_VERSION}
-          npm run changelog
           LATEST_CHANGELOG=$(npx extract-changelog-release)
           echo ${LATEST_CHANGELOG}
           echo "LATEST_CHANGELOG=${LATEST_CHANGELOG}" >> $GITHUB_ENV
