@@ -42,14 +42,17 @@ function generateSematicVersion(tag, versionLevel, currentVersion) {
     }`;
   } else {
     // 仅限 alpha 和 beta
-    const newNumber = Number(curNumber) + 1;
+    let newNumber = Number(curNumber) + 1;
+    if (isNaN(newNumber)) {
+      newNumber = 1;
+    }
     newVersion = `${
       tag === 'alpha'
         ? `${curMajor}.${curMinor}.${curPatch}-alpha.${newNumber}`
         : `${curMajor}.${curMinor}.${curPatch}-beta.${newNumber}`
     }`;
   }
-  return newVersion
+  return newVersion;
 }
 
 // 拿到版本信息, 以 antd-mini 为基准
@@ -98,7 +101,7 @@ function genNewVersion(tag, currentVersion) {
       ])
       .then((res) => {
         const { version } = res;
-        const newVersion = generateSematicVersion(tag, version, currentVersion)
+        const newVersion = generateSematicVersion(tag, version, currentVersion);
         resolve(newVersion);
       })
       .catch((error) => {
@@ -133,11 +136,13 @@ function npmPublish(oldVersion, newVersion, tag) {
  * @param {'latest' | 'alpha' | 'beta'} tag
  * @param {string} newVersion
  */
-function doPublish(tag, newVersion) {
+function doPublish(tag, newVersion, dryRun = false) {
   console.log('发布中 ...');
   const originPkgJson = require(PKG_JSON_PATH);
-  publish('antd-mini', tag, newVersion);
-  publish('antd-mini-rpx', tag, newVersion);
+  if (!dryRun) {
+    publish('antd-mini', tag, newVersion);
+    publish('antd-mini-rpx', tag, newVersion);
+  }
   // 只回写正式版的 package.json
   if (tag === 'latest') {
     originPkgJson.version = newVersion;
@@ -202,5 +207,6 @@ module.exports = {
   updatePkgJson,
   gitSync,
   doPublish,
-  generateSematicVersion
+  generateSematicVersion,
+  execSync
 };

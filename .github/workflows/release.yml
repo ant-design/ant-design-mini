@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "The version you want to release, eg: 1.0.0"
+        description: "The version you want to release, eg: 1.0.0. **no prefix v!**"
         required: true
       release_branch:
-        description: "The release branch, eg: v2.14, if run on master, please make sure the release_branch is set"
+        description: "The release branch, eg: master, if run on master, please make sure the release_branch is set"
         required: false
         default: "master"
 
@@ -53,35 +53,41 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 安装依赖并构建
-      - name: Install dependencies & Build
+      - name: Install dependencies
         if: steps.checkTag.outputs.exists == 'false'
         run: |
           npm i
-          npm run build
 
-      # 生成 Changelog, 会将内容写入到 ./releaselog.md 中
-      - name: Create Changelog
-        if: steps.checkTag.outputs.exists == 'false'
-        id: release-log
+      - name: Generate Changelog, Version, Commit and Push
+        if: steps.checkTag.outputs.exists == 'false' &&  github.event.inputs.release_branch != ''
         run: |
+          node ./scripts/publishWithNoPrompt
           npm run changelog
+          git add .
+          git commit -am "chore(release): v${DIST_VERSION}"
+          git checkout -b v${DIST_VERSION}
+          git push origin v${DIST_VERSION}
           LATEST_CHANGELOG=$(npx extract-changelog-release)
+          echo ${LATEST_CHANGELOG}
           echo "LATEST_CHANGELOG=${LATEST_CHANGELOG}" >> $GITHUB_ENV
         env:
+          DRY_RUN: true
+          DIST_TAG: latest
+          DIST_VERSION: ${{ github.event.inputs.version }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 在 master 分支运行时，自动基于 Release 分支创建 PR
       - name: Create Pull Request
-        if: github.event.ref == 'refs/heads/master' && github.event.inputs.release_branch != ''
+        if:  github.event.inputs.release_branch != ''
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             await github.rest.pulls.create({
-              owner: github.repository.owner.login,
-              repo: github.repository.name,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
               title: 'chore(release): v${{ github.event.inputs.version }}',
-              head: '{{ github.event.inputs.release_branch }}',
+              head: 'v${{ github.event.inputs.version }}',
               base: 'master',
               body: process.env.LATEST_CHANGELOG
             })
