@@ -46,7 +46,13 @@ export const componentList = [
         name: 'Container',
         nameZN: '容器',
         path: '/pages/Container/index',
-      },  {
+      },
+      {
+        name: 'Grid',
+        nameZN: '宫格',
+        path: '/pages/Grid/index',
+      },
+      {
         name: 'List',
         nameZN: '列表',
         path: '/pages/List/index',
@@ -144,7 +150,7 @@ export const componentList = [
       {
         name: 'ActionSheet',
         nameZN: '动作面板',
-        path: '/pages/ActionSheet/index'
+        path: '/pages/ActionSheet/index',
       },
       {
         name: 'Dialog',
