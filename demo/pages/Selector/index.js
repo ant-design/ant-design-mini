@@ -55,8 +55,8 @@ Page({
       value: e,
     });
   },
-  handleTapWhenEmpty(value, item) {
+  onSelectMin(value, item) {
     console.log(value, item);
-    my.showToast({ content: '不允许清空' });
+    my.alert({ content: '不允许清空' });
   },
 });

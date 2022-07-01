@@ -47,6 +47,6 @@
 <selector 
   title="单选-不允许清空"
   value="11"
-  avoidEmpty
-  onEmptyTap="handleTapWhenEmpty"
+  minSelectedCount="{{1}}"
+  onSelectMin="onSelectMin"
   items="{{items1}}"/>

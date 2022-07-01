@@ -23,19 +23,41 @@ Component({
   methods: {
     onChange(e) {
       const { disabled, value } = e.currentTarget.dataset;
-      const { multiple, items, onEmptyTap, avoidEmpty } = this.props;
+      const {
+        multiple,
+        items,
+        maxSelectedCount,
+        minSelectedCount,
+        onSelectMax,
+        onSelectMin,
+      } = this.props;
       if (!disabled && !this.props.disabled) {
         let nextValue: string[];
         const fixedValue = getFixedValue(this.data.cValue, multiple);
-        // 单选、多选均触发，清空最后一个
-        if (fixedValue?.length === 1 && fixedValue?.[0] === value) {
-          if (onEmptyTap) {
-            onEmptyTap(
-              value,
-              items.find((v) => v.value === value)
-            );
+        if (fixedValue?.indexOf(value) === -1) {
+          if (
+            !isNaN(maxSelectedCount) &&
+            fixedValue.length >= maxSelectedCount
+          ) {
+            if (onSelectMax) {
+              onSelectMax(
+                value,
+                items.find((v) => v.value === value)
+              );
+            }
+            return;
           }
-          if (avoidEmpty) {
+        } else {
+          if (
+            !isNaN(minSelectedCount) &&
+            fixedValue.length <= minSelectedCount
+          ) {
+            if (onSelectMin) {
+              onSelectMin(
+                value,
+                items.find((v) => v.value === value)
+              );
+            }
             return;
           }
         }

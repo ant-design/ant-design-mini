@@ -40,7 +40,8 @@ type SelectorItem = {
 | id | string | 否 | - | 表单元素 id |
 | name | string | 否 | - | 表单元素 name |
 | disabled | boolean | 否 | false | 是否禁用 |
-| avoidEmpty | boolean | 否 | false | 是否禁止点击清空 |
+| maxSelectedCount | number | 否 | - | 最大选择数量 |
+| minSelectedCount | number | 否 | - | 最小选择数量 |
 | mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
 | className | string | 否 | - | 类名 |
 
@@ -48,7 +49,8 @@ type SelectorItem = {
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 选中值发生变化，触发回调 | (v: string &#124; string[], selectedItem: SelectItem &#124; SelectItem[] ) => void |
-| onEmptyTap |点击清空最后一个触发 | (v: string, item: SelectItem ) => void |
+| onSelectMax | 触发最大限制 | (v: string, item: SelectItem ) => void |
+| onSelectMin | 触发最小限制 | (v: string, item: SelectItem ) => void |
 
 ## 样式类
 | 类名 | 说明 |

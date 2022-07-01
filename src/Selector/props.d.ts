@@ -54,13 +54,20 @@ export interface ISelectorProps
    */
   controlled?: boolean;
   /**
-   * @description 是否禁止点击清空
-   * @default false
+   * @description 最小选择数量
    */
-  avoidEmpty?: boolean;
+  minSelectedCount?: number;
   /**
-   * @description 点击清空最后一个触发
+   * @description 最大选择数量
    */
-  onEmptyTap?: (value: string, item: ISelectorItem) => void;
+  maxSelectedCount?: number;
+  /**
+   * @description 触发最大限制
+   */
+  onSelectMax(value: string, item: ISelectorItem): void;
+  /**
+   * @description 触发最小限制
+   */
+  onSelectMin(value: string, item: ISelectorItem): void;
 }
 export declare const SelectorDefaultProps: Partial<ISelectorProps>;
