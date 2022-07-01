@@ -1,73 +1,93 @@
+import equal from 'fast-deep-equal';
 import { PickerDefaultProps } from './props';
 import computed from '../mixins/computed';
 import controlled from '../mixins/controlled';
 import formMixin from '../mixins/form';
-import { getMatchedItemByValue, getMatchedItemByIndex, getStrictMatchedItemByValue } from './utils';
+import {
+  getMatchedItemByValue,
+  getMatchedItemByIndex,
+  getStrictMatchedItemByValue,
+} from './utils';
 
 Component({
   mixins: [computed, controlled(), formMixin({ trigger: 'onOk' })],
   props: PickerDefaultProps,
   data: {
-    visible: false,
     formatValue: '',
-    columns: []
+    columns: [],
+    visible: false,
   },
   tempSelectedIndex: null,
   single: false,
+  didUpdate(prevProps, prevData) {
+    const { visible, columns, cValue } = this.data;
+    const { columns: prevColumns, cValue: prevCValue } = prevData;
+    if (visible) {
+      if (!equal(prevColumns, columns) || !equal(prevCValue, cValue)) {
+        this.tempSelectedIndex = this.getterSelectedIndex();
+      }
+    }
+  },
   methods: {
     computed() {
-      const columns = this.getterColumns()
+      const columns = this.getterColumns();
       const formatValue = this.getterFormatText();
       const selectedIndex = this.getterSelectedIndex();
       return {
         formatValue,
         selectedIndex,
-        columns
+        columns,
       };
     },
     getterColumns() {
-      let columns = []
-      if  (this.props.data.length > 0) {
-        if (this.props.data.every(item  => item instanceof Array)) {
-          this.single  = false
-          columns = this.props.data.slice()
+      let columns = [];
+      if (this.props.data.length > 0) {
+        if (this.props.data.every((item) => item instanceof Array)) {
+          this.single = false;
+          columns = this.props.data.slice();
         } else {
-          this.single  = true
-          columns = [this.props.data]
+          this.single = true;
+          columns = [this.props.data];
         }
       }
-      return columns 
+      return columns;
     },
     getterFormatText() {
       const { onFormat } = this.props;
       const { cValue, columns } = this.data;
       let formatValue = '';
-      const { matchedColumn } =  getStrictMatchedItemByValue(columns, cValue, this.single)
+      const { matchedColumn } = getStrictMatchedItemByValue(
+        columns,
+        cValue,
+        this.single
+      );
       formatValue = onFormat(cValue, matchedColumn, this.props.data);
-      return formatValue
+      return formatValue;
     },
 
     getterSelectedIndex() {
       const selectedIndex = [];
       const columns = this.data.columns;
-      const { cValue }  = this.data;
+      const { cValue } = this.data;
       let value = cValue;
       if (this.single) {
-        value = [cValue]
+        value = [cValue];
       }
       for (let i = 0; i < columns.length; i++) {
         const column = columns[i];
-        const compareValue  =  value[i]
-        if (compareValue  === undefined || compareValue  === null) {
-          selectedIndex[i] = 0
+        const compareValue = value[i];
+        if (compareValue === undefined || compareValue === null) {
+          selectedIndex[i] = 0;
         }
-        let index  = column.findIndex(c => {
-          return c === compareValue || c.value === compareValue
-        })
-        if (index === -1) { index  = 0 }
-        selectedIndex[i]  = index
+        let index = column.findIndex((c) => {
+          return c === compareValue || c.value === compareValue;
+        });
+        if (index === -1) {
+          index = 0;
+        }
+        selectedIndex[i] = index;
       }
-      return selectedIndex
+      return selectedIndex;
     },
 
     onOpen() {
@@ -122,14 +142,18 @@ Component({
           this.single
         );
       } else {
-        result = getMatchedItemByValue(this.data.columns, this.data.cValue, this.single);
+        result = getMatchedItemByValue(
+          this.data.columns,
+          this.data.cValue,
+          this.single
+        );
       }
       const { matchedColumn, matchedValues } = result;
       this.setData({
         cValue: matchedValues,
       });
-      if (this.props.onOk)  {
-        this.props.onOk.call(this, matchedValues, matchedColumn )
+      if (this.props.onOk) {
+        this.props.onOk.call(this, matchedValues, matchedColumn);
       }
       this.triggerPicker(false);
       this.setData({

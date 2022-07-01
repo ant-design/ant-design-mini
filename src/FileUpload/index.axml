@@ -1,0 +1,30 @@
+<import-sjs from="./index.sjs" name="fileUpload" />
+
+<view class="amd-file-upload">
+  <view a:if="{{fileList.length < maxCount}}" onTap="onChooseFile" class="amd-file-upload-button">
+    <slot name="uploadButton">
+      <button type="primary" inline="{{true}}" inlineSize="medium">上传文件</button>
+    </slot>
+  </view>
+  <list a:if="{{fileList.length}}" class="amd-file-upload-list-wrapper">
+    <list-item a:for="{{fileList}}" image="{{fileUpload.getFileUploadFileIcon(item.url)}}" imageSize="medium" data-info="{{{url:item.url,tempFilePath:item.tempFilePath,index:index}}}" 
+      onTap="onPreviewFile">
+      <view slot="brief">
+        <view class="{{item.status==='pending'?'amd-file-upload-brief-pending':''}}" a:if="{{item.status==='pending'}}">
+          <progress percent="{{item.progress}}" active-Color="#1677FF" />
+        </view>
+        <view a:elif="{{item.status === 'error'}}" class="amd-file-upload-error-status">上传错误</view>
+        <view a:else>
+          {{item.size}}
+        </view>
+      </view>
+      <view slot="extra" class="amd-file-upload-close-icon" a:if="{{item.status!=='pending' || item.progress === 100}}" data-delete-file-index="{{index}}" 
+        catchTap="onDeleteFile">
+        <am-icon type="CloseCircleFill" size="x-small" color="#ccc"></am-icon>
+      </view>
+      <view class="{{item.status === 'error'?'amd-file-upload-error-status':''}}">
+        {{item.description}}
+      </view>
+    </list-item>
+  </list>
+</view>

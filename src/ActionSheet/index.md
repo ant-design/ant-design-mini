@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 反馈
-  order: 2
+  order: 12
 toc: false
 ---
 
@@ -35,7 +35,7 @@ type IActionItem = {
 | actions | IActionItem[] | 否 | [] | 面板选项列表 |
 | title | string | 否 | - | 标题 |
 | cancelText | string | 否 | 取消 | 取消按钮文字 |
-| className | string | - | - | 类名 |
+| className | string | 否 | - | 类名 |
 
 ## 事件 
 

@@ -1,0 +1,26 @@
+<view class="demo-tree-select">
+  <list header="基础用法">
+    <list-item 
+      extraBrief="{{threeLevelSelectedOptions.length===3 ? threeLevelSelectedOptions.join(' ') : '去完善'}}"
+      arrow="right"
+      onTap="onThreeLevelTreeSelectToggle">
+      三级树形选择
+    </list-item>
+    <list-item 
+      extraBrief="{{twoLevelSelectedOptions.length===2 ? twoLevelSelectedOptions.join(' ') : '去完善'}}"
+      arrow="right"
+      onTap="onTwoLevelTreeSelectToggle">
+      两级树形选择
+    </list-item>
+    <list-item 
+      extraBrief="{{defaultValue.length===3 ? defaultValue.join(' ') : '去完善'}}"
+      arrow="right"
+      onTap="onDefaultValueThreeLevelTreeSelectToggle">
+      三级树形选择-有初始值
+    </list-item>
+  </list>
+  
+  <tree-select options="{{mockingThreeLevelOptions}}" visible="{{threeLevelTreeSelectEnable}}" onChange="handleChange" />
+  <tree-select options="{{mockingTwoLevelOptions}}" visible="{{twoLevelTreeSelectEnable}}" onChange="handleChange" />
+  <tree-select value="{{defaultValue}}" options="{{mockingThreeLevelOptions}}" visible="{{defaultValueTreeSelectEnable}}" onChange="handleDefaultValueChange" />
+</view>

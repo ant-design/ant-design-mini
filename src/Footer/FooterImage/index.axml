@@ -1,0 +1,1 @@
+<image className="amd-footer-image {{className ? className : ''}}" src="{{src}}" mode="aspectFit" />

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/TreeSelect/index",
     "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormBasic/index",
@@ -12,6 +13,7 @@
     "pages/Icon/index",
     "pages/Switch/index",
     "pages/Picker/index",
+    "pages/DatePicker/index",
     "pages/InputItem/index",
     "pages/Badge/index",
     "pages/Button/index",
@@ -51,12 +53,23 @@
     "pages/SafeArea/index",
     "pages/Dialog/index",
     "pages/Container/index",
+    "pages/FileUpload/index",
     "pages/Checklist/index",
     "pages/Empty/index",
     "pages/Toast/index",
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",
     "pages/Grid/index"
+    "pages/TabBar/index",
+    "pages/ProgressCircle/index",
+    "pages/Slider/index",
+    "pages/ProgressBar/index",
+    "pages/BladeView/index",
+    "pages/Rate/index",
+    "pages/ImageUpload/index",
+    "pages/VideoUpload/index",
+    "pages/Divider/index",
+    "pages/Footer/index"
   ],
   "window": {
     "enableWK": "YES",

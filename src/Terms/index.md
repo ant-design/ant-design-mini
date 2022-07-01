@@ -25,8 +25,8 @@ toc: false
 | fixed | boolean | 否 | false | 是否固定在底部 |
 | hasCheckbox | boolean | 否 | true | 是否需要勾选框 |
 | disabled | boolean | 否 | false | 是否禁用 |
-| mainButtonText | string | 是 | '同意' | 主按钮文本 |
-| addonButtonText | string | 否 |  | 辅助按钮文本 |
+| mainButtonText | string | 是 | '提交' | 主按钮文本 |
+| addonButtonText | string | 否 |  - | 辅助按钮文本 |
 | className | string | 否 | - | 类名 |
 
 
