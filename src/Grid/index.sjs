@@ -1,5 +1,9 @@
 function checkNeedVerticalSpace(count, index, columns) {
-  return index < count - columns + (count % columns);
+  if (count % columns === 0) {
+    return index < count - columns;
+  } else {
+    return index < columns * Math.floor(count / columns);
+  }
 }
 
 export default {
