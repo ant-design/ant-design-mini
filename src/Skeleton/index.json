@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "avatar": "./Avatar/index",
+    "paragraph": "./Paragraph/index",
+    "title": "./Title/index"
+  }
+}

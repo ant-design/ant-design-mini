@@ -1,0 +1,5 @@
+<view a:if="{{loading}}" style="{{size?('width:'+size+';height:'+size):''}}" class="amd-skeleton-avatar amd-skeleton-avatar-{{shape}} {{animate?'amd-skeleton-avatar-animate':''}} {{className||''}}">
+
+
+</view>
+<slot a:else/>
