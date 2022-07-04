@@ -1,0 +1,94 @@
+<list>
+  <list-item title="默认进度条" class="wrapper">
+    <view class="line1">
+      <text>请输入进度(0-100)</text>
+      <input class="input" onInput="handleInput1Change" type="number" />
+    </view>
+    <view class="line2">
+      <progress-circle
+        percent="{{percent1}}"
+        speed="{{6}}"
+        className="progress-bar1"
+        width="200"
+        height="200"
+      >
+    </view>
+  </list-item>
+
+  <list-item title="自定义进度条宽度" class="wrapper">
+    <view class="line1">
+      <text>请输入进度(0-100)</text>
+      <input class="input" onInput="handleInput2Change" type="number" />
+    </view>
+    <view class="line2">
+      <progress-circle
+        percent="{{percent2}}"
+        speed="{{6}}"
+        className="progress-bar1"
+        progressWidth="{{18}}"
+        id="progress-bar-canvas-2"
+        width="200"
+        height="200"
+      >
+    </view>
+  </list-item>
+
+  <list-item title="自定义颜色" class="wrapper">
+    <view class="line1">
+      <text>请输入进度(0-100)</text>
+      <input class="input" onInput="handleInput3Change" type="number" />
+    </view>
+    <view class="line2">
+      <progress-circle
+        percent="{{percent3}}"
+        speed="{{6}}"
+        className="progress-bar1"
+        id="progress-bar-canvas-3"
+        progressColor='#FF8F1F'
+        orbitColor='#00B578'
+        width="200"
+        height="200"
+      >
+    </view>
+  </list-item>
+
+  <list-item title="自定义进度条推进速度" class="wrapper">
+    <view class="line1">
+      <text>请输入进度(0-100)</text>
+      <input class="input" onInput="handleInput4Change" type="number" />
+    </view>
+    <view class="line1">
+      <text>请输入推进速度，推荐范围 0-15</text>
+      <input class="input" onInput="handleInput5Change" type="number" />
+    </view>
+    <view class="line2">
+      <progress-circle
+        percent="{{percent4}}"
+        speed="{{speed1}}"
+        className="progress-bar1"
+        id="progress-bar-canvas-4"
+        width="200"
+        height="200"
+      >
+    </view>
+  </list-item>
+
+  <list-item title="自定义提示文案" class="wrapper">
+    <view class="line1">
+      <text>请输入进度(0-100)</text>
+      <input class="input" onInput="handleInput6Change" type="number" />
+    </view>
+    <view class="line2">
+      <progress-circle
+        percent="{{percent5}}"
+        className="progress-bar1"
+        id="progress-bar-canvas-5"
+        label="本月剩余流量"
+        progressText="{{Math.floor(percent5 / 360 * 100 * 20)}}"
+        unit="GB"
+        width="100"
+        height="100"
+      >
+    </view>
+  </list-item>
+</list>

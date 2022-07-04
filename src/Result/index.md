@@ -7,44 +7,36 @@ group:
 toc: false
 ---
           
-# Result 操作结果
-对前一步操作的结果进行反馈
-## 何时使用
-当有重要操作需告知用户处理结果，且反馈内容较为复杂时使用
+# Rate 操作结果
+用于展示事物评级以及快速打分
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Result'></code>
+<code src='../../demo/pages/Rate'></code>
 
 
     
 ## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| type | 'success' &verbar; 'danger' &verbar; 'info' &verbar; 'warn' &verbar; 'wait' | 否 | - | 内置类型 success=成功 danger=错误/危险 info=信息提示 wait=等待处理 |
-| image | string &verbar; slot | 否 | - | 自定义图片，如果配置了 type， 则不生效 |
-| title | string &verbar; slot | 否 | - | 主文案 |
-| message | string &verbar; slot | 否 | - | 副文案 |
-| buttons | {text: string; type: 'default' &verbar; 'primary' &verbar; 'warn' &verbar; 'danger' &verbar; 'success' &verbar; 'light'}[] | 否 | - | 按钮类型 |
-| className | string | 否 | - | 类名 |
+| defaultValue | number | 否 | 0 | 初始星级 |
+| value | number | 否 | - | 当前数，受控值 |
+| allowHalf | boolean | 否 | true | 是否允许半星 |
+| allowClear | boolean | 否 | false | 是否允许再次点击后清除 |
+| readOnly | boolean | 否 | false | 只读，无法进行交互 |
+| maxRate | number | 否 | 5 | 最大星级 |
+| activeColor | string | 否 | - | 填充色 |
+| inactiveColor | string | 否 | - | 原始填充色 |
+| image | string | 否 | - | 自定义图片 |
+| onRateEnd | function | 否 | - | 打分结束回调 |
 
 ## 事件
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onButtonTap | 弹窗关闭时，触发回调 | (idx: number) => void |
-
-## 插槽
-| 名称 | 说明 |
-| ----|----|
-| title | 标题 |
-| message | 描述 |
-| image | 图标 |
+| onRateEnd | 打分结束时，触发回调 | (idx: number) => void |
 
 ## 样式类
 
 | 类名 | 说明 |
 | ----|----|
-| amd-result | 整体样式 |
-| amd-result-main | 内容展示区域 |
-| amd-result-image | icon 区域样式 |
-| amd-result-buttons | 按钮区域样式 |
+| amd-rate-wrapper | 整体样式 |

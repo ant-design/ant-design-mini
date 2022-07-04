@@ -17,7 +17,6 @@ toc: false
 <code src='../../demo/pages/Checklist'></code>
 
 ## 属性
-
 | 属性 |  说明  | 类型 | 必填 |默认值|
 | -----|-----|-----|-----|-----|
 | value | 选中数据 | string  &#124; number (string  &#124; )[] |  否 | - |

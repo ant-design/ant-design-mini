@@ -29,7 +29,6 @@
       onTap="onPreviewImage" 
     />
   </view>
-
   <view 
     a:if="{{fileList.length < maxCount}}" 
     class="amd-image-upload-add-image-wrapper" 

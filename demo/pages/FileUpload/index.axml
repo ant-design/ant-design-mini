@@ -1,0 +1,57 @@
+<view class="demo-file-upload">
+  <view class="demo-file-upload-title">基本用法</view>
+  <view class="demo-file-upload-show">
+    <file-upload 
+      action="{{action}}"
+      defaultValue="{{value_1}}"
+      maxCount="{{2}}"
+      onChange="onChange"
+    />
+  </view>
+  <view class="demo-file-upload-title">上传状态</view>
+  <view class="demo-file-upload-show">
+    <file-upload 
+      action="{{action}}"
+      defaultValue="{{value_2}}"
+      onPreviewFail="onPreviewFail"
+      maxCount="{{6}}"
+    />
+  </view>
+  <view class="demo-file-upload-title">自定义上传入口</view>
+  <view class="demo-file-upload-show">
+    <file-upload 
+      action="{{action}}"
+      defaultValue="{{value_1}}"
+      maxCount="{{3}}"
+    >
+      <view slot="uploadButton">
+        <am-icon type="AddCircleOutline" color="#999" size="small"/>
+      </view>
+    </file-upload>
+  </view>
+  <view class="demo-file-upload-title">删除文件确认</view>
+  <view class="demo-file-upload-show">
+    <file-upload
+      action='{{action}}'
+      defaultValue="{{value_1}}"
+      maxCount="{{1}}"
+      onDelete="onDelete"
+    />
+  </view>
+  <view class="demo-file-upload-title">限制上传文件大小和类型</view>
+  <view class="demo-file-upload-show">
+    <file-upload 
+      action='{{action}}'
+      maxCount="{{1}}"
+      onBeforeUpload="onBeforeUpload"
+    />
+  </view>
+
+  <view class="demo-file-upload-title">自定义上传方法</view>
+  <view class="demo-file-upload-show">
+    <file-upload  
+      maxCount="{{1}}"
+      onUpload="onUpload"
+    />
+  </view>
+</view>

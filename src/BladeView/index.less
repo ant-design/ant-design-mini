@@ -1,0 +1,118 @@
+@import (reference) "../_base/index.less";
+@import "../style/mixins/hairline.less";
+
+@BladeViewPrefix: amd-blade-view;
+
+.@{BladeViewPrefix} {
+  &-container {
+    position: relative;
+    background: #fff;
+  }
+
+  &-body {
+    height: 100vh;
+
+    &-group {
+      &-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 70 * @rpx;
+        padding: 0 24 * @rpx;
+        color: #999;
+        font-size: 26 * @rpx;
+        background: #f5f5f5;
+
+        &.firstBorder {
+          border-top: 1 * @rpx solid #eee;
+        }
+
+        &.sticky {
+          position: sticky;
+          top: 0;
+        }
+      }
+
+      &-item {
+        padding-left: 24 * @rpx;
+        height: 96 * @rpx;
+
+        &-container {
+          position: relative;
+          .hairline("top");
+          .hairline("bottom");
+        }
+
+        &-text {
+          padding: 24 * @rpx 24 * @rpx 24 * @rpx 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          line-height: 48 * @rpx;
+
+          &.notFirstBorder {
+            position: relative;
+            .hairline("top");
+          }
+
+          &.selected {
+            color: #3875f6;
+          }
+        }
+
+        &-hover {
+          background: #eee;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  &-sidebar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    overflow: visible;
+    z-index: 99;
+
+    &-item {
+      width: 96 * @rpx;
+      position: relative;
+      right: 16 * @rpx;
+
+      &-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32 * @rpx;
+        height: 32 * @rpx;
+        border-radius: 32 * @rpx;
+        color: #999;
+        font-size: 22 * @rpx;
+        margin-left: 64 * @rpx;
+
+        &.active {
+          color: #fff;
+          border-radius: 32 * @rpx;
+          background: #3875f6;
+        }
+      }
+    }
+
+    &-current {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 96 * @rpx;
+      width: 96 * @rpx;
+      height: 96 * @rpx;
+      color: #fff;
+      font-size: 50 * @rpx;
+      line-height: 96 * @rpx;
+      text-align: center;
+      background: #ccc;
+      border-radius: 50%;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<view class="tab-bar-demo">
+  <demo-block title="基础用法">
+    <tab-bar 
+      tabs="{{tabs}}"
+      defaultActiveKey="0"
+      onChange="handleChange" 
+    />
+  </demo-block>
+
+  <demo-block title="显示徽标">
+    <tab-bar 
+      tabs="{{tabsBadge}}"
+      defaultActiveKey="0"
+      onChange="handleChange" 
+    />
+  </demo-block>
+
+  <demo-block title="图片和 Icon 混合">
+    <tab-bar 
+      tabs="{{tabsImage}}"
+      defaultActiveKey="2"
+      onChange="handleChange" 
+    />
+  </demo-block>
+
+  <demo-block title="自定义高亮颜色">
+    <tab-bar 
+      tabs="{{tabs}}"
+      defaultActiveKey="1"
+      onChange="handleChange" 
+      activeColor="red"
+    />
+  </demo-block>
+
+  <demo-block title="Tab 数量超过 5 个后进行截取">
+    <tab-bar 
+      tabs="{{tabsCount6}}"
+      defaultActiveKey="1"
+      onChange="handleChange" 
+    />
+  </demo-block>
+
+  <demo-block title="Tab 数量可自定义">
+    <tab-bar 
+      tabs="{{tabsCount6}}"
+      maxTabCount="6"
+      defaultActiveKey="1"
+      onChange="handleChange" 
+    />
+  </demo-block>
+</view>

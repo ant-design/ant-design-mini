@@ -1,0 +1,31 @@
+@import (reference) "./variable.less";
+
+@tabsPrefix: amd-tab-bar;
+
+.@{tabsPrefix} {
+  &-wrap {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+  }
+  &-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8rpx 0;
+  }
+
+  &-icon {
+    width: 42rpx;
+    height: 42rpx;
+    margin-bottom: 4rpx;
+  }
+
+  &-image {
+    max-width: 42rpx;
+    max-height: 42rpx;
+    margin-bottom: 4rpx;
+  }
+}
