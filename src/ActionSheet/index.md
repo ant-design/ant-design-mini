@@ -4,7 +4,7 @@ nav:
 group:
   title: 反馈
   order: 12
-toc: false
+toc: 'content'
 ---
 
 # ActionSheet 动作面板

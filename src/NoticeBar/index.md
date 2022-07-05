@@ -4,7 +4,7 @@ nav:
 group:
   title: 引导提示
   order: 14
-toc: false
+toc: 'content'
 ---
 # NoticeBar 通告栏
 展示一组消息通知

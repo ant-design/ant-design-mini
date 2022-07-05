@@ -4,7 +4,7 @@ nav:
 group:
   title: 反馈
   order: 12
-toc: false
+toc: 'content'
 ---
 # Modal 弹窗
 ## 何时使用

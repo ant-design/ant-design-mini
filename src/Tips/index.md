@@ -4,7 +4,7 @@ nav:
 group:
   title: 引导提示
   order: 14
-toc: false
+toc: 'content'
 ---
 # Tips 向导提示
 弹出式气泡

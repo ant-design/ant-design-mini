@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 8
-toc: false
+toc: 'content'
 ---
 # Tag 标签
 进行标记和分类的小标签

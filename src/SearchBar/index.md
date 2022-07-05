@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 
 # SearchBar 搜索框

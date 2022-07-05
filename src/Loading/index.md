@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 反馈
-toc: false
+toc: 'content'
 ---
 
 # Loading 加载

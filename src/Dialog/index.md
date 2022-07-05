@@ -4,7 +4,7 @@ nav:
 group:
   title: 反馈
   order: 12
-toc: false
+toc: 'content'
 ---
 # Dialog 对话框
 用于重要信息的告知或操作的反馈，并附带少量的选项供用户进行操作

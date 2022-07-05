@@ -4,7 +4,7 @@ nav:
 group:
   title: 实验性质的组件
   order: 16
-toc: false
+toc: 'content'
 ---
 
 # Form 表单

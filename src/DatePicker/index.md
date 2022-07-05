@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 # DatePicker 时间选择器
 相比较于原生my.datePicker实现了ios跟android端体验一致

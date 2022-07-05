@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 信息输入
-toc: false
+toc: 'content'
 ---
 
 # VideoUpload 视频上传

@@ -4,7 +4,7 @@ nav:
 group:
   title: 导航
   order: 6
-toc: false
+toc: 'content'
 ---
 # Tabs 标签页
 内容组之间进行导航切换

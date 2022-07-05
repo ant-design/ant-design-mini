@@ -4,7 +4,7 @@ nav:
 group:
   title: 反馈
   order: 12
-toc: false
+toc: 'content'
 ---
 # Popover 气泡菜单
 点击元素，弹出气泡式的菜单

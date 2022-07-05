@@ -4,7 +4,7 @@ nav:
 group:
   title: 反馈
   order: 14
-toc: false
+toc: 'content'
 ---
 # Toast 轻提示
 ## 何时使用

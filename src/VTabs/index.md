@@ -4,7 +4,7 @@ nav:
 group:
   title: 导航
   order: 6
-toc: false
+toc: 'content'
 ---
 
 # VTabs 纵向Tabs
