@@ -59,19 +59,3 @@ toc: 'content'
 | amd-modal-buttons-container | 弹窗按钮区域整体样式 |
 | amd-modal-buttons-addon | 辅助按钮样式 |
 | amd-modal-close | close 图标样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(4) th:first-of-type {
-    width: 300px;
-}
-</style> 

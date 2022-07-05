@@ -84,25 +84,3 @@ toc: 'content'
 | amd-checkbox-base | 原始 checkbox 样式 |
 | amd-checkbox-fake | 未选中 checkbox 样式 |
 | amd-checkbox-checked | 选中 checkbox 样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4) {
-    width: 50px;
-}
-</style> 

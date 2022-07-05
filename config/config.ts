@@ -247,14 +247,23 @@ const config: IConfig = {
     font-size: 18px;
     line-height: 32px;
     color: #0D1A26E6;
-    padding-left: 24px;
     margin-top: 24px;
     margin-bottom: 16px;
-    display: inline-block!important;
   }
   #root .markdown h4 {
     margin-top: 24px;
     margin-bottom: 16px;
+  }
+  /** 样式类table样式，判断只有2个th */
+  th:nth-last-child(2):first-child {
+    width: 40%;
+  }
+  /** 事件table样式，判断只有3个th */
+  th:nth-last-child(3):first-child {
+    width: 20%;
+  }
+  th:nth-last-child(2):nth-child(2) {
+    width: 40%;
   }
   `],
   navs: {

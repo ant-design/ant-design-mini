@@ -107,32 +107,3 @@ toc: 'content'
 | -----|-----|
 | amd-tabs-item | 整体样式 |
 | amd-tabs-item-pane | 整体样式 |
-
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(6) th:nth-of-type(2) {
-    width: 300px;
-}
-.__dumi-default-mobile-previewer:nth-of-type(2)::after {
-    border-bottom: none!important;
-}
-</style> 

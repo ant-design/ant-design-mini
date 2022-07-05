@@ -38,17 +38,3 @@ toc: 'content'
 | amd-avatar-content | 头像描述样式 |
 | amd-avatar-name | name 样式 |
 | amd-avatar-desc | desc 样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-
-</style> 

@@ -50,16 +50,3 @@ toc: 'content'
 | amd-terms-term | term 区域样式 |
 | amd-terms-term-checkbox | checkbox 组件样式 |
 | amd-terms-content | 内容区域样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-</style> 
