@@ -11,7 +11,7 @@ const Previewer: React.FC<IProps> = (props) => {
   return (
     <div className="previewer">
       {!loaded && <Spin spinning   className="previewer-loading" />}
-      <iframe src={props.herboxUrl} onLoad={() => setLoaded(true)} />
+      <iframe src={props.herboxUrl} onLoad={() => setLoaded(true)} allow="clipboard-read; clipboard-write" />
     </div>
   );
 };

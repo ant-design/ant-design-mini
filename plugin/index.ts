@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 const CDN_URL =
-'https://opendocs.alipay.com/openbox/mini/antd-mini/antd-mini-16';
+'https://opendocs.alipay.com/openbox/mini/antd-mini/antd-mini-demo';
 
 export default (api: IApi) => {
   api.register({
