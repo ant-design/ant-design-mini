@@ -268,9 +268,18 @@ const config: IConfig = {
         path: '/components',
       },
       {
+        title: '资源',
+        path: '/resources',
+      },
+      {
+        title: '发布日志',
+        path: 'https://github.com/ant-design/ant-design-mini/releases',
+      },
+      {
         title: '仓库地址',
         path: 'https://github.com/ant-design/ant-design-mini',
-      }],
+      },
+    ],
   },
   menus: {
     '/': [
