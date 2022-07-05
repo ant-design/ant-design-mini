@@ -1,0 +1,101 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "The version you want to release, eg: 1.0.0. **no prefix v!**"
+        required: true
+      release_branch:
+        description: "The release branch, eg: master, if run on master, please make sure the release_branch is set"
+        required: false
+        default: "master"
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      # 判断用户是否有管理员权限
+      - name: "Check if user has admin access"
+        uses: "lannonbr/repo-permission-check-action@2.0.0"
+        with:
+          permission: "admin"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: mukunku/tag-exists-action@v1.0.0
+        id: checkTag
+        env:
+          TAG: v${{github.event.inputs.version}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Git Identity
+        if: steps.checkTag.outputs.exists == 'false'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 安装依赖并构建
+      - name: Install dependencies
+        if: steps.checkTag.outputs.exists == 'false'
+        run: |
+          npm i
+
+      - name: Generate Changelog, Version, Commit and Push
+        if: steps.checkTag.outputs.exists == 'false' &&  github.event.inputs.release_branch != ''
+        run: |
+          # Bump version in package.json
+          node ./scripts/publishInCI
+          # generate conventional changelog
+          npm run changelog
+          # Commit package.json and CHANGELOG.md files
+          git add .
+          git commit -am "chore(release): v${DIST_VERSION}"
+          # TAG
+          git tag ${DIST_VERSION}
+          git push origin ${DIST_VERSION}:${DIST_VERSION}
+          # Push to origin
+          git checkout -b v${DIST_VERSION}
+          git push origin v${DIST_VERSION}
+          npx extract-changelog-release > RELEASE_BODY.md
+        env:
+          SETUP_RELEASE: true
+          DIST_TAG: latest
+          DIST_VERSION: ${{ github.event.inputs.version }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 在 master 分支运行时，自动基于 Release 分支创建 PR
+      - name: Create Pull Request
+        if:  github.event.inputs.release_branch != ''
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const { readFile } = require("fs/promises")
+            const data = await readFile('RELEASE_BODY.md')
+
+            await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'chore(release): v${{ github.event.inputs.version }}',
+              head: 'v${{ github.event.inputs.version }}',
+              base: 'master',
+              body: data.toString(),
+            })

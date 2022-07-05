@@ -1,6 +1,8 @@
 {
   "defaultTitle": "Container",
   "usingComponents": {
+    "avatar": "../../../src/Avatar/index",
+    "white-space": "../../components/WhiteSpace/index",
     "container": "../../../src/Container/index"
   }
 }

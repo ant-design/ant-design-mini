@@ -30,7 +30,7 @@ type PickerColumnItem = string | number | {
 | -----|-----|-----|-----|-----|
 | value | PickerColumnItem  &#124;  (PickerColumnItem)[] | 否|选中数据 | - |
 | data |  PickerColumnItem数组 | 是 |picker 数据，配置每一列的选项 | [] |
-| placeholder |string |否| 提示文案  |- |
+| placeholder |string |否| 提示文案  | '请选择' |
 | disabled | boolean |否| 是否禁用 | false |
 | title |  string | 否  | 弹出框标题 | - |
 | okText |string | 否| 确认按钮文案 | '确定' |
