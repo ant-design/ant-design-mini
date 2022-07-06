@@ -1,7 +1,7 @@
 const { createVersionText } = require('./helpers');
 
 module.exports = async ({ github, context, core }) => {
-  const commentBody = createVersionText('PR Next', process.env.CURRENT_VERSION);
+  const commentBody = createVersionText('PR Next', process.env.DIST_VERSION, context);
 
   await github.rest.issues.createComment({
     issue_number: context.issue.number,
@@ -19,7 +19,7 @@ module.exports = async ({ github, context, core }) => {
     check_run_id: process.env.CHECK_RUN_ID,
     output: {
       title: 'PR Next Version publish successful!',
-      summary: `A version for pull request is **published**. version: **${process.env.CURRENT_VERSION}**`,
+      summary: `A version for pull request is **published**. version: **${process.env.DIST_VERSION}**`,
     },
   });
 };

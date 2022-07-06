@@ -67,6 +67,7 @@
     "pages/Rate/index",
     "pages/ImageUpload/index",
     "pages/VideoUpload/index",
+    "pages/Skeleton/index",
     "pages/Divider/index",
     "pages/Footer/index"
   ],

@@ -222,6 +222,11 @@ export const componentList = [
         path: '/pages/Result/index',
       },
       {
+        name: 'Skeleton',
+        nameZN: '骨架屏',
+        path: '/pages/Skeleton/index',
+      },
+      {
         name: 'Empty',
         nameZN: '空状态',
         path: '/pages/Empty/index',

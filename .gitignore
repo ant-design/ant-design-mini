@@ -29,3 +29,5 @@
 
 # other
 /.mini-ide
+
+.urc-ui/
