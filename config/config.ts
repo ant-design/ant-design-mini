@@ -254,6 +254,13 @@ const config: IConfig = {
     margin-top: 24px;
     margin-bottom: 16px;
   }
+  /** 内容区锚点 */
+  #root .__dumi-default-layout-toc li a.active {
+    color: #1677ff;
+  }
+  #root .__dumi-default-layout-toc li a.active::before {
+    background: #1677ff;
+  }
   /** 样式类table样式，判断只有2个th */
   th:nth-last-child(2):first-child {
     width: 40%;
