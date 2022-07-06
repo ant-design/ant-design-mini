@@ -1,0 +1,14 @@
+.wrapper {
+}
+
+.wrapper1 {
+    
+}
+
+.wrapper1 .amd-calendar-dateItem-wrapper-rangearea {
+    background-color: #FFF3E8 !important;
+}
+
+.wrapper1 .amd-calendar-dateItem-wrapper-rangeedge {
+    background-color: #FF8E1E !important;
+}

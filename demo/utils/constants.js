@@ -71,6 +71,11 @@ export const componentList = [
         nameZN: '滑动面板',
         path: '/pages/FloatPanel/index',
       },
+      {
+        name: 'Calendar',
+        nameZN: '日历',
+        path: '/pages/Calendar/index',
+      },
     ],
   },
   {

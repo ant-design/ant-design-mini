@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Calendar",
+  "usingComponents": {
+    "calendar": "../../../src/Calendar/index",
+    "list": "antd-mini/es/List/index",
+    "list-item": "antd-mini/es/List/ListItem/index"
+  },
+  "allowsBounceVertical": "NO"
+}

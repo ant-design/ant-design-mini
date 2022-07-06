@@ -1,0 +1,113 @@
+<view>
+    <list header="基础用法" radius="{{true}}" class="list">
+        <view class="line">
+            <list-item 
+                onTap="handleButton1Tap"
+                extraBrief="{{date1}}"
+            >
+                选择单日期
+            </list-item>
+            <list-item
+                onTap="handleButton2Tap"
+                extraBrief="{{range1 ? `${range1[0]} - ${range1[1]}` : ''}}"
+            >选择日期范围</list-item>
+        </view>
+    </list>
+
+    <list header="扩展用法" radius="{{true}}" class="list">
+        <view class="line">
+            <list-item onTap="handleButton3Tap">带农历节</list-item>
+        </view>
+    </list>
+
+    <list header="自定义用法" radius="{{true}}" class="list">
+        <view class="line">
+            <list-item
+                onTap="handleButton4Tap"
+            >
+                自定义颜色
+            </list-item>
+            <list-item
+                onTap="handleButton5Tap"
+            >自定义文案与假日</list-item>
+            <list-item
+                onTap="handleButton6Tap"
+            >自定义可选范围</list-item>
+        </view>
+    </list>
+</view>
+
+<calendar 
+    className="wrapper"
+    startDate="{{startDate}}"
+    endDate="{{endDate}}"
+    selectDate="{{date1}}"
+    onChange="handleDateChange"
+    selectionMode="single"
+    showConfirmButton="{{true}}"
+    onClose="onClose"
+    a:if="{{show1}}"
+/>
+
+<calendar 
+    className="wrapper"
+    startDate="{{startDate}}"
+    endDate="{{endDate}}"
+    selectRange="{{range1}}"
+    onChange="handleRangeChange"
+    selectionMode="range"
+    showConfirmButton="{{true}}"
+    onClose="onClose"
+    a:if="{{show2}}"
+/>
+
+<calendar 
+    className="wrapper"
+    startDate="{{startDate}}"
+    endDate="{{endDate}}"
+    onChange="handleChange"
+    selectionMode="single"
+    showlunar="{{true}}"
+    showConfirmButton="{{true}}"
+    onClose="onClose"
+    a:if="{{show3}}"
+/>
+
+<calendar 
+    className="wrapper1"
+    startDate="{{startDate}}"
+    endDate="{{endDate}}"
+    onChange="handleChange"
+    selectionMode="range"
+    showlunar="{{true}}"
+    showConfirmButton="{{true}}"
+    onClose="onClose"
+    a:if="{{show4}}"
+/>
+
+<calendar 
+    className="wrapper"
+    startDate="{{startDate}}"
+    endDate="{{endDate}}"
+    onChange="handleChange"
+    selectionMode="range"
+    showlunar="{{true}}"
+    showConfirmButton="{{true}}"
+    onClose="onClose"
+    a:if="{{show5}}"
+    customDateList="{{customDateList}}"
+    holidayList="{{holidayList}}"
+/>
+
+<calendar 
+    className="wrapper"
+    startDate="{{startDate}}"
+    endDate="{{endDate}}"
+    onChange="handleChange"
+    selectionMode="range"
+    showlunar="{{true}}"
+    showConfirmButton="{{true}}"
+    onClose="onClose"
+    a:if="{{show6}}"
+    disableDates="{{disableDates}}"
+/>
