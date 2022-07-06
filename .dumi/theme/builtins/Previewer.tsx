@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Spin from 'antd/lib/spin';
-import 'antd/lib/spin/style/index';
 import './Previewer.less';
 
 interface IProps {
@@ -10,8 +8,12 @@ const Previewer: React.FC<IProps> = (props) => {
   const [loaded, setLoaded] = useState(false);
   return (
     <div className="previewer">
-      {!loaded && <Spin spinning   className="previewer-loading" />}
-      <iframe src={props.herboxUrl} onLoad={() => setLoaded(true)} allow="clipboard-read; clipboard-write" />
+      {!loaded && <div className="previewer-loading" />}
+      <iframe
+        src={props.herboxUrl}
+        onLoad={() => setLoaded(true)}
+        allow="clipboard-read; clipboard-write"
+      />
     </div>
   );
 };
