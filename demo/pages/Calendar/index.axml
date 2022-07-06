@@ -1,0 +1,14 @@
+
+<calendar 
+    className="wrapper"
+    startDate="{{startDate}}"
+    endDate="{{endDate}}"
+    date="{{date}}"
+    holidayList="{{holidayList}}"
+    customDateList="{{customDateList}}"
+    disableDates="{{disableDates}}"
+    onChange="onChange"
+    selectionMode="range"
+    showConfirmButton="{{true}}"
+    onClose="onClose"
+/>

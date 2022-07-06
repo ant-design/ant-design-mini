@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Calendar",
+  "usingComponents": {
+    "calendar": "../../../src/Calendar/index"
+  }
+}
