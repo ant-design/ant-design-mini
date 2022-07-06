@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 8
-toc: false
+toc: 'content'
 ---
 
 # Container 容器
@@ -46,25 +46,3 @@ toc: false
 | amd-container-header-image | 标题栏图片样式   |
 | amd-container-header-title | 标题栏标题样式   |
 | amd-container-content      | 内容样式         |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

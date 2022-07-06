@@ -4,7 +4,7 @@ nav:
 group:
   title: 通用
   order: 2
-toc: false
+toc: 'content'
 ---
 
 # Icon 图标
@@ -37,17 +37,3 @@ toc: false
 | 类名 | 说明 |
 | -----|-----|
 | amd-icon | 整体样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-
-</style> 

@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 8
-toc: false
+toc: 'content'
 ---
 
 # FloatPanel 滑动面板

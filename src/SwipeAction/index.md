@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 8
-toc: false
+toc: 'content'
 ---
 
 # SwipeAction 滑动操作
@@ -49,19 +49,3 @@ toc: false
 | amd-swipe-action-btn-text | 按钮文字样式 |
 | amd-swipe-action-content | 表层区域样式 |
 | amd-swipe-action-item | 表层区域内容样式 |
-
-<style>
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 260px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 40px
-} 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after {
-    border-bottom: none!important;
-}
-</style>

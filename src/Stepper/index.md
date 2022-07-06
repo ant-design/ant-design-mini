@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 
 # Stepper 步进器
@@ -59,16 +59,3 @@ toc: false
 | amd-stepper-handler-up-inner | +/- 图标样式 |
 | amd-stepper-input-wrap | 输入框区域样式 |
 | amd-stepper-input | 输入框样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-</style> 

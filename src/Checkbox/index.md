@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 
 # Checkbox 复选框
@@ -54,9 +54,3 @@ toc: false
 | amd-checkbox-base | 原始 checkbox 样式 |
 | amd-checkbox-fake | checkbox 组件未选中样式 |
 | amd-checkbox-fake-custom | 自定义图标时的样式 |
-
-<style> 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after {
-    border-bottom: none!important;
-}
-</style>

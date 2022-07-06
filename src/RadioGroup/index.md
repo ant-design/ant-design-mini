@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 # RadioGroup 单选框
 在一组可选项中进行单选，通过value来指定选中项
