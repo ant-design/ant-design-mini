@@ -93,7 +93,6 @@
     "lint-staged": "^10.0.7",
     "marked": "^4.0.12",
     "minidev": "^1.0.7",
-    "monaco-editor-webpack-plugin": "1.9.0",
     "path": "^0.12.7",
     "postcss-less": "^6.0.0",
     "pre-commit": "^1.2.2",
