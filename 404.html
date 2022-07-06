@@ -44,6 +44,11 @@
         margin-left: 5px;
         width: 370px;
       }
+      #root .__dumi-default-layout-content {
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
       #root .__dumi-default-device[data-device-type="iOS"] {
         display: none;
       }
@@ -232,22 +237,38 @@
         font-size: 18px;
         line-height: 32px;
         color: #0d1a26e6;
-        padding-left: 24px;
         margin-top: 24px;
         margin-bottom: 16px;
-        display: inline-block !important;
       }
       #root .markdown h4 {
         margin-top: 24px;
         margin-bottom: 16px;
       }
+      /** 内容区锚点 */
+      #root .__dumi-default-layout-toc li a.active {
+        color: #1677ff;
+      }
+      #root .__dumi-default-layout-toc li a.active::before {
+        background: #1677ff;
+      }
+      /** 样式类table样式，判断只有2个th */
+      th:nth-last-child(2):first-child {
+        width: 40%;
+      }
+      /** 事件table样式，判断只有3个th */
+      th:nth-last-child(3):first-child {
+        width: 20%;
+      }
+      th:nth-last-child(2):nth-child(2) {
+        width: 40%;
+      }
     </style>
-    <link rel="stylesheet" href="/umi.cc233bae.css" />
+    <link rel="stylesheet" href="/umi.0106d81d.css" />
     <script>
       window.routerBase = "/";
     </script>
     <script>
-      //! umi version: 3.5.26
+      //! umi version: 3.5.27
     </script>
     <script src="https://gw.alipayobjects.com/os/lib/current-device/0.10.2/umd/current-device.min.js"></script>
     <script src="https://v1.cnzz.com/z_stat.php?id=1280900245&amp;web_id=1280900245"></script>
@@ -302,6 +323,6 @@
         });
       }
     </script>
-    <script src="/umi.b5cf793f.js"></script>
+    <script src="/umi.ffd579ce.js"></script>
   </body>
 </html>
