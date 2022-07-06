@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "pagination": "../Pagination/index",
+    "grid-item": "./GridItem/index"
+  }
+}
