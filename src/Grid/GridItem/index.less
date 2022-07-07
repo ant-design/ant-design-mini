@@ -1,0 +1,98 @@
+@import (reference) '../variable.less';
+
+.ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.@{gridPrefix}-item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  &-vertical-space {
+    margin-bottom: @vertical-space;
+  }
+  &-columns-5 {
+    width: @columns5-width;
+    margin-right: @columns5-space;
+    &:nth-of-type(5n) {
+      margin-right: 0;
+    }
+  }
+  &-columns-4 {
+    width: @columns4-width;
+    margin-right: @columns4-space;
+    &:nth-of-type(4n) {
+      margin-right: 0;
+    }
+  }
+  &-columns-3 {
+    width: @columns3-width;
+    margin-right: @columns3-space;
+    &:nth-of-type(3n) {
+      margin-right: 0;
+    }
+  }
+  &-columns-2 {
+    width: @columns2-width;
+    margin-right: @columns2-space;
+    &:nth-of-type(2n) {
+      margin-right: 0;
+    }
+    justify-content: center;
+    text-align: left;
+    position: relative;
+    min-height: @icon-size;
+    padding-left: 80 * @rpx;
+    .@{gridPrefix}-item-img,
+    .@{gridPrefix}-item-icon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+  &-columns-scroll {
+    width: @columnsscroll-width;
+    margin-right: @columnsscroll-space;
+    &:nth-last-of-type(1) {
+      margin-right: 0;
+    }
+  }
+
+  &-img {
+    width: @icon-size;
+    height: @icon-size;
+    margin-bottom: 16 * @rpx;
+    &-circle {
+      border-radius: 50%;
+    }
+  }
+  &-icon {
+    font-size: @icon-size;
+    margin-bottom: 16 * @rpx;
+    &-circle {
+      border-radius: 50%;
+    }
+  }
+  &-title {
+    font-family: PingFangSC-Regular;
+    font-size: @title-size;
+    color: @title-color;
+    line-height: 37 * @rpx;
+    width: 100%;
+    .ellipsis();
+  }
+  &-desc {
+    font-family: PingFangSC-Regular;
+    font-size: @desc-size;
+    color: @desc-color;
+    line-height: 33 * @rpx;
+    width: 100%;
+    .ellipsis();
+  }
+}

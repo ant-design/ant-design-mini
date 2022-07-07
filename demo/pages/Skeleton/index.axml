@@ -1,0 +1,26 @@
+<demo-block title="基础用法">
+    <skeleton></skeleton>
+</demo-block>
+<demo-block title="有动画的骨架屏">
+    <skeleton animate></skeleton>
+</demo-block>
+<demo-block title="复杂组合">
+    <skeleton loading="{{showLoading}}" animate title avatar rows="{{5}}" animate>
+        <image mode="widthFix" class="demo-img" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"/>
+    </skeleton>
+    <list-item>
+        显示骨架
+        <switch slot="extra" checked="{{showLoading}}" onChange="handleToggleShowLoading"/>
+      </list-item>
+</demo-block>
+<demo-block title="自定义组合">
+    <view class="custom-skeleton-wrapper">
+        <view class="custom-skeleton-header">
+            <skeleton-avatar />
+            <skeleton-button />
+        </view>
+        <skeleton-paragraph rows="{{1}}" />
+        <skeleton-custom class="custom-skeleton-custom" rows="{{1}}" />
+        <skeleton-button />
+    </view>
+</demo-block>

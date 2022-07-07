@@ -42,14 +42,17 @@ function generateSematicVersion(tag, versionLevel, currentVersion) {
     }`;
   } else {
     // 仅限 alpha 和 beta
-    const newNumber = Number(curNumber) + 1;
+    let newNumber = Number(curNumber) + 1;
+    if (isNaN(newNumber)) {
+      newNumber = 1;
+    }
     newVersion = `${
       tag === 'alpha'
         ? `${curMajor}.${curMinor}.${curPatch}-alpha.${newNumber}`
         : `${curMajor}.${curMinor}.${curPatch}-beta.${newNumber}`
     }`;
   }
-  return newVersion
+  return newVersion;
 }
 
 // 拿到版本信息, 以 antd-mini 为基准
@@ -98,7 +101,7 @@ function genNewVersion(tag, currentVersion) {
       ])
       .then((res) => {
         const { version } = res;
-        const newVersion = generateSematicVersion(tag, version, currentVersion)
+        const newVersion = generateSematicVersion(tag, version, currentVersion);
         resolve(newVersion);
       })
       .catch((error) => {
@@ -202,5 +205,7 @@ module.exports = {
   updatePkgJson,
   gitSync,
   doPublish,
-  generateSematicVersion
+  generateSematicVersion,
+  execSync,
+  PKG_JSON_PATH
 };

@@ -1,81 +1,128 @@
-name: Release After PR Merged
+# 在 PR 的评论中回复 `/release [dist-tag]` 可以进行本次发布，如 `/release beta`
+# 可不填参数直接评论 `/release`，默认发布到 latest
+
+name: Release By PR Comment
 
 on:
-  pull_request:
-    branches:
-      - master
-    types:
-      - closed
+  issue_comment:
 
 # Example output: in a PR branch (head) named `feature-1 to a target branch (base) of `release-v1`, you'll see:
-  # github.base_ref: release-v1
-  # github.head_ref: feature-1
-  # github.ref: refs/pull/2/merge
+# github.base_ref: release-v1
+# github.head_ref: feature-1
+# github.ref: refs/pull/2/merge
 
 jobs:
-  if_merged:
-    if: "${{  github.event.pull_request.merged == true && startsWith(github.event.pull_request.title, 'chore(release): v') }}"
+  if_release_comment:
+    if: "${{ github.event.issue.pull_request && startsWith(github.event.issue.title, 'chore(release): v') && startsWith(github.event.comment.body, '/release') }}"
     runs-on: ubuntu-latest
     steps:
+      - name: 'Check if user has write access'
+        uses: 'lannonbr/repo-permission-check-action@2.0.0'
+        with:
+          permission: 'write'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+
       - name: Checkout
         uses: actions/checkout@v2
+        if: success()
         with:
-          ref: ${{ github.base_ref }}
+          ref: ${{ steps.comment-branch.outputs.head_ref }}
 
-      - name: Setup Version & Tag
-        run: |
-          CURRENT_VERSION=$(echo $PR_TITLE | sed 's/^chore(release): v//')
-          echo "CURRENT_VERSION=${CURRENT_VERSION}" >> $GITHUB_ENV
-          echo "DIST_VERSION=${CURRENT_VERSION}" >> $GITHUB_ENV
-          echo "DIST_TAG=fakeLatest" >> $GITHUB_ENV
-          # 在 checkTag 中使用这个环境变量
-          echo "TAG=${CURRENT_VERSION}" >> $GITHUB_ENV
-          echo $PR_CONTENT >> ./releaselog.md
+      - run: |
+          echo "HEAD_SHA=${{steps.comment-branch.outputs.head_sha}}" >> $GITHUB_ENV
+
+      - uses: actions/github-script@v6
+        id: get-dist-tag
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const script = require('./scripts/github/cli.js')
+            return await script('dist-tag', {github, context, core})
         env:
-          PR_TITLE: ${{ github.event.pull_request.title }}
-          PR_CONTENT: ${{ github.event.pull_request.body }}
+          COMMENT_CONTENT: ${{ github.event.comment.body }}
 
-      - name: Use Node.js 14
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
+      - name: Setup Version & Environment Variables
+        run: |
+          DIST_VERSION=$(node -e "console.log(require('./package.json').version)")
+          echo "DIST_VERSION=${DIST_VERSION}" >> $GITHUB_ENV
+          echo "TAG=${DIST_VERSION}" >> $GITHUB_ENV
+          echo $PR_CONTENT >> ./RELEASE_LOG.md
+        env:
+          PR_CONTENT: ${{ github.event.issue.body }}
 
       - uses: mukunku/tag-exists-action@v1.0.0
         id: checkTag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Git Identity
-        if: steps.checkTag.outputs.exists == 'false'
+      - uses: actions/github-script@v6
+        id: run-check-suite
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const script = require('./scripts/github/notifyReleaseResult.js')
+            return await script('Release', {github, context, core}, 'start')
+
+      - name: Setup CHECK_RUN_ID Environment Variables
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "CHECK_RUN_ID=${{steps.run-check-suite.outputs.result}}" >> $GITHUB_ENV
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
 
       # 安装依赖并构建
       - name: Install dependencies & Build
         run: |
           npm i
-          npm run build
 
       - name: Publish version
         run: |
-          node ./scripts/publishWithNoPrompt
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+          node ./scripts/publishInCI
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          DIST_TAG: ${{ steps.get-dist-tag.outputs.result }}
+
+      - name: Add missing Tag
+        if: steps.checkTag.outputs.exists == 'false'
+        run: |
+          git tag ${DIST_VERSION}
+          git push origin ${DIST_VERSION}:${DIST_VERSION}
 
       - name: Create Release
         id: create_release
-        if: steps.checkTag.outputs.exists == 'false'
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ env.DIST_VERSION }}
-          release_name: v${{ env.DIST_VERSION }}
-          body_path: ./releaselog.md
+          tag_name: ${{ env.DIST_VERSION }}
+          release_name: ${{ env.DIST_VERSION }}
+          body_path: ./RELEASE_LOG.md
           draft: true
           prerelease: true
+
+      # 发布失败后，更新 checkRun 状态
+      - uses: actions/github-script@v6
+        if: failure()
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const script = require('./scripts/github/notifyReleaseResult.js')
+            return await script('Release', {github, context, core}, 'failure')
+
+      - uses: actions/github-script@v6
+        if: success()
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const script = require('./scripts/github/notifyReleaseResult.js')
+            return await script('Release', {github, context, core}, 'end')

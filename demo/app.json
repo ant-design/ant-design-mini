@@ -59,6 +59,7 @@
     "pages/Toast/index",
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",
+    "pages/Grid/index",
     "pages/TabBar/index",
     "pages/ProgressCircle/index",
     "pages/Slider/index",
@@ -67,6 +68,7 @@
     "pages/Rate/index",
     "pages/ImageUpload/index",
     "pages/VideoUpload/index",
+    "pages/Skeleton/index",
     "pages/Divider/index",
     "pages/Footer/index"
   ],

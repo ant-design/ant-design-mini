@@ -1,0 +1,16 @@
+@import (reference) './variable.less';
+
+.@{gridPrefix} {
+  padding: 24 * @rpx;
+  box-sizing: border-box;
+  &-tile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  &-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+}
