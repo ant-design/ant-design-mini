@@ -226,6 +226,16 @@ const config: IConfig = {
     color: #314659;
     line-height: 28px;
   }
+  #root .markdown .__dumi-default-code-block {
+    border-radius: 12px;
+  }
+  #root .markdown hr {
+    border-top: none;
+    margin: 0 0 24px;
+  }
+  #root .markdown .margin16 {
+    margin-bottom: 16px;
+  }
   #root .markdown h1 {
     font-size: 30px;
     line-height: 38px;
