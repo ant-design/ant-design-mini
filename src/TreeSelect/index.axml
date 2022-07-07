@@ -5,7 +5,7 @@
     a:for="{{levelList}}"
     a:for-item="level"
     a:for-index="levelIndex"
-    class="amd-tree-select-level amd-tree-select-level-{{levelIndex}} {{levelIndex===1 && levelList.length ===2 ? 'amd-tree-select-two-level-second': ''}}"
+    class="amd-tree-select-level amd-tree-select-level-{{levelIndex}} {{levelList.length ===2 ? (levelIndex===1 ? 'amd-tree-select-two-level-second': 'amd-tree-select-two-level-first'): ''}}"
   >
     <view
       class="{{treeSelect.getItemClassNameByData(selected, levelIndex, option)}}"
