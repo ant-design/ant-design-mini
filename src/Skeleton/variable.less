@@ -12,28 +12,21 @@
 @button-height: 48 * @rpx;
 
 .skeleton-animation() {
-  position: relative;
-  overflow: hidden;
-  &::after {
-    position: absolute;
-    inset: 0 -150%;
-    background: linear-gradient(
-      90deg,
-      rgba(190, 190, 190, 0.2) 25%,
-      rgba(129, 129, 129, 0.24) 37%,
-      rgba(190, 190, 190, 0.2) 63%
-    );
-    animation: amd-skeleton-loading 1.4s ease infinite;
-    content: '';
-  }
+  background: linear-gradient(
+    90deg,
+    rgba(190, 190, 190, 0.2) 25%,
+    rgba(129, 129, 129, 0.24) 37%,
+    rgba(190, 190, 190, 0.2) 63%
+  );
+  background-size: 400% 100%;
+  animation: amd-skeleton-loading 1.4s ease infinite;
 }
 
 @keyframes amd-skeleton-loading {
   0% {
-    transform: translate(-37.5%);
+    background-position: 100% 50%;
   }
-
   100% {
-    transform: translate(37.5%);
+    background-position: 0 50%;
   }
 }

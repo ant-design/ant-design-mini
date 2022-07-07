@@ -5,7 +5,7 @@
     <skeleton animate></skeleton>
 </demo-block>
 <demo-block title="复杂组合">
-    <skeleton loading="{{showLoading}}" animate title avatar rows="{{5}}" animate>
+    <skeleton loading="{{showLoading}}" animate title avatar rows="{{5}}">
         <image mode="widthFix" class="demo-img" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"/>
     </skeleton>
     <list-item>
