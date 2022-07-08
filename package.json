@@ -1,6 +1,6 @@
 {
-  "name": "antd-mini",
-  "version": "0.0.2-alpha.1",
+  "name": "antd-mini-rpx",
+  "version": "0.0.7-alpha.5",
   "scripts": {
     "dev": "minidev dev --less --typescript --no-source-map",
     "dev:site": "dumi dev",
@@ -13,7 +13,7 @@
     "lint:code": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\"",
     "lint:code:fix": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\" --fix",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "prepublishOnly": "npm run build:component",
+    "prepublishOnly": "npm run build:component:rpx",
     "pub": "node scripts/publish.js",
     "test:less": "jest __tests__/less.spec.ts",
     "test:markdown": "jest __tests__/markdowns.spec.ts",

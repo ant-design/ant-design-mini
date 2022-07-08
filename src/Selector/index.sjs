@@ -1,28 +1,22 @@
-function getFixedValue (value, multiple) {
-  let fixedValue;
-  if (multiple) {
-    fixedValue = value;
+const getFixedValue = (value, multiple) => {
+  let fixedValue = [];
+  if (value === null) {
+    fixedValue = []
+  } else if (multiple && value.constructor === 'Array') {
+    fixedValue = value
+  } else if (!(value.constructor === 'Array')) {
+    fixedValue =  [value]
   }
- else {
-    fixedValue = value && value.slice(0, 1)
-  }
+  return fixedValue;
+};
 
-  if (fixedValue) {
-    return fixedValue;
-  }
-  // 如果不是数组， 返回数组兜底
-  return []
+const getIsCurItemSelected = (value, multiple, itemValue) => {
+  const fixedValue = getFixedValue(value, multiple);
+
+  return fixedValue.indexOf(itemValue) !== -1;
 }
 
-function getIsCurItemSelected(value, multiple, itemValue) {
-  const fixedValue = getFixedValue(value, multiple)
-  return fixedValue.indexOf(itemValue) !== -1
-}
 
-function getSelectedClassName(activeItemClassName) {
-  return 'amd-selector-item-active ' + activeItemClassName
-}
 export default {
   getIsCurItemSelected,
-  getSelectedClassName
-}
+};
