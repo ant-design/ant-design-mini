@@ -7,9 +7,9 @@ Component({
   props: CheckboxDefaultProps,
   mixins: [controlled('checked'), formMixin()],
   methods: {
-    onChange(v) {
-      const { value } = v.detail;
-      this.cOnChange(value, fmtEvent(this.props, {}));
+    onChange(e) {
+      const { value } = e.detail;
+      this.cOnChange(value, fmtEvent(this.props, e));
     },
     // 阻止事件冒泡
     emptyEvent() {},
