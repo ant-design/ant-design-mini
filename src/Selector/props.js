@@ -3,5 +3,4 @@ export const SelectorDefaultProps = {
   multiple: false,
   disabled: false,
   value: '',
-  avoidEmpty: false,
 };
