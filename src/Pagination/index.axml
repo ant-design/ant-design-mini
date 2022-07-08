@@ -1,5 +1,6 @@
+<import-sjs name="sjs" from='./index.sjs' />
 <view class="amd-page-infinite {{className||''}}">
-    <scroll-view scroll-x="true" class="amd-page-infinite-content"  id="pageInfinite{{$id}}" onScroll="onScroll">
+    <scroll-view scroll-x="true" class="amd-page-infinite-content"  id="pageInfinite{{$id}}" onScroll="{{supportSjs?sjs.changeScollDistance:'onScroll'}}">
         <slot></slot>
     </scroll-view>
     <view class="amd-page-infinite-wrap">

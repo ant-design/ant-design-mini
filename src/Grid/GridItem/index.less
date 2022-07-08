@@ -1,4 +1,5 @@
 @import (reference) '../variable.less';
+@import '../../style/mixins/hairline.less';
 
 .ellipsis() {
   white-space: nowrap;
@@ -12,36 +13,26 @@
   align-items: center;
   text-align: center;
   flex-shrink: 0;
+  position: relative;
+  &-line {
+    .hairline('right',#eee);
+  }
   &-vertical-space {
     margin-bottom: @vertical-space;
   }
   &-columns-5 {
-    width: @columns5-width;
-    margin-right: @columns5-space;
-    &:nth-of-type(5n) {
-      margin-right: 0;
-    }
+    width: 20%;
   }
   &-columns-4 {
-    width: @columns4-width;
-    margin-right: @columns4-space;
-    &:nth-of-type(4n) {
-      margin-right: 0;
-    }
+    width: 25%;
   }
   &-columns-3 {
-    width: @columns3-width;
-    margin-right: @columns3-space;
-    &:nth-of-type(3n) {
-      margin-right: 0;
-    }
+    width: 33.3%;
   }
   &-columns-2 {
-    width: @columns2-width;
-    margin-right: @columns2-space;
-    &:nth-of-type(2n) {
-      margin-right: 0;
-    }
+    width: 50%;
+  }
+  &-horizontal {
     justify-content: center;
     text-align: left;
     position: relative;
@@ -58,10 +49,6 @@
   }
   &-columns-scroll {
     width: @columnsscroll-width;
-    margin-right: @columnsscroll-space;
-    &:nth-last-of-type(1) {
-      margin-right: 0;
-    }
   }
 
   &-img {
@@ -81,11 +68,19 @@
   }
   &-title {
     font-family: PingFangSC-Regular;
-    font-size: @title-size;
+    font-size: @title-size-small;
     color: @title-color;
-    line-height: 37 * @rpx;
+    line-height: @title-size-small-height;
     width: 100%;
     .ellipsis();
+    &-large {
+      font-size: @title-size-large;
+      line-height: @title-size-large-height;
+    }
+    &-middle {
+      font-size: @title-size-middle;
+      line-height: @title-size-middle-height;
+    }
   }
   &-desc {
     font-family: PingFangSC-Regular;

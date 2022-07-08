@@ -36,5 +36,11 @@ export interface IGridItemProps extends IBaseProps {
    */
   iconStyle?: 'normal' | 'circle';
   iconSize?: string | number;
+  /**
+   * @description 标题大小，2列时large，3列时middle，其余small
+   */
+  titleSize: 'large' | 'middle' | 'small';
+  showSplitLine: boolean;
+  layout?: 'vertical' | 'horizontal';
 }
 export declare const GridItemDefaultProps: IGridItemProps;

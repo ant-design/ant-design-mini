@@ -1,58 +1,140 @@
-const items = [
-  {
-    title: '话费查询',
-    icon: 'https://gw.alipayobjects.com/mdn/rms_f0bad2/afts/img/A*4QedQpoCyokAAAAAAAAAAABkARQnAQ',
-  },
-  {
-    icon: 'https://gw.alipayobjects.com/mdn/rms_f0bad2/afts/img/A*e2P5SLSUjjMAAAAAAAAAAABkARQnAQ',
-    title: '宽带办理',
-  },
-  {
-    icon: 'https://gw.alipayobjects.com/mdn/rms_f0bad2/afts/img/A*XQh3S4Xp5I0AAAAAAAAAAABkARQnAQ',
-    title: '话费卡转让',
-  },
-  {
-    icon: 'https://gw.alipayobjects.com/mdn/rms_f0bad2/afts/img/A*g5HFRYGFNr0AAAAAAAAAAABkARQnAQ',
-    title: '积分商城',
-  },
-  {
-    icon: 'https://gw.alipayobjects.com/mdn/rms_f0bad2/afts/img/A*-PvLQp-4jcAAAAAAAAAAAABkARQnAQ',
-    title: '更多服务',
-  },
-];
 Page({
   data: {
-    items,
-    iconItems: [
+    items2: [
       {
-        title: 'FireFill',
-        icon: 'FireFill',
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
       },
       {
-        icon: 'StarFill',
-        title: 'StarFill',
-      },
-      {
-        icon: 'SmileFill',
-        title: 'SmileFill',
-      },
-      {
-        icon: 'FrownFill',
-        title: 'FrownFill',
-      },
-      {
-        icon: 'EyeFill',
-        title: 'EyeFill',
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
       },
     ],
-    circleItems: items.map((v, i) => ({
-      title: '元素' + (i + 1),
-      icon: 'https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*Xt9pR6dgh90AAAAAAAAAAAAAARQnAQ',
-    })),
-    descItems: items.map((v) => ({
-      ...v,
-      desc: v.title.substring(0, 2) + '描述',
-    })),
+    items3: [
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+    ],
+    items4: [
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+    ],
+    items5: [
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+    ],
+    items3withDesc: [
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        desc: '描述信息',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        desc: '描述信息',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        desc: '描述信息',
+      },
+    ],
+    items2withDesc: [
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        desc: '描述文字最多一行',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        desc: '描述文字最多一行',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        desc: '描述文字最多一行',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        desc: '描述文字最多一行',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        desc: '描述文字最多一行',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        desc: '描述文字最多一行',
+      },
+    ],
+    itemsCustom: [
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*MwsuTZI4qA8AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*xXRcRohQFc0AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*UJf2QLxdoa8AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*now3Q4h5DH8AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*I27zQbOu8ScAAAAAAAAAAAAAARQnAQ',
+      },
+    ],
   },
   handleTapItem(item) {
     my.alert({ title: '点击了', content: JSON.stringify(item) });

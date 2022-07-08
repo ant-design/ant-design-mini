@@ -5,6 +5,7 @@ Component({
   props: PaginationDefaultProps,
   data: {
     pageDeg: 0,
+    supportSjs: my.canIUse('sjs.event'),
   },
   wrapWidth: 0,
   methods: {

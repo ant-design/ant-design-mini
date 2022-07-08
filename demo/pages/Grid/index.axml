@@ -1,32 +1,26 @@
-<demo-block title="宫格*5" padding="0">
-    <grid items="{{items.concat(items)}}" onTap="handleTapItem"/>
+<demo-block title="2列" padding="0">
+    <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}"/>
+    <view class="space"/>
+    <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}" gridItemLayout="vertical"/>
 </demo-block>
-<demo-block title="滑动模式" padding="0">
-    <grid items="{{items.concat(items)}}" onTap="handleTapItem" mode="scroll"/>
+<demo-block title="3列" padding="0">
+    <grid items="{{items3}}" onTap="handleTapItem" columns="{{3}}"/>
 </demo-block>
-<demo-block title="宫格*4" padding="0">
-    <grid items="{{items.slice(0,4)}}" onTap="handleTapItem" columns="4"/>
+<demo-block title="4列" padding="0">
+    <grid items="{{items4}}" onTap="handleTapItem" columns="{{4}}"/>
 </demo-block>
-
-<demo-block title="宫格*3" padding="0">
-    <grid items="{{items.slice(0,3)}}" onTap="handleTapItem" columns="3"/>
+<demo-block title="5列" padding="0">
+    <grid items="{{items5}}" onTap="handleTapItem" columns="{{5}}"/>
 </demo-block>
-
-<demo-block title="宫格*2" padding="0">
-    <grid items="{{items.slice(0,4)}}" onTap="handleTapItem" columns="2"/>
+<demo-block title="带描述" padding="0">
+    <grid items="{{items3withDesc}}" onTap="handleTapItem" columns="{{3}}"/>
+    <view class="space"/>
+    <grid items="{{items2withDesc}}" onTap="handleTapItem" columns="{{2}}"/>
 </demo-block>
-<demo-block title="带有描述" padding="0">
-    <grid items="{{descItems}}" onTap="handleTapItem" columns="5"/>
+<demo-block title="可滑动" padding="0">
+    <grid items="{{items4.concat(items4)}}" onTap="handleTapItem" mode="scroll"/>
 </demo-block>
-<demo-block title="宫格*2-带有描述" padding="0">
-    <grid items="{{descItems.slice(0,2)}}" onTap="handleTapItem" columns="2"/>
-</demo-block>
-<demo-block title="Icon图标" padding="0">
-    <grid items="{{iconItems}}" onTap="handleTapItem"/>
-</demo-block>
-<demo-block title="圆形图标" padding="0">
-    <grid items="{{circleItems}}" onTap="handleTapItem" iconStyle="circle"/>
-</demo-block>
-<demo-block title="自定义图标大小80rpx" padding="0">
-    <grid items="{{items}}" onTap="handleTapItem" iconSize="80rpx"/>
+<demo-block title="自定义图标大小" padding="0">
+    <grid items="{{itemsCustom}}" onTap="handleTapItem" columns="{{5}}" iconSize="88rpx"/>
+    <view class="space"/>
 </demo-block>

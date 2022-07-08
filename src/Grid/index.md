@@ -36,6 +36,7 @@ type IGridItem = {
 | items | IGridItem[] | 是 | - | 内容文字 |
 | mode | 'tile' &verbar; 'scroll'  | 否 | 'tile' | 样式类型，平铺/滑动 |
 | columns | number | 否 | 5 | 每行展示的元素个数，tile模式生效 |
+| gridItemLayout | 'vertical' &verbar; 'horizontal' | 否 | 'vertical' | item布局。垂直/水平，水平仅columns=2生效 |
 | PaginationFillColor | string | 否 | #ddd | 分页符背景色，scroll模式生效 |
 | PaginationFrontColor | string | 否 | #1677ff | 分页符颜色，scroll模式生效 |
 | className | string | 否 | - | 类名 |
