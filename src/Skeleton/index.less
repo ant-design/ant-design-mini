@@ -9,6 +9,9 @@
   &-avatar-wrapper {
     flex-shrink: 0;
     padding-right: 32 * @rpx;
+    & + .@{skeletonPrefix}-content-wrapper {
+      padding-top: 24 * @rpx;
+    }
   }
   &-content-wrapper {
     flex: 1;

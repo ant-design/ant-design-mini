@@ -62,6 +62,12 @@ toc: false
 | loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
 | animate | boolean | 否 | flase | 是否展示动画效果 |
 | className | string | 否 | - | 类名 |
+#### Input 输入框
+| 属性 | 类型 | 必填 | 默认值 | 说明 |
+| -----|-----|-----|-----|----- |
+| loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
+| animate | boolean | 否 | flase | 是否展示动画效果 |
+| className | string | 否 | - | 类名 |
 
 #### Custom 自定义组件，添加标准容器和动画样式
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -79,4 +85,5 @@ toc: false
 | amd-skeleton-button | 按钮样式 |
 | amd-skeleton-paragraph | 段落样式 |
 | amd-skeleton-title | 标题样式 |
+| amd-skeleton-input | 输入框样式 |
 | amd-skeleton-custom | 自定义容器样式 |
