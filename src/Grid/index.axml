@@ -12,7 +12,7 @@
         titleSize="{{sjs.getTitleSize(columns)}}"
         verticalSpace="{{sjs.checkNeedVerticalSpace(items.length,index,columns)}}"/>
 </view>
-<pagination a:elif="{{mode==='scroll'}}" fillColor="{{PaginationFillColor}}" frontColor="{{PaginationFrontColor}}">
+<pagination a:elif="{{mode==='scroll'}}" fillColor="{{paginationFillColor}}" frontColor="{{paginationFrontColor}}">
     <view class="amd-grid amd-grid-{{mode}}">
         <grid-item 
             a:for="{{items}}"     

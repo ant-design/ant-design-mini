@@ -37,12 +37,12 @@ export interface IGridProps extends IBaseProps {
    * @description 分页符背景色
    * @default '#ddd'
    */
-  PaginationFillColor?: string;
+  paginationFillColor?: string;
   /**
    * @description 分页符颜色
    * @default '#1677ff'
    */
-  PaginationFrontColor?: string;
+  paginationFrontColor?: string;
   /**
    * @description 点击事件
    * @param item
