@@ -42,7 +42,7 @@ toc: 'content'
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 选中状态改变，触发回调 | (checked: boolean, event) => void|
+| onChange | 选中状态改变，触发回调 | (checked: boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void|
 
 ## 样式类
 
