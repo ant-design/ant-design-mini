@@ -59,6 +59,12 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           DIST_TAG: ${{ github.event.inputs.distTag }}
 
+      - name: Set Current Version
+        if: success()
+        run: |
+          DIST_VERSION=$(node -p 'require("./package.json").version')
+          echo "DIST_VERSION=${DIST_VERSION}" >> $GITHUB_ENV
+
       - name: Adding markdown
         if: success()
         run: |
@@ -73,3 +79,15 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           INPUT_REF: ${{ github.event.inputs.ref }}
+
+      - name: Add Tag
+        if: success()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+
+          git tag ${{ env.DIST_VERSION }}
+          git push origin ${{ env.DIST_VERSION }}:${{ env.DIST_VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

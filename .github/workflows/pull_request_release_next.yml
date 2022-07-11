@@ -19,10 +19,10 @@ jobs:
 
     steps:
       # 判断用户是否有写权限
-      - name: "Check if user has write access"
-        uses: "lannonbr/repo-permission-check-action@2.0.0"
+      - name: 'Check if user has write access'
+        uses: 'lannonbr/repo-permission-check-action@2.0.0'
         with:
-          permission: "write"
+          permission: 'write'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -38,6 +38,12 @@ jobs:
         with:
           ref: ${{ steps.comment-branch.outputs.head_ref }}
 
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+
       - uses: actions/github-script@v6
         id: run-check-suite
         with:
@@ -48,12 +54,6 @@ jobs:
 
       - run: |
           echo "CHECK_RUN_ID=${{steps.run-check-suite.outputs.result}}" >> $GITHUB_ENV
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: 'https://registry.npmjs.org'
 
       # 安装依赖并构建
       - name: Install dependencies & Build
