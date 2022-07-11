@@ -1,0 +1,50 @@
+@import (reference) './variable.less';
+
+.@{guidedTourPrefix} {
+  &-button {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: @guided-tour-button-bottom;
+    z-index: @guided-tour-z-index-2;
+    display: flex;
+    justify-content: center;
+    .amd-button:nth-of-type(1) > button {
+      color: @guided-tour-text-color;
+      background-color: transparent;
+    }
+    .amd-button {
+      margin: 0 12 * @rpx;
+    }
+  }
+
+  &-indicator {
+    width: 100%;
+    position: absolute;
+    bottom: @guided-tour-dot-bottom;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: @guided-tour-z-index-2;
+    display: flex;
+    justify-content: center;
+    &-dot {
+      margin: 0 3 * @rpx;
+      background-color: @guided-tour-dot-color;
+      width: @guided-tour-dot-size;
+      height: @guided-tour-dot-size;
+      border-radius: @guided-tour-dot-border-radius;
+      &-active {
+        width: @guided-tour-dot-active-width;
+        background-color: @guided-tour-text-color;
+      }
+    }
+  }
+  &-clear {
+    position: fixed;
+    top: 80 * @rpx;
+    right: 40 * @rpx;
+    z-index: @guided-tour-z-index-3;
+    font-size: 56 * @rpx;
+    color: @guided-tour-clear-color;
+  }
+}

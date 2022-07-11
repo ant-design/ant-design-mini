@@ -1,0 +1,22 @@
+@import (reference) '../variable.less';
+
+.@{guidedTourPrefix} {
+  &-item {
+    z-index: @guided-tour-z-index-2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    &-title {
+      color: @guided-tour-text-color;
+      font-size: @guided-tour-title-size;
+      margin-top: 60 * @rpx;
+      max-width: @guided-tour-content-max-width;
+    }
+    &-desc {
+      margin-top: 24 * @rpx;
+      max-width: @guided-tour-content-max-width;
+      color: @guided-tour-text-color;
+      font-size: @guided-tour-desc-size;
+    }
+  }
+}

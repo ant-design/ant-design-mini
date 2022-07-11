@@ -1,0 +1,29 @@
+<view class="amd-guided-tour-item {{className ? className : ''}}" style="top:{{top}}px; left:{{left}}px" a:if="{{index===_index}}">
+    <block a:if="{{costom}}">
+        <slot/>
+    </block>
+    <block a:else>
+        <block a:if="{{image}}">
+            <image class="amd-guided-tour-item-img" src="{{image}}" />
+        </block>
+        <block a:else>
+            <slot name="img"></slot>
+        </block>
+        <block a:if="{{title}}">
+            <view class="amd-guided-tour-item-title">
+                {{title}}
+            </view>
+        </block>
+        <block a:else>
+            <slot name="title"></slot>
+        </block>
+        <block a:if="{{desc}}">
+            <view class="amd-guided-tour-item-desc">
+                {{desc}}
+            </view>
+        </block>
+        <block a:else>
+            <slot name="desc"></slot>
+        </block>
+    </block>
+</view>
