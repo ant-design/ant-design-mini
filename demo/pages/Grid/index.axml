@@ -1,7 +1,7 @@
 <demo-block title="2列" padding="0">
-    <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}"/>
+    <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}" gridItemLayout="horizontal"/>
     <view class="space"/>
-    <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}" gridItemLayout="vertical"/>
+    <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}"/>
 </demo-block>
 <demo-block title="3列" padding="0">
     <grid items="{{items3}}" onTap="handleTapItem" columns="{{3}}"/>
@@ -15,7 +15,7 @@
 <demo-block title="带描述" padding="0">
     <grid items="{{items3withDesc}}" onTap="handleTapItem" columns="{{3}}"/>
     <view class="space"/>
-    <grid items="{{items2withDesc}}" onTap="handleTapItem" columns="{{2}}"/>
+    <grid items="{{items2withDesc}}" onTap="handleTapItem" columns="{{2}}"  gridItemLayout="horizontal"/>
 </demo-block>
 <demo-block title="可滑动" padding="0">
     <grid items="{{items4.concat(items4)}}" onTap="handleTapItem" mode="scroll"/>

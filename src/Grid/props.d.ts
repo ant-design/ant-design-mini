@@ -16,7 +16,7 @@ export interface IGridProps extends IBaseProps {
   iconSize?: string;
   /**
    * @description item布局。垂直/水平，水平仅columns=2生效
-   * @default 'horizontal'
+   * @default 'vertical'
    */
   gridItemLayout?: 'vertical' | 'horizontal';
   /**

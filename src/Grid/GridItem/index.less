@@ -46,6 +46,9 @@
       bottom: 0;
       margin: auto;
     }
+    .@{gridPrefix}-item-title{
+      margin-top: 0;
+    }
   }
   &-columns-scroll {
     width: @columnsscroll-width;
@@ -54,14 +57,12 @@
   &-img {
     width: @icon-size;
     height: @icon-size;
-    margin-bottom: 16 * @rpx;
     &-circle {
       border-radius: 50%;
     }
   }
   &-icon {
     font-size: @icon-size;
-    margin-bottom: 16 * @rpx;
     &-circle {
       border-radius: 50%;
     }
@@ -72,14 +73,17 @@
     color: @title-color;
     line-height: @title-size-small-height;
     width: 100%;
+    margin-top: @title-size-small-margin;
     .ellipsis();
     &-large {
       font-size: @title-size-large;
       line-height: @title-size-large-height;
+      margin-top: @title-size-large-margin;
     }
     &-middle {
       font-size: @title-size-middle;
       line-height: @title-size-middle-height;
+      margin-top: @title-size-middle-margin;
     }
   }
   &-desc {
