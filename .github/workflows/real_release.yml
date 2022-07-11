@@ -95,8 +95,14 @@ jobs:
       - name: Add missing Tag
         if: steps.checkTag.outputs.exists == 'false'
         run: |
-          git tag ${DIST_VERSION}
-          git push origin ${DIST_VERSION}:${DIST_VERSION}
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+
+          git tag ${{ env.DIST_VERSION }}
+          git push origin ${{ env.DIST_VERSION }}:${{ env.DIST_VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
         id: create_release
