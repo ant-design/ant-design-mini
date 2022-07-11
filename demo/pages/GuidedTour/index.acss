@@ -1,0 +1,12 @@
+.amd-guided-tour-item-img {
+  width: 150px;
+  height: 125px;
+}
+
+.costom-box {
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+}

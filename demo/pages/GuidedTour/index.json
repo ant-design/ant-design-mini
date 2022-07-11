@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Avatar",
+  "usingComponents": {
+    "button": "../../../src/Button/index",
+    "demo-block": "../../components/DemoBlock/index",
+    "guided-tour": "../../../src/GuidedTour/index",
+    "tour-item": "../../../src/GuidedTour/TourItem/index"
+  }
+}

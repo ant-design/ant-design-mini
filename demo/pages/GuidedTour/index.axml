@@ -1,0 +1,62 @@
+<view class="demo">
+  <demo-block title="基础用法">
+    <view class="btn-list">
+      <button onTap="openBaseTour">单图模式</button>
+      <button onTap="openMoreTour">多图模式</button>
+    </view>
+    <guided-tour visible="{{baseVisible}}" onCancel="closeBaseTour" defaultIndex="{{1}}" onChange="onChange" uid="baseTour">
+      <tour-item index="{{1}}" title="引导描述文字标题" desc="辅助描述文字辅助描述文字辅助描述文字辅助描述文字" left="{{80}}" top="{{50}}" uid="baseTour" 
+        image="https://gw.alipayobjects.com/zos/antfincdn/1zFER29BC/bianzu%25252011.png" />
+    </guided-tour>
+    <guided-tour visible="{{moreVisible}}" onCancel="closeMoreTour" defaultIndex="{{1}}" onChange="onChange" uid="moreTour">
+      <block a:for="{{list}}">
+        <tour-item index="{{item.index}}" title="{{item.title}}" desc="{{item.desc}}" left="{{item.left}}" top="{{item.top}}" 
+          uid="moreTour" image="{{item.image}}">
+        </tour-item>
+      </block>
+    </guided-tour>
+  </demo-block>
+  <demo-block title="复杂用法">
+    <view class="btn-list">
+      <button onTap="openScrollTour">滚动</button>
+    </view>
+    <guided-tour visible="{{scrollVisible}}" onCancel="closeScrollTour" defaultIndex="{{1}}" onChange="onScorllChange" uid="scorllTour">
+      <block a:for="{{list}}">
+        <tour-item index="{{item.index}}" title="{{item.title}}" desc="{{item.desc}}" left="{{item.left}}" top="{{item.top}}" 
+          uid="scorllTour" image="{{item.image}}">
+        </tour-item>
+      </block>
+    </guided-tour>
+  </demo-block>
+  <demo-block title="插槽用法">
+    <button onTap="openSlotTour">开始</button>
+    <guided-tour visible="{{slotVisible}}" onCancel="closeSlotTour" defaultIndex="{{1}}" uid="slotTour">
+      <block a:for="{{list}}">
+        <tour-item index="{{item.index}}" left="{{item.left}}" top="{{item.top}}" uid="slotTour" image="{{item.image}}">
+          <view slot="title" style="color:#fff">
+            标题插槽
+          </view>
+          <view slot="desc" style="color:#fff">
+            描述文字插槽
+          </view>
+        </tour-item>
+      </block>
+    </guided-tour>
+  </demo-block>
+  <demo-block title="自定义内容">
+    <button onTap="openCostomTour">开始</button>
+    <guided-tour visible="{{costomVisible}}" onCancel="closeCostomTour" defaultIndex="{{1}}" uid="costomTour">
+      <tour-item index="{{1}}" left="{{10}}" top="{{20}}" uid="costomTour" costom={{true}}>
+        <view class="costom-box">
+          自定义1
+        </view>
+      </tour-item>
+      <tour-item index="{{2}}" left="{{50}}" top="{{90}}" uid="costomTour" costom={{true}}>
+        <view class="costom-box">
+          自定义2
+        </view>
+      </tour-item>
+    </guided-tour>
+  </demo-block>
+  <view style="height:400px" />
+</view>
