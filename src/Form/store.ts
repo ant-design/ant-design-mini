@@ -117,6 +117,16 @@ export class FormStore extends EventEmitter {
     this.emitErrorInfoChange(errorInfo, updatedFields);
   }
 
+  mergeErrorInfo(changedErrorInfo) {
+    const updatedFields = Object.keys(changedErrorInfo);
+    const newErrorInfo = {
+      ...this.errorInfo,
+      ...changedErrorInfo
+    }
+    this.emitErrorInfoChange(newErrorInfo, updatedFields)
+  }
+
+
   validate(
     validateFields?
   ): Promise<{ valid: boolean; errors?: Record<string, any> }> {
@@ -138,6 +148,7 @@ export class FormStore extends EventEmitter {
           });
         })
         .catch(({ fields: errorInfo }) => {
+          console.log('errorInfo', errorInfo, 'validateFields', validateFields);
           this.setErrorInfo(errorInfo, validateFields);
           resovle({
             valid: false,

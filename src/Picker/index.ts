@@ -1,3 +1,4 @@
+import equal from 'fast-deep-equal';
 import { PickerDefaultProps } from './props';
 import computed from '../mixins/computed';
 import formed from '../Form/mixin';
@@ -24,6 +25,16 @@ Component({
 
   didMount() {
     this.tempSelectedIndex = null;
+  },
+
+  didUpdate(prevProps, prevData) {
+    const { visible, columns, cValue } = this.data;
+    const { columns: prevColumns, cValue: prevCValue } = prevData;
+    if (visible) {
+      if (!equal(prevColumns, columns) || !equal(prevCValue, cValue)) {
+        this.tempSelectedIndex = this.getterSelectedIndex();
+      }
+    }
   },
 
   methods: {

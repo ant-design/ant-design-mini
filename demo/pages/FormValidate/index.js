@@ -41,5 +41,13 @@ Page({
   },
   handleValidateAccount() {
     this.formRef.validate(['account'])
+  },
+
+  handleSetErrorInfo() {
+    this.formRef.setErrorInfo({
+      email: [{
+        message: '邮箱格式非法'
+      }]
+    })
   }
 });

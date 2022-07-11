@@ -44,4 +44,5 @@
     </button>
   </form>
   <button onTap="handleValidateAccount">校验账号</button>
+  <button onTap="handleSetErrorInfo">设置错误信息</button>
 </demo-block>

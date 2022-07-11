@@ -94,6 +94,10 @@ Component<
         const errorInfo = await this.store.validate(validateFields);
         return errorInfo;
       }.bind(this),
+
+      setErrorInfo: function(this: any, mergedErrorInfo) {
+        this.store.mergeErrorInfo(mergedErrorInfo)
+      }.bind(this),
     };
   },
 });
