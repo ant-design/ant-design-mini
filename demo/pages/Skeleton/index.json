@@ -1,6 +1,7 @@
 {
   "defaultTitle": "Skeleton",
   "usingComponents": {
+    "avatar":"../../../src/Avatar/index",
     "skeleton": "../../../src/Skeleton/index",
     "demo-block": "../../components/DemoBlock/index",
     "list": "../../../src/List/index",

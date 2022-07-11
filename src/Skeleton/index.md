@@ -29,7 +29,7 @@ toc: false
 | title | boolean | 否 | true | 是否显示标题占位图 |
 | rows | number | 否 | 3 | 段落行数，大于0展示 |
 | avatarSize | string | 否 | '88rpx' | 头像大小 |
-| avatarShape | 'circle' \| 'square' | 否 | 'circle' | 头像形状 |
+| avatarShape | 'circle' \| 'square' | 否 | 'square' | 头像形状 |
 | className | string | 否 | - | 类名 |
 
 #### Avatar 头像
@@ -38,7 +38,7 @@ toc: false
 | loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
 | animate | boolean | 否 | flase | 是否展示动画效果 |
 | size | string | 否 | '88rpx' | 头像大小 |
-| shape | 'circle' \| 'square' | 否 | 'circle' | 头像形状 |
+| shape | 'circle' \| 'square' | 否 | 'square' | 头像形状 |
 | className | string | 否 | - | 类名 |
 
 #### Paragraph 段落

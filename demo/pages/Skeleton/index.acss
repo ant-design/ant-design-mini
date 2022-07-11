@@ -5,17 +5,28 @@
   display: flex;
   align-items: center;
 }
-
+.demo-text {
+  font-size: 28rpx;
+  line-height: 36rpx;
+  padding: 16rpx 0;
+  color: #333;
+}
 .switch-wrap .amd-switch {
   margin-left: 20rpx;
 }
-.custom-skeleton-wrapper {
+
+.custom-skeleton-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin-bottom: 24rpx;
 }
-
-.custom-skeleton-wrapper .amd-skeleton-custom {
-  height: 30rpx;
-  margin-top: 8rpx;
+.custom-skeleton-header .amd-skeleton-avatar {
+  margin-right: 32rpx;
+}
+.custom-skeleton > .amd-skeleton-custom {
+  height: 160rpx;
+  margin-bottom: 16rpx;
+}
+.custom-skeleton > .amd-skeleton-paragraph {
+  margin-bottom: 16rpx;
 }

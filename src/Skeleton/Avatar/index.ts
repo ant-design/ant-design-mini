@@ -6,7 +6,7 @@ interface IProps extends ISkeletonBaseProps {
 }
 Component<Record<string, never>, IProps>({
   props: {
-    shape: 'circle',
+    shape: 'square',
     loading: true,
   },
 });
