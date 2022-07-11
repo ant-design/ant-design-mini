@@ -2,7 +2,7 @@ import { IBaseProps } from '../../_base';
 
 export interface ITourItem extends IBaseProps {
   /**
-   * @description 小程序必填，用于标记当前是第几步，建议按顺序递增
+   * @description 必填，用于标记当前是第几步，建议按顺序递增
    */
   index?: number;
   /**
