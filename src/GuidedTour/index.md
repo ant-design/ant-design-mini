@@ -43,3 +43,33 @@ toc: false
 | desc      | string &verbar; slot | 否   | -      | 补充信息                                                                              |
 | uid       | string               | 否   | -      | 当页面有多个 GuidedTour 时需传入，`必须页面唯一`，与外部的 GuidedTour 组件的 uid 一致 |
 | className | string               | 否   | -      | 类名                                                                                  |
+
+## 插槽
+
+#### TourItem
+
+| 名称  | 说明         |
+| ----- | ------------ |
+| title | 标题内容插槽 |
+| desc  | 描述内容插槽 |
+| image | 图片插槽     |
+
+## 样式类
+
+#### GuidedTour
+
+| 类名                      | 说明             |
+| ------------------------- | ---------------- |
+| amd-guided-tour           | 整体样式         |
+| amd-guided-tour-clear     | 关闭按钮样式     |
+| amd-guided-tour-indicator | 进度标志整体样式 |
+| amd-guided-tour-button    | 按钮组整体样式   |
+
+#### TourItem
+
+| 类名                       | 说明         |
+| -------------------------- | ------------ |
+| amd-guided-tour-item       | 整体样式     |
+| amd-guided-tour-item-img   | 图片样式     |
+| amd-guided-tour-item-title | 提示标题样式 |
+| amd-guided-tour-item-desc  | 提示描述样式 |
