@@ -65,6 +65,7 @@
     // 选项卡最后两项间距控制
     &-wrap {
       display: flex;
+      flex-shrink: 0;
       &-capsule {
         flex: 1;
       }
@@ -100,7 +101,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      margin: 0 @h-spacing-large;
+      padding: 0 @h-spacing-large;
       padding-top: @v-spacing-standard;
       padding-bottom: @v-spacing-standard;
       box-sizing: border-box;

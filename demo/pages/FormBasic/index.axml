@@ -9,6 +9,7 @@
                 label="姓名"
                 name="account"
                 required
+                help="关于姓名的解释"
                 form="{{form}}">
                 <input-item mode="form" placeholder="请输入姓名"/>
             </form-item>

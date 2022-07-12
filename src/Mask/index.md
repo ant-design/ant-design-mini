@@ -4,7 +4,7 @@ nav:
 group:
   title: 反馈
   order: 12
-toc: false
+toc: 'content'
 ---
 
 # Mask 背景蒙层
@@ -21,11 +21,11 @@ toc: false
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| maskZindex | string | - | - |  |
-| type | 'product' &verbar; 'market' | 'product' | - |  |
-| show | boolean | - | - |  |
-| fixMaskFull | false | - | - |  |
-| className | string | - | - | 类名 |
+| maskZindex | string | 否 | - | 层级 |
+| type | 'product' &verbar; 'market' | 否 | 'product' | 类别 |
+| show | boolean | 否 | - | 是否显示 |
+| fixMaskFull | false | 否 | - | 兼容mask祖父transform定位偏移 |
+| className | string | 否 | - | 类名 |
 
 ## 事件 
 

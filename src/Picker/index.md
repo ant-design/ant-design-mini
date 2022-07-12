@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 # Picker 选择器
 Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比较于原生picker实现了ios跟android端体验一致
@@ -23,11 +23,14 @@ type PickerColumnItem = string | number | {
   value: string|number
 }
 ```
-| 属性 |  类型  | 必填 | 默认值 |说明 |
+
+<hr />
+
+| 属性 |  类型  | 必填 |  说明  | 默认值|
 | -----|-----|-----|-----|-----|
 | value | PickerColumnItem  &#124;  (PickerColumnItem)[] | 否|选中数据 | - |
 | data |  PickerColumnItem数组 | 是 |picker 数据，配置每一列的选项 | [] |
-| placeholder |string |否| 提示文案  |- |
+| placeholder |string |否| 提示文案  | '请选择' |
 | disabled | boolean |否| 是否禁用 | false |
 | title |  string | 否  | 弹出框标题 | - |
 | okText |string | 否| 确认按钮文案 | '确定' |

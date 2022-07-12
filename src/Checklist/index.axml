@@ -1,20 +1,28 @@
-<view class="amd-checklist">
+<view class="amd-checklist {{className ? className : ''}}">
   <view class="amd-checklist-body">
     <checklist-item
       a:for="{{options}}"
-      value="{{value}}"
-      optionValue="{{item.value}}"
-      description="{{item.description}}"
-      disabled="{{item.disabled}}"
-      readOnly="{{item.readOnly}}"
-      image="{{item.image}}"
+      value="{{cValue}}"
+      item="{{item}}"
       multiple="{{multiple}}"
       onChange="onChange"
     >
-      {{item.title}}
+      <view slot="content" class="amd-checklist-item-content-box-nut">
+        <slot name="content" item="{{item}}">
+          <image a:if="{{item.image}}" class="amd-checklist-item-image" src="{{item.image}}" />
+          <view class="amd-checklist-item-text {{item.image ? '': 'amd-checklist-item-text-no-image'}}">
+            <view class="amd-checklist-item-text-title {{item.disabled ? 'amd-checklist-item-text-disabled' : ''}}">
+              {{item.title}}
+            </view>
+            <view a:if="{{item.description}}" class="amd-checklist-item-text-description {{item.disabled ? 'amd-checklist-item-text-disabled' : ''}}">
+              {{item.description}}
+            </view>
+          </view>
+        </slot>
+      </view>
       <view slot="icon">
         <slot name="icon">
-          <icon type="CheckOutline" size="x-small" color="#1677ff" class="amd-checklist-item-check-icon" />
+          <icon type="CheckOutline" fontSize="18px" color="#1677ff" class="amd-checklist-item-check-icon" />
         </slot>
       </view>
     </checklist-item>

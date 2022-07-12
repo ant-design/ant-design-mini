@@ -3,31 +3,33 @@
     <radio-group  
       value="选项二"
       uid="basic"
-      footer="radioGroup 模式相比 radio 功能有所加强"
-      onChange="handleChangeBasic">
-      <radio-item value="选项一"  uid="basic">选项一</radio-item >
-      <radio-item value="选项二"  uid="basic">选项二</radio-item >
-      <radio-item value="选项三"  uid="basic">选项三</radio-item >
+      onChange="handleChange">
+      <radio-item a:for="{{list}}" value="{{item.value}}" uid="basic">{{item.label}}</radio-item >
+    </radio-group>
+  </demo-block>
+  <demo-block title="横向布局">
+    <radio-group  
+      value="选项二"
+      uid="horizontal"
+      position="horizontal"
+      onChange="handleChange">
+      <radio-item a:for="{{list}}" value="{{item.value}}" uid="horizontal">{{item.label}}</radio-item >
     </radio-group>
   </demo-block>
   <demo-block title="包含禁用项">
     <radio-group  
       uid="basic1"
-      value="选项三"
-      onChange="handleChangeBasic">
-      <radio-item value="选项一"  uid="basic1">选项一</radio-item >
-      <radio-item value="选项二"  uid="basic1" disabled>选项二</radio-item >
-      <radio-item value="选项三"  uid="basic1">选项三</radio-item >
+      value="banner"
+      onChange="handleChange">
+      <radio-item a:for="{{list}}" value="{{item.value}}" uid="basic1" disabled="{{index===1}}">{{item.label}}</radio-item >
     </radio-group>
   </demo-block>
   <demo-block title="整体禁用">
     <radio-group  
       uid="basic2"
-      value="选项三"
+      value="banner"
       disabled>
-      <radio-item value="选项一"  uid="basic2">选项一</radio-item >
-      <radio-item value="选项二"  uid="basic2">选项二</radio-item >
-      <radio-item value="选项三"  uid="basic2">选项三</radio-item >
+      <radio-item a:for="{{list}}" value="{{item.value}}" uid="basic2">{{item.label}}</radio-item >
     </radio-group>
   </demo-block>
 </view>

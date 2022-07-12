@@ -1,6 +1,6 @@
 import type { IConfig } from 'dumi'
 
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+// const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const config: IConfig = {
   title: 'Ant Design Mini',
   favicon: 'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
@@ -74,6 +74,15 @@ const config: IConfig = {
     top: 100px !important;
     height: 700px !important;
   }
+  #root .__dumi-default-device {
+    margin-left: 5px;
+    width: 370px;
+  }
+  #root .__dumi-default-layout-content {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
   #root .__dumi-default-device[data-device-type="iOS"] {
     display: none;
   }
@@ -180,6 +189,7 @@ const config: IConfig = {
   #root .__dumi-default-tabs-tab-active {
     color: #1677ff;
   }
+
   /** 底部github编辑、最后更新时间 */
   #root .__dumi-default-layout-footer-meta > a, #root .__dumi-default-layout-footer-meta > span:last-child::before {
     color: #1677ff;
@@ -216,6 +226,16 @@ const config: IConfig = {
     color: #314659;
     line-height: 28px;
   }
+  #root .markdown .__dumi-default-code-block {
+    border-radius: 12px;
+  }
+  #root .markdown hr {
+    border-top: none;
+    margin: 0 0 24px;
+  }
+  #root .markdown .margin16 {
+    margin-bottom: 16px;
+  }
   #root .markdown h1 {
     font-size: 30px;
     line-height: 38px;
@@ -237,14 +257,30 @@ const config: IConfig = {
     font-size: 18px;
     line-height: 32px;
     color: #0D1A26E6;
-    padding-left: 24px;
     margin-top: 24px;
     margin-bottom: 16px;
-    display: inline-block!important;
   }
   #root .markdown h4 {
     margin-top: 24px;
     margin-bottom: 16px;
+  }
+  /** 内容区锚点 */
+  #root .__dumi-default-layout-toc li a.active {
+    color: #1677ff;
+  }
+  #root .__dumi-default-layout-toc li a.active::before {
+    background: #1677ff;
+  }
+  /** 样式类table样式，判断只有2个th */
+  th:nth-last-child(2):first-child {
+    width: 40%;
+  }
+  /** 事件table样式，判断只有3个th */
+  th:nth-last-child(3):first-child {
+    width: 20%;
+  }
+  th:nth-last-child(2):nth-child(2) {
+    width: 40%;
   }
   `],
   navs: {
@@ -258,9 +294,18 @@ const config: IConfig = {
         path: '/components',
       },
       {
+        title: '资源',
+        path: '/resources',
+      },
+      {
+        title: '发布日志',
+        path: 'https://github.com/ant-design/ant-design-mini/releases',
+      },
+      {
         title: '仓库地址',
         path: 'https://github.com/ant-design/ant-design-mini',
-      }],
+      },
+    ],
   },
   menus: {
     '/': [
@@ -291,13 +336,13 @@ const config: IConfig = {
 
   chainWebpack(config) {
     // @ts-ignore
-    config.plugin('MonacoWebpackPlugin').use(MonacoWebpackPlugin, [
-      {
-        languages: ['javascript', 'typescript', 'json', 'css', 'html', 'xml'],
-        publicPath:
-          process.env.NODE_ENV === 'development' ? 'http://localhost:8000/' : 'https://gw.alipayobjects.com/a/minidev/',
-      },
-    ])
+    // config.plugin('MonacoWebpackPlugin').use(MonacoWebpackPlugin, [
+    //   {
+    //     languages: ['javascript', 'typescript', 'json', 'css', 'html', 'xml'],
+    //     publicPath:
+    //       process.env.NODE_ENV === 'development' ? 'http://localhost:8000/' : 'https://gw.alipayobjects.com/a/minidev/',
+    //   },
+    // ])
   }
 };
 

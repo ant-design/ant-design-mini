@@ -66,6 +66,11 @@ export const componentList = [
         nameZN: ' 标签',
         path: '/pages/Tag/index',
       },
+      {
+        name: 'FloatPanel',
+        nameZN: '滑动面板',
+        path: '/pages/FloatPanel/index',
+      },
     ],
   },
   {
@@ -82,7 +87,7 @@ export const componentList = [
         path: '/pages/CheckboxGroup/index',
       },
       {
-        name: 'CheckList',
+        name: 'Checklist',
         nameZN: '可勾选列表',
         path: '/pages/Checklist/index',
       },
@@ -100,6 +105,11 @@ export const componentList = [
         name: 'Picker',
         nameZN: '选择器',
         path: '/pages/Picker/index',
+      },
+      {
+        name: 'DatePicker',
+        nameZN: '时间选择器',
+        path: '/pages/DatePicker/index',
       },
       {
         name: 'RadioGroup',
@@ -127,6 +137,16 @@ export const componentList = [
         path: '/pages/Switch/index',
       },
       {
+        name: 'ImageUpload',
+        nameZN: '图片上传',
+        path: '/pages/ImageUpload/index',
+      },
+      {
+        name: 'VideoUpload',
+        nameZN: '视频上传',
+        path: '/pages/VideoUpload/index',
+      },
+      {
         name: 'Terms',
         nameZN: '协议',
         path: '/pages/Terms/index',
@@ -136,6 +156,11 @@ export const componentList = [
   {
     type: '反馈',
     list: [
+      {
+        name: 'ActionSheet',
+        nameZN: '动作面板',
+        path: '/pages/ActionSheet/index'
+      },
       {
         name: 'Dialog',
         nameZN: '对话框',
@@ -170,6 +195,11 @@ export const componentList = [
         name: 'Empty',
         nameZN: '空状态',
         path: '/pages/Empty/index',
+      },
+      {
+        name: 'Toast',
+        nameZN: '轻提示',
+        path: '/pages/Toast/index',
       },
     ],
   },

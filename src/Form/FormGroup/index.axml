@@ -1,4 +1,4 @@
-<view class="amd-form-group {{className ? className : ''}}">
+<view class="amd-form-group {{className ? className : ''}} {{radius ? 'amd-form-group-radius' : ''}}">
     <block a:if="{{header}}">
         <view class="amd-form-group-header">
       {{header}}

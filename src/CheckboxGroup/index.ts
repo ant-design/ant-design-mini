@@ -7,7 +7,7 @@ Component({
   props: CheckboxGroupDefaultProps,
   mixins: [formMixin()],
   didMount() {
-    const { uid, value } = this.props;
+    const { uid, value, disabled } = this.props;
     const getGroupPropsVal = (key: string) => {
       switch (key) {
         case 'onChange':
@@ -24,27 +24,35 @@ Component({
           return this.props[key];
       }
     };
-    store.setGroupPropsVal(this.props.uid, getGroupPropsVal);
-    if (Array.isArray(value) && value.length > 0) {
-      store.updateGroupValue(uid);
+    const key = `${this.$page.$id}-${uid}`;
+    store.setGroupPropsVal(key, getGroupPropsVal);
+    if (disabled) {
+      store.updateGroupDisabled(key, disabled);
     }
+    if (Array.isArray(value) && value.length > 0) {
+      store.updateGroupValue(key, value);
+    }
+
   },
-  didUpdate(prevProps) {
+  didUpdate(prevProps, prevData) {
     const { uid: newUID, disabled: newDisabled, value: newValue } = this.props;
     const { uid: oldUID, disabled: oldDisabled, value: oldValue } = prevProps;
+    const newKey = `${this.$page.$id}-${newUID}`;
+    const oldKey = `${this.$page.$id}-${oldUID}`;
     store.updateGroup(
-      newUID,
+      newKey,
       {
         isUIDChanged: newUID !== oldUID,
         isDisabledChanged: newDisabled !== oldDisabled,
         isValueChange: !equal(newValue, oldValue),
       },
-      { oldUID },
+      { oldUID: oldKey }
     );
   },
   didUnmount() {
     const { uid } = this.props;
-    store.removeGroup(uid);
+    const key = `${this.$page.$id}-${uid}`;
+    store.removeGroup(key);
   },
   methods: {
     onChange(val) {
@@ -53,7 +61,8 @@ Component({
       }
     },
     _updateFieldValue(v) {
-      store.updateGroupValue(this.props.uid, v);
+      const key = `${this.$page.$id}-${this.props.uid}`;
+      store.updateGroupValue(key, v);
     },
   },
 });

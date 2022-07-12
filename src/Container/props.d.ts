@@ -10,16 +10,18 @@ export interface IContainerProps extends IBaseProps {
    */
   title?: string;
   /**
-   * @description 缩略图 url
+   * @description 标题缩略图 url
    */
-  image?: string;
+  titleImage?: string;
   /**
-   * @description 右侧图标
+   * @description 容器中有几个盒子，最大值 3
+   * @default 0
    */
-  icon?: IconType;
+  multiBox: number;
   /**
-   * @description 右侧图标点击回调
+   * @description 标题是否在容器内
+   * @default true
    */
-  onIconTap?: (event?: any) => void;
+  headerInBox: boolean;
 }
 export declare const ContainerDefaultProps: Partial<IContainerProps>;

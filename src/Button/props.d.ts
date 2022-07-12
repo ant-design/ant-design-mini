@@ -74,5 +74,9 @@ export interface IButtonProps extends IBaseProps {
    * @description 当 openType 为 getAuthorize 时有效。
    */
   fill?: 'outline' | 'solid' | 'none';
+  /**
+  * @description 是否阻止事件冒泡
+  */
+  stopPropagation?: boolean;
 }
 export declare const ButtonDefaultProps: Partial<IButtonProps>;

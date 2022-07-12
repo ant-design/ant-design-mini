@@ -1,17 +1,13 @@
 const getFixedValue = (value, multiple) => {
-  let fixedValue;
-  if (multiple) {
-    fixedValue = value;
-  } else {
-    fixedValue = value && value.slice(0, 1);
+  let fixedValue = [];
+  if (value === null) {
+    fixedValue = []
+  } else if (multiple && value.constructor === 'Array') {
+    fixedValue = value
+  } else if (!(value.constructor === 'Array')) {
+    fixedValue =  [value]
   }
-
-  if (fixedValue) {
-    return fixedValue;
-  }
-
-  // 如果不是数组， 返回数组兜底
-  return [];
+  return fixedValue;
 };
 
 const getIsCurItemSelected = (value, multiple, itemValue) => {

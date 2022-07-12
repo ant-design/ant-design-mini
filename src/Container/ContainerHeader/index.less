@@ -1,0 +1,43 @@
+@import (reference) "../variable.less";
+@import "../../style/mixins/hairline.less";
+
+@containerPrefix: amd-container;
+
+.@{containerPrefix} {
+    &-header {
+        position: relative;
+        display: flex;
+        height: 93 * @rpx;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 @container-spacing;
+
+        &-title {
+            font-size: @container-header-size;
+            font-weight: bold;
+            color: @container-header-color;
+            display: flex;
+            align-items: center;
+            height: 45 * @rpx;
+        }
+
+        &-image {
+            width: 48 * @rpx;
+            height: 48 * @rpx;
+            margin-right: 16 * @rpx;
+            flex-shrink: 0;
+        }
+    }
+
+    &-headerInBox {
+        background-color: @container-background-color;
+        border-radius: @container-radius @container-radius 0 0;
+
+        &::after {
+            .scale-hairline-common(@color-divider-line, auto, @container-spacing, 0, @container-spacing);
+            height: 1px;
+            transform: scaleY(0.5);
+        }
+    }
+}

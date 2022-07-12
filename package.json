@@ -1,8 +1,8 @@
 {
   "name": "antd-mini",
-  "version": "0.0.2-alpha.1",
+  "version": "0.0.18",
   "scripts": {
-    "dev": "minidev dev --less --typescript --no-source-map",
+    "dev": "minidev dev --no-source-map",
     "dev:site": "dumi dev",
     "build": "npm run build:component && npm run build:site",
     "build:component": "NODE_ENV=production node scripts/compile.js",
@@ -35,6 +35,7 @@
   "dependencies": {
     "@babel/runtime": "^7.17.2",
     "async-validator": "^4.0.7",
+    "dayjs": "^1.11.3",
     "fast-deep-equal": "3.1.3",
     "tslib": "^2.3.1"
   },
@@ -64,6 +65,7 @@
     "@typescript-eslint/parser": "^5.6.0",
     "acorn": "^8.7.0",
     "alipay-style": "^0.1.0",
+    "antd": "^4.20.7",
     "axios": "^0.24.0",
     "chalk": "^4.1.0",
     "conventional-changelog-cli": "^2.1.1",
@@ -71,7 +73,6 @@
     "detect-port": "1.3.0",
     "dingtalk-design-cli": "^0.20.2",
     "dumi": "^1.1.35",
-    "dumi-theme-antd-mini": "0.2.0",
     "eslint": "^8.4.1",
     "eslint-config-ali": "^13.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -91,7 +92,6 @@
     "less": "^4.1.2",
     "lint-staged": "^10.0.7",
     "marked": "^4.0.12",
-    "monaco-editor-webpack-plugin": "1.9.0",
     "minidev": "^1.0.7",
     "path": "^0.12.7",
     "postcss-less": "^6.0.0",
