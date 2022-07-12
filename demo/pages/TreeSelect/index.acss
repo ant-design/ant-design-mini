@@ -1,3 +1,7 @@
+.demo-tree-select {
+  padding-top: 24rpx;
+}
+
 .demo-tree-select-title {
   font-size: 32rpx;
   color: #999;

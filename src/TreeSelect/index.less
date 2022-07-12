@@ -30,6 +30,24 @@
       .amd-tree-select-level-item-selected {
         background-color: @tree-select-background-color-gray-middle;
       }
+
+      .amd-tree-select-level-item-selected+.amd-tree-select-level-item {
+        background-color: @tree-select-background-color-gray-middle;
+
+        .amd-tree-select-level-item-wrapper {
+          border-radius: 0 16rpx 0 0;
+          background-color: @color-divider-background;
+        }
+      }
+
+      .amd-tree-select-level-item-selected+.amd-tree-select-level-item-after {
+        background-color: @tree-select-background-color-gray-middle;
+
+        .amd-tree-select-level-item-after-area {
+          border-radius: 0 16rpx 0 0;
+          background-color: @color-divider-background;
+        }
+      }
     }
 
     &-1 {
@@ -37,6 +55,24 @@
 
       .amd-tree-select-level-item-selected {
         background-color: @color-fill-grey-inverse;
+      }
+
+      .amd-tree-select-level-item-selected+.amd-tree-select-level-item {
+        background-color: @color-fill-grey-inverse;
+
+        .amd-tree-select-level-item-wrapper {
+          border-radius: 0 16rpx 0 0;
+          background-color: @tree-select-background-color-gray-middle;
+        }
+      }
+
+      .amd-tree-select-level-item-selected+.amd-tree-select-level-item-after {
+        background-color: @color-fill-grey-inverse;
+
+        .amd-tree-select-level-item-after-area {
+          border-radius: 0 16rpx 0 0;
+          background-color: @tree-select-background-color-gray-middle;
+        }
       }
     }
 
@@ -52,6 +88,13 @@
       line-height: 101 * @rpx;
       color: @color-text-title;
       font-size: @font-size-subtitle;
+
+      &-wrapper {
+        position: relative;
+        width: 100%;
+        height: 101 * @rpx;
+        line-height: 101 * @rpx;
+      }
 
       &-selected {
         position: relative;
@@ -86,11 +129,18 @@
         background-color: @color-fill-primary;
         border-radius: @corner-radius-sm;
       }
-    }
 
-    // &-item-selected+&-item {
-    //   border-radius: 0 20 * @rpx 0 0;
-    // }
+      &-after {
+        position: relative;
+        width: 100%;
+        height: 20 * @rpx;
+
+        &-area {
+          width: 100%;
+          height: 20 * @rpx;
+        }
+      }
+    }
   }
 
   &-two-level-second {

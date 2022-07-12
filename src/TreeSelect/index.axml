@@ -16,16 +16,20 @@
       data-value="{{option.value}}"
       data-level="{{levelIndex}}"
     >
-      <view
-        class="amd-tree-select-level-item-text"
-      >
-        {{option.label}}
+      <view class="amd-tree-select-level-item-wrapper">
+        <view
+          class="amd-tree-select-level-item-text"
+        >
+          {{option.label}}
+        </view>
+        <view
+          a:if="{{selected[levelIndex] === option.value}}"
+          class="{{levelIndex===0 ? 'amd-tree-select-level-item-flag' : ''}}" 
+        />
       </view>
-      <view
-        a:if="{{selected[levelIndex] === option.value}}"
-        class="{{levelIndex===0 ? 'amd-tree-select-level-item-flag' : ''}}" 
-      />
-
+    </view>
+    <view class="amd-tree-select-level-item-after">
+      <view class="amd-tree-select-level-item-after-area"/>
     </view>
   </view>
 </view>
