@@ -258,5 +258,11 @@ Page({
         defaultValueTreeSelectEnable: false
       });
     }
+  },
+
+  changeValue() {
+    this.setData({
+      defaultValue: ['安徽', '合肥', '包河区']
+    })
   }
 });

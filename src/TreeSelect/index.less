@@ -52,34 +52,11 @@
 
     &-1 {
       background-color: @tree-select-background-color-gray-middle;
-
-      .amd-tree-select-level-item-selected {
-        background-color: @color-fill-grey-inverse;
-      }
-
-      .amd-tree-select-level-item-selected+.amd-tree-select-level-item {
-        background-color: @color-fill-grey-inverse;
-
-        .amd-tree-select-level-item-wrapper {
-          border-radius: 0 16rpx 0 0;
-          background-color: @tree-select-background-color-gray-middle;
-        }
-      }
-
-      .amd-tree-select-level-item-selected+.amd-tree-select-level-item-after {
-        background-color: @color-fill-grey-inverse;
-
-        .amd-tree-select-level-item-after-area {
-          border-radius: 0 16rpx 0 0;
-          background-color: @tree-select-background-color-gray-middle;
-        }
-      }
     }
 
     &-2 {
       background-color: @color-fill-grey-inverse;
     }
-
 
     &-item {
       position: relative;
@@ -154,6 +131,30 @@
 
     .amd-tree-select-level-item-selected {
       background-color: @color-fill-grey-inverse;
+    }
+  }
+
+  &-three-level-second {
+    .amd-tree-select-level-item-selected {
+      background-color: @color-fill-grey-inverse;
+    }
+
+    .amd-tree-select-level-item-selected+.amd-tree-select-level-item {
+      background-color: @color-fill-grey-inverse;
+
+      .amd-tree-select-level-item-wrapper {
+        border-radius: 0 16rpx 0 0;
+        background-color: @tree-select-background-color-gray-middle;
+      }
+    }
+
+    .amd-tree-select-level-item-selected+.amd-tree-select-level-item-after {
+      background-color: @color-fill-grey-inverse;
+
+      .amd-tree-select-level-item-after-area {
+        border-radius: 0 16rpx 0 0;
+        background-color: @tree-select-background-color-gray-middle;
+      }
     }
   }
 }

@@ -4,7 +4,7 @@ import { IBaseProps } from '../_base';
  * @description 级联选择
  */
 
-export type TreeSelectValue = string;
+export type TreeSelectValue = string | number;
 
 export type TreeSelectOption = {
   /**
@@ -49,6 +49,7 @@ export interface ITreeSelectProps extends IBaseProps {
   /**
    * @description 当组件的值变化时触发
    */
-  onChange?: (value: TreeSelectValue[]) => void;
+  onChange?: (value: TreeSelectValue[], selectedList: { label: string; value: TreeSelectValue }[]) => void;
 }
+
 export declare const treeSelectDefaultProps: Partial<ITreeSelectProps>;

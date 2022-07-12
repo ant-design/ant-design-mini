@@ -8,10 +8,9 @@ Component({
   },
   didMount() {
     this.updateOptions(this.props.options, this.props.value);
-
   },
   didUpdate(prevProps) {
-    if (prevProps.options !== this.props.options) {
+    if (prevProps.options !== this.props.options || prevProps.value !== this.props.value) {
       this.updateOptions(this.props.options, this.props.value);
     }
   },
@@ -121,7 +120,7 @@ Component({
             // remove root node
             selectedList.shift();
 
-            this.props.onChange?.(selectedList.map(n => n.value));
+            this.props.onChange?.(selectedList.map(n => n.value), selectedList);
 
             this.updateOptions(
               this.props.options as TreeSelectOption[],

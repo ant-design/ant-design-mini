@@ -31,15 +31,16 @@ toc: false
 
 ## 事件 
 
-
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
-| onChange | 当组件的值变化时触发 | (value: TreeSelectValue[]) => void |
+| onChange | 当组件的值变化时触发 | (value: TreeSelectValue[], selectedList: TreeSelectOption[] }[]) => void |
 
-## CSS 变量 
+## 类型
+| 类型名 | 值 |
+| -----|-----|
+| TreeSelectValue | string \| number |
+| TreeSelectOption | {label: string;value: string;disabled?: boolean;children?: TreeSelectOption[]} |
 
-| CSS 变量名称 | 说明 |
-| -----|----- |
 ## 样式类 
 
 | 类名 | 说明 |
@@ -51,5 +52,3 @@ toc: false
 | amd-tree-select-level-3 | 树形选择第三层样式 |
 | amd-tree-select-level-item-text | 树形选择文案样式 |
 | amd-tree-select-level-item-flag | 树形选择第一层选中标志样式 |
-
-
