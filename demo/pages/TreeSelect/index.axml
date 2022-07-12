@@ -19,7 +19,6 @@
       三级树形选择-有初始值
     </list-item>
   </list>
-  <button onTap="changeValue">aaa</button>
   
   <tree-select options="{{mockingThreeLevelOptions}}" visible="{{threeLevelTreeSelectEnable}}" onChange="handleChange" />
   <tree-select options="{{mockingTwoLevelOptions}}" visible="{{twoLevelTreeSelectEnable}}" onChange="handleChange" />
