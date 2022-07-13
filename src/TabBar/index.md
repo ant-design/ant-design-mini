@@ -24,7 +24,7 @@ toc: false
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | tabs | Array | 是 | [] | 底部图标配置 |
-| defaultActiveKey | number | 否 |  ''  |  默认高亮的 key |
+| activeKey | number | 否 |  ''  |  默认高亮的 key |
 | activeColor | string | 否 |  '#1677ff'  |  高亮的颜色 |
 | maxTabCount | number | 否 |  5  |  最大展示的 Tab 数量 |
 

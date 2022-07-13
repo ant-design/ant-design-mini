@@ -1,6 +1,9 @@
 @import (reference) "./variable.less";
 
 @tabsPrefix: amd-tab-bar;
+@tabSize: 48 * @rpx;
+@textSize: 20 * @rpx;
+@textMargin: 4 * @rpx;
 
 .@{tabsPrefix} {
   &-wrap {
@@ -14,18 +17,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 8rpx 0;
+    padding: 8 * @rpx 0;
   }
 
   &-icon {
-    width: 42rpx;
-    height: 42rpx;
-    margin-bottom: 4rpx;
+    max-width: @tabSize;
+    max-height: @tabSize;
+    font-size: @tabSize;
   }
 
   &-image {
-    max-width: 42rpx;
-    max-height: 42rpx;
-    margin-bottom: 4rpx;
+    font-size: @tabSize;
+    max-width: @tabSize;
+    max-height: @tabSize;
+  }
+
+  &-text-wrap {
+    padding-top: @textMargin;
+  }
+
+  &-text {
+    font-size: @textSize;
   }
 }

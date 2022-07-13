@@ -33,8 +33,9 @@
 </template>
 
 <template name="text">
-  <view>
+  <view class="amd-tab-bar-text-wrap">
     <text 
+      class="amd-tab-bar-text"
       style="color: {{activeIndex == index ? activeColor : '#666'}}"
     >
       {{item.text}}

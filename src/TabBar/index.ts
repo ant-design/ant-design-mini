@@ -9,13 +9,20 @@ Component({
   },
 
   didMount() {
-    const { defaultActiveKey, tabs } = this.props;
+    const { activeKey } = this.props;
     this.setData({
-      activeIndex: defaultActiveKey,
+      activeIndex: activeKey,
     });
   },
 
-  didUpdate() {},
+  didUpdate() {
+    const { activeKey } = this.props;
+    const { activeIndex } = this.data;
+    if(activeIndex === activeKey) return;
+    this.setData({
+      activeIndex: activeKey,
+    });
+  },
 
   methods: {
     onChange(e) {

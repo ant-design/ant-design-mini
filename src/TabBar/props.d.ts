@@ -67,7 +67,7 @@ export interface ITabBarProps extends IBaseProps {
    * @description 默认高亮的 key，默认无高亮
    * @default undefined
    */
-  defaultActiveKey?: number;
+   activeKey?: number;
 
   /**
    * @description 高亮状态图标和文本的颜色

@@ -93,11 +93,44 @@ Page({
         text: '喜欢',
       },
     ],
+
+    tabsIndex: 0,
+    tabsBadgeIndex: 1,
+    tabsImageIndex: 2,
+    tabsColorIndex: 0,
+    tabsCount6Index: 1,
   },
-  handleChange(_, index) {
+  handleChangeTabs(_, index) {
+    this.setData({
+      tabsIndex: index,
+    });
     my.alert({
       title: 'onTap',
       content: `点击了第 ${index + 1} 个 tab`,
+    });
+  },
+  handleChangeTabsBadge(_, index) {
+    this.setData({
+      tabsBadgeIndex: index,
+    });
+  },
+  handleChangeTabsImage(_, index) {
+    this.setData({
+      tabsImageIndex: index,
+    });
+  },
+  handleChangeTabsColor(_, index) {
+    this.setData({
+      tabsColorIndex: index,
+    });
+    my.alert({
+      title: 'onTap',
+      content: `点击了第 ${index + 1} 个 tab`,
+    });
+  },
+  handleChangeTabsCount6(_, index) {
+    this.setData({
+      tabsCount6Index: index,
     });
   },
 });
