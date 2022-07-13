@@ -1,12 +1,25 @@
 <template name="icon">
+  <icon 
+    className="{{className}}"
+    a:if="{{!item.type || item.type === 'icon'}}"
+    type="{{item.activeIcon || item.icon}}" 
+    size="small" 
+    color="{{activeColor}}"
+  />
+</template>
+
+<template name="iconArea">
   <view>
     <view a:if="{{activeIndex == index}}">
-      <icon 
-        className="amd-tab-bar-icon"
-        a:if="{{!item.type || item.type === 'icon'}}"
-        type="{{item.activeIcon || item.icon}}" 
-        size="small" 
-        color="{{activeColor}}"
+      <template 
+        is="icon"
+        data="{{
+          activeIndex: activeIndex,
+          activeColor: activeColor,
+          index: index,
+          item: item,
+          className: 'amd-tab-bar-icon'
+        }}"
       />
       <image 
         className="amd-tab-bar-icon"
@@ -16,11 +29,14 @@
       />
     </view>
     <view a:else>
-      <icon 
-        className="amd-tab-bar-image"
-        a:if="{{!item.type || item.type === 'icon'}}"
-        type="{{item.icon}}" 
-        size="small"
+      <template 
+        is="icon"
+        data="{{
+          activeIndex: activeIndex,
+          index: index,
+          item: item,
+          className: 'amd-tab-bar-image'
+        }}"
       />
       <image 
         className="amd-tab-bar-image"
@@ -32,7 +48,7 @@
   </view>
 </template>
 
-<template name="text">
+<template name="textArea">
   <view class="amd-tab-bar-text-wrap">
     <text 
       class="amd-tab-bar-text"
@@ -58,7 +74,7 @@
         text="{{item.badgeText}}" 
         position="top-right">
         <template 
-          is="icon" 
+          is="iconArea" 
           data="{{
             activeIndex: activeIndex,
             activeColor: activeColor,
@@ -70,7 +86,7 @@
 
       <block a:if="{{!item.badge}}">
         <template 
-          is="icon" 
+          is="iconArea" 
           data="{{
             activeIndex: activeIndex,
             activeColor: activeColor,
@@ -81,7 +97,7 @@
       </block>
 
       <template 
-        is="text" 
+        is="textArea" 
         data="{{
           activeIndex: activeIndex,
           activeColor: activeColor,
