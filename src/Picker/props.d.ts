@@ -66,5 +66,8 @@ export interface IPickerProps
    * @description 切换显示隐藏
    */
   onTriggerPicker?: (visible) => void;
+
+
+  onBeforeOk?: (value: PickerValue, column:PickerData) => boolean
 }
 export declare const PickerDefaultProps: Partial<IPickerProps>;

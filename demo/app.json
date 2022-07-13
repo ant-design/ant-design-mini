@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/test/index",
     "pages/index/index",
     "pages/Form/index",
     "pages/FormType/index",

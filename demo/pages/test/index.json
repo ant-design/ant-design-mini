@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Picker",
+  "usingComponents": {
+    "picker": "../../../src/Picker/index",
+    "demo-block": "../../components/DemoBlock/index",
+    "modal": "../../../src/Modal/index"
+  }
+}

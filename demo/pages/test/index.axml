@@ -1,0 +1,19 @@
+<picker 
+  placeholder="请选择归属地" 
+  data="{{cityList}}" 
+  onChange="handlePickerChange"
+  onBeforeOk="handleBeforeOk"
+  value="{{value}}"
+  onOk="handleOnOk"
+  onTriggerPicker="handleOnTriggerPicker"
+/>
+
+<modal 
+visible="{{visible}}"
+title="是否更改卡归属地省份"
+content="因为本卡不支持跨省配送，修改好卡号选号将清空"
+mainButtonText="暂不修改"
+addonButtonText="确定修改"
+onClose="hanldecloseModal"
+onButtonTap="handleButtonTap"
+></modal>

@@ -68,6 +68,8 @@ export function getMatchedItemByIndex(columns, selectedIndex, single) {
       index = 0;
     } else {
       index = compareValue;
+      // 当column变化时， selectedIndex有可能不正确
+      if (columns?.[i]?.[compareValue] === undefined) { index = 0 }
       if (index === -1) { index  = 0 } // 没有找到， 默认选择第一个
     }
     matchedColumn[i] = column[index]
