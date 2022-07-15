@@ -1,0 +1,12 @@
+@import (reference) '../variable.less';
+
+.@{skeletonPrefix}-button {
+  &-animate {
+    .skeleton-animation();
+  }
+  width: @button-width;
+  height: @button-height;
+  border-radius: @default-radius;
+  background: @skeleton-fill;
+  display: inline-block;
+}
