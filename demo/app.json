@@ -60,7 +60,8 @@
     "pages/ImageUpload/index",
     "pages/VideoUpload/index",
     "pages/Skeleton/index",
-    "pages/Divider/index"
+    "pages/Divider/index",
+    "pages/Grid/index"
   ],
   "window": {
     "enableWK": "YES",

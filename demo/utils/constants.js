@@ -43,6 +43,11 @@ export const componentList = [
         path: '/pages/Collapse/index',
       },
       {
+        name: 'Grid',
+        nameZN: '宫格',
+        path: '/pages/Grid/index',
+      },
+      {
         name: 'Container',
         nameZN: '容器',
         path: '/pages/Container/index',
