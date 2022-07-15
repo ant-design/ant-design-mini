@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormBasic/index",
     "pages/FormDynamic/index",
@@ -11,6 +12,7 @@
     "pages/Icon/index",
     "pages/Switch/index",
     "pages/Picker/index",
+    "pages/DatePicker/index",
     "pages/InputItem/index",
     "pages/Badge/index",
     "pages/Button/index",
@@ -55,6 +57,9 @@
     "pages/Toast/index",
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",
+    "pages/ImageUpload/index",
+    "pages/VideoUpload/index",
+    "pages/Skeleton/index",
     "pages/Slider/index"
   ],
   "window": {

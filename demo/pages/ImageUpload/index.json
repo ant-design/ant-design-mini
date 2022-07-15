@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "ImageUpload",
+  "usingComponents": {
+    "uploader": "../../../src/ImageUpload/index",
+    "am-icon": "../../../src/Icon/index"
+  }
+}

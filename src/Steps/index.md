@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 8
-toc: false
+toc: 'content'
 ---
 # Steps 步骤条
 引导用户按照流程完成任务的导航条
@@ -72,25 +72,3 @@ toc: false
 | amd-steps-item-text  | 文字区域样式 |
 | amd-steps-item-title  | 标题样式 |
 | amd-steps-item-desc  | 补充说明样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

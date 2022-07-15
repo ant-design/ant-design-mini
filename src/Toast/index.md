@@ -3,8 +3,8 @@ nav:
   path: /components
 group:
   title: 反馈
-  order: 2
-toc: false
+  order: 14
+toc: 'content'
 ---
 # Toast 轻提示
 ## 何时使用

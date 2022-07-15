@@ -54,6 +54,33 @@
       </picker>
     </form-item>
     <form-item 
+      label="date-picker" 
+      labelWidth="110px"
+      name="datePicker" 
+      form="{{form}}">
+      <date-picker 
+        disabled="{{false}}" 
+        precision="day"
+        format="YYYY-MM-DD"
+        pickerholder="请选择时间" 
+        mode="form">
+      </date-picker>
+    </form-item>
+    <form-item 
+      label="range-picker" 
+      labelWidth="110px"
+      name="rangePicker" 
+      form="{{form}}">
+      <range-picker 
+        disabled="{{false}}" 
+        placeholder="请选择"
+        precision="day"
+        format="YYYY-MM-DD"
+        pickerholder="请选择范围" 
+        mode="form">
+      </range-picker>
+    </form-item>
+    <form-item 
       label="selector" 
       name="selector" 
       position="vertical" 

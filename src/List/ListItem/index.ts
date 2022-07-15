@@ -3,10 +3,6 @@ import fmtEvent from '../../_util/fmtEvent';
 
 Component({
   props: ListItemDefaultProps,
-  data: {
-    imageSize: '',
-    hide: false,
-  },
   methods: {
     onTap(e) {
       if (this.props.disabled) return;
@@ -17,9 +13,5 @@ Component({
       }
     },
   },
-  didMount() {
-    this.setData({
-      imageSize: this.props.imageSize,
-    });
-  },
+
 });

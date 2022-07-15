@@ -1,5 +1,5 @@
 <view>
-  <demo-block title="当前操作的组件的数值">
+  <demo-block title="有节点单滑块">
     <view>
     {{currentValue.length ? `[${currentValue[0]}, ${currentValue[1]}]`: currentValue}}
     </view>
