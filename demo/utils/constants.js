@@ -77,10 +77,15 @@ export const componentList = [
         path: '/pages/FloatPanel/index',
       },
       {
+        name: 'Footer',
+        nameZN: '页脚',
+        path: '/pages/Footer/index',
+      },
+      {
         name: 'Divider',
         nameZN: '分割线',
         path: '/pages/Divider/index',
-      },
+      }
     ],
   },
   {
