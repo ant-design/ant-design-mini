@@ -1,0 +1,4 @@
+<view a:if="{{loading}}" class="amd-skeleton-paragraph {{animate?'amd-skeleton-paragraph-animate':''}} {{className||''}}">
+    <view class="amd-skeleton-paragraph-row" a:for="{{rows}}"></view>
+</view>
+<slot a:else/>
