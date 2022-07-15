@@ -2,7 +2,7 @@ const {
   doPublish,
   generateSematicVersion,
   writePkgJson,
-  PKG_JSON_PATH
+  PKG_JSON_PATH,
 } = require('./publishUtils');
 
 let distTag = process.env.DIST_TAG;

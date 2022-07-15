@@ -59,7 +59,8 @@
     "pages/FloatPanelEvent/index",
     "pages/ImageUpload/index",
     "pages/VideoUpload/index",
-    "pages/Grid/index"
+    "pages/Grid/index",
+    "pages/Skeleton/index"
   ],
   "window": {
     "enableWK": "YES",

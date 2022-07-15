@@ -4,9 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       ref:
-        description: "A valid branch or commit hash, eg: v2.14, master"
+        description: 'A valid branch or commit hash, eg: v2.14, master'
         required: true
         default: 'master'
+
+      distTag:
+        description: '要发布的 dist tag，仅可以为 alpha 或 beta'
+        required: true
+        default: 'beta'
 
 jobs:
   rc-version:
@@ -20,10 +25,10 @@ jobs:
 
     steps:
       # 判断用户是否有写权限
-      - name: "Check if user has write access"
-        uses: "lannonbr/repo-permission-check-action@2.0.0"
+      - name: 'Check if user has write access'
+        uses: 'lannonbr/repo-permission-check-action@2.0.0'
         with:
-          permission: "write"
+          permission: 'write'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -47,12 +52,18 @@ jobs:
       - name: Publish version
         run: |
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
-          node ./scripts/publishInCI
+          node ./scripts/publishRC
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          DIST_TAG: 'beta'
+          DIST_TAG: ${{ github.event.inputs.distTag }}
+
+      - name: Set Current Version
+        if: success()
+        run: |
+          DIST_VERSION=$(node -p 'require("./package.json").version')
+          echo "DIST_VERSION=${DIST_VERSION}" >> $GITHUB_ENV
 
       - name: Adding markdown
         if: success()
@@ -68,3 +79,15 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           INPUT_REF: ${{ github.event.inputs.ref }}
+
+      - name: Add Tag
+        if: success()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+
+          git tag ${{ env.DIST_VERSION }}
+          git push origin ${{ env.DIST_VERSION }}:${{ env.DIST_VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "The version you want to release, eg: 1.0.0. **no prefix v!**"
+        description: 'The version you want to release, eg: 1.0.0. **no prefix v!**'
         required: true
       release_branch:
-        description: "The release branch, eg: master, if run on master, please make sure the release_branch is set"
+        description: 'The release branch, eg: master, if run on master, please make sure the release_branch is set'
         required: false
-        default: "master"
+        default: 'master'
 
 jobs:
   release:
@@ -22,10 +22,10 @@ jobs:
 
     steps:
       # 判断用户是否有管理员权限
-      - name: "Check if user has admin access"
-        uses: "lannonbr/repo-permission-check-action@2.0.0"
+      - name: 'Check if user has admin access'
+        uses: 'lannonbr/repo-permission-check-action@2.0.0'
         with:
-          permission: "admin"
+          permission: 'admin'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -83,7 +83,7 @@ jobs:
 
       # 在 master 分支运行时，自动基于 Release 分支创建 PR
       - name: Create Pull Request
-        if:  github.event.inputs.release_branch != ''
+        if: github.event.inputs.release_branch != ''
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}

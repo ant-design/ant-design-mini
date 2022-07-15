@@ -177,6 +177,11 @@ export const componentList = [
         path: '/pages/Loading/index',
       },
       {
+        name: 'Skeleton',
+        nameZN: '骨架屏',
+        path: '/pages/Skeleton/index',
+      },
+      {
         name: 'Modal',
         nameZN: '弹窗',
         path: '/pages/Modal/index',
