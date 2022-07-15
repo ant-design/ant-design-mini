@@ -4,7 +4,7 @@ nav:
 group:
   title: 反馈
   order: 12
-toc: false
+toc: 'content'
 ---
 
 # Popup 弹出层
@@ -58,16 +58,3 @@ toc: false
 | amd-popup-close-container | 关闭图标区域样式 |
 | amd-popup-close-container | 关闭图标样式 |
 
-
-<style>
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 110px;
-}
-</style>

@@ -4,7 +4,7 @@ nav:
 group:
   title: 引导提示
   order: 14
-toc: false
+toc: 'content'
 ---
 
 # Badge 徽标
@@ -38,16 +38,3 @@ toc: false
 | amd-badge-text | 文本样式 |
 | amd-badge-dot | 红点样式 |
 | amd-badge-icon | 图标样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

@@ -19,7 +19,7 @@ export interface IDividerProps extends IBaseProps {
 
   /**
    * @description 分割线文字颜色
-   * @default '#999'
+   * @default '#333'
    */
   color: string;
 

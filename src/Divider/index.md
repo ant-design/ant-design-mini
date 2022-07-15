@@ -29,7 +29,7 @@ toc: false
 | -----|-----|-----|-----|----- |
 | borderColor | string | 否 | '#eee' | 分割线颜色 |
 | borderStyle | string | 否 | 'solid' | 分割线类型，支持css内置的值 |
-| color | string | 否 | '#999' | 分割线文字颜色 |
+| color | string | 否 | '#333' | 分割线文字颜色 |
 | direction | 'horizontal' &verbar; 'vertical' | 否 | 'horizontal' | 分割线方向 |
 | height | string | 否 | '30rpx' | 分割线高度，direction为'vertical'时生效 |
 | margin | string | 否 | '16rpx' | 分割线间距， direction为'horizontal'表示垂直间距，direction为'vertical'表示水平间距 |

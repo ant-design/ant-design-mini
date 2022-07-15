@@ -1,5 +1,5 @@
 export const DividerDefaultProps = {
-  color: '#999',
+  color: '#333',
   textPosition: 'center',
   borderStyle: 'solid',
   borderColor: '#eee',
