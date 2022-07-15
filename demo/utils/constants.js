@@ -43,6 +43,11 @@ export const componentList = [
         path: '/pages/Collapse/index',
       },
       {
+        name: 'Grid',
+        nameZN: '宫格',
+        path: '/pages/Grid/index',
+      },
+      {
         name: 'Container',
         nameZN: '容器',
         path: '/pages/Container/index',
@@ -76,6 +81,11 @@ export const componentList = [
         nameZN: '页脚',
         path: '/pages/Footer/index',
       },
+      {
+        name: 'Divider',
+        nameZN: '分割线',
+        path: '/pages/Divider/index',
+      }
     ],
   },
   {

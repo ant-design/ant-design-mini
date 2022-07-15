@@ -60,6 +60,8 @@
     "pages/ImageUpload/index",
     "pages/VideoUpload/index",
     "pages/Skeleton/index",
+    "pages/Divider/index",
+    "pages/Grid/index",
     "pages/Footer/index"
   ],
   "window": {
