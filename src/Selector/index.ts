@@ -24,7 +24,8 @@ Component<
     onChange(e: any): void;
     cOnChange?(
       value: string | string[],
-      item: ISelectorItem | ISelectorItem[]
+      item: ISelectorItem | ISelectorItem[],
+      e: any
     ): void;
   },
   {},
@@ -35,6 +36,7 @@ Component<
   props: SelectorDefaultProps,
   methods: {
     onChange(e) {
+      const event = fmtEvent(this.props);
       const { disabled, value } = e.currentTarget.dataset;
       const {
         multiple,
@@ -55,7 +57,8 @@ Component<
             if (onSelectMax) {
               onSelectMax(
                 value,
-                items.find((v) => v.value === value) as ISelectorItem
+                items.find((v) => v.value === value) as ISelectorItem,
+                event
               );
             }
             return;
@@ -68,7 +71,8 @@ Component<
             if (onSelectMin) {
               onSelectMin(
                 value,
-                items.find((v) => v.value === value) as ISelectorItem
+                items.find((v) => v.value === value) as ISelectorItem,
+                event
               );
             }
             return;
@@ -94,11 +98,7 @@ Component<
           const selectedItems = nextValue.map(
             (v) => items.filter((item) => item.value === v)?.[0]
           );
-          this.cOnChange(
-            nextValue,
-            selectedItems as ISelectorItem[],
-            fmtEvent(this.props)
-          );
+          this.cOnChange(nextValue, selectedItems as ISelectorItem[], event);
         } else {
           // 单选
           // 取消选中
@@ -111,11 +111,7 @@ Component<
           }
           const selectedItem =
             items.filter((item) => item.value === nextValue)?.[0] || null;
-          this.cOnChange(
-            nextValue,
-            selectedItem as ISelectorItem,
-            fmtEvent(this.props)
-          );
+          this.cOnChange(nextValue, selectedItem as ISelectorItem, event);
         }
       }
     },
