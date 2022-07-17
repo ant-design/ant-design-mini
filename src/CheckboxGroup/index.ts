@@ -2,6 +2,7 @@ import { CheckboxGroupDefaultProps } from './props';
 import equal from 'fast-deep-equal';
 import { store } from './context';
 import formMixin from '../mixins/form';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   props: CheckboxGroupDefaultProps,
@@ -32,7 +33,6 @@ Component({
     if (Array.isArray(value) && value.length > 0) {
       store.updateGroupValue(key, value);
     }
-
   },
   didUpdate(prevProps, prevData) {
     const { uid: newUID, disabled: newDisabled, value: newValue } = this.props;
@@ -57,7 +57,7 @@ Component({
   methods: {
     onChange(val) {
       if (this.props.onChange) {
-        this.props.onChange.call(this, val);
+        this.props.onChange.call(this, val, fmtEvent(this.props));
       }
     },
     _updateFieldValue(v) {

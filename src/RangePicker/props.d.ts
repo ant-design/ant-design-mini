@@ -41,7 +41,7 @@ export interface IDateRangePickerProps extends IBaseFormItemPropsWithOutFocus {
    * @description 提示文案
    * @default '请选择'
    */
-   placeholder?: string;
+  placeholder?: string;
   /**
    * @description 是否受控
    * @default false
@@ -53,12 +53,13 @@ export interface IDateRangePickerProps extends IBaseFormItemPropsWithOutFocus {
   onOk?: (
     date: PickerValue,
     dateStr: [string, string],
-    dateArr: [number[], number[]]
+    dateArr: [number[], number[]],
+    e: Record<string, any>
   ) => void;
   /**
    * @description 点击取消回调
    */
-  onDismiss?: () => void;
+  onDismiss?: (e: Record<string, any>) => void;
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
@@ -66,7 +67,8 @@ export interface IDateRangePickerProps extends IBaseFormItemPropsWithOutFocus {
     type: 'start' | 'end',
     date: Date,
     dateStr: string,
-    dateArr: number[]
+    dateArr: number[],
+    e: Record<string, any>
   ) => void;
   /**
    * @description 精度

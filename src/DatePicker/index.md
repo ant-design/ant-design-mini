@@ -60,18 +60,18 @@ toc: 'content'
 #### DatePicker
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onOk | 点击确定按钮，触发回调 | (date: Date, dateStr: string, dateArr:number[]) => void |
-| onDismiss | 点击取消按钮，触发回调 | () => void |
-| onPickerChange | 选中项发生变化，触发回调 | (date: Date, dateStr: string, dateArr:number[]) => void |
+| onOk | 点击确定按钮，触发回调 | (date: Date, dateStr: string, dateArr:number[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onDismiss | 点击取消按钮，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onPickerChange | 选中项发生变化，触发回调 | (date: Date, dateStr: string, dateArr:number[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式 | (date: Date, dateStr: string, dateArr:number[]) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible:boolean) => void |
 
 #### RangePicker
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onOk | 点击确定按钮，触发回调 | (date: [Date,Date], dateStr: [string,string], dateArr:[number[],number[]]) => void |
-| onDismiss | 点击取消按钮，触发回调 | () => void |
-| onPickerChange | 选中项发生变化，触发回调 | (type: 'start'\|'end', date: Date, dateStr: string, dateArr:number[]) => void |
+| onOk | 点击确定按钮，触发回调 | (date: [Date,Date], dateStr: [string,string], dateArr:[number[],number[]], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onDismiss | 点击取消按钮，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onPickerChange | 选中项发生变化，触发回调 | (type: 'start'\|'end', date: Date, dateStr: string, dateArr:number[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式 | (date: [Date,Date], dateStr: [string,string], dateArr:[number[],number[]]) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible:boolean) => void |
 

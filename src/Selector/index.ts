@@ -1,6 +1,7 @@
 import { SelectorDefaultProps, ISelectorItem, ISelectorProps } from './props';
 import controlled from '../mixins/controlled';
 import formMixin from '../mixins/form';
+import fmtEvent from '../_util/fmtEvent';
 
 const getFixedValue = (value, multiple) => {
   let fixedValue = [];
@@ -93,7 +94,11 @@ Component<
           const selectedItems = nextValue.map(
             (v) => items.filter((item) => item.value === v)?.[0]
           );
-          this.cOnChange(nextValue, selectedItems as ISelectorItem[]);
+          this.cOnChange(
+            nextValue,
+            selectedItems as ISelectorItem[],
+            fmtEvent(this.props)
+          );
         } else {
           // 单选
           // 取消选中
@@ -106,7 +111,11 @@ Component<
           }
           const selectedItem =
             items.filter((item) => item.value === nextValue)?.[0] || null;
-          this.cOnChange(nextValue, selectedItem as ISelectorItem);
+          this.cOnChange(
+            nextValue,
+            selectedItem as ISelectorItem,
+            fmtEvent(this.props)
+          );
         }
       }
     },
