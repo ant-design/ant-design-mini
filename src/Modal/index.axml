@@ -3,6 +3,9 @@
   visible="{{visible}}" 
   duration="{{duration}}"
   maskClosable="{{maskClosable}}"
+  disableScroll="{{disableScroll}}"
+  animation="{{animation}}"
+  zIndex="{{zIndex}}"
   onClose="onClose">
   <view class="amd-modal-content">
     <view class="amd-modal-content-image-container">

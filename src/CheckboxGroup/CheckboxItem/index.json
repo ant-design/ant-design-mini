@@ -3,6 +3,6 @@
   "usingComponents": {
     "list-item": "../../List/ListItem/index",
     "checkbox":"../../Checkbox/index",
-    "icon":"../../Icon/index"
+    "amd-icon":"../../Icon/index"
   }
 }

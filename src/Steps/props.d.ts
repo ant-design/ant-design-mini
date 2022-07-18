@@ -15,5 +15,10 @@ export interface IStepsProps extends IBaseProps {
    */
 
   direction?: 'horizontal' | 'vertical';
+  /**
+   * @description 当页面有多个Steps时需传入，页面唯一，与内部的 StepItem 组件的 uid 一致
+   * @default 'steps'
+   */
+  uid?: string;
 }
 export declare const StepsDefaultProps: Partial<IStepsProps>;

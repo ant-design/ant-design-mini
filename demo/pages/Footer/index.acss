@@ -1,0 +1,15 @@
+.demo-footer {
+  padding-bottom: 100rpx;
+}
+
+.demo-footer .demo-block-content {
+  padding: 0 !important;
+}
+
+.demo-footer-text {
+  margin-top: 16rpx;
+}
+
+.demo-footer-tag {
+  margin-top: 24rpx;
+}

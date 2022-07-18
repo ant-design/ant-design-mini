@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 
 # Stepper 步进器
@@ -43,9 +43,9 @@ toc: false
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onFocus | 聚焦时，触发此回调 | ( e: number ) => void  |
-| onBlur | 失去焦点时，触发此回调 | ( e: number ) => void  |
-| onChange | 数据变化后，触发此回调 | ( e: number ) => void  |
+| onFocus | 聚焦时，触发此回调 | ( value: number ) => void  |
+| onBlur | 失去焦点时，触发此回调 | ( value: number ) => void  |
+| onChange | 数据变化后，触发此回调 | ( value: number, dataSet: Record<string, any> ) => void  |
 
 ## 样式类
 | 类名 | 说明 |
@@ -59,16 +59,3 @@ toc: false
 | amd-stepper-handler-up-inner | +/- 图标样式 |
 | amd-stepper-input-wrap | 输入框区域样式 |
 | amd-stepper-input | 输入框样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

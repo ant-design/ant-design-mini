@@ -8,7 +8,8 @@ Component({
     supportSjs: my.canIUse('sjs.event'),
   },
   didMount() {
-    const { uid, name } = this.props;
+    const { name } = this.props;
+    const key = `${this.$page.$id}-${this.props.uid}`;
     const getGroupPropsVal = (key: string) => {
       switch (key) {
         case 'onChange':
@@ -25,23 +26,26 @@ Component({
           return this.props[key];
       }
     };
-    context.addGroup(uid);
-    context.setGroupPropsVal(uid, getGroupPropsVal);
-    context.setItemsAccordion(uid);
+    context.addGroup(key);
+    context.setGroupPropsVal(key, getGroupPropsVal);
+    context.setItemsAccordion(key);
     if (Array.isArray(name)) {
-      context.updateGroupValue(uid, true);
+      context.updateGroupValue(key, true);
     }
   },
   didUnmount() {
-    context.removeGroup(this.props.uid);
+    const key = `${this.$page.$id}-${this.props.uid}`;
+    context.removeGroup(key);
   },
   didUpdate(prevProps) {
     const { uid: newUID, name: newName = [], accordion: newAccordion = false } = this.props;
     const { uid: oldUID, name: oldName = [], accordion: oldAccordion = false } = prevProps;
+    const newKey = `${this.$page.$id}-${newUID}`;
+    const oldKey = `${this.$page.$id}-${oldUID}`;
     context.updateGroup(newUID, {
       isNameChanged: !equal(newName, oldName),
-      isUIDChanged: newUID !== oldUID,
+      isUIDChanged: newKey !== oldKey,
       isAccordionChanged: newAccordion !== oldAccordion,
-    }, { oldUID });
+    }, { oldUID:oldKey });
   },
 });

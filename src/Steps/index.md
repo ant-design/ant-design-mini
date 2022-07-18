@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 8
-toc: false
+toc: 'content'
 ---
 # Steps 步骤条
 引导用户按照流程完成任务的导航条
@@ -22,6 +22,7 @@ toc: false
 | -----|-----|-----|-----|----- |
 | index | number | 否 | 0 | 当前步骤, 受控 |
 | direction | 'horizontal' &verbar; 'vertical' | 否 | 'horizontal' | 方向 |
+| uid | string | 否 | - | 当页面有多个Steps时需传入，`必须页面唯一`，与内部的 StepItem 组件的 uid 一致 |
 | className | string | 否 | - | 类名 |
     
 #### StepItem
@@ -35,6 +36,7 @@ toc: false
 | icon | string &verbar; slot | 否 | - | 图标，横向和纵向都有各自的默认图标 |
 | activeIcon | string &verbar; slot | 否 | - | 激活步骤图标，横向和纵向都有各自的默认图标 |
 | failIcon | string &verbar; slot | 否 | - | 失败步骤图标，横向和纵向都有各自的默认图标 |
+| uid | string | 否 | - | 当页面有多个Steps时需传入，`必须页面唯一`，与外部的 Steps 组件的 uid 一致 |
 | className | string | 否 | - | 类名 |
   
 ## 插槽
@@ -70,25 +72,3 @@ toc: false
 | amd-steps-item-text  | 文字区域样式 |
 | amd-steps-item-title  | 标题样式 |
 | amd-steps-item-desc  | 补充说明样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

@@ -1,0 +1,21 @@
+<view 
+  class="amd-checklist-item"
+  onTap="{{item.disabled || item.readOnly ? '': 'onChecklistItemClick'}}"
+  hover-class="{{item.disabled || item.readOnly ? '' : 'amd-checklist-item-hover'}}"
+  hover-start-time="{{20}}"
+  hover-stay-time="{{40}}"
+>
+  <view class="amd-checklist-item-content {{item.disabled ? 'amd-checklist-item-content-disabled': ''}}">
+    <view class="amd-checklist-item-content-box">
+      <slot name="content" item="{{item}}"/>
+    </view>
+    <view
+      a:if="{{checked}}"
+      class="amd-checklist-item-content-icon "
+    >
+      <slot name="icon" />
+    </view>
+  </view>
+  <view class="amd-checklist-item-line">
+  </view>
+</view>

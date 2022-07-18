@@ -25,7 +25,8 @@ export interface ISelectorItem {
  * @description 筛选器，可供用户进行单选或者多选。
  */
 
-export interface ISelectorProps extends IBaseFormItemPropsWithOutFocus<string[]> {
+export interface ISelectorProps
+  extends IBaseFormItemPropsWithOutFocus<string[]> {
   /**
    * @description 已选择项, 取 items 每一项的 value
    */
@@ -52,5 +53,21 @@ export interface ISelectorProps extends IBaseFormItemPropsWithOutFocus<string[]>
    * @default false
    */
   controlled?: boolean;
+  /**
+   * @description 最小选择数量
+   */
+  minSelectedCount?: number;
+  /**
+   * @description 最大选择数量
+   */
+  maxSelectedCount?: number;
+  /**
+   * @description 触发最大限制
+   */
+  onSelectMax(value: string, item: ISelectorItem): void;
+  /**
+   * @description 触发最小限制
+   */
+  onSelectMin(value: string, item: ISelectorItem): void;
 }
 export declare const SelectorDefaultProps: Partial<ISelectorProps>;

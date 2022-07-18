@@ -13,19 +13,19 @@ Component({
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     setData: () => {},
     errorInfo: null,
-    defaultLabelWidth: '',
+    helpVisible: false,
   },
   onInit() {
     const { form, name: field, rules, initialValue, required } = this.props;
     if (form && field) {
-      this.$page.data._getCurrentField = () => {
+      this.$page._getCurrentField = () => {
         return { form: () => this.props.form, field: () => this.props.name };
       };
       store.bootstrap(form, field, rules, initialValue, required);
     }
   },
   didMount() {
-    this.data.setData = this.$page.data._currentSetData;
+    this.data.setData = this.$page._currentSetData;
     if (!this.data.setData) return;
     const { form, name: field } = this.props;
     if (form && field) {
@@ -36,17 +36,6 @@ Component({
         store.setUpdateSubmitButtonStatusFn(form, field, this.updateSubmitButtonStatus.bind(this));
       }
     }
-
-    my.createSelectorQuery()
-      .select('.amd-form-item-label-horizontal')
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0] && ret[0].width) {
-          this.setData({
-            defaultLabelWidth: `${ret[0].width}px`,
-          });
-        }
-      });
   },
   didUpdate(prevProps) {
     const currentField = prevProps.name;
@@ -66,6 +55,14 @@ Component({
     },
     updateSubmitButtonStatus(payload) {
       this.setData({ submitDisable: !!payload });
+    },
+    onToggleHelpVisible() {
+      this.setData({ helpVisible: !this.data.helpVisible });
+    },
+    onHelpVisibleChange(visible, type) {
+      if (type === 'mask') {
+        this.setData({ helpVisible: visible });
+      }
     },
   },
 });

@@ -1,0 +1,7 @@
+<view class="amd-footer-end {{className ? className : ''}}">
+  <view class="amd-footer-end-divider" />
+  <view class="amd-footer-end-text">
+    <slot />
+  </view>
+  <view class="amd-footer-end-divider" />
+</view>

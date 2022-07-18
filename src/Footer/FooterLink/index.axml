@@ -1,0 +1,9 @@
+<view class="amd-footer-link {{className ? className : ''}}">
+  <block a:for="{{links}}">
+    <view class="amd-footer-link-divider"
+      a:if="{{index - 1 >= 0}}" />
+    <view class="amd-footer-link-text"
+      onTap="onTap"
+      data-index="{{index}}">{{item}}</view>
+  </block>
+</view>

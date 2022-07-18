@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 8
-toc: false
+toc: 'content'
 ---
 
 # SwipeAction 滑动操作
@@ -34,8 +34,8 @@ toc: false
 ## 事件
 | 事件名 | 说明 | 类型 | 补充 |
 | -----|-----|-----|-----|
-| onLeftButtonTap | 点击左侧按钮，触发回调 | (v: number) => void | 从左往右起，第 n 个按钮 |
-| onRightButtonTap | 点击右侧按钮，触发回调 | (v: number) => void | 从左往右起，第 n 个按钮  |
+| onLeftButtonTap | 点击左侧按钮，触发回调 | (index: number, text: string, type: string, extraInfo?: unknown, dateSet: Record<string, any>) => void | 从左往右起，第 n 个按钮 |
+| onRightButtonTap | 点击右侧按钮，触发回调 | (index: number, text: string, type: string, extraInfo?: unknown, dateSet: Record<string, any>) => void | 从左往右起，第 n 个按钮  |
 
 ## 样式类
 | 类名 | 说明 |
@@ -49,19 +49,3 @@ toc: false
 | amd-swipe-action-btn-text | 按钮文字样式 |
 | amd-swipe-action-content | 表层区域样式 |
 | amd-swipe-action-item | 表层区域内容样式 |
-
-<style>
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 260px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 40px
-} 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after {
-    border-bottom: none!important;
-}
-</style>
