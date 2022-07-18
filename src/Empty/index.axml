@@ -11,7 +11,7 @@
         {{subText}}
       </view>
     </view>
-    <view a:if="{{onSubBtnClick || onMainBtnClick}}" class="amd-empty-{{mode}}-btn" style="marginTop: {{mode==='page' ? '20px' : '12px'}}">
+    <view a:if="{{onSubBtnClick || onMainBtnClick}}" class="amd-empty-{{mode}}-btn">
       <button a:if="{{onSubBtnClick}}" class="amd-empty-{{mode}}-btn-sub" type='primary' fill="outline" inline onTap="onSubBtnClick">
         {{subButtonText}}
       </button>
