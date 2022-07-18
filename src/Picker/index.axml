@@ -41,7 +41,7 @@
         indicator-style="{{indicatorStyle}}"
         indicator-class="{{indicatorClass}}"
         value="{{selectedIndex}}"
-        onChange="onChange">
+        onChange="onChangePickerView">
         <block 
           a:for="{{columns}}"
           a:for-item="dataRoot"

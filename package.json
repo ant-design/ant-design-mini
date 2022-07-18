@@ -1,6 +1,6 @@
 {
   "name": "antd-mini-rpx",
-  "version": "0.0.7-alpha.5",
+  "version": "0.0.7-alpha.8",
   "scripts": {
     "dev": "minidev dev --less --typescript --no-source-map",
     "dev:site": "dumi dev",

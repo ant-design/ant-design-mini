@@ -140,7 +140,7 @@ Component({
       }
     },
 
-    onChange(e) {
+    onChangePickerView(e) {
       const { onChange } = this.props;
       const { value: selectedIndex } = e.detail;
       this.tempSelectedIndex = selectedIndex;
