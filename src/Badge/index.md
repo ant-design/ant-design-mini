@@ -24,7 +24,7 @@ toc: 'content'
 | -----|-----|-----|-----|----- |
 | type | 'dot' &verbar; 'text' &verbar; 'bubble' &verbar; 'number' | 否 | 'dot' | badge 类型<br/>'dot':红点<br>'number':数字类型，会自动做>99转换<br>'text':文字气泡<br>'bubble':气泡形态(带箭头) |
 | text | string &verbar; number | 否 | - | 红点内容，为空时表示只显示红点；可以是数字，也可以是文字；如果是数字，超过 99 会自动变成 ... |
-| placement | 'top-left' &verbar; 'top-right' | 否 | 'top-right' | 相对于 children 所在方位，left-top(左上角) top-right(右上角) |
+| position | 'top-left' &verbar; 'top-right' | 否 | 'top-right' | 相对于 children 所在方位，left-top(左上角) top-right(右上角) |
 | stroke | boolean | 否 | false | 是否有描边 |
 | iconType | string | 否 | - | 自定义图标 |
 | bgColor | string | 否 | - | 自定义背景色，css色值 |
