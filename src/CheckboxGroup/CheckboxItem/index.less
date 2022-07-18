@@ -1,9 +1,11 @@
-@import (reference) "../../_base/index.less";
-@import "../index.less";
+@import (reference) '../../_base/index.less';
+@import '../index.less';
 
 @checkBoxItemPrefix: amd-checkbox-item;
 
 .@{checkBoxItemPrefix} {
   display: flex;
+  &-hidden {
+    display: none;
+  }
 }
-
