@@ -2,12 +2,18 @@
 nav:
   path: /components
 group:
-  title: 其他
-toc: false
+  title: 信息展示
+  order: 9
+toc: 'content'
 ---
 
-# Empty
-空状态
+# Empty 空状态
+
+使用场景插画来作为空状态场景的反馈提示
+
+## 何时使用
+需要展示空状态页面或者局部空状态区块时使用
+
 ## 代码示例
 ### 基本使用
 <code src='../../demo/pages/Empty'></code>
@@ -17,12 +23,12 @@ toc: false
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| className | string | - | - | 类名 |
-| mainButtonText | string | - | '操作2' | 右侧主操作按钮文案 |
-| mainText | string | - | '这里什么都没有' | 主文案 |
-| mode | 'page' &verbar; 'section' | - | 'page' | 空状态模式, 'page'表示整页空状态，'section'表示局部空状态 |
-| subButtonText | string | - | '操作1' | 左侧次操作按钮文案 |
-| subText | string | - | '看看其它的吧' | 副文案 |
+| className | string | 否 | - | 类名 |
+| mainButtonText | string | 否 | '操作2' | 右侧主操作按钮文案 |
+| mainText | string | 否 | '这里什么都没有' | 主文案 |
+| mode | 'page' &verbar; 'section' | 否 | 'page' | 空状态模式, 'page'表示整页空状态，'section'表示局部空状态 |
+| subButtonText | string | 否 | '操作1' | 左侧次操作按钮文案 |
+| subText | string | 否 | '看看其它的吧' | 副文案 |
 
 ## 事件 
 
@@ -37,10 +43,6 @@ toc: false
 | ----|----|
 | image | 图片区内容 |
 
-## CSS 变量 
-
-| CSS 变量名称 | 说明 |
-| -----|----- |
 ## 样式类 
 
 | 类名 | 说明 |
