@@ -25,6 +25,7 @@
     "pages/Tabs/index",
     "pages/TabsFallback/index",
     "pages/VTabs/index",
+    "pages/VTabsNoScroll/index",
     "pages/Stepper/index",
     "pages/Steps/index",
     "pages/Terms/index",
