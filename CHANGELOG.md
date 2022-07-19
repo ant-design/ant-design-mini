@@ -1,3 +1,12 @@
+## 0.0.19 (2022-07-19)
+
+
+### Features
+
+* **Switch:** switch onChange support event ([#198](https://github.com/ant-design/ant-design-mini/issues/198)) ([7a7730a](https://github.com/ant-design/ant-design-mini/commit/7a7730ad31def57f1dedb7ef57f44b6cc3413172))
+
+
+
 ## [0.0.12](https://github.com/ant-design/ant-design-mini/compare/0.0.7-alpha.3...0.0.12) (2022-06-28)
 
 
