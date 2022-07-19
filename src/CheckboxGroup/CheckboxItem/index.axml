@@ -2,7 +2,7 @@
 
 <label class="amd-checkbox-item {{className ? className : ''}} {{hidden?'amd-checkbox-item-hidden':''}}">
   <list-item stopPropagation>
-    <checkbox
+    <checkbox 
       controlled
       color="{{color}}"
       id="{{id ? id : $id}}"
