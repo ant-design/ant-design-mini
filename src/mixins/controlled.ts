@@ -62,11 +62,11 @@ export default (
       }
       this.props.onChange?.(v, v1);
     },
-    cOnInput(v: any) {
+    cOnInput(v: any, v1?:any) {
       if (!this.props.controlled) {
         this.cTrigger(v);
       }
-      this.props.onInput?.(v);
+      this.props.onInput?.(v, v1);
     },
   },
 });
