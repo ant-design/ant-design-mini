@@ -36,12 +36,6 @@ toc: false
 | textPosition | 'left' &verbar; 'center' &verbar; 'right' | 否 | 'center' | 分割线 |
 | className | string | 否 | - | 类名 |
 
-## 事件 
-
-## CSS 变量 
-
-| CSS 变量名称 | 说明 |
-| -----|----- |
 ## 样式类 
 
 | 类名 | 说明 |

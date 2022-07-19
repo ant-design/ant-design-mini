@@ -62,6 +62,7 @@ toc: false
 | loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
 | animate | boolean | 否 | flase | 是否展示动画效果 |
 | className | string | 否 | - | 类名 |
+
 #### Input 输入框
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |

@@ -11,7 +11,5 @@ Component({
       const { value } = e.detail;
       this.cOnChange(value, fmtEvent(this.props, e));
     },
-    // 阻止事件冒泡
-    emptyEvent() {},
   },
 });
