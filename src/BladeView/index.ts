@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import debounce from 'lodash/debounce';
+import debounce from '../_util/debounce';
 import isEqual from 'lodash/isEqual';
 import { BladeViewDefaultProps } from './props';
 
@@ -64,11 +64,13 @@ Component({
         });
     },
     setNotScrolling() {
+      console.log('setNotScrolling isScrolling false');
       this.isScrolling = false;
     },
     // 滚动监听
     onScroll(e) {
       // 判断是否正在滚动
+      console.log('onScroll');
       this.isScrolling = true;
       this.debounce(this.setNotScrolling);
       const { scrollTop } = e.detail;
