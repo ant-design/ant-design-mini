@@ -3,7 +3,7 @@
 <label class="amd-checkbox-item {{className ? className : ''}} {{hidden?'amd-checkbox-item-hidden':''}}">
   <list-item stopPropagation>
     <checkbox
-      controlled="{{controlled}}"
+      controlled
       color="{{color}}"
       id="{{id ? id : $id}}"
       disabled="{{_sjs.isDisabled(disabled,_disabled)}}"
