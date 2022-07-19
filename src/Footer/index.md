@@ -1,10 +1,12 @@
 ---
-title: Footer
+nav:
+  path: /components
 group:
-  path: /display
-  title: 数据展示
+  title: 信息展示
+  order: 8
+toc: 'content'
 ---
-# Footer
+# Footer 页脚
 
 ## 注意
 - 可配合 `FooterEnd`， `FooterImage`， `FooterLink`， `FooterTag`， `FooterText` 组件使用
