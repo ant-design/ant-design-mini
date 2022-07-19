@@ -37,7 +37,7 @@ toc: 'content'
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 点击 switch  ，触发此回调 | ( checked: boolean ) => void  |
+| onChange | 点击 switch  ，触发此回调 | (checked: boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
 
 
 ## 插槽
