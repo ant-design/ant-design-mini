@@ -106,13 +106,12 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ env.DIST_VERSION }}
-          release_name: ${{ env.DIST_VERSION }}
-          body_path: ./RELEASE_LOG.md
+          tag: ${{ env.DIST_VERSION }}
+          name: ${{ env.DIST_VERSION }}
+          body: ${{ github.event.issue.body }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           draft: true
           prerelease: true
 
