@@ -12,8 +12,7 @@ toc: 'content'
 
 ## 注意事项
 
-- 复选框组内部子元素，必须配合 CheckboxGroup 使用，有单独使用需求的请使用 Checkbox。
-- CheckboxGroup 组件与 CheckboxItem 组件必须有相同的 uid，且 uid 全局唯一。
+- 复选框组内部子元素，必须配合 CheckboxGroup 使用，有单独使用需求的请使用 [Checkbox](./checkbox)。
 - 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `ChecboxGroup` 组件的 `mode` 的值为 `form`。
 
 ## 代码示例
