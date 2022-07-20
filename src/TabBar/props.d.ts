@@ -35,14 +35,14 @@ export interface ITabsConfig {
 
   /**
    * @description 徽标类型，参见 <Badge/> 组件
-   * @default false
+   * @default ''
    */
    badgeType?: string;
 
 
   /**
    * @description 徽标内容，参见 <Badge/> 组件
-   * @default false
+   * @default ''
    */
    badgeText?: string;
 
