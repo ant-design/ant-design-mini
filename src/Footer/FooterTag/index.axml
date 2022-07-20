@@ -1,0 +1,11 @@
+<view class="amd-footer-tag {{className ? className : ''}}">
+  <block a:for="{{tags}}">
+    <view 
+      class="amd-footer-tag-text {{onTap ? 'amd-footer-tag-text-click': ''}}"
+      data-index="{{index}}"
+      onTap="onTap"
+    >
+      {{item}}
+    </view>
+  </block>
+</view>

@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 # Checklist 可勾选列表
 列表的勾选操作

@@ -1,6 +1,7 @@
 <view class="demo-block {{className}}">
   <view class="demo-block-title">
     {{title}}
+    <slot name="titleExtra"/>
   </view>
   <view class="demo-block-content" style="padding:{{padding}};background:{{background}};">
     <slot/>

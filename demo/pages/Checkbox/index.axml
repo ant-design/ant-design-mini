@@ -2,52 +2,36 @@
   <demo-block title="基础用法" padding="0">
     <list>
       <list-item className="demo-item">
-        <label>
-          <checkbox/>
+        <checkbox/>
+      </list-item>
+      <list-item className="demo-item">
+        <checkbox>有描述的复选框</checkbox>
+      </list-item>
+      <list-item className="demo-item">
+        <label class="wrapper"><checkbox/><text>自定义布局</text>
         </label>
       </list-item>
       <list-item className="demo-item">
-        <label>
-          <checkbox />
-          <text>有描述的复选框</text>
-        </label>
-      </list-item>
-      <list-item className="demo-item">
-        <label>
-          <checkbox color="#00b578" checked/>
-          <text>指定颜色</text>
-        </label>
+        <checkbox color="#00b578" checked>指定颜色</checkbox>
       </list-item>
     </list>
   </demo-block>
   <demo-block title="默认选中" padding="0">
     <list-item className="demo-item">
-      <label>
-        <checkbox checked />
-        <text>默认选中</text>
-      </label>
+      <checkbox checked>默认选中</checkbox>
     </list-item>
   </demo-block>
   <demo-block title="禁用状态" padding="0">
     <list-item className="demo-item">
-      <label>
-        <checkbox disabled checked/>
-        <text>禁用状态</text>
-      </label>
+      <checkbox disabled checked>禁用状态</checkbox>
     </list-item>
   </demo-block>
   <demo-block title="自定义图标" padding="0">
     <list-item className="demo-item demo-item-icon">
-      <label>
-        <checkbox icon="SmileOutline" checkedIcon="SmileFill"/>
-        <text>自定义图标（Icon）</text>
-      </label>
+      <checkbox icon="SmileOutline" checkedIcon="SmileFill">自定义图标（Icon）</checkbox>
     </list-item>
     <list-item className="demo-item demo-item-image">
-      <label>
-        <checkbox color="transparent" checked checkedIcon="https://gw.alipayobjects.com/mdn/rms_ffbcbf/afts/img/A*2oqcRL38fWwAAAAAAAAAAAAAARQnAQ"/>
-        <text>自定义图标（图片）</text>
-      </label>
+      <checkbox color="transparent" checked checkedIcon="https://gw.alipayobjects.com/mdn/rms_ffbcbf/afts/img/A*2oqcRL38fWwAAAAAAAAAAAAAARQnAQ">自定义图标（图片）</checkbox>
     </list-item>
   </demo-block>
 </view>

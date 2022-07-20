@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Grid",
+  "usingComponents": {
+    "demo-block": "../../components/DemoBlock/index",
+    "grid": "../../../src/Grid/index"
+  }
+}

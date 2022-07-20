@@ -13,11 +13,11 @@
   </slot>
 </view>
 <popup
-  className="amd-picker-popup"
+  className="amd-picker-popup {{popClassName}}"
   position="bottom"
   visible="{{visible}}">
   <view class="amd-picker-header">
-    <view class="amd-picker-header-item"
+    <view class="amd-picker-header-item amd-picker-header-cancel"
       hover-class="amd-picker-header-item-hover"
       hover-start-time="20"
       hover-stay-time="50"
@@ -27,13 +27,14 @@
         {{title}}
       </slot>
     </view>
-    <view class="amd-picker-header-item"
+    <view class="amd-picker-header-item amd-picker-header-confirm"
       hover-class="amd-picker-header-item-hover"
       hover-start-time="20"
       hover-stay-time="50"
       onTap="onOk">{{okText}}</view>
   </view>
   <view class="amd-picker-content">
+    <slot name="content-header"/>
     <block a:if="{{columns}}">
       <picker-view 
         mask-style="{{maskStyle}}"

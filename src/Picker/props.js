@@ -5,6 +5,7 @@ export const PickerDefaultProps = {
   disabled: false,
   value:  '',
   data: [],
+  placeholder:'请选择',
   onFormat: function onFormat(value, column) {
     if (column instanceof Array) {
       return column.filter(c  => c !== undefined).map(function (c) {
