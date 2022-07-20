@@ -83,6 +83,6 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 切换显示隐藏
    */
-  onTriggerPicker?: (visible) => void;
+  onTriggerPicker?: (visible, e: Record<string, any>) => void;
 }
 export declare const DatePickerDefaultProps: Partial<IDatePickerProps>;

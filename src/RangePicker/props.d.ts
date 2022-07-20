@@ -88,7 +88,7 @@ export interface IDateRangePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 切换显示隐藏
    */
-  onTriggerPicker?: (visible) => void;
+  onTriggerPicker?: (visible, e: Record<string, any>) => void;
   /**
    * @description 显示连接符
    * @default '~''

@@ -290,7 +290,7 @@ Component({
         this.setCurrentValue();
       }
       if (onTriggerPicker) {
-        onTriggerPicker(visible);
+        onTriggerPicker(visible, fmtEvent(this.props));
       }
       this._visible = visible;
     },
