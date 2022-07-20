@@ -21,7 +21,7 @@ Component({
     cValue?: string[];
   },
   methods: {
-    onChange(e) {
+    onTapSelectorItem(e) {
       const { disabled, value } = e.currentTarget.dataset;
       const { multiple, items } = this.props;
       if (!disabled && !this.props.disabled) {
