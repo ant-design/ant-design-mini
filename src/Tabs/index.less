@@ -1,4 +1,4 @@
-@import (reference) "./variable.less";
+@import (reference) './variable.less';
 
 @tabsPrefix: amd-tabs;
 
@@ -11,6 +11,20 @@
     align-content: stretch;
     background-color: @tabs-inverse-color;
     box-sizing: border-box;
+    &-badge {
+      position: absolute;
+      height: @tabs-badge-size;
+      min-width: @tabs-badge-size;
+      border-radius: @tabs-badge-size;
+      background: #ff411c;
+      color: #fff;
+      font-size: 18 * @rpx;
+      line-height: @tabs-badge-size;
+      text-align: center;
+      padding: 0 8 * @rpx;
+      box-sizing: border-box;
+      white-space: nowrap;
+    }
     &-underline {
       border-bottom: @border-width-standard solid @color-divider-line;
     }
@@ -24,11 +38,11 @@
       pointer-events: none;
       &-left {
         left: 0;
-        background: linear-gradient(90deg,#fff,hsla(0,0%,100%,0));
+        background: linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));
       }
       &-right {
         right: 104 * @rpx;
-        background: linear-gradient(270deg,#fff,hsla(0,0%,100%,0));
+        background: linear-gradient(270deg, #fff, hsla(0, 0%, 100%, 0));
       }
     }
     &-plus {
@@ -101,12 +115,10 @@
       position: relative;
       display: flex;
       align-items: center;
-      padding: 0 @h-spacing-large;
-      padding-top: @v-spacing-standard;
-      padding-bottom: @v-spacing-standard;
+      padding: @v-spacing-standard @h-spacing-large;
       box-sizing: border-box;
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         left: 50%;
         bottom: 0;
@@ -118,16 +130,11 @@
         box-sizing: border-box;
         transform: translate3d(-50%, 0, 0);
       }
-      // &:active::before {
-      //   content: "";
-      //   position: absolute;
-      //   top: 0;
-      //   bottom: 0;
-      //   left: -@h-spacing-large;
-      //   right: -@h-spacing-large;
-      //   border-radius: @corner-radius-md-plus;
-      //   background-color: rgba(0, 0, 0, 0.08);
-      // }
+      &-badge {
+        transform: translateX(100%);
+        top: 9 * @rpx;
+        right: 20 * @rpx;
+      }
     }
     &-basis&-active {
       color: @tabs-active-color;
@@ -140,6 +147,12 @@
       padding: @v-spacing-large 0;
       margin: 0 @h-spacing-large / 2;
       box-sizing: border-box;
+      position: relative;
+      &-badge {
+        transform: translate(50%, 50%);
+        top: 0;
+        right: 0;
+      }
       &-title {
         flex: 1;
         justify-content: center;
@@ -149,22 +162,13 @@
         text-align: center;
         line-height: @line-height-base;
         border-radius: 10vh;
-        background-color: #F5F5F5;
+        background-color: #f5f5f5;
         border-bottom: 0 none;
-      }
-      &-badge {
-        margin-left: @size-1;
-        font-size: 26 * @rpx;
-        color: @tabs-weaken-color;
       }
     }
     &-capsule&-active &-capsule-title {
       color: @tabs-inverse-color;
       background-color: @tabs-active-decorate-color;
-    }
-    &-capsule&-active &-capsule-badge {
-      color: @tabs-inverse-color;
-      opacity: 0.6;
     }
 
     // 混合类型的选项卡样式
@@ -173,9 +177,14 @@
       margin: 0 @h-spacing-standard;
       padding: @v-spacing-large 0;
       text-align: center;
-
+      &-badge {
+        transform: translateX(100%);
+        top: -7 * @rpx;
+        right: -4 * @rpx;
+      }
       &-title {
         margin: 2 * @rpx 0;
+        position: relative;
       }
 
       &-subtitle {
@@ -184,7 +193,7 @@
         line-height: @line-height-paragraph;
         color: @tabs-weaken-color;
         border-radius: 50vh;
-        background-color: #F5F5F5;
+        background-color: #f5f5f5;
         margin: 2 * @rpx 0;
       }
     }

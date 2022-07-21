@@ -1,11 +1,8 @@
-.actions {
-  margin-top: 24px;
-}
-.amd-tabs-item-pane view {
-  background-color: #fff;
+.content {
   padding: 24rpx;
 }
 
-.plus-icon {
-  font-size: 48rpx;
+.space {
+  height: 48rpx;
+  background: rgb(250 251 252);
 }
