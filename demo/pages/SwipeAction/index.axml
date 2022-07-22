@@ -1,27 +1,7 @@
 <view class="demo">
-  <list radius="{{true}}" header="单个滑动操作组件(删除时消失)">
+  <list header="单行用法">
     <swipe-action
-        a:for="{{singleListDelete}}" 
-        a:key="id"
-        data-index="{{index}}"
-        autoClose="{{item.autoClose}}" 
-        right="{{item.right}}" 
-        speed="{{item.speed}}"
-        extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
-        onRightButtonTap="onSingleRightItemClickDelete" 
-        >
-        <list-item 
-          arrow="right" 
-          data-index="{{index}}"
-          data-content="{{item.content}}"
-          onTap="onItemClick">
-          {{item.content}}
-        </list-item>
-    </swipe-action>
-  </list>  
-  <list radius="{{true}}" header="单个滑动操作组件(删除时不消失)">
-    <swipe-action
-        a:for="{{singleList}}" 
+        a:for="{{singleLabelList}}" 
         a:key="id"
         data-index="{{index}}"
         autoClose="{{item.autoClose}}" 
@@ -35,29 +15,29 @@
           data-index="{{index}}"
           data-content="{{item.content}}"
           onTap="onItemClick">
-           {{item.content}}
+          {{item.content}}
         </list-item>
     </swipe-action>
-  </list>
-  <list radius="{{true}}" header="滑动操作组件列表">
-    <swipe-action 
-      a:for="{{multiList}}" 
-      a:key="id"
-      data-index="{{index}}"
-      autoClose="{{item.autoClose}}" 
-      right="{{item.right}}" 
-      left="{{item.left}}" 
-      speed="{{item.speed}}"
-      extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
-      onRightButtonTap="onMultiRightItemClick" 
-      onLeftButtonTap="onMultiLeftItemClick">
-      <list-item 
-        arrow="right" 
-        data-index="{{index}}" 
-        data-content="{{item.content}}"
-        onTap="onItemClick">
-          {{item.content}}
-      </list-item>
+  </list>  
+  <list header="双行列表">
+    <swipe-action
+        a:for="{{doubleLabelList}}" 
+        a:key="id"
+        data-index="{{index}}"
+        autoClose="{{item.autoClose}}" 
+        right="{{item.right}}" 
+        speed="{{item.speed}}"
+        extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
+        onRightButtonTap="onSingleRightItemClick" 
+        >
+        <list-item 
+          arrow="right" 
+          data-index="{{index}}"
+          data-content="{{item.content}}"
+          onTap="onItemClick"
+          brief="{{item.brief}}">
+           {{item.content}}
+        </list-item>
     </swipe-action>
   </list>
 </view>

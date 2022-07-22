@@ -7,7 +7,7 @@
       <filter-item
         uid="filter-1"
         placeholder="筛选项一"
-        value="3"
+        value=""
         items="{{items}}"
         type="default" 
         ref="ref"
@@ -32,7 +32,7 @@
       <filter-item
         uid="filter-2"
         placeholder="筛选项一"
-        value="3"
+        value=""
         items="{{items}}"
         type="default" 
         ref="ref"
@@ -66,7 +66,7 @@
       <filter-item
         uid="filter-3"
         placeholder="筛选项一"
-        value="3"
+        value=""
         items="{{items}}"
         type="default" 
         ref="ref"
@@ -86,7 +86,7 @@
         <filter-item
         uid="filter-3"
         placeholder="筛选项三"
-        value="3"
+        value=""
         items="{{items}}"
         type="default" 
         ref="ref"
@@ -125,7 +125,7 @@
       <filter-item
         uid="filter-4"
         placeholder="筛选项一"
-        value="3"
+        value=""
         items="{{items}}"
         type="default" 
         ref="ref"

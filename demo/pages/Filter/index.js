@@ -1,6 +1,6 @@
 Page({
   data: {
-    value: ['3', '5'],
+    value: '',
     items: [
       {
         text: '选项一',

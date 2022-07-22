@@ -3,35 +3,30 @@ Page({
     index: 0,
     height: 30,
     type: 'basis',
-    animation: true,
-    swipeable: true,
+    animation: false,
+    swipeable: false,
     titleSlot: false,
-    plusSlot: true,
+    plusSlot: false,
     sticky: false,
     tabs: [
       {
-        title: '选项一',
+        title: '选项卡',
         subTitle: '描述文案',
       },
       {
-        title: '选项二',
-        subTitle: '描述文案描述',
-      },
-      {
-        title: '选项三',
-        subTitle: '描述',
-      },
+        title: '选项卡',
+        subTitle: '描述文案',
+      }
     ],
     tabsType: [
-      { name: 'basis', value: '普通', checked: true },
+      { name: 'basis', value: '表单', checked: true },
       { name: 'capsule', value: '胶囊' },
-      { name: 'mixin', value: '带描述' },
+      { name: 'mixin', value: '辅助文案' },
     ],
     tabsNumber: [
-      { name: '1', value: '一条' },
-      { name: '2', value: '两条' },
-      { name: '3', value: '三条', checked: true },
-      { name: '-1', value: '很多' },
+      { name: '2', value: '两项', checked: true },
+      { name: '3', value: '三项' },
+      { name: '-1', value: '多项' },
     ],
   },
   handleChangeAnimation(checked) {
@@ -68,26 +63,16 @@ Page({
     });
   },
   handleChangeTabNum(e) {
-    if (e.detail.value === '1') {
+    if (e.detail.value === '2') {
       this.setData({
         tabs: [
           {
-            title: '选项',
-            subTitle: '描述文案',
-            badge: 6,
-          },
-        ],
-      });
-    } else if (e.detail.value === '2') {
-      this.setData({
-        tabs: [
-          {
-            title: '选项',
+            title: '选项卡',
             subTitle: '描述文案',
           },
           {
-            title: '选项二',
-            subTitle: '描述文案描述',
+            title: '选项卡',
+            subTitle: '描述文案',
           },
         ],
       });
@@ -95,15 +80,15 @@ Page({
       this.setData({
         tabs: [
           {
-            title: '选项一',
+            title: '选项卡',
             subTitle: '描述文案',
           },
           {
-            title: '选项二',
-            subTitle: '描述文案描述',
+            title: '选项卡',
+            subTitle: '描述文案',
           },
           {
-            title: '选项三',
+            title: '选项卡',
             subTitle: '描述',
           },
         ],
@@ -112,75 +97,73 @@ Page({
       this.setData({
         tabs: [
           {
-            title: '选项一',
+            title: '选项卡',
             subTitle: '描述文案',
           },
           {
-            title: '选项二',
-            subTitle: '描述文案描述',
+            title: '选项卡',
+            subTitle: '描述文案',
           },
           {
-            title: '选项三',
+            title: '选项卡',
             subTitle: '描述',
           },
           {
-            title: '4 Tab',
+            title: '选项卡',
             subTitle: '描述',
             showBadge: true,
             badge: 1,
           },
           {
-            title: '5 Tab',
-            subTitle: '描述描述',
+            title: '选项卡',
+            subTitle: '描述',
             badge: 999,
           },
           {
-            title: '3 Tab',
+            title: '选项卡',
             subTitle: '描述',
           },
           {
-            title: '4 Tab',
+            title: '选项卡',
             subTitle: '描述',
           },
           {
-            title: '151111 Tab',
+            title: '选项卡',
             subTitle: '描述',
           },
           {
-            title: '42345 Tab',
+            title: '选项卡',
             subTitle: '描述',
           },
           {
-            title: '1511116787 Tab',
+            title: '选项卡',
             subTitle: '描述',
           },
           {
-            title: '42452 Tab',
+            title: '选项卡',
             subTitle: '描述',
           },
           {
-            title: '15451111 Tab',
-          },
-          {
-            title: '4234 Tab',
+            title: '选项卡',
             subTitle: '描述',
           },
           {
-            title: '11251111 Tab',
+            title: '选项卡',
             subTitle: '描述',
           },
           {
-            title: '44123 Tab',
-          },
-          {
-            title: '1531111 Tab',
+            title: '选项卡',
             subTitle: '描述',
           },
           {
-            title: '41 Tab',
+            title: '选项卡',
+            subTitle: '描述',
           },
           {
-            title: '15111111 Tab',
+            title: '选项卡',
+          },
+          {
+            title: '选项卡',
           },
         ],
       });
