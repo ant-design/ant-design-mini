@@ -1,6 +1,5 @@
 import equal from 'fast-deep-equal';
 import { PickerDefaultProps } from './props';
-import computed from '../mixins/computed';
 import controlled from '../mixins/controlled';
 import formMixin from '../mixins/form';
 import {
@@ -10,7 +9,7 @@ import {
 } from './utils';
 
 Component({
-  mixins: [computed, controlled(), formMixin({ trigger: 'onOk' })],
+  mixins: [controlled(), formMixin({ trigger: 'onOk' })],
   props: PickerDefaultProps,
   data: {
     formatValue: '',
@@ -19,26 +18,52 @@ Component({
   },
   tempSelectedIndex: null,
   single: false,
+  isChangingPickerView: false,
+  didMount() {
+    const columns = this.getterColumns();
+    this.setData({
+      columns
+    }, () => {
+      const formatValue = this.getterFormatText()
+      const selectedIndex = this.getterSelectedIndex()
+      this.setData({
+        formatValue,
+        selectedIndex
+      })
+    })
+  },
   didUpdate(prevProps, prevData) {
-    const { visible, columns, cValue } = this.data;
-    const { columns: prevColumns, cValue: prevCValue } = prevData;
-    if (visible) {
-      if (!equal(prevColumns, columns) || !equal(prevCValue, cValue)) {
-        this.tempSelectedIndex = this.getterSelectedIndex();
-      }
+    const { cValue } = this.data;
+    const { cValue: prevCValue } = prevData;
+    if (!equal(prevProps.data, this.props.data)) {
+      const newColums = this.getterColumns();
+      this.setData({
+        columns: newColums
+      }, () => {
+        // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
+        if (!this.isChangingPickerView) {
+          const selectedIndex = this.getterSelectedIndex()
+          this.setData({
+            selectedIndex
+          })
+        }
+        const formatValue = this.getterFormatText()
+        this.setData({
+          formatValue
+        })
+        this.isChangingPickerView = false;
+      })
+    }
+    if (!equal(cValue, prevCValue)) {
+      const selectedIndex = this.getterSelectedIndex()
+      const formatValue = this.getterFormatText()
+      this.setData({
+        selectedIndex,
+        formatValue
+      })
     }
   },
   methods: {
-    computed() {
-      const columns = this.getterColumns();
-      const formatValue = this.getterFormatText();
-      const selectedIndex = this.getterSelectedIndex();
-      return {
-        formatValue,
-        selectedIndex,
-        columns,
-      };
-    },
     getterColumns() {
       let columns = [];
       if (this.props.data.length > 0) {
@@ -123,6 +148,7 @@ Component({
       const { onChange } = this.props;
       const { value: selectedIndex } = e.detail;
       this.tempSelectedIndex = selectedIndex;
+      this.isChangingPickerView = true;
       const { matchedColumn, matchedValues } = getMatchedItemByIndex(
         this.data.columns,
         this.tempSelectedIndex,
@@ -133,7 +159,7 @@ Component({
       }
     },
 
-    onOk() {
+    async onOk() {
       let result;
       if (this.tempSelectedIndex) {
         result = getMatchedItemByIndex(
@@ -150,15 +176,22 @@ Component({
       }
       const { matchedColumn, matchedValues } = result;
       this.setData({
+        visible: false,
+      });
+      this.triggerPicker(false);
+      if (this.props.onBeforeOk) {
+        const isContinue = await this.props.onBeforeOk(matchedValues, matchedColumn);
+        if (!isContinue) {
+          return
+        }
+      }
+      this.setData({
         cValue: matchedValues,
       });
       if (this.props.onOk) {
         this.props.onOk.call(this, matchedValues, matchedColumn);
       }
-      this.triggerPicker(false);
-      this.setData({
-        visible: false,
-      });
+  
     },
   },
 });

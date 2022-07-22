@@ -9,7 +9,7 @@
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
-      data="{{cityList}}">
+      data="{{list}}">
     </picker>
   </list-item>
 </demo-block>
@@ -43,3 +43,17 @@
   </picker>
 </list-item>
 </demo-block>
+
+
+<demo-block title="多列复杂类型数据" padding="0">
+  <list-item>
+    级联
+    <picker 
+      slot="extra"
+      placeholder="请选择归属地" 
+      data="{{cityList}}" 
+      onChange="handleCityPickerChange" 
+      onOk="handleCityOnOk"
+    />
+  </list-item>
+  </demo-block>
