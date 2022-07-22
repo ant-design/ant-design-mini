@@ -64,10 +64,10 @@ export interface ISelectorProps
   /**
    * @description 触发最大限制
    */
-  onSelectMax(value: string, item: ISelectorItem): void;
+  onSelectMax(value: string, item: ISelectorItem, e: Record<string, any>): void;
   /**
    * @description 触发最小限制
    */
-  onSelectMin(value: string, item: ISelectorItem): void;
+  onSelectMin(value: string, item: ISelectorItem, e: Record<string, any>): void;
 }
 export declare const SelectorDefaultProps: Partial<ISelectorProps>;

@@ -2,6 +2,7 @@
   <demo-block title="基础用法">
     <switch 
       checked="{{false}}"
+      data-value="value"
       onChange="handleChange" 
     />
   </demo-block>

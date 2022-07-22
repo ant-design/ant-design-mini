@@ -1,5 +1,6 @@
 import { ChecklistDefaultProps } from './props';
 import controlled from '../mixins/controlled'
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   props: ChecklistDefaultProps,
@@ -23,7 +24,7 @@ Component({
       } else {
         items =  options.filter(o => o.value === value)?.[0];
       }
-      this.cOnChange(value, items)
+      this.cOnChange(value, items, fmtEvent(this.props));
     }
   },
 });

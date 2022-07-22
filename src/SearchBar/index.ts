@@ -1,5 +1,6 @@
 import { SearchBarDefaultProps } from './props';
 import controlled from '../mixins/controlled';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   mixins: [controlled()],
@@ -12,20 +13,20 @@ Component({
       const { onSubmit } = this.props;
       if (onSubmit) {
         const { value } = e.detail;
-        onSubmit(value);
+        onSubmit(value, fmtEvent(this.props, e));
       }
     },
     onInput(e) {
       const { onInput } = this.props;
       if (onInput) {
         const { value } = e.detail;
-        this.cOnInput(value);
+        this.cOnInput(value, fmtEvent(this.props, e));
       }
     },
     onClear() {
       const { onClear } = this.props;
       if (onClear) {
-        onClear('');
+        onClear('', fmtEvent(this.props));
       }
       this.clearcValue();
     },
@@ -40,15 +41,15 @@ Component({
     onCancel() {
       const { onCancel } = this.props;
       if (onCancel) {
-        onCancel('');
+        onCancel('', fmtEvent(this.props));
       }
       this.clearcValue();
     },
-    onBizIconTap() {
+    onBizIconTap(e) {
       if (typeof this.props.onBizIconTap === 'function') {
-        this.props.onBizIconTap();
+        this.props.onBizIconTap(fmtEvent(this.props, e));
       } else if (typeof this.props.onVoiceTap === 'function') {
-        this.props.onVoiceTap();
+        this.props.onVoiceTap(fmtEvent(this.props, e));
       }
     },
     onFocus(e) {
@@ -58,7 +59,7 @@ Component({
       const { onFocus } = this.props;
       if (onFocus) {
         const { value } = e.detail;
-        onFocus(value);
+        onFocus(value, fmtEvent(this.props, e));
       }
     },
     onBlur(e) {
@@ -68,7 +69,7 @@ Component({
       const { onBlur } = this.props;
       if (onBlur) {
         const { value } = e.detail;
-        onBlur(value);
+        onBlur(value, fmtEvent(this.props, e));
       }
     },
   },

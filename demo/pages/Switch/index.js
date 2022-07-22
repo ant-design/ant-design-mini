@@ -1,4 +1,3 @@
-
 Page({
   data: {
     value: false,
@@ -9,5 +8,4 @@ Page({
       title: `当前 switch 为 ${checked ? '打开' : '关闭'} 状态。`,
     });
   },
-
 });

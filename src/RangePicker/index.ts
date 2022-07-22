@@ -10,6 +10,7 @@ import {
   getValidValue,
   isEqualDate,
 } from '../DatePicker/util';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   mixins: [computed, formMixin({ trigger: 'onOk' })],
@@ -235,7 +236,8 @@ Component({
           pickerType,
           date,
           dayjs(date).format(format),
-          selectedIndex
+          selectedIndex,
+          fmtEvent(this.props)
         );
       }
     },
@@ -243,7 +245,7 @@ Component({
     onDismiss() {
       const { onDismiss } = this.props;
       if (onDismiss) {
-        onDismiss();
+        onDismiss(fmtEvent(this.props));
       }
     },
 
@@ -256,7 +258,8 @@ Component({
         this.props.onOk(
           cValue,
           cValue.map((v) => dayjs(v).format(format)),
-          cValue.map((v) => getValueByDate(v, precision))
+          cValue.map((v) => getValueByDate(v, precision)),
+          fmtEvent(this.props)
         );
       }
     },
@@ -287,7 +290,7 @@ Component({
         this.setCurrentValue();
       }
       if (onTriggerPicker) {
-        onTriggerPicker(visible);
+        onTriggerPicker(visible, fmtEvent(this.props));
       }
       this._visible = visible;
     },

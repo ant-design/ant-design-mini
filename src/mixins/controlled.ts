@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import equal from "fast-deep-equal";
-import type { IUserComponentOptions } from "@mini-types/alipay";
+import equal from 'fast-deep-equal';
+import type { IUserComponentOptions } from '@mini-types/alipay';
 
 /**
  * @description 处理通用受控非受控模式
@@ -30,7 +30,7 @@ import type { IUserComponentOptions } from "@mini-types/alipay";
  * <checkbox onChange="handleChange" checked="{{cValue}}" />
  */
 export default (
-  propsValue = "value"
+  propsValue = 'value'
 ): IUserComponentOptions<
   { cValue: any },
   { value: any; onInput: (v: any) => void; [prop: string]: any },
@@ -56,17 +56,17 @@ export default (
     }
   },
   methods: {
-    cOnChange(v: any, v1?: any) {
+    cOnChange(v: any, ...args) {
       if (!this.props.controlled) {
         this.cTrigger(v);
       }
-      this.props.onChange?.(v, v1);
+      this.props.onChange?.(v, ...args);
     },
-    cOnInput(v: any, v1?:any) {
+    cOnInput(v: any, ...args) {
       if (!this.props.controlled) {
         this.cTrigger(v);
       }
-      this.props.onInput?.(v, v1);
+      this.props.onInput?.(v, ...args);
     },
   },
 });

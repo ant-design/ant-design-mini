@@ -8,6 +8,7 @@ import {
   getMatchedItemByIndex,
   getStrictMatchedItemByValue,
 } from './utils';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   mixins: [computed, controlled(), formMixin({ trigger: 'onOk' })],
@@ -115,7 +116,7 @@ Component({
       });
       this.triggerPicker(false);
       if (onDismiss) {
-        return onDismiss();
+        return onDismiss(fmtEvent(this.props));
       }
     },
 
@@ -129,11 +130,11 @@ Component({
         this.single
       );
       if (onChange) {
-        onChange.call(this, matchedValues, matchedColumn);
+        onChange.call(this, matchedValues, matchedColumn, fmtEvent(this.props, e));
       }
     },
 
-    onOk() {
+    onOk(e) {
       let result;
       if (this.tempSelectedIndex) {
         result = getMatchedItemByIndex(
@@ -153,7 +154,7 @@ Component({
         cValue: matchedValues,
       });
       if (this.props.onOk) {
-        this.props.onOk.call(this, matchedValues, matchedColumn);
+        this.props.onOk.call(this, matchedValues, matchedColumn, fmtEvent(this.props, e));
       }
       this.triggerPicker(false);
       this.setData({

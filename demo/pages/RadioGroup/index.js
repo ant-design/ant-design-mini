@@ -6,7 +6,7 @@ Page({
       { value: 'banana', label: '香蕉' },
     ],
   },
-  handleChange(e) {
-    console.log(e);
+  handleChange(value, e) {
+    console.log(value, e);
   },
 });

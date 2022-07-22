@@ -1,21 +1,21 @@
 Page({
   data: {
   },
-  handleItemChange(e) {
+  handleItemChange(value, e) {
     // eslint-disable-next-line no-console
-    console.log('onItemChange:', e);
+    console.log('onItemChange:', value, e);
   },
-  handleItemFocus(v) {
+  handleItemFocus(v, e) {
     // eslint-disable-next-line no-console
-    console.log('focus:', v);
+    console.log('focus:', v, e);
   },
-  handleItemBlur(v) {
+  handleItemBlur(v, e) {
     // eslint-disable-next-line no-console
-    console.log('blur:', v);
+    console.log('blur:', v, e);
   },
-  handleItemConfirm(v) {
+  handleItemConfirm(v, e) {
     // eslint-disable-next-line no-console
-    console.log('confirm:', v);
+    console.log('confirm:', v, e);
   },
   handleItemClear() {
     // eslint-disable-next-line no-console

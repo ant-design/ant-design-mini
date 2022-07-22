@@ -40,8 +40,8 @@ toc: 'content'
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 选中的选项变更后，触发此回调 | ( changedFields: `Record<string, any>`, allFields: `Record<string, any>` ) => void |
-| onOpen | 打开选择面板时，触发此回调 | () => void |
+| onChange | 选中的选项变更后，触发此回调 | ( changedFields: `Record<string, any>`, allFields: `Record<string, any>`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onOpen | 打开选择面板时，触发此回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ## 样式类
 #### Filter

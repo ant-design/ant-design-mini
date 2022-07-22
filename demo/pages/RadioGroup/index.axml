@@ -2,6 +2,7 @@
   <demo-block title="基础用法">
     <radio-group  
       value="选项二"
+      data-value="value"
       uid="basic"
       onChange="handleChange">
       <radio-item a:for="{{list}}" value="{{item.value}}" uid="basic">{{item.label}}</radio-item >

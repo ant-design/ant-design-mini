@@ -66,7 +66,7 @@ Page({
       }
     ]
   },
-  onChange(v) {
-    console.log('当前选中的值为：', v)
+  onChange(v,items,e) {
+    console.log('当前选中的值为：', v,items , e);
   }
 })

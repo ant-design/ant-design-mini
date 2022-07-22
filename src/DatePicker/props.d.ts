@@ -41,7 +41,7 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
    * @description 提示文案
    * @default '请选择'
    */
-   placeholder?: string;
+  placeholder?: string;
   /**
    * @description 是否受控
    * @default false
@@ -50,18 +50,24 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 点击确认回调
    */
-  onOk?: (date: PickerValue, dateStr: string, dateArr: number[]) => void;
+  onOk?: (
+    date: PickerValue,
+    dateStr: string,
+    dateArr: number[],
+    e: Record<string, any>
+  ) => void;
   /**
    * @description 点击取消回调
    */
-  onDismiss?: () => void;
+  onDismiss?: (e: Record<string, any>) => void;
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
   onPickerChange?: (
     date: PickerValue,
     dateStr: string,
-    dateArr: number[]
+    dateArr: number[],
+    e: Record<string, any>
   ) => void;
   /**
    * @description 精度
@@ -77,6 +83,6 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 切换显示隐藏
    */
-  onTriggerPicker?: (visible) => void;
+  onTriggerPicker?: (visible, e: Record<string, any>) => void;
 }
 export declare const DatePickerDefaultProps: Partial<IDatePickerProps>;

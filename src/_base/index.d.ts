@@ -22,7 +22,7 @@ export interface IBaseFormItemPropsWithOutFocus<V = any> extends IBaseProps {
     /**
      * @description 表单触发变更回调
      */
-    onChange?: (v: V) => void;
+    onChange?: (v: V, e: Record<string,any>) => void;
 }
 export interface IBaseFormItemProps<V = any> extends IBaseFormItemPropsWithOutFocus<V> {
     /**
@@ -33,11 +33,11 @@ export interface IBaseFormItemProps<V = any> extends IBaseFormItemPropsWithOutFo
     /**
      * @description 聚焦时触发回调
      */
-    onFocus?: (v: V) => void;
+    onFocus?: (v: V, e: Record<string,any>) => void;
     /**
      * @description 失去焦点时触发回调
      */
-    onBlur?: (v: V) => void;
+    onBlur?: (v: V, e: Record<string,any>) => void;
 }
 export declare type IconType = string;
 

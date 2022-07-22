@@ -2,6 +2,7 @@ import { RadioGroupDefaultProps } from './props';
 import { componentContext, componentDisabled, componentValue } from './context';
 import controlled from '../mixins/controlled';
 import formMixin from '../mixins/form';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   props: RadioGroupDefaultProps,
@@ -15,7 +16,7 @@ Component({
     componentDisabled.update(key, disabled);
 
     componentContext.onUpdate(key, (v) => {
-      this.cOnChange(v);
+      this.cOnChange(v, fmtEvent(this.props));
     });
   },
   didUpdate(prevProps) {
