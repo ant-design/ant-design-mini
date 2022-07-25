@@ -4,10 +4,11 @@ import { IBaseProps } from '../_base';
  * @description 加载，用于提示局部或页面在加载中。
  */
 export interface IMaskProps extends IBaseProps {
-    maskZindex: string,
-    type: 'product' | 'market',
-    show: boolean,
-    fixMaskFull: false,
-    onMaskTap: (v: Record<string, any>) => void
+  maskZindex: string;
+  type: 'product' | 'market';
+  show: boolean;
+  fixMaskFull: false;
+  disableScroll: false;
+  onMaskTap: (v: Record<string, any>) => void;
 }
 export declare const MaskDefaultProps: Partial<IMaskProps>;
