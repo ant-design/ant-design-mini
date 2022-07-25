@@ -8,8 +8,8 @@ export interface IBadgeProps extends IBaseProps {
    * @description badge 类型
    * @default dot
    */
-   type?: 'dot' | 'number' | 'text' | 'bubble';
-     /**
+  type?: 'dot' | 'number' | 'text' | 'bubble';
+  /**
    * @description 数字内容，超过 99 会自动变成 99+
    */
   number?: number;
@@ -21,7 +21,25 @@ export interface IBadgeProps extends IBaseProps {
    * @description 相对于 children 所在访问，left-top(左上角) top-right(右上角)
    * @default "top-right"
    */
-  placement?: 'top-left' | 'top-center' | 'top-right' | 'left' | 'right' | 'bottom-left' | 'bottom-center' | 'bottom-right' ;
+  placement?:
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'left'
+    | 'right'
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right';
+  /**
+   * @description 水平方向偏移量
+   * @default 0
+   */
+  offsetX?: number;
+  /**
+   * @description 垂直方向偏移量
+   * @default 0
+   */
+  offsetY?: number;
   /**
    * @description 是否有描边
    * @default false
