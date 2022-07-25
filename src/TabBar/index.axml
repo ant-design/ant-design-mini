@@ -1,9 +1,9 @@
 <template name="icon">
-  <icon 
+  <icon
     className="{{className}}"
     a:if="{{!item.type || item.type === 'icon'}}"
-    type="{{item.activeIcon || item.icon}}" 
-    size="small" 
+    type="{{item.activeIcon || item.icon}}"
+    size="small"
     color="{{activeColor}}"
   />
 </template>
@@ -11,7 +11,7 @@
 <template name="iconArea">
   <view>
     <view a:if="{{activeIndex == index}}">
-      <template 
+      <template
         is="icon"
         data="{{
           activeIndex: activeIndex,
@@ -21,15 +21,15 @@
           className: 'amd-tab-bar-icon'
         }}"
       />
-      <image 
+      <image
         className="amd-tab-bar-icon"
         a:if="{{item.type === 'image'}}"
-        src="{{item.activeIcon || item.icon}}" 
+        src="{{item.activeIcon || item.icon}}"
         mode="{{item.imageMode || 'aspectFit'}}"
       />
     </view>
     <view a:else>
-      <template 
+      <template
         is="icon"
         data="{{
           activeIndex: activeIndex,
@@ -38,10 +38,10 @@
           className: 'amd-tab-bar-image'
         }}"
       />
-      <image 
+      <image
         className="amd-tab-bar-image"
         a:if="{{item.type === 'image'}}"
-        src="{{item.icon}}" 
+        src="{{item.icon}}"
         mode="{{item.imageMode || 'aspectFit'}}"
       />
     </view>
@@ -50,7 +50,7 @@
 
 <template name="textArea">
   <view class="amd-tab-bar-text-wrap">
-    <text 
+    <text
       class="amd-tab-bar-text"
       style="color: {{activeIndex == index ? activeColor : '#666'}}"
     >
@@ -61,20 +61,23 @@
 
 <view class="amd-tab-bar {{className ? className : ''}}">
   <view class="amd-tab-bar-wrap">
-    <view 
+    <view
       class="amd-tab-bar-item"
       a:for="{{tabs}}"
       onTap="onChange"
       data-index="{{index}}"
       a:if="{{index < maxTabCount}}"
     >
-      <badge 
+      <badge
         a:if="{{item.badge}}"
-        type="{{item.badgeType}}" 
-        text="{{item.badgeText}}" 
-        position="top-right">
-        <template 
-          is="iconArea" 
+        type="{{item.badgeType}}"
+        text="{{item.badgeText}}"
+        position="top-right"
+        offsetX="-9px"
+        offsetY="0px"
+        >
+        <template
+          is="iconArea"
           data="{{
             activeIndex: activeIndex,
             activeColor: activeColor,
@@ -85,8 +88,8 @@
       </badge>
 
       <block a:if="{{!item.badge}}">
-        <template 
-          is="iconArea" 
+        <template
+          is="iconArea"
           data="{{
             activeIndex: activeIndex,
             activeColor: activeColor,
@@ -96,8 +99,8 @@
         />
       </block>
 
-      <template 
-        is="textArea" 
+      <template
+        is="textArea"
         data="{{
           activeIndex: activeIndex,
           activeColor: activeColor,
