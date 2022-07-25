@@ -1,0 +1,49 @@
+<demo-block title="基础样式" padding="56rpx 40rpx">
+  <divider />
+</demo-block>
+
+<demo-block title="带文字" padding="56rpx 40rpx">
+  <divider text="中间内容"/>
+  <divider text="左侧内容" textPosition="left" class="demo-divider"/>
+  <divider text="右侧内容" textPosition="right" class="demo-divider"/>
+</demo-block>
+
+<demo-block title="自定义" padding="56rpx 40rpx">
+  <divider text="自定义样式" borderStyle="dashed" borderColor="#1677ff" color="#1677ff"/>
+</demo-block>
+
+<demo-block title="垂直分割线" padding="40rpx">
+  <view class="demo-divider-vertical">
+    <view>
+      <am-icon  class="demo-divider-vertical-icon" type="EnvironmentOutline" size="x-small"/>
+      <text>距你100m</text>
+    </view>
+    <divider direction="vertical"/>
+    <view>浙江省杭州市西湖区西溪路556号</view>
+  </view>
+</demo-block>
+
+<demo-block title="" padding="40rpx" className="demo-block-last">
+  <view class="demo-divider-vertical">
+    <view class="demo-divider-vertical-item">
+      <am-icon type="PayCircleOutline" size="small"/>
+      <text>出行优惠</text>
+    </view>
+    <divider direction="vertical" height="48rpx" margin="40rpx"/>
+    <view class="demo-divider-vertical-item">
+      <am-icon type="UserContactOutline" size="small"/>
+      <text>客服中心</text>
+    </view>
+    <divider direction="vertical" height="48rpx" margin="40rpx"/>
+    <view class="demo-divider-vertical-item">
+      <am-icon type="TruckOutline" height="48rpx" size="small"/>
+      <text>城际拼车</text>
+    </view>
+    <divider direction="vertical" height="48rpx" margin="40rpx"/>
+    <view class="demo-divider-vertical-item">
+      <am-icon type="FileOutline" size="small"/>
+      <text>订单发票</text>
+    </view>
+  </view>
+</demo-block>
+

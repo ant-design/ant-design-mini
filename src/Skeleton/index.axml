@@ -1,0 +1,10 @@
+<view a:if="{{loading}}" class="amd-skeleton {{className||''}}">
+    <view a:if="{{avatar}}" class="amd-skeleton-avatar-wrapper">
+        <avatar animate="{{animate}}" shape="{{avatarShape}}" loading size="{{avatarSize}}"/>
+    </view>
+    <view class="amd-skeleton-content-wrapper">
+        <title animate="{{animate}}" a:if="{{title}}" loading/>
+        <paragraph animate="{{animate}}" rows="{{rows}}" loading a:if="{{rows>0}}"/>
+    </view>
+</view>
+<slot a:else/>

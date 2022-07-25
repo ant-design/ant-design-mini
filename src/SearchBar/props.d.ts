@@ -72,32 +72,32 @@ export interface ISearchBarProps extends IBaseFormItemProps<string> {
    * @deprecated
    * @description 点击语音图标回调
    */
-  onBizIconTap?: () => void;
+  onBizIconTap?: (e: Record<string,any>) => void;
 
   /**
    * @description 点击取消回调
    */
-  onCancel?: (v: string) => void;
+  onCancel?: (v: string, e: Record<string,any>) => void;
   /**
    * @description 点击删除回调
    */
-  onClear?: (v: string) => void;
+  onClear?: (v: string, e: Record<string,any>) => void;
 
   /**
    * @description input 输入回调
    */
-  onInput?: (v: string) => void;
+  onInput?: (v: string, e: Record<string,any>) => void;
 
   /**
    * @description submit 回调
    */
-  onSubmit?: (v: string) => void;
+  onSubmit?: (v: string, e: Record<string,any>) => void;
 
   /**
    * @deprecated
    * @description 点击语音图标回调
    */
-  onVoiceTap?: () => void;
+  onVoiceTap?: (e: Record<string,any>) => void;
 }
 
 export declare const SearchBarDefaultProps: Partial<ISearchBarProps>;

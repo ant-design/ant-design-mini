@@ -19,7 +19,7 @@
         </list-item>
     </swipe-action>
   </list>  
-  <list radius="{{true}}" header="单个滑动操作组件(删除时消失)">
+  <list radius="{{true}}" header="单个滑动操作组件(删除时不消失)">
     <swipe-action
         a:for="{{singleList}}" 
         a:key="id"

@@ -3,15 +3,15 @@ nav:
   path: /components
 group:
   title: 信息展示
-  order: 1
-toc: false
+  order: 8
+toc: 'content'
 ---
 
 # FloatPanel 滑动面板
 内容型面板，用户可自由灵活上下滑动浏览内容
-1. 面板初始高度默认窗口高度 18%，手指向上滑动面板升起到默认 35 %，继续向上滑动面板高度达到最大默认 95%
-2. 手指下滑面板先回到默认 35%，继续向下滑动回到默认 18%
-3. 面板内容区域在面板达到最大高度后可滑动
+- 面板初始高度默认窗口高度 18%，手指向上滑动面板升起到默认 35 %，继续向上滑动面板高度达到最大默认 95%
+- 手指下滑面板先回到默认 35%，继续向下滑动回到默认 18%
+- 面板内容区域在面板达到最大高度后可滑动
 
 ## 注意事项
 需基础库版本大于 2.7.7 [设置最低基础版本库](https://opendocs.alipay.com/mini/framework/lib)
@@ -39,7 +39,7 @@ toc: false
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onContentToBottom | 内容区域滚动到底部，常用于数据加载 | () => void |
-| onScroll | 面板滚动结束回调 | (status: 'MAX' | 'MIDDLE' | 'MIN') => void |
+| onScroll | 面板滚动结束回调 | (status: 'MAX' \| 'MIDDLE' \| 'MIN') => void |
 
 ## 插槽
 

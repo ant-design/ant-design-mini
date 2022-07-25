@@ -43,6 +43,11 @@ export const componentList = [
         path: '/pages/Collapse/index',
       },
       {
+        name: 'Grid',
+        nameZN: '宫格',
+        path: '/pages/Grid/index',
+      },
+      {
         name: 'Container',
         nameZN: '容器',
         path: '/pages/Container/index',
@@ -71,6 +76,16 @@ export const componentList = [
         nameZN: '滑动面板',
         path: '/pages/FloatPanel/index',
       },
+      {
+        name: 'Footer',
+        nameZN: '页脚',
+        path: '/pages/Footer/index',
+      },
+      {
+        name: 'Divider',
+        nameZN: '分割线',
+        path: '/pages/Divider/index',
+      }
     ],
   },
   {
@@ -107,6 +122,11 @@ export const componentList = [
         path: '/pages/Picker/index',
       },
       {
+        name: 'DatePicker',
+        nameZN: '时间选择器',
+        path: '/pages/DatePicker/index',
+      },
+      {
         name: 'RadioGroup',
         nameZN: '单选框',
         path: '/pages/RadioGroup/index',
@@ -132,6 +152,16 @@ export const componentList = [
         path: '/pages/Switch/index',
       },
       {
+        name: 'ImageUpload',
+        nameZN: '图片上传',
+        path: '/pages/ImageUpload/index',
+      },
+      {
+        name: 'VideoUpload',
+        nameZN: '视频上传',
+        path: '/pages/VideoUpload/index',
+      },
+      {
         name: 'Terms',
         nameZN: '协议',
         path: '/pages/Terms/index',
@@ -142,6 +172,11 @@ export const componentList = [
     type: '反馈',
     list: [
       {
+        name: 'ActionSheet',
+        nameZN: '动作面板',
+        path: '/pages/ActionSheet/index'
+      },
+      {
         name: 'Dialog',
         nameZN: '对话框',
         path: '/pages/Dialog/index',
@@ -150,6 +185,11 @@ export const componentList = [
         name: 'Loading',
         nameZN: '加载中',
         path: '/pages/Loading/index',
+      },
+      {
+        name: 'Skeleton',
+        nameZN: '骨架屏',
+        path: '/pages/Skeleton/index',
       },
       {
         name: 'Modal',
