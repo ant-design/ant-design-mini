@@ -1,9 +1,8 @@
-.amd-guided-tour-item-img {
-  width: 150px;
-  height: 125px;
+.amd-guide-tour-item-img {
+  width: 90vw;
 }
 
-.costom-box {
+.step-box {
   background-color: #fff;
   width: 200px;
   height: 200px;

@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "GuideTour",
+  "usingComponents": {
+    "button": "../../../src/Button/index",
+    "demo-block": "../../components/DemoBlock/index",
+    "guide-tour": "../../../src/GuideTour/index"
+  }
+}

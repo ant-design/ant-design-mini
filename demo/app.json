@@ -55,7 +55,7 @@
     "pages/Toast/index",
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",
-    "pages/GuidedTour/index"
+    "pages/GuideTour/index"
   ],
   "window": {
     "enableWK": "YES",
