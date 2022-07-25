@@ -46,6 +46,13 @@ export interface IPickerProps
    * @description 点击确认回调
    */
   onOk?: (value: PickerValue, column: PickerData) => void;
+
+  /**
+   * @description 点击确认前回调
+   */
+
+  onBeforeOk?: (value: PickerValue, column: PickerData) => boolean;
+
   /**
    * @description 点击取消回调
    */
@@ -54,6 +61,7 @@ export interface IPickerProps
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
   onChange?: (value: PickerValue, column:PickerData) => void;
+
   /**
    * @description 选中值的文本显示格式
    */

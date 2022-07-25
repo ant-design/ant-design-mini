@@ -35,39 +35,30 @@ Component({
   didUpdate(prevProps, prevData) {
     const { cValue } = this.data;
     const { cValue: prevCValue } = prevData;
-    const formatValue = this.getterFormatText()
-    this.setData({
-      formatValue
-    })
     if (!equal(prevProps.data, this.props.data)) {
-      console.log('111')
       const newColums = this.getterColumns();
       this.setData({
         columns: newColums
       }, () => {
-        console.log('222')
         // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
         if (!this.isChangingPickerView) {
-          console.log('444')
           const selectedIndex = this.getterSelectedIndex()
           this.setData({
             selectedIndex
           })
         }
-        const formatValue = this.getterFormatText()
-        this.setData({
-          formatValue
-        })
         this.isChangingPickerView = false;
       })
     }
     if (!equal(cValue, prevCValue)) {
-      console.log('3333')
       const selectedIndex = this.getterSelectedIndex()
-      const formatValue = this.getterFormatText()
-      console.log('formatValue', formatValue)
       this.setData({
         selectedIndex,
+      })
+    }
+    const formatValue = this.getterFormatText()
+    if (formatValue !== this.data.formatValue) {
+      this.setData({
         formatValue
       })
     }
@@ -89,14 +80,12 @@ Component({
     getterFormatText() {
       const { onFormat } = this.props;
       const { cValue, columns } = this.data;
-      console.log('cValue', cValue)
       let formatValue = '';
       const { matchedColumn } = getStrictMatchedItemByValue(
         columns,
         cValue,
         this.single
       );
-      console.log('matchedColumn', matchedColumn)
       formatValue = onFormat(cValue, matchedColumn, this.props.data);
       return formatValue;
     },
@@ -202,7 +191,6 @@ Component({
       if (this.props.onOk) {
         this.props.onOk.call(this, matchedValues, matchedColumn);
       }
-  
     },
   },
 });
