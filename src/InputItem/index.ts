@@ -1,6 +1,7 @@
 import { InputItemDefaultProps } from './props';
 import controlled from '../mixins/controlled';
 import formMixin from '../mixins/form';
+import fmtEvent from '../_util/fmtEvent';
 import { store } from '../Form/store';
 import fmtEvent from '../_util/fmtEvent';
 
