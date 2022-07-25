@@ -31,7 +31,7 @@ Page({
         text: '收藏',
         badge: true,
         badgeType: 'number',
-        badgeText: '99'
+        badgeText: 9999
       },
       {
         icon: 'HeartOutline',
