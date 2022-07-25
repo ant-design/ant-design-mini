@@ -1,0 +1,52 @@
+<view class="amd-guide-tour {{className?className:''}}" a:if="{{visible}}">
+    <mask show="{{true}}" maskZindex="{{9999}}" />
+    <am-icon class="amd-guide-tour-clear" type="CloseOutline" onTap="onCancel" />
+    <view class="amd-guide-tour-button">
+        <button inline="{{true}}" inlineSize="small" a:if="{{jumpButtonVisible}}" onTap="onCancel">
+            跳过
+        </button>
+        <button inline="{{true}}" inlineSize="small" onTap="onPrev" a:if="{{lastButtonVisible}}">
+            上一步
+        </button>
+        <button inline="{{true}}" inlineSize="small" onTap="onNext" a:if="{{nextButtonVisible}}">
+            下一步
+        </button>
+        <button type="default" inline="{{true}}" inlineSize="small" a:if="{{konwButtonVisible}}" onTap="onCancel">
+            知道了
+        </button>
+    </view>
+    <block a:if="{{swiperable}}">
+        <view class="amd-guide-tour-indicator">
+            <view a:for="{{steps}}" a:for-index="dataIndex" class="amd-guide-tour-indicator-dot {{dataIndex === index ? 'amd-guide-tour-indicator-dot-active':''}}" />
+        </view>
+        <swiper class="amd-guide-tour-swiper" current="{{index}}" style="height:100vh" disable-touch="{{ture}}" onChange="handleSwiperChange">
+            <swiper-item a:for-index="dataIndex" key="{{dataIndex}}" a:for="{{steps}}">
+                <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px">
+                    <slot name="step-{{index}}">
+                        <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" mode="widthFix" />
+                        <view a:if="{{item.title}}" class="amd-guide-tour-item-title">
+                            {{item.title}}
+                        </view>
+                        <view a:if="{{item.desc}}" class="amd-guide-tour-item-desc">
+                            {{item.desc}}
+                        </view>
+                    </slot>
+                </view>
+            </swiper-item>
+        </swiper>
+    </block>
+    <block a:else a:for="{{steps}}" a:for-index="dataIndex">
+        <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px" 
+            a:if="{{index===dataIndex}}">
+            <slot name="step-{{dataIndex}}">
+                <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" mode="widthFix" />
+                <view a:if="{{item.title}}" class="amd-guide-tour-item-title">
+                    {{item.title}}
+                </view>
+                <view a:if="{{item.desc}}" class="amd-guide-tour-item-desc">
+                    {{item.desc}}
+                </view>
+            </slot>
+        </view>
+    </block>
+</view>
