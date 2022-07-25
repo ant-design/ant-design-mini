@@ -2,6 +2,7 @@
     <list-item>
         请选择日期
         <date-picker 
+            data-value="value"
             min="{{min}}"
             max="{{max}}"
             slot="extra"

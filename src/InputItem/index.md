@@ -55,11 +55,11 @@ toc: 'content'
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onConfirm | 	点击键盘完成时触发此回调 | (v: string, e: Event) => void |
-| onClear | 清除输入内容时触发此回调 | (v: string, e: Event) => void |
-| onFocus | 聚焦时触发触发此回调 | (v: string, e: Event) => void |
-| onBlur | 失焦时触发此回调 | (v: string, e: Event) => void |
-| onChange | 输入时触发此回调 | (v: string, e: Event) => void |
+| onConfirm | 	点击键盘完成时触发此回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onClear | 清除输入内容时触发此回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onFocus | 聚焦时触发触发此回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onBlur | 失焦时触发此回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onChange | 输入时触发此回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ## 样式类
 | 类名 | 说明 | 

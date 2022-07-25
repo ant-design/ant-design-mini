@@ -50,10 +50,11 @@ Page({
       value,
     });
   },
-  handleChange(e) {
+  handleChange(value, items, e) {
     this.setData({
-      value: e,
+      value,
     });
+    console.log(value, items, e);
   },
   onSelectMin(value, item) {
     console.log(value, item);
