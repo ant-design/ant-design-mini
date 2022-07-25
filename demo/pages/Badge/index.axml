@@ -106,8 +106,9 @@
    <view class="badge-list">
     <badge
       type="dot"
-      offsetX="10px"
-      offsetY="10px">
+      position="top-right"
+      offsetX="-9px"
+      offsetY="0px">
       <view class="box"/>
     </badge>
     <badge
@@ -115,9 +116,17 @@
       bgColor="red"
       position="bottom-right"
       offsetX="-10px"
-      offsetY="-10px">
+      offsetY="-14px">
       <view class="box"/>
     </badge>
+    <badge
+        type="bubble"
+        text="bubble类型"
+        position="top-right"
+        offsetX="-9px"
+        offsetY="0px">
+        <view class="box"/>
+      </badge>
     </view>
   </demo-block>
   <demo-block title="自定义图标">

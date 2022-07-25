@@ -1,23 +1,24 @@
-function setPositionStyle(position, offsetX = '0px', offsetY = '0px') {
+function setPositionStyle(position, offsetX = '-50%', offsetY = '-50%') {
+  const transformStyle = `transform: translate(calc(${offsetX}), calc(${offsetY}));`;
   switch (position) {
     case 'top-left':
-      return `top: 0; left: 0; transform: translate(calc(-9px + ${offsetX}), ${offsetY});`;
+      return `top: 0; left: 0; ${transformStyle}`;
     case 'top-center':
-      return `top: 0; left: 50%; transform: translate(calc(-9px + ${offsetX}), ${offsetY});`;
+      return `top: 0; left: 50%; ${transformStyle}`;
     case 'top-right':
-      return `top: 0; left: 100%; transform: translate(calc(-9px + ${offsetX}), ${offsetY});`;
+      return `top: 0; left: 100%; ${transformStyle}`;
     case 'left':
-      return `top: 50%; left: 0; transform: translate(calc(-9px + ${offsetX}), calc(-50% + ${offsetY}));`;
+      return `top: 50%; left: 0; ${transformStyle}`;
     case 'right':
-      return `top: 50%; left: 100%;; transform: translate(calc(-9px + ${offsetX}), calc(-50% + ${offsetY}));`;
+      return `top: 50%; left: 100%; ${transformStyle}`;
     case 'bottom-left':
-      return `top: 100%; left: 0; transform: translate(calc(-9px + ${offsetX}), calc(-50% + ${offsetY}));`;
+      return `top: 100%; left: 0; ${transformStyle}`;
     case 'bottom-center':
-      return `top: 100%; left: 50%; transform: translate(calc(-9px + ${offsetX}), calc(-50% + ${offsetY}));`;
+      return `top: 100%; left: 50%; ${transformStyle}`;
     case 'bottom-right':
-      return `top: 100%; left: 100%; transform: translate(calc(-9px + ${offsetX}), calc(-50% + ${offsetY}));`;
+      return `top: 100%; left: 100%; ${transformStyle}`;
     default:
-      return `top: 0; left: 0; transform: translate(calc(-9px + ${offsetX}), ${offsetY});`;
+      return `top: 0; left: 0; ${transformStyle}`;
   }
 }
 
