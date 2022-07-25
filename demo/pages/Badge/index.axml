@@ -1,31 +1,31 @@
 <view>
   <demo-block title="基本用法">
     <view class="badge-list">
-      <badge 
-        type="dot" 
+      <badge
+        type="dot"
         position="top-right">
         <view class="box"/>
       </badge>
-      <badge 
-        type="text" 
+      <badge
+        type="text"
         text="新"
         position="top-right">
         <view class="box"/>
       </badge>
-      <badge 
-        type="number" 
+      <badge
+        type="number"
         text="{{1}}"
         position="top-right">
       <view class="box"/>
       </badge>
-        <badge 
-          type="number" 
+        <badge
+          type="number"
           text="{{100}}"
           position="top-right">
         <view class="box"/>
       </badge>
-      <badge 
-        type="bubble" 
+      <badge
+        type="bubble"
         text="bubble类型"
         position="top-right">
         <view class="box"/>
@@ -34,35 +34,35 @@
   </demo-block>
   <demo-block title="带边框">
     <view class="badge-list">
-      <badge 
-        type="dot" 
+      <badge
+        type="dot"
         stroke
         position="top-right">
         <view class="box dark"/>
       </badge>
-      <badge 
-        type="text" 
+      <badge
+        type="text"
         text="新"
         stroke
         position="top-right">
         <view class="box dark"/>
       </badge>
-      <badge 
-        type="number" 
+      <badge
+        type="number"
         text="{{1}}"
         stroke
         position="top-right">
       <view class="box dark"/>
       </badge>
-        <badge 
-          type="number" 
+        <badge
+          type="number"
           text="{{100}}"
           stroke
           position="top-right">
         <view class="box dark"/>
       </badge>
-      <badge 
-        type="bubble" 
+      <badge
+        type="bubble"
         text="bubble类型"
         stroke
         position="top-right">
@@ -70,29 +70,59 @@
       </badge>
     </view>
   </demo-block>
-  <demo-block title="自定义颜色和偏移量">
-    <view class="badge-list"> 
-      <badge 
-        type="dot" 
+  <demo-block title="自定义颜色和位置">
+    <view class="badge-list">
+      <badge
+        type="dot"
         position="top-left">
         <view class="box"/>
       </badge>
-      <badge 
-        type="dot" 
-        position="top-right">
+      <badge
+        type="dot"
+        position="top-center">
         <view class="box"/>
       </badge>
-      <badge 
-        type="dot" 
+      <badge
+        type="dot"
         bgColor="green"
         position="top-right">
         <view class="box"/>
       </badge>
+      <badge
+        type="dot"
+        bgColor="green"
+        position="left">
+        <view class="box"/>
+      </badge>
+      <badge
+        type="dot"
+        bgColor="green"
+        position="right">
+        <view class="box"/>
+      </badge>
+    </view>
+  </demo-block>
+  <demo-block title="设置偏移">
+   <view class="badge-list">
+    <badge
+      type="dot"
+      offsetX="10px"
+      offsetY="10px">
+      <view class="box"/>
+    </badge>
+    <badge
+      type="dot"
+      bgColor="red"
+      position="bottom-right"
+      offsetX="-10px"
+      offsetY="-10px">
+      <view class="box"/>
+    </badge>
     </view>
   </demo-block>
   <demo-block title="自定义图标">
-    <badge 
-      type="text" 
+    <badge
+      type="text"
       iconType="GlobalOutline"
       position="top-right">
       <view class="box"/>

@@ -8,7 +8,7 @@
   <view
   a:if="{{type=== 'dot'}}"
   class="amd-badge-content"
-  style="{{_sjs.setPositionStyle(position)}}">
+  style="{{_sjs.setPositionStyle(position, offsetX, offsetY)}}">
   <view
   class="amd-badge-dot {{stroke ? 'amd-badge-dot-stroke' : ''}}"
   style="background-color: {{bgColor}}">

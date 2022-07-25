@@ -31,13 +31,13 @@ export interface IBadgeProps extends IBaseProps {
     | 'bottom-center'
     | 'bottom-right';
   /**
-   * @description 水平方向偏移量
-   * @default 0
+   * @description 水平方向偏移量（字符串类型，需要带上像素单位）
+   * @default "0px"
    */
-  offsetX?: number;
+  offsetX?: string;
   /**
-   * @description 垂直方向偏移量
-   * @default 0
+   * @description 垂直方向偏移量（字符串类型，需要带上像素单位）
+   * @default "0px"
    */
   offsetY?: number;
   /**
