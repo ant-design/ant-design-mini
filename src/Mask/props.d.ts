@@ -7,7 +7,7 @@ export interface IMaskProps extends IBaseProps {
   maskZindex: string;
   type: 'product' | 'market';
   show: boolean;
-  fixMaskFull: false;
+  fixMaskFull: boolean;
   disableScroll: boolean;
   onMaskTap: (v: Record<string, any>) => void;
 }
