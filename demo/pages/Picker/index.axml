@@ -1,3 +1,17 @@
+
+<demo-block title="多列复杂类型数据" padding="0">
+  <list-item>
+    级联
+    <picker 
+      slot="extra"
+      placeholder="请选择" 
+      data="{{testList}}" 
+      onChange="handleTestPickerChange" 
+      onOk="handleTestOk"
+    />
+  </list-item>
+  </demo-block>
+
 <demo-block title="基础用法" padding="0">
   <list-item>
     选择城市

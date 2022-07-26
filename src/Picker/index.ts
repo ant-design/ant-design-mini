@@ -42,6 +42,7 @@ Component({
       }, () => {
         // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
         if (!this.isChangingPickerView) {
+          this.tempSelectedIndex = null;
           const selectedIndex = this.getterSelectedIndex()
           this.setData({
             selectedIndex
@@ -52,6 +53,7 @@ Component({
     }
     if (!equal(cValue, prevCValue)) {
       const selectedIndex = this.getterSelectedIndex()
+      this.tempSelectedIndex = null;
       this.setData({
         selectedIndex,
       })
@@ -147,6 +149,7 @@ Component({
     onChange(e) {
       const { onChange } = this.props;
       const { value: selectedIndex } = e.detail;
+      console.log('picker onChange selectedIndex', selectedIndex)
       this.tempSelectedIndex = selectedIndex;
       this.isChangingPickerView = true;
       const { matchedColumn, matchedValues } = getMatchedItemByIndex(
@@ -162,6 +165,7 @@ Component({
     async onOk() {
       let result;
       if (this.tempSelectedIndex) {
+        console.log('picker onOK columns', this.data.columns)
         result = getMatchedItemByIndex(
           this.data.columns,
           this.tempSelectedIndex,
@@ -185,6 +189,8 @@ Component({
           return
         }
       }
+      console.log('picker onOK tempSelectedIndex', this.tempSelectedIndex)
+      console.log('picker onOk matchedValues', matchedValues)
       this.setData({
         cValue: matchedValues,
       });

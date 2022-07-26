@@ -1,6 +1,10 @@
 import regionData from './city'
 Page({
   data: {
+    testList: [
+      [ { label: '周一', value: 'Mon' },],
+      [  { label: '上午', value: 'am' },]
+    ],
     value: '上海',
     list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
     weekList: [
@@ -24,6 +28,48 @@ Page({
       ],
     ],
     cityList: [regionData.province, regionData.city['11']]
+  },
+
+  onLoad() {
+    const firstColumn = []
+    const secondColumn = []
+    for (let i = 0; i <= 16; i++) {
+      firstColumn.push({
+        value: i,
+        label: `${i}`
+      })
+    }
+    for (let i = 15; i <= 30; i++) {
+      secondColumn.push({
+        value: i,
+        label: `${i}`
+      })
+    }
+    this.setData({
+      testList: [firstColumn, secondColumn]
+    })
+  },
+
+  handleTestPickerChange(selectValue) {
+    const secondColumn = []
+    if (selectValue[0] === 0) {
+      for (let i = 15; i <= 30; i++) {
+        secondColumn.push({
+          value:  i,
+          label: `${i}`
+        })
+      } 
+    } else {
+      for (let i = 1; i <= 30; i++) {
+        secondColumn.push({
+          value: i,
+          label: `${i}`
+        })
+      } 
+    }
+    this.setData({
+      'testList[1]': secondColumn
+    })
   },
 
   handleCancelPicker() {
