@@ -8,7 +8,7 @@ export interface IMaskProps extends IBaseProps {
   type: 'product' | 'market';
   show: boolean;
   fixMaskFull: false;
-  disableScroll: false;
+  disableScroll: boolean;
   onMaskTap: (v: Record<string, any>) => void;
 }
 export declare const MaskDefaultProps: Partial<IMaskProps>;

@@ -29,7 +29,7 @@ toc: 'content'
 | type          | 'product' &verbar; 'market' | 否   | 'product' | 类别                              |
 | show          | boolean                     | 否   | -         | 是否显示                          |
 | fixMaskFull   | false                       | 否   | -         | 兼容 mask 祖父 transform 定位偏移 |
-| disableScroll | boolean                     | 否   | true      | mask 展示时，是否禁止页面滚动     |
+| disableScroll | boolean                     | 否   | false     | mask 展示时，是否禁止页面滚动     |
 | className     | string                      | 否   | -         | 类名                              |
 
 ## 事件

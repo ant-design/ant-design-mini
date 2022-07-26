@@ -3,5 +3,5 @@ export const MaskDefaultProps = {
   type: 'product',
   show: true,
   fixMaskFull: false,
-  disableScroll: true,
+  disableScroll: false,
 };
