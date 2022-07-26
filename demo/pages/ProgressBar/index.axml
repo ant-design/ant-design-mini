@@ -18,7 +18,7 @@
 
   <list header="自定义进度条高度" radius="{{true}}" class="list2">
     <view class="line2">
-      <progress-bar progress="{{progress2}}" height="{{30}}" />
+      <progress-bar progress="{{progress2}}" height="30rpx" />
     </view>
   </list>
 
@@ -32,9 +32,9 @@
 
   <list header="自定义长度" radius="{{true}}" class="list6">
     <view class="line2">
-      <progress-bar progress="{{progress4}}" className="width1" />
-      <progress-bar progress="{{progress4}}" className="width2" />
-      <progress-bar progress="{{progress4}}" className="width3" />
+      <progress-bar progress="{{progress4}}" width="100%" />
+      <progress-bar progress="{{progress4}}" width="70%" />
+      <progress-bar progress="{{progress4}}" width="50%" />
     </view>
   </list>
 
@@ -48,7 +48,7 @@
     </view>
 
     <view class="line3">
-      <progress-bar progress="{{progress3}}" showDefaultIndicator="{{false}}" height="{{36}}">
+      <progress-bar progress="{{progress3}}" showDefaultIndicator="{{false}}" height="36rpx">
         <text slot="innerIndicator" class="indicator2">
           {{ progress3 }}%
         </text>
