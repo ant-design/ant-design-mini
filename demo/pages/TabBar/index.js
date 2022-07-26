@@ -23,15 +23,13 @@ Page({
         icon: 'AlipayCircleFill',
         activeIcon: 'AlipayCircleFill',
         text: '首页',
-        badge: true,
+        badge: {},
       },
       {
         icon: 'StarOutline',
         activeIcon: 'StarFill',
         text: '收藏',
-        badge: true,
-        badgeType: 'number',
-        badgeText: 9999
+        badge: { type: 'number', text: 9999 },
       },
       {
         icon: 'HeartOutline',
@@ -49,13 +47,15 @@ Page({
       {
         type: 'image',
         icon: 'https://gw.alipayobjects.com/mdn/rms_d75401/afts/img/A*kgPpSZndq70AAAAAAAAAAAAAARQnAQ',
-        activeIcon: 'https://gw.alipayobjects.com/mdn/rms_d75401/afts/img/A*kgPpSZndq70AAAAAAAAAAAAAARQnAQ',
+        activeIcon:
+          'https://gw.alipayobjects.com/mdn/rms_d75401/afts/img/A*kgPpSZndq70AAAAAAAAAAAAAARQnAQ',
         text: '新车报价',
       },
       {
         type: 'image',
         icon: 'https://gw.alipayobjects.com/mdn/rms_d75401/afts/img/A*kgPpSZndq70AAAAAAAAAAAAAARQnAQ',
-        activeIcon: 'https://gw.alipayobjects.com/mdn/rms_d75401/afts/img/A*kgPpSZndq70AAAAAAAAAAAAAARQnAQ',
+        activeIcon:
+          'https://gw.alipayobjects.com/mdn/rms_d75401/afts/img/A*kgPpSZndq70AAAAAAAAAAAAAARQnAQ',
         text: '新车报价',
         imageMode: 'scaleToFill',
       },

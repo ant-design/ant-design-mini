@@ -70,8 +70,8 @@
     >
       <badge
         a:if="{{item.badge}}"
-        type="{{item.badgeType}}"
-        text="{{item.badgeText}}"
+        type="{{item.badge.type}}"
+        text="{{item.badge.text}}"
         position="top-right"
         offsetX="-9px"
         offsetY="0px"
