@@ -117,8 +117,7 @@ Component({
       const min = this.getMin();
       const max = this.getMax();
       if (max < min) {
-        this.setData({ columns: [] });
-        return;
+        return [];
       }
       let currentPickerDay = dayjs();
       if (currentValue.length > 0) {
@@ -146,10 +145,10 @@ Component({
         date = max.toDate();
         selectedIndex = getValueByDate(date, precision);
       }
-      const newClolumns = this.generateData(selectedIndex);
-      if (!equal(newClolumns, this.data.columns)) {
+      const newColumns = this.generateData(selectedIndex);
+      if (!equal(newColumns, this.data.columns)) {
         this.setData({
-          columns: newClolumns
+          columns: newColumns
         }, () => {
           this.setData({ currentValue: selectedIndex });
           if (onPickerChange) {
