@@ -12,7 +12,7 @@ const FUNC_ERROR_TEXT = 'Expected a function';
 const nativeMax = Math.max,
     nativeMin = Math.min;
 
-export default function debounce(func, wait, options) {
+export default function debounce(func, wait, options?) {
   let lastArgs,
       lastThis,
       maxWait,
@@ -77,7 +77,6 @@ export default function debounce(func, wait, options) {
   function timerExpired() {
     const time = now();
     if (shouldInvoke(time)) {
-      console.log('shouldInvoke')
       return trailingEdge(time);
     }
     // Restart the timer.
@@ -115,7 +114,6 @@ export default function debounce(func, wait, options) {
     lastArgs = arguments;
     lastThis = this;
     lastCallTime = time;
-    console.log('isInvoking', isInvoking)
 
     if (isInvoking) {
       if (timerId === undefined) {
@@ -128,7 +126,7 @@ export default function debounce(func, wait, options) {
         return invokeFunc(lastCallTime);
       }
     }
-    console.log('timerId', timerId)
+
     if (timerId === undefined) {
       timerId = setTimeout(timerExpired, wait);
     }
