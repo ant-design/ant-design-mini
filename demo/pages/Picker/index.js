@@ -23,7 +23,8 @@ Page({
         { label: '下午', value: 'pm' },
       ],
     ],
-    cityList: [regionData.province, regionData.city['11']]
+    cityList: [regionData.province, regionData.city['11']],
+    region: ['', '']
   },
   handleCancelPicker() {
     my.showToast({
@@ -55,15 +56,32 @@ Page({
   },
 
   handleCityPickerChange(value, wholeValue ) {
-    console.log('change', value, wholeValue )
     this.setData({
-      cityList: [regionData.province, regionData.city[value[0]]],
-    });
+      'cityList[1]': regionData.city[value[0]],
+    })
   },
 
   handleCityOnOk(value, column) {
+    this.setData({
+      region: value
+    })
     console.log('value', value, 'column', column)
   },
+
+  handleDismiss() {
+    if (this.data.region[0]) {
+      this.setData({
+        'cityList[1]': regionData.city[this.data.region[0]],
+      });
+    } else {
+      this.setData({
+        cityList: [regionData.province, regionData.city['11']]
+      });
+    }
+ 
+  },
+
+
 
   handleCityFormat(value) {
     let provinceName = ''

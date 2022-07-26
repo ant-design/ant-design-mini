@@ -56,6 +56,9 @@
       onChange="handleCityPickerChange" 
       onOk="handleCityOnOk"
       onFormat="handleCityFormat"
+      onDismiss="handleDismiss"
+      value="{{region}}"
+
     />
   </list-item>
 </demo-block>
