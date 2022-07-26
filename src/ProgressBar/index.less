@@ -7,16 +7,16 @@
 }
 
 .amd-progress-outer {
-  background-color: #D8D8D8;
-  border-radius: 8 * @rpx;
-  width: 606 * @rpx;
+  background-color: #e5e5e5;
+  border-radius: 999999px;
+  // width: 606 * @rpx;
   height: 16 * @rpx;
   overflow: hidden;
+  flex: 1;
 }
 
 .amd-progress-inner {
-  background-color: #1677FF;
-  border-radius: 8 * @rpx;
+  border-radius: 999999px;
   transition: width 0.3s;
   height: 100%;
   position: relative;
@@ -28,4 +28,9 @@
   font-family: PingFangSC-Regular;
   font-size: 26 * @rpx;
   color: #999999;
+
+  .amd-progress-type {
+    width: 24 * @rpx;
+    height: 24 * @rpx;
+  }
 }

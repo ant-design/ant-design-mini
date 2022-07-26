@@ -19,7 +19,7 @@ Component({
       }
       
       this.setData({
-        curProgress: (progress > 100 ? 100 : progress < 0 ? 0 : progress).toFixed(2)
+        curProgress: (progress > 100 ? 100 : progress < 0 ? 0 : progress).toFixed(0)
       })
     }
   },

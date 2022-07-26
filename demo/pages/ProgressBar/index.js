@@ -5,6 +5,18 @@ Page({
     progress3: 50,
     progress4: 50,
   },
+  handleAdd () {
+    const progress1 = this.data.progress1 + 20
+    this.setData({
+      progress1: Math.max(Math.min(progress1, 100), 0)
+    })
+  },
+  handleDelete () {
+    const progress1 = this.data.progress1 - 20
+    this.setData({
+      progress1: Math.max(Math.min(progress1, 100), 0)
+    })
+  },
   handleInputChange1 (num) {
     this.setData({
       progress1: +num
