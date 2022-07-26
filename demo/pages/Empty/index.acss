@@ -2,6 +2,10 @@
   padding-top: 24rpx;
 }
 
+.demo-empty .demo-block-content {
+  background-color: transparent !important;
+}
+
 .demo-empty-mode-switch {
   position: fixed;
   z-index: 9;
@@ -9,10 +13,13 @@
   padding: 16rpx;
   background-color: #fff;
   bottom: 0;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .demo-empty-mode-switch-item {
   margin-right: 24rpx;
+  margin-bottom: 24rpx;
 }
 
 .amd-container-content {
@@ -20,11 +27,11 @@
 }
 
 .demo-empty-container {
-  margin-bottom: 16rpx;
+  margin: 0 24rpx;
 }
 
 .demo-empty-whitespace {
-  height: 104rpx;
+  height: 200rpx;
 }
 
 .demo-empty-container-image {

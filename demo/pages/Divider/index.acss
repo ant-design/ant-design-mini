@@ -1,0 +1,33 @@
+.demo-divider {
+  margin-top: 80rpx;
+}
+
+.demo-divider-vertical {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.demo-divider-vertical-icon {
+  margin-right: 12rpx;
+}
+
+.demo-divider-vertical-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.demo-divider-vertical-item > text {
+  margin-top: 12rpx;
+}
+
+
+.demo-block-last {
+  padding-bottom: 100rpx;
+}

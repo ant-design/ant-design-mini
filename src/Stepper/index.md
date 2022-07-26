@@ -43,8 +43,8 @@ toc: 'content'
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onFocus | 聚焦时，触发此回调 | ( value: number ) => void  |
-| onBlur | 失去焦点时，触发此回调 | ( value: number ) => void  |
+| onFocus | 聚焦时，触发此回调 | ( value: number, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
+| onBlur | 失去焦点时，触发此回调 | ( value: number, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
 | onChange | 数据变化后，触发此回调 | ( value: number, dataSet: Record<string, any> ) => void  |
 
 ## 样式类

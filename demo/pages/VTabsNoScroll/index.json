@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Vtabs",
+  "usingComponents": {
+    "vtabs": "../../../src/VTabs/index",
+    "vtab-content": "../../../src/VTabs/VTabItem/index",
+    "icon": "../../../src/Icon/index"
+  },
+  "allowsBounceVertical": false
+}

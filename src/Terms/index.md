@@ -33,14 +33,14 @@ toc: 'content'
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 点击 checkbox ，触发此回调 | ( v : boolean ) => void  |
-| onMainBtnTap | 点击主按钮，触发此回调 | () => void  |
-| onSubBtnTap | 点击辅助按钮，触发此回调 | () => void  |
+| onChange | 点击 checkbox ，触发此回调 | ( v : boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
+| onMainBtnTap | 点击主按钮，触发此回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
+| onSubBtnTap | 点击辅助按钮，触发此回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
 
 ## 插槽
 | 名称 | 说明 |
 | -----|-----|
-| 默认插槽 | 带协议的文案， 比如 同意<a>《用户授权协议》</a> |
+| default | 带协议的文案， 比如 同意<a>《用户授权协议》</a> |
 
 ## 样式类
 | 类名 | 说明 |

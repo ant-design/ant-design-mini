@@ -1,0 +1,7 @@
+.demo-block-title {
+    height: 48rpx;
+    padding: 8px 12px;
+    line-height: 1.4;
+    font-size: 15px;
+    color: #999;
+  }

@@ -8,7 +8,7 @@ Page({
     ],
   },
 
-  handleChange(value) {
-    console.log('onChange', value);
+  handleChange(value, e) {
+    console.log('onChange', value, e);
   },
 });

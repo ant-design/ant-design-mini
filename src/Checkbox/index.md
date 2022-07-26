@@ -44,6 +44,12 @@ toc: 'content'
 | -----|-----|-----|
 | onChange | 选中状态改变，触发回调 | (checked: boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void|
 
+## 插槽
+
+| 名称 | 说明 |
+| ----|----|
+| default | 内容区 |
+
 ## 样式类
 
 | 类名 | 说明 |
@@ -54,3 +60,4 @@ toc: 'content'
 | amd-checkbox-base | 原始 checkbox 样式 |
 | amd-checkbox-fake | checkbox 组件未选中样式 |
 | amd-checkbox-fake-custom | 自定义图标时的样式 |
+| amd-checkbox-content | 内容区样式 |

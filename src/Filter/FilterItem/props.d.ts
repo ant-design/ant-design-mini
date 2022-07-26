@@ -17,11 +17,11 @@ export interface IFilterItemProps extends IBaseProps {
   /**
    * @description value 发生变更
    */
-  onChange?: (v: any) => void;
+  onChange?: (v: any, e: Record<string,any>) => void;
   /**
    * @description 面板展开是触发，以便用户可以滚动定位
    */
-  onOpen?: () => void;
+  onOpen?: (e: Record<string,any>) => void;
   /**
    * @description type=default type=multiple 有效，为 selector 所需数据
    */

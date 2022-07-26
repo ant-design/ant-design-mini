@@ -1,11 +1,11 @@
 <demo-block title="基础用法">
-  <button onTap="handleOpenBasic" data-index="1">基础用法</button>
+  <button onTap="handleOpenBasic" inline="{{true}}" inlineSize="large" data-index="1">基础用法</button>
 </demo-block>
-<demo-block title="危险状态&禁用状态">
-  <button onTap="handleOpenBasic" data-index="2">危险状态&禁用状态</button>
+<demo-block title="选项状态">
+  <button onTap="handleOpenBasic" inline="{{true}}" inlineSize="large" data-index="2">危险状态&禁用状态</button>
 </demo-block>
-<demo-block title="图标">
-  <button onTap="handleOpenBasic" data-index="3">图标&描述</button>
+<demo-block title="带注释及icon">
+  <button onTap="handleOpenBasic" inline="{{true}}" inlineSize="large" data-index="3">带注释及icon</button>
 </demo-block>
 <action-sheet
   title="请选择你要进行的操作"
@@ -17,7 +17,7 @@
 />
 
 <action-sheet
-  title="请选择你要的操作"
+  title="请选择你要进行的操作"
   visible="{{visible2}}"
   actions="{{actions2}}"
   data-index="2"
@@ -26,7 +26,7 @@
 />
 
 <action-sheet
-  title="请选择你要的操作"
+  title="请选择你要进行的操作"
   visible="{{visible3}}"
   actions="{{actions3}}"
   data-index="3"

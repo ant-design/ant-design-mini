@@ -32,6 +32,7 @@
   title="更改值"
   value="{{value}}"
   items="{{items1}}"
+  data-value="value"
   onChange="handleChange"/>
 
 <view class="valusBox">

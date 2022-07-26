@@ -43,6 +43,11 @@ export const componentList = [
         path: '/pages/Collapse/index',
       },
       {
+        name: 'Grid',
+        nameZN: '宫格',
+        path: '/pages/Grid/index',
+      },
+      {
         name: 'Container',
         nameZN: '容器',
         path: '/pages/Container/index',
@@ -67,10 +72,25 @@ export const componentList = [
         path: '/pages/Tag/index',
       },
       {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
+      },
+      {
         name: 'FloatPanel',
         nameZN: '滑动面板',
         path: '/pages/FloatPanel/index',
       },
+      {
+        name: 'Footer',
+        nameZN: '页脚',
+        path: '/pages/Footer/index',
+      },
+      {
+        name: 'Divider',
+        nameZN: '分割线',
+        path: '/pages/Divider/index',
+      }
     ],
   },
   {
@@ -210,6 +230,11 @@ export const componentList = [
         name: 'Empty',
         nameZN: '空状态',
         path: '/pages/Empty/index',
+      },
+      {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
       },
       {
         name: 'Toast',

@@ -18,7 +18,8 @@ toc: 'content'
 ### 基本使用
 <code src='../../demo/pages/VTabs'></code>
 
-
+### VTab点击切换内容
+<code src='../../demo/pages/VTabsNoScroll'></code>
 
 ## 属性
 
