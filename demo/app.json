@@ -55,6 +55,7 @@
     "pages/Container/index",
     "pages/Checklist/index",
     "pages/Empty/index",
+    "pages/ProgressBar/index",
     "pages/Toast/index",
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",

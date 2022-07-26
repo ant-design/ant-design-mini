@@ -1,0 +1,16 @@
+<view class="amd-progressbar-wrapper {{className}}" style="width: {{width}}">
+  <view class="amd-progress-outer" style="background-color: {{orbitColor}}; height: {{height}}">
+    <view class="amd-progress-inner" style="{{`width: ${curProgress}%; background-color: ${type == 'success' ? '#00B578' : type == 'fail' ? '#FF3141' : progressColor}`}}">
+      <slot name="innerIndicator" a:if="{{!showDefaultIndicator}}" />
+    </view>
+  </view>
+  <view class="amd-progress-indicator">
+    <text a:if="{{showDefaultIndicator}}">{{ curProgress }}%</text>
+    <image 
+      a:if="{{type == 'success' || type == 'fail' }}" 
+      src="{{type == 'success' ? 'https://gw.alipayobjects.com/mdn/rms_186a6d/afts/img/A*9wQYS50jPaIAAAAAAAAAAAAAARQnAQ' : type == 'fail' ? 'https://gw.alipayobjects.com/mdn/rms_186a6d/afts/img/A*XzqbQp5wUQ8AAAAAAAAAAAAAARQnAQ' : ''}}"
+      class="amd-progress-type"
+    />
+    <slot name="rightIndicator" a:if="{{!showDefaultIndicator}}" />
+  </view>
+</view>

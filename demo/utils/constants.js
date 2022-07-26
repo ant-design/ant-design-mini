@@ -72,6 +72,11 @@ export const componentList = [
         path: '/pages/Tag/index',
       },
       {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
+      },
+      {
         name: 'FloatPanel',
         nameZN: '滑动面板',
         path: '/pages/FloatPanel/index',
@@ -215,6 +220,11 @@ export const componentList = [
         name: 'Empty',
         nameZN: '空状态',
         path: '/pages/Empty/index',
+      },
+      {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
       },
       {
         name: 'Toast',
