@@ -17,7 +17,7 @@
 />
 
 <action-sheet
-  title="请选择你要的操作"
+  title="请选择你要进行的操作"
   visible="{{visible2}}"
   actions="{{actions2}}"
   data-index="2"
@@ -26,7 +26,7 @@
 />
 
 <action-sheet
-  title="请选择你要的操作"
+  title="请选择你要进行的操作"
   visible="{{visible3}}"
   actions="{{actions3}}"
   data-index="3"
