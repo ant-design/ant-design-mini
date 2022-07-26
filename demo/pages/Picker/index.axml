@@ -46,9 +46,9 @@
 </list-item>
 </demo-block>
 
-<demo-block title="多列复杂类型数据" padding="0">
+<demo-block title="城市级联" padding="0">
   <list-item>
-    城市级联
+    请选择省市
     <picker 
       slot="extra"
       placeholder="请选择归属地" 
