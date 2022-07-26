@@ -222,15 +222,14 @@ export const componentList = [
         path: '/pages/Empty/index',
       },
       {
-<<<<<<< HEAD
         name: 'ProgressBar',
         nameZN: '进度条',
         path: '/pages/ProgressBar/index',
-=======
+      },
+      {
         name: 'Toast',
         nameZN: '轻提示',
         path: '/pages/Toast/index',
->>>>>>> origin/master
       },
     ],
   },
