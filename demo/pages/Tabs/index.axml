@@ -24,9 +24,10 @@
         a:if="{{index === 1}}" 
         tab="{{item}}">
         <view>
+          {{item.title}}
             <view 
               a:for="{{height}}">
-              文本内容...
+              ........根据内容自适应高度........
             </view>
         </view>
       </tab-content>
@@ -35,14 +36,14 @@
         a:elif="{{index === 3}}"
         tab="{{item}}">
         <view style="height: 30vh">
-          文本内容...
+          ........{{item.title}}........
           <text>父级设置了高度后的变化</text>
         </view>
       </tab-content>
 
       <tab-content tab="{{item}}" a:else badge="{{item.badge}}">
         <view style="height: 20vh">
-          文本内容...
+          ........{{item.title}}........
         </view>
       </tab-content>
 
@@ -70,7 +71,7 @@
       </radio-group>
     </list-item>
     <list-item>
-      类型
+      type
       <radio-group 
         slot="extra"
         class="radio-group" 
@@ -90,19 +91,19 @@
       </radio-group>
     </list-item>
     <list-item>
-      拓展icon<switch checked="{{plusSlot}}" controlled onChange="handleChangePlusSlot" slot="extra"/>
+      内容过渡动画<switch checked="{{animation}}" controlled onChange="handleChangeAnimation" slot="extra"/>
     </list-item>
     <list-item>
-      带数字<switch checked="{{titleSlot}}" controlled onChange="handleChangeTitleSlot" slot="extra"/>
+      支持手势切换<switch checked="{{swipeable}}" controlled onChange="handleChangeSwipeable" slot="extra"/>
     </list-item>
-    <list-item>
-      动画过渡<switch checked="{{animation}}" controlled onChange="handleChangeAnimation" slot="extra"/>
-    </list-item>
-    <list-item>
-      手势切换<switch checked="{{swipeable}}" controlled onChange="handleChangeSwipeable" slot="extra"/>
-    </list-item>
-    <list-item>
+    <list-item brief="sticky效果">
       吸顶<switch checked="{{sticky}}" controlled onChange="handleChangeSticky" slot="extra"/>
+    </list-item>
+    <list-item brief="自定义tab展示，优先级高于配置">
+      title插槽<switch checked="{{titleSlot}}" controlled onChange="handleChangeTitleSlot" slot="extra"/>
+    </list-item>
+    <list-item brief="右上角操作按钮">
+      plus插槽<switch checked="{{plusSlot}}" controlled onChange="handleChangePlusSlot" slot="extra"/>
     </list-item>
   </list>
 </view>

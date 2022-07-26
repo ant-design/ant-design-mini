@@ -9,7 +9,3 @@
 .plus-icon {
   font-size: 48rpx;
 }
-
-.radio {
-  margin-left: 8px;
-}
