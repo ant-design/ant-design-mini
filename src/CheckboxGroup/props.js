@@ -3,5 +3,6 @@ export const CheckboxGroupDefaultProps = {
   radius: false,
   uid: 'CheckboxGroup',
   controlled: false,
+  position: 'vertical',
   value: []
 };

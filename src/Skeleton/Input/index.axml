@@ -1,0 +1,4 @@
+<view a:if="{{loading}}" class="amd-skeleton-input {{animate?'amd-skeleton-input-animate':''}} {{className||''}}">
+
+</view>
+<slot a:else/>

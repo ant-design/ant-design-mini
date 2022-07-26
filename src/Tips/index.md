@@ -4,7 +4,7 @@ nav:
 group:
   title: 引导提示
   order: 14
-toc: false
+toc: 'content'
 ---
 # Tips 向导提示
 弹出式气泡
@@ -46,23 +46,3 @@ toc: false
 | amd-tips-wrap-pseudo-content | 表面内容区域样式 |
 | amd-tips-arrow | 箭头样式 |
 | amd-tips-wrap-real | 真实内容区域样式 |
-
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(3) th:nth-of-type(2)  {
-    width: 300px
-} 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after , .__dumi-default-mobile-previewer:nth-of-type(4)::after {
-    border-bottom: none!important;
-}
-</style> 

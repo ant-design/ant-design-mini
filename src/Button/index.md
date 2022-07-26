@@ -4,7 +4,7 @@ nav:
 group:
   title: 通用
   order: 2
-toc: false
+toc: 'content'
 ---
 # Button 按钮
 用于开始一个即时操作
@@ -43,6 +43,7 @@ toc: false
 | loading | boolean | 否 | false | 是否加载中，加载中时不可点击 |
 | loadingText | string | 否 | - | 加载中时的文字 |
 | htmlType | 'button' &verbar; 'submit' &verbar; 'reset' | 否 | 'button' | 按钮原生类型，在表单提交时有效 |
+| stopPropagation | boolean | 否 | false | 是否阻止事件冒泡 |
 | mode | string | 否 | - | 结合表单使用时，设置 mode 值为 'form' |
 | form | string | 否 | - | 结合表单使用时，需要设置为所在表单组件的 form 值 |
 | className | string | 否 | - | 类名 |
@@ -71,19 +72,3 @@ toc: false
 | amd-button-icon | 图标样式 |
 | amd-button-text | 按钮文字样式 |
 | amd-button-subtext | 副标题样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-mobile-previewer:nth-of-type(2)::after,.__dumi-default-mobile-previewer:nth-of-type(4)::after,.__dumi-default-mobile-previewer:nth-of-type(6)::after {
-    border-bottom: none!important;
-}
-</style> 

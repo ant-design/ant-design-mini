@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 
 # Switch 开关
@@ -26,7 +26,7 @@ toc: false
 | checked | boolean| 否|  - | 是否勾选 |
 | disabled |  boolean | 否|  false |  是否禁用 |
 | loading | boolean  |  否  | false |是否加载状态|
-| color |  string |  否 | #1677ff | #  选中背景色|
+| color |  string |  否 | '#1677ff' |  选中背景色|
 | checkedText | string| 否 | - |选中时的内容  |
 | uncheckedText | string | 否 | -| 非选中时的内容 |
 | size | 'medium' &verbar; 'small' &verbar; 'x-small' | 否 | medium | 组件尺寸 |
@@ -37,7 +37,7 @@ toc: false
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 点击 switch  ，触发此回调 | ( checked: boolean ) => void  |
+| onChange | 点击 switch  ，触发此回调 | (checked: boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
 
 
 ## 插槽

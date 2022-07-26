@@ -5,11 +5,12 @@
     font-size: 36rpx;
     color: #333;
     text-align: center;
-    border: 1rpx solid #EEE;
+    border-bottom: 1rpx solid #EEE;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 88px;
+    height: 98rpx;
+    box-sizing: border-box;
 }
 
 .content {
@@ -26,50 +27,54 @@
     border-bottom: 1px solid grey;
     display: flex;
 }
-
 .item .left {
     width: 200rpx;
     display: flex;
     align-items: center;
 }
+
 .item .right {
-    flex: 1;
-    text-align: right;
+  flex: 1;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.footer {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    border-radius: 0;
+    height: 128rpx;
+    background: #FFF;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .wrapper {
-    position: fixed;
-    z-index: 999;
-    bottom: 0;
-    width: 100%;
-    background-color: transparent;
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .wrapper .amd-swiper-section {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .buttonWrapper {
     display: flex;
     position: fixed;
+    align-items: center;
+    justify-content: center;
     top: 0;
-    background-color: grey;
     z-index: 9999;
 }
-.buttonWrapper .button {
-    margin-left: 20rpx;
+
+.button {
+    margin: 20rpx;
 }
 
-.safe-area {
-    bottom: 0;
-    position: fixed;
-    height: constant(safe-area-inset-bottom);
-    height: env(safe-area-inset-bottom);
-    background-color: #fff;
-    width: 100%;
+.map {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://gw.alipayobjects.com/mdn/rms_186a6d/afts/img/A*Z1x_QYGRR1kAAAAAAAAAAAAAARQnAQ");
 }
