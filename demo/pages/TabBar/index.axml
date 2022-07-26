@@ -1,42 +1,42 @@
 <view class="tab-bar-demo">
   <demo-block title="基础用法" padding="0">
-    <tab-bar 
+    <tab-bar
       tabs="{{tabs}}"
       activeKey="{{tabsIndex}}"
-      onChange="handleChangeTabs" 
+      onChange="handleChangeTabs"
     />
   </demo-block>
 
-  <demo-block title="显示徽标" padding="0">
-    <tab-bar 
+  <demo-block title="红点用法" padding="0">
+    <tab-bar
       tabs="{{tabsBadge}}"
       activeKey="{{tabsBadgeIndex}}"
-      onChange="handleChangeTabsBadge" 
+      onChange="handleChangeTabsBadge"
     />
   </demo-block>
 
   <demo-block title="图片和 Icon 混合" padding="0">
-    <tab-bar 
+    <tab-bar
       tabs="{{tabsImage}}"
       activeKey="{{tabsImageIndex}}"
-      onChange="handleChangeTabsImage" 
+      onChange="handleChangeTabsImage"
     />
   </demo-block>
 
   <demo-block title="自定义高亮颜色" padding="0">
-    <tab-bar 
+    <tab-bar
       tabs="{{tabs}}"
       activeKey="{{tabsColorIndex}}"
-      onChange="handleChangeTabsColor" 
+      onChange="handleChangeTabsColor"
       activeColor="red"
     />
   </demo-block>
 
   <demo-block title="Tab 数量超过 5 个后进行截取" padding="0">
-    <tab-bar 
+    <tab-bar
       tabs="{{tabsCount6}}"
       activeKey="{{tabsCount6Index}}"
-      onChange="handleChangeTabsCount6" 
+      onChange="handleChangeTabsCount6"
     />
   </demo-block>
 </view>
