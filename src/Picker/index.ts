@@ -149,7 +149,6 @@ Component({
     onChange(e) {
       const { onChange } = this.props;
       const { value: selectedIndex } = e.detail;
-      console.log('picker onChange selectedIndex', selectedIndex)
       this.tempSelectedIndex = selectedIndex;
       this.isChangingPickerView = true;
       const { matchedColumn, matchedValues } = getMatchedItemByIndex(
@@ -165,7 +164,6 @@ Component({
     async onOk() {
       let result;
       if (this.tempSelectedIndex) {
-        console.log('picker onOK columns', this.data.columns)
         result = getMatchedItemByIndex(
           this.data.columns,
           this.tempSelectedIndex,
@@ -189,8 +187,6 @@ Component({
           return
         }
       }
-      console.log('picker onOK tempSelectedIndex', this.tempSelectedIndex)
-      console.log('picker onOk matchedValues', matchedValues)
       this.setData({
         cValue: matchedValues,
       });

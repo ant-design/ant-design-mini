@@ -1,17 +1,3 @@
-
-<demo-block title="多列复杂类型数据" padding="0">
-  <list-item>
-    级联
-    <picker 
-      slot="extra"
-      placeholder="请选择" 
-      data="{{testList}}" 
-      onChange="handleTestPickerChange" 
-      onOk="handleTestOk"
-    />
-  </list-item>
-  </demo-block>
-
 <demo-block title="基础用法" padding="0">
   <list-item>
     选择城市
@@ -29,19 +15,21 @@
 </demo-block>
 
 <demo-block title="对象用法"  padding="0">
-<list-item>
-  选择日期
-  <picker 
-    slot="extra"
-    onDismiss="handleCancelPicker"
-    onOk="handleOk"
-    placeholder="请选择"
-    title="请选择"
-    onChange="handleChange"
-    data="{{weekList}}">
-  </picker>
-</list-item>
-</demo-block>
+  <list-item>
+    选择日期
+    <picker 
+      slot="extra"
+      onDismiss="handleCancelPicker"
+      onOk="handleOk"
+      placeholder="请选择"
+      title="请选择"
+      onChange="handleChange"
+      data="{{weekList}}">
+    </picker>
+  </list-item>
+  </demo-block>
+
+
 
 <demo-block title="多列复杂类型数据" padding="0">
 <list-item>
@@ -58,16 +46,16 @@
 </list-item>
 </demo-block>
 
-
 <demo-block title="多列复杂类型数据" padding="0">
   <list-item>
-    级联
+    城市级联
     <picker 
       slot="extra"
       placeholder="请选择归属地" 
       data="{{cityList}}" 
       onChange="handleCityPickerChange" 
       onOk="handleCityOnOk"
+      onFormat="handleCityFormat"
     />
   </list-item>
-  </demo-block>
+</demo-block>
