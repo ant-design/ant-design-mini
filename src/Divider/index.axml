@@ -1,0 +1,12 @@
+<import-sjs from="./index.sjs" name="divider" />
+
+<view class="amd-divider {{className ? className: ''}}">
+  <view a:if="{{direction==='horizontal'}}" class="amd-divider-horizontal" style="margin: {{margin}} 0">
+    <view class="amd-divider-horizontal-left" style="flex: {{divider.getLineWidthFlex(textPosition,text)[0]}};borderBottomStyle: {{borderStyle}};borderBottomColor: {{borderColor}}"/>
+    <view class="amd-divider-horizontal-text" a:if="{{text}}" style="color: {{color}}">{{text}}</view>
+    <view class="amd-divider-horizontal-right" style="flex: {{divider.getLineWidthFlex(textPosition,text)[1]}};borderBottomStyle: {{borderStyle}};borderBottomColor: {{borderColor}}"/>
+  </view>
+  <view a:if="{{direction==='vertical'}}" class="amd-divider-vertical" style="margin: 0 {{margin}};height: {{height}}">
+    <view />
+  </view>
+</view>

@@ -3,6 +3,7 @@
     选择城市
     <picker 
       slot="extra"
+      data-value="test"
       onDismiss="handleCancelPicker"
       onOk="handleOk"
       value="{{value}}"

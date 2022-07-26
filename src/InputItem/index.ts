@@ -1,7 +1,9 @@
 import { InputItemDefaultProps } from './props';
 import controlled from '../mixins/controlled';
 import formMixin from '../mixins/form';
+import fmtEvent from '../_util/fmtEvent';
 import { store } from '../Form/store';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   mixins: [controlled(), formMixin()],
@@ -27,7 +29,7 @@ Component({
       const { onBlur } = this.props;
       if (onBlur) {
         const { value } = e.detail;
-        onBlur(value);
+        onBlur(value, fmtEvent(this.props, e));
       }
     },
     // 按钮消失
@@ -36,7 +38,7 @@ Component({
       const { onConfirm } = this.props;
       if (onConfirm) {
         const { value } = e.detail;
-        onConfirm(value);
+        onConfirm(value, fmtEvent(this.props, e));
       }
     },
     // 展示无需蒙层
@@ -45,14 +47,14 @@ Component({
       const { onFocus } = this.props;
       if (onFocus) {
         const { value } = e.detail;
-        onFocus(value);
+        onFocus(value, fmtEvent(this.props, e));
       }
     },
     onChange(e) {
       const { onChange } = this.props;
       if (onChange) {
         const { value } = e.detail;
-        this.cOnChange(value);
+        this.cOnChange(value, fmtEvent(this.props, e));
       }
     },
     triggerOnValuesChange() {
@@ -64,11 +66,11 @@ Component({
         store.trigger(form, field, '');
       }
     },
-    onClear() {
+    onClear(e) {
       this.hideClear();
       const { onClear, controlled } = this.props;
       if (onClear) {
-        onClear('');
+        onClear('', fmtEvent(this.props, e));
       }
       if (!controlled) {
         this.setData({

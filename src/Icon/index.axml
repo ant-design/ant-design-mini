@@ -2,5 +2,6 @@
   from='./index.sjs' />
 <text class="amd-icon amd-icon-{{type}} {{icon.getSize(size)}} {{className ? className : ''}}"
   style="{{color ? `color: ${color};` : ''}} {{fontSize ? `font-size: ${fontSize};`: ''}}"
-  onTap="onTap">
+  onTap="{{stopPropagation?'':'onTap'}}"
+  catchTap="{{stopPropagation?'onTap':''}}">
 </text>

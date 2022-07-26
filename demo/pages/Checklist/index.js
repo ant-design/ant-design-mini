@@ -1,6 +1,6 @@
 Page({
   data: {
-    defaultValue: [1, 2],
+    value: [1, 2],
     options_1: [
       {
         value: 1,
@@ -66,7 +66,7 @@ Page({
       }
     ]
   },
-  onChange(v) {
-    console.log('当前选中的值为：', v)
+  onChange(v,items,e) {
+    console.log('当前选中的值为：', v,items , e);
   }
 })

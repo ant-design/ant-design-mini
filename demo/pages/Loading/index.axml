@@ -1,11 +1,11 @@
 <view class="demo">
-  <demo-block title="基础用法" padding="0">
+  <demo-block title="基础用法" padding="0" background="rgba(0, 0, 0, 0.7)">
     <loading type="mini"></loading>
   </demo-block>
   <demo-block title="主题色 Loading"  padding="0">
     <loading type="mini" color="#1677ff"></loading>
   </demo-block>
-  <demo-block title="spin">
+  <demo-block title="spin" background="rgba(0, 0, 0, 0.7)">
     <loading type="spin" size="x-large" text="x-large" />
     <loading type="spin" size="large" text="large" />
     <loading type="spin" size="medium" text="medium" />

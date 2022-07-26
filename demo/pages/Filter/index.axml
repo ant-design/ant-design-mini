@@ -5,6 +5,7 @@
       uid="filter-1" 
       className="filter-1">
       <filter-item
+        data-items="{{items}}"
         uid="filter-1"
         placeholder="筛选项一"
         value="3"

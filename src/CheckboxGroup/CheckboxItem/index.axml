@@ -1,44 +1,20 @@
 <import-sjs from="./index.sjs" name="_sjs" />
-<template name="icon">
-  <block a:if="{{url}}">
-    <image mode="scaleToFill" class="amd-checkbox-fake-image" src="{{url}}" a:if="{{url.indexOf('http')===0||url.indexOf('data:')===0||url.indexOf('.')===0||url.indexOf('/')===0}}"/>
-    <amd-icon  class="amd-checkbox-fake-icon"  a:else type="{{url}}"/>
-  </block>
-</template>
 
-<label class="amd-checkbox-item {{className ? className : ''}}">
-  <view hidden="{{hidden}}">
-  <list-item>
-    <view class="amd-checkbox {{_sjs.isDisabled(disabled,_disabled)?'amd-checkbox-disabled':''}} {{_checked?'amd-checkbox-checked':''}} {{className ? className : ''}} ">
-      <checkbox
-        class="amd-checkbox-base"
-        controlled="{{controlled}}"
-        color="{{color}}"
-        id="{{id ? id : $id}}"
-        disabled="{{_sjs.isDisabled(disabled,_disabled)}}"
-        onChange="onItemChange"
-        checked="{{_checked}}"
-        value="{{value}}"
-      />
-        <view 
-          style="{{!_sjs.isDisabled(disabled,_disabled)&&_checked&&color?'color:'+color + '; border-color:' + color:''}}"
-          class="amd-checkbox-fake 
-          {{_sjs.isDisabled(disabled,_disabled) 
-              ? _checked
-                ? 'amd-checkbox-fake-disabled-checked' + (disabledCheckedIcon? ' amd-checkbox-fake-custom' : '')
-                : 'amd-checkbox-fake-disabled-not-checked' + (disabledIcon? ' amd-checkbox-fake-custom' : '')
-              : _checked
-                ? 'amd-checkbox-fake-not-disabled-checked' + (checkedIcon? ' amd-checkbox-fake-custom' : '')
-                : 'amd-checkbox-fake-not-disabled-not-checked' + (icon? ' amd-checkbox-fake-custom' : '')}}">
-            <template is="icon"  a:if="{{!_checked && !_sjs.isDisabled(disabled,_disabled)}}" data="{{url:icon}}"/>
-            <template is="icon"  a:if="{{!_checked && _sjs.isDisabled(disabled,_disabled)}}" data="{{url:disabledIcon}}"/>
-            <template is="icon"  a:if="{{_checked && !_sjs.isDisabled(disabled,_disabled)}}" data="{{url:checkedIcon||'CheckCircleFill'}}"/>
-            <template is="icon"  a:if="{{_checked && _sjs.isDisabled(disabled,_disabled)}}" data="{{url:disabledCheckedIcon||'CheckOutline'}}"/>
-        </view>
-      </view>       
-      <view class="amd-checkbox-item-content">
-        <slot />
-      </view>
-    </list-item>
-  </view>
+<label class="amd-checkbox-item {{className ? className : ''}} {{hidden?'amd-checkbox-item-hidden':''}}">
+  <list-item stopPropagation>
+    <checkbox 
+      controlled
+      color="{{color}}"
+      id="{{id ? id : $id}}"
+      disabled="{{_sjs.isDisabled(disabled,_disabled)}}"
+      onChange="onItemChange"
+      icon="{{icon}}"
+      checkedIcon="{{checkedIcon}}"
+      disabledIcon="{{disabledIcon}}"
+      disabledCheckedIcon="{{disabledCheckedIcon}}"
+      checked="{{_checked}}"
+      value="{{value}}">  
+      <slot />
+    </checkbox> 
+  </list-item>
 </label>

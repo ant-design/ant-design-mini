@@ -1,0 +1,6 @@
+<view class="amd-grid-item amd-grid-item-{{layout}}  {{verticalSpace?'amd-grid-item-vertical-space':''}} amd-grid-item-columns-{{columns}} {{showSplitLine?'amd-grid-item-line':''}}" catchTap="onTap">
+    <image style="{{iconSize?('width:'+iconSize + ';height:' + iconSize) : ''}}" src="{{item.icon}}" class="amd-grid-item-img amd-grid-item-img-{{item.iconStyle||iconStyle}}" a:if="{{item.icon.indexOf('http')===0||item.icon.indexOf('data:')===0||item.icon.indexOf('.')===0||item.icon.indexOf('/')===0}}"/>
+    <amd-icon fontSize="{{iconSize}}"  class="amd-grid-item-icon  amd-grid-item-icon-{{item.iconStyle||iconStyle}}"  a:else type="{{item.icon}}"/>
+    <view class="amd-grid-item-title amd-grid-item-title-{{titleSize}}">{{item.title}}</view>
+    <view class="amd-grid-item-desc" a:if="{{item.desc}}">{{item.desc}}</view>
+</view>

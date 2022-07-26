@@ -27,5 +27,9 @@ export interface IIconProps<T = any> extends IBaseProps {
    */
 
   onTap?: (event: T) => void;
+  /**
+  * @description 是否阻止事件冒泡
+  */
+  stopPropagation?: boolean;
 }
 export declare const IconDefaultProps: Partial<IIconProps>;
