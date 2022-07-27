@@ -21,7 +21,7 @@ export interface IBadgeProps extends IBaseProps {
    * @description 相对于 children 所在访问，left-top(左上角) top-right(右上角)
    * @default "top-right"
    */
-  placement?:
+  position?:
     | 'top-left'
     | 'top-center'
     | 'top-right'

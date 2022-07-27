@@ -46,16 +46,16 @@ Page({
       },
       {
         type: 'image',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_d75401/afts/img/A*kgPpSZndq70AAAAAAAAAAAAAARQnAQ',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
         activeIcon:
-          'https://gw.alipayobjects.com/mdn/rms_d75401/afts/img/A*kgPpSZndq70AAAAAAAAAAAAAARQnAQ',
+          'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
         text: '新车报价',
       },
       {
         type: 'image',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_d75401/afts/img/A*kgPpSZndq70AAAAAAAAAAAAAARQnAQ',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
         activeIcon:
-          'https://gw.alipayobjects.com/mdn/rms_d75401/afts/img/A*kgPpSZndq70AAAAAAAAAAAAAARQnAQ',
+          'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
         text: '新车报价',
         imageMode: 'scaleToFill',
       },
