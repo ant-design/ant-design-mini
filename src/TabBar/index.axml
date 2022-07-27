@@ -1,10 +1,9 @@
 <template name="icon">
-  <icon
+  <image-icon
     className="{{className}}"
-    a:if="{{!item.type || item.type === 'icon'}}"
-    type="{{item.activeIcon || item.icon}}"
-    size="small"
-    color="{{activeColor}}"
+    image="{{item.activeIcon || item.icon}}"
+    iconSize="small"
+    iconColor="{{activeColor}}"
   />
 </template>
 
@@ -18,14 +17,8 @@
           activeColor: activeColor,
           index: index,
           item: item,
-          className: 'amd-tab-bar-icon'
+          className: 'amd-tab-bar'
         }}"
-      />
-      <image
-        className="amd-tab-bar-icon"
-        a:if="{{item.type === 'image'}}"
-        src="{{item.activeIcon || item.icon}}"
-        mode="{{item.imageMode || 'aspectFit'}}"
       />
     </view>
     <view a:else>
@@ -35,14 +28,8 @@
           activeIndex: activeIndex,
           index: index,
           item: item,
-          className: 'amd-tab-bar-image'
+          className: 'amd-tab-bar'
         }}"
-      />
-      <image
-        className="amd-tab-bar-image"
-        a:if="{{item.type === 'image'}}"
-        src="{{item.icon}}"
-        mode="{{item.imageMode || 'aspectFit'}}"
       />
     </view>
   </view>
