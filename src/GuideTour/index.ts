@@ -1,5 +1,6 @@
 import { GuideTourDefaultProps } from './props';
 import { changeButtonVisible } from './utils';
+import { log } from '../_util/console';
 
 Component({
   data: {
@@ -10,7 +11,15 @@ Component({
   },
   props: GuideTourDefaultProps,
   didMount() {
-    this.buttoncontroller();
+    const { index } = this.props;
+    if (typeof index !== 'number') {
+      log.error(
+        'GuideTour',
+        `当前激活的索引值类型非 number 类型，修改当前 index 的 ${typeof index} 类型，以保证展示的正确性。`
+      );
+    } else {
+      this.buttoncontroller();
+    }
   },
   didUpdate() {
     this.buttoncontroller();
