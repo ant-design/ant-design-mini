@@ -3,6 +3,8 @@
   "usingComponents": {
     "tabs": "../../../src/Tabs/index",
     "tab-content": "../../../src/Tabs/TabItem/index",
+    "list": "../../../src/List/index",
+    "list-item": "../../../src/List/ListItem/index",
     "icon": "../../../src/Icon/index",
     "demo-block": "../../components/DemoBlock/index"
   }

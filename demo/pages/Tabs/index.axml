@@ -1,84 +1,74 @@
-<demo-block title="基础用法" padding="0">
-  <tabs uid="tab1" onChange="handleChangeTab1" index="{{tab1Index}}">
-    <tab-content uid="tab1" tab="{{title:'水果'}}"><view class="content">西瓜</view></tab-content>
-    <tab-content uid="tab1" tab="{{title:'蔬菜'}}"><view class="content">西红柿</view></tab-content>
-    <tab-content uid="tab1" tab="{{title:'动物'}}"><view class="content">蚂蚁</view></tab-content>
-  </tabs>
-</demo-block>
-<demo-block title="胶囊类型" padding="0">
-  <tabs uid="tab6" onChange="handleChangeTab6" index="{{tab6Index}}"  type="capsule">
-    <tab-content uid="tab6" tab="{{title:'水果'}}"><view class="content">西瓜</view></tab-content>
-    <tab-content uid="tab6" tab="{{title:'蔬菜'}}"><view class="content">西红柿</view></tab-content>
-    <tab-content uid="tab6" tab="{{title:'动物'}}"><view class="content">蚂蚁</view></tab-content>
-  </tabs>
-</demo-block>
-<demo-block title="混合类型" padding="0">
-  <tabs uid="tab7" onChange="handleChangeTab7" index="{{tab7Index}}"  type="mixin">
-    <tab-content uid="tab7" tab="{{title:'水果',subTitle:'描述文案'}}"><view class="content">西瓜</view></tab-content>
-    <tab-content uid="tab7" tab="{{title:'蔬菜',subTitle:'描述文案'}}"><view class="content">西红柿</view></tab-content>
-    <tab-content uid="tab7" tab="{{title:'动物',subTitle:'描述文案'}}"><view class="content">蚂蚁</view></tab-content>
-  </tabs>
-</demo-block>
-<demo-block title="右上角操作按钮" padding="0">
-  <tabs uid="tab11" onChange="handleChangeTab11" index="{{tab7Index}}">
-    <tab-content uid="tab11" tab="{{title:'水果'}}"><view class="content">西瓜</view></tab-content>
-    <tab-content uid="tab11" tab="{{title:'蔬菜'}}"><view class="content">西红柿</view></tab-content>
-    <tab-content uid="tab11" tab="{{title:'动物'}}"><view class="content">蚂蚁</view></tab-content>
-    <icon 
-      slot="plus"
-      fontSize="48rpx"
-      type="AddOutline" 
-      onTap="handleClickIcon" />
-  </tabs>
-</demo-block>
-<demo-block title="手势切换" padding="0">
-  <tabs uid="tab5" onChange="handleChangeTab5" index="{{tab5Index}}" animation swipeable>
-    <tab-content uid="tab5" tab="{{title:'水果'}}"><view class="content">西瓜</view></tab-content>
-    <tab-content uid="tab5" tab="{{title:'蔬菜'}}"><view class="content">西红柿</view></tab-content>
-    <tab-content uid="tab5" tab="{{title:'动物'}}"><view class="content">蚂蚁</view></tab-content>
-  </tabs>
-</demo-block>
-<demo-block title="超长自动滚动" padding="0">
-  <tabs uid="tab2" onChange="handleChangeTab2" index="{{tab2Index}}">
-    <tab-content uid="tab2" tab="{{title:'Espresso'}}"><view class="content">Espresso</view></tab-content>
-    <tab-content uid="tab2" tab="{{title:'Coffee Latte'}}"><view class="content">Coffee Latte</view></tab-content>
-    <tab-content uid="tab2" tab="{{title:'Cappuccino'}}"><view class="content">Cappuccino</view></tab-content>
-    <tab-content uid="tab2" tab="{{title:'Americano'}}"><view class="content">Americano</view></tab-content>
-    <tab-content uid="tab2" tab="{{title:'Flat White'}}"><view class="content">Flat White</view></tab-content>
-    <tab-content uid="tab2" tab="{{title:'Caramel Macchiato'}}"><view class="content">Caramel Macchiato</view></tab-content>
-    <tab-content uid="tab2" tab="{{title:'Cafe Mocha'}}"><view class="content">Cafe Mocha</view></tab-content>
-  </tabs>
-</demo-block>
-<demo-block title="没有内容区" padding="0">
-  <tabs uid="tab3" onChange="handleChangeTab3" index="{{tab3Index}}">
-    <tab-content uid="tab3" tab="{{title:'水果'}}"/>
-    <tab-content uid="tab3" tab="{{title:'蔬菜'}}"/>
-    <tab-content uid="tab3" tab="{{title:'动物'}}"/>
-  </tabs>
-</demo-block>
-<demo-block title="禁用状态"  padding="0">
-  <tabs uid="tab4" onChange="handleChangeTab4" index="{{tab4Index}}">
-    <tab-content uid="tab4" tab="{{title:'水果'}}"><view class="content">西瓜</view></tab-content>
-    <tab-content uid="tab4" tab="{{title:'蔬菜',disabled:true}}"><view class="content">西红柿</view></tab-content>
-    <tab-content uid="tab4" tab="{{title:'动物'}}"><view class="content">蚂蚁</view></tab-content>
-  </tabs>
-</demo-block>
-<demo-block title="带有徽标" padding="0">
-  <tabs uid="tab8" onChange="handleChangeTab8" index="{{tab8Index}}">
-    <tab-content uid="tab8" tab="{{title:'水果',badge:''}}"><view class="content">西瓜</view></tab-content>
-    <tab-content uid="tab8" tab="{{title:'蔬菜',badge:2}}"><view class="content">西红柿</view></tab-content>
-    <tab-content uid="tab8" tab="{{title:'动物',badge:'气泡'}}"><view class="content">蚂蚁</view></tab-content>
-  </tabs>
-  <view class="space"/>
-  <tabs uid="tab10" onChange="handleChangeTab10" index="{{tab10Index}}" type="capsule">
-    <tab-content uid="tab10" tab="{{title:'水果',badge:''}}"><view class="content">西瓜</view></tab-content>
-    <tab-content uid="tab10" tab="{{title:'蔬菜',badge:2}}"><view class="content">西红柿</view></tab-content>
-    <tab-content uid="tab10" tab="{{title:'动物',badge:'气泡'}}"><view class="content">蚂蚁</view></tab-content>
-  </tabs>
-  <view class="space"/>
-  <tabs uid="tab9" onChange="handleChangeTab9" index="{{tab9Index}}" type="mixin">
-    <tab-content uid="tab9" tab="{{title:'水果',subTitle:'描述文案',badge:''}}"><view class="content">西瓜</view></tab-content>
-    <tab-content uid="tab9" tab="{{title:'蔬菜',subTitle:'描述文案',badge:2}}"><view class="content">西红柿</view></tab-content>
-    <tab-content uid="tab9" tab="{{title:'动物',subTitle:'描述文案',badge:'气泡'}}"><view class="content">蚂蚁</view></tab-content>
-  </tabs>
-</demo-block>
+<tabs uid="tab1" onChange="handleChangeTab1" index="{{tab1Index}}">
+  <block a:for="{{tabTypes}}" a:for-index="idx" a:for-item="tabTypeItem">
+    <tab-content uid="tab1" tab="{{tabTypeItem}}">
+      <demo-block title="基础用法" padding="0">
+        <tabs uid="{{'tab2'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab2" index="{{tab2Index}}">
+          <block a:for="{{tabList}}">
+            <tab-content uid="{{'tab2'+idx}}" tab="{{item}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="手势切换" padding="0">
+        <tabs uid="{{'tab3'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab3" index="{{tab3Index}}" animation swipeable>
+          <block a:for="{{tabList}}">
+            <tab-content uid="{{'tab3'+idx}}" tab="{{item}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="禁用状态" padding="0">
+        <tabs uid="{{'tab4'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab4" index="{{tab4Index}}">
+          <block a:for="{{tabList}}">
+            <tab-content a:if="{{index === 1}}" uid="{{'tab4'+idx}}" tab="{{...item, disabled: true}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+            <tab-content a:else uid="{{'tab4'+idx}}" tab="{{item}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="无内容" padding="0">
+        <tabs uid="{{'tab5'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab5" index="{{tab5Index}}">
+          <block a:for="{{tabList}}">
+            <tab-content uid="{{'tab5'+idx}}" tab="{{item}}">
+              <view class="content" />
+            </tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="带有徽标" padding="0">
+        <tabs uid="{{'tab6'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab6" index="{{tab6Index}}">
+          <tab-content uid="{{'tab6'+idx}}" tab="{{title:'水果',badge:''}}">
+            <view class="content">西瓜</view></tab-content>
+          <tab-content uid="{{'tab6'+idx}}" tab="{{title:'蔬菜',badge:2}}">
+            <view class="content">西红柿</view></tab-content>
+          <tab-content uid="{{'tab6'+idx}}" tab="{{title:'动物',badge:'气泡'}}">
+            <view class="content">蚂蚁</view></tab-content>
+        </tabs>
+      </demo-block>
+      <demo-block title="超长滚动" padding="0">
+        <tabs uid="{{'tab7'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab7" index="{{tab7Index}}">
+          <block a:for="{{multiTabList}}">
+            <tab-content uid="{{'tab7'+idx}}" tab="{{item}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="带拓展按钮" padding="0">
+        <tabs uid="{{'tab8'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab8" index="{{tab8Index}}">
+          <block a:for="{{tabList}}">
+            <tab-content uid="{{'tab8'+idx}}" tab="{{item}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+          </block>
+          <icon slot="plus" fontSize="48rpx" type="AddOutline" onTap="handleClickIcon" />
+        </tabs>
+      </demo-block>
+    </tab-content>
+  </block>
+</tabs>

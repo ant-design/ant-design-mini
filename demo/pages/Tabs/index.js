@@ -8,9 +8,65 @@ Page({
     tab6Index: 0,
     tab7Index: 0,
     tab8Index: 0,
-    tab9Index: 0,
-    tab10Index: 0,
-    tab11Index: 0,
+
+    tabTypes: [
+      {
+        title:"基础",
+        type:"basis",
+      },{
+        title:"胶囊",
+        type:"capsule",
+      },{
+        title:"复杂",
+        type:"mixin",
+      },
+    ],
+    tabList: [
+      {
+        title:"水果",
+        subTitle:"描述文案",
+        content:"西瓜",
+      },{
+        title:"蔬菜",
+        subTitle:"描述文案",
+        content:"西红柿",
+      },{
+        title:"动物",
+        subTitle:"描述文案",
+        content:"蚂蚁",
+      },
+    ],
+    multiTabList: [
+      {
+        title:"选项卡",
+        subTitle:"描述文案",
+        content:"选项卡",
+      },{
+        title:"选项卡",
+        subTitle:"描述文案",
+        content:"选项卡",
+      },{
+        title:"选项卡",
+        subTitle:"描述文案",
+        content:"选项卡",
+      },{
+        title:"选项卡",
+        subTitle:"描述文案",
+        content:"选项卡",
+      },{
+        title:"选项卡",
+        subTitle:"描述文案",
+        content:"选项卡",
+      },{
+        title:"选项卡",
+        subTitle:"描述文案",
+        content:"选项卡",
+      },{
+        title:"选项卡",
+        subTitle:"描述文案",
+        content:"选项卡",
+      }
+    ]
   },
   handleClickIcon() {
     my.alert({
@@ -41,14 +97,5 @@ Page({
   },
   handleChangeTab8(index) {
     this.setData({ tab8Index: index });
-  },
-  handleChangeTab9(index) {
-    this.setData({ tab9Index: index });
-  },
-  handleChangeTab10(index) {
-    this.setData({ tab10Index: index });
-  },
-  handleChangeTab11(index) {
-    this.setData({ tab11Index: index });
   },
 });
