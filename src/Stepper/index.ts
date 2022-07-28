@@ -3,6 +3,7 @@ import computed from '../mixins/computed';
 import controlled from '../mixins/controlled';
 import { upStep, downStep } from './utils';
 import formMixin from '../mixins/form';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   mixins: [computed, controlled(), formMixin()],
@@ -61,7 +62,7 @@ Component({
     },
     onFocus(e) {
       const { value } = e.detail;
-      this.props.onFocus?.(value);
+      this.props.onFocus?.(value, fmtEvent(this.props,e));
     },
     onBlur(e) {
       if (this.data.confirm) {

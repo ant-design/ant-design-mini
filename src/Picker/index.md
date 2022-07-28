@@ -44,12 +44,12 @@ type PickerColumnItem = string | number | {
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onOk | 点击确定按钮，触发回调 | (value: PickerColumnItem,  column: PickerColumnItem ) => void |
-| onDismiss | 点击取消按钮，触发回调 | () => void |
-| onChange | 选中项发生变化，触发回调 | (value: PickerColumnItem, column: PickerColumnItem) => void |
+| onOk | 点击确定按钮，触发回调 | (value: PickerColumnItem,  column: PickerColumnItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onDismiss | 点击取消按钮，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onChange | 选中项发生变化，触发回调 | (value: PickerColumnItem, column: PickerColumnItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式 | (value: PickerColumnItem, column: PickerColumnItem) => string |
-| onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible:boolean) => void |
-| onBeforeOk | 点击确认按钮之前，触发回调，返回false时阻止默认确定流程 | (value: PickerColumnItem,  column: PickerColumnItem ) => boolean 
+| onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible:boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onBeforeOk | 点击确认按钮之前，触发回调，返回false时阻止默认确定流程 | (value: PickerColumnItem,  column: PickerColumnItem, event: [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => boolean 
 
 ## 插槽
 | 名称 | 说明 | 类型 |

@@ -49,7 +49,7 @@ Radio 所有选项默认可见，方便用户在比较中选择，因此选项�
 #### RadioGroup
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 选中项发生变化，触发回调 | (value) => void |
+| onChange | 选中项发生变化，触发回调 | (value: any, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ## 插槽
 #### RadioGroup

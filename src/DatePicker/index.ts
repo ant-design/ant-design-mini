@@ -9,6 +9,7 @@ import {
   getValidValue,
   isEqualDate,
 } from './util';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   mixins: [formMixin({ trigger: 'onOk' })],
@@ -153,14 +154,14 @@ Component({
           this.setData({ currentValue: selectedIndex });
           if (onPickerChange) {
             const date = getDateByValue(selectedIndex);
-            onPickerChange(date, dayjs(date).format(format), selectedIndex);
+            onPickerChange(date, dayjs(date).format(format), selectedIndex, fmtEvent(this.props));
           }
         })
       } else {
         this.setData({ currentValue: selectedIndex });
         if (onPickerChange) {
           const date = getDateByValue(selectedIndex);
-          onPickerChange(date, dayjs(date).format(format), selectedIndex);
+          onPickerChange(date, dayjs(date).format(format), selectedIndex, fmtEvent(this.props));
         }
       }
     },
@@ -168,7 +169,7 @@ Component({
     onDismiss() {
       const { onDismiss } = this.props;
       if (onDismiss) {
-        onDismiss();
+        onDismiss(fmtEvent(this.props));
       }
     },
 
@@ -178,7 +179,12 @@ Component({
       const date = getDateByValue(currentValue);
       this.setData({ cValue: date });
       if (this.props.onOk) {
-        this.props.onOk(date, dayjs(date).format(format), currentValue);
+        this.props.onOk(
+          date,
+          dayjs(date).format(format),
+          currentValue,
+          fmtEvent(this.props)
+        );
       }
     },
 
@@ -201,7 +207,7 @@ Component({
         this.setCurrentValue();
       }
       if (onTriggerPicker) {
-        onTriggerPicker(visible);
+        onTriggerPicker(visible, fmtEvent(this.props));
       }
     },
   },

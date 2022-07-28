@@ -7,6 +7,7 @@ import {
   getMatchedItemByIndex,
   getStrictMatchedItemByValue,
 } from './utils';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   mixins: [controlled(), formMixin({ trigger: 'onOk' })],
@@ -131,7 +132,7 @@ Component({
     triggerPicker(visible) {
       const { onTriggerPicker } = this.props;
       if (onTriggerPicker) {
-        onTriggerPicker(visible);
+        onTriggerPicker(visible, fmtEvent(this.props));
       }
     },
 
@@ -142,7 +143,7 @@ Component({
       });
       this.triggerPicker(false);
       if (onDismiss) {
-        return onDismiss();
+        return onDismiss(fmtEvent(this.props));
       }
     },
 
@@ -157,7 +158,7 @@ Component({
         this.single
       );
       if (onChange) {
-        onChange.call(this, matchedValues, matchedColumn);
+        onChange.call(this, matchedValues, matchedColumn, fmtEvent(this.props, e));
       }
     },
 
@@ -182,7 +183,7 @@ Component({
       });
       this.triggerPicker(false);
       if (this.props.onBeforeOk) {
-        const isContinue = await this.props.onBeforeOk(matchedValues, matchedColumn);
+        const isContinue = await this.props.onBeforeOk(matchedValues, matchedColumn, fmtEvent(this.props));
         if (!isContinue) {
           return
         }
@@ -191,7 +192,7 @@ Component({
         cValue: matchedValues,
       });
       if (this.props.onOk) {
-        this.props.onOk.call(this, matchedValues, matchedColumn);
+        this.props.onOk.call(this, matchedValues, matchedColumn, fmtEvent(this.props));
       }
     },
   },

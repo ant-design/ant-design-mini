@@ -48,15 +48,15 @@ toc: 'content'
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
-| onChange | 表单触发变更回调 | (v: any) => void |
-| onBlur | 失去焦点时触发回调 | (v: string) => void |
-| onBizIconTap | 点击语音图标回调 | () => void |
-| onCancel | 点击取消回调 | (v: string) => void |
-| onClear | 点击删除回调 | (v: string) => void |
-| onFocus | 聚焦时触发回调 | (v: string) => void |
-| onInput | input 输入回调 | (v: string) => void |
-| onSubmit | submit 回调 | (v: string) => void |
-| onVoiceTap | 点击语音图标回调 | () => void |
+| onChange | 表单触发变更回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onBlur | 失去焦点时触发回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onBizIconTap | 点击语音图标回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onCancel | 点击取消回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onClear | 点击删除回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onFocus | 聚焦时触发回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onInput | input 输入回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onSubmit | submit 回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onVoiceTap | 点击语音图标回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ## 样式类 
 

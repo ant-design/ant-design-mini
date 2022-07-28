@@ -36,17 +36,17 @@ Page({
         text: '备份',
         key: 'backup',
         description: '请选择要备份的内容',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_402983/afts/img/A*FTUXTLumtvwAAAAAAAAAAAAAARQnAQ'
+        icon: 'https://gw.alipayobjects.com/mdn/rms_e7937b/afts/img/A*I0oNS4RCQzUAAAAAAAAAAAAAARQnAQ'
       },
       {
         text: '保存',
         key: 'save',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_402983/afts/img/A*NZthT494VNoAAAAAAAAAAAAAARQnAQ'
+        icon: 'https://gw.alipayobjects.com/mdn/rms_e7937b/afts/img/A*BNczQ7hmp2gAAAAAAAAAAAAAARQnAQ'
       },
       {
         text: '同步',
         key: 'sync',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_402983/afts/img/A*a1RMTo21L3YAAAAAAAAAAAAAARQnAQ'
+        icon: 'https://gw.alipayobjects.com/mdn/rms_e7937b/afts/img/A*eRaVSrV56dIAAAAAAAAAAAAAARQnAQ'
       }
     ]
   },

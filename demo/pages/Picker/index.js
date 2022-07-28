@@ -26,18 +26,20 @@ Page({
     cityList: [regionData.province, regionData.city['11']],
     region: ['', '']
   },
-  handleCancelPicker() {
+
+  handleCancelPicker(e) {
     my.showToast({
       content: '取消操作，关闭 picker',
     });
+    console.log(e);
   },
 
-  handleOk(value, column) {
-    console.log('onOk value', value, 'onOk  column', column);
+  handleOk(value, column, e) {
+    console.log('onOk value', value, 'onOk  column', column, e);
   },
 
-  handleChange(value, column) {
-    console.log('onChange value', value, 'onChange  column', column);
+  handleChange(value, column, e) {
+    console.log('onChange value', value, 'onChange  column', column, e);
   },
 
   formatTime(value, column) {
