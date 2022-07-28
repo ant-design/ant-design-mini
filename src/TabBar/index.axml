@@ -1,0 +1,104 @@
+<template name="icon">
+  <image-icon
+    className="{{className}}"
+    image="{{item.activeIcon || item.icon}}"
+    iconSize="small"
+    iconColor="{{activeColor}}"
+  />
+</template>
+
+<template name="iconArea">
+  <view>
+    <view a:if="{{activeIndex == index}}">
+      <template
+        is="icon"
+        data="{{
+          activeIndex: activeIndex,
+          activeColor: activeColor,
+          index: index,
+          item: item,
+          className: 'amd-tab-bar'
+        }}"
+      />
+    </view>
+    <view a:else>
+      <template
+        is="icon"
+        data="{{
+          activeIndex: activeIndex,
+          index: index,
+          item: item,
+          className: 'amd-tab-bar'
+        }}"
+      />
+    </view>
+  </view>
+</template>
+
+<template name="textArea">
+  <view class="amd-tab-bar-text-wrap">
+    <text
+      class="amd-tab-bar-text"
+      style="color: {{activeIndex == index ? activeColor : '#666'}}"
+    >
+      {{item.text}}
+    </text>
+  </view>
+</template>
+
+<view class="amd-tab-bar {{className ? className : ''}}">
+  <view class="amd-tab-bar-wrap">
+    <view
+      class="amd-tab-bar-item"
+      a:for="{{tabs}}"
+      onTap="onChange"
+      data-index="{{index}}"
+      a:if="{{index < maxTabCount}}"
+    >
+      <badge
+        a:if="{{item.badge}}"
+        type="{{item.badge.type}}"
+        text="{{item.badge.text}}"
+        number="{{item.badge.number}}"
+        stroke="{{item.badge.stroke}}"
+        iconType="{{item.badge.iconType}}"
+        bgColor="{{item.badge.bgColor}}"
+        position="{{item.badge.position || 'top-right'}}"
+        offsetX="{{item.badge.offsetX || '-9px'}}"
+        offsetY="{{item.badge.offsetY || '0px'}}"
+        >
+        <template
+          is="iconArea"
+          data="{{
+            activeIndex: activeIndex,
+            activeColor: activeColor,
+            index: index,
+            item: item,
+          }}"
+        />
+      </badge>
+
+      <block a:if="{{!item.badge}}">
+        <template
+          is="iconArea"
+          data="{{
+            activeIndex: activeIndex,
+            activeColor: activeColor,
+            index: index,
+            item: item,
+          }}"
+        />
+      </block>
+
+      <template
+        is="textArea"
+        data="{{
+          activeIndex: activeIndex,
+          activeColor: activeColor,
+          index: index,
+          item: item,
+        }}"
+      />
+    </view>
+  </view>
+</view>

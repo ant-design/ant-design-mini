@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "badge": "../Badge/index",
+    "image-icon": "../ImageIcon/index"
+  }
+}

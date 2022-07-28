@@ -45,8 +45,8 @@ Component({
           if (res[0] === null) throw new Error('找不到元素');
           this.topRange = res[0].reduce((pre, cur) => {
             pre.push({
-              id: cur.id,
-              key: cur.id.replace('amd-blade-view-group-', ''),
+              id: cur.id || `amd-blade-view-group-${cur.dataset.key}`,
+              key: cur.dataset.key,
               height: cur.height,
               top: cur.height + (pre && pre[`${pre.length - 1}`] && pre[`${pre.length - 1}`].top || 0),
             });
