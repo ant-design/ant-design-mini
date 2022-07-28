@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 8
-toc: false
+toc: 'content'
 ---
 # Tag 标签
 进行标记和分类的小标签
@@ -44,33 +44,3 @@ toc: false
 | amd-tag-danger | 整体样式 |
 | amd-tag-icon-container | 图标区域样式 |
 | amd-tag-content | 默认插槽内容样式 |
-
-
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4)  {
-    width: 50px
-} 
-.__dumi-default-layout-content article table:nth-of-type(4) th:nth-of-type(2)  {
-    width: 300px
-} 
-.__dumi-default-layout-content article table:nth-of-type(5) th:nth-of-type(2)  {
-    width: 300px
-} 
-</style> 

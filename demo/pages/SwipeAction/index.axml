@@ -1,14 +1,14 @@
 <view class="demo">
-  <list radius="{{true}}" header="单个滑动操作组件(删除时消失)">
+  <list header="默认左滑">
     <swipe-action
-        a:for="{{singleListDelete}}" 
+        a:for="{{rightOperateList}}" 
         a:key="id"
         data-index="{{index}}"
         autoClose="{{item.autoClose}}" 
         right="{{item.right}}" 
         speed="{{item.speed}}"
         extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
-        onRightButtonTap="onSingleRightItemClickDelete" 
+        onRightButtonTap="onRightOperateButtonClick" 
         >
         <list-item 
           arrow="right" 
@@ -19,45 +19,26 @@
         </list-item>
     </swipe-action>
   </list>  
-  <list radius="{{true}}" header="单个滑动操作组件(删除时消失)">
+  <list header="拓展">
     <swipe-action
-        a:for="{{singleList}}" 
+        a:for="{{expandOperateList}}" 
         a:key="id"
         data-index="{{index}}"
         autoClose="{{item.autoClose}}" 
         right="{{item.right}}" 
+        left="{{item.left}}"         
         speed="{{item.speed}}"
         extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
-        onRightButtonTap="onSingleRightItemClick" 
+        onRightButtonTap="onRightOperateButtonClick"
+        onLeftButtonTap="onLeftOperateButtonClick"  
         >
-        <list-item 
-          arrow="right" 
+        <list-item
           data-index="{{index}}"
           data-content="{{item.content}}"
-          onTap="onItemClick">
+          onTap="onItemClick"
+          brief="{{item.brief}}">
            {{item.content}}
         </list-item>
-    </swipe-action>
-  </list>
-  <list radius="{{true}}" header="滑动操作组件列表">
-    <swipe-action 
-      a:for="{{multiList}}" 
-      a:key="id"
-      data-index="{{index}}"
-      autoClose="{{item.autoClose}}" 
-      right="{{item.right}}" 
-      left="{{item.left}}" 
-      speed="{{item.speed}}"
-      extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
-      onRightButtonTap="onMultiRightItemClick" 
-      onLeftButtonTap="onMultiLeftItemClick">
-      <list-item 
-        arrow="right" 
-        data-index="{{index}}" 
-        data-content="{{item.content}}"
-        onTap="onItemClick">
-          {{item.content}}
-      </list-item>
     </swipe-action>
   </list>
 </view>

@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 
 # Terms 协议
@@ -25,21 +25,22 @@ toc: false
 | fixed | boolean | 否 | false | 是否固定在底部 |
 | hasCheckbox | boolean | 否 | true | 是否需要勾选框 |
 | disabled | boolean | 否 | false | 是否禁用 |
-| mainButtonText | string | 是 | '同意' | 主按钮文本 |
-| addonButtonText | string | 否 |  | 辅助按钮文本 |
+| mainButtonText | string | 是 | '提交' | 主按钮文本 |
+| addonButtonText | string | 否 |  - | 辅助按钮文本 |
 | className | string | 否 | - | 类名 |
 
 
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 点击 checkbox ，触发此回调 | ( v : boolean ) => void  |
-| onMainBtnTap | 点击主按钮，触发此回调 | () => void  |
-| onSubBtnTap | 点击辅助按钮，触发此回调 | () => void  |
+| onChange | 点击 checkbox ，触发此回调 | ( v : boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
+| onMainBtnTap | 点击主按钮，触发此回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
+| onSubBtnTap | 点击辅助按钮，触发此回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
+
 ## 插槽
 | 名称 | 说明 |
-| ----|----|
-| 默认插槽 | 带协议的文案， 比如 同意<a>《用户授权协议》</a> |
+| -----|-----|
+| default | 带协议的文案， 比如 同意<a>《用户授权协议》</a> |
 
 ## 样式类
 | 类名 | 说明 |
@@ -49,16 +50,3 @@ toc: false
 | amd-terms-term | term 区域样式 |
 | amd-terms-term-checkbox | checkbox 组件样式 |
 | amd-terms-content | 内容区域样式 |
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-}  
-</style> 

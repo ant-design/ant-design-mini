@@ -27,16 +27,17 @@ toc: false
 | activeKey | number | 否 |  ''  |  默认高亮的 key |
 | activeColor | string | 否 |  '#1677ff'  |  高亮的颜色 |
 | maxTabCount | number | 否 |  5  |  最大展示的 Tab 数量 |
+| className | string | 否 | -| 类名 |
+
 
 #### TabConfig 配置
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| type | string | 否 | 'icon' | 底部图标类型 |
 | icon | string | 否 |  ''  |  底部图标，支持 Icon 或图片地址 |
 | activeIcon | string | 否 |  ''  |  高亮状态的底部图标，支持 Icon 或图片地址 |
 | text | boolean | 否 |  false  |  是否展示徽标 |
 | imageMode | string | 否 |  'aspectFit'  |  图片类型 Tab 的适配模式，更多可参考[图片模式](https://opendocs.alipay.com/mini/component/image#mode) |
-| badge | Object | 否 |  undefined  |  徽标类型，参见 Badge 组件 |
+| badge | Object | 否 |  --  |  徽标类型，参见 Badge 组件 |
 
 ## 事件
 

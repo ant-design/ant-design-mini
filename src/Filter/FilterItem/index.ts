@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */import { FilterItemDefaultProps } from './props';
 import { context } from '../context';
+import fmtEvent from '../../_util/fmtEvent';
 
 Component({
   props: FilterItemDefaultProps,
@@ -22,7 +23,7 @@ Component({
         show,
       });
       if (show && onOpen) {
-        onOpen();
+        onOpen(fmtEvent(this.props));
       }
     };
     const getShow = () => this.data.show;
@@ -52,12 +53,13 @@ Component({
   methods: {
     onChange(v, label) {
       if (typeof this.props.onChange !== 'function') return;
+      const event = fmtEvent(this.props);
       if (this.props.type === 'multiple') {
         this.setData({
           curValue: v,
           _value: v,
         });
-        this.props.onChange(v);
+        this.props.onChange(v, event);
         return;
       }
       const key = `${this.$page.$id}-${this.props.uid}`;
@@ -66,7 +68,7 @@ Component({
       });
 
       // 单选
-      this.props.onChange(v);
+      this.props.onChange(v, event);
       this.setActive(v.length > 0);
       // 箭头动画
       this.resetArrow();
@@ -74,19 +76,21 @@ Component({
       const group = context.getGroup(key);
       if (group) {
         const placeHolderArray = group.getGroupDataVal();
-        placeHolderArray[this.$id] = label;
+        
+        placeHolderArray[this.$id] = label?.text || this.props.placeholder;
         group.setGroupDataVal({ key: 'placeHolderArray', val: placeHolderArray });
       }
     },
 
     confirmSelector() {
+      const event = fmtEvent(this.props);
       // 多选
       if (typeof this.props.onChange !== 'function') return;
       this.setData({
         prevValue: this.data.curValue,
         show: false,
       });
-      this.props.onChange(this.data.curValue);
+      this.props.onChange(this.data.curValue, event);
       this.setActive(this.data.curValue.length > 0);
       // 箭头动画
       this.resetArrow();

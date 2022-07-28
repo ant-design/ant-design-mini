@@ -1,0 +1,15 @@
+@import '../variable.less';
+
+.@{skeletonPrefix}-avatar {
+  &-animate {
+    .skeleton-animation();
+  }
+  width: @avatar-size;
+  height: @avatar-size;
+  border-radius: @default-radius;
+  background: @skeleton-fill;
+  display: inline-block;
+  &-circle {
+    border-radius: 50%;
+  }
+}

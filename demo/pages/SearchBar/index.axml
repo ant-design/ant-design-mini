@@ -2,6 +2,7 @@
   <demo-block title="基础用法" background="#f5f5f5" padding="0">
     <search-bar 
       placeholder="请输入内容" 
+      data-value="value"
       value="{{basicValue}}" 
       onInput="handleBasicInput" 
       onClear="handleBasicClear"/>

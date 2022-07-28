@@ -1,0 +1,71 @@
+<view class="demo-footer">
+  <demo-block title="基础样式">
+    <footer>
+      我是有底线的
+    </footer>
+  </demo-block>
+  
+  <demo-block title="文字页脚">
+    <footer>
+      <footer-end>没有更多了</footer-end>
+    </footer>
+  </demo-block>
+  <demo-block title="">
+    <footer>
+      © 2004-2022 Alipay.com. All rights reserved.
+    </footer>
+  </demo-block>
+  
+  <demo-block title="品牌页脚">
+    <footer>
+      <footer-image src="{{url}}" />
+    </footer>
+  </demo-block>
+
+  <demo-block title="">
+    <footer>
+      <footer-end>
+        <footer-image src="{{url}}" />
+      </footer-end>
+      <view class="demo-footer-text">过往业绩不预示产品未来表现，市场有风险，投资需谨慎</view>
+    </footer>
+  </demo-block>
+
+  <demo-block title="标签页脚">
+    <footer>
+      <view>没找到需要的？搜一下试试</view>
+      <footer-tag class="demo-footer-tag" tags="{{['蚂蚁借呗', '备用金', '花呗收钱']}}"/>
+    </footer>
+  </demo-block>
+  
+  <demo-block title="">
+    <footer>
+      <view>没找到需要的？搜一下试试</view>
+      <footer-tag 
+        class="demo-footer-tag"
+        tags="{{['蚂蚁借呗', '备用金', '花呗收钱']}}"
+        onTap="linkTap" 
+      />
+    </footer>
+  </demo-block>
+
+  <demo-block title="链接页脚">
+    <footer>
+      <footer-link 
+        links="{{['底部链接']}}"
+        onTap="linkTap" 
+      />
+      <view class="demo-footer-text">© 2004-2022 Alipay.com. All rights reserved.</view>
+    </footer>
+  </demo-block>
+
+  <demo-block title="">
+    <footer>
+      <footer-link 
+        links="{{['底部链接1', '底部链接2']}}"
+        onTap="linkTap" 
+      />
+      <view class="demo-footer-text">© 2004-2022 Alipay.com. All rights reserved.</view>
+    </footer>
+  </demo-block>
+</view>

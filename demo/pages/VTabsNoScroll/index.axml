@@ -1,0 +1,35 @@
+<vtabs 
+  index="{{index}}"
+  onChange="onChange">
+  <view slot="title" slot-scope="prop">
+    {{prop.tab.title}}
+  </view>
+
+  <vtab-content 
+    className="vtabItem"
+    tab="{{{title: '内容 1'}}}">
+    <view a:if="{{getVtabIndex === 0}}">
+      <view class="demo-vtabs-content">内容 1_1 可滚动</view>
+      <view class="demo-vtabs-content">内容 1_2 可滚动</view>
+      <view class="demo-vtabs-content">内容 1_3 可滚动</view>
+      <view class="demo-vtabs-content">内容 1_4 可滚动</view>
+      <view class="demo-vtabs-content">内容 1_5 可滚动</view>
+    </view>
+  </vtab-content>
+
+  <vtab-content 
+    className="vtabItem"
+    tab="{{{title: '内容2'}}}">
+    <view a:if="{{getVtabIndex === 1}}" class="demo-vtabs-content">content of 内容 2</view>
+  </vtab-content>
+  <vtab-content 
+    className="vtabItem"
+    tab="{{{title: '内容3',disabled: true}}}">
+    <view a:if="{{getVtabIndex === 2}}" class="demo-vtabs-content">content of 内容 3</view>
+  </vtab-content>
+  <vtab-content 
+    className="vtabItem"
+    tab="{{{title: '内容4'}}}">
+    <view a:if="{{getVtabIndex === 3}}" class="demo-vtabs-content">content of 内容 4</view>
+  </vtab-content>
+</vtabs>
