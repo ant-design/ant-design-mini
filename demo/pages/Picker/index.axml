@@ -46,16 +46,3 @@
   </picker>
 </list-item>
 </demo-block>
-
-<demo-block title="级联选择" padding="0">
-  <list-item>
-    请选择省市
-    <cascader 
-      slot="extra"
-      placeholder="请选择归属地" 
-      options="{{cityList}}" 
-      onPickerChange="handleCityPickerChange" 
-      onOk="handleCityOnOk"
-    />
-  </list-item>
-</demo-block>

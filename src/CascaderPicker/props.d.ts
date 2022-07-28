@@ -19,11 +19,6 @@ export interface ICascaderProps extends IBaseFormItemPropsWithOutFocus {
    */
   options: ICascaderOption[];
   /**
-   * @description options是否固定，若options无动态变化需求置为true，跳过比对以提升性能
-   * @default false
-   */
-  isConstantOption: boolean;
-  /**
    * @description 提示文案
    * @default '请选择'
    */
@@ -42,6 +37,14 @@ export interface ICascaderProps extends IBaseFormItemPropsWithOutFocus {
    * @default "确定"
    */
   okText?: string;
+  /**
+   * @description 点击确认前回调
+   */
+  onBeforeOk?: (
+    value: any[],
+    selectedOptions: ICascaderOption[],
+    e: Record<string, any>
+  ) => boolean;
   /**
    * @description 点击确认回调
    */

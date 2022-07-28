@@ -1,4 +1,3 @@
-import cityList from './city';
 Page({
   data: {
     value: '上海',
@@ -23,7 +22,6 @@ Page({
         { label: '下午', value: 'pm' },
       ],
     ],
-    cityList,
   },
 
   handleCancelPicker(e) {
@@ -45,22 +43,8 @@ Page({
     return column.map((c) => c && c.label).join('');
   },
 
-  handlePickerChange(value, wholeValue) {
-    console.log('change', value, wholeValue);
-    this.setData({
-      cityList: [regionData.province, regionData.city[value[0]]],
-    });
-  },
 
   handleOnOk(value, column) {
     console.log('value', value, 'column', column);
-  },
-
-  handleCityPickerChange(value, selectedOption, e) {
-    console.log('cityChange', value, selectedOption, e);
-  },
-
-  handleCityOnOk(value, selectedOption, e) {
-    console.log('cityOk', value, selectedOption, e);
   },
 });

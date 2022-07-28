@@ -14,11 +14,11 @@ Component({
     this.setData({ columns, cValue: value });
   },
   didUpdate(prevProps) {
-    const { value, isConstantOption, options } = this.props;
+    const { value, options } = this.props;
     const { columns, currentValue } = this.data;
     // onTriggerPicker展开时会自动重置数据，此处只有展开状态下才需要重置columns和currentValue，否则只需设置cValue
     if (this._visible) {
-      if (!isConstantOption && !equal(options, prevProps.options)) {
+      if (options !== prevProps.options) {
         const newData: any = {};
         if (!equal(value, prevProps.value)) {
           const newColumns = this.getterColumns(value);
@@ -87,6 +87,9 @@ Component({
       const result = [];
       let item = options.find((v) => v.value === value[0]);
       for (let i = 0; i < value.length; i++) {
+        if (!item) {
+          return null;
+        }
         result.push({
           value: item.value,
           label: item.label,
@@ -115,11 +118,21 @@ Component({
         );
       }
     },
-    onOk() {
+    async onOk() {
       const { currentValue, columns } = this.data;
-      const { onOk } = this.props;
+      const { onOk, onBeforeOk } = this.props;
       // 完成时再次校验value，避免visible状态下props无效
       const validValue = this.getValidValue(currentValue, columns);
+      if (onBeforeOk) {
+        const isContinue = await onBeforeOk(
+          validValue,
+          this.getOptionByValue(validValue),
+          fmtEvent(this.props)
+        );
+        if (!isContinue) {
+          return;
+        }
+      }
       this.setData({ cValue: validValue });
       if (onOk) {
         onOk(
