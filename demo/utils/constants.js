@@ -18,6 +18,11 @@ export const componentList = [
     type: '导航',
     list: [
       {
+        name: 'TabBar',
+        nameZN: 'TabBar底部标签栏',
+        path: '/pages/TabBar/index',
+      },
+      {
         name: 'Tabs',
         nameZN: '标签页',
         path: '/pages/Tabs/index',
