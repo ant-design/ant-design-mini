@@ -9,6 +9,7 @@ export interface IComponentProps {
   validateFirst?: boolean;
   dependencies?: string[];
   help?: string;
+  triggerValidateOnChange: boolean;
 }
 
 export interface IComponentData {

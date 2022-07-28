@@ -37,6 +37,7 @@ Record<string, unknown>,
         this.onBindChangeFormFieldValue = this.onChangeFormFieldValue.bind(this);
         this.store.onValuesChange(this.onBindChangeFormFieldValue);
         this.fieldName = fieldName;
+        this.fieldInfo = fieldInfo;
         // 只有FormItem的孩子受影响， FormItem的后代不需要订阅相关信息
         clearFieldInfo()
       }
@@ -48,7 +49,9 @@ Record<string, unknown>,
           this.store.setFieldsValue({
             [this.fieldName]: v,
           });
-          this.store.validate([this.fieldName]);
+          if (this.fieldInfo?.triggerValidateOnChange) {
+            this.store.validate([this.fieldName]);
+          }
           if (this._onChange) {
             this._onChange(v, ...args);
           }

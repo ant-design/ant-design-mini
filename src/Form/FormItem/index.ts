@@ -21,6 +21,7 @@ Component<
     label: '',
     dependencies: [],
     validateFirst: false,
+    triggerValidateOnChange: true,
   },
 
   data: {
@@ -47,8 +48,9 @@ Component<
     this.store.addField(fieldName);
     cacheFieldInfo(
       function (this: any) {
-        const { name: fieldName, form, dependencies } = this.props;
+        const { name: fieldName, form, dependencies, triggerValidateOnChange } = this.props;
         return {
+          triggerValidateOnChange,
           fieldName,
           form,
           dependencies,
@@ -140,9 +142,11 @@ Component<
     updateErrorInfo(payload) {
       this.setData({ errorInfo: payload });
     },
+  
     onToggleHelpVisible() {
       this.setData({ helpVisible: !this.data.helpVisible });
     },
+  
     onHelpVisibleChange(visible, type) {
       if (type === 'mask') {
         this.setData({ helpVisible: visible });
