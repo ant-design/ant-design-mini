@@ -10,11 +10,13 @@ Page({
     focusWithCancelValue: '',
     focusWithCancelFocus: false,
   },
-  handleBasicInput(value) {
+  handleBasicInput(value, e) {
     this.setData({ basicValue: value });
+    console.log(value, e);
   },
-  handleBasicClear() {
+  handleBasicClear(value, e) {
     this.setData({ basicValue: '' });
+    console.log(value, e);
   },
   handleWithCancelInput(value) {
     this.setData({ withCancelValue: value });

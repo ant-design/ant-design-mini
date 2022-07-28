@@ -1,0 +1,12 @@
+{
+  "defaultTitle": "Footer",
+  "usingComponents": {
+    "footer": "../../../src/Footer/index",
+    "footer-end": "../../../src/Footer/FooterEnd/index",
+    "footer-image": "../../../src/Footer/FooterImage/index",
+    "footer-link": "../../../src/Footer/FooterLink/index",
+    "footer-tag": "../../../src/Footer/FooterTag/index",
+    "footer-text": "../../../src/Footer/FooterText/index",
+    "demo-block": "../../components/DemoBlock/index"
+  }
+}

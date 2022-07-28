@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 # Picker 选择器
 Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比较于原生picker实现了ios跟android端体验一致
@@ -30,7 +30,7 @@ type PickerColumnItem = string | number | {
 | -----|-----|-----|-----|-----|
 | value | PickerColumnItem  &#124;  (PickerColumnItem)[] | 否|选中数据 | - |
 | data |  PickerColumnItem数组 | 是 |picker 数据，配置每一列的选项 | [] |
-| placeholder |string |否| 提示文案  |- |
+| placeholder |string |否| 提示文案  | '请选择' |
 | disabled | boolean |否| 是否禁用 | false |
 | title |  string | 否  | 弹出框标题 | - |
 | okText |string | 否| 确认按钮文案 | '确定' |
@@ -44,9 +44,9 @@ type PickerColumnItem = string | number | {
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onOk | 点击确定按钮，触发回调 | (value: PickerColumnItem,  column: PickerColumnItem ) => void |
-| onDismiss | 点击取消按钮，触发回调 | () => void |
-| onChange | 选中项发生变化，触发回调 | (value: PickerColumnItem, column: PickerColumnItem) => void |
+| onOk | 点击确定按钮，触发回调 | (value: PickerColumnItem,  column: PickerColumnItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onDismiss | 点击取消按钮，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onChange | 选中项发生变化，触发回调 | (value: PickerColumnItem, column: PickerColumnItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式 | (value: PickerColumnItem, column: PickerColumnItem) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible:boolean) => void |
 

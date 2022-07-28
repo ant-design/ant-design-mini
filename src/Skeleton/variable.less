@@ -1,0 +1,35 @@
+@import (reference) '../_base/index.less';
+
+@skeletonPrefix: amd-skeleton;
+
+@skeleton-fill: rgba(0, 0, 0, 0.06);
+
+@avatar-size: 88 * @rpx;
+
+@default-radius: 8 * @rpx;
+
+@button-width: 120 * @rpx;
+@button-height: 48 * @rpx;
+
+@input-width: 400 * @rpx;
+@input-height: 40 * @rpx;
+
+.skeleton-animation() {
+  background: linear-gradient(
+    90deg,
+    rgba(190, 190, 190, 0.2) 25%,
+    rgba(129, 129, 129, 0.24) 37%,
+    rgba(190, 190, 190, 0.2) 63%
+  );
+  background-size: 400% 100%;
+  animation: amd-skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes amd-skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

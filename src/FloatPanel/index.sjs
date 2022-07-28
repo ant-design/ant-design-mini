@@ -199,7 +199,7 @@ function onScrollViewScrollStart(e) {
   const { id } = dataset
   if (!getScrollViewMoveable(id)) return;
 
-  store[`scrollViewScrollStarted_${id}`] = false
+  store[`scrollViewScrollStarted_${id}`] = true
   store[`scrollViewScrollIng_${id}`] = true
   e.instance.callMethod('console', 'scrollstart');
 }
@@ -218,7 +218,7 @@ function onScrollViewScroll(e) {
 
   if (scrollTop > 10) {
     store[`scrollViewScrollIng_${id}`] = true;
-    store[`scrollViewScrollToTop_${id}`] = true;
+    store[`scrollViewScrollToTop_${id}`] = false;
   }
   e.instance.callMethod('console', 'scrolling');
 }
@@ -227,6 +227,7 @@ function onScrollViewScrollEnd(e) {
   const dataset = e.instance.getDataset();
   const { id } = dataset
   if (!getScrollViewMoveable(id)) return;
+  e.instance.callMethod('console', store[`scrollViewScrollToTop_${id}`]);
   if (!store[`scrollViewScrollToTop_${id}`]) {
     e.stopPropagation();
   }

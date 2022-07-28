@@ -5,7 +5,7 @@
   </block>
  
 </template>
-<view class="amd-checkbox {{disabled?'amd-checkbox-disabled':''}} {{cValue?'amd-checkbox-checked':''}} {{className ? className : ''}} ">
+<label class="amd-checkbox {{disabled?'amd-checkbox-disabled':''}} {{cValue?'amd-checkbox-checked':''}} {{className ? className : ''}} ">
   <checkbox
     class="amd-checkbox-base"
     controlled="{{controlled}}"
@@ -16,19 +16,22 @@
     checked="{{cValue}}"
     value="{{value}}"
   />
-    <view 
-      style="{{!disabled&&cValue&&color?'color:'+color + '; border-color:' + color:''}}"
-      class="amd-checkbox-fake 
-      {{disabled 
-          ? cValue
-            ? 'amd-checkbox-fake-disabled-checked' + (disabledCheckedIcon? ' amd-checkbox-fake-custom' : '')
-            : 'amd-checkbox-fake-disabled-not-checked' + (disabledIcon? ' amd-checkbox-fake-custom' : '')
-          : cValue
-            ? 'amd-checkbox-fake-not-disabled-checked' + (checkedIcon? ' amd-checkbox-fake-custom' : '')
-            : 'amd-checkbox-fake-not-disabled-not-checked' + (icon? ' amd-checkbox-fake-custom' : '')}}">
-        <template is="icon"  a:if="{{!cValue && !disabled}}" data="{{url:icon}}"/>
-        <template is="icon"  a:if="{{!cValue && disabled}}" data="{{url:disabledIcon}}"/>
-        <template is="icon"  a:if="{{cValue && !disabled}}" data="{{url:checkedIcon||'CheckCircleFill'}}"/>
-        <template is="icon"  a:if="{{cValue && disabled}}" data="{{url:disabledCheckedIcon||'CheckOutline'}}"/>
-    </view>
-</view>       
+  <view 
+    style="{{!disabled&&cValue&&color?'color:'+color + '; border-color:' + color:''}}"
+    class="amd-checkbox-fake 
+    {{disabled 
+        ? cValue
+          ? 'amd-checkbox-fake-disabled-checked' + (disabledCheckedIcon? ' amd-checkbox-fake-custom' : '')
+          : 'amd-checkbox-fake-disabled-not-checked' + (disabledIcon? ' amd-checkbox-fake-custom' : '')
+        : cValue
+          ? 'amd-checkbox-fake-not-disabled-checked' + (checkedIcon? ' amd-checkbox-fake-custom' : '')
+          : 'amd-checkbox-fake-not-disabled-not-checked' + (icon? ' amd-checkbox-fake-custom' : '')}}">
+      <template is="icon"  a:if="{{!cValue && !disabled}}" data="{{url:icon}}"/>
+      <template is="icon"  a:if="{{!cValue && disabled}}" data="{{url:disabledIcon}}"/>
+      <template is="icon"  a:if="{{cValue && !disabled}}" data="{{url:checkedIcon||'CheckCircleFill'}}"/>
+      <template is="icon"  a:if="{{cValue && disabled}}" data="{{url:disabledCheckedIcon||'CheckOutline'}}"/>
+  </view>
+  <view class="amd-checkbox-content">
+    <slot />
+  </view>
+</label>       

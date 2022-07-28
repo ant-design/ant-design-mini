@@ -2,6 +2,7 @@
   <checklist 
     value="{{1}}"
     options="{{options_1}}"
+    data-options="{{options_1}}"
     onChange="onChange"
   />
 </demo-block>
