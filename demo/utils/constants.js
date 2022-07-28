@@ -43,6 +43,11 @@ export const componentList = [
         path: '/pages/Avatar/index',
       },
       {
+        name: 'BladeView',
+        nameZN: '索引',
+        path: '/pages/BladeView/index',
+      },
+      {
         name: 'Collapse',
         nameZN: '折叠面板',
         path: '/pages/Collapse/index',
