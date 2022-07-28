@@ -9,6 +9,6 @@
     "enableNodeModuleBabelTransform": true
   },
   "uploadExclude": ["dist/**/*"],
-  "enableAppxNg": false,
+  "enableAppxNg": true,
   "miniprogramRoot": "demo"
 }
