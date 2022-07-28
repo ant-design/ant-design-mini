@@ -3,12 +3,6 @@ import { IBadgeProps } from '../Badge/props.d';
 
 export interface ITabsConfig {
   /**
-   * @description 底部图标的类型，
-   * @default 'icon'
-   */
-  type?: 'icon' | 'image';
-
-  /**
    * @description 底部图标，支持 Icon 或图片
    * @default ''
    */
