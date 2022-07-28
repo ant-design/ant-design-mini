@@ -47,19 +47,15 @@
 </list-item>
 </demo-block>
 
-<demo-block title="城市级联" padding="0">
+<demo-block title="级联选择" padding="0">
   <list-item>
     请选择省市
-    <picker 
+    <cascader 
       slot="extra"
       placeholder="请选择归属地" 
-      data="{{cityList}}" 
-      onChange="handleCityPickerChange" 
+      options="{{cityList}}" 
+      onPickerChange="handleCityPickerChange" 
       onOk="handleCityOnOk"
-      onFormat="handleCityFormat"
-      onDismiss="handleDismiss"
-      value="{{region}}"
-
     />
   </list-item>
 </demo-block>

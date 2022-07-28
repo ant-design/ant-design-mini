@@ -1,4 +1,4 @@
-import regionData from './city'
+import cityList from './city';
 Page({
   data: {
     value: '上海',
@@ -23,8 +23,7 @@ Page({
         { label: '下午', value: 'pm' },
       ],
     ],
-    cityList: [regionData.province, regionData.city['11']],
-    region: ['', '']
+    cityList,
   },
 
   handleCancelPicker(e) {
@@ -43,61 +42,25 @@ Page({
   },
 
   formatTime(value, column) {
-    return column.map(c => c && c.label).join('')
+    return column.map((c) => c && c.label).join('');
   },
 
-  handlePickerChange(value, wholeValue ) {
-    console.log('change', value, wholeValue )
+  handlePickerChange(value, wholeValue) {
+    console.log('change', value, wholeValue);
     this.setData({
       cityList: [regionData.province, regionData.city[value[0]]],
     });
   },
 
   handleOnOk(value, column) {
-    console.log('value', value, 'column', column)
+    console.log('value', value, 'column', column);
   },
 
-  handleCityPickerChange(value, wholeValue ) {
-    this.setData({
-      'cityList[1]': regionData.city[value[0]],
-    })
+  handleCityPickerChange(value, selectedOption, e) {
+    console.log('cityChange', value, selectedOption, e);
   },
 
-  handleCityOnOk(value, column) {
-    this.setData({
-      region: value
-    })
-    console.log('value', value, 'column', column)
+  handleCityOnOk(value, selectedOption, e) {
+    console.log('cityOk', value, selectedOption, e);
   },
-
-  handleDismiss() {
-    if (this.data.region[0]) {
-      this.setData({
-        'cityList[1]': regionData.city[this.data.region[0]],
-      });
-    } else {
-      this.setData({
-        cityList: [regionData.province, regionData.city['11']]
-      });
-    }
- 
-  },
-
-
-
-  handleCityFormat(value) {
-    let provinceName = ''
-    let cityName = ''
-    if (value[0]) {
-      provinceName = regionData.province.filter(p => p.value === value[0])[0].label
-    }
-    if (value[1]) {
-      cityName = regionData.city[value[0]].filter(c => c.value === value[1])[0].label
-    }
-    if (provinceName && cityName) {
-      return `${provinceName}-${cityName}`
-    }
-    return ''
-  }
-
 });

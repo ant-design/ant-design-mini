@@ -2,6 +2,7 @@
   "defaultTitle": "Picker",
   "usingComponents": {
     "picker": "../../../src/Picker/index",
+    "cascader": "../../../src/Cascader/index",
     "list": "../../../src/List/index",
     "list-item": "../../../src/List/ListItem/index",
     "demo-block": "../../components/DemoBlock/index"
