@@ -15,6 +15,9 @@ toc: false
 
 用于列表的分类显示和快速定位
 
+## 注意事项
+需基础库版本大于 2.7.4 [设置最低基础版本库](https://opendocs.alipay.com/mini/framework/lib)
+
 ## 代码示例
 
 ### 基本使用
