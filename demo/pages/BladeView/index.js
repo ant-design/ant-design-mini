@@ -17,7 +17,8 @@ Page({
     groups,
     selectValue: undefined,
   },
-  onSelectItem(item) {
+  onChange(item, group) {
+    console.log(item, group)
     this.setData({ selectValue: item.value });
   },
 });

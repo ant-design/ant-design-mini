@@ -33,7 +33,7 @@
           onTap="onTapItem"
         >
           <view class="amd-blade-view-body-group-item-text {{ index ? 'notFirstBorder': '' }} {{selectValue===item.value ? 'selected' : ''}}">
-            <slot>{{item.label}}</slot>
+            <slot item="{{item}}">{{item.label}}</slot>
           </view>
         </view>
       </view>
