@@ -48,9 +48,9 @@ type SelectorItem = {
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 选中值发生变化，触发回调 | (v: string &#124; string[], selectedItem: SelectItem &#124; SelectItem[] ) => void |
-| onSelectMax | 触发最大限制 | (v: string, item: SelectItem ) => void |
-| onSelectMin | 触发最小限制 | (v: string, item: SelectItem ) => void |
+| onChange | 选中值发生变化，触发回调 | (v: string &#124; string[], selectedItem: SelectItem &#124; SelectItem[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onSelectMax | 触发最大限制 | (v: string, item: SelectItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onSelectMin | 触发最小限制 | (v: string, item: SelectItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object) ) => void |
 
 ## 样式类
 | 类名 | 说明 |

@@ -1,0 +1,58 @@
+<view class="wrapper">
+  <list header="控制进度" radius="{{true}}" class="list1">
+    <view class="line2">
+      <progress-bar progress="{{progress1}}" />
+    </view>
+    <view class="buttonwrapper">
+      <view class="button1" onTap="handleDelete">减少</view>
+      <view class="button2" onTap="handleAdd">增加</view>
+    </view>
+  </list>
+
+  <list header="语义进度条" radius="{{true}}" class="list5">
+    <view class="line2">
+      <progress-bar type="success" progress="100" showDefaultIndicator="{{false}}" />
+      <progress-bar type="fail" progress="50" showDefaultIndicator="{{false}}" />
+    </view>
+  </list>
+
+  <list header="自定义进度条高度" radius="{{true}}" class="list2">
+    <view class="line2">
+      <progress-bar progress="{{progress2}}" height="30rpx" />
+    </view>
+  </list>
+
+  <list header="自定义颜色样式" radius="{{true}}" class="list4">
+    <view class="line2">
+      <progress-bar progress="{{progress4}}" orbitColor="#FFCF9F" />
+      <progress-bar progress="{{progress4}}" progressColor="#FFCF9F" />
+      <progress-bar progress="{{progress4}}" />
+    </view>
+  </list>
+
+  <list header="自定义长度" radius="{{true}}" class="list6">
+    <view class="line2">
+      <progress-bar progress="{{progress4}}" width="100%" />
+      <progress-bar progress="{{progress4}}" width="70%" />
+      <progress-bar progress="{{progress4}}" width="50%" />
+    </view>
+  </list>
+
+  <list header="自定义进度条指示器" radius="{{true}}" class="list3">
+    <view class="line2">
+      <progress-bar progress="{{progress3}}" showDefaultIndicator="{{false}}">
+        <text slot="rightIndicator" class="indicator1">
+          {{ progress3 / 100 * 200 }}步
+        </text>
+      </progress-bar>
+    </view>
+
+    <view class="line3">
+      <progress-bar progress="{{progress3}}" showDefaultIndicator="{{false}}" height="36rpx">
+        <text slot="innerIndicator" class="indicator2">
+          {{ progress3 }}%
+        </text>
+      </progress-bar>
+    </view>
+  </list>
+</view>

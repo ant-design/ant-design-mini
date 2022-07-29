@@ -54,7 +54,7 @@ toc: 'content'
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 勾选状态变化时，触发此函数 |(value) => {}|
+| onChange | 勾选状态变化时，触发此函数 |(value: string[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void|
 
 ## 插槽
 #### CheckboxGroup

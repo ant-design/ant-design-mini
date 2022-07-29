@@ -1,6 +1,6 @@
 Page({
   data: {
-    value: ['3', '5'],
+    value: '',
     items: [
       {
         text: '选项一',
@@ -30,7 +30,8 @@ Page({
       };
     }),
   },
-  changeSelect(v) {
+  changeSelect(v, e) {
+    console.log(e);
     if (v.length > 0) {
       my.alert({
         content: `当前选择了 ${v}`,
