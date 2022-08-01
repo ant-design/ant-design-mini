@@ -42,12 +42,22 @@
       </demo-block>
       <demo-block title="带有徽标" padding="0">
         <tabs uid="{{'tab6'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab6" index="{{tab6Index}}">
-          <tab-content uid="{{'tab6'+idx}}" tab="{{title:'水果',badge:''}}">
-            <view class="content">西瓜</view></tab-content>
-          <tab-content uid="{{'tab6'+idx}}" tab="{{title:'蔬菜',badge:2}}">
-            <view class="content">西红柿</view></tab-content>
-          <tab-content uid="{{'tab6'+idx}}" tab="{{title:'动物',badge:'气泡'}}">
-            <view class="content">蚂蚁</view></tab-content>
+          <block a:if="{{tabTypeItem.type === 'capsule'}}">
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'水果', subTitle:'描述文案', badge: {type: 'dot', x: '-100%'}}}">
+              <view class="content">西瓜</view></tab-content>
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'蔬菜', subTitle:'描述文案', badge: {type: 'number', text: 11, x: '-100%'}}}">
+              <view class="content">西红柿</view></tab-content>
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'动物', subTitle:'描述文案', badge: {type: 'bubble', text: '气泡', x: '-100%'}}}">
+              <view class="content">蚂蚁</view></tab-content>
+          </block>
+          <block a:else>
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'水果', subTitle:'描述文案', badge: {type: 'dot'}}}">
+              <view class="content">西瓜</view></tab-content>
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'蔬菜', subTitle:'描述文案', badge: {type: 'number', text: 11}}}">
+              <view class="content">西红柿</view></tab-content>
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'动物', subTitle:'描述文案', badge: {type: 'bubble', text: '气泡'}}}">
+              <view class="content">蚂蚁</view></tab-content>
+          </block>
         </tabs>
       </demo-block>
       <demo-block title="超长滚动" padding="0">

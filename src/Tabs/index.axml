@@ -30,9 +30,21 @@
             id="amd-tabs-bar-item-{{index}}"
             onTap="onChange"
             data-index="{{index}}">
-            <template is="badge" a:if="{{item.badge!==undefined}}" data="{{text:item.badge,type:type}}"/>
-            <!-- 添加作用域插槽 -->
-            <slot name="title" tab="{{item}}">
+            <badge 
+            a:if="{{item.badge!==undefined}}" 
+            type="{{item.badge.type || 'dot'}}" 
+            text="{{item.badge.text || ''}}" 
+            offsetX="{{item.badge.x || '-50%'}}"
+            offsetY="{{item.badge.y || '-50%'}}"
+            >
+              <!-- 添加作用域插槽 -->
+              <slot name="title" tab="{{item}}">
+                <view class="amd-tabs-bar-basis-title">
+                  {{item.title}}
+                </view>
+              </slot>
+            </badge>
+            <slot a:else name="title" tab="{{item}}">
               <view class="amd-tabs-bar-basis-title">
                 {{item.title}}
               </view>
@@ -45,8 +57,18 @@
             id="amd-tabs-bar-item-{{index}}"
             onTap="onChange"
             data-index="{{index}}">
-            <template is="badge" a:if="{{item.badge!==undefined}}" data="{{text:item.badge,type:type}}"/>
+            <badge
+            a:if="{{item.badge!==undefined}}" 
+            type="{{item.badge.type || 'dot'}}" 
+            text="{{item.badge.text || ''}}" 
+            offsetX="{{item.badge.x || '-50%'}}"
+            offsetY="{{item.badge.y || '-50%'}}"
+            >
             <view class="amd-tabs-bar-capsule-title">
+              {{item.title}}
+            </view>
+            </badge>
+            <view a:else class="amd-tabs-bar-capsule-title">
               {{item.title}}
             </view>
           </view>
@@ -58,8 +80,20 @@
             id="amd-tabs-bar-item-{{index}}"
             onTap="onChange"
             data-index="{{index}}">
-            <view class="amd-tabs-bar-mixin-title">{{item.title}} <template is="badge" a:if="{{item.badge!==undefined}}" data="{{text:item.badge,type:type}}"/></view>
+            <badge
+            a:if="{{item.badge!==undefined}}" 
+            type="{{item.badge.type || 'dot'}}" 
+            text="{{item.badge.text || ''}}" 
+            offsetX="{{item.badge.x || '-50%'}}"
+            offsetY="{{item.badge.y || '-50%'}}"
+            >
+            <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>
             <view class="amd-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
+            </badge>
+            <view a:else>
+              <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>
+              <view class="amd-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
+            </view>
           </view>
         </view>
 
