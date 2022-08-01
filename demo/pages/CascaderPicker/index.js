@@ -2,7 +2,7 @@ import cityList from './city';
 Page({
   data: {
     cityList,
-    controlledValue: ["34", "330"],
+    value: ["34", "330"],
   },
 
   handleCityPickerChange(value, selectedOption, e) {
@@ -12,11 +12,11 @@ Page({
   handleCityOnOk(value, selectedOption, e) {
     console.log('cityOk', value, selectedOption, e);
   },
-  handleControlledCityOnOk(value, selectedOption, e) {
-    this.setData({ controlledValue: value });
+  handleOk(value, selectedOption, e) {
+    this.setData({ value: value });
     console.log("cityOk", value, selectedOption, e);
   },
-  hanldeChangeControlledValue() {
-    this.setData({ controlledValue: ["31", "310"] });
+  changeValue() {
+    this.setData({ value: ["31", "310"] });
   },
 });
