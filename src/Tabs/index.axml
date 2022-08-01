@@ -32,7 +32,10 @@
             data-index="{{index}}">
             <template is="badge" a:if="{{item.badge!==undefined}}" data="{{text:item.badge,type:type}}"/>
             <!-- 添加作用域插槽 -->
-            <slot name="title" tab="{{item}}">{{item.title}}
+            <slot name="title" tab="{{item}}">
+              <view class="amd-tabs-bar-basis-title">
+                {{item.title}}
+              </view>
             </slot>
           </view>
           <!-- capsule 胶囊类型 -->

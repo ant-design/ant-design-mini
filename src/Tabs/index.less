@@ -47,8 +47,8 @@
     }
     &-plus {
       display: flex;
-      width: 88 * @rpx;
-      height: 88 * @rpx;
+      width: 72 * @rpx;
+      height: 72 * @rpx;
       align-self: center;
       align-items: center;
       justify-content: center;
@@ -117,11 +117,22 @@
       align-items: center;
       padding: @v-spacing-standard @h-spacing-large;
       box-sizing: border-box;
+
+      &-badge {
+        transform: translateX(100%);
+        top: 9 * @rpx;
+        right: 20 * @rpx;
+      }
+    }
+
+    &-basis&-active &-basis-title{
+      color: @tabs-active-color;
+      position: relative;
       &:after {
         content: '';
         position: absolute;
         left: 50%;
-        bottom: 0;
+        bottom: -@v-spacing-standard;
         width: 100%;
         height: 4 * @rpx;
         overflow: hidden;
@@ -129,19 +140,10 @@
         border-radius: @corner-radius-circle;
         box-sizing: border-box;
         transform: translate3d(-50%, 0, 0);
-      }
-      &-badge {
-        transform: translateX(100%);
-        top: 9 * @rpx;
-        right: 20 * @rpx;
-      }
-    }
-    &-basis&-active {
-      color: @tabs-active-color;
-      &:after {
         background-color: @tabs-active-decorate-color;
       }
     }
+    
     // 胶囊类型选项卡样式
     &-capsule {
       padding: @v-spacing-large 0;
