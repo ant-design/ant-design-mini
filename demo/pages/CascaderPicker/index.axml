@@ -25,7 +25,7 @@
         />
     </list-item>
 </demo-block>
-<demo-block title="受控value" padding="0">
+<demo-block title="外部控制value" padding="0">
     <list-item>
         请选择城市
         <cascader-picker 

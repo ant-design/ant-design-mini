@@ -7,10 +7,17 @@ Component({
   mixins: [formMixin({ trigger: 'onOk' })],
   _visible: false,
   props: CascaderDefaultProps,
+  data() {
+    return {
+      currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
+      columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
+      cValue: null,
+    };
+  },
   didMount() {
     const { value } = this.props;
     const columns = this.getterColumns(value);
-    // 首次无需校验value有效性，onOk时会教研
+    // 首次无需校验value有效性，onOk时会校验
     this.setData({ columns, cValue: value });
   },
   didUpdate(prevProps) {
@@ -46,13 +53,7 @@ Component({
       }
     }
   },
-  data() {
-    return {
-      currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
-      columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
-      cValue: null,
-    };
-  },
+
   methods: {
     getterColumns(value) {
       const getColumns = (options, value, columns = []) => {
@@ -68,7 +69,7 @@ Component({
       const { options } = this.props;
       return getColumns(options, value);
     },
-    // 获取有效value，若聪x项开始在columns里找不到，则从此项开始都选第一条
+    // 获取有效value，若从x项开始在columns里找不到，则从此项开始都选第一条
     getValidValue(value, columns) {
       const result = [];
       for (let i = 0; i < columns.length; i++) {

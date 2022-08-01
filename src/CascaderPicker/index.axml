@@ -1,6 +1,6 @@
 <picker 
-    className="amd-cascader {{className||''}}"
-    popClassName="amd-cascader-popup"
+    className="amd-cascader-picker {{className||''}}"
+    popClassName="amd-cascader-picker-popup"
     data="{{columns}}"
     value="{{currentValue}}"
     disabled="{{disabled}}"
