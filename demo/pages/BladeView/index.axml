@@ -2,7 +2,7 @@
   <blade-view
     data="{{groups}}"
     scrollToKey="S"
-    selectValue="{{selectValue}}"
+    value="{{value}}"
     onChange="onChange"
     sticky={{false}}
   ></blade-view>

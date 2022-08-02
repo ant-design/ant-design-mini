@@ -15,10 +15,10 @@ const groups = Array(26)
 Page({
   data: {
     groups,
-    selectValue: undefined,
+    value: undefined,
   },
   onChange(item, group) {
     console.log(item, group)
-    this.setData({ selectValue: item.value });
+    this.setData({ value: item.value });
   },
 });
