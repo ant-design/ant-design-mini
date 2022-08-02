@@ -1,3 +1,16 @@
+## 0.0.20 (2022-08-02)
+### Features
+* 新增ProgressBar组件
+* 新增Tabbar组件
+* 新增BladeView组件
+* 新增CascaderPicker组件
+* 信息输入相关组件（CheckboxGroup, RadioGroup, Picker, DatePicker, RangePicker, Switch, ItemInput, Selector, SearchBar, Filter, Checklist）事件回调增加event类型支持
+* Badge 增加offsetX, offsetY偏移量属性
+
+### Bugfix
+* 修复Container在淘宝牵牛端异常问题
+* Switch阴影效果修复
+
 ## 0.0.19 (2022-07-19)
 
 
