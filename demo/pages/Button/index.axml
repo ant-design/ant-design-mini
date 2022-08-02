@@ -3,6 +3,7 @@
     <view class="btn-list btn-list-default">
       <button 
         type="primary"
+        onTap="handleTap"
         fill="solid">
         solid
       </button>

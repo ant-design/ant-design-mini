@@ -1,0 +1,41 @@
+<demo-block title="基础用法" padding="0">
+    <list-item>
+        请选择省市
+        <cascader-picker 
+            slot="extra"
+            placeholder="请选择归属地" 
+            options="{{cityList}}" 
+            onPickerChange="handleCityPickerChange" 
+            onOk="handleCityOnOk"
+            />
+    </list-item>
+</demo-block>
+  
+<demo-block title="默认值" padding="0">
+    <list-item>
+        请选择城市
+        <cascader-picker  
+            slot="extra"
+            isConstantOption
+            value="{{['34','330']}}"
+            placeholder="请选择城市" 
+            options="{{cityList}}" 
+            onPickerChange="handleCityPickerChange" 
+            onOk="handleCityOnOk"
+        />
+    </list-item>
+</demo-block>
+<demo-block title="外部控制value" padding="0">
+    <list-item>
+        请选择城市
+        <cascader-picker 
+            slot="extra"
+            value="{{value}}"
+            placeholder="请选择城市" 
+            options="{{cityList}}" 
+            onPickerChange="handleCityPickerChange" 
+            onOk="handleOk"
+        />
+    </list-item>
+    <button style="margin: 24rpx" type="primary" onTap="changeValue">改变value到上海</button>
+</demo-block>

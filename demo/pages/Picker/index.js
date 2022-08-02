@@ -1,7 +1,7 @@
 Page({
   data: {
     value: '上海',
-    cityList: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
+    list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
     weekList: [
       { label: '周一', value: 'Mon' },
       { label: '周二', value: 'Tues' },
@@ -40,6 +40,11 @@ Page({
   },
 
   formatTime(value, column) {
-    return column.map(c => c && c.label).join('')
+    return column.map((c) => c && c.label).join('');
+  },
+
+
+  handleOnOk(value, column) {
+    console.log('value', value, 'column', column);
   },
 });
