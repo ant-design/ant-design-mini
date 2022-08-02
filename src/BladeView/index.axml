@@ -17,7 +17,7 @@
       data-key="{{group.key}}"
     >
       <view
-        class="amd-blade-view-body-group-title {{ groupIndex ? '': 'firstBorder' }} {{sticky && currentKey===group.key ? 'sticky' : ''}}"
+        class="amd-blade-view-body-group-title {{ groupIndex ? '': 'amd-blade-view-body-group-title-first' }} {{sticky && currentKey===group.key ? 'amd-blade-view-body-group-title-sticky' : ''}}"
         id="amd-blade-view-group-title-{{group.key}}"
       >
         {{group.title}}
@@ -33,7 +33,7 @@
           data-group="{{group}}"
           onTap="onTapItem"
         >
-          <view class="amd-blade-view-body-group-item-text {{ index ? 'notFirstBorder': '' }} {{selectValue===item.value ? 'selected' : ''}}">
+          <view class="amd-blade-view-body-group-item-text {{ index ? 'amd-blade-view-body-group-item-text-not-first': '' }} {{value===item.value ? 'amd-blade-view-body-group-item-text-selected' : ''}}">
             <slot item="{{item}}">{{item.label}}</slot>
           </view>
         </view>
