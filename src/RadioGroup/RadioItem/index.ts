@@ -1,5 +1,11 @@
 import { RadioItemDefaultProps } from './props';
-import { componentContext, componentDisabled, componentValue } from '../context';
+import { RADIO_GROUP_TYPE, storeMixin, Store } from '../../_util/store';
+import { IState } from '../index';
+
+interface IData {
+  _checked: boolean;
+  _disabled: boolean;
+}
 
 Component({
   props: RadioItemDefaultProps,
@@ -7,41 +13,25 @@ Component({
     _checked: false,
     _disabled: false,
   },
-  didMount() {
-    const { uid } = this.props;
-    const key = `${this.$page.$id}-${uid}`;
-    componentDisabled.onUpdate(key,
-      (this.disabledListener = (d) => {
-        this.setData({
-          _disabled: this.props.disabled || d,
-        });
-      }));
-    componentValue.onUpdate(key,
-      (this.checkedListener = (v) => {
-        if (v === this.props.value) {
-          this.setData({
-            _checked: true,
-          });
-        } else {
-          this.setData({
-            _checked: false,
-          });
-        }
-      }));
-  },
-  didUnmount() {
-    const { uid } = this.props;
-    const key = `${this.$page.$id}-${uid}`;
-    componentValue.offUpdate(key, this.checkedListener);
-    componentDisabled.offUpdate(key, this.disabledListener);
-  },
+  _store: null as Store<IState>,
+  mixins: [
+    storeMixin<IState, IData, typeof RadioItemDefaultProps>({
+      type: RADIO_GROUP_TYPE,
+      mapStateToData: ({ state, props }) => ({
+        _disabled: state.disabled || props.disabled,
+        _checked: state.value === props.value,
+      }),
+    }),
+  ],
   methods: {
-    onItemChange(v) {
-      const { uid } = this.props;
-      const key = `${this.$page.$id}-${uid}`;
-      const { value } = v.detail;
+    onItemChange(e) {
+      const { value } = e.detail;
+      const controlled = this._store.getInstance().props.controlled;
       if (value) {
-        componentContext.update(key, this.props.value);
+        if (!controlled) {
+          this._store.dispatch({ value: this.props.value });
+        }
+        this._store.getInstance().onChange(this.props.value);
       }
     },
   },

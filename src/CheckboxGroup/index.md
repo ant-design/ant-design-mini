@@ -13,7 +13,6 @@ toc: 'content'
 ## 注意事项
 
 - 复选框组内部子元素，必须配合 CheckboxGroup 使用，有单独使用需求的请使用 Checkbox。
-- CheckboxGroup 组件与 CheckboxItem 组件必须有相同的 uid，且 uid 全局唯一。
 - 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `ChecboxGroup` 组件的 `mode` 的值为 `form`。
 
 ## 代码示例
@@ -26,7 +25,6 @@ toc: 'content'
 | value | CheckboxGroup 的值，决定子元素是否勾选 | string[] | [] |
 | radius |  是否带圆角 | boolean | false |
 | position | 布局 | 'horizontal' &verbar;  'vertical' | 'vertical' | 
-| uid |  当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与内部的 CheckboxItem 组件的 uid 一致 | string | - |
 | header |  头部说明 | string | - |
 | footer |  底部说明 | string | - |
 | disabled | boolean | 否 | false | 是否禁用 |
@@ -44,7 +42,6 @@ toc: 'content'
 | checkedIcon | 自定义选中状态的图标，支持[Icon](./icon#代码示例)和图片路径  | string | - |
 | disabledIcon | 自定义禁用状态的图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
 | disabledCheckedIcon | 自定义禁用选中状态的图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
-| uid |  当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与外部的 CheckboxGroup 组件的 uid 一致  | string | - |
 | id |  表单元素 id | string | - |
 | name | 表单元素 name | string | - | 
 | className | 类名| string | - |

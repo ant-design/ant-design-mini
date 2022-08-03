@@ -1,30 +1,20 @@
 import { StepItemDefaultProps } from './props';
-import { context } from '../context';
-
+import { STEPS_TYPE, storeMixin } from '../../_util/store';
+import { IState } from '../index';
+interface IData {
+  _index: number;
+  _direction: 'horizontal' | 'vertical';
+}
 Component({
+  data: {} as IData,
   props: StepItemDefaultProps,
-  data: {
-    _index: 0,
-    _direction: 'horizontal',
-  },
-  didMount() {
-    const { uid } = this.props;
-    const key = `${this.$page.$id}-${uid}`;
-    const setItemIndex = (index: number) => this.setData({
-      _index: index,
-    });
-    const setItemDirection = (direction: string) => this.setData({
-      _direction: direction,
-    });
-
-    context.addItem(key, `${this.$id}`, {
-      setItemIndex,
-      setItemDirection,
-    });
-  },
-  didUnmount() {
-    const key = `${this.$page.$id}-${this.props.uid}`;
-    context.removeItem(key, `${this.$id}`);
-  },
-  methods: {},
+  mixins: [
+    storeMixin<IState, IData>({
+      type: STEPS_TYPE,
+      mapStateToData: ({ state }) => ({
+        _index: state.index,
+        _direction: state.direction,
+      }),
+    }),
+  ],
 });

@@ -8,9 +8,9 @@
     "jsx": "react",
     "moduleResolution": "node",
     "noImplicitThis": true,
-    "types": ["@mini-types/alipay", "jest", "node"]
+    "types": ["@mini-types/alipay", "jest", "node", "./typings"]
   },
   "lib": ["ES2015"],
-  "include": ["src/**/*"],
-  "exclude": ["node_modules","src/**/*.js"]
+  "include": ["src/**/*", "./typings/*.d.ts"],
+  "exclude": ["node_modules", "src/**/*.js"]
 }

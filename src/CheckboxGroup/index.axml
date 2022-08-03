@@ -5,7 +5,6 @@
   <checkbox-group id="{{id ? id : $id}}" name="{{name ? name : ''}}" disabled="{{_disabled}}">
     <view class="amd-checkbox-group-body">
       <slot>
-        <checkbox-item hidden="{{true}}" uid="{{uid}}" />
       </slot>
     </view>
   </checkbox-group>

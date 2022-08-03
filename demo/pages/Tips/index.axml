@@ -24,12 +24,12 @@
       按钮文案
       <input-item value="{{buttonText}}" onChange="handleChangeButtonText" controlled slot="extra" clear="{{false}}"/>
     </list-item>
-    <radio-group header="箭头位置" uid="arrowPosition" value="{{arrowPosition}}" controlled onChange="handleChangeArrowPosition">
-      <radio-item a:for="{{tipsArrow}}" value="{{item.value}}" uid="arrowPosition">{{item.name||'无箭头'}}</radio-item>
+    <radio-group header="箭头位置" value="{{arrowPosition}}" controlled onChange="handleChangeArrowPosition">
+      <radio-item a:for="{{tipsArrow}}" value="{{item.value}}">{{item.name||'无箭头'}}</radio-item>
     </radio-group>
-    <radio-group header="按钮位置" uid="buttonPosition" onChange="handleChangeButtonPosition" value="{{buttonPosition}}" controlled>
-      <radio-item value="right" uid="buttonPosition">右侧</radio-item>
-      <radio-item value="bottom" uid="buttonPosition">底部</radio-item>
+    <radio-group header="按钮位置"onChange="handleChangeButtonPosition" value="{{buttonPosition}}" controlled>
+      <radio-item value="right">右侧</radio-item>
+      <radio-item value="bottom">底部</radio-item>
     </radio-group>
   </list>
 </view>

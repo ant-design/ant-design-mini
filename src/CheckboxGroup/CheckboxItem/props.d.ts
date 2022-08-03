@@ -15,11 +15,6 @@ export interface ICheckboxItemProps extends IBaseProps {
    */
   disabled?: boolean;
 
-  /**
-   * @description 唯一id，用以与 CheckboxGroup 建立父子关系
-   * @default "CheckboxGroup"
-   */
-  uid?: string;
 
   /**
    * @description 是否隐藏当前 checkboxItem

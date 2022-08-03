@@ -1,24 +1,29 @@
 import { StepsDefaultProps } from './props';
-import { context } from './context';
+import { STEPS_TYPE, Store } from '../_util/store';
+
+export interface IState {
+  index: number;
+  direction: 'horizontal' | 'vertical';
+}
 
 Component({
   props: StepsDefaultProps,
+  data() {
+    return {
+      _store: new Store<IState>(),
+      _type: STEPS_TYPE,
+    };
+  },
   didMount() {
     this.updateItemData();
   },
   didUpdate() {
     this.updateItemData();
   },
-  didUnmount() {
-    const key = `${this.$page.$id}-${this.props.uid}`;
-    context.removeGroup(key);
-  },
   methods: {
     updateItemData() {
-      const { index, direction, uid } = this.props;
-      const key = `${this.$page.$id}-${uid}`;
-      context.updateItemIndex(key, index);
-      context.updateItemDirection(key, direction);
+      const { index, direction } = this.props;
+      this.data._store.dispatch({ index, direction });
     },
   },
 });

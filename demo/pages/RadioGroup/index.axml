@@ -3,34 +3,30 @@
     <radio-group  
       value="选项二"
       data-value="value"
-      uid="basic"
       onChange="handleChange">
-      <radio-item a:for="{{list}}" value="{{item.value}}" uid="basic">{{item.label}}</radio-item >
+      <radio-item a:for="{{list}}" value="{{item.value}}">{{item.label}}</radio-item >
     </radio-group>
   </demo-block>
   <demo-block title="横向布局">
     <radio-group  
       value="选项二"
-      uid="horizontal"
       position="horizontal"
       onChange="handleChange">
-      <radio-item a:for="{{list}}" value="{{item.value}}" uid="horizontal">{{item.label}}</radio-item >
+      <radio-item a:for="{{list}}" value="{{item.value}}">{{item.label}}</radio-item >
     </radio-group>
   </demo-block>
   <demo-block title="包含禁用项">
     <radio-group  
-      uid="basic1"
       value="banner"
       onChange="handleChange">
-      <radio-item a:for="{{list}}" value="{{item.value}}" uid="basic1" disabled="{{index===1}}">{{item.label}}</radio-item >
+      <radio-item a:for="{{list}}" value="{{item.value}}" disabled="{{index===1}}">{{item.label}}</radio-item >
     </radio-group>
   </demo-block>
   <demo-block title="整体禁用">
     <radio-group  
-      uid="basic2"
       value="banner"
       disabled>
-      <radio-item a:for="{{list}}" value="{{item.value}}" uid="basic2">{{item.label}}</radio-item >
+      <radio-item a:for="{{list}}" value="{{item.value}}">{{item.label}}</radio-item >
     </radio-group>
   </demo-block>
 </view>

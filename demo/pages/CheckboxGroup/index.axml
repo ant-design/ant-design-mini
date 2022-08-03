@@ -1,13 +1,11 @@
 <demo-block title="基础用法">
   <checkbox-group 
-    uid="group1"
     data-list="{{list}}"
     onChange="handleChange"
   >
     <checkbox-item 
       a:for="{{list}}"
-      value="{{item.value}}"  
-      uid="group1">
+      value="{{item.value}}">
         {{item.label}}
     </checkbox-item>
   </checkbox-group>
@@ -16,14 +14,12 @@
 
 <demo-block title="横向布局">
   <checkbox-group 
-    uid="group4"
     position="horizontal"
     onChange="handleChange"
   >
   <checkbox-item 
     a:for="{{list}}"
-    value="{{item.value}}"  
-    uid="group4">
+    value="{{item.value}}">
       {{item.label}}
   </checkbox-item>
   </checkbox-group>
@@ -31,14 +27,12 @@
 
 <demo-block title="部分禁用">
   <checkbox-group 
-    uid="group2"
     value="{{['orange','banner']}}"
   >
     <checkbox-item 
       a:for="{{list}}"
       value="{{item.value}}"  
-      disabled="{{index===1}}"
-      uid="group2">
+      disabled="{{index===1}}">
         {{item.label}}
     </checkbox-item>
   </checkbox-group>
@@ -46,14 +40,12 @@
 
 <demo-block title="整组禁用">
   <checkbox-group 
-    uid="group3"
     value="{{['orange','banner']}}"
     disabled="{{true}}">
 
     <checkbox-item 
       a:for="{{list}}"
-      value="{{item.value}}"  
-      uid="group3">
+      value="{{item.value}}">
         {{item.label}}
     </checkbox-item>
   </checkbox-group>
@@ -61,14 +53,13 @@
 
 <demo-block title="自定义图标">
   <checkbox-group 
-    uid="group5"
     onChange="handleChange"
   >
     <checkbox-item 
       a:for="{{list}}"
       value="{{item.value}}"  
-      icon="SmileOutline" checkedIcon="SmileFill"
-      uid="group5">
+      icon="SmileOutline" 
+      checkedIcon="SmileFill">
         {{item.label}}
     </checkbox-item>
 
