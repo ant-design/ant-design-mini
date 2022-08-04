@@ -4,7 +4,7 @@
   <view class="amd-filter-item-content {{type === 'multiple' ? 'amd-filter-item-content-multiple' : ''}}">
     <view class="amd-filter-item-content-wrap">
       <selector onChange="onChange"
-        value="{{_value}}"
+        value="{{currentValue}}"
         items="{{items}}"
         multiple="{{type === 'multiple'}}" />
     </view>

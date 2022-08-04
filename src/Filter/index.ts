@@ -1,90 +1,60 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FilterDefaultProps } from './props';
-import { context } from './context';
-import { objectEntries } from '../_util/tools';
+import { FILTER_TYPE, providerMixin } from '../_util/store';
+import { FilterStore, IState } from './store';
 
-type TPlaceholderArray = {
-  key: 'placeHolderArray',
-  val: Record<string, string>
+interface IMappedData {
+  currentFilterItemId: string;
+  activeObj: Record<string, boolean>;
+  placeHolderObj: Record<string, string>;
 }
-type TActiveArray = {
-  key: 'activeArray',
-  val: Record<string, boolean>
-}
-type TCurrentFilterItemId = {
-  key: 'currentFilterItemId',
-  val: string
-}
-
 Component({
   props: FilterDefaultProps,
-  data: {
-    placeHolderObj: {},
-    activeObj: {},
-    currentFilterItemId: '',
-  },
-  didMount() {
-    const key = `${this.$page.$id}-${this.props.uid}`;
-    const setGroupDataVal = (val: TPlaceholderArray | TActiveArray | TCurrentFilterItemId) => {
-      switch (val.key) {
-        case 'placeHolderArray':
-          this.setData({
-            placeHolderObj: val.val,
-          });
-          break;
-        case 'activeArray':
-          this.setData({
-            activeObj: { ...this.data.activeObj, ...val.val },
-          });
-          break;
-        case 'currentFilterItemId':
-          this.setData({
-            currentFilterItemId: val.val,
-          });
-          break;
-        default:
-          break;
-      }
+  data() {
+    return {
+      _store: new FilterStore(),
+      _type: FILTER_TYPE,
+      placeHolderObj: {},
+      activeObj: {},
+      currentFilterItemId: '',
+    } as IMappedData & {
+      _type: string;
+      _store: FilterStore;
     };
-    const getGroupDataVal = () => this.data.placeHolderObj;
-
-    context.addGroup(key);
-    context.setGroupDataVal(key, setGroupDataVal);
-    context.getGroupDataVal(key, getGroupDataVal);
-    context.updateGroupValue(key);
   },
-  didUnmount() {
-    const key = `${this.$page.$id}-${this.props.uid}`;
-    context.removeGroup(key);
-  },
+  mixins: [
+    providerMixin<IState, IMappedData>({
+      mapStateToData: ({ state }) => {
+        const activeItem = state.filterItems.find((v) => v.active);
+        return {
+          placeHolderObj: state.filterItems.reduce((re, v) => {
+            let selected;
+            if (v.isMult) {
+              selected =
+                v.items?.filter((v1) => v.value?.indexOf(v1.value) > -1) || [];
+            } else {
+              selected = v.items?.find((v1) => v1.value === v.value) || null;
+            }
+            re[v.id] = v.onFormat(selected) || v.placeholder;
+            return re;
+          }, {}),
+          activeObj: state.filterItems.reduce((re, v) => {
+            if (v.isMult) {
+              re[v.id] = v.value?.length > 0;
+            } else {
+              re[v.id] = !!v.value;
+            }
+            return re;
+          }, {}),
+          currentFilterItemId: activeItem?.id || '',
+        };
+      },
+    }),
+  ],
   methods: {
     showFilterItem(e) {
-      const key = `${this.$page.$id}-${this.props.uid}`;
-      const group = context.getGroup(key);
-      if (group) {
-        objectEntries(group.items).forEach(([, v]) => {
-          if (v.getid() === e.currentTarget.dataset.filterItemId) {
-            const show = v.getShow();
-            // 记录 filterItem 数据以重置
-            if (!show) {
-              if (v.isMult()) {
-                v.setPrevValue(v.getCurValue());
-              }
-              v.setShow(!show);
-              this.setData({
-                currentFilterItemId: `${v.getid()}`,
-              });
-              return;
-            }
-            v.setShow(!show);
-            this.setData({
-              currentFilterItemId: '',
-            });
-          } else {
-            v.getShow() && v.setShow(false);
-          }
-        });
-      }
+      const id = e.currentTarget.dataset.filterItemId;
+      const { filterItems } = this.data._store.getState();
+      filterItems.find((v) => v.id === id)?.triggleVisible();
     },
   },
 });

@@ -1,119 +1,113 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */import { FilterItemDefaultProps } from './props';
-import { context } from '../context';
+import equal from 'fast-deep-equal';
+import { FilterItemDefaultProps } from './props';
 import fmtEvent from '../../_util/fmtEvent';
+import { FILTER_TYPE, storeMixin } from '../../_util/store';
+import { FilterStore, IState } from '../store';
 
+interface IData {
+  show: boolean;
+  cValue: ArrayOrItem<string>;
+}
 Component({
   props: FilterItemDefaultProps,
   data: {
-    _value: [],
-    show: false,
-    curValue: [],
-    prevValue: [],
+    cValue: [] as ArrayOrItem<string>, // 选择前的value
+    show: false, // 显示隐藏
+    currentValue: [] as ArrayOrItem<string>, // 实时value
   },
+  _store: null as FilterStore,
+  mixins: [
+    storeMixin<IState, IData>({
+      type: FILTER_TYPE,
+      mapStateToData({ state }) {
+        const item = state.filterItems.find((v) => v.id === String(this.$id));
+        if (item) {
+          return {
+            show: item.active,
+            cValue: item.value,
+          };
+        }
+      },
+    }),
+  ],
   didMount() {
-    const key = `${this.$page.$id}-${this.props.uid}`;
-    const getValue = () => this.props.value;
-    const isMult = () => this.props.type === 'multiple';
-    const setValue = (val: string[]) => this.setData({
-      _value: val,
+    this._store.addItem(this.$id, {
+      item: this.props as any,
+      triggleVisible: this.triggleVisible.bind(this),
+      onFormat: this.props.onFormat.bind(this),
     });
-    const setShow = (show: boolean) => {
-      const { onOpen } = this.props;
-      this.setData({
-        show,
-      });
-      if (show && onOpen) {
-        onOpen(fmtEvent(this.props));
-      }
-    };
-    const getShow = () => this.data.show;
-    const setPrevValue = (prevValue: any[]) => this.setData({
-      prevValue,
-    });
-    const getCurValue = () => this.data.curValue;
-    const getPlaceHolder = () => this.props.placeholder || '';
-    const getid = () => `${this.$id}`;
-    context.addItem(key, `${this.$id}`, { isMult, getValue, setValue, getPlaceHolder, setShow, getid, getShow, setPrevValue, getCurValue });
-    context.updateItemValue(key, `${this.$id}`);
-    this.setData({
-      curValue: getValue(),
-    });
-    if (getValue()) {
-      setTimeout(() => {
-        this.setActive(true);
+  },
+  didUpdate(prevProps) {
+    // 外部改变value的情况
+    if (
+      !equal(this.props.value, prevProps.value) &&
+      !equal(this.data.cValue, this.props.value)
+    ) {
+      this._store.changeItemData(this.$id, {
+        value: this.props.value,
       });
     }
   },
-  ref() {
-    return {
-      getCompInstance: () => this,
-      changeSelect: (v: string | any[]) => this.onChange(v),
-    };
+  didUnmount() {
+    this._store.removeItem(this.$id);
   },
   methods: {
-    onChange(v, label) {
-      if (typeof this.props.onChange !== 'function') return;
+    onChange(v) {
       const event = fmtEvent(this.props);
-      if (this.props.type === 'multiple') {
+      const { onChange, type } = this.props;
+      if (onChange) {
+        onChange(v, event);
+      }
+      if (type === 'multiple') {
         this.setData({
-          curValue: v,
-          _value: v,
+          currentValue: v,
         });
-        this.props.onChange(v, event);
         return;
       }
-      const key = `${this.$page.$id}-${this.props.uid}`;
-      this.setData({
-        show: false,
-      });
-
       // 单选
-      this.props.onChange(v, event);
-      this.setActive(v.length > 0);
-      // 箭头动画
-      this.resetArrow();
-      // 更改占位符
-      const group = context.getGroup(key);
-      if (group) {
-        const placeHolderArray = group.getGroupDataVal();
-        
-        placeHolderArray[this.$id] = label?.text || this.props.placeholder;
-        group.setGroupDataVal({ key: 'placeHolderArray', val: placeHolderArray });
-      }
+      this._store.changeItemData(this.$id, {
+        active: false,
+        value: v,
+      });
     },
 
     confirmSelector() {
       const event = fmtEvent(this.props);
-      // 多选
-      if (typeof this.props.onChange !== 'function') return;
-      this.setData({
-        prevValue: this.data.curValue,
-        show: false,
+      const { onOK, onChange } = this.props;
+      const { currentValue } = this.data;
+      this._store.changeItemData(this.$id, {
+        active: false,
+        value: currentValue,
       });
-      this.props.onChange(this.data.curValue, event);
-      this.setActive(this.data.curValue.length > 0);
-      // 箭头动画
-      this.resetArrow();
-    },
-    resetArrow() {
-      const key = `${this.$page.$id}-${this.props.uid}`;
-      const group = context.getGroup(key);
-      if (group) {
-        group.setGroupDataVal({ key: 'currentFilterItemId', val: '' });
+      if (onOK) {
+        onOK(currentValue, event);
+      }
+      if (onChange) {
+        onChange(currentValue, event);
       }
     },
     resetSelector() {
+      const event = fmtEvent(this.props);
+      const { onChange } = this.props;
       this.setData({
-        _value: this.data.prevValue,
+        currentValue: this.data.cValue,
       });
+      if (onChange) {
+        onChange(this.data.cValue, event);
+      }
     },
-
-    setActive(active: boolean) {
-      const key = `${this.$page.$id}-${this.props.uid}`;
-      const group = context.getGroup(key);
-      if (group) {
-        const val = { [this.$id]: active };
-        group.setGroupDataVal({ key: 'activeArray', val });
+    triggleVisible() {
+      const event = fmtEvent(this.props);
+      const { onOpen, type } = this.props;
+      const { cValue } = this.data;
+      const visible = this._store.triggleVisible(this.$id);
+      if (visible) {
+        if (onOpen) {
+          onOpen(event);
+        }
+        this.setData({
+          currentValue: cValue || (type === 'multiple' ? [] : ''),
+        });
       }
     },
   },

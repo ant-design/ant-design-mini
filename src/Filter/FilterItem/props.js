@@ -1,4 +1,9 @@
 export const FilterItemDefaultProps = {
-  uid: 'filter',
   type: 'default',
+  onFormat(selected) {
+    if (selected && !Array.isArray(selected)) {
+      return selected.text;
+    }
+    return '';
+  },
 };

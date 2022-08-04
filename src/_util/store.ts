@@ -1,4 +1,8 @@
-import type { IComponentInstance } from '@mini-types/alipay';
+import type { IUserComponentOptions } from '@mini-types/alipay';
+import { compareVersion } from './compareVersion';
+
+// selectComponsedParentComponent在appx2和appx1下表现不一致，appx1下向上拿到节点必须在settimeout中执行，直接获取只能拿到最近一级
+const isSupportAppx2 = compareVersion(my.SDKVersion, '2.7.22') >= 0;
 
 export interface IDataWithStore<IState> {
   _type: string;
@@ -47,21 +51,24 @@ export function getStoreByType(instance, type) {
       }
       parent = parent.selectComposedParentComponent();
     }
-    throw new Error(`[antd-mini: item must be used in ${type}]`);
   } catch (e) {
     console.error(`[antd-mini: ${type} find error]`, e);
     throw new Error(`[antd-mini: item must be used in ${type}]`);
   }
+  throw new Error(`[antd-mini: item must be used in ${type}]`);
 }
 
 interface IMinxProps<IState, IMappedData, IProps, IData> {
   type: string;
-  mapStateToData?: (options: {
-    state: IState;
-    diff: Partial<IState>;
-    props: IProps;
-    data: IData;
-  }) => IMappedData;
+  mapStateToData?: (
+    this: any,
+    options: {
+      state: IState;
+      diff: Partial<IState>;
+      props: IProps;
+      data: IData;
+    }
+  ) => IMappedData;
 }
 
 export function storeMixin<
@@ -72,21 +79,77 @@ export function storeMixin<
 >({
   type,
   mapStateToData = (state) => state as any,
-}: IMinxProps<IState, IMappedData, IProps, IData>): IComponentInstance<
-  any,
-  any,
-  any,
+}: IMinxProps<IState, IMappedData, IProps, IData>): IUserComponentOptions<
+  {},
+  {},
+  {},
   {
     _store: Store<IState>;
     unSubscribe: CallableFunction;
   },
-  any,
-  any
+  {},
+  any[]
 > {
   return {
     didMount() {
-      this._store = getStoreByType(this, type);
-      this.unSubscribe = this._store.subscribe((state, diff) => {
+      const bindStoreFn = () => {
+        this._store = getStoreByType(this, type);
+        this.unSubscribe = this._store.subscribe((state, diff) => {
+          const allData = mapStateToData.call(this, {
+            state,
+            diff,
+            props: this.props,
+            data: this.data,
+          });
+          const diffData: Partial<IMappedData> = {};
+          for (let key in allData) {
+            if (allData[key] !== this.data[key]) {
+              diffData[key] = allData[key];
+            }
+          }
+          if (Object.keys(diffData).length > 0) {
+            this.setData(diffData);
+          }
+        });
+        this._store.dispatch({});
+      };
+      if (isSupportAppx2) {
+        bindStoreFn();
+      } else {
+        setTimeout(() => bindStoreFn());
+      }
+    },
+    didUnmount() {
+      if (this.unSubscribe) {
+        this.unSubscribe();
+      }
+    },
+  };
+}
+
+export function providerMixin<
+  IState,
+  IMappedData = IState,
+  IProps = any,
+  IData = any
+>({
+  mapStateToData = (state) => state as any,
+}: Pick<
+  IMinxProps<IState, IMappedData, IProps, IData>,
+  'mapStateToData'
+>): IUserComponentOptions<
+  {
+    _store: Store<IState>;
+  },
+  {},
+  {},
+  {},
+  {},
+  any[]
+> {
+  return {
+    didMount() {
+      this.data._store.subscribe((state, diff) => {
         const allData = mapStateToData.call(this, {
           state,
           diff,
@@ -103,10 +166,7 @@ export function storeMixin<
           this.setData(diffData);
         }
       });
-      this._store.dispatch({});
-    },
-    didUnmount() {
-      this.unSubscribe();
+      this.data._store.dispatch({});
     },
   };
 }
@@ -115,3 +175,4 @@ export const STEPS_TYPE = 'STEPS_TYPE';
 export const CHECKBOX_GROUP_TYPE = 'CHECKBOX_GROUP_TYPE';
 export const RADIO_GROUP_TYPE = 'RADIO_GROUP_TYPE';
 export const COLLAPSE_TYPE = 'COLLAPSE_TYPE';
+export const FILTER_TYPE = 'FILTER_TYPE';

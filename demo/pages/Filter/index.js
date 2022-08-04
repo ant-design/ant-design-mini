@@ -1,6 +1,6 @@
 Page({
   data: {
-    value: '',
+    value: [],
     items: [
       {
         text: '选项一',
@@ -30,10 +30,10 @@ Page({
       };
     }),
   },
-  changeSelect(v, e) {
-    console.log(e);
+  handleChange(v, e) {
+    console.log('onChange', v, e);
     if (v.length > 0) {
-      my.alert({
+      my.showToast({
         content: `当前选择了 ${v}`,
       });
     } else {
@@ -42,18 +42,20 @@ Page({
       });
     }
   },
-  formatValue(fv) {
-    return `${fv}🔥`;
+  handleOpen() {
+    console.log('open');
   },
-  onOpen() {
-    my.alert({
-      title: '选项卡打开',
-    });
+  handleOk(value, e) {
+    console.log('onOk', value, e);
   },
-  onTap() {
-    this.ins.changeSelect('1');
-  },
-  ref(ins) {
-    this.ins = ins;
+  handleFormat(selected) {
+    if (selected) {
+      if (Array.isArray(selected)) {
+        return `🔥选择多项🔥`;
+      } else {
+        return `🔥${selected.text}🔥`;
+      }
+    }
+    return '';
   },
 });

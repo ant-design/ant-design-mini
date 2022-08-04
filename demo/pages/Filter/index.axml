@@ -2,147 +2,150 @@
 <view>
   <demo-block title="两项筛选" padding="0">
     <filter 
-      uid="filter-1" 
       className="filter-1">
       <filter-item
         data-items="{{items}}"
-        uid="filter-1"
         placeholder="筛选项一"
-        value=""
         items="{{items}}"
         type="default" 
-        ref="ref"
-        onChange="changeSelect"
-        onOpen="onOpen"/>
+        onChange="handleChange"
+        onOpen="handleOpen"/>
 
       <filter-item 
-        uid="filter-1"
         placeholder="筛选项二"
         value="{{value}}"
         items="{{items1}}"
         type="multiple" 
-        onChange="changeSelect"
-        onOpen="onOpen"
+        onOK="handleOk"
+        onChange="handleChange"
+        onOpen="handleOpen"
         />
     </filter>
   </demo-block>
   <demo-block title="三项筛选" padding="0">
     <filter
-      uid="filter-2" 
       className="filter-2">
       <filter-item
-        uid="filter-2"
         placeholder="筛选项一"
-        value=""
         items="{{items}}"
         type="default" 
-        ref="ref"
-        onChange="changeSelect"
-        onOpen="onOpen"/>
+        onChange="handleChange"
+        onOpen="handleOpen"/>
     
       <filter-item 
-        uid="filter-2"
         placeholder="筛选项二"
         value="{{value}}"
         items="{{items1}}"
         type="multiple" 
-        onChange="changeSelect"
-        onOpen="onOpen"
+        onOK="handleOk"
+        onChange="handleChange"
+        onOpen="handleOpen"
         />
     
       <filter-item 
-        uid="filter-2"
         placeholder="筛选项过长长长长长长长"
-        value=""
         items="{{items}}" 
-        onChange="changeSelect"
-        onOpen="onOpen"/>
+        onChange="handleChange"
+        onOpen="handleOpen"/>
     
     </filter>
   </demo-block>
   <demo-block title="四项筛选" padding="0">
     <filter
-      uid="filter-3" 
       className="filter-3">
       <filter-item
-        uid="filter-3"
         placeholder="筛选项一"
-        value=""
         items="{{items}}"
         type="default" 
-        ref="ref"
-        onChange="changeSelect"
-        onOpen="onOpen"/>
+        onChange="handleChange"
+        onOpen="handleOpen"/>
     
       <filter-item 
-        uid="filter-3"
         placeholder="筛选项二"
         value="{{value}}"
         items="{{items1}}"
         type="multiple" 
-        onChange="changeSelect"
-        onOpen="onOpen"
+        onOK="handleOk"
+        onChange="handleChange"
+        onOpen="handleOpen"
         />
     
         <filter-item
-        uid="filter-3"
         placeholder="筛选项三"
-        value=""
         items="{{items}}"
         type="default" 
-        ref="ref"
-        onChange="changeSelect"
-        onOpen="onOpen"/>
+        onChange="handleChange"
+        onOpen="handleOpen"/>
     
       <filter-item 
-        uid="filter-3"
         placeholder="筛选项四"
         value="{{value}}"
         items="{{items1}}"
         type="multiple" 
-        onChange="changeSelect"
-        onOpen="onOpen"
+        onOK="handleOk"
+        onChange="handleChange"
+        onOpen="handleOpen"
         />
     
     </filter>
   </demo-block>
   <demo-block title="插槽：title 与 icon" padding="0">
     <filter 
-      uid="filter-4" 
       className="filter-4">
     
       <view 
         slot-scope="item" 
         slot="title">
-        {{item.title === '筛选项一' ? '筛选项 1' : '筛选项 2'}}
+        {{item.title}}slot
       </view>
     
-      <view slot="icon" slot-scope="item">
-        <icon 
-          type="DownOutline" 
-          className="amd-filter-bar-text-icon {{item.active ? 'amd-filter-bar-text-icon-up' : ''}}" />
-      </view>
-    
+      <icon 
+        slot="icon" slot-scope="item"
+        type="DownOutline" 
+        className="amd-filter-bar-text-icon {{item.active ? 'amd-filter-bar-text-icon-up' : ''}}" />
+  
       <filter-item
-        uid="filter-4"
         placeholder="筛选项一"
-        value=""
         items="{{items}}"
         type="default" 
         ref="ref"
-        onChange="changeSelect"
-        onOpen="onOpen"/>
+        onChange="handle"
+        onOpen="handleOpen"/>
     
       <filter-item 
-        uid="filter-4"
         placeholder="筛选项二"
         value="{{value}}"
         items="{{items1}}"
         type="multiple" 
-        onChange="changeSelect"
-        onOpen="onOpen"
+        onOK="handleOk"
+        onChange="handleChange"
+        onOpen="handleOpen"
         />
     
+    </filter>
+  </demo-block>
+  <demo-block title="自定义显示文案" padding="0">
+    <filter 
+      className="filter-1">
+      <filter-item
+        data-items="{{items}}"
+        placeholder="筛选项一"
+        items="{{items}}"
+        type="default" 
+        onFormat="handleFormat"
+        onChange="handleChange"
+        onOpen="handleOpen"/>
+
+      <filter-item 
+        placeholder="筛选项二"
+        value="{{value}}"
+        items="{{items1}}"
+        type="multiple" 
+        onOK="handleOk"
+        onFormat="handleFormat"
+        onChange="handleChange"
+        onOpen="handleOpen"
+        />
     </filter>
   </demo-block>
 </view>
