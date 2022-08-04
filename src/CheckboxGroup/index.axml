@@ -4,8 +4,7 @@
   </view>
   <checkbox-group id="{{id ? id : $id}}" name="{{name ? name : ''}}" disabled="{{_disabled}}">
     <view class="amd-checkbox-group-body">
-      <slot>
-      </slot>
+      <slot/>
     </view>
   </checkbox-group>
   <view class="amd-checkbox-group-footer">

@@ -10,9 +10,7 @@
     name="{{name ? name : ''}}"
     disabled="{{_disabled}}">
     <view class="amd-radio-group-body">
-      <slot>
-        <radio-item hidden="{{true}}" uid="{{uid}}" />
-      </slot>
+      <slot/>
     </view>
   </radio-group>
   <view class="amd-radio-group-footer">

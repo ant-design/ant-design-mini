@@ -33,10 +33,5 @@ export interface IStepItemProps extends IBaseProps {
    * @description 小程序必填，用于标记当前是第几步，必须按顺序递增
    */
   index: number;
-  /**
-   * @description 当页面有多个Steps时需传入，页面唯一，与外部的 Steps 组件的 uid 一致
-   * @default 'steps'
-   */
-  uid?: string;
 }
 export declare const StepItemDefaultProps: Partial<IStepItemProps>;

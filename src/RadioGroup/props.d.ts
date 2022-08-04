@@ -12,11 +12,6 @@ export interface IRadioGroupProps
    */
   value?: string;
   /**
-   * @description 当页面有多个RadioGroup时需传入，`必须全局唯一`，与内部的 RadioItem 组件的 uid 一致
-   * @default 'RadioGroup'
-   */
-  uid?: string;
-  /**
    * @description 布局
    * @default 'vertical'
    */

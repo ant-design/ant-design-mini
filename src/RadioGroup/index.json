@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "list": "../List/index",
-    "radio-item": "./RadioItem/index"
+    "list": "../List/index"
   }
 }
