@@ -17,13 +17,34 @@ export class Store<S extends Record<string, any>> {
   getState() {
     return this.state;
   }
+  /**
+   * 订阅store数据变化
+   * @param fn
+   * @returns
+   */
   subscribe(fn: (state: S, diff: Partial<S>) => void) {
     this.subscribtions.push(fn);
     return () => {
       this.subscribtions = this.subscribtions.filter((v) => v !== fn);
     };
   }
-  dispatch(payload: Partial<S>, force = true) {
+  /**
+   * 数据改变不触发数据同步和视图变化
+   * @param payload
+   */
+  dispatchNoSync(payload: Partial<S>) {
+    Object.assign(this.state, payload);
+  }
+  /**
+   * 改变数据并触发数据同步和视图变化
+   * @param payload
+   * @param force 是否强制刷新
+   */
+  dispatch(payload: Partial<S> | ((state: S) => S), force = true) {
+    // payload支持传函数，即使在循环中使用dispatch，payload每次接收的state也是上一次dispatch完最新的
+    if (typeof payload === 'function') {
+      payload = payload(this.state);
+    }
     const diff: Partial<S> = {};
     for (let key in payload) {
       if (payload[key] !== this.state[key]) {
@@ -36,6 +57,14 @@ export class Store<S extends Record<string, any>> {
         fn(this.state, diff);
       });
     }
+  }
+  /**
+   * 强制触发刷新
+   */
+  forceUpdate() {
+    this.subscribtions.forEach((fn) => {
+      fn(this.state, {});
+    });
   }
   // 获取provider组件实例，初始空函数，在寻找store节点时赋值，直接存在store对象上存在循环引用问题
   public getInstance(): any {}
@@ -82,7 +111,12 @@ export function storeMixin<
 }: IMinxProps<IState, IMappedData, IProps, IData>): IUserComponentOptions<
   {},
   {},
-  {},
+  {
+    /**
+     * appx1下获取store在setTimeout中，didMount执行时机先于挂载store，兼容方法
+     */
+    onStoreSetted(): void;
+  },
   {
     _store: Store<IState>;
     unSubscribe: CallableFunction;
@@ -111,7 +145,10 @@ export function storeMixin<
             this.setData(diffData);
           }
         });
-        this._store.dispatch({});
+        this._store.forceUpdate();
+        if (this.onStoreSetted) {
+          this.onStoreSetted();
+        }
       };
       if (isSupportAppx2) {
         bindStoreFn();

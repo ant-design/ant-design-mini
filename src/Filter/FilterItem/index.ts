@@ -30,13 +30,6 @@ Component({
       },
     }),
   ],
-  didMount() {
-    this._store.addItem(this.$id, {
-      item: this.props as any,
-      triggleVisible: this.triggleVisible.bind(this),
-      onFormat: this.props.onFormat.bind(this),
-    });
-  },
   didUpdate(prevProps) {
     // 外部改变value的情况
     if (
@@ -52,6 +45,13 @@ Component({
     this._store.removeItem(this.$id);
   },
   methods: {
+    onStoreSetted() {
+      this._store.addItem(this.$id, {
+        item: this.props as any,
+        triggleVisible: this.triggleVisible.bind(this),
+        onFormat: this.props.onFormat.bind(this),
+      });
+    },
     onChange(v) {
       const event = fmtEvent(this.props);
       const { onChange, type } = this.props;
