@@ -12,9 +12,6 @@ toc: 'content'
 ## 何时使用
 - 对复杂区域进行分组和隐藏，保持页面的整洁
 - 手风琴是一种特殊的折叠面板，只允许单个内容区域展开
-## 注意事项
-
-- Collapse 组件与 CollapseItem 组件必须有相同的 uid，且 uid 页面唯一。
 
 ## 代码示例
 
@@ -34,15 +31,14 @@ toc: 'content'
 | -----|-----|-----|-----|----- |
 | name | string[] | 否 | [] | 当前激活的索引 |
 | accordion | boolean | 否 | - | 是否是手风琴模式，仅一个内容被展开 |
-| uid | string | 否 | - | 当页面有多个Collapse时需传入，`必须页面唯一` ，与内部的 CollapseItem 组件的 uid 一致 |
 | className | string | 否 | - | 类名 |
 
 #### CollapseItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| title | string | 否 | - | 标题栏内容 |
 | name | string | 是 | - | 标识，必须唯一 |
-| uid | string | 否 | - | 当页面有多个Collapse时需传入，`必须页面唯一` ，与外部的 CollapseItem 组件的 uid 一致 |
+| title | string | 否 | - | 标题栏内容 |
+| brief | string | 否 | - | 辅助信息内容 |
 | className | string | 否 | - | 类名 |
 
 ## 事件
@@ -55,7 +51,8 @@ toc: 'content'
 #### CollapseItem
 | 插槽名称 | 说明 |
 | -----|-----|
-| title | CollapseItem 组件标题插槽，当 title 属性存在时，插槽不生效 |
+| title | 组件标题插槽 |
+| brief | 组件辅助信息插槽 |
 
 ## 样式类
 #### Collapse

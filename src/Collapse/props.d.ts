@@ -17,12 +17,6 @@ export interface ICollapseProps extends IBaseProps {
   /**
    * @description 是否是手风琴模式，仅一个内容被展开
    */
-
   accordion?: boolean;
-  /**
-   * @description 当页面有多个Collapse时需传入，页面唯一，与内部的 CollapseItem 组件的 uid 一致
-   * @default 'Collapse'
-   */
-  uid?: string;
 }
 export declare const CollapseDefaultProps: Partial<ICollapseProps>;

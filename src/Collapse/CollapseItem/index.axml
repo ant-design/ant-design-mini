@@ -9,24 +9,20 @@
         data-active="{{_isActive}}" 
         data-lastAction="{{lastAction}}" 
         data-disabled="{{disabled}}"  
-        onTap="{{supportSjs ?  collapseItem.handleEvent : '_changeItem'}}">
+        onTap="{{supportSjs ?  collapseItem.handleEvent : 'onChangeItem'}}">
         <view class="amd-collapse-item-title-icon" a:if="{{icon}}">
             <image-icon 
             image="{{icon}}" />
         </view>
         <view class="amd-collapse-item-line">
         <view class="amd-collapse-item-title-node">
-            <view a:if="{{title}}">{{title}}</view>
-            <view a:else>
-                <slot name="title" />
+            <view>
+                <slot name="title">{{title}}</slot>
             </view>
         </view>
         <view class="amd-collapse-item-brief-container">
             <view class="amd-collapse-item-brief-node">
-                <view a:if="{{brief}}">{{brief}}</view>
-                <view a:else>
-                    <slot name="brief" />
-                </view>
+                <slot name="brief">{{brief}}</slot>
             </view>
             <am-icon class="amd-collapse-item-title-arrow" type="{{_isActive ? expandIcon : closeIcon}}" size="x-small" />  
         </view>

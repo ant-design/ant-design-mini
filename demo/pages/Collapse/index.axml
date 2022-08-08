@@ -1,57 +1,50 @@
 <view>
   <demo-block title="基础用法" padding="0">
     <collapse 
-      name="{{['item-0']}}" 
-      onChange="onChange" 
-      uid="collapse-0" 
+      onChange="onChange1" 
+      name="{{value1}}"
       accordion="{{false}}">
       <collapse-item 
         title="第一项" 
-        uid="collapse-0" 
         name="item-0">
         Pariatur dolore commodo commodo elit adipisicing sunt adipisicing ex duis labore nisi sunt. Magna ut minim deserunt. Sunt velit occaecat incididunt aliqua. Dolore officia voluptate aute reprehenderit anim excepteur elit.
       </collapse-item>
       
       <collapse-item 
         name="item-1" 
-        title="第二项" 
-        uid="collapse-0">
+        title="第二项">
         Dolor reprehenderit cillum aliqua qui id Lorem elit anim do minim mollit. Commodo id cupidatat est tempor anim. Fugiat ipsum dolor nostrud officia mollit. Aliquip aliqua pariatur tempor excepteur commodo non et adipisicing magna ex nostrud dolore cillum exercitation enim. In sunt velit laboris ullamco et in reprehenderit sit excepteur aute in dolor. Sunt minim incididunt consectetur laborum sint fugiat voluptate sunt culpa fugiat duis. Ad consectetur ad aliquip aute labore magna commodo est cupidatat.
       </collapse-item>
     
       <collapse-item 
         title="第三项" 
-        name="item-2" 
-        uid="collapse-0">
+        name="item-2">
         Ad ut ullamco exercitation do excepteur ipsum ipsum consectetur nulla fugiat est et. Occaecat ullamco nulla mollit cupidatat dolore nulla minim cillum proident laboris mollit. Veniam consectetur esse consectetur. Fugiat in laborum anim.
       </collapse-item>
       
     </collapse>
   </demo-block>
+  <button size="default" type="primary" onTap="handleClick1">Button</button>
   <demo-block title="手风琴模式"  padding="0">
     <collapse 
-      name="{{['item-0']}}" 
-      onChange="onChange" 
-      uid="collapse-1" 
+      name="{{value2}}" 
+      onChange="onChange2" 
       accordion>
       <collapse-item 
         title="第一项" 
-        uid="collapse-1" 
         name="item-0">
         手风琴模式只能同时展开一个
       </collapse-item>
       
       <collapse-item 
         name="item-1" 
-        title="第二项" 
-        uid="collapse-1">
+        title="第二项">
         手风琴模式只能同时展开一个
       </collapse-item>
     
       <collapse-item 
         title="第三项" 
-        name="item-2" 
-        uid="collapse-1">
+        name="item-2">
         手风琴模式只能同时展开一个
       </collapse-item>
     </collapse>

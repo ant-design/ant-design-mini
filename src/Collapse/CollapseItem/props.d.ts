@@ -32,10 +32,5 @@ export interface ICollapseItemProps extends IBaseProps {
    * @description 面板收缩图标
    */
   closeIcon: string;
-  /**
-   * @description 当页面有多个Collapse时需传入，页面唯一，与外部的 Collapse 组件的 uid 一致
-   * @default 'Collapse'
-   */
-  uid?: string;
 }
 export declare const CollapseItemDefaultProps: Partial<ICollapseItemProps>;

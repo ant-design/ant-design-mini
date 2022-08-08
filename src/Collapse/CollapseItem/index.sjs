@@ -7,7 +7,7 @@ const getConentHeight = (ownerComponent) => {
 
 const handleEvent = (event, ownerComponent) => {
   if (event.currentTarget.dataset.disabled) return;
-  ownerComponent.callMethod('_changeItem', 'onTap');
+  ownerComponent.callMethod('onChangeItem');
   const { active } = event.currentTarget.dataset;
   const contentWrapIns = ownerComponent.selectComponent('.amd-collapse-item-content-wrap');
   if (!active) {

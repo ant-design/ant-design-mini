@@ -2,18 +2,15 @@
   <demo-block title="禁用状态" padding="0">
     <collapse 
       className="demo-collapse" 
-      uid="collapse-1" 
       accordion="{{false}}">
       <collapse-item 
         title="第一项" 
-        uid="collapse-1" 
         name="item-0">
         这里是第一项的内容
       </collapse-item>
       
       <collapse-item 
         name="item-1" 
-        uid="collapse-1"
         disabled="{{true}}"
         title="第二项">
         这里是第二项的内容
@@ -21,7 +18,6 @@
 
       <collapse-item 
         name="item-2" 
-        uid="collapse-1"
         disabled="{{true}}"
         title="第二项">
         这里是第三项的内容
@@ -31,10 +27,8 @@
   <demo-block title="自定义图标" padding="0">
     <collapse 
       className="demo-collapse" 
-      uid="collapse-2" 
       accordion="{{false}}">
       <collapse-item 
-        uid="collapse-2" 
         name="item-0">
         <view slot="title">
           <icon type="FireFill" size="small"/>
@@ -45,7 +39,6 @@
       
       <collapse-item 
         name="item-1" 
-        uid="collapse-2"
         expandIcon="AddOutline"
         closeIcon="MinusOutline"
         brief="辅助信息">
@@ -62,11 +55,9 @@
       className="demo-collapse" 
       name="{{name}}" 
       onChange="handleChange" 
-      uid="collapse-0" 
       accordion="{{false}}">
       <collapse-item 
         title="自适应高度" 
-        uid="collapse-0" 
         name="item-0">
         <view class="item-content">
           <view>内容区域</view>
@@ -74,8 +65,7 @@
       </collapse-item>
       
       <collapse-item 
-        name="item-1" 
-        uid="collapse-0">
+        name="item-1">
         <view slot="title">
           <text style="color: red;">title 插槽</text>
         </view>
@@ -86,8 +76,7 @@
     
       <collapse-item 
         title="标题" 
-        name="item-2" 
-        uid="collapse-0">
+        name="item-2">
         <view class="item-content content3">
           <view>内容区域</view>
         </view>
@@ -95,8 +84,7 @@
       
       <collapse-item 
         title="标题" 
-        name="item-3" 
-        uid="collapse-0">
+        name="item-3">
         <view class="item-content content3">
           <view>内容区域</view>
         </view>
