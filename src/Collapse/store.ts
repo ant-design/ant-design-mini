@@ -24,6 +24,13 @@ export class CollapseStore extends Store<IState> {
       items: [...items, item],
     });
   }
+  public removeItem(name: string) {
+    const { value, items } = this.getState();
+    this.dispatchNoSync({
+      value: value.filter((v) => v !== name),
+      items: items.filter((v) => v.name !== name),
+    });
+  }
   public updateValue(value: string[]) {
     const { accordion, items } = this.getState();
     value = accordion ? value.slice(0, 1) : value;

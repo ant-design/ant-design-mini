@@ -28,6 +28,9 @@ Component({
       }),
     }),
   ],
+  didUnmount() {
+    this._store.removeItem(this.props.name);
+  },
   methods: {
     onStoreSetted() {
       const { name } = this.props;
