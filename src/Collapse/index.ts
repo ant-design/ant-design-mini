@@ -12,6 +12,7 @@ Component({
     };
   },
   didMount() {
+    // appx1下collapseItem执行时机兼容
     setTimeout(() => {
       const { name, accordion } = this.props;
       this.data._store.dispatch({ accordion });

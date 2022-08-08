@@ -1,28 +1,34 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { TabsDefaultProps } from './props';
 import { log } from '../_util/console';
-import { objectValues } from '../_util/tools';
 import { compareVersion } from '../_util/compareVersion';
-import { IBoundingClientRect } from "../_base";
-import { tabsStore } from "../_util/tabsStore";
+import { IBoundingClientRect } from '../_base';
+import { TAB_TYPE, providerMixin } from '../_util/store';
+import { TabStore, IState, ITabItem } from './store';
 
 const canSwipeable = my.canIUse('swiper.disable-touch');
 const component2 = my.canIUse('component2');
 
+const isShouldNotCalHeight =
+  component2 && compareVersion(my.SDKVersion, '2.6.4') >= 0;
 
-const isShouldNotCalHeight = component2 && compareVersion(my.SDKVersion, '2.6.4') >= 0;
-
-const isForceUpdate = compareVersion(my.SDKVersion, '2.6.4') >= 0 && compareVersion(my.SDKVersion, '2.7.5') === -1;
-
-const isMoreThan275 = compareVersion(my.SDKVersion, '2.7.5') >= 0;
+const isForceUpdate =
+  compareVersion(my.SDKVersion, '2.6.4') >= 0 &&
+  compareVersion(my.SDKVersion, '2.7.5') === -1;
 
 const isBaseSwiper = compareVersion(my.SDKVersion, '2.0.0') >= 0;
+
+interface IMappedData {
+  _tabs: ITabItem[];
+}
 
 Component({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   props: TabsDefaultProps,
   data: {
-    _tabs: {},
+    _store: new TabStore(),
+    _type: TAB_TYPE,
+    _tabs: [],
     _leftFade: true,
     _rightFade: true,
     _tabsViewportWidth: 0,
@@ -37,26 +43,14 @@ Component({
     _forceRefreshSwiper: 0,
     _isForceUpdate: isForceUpdate,
   },
+  mixins: [
+    providerMixin<IState, IMappedData>({
+      mapStateToData: ({ state }) => ({ _tabs: state.items.map((v) => v.tab) }),
+    }),
+  ],
   didMount() {
-    const setGroupDataVal = () =>{
-      const key = `${this.$page.$id}-${this.props.uid}`;
-      const group = tabsStore.getGroup(key)
-      if(group){
-          const items = objectValues(group.items).reduce((prev,cur)=>{
-            if(cur) prev.push(cur.getTabsItemVal())
-            return prev
-          },[])
-          this.setData({
-            _tabs: items
-          })
-      }
-    }
-    const key = `${this.$page.$id}-${this.props.uid}`;
-    tabsStore.setGroupDataVal(key, ()=>setTimeout(setGroupDataVal,50));
-    setGroupDataVal();
-    this.updateTabsItemFallbackVal(this.props.fallback)
-
-    const { index, animation } = this.props;
+    const { index, animation, fallback } = this.props;
+    this.data._store.dispatch({ fallback });
     this.setData({
       currentIndex: index,
     });
@@ -65,7 +59,10 @@ Component({
     this._useSwipeable(this.props.swipeable);
     if (typeof index !== 'number') {
       // 如果当前索引值的类型不对给警告提示
-      log.error('Tabs', `当前激活的索引值类型非 number 类型，修改当前 index 的 ${typeof index} 类型，以保证展示的正确性。`);
+      log.error(
+        'Tabs',
+        `当前激活的索引值类型非 number 类型，修改当前 index 的 ${typeof index} 类型，以保证展示的正确性。`
+      );
     } else {
       my.createSelectorQuery()
         .select(`#amd-tabs-bar-item-${index}`)
@@ -73,8 +70,11 @@ Component({
         .exec((ret) => {
           if (!ret || !ret[0]) {
             // 当获取到的索引值无法匹配时显示错误提示
-            log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
-            return 
+            log.error(
+              'Tabs',
+              `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`
+            );
+            return;
           }
 
           const { _tabsViewportWidth } = this.data;
@@ -96,24 +96,17 @@ Component({
               _swipeableAnimation: animation,
             });
           }
-
         });
       this._autoHeight(index);
     }
-
-    if (!component2) {
-      this.props.onGetRef(this.getRef());
-    }
   },
   didUpdate(prevProps, prevData) {
-    
-    const { index, animation, fallback } = this.props;
+    const { index, animation } = this.props;
 
-    if (prevProps.fallback !== fallback) {
-      this.updateTabsItemFallbackVal(fallback)
-    }
-
-    if (prevProps.index !== index && prevData.currentIndex === this.data.currentIndex) {
+    if (
+      prevProps.index !== index &&
+      prevData.currentIndex === this.data.currentIndex
+    ) {
       this._getTabsWidth();
 
       my.createSelectorQuery()
@@ -122,13 +115,18 @@ Component({
         .exec((ret) => {
           if (!ret || !ret[0]) {
             // 当获取到的索引值无法匹配时显示错误提示
-            log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
+            log.error(
+              'Tabs',
+              `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`
+            );
             return;
           }
 
           let { _tabsViewportWidth } = this.data;
           _tabsViewportWidth = Math.floor(_tabsViewportWidth);
-          let left = Math.floor((<IBoundingClientRect>ret[0]).left) + this.data._scrollLeft;
+          let left =
+            Math.floor((<IBoundingClientRect>ret[0]).left) +
+            this.data._scrollLeft;
           const width = Math.floor((<IBoundingClientRect>ret[0]).width);
 
           // 正确的索引值在初次加载时高亮展示当前 tab
@@ -151,30 +149,15 @@ Component({
               _swipeableAnimation: animation,
             });
           }
-
         });
       this._autoHeight(index);
     }
     this._useSwipeable(this.props.swipeable);
   },
-  didUnmount() {
-    const key = `${this.$page.$id}-${this.props.uid}`;
-    tabsStore.removeGroup(key);
-  },
   methods: {
-    updateTabsItemFallbackVal(v: boolean){
-      const key = `${this.$page.$id}-${this.props.uid}`;
-      const group = tabsStore.getGroup(key)
-      if(group){
-        objectValues(group.items).forEach(item=>{
-          // @ts-ignore
-          item.setFallback(v)
-        })
-      }
-    },
     _autoHeight(tabIndex) {
       if (isShouldNotCalHeight) return;
-      if (this.props.fallback) return
+      if (this.props.fallback) return;
       // tabItem 自适应高度的处理
       // 获取每个 item-pane 的高度，通过传入当前 tab 的 index 值
       // 动态修改 _tabContentHeight 后在 axml 中插入修改
@@ -184,7 +167,8 @@ Component({
         .exec((ret) => {
           if (ret && ret[0]) {
             this.setData({
-              _tabContentHeight: (<IBoundingClientRect>ret[0])[tabIndex]?.height,
+              _tabContentHeight: (<IBoundingClientRect>ret[0])[tabIndex]
+                ?.height,
             });
           }
         });
@@ -250,20 +234,20 @@ Component({
     },
     handleSwiperTouchStart(e) {
       const { onTouchStart } = this.props;
-      if (typeof onTouchStart === "function") {
-        onTouchStart(e)
+      if (typeof onTouchStart === 'function') {
+        onTouchStart(e);
       }
     },
     handleSwiperTransition(e) {
       const { onTransition } = this.props;
-      if (typeof onTransition === "function") {
-        onTransition(e)
+      if (typeof onTransition === 'function') {
+        onTransition(e);
       }
     },
     handleAnimationEnd(e) {
       const { onAnimationEnd } = this.props;
-      if (typeof onAnimationEnd === "function") {
-        onAnimationEnd(e)
+      if (typeof onAnimationEnd === 'function') {
+        onAnimationEnd(e);
       }
     },
     appearLeft() {
@@ -286,23 +270,5 @@ Component({
         _rightFade: true,
       });
     },
-    getRef() {
-      return {
-        getCompInstance: () => this,
-        updateHeight: (idx: number) => this._autoHeight(idx),
-      };
-    },
-  },
-  ref() {
-    const updateHeight = isForceUpdate
-      ? () => this.setData({ _forceRefreshSwiper: Math.random() })
-      : (idx: number) => this._autoHeight(idx);
-    return isMoreThan275 ?
-      { getCompInstance: () => this }
-      :
-      {
-        getCompInstance: () => this,
-        updateHeight,
-      };
   },
 });

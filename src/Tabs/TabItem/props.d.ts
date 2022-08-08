@@ -5,10 +5,6 @@ import { IBaseProps } from '../../_base';
 
 export interface ITabItemProps extends IBaseProps {
   /**
-   * @description 
-   */
-  uid: string
-  /**
    * @description 每一项 tab 内容
    */
   tab: {

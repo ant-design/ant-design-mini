@@ -213,3 +213,4 @@ export const CHECKBOX_GROUP_TYPE = 'CHECKBOX_GROUP_TYPE';
 export const RADIO_GROUP_TYPE = 'RADIO_GROUP_TYPE';
 export const COLLAPSE_TYPE = 'COLLAPSE_TYPE';
 export const FILTER_TYPE = 'FILTER_TYPE';
+export const TAB_TYPE = 'TAB_TYPE';
