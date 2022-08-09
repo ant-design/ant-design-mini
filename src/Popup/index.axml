@@ -1,4 +1,4 @@
-<import-sjs from="./index.sjs" name="_sjs" />
+<import-sjs from="../_util/event.sjs" name="_sjs" />
 
 <view
   class="amd-popup {{classNames}}"
