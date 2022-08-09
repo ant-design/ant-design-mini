@@ -65,7 +65,6 @@ const config: IConfig = {
   }
   #root .__dumi-default-navbar{
     box-shadow: none;
-    border-bottom: 1px solid #ebedf1;
   }
   a[title='站长统计']  {
     display: none;
@@ -79,7 +78,6 @@ const config: IConfig = {
     width: 370px;
   }
   #root .__dumi-default-layout-content {
-    max-width: 1300px;
     margin: 0 auto;
   }
 

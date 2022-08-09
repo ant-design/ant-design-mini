@@ -1,0 +1,161 @@
+import React, { useEffect, useState } from 'react';
+import { Button } from 'antd';
+import Lottie from 'react-lottie';
+import { RightOutlined } from '@ant-design/icons';
+import MainSection from './MainSection';
+import { productIntroduce, productResource, productDesignValues, guides, recommends, users } from './config';
+import styles from './index.local.less';
+
+export default () => {
+  const [startAnimation, setStartAnimation] = useState([false, false, false, false]);
+
+  useEffect(() => {
+    /** 绑定触发动画的事件，因为是mouseenter触发，因此无法进行通过事件委托绑定 */
+    startAnimation.forEach((item, index) => {
+      document.querySelector(`#my_lottie_${index}`)?.addEventListener('mouseenter', () => {
+        setStartAnimation(pre => pre.map((i, idx) => index === idx ? true : i));
+      })
+    })
+  }, []);
+
+  return (
+    <div className={styles.mainContainer}>
+      <div className={styles.mainSection}>
+        <MainSection />
+      </div>
+      <div className={styles.contentSection}>
+        {/* 高性能、可定制、原子化、流畅感 */}
+        <div className={styles.productIntroduce}>
+          {
+            productIntroduce.map(product => (
+              <div className={styles.productItem}>
+                <img height={32} src={product.image} />
+                <div className={styles.productItemTitle}>{product.title}</div>
+                <div className={styles.productItemDescription}>{product.description}</div>
+              </div>
+            ))
+          }
+        </div>
+        {/* 设计语言与开发资源 */}
+        <div className={styles.productResource}>
+          <div className={styles.productResourceTitle}>语言设计与开发资源</div>
+          <div className={styles.productResourceContent}>
+            {
+              productResource.map(resource => (
+                <div className={styles.productResourceCard}>
+                  <div className={styles.productResourceCardContent}>
+                    <div className={styles.productResourceCardTitle}>{resource.title}</div>
+                    <div className={styles.productResourceCardDescription}>{resource.description}</div>
+                    <Button
+                      className={styles.productResourceCardButton}
+                      type='primary'
+                      shape='round'
+                    >{resource.buttonText}</Button>
+                  </div>
+                  <img src={resource.image} />
+                </div>
+              ))
+            }
+          </div>
+          <div className={styles.productDesignValues}>
+            {
+              productDesignValues.map(value => (
+                <>
+                  <div className={styles.productDesignValuesContentContainer}>
+                    <div className={styles.productDesignValuesContent}>
+                      <div className={styles.productDesignValuesTitle}>{value.title}</div>
+                      <div className={styles.productDesignValuesDescription}>{value.description}</div>
+                    </div>
+                    <div className={styles.productDesignValuesBackground} />
+                  </div>
+                  <div className={styles.productDesignValuesIconContainer}>
+                    {
+                      value.icons.map((icon, index) => (
+                        <div className={styles.productDesignValuesIcon} id={`my_lottie_${index}`}>
+                          <Lottie
+                            options={{
+                              loop: false,
+                              autoplay: false,
+                              path: icon.lottie,
+                            }}
+                            eventListeners={
+                              [{
+                                eventName: 'complete',
+                                callback: () => {
+                                  setStartAnimation(pre => pre.map((item, idx) => idx === index ? false : item))
+                                }
+                              }]
+                            }
+                            height={62}
+                            width={62}
+                            isStopped={!startAnimation[index]}
+                          />
+                          <div className={styles.productDesignValuesIconText}>{icon.text}</div>
+                        </div>
+                      ))
+                    }
+                  </div>
+                </>
+              ))
+            }
+          </div>
+        </div>
+        {/* 新手指引 */}
+        <div className={styles.guides}>
+          <div className={styles.guidesTitle}>新手指引</div>
+          <div className={styles.guidesContent}>
+            {
+              guides.map(guide => (
+                <div className={styles.guideCard}>
+                  <div className={styles.guideCardContent}>
+                    <div className={styles.guideCardTitle}>{guide.title}</div>
+                    <div className={styles.guideCardDescription}>{guide.description}</div>
+                    <div className={styles.guideCardButton}>
+                      <a href={guide.buttonLink} target='_blank'>
+                        {guide.buttonText}
+                        <RightOutlined />
+                      </a>
+                    </div>
+                  </div>
+                  <img src={guide.image} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        {/* 精品资源 */}
+        <div className={styles.recommends}>
+          <div className={styles.recommendsTitle}>精品资源</div>
+          <div className={styles.recommendsContent}>
+            {
+              recommends.map(recommend => (
+                <div className={styles.recommendCard}>
+                  <div className={styles.recommendImage}>
+                    <img src={recommend.image} width={50} />
+                  </div>
+                  <div className={styles.recommendCardContent}>
+                    <div className={styles.recommendCardTitle}>{recommend.title}</div>
+                    <div className={styles.recommendCardDescription}>{recommend.description}</div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        {/* 谁在使用 */}
+        <div className={styles.users}>
+          <div className={styles.usersTitle}>谁在使用</div>
+          <div className={styles.usersContent}>
+            {
+              users.map(user => (
+                <div className={styles.userImage}>
+                  <img src={user.image} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div >
+  )
+}
