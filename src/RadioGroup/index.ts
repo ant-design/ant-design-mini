@@ -34,7 +34,7 @@ Component({
     if (prevProps.disabled !== this.props.disabled) {
       payload.disabled = disabled;
     }
-    this.data._store.dispatch(payload, false);
+    this.data._store.dispatch(payload);
   },
   methods: {
     onChange(value) {

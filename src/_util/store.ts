@@ -40,7 +40,7 @@ export class Store<S extends Record<string, any>> {
    * @param payload
    * @param force 是否强制刷新
    */
-  dispatch(payload: Partial<S> | ((state: S) => S), force = true) {
+  dispatch(payload: Partial<S> | ((state: S) => S), force = false) {
     // payload支持传函数，即使在循环中使用dispatch，payload每次接收的state也是上一次dispatch完最新的
     if (typeof payload === 'function') {
       payload = payload(this.state);
@@ -203,7 +203,7 @@ export function providerMixin<
           this.setData(diffData);
         }
       });
-      this.data._store.dispatch({});
+      this.data._store.forceUpdate();
     },
   };
 }
