@@ -1,10 +1,7 @@
 Page({
   data: {
     action: 'https://www.fastmock.site/mock/b3a1128da69d22edd307be51154c913d/upload/image',
-    value_1: [{
-      url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
-      status: 'done'
-    }],
+    value_1: ['https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ'],
     value_2: [{
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
       status: 'done'
@@ -15,16 +12,11 @@ Page({
       url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
       status: 'error'
     }],
-    value_3: [{
-      url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*znK_ToIL8rQAAAAAAAAAAAAAARQnAQ',
-      status: 'done',
-    }, {
-      url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*kStORbDQxwMAAAAAAAAAAAAAARQnAQ',
-      status: 'done',
-    }, {
-      url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*K4Z-RLHuliYAAAAAAAAAAAAAARQnAQ',
-      status: 'done',
-    }],
+    value_3: [
+      'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*znK_ToIL8rQAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*kStORbDQxwMAAAAAAAAAAAAAARQnAQ',
+      'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*K4Z-RLHuliYAAAAAAAAAAAAAARQnAQ'
+    ],
     demoImage: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*8cMtRYFpz88AAAAAAAAAAAAAARQnAQ'
   },
   onChange(v) {
@@ -74,10 +66,10 @@ Page({
     return new Promise((resolve) => {
       if (res.success) {
         if (res.data && res.data.url) {
-          resolve(res.data.url);  // resolve('') 则表示上传失败
+          resolve(res.data.url); // resolve('') 则表示上传失败
         }
       } else {
-        resolve('');  //则表示上传失败
+        resolve(''); //则表示上传失败
       }
     })
   }
