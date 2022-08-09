@@ -4,5 +4,7 @@ export const RateDefaultProps = {
     allowHalf: false,
     readOnly: false,
     disabled: false,
-    halfInactiveColor: "#DBDBDB"
+    halfInactiveColor: "#DBDBDB",
+    activeColor: '#FFD24A',
+    inactiveColor: '#E5E5E5'
 };

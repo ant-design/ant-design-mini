@@ -3,9 +3,6 @@ import { RateDefaultProps } from './props';
 Component({
   data: {
     rate: 0,
-    iconWidth: 0,
-    halfSvg: 'https://gw.alipayobjects.com/zos/bmw-prod/dd3cdbb9-b64a-4ddd-9ffe-e0e1a95d1e4f.svg',
-    nohalfSvg: 'https://gw.alipayobjects.com/zos/bmw-prod/76ff3adf-bb6f-4fce-94e9-47806d53c8db.svg'
   },
   props: RateDefaultProps,
   didMount () {
