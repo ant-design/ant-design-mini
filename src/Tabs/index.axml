@@ -1,6 +1,3 @@
-<template name="badge">
-  <view class="amd-tabs-bar-badge amd-tabs-bar-{{type}}-badge">{{text}}</view>
-</template>
 <view class="amd-tabs {{className ? className : ''}}">
   <view class="amd-tabs-bar {{type === 'basis'?'amd-tabs-bar-underline':''}}"
     style="{{sticky ? `position: sticky; top: ${stickyTop}; z-index: 999;`: ''}}">
@@ -31,12 +28,12 @@
             onTap="onChange"
             data-index="{{index}}">
             <badge 
-            a:if="{{item.badge!==undefined}}" 
-            type="{{item.badge.type || 'dot'}}" 
-            text="{{item.badge.text || ''}}" 
-            offsetX="{{item.badge.x || '-50%'}}"
-            offsetY="{{item.badge.y || '-50%'}}"
-            >
+              a:if="{{item.badge!==undefined}}" 
+              type="{{item.badge.type || 'dot'}}" 
+              text="{{item.badge.text || ''}}" 
+              offsetX="{{item.badge.x || '-50%'}}"
+              offsetY="{{item.badge.y || '-50%'}}"
+              >
               <!-- 添加作用域插槽 -->
               <slot name="title" tab="{{item}}">
                 <view class="amd-tabs-bar-basis-title">
@@ -58,15 +55,15 @@
             onTap="onChange"
             data-index="{{index}}">
             <badge
-            a:if="{{item.badge!==undefined}}" 
-            type="{{item.badge.type || 'dot'}}" 
-            text="{{item.badge.text || ''}}" 
-            offsetX="{{item.badge.x || '-50%'}}"
-            offsetY="{{item.badge.y || '-50%'}}"
-            >
-            <view class="amd-tabs-bar-capsule-title">
-              {{item.title}}
-            </view>
+              a:if="{{item.badge!==undefined}}" 
+              type="{{item.badge.type || 'dot'}}" 
+              text="{{item.badge.text || ''}}" 
+              offsetX="{{item.badge.x || '-50%'}}"
+              offsetY="{{item.badge.y || '-50%'}}"
+              >
+                <view class="amd-tabs-bar-capsule-title">
+                  {{item.title}}
+                </view>
             </badge>
             <view a:else class="amd-tabs-bar-capsule-title">
               {{item.title}}
@@ -81,14 +78,14 @@
             onTap="onChange"
             data-index="{{index}}">
             <badge
-            a:if="{{item.badge!==undefined}}" 
-            type="{{item.badge.type || 'dot'}}" 
-            text="{{item.badge.text || ''}}" 
-            offsetX="{{item.badge.x || '-50%'}}"
-            offsetY="{{item.badge.y || '-50%'}}"
-            >
-            <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>
-            <view class="amd-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
+              a:if="{{item.badge!==undefined}}" 
+              type="{{item.badge.type || 'dot'}}" 
+              text="{{item.badge.text || ''}}" 
+              offsetX="{{item.badge.x || '-50%'}}"
+              offsetY="{{item.badge.y || '-50%'}}"
+              >
+              <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>
+              <view class="amd-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
             </badge>
             <view a:else>
               <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>

@@ -22,7 +22,7 @@ toc: 'content'
 <code src='../../demo/pages/Tabs'></code>
 
 ### 吸顶模式
-<code src='../../demo/pages/Tabs'></code>
+<code src='../../demo/pages/TabsSticky'></code>
 
 ### fallback
 <code src='../../demo/pages/TabsFallback'></code>
