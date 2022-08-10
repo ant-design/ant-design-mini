@@ -9,6 +9,7 @@ const config: IConfig = {
   locales: [['zh', '中文']],
   mode: 'site',
   hash: true,
+  ssr: {},
   sitemap: {
     hostname: 'https://mini.ant.design',
   },
