@@ -78,6 +78,11 @@ export interface ICalendarProps extends IBaseProps {
   /**
    * @description 点击关闭按钮回调
    */
-  onClose: () => {};
+  onClose: () => void
+
+  /**
+   * @description 选择日期回调
+   */
+  onChange: (v: any) => void
 }
 export declare const CalendarDefaultProps: Partial<ICalendarProps>;

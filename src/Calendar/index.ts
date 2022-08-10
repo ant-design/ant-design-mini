@@ -1,11 +1,32 @@
 import dayjs from 'dayjs'
-
-import { CalendarDefaultProps } from './props'
+import { CalendarDefaultProps, ICalendarProps } from './props'
 import Calendar, { ECalendarSelectMode } from './manager'
 
-Component({
+Component<
+{
+  renderTimes: number,
+	checkTimes: number,
+	calendarList?: any[]
+},
+Partial<ICalendarProps>,
+{
+    console: () => void
+    checkScroll: () => void
+    clearCheckScroll: () => void
+    render: () => void
+    onDateChange: (v: any) => void
+    updateSelectDate: (start: any, end: any) => void
+    onCheck: () => void
+    onCancel: () => void
+    onClose: () => void
+},
+{
+    calendarManager: any,
+    render: any,
+    timer:  NodeJS.Timer | null
+}
+>({
     props: CalendarDefaultProps,
-    timer: null,
     data: {
         renderTimes: 0,
         checkTimes: 0,
@@ -22,6 +43,7 @@ Component({
             selectRange,
             showlunar
         } = this.props;
+        this.timer = null;
         this.calendarManager = new Calendar({
             startDate,
             endDate,
