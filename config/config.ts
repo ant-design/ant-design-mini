@@ -9,6 +9,9 @@ const config: IConfig = {
   locales: [['zh', '中文']],
   mode: 'site',
   hash: true,
+  sitemap: {
+    hostname: 'https://mini.ant.design',
+  },
   plugins: ['./plugin/index.ts', './docs/mobile/index.ts'],
   metas: [
     {
