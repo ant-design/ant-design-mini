@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'antd';
 import Lottie from 'react-lottie';
+import { DocSearch } from '@docsearch/react';
 import { RightOutlined } from '@ant-design/icons';
 import MainSection from './MainSection';
 import { productIntroduce, productResource, productDesignValues, guides, recommends, users } from './config';
@@ -24,6 +25,11 @@ export default () => {
         <MainSection />
       </div>
       <div className={styles.contentSection}>
+        <DocSearch
+          appId='8V6T3YYVB3'
+          apiKey='00471a2ff478c1da9b9e3634edf53a6f'
+          indexName='mini-ant'
+        />
         {/* 高性能、可定制、原子化、流畅感 */}
         <div className={styles.productIntroduce}>
           {
@@ -89,6 +95,7 @@ export default () => {
                             height={62}
                             width={62}
                             isStopped={!startAnimation[index]}
+                            style={{ pointerEvents: 'none' }}
                           />
                           <div className={styles.productDesignValuesIconText}>{icon.text}</div>
                         </div>

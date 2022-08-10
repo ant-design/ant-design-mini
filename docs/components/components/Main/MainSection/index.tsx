@@ -42,9 +42,10 @@ export default () => {
                     }
                   }]
                 }
-                height={startAnimation ? 400 : 0}
-                width={startAnimation ? 400 : 0}
+                height={startAnimation ? 200 : 0}
+                width={startAnimation ? 200 : 0}
                 isStopped={!startAnimation}
+                style={{ pointerEvents: 'none' }}
               />
             </div>
           </div>
