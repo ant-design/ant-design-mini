@@ -52,7 +52,27 @@ Component({
       this._marqueeTimer = null;
     }
   },
+  pageEvents:{
+    onShow(){
+      this.resetState();
+    },
+  },
   methods: {
+    resetState(){
+      if(this.props.enableMarquee) {
+        this.setData({
+          _marqueeStyle: '',
+          _animatedWidth: 0,
+          _overflowWidth: 0,
+          _duration: 0,
+          _viewWidth: 0,
+        },()=>{
+          this.resetMarquee();
+          this._measureText(this.startMarquee.bind(this));
+        });
+      }
+     
+    },
     showError() {
       const { actions } = this.props;
       if (!Array.isArray(actions) && typeof actions !== 'undefined') {
