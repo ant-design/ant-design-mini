@@ -14,11 +14,6 @@
       className="amd-notice-bar-icon" />
   </block>
   <view class="amd-notice-bar-content amd-notice-bar-content-{{$id}}">
-    <!-- 滚动区域左右两侧的阴影渐变 -->
-    <view a:if="{{enableMarquee}}"
-      class="amd-notice-bar-scroll-left amd-notice-bar-{{type === 'normal'?'':type}}-scroll-left"></view>
-    <view a:if="{{enableMarquee}}"
-      class="amd-notice-bar-scroll-right amd-notice-bar-{{type === 'normal'?'':type}}-scroll-right"></view>
     <!-- 文本内容展示区域 -->
     <view
       class="amd-notice-bar-marquee amd-notice-bar-marquee-{{$id}}"
