@@ -10,6 +10,7 @@ const config: IConfig = {
   mode: 'site',
   hash: true,
   ssr: {},
+  exportStatic: {},
   sitemap: {
     hostname: 'https://mini.ant.design',
   },
