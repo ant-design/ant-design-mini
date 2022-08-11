@@ -25,14 +25,18 @@ Component({
   didUpdate() {
     const { enableMarquee } = this.props;
     this.showError();
-
     // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
     if (enableMarquee) {
       this.measureText(this.startMarquee.bind(this));
     }
   },
 
-  
+  pageEvents:{
+    onShow(){
+      this.resetState();
+    },
+  },
+
   methods: {
     resetState(){
       if(this.props.enableMarquee) {
