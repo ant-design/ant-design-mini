@@ -2,15 +2,11 @@ import { NoticeBarDefaultProps } from './props';
 import { log } from '../_util/console';
 import { IBoundingClientRect } from "../_base"
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const noop = () => { };
-const _canIUseTransitionEnd = my.canIUse('view.onTransitionEnd');
 
 Component({
   props: NoticeBarDefaultProps,
   data: {
     _show: true,
-    _canIUseTransitionEnd,
     _marqueeStyle: '',
     _animatedWidth: 0,
     _overflowWidth: 0,
@@ -22,12 +18,7 @@ Component({
     this.showError();
 
     if (enableMarquee) {
-      if (!_canIUseTransitionEnd) {
-        this._measureText();
-        this._startAnimation();
-      } else {
-        this._measureText(this.startMarquee.bind(this));
-      }
+      this._measureText(this.startMarquee.bind(this));
     }
   },
 
@@ -37,26 +28,11 @@ Component({
 
     // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
     if (enableMarquee) {
-      if (!this._marqueeTimer && !_canIUseTransitionEnd) {
-        this._measureText();
-        this._startAnimation();
-      } else {
-        this._measureText(this.startMarquee.bind(this));
-      }
+      this._measureText(this.startMarquee.bind(this));
     }
   },
 
-  didUnmount() {
-    if (this._marqueeTimer) {
-      clearTimeout(this._marqueeTimer);
-      this._marqueeTimer = null;
-    }
-  },
-  pageEvents:{
-    onShow(){
-      this.resetState();
-    },
-  },
+  
   methods: {
     resetState(){
       if(this.props.enableMarquee) {
@@ -138,7 +114,7 @@ Component({
         }, typeof trailing === 'number' ? trailing : 0);
       }
     },
-    _measureText(callback = noop) {
+    _measureText(callback) {
       const fps = 40;
       const { loop } = this.props;
       // 计算文本所占据的宽度，计算需要滚动的宽度
@@ -166,53 +142,6 @@ Component({
             }
           });
       }, 0);
-    },
-    _startAnimation() {
-      if (this._marqueeTimer) {
-        clearTimeout(this._marqueeTimer);
-      }
-
-      const loop = false;
-      const leading = 500;
-      const trailing = 800;
-      const fps = 40;
-      const TIMEOUT = 1 / fps * 1000;
-      const isLeading = this.data._animatedWidth === 0;
-      const timeout = isLeading ? leading : TIMEOUT;
-
-      const animate = () => {
-        const { _overflowWidth } = this.data;
-        let _animatedWidth = this.data._animatedWidth + 1;
-        const isRoundOver = _animatedWidth > _overflowWidth;
-
-        if (isRoundOver) {
-          if (loop) {
-            _animatedWidth = 0;
-          } else {
-            return;
-          }
-        }
-
-        if (isRoundOver && trailing) {
-          this._marqueeTimer = setTimeout(() => {
-            this.setData({
-              _animatedWidth,
-            });
-
-            this._marqueeTimer = setTimeout(animate, TIMEOUT);
-          }, trailing);
-        } else {
-          this.setData({
-            _animatedWidth,
-          });
-
-          this._marqueeTimer = setTimeout(animate, TIMEOUT);
-        }
-      };
-
-      if (this.data._overflowWidth !== 0) {
-        this._marqueeTimer = setTimeout(animate, timeout);
-      }
     },
   },
 });
