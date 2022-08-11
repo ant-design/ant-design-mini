@@ -106,7 +106,7 @@ Component({
     },
     onTransitionEnd() {
       const { loop } = this.props;
-      const trailing = 800;
+      const trailing = 200;
       if (loop) {
         setTimeout(() => {
           this.resetMarquee();
