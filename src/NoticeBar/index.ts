@@ -6,19 +6,19 @@ import { IBoundingClientRect } from "../_base"
 Component({
   props: NoticeBarDefaultProps,
   data: {
-    _show: true,
-    _marqueeStyle: '',
-    _animatedWidth: 0,
-    _overflowWidth: 0,
-    _duration: 0,
-    _viewWidth: 0,
+    show: true,
+    marqueeStyle: '',
+    animatedWidth: 0,
+    overflowWidth: 0,
+    duration: 0,
+    viewWidth: 0,
   },
   didMount() {
     const { enableMarquee } = this.props;
     this.showError();
 
     if (enableMarquee) {
-      this._measureText(this.startMarquee.bind(this));
+      this.measureText(this.startMarquee.bind(this));
     }
   },
 
@@ -28,7 +28,7 @@ Component({
 
     // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
     if (enableMarquee) {
-      this._measureText(this.startMarquee.bind(this));
+      this.measureText(this.startMarquee.bind(this));
     }
   },
 
@@ -37,14 +37,14 @@ Component({
     resetState(){
       if(this.props.enableMarquee) {
         this.setData({
-          _marqueeStyle: '',
-          _animatedWidth: 0,
-          _overflowWidth: 0,
-          _duration: 0,
-          _viewWidth: 0,
+          marqueeStyle: '',
+          animatedWidth: 0,
+          overflowWidth: 0,
+          duration: 0,
+          viewWidth: 0,
         },()=>{
           this.resetMarquee();
-          this._measureText(this.startMarquee.bind(this));
+          this.measureText(this.startMarquee.bind(this));
         });
       }
      
@@ -62,7 +62,7 @@ Component({
       }
       if (mode === 'closeable' && typeof onTap === 'function') {
         this.setData({
-          _show: false,
+          show: false,
         });
         return onTap();
       }
@@ -79,28 +79,28 @@ Component({
     // 文本滚动的计算
     resetMarquee() {
       const { loop } = this.props;
-      const { _viewWidth } = this.data;
+      const { viewWidth } = this.data;
       let showMarqueeWidth = '0px';
       if (loop) {
-        showMarqueeWidth = `${_viewWidth}px`;
+        showMarqueeWidth = `${viewWidth}px`;
       }
-      const _marqueeStyle = `transform: translate3d(${showMarqueeWidth}, 0, 0); transition: 0s all linear;`;
+      const marqueeStyle = `transform: translate3d(${showMarqueeWidth}, 0, 0); transition: 0s all linear;`;
       this.setData({
-        _marqueeStyle,
+        marqueeStyle,
       });
     },
     startMarquee() {
       const { loop } = this.props;
       const leading = 500;
-      const { _duration, _overflowWidth, _viewWidth } = this.data;
-      let marqueeScrollWidth = _overflowWidth;
+      const { duration, overflowWidth, viewWidth } = this.data;
+      let marqueeScrollWidth = overflowWidth;
       if (loop) {
-        marqueeScrollWidth = _overflowWidth + _viewWidth;
+        marqueeScrollWidth = overflowWidth + viewWidth;
       }
-      const _marqueeStyle = `transform: translate3d(${-marqueeScrollWidth}px, 0, 0); transition: ${_duration}s all linear ${typeof leading === 'number' ? `${leading / 1000}s` : '0s'};`;
-      if (this.data._marqueeStyle !== _marqueeStyle) {
+      const marqueeStyle = `transform: translate3d(${-marqueeScrollWidth}px, 0, 0); transition: ${duration}s all linear ${typeof leading === 'number' ? `${leading / 1000}s` : '0s'};`;
+      if (this.data.marqueeStyle !== marqueeStyle) {
         this.setData({
-          _marqueeStyle,
+          marqueeStyle,
         });
       }
     },
@@ -110,11 +110,11 @@ Component({
       if (loop) {
         setTimeout(() => {
           this.resetMarquee();
-          this._measureText(this.startMarquee.bind(this));
+          this.measureText(this.startMarquee.bind(this));
         }, typeof trailing === 'number' ? trailing : 0);
       }
     },
-    _measureText(callback) {
+    measureText(callback) {
       const fps = 40;
       const { loop } = this.props;
       // 计算文本所占据的宽度，计算需要滚动的宽度
@@ -126,17 +126,17 @@ Component({
           .boundingClientRect()
           .exec((ret) => {
             // eslint-disable-next-line max-len
-            const _overflowWidth = (ret && ret[0] && ret[1] && ((<IBoundingClientRect>ret[0]).width - (<IBoundingClientRect>ret[1]).width)) || 0;
-            const _viewWidth = (<IBoundingClientRect>ret[1])?.width || 0;
-            let marqueeScrollWidth = _overflowWidth;
+            const overflowWidth = (ret && ret[0] && ret[1] && ((<IBoundingClientRect>ret[0]).width - (<IBoundingClientRect>ret[1]).width)) || 0;
+            const viewWidth = (<IBoundingClientRect>ret[1])?.width || 0;
+            let marqueeScrollWidth = overflowWidth;
             if (loop) {
-              marqueeScrollWidth = _overflowWidth + _viewWidth;
+              marqueeScrollWidth = overflowWidth + viewWidth;
             }
-            if (_overflowWidth > 0) {
+            if (overflowWidth > 0) {
               this.setData({
-                _overflowWidth,
-                _viewWidth,
-                _duration: (marqueeScrollWidth / fps),
+                overflowWidth,
+                viewWidth,
+                duration: (marqueeScrollWidth / fps),
               });
               callback();
             }

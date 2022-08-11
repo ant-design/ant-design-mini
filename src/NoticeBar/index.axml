@@ -2,7 +2,7 @@
   amd-notice-bar
   {{className ? className : ''}}
   {{type ? 'amd-notice-bar-' + type : ''}}"
-  a:if="{{_show}}">
+  a:if="{{show}}">
   <block a:if="{{showIcon && type !=='error'}}">
     <icon size="x-small"
       type="SoundOutline"
@@ -22,7 +22,7 @@
     <!-- 文本内容展示区域 -->
     <view
       class="amd-notice-bar-marquee amd-notice-bar-marquee-{{$id}}"
-      style="{{_marqueeStyle}} display: {{enableMarquee ? 'inline-block' : 'block'}}"
+      style="{{marqueeStyle}} display: {{enableMarquee ? 'inline-block' : 'block'}}"
       onTransitionEnd="onTransitionEnd">
       <slot />
     </view>
