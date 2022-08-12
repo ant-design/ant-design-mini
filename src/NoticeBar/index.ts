@@ -1,9 +1,9 @@
-import { NoticeBarDefaultProps } from './props';
+import { NoticeBarDefaultProps, INoticeBarData, INoticeBarMethods, INoticeBarProps } from './props';
 import { log } from '../_util/console';
 import { IBoundingClientRect } from "../_base"
 
 
-Component({
+Component<INoticeBarData, Partial<INoticeBarProps>, INoticeBarMethods, INoticeThis>({
   props: NoticeBarDefaultProps,
   data: {
     show: true,
