@@ -3,37 +3,35 @@ import { IBaseProps } from '../_base';
 interface ICustomDateTextResp {
   color: string;
   text: string;
-  date: string;
+  date: Date;
 }
-
 interface IHolidayItem {
   name: string;
-  range: [string, string];
-  type: 'holiday' | 'work';
-  day: string;
+  range: [Date, Date];
+  day: Date;
 }
 
 export interface ICalendarProps extends IBaseProps {
   /**
    * @description 限定选择的范围：起始时间
-   * @default true
+   * @default null
    */
-  startDate?: string;
+  startDate?: Date;
   /**
    * @description 限定选择的范围：结束时间
-   * @default true
+   * @default null
    */
-  endDate?: string;
+  endDate?: Date;
   /**
    * @description 默认选中时间
-   * @default true
+   * @default null
    */
-  selectDate?: string;
+  selectDate?: Date;
   /**
    * @description 默认选中范围
-   * @default true
+   * @default null
    */
-  selectRange?: string;
+  selectRange?: [Date, Date];
   /**
    * @description 选择模式
    * @default true
@@ -43,7 +41,7 @@ export interface ICalendarProps extends IBaseProps {
    * @description 禁选日期
    * @default true
    */
-  disableDates?: string[];
+  disableDates?: Date[];
 
   /**
    * @description 日期自定义文案，展示于日期的下面，农历节假日会被自动挤到日期上面
@@ -73,7 +71,12 @@ export interface ICalendarProps extends IBaseProps {
   /**
    * @description 是否展示标题
    */
-  titleShow: boolean
+  showTitle: boolean
+
+  /**
+   * @description 是否展示蒙层
+   */
+  showMask: boolean
 
   /**
    * @description 点击关闭按钮回调

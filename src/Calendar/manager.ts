@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import CALENDAR from './calendar';
 
 class HolidayHandler {
@@ -40,12 +40,6 @@ class HolidayHandler {
   }
 }
 
-interface ICalendarMultipleChoiceStatus {
-  before: String,
-  after: String,
-  data: Array<any>,
-}
-
 export enum ECalendarSelectMode {
   single = "single",
   range = "range"
@@ -60,31 +54,31 @@ interface ICustomDateTextItem {
 interface IHolidayItem {
   name: string;
   range: [string, string];
-  type: 'holiday' | 'work';
   day: string;
 }
 
 class Calendar {
-    private startDate: string;
-    private endDate: string;
-    private disableDates: string[];
-    private selectionMode: ECalendarSelectMode;
-    private showToday: boolean;
-    private customDateList: ICustomDateTextItem[];
-    private holidayHandler: HolidayHandler;
-    private selectStartDate: string;
-    private selectEndDate: string;
-    private selectDateList: string[];
+    public startDate: Dayjs;
+    public endDate: Dayjs;
+    public disableDates: Dayjs[];
+    public selectionMode: ECalendarSelectMode;
+    public showToday: boolean;
+    public customDateList: ICustomDateTextItem[];
+    public holidayHandler: HolidayHandler;
+    public selectStartDate: Dayjs;
+    public selectEndDate: Dayjs;
+    public selectDateList: Dayjs[];
+    public showlunar: Boolean;
+    public calendarList: any[];
 
     constructor(params: any) {
         let {
-            startDate = '',
-            endDate = '',
+            startDate,
+            endDate,
             disableDates = [],
             selectionMode,
             customDateList,
             holidayList = [],
-            hideDisableItem,
             selectDate,
             selectRange,
             showlunar
@@ -97,7 +91,6 @@ class Calendar {
 
         this.showlunar = showlunar;
         this.calendarList = [];
-        this.hideDisableItem = hideDisableItem;
         this.holidayHandler = new HolidayHandler(holidayList);
         this.customDateList = customDateList;
         this.showToday = true;
@@ -114,11 +107,11 @@ class Calendar {
         this.selectDateList = []
 
         if (selectionMode === ECalendarSelectMode.range && selectRange?.length === 2) {
-          this.selectStartDate = selectRange[0]
-          this.selectEndDate = selectRange[1]
+          this.selectStartDate = dayjs(selectRange[0])
+          this.selectEndDate = dayjs(selectRange[1])
           this.selectDateList = this.getSelectDateList(selectRange[0], selectRange[1]);
         } else if (selectionMode === ECalendarSelectMode.single && selectDate) {
-          this.selectStartDate = selectDate
+          this.selectStartDate = dayjs(selectDate)
         }
     }
 
@@ -380,7 +373,10 @@ class Calendar {
           isRangeArea: this.selectionMode === ECalendarSelectMode.range ? checked : false,
           isRangeStart,
           isRangeEnd,
-          isSingleSelect: this.selectionMode === ECalendarSelectMode.single && isRangeStart
+          isSingleSelect: this.selectionMode === ECalendarSelectMode.single && isRangeStart,
+          showToday: false,
+          holiday: null,
+          tag: null
         };
 
         if (dayjs(posDate).isBefore(nowFullDate)) {

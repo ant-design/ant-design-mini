@@ -1,10 +1,10 @@
-import dayjs from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 import { CalendarDefaultProps, ICalendarProps } from './props'
 import Calendar, { ECalendarSelectMode } from './manager'
 
 Component<
 {
-  renderTimes: number,
+    renderTimes: number,
 	checkTimes: number,
 	calendarList?: any[]
 },
@@ -15,14 +15,13 @@ Partial<ICalendarProps>,
     clearCheckScroll: () => void
     render: () => void
     onDateChange: (v: any) => void
-    updateSelectDate: (start: any, end: any) => void
+    updateSelectDate: (start: Dayjs, end: Dayjs) => void
     onCheck: () => void
     onCancel: () => void
     onClose: () => void
 },
 {
-    calendarManager: any,
-    render: any,
+    calendarManager: Calendar,
     timer:  NodeJS.Timer | null
 }
 >({
@@ -58,7 +57,7 @@ Partial<ICalendarProps>,
         this.render()
     },
     didUpdate (prev) {
-        if (this.props.startDate !== prev.startDate || this.props.endDate !== prev.endDate) {
+        if (!dayjs(this.props.startDate as Date).isSame(prev.startDate) || !dayjs(this.props.endDate as Date).isSame(prev.endDate)) {
             this.calendarManager.updateStartEndDate(this.props.startDate, this.props.endDate)
             this.render()
         } else if (prev.disableDates !== this.props.disableDates) {
@@ -70,6 +69,8 @@ Partial<ICalendarProps>,
         } else if (prev.customDateList !== this.props.customDateList) {
             this.calendarManager.updateCustomDateList(this.props.customDateList)
             this.render()
+        } else if (prev.selectDate !== this.props.selectDate) {
+            
         }
     },
     methods: {
@@ -126,11 +127,11 @@ Partial<ICalendarProps>,
         onCheck () {
             if (this.props.selectionMode === ECalendarSelectMode.range) {
                 if (this.calendarManager.selectStartDate && this.calendarManager.selectEndDate) {
-                    this.props.onChange?.([this.calendarManager.selectStartDate, this.calendarManager.selectEndDate])
+                    this.props.onChange?.([dayjs(this.calendarManager.selectStartDate).toDate(), dayjs(this.calendarManager.selectEndDate).toDate()])
                 }
             } else {
                 if (this.calendarManager.selectStartDate) {
-                    this.props.onChange?.(this.calendarManager.selectStartDate)
+                    this.props.onChange?.(dayjs(this.calendarManager.selectStartDate).toDate())
                 }
             }
         },

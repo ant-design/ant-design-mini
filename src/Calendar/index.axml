@@ -1,6 +1,6 @@
 <import-sjs name="helper" from="./index.sjs" />
 
-<mask onMaskTap="onClose" />
+<mask onMaskTap="onClose" a:if="{{showMask}}" />
 <view 
     class="amd-calendar-wrapper {{className}}"
     style="height: {{height}}" 
@@ -10,7 +10,7 @@
     change:data-renderTimes="{{helper.handleCalendarChange}}"
     change:data-checkScroll="{{helper.handleCheckScroll}}"
 >
-    <view class="amd-calendar-default-title" a:if="{{titleShow}}">
+    <view class="amd-calendar-default-title" a:if="{{showTitle}}">
         <text>日期选择</text>
         <image onTap="onClose" src="https://gw.alipayobjects.com/mdn/rms_6d74f8/afts/img/A*8wn2TKSKSSUAAAAAAAAAAAAAARQnAQ" class="amd-calendar-default-title-close" />
     </view>

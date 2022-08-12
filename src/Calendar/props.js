@@ -11,5 +11,6 @@ export const CalendarDefaultProps = {
   height: '90vh',
   selectDate: null,
   selectRange: null,
-  titleShow: true
+  showTitle: true,
+  showMask: true
 };

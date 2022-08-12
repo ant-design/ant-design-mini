@@ -47,6 +47,7 @@
     showConfirmButton="{{true}}"
     onClose="onClose"
     a:if="{{show1}}"
+    date="{{date}}"
 />
 
 <calendar 
