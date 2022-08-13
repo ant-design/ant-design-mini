@@ -1,3 +1,7 @@
-<view>
-  Cascader
-</view>
+<button onTap="openCascader">选择</button>
+
+<cascader
+  popup="{{ visible: cascaderVisible }}"
+  onClose="onClose"
+/>
+

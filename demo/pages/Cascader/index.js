@@ -1,4 +1,9 @@
 Page({
-  data: {},
-  onLoad() {},
+  data: { cascaderVisible: true },
+  openCascader() {
+    this.setData({ cascaderVisible: true });
+  },
+  onClose() {
+    this.setData({ cascaderVisible: false });
+  },
 });

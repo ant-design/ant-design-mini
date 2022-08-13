@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "popup": "../Popup/index",
+    "checklist": "../Checklist/index"
+  }
+}

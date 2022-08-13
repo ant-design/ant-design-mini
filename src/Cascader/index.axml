@@ -1,0 +1,19 @@
+<popup
+  visible="{{popup.visible}}"
+  maskClosable="{{popup.maskClosable || true}}"
+  showCloseIcon="{{popup.showCloseIcon || true}}"
+  disableScroll="{{popup.disableScroll}}"
+  animation="{{popup.animation}}"
+  duration="{{popup.duration}}"
+  position="{{popup.position || 'bottom'}}"
+  zIndex="{{popup.zIndex}}"
+  className="{{`amd-cascader ${popup.className || ''}`}}"
+  onClose="onClose"
+>
+  <checklist
+    value="{{value}}"
+    options="{{checklistOptions}}"
+    multiple
+    onChange="onChange"
+  />
+</popup>
