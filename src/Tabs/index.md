@@ -69,7 +69,7 @@ interface ITabItem {
 #### Tabs
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 面板切换时候，触发回调 |(index: number) => void|
+| onChange | 面板切换时候，触发回调 |(index: number, e: Event) => void|
 | onAnimationEnd | 内部 swiper 组件的 onAnimationEnd 事件（仅在基础库 1.50.0 以上版本生效）|(e: any) => void=> void|
 | onTouchStart | 内部 swiper 组件的 onTouchStart 事件（仅在基础库 2.x 版本生效） |(e: any) => void|
 | onTransition | 内部 swiper 组件的 onTransition 事件（仅在基础库 2.x 版本生效） |(e: any) => void|
