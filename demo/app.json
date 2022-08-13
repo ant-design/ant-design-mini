@@ -68,7 +68,8 @@
     "pages/Divider/index",
     "pages/Grid/index",
     "pages/Footer/index",
-    "pages/CascaderPicker/index"
+    "pages/CascaderPicker/index",
+    "pages/Cascader/index"
   ],
   "window": {
     "enableWK": "YES",
