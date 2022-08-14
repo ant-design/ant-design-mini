@@ -10,10 +10,61 @@
   className="{{`amd-cascader ${popup.className || ''}`}}"
   onClose="onClose"
 >
-  <checklist
-    value="{{value}}"
-    options="{{checklistOptions}}"
-    multiple
-    onChange="onChange"
-  />
+  <view class="amd-cascader-title">城市选择</view>
+  <view class="amd-cascader-steps">
+    <steps
+      direction="vertical"
+      index="{{2}}"
+      uid="steps-3">
+      <step-item
+        index="{{0}}"
+        title="第一步"
+        uid="steps-3"/>
+      <step-item
+        index="{{1}}"
+        title="第二步"
+        uid="steps-3">
+      </step-item>
+
+      <step-item
+        index="{{2}}"
+        title="第三步"
+        uid="steps-3">
+      </step-item>
+      <step-item
+        index="{{3}}"
+        title="第四步"
+        uid="steps-3">
+      </step-item>
+    </steps>
+  </view>
+  <scroll-view
+    class="amd-cascader-content"
+    scroll-y
+  >
+    <checklist
+      value="{{value}}"
+      options="{{checklistOptions}}"
+      multiple
+      onChange="onChange"
+    />
+    <checklist
+      value="{{value}}"
+      options="{{checklistOptions}}"
+      multiple
+      onChange="onChange"
+    />
+    <checklist
+      value="{{value}}"
+      options="{{checklistOptions}}"
+      multiple
+      onChange="onChange"
+    />
+    <checklist
+      value="{{value}}"
+      options="{{checklistOptions}}"
+      multiple
+      onChange="onChange"
+    />
+  </scroll-view>
 </popup>

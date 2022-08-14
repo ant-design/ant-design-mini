@@ -2,6 +2,8 @@
   "component": true,
   "usingComponents": {
     "popup": "../Popup/index",
-    "checklist": "../Checklist/index"
+    "checklist": "../Checklist/index",
+    "steps": "../Steps/index",
+    "step-item": "../Steps/StepItem/index"
   }
 }

@@ -1,0 +1,25 @@
+.amd-cascader {
+  .amd-popup-content {
+    height: 1200rpx;
+    & > view:last-child {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+  &-title {
+    padding-bottom: 24rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    font-size: 36rpx;
+    color: #333;
+    text-align: center;
+  }
+  &-steps {
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+  &-content {
+    flex: 1;
+  }
+}
