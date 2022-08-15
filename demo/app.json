@@ -80,21 +80,5 @@
     "pullRefresh": false,
     "allowsBounceVertical": true
   },
-
-  "tabBar": {
-    "selectedColor": "#1677ff",
-    "textColor": "#999",
-    "items": [
-      {
-        "pagePath": "pages/index/index",
-        "name": "首页"
-      },
-      {
-        "pagePath": "pages/NoticeBar/index",
-        "name": "NoticeBar"
-      }
-    ]
-  },
-  
   "debug": true
 }

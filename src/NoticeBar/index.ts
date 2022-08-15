@@ -3,7 +3,7 @@ import { log } from '../_util/console';
 import { IBoundingClientRect } from "../_base"
 
 
-Component<INoticeBarData, Partial<INoticeBarProps>, INoticeBarMethods, INoticeThis>({
+Component<INoticeBarData, Partial<INoticeBarProps>, INoticeBarMethods>({
   props: NoticeBarDefaultProps,
   data: {
     show: true,
@@ -115,7 +115,7 @@ Component<INoticeBarData, Partial<INoticeBarProps>, INoticeBarMethods, INoticeTh
         setTimeout(() => {
           this.resetMarquee();
           this.measureText(this.startMarquee.bind(this));
-        }, typeof trailing === 'number' ? trailing : 0);
+        }, trailing);
       }
     },
     measureText(callback) {
