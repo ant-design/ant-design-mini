@@ -3,6 +3,7 @@ import { RateDefaultProps } from './props';
 Component({
   data: {
     rate: 0,
+    starWidth: 0
   },
   props: RateDefaultProps,
   didMount () {
@@ -11,6 +12,7 @@ Component({
       const rate = this.formatRate(value)
       this.setData({ rate })
     }
+    this.getStartWidth()
   },
   didUpdate (prev) {
     if (prev.value !== this.props.value) {
@@ -19,6 +21,17 @@ Component({
     }
   },
   methods: {
+    getStartWidth () {
+      my.createSelectorQuery()
+        .select('.amd-rate-star')
+        .boundingClientRect()
+        .exec((res) => {
+          const pos = res[0]
+          this.setData({
+            starWidth: pos.width
+          })
+        });
+    },
     formatRate (rate) {
       if (rate % 0.5 !== 0) {
         return Math.round(rate)
@@ -51,5 +64,30 @@ Component({
       
       return rate
     },
+    handleStarMove (e) {
+      if (this.props.readOnly || this.props.disabled) return
+      const { touches } = e
+      const { clientX } = touches[0]
+      
+      my.createSelectorQuery()
+        .select('.amd-rate-star-wrapper')
+        .boundingClientRect()
+        .exec(res => {
+          const pos = res[0]
+          const rawValue = ((clientX - pos.left) / pos.width) * this.props.maxRate
+
+          const ceiledValue = this.props.allowHalf
+            ? Math.ceil(rawValue * 2) / 2
+            : Math.ceil(rawValue)
+
+          this.setData({
+            rate: Math.min(this.props.maxRate, Math.max(0, ceiledValue))
+          })
+        })
+    },
+    handleStarMoveEnd () {
+      if (this.props.readOnly || this.props.disabled) return
+      this.props.onRateEnd?.(this.data.rate)
+    }
   },
 });
