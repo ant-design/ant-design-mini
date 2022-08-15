@@ -70,6 +70,7 @@
     "pages/Footer/index",
     "pages/CascaderPicker/index"
   ],
+
   "window": {
     "enableWK": "YES",
     "enableDSL": "YES",
