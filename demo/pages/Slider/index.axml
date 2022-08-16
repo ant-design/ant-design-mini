@@ -1,0 +1,84 @@
+<view>
+  <demo-block title="有节点单滑块">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      step="{{20}}"
+      ticks="{{true}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+
+  <demo-block title="有节点双滑块">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{[10, 50]}}"
+      step="{{10}}"
+      ticks="{{true}}"
+      range="{{true}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+
+  <demo-block title="无节点单滑块">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+
+  <demo-block title="无节点双滑快">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{[20, 60]}}"
+      range="{{true}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+
+  <demo-block title="显示数据">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      ticks="{{true}}"
+      showNumber="{{true}}"
+      step="{{20}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+
+  <demo-block title="自定义图标">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      icon="MoreOutline"
+      color="#ff8f1f"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+
+  <demo-block title="禁用状态">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      step="{{20}}"
+      ticks="{{true}}"
+      disabled="{{true}}"
+      onChange="handleSliderChange"
+    />
+  </demo-block>
+</view>
