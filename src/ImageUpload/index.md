@@ -23,7 +23,7 @@ toc: 'content'
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| value | File[] | - | [] | 已上传的图片列表 |
+| value | Array\<File \| string\> \| string | - | [] | 已上传的图片列表 |
 | action | string | 否 | - | 上传图片的服务器地址，只支持https地址 |
 | enableShowPhotoDownload | boolean | - | false | 预览图片时是否暂时下载按钮，只有在不存在onPreview字段时生效 |
 | enableSavePhoto | boolean | - | false | 照片支持长按下载 |

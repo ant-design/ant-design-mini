@@ -1,16 +1,39 @@
 <view class="amd-input-item {{disabled ? 'amd-input-item-content-disabled' : ''}} {{className ? className : ''}}">
   <view class="amd-input-item-line">
     <view class="amd-input-item-layer">
-      <input enableNative="{{enableNative}}" class="amd-input-item-content  {{inputCls ? inputCls : ''}}" 
-        id="{{id ? id : `amdInput_${$id}`}}" name="{{name}}" disabled="{{disabled}}" value="{{cValue}}" type="{{type}}" password="{{password}}" 
-        placeholder="{{placeholder}}" placeholder-class="amd-input-item-placeholder-base {{placeholderClass ? placeholderClass : ''}}" 
-        placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" maxlength="{{maxLength}}" minLength="{{minLength}}" focus="{{autoFocus}}" 
-        confirm-type="{{confirmType}}" confirm-hold="{{confirmHold}}" cursor="{{cursor}}" selection-start="{{selectionStart}}" 
-        selection-end="{{selectionEnd}}" random-number="{{randomNumber}}" controlled="{{controlled}}"  onInput="onChange" 
-        onConfirm="onConfirm" onFocus="onFocus" onBlur="onBlur"  onKeyDown="onKeyDown"
+      <input 
+        enableNative="{{enableNative}}" 
+        class="amd-input-item-content  {{inputCls ? inputCls : ''}}" 
+        id="{{id ? id : `amdInput_${$id}`}}" 
+        name="{{name}}" 
+        disabled="{{disabled}}" 
+        value="{{cValue}}" 
+        type="{{type}}" 
+        password="{{password}}" 
+        placeholder="{{placeholder}}" 
+        placeholder-class="amd-input-item-placeholder-base {{placeholderClass ? placeholderClass : ''}}" 
+        placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" 
+        maxlength="{{maxLength}}" 
+        minLength="{{minLength}}" 
+        focus="{{autoFocus}}" 
+        confirm-type="{{confirmType}}" 
+        confirm-hold="{{confirmHold}}" 
+        cursor="{{cursor}}" 
+        selection-start="{{selectionStart}}" 
+        selection-end="{{selectionEnd}}" 
+        random-number="{{randomNumber}}" 
+        controlled="{{controlled}}"  
+        onInput="onChange" 
+        onConfirm="onConfirm" 
+        onFocus="onFocus" 
+        onBlur="onBlur"  
+        onKeyDown="onKeyDown"
         onKeyUp="onKeyUp"/>
     </view>
-    <view a:if="{{clear}}" class="amd-input-item-clear {{cValue.length > 0 && showClear ? 'show' : 'hidden'}}" onTap="onClear" >
+    <view 
+      a:if="{{clear}}" 
+      class="amd-input-item-clear {{cValue.length > 0 && showClear ? 'show' : 'hidden'}}" 
+      onTap="onClear">
       <amd-icon size="x-small" class="amd-input-item-clear-icon" type="CloseCircleFill" >
       </amd-icon>
     </view>

@@ -1,6 +1,9 @@
 import fmtEvent from '../_util/fmtEvent';
-import {MaskDefaultProps} from "./props"
+import { MaskDefaultProps } from './props';
 Component({
+  data: {
+    supportSjs: my.canIUse('sjs.event'),
+  },
   props: MaskDefaultProps,
   methods: {
     onMaskClick(e) {

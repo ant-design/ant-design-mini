@@ -9,4 +9,10 @@ Page({
       { type: 'light' },
     ],
   },
+  handleTap(e) {
+    console.log('e', e)
+    my.alert({
+      title: '点击按钮'
+    })
+  }
 });

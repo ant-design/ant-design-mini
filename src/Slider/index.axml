@@ -47,7 +47,6 @@
             style="width: {{sliderWidth}}%; left: {{sliderLeft}}%"
           /> 
 
-
           <view class="amd-slider-ticks">
             <view 
               a:for="{{tickList}}" 

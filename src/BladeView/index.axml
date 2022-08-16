@@ -1,0 +1,70 @@
+
+<view class="amd-blade-view-container">
+  <!-- content -->
+  <scroll-view
+    class="amd-blade-view-body"
+    scroll-y="{{true}}"
+    onScroll="onScroll"
+    scroll-top="{{scrollTop}}"
+  >
+    <view
+      id="amd-blade-view-group-{{group.key}}"
+      class="amd-blade-view-body-group"
+      a:for="{{data}}"
+      a:for-index="groupIndex"
+      a:for-item="group"
+      key="{{group.key}}"
+      data-key="{{group.key}}"
+    >
+      <view
+        class="amd-blade-view-body-group-title {{ groupIndex ? '': 'amd-blade-view-body-group-title-first' }} {{sticky && currentKey===group.key ? 'amd-blade-view-body-group-title-sticky' : ''}}"
+        id="amd-blade-view-group-title-{{group.key}}"
+      >
+        {{group.title}}
+      </view>
+      <view class="amd-blade-view-body-group-item-container">
+        <view
+          class="amd-blade-view-body-group-item"
+          hover-class="amd-blade-view-body-group-item-hover"
+          hover-start-time="20"
+          hover-stay-time="50"
+          a:for="{{group.items}}"
+          data-item="{{item}}"
+          data-group="{{group}}"
+          onTap="onTapItem"
+        >
+          <view class="amd-blade-view-body-group-item-text {{ index ? 'amd-blade-view-body-group-item-text-not-first': '' }} {{value===item.value ? 'amd-blade-view-body-group-item-text-selected' : ''}}">
+            <slot item="{{item}}">{{item.label}}</slot>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- sidebar -->
+  <view
+    class="amd-blade-view-sidebar"
+    onTouchStart="onTouchStart"
+    onTouchMove="onTouchMove"
+    onTouchEnd="onTouchEnd"
+    disable-scroll="{{true}}"
+  >
+    <view
+      class="amd-blade-view-sidebar-item"
+      a:for="{{data}}"
+      data-key="{{item.key}}"
+      key="{{item.key}}"
+      onTap="onTapSideItem"
+    >
+      <view
+        a:if="{{isTouchingSideBar&&currentKey===item.key}}"
+        class="amd-blade-view-sidebar-current"
+      >
+        {{currentKey}}
+      </view>
+      <view class="amd-blade-view-sidebar-item-text {{currentKey===item.key ? 'active' : ''}}">
+        {{item.key}}
+      </view>
+    </view>
+  </view>
+</view>

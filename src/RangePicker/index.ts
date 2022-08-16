@@ -138,7 +138,7 @@ Component({
     setCurrentValue() {
       const { _visible } = this; // 隐藏状态下从CValue触发，展开状态使用当前数据
       const { precision } = this.props;
-      const { cValue, pickerType } = this.data;
+      const { cValue, pickerType, columns } = this.data;
       let { currentStartDate, currentEndDate } = this.data;
       const currentStartDateByCValue = cValue?.[0] || null;
       const currentEndDateByCValue = cValue?.[1] || null;
@@ -177,20 +177,24 @@ Component({
         pickerType === 'start' ? currentStartDate : currentEndDate,
         precision
       );
-      this.setData({ currentStartDate, currentEndDate, currentValue });
-      this.generateData();
+      const newColumns = this.generateData(currentValue);
+      if (!equal(newColumns, columns)) {
+        this.setData({ columns: newColumns }, () => {
+          this.setData({ currentStartDate, currentEndDate, currentValue });
+        });
+      } else {
+        this.setData({ currentStartDate, currentEndDate, currentValue });
+      }
     },
     /**
      * 生成选项数据，didmound、picker change、打开弹窗、切换picker type触发
      */
-    generateData() {
+    generateData(currentValue) {
       const { precision } = this.props;
-      const { columns, currentValue } = this.data;
       const min = this.getMin();
       const max = this.getMax();
       if (max < min) {
-        this.setData({ columns: [] });
-        return;
+        return [];
       }
       let currentPickerDay = dayjs();
       if (currentValue.length > 0) {
@@ -201,9 +205,7 @@ Component({
       }
 
       const newColumns = getRangeData(precision, min, max, currentPickerDay);
-      if (!equal(columns, newColumns)) {
-        this.setData({ columns: newColumns });
-      }
+      return newColumns;
     },
 
     onChange(selectedIndex) {
@@ -220,7 +222,7 @@ Component({
         date = max.toDate();
         selectedIndex = getValueByDate(date, precision);
       }
-      const { pickerType } = this.data;
+      const { pickerType, columns } = this.data;
       const newData: any = {
         currentValue: selectedIndex,
       };
@@ -229,16 +231,36 @@ Component({
       } else {
         newData.currentEndDate = date;
       }
-      this.setData(newData);
-      this.generateData();
-      if (onPickerChange) {
-        onPickerChange(
-          pickerType,
-          date,
-          dayjs(date).format(format),
-          selectedIndex,
-          fmtEvent(this.props)
+      const newColumns = this.generateData(selectedIndex);
+      if (!equal(newColumns, columns)) {
+        this.setData(
+          {
+            columns: newColumns,
+          },
+          () => {
+            this.setData(newData);
+            if (onPickerChange) {
+              onPickerChange(
+                pickerType,
+                date,
+                dayjs(date).format(format),
+                selectedIndex,
+                fmtEvent(this.props)
+              );
+            }
+          }
         );
+      } else {
+        this.setData(newData);
+        if (onPickerChange) {
+          onPickerChange(
+            pickerType,
+            date,
+            dayjs(date).format(format),
+            selectedIndex,
+            fmtEvent(this.props)
+          );
+        }
       }
     },
 
