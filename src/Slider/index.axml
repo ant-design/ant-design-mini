@@ -19,6 +19,7 @@
         class="amd-slider-handler-icon-from-props-icon"
         type="{{icon}}"
         size="small"
+        color="{{color}}"
       />
     </view>
   </view>
@@ -44,7 +45,7 @@
           <view class="amd-slider-track-fill-background" /> 
           <view 
             class="amd-slider-track-fill-front"
-            style="width: {{sliderWidth}}%; left: {{sliderLeft}}%"
+            style="width: {{sliderWidth}}%; left: {{sliderLeft}}%; {{icon && color ? `background-color: ${color}`  : ''}}"
           /> 
 
 
@@ -60,8 +61,8 @@
           </view>
           </view>
 
-          <template a:if="{{range}}" is="slider-handler" data="{{ position: sliderLeft, icon: icon}}"/>
-          <template is="slider-handler" data="{{ position: sliderLeft + sliderWidth, icon: icon}}"/>
+          <template a:if="{{range}}" is="slider-handler" data="{{ position: sliderLeft, icon: icon, color: color}}"/>
+          <template is="slider-handler" data="{{ position: sliderLeft + sliderWidth, icon: icon, color: color}}"/>
         </view>
       </view>
     </view>

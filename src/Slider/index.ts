@@ -33,18 +33,19 @@ Component({
   },
 
   methods: {
-    updateByProps(newValue) {
+    updateByProps(newValue, isAfterChange = false) {
       const { min, max, step, range, ticks } = this.props;
       const value = this.fitSliderValue(newValue, min, max, step, range);
 
-      this.updateValue(value, step);
+      this.updateValue(value, step, isAfterChange);
 
       if (ticks) {
         this.setTickList(step, min, max);
       }
     },
 
-    updateValue(value: SliderValue, step = 1) {
+    updateValue(value: SliderValue, step = 1, isAfterChange = false) {
+      const { onChange, onAfterChange } = this.props;
       const prevValue = this.getRoundedValue(this.data.value, step);
       const currentValue = this.getRoundedValue(value, step);
 
@@ -54,8 +55,12 @@ Component({
 
       this.setSliderStyleByValue(currentValue);
 
-      if (!this.isSliderValueEqual(currentValue, prevValue)) {
-        this.props.onChange?.(currentValue);
+      if (!this.isSliderValueEqual(currentValue, prevValue) && typeof onChange === 'function') {
+        onChange(currentValue);
+      }
+
+      if (isAfterChange && typeof onAfterChange === 'function') {
+        onAfterChange(currentValue);
       }
     },
 
@@ -242,7 +247,11 @@ Component({
     },
 
     handleTrackTouchEnd(e) {
+      const { onAfterChange } = this.props;
       this.onTouchChanged(e);
+      if (typeof onAfterChange === 'function') {
+        this.updateByProps(this.data.value, true);
+      }
     },
   },
 });

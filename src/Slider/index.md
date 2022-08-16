@@ -39,6 +39,7 @@ toc: false
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
 | onChange | slider 值改变时触发 | (value: number &verbar; [number, number]) => void |
+| onAfterChange | 与 touchend 触发时机一致，把当前值作为参数传入 | (value: number &verbar; [number, number]) => void |
 
 ## 样式类 
 

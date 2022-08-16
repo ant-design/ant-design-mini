@@ -1,61 +1,60 @@
 <view>
   <demo-block title="有节点单滑块">
-    <view>
-    {{currentValue.length ? `[${currentValue[0]}, ${currentValue[1]}]`: currentValue}}
-    </view>
-  </demo-block>
-
-  <demo-block title="节点, 单滑块">
     <slider
       min="{{0}}"
       max="{{100}}"
       value="{{80}}"
-      step={{20}}
+      step="{{20}}"
+      ticks="{{true}}"
       onChange="handleSliderChange"
-      ticks
+      onAfterChange="handleAfterChange"
     />
   </demo-block>
 
-  <demo-block title="节点, 双滑快">
+  <demo-block title="有节点双滑块">
     <slider
       min="{{0}}"
       max="{{100}}"
       value="{{[10, 50]}}"
-      step={{10}}
+      step="{{10}}"
+      ticks="{{true}}"
+      range="{{true}}"
       onChange="handleSliderChange"
-      ticks
-      range
+      onAfterChange="handleAfterChange"
     />
   </demo-block>
 
-  <demo-block title="无节点, 单滑块">
+  <demo-block title="无节点单滑块">
     <slider
       min="{{0}}"
       max="{{100}}"
       value="{{80}}"
       onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
     />
   </demo-block>
 
-  <demo-block title="无节点, 双滑快">
+  <demo-block title="无节点双滑快">
     <slider
       min="{{0}}"
       max="{{100}}"
       value="{{[20, 60]}}"
-      range
+      range="{{true}}"
       onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
     />
   </demo-block>
 
-  <demo-block title="节点, 显示数据">
+  <demo-block title="显示数据">
     <slider
       min="{{0}}"
       max="{{100}}"
       value="{{80}}"
-      step={{20}}
+      ticks="{{true}}"
+      showNumber="{{true}}"
+      step="{{20}}"
       onChange="handleSliderChange"
-      ticks
-      showNumber
+      onAfterChange="handleAfterChange"
     />
   </demo-block>
 
@@ -64,11 +63,9 @@
       min="{{0}}"
       max="{{100}}"
       value="{{80}}"
-      step={{20}}
       onChange="handleSliderChange"
-      ticks
-      showNumber
       icon="MoreOutline"
+      color="#ff8f1f"
     />
   </demo-block>
 
@@ -77,10 +74,10 @@
       min="{{0}}"
       max="{{100}}"
       value="{{80}}"
-      step={{20}}
+      step="{{20}}"
+      ticks="{{true}}"
+      disabled="{{true}}"
       onChange="handleSliderChange"
-      ticks
-      disabled
     />
   </demo-block>
 </view>
