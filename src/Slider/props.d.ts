@@ -67,6 +67,13 @@ interface ISliderProps extends IBaseProps {
    */
   ticks?: boolean;
 
+  /** 
+   * @description 滑块和进度条的背景色
+   * @default 
+   */
+  color: string;
+
+
   /**
    * @description 输入变化的时候触发， 参数为滑动组件的当前值
    */

@@ -29,6 +29,7 @@ toc: false
 | max | number | 否 | 100 | 最大值 |
 | min | number | 否 | 0 | 最小值 |
 | range | boolean | 否 | false | 是否是双滑块 |
+| color | string | 否 | '#1677ff' | 滑块、轨迹和节点的背景色 |
 | showNumber | boolean | 否 | false | 是否展示刻度上的数据 |
 | step | number | 否 | 1 | 步距，取值必须大于 0，并且可被 (max - min) 整除 |
 | ticks | boolean | 否 | false | 是否显示刻度 |

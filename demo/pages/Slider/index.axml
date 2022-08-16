@@ -63,9 +63,10 @@
       min="{{0}}"
       max="{{100}}"
       value="{{80}}"
-      onChange="handleSliderChange"
       icon="MoreOutline"
       color="#ff8f1f"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
     />
   </demo-block>
 

@@ -1,3 +1,5 @@
+<import-sjs from="./index.sjs" name="sliderSjs" />
+
 <template name='slider-handler'>
   <view
     class="amd-slider-handler"
@@ -7,9 +9,9 @@
       a:if="{{!icon}}" 
       class="amd-slider-handler-icon-default"
     >
-      <view class="amd-slider-handler-icon-default-line1"/>
-      <view class="amd-slider-handler-icon-default-line2"/>
-      <view class="amd-slider-handler-icon-default-line3"/>
+      <view class="amd-slider-handler-icon-default-line1" style="background-color: {{color}}"/>
+      <view class="amd-slider-handler-icon-default-line2" style="background-color: {{color}}"/>
+      <view class="amd-slider-handler-icon-default-line3" style="background-color: {{color}}"/>
     </view>
     <view
       a:if="{{icon}}" 
@@ -45,15 +47,14 @@
           <view class="amd-slider-track-fill-background" /> 
           <view 
             class="amd-slider-track-fill-front"
-            style="width: {{sliderWidth}}%; left: {{sliderLeft}}%; {{icon && color ? `background-color: ${color}`  : ''}}"
+            style="width: {{sliderWidth}}%; left: {{sliderLeft}}%; background-color: {{color}}"
           /> 
-
 
           <view class="amd-slider-ticks">
             <view 
               a:for="{{tickList}}" 
-              class= "amd-slider-tick amd-slider-tick-{{item.left >= sliderLeft && item.left <= sliderLeft + sliderWidth ? 'front' : 'back' }}"
-              style="left: {{item.left}}%;"
+              class= "amd-slider-tick amd-slider-tick-{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? 'front' : 'back' }}"
+              style="left: {{item.left}}%;{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? `background-color: ${color}`: ''}}"
           >
             <view a:if={{showNumber}} class="amd-slider-tick-number">
               {{item.value}}
