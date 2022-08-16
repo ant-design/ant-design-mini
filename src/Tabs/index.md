@@ -35,6 +35,7 @@ toc: 'content'
 | type | 'basis' &verbar; 'capsule' &verbar; 'mixin' | 否 | 'basis' | 类型，basis(基础)，capsule(胶囊)，mixin(混合) |
 | index | number | 否 | 0 | 当前激活的索引 |
 | sticky | boolean | 否 | false | 是否支持吸顶 |
+| stickyTop | number | 否 | 0 | 吸顶高度，仅在sticky为true时生效 |
 | uid |  string  | 否 | - | 当页面有多个Tabs时需传入，`必须页面唯一`，与内部 TabItem 组件的 uid 一致 |
 | adjustHeight | string | 否 | 'current' | 自动以指定滑块的高度为整个容器的高度 |
 | activeClass | string | 否 |  -  |  swiper-item 可见时的 class |
