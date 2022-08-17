@@ -15,12 +15,6 @@ interface ISliderProps extends IBaseProps {
   value?: SliderValue;
 
   /**
-   * @description 是否受控
-   * @default false
-   */
-  controlled: boolean;
-
-  /**
    * @description 是否禁用
    * @default false
    */

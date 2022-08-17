@@ -21,7 +21,6 @@ toc: false
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| controlled | boolean | 否 | false | 是否受控模式 |
 | value | SliderValue | 否 | - | 当前值 |
 | disabled | boolean | 否 | false | 是否禁用 |
 | className | string | 否 | - | 类名 |

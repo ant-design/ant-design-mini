@@ -26,9 +26,14 @@ Component({
   },
 
   didUpdate(prevProps) {
-    if (!equal(this.props, prevProps)) {
-      /** 受控模式下只取最新value，否则保持当前data的值不变 */
-      this.updateByProps(this.props.controlled ? this.props.value : this.data.value);
+    if (!equal(this.props.value, prevProps.value) ||
+      !equal(this.props.min, prevProps.min) ||
+      !equal(this.props.max, prevProps.max) ||
+      !equal(this.props.step, prevProps.step) ||
+      !equal(this.props.range, prevProps.range) ||
+      !equal(this.props.ticks, prevProps.ticks)
+    ) {
+      this.updateByProps(this.props.value);
     }
   },
 
