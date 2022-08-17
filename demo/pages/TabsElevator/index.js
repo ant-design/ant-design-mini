@@ -35,4 +35,10 @@ Page({
   },
   // 电梯模式必须存在onPageScroll事件
   onPageScroll() {},
+  handleChange(index, type) {
+    console.log('onChange', index, type);
+  },
+  handleTabClick(index) {
+    console.log('onTabClick', index);
+  },
 });
