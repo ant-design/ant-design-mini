@@ -1,0 +1,21 @@
+<view class="amd-tabs-elevator-bar" style="top:{{top}}px">
+    <view a:if="{{showLeftShadow}}" class="amd-tabs-elevator-bar-mask amd-tabs-elevator-bar-mask-left"/>
+    <view a:if="{{showRightShadow}}" class="amd-tabs-elevator-bar-mask amd-tabs-elevator-bar-mask-right"/>
+    <scroll-view 
+        class="amd-tabs-elevator-bar-items"
+        scroll-x 
+        onScroll="onScroll"
+        scroll-left="{{scrollLeft}}"
+        scroll-with-animation>
+        <view 
+            a:for="{{tabs}}" 
+            class="amd-tabs-elevator-bar-item">
+            <view 
+                class="amd-tabs-elevator-bar-item-wrapper {{activeIndex===index?'amd-tabs-elevator-bar-item-wrapper-active':''}}"  
+                data-index="{{index}}"
+                catchTap="onTabClick">
+                <slot item="{{item}}" index="{{index}}" active="{{activeIndex===index}}">{{item.title}}</slot>
+            </view>
+        </view>
+    </scroll-view>
+</view>
