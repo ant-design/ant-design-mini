@@ -9,11 +9,11 @@ const config: IConfig = {
   locales: [['zh', '中文']],
   mode: 'site',
   hash: true,
-  plugins: ['./plugin/index.ts', './docs/mobile/index.ts'],
+  plugins: ['./plugin/index.ts'],
   algolia: {
     appId: '8V6T3YYVB3',
     apiKey: '00471a2ff478c1da9b9e3634edf53a6f',
-    indexName: 'mini-ant'
+    indexName: 'mini-ant',
   },
   metas: [
     {
@@ -30,9 +30,9 @@ const config: IConfig = {
     `
     var a = document.querySelector(".__dumi-default-navbar-logo")
     a && (a.innerHTML = '');
-    if(device.mobile() && !window.location.pathname.startsWith('/mobile')){
-      window.location.href="/mobile"
-    }
+    // if(device.mobile() && !window.location.pathname.startsWith('/mobile')){
+    //   window.location.href="/mobile"
+    // }
     `,
     `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

@@ -67,7 +67,6 @@ export const getProductDesignValuesBackgroundImage = (isWideScreen) =>
     ? 'https://gw.alipayobjects.com/zos/bmw-prod/8e1607a9-2a82-47b8-901a-3310c84727c8.svg'
     : 'https://gw.alipayobjects.com/zos/bmw-prod/f17ac910-049a-4506-9498-723dec7d0d7a.svg';
 
-
 export const getGuides = (isWideScreen) => [
   {
     title: '快速上手',
@@ -126,9 +125,9 @@ export const users = [
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/c8eac91e-b243-409e-8d30-3edcde6236c9.svg',
   },
   {
-    image: 'https://gw.alipayobjects.com/zos/bmw-prod/57e7b248-778c-490c-9683-d119ec198886.svg',
+    image: 'https://gw.alipayobjects.com/zos/bmw-prod/2683fc4d-8914-49f7-9453-61fc71395d03.svg',
   },
   {
-    image: 'https://gw.alipayobjects.com/zos/bmw-prod/6356b1fc-53b7-4c79-b97d-3c42e358d106.svg',
+    image: 'https://gw.alipayobjects.com/zos/bmw-prod/759ac1ec-59e8-4f99-b725-8eea69cc740d.svg',
   }
 ];

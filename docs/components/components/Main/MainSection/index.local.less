@@ -55,23 +55,12 @@
       width: 244px;
       left: 60px;
       height: 217px;
-      background: url(https://gw.alipayobjects.com/zos/bmw-prod/e5edad32-6b07-446c-b6a6-d8554863ad39.svg) no-repeat;
+      background: url(https://gw.alipayobjects.com/zos/bmw-prod/e2b94b5a-87a2-4c04-8032-3dcd36da17cb.svg) no-repeat;
       background-size: cover;
 
-      .dayImage {
-        position: absolute;
-        width: 18px;
-        height: 18px;
-        top: 114px;
-        left: 173px;
-        background: url(https://gw.alipayobjects.com/zos/bmw-prod/adaa34bb-45c4-4a3d-8b84-db08ff1ba253.svg) no-repeat;
-        background-size: cover;
-
-        .publishDayAnimation {
-          position: absolute;
-          top: -240px;
-          left: -400px;
-        }
+      .publishDayAnimation {
+        position: relative;
+        left: -14px;
       }
     }
   }
@@ -79,8 +68,32 @@
 
 @media screen and (max-width: 450px) {
   .mainSectionContainer {
+    display: block;
+
     .mainSectionTitle {
-      // margin-top: -24px;
+      margin: 12px auto 0;
+    }
+
+    .imageContainer {
+      position: absolute;
+      width: 322px;
+      top: 140px;
+      overflow: hidden;
+
+      .staticImage {
+        width: 310px;
+      }
+
+      .calendarImage {
+        width: 128px;
+        height: 112px;
+        left: 66px;
+        top: 176px
+      }
+    }
+
+    .mainSectionButtonAction {
+      margin-top: 290px;
     }
   }
 }

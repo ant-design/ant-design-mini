@@ -1,13 +1,16 @@
-import React from 'react';
-import { DocSearch } from '@docsearch/react';
+import React, { useEffect } from 'react';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import NewFooter from './components/NewFooter';
 import 'antd/dist/antd.css';
-import '@docsearch/css';
 import styles from './home.local.less';
 
 export default () => {
+  useEffect(() => {
+    const algoliaSearch: any = document.querySelector('.__dumi-default-search-input') || {};
+    algoliaSearch.placeholder = '搜索';
+  }, []);
+
   return (
     <div className={styles.homePage}>
       <Main />

@@ -195,7 +195,7 @@ export default () => {
           <div className={styles.usersContent}>
             {
               users.map(user => (
-                <img className={styles.userImage} src={user.image}/>
+                <img className={styles.userImage} src={user.image} />
               ))
             }
           </div>

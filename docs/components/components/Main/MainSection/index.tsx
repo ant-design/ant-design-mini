@@ -7,11 +7,9 @@ export default () => {
   const [startAnimation, setStartAnimation] = useState(false);
 
   useEffect(() => {
-    document.querySelector(`#publishDay`)?.addEventListener('mouseenter', () => {
-      console.log('===', 111);
+    document.querySelector(`#calendarImage`)?.addEventListener('mouseenter', () => {
       setStartAnimation(true);
     })
-
   }, []);
 
   return (
@@ -25,29 +23,27 @@ export default () => {
         </div>
       </div>
       <div className={styles.imageContainer}>
-        <div className={styles.calendarImage}>
-          <div className={styles.dayImage} id="publishDay">
-            <div className={styles.publishDayAnimation}>
-              <Lottie
-                options={{
-                  loop: false,
-                  autoplay: false,
-                  path: 'https://gw.alipayobjects.com/os/bmw-prod/6ddc2133-7421-44c2-b604-398a1a2732cd.json',
-                }}
-                eventListeners={
-                  [{
-                    eventName: 'complete',
-                    callback: () => {
-                      setStartAnimation(false);
-                    }
-                  }]
-                }
-                height={startAnimation ? 200 : 0}
-                width={startAnimation ? 200 : 0}
-                isStopped={!startAnimation}
-                style={{ pointerEvents: 'none' }}
-              />
-            </div>
+        <div className={styles.calendarImage} id="calendarImage">
+          <div className={styles.publishDayAnimation}>
+            <Lottie
+              options={{
+                loop: false,
+                autoplay: false,
+                path: 'https://gw.alipayobjects.com/os/bmw-prod/6ddc2133-7421-44c2-b604-398a1a2732cd.json',
+              }}
+              eventListeners={
+                [{
+                  eventName: 'complete',
+                  callback: () => {
+                    setStartAnimation(false);
+                  }
+                }]
+              }
+              height={startAnimation ? 200 : 0}
+              width={startAnimation ? 200 : 0}
+              isStopped={!startAnimation}
+              style={{ pointerEvents: 'none' }}
+            />
           </div>
         </div>
         <img

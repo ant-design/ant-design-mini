@@ -9,7 +9,7 @@
   .contentSection {
     position: relative;
     top: -100px;
-    width: 1184px;
+    max-width: 1184px;
     margin: 0 auto;
     padding: 0 16px;
 
@@ -293,7 +293,15 @@
 
 
   @media screen and (max-width: 450px) {
+    .mainSection {
+      padding-top: 12px;
+      height: 512px;
+      text-align: center;
+    }
+
     .contentSection {
+      top: -24px;
+
       .productResource {
         .productResourceContent {
           .productResourceCard {
@@ -349,10 +357,17 @@
       .users {
         .usersContent {
           .userImage {
-            width: 75px;
+            width: 80px;
           }
         }
       }
+
+      .recommendsContent {
+        .recommendCard {
+          width: 100% !important;
+        }
+      }
+
     }
   }
 

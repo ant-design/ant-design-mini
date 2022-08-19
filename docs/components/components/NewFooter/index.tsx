@@ -152,7 +152,7 @@ const footerData = [
           <img
             src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
             alt="yuque"
-            className={styles.columnItemIcon}
+            className={styles.columnItemCustomIcon}
           />
         ),
         title: '语雀',
@@ -164,7 +164,7 @@ const footerData = [
           <img
             src="https://gw.alipayobjects.com/zos/antfincdn/nc7Fc0XBg5/8a6844f5-a6ed-4630-9177-4fa5d0b7dd47.png"
             alt="AntV"
-            className={styles.columnItemIcon}
+            className={styles.columnItemCustomIcon}
           />
         ),
         title: 'AntV',
@@ -176,7 +176,7 @@ const footerData = [
           <img
             src="https://gw.alipayobjects.com/zos/antfincdn/v2%24rh7lqpu/82f338dd-b0a6-41bc-9a86-58aaa9df217b.png"
             alt="Egg"
-            className={styles.columnItemIcon}
+            className={styles.columnItemCustomIcon}
           />
         ),
         title: 'Egg',
@@ -188,7 +188,7 @@ const footerData = [
           <img
             src="https://gw.alipayobjects.com/zos/rmsportal/DMDOlAUhmktLyEODCMBR.ico"
             alt="kitchen"
-            className={styles.columnItemIcon}
+            className={styles.columnItemCustomIcon}
           />
         ),
         title: 'Kitchen',
@@ -200,7 +200,7 @@ const footerData = [
           <img
             src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
             alt="xtech"
-            className={styles.columnItemIcon}
+            className={styles.columnItemCustomIcon}
           />
         ),
         title: '蚂蚁体验科技',
@@ -216,14 +216,16 @@ export default () => {
       <div className={styles.footerBody}>
         {
           footerData.map(column => (
-            <div>
+            <div className={styles.column}>
               <div className={styles.columnTile}>{column.title}</div>
               <div>
                 {
                   column.items.map(columnItem => (
                     <div className={styles.columnItem}>
-                      <span className={styles.columnItemIcon}>{columnItem.icon}</span>
-                      <span>{columnItem.title}</span>
+                      <a className={styles.columnItemUrl} href={columnItem.url} target="_blank" rel="noopener noreferrer">
+                        <span className={styles.columnItemIcon}>{columnItem.icon}</span>
+                        {columnItem.title}
+                      </a>
                       <span className={styles.columnItemDescription}>
                         {
                           columnItem.description ? ' - ' + columnItem.description : ''
@@ -238,7 +240,7 @@ export default () => {
         }
       </div>
       <div className={styles.copyright}>
-        © 2022 Made with ❤ by 
+        © 2022 Made with ❤ by
         <a className={styles.copyrightLink} href='https://xtech.antfin.com' target='_blank'>
           XTech
         </a>
