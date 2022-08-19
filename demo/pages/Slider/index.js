@@ -1,9 +1,9 @@
 Page({
-  handleSliderChange(value) {
-    console.log('slider changed:', value)
+  handleSliderChange(value, e) {
+    console.log('slider changed:', value, e)
   },
-  handleAfterChange(value) {
-    console.log('当前值:', value);
+  handleAfterChange(value, e) {
+    console.log('当前值:', value, e);
     my.showToast({
       content: `当前选中值为：${value}`
     })

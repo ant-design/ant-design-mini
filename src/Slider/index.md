@@ -23,7 +23,6 @@ toc: false
 | -----|-----|-----|-----|----- |
 | value | SliderValue | 否 | - | 当前值 |
 | disabled | boolean | 否 | false | 是否禁用 |
-| className | string | 否 | - | 类名 |
 | icon | string | 否 | - | 自定义滑块的图标， 需要使用 antd-mini 的 icon 的 type 值 |
 | max | number | 否 | 100 | 最大值 |
 | min | number | 否 | 0 | 最小值 |
@@ -32,6 +31,8 @@ toc: false
 | showNumber | boolean | 否 | false | 是否展示刻度上的数据 |
 | step | number | 否 | 1 | 步距，取值必须大于 0，并且可被 (max - min) 整除 |
 | ticks | boolean | 否 | false | 是否显示刻度 |
+| className | string | 否 | - | 类名 |
+
 
 ## 事件 
 
@@ -40,6 +41,12 @@ toc: false
 | -----|-----|----- |
 | onChange | slider 值改变时触发 | (value: number &verbar; [number, number]) => void |
 | onAfterChange | 与 touchend 触发时机一致，把当前值作为参数传入 | (value: number &verbar; [number, number]) => void |
+
+
+## Slot
+| 名称 | 说明 | 类型 |
+| -----|-----|-----|
+| tick | 自定义刻度 | 作用域插槽，接收选中的value参数 |
 
 ## 样式类 
 

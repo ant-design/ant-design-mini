@@ -57,7 +57,9 @@
               style="left: {{item.left}}%;{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? `background-color: ${color}`: ''}}"
           >
             <view a:if={{showNumber}} class="amd-slider-tick-number">
-              {{item.value}}
+              <slot name="tick" value="{{item.value}}">
+                {{item.value}}
+              </slot>
             </view>
           </view>
           </view>
