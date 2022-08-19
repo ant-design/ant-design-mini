@@ -2,6 +2,7 @@ import React from 'react';
 import { DocSearch } from '@docsearch/react';
 import Main from './components/Main';
 import Footer from './components/Footer';
+import NewFooter from './components/NewFooter';
 import 'antd/dist/antd.css';
 import '@docsearch/css';
 import styles from './home.local.less';
@@ -77,7 +78,8 @@ export default () => {
           </div>
         </div>
       </div> */}
-      <Footer />
+      <NewFooter />
+      {/* <Footer /> */}
     </div>
   )
 }

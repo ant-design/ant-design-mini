@@ -9,7 +9,7 @@
   .contentSection {
     position: relative;
     top: -100px;
-    max-width: 1152px;
+    width: 1184px;
     margin: 0 auto;
     padding: 0 16px;
 
@@ -58,21 +58,18 @@
 
       .productResourceContent {
         display: flex;
-        margin-top: 32px;
         justify-content: space-between;
         flex-wrap: wrap;
 
         .productResourceCard {
-          // width: 560px;
-          // height: 270px;
-          background-color: #f9fcfe;
+          width: 560px;
+          height: 270px;
+          margin-top: 32px;
           border-radius: 12px;
-          display: flex;
-          flex-wrap: wrap;
 
           .productResourceCardContent {
             width: 212px;
-            margin: 56px auto 56px 32px;
+            margin: 32px auto 32px 8px;
 
             .productResourceCardTitle {
               font-family: PingFangSC-Medium;
@@ -105,19 +102,14 @@
       .productDesignValues {
         margin-top: 32px;
         height: 282px;
-        background-color: #f9fcfe;
-        padding: 32px;
-        overflow: hidden;
-        display: flex;
-        // flex-wrap: wrap;
+        padding: 8px;
 
-        .productDesignValuesContentContainer {
-          position: relative;
-          margin-right: 217px;
+        .productDesignValueBody {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
 
           .productDesignValuesContent {
-            position: relative;
-            z-index: 2;
             width: 386px;
 
             .productDesignValuesTitle {
@@ -134,40 +126,29 @@
               margin-top: 16px;
             }
           }
-        }
 
-        .productDesignValuesBackground {
-          position: absolute;
-          z-index: 1;
-          top: 72px;
-          left: 180px;
-          width: 415px;
-          height: 358px;
-          pointer-events: none;
-          background: url(https://gw.alipayobjects.com/zos/bmw-prod/7bbe95c3-54a8-4628-afea-75c1cd125c92.svg) no-repeat;
-          background-size: cover;
-        }
+          .productDesignValuesIconContainer {
+            display: flex;
+            width: 352px;
+            margin-right: 140px;
+            text-align: center;
+            flex-wrap: wrap;
 
-        .productDesignValuesIconContainer {
-          display: flex;
-          text-align: center;
-          flex-wrap: wrap;
+            .productDesignValuesIcon:nth-child(2n) {
+              margin-left: 220px;
+            }
 
-          .productDesignValuesIcon:nth-child(2n) {
-            margin-left: 220px;
-            margin-right: 80px;
-          }
+            .productDesignValuesIcon:nth-child(3),
+            .productDesignValuesIcon:nth-child(4) {
+              margin-top: 16px;
+            }
 
-          .productDesignValuesIcon:nth-child(3),
-          .productDesignValuesIcon:nth-child(4) {
-            margin-top: 16px;
-          }
-
-          .productDesignValuesIconText {
-            font-family: PingFangSC-Medium;
-            font-size: 14px;
-            color: #697a8c;
-            margin-top: 12px;
+            .productDesignValuesIconText {
+              font-family: PingFangSC-Medium;
+              font-size: 14px;
+              color: #697a8c;
+              margin-top: 12px;
+            }
           }
         }
       }
@@ -187,20 +168,19 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        margin-top: 8px;
 
         .guideCard {
           width: 560px;
           height: 196px;
           background-color: #fff;
           border-radius: 12px;
-          display: flex;
           box-shadow: 0 4px 10px 0 rgba(184, 212, 231, 0.20);
-          padding: 32px;
-          margin-top: 32px;
+          margin-top: 24px;
+          padding: 8px;
 
           .guideCardContent {
             width: 270px;
-            // margin: 56px auto 56px 32px;
 
             .guideCardTitle {
               font-family: PingFangSC-Medium;
@@ -242,36 +222,48 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        background: url(https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*4LddRq0XO8sAAAAAAAAAAAAAARQnAQ) no-repeat;
+        background-size: cover;
 
         .recommendCard {
           width: 368px;
           height: 146px;
-          background-color: #fff;
           border-radius: 12px;
-          display: flex;
-          align-items: center;
-          box-shadow: 0 4px 10px 0 rgba(184, 212, 231, 0.20);
+          box-shadow: 0 12px 28px 0 rgba(113, 142, 204, 0.10);
           margin-top: 32px;
 
-          .recommendImage {
-            margin: 0 25px;
-          }
+          .recommendCardBody {
+            display: flex;
+            align-items: center;
 
-          .recommendCardContent {
-            width: 196px;
-
-            .recommendCardTitle {
-              font-family: PingFangSC-Medium;
-              font-size: 24px;
-              color: rgba(0, 0, 0, 0.85);
+            .recommendImage {
+              margin: 0 25px;
             }
 
-            .recommendCardDescription {
-              color: rgba(0, 0, 0, 0.65);
-              line-height: 20px;
-              margin-top: 8px;
+            .recommendCardContent {
+              width: 196px;
+
+              .recommendCardTitle {
+                font-family: PingFangSC-Medium;
+                font-size: 24px;
+                color: rgba(0, 0, 0, 0.85);
+              }
+
+              .recommendCardDescription {
+                color: rgba(0, 0, 0, 0.65);
+                line-height: 20px;
+                margin-top: 8px;
+              }
             }
           }
+        }
+
+        .recommendCard:hover {
+          box-shadow:
+            0 1px 2px -2px rgba(0, 0, 0, 0.16),
+            0 3px 6px 0 rgba(0, 0, 0, 0.12),
+            0 5px 12px 4px rgba(0, 0, 0, 0.09);
+          transition: box-shadow 0.3s, border-color 0.3s;
         }
       }
     }
@@ -288,12 +280,77 @@
 
       .usersContent {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         flex-wrap: wrap;
         margin-top: 32px;
 
         .userImage {
-          margin: 0 14px;
+          width: 120px;
+        }
+      }
+    }
+  }
+
+
+  @media screen and (max-width: 450px) {
+    .contentSection {
+      .productResource {
+        .productResourceContent {
+          .productResourceCard {
+            width: 100%;
+            height: 504px;
+
+            .productResourceCardContent {
+              width: auto;
+              margin-top: 16px;
+            }
+          }
+
+          .productResourceCard:last-child {
+            margin-top: 32px;
+          }
+        }
+
+        .productDesignValues {
+          height: 444px;
+          padding: 0;
+
+          .productDesignValueBody {
+            .productDesignValuesIconContainer {
+              width: 234px;
+              margin: 16px auto;
+
+              .productDesignValuesIcon:nth-child(2n) {
+                margin-left: 110px;
+              }
+            }
+          }
+        }
+      }
+
+      .guides {
+        .guidesContent {
+          .guideCard {
+            .guideCardContent {
+              width: 171px;
+
+              .guideCardDescription {
+                margin-top: 8px;
+              }
+
+              .guideCardButton {
+                margin-top: 12px;
+              }
+            }
+          }
+        }
+      }
+
+      .users {
+        .usersContent {
+          .userImage {
+            width: 75px;
+          }
         }
       }
     }

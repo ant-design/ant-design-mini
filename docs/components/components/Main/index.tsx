@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'antd';
+import { Button, Card } from 'antd';
 import Lottie from 'react-lottie';
-import { DocSearch } from '@docsearch/react';
+import ResizeObserver from 'resize-observer-polyfill';
 import { RightOutlined } from '@ant-design/icons';
 import MainSection from './MainSection';
-import { productIntroduce, productResource, productDesignValues, guides, recommends, users } from './config';
+import {
+  productIntroduce,
+  getProductResource,
+  productDesignValues,
+  getProductDesignValuesBackgroundImage,
+  getGuides,
+  recommends,
+  users
+} from './config';
 import styles from './index.local.less';
 
 export default () => {
+  const [isWidthScreen, setIsWidthScreen] = useState(window.screen.width > 450);
   const [startAnimation, setStartAnimation] = useState([false, false, false, false]);
 
   useEffect(() => {
@@ -19,22 +28,32 @@ export default () => {
     })
   }, []);
 
+  useEffect(() => {
+    const myObserver = new ResizeObserver((entries) => {
+      const myContainer = entries?.[0];
+      if (myContainer.contentRect.width > 450) {
+        setIsWidthScreen(true);
+      } else {
+        setIsWidthScreen(false);
+      }
+    });
+    myObserver.observe(document.querySelector('#mainContainer') as Element);
+    return () => {
+      myObserver.disconnect();
+    };
+  }, []);
+
   return (
-    <div className={styles.mainContainer}>
+    <div className={styles.mainContainer} id="mainContainer">
       <div className={styles.mainSection}>
         <MainSection />
       </div>
       <div className={styles.contentSection}>
-        <DocSearch
-          appId='8V6T3YYVB3'
-          apiKey='00471a2ff478c1da9b9e3634edf53a6f'
-          indexName='mini-ant'
-        />
         {/* 高性能、可定制、原子化、流畅感 */}
         <div className={styles.productIntroduce}>
           {
             productIntroduce.map(product => (
-              <div className={styles.productItem}>
+              <div className={styles.productItem} key={product.title}>
                 <img height={32} src={product.image} />
                 <div className={styles.productItemTitle}>{product.title}</div>
                 <div className={styles.productItemDescription}>{product.description}</div>
@@ -47,8 +66,17 @@ export default () => {
           <div className={styles.productResourceTitle}>语言设计与开发资源</div>
           <div className={styles.productResourceContent}>
             {
-              productResource.map(resource => (
-                <div className={styles.productResourceCard}>
+              getProductResource(isWidthScreen).map(resource => (
+                <Card
+                  className={styles.productResourceCard}
+                  bordered={false}
+                  style={{
+                    backgroundImage: `url(${resource.backgroundImage})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover'
+                  }}
+                  key={resource.title}
+                >
                   <div className={styles.productResourceCardContent}>
                     <div className={styles.productResourceCardTitle}>{resource.title}</div>
                     <div className={styles.productResourceCardDescription}>{resource.description}</div>
@@ -58,21 +86,24 @@ export default () => {
                       shape='round'
                     >{resource.buttonText}</Button>
                   </div>
-                  <img src={resource.image} />
-                </div>
+                </Card>
               ))
             }
           </div>
-          <div className={styles.productDesignValues}>
+          <Card
+            className={styles.productDesignValues}
+            bordered={false}
+            style={{
+              backgroundImage: `url(${getProductDesignValuesBackgroundImage(isWidthScreen)})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover'
+            }}>
             {
               productDesignValues.map(value => (
-                <>
-                  <div className={styles.productDesignValuesContentContainer}>
-                    <div className={styles.productDesignValuesContent}>
-                      <div className={styles.productDesignValuesTitle}>{value.title}</div>
-                      <div className={styles.productDesignValuesDescription}>{value.description}</div>
-                    </div>
-                    <div className={styles.productDesignValuesBackground} />
+                <div className={styles.productDesignValueBody}>
+                  <div className={styles.productDesignValuesContent}>
+                    <div className={styles.productDesignValuesTitle}>{value.title}</div>
+                    <div className={styles.productDesignValuesDescription}>{value.description}</div>
                   </div>
                   <div className={styles.productDesignValuesIconContainer}>
                     {
@@ -102,18 +133,26 @@ export default () => {
                       ))
                     }
                   </div>
-                </>
+                </div>
               ))
             }
-          </div>
+          </Card>
         </div>
         {/* 新手指引 */}
         <div className={styles.guides}>
           <div className={styles.guidesTitle}>新手指引</div>
           <div className={styles.guidesContent}>
             {
-              guides.map(guide => (
-                <div className={styles.guideCard}>
+              getGuides(isWidthScreen).map(guide => (
+                <Card
+                  className={styles.guideCard}
+                  bordered={false}
+                  style={{
+                    backgroundImage: `url(${guide.backgroundImage})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover'
+                  }}
+                >
                   <div className={styles.guideCardContent}>
                     <div className={styles.guideCardTitle}>{guide.title}</div>
                     <div className={styles.guideCardDescription}>{guide.description}</div>
@@ -124,8 +163,7 @@ export default () => {
                       </a>
                     </div>
                   </div>
-                  <img src={guide.image} />
-                </div>
+                </Card>
               ))
             }
           </div>
@@ -136,15 +174,17 @@ export default () => {
           <div className={styles.recommendsContent}>
             {
               recommends.map(recommend => (
-                <div className={styles.recommendCard}>
-                  <div className={styles.recommendImage}>
-                    <img src={recommend.image} width={50} />
+                <Card className={styles.recommendCard} bordered={false} hoverable={true}>
+                  <div className={styles.recommendCardBody}>
+                    <div className={styles.recommendImage}>
+                      <img src={recommend.image} width={50} />
+                    </div>
+                    <div className={styles.recommendCardContent}>
+                      <div className={styles.recommendCardTitle}>{recommend.title}</div>
+                      <div className={styles.recommendCardDescription}>{recommend.description}</div>
+                    </div>
                   </div>
-                  <div className={styles.recommendCardContent}>
-                    <div className={styles.recommendCardTitle}>{recommend.title}</div>
-                    <div className={styles.recommendCardDescription}>{recommend.description}</div>
-                  </div>
-                </div>
+                </Card>
               ))
             }
           </div>
@@ -155,14 +195,12 @@ export default () => {
           <div className={styles.usersContent}>
             {
               users.map(user => (
-                <div className={styles.userImage}>
-                  <img src={user.image} />
-                </div>
+                <img className={styles.userImage} src={user.image}/>
               ))
             }
           </div>
         </div>
       </div>
-    </div >
+    </div>
   )
 }

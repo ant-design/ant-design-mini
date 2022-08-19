@@ -10,6 +10,11 @@ const config: IConfig = {
   mode: 'site',
   hash: true,
   plugins: ['./plugin/index.ts', './docs/mobile/index.ts'],
+  algolia: {
+    appId: '8V6T3YYVB3',
+    apiKey: '00471a2ff478c1da9b9e3634edf53a6f',
+    indexName: 'mini-ant'
+  },
   metas: [
     {
       name: 'viewport',
