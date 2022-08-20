@@ -6,6 +6,7 @@ export const sliderDefaultProps = {
   range: false,
   disabled: false,
   showNumber: false,
-  color: '#1677ff'
+  color: '#1677ff',
+  tooltip: false,
 };
 

@@ -5,6 +5,12 @@
     class="amd-slider-handler"
     style="left: {{position}}%;"
   >
+    <popover placement="top" visible="{{showTooltip}}" class="amd-slider-tooltip">
+      <view slot="items" class="amd-slider-tooltip-content">
+        <slot name="tooltip" value="{{value}}">{{value}}</slot>
+      </view>
+      <view/>
+    </popover>
     <view
       a:if="{{!icon}}" 
       class="amd-slider-handler-icon-default"
@@ -64,8 +70,8 @@
           </view>
           </view>
 
-          <template a:if="{{range}}" is="slider-handler" data="{{ position: sliderLeft, icon: icon, color: color}}"/>
-          <template is="slider-handler" data="{{ position: sliderLeft + sliderWidth, icon: icon, color: color}}"/>
+          <template a:if="{{range}}" is="slider-handler" data="{{ position: sliderLeft, icon: icon, color: color, value: value[0], showTooltip: changingStart&&tooltip }}"/>
+          <template is="slider-handler" data="{{ position: sliderLeft + sliderWidth, icon: icon, color: color, value: range?value[1]:value, showTooltip: changingEnd&&tooltip }}"/>
         </view>
       </view>
     </view>

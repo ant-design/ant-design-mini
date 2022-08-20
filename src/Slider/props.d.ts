@@ -66,7 +66,11 @@ interface ISliderProps extends IBaseProps {
    * @default 
    */
   color: string;
-
+  /**
+   * @description 是否在拖动时显示悬浮提示
+   * @default false
+   */
+   tooltip: boolean;
 
   /**
    * @description 输入变化的时候触发， 参数为滑动组件的当前值

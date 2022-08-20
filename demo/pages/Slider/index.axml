@@ -58,10 +58,20 @@
       onAfterChange="handleAfterChange"
     />
   </demo-block>
-
-  <demo-block title="自定义图标&Tick">
+  <demo-block title="在拖动时显示悬浮提示">
+    <slider
+      tooltip
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+  <demo-block title="自定义图标&Tick&tooltip">
     <slider
       min="{{0}}"
+      tooltip
       step="{{20}}"
       max="{{100}}"
       value="{{80}}"
@@ -73,6 +83,7 @@
       onAfterChange="handleAfterChange"
     >
       <text slot='tick' slot-scope="props">{{props.value}}°C</text>
+      <text slot="tooltip" slot-scope="props">{{props.value}}°C</text>
     </slider>
   </demo-block>
 

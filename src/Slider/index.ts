@@ -10,6 +10,8 @@ Component({
     sliderLeft: 0,
     sliderWidth: 0,
     tickList: [],
+    changingStart: false,
+    changingEnd: false,
   },
 
   didMount() {
@@ -72,7 +74,7 @@ Component({
       const currentValue = this.getRoundedValue(value, step);
 
       this.setData({
-        value,
+        value: currentValue,
       });
 
       this.setSliderStyleByValue(currentValue);
@@ -142,11 +144,21 @@ Component({
       });
     },
 
-    onTouchChanged(e) {
+    onTouchChanged(e, type) {
       if (this.props.disabled) {
         return;
       }
-
+      const changeMoving = (params) => {
+        const newParams = {};
+        for(let key in params) {
+          if(params[key] !== this.data[key]) {
+            newParams[key] = params[key];
+          }
+        }
+        if(Object.keys(newParams).length>0) {
+          this.setData(newParams);
+        }
+      }
       if (e.currentTarget && e.changedTouches[0]) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -173,6 +185,7 @@ Component({
                   ),
                   this.props.step
                 );
+                changeMoving({ changingEnd: true });
               } else {
                 const currentValue = this.fitSliderValue(
                   this.data.value,
@@ -188,7 +201,6 @@ Component({
                 const rightDistance = Math.abs(rightValue - value);
                 const isFarFromLeft = leftDistance > rightDistance;
                 const farValue = isFarFromLeft ? leftValue : rightValue;
-
                 this.updateValue(
                   this.fitSliderValue(
                     [value, farValue],
@@ -199,7 +211,15 @@ Component({
                   ),
                   this.props.step
                 );
+                if(isFarFromLeft) {
+                  changeMoving({ changingEnd: true });
+                }else {
+                  changeMoving({ changingStart: true });
+                }
               }
+            }
+            if(type === 'end') {
+              changeMoving({ changingEnd: false, changingStart: false });
             }
           });
       }
@@ -261,16 +281,16 @@ Component({
     },
 
     handleTrackTouchStart(e) {
-      this.onTouchChanged(e);
+      this.onTouchChanged(e, 'start');
     },
 
     handleTrackTouchMove(e) {
-      this.onTouchChanged(e);
+      this.onTouchChanged(e, 'move');
     },
 
     handleTrackTouchEnd(e) {
       const { onAfterChange } = this.props;
-      this.onTouchChanged(e);
+      this.onTouchChanged(e, 'end');
       if (typeof onAfterChange === 'function') {
         this.updateByProps(this.data.value, {
           isAfterChange: true,

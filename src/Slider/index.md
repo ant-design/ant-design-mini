@@ -31,6 +31,7 @@ toc: false
 | showNumber | boolean | 否 | false | 是否展示刻度上的数据 |
 | step | number | 否 | 1 | 步距，取值必须大于 0，并且可被 (max - min) 整除 |
 | ticks | boolean | 否 | false | 是否显示刻度 |
+| tooltip | boolean | 否 | false | 是否在拖动时显示悬浮提示，支持使用作用域插槽自定义 |
 | className | string | 否 | - | 类名 |
 
 
@@ -47,6 +48,7 @@ toc: false
 | 名称 | 说明 | 类型 |
 | -----|-----|-----|
 | tick | 自定义刻度 | 作用域插槽，接收选中的value参数 |
+| tooltip | 自定义拖动时显示悬浮提示 | 作用域插槽，接收选中的value参数 |
 
 ## 样式类 
 
