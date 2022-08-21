@@ -150,7 +150,7 @@ Component({
       }
       const changeMoving = (params) => {
         const newParams = {};
-        for(let key in params) {
+        for(const key in params) {
           if(params[key] !== this.data[key]) {
             newParams[key] = params[key];
           }
