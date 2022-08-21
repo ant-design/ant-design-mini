@@ -6,6 +6,7 @@
       value="{{80}}"
       step="{{20}}"
       ticks="{{true}}"
+      showNumber="{{true}}"
       onChange="handleSliderChange"
       onAfterChange="handleAfterChange"
     />
@@ -57,17 +58,33 @@
       onAfterChange="handleAfterChange"
     />
   </demo-block>
-
-  <demo-block title="自定义图标">
+  <demo-block title="在拖动时显示悬浮提示">
     <slider
+      tooltip
       min="{{0}}"
       max="{{100}}"
       value="{{80}}"
-      icon="MoreOutline"
-      color="#ff8f1f"
       onChange="handleSliderChange"
       onAfterChange="handleAfterChange"
     />
+  </demo-block>
+  <demo-block title="自定义图标&Tick&tooltip">
+    <slider
+      min="{{0}}"
+      tooltip
+      step="{{20}}"
+      max="{{100}}"
+      value="{{80}}"
+      ticks="{{true}}"
+      icon="MoreOutline"
+      color="#ff8f1f"
+      showNumber="{{true}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    >
+      <text slot='tick' slot-scope="props">{{props.value}}°C</text>
+      <text slot="tooltip" slot-scope="props">{{props.value}}°C</text>
+    </slider>
   </demo-block>
 
   <demo-block title="禁用状态">

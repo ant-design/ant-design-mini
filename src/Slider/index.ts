@@ -1,7 +1,7 @@
 import equal from 'fast-deep-equal';
-import { sliderDefaultProps, SliderValue, ISliderProps } from './props';
+import { sliderDefaultProps, SliderValue } from './props';
+import fmtEvent from '../_util/fmtEvent';
 
-let globalId = 0;
 
 Component({
   props: sliderDefaultProps,
@@ -9,63 +9,82 @@ Component({
     value: undefined,
     sliderLeft: 0,
     sliderWidth: 0,
-    tickList: []
+    tickList: [],
+    changingStart: false,
+    changingEnd: false,
   },
-  sliderId: '',
 
   didMount() {
     const { value } = this.props;
-    // 生成一个当前组件的唯一ID
-    globalId += 1;
-    const sliderId = `amd-slider-id-${globalId}`;
-    this.sliderId = sliderId;
+    const sliderId = `amd-slider-id-${this.$id}`;
     this.setData({
       sliderId
     });
-    this.updateByProps(value);
+    this.updateByProps(value, {
+      isAfterChange: false,
+      isSilentOnChange: true,
+    });
   },
 
   didUpdate(prevProps) {
-    if (!equal(this.props.value, prevProps.value) ||
-      !equal(this.props.min, prevProps.min) ||
-      !equal(this.props.max, prevProps.max) ||
-      !equal(this.props.step, prevProps.step) ||
-      !equal(this.props.range, prevProps.range) ||
-      !equal(this.props.ticks, prevProps.ticks)
+    if (!equal(this.props.value, prevProps.value)) {
+      this.updateByProps(this.props.value, {
+        isAfterChange: false,
+        isSilentOnChange: true,
+
+      });
+    } else if (!equal(this.props.min, prevProps.min) ||
+    !equal(this.props.max, prevProps.max) ||
+    !equal(this.props.step, prevProps.step) ||
+    !equal(this.props.range, prevProps.range) ||
+    !equal(this.props.ticks, prevProps.ticks)
     ) {
-      this.updateByProps(this.props.value);
+      this.updateByProps(this.data.value, {
+        isAfterChange: false,
+        isSilentOnChange: true,
+
+      })
     }
   },
 
   methods: {
-    updateByProps(newValue, isAfterChange = false) {
+    updateByProps(newValue, {
+      isAfterChange = false,
+      isSilentOnChange = true,
+    } = {}) {
       const { min, max, step, range, ticks } = this.props;
       const value = this.fitSliderValue(newValue, min, max, step, range);
 
-      this.updateValue(value, step, isAfterChange);
+      this.updateValue(value, step, {
+        isAfterChange,
+        isSilentOnChange
+      });
 
       if (ticks) {
         this.setTickList(step, min, max);
       }
     },
 
-    updateValue(value: SliderValue, step = 1, isAfterChange = false) {
+    updateValue(value: SliderValue, step = 1, {
+      isAfterChange = false,
+      isSilentOnChange = false
+    }= {}) {
       const { onChange, onAfterChange } = this.props;
       const prevValue = this.getRoundedValue(this.data.value, step);
       const currentValue = this.getRoundedValue(value, step);
 
       this.setData({
-        value,
+        value: currentValue,
       });
 
       this.setSliderStyleByValue(currentValue);
 
-      if (!this.isSliderValueEqual(currentValue, prevValue) && typeof onChange === 'function') {
-        onChange(currentValue);
+      if (!this.isSliderValueEqual(currentValue, prevValue) && typeof onChange === 'function' && !isSilentOnChange) {
+        onChange(currentValue, fmtEvent(this.props));
       }
 
       if (isAfterChange && typeof onAfterChange === 'function') {
-        onAfterChange(currentValue);
+        onAfterChange(currentValue, fmtEvent(this.props));
       }
     },
 
@@ -125,11 +144,21 @@ Component({
       });
     },
 
-    onTouchChanged(e) {
+    onTouchChanged(e, type) {
       if (this.props.disabled) {
         return;
       }
-
+      const changeMoving = (params) => {
+        const newParams = {};
+        for(const key in params) {
+          if(params[key] !== this.data[key]) {
+            newParams[key] = params[key];
+          }
+        }
+        if(Object.keys(newParams).length>0) {
+          this.setData(newParams);
+        }
+      }
       if (e.currentTarget && e.changedTouches[0]) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -156,6 +185,7 @@ Component({
                   ),
                   this.props.step
                 );
+                changeMoving({ changingEnd: true });
               } else {
                 const currentValue = this.fitSliderValue(
                   this.data.value,
@@ -171,7 +201,6 @@ Component({
                 const rightDistance = Math.abs(rightValue - value);
                 const isFarFromLeft = leftDistance > rightDistance;
                 const farValue = isFarFromLeft ? leftValue : rightValue;
-
                 this.updateValue(
                   this.fitSliderValue(
                     [value, farValue],
@@ -182,7 +211,15 @@ Component({
                   ),
                   this.props.step
                 );
+                if(isFarFromLeft) {
+                  changeMoving({ changingEnd: true });
+                }else {
+                  changeMoving({ changingStart: true });
+                }
               }
+            }
+            if(type === 'end') {
+              changeMoving({ changingEnd: false, changingStart: false });
             }
           });
       }
@@ -244,18 +281,21 @@ Component({
     },
 
     handleTrackTouchStart(e) {
-      this.onTouchChanged(e);
+      this.onTouchChanged(e, 'start');
     },
 
     handleTrackTouchMove(e) {
-      this.onTouchChanged(e);
+      this.onTouchChanged(e, 'move');
     },
 
     handleTrackTouchEnd(e) {
       const { onAfterChange } = this.props;
-      this.onTouchChanged(e);
+      this.onTouchChanged(e, 'end');
       if (typeof onAfterChange === 'function') {
-        this.updateByProps(this.data.value, true);
+        this.updateByProps(this.data.value, {
+          isAfterChange: true,
+          isSilentOnChange: false
+        });
       }
     },
   },

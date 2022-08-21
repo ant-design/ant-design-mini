@@ -66,17 +66,21 @@ interface ISliderProps extends IBaseProps {
    * @default 
    */
   color: string;
-
+  /**
+   * @description 是否在拖动时显示悬浮提示
+   * @default false
+   */
+   tooltip: boolean;
 
   /**
    * @description 输入变化的时候触发， 参数为滑动组件的当前值
    */
-  onChange?: (value: SliderValue) => void;
+  onChange?: (value: SliderValue, event) => void;
 
   /** 
    * @description 与 touchend 触发时机一致，把当前值作为参数传入
    */
-  onAfterChange: (value: SliderValue) => void;
+  onAfterChange: (value: SliderValue, event) => void;
 }
 
 export declare const sliderDefaultProps: Partial<ISliderProps>;
