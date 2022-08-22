@@ -1,10 +1,16 @@
 ## 0.0.21 (2022-08-22)
-
-
-### Features
-
-* **Tabs:** delete useless style ([#229](https://github.com/ant-design/ant-design-mini/issues/229)) ([55ca21c](https://github.com/ant-design/ant-design-mini/commit/55ca21c9216761aa230060b03546a2ff72d34e3d))
-
+### Feature
+1. 新增Slider组件
+2. ImageUpload value支持字符串， 字符串数组
+3. VideoUpload value支持字符串， 字符串数组
+4. Mask支持disableScroll
+5. PopUp关闭时增加动画效果
+6. Tabs onChange增加event变量透出
+### Bugfix
+1. Input光标颜色恢复
+2. Tabs支持badge
+3. 页面onShow时 NoticeBar内容不显示问题修复
+4. DatePicker 分秒由1- 60 调整为 0-59
 
 
 ## 0.0.20 (2022-08-02)
