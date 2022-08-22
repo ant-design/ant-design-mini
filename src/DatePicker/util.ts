@@ -68,8 +68,8 @@ function getHours(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
   return getArray(start, end, '时');
 }
 function getMinutes(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
-  let start = 1;
-  let end = 60;
+  let start = 0;
+  let end = 59;
   if (currentPicker.clone().set('minute', start).isBefore(min)) {
     start = min.minute();
   }
@@ -79,8 +79,8 @@ function getMinutes(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
   return getArray(start, end, '分');
 }
 function getSeconds(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
-  let start = 1;
-  let end = 60;
+  let start = 0;
+  let end = 59;
   if (currentPicker.clone().set('second', start).isBefore(min)) {
     start = min.second();
   }
