@@ -1,3 +1,12 @@
+## 0.0.21 (2022-08-22)
+
+
+### Features
+
+* **Tabs:** delete useless style ([#229](https://github.com/ant-design/ant-design-mini/issues/229)) ([55ca21c](https://github.com/ant-design/ant-design-mini/commit/55ca21c9216761aa230060b03546a2ff72d34e3d))
+
+
+
 ## 0.0.20 (2022-08-02)
 ### Features
 * 新增ProgressBar组件
