@@ -39,8 +39,6 @@ toc: false
 
 | 属性     | 类型   | 必填 | 默认值 | 说明     |
 | -------- | ------ | ---- | ------ | -------- |
-| title    | string | 否   | -      | 标题     |
-| desc     | string | 否   | -      | 补充信息 |
 | imageUrl | string | 否   | -      | 图片地址 |
 | top      | number | 否   | -      | 距离顶部 |
 | left     | number | 否   | -      | 距离左边 |
@@ -55,13 +53,11 @@ toc: false
 
 #### GuideTour
 
-| 类名                      | 说明             |
-| ------------------------- | ---------------- |
-| amd-guide-tour            | 整体样式         |
-| amd-guide-tour-clear      | 关闭按钮样式     |
-| amd-guide-tour-indicator  | 进度标志整体样式 |
-| amd-guide-tour-button     | 按钮组整体样式   |
-| amd-guide-tour-item       | 步骤整体样式     |
-| amd-guide-tour-item-img   | 图片样式         |
-| amd-guide-tour-item-title | 提示标题样式     |
-| amd-guide-tour-item-desc  | 提示描述样式     |
+| 类名                     | 说明             |
+| ------------------------ | ---------------- |
+| amd-guide-tour           | 整体样式         |
+| amd-guide-tour-clear     | 关闭按钮样式     |
+| amd-guide-tour-indicator | 进度标志整体样式 |
+| amd-guide-tour-button    | 按钮组整体样式   |
+| amd-guide-tour-item      | 步骤整体样式     |
+| amd-guide-tour-item-img  | 图片样式         |

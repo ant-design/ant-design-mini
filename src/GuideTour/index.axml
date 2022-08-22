@@ -24,12 +24,6 @@
                 <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px">
                     <slot name="step-{{index}}">
                         <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" mode="widthFix" />
-                        <view a:if="{{item.title}}" class="amd-guide-tour-item-title">
-                            {{item.title}}
-                        </view>
-                        <view a:if="{{item.desc}}" class="amd-guide-tour-item-desc">
-                            {{item.desc}}
-                        </view>
                     </slot>
                 </view>
             </swiper-item>

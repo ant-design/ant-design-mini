@@ -2,14 +2,6 @@ import { IBaseProps } from '../_base';
 
 interface IStep {
   /**
-   * @description 标题
-   */
-  title?: string;
-  /**
-   * @description 补充信息
-   */
-  desc?: string;
-  /**
    * @description 图片地址
    */
   imageUrl?: string;
