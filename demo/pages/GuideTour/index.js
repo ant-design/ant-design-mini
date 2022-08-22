@@ -7,8 +7,6 @@ Page({
     index: 0,
     list: [
       {
-        title: '引导描述文字标题',
-        desc: '辅助描述文字辅助描述文字辅助描述文字辅助描述文字',
         left: 20,
         top: 80,
         imageUrl:
