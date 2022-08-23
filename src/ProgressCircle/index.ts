@@ -1,13 +1,10 @@
 import { ProgressDefaultProps } from './props';
-import { compareVersion } from '../_util/compareVersion';
-
-const useNewApi = compareVersion(my.SDKVersion, '2.7.9') > 0
 
 Component({
   props: ProgressDefaultProps,
   data: {
     canvasWidth: 100,
-    canvasHeight: 100
+    canvasHeight: 100,
   },
   ctx: null,
   canvas: null,
@@ -25,30 +22,18 @@ Component({
       const systemInfo = await my.getSystemInfo()
       const { pixelRatio } = systemInfo
       return new Promise((resolve, reject) => {
-        if (useNewApi) {
-          const query = my.createSelectorQuery();
-          query.select(`#progressbar-canvas-${this.$id}`).node().exec((res) => {
-            this.canvas = res[0].node
-            this.ctx = res[0].node.getContext('2d');
-            this.ctx.imageSmoothingEnabled = true
-            this.ctx.imageSmoothingQuality = 'high'
-          })
-        } else {
-          this.ctx = my.createCanvasContext(`progressbar-canvas-${this.$id}`)
-          this.ctx.imageSmoothingEnabled = true
-          this.ctx.imageSmoothingQuality = 'high'
-        }
+        this.ctx = my.createCanvasContext(`progressbar-canvas-${this.$id}`)
+        this.ctx.imageSmoothingEnabled = true
+        this.ctx.imageSmoothingQuality = 'high'
         
         my.createSelectorQuery().select(".amd-progressbar-wrapper").boundingClientRect().exec(res => {
           const { width, height } = res[0]
 
           this.setData({
             canvasHeight: height * pixelRatio,
-            canvasWidth: width * pixelRatio
+            canvasWidth: width * pixelRatio,
+            pixelRatio
           })
-          
-          // canvas 渲染的是绝对像素，需要先放大再缩小
-          this.ctx.scale(1 / pixelRatio, 1 / pixelRatio)
           resolve()
         })
       })
@@ -71,25 +56,22 @@ Component({
         this.clearCanvas()
         this.drawOrbit()
         this.drawProgress(curRad)
+        this.ctx.draw(true)
         this.requestAnimationFrame(draw)
       }
 
       draw()
     },
     requestAnimationFrame (fn) {
-      if (useNewApi) {
-        this.canvas.requestAnimationFrame(fn)
-      } else {
-        setTimeout(fn, 16)
-      }
+      setTimeout(fn, 16)
     },
     drawProgress (rad = 0) {
       const ctx = this.ctx
       const { canvasWidth, canvasHeight } = this.data
       ctx.beginPath();
       ctx.strokeStyle = (this.props.progressColor);
-      ctx.lineWidth = this.props.progressWidth;
-      ctx.lineCap = "round";
+      ctx.lineWidth = (this.props.progressWidth);
+      ctx.setLineCap("round");
       ctx.arc(canvasWidth / 2, canvasHeight / 2, canvasWidth / 2 - this.props.progressWidth, -Math.PI / 2, -Math.PI / 2 + rad / 360 * 2 * Math.PI, false);
       ctx.stroke();
     },
@@ -98,7 +80,7 @@ Component({
       const { canvasWidth, canvasHeight } = this.data    
       ctx.beginPath();
       ctx.strokeStyle = (this.props.orbitColor);
-      ctx.lineWidth = this.props.progressWidth;
+      ctx.lineWidth = (this.props.progressWidth);
       ctx.arc(canvasWidth / 2, canvasHeight / 2, canvasWidth / 2 - this.props.progressWidth, 0, Math.PI * 2, false);
       ctx.stroke();
     },
