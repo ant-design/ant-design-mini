@@ -30,9 +30,6 @@ const config: IConfig = {
     `
     var a = document.querySelector(".__dumi-default-navbar-logo")
     a && (a.innerHTML = '');
-    // if(device.mobile() && !window.location.pathname.startsWith('/mobile')){
-    //   window.location.href="/mobile"
-    // }
     `,
     `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

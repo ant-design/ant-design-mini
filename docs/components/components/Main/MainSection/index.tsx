@@ -4,12 +4,32 @@ import Lottie from 'react-lottie';
 import styles from './index.local.less';
 
 export default () => {
-  const [startAnimation, setStartAnimation] = useState(false);
+  const [startFireAnimation, setStartFireAnimation] = useState(false);
+  const [startResultAnimation, setStartResultAnimation] = useState(false);
+  const [isWidthScreen, setIsWidthScreen] = useState(window.screen.width > 450);
 
   useEffect(() => {
-    document.querySelector(`#calendarImage`)?.addEventListener('mouseenter', () => {
-      setStartAnimation(true);
+    document.querySelector('#calendarImage')?.addEventListener('mouseenter', () => {
+      setStartFireAnimation(true);
+    });
+    document.querySelector('#resultImage')?.addEventListener('mouseenter', () => {
+      setStartResultAnimation(true);
     })
+  }, []);
+
+  useEffect(() => {
+    const myObserver = new ResizeObserver((entries) => {
+      const myContainer = entries?.[0];
+      if (myContainer.contentRect.width > 450) {
+        setIsWidthScreen(true);
+      } else {
+        setIsWidthScreen(false);
+      }
+    });
+    myObserver.observe(document.querySelector('#mainContainer') as Element);
+    return () => {
+      myObserver.disconnect();
+    };
   }, []);
 
   return (
@@ -18,8 +38,8 @@ export default () => {
         <div className={styles.mainSectionTitle}>Ant Design Mini</div>
         <div className={styles.mainSectionDescription}>探索移动端 web 的体验极限</div>
         <div className={styles.mainSectionButtonAction}>
-          <Button shape="round" className={styles.buttonLeft}>开始使用</Button>
-          <Button shape="round" className={styles.buttonRight}>在线体验</Button>
+          <Button shape="round" className={styles.buttonLeft} href="/guide/quick-start">开始使用</Button>
+          <Button shape="round" className={styles.buttonRight} href="/components">在线体验</Button>
         </div>
       </div>
       <div className={styles.imageContainer}>
@@ -35,16 +55,37 @@ export default () => {
                 [{
                   eventName: 'complete',
                   callback: () => {
-                    setStartAnimation(false);
+                    setStartFireAnimation(false);
                   }
                 }]
               }
-              height={startAnimation ? 200 : 0}
-              width={startAnimation ? 200 : 0}
-              isStopped={!startAnimation}
+              height={startFireAnimation ? (isWidthScreen ? 324 : 172) : 0}
+              width={startFireAnimation ? (isWidthScreen ? 324 : 172) : 0}
+              isStopped={!startFireAnimation}
               style={{ pointerEvents: 'none' }}
             />
           </div>
+        </div>
+        <div className={styles.resultImage} id="resultImage">
+          <Lottie
+            options={{
+              loop: false,
+              autoplay: false,
+              path: 'https://gw.alipayobjects.com/os/bmw-prod/9996aa6f-74ab-41f7-ada9-932a93afea12.json',
+            }}
+            eventListeners={
+              [{
+                eventName: 'complete',
+                callback: () => {
+                  setStartResultAnimation(false);
+                }
+              }]
+            }
+            height={isWidthScreen ? 117 : 70}
+            width={isWidthScreen ? 94 : 56}
+            isStopped={!startResultAnimation}
+            style={{ pointerEvents: 'none' }}
+          />
         </div>
         <img
           className={styles.staticImage}

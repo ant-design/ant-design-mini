@@ -22,10 +22,10 @@ export const getProductResource = (isWideScreen) => [
   {
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/8ee0cfed-e5f1-4c2d-9648-9931aa98851e.svg',
     title: '在线体验',
-    description: '你可以直接在 Codesandbox 上在线体验，无需安装和配置环境',
+    description: '你可以直接在 OpenDocs 上在线体验，无需安装和配置环境',
     backgroundImage: isWideScreen ? 'https://gw.alipayobjects.com/zos/bmw-prod/239bb8cf-3fcd-4cfe-bb5a-ba2d910342bc.svg' : 'https://gw.alipayobjects.com/zos/bmw-prod/613c0844-d32d-4b89-83f2-36bc6840628a.svg',
     buttonText: '开始体验',
-    buttonLink: '',
+    buttonLink: 'https://opendocs.alipay.com/openbox/mini/antd-mini/antd-mini-demo?view=editor&defaultPage=pages%2Findex%2Findex&defaultOpenedFiles=pages%2Findex%2Findex&mode=snippets',
   },
   {
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/06ae4a67-b93a-413b-9c58-75dbbe79f5b7.svg',
@@ -33,7 +33,7 @@ export const getProductResource = (isWideScreen) => [
     description: '基于蚂蚁集团的众多业务实践，抽象构建出移动端资产库',
     backgroundImage: isWideScreen ? 'https://gw.alipayobjects.com/zos/bmw-prod/adc38047-867d-4924-be79-dddc481e4650.svg' : 'https://gw.alipayobjects.com/zos/bmw-prod/3479a5ca-2abf-4eb3-bb64-01eadcfcfa64.svg',
     buttonText: '查看全部',
-    buttonLink: '',
+    buttonLink: '/components',
   },
 ];
 
@@ -47,40 +47,41 @@ export const productDesignValues = [
         text: '确定性',
       },
       {
-        lottie: 'https://gw.alipayobjects.com/os/bmw-prod/5aa98c18-fe89-4e8b-88cd-bb39fe54a46f.json',
+        lottie: 'https://gw.alipayobjects.com/os/bmw-prod/624e8763-db76-4820-8013-434455492dd4.json',
         text: '意义感',
       },
       {
-        lottie: 'https://gw.alipayobjects.com/os/bmw-prod/df6d2e26-cdd1-4cc5-8c81-e50327f192af.json',
+        lottie: 'https://gw.alipayobjects.com/os/bmw-prod/12ad552c-2920-486b-95a8-b794dfbed80a.json',
         text: '生长性',
       },
       {
-        lottie: 'https://gw.alipayobjects.com/os/bmw-prod/28ea4981-a80e-4338-93b2-6b47e53c3b84.json',
+        lottie: 'https://gw.alipayobjects.com/os/bmw-prod/48370db9-a5dd-45f7-9787-2d7c45a4493d.json',
         text: '自然',
       }
     ]
   }
 ];
 
-export const getProductDesignValuesBackgroundImage = (isWideScreen) =>
+export const getProductDesignValuesBackgroundImage = (isWideScreen) => (
   isWideScreen
     ? 'https://gw.alipayobjects.com/zos/bmw-prod/8e1607a9-2a82-47b8-901a-3310c84727c8.svg'
-    : 'https://gw.alipayobjects.com/zos/bmw-prod/f17ac910-049a-4506-9498-723dec7d0d7a.svg';
+    : 'https://gw.alipayobjects.com/zos/bmw-prod/f17ac910-049a-4506-9498-723dec7d0d7a.svg'
+)
 
 export const getGuides = (isWideScreen) => [
   {
     title: '快速上手',
-    description: '轻松两步，快速实现安装和引入组件，antd-mobile 自动为你加载 css 样式文件。',
+    description: '轻松两步，快速实现安装和引入组件，antd-mini 自动为你加载 css 样式文件。',
     backgroundImage: isWideScreen ? 'https://gw.alipayobjects.com/zos/bmw-prod/2ca16dac-4e7c-4bf4-8980-a5a04002afb4.svg' : 'https://gw.alipayobjects.com/zos/bmw-prod/64172109-6ad4-4628-b3c9-24fd410329da.svg',
     buttonText: '查看详情',
-    buttonLink: '',
+    buttonLink: '/guide/quick-start',
   },
   {
     title: '常见问题',
     description: '我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。',
     backgroundImage: isWideScreen ? 'https://gw.alipayobjects.com/zos/bmw-prod/a57dedec-63df-49a2-aa61-1bdb38694f24.svg' : 'https://gw.alipayobjects.com/zos/bmw-prod/a56a3cf4-d84d-49f3-952c-b9cd1197f7b3.svg',
     buttonText: 'FAQ',
-    buttonLink: '',
+    buttonLink: '/guide/faq',
   }
 ];
 
@@ -107,27 +108,35 @@ export const recommends = [
 
 export const users = [
   {
+    name: '支付宝',
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/db2cc1f4-7c9a-4412-9117-0fe487272208.svg',
   },
   {
+    name: '口碑',
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/31acafc2-d143-4849-a3ae-87417d788890.svg',
   },
   {
+    name: '网商银行',
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/9991fbe9-d6bf-405d-9584-55f337396e18.svg',
   },
   {
+    name: '菜鸟',
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/40b66fe4-effc-41c3-8c8b-a1815ba6bd40.svg',
   },
   {
+    name: '淘宝网',
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/95224581-ffe0-44b5-ad70-d4c44ff14d0f.svg',
   },
   {
+    name: '蚂蚁财富',
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/c8eac91e-b243-409e-8d30-3edcde6236c9.svg',
   },
   {
+    name: '阿里云',
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/2683fc4d-8914-49f7-9453-61fc71395d03.svg',
   },
   {
+    name: '蚂蚁链',
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/759ac1ec-59e8-4f99-b725-8eea69cc740d.svg',
   }
 ];

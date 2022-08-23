@@ -43,6 +43,10 @@ export default () => {
     };
   }, []);
 
+  const onRecommendCardClick = (url) => {
+    window.open = url;
+  }
+
   return (
     <div className={styles.mainContainer} id="mainContainer">
       <div className={styles.mainSection}>
@@ -84,6 +88,8 @@ export default () => {
                       className={styles.productResourceCardButton}
                       type='primary'
                       shape='round'
+                      target='_blank'
+                      href={resource.buttonLink}
                     >{resource.buttonText}</Button>
                   </div>
                 </Card>
@@ -157,7 +163,7 @@ export default () => {
                     <div className={styles.guideCardTitle}>{guide.title}</div>
                     <div className={styles.guideCardDescription}>{guide.description}</div>
                     <div className={styles.guideCardButton}>
-                      <a href={guide.buttonLink} target='_blank'>
+                      <a href={guide.buttonLink}>
                         {guide.buttonText}
                         <RightOutlined />
                       </a>
@@ -174,8 +180,12 @@ export default () => {
           <div className={styles.recommendsContent}>
             {
               recommends.map(recommend => (
-                <Card className={styles.recommendCard} bordered={false} hoverable={true}>
-                  <div className={styles.recommendCardBody}>
+                <Card 
+                  className={styles.recommendCard} 
+                  bordered={false} 
+                  hoverable={true} 
+                >
+                  <div className={styles.recommendCardBody} onClick={() => window.open(recommend.link)}>
                     <div className={styles.recommendImage}>
                       <img src={recommend.image} width={50} />
                     </div>
