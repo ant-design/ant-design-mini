@@ -1,6 +1,6 @@
 import { CheckboxItemDefaultProps } from './props';
-import { CHECKBOX_GROUP_TYPE, storeMixin, Store } from '../../_util/store';
-import { IState } from '../index';
+import { CHECKBOX_GROUP_TYPE, connect } from '../../_util/store';
+import { IState, CheckboxGroupStore } from '../store';
 
 interface IData {
   _checked: boolean;
@@ -12,9 +12,9 @@ Component({
     _checked: false,
     _disabled: false,
   },
-  _store: null as Store<IState>,
+  _store: null as CheckboxGroupStore,
   mixins: [
-    storeMixin<IState, IData, typeof CheckboxItemDefaultProps>({
+    connect<IState, IData, typeof CheckboxItemDefaultProps>({
       type: CHECKBOX_GROUP_TYPE,
       mapStateToData: ({ state, props }) => ({
         _disabled: state.disabled || props.disabled,

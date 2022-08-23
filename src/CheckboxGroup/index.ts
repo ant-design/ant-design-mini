@@ -2,21 +2,19 @@ import { CheckboxGroupDefaultProps } from './props';
 import formMixin from '../mixins/form';
 import controlled from '../mixins/controlled';
 import fmtEvent from '../_util/fmtEvent';
-import { Store, IDataWithStore, CHECKBOX_GROUP_TYPE } from '../_util/store';
-
-export interface IState {
-  value: string[];
-  disabled: boolean;
-}
+import { CHECKBOX_GROUP_TYPE } from '../_util/store';
+import { CheckboxGroupStore } from './store';
 
 Component({
   props: CheckboxGroupDefaultProps,
   data() {
     return {
-      _store: new Store<IState>({ value: [] }),
+      _store: new CheckboxGroupStore(),
       _type: CHECKBOX_GROUP_TYPE,
-    } as IDataWithStore<IState> & {
+    } as {
       cValue: string[];
+      _store: CheckboxGroupStore;
+      _type: string;
     };
   },
   mixins: [controlled(), formMixin()],

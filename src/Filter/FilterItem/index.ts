@@ -1,7 +1,7 @@
 import equal from 'fast-deep-equal';
 import { FilterItemDefaultProps } from './props';
 import fmtEvent from '../../_util/fmtEvent';
-import { FILTER_TYPE, storeMixin } from '../../_util/store';
+import { FILTER_TYPE, connect } from '../../_util/store';
 import { FilterStore, IState } from '../store';
 
 interface IData {
@@ -17,7 +17,7 @@ Component({
   },
   _store: null as FilterStore,
   mixins: [
-    storeMixin<IState, IData>({
+    connect<IState, IData>({
       type: FILTER_TYPE,
       mapStateToData({ state }) {
         const item = state.filterItems.find((v) => v.id === String(this.$id));

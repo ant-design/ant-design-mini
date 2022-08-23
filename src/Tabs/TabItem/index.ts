@@ -1,7 +1,7 @@
 import equal from 'fast-deep-equal';
 import { TabItemDefaultProps } from './props';
 import { compareVersion } from '../../_util/compareVersion';
-import { TAB_TYPE, storeMixin } from '../../_util/store';
+import { TAB_TYPE, connect } from '../../_util/store';
 import { TabStore, IState } from '../store';
 
 const isBaseSwiper = compareVersion('2.0.0', my.SDKVersion) < 0 ? true : false;
@@ -17,7 +17,7 @@ Component({
   },
   _store: null as TabStore,
   mixins: [
-    storeMixin<IState, IData>({
+    connect<IState, IData>({
       type: TAB_TYPE,
       mapStateToData: ({ state }) => ({ fallback: state.fallback }),
     }),

@@ -100,7 +100,7 @@ interface IMinxProps<IState, IMappedData, IProps, IData> {
   ) => IMappedData;
 }
 
-export function storeMixin<
+export function connect<
   IState,
   IMappedData = IState,
   IProps = any,

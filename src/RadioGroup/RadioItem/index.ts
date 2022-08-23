@@ -1,5 +1,5 @@
 import { RadioItemDefaultProps } from './props';
-import { RADIO_GROUP_TYPE, storeMixin, Store } from '../../_util/store';
+import { RADIO_GROUP_TYPE, connect, Store } from '../../_util/store';
 import { IState } from '../index';
 
 interface IData {
@@ -15,7 +15,7 @@ Component({
   },
   _store: null as Store<IState>,
   mixins: [
-    storeMixin<IState, IData, typeof RadioItemDefaultProps>({
+    connect<IState, IData, typeof RadioItemDefaultProps>({
       type: RADIO_GROUP_TYPE,
       mapStateToData: ({ state, props }) => ({
         _disabled: state.disabled || props.disabled,

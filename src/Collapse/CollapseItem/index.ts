@@ -1,5 +1,5 @@
 import { CollapseItemDefaultProps } from './props';
-import { COLLAPSE_TYPE, storeMixin } from '../../_util/store';
+import { COLLAPSE_TYPE, connect } from '../../_util/store';
 import { IState, CollapseStore, supportSjs } from '../store';
 
 interface IData {
@@ -20,7 +20,7 @@ Component({
   },
   _store: null as CollapseStore,
   mixins: [
-    storeMixin<IState, IData, typeof CollapseItemDefaultProps>({
+    connect<IState, IData, typeof CollapseItemDefaultProps>({
       type: COLLAPSE_TYPE,
       mapStateToData: ({ state, props }) => ({
         _isActive: state.value?.indexOf(props.name) > -1,

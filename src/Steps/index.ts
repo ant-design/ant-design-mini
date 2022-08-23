@@ -1,16 +1,12 @@
 import { StepsDefaultProps } from './props';
-import { STEPS_TYPE, Store } from '../_util/store';
-
-export interface IState {
-  index: number;
-  direction: 'horizontal' | 'vertical';
-}
+import { STEPS_TYPE } from '../_util/store';
+import { StepsStore } from './store';
 
 Component({
   props: StepsDefaultProps,
   data() {
     return {
-      _store: new Store<IState>(),
+      _store: new StepsStore(),
       _type: STEPS_TYPE,
     };
   },
