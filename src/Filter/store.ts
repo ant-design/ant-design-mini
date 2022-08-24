@@ -1,4 +1,4 @@
-import { Store } from '../_util/store';
+import { Store,FILTER_TYPE } from '../_util/store';
 import { IFilterItemProps } from './FilterItem/props';
 
 export interface IState {
@@ -20,6 +20,13 @@ export interface IState {
 }
 
 export class FilterStore extends Store<IState> {
+  static type = FILTER_TYPE;
+  static inject(instane) {
+    if (!instane._store) {
+      instane._store = new FilterStore();
+      instane._store.instance = instane;
+    }
+  }
   constructor() {
     super({ filterItems: [] });
   }

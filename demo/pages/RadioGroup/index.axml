@@ -1,7 +1,7 @@
 <view>
   <demo-block title="基础用法">
     <radio-group  
-      value="选项二"
+      value="orange"
       data-value="value"
       onChange="handleChange">
       <radio-item a:for="{{list}}" value="{{item.value}}">{{item.label}}</radio-item >
@@ -9,7 +9,7 @@
   </demo-block>
   <demo-block title="横向布局">
     <radio-group  
-      value="选项二"
+      value="orange"
       position="horizontal"
       onChange="handleChange">
       <radio-item a:for="{{list}}" value="{{item.value}}">{{item.label}}</radio-item >
@@ -17,14 +17,14 @@
   </demo-block>
   <demo-block title="包含禁用项">
     <radio-group  
-      value="banner"
+      value="banana"
       onChange="handleChange">
       <radio-item a:for="{{list}}" value="{{item.value}}" disabled="{{index===1}}">{{item.label}}</radio-item >
     </radio-group>
   </demo-block>
   <demo-block title="整体禁用">
     <radio-group  
-      value="banner"
+      value="banana"
       disabled>
       <radio-item a:for="{{list}}" value="{{item.value}}">{{item.label}}</radio-item >
     </radio-group>

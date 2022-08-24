@@ -19,3 +19,8 @@ export function objectEntries<T>(obj: { [s: string]: T } | ArrayLike<T>): [strin
   }
   return resArray;
 }
+
+
+export function getArrayItem<T = any>(arr: Array<T>, index: number): T {
+  return arr[index < 0 ? arr.length + index : index];
+}

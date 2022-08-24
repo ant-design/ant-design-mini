@@ -24,7 +24,6 @@
       
     </collapse>
   </demo-block>
-  <button size="default" type="primary" onTap="handleClick1">Button</button>
   <demo-block title="手风琴模式"  padding="0">
     <collapse 
       name="{{value2}}" 

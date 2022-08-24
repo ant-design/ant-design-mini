@@ -3,7 +3,7 @@ import { TabsDefaultProps } from './props';
 import { log } from '../_util/console';
 import { compareVersion } from '../_util/compareVersion';
 import { IBoundingClientRect } from '../_base';
-import { TAB_TYPE, providerMixin } from '../_util/store';
+import { connect, inject } from '../_util/store';
 import { TabStore, IState, ITabItem } from './store';
 
 const canSwipeable = my.canIUse('swiper.disable-touch');
@@ -26,8 +26,6 @@ Component({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   props: TabsDefaultProps,
   data: {
-    _store: new TabStore(),
-    _type: TAB_TYPE,
     _tabs: [],
     _leftFade: true,
     _rightFade: true,
@@ -43,14 +41,16 @@ Component({
     _forceRefreshSwiper: 0,
     _isForceUpdate: isForceUpdate,
   },
+  _store: null as TabStore,
   mixins: [
-    providerMixin<IState, IMappedData>({
+    inject(TabStore),
+    connect<IState, IMappedData>({
       mapStateToData: ({ state }) => ({ _tabs: state.items.map((v) => v.tab) }),
     }),
   ],
   didMount() {
     const { index, animation, fallback } = this.props;
-    this.data._store.dispatch({ fallback });
+    this._store.dispatch({ fallback });
     this.setData({
       currentIndex: index,
     });

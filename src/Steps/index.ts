@@ -1,15 +1,11 @@
 import { StepsDefaultProps } from './props';
-import { STEPS_TYPE } from '../_util/store';
 import { StepsStore } from './store';
+import { inject } from '../_util/store';
 
 Component({
   props: StepsDefaultProps,
-  data() {
-    return {
-      _store: new StepsStore(),
-      _type: STEPS_TYPE,
-    };
-  },
+  mixins: [inject(StepsStore)],
+  _store: null as StepsStore,
   didMount() {
     this.updateItemData();
   },
@@ -19,7 +15,7 @@ Component({
   methods: {
     updateItemData() {
       const { index, direction } = this.props;
-      this.data._store.dispatch({ index, direction });
+      this._store.dispatch({ index, direction });
     },
   },
 });

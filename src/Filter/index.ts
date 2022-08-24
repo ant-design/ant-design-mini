@@ -1,5 +1,5 @@
 import { FilterDefaultProps } from './props';
-import { FILTER_TYPE, providerMixin } from '../_util/store';
+import { connect, inject } from '../_util/store';
 import { FilterStore, IState } from './store';
 
 interface IMappedData {
@@ -11,18 +11,15 @@ Component({
   props: FilterDefaultProps,
   data() {
     return {
-      _store: new FilterStore(),
-      _type: FILTER_TYPE,
       placeHolderObj: {},
       activeObj: {},
       currentFilterItemId: '',
-    } as IMappedData & {
-      _type: string;
-      _store: FilterStore;
     };
   },
+  _store: null as FilterStore,
   mixins: [
-    providerMixin<IState, IMappedData>({
+    inject(FilterStore),
+    connect<IState, IMappedData>({
       mapStateToData: ({ state }) => {
         const activeItem = state.filterItems.find((v) => v.active);
         return {
@@ -53,7 +50,7 @@ Component({
   methods: {
     showFilterItem(e) {
       const id = e.currentTarget.dataset.filterItemId;
-      const { filterItems } = this.data._store.getState();
+      const { filterItems } = this._store.getState();
       filterItems.find((v) => v.id === id)?.triggleVisible();
     },
   },

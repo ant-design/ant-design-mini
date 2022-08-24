@@ -1,6 +1,6 @@
 import { StepItemDefaultProps } from './props';
-import { STEPS_TYPE, connect } from '../../_util/store';
-import { IState } from '../store';
+import { connect } from '../../_util/store';
+import { IState, StepsStore } from '../store';
 interface IData {
   _index: number;
   _direction: 'horizontal' | 'vertical';
@@ -10,7 +10,7 @@ Component({
   props: StepItemDefaultProps,
   mixins: [
     connect<IState, IData>({
-      type: STEPS_TYPE,
+      storeFactory: StepsStore,
       mapStateToData: ({ state }) => ({
         _index: state.index,
         _direction: state.direction,

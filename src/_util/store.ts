@@ -1,14 +1,13 @@
 import type { IUserComponentOptions } from '@mini-types/alipay';
 import { compareVersion } from './compareVersion';
+import { getArrayItem } from './tools';
 
 // selectComponsedParentComponent在appx2和appx1下表现不一致，appx1下向上拿到节点必须在settimeout中执行，直接获取只能拿到最近一级
 const isSupportAppx2 = compareVersion(my.SDKVersion, '2.7.22') >= 0;
 
-export interface IDataWithStore<IState> {
-  _type: string;
-  _store: Store<IState>;
-}
-export class Store<S extends Record<string, any>> {
+export abstract class Store<S extends Record<string, any>> {
+  static inject(instance) {}
+  static type: string;
   private state: S;
   private subscribtions = [] as Array<(state: S, diff: Partial<S>) => void>;
   constructor(initialState: Partial<S> = {}) {
@@ -66,29 +65,39 @@ export class Store<S extends Record<string, any>> {
       fn(this.state, {});
     });
   }
-  // 获取provider组件实例，初始空函数，在寻找store节点时赋值，直接存在store对象上存在循环引用问题
-  public getInstance(): any {}
+  /**
+   * 组件实例
+   */
+  public instance: any;
 }
 
-export function getStoreByType(instance, type) {
+/**
+ * 从子组件向上查找指定类型的节点
+ * @param component
+ * @param type
+ * @returns
+ */
+export function getInstanceByType(component, type) {
   try {
-    let parent = instance.selectComposedParentComponent();
+    let parent = component.selectComposedParentComponent();
     while (parent) {
-      if (parent.data._type === type) {
-        parent.data._store.getInstance = () => parent;
-        return parent.data._store;
+      const parentType = getArrayItem(parent.is.split('/'), -2);
+      if (parentType === type) {
+        return parent;
       }
       parent = parent.selectComposedParentComponent();
     }
   } catch (e) {
     console.error(`[antd-mini: ${type} find error]`, e);
-    throw new Error(`[antd-mini: item must be used in ${type}]`);
   }
-  throw new Error(`[antd-mini: item must be used in ${type}]`);
+  return null;
 }
 
 interface IMinxProps<IState, IMappedData, IProps, IData> {
-  type: string;
+  /**
+   * 子级判断父级store未挂载时注入
+   */
+  storeFactory?: typeof Store<IState>;
   mapStateToData?: (
     this: any,
     options: {
@@ -100,13 +109,18 @@ interface IMinxProps<IState, IMappedData, IProps, IData> {
   ) => IMappedData;
 }
 
+/**
+ * connect到store数据，顶层组件上已有store实例，无需bindStoreFn
+ * @param param0 
+ * @returns 
+ */
 export function connect<
   IState,
   IMappedData = IState,
   IProps = any,
   IData = any
 >({
-  type,
+  storeFactory,
   mapStateToData = (state) => state as any,
 }: IMinxProps<IState, IMappedData, IProps, IData>): IUserComponentOptions<
   {},
@@ -126,8 +140,7 @@ export function connect<
 > {
   return {
     didMount() {
-      const bindStoreFn = () => {
-        this._store = getStoreByType(this, type);
+      const subscribe = () => {
         this.unSubscribe = this._store.subscribe((state, diff) => {
           const allData = mapStateToData.call(this, {
             state,
@@ -146,14 +159,30 @@ export function connect<
           }
         });
         this._store.forceUpdate();
+      };
+      const bindStoreFn = () => {
+        const { type } = storeFactory;
+        const providerInstance = getInstanceByType(this, type);
+        if (!providerInstance) {
+          throw new Error(`[antd-mini: item must be used in ${type}]`);
+        }
+        if (!providerInstance._store) {
+          storeFactory.inject(providerInstance);
+        }
+        this._store = providerInstance._store;
+        subscribe();
         if (this.onStoreSetted) {
           this.onStoreSetted();
         }
       };
-      if (isSupportAppx2) {
-        bindStoreFn();
+      if (!this._store) {
+        if (isSupportAppx2) {
+          bindStoreFn();
+        } else {
+          setTimeout(() => bindStoreFn());
+        }
       } else {
-        setTimeout(() => bindStoreFn());
+        subscribe();
       }
     },
     didUnmount() {
@@ -164,53 +193,28 @@ export function connect<
   };
 }
 
-export function providerMixin<
-  IState,
-  IMappedData = IState,
-  IProps = any,
-  IData = any
->({
-  mapStateToData = (state) => state as any,
-}: Pick<
-  IMinxProps<IState, IMappedData, IProps, IData>,
-  'mapStateToData'
->): IUserComponentOptions<
-  {
-    _store: Store<IState>;
-  },
+export function inject<IState>(
+  storeFactory: typeof Store<IState>
+): IUserComponentOptions<
   {},
   {},
   {},
+  { _store: typeof Store<IState> },
   {},
   any[]
 > {
   return {
     didMount() {
-      this.data._store.subscribe((state, diff) => {
-        const allData = mapStateToData.call(this, {
-          state,
-          diff,
-          props: this.props,
-          data: this.data,
-        });
-        const diffData: Partial<IMappedData> = {};
-        for (let key in allData) {
-          if (allData[key] !== this.data[key]) {
-            diffData[key] = allData[key];
-          }
-        }
-        if (Object.keys(diffData).length > 0) {
-          this.setData(diffData);
-        }
-      });
-      this.data._store.forceUpdate();
+      if (!this._store) {
+        storeFactory.inject(this);
+      }
     },
   };
 }
 
-export const STEPS_TYPE = 'STEPS_TYPE';
-export const CHECKBOX_GROUP_TYPE = 'CHECKBOX_GROUP_TYPE';
-export const RADIO_GROUP_TYPE = 'RADIO_GROUP_TYPE';
-export const COLLAPSE_TYPE = 'COLLAPSE_TYPE';
-export const FILTER_TYPE = 'FILTER_TYPE';
-export const TAB_TYPE = 'TAB_TYPE';
+export const STEPS_TYPE = 'Steps';
+export const CHECKBOX_GROUP_TYPE = 'CheckboxGroup';
+export const RADIO_GROUP_TYPE = 'RadioGroup';
+export const COLLAPSE_TYPE = 'Collapse';
+export const FILTER_TYPE = 'Filter';
+export const TABS_TYPE = 'Tabs';

@@ -1,4 +1,4 @@
-import { Store } from '../_util/store';
+import { Store, COLLAPSE_TYPE } from '../_util/store';
 
 export const supportSjs = my.canIUse('sjs.event');
 
@@ -15,6 +15,13 @@ export interface IState {
 }
 
 export class CollapseStore extends Store<IState> {
+  static type = COLLAPSE_TYPE;
+  static inject(instane) {
+    if (!instane._store) {
+      instane._store = new CollapseStore();
+      instane._store.instance = instane;
+    }
+  }
   constructor() {
     super({ value: [], accordion: false, items: [] });
   }
@@ -83,7 +90,7 @@ export class CollapseStore extends Store<IState> {
         item.setLastAction('onTap');
         item.setFirst();
       });
-      this.getInstance().onChange(newValue);
+      this.instance.onChange(newValue);
       return;
     }
     const find = items.find((v) => v.name === name);
@@ -95,7 +102,7 @@ export class CollapseStore extends Store<IState> {
       value: newValue,
     });
     find.setLastAction('onTap');
-    this.getInstance().onChange(newValue);
+    this.instance.onChange(newValue);
   }
   public triggerItemNoSjs(name: string) {
     const { accordion, items, value } = this.getState();
@@ -123,7 +130,7 @@ export class CollapseStore extends Store<IState> {
                 removeActive(item.name);
                 item.setContentHeight('0px');
                 item.setFirst();
-                this.getInstance().onChange(newValue);
+                this.instance.onChange(newValue);
               }, 10);
             });
           } else {
@@ -133,7 +140,7 @@ export class CollapseStore extends Store<IState> {
                 addActive(item.name);
                 item.setContentHeight(height);
                 item.setFirst();
-                this.getInstance().onChange(newValue);
+                this.instance.onChange(newValue);
               }, 10);
             });
           }
@@ -163,7 +170,7 @@ export class CollapseStore extends Store<IState> {
             find.setContentHeight('0px');
             this.dispatch({ value: newValue });
             find.setFirst();
-            this.getInstance().onChange(newValue);
+            this.instance.onChange(newValue);
           }, 10);
         });
       } else {
@@ -172,7 +179,7 @@ export class CollapseStore extends Store<IState> {
           find.setContentHeight(height);
           this.dispatch({ value: newValue });
           find.setFirst();
-          this.getInstance().onChange(newValue);
+          this.instance.onChange(newValue);
         });
       }
     }

@@ -1,5 +1,5 @@
 import { CheckboxItemDefaultProps } from './props';
-import { CHECKBOX_GROUP_TYPE, connect } from '../../_util/store';
+import { connect } from '../../_util/store';
 import { IState, CheckboxGroupStore } from '../store';
 
 interface IData {
@@ -15,7 +15,7 @@ Component({
   _store: null as CheckboxGroupStore,
   mixins: [
     connect<IState, IData, typeof CheckboxItemDefaultProps>({
-      type: CHECKBOX_GROUP_TYPE,
+      storeFactory: CheckboxGroupStore,
       mapStateToData: ({ state, props }) => ({
         _disabled: state.disabled || props.disabled,
         _checked: state.value.indexOf(props.value) > -1,
@@ -25,7 +25,7 @@ Component({
   methods: {
     onItemChange(checked) {
       const state = this._store.getState();
-      const controlled = this._store.getInstance().props.controlled;
+      const controlled = this._store.instance.props.controlled;
       let newValue = [];
       if (!checked) {
         newValue = state.value.filter((v) => v !== this.props.value);
@@ -35,7 +35,7 @@ Component({
       if (!controlled) {
         this._store.dispatch({ value: newValue });
       }
-      this._store.getInstance().onChange(newValue);
+      this._store.instance.onChange(newValue);
     },
   },
 });

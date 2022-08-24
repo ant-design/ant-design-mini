@@ -2,7 +2,8 @@ import { RadioGroupDefaultProps } from './props';
 import formMixin from '../mixins/form';
 import controlled from '../mixins/controlled';
 import fmtEvent from '../_util/fmtEvent';
-import { Store, IDataWithStore, RADIO_GROUP_TYPE } from '../_util/store';
+import { RadioGroupStore } from './store';
+import { inject } from '../_util/store';
 
 export interface IState {
   value: string;
@@ -11,18 +12,12 @@ export interface IState {
 
 Component({
   props: RadioGroupDefaultProps,
-  data() {
-    return {
-      _store: new Store<IState>(),
-      _type: RADIO_GROUP_TYPE,
-    } as IDataWithStore<IState> & {
-      cValue: string;
-    };
-  },
-  mixins: [controlled(), formMixin()],
+  data: {} as { cValue: string },
+  mixins: [controlled(), formMixin(), inject(RadioGroupStore)],
+  _store: null as RadioGroupStore,
   didMount() {
     const { value, disabled } = this.props;
-    this.data._store.dispatch({ value, disabled });
+    this._store.dispatch({ value, disabled });
   },
   didUpdate(prevProps, prevData) {
     const { cValue } = this.data;
@@ -34,7 +29,7 @@ Component({
     if (prevProps.disabled !== this.props.disabled) {
       payload.disabled = disabled;
     }
-    this.data._store.dispatch(payload);
+    this._store.dispatch(payload);
   },
   methods: {
     onChange(value) {
