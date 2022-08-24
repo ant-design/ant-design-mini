@@ -19,7 +19,8 @@
         <view class="amd-guide-tour-indicator">
             <view a:for="{{steps}}" a:for-index="dataIndex" class="amd-guide-tour-indicator-dot {{dataIndex === index ? 'amd-guide-tour-indicator-dot-active':''}}" />
         </view>
-        <swiper class="amd-guide-tour-swiper" current="{{index}}" style="height:100vh" disable-touch="{{ture}}" onChange="handleSwiperChange">
+        <swiper class="amd-guide-tour-swiper" current="{{index}}" adjust-height="none" style="height:100vh" disable-touch="{{ture}}" 
+            onChange="handleSwiperChange">
             <swiper-item a:for-index="dataIndex" key="{{dataIndex}}" a:for="{{steps}}">
                 <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px">
                     <slot name="step-{{index}}">
