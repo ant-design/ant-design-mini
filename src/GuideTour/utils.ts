@@ -8,7 +8,7 @@ const buttonGroupKeys = [
 export const changeButtonVisible = (v: string[]) => {
   const newData = {};
   buttonGroupKeys.forEach((key) => {
-    if (v.includes(key)) {
+    if (v.indexOf(key) !== -1) {
       newData[key] = true;
     } else {
       newData[key] = false;
