@@ -43,25 +43,6 @@
       />
     </view>
   </list-item>
-
-  <!-- <list-item title="自定义进度条推进速度" class="wrapper">
-    <view class="line1">
-      <text>请输入进度(0-100)</text>
-      <input class="input" onInput="handleInput4Change" type="number" />
-    </view>
-    <view class="line1">
-      <text>请输入推进速度，推荐范围 0-15</text>
-      <input class="input" onInput="handleInput5Change" type="number" />
-    </view>
-    <view class="line2">
-      <progress-circle
-        percent="{{percent4}}"
-        speed="{{speed1}}"
-        className="progress-bar1"
-      >
-    </view>
-  </list-item> -->
-
   <list-item title="自定义提示文案" class="wrapper">
     <view class="line2">
       <progress-circle
