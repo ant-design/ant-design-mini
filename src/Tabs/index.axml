@@ -27,9 +27,25 @@
             id="amd-tabs-bar-item-{{index}}"
             onTap="onChange"
             data-index="{{index}}">
-          <!-- 添加作用域插槽 -->
-          <slot name="title" tab="{{item}}">{{item.title}}
-          </slot>
+            <badge 
+              a:if="{{item.badge!==undefined}}" 
+              type="{{item.badge.type || 'dot'}}" 
+              text="{{item.badge.text || ''}}" 
+              offsetX="{{item.badge.x || '-50%'}}"
+              offsetY="{{item.badge.y || '-50%'}}"
+              >
+              <!-- 添加作用域插槽 -->
+              <slot name="title" tab="{{item}}">
+                <view class="amd-tabs-bar-basis-title">
+                  {{item.title}}
+                </view>
+              </slot>
+            </badge>
+            <slot a:else name="title" tab="{{item}}">
+              <view class="amd-tabs-bar-basis-title">
+                {{item.title}}
+              </view>
+            </slot>
           </view>
           <!-- capsule 胶囊类型 -->
           <view 
@@ -38,10 +54,19 @@
             id="amd-tabs-bar-item-{{index}}"
             onTap="onChange"
             data-index="{{index}}">
-            <view class="amd-tabs-bar-capsule-title">
+            <badge
+              a:if="{{item.badge!==undefined}}" 
+              type="{{item.badge.type || 'dot'}}" 
+              text="{{item.badge.text || ''}}" 
+              offsetX="{{item.badge.x || '-50%'}}"
+              offsetY="{{item.badge.y || '-50%'}}"
+              >
+                <view class="amd-tabs-bar-capsule-title">
+                  {{item.title}}
+                </view>
+            </badge>
+            <view a:else class="amd-tabs-bar-capsule-title">
               {{item.title}}
-              <text class="amd-tabs-bar-capsule-badge"
-                a:if="{{item.badge}}">({{item.badge}})</text>
             </view>
           </view>
 
@@ -52,8 +77,20 @@
             id="amd-tabs-bar-item-{{index}}"
             onTap="onChange"
             data-index="{{index}}">
-            <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>
-            <view class="amd-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
+            <badge
+              a:if="{{item.badge!==undefined}}" 
+              type="{{item.badge.type || 'dot'}}" 
+              text="{{item.badge.text || ''}}" 
+              offsetX="{{item.badge.x || '-50%'}}"
+              offsetY="{{item.badge.y || '-50%'}}"
+              >
+              <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>
+              <view class="amd-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
+            </badge>
+            <view a:else>
+              <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>
+              <view class="amd-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
+            </view>
           </view>
         </view>
 
@@ -63,43 +100,43 @@
         onDisappear="disappearRight"></view>
     </scroll-view>
   </view>
-    <!--2.0 不支持 adjust-content，用丐版 swiper 代替-->
-    <view a:if="{{ !fallback && isBaseSwiper}}" style="{{_tabContentHeight ? `height: ${_tabContentHeight}px;`: ''}}">
-      <swiper circular="{{false}}"
-        indicator-dots="{{false}}"
-        current="{{currentIndex}}"
-        duration="{{_swipeableAnimation || animation ? 300 : 1}}"
-        autoplay="{{false}}"
-        disable-touch="{{_swipeable}}"
-        disable-update-direction="{{true}}"
-        id="amd-tabs-content-{{$id}}"
-        class="amd-tabs-content {{_tabContentHeight ? 'amd-tabs-content_H100': ''}}"
-        adjust-height="{{adjustHeight}}"
-        active-class="{{activeClass}}"
-        previous-margin="{{previousMargin}}"
-        next-margin="{{nextMargin}}"
-        easing-function="{{easingFunction}}"
-        snap-to-edge="{{snapToEdge}}"
-        onAnimationEnd="handleAnimationEnd"
-        onChange="handleSwiperChange"
-        onTouchStart="handleSwiperTouchStart"
-        onTransition="handleSwiperTransition"
-        swipe-ratio="{{swipeRatio}}"
-        swipe-speed="{{swipeSpeed}}"
-        touch-angle="{{touchAngle}}">
-        <!--2.7.5 及以上自适应高度；2.6.4 - 2.7.4 强制刷新；2.6.4 一下只能手动查询高度-->
-        {{isForceUpdate ? _forceRefreshSwiper : ''}}
-        <slot />
-      </swiper>
+  <!--2.0 不支持 adjust-content，用丐版 swiper 代替-->
+  <view a:if="{{ !fallback && isBaseSwiper}}" style="{{_tabContentHeight ? `height: ${_tabContentHeight}px;`: ''}}">
+    <swiper circular="{{false}}"
+      indicator-dots="{{false}}"
+      current="{{currentIndex}}"
+      duration="{{_swipeableAnimation || animation ? 300 : 1}}"
+      autoplay="{{false}}"
+      disable-touch="{{_swipeable}}"
+      disable-update-direction="{{true}}"
+      id="amd-tabs-content-{{$id}}"
+      class="amd-tabs-content {{_tabContentHeight ? 'amd-tabs-content_H100': ''}}"
+      adjust-height="{{adjustHeight}}"
+      active-class="{{activeClass}}"
+      previous-margin="{{previousMargin}}"
+      next-margin="{{nextMargin}}"
+      easing-function="{{easingFunction}}"
+      snap-to-edge="{{snapToEdge}}"
+      onAnimationEnd="handleAnimationEnd"
+      onChange="handleSwiperChange"
+      onTouchStart="handleSwiperTouchStart"
+      onTransition="handleSwiperTransition"
+      swipe-ratio="{{swipeRatio}}"
+      swipe-speed="{{swipeSpeed}}"
+      touch-angle="{{touchAngle}}">
+      <!--2.7.5 及以上自适应高度；2.6.4 - 2.7.4 强制刷新；2.6.4 一下只能手动查询高度-->
+      {{isForceUpdate ? _forceRefreshSwiper : ''}}
+      <slot />
+    </swiper>
+  </view>
+  <view a:else class="{{ fallback ? '' : 'amd-tabs-content' }}">
+    <view class = "{{ fallback ? '' : 'amd-tabs-slides'}} {{ currentIndex === index ? 'amd-tabs-slides-height' :''}}"
+      id="amd-tabs-content-{{$id}}"
+      style="{{ fallback 
+        ? ''
+        : `transform: translate3d(${-currentIndex * 100}%, 0, 0); transition-duration: ${animation?'300ms':''}; ${_tabContentHeight?`height: ${_tabContentHeight}px;`:'height: auto;'}`
+      }}">
+      <slot />
     </view>
-    <view a:else class="{{ fallback ? '' : 'amd-tabs-content' }}">
-      <view class = "{{ fallback ? '' : 'amd-tabs-slides'}} {{ currentIndex === index ? 'amd-tabs-slides-height' :''}}"
-        id="amd-tabs-content-{{$id}}"
-        style="{{ fallback 
-          ? ''
-          : `transform: translate3d(${-currentIndex * 100}%, 0, 0); transition-duration: ${animation?'300ms':''}; ${_tabContentHeight?`height: ${_tabContentHeight}px;`:'height: auto;'}`
-        }}">
-        <slot />
-      </view>
-    </view>
+  </view>
 </view>

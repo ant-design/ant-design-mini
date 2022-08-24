@@ -1,0 +1,26 @@
+<import-sjs name="sjs" from='./index.sjs' />
+<view class="amd-grid amd-grid-columns-{{columns}} amd-grid-{{mode}} {{className||''}}" a:if="{{mode==='tile'}}">
+    <grid-item 
+        a:for="{{items}}" 
+        iconStyle="{{iconStyle}}"
+        iconSize="{{iconSize}}"
+        onTap="onTap" 
+        showSplitLine="{{sjs.checkShowSplitLine(items.length,index,columns)}}"
+        item="{{item}}" 
+        layout="{{gridItemLayout}}"
+        columns="{{columns}}" 
+        titleSize="{{sjs.getTitleSize(columns)}}"
+        verticalSpace="{{sjs.checkNeedVerticalSpace(items.length,index,columns)}}"/>
+</view>
+<pagination a:elif="{{mode==='scroll'}}" fillColor="{{paginationFillColor}}" frontColor="{{paginationFrontColor}}">
+    <view class="amd-grid amd-grid-{{mode}}">
+        <grid-item 
+            a:for="{{items}}"     
+            iconStyle="{{iconStyle}}"
+            iconSize="{{iconSize}}"
+            onTap="onTap" 
+            columns="scroll" 
+            item="{{item}}" 
+            verticalSpace="{{false}}"/>
+    </view>
+</pagination>

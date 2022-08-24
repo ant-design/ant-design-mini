@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "ActionSheet",
+  "usingComponents": {
+    "button": "../../../src/Button/index",
+    "action-sheet": "../../../src/ActionSheet/index",
+    "demo-block": "../../components/DemoBlock/index"
+  }
+}

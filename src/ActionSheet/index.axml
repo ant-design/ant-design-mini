@@ -1,0 +1,37 @@
+<import-sjs from="./index.sjs" name="helper" />
+<popup
+  className="amd-actionsheet-popup"
+  visible="{{visible}}"
+  maskClosable="{{true}}"
+  position="bottom"
+  onClose="onClose"
+>
+  <view class="amd-actionsheet {{className ? className : ''}} {{helper.isIconMode(actions) ? 'amd-actionsheet-icon' : ''}}">
+      <view class="amd-actionsheet-title-wrap" a:if="{{title}}">
+        <view class="amd-actionsheet-title-content">{{title}}</view>
+      </view>
+      <view class="amd-actionsheet-list">
+        <view
+          a:for="{{actions}}"
+          class="amd-actionsheet-list-item {{ item.disabled ? 'amd-actionsheet-list-item-disabled' : ''}}"
+          hover-class="{{ item.disabled ? '': 'amd-actionsheet-list-item-active' }} "
+          onTap="onAction"
+          data-index="{{index}}"
+          data-item="{{item}}"
+        >
+          <view
+            class="amd-actionsheet-list-item-icon"
+            a:if="{{helper.isIconMode(actions)}}"
+            style="background-image: url('{{item.icon}}')"
+          >
+          </view>
+          <view class='amd-actionsheet-list-item-content'>
+            <view class="amd-actionsheet-list-item-title {{ item.danger ? 'amd-actionsheet-list-item-title-danger' : ''}}">{{item.text}}</view>
+            <view a:if="{{item.description}}" class='amd-actionsheet-list-item-description'>{{item.description}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="amd-actionsheet-cancel-gap"/>
+      <view class="amd-actionsheet-cancel" onTap="onClose">{{cancelText}}</view>
+  </view>
+</popup>

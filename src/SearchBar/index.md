@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 
 # SearchBar 搜索框
@@ -29,12 +29,12 @@ toc: false
 | value | string | 否 | - | 搜索框的值 |
 | autoFocus | boolean | 否 | false | 自动聚焦，ios 可能会失效 |
 | bizIconType | string | 否 | 'AudioFill' | 辅助图标类型 |
-| cancelText | string | 否 | "取消" | 取消按钮文案 |
+| cancelText | string | 否 | '取消' | 取消按钮文案 |
 | className | string | 否 | - | 类名 |
 | controlled | boolean | 否 | false | 是否受控模式 |
 | disabled | boolean | 否 | false | 是否禁用 |
 | enableNative | boolean | 否 | false | 是否启用 Native 渲染 |
-| id | string |  | 否 | 表单元素 id |
+| id | string | 否 | - | 表单元素 id |
 | maxLength | number | 否 | - | 最大长度 |
 | name | string | 否 | - | 表单元素 name |
 | placeholder | string | 否 | - | 提示文字 |
@@ -48,15 +48,15 @@ toc: false
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
-| onChange | 表单触发变更回调 | (v: any) => void |
-| onBlur | 失去焦点时触发回调 | (v: string) => void |
-| onBizIconTap | 点击语音图标回调 | () => void |
-| onCancel | 点击取消回调 | (v: string) => void |
-| onClear | 点击删除回调 | (v: string) => void |
-| onFocus | 聚焦时触发回调 | (v: string) => void |
-| onInput | input 输入回调 | (v: string) => void |
-| onSubmit | submit 回调 | (v: string) => void |
-| onVoiceTap | 点击语音图标回调 | () => void |
+| onChange | 表单触发变更回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onBlur | 失去焦点时触发回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onBizIconTap | 点击语音图标回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onCancel | 点击取消回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onClear | 点击删除回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onFocus | 聚焦时触发回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onInput | input 输入回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onSubmit | submit 回调 | (value: string, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onVoiceTap | 点击语音图标回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ## 样式类 
 
@@ -80,17 +80,3 @@ toc: false
 | CSS 变量名称 | 说明 |
 | -----|----- |
 | --am-color-brand-1 | 输入光标颜色 |
-
-
-<style> 
-table th:first-of-type { width: 180px; } 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2)  {
-    width: 140px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3)  {
-    width: 30px
-} 
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4)  {
-    width: 50px
-} 
-</style> 

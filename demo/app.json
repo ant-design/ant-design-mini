@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormBasic/index",
     "pages/FormDynamic/index",
@@ -11,6 +12,7 @@
     "pages/Icon/index",
     "pages/Switch/index",
     "pages/Picker/index",
+    "pages/DatePicker/index",
     "pages/InputItem/index",
     "pages/Badge/index",
     "pages/Button/index",
@@ -21,8 +23,10 @@
     "pages/SwipeAction/index",
     "pages/SwipeActionRef/index",
     "pages/Tabs/index",
+    "pages/TabsSticky/index",
     "pages/TabsFallback/index",
     "pages/VTabs/index",
+    "pages/VTabsNoScroll/index",
     "pages/Stepper/index",
     "pages/Steps/index",
     "pages/Terms/index",
@@ -52,11 +56,23 @@
     "pages/Container/index",
     "pages/Checklist/index",
     "pages/Empty/index",
+    "pages/ProgressBar/index",
     "pages/Toast/index",
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",
-    "pages/ProgressCircle/index"
+    "pages/ProgressCircle/index",
+    "pages/BladeView/index",
+    "pages/TabBar/index",
+    "pages/ImageUpload/index",
+    "pages/VideoUpload/index",
+    "pages/Skeleton/index",
+    "pages/Divider/index",
+    "pages/Grid/index",
+    "pages/Footer/index",
+    "pages/CascaderPicker/index",
+    "pages/Slider/index"
   ],
+
   "window": {
     "enableWK": "YES",
     "enableDSL": "YES",

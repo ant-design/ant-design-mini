@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 
 # CheckboxGroup 复选框组
@@ -12,8 +12,7 @@ toc: false
 
 ## 注意事项
 
-- 复选框组内部子元素，必须配合 CheckboxGroup 使用，有单独使用需求的请使用 Checkbox。
-- CheckboxGroup 组件与 CheckboxItem 组件必须有相同的 uid，且 uid 全局唯一。
+- 复选框组内部子元素，必须配合 CheckboxGroup 使用，有单独使用需求的请使用 [Checkbox](./checkbox)。
 - 当作为表单组件，配合 `Form`/`FormItem` 组件使用时，需要设置 `ChecboxGroup` 组件的 `mode` 的值为 `form`。
 
 ## 代码示例
@@ -55,7 +54,7 @@ toc: false
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 勾选状态变化时，触发此函数 |(value) => {}|
+| onChange | 勾选状态变化时，触发此函数 |(value: string[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void|
 
 ## 插槽
 #### CheckboxGroup
@@ -84,25 +83,3 @@ toc: false
 | amd-checkbox-base | 原始 checkbox 样式 |
 | amd-checkbox-fake | 未选中 checkbox 样式 |
 | amd-checkbox-checked | 选中 checkbox 样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4) {
-    width: 50px;
-}
-</style> 
