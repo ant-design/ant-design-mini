@@ -2,7 +2,7 @@ const buttonGroupKeys = [
   'nextButtonVisible',
   'lastButtonVisible',
   'jumpButtonVisible',
-  'konwButtonVisible',
+  'knowButtonVisible',
 ];
 
 export const changeButtonVisible = (v: string[]) => {

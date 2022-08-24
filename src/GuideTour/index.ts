@@ -1,3 +1,4 @@
+import equal from 'fast-deep-equal';
 import { GuideTourDefaultProps } from './props';
 import { changeButtonVisible } from './utils';
 import { log } from '../_util/console';
@@ -7,7 +8,7 @@ Component({
     nextButtonVisible: false,
     lastButtonVisible: false,
     jumpButtonVisible: false,
-    konwButtonVisible: false,
+    knowButtonVisible: false,
   },
   props: GuideTourDefaultProps,
   didMount() {
@@ -18,11 +19,15 @@ Component({
         `当前激活的索引值类型非 number 类型，修改当前 index 的 ${typeof index} 类型，以保证展示的正确性。`
       );
     } else {
-      this.buttoncontroller();
+      this.buttonController();
     }
   },
-  didUpdate() {
-    this.buttoncontroller();
+  didUpdate(prevProps) {
+    if (
+      prevProps.index !== this.props.index ||
+      !equal(this.props.steps, prevProps.steps)
+    )
+      this.buttonController();
   },
   methods: {
     onNext() {
@@ -53,10 +58,10 @@ Component({
       }
     },
 
-    buttoncontroller() {
+    buttonController() {
       const { index, steps } = this.props;
       if (steps.length === 1) {
-        this.setData(changeButtonVisible(['konwButtonVisible']));
+        this.setData(changeButtonVisible(['knowButtonVisible']));
       } else {
         switch (index) {
           case 0:
@@ -67,7 +72,7 @@ Component({
 
           case steps.length - 1:
             this.setData(
-              changeButtonVisible(['lastButtonVisible', 'konwButtonVisible'])
+              changeButtonVisible(['lastButtonVisible', 'knowButtonVisible'])
             );
             break;
           default:

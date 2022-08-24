@@ -11,7 +11,7 @@
         <button inline="{{true}}" inlineSize="small" onTap="onNext" a:if="{{nextButtonVisible}}">
             下一步
         </button>
-        <button type="default" inline="{{true}}" inlineSize="small" a:if="{{konwButtonVisible}}" onTap="onCancel">
+        <button type="default" inline="{{true}}" inlineSize="small" a:if="{{knowButtonVisible}}" onTap="onCancel">
             知道了
         </button>
     </view>
