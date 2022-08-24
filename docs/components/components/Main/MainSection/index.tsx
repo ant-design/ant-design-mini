@@ -6,7 +6,7 @@ import styles from './index.local.less';
 export default () => {
   const [startFireAnimation, setStartFireAnimation] = useState(false);
   const [startResultAnimation, setStartResultAnimation] = useState(false);
-  const [isWidthScreen, setIsWidthScreen] = useState(window.screen.width > 450);
+  const [isWidthScreen, setIsWidthScreen] = useState(window?.screen?.width > 450);
 
   useEffect(() => {
     document.querySelector('#calendarImage')?.addEventListener('mouseenter', () => {

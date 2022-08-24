@@ -1,3 +1,18 @@
+## 0.0.21 (2022-08-22)
+### Feature
+1. 新增Slider组件
+2. ImageUpload value支持字符串， 字符串数组
+3. VideoUpload value支持字符串， 字符串数组
+4. Mask支持disableScroll
+5. PopUp关闭时增加动画效果
+6. Tabs onChange增加event变量透出
+### Bugfix
+1. Input光标颜色恢复
+2. Tabs支持badge
+3. 页面onShow时 NoticeBar内容不显示问题修复
+4. DatePicker 分秒由1- 60 调整为 0-59
+
+
 ## 0.0.20 (2022-08-02)
 ### Features
 * 新增ProgressBar组件

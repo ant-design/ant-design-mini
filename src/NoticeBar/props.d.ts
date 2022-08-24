@@ -55,3 +55,23 @@ export interface INoticeBarProps extends INoticeCommonProps {
   onActionTap?: (index: number) => void;
 }
 export declare const NoticeBarDefaultProps: Partial<INoticeBarProps>;
+
+export type INoticeBarData = {
+  show: boolean;
+  marqueeStyle: string;
+  animatedWidth: number;
+  overflowWidth: number;
+  duration: number;
+  viewWidth: number;
+}
+
+export type INoticeBarMethods = {
+  resetState: () => void;
+  showError: () => void;
+  onTap: () => void;
+  onActionTap: (e: any) => void;
+  resetMarquee: () => void;
+  startMarquee: () => void;
+  onTransitionEnd: () => void;
+  measureText: (fn: (...args: any[]) => void) => void;
+}

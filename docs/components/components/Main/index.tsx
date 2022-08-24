@@ -16,7 +16,7 @@ import {
 import styles from './index.local.less';
 
 export default () => {
-  const [isWidthScreen, setIsWidthScreen] = useState(window.screen.width > 450);
+  const [isWidthScreen, setIsWidthScreen] = useState(window?.screen?.width > 450);
   const [startAnimation, setStartAnimation] = useState([false, false, false, false]);
 
   useEffect(() => {
@@ -42,10 +42,6 @@ export default () => {
       myObserver.disconnect();
     };
   }, []);
-
-  const onRecommendCardClick = (url) => {
-    window.open = url;
-  }
 
   return (
     <div className={styles.mainContainer} id="mainContainer">
@@ -185,7 +181,7 @@ export default () => {
                   bordered={false} 
                   hoverable={true} 
                 >
-                  <div className={styles.recommendCardBody} onClick={() => window.open(recommend.link)}>
+                  <div className={styles.recommendCardBody} onClick={() => window && window.open(recommend.link)}>
                     <div className={styles.recommendImage}>
                       <img src={recommend.image} width={50} />
                     </div>

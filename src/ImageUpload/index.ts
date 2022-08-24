@@ -9,19 +9,37 @@ Component({
     fileList: [],
   } as IUploaderData,
   didMount() {
-    const { value } = this.props;
-    this.setData({
-      fileList: value
-    });
+    this.handleValue();
   },
   didUpdate(prevProps) {
     if (!equal(prevProps.value, this.props.value)) {
-      this.setData({
-        fileList: this.props.value
-      })
+      this.handleValue();
     }
   },
   methods: {
+    handleValue() {
+      let curValue;
+      const { value } = this.props;
+
+      if (typeof value === 'string') {
+        curValue = [].concat(value);
+      } else if (
+        Array.isArray(value) &&
+        value.length &&
+        value.some(v => typeof v === 'string')
+      ) {
+        curValue = value.map(v => (typeof v === 'string' ? {
+          url: v,
+          status: 'done'
+        } : v));
+      } else {
+        curValue = value;
+      }
+      this.setData({
+        fileList: curValue
+      });
+    },
+
     async onChooseImage() {
       const { fileList } = this.data;
       const { maxCount, sourceType } = this.props;

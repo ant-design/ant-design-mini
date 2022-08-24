@@ -1,0 +1,78 @@
+<import-sjs from="./index.sjs" name="sliderSjs" />
+
+<template name='slider-handler'>
+  <view
+    class="amd-slider-handler"
+    style="left: {{position}}%;"
+  >
+    <popover placement="top" visible="{{showTooltip}}" class="amd-slider-tooltip">
+      <view slot="items" class="amd-slider-tooltip-content">
+        <slot name="tooltip" value="{{value}}">{{value}}</slot>
+      </view>
+      <view/>
+    </popover>
+    <view
+      a:if="{{!icon}}" 
+      class="amd-slider-handler-icon-default"
+    >
+      <view class="amd-slider-handler-icon-default-line1" style="background-color: {{color}}"/>
+      <view class="amd-slider-handler-icon-default-line2" style="background-color: {{color}}"/>
+      <view class="amd-slider-handler-icon-default-line3" style="background-color: {{color}}"/>
+    </view>
+    <view
+      a:if="{{icon}}" 
+      class="amd-slider-handler-icon-from-props"
+    >
+      <amd-icon
+        class="amd-slider-handler-icon-from-props-icon"
+        type="{{icon}}"
+        size="small"
+        color="{{color}}"
+      />
+    </view>
+  </view>
+</template>
+
+<view 
+  class="amd-slider"
+  style="opacity: {{disabled ? '0.4' : '1'}};"
+>
+    <view 
+      class="amd-slider-track {{showNumber ? 'amd-slider-track-number' : ''}}" 
+    >
+      <view 
+        class="amd-slider-track-touch-area"
+        id="{{sliderId}}"
+        onTouchStart="handleTrackTouchStart"
+        onTouchEnd="handleTrackTouchEnd"
+        onTouchMove="handleTrackTouchMove"
+      >
+        <view 
+          class="amd-slider-track-fill"
+        >
+          <view class="amd-slider-track-fill-background" /> 
+          <view 
+            class="amd-slider-track-fill-front"
+            style="width: {{sliderWidth}}%; left: {{sliderLeft}}%; background-color: {{color}}"
+          /> 
+
+          <view class="amd-slider-ticks">
+            <view 
+              a:for="{{tickList}}" 
+              class= "amd-slider-tick amd-slider-tick-{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? 'front' : 'back' }}"
+              style="left: {{item.left}}%;{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? `background-color: ${color}`: ''}}"
+          >
+            <view a:if={{showNumber}} class="amd-slider-tick-number">
+              <slot name="tick" value="{{item.value}}">
+                {{item.value}}
+              </slot>
+            </view>
+          </view>
+          </view>
+
+          <template a:if="{{range}}" is="slider-handler" data="{{ position: sliderLeft, icon: icon, color: color, value: value[0], showTooltip: changingStart&&tooltip }}"/>
+          <template is="slider-handler" data="{{ position: sliderLeft + sliderWidth, icon: icon, color: color, value: range?value[1]:value, showTooltip: changingEnd&&tooltip }}"/>
+        </view>
+      </view>
+    </view>
+<view>

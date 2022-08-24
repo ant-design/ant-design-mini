@@ -24,6 +24,7 @@
     <uploader 
       action='{{action}}'
       maxCount="{{3}}"
+      value="{{value_3}}"
       onChange="onChange"
     >
       <view slot="uploadIcon">

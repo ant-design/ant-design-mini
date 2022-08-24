@@ -3,30 +3,38 @@ import { PopupDefaultProps } from './props';
 Component({
   props: PopupDefaultProps,
   data: {
-    classNames: '',
     supportSjs: my.canIUse('sjs.event'),
+    closing: false,
   },
-  deriveDataFromProps(nextProps) {
-    const classNames = [
-      nextProps.className || '',
-      nextProps.disableScroll ? 'amd-popup-disable-scroll' : '',
-      nextProps.animation ? 'amd-popup-animation' : '',
-    ];
-    this.setData({
-      classNames: classNames.join(' ').trim(),
-    });
+  didUpdate(prevProps) {
+    const { visible, duration, animation } = this.props;
+    if (prevProps.visible && !visible) {
+      if (animation && duration > 0) {
+        this.setData({ closing: true });
+      }
+    }
   },
   methods: {
     onMaskClose() {
-      const { onClose, maskClosable } = this.props;
+      const { closing } = this.data;
+      if (closing) {
+        return;
+      }
+      const { maskClosable } = this.props;
       if (maskClosable) {
-        onClose?.();
+        this.onClose();
       }
     },
     onClose() {
       const { onClose } = this.props;
       if (onClose) {
-        onClose?.();
+        onClose();
+      }
+    },
+    onAnimationEnd() {
+      const { closing } = this.data;
+      if (closing) {
+        this.setData({ closing: false });
       }
     },
   },

@@ -9,12 +9,17 @@ const config: IConfig = {
   locales: [['zh', '中文']],
   mode: 'site',
   hash: true,
-  plugins: ['./plugin/index.ts'],
   algolia: {
     appId: '8V6T3YYVB3',
     apiKey: '00471a2ff478c1da9b9e3634edf53a6f',
     indexName: 'mini-ant',
   },
+  ssr: {},
+  exportStatic: {},
+  sitemap: {
+    hostname: 'https://mini.ant.design',
+  },
+  plugins: ['./plugin/index.ts'],
   metas: [
     {
       name: 'viewport',
@@ -25,6 +30,12 @@ const config: IConfig = {
   headScripts: [
     { src: 'https://gw.alipayobjects.com/os/lib/current-device/0.10.2/umd/current-device.min.js' },
     { src: 'https://v1.cnzz.com/z_stat.php?id=1280900245&web_id=1280900245' }
+  ],
+  links: [
+    {
+      rel: 'preconnect',
+      href: 'https://8V6T3YYVB3-dsn.algolia.net'
+    }
   ],
   scripts: [
     `

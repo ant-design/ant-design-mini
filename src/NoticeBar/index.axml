@@ -2,7 +2,7 @@
   amd-notice-bar
   {{className ? className : ''}}
   {{type ? 'amd-notice-bar-' + type : ''}}"
-  a:if="{{_show}}">
+  a:if="{{show}}">
   <block a:if="{{showIcon && type !=='error'}}">
     <icon size="x-small"
       type="SoundOutline"
@@ -14,22 +14,12 @@
       className="amd-notice-bar-icon" />
   </block>
   <view class="amd-notice-bar-content amd-notice-bar-content-{{$id}}">
-    <!-- 滚动区域左右两侧的阴影渐变 -->
-    <view a:if="{{enableMarquee}}"
-      class="amd-notice-bar-scroll-left amd-notice-bar-{{type === 'normal'?'':type}}-scroll-left"></view>
-    <view a:if="{{enableMarquee}}"
-      class="amd-notice-bar-scroll-right amd-notice-bar-{{type === 'normal'?'':type}}-scroll-right"></view>
     <!-- 文本内容展示区域 -->
-    <view a:if="{{_canIUseTransitionEnd}}"
+    <view
       class="amd-notice-bar-marquee amd-notice-bar-marquee-{{$id}}"
-      style="{{_marqueeStyle}} display: {{enableMarquee ? 'inline-block' : 'block'}}"
+      style="{{marqueeStyle}} display: {{enableMarquee ? 'inline-block' : 'block'}}"
       onTransitionEnd="onTransitionEnd">
       <slot />
-    </view>
-    <view a:else
-      class="amd-notice-bar-marquee amd-notice-bar-marquee-{{$id}}"
-      style="right: {{_animatedWidth}}px; display: {{enableMarquee ? 'inline-block' : 'block'}}">
-      <slot></slot>
     </view>
   </view>
   <view class="amd-notice-bar-operation">
