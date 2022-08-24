@@ -37,11 +37,13 @@ toc: false
 
 ### IStep
 
-| 属性     | 类型   | 必填 | 默认值 | 说明     |
-| -------- | ------ | ---- | ------ | -------- |
-| imageUrl | string | 否   | -      | 图片地址 |
-| top      | number | 否   | -      | 距离顶部 |
-| left     | number | 否   | -      | 距离左边 |
+| 属性       | 类型   | 必填 | 默认值      | 说明                       |
+| ---------- | ------ | ---- | ----------- | -------------------------- |
+| imageUrl   | string | 否   | -           | 图片地址                   |
+| imageMode  | string | 否   | scaleToFill | 图片模式，同 image 的 mode |
+| imageStyle | string | 否   | -           | 图片内联样式               |
+| top        | number | 否   | -           | 距离顶部                   |
+| left       | number | 否   | -           | 距离左边                   |
 
 ## 插槽
 

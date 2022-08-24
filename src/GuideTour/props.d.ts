@@ -6,6 +6,14 @@ interface IStep {
    */
   imageUrl?: string;
   /**
+   * @description 图片模式
+   */
+  imageMode?: string;
+  /**
+   * @description 图片内联样式
+   */
+  imageStyle?: string;
+  /**
    * @description 距离顶部
    */
   top?: string;

@@ -11,6 +11,7 @@ Page({
         top: 80,
         imageUrl:
           'https://gw.alipayobjects.com/zos/antfincdn/IV3MGP1qL/bianzu%25252013.png',
+        imageMode: 'widthFix',
       },
       {
         left: 20,
