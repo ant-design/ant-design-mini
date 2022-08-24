@@ -16,12 +16,6 @@ export interface IState {
 
 export class CollapseStore extends Store<IState> {
   static type = COLLAPSE_TYPE;
-  static inject(instane) {
-    if (!instane._store) {
-      instane._store = new CollapseStore();
-      instane._store.instance = instane;
-    }
-  }
   constructor() {
     super({ value: [], accordion: false, items: [] });
   }

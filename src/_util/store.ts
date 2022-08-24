@@ -6,7 +6,6 @@ import { getArrayItem } from './tools';
 const isSupportAppx2 = compareVersion(my.SDKVersion, '2.7.22') >= 0;
 
 export abstract class Store<S extends Record<string, any>> {
-  static inject(instance) {}
   static type: string;
   private state: S;
   private subscribtions = [] as Array<(state: S, diff: Partial<S>) => void>;
@@ -72,6 +71,17 @@ export abstract class Store<S extends Record<string, any>> {
 }
 
 /**
+ * 给组件注入store示例
+ * @param instane 
+ * @param storeFactory 
+ */
+function injectStore(instane, storeFactory) {
+  if (!instane._store) {
+    instane._store = new storeFactory();
+    instane._store.instance = instane;
+  }
+}
+/**
  * 从子组件向上查找指定类型的节点
  * @param component
  * @param type
@@ -111,8 +121,8 @@ interface IMinxProps<IState, IMappedData, IProps, IData> {
 
 /**
  * connect到store数据，顶层组件上已有store实例，无需bindStoreFn
- * @param param0 
- * @returns 
+ * @param param0
+ * @returns
  */
 export function connect<
   IState,
@@ -166,9 +176,7 @@ export function connect<
         if (!providerInstance) {
           throw new Error(`[antd-mini: item must be used in ${type}]`);
         }
-        if (!providerInstance._store) {
-          storeFactory.inject(providerInstance);
-        }
+        injectStore(providerInstance, storeFactory);
         this._store = providerInstance._store;
         subscribe();
         if (this.onStoreSetted) {
@@ -205,9 +213,7 @@ export function inject<IState>(
 > {
   return {
     didMount() {
-      if (!this._store) {
-        storeFactory.inject(this);
-      }
+      injectStore(this, storeFactory);
     },
   };
 }

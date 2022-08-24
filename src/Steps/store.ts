@@ -7,10 +7,4 @@ export interface IState {
 
 export class StepsStore extends Store<IState> {
   static type = STEPS_TYPE;
-  static inject(instane) {
-    if (!instane._store) {
-      instane._store = new StepsStore();
-      instane._store.instance = instane;
-    }
-  }
 }

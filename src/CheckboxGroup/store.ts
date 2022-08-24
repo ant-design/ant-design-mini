@@ -10,10 +10,4 @@ export class CheckboxGroupStore extends Store<IState> {
     super({ value: [] });
   }
   static type = CHECKBOX_GROUP_TYPE;
-  static inject(instane) {
-    if (!instane._store) {
-      instane._store = new CheckboxGroupStore();
-      instane._store.instance = instane;
-    }
-  }
 }

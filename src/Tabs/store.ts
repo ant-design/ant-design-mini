@@ -9,12 +9,6 @@ export interface IState {
 
 export class TabStore extends Store<IState> {
   static type = TABS_TYPE;
-  static inject(instane) {
-    if (!instane._store) {
-      instane._store = new TabStore();
-      instane._store.instance = instane;
-    }
-  }
   constructor() {
     super({ items: [] });
   }
