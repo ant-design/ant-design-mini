@@ -1,0 +1,14 @@
+
+<view class="amd-progressbar-wrapper {{className}}">
+  <canvas class="amd-progressbar-canvas" id="progressbar-canvas-{{$id}}" width="{{canvasWidth}}" height="{{canvasHeight}}" />
+  <slot>
+    <view class="amd-progressbar-indicator-default" a:if="{{!label && !progressText && !unit}}">
+      <text>{{percent}}%</text>
+    </view>
+    <view class="amd-progressbar-indicator-column" a:if="{{label || progressText || unit}}">
+      <text class="amd-progressbar-indicator-column-text1" a:if="{{label}}">{{label}}</text>
+      <text class="amd-progressbar-indicator-column-text2">{{progressText || percent}}</text>
+      <text class="amd-progressbar-indicator-column-text3">{{unit}}</text>
+    </view>
+  </slot>
+</view>

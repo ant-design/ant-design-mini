@@ -60,6 +60,7 @@
     "pages/Toast/index",
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",
+    "pages/ProgressCircle/index",
     "pages/GuideTour/index",
     "pages/BladeView/index",
     "pages/TabBar/index",
