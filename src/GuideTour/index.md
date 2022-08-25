@@ -25,25 +25,32 @@ toc: false
 
 ### GuideTour
 
+```typescript
+ interface IStep {
+  /** 图片地址 */
+  imageUrl: string;
+  /** 图片模式，同 image 的 mode */
+  imageMode?: string;
+  /** 图片内联样式 */
+  imageStyle?: string;
+  /** 距离顶部距离，单位px */
+  top?: number;
+  /** 距离左边距离，单位px */
+  left?: number;
+}
+```
+
+<hr />
+
 | 属性       | 类型                    | 必填 | 默认值 | 说明               |
 | ---------- | ----------------------- | ---- | ------ | ------------------ |
-| steps      | IStep[]                 | 否   | []     | 步骤信息           |
-| visible    | boolean                 | 否   | false  | 引导是否可见, 受控 |
-| index      | number                  | 否   | 0      | 当前步骤, 受控     |
+| steps      | IStep[]                 | 是   | []     | 步骤信息           |
+| visible    | boolean                 | 是   | false  | 引导是否可见, 受控 |
+| index      | number                  | 否   | 0      | 当前步骤     |
 | swiperable | boolean                 | 否   | false  | 是否开启滑动模式   |
 | onCancel   | () => void              | 否   | -      | 关闭回调           |
-| onChange   | (index: number) => void | 否   | -      | 步骤改变回调       |
+| onChange   | (index: number) => void \| boolean | 否   | -      | 步骤改变回调，返回false时阻止默认步骤改变       |
 | className  | string                  | 否   | -      | 类名               |
-
-### IStep
-
-| 属性       | 类型   | 必填 | 默认值      | 说明                       |
-| ---------- | ------ | ---- | ----------- | -------------------------- |
-| imageUrl   | string | 否   | -           | 图片地址                   |
-| imageMode  | string | 否   | scaleToFill | 图片模式，同 image 的 mode |
-| imageStyle | string | 否   | -           | 图片内联样式               |
-| top        | number | 否   | -           | 距离顶部                   |
-| left       | number | 否   | -           | 距离左边                   |
 
 ## 插槽
 
