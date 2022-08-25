@@ -72,8 +72,8 @@ export abstract class Store<S extends Record<string, any>> {
 
 /**
  * 给组件注入store示例
- * @param instane 
- * @param storeFactory 
+ * @param instane
+ * @param storeFactory
  */
 function injectStore(instane, storeFactory) {
   if (!instane._store) {
@@ -133,8 +133,8 @@ export function connect<
   storeFactory,
   mapStateToData = (state) => state as any,
 }: IMinxProps<IState, IMappedData, IProps, IData>): IUserComponentOptions<
-  {},
-  {},
+  IObject,
+  IObject,
   {
     /**
      * appx1下获取store在setTimeout中，didMount执行时机先于挂载store，兼容方法
@@ -145,7 +145,7 @@ export function connect<
     _store: Store<IState>;
     unSubscribe: CallableFunction;
   },
-  {},
+  IObject,
   any[]
 > {
   return {
@@ -204,11 +204,11 @@ export function connect<
 export function inject<IState>(
   storeFactory: typeof Store<IState>
 ): IUserComponentOptions<
-  {},
-  {},
-  {},
+  IObject,
+  IObject,
+  IObject,
   { _store: typeof Store<IState> },
-  {},
+  IObject,
   any[]
 > {
   return {
@@ -217,10 +217,3 @@ export function inject<IState>(
     },
   };
 }
-
-export const STEPS_TYPE = 'Steps';
-export const CHECKBOX_GROUP_TYPE = 'CheckboxGroup';
-export const RADIO_GROUP_TYPE = 'RadioGroup';
-export const COLLAPSE_TYPE = 'Collapse';
-export const FILTER_TYPE = 'Filter';
-export const TABS_TYPE = 'Tabs';

@@ -1,4 +1,4 @@
-import { Store, CHECKBOX_GROUP_TYPE } from '../_util/store';
+import { Store } from '../_util/store';
 
 export interface IState {
   value: string[];
@@ -9,5 +9,5 @@ export class CheckboxGroupStore extends Store<IState> {
   constructor() {
     super({ value: [] });
   }
-  static type = CHECKBOX_GROUP_TYPE;
+  static type = 'CheckboxGroup';
 }

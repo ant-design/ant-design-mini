@@ -1,4 +1,4 @@
-import { Store,TABS_TYPE } from '../_util/store';
+import { Store } from '../_util/store';
 import { ITabItemProps } from './TabItem/props';
 
 export type ITabItem = ITabItemProps['tab'];
@@ -8,7 +8,7 @@ export interface IState {
 }
 
 export class TabStore extends Store<IState> {
-  static type = TABS_TYPE;
+  static type = 'Tabs';
   constructor() {
     super({ items: [] });
   }

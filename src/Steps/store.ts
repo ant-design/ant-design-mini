@@ -1,4 +1,4 @@
-import { Store, STEPS_TYPE } from '../_util/store';
+import { Store } from '../_util/store';
 
 export interface IState {
   index: number;
@@ -6,5 +6,5 @@ export interface IState {
 }
 
 export class StepsStore extends Store<IState> {
-  static type = STEPS_TYPE;
+  static type = 'Steps';
 }

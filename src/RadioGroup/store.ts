@@ -1,4 +1,4 @@
-import { Store, RADIO_GROUP_TYPE } from '../_util/store';
+import { Store } from '../_util/store';
 
 export interface IState {
   value: string;
@@ -6,5 +6,5 @@ export interface IState {
 }
 
 export class RadioGroupStore extends Store<IState> {
-  static type = RADIO_GROUP_TYPE;
+  static type = 'RadioGroup';
 }

@@ -1,4 +1,4 @@
-import { Store, COLLAPSE_TYPE } from '../_util/store';
+import { Store } from '../_util/store';
 
 export const supportSjs = my.canIUse('sjs.event');
 
@@ -15,7 +15,7 @@ export interface IState {
 }
 
 export class CollapseStore extends Store<IState> {
-  static type = COLLAPSE_TYPE;
+  static type = 'Collapse';
   constructor() {
     super({ value: [], accordion: false, items: [] });
   }
