@@ -43,9 +43,21 @@ export interface IPickerProps
    */
   data: PickerValue[];
   /**
+   * @description 点击确认前回调
+   */
+  onBeforeOk?: (
+    value: PickerValue,
+    column: PickerData,
+    e: Record<string, any>
+  ) => boolean;
+  /**
    * @description 点击确认回调
    */
-  onOk?: (value: PickerValue, column: PickerData, e: Record<string, any>) => void;
+  onOk?: (
+    value: PickerValue,
+    column: PickerData,
+    e: Record<string, any>
+  ) => void;
   /**
    * @description 点击取消回调
    */
@@ -53,7 +65,11 @@ export interface IPickerProps
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
-  onChange?: (value: PickerValue, column: PickerData, e: Record<string, any>) => void;
+  onChange?: (
+    value: PickerValue,
+    column: PickerData,
+    e: Record<string, any>
+  ) => void;
   /**
    * @description 选中值的文本显示格式
    */
@@ -61,6 +77,6 @@ export interface IPickerProps
   /**
    * @description 切换显示隐藏
    */
-  onTriggerPicker?: (visible) => void;
+  onTriggerPicker?: (visible: boolean, e: Record<string,any>) => void;
 }
 export declare const PickerDefaultProps: Partial<IPickerProps>;

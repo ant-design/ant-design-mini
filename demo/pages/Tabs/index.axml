@@ -1,109 +1,84 @@
-<view>
-  <tabs 
-    index="{{index}}" 
-    type="{{type}}" 
-    animation="{{animation}}" 
-    swipeable="{{swipeable}}" 
-    sticky="{{sticky}}"
-    onChange="handleChangeTab">
-    <view a:if="{{plusSlot}}" slot="plus" >
-      <icon 
-        size="small"
-        type="AddOutline" 
-        className="plus-icon"
-        onTap="handleClickIcon" />
-    </view>
-    <view 
-      a:if="{{titleSlot}}"
-      slot-scope="prop" 
-      slot="title">
-      {{prop.tab.title + ' slot'}}
-    </view> 
-    <block a:for="{{tabs}}">
-      <tab-content 
-        a:if="{{index === 1}}" 
-        tab="{{item}}">
-        <view>
-          {{item.title}}
-            <view 
-              a:for="{{height}}">
-              ........根据内容自适应高度........
-            </view>
-        </view>
-      </tab-content>
-
-      <tab-content 
-        a:elif="{{index === 3}}"
-        tab="{{item}}">
-        <view style="height: 30vh">
-          ........{{item.title}}........
-          <text>父级设置了高度后的变化</text>
-        </view>
-      </tab-content>
-
-      <tab-content tab="{{item}}" a:else badge="{{item.badge}}">
-        <view style="height: 20vh">
-          ........{{item.title}}........
-        </view>
-      </tab-content>
-
-    </block>
-  </tabs>
-  <list radius className="actions">
-    <list-item>
-      选项数
-      <radio-group 
-        slot="extra"
-        class="radio-group"
-        name="tabsNumber" 
-        onChange="handleChangeTabNum" >
-        <label 
-          class="radio" 
-          a:for="{{tabsNumber}}">
-          <radio 
-            value="{{item.name}}" 
-            checked="{{item.checked}}" />
-          <text 
-            class="radio-text">
-            {{item.value}}
-          </text>
-        </label>
-      </radio-group>
-    </list-item>
-    <list-item>
-      type
-      <radio-group 
-        slot="extra"
-        class="radio-group" 
-        name="tabsType"
-        onChange="handleChangeType" >
-        <label 
-          class="radio" 
-          a:for="{{tabsType}}">
-          <radio 
-            value="{{item.name}}" 
-            checked="{{item.checked}}" />
-          <text 
-            class="radio-text">
-            {{item.value}}
-          </text>
-        </label>
-      </radio-group>
-    </list-item>
-    <list-item>
-      内容过渡动画<switch checked="{{animation}}" controlled onChange="handleChangeAnimation" slot="extra"/>
-    </list-item>
-    <list-item>
-      支持手势切换<switch checked="{{swipeable}}" controlled onChange="handleChangeSwipeable" slot="extra"/>
-    </list-item>
-    <list-item brief="sticky效果">
-      吸顶<switch checked="{{sticky}}" controlled onChange="handleChangeSticky" slot="extra"/>
-    </list-item>
-    <list-item brief="自定义tab展示，优先级高于配置">
-      title插槽<switch checked="{{titleSlot}}" controlled onChange="handleChangeTitleSlot" slot="extra"/>
-    </list-item>
-    <list-item brief="右上角操作按钮">
-      plus插槽<switch checked="{{plusSlot}}" controlled onChange="handleChangePlusSlot" slot="extra"/>
-    </list-item>
-  </list>
-</view>
+<tabs uid="tab1" onChange="handleChangeTab1" index="{{tab1Index}}">
+  <block a:for="{{tabTypes}}" a:for-index="idx" a:for-item="tabTypeItem">
+    <tab-content uid="tab1" tab="{{tabTypeItem}}">
+      <demo-block title="基础用法" padding="0">
+        <tabs uid="{{'tab2'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab2" index="{{tab2Index}}">
+          <block a:for="{{tabList}}">
+            <tab-content uid="{{'tab2'+idx}}" tab="{{item}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="手势切换" padding="0">
+        <tabs uid="{{'tab3'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab3" index="{{tab3Index}}" animation swipeable>
+          <block a:for="{{tabList}}">
+            <tab-content uid="{{'tab3'+idx}}" tab="{{item}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="禁用状态" padding="0">
+        <tabs uid="{{'tab4'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab4" index="{{tab4Index}}">
+          <block a:for="{{tabList}}">
+            <tab-content a:if="{{index === 1}}" uid="{{'tab4'+idx}}" tab="{{...item, disabled: true}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+            <tab-content a:else uid="{{'tab4'+idx}}" tab="{{item}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="无内容" padding="0">
+        <tabs uid="{{'tab5'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab5" index="{{tab5Index}}">
+          <block a:for="{{tabList}}">
+            <tab-content uid="{{'tab5'+idx}}" tab="{{item}}">
+              <view class="content" />
+            </tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="带有徽标" padding="0">
+        <tabs uid="{{'tab6'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab6" index="{{tab6Index}}">
+          <block a:if="{{tabTypeItem.type === 'capsule'}}">
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'水果', subTitle:'描述文案', badge: {type: 'dot', x: '-100%'}}}">
+              <view class="content">西瓜</view></tab-content>
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'蔬菜', subTitle:'描述文案', badge: {type: 'number', text: 11, x: '-100%'}}}">
+              <view class="content">西红柿</view></tab-content>
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'动物', subTitle:'描述文案', badge: {type: 'bubble', text: '气泡', x: '-100%'}}}">
+              <view class="content">蚂蚁</view></tab-content>
+          </block>
+          <block a:else>
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'水果', subTitle:'描述文案', badge: {type: 'dot'}}}">
+              <view class="content">西瓜</view></tab-content>
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'蔬菜', subTitle:'描述文案', badge: {type: 'number', text: 11}}}">
+              <view class="content">西红柿</view></tab-content>
+            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'动物', subTitle:'描述文案', badge: {type: 'bubble', text: '气泡'}}}">
+              <view class="content">蚂蚁</view></tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="超长滚动" padding="0">
+        <tabs uid="{{'tab7'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab7" index="{{tab7Index}}">
+          <block a:for="{{multiTabList}}">
+            <tab-content uid="{{'tab7'+idx}}" tab="{{item}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+          </block>
+        </tabs>
+      </demo-block>
+      <demo-block title="带拓展按钮" padding="0">
+        <tabs uid="{{'tab8'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab8" index="{{tab8Index}}">
+          <block a:for="{{tabList}}">
+            <tab-content uid="{{'tab8'+idx}}" tab="{{item}}">
+              <view class="content">{{item.content}}</view>
+            </tab-content>
+          </block>
+          <icon slot="plus" fontSize="48rpx" type="AddOutline" onTap="handleClickIcon" />
+        </tabs>
+      </demo-block>
+    </tab-content>
+  </block>
+</tabs>

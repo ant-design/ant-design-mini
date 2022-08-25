@@ -2,9 +2,6 @@ import React from 'react'
 import styles from './home.less'
 
 export default () => {
-  const simulator = document.querySelector("#simulatorContainer");
-  // @ts-ignore
-  if(simulator) simulator.style.display = 'none';
   return (
     <div className={styles.homePage}>
       {/* 内容部分 */}
@@ -40,12 +37,12 @@ export default () => {
             <div className={styles.guidanceCard}>
               <div>
                 <p>{'快速开始'}</p>
-                <p style={{height: "52px"}}>
+                <p style={{ height: "52px" }}>
                   {'安装依赖、引入组件，即可使用'}
                 </p>
                 <a href={'/guide/quick-start'}>
-                  {'查看详情'} 
-                  <div style={{display: "inline-block", width: "16px", height: "16px", backgroundImage: 'url(https://gw.alipayobjects.com/zos/bmw-prod/5f07b426-aa80-47ea-9ad5-9f795deb5556.svg)'}}></div>
+                  {'查看详情'}
+                  <div style={{ display: "inline-block", width: "16px", height: "16px", backgroundImage: 'url(https://gw.alipayobjects.com/zos/bmw-prod/5f07b426-aa80-47ea-9ad5-9f795deb5556.svg)' }}></div>
                 </a>
               </div>
               <img
@@ -60,7 +57,7 @@ export default () => {
                   {'我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下'}
                 </p>
                 <a href={'/guide/faq'}>FAQ
-                <div style={{display: "inline-block", width: "16px", height: "16px", backgroundImage: 'url(https://gw.alipayobjects.com/zos/bmw-prod/5f07b426-aa80-47ea-9ad5-9f795deb5556.svg)'}}></div>
+                  <div style={{ display: "inline-block", width: "16px", height: "16px", backgroundImage: 'url(https://gw.alipayobjects.com/zos/bmw-prod/5f07b426-aa80-47ea-9ad5-9f795deb5556.svg)' }}></div>
                 </a>
               </div>
               <img

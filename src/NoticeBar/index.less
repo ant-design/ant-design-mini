@@ -14,28 +14,6 @@
   background-color: @notice-background-color;
   border: 1px solid @notice-border-color;
   box-sizing: border-box;
-  &-scroll-left,
-  &-scroll-right {
-    width: 16 * @rpx;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 99;
-    background-size: 100%;
-    pointer-events: none;
-    background-color: @color-golden-3;
-    background-color: var(--am-notice-bgc, @color-golden-3);
-  }
-  &-scroll-left {
-    left: 0;
-    mask-image: linear-gradient(to right, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
-    mask-image: linear-gradient(to right, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
-  }
-  &-scroll-right {
-    right: 0;
-    mask-image: linear-gradient(to left, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
-    mask-image: linear-gradient(to left, rgb(0 0 0 / 100%), rgb(255 255 255 / 0%));
-  }
   &-error {
     color: @notice-error-color;
     background-color: @notice-error-background-color;

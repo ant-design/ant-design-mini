@@ -18,6 +18,11 @@ export const componentList = [
     type: '导航',
     list: [
       {
+        name: 'TabBar',
+        nameZN: 'TabBar底部标签栏',
+        path: '/pages/TabBar/index',
+      },
+      {
         name: 'Tabs',
         nameZN: '标签页',
         path: '/pages/Tabs/index',
@@ -36,6 +41,11 @@ export const componentList = [
         name: 'Avatar',
         nameZN: '头像',
         path: '/pages/Avatar/index',
+      },
+      {
+        name: 'BladeView',
+        nameZN: '索引',
+        path: '/pages/BladeView/index',
       },
       {
         name: 'Collapse',
@@ -70,6 +80,11 @@ export const componentList = [
         name: 'Tag',
         nameZN: ' 标签',
         path: '/pages/Tag/index',
+      },
+      {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
       },
       {
         name: 'FloatPanel',
@@ -142,6 +157,11 @@ export const componentList = [
         path: '/pages/Selector/index',
       },
       {
+        name: 'Slider',
+        nameZN: '滑动输入条',
+        path: '/pages/Slider/index',
+      },
+      {
         name: 'Stepper',
         nameZN: '步进器',
         path: '/pages/Stepper/index',
@@ -182,6 +202,11 @@ export const componentList = [
         path: '/pages/Dialog/index',
       },
       {
+        name: 'Empty',
+        nameZN: '空状态',
+        path: '/pages/Empty/index',
+      },
+      {
         name: 'Loading',
         nameZN: '加载中',
         path: '/pages/Loading/index',
@@ -215,6 +240,11 @@ export const componentList = [
         name: 'Empty',
         nameZN: '空状态',
         path: '/pages/Empty/index',
+      },
+      {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
       },
       {
         name: 'Toast',

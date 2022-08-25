@@ -1,4 +1,4 @@
-@import (reference) "./variable.less";
+@import (reference) './variable.less';
 
 @tabsPrefix: amd-tabs;
 
@@ -24,17 +24,17 @@
       pointer-events: none;
       &-left {
         left: 0;
-        background: linear-gradient(90deg,#fff,hsla(0,0%,100%,0));
+        background: linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));
       }
       &-right {
         right: 104 * @rpx;
-        background: linear-gradient(270deg,#fff,hsla(0,0%,100%,0));
+        background: linear-gradient(270deg, #fff, hsla(0, 0%, 100%, 0));
       }
     }
     &-plus {
       display: flex;
-      width: 88 * @rpx;
-      height: 88 * @rpx;
+      width: 72 * @rpx;
+      height: 72 * @rpx;
       align-self: center;
       align-items: center;
       justify-content: center;
@@ -95,21 +95,27 @@
         color: @tabs-inverse-color;
         background-color: @tabs-inverse-color;
       }
+      .amd-badge {
+        width: 100%;
+    }
     }
     // 基础类型 tab 选项卡样式
     &-basis {
       position: relative;
       display: flex;
       align-items: center;
-      padding: 0 @h-spacing-large;
-      padding-top: @v-spacing-standard;
-      padding-bottom: @v-spacing-standard;
+      padding: @v-spacing-standard @h-spacing-large;
       box-sizing: border-box;
+    }
+
+    &-basis&-active &-basis-title{
+      color: @tabs-active-color;
+      position: relative;
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         left: 50%;
-        bottom: 0;
+        bottom: -@v-spacing-standard;
         width: 100%;
         height: 4 * @rpx;
         overflow: hidden;
@@ -117,29 +123,16 @@
         border-radius: @corner-radius-circle;
         box-sizing: border-box;
         transform: translate3d(-50%, 0, 0);
-      }
-      // &:active::before {
-      //   content: "";
-      //   position: absolute;
-      //   top: 0;
-      //   bottom: 0;
-      //   left: -@h-spacing-large;
-      //   right: -@h-spacing-large;
-      //   border-radius: @corner-radius-md-plus;
-      //   background-color: rgba(0, 0, 0, 0.08);
-      // }
-    }
-    &-basis&-active {
-      color: @tabs-active-color;
-      &:after {
         background-color: @tabs-active-decorate-color;
       }
     }
+    
     // 胶囊类型选项卡样式
     &-capsule {
       padding: @v-spacing-large 0;
       margin: 0 @h-spacing-large / 2;
       box-sizing: border-box;
+      position: relative;
       &-title {
         flex: 1;
         justify-content: center;
@@ -149,22 +142,13 @@
         text-align: center;
         line-height: @line-height-base;
         border-radius: 10vh;
-        background-color: #F5F5F5;
+        background-color: #f5f5f5;
         border-bottom: 0 none;
-      }
-      &-badge {
-        margin-left: @size-1;
-        font-size: 26 * @rpx;
-        color: @tabs-weaken-color;
       }
     }
     &-capsule&-active &-capsule-title {
       color: @tabs-inverse-color;
       background-color: @tabs-active-decorate-color;
-    }
-    &-capsule&-active &-capsule-badge {
-      color: @tabs-inverse-color;
-      opacity: 0.6;
     }
 
     // 混合类型的选项卡样式
@@ -173,9 +157,9 @@
       margin: 0 @h-spacing-standard;
       padding: @v-spacing-large 0;
       text-align: center;
-
       &-title {
         margin: 2 * @rpx 0;
+        position: relative;
       }
 
       &-subtitle {
@@ -184,7 +168,7 @@
         line-height: @line-height-paragraph;
         color: @tabs-weaken-color;
         border-radius: 50vh;
-        background-color: #F5F5F5;
+        background-color: #f5f5f5;
         margin: 2 * @rpx 0;
       }
     }

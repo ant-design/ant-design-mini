@@ -32,6 +32,7 @@ Component({
       cValue,
     });
   },
+
   didUpdate(prevProps) {
     if (!isEqualDate(prevProps.value, this.props.value)) {
       const cValue = this.getValidPropValue();
@@ -64,6 +65,7 @@ Component({
         }
       }
     },
+  
     // 判断value是否有效
     getValidPropValue() {
       const { min, max, value } = this.props;
@@ -77,6 +79,7 @@ Component({
       }
       return cValue;
     },
+  
     getMin() {
       const { min } = this.props;
       //@ts-ignore
@@ -92,20 +95,30 @@ Component({
      * didUpdate、弹窗打开触发
      */
     setCurrentValue() {
-      this.setData({
-        currentValue: this.getCurrentValueWithCValue(),
-      });
-      this.generateData();
+      const currentValue = this.getCurrentValueWithCValue();
+      const newColumns = this.generateData(currentValue);
+      if (!equal(newColumns, this.data.columns)) {
+        this.setData({
+          columns: newColumns
+        }, () => {
+          this.setData({
+            currentValue
+          })
+        })
+      } else {
+        this.setData({
+          currentValue
+        })
+      }
     },
+  
     // 生成选项数据，didmound、picker change、打开弹窗触发
-    generateData() {
+    generateData(currentValue) {
       const { precision } = this.props;
-      const { columns, currentValue } = this.data;
       const min = this.getMin();
       const max = this.getMax();
       if (max < min) {
-        this.setData({ columns: [] });
-        return;
+        return [];
       }
       let currentPickerDay = dayjs();
       if (currentValue.length > 0) {
@@ -115,10 +128,10 @@ Component({
         currentPickerDay = min;
       }
       const newColumns = getRangeData(precision, min, max, currentPickerDay);
-      if (!equal(columns, newColumns)) {
-        this.setData({ columns: newColumns });
-      }
+      return newColumns;
     },
+
+
     onChange(selectedIndex) {
       selectedIndex = getValidValue(selectedIndex);
       const { onPickerChange, format, precision } = this.props;
@@ -133,17 +146,23 @@ Component({
         date = max.toDate();
         selectedIndex = getValueByDate(date, precision);
       }
-      this.setData({ currentValue: selectedIndex });
-      this.generateData();
-
-      if (onPickerChange) {
-        const date = getDateByValue(selectedIndex);
-        onPickerChange(
-          date,
-          dayjs(date).format(format),
-          selectedIndex,
-          fmtEvent(this.props)
-        );
+      const newColumns = this.generateData(selectedIndex);
+      if (!equal(newColumns, this.data.columns)) {
+        this.setData({
+          columns: newColumns
+        }, () => {
+          this.setData({ currentValue: selectedIndex });
+          if (onPickerChange) {
+            const date = getDateByValue(selectedIndex);
+            onPickerChange(date, dayjs(date).format(format), selectedIndex, fmtEvent(this.props));
+          }
+        })
+      } else {
+        this.setData({ currentValue: selectedIndex });
+        if (onPickerChange) {
+          const date = getDateByValue(selectedIndex);
+          onPickerChange(date, dayjs(date).format(format), selectedIndex, fmtEvent(this.props));
+        }
       }
     },
 

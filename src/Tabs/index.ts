@@ -5,6 +5,7 @@ import { objectValues } from '../_util/tools';
 import { compareVersion } from '../_util/compareVersion';
 import { IBoundingClientRect } from "../_base";
 import { tabsStore } from "../_util/tabsStore";
+import fmtEvent from '../_util/fmtEvent';
 
 const canSwipeable = my.canIUse('swiper.disable-touch');
 const component2 = my.canIUse('component2');
@@ -200,7 +201,7 @@ Component({
       });
       this._autoHeight(e.detail?.current);
       if (onChange) {
-        return onChange(e.detail?.current);
+        return onChange(e.detail?.current, fmtEvent(this.props, e));
       }
     },
     _useSwipeable(b: boolean) {
@@ -245,7 +246,7 @@ Component({
         this.changeTap = true;
         // 获取当前元素的 offsetLeft 值
         this.currentLeft = e?.currentTarget?.offsetLeft;
-        return onChange(index);
+        return onChange(index, fmtEvent(this.props, e));
       }
     },
     handleSwiperTouchStart(e) {
