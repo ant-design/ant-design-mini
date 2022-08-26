@@ -48,8 +48,8 @@ toc: false
 | visible    | boolean                 | 是   | false  | 引导是否可见, 受控 |
 | index      | number                  | 否   | 0      | 当前步骤     |
 | swiperable | boolean                 | 否   | false  | 是否开启滑动模式   |
+| onChange   | (index: number) => void \| boolean | 否   | -      | 步骤改变回调，返回false时阻止默认步骤改变| 
 | onCancel   | () => void              | 否   | -      | 关闭回调           |
-| onChange   | (index: number) => void \| boolean | 否   | -      | 步骤改变回调，返回false时阻止默认步骤改变       |
 | className  | string                  | 否   | -      | 类名               |
 
 ## 插槽
