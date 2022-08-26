@@ -68,6 +68,7 @@ Component({
       if (this.props.readOnly || this.props.disabled) return
       const { touches } = e
       const { clientX } = touches[0]
+      this.startMove = true
       
       my.createSelectorQuery()
         .select('.amd-rate-star-wrapper')
@@ -87,6 +88,8 @@ Component({
     },
     handleStarMoveEnd () {
       if (this.props.readOnly || this.props.disabled) return
+      if (!this.startMove) return
+      this.startMove = false
       this.props.onRateEnd?.(this.data.rate)
     }
   },
