@@ -40,7 +40,7 @@ export interface IPopupProps extends IBaseProps {
    */
   duration?: number;
   /**
-   * @description 是否自适应内容区高度/宽度
+   * @description 是否自适应内容区高度
    * @default false
    */
   autoHeight?: boolean;

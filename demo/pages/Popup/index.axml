@@ -1,7 +1,7 @@
 <view>
   <popup visible="{{basicShow}}" autoHeight="{{autoHeight}}" maskClosable="{{maskClosable}}" position="{{position}}" animation="{{animation}}" onClose="handlePopupClose" 
     showCloseIcon="{{showCloseIcon}}">
-    <view style="{{autoHeight&&(position==='left'||position==='right')?'width:300rpx':''}}">
+    <view>
       从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
     </view>
   </popup>
