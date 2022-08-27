@@ -175,5 +175,11 @@ Component({
         onDismiss(fmtEvent(this.props));
       }
     },
+    onClose() {
+      const { onClose } = this.props;
+      if (onClose) {
+        onClose(fmtEvent(this.props));
+      }
+    },
   },
 });

@@ -326,5 +326,11 @@ Component({
         this.setCurrentValue();
       }
     },
+    onClose() {
+      const { onClose } = this.props;
+      if (onClose) {
+        onClose(fmtEvent(this.props));
+      }
+    },
   },
 });

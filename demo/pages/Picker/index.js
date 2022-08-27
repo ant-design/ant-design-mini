@@ -43,8 +43,13 @@ Page({
     return column.map((c) => c && c.label).join('');
   },
 
-
   handleOnOk(value, column) {
     console.log('value', value, 'column', column);
+  },
+  handleClose(e) {
+    console.log('onClose', e);
+  },
+  handleTriggerPicker(visible, e) {
+    console.log('onTriggerPicker', visible, e);
   },
 });

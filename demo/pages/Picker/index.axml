@@ -5,11 +5,29 @@
       slot="extra"
       data-value="test"
       onDismiss="handleCancelPicker"
+      onTriggerPicker="handleTriggerPicker"
       onOk="handleOk"
       value="{{value}}"
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
+      data="{{list}}">
+    </picker>
+  </list-item>
+  <list-item>
+    选择城市（点击蒙层关闭）
+    <picker 
+      slot="extra"
+      data-value="test"
+      onDismiss="handleCancelPicker"
+      onTriggerPicker="handleTriggerPicker"
+      onOk="handleOk"
+      value="{{value}}"
+      placeholder="请选择"
+      title="请选择"
+      onChange="handleChange"
+      maskClosable
+      onClose="handleClose"
       data="{{list}}">
     </picker>
   </list-item>
@@ -21,6 +39,7 @@
     <picker 
       slot="extra"
       onDismiss="handleCancelPicker"
+      onTriggerPicker="handleTriggerPicker"
       onOk="handleOk"
       placeholder="请选择"
       title="请选择"
@@ -38,6 +57,7 @@
   <picker 
     slot="extra"
     placeholder="请选择"
+    onTriggerPicker="handleTriggerPicker"
     value="{{['Tues', 'pm']}}"
     title="请选择"
     onOk="handleOk"

@@ -71,6 +71,7 @@ interface ICascaderOption {
 | title |  string | 否  | 弹出框标题 | - |
 | okText |string | 否| 确认按钮文案 | '确定' |
 | dismissText | string| 否| 取消文案  | '取消' |
+| maskClosable | boolean | 否 | false | 点击蒙层是否可以关闭 |
 | maskStyle | string  | 否| 蒙层的样式  | -|
 | maskClass | string | 否| 蒙层的类名| - |
 | indicatorStyle | string | 否  | 选中框样式 | - |
@@ -84,6 +85,7 @@ interface ICascaderOption {
 | -----|-----|-----|
 | onOk | 点击确定按钮，触发回调 | (value: PickerColumnItem,  column: PickerColumnItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onDismiss | 点击取消按钮，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onClose | 点击蒙层关闭回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onChange | 选中项发生变化，触发回调 | (value: PickerColumnItem, column: PickerColumnItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式 | (value: PickerColumnItem, column: PickerColumnItem) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible:boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
@@ -94,6 +96,7 @@ interface ICascaderOption {
 | -----|-----|-----|
 | onOk | 点击确定按钮，触发回调 | (value: any[], selectedOptions: ICascaderOption[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onDismiss | 点击取消按钮，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onClose | 点击蒙层关闭回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onChange | 选中项发生变化，触发回调 | (value: any[], selectedOptions: ICascaderOption[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式，默认展示labels.join('') | (value: any[], selectedOptions: ICascaderOption[]) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible:boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |

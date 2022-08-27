@@ -23,4 +23,10 @@ Page({
   handleChangeDate() {
     this.setData({ defaultDate: new Date('2019/05/02') });
   },
+  handleClose(e) {
+    console.log('onClose', e);
+  },
+  handleTriggerPicker(visible, e) {
+    console.log('onTriggerPicker', visible, e);
+  },
 });

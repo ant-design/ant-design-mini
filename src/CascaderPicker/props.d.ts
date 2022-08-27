@@ -73,5 +73,14 @@ export interface ICascaderProps extends IBaseFormItemPropsWithOutFocus {
     selectedOptions: ICascaderOption[],
     e: Record<string, any>
   ) => void;
+  /**
+   * @description 点击蒙层是否可以关闭
+   * @default false
+   */
+  maskClosable?: boolean;
+  /**
+   * @description 点击蒙层关闭事件
+   */
+  onClose?: (e: Record<string, any>) => void;
 }
 export declare const CascaderDefaultProps: Partial<ICascaderProps>;
