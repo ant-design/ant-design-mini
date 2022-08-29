@@ -27,7 +27,6 @@
     onOk="onOk"
     onTriggerPicker="onTriggerPicker"
     maskClosable="{{maskClosable}}"
-    onClose="onClose"
     forceUpdate="{{forceUpdate}}"
     onFormat="onFormat">
     <view class="amd-range-picker-selector" slot="content-header">

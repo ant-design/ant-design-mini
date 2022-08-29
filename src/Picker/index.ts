@@ -195,17 +195,5 @@ Component({
         this.props.onOk.call(this, matchedValues, matchedColumn, fmtEvent(this.props));
       }
     },
-    onClose(){
-      const { maskClosable, onClose } = this.props;
-      if(maskClosable) {
-        this.setData({
-          visible: false,
-        });
-        this.triggerPicker(false);
-        if(onClose) {
-          onClose(fmtEvent(this.props));
-        }
-      }
-    }
   },
 });

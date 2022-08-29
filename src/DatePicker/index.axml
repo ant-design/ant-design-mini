@@ -17,7 +17,6 @@
   onOk="onOk"
   onTriggerPicker="onTriggerPicker"
   maskClosable="{{maskClosable}}"
-  onClose="onClose"
   forceUpdate="{{forceUpdate}}"
   onFormat="onFormat">
   <slot name="title" slot="title"/>

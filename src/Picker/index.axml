@@ -16,7 +16,7 @@
   className="amd-picker-popup {{popClassName}}"
   position="bottom"
   maskClosable
-  onClose="onClose"
+  onClose="onDismiss"
   visible="{{visible}}">
   <view class="amd-picker-header">
     <view class="amd-picker-header-item amd-picker-header-cancel"
