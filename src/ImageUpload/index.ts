@@ -50,7 +50,15 @@ Component({
       });
 
       if (chooseImageRes && chooseImageRes.success) {
-        const tasks = chooseImageRes.tempFiles.map((file) => this.uploadFile(file));
+        const { tempFiles, tempFilePaths } = chooseImageRes;
+        const tasks = (tempFiles || tempFilePaths).map((file) =>
+          this.uploadFile(
+            typeof file === 'string' ?
+              {
+                path: file
+              } :
+              file
+          ));
         await Promise.all(tasks);
       }
     },
