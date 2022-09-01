@@ -98,7 +98,7 @@ Component({
           const res = await uploadFile({
             url: action,
             fileType: 'video',
-            fileName: `${filename}_${Date.now()}`,
+            fileName: filename,
             filePath: tempFilePath,
             formData,
             hideLoading: true

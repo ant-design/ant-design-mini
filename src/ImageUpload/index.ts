@@ -91,7 +91,7 @@ Component({
           const res = await uploadFile({
             url: action,
             fileType: 'image',
-            fileName: `${fileName}_${Date.now()}`,
+            fileName: fileName,
             filePath: path,
             formData: formData || {},
             hideLoading: true,
