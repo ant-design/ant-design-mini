@@ -32,7 +32,10 @@ Component({
       const { value } = this.props;
 
       if (typeof value === 'string') {
-        curValue = [].concat(value);
+        curValue = [].concat({
+          url: value,
+          status: 'done'
+        });
       } else if (
         Array.isArray(value) &&
         value.length &&

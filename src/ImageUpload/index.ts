@@ -1,4 +1,3 @@
-
 import equal from "fast-deep-equal";
 import { UploaderDefaultProps, IUploaderData, File } from './props';
 import { chooseImage, previewImage, uploadFile } from '../_util/promisify';
@@ -22,7 +21,10 @@ Component({
       const { value } = this.props;
 
       if (typeof value === 'string') {
-        curValue = [].concat(value);
+        curValue = [].concat({
+          url: value,
+          status: 'done'
+        });
       } else if (
         Array.isArray(value) &&
         value.length &&
