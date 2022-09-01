@@ -57,16 +57,15 @@ Component({
 
     async uploadFile(file) {
       const { action, fileName, formData, onBeforeUpload, onUpload, onAfterUpload } = this.props;
-      const { fileList } = this.data;
       const { path } = file;
 
       try {
         if (onBeforeUpload) {
-          const beforeUploadRes = await onBeforeUpload.call(this.props, file, fileList);
+          const beforeUploadRes = await onBeforeUpload.call(this.props, file, this.data.fileList);
           if (beforeUploadRes === false) return;
         }
 
-        const tempFileList = fileList.concat([{
+        const tempFileList = this.data.fileList.concat([{
           /** 这里以图片的本地地址作为key */
           key: path,
           url: '',
