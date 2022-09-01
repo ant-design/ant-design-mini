@@ -1,4 +1,3 @@
-
 import equal from "fast-deep-equal";
 import { UploaderDefaultProps, IUploaderData, File } from './props';
 import { chooseImage, previewImage, uploadFile } from '../_util/promisify';
@@ -22,7 +21,10 @@ Component({
       const { value } = this.props;
 
       if (typeof value === 'string') {
-        curValue = [].concat(value);
+        curValue = [].concat({
+          url: value,
+          status: 'done'
+        });
       } else if (
         Array.isArray(value) &&
         value.length &&
@@ -50,7 +52,15 @@ Component({
       });
 
       if (chooseImageRes && chooseImageRes.success) {
-        const tasks = chooseImageRes.tempFiles.map((file) => this.uploadFile(file));
+        const { tempFiles, tempFilePaths } = chooseImageRes;
+        const tasks = (tempFiles || tempFilePaths).map((file) =>
+          this.uploadFile(
+            typeof file === 'string' ?
+              {
+                path: file
+              } :
+              file
+          ));
         await Promise.all(tasks);
       }
     },
@@ -81,7 +91,7 @@ Component({
           const res = await uploadFile({
             url: action,
             fileType: 'image',
-            fileName: `${fileName}_${Date.now()}`,
+            fileName: fileName,
             filePath: path,
             formData: formData || {},
             hideLoading: true,
