@@ -14,28 +14,19 @@
   <view class="amd-cascader-steps">
     <steps
       direction="vertical"
-      index="{{2}}"
-      uid="steps-3">
+      index="{{setps}}"
+    >
       <step-item
-        index="{{0}}"
-        title="第一步"
-        uid="steps-3"/>
+        a:for="{{setpsValue}}"
+        key="{{item.value}}"
+        index="{{index}}"
+        title="{{item.title}}"
+      />
       <step-item
-        index="{{1}}"
-        title="第二步"
-        uid="steps-3">
-      </step-item>
-
-      <step-item
-        index="{{2}}"
-        title="第三步"
-        uid="steps-3">
-      </step-item>
-      <step-item
-        index="{{3}}"
-        title="第四步"
-        uid="steps-3">
-      </step-item>
+        a:if="{{!lastSetps}}"
+        index="{{steps.length}}"
+        title="请选择"
+      />
     </steps>
   </view>
   <scroll-view
@@ -43,28 +34,9 @@
     scroll-y
   >
     <checklist
-      value="{{value}}"
+      value="{{setpsValue[setps].value}}"
       options="{{checklistOptions}}"
-      multiple
-      onChange="onChange"
-    />
-    <checklist
-      value="{{value}}"
-      options="{{checklistOptions}}"
-      multiple
-      onChange="onChange"
-    />
-    <checklist
-      value="{{value}}"
-      options="{{checklistOptions}}"
-      multiple
-      onChange="onChange"
-    />
-    <checklist
-      value="{{value}}"
-      options="{{checklistOptions}}"
-      multiple
-      onChange="onChange"
+      onChange="onChecklistChange"
     />
   </scroll-view>
 </popup>
