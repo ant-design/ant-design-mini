@@ -9,6 +9,7 @@ Component({
     lastButtonVisible: false,
     jumpButtonVisible: false,
     knowButtonVisible: false,
+    current: 0,
   },
   props: GuideTourDefaultProps,
   didMount() {
@@ -19,28 +20,40 @@ Component({
         `当前激活的索引值类型非 number 类型，修改当前 index 的 ${typeof index} 类型，以保证展示的正确性。`
       );
     } else {
+      this.setData({ current: index });
       this.buttonController();
     }
   },
   didUpdate(prevProps) {
+    const { index } = this.props;
     if (
-      prevProps.index !== this.props.index ||
+      (prevProps.index !== index && index !== this.data.current) ||
       !equal(this.props.steps, prevProps.steps)
-    )
+    ) {
+      this.setData({ current: index });
       this.buttonController();
+    }
   },
   methods: {
-    onNext() {
-      const { onChange, index, steps } = this.props;
-      if (index < steps.length - 1 && onChange) {
-        onChange(index + 1);
+    async onNext() {
+      const { onChange, steps } = this.props;
+      const { current } = this.data;
+      if (current < steps.length - 1) {
+        if (!onChange || (await onChange(current + 1)) !== false) {
+          this.setData({ current: current + 1 });
+          this.buttonController();
+        }
       }
     },
 
-    onPrev() {
-      const { onChange, index } = this.props;
-      if (index !== 0 && onChange) {
-        onChange(index - 1);
+    async onPrev() {
+      const { onChange } = this.props;
+      const { current } = this.data;
+      if (current !== 0) {
+        if (!onChange || (await onChange(current - 1)) !== false) {
+          this.setData({ current: current - 1 });
+          this.buttonController();
+        }
       }
     },
 
@@ -51,19 +64,22 @@ Component({
       }
     },
 
-    handleSwiperChange(e) {
+    async handleSwiperChange(e) {
+      const { current } = e.detail;
       const { onChange } = this.props;
-      if (onChange) {
-        return onChange(e.detail?.current);
+      if (!onChange || (await onChange(current)) !== false) {
+        this.setData({ current });
+        this.buttonController();
       }
     },
 
     buttonController() {
-      const { index, steps } = this.props;
+      const { steps } = this.props;
+      const { current } = this.data;
       if (steps.length === 1) {
         this.setData(changeButtonVisible(['knowButtonVisible']));
       } else {
-        switch (index) {
+        switch (current) {
           case 0:
             this.setData(
               changeButtonVisible(['jumpButtonVisible', 'nextButtonVisible'])
