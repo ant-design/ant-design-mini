@@ -26,7 +26,6 @@
             onPickerChange="handlePickerChange"
             onTriggerPicker="handleTriggerPicker"
             maskClosable
-            onClose="handleClose"
             onOk="handleOk">
         </date-picker>
     </list-item>
