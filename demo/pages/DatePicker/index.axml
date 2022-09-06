@@ -10,6 +10,7 @@
             placeholder="请选择"
             onPickerChange="handlePickerChange"
             onTriggerPicker="handleTriggerPicker"
+            onDismiss="handleDismiss"
             onOk="handleOk">
         </date-picker>
     </list-item>

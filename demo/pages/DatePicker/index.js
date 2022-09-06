@@ -29,4 +29,8 @@ Page({
   handleTriggerPicker(visible, e) {
     console.log('onTriggerPicker', visible, e);
   },
+
+  handleDismiss(e) {
+    console.log('e', e)
+  }
 });

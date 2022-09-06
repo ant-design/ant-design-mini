@@ -137,17 +137,24 @@ Component({
     },
 
     onMaskDismiss() {
-      this.onDismiss(null, 'mask')
-    },
- 
-    onDismiss(e, target = 'cancel') {
       const { onDismiss } = this.props;
       this.setData({
         visible: false,
       });
       this.triggerPicker(false);
       if (onDismiss) {
-        return onDismiss(fmtEvent(this.props, e));
+        return onDismiss(fmtEvent(this.props, { detail: {type: 'mask'} }));
+      }
+    },
+ 
+    onDismiss() {
+      const { onDismiss } = this.props;
+      this.setData({
+        visible: false,
+      });
+      this.triggerPicker(false);
+      if (onDismiss) {
+        return onDismiss(fmtEvent(this.props, { detail: {type: 'cancel'} }));
       }
     },
 
