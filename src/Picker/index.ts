@@ -140,7 +140,7 @@ Component({
       this.onDismiss(null, 'mask')
     },
  
-    onDismiss(e, target = 'close') {
+    onDismiss(e, target = 'cancel') {
       const { onDismiss } = this.props;
       this.setData({
         visible: false,
