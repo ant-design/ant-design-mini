@@ -12,7 +12,6 @@ Component({
       const rate = this.formatRate(value)
       this.setData({ rate })
     }
-    this.getStartWidth()
   },
   didUpdate (prev) {
     if (prev.value !== this.props.value) {
@@ -21,17 +20,6 @@ Component({
     }
   },
   methods: {
-    getStartWidth () {
-      my.createSelectorQuery()
-        .select('.amd-rate-star')
-        .boundingClientRect()
-        .exec((res) => {
-          const pos = res[0]
-          this.setData({
-            starWidth: pos.width
-          })
-        });
-    },
     formatRate (rate) {
       if (rate % 0.5 !== 0) {
         return Math.round(rate)
@@ -45,7 +33,7 @@ Component({
       const newRate = this.calculateRate(rate)
       if (newRate === this.data.rate) return
       this.setData({ rate: newRate })
-      this.props.onRateEnd?.(newRate)
+      this.props.onChange?.(newRate)
     },
     calculateRate (rate) {
       const curRate = this.data.rate
@@ -71,10 +59,11 @@ Component({
       this.startMove = true
       
       my.createSelectorQuery()
-        .select('.amd-rate-star-wrapper')
+        .select(`.amd-rate-${this.$id}`)
         .boundingClientRect()
         .exec(res => {
           const pos = res[0]
+          console.log(pos.left)
           const rawValue = ((clientX - pos.left) / pos.width) * this.props.maxRate
 
           const ceiledValue = this.props.allowHalf
@@ -90,7 +79,7 @@ Component({
       if (this.props.readOnly || this.props.disabled) return
       if (!this.startMove) return
       this.startMove = false
-      this.props.onRateEnd?.(this.data.rate)
+      this.props.onChange?.(this.data.rate)
     }
   },
 });

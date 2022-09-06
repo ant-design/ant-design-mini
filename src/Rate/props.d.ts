@@ -54,6 +54,6 @@ export interface IRateProps extends IBaseProps {
   /**
    * @description 打分结束回调
    */
-  onRateEnd?: (rate: number) => void;
+   onChange?: (rate: number) => void;
 }
 export declare const RateDefaultProps: Partial<IRateProps>;

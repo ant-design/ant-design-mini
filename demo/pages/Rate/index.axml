@@ -1,10 +1,10 @@
 
 <demo-block title="默认用法">
-    <rate allowClear="{{true}}" value="{{rate1}}" onRateEnd="handleRateEnd" />
+    <rate allowClear="{{true}}" value="{{rate1}}" onChange="handleChange" />
 </demo-block>
 
 <demo-block title="半星" class="item">
-    <rate className='test' value="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" onRateEnd="handleHaha" />
+    <rate className='test' value="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" onChange="handleHaha" />
 </demo-block>
 
 <demo-block title="禁用" class="item">

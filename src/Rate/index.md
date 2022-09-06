@@ -24,15 +24,15 @@ toc: false
 | activeColor | string | 否 | - | 填充色 |
 | inactiveColor | string | 否 | - | 原始填充色 |
 | disabled | boolean | 否 | - | 是否禁用 |
-| image | string | 否 | - | 自定义图片 |
-| onRateEnd | function | 否 | - | 打分结束回调 |
+| image | string | 否 | - | 自定义图片，格式 svg |
+| onChange | function | 否 | - | 打分结束回调 |
 | className | string | 否 | - | 类名 |
 
 ## 事件
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onRateEnd | 打分结束时，触发回调 | (idx: number) => void |
+| onChange | 打分结束时，触发回调 | (idx: number) => void |
 
 ## 样式类
 
