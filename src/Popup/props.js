@@ -11,4 +11,5 @@ export const PopupDefaultProps = {
   // 弹窗展示时，是否禁止页面滚动
   disableScroll: true,
   showCloseIcon: false,
+  autoHeight: false,
 };

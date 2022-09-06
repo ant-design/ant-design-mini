@@ -17,13 +17,13 @@
     </view>
     <block a:if="{{swiperable}}">
         <view class="amd-guide-tour-indicator">
-            <view a:for="{{steps}}" a:for-index="dataIndex" class="amd-guide-tour-indicator-dot {{dataIndex === index ? 'amd-guide-tour-indicator-dot-active':''}}" />
+            <view a:for="{{steps}}" a:for-index="dataIndex" class="amd-guide-tour-indicator-dot {{dataIndex === current ? 'amd-guide-tour-indicator-dot-active':''}}" />
         </view>
-        <swiper class="amd-guide-tour-swiper" current="{{index}}" adjust-height="none" style="height:100vh" disable-touch="{{ture}}" 
+        <swiper class="amd-guide-tour-swiper" current="{{current}}" adjust-height="none" style="height:100vh" disable-touch="{{ture}}" 
             onChange="handleSwiperChange">
             <swiper-item a:for-index="dataIndex" key="{{dataIndex}}" a:for="{{steps}}">
                 <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px">
-                    <slot name="step-{{index}}">
+                    <slot name="step-{{current}}">
                         <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
                             mode="{{item.imageMode}}" />
                     </slot>
@@ -33,7 +33,7 @@
     </block>
     <block a:else a:for="{{steps}}" a:for-index="dataIndex">
         <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px" 
-            a:if="{{index===dataIndex}}">
+            a:if="{{current===dataIndex}}">
             <slot name="step-{{dataIndex}}">
                 <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
                     mode="{{item.imageMode}}" />

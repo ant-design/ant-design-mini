@@ -34,9 +34,7 @@ Page({
     this.setData({ visible: true });
   },
   onChange(index) {
-    this.setData({
-      index,
-    });
+    console.log('index', index)
   },
 
   openBaseTour() {

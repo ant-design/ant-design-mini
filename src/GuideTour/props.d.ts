@@ -27,7 +27,7 @@ export interface IGuideTour extends IBaseProps {
   /**
    * @description 步骤详情
    */
-  steps?: IStep[];
+  steps: IStep[];
   /**
    * @description 当前步骤，默认0
    */
@@ -48,6 +48,6 @@ export interface IGuideTour extends IBaseProps {
   /**
    * @description 步骤改变回调
    */
-  onChange?: (index: number) => void;
+  onChange?: (index: number) => boolean;
 }
 export declare const GuideTourDefaultProps: Partial<IGuideTour>;

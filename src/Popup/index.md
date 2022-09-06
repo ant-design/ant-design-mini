@@ -29,6 +29,7 @@ toc: 'content'
 | maskClosable | boolean | 否 | false | 点击蒙层是否可以关闭 |
 | showCloseIcon | boolean | 否 | false | 是否展示关闭图标 |
 | disableScroll | boolean | 否 | true | 弹窗展示时，是否禁止页面滚动 |
+| autoHeight | boolean | 否 | false | 是否自适应内容区高度 |
 | animation | boolean | 否 | true | 是否开启过渡动画 |
 | duration | number | 否 | 300 | 过渡动画时长，单位毫秒 |
 | position | 'center' &verbar; 'top' &verbar; 'bottom' &verbar; 'left' &verbar; 'right' | 否 | 'center' | 弹窗布局 |

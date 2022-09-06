@@ -8,7 +8,7 @@
 >
   <view class="amd-popup-mask {{closing&&!visible?'amd-popup-mask-closing':''}}" onTap="onMaskClose" style="{{animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : ''}}"/>
   <view
-    class="amd-popup-content amd-popup-{{position}} {{closing?('amd-popup-'+position+'-close'):''}}"
+    class="amd-popup-content {{autoHeight?'amd-popup-content-auto':''}} amd-popup-{{position}} {{closing?('amd-popup-'+position+'-close'):''}}"
     style="{{animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : ''}}"
     onAnimationEnd="onAnimationEnd"
     onTouchMove="{{disableScroll && supportSjs ? _sjs.enableScrollEvent : ''}}"
