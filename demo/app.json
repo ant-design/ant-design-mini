@@ -71,7 +71,8 @@
     "pages/Grid/index",
     "pages/Footer/index",
     "pages/CascaderPicker/index",
-    "pages/Slider/index"
+    "pages/Slider/index",
+    "pages/TabsElevator/index"
   ],
 
   "window": {
