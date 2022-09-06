@@ -7,5 +7,9 @@ Page({
     this.setData({
       rate1: rate
     })
+  },
+
+  handleHaha() {
+    console.log('handle haha')
   }
 });
