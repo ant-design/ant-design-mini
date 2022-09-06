@@ -24,7 +24,7 @@ Page({
     ],
   },
 
-  handleCancelPicker(e) {
+  handleDismissPicker(e) {
     my.showToast({
       content: '取消操作，关闭 picker',
     });
@@ -45,9 +45,6 @@ Page({
 
   handleOnOk(value, column) {
     console.log('value', value, 'column', column);
-  },
-  handleClose(e) {
-    console.log('onClose', e);
   },
   handleTriggerPicker(visible, e) {
     console.log('onTriggerPicker', visible, e);

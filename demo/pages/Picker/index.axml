@@ -4,7 +4,7 @@
     <picker 
       slot="extra"
       data-value="test"
-      onDismiss="handleCancelPicker"
+      onDismiss="handleDismissPicker"
       onTriggerPicker="handleTriggerPicker"
       onOk="handleOk"
       value="{{value}}"
@@ -19,7 +19,7 @@
     <picker 
       slot="extra"
       data-value="test"
-      onDismiss="handleCancelPicker"
+      onDismiss="handleDismissPicker"
       onTriggerPicker="handleTriggerPicker"
       onOk="handleOk"
       value="{{value}}"
@@ -38,7 +38,7 @@
     选择日期
     <picker 
       slot="extra"
-      onDismiss="handleCancelPicker"
+      onDismiss="handleDismissPicker"
       onTriggerPicker="handleTriggerPicker"
       onOk="handleOk"
       placeholder="请选择"

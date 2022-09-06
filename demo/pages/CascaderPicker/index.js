@@ -20,7 +20,7 @@ Page({
     this.setData({ value: ["31", "310"] });
   },
 
-  handleDismiss(source, e) {
-    console.log('handleDismiss', source, e)
+  handleDismiss(e) {
+    console.log('handleDismiss', e)
   }
 });
