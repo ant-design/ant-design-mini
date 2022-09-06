@@ -136,14 +136,18 @@ Component({
       }
     },
 
-    onDismiss() {
+    onMaskDismiss() {
+      this.onDismiss(null, 'mask')
+    },
+ 
+    onDismiss(e, target = 'close') {
       const { onDismiss } = this.props;
       this.setData({
         visible: false,
       });
       this.triggerPicker(false);
       if (onDismiss) {
-        return onDismiss(fmtEvent(this.props));
+        return onDismiss(target, fmtEvent(this.props, e));
       }
     },
 

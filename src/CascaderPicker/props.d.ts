@@ -56,7 +56,7 @@ export interface ICascaderProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 点击取消回调
    */
-  onDismiss?: (e: Record<string, any>) => void;
+  onDismiss?: (target: 'mask' | 'close' , e: Record<string, any>) => void;
   /**
    * @description 选中值的文本显示格式
    */
