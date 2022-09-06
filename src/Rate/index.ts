@@ -1,3 +1,4 @@
+import fmtEvent from '../_util/fmtEvent';
 import { RateDefaultProps } from './props';
 
 Component({
@@ -33,7 +34,7 @@ Component({
       const newRate = this.calculateRate(rate)
       if (newRate === this.data.rate) return
       this.setData({ rate: newRate })
-      this.props.onChange?.(newRate)
+      this.props.onChange?.(newRate, fmtEvent(this.props))
     },
     calculateRate (rate) {
       const curRate = this.data.rate
@@ -63,9 +64,7 @@ Component({
         .boundingClientRect()
         .exec(res => {
           const pos = res[0]
-          console.log(pos.left)
           const rawValue = ((clientX - pos.left) / pos.width) * this.props.maxRate
-
           const ceiledValue = this.props.allowHalf
             ? Math.ceil(rawValue * 2) / 2
             : Math.ceil(rawValue)
@@ -79,7 +78,7 @@ Component({
       if (this.props.readOnly || this.props.disabled) return
       if (!this.startMove) return
       this.startMove = false
-      this.props.onChange?.(this.data.rate)
+      this.props.onChange?.(this.data.rate, fmtEvent(this.props))
     }
   },
 });

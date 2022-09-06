@@ -4,7 +4,7 @@
 </demo-block>
 
 <demo-block title="半星" class="item">
-    <rate className='test' value="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" onChange="handleHaha" />
+    <rate value="{{4.5}}" allowHalf="{{true}}" allowClear="{{true}}" onChange="handleChange" />
 </demo-block>
 
 <demo-block title="禁用" class="item">

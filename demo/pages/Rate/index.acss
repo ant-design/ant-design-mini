@@ -5,8 +5,3 @@
 .rate {
     margin-top: 8px;
 }
-
-.test {
-    position: absolute;
-    left: 100px;
-}
