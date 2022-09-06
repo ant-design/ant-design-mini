@@ -1,4 +1,3 @@
-
 import equal from "fast-deep-equal";
 import { UploaderDefaultProps, IUploaderData, File } from './props';
 import { chooseImage, previewImage, uploadFile } from '../_util/promisify';
@@ -22,7 +21,10 @@ Component({
       const { value } = this.props;
 
       if (typeof value === 'string') {
-        curValue = [].concat(value);
+        curValue = [].concat({
+          url: value,
+          status: 'done'
+        });
       } else if (
         Array.isArray(value) &&
         value.length &&
@@ -50,23 +52,30 @@ Component({
       });
 
       if (chooseImageRes && chooseImageRes.success) {
-        const tasks = chooseImageRes.tempFiles.map((file) => this.uploadFile(file));
+        const { tempFiles, tempFilePaths } = chooseImageRes;
+        const tasks = (tempFiles || tempFilePaths).map((file) =>
+          this.uploadFile(
+            typeof file === 'string' ?
+              {
+                path: file
+              } :
+              file
+          ));
         await Promise.all(tasks);
       }
     },
 
     async uploadFile(file) {
       const { action, fileName, formData, onBeforeUpload, onUpload, onAfterUpload } = this.props;
-      const { fileList } = this.data;
       const { path } = file;
 
       try {
         if (onBeforeUpload) {
-          const beforeUploadRes = await onBeforeUpload.call(this.props, file, fileList);
+          const beforeUploadRes = await onBeforeUpload.call(this.props, file, this.data.fileList);
           if (beforeUploadRes === false) return;
         }
 
-        const tempFileList = fileList.concat([{
+        const tempFileList = this.data.fileList.concat([{
           /** 这里以图片的本地地址作为key */
           key: path,
           url: '',
@@ -82,7 +91,7 @@ Component({
           const res = await uploadFile({
             url: action,
             fileType: 'image',
-            fileName: `${fileName}_${Date.now()}`,
+            fileName: fileName,
             filePath: path,
             formData: formData || {},
             hideLoading: true,

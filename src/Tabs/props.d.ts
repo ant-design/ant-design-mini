@@ -81,7 +81,7 @@ export interface ITabsProps extends IBaseProps {
    * @description 吸顶高度
    * @default 0
    */
-  stickyTop?: boolean;
+  stickyTop?: string | number;
 
   /**
    * @description 是否自定义实现"轮播"，详见 fallback demo

@@ -65,7 +65,7 @@ Component({
         }
       }
     },
-  
+
     // 判断value是否有效
     getValidPropValue() {
       const { min, max, value } = this.props;
@@ -79,7 +79,7 @@ Component({
       }
       return cValue;
     },
-  
+
     getMin() {
       const { min } = this.props;
       //@ts-ignore
@@ -98,20 +98,23 @@ Component({
       const currentValue = this.getCurrentValueWithCValue();
       const newColumns = this.generateData(currentValue);
       if (!equal(newColumns, this.data.columns)) {
-        this.setData({
-          columns: newColumns
-        }, () => {
-          this.setData({
-            currentValue
-          })
-        })
+        this.setData(
+          {
+            columns: newColumns,
+          },
+          () => {
+            this.setData({
+              currentValue,
+            });
+          }
+        );
       } else {
         this.setData({
-          currentValue
-        })
+          currentValue,
+        });
       }
     },
-  
+
     // 生成选项数据，didmound、picker change、打开弹窗触发
     generateData(currentValue) {
       const { precision } = this.props;
@@ -131,7 +134,6 @@ Component({
       return newColumns;
     },
 
-
     onChange(selectedIndex) {
       selectedIndex = getValidValue(selectedIndex);
       const { onPickerChange, format, precision } = this.props;
@@ -148,28 +150,41 @@ Component({
       }
       const newColumns = this.generateData(selectedIndex);
       if (!equal(newColumns, this.data.columns)) {
-        this.setData({
-          columns: newColumns
-        }, () => {
-          this.setData({ currentValue: selectedIndex });
-          if (onPickerChange) {
-            const date = getDateByValue(selectedIndex);
-            onPickerChange(date, dayjs(date).format(format), selectedIndex, fmtEvent(this.props));
+        this.setData(
+          {
+            columns: newColumns,
+          },
+          () => {
+            this.setData({ currentValue: selectedIndex });
+            if (onPickerChange) {
+              const date = getDateByValue(selectedIndex);
+              onPickerChange(
+                date,
+                dayjs(date).format(format),
+                selectedIndex,
+                fmtEvent(this.props)
+              );
+            }
           }
-        })
+        );
       } else {
         this.setData({ currentValue: selectedIndex });
         if (onPickerChange) {
           const date = getDateByValue(selectedIndex);
-          onPickerChange(date, dayjs(date).format(format), selectedIndex, fmtEvent(this.props));
+          onPickerChange(
+            date,
+            dayjs(date).format(format),
+            selectedIndex,
+            fmtEvent(this.props)
+          );
         }
       }
     },
 
-    onDismiss() {
+    onDismiss(e) {
       const { onDismiss } = this.props;
       if (onDismiss) {
-        onDismiss(fmtEvent(this.props));
+        onDismiss(fmtEvent(this.props, e));
       }
     },
 

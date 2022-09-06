@@ -11,20 +11,6 @@
     align-content: stretch;
     background-color: @tabs-inverse-color;
     box-sizing: border-box;
-    &-badge {
-      position: absolute;
-      height: @tabs-badge-size;
-      min-width: @tabs-badge-size;
-      border-radius: @tabs-badge-size;
-      background: #ff411c;
-      color: #fff;
-      font-size: 18 * @rpx;
-      line-height: @tabs-badge-size;
-      text-align: center;
-      padding: 0 8 * @rpx;
-      box-sizing: border-box;
-      white-space: nowrap;
-    }
     &-underline {
       border-bottom: @border-width-standard solid @color-divider-line;
     }
@@ -120,12 +106,6 @@
       align-items: center;
       padding: @v-spacing-standard @h-spacing-large;
       box-sizing: border-box;
-
-      &-badge {
-        transform: translateX(100%);
-        top: 9 * @rpx;
-        right: 20 * @rpx;
-      }
     }
 
     &-basis&-active &-basis-title{
@@ -153,11 +133,6 @@
       margin: 0 @h-spacing-large / 2;
       box-sizing: border-box;
       position: relative;
-      &-badge {
-        transform: translate(50%, 50%);
-        top: 0;
-        right: 0;
-      }
       &-title {
         flex: 1;
         justify-content: center;
@@ -182,11 +157,6 @@
       margin: 0 @h-spacing-standard;
       padding: @v-spacing-large 0;
       text-align: center;
-      &-badge {
-        transform: translateX(100%);
-        top: -7 * @rpx;
-        right: -4 * @rpx;
-      }
       &-title {
         margin: 2 * @rpx 0;
         position: relative;

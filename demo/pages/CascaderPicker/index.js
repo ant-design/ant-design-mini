@@ -19,4 +19,8 @@ Page({
   changeValue() {
     this.setData({ value: ["31", "310"] });
   },
+
+  handleDismiss(e) {
+    console.log('handleDismiss', e)
+  }
 });

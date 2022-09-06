@@ -1,0 +1,68 @@
+@import '../../style/mixins/hairline.less';
+@import (reference) '../../_base/index.less';
+
+.amd-tabs-elevator-bar {
+  padding: 0 24 * @rpx;
+  background: #fff;
+  position: sticky;
+  .hairline('bottom', @color-divider-line);
+  &-mask {
+    position: absolute;
+    top: 0;
+    bottom: 1px;
+    width: 80 * @rpx;
+    background: #fff;
+    z-index: 99;
+    pointer-events: none;
+    &-left {
+      left: 24 * @rpx;
+      mask-image: linear-gradient(to right, #000, rgba(255, 255, 255, 0));
+    }
+    &-right {
+      right: 24 * @rpx;
+      mask-image: linear-gradient(to left, #000, rgba(255, 255, 255, 0));
+    }
+  }
+  &-items {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-thumb,
+    &::-webkit-scrollbar-track {
+      display: none;
+      opacity: 0;
+    }
+  }
+  &-item {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding-right: 60 * @rpx;
+    &:nth-last-of-type(1) {
+      padding-right: 0;
+    }
+    &-wrapper {
+      height: 88 * @rpx;
+      line-height: 88 * @rpx;
+      font-family: PingFangSC-Regular;
+      font-size: 30 * @rpx;
+      color: #333;
+      text-align: center;
+      position: relative;
+      &-active {
+        font-family: PingFangSC-Medium;
+        color: @color-brand-1;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 1px;
+          height: 4 * @rpx;
+          background: #1677ff;
+          border-radius: 2 * @rpx 2 * @rpx 0 0;
+        }
+      }
+    }
+  }
+}

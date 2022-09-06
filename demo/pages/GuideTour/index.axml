@@ -1,0 +1,21 @@
+<view class="demo">
+  <demo-block title="基础用法">
+    <view class="btn-list">
+      <button onTap="openBaseTour">单图模式</button>
+      <button onTap="openMoreTour">多图模式</button>
+      <button onTap="openSwiperTour">滑动模式</button>
+    </view>
+    <guide-tour steps="{{[list[0]]}}" visible="{{baseVisible}}" onCancel="closeBaseTour" onChange="onChange" />
+    <guide-tour steps="{{list}}" visible="{{moreVisible}}" onCancel="closeMoreTour" onChange="onChange" />
+    <guide-tour steps="{{list}}" visible="{{swiperVisible}}" onCancel="closeSwiperTour" onChange="onChange" 
+      swiperable="{{true}}" />
+  </demo-block>
+  <demo-block title="插槽用法">
+    <button onTap="openSlotTour">开始</button>
+    <guide-tour steps="{{list}}"  visible="{{slotVisible}}" onCancel="closeSlotTour" onChange="onChange">
+      <view class="step-box" a:for="{{list}}" slot="step-{{index}}">
+        step-{{index}}
+      </view>
+    </guide-tour>
+  </demo-block>
+</view>

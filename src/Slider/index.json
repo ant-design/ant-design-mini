@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "amd-icon": "../Icon/index",
+    "popover": "../Popover/index"
+  }
+}

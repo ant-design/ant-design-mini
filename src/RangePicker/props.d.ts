@@ -104,5 +104,10 @@ export interface IDateRangePickerProps extends IBaseFormItemPropsWithOutFocus {
    * @default '未选择'
    */
   endPlaceholder?: string;
+  /**
+   * @description 点击蒙层是否可以关闭
+   * @default false
+   */
+  maskClosable?: boolean;
 }
 export declare const DateRangePickerDefaultProps: Partial<IDateRangePickerProps>;
