@@ -147,7 +147,7 @@ Component({
       });
       this.triggerPicker(false);
       if (onDismiss) {
-        return onDismiss(target, fmtEvent(this.props, e));
+        return onDismiss(fmtEvent(this.props, e));
       }
     },
 
