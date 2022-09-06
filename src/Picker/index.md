@@ -85,7 +85,7 @@ interface ICascaderOption {
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onOk | 点击确定按钮，触发回调 | (value: PickerColumnItem,  column: PickerColumnItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onDismiss | 点击取消按钮/蒙层，触发回调 | (target: mask &#124; close, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onDismiss | 点击取消按钮/蒙层，触发回调 | (target: mask &#124; cancel, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onChange | 选中项发生变化，触发回调 | (value: PickerColumnItem, column: PickerColumnItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式 | (value: PickerColumnItem, column: PickerColumnItem) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible:boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
@@ -95,7 +95,7 @@ interface ICascaderOption {
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onOk | 点击确定按钮，触发回调 | (value: any[], selectedOptions: ICascaderOption[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onDismiss | 点击取消按钮/蒙层，触发回调 | (target: mask &#124; close, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onDismiss | 点击取消按钮/蒙层，触发回调 | (target: mask &#124; cancel, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onChange | 选中项发生变化，触发回调 | (value: any[], selectedOptions: ICascaderOption[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式，默认展示labels.join('') | (value: any[], selectedOptions: ICascaderOption[]) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible:boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |

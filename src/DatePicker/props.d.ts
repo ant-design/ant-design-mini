@@ -59,7 +59,7 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 点击取消回调
    */
-  onDismiss?: (source: 'mask'| 'close', e: Record<string, any>) => void;
+  onDismiss?: (source: 'mask'| 'cancel', e: Record<string, any>) => void;
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
