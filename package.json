@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "scripts": {
     "dev": "minidev dev --no-source-map",
     "dev:site": "dumi dev",
