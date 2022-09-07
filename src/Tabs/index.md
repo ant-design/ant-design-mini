@@ -53,8 +53,8 @@ toc: 'content'
 interface ITabItem {
   title: string;
   subTitle?: string;
-  /** 传入空字符串显示原点 */
-  badge?: string|number;
+  /** 徽标类型，参见 Badge 组件 */
+  badge?: object;
   disabled?: boolean;
 }
 ```
