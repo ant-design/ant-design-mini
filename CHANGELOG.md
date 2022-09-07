@@ -1,3 +1,12 @@
+## 0.0.22 (2022-09-07)
+
+
+### Features
+
+* **Rate:** new Component ([#155](https://github.com/ant-design/ant-design-mini/issues/155)) ([b6882e0](https://github.com/ant-design/ant-design-mini/commit/b6882e09a573207128535de5cac776d924a3fbec))
+
+
+
 ## 0.0.21 (2022-08-22)
 ### Feature
 1. 新增Slider组件
