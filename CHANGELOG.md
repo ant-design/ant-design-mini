@@ -2,10 +2,15 @@
 
 
 ### Features
-
-* **Rate:** new Component ([#155](https://github.com/ant-design/ant-design-mini/issues/155)) ([b6882e0](https://github.com/ant-design/ant-design-mini/commit/b6882e09a573207128535de5cac776d924a3fbec))
-
-
+1. 新增 GuideTour组件
+2. 新增ProgressCircle组件
+3. 新增Rate组件
+4. Tabs支持电梯模式，新增TabsElevator组件
+5. ImageUpload， VideoUpload value支持string类型，上传文件名移除时间戳
+6. Picker, DatePicker, RangePicker, CascaderPicker 增加 maskClosable属性
+7. PopUp 底部弹层增加autoHeight属性
+### Bugfix
+1. ImageUpload修复onBeforeUpload下上传多张图片只展示一张的问题
 
 ## 0.0.21 (2022-08-22)
 ### Feature
