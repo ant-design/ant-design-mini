@@ -25,7 +25,7 @@ toc: 'content'
 | -----|-----|-----|-----|----- |
 | value | Array\<File \| string\> \| string | 否 | [] | 已上传的图片列表 |
 | action | string | 否 | - | 上传图片的服务器地址，只支持https地址 |
-| enableShowPhotoDownload | boolean | 否 | false | 预览图片时是否暂时下载按钮，只有在不存在onPreview字段时生效 |
+| enableShowPhotoDownload | boolean | 否 | false | 预览图片时是否展示下载按钮，只有在不存在onPreview字段时生效 |
 | enableSavePhoto | boolean | 否 | false | 照片支持长按下载 |
 | fileName | string | 否 | 'image' | 上传图片的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到图片二进制内容 |
 | formData | any | 否 | {} | 上传时其他额外的 form 数据对象。 |
