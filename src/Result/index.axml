@@ -25,8 +25,8 @@
       a:else>
       <slot name="title" />
     </view>
-    <view class="amd-result-message"
-      a:if="{{message && message.length > 0}}">{{message}}</view>
+    <text class="amd-result-message"
+      a:if="{{message && message.length > 0}}">{{message}}</text>
     <view class="amd-result-message"
       a:else>
       <slot name="message" />
