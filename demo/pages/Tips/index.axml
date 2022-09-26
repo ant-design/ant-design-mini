@@ -7,7 +7,8 @@
       image="{{showImage ? image : ''}}"
       showClose="{{showClose}}"
       arrowPosition="{{tipsArrow[arrowPosition].name}}"
-      onButtonTap="onButtonTap"/>
+      onClose="onButtonTap"
+      onButtonTap="handleTapBtn"/>
   </view>
   <list radius>
     <list-item>
