@@ -30,6 +30,8 @@ toc: false
 | showlunar | boolean | 否 | false | 是否展示农历 |
 | showTitle | boolean | 否 | true | 是否展示标题 |
 | showMask | boolean | 否 | true | 是否展示蒙层 |
+| height | string | 否 | 90vh | 组件高度 |
+| fullScreen | boolean | 否 | false | 开启全屏模式 |
 
 ## 事件
 
@@ -37,6 +39,11 @@ toc: false
 | -----|-----|-----|
 | onClose | 点击关闭按钮回调 | (void) => void  |
 | onChange | 点击日期回调 | (Date | [Date, Date]) => void  |
+
+## 插槽
+| 名称 | 说明 |
+| ----|----|
+| header | 头部插槽 |
 
 <style> 
 table th:first-of-type { width: 180px; } 

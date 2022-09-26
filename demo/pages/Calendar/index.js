@@ -132,88 +132,30 @@ Page({
       endDate: endDate.format("YYYY-MM-DD")
     })
   },
-  handleButton1Tap () {
+  handleButtonTap (e) {
+    const { dataset } = e.target
+    const { index } = dataset
     this.setData({
       show1: true,
       show2: false,
       show3: false,
       show4: false,
       show5: false,
-      show6: false
-    })
-  },
-  handleButton2Tap () {
-    this.setData({
-      show1: false,
-      show2: true,
-      show3: false,
-      show4: false,
-      show5: false,
-      show6: false
-
-    })
-  },
-  handleButton3Tap () {
-    this.setData({
-      show1: false,
-      show2: false,
-      show3: true,
-      show4: false,
-      show5: false,
-      show6: false
-
-    })
-  },
-  handleButton4Tap () {
-    this.setData({
-      show1: false,
-      show2: false,
-      show3: false,
-      show4: true,
-      show5: false,
-      show6: false
-
-    })
-  },
-  handleButton5Tap () {
-    this.setData({
-      show1: false,
-      show2: false,
-      show3: false,
-      show4: false,
-      show5: true,
-      show6: false
-
-    })
-  },
-  handleButton6Tap () {
-    this.setData({
-      show1: false,
-      show2: false,
-      show3: false,
-      show4: false,
-      show5: false,
-      show6: true
-    })
-  },
-  handleButton7Tap () {
-    this.setData({
-      show1: false,
-      show2: false,
-      show3: false,
-      show4: false,
-      show5: false,
       show6: false,
-      show7: true
+      show7: false,
+      show8: false,
+      [`show${index}`]: true
     })
   },
   handleDateChange (date) {
     this.setData({
       date1: dayjs(date).format("YYYY-MM-DD"),
     })
+    this.onClose()
   },
   handleRangeChange (range) {
     this.setData({ range1: range.map(item => dayjs(item).format("YYYY-MM-DD")) })
+    this.onClose()
   },
   handleChange (date) {
     my.alert({ 

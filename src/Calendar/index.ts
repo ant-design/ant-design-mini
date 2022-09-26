@@ -149,12 +149,10 @@ Partial<ICalendarProps>,
             if (this.props.selectionMode === ECalendarSelectMode.range) {
                 if (this.calendarManager.selectStartDate && this.calendarManager.selectEndDate) {
                     this.props.onChange?.([dayjs(this.calendarManager.selectStartDate).toDate(), dayjs(this.calendarManager.selectEndDate).toDate()])
-                    this?.onClose()
                 }
             } else if (this.props.selectionMode === ECalendarSelectMode.single) {
                 if (this.calendarManager.selectStartDate) {
                     this.props.onChange?.(dayjs(this.calendarManager.selectStartDate).toDate())
-                    this?.onClose()
                 }
             }
         },

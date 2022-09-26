@@ -2,39 +2,53 @@
     <list header="基础用法" radius="{{true}}" class="list">
         <view class="line">
             <list-item 
-                onTap="handleButton1Tap"
+                onTap="handleButtonTap"
                 extraBrief="{{date1}}"
+                data-index="{{1}}"
             >
                 选择单日期
             </list-item>
             <list-item
-                onTap="handleButton2Tap"
+                onTap="handleButtonTap"
+                data-index="{{2}}"
                 extraBrief="{{range1 ? `${range1[0]} - ${range1[1]}` : ''}}"
             >选择日期范围</list-item>
             <list-item
-                onTap="handleButton7Tap"
+                onTap="handleButtonTap"
+                data-index="{{7}}"
             >纯展示，日期不可点</list-item>
+            <list-item
+                onTap="handleButtonTap"
+                data-index="{{8}}"
+            >
+                全屏渲染
+            </list-item>
         </view>
     </list>
 
     <list header="扩展用法" radius="{{true}}" class="list">
         <view class="line">
-            <list-item onTap="handleButton3Tap">带农历节</list-item>
+            <list-item 
+                onTap="handleButtonTap"
+                data-index="{{3}}">带农历节</list-item>
         </view>
     </list>
 
     <list header="自定义用法" radius="{{true}}" class="list">
         <view class="line">
             <list-item
-                onTap="handleButton4Tap"
+                onTap="handleButtonTap"
+                data-index="{{4}}"
             >
                 自定义颜色
             </list-item>
             <list-item
-                onTap="handleButton5Tap"
+                onTap="handleButtonTap"
+                data-index="{{5}}"
             >自定义文案与假日</list-item>
             <list-item
-                onTap="handleButton6Tap"
+                onTap="handleButtonTap"
+                data-index="{{6}}"
             >自定义可选范围</list-item>
         </view>
     </list>
@@ -72,6 +86,16 @@
     onClose="onClose"
     a:if="{{show7}}"
     date="{{date}}"
+/>
+
+<calendar 
+    className="wrapper"
+    startDate="{{startDate}}"
+    endDate="{{endDate}}"
+    onClose="onClose"
+    a:if="{{show8}}"
+    date="{{date}}"
+    fullScreen="{{true}}"
 />
 
 <calendar 

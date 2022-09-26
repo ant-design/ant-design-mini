@@ -12,5 +12,6 @@ export const CalendarDefaultProps = {
   selectDate: null,
   selectRange: null,
   showTitle: true,
-  showMask: true
+  showMask: true,
+  fullScreen: false
 };
