@@ -36,26 +36,7 @@ toc: false
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onClose | 点击关闭按钮回调 | (void) => void  |
-| onChange | 点击日期回调 | (Date | [Date | Date]) => void  |
-
-## 插槽
-| 名称 | 说明 |
-| ----|----|
-| icon | 图标插槽 |
-
-## 样式类
-
-| 类名 | 说明 |
-| -----|-----|
-| amd-button | 整体样式 |
-| amd-button-content | 按钮内容样式 |
-| amd-button-loading-container | 加载区域样式 |
-| amd-button-loading-text | 加载区域文字样式 |
-| amd-button-loading | 加载动画样式 |
-| amd-button-wrap | 加载区域右侧样式 |
-| amd-button-icon | 图标样式 |
-| amd-button-text | 按钮文字样式 |
-| amd-button-subtext | 副标题样式 |
+| onChange | 点击日期回调 | (Date | [Date, Date]) => void  |
 
 <style> 
 table th:first-of-type { width: 180px; } 
