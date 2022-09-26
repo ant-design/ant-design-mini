@@ -117,7 +117,8 @@ Page({
       show3: false,
       show4: false,
       show5: false,
-      show6: false
+      show6: false,
+      show7: false
     })
   },
   onLoad () {
@@ -195,21 +196,29 @@ Page({
       show6: true
     })
   },
+  handleButton7Tap () {
+    this.setData({
+      show1: false,
+      show2: false,
+      show3: false,
+      show4: false,
+      show5: false,
+      show6: false,
+      show7: true
+    })
+  },
   handleDateChange (date) {
     this.setData({
       date1: dayjs(date).format("YYYY-MM-DD"),
     })
-    this.onClose()
   },
   handleRangeChange (range) {
     this.setData({ range1: range.map(item => dayjs(item).format("YYYY-MM-DD")) })
-    this.onClose()
   },
   handleChange (date) {
     my.alert({ 
       content: date
      })
-    this.onClose()
 
   }
 });

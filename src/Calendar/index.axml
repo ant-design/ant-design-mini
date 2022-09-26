@@ -59,9 +59,9 @@
             </block>
         </scroll-view>
     </view>
-    <view class="amd-calendar-button-wrapper" a:if="{{showConfirmButton}}">
-        <view class="amd-calendar-botton-inner-cancel" a:if="{{showCancelButton}}" onTap="onCancel">重 置</view>
-        <view class="amd-calendar-botton-inner-check" onTap="onCheck">确 认</view>
+    <view class="amd-calendar-button-wrapper" a:if="{{showConfirmButton && !!selectionMode}}">
+        <view class="amd-calendar-botton-inner-cancel {{ buttonDisabled ? 'amd-calendar-botton-disabled' : '' }}" a:if="{{showCancelButton}}" onTap="onCancel">重 置</view>
+        <view class="amd-calendar-botton-inner-check {{ buttonDisabled ? 'amd-calendar-botton-disabled' : '' }}" onTap="onCheck">确 认</view>
     </view>
     <!-- <view class="amd-calendar-button-single-wrapper" a:if="{{ selectionMode === 'single' }}">
         <view class="amd-calendar-botton-inner-check" onTap="onCheck">确 认</view>

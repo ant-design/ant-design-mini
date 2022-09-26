@@ -6,7 +6,8 @@ Component<
 {
     renderTimes: number,
 	checkTimes: number,
-	calendarList?: any[]
+	calendarList?: any[],
+    buttonDisabled: boolean
 },
 Partial<ICalendarProps>,
 {
@@ -29,6 +30,7 @@ Partial<ICalendarProps>,
     data: {
         renderTimes: 0,
         checkTimes: 0,
+        buttonDisabled: true
     },
     didMount () {
         const {
@@ -69,8 +71,6 @@ Partial<ICalendarProps>,
         } else if (prev.customDateList !== this.props.customDateList) {
             this.calendarManager.updateCustomDateList(this.props.customDateList)
             this.render()
-        } else if (prev.selectDate !== this.props.selectDate) {
-            
         }
     },
     methods: {
@@ -96,8 +96,9 @@ Partial<ICalendarProps>,
             })
         },
         onDateChange (dataItem) {
+            const { selectionMode } = this.props
             const { fullDate: date, disable } = dataItem;
-            if (disable) return
+            if (disable || !selectionMode) return
             let { selectStartDate, selectEndDate } = this.calendarManager
             if (this.props.selectionMode === ECalendarSelectMode.range) {
                 if (selectStartDate && !selectEndDate) {
@@ -118,20 +119,42 @@ Partial<ICalendarProps>,
             this.updateSelectDate(selectStartDate, selectEndDate);
             if (!this.props.showConfirmButton) {
                 this.onCheck()
+            } else {
+                this.getConfirmButtonState()
             }
         },
         updateSelectDate(start, end) {
             this.calendarManager.updateSelectDate(start, end)
             this.render()
         },
+        getConfirmButtonState () {
+            if (this.props.selectionMode === ECalendarSelectMode.range) {
+                if (this.calendarManager.selectStartDate && this.calendarManager.selectEndDate) {
+                    return this.setData({
+                        buttonDisabled: false
+                    })
+                }
+            } else {
+                if (this.calendarManager.selectStartDate) {
+                    return this.setData({
+                        buttonDisabled: false
+                    })
+                }
+            }
+            this.setData({
+                buttonDisabled: true
+            })
+        },
         onCheck () {
             if (this.props.selectionMode === ECalendarSelectMode.range) {
                 if (this.calendarManager.selectStartDate && this.calendarManager.selectEndDate) {
                     this.props.onChange?.([dayjs(this.calendarManager.selectStartDate).toDate(), dayjs(this.calendarManager.selectEndDate).toDate()])
+                    this?.onClose()
                 }
-            } else {
+            } else if (this.props.selectionMode === ECalendarSelectMode.single) {
                 if (this.calendarManager.selectStartDate) {
                     this.props.onChange?.(dayjs(this.calendarManager.selectStartDate).toDate())
+                    this?.onClose()
                 }
             }
         },

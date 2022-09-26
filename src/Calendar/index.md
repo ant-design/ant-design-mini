@@ -21,7 +21,7 @@ toc: false
 | endDate | Date | 否 | - | 日历结束时间 |
 | selectDate | Date | 否 | - | 默认选择日期 |
 | selectRange | [Date, Date] | 否 | - | 默认选择范围 |
-| selectionMode | 'single' &verbar; 'range' | 否 | single | 单选或范围选择 |
+| selectionMode | 'single' &verbar; 'range' | 否 | single | 单选或范围选择，不传时日期不可选择 |
 | disableDates | Date[] | 否 | - | 禁选日期 |
 | customDateList | {color: string; text: string; date: Date}[] | 否 | - | 日期自定义文案，展示于日期的下面，农历节假日会被自动挤到日期上面 |
 | holidayList | {name: string; range: [Date, Date]; day: Date}[] | 否 | - | 节假日信息 |

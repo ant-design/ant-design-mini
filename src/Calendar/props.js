@@ -5,7 +5,7 @@ export const CalendarDefaultProps = {
   hideDisableItem: false,
   customDateList: [],
   holidays: [],
-  selectionMode: 'single',
+  selectionMode: '',
   showConfirmButton: false,
   showResetButton: false,
   height: '90vh',

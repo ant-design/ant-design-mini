@@ -11,6 +11,9 @@
                 onTap="handleButton2Tap"
                 extraBrief="{{range1 ? `${range1[0]} - ${range1[1]}` : ''}}"
             >选择日期范围</list-item>
+            <list-item
+                onTap="handleButton7Tap"
+            >纯展示，日期不可点</list-item>
         </view>
     </list>
 
@@ -60,6 +63,15 @@
     showConfirmButton="{{true}}"
     onClose="onClose"
     a:if="{{show2}}"
+/>
+
+<calendar 
+    className="wrapper"
+    startDate="{{startDate}}"
+    endDate="{{endDate}}"
+    onClose="onClose"
+    a:if="{{show7}}"
+    date="{{date}}"
 />
 
 <calendar 
