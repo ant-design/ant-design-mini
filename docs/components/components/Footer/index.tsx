@@ -189,13 +189,13 @@ export default () => {
     <div className={styles.footerContainer} >
       <div className={styles.footerBody}>
         {
-          footerData.map(column => (
-            <div className={styles.column}>
+          footerData.map((column, index) => (
+            <div className={styles.column} key={column.title}>
               <div className={styles.columnTile}>{column.title}</div>
               <div>
                 {
                   column.items.map(columnItem => (
-                    <div className={styles.columnItem}>
+                    <div className={styles.columnItem} key={columnItem.title}>
                       <a className={styles.columnItemUrl} href={columnItem.url} target="_blank" rel="noopener noreferrer">
                         <span className={styles.columnItemIcon}>{columnItem.icon}</span>
                         {columnItem.title}

@@ -16,16 +16,17 @@ import {
 import styles from './index.local.less';
 
 export default () => {
-  const [isWidthScreen, setIsWidthScreen] = useState(window?.screen?.width > 450);
+  const [isWidthScreen, setIsWidthScreen] = useState<Boolean>(true);
   const [startAnimation, setStartAnimation] = useState([false, false, false, false]);
 
   useEffect(() => {
+    setIsWidthScreen(screen?.width > 450);
     /** 绑定触发动画的事件，因为是mouseenter触发，因此无法进行通过事件委托绑定 */
     startAnimation.forEach((item, index) => {
       document.querySelector(`#my_lottie_${index}`)?.addEventListener('mouseenter', () => {
         setStartAnimation(pre => pre.map((i, idx) => index === idx ? true : i));
-      })
-    })
+      });
+    });
   }, []);
 
   useEffect(() => {
@@ -102,7 +103,7 @@ export default () => {
             }}>
             {
               productDesignValues.map(value => (
-                <div className={styles.productDesignValueBody}>
+                <div key={value.title} className={styles.productDesignValueBody}>
                   <div className={styles.productDesignValuesContent}>
                     <div className={styles.productDesignValuesTitle}>{value.title}</div>
                     <div className={styles.productDesignValuesDescription}>{value.description}</div>
@@ -110,7 +111,7 @@ export default () => {
                   <div className={styles.productDesignValuesIconContainer}>
                     {
                       value.icons.map((icon, index) => (
-                        <div className={styles.productDesignValuesIcon} id={`my_lottie_${index}`}>
+                        <div key={icon.text} className={styles.productDesignValuesIcon} id={`my_lottie_${index}`}>
                           <Lottie
                             options={{
                               loop: false,
@@ -154,6 +155,7 @@ export default () => {
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover'
                   }}
+                  key={guide.title}
                 >
                   <div className={styles.guideCardContent}>
                     <div className={styles.guideCardTitle}>{guide.title}</div>
@@ -176,12 +178,13 @@ export default () => {
           <div className={styles.recommendsContent}>
             {
               recommends.map(recommend => (
-                <Card 
-                  className={styles.recommendCard} 
-                  bordered={false} 
-                  hoverable={true} 
+                <Card
+                  className={styles.recommendCard}
+                  bordered={false}
+                  hoverable={true}
+                  key={recommend.title}
                 >
-                  <div className={styles.recommendCardBody} onClick={() => window && window.open(recommend.link)}>
+                  <div className={styles.recommendCardBody} onClick={() => window.open(recommend.link)}>
                     <div className={styles.recommendImage}>
                       <img src={recommend.image} width={50} />
                     </div>
@@ -201,7 +204,7 @@ export default () => {
           <div className={styles.usersContent}>
             {
               users.map(user => (
-                <img className={styles.userImage} src={user.image} />
+                <img key={user.name} className={styles.userImage} src={user.image} />
               ))
             }
           </div>

@@ -6,9 +6,10 @@ import styles from './index.local.less';
 export default () => {
   const [startFireAnimation, setStartFireAnimation] = useState(false);
   const [startResultAnimation, setStartResultAnimation] = useState(false);
-  const [isWidthScreen, setIsWidthScreen] = useState(window?.screen?.width > 450);
+  const [isWidthScreen, setIsWidthScreen] = useState(true);
 
   useEffect(() => {
+    setIsWidthScreen(screen?.width > 450);
     document.querySelector('#calendarImage')?.addEventListener('mouseenter', () => {
       setStartFireAnimation(true);
     });
@@ -59,8 +60,8 @@ export default () => {
                   }
                 }]
               }
-              height={startFireAnimation ? (isWidthScreen ? 324 : 172) : 0}
-              width={startFireAnimation ? (isWidthScreen ? 324 : 172) : 0}
+              height={startFireAnimation ? (isWidthScreen ? 280 : 172) : 0}
+              width={startFireAnimation ? (isWidthScreen ? 280 : 172) : 0}
               isStopped={!startFireAnimation}
               style={{ pointerEvents: 'none' }}
             />

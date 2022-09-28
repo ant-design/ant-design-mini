@@ -72,14 +72,14 @@ export const getGuides = (isWideScreen) => [
   {
     title: '快速上手',
     description: '轻松两步，快速实现安装和引入组件，antd-mini 自动为你加载 css 样式文件。',
-    backgroundImage: isWideScreen ? 'https://gw.alipayobjects.com/zos/bmw-prod/2ca16dac-4e7c-4bf4-8980-a5a04002afb4.svg' : 'https://gw.alipayobjects.com/zos/bmw-prod/64172109-6ad4-4628-b3c9-24fd410329da.svg',
+    backgroundImage: isWideScreen ? 'https://gw.alipayobjects.com/zos/bmw-prod/f0556074-4581-42c4-9cf7-7b7072ed6a05.svg' : 'https://gw.alipayobjects.com/zos/bmw-prod/64172109-6ad4-4628-b3c9-24fd410329da.svg',
     buttonText: '查看详情',
     buttonLink: '/guide/quick-start',
   },
   {
     title: '常见问题',
     description: '我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。',
-    backgroundImage: isWideScreen ? 'https://gw.alipayobjects.com/zos/bmw-prod/a57dedec-63df-49a2-aa61-1bdb38694f24.svg' : 'https://gw.alipayobjects.com/zos/bmw-prod/a56a3cf4-d84d-49f3-952c-b9cd1197f7b3.svg',
+    backgroundImage: isWideScreen ? 'https://gw.alipayobjects.com/zos/bmw-prod/49710c3f-7ac2-4135-bd39-ae36cd456a4b.svg' : 'https://gw.alipayobjects.com/zos/bmw-prod/a56a3cf4-d84d-49f3-952c-b9cd1197f7b3.svg',
     buttonText: 'FAQ',
     buttonLink: '/guide/faq',
   }
