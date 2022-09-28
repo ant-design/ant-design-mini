@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Index-List",
+  "pullRefresh": false,
+  "usingComponents": {
+    "index-list": "../../../src/IndexList/index"
+  }
+}
+  

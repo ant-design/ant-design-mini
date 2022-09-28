@@ -1,0 +1,43 @@
+<import-sjs name="util" from="./index.sjs"/>
+
+<template name="index">
+  <view class="i-alphabet" disable-scroll="{{true}}" hover-stop-propagation>
+    <view a:if="{{data.showMask}}" class="i-alphabet-mask"></view>
+    <view class="i-alphabet">
+      <view
+        a:for="{{data.indexList}}"
+        class="i-alphabet-item"
+        catchTouchStart="onTouchStart"
+        catchTouchMove="onTouchMove"
+        catchTouchEnd="onTouchEnd"
+        data-item="{{item, index}}"
+        id="{{'i-alphabet-' + index}}"
+      >
+        {{item}}
+        <view class="i-alphabet-item-tip" a:if="{{item === data.touchKey}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<view class="base-index" a:if="{{type === 'base' || type === 'diy'}}">
+  <scroll-view scroll-y="true" scroll-into-view="{{scrollId}}" class="base-index {{amd-index-list-list}}">
+    <view a:for="{{indexList}}" class="base-index-item" id="{{`base-index-item_index-${item}`}}">
+      <view a:if="{{type === 'base'}}" class="base-index-item_index {{amd-index-list-ley}}" >{{ item }}</view>
+      <view a:if="{{type === 'base'}}" a:for="{{util.getArr(indexArr, item)}}" class="base-index-item_con {{amd-index-list-item}}" a:for-item="iarr">
+        <view a:if="{{iarr.avator}}" class="base-index-item_avator" style="{{{ 'background-image': `url(${iarr.avator})` }}}"/>
+        <view class="base-index-item_name">{{iarr.name}}</view>
+      </view>
+      <slot name="header" value="{{ item }}" />
+      <slot name="footer" value="{{util.getArr(indexArr, item)}}"/>
+    </view>
+  </scroll-view>
+  <view class="base-index-list {{amd-index-list-index}}">
+    <template is="index" data="{{ data: { indexList, showMask, touchKey, activeKey } }}"/>
+  </view>
+</view>
+<view class="base-index-list {{amd-index-list-index}}" a:if="{{type === 'only'}}">
+  <template is="index" data="{{ data: { indexList, showMask, touchKey, activeKey } }}"/>
+</view>

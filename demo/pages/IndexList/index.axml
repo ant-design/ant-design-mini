@@ -1,0 +1,39 @@
+<view class="index-list">
+  <view class="index-list-tab">
+    <view class="index-list-tab_item" a:for="{{tabs}}" data-item="{{item}}" onTap="onTapTab">
+      <text class="{{ activeTab === item.type ? 'index-list-tab_active' : '' }}">
+        {{ item.text }}
+      </text>
+    </view>
+  </view>
+  <view class="index-list-i">
+    <index-list
+      a:if="{{activeTab === 'base'}}"
+      type="base"
+      indexList="{{indexList1}}"
+      indexArr="{{indexArr1}}"
+      onTouch="onTouch1"/>
+    <index-list
+      a:if="{{activeTab === 'diy'}}"
+      type="diy"
+      indexList="{{indexList2}}"
+      indexArr="{{indexArr2}}"
+      onTouch="onTouch2">
+      <view slot="header" slot-scope="h" class="diy-header">{{h.value}}</view>
+      <view slot="footer" slot-scope="f" class="diy-footer">
+        <view class="diy-footer-item" a:for="{{f.value}}">
+          <image class="diy-footer-item_avator" mode="scaleToFill" src="{{item.avator}}" />
+          <view class="diy-footer-item_text">
+            <view>{{item.name}}</view>
+            <view>{{item.text}}</view>
+          </view>
+        </view>
+      </view>
+    </index-list>
+    <index-list
+      a:if="{{activeTab === 'only'}}"
+      type="only"
+      indexList="{{indexList3}}"
+      onTouch="onTouch3"/>
+  </view>
+</view>

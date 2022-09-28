@@ -16,7 +16,7 @@ export const EXCLUED_DIR = ['.umi', 'Avatar', 'Badge',
     'Popover', 'Popup', 'RadioGroup',
     'Result', 'SafeArea', 'Selector', 'Stepper',
     'Steps', 'SwipeAction', 'Switch', 'Tabs',
-    'Tag', 'TapModal', 'Terms',
+    'Tag', 'TapModal', 'Terms', 'IndexList',
     'Tips', 'VTabs', '_base',
     '_util', 'mixins', 'style']
 
@@ -61,5 +61,6 @@ export const ComponentGroupMap = {
     'Mask': '数据展示',
     'FloatingPanel': '数据展示',
     'ActionSheet': '数据展示',
-    'ImageUpload': '表单类组件'
+    'ImageUpload': '表单类组件',
+    'IndexList': '实验性质组件'
 }
