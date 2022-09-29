@@ -12,6 +12,7 @@
         catchTouchEnd="onTouchEnd"
         data-item="{{item, index}}"
         id="{{'i-alphabet-' + index}}"
+        style="{{{ width: `${itemHeight}px`, height: `${itemHeight}px` }}}"
       >
         {{item}}
         <view class="i-alphabet-item-tip" a:if="{{item === data.touchKey}}">

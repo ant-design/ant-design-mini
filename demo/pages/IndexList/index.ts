@@ -4,7 +4,7 @@ Page({
     tabs: [
       { type: 'base', text: '基础用法' },
       { type: 'diy', text: '自定义slot' },
-      { type: 'only', text: '只要索引' }
+      { type: 'only', text: '仅有索引' }
     ],
     indexList1: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
     indexList2: ['热', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '#'],
@@ -18,23 +18,23 @@ Page({
       return [
         {
           index: u,
-          name: u + '文本',
-          avator: 'https://gw.alipayobjects.com/mdn/rms_eb2664/afts/img/A*bFuBQZuNErMAAAAAAAAAAABkARQnAQ',
+          name: '文本',
+          avator: 'https://gw.alipayobjects.com/mdn/rms_b20dc2/afts/img/A*sOFHSZm9ajkAAAAAAAAAAAAAARQnAQ',
         },
         {
           index: u,
-          name: u + '文本',
-          avator: 'https://gw.alipayobjects.com/mdn/rms_eb2664/afts/img/A*bFuBQZuNErMAAAAAAAAAAABkARQnAQ',
+          name: '文本',
+          avator: 'https://gw.alipayobjects.com/mdn/rms_b20dc2/afts/img/A*sOFHSZm9ajkAAAAAAAAAAAAAARQnAQ',
         },
         {
           index: u,
-          name: u + '文本',
-          avator: 'https://gw.alipayobjects.com/mdn/rms_eb2664/afts/img/A*bFuBQZuNErMAAAAAAAAAAABkARQnAQ',
+          name: '文本',
+          avator: 'https://gw.alipayobjects.com/mdn/rms_b20dc2/afts/img/A*sOFHSZm9ajkAAAAAAAAAAAAAARQnAQ',
         },
         {
           index: u,
-          name: u + '文本',
-          avator: 'https://gw.alipayobjects.com/mdn/rms_eb2664/afts/img/A*bFuBQZuNErMAAAAAAAAAAABkARQnAQ',
+          name: '文本',
+          avator: 'https://gw.alipayobjects.com/mdn/rms_b20dc2/afts/img/A*sOFHSZm9ajkAAAAAAAAAAAAAARQnAQ',
         }
       ]
     });
@@ -43,20 +43,20 @@ Page({
       return [
         {
           index: u,
-          avator: 'https://gw.alipayobjects.com/mdn/rms_eb2664/afts/img/A*bFuBQZuNErMAAAAAAAAAAABkARQnAQ',
-          name: u + '文本',
+          avator: 'https://gw.alipayobjects.com/mdn/rms_b20dc2/afts/img/A*sOFHSZm9ajkAAAAAAAAAAAAAARQnAQ',
+          name: '文本',
           text: '这是一段文本',
         },
         {
           index: u,
-          avator: 'https://gw.alipayobjects.com/mdn/rms_eb2664/afts/img/A*bFuBQZuNErMAAAAAAAAAAABkARQnAQ',
-          name: u + '文本',
+          avator: 'https://gw.alipayobjects.com/mdn/rms_b20dc2/afts/img/A*sOFHSZm9ajkAAAAAAAAAAAAAARQnAQ',
+          name: '文本',
           text: '这是一段文本',
         },
         {
           index: u,
-          avator: 'https://gw.alipayobjects.com/mdn/rms_eb2664/afts/img/A*bFuBQZuNErMAAAAAAAAAAABkARQnAQ',
-          name: u + '文本',
+          avator: 'https://gw.alipayobjects.com/mdn/rms_b20dc2/afts/img/A*sOFHSZm9ajkAAAAAAAAAAAAAARQnAQ',
+          name: '文本',
           text: '这是一段文本',
         },
       ]
