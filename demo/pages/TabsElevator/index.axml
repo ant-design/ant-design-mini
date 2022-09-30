@@ -1,0 +1,18 @@
+<view>
+    <view class="header">
+        作为页面滚动的导航
+    </view>
+    <elevator tabs="{{tabs}}" onChange="handleChange" onTabClick="handleTabClick">
+        <view class="tab-content" slot-scope="props">
+          <view class="tab-content-title">
+            {{props.item.title}}
+          </view>
+          <view class="tab-content-text">
+            {{props.item.content}}
+          </view>
+        </view>
+    </elevator>
+    <view class="footer">
+      Ant Design Mini
+    </view>
+</view>

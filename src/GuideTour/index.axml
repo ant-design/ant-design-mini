@@ -1,0 +1,43 @@
+<view class="amd-guide-tour {{className?className:''}}" a:if="{{visible}}">
+    <mask show="{{true}}" maskZindex="{{9999}}" />
+    <am-icon class="amd-guide-tour-clear" type="CloseOutline" onTap="onCancel" />
+    <view class="amd-guide-tour-button">
+        <button inline="{{true}}" inlineSize="small" a:if="{{jumpButtonVisible}}" onTap="onCancel">
+            跳过
+        </button>
+        <button inline="{{true}}" inlineSize="small" onTap="onPrev" a:if="{{lastButtonVisible}}">
+            上一步
+        </button>
+        <button inline="{{true}}" inlineSize="small" onTap="onNext" a:if="{{nextButtonVisible}}">
+            下一步
+        </button>
+        <button type="default" inline="{{true}}" inlineSize="small" a:if="{{knowButtonVisible}}" onTap="onCancel">
+            知道了
+        </button>
+    </view>
+    <block a:if="{{swiperable}}">
+        <view class="amd-guide-tour-indicator">
+            <view a:for="{{steps}}" a:for-index="dataIndex" class="amd-guide-tour-indicator-dot {{dataIndex === current ? 'amd-guide-tour-indicator-dot-active':''}}" />
+        </view>
+        <swiper class="amd-guide-tour-swiper" current="{{current}}" adjust-height="none" style="height:100vh" disable-touch="{{ture}}" 
+            onChange="handleSwiperChange">
+            <swiper-item a:for-index="dataIndex" key="{{dataIndex}}" a:for="{{steps}}">
+                <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px">
+                    <slot name="step-{{current}}">
+                        <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
+                            mode="{{item.imageMode}}" />
+                    </slot>
+                </view>
+            </swiper-item>
+        </swiper>
+    </block>
+    <block a:else a:for="{{steps}}" a:for-index="dataIndex">
+        <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px" 
+            a:if="{{current===dataIndex}}">
+            <slot name="step-{{dataIndex}}">
+                <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
+                    mode="{{item.imageMode}}" />
+            </slot>
+        </view>
+    </block>
+</view>

@@ -32,7 +32,10 @@ Component({
       const { value } = this.props;
 
       if (typeof value === 'string') {
-        curValue = [].concat(value);
+        curValue = [].concat({
+          url: value,
+          status: 'done'
+        });
       } else if (
         Array.isArray(value) &&
         value.length &&
@@ -70,7 +73,7 @@ Component({
     },
 
     async uploadFile(file) {
-      const { action, filename, formData, onBeforeUpload, onUpload, onAfterUpload } = this.props;
+      const { action, fileName, formData, onBeforeUpload, onUpload, onAfterUpload } = this.props;
       const { fileList } = this.data;
       const { tempFilePath } = file;
 
@@ -95,7 +98,7 @@ Component({
           const res = await uploadFile({
             url: action,
             fileType: 'video',
-            fileName: `${filename}_${Date.now()}`,
+            fileName: fileName,
             filePath: tempFilePath,
             formData,
             hideLoading: true

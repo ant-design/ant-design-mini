@@ -23,19 +23,19 @@ toc: 'content'
 
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| value | Array\<File \| string\> \| string | - | [] | 已上传的图片列表 |
+| value | Array\<File \| string\> \| string | 否 | [] | 已上传的图片列表 |
 | action | string | 否 | - | 上传图片的服务器地址，只支持https地址 |
-| enableShowPhotoDownload | boolean | - | false | 预览图片时是否暂时下载按钮，只有在不存在onPreview字段时生效 |
-| enableSavePhoto | boolean | - | false | 照片支持长按下载 |
-| fileName | string | - | - | 上传图片的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到图片二进制内容 |
-| formData | any | - | {} | 上传时其他额外的 form 数据对象。 |
-| height | number &verbar; string | - | 80 | 自定义容器高度 |
-| maxCount | number | - | 1 | 上传图片的最大数量 |
-| mode | 'scaleToFill' &verbar; 'aspectFit' &verbar; 'aspectFill' &verbar; 'widthFix' &verbar; 'heightFix' &verbar; 'top' &verbar; 'bottom' &verbar; 'center' &verbar; 'left' &verbar; 'right' &verbar; 'top left' &verbar; 'top right' &verbar; 'bottom left' &verbar; 'bottom right' | - | 'scaleToFill' | 图片缩放模式和裁剪模式 |
-| preview | boolean | - | true | 是否支持预览 |
-| sourceType | ['album'] &verbar; ['camera'] &verbar; ['album', 'camera'] | - | ['album', 'camera'] | 视频选择的来源 |
-| width | number &verbar; string | - | 80 | 自定义容器宽度 |
-| className | string | - | - | 类名 |
+| enableShowPhotoDownload | boolean | 否 | false | 预览图片时是否展示下载按钮，只有在不存在onPreview字段时生效 |
+| enableSavePhoto | boolean | 否 | false | 照片支持长按下载 |
+| fileName | string | 否 | 'image' | 上传图片的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到图片二进制内容 |
+| formData | any | 否 | {} | 上传时其他额外的 form 数据对象。 |
+| height | number &verbar; string | 否 | 80 | 自定义容器高度 |
+| maxCount | number | 否 | 1 | 上传图片的最大数量 |
+| mode | 'scaleToFill' &verbar; 'aspectFit' &verbar; 'aspectFill' &verbar; 'widthFix' &verbar; 'heightFix' &verbar; 'top' &verbar; 'bottom' &verbar; 'center' &verbar; 'left' &verbar; 'right' &verbar; 'top left' &verbar; 'top right' &verbar; 'bottom left' &verbar; 'bottom right' | 否 | 'scaleToFill' | 图片缩放模式和裁剪模式 |
+| preview | boolean | 否 | true | 是否支持预览 |
+| sourceType | ['album'] &verbar; ['camera'] &verbar; ['album', 'camera'] | 否 | ['album', 'camera'] | 视频选择的来源 |
+| width | number &verbar; string | 否 | 80 | 自定义容器宽度 |
+| className | string | 否 | - | 类名 |
 
 ## 事件 
 

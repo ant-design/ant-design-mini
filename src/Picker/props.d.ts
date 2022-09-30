@@ -78,5 +78,10 @@ export interface IPickerProps
    * @description 切换显示隐藏
    */
   onTriggerPicker?: (visible: boolean, e: Record<string,any>) => void;
+  /**
+   * @description 点击蒙层是否可以关闭
+   * @default false
+   */
+  maskClosable?: boolean;
 }
 export declare const PickerDefaultProps: Partial<IPickerProps>;

@@ -3,6 +3,7 @@ export const PickerDefaultProps = {
   okText: '确定',
   dismissText: '取消',
   disabled: false,
+  maskClosable: false,
   value:  '',
   data: [],
   placeholder:'请选择',

@@ -27,7 +27,7 @@ toc: 'content'
 | -----|-----|-----|-----|----- |
 | controlled | boolean | 否 | false | 是否受控 |
 | value | number | 否 | - | 输入框的值, 表单提交的时候有效 |
-| type | 'number' &verbar; 'digit' | 否 | - | 输入框的值, 表单提交的时候有效 |
+| type | 'number' &verbar; 'digit' | 否 | - | 输入框唤起键盘类型 |
 | min | number | 否 | - | 最小值 |
 | max | number | 否 | - | 最大值 |
 | step | number | 否 | 1 | 每次加减的值 |

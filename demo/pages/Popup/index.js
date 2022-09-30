@@ -3,8 +3,9 @@ Page({
     position: '',
     basicShow: false,
     maskClosable: true,
-    showCloseIcon: true,
+    showCloseIcon: false,
     animation: true,
+    autoHeight: false,
     showCenterScoll: false,
     showCenterDisableScoll: false,
   },
@@ -52,5 +53,8 @@ Page({
   },
   handleChangeAnimation(checked) {
     this.setData({ animation: checked });
+  },
+  handleChangeAutoHeight(checked) {
+    this.setData({ autoHeight: checked });
   },
 });

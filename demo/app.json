@@ -60,6 +60,8 @@
     "pages/Toast/index",
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",
+    "pages/ProgressCircle/index",
+    "pages/GuideTour/index",
     "pages/BladeView/index",
     "pages/TabBar/index",
     "pages/ImageUpload/index",
@@ -69,7 +71,9 @@
     "pages/Grid/index",
     "pages/Footer/index",
     "pages/CascaderPicker/index",
-    "pages/Slider/index"
+    "pages/Rate/index",
+    "pages/Slider/index",
+    "pages/TabsElevator/index"
   ],
 
   "window": {

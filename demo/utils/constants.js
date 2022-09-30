@@ -72,6 +72,11 @@ export const componentList = [
         path: '/pages/Steps/index',
       },
       {
+        name: 'GuideTour',
+        nameZN: '新手引导',
+        path: '/pages/GuideTour/index',
+      },
+      {
         name: 'SwipeAction',
         nameZN: '滑动操作',
         path: '/pages/SwipeAction/index',
@@ -186,6 +191,11 @@ export const componentList = [
         nameZN: '协议',
         path: '/pages/Terms/index',
       },
+      {
+        name: 'Rate',
+        nameZN: '星级',
+        path: '/pages/Rate/index',
+      },
     ],
   },
   {
@@ -250,6 +260,11 @@ export const componentList = [
         name: 'Toast',
         nameZN: '轻提示',
         path: '/pages/Toast/index',
+      },
+      {
+        name: 'ProgressCircle',
+        nameZN: '进度圈',
+        path: '/pages/ProgressCircle/index',
       },
     ],
   },
