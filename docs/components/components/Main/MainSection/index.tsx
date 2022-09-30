@@ -50,7 +50,7 @@ export default () => {
               options={{
                 loop: false,
                 autoplay: false,
-                path: 'https://gw.alipayobjects.com/os/bmw-prod/6ddc2133-7421-44c2-b604-398a1a2732cd.json',
+                path: 'https://gw.alipayobjects.com/os/sage/02b4e615-c936-4adf-8cb7-095bd305b330/efbccd67-4060-4f50-8c9a-894ec8b6e319.json',
               }}
               eventListeners={
                 [{
@@ -72,7 +72,7 @@ export default () => {
             options={{
               loop: false,
               autoplay: false,
-              path: 'https://gw.alipayobjects.com/os/bmw-prod/9996aa6f-74ab-41f7-ada9-932a93afea12.json',
+              path: 'https://gw.alipayobjects.com/os/finxbff/lolita/01548f7e-9c13-4110-8023-f664ef4736c4/lottie.json',
             }}
             eventListeners={
               [{
@@ -90,7 +90,11 @@ export default () => {
         </div>
         <img
           className={styles.staticImage}
-          src='https://gw.alipayobjects.com/zos/bmw-prod/e45aee8c-e00f-45a0-83a4-0e2da2784460.svg'
+          src={
+            isWidthScreen
+              ? 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*kQ_zRK8YuGoAAAAAAAAAAAAAARQnAQ'
+              : 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*v4isTYsMCNcAAAAAAAAAAAAAARQnAQ'
+          }
         ></img>
       </div>
     </div>
