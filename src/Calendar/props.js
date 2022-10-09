@@ -1,6 +1,6 @@
 export const CalendarDefaultProps = {
-  startDate: null,
-  endDate: null,
+  min: null,
+  max: null,
   date: null,
   hideDisableItem: false,
   customDateList: [],
@@ -9,9 +9,10 @@ export const CalendarDefaultProps = {
   showConfirmButton: false,
   showResetButton: false,
   height: '90vh',
-  selectDate: null,
-  selectRange: null,
+  defaultValue: null,
+  defaultRange: null,
   showTitle: true,
   showMask: true,
-  fullScreen: false
+  fullScreen: false,
+  style: ''
 };

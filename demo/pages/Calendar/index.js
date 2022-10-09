@@ -6,14 +6,9 @@ Page({
     show: false,
     date1: null,
     range1: null,
-    startDate: new Date('2022-07-01'),
-    endDate: new Date('2022-10-26'),
-    holidayList: [
-      {
-        name: '中秋',
-        range: [new Date('2022-09-10'), new Date('2022-09-12')],
-        day: new Date('2022-09-10')
-      },
+    min: new Date('2022-07-01'),
+    max: new Date('2022-10-26'),
+    customDateList2: [
       {
         name: '国庆',
         range: [new Date('2022-10-01'), new Date('2022-10-07')],
@@ -21,6 +16,56 @@ Page({
       }
     ],
     customDateList: [
+      {
+        date: new Date('2022-10-01'),
+        text: '国庆',
+        color: 'red'
+      },
+      {
+        date: new Date('2022-10-02'),
+        text: '国庆',
+        color: 'red'
+      },
+      {
+        date: new Date('2022-10-03'),
+        text: '国庆',
+        color: 'red'
+      },
+      {
+        date: new Date('2022-10-04'),
+        text: '国庆',
+        color: 'red'
+      },
+      {
+        date: new Date('2022-10-05'),
+        text: '国庆',
+        color: 'red'
+      },
+      {
+        date: new Date('2022-10-06'),
+        text: '国庆',
+        color: 'red'
+      },
+      {
+        date: new Date('2022-10-07'),
+        text: '国庆',
+        color: 'red'
+      },
+      {
+        date: new Date('2022-09-10'),
+        text: '中秋',
+        color: 'red'
+      },
+      {
+        date: new Date('2022-09-11'),
+        text: '中秋',
+        color: 'red'
+      },
+      {
+        date: new Date('2022-09-12'),
+        text: '中秋',
+        color: 'red'
+      },
       {
         date: new Date('2022-07-17'),
         text: '未出账',
@@ -123,13 +168,13 @@ Page({
   },
   onLoad () {
   },
-  calStartEndDate () {
+  calStartDate () {
     const now = dayjs()
-    const startDate = now.subtract(3, 'month');
-    const endDate = now.add(3, 'month');
+    const min = now.subtract(3, 'month');
+    const max = now.add(3, 'month');
     this.setData ({
-      startDate: startDate.format("YYYY-MM-DD"),
-      endDate: endDate.format("YYYY-MM-DD")
+      min: min.format("YYYY-MM-DD"),
+      max: max.format("YYYY-MM-DD")
     })
   },
   handleButtonTap (e) {

@@ -34,39 +34,35 @@ Partial<ICalendarProps>,
     },
     didMount () {
         const {
-            startDate,
-            endDate,
+            min,
+            max,
             disableDates,
             selectionMode,
             customDateList,
-            holidayList,
-            selectDate,
-            selectRange,
+            defaultValue,
+            defaultRange,
             showlunar
         } = this.props;
         this.timer = null;
         this.calendarManager = new Calendar({
-            startDate,
-            endDate,
+            min,
+            max,
             disableDates,
             selectionMode,
             customDateList,
-            holidayList,
-            selectDate,
-            selectRange,
+            defaultValue,
+            defaultRange,
             showlunar
         });
         this.render()
+        this.getConfirmButtonState()
     },
     didUpdate (prev) {
-        if (!dayjs(this.props.startDate as Date).isSame(prev.startDate) || !dayjs(this.props.endDate as Date).isSame(prev.endDate)) {
-            this.calendarManager.updateStartEndDate(this.props.startDate, this.props.endDate)
+        if (!dayjs(this.props.min as Date).isSame(prev.min) || !dayjs(this.props.max as Date).isSame(prev.max)) {
+            this.calendarManager.updateStartEndDate(this.props.min, this.props.max)
             this.render()
         } else if (prev.disableDates !== this.props.disableDates) {
             this.calendarManager.updateDisableDates(this.props.disableDates)
-            this.render()
-        } else if (prev.holidayList !== this.props.holidayList) {
-            this.calendarManager.updateHolidayList(this.props.holidayList)
             this.render()
         } else if (prev.customDateList !== this.props.customDateList) {
             this.calendarManager.updateCustomDateList(this.props.customDateList)

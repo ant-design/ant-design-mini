@@ -1,7 +1,7 @@
 function GetDateItemWrapperClass (dateItem = {}) {
   let style = ""
   let className = ""
-  const { isToday, isRangeStart, isRangeEnd, isRangeArea, holiday, tag, lunar, disable, showBorderRadiusLeft, showBorderRadiusRight } = dateItem
+  const { isToday, isRangeStart, isRangeEnd, isRangeArea, tag, lunar, disable, showBorderRadiusLeft, showBorderRadiusRight } = dateItem
   if (isRangeEnd || isRangeStart) {
     style = "background: #1777FF;";
     className += 'amd-calendar-dateItem-wrapper-rangeedge'
@@ -28,7 +28,7 @@ function GetDateItemWrapperClass (dateItem = {}) {
 }
 
 function GetDateItemAboveAreaTextAndClass (dateItem = {}) {
-  const { isToday, isRangeEnd, isRangeStart, isSingleSelect, isRangeArea, holiday, tag, lunar } = dateItem
+  const { isToday, isRangeEnd, isRangeStart, isSingleSelect, isRangeArea, tag, lunar } = dateItem
 
   let text = ""
   let color = '#999999'
@@ -42,10 +42,6 @@ function GetDateItemAboveAreaTextAndClass (dateItem = {}) {
     } else if (isRangeEnd) {
       text = '结束'
     }
-  } else if (tag && holiday && holiday.isHolidayStartDay) {
-  // 节假日第一天
-    text = holiday.name
-    color = '#F93A4A'
   } else if (isToday) {
     text = '今日'
   } else if (tag && lunar) {
@@ -65,7 +61,7 @@ function GetDateItemAboveAreaTextAndClass (dateItem = {}) {
 }
 
 function GetDateItemMiddleAreaTextAndClass (dateItem = {}) {
-  const { isToday, isRangeStart, isRangeEnd, isRangeArea, holiday, tag, date } = dateItem
+  const { isToday, isRangeStart, isRangeEnd, isRangeArea, tag, date } = dateItem
 
   let color = "#333333"
   let text = date
@@ -84,7 +80,7 @@ function GetDateItemMiddleAreaTextAndClass (dateItem = {}) {
 }
 
 function GetDateItemBottomAreaTextAndClass (dateItem = {}) {
-  const { isToday, isRangeStart, isRangeEnd, isRangeArea, holiday, tag, lunar } = dateItem
+  const { isToday, isRangeStart, isRangeEnd, isRangeArea, tag, lunar } = dateItem
   let text = ""
   let color = '#999999'
   let className = ''
@@ -92,10 +88,6 @@ function GetDateItemBottomAreaTextAndClass (dateItem = {}) {
   if (tag) {
     text = tag.text
     color = tag.color
-  } else if (holiday && holiday.isHolidayStartDay) {
-    // 节假日第一天
-      text = holiday.name
-      color = '#F93A4A'
   } else if (lunar) {
     text = lunar.IDayCn
   }

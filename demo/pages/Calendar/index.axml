@@ -40,7 +40,7 @@
                 onTap="handleButtonTap"
                 data-index="{{4}}"
             >
-                自定义颜色
+                自定义选中颜色
             </list-item>
             <list-item
                 onTap="handleButtonTap"
@@ -56,9 +56,9 @@
 
 <calendar 
     className="wrapper"
-    startDate="{{startDate}}"
-    endDate="{{endDate}}"
-    selectDate="{{date1}}"
+    min="{{min}}"
+    max="{{max}}"
+    defaultValue="{{date1}}"
     onChange="handleDateChange"
     selectionMode="single"
     showConfirmButton="{{true}}"
@@ -69,20 +69,21 @@
 
 <calendar 
     className="wrapper"
-    startDate="{{startDate}}"
-    endDate="{{endDate}}"
-    selectRange="{{range1}}"
+    min="{{min}}"
+    max="{{max}}"
+    defaultRange="{{range1}}"
     onChange="handleRangeChange"
     selectionMode="range"
     showConfirmButton="{{true}}"
+    showResetButton="{{true}}"
     onClose="onClose"
     a:if="{{show2}}"
 />
 
 <calendar 
     className="wrapper"
-    startDate="{{startDate}}"
-    endDate="{{endDate}}"
+    min="{{min}}"
+    max="{{max}}"
     onClose="onClose"
     a:if="{{show7}}"
     date="{{date}}"
@@ -90,8 +91,8 @@
 
 <calendar 
     className="wrapper"
-    startDate="{{startDate}}"
-    endDate="{{endDate}}"
+    min="{{min}}"
+    max="{{max}}"
     onClose="onClose"
     a:if="{{show8}}"
     date="{{date}}"
@@ -100,8 +101,8 @@
 
 <calendar 
     className="wrapper"
-    startDate="{{startDate}}"
-    endDate="{{endDate}}"
+    min="{{min}}"
+    max="{{max}}"
     onChange="handleChange"
     selectionMode="single"
     showlunar="{{true}}"
@@ -112,8 +113,8 @@
 
 <calendar 
     className="wrapper1"
-    startDate="{{startDate}}"
-    endDate="{{endDate}}"
+    min="{{min}}"
+    max="{{max}}"
     onChange="handleChange"
     selectionMode="range"
     showlunar="{{true}}"
@@ -124,22 +125,21 @@
 
 <calendar 
     className="wrapper"
-    startDate="{{startDate}}"
-    endDate="{{endDate}}"
+    min="{{min}}"
+    max="{{max}}"
     onChange="handleChange"
     selectionMode="range"
     showlunar="{{true}}"
     showConfirmButton="{{true}}"
     onClose="onClose"
-    a:if="{{show5}}"
     customDateList="{{customDateList}}"
-    holidayList="{{holidayList}}"
+    a:if="{{show5}}"
 />
 
 <calendar 
     className="wrapper"
-    startDate="{{startDate}}"
-    endDate="{{endDate}}"
+    min="{{min}}"
+    max="{{max}}"
     onChange="handleChange"
     selectionMode="range"
     showlunar="{{true}}"

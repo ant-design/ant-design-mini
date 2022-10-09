@@ -1,45 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 import CALENDAR from './calendar';
 
-class HolidayHandler {
-  private holidayList = [];
-
-  constructor(holidayList) {
-    this.holidayList = holidayList
-  }
-
-  getHoliday(date) {
-    const currentDate = dayjs(date);
-    const holidayMatch = this.holidayList.filter((data) => {
-      if (data.range.length === 1) {
-        const rangeStartDay = data.range[0];
-        if (!dayjs(rangeStartDay).isSame(currentDate)) {
-          return false;
-        }
-      } else {
-        const [startDate, endDate] = data.range.map((item) => dayjs(item));
-        if (!startDate.isValid() || !endDate.isValid()) {
-          return false;
-        }
-        if (currentDate.isBefore(startDate) || currentDate.isAfter(endDate)) {
-          return false;
-        }
-      }
-      return true;
-    });
-    if (holidayMatch.length <= 0) {
-      return null;
-    }
-    const [targetHoliday] = holidayMatch;
-    return {
-      type: targetHoliday.type,
-      name: targetHoliday.name,
-      showHolidayDesc: targetHoliday.day ? dayjs(targetHoliday.day).isSame(currentDate) : false,
-      isHolidayStartDay: dayjs(targetHoliday.range[0]).isSame(currentDate),
-    };
-  }
-}
-
 export enum ECalendarSelectMode {
   single = "single",
   range = "range"
@@ -51,20 +12,13 @@ interface ICustomDateTextItem {
   date: string;
 }
 
-interface IHolidayItem {
-  name: string;
-  range: [string, string];
-  day: string;
-}
-
 class Calendar {
-    public startDate: Dayjs;
-    public endDate: Dayjs;
+    public min: Dayjs;
+    public max: Dayjs;
     public disableDates: Dayjs[];
     public selectionMode: ECalendarSelectMode;
     public showToday: boolean;
     public customDateList: ICustomDateTextItem[];
-    public holidayHandler: HolidayHandler;
     public selectStartDate: Dayjs;
     public selectEndDate: Dayjs;
     public selectDateList: Dayjs[];
@@ -73,32 +27,30 @@ class Calendar {
 
     constructor(params: any) {
         let {
-            startDate,
-            endDate,
+            min,
+            max,
             disableDates = [],
             selectionMode,
             customDateList,
-            holidayList = [],
-            selectDate,
-            selectRange,
+            defaultValue,
+            defaultRange,
             showlunar
         } = params;
 
-        if (!startDate || !endDate) {
-          startDate = dayjs().date(1).format("YYYY-MM-DD")
-          endDate = dayjs().add(1, 'M').date(1).subtract(1, 'd').format("YYYY-MM-DD")
+        if (!min || !max) {
+          min = dayjs().date(1).format("YYYY-MM-DD")
+          max = dayjs().add(1, 'M').date(1).subtract(1, 'd').format("YYYY-MM-DD")
         }
 
         this.showlunar = showlunar;
         this.calendarList = [];
-        this.holidayHandler = new HolidayHandler(holidayList);
         this.customDateList = customDateList;
         this.showToday = true;
         this.selectionMode = selectionMode;
         // 范围开始
-        this.startDate = startDate;
+        this.min = min;
         // 范围结束
-        this.endDate = endDate;
+        this.max = max;
         // 禁止日期列表
         this.disableDates = disableDates;
 
@@ -106,19 +58,19 @@ class Calendar {
         this.selectStartDate = null;
         this.selectDateList = []
 
-        if (selectionMode === ECalendarSelectMode.range && selectRange?.length === 2) {
-          this.selectStartDate = dayjs(selectRange[0])
-          this.selectEndDate = dayjs(selectRange[1])
-          this.selectDateList = this.getSelectDateList(selectRange[0], selectRange[1]);
-        } else if (selectionMode === ECalendarSelectMode.single && selectDate) {
-          this.selectStartDate = dayjs(selectDate)
+        if (selectionMode === ECalendarSelectMode.range && defaultRange?.length === 2) {
+          this.selectStartDate = dayjs(defaultRange[0])
+          this.selectEndDate = dayjs(defaultRange[1])
+          this.selectDateList = this.getSelectDateList(defaultRange[0], defaultRange[1]);
+        } else if (selectionMode === ECalendarSelectMode.single && defaultValue) {
+          this.selectStartDate = dayjs(defaultValue)
         }
     }
 
     updateStartEndDate (start, end) {
       if (!start || !end) return
-      this.startDate = start
-      this.endDate = end
+      this.min = start
+      this.max = end
     }
 
     updateSelectDate (start, end) {
@@ -129,10 +81,6 @@ class Calendar {
 
     updateDisableDates (dates) {
       this.disableDates = dates
-    }
-
-    updateHolidayList (dates) {
-      this.holidayHandler = new HolidayHandler(dates);
     }
 
     updateCustomDateList (dates) {
@@ -157,7 +105,7 @@ class Calendar {
       end = dayjs(end, "YYYY-MM-DD");
 
       const dates = []
-      while (!dayjs(begin).isAfter(end)) {
+      while (!dayjs(begin).isAfter(end, 'dates')) {
         dates.push(begin.format("YYYY-MM-DD"))
         begin = begin.add(1, 'day');
       }
@@ -166,10 +114,10 @@ class Calendar {
     }
 
     calculateCalendarList () {
-      const { startDate, endDate } = this;
+      const { min, max } = this;
       const calendarList = [];
-      let posDateStr = dayjs(startDate).format('YYYY-MM-01');
-      while (!dayjs(posDateStr).isAfter(dayjs(endDate))) {
+      let posDateStr = dayjs(min).format('YYYY-MM-01');
+      while (!dayjs(posDateStr).isAfter(dayjs(max), 'dates')) {
           this.setDate(posDateStr);
           const entry = {
               monthStartDate: dayjs(posDateStr).format('YYYY-MM-01'),
@@ -327,8 +275,8 @@ class Calendar {
         // 是否今天
         const isToday = nowFullDate === posDate;
         // 日期禁用
-        const beforeStartDate = this.startDate ? dayjs(posDate).isBefore(this.startDate) : false;
-        const afterEndDate = this.endDate ? dayjs(posDate).isAfter(this.endDate) : false;
+        const beforeStartDate = this.min ? dayjs(posDate).isBefore(this.min, 'dates') : false;
+        const afterEndDate = this.max ? dayjs(posDate).isAfter(this.max, 'dates') : false;
 
         const selectDateList = this.selectDateList;
         let selectIndex = -1;
@@ -375,7 +323,6 @@ class Calendar {
           isRangeEnd,
           isSingleSelect: this.selectionMode === ECalendarSelectMode.single && isRangeStart,
           showToday: false,
-          holiday: null,
           tag: null
         };
 
@@ -386,8 +333,6 @@ class Calendar {
         if (isToday) {
           data.showToday = this.showToday;
         }
-
-        data.holiday = this.holidayHandler.getHoliday(posDate);
 
         const tagItem = this.customDateList?.find((item) => {
           return dayjs(item.date).format('YYYY-MM-DD') === posDate
@@ -407,7 +352,7 @@ class Calendar {
     dateEqual(before, after) {
       before = dayjs(before, "YYYY-MM-DD")
       after = dayjs(after, "YYYY-MM-DD")
-      return before.isSame(after)
+      return before.isSame(after, 'dates')
     }
 
     /**

@@ -16,22 +16,22 @@ export interface ICalendarProps extends IBaseProps {
    * @description 限定选择的范围：起始时间
    * @default null
    */
-  startDate?: Date;
+  min?: Date;
   /**
    * @description 限定选择的范围：结束时间
    * @default null
    */
-  endDate?: Date;
+  max?: Date;
   /**
    * @description 默认选中时间
    * @default null
    */
-  selectDate?: Date;
+  defaultValue?: Date;
   /**
    * @description 默认选中范围
    * @default null
    */
-  selectRange?: [Date, Date];
+  defaultRange?: [Date, Date];
   /**
    * @description 选择模式
    * @default true
