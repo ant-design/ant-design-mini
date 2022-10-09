@@ -30,13 +30,11 @@ toc: 'content'
 | stroke | boolean | 否 | false | 是否有描边 |
 | iconType | string | 否 | - | 自定义图标 |
 | bgColor | string | 否 | - | 自定义背景色，css色值 |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 组件根节点类名 |
+| style | string | 否 | - | 组件根节点 style |
 
-## 样式类
-| 类名 | 说明 |
-| -----|-----|
-| amd-badge | 整体样式 |
-| amd-badge-inner-text | 内部文本样式 |
-| amd-badge-text | 文本样式 |
-| amd-badge-dot | 红点样式 |
-| amd-badge-icon | 图标样式 |
+## 插槽
+
+| 插槽名称 | 说明                                                       |
+| -------- | ---------------------------------------------------------- |
+| text    | 红点内容 |

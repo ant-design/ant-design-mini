@@ -3,4 +3,5 @@ export const NoticeBarDefaultProps = {
   enableMarquee: false,
   loop: false,
   type: 'default',
+  style: ''
 };
