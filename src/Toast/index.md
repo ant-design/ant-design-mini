@@ -28,16 +28,11 @@ toc: 'content'
 | visible | boolean | 是 | false | 是否隐藏 |
 | showMask | boolean | 否 | false | 是否展示蒙层 |
 | maskCloseable | boolean | 否 | false | 点击蒙层是否关闭 |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 组件根节点类名 |
+| style | string | 否 | - | 组件根节点style |
+| maskStyle | string | 否 | - | 蒙层style |
 
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onClose | Toast 关闭后的回调 | (e) => void |
-
-## 样式类
-| 类名 | 说明 |
-| ----|----|
-| amd-toast-wrapper | 整理样式 |
-| amd-toastWithIcon-wrapper | 带有 icon 时整体样式 |
-| amd-toast-icon | icon 样式 |

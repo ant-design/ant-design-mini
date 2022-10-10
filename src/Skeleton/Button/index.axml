@@ -1,4 +1,4 @@
-<view a:if="{{loading}}" class="amd-skeleton-button {{animate?'amd-skeleton-button-animate':''}} {{className||''}}">
+<view a:if="{{loading}}" class="amd-skeleton-button {{animate?'amd-skeleton-button-animate':''}} {{className||''}}" style="{{style}}">
 
 </view>
 <slot a:else/>

@@ -25,30 +25,14 @@ toc: 'content'
 
 | 属性          | 类型                        | 必填 | 默认值    | 说明                              |
 | ------------- | --------------------------- | ---- | --------- | --------------------------------- |
-| maskZindex    | string                      | 否   | -         | 层级                              |
-| type          | 'product' &verbar; 'market' | 否   | 'product' | 类别                              |
 | show          | boolean                     | 否   | -         | 是否显示                          |
 | fixMaskFull   | false                       | 否   | -         | 兼容 mask 祖父 transform 定位偏移 |
 | disableScroll | boolean                     | 否   | false     | mask 展示时，是否禁止页面滚动     |
-| className     | string                      | 否   | -         | 类名                              |
+| className     | string                      | 否   | -         | 根节点类名                              |
+| style     | string                      | 否   | -         | 根节点style                              |
 
 ## 事件
 
 | 事件名    | 说明 | 类型                             |
 | --------- | ---- | -------------------------------- |
 | onMaskTap |      | (v: Record<string, any>) => void |
-
-## CSS 变量
-
-| CSS 变量名称                     | 说明 |
-| -------------------------------- | ---- |
-| --am-mask-backgroundColor        | -    |
-| --am-mask-market-backgroundColor | -    |
-
-## 样式类
-
-| 类名            | 说明 |
-| --------------- | ---- |
-| amd-mask        | -    |
-| amd-mask\_\_m   | -    |
-| amd-mask\_\_fix | -    |

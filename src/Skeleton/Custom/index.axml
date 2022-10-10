@@ -1,4 +1,4 @@
-<view a:if="{{loading}}" class="amd-skeleton-custom {{animate?'amd-skeleton-custom-animate':''}} {{className||''}}">
+<view a:if="{{loading}}" class="amd-skeleton-custom {{animate?'amd-skeleton-custom-animate':''}} {{className||''}}" style="{{style}}">
 
 
 </view>

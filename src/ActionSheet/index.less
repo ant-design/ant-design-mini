@@ -29,7 +29,7 @@
     font-size: 36 * @rpx;
     .hairline("bottom", @color-divider-line);
     &-title-danger {
-      color: var(--am-actionsheet-danger-color, @actionsheet-danger-color);
+      color: @actionsheet-danger-color;
       font-weight: bold;
     }
     &-description {
@@ -79,8 +79,8 @@
     display: flex;
     align-items: center;
     &-icon {
-      height: var(--am-actionsheet-icon-height, @actionsheet-icon-height);
-      flex: 0 0 var(--am-actionsheet-icon-width, @actionsheet-icon-width);
+      height: @actionsheet-icon-height;
+      flex: 0 0 @actionsheet-icon-width;
       margin-right: 24* @rpx;
       background-size: contain;
       background-position: center center;

@@ -69,3 +69,40 @@
   border: 1px solid #E5E5E5;
   color: #333333;
 }
+
+.amd-progressbar-indicator-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 10;
+}
+
+.amd-progressbar-indicator-column-text1 {
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #999999;
+  line-height: 14px;
+  height: 14px;
+  white-space: nowrap;
+}
+
+.amd-progressbar-indicator-column-text2 {
+  font-family: Helvetica;
+  font-size: 20px;
+  color: #333333;
+  height: 24px;
+  line-height: 24px;
+}
+
+.amd-progressbar-indicator-column-text3 {
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #999999;
+  height: 14px;
+  line-height: 14px;
+}

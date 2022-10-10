@@ -25,16 +25,11 @@ toc: false
 | inactiveColor | string | 否 | - | 原始填充色 |
 | disabled | boolean | 否 | - | 是否禁用 |
 | image | string | 否 | - | 自定义图片，格式 svg |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 组件根节点类名 |
+| style | string | 否 | - | 组件根节点style |
 
 ## 事件
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onChange | 打分结束时，触发回调 | (idx: number, e: [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-
-## 样式类
-
-| 类名 | 说明 |
-| ----|----|
-| amd-rate-wrapper | 整体样式 |

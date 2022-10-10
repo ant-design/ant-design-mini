@@ -27,7 +27,8 @@ toc: 'content'
 | size | 'x-large' &verbar; 'large' &verbar; 'medium' &verbar; 'small' | 否 | 'medium' | 加载图标尺寸，当 type 为 'spin' 时生效 |
 | text | string | 否 | - | 加载中文案，当 type 为 'spin' 时生效 |
 | theme | 'dark' &verbar; 'light' | 否 | 'dark' | 颜色，dark/深色, light/浅色，当 type 为 'spin' 时生效 |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 根节点类名 |
+| style | string | 否 | - | 根节点style |
 
 ## 插槽
 | 名称 | 说明 |

@@ -35,7 +35,8 @@ type IActionItem = {
 | actions | IActionItem[] | 否 | [] | 面板选项列表 |
 | title | string | 否 | - | 标题 |
 | cancelText | string | 否 | 取消 | 取消按钮文字 |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 根节点类名 |
+| style | string | 否 | - | 根节点style |
 
 ## 事件 
 
@@ -44,12 +45,4 @@ type IActionItem = {
 | onAction | 点击选项时触发，禁用状态下不会触发 | (item: IActionItem, index, event) => void |
 | onClose | 关闭时触发| (event) => void |
 
-
-## CSS 变量 
-
-| CSS 变量名称 | 说明 |
-| -----|----- |
-| --am-actionsheet-danger-color | 危险状态字体颜色 |
-| --am-actionsheet-icon-width | icon宽度 |
-| --am-actionsheet-icon-height | icon高度 |
 
