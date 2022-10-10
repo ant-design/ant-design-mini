@@ -1,0 +1,108 @@
+<import-sjs name="util" from="./index.sjs"/>
+
+<view class="my-paytm-swipe {{className}}">
+  <view class="paytm-swipe" style="{{{ width: util.getWidth(rightWidth, leftWidth) }}}">
+    <movable-area class="paytm-swipe-movable" style="{{{ 'margin-left': util.getMarginLeft(rightWidth, leftWidth) }}}">
+      <movable-view
+        class="paytm-swipe-movable-content"
+        style="{{{
+          width: util.getWidth2(rightWidth, leftWidth),
+          marginLeft: util.getMarginLeft2(rightWidth, leftWidth)}}}"
+        x="{{swipeX}}"
+        data-type="content"
+        animation="{{true}}"
+        damping="{{damping}}"
+        direction="horizontal"
+        out-of-bounds="{{ false }}"
+        disabled="{{_disabled || disable}}"
+        onTap="onSwipeTap"
+        onChange="onChange"
+        onChangeEnd="onChangeEnd"
+        catchTouchEnd="onTouchEnd"
+        onTouchCancel="onTouchCancel"
+        catchTouchStart="onTouchStart"
+      >
+        <view
+          class="paytm-swipe-movable-content-view"
+          style="{{util.getSlotWidthStyle(rightWidth, leftWidth, left, right)}}"
+          catchTap="onClick">
+          <view class="paytm-swipe-movable-content-view-modal" a:if="{{swipedR || swipedL}}"></view>
+          <slot />
+        </view>
+      </movable-view>
+      <movable-view
+        class="paytm-swipe-movable-content {{`paytm-swipe-movable-right-${$id}`}}"
+        a:for="{{right}}"
+        a:for-item="item"
+        a:for-index="idx"
+        damping="{{damping}}"
+        a:key="{{idx}}"
+        style="{{{
+          zIndex: tapTypeR === item.type ? 1 : 0,
+          marginLeft: util.getMarginLeft3(rightWidth, leftWidth),
+          background: item.bgColor,
+          width: (rightWidth - 0.1) + 'rpx' }}}"
+        data-type="content"
+        animation="{{false}}"
+        disabled="{{true}}"
+        direction="horizontal"
+        x="{{moveX * ((right.length - idx) / right.length)}}"
+      >
+        <view class="paytm-swipe-movable-content-right" style="{{{width: itemWidth + 'rpx'}}}">
+          <view
+            class="paytm-swipe-movable-content-right-text"
+            catchTap="onItemTap"
+            data-item="{{item, idx}}"
+            style="{{{
+              ...item.style,
+              background: item.bgColor,
+              fontSize: (item.fontSize || 28) + 'rpx',
+              color: item.color,
+              width: tapTypeR && tapTypeR === item.type ? (rightWidth) + 'rpx' : '100%',
+              ...(tapTypeR && tapTypeR === item.type ? myStyle : {})
+              }}}">
+              <text class="right-text {{util.getLeft(tapTypeR, item, idx, right, true)}}">
+                {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
+              </text>
+          </view>
+        </view>
+      </movable-view>
+      <movable-view
+        class="paytm-swipe-movable-content is-right-swipe {{`paytm-swipe-movable-left-${$id}`}}"
+        a:for="{{left}}"
+        a:for-item="itemL"
+        a:for-index="idx"
+        damping="{{damping}}"
+        a:key="{{`left-${idx}`}}"
+        style="{{{
+          zIndex: tapTypeL === itemL.type ? 1 : 0,
+          background: itemL.bgColor,
+          width: (leftWidth - 1) + 'rpx'}}}"
+        data-type="content"
+        animation="{{false}}"
+        disabled="{{true}}"
+        direction="horizontal"
+        x="{{moveX * ((left.length - idx) / left.length)}}"
+      >
+      <view class="paytm-swipe-movable-content-right" style="{{{width: itemWidth + 'rpx'}}}">
+        <view
+          class="paytm-swipe-movable-content-right-text"
+          catchTap="onItemTap"
+          data-item="{{itemL, idx}}"
+          style="{{{
+            ...item.style,
+            background: itemL.bgColor,
+            fontSize: (itemL.fontSize || 28) + 'rpx',
+            color: itemL.color,
+            width: tapTypeL && tapTypeL === itemL.type ? leftWidth + 'rpx' : '100%',
+            ...(tapTypeL && tapTypeL === itemL.type ? myStyle : {})
+            }}}">
+            <text class="right-text {{util.getLeft(tapTypeL, itemL, idx, left, false)}}">
+              {{tapTypeL && tapTypeL === itemL.type ? (itemL.confirmText || itemL.text) : itemL.text}}
+            </text>
+        </view>
+      </view>
+      </movable-view>
+    </movable-area>
+  </view>
+</view>

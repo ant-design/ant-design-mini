@@ -21,6 +21,7 @@
     "pages/ButtonAddon/index",
     "pages/Modal/index",
     "pages/SwipeAction/index",
+    "pages/SwipeActionTool/index",
     "pages/SwipeActionRef/index",
     "pages/Tabs/index",
     "pages/TabsSticky/index",
@@ -73,9 +74,9 @@
     "pages/CascaderPicker/index",
     "pages/Rate/index",
     "pages/Slider/index",
-    "pages/TabsElevator/index"
+    "pages/TabsElevator/index",
+    "pages/SwipeActionTool/index"
   ],
-
   "window": {
     "enableWK": "YES",
     "enableDSL": "YES",

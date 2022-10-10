@@ -50,6 +50,7 @@ export enum EComponents {
   Steps = 'Steps',
   StepItem = 'StepItem',
   SwipeAction = 'SwipeAction',
+  SwipeActionTool = 'SwipeActionTool',
   Switch = 'Switch',
   Tabs = 'Tabs',
   TabItem = 'TabItem',

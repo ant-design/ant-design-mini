@@ -1,0 +1,65 @@
+<view class="t-swipe">
+  <view class="t-swipe-title">基础用法</view>
+  <view class="t-swipe-item" a:for="{{baseRightList}}">
+    <swipe-action-tool
+      rightSwiped="{{item.event.key === swipeStr}}"
+      leftSwiped="{{item.event.key === swipeStr}}"
+      right="{{item.event.right || []}}"
+      left="{{item.event.left || []}}"
+      key="{{item.event.key}}"
+      callbackData="{{ item.event }}"
+      itemWidth="{{item.event.itemWidth}}"
+      disable="{{item.event.disable}}"
+      onRightItemEvent="onRightItemEvent"
+      onLeftItemEvent="onLeftItemEvent"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onTouchEnd="onTouchEnd">
+      <view class="t-swipe-item-con">
+        {{ item.detail }}
+      </view>
+    </swipe-action-tool>
+  </view>
+  <view class="t-swipe-title">点击二次确认</view>
+  <view class="t-swipe-item" a:for="{{baseRightList}}">
+      <swipe-action-tool
+        rightSwiped="{{item.event.key === swipeStr}}"
+        leftSwiped="{{item.event.key === swipeStr}}"
+        right="{{item.event.right || []}}"
+        left="{{item.event.left || []}}"
+        key="{{item.event.key}}"
+        callbackData="{{ item.event }}"
+        itemWidth="{{item.event.itemWidth}}"
+        disable="{{item.event.disable}}"
+        onRightItemEvent="onRightItemEvent"
+        onLeftItemEvent="onLeftItemEvent"
+        onSwipeEnd="onSwipeEnd"
+        onSwipeStart="onSwipeStart"
+        onTouchEnd="onTouchEnd">
+        <view class="t-swipe-item-con">
+          {{ item.detail }}
+        </view>
+      </swipe-action-tool>
+  </view>
+  <view class="t-swipe-title">滑动二次确认</view>
+  <view class="t-swipe-item" a:for="{{baseRightList}}">
+      <swipe-action-tool
+        rightSwiped="{{item.event.key === swipeStr}}"
+        leftSwiped="{{item.event.key === swipeStr}}"
+        right="{{item.event.right || []}}"
+        left="{{item.event.left || []}}"
+        key="{{item.event.key}}"
+        callbackData="{{ item.event }}"
+        itemWidth="{{item.event.itemWidth}}"
+        disable="{{item.event.disable}}"
+        onRightItemEvent="onRightItemEvent"
+        onLeftItemEvent="onLeftItemEvent"
+        onSwipeEnd="onSwipeEnd"
+        onSwipeStart="onSwipeStart"
+        onTouchEnd="onTouchEnd">
+        <view class="t-swipe-item-con">
+          {{ item.detail }}
+        </view>
+      </swipe-action-tool>
+  </view>
+</view>

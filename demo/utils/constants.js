@@ -301,6 +301,11 @@ export const componentList = [
         nameZN: '安全区',
         path: '/pages/SafeArea/index',
       },
+      {
+        name: 'SwipeActionTool',
+        nameZN: '滑动组件',
+        path: '/pages/SwipeActionTool/index',
+      },
     ],
   },
 ];

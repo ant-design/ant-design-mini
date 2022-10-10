@@ -1,0 +1,101 @@
+@keyframes text-animate-right {
+    33% {
+      margin-left: -10rpx;
+    }
+    66% {
+      margin-left: 10rpx;
+    }
+    100% {
+      margin-left: 0rpx;
+    }
+  }
+  @keyframes text-animate-midd {
+    33% {
+      margin-bottom: -4rpx;
+    }
+    66% {
+      margin-bottom: 4rpx;
+    }
+    100% {
+      margin-bottom: 0rpx;
+    }
+  }
+  @keyframes text-animate-left {
+    33% {
+      margin-left: 10rpx;
+    }
+    66% {
+      margin-left: -10rpx;
+    }
+    100% {
+      margin-left: 0rpx;
+    }
+  }
+
+  .text-move-right {
+    animation-name: text-animate-right;
+    animation-duration: 500ms;
+  }
+  .text-move-left {
+    animation-name: text-animate-left;
+    animation-duration: 500ms;
+  }
+  .text-move-midd {
+    animation-name: text-animate-midd;
+    animation-duration: 400ms;
+  }
+
+  .my-paytm-swipe {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      .paytm-swipe {
+        height: 100%;
+        position: relative;
+        &-movable {
+          width: 100%;
+          height: 100%;
+          &-content {
+            height: 100%;
+            &-view {
+              height: 100%;
+              &-modal {
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 9;
+              }
+            }
+            &-right {
+              height: 100%;
+              color: white;
+              position: relative;
+              left: 0;
+              &-text {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: all 120ms cubic-bezier(0.2, 0.2, 0.8, 1);
+                .right-text {
+                  text-align: center;
+                  white-space: nowrap;
+                }
+              }
+            }
+          }
+        }
+      }
+  }
+
+  .is-right-swipe {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
