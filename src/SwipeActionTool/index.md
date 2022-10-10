@@ -17,6 +17,11 @@ toc: 'content'
 ### 组件使用
 <code src='../../demo/pages/SwipeActionTool'></code>
 
+### 使用限制
+
+1. 该组件父级容器必须设置css的width和height
+2. 左右两侧都需要滑动按钮时，left\right数量需一致
+
 
 ## 属性
 | 属性         | 类型            | 必填   | 默认值 | 说明                  |
