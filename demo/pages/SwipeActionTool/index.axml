@@ -1,6 +1,6 @@
 <view class="t-swipe">
   <view class="t-swipe-title">基础用法</view>
-  <view class="t-swipe-item" a:for="{{baseRightList}}">
+  <view class="t-swipe-item" a:for="{{baseRightList0}}">
     <swipe-action-tool
       rightSwiped="{{item.event.key === swipeStr}}"
       leftSwiped="{{item.event.key === swipeStr}}"
@@ -21,7 +21,7 @@
     </swipe-action-tool>
   </view>
   <view class="t-swipe-title">点击二次确认</view>
-  <view class="t-swipe-item" a:for="{{baseRightList}}">
+  <view class="t-swipe-item" a:for="{{baseRightList1}}">
       <swipe-action-tool
         rightSwiped="{{item.event.key === swipeStr}}"
         leftSwiped="{{item.event.key === swipeStr}}"
@@ -42,7 +42,7 @@
       </swipe-action-tool>
   </view>
   <view class="t-swipe-title">滑动二次确认</view>
-  <view class="t-swipe-item" a:for="{{baseRightList}}">
+  <view class="t-swipe-item" a:for="{{baseRightList2}}">
       <swipe-action-tool
         rightSwiped="{{item.event.key === swipeStr}}"
         leftSwiped="{{item.event.key === swipeStr}}"

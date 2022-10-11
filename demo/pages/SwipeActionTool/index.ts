@@ -194,7 +194,7 @@ const baseRightList = [
     detail: '左右滑-双按钮',
     event: {
       swiped: false,
-      key: 'lr-s1',
+      key: 'lr-s2',
       itemWidth: 150,
       disable: false,
       right: [
@@ -239,7 +239,7 @@ const baseRightList = [
     detail: '左右滑-三按钮',
     event: {
       swiped: false,
-      key: 'lr-s1',
+      key: 'lr-s3',
       itemWidth: 150,
       disable: false,
       right: [
@@ -300,10 +300,45 @@ const baseRightList = [
 
 Page({
   data: {
-    baseRightList,
+    baseRightList0: [],
+    baseRightList1: [],
+    baseRightList2: baseRightList,
     swipeStr: 's10',
   },
-  onLoad() {},
+  onLoad() {
+    const arr1 = [];
+    const arr2 = [];
+    const arr3 = [];
+    const rObj = {
+      type: 'delete',
+      text: '删除',
+      bgColor: '#FF2B00',
+      color: '#fff',
+    }
+    baseRightList.forEach(u => {
+      const r = u.event.right ? u.event.right.map(u => {
+        return rObj;
+      }) : [];
+      const l = u.event.left ? u.event.left.map(u => {
+        return rObj;
+      }) : [];
+      const a1 = { detail: u.detail, event: Object.assign({}, u.event, { right: r, left: l })  };
+      arr1.push(a1);
+
+      const r1 = u.event.right ? u.event.right.map(i => {
+        return Object.assign({}, i, { eventType: 'auto' });
+      }) : [];
+      const l1 = u.event.left ? u.event.left.map(i => {
+        return Object.assign({}, i, { eventType: 'auto' });
+      }) : [];
+      const a2 = { detail: u.detail, event: Object.assign({}, u.event, { right: r1, left: l1, key: `${u.event.key}-tap-check` })  };
+      arr2.push(a2);
+
+      const a3 = { detail: u.detail, event: Object.assign({}, u.event, { key: `${u.event.key}-move-check` })  };
+      arr3.push(a3);
+    });
+    this.setData({ baseRightList0: arr1, baseRightList1: arr2, baseRightList2: arr3 });
+  },
   onRightItemEvent(type: string, key: string, callbackData: any) {
     console.log('type, key, callbackData', type, key, callbackData);
     my.showToast({ content: `right: ${key}-${type}` });
