@@ -27,11 +27,14 @@ export interface IndexListProps {
   type: 'base' | 'diy' | 'only',
   indexList: string[],
   indexArr?: IndexArr[],
+  scrollToKey: '',
+  sticky: boolean,
+  vibrate: boolean,
   'amd-index-list-index'?: string,
   'amd-index-list-item'?: string,
   'amd-index-list-list'?: string,
   'amd-index-list-key'?: string,
-  onTouch?: (index: string) => void,
+  onChange?: (index: string) => void,
 }
 
 export declare const IndexListDefaultProps: Partial<IndexListProps>;

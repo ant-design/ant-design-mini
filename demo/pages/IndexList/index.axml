@@ -12,13 +12,13 @@
       type="base"
       indexList="{{indexList1}}"
       indexArr="{{indexArr1}}"
-      onTouch="onTouch1"/>
+      onChange="onTouch1"/>
     <index-list
       a:if="{{activeTab === 'diy'}}"
       type="diy"
       indexList="{{indexList2}}"
       indexArr="{{indexArr2}}"
-      onTouch="onTouch2">
+      onChange="onTouch2">
       <view slot="header" slot-scope="h" class="diy-header">{{h.value}}</view>
       <view slot="footer" slot-scope="f" class="diy-footer">
         <view class="diy-footer-item" a:for="{{f.value}}">
@@ -34,6 +34,6 @@
       a:if="{{activeTab === 'only'}}"
       type="only"
       indexList="{{indexList3}}"
-      onTouch="onTouch3"/>
+      onChange="onTouch3"/>
   </view>
 </view>

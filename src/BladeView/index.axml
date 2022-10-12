@@ -33,7 +33,7 @@
           data-group="{{group}}"
           onTap="onTapItem"
         >
-          <view class="amd-blade-view-body-group-item-text {{ index ? 'amd-blade-view-body-group-item-text-not-first': '' }} {{value===item.value ? 'amd-blade-view-body-group-item-text-selected' : ''}}">
+          <view class="amd-blade-view-body-group-item-text {{ index ? 'amd-blade-view-body-group-item-text-not-first': '' }} {{'amd-blade-view-body-group-item-text-selected'}}">
             <slot item="{{item}}">{{item.label}}</slot>
           </view>
         </view>
