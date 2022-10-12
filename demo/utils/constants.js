@@ -77,11 +77,6 @@ export const componentList = [
         path: '/pages/GuideTour/index',
       },
       {
-        name: 'SwipeAction',
-        nameZN: '滑动操作',
-        path: '/pages/SwipeAction/index',
-      },
-      {
         name: 'Tag',
         nameZN: ' 标签',
         path: '/pages/Tag/index',
