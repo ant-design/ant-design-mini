@@ -1,18 +1,18 @@
-import { SwipeActionToolDefaultProps } from './props';
+import { SwipeActionDefaultProps } from './props';
 
 const setStyleObj1 = (itemWidth: number) => [
-  { left: 0 },
-  { left: -(itemWidth + 1) + 'rpx' },
-  { left: -(2 * itemWidth + 1) + 'rpx' }
+  { marginLeft: 0 },
+  { marginLeft: -(itemWidth + 1) + 'rpx' },
+  { marginLeft: -(2 * itemWidth + 1) + 'rpx' }
 ];
 const setStyleObj2 = (itemWidth: number, length) => {
   if (length === 2) {
-    return [ { left: -itemWidth + 'rpx' }, { left: 0 } ]
+    return [ { marginRight: 0 }, { marginRight: -(itemWidth) + 'rpx' } ]
   }
   if (length === 3) {
-    return [ { left: -(2 * itemWidth) + 'rpx' }, { left: -itemWidth + 'rpx' }, { left: 0 } ]
+    return [ { marginRight: 0 }, { marginRight: -itemWidth + 'rpx' }, { marginRight: -(2 * itemWidth) + 'rpx' } ]
   }
-  return [{ left: 0 }]
+  return [{ marginRight: 0 }]
 }
 
 let myTimeOut = null;
@@ -25,7 +25,7 @@ const getDirectionLeft = (arr: number[]): boolean => {
 }
 
 Component({
-  props: SwipeActionToolDefaultProps,
+  props: SwipeActionDefaultProps,
   data: {
     swipeLeft: true, // 是否是进行左滑
     swipeX: 0, // 主体部分左滑的位置
@@ -41,34 +41,40 @@ Component({
     swipedL: false, // 左侧已经滑开了
     changeArr: [0, 0], // 用来判断最后一次滑动的方向
     _disabled: false, // 禁止滑动
-    damping: 20, // 滑的速度
     myStyle: {},
+    inertiaWidth: 20,
   },
   didMount() {
-    const { itemWidth, right, left, rightSwiped, leftSwiped } = this.props;
+    const { itemWidth, right, left, rightSwiped, leftSwiped, inertia } = this.props;
     const _rightArr = right || [];
     const _leftArr = left || [];
     this.setData({
       rightWidth: itemWidth * _rightArr.length,
       leftWidth: itemWidth * _leftArr.length,
+      inertiaWidth: inertia ? 20 : 0,
     });
     if (rightSwiped || leftSwiped) {
       this.initWidth((maxSwipe: any) => {
         maxSwipe && this.setData({
-          swipeX: (maxSwipe + 0.01) * (!!rightSwiped ? -1 : 1), // TODO: 左右滑同时存在的情况
-          swipedR: rightSwiped,
-          swipedL: leftSwiped,
+          swipeX: (maxSwipe + 0.01) * (!!rightSwiped ? -1 : 1),
+          swipedR: rightSwiped && !leftSwiped,
+          swipedL: leftSwiped && !rightSwiped,
         });
       });
     }
   },
   didUpdate(prevProp) {
-    const { rightSwiped, leftSwiped } = this.props;
+    const { rightSwiped, leftSwiped, inertia, damping } = this.props;
     // 设置不同的滑动位置时需要重置
     const rs = prevProp.rightSwiped !== rightSwiped && !rightSwiped;
     const ls = prevProp.leftSwiped !== leftSwiped && !leftSwiped;
-    if (rs || ls) {
+    const is = prevProp.inertia !== inertia;
+    const ds = prevProp.damping !== damping;
+    if (rs || ls || is || ds) {
       this.setData({ swipeX: 0, swipedR: false, swipedL: false, tapTypeL: '', tapTypeR: '' });
+    }
+    if (is) {
+      this.setData({ inertiaWidth: inertia ? 20 : 0 });
     }
   },
   methods: {
@@ -110,7 +116,7 @@ Component({
     },
     // 滑动过程中的事件，是内部事件不向外透出，用于控制右侧按钮的位置信息
     onChange(e: any) {
-      const { changeArr, maxSwipeR, maxSwipeL, inTouch, swipedR, swipedL } = this.data;
+      const { changeArr, maxSwipeR, maxSwipeL, inTouch, swipedR, swipedL, inertiaWidth } = this.data;
       const { x } = e.detail;
       let L = x;
       // changeArr用于精准的控制滑动的方向
@@ -128,7 +134,7 @@ Component({
           myTimeOut = setTimeout(() => {
             const { changeArr, maxSwipeR, inTouch, swipedR, moveX } = this.data;
             let _left = getDirectionLeft(changeArr) && changeArr[0] >= changeArr[1];
-            if (inTouch && maxSwipeR + 2 >= Math.abs(moveX) && _left && !swipedR) {
+            if (inTouch && maxSwipeR + inertiaWidth + 2 >= Math.abs(moveX) && _left && !swipedR) {
               this.onSetCheck(true);
             }
           }, 100);
@@ -220,30 +226,31 @@ Component({
     // 结算
     onSwipeLeft(isRight: boolean) {
       const { onSwipeEnd, key, callbackData } = this.props;
-      const { maxSwipeL } = this.data;
+      const { maxSwipeL, inertiaWidth } = this.data;
       // 为了处理到重置状态的效果
+      const maxX = (maxSwipeL + 0.01 + inertiaWidth);
       this.setData(
         {
-          swipeX: isRight ? maxSwipeL : -0.01,
-          _disabled: true,
+          swipeX: isRight ? maxX : -0.01,
         },
         () => {
           const flag = this.data.swipeX === -0.01;
-          this.setData(
-            {
-              swipeX: flag ? 0 : (maxSwipeL + 0.01),
-              swipedL: !flag,
-              _disabled: false,
-            },
-            () => {
-              onSwipeEnd(key, { direction: isRight ? 'right' : 'left', left: true }, callbackData);
-            },
-          );
+          setTimeout(() => {
+            this.setData(
+              {
+                swipeX: flag ? 0 : (maxSwipeL + 0.01),
+                swipedL: !flag,
+              },
+              () => {
+                onSwipeEnd(key, { direction: isRight ? 'right' : 'left', left: true }, callbackData);
+              },
+            );
+          }, inertiaWidth > 0 ? 200 : 0)
         },
       );
     },
     onSwipeRight(isRight: boolean) {
-      const { maxSwipeR, moveX, swipedR } = this.data;
+      const { maxSwipeR, moveX, swipedR, inertiaWidth } = this.data;
       let mySwipe = swipedR;
       const { onSwipeEnd, key, callbackData } = this.props;
       // 处理x的位置，两次setData X是因为x如果相同位置不会变，刚好也把弹性在这里处理了
@@ -252,15 +259,24 @@ Component({
         mySwipe = true;
       }
       // 为了处理到重置状态的效果
-      const maxX = mySwipe && isRight ? -(maxSwipeR + 0.01) : -maxSwipeR;
+      const maxX = -(maxSwipeR + 0.01 + inertiaWidth);
       this.setData(
         {
           swipeX: isRight ? maxX : -0.01,
-          _disabled: true,
         },
         () => {
           const flag = _this.data.swipeX === -0.01;
-          this.setData(
+          inertiaWidth > 0 ? setTimeout(() => {
+            this.setData(
+              {
+                swipeX: flag ? 0 : -(maxSwipeR + 0.01),
+                swipedR: !flag,
+              },
+              () => {
+                onSwipeEnd(key, { direction: isRight ? 'left' : 'right', right: true }, callbackData);
+              },
+            );
+          }, 200) : this.setData(
             {
               swipeX: flag ? 0 : -(maxSwipeR + 0.01),
               swipedR: !flag,

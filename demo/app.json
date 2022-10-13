@@ -20,7 +20,7 @@
     "pages/ButtonIcon/index",
     "pages/ButtonAddon/index",
     "pages/Modal/index",
-    "pages/SwipeActionTool/index",
+    "pages/SwipeAction/index",
     "pages/Tabs/index",
     "pages/TabsSticky/index",
     "pages/TabsFallback/index",
@@ -72,8 +72,7 @@
     "pages/CascaderPicker/index",
     "pages/Rate/index",
     "pages/Slider/index",
-    "pages/TabsElevator/index",
-    "pages/SwipeActionTool/index"
+    "pages/TabsElevator/index"
   ],
   "window": {
     "enableWK": "YES",

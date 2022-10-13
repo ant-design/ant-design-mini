@@ -1,6 +1,7 @@
-export const SwipeActionToolDefaultProps = {
+export const SwipeActionDefaultProps = {
     key: '', // 唯一标识
     className: '',
+    damping: 60, // 滑的速度
     right: [],
     left: [],
     itemWidth: 150, // 滑动按钮宽度

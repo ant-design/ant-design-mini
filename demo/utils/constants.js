@@ -67,6 +67,11 @@ export const componentList = [
         path: '/pages/List/index',
       },
       {
+        name: 'SwipeAction',
+        nameZN: '滑动操作',
+        path: '/pages/SwipeAction/index',
+      },
+      {
         name: 'Steps',
         nameZN: '步骤条',
         path: '/pages/Steps/index',
@@ -295,11 +300,6 @@ export const componentList = [
         name: 'SafeArea',
         nameZN: '安全区',
         path: '/pages/SafeArea/index',
-      },
-      {
-        name: 'SwipeActionTool',
-        nameZN: '滑动组件',
-        path: '/pages/SwipeActionTool/index',
       },
     ],
   },

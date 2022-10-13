@@ -16,7 +16,7 @@ interface SwipeEnd {
     right?: boolean,
 }
 
-interface ISwipeActionToolProps extends IBaseProps  {
+interface ISwipeActionProps extends IBaseProps  {
   /**
    * @description 左侧滑出事件
    * @default []
@@ -33,10 +33,20 @@ interface ISwipeActionToolProps extends IBaseProps  {
    */
    itemWidth?: number;
   /**
+   * @description 滑动速度
+   * @default 20
+   */
+   damping?: number;
+  /**
    * @description 唯一标识
    * @default ''
    */
    key: string;
+  /**
+   * @description 滑动弹性
+   * @default true
+   */
+   inertia?: boolean;
   /**
    * @description 左侧按钮是否滑开
    * @default false
@@ -78,4 +88,4 @@ interface ISwipeActionToolProps extends IBaseProps  {
    */
    onLeftItemEvent: (type: string, key: string, callbackData: object) => void;
 }
-export declare const SwipeActionToolDefaultProps: Partial<ISwipeActionToolProps>;
+export declare const SwipeActionDefaultProps: Partial<ISwipeActionProps>;

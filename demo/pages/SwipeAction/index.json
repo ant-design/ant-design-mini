@@ -1,0 +1,13 @@
+{
+  "defaultTitle": "Swipe-Action",
+  "pullRefresh": "NO",
+  "showProgress": "NO",
+  "allowsBounceVertical": "NO",
+  "usingComponents": {
+    "swipe-action": "../../../src/SwipeAction/index",
+    "radio-group": "../../../src/RadioGroup/index",
+    "radio-item": "../../../src/RadioGroup/RadioItem/index",
+    "switch": "../../../src/Switch/index",
+    "slider": "../../../src/Slider/index"
+  }
+}

@@ -10,14 +10,11 @@
     }
   }
   @keyframes text-animate-midd {
-    33% {
-      margin-bottom: -4rpx;
-    }
-    66% {
-      margin-bottom: 4rpx;
+    0% {
+      opacity: 0;
     }
     100% {
-      margin-bottom: 0rpx;
+      opacity: 1;
     }
   }
   @keyframes text-animate-left {
@@ -42,7 +39,7 @@
   }
   .text-move-midd {
     animation-name: text-animate-midd;
-    animation-duration: 400ms;
+    animation-duration: 500ms;
   }
 
   .my-paytm-swipe {
@@ -57,6 +54,7 @@
           height: 100%;
           &-content {
             height: 100%;
+            position: relative;
             &-view {
               height: 100%;
               &-modal {
@@ -72,16 +70,31 @@
             &-right {
               height: 100%;
               color: white;
-              position: relative;
-              left: 0;
               &-text {
                 height: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                position: absolute;
-                top: 0;
-                left: 0;
+                transition: all 120ms cubic-bezier(0.2, 0.2, 0.8, 1);
+                .right-text {
+                  text-align: center;
+                  white-space: nowrap;
+                }
+              }
+            }
+            &-left {
+              position: absolute;
+              right: 0;
+              top: 0;
+              color: white;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-end;
+              &-text1 {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
                 transition: all 120ms cubic-bezier(0.2, 0.2, 0.8, 1);
                 .right-text {
                   text-align: center;

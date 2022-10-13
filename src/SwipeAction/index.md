@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: 实验性质的组件
-  order: 16
+  title: 信息展示
+  order: 8
 toc: 'content'
 ---
 
@@ -15,7 +15,7 @@ toc: 'content'
 ## 代码示例
 
 ### 组件使用
-<code src='../../demo/pages/SwipeActionTool'></code>
+<code src='../../demo/pages/SwipeAction'></code>
 
 ### 使用限制
 
@@ -29,6 +29,7 @@ toc: 'content'
 | left         | SwipeButton[]  | 否    | []    | 左侧滑出事件                                 |
 | right        | SwipeButton[]  | 否    | []    | 右侧滑出事件                                 |
 | itemWidth    | number         | 否    | 150   | 左、右侧滑出按钮的宽度                         |
+| damping      | number         | 否    | 20    | 滑动速度                                    |
 | key          | string         | 是    | ''    | 唯一标识，用于控制自动收起滑开状态               |
 | leftSwiped   | false          | 否    | false | 左侧按钮是否需要默认滑开                       |
 | rightSwiped  | false          | 否    | false | 右侧按钮是否需要默认滑开                       |
