@@ -13,9 +13,14 @@
     background-position-x: center !important;
   }
 
+  .__dumi-default-navbar {
+    border-bottom: 1px solid #e6e6e6;
+  }
+
   // 下面样式只影响首页
   .__dumi-default-layout[data-route="/"].__dumi-default-layout[data-gapless='true'] {
     padding-top: 0 !important;
+
 
     .__dumi-default-navbar {
       position: absolute;
@@ -23,6 +28,7 @@
       margin: 0 auto;
       background-color: transparent;
       padding: 0 !important;
+      border: none;
     }
 
     .__dumi-default-navbar-logo:not([data-plaintext]) {

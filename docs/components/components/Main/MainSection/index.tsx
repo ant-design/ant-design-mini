@@ -37,7 +37,7 @@ export default () => {
     <div className={styles.mainSectionContainer}>
       <div>
         <div className={styles.mainSectionTitle}>Ant Design Mini</div>
-        <div className={styles.mainSectionDescription}>探索移动端 web 的体验极限</div>
+        <div className={styles.mainSectionDescription}>探索移动端小程序的体验极限</div>
         <div className={styles.mainSectionButtonAction}>
           <Button shape="round" className={styles.buttonLeft} href="/guide/quick-start">开始使用</Button>
           <Button shape="round" className={styles.buttonRight} href="/components">在线体验</Button>
