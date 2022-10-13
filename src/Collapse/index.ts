@@ -42,10 +42,10 @@ Component({
     const { uid: oldUID, name: oldName = [], accordion: oldAccordion = false } = prevProps;
     const newKey = `${this.$page.$id}-${newUID}`;
     const oldKey = `${this.$page.$id}-${oldUID}`;
-    context.updateGroup(newUID, {
+    context.updateGroup(newKey, {
       isNameChanged: !equal(newName, oldName),
       isUIDChanged: newKey !== oldKey,
       isAccordionChanged: newAccordion !== oldAccordion,
-    }, { oldUID:oldKey });
+    }, { oldUID: oldKey });
   },
 });
