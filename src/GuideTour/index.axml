@@ -1,5 +1,5 @@
 <view class="amd-guide-tour {{className?className:''}}" a:if="{{visible}}">
-    <mask show="{{true}}" maskZindex="{{9999}}" />
+    <mask show="{{true}}" maskZindex="{{9999}}" disableScroll="{{true}}" />
     <am-icon class="amd-guide-tour-clear" type="CloseOutline" onTap="onCancel" />
     <view class="amd-guide-tour-button">
         <button inline="{{true}}" inlineSize="small" a:if="{{jumpButtonVisible}}" onTap="onCancel">
