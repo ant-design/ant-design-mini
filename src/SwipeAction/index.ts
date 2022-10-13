@@ -40,7 +40,6 @@ Component({
     swipedR: false, // 右侧已经滑开了
     swipedL: false, // 左侧已经滑开了
     changeArr: [0, 0], // 用来判断最后一次滑动的方向
-    _disabled: false, // 禁止滑动
     myStyle: {},
     inertiaWidth: 20,
   },
@@ -280,7 +279,6 @@ Component({
             {
               swipeX: flag ? 0 : -(maxSwipeR + 0.01),
               swipedR: !flag,
-              _disabled: false,
             },
             () => {
               onSwipeEnd(key, { direction: isRight ? 'left' : 'right', right: true }, callbackData);

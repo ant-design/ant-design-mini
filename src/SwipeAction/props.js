@@ -3,6 +3,7 @@ export const SwipeActionDefaultProps = {
     className: '',
     damping: 60, // 滑的速度
     right: [],
+    inertia: true,
     left: [],
     itemWidth: 150, // 滑动按钮宽度
     leftSwiped: false, // 左侧滑块设置滑动状态

@@ -18,7 +18,7 @@
         damping="{{damping}}"
         direction="horizontal"
         out-of-bounds="{{ false }}"
-        disabled="{{_disabled || disable}}"
+        disabled="{{disable}}"
         onTap="onSwipeTap"
         onChange="onChange"
         onChangeEnd="onChangeEnd"
