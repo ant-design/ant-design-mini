@@ -6,5 +6,6 @@ export const RateDefaultProps = {
     disabled: false,
     halfInactiveColor: "#DBDBDB",
     activeColor: '#FFD24A',
-    inactiveColor: '#E5E5E5'
+    inactiveColor: '#E5E5E5',
+    style: ''
 };

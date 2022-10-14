@@ -25,7 +25,8 @@ toc: 'content'
 | enableMarquee | boolean | 否 | false | 是否开启滚动动画 |
 | loop | boolean | 否 | false | 是否循环滚动，enableMarquee 为 true 时有效 |
 | type | 'default' &verbar; 'info' &verbar; 'error' &verbar; 'primary' | 否 | 'default' | 提示类型 'default' 橙色，'info' 灰色，'error' 红色，'primary' 蓝色 |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 组件根节点类名 |
+| style | string | 否 | - | 组件根节点 style |
 
 ## 事件
 
@@ -34,20 +35,4 @@ toc: 'content'
 | onTap | 点击通知栏右侧的图标（箭头或者叉），触发回调  | () => void |
 | onActionTap | 点击右侧操作区域文本，触发回调  | (index: number) => void |
 
-
-## 样式类
-| 类名 | 说明 |
-| -----|-----|
-| amd-notice-bar | 整体样式 |
-| amd-notice-bar-default | 整体样式 |
-| amd-notice-bar-danger | 整体样式 |
-| amd-notice-bar-primary | 整体样式 |
-| amd-notice-bar-transparent | 整体样式 |
-| amd-notice-bar-content | 内部区域样式 |
-| amd-notice-bar-scroll-left | 左侧阴影渐变区域样式 |
-| amd-notice-bar-scroll-right | 右侧阴影渐变区域样式 |
-| amd-notice-bar-marquee | 文本展示区域样式 |
-| amd-notice-bar-operation | 右侧操作区域样式 |
-| amd-notice-bar-operation-icon | 右侧操作区域内图标样式 |
-| amd-notice-bar-operation-text | 右侧操作区域文字样式 |
 

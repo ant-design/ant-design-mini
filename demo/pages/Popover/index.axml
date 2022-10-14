@@ -7,7 +7,7 @@
         mask
         onVisibleChange="handleDarkVisibleChange">
         <button inline inlineSize="large">点我</button>
-        <block slot="items">
+        <block slot="content">
           <popover-item 
             onTap="handleTapItem"
             icon="ScanningOutline"
@@ -55,7 +55,7 @@
         mask
         onVisibleChange="handleLightVisibleChange">
         <button inline inlineSize="large">点我</button>
-        <block slot="items">
+        <block slot="content">
           <popover-item 
             onTap="handleTapItem"
             icon="ScanningOutline"
@@ -102,7 +102,7 @@
         mask
         onVisibleChange="handleNoIconVisibleChange">
         <button inline inlineSize="large">点我</button>
-        <block slot="items">
+        <block slot="content">
           <popover-item 
             onTap="handleTapItem"
             data-type="showNoIcon"

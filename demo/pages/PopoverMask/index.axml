@@ -11,7 +11,7 @@
       点击{{show ? '隐藏' : '显示'}}
     </view>
 
-    <block slot="items">
+    <block slot="content">
       tooltip
     </block>
   </popover>

@@ -48,16 +48,22 @@
       <progress-circle
         percent="{{percent5}}"
         className="progress-bar1"
-        label="本月剩余流量"
-        progressText="{{Math.floor(percent5 / 360 * 100 * 20)}}"
-        unit="GB"
-      />
+      >
+        <view class="amd-progressbar-indicator-column">
+          <text class="amd-progressbar-indicator-column-text1">本月剩余流量</text>
+          <text class="amd-progressbar-indicator-column-text2">{{percent5}}</text>
+          <text class="amd-progressbar-indicator-column-text3">GB</text>
+        </view>
+      </progress-circle>
       <progress-circle
         percent="{{percent5}}"
         className="progress-bar1"
-        progressText="{{Math.floor(percent5 / 360 * 100 * 20)}}"
-        unit="步"
-      />
+      >
+        <view class="amd-progressbar-indicator-column">
+          <text class="amd-progressbar-indicator-column-text2">{{percent5}}</text>
+          <text class="amd-progressbar-indicator-column-text3">步</text>
+        </view>
+      </progress-circle>
     </view>
   </list-item>
 

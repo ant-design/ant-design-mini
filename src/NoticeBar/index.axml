@@ -2,7 +2,9 @@
   amd-notice-bar
   {{className ? className : ''}}
   {{type ? 'amd-notice-bar-' + type : ''}}"
-  a:if="{{show}}">
+  a:if="{{show}}"
+  style="{{style}}"
+>
   <block a:if="{{showIcon && type !=='error'}}">
     <icon size="x-small"
       type="SoundOutline"

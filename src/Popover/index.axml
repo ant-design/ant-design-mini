@@ -1,4 +1,4 @@
-<view class="amd-popover {{className ? className : ''}}">
+<view class="amd-popover {{className ? className : ''}}" style="{{style}}">
   <view onTap="onVisibleChange">
     <slot />
   </view>
@@ -11,7 +11,7 @@
       <view class="amd-popover-content-bg">
         <view class="amd-popover-inner {{mode==='light' ? 'amd-popover-inner-light' : ''}}">
           <view class="amd-popover-inner-pseudo">
-            <slot name="items"></slot>
+            <slot name="content"></slot>
           </view>
         </view>
       </view>

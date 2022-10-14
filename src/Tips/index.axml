@@ -3,16 +3,18 @@
   a:if="{{_show}}">
   <view class="amd-tips-wrap {{}}">
     <view class="amd-tips-wrap-content">
-      <tips-item 
-        image="{{image}}"
-        buttonText="{{buttonText}}"
-        buttonPosition="{{buttonPosition}}"
-        showClose="{{showClose}}"
-        onButtonTap="onButtonTap"
-        onHideTips="onHideTips"
-        title="{{title}}">
-        <slot/>
-      </tips-item>
+      <slot>
+        <tips-item 
+          image="{{image}}"
+          buttonText="{{buttonText}}"
+          buttonPosition="{{buttonPosition}}"
+          showClose="{{showClose}}"
+          onButtonTap="onButtonTap"
+          onHideTips="onHideTips"
+          title="{{title}}">
+          <slot/>
+        </tips-item>
+      </slot>
     </view>
     <view class="amd-tips-arrow amd-tips-arrow-{{arrowPosition}}"
       a:if="{{arrowPosition}}" />

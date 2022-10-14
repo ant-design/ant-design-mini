@@ -30,7 +30,8 @@ toc: 'content'
 | disableScroll | boolean | 否 | true | 弹窗展示时，是否禁止页面滚动 |
 | animation | boolean | 否 | true | 是否开启过渡动画 |
 | zIndex | number | 否 | 998 | 弹窗层级 |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 组件根节点类名 |
+| style | string | 否 | - | 组件根节点 style |
 
 ## 事件
 
@@ -42,18 +43,5 @@ toc: 'content'
 ## 插槽
 | 名称 | 说明 |
 | ----|----|
-| default | 弹窗内容 |
-
-## 样式类
-| 类名 | 说明 |
-| ----|----|
-| amd-dialog | 整体样式 |
-| amd-dialog-vertical | 整体样式 |
-| amd-dialog-horizontal | 整体样式 |
-| amd-dialog-content | 内容整体样式 |
-| amd-dialog-content-title | 标题样式 |
-| amd-dialog-content-content | 内容样式 |
-| amd-dialog-content-button-container | 按钮区域样式 |
-| amd-dialog-content-button-container-vertical | 按钮区域样式 |
-| amd-dialog-content-button-container-horizontal | 按钮区域样式 |
-| amd-dialog-content-button | 按钮样式 |
+| title | 标题内容 |
+| content | 内容内容 |

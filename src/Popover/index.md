@@ -28,7 +28,8 @@ toc: 'content'
 | visible | boolean | 否 | false | 是否可见 |
 | mode | 'dark' &verbar; 'light' | 否 | 'dark' | 组件显示模式 |
 | placement | 'top' &verbar; 'top-right' &verbar; 'top-left' &verbar; 'bottom' &verbar; 'bottom-left' &verbar; 'bottom-right' &verbar; 'left' &verbar; 'left-top' &verbar; 'left-bottom' &verbar; 'right' &verbar; 'right-top' &verbar; 'right-bottom' | 否 | 'bottom-right' | 方向 |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 组件根节点类名 |
+| style | string | 否 | - | 组件根节点style |
 | mask | boolean | 否 | false | 是否展示蒙层 |
 | maskClosable | boolean | 否 | true | 是否可点击蒙层关闭 |
 | fixMaskFull | boolean | 否 | false | 用以解决遮罩层受到 transform 影响而显示不全的问题 |
@@ -54,28 +55,9 @@ toc: 'content'
 #### Popover
 | 名称 | 说明 |
 | ----|----|
-| items | tooltip 提示插槽，可以使用 PopoverItem 渲染列表 |
+| content | tooltip 提示插槽，可以使用 PopoverItem 渲染列表 |
 
 #### PopoverItem
 | 名称 | 说明 |
 | -----|-----|
 | icon | 图标插槽 |
-
-## 样式类
-#### Popover
-| 类名 | 说明 |
-| ----|----|
-| amd-popover | 整体样式 |
-| amd-popover-container | 主体内容样式 |
-| amd-popover-content | 内容样式 |
-| amd-popover-arrow | 箭头样式 |
-| amd-popover-inner | 内部内容样式 |
-| amd-popover-inner-pseudo | tootip 内容整体样式 |
-
-#### PopoverItem
-| 类名 | 说明 |
-| ----|----|
-| amd-popover-item | 整体样式|
-| amd-popover-item-icon | 图标样式|
-| amd-popover-item-icon-item | 图标样式|
-| amd-popover-item-text | 文字样式|

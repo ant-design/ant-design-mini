@@ -3,4 +3,6 @@ export const ToastDefaultProps = {
   showMask: false,
   maskCloseable: false,
   type: null,
+  maskStyle: '',
+  style: ''
 };

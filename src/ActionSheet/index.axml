@@ -6,10 +6,12 @@
   position="bottom"
   onClose="onClose"
 >
-  <view class="amd-actionsheet {{className ? className : ''}} {{helper.isIconMode(actions) ? 'amd-actionsheet-icon' : ''}}">
-      <view class="amd-actionsheet-title-wrap" a:if="{{title}}">
-        <view class="amd-actionsheet-title-content">{{title}}</view>
-      </view>
+  <view style="{{style}}" class="amd-actionsheet {{className ? className : ''}} {{helper.isIconMode(actions) ? 'amd-actionsheet-icon' : ''}}">
+      <slot name="title">
+        <view class="amd-actionsheet-title-wrap" a:if="{{title}}">
+          <view class="amd-actionsheet-title-content">{{title}}</view>
+        </view>
+      </slot>
       <view class="amd-actionsheet-list">
         <view
           a:for="{{actions}}"
@@ -32,6 +34,8 @@
         </view>
       </view>
       <view class="amd-actionsheet-cancel-gap"/>
-      <view class="amd-actionsheet-cancel" onTap="onClose">{{cancelText}}</view>
+      <slot name="cancelText">
+        <view class="amd-actionsheet-cancel" onTap="onClose">{{cancelText}}</view>
+      </slot>
   </view>
 </popup>

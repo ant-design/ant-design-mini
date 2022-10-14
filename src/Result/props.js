@@ -1,1 +1,3 @@
-export const ResultDefaultProps = {};
+export const ResultDefaultProps = {
+    style: ''
+};
