@@ -12,6 +12,11 @@ export interface ISkeletonBaseProps extends IBaseProps {
    * @default false
    */
   animate?: boolean;
+  /**
+   * @description style
+   * @default ''
+   */
+  style?: string;
 }
 /**
  * @description 骨架屏

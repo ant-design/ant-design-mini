@@ -1,4 +1,4 @@
-<view class="amd-toast-wrapper {{className}} {{icon || image || type ? 'amd-toastWithIcon-wrapper' : ''}}" a:if="{{show}}">
+<view class="amd-toast-wrapper {{className}} {{icon || image || type ? 'amd-toastWithIcon-wrapper' : ''}}" a:if="{{show}}" style="{{style}}">
   <view a:if="{{type}}" class="amd-toast-normal">
     <loading a:if="{{type === 'loading'}}" type="mini" height="80rpx"></loading>
     <icon a:elif="{{type === 'warning'}}" type="ExclamationOutline" class="amd-toast-icon" />
@@ -13,4 +13,4 @@
     </view>
   </view>
 </view>
-<mask a:if="{{show && showMask}}" show="{{true}}" maskZindex="{{998}}" onMaskTap="handleClickMask" />
+<mask a:if="{{show && showMask}}" show="{{true}}" maskZindex="{{998}}" onMaskTap="handleClickMask" style="{{maskStyle}}" />

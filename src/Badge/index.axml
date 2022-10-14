@@ -1,7 +1,7 @@
 <import-sjs from="./index.sjs" name="_sjs" />
 
 <view class="amd-badge
-  {{className ? className : ''}}">
+  {{className ? className : ''}}" style="{{style}}">
   <view class="amd-badge-body">
     <slot></slot>
   </view>
@@ -27,22 +27,24 @@
       type="{{iconType}}"
       className="amd-badge-icon"/>
     </view>
-      <view class="amd-badge-content-text">
-        <view
-        a:if="{{type === 'number'}}"
-        class="amd-badge-number">
-        {{overCount ? '99+' : text}}
-      </view>
-      <view
-        a:if="{{type==='text'}}"
-        class="amd-badge-text">
-        {{text}}
-      </view>
-      <view a:if="{{type==='bubble'}}"
-      class="amd-badge-bubble">
-        {{text}}
-      </view>
-      </view>
+      <slot name="text">
+        <view class="amd-badge-content-text">
+          <view
+            a:if="{{type === 'number'}}"
+            class="amd-badge-number">
+            {{overCount ? '99+' : text}}
+          </view>
+          <view
+            a:if="{{type==='text'}}"
+            class="amd-badge-text">
+            {{text}}
+          </view>
+          <view a:if="{{type==='bubble'}}"
+          class="amd-badge-bubble">
+            {{text}}
+          </view>
+        </view>
+      </slot>
   </view>
 
 </view>

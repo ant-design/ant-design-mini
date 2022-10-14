@@ -27,22 +27,11 @@ toc: false
 | speed | number | 否 | 6deg | 每次绘制进度条推进的角度 |
 | width | number | 是 | 无 | canvas 宽度 |
 | height | number | 是 | 无 | canvas 宽度 |
-| unit | number | 否 | 无 | 进度单位 |
-| progressText | string | 否 | 无 | 自定义进度文案 |
-| label | string | 否 | 无 | 自定义进度提示文案 |
-| className | string | 否 | 无 | 无 |
+| className | string | 否 | 无 | 组件根节点类名 |
+| style | string | 否 | 无 | 组件根节点style |
 
 
 ## Slot
 | 名称 | 说明 |
 | -----|-----|
-| default | 自定义进度条内部元素展示| 
-
-
-## 样式类
-
-| 类名 | 说明 |
-| ----|----|
-| amd-progressBar-wrapper | 整体样式 |
-| amd-progressBar-indicator-default | 默认指示器样式 |
-| amd-progressBar-indicator-column | 带提示的指示器样式 |
+| default | 进度条内部元素 | 

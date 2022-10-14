@@ -6,7 +6,7 @@
         visible="{{showDark}}"
         onVisibleChange="handleDarkVisibleChange">
         <button inlineSize="large" inline>点我</button>
-        <view slot="items" class="tooltip">Hello World</view>
+        <view slot="content" class="tooltip">Hello World</view>
       </popover>
     </view>
   </demo-block>
@@ -18,7 +18,7 @@
         visible="{{showLight}}"
         onVisibleChange="handleLightVisibleChange">
         <button inlineSize="large" inline>点我</button>
-        <view slot="items" class="tooltip">Hello World</view>
+        <view slot="content" class="tooltip">Hello World</view>
       </popover>
     </view>
   </demo-block>
@@ -35,7 +35,7 @@
             {{placement}}
           </view>
         </view>
-        <view slot="items" class="tooltip">
+        <view slot="content" class="tooltip">
           <view>Popover</view> 
           <view>
             Content

@@ -1,6 +1,6 @@
 <import-sjs name="result"
   from='./index.sjs' />
-<view class="amd-result {{className ? className : ''}}">
+<view class="amd-result {{className ? className : ''}}" style="{{style}}">
   <view class="amd-result-main">
     <block a:if="{{type}}">
       <view class="amd-result-image">
@@ -32,13 +32,15 @@
       <slot name="message" />
     </view>
   </view>
-  <view class="amd-result-buttons"
-    a:if="{{buttons}}">
-    <block a:for="{{buttons}}">
-      <button className="amd-button"
-        type="{{item.type}}"
-        data-index="{{index}}"
-        onTap="onButtonTap">{{item.text}}</button>
-    </block>
-  </view>
+  <slot name="buttons">
+    <view class="amd-result-buttons"
+      a:if="{{buttons}}">
+      <block a:for="{{buttons}}">
+        <button className="amd-button"
+          type="{{item.type}}"
+          data-index="{{index}}"
+          onTap="onButtonTap">{{item.text}}</button>
+      </block>
+    </view>
+  </slot>
 </view>

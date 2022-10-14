@@ -6,4 +6,5 @@ export const PopoverDefaultProps = {
   mode: 'dark',
   fixMaskFull: false,
   transparentMask: false,
+  style: ''
 };

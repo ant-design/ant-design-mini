@@ -4,4 +4,5 @@ export const MaskDefaultProps = {
   show: true,
   fixMaskFull: false,
   disableScroll: false,
+  style: ''
 };

@@ -7,5 +7,6 @@ Component<Record<string, never>, IProps>({
   props: {
     loading: true,
     rows: 3,
+    style: ''
   },
 });

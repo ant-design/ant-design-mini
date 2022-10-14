@@ -5,4 +5,5 @@ export const SkeletonDefaultProps = {
   title: true,
   rows: 3,
   avatarShape: 'square',
+  style: ''
 };

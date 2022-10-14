@@ -3,4 +3,5 @@ export const BadgeDefaultProps = {
   stroke: false,
   type: 'dot',
   bgColor: '#FF411C',
+  style: ''
 };

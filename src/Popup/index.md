@@ -34,28 +34,12 @@ toc: 'content'
 | duration | number | 否 | 300 | 过渡动画时长，单位毫秒 |
 | position | 'center' &verbar; 'top' &verbar; 'bottom' &verbar; 'left' &verbar; 'right' | 否 | 'center' | 弹窗布局 |
 | zIndex | number | 否 | 998 | 弹窗层级 |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 组件根节点类名 |
+| style | string | 否 | - | 组件根节点style |
 
 ## 事件
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onClose | 弹窗关闭时，触发回调 | ( visible: boolean ) => void |
-
-## 样式类
-
-| 类名 | 说明 |
-| ----|----|
-| amd-popup | 整体样式 |
-| amd-popup-mask | 遮罩层样式 |
-| amd-popup-disable-scroll | 禁用滚动样式 |
-| amd-popup-animation | 开启过渡动画样式 |
-| amd-popup-content | 内容样式 |
-| amd-popup-top | 内容样式 |
-| amd-popup-bottom | 内容样式 |
-| amd-popup-left | 内容样式 |
-| amd-popup-right | 内容样式 |
-| amd-popup-center | 内容样式 |
-| amd-popup-close-container | 关闭图标区域样式 |
-| amd-popup-close-container | 关闭图标样式 |
 
