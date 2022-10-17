@@ -1,6 +1,7 @@
 export const SwipeActionDefaultProps = {
     key: '', // 唯一标识
     className: '',
+    style: {},
     damping: 60, // 滑的速度
     right: [],
     inertia: true,

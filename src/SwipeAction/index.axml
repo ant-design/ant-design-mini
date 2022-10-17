@@ -1,6 +1,6 @@
 <import-sjs name="util" from="./index.sjs"/>
 
-<view class="my-paytm-swipe {{className}}">
+<view class="my-paytm-swipe {{className}}" style="{{style}}">
   <view class="paytm-swipe amd-swipe-action" style="{{{ width: util.getWidth(rightWidth, leftWidth, inertiaWidth) }}}">
     <movable-area
       class="paytm-swipe-movable"
