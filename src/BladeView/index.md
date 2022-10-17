@@ -44,8 +44,8 @@ toc: 'content'
 
 | 事件名 | 说明 | 类型 |
 | -----|-----|----- |
-| onChange | 点击某一项的回调 | (items: object, dataItem: SwipeItem) => void |
-| onChangeSwipeKey | 点击某一项的回调 | (obj: SwipeItem) => void |
+| onChange | 点击某一项内容Item的回调 | (items: object, dataItem: SwipeItem) => void |
+| onChangeSwipeKey | 索引被激活时的回调 | (obj: SwipeItem) => void |
 
 
 ## 样式类 
