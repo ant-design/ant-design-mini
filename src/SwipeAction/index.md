@@ -37,15 +37,17 @@ toc: 'content'
 | disable      | false          | 否    | false | 禁止滑动                                    |
 | callbackData | object         | 否    | {}    | 在事件中回调返回                              |
 | className    | string         | 否    | -     | 类名                                        |
+| style        | object         | 否    | -     | 样式                                        |
 
 ### SwipeButton
 | 属性         | 类型            | 必填   | 默认值 | 说明                  |
 | -------------|----------------|-------|-------|------------------------------------------- |
-| type         | string         | 是    | -     | 事件标志，在点击事件中返回                      |
-| text         | string         | 是    | -     | 事件按钮文字                                 |
+| type         | string &verbar; leftItemSlot &verbar; rightItemSlot | 是  | -  | leftItemSlot: 使用slot="leftItem"形式插入; rightItemSlot: 使用slot="rightItem"形式插入, 其他type: 按钮标识  |
+| text         | string         | 是    | -     | 事件按钮文字               |
 | bgColor      | string         | 否    | -     | 事件按钮背景颜色                              |
 | color        | string         | 否    | -     | 事件按钮字体颜色                              |
 | style        | object         | 否    | {}    | 事件按钮样式对象                              |
+| className    | string         | 否    | {}    | 事件按钮样式类                              |
 | eventType    | 'move' | 'auto'| 否    | -     | 二次确认方式，不填：没有二次确认；auto：点击确认；move：滑动超出最大距离触发确认 |
 | confirmText  | string         | 否    | -     | 二次确认的文案描述，不填：展示text               |
 
@@ -57,4 +59,12 @@ toc: 'content'
 | onTouchEnd          | 触摸结束             | (key: string, callbackData: object) => void |
 | onRightItemEvent    | 点击右侧按钮          | (type: string, key: string, callbackData: object) => void  |
 | onLeftItemEvent     | 点击左侧按钮          | (type: string, key: string, callbackData: object) => void  |
+
+## 样式类
+| 类名 | 说明 |
+| -----|-----|
+| amd-swipe-action | 整体样式 |
+| amd-swipe-action-content | 内容区域样式 |
+| amd-swipe-action-right | 右侧按钮区域样式 |
+| amd-swipe-action-left  | 左侧按钮区域样式 |
 
