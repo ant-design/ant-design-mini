@@ -1,9 +1,45 @@
-<view>
-  <blade-view
-    data="{{groups}}"
-    scrollToKey="S"
-    value="{{value}}"
-    onChange="onChange"
-    sticky={{false}}
-  ></blade-view>
+<view class="index-list">
+  <view class="index-list-tab">
+    <view class="index-list-tab_item" a:for="{{tabs}}" data-item="{{item}}" onTap="onTapTab">
+      <text class="{{ activeTab === item.type ? 'index-list-tab_active' : '' }}">
+        {{ item.text }}
+      </text>
+    </view>
+  </view>
+  <view class="index-list-i">
+    <blade-view
+      a:if="{{activeTab === 'base'}}"
+      type="base"
+      data="{{indexList}}"
+      onChange="onChange1"
+      onChangeSwipeKey="onChangeSwipeKey1"
+    />
+    <blade-view
+      a:if="{{activeTab === 'diy'}}"
+      type="diy"
+      scrollToKey="{{ scrollToKey }}"
+      data="{{indexListSlot}}"
+      onChange="onChange1"
+      onChangeSwipeKey="onChangeSwipeKey1"
+    >
+      <view slot="header" slot-scope="h" class="diy-header">{{h.value.title}}</view>
+      <view slot="footer" slot-scope="f" class="diy-footer">
+        <view class="diy-footer-item" a:for="{{f.value}}" id="{{`base-index-item_${item.value}-${index}`}}">
+          <image class="diy-footer-item_avator" mode="scaleToFill" src="{{item.avator}}" />
+          <view class="diy-footer-item_text">
+            <view>{{item.label}}</view>
+            <view>{{item.text}}</view>
+          </view>
+        </view>
+      </view>
+    </blade-view>
+    <blade-view
+      a:if="{{activeTab === 'only'}}"
+      type="only"
+      scrollToKey="{{ scrollToKey }}"
+      data="{{indexListOnly}}"
+      onChange="onChange1"
+      onChangeSwipeKey="onChangeSwipeKey1"
+    />
+  </view>
 </view>

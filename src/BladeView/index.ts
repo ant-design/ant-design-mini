@@ -1,155 +1,132 @@
-import equal from 'fast-deep-equal';
-import debounce from '../_util/debounce';
 import { BladeViewDefaultProps } from './props';
-
-/** 
- * 每个sideBarItem的高度
- */
-const DEVIATION = 8;
 
 Component({
   props: BladeViewDefaultProps,
   data: {
-    currentKey: '',
-    scrollTop: 0,
-    isTouchingSideBar: false
+    touchClientY: 0, // 按下触摸点所处页面的高度
+    touchKeyIndex: -1, // 选中的字母
+    touchKey: '', // 触发的key
+    itemHeight: 16, // 每个字母的高度
+    moving: false, // 滑动进行时
+    showMask: false, // 打开遮罩，防止和页面的滑动重叠了
+    scrollId: '',
+    topRange: [],
+    currentKey: 0,
   },
-
   didMount() {
-    this.computeTopRange();
-    this.computeSideBar();
-    this.debounce = debounce((func, ...rest) => {
-      func.call(this, ...rest);
-    }, 50);
+    this.initItemHeight(() => this.initScrollId({}));
   },
-
-  didUpdate(prevProps) {
-    /** 
-     * 数据源变化时需要重新计算高度
-     */
-    if (!equal(prevProps.data, this.props.data)) {
-      this.computeTopRange();
-      this.computeSideBar();
-    }
+  didUpdate(_prop) {
+    this.initScrollId(_prop);
   },
-
   methods: {
-    /** 
-     * 渲染后计算每个group距离容器顶部的top值，并设置currentKey
-     */
-    computeTopRange() {
-      (my.createSelectorQuery as any)()
-        .selectAll('.amd-blade-view-body-group')
+    initScrollId(_prop) {
+      const { type, scrollToKey, value, data } = this.props;
+      if (!value && scrollToKey && _prop.scrollToKey !== scrollToKey && type !== 'only') {
+        this.setData({ scrollId: `amd-blade-view-list_${scrollToKey}` });
+      }
+      if (value && !scrollToKey && _prop.value !== value && type !== 'only') {
+        this.setData({ scrollId: `amd-blade-view-item_${value}` });
+      }
+      if(type === 'only' && scrollToKey !== _prop.scrollToKey) {
+        const _index = data.findIndex(u => scrollToKey === u.key);
+        this.setData({ currentKey: _index });
+      }
+    },
+    // 初始化每个块的高度，用已计算滑动距离
+    initItemHeight(func) {
+      my.createSelectorQuery()
+        .select(`#i-alphabet-0`)
         .boundingClientRect()
-        .exec((res) => {
-          if (res[0] === null) throw new Error('找不到元素');
-          this.topRange = res[0].reduce((pre, cur) => {
-            pre.push({
-              id: cur.id || `amd-blade-view-group-${cur.dataset.key}`,
-              key: cur.dataset.key,
-              height: cur.height,
-              top: cur.height + (pre && pre[`${pre.length - 1}`] && pre[`${pre.length - 1}`].top || 0),
+        .exec((ret: any) => {
+          const { height } = ret[0];
+          this.setData({ itemHeight: height });
+        });
+      my.createSelectorQuery()
+        .selectAll('.list-index-item-s')
+        .boundingClientRect()
+        .exec((ret: any) => {
+          if (ret) {
+            const arr = []
+            ret[0].forEach((u) => {
+              arr.push(u.top - ret[0][0].top);
             });
-            return pre;
-          }, []);
-          /** 
-           * 初始化时设置currentKey
-           */
-          const { scrollToKey } = this.props;
-          const findItem = this.topRange.find((item) => item.key === scrollToKey);
-          this.setData({
-            currentKey: scrollToKey || (this.props.data && this.props.data[0] && this.props.data[0].key || ''),
-            scrollTop: scrollToKey ? findItem.top - findItem.height : 0,
-          });
+            this.setData({ topRange: arr }, () => func());
+          }
         });
     },
-
-    /** 
-     * 渲染后找出sidebar中的每个item按钮距离页面上边距的top值
-     */
-    computeSideBar() {
-      (my.createSelectorQuery as any)()
-        .selectAll('.amd-blade-view-sidebar-item')
-        .boundingClientRect()
-        .exec((res) => {
-          if (res[0] === null) throw new Error('找不到元素');
-          this.sidebarDistance = res[0].map((item) => ({ top: item.top, key: item.dataset.key }));
-        });
-    },
-
-    setNotScrolling() {
-      this.isScrolling = false;
-    },
-
-    /** 
-     * 滚动监听
-     */
-    onScroll(e) {
-      /** 
-       * 判断是否正在滚动
-       */
-      this.isScrolling = true;
-      this.debounce(this.setNotScrolling);
-      const { scrollTop } = e.detail;
-
-      /** 
-       * 标题和sidebar联动
-       */
-      const currentKey = this.topRange.find((item) => scrollTop < item.top - DEVIATION).key;
-
-      if (this.data.currentKey === currentKey) return;
-
-      this.setData({
-        currentKey
-      });
-    },
-
-    /** 
-     * 点击sidebar
-     */
-    onTapSideItem(e, moveKey) {
-      /** 
-       * 如果容器正在滚动是不能触发侧边栏点击的，否则会导致逻辑混乱
-       */
-      if (this.isScrolling) return;
-
-      const key = e && e.target && e.target.dataset && e.target.dataset.key || moveKey;
-
-      if (key === this.data.currentKey) return;
-
-      const findItem = this.topRange.find((item) => item.key === key);
-      const scrollTop = findItem.top - findItem.height;
-
-      this.setData({
-        currentKey: key,
-        scrollTop: scrollTop + Number(this.data.scrollTop === scrollTop),
-      });
-    },
-
-    onTouchMove(e) {
-      const currentY = e.changedTouches[0].pageY;
-      const moveOnElement =
-        this.sidebarDistance.find((item) => currentY < item.top + DEVIATION) ||
-        this.sidebarDistance[this.sidebarDistance.length - 1];
-
-      /** 
-       * 触摸到某个节点，就触发点击选中事件（根据 sidebar中的item距离页面顶部距离 和 触摸时手指距离页面顶部距离 来找出触摸到了哪个item）
-       */
-      this.onTapSideItem(undefined, moveOnElement.key);
-    },
-
-    onTouchStart() {
-      this.setData({ isTouchingSideBar: true });
-    },
-
-    onTouchEnd() {
-      this.setData({ isTouchingSideBar: false });
-    },
-
-    onTapItem(e) {
-      const { item, group } = e.target.dataset;
+    onChangeGroupItem(u) {
       const { onChange } = this.props;
-      onChange && onChange(item, group);
+      const { iarr, item } = u.target.dataset.item;
+      onChange && onChange(iarr, item);
+    },
+    async onAlphabetClick(item: object) {
+      const { type, vibrate } = this.props;
+      vibrate && await my.vibrateShort();
+      type !== 'only' && this.setData({ scrollId: `amd-blade-view-list_${item.key}` });
+    },
+    onScroll(e) {
+      const { currentKey } = this.data;
+      const { onChangeSwipeKey, data } = this.props;
+      const { scrollTop } = e.detail;
+      const _currentKey = this.data.topRange.findIndex((item) => scrollTop < item - 1);
+      if (currentKey !== _currentKey - 1 && _currentKey - 1 >= 0) {
+        this.setData({ currentKey: _currentKey - 1 });
+        onChangeSwipeKey && onChangeSwipeKey(data[_currentKey - 1]);
+      }
+    },
+    onTouchStart(e: any) {
+      const { moving } = this.data;
+      const { data, type } = this.props;
+      if (moving) return;
+
+      const { item, index } = e.target.dataset.item;
+      const point = (e && e.touches && e.touches[0]) || {};
+      const { clientY } = point;
+
+      this.setData({
+        touchClientY: clientY,
+        touchKeyIndex: index,
+        touchKey: data[index].key,
+        moving: true,
+        showMask: true,
+      });
+
+      type === 'only' && this.setData({ currentKey: index });
+      this.onAlphabetClick(item); // 触摸开始
+    },
+    onTouchEnd() {
+      // 没进入moving状态就不处理
+      const { onChangeSwipeKey, data, type } = this.props;
+      if (!this.data.moving) return;
+      this.setData({ 
+        touchKeyIndex: -1,
+        touchKey: '',
+        showMask: false,
+        moving: false,
+      });
+      type === 'only' && onChangeSwipeKey && onChangeSwipeKey(data[this.data.currentKey]);
+    },
+    onTouchMove(e: any) {
+      const point = e.changedTouches[0];
+      const movePageY = point.clientY;
+      const { touchClientY, touchKeyIndex, itemHeight, touchKey } = this.data;
+      const { data, type } = this.props;
+      // 滑动距离
+      const movingHeight = Math.abs(movePageY - touchClientY);
+
+      // 滑动几个itemHeight的距离即等于滑动了几格，不那么精准，但是几乎可以忽略不计
+      const movingNum = parseInt(`${movingHeight / itemHeight}`, 10);
+      // 上 or 下
+      const isUp = movePageY < touchClientY;
+      // 新的触发的索引应该在哪个index
+      const newIndex = isUp ? touchKeyIndex - movingNum : touchKeyIndex + movingNum;
+      // 超出索引列表范围 or 索引没变化return
+      if (!data[newIndex] || touchKey === data[newIndex].key) return;
+      // 结算
+      this.setData({ touchKey: data[newIndex].key, newIndex });
+      type === 'only' && this.setData({ currentKey: newIndex });
+      this.onAlphabetClick(data[newIndex]);
     },
   },
 });

@@ -1,6 +1,8 @@
 {
-  "defaultTitle": "BladeView",
+  "defaultTitle": "Blade-View",
+  "pullRefresh": false,
   "usingComponents": {
     "blade-view": "../../../src/BladeView/index"
   }
 }
+  

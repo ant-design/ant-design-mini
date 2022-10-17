@@ -1,40 +1,32 @@
-/**
- * @description 索引，用户只需单击一下即可执行操作并做出选择。
- * 常用于列表的分类显示和快速定位。
- */
+interface IndexObj {
+    /**
+     * @description group key
+     */
+     key: string;  
+    /**
+     * @description group title
+     */
+     title: string; 
+    /**
+     * @description group items
+     */
+     items?: object[];
+}
 
- type GroupType = { key: string; title: string; items: Array<GroupItemType> };
+export interface BladeViewProps {
+  /**
+   * @description 组件模式 base | diy | only
+   * @default 'base'
+   */
+  type?: 'base' | 'diy' | 'only',
+  data: IndexObj[],
+  scrollToKey?: string,
+  value?: string,
+  className?: string,
+  sticky?: boolean,
+  vibrate?: boolean,
+  onChange?: (item: object, groups: IndexObj) => void,
+  onChangeSwipeKey?: (obj: IndexObj) => void,
+}
 
- type GroupItemType = { label: string; value: ValueType };
- 
- type ValueType = string | number;
- 
- export interface IBladeViewProps {
-   /**
-    * @description  数据源
-    */
-   data: {key: string; title: string; items: { label: ValueType; value: ValueType }[]}[];
- 
-   /**
-    * @description 当前值
-    */
-   value?: ValueType;
- 
-   /**
-    * @description 默认滚动到的元素
-    */
-   scrollToKey?: string;
- 
-   /**
-    * @description 每项label展示是否支持吸顶
-    * @default true
-    */
-   sticky?: boolean;
- 
-   /**
-    * @description 选择项时的回调
-    */
-   onChange?: (item: GroupItemType, group?: GroupItemType) => void;
- }
- 
- export declare const BladeViewDefaultProps: Partial<IBladeViewProps>;
+export declare const BladeViewDefaultProps: Partial<BladeViewProps>;

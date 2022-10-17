@@ -73,8 +73,7 @@
     "pages/CascaderPicker/index",
     "pages/Rate/index",
     "pages/Slider/index",
-    "pages/TabsElevator/index",
-    "pages/IndexList/index"
+    "pages/TabsElevator/index"
   ],
 
   "window": {
