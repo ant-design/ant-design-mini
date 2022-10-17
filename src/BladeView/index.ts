@@ -1,4 +1,5 @@
 import { BladeViewDefaultProps } from './props';
+import equal from 'fast-deep-equal';
 
 Component({
   props: BladeViewDefaultProps,
@@ -18,6 +19,9 @@ Component({
   },
   didUpdate(_prop) {
     this.initScrollId(_prop);
+    if (!equal(_prop.data, this.props.data)) {
+      this.initItemHeight(() => this.initScrollId({}));
+    }
   },
   methods: {
     initScrollId(_prop) {
@@ -39,6 +43,7 @@ Component({
         .select(`#i-alphabet-0`)
         .boundingClientRect()
         .exec((ret: any) => {
+          if (ret[0] === null) throw new Error('找不到元素');
           const { height } = ret[0];
           this.setData({ itemHeight: height });
         });
@@ -46,6 +51,7 @@ Component({
         .selectAll('.list-index-item-s')
         .boundingClientRect()
         .exec((ret: any) => {
+          if (ret[0] === null) throw new Error('找不到元素');
           if (ret) {
             const arr = []
             ret[0].forEach((u) => {
