@@ -7,45 +7,64 @@ group:
 toc: 'content'
 ---
 
-# SwipeAction 滑动操作
+# SwipeAction 滑动组件
 列表的功能扩展
 ## 何时使用
 通过滑动操作来展示隐藏的功能菜单
 
 ## 代码示例
 
-### 基本使用
+### 组件使用
 <code src='../../demo/pages/SwipeAction'></code>
 
-### 组件实例方法
-<code src='../../demo/pages/SwipeActionRef'></code>
+### 使用限制
 
+1. 该组件父级容器必须设置css的width和height
+2. 左右两侧都需要滑动按钮时，left\right数量需一致
 
 
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| autoClose | boolean | 否 | false | 点击按钮是是否会自动收起 |
-| disabled | boolean | 否 | false | 是否禁止操作 |
-| left | { text: string, type: 'default' &verbar; 'primary' &verbar; 'danger'; className: string } [] | 否 | - | 右滑漏出左侧操作区 |
-| right | { text: string, type: 'default' &verbar; 'primary' &verbar; 'danger'; className: string }[] | 否 | - | 左滑漏出右侧操作区 |
-| className | string | 否 | - | 类名 |
+| 属性         | 类型            | 必填   | 默认值 | 说明                  |
+| -------------|----------------|-------|-------|------------------------------------------- |
+| left         | SwipeButton[]  | 否    | []    | 左侧滑出事件                                 |
+| right        | SwipeButton[]  | 否    | []    | 右侧滑出事件                                 |
+| itemWidth    | number         | 否    | 150   | 左、右侧滑出按钮的宽度                         |
+| damping      | number         | 否    | 20    | 滑动速度                                    |
+| inertia      | boolean        | 否    | true  | 滑动速度                                    |
+| key          | string         | 是    | -     | 唯一标识，用于控制自动收起滑开状态               |
+| leftSwiped   | false          | 否    | false | 左侧按钮是否需要默认滑开                       |
+| rightSwiped  | false          | 否    | false | 右侧按钮是否需要默认滑开                       |
+| disable      | false          | 否    | false | 禁止滑动                                    |
+| callbackData | object         | 否    | {}    | 在事件中回调返回                              |
+| className    | string         | 否    | -     | 类名                                        |
+| style        | object         | 否    | -     | 样式                                        |
+
+### SwipeButton
+| 属性         | 类型            | 必填   | 默认值 | 说明                  |
+| -------------|----------------|-------|-------|------------------------------------------- |
+| type         | string &verbar; leftItemSlot &verbar; rightItemSlot | 是  | -  | leftItemSlot: 使用slot="leftItem"形式插入; rightItemSlot: 使用slot="rightItem"形式插入, 其他type: 按钮标识  |
+| text         | string         | 是    | -     | 事件按钮文字               |
+| bgColor      | string         | 否    | -     | 事件按钮背景颜色                              |
+| color        | string         | 否    | -     | 事件按钮字体颜色                              |
+| style        | object         | 否    | {}    | 事件按钮样式对象                              |
+| className    | string         | 否    | {}    | 事件按钮样式类                              |
+| eventType    | 'move' | 'auto'| 否    | -     | 二次确认方式，不填：没有二次确认；auto：点击确认；move：滑动超出最大距离触发确认 |
+| confirmText  | string         | 否    | -     | 二次确认的文案描述，不填：展示text               |
 
 ## 事件
-| 事件名 | 说明 | 类型 | 补充 |
-| -----|-----|-----|-----|
-| onLeftButtonTap | 点击左侧按钮，触发回调 | (index: number, text: string, type: string, extraInfo?: unknown, dateSet: Record<string, any>) => void | 从左往右起，第 n 个按钮 |
-| onRightButtonTap | 点击右侧按钮，触发回调 | (index: number, text: string, type: string, extraInfo?: unknown, dateSet: Record<string, any>) => void | 从左往右起，第 n 个按钮  |
+| 事件名               | 说明                 | 类型                                       |
+| --------------------|---------------------|--------------------------------------------|
+| onSwipeStart        | 滑动、触摸开始        | (key: string, callbackData: object) => void |
+| onSwipeEnd          | 滑动结束             | (key: string, swipeObj: { direction: 'right' | 'left',left?: boolean,right?: boolean, }, callbackData: object) => void |
+| onTouchEnd          | 触摸结束             | (key: string, callbackData: object) => void |
+| onRightItemEvent    | 点击右侧按钮          | (type: string, key: string, callbackData: object) => void  |
+| onLeftItemEvent     | 点击左侧按钮          | (type: string, key: string, callbackData: object) => void  |
 
 ## 样式类
 | 类名 | 说明 |
-| ----|----|
-| amd-swipe-action| 整体样式 |
-| amd-swipe-action-closeSwipe | 整体样式 |
-| amd-swipe-action-wrap | 整体内容样式 |
-| amd-swipe-action-left | 右侧按钮区域样式 |
-| amd-swipe-action-right | 按钮区域样式 |
-| amd-swipe-action-btn | 按钮样式 |
-| amd-swipe-action-btn-text | 按钮文字样式 |
-| amd-swipe-action-content | 表层区域样式 |
-| amd-swipe-action-item | 表层区域内容样式 |
+| -----|-----|
+| amd-swipe-action | 整体样式 |
+| amd-swipe-action-content | 内容区域样式 |
+| amd-swipe-action-right | 右侧按钮区域样式 |
+| amd-swipe-action-left  | 左侧按钮区域样式 |
+

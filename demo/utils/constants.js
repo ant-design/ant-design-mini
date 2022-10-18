@@ -67,6 +67,11 @@ export const componentList = [
         path: '/pages/List/index',
       },
       {
+        name: 'SwipeAction',
+        nameZN: '滑动操作',
+        path: '/pages/SwipeAction/index',
+      },
+      {
         name: 'Steps',
         nameZN: '步骤条',
         path: '/pages/Steps/index',
@@ -75,11 +80,6 @@ export const componentList = [
         name: 'GuideTour',
         nameZN: '新手引导',
         path: '/pages/GuideTour/index',
-      },
-      {
-        name: 'SwipeAction',
-        nameZN: '滑动操作',
-        path: '/pages/SwipeAction/index',
       },
       {
         name: 'Tag',

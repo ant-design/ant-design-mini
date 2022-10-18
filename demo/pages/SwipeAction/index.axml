@@ -1,44 +1,59 @@
-<view class="demo">
-  <list header="默认左滑">
+<view class="t-swipe">
+  <view class="t-swipe-item" a:for="{{baseList}}" key="{{item.event.left.length + '-' + item.event.right.length + '-' + damping}}">
     <swipe-action
-        a:for="{{rightOperateList}}" 
-        a:key="id"
-        data-index="{{index}}"
-        autoClose="{{item.autoClose}}" 
-        right="{{item.right}}" 
-        speed="{{item.speed}}"
-        extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
-        onRightButtonTap="onRightOperateButtonClick" 
-        >
-        <list-item 
-          arrow="right" 
-          data-index="{{index}}"
-          data-content="{{item.content}}"
-          onTap="onItemClick">
-          {{item.content}}
-        </list-item>
+      rightSwiped="{{item.event.key === swipeStr}}"
+      leftSwiped="{{item.event.key === swipeStr}}"
+      right="{{item.event.right || []}}"
+      left="{{item.event.left || []}}"
+      key="{{item.event.key}}"
+      callbackData="{{ item.event }}"
+      itemWidth="{{item.event.itemWidth}}"
+      disable="{{item.event.disable}}"
+      inertia="{{inertia}}"
+      damping="{{damping}}"
+      onRightItemEvent="onRightItemEvent"
+      onLeftItemEvent="onLeftItemEvent"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onTouchEnd="onTouchEnd">
+      <view class="t-swipe-item-con">
+        {{ item.detail }}
+      </view>
     </swipe-action>
-  </list>  
-  <list header="拓展">
-    <swipe-action
-        a:for="{{expandOperateList}}" 
-        a:key="id"
-        data-index="{{index}}"
-        autoClose="{{item.autoClose}}" 
-        right="{{item.right}}" 
-        left="{{item.left}}"         
-        speed="{{item.speed}}"
-        extraInfo="{{{sequence:index+1,supportClear:item.supportClear}}}"
-        onRightButtonTap="onRightOperateButtonClick"
-        onLeftButtonTap="onLeftOperateButtonClick"  
-        >
-        <list-item
-          data-index="{{index}}"
-          data-content="{{item.content}}"
-          onTap="onItemClick"
-          brief="{{item.brief}}">
-           {{item.content}}
-        </list-item>
-    </swipe-action>
-  </list>
+  </view>
+  <view class="s-action">
+    <view class="s-action-title">事件按钮放置位置</view>
+    <radio-group
+      class="radio-group"
+      uid="horizontal"
+      value="{{type}}"
+      position="horizontal"
+      onChange="handleChange">
+      <radio-item a:for="{{list}}" value="{{item.value}}" uid="horizontal">{{item.label}}</radio-item >
+    </radio-group>
+    <view class="s-action-title">二次确认效果</view>
+    <radio-group  
+      class="radio-group"
+      uid="horizontalList"
+      value="{{check}}"
+      position="horizontal"
+      onChange="handleChangeCheck">
+      <radio-item a:for="{{checkList}}" value="{{item.value}}" uid="horizontalList">{{item.label}}</radio-item >
+    </radio-group>
+    <view class="s-action-title">是否带有滑动回弹</view>
+    <view class="s-action-switch">
+      <switch onChange="onChangeSwitch" checked="{{inertia}}" />
+    </view>
+    <view class="s-action-title">滑动速度</view>
+    <view class="s-action-switch">
+      <slider 
+        min="{{0}}"
+        max="{{100}}"
+        value="{{damping}}"
+        step="{{10}}"
+        ticks="{{true}}"
+        showNumber="{{true}}"
+        onAfterChange="handleAfterChange"/>
+    </view>
+  </view>
 </view>
