@@ -17,43 +17,40 @@ toc: 'content'
 <code src='../../demo/pages/Checklist'></code>
 
 ## 属性
+```typescript 
+interface IChecklistItem {
+  /** 标题 */
+  title: string;
+  /** 值 */
+  value: string;
+  /** 图片 */
+  image?: string;
+  /** 描述 */
+  description?: string;
+  /** 是否禁用 */
+  disabled?: boolean;
+  /** 是否只读 */
+  readonly?: boolean;
+}
+```
 
-| 属性 |  说明  | 类型 | 必填 |默认值|
+| 属性 |  类型  | 必填 | 默认值|说明 |
 | -----|-----|-----|-----|-----|
-| value | 选中数据 | string  &#124; number (string  &#124; )[] |  否 | - |
-| options | ChecklistItem 数据，配置每一列的选项 | ChecklistItem[] |否| [] |
-| multiple |  是否支持多选  | boolean | 否 | false|
-| className |  类名  | string| 否 | - |
+| value | (string\|number)[] |  否 | - | 选中数据 |
+| options | IChecklistItem[] |否| [] | 配置每一列的选项 |
+| multiple |  boolean | 否 | false | 是否支持多选 |
+| className |  string  | 否 | - | 类名 |
+| style | string | 否 | - | 整体样式 |
 
-## ChecklistItem
-| 属性 |  说明  | 类型 |  必填  |默认值  |
-| -----|-----|-----|-----|-----|
-| title | 标题 | string|是| - |
-| value |  值 | string &#124; value |是 | - |
-| image |  图片 | string | 否 | -|
-| description |  描述 | string | 否 | -|
-| disabled |  是否禁用 | boolean| 类名 | false |
-| readOnly |  是否只读 | boolean| 类名 | false |
 
 
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onChange | 选中项发生变化，触发回调 | (value: string&#124; number&#124; [], column: ChecklistItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onChange | 选中项发生变化，触发回调 | (value: string&#124; number&#124; [], column: IChecklistItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ## 插槽
-| 名称 | 说明 | 类型 |
+| 名称 | 说明 | 作用域参数 |
 | -----|-----|-----|
-| content | CheckListItem自定义样式 | 作用域插槽，接收选中的item参数 |
+| content | CheckListItem自定义内容区 | item |
 | icon | 自定义选中Icon |  - |
-
-
-## 样式类
-| 类名 | 说明 |
-| -----|-----|
-| amd-checklist | 可勾选列表样式 |
-| amd-checklist-item-content| 可勾选列表内容样式 |
-| amd-checklist-item-text | 可勾选列表内容标题样式 |
-| amd-checklist-item-image | 可勾选列表内容图片样式 |
-| amd-checklist-item-text-description | 可勾选列表内容描述样式 |
-| amd-checklist-item-check-icon | 可勾选列表内容选中Icon样式 |

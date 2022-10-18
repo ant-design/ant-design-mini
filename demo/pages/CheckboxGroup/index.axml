@@ -67,9 +67,10 @@
     <checkbox-item 
       a:for="{{list}}"
       value="{{item.value}}"  
-      icon="SmileOutline" checkedIcon="SmileFill"
       uid="group5">
         {{item.label}}
+        <am-icon type="SmileOutline" style="color:#1677ff" slot="icon"/>
+        <am-icon type="SmileFill" style="color:#1677ff"  slot="checkedIcon"/>
     </checkbox-item>
 
   </checkbox-group>

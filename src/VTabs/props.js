@@ -1,3 +1,3 @@
 export const VTabsDefaultProps = {
-  index: 0,
+  activekey: 0,
 };

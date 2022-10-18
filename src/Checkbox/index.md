@@ -22,19 +22,15 @@ toc: 'content'
 
 ## 属性
     
-| 属性 |  说明 | 类型 | 默认值 |
-| -----|-----|-----|-----|
-| checked | 是否选中  | boolean | false |
-| disabled | 是否禁用  | boolean | false |
-| color | 选中的颜色，同 CSS 色值 | string | false |
-| value | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用 | string | - |
-| icon | 自定义未选中图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
-| checkedIcon | 自定义选中状态的图标，支持[Icon](./icon#代码示例)和图片路径  | string | - |
-| disabledIcon | 自定义禁用状态的图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
-| disabledCheckedIcon | 自定义禁用选中状态的图标，支持[Icon](./icon#代码示例)和图片路径 | string | - |
-| id | 表单元素 id | string | - |
-| name | 表单元素 name  | string | - | 
-| className | 类名| string | - |
+| 属性 | 类型 | 必填 | 默认值 | 说明 |
+| -----|-----|-----|-----|-----|
+| checked | boolean | 否 |  false |是否选中 |
+| disabled | boolean  | 否 | false | 是否禁用 |
+| value | string | 否| - | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用 |
+| id | string | 否 | - |表单元素id |
+| name |  string | 否 | - |表单元素name |
+| className | string | 否 | - | 类名 |
+| style | string | 否 | - | 整体样式 |
 
 
 
@@ -46,18 +42,11 @@ toc: 'content'
 
 ## 插槽
 
-| 名称 | 说明 |
-| ----|----|
-| default | 内容区 |
+| 名称 | 说明 | 作用域参数 |
+| ----|----|----|
+| default | 内容区 | - |
+| icon | 未勾选状态图标 | - |
+| checkedIcon | 勾选状态图标 | - |
+| disbaledIcon | 禁用时未勾选状态图标 | - |
+| disabledCheckedIcon | 禁用时勾选状态图标 | - |
 
-## 样式类
-
-| 类名 | 说明 |
-| -----|-----|
-| amd-checkbox | 标签样式 |
-| amd-checkbox-disabled | checkbox 组件禁用样式 |
-| amd-checkbox-checked | checkbox 组件禁用样式 |
-| amd-checkbox-base | 原始 checkbox 样式 |
-| amd-checkbox-fake | checkbox 组件未选中样式 |
-| amd-checkbox-fake-custom | 自定义图标时的样式 |
-| amd-checkbox-content | 内容区样式 |

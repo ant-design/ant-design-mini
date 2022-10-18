@@ -86,7 +86,7 @@ export interface IUploaderProps extends IBaseProps {
    * @description 是否支持预览
    * @default true
    */
-  preview?: boolean;
+  enablePreview?: boolean;
 
   /**
    * @description 视频选择的来源

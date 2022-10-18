@@ -1,55 +1,8 @@
-<template name="icon">
-  <image-icon
-    className="{{className}}"
-    image="{{item.activeIcon || item.icon}}"
-    iconSize="small"
-    iconColor="{{activeColor}}"
-  />
-</template>
-
-<template name="iconArea">
-  <view>
-    <view a:if="{{activeIndex == index}}">
-      <template
-        is="icon"
-        data="{{
-          activeIndex: activeIndex,
-          activeColor: activeColor,
-          index: index,
-          item: item,
-          className: 'amd-tab-bar'
-        }}"
-      />
-    </view>
-    <view a:else>
-      <template
-        is="icon"
-        data="{{
-          activeIndex: activeIndex,
-          index: index,
-          item: item,
-          className: 'amd-tab-bar'
-        }}"
-      />
-    </view>
-  </view>
-</template>
-
-<template name="textArea">
-  <view class="amd-tab-bar-text-wrap">
-    <text
-      class="amd-tab-bar-text"
-      style="color: {{activeIndex == index ? activeColor : '#666'}}"
-    >
-      {{item.text}}
-    </text>
-  </view>
-</template>
-
-<view class="amd-tab-bar {{className ? className : ''}}">
+<view class="amd-tab-bar {{className || ''}}" style="{style || ''}">
   <view class="amd-tab-bar-wrap">
     <view
-      class="amd-tab-bar-item"
+      class="amd-tab-bar-item {{ index === activeIndex ? ('amd-tab-bar-item-active' + (activeClassName || '')) : '' }}"
+      style="{{index === activeIndex? (activeStyle||'') : ''}}"
       a:for="{{tabs}}"
       onTap="onChange"
       data-index="{{index}}"
@@ -67,38 +20,26 @@
         offsetX="{{item.badge.offsetX || '-9px'}}"
         offsetY="{{item.badge.offsetY || '0px'}}"
         >
-        <template
-          is="iconArea"
-          data="{{
-            activeIndex: activeIndex,
-            activeColor: activeColor,
-            index: index,
-            item: item,
-          }}"
-        />
+        <slot name="icon" active="{{activeIndex == index}}" item="{{item}}" index="{{index}}">
+          <image-icon
+            className="amd-tab-bar"
+            image="{{activeIndex === index? item.activeIcon : item.icon}}"
+          />
+        </slot>
       </badge>
-
-      <block a:if="{{!item.badge}}">
-        <template
-          is="iconArea"
-          data="{{
-            activeIndex: activeIndex,
-            activeColor: activeColor,
-            index: index,
-            item: item,
-          }}"
+      <slot a:else name="icon" active="{{activeIndex == index}}" item="{{item}}" index="{{index}}">
+        <image-icon
+          className="amd-tab-bar"
+          image="{{activeIndex === index?item.activeIcon : item.icon}}"
         />
-      </block>
-
-      <template
-        is="textArea"
-        data="{{
-          activeIndex: activeIndex,
-          activeColor: activeColor,
-          index: index,
-          item: item,
-        }}"
-      />
+      </slot>
+      <view class="amd-tab-bar-text-wrap">
+        <slot name="text" active="{{activeIndex === index}}" item="{{item}}" index="{{index}}">
+          <text class="amd-tab-bar-text">
+            {{item.text}}
+          </text>
+        </slot>
+      </view>
     </view>
   </view>
 </view>

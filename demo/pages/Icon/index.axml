@@ -10,7 +10,7 @@
   <view class="icon-list">
     <view class="icon-item" a:for="{{iconTypes}}" a:if="{{item.indexOf('Outline') > 1&&item.toUpperCase().indexOf(searchValue.toUpperCase())>-1}}">
       <view class="icon-item-wrapper" onTap="handleClickIcon" data-info="{{item}}">
-        <am-icon type="{{item}}" color="#1677ff" size="small" />
+        <am-icon type="{{item}}" style="color:#1677ff;font-size:24px" />
         <text class="icon-desc">{{item}}</text>
       </view>
     </view>
@@ -21,7 +21,7 @@
   <view class="icon-list">
     <view class="icon-item" a:for="{{iconTypes}}" a:if="{{item.indexOf('Fill') > 1&&item.toUpperCase().indexOf(searchValue.toUpperCase())>-1}}">
       <view class="icon-item-wrapper" onTap="handleClickIcon" data-info="{{item}}">
-        <am-icon type="{{item}}" color="#1677ff" size="small" onTap="handleClickIcon" data-info="{{item}}" />
+        <am-icon type="{{item}}" style="color:#1677ff;font-size:24px" />
         <text class="icon-desc">{{item}}</text>
       </view>
     </view>

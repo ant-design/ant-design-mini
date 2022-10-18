@@ -78,5 +78,13 @@ export interface ICascaderProps extends IBaseFormItemPropsWithOutFocus {
    * @default false
    */
   maskClosable?: boolean;
+  /**
+   * @description 弹出框类名
+   */
+  popClassName?: string;
+  /**
+   * @description 弹出框样式
+   */
+  popStyle?: string;
 }
 export declare const CascaderDefaultProps: Partial<ICascaderProps>;

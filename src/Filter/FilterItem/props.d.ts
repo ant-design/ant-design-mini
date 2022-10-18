@@ -6,10 +6,10 @@ import { IBaseProps } from '../../_base';
 
 export interface IFilterItemProps extends IBaseProps {
   /**
-   * @description 类型 default=单选 multiple=多选 custom=自定义面板(通过 ref.setValue 设置值)
-   * @default "default"
+   * @description 是否多选
+   * @default false
    */
-  type?: 'default' | 'multiple' | 'custom';
+  multiple?: boolean;
   /**
    * @description 每一项的值，该组件仅支持受控模式
    */
@@ -23,7 +23,7 @@ export interface IFilterItemProps extends IBaseProps {
    */
   onOpen?: (e: Record<string,any>) => void;
   /**
-   * @description type=default type=multiple 有效，为 selector 所需数据
+   * @description  selector 所需数据
    */
   items?: {
     value: string;

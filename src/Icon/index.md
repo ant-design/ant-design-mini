@@ -21,19 +21,5 @@ toc: 'content'
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|:-----:|:-----:|:-----:|----- |
 | type | string | 是 | - | icon 图标的类型 |
-| size | 'x-small' &verbar; 'small' &verbar; 'medium' &verbar; 'large' &verbar; 'x-large' | 否 | 'medium' | icon 的大小，x-small(16)、small(32)、medium(48)、large(64)、x-large(128)， |
-| color | string | 否 | - | icon 的颜色，即 CSS 中 color 属性的值 |
-| fontSize | string | 否 | - | icon 的大小 |
-| stopPropagation | boolean | 否 | false | 是否阻止事件冒泡 |
 | className | string | 否 | - | 类名 |
-
-## 事件
-
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onTap | 点击图标，触发此回调 | ( e: [`Event`](https://opendocs.alipay.com/mini/framework/event-object) ) => void |
-
-## 样式类
-| 类名 | 说明 |
-| -----|-----|
-| amd-icon | 整体样式 |
+| style | string | 否 | - | 整体样式 |

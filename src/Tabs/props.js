@@ -1,7 +1,7 @@
 export const TabsDefaultProps = {
   type: 'basis',
   adjustHeight: 'current',
-  index: 0,
+  activekey: 0,
   animation: false,
   swipeable: false,
   sticky: false,

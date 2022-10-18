@@ -27,14 +27,16 @@ toc: 'content'
     
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
-| index | number | 否 | 0 | 当前激活的索引 |
+| activekey | number | 否 | 0 | 当前激活的索引 |
 | className | string | 否 | - | 类名 |
+| style | string | 否 | - | 整体样式 |
 
 #### VTabsItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | tab | {title: string; disabled?: boolean, badge?: {type: 'dot' &verbar; 'number' &verbar; 'text', text: number  &verbar;  string }}[] | 是 | - | 每一项 tab 内容 |
 | className | string | 否 | - | 类名 |
+| style | string | 否 | - | 整体样式 |
 
 ## 事件
 
@@ -45,32 +47,7 @@ toc: 'content'
 
 ## 插槽
 #### VTabs
-| 名称 | 说明 | 类型 |
+| 名称 | 说明 | 作用域参数 |
 | -----|-----|-----|
-| title | 自定义标题内标题样式 | 作用域插槽 |
-| icon | 自定义标题内图标样式 | 作用域插槽 |
-
-## 样式类
-
-
-#### VTabs
-| 类名 | 说明 |
-| -----|-----|
-| amd-vtabs | 整体样式 |
-| amd-vtabs-bar | 左侧标题区域样式 |
-| amd-vtabs-bar-scroll-view |  左侧标题区域样式 |
-| amd-vtabs-bar-item-wrap | 左侧标题样式 |
-| amd-vtabs-bar-item | 左侧标题样式 |
-| `amd-vtabs-bar-item-active` | `标题激活状态样式` |
-| amd-vtabs-bar-item-disabled | 标题禁用状态样式 |
-| amd-vtabs-bar-item-title | 标题内 title 的样式 |
-| amd-vtabs-bar-item-count | 标题内 badge 的样式 |
-| amd-vtabs-bar-item-icon | 标题内 icon 插槽的样式 |
-| amd-vtabs-content | 右侧内容区域样式 |
-| amd-vtabs-content-slides| 右侧单个内容区域样式 |
-
-
-#### VTabItem
-| 类名 | 说明 |
-| -----|-----|
-| amd-vtabs-item | 整体样式 |
+| default | 内容区渲染 | - |
+| title | 自定义标题内标题 | tab |

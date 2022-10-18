@@ -14,29 +14,6 @@ export interface ITabsConfig {
    */
   activeIcon?: string;
 
-  /**
-   * @description 图片类型 Tab 的适配模式，默认为 aspectFit
-   * @default 'aspectFit'
-   */
-  imageMode?: string;
-
-  // /**
-  //  * @description 是否展示徽标
-  //  * @default false
-  //  */
-  // badge?: boolean;
-
-  // /**
-  //  * @description 徽标类型，参见 <Badge/> 组件
-  //  * @default ''
-  //  */
-  // badgeType?: string;
-
-  // /**
-  //  * @description 徽标内容，参见 <Badge/> 组件
-  //  * @default ''
-  //  */
-  // badgeText?: string;
 
   /**
    * @description 底部的文本信息
@@ -67,10 +44,16 @@ export interface ITabBarProps extends IBaseProps {
   activeKey?: number;
 
   /**
-   * @description 高亮状态图标和文本的颜色
-   * @default '#1677ff'
+   * @description 选项卡激活类名
+   * @default ''
    */
-  activeColor: string;
+   activeClassName: string;
+
+  /**
+   * @description 选项卡激活样式
+   * @default ''
+   */
+  activeStyle: string;
 
   /**
    * @description 最大展示的 tab 数量，默认为 5，建议不要超过 5 个

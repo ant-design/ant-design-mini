@@ -15,6 +15,10 @@
       checked="{{_checked}}"
       value="{{value}}">  
       <slot />
+      <slot name="icon" slot="icon"/>
+      <slot name="checkedIcon" slot="checkedIcon"/>
+      <slot name="disbaledIcon" slot="disbaledIcon"/>
+      <slot name="disabledCheckedIcon" slot="disabledCheckedIcon"/>
     </checkbox> 
   </list-item>
 </label>

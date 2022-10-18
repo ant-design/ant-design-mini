@@ -1,4 +1,4 @@
-<view class="amd-tabs-elevator {{className||''}}">
+<view class="amd-tabs-elevator {{className||''}}" style="{{style||''}}">
     <bar tabs="{{tabs}}" activeIndex="{{activeIndex}}" top="{{statusBarHeight}}" onTabClick="onTabClick">
         <slot name="title" slot-scope="props" item="{{props.item}}" index="{{props.index}}" active="{{activeIndex===index}}" />
     </bar>

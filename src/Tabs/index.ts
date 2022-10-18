@@ -57,24 +57,24 @@ Component({
     setGroupDataVal();
     this.updateTabsItemFallbackVal(this.props.fallback)
 
-    const { index, animation } = this.props;
+    const { activekey, animation } = this.props;
     this.setData({
-      currentIndex: index,
+      currentIndex: activekey,
     });
 
     this._getTabsWidth();
     this._useSwipeable(this.props.swipeable);
-    if (typeof index !== 'number') {
+    if (typeof activekey !== 'number') {
       // 如果当前索引值的类型不对给警告提示
-      log.error('Tabs', `当前激活的索引值类型非 number 类型，修改当前 index 的 ${typeof index} 类型，以保证展示的正确性。`);
+      log.error('Tabs', `当前激活的索引值类型非 number 类型，修改当前 activekey 的 ${typeof activekey} 类型，以保证展示的正确性。`);
     } else {
       my.createSelectorQuery()
-        .select(`#amd-tabs-bar-item-${index}`)
+        .select(`#amd-tabs-bar-item-${activekey}`)
         .boundingClientRect()
         .exec((ret) => {
           if (!ret || !ret[0]) {
             // 当获取到的索引值无法匹配时显示错误提示
-            log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
+            log.error('Tabs', `激活的索引值错误，请确认 ${activekey} 是否为正确的索引值。`);
             return 
           }
 
@@ -99,7 +99,7 @@ Component({
           }
 
         });
-      this._autoHeight(index);
+      this._autoHeight(activekey);
     }
 
     if (!component2) {
@@ -108,22 +108,22 @@ Component({
   },
   didUpdate(prevProps, prevData) {
     
-    const { index, animation, fallback } = this.props;
+    const { activekey, animation, fallback } = this.props;
 
     if (prevProps.fallback !== fallback) {
       this.updateTabsItemFallbackVal(fallback)
     }
 
-    if (prevProps.index !== index && prevData.currentIndex === this.data.currentIndex) {
+    if (prevProps.activekey !== activekey && prevData.currentIndex === this.data.currentIndex) {
       this._getTabsWidth();
 
       my.createSelectorQuery()
-        .select(`#amd-tabs-bar-item-${index}`)
+        .select(`#amd-tabs-bar-item-${activekey}`)
         .boundingClientRect()
         .exec((ret) => {
           if (!ret || !ret[0]) {
             // 当获取到的索引值无法匹配时显示错误提示
-            log.error('Tabs', `激活的索引值错误，请确认 ${index} 是否为正确的索引值。`);
+            log.error('Tabs', `激活的索引值错误，请确认 ${activekey} 是否为正确的索引值。`);
             return;
           }
 
@@ -141,20 +141,20 @@ Component({
             this.setData({
               _scrollLeft: left - _tabsViewportWidth / 2 + width / 2,
               _leftFade: true,
-              currentIndex: index,
+              currentIndex: activekey,
               _swipeableAnimation: animation,
             });
           } else {
             this.setData({
               _scrollLeft: 0,
               _leftFade: false,
-              currentIndex: index,
+              currentIndex: activekey,
               _swipeableAnimation: animation,
             });
           }
 
         });
-      this._autoHeight(index);
+      this._autoHeight(activekey);
     }
     this._useSwipeable(this.props.swipeable);
   },

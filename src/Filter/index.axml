@@ -1,5 +1,5 @@
 <import-sjs from="./index.sjs" name="filter" />
-<view class="amd-filter {{className ? className : ''}}">
+<view class="amd-filter {{className ? className : ''}}" style="{{style || ''}}">
   <view class="amd-filter-bar">
     <block a:for="{{placeHolderObj}}">
       <view class="amd-filter-bar-item">

@@ -3,7 +3,8 @@
     <view class="amd-input-item-layer">
       <input 
         enableNative="{{enableNative}}" 
-        class="amd-input-item-content  {{inputCls ? inputCls : ''}}" 
+        class="amd-input-item-content  {{inputClassName || ''}}" 
+        style="{{inputStyle || ''}}"
         id="{{id ? id : `amdInput_${$id}`}}" 
         name="{{name}}" 
         disabled="{{disabled}}" 

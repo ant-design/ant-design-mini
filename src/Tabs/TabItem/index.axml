@@ -1,7 +1,7 @@
 <view a:if="{{!isBaseSwiper}}" 
   class="amd-tabs-item amd-tabs-item-pane {{className ? className : ''}}"
   key="tabs-pane-{{$id}}" 
-  style="align-self: flex-start;">
+  style="{{style||''}}">
   <slot />
 </view>
 <view 

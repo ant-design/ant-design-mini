@@ -58,7 +58,7 @@ Page({
       {
         value: 2,
         title: '只读列表项2',
-        readOnly: true
+        readonly: true
       },
       {
         value: 3,

@@ -1,5 +1,5 @@
 <vtabs 
-  index="{{index}}"
+activekey="{{index}}"
   onChange="onChange">
   <view slot="title" slot-scope="prop">
     {{prop.tab.title}}
