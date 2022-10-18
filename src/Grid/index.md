@@ -46,7 +46,7 @@ type IGridItem = {
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onTap | 点击每个元素触发 | (item: IGridItem ) => void |
-
+| onFirstAppear | 当前元素首次可见面积达到50%时触发 | (item: IGridItem ) => void |
 
 ## 样式类
 | 类名 | 说明 |
