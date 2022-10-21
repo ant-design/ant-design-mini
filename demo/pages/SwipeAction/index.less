@@ -1,0 +1,54 @@
+.t-swipe {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 20rpx;
+  min-height: 1000rpx;
+  background-color: #FAFBFC;
+  padding-bottom: 100rpx;
+  &-item {
+    height: 110rpx;
+    line-height: 110rpx;
+    font-size: 34rpx;
+    color: #333;
+    &-con {
+      background-color: white;
+      text-indent: 1em;
+      position: relative;
+      height: 100%;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        max-height: 1px;
+        min-height: 1px;
+        transform: scaleY(0.5);
+        background-color: #e5e5e5;
+      }
+    }
+  }
+}
+.s-action {
+  width: 100%;
+  margin: 48rpx auto;
+  color: #333;
+  min-height: 300rpx;
+  border-radius: 16rpx;
+  &-title {
+    margin-top: 24rpx;
+    margin-left: 24rpx;
+    width: 50%;
+  }
+  &-switch {
+    width: calc(100% - 48rpx);
+    margin: 24rpx auto;
+    .amd-slider-track {
+      background: none;
+    }
+  }
+}
+.radio-group .amd-list-item {
+  background: none;
+}

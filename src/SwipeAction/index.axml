@@ -1,50 +1,124 @@
-<view class="amd-swipe-action {{closeSwipe ? 'amd-swipe-action-closeSwipe' : ''}} {{className ? className : ''}}">
-  <view class="amd-swipe-action-wrap">
-    <block a:if="{{right.length > 0}}">
-      <view class="amd-swipe-action-right amd-swipe-action-right-{{$id}}"
-        style="{{rightBtn?'opacity: 1;pointer-events: auto;':'opacity: 0;pointer-events: none;'}}">
-        <block a:for="{{right.slice(0,3)}}">
-          <view class="amd-swipe-action-btn amd-swipe-action-btn-{{item.type}} "
-            hover-class="amd-swipe-action-btn-{{item.type}}-hover"
-            hover-start-time="{{20}}"
-            hover-stay-time="{{30}}"
-            onTap="onRightButtonTap"
-            data-index="{{index}}"
-            data-type="{{item.type}}"
-            data-text="{{item.text}}"
-            key="swipe-right-item-{{index}}">
-            <text class="amd-swipe-action-btn-text">{{item.text}}</text>
+<import-sjs name="util" from="./index.sjs"/>
+
+<view class="my-paytm-swipe {{className}}" style="{{style}}">
+  <view class="paytm-swipe amd-swipe-action" style="{{{ width: util.getWidth(rightWidth, leftWidth, inertiaWidth) }}}">
+    <movable-area
+      class="paytm-swipe-movable"
+      style="{{{
+        marginLeft: util.getMarginLeft(rightWidth, leftWidth, inertiaWidth),
+      }}}">
+      <movable-view
+        class="paytm-swipe-movable-content"
+        style="{{{
+          width: util.getWidth2(rightWidth, leftWidth, inertiaWidth),
+          marginLeft: util.getMarginLeft2(rightWidth, leftWidth, inertiaWidth)}}}"
+        x="{{swipeX}}"
+        data-type="content"
+        animation="{{true}}"
+        damping="{{damping}}"
+        direction="horizontal"
+        out-of-bounds="{{ false }}"
+        disabled="{{disable}}"
+        onTap="onSwipeTap"
+        onChange="onChange"
+        onChangeEnd="onChangeEnd"
+        catchTouchEnd="onTouchEnd"
+        onTouchCancel="onTouchCancel"
+        catchTouchStart="onTouchStart"
+      >
+        <view
+          class="paytm-swipe-movable-content-view amd-swipe-action-content"
+          style="{{util.getSlotWidthStyle(rightWidth, leftWidth, left, right, inertiaWidth)}}"
+          catchTap="onClick">
+          <view class="paytm-swipe-movable-content-view-modal" a:if="{{swipedR || swipedL}}"></view>
+          <slot />
+        </view>
+      </movable-view>
+      <movable-view
+        class="paytm-swipe-movable-content {{`paytm-swipe-movable-right-${$id}`}}"
+        a:for="{{right}}"
+        a:for-item="item"
+        a:for-index="idx"
+        damping="{{damping}}"
+        a:key="{{idx}}"
+        style="{{{
+          zIndex: tapTypeR === item.type ? 1 : 0,
+          marginLeft: util.getMarginLeft3(rightWidth, leftWidth, inertiaWidth),
+          width: (rightWidth - 0.1) + 'rpx' }}}"
+        data-type="content"
+        animation="{{false}}"
+        disabled="{{true}}"
+        direction="horizontal"
+        x="{{moveX * ((right.length - idx) / right.length)}}"
+      >
+        <view class="paytm-swipe-movable-content-right" style="{{{background: item.bgColor,width: (itemWidth + inertiaWidth + 1) + 'rpx'}}}">
+          <view
+            class="paytm-swipe-movable-content-right-text amd-swipe-action-right {{ item.className }}"
+            catchTap="onItemTap"
+            data-item="{{item, idx}}"
+            aria-hidden="{{!swipedR}}"
+            style="{{{
+              ...item.style,
+              fontSize: (item.fontSize || 28) + 'rpx',
+              color: item.color,
+              background: item.bgColor,
+              width: tapTypeR && tapTypeR === item.type ? (rightWidth + 1 + inertiaWidth) + 'rpx' : `${itemWidth}rpx`,
+              ...(tapTypeR && tapTypeR === item.type ? myStyle : {})
+              }}}">
+              <text a:if="{{item.type !== 'rightItemSlot'}}" class="right-text {{util.getLeft(tapTypeR, item, idx, right, true)}}">
+                  {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
+              </text>
+              <slot data="{{item}}" name="rightItem">
+                {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
+              </slot>
           </view>
-        </block>
+        </view>
+      </movable-view>
+      <movable-view
+        class="paytm-swipe-movable-content is-right-swipe {{`paytm-swipe-movable-left-${$id}`}}"
+        a:for="{{left}}"
+        a:for-item="itemL"
+        a:for-index="idx"
+        damping="{{damping}}"
+        a:key="{{`left-${idx}`}}"
+        style="{{{
+          zIndex: tapTypeL === itemL.type ? 1 : 0,
+          marginLeft: `${inertiaWidth}rpx`,
+          width: (leftWidth - 1) + 'rpx'}}}",
+        data-type="content"
+        animation="{{false}}"
+        disabled="{{true}}"
+        direction="horizontal"
+        x="{{moveX * ((left.length - idx) / left.length)}}"
+      >
+      <view
+        class="paytm-swipe-movable-content-left"
+        style="{{{background: tapTypeL && tapTypeL === itemL.type && left.length === 3 && idx === 1  ? 'none' : itemL.bgColor,width: (leftWidth + inertiaWidth) + 'rpx'}}}">
+        <view
+          class="paytm-swipe-movable-content-left-text1 amd-swipe-action-left  {{ itemL.className }}"
+          catchTap="onItemTap"
+          data-item="{{itemL, idx}}"
+          aria-hidden="{{!swipedL}}"
+          style="{{{
+            ...itemL.style,
+            background: itemL.bgColor,
+            height: `calc(100% + 2px)`,
+            fontSize: (itemL.fontSize || 28) + 'rpx',
+            color: itemL.color,
+            ...(tapTypeL && tapTypeL === itemL.type ? myStyle : {}),
+            width: tapTypeL && tapTypeL === itemL.type ? (leftWidth + 1 + inertiaWidth) + 'rpx' : `${itemWidth}rpx`,
+            }}}">
+            <text a:if="{{itemL.type !== 'leftItemSlot'}}" class="right-text" style="{{{ width: `${leftWidth}rpx` }}}">
+              <text class="right-text {{util.getLeft(tapTypeL, itemL, idx, left, false)}}">
+                {{tapTypeL && tapTypeL === itemL.type ? (itemL.confirmText || itemL.text) : itemL.text}}
+              </text>
+            </text>
+            <slot data="{{item}}" name="leftItem">
+              {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
+            </slot>
+        </view>
       </view>
-    </block>
-    <block a:if="{{left.length > 0}}">
-      <view class="amd-swipe-action-left amd-swipe-action-left-{{$id}}"
-        style="{{leftBtn?'opacity: 1;pointer-events: auto;':'opacity: 0;pointer-events: none;'}}">
-        <block a:for="{{left.slice(0,3)}}">
-          <view class="amd-swipe-action-btn amd-swipe-action-btn-{{item.type}}"
-            hover-class="amd-swipe-action-btn-{{item.type}}-hover"
-            hover-start-time="{{20}}"
-            hover-stay-time="{{30}}"
-            onTap="onLeftButtonTap"
-            data-index="{{index}}"
-            data-type="{{item.type}}"
-            data-text="{{item.text}}"
-            key="swipe-left-item-{{index}}">
-            <text class="amd-swipe-action-btn-text">{{item.text}}</text>
-          </view>
-        </block>
-      </view>
-    </block>
-    <view class="amd-swipe-action-content"
-      onTap="onSwipeTap"
-      onTouchStart="onSwipeStart"
-      onTouchEnd="onSwipeEnd"
-      catchTouchMove="onSwipeMove"
-      style="transform: translate3d({{itemPosition}}px, 0, 0);transition-duration:{{speed || 15}}ms">
-      <view class="amd-swipe-action-item amd-swipe-action-item-{{$id}}">
-        <slot />
-      </view>
-    </view>
+      </movable-view>
+    </movable-area>
   </view>
 </view>

@@ -1,75 +1,91 @@
 import { IBaseProps } from '../_base';
 
-interface ISwipeActionRef {
-  getCompInstance: () => any,
-  setItemPosition: (idx: number) => void
+interface SwipeButton {
+    type: string,
+    text: string,
+    bgColor?: string,
+    color?: string,
+    style?: object,
+    eventType?: 'move' | 'auto',
+    confirmText?: string,
 }
-export interface ISwipeButton extends IBaseProps {
-  /**
-   * @description 按钮文字
-   */
-  text?: string;
-  /**
-   * @description 按钮类型 default=普通 primary=品牌色 danger=红色/危险
-   */
 
-  type?: 'default' | 'primary' | 'danger';
+interface SwipeEnd {
+    direction: 'right' | 'left',
+    left?: boolean,
+    right?: boolean,
 }
-/**
- * @description 可滑动列表，左右滑动显示操作按钮。
- */
 
-export interface ISwipeActionProps extends IBaseProps {
+interface ISwipeActionProps extends IBaseProps  {
   /**
-   * @description 点击按钮是是否会自动收起
+   * @description 左侧滑出事件
+   * @default []
+   */
+   left?: SwipeButton[];
+  /**
+   * @description 右侧滑出事件
+   * @default []
+   */
+   right?: SwipeButton[];
+  /**
+   * @description 滑出按钮宽度
+   * @default 150
+   */
+   itemWidth?: number;
+  /**
+   * @description 滑动速度
+   * @default 20
+   */
+   damping?: number;
+  /**
+   * @description 唯一标识
+   * @default ''
+   */
+   key: string;
+  /**
+   * @description 滑动弹性
+   * @default true
+   */
+   inertia?: boolean;
+  /**
+   * @description 左侧按钮是否滑开
    * @default false
    */
-  autoClose?: boolean;
+   leftSwiped?: boolean;
   /**
-   * @description 是否禁止操作
+   * @description 右侧按钮是否滑开
    * @default false
    */
-
-  disabled?: boolean;
+   rightSwiped?: boolean;
   /**
-   * @description 点击箭头右滑按钮的速度，单位ms，正数，数值越小越快，正常范围在1～100之间，默认15ms
-   * @default 15
+   * @description 禁止滑动
+   * @default false
    */
-  speed?: number;
+   disable?: boolean;
   /**
-   * @description extraInfo是传给外部调用者的附加信息，点击按钮时拿到，作为执行点击按钮回调的入参
+   * @description 回调数据
    * @default {}
    */
-   extraInfo?: unknown;
+   callbackData?: object;
   /**
-   * @description 右滑漏出左侧操作区
+   * @description 滑动结束
    */
-
-  left?: ISwipeButton[];
+   onSwipeEnd: (key: string, swipeObj: SwipeEnd, callbackData: object) => void;
   /**
-   * @description 左滑漏出右侧操作区
+   * @description 滑动、触摸开始
    */
-
-  right?: ISwipeButton[];
-
+   onSwipeStart: (key: string, callbackData: object) => void;
   /**
-   * @description
-   * 点击左侧按钮回调，extraInfo是一个对象，
-   * extraInfo包含若干属性，支持用户传入附加参数，以实现组件使用者的删除逻辑
-   * 属性添加方式参考demo示例
+   * @description 触摸结束
    */
-  onLeftButtonTap?:
-  (index: number, text: string, type: string, extraInfo: unknown, dateSet: Record<string, any>) => void;
+   onTouchEnd: (key: string, callbackData: object) => void;
   /**
-   * @description 点击右侧按钮回调，extraInfo是一个对象，
-   * extraInfo包含若干属性，支持用户传入附加参数，以实现组件使用者的删除逻辑
-   * 属性添加方式参考demo示例
+   * @description 右侧滑动按钮的点击事件回调
    */
-  onRightButtonTap?:
-  (index: number, text: string, type: string, extraInfo: unknown, dateSet: Record<string, any>) => void;
+   onRightItemEvent: (type: string, key: string, callbackData: object) => void;
   /**
-   * @description 获取组件实例与设置滑动距离
-  */
-  onGetRef?: ISwipeActionRef;
+   * @description 左侧滑动按钮的点击事件回调
+   */
+   onLeftItemEvent: (type: string, key: string, callbackData: object) => void;
 }
 export declare const SwipeActionDefaultProps: Partial<ISwipeActionProps>;
