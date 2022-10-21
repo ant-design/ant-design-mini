@@ -1,6 +1,7 @@
 export const BadgeDefaultProps = {
-  placement: 'top-right',
+  position: 'top-right',
   stroke: false,
   type: 'dot',
   bgColor: '#FF411C',
+  style: ''
 };

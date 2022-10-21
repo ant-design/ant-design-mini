@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "电梯Tabs",
+  "usingComponents": {
+    "elevator": "../../../src/TabsElevator/index"
+  }
+}

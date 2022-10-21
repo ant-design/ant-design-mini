@@ -18,6 +18,11 @@ export const componentList = [
     type: '导航',
     list: [
       {
+        name: 'TabBar',
+        nameZN: 'TabBar底部标签栏',
+        path: '/pages/TabBar/index',
+      },
+      {
         name: 'Tabs',
         nameZN: '标签页',
         path: '/pages/Tabs/index',
@@ -38,9 +43,19 @@ export const componentList = [
         path: '/pages/Avatar/index',
       },
       {
+        name: 'BladeView',
+        nameZN: '索引',
+        path: '/pages/BladeView/index',
+      },
+      {
         name: 'Collapse',
         nameZN: '折叠面板',
         path: '/pages/Collapse/index',
+      },
+      {
+        name: 'Grid',
+        nameZN: '宫格',
+        path: '/pages/Grid/index',
       },
       {
         name: 'Container',
@@ -57,6 +72,11 @@ export const componentList = [
         path: '/pages/Steps/index',
       },
       {
+        name: 'GuideTour',
+        nameZN: '新手引导',
+        path: '/pages/GuideTour/index',
+      },
+      {
         name: 'SwipeAction',
         nameZN: '滑动操作',
         path: '/pages/SwipeAction/index',
@@ -67,9 +87,24 @@ export const componentList = [
         path: '/pages/Tag/index',
       },
       {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
+      },
+      {
         name: 'FloatPanel',
         nameZN: '滑动面板',
         path: '/pages/FloatPanel/index',
+      },
+      {
+        name: 'Footer',
+        nameZN: '页脚',
+        path: '/pages/Footer/index',
+      },
+      {
+        name: 'Divider',
+        nameZN: '分割线',
+        path: '/pages/Divider/index',
       },
       {
         name: 'Calendar',
@@ -112,6 +147,11 @@ export const componentList = [
         path: '/pages/Picker/index',
       },
       {
+        name: 'DatePicker',
+        nameZN: '时间选择器',
+        path: '/pages/DatePicker/index',
+      },
+      {
         name: 'RadioGroup',
         nameZN: '单选框',
         path: '/pages/RadioGroup/index',
@@ -127,6 +167,11 @@ export const componentList = [
         path: '/pages/Selector/index',
       },
       {
+        name: 'Slider',
+        nameZN: '滑动输入条',
+        path: '/pages/Slider/index',
+      },
+      {
         name: 'Stepper',
         nameZN: '步进器',
         path: '/pages/Stepper/index',
@@ -137,9 +182,24 @@ export const componentList = [
         path: '/pages/Switch/index',
       },
       {
+        name: 'ImageUpload',
+        nameZN: '图片上传',
+        path: '/pages/ImageUpload/index',
+      },
+      {
+        name: 'VideoUpload',
+        nameZN: '视频上传',
+        path: '/pages/VideoUpload/index',
+      },
+      {
         name: 'Terms',
         nameZN: '协议',
         path: '/pages/Terms/index',
+      },
+      {
+        name: 'Rate',
+        nameZN: '星级',
+        path: '/pages/Rate/index',
       },
     ],
   },
@@ -147,14 +207,29 @@ export const componentList = [
     type: '反馈',
     list: [
       {
+        name: 'ActionSheet',
+        nameZN: '动作面板',
+        path: '/pages/ActionSheet/index'
+      },
+      {
         name: 'Dialog',
         nameZN: '对话框',
         path: '/pages/Dialog/index',
       },
       {
+        name: 'Empty',
+        nameZN: '空状态',
+        path: '/pages/Empty/index',
+      },
+      {
         name: 'Loading',
         nameZN: '加载中',
         path: '/pages/Loading/index',
+      },
+      {
+        name: 'Skeleton',
+        nameZN: '骨架屏',
+        path: '/pages/Skeleton/index',
       },
       {
         name: 'Modal',
@@ -182,9 +257,19 @@ export const componentList = [
         path: '/pages/Empty/index',
       },
       {
+        name: 'ProgressBar',
+        nameZN: '进度条',
+        path: '/pages/ProgressBar/index',
+      },
+      {
         name: 'Toast',
         nameZN: '轻提示',
         path: '/pages/Toast/index',
+      },
+      {
+        name: 'ProgressCircle',
+        nameZN: '进度圈',
+        path: '/pages/ProgressCircle/index',
       },
     ],
   },

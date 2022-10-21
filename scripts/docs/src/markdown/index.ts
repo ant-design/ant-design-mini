@@ -82,7 +82,7 @@ nav:
   path: /components
 group:
   title: ${ComponentGroupMap[componentName] || '其他'}
-toc: false
+toc: 'content'
 ---
 
 # ${componentName}

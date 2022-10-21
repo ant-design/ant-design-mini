@@ -3,31 +3,52 @@
     选择城市
     <picker 
       slot="extra"
-      onDismiss="handleCancelPicker"
+      data-value="test"
+      onDismiss="handleDismissPicker"
+      onTriggerPicker="handleTriggerPicker"
       onOk="handleOk"
       value="{{value}}"
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
-      data="{{cityList}}">
+      data="{{list}}">
+    </picker>
+  </list-item>
+  <list-item>
+    选择城市（点击蒙层关闭）
+    <picker 
+      slot="extra"
+      data-value="test"
+      onDismiss="handleDismissPicker"
+      onTriggerPicker="handleTriggerPicker"
+      onOk="handleOk"
+      value="{{value}}"
+      placeholder="请选择"
+      title="请选择"
+      onChange="handleChange"
+      maskClosable
+      data="{{list}}">
     </picker>
   </list-item>
 </demo-block>
 
 <demo-block title="对象用法"  padding="0">
-<list-item>
-  选择日期
-  <picker 
-    slot="extra"
-    onDismiss="handleCancelPicker"
-    onOk="handleOk"
-    placeholder="请选择"
-    title="请选择"
-    onChange="handleChange"
-    data="{{weekList}}">
-  </picker>
-</list-item>
-</demo-block>
+  <list-item>
+    选择日期
+    <picker 
+      slot="extra"
+      onDismiss="handleDismissPicker"
+      onTriggerPicker="handleTriggerPicker"
+      onOk="handleOk"
+      placeholder="请选择"
+      title="请选择"
+      onChange="handleChange"
+      data="{{weekList}}">
+    </picker>
+  </list-item>
+  </demo-block>
+
+
 
 <demo-block title="多列复杂类型数据" padding="0">
 <list-item>
@@ -35,6 +56,7 @@
   <picker 
     slot="extra"
     placeholder="请选择"
+    onTriggerPicker="handleTriggerPicker"
     value="{{['Tues', 'pm']}}"
     title="请选择"
     onOk="handleOk"

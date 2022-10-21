@@ -3,8 +3,10 @@ export const PickerDefaultProps = {
   okText: '确定',
   dismissText: '取消',
   disabled: false,
+  maskClosable: false,
   value:  '',
   data: [],
+  placeholder:'请选择',
   onFormat: function onFormat(value, column) {
     if (column instanceof Array) {
       return column.filter(c  => c !== undefined).map(function (c) {

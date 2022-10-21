@@ -4,7 +4,7 @@ nav:
 group:
   title: 反馈
   order: 12
-toc: false
+toc: 'content'
 ---
 # Modal 弹窗
 ## 何时使用
@@ -32,7 +32,8 @@ toc: false
 | disableScroll | boolean | 否 | true | 弹窗展示时，是否禁止页面滚动 |
 | animation | boolean | 否 | true | 是否开启过渡动画 |
 | zIndex | number | 否 | 998 | 弹窗层级 |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 组件根节点类名 |
+| style | string | 否 | - | 组件根节点style |
 
 ## 事件
 
@@ -44,34 +45,7 @@ toc: false
 ## 插槽
 | 名称 | 说明 |
 | ----|----|
-| default | 弹窗内容 |
+| image | 弹窗图片 |
+| title | 弹窗标题 |
+| content | 弹窗内容 |
 
-## 样式类
-| 类名 | 说明 |
-| ----|----|
-| amd-modal | 整体样式 |
-| amd-modal-content | 弹窗主体内容样式 |
-| amd-modal-content-image | 弹窗图片样式 |
-| amd-modal-content-image-medium | 弹窗图片样式 |
-| amd-modal-content-image-large | 弹窗图片样式 |
-| amd-modal-content-title | 弹窗标题样式 |
-| amd-modal-content-content | 弹窗内容样式 |
-| amd-modal-buttons-container | 弹窗按钮区域整体样式 |
-| amd-modal-buttons-addon | 辅助按钮样式 |
-| amd-modal-close | close 图标样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(4) th:first-of-type {
-    width: 300px;
-}
-</style> 

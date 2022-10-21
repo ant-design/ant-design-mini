@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 
 Page({
   data: {
-    date: new Date(),
+    date: new Date("2022-09-20"),
     show: false,
     date1: null,
     range1: null,

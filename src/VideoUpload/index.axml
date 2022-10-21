@@ -1,0 +1,59 @@
+<view class="amd-video-upload">
+  <view a:for="{{fileList}}" class="amd-video-upload-show">
+    <video 
+      class="amd-video-upload-video" 
+      src="{{item.localPath || item.url || item.key}}" 
+      show-center-play-btn="{{false}}" 
+      show-fullscreen-btn="{{false}}" 
+      show-play-btn="{{false}}" 
+      show-mute-btn="{{false}}" 
+      show-thin-progress-bar="{{false}}"
+      poster-size="cover" 
+      style="{{`height:${height}px;width:${width}px`}}" 
+    />
+    <cover-view
+      class="amd-video-upload-click-area" 
+      a:if="{{item.status === 'done'}}"  
+      data-preview-video-url="{{item.localPath || item.url || item.key}}" 
+      style="{{`height:${height}px;width:${width}px`}}"
+      onTap="onPreviewVideo"
+    >
+      <view class="amd-video-upload-play-icon" />
+    </cover-view>
+    <cover-view 
+      class="amd-video-upload-close" 
+      a:if="{{item.status !== 'pending'}}" 
+      data-delete-image-index="{{index}}" 
+      onTap="onDeleteVideo" 
+    />
+    <view a:if="{{item.status === 'pending' || item.status === 'error'}}" class="amd-video-upload-cover" style="{{`height:${height}px;width:${width}px`}}">
+      <view a:if="{{item.status === 'pending'}}" class="amd-video-upload-cover-loading">
+        <view class="amd-video-upload-cover-loading-icon"/>
+        <view class="amd-video-upload-cover-loading-text">上传中...</view>
+      </view>
+      <view a:if="{{item.status === 'error'}}" class="amd-video-upload-cover-error">
+        <am-icon class="amd-video-upload-cover-error-icon" type="CloseCircleOutline" color="#fff" size="small" />
+        <view class="amd-video-upload-cover-error-text">上传失败</view>
+      </view>
+    </view>
+  </view>
+  <view 
+    a:if="{{fileList.length < maxCount}}" 
+    class="amd-video-upload-add-video-wrapper" 
+    style="{{`height:${height}px;width:${width}px`}}" 
+    onTap="onChooseVideo"
+  >
+    <slot name='uploadIcon'>
+      <am-icon size="small" type="AddOutline" color="#999" />
+    </slot>
+  </view>
+  <!-- 这个video是专门用来做全屏播放用的，其它的都是用来做展示首帧用的 -->
+  <video 
+    id="{{id}}" 
+    style="{{width: 0,height: 0}}" 
+    src="{{playVideoUrl}}" 
+    enable-progress-gesture="{{false}}" 
+    onPlay="onPlay" 
+    onFullScreenChange="onFullScreenChange" 
+  />
+</view>

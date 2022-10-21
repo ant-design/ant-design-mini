@@ -4,7 +4,7 @@ nav:
 group:
   title: 反馈
   order: 12
-toc: false
+toc: 'content'
 ---
           
 # Result 操作结果
@@ -25,7 +25,8 @@ toc: false
 | title | string &verbar; slot | 否 | - | 主文案 |
 | message | string &verbar; slot | 否 | - | 副文案 |
 | buttons | {text: string; type: 'default' &verbar; 'primary' &verbar; 'warn' &verbar; 'danger' &verbar; 'success' &verbar; 'light'}[] | 否 | - | 按钮类型 |
-| className | string | 否 | - | 类名 |
+| className | string | 否 | - | 组件根节点类名 |
+| style | string | 否 | - | 组件根节点style |
 
 ## 事件
 
@@ -39,12 +40,4 @@ toc: false
 | title | 标题 |
 | message | 描述 |
 | image | 图标 |
-
-## 样式类
-
-| 类名 | 说明 |
-| ----|----|
-| amd-result | 整体样式 |
-| amd-result-main | 内容展示区域 |
-| amd-result-image | icon 区域样式 |
-| amd-result-buttons | 按钮区域样式 |
+| buttons | 按钮 |

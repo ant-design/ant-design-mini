@@ -1,0 +1,22 @@
+<picker 
+    className="amd-cascader-picker {{className||''}}"
+    popClassName="amd-cascader-picker-popup"
+    data="{{columns}}"
+    value="{{currentValue}}"
+    disabled="{{disabled}}"
+    title="{{title}}" 
+    placeholder="{{placeholder}}"
+    okText="{{okText}}"
+    dismissText="{{dismissText}}"
+    maskStyle="{{maskStyle}}"
+    maskClass="{{maskClass}}"
+    indicatorStyle="{{indicatorStyle}}"
+    indicatorClass="{{indicatorClass}}"
+    onChange="onChange"
+    onDismiss="onDismiss"
+    onOk="onOk"
+    onTriggerPicker="onTriggerPicker"
+    maskClosable="{{maskClosable}}"
+    onFormat="onFormat">
+    <slot name="title" slot="title"/>
+</picker>

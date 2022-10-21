@@ -326,9 +326,9 @@ class Calendar {
           tag: null
         };
 
-        if (dayjs(posDate).isBefore(nowFullDate)) {
-          data.disable = true
-        }
+        // if (dayjs(posDate).isBefore(nowFullDate)) {
+        //   data.disable = true
+        // }
 
         if (isToday) {
           data.showToday = this.showToday;

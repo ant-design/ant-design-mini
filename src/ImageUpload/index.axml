@@ -1,0 +1,43 @@
+<view class="amd-image-upload">
+  <view a:for="{{fileList}}" class="amd-image-upload-show">
+    <view 
+      class="amd-image-upload-close" 
+      a:if="{{item.status !== 'pending'}}" 
+      data-delete-image-index="{{index}}" 
+      onTap="onDeleteImage" 
+    />
+    <view 
+      class="amd-image-upload-cover" 
+      a:if="{{item.status === 'pending' || item.status === 'error'}}" 
+      style="{{`height:${height}px;width:${width}px`}}"
+    >
+      <view a:if="{{item.status === 'pending'}}" class="amd-image-upload-cover-loading">
+        <view class="amd-image-upload-cover-loading-icon"/>
+        <view class="amd-image-upload-cover-loading-text">上传中...</view>
+      </view>
+      <view a:if="{{item.status === 'error'}}" class="amd-image-upload-cover-error">
+        <am-icon class="amd-image-upload-cover-error-icon" type="CloseCircleOutline" color="#fff" size="small" />
+        <view class="amd-image-upload-cover-error-text">上传失败</view>
+      </view>
+    </view>
+    <image 
+      class="amd-image-upload-image" 
+      mode="{{mode}}" 
+      src="{{item.localPath || item.url || item.key}}"
+      data-preview-image-index="{{index}}" 
+      style="{{`height:${height}px;width:${width}px`}}" 
+      onTap="onPreviewImage" 
+    />
+  </view>
+
+  <view 
+    a:if="{{fileList.length < maxCount}}" 
+    class="amd-image-upload-add-image-wrapper" 
+    style="{{`height:${height}px;width:${width}px`}}" 
+    onTap="onChooseImage"
+  >
+    <slot name='uploadIcon'>
+      <am-icon size="small" type="AddOutline" color="#999" />
+    </slot>
+  </view>
+</view> 

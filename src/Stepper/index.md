@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: false
+toc: 'content'
 ---
 
 # Stepper 步进器
@@ -27,7 +27,7 @@ toc: false
 | -----|-----|-----|-----|----- |
 | controlled | boolean | 否 | false | 是否受控 |
 | value | number | 否 | - | 输入框的值, 表单提交的时候有效 |
-| type | 'number' &verbar; 'digit' | 否 | - | 输入框的值, 表单提交的时候有效 |
+| type | 'number' &verbar; 'digit' | 否 | - | 输入框唤起键盘类型 |
 | min | number | 否 | - | 最小值 |
 | max | number | 否 | - | 最大值 |
 | step | number | 否 | 1 | 每次加减的值 |
@@ -43,8 +43,8 @@ toc: false
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onFocus | 聚焦时，触发此回调 | ( value: number ) => void  |
-| onBlur | 失去焦点时，触发此回调 | ( value: number ) => void  |
+| onFocus | 聚焦时，触发此回调 | ( value: number, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
+| onBlur | 失去焦点时，触发此回调 | ( value: number, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
 | onChange | 数据变化后，触发此回调 | ( value: number, dataSet: Record<string, any> ) => void  |
 
 ## 样式类
@@ -59,16 +59,3 @@ toc: false
 | amd-stepper-handler-up-inner | +/- 图标样式 |
 | amd-stepper-input-wrap | 输入框区域样式 |
 | amd-stepper-input | 输入框样式 |
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-</style> 

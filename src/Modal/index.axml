@@ -7,20 +7,23 @@
   animation="{{animation}}"
   zIndex="{{zIndex}}"
   onClose="onClose">
-  <view class="amd-modal-content">
+  <view class="amd-modal-content {{className ? className : ''}}" style="{{style}}">
     <view class="amd-modal-content-image-container">
-      <image class="amd-modal-content-image amd-modal-content-image-{{imageSize}}"
-      src="{{image}}"
-      a:if="{{image}}" />
+      <slot name="image">
+        <image class="amd-modal-content-image amd-modal-content-image-{{imageSize}}"
+          src="{{image}}"
+          a:if="{{image}}" />
+      </slot>
     </view>
     <view class="amd-modal-content-comb">
-      <view class="amd-modal-content-title">
-        {{title}}
-      </view>
-      <view class="amd-modal-content-content">{{content}}</view>
-      <view class="amd-modal-content-extra">
-        <slot />
-      </view>
+      <slot name="title">
+        <view class="amd-modal-content-title">
+          {{title}}
+        </view>
+      </slot>
+      <slot name="content">
+        <view class="amd-modal-content-content">{{content}}</view>
+      </slot>
     </view>
     <view class="amd-modal-buttons-container">
       <button

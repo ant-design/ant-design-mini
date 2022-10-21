@@ -1,5 +1,6 @@
 <import-sjs name="{getLoadingColor}" from="./index.sjs" />
-<view class="amd-loading {{className ? className : ''}} {{type === 'spin' ? 'amd-loading-spin-container' :'amd-loading-mini-container'}}" 
+<view class="amd-loading {{className ? className : ''}} {{type === 'spin' ? 'amd-loading-spin-container' :'amd-loading-mini-container'}}"
+  style="{{style}}"
   a:if="{{_loading}}">
   <view a:if="{{type=== 'spin'}}" class="amd-loading-spin amd-loading-spin-{{theme}}">
     <view class="amd-loading-spin-icon amd-loading-spin-icon-indicator">

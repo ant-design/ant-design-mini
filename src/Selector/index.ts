@@ -1,32 +1,83 @@
-import { SelectorDefaultProps } from './props';
+import { SelectorDefaultProps, ISelectorItem, ISelectorProps } from './props';
 import controlled from '../mixins/controlled';
 import formMixin from '../mixins/form';
+import fmtEvent from '../_util/fmtEvent';
 
 const getFixedValue = (value, multiple) => {
   let fixedValue = [];
   if (value === null) {
-    fixedValue = []
+    fixedValue = [];
   } else if (multiple && Array.isArray(value)) {
-    fixedValue = value
+    fixedValue = value;
   } else if (!Array.isArray(value)) {
-    fixedValue =  [value]
+    fixedValue = [value];
   }
   return fixedValue;
 };
 
-Component({
-  mixins: [controlled(), formMixin()],
-  props: SelectorDefaultProps,
-  data: {} as {
+Component<
+  {
     cValue?: string[];
   },
+  Partial<ISelectorProps>,
+  {
+    onChange(e: any): void;
+    cOnChange?(
+      value: string | string[],
+      item: ISelectorItem | ISelectorItem[],
+      e: any
+    ): void;
+  },
+  {},
+  {},
+  any[]
+>({
+  mixins: [controlled(), formMixin()],
+  props: SelectorDefaultProps,
   methods: {
     onChange(e) {
+      const event = fmtEvent(this.props);
       const { disabled, value } = e.currentTarget.dataset;
-      const { multiple, items } = this.props;
+      const {
+        multiple,
+        items,
+        maxSelectedCount,
+        minSelectedCount,
+        onSelectMax,
+        onSelectMin,
+      } = this.props;
       if (!disabled && !this.props.disabled) {
-        let nextValue: string[];
+        let nextValue: string[] | string;
         const fixedValue = getFixedValue(this.data.cValue, multiple);
+        if (fixedValue?.indexOf(value) === -1) {
+          if (
+            !isNaN(maxSelectedCount) &&
+            fixedValue.length >= maxSelectedCount
+          ) {
+            if (onSelectMax) {
+              onSelectMax(
+                value,
+                items.find((v) => v.value === value) as ISelectorItem,
+                event
+              );
+            }
+            return;
+          }
+        } else {
+          if (
+            !isNaN(minSelectedCount) &&
+            fixedValue.length <= minSelectedCount
+          ) {
+            if (onSelectMin) {
+              onSelectMin(
+                value,
+                items.find((v) => v.value === value) as ISelectorItem,
+                event
+              );
+            }
+            return;
+          }
+        }
         if (multiple) {
           // 之前已经选中，删除它
           if (fixedValue?.indexOf(value) !== -1) {
@@ -39,11 +90,15 @@ Component({
           }
           // 将 value 重新按 options 排序
           const sortValue = (v: string[]) => {
-            return items.map((item) => item.value).filter((item) => v.indexOf(item) !== -1);
+            return items
+              .map((item) => item.value)
+              .filter((item) => v.indexOf(item) !== -1);
           };
           nextValue = sortValue(nextValue);
-          const selectedItems = nextValue.map(v => items.filter(item => item.value === v)?.[0])
-          this.cOnChange(nextValue, selectedItems);
+          const selectedItems = nextValue.map(
+            (v) => items.filter((item) => item.value === v)?.[0]
+          );
+          this.cOnChange(nextValue, selectedItems as ISelectorItem[], event);
         } else {
           // 单选
           // 取消选中
@@ -54,8 +109,9 @@ Component({
             // 选中
             nextValue = value;
           }
-          const selectedItem = items.filter(item => item.value === nextValue)?.[0] ||  null
-          this.cOnChange(nextValue,  selectedItem);
+          const selectedItem =
+            items.filter((item) => item.value === nextValue)?.[0] || null;
+          this.cOnChange(nextValue, selectedItem as ISelectorItem, event);
         }
       }
     },

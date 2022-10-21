@@ -49,7 +49,7 @@
             <list-item
                 onTap="handleButtonTap"
                 data-index="{{6}}"
-            >自定义可选范围</list-item>
+            >自定义禁选日期</list-item>
         </view>
     </list>
 </view>
@@ -64,7 +64,6 @@
     showConfirmButton="{{true}}"
     onClose="onClose"
     a:if="{{show1}}"
-    date="{{date}}"
 />
 
 <calendar 
@@ -86,7 +85,6 @@
     max="{{max}}"
     onClose="onClose"
     a:if="{{show7}}"
-    date="{{date}}"
 />
 
 <calendar 
@@ -95,7 +93,6 @@
     max="{{max}}"
     onClose="onClose"
     a:if="{{show8}}"
-    date="{{date}}"
     fullScreen="{{true}}"
 />
 

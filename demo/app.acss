@@ -1,5 +1,5 @@
 page {
-  background-color: rgb(250 251 252);
+  background-color: #000;
 }
 .btn-list {
   display: flex;

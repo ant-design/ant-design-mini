@@ -1,0 +1,9 @@
+
+<view class="amd-progressbar-wrapper {{className}}" style="{{style}}">
+  <canvas class="amd-progressbar-canvas" id="progressbar-canvas-{{$id}}" width="{{canvasWidth}}" height="{{canvasHeight}}" />
+  <slot>
+    <view class="amd-progressbar-indicator-default">
+      <text>{{percent}}%</text>
+    </view>
+  </slot>
+</view>

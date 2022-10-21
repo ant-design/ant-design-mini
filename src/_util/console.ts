@@ -61,10 +61,11 @@ export enum EComponents {
   VerifyCode = 'VerifyCode',
   Vtabs = 'Vtabs',
   VTabItem = 'VTabItem',
-  WhiteSpace = 'WhiteSpace'
+  WhiteSpace = 'WhiteSpace',
+  GuideTour = 'GuideTour',
 }
 
-export type TComponents = keyof typeof EComponents
+export type TComponents = keyof typeof EComponents;
 
 export const log = {
   warn(component: TComponents, message: string): void {
@@ -78,4 +79,3 @@ export const log = {
     console.error(info);
   },
 };
-
