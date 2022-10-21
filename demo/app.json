@@ -74,7 +74,8 @@
     "pages/Rate/index",
     "pages/Slider/index",
     "pages/TabsElevator/index",
-    "pages/Calendar/index"
+    "pages/Calendar/index",
+    "pages/Calendar2/index"
   ],
 
   "window": {

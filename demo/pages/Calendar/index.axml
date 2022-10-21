@@ -25,33 +25,6 @@
             </list-item>
         </view>
     </list>
-
-    <list header="扩展用法" radius="{{true}}" class="list">
-        <view class="line">
-            <list-item 
-                onTap="handleButtonTap"
-                data-index="{{3}}">带农历节</list-item>
-        </view>
-    </list>
-
-    <list header="自定义用法" radius="{{true}}" class="list">
-        <view class="line">
-            <list-item
-                onTap="handleButtonTap"
-                data-index="{{4}}"
-            >
-                自定义选中颜色
-            </list-item>
-            <list-item
-                onTap="handleButtonTap"
-                data-index="{{5}}"
-            >自定义文案与假日</list-item>
-            <list-item
-                onTap="handleButtonTap"
-                data-index="{{6}}"
-            >自定义禁选日期</list-item>
-        </view>
-    </list>
 </view>
 
 <calendar 
@@ -94,54 +67,4 @@
     onClose="onClose"
     a:if="{{show8}}"
     fullScreen="{{true}}"
-/>
-
-<calendar 
-    className="wrapper"
-    min="{{min}}"
-    max="{{max}}"
-    onChange="handleChange"
-    selectionMode="single"
-    showlunar="{{true}}"
-    showConfirmButton="{{true}}"
-    onClose="onClose"
-    a:if="{{show3}}"
-/>
-
-<calendar 
-    className="wrapper1"
-    min="{{min}}"
-    max="{{max}}"
-    onChange="handleChange"
-    selectionMode="range"
-    showlunar="{{true}}"
-    showConfirmButton="{{true}}"
-    onClose="onClose"
-    a:if="{{show4}}"
-/>
-
-<calendar 
-    className="wrapper"
-    min="{{min}}"
-    max="{{max}}"
-    onChange="handleChange"
-    selectionMode="range"
-    showlunar="{{true}}"
-    showConfirmButton="{{true}}"
-    onClose="onClose"
-    customDateList="{{customDateList}}"
-    a:if="{{show5}}"
-/>
-
-<calendar 
-    className="wrapper"
-    min="{{min}}"
-    max="{{max}}"
-    onChange="handleChange"
-    selectionMode="range"
-    showlunar="{{true}}"
-    showConfirmButton="{{true}}"
-    onClose="onClose"
-    a:if="{{show6}}"
-    disableDates="{{disableDates}}"
 />

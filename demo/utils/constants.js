@@ -111,6 +111,11 @@ export const componentList = [
         nameZN: '日历',
         path: '/pages/Calendar/index',
       },
+      {
+        name: 'Calendar',
+        nameZN: '日历高级用法',
+        path: '/pages/Calendar2/index',
+      },
     ],
   },
   {
