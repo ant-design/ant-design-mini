@@ -15,31 +15,31 @@
     text-align: left;
     padding: 36 * @rpx 30 * @rpx;
     font-size: 30 * @rpx;
-    color: @color-text-subtitle;
-    .hairline("bottom", @color-divider-line);
+    color: @actionsheet-list-color;
+    .hairline("bottom", @COLOR_DIVIDER_LINE);
   }
   &-list {
     margin: 0 -24* @rpx;
   }
   &-list-item {
-    color: @color-fill-grey-dark;
+    color: @actionsheet-list-color;
     padding: 32 * @rpx 30 * @rpx;
     text-align: center;
     position: relative;
     font-size: 36 * @rpx;
-    .hairline("bottom", @color-divider-line);
+    .hairline("bottom", @COLOR_DIVIDER_LINE);
     &-title-danger {
       color: @actionsheet-danger-color;
       font-weight: bold;
     }
     &-description {
-      color: @color-text-subtitle;
+      color: @actionsheet-list-color;
       font-size: 28* @rpx;
       line-height: 40 * @rpx;
       margin-top: 8* @rpx;
     }
     &-active {
-      background-color: #eee;
+      background-color: @actionsheet-list-item-active-color;
     }
     &:last-child {
       &&:after {
@@ -55,7 +55,7 @@
 
   &-cancel-gap {
     height: 16* @rpx;
-    background: #f5f5f5;
+    background: @actionsheet-cancel-gap;
     margin: 0 -24* @rpx;
   }
 
@@ -66,7 +66,7 @@
     text-align: center;
     margin: 0 -24* @rpx;
     &:active {
-      background-color: #eee;
+      background-color: @actionsheet-cancel-active-background-color;
     }
   }
 }

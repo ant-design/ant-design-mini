@@ -7,10 +7,10 @@
     position: relative;
     float: left;
     font-size: @font-size-subtitle;
-    color: @color-text-base;
+    color: @COLOR_TEXT_BASE;
     border-radius: @corner-radius-lg;
     max-width: 702 * @rpx;
-    background: rgba(0, 0, 0, 0.75);
+    background: @tips-wrap-background;
     &-content {
       display: flex;
       align-items: center;
@@ -67,7 +67,7 @@
     position: absolute;
     width: 0;
     height: 0;
-    border-top: 16 * @rpx solid #000;
+    border-top: 16 * @rpx solid @tips-arrow-border-top-color;
     border-bottom: 0 none;
     border-left: 16 * @rpx solid transparent;
     border-right: 16 * @rpx solid transparent;

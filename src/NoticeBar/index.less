@@ -17,7 +17,7 @@
   &-error {
     color: @notice-error-color;
     background-color: @notice-error-background-color;
-    border: 1px solid #D9281E;
+    border: 1px solid @notice-error-border-color;
     &-scroll-left,
     &-scroll-right {
       background: @notice-error-background-color;
@@ -33,12 +33,12 @@
     }
   }
   &-info {
-    color: white;
-    border: 1px solid #999;
-    background: #ABABAB;
+    color: @COLOR_WHITE;
+    border: 1px solid @notice-info-border-color;
+    background: @notice-info-fill-color;
     &-scroll-left,
     &-scroll-right {
-      background: #ABABAB;
+      background: @notice-info-fill-color;
     }
   }
   &-icon {
@@ -51,7 +51,7 @@
     flex: 1 100%;
     overflow: hidden;
     vertical-align: middle;
-    line-height: @default-line-height;
+    line-height: 1.4;
   }
   &-marquee {
     overflow: hidden;
