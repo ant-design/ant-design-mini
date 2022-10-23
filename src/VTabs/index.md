@@ -24,30 +24,27 @@ toc: 'content'
 ## 属性
 
 #### VTabs
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| activeKey |  当前激活的索引 | `number` |  0  |
+| className | 类名| `string` | - |
+| style | 样式| `string` | - |
+| title | 自定义标题作用域插槽，接收当前tab参数 | `slot` |- |
+| onChange | 切换时触发回调 | (index: `number`) => void | - |
     
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| activekey | number | 否 | 0 | 当前激活的索引 |
-| className | string | 否 | - | 类名 |
-| style | string | 否 | - | 整体样式 |
 
 #### VTabsItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| tab | {title: string; disabled?: boolean, badge?: {type: 'dot' &verbar; 'number' &verbar; 'text', text: number  &verbar;  string }}[] | 是 | - | 每一项 tab 内容 |
-| className | string | 否 | - | 类名 |
-| style | string | 否 | - | 整体样式 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| className | 类名| `string` | - |
+| style | 样式| `string` | - |
+| tab | 每一项 tab 内容 | [TabItemConfig](#tabitemconfig)[] | - |
 
-## 事件
 
-#### VTabs
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onChange | 面板切换时候，触发回调 |(index: number) => void|
-
-## 插槽
-#### VTabs
-| 名称 | 说明 | 作用域参数 |
-| -----|-----|-----|
-| default | 内容区渲染 | - |
-| title | 自定义标题内标题 | tab |
+#### TabItemConfig
+| 参数 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| badge | 徽标类型，参见 [Badge](./Badge) 组件 | `object` | - |
+| count | 数字文案 | `string` | - |
+| disabled | 是否禁用 | `boolean` | false |
+| title | 标题 | `string` | - |

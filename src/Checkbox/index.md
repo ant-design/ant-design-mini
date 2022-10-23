@@ -21,32 +21,19 @@ toc: 'content'
 <code src='../../demo/pages/Checkbox'></code>
 
 ## 属性
-    
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|-----|
-| checked | boolean | 否 |  false |是否选中 |
-| disabled | boolean  | 否 | false | 是否禁用 |
-| value | string | 否| - | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用 |
-| id | string | 否 | - |表单元素id |
-| name |  string | 否 | - |表单元素name |
-| className | string | 否 | - | 类名 |
-| style | string | 否 | - | 整体样式 |
 
-
-
-## 事件
-
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onChange | 选中状态改变，触发回调 | (checked: boolean, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void|
-
-## 插槽
-
-| 名称 | 说明 | 作用域参数 |
-| ----|----|----|
-| default | 内容区 | - |
-| icon | 未勾选状态图标 | - |
-| checkedIcon | 勾选状态图标 | - |
-| disbaledIcon | 禁用时未勾选状态图标 | - |
-| disabledCheckedIcon | 禁用时勾选状态图标 | - |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| checked | 是否选中 | `boolean` | false |
+| checkedIcon | 勾选状态图标插槽 | `slot`| - |
+| className | 类名| `string` | - |
+| disabled | 是否禁用  | `boolean` | false | 
+| disbaledIcon | 禁用时未勾选状态图标插槽 | `slot` | - |
+| disabledCheckedIcon | 禁用时勾选状态图标 插槽| `slot` | - |
+| name |  表单元素name | `string` | - |
+| icon | 未勾选状态图标插槽 | `slot` | - |
+| id | 表单元素id | `string` | - |
+| style | 样式| `string` | - |
+| value | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用 | `string` | - |
+| onChange | 选中状态改变，触发回调 | (checked: `boolean`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 

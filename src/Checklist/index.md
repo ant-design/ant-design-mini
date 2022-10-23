@@ -17,40 +17,27 @@ toc: 'content'
 <code src='../../demo/pages/Checklist'></code>
 
 ## 属性
-```typescript 
-interface IChecklistItem {
-  /** 标题 */
-  title: string;
-  /** 值 */
-  value: string;
-  /** 图片 */
-  image?: string;
-  /** 描述 */
-  description?: string;
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 是否只读 */
-  readonly?: boolean;
-}
-```
 
-| 属性 |  类型  | 必填 | 默认值|说明 |
-| -----|-----|-----|-----|-----|
-| value | (string\|number)[] |  否 | - | 选中数据 |
-| options | IChecklistItem[] |否| [] | 配置每一列的选项 |
-| multiple |  boolean | 否 | false | 是否支持多选 |
-| className |  string  | 否 | - | 类名 |
-| style | string | 否 | - | 整体样式 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| className | 类名| `string` | - |
+| content | CheckListItem自定义内容区作用域插槽，接收item参数  | `slot` | - |
+| icon | 自定义选中Icon插槽 | `slot` |  - |
+| multiple |  是否支持多选 | `boolean` | false | 
+| options | 配置每一列的选项 | [ChecklistItem](#checklistitem)[] | [] |
+| style | 样式| `string` | - |
+| value | 选中数据 | (`string` \| `number`)[] | [] | 
+| onChange | 选中项发生变化，触发回调 | (value: `string` \| `number`&#124; [], column: [ChecklistItem](#checklistitem), event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+
+#### ChecklistItem
+
+| 参数 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| description | 描述 | `string` | - |
+| disabled | 是否禁用 | `boolean` | false |
+| image | 图片 | `string` | - |
+| readonly | 是否只读 | `boolean` | false |
+| title | 标题 | `string` | - |
+| value | 值 | `string` | - |
 
 
-
-## 事件
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onChange | 选中项发生变化，触发回调 | (value: string&#124; number&#124; [], column: IChecklistItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-
-## 插槽
-| 名称 | 说明 | 作用域参数 |
-| -----|-----|-----|
-| content | CheckListItem自定义内容区 | item |
-| icon | 自定义选中Icon |  - |

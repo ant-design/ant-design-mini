@@ -19,43 +19,28 @@ toc: false
 <code src='../../demo/pages/TabBar'></code>
 
 ## 属性
-``` typescript
-interface ITabConfig {
-    /** 底部图标，支持 Icon 或图片地址  */
-    icon: string;
-    /** 激活状态的底部图标，支持 Icon 或图片地址 */
-    activeIcon: string;
-    /** 底部文字 */
-    text: string;
-    /** 徽标类型，参见 Badge 组件 */
-    badge?: object;
-}
-```
 
 #### TabBar
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| tabs | ITabConfig[] | 是 | [] | 底部图标配置，详情见下方 TabConfig 配置 |
-| activeKey | number | 否 |  0  |  默认高亮的 key |
-| activeClassName | string | 否 |  ''  |  选项卡激活类名 |
-| activeStyle | string | 否 |  ''  |  选项卡激活样式 |
-| maxTabCount | number | 否 |  5  |  最大展示的 Tab 数量 |
-| className | string | 否 | -| 类名 |
-| style | string | 否 | -| 整体样式 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| activeClassName |  选项卡激活类名 | `string` | ''  |
+| activeKey |  默认高亮的 key | `number` |  0  |
+| activeStyle | 选项卡激活样式 | `string` | '' |
+| className | 类名| `string` | - |
+| text | 选项卡图标作用域插槽，接收item、index、active参数 | `slot` | - |
+| maxTabCount |  最大展示的 Tab 数量| `number` | 5   |
+| style | 样式| `string` | - |
+| tabs | 底部图标配置 | [TabConfig](#tabconfig)[] | []  |
+| text | 选项卡底部文字作用域插槽，接收item、index、active参数 | `slot` | - |
+| onChange | Tab 切换时触发回调 |(tab: [TabConfig](#tabconfig), index: `number`) => void|
 
 
+#### TabConfig
 
-## 事件
-
-#### TabBar
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onChange | Tab 切换时触发回调 |(tab: ITabConfig, index: number) => void|
-
-## 插槽
-
-| 名称 | 说明 | 作用域参数 |
-| ----|----|----|
-| icon | 选项卡图标 | item、index、active |
-| text | 选项卡底部文字 | item、index、active |
+| 参数 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| icon | 底部图标，支持 [Icon](./Icon) 或图片地址 | `string` | - |
+| activeIcon | 激活状态的底部图标，支持 [Icon](./Icon) 或图片地址 | `string` | - |
+| text | 底部文字 | `string` | - |
+| badge | 徽标类型，参见 [Badge](./Badge) 组件 | `object` | - |
 
