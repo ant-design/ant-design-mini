@@ -1,4 +1,3 @@
 .space {
-  height: 48rpx;
-  background: rgb(250 251 252);
+  margin-bottom: 48rpx;
 }
