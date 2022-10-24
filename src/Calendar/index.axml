@@ -1,0 +1,71 @@
+<import-sjs name="helper" from="./index.sjs" />
+
+<mask onMaskTap="onClose" a:if="{{showMask}}" />
+<view 
+    class="amd-calendar-wrapper {{className}}"
+    style="height: {{ fullScreen ? '100vh' : height }} {{style}}" 
+    data-id="{{$id}}"
+    data-renderTimes="{{renderTimes}}"
+    data-checkScroll="{{checkTimes}}"
+    change:data-renderTimes="{{helper.handleCalendarChange}}"
+    change:data-checkScroll="{{helper.handleCheckScroll}}"
+>
+    <slot name="header">
+        <view class="amd-calendar-default-title {{ fullScreen ? 'amd-calendar-default-title-no-border-radius' : '' }}" a:if="{{showTitle}}">
+            <text>日期选择</text>
+            <image onTap="onClose" src="https://gw.alipayobjects.com/mdn/rms_6d74f8/afts/img/A*8wn2TKSKSSUAAAAAAAAAAAAAARQnAQ" class="amd-calendar-default-title-close" />
+        </view>
+    </slot>
+    <view 
+        class="amd-calendar-days"
+    >
+        <block a:for="{{['一', '二', '三', '四', '五', '六', '日']}}">
+            <view class="amd-calendar-day">{{item}}</view>
+        </block>
+    </view>
+    <view class="amd-subcalendar-wrapper">
+        <scroll-view 
+            class="amd-subcalendar" 
+            onScroll="{{helper.handleTouchMove}}"
+            data-id="{{$id}}"
+            scroll-y="{{true}}"
+        >
+            <block
+                a:for="{{ calendarList }}"
+            >
+                <view class="amd-calendar-subtitle-wrapper">
+                    <view class="amd-calendar-subtitle">{{item.monthDisplay}}</view>
+                </view>
+                <view
+                    class="amd-calendar-dates"
+                >
+                    <view 
+                        class="amd-calendar-week"
+                        a:for="{{ item.weeks }}" 
+                        a:for-index="weekIndex"
+                        a:for-item="weekItem"
+                    >
+                        <view
+                            class="amd-calendar-date-wrap"
+                            a:for="{{ weekItem }} "
+                            a:for-index="dateItemIndex"
+                            a:for-item="dateItem"
+                        >
+                            <date-item
+                                dateItem="{{ dateItem }}" 
+                                onChange="onDateChange"
+                            />
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+    <view class="amd-calendar-button-wrapper" a:if="{{(showConfirmButton || showResetButton) && !!selectionMode}}">
+        <view class="amd-calendar-botton-inner-cancel {{ buttonDisabled ? 'amd-calendar-botton-disabled' : '' }}" a:if="{{showResetButton}}" onTap="onCancel">重 置</view>
+        <view class="amd-calendar-botton-inner-check {{ buttonDisabled ? 'amd-calendar-botton-disabled' : '' }}" a:if="{{showConfirmButton}}" onTap="onCheck">确 认</view>
+    </view>
+    <!-- <view class="amd-calendar-button-single-wrapper" a:if="{{ selectionMode === 'single' }}">
+        <view class="amd-calendar-botton-inner-check" onTap="onCheck">确 认</view>
+    </view> -->
+</view>

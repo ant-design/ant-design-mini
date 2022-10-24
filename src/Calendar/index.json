@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "mask": "../Mask/index",
+        "date-item": "./dateItem/item"
+    }
+}
