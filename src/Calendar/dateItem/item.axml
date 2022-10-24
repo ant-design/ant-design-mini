@@ -1,0 +1,26 @@
+<import-sjs name="sjs" from="./item.sjs" />
+<view 
+  a:if="{{ !dateItem.hide }}"
+  class="amd-calendar-dateItem {{sjs.GetDateItemWrapperClass(dateItem).className}}"
+  onTap="onChoiceDate"
+  style="{{sjs.GetDateItemWrapperClass(dateItem).style}}"
+>
+    <text 
+      class="amd-calendar-dateItem-above {{sjs.GetDateItemAboveAreaTextAndClass(dateItem).className}}" 
+      style="{{sjs.GetDateItemAboveAreaTextAndClass(dateItem).style}}"
+    >
+      {{sjs.GetDateItemAboveAreaTextAndClass(dateItem).text}}
+    </text>
+    <text
+      class="amd-calendar-dateItem-middle amd-calendar-dateItem-day {{sjs.GetDateItemMiddleAreaTextAndClass(dateItem).className}}"
+      style="{{sjs.GetDateItemMiddleAreaTextAndClass(dateItem).style}}"
+    >
+      {{sjs.GetDateItemMiddleAreaTextAndClass(dateItem).text}}
+    </text>
+    <text 
+      class="amd-calendar-dateItem-bottom {{sjs.GetDateItemBottomAreaTextAndClass(dateItem).className}}" 
+      style="{{sjs.GetDateItemBottomAreaTextAndClass(dateItem).style}}"
+    >
+      {{sjs.GetDateItemBottomAreaTextAndClass(dateItem).text}}
+    </text>
+</view>

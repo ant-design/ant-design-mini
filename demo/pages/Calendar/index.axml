@@ -1,0 +1,70 @@
+<view>
+    <list header="基础用法" radius="{{true}}" class="list">
+        <view class="line">
+            <list-item 
+                onTap="handleButtonTap"
+                extraBrief="{{date1}}"
+                data-index="{{1}}"
+            >
+                选择单日期
+            </list-item>
+            <list-item
+                onTap="handleButtonTap"
+                data-index="{{2}}"
+                extraBrief="{{range1 ? `${range1[0]} - ${range1[1]}` : ''}}"
+            >选择日期范围</list-item>
+            <list-item
+                onTap="handleButtonTap"
+                data-index="{{7}}"
+            >纯展示，日期不可点</list-item>
+            <list-item
+                onTap="handleButtonTap"
+                data-index="{{8}}"
+            >
+                全屏渲染
+            </list-item>
+        </view>
+    </list>
+</view>
+
+<calendar 
+    className="wrapper"
+    min="{{min}}"
+    max="{{max}}"
+    defaultValue="{{date1}}"
+    onChange="handleDateChange"
+    selectionMode="single"
+    showConfirmButton="{{true}}"
+    onClose="onClose"
+    a:if="{{show1}}"
+/>
+
+<calendar 
+    className="wrapper"
+    min="{{min}}"
+    max="{{max}}"
+    defaultRange="{{range1}}"
+    onChange="handleRangeChange"
+    selectionMode="range"
+    showConfirmButton="{{true}}"
+    showResetButton="{{true}}"
+    onClose="onClose"
+    a:if="{{show2}}"
+/>
+
+<calendar 
+    className="wrapper"
+    min="{{min}}"
+    max="{{max}}"
+    onClose="onClose"
+    a:if="{{show7}}"
+/>
+
+<calendar 
+    className="wrapper"
+    min="{{min}}"
+    max="{{max}}"
+    onClose="onClose"
+    a:if="{{show8}}"
+    fullScreen="{{true}}"
+/>
