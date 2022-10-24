@@ -21,55 +21,26 @@ toc: false
 ## 属性
 
 #### TabBar
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| tabs | Array | 是 | [] | 底部图标配置，详情见下方 TabConfig 配置 |
-| activeKey | number | 否 |  ''  |  默认高亮的 key |
-| activeColor | string | 否 |  '#1677ff'  |  高亮的颜色 |
-| maxTabCount | number | 否 |  5  |  最大展示的 Tab 数量 |
-| className | string | 否 | -| 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| activeClassName |  选项卡激活类名 | `string` | ''  |
+| activeKey |  默认高亮的 key | `number` |  0  |
+| activeStyle | 选项卡激活样式 | `string` | '' |
+| className | 类名| `string` | - |
+| text | 选项卡图标作用域插槽，接收item、index、active参数 | `slot` | - |
+| maxTabCount |  最大展示的 Tab 数量| `number` | 5   |
+| style | 样式| `string` | - |
+| tabs | 底部图标配置 | [TabConfig](#tabconfig)[] | []  |
+| text | 选项卡底部文字作用域插槽，接收item、index、active参数 | `slot` | - |
+| onChange | Tab 切换时触发回调 |(tab: [TabConfig](#tabconfig), index: `number`) => void|
 
 
-#### TabConfig 配置
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| icon | string | 否 |  ''  |  底部图标，支持 Icon 或图片地址 |
-| activeIcon | string | 否 |  ''  |  高亮状态的底部图标，支持 Icon 或图片地址 |
-| text | boolean | 否 |  false  |  是否展示徽标 |
-| imageMode | string | 否 |  'aspectFit'  |  图片类型 Tab 的适配模式，更多可参考[图片模式](https://opendocs.alipay.com/mini/component/image#mode) |
-| badge | Object | 否 |  --  |  徽标类型，参见 Badge 组件 |
+#### TabConfig
 
-## 事件
+| 参数 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| icon | 底部图标，支持 [Icon](./Icon) 或图片地址 | `string` | - |
+| activeIcon | 激活状态的底部图标，支持 [Icon](./Icon) 或图片地址 | `string` | - |
+| text | 底部文字 | `string` | - |
+| badge | 徽标类型，参见 [Badge](./Badge) 组件 | `object` | - |
 
-#### TabBar
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onChange | Tab 切换时候，触发回调 |(tab: object, index: number) => void|
-
-<style> 
-table th:first-of-type { width: 180px; }
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:first-of-type th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(2) {
-    width: 140px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(3) {
-    width: 30px;
-}
-.__dumi-default-layout-content article table:nth-of-type(2) th:nth-of-type(4) {
-    width: 50px;
-}
-.__dumi-default-layout-content article table:nth-of-type(6) th:nth-of-type(2) {
-    width: 300px;
-}
-.__dumi-default-mobile-previewer:nth-of-type(2)::after {
-    border-bottom: none!important;
-}
-</style> 

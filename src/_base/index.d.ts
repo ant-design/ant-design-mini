@@ -4,6 +4,10 @@ export interface IBaseProps {
      * @description 类名
      */
     className?: string;
+    /**
+     * @description 样式
+     */
+    style?: string;
 }
 export interface IBaseFormItemPropsWithOutFocus<V = any> extends IBaseProps {
     /**

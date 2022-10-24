@@ -13,7 +13,7 @@ Component({
   didMount() {
     const key = `${this.$page.$id}-${this.props.uid}`;
     const getValue = () => this.props.value;
-    const isMult = () => this.props.type === 'multiple';
+    const isMult = () => this.props.multiple;
     const setValue = (val: string[]) => this.setData({
       _value: val,
     });
@@ -54,7 +54,7 @@ Component({
     onChange(v, label) {
       if (typeof this.props.onChange !== 'function') return;
       const event = fmtEvent(this.props);
-      if (this.props.type === 'multiple') {
+      if (this.props.multiple) {
         this.setData({
           curValue: v,
           _value: v,

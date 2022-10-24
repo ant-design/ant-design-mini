@@ -28,7 +28,7 @@
       tabs="{{tabs}}"
       activeKey="{{tabsColorIndex}}"
       onChange="handleChangeTabsColor"
-      activeColor="red"
+      activeStyle="color:red;"
     />
   </demo-block>
 

@@ -1,4 +1,4 @@
 export const FilterItemDefaultProps = {
   uid: 'filter',
-  type: 'default',
+  multiple: false,
 };

@@ -20,45 +20,28 @@ toc: 'content'
 
 ## 属性
 #### Filter
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| uid | string | 否 | - | 当页面有多个Filter时需传入，`必须页面唯一`，与内部的 FilterItem 组件的 uid 一致 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| className | 类名| `string` | - |
+| style | 样式| `string` | - |
+| uid |  当页面有多个Filter时需传入，`必须页面唯一`，与内部 FilterItem 组件的 uid 一致  | `string` | - |  
 
 #### FilterItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| type | 'default' &verbar; 'multiple' | 否 | 'default' | 类型 default=单选 multiple=多选  |
-| value | any | 否 | - | 每一项的值，该组件仅支持受控模式 |
-| items | {value: string; text: string; subText: string}[] | 否 | - | type=default type=multiple 有效|
-| placeholder | string | 否 | - | 当该项值为空的时候显示文案 |
-| uid | string | 否 | - | 当页面有多个Filter时需传入，`必须页面唯一`，与外部的 Filter 组件的 uid 一致 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| className | 类名| `string` | - |
+| items | 可选项 | [FilterItemConfig](#filteritemconfig)[] | [] | 
+| multiple | 是否多选 | `boolean` | false |  
+| placeholder | 当该项值为空的时候显示文案 | `string` | - | 
+| style | 样式| `string` | - |
+| value | 每一项的值，该组件仅支持受控模式 | `any` | - |  
+| uid |  当页面有多个Filter时需传入，`必须页面唯一`，与外部的 Filter 组件的 uid 一致  | `string` | - |  
+| onChange | 选中的选项变更后，触发此回调 | ( changedFields: `Record<string, any>`, allFields: `Record<string, any>`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| onOpen | 打开选择面板时，触发此回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 
-## 事件
-#### FilterItem
-
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onChange | 选中的选项变更后，触发此回调 | ( changedFields: `Record<string, any>`, allFields: `Record<string, any>`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onOpen | 打开选择面板时，触发此回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-
-## 样式类
-#### Filter
-
-| 类名                       | 说明             |
-| -------------------------- | ---------------- |
-| amd-filter             | 整体样式         |
-| amd-filter-bar      | 标签栏样式  |
-| amd-filter-bar-text | 标题栏标题样式   |
-| amd-filter-bar-text-icon  | 标题栏 Icon 样式 |
-| amd-filter-items  | 选择面板样式 |
-
-#### FilterItem
-| 类名                       | 说明             |
-| -------------------------- | ---------------- |
-| amd-filter-item              | 整体样式         |
-| amd-filter-item-content      | 内容样式  |
-| amd-filter-item-content-wrap | 选择面板区域样式   |
-| amd-filter-item-btns | 按钮区域样式   |
-| amd-filter-item-btns-button  | 重置/确定按钮样式 |
+#### FilterItemConfig
+| 参数 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| subText | 副标题 | `string` | - |
+| text | 标题 | `string` | - |
+| value | 选项值 | `string` | - |

@@ -10,7 +10,8 @@
 </template>
 <picker 
     className="amd-range-picker"
-    popClassName="{{(!currentStartDate||!currentEndDate)?'amd-range-picker-confirm-disabled':''}}"
+    popClassName="{{(!currentStartDate||!currentEndDate)?'amd-range-picker-confirm-disabled':''}} {{popClassName || ''}}"
+    style="{{style}}"
     data="{{columns}}"
     value="{{currentValue}}"
     disabled="{{disabled}}"

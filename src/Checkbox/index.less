@@ -26,55 +26,48 @@
     overflow: hidden;
     z-index: 1;
     pointer-events: none;
-    border: @checkbox-border-width solid @checkbox-border-color;
-    border-radius: @checkbox-corner-radius;
     background-color: #fff;
-    box-sizing: border-box;
     transition: background-color 200ms ease-out;
     display: flex;
     justify-content: center;
     align-items: center;
-    &-image {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
+    font-size: 48 * @rpx;
     &-icon {
-      font-size: 48 * @rpx;
+      box-sizing: border-box;
+      border: @checkbox-border-width solid @checkbox-border-color;
+      border-radius: @checkbox-corner-radius;
+      width: 100%;
+      height: 100%;
     }
-    &-disabled {
-      &-checked {
-        background-color: @checkbox-disabled-background;
-        border: none;
-        color: #b7b7b7;
-        &:not(.amd-checkbox-fake-custom) {
-          border: @checkbox-border-width solid #d0d0d0;
-          .amd-checkbox-fake-icon {
-            font-size: 26 * @rpx;
-            color: #aaa;
-          }
-        }
-      }
-      &-not-checked {
-        background-color: @checkbox-disabled-background;
-        border-color: #d0d0d0;
-        color: #f5f5f5;
-      }
+    &-checkedIcon {
+      color: #1677ff;
     }
-    &-not-disabled {
-      &-checked {
-        border: none;
-        color: @color-fill-primary;
-      }
-      &-not-checked {
-        color: #d0d0d0;
-      }
+    &-disbaledIcon {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border: @checkbox-border-width solid #d0d0d0;
+      border-radius: @checkbox-corner-radius;
+      background-color: @checkbox-disabled-background;
     }
-    &-custom {
-      border: none;
-      background-color: #fff;
+    &-disabledCheckedIcon {
+      background-color: #f5f5f5;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border: @checkbox-border-width solid #d0d0d0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: @checkbox-corner-radius;
+      &::after {
+        content: '';
+        display: block;
+        width: 24 * @rpx;
+        height: 24 * @rpx;
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjNweCIgaGVpZ2h0PSIxNXB4IiB2aWV3Qm94PSIwIDAgMjMgMTUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+UGF0aDwvdGl0bGU+CiAgICA8ZyBpZD0i6aG16Z2iLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtb3BhY2l0eT0iMC4yNSI+CiAgICAgICAgPGcgaWQ9IuWNlemAieahhi1SYWRpbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE5NS4wMDAwMDAsIC0yMDEyLjAwMDAwMCkiIGZpbGw9IiMwMDAwMDAiPgogICAgICAgICAgICA8ZyBpZD0i57yW57uELTUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2MC4wMDAwMDAsIDE5NzIuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0ic2VsZWN0ZWRfY2lyY2xlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNC4wMDAwMDAsIDI2LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zMy41MjM4MDk1LDE1LjA3Njg2NzQgQzMzLjUyMzgwOTUsMTUuMTg1OTM1NCAzMy40ODA5OTkxLDE1LjI5MDU1NDQgMzMuNDA0NTkwOCwxNS4zNjc2MzQ0IEwyMS4wNjA0Mzk1LDI3LjgzNDE0MSBDMjAuODAwMjg0NiwyOC4wOTY4NzQ1IDIwLjQ2ODk5MzMsMjguMjQ0NjYyMiAyMC4xMjg1NTQ2LDI4LjI3ODUzMDIgTDE5Ljk4MzIzMzQsMjguMjg1NzE0MyBDMTkuNTkzMDAwOSwyOC4yODU3MTQzIDE5LjIwMjc2ODUsMjguMTM0ODQ3NyAxOC45MDUwMTEzLDI3LjgzNDE0MDcgTDExLjY0MzAyODUsMjAuNDk5MTY2OCBDMTEuNDg0MTk1LDIwLjMzODkzNzQgMTEuNDg0MDUxNiwyMC4wNzkwMSAxMS42NDI3MDg0LDE5LjkxODU5OTggQzExLjcxOTAzMiwxOS44NDE0MzQxIDExLjgyMjYyNDEsMTkuNzk4MTEzNCAxMS45MzA2MjE2LDE5Ljc5ODE5OTUgTDE1LjA5MTA5OTksMTkuNzk4MTk5NSBDMTUuMTk4NTg4NywxOS43OTgzODU2IDE1LjMwMTYyODcsMTkuODQxNTYgMTUuMzc3Njc2OSwxOS45MTgyNzcgTDE5Ljk4MjIxNTUsMjQuNTY3NDMxMSBMMjkuNjY4OTA4MywxNC43ODY3NDQzIEMyOS43NDUyMDU2LDE0LjcwOTc3NjMgMjkuODQ4NjYwNiwxNC42NjY2NjYgMjkuOTU2NTAxNCwxNC42NjY2NjYgTDMzLjExNjk3OTcsMTQuNjY2NjY2IEMzMy4zNDE0OTY3LDE0LjY2NjQ5MDcgMzMuNTIzODA5NSwxNC44NTAxNDI4IDMzLjUyMzgwOTUsMTUuMDc2ODY3NCBaIiBpZD0iUGF0aCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=');
+        background-size: 100% 100%;
+      }
     }
   }
   &-disabled {

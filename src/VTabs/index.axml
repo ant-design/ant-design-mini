@@ -1,4 +1,4 @@
-<view class="amd-vtabs {{className ? className : ''}}">
+<view class="amd-vtabs {{className ? className : ''}}" style="{{style||''}}">
   <view class="amd-vtabs-bar">
     <scroll-view class="amd-vtabs-bar-scroll-view"
       scroll-top="{{tabTop}}"

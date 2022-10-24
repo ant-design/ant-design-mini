@@ -11,9 +11,6 @@
         <label class="wrapper"><checkbox/><text>自定义布局</text>
         </label>
       </list-item>
-      <list-item className="demo-item">
-        <checkbox color="#00b578" checked>指定颜色</checkbox>
-      </list-item>
     </list>
   </demo-block>
   <demo-block title="默认选中" padding="0">
@@ -28,10 +25,15 @@
   </demo-block>
   <demo-block title="自定义图标" padding="0">
     <list-item className="demo-item demo-item-icon">
-      <checkbox icon="SmileOutline" checkedIcon="SmileFill">自定义图标（Icon）</checkbox>
+      <checkbox>自定义图标（Icon）
+        <am-icon type="SmileOutline" style="color:#1677ff" slot="icon"/>
+        <am-icon type="SmileFill" style="color:#1677ff"  slot="checkedIcon"/>
+      </checkbox>
     </list-item>
     <list-item className="demo-item demo-item-image">
-      <checkbox color="transparent" checked checkedIcon="https://gw.alipayobjects.com/mdn/rms_ffbcbf/afts/img/A*2oqcRL38fWwAAAAAAAAAAAAAARQnAQ">自定义图标（图片）</checkbox>
+      <checkbox checked>自定义图标（图片）
+        <image style="width:100%;height:100%;border-radius:50%;" slot="checkedIcon" src="https://gw.alipayobjects.com/mdn/rms_ffbcbf/afts/img/A*2oqcRL38fWwAAAAAAAAAAAAAARQnAQ"/>
+      </checkbox>
     </list-item>
   </demo-block>
 </view>

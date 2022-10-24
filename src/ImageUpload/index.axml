@@ -1,4 +1,4 @@
-<view class="amd-image-upload">
+<view class="amd-image-upload {{className || ''}}"  style="{{style || ''}}">
   <view a:for="{{fileList}}" class="amd-image-upload-show">
     <view 
       class="amd-image-upload-close" 

@@ -1,6 +1,7 @@
 <import-sjs from="./index.sjs" name="_sjs" />
 <view
   class="amd-picker {{disabled ? 'amd-picker-disabled' : ''}} {{className ? className : ''}}"
+  style="{{style || ''}}"
   onTap="onOpen"
 >
   <slot value="{{cValue}}">
@@ -14,6 +15,7 @@
 </view>
 <popup
   className="amd-picker-popup {{popClassName}}"
+  style="{{popStyle || ''}}"
   position="bottom"
   maskClosable
   onClose="onMaskDismiss"

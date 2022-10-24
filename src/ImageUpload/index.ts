@@ -184,10 +184,10 @@ Component({
 
     onPreviewImage(e) {
       const { fileList } = this.data;
-      const { preview, enableShowPhotoDownload, enableSavePhoto, onPreview } = this.props;
+      const { enablePreview, enableShowPhotoDownload, enableSavePhoto, onPreview } = this.props;
       const { previewImageIndex } = e.target.dataset;
 
-      if (!preview) return;
+      if (!enablePreview) return;
 
       if (onPreview) {
         onPreview.call(this.props, fileList);

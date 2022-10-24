@@ -8,7 +8,7 @@ export interface IVTabsProps extends IBaseProps {
    * @description 当前激活的索引
    * @default 0
    */
-  index?: number;
+  activekey?: number;
   /**
    * @description tab 切换时的回调
    */

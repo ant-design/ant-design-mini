@@ -1,4 +1,4 @@
-<view class="amd-tabs {{className ? className : ''}}">
+<view class="amd-tabs {{className ? className : ''}}" style="{{style || ''}}">
   <view class="amd-tabs-bar {{type === 'basis'?'amd-tabs-bar-underline':''}}"
     style="{{sticky ? `position: sticky; top: ${stickyTop}; z-index: 999;`: ''}}">
     <view class="amd-tabs-bar-plus">

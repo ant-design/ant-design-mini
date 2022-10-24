@@ -23,24 +23,24 @@ Component({
         _tabs: value,
       });
     });
-    const { index } = this.props;
+    const { activekey } = this.props;
     this.setData({
       _tabs: objectValues(getTabArray),
       wrapScrollHeight: this.scrollWrapHeight,
     });
     // 初次加载时的情况
-    if (this.data._index !== index) {
-      this.onChange(index);
+    if (this.data._index !== activekey) {
+      this.onChange(activekey);
       this.setData({
-        _index: index,
+        _index: activekey,
       });
     }
   },
   didUpdate(prevProps, prevData) {
-    const { index } = this.props;
+    const { activekey } = this.props;
     const { _index } = this.data;
-    if (prevProps.index !== index && prevData._index === _index) {
-      this.onChange(index);
+    if (prevProps.activekey !== activekey && prevData._index === _index) {
+      this.onChange(activekey);
     }
   },
   didUnmount() {

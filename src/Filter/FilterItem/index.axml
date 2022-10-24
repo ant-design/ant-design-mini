@@ -1,14 +1,14 @@
 <view class="amd-filter-item {{className ? className : ''}}"
   id="filterItem-{{$id}}"
-  style="{{show ? 'transform: scaleY(1);' : 'transform: scaleY(0);'}}">
-  <view class="amd-filter-item-content {{type === 'multiple' ? 'amd-filter-item-content-multiple' : ''}}">
+  style="{{style || ''}};{{show ? 'transform: scaleY(1);' : 'transform: scaleY(0);'}}">
+  <view class="amd-filter-item-content {{multiple ? 'amd-filter-item-content-multiple' : ''}}">
     <view class="amd-filter-item-content-wrap">
       <selector onChange="onChange"
         value="{{_value}}"
         items="{{items}}"
-        multiple="{{type === 'multiple'}}" />
+        multiple="{{multiple}}" />
     </view>
-    <block a:if="{{type === 'multiple'}}">
+    <block a:if="{{multiple}}">
       <view class="amd-filter-item-btns">
         <button 
           className="amd-filter-item-btns-button"
