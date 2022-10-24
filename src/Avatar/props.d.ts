@@ -8,18 +8,18 @@ export interface IAvatarProps extends IBaseProps {
    * @description 尺寸，x-small(80*80) small(88*88) medium(104*104) large(120*120)
    * @default "medium"
    */
-  size?: 'x-small' | 'small' | 'medium' | 'large';
+  size?: 'x-small' | 'small' | 'medium' | 'large' | number;
   /**
    * @description 头像地址，默认为灰色的内置图片
    */
   src?: string;
   /**
-   * @description 第一行信息
+   * @description classname
    */
-  name?: string;
+  className?: string;
   /**
-   * @description 第二行补充信息，当 name 不存在时，不显示；当 size=x-small，不显示
+   * @description style
    */
-  desc?: string;
+  style?: string;
 }
 export declare const AvatarDefaultProps: Partial<IAvatarProps>;

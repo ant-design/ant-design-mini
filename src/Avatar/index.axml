@@ -1,11 +1,15 @@
 <view class="amd-avatar {{className ? className : ''}}" style="{{style}}">
   <block a:if="{{lazyLoad}}">
-    <image class="amd-avatar-src amd-avatar-src-{{size}}"
+    <image class="amd-avatar-src {{typeof size === 'string' ? 'amd-avatar-src-' + size : ''}}"
       src="{{src}}"
-      lazy-load="{{lazyLoad}}" />
+      lazy-load="{{lazyLoad}}"
+      style="{{typeof size === 'number' ? 'width:' + size + 'rpx;' + 'height:' + size + 'rpx;': ''  }}{{imageStyle||''}};"
+    />
   </block>
   <block a:else>
-    <image class="amd-avatar-src amd-avatar-src-{{size}}"
-      src="{{src}}" />
+    <image class="amd-avatar-src {{typeof size === 'string' ? 'amd-avatar-src-' + size : ''}}"
+      src="{{src}}"
+      style="{{typeof size === 'number' ? 'width:' + size + 'rpx;' + 'height:' + size + 'rpx;': ''  }}{{imageStyle||''}};"
+    />
   </block>
 </view>

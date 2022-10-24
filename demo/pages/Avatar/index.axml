@@ -18,7 +18,7 @@
   </demo-block>
   <demo-block title="配合列表使用" padding="0">
     <list-item
-      imageSize="large"
+      imageSize="medium"
       brief="Deserunt dolor ea eaque eos"
     >
       Novalee Spicer
@@ -26,7 +26,8 @@
         slot="image"
         name="Novlee Spicer"
         desc="Deserunt dolor ea eaque eos"
-        src="{{images[0]}}"
+        src="{{images[1]}}"
+        size="{{72}}"
       />
     </list-item>
   </demo-block>
