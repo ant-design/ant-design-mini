@@ -17,9 +17,9 @@
   min-width: @switch-width;
   height: @switch-height;
   box-sizing: border-box;
-  border: @switch-border solid #e5e5e5;
+  border: @switch-border solid @COLOR_BORDER;
   border-radius: @switch-height * 0.5;
-  background: #fff;
+  background: @COLOR_WHITE;
   overflow: hidden;
   line-height: @switch-height;
   &-checked {
@@ -29,7 +29,7 @@
       left: calc(100% - (@switch-height - 2 * @switch-border));
     }
     .@{switchPrefix}-inner {
-      color: #fff;
+      color: @COLOR_WHITE;
       margin: 0 (@switch-height - @switch-border * 2 + 10 * @rpx) 0 16 * @rpx;
     }
   }
@@ -43,7 +43,7 @@
   &-loading-icon {
     font-size: 20 * @rpx;
     animation: loading-rotate 1s linear infinite;
-    color: @color-text-primary;
+    color: @COLOR_BRAND1;
   }
   &-handle {
     display: flex;
@@ -52,16 +52,16 @@
     width: @switch-height - 2 * @switch-border;
     height: @switch-height - 2 * @switch-border;
     border-radius: 50%;
-    background: #fff;
+    background: @COLOR_WHITE;
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
     transition: all 200ms;
     box-shadow:
-    0 0 2px 0 rgba(0,0,0,20%), 
-    0 2px 11.5px 0 rgba(0,0,0,8%), 
-    -1px 2px 2px 0 rgba(0,0,0,10%)
+    0 0 2px 0 fade(@COLOR_WHITE_CHANGE_DARK, 20%), 
+    0 2px 11.5px 0 fade(@COLOR_WHITE_CHANGE_DARK, 8%), 
+    -1px 2px 2px 0 fade(@COLOR_WHITE_CHANGE_DARK, 10%)
   }
   &-inner {
     position: relative;
@@ -71,7 +71,7 @@
     align-items: center;
     margin: 0 10 * @rpx 0 (@switch-height - @switch-border * 2 + 10 * @rpx);
     height: 100%;
-    color: #999;
+    color: @COLOR_TEXT_ASSIST;
     transition: margin 200ms;
     font-size: 30 * @rpx;
   }
@@ -93,7 +93,7 @@
       left: calc(100% - (@switch-height-small - 2 * @switch-border));
     }
     .@{switchPrefix}-inner {
-      color: #fff;
+      color: @COLOR_WHITE;
       margin: 0 (@switch-height-small - @switch-border * 2 + 10 * @rpx) 0 16 * @rpx;
     }
   }
@@ -115,7 +115,7 @@
       left: calc(100% - (@switch-height-x-small - 2 * @switch-border));
     }
     .@{switchPrefix}-inner {
-      color: #fff;
+      color: @COLOR_WHITE;
       margin: 0 (@switch-height-x-small - @switch-border * 2 + 10 * @rpx) 0 16 * @rpx;
     }
   }
