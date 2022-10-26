@@ -23,6 +23,8 @@ toc: false
 | maxRate | number | 否 | 5 | 最大星级 |
 | activeColor | string | 否 | - | 填充色 |
 | inactiveColor | string | 否 | - | 原始填充色 |
+| gutter | number | string | 否 | - | 图标的间距 |
+| size | number | string | 否 | - | 图标的大小 |
 | disabled | boolean | 否 | - | 是否禁用 |
 | image | string | 否 | - | 自定义图片，格式 svg |
 | className | string | 否 | - | 类名 |
