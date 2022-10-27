@@ -28,7 +28,7 @@
       onChange="onChange"
     >
       <view slot="uploadIcon">
-        <am-icon type="CameraOutline" size="small" style="color: #808080; fontSize: 32px;"/>
+        <am-icon type="CameraOutline" style="color: #808080; fontSize: 32px;"/>
       </view>
     </uploader>
   </view>

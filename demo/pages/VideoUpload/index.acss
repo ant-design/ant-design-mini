@@ -1,11 +1,10 @@
 .demo-video-upload-show {
   padding: 8rpx;
-  background-color: #1A1A1A;
+  background-color: #fff;
 }
 
 .demo-video-upload-title {
   font-size: 28rpx;
   padding: 16rpx;
   height: 32rpx;
-  color: #E6E6E6;
 }
