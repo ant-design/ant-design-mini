@@ -17,14 +17,17 @@
     </view>
   </demo-block>
   <demo-block title="配合列表使用" padding="0">
-    <list-item>
-      <avatar name="Novlee Spicer" desc="Deserunt dolor ea eaque eos" src="{{images[0]}}" />
-    </list-item>
-    <list-item>
-      <avatar desc="仅有 desc 时，name不显示" src="{{images[0]}}" />
-    </list-item>
-    <list-item>
-      <avatar name="size=x-small，desc不显示" desc="摘要信息" size="x-small" src="{{images[0]}}" />
+    <list-item
+      imageSize="large"
+      brief="Deserunt dolor ea eaque eos"
+    >
+      Novalee Spicer
+      <avatar
+        slot="image"
+        name="Novlee Spicer"
+        desc="Deserunt dolor ea eaque eos"
+        src="{{images[0]}}"
+      />
     </list-item>
   </demo-block>
 </view>
