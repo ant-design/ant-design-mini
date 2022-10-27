@@ -1,4 +1,4 @@
-<view class="amd-video-upload">
+<view class="amd-video-upload {{className}}" style={{style}}>
   <view a:for="{{fileList}}" class="amd-video-upload-show">
     <video 
       class="amd-video-upload-video" 
@@ -32,7 +32,7 @@
         <view class="amd-video-upload-cover-loading-text">上传中...</view>
       </view>
       <view a:if="{{item.status === 'error'}}" class="amd-video-upload-cover-error">
-        <am-icon class="amd-video-upload-cover-error-icon" type="CloseCircleOutline" color="#fff" size="small" />
+        <am-icon class="amd-video-upload-cover-error-icon" type="CloseCircleOutline"/>
         <view class="amd-video-upload-cover-error-text">上传失败</view>
       </view>
     </view>
@@ -44,7 +44,7 @@
     onTap="onChooseVideo"
   >
     <slot name='uploadIcon'>
-      <am-icon size="small" type="AddOutline" color="#999" />
+      <am-icon type="AddOutline" class="amd-video-upload-add-icon" />
     </slot>
   </view>
   <!-- 这个video是专门用来做全屏播放用的，其它的都是用来做展示首帧用的 -->
