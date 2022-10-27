@@ -7,6 +7,7 @@ Component({
   mixins: [formMixin({ trigger: 'onOk' })],
   _visible: false,
   props: CascaderDefaultProps,
+  columnLength: 0,
   data() {
     return {
       currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
@@ -15,7 +16,8 @@ Component({
     };
   },
   didMount() {
-    const { value } = this.props;
+    const { value, options } = this.props;
+    this.columnLength = this.getColumnsLength(options);
     const columns = this.getterColumns(value);
     // 首次无需校验value有效性，onOk时会校验
     this.setData({ columns, cValue: value });
@@ -26,6 +28,7 @@ Component({
     // onTriggerPicker展开时会自动重置数据，此处只有展开状态下才需要重置columns和currentValue，否则只需设置cValue
     if (this._visible) {
       if (options !== prevProps.options) {
+        this.columnLength = this.getColumnsLength(options);
         const newData: any = {};
         if (!equal(value, prevProps.value)) {
           const newColumns = this.getterColumns(value);
@@ -55,14 +58,32 @@ Component({
   },
 
   methods: {
+    getColumnsLength(options, depth = 0) {
+      if (options.length > 0) {
+        depth += 1;
+      } else {
+        return depth
+      }
+      const nextOptions = []
+      options.forEach(item => {
+        if(item?.children?.length > 0) {
+          nextOptions.push(...item.children);
+        }
+      })
+      return this.getColumnsLength(nextOptions, depth);
+    },
     getterColumns(value) {
       const getColumns = (options, value, columns = []) => {
         columns.push(options.map((v) => ({ value: v.value, label: v.label })));
         const currentOption =
           options.find((v) => v.value === value?.[columns.length - 1]) ||
           options[0];
-        if (currentOption?.children?.length > 0) {
+        if (currentOption?.children) {
           return getColumns(currentOption.children, value, columns);
+        }
+        // 兼容picker-view在columns列数在动态变化下引发的bug
+        while (columns?.length < this.columnLength) {
+          columns.push([]);
         }
         return columns;
       };
@@ -74,7 +95,7 @@ Component({
       const result = [];
       for (let i = 0; i < columns.length; i++) {
         if (!columns[i].some((v) => v.value === value?.[i])) {
-          result.push(...columns.slice(i).map((v) => v[0].value));
+          result.push(...columns.slice(i).map((v) => v?.[0]?.value));
           break;
         } else {
           result[i] = value[i];

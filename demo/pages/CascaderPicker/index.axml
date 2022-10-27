@@ -41,3 +41,17 @@
     </list-item>
     <button style="margin: 24rpx" type="primary" onTap="changeValue">改变value到上海</button>
 </demo-block>
+
+<demo-block title="列数不同的数据" padding="0">
+    <list-item>
+        请选择部门/班级
+        <cascader-picker 
+            slot="extra"
+            placeholder="请选择部门/班级" 
+            options="{{orgList}}" 
+            onPickerChange="handleOrgPickerChange" 
+            onOk="handleOrgPickerOk"
+        />
+    </list-item>
+
+</demo-block>
