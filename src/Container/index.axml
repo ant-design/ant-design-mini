@@ -1,17 +1,11 @@
-<view class="amd-container {{className ? className : ''}}">
-  <header a:if="{{title || titleImage}}" titleImage="{{titleImage}}" title="{{title}}" headerInBox="{{headerInBox}}">
+<view class="amd-container {{className ? className : ''}}" style="{{style}}">
+  <header title="{{title}}" headerInBox="{{headerInBox}}">
     <slot name="headerRight"></slot>
+    <view slot="title">
+      <slot name="title"></slot>
+    </view>
   </header>
-  <view class="amd-container-content {{ headerInBox ? 'amd-container-content-withHalfRadius' : 'amd-container-content-withRadius' }} {{multiBox ? 'amd-container-content-multibox' : ''}}">
-    <view class="amd-container-content-multibox-box" a:if="{{multiBox >= 1}}">
-      <slot name="box1" />
-    </view>
-    <view class="amd-container-content-multibox-box" a:if="{{multiBox > 1}}">
-      <slot name="box2" />
-    </view>
-    <view class="amd-container-content-multibox-box" a:if="{{multiBox > 2}}">
-      <slot name="box3" />
-    </view>
-    <slot a:if="{{!multiBox}}" />
+  <view class="amd-container-content {{ headerInBox ? 'amd-container-content-withHalfRadius' : 'amd-container-content-withRadius' }}">
+    <slot />
   </view>
 </view>

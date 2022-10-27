@@ -1,0 +1,24 @@
+@import "../../../src/style/themes/color.less";
+
+page {
+  padding: 12px;
+  color: @COLOR_TEXT_PRIMARY;
+}
+
+.content {
+  height: 70px;
+  display: flex;
+
+  .box {
+    background-color: @COLOR_BORDER;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:not(:first-of-type) {
+      margin-left: 8px;
+    }
+    flex: 1;
+    border-radius: 4px;
+  }
+}
+

@@ -10,24 +10,6 @@
     position: relative;
     display: flex;
     height: 96 * @rpx;
-
-    &-title {
-
-    }
-
-    &-icon {
-      position: absolute;
-      top: @container-header-spacing;
-      right: @container-header-spacing;
-      width: @size-6;
-      height: @size-6;
-      overflow: hidden;
-      text-align: center;
-      line-height: @size-6;
-      margin-left: @h-spacing-standard;
-      color: @container-header-icon-color;
-      z-index: 2;
-    }
   }
 
   &-content {
@@ -40,19 +22,6 @@
 
     &-withHalfRadius {
       border-radius: 0 0 @container-radius @container-radius;
-    }
-
-    &-multibox {
-      display: flex;
-
-      &-box {
-        overflow: hidden;
-        &:not(:first-of-type) {
-          margin-left: @container-box-spacing;
-        }
-        flex: 1;
-        border-radius: @container-box-radius;
-      }
     }
   }
 }

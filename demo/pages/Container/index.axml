@@ -1,45 +1,36 @@
+<view style="margin-bottom: 10px;">标题在容器内</view>
+<container title="标题">
+  <view class="content">
+  </view>
+</container>
 
-<view class="title">标题在容器内</view>
-<white-space />
-<view>
-  <container title="标题" titleImage="{{titleImage}}" icon="HeartOutline" headerInBox="{{true}}">
-    <view slot="headerRight">右部内容</view>
-     <view class="box1">
-      
+<view style="margin: 20px 0 10px;">标题在容器外</view>
+
+<container headerInBox="{{false}}">
+  <view slot="title">
+    <view class="icon">
+      <am-icon type="SmileOutline" style="margin-right: 8px;" />
+      标题
     </view>
-  </container>
-</view>
-
-<white-space />
-<white-space />
-
-<view class="title">标题在容器外</view>
+  </view>
+  <view slot="headerRight">右部内容</view>
+  <view class="content">
+  </view>
+</container>
 
 
-<view>
-  <container title="标题" titleImage="{{titleImage}}" icon="HeartOutline" headerInBox="{{false}}">
-    <view slot="headerRight">右部内容</view>
-    <view class="box1">
-      
+<view style="margin: 20px 0 10px;">容器内多个盒子</view>
+<container title="标题" titleImage="{{titleImage}}">
+  <view slot="headerRight">右部内容</view>
+  <view class="content">
+    <view class="box">
+      盒子1
     </view>
-  </container>
-</view>
-
-<white-space />
-<white-space />
-
-<view class="title">容器内多个盒子</view>
-<view>
-  <container title="标题" titleImage="{{titleImage}}" icon="HeartOutline" headerInBox="{{true}}" multiBox="{{3}}">
-    <view slot="headerRight">右部内容</view>
-    <view class="box1" slot="box1">
-      box1
+    <view class="box">
+      盒子2
     </view>
-    <view class="box2" slot="box2">
-      box2
+    <view class="box">
+      盒子3
     </view>
-    <view class="box3" slot="box3">
-      box3
-    </view>
-  </container>
-</view>
+  </view>
+</container>
