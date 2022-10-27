@@ -6,10 +6,10 @@
 .@{listItemPrefix} {
   align-items: center;
   background-color: @list-background-color;
-  color: #333;
+  color: @COLOR_TEXT_PRIMARY;
   line-height: 1.4;
   &-hover {
-    background-color: #eee;
+    background-color: @COLOR_BORDER;
   }
 
   &-line {
@@ -128,13 +128,13 @@
     &-title {
       &-container {
         font-size: 26 * @rpx;
-        color: #999;
+        color: @COLOR_TEXT_ASSIST;
       }
     }
     &-brief {
       &-container {
         font-size: 26 * @rpx;
-        color: #999;
+        color: @COLOR_TEXT_ASSIST;
       }
     }
   }
@@ -155,13 +155,13 @@
       display: flex;
       flex-direction: row-reverse;
       font-size: 30 * @rpx;
-      color: #999;
+      color: @COLOR_TEXT_ASSIST;
     }
   }
 
   &-arrow {
     margin-left: 8 * @rpx;
-    color: @color-text-weak;
+    color: @COLOR_TEXT_WEAK;
     display: flex;
     align-items: center;
     .amd-icon {
@@ -171,7 +171,7 @@
 
   .line {
     height: 1 * @rpx;
-    background-color: #eee;
+    background-color: @COLOR_BORDER;
     width: calc(100% - 24 * @rpx);
     position: absolute;
     right: 0;

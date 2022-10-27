@@ -1,4 +1,4 @@
-<view class="amd-avatar {{className ? className : ''}}">
+<view class="amd-avatar {{className ? className : ''}}" style="{{style}}">
   <block a:if="{{lazyLoad}}">
     <image class="amd-avatar-src amd-avatar-src-{{size}}"
       src="{{src}}"
@@ -8,11 +8,4 @@
     <image class="amd-avatar-src amd-avatar-src-{{size}}"
       src="{{src}}" />
   </block>
-  <view class="amd-avatar-content"
-    a:if="{{name || desc}}">
-    <text class="amd-avatar-name amd-avatar-name-{{size}}"
-      a:if="{{name}}">{{name}}</text>
-    <text class="amd-avatar-desc amd-avatar-desc-{{size}}"
-      a:if="{{name && desc}}">{{desc}}</text>
-  </view>
 </view>
