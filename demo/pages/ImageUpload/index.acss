@@ -6,4 +6,5 @@
   font-size: 28rpx;
   padding: 16rpx;
   height: 32rpx;
+  color: rgb(105 123  140);
 }

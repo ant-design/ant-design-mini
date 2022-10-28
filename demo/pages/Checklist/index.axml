@@ -40,7 +40,7 @@
     onChange="onChange"
   >
     <view slot="icon">
-      <icon style='color:red' type="LikeOutline" size="x-small" class="demo-checklist-checked-icon"/>
+      <icon style='color:red' type="LikeOutline" class="demo-checklist-checked-icon"/>
     </view>
     <view slot="content" slot-scope="props">
       title: {{props.item.title}}
