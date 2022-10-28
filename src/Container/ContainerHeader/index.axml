@@ -1,18 +1,13 @@
 <view class="amd-container-header {{ headerInBox ? 'amd-container-headerInBox' : '' }}">
     <view class="amd-container-header-title">
-      <image class="amd-container-header-image"
-        src="{{titleImage}}"
-        a:if="{{titleImage}}" />
-      <block a:if="{{title}}">
-        <view class="amd-container-header-content {{!titleImage ? 'amd-container-header-title-noImage' : ''}}">
+      <view class="amd-container-header-content">
+        <block a:if="{{typeof title !== 'undefined'}}">
           {{title}}
-        </view>
-      </block>
-      <block a:else>
-        <view class="amd-container-header-content {{!titleImage ? 'amd-container-header-title-noImage' : ''}}">
+        </block>
+        <block a:else>
           <slot name="title" />
-        </view>
-      </block>
+        </block>
+      </view>
     </view>
     <view 
       class="amd-container-header-right"
