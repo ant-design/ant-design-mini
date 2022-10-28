@@ -1,11 +1,11 @@
 .vtabItem {
   transition: all 200ms linear;
-  background-color: #fff;
+
 }
 
 .currentItem {
   color: #f00;
-  background-color: #fff;
+
 }
 
 .vtabItem text {

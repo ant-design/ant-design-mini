@@ -1,6 +1,5 @@
 .demo-checklist-label {
   font-size: 32rpx;
-  color: #999;
   padding: 36rpx 0 16rpx 16rpx;
 }
 

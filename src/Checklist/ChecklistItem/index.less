@@ -1,19 +1,20 @@
-@import (reference) "../variable.less";
-@import (reference) "../../style/mixins/hairline.less";
+@import (reference) '../variable.less';
+@import (reference) '../../style/mixins/hairline.less';
 
 @checklistItemPrefix: amd-checklist-item;
 
 .@{checklistItemPrefix} {
-  background-color: @color-fill-grey-inverse;
+  background-color: @COLOR_CARD;
 
   &-hover {
-    background-color: #eee;
+    background-color: @COLOR_BORDER;
   }
 
   &-content {
     display: flex;
     align-items: center;
     padding: @v-spacing-large @h-spacing-large;
+    color: @COLOR_TEXT_PRIMARY;
     &-disabled {
       opacity: @opacity-disabled;
     }
@@ -43,14 +44,14 @@
     }
 
     &-title {
-      color: @color-text-title;
+      color: @COLOR_TEXT_PRIMARY;
       font-size: @font-size-list;
       line-height: 48 * @rpx;
     }
 
     &-description {
       font-size: @font-size-content;
-      color: @color-text-subtitle;
+      color: @COLOR_TEXT_ASSIST;
       margin-top: 2 * @rpx;
       line-height: 36 * @rpx;
     }
@@ -58,7 +59,7 @@
 
   &-checked {
     &-disabled {
-     opacity: @opacity-disabled;
+      opacity: @opacity-disabled;
     }
   }
 
@@ -71,6 +72,6 @@
   &-line {
     margin-left: @h-spacing-large;
     position: relative;
-    .hairline("bottom",  @color-divider-line);
+    .hairline('bottom',  @COLOR_BORDER);
   }
 }

@@ -45,19 +45,16 @@ Page({
         text: '首页',
       },
       {
-        type: 'image',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
+        icon: 'https://gw.alipayobjects.com/mdn/industry_lifee/afts/img/A*rF7uRZrUpiEAAAAAAAAAAAAAARQnAQ',
         activeIcon:
-          'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
-        text: '新车报价',
+          'https://gw.alipayobjects.com/mdn/industry_lifee/afts/img/A*a29CQa2-9VIAAAAAAAAAAAAAARQnAQ',
+        text: '导航',
       },
       {
-        type: 'image',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
+        icon: 'https://gw.alipayobjects.com/mdn/industry_lifee/afts/img/A*lZCJTa_1JSYAAAAAAAAAAAAAARQnAQ',
         activeIcon:
-          'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
-        text: '新车报价',
-        imageMode: 'scaleToFill',
+          'https://gw.alipayobjects.com/mdn/industry_lifee/afts/img/A*W7e3R58X0XkAAAAAAAAAAAAAARQnAQ',
+        text: '我的',
       },
     ],
 

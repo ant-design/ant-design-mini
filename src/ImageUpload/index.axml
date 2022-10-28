@@ -16,7 +16,7 @@
         <view class="amd-image-upload-cover-loading-text">上传中...</view>
       </view>
       <view a:if="{{item.status === 'error'}}" class="amd-image-upload-cover-error">
-        <am-icon class="amd-image-upload-cover-error-icon" type="CloseCircleOutline" color="#fff" size="small" />
+        <am-icon class="amd-image-upload-cover-error-icon" type="CloseCircleOutline"/>
         <view class="amd-image-upload-cover-error-text">上传失败</view>
       </view>
     </view>
@@ -37,7 +37,7 @@
     onTap="onChooseImage"
   >
     <slot name='uploadIcon'>
-      <am-icon size="small" type="AddOutline" color="#999" />
+      <am-icon type="AddOutline" className="amd-image-upload-add-image-icon" />
     </slot>
   </view>
 </view> 

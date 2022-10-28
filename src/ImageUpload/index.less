@@ -5,6 +5,7 @@
 .@{imageUploadPrefix} {
   display: flex;
   flex-wrap: wrap;
+  background: @COLOR_CARD;
 
   &-show {
     position: relative;
@@ -31,10 +32,12 @@
     align-items: center;
     justify-content: center;
     margin: @image-upload-add-image-container-margin;
-    background-color: @color-divider-background;
+    background-color: @COLOR_BACKGROUND;
     border-radius: @corner-radius-md;
   }
-
+  &-add-image-icon {
+    color: @COLOR_TEXT_ASSIST;
+  }
   &-cover {
     position: absolute;
     margin: @image-upload-common-margin;
@@ -56,7 +59,7 @@
       }
 
       &-text {
-        color: #fff;
+        color: @COLOR_WHITE;
         font-size: 24rpx;
         margin-top: 8rpx;
       }
@@ -67,10 +70,11 @@
 
       &-icon {
         font-size: 48rpx;
+        color: @COLOR_WHITE;
       }
 
       &-text {
-        color: #fff;
+        color: @COLOR_WHITE;
         font-size: 24rpx;
         margin-top: 8rpx;
       }
