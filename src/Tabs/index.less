@@ -12,7 +12,7 @@
     background-color: @tabs-inverse-color;
     box-sizing: border-box;
     &-underline {
-      border-bottom: @border-width-standard solid @color-divider-line;
+      border-bottom: @border-width-standard solid @COLOR_BORDER;
     }
     &-fade {
       position: absolute;
@@ -24,11 +24,11 @@
       pointer-events: none;
       &-left {
         left: 0;
-        background: linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));
+        background: linear-gradient(90deg, @COLOR_WHITE_CHANGE, hsla(0, 0%, 100%, 0));
       }
       &-right {
         right: 104 * @rpx;
-        background: linear-gradient(270deg, #fff, hsla(0, 0%, 100%, 0));
+        background: linear-gradient(270deg, @COLOR_WHITE_CHANGE, hsla(0, 0%, 100%, 0));
       }
     }
     &-plus {
@@ -142,7 +142,7 @@
         text-align: center;
         line-height: @line-height-base;
         border-radius: 10vh;
-        background-color: #f5f5f5;
+        background-color: @COLOR_BACKGROUND;
         border-bottom: 0 none;
       }
     }
@@ -168,7 +168,7 @@
         line-height: @line-height-paragraph;
         color: @tabs-weaken-color;
         border-radius: 50vh;
-        background-color: #f5f5f5;
+        background-color:@COLOR_BACKGROUND;
         margin: 2 * @rpx 0;
       }
     }
@@ -192,7 +192,7 @@
     align-content: stretch;
     overflow: hidden;
     height: auto;
-    background-color: @color-fill-grey-inverse;
+    background-color: @COLOR_WHITE_CHANGE;
     &_H100 {
       height: 100% !important;
     }

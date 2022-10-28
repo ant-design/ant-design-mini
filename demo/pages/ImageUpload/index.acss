@@ -1,6 +1,5 @@
 .demo-image-upload-show {
   padding: 8rpx;
-  background-color: #fff;
 }
 
 .demo-image-upload-title {

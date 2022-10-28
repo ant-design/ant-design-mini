@@ -1,4 +1,4 @@
-<view class="amd-input-item {{disabled ? 'amd-input-item-content-disabled' : ''}} {{className ? className : ''}}">
+<view class="amd-input-item {{disabled ? 'amd-input-item-disabled' : ''}} {{className ? className : ''}}">
   <view class="amd-input-item-line">
     <view class="amd-input-item-layer">
       <input 

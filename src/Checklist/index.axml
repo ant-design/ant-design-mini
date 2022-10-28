@@ -22,7 +22,7 @@
       </view>
       <view slot="icon">
         <slot name="icon">
-          <icon type="CheckOutline" fontSize="18px" color="#1677ff" class="amd-checklist-item-check-icon" />
+          <icon type="CheckOutline" class="amd-checklist-item-check-icon" />
         </slot>
       </view>
     </checklist-item>
