@@ -202,3 +202,22 @@
     display: flex;
   }
 }
+
+
+@tabsItemPrefix: amd-tabs-item;
+
+.@{tabsItemPrefix} {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  align-self: flex-start;
+  &-pane {
+    width: 100%;
+    will-change: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  &-swiper {
+    position: absolute;
+  }
+}

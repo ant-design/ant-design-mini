@@ -88,5 +88,10 @@ export interface ITabsProps extends IBaseProps {
    * @description 内部 swiper 组件的 onAnimationEnd 事件（仅在基础库 1.50.0 以上版本生效）
    */
   onAnimationEnd?: (e: any) => void;
+
+  /**
+   * @description 选项
+   */
+   currentIndex: number;
 }
 export declare const TabsDefaultProps: Partial<ITabsProps>;

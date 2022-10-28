@@ -16,5 +16,6 @@ export const TabsDefaultProps = {
   previousMargin: '0px',
   nextMargin: '0px',
   easingFunction: 'default',
-  snapToEdge: false
+  snapToEdge: false,
+  currentIndex: 0,
 };

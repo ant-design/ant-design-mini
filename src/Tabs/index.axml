@@ -19,7 +19,7 @@
       <view class="amd-tabs-bar-item-placeholder"
         onAppear="appearLeft"
         onDisappear="disappearLeft"></view>
-      <view a:for="{{_tabs}}" key="{{item.title}}" class="amd-tabs-bar-wrap {{`amd-tabs-bar-wrap-${type}`}}">
+      <view a:for="{{items}}" class="amd-tabs-bar-wrap {{`amd-tabs-bar-wrap-${type}`}}">
           <!-- basis 基础类型 -->
           <view 
             a:if="{{type === 'basis'}}"
@@ -149,9 +149,20 @@
       id="amd-tabs-content-{{$id}}"
       style="{{ fallback 
         ? ''
-        : `transform: translate3d(${-currentIndex * 100}%, 0, 0); transition-duration: ${animation?'300ms':''}; ${_tabContentHeight?`height: ${_tabContentHeight}px;`:'height: auto;'}`
+        : `transform: translate3d(${-0 * 100}%, 0, 0); transition-duration: ${animation?'300ms':''}; ${_tabContentHeight?`height: ${_tabContentHeight}px;`:'height: auto;'}`
       }}">
-      <slot />
+      
+      <view 
+        class="amd-tabs-item amd-tabs-item-pane {{className ? className : ''}}"
+        key="tabs-pane-{{$id}}" 
+        style="{{style||''}}"
+        a:for="{{items}}"
+      >
+        {{item.content}}
+        <slot />
+      </view>
+
+
     </view>
   </view>
 </view>
