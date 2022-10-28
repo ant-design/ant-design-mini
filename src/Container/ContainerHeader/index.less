@@ -11,7 +11,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 @container-spacing;
 
         &-title {
             font-size: @container-header-size;
@@ -30,6 +29,7 @@
     &-headerInBox {
         background-color: @container-background-color;
         border-radius: @container-radius @container-radius 0 0;
+        padding: 0 @container-spacing;
 
         &::after {
             .scale-hairline-common(@COLOR_BORDER, auto, @container-spacing, 0, @container-spacing);
