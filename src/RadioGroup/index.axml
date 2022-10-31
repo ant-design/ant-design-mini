@@ -1,5 +1,5 @@
 <list 
-  className="amd-radio-group {{className ? className : ''}} amd-radio-group-{{position}}">
+  className="amd-radio-group {{className ? className : ''}} amd-radio-group-{{position}}" style="{{style || ''}}">
   <view class="amd-list-header">
     <slot name="header"/>
   </view>

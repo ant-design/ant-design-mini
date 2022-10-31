@@ -1,7 +1,7 @@
-<label class="amd-radio-item">
+<label class="amd-radio-item {{className ? className : ''}}"  style="{{style || ''}}">
   <view hidden="{{hidden}}" class="amd-radio-item-container">
     <list-item stopPropagation>
-      <view class="amd-radio-item-wrap {{className ? className : ''}}"
+      <view class="amd-radio-item-wrap"
         slot="image">
         <radio class="amd-radio-item-base"
           id="{{id ? id : $id}}"
