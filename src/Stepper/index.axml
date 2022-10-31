@@ -16,7 +16,7 @@
   </button>
 
   <view class="amd-stepper-input-wrap">
-    <input class="amd-stepper-input {{disabled? 'amd-stepper-input-disabled' : ''}}"
+    <input class="amd-stepper-input {{disabled? 'amd-stepper-input-disabled' : ''}} {{inputClassName ? inputClassName : ''}}"
       style="{{inputStyle}}"
       type="{{type}}"
       disabled="{{disabled}}"

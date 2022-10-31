@@ -29,6 +29,7 @@ toc: 'content'
 | className | 类名 | `string` | - | 
 | controlled | 是否受控  | `boolean` | `false` |
 | disabled |  是否禁用 | `boolean` | `false` |
+| inputClassName |  输入框类型 | `string` | - |
 | inputStyle |  输入框样式 | `string` | - |
 | max | 最大值 | `number` | - |
 | min | 最小值 | `number` | - |

@@ -8,4 +8,5 @@
 }
 .demo-block-content {
   padding: 24rpx;
+  background-color: #1A1A1A;
 }
