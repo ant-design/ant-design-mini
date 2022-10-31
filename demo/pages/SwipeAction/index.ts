@@ -10,8 +10,9 @@ Page({
             {
               type: 'delete',
               text: '删除',
-              bgColor: '#FF2B00',
-              color: '#fff',
+              // bgColor: '#FF2B00',
+              // color: '#fff',
+              className: 'sa-delete',
             }
           ]
         }
@@ -25,14 +26,16 @@ Page({
             {
               type: 'set',
               text: '设为常用',
-              bgColor: '#1677FF',
-              color: '#fff',
+              // bgColor: '#1677FF',
+              // color: '#fff',
+              className: 'sa-set',
             },
             {
               type: 'delete',
               text: '删除',
-              bgColor: '#FF2B00',
-              color: '#fff',
+              // bgColor: '#FF2B00',
+              // color: '#fff',
+              className: 'sa-delete',
             }
           ]
         }
@@ -46,20 +49,23 @@ Page({
             {
               type: 'set',
               text: '设为常用',
-              bgColor: '#1677FF',
-              color: '#fff',
+              // bgColor: '#1677FF',
+              // color: '#fff',
+              className: 'sa-set',
             },
             {
               type: 'his',
               text: '往来记录',
-              bgColor: '#FFA91B',
-              color: '#fff',
+              // bgColor: '#FFA91B',
+              // color: '#fff',
+              className: 'sa-his',
             },
             {
               type: 'delete',
               text: '删除',
-              bgColor: '#FF2B00',
-              color: '#fff',
+              // bgColor: '#FF2B00',
+              // color: '#fff',
+              className: 'sa-delete',
             }
           ]
         }

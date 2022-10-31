@@ -5,18 +5,18 @@
   margin: 0 auto;
   padding-top: 20rpx;
   height: calc(100vh - 20rpx);
-  background-color: @COLOR_CARD;
+  background-color: @COLOR_BACKGROUND;
   &-item {
     height: 110rpx;
     line-height: 110rpx;
     font-size: 34rpx;
     color: @COLOR_TEXT_PRIMARY;
     &-con {
-      background-color: @COLOR_BACKGROUND;
+      background-color: @COLOR_CARD;
       text-indent: 1em;
       position: relative;
       height: 100%;
-      color: @COLOR_TEXT_PRIMARY;
+      color: @COLOR_WHITE;
       &::after {
         content: "";
         position: absolute;
@@ -27,7 +27,7 @@
         max-height: 1px;
         min-height: 1px;
         transform: scaleY(0.5);
-        background-color: #e5e5e5;
+        background-color: @COLOR_BORDER;
       }
     }
   }
@@ -38,18 +38,10 @@
   min-height: 300rpx;
   border-radius: 16rpx;
   &-title {
-    color: @COLOR_TEXT_PRIMARY;
-  }
-  .amd-list-item-content-main {
-    color: @COLOR_TEXT_PRIMARY;
-  }
-  .amd-slider-tick-number {
-    color: @COLOR_TEXT_PRIMARY;
-  }
-  &-title {
     margin-top: 24rpx;
     margin-left: 24rpx;
     width: 50%;
+    color: @COLOR_TEXT_PRIMARY;
   }
   &-switch {
     width: calc(100% - 48rpx);
@@ -58,7 +50,26 @@
       background: none;
     }
   }
+  .amd-list-item-content-main {
+    color: @COLOR_TEXT_PRIMARY;
+  }
+  .amd-slider-tick-number {
+    color: @COLOR_TEXT_PRIMARY;
+  }
 }
 .radio-group .amd-list-item {
   background: none;
+}
+
+.sa-delete {
+  background: @COLOR_RED;
+  color: @COLOR_CARD;
+}
+.sa-set {
+  background: @COLOR_BRAND1;
+  color: @COLOR_CARD;
+}
+.sa-his {
+  background: @COLOR_YELLOW;
+  color: @COLOR_CARD;
 }
