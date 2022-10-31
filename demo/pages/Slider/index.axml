@@ -76,7 +76,7 @@
       max="{{100}}"
       value="{{80}}"
       ticks="{{true}}"
-      lineStyle="background-color: #ff8f1f"
+      activeLineStyle="background-color: #ff8f1f"
       activeDotStyle="background-color: #ff8f1f"
       showNumber="{{true}}"
       onChange="handleSliderChange"
