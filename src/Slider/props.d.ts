@@ -21,11 +21,6 @@ interface ISliderProps extends IBaseProps {
   disabled?: boolean;
 
   /**
-   * @description 自定义滑块的图标， 需要使用 antd-mini 的 icon 的 type 值
-   */
-  icon?: string;
-
-  /**
    * @description 最大值
    * @default 100
    */
@@ -61,11 +56,6 @@ interface ISliderProps extends IBaseProps {
    */
   ticks?: boolean;
 
-  /** 
-   * @description 滑块和进度条的背景色
-   * @default 
-   */
-  color: string;
   /**
    * @description 是否在拖动时显示悬浮提示
    * @default false

@@ -32,7 +32,7 @@ toc: 'content'
 | maxCount | 上传视频的最大数量 | `number` | `1` | 
 | maxDuration | 拍摄视频最长拍摄时间，单位秒 | `number` | `60` | 
 | sourceType | 视频选择的来源 | `['album'] \| ['camera'] \| ['album', 'camera']` | `['album', 'camera']` | 
-| style | 组件最外层样式 | `string` | - | 
+| style | 样式 | `string` | - | 
 | value | 已上传的图片列表 | `Array<File \| string> \| string` | `[]` | 
 | width | 自定义容器宽度，单位 px | `number \| string` |  `80` | 
 
