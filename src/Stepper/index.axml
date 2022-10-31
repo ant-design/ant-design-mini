@@ -2,7 +2,8 @@
   min="{{min}}"
   max="{{max}}"
   step="{{step}}"
-  precision="{{precision}}">
+  precision="{{precision}}"
+  style="{{style}}">
   <button 
     className="amd-stepper-handler-down"
     data-mode="minus"
@@ -16,7 +17,7 @@
 
   <view class="amd-stepper-input-wrap">
     <input class="amd-stepper-input {{disabled? 'amd-stepper-input-disabled' : ''}}"
-      style="{{inputWidth ? `width: ${inputWidth}`: ''}}"
+      style="{{inputStyle}}"
       type="{{type}}"
       disabled="{{disabled}}"
       id="{{id ? id : $id }}"

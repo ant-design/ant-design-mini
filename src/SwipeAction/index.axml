@@ -84,7 +84,7 @@
         style="{{{
           zIndex: tapTypeL === itemL.type ? 1 : 0,
           marginLeft: `${inertiaWidth}rpx`,
-          width: (leftWidth - 1) + 'rpx'}}}",
+          width: (leftWidth - 1) + 'rpx'}}}"
         data-type="content"
         animation="{{false}}"
         disabled="{{true}}"
