@@ -20,12 +20,12 @@ toc: 'content'
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
-| addonButtonText | 辅助按钮文本 | `string` | - |
 | className | 类名 | `string` | - |
 | disabled | 是否禁用 | `boolean` | `false` |
 | hasCheckbox | 是否需要勾选框 | `boolean` | `true` |
 | mainButtonText | 主按钮文本 | `string` | '提交' | 
 | subButtonText |  辅助按钮文本 | `string` | - |
+| style |  样式 | `string` | - |
 
 ## 事件
 | 事件名 | 说明 | 类型 |
