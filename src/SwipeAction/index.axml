@@ -113,8 +113,8 @@
                 {{tapTypeL && tapTypeL === itemL.type ? (itemL.confirmText || itemL.text) : itemL.text}}
               </text>
             </text>
-            <slot a:else data="{{item}}" name="leftItem">
-              {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
+            <slot a:else data="{{itemL}}" name="leftItem">
+              {{tapTypeL && tapTypeL === itemL.type ? (itemL.confirmText || itemL.text) : itemL.text}}
             </slot>
         </view>
       </view>
