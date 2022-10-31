@@ -68,7 +68,7 @@ Component({
     onChange(e) {
       const { onChange } = this.props;
       const index = parseInt(e.currentTarget.dataset.index, 10);
-      if (onChange && index !== this.props.current) {
+      if (onChange && index !== this.props.current && !this.props.items[index].disabled) {
         onChange(index, fmtEvent(this.props, e));
       }
     },

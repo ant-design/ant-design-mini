@@ -23,88 +23,46 @@
         <!-- basic 基础类型 -->
         <view 
           a:if="{{type === 'basic'}}"
-          class="amd-tabs-bar-item amd-tabs-bar-basic {{current === index?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-basic {{current === index && !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
-          <badge 
-            a:if="{{item.badge!==undefined}}" 
-            type="{{item.badge.type || 'dot'}}" 
-            text="{{item.badge.text || ''}}"
-            number="{{item.badge.number}}"
-            stroke="{{item.badge.stroke}}"
-            iconType="{{item.badge.iconType}}"
-            bgColor="{{item.badge.bgColor}}"
-            position="{{item.badge.position || 'top-right'}}"
-            offsetX="{{item.badge.x || '-50%'}}"
-            offsetY="{{item.badge.y || '-50%'}}"
-            >
-            <!-- 添加作用域插槽 -->
-            <slot name="title" tab="{{item}}">
-              <view class="amd-tabs-bar-basic-title">
-                {{item.title}}
-              </view>
-            </slot>
-          </badge>
-          <slot a:else name="title" tab="{{item}}">
-            <view class="amd-tabs-bar-basic-title">
+          <view class="amd-tabs-bar-basic-title">
+            <slot name="title" value="{{item}}">
               {{item.title}}
-            </view>
-          </slot>
+            </slot>
+          </view>
         </view>
         <!-- capsule 胶囊类型 -->
         <view 
           a:elif="{{type === 'capsule'}}"
-          class="amd-tabs-bar-item amd-tabs-bar-capsule {{current === index?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-capsule {{current === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
-          <badge
-            a:if="{{item.badge!==undefined}}" 
-            type="{{item.badge.type || 'dot'}}" 
-            text="{{item.badge.text || ''}}"
-            number="{{item.badge.number}}"
-            stroke="{{item.badge.stroke}}"
-            iconType="{{item.badge.iconType}}"
-            bgColor="{{item.badge.bgColor}}"
-            position="{{item.badge.position || 'top-right'}}"
-            offsetX="{{item.badge.x || '-50%'}}"
-            offsetY="{{item.badge.y || '-50%'}}"
-            >
-              <view class="amd-tabs-bar-capsule-title">
-                {{item.title}}
-              </view>
-          </badge>
-          <view a:else class="amd-tabs-bar-capsule-title">
-            {{item.title}}
+          <view class="amd-tabs-bar-capsule-title">
+            <slot name="title" value="{{item}}">
+              {{item.title}}
+            </slot>
           </view>
         </view>
 
         <!-- mixin 混合类型 -->
         <view 
           a:else
-          class="amd-tabs-bar-item amd-tabs-bar-mixin {{current === index?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-mixin {{current === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
-          <badge
-            a:if="{{item.badge!==undefined}}" 
-            type="{{item.badge.type || 'dot'}}" 
-            text="{{item.badge.text || ''}}"
-            number="{{item.badge.number}}"
-            stroke="{{item.badge.stroke}}"
-            iconType="{{item.badge.iconType}}"
-            bgColor="{{item.badge.bgColor}}"
-            position="{{item.badge.position || 'top-right'}}"
-            offsetX="{{item.badge.x || '-50%'}}"
-            offsetY="{{item.badge.y || '-50%'}}"
-            >
-            <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>
-            <view class="amd-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
-          </badge>
-          <view a:else>
-            <view class="amd-tabs-bar-mixin-title">{{item.title}}</view>
-            <view class="amd-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
+          <view class="amd-tabs-bar-mixin-title">
+            <slot name="title" value="{{item}}">
+              {{item.title}}
+            </slot>
+          </view>
+          <view class="amd-tabs-bar-mixin-subtitle">
+            <slot name="subTitle" tab="{{item}}">
+              {{item.subTitle}}
+            </slot>
           </view>
         </view>
       </view>
@@ -114,16 +72,4 @@
         onDisappear="disappearRight"></view>
     </scroll-view>
   </view>
-  <!-- <view
-    class="amd-tabs-item amd-tabs-item-pane {{className ? className : ''}}"
-    key="tabs-pane-{{$id}}"
-    a:for="{{items}}"
-    style="display: {{current === index?'block':'none'}}"
-  >
-    <block a:if="{{typeof item.content !== 'undefined'}}">
-      {{item.content}}
-    <block else>
-      <slot name="content" value="{{item}}">
-    </block>
-  </view> -->
 </view>

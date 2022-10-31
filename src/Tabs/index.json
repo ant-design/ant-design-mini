@@ -1,6 +1,3 @@
 {
-  "component": true,
-  "usingComponents": {
-    "badge": "../Badge/index"
-  }
+  "component": true
 }

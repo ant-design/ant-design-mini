@@ -36,6 +36,7 @@ export interface ITabsProps extends IBaseProps {
    items: {
     title: string;
     content: string;
+    disabled?: boolean; 
    }[]
 }
 export declare const TabsDefaultProps: Partial<ITabsProps>;

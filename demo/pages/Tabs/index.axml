@@ -5,7 +5,7 @@
   onChange="onChange"
 />
 
-<view style="margin-bottom: 12px;">
+<view className="content">
   {{items[current].content}}
 </view>
 
@@ -18,7 +18,7 @@
   onChange="onChange"
 />
 
-<view style="margin-bottom: 12px;">
+<view className="content">
   {{items[current].content}}
 </view>
 
@@ -31,6 +31,32 @@
   onChange="onChange"
 />
 
-<view>
+<view className="content">
+  {{items[current].content}}
+</view>
+
+<!--badge-->
+<tabs
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+>
+  <badge slot="title" slot-scope="item">
+    {{item.value.title}}
+  </badge>
+</tabs>
+
+<view className="content">
+  {{items[current].content}}
+</view>
+
+<!--disabled-->
+<tabs
+  items="{{items2}}"
+  current="{{current}}"
+  onChange="onChange"
+/>
+
+<view className="content">
   {{items[current].content}}
 </view>
