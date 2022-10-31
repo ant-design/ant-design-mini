@@ -26,8 +26,8 @@
   <demo-block title="自定义图标" padding="0">
     <list-item className="demo-item demo-item-icon">
       <checkbox>自定义图标（Icon）
-        <am-icon type="SmileOutline" style="color:#1677ff" slot="icon"/>
-        <am-icon type="SmileFill" style="color:#1677ff"  slot="checkedIcon"/>
+        <am-icon type="SmileOutline" style="color:#1677ff;font-size:44rpx;" slot="icon"/>
+        <am-icon type="SmileFill" style="color:#1677ff;font-size:44rpx;"  slot="checkedIcon"/>
       </checkbox>
     </list-item>
     <list-item className="demo-item demo-item-image">

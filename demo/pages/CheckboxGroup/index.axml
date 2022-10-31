@@ -69,8 +69,8 @@
       value="{{item.value}}"  
       uid="group5">
         {{item.label}}
-        <am-icon type="SmileOutline" style="color:#1677ff" slot="icon"/>
-        <am-icon type="SmileFill" style="color:#1677ff"  slot="checkedIcon"/>
+        <am-icon type="SmileOutline" style="color:#1677ff;font-size:44rpx;" slot="icon"/>
+        <am-icon type="SmileFill" style="color:#1677ff;font-size:44rpx;"  slot="checkedIcon"/>
     </checkbox-item>
 
   </checkbox-group>
