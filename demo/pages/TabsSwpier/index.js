@@ -17,6 +17,11 @@ Page({
       }
     ]
   },
+  onSwipeChange(e) {
+    this.setData({
+      current: e.detail.current,
+    });
+  },
   onChange(current) {
     this.setData({
       current,

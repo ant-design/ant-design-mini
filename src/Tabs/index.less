@@ -87,7 +87,7 @@
       flex: 1 0 auto;
       font-size: @font-size-list;
       white-space: nowrap;
-      color: @tabs-basis-color;
+      color: @tabs-basic-color;
       &-placeholder {
         flex: 0 2 * @rpx;
         width: 2 * @rpx;
@@ -100,7 +100,7 @@
     }
     }
     // 基础类型 tab 选项卡样式
-    &-basis {
+    &-basic {
       position: relative;
       display: flex;
       align-items: center;
@@ -108,7 +108,7 @@
       box-sizing: border-box;
     }
 
-    &-basis&-active &-basis-title{
+    &-basic&-active &-basic-title{
       color: @tabs-active-color;
       position: relative;
       &:after {
@@ -185,20 +185,5 @@
       pointer-events: none;
       cursor: not-allowed;
     }
-  }
-  &-content {
-    display: flex;
-    flex-direction: row;
-    align-content: stretch;
-    overflow: hidden;
-    height: auto;
-    background-color: @COLOR_WHITE_CHANGE;
-    &_H100 {
-      height: 100% !important;
-    }
-  }
-  &-slides {
-    width: 100%;
-    display: flex;
   }
 }
