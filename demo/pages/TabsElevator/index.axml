@@ -1,18 +1,23 @@
-<view>
-    <view class="header">
-        作为页面滚动的导航
+<view style="display: flex; flex-direction:column; height:100vh;">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  />
+
+  <scroll-view
+    id="scroll-view"
+    onScroll="onScroll"
+    scroll-top="{{scrollTop}}"
+    scroll-y="{{true}}"
+    scroll-with-animation="{{true}}"
+    scroll-animation-duration="{{300}}"
+  >
+    <view a:for="{{items}}" style="display: block;margin-bottom: 12px;">
+      <view style="font-weight: bold;" id="tab-item-{{index}}">{{item.title}}</view>
+      <view style="margin-bottom: 12px;">{{item.content}}</view>
     </view>
-    <elevator tabs="{{tabs}}" onChange="handleChange" onTabClick="handleTabClick">
-        <view class="tab-content" slot-scope="props">
-          <view class="tab-content-title">
-            {{props.item.title}}
-          </view>
-          <view class="tab-content-text">
-            {{props.item.content}}
-          </view>
-        </view>
-    </elevator>
-    <view class="footer">
-      Ant Design Mini
-    </view>
+  </scroll-view>
+
 </view>
+

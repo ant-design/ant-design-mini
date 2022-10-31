@@ -1,0 +1,11 @@
+<!--basic-->
+<tabs
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+/>
+
+<view style="margin-bottom: 12px;">
+  {{items[current].content}}
+</view>
+

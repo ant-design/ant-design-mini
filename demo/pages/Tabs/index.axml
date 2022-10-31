@@ -1,7 +1,36 @@
+<!--basic-->
 <tabs
   items="{{items}}"
-  currentIndex="{{currentIndex}}"
-  onChange="handleChangeTab"
->
+  current="{{current}}"
+  onChange="onChange"
+/>
 
-</tabs>
+<view style="margin-bottom: 12px;">
+  {{items[current].content}}
+</view>
+
+
+<!--capsule-->
+<tabs
+  type="capsule"
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+/>
+
+<view style="margin-bottom: 12px;">
+  {{items[current].content}}
+</view>
+
+
+<!--mixin-->
+<tabs
+  type="mixin"
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+/>
+
+<view>
+  {{items[current].content}}
+</view>

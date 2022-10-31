@@ -1,6 +1,22 @@
+function getBoundingClientRect(selector) {
+  return new Promise(resolve => {
+    my.createSelectorQuery()
+      .select(selector)
+      .boundingClientRect()
+      .exec((ret) => {
+        if (ret && ret[0]) {
+          resolve(ret[0]);
+        }
+      });
+  });
+}
+
+
+
 Page({
   data: {
-    tabs: [
+    current: 0,
+    items: [
       {
         title: '第一项',
         content:
@@ -32,11 +48,34 @@ Page({
           'Do nisi tempor incididunt cupidatat magna id. Ullamco consectetur consequat laboris officia occaecat laboris consequat velit irure laboris exercitation aliqua. Laborum elit sit irure eiusmod anim fugiat magna ipsum aliqua esse tempor in. Commodo occaecat Lorem voluptate pariatur commodo proident et et exercitation ex exercitation culpa tempor id. Fugiat dolore aliquip voluptate in. Velit voluptate excepteur incididunt sint sit aliqua et aliquip. Aliqua nisi consequat excepteur eiusmod dolore culpa Lorem.',
       },
     ],
+    scrollTop: 0,
   },
-  // 电梯模式必须存在onPageScroll事件
-  onPageScroll() {},
-  handleChange(index, type) {
-    console.log('onChange', index, type);
+  async updateRect() {
+    this.itemRectList = await Promise.all(this.data.items.map((item, index) => getBoundingClientRect(`#tab-item-${index}`)));
+    this.scrollViewRect = await getBoundingClientRect('#scroll-view');
+  },
+  async onReady() {
+    await this.updateRect();
+  },
+  onChange(current) {
+    this.setData({
+      scrollTop: this.itemRectList[current].top - this.scrollViewRect.top,
+      current,
+    });
+  },
+  onScroll(e) {
+    this.scrollTop = e.detail.scrollTop;
+    
+    for(let i=0;i<this.itemRectList.length - 1;i++) {
+      const item = this.itemRectList[i];
+     
+      if (this.scrollTop > item.top && this.scrollTop < this.itemRectList[i+1].top && i !== this.data.current) {
+        this.setData({
+          current: i,
+        });
+        return;
+      }
+    }
   },
   handleTabClick(index) {
     console.log('onTabClick', index);
