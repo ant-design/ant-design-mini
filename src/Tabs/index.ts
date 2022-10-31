@@ -28,7 +28,7 @@ Component({
     this.updateScrollLeft();
   },
   didUpdate(prevProps) {
-    if (prevProps.current !== this.props.current) {
+    if (prevProps.current !== this.props.current || prevProps.items !== this.props.items) {
       this.updateScrollLeft();
     }
   },
@@ -42,7 +42,7 @@ Component({
         getBoundingClientRect(`#amd-tabs-bar-item-${this.$id}-${this.props.current}`),
       ]);
       this.setData({
-        scrollLeft: this.scrollLeft + item.left - Math.max((view.width - item.width) / 2, 0),
+        scrollLeft: (this.scrollLeft || 0) + item.left - Math.max((view.width - item.width) / 2, 0),
       });
     },
     appearLeft() {
