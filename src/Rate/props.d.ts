@@ -40,16 +40,6 @@ export interface IRateProps extends IBaseProps {
    * @description 原始填充色
    */
   inactiveColor?: string;
-
-  /**
-   * @description 图标的间距
-   */
-  gutter?: number | string;
-
-  /**
-   * @description 图标的大小
-   */
-  size?: number | string;
    
   /**
    * @description 自定义图片

@@ -7,7 +7,6 @@
       a:for="{{maxRate}}" 
       onTap="handleRateTap" 
       data-rate="{{index + 1}}" 
-      style="{{`${gutter || gutter === 0 ? `margin-right: ${gutter}` : ''}; ${size && size !== '0' ? `width: ${size}` : ''}; ${size && size !== '0' ? `height: ${size}` : ''}` }}"
     >
       <view class="amd-rate-star-{{ index + 0.5 === rate ? 'half' : (index + 1 > rate) ? 'empty' : 'full' }}-left" data-type="half" 
         style="{{ 
