@@ -40,7 +40,7 @@ export interface IRateProps extends IBaseProps {
    * @description 原始填充色
    */
   inactiveColor?: string;
-
+   
   /**
    * @description 自定义图片
    */
