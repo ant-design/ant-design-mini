@@ -68,7 +68,7 @@
               <text a:if="{{item.type !== 'rightItemSlot'}}" class="right-text {{util.getLeft(tapTypeR, item, idx, right, true)}}">
                   {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
               </text>
-              <slot data="{{item}}" name="rightItem">
+              <slot a:else data="{{item}}" name="rightItem">
                 {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
               </slot>
           </view>
@@ -113,7 +113,7 @@
                 {{tapTypeL && tapTypeL === itemL.type ? (itemL.confirmText || itemL.text) : itemL.text}}
               </text>
             </text>
-            <slot data="{{item}}" name="leftItem">
+            <slot a:else data="{{item}}" name="leftItem">
               {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
             </slot>
         </view>

@@ -1,20 +1,22 @@
+@import "../../../src/style/themes/color.less";
+
 .t-swipe {
   width: 100%;
   margin: 0 auto;
   padding-top: 20rpx;
-  min-height: 1000rpx;
-  background-color: #FAFBFC;
-  padding-bottom: 100rpx;
+  height: calc(100vh - 20rpx);
+  background-color: @COLOR_CARD;
   &-item {
     height: 110rpx;
     line-height: 110rpx;
     font-size: 34rpx;
-    color: #333;
+    color: @COLOR_TEXT_PRIMARY;
     &-con {
-      background-color: white;
+      background-color: @COLOR_BACKGROUND;
       text-indent: 1em;
       position: relative;
       height: 100%;
+      color: @COLOR_TEXT_PRIMARY;
       &::after {
         content: "";
         position: absolute;
@@ -33,9 +35,17 @@
 .s-action {
   width: 100%;
   margin: 48rpx auto;
-  color: #333;
   min-height: 300rpx;
   border-radius: 16rpx;
+  &-title {
+    color: @COLOR_TEXT_PRIMARY;
+  }
+  .amd-list-item-content-main {
+    color: @COLOR_TEXT_PRIMARY;
+  }
+  .amd-slider-tick-number {
+    color: @COLOR_TEXT_PRIMARY;
+  }
   &-title {
     margin-top: 24rpx;
     margin-left: 24rpx;
