@@ -76,14 +76,19 @@
       max="{{100}}"
       value="{{80}}"
       ticks="{{true}}"
-      icon="MoreOutline"
-      color="#ff8f1f"
+      lineStyle="background-color: #ff8f1f"
+      activeDotStyle="background-color: #ff8f1f"
       showNumber="{{true}}"
       onChange="handleSliderChange"
       onAfterChange="handleAfterChange"
     >
       <text slot='tick' slot-scope="props">{{props.value}}°C</text>
       <text slot="tooltip" slot-scope="props">{{props.value}}°C</text>
+      <view slot='slider'>
+        <view class="demo-slider-handler-custom">
+          <amd-icon type="SmileOutline" style="color: #ff8f1f"></amd-icon>
+        </view>
+      </view>
     </slider>
   </demo-block>
 
