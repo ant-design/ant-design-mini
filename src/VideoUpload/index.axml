@@ -1,4 +1,4 @@
-<view class="amd-video-upload {{className}}" style={{style}}>
+<view class="amd-video-upload {{className ? className : ''}}" style="{{style}}">
   <view a:for="{{fileList}}" class="amd-video-upload-show">
     <video 
       class="amd-video-upload-video" 

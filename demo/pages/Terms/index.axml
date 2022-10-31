@@ -1,45 +1,39 @@
 <view class="demo">
-  <demo-block title=" 含有 checkbox，不吸底">
+  <demo-block title="含有 checkbox，不吸底">
     <terms 
       hasCheckbox="{{true}}"
-      isDesc="{{true}}"
-      fixed="{{false}}"
       mainButtonText="同意授权"
       addonButtonText="取消"
       onChange="handleSelectTerm"
       onMainBtnTap="handleTapMainBtn"
     >
       <view>
-        同意<text style="color: #1677ff">《用户授权协议》</text>
+        <text>同意</text><text style="color: #1677ff">《用户授权协议》</text>
       </view>
     </terms>
   </demo-block>
   <demo-block title="不含 checkbox，不吸底">
     <terms 
       hasCheckbox="{{false}}"
-      isDesc="{{true}}"
-      fixed="{{false}}"
       mainButtonText="同意授权"
-      addonButtonText="取消"
+      subButtonText="取消"
       onMainBtnTap="handleTapMainBtn"
       onSubBtnTap="handleTapSubBtn">
       <view>
-        同意<text style="color: #1677ff">《用户授权协议》</text>
+        <text>同意</text><text style="color: #1677ff">《用户授权协议》</text>
       </view>
     </terms>
   </demo-block>
-  <view class="fixed-title">吸底状态</view>
-  <terms 
-    hasCheckbox="{{false}}"
-    isDesc="{{true}}"
-    fixed="{{true}}"
-    mainButtonText="同意授权"
-    addonButtonText="取消"
-    onMainBtnTap="handleTapMainBtn"
-    onSubBtnTap="handleTapSubBtn">
-    <view>
-      同意<text style="color: #1677ff">《用户授权协议》</text>
-    </view>
-  </terms>
-
+  <demo-block title="吸底状态" className="demo-terms-fixed">
+    <terms
+      hasCheckbox="{{false}}"
+      mainButtonText="同意授权"
+      subButtonText="取消"
+      onMainBtnTap="handleTapMainBtn"
+      onSubBtnTap="handleTapSubBtn">
+      <view>
+        <text>同意</text><text style="color: #1677ff">《用户授权协议》</text>
+      </view>
+    </terms>
+  </demo-block>
 </view>

@@ -1,4 +1,4 @@
-<view class="amd-terms {{fixed ? 'amd-terms-fixed' : ''}} {{className ? className : ''}}">
+<view class="amd-terms {{className ? className : ''}}" style="{{style}}">
   <view class="amd-terms-term">
     <checkbox 
       a:if="{{hasCheckbox}}" 
@@ -23,7 +23,7 @@
       a:if="{{!hasCheckbox}}"
       onTap="onSubBtnTap"
       className="amd-terms-addon-button">
-      {{addonButtonText}}
+      {{subButtonText}}
     </button>
   </view>
 </view>

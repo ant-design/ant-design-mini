@@ -6,11 +6,6 @@ import { IBaseFormItemPropsWithOutFocus } from '../_base';
 
 export interface ITermsProps extends IBaseFormItemPropsWithOutFocus<boolean> {
   /**
-   * @description 是否固定在底部
-   * @default false
-   */
-  fixed?: boolean;
-  /**
    * @description 是否需要勾选框
    * @default true
    */
@@ -27,7 +22,7 @@ export interface ITermsProps extends IBaseFormItemPropsWithOutFocus<boolean> {
   /**
    * @description 辅助按钮文本
   */
-  addonButtonText?: string;
+  subButtonText?: string;
   /**
    * @description 点击主按钮
    */

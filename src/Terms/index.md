@@ -16,19 +16,16 @@ toc: 'content'
 ### 基本使用
 <code src='../../demo/pages/Terms'></code>
 
-
-
 ## 属性
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| fixed | boolean | 否 | false | 是否固定在底部 |
-| hasCheckbox | boolean | 否 | true | 是否需要勾选框 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| mainButtonText | string | 是 | '提交' | 主按钮文本 |
-| addonButtonText | string | 否 |  - | 辅助按钮文本 |
-| className | string | 否 | - | 类名 |
-
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| addonButtonText | 辅助按钮文本 | `string` | - |
+| className | 类名 | `string` | - |
+| disabled | 是否禁用 | `boolean` | `false` |
+| hasCheckbox | 是否需要勾选框 | `boolean` | `true` |
+| mainButtonText | 主按钮文本 | `string` | '提交' | 
+| subButtonText |  辅助按钮文本 | `string` | - |
 
 ## 事件
 | 事件名 | 说明 | 类型 |
@@ -42,11 +39,3 @@ toc: 'content'
 | -----|-----|
 | default | 带协议的文案， 比如 同意<a>《用户授权协议》</a> |
 
-## 样式类
-| 类名 | 说明 |
-| -----|-----|
-| amd-terms | 整体样式 |
-| amd-terms-fixed | 整体样式 |
-| amd-terms-term | term 区域样式 |
-| amd-terms-term-checkbox | checkbox 组件样式 |
-| amd-terms-content | 内容区域样式 |

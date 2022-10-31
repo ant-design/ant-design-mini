@@ -1,7 +1,8 @@
-.fixed-title {
+.demo-terms-fixed {
   position: fixed;
-  bottom: 188px;
-  padding: 24rpx 16rpx 12rpx;
-  color: #969696;
-  font-size: 28rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  box-sizing: border-box;
 }
