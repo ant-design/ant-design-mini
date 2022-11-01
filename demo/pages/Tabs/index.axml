@@ -1,62 +1,79 @@
-<!--basic-->
-<tabs
-  items="{{items}}"
-  current="{{current}}"
-  onChange="onChange"
-/>
-
-<view className="content">
-  {{items[current].content}}
-</view>
-
-
-<!--capsule-->
-<tabs
-  type="capsule"
-  items="{{items}}"
-  current="{{current}}"
-  onChange="onChange"
-/>
-
-<view className="content">
-  {{items[current].content}}
-</view>
+<container title="基础用法">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
 
 
-<!--mixin-->
-<tabs
-  type="mixin"
-  items="{{items}}"
-  current="{{current}}"
-  onChange="onChange"
-/>
+<container title="胶囊">
+  <tabs
+    type="capsule"
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
 
-<view className="content">
-  {{items[current].content}}
-</view>
+<container title="带副标题">
+  <tabs
+    type="mixin"
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
 
-<!--badge-->
-<tabs
-  items="{{items}}"
-  current="{{current}}"
-  onChange="onChange"
->
-  <badge slot="title" slot-scope="item">
-    {{item.value.title}}
-  </badge>
-</tabs>
+<container title="带徽标">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
 
-<view className="content">
-  {{items[current].content}}
-</view>
+    <badge slot="title" slot-scope="item">
+      {{item.value.title}}
+    </badge>
 
-<!--disabled-->
-<tabs
-  items="{{items2}}"
-  current="{{current}}"
-  onChange="onChange"
-/>
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
 
-<view className="content">
-  {{items[current].content}}
-</view>
+<container title="禁用状态">
+  <tabs
+    items="{{items2}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
+
+<container title="content在外层">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  />
+  <view class="content">
+    {{items[current].content}}
+  </view>
+</container>
+

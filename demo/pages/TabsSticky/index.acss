@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.content {
+  padding: 12px;
+}

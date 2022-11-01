@@ -59,8 +59,6 @@ export enum EComponents {
   Tips = 'Tips',
   Title = 'Title',
   VerifyCode = 'VerifyCode',
-  Vtabs = 'Vtabs',
-  VTabItem = 'VTabItem',
   WhiteSpace = 'WhiteSpace',
   GuideTour = 'GuideTour',
 }

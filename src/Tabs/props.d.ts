@@ -9,16 +9,9 @@ export interface ITabsProps extends IBaseProps {
   type?: 'basis' | 'capsule' | 'mixin';
 
   /**
-   * @description 是否支持吸顶
-   * @default false
+   * @description 垂直
    */
-  sticky?: boolean;
-
-  /**
-   * @description 吸顶高度
-   * @default 0
-   */
-  stickyTop?: string | number;
+  vertical?: boolean;
 
   /**
    * @description tab 切换时的回调

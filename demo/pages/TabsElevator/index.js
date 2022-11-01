@@ -58,26 +58,30 @@ Page({
     await this.updateRect();
   },
   onChange(current) {
+    this.tap = true;
     this.setData({
       scrollTop: this.itemRectList[current].top - this.scrollViewRect.top,
       current,
     });
   },
+  onTouchStart() {
+    this.tap = false;
+  },
   onScroll(e) {
+    if (this.tap) {
+      return;
+    }
     this.scrollTop = e.detail.scrollTop;
-    
+    const scrollTop = this.scrollTop + this.itemRectList[0].top;
+    console.log(scrollTop, this.itemRectList[0].top, this.itemRectList[1].top)
     for(let i=0;i<this.itemRectList.length - 1;i++) {
       const item = this.itemRectList[i];
-     
-      if (this.scrollTop > item.top && this.scrollTop < this.itemRectList[i+1].top && i !== this.data.current) {
+      if (scrollTop > item.top && scrollTop < this.itemRectList[i+1].top && i !== this.data.current) {
         this.setData({
           current: i,
         });
         return;
       }
     }
-  },
-  handleTabClick(index) {
-    console.log('onTabClick', index);
   },
 });

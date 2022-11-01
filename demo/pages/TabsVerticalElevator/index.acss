@@ -1,6 +1,10 @@
+.tabs {
+  height: 100vh;
+}
+
 .content {
   padding: 12px;
-  height: 400px;
+  height: 100%;
 }
 
 .item {

@@ -37,6 +37,9 @@ Component({
       this.scrollLeft = e.detail.scrollLeft;
     },
     async updateScrollLeft() {
+      if (this.props.vertical) {
+        return;
+      }
       const [view, item] = await Promise.all([
         getBoundingClientRect(`#amd-tabs-bar-scroll-view-${this.$id}`),
         getBoundingClientRect(`#amd-tabs-bar-item-${this.$id}-${this.props.current}`),

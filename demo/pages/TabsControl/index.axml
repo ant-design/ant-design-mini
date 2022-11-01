@@ -3,11 +3,13 @@
   items="{{items}}"
   current="{{current}}"
   onChange="onChange"
-/>
+>
+  <view slot="content">
+    {{items[current].content}}
+  </view>
+</tabs>
 
-<view style="margin-bottom: 12px;">
-  {{items[current].content}}
-</view>
+
 
 {{current}}/{{items.length}}
 <button onTap="onPrevTap">选中上一个</button>

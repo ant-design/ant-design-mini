@@ -1,11 +1,12 @@
-<!--basic-->
 <tabs
   items="{{items}}"
   current="{{current}}"
   onChange="onChange"
+  vertical
+  style="height: 100vh;"
 >
   <view slot="content">
     {{items[current].content}}
   </view>
-</tabs>
 
+</tabs>

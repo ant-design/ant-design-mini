@@ -17,6 +17,27 @@ toc: 'content'
 ### 基本使用
 <code src='../../demo/pages/Tabs'></code>
 
+### 控制
+<code src='../../demo/pages/TabsControl'></code>
+
+### 电梯模式
+<code src='../../demo/pages/TabsElevator'></code>
+
+### 可滚动
+<code src='../../demo/pages/TabsScroll'></code>
+
+### 吸顶
+<code src='../../demo/pages/TabsSticky'></code>
+
+### Swiper
+<code src='../../demo/pages/TabsSwiper'></code>
+
+### 纵向模式
+<code src='../../demo/pages/TabsVertical'></code>
+
+### 纵向电梯模式
+<code src='../../demo/pages/TabsVerticalElevator'></code>
+
 ## 属性
 
 #### Tabs

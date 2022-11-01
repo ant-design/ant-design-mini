@@ -1,4 +1,4 @@
-<view class="amd-tabs {{className ? className : ''}}" style="{{style}}">
+<view a:if="{{!vertical}}" class="amd-tabs {{className ? className : ''}}" style="{{style}}">
   <view class="amd-tabs-bar {{type === 'basic'?'amd-tabs-bar-underline':''}}">
     <view class="amd-tabs-bar-plus">
       <slot name="plus" />
@@ -60,7 +60,7 @@
             </slot>
           </view>
           <view class="amd-tabs-bar-mixin-subtitle">
-            <slot name="subTitle" tab="{{item}}">
+            <slot name="subTitle" value="{{item}}">
               {{item.subTitle}}
             </slot>
           </view>
@@ -72,4 +72,38 @@
         onDisappear="disappearRight"></view>
     </scroll-view>
   </view>
+  <view class="amd-tabs-content">
+    <slot name="content"></slot>
+  </view>
 </view>
+<view a:else class="amd-vtabs {{className ? className : ''}}" style="{{style||''}}">
+  <view class="amd-vtabs-bar">
+    <scroll-view class="amd-vtabs-bar-scroll-view"
+      scroll-top="{{tabTop}}"
+      scroll-y="{{true}}">
+      <view class="amd-vtabs-bar-item-wrap">
+        <view
+          a:for="{{items}}"
+          class="amd-vtabs-bar-item {{current - index?'' : 'amd-vtabs-bar-item-active'}} {{item.disabled?'amd-vtabs-bar-item-disabled' : '' }}"
+          style="{{`${current + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${current - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
+          onTap="onChange"
+          data-index="{{index}}"
+        >
+          <badge a:if="{{item.badge}}" type="{{item.badge.type}}" bubble="{{!!item.badge.bubble}}" text="{{item.badge.text}}">
+            <text class="amd-vtabs-bar-item-title">
+              <slot name="title" value="{{item}}">{{item.title}}</slot>
+            </text>
+          </badge>
+          <text a:else class="amd-vtabs-bar-item-title">
+            <slot name="title" value="{{item}}">{{item.title}}</slot>
+          </text>
+            <text class="amd-vtabs-bar-item-count" a:if="{{item.count}}">({{item.count}})</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="amd-vtabs-content">
+    <slot name="content"></slot>
+  </view>
+</view>
+
