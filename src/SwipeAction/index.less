@@ -1,14 +1,15 @@
 @import "../style/themes/color.less";
+@import (reference) "../_base/index.less";
 
 @keyframes text-animate-right {
     33% {
-      margin-left: -10rpx;
+      margin-left: -10 * @rpx;
     }
     66% {
-      margin-left: 10rpx;
+      margin-left: 10 * @rpx;
     }
     100% {
-      margin-left: 0rpx;
+      margin-left: 0 * @rpx;
     }
   }
   @keyframes text-animate-midd {
@@ -21,13 +22,13 @@
   }
   @keyframes text-animate-left {
     33% {
-      margin-left: 10rpx;
+      margin-left: 10 * @rpx;
     }
     66% {
-      margin-left: -10rpx;
+      margin-left: -10 * @rpx;
     }
     100% {
-      margin-left: 0rpx;
+      margin-left: 0 * @rpx;
     }
   }
 

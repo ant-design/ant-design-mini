@@ -62,7 +62,7 @@
               fontSize: (item.fontSize || 28) + 'rpx',
               color: item.color,
               background: item.bgColor,
-              width: tapTypeR && tapTypeR === item.type ? (rightWidth + 1 + inertiaWidth) + 'rpx' : `${itemWidth}rpx`,
+              width: tapTypeR && tapTypeR === item.type ? (rightWidth + 1 + (item.eventType === 'move' ? inertiaWidth : 0)) + 'rpx' : `${itemWidth}rpx`,
               ...(tapTypeR && tapTypeR === item.type ? myStyle : {})
               }}}">
               <text a:if="{{item.type !== 'rightItemSlot'}}" class="right-text {{util.getLeft(tapTypeR, item, idx, right, true)}}">
@@ -84,7 +84,7 @@
         style="{{{
           zIndex: tapTypeL === itemL.type ? 1 : 0,
           marginLeft: `${inertiaWidth}rpx`,
-          width: (leftWidth - 1) + 'rpx'}}}",
+          width: (leftWidth - 1) + 'rpx'}}}"
         data-type="content"
         animation="{{false}}"
         disabled="{{true}}"
@@ -106,7 +106,7 @@
             fontSize: (itemL.fontSize || 28) + 'rpx',
             color: itemL.color,
             ...(tapTypeL && tapTypeL === itemL.type ? myStyle : {}),
-            width: tapTypeL && tapTypeL === itemL.type ? (leftWidth + 1 + inertiaWidth) + 'rpx' : `${itemWidth}rpx`,
+            width: tapTypeL && tapTypeL === itemL.type ? (leftWidth + 1 + (itemL.eventType === 'move' ? inertiaWidth : 0)) + 'rpx' : `${itemWidth}rpx`,
             }}}">
             <text a:if="{{itemL.type !== 'leftItemSlot'}}" class="right-text" style="{{{ width: `${leftWidth}rpx` }}}">
               <text class="right-text {{util.getLeft(tapTypeL, itemL, idx, left, false)}}">

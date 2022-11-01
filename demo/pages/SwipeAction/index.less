@@ -1,15 +1,16 @@
 @import "../../../src/style/themes/color.less";
+@import (reference) "../../../src/_base/index.less";
 
 .t-swipe {
   width: 100%;
   margin: 0 auto;
-  padding-top: 20rpx;
-  height: calc(100vh - 20rpx);
+  padding-top: 20 * @rpx;
+  height: calc(100vh - 20 * @rpx);
   background-color: @COLOR_BACKGROUND;
   &-item {
-    height: 110rpx;
-    line-height: 110rpx;
-    font-size: 34rpx;
+    height: 110 * @rpx;
+    line-height: 110 * @rpx;
+    font-size: 34 * @rpx;
     color: @COLOR_TEXT_PRIMARY;
     &-con {
       background-color: @COLOR_CARD;
@@ -34,18 +35,18 @@
 }
 .s-action {
   width: 100%;
-  margin: 48rpx auto;
-  min-height: 300rpx;
-  border-radius: 16rpx;
+  margin: 48 * @rpx auto;
+  min-height: 300 * @rpx;
+  border-radius: 16 * @rpx;
   &-title {
-    margin-top: 24rpx;
-    margin-left: 24rpx;
+    margin-top: 24 * @rpx;
+    margin-left: 24 * @rpx;
     width: 50%;
     color: @COLOR_TEXT_PRIMARY;
   }
   &-switch {
-    width: calc(100% - 48rpx);
-    margin: 24rpx auto;
+    width: calc(100% - 48 * @rpx);
+    margin: 24 * @rpx auto;
     .amd-slider-track {
       background: none;
     }
