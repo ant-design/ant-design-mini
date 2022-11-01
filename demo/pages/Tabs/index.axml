@@ -77,3 +77,16 @@
   </view>
 </container>
 
+<container title="plus按钮">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <icon slot="plus" type="AddOutline" />
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
+
