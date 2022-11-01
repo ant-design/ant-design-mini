@@ -1,10 +1,5 @@
 @import (reference) "./variable.less";
 
-@font-face {
-  font-family: DINPro, sans-serif;
-  src: url("https://resource/DINPro-Medium.ttf?v=202100204") format("truetype");
-}
-
 @stepperPrefix: amd-stepper;
 
 .@{stepperPrefix} {
@@ -16,29 +11,17 @@
   background-color: @COLOR_CARD;
   box-sizing: border-box;
 
-  .amd-button-content,
-  .amd-button-wrap {
-    width: 56 * @rpx;
-    height: 56 * @rpx;
-    padding: 0;
-    background-color: @COLOR_BACKGROUND;
-    color: @COLOR_BRAND1;
-  }
-
-  .amd-button-content-disabled {
-    .amd-icon {
-      color: #999;
-    }
-  }
-
   &-handler {
     &-up {
+      background-color: @COLOR_BACKGROUND;
+
       .amd-button-content {
         border-top-left-radius: 0;
         border-top-right-radius: 4 * @rpx;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 4 * @rpx;
       }
+
       &-inner {
         .amd-icon {
           display: flex;
@@ -46,21 +29,32 @@
           font-size: 26 * @rpx;
         }
       }
+
+      &-hover {
+        background-color: fade(@COLOR_BLACK_CHANGE, 8%);
+      }
     }
 
     &-down {
+      background-color: @COLOR_BACKGROUND;
+
       .amd-button-content {
         border-top-right-radius: 0;
         border-top-left-radius: 4 * @rpx;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 4 * @rpx;
       }
+
       &-inner {
         .amd-icon {
           display: flex;
           align-items: center;
           font-size: 26 * @rpx;
         }
+      }
+
+      &-hover {
+        background-color: fade(@COLOR_BLACK_CHANGE, 8%);
       }
     }
   }
@@ -73,7 +67,6 @@
     text-align: center;
     line-height: normal;
     font-size: 30 * @rpx;
-    font-family: PingFangSC-Regular;
     color: @COLOR_TEXT_PRIMARY;
     box-sizing: border-box;
     background-color: @COLOR_BACKGROUND;
@@ -82,6 +75,20 @@
 
     &-disabled {
       opacity: 0.4;
+    }
+  }
+
+  .amd-button-content,
+  .amd-button-wrap {
+    width: 56 * @rpx;
+    height: 56 * @rpx;
+    padding: 0;
+    color: @COLOR_BRAND1;
+  }
+
+  .amd-button-content-disabled {
+    .amd-icon {
+      color: @COLOR_TEXT_ASSIST;
     }
   }
 }

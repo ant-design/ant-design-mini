@@ -3,8 +3,7 @@
     <stepper 
       step="{{1}}"
       value="{{0}}"
-      inputStyle="width: 60px"
-      onChange="handleChange"/>
+      inputStyle="width: 60px" />
   </demo-block>
   <demo-block title="受控组件">
     <stepper 

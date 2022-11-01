@@ -33,13 +33,13 @@
   </view>
 
   <button 
-    fill="none"
     className="amd-stepper-handler-up"
+    activeClassName="amd-stepper-handler-up-hover"
     data-mode="add"
     disabled="{{disabled || cValue >= max}}"
     onTap="onChange">
     <view class="amd-stepper-handler-up-inner">
-        <icon type="AddOutline"/>
+      <icon type="AddOutline"/>
     </view>
   </button>
 </view>
