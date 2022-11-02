@@ -1,7 +1,8 @@
 Page({
   data: {
     current: 0,
-    items: []
+    items: [],
+    visible: false,
   },
   onLoad() {
     const items = new Array(30).fill(null).map((_, index) => {
@@ -18,5 +19,10 @@ Page({
     this.setData({
       current,
     });
+  },
+  onVisibleChange() {
+    this.setData({
+      visible: !this.data.visible,
+    })
   },
 });

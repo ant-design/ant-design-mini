@@ -1,5 +1,5 @@
 <view a:if="{{!vertical}}" class="amd-tabs {{className ? className : ''}}" style="{{style}}">
-  <view class="amd-tabs-bar {{type === 'basic'?'amd-tabs-bar-underline':''}}">
+  <view class="amd-tabs-bar {{type === 'basic'?'amd-tabs-bar-underline':''}} {{tabsBarClassName ? tabsBarClassName : ''}}">
     <view class="amd-tabs-bar-plus">
       <slot name="plus" />
     </view>
@@ -16,14 +16,14 @@
       scroll-animation-duration="{{300}}"
     >
       <!-- onAppear 控制阴影显示/隐藏 「左」 -->
-      <view class="amd-tabs-bar-item-placeholder-left"
+      <view class="amd-tabs-bar-item-placeholder"
         onAppear="appearLeft"
         onDisappear="disappearLeft"></view>
       <view a:for="{{items}}" class="amd-tabs-bar-wrap {{`amd-tabs-bar-wrap-${type}`}}">
         <!-- basic 基础类型 -->
         <view 
           a:if="{{type === 'basic'}}"
-          class="amd-tabs-bar-item amd-tabs-bar-basic {{current === index && !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-basic {{tabClassName ? tabClassName: ''}} {{current === index && !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{current === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
@@ -36,7 +36,7 @@
         <!-- capsule 胶囊类型 -->
         <view 
           a:elif="{{type === 'capsule'}}"
-          class="amd-tabs-bar-item amd-tabs-bar-capsule {{current === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-capsule {{tabsBarClassName ? tabsBarClassName: ''}} {{current === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{current === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
@@ -50,7 +50,7 @@
         <!-- mixin 混合类型 -->
         <view 
           a:else
-          class="amd-tabs-bar-item amd-tabs-bar-mixin {{current === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-mixin {{tabsBarClassName ? tabsBarClassName: ''}} {{current === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{current === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
@@ -67,7 +67,7 @@
         </view>
       </view>
       <!-- onAppear 控制阴影显示/隐藏「右」-->
-      <view class="amd-tabs-bar-item-placeholder-right"
+      <view class="amd-tabs-bar-item-placeholder"
         onAppear="appearRight"
         onDisappear="disappearRight"></view>
     </scroll-view>
@@ -76,28 +76,24 @@
     <slot name="content"></slot>
   </view>
 </view>
-<view a:else class="amd-vtabs {{className ? className : ''}}" style="{{style||''}}">
-  <view class="amd-vtabs-bar">
+<view a:else class="amd-vtabs {{className ? className : ''}}" style="{{style}}">
+  <view class="amd-vtabs-bar" class="{{tabsBarClassName ? tabsBarClassName : ''}}">
     <scroll-view class="amd-vtabs-bar-scroll-view"
       scroll-top="{{tabTop}}"
       scroll-y="{{true}}">
       <view class="amd-vtabs-bar-item-wrap">
         <view
           a:for="{{items}}"
-          class="amd-vtabs-bar-item {{current - index?'' : 'amd-vtabs-bar-item-active'}} {{item.disabled?'amd-vtabs-bar-item-disabled' : '' }}"
+          class="amd-vtabs-bar-item {{tabsBarClassName ? tabsBarClassName: ''}} {{current === index&&!item.disabled?'amd-vtabs-bar-item-active' :''}} {{item.disabled?'amd-vtabs-bar-item-disabled' : '' }} {{current === index&!item.disabled&&tabActiveClassName?tabActiveClassName : ''}}"
           style="{{`${current + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${current - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
           onTap="onChange"
           data-index="{{index}}"
         >
-          <badge a:if="{{item.badge}}" type="{{item.badge.type}}" bubble="{{!!item.badge.bubble}}" text="{{item.badge.text}}">
-            <text class="amd-vtabs-bar-item-title">
-              <slot name="title" value="{{item}}">{{item.title}}</slot>
-            </text>
-          </badge>
-          <text a:else class="amd-vtabs-bar-item-title">
-            <slot name="title" value="{{item}}">{{item.title}}</slot>
+          <text class="amd-vtabs-bar-item-title">
+            <slot name="title" value="{{item}}">
+              {{item.title}}
+            </slot>
           </text>
-            <text class="amd-vtabs-bar-item-count" a:if="{{item.count}}">({{item.count}})</text>
         </view>
       </view>
     </scroll-view>

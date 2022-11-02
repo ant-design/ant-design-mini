@@ -43,10 +43,14 @@
     current="{{current}}"
     onChange="onChange"
   >
-
-    <badge slot="title" slot-scope="item">
-      {{item.value.title}}
-    </badge>
+    <view slot="title" slot-scope="item">
+      <badge a:if="{{item.value.id === 0}}">
+        {{item.value.title}}
+      </badge>
+      <view a:else>
+        {{item.value.title}}
+      </view>
+    </view>
 
     <view slot="content" class="content">
       {{items[current].content}}
@@ -89,4 +93,5 @@
     </view>
   </tabs>
 </container>
+
 
