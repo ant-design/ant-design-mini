@@ -6,3 +6,7 @@
 .actions .amd-button {
   width: 47%;
 }
+
+.demo-down-hover {
+  background-color: red;
+}

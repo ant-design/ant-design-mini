@@ -4,7 +4,7 @@
       <progress-circle
         percent="{{percent1}}"
         className="progress-bar1"
-      >
+      />
     </view>
     <view class="buttonwrapper">
       <view class="button1" onTap="handleDelete">减少</view>
