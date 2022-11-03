@@ -1,6 +1,6 @@
 Page({
   data: {
-    current: [],
+    current: 0,
     items: [
       {
         title: '第一项',
@@ -12,8 +12,7 @@ Page({
       },
       {
         title: '第三项',
-        content: 'Ad ut ullamco exercitation do excepteur ipsum ipsum consectetur nulla fugiat est et. Occaecat ullamco nulla mollit cupidatat dolore nulla minim cillum proident laboris mollit. Veniam consectetur esse consectetur. Fugiat in laborum anim.',
-        brief: '辅助信息',
+        content: 'Ad ut ullamco exercitation do excepteur ipsum ipsum consectetur nulla fugiat est et. Occaecat ullamco nulla mollit cupidatat dolore nulla minim cillum proident laboris mollit. Veniam consectetur esse consectetur. Fugiat in laborum anim.'
       },
     ]
   },

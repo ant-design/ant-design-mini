@@ -41,6 +41,8 @@
     "pages/Popup/index",
     "pages/Result/index",
     "pages/Collapse/index",
+    "pages/CollapseAccordion/index",
+    "pages/CollapseControl/index",
     "pages/CollapseCustom/index",
     "pages/Tag/index",
     "pages/Tips/index",

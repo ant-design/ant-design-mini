@@ -1,0 +1,13 @@
+<container title="控制示例">
+
+  <button onTap="onPrevTap">选择上一个</button>
+  <button onTap="onNextTap">选择下一个</button>
+  
+  <collapse
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+    accordion
+  />
+
+</container>

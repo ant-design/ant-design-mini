@@ -1,107 +1,34 @@
-<view>
-  <demo-block title="禁用状态" padding="0">
-    <collapse 
-      className="demo-collapse" 
-      uid="collapse-1" 
-      accordion="{{false}}">
-      <collapse-item 
-        title="第一项" 
-        uid="collapse-1" 
-        name="item-0">
-        这里是第一项的内容
-      </collapse-item>
-      
-      <collapse-item 
-        name="item-1" 
-        uid="collapse-1"
-        disabled="{{true}}"
-        title="第二项">
-        这里是第二项的内容
-      </collapse-item>
+<container title="更多自定义">
 
-      <collapse-item 
-        name="item-2" 
-        uid="collapse-1"
-        disabled="{{true}}"
-        title="第二项">
-        这里是第三项的内容
-      </collapse-item>
-    </collapse>
-  </demo-block>
-  <demo-block title="自定义图标" padding="0">
-    <collapse 
-      className="demo-collapse" 
-      uid="collapse-2" 
-      accordion="{{false}}">
-      <collapse-item 
-        uid="collapse-2" 
-        name="item-0">
-        <view slot="title">
-          <icon type="FireFill" size="small"/>
-          <text style="color: red; padding-left:12px">title 插槽</text>
-        </view>
-        自定义图标
-      </collapse-item>
-      
-      <collapse-item 
-        name="item-1" 
-        uid="collapse-2"
-        expandIcon="AddOutline"
-        closeIcon="MinusOutline"
-        brief="辅助信息">
-        <view slot="title">
-          <text style="color: red; padding-right:8px">title 插槽</text>
-          <icon type="FireFill" size="small"/>
-        </view>
-        自定义图标
-      </collapse-item>
-    </collapse>
-  </demo-block>
-  <demo-block title="受控模式" padding="0">
-    <collapse 
-      className="demo-collapse" 
-      name="{{name}}" 
-      onChange="handleChange" 
-      uid="collapse-0" 
-      accordion="{{false}}">
-      <collapse-item 
-        title="自适应高度" 
-        uid="collapse-0" 
-        name="item-0">
-        <view class="item-content">
-          <view>内容区域</view>
-        </view>
-      </collapse-item>
-      
-      <collapse-item 
-        name="item-1" 
-        uid="collapse-0">
-        <view slot="title">
-          <text style="color: red;">title 插槽</text>
-        </view>
-        <view class="item-content content2">
-          <view>内容区域</view>
-        </view>
-      </collapse-item>
-    
-      <collapse-item 
-        title="标题" 
-        name="item-2" 
-        uid="collapse-0">
-        <view class="item-content content3">
-          <view>内容区域</view>
-        </view>
-      </collapse-item>
-      
-      <collapse-item 
-        title="标题" 
-        name="item-3" 
-        uid="collapse-0">
-        <view class="item-content content3">
-          <view>内容区域</view>
-        </view>
-      </collapse-item>
-    </collapse>
-    <button onTap="handleControl">随机展开一项</button>
-  </demo-block>
-</view>
+  <collapse
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <view slot="title" slot-scope="item">
+      {{item.value.title}}
+      {{item.isActive ? '' : item.value.content.slice(0, 20) + '...' }}
+    </view>
+
+    <view slot="brief" slot-scope="item">
+      {{item.value.brief}}
+    </view>
+
+    <view
+      slot="icon"
+      slot-scope="item"
+      a:if="{{item.index === 0}}"
+    >
+      {{item.isActive ? '关闭' : '展开'}}
+    </view>
+
+    <icon
+      slot="icon"
+      slot-scope="item"
+      a:if="{{item.index === 2}}"
+      type="{{item.isActive ? 'MinusOutline' : 'AddOutline'}}"
+    />
+
+  </collapse>
+
+</container>

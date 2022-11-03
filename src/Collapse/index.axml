@@ -1,3 +1,49 @@
-<view class="amd-collapse {{className ? className : ''}}" onTap="onChange">
-  <slot />
+<import-sjs name="utils" from="./index.sjs" />
+
+<view class="amd-collapse {{className ? className : ''}}" style="{{style}}">
+  
+  <view a:for="{{items}}" class="amd-collapse-item 
+    {{className ? className : ''}} 
+    {{utils.isActive(current, index) ? 'amd-collapse-item-active' : ''}} 
+    {{disabled ? 'amd-collapse-item-disabled' : ''}}"
+  >
+    <view class="amd-collapse-item-title" 
+      data-active="{{utils.isActive(current, index)}}" 
+      data-lastAction="{{lastAction}}" 
+      data-disabled="{{disabled}}" 
+      data-index="{{index}}" 
+      onTap="onChange"
+    >
+      <view class="amd-collapse-item-line">
+        <view class="amd-collapse-item-title-node">
+          <slot name="title" value="{{item}}" isActive="{{utils.isActive(current, index)}}">
+            {{item.title}}
+          </slot>
+        </view>
+        <view class="amd-collapse-item-brief-container">
+          <view class="amd-collapse-item-brief-node">
+            <slot name="brief" value="{{item}}" isActive="{{utils.isActive(current, index)}}" index="{{index}}">
+              {{brief}}
+            </slot>
+          </view>
+          
+          <view class="amd-collapse-item-title-arrow">
+            <slot name="icon" value="{{item}}" isActive="{{utils.isActive(current, index)}}" index="{{index}}">
+              <am-icon type="{{utils.isActive(current, index) ? 'UpOutline' : 'DownOutline'}}" size="x-small" />  
+            </slot>
+          </view>
+          
+        </view>
+      </view>
+    </view>
+    <view data-index="{{index}}" class="amd-collapse-item-content-wrap amd-collapse-item-content-wrap-transition" style="height: {{hasChange ? contentHeight[index] : (utils.isActive(current, index) ? '' : '0px')}}" onTransitionEnd="resetContentHeight">
+      <view class="amd-collapse-item-content {{`amd-collapse-item-content-${$id}-${index}`}}">
+        <slot name="content"value="{{item}}" isActive="{{utils.isActive(current, index)}}" index="{{index}}">
+          {{item.content}}
+        </slot>
+      </view>
+    </view>
+    <view class="collapse-line" />
+  </view>
+
 </view>
