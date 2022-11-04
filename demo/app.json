@@ -22,10 +22,12 @@
     "pages/Modal/index",
     "pages/SwipeAction/index",
     "pages/Tabs/index",
+    "pages/TabsScroll/index",
     "pages/TabsSticky/index",
-    "pages/TabsFallback/index",
-    "pages/VTabs/index",
-    "pages/VTabsNoScroll/index",
+    "pages/TabsSwiper/index",
+    "pages/TabsControl/index",
+    "pages/TabsVertical/index",
+    "pages/TabsVerticalElevator/index",
     "pages/Stepper/index",
     "pages/Steps/index",
     "pages/Terms/index",
@@ -83,7 +85,7 @@
     "defaultTitle": "小程序版 antd-mini 库",
     "backgroundColor": "#F5F5F9",
     "pullRefresh": false,
-    "allowsBounceVertical": true
+    "allowsBounceVertical": false
   },
   "debug": true
 }
