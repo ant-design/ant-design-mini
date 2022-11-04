@@ -73,7 +73,6 @@ Page({
     }
     this.scrollTop = e.detail.scrollTop;
     const scrollTop = this.scrollTop + this.itemRectList[0].top;
-    console.log(scrollTop, this.itemRectList[0].top, this.itemRectList[1].top)
     for(let i=0;i<this.itemRectList.length - 1;i++) {
       const item = this.itemRectList[i];
       if (scrollTop > item.top && scrollTop < this.itemRectList[i+1].top && i !== this.data.current) {
