@@ -4,23 +4,18 @@ import { IBoundingClientRect } from "../_base";
 
 
 function getBoundingClientRect(selector: string) {
-  return new Promise<IBoundingClientRect>(resolve => {
+  return new Promise<IBoundingClientRect>((resolve, reject) => {
     my.createSelectorQuery()
       .select(selector)
       .boundingClientRect()
       .exec((ret) => {
         if (ret && ret[0]) {
           resolve(ret[0]);
+        } else {
+          reject();
         }
       });
   });
-}
-
-function toArray(current: number[] | number) {
-  if (typeof current === 'number') {
-    return [current];
-  }
-  return current || [];
 }
 
 Component({
@@ -29,22 +24,39 @@ Component({
     contentHeight: [],
     hasChange: false,
   },
-  didUpdate(prevProps, prevData) {
-    if (prevProps.current !== this.props.current) {
-      this.updateContentHeight();
+  didUpdate(prevProps) {
+    if (prevProps.current !== this.props.current || prevProps.items !== this.props.items) {
+      this.updateContentHeight(prevProps.current, this.props.current);
     }
   },
   didMount() {
-    this.updateContentHeight(true);
+    const current = this.formatCurrent(this.props.current);
+    const contentHeight = this.props.items.map((item, index) => {
+      if (current.indexOf(index) >= 0) {
+        return '';
+      }
+      return '0px';
+    });
+    this.setData({
+      hasChange: true,
+      contentHeight,
+    })
   },
   methods: {
+    formatCurrent(val: number[]) {
+      const current = [...(val || [])];
+      const items = this.props.items;
+      return current.filter(item => {
+        if (!items[item] || items[item].disabled) {
+          return false;
+        }
+        return true;
+      });
+    },
     onChange(e) {
       const { onChange } = this.props;
       const itemIndex = parseInt(e.currentTarget.dataset.index, 10);
-      if (!(itemIndex >= 0 && itemIndex < this.props.items.length)) {
-        return;
-      }
-      let current = [...toArray(this.props.current)];
+      let current = this.formatCurrent(this.props.current);
       const index = current.indexOf(itemIndex);
       if (index >= 0) {
         current.splice(index, 1);
@@ -57,34 +69,58 @@ Component({
         }
       }
       if (onChange) {
-        onChange(this.props.accordion ? current[0] : current, fmtEvent(this.props, e));
+        onChange(current, fmtEvent(this.props, e));
       }
     },
-    async updateContentHeight(isFirst?: boolean) {
-      let contentHeight = await Promise.all(this.props.items.map(async (item, index) => {
-        const { height } = await getBoundingClientRect(`.amd-collapse-item-content-${this.$id}-${index}`);
-        return `${height}px`;
-      }));
-      this.setData({
-        contentHeight,
-        hasChange: true,
-      });
-      contentHeight = contentHeight.map((item, index) => {
-        if (toArray(this.props.current).indexOf(index) < 0) {
-          return '0px';
+    async updateContentHeight(prevCurrent: number[], nextCurrent: number[]) {
+      const prevCurrentArray = this.formatCurrent(prevCurrent);
+      const nextCurrentArray = this.formatCurrent(nextCurrent);
+      const expandArray = [];
+      const closeArray = [];
+      nextCurrentArray.forEach(item => {
+        if (prevCurrentArray.indexOf(item) < 0) {
+          expandArray.push(item);
         }
-        return item;
       });
-      setTimeout(() => {
+      prevCurrentArray.forEach(item => {
+        if (nextCurrentArray.indexOf(item) < 0) {
+          closeArray.push(item);
+        }
+      });
+      let contentHeight = await Promise.all(this.props.items.map(async (item, index) => {
+        if (expandArray.indexOf(index) >= 0 || closeArray.indexOf(index) >= 0) {
+          const { height } = await getBoundingClientRect(`.amd-collapse-item-content-${this.$id}-${index}`);
+          return `${height}px`;
+        }
+        return this.data.contentHeight[index];
+      }));
+      if (closeArray.length === 0) {
         this.setData({
-          contentHeight,
           hasChange: true,
+          contentHeight,
         });
-      }, 10);
+      } else {
+        this.setData({
+          hasChange: true,
+          contentHeight,
+        });
+        contentHeight = contentHeight.map((item, index) => {
+          if (closeArray.indexOf(index) >= 0) {
+            return '0px';
+          }
+          return item;
+        });
+        setTimeout(() => {
+          this.setData({
+            hasChange: true,
+            contentHeight,
+          });
+        }, 10);
+      }
     },
     resetContentHeight(e) {
       const index = parseInt(e.currentTarget.dataset.index, 10);
-      if (toArray(this.props.current).indexOf(index) < 0) {
+      if (this.formatCurrent(this.props.current).indexOf(index) < 0) {
         return;
       }
       const contentHeight = [...this.data.contentHeight];
@@ -94,47 +130,4 @@ Component({
       });
     },
   },
-  
-  
-  // didMount() {
-  //   const { name } = this.props;
-  //   const key = `${this.$page.$id}-${this.props.uid}`;
-  //   const getGroupPropsVal = (key: string) => {
-  //     switch (key) {
-  //       case 'onChange':
-  //         if (this.onChange) {
-  //           return this.onChange.bind(this);
-  //         }
-  //         return this.props.onChange;
-  //       case 'name':
-  //         if (Array.isArray(this.props.name)) {
-  //           return this.props.name;
-  //         }
-  //         return [];
-  //       default:
-  //         return this.props[key];
-  //     }
-  //   };
-  //   context.addGroup(key);
-  //   context.setGroupPropsVal(key, getGroupPropsVal);
-  //   context.setItemsAccordion(key);
-  //   if (Array.isArray(name)) {
-  //     context.updateGroupValue(key, true);
-  //   }
-  // },
-  // didUnmount() {
-  //   const key = `${this.$page.$id}-${this.props.uid}`;
-  //   context.removeGroup(key);
-  // },
-  // didUpdate(prevProps) {
-  //   const { uid: newUID, name: newName = [], accordion: newAccordion = false } = this.props;
-  //   const { uid: oldUID, name: oldName = [], accordion: oldAccordion = false } = prevProps;
-  //   const newKey = `${this.$page.$id}-${newUID}`;
-  //   const oldKey = `${this.$page.$id}-${oldUID}`;
-  //   context.updateGroup(newUID, {
-  //     isNameChanged: !equal(newName, oldName),
-  //     isUIDChanged: newKey !== oldKey,
-  //     isAccordionChanged: newAccordion !== oldAccordion,
-  //   }, { oldUID:oldKey });
-  // },
 });

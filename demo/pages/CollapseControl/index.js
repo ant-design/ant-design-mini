@@ -1,6 +1,6 @@
 Page({
   data: {
-    current: 0,
+    current: [0],
     items: [
       {
         title: '第一项',
@@ -8,7 +8,7 @@ Page({
       },
       {
         title: '第二项',
-        content: 'Dolor reprehenderit cillum aliqua qui id Lorem elit anim do minim mollit. Commodo id cupidatat est tempor anim. Fugiat ipsum dolor nostrud officia mollit. Aliquip aliqua pariatur tempor excepteur commodo non et adipisicing magna ex nostrud dolore cillum exercitation enim. In sunt velit laboris ullamco et in reprehenderit sit excepteur aute in dolor. Sunt minim incididunt consectetur laborum sint fugiat voluptate sunt culpa fugiat duis. Ad consectetur ad aliquip aute labore magna commodo est cupidatat.'
+        content: 'Dolor reprehenderit cillum aliqua qui id Lorem elit anim do minim mollit. Commodo id cupidatat est tempor anim. Fugiat ipsum dolor nostrud officia mollit. Aliquip aliqua pariatur tempor excepteur commodo non et adipisicing magna ex nostrud dolore cillum exercitation enim. In sunt velit laboris ullamco et in reprehenderit sit excepteur aute in dolor. Sunt minim incididunt consectetur laborum sint fugiat voluptate sunt culpa fugiat duis. Ad consectetur ad aliquip aute labore magna commodo est cupidatat.',
       },
       {
         title: '第三项',
@@ -21,26 +21,31 @@ Page({
       current,
     });
   },
-  onPrevTap() {
-    if (typeof this.data.current === 'undefined') {
-      this.setData({
-        current: 0,
-      });
-      return;
-    }
+  changeContent() {
+    const items = [...this.data.items];
+    items[0].content += items[0].content;
     this.setData({
-      current: this.data.current === 0 ? this.data.items.length - 1 : this.data.current - 1,
+      items,
+    })
+  },
+  addItems() {
+    const items = [
+      ...this.data.items,
+      {
+        title: this.data.items.length,
+        content: 'Pariatur dolore commodo commodo elit adipisicing sunt adipisicing ex duis labore nisi sunt. Magna ut minim deserunt. Sunt velit occaecat incididunt aliqua. Dolore officia voluptate aute reprehenderit anim excepteur elit.'
+      },
+    ];
+    this.setData({
+      items,
+      current: [this.data.items.length],
     });
   },
-  onNextTap() {
-    if (typeof this.data.current === 'undefined') {
-      this.setData({
-        current: 0,
-      });
-      return;
-    }
+  toggle() {
     this.setData({
-      current: this.data.current === this.data.items.length - 1 ? 0 : this.data.current + 1,
+      current: this.data.items.map((item, index) => index).filter(item => {
+        return this.data.current.indexOf(item) < 0 
+      })
     });
-  },
+  }
 });
