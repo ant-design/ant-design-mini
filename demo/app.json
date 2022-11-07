@@ -21,6 +21,7 @@
     "pages/ButtonAddon/index",
     "pages/Modal/index",
     "pages/SwipeAction/index",
+    "pages/SwipeActionTest/index",
     "pages/Tabs/index",
     "pages/TabsSticky/index",
     "pages/TabsFallback/index",
