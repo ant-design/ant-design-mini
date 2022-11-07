@@ -2,15 +2,15 @@ import { SwipeActionDefaultProps } from './props';
 
 const setStyleObj1 = (itemWidth: number) => [
   { marginLeft: 0 },
-  { marginLeft: -(itemWidth + 1) + 'rpx' },
-  { marginLeft: -(2 * itemWidth + 1) + 'rpx' }
+  { marginLeft: `${-(itemWidth + 1) / 2}px` },
+  { marginLeft: `${-(2 * itemWidth + 1) / 2}px` }
 ];
 const setStyleObj2 = (itemWidth: number, length) => {
   if (length === 2) {
-    return [ { marginRight: 0 }, { marginRight: -(itemWidth) + 'rpx' } ]
+    return [ { marginRight: 0 }, { marginRight: `${-itemWidth / 2}px` } ]
   }
   if (length === 3) {
-    return [ { marginRight: 0 }, { marginRight: -itemWidth + 'rpx' }, { marginRight: -(2 * itemWidth) + 'rpx' } ]
+    return [ { marginRight: 0 }, { marginRight: `${-itemWidth / 2}px` }, { marginRight: `${-itemWidth}px` } ]
   }
   return [{ marginRight: 0 }]
 }
@@ -249,14 +249,10 @@ Component({
       );
     },
     onSwipeRight(isRight: boolean) {
-      const { maxSwipeR, moveX, swipedR, inertiaWidth } = this.data;
-      let mySwipe = swipedR;
+      const { maxSwipeR, inertiaWidth } = this.data;
       const { onSwipeEnd, key, callbackData } = this.props;
       // 处理x的位置，两次setData X是因为x如果相同位置不会变，刚好也把弹性在这里处理了
       const _this = this;
-      if (Math.abs(moveX) > maxSwipeR) {
-        mySwipe = true;
-      }
       // 为了处理到重置状态的效果
       const maxX = -(maxSwipeR + 0.01 + inertiaWidth);
       this.setData(
