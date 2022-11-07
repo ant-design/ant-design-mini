@@ -77,7 +77,7 @@ Page({
       { value: 'right', label: '右侧' },
       { value: 'two', label: '左、右测' },
     ],
-    type: 'left', // 位置
+    type: 'right', // 位置
     check: 'none', // 确认效果
     checkList: [
       { value: 'none', label: '无' },
