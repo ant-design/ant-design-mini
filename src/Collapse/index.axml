@@ -10,7 +10,7 @@
       data-active="{{utils.isActive(current, index, item.disabled)}}" 
       data-index="{{index}}"
       data-id="{{$id}}"
-      onTap="{{onChange}}"
+      onTap="onChange"
     >
       <view class="amd-collapse-item-line">
         <view class="amd-collapse-item-title-node">
@@ -26,11 +26,10 @@
           </view>
           
           <view class="amd-collapse-item-title-arrow">
-            <slot name="icon" value="{{item}}" index="{{index}}">
-              <am-icon type="{{utils.isActive(current, index) ? 'UpOutline' : 'DownOutline'}}" size="x-small" />  
+            <slot name="icon" value="{{item}}" index="{{index}}" current="{{current}}">
+              <am-icon type="{{utils.isActive(current, index, item.disabled) ? 'UpOutline' : 'DownOutline'}}" size="x-small" /> 
             </slot>
           </view>
-          
         </view>
       </view>
     </view>
@@ -40,10 +39,12 @@
       style="{{utils.getStyleHeight(index, contentHeight, item.disabled)}}"
       data-index="{{index}}"
     >
-      <view class="amd-collapse-item-content {{`amd-collapse-item-content-${$id}-${index}`}}">
-        <slot name="content" value="{{item}}" index="{{index}}">
-          {{item.content}}
-        </slot>
+      <view class="amd-collapse-item-content-container">
+        <view class="amd-collapse-item-content {{`amd-collapse-item-content-${$id}-${index}`}}">
+          <slot name="content" value="{{item}}" index="{{index}}">
+            {{item.content}}
+          </slot>
+        </view>
       </view>
     </view>
     <view class="collapse-line" />

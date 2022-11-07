@@ -1,8 +1,6 @@
-<container title="手风琴">
-  <collapse
-    items="{{items}}"
-    current="{{current}}"
-    onChange="onChange"
-    accordion
-  />
-</container>
+<collapse
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+  accordion
+/>

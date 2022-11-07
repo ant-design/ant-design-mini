@@ -54,8 +54,10 @@ Component({
       });
     },
     onChange(e) {
-      const { onChange } = this.props;
       const itemIndex = parseInt(e.currentTarget.dataset.index, 10);
+      if (this.props.items[itemIndex] && this.props.items[itemIndex].disabled) {
+        return;
+      }
       let current = this.formatCurrent(this.props.current);
       const index = current.indexOf(itemIndex);
       if (index >= 0) {
@@ -68,8 +70,8 @@ Component({
           current.sort();
         }
       }
-      if (onChange) {
-        onChange(current, fmtEvent(this.props, e));
+      if (this.props.onChange) {
+        this.props.onChange(current, fmtEvent(this.props, e));
       }
     },
     async updateContentHeight(prevCurrent: number[], nextCurrent: number[]) {

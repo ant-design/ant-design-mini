@@ -1,13 +1,9 @@
-<container title="控制示例">
-current: {{current}} items.length: {{items.length}}
-  <button onTap="toggle">切换</button>
-  <button onTap="changeContent">修改content</button>
-  <button onTap="addItems">添加items</button>
-  
-  <collapse
-    items="{{items}}"
-    current="{{current}}"
-    onChange="onChange"
-  />
+<button onTap="toggle">切换</button>
+<button onTap="changeContent">修改content</button>
+<button onTap="addItems">添加items</button>
 
-</container>
+<collapse
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+/>

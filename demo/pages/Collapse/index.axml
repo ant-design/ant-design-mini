@@ -1,7 +1,5 @@
-<container title="折叠面板">
-  <collapse
-    items="{{items}}"
-    current="{{current}}"
-    onChange="onChange"
-  />
-</container>
+<collapse
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+/>

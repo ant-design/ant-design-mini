@@ -23,7 +23,7 @@ Page({
   },
   changeContent() {
     const items = [...this.data.items];
-    items[0].content += items[0].content;
+    items[0].content = Math.random() + ' ' + items[0].content;
     this.setData({
       items,
     })
