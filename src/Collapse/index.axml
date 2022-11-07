@@ -14,20 +14,20 @@
     >
       <view class="amd-collapse-item-line">
         <view class="amd-collapse-item-title-node">
-          <slot name="title" value="{{item}}" isActive="{{utils.isActive(current, index, item.disabled)}}">
+          <slot name="title" value="{{item}}" index="{{index}}">
             {{item.title}}
           </slot>
         </view>
         <view class="amd-collapse-item-brief-container">
           <view class="amd-collapse-item-brief-node">
-            <slot name="brief" value="{{item}}" isActive="{{utils.isActive(current, index, item.disabled)}}" index="{{index}}">
+            <slot name="brief" value="{{item}}" index="{{index}}">
               {{brief}}
             </slot>
           </view>
           
           <view class="amd-collapse-item-title-arrow">
-            <slot name="icon" value="{{item}}" isActive="{{utils.isActive(current, index, item.disabled)}}" index="{{index}}">
-              <am-icon type="{{utils.isActive(current, index) ? 'DownOutline' : 'UpOutline'}}" size="x-small" />  
+            <slot name="icon" value="{{item}}" index="{{index}}">
+              <am-icon type="{{utils.isActive(current, index) ? 'UpOutline' : 'DownOutline'}}" size="x-small" />  
             </slot>
           </view>
           
@@ -41,7 +41,7 @@
       data-index="{{index}}"
     >
       <view class="amd-collapse-item-content {{`amd-collapse-item-content-${$id}-${index}`}}">
-        <slot name="content"value="{{item}}" isActive="{{utils.isActive(current, index, item.disabled)}}" index="{{index}}">
+        <slot name="content" value="{{item}}" index="{{index}}">
           {{item.content}}
         </slot>
       </view>

@@ -96,12 +96,10 @@ Component({
       }));
       if (closeArray.length === 0) {
         this.setData({
-          hasChange: true,
           contentHeight,
         });
       } else {
         this.setData({
-          hasChange: true,
           contentHeight,
         });
         contentHeight = contentHeight.map((item, index) => {
@@ -112,7 +110,6 @@ Component({
         });
         setTimeout(() => {
           this.setData({
-            hasChange: true,
             contentHeight,
           });
         }, 10);

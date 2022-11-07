@@ -7,7 +7,7 @@
   >
     <view slot="title" slot-scope="item">
       {{item.value.title}}
-      {{item.isActive ? '' : item.value.content.slice(0, 20) + '...' }}
+      {{current.indexOf(item.index) >= 0 ? '' : item.value.content.slice(0, 20) + '...' }}
     </view>
 
     <view slot="brief" slot-scope="item">
@@ -19,14 +19,14 @@
       slot-scope="item"
       a:if="{{item.index === 0}}"
     >
-      {{item.isActive ? '关闭' : '展开'}}
+      {{current.indexOf(item.index) >= 0 ? '关闭' : '展开'}}
     </view>
 
     <icon
       slot="icon"
       slot-scope="item"
       a:if="{{item.index === 2}}"
-      type="{{item.isActive ? 'MinusOutline' : 'AddOutline'}}"
+      type="{{current.indexOf(item.index) >= 0 ? 'MinusOutline' : 'AddOutline'}}"
     />
 
   </collapse>
