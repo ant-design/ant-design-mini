@@ -1,0 +1,20 @@
+
+<tabs
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+/>
+
+<swiper
+  current="{{current}}"
+  autoplay="{{false}}"
+  vertical="{{false}}"
+  circular="{{false}}"
+  onChange="onSwipeChange"
+>
+<swiper-item a:for="{{items}}">
+  <view style="height: 150px; line-height: 150px; background: #eee; text-align: center;">
+    {{item.content}}
+  </view>
+</swiper-item>
+</swiper>

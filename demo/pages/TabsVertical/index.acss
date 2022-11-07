@@ -1,0 +1,8 @@
+.tabs {
+  height: 100vh;
+}
+
+.content {
+  padding: 12px;
+  height: 100%;
+}

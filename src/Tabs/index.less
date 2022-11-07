@@ -23,11 +23,11 @@
       background-color: @tabs-inverse-color;
       pointer-events: none;
       &-left {
-        left: 0;
+        left: -1 * @rpx;
         background: linear-gradient(90deg, @COLOR_WHITE_CHANGE, hsla(0, 0%, 100%, 0));
       }
       &-right {
-        right: 104 * @rpx;
+        right: 84 * @rpx;
         background: linear-gradient(270deg, @COLOR_WHITE_CHANGE, hsla(0, 0%, 100%, 0));
       }
     }
@@ -39,13 +39,12 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      margin-left: @h-spacing-standard;
       margin-right: @h-spacing-large;
       order: 1;
       &:empty {
         display: none;
         ~ .@{tabsPrefix}-bar-fade-right {
-          right: 0;
+          right: -1 * @rpx;
         }
       }
     }
@@ -87,7 +86,7 @@
       flex: 1 0 auto;
       font-size: @font-size-list;
       white-space: nowrap;
-      color: @tabs-basis-color;
+      color: @tabs-basic-color;
       &-placeholder {
         flex: 0 2 * @rpx;
         width: 2 * @rpx;
@@ -100,7 +99,7 @@
     }
     }
     // 基础类型 tab 选项卡样式
-    &-basis {
+    &-basic {
       position: relative;
       display: flex;
       align-items: center;
@@ -108,21 +107,19 @@
       box-sizing: border-box;
     }
 
-    &-basis&-active &-basis-title{
+    &-basic&-active{
       color: @tabs-active-color;
       position: relative;
       &:after {
         content: '';
         position: absolute;
-        left: 50%;
-        bottom: -@v-spacing-standard;
-        width: 100%;
+        bottom: 0;
+        width: calc(100% - @h-spacing-large * 2);
         height: 4 * @rpx;
         overflow: hidden;
         font-size: 0;
         border-radius: @corner-radius-circle;
         box-sizing: border-box;
-        transform: translate3d(-50%, 0, 0);
         background-color: @tabs-active-decorate-color;
       }
     }
@@ -142,7 +139,7 @@
         text-align: center;
         line-height: @line-height-base;
         border-radius: 10vh;
-        background-color: @COLOR_BACKGROUND;
+        background-color: @COLOR_GREY_CARD;
         border-bottom: 0 none;
       }
     }
@@ -168,7 +165,7 @@
         line-height: @line-height-paragraph;
         color: @tabs-weaken-color;
         border-radius: 50vh;
-        background-color:@COLOR_BACKGROUND;
+        background-color:@COLOR_GREY_CARD;
         margin: 2 * @rpx 0;
       }
     }
@@ -187,18 +184,97 @@
     }
   }
   &-content {
-    display: flex;
-    flex-direction: row;
-    align-content: stretch;
     overflow: hidden;
-    height: auto;
     background-color: @COLOR_WHITE_CHANGE;
-    &_H100 {
-      height: 100% !important;
+    color: @COLOR_TEXT_PRIMARY;
+  }
+}
+
+
+@vtabsPrefix: amd-vtabs;
+
+.@{vtabsPrefix} {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  &-bar {
+    width: 210 * @rpx;
+    overflow: hidden;
+    &-scroll-view {
+      display: flex;
+      flex-direction: column;
+      width: 210 * @rpx;
+      height: 100%;
+      background-color: @COLOR_BACKGROUND;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    &-item {
+      position: relative;
+      width: 210 * @rpx;
+      padding: @size-4 @h-spacing-large;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      font-size: @font-size-content;
+      line-height: 37 * @rpx;
+      color: @COLOR_TEXT_PRIMARY;
+      background-color: @COLOR_BACKGROUND;
+      box-sizing: border-box;
+      transition: background-color 100ms linear, color 300ms linear;
+      // z-index: 1;
+      &-wrap {
+        background-color: @COLOR_CARD;
+      }
+      &-active {
+        color: @COLOR_TEXT_PRIMARY;
+        background-color: @COLOR_CARD;
+        // z-index: 3;
+        &::after {
+          position: absolute;
+          content: "";
+          top: @size-4;
+          bottom: @size-4;
+          left: 0;
+          width: @border-width-thick;
+          border-radius: @corner-radius-sm;
+          background-color: @COLOR_BRAND1;
+        }
+      }
+      &-disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        .@{vtabsPrefix}-bar-item-title,
+        .@{vtabsPrefix}-bar-item-count {
+          opacity: @opacity-disabled;
+        }
+      }
+      &-count {
+        color: @COLOR_TEXT_WEAK;
+        margin-left: @size-1;
+      }
+      &-icon {
+        padding-left: 8 * @rpx;
+        width: 28 * @rpx;
+        height: 28 * @rpx;
+        font-size: 26 * @rpx;
+        overflow: hidden;
+        position: relative;
+        top: -4 * @rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:empty {
+          display: none;
+        }
+      }
     }
   }
-  &-slides {
-    width: 100%;
-    display: flex;
+  &-content {
+    overflow: hidden;
+    flex: 1;
+    background-color: @COLOR_CARD;
+    color: @COLOR_TEXT_PRIMARY;
   }
 }

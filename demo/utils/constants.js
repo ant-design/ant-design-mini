@@ -28,9 +28,39 @@ export const componentList = [
         path: '/pages/Tabs/index',
       },
       {
-        name: 'VTabs',
-        nameZN: '纵向Tabs',
-        path: '/pages/VTabs/index',
+        name: 'TabsControl',
+        nameZN: '标签页-控制',
+        path: '/pages/TabsControl/index',
+      },
+      {
+        name: 'TabsElevator',
+        nameZN: '标签页-电梯模式',
+        path: '/pages/TabsElevator/index',
+      },
+      {
+        name: 'TabsScroll',
+        nameZN: '标签页-可滚动',
+        path: '/pages/TabsScroll/index',
+      },
+      {
+        name: 'TabsSticky',
+        nameZN: '标签页-吸顶',
+        path: '/pages/TabsSticky/index',
+      },
+      {
+        name: 'TabsSwiper',
+        nameZN: '标签页-Swiper',
+        path: '/pages/TabsSwiper/index',
+      },
+      {
+        name: 'TabsVertical',
+        nameZN: '标签页-纵向',
+        path: '/pages/TabsVertical/index',
+      },
+      {
+        name: 'TabsVerticalElevator',
+        nameZN: '标签页-纵向电梯模式',
+        path: '/pages/TabsVerticalElevator/index',
       },
     ],
   },

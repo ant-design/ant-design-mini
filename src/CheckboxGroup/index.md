@@ -27,6 +27,7 @@ toc: 'content'
 | footer | 底部内容插槽 | `slot` | - |
 | header | 头部内容插槽 | `slot` | - |
 | mode | 配合From/FormItem组件使用时，需设置为 from | 'noraml' \| 'form' | 'normal'| 
+| position | 布局 | 'horizontal' &verbar;  'vertical' | 'vertical' |
 | style | 样式| `string` | - |
 | uid | 当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与内部的 CheckboxItem 组件的 uid 一致  | `string` | - | 
 | value | CheckboxGroup 的值，决定子元素是否勾选 | `string`[] | [] |

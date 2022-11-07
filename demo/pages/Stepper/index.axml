@@ -3,8 +3,7 @@
     <stepper 
       step="{{1}}"
       value="{{0}}"
-      inputWidth="60px"
-      onChange="handleChange"/>
+      inputStyle="width: 60px" />
   </demo-block>
   <demo-block title="受控组件">
     <stepper 
@@ -12,7 +11,7 @@
       controlled
       step="{{1}}"
       value="{{value}}"
-      inputWidth="60px"
+      inputStyle="width: 60px"
       onChange="handleChange" />
   </demo-block>
   <demo-block title="步长设置">

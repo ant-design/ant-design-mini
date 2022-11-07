@@ -1,3 +1,0 @@
-<view class="amd-vtabs-item {{className ? className : ''}}" style="{{style||''}}">
-  <slot />
-</view>

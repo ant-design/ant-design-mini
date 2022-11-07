@@ -2,7 +2,8 @@
   min="{{min}}"
   max="{{max}}"
   step="{{step}}"
-  precision="{{precision}}">
+  precision="{{precision}}"
+  style="{{style}}">
   <button 
     className="amd-stepper-handler-down"
     data-mode="minus"
@@ -15,8 +16,8 @@
   </button>
 
   <view class="amd-stepper-input-wrap">
-    <input class="amd-stepper-input {{disabled? 'amd-stepper-input-disabled' : ''}}"
-      style="{{inputWidth ? `width: ${inputWidth}`: ''}}"
+    <input class="amd-stepper-input {{disabled? 'amd-stepper-input-disabled' : ''}} {{inputClassName ? inputClassName : ''}}"
+      style="{{inputStyle}}"
       type="{{type}}"
       disabled="{{disabled}}"
       id="{{id ? id : $id }}"
@@ -32,13 +33,13 @@
   </view>
 
   <button 
-    fill="none"
     className="amd-stepper-handler-up"
+    activeClassName="amd-stepper-handler-up-hover"
     data-mode="add"
     disabled="{{disabled || cValue >= max}}"
     onTap="onChange">
     <view class="amd-stepper-handler-up-inner">
-        <icon type="AddOutline"/>
+      <icon type="AddOutline"/>
     </view>
   </button>
 </view>

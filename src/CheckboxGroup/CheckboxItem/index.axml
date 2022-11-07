@@ -1,6 +1,6 @@
 <import-sjs from="./index.sjs" name="_sjs" />
 
-<label class="amd-checkbox-item {{className ? className : ''}} {{hidden?'amd-checkbox-item-hidden':''}}">
+<label class="amd-checkbox-item {{className ? className : ''}} {{hidden?'amd-checkbox-item-hidden':''}}" style="{{style || ''}}">
   <list-item stopPropagation>
     <checkbox 
       controlled
