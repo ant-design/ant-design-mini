@@ -10,13 +10,13 @@ const getMarginLeft = (rightWidth, leftWidth, inertiaWidth) => {
 };
 
 const getSlotWidthStyle = (rightWidth, leftWidth, left = [], right = [], inertiaWidth) => {
-  // 只要左滑
+  // 右
   if (right.length > 0 && left.length === 0) {
     return `calc(100% - ${(1 + inertiaWidth) / 2}px)`;
   }
-  // 只要右滑
+  // 左
   if (left.length > 0 && right.length === 0) {
-    return { width : `calc(100% - ${(leftWidth + inertiaWidth) / 2}px)`, marginLeft: `${(leftWidth + inertiaWidth) / 2}px` };
+    return { width : `calc(100% - ${(leftWidth) / 2}px)`, marginLeft: (leftWidth + inertiaWidth) / 2 + 'px' };
   }
   if (left.length > 0 && right.length > 0) {
     return { width : `100%`, marginLeft: `0` };
@@ -40,15 +40,16 @@ const getLeft = (tapType, item, idx, right, isLeft) => {
 
 const getWidth2 = (rightWidth, leftWidth, inertiaWidth) => {
   const width = rightWidth > leftWidth ? rightWidth : leftWidth;
-  return rightWidth && leftWidth ? `calc(100% - ${width + inertiaWidth}px)` : `calc(100% - ${((leftWidth || rightWidth) + inertiaWidth) / 2}px)`;
+  return rightWidth && leftWidth ? `calc(100% - ${width + inertiaWidth}px)` : `calc(100% - ${(width + inertiaWidth) / 2}px)`;
 };
 const getMarginLeft2 = (rightWidth, leftWidth, inertiaWidth) => {
   const num = rightWidth > 0 ? inertiaWidth : 0;
-  return leftWidth && rightWidth ? `${(leftWidth + num) / 2}px` : `${(rightWidth + num) / 2}px`;
+  const width = rightWidth > leftWidth ? rightWidth : leftWidth;
+  return leftWidth && rightWidth ? `${(leftWidth + num) / 2}px` : (leftWidth > 0 ? 0 : `${(width + inertiaWidth) / 2}px`);
 };
 const getMarginLeft3 = (rightWidth, leftWidth, inertiaWidth) => {
   const width = rightWidth > leftWidth ? rightWidth : leftWidth;
-  return leftWidth && rightWidth ? `calc(100% - ${(width + inertiaWidth) / 2}px)` : `calc(100% - ${(rightWidth) / 2}px)`;
+  return leftWidth && rightWidth ? `calc(100% - ${(width + inertiaWidth) / 2}px)` : `calc(100% - ${(rightWidth) / 2 - 1}px)`;
 };
 
 
