@@ -36,18 +36,20 @@ toc: 'content'
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | accordion | boolean | 否 | - | 是否是手风琴模式，仅一个内容被展开 |
-| items | number[] | 是 | - | 是否是手风琴模式，仅一个内容被展开 |
-| current | number[] \| number | 是 | - | 当前展开的索引 |
+| current | number[] | 是 | - | 当前展开的索引 |
 | className | string | 否 | - | 类名 |
+| items | Item[] | 是 | - | 折叠面板列表 |
 | style | string | 否 | - | 样式 |
-| onChange | 切换面板的回调 | ( current : `number[] \| number`) => void |
+| onChange | 切换面板的回调 | ( current : `number[]`) => void |
 
 ## 插槽
-| 名称 | 类型 | 必填 | 默认值 | 说明 |
-| title | slot | 否 | - | 标题 |
+| slot | slot-scope | 说明 |
+| -----|-----|-----|
+| content | value: Item; index: number | 内容 |
+| title | value: Item; index: number | 标题 |
 
-```html
-<collapse>
-  
-</collapse>
-```
+Item 里每一项
+| 属性 | 类型 | 必填 | 默认值 | 说明 |
+| -----|-----|-----|-----|----- |
+| content | string | 否 | - | 内容 |
+| title | string | 否 | - | 标题 |

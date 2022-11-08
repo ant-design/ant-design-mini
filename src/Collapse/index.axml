@@ -2,7 +2,6 @@
 
 <view class="amd-collapse {{className ? className : ''}}" style="{{style}}">
   <view a:for="{{items}}" class="amd-collapse-item 
-    {{className ? className : ''}} 
     {{utils.isActive(current, index, item.disabled) ? 'amd-collapse-item-active' : ''}} 
     {{item.disabled ? 'amd-collapse-item-disabled' : ''}}"
   >
