@@ -1,3 +1,31 @@
-<view class="amd-steps amd-steps-{{direction}} {{className ? className : ''}}" onTap="onChange">
-  <slot />
+<import-sjs from="./index.sjs" name="utils" />
+
+<view class="amd-steps amd-steps-{{direction}} {{className ? className : ''}}" style="{{style}}" onTap="onChange">
+  <view a:for="{{items}}"
+    class="amd-steps-item amd-steps-item-{{direction}} 
+    {{index < current? 'amd-steps-item-finish' : ''}} 
+    {{index === current? 'amd-steps-item-active' : ''}} 
+    {{index > current? 'amd-steps-item-non-active' : ''}}"
+  >
+    <view class="amd-steps-item-indicator amd-steps-item-indicator-{{direction}}">
+      <view class="amd-steps-item-indicator-icon amd-steps-item-{{utils.getClassName(current, index, status)}}-icon">
+        <slot name="icon" value="{{item}}" index="{{index}}" current="{{current}}" status="{{status}}">
+          <view class="amd-steps-item-{{utils.getClassName(current, index, status)}}-icon-default" />
+        </slot>
+      </view>
+    </view>
+    <view class="amd-steps-item-text">
+      <view class="amd-steps-item-title amd-steps-item-title-{{utils.getClassName(current, index, status)}}">
+         <slot name="title" value="{{item}}" index="{{index}}">
+          {{item.title}}
+        </slot>
+      </view>
+      <view class="amd-steps-item-desc">
+        <slot name="description" value="{{item}}" index="{{index}}">
+          {{item.description}}
+        </slot>
+      </view>
+    </view>
+  </view>
+
 </view>

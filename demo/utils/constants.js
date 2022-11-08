@@ -122,6 +122,11 @@ export const componentList = [
         path: '/pages/Steps/index',
       },
       {
+        name: 'StepsControl',
+        nameZN: '步骤条-控制',
+        path: '/pages/StepsControl/index',
+      },
+      {
         name: 'GuideTour',
         nameZN: '新手引导',
         path: '/pages/GuideTour/index',

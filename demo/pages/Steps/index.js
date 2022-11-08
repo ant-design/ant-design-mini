@@ -1,9 +1,24 @@
 Page({
   data: {
-    activeIndex: 1,
-    failIndex: false,
-    showNumberSteps: true,
-    direction: 'vertical',
+    items: [
+      {
+        title: '步骤一',
+        description: '描述信息',
+      },
+      {
+        title: '步骤二',
+        description: '描述信息',
+      },
+      {
+        title: '步骤三',
+        description: '描述信息',
+      }
+    ],
+    iconList: [
+      'SmileFill',
+      '',
+      'StarFill'
+    ],
     activeIcon1: 'CheckCircleFill',
     activeIcon2:
       'https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ',

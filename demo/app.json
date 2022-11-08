@@ -31,6 +31,7 @@
     "pages/TabsVerticalElevator/index",
     "pages/Stepper/index",
     "pages/Steps/index",
+    "pages/StepsControl/index",
     "pages/Terms/index",
     "pages/Popover/index",
     "pages/PopoverBase/index",
