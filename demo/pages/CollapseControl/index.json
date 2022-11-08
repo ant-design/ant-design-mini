@@ -2,6 +2,6 @@
   "defaultTitle": "Collapse",
   "usingComponents": {
     "collapse": "../../../src/Collapse/index",
-    "icon": "../../../src/Icon/index"
+    "button": "../../../src/Button/index"
   }
 }

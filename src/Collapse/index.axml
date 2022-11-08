@@ -1,3 +1,52 @@
-<view class="amd-collapse {{className ? className : ''}}" onTap="onChange">
-  <slot />
+<import-sjs name="utils" from="./index.sjs" />
+
+<view class="amd-collapse {{className ? className : ''}}" style="{{style}}">
+  <view a:for="{{items}}" class="amd-collapse-item 
+    {{utils.isActive(current, index, item.disabled) ? 'amd-collapse-item-active' : ''}} 
+    {{item.disabled ? 'amd-collapse-item-disabled' : ''}}"
+  >
+    <view class="amd-collapse-item-title"
+      data-active="{{utils.isActive(current, index, item.disabled)}}" 
+      data-index="{{index}}"
+      data-id="{{$id}}"
+      onTap="onChange"
+    >
+      <view class="amd-collapse-item-line">
+        <view class="amd-collapse-item-title-node">
+          <slot name="title" value="{{item}}" index="{{index}}">
+            {{item.title}}
+          </slot>
+        </view>
+        <view class="amd-collapse-item-brief-container">
+          <view class="amd-collapse-item-brief-node">
+            <slot name="brief" value="{{item}}" index="{{index}}">
+              {{brief}}
+            </slot>
+          </view>
+          
+          <view class="amd-collapse-item-title-arrow">
+            <slot name="icon" value="{{item}}" index="{{index}}" current="{{current}}">
+              <am-icon type="{{utils.isActive(current, index, item.disabled) ? 'UpOutline' : 'DownOutline'}}" size="x-small" /> 
+            </slot>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view
+      class="amd-collapse-item-content-wrap {{hasChange ? 'amd-collapse-item-content-wrap-transition' : ''}} {{`amd-collapse-item-content-wrap-${$id}-${index}`}}"
+      onTransitionEnd="resetContentHeight"
+      style="{{utils.getStyleHeight(index, contentHeight, item.disabled)}}"
+      data-index="{{index}}"
+    >
+      <view class="amd-collapse-item-content-container">
+        <view class="amd-collapse-item-content {{`amd-collapse-item-content-${$id}-${index}`}}">
+          <slot name="content" value="{{item}}" index="{{index}}">
+            {{item.content}}
+          </slot>
+        </view>
+      </view>
+    </view>
+    <view class="collapse-line" />
+  </view>
+
 </view>

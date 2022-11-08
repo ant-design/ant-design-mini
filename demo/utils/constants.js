@@ -83,6 +83,21 @@ export const componentList = [
         path: '/pages/Collapse/index',
       },
       {
+        name: 'CollapseAccordion',
+        nameZN: '折叠面板-手风琴',
+        path: '/pages/CollapseAccordion/index',
+      },
+      {
+        name: 'CollapseControl',
+        nameZN: '折叠面板-控制',
+        path: '/pages/CollapseControl/index',
+      },
+      {
+        name: 'CollapseCustom',
+        nameZN: '折叠面板-更多自定义',
+        path: '/pages/CollapseCustom/index',
+      },
+      {
         name: 'Grid',
         nameZN: '宫格',
         path: '/pages/Grid/index',
