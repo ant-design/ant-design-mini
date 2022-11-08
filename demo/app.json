@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/SwipeAction/index",
     "pages/index/index",
     "pages/ActionSheet/index",
     "pages/Form/index",
@@ -21,6 +20,7 @@
     "pages/ButtonIcon/index",
     "pages/ButtonAddon/index",
     "pages/Modal/index",
+    "pages/SwipeAction/index",
     "pages/SwipeActionTest/index",
     "pages/Tabs/index",
     "pages/TabsScroll/index",
