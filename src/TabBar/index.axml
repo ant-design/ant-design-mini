@@ -1,38 +1,12 @@
-<template name="icon">
+<template name="iconArea">
+  <!-- Active 状态下使用 activeIcon 作为图标，如果没有的话使用兜底的 icon -->
   <image-icon
-    className="{{className}}"
-    image="{{item.activeIcon || item.icon}}"
+    image="{{activeIndex == index ? item.activeIcon || item.icon : item.icon}}"
     iconSize="small"
     iconColor="{{activeColor}}"
+    index="{{index}}"
+    className='amd-tab-bar'
   />
-</template>
-
-<template name="iconArea">
-  <view>
-    <view a:if="{{activeIndex == index}}">
-      <template
-        is="icon"
-        data="{{
-          activeIndex: activeIndex,
-          activeColor: activeColor,
-          index: index,
-          item: item,
-          className: 'amd-tab-bar'
-        }}"
-      />
-    </view>
-    <view a:else>
-      <template
-        is="icon"
-        data="{{
-          activeIndex: activeIndex,
-          index: index,
-          item: item,
-          className: 'amd-tab-bar'
-        }}"
-      />
-    </view>
-  </view>
 </template>
 
 <template name="textArea">
