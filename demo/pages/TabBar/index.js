@@ -40,23 +40,25 @@ Page({
 
     tabsImage: [
       {
-        icon: 'AlipayCircleFill',
-        activeIcon: 'AlipayCircleFill',
-        text: '首页',
+        type: 'image',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_8b9ee1/afts/img/A*NLfXQKIJLjMAAAAAAAAAAAAAARQnAQ',
+        activeIcon:
+          'https://gw.alipayobjects.com/mdn/rms_8b9ee1/afts/img/A*ym7MQoa2WJkAAAAAAAAAAAAAARQnAQ',
+        text: '小程序',
       },
       {
         type: 'image',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_8b9ee1/afts/img/A*xRIaTKSgyuwAAAAAAAAAAAAAARQnAQ',
         activeIcon:
-          'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
-        text: '新车报价',
+          'https://gw.alipayobjects.com/mdn/rms_8b9ee1/afts/img/A*t2yUQod-dFsAAAAAAAAAAAAAARQnAQ',
+        text: '店铺',
       },
       {
         type: 'image',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_8b9ee1/afts/img/A*1EQEQZzPoHAAAAAAAAAAAAAAARQnAQ',
         activeIcon:
-          'https://gw.alipayobjects.com/mdn/rms_616c05/afts/img/A*lyJlRJMLJEEAAAAAAAAAAAAAARQnAQ',
-        text: '新车报价',
+          'https://gw.alipayobjects.com/mdn/rms_8b9ee1/afts/img/A*FkGmSaLy8WoAAAAAAAAAAAAAARQnAQ',
+        text: '客服',
         imageMode: 'scaleToFill',
       },
     ],
@@ -122,10 +124,6 @@ Page({
   handleChangeTabsColor(_, index) {
     this.setData({
       tabsColorIndex: index,
-    });
-    my.alert({
-      title: 'onTap',
-      content: `点击了第 ${index + 1} 个 tab`,
     });
   },
   handleChangeTabsCount6(_, index) {
