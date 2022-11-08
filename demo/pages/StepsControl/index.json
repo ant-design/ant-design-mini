@@ -2,7 +2,6 @@
   "defaultTitle": "Steps",
   "usingComponents": {
     "steps": "../../../src/Steps/index",
-    "step-item": "../../../src/Steps/StepItem/index",
     "icon": "../../../src/Icon/index",
     "button": "../../../src/Button/index",
     "container": "../../../src/Container/index"

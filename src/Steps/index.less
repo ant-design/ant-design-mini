@@ -38,11 +38,11 @@
     .amd-steps-item-title {
       margin-bottom: 8 * @rpx;
       font-size: 26 * @rpx;
-      color: #333;
+      color: @COLOR_TEXT_PRIMARY;
     }
     .amd-steps-item-desc {
       font-size: 24 * @rpx;
-      color: #999;
+      color: @COLOR_TEXT_ASSIST;
     }
     &::after {
       // line
@@ -134,7 +134,7 @@
   &-active {
 
     &::after {
-      background-color: #e5e5e5;
+      background-color: @COLOR_GREY_2;
     }
 
     &-icon {
@@ -147,24 +147,24 @@
         width: 36 * @rpx;
       }
 
-      color: #1677FF;
+      color: @COLOR_BRAND1;
 
       &-default {
         height: 18 * @rpx;
         width: 18 * @rpx;
         border-radius: 50%;
-        background-color: #1677FF;
+        background-color: @COLOR_BRAND1;
       }
     }
 
     & .@{stepItemPrefix}-title {
-      color: #1677FF;
+      color: @COLOR_BRAND1;
     }
   }
 
   &-non-active {
     &::after {
-      background-color: #e5e5e5;
+      background-color: @COLOR_GREY_2;
     }
 
     &-icon {
@@ -177,22 +177,22 @@
         width: 36 * @rpx;
       }
 
-      color: #E5E5E5;
+      color: @COLOR_GREY_2;
       &-default {
         height: 18 * @rpx;
         width: 18 * @rpx;
         border-radius: 50%;
-        background-color: #E5E5E5;
+        background-color: @COLOR_GREY_2;
       }
     }
     & .@{stepItemPrefix}-title {
-      color: #999;
+      color: @COLOR_TEXT_ASSIST;
     }
   }
 
   &-finish {
     &::after {
-      background-color: #1677FF;
+      background-color: @COLOR_BRAND1;
     }
 
     &-icon {
@@ -201,14 +201,14 @@
         width: 36 * @rpx;
       }
 
-      color: #1677FF;
+      color: @COLOR_BRAND1;
       &-default {
-        background-color: #1677FF;
+        background-color: @COLOR_BRAND1;
       }
     }
 
     & .@{stepItemPrefix}-title {
-      color: black;
+      color: @COLOR_TEXT_PRIMARY;
     }
   }
 
@@ -222,16 +222,16 @@
       width: 36 * @rpx;
     }
 
-    color: #ff3141;
+    color: @COLOR_RED;
     &-default {
       height: 18 * @rpx;
       width: 18 * @rpx;
       border-radius: 50%;
-      background-color: #ff3141;
+      background-color: @COLOR_RED;
     }
   }
 
   .amd-steps-item-title-fail {
-    color: #ff3141;
+    color: @COLOR_RED;
   }
 }
