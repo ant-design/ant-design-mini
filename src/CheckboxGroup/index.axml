@@ -1,7 +1,4 @@
 <list className="amd-checkbox-group {{className ? className : ''}}  amd-checkbox-group-{{position}}" style="{{style||''}}">
-  <view class="amd-checkbox-group-header">
-    <slot name="header"/>
-  </view>
   <checkbox-group id="{{id ? id : $id}}" name="{{name ? name : ''}}" disabled="{{_disabled}}">
     <view class="amd-checkbox-group-body">
       <slot>
@@ -9,7 +6,4 @@
       </slot>
     </view>
   </checkbox-group>
-  <view class="amd-checkbox-group-footer">
-    <slot name="footer"/>
-  </view>
 </list>

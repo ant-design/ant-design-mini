@@ -10,18 +10,18 @@
     value="{{value}}"
   />
   <view class="amd-checkbox-fake">
-      <slot name="icon" a:if="{{ !cValue && !disabled }}">
+      <slot name="icon" a:if="{{ !cValue && !disabled }}" checked="{{cValue}}" disabled="{{disabled}}">
         <view class="amd-checkbox-fake-icon"></view>
       </slot>
-      <slot name="checkedIcon" a:if="{{ cValue && !disabled }}">
+      <slot name="icon" a:if="{{ cValue && !disabled }}" checked="{{cValue}}" disabled="{{disabled}}">
         <view class="amd-checkbox-fake-checkedIcon">
           <amd-icon  type="CheckOutline" className="amd-checkbox-fake-checkedIcon-icon"/>
         </view>
       </slot>
-      <slot name="disbaledIcon" a:if="{{ !cValue && disabled }}">
+      <slot name="icon" a:if="{{ !cValue && disabled }}" checked="{{cValue}}" disabled="{{disabled}}">
         <view class="amd-checkbox-fake-disbaledIcon"></view>
       </slot>
-      <slot name="disabledCheckedIcon" a:if="{{ cValue && disabled }}">
+      <slot name="icon" a:if="{{ cValue && disabled }}" checked="{{cValue}}" disabled="{{disabled}}">
         <view class="amd-checkbox-fake-disabledCheckedIcon">
           <amd-icon  type="CheckOutline" className="amd-checkbox-fake-disabledCheckedIcon-icon"/>
         </view>

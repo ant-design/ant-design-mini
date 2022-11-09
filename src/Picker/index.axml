@@ -41,10 +41,10 @@
     <slot name="content-header"/>
     <block a:if="{{columns}}">
       <picker-view 
-        mask-style="{{maskStyle}}"
-        mask-class="{{ maskClass}}"
-        indicator-style="{{indicatorStyle}}"
-        indicator-class="{{indicatorClass}}"
+        mask-style="{{maskStyle || ''}}"
+        mask-class="amd-picker-content-mask {{ maskClass || ''}}"
+        indicator-style="{{indicatorStyle|| ''}}"
+        indicator-class="amd-picker-content-indicator {{indicatorClass || ''}}"
         value="{{selectedIndex}}"
         onChange="onChange">
         <block 
@@ -52,7 +52,7 @@
           a:for-item="dataRoot"
           a:for-index="dataIndex">
           <picker-view-column a:if="{{dataIndex < data.length}}">
-              <view a:for="{{dataRoot}}" class="amd-picker-content-item">
+              <view a:for="{{dataRoot}}">
                 {{_sjs.getPickerViewLabel(item)}}
               </view>
           </picker-view-column>

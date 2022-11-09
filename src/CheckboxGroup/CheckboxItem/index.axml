@@ -8,17 +8,10 @@
       id="{{id ? id : $id}}"
       disabled="{{_sjs.isDisabled(disabled,_disabled)}}"
       onChange="onItemChange"
-      icon="{{icon}}"
-      checkedIcon="{{checkedIcon}}"
-      disabledIcon="{{disabledIcon}}"
-      disabledCheckedIcon="{{disabledCheckedIcon}}"
       checked="{{_checked}}"
       value="{{value}}">  
       <slot />
-      <slot name="icon" slot="icon"/>
-      <slot name="checkedIcon" slot="checkedIcon"/>
-      <slot name="disbaledIcon" slot="disbaledIcon"/>
-      <slot name="disabledCheckedIcon" slot="disabledCheckedIcon"/>
+      <slot name="icon" slot="icon" disabled="{{_sjs.isDisabled(disabled,_disabled)}}" checked="{{_checked}}"/>
     </checkbox> 
   </list-item>
 </label>

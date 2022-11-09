@@ -24,8 +24,6 @@ toc: 'content'
 | -----|-----|-----|-----|
 | className | 类名| `string` | - |
 | disabled | 是否禁用  | `boolean` | false | 
-| footer | 底部内容插槽 | `slot` | - |
-| header | 头部内容插槽 | `slot` | - |
 | mode | 配合From/FormItem组件使用时，需设置为 from | 'noraml' \| 'form' | 'normal'| 
 | position | 布局 | 'horizontal' &verbar;  'vertical' | 'vertical' |
 | style | 样式| `string` | - |
@@ -37,13 +35,10 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | checked | 是否选中 | `boolean` | false |
-| checkedIcon | 勾选状态图标插槽 | `slot`| - |
 | className | 类名| `string` | - |
 | disabled | 是否禁用  | `boolean` | false | 
-| disbaledIcon | 禁用时未勾选状态图标插槽 | `slot` | - |
-| disabledCheckedIcon | 禁用时勾选状态图标插槽| `slot` | - |
 | name |  表单元素name | `string` | - |
-| icon | 未勾选状态图标插槽 | `slot` | - |
+| icon | 图标插槽，，接收checked、disabled参数  | `slot` | - |
 | id | 表单元素id | `string` | - |
 | style | 样式| `string` | - |
 | uid | 当页面有多个CheckboxGroup时需传入，`必须页面唯一`，与外部的 CheckboxGroup 组件的 uid 一致  | `string` | - | 

@@ -15,15 +15,15 @@
             <slot name="icon" a:if="{{ !_checked && !disabled }}">
               <view class="amd-radio-item-fake-icon"></view>
             </slot>
-            <slot name="checkedIcon" a:if="{{ _checked && !disabled }}">
+            <slot name="icon" a:if="{{ _checked && !disabled }}">
               <view class="amd-radio-item-fake-checkedIcon">
                 <amd-icon  type="CheckOutline" className="amd-radio-item-fake-checkedIcon-icon"/>
               </view>
             </slot>
-            <slot name="disbaledIcon" a:if="{{ !_checked && disabled }}">
+            <slot name="icon" a:if="{{ !_checked && disabled }}">
               <view class="amd-radio-item-fake-disbaledIcon"></view>
             </slot>
-            <slot name="disabledCheckedIcon" a:if="{{ _checked && disabled }}">
+            <slot name="icon" a:if="{{ _checked && disabled }}">
               <view class="amd-radio-item-fake-disabledCheckedIcon">
                 <amd-icon  type="CheckOutline" className="amd-radio-item-fake-disabledCheckedIcon-icon"/>
               </view>

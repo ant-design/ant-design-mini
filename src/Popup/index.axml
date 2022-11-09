@@ -2,7 +2,7 @@
 
 <view
   class="amd-popup {{className||''}} {{disableScroll?'amd-popup-disable-scroll':''}} {{animation?'amd-popup-animation':''}}"
-  style="z-index: 998; {{style}}"
+  style="{{style  || ''}}"
   a:if="{{visible||closing}}"
   onTouchMove="{{disableScroll && supportSjs ? _sjs.disableScrollEvent : ''}}"
 >

@@ -1,8 +1,5 @@
 <list 
   className="amd-radio-group {{className ? className : ''}} amd-radio-group-{{position}}" style="{{style || ''}}">
-  <view class="amd-list-header">
-    <slot name="header"/>
-  </view>
   <radio-group id="{{id ? id : $id}}"
     name="{{name ? name : ''}}"
     disabled="{{_disabled}}">
@@ -12,7 +9,4 @@
       </slot>
     </view>
   </radio-group>
-  <view class="amd-radio-group-footer">
-    <slot name="footer"/>
-  </view>
 </list>

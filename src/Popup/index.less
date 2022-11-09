@@ -49,6 +49,7 @@
     display: flex;
     flex-direction: column;
     animation-fill-mode: forwards;
+    color: @COLOR_TEXT_PRIMARY;
     &&-auto {
       height: auto;
       min-width: 0;
@@ -193,7 +194,6 @@
 @keyframes amd-popup-left-close {
   0% {
     left: 0;
-    
   }
   100% {
     left: -100%;
@@ -229,6 +229,6 @@
     background-color: @popup-mask-product;
   }
   100% {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: fade(@COLOR_BLACK, 0);
   }
 }

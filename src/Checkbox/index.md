@@ -25,13 +25,10 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | checked | 是否选中 | `boolean` | false |
-| checkedIcon | 勾选状态图标插槽 | `slot`| - |
 | className | 类名| `string` | - |
 | disabled | 是否禁用  | `boolean` | false | 
-| disbaledIcon | 禁用时未勾选状态图标插槽 | `slot` | - |
-| disabledCheckedIcon | 禁用时勾选状态图标 插槽| `slot` | - |
 | name |  表单元素name | `string` | - |
-| icon | 未勾选状态图标插槽 | `slot` | - |
+| icon | 图标插槽，，接收checked、disabled参数 | `slot` | - |
 | id | 表单元素id | `string` | - |
 | style | 样式| `string` | - |
 | value | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用 | `string` | - |
