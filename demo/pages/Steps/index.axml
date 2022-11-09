@@ -52,6 +52,6 @@
       <view>{{item.value.title}}</view>
       <view>{{item.value.description}}</view>
     </view>
-  
+
   </steps>
 </container>
