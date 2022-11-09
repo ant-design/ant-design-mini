@@ -1,12 +1,7 @@
 <view class="amd-container-header {{ headerInBox ? 'amd-container-headerInBox' : '' }}">
     <view class="amd-container-header-title">
       <view class="amd-container-header-content">
-        <block a:if="{{typeof title !== 'undefined'}}">
-          {{title}}
-        </block>
-        <block a:else>
-          <slot name="title" />
-        </block>
+        <slot name="title">{{title}}</slot>
       </view>
     </view>
     <view 

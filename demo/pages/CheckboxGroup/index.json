@@ -2,7 +2,7 @@
   "defaultTitle": "CheckBoxGroup",
   "usingComponents": {
     "am-icon": "../../../src/Icon/index",
-    "demo-block": "../../components/DemoBlock/index",
+    "container": "../../../src/Container/index",
     "checkbox-group": "../../../src/CheckboxGroup/index",
     "checkbox-item": "../../../src/CheckboxGroup/CheckboxItem/index",
     "list-item": "../../../src/List/ListItem/index"

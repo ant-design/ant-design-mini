@@ -1,4 +1,4 @@
-<demo-block title="基础用法">
+<container title="基础用法">
   <checkbox-group 
     uid="group1"
     data-list="{{list}}"
@@ -11,10 +11,10 @@
         {{item.label}}
     </checkbox-item>
   </checkbox-group>
-</demo-block>
+</container>
 
 
-<demo-block title="横向布局">
+<container title="横向布局">
   <checkbox-group 
     uid="group4"
     position="horizontal"
@@ -27,9 +27,9 @@
       {{item.label}}
   </checkbox-item>
   </checkbox-group>
-</demo-block>
+</container>
 
-<demo-block title="部分禁用">
+<container title="部分禁用">
   <checkbox-group 
     uid="group2"
     value="{{['orange','banner']}}"
@@ -42,9 +42,9 @@
         {{item.label}}
     </checkbox-item>
   </checkbox-group>
-</demo-block>
+</container>
 
-<demo-block title="整组禁用">
+<container title="整组禁用">
   <checkbox-group 
     uid="group3"
     value="{{['orange','banner']}}"
@@ -57,9 +57,9 @@
         {{item.label}}
     </checkbox-item>
   </checkbox-group>
-</demo-block>
+</container>
 
-<demo-block title="自定义图标">
+<container title="自定义图标">
   <checkbox-group 
     uid="group5"
     onChange="handleChange"
@@ -73,4 +73,4 @@
     </checkbox-item>
 
   </checkbox-group>
-</demo-block>
+</container>

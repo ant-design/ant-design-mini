@@ -1,4 +1,4 @@
-<demo-block title="基础用法" padding="0">
+<container title="基础用法" >
     <list-item>
         请选择日期
         <date-picker 
@@ -29,8 +29,8 @@
             onOk="handleOk">
         </date-picker>
     </list-item>
-</demo-block>
-<demo-block title="选择精度" padding="0">
+</container>
+<container title="选择精度" >
     <list-item>
         请选择年度
         <date-picker 
@@ -60,8 +60,8 @@
             onTriggerPicker="handleTriggerPicker"
             onOk="handleOk"/>
     </list-item>
-</demo-block>
-<demo-block title="禁用状态" padding="0">
+</container>
+<container title="禁用状态" >
     <list-item>
         请选择日期
         <date-picker 
@@ -70,8 +70,8 @@
             disabled>
         </date-picker>
     </list-item>
-</demo-block>
-<demo-block title="时间范围选择" padding="0">
+</container>
+<container title="时间范围选择" >
     <list-item>
         日期范围
         <range-picker 
@@ -83,4 +83,4 @@
             onOk="handleRangeOk">
         </range-picker>
     </list-item>
-</demo-block>
+</container>

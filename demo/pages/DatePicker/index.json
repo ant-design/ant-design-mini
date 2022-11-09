@@ -5,6 +5,6 @@
     "range-picker": "../../../src/RangePicker/index",
     "list": "../../../src/List/index",
     "list-item": "../../../src/List/ListItem/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "container": "../../../src/Container/index"
   }
 }

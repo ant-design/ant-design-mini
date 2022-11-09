@@ -1,38 +1,32 @@
-<view class="demo">
-  <demo-block title="基础用法" padding="0">
+
+  <container title="基础用法">
     <list>
-      <list-item className="demo-item">
+      <list-item>
         <checkbox/>
       </list-item>
-      <list-item className="demo-item">
+      <list-item>
         <checkbox>有描述的复选框</checkbox>
       </list-item>
-      <list-item className="demo-item">
+      <list-item>
         <label class="wrapper"><checkbox/><text>自定义布局</text>
         </label>
       </list-item>
+      <list-item>
+        <checkbox checked>默认选中</checkbox>
+      </list-item>
+      <list-item>
+        <checkbox disabled checked>禁用状态</checkbox>
+      </list-item>
+      <list-item>
+        <checkbox>自定义图标（Icon）
+          <am-icon type="{{props.checked?'SmileFill':'SmileOutline'}}" style="color:#1677ff;font-size:44rpx;" slot="icon" slot-scope="props" a:if="{{!props.disabled}}"/>
+        </checkbox>
+      </list-item>
+      <list-item>
+        <checkbox checked>自定义图标（图片）
+            <image style="width:100%;height:100%;border-radius:50%;" slot="icon" slot-scope="props" a:if="{{props.checked&&!props.disabled}}"  src="https://gw.alipayobjects.com/mdn/rms_ffbcbf/afts/img/A*2oqcRL38fWwAAAAAAAAAAAAAARQnAQ"/>
+          </checkbox>
+      </list-item>
     </list>
-  </demo-block>
-  <demo-block title="默认选中" padding="0">
-    <list-item className="demo-item">
-      <checkbox checked>默认选中</checkbox>
-    </list-item>
-  </demo-block>
-  <demo-block title="禁用状态" padding="0">
-    <list-item className="demo-item">
-      <checkbox disabled checked>禁用状态</checkbox>
-    </list-item>
-  </demo-block>
-  <demo-block title="自定义图标" padding="0">
-    <list-item className="demo-item demo-item-icon">
-      <checkbox>自定义图标（Icon）
-        <am-icon type="{{props.checked?'SmileFill':'SmileOutline'}}" style="color:#1677ff;font-size:44rpx;" slot="icon" slot-scope="props" a:if="{{!props.disabled}}"/>
-      </checkbox>
-    </list-item>
-    <list-item className="demo-item demo-item-image">
-      <checkbox checked>自定义图标（图片）
-        <image style="width:100%;height:100%;border-radius:50%;" slot="icon" slot-scope="props" a:if="{{props.checked&&!props.disabled}}"  src="https://gw.alipayobjects.com/mdn/rms_ffbcbf/afts/img/A*2oqcRL38fWwAAAAAAAAAAAAAARQnAQ"/>
-      </checkbox>
-    </list-item>
-  </demo-block>
-</view>
+</container>
+  
