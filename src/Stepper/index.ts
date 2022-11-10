@@ -62,7 +62,7 @@ Component({
     },
     onFocus(e) {
       const { value } = e.detail;
-      this.props.onFocus?.(value, fmtEvent(this.props,e));
+      this.props.onFocus?.(value, fmtEvent(this.props, e));
     },
     onBlur(e) {
       if (this.data.confirm) {
@@ -116,14 +116,14 @@ Component({
         }
       }
     },
-    getDataSet(){
-      return Object.entries(this.props).reduce((prev,cur)=>{
+    getDataSet() {
+      return Object.entries(this.props).reduce((prev, cur) => {
         const [key, val] = cur
-        if(key.startsWith('data-')){
-          prev[key.replace('data-','')] = val
+        if (key.startsWith('data-')) {
+          prev[key.replace('data-', '')] = val
         }
         return prev
-      },{})
+      }, {})
     }
   },
 });

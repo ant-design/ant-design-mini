@@ -1,84 +1,97 @@
-<tabs uid="tab1" onChange="handleChangeTab1" activekey="{{tab1Index}}">
-  <block a:for="{{tabTypes}}" a:for-index="idx" a:for-item="tabTypeItem">
-    <tab-content uid="tab1" tab="{{tabTypeItem}}">
-      <demo-block title="基础用法" padding="0">
-        <tabs uid="{{'tab2'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab2" activekey="{{tab2Index}}">
-          <block a:for="{{tabList}}">
-            <tab-content uid="{{'tab2'+idx}}" tab="{{item}}">
-              <view class="content">{{item.content}}</view>
-            </tab-content>
-          </block>
-        </tabs>
-      </demo-block>
-      <demo-block title="手势切换" padding="0">
-        <tabs uid="{{'tab3'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab3" activekey="{{tab3Index}}" animation swipeable>
-          <block a:for="{{tabList}}">
-            <tab-content uid="{{'tab3'+idx}}" tab="{{item}}">
-              <view class="content">{{item.content}}</view>
-            </tab-content>
-          </block>
-        </tabs>
-      </demo-block>
-      <demo-block title="禁用状态" padding="0">
-        <tabs uid="{{'tab4'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab4" activekey="{{tab4Index}}">
-          <block a:for="{{tabList}}">
-            <tab-content a:if="{{index === 1}}" uid="{{'tab4'+idx}}" tab="{{...item, disabled: true}}">
-              <view class="content">{{item.content}}</view>
-            </tab-content>
-            <tab-content a:else uid="{{'tab4'+idx}}" tab="{{item}}">
-              <view class="content">{{item.content}}</view>
-            </tab-content>
-          </block>
-        </tabs>
-      </demo-block>
-      <demo-block title="无内容" padding="0">
-        <tabs uid="{{'tab5'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab5" activekey="{{tab5Index}}">
-          <block a:for="{{tabList}}">
-            <tab-content uid="{{'tab5'+idx}}" tab="{{item}}">
-              <view class="content" />
-            </tab-content>
-          </block>
-        </tabs>
-      </demo-block>
-      <demo-block title="带有徽标" padding="0">
-        <tabs uid="{{'tab6'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab6" activekey="{{tab6Index}}">
-          <block a:if="{{tabTypeItem.type === 'capsule'}}">
-            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'水果', subTitle:'描述文案', badge: {type: 'dot', x: '-100%'}}}">
-              <view class="content">西瓜</view></tab-content>
-            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'蔬菜', subTitle:'描述文案', badge: {type: 'number', text: 11, x: '-100%'}}}">
-              <view class="content">西红柿</view></tab-content>
-            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'动物', subTitle:'描述文案', badge: {type: 'bubble', text: '气泡', x: '-100%'}}}">
-              <view class="content">蚂蚁</view></tab-content>
-          </block>
-          <block a:else>
-            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'水果', subTitle:'描述文案', badge: {type: 'dot'}}}">
-              <view class="content">西瓜</view></tab-content>
-            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'蔬菜', subTitle:'描述文案', badge: {type: 'number', text: 11}}}">
-              <view class="content">西红柿</view></tab-content>
-            <tab-content uid="{{'tab6'+idx}}" tab="{{title:'动物', subTitle:'描述文案', badge: {type: 'bubble', text: '气泡'}}}">
-              <view class="content">蚂蚁</view></tab-content>
-          </block>
-        </tabs>
-      </demo-block>
-      <demo-block title="超长滚动" padding="0">
-        <tabs uid="{{'tab7'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab7" activekey="{{tab7Index}}">
-          <block a:for="{{multiTabList}}">
-            <tab-content uid="{{'tab7'+idx}}" tab="{{item}}">
-              <view class="content">{{item.content}}</view>
-            </tab-content>
-          </block>
-        </tabs>
-      </demo-block>
-      <demo-block title="带拓展按钮" padding="0">
-        <tabs uid="{{'tab8'+idx}}" type="{{tabTypeItem.type}}" onChange="handleChangeTab8" activekey="{{tab8Index}}">
-          <block a:for="{{tabList}}">
-            <tab-content uid="{{'tab8'+idx}}" tab="{{item}}">
-              <view class="content">{{item.content}}</view>
-            </tab-content>
-          </block>
-          <icon slot="plus" fontSize="48rpx" type="AddOutline" onTap="handleClickIcon" />
-        </tabs>
-      </demo-block>
-    </tab-content>
-  </block>
-</tabs>
+<container title="基础用法">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
+
+
+<container title="胶囊">
+  <tabs
+    type="capsule"
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
+
+<container title="带副标题">
+  <tabs
+    type="mixin"
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
+
+<container title="带徽标">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <view slot="title" slot-scope="item">
+      <badge a:if="{{item.value.id === 0}}">
+        {{item.value.title}}
+      </badge>
+      <view a:else>
+        {{item.value.title}}
+      </view>
+    </view>
+
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
+
+<container title="禁用状态">
+  <tabs
+    items="{{items2}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
+
+<container title="content在外层">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  />
+  <view class="content">
+    {{items[current].content}}
+  </view>
+</container>
+
+<container title="plus按钮">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="onChange"
+  >
+    <icon slot="plus" type="AddOutline" />
+    <view slot="content" class="content">
+      {{items[current].content}}
+    </view>
+  </tabs>
+</container>
+
+

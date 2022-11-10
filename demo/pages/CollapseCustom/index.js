@@ -1,33 +1,47 @@
 Page({
   data: {
-    name: ['item-1'],
+    current: [],
+    items: [
+      {
+        title: '第一项',
+        content: 'Pariatur dolore commodo commodo elit adipisicing sunt adipisicing ex duis labore nisi sunt. Magna ut minim deserunt. Sunt velit occaecat incididunt aliqua. Dolore officia voluptate aute reprehenderit anim excepteur elit.'
+      },
+      {
+        title: '第二项',
+        content: 'Dolor reprehenderit cillum aliqua qui id Lorem elit anim do minim mollit. Commodo id cupidatat est tempor anim. Fugiat ipsum dolor nostrud officia mollit. Aliquip aliqua pariatur tempor excepteur commodo non et adipisicing magna ex nostrud dolore cillum exercitation enim. In sunt velit laboris ullamco et in reprehenderit sit excepteur aute in dolor. Sunt minim incididunt consectetur laborum sint fugiat voluptate sunt culpa fugiat duis. Ad consectetur ad aliquip aute labore magna commodo est cupidatat.'
+      },
+      {
+        title: '第三项',
+        content: 'Ad ut ullamco exercitation do excepteur ipsum ipsum consectetur nulla fugiat est et. Occaecat ullamco nulla mollit cupidatat dolore nulla minim cillum proident laboris mollit. Veniam consectetur esse consectetur. Fugiat in laborum anim.',
+        brief: '辅助信息',
+      },
+    ]
   },
-  handleChange(e) {
-    this.setData({ name: e });
-    console.log(e);
+  onChange(current) {
+    this.setData({
+      current,
+    });
   },
-  handleControl() {
-    const getRandom = () => {
-      const random = Math.random();
-      return random < 0.25 ? 0 : random < 0.5 ? 1 : random < 0.75 ? 2 : 3;
-    };
-    const { name } = this.data;
-    let newName = [];
-    if (name.length === 1) {
-      let randonIndex;
-      // eslint-disable-next-line no-constant-condition
-      while (true) {
-        randonIndex = getRandom();
-        if (randonIndex !== Number(name[0].substring(5))) {
-          break;
-        }
-      }
-      newName = [`item-${randonIndex}`];
-    } else {
-      newName = [`item-${getRandom()}`];
+  onPrevTap() {
+    if (typeof this.data.current === 'undefined') {
+      this.setData({
+        current: 0,
+      });
+      return;
     }
     this.setData({
-      name: newName,
+      current: this.data.current === 0 ? this.data.items.length - 1 : this.data.current - 1,
+    });
+  },
+  onNextTap() {
+    if (typeof this.data.current === 'undefined') {
+      this.setData({
+        current: 0,
+      });
+      return;
+    }
+    this.setData({
+      current: this.data.current === this.data.items.length - 1 ? 0 : this.data.current + 1,
     });
   },
 });

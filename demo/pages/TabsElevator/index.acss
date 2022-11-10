@@ -1,20 +1,13 @@
-.header {
-  padding: 24rpx;
+.content {
+  padding: 12px;
+  height: 400px;
 }
-.footer {
-  text-align: center;
-  padding: 24rpx;
-  color: #ccc;
+
+.item {
+  margin-bottom: 40px;
 }
-.tab-content {
-  padding: 0 24rpx 24rpx;
-}
-.tab-content-title {
-  font-family: PingFangSC-Medium;
-  font-size: 36rpx;
-  padding-bottom: 24rpx;
-}
-.tab-content-text {
-  font-size: 24rpx;
-  line-height: 30rpx;
+
+.title {
+  font-weight: bold;
+  margin-bottom: 8px;
 }

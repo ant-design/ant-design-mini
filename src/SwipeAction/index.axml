@@ -44,14 +44,14 @@
         style="{{{
           zIndex: tapTypeR === item.type ? 1 : 0,
           marginLeft: util.getMarginLeft3(rightWidth, leftWidth, inertiaWidth),
-          width: (rightWidth - 0.1) + 'rpx' }}}"
+          width: ((rightWidth - 0.1) / 2) + 'px' }}}"
         data-type="content"
         animation="{{false}}"
         disabled="{{true}}"
         direction="horizontal"
         x="{{moveX * ((right.length - idx) / right.length)}}"
       >
-        <view class="paytm-swipe-movable-content-right" style="{{{background: item.bgColor,width: (itemWidth + inertiaWidth + 1) + 'rpx'}}}">
+        <view class="paytm-swipe-movable-content-right {{ item.className }}" style="{{{background: item.bgColor,width: ((itemWidth + inertiaWidth + 1) / 2) + 'px'}}}">
           <view
             class="paytm-swipe-movable-content-right-text amd-swipe-action-right {{ item.className }}"
             catchTap="onItemTap"
@@ -59,16 +59,16 @@
             aria-hidden="{{!swipedR}}"
             style="{{{
               ...item.style,
-              fontSize: (item.fontSize || 28) + 'rpx',
+              fontSize: ((item.fontSize || 28) / 2) + 'px',
               color: item.color,
               background: item.bgColor,
-              width: tapTypeR && tapTypeR === item.type ? (rightWidth + 1 + inertiaWidth) + 'rpx' : `${itemWidth}rpx`,
+              width: tapTypeR && tapTypeR === item.type ? ((rightWidth + 1 + (item.eventType === 'move' ? inertiaWidth : 0)) / 2) + 'px' : `${itemWidth / 2}px`,
               ...(tapTypeR && tapTypeR === item.type ? myStyle : {})
               }}}">
               <text a:if="{{item.type !== 'rightItemSlot'}}" class="right-text {{util.getLeft(tapTypeR, item, idx, right, true)}}">
                   {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
               </text>
-              <slot data="{{item}}" name="rightItem">
+              <slot a:else data="{{item}}" name="rightItem">
                 {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
               </slot>
           </view>
@@ -83,8 +83,8 @@
         a:key="{{`left-${idx}`}}"
         style="{{{
           zIndex: tapTypeL === itemL.type ? 1 : 0,
-          marginLeft: `${inertiaWidth}rpx`,
-          width: (leftWidth - 1) + 'rpx'}}}",
+          marginLeft: `${inertiaWidth / 2}px`,
+          width: ((leftWidth - 1) / 2) + 'px'}}}"
         data-type="content"
         animation="{{false}}"
         disabled="{{true}}"
@@ -92,8 +92,8 @@
         x="{{moveX * ((left.length - idx) / left.length)}}"
       >
       <view
-        class="paytm-swipe-movable-content-left"
-        style="{{{background: tapTypeL && tapTypeL === itemL.type && left.length === 3 && idx === 1  ? 'none' : itemL.bgColor,width: (leftWidth + inertiaWidth) + 'rpx'}}}">
+        class="paytm-swipe-movable-content-left {{ itemL.className }}"
+        style="{{{background: tapTypeL && tapTypeL === itemL.type && left.length === 3 && idx === 1  ? 'none' : itemL.bgColor,width: ((leftWidth + inertiaWidth) / 2) + 'px'}}}">
         <view
           class="paytm-swipe-movable-content-left-text1 amd-swipe-action-left  {{ itemL.className }}"
           catchTap="onItemTap"
@@ -103,18 +103,18 @@
             ...itemL.style,
             background: itemL.bgColor,
             height: `calc(100% + 2px)`,
-            fontSize: (itemL.fontSize || 28) + 'rpx',
+            fontSize: ((itemL.fontSize || 28) / 2) + 'px',
             color: itemL.color,
             ...(tapTypeL && tapTypeL === itemL.type ? myStyle : {}),
-            width: tapTypeL && tapTypeL === itemL.type ? (leftWidth + 1 + inertiaWidth) + 'rpx' : `${itemWidth}rpx`,
+            width: tapTypeL && tapTypeL === itemL.type ? ((leftWidth + 1 + (itemL.eventType === 'move' ? inertiaWidth : 0)) / 2) + 'px' : `${itemWidth / 2}px`,
             }}}">
-            <text a:if="{{itemL.type !== 'leftItemSlot'}}" class="right-text" style="{{{ width: `${leftWidth}rpx` }}}">
+            <text a:if="{{itemL.type !== 'leftItemSlot'}}" class="right-text" style="{{{ width: `${leftWidth / 2}px` }}}">
               <text class="right-text {{util.getLeft(tapTypeL, itemL, idx, left, false)}}">
                 {{tapTypeL && tapTypeL === itemL.type ? (itemL.confirmText || itemL.text) : itemL.text}}
               </text>
             </text>
-            <slot data="{{item}}" name="leftItem">
-              {{tapTypeR && tapTypeR === item.type ? (item.confirmText || item.text) : item.text}}
+            <slot a:else data="{{itemL}}" name="leftItem">
+              {{tapTypeL && tapTypeL === itemL.type ? (itemL.confirmText || itemL.text) : itemL.text}}
             </slot>
         </view>
       </view>

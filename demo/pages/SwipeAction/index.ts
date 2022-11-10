@@ -10,8 +10,9 @@ Page({
             {
               type: 'delete',
               text: '删除',
-              bgColor: '#FF2B00',
-              color: '#fff',
+              // bgColor: '#FF2B00',
+              // color: '#fff',
+              className: 'sa-delete',
             }
           ]
         }
@@ -25,14 +26,16 @@ Page({
             {
               type: 'set',
               text: '设为常用',
-              bgColor: '#1677FF',
-              color: '#fff',
+              // bgColor: '#1677FF',
+              // color: '#fff',
+              className: 'sa-set',
             },
             {
               type: 'delete',
               text: '删除',
-              bgColor: '#FF2B00',
-              color: '#fff',
+              // bgColor: '#FF2B00',
+              // color: '#fff',
+              className: 'sa-delete',
             }
           ]
         }
@@ -46,20 +49,23 @@ Page({
             {
               type: 'set',
               text: '设为常用',
-              bgColor: '#1677FF',
-              color: '#fff',
+              // bgColor: '#1677FF',
+              // color: '#fff',
+              className: 'sa-set',
             },
             {
               type: 'his',
               text: '往来记录',
-              bgColor: '#FFA91B',
-              color: '#fff',
+              // bgColor: '#FFA91B',
+              // color: '#fff',
+              className: 'sa-his',
             },
             {
               type: 'delete',
               text: '删除',
-              bgColor: '#FF2B00',
-              color: '#fff',
+              // bgColor: '#FF2B00',
+              // color: '#fff',
+              className: 'sa-delete',
             }
           ]
         }
@@ -87,17 +93,21 @@ Page({
     const { baseList } = this.data;
     const _baseList = baseList.map(u => {
       let _event = {};
+      let _detail = '';
       if (value === 'left') {
         _event = Object.assign({}, u.event, { left: u.event.left || u.event.right, right: null });
+        _detail = '左滑-';
       }
       if (value === 'right') {
         _event = Object.assign({}, u.event, { right: u.event.left || u.event.right, left: null });
+        _detail = '右滑-';
       }
       if (value === 'two') {
         const _arr = u.event.left || u.event.right;
         _event = Object.assign({}, u.event, { right: _arr, left: _arr });
+        _detail = '左、右滑-';
       }
-      return Object.assign({}, u, { event: _event });
+      return Object.assign({}, u, { detail: _detail + u.detail.split('-')[1], event: _event });
     });
     this.setData({ baseList: _baseList });
   },

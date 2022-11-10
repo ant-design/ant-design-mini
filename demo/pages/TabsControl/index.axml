@@ -1,0 +1,19 @@
+<!--basic-->
+<tabs
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+>
+  <view slot="content">
+    {{items[current].content}}
+  </view>
+</tabs>
+
+
+
+{{current}}/{{items.length}}
+<button onTap="onPrevTap">选中上一个</button>
+<button onTap="onNextTap">选中下一个</button>
+
+<button onTap="onAddTap">添加一个选项</button>
+<button onTap="onMinusTap">减少一个选项</button>

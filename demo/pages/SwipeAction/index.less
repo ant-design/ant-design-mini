@@ -1,20 +1,23 @@
+@import "../../../src/style/themes/color.less";
+@import (reference) "../../../src/_base/index.less";
+
 .t-swipe {
   width: 100%;
   margin: 0 auto;
-  padding-top: 20rpx;
-  min-height: 1000rpx;
-  background-color: #FAFBFC;
-  padding-bottom: 100rpx;
+  padding-top: 20 * @rpx;
+  height: calc(100vh - 20 * @rpx);
+  background-color: @COLOR_BACKGROUND;
   &-item {
-    height: 110rpx;
-    line-height: 110rpx;
-    font-size: 34rpx;
-    color: #333;
+    height: 110 * @rpx;
+    line-height: 110 * @rpx;
+    font-size: 34 * @rpx;
+    color: @COLOR_TEXT_PRIMARY;
     &-con {
-      background-color: white;
+      background-color: @COLOR_CARD;
       text-indent: 1em;
       position: relative;
       height: 100%;
+      color: @COLOR_TEXT_PRIMARY;
       &::after {
         content: "";
         position: absolute;
@@ -25,30 +28,50 @@
         max-height: 1px;
         min-height: 1px;
         transform: scaleY(0.5);
-        background-color: #e5e5e5;
+        background-color: @COLOR_BORDER;
       }
     }
   }
 }
 .s-action {
   width: 100%;
-  margin: 48rpx auto;
-  color: #333;
-  min-height: 300rpx;
-  border-radius: 16rpx;
+  margin: 48 * @rpx auto;
+  min-height: 300 * @rpx;
+  border-radius: 16 * @rpx;
   &-title {
-    margin-top: 24rpx;
-    margin-left: 24rpx;
+    margin-top: 24 * @rpx;
+    margin-left: 24 * @rpx;
+    margin-bottom: 12 * @rpx;
     width: 50%;
+    color: @COLOR_TEXT_PRIMARY;
   }
   &-switch {
-    width: calc(100% - 48rpx);
-    margin: 24rpx auto;
+    width: calc(100% - 48 * @rpx);
+    margin: 24 * @rpx auto;
     .amd-slider-track {
       background: none;
     }
   }
+  .amd-list-item-content-main {
+    color: @COLOR_TEXT_PRIMARY;
+  }
+  .amd-slider-tick-number {
+    color: @COLOR_TEXT_PRIMARY;
+  }
 }
 .radio-group .amd-list-item {
   background: none;
+}
+
+.sa-delete {
+  background: @COLOR_RED;
+  color: #fff;
+}
+.sa-set {
+  background: @COLOR_BRAND1;
+  color: #fff;
+}
+.sa-his {
+  background: @COLOR_YELLOW;
+  color: #fff;
 }

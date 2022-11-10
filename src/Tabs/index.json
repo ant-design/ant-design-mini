@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "badge": "../Badge/index"
+    "tap-modal": "../TapModal/index"
   }
 }

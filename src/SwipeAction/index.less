@@ -1,12 +1,15 @@
+@import "../style/themes/color.less";
+@import (reference) "../_base/index.less";
+
 @keyframes text-animate-right {
     33% {
-      margin-left: -10rpx;
+      margin-left: -10 * @rpx;
     }
     66% {
-      margin-left: 10rpx;
+      margin-left: 10 * @rpx;
     }
     100% {
-      margin-left: 0rpx;
+      margin-left: 0 * @rpx;
     }
   }
   @keyframes text-animate-midd {
@@ -19,13 +22,13 @@
   }
   @keyframes text-animate-left {
     33% {
-      margin-left: 10rpx;
+      margin-left: 10 * @rpx;
     }
     66% {
-      margin-left: -10rpx;
+      margin-left: -10 * @rpx;
     }
     100% {
-      margin-left: 0rpx;
+      margin-left: 0 * @rpx;
     }
   }
 
@@ -69,7 +72,7 @@
             }
             &-right {
               height: 100%;
-              color: white;
+              color: @COLOR_WHITE;
               &-text {
                 height: 100%;
                 display: flex;
@@ -86,7 +89,7 @@
               position: absolute;
               right: 0;
               top: 0;
-              color: white;
+              color: @COLOR_WHITE;
               display: flex;
               flex-direction: row;
               justify-content: flex-end;

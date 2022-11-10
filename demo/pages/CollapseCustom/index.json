@@ -1,10 +1,7 @@
 {
-  "defaultTitle": "Collapse：自定义",
+  "defaultTitle": "Collapse",
   "usingComponents": {
     "collapse": "../../../src/Collapse/index",
-    "collapse-item": "../../../src/Collapse/CollapseItem/index",
-    "icon": "../../../src/Icon/index",
-    "demo-block": "../../components/DemoBlock/index",
-    "button": "../../../src/Button/index"
+    "icon": "../../../src/Icon/index"
   }
 }
