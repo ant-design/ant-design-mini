@@ -8,6 +8,7 @@ import {
   getStrictMatchedItemByValue,
 } from './utils';
 import fmtEvent from '../_util/fmtEvent';
+import { isArray } from '../_util/tools';
 
 Component({
   mixins: [controlled(), formMixin({ trigger: 'onOk' })],
@@ -70,7 +71,7 @@ Component({
     getterColumns() {
       let columns = [];
       if (this.props.data.length > 0) {
-        if (this.props.data.every((item) => item instanceof Array)) {
+        if (this.props.data.every((item) => isArray(item))) {
           this.single = false;
           columns = this.props.data.slice();
         } else {

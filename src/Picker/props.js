@@ -1,3 +1,5 @@
+import { isArray } from '../_util/tools';
+
 export const PickerDefaultProps = {
   controlled: false,
   okText: '确定',
@@ -7,7 +9,7 @@ export const PickerDefaultProps = {
   data: [],
   placeholder:'请选择',
   onFormat: function onFormat(value, column) {
-    if (column instanceof Array) {
+    if (isArray(column)) {
       return column.filter(c  => c !== undefined).map(function (c) {
         if (typeof  c === 'object') {
           return c.label

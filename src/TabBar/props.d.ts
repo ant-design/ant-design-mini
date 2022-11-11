@@ -42,7 +42,7 @@ export interface ITabsConfig {
    * @description 底部的文本信息
    * @default ''
    */
-  text: string;
+  text?: string;
   /**
    * @description 徽标，参见 <Badge/> 组件
    * @default undefined

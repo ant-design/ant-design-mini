@@ -1,4 +1,5 @@
 import dayjs, { Dayjs } from 'dayjs';
+import { isDate } from '../_util/tools';
 
 function getArray(start, end, suffix) {
   const res = [];
@@ -181,7 +182,7 @@ export function getValidValue(value) {
  * @param date2
  */
 export function isEqualDate(date1, date2) {
-  if (date1 instanceof Date && date2 instanceof Date) {
+  if (isDate(date1) && isDate(date2)) {
     return dayjs(date1).isSame(date2);
   }
   return date1 === date2;
