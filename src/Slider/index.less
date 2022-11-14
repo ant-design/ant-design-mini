@@ -1,0 +1,166 @@
+@import (reference) "./variable.less";
+
+@collapsePrefix: amd-slider;
+
+.@{collapsePrefix} {
+  --fill-color: @color-fill-primary;
+  user-select: none;
+  width: 100%;
+
+  &-track {
+    position: relative;
+    width: 100%;
+    height: 56*@rpx;
+    background-color: #FFF;
+
+    &-number {
+      height: 97*@rpx;
+    }
+
+    &-touch-area {
+      position: absolute;
+      left:  28*@rpx;
+      top: 0*@rpx;
+      right: 25*@rpx;
+      height: 100%;
+    }
+
+    &-fill {
+      position: absolute;
+      left:  0*@rpx;
+      top: 25*@rpx;
+      right: 0*@rpx;
+      height: 6*@rpx;
+
+      &-background {
+        position: absolute;
+        background-color: @slider-fill-background-color;
+        width: 100%;
+        height: 100%;
+        border-radius: 3*@rpx;
+      }
+
+      &-front {
+        position: absolute;
+        height: 100%;
+        border-radius: 3*@rpx;
+        background-color: var(--fill-color);
+      }
+    }
+  }
+
+  &-handler {
+    position: absolute;
+    left: 0;
+    width: 56*@rpx;
+    height: 56*@rpx;
+    transform: translate(-50%, -50%);
+    top: 3*@rpx;
+    background: #FFFFFF;
+    box-shadow: 0 4*@rpx 10*@rpx 0 rgba(0,0,0,0.12);
+    border-radius: 56*@rpx;
+    text-align: center;
+    line-height: 56*@rpx;
+    color: var(--fill-color);
+    // transition: 0.2s;
+
+    &-icon-default {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      &-line1 {
+        position: absolute;
+        width: 4*@rpx;
+        height: 16*@rpx;
+        background-color: var(--fill-color);
+        border-radius: 2*@rpx;
+        top: 20*@rpx;
+        left: 16*@rpx;
+      }
+
+      &-line2 {
+        position: absolute;
+        width: 4*@rpx;
+        height: 24*@rpx;
+        background-color: var(--fill-color);
+        border-radius: 2*@rpx;
+        top: 16*@rpx;
+        right: 26*@rpx;
+      }
+
+      &-line3 {
+        position: absolute;
+        width: 4*@rpx;
+        height: 16*@rpx;
+        background-color: var(--fill-color);
+        border-radius: 2*@rpx;
+        top: 20*@rpx;
+        right: 16*@rpx;
+      }
+    }
+
+    &-icon-from-props {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      line-height: 100%;
+
+      &-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &-tick {
+    position: absolute;
+    width: 16*@rpx;
+    height: 16*@rpx;
+    border-radius: 16*@rpx;
+    top: 3 * @rpx;
+    transform: translate(-50%, -50%);
+
+    &-front {
+      background-color: var(--fill-color);
+    }
+
+    &-back {
+      background-color: @slider-fill-background-color;
+    }
+
+    &-number {
+      position: absolute;
+      color: #333;
+      font-size: 24*@rpx;
+      transform: translateX(-50%);
+      top: 44*@rpx;
+      left: 8*@rpx;
+      // background-color: #00ffff;
+      text-align: center;
+      line-height: 33*@rpx;
+      height: 33*@rpx;
+    }
+
+  }
+  &-tooltip {
+    .amd-popover-content {
+      top: -26 * @rpx;
+      min-width: 0;
+      .amd-popover-inner {
+        padding: 0 24 * @rpx;
+      }
+    }
+    &-content {
+      font-size: 30 * @rpx;
+      color: #FFFFFF;
+    }
+  }
+}

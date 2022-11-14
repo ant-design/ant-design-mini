@@ -24,6 +24,7 @@
     <uploader 
       action='{{action}}'
       maxCount="{{3}}"
+      value="{{value_3}}"
       onChange="onChange"
     >
       <view slot="uploadIcon">
@@ -54,7 +55,7 @@
   <view class="demo-image-upload-show">
     <uploader 
       action='{{action}}'
-      maxCount="{{2}}"
+      maxCount="{{3}}"
       value="{{value_1}}"
       onBeforeUpload="onBeforeUpload"
     />

@@ -265,10 +265,10 @@ Component({
       }
     },
 
-    onDismiss() {
+    onDismiss(e) {
       const { onDismiss } = this.props;
       if (onDismiss) {
-        onDismiss(fmtEvent(this.props));
+        onDismiss(fmtEvent(this.props, e));
       }
     },
 

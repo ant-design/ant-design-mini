@@ -1,0 +1,20 @@
+.header {
+  padding: 24rpx;
+}
+.footer {
+  text-align: center;
+  padding: 24rpx;
+  color: #ccc;
+}
+.tab-content {
+  padding: 0 24rpx 24rpx;
+}
+.tab-content-title {
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  padding-bottom: 24rpx;
+}
+.tab-content-text {
+  font-size: 24rpx;
+  line-height: 30rpx;
+}

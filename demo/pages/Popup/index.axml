@@ -1,6 +1,9 @@
 <view>
-  <popup visible="{{basicShow}}" maskClosable="{{maskClosable}}" position="{{position}}" animation="{{animation}}" onClose="handlePopupClose" 
+  <popup visible="{{basicShow}}" autoHeight="{{autoHeight}}" maskClosable="{{maskClosable}}" position="{{position}}" animation="{{animation}}" onClose="handlePopupClose" 
     showCloseIcon="{{showCloseIcon}}">
+    <view>
+      从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
+    </view>
   </popup>
   <popup visible="{{showCenterDisableScoll}}" maskClosable="{{maskClosable}}" position="center" animation="{{animation}}" 
     onClose="handlePopupClose" showCloseIcon="{{showCloseIcon}}">
@@ -36,6 +39,10 @@
     <list-item>
       开启过渡动画
       <switch slot="extra" checked="{{animation}}" controlled onChange="handleChangeAnimation" />
+    </list-item>
+    <list-item>
+      自适应内容区高度/宽度
+      <switch slot="extra" checked="{{autoHeight}}" controlled onChange="handleChangeAutoHeight" />
     </list-item>
   </list>
   <demo-block title="设置disableScroll">

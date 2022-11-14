@@ -15,7 +15,11 @@ Page({
       url: 'XMzg2Mzc5MzMwMA==',
       status: 'error'
     }],
-    demoVideo: 'XNTg1Njg5NzkwMA=='
+    value_3: [
+      'XNDM0OTQzMDc2OA==',
+      'XMzg2Mzc5MzMwMA==',
+      'XMzg2Mzc5MzMwMA=='
+    ]
   },
   onChange(v) {
     console.log('当前已上传的图片列表：', v);

@@ -9,6 +9,23 @@
             value="{{defaultDate}}"
             placeholder="请选择"
             onPickerChange="handlePickerChange"
+            onTriggerPicker="handleTriggerPicker"
+            onDismiss="handleDismiss"
+            onOk="handleOk">
+        </date-picker>
+    </list-item>
+    <list-item>
+        请选择日期（点击蒙层关闭）
+        <date-picker 
+            data-value="value"
+            min="{{min}}"
+            max="{{max}}"
+            slot="extra"
+            value="{{defaultDate}}"
+            placeholder="请选择"
+            onPickerChange="handlePickerChange"
+            onTriggerPicker="handleTriggerPicker"
+            maskClosable
             onOk="handleOk">
         </date-picker>
     </list-item>
@@ -30,6 +47,7 @@
             precision="month"
             format="YYYY-MM"
             placeholder="选择"
+            onTriggerPicker="handleTriggerPicker"
             onOk="handleOk"/>
     </list-item>
     <list-item>
@@ -39,6 +57,7 @@
             precision="minute"
             format="YYYY-MM-DD HH:mm"
             placeholder="选择"
+            onTriggerPicker="handleTriggerPicker"
             onOk="handleOk"/>
     </list-item>
 </demo-block>
@@ -60,6 +79,7 @@
             placeholder="请选择"
             value="{{defaultDateRange}}"
             onPickerChange="handlePickerRangeChange"
+            onTriggerPicker="handleTriggerPicker"
             onOk="handleRangeOk">
         </range-picker>
     </list-item>

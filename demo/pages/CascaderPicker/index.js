@@ -28,5 +28,8 @@ Page({
   handleOrgOk(value, selectedOption, e) {
     this.setData({ orgValue: value });
     console.log('orgOk', value, selectedOption, e);
+  },
+  handleDismiss(e) {
+    console.log('handleDismiss', e)
   }
 });

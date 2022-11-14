@@ -1,3 +1,32 @@
+## 0.0.22 (2022-09-07)
+
+
+### Features
+1. 新增 GuideTour组件
+2. 新增ProgressCircle组件
+3. 新增Rate组件
+4. Tabs支持电梯模式，新增TabsElevator组件
+5. ImageUpload， VideoUpload value支持string类型，上传文件名移除时间戳
+6. Picker, DatePicker, RangePicker, CascaderPicker 增加 maskClosable属性
+7. PopUp 底部弹层增加autoHeight属性
+### Bugfix
+1. ImageUpload修复onBeforeUpload下上传多张图片只展示一张的问题
+
+## 0.0.21 (2022-08-22)
+### Feature
+1. 新增Slider组件
+2. ImageUpload value支持字符串， 字符串数组
+3. VideoUpload value支持字符串， 字符串数组
+4. Mask支持disableScroll
+5. PopUp关闭时增加动画效果
+6. Tabs onChange增加event变量透出
+### Bugfix
+1. Input光标颜色恢复
+2. Tabs支持badge
+3. 页面onShow时 NoticeBar内容不显示问题修复
+4. DatePicker 分秒由1- 60 调整为 0-59
+
+
 ## 0.0.20 (2022-08-02)
 ### Features
 * 新增ProgressBar组件

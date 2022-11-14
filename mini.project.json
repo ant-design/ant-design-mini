@@ -10,5 +10,6 @@
   },
   "uploadExclude": ["dist/**/*"],
   "enableAppxNg": true,
+  "component2": true,
   "miniprogramRoot": "demo"
 }
