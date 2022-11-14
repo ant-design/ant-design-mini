@@ -1,15 +1,12 @@
-.btns,
-.valusBox {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 24rpx;
-  background-color: #fff;
+page {
+  padding: 12px;
 }
-.btns .amd-button {
-  flex: 1;
-  margin: 0 12rpx;
+
+page .amd-container {
+  margin-bottom: 12px;
 }
-.valusBox {
-  flex-wrap: wrap;
+
+.valueBox {
+  margin-top: 24rpx;
 }
+
