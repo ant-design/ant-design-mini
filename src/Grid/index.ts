@@ -9,5 +9,11 @@ Component({
         onTap(item);
       }
     },
+    onFirstAppear(item) {
+      const { onFirstAppear } = this.props;
+      if(onFirstAppear) {
+        onFirstAppear(item);
+      }
+    },
   },
 });

@@ -1,0 +1,10 @@
+<view class="amd-tabs-elevator {{className||''}}">
+    <bar tabs="{{tabs}}" activeIndex="{{activeIndex}}" top="{{statusBarHeight}}" onTabClick="onTabClick">
+        <slot name="title" slot-scope="props" item="{{props.item}}" index="{{props.index}}" active="{{activeIndex===index}}" />
+    </bar>
+    <view class="amd-tabs-elevator-content">
+        <view class="amd-tabs-elevator-content-item" a:for="{{tabs}}">
+            <slot item="{{item}}" index="{{index}}" active="{{activeIndex===index}}"/>
+        </view>
+    </view>
+</view>

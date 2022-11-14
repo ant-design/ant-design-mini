@@ -5,27 +5,54 @@ import { chooseVideo, uploadFile } from '../_util/promisify';
 Component({
   props: VideoUploadDefaultProps,
   data: {
+    id: '',
     fileList: [],
     playVideoUrl: '',
   } as IVideoUploadData,
-  didMount() {
-    const { value, id } = this.props;
 
+  didMount() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    this.videoContext = my.createVideoContext(id || 'myVideo');
+    this.videoContext = my.createVideoContext(`video_${this.$page.$id}_${this.$id}`);
     this.setData({
-      fileList: value
-    });
+      id: `video_${this.$page.$id}_${this.$id}`
+    })
+    this.handleValue();
   },
+
   didUpdate(prevProps) {
     if (!equal(prevProps.value, this.props.value)) {
-      this.setData({
-        fileList: this.props.value
-      })
+      this.handleValue();
     }
   },
+
   methods: {
+    handleValue() {
+      let curValue;
+      const { value } = this.props;
+
+      if (typeof value === 'string') {
+        curValue = [].concat({
+          url: value,
+          status: 'done'
+        });
+      } else if (
+        Array.isArray(value) &&
+        value.length &&
+        value.some(v => typeof v === 'string')
+      ) {
+        curValue = value.map(v => (typeof v === 'string' ? {
+          url: v,
+          status: 'done'
+        } : v));
+      } else {
+        curValue = value;
+      }
+      this.setData({
+        fileList: curValue
+      });
+    },
+
     async onChooseVideo() {
       const { camera, maxDuration, sourceType } = this.props;
 
@@ -44,8 +71,9 @@ Component({
         })
       }
     },
+
     async uploadFile(file) {
-      const { action, filename, formData, onBeforeUpload, onUpload, onAfterUpload } = this.props;
+      const { action, fileName, formData, onBeforeUpload, onUpload, onAfterUpload } = this.props;
       const { fileList } = this.data;
       const { tempFilePath } = file;
 
@@ -70,7 +98,7 @@ Component({
           const res = await uploadFile({
             url: action,
             fileType: 'video',
-            fileName: `${filename}_${Date.now()}`,
+            fileName: fileName,
             filePath: tempFilePath,
             formData,
             hideLoading: true
@@ -121,6 +149,7 @@ Component({
         });
       }
     },
+
     updateFileList(path, status, url?) {
       const { fileList } = this.data;
       const { onChange } = this.props;
@@ -142,6 +171,7 @@ Component({
 
       onChange && onChange.call(this.props, tempFileList);
     },
+
     async onDeleteVideo(e) {
       const { fileList } = this.data;
       const { onDelete, onChange } = this.props;
@@ -158,6 +188,7 @@ Component({
       });
       onChange && onChange.call(this.props, tempFileList);
     },
+
     onPreviewVideo(e) {
       const { previewVideoUrl } = e.target.dataset;
 
@@ -168,11 +199,13 @@ Component({
       });
 
     },
+
     onPlay() {
       this.videoContext.requestFullScreen({
         direction: 0
       });
     },
+
     onFullScreenChange(e) {
       if (!e.detail.fullScreen) {
         this.videoContext.pause();

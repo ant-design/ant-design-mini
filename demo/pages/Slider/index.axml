@@ -1,0 +1,101 @@
+<view>
+  <demo-block title="有节点单滑块">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      step="{{20}}"
+      ticks="{{true}}"
+      showNumber="{{true}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+
+  <demo-block title="有节点双滑块">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{[10, 50]}}"
+      step="{{10}}"
+      ticks="{{true}}"
+      range="{{true}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+
+  <demo-block title="无节点单滑块">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+
+  <demo-block title="无节点双滑快">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{[20, 60]}}"
+      range="{{true}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+
+  <demo-block title="显示数据">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      ticks="{{true}}"
+      showNumber="{{true}}"
+      step="{{20}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+  <demo-block title="在拖动时显示悬浮提示">
+    <slider
+      tooltip
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    />
+  </demo-block>
+  <demo-block title="自定义图标&Tick&tooltip">
+    <slider
+      min="{{0}}"
+      tooltip
+      step="{{20}}"
+      max="{{100}}"
+      value="{{80}}"
+      ticks="{{true}}"
+      icon="MoreOutline"
+      color="#ff8f1f"
+      showNumber="{{true}}"
+      onChange="handleSliderChange"
+      onAfterChange="handleAfterChange"
+    >
+      <text slot='tick' slot-scope="props">{{props.value}}°C</text>
+      <text slot="tooltip" slot-scope="props">{{props.value}}°C</text>
+    </slider>
+  </demo-block>
+
+  <demo-block title="禁用状态">
+    <slider
+      min="{{0}}"
+      max="{{100}}"
+      value="{{80}}"
+      step="{{20}}"
+      ticks="{{true}}"
+      disabled="{{true}}"
+      onChange="handleSliderChange"
+    />
+  </demo-block>
+</view>

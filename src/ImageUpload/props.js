@@ -2,7 +2,7 @@ export const UploaderDefaultProps = {
   value: [],
   enableShowPhotoDownload: false,
   enableSavePhoto: false,
-  filename: 'image',
+  fileName: 'image',
   formData: {},
   height: 80,
   maxCount: 1,

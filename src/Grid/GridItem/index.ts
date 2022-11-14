@@ -7,5 +7,9 @@ Component({
       const { item, onTap } = this.props;
       onTap(item);
     },
+    onFirstAppear() {
+      const { item, onFirstAppear } = this.props;
+      onFirstAppear(item);
+    },
   },
 });

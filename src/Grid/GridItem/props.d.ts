@@ -25,6 +25,7 @@ export interface IGridItem {
 export interface IGridItemProps extends IBaseProps {
   item: IGridItem;
   onTap(item: IGridItem): void;
+  onFirstAppear(item: IGridItem): void;
   columns: number;
   /**
    * @description 是否有垂直方向间距

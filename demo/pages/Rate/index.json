@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Rate",
+  "usingComponents": {
+    "rate": "../../../src/Rate/index",
+    "demo-block": "../../components/DemoBlock/index"
+  },
+  "allowsBounceVertical": "NO"
+}

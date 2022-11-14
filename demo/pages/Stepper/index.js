@@ -4,7 +4,7 @@ Page({
   },
   handleChange(value, dataSet) {
     this.setData({ value });
-    console.log(dataSet)
+    console.log(value)
   },
   handleAddValue() {
     this.setData({ value: this.data.value + 1 });

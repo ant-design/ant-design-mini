@@ -44,8 +44,10 @@ export declare namespace My {
 
   interface ChooseImage {
     apFilePaths: Array<string>;
+    tempFilePaths: Array<string>;
     success: boolean;
-    tempFiles: Array<TempFile>;
+    // 钉钉小程序1.x下不返回该字段
+    tempFiles?: Array<TempFile>;
   }
 
   interface ChooseVideo {

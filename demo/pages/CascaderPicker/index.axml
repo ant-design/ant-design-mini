@@ -7,6 +7,8 @@
             options="{{cityList}}" 
             onPickerChange="handleCityPickerChange" 
             onOk="handleCityOnOk"
+            onDismiss="handleDismiss"
+            data-x="1"
             />
     </list-item>
 </demo-block>

@@ -1,0 +1,80 @@
+<list>
+  <list-item title="默认进度条" class="wrapper">
+    <view class="line2">
+      <progress-circle
+        percent="{{percent1}}"
+        className="progress-bar1"
+      >
+    </view>
+    <view class="buttonwrapper">
+      <view class="button1" onTap="handleDelete">减少</view>
+      <view class="button2" onTap="handleAdd">增加</view>
+    </view>
+  </list-item>
+
+  <list-item title="自定义进度条宽度" class="wrapper">
+    <view class="line2">
+      <progress-circle
+        percent="{{percent2}}"
+        className="progress-bar1"
+        progressWidth="{{12}}"
+      />
+      <progress-circle
+        percent="{{percent2}}"
+        className="progress-bar1"
+        progressWidth="{{2}}"
+      />
+    </view>
+  </list-item>
+
+  <list-item title="自定义颜色" class="wrapper">
+    <view class="line2">
+      <progress-circle
+        percent="{{percent3}}"
+        speed="{{6}}"
+        className="progress-bar1"
+        progressColor='#00B578'
+      />
+      <progress-circle
+        percent="{{percent3}}"
+        speed="{{6}}"
+        className="progress-bar1"
+        progressColor='#FF8F1F'
+      />
+    </view>
+  </list-item>
+  <list-item title="自定义提示文案" class="wrapper">
+    <view class="line2">
+      <progress-circle
+        percent="{{percent5}}"
+        className="progress-bar1"
+        label="本月剩余流量"
+        progressText="{{Math.floor(percent5 / 360 * 100 * 20)}}"
+        unit="GB"
+      />
+      <progress-circle
+        percent="{{percent5}}"
+        className="progress-bar1"
+        progressText="{{Math.floor(percent5 / 360 * 100 * 20)}}"
+        unit="步"
+      />
+    </view>
+  </list-item>
+
+  <list-item title="自定义大小" class="wrapper">
+    <view class="line2">
+      <progress-circle
+        percent="{{percent5}}"
+        className="progress-bar2"
+      />
+      <progress-circle
+        percent="{{percent5}}"
+        className="progress-bar1"
+      />
+      <progress-circle
+        percent="{{percent5}}"
+        className="progress-bar3"
+      />
+    </view>
+  </list-item>
+</list>

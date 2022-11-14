@@ -1,0 +1,60 @@
+@import (reference) "./variable.less";
+
+.amd-progressbar-wrapper {
+  // width: 200 * @rpx;
+  // height: 200 * @rpx;
+  position: relative;
+
+  .amd-progressbar-canvas {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .amd-progressbar-indicator-default {
+    font-family: PingFangSC-Medium;
+    font-size: 40 * @rpx;
+    color: #333333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 10;
+  }
+
+  .amd-progressbar-indicator-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 10;
+
+    .amd-progressbar-indicator-column-text1 {
+      font-family: PingFangSC-Regular;
+      font-size: 20 * @rpx;
+      color: #999999;
+      line-height: 28 * @rpx;
+      height: 28 * @rpx;
+      white-space: nowrap;
+    }
+
+    .amd-progressbar-indicator-column-text2 {
+      font-family: Helvetica;
+      font-size: 40 * @rpx;
+      color: #333333;
+      height: 48 * @rpx;
+      line-height: 48 * @rpx;
+    }
+
+    .amd-progressbar-indicator-column-text3 {
+      font-family: PingFangSC-Regular;
+      font-size: 20 * @rpx;
+      color: #999999;
+      height: 28 * @rpx;
+      line-height: 28 * @rpx;
+    }
+  }
+}

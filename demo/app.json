@@ -23,6 +23,7 @@
     "pages/SwipeAction/index",
     "pages/SwipeActionRef/index",
     "pages/Tabs/index",
+    "pages/TabsSticky/index",
     "pages/TabsFallback/index",
     "pages/VTabs/index",
     "pages/VTabsNoScroll/index",
@@ -59,6 +60,8 @@
     "pages/Toast/index",
     "pages/FloatPanel/index",
     "pages/FloatPanelEvent/index",
+    "pages/ProgressCircle/index",
+    "pages/GuideTour/index",
     "pages/BladeView/index",
     "pages/TabBar/index",
     "pages/ImageUpload/index",
@@ -67,8 +70,12 @@
     "pages/Divider/index",
     "pages/Grid/index",
     "pages/Footer/index",
-    "pages/CascaderPicker/index"
+    "pages/CascaderPicker/index",
+    "pages/Rate/index",
+    "pages/Slider/index",
+    "pages/TabsElevator/index"
   ],
+
   "window": {
     "enableWK": "YES",
     "enableDSL": "YES",

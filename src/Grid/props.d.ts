@@ -48,5 +48,10 @@ export interface IGridProps extends IBaseProps {
    * @param item
    */
   onTap?(item: IGridItem): void;
+  /**
+   * @description 当前元素首次可见面积达到50%时触发
+   * @param item
+   */
+  onFirstAppear?(item: IGridItem): void;
 }
 export declare const GridDefaultProps: IGridProps;

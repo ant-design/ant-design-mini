@@ -1,11 +1,18 @@
-.actions {
-  margin-top: 24px;
+.demo-block-title {  
+  height: 48rpx;
+  padding: 48rpx 0 24rpx 8px;
+  line-height: 1.4;
+  font-size: 15px;
+  color: #999;
+  background-color: #FAFBFC;
 }
-.amd-tabs-item-pane view {
-  background-color: #fff;
+
+
+.content {
   padding: 24rpx;
 }
 
-.plus-icon {
-  font-size: 48rpx;
+.space {
+  height: 48rpx;
+  background: rgb(250 251 252);
 }

@@ -16,6 +16,7 @@
     onDismiss="onDismiss"
     onOk="onOk"
     onTriggerPicker="onTriggerPicker"
+    maskClosable="{{maskClosable}}"
     onFormat="onFormat">
     <slot name="title" slot="title"/>
 </picker>

@@ -27,7 +27,8 @@ toc: 'content'
 | placeholder | 提示文案 | string | '请选择' | 
 | title |  弹出框标题 | string | - |
 | okText | 确认按钮文案 | string | '确定' |
-| dismissText |  取消文案 | string | '取消' |  |
+| dismissText |  取消文案 | string | '取消' |  
+| maskClosable | 点击蒙层是否可以关闭 | boolean | false | 
 | maskStyle | 蒙层的样式 | string | - | 
 | maskClass |  蒙层的类名 | string | - |
 | indicatorStyle | 选中框样式  | string | - |
@@ -49,7 +50,8 @@ toc: 'content'
 | splitCharacter | 显示连接符 | string | '~' | 
 | title |  弹出框标题 | string | - |
 | okText | 确认按钮文案 | string | '确定' |
-| dismissText |  取消文案 | string | '取消' |  |
+| dismissText |  取消文案 | string | '取消' |  
+| maskClosable | 点击蒙层是否可以关闭 | boolean | false | 
 | maskStyle | 蒙层的样式 | string | - | 
 | maskClass |  蒙层的类名 | string | - |
 | indicatorStyle | 选中框样式  | string | - |
@@ -61,7 +63,7 @@ toc: 'content'
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onOk | 点击确定按钮，触发回调 | (date: Date, dateStr: string, dateArr:number[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onDismiss | 点击取消按钮，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onDismiss | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onPickerChange | 选中项发生变化，触发回调 | (date: Date, dateStr: string, dateArr:number[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式 | (date: Date, dateStr: string, dateArr:number[]) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible: boolean, (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
@@ -70,7 +72,7 @@ toc: 'content'
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
 | onOk | 点击确定按钮，触发回调 | (date: [Date,Date], dateStr: [string,string], dateArr:[number[],number[]], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onDismiss | 点击取消按钮，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onDismiss | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onPickerChange | 选中项发生变化，触发回调 | (type: 'start'\|'end', date: Date, dateStr: string, dateArr:number[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式 | (date: [Date,Date], dateStr: [string,string], dateArr:[number[],number[]]) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible: boolean, (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |

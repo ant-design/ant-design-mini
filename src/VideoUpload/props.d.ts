@@ -34,7 +34,7 @@ export interface IVideoUploadProps extends IBaseProps {
    * @description 默认已上传的视频列表
    * @default []
    */
-  value?: File[];
+  value?: Array<File | string> | string;
 
   /**
    * @description 上传视频的服务器地址，只支持https地址
@@ -50,7 +50,7 @@ export interface IVideoUploadProps extends IBaseProps {
   /**
    * @description 上传视频的文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到视频二进制内容
    */
-  filename?: string;
+  fileName?: string;
 
   /**
    * @description 上传时其他额外的 form 数据对象。
@@ -64,10 +64,6 @@ export interface IVideoUploadProps extends IBaseProps {
    */
   height?: number | string;
 
-  /**
-   * @description video播放器标识
-   */
-  id: string;
   /**
    * @description 上传视频的最大数量
    * @default 1
@@ -95,7 +91,7 @@ export interface IVideoUploadProps extends IBaseProps {
   /**
    * @description 使用action时，视频上传后的回调函数，当上传接口不为默认的{success: true, data: {url: 'xx'}}时使用，返回void则表示上传失败
    */
-   onAfterUpload?: (res) => string | void | Promise<string | void>;
+  onAfterUpload?: (res) => string | void | Promise<string | void>;
 
   /**
    * @description 视频上传前的回调函数，返回 false 可终止视频上传，支持返回 Promise
