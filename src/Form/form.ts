@@ -83,14 +83,10 @@ class Field {
     }
     // validateTrigger
     this.transformValidateTrigger(validateTrigger, props.validateTrigger);
-    ref.setFormData({
-      value: initialValue,
-    });
+    this.setValue(initialValue);
     ref.on((trigger, value) => {
       if (trigger === 'onChange') {
-        ref.setFormData({
-          value,
-        });
+        this.setValue(value);
         this.touched = true;
         this.changeListener.forEach(item => item(value));
       } else if (trigger === 'didUnmount') {
