@@ -1,129 +1,98 @@
 import { StepperDefaultProps } from './props';
-import computed from '../mixins/computed';
-import controlled from '../mixins/controlled';
 import { upStep, downStep } from './utils';
-import formMixin from '../mixins/form';
 import fmtEvent from '../_util/fmtEvent';
 
+
+function getValue(propsValue, dataValue, defaultValue) {
+  if (typeof propsValue !== 'undefined') {
+    return propsValue;
+  }
+  if (typeof dataValue !== 'undefined') {
+    return dataValue;
+  }
+  return defaultValue;
+}
+
+
 Component({
-  mixins: [computed, controlled(), formMixin()],
   props: StepperDefaultProps,
   data: {
-    confirm: false,
-    _value: null,
-  } as {
-    confirm: boolean,
-    _value: string,
-    cValue: number,
-    minusDisabled: boolean,
-    addDisabled: boolean,
-    min: number,
-    max: number,
-  },
-  didMount() {
-    const { min, max, cValue } = this.data;
-    if (cValue < min) {
-      this.setData({
-        cValue: min,
-      });
-    }
-    if (cValue > max) {
-      this.setData({
-        cValue: max,
-      });
-    }
+    selfValue: undefined,
   },
   methods: {
-    computed() {
-      let { min, max } = this.props;
-      let { cValue } = this.data;
-      if (max === undefined) {
-        max = Number.MAX_SAFE_INTEGER;
+    lastNumber: 0,
+    setLastNumber(value: string | number) {
+      let num: number;
+      const { min = -Infinity, max = Infinity } = this.props;
+      if (typeof value === 'string') {
+        if (value && !isNaN(Number(value))) {
+          num = Number(value);
+        }
+      } else {
+        num = value;
       }
-      if (min === undefined) {
-        min = 0;
+      if (num > max) {
+        num = max;
+      } else if (num < min) {
+        num = min;
       }
-      if (cValue === undefined) {
-        cValue = min;
+      if (typeof num !== 'undefined') {
+        this.lastNumber = num;
       }
-      return { min, max, cValue };
     },
     onInput(e) {
       const { value } = e.detail;
-      if (value === '') {
-        this.setData({
-          _value: '0',
-        });
-      } else {
-        this.setData({
-          _value: value,
-        });
+      this.setLastNumber(value);
+      this.setData({
+        selfValue: value,
+      });
+      if (this.props.onChange) {
+        this.props.onChange(this.lastNumber, fmtEvent(e));
       }
-    },
-    onFocus(e) {
-      const { value } = e.detail;
-      this.props.onFocus?.(value, fmtEvent(this.props, e));
     },
     onBlur(e) {
-      if (this.data.confirm) {
-        this.setData({
-          confirm: false,
-        });
-      } else {
-        const { value } = e.detail;
-        this.setData({
-          _value: null,
-        });
-        this.cOnChange(this.getInputValue(value), this.getDataSet());
-        this.props.onBlur?.(this.getInputValue(value));
+      this.setData({
+        selfValue: this.lastNumber,
+      });
+      if (this.props.onBlur) {
+        this.props.onBlur(fmtEvent(e));
       }
     },
-    onConfirm(e) {
-      const { value } = e.detail;
-      this.setData({
-        _value: null,
-        confirm: true,
-      });
-      this.cOnChange(this.getInputValue(value), this.getDataSet());
-    },
-    getInputValue(inputValue) {
-      const { min, max } = this.props;
-      let inputValueTemp = null;
-      if (!isNaN(Number(inputValue))) {
-        if (Number(inputValue) <= min) {
-          inputValueTemp = min;
-        } else if (Number(inputValue) >= max) {
-          inputValueTemp = max;
-        } else {
-          inputValueTemp = Number(inputValue);
-        }
-        return inputValueTemp;
+    onComfirm(e) {
+      if (this.props.onComfirm) {
+        this.props.onComfirm(fmtEvent(e));
       }
     },
     onChange(e) {
       const { step, disabled, precision } = this.props;
-      const { min, max, cValue } = this.data;
+      const { min = -Infinity, max = Infinity } = this.props;
+      const value = getValue(this.props.value, this.data.selfValue, this.props.defaultValue);
       if (!disabled) {
         const { mode } = e.currentTarget.dataset;
+        let result: number = value;
         if (mode === 'minus') {
           // 【减】按钮的操作
-          const minusTemp = downStep(cValue, step, precision);
-          this.cOnChange(Math.max(minusTemp, min), this.getDataSet());
+          const minusTemp = downStep(value, step, precision);
+          if (minusTemp >= min) {
+            result = minusTemp;
+          }
         } else if (mode === 'add') {
           // 【加】按钮的操作
-          const addTemp = upStep(cValue, step, precision);
-          this.cOnChange(Math.min(addTemp, max), this.getDataSet());
+          const addTemp = upStep(value, step, precision);
+          if (addTemp <= max) {
+            result = addTemp
+          }
+        }
+        this.setLastNumber(result);
+        if (typeof this.props.value === 'undefined') {
+          this.setData({
+            selfValue: result,
+          });
+        }
+        if (this.props.onChange) {
+          this.props.onChange(result, fmtEvent(e));
         }
       }
     },
-    getDataSet() {
-      return Object.entries(this.props).reduce((prev, cur) => {
-        const [key, val] = cur
-        if (key.startsWith('data-')) {
-          prev[key.replace('data-', '')] = val
-        }
-        return prev
-      }, {})
-    }
   },
 });
