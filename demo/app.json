@@ -6,6 +6,7 @@
     "pages/FormLayout/index",
     "pages/FormDynamic/index",
     "pages/FormInitialValues/index",
+    "pages/FormInitialValuesAsync/index",
     "pages/FormGroup/index",
     "pages/FormInsMethod/index",
     "pages/FormRequiredMarkStyle/index",
