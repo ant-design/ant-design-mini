@@ -1,6 +1,28 @@
 @import (reference) "../../_base/index.less";
-@import (reference) "../index.less";
 @import "../../style/mixins/hairline.less";
+
+
+.formItemLabelHorizontal() {
+  width: 170 * @rpx;
+  margin-right: 24 * @rpx;
+  font-family: PingFangSC-Regular;
+  color: #666;
+  font-size: 34 * @rpx;
+  line-height: 48 * @rpx;
+}
+.formItemLabelVertical() {
+  font-size: 34 * @rpx;
+  line-height: 42 * @rpx;
+  color: #666;
+  margin-bottom: 8 * @rpx;
+}
+.formItemContentHorizontal() {
+  display: flex;
+  align-items: center;
+}
+.formItemFieldHorizontal() {
+  text-align: right;
+}
 
 @formItemPrefix: amd-form-item;
 
