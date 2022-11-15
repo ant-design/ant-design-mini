@@ -11,12 +11,11 @@
   </view>
 </form-input>
 
-<button onTap="add">
-  添加用户
-  <icon type="AddCircleOutline" />
-</button>
-
-<view style="margin-top: 20px">
-  <button type="primary" onTap="submit">1提交</button>
-  <button onTap="reset">重置</button>
+<view class="buttons">
+  <button onTap="add" class="button">
+    添加用户
+    <icon type="AddCircleOutline" />
+  </button>
+ <button type="primary" onTap="submit" class="button">提交</button>
+  <button onTap="reset" class="button">重置</button>
 </view>

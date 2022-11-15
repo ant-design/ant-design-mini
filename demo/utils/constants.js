@@ -193,9 +193,19 @@ export const componentList = [
         path: '/pages/Checklist/index',
       },
       {
-        name: 'Filter',
-        nameZN: '筛选卡',
-        path: '/pages/Filter/index',
+        name: 'Form',
+        nameZN: '表单',
+        path: '/pages/Form/index',
+      },
+      {
+        name: 'FormLayout',
+        nameZN: '表单-布局',
+        path: '/pages/FormLayout/index',
+      },
+      {
+        name: 'FormDynamic',
+        nameZN: '表单-动态增减表单项',
+        path: '/pages/FormLayout/index',
       },
       {
         name: 'Input',
@@ -341,21 +351,6 @@ export const componentList = [
         name: 'Tips',
         nameZN: '向导提示',
         path: '/pages/Tips/index',
-      },
-    ],
-  },
-  {
-    type: '实验性质的组件',
-    list: [
-      {
-        name: 'Form',
-        nameZN: '表单',
-        path: '/pages/Form/index',
-      },
-      {
-        name: 'SafeArea',
-        nameZN: '安全区',
-        path: '/pages/SafeArea/index',
       },
     ],
   },
