@@ -213,6 +213,11 @@ export const componentList = [
         path: '/pages/FormInitialValuesAsync/index',
       },
       {
+        name: 'FormRules',
+        nameZN: '表单-校验',
+        path: '/pages/FormRules/index',
+      },
+      {
         name: 'FormDynamic',
         nameZN: '表单-动态增减表单项',
         path: '/pages/FormLayout/index',
