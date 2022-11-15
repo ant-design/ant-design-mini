@@ -211,7 +211,7 @@ class Field {
    */
   setValue(value: Value) {
     this.ref.setFormData({
-      value,
+      value: typeof value === 'undefined' ? this.ref.getInitialValue() : value,
     });
   }
 
@@ -219,7 +219,11 @@ class Field {
    * 得到 Field 值
    */
   getValue() {
-    return this.ref.getFormData().value; 
+    const value = this.ref.getFormData().value;
+    if (typeof value === 'undefined') {
+      return this.ref.getInitialValue();
+    }
+    return value;
   }
 
   /**

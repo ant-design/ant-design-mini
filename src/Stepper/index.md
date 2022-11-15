@@ -23,9 +23,7 @@ toc: 'content'
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
-| autoFocus | 自动聚焦，ios 可能会失效 | `boolean` | `false` | 
 | className | 类名 | `string` | - | 
-| controlled | 是否受控  | `boolean` | `false` |
 | disabled |  是否禁用 | `boolean` | `false` |
 | focus |  输入框选中状态 | `boolean` | `false` |
 | inputClassName |  输入框类型 | `string` | - |
