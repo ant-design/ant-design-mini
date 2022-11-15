@@ -208,6 +208,11 @@ export const componentList = [
         path: '/pages/FormInitialValues/index',
       },
       {
+        name: 'FormInitialValuesAsync',
+        nameZN: '表单-初始值异步加载',
+        path: '/pages/FormInitialValuesAsync/index',
+      },
+      {
         name: 'FormDynamic',
         nameZN: '表单-动态增减表单项',
         path: '/pages/FormLayout/index',
