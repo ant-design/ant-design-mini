@@ -1,42 +1,48 @@
 <view>
-  <demo-block title="基础用法">
-    <switch 
-      checked="{{false}}"
-      data-value="value"
-      onChange="handleChange" 
-    />
-  </demo-block>
-  <demo-block title="有默认值">
-    <switch 
-      checked="{{true}}"/>
-  </demo-block>
-  <demo-block title="文字和图标">
-    <switch 
+  <container title="基础用法">
+    <switch />
+  </container>
+
+  <container title="有默认值">
+    <switch defaultChecked="{{true}}" onChange="onChange" />
+  </container>
+
+  <container title="文字和图标">
+    <switch
       checkedText="开"
-      uncheckedText="关"/>
+      uncheckedText="关"
+      onChange="onChange"
+    />
+
     <switch>
       <am-icon type="CheckOutline" slot="checked" size="x-small"/>
       <am-icon type="CloseOutline" slot="unchecked"  size="x-small"/>
     </switch>
-  </demo-block>
-  <demo-block title="自定义颜色">
-    <switch 
-      checked="{{true}}"
-      color="#00b578"/>
-  </demo-block>
-  <demo-block title="禁用状态">
-    <switch 
-      checked="{{true}}"
-      disabled="{{true}}"/>
-    <switch 
-      disabled="{{true}}"/>
-  </demo-block>
-  <demo-block title="加载状态">
-    <switch 
-      loading="{{true}}"/>
-  </demo-block>
+  </container>
 
-  <demo-block title="尺寸small">
-    <switch  size="small" />
-  </demo-block>
+  <container title="自定义颜色">
+    <switch 
+      defaultChecked="{{true}}"
+      color="#00b578"/>
+  </container>
+
+  <container title="禁用状态">
+    <switch 
+      defaultChecked="{{true}}"
+      disabled="{{true}}"/>
+    <switch 
+      disabled="{{true}}"/>
+  </container>
+
+  <container title="加载状态">
+    <switch loading="{{true}}" />
+  </container>
+
+  <container title="尺寸small">
+    <switch size="small" />
+  </container>
+
+  <container title="控制">
+    <switch checked="{{checked}}" onChange="handleChange" />
+  </container>
 </view>
