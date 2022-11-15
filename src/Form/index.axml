@@ -1,8 +1,0 @@
-<view
-  class="amd-form  {{className||''}} amd-form-position-{{position}} amd-form-require-style-{{requiredMarkStyle}}"
->
-  <slot></slot>
-  <view class="amd-form-footer">
-    <slot name="footer"/>
-  </view>
-</view>

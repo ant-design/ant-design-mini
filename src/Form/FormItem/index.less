@@ -9,9 +9,9 @@
   padding: 24 * @rpx 24 * @rpx 24 * @rpx 32 * @rpx;
   position: relative;
   .hairline("bottom");
-  &-disabled {
-    opacity: 0.4;
-  }
+  // &-disabled {
+  //   opacity: 0.4;
+  // }
 
   .amd-input-item {
     height: 48 * @rpx;
@@ -24,9 +24,9 @@
     align-self: stretch;
     max-width: 100%;
     position: relative;
-    &-disabled {
-      opacity: 0.4;
-    }
+    // &-disabled {
+    //   opacity: 0.4;
+    // }
   }
   &-content {
     flex: 1;
@@ -41,9 +41,9 @@
     line-height: 37 * @rpx;
     text-align: left;
     margin-top: 8 * @rpx;
-    &-disabled {
-      opacity: 0.4;
-    }
+    // &-disabled {
+    //   opacity: 0.4;
+    // }
   }
 
   &-label {
@@ -80,9 +80,9 @@
       .formItemLabelVertical();
     }
 
-    &-disabled {
-      opacity: 0.4;
-    }
+    // &-disabled {
+    //   opacity: 0.4;
+    // }
   }
   &-field {
     flex: 1;
@@ -106,9 +106,9 @@
   &-other {
     display: flex;
     align-items: center;
-    &-disabled {
-      opacity: 0.4;
-    }
+    // &-disabled {
+    //   opacity: 0.4;
+    // }
   }
 
   &-extra {
@@ -121,3 +121,52 @@
     }
   }
 }
+
+
+
+.amd-form-require-style {
+  &-asterisk {
+    .amd-form-item-label-required .amd-form-item-label-text {
+      &::before {
+        content: "*";
+        position: absolute;
+        left: -18 * @rpx;
+        font-family: PingFangSC-Regular;
+        font-size: 30 * @rpx;
+        color: @color-text-warning;
+      }
+    }
+  }
+  &-text-required {
+    .amd-form-item-label-required .amd-form-item-label-text {
+      &::after {
+        padding-left: 4 * @rpx;
+        content: "(必填)";
+        display: block;
+        left: -18 * @rpx;
+        font-family: PingFangSC-Regular;
+        font-size: 30 * @rpx;
+        color: @color-text-weak;
+      }
+    }
+  }
+  &-text-optional {
+    .amd-form-item-label .amd-form-item-label-text {
+      &::after {
+        padding-left: 4 * @rpx;
+        content: "(选填)";
+        display: block;
+        left: -18 * @rpx;
+        font-family: PingFangSC-Regular;
+        font-size: 30 * @rpx;
+        color: @color-text-weak;
+      }
+    }
+    .amd-form-item-label-required .amd-form-item-label-text {
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+

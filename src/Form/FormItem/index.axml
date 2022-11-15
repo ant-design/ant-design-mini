@@ -1,31 +1,31 @@
-<view class="amd-form-item {{className ? className :''}}">
+<view class="amd-form-item {{className ? className :''}} amd-form-require-style-{{requiredMark}}">
   <view class="amd-form-item-line amd-form-item-line-{{position}} {{ !!errorInfo ? 'noLine'  : '' }}">
     <view class="amd-form-item-content amd-form-item-content-{{position}}">
       <!--label-->
       <view 
-        a:if="{{!!label}}"
+        a:if="{{label}}"
         style="{{labelWidth ? `width: ${labelWidth}` : ''}}"
-        class="amd-form-item-label {{disabled ? 'amd-form-item-label-disabled' : ''}} amd-form-item-label-{{position}} {{required?'amd-form-item-label-required':''}}">
+        class="amd-form-item-label {{disabled ? 'amd-form-item-label-disabled' : ''}} amd-form-item-label-{{position}} {{required ? 'amd-form-item-label-required' : ''}}">
         <view class="amd-form-item-label-text">{{label}}</view>
         <popover 
-          a:if="{{help}}"
+          a:if="{{tooltip}}"
           placement="top" 
           visible="{{helpVisible}}" 
           mask 
           maskClosable 
           onVisibleChange="onHelpVisibleChange"
           transparentMask>
-          <view slot="items" class="amd-form-item-label-help-content">{{help}}</view>
+          <view slot="content" class="amd-form-item-label-help-content">{{tooltip}}</view>
           <icon type="QuestionCircleOutline" size="x-small" onTap="onToggleHelpVisible"/>
         </popover>
       </view>
       <!--field-->
       <view class="amd-form-item-field amd-form-item-field-{{position}}">
-        <slot/>
+        <slot />
         <view
           class="amd-form-item-error-info {{disabled ? 'amd-form-item-error-info-disabled' : ''}} amd-form-item-error-info-{{position}}"
-          a:if="{{errorInfo}}">
-          {{errorInfo.message}}
+          a:if="{{status === 'error'}}">
+          {{errors[0]}}
         </view>
       </view>
     </view>
