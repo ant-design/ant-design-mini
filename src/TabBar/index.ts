@@ -34,7 +34,7 @@ Component({
         activeIndex: index,
       });
 
-      this.props.onChange && this.props.onChange(this.props[index], index);
+      this.props.onChange && this.props.onChange(this.props.tabs[index], index);
     },
   },
 });

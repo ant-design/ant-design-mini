@@ -38,7 +38,9 @@
   <view class="amd-picker-content">
     <slot name="content-header"/>
     <block a:if="{{columns}}">
-      <picker-view 
+      <picker-view
+        a:for="{{[columns]}}"
+        key="{{item}}"
         mask-style="{{maskStyle}}"
         mask-class="{{ maskClass}}"
         indicator-style="{{indicatorStyle}}"

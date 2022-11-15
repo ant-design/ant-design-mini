@@ -10,6 +10,7 @@ import {
   isEqualDate,
 } from './util';
 import fmtEvent from '../_util/fmtEvent';
+import { isDate } from '../_util/tools';
 
 Component({
   mixins: [formMixin({ trigger: 'onOk' })],
@@ -71,7 +72,7 @@ Component({
       const { min, max, value } = this.props;
       let cValue = null;
       if (
-        value instanceof Date &&
+        isDate(value) &&
         (!min || value >= min) &&
         (!max || value <= max)
       ) {

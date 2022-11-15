@@ -11,6 +11,7 @@ import {
   isEqualDate,
 } from '../DatePicker/util';
 import fmtEvent from '../_util/fmtEvent';
+import { isDate } from '../_util/tools';
 
 Component({
   mixins: [computed, formMixin({ trigger: 'onOk' })],
@@ -58,14 +59,14 @@ Component({
       const { value, min, max } = this.props;
       let cValue = null;
       if (
-        value?.[0] instanceof Date &&
+        isDate(value?.[0]) &&
         (!min || value[0] >= min) &&
         (!max || value[0] <= max)
       ) {
         cValue = [value[0]];
       }
       if (
-        value?.[1] instanceof Date &&
+        isDate(value?.[1]) &&
         (!min || value[1] >= min) &&
         (!max || value[1] <= max)
       ) {

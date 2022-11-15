@@ -12,9 +12,6 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 - 提供一组或多组关联选项供用户选择
 - 当少于5个选项时，建议直接将选项平铺，使用 Radio 是更好的选择
 
-## 注意事项 
-- Picker、CascaderPicker暂不支持动态改变Column列数
-
 ## 代码示例
 ### 基本使用
 <code src='../../demo/pages/Picker'></code>

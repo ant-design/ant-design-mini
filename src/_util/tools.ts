@@ -19,3 +19,14 @@ export function objectEntries<T>(obj: { [s: string]: T } | ArrayLike<T>): [strin
   }
   return resArray;
 }
+
+
+function tagTester(name: string) {
+  const tag = '[object ' + name + ']';
+  return function(obj) {
+    return Object.prototype.toString.call(obj) === tag;
+  };
+}
+
+export const isArray = Array.isArray || tagTester('Array');
+export const isDate = tagTester('Date');
