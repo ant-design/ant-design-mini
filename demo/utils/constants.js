@@ -203,6 +203,11 @@ export const componentList = [
         path: '/pages/FormLayout/index',
       },
       {
+        name: 'FormInitialValues',
+        nameZN: '表单-初始值',
+        path: '/pages/FormInitialValues/index',
+      },
+      {
         name: 'FormDynamic',
         nameZN: '表单-动态增减表单项',
         path: '/pages/FormLayout/index',
