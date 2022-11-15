@@ -1,5 +1,5 @@
 export const StepsDefaultProps = {
-  index: 0,
+  current: 0,
   direction: 'horizontal',
-  uid: 'steps',
+  status: 'finish',
 };

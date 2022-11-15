@@ -5,7 +5,6 @@
 .@{stepsPrefix} {
   display: flex;
   overflow: hidden;
-  background-color: @color-fill-grey-inverse;
   &-horizontal {
     flex-direction: row;
     justify-content: space-around;
@@ -21,4 +20,218 @@
 
 .amd-steps-item-vertical:last-child {
   padding-bottom: 0;
+}
+
+
+
+@stepItemPrefix: amd-steps-item;
+
+.@{stepItemPrefix} {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  margin: 16 * @rpx 0 16 * @rpx 0;
+
+  &-vertical {
+    padding-bottom: 48 * @rpx;
+    margin: 0;
+    .amd-steps-item-title {
+      margin-bottom: 8 * @rpx;
+      font-size: 26 * @rpx;
+      color: @COLOR_TEXT_PRIMARY;
+    }
+    .amd-steps-item-desc {
+      font-size: 24 * @rpx;
+      color: @COLOR_TEXT_ASSIST;
+    }
+    &::after {
+      // line
+      position: absolute;
+      height: 100%;
+      width: 2 * @rpx;
+      content: "";
+      top: 27 * @rpx;
+      z-index: -1;
+      // transform: translateX(-50%);
+    }
+    .amd-steps-item-text {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+  }
+
+  &-horizontal {
+    flex-direction: column;
+    margin-top: 16 * @rpx;
+    padding: 0 16 * @rpx;
+    &::after {
+    position: absolute;
+    width: 100%;
+    height: 2 * @rpx;
+    content: "";
+    top: 34 * @rpx;
+    left: 0;
+    transform: translateX(50%);
+    z-index: -1;
+    }
+
+    .@{stepItemPrefix}-title,
+    .@{stepItemPrefix}-desc {
+      text-align: center;
+    }
+    .@{stepItemPrefix}-desc {
+      margin-bottom: 0;
+    }
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
+
+&-indicator {
+  &-vertical {
+    transform: translateX(-50%);
+  }
+
+  &-horizontal {
+    display: flex;
+    justify-content: center;
+    margin: 16 * @rpx 0 16 * @rpx 0;
+  }
+
+  &-icon {
+    width: 18 * @rpx;
+    height: 18 * @rpx;
+    border-radius: 50%;
+  }
+}
+
+.amd-steps-item-active-icon-image {
+  transform: translateX(0);
+}
+  &-horizontal {
+    flex: 1;
+    display: flex;
+    .amd-steps-item-title {
+    margin-bottom: 4 * @rpx;
+    font-size: 26 * @rpx;
+    &:empty {
+      display: none;
+    }
+  }
+  .amd-steps-item-desc {
+    margin: 4 * @rpx 0 4 * @rpx 0;
+    color: @color-text-subtitle;
+    font-size: 24 * @rpx;
+    &:empty {
+      display: none;
+    }
+  }
+}
+  &-active {
+
+    &::after {
+      background-color: @COLOR_GREY_2;
+    }
+
+    &-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      &, & image {
+        height: 36 * @rpx;
+        width: 36 * @rpx;
+      }
+
+      color: @COLOR_BRAND1;
+
+      &-default {
+        height: 18 * @rpx;
+        width: 18 * @rpx;
+        border-radius: 50%;
+        background-color: @COLOR_BRAND1;
+      }
+    }
+
+    & .@{stepItemPrefix}-title {
+      color: @COLOR_BRAND1;
+    }
+  }
+
+  &-non-active {
+    &::after {
+      background-color: @COLOR_GREY_2;
+    }
+
+    &-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      &, & image {
+        height: 36 * @rpx;
+        width: 36 * @rpx;
+      }
+
+      color: @COLOR_GREY_2;
+      &-default {
+        height: 18 * @rpx;
+        width: 18 * @rpx;
+        border-radius: 50%;
+        background-color: @COLOR_GREY_2;
+      }
+    }
+    & .@{stepItemPrefix}-title {
+      color: @COLOR_TEXT_ASSIST;
+    }
+  }
+
+  &-finish {
+    &::after {
+      background-color: @COLOR_BRAND1;
+    }
+
+    &-icon {
+      &, & image {
+        height: 36 * @rpx;
+        width: 36 * @rpx;
+      }
+
+      color: @COLOR_BRAND1;
+      &-default {
+        background-color: @COLOR_BRAND1;
+      }
+    }
+
+    & .@{stepItemPrefix}-title {
+      color: @COLOR_TEXT_PRIMARY;
+    }
+  }
+
+  &-fail-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    &, & image {
+      height: 36 * @rpx;
+      width: 36 * @rpx;
+    }
+
+    color: @COLOR_RED;
+    &-default {
+      height: 18 * @rpx;
+      width: 18 * @rpx;
+      border-radius: 50%;
+      background-color: @COLOR_RED;
+    }
+  }
+
+  .amd-steps-item-title-fail {
+    color: @COLOR_RED;
+  }
 }
