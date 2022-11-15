@@ -5,6 +5,7 @@
     "pages/Form/index",
     "pages/FormLayout/index",
     "pages/FormDynamic/index",
+    "pages/FormInitialValues/index",
     "pages/FormGroup/index",
     "pages/FormInsMethod/index",
     "pages/FormRequiredMarkStyle/index",
