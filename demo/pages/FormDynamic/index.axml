@@ -1,48 +1,22 @@
-<view class="demo">
-    <form 
-        form="{{form}}" 
-        initialValues="{{initialValues}}"
-        onFinish="handleSubmit"
-        onValuesChange="handleValuesChange">
-        <form-item
-            label="账号"
-            name="account"
-            required
-            form="{{form}}">
-            <input-item mode="form" placeholder="请输入账号"/>
-        </form-item>
-        <form-item 
-            label="登录方式" 
-            name="type" 
-            position="vertical" 
-            form="{{form}}">
-            <radio-group mode="form">
-                <radio-item value="password">密码</radio-item>
-                <radio-item value="code">验证码</radio-item>
-            </radio-group>
-        </form-item>
-        <form-item
-            a:if="{{values.type==='password'}}"
-            label="密码"
-            required
-            name="password"
-            form="{{form}}">
-            <input-item mode="form" password placeholder="请输入密码"/>
-        </form-item>
-        <form-item
-            a:if="{{values.type==='code'}}"
-            label="验证码"
-            required
-            name="code"
-            form="{{form}}">
-            <input-item mode="form" password placeholder="请输入验证码"/>
-        </form-item>
-        <button 
-            slot="footer"
-            type="primary" 
-            mode="form"
-            form="{{form}}"
-            htmlType="submit">登录
-        </button>
-    </form>
+<form-input
+  label="用户{{index + 1}}"
+  name="account{{index}}"
+  required
+  message="需要输入用户名"
+  ref="handleRef"
+  a:for="{{list}}"
+>
+  <view slot="extra" onTap="minus" data-index="{{index}}">
+    <icon type="MinusCircleOutline" />
+  </view>
+</form-input>
+
+<button onTap="add">
+  添加用户
+  <icon type="AddCircleOutline" />
+</button>
+
+<view style="margin-top: 20px">
+  <button type="primary" onTap="submit">1提交</button>
+  <button onTap="reset">重置</button>
 </view>

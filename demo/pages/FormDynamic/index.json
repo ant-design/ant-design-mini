@@ -1,11 +1,10 @@
 {
   "defaultTitle": "Form",
   "usingComponents": {
-    "form": "../../../src/Form/index",
-    "form-item": "../../../src/Form/FormItem/index",
-    "input-item": "../../../src/InputItem/index",
+    "form-input": "../../../src/Form/FormInput/index",
+    "form-switch": "../../../src/Form/FormSwitch/index",
+    "form-stepper": "../../../src/Form/FormStepper/index",
     "button": "../../../src/Button/index",
-    "radio-group": "../../../src/RadioGroup/index",
-    "radio-item": "../../../src/RadioGroup/RadioItem/index"
+    "icon": "../../../src/Icon/index"
   }
 }
