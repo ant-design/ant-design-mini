@@ -1,4 +1,4 @@
-<view class="amd-button {{inline ? 'amd-button-inline' : ''}} {{className ? className : ''}}">
+<view class="amd-button {{inline ? 'amd-button-inline' : ''}} {{className ? className : ''}}" style="{{style}}">
   <button form-type="{{htmlType}}"
     hover-class="{{loading ? '' : (activeClassName ? activeClassName : 'amd-button-active')}}"
     scope="{{scope}}"

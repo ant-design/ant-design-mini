@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/ActionSheet/index",
     "pages/Form/index",
-    "pages/FormBasic/index",
+    "pages/FormLayout/index",
     "pages/FormDynamic/index",
     "pages/FormGroup/index",
     "pages/FormInsMethod/index",
