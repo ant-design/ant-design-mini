@@ -1,11 +1,11 @@
-import { IBaseFormItemProps } from '../_base';
+import { IBaseProps } from '../_base';
 /**
  * @description 步进器，用作增加或者减少当前数值。
  */
 
-export interface IStepperProps extends IBaseFormItemProps<number> {
+export interface IStepperProps extends IBaseProps {
   /**
-   * @description 输入框的值, 表单提交的时候有效
+   * @description 输入框的值
    */
   value?: number;
   /**
@@ -21,16 +21,17 @@ export interface IStepperProps extends IBaseFormItemProps<number> {
    * @default 1
    */
   step?: number;
+
+  /**
+   *  @description 输入框唤起键盘类型
+   */
+  type?: 'number' | 'digit'
   /**
    * @description 计算精度，保留几位小数
    * https://github.com/ant-design/ant-design/issues/5998
    */
   precision?: number;
-  /**
-   * @description 是否受控
-   * @default false
-   */
-  controlled?: boolean;
+  
   /**
    * @description 输入框类名
    */
@@ -39,17 +40,34 @@ export interface IStepperProps extends IBaseFormItemProps<number> {
    * @description 输入框样式
    */
   inputStyle?: string;
+  
+  /**
+   * @description onFocus
+   */
+  onFocus?: (e: any) => void
+  /**
+   * @description onBlur
+   */
+  onBlur?: (e: any) => void
+
+  /**
+   * @description onComfirm
+   */
+   onComfirm?: (e: any) => void
+
+  /**
+   * @description 是否禁用
+   * @default false
+   */
+  disabled?: boolean;
+
+  /**
+   * @description 输入框初始值
+   */
+   defaultValue?: number;
   /**
    * @description 输入框宽度
    */
-  onFocus?: (e: number) => void
-  /**
-   * @description 输入框宽度
-   */
-  onBlur?: (e: number) => void
-  /**
-   * @description 输入框宽度
-   */
-  onChange?: (e: number, dataSet: Record<string, any>) => void
+  onChange?: (value: number, e: any) => void
 }
 export declare const StepperDefaultProps: Partial<IStepperProps>;

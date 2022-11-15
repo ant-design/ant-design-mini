@@ -2,7 +2,6 @@
   "defaultTitle": "Stepper",
   "usingComponents": {
     "stepper": "../../../src/Stepper/index",
-    "button": "../../../src/Button/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "container": "../../../src/Container/index"
   }
 }
