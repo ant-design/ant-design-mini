@@ -53,7 +53,7 @@ export interface IStepperProps extends IBaseProps {
   /**
    * @description onComfirm
    */
-   onComfirm?: (e: any) => void
+   onConfirm?: (e: any) => void
 
   /**
    * @description 是否禁用

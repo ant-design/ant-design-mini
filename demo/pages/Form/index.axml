@@ -17,7 +17,13 @@
 
 <form-switch
   label="选择"
-  name="choose"
+  name="needDelivery"
+  ref="handleRef"
+/>
+
+<form-stepper
+  label="数量"
+  name="quantity"
   ref="handleRef"
 />
 
