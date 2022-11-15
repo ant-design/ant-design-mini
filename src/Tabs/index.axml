@@ -77,7 +77,7 @@
   </view>
 </view>
 <view a:else class="amd-vtabs {{className ? className : ''}}" style="{{style}}">
-  <view class="amd-vtabs-bar" class="{{tabsBarClassName ? tabsBarClassName : ''}}">
+  <view class="amd-vtabs-bar {{tabsBarClassName ? tabsBarClassName : ''}}">
     <scroll-view class="amd-vtabs-bar-scroll-view"
       scroll-top="{{tabTop}}"
       scroll-y="{{true}}">

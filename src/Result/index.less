@@ -9,11 +9,13 @@
   line-height: normal;
   box-sizing: border-box;
   .hairline("bottom");
+
   &-main {
     padding: @size-8 @result-spacing-LR;
     margin-bottom: @size-5;
     background-color: @result-main-background;
   }
+
   &-image {
     display: flex;
     justify-content: center;
@@ -24,45 +26,58 @@
     overflow: hidden;
     text-align: center;
     line-height: @result-img-size;
-    & + .@{resultPrefix}-title,
-    & + .@{resultPrefix}-message {
+
+    &+.@{resultPrefix}-title,
+    &+.@{resultPrefix}-message {
       padding-top: @size-5;
     }
+
     &-success {
-      color: @color-text-primary;
+      color: @COLOR_BRAND1;
     }
+
     &-danger {
-      color: @color-text-warning;
+      color: @COLOR_TEXT_WARNING;
     }
+
     &-info {
-      color: @color-text-primary;
+      color: @COLOR_BRAND1;
     }
+
     &-warn {
-      color: @color-orange-1;
+      color: @COLOR_ORANGE_1;
     }
+
     &-wait {
-      color: @color-pomonagreen-1;
+      color: @COLOR_POMONA_GREEN_1;
     }
   }
+
   &-title {
     font-size: @result-title-size;
     color: @result-title-color;
+
     &:empty {
       display: none;
     }
   }
+
   &-message {
     padding-top: @size-2;
     font-size: @result-desc-size;
     color: @result-desc-color;
+
     &:empty {
       display: none;
     }
   }
+
   &-buttons {
     padding: 0 @result-spacing-LR;
+
     .amd-button {
       margin-bottom: @h-spacing-large;
+
       &:last-child {
         margin-bottom: 0;
       }
