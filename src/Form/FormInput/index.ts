@@ -8,7 +8,6 @@ Component({
       value: '',
       status: ValidatorStatusEnum.Default,
       errors: [],
-      required: false,
     },
     selfFocus: false,
   },
