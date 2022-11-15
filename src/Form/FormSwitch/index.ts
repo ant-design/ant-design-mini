@@ -1,20 +1,19 @@
- import { FormInputDefaultProps } from './props';
+ import { FormSwitchDefaultProps } from './props';
 import { FromItemRef, ValidatorStatusEnum, EventTrigger, Value, Values } from '../form';
 
 Component({
-  props: FormInputDefaultProps,
+  props: FormSwitchDefaultProps,
   data: {
     formData: {
       value: undefined,
       status: ValidatorStatusEnum.Default,
       errors: [],
     },
-    selfFocus: false,
   },
   ref() {
     const formItemRef: FromItemRef = {
       getInitialValue: () => {
-        return '';
+        return false
       },
       setFormData: (values: Values) => {
         this.setData({
@@ -45,35 +44,10 @@ Component({
   },
   methods: {
     emit(trigger: EventTrigger, value?: Value) {},
-    onChange(e) {
-      this.emit('onChange', e.detail.value);
-      if (this.props.onInput) {
-        this.props.onInput(e);
-      }
-    },
-    onBlur(e) {
-      this.setData({
-        selfFocus: false,
-      });
-      this.emit('onBlur');
-      if (this.props.onBlur) {
-        this.props.onBlur(e);
-      }
-    },
-    onClear() {
-      this.emit('onChange', '');
-    },
-    onFocus(e) {
-      this.setData({
-        selfFocus: true,
-      });
-      if (this.props.onBlur) {
-        this.props.onFocus(e);
-      }
-    },
-    onConfirm(e) {
-      if (this.props.onConfirm) {
-        this.props.onConfirm(e);
+    onChange(checked, e) {
+      this.emit('onChange', checked);
+      if (this.props.onChange) {
+        this.props.onChange(checked, e);
       }
     },
   }

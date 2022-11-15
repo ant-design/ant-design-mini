@@ -15,5 +15,11 @@
   ref="handleRef"
 />
 
+<form-switch
+  label="选择"
+  name="choose"
+  ref="handleRef"
+/>
+
 <button type="primary" onTap="submit">提交</button>
 <button onTap="reset">重置</button>

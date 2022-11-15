@@ -27,6 +27,7 @@ export interface ValidatorStatus {
 }
 export interface FromItemRef {
   setFormData: (values: Values) => void;
+  getInitialValue: () => Value;
   getFormData: () => Values;
   getProps: () => Record<string, Value>;
   on: (callback: (trigger: EventTrigger, value?: Value) => void) => void;
@@ -289,7 +290,11 @@ class Field {
    * @param initialValue 
    */
   reset(initialValue: Value) {
-    this.setValue(initialValue);
+    let value = initialValue;
+    if (typeof initialValue === 'undefined') {
+      value = this.ref.getInitialValue();
+    }
+    this.setValue(value);
     this.setValidatorStatus({
       status: ValidatorStatusEnum.Default,
       errors: [],
