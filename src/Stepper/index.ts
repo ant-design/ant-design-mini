@@ -58,9 +58,9 @@ Component({
         this.props.onBlur(fmtEvent(e));
       }
     },
-    onComfirm(e) {
-      if (this.props.onComfirm) {
-        this.props.onComfirm(fmtEvent(e));
+    onConfirm(e) {
+      if (this.props.onConfirm) {
+        this.props.onConfirm(fmtEvent(e));
       }
     },
     onChange(e) {
