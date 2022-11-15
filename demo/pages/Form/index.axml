@@ -1,125 +1,19 @@
-<view class="demo">
-  <form 
-    form="{{form}}" 
-    onFinish="handleSubmit"
-    initialValues="{{initialValues}}"
-    onValuesChange="handleValuesChange">
-    <form-item
-      required
-      label="input"
-      name="input"
-      form="{{form}}">
-      <input-item mode="form" placeholder="请输入"/>
-    </form-item>
-    <form-item
-      required
-      label="password"
-      name="password"
-      rules="{{[{ pattern: /\d{6}/, message: '密码必须是6位数字' },]}}"
-      form="{{form}}">
-      <input-item mode="form" placeholder="请输入" password/>
-    </form-item>
-    <form-item
-      label="stepper"
-      name="stepper"
-      form="{{form}}">
-      <stepper 
-        mode="form"
-        min="{{0}}"
-        max="{{100}}"
-        step="{{1}}"/>
-    </form-item>
-    <form-item
-      label="switch"
-      name="switch"
-      form="{{form}}">
-      <switch 
-        mode="form"
-      />
-    </form-item>
-    <form-item 
-      label="picker" 
-      labelWidth="110px"
-      name="picker" 
-      form="{{form}}">
-      <picker 
-        pickerholder="请选择" 
-        data="{{pickerList}}"
-        mode="form"
-        onFormat="formatValue" 
-        onDismiss="cancelPicker" 
-      >
-        <view slot="title">
-          <text style="color: red;">Picker</text> 选择器</view>
-      </picker>
-    </form-item>
-    <form-item 
-      label="date-picker" 
-      labelWidth="110px"
-      name="datePicker" 
-      form="{{form}}">
-      <date-picker 
-        disabled="{{false}}" 
-        precision="day"
-        format="YYYY-MM-DD"
-        pickerholder="请选择时间" 
-        mode="form">
-      </date-picker>
-    </form-item>
-    <form-item 
-      label="range-picker" 
-      labelWidth="110px"
-      name="rangePicker" 
-      form="{{form}}">
-      <range-picker 
-        disabled="{{false}}" 
-        placeholder="请选择"
-        precision="day"
-        format="YYYY-MM-DD"
-        pickerholder="请选择范围" 
-        mode="form">
-      </range-picker>
-    </form-item>
-    <form-item 
-      label="selector" 
-      name="selector" 
-      position="vertical" 
-      form="{{form}}">
-      <selector 
-        items="{{selectorItems}}" 
-        multiple
-        mode="form" />
-    </form-item>
-    <form-item 
-      label="radio" 
-      required
-      name="radio" 
-      position="vertical" 
-      form="{{form}}">
-      <radio-group mode="form" position="horizontal">
-        <radio-item value="a1">单选一</radio-item>
-        <radio-item value="a2">单选二</radio-item>
-        <radio-item value="a3">单选三</radio-item>
-      </radio-group>
-    </form-item>
-    <form-item 
-      label="checkboxGroup" 
-      required
-      name="checkboxGroup" 
-      position="vertical" 
-      form="{{form}}">
-      <checkbox-group mode="form" position="horizontal">
-        <checkbox-item value="a1">复选框1</checkbox-item>
-        <checkbox-item value="a2">复选框2</checkbox-item>
-        <checkbox-item value="a3">复选框3</checkbox-item>
-      </checkbox-group>
-    </form-item>
-    <button 
-      slot="footer"
-      type="primary" 
-      mode="form"
-      form="{{form}}"
-      htmlType="submit">提交
-    </button>
-  </form>
-</view>
+<form-input
+  label="用户名"
+  name="account"
+  tooltip="用户账户对应名称"
+  allowClear
+  required
+  message="需要填写用户名"
+  ref="handleRef"
+/>
+
+<form-input
+  label="地址"
+  name="address"
+  allowClear
+  ref="handleRef"
+/>
+
+<button type="primary" onTap="submit">提交</button>
+<button onTap="reset">重置</button>
