@@ -47,7 +47,7 @@ Component({
         selfValue: value,
       });
       if (this.props.onChange) {
-        this.props.onChange(this.lastNumber, fmtEvent(e));
+        this.props.onChange(this.lastNumber, fmtEvent(this.props, e));
       }
     },
     onBlur(e) {
@@ -55,12 +55,12 @@ Component({
         selfValue: this.lastNumber,
       });
       if (this.props.onBlur) {
-        this.props.onBlur(fmtEvent(e));
+        this.props.onBlur(fmtEvent(this.props, e));
       }
     },
     onConfirm(e) {
       if (this.props.onConfirm) {
-        this.props.onConfirm(fmtEvent(e));
+        this.props.onConfirm(fmtEvent(this.props, e));
       }
     },
     onChange(e) {
@@ -90,7 +90,7 @@ Component({
           });
         }
         if (this.props.onChange) {
-          this.props.onChange(result, fmtEvent(e));
+          this.props.onChange(result, fmtEvent(this.props, e));
         }
       }
     },
