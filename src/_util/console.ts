@@ -27,7 +27,7 @@ export enum EComponents {
   GuideItem = 'GuideItem',
   HorizontalScrollbar = 'HorizontalScrollbar',
   Icon = 'Icon',
-  InputItem = 'InputItem',
+  Input = 'Input',
   List = 'List',
   ListItem = 'ListItem',
   Loading = 'Loading',
