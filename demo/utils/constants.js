@@ -213,7 +213,7 @@ export const componentList = [
       },
       {
         name: 'FormDependency',
-        nameZN: '表单-动态增减表单项',
+        nameZN: '表单-表单联动',
         path: '/pages/FormDependency/index',
       },
       {
