@@ -1,12 +1,12 @@
  import { FormInputDefaultProps } from './props';
-import { FromItemRef, ValidatorStatusEnum, EventTrigger, Value, Values } from '../form';
+import { FromItemRef, EventTrigger, Value, Values } from '../form';
 
 Component({
   props: FormInputDefaultProps,
   data: {
     formData: {
       value: undefined,
-      status: ValidatorStatusEnum.Default,
+      status: 'default',
       errors: [],
     },
     selfFocus: false,

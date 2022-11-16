@@ -1,0 +1,4 @@
+.buttons {
+  background: #fff;
+  padding: 12px;
+}

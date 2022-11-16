@@ -1,10 +1,7 @@
-import { IBaseProps } from '../../_base';
+import { FormItemProps } from '../FormItem/props';
 
 
-export interface FormInputProps extends IBaseProps {
-  name: string;
-  label: string;
-  position?: 'horizontal';
+export interface FormInputProps extends FormItemProps {
   allowClear?: boolean;
   validatorTrigger?: string;
   required?: boolean;

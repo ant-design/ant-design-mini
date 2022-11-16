@@ -1,11 +1,8 @@
-import { IBaseProps } from '../../_base';
+import { FormItemProps } from '../FormItem/props';
 import { IStepperProps } from '../../Stepper/props';
 
 
-export interface FormStepperProps extends Omit<IStepperProps, 'value'> {
-  name: string;
-  label: string;
-  position?: 'horizontal';
+export interface FormStepperProps extends Omit<IStepperProps, 'value' | 'defaultValue'>, FormItemProps {
   stepperClassName?: string;
   stepperStyle?: string;
 }

@@ -1,12 +1,12 @@
  import { FormSwitchDefaultProps } from './props';
-import { FromItemRef, ValidatorStatusEnum, EventTrigger, Value, Values } from '../form';
+import { FromItemRef, EventTrigger, Value, Values } from '../form';
 
 Component({
   props: FormSwitchDefaultProps,
   data: {
     formData: {
       value: undefined,
-      status: ValidatorStatusEnum.Default,
+      status: 'default',
       errors: [],
     },
   },
