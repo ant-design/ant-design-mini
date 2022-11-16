@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "form-item": "../FormItem/index",
-    "icon": "../../Icon/index"
+    "input": "../../Input/index"
   }
 }

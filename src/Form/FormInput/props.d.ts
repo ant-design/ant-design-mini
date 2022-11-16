@@ -1,14 +1,8 @@
 import { FormItemProps } from '../FormItem/props';
+import { InputProps } from '../../Input/props';
 
 
-export interface FormInputProps extends FormItemProps {
-  allowClear?: boolean;
-  validatorTrigger?: string;
-  required?: boolean;
-  onBlur?: (e: any) => void;
-  onConfirm?: (e: any) => void;
-  onFocus?: (e: any) => void;
-  onInput?: (e:any) => void;
+export interface FormInputProps extends Omit<InputProps, 'value'>, FormItemProps {
 }
 
 export declare const FormInputDefaultProps: Partial<FormInputProps>;
