@@ -212,6 +212,11 @@ export const componentList = [
         path: '/pages/FormLayout/index',
       },
       {
+        name: 'FormDependency',
+        nameZN: '表单-动态增减表单项',
+        path: '/pages/FormDependency/index',
+      },
+      {
         name: 'Input',
         nameZN: '输入框',
         path: '/pages/InputItem/index',
