@@ -106,7 +106,8 @@ export const componentList = [
         name: 'Container',
         nameZN: '容器',
         path: '/pages/Container/index',
-      },  {
+      },
+      {
         name: 'List',
         nameZN: '列表',
         path: '/pages/List/index',
@@ -132,9 +133,14 @@ export const componentList = [
         path: '/pages/Tag/index',
       },
       {
-        name: 'ProgressBar',
+        name: 'ProgressLine',
         nameZN: '进度条',
-        path: '/pages/ProgressBar/index',
+        path: '/pages/ProgressLine/index',
+      },
+      {
+        name: 'ProgressCircle',
+        nameZN: '进度圈',
+        path: '/pages/ProgressCircle/index',
       },
       {
         name: 'FloatPanel',
@@ -160,7 +166,7 @@ export const componentList = [
         name: 'Calendar',
         nameZN: '日历高级用法',
         path: '/pages/Calendar2/index',
-      }
+      },
     ],
   },
   {
@@ -259,7 +265,7 @@ export const componentList = [
       {
         name: 'ActionSheet',
         nameZN: '动作面板',
-        path: '/pages/ActionSheet/index'
+        path: '/pages/ActionSheet/index',
       },
       {
         name: 'Dialog',
@@ -307,19 +313,9 @@ export const componentList = [
         path: '/pages/Empty/index',
       },
       {
-        name: 'ProgressBar',
-        nameZN: '进度条',
-        path: '/pages/ProgressBar/index',
-      },
-      {
         name: 'Toast',
         nameZN: '轻提示',
         path: '/pages/Toast/index',
-      },
-      {
-        name: 'ProgressCircle',
-        nameZN: '进度圈',
-        path: '/pages/ProgressCircle/index',
       },
     ],
   },

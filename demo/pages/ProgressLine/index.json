@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "ProgressCircle",
+  "defaultTitle": "ProgressLine",
   "usingComponents": {
     "button": "../../../src/Button/index",
     "progress": "../../../src/Progress/index",
