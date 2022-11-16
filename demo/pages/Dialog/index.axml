@@ -45,7 +45,7 @@
     onClose="handleClose"
     onButtonTap="handleClose">
     <view class="input-container">
-      <input-item placeholder="给朋友留言"></input-item>
+      
     </view>
   </dialog>
 

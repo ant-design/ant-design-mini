@@ -1,0 +1,36 @@
+<container title="基础用法">
+  <input placeholder="请输入内容" onChange="onChange"/>
+</container>
+
+<container title="带初始值">
+  <input
+    placeholder="请输入内容"
+    defaultValue="带初始值"
+  />
+</container>
+
+<container title="带清除按钮">
+  <input
+    placeholder="请输入内容"
+    allowClear
+  />
+  </input>
+</container>
+
+<container title="禁用状态">
+  <input
+    placeholder="被禁用的输入框"
+    disabled="{{true}}"
+  />
+</container>
+
+
+<container title="受控模式">
+  <input
+    value="{{value}}"
+    placeholder="请输入内容"
+    allowClear
+    onChange="handleChange"
+    onClear="handleClear"
+  />
+</container>

@@ -230,7 +230,7 @@ export const componentList = [
       {
         name: 'Input',
         nameZN: '输入框',
-        path: '/pages/InputItem/index',
+        path: '/pages/Input/index',
       },
       {
         name: 'Picker',

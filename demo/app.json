@@ -15,7 +15,7 @@
     "pages/Switch/index",
     "pages/Picker/index",
     "pages/DatePicker/index",
-    "pages/InputItem/index",
+    "pages/Input/index",
     "pages/Badge/index",
     "pages/Button/index",
     "pages/ButtonInline/index",
