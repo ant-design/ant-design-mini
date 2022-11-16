@@ -6,7 +6,9 @@ export type Validator = (
   rule: Omit<InternalRuleItem, 'validator' | 'asyncValidator'>,
   value: Value
 ) => void | Promise<void>;
-export type ValidatorRender = (form: Form) => Validator;
+export type ValidatorRender = (form: Form) => {
+  validator: Validator,
+};
 export type FormRuleItem = Omit<RuleItem, 'asyncValidator'> | ValidatorRender;
 export type Rule = FormRuleItem | FormRuleItem[];
 export type Rules = Record<string, Rule>;
@@ -59,7 +61,7 @@ class Field {
   /**
    * Field change侦听
    */
-  private changeListener: ((value: Value) => void)[] = [];
+  private changeListener = (value: Value) => {};
 
   /**
    * 组件unmount侦听
@@ -88,7 +90,7 @@ class Field {
       if (trigger === 'onChange') {
         this.setValue(value);
         this.touched = true;
-        this.changeListener.forEach(item => item(value));
+        this.changeListener(value);
       } else if (trigger === 'didUnmount') {
         this.didUnmountListener();
       } else if (trigger === 'deriveDataFromProps') {
@@ -190,7 +192,7 @@ class Field {
    * @param callback onChange 回调方法
    */
   onChange(callback: (value: Value) => void) {
-    this.changeListener.push(callback);
+    this.changeListener = callback;
   }
 
   /**
@@ -332,6 +334,11 @@ export class Form {
   private validateMessages: ValidateMessages;
 
   /**
+   * 表单字段 change侦听
+   */
+   private changeListeners: Record<string, ((value: Value) => void)[]> = {};
+
+  /**
    * Form构建
    * @param formConfig 表单配置项
    */
@@ -353,8 +360,7 @@ export class Form {
       const arr = Array.isArray(rule) ? rule : [rule];
       arr.forEach(item => {
         if (typeof item === 'function') {
-          const validator = (item as ValidatorRender)(this);
-          list.push(validator);
+          list.push(item(this).validator);
         } else {
           list.push({
             ...item,
@@ -401,6 +407,11 @@ export class Form {
     };
     const validatorTrigger = props.validatorTrigger;
     const field = this.fields[name] = new Field(ref, value, validator, validatorTrigger);
+    field.onChange(value => {
+      if (this.changeListeners[name]) {
+        this.changeListeners[name].forEach(item => item(value));
+      }
+    })
     field.didUnmount((replaceName?: string) => {
       if (replaceName) {
         this.fields[replaceName] = this.fields[name];
@@ -408,6 +419,7 @@ export class Form {
       }
       delete this.fields[name];
       delete this.rules[name];
+      delete this.changeListeners[name];
     });
   }
 
@@ -489,10 +501,8 @@ export class Form {
    * @param callback 回调方法
    */
   onValueChange(name: string, callback: (value: Value) => void) {
-    const field = this.fields[name];
-    if (field) {
-      field.onChange(callback);
-    }
+    this.changeListeners[name] = this.changeListeners[name] || [];
+    this.changeListeners[name].push(callback);
   }
 
   /**
