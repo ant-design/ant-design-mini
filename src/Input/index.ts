@@ -14,7 +14,7 @@ Component({
         selfValue: value,
       });
       if (this.props.onChange) {
-        this.props.onChange(value, fmtEvent(e));
+        this.props.onChange(value, fmtEvent(this.props, e));
       }
     },
     onFocus(e) {

@@ -1,4 +1,4 @@
- import { FormInputDefaultProps } from './props';
+import { FormInputDefaultProps } from './props';
 import { FromItemRef, EventTrigger, Value, Values } from '../form';
 
 Component({
@@ -9,7 +9,6 @@ Component({
       status: 'default',
       errors: [],
     },
-    selfFocus: false,
   },
   ref() {
     const formItemRef: FromItemRef = {
@@ -45,23 +44,23 @@ Component({
   },
   methods: {
     emit(trigger: EventTrigger, value?: Value) {},
-    onChange(e) {
-      this.emit('onChange', e.detail.value);
-      if (this.props.onInput) {
-        this.props.onInput(e);
+    onChange(value, e) {
+      this.emit('onChange', value);
+      if (this.props.onChange) {
+        this.props.onChange(value, e);
       }
     },
     onBlur(e) {
-      this.setData({
-        selfFocus: false,
-      });
       this.emit('onBlur');
       if (this.props.onBlur) {
         this.props.onBlur(e);
       }
     },
-    onClear() {
+    onClear(e) {
       this.emit('onChange', '');
+      if (this.props.onClear) {
+        this.props.onClear(e);
+      }
     },
     onFocus(e) {
       this.setData({
