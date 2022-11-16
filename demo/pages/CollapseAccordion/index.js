@@ -16,8 +16,6 @@ Page({
     ]
   },
   onChange(current) {
-    this.setData({
-      current,
-    });
+    console.log(current);
   }
 });

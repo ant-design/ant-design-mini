@@ -1,6 +1,5 @@
 Page({
   data: {
-    current: [0],
     items: [
       {
         title: '第一项',
@@ -21,8 +20,6 @@ Page({
     ]
   },
   onChange(current) {
-    this.setData({
-      current,
-    });
+    console.log(current);
   }
 });

@@ -19,4 +19,14 @@ function getStyleHeight(index, contentHeight, disabled) {
   return 'height: 0px';
 }
 
-export default { isActive, getStyleHeight };
+function getValue(value, selfValue, defaultValue) {
+  if (typeof value !== 'undefined') {
+    return value;
+  }
+  if (typeof selfValue !== 'undefined') {
+    return selfValue;
+  }
+  return defaultValue || [];
+}
+
+export default { isActive, getStyleHeight, getValue };

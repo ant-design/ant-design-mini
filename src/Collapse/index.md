@@ -36,11 +36,12 @@ toc: 'content'
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | -----|-----|-----|-----|----- |
 | accordion | boolean | 否 | - | 是否是手风琴模式，仅一个内容被展开 |
-| current | number[] | 是 | - | 当前展开的索引 |
+| current | number[] | 否 | - | 当前展开的索引 |
 | className | string | 否 | - | 类名 |
+| defaultCurrent | number[] | 否 | [] | 当前展开的索引 |
 | items | Item[] | 是 | - | 折叠面板列表 |
 | style | string | 否 | - | 样式 |
-| onChange | 切换面板的回调 | ( current : `number[]`) => void |
+| onChange | 切换面板的回调 | ( current : `number[]`, e: `Event`) => void |
 
 ## 插槽
 | slot | slot-scope | 说明 |

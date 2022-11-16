@@ -18,19 +18,33 @@ function getBoundingClientRect(selector: string) {
   });
 }
 
+function getValue(value, selfValue, defaultValue) {
+  if (typeof value !== 'undefined') {
+    return value;
+  }
+  if (typeof selfValue !== 'undefined') {
+    return selfValue;
+  }
+  return defaultValue || [];
+}
+
 Component({
   props: CollapseDefaultProps,
   data: {
     contentHeight: [],
     hasChange: false,
+    selfCurrent: undefined,
   },
-  didUpdate(prevProps) {
-    if (prevProps.current !== this.props.current || prevProps.items !== this.props.items) {
-      this.updateContentHeight(prevProps.current, this.props.current);
+  didUpdate(prevProps, prevData) {
+    if (prevProps.current !== this.props.current || prevProps.items !== this.props.items || prevData.selfCurrent !== this.data.selfCurrent) {
+      this.updateContentHeight(
+        getValue(prevProps.current, prevData.selfCurrent, this.props.defaultCurrent),
+        getValue(this.props.current, this.data.selfCurrent, this.props.defaultCurrent)
+      );
     }
   },
   didMount() {
-    const current = this.formatCurrent(this.props.current);
+    const current = this.formatCurrent(getValue(this.props.current, this.data.selfCurrent, this.props.defaultCurrent));
     const contentHeight = this.props.items.map((item, index) => {
       if (current.indexOf(index) >= 0) {
         return '';
@@ -58,7 +72,7 @@ Component({
       if (this.props.items[itemIndex] && this.props.items[itemIndex].disabled) {
         return;
       }
-      let current = this.formatCurrent(this.props.current);
+      let current = this.formatCurrent(getValue(this.props.current, this.data.selfCurrent, this.props.defaultCurrent));
       const index = current.indexOf(itemIndex);
       if (index >= 0) {
         current.splice(index, 1);
@@ -69,6 +83,11 @@ Component({
           current.push(itemIndex);
           current.sort();
         }
+      }
+      if (typeof this.props.current === 'undefined') {
+        this.setData({
+          selfCurrent: current,
+        });
       }
       if (this.props.onChange) {
         this.props.onChange(current, fmtEvent(this.props, e));
@@ -119,7 +138,7 @@ Component({
     },
     resetContentHeight(e) {
       const index = parseInt(e.currentTarget.dataset.index, 10);
-      if (this.formatCurrent(this.props.current).indexOf(index) < 0) {
+      if (this.formatCurrent(getValue(this.props.current, this.data.selfCurrent, this.props.defaultCurrent)).indexOf(index) < 0) {
         return;
       }
       const contentHeight = [...this.data.contentHeight];

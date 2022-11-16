@@ -1,5 +1,5 @@
 <collapse
+  defaultCurrent="{{[0]}}"
   items="{{items}}"
-  current="{{current}}"
   onChange="onChange"
 />
