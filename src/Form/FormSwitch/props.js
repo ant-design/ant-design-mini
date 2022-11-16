@@ -1,3 +1,2 @@
-export const FormInputDefaultProps = {
-  position: 'horizontal',
-}
+export const FormSwitchDefaultProps = {
+};
