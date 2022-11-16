@@ -30,6 +30,11 @@ export interface ITabsProps extends IBaseProps {
     title: string;
     content: string;
     disabled?: boolean; 
-   }[]
+   }[];
+
+   /**
+    * 选项初始值
+    */
+   defaultCurrent?: number;
 }
 export declare const TabsDefaultProps: Partial<ITabsProps>;

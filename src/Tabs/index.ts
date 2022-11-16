@@ -15,6 +15,16 @@ function getBoundingClientRect(selector: string) {
   });
 }
 
+function getValue(value, selfValue, defaultValue) {
+  if (typeof value !== 'undefined') {
+    return value;
+  }
+  if (typeof selfValue !== 'undefined') {
+    return selfValue;
+  }
+  return defaultValue || 0;
+}
+
 
 Component({
   props: TabsDefaultProps,
@@ -22,13 +32,14 @@ Component({
     scrollLeft: 0,
     leftFade: true,
     rightFade: true,
+    selfCurrent: undefined,
   },
   scrollLeft: 0,
   didMount() {
     this.updateScrollLeft();
   },
-  didUpdate(prevProps) {
-    if (prevProps.current !== this.props.current || prevProps.items !== this.props.items) {
+  didUpdate(prevProps, prevData) {
+    if (prevProps.current !== this.props.current || prevProps.items !== this.props.items || prevData.selfCurrent !== this.data.selfCurrent) {
       this.updateScrollLeft();
     }
   },
@@ -40,9 +51,10 @@ Component({
       if (this.props.vertical) {
         return;
       }
+      const current = getValue(this.props.current, this.data.selfCurrent, this.props.defaultCurrent);
       const [view, item] = await Promise.all([
         getBoundingClientRect(`#amd-tabs-bar-scroll-view-${this.$id}`),
-        getBoundingClientRect(`#amd-tabs-bar-item-${this.$id}-${this.props.current}`),
+        getBoundingClientRect(`#amd-tabs-bar-item-${this.$id}-${current}`),
       ]);
       this.setData({
         scrollLeft: (this.scrollLeft || 0) + item.left - Math.max((view.width - item.width) / 2, 0),
@@ -71,7 +83,22 @@ Component({
     onChange(e) {
       const { onChange } = this.props;
       const index = parseInt(e.currentTarget.dataset.index, 10);
-      if (onChange && index !== this.props.current && !this.props.items[index].disabled) {
+      if (this.props.items[index].disabled) {
+        return;
+      }
+      if (typeof this.props.current === 'undefined') {
+        if (index === this.data.selfCurrent) {
+          return;
+        }
+        this.setData({
+          selfCurrent: index,
+        });
+      } else {
+        if (index === this.props.current) {
+          return;
+        }
+      }
+      if (onChange) {
         onChange(index, fmtEvent(this.props, e));
       }
     },

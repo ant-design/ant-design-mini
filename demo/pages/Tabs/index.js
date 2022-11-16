@@ -3,17 +3,14 @@ Page({
     current: 0,
     items: [
       {
-        id: 0,
         title:"水果",
         subTitle:"描述文案",
         content:"西瓜",
       },{
-        id: 1,
         title:"蔬菜",
         subTitle:"描述文案",
         content:"西红柿",
       },{
-        id: 2,
         title:"动物",
         subTitle:"描述文案",
         content:"蚂蚁",
@@ -37,8 +34,14 @@ Page({
     ],
   },
   onChange(current) {
+    my.alert({
+      title: 'current',
+      content: current,
+    })
+  },
+  handleChange(current) {
     this.setData({
       current,
     });
-  },
+  }
 });
