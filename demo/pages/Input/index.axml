@@ -2,10 +2,10 @@
   <input placeholder="请输入内容" onChange="onChange"/>
 </container>
 
-<container title="带初始值">
+<container title="带有value">
   <input
     placeholder="请输入内容"
-    defaultValue="带初始值"
+    value="小程序"
   />
 </container>
 
@@ -25,7 +25,7 @@
 </container>
 
 
-<container title="受控模式">
+<container title="修改value">
   <input
     value="{{value}}"
     placeholder="请输入内容"

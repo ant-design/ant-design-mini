@@ -8,7 +8,7 @@
         class="amd-input-item-content {{inputClassName ? inputClassName : ''}}"
         style="{{inputStyle}}" 
         disabled="{{disabled}}" 
-        value="{{utils.getValue(value, selfValue, defaultValue)}}" 
+        value="{{utils.getValue(value, selfValue)}}" 
         type="{{type}}"
         password="{{password}}"
         placeholder="{{placeholder}}" 
@@ -22,7 +22,6 @@
         selection-start="{{selectionStart}}" 
         selection-end="{{selectionEnd}}" 
         random-number="{{randomNumber}}" 
-        controlled="{{typeof value !== 'undefined'}}"  
         onInput="onChange" 
         onConfirm="onConfirm" 
         onFocus="onFocus"
@@ -31,7 +30,7 @@
     </view>
     <view
       a:if="{{allowClear}}"
-      class="amd-input-item-clear {{utils.getValue(value, selfValue, defaultValue).length > 0 && utils.getValue(undefined, selfFocus, defaultFocus) ? 'show' : 'hidden'}}" 
+      class="amd-input-item-clear {{utils.getValue(value, selfValue).length > 0 && utils.getValue(undefined, selfFocus, defaultFocus) ? 'show' : 'hidden'}}" 
       onTap="onClear">
       <icon size="x-small" class="amd-input-item-clear-icon" type="CloseCircleFill" ></icon>
     </view>

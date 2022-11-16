@@ -23,7 +23,6 @@ toc: 'content'
 | -----|-----|-----|-----|
 | allowClear | 可以点击清除图标删除内容 | `boolean` | false |  
 | defaultFocus | 聚焦初始值值 | `boolean` | false | 
-| defaultValue | 始值值 | `string` | - | 
 | className | 类名| `string` | - |
 | confirmType | 设置键盘右下角按钮的文字，有效值：done（显示“完成”）、go（显示“前往”）、next（显示“下一个”）、search（显示“搜索”）、send（显示“发送”），平台不同显示的文字略有差异。注意：只有在 type=text 时有效 | 'done' &verbar; 'go' &verbar; 'next' &verbar; 'search' &verbar; 'send' | 'done' | 
 | cursor | 指定 focus 时的光标位置 | `number` | - | 
