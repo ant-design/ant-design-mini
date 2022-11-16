@@ -46,5 +46,13 @@
   >
     <view slot="title">标题插槽</view>
     <view slot="message">描述插槽</view>
+    <view slot="buttons">
+      <block a:for="{{buttons}}">
+        <button className="demo-result-buttons"
+          type="{{item.type}}"
+          onTap="onButtonTap"
+        >{{item.text}}</button>
+      </block>
+    </view>
   </result>
 </container>
