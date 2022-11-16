@@ -20,7 +20,6 @@ export enum EComponents {
   FooterTag = 'FooterTag',
   FooterText = 'FooterText',
   Form = 'Form',
-  FormGroup = 'FormGroup',
   FormItem = 'FormItem',
   Grid = 'Grid',
   GuideModal = 'GuideModal',
