@@ -18,9 +18,9 @@ export interface InputProps extends IBaseProps {
   maxLength?: number;
   password?: boolean;
   onChange?: (value: string, e: any) => void;
-  onBlur?: (value: string, e: any) => void;
-  onFocus?: (value: string, e: any) => void;
-  onConfirm?: (value: string, e: any) => void;
-  onClear?: (value: string, e: any) => void;
+  onBlur?: (e: any) => void;
+  onFocus?: (e: any) => void;
+  onConfirm?: (e: any) => void;
+  onClear?: (e: any) => void;
 }
 export declare const InputDefaultProps: Partial<InputProps>;
