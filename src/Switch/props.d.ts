@@ -3,7 +3,7 @@ import { IBaseProps } from '../_base';
  * @description 开关。
  */
 
-export interface ISwitchProps extends IBaseProps<boolean> {
+export interface ISwitchProps extends IBaseProps {
   /**
    * @description 是否勾选
    */

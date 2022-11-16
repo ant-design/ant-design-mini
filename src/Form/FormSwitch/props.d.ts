@@ -1,11 +1,8 @@
-import { IBaseProps } from '../../_base';
+import { FormItemProps } from '../FormItem/props';
+import { ISwitchProps } from '../../Switch/props';
 
 
-export interface FormSwitchProps extends IBaseProps {
-  name: string;
-  label: string;
-  position?: 'horizontal';
-  onChange?: (checked: boolean, e: any) => void;
+export interface FormSwitchProps extends Omit<ISwitchProps, 'checked' | 'defaultChecked'>, FormItemProps {
 }
 
 export declare const FormSwitchDefaultProps: Partial<FormSwitchProps>;

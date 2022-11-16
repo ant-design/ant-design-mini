@@ -9,6 +9,8 @@
   tooltip="{{tooltip}}"
   required="{{formData.required}}"
   requiredMark="{{requiredMark}}"
+  validateStatus="{{validateStatus}}"
+  help="{{help}}"
 >
   <view class="amd-input-item {{disabled ? 'amd-input-item-disabled' : ''}} {{className ? className : ''}}">
     <view class="amd-input-item-line">
@@ -18,7 +20,7 @@
           class="amd-input-item-content" 
           disabled="{{disabled}}" 
           value="{{formData.value}}" 
-          type="{{type}}" 
+          type="{{type}}"
           password="{{password}}" 
           placeholder="{{placeholder}}" 
           placeholder-class="amd-input-item-placeholder-base {{placeholderClass ? placeholderClass : ''}}" 

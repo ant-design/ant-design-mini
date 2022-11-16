@@ -9,6 +9,8 @@
   tooltip="{{tooltip}}"
   required="{{formData.required}}"
   requiredMark="{{requiredMark}}"
+  validateStatus="{{validateStatus}}"
+  help="{{help}}"
 >
   <view>
     <switch

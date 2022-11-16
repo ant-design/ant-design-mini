@@ -17,14 +17,9 @@ export type FormConfig = {
   initialValues?: Values;
   validateMessages?: ValidateMessages;
 };
-export enum ValidatorStatusEnum {
-  Default = 'default',
-  Success = 'success',
-  Validating = 'validating',
-  Error = 'error'
-}
+export type ValidateStatus = 'default' | 'success' | 'error' | 'validating';
 export interface ValidatorStatus {
-  status: ValidatorStatusEnum;
+  status: ValidateStatus;
   errors: string[];
 }
 export interface FromItemRef {
@@ -248,8 +243,8 @@ class Field {
    * 校验 Field
    */
   async validate() {
-    const validatorStatusSuccess = {
-      status: ValidatorStatusEnum.Success,
+    const validatorStatusSuccess: ValidatorStatus = {
+      status: 'success',
       errors: [] as string[],
     };
     const value = this.getValue();
@@ -262,7 +257,7 @@ class Field {
     }
     try {
       this.setValidatorStatus({
-        status: ValidatorStatusEnum.Validating,
+        status: 'validating',
         errors: []
       });
       await this.validator.validate({
@@ -275,8 +270,8 @@ class Field {
       };
     } catch(err) {
       const errors: ValidateError[] = err.errors;
-      const validatorStatus = {
-        status: ValidatorStatusEnum.Error,
+      const validatorStatus: ValidatorStatus = {
+        status: 'error',
         errors: errors.map(({ message = '' }) => message),
       };
       this.setValidatorStatus(validatorStatus);
@@ -298,7 +293,7 @@ class Field {
     }
     this.setValue(value);
     this.setValidatorStatus({
-      status: ValidatorStatusEnum.Default,
+      status: 'default',
       errors: [],
     });
   }
@@ -529,7 +524,7 @@ export class Form {
       errors: string[];
     }[] = [];
     result.forEach(({ name, value, validatorStatus }) => {
-      if (validatorStatus.status === ValidatorStatusEnum.Error) {
+      if (validatorStatus.status === 'error') {
         errorFields.push({
           name,
           errors: validatorStatus.errors,

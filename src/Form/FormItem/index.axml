@@ -23,9 +23,9 @@
       <view class="amd-form-item-field amd-form-item-field-{{position}}">
         <slot />
         <view
-          class="amd-form-item-error-info {{disabled ? 'amd-form-item-error-info-disabled' : ''}} amd-form-item-error-info-{{position}}"
-          a:if="{{status === 'error'}}">
-          {{errors[0]}}
+          class="{{(validateStatus === 'error' || status === 'error') ? 'amd-form-item-error-info' : 'amd-form-item-help-info'}} {{disabled ? 'amd-form-item-error-info-disabled' : ''}} amd-form-item-error-info-{{position}}"
+          a:if="{{help || status === 'error'}}">
+          <view>{{help || errors[0]}}</view>
         </view>
       </view>
     </view>
