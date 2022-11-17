@@ -16,21 +16,21 @@ toc: 'content'
 ### 基本使用
 <code src='../../demo/pages/Toast'></code>
 
-
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| type | string | 否 | - | toast 类型，展示相应图标，支持 success / fail / warning / loading
-| content | string | 是 | - | Toast 文本内容 |
-| icon | Icon类型 | 否 | - | Toast 图标 |
-| image | string | 否 | - | Toast 图标 |
-| duration | number | 否 | 2000 | Toast 持续时间, duration为0不会自动关闭 |
-| visible | boolean | 是 | false | 是否隐藏 |
-| showMask | boolean | 否 | false | 是否展示蒙层 |
-| maskCloseable | boolean | 否 | false | 点击蒙层是否关闭 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
-| maskStyle | string | 否 | - | 蒙层style |
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| className | 组件根节点类名 | `string` | - | 
+| content | 文本内容 | `string` | - | 
+| duration | 持续时间, 为0时不会自动关闭 | `number` | `2000` |
+| maskCloseable | 点击蒙层是否关闭 | `boolean` | `false` | 
+| icon | 图标，支持 Icon 组件所有type | - | - | 
+| image | 图片链接 | `string` | - | 
+| maskStyle | 蒙层样式 | `string` | - |
+| showMask | 是否展示蒙层 |  `boolean` | `false` | 
+| style | 样式 | `string` | - | 
+| type | 内置图标类型 | `success \| fail \| warning \| loading` | - | 
+| visible | 是否隐藏 | `boolean` | `false` | 
 
 ## 事件
 | 事件名 | 说明 | 类型 |
