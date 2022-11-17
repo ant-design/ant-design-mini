@@ -29,7 +29,7 @@ toc: 'content'
 | maskStyle | 蒙层样式 | `string` | - |
 | showMask | 是否展示蒙层 |  `boolean` | `false` | 
 | style | 样式 | `string` | - | 
-| type | 内置图标类型 | `success \| fail \| warning \| loading` | - | 
+| type | 内置图标类型 | `success \| error \| warning \| loading` | - | 
 | visible | 是否隐藏 | `boolean` | `false` | 
 
 ## 事件

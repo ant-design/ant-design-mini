@@ -7,7 +7,7 @@
     <loading 
       a:if="{{type === 'loading'}}" 
       type="mini" 
-      height="80rpx"
+      height="40px"
     />
     <am-icon 
       a:elif="{{type === 'warning'}}" 
@@ -15,7 +15,7 @@
       className="amd-toast-icon"
     />
     <am-icon 
-      a:elif="{{type === 'fail'}}" 
+      a:elif="{{type === 'error'}}" 
       type="CloseOutline" 
       className="amd-toast-icon" 
     />
