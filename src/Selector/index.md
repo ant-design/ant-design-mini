@@ -17,7 +17,32 @@ toc: 'content'
 ## 代码示例
 ### 基本使用
 <code src='../../demo/pages/Selector'></code>
+
 ## 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| activeItemClassName | 选中选项的类名 | `string` | - |
+| activeItemStyle | 选中选项的样式 | `string` | - |
+| className | 类名 | `string` | - |
+| disabled | 是否整体禁用 | `boolean` | `false` |
+| items |  选项数据源 | `SelectorItem[]` | `[]` |
+| maxSelectedCount | 最大可选中项的数量 | `number` | - | 
+| minSelectedCount | 最小可选中项的数量 | `number` | - | 
+| multiple | 是否允许多选，标签栏显示的时候会显示当前单选/多选的状态 | `boolean` | `false` | 
+| style | 样式 | `string` | - |
+| value | 已选择项, 取 items 每一项的 value | `string \| number \| string[] \| number[]`  | - | 
+
+
+## 事件
+| 事件名 | 说明 | 类型 |
+| -----|-----|-----|
+| onChange | 选中值发生变化，触发回调 | `(v: string \| string[], selectedItem: SelectorItem \| SelectorItem[], event: `[`Event`](https://opendocs.alipay.com/mini/framework/event-object)`) => void` |
+| onSelectMax | 触发最大限制 | `(v: string, item: SelectorItem, event: `[`Event`](https://opendocs.alipay.com/mini/framework/event-object)`) => void` |
+| onSelectMin | 触发最小限制 | `(v: string, item: SelectorItem, event: `[`Event`](https://opendocs.alipay.com/mini/framework/event-object)`) => void` |
+
+## 类型
+
 
 ```typescript
 type SelectorItem = {
@@ -29,38 +54,3 @@ type SelectorItem = {
 ```
 <hr />
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| value | string &#124; number &#124; string[] &#124; number[]  | 否 | - | 已选择项, 取 items 每一项的 value |
-| items | SelectorItem[] | 是 | - | 可选项 |
-| activeItemClassName | string | 否 | - | 每一项激活时新加类名 |
-| multiple | boolean | 否 | false | 是否允许多选，标签栏显示的时候会显示当前单选/多选的状态 |
-| title | string | 否 | '' | 标签栏标题 |
-| desc | string | 否 | '' | 标签栏说明|
-| id | string | 否 | - | 表单元素 id |
-| name | string | 否 | - | 表单元素 name |
-| disabled | boolean | 否 | false | 是否禁用 |
-| maxSelectedCount | number | 否 | - | 最大选择数量 |
-| minSelectedCount | number | 否 | - | 最小选择数量 |
-| mode | 'noraml' &verbar; 'form' | 否 | 'normal' | 配合From/FormItem组件使用时，需设置为 from |
-| className | string | 否 | - | 类名 |
-
-## 事件
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onChange | 选中值发生变化，触发回调 | (v: string &#124; string[], selectedItem: SelectItem &#124; SelectItem[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onSelectMax | 触发最大限制 | (v: string, item: SelectItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onSelectMin | 触发最小限制 | (v: string, item: SelectItem, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object) ) => void |
-
-## 样式类
-| 类名 | 说明 |
-| -----|-----|
-| amd-selector | 整体样式 |
-| amd-selector-disabled | 禁用状态下的整体样式 |
-| amd-selector-content | 单个选项样式 |
-| amd-selector-item | 单个选项样式 |
-| amd-selector-item-active | 激活状态下单个样式 |
-| amd-selector-item-disabled | 禁用状态下单个选项样式 |
-| amd-selector-item-text | 文本样式 |
-| amd-selector-item-subtext | 副文本样式 |
-| amd-selector-item-badge-active | 激活状态下徽标样式 |

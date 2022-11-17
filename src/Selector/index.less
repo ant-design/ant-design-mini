@@ -6,56 +6,42 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: calc(@selector-collapse / 2);
+  // padding: calc(@selector-collapse / 2);
   background-color: @selector-background-color;
   line-height: @selector-line-height;
-  &-header {
-    &-container {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 12 * @rpx;
-    }
-
-    &-title {
-      font-size: 30 * @rpx;
-      &-tip {
-        font-size: 26 * @rpx;
-        color: #999;
-        padding-left: 8 * @rpx;
-      }
-    }
-    &-desc {
-      font-size: 30 * @rpx;
-      color: #999;
-    }
-  }
 
   &-disabled .amd-selector-content {
     opacity: 0.6;
+
     .@{selectorPrefix}-item-disabled {
       opacity: 1;
     }
   }
+
   &-content {
     display: flex;
     flex: 0 33.3333%;
     padding: calc(@selector-collapse / 2);
     box-sizing: border-box;
     z-index: 2;
+
     &-item2 {
       flex: 1;
     }
+
     &-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
     }
+
     .amd-tap-modal-mask {
       width: calc(100% - 24 * @rpx);
       height: calc(100% - 24 * @rpx);
       margin: 12 * @rpx 0 0 12 * @rpx;
     }
   }
+
   &-item {
     position: relative;
     display: flex;
@@ -70,15 +56,21 @@
 
     &-active {
       background-color: @selector-item-active-background;
+
+      .@{selectorPrefix}-item-text {
+        color: @COLOR_BRAND1;
+      }
     }
 
     &-disabled {
       opacity: 0.6;
     }
+
     &-text {
       font-size: @selector-item-size;
       color: @selector-item-color;
     }
+
     &-subtext {
       font-size: @selector-item-sub-size;
       color: @selector-item-sub-color;
