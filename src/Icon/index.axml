@@ -1,3 +1,4 @@
-<text class="amd-icon amd-icon-{{type}} {{className ? className : ''}}"
-  style="{{style || ''}}">
-</text>
+<text
+  class="amd-icon amd-icon-{{type}} {{className ? className : ''}}"
+  style="{{size ? `fontSize: ${size}px;` : ''}}{{style || ''}}"
+/>
