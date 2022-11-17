@@ -25,21 +25,17 @@
     <view class="s-action-title">事件按钮放置位置</view>
     <radio-group
       class="radio-group"
-      uid="horizontal"
-      value="{{type}}"
+      options="{{list}}"
       position="horizontal"
-      onChange="handleChange">
-      <radio-item a:for="{{list}}" value="{{item.value}}" uid="horizontal">{{item.label}}</radio-item >
-    </radio-group>
+      onChange="handleChange"
+    />
     <view class="s-action-title">二次确认效果</view>
-    <radio-group  
+    <radio-group
       class="radio-group"
-      uid="horizontalList"
-      value="{{check}}"
+      options="{{list}}"
       position="horizontal"
-      onChange="handleChangeCheck">
-      <radio-item a:for="{{checkList}}" value="{{item.value}}" uid="horizontalList">{{item.label}}</radio-item >
-    </radio-group>
+      onChange="handleChangeCheck"
+    />
     <view class="s-action-title">是否带有滑动回弹</view>
     <view class="s-action-switch">
       <switch onChange="onChangeSwitch" checked="{{inertia}}" />

@@ -6,7 +6,7 @@
       buttonPosition="{{buttonPosition}}"
       image="{{showImage ? image : ''}}"
       showClose="{{showClose}}"
-      arrowPosition="{{tipsArrow[arrowPosition].name}}"
+      arrowPosition="{{tipsArrow[arrowPosition].label}}"
       onButtonTap="onButtonTap"/>
   </view>
   <list radius>
@@ -24,13 +24,26 @@
       按钮文案
       <input value="{{buttonText}}" onChange="handleChangeButtonText" slot="extra" />
     </list-item>
-    <radio-group header="箭头位置" uid="arrowPosition" value="{{arrowPosition}}" controlled onChange="handleChangeArrowPosition">
-      <radio-item a:for="{{tipsArrow}}" value="{{item.value}}" uid="arrowPosition">{{item.name||'无箭头'}}</radio-item>
+
+    <view>箭头位置</view>
+    <radio-group
+      defaultValue="{{arrowPosition}}"
+      options="{{tipsArrow}}"
+      onChange="handleChangeArrowPosition"
+    >
+      <view slot="label" slot-scope="item">
+        {{item.value.label || '无箭头'}}
+      </view>
     </radio-group>
-    <radio-group header="按钮位置" uid="buttonPosition" onChange="handleChangeButtonPosition" value="{{buttonPosition}}" controlled>
-      <radio-item value="right" uid="buttonPosition">右侧</radio-item>
-      <radio-item value="bottom" uid="buttonPosition">底部</radio-item>
-    </radio-group>
+
+    <view>按钮位置</view>
+    <radio-group
+      options="{{
+        [{label: '右侧', value: 'right'},
+        {label: '底部', value: 'bottom'}]
+      }}"
+      onChange="handleChangeButtonPosition"
+    />
   </list>
 </view>
 

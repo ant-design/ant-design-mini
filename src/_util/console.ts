@@ -40,7 +40,7 @@ export enum EComponents {
   PopoverItem = 'PopoverItem',
   Popup = 'Popup',
   RadioGroup = 'RadioGroup',
-  RadioItem = 'RadioItem',
+  Radio = 'Radio',
   Result = 'Result',
   SafeArea = 'SafeArea',
   SearchBar = 'SearchBar',

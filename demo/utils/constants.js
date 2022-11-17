@@ -232,8 +232,13 @@ export const componentList = [
         path: '/pages/DatePicker/index',
       },
       {
-        name: 'RadioGroup',
+        name: 'Radio',
         nameZN: '单选框',
+        path: '/pages/Radio/index',
+      },
+      {
+        name: 'RadioGroup',
+        nameZN: '单选框组合',
         path: '/pages/RadioGroup/index',
       },
       {
