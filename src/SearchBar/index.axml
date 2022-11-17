@@ -1,10 +1,8 @@
-<view class="amd-search-bar {{className ? className : ''}} {{ showCancelButton ? 'amd-search-bar-padding-right' : '' }} {{ focus ? 'amd-search-bar-focus' : '' }}">
-  <view class="amd-search-bar-input {{ focus ? 'amd-search-bar-input-focus' : ''}} {{showBizIcon ? 'amd-search-bar-input-biz' : ''}}"
+<view class="amd-search-bar {{className ? className : ''}}  {{ focus ? 'amd-search-bar-focus' : '' }}">
+  <view class="amd-search-bar-input {{ focus ? 'amd-search-bar-input-focus' : ''}}"
     style="{{borderColor ? `border-color: ${borderColor};` : ''}}">
     <view class="amd-search-bar-synthetic">
-      <amd-icon class="amd-search-bar-synthetic-icon"
-        type="SearchOutline"
-        size="x-small" />
+      <amd-icon class="amd-search-bar-synthetic-icon" type="SearchOutline" />
     </view>
     <input class="amd-search-bar-value"
       type="{{type}}"
@@ -23,29 +21,16 @@
       onBlur="onBlur"
       onConfirm="onSubmit" />
     <view
-      className="amd-search-bar-clear-icon {{showBizIcon ? 'amd-search-bar-clear-icon-biz' : ''}}"
+      className="amd-search-bar-clear-icon"
       onTap="onClear"
       a:if="{{cValue.length > 0}}"
       >
       <amd-icon
         type="CloseCircleFill"/>
     </view>
-    <view 
-      a:if="{{showBizIcon || showVoice}}"
-      className="amd-search-bar-biz-icon"
-      onTap="onBizIconTap">
-      <amd-icon 
-        type="{{bizIconType}}"/>
+    <view  class="amd-search-bar-biz-icon">
+      <slot name="icon"/>
     </view>
   </view>
-
-  <view
-    a:if="{{showCancelButton}}"
-    class="amd-search-bar-cancel-container {{showCancelButton? 'amd-search-bar-cancel-container-show' : ''}}"
-    onTap="onCancel"> 
-    <view 
-      class="amd-search-bar-cancel">
-        {{cancelText}}
-    </view>
-  </view> 
+  <view class="amd-search-bar-right"><slot name="right"/></view>
 </view>

@@ -1,11 +1,11 @@
 <import-sjs name="sjs" from='./index.sjs' />
-<view class="amd-page-infinite {{className||''}}">
+<view class="amd-page-infinite {{className||''}}" style="{{style || ''}}">
     <scroll-view scroll-x="true" class="amd-page-infinite-content"  id="pageInfinite{{$id}}" onScroll="{{supportSjs?sjs.changeScollDistance:'onScroll'}}">
         <slot></slot>
     </scroll-view>
     <view class="amd-page-infinite-wrap">
         <view class="amd-page-infinite-area" style="{{fillColor?'background-color:' + fillColor : ''}}">
-            <view class="amd-page-infinite-move" style="background-color: {{frontColor}}; transform: translateX({{pageDeg}}%);"></view>
+            <view class="amd-page-infinite-move" style="{{frontColor?'background-color:'+ frontColor:''}}; transform: translateX({{pageDeg}}%);"></view>
         </view>
     </view>
 </view>

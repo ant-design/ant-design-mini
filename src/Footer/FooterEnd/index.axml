@@ -1,4 +1,4 @@
-<view class="amd-footer-end {{className ? className : ''}}">
+<view class="amd-footer-end {{className ? className : ''}}" style="{{style || ''}}">
   <view class="amd-footer-end-divider" />
   <view class="amd-footer-end-text">
     <slot />
