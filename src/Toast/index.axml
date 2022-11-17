@@ -1,16 +1,53 @@
-<view class="amd-toast-wrapper {{className}} {{icon || image || type ? 'amd-toastWithIcon-wrapper' : ''}}" a:if="{{show}}" style="{{style}}">
+<view 
+  class="amd-toast {{className}} {{icon || image || type ? 'amd-toast-icon-wrapper' : ''}}" 
+  a:if="{{show}}" 
+  style="{{style}}"
+>
   <view a:if="{{type}}" class="amd-toast-normal">
-    <loading a:if="{{type === 'loading'}}" type="mini" height="80rpx"></loading>
-    <icon a:elif="{{type === 'warning'}}" type="ExclamationOutline" class="amd-toast-icon" />
-    <icon a:elif="{{type === 'fail'}}" type="CloseOutline" class="amd-toast-icon" />
-    <icon a:elif="{{type === 'success'}}" type="CheckOutline" class="amd-toast-icon" />
+    <loading 
+      a:if="{{type === 'loading'}}" 
+      type="mini" 
+      height="80rpx"
+    />
+    <am-icon 
+      a:elif="{{type === 'warning'}}" 
+      type="ExclamationOutline" 
+      className="amd-toast-icon"
+    />
+    <am-icon 
+      a:elif="{{type === 'fail'}}" 
+      type="CloseOutline" 
+      className="amd-toast-icon" 
+    />
+    <am-icon 
+      a:elif="{{type === 'success'}}" 
+      type="CheckOutline" 
+      className="amd-toast-icon" 
+    />
   </view>
-  <icon a:elif="{{icon}}" type="{{icon}}" class="amd-toast-icon" />
-  <view a:elif="{{image}}" style="background-image: url({{image}})" class="amd-toast-image" />
+  <am-icon 
+    a:elif="{{icon}}" 
+    type="{{icon}}" 
+    className="amd-toast-icon"
+  />
+  <view 
+    a:elif="{{image}}" 
+    style="background-image: url({{image}})" 
+    class="amd-toast-image" 
+  />
   <view class="amd-toast-text-body">
     <view class="amd-toast-text-box">
-      <view class="amd-toast-text-content">{{content.substring(0, 24)}}</view>
+      <view class="amd-toast-text-content">
+        {{content.substring(0, 24)}}
+      </view>
     </view>
   </view>
 </view>
-<mask a:if="{{show && showMask}}" show="{{true}}" maskZindex="{{998}}" onMaskTap="handleClickMask" style="{{maskStyle}}" />
+
+<mask 
+  className="amd-toast-mask"
+  a:if="{{show && showMask}}"
+  show="{{true}}"
+  onMaskTap="handleClickMask" 
+  style="{{maskStyle}}" 
+/>

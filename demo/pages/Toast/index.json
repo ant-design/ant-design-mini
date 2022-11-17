@@ -2,6 +2,7 @@
   "defaultTitle": "Toast",
   "usingComponents": {
     "toast": "../../../src/Toast/index",
-    "button": "../../../src/Button/index"
+    "button": "../../../src/Button/index",
+    "container": "../../../src/Container/index"
   }
 }

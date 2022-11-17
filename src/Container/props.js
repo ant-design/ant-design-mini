@@ -1,3 +1,3 @@
 export const ContainerDefaultProps = {
-    headerInBox: true
+  headerInBox: true
 };
