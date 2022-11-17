@@ -1,3 +1,12 @@
+## 0.0.24 (2022-11-17)
+
+
+### Bug Fixes
+
+* deps ([#343](https://github.com/ant-design/ant-design-mini/issues/343)) ([7201054](https://github.com/ant-design/ant-design-mini/commit/7201054a2872270b1cca1c96168677a6a30b19b7))
+
+
+
 ## 0.0.23 (2022-11-15)
 
 
