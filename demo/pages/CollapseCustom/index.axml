@@ -1,8 +1,4 @@
-<collapse
-  items="{{items}}"
-  current="{{current}}"
-  onChange="onChange"
->
+<collapse items="{{items}}">
   <view slot="title" slot-scope="item">
     {{item.value.title}}
     {{current.indexOf(item.index) >= 0 ? '' : item.value.content.slice(0, 20) + '...' }}

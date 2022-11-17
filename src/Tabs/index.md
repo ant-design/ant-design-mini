@@ -44,6 +44,8 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| `string` | - |
+| current | 选中索引 | `number` | - |
+| defaultCurrent | 选中索引初始值 | `number` | 0 |
 | plus | 右上角操作按钮插槽 | `slot` | - |
 | style | 样式| `string` | - |
 | type | 类型，basis(基础)，capsule(胶囊)，mixin(混合) | 'basis' \| 'capsule' \| 'mixin' | 'basis' | 

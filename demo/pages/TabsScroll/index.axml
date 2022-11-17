@@ -1,12 +1,5 @@
 <!--basic-->
-<tabs
-  items="{{items}}"
-  current="{{current}}"
-  onChange="onChange"
->
+<tabs items="{{items}}">
   <icon slot="plus" type="AddOutline" />
-  <view slot="content">
-    {{items[current].content}}
-  </view>
 </tabs>
 

@@ -47,10 +47,8 @@
   
   <radio-group  
     class="demo-empty-mode-switch"
-    value="page"
-    uid="horizontal"
     position="horizontal"
-    onChange="handleChangeMode">
-    <radio-item a:for="{{modeList}}" value="{{item.value}}" uid="horizontal">{{item.name}}</radio-item>
-  </radio-group>
+    options="{{modeList}}"
+    onChange="handleChangeMode"
+  />
 </view>

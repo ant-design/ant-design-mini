@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "InputItem",
-  "usingComponents": {
-    "input-item": "../../../src/InputItem/index",
-    "demo-block": "../../components/DemoBlock/index"
-  }
-}

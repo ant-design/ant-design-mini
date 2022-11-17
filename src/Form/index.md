@@ -29,8 +29,6 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 ### 结合表单组件
 <code src="../../demo/pages/Form" ></code>
 
-### 表单分组
-<code src="../../demo/pages/FormGroup" ></code>
 
 ### 动态表单
 <code src="../../demo/pages/FormDynamic" ></code>
@@ -54,12 +52,6 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | requiredMarkStyle |  'asterisk' &verbar;  'text-required' &verbar;  'text-optional' | 否 | 'asterisk' |必填选填的标记样式 |
 | className | string | 否 | - | 类名 |
 
-#### FromGroup
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|:-----:|:-----:|:-----:|----- |
-| header | string | 否 | - | FormGroup 名称 |
-| radius | boolean | 否 | false | FormGroup 形状是否为圆角 |
-| className | string | 否 | - | 类名 |
 
 #### FormItem
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
@@ -83,10 +75,6 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 
 ## 插槽
 
-#### FormGroup
-| 名称 | 说明 |
-| ----|----|
-| header | 标题内容 |
 
 
 #### FormItem
@@ -102,27 +90,3 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 | getComponentIns | 获取组件示例，其值等同于[默认的 ref 返回值](https://opendocs.alipay.com/mini/framework/component-ref)  | () => Component |
 | setFieldsValue | 设置表单字段值 | ( formName: `string`, fieldsVals: `Record<string, any>` ) => void |
 
-
-## 样式类
-
-#### Form
-| 类名 | 说明 |
-| -----|-----|
-| amd-form | 整体样式 |
-| amd-form-footer | footer 样式 |
-
-#### FormGroup
-| 类名 | 说明 |
-| -----|-----|
-| amd-form-group-header | 标题样式 |
-| amd-form-group-radius | 圆角样式 |
-
-
-#### FormItem
-
-| 类名 | 说明 |
-| -----|-----|
-| amd-form-item-label | 标签样式 |
-| amd-form-item-field | 字段样式 |
-| amd-form-item-extra | 额外内容样式 |
-| amd-form-item-arrow | 箭头样式 |

@@ -6,7 +6,7 @@
   vertical
 >
   <view slot="title" slot-scope="item">
-    <badge a:if="{{item.value.id ==='2'}}">
+    <badge a:if="{{item.index ===2}}">
       {{item.value.title}}
     </badge>
     <view a:else>

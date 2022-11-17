@@ -1,8 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "icon": "../../Icon/index",
     "popover": "../../Popover/index",
-    "list-item":"../../List/ListItem/index"
+    "icon": "../../Icon/index"
   }
 }

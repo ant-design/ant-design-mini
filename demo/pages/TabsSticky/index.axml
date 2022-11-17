@@ -5,8 +5,11 @@
   current="{{current}}"
   onChange="onChange"
   class="tabs"
-/>
+>
+  <view slot="content" />
+</tabs>
 
+123
 <scroll-view
   id="scroll-view"
   scrollTop="{{scrollTop}}"

@@ -44,9 +44,8 @@ toc: 'content'
 | loadingText | string | 否 | - | 加载中时的文字 |
 | htmlType | 'button' &verbar; 'submit' &verbar; 'reset' | 否 | 'button' | 按钮原生类型，在表单提交时有效 |
 | stopPropagation | boolean | 否 | false | 是否阻止事件冒泡 |
-| mode | string | 否 | - | 结合表单使用时，设置 mode 值为 'form' |
-| form | string | 否 | - | 结合表单使用时，需要设置为所在表单组件的 form 值 |
 | className | string | 否 | - | 类名 |
+| style | string | 否 | - | 样式 |
 
 ## 事件
 
@@ -58,17 +57,3 @@ toc: 'content'
 | 名称 | 说明 |
 | ----|----|
 | icon | 图标插槽 |
-
-## 样式类
-
-| 类名 | 说明 |
-| -----|-----|
-| amd-button | 整体样式 |
-| amd-button-content | 按钮内容样式 |
-| amd-button-loading-container | 加载区域样式 |
-| amd-button-loading-text | 加载区域文字样式 |
-| amd-button-loading | 加载动画样式 |
-| amd-button-wrap | 加载区域右侧样式 |
-| amd-button-icon | 图标样式 |
-| amd-button-text | 按钮文字样式 |
-| amd-button-subtext | 副标题样式 |

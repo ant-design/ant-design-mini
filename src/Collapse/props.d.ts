@@ -19,6 +19,11 @@ export interface ICollapseProps extends IBaseProps {
   current?: number[];
 
   /**
+   * @description 选中初始值
+   */
+   defaultCurrent?: number[];
+
+  /**
    * @description accordion模式
    */
   accordion?: boolean;
