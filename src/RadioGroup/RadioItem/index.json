@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "list-item": "../../List/ListItem/index",
-    "amd-icon": "../../Icon/index"
-  }
-}

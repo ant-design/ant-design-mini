@@ -1,15 +1,21 @@
-.btns {
+.icon {
+  border: 1px solid #CCCCCC;
+  border-radius: 50vh;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   display: flex;
-  padding: 0 24rpx 24rpx;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
 
-.btns button {
-  flex: 1;
-  margin-right: 12rpx;
+.checked {
+  background-color: red;
+  color: #fff;
+  font-size: 14px;
 }
 
-.btns button ~button {
-  margin-right: 0;
-  margin-left: 12rpx;
+.disabled {
+  opacity: 0.4;
 }
+

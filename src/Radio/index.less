@@ -1,0 +1,106 @@
+@import (reference) "./variable.less";
+
+@radioItemPrefix: amd-radio-item;
+
+.@{radioItemPrefix} {
+  
+  color: @COLOR_TEXT_PRIMARY;
+  margin-right: 16 * @rpx;
+
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &-content {
+    padding-left: 10 * @rpx;
+  }
+  // .amd-list-item {
+  //   flex: 1 100%;
+  // }
+  // .amd-list-item-content-main {
+  //   display: flex;
+  //   align-items: center;
+  //   font-family: PingFangSC-Regular;
+  //   font-size: 34 * @rpx;
+  //   color: @COLOR_TEXT_PRIMARY;
+  // }
+  // .amd-list-item-content-container {
+  //   padding-left: 10 * @rpx;
+  // }
+  &-wrap {
+    position: relative;
+    width: @radio-size;
+    height: @radio-size;
+  }
+  &-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+  }
+  &-fake {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-icon {
+      background-color: @COLOR_CARD;
+      border: @radio-border-width solid @radio-border-color;
+      border-radius: @radio-corner-radius;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    &-checkedIcon {
+      border-radius: @radio-corner-radius;
+      background-color: @radio-background-color;
+      width: 100%;
+      height: 100%;
+      color: @COLOR_WHITE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28 * @rpx;
+    }
+    &-disbaledIcon {
+      box-sizing: border-box;
+      border: @radio-border-width solid @radio-border-color;
+      border-radius: @radio-corner-radius;
+      width: 100%;
+      height: 100%;
+      background-color: @radio-disabled-background;
+    }
+    &-disabledCheckedIcon {
+      box-sizing: border-box;
+      border: @radio-border-width solid @radio-border-color;
+      background-color: @radio-disabled-background;
+      border-radius: @radio-corner-radius;
+      width: 100%;
+      height: 100%;
+      color: @radio-border-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28 * @rpx;
+    }
+  }
+  &-disabled {
+    opacity: @opacity-disabled;
+  }
+  // .amd-list-item-image-container {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+}

@@ -193,14 +193,44 @@ export const componentList = [
         path: '/pages/Checklist/index',
       },
       {
-        name: 'Filter',
-        nameZN: '筛选卡',
-        path: '/pages/Filter/index',
+        name: 'Form',
+        nameZN: '表单',
+        path: '/pages/Form/index',
+      },
+      {
+        name: 'FormLayout',
+        nameZN: '表单-布局',
+        path: '/pages/FormLayout/index',
+      },
+      {
+        name: 'FormInitialValues',
+        nameZN: '表单-初始值',
+        path: '/pages/FormInitialValues/index',
+      },
+      {
+        name: 'FormInitialValuesAsync',
+        nameZN: '表单-初始值异步加载',
+        path: '/pages/FormInitialValuesAsync/index',
+      },
+      {
+        name: 'FormRules',
+        nameZN: '表单-校验',
+        path: '/pages/FormRules/index',
+      },
+      {
+        name: 'FormDynamic',
+        nameZN: '表单-动态增减表单项',
+        path: '/pages/FormLayout/index',
+      },
+      {
+        name: 'FormDependency',
+        nameZN: '表单-表单联动',
+        path: '/pages/FormDependency/index',
       },
       {
         name: 'Input',
         nameZN: '输入框',
-        path: '/pages/InputItem/index',
+        path: '/pages/Input/index',
       },
       {
         name: 'Picker',
@@ -213,8 +243,13 @@ export const componentList = [
         path: '/pages/DatePicker/index',
       },
       {
-        name: 'RadioGroup',
+        name: 'Radio',
         nameZN: '单选框',
+        path: '/pages/Radio/index',
+      },
+      {
+        name: 'RadioGroup',
+        nameZN: '单选框组合',
         path: '/pages/RadioGroup/index',
       },
       {
@@ -341,21 +376,6 @@ export const componentList = [
         name: 'Tips',
         nameZN: '向导提示',
         path: '/pages/Tips/index',
-      },
-    ],
-  },
-  {
-    type: '实验性质的组件',
-    list: [
-      {
-        name: 'Form',
-        nameZN: '表单',
-        path: '/pages/Form/index',
-      },
-      {
-        name: 'SafeArea',
-        nameZN: '安全区',
-        path: '/pages/SafeArea/index',
       },
     ],
   },

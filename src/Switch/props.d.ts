@@ -1,9 +1,9 @@
-import { IBaseFormItemPropsWithOutFocus } from '../_base';
+import { IBaseProps } from '../_base';
 /**
  * @description 开关。
  */
 
-export interface ISwitchProps extends IBaseFormItemPropsWithOutFocus<boolean> {
+export interface ISwitchProps extends IBaseProps {
   /**
    * @description 是否勾选
    */
@@ -12,11 +12,7 @@ export interface ISwitchProps extends IBaseFormItemPropsWithOutFocus<boolean> {
    * @description 是否加载状态
    */
   loading?: boolean;
-  /**
-   * @description 是否受控模式
-   * @default false
-   */
-  controlled?: boolean;
+
   /**
    * @description 选中时的颜色
    */
@@ -33,5 +29,20 @@ export interface ISwitchProps extends IBaseFormItemPropsWithOutFocus<boolean> {
    * @description 尺寸
    */
   size?: 'medium'  |  'small'   | 'x-small'
+
+  /**
+   * 是否禁用
+   */
+  disabled?: boolean;
+
+  /**
+   * 初始是否选中
+   */
+  defaultChecked?: boolean;
+
+  /**
+   * @description 表单触发变更回调
+   */
+  onChange?: (value: boolean, e: Record<string,any>) => void;
 }
 export declare const SwitchDefaultProps: Partial<ISwitchProps>;

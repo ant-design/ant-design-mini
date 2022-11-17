@@ -1,13 +1,10 @@
-<view class="amd-stepper {{className ? className : ''}}"
-  min="{{min}}"
-  max="{{max}}"
-  step="{{step}}"
-  precision="{{precision}}"
-  style="{{style}}">
+<import-sjs from="../_util/getValue.sjs" name="utils" />
+
+<view class="amd-stepper {{className ? className : ''}}" style="{{style}}">
   <button 
     className="amd-stepper-handler-down"
     data-mode="minus"
-    disabled="{{disabled || cValue <= min}}"
+    disabled="{{disabled || utils.getValue(value, selfValue, defaultValue) <= min || utils.getValue(value, nextValue, defaultValue) < min }}"
     onTap="onChange">
     <view class="amd-stepper-handler-down-inner">
       <icon type="MinusOutline"
@@ -20,23 +17,20 @@
       style="{{inputStyle}}"
       type="{{type}}"
       disabled="{{disabled}}"
-      id="{{id ? id : $id }}"
-      name="{{name ? name : ''}}"
+      focus="{{focus}}"
       onInput="onInput"
-      focus="{{autoFocus}}"
       onFocus="onFocus"
       onBlur="onBlur"
       onConfirm="onConfirm"
-      value="{{_value || cValue + ''}}"
-      controlled="{{controlled}}"
-      enableNative="{{enableNative}}" />
+      value="{{utils.getValue(value, selfValue, defaultValue)}}"
+    />
   </view>
 
   <button 
     className="amd-stepper-handler-up"
     activeClassName="amd-stepper-handler-up-hover"
     data-mode="add"
-    disabled="{{disabled || cValue >= max}}"
+    disabled="{{disabled || utils.getValue(value, selfValue, defaultValue) >= max || utils.getValue(value, nextValue, defaultValue) > max}}"
     onTap="onChange">
     <view class="amd-stepper-handler-up-inner">
       <icon type="AddOutline"/>

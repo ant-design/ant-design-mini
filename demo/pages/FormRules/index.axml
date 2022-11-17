@@ -1,0 +1,18 @@
+<form-input
+  label="密码"
+  name="password"
+  password
+  ref="handleRef"
+/>
+
+<form-input
+  label="重复密码"
+  name="confirm"
+  password
+  ref="handleRef"
+/>
+
+<view class="buttons">
+  <button type="primary" onTap="submit" style="margin-bottom: 12px;">提交</button>
+  <button onTap="reset">重置</button>
+</view>
