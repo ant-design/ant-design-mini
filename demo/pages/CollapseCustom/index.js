@@ -1,6 +1,5 @@
 Page({
   data: {
-    current: [],
     items: [
       {
         title: '第一项',
@@ -16,32 +15,5 @@ Page({
         brief: '辅助信息',
       },
     ]
-  },
-  onChange(current) {
-    this.setData({
-      current,
-    });
-  },
-  onPrevTap() {
-    if (typeof this.data.current === 'undefined') {
-      this.setData({
-        current: 0,
-      });
-      return;
-    }
-    this.setData({
-      current: this.data.current === 0 ? this.data.items.length - 1 : this.data.current - 1,
-    });
-  },
-  onNextTap() {
-    if (typeof this.data.current === 'undefined') {
-      this.setData({
-        current: 0,
-      });
-      return;
-    }
-    this.setData({
-      current: this.data.current === this.data.items.length - 1 ? 0 : this.data.current + 1,
-    });
   },
 });

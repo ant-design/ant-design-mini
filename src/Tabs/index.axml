@@ -1,7 +1,9 @@
+<import-sjs from="./index.sjs" name="utils" />
+
 <view a:if="{{!vertical}}" class="amd-tabs {{className ? className : ''}}" style="{{style}}">
   <view class="amd-tabs-bar {{type === 'basic'?'amd-tabs-bar-underline':''}} {{tabsBarClassName ? tabsBarClassName : ''}}">
     <view class="amd-tabs-bar-plus">
-      <slot name="plus" />
+      <slot name="plus" value="{{item}}" index="{{index}}" />
     </view>
     <view class="amd-tabs-bar-fade amd-tabs-bar-fade-left"
       a:if="{{leftFade}}" />
@@ -23,12 +25,12 @@
         <!-- basic 基础类型 -->
         <view 
           a:if="{{type === 'basic'}}"
-          class="amd-tabs-bar-item amd-tabs-bar-basic {{tabClassName ? tabClassName: ''}} {{current === index && !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{current === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-basic {{tabClassName ? tabClassName: ''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index && !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
           <view class="amd-tabs-bar-basic-title">
-            <slot name="title" value="{{item}}">
+            <slot name="title" value="{{item}}" index="{{index}}">
               {{item.title}}
             </slot>
           </view>
@@ -36,12 +38,12 @@
         <!-- capsule 胶囊类型 -->
         <view 
           a:elif="{{type === 'capsule'}}"
-          class="amd-tabs-bar-item amd-tabs-bar-capsule {{tabsBarClassName ? tabsBarClassName: ''}} {{current === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{current === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-capsule {{tabsBarClassName ? tabsBarClassName: ''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
           <view class="amd-tabs-bar-capsule-title">
-            <slot name="title" value="{{item}}">
+            <slot name="title" value="{{item}}" index="{{index}}">
               {{item.title}}
             </slot>
           </view>
@@ -50,17 +52,17 @@
         <!-- mixin 混合类型 -->
         <view 
           a:else
-          class="amd-tabs-bar-item amd-tabs-bar-mixin {{tabsBarClassName ? tabsBarClassName: ''}} {{current === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{current === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-mixin {{tabsBarClassName ? tabsBarClassName: ''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
           <view class="amd-tabs-bar-mixin-title">
-            <slot name="title" value="{{item}}">
+            <slot name="title" value="{{item}}" index="{{index}}">
               {{item.title}}
             </slot>
           </view>
           <view class="amd-tabs-bar-mixin-subtitle">
-            <slot name="subTitle" value="{{item}}">
+            <slot name="subTitle" value="{{item}}" index="{{index}}">
               {{item.subTitle}}
             </slot>
           </view>
@@ -73,7 +75,9 @@
     </scroll-view>
   </view>
   <view class="amd-tabs-content">
-    <slot name="content"></slot>
+    <slot name="content" value="{{items[utils.getValue(current, selfCurrent, defaultCurrent)]}}" index="{{utils.getValue(current, selfCurrent, defaultCurrent)}}">
+      {{items[utils.getValue(current, selfCurrent, defaultCurrent)].content}}
+    </slot>
   </view>
 </view>
 <view a:else class="amd-vtabs {{className ? className : ''}}" style="{{style}}">
@@ -84,13 +88,13 @@
       <view class="amd-vtabs-bar-item-wrap">
         <view
           a:for="{{items}}"
-          class="amd-vtabs-bar-item {{tabsBarClassName ? tabsBarClassName: ''}} {{current === index&&!item.disabled?'amd-vtabs-bar-item-active' :''}} {{item.disabled?'amd-vtabs-bar-item-disabled' : '' }} {{current === index&!item.disabled&&tabActiveClassName?tabActiveClassName : ''}}"
-          style="{{`${current + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${current - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
+          class="amd-vtabs-bar-item {{tabsBarClassName ? tabsBarClassName: ''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&&!item.disabled?'amd-vtabs-bar-item-active' :''}} {{item.disabled?'amd-vtabs-bar-item-disabled' : '' }} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&!item.disabled&&tabActiveClassName?tabActiveClassName : ''}}"
+          style="{{`${utils.getValue(current, selfCurrent, defaultCurrent) + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${utils.getValue(current, selfCurrent, defaultCurrent) - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
           onTap="onChange"
           data-index="{{index}}"
         >
           <text class="amd-vtabs-bar-item-title">
-            <slot name="title" value="{{item}}">
+            <slot name="title" value="{{item}}" index="{{index}}">
               {{item.title}}
             </slot>
           </text>
@@ -99,7 +103,9 @@
     </scroll-view>
   </view>
   <view class="amd-vtabs-content">
-    <slot name="content"></slot>
+    <slot name="content" value="{{items[utils.getValue(current, selfCurrent, defaultCurrent)]}}" index="{{utils.getValue(current, selfCurrent, defaultCurrent)}}">
+      {{items[utils.getValue(current, selfCurrent, defaultCurrent)].content}}
+    </slot>
   </view>
 </view>
 
