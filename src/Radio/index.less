@@ -1,26 +1,33 @@
-@import (reference) "../variable.less";
+@import (reference) "./variable.less";
 
 @radioItemPrefix: amd-radio-item;
 
 .@{radioItemPrefix} {
-  display: flex;
+  
   color: #333;
+  margin-right: 16 * @rpx;
+
   &-container {
-    flex-basis: 100%;
-  }
-  .amd-list-item {
-    flex: 1 100%;
-  }
-  .amd-list-item-content-main {
     display: flex;
     align-items: center;
-    font-family: PingFangSC-Regular;
-    font-size: 34 * @rpx;
-    color: @COLOR_TEXT_PRIMARY;
   }
-  .amd-list-item-content-container {
+
+  &-content {
     padding-left: 10 * @rpx;
   }
+  // .amd-list-item {
+  //   flex: 1 100%;
+  // }
+  // .amd-list-item-content-main {
+  //   display: flex;
+  //   align-items: center;
+  //   font-family: PingFangSC-Regular;
+  //   font-size: 34 * @rpx;
+  //   color: @COLOR_TEXT_PRIMARY;
+  // }
+  // .amd-list-item-content-container {
+  //   padding-left: 10 * @rpx;
+  // }
   &-wrap {
     position: relative;
     width: @radio-size;
@@ -91,9 +98,9 @@
   &-disabled {
     opacity: @opacity-disabled;
   }
-  .amd-list-item-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  // .amd-list-item-image-container {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
 }

@@ -1,36 +1,49 @@
-<view>
-  <demo-block title="基础用法">
-    <radio-group  
-      value="选项二"
-      data-value="value"
-      uid="basic"
-      onChange="handleChange">
-      <radio-item a:for="{{list}}" value="{{item.value}}" uid="basic">{{item.label}}</radio-item >
-    </radio-group>
-  </demo-block>
-  <demo-block title="横向布局">
-    <radio-group  
-      value="选项二"
-      uid="horizontal"
-      position="horizontal"
-      onChange="handleChange">
-      <radio-item a:for="{{list}}" value="{{item.value}}" uid="horizontal">{{item.label}}</radio-item >
-    </radio-group>
-  </demo-block>
-  <demo-block title="包含禁用项">
-    <radio-group  
-      uid="basic1"
-      value="banner"
-      onChange="handleChange">
-      <radio-item a:for="{{list}}" value="{{item.value}}" uid="basic1" disabled="{{index===1}}">{{item.label}}</radio-item >
-    </radio-group>
-  </demo-block>
-  <demo-block title="整体禁用">
-    <radio-group  
-      uid="basic2"
-      value="banner"
-      disabled>
-      <radio-item a:for="{{list}}" value="{{item.value}}" uid="basic2">{{item.label}}</radio-item >
-    </radio-group>
-  </demo-block>
-</view>
+<container title="基础用法">
+  <radio-group
+    options="{{options}}"
+    onChange="onChange"
+  />
+</container>
+
+<container title="初始值">
+  <radio-group
+    defaultValue="banana"
+    options="{{options}}"
+    onChange="onChange"
+  />
+</container>
+
+<container title="横向布局">
+  <radio-group
+    options="{{options}}"
+    position="horizontal"
+  />
+</container>
+
+<container title="禁用模式">
+  <radio-group
+    options="{{options}}"
+    disabled
+  />
+</container>
+
+<container title="控制模式">
+  <radio-group
+    value="{{value}}"
+    options="{{options}}"
+    onChange="handleChange"
+  />
+</container>
+
+<container title="自定义">
+  <radio-group options="{{options}}">
+    <view slot="label" slot-scope="item">
+      {{item.index +1}} {{item.value.label}}
+    </view>
+
+    <view slot="icon" slot-scope="radio">
+      {{radio.checked ? '选择' : '未选择'}}
+    </view>
+  </radio-group>
+</container>
+

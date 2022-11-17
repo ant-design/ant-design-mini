@@ -1,7 +1,8 @@
 {
   "component": true,
   "usingComponents": {
+    "list": "../../List/index",
     "list-item": "../../List/ListItem/index",
-    "amd-icon": "../../Icon/index"
+    "radio": "../index"
   }
 }

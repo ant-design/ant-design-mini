@@ -4,7 +4,6 @@
     "empty": "../../../src/Empty/index",
     "container": "../../../src/Container/index",
     "demo-block": "../../components/DemoBlock/index",
-    "radio-group": "../../../src/RadioGroup/index",
-    "radio-item": "../../../src/RadioGroup/RadioItem/index"
+    "radio-group": "../../../src/Radio/RadioGroup/index"
   }
 }
