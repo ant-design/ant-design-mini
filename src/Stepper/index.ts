@@ -73,15 +73,11 @@ Component({
         if (mode === 'minus') {
           // 【减】按钮的操作
           const minusTemp = downStep(value, step, precision);
-          if (minusTemp >= min) {
-            result = minusTemp;
-          }
+          result = Math.max(minusTemp, min);
         } else if (mode === 'add') {
           // 【加】按钮的操作
           const addTemp = upStep(value, step, precision);
-          if (addTemp <= max) {
-            result = addTemp
-          }
+          result = Math.min(addTemp, max);
         }
         this.setLastNumber(result);
         if (typeof this.props.value === 'undefined') {

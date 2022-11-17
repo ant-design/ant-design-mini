@@ -1,4 +1,4 @@
-@import (reference) "../../_base/index.less";
+@import (reference) "../../style/themes/index.less";
 @import "../../style/mixins/hairline.less";
 
 
@@ -6,14 +6,14 @@
   width: 170 * @rpx;
   margin-right: 24 * @rpx;
   font-family: PingFangSC-Regular;
-  color: #666;
+  color: @COLOR_TEXT_SECONDARY;
   font-size: 34 * @rpx;
   line-height: 48 * @rpx;
 }
 .formItemLabelVertical() {
   font-size: 34 * @rpx;
   line-height: 42 * @rpx;
-  color: #666;
+  color: @COLOR_TEXT_SECONDARY;
   margin-bottom: 8 * @rpx;
 }
 .formItemContentHorizontal() {
@@ -27,7 +27,7 @@
 @formItemPrefix: amd-form-item;
 
 .@{formItemPrefix} {
-  background-color: #fff;
+  background-color: @COLOR_WHITE_CHANGE;
   padding: 24 * @rpx 24 * @rpx 24 * @rpx 32 * @rpx;
   position: relative;
   .hairline("bottom");
@@ -59,7 +59,7 @@
   &-error-info {
     font-family: PingFangSC-Regular;
     font-size: 13px;
-    color: #ff3141;
+    color: @COLOR_RED;
     line-height: 37 * @rpx;
     text-align: left;
     margin-top: 8 * @rpx;
@@ -71,7 +71,7 @@
   &-help-info {
     font-family: PingFangSC-Regular;
     font-size: 13px;
-    color: #666;
+    color: @COLOR_TEXT_SECONDARY;
     line-height: 37 * @rpx;
     text-align: left;
     margin-top: 8 * @rpx;
@@ -96,7 +96,7 @@
       min-width: 0;
     }
     &-help-content {
-      color: #fff;
+      color: @COLOR_WHITE_CHANGE;
       font-size: 30 * @rpx;
       text-align: center;
       white-space: nowrap;
@@ -124,7 +124,7 @@
 
   &-arrow {
     margin-left: 24 * @rpx;
-    color: #ccc;
+    color: @COLOR_TEXT_WEAK;
     display: flex;
     align-items: center;
     .amd-icon {
@@ -146,7 +146,7 @@
     flex: 1;
     margin-left: 24 * @rpx;
     font-size: 32 * @rpx;
-    color: #999;
+    color: @COLOR_TEXT_ASSIST;
     &:empty {
       display: none;
     }
