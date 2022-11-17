@@ -10,16 +10,19 @@
   font-size: 34 * @rpx;
   line-height: 48 * @rpx;
 }
+
 .formItemLabelVertical() {
   font-size: 34 * @rpx;
   line-height: 42 * @rpx;
   color: @COLOR_TEXT_SECONDARY;
   margin-bottom: 8 * @rpx;
 }
+
 .formItemContentHorizontal() {
   display: flex;
   align-items: center;
 }
+
 .formItemFieldHorizontal() {
   text-align: right;
 }
@@ -50,12 +53,15 @@
     //   opacity: 0.4;
     // }
   }
+
   &-content {
     flex: 1;
+
     &-horizontal {
       .formItemContentHorizontal();
     }
   }
+
   &-error-info {
     font-family: PingFangSC-Regular;
     font-size: 13px;
@@ -84,17 +90,21 @@
     line-height: 48 * @rpx;
     overflow: visible;
     position: relative;
+
     &-text {
       display: flex;
       align-items: center;
       position: relative;
     }
+
     .amd-icon {
       margin-left: 4 * @rpx;
     }
+
     .amd-popover-content {
       min-width: 0;
     }
+
     &-help-content {
       color: @COLOR_WHITE_CHANGE;
       font-size: 30 * @rpx;
@@ -115,8 +125,10 @@
     //   opacity: 0.4;
     // }
   }
+
   &-field {
     flex: 1;
+
     &-horizontal {
       .formItemFieldHorizontal();
     }
@@ -127,6 +139,7 @@
     color: @COLOR_TEXT_WEAK;
     display: flex;
     align-items: center;
+
     .amd-icon {
       font-size: 36 * @rpx;
       display: flex;
@@ -147,13 +160,12 @@
     margin-left: 24 * @rpx;
     font-size: 32 * @rpx;
     color: @COLOR_TEXT_ASSIST;
+
     &:empty {
       display: none;
     }
   }
 }
-
-
 
 .amd-form-require-style {
   &-asterisk {
@@ -164,10 +176,11 @@
         left: -18 * @rpx;
         font-family: PingFangSC-Regular;
         font-size: 30 * @rpx;
-        color: @color-text-warning;
+        color: @COLOR_TEXT_WARNING;
       }
     }
   }
+
   &-text-required {
     .amd-form-item-label-required .amd-form-item-label-text {
       &::after {
@@ -177,10 +190,11 @@
         left: -18 * @rpx;
         font-family: PingFangSC-Regular;
         font-size: 30 * @rpx;
-        color: @color-text-weak;
+        color: @COLOR_TEXT_WEAK;
       }
     }
   }
+
   &-text-optional {
     .amd-form-item-label .amd-form-item-label-text {
       &::after {
@@ -190,9 +204,10 @@
         left: -18 * @rpx;
         font-family: PingFangSC-Regular;
         font-size: 30 * @rpx;
-        color: @color-text-weak;
+        color: @COLOR_TEXT_WEAK;
       }
     }
+
     .amd-form-item-label-required .amd-form-item-label-text {
       &::after {
         content: none;
@@ -200,4 +215,3 @@
     }
   }
 }
-

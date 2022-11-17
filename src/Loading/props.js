@@ -1,10 +1,10 @@
 export const LoadingDefaultProps = {
   loading: true,
-  size: 'medium',
+  size: 40,
   theme: 'dark',
-  miniSize: '200rpx',
+  miniSize: 100,
   className: '',
   color: '#fff',
-  height: '',
+  height: 100,
   type: 'spin',
 };
