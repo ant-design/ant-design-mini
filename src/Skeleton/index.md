@@ -21,63 +21,69 @@ toc: false
 ## 属性
 
 #### Skeleton
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
-| animate | boolean | 否 | flase | 是否展示动画效果 |
-| avatar | boolean | 否 | false | 是否显示头像占位图 |
-| title | boolean | 否 | true | 是否显示标题占位图 |
-| rows | number | 否 | 3 | 段落行数，大于0展示 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| animate | 是否展示动画效果 | `boolean` | `false` | 
+| avatar | 是否显示头像占位图 | `boolean` | `false` | 
+| className | 类名 | `string` | - | 
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` | 
+| rows | 段落行数，大于0展示 |  `number` | `3` | 
+| style | 样式 | `string` | - | 
+| title | 是否显示标题占位图 | `boolean` | `true` | 
 
 #### Avatar 头像
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
-| animate | boolean | 否 | flase | 是否展示动画效果 |
-| size | string | 否 | '88rpx' | 头像大小 |
-| shape | 'circle' \| 'square' | 否 | 'square' | 头像形状 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| animate | 是否展示动画效果 | `boolean` | `false` | 
+| className | 类名 | `string` | - | 
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
+| shape | 头像形状 | `'circle' \| 'square'` | `'square'` | 
+| size | 头像大小 | `string` | `44` | 
+| style | 样式 | `string` | - | 
 
 #### Paragraph 段落
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
-| animate | boolean | 否 | flase | 是否展示动画效果 |
-| rows | number | 否 | 3 | 段落行数，大于0展示 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| animate | 是否展示动画效果 | `boolean` | `false` | 
+| className | 类名 | `string` | - | 
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
+| rows | 段落行数，大于0展示 | `number` | `3` | 
+| style | 样式 | `string` | - | 
 
 #### Title 标题
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
-| animate | boolean | 否 | flase | 是否展示动画效果 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| animate | 是否展示动画效果 | `boolean` | `false` | 
+| className | 类名 | `string` | - | 
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
+| style | 样式 | `string` | - | 
 
 #### Button 按钮
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
-| animate | boolean | 否 | flase | 是否展示动画效果 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| animate | 是否展示动画效果 | `boolean` | `false` | 
+| className | 类名 | `string` | - | 
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
+| style | 样式 | `string` | - | 
 
 #### Input 输入框
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
-| animate | boolean | 否 | flase | 是否展示动画效果 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| animate | 是否展示动画效果 | `boolean` | `false` | 
+| className | 类名 | `string` | - | 
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
+| style | 样式 | `string` | - | 
 
 #### Custom 自定义组件，添加标准容器和动画样式
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| loading | boolean  | 否 | true | 为 true 时，显示占位图。反之则直接展示子组件 |
-| animate | boolean | 否 | flase | 是否展示动画效果 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| animate | 是否展示动画效果 | `boolean` | `false` | 
+| className | 类名 | `string` | - | 
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
+| style | 样式 | `string` | - | 
