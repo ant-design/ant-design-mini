@@ -6,7 +6,7 @@ import { IBaseProps, IconType } from '../_base';
 enum EnumToastType {
   success = "success",
   warn = "warn",
-  fail = "fail",
+  fail = "error",
   loading = "loading"
 }
 

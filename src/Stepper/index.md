@@ -18,7 +18,6 @@ toc: 'content'
 ### 基本使用
 <code src='../../demo/pages/Stepper'></code>
 
-
 ## 属性
 
 | 属性 | 说明 | 类型 | 默认值 |

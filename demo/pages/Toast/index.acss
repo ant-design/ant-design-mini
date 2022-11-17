@@ -1,5 +1,5 @@
-.toastWrapper {
-
+page .amd-container {
+  padding: 24rpx;
 }
 
 .image {

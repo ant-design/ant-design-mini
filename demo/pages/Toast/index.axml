@@ -1,91 +1,158 @@
-<button onTap="handleShowToast" data-index="1" class="button" inline="{{true}}" inlineSize="{{medium}}">
-  纯文字 toast
-</button>
+<container title="基础使用">
+  <button 
+    class="button" 
+    inline="{{true}}" 
+    inlineSize="{{medium}}"
+    type="primary"
+    data-index="1" 
+    onTap="handleShowToast" 
+  >
+    简短文字
+  </button>
+  <button 
+    class="button" 
+    inline="{{true}}" 
+    inlineSize="{{medium}}"
+    data-index="4" 
+    onTap="handleShowToast" 
+  >
+    过长文字
+  </button>
+</container>
 
-<button onTap="handleShowToast" data-index="4" class="button" inline="{{true}}" inlineSize="{{medium}}">
-  纯文字 toast，文案过长
-</button>
+<container title="带有图标">
+  <button 
+    class="button" 
+    inline="{{true}}" 
+    inlineSize="{{medium}}"
+    type="primary"
+    data-index="7" 
+    onTap="handleShowToast" 
+  >
+    成功提示
+  </button>
 
-<button onTap="handleShowToast" data-index="2" class="button" inline="{{true}}" inlineSize="{{medium}}">
-  自定义Icon
-</button>
+  <button 
+    class="button" 
+    inline="{{true}}" 
+    inlineSize="{{medium}}"
+    data-index="2" 
+    onTap="handleShowToast" 
+  >
+    自定义图标
+  </button>
+  <button 
+    class="button" 
+    inline="{{true}}" 
+    inlineSize="{{medium}}"
+    type="warn"
+    data-index="5" 
+    onTap="handleShowToast" 
+  >
+    自定义图片
+  </button>
 
-<button onTap="handleShowToast" data-index="5" class="button" inline="{{true}}" inlineSize="{{medium}}">
-  自定义图片
-</button>
+  <button 
+    class="button" 
+    inline="{{true}}" 
+    inlineSize="{{medium}}"
+    data-index="6" 
+    onTap="handleShowToast" 
+  >
+    加载态
+  </button>
+</container>
 
-<button onTap="handleShowToast" data-index="3" class="button" inline="{{true}}" inlineSize="{{medium}}">
-  提示持续3s
-</button>
+<container title="延迟关闭">
+  <button 
+    class="button" 
+    inline="{{true}}" 
+    inlineSize="{{medium}}"
+    type="primary"
+    data-index="3"
+    onTap="handleShowToast"  
+  >
+    提示持续3s
+  </button>
+</container>
 
-<button onTap="handleShowToast" data-index="6" class="button" inline="{{true}}" inlineSize="{{medium}}">
-  type = loading
-</button>
+<toast 
+  content="{{content1}}" 
+  visible="{{toast1Show}}" 
+  duration="{{0}}" 
+  showMask="{{true}}" 
+  maskCloseable="{{true}}" 
+  onClose="handleCloseToast" 
+  data-index="1" 
+  class="toastWrapper" 
+/>
 
-<toast
-  content="{{content1}}"
-  visible="{{toast1Show}}"
-  duration="{{0}}"
-  showMask="{{true}}"
-  maskCloseable="{{true}}"
-  onClose="handleCloseToast"
-  data-index="1"
+<toast 
+  content="{{content4}}" 
+  visible="{{toast4Show}}" 
+  data-index="4" 
+  duration="{{0}}" 
+  showMask="{{true}}" 
+  maskCloseable="{{true}}" 
+  onClose="handleCloseToast" 
+  class="toastWrapper" 
+/>
+
+<toast 
+  content="{{content5}}" 
+  icon="{{icon2}}" 
+  visible="{{toast2Show}}" 
+  duration="{{0}}" 
+  showMask="{{true}}" 
+  maskCloseable="{{true}}" 
+  onClose="handleCloseToast" 
+  data-index="2" 
   class="toastWrapper"
 />
 
 <toast 
-  content="{{content4}}"
-  visible="{{toast4Show}}"
-  data-index="4"
-  duration="{{0}}"
-  showMask="{{true}}"
-  maskCloseable="{{true}}"
-  onClose="handleCloseToast"
-  class="toastWrapper"
-/>
-
-<toast
-  content="{{content5}}"
-  icon="{{icon2}}"
-  visible="{{toast2Show}}"
-  duration="{{0}}"
-  showMask="{{true}}"
-  maskCloseable="{{true}}"
-  onClose="handleCloseToast"
-  data-index="2"
-  class="toastWrapper"
-/>
-
-<toast
-  content="{{content2}}"
-  image="{{image1}}"
+  content="{{content2}}" 
+  image="{{image1}}" 
   visible="{{toast5Show}}"
-  duration="{{0}}"
-  showMask="{{true}}"
-  maskCloseable="{{true}}"
-  onClose="handleCloseToast"
-  data-index="5"
-  class="toastWrapper"/>
+  duration="{{0}}" 
+  showMask="{{true}}" 
+  maskCloseable="{{true}}" 
+  onClose="handleCloseToast" 
+  data-index="5" 
+  class="toastWrapper" 
+/>
 
-<toast
+<toast 
   content="{{content3}}"
-  visible="{{toast3Show}}"
-  duration="{{3000}}"
-  class="toastWrapper"
-  data-index="3"
-  onClose="handleCloseToast"
-  showMask="{{true}}"
+  visible="{{toast3Show}}" 
+  duration="{{3000}}" 
+  class="toastWrapper" 
+  data-index="3" 
+  onClose="handleCloseToast" 
+  showMask="{{true}}" 
   maskCloseable="{{true}}"
 />
 
-<toast
-  content="{{content2}}"
-  visible="{{toast6Show}}"
-  class="toastWrapper"
-  data-index="6"
-  type="loading"
-  onClose="handleCloseToast"
-  showMask="{{true}}"
-  duration="{{0}}"
-  maskCloseable="{{true}}"
+<toast 
+  content="{{content2}}" 
+  visible="{{toast6Show}}" 
+  class="toastWrapper" 
+  data-index="6" 
+  type="loading" 
+  onClose="handleCloseToast" 
+  showMask="{{true}}" 
+  duration="{{0}}" 
+  maskCloseable="{{true}}" 
+/>
+
+<toast 
+  content="{{content5}}" 
+  visible="{{toast7Show}}" 
+  class="toastWrapper" 
+  data-index="7" 
+  type="success" 
+  onClose="handleCloseToast" 
+  showMask="{{true}}" 
+  duration="{{0}}" 
+  maskCloseable="{{true}}" 
 />
