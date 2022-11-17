@@ -3,6 +3,6 @@
   "usingComponents": {
     "checklist": "../../../src/Checklist/index",
     "icon": "../../../src/Icon/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "container": "../../../src/Container/index"
   }
 }

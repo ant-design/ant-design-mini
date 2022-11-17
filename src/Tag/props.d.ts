@@ -10,11 +10,11 @@ export interface ITagProps extends IBaseProps {
    */
   type?: 'outline' | 'fill' | 'fill-light';
   /**
-   * @description 标签颜色, 内建 primary(蓝), success(绿), warn(黄), danger(红)
+   * @description 标签颜色, 内建 primary(蓝), success(绿), warning(黄), danger(红)
    * @default "primary"
    */
 
-  color?: 'image' | 'primary' | 'success' | 'warn' | 'danger';
+  color?: 'image' | 'primary' | 'success' | 'warning' | 'danger';
   /**
    * @description 图标
    */
