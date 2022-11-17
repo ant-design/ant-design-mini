@@ -1,26 +1,58 @@
-<view class="demo">
-  <demo-block padding="0" title="成功状态">
-    <result title="操作成功" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" type="success"/>
-  </demo-block>
-  <demo-block padding="0" title="等待状态">
-    <result title="等待处理" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" type="wait"/>
-  </demo-block>
-  <demo-block padding="0" title="提示状态">
-    <result title="信息提示" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" type="info"/>
-  </demo-block>
-  <demo-block padding="0" title="提示状态">
-    <result title="警告提示" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" type="warn"/>
-  </demo-block>
-  <demo-block padding="0" title="失败状态">
-    <result title="无法完成操作" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" type="danger"/>
-  </demo-block>
-  <demo-block padding="0" title="自定义图标">
-    <result 
-      buttons="{{buttons}}" 
-      image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original"
-      onButtonTap="handleTabBtn">
-      <view slot="title">标题插槽</view>
-      <view slot="message">描述插槽</view>
-    </result>
-  </demo-block>
-</view>
+<container title="成功状态">
+  <result 
+    title="操作成功" 
+    message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" 
+    type="success"
+  />
+</container>
+
+<container title="等待状态">
+  <result 
+    title="等待处理"
+    message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" 
+    type="wait"
+  />
+</container>
+
+<container title="提示状态">
+  <result 
+    title="信息提示"
+    message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" 
+    type="info"
+  />
+</container>
+
+<container title="警告状态">
+  <result 
+    title="警告提示" 
+    message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" 
+    type="warn"
+  />
+</container>
+
+<container title="失败状态">
+  <result 
+    title="无法完成操作" 
+    message="内容详情可折行，建议不超过两行\n建议不超过两行建议不超过两行" 
+    type="danger"
+  />
+</container>
+
+<container title="自定义图标">
+  <result 
+    buttons="{{buttons}}"
+    image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original"
+    onButtonTap="handleTabBtn"
+  >
+    <view slot="title">标题插槽</view>
+    <view slot="message">描述插槽</view>
+    <view slot="buttons">
+      <block a:for="{{buttons}}">
+        <button className="demo-result-buttons"
+          type="{{item.type}}"
+          onTap="onButtonTap"
+        >{{item.text}}</button>
+      </block>
+    </view>
+  </result>
+</container>
