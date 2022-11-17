@@ -1,38 +1,38 @@
-<demo-block title="简单布局-单选" padding="0">
+<container title="简单布局-单选">
   <checklist 
     value="{{1}}"
     options="{{options_1}}"
     data-options="{{options_1}}"
     onChange="onChange"
   />
-</demo-block>
+</container>
 
-<demo-block title="复杂布局-多选"  padding="0">
+<container title="复杂布局-多选">
   <checklist 
     value="{{value}}" 
     options="{{options_2}}"
     multiple
     onChange="onChange"
   />
-</demo-block>
-<demo-block title="禁用状态" padding="0">
+</container>
+<container title="禁用状态">
   <checklist 
     value="{{[2]}}"
     options="{{options_3}}"
     multiple
     onChange="onChange"
   />
-</demo-block>
+</container>
 
-<demo-block title="只读状态" padding="0">
+<container title="只读状态" >
   <checklist 
     value="{{[2]}}"
     options="{{options_4}}"
     multiple
     onChange="onChange"
   />
-</demo-block>
-<demo-block title="自定义勾选图标&&组件内容" padding="0">
+</container>
+<container title="自定义勾选图标&&组件内容" >
   <checklist 
     value="{{[2]}}"
     options="{{options_3}}"
@@ -46,4 +46,4 @@
       title: {{props.item.title}}
     </view>
   </checklist>
-</demo-block>
+</container>

@@ -1,28 +1,26 @@
-<view>
-  <demo-block title="基础用法">
-    <tag>标签</tag>
-  </demo-block>
-  <demo-block title="语义标签">
-    <view class="tag-list">
-      <tag className="myTag">default</tag>
-      <tag className="myTag" color="success">success</tag>
-      <tag className="myTag" color="warn">warn</tag>
-      <tag className="myTag" color="danger">danger</tag>
-    </view>
-  </demo-block>
-  <demo-block title="填充模式">
-    <view class="tag-list">
-      <tag className="myTag" type="fill">fill</tag>
-      <tag className="myTag" type="outline">outline</tag>
-      <tag className="myTag" type="fill-light">fill-light</tag>
-    </view>
-  </demo-block>
-  <demo-block title="自定义图标">
-    <view class="tag-list">
-      <tag className="myTag" type="fill-light" icon="AlipayCircleFill">标签</tag>
-      <tag className="myTag" type="fill-light" color="success" icon="AlipayCircleFill">标签</tag>
-      <tag className="myTag" type="fill-light" color="warn" icon="AlipayCircleFill">标签</tag>
-      <tag className="myTag" type="fill-light" color="danger" icon="AlipayCircleFill">标签</tag>
-    </view>
-  </demo-block>
-</view>
+<container title="基础用法">
+  <tag>标签</tag>
+</container>
+<container title="语义标签">
+  <view class="tag-list">
+    <tag className="myTag">default</tag>
+    <tag className="myTag" color="success">success</tag>
+    <tag className="myTag" color="warning">warning</tag>
+    <tag className="myTag" color="danger">danger</tag>
+  </view>
+</container>
+<container title="填充模式">
+  <view class="tag-list">
+    <tag className="myTag" type="fill">fill</tag>
+    <tag className="myTag" type="outline">outline</tag>
+    <tag className="myTag" type="fill-light">fill-light</tag>
+  </view>
+</container>
+<container title="自定义图标">
+  <view class="tag-list">
+    <tag className="myTag" icon="AlipayCircleFill">标签</tag>
+    <tag className="myTag" color="success" icon="AlipayCircleFill">标签</tag>
+    <tag className="myTag" color="warning" icon="AlipayCircleFill">标签</tag>
+    <tag className="myTag" color="danger" icon="AlipayCircleFill">标签</tag>
+  </view>
+</container>

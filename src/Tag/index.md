@@ -19,28 +19,10 @@ toc: 'content'
 
 
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| type | 'outline' &verbar; 'fill' &verbar; 'fill-light' | 否 | 'fill' | 类型 |
-| color | 'primary' &verbar; 'success' &verbar; 'warn' &verbar; 'danger' | 否 | 'primary' | 标签颜色, 内建 primary(蓝), success(绿), warn(黄), danger(红) |
-| icon | string| 否 | - | 图标 |
-| className | string | 否 | - | 类名 |
-
-## 插槽
-| 名称 | 说明 |
-| ----|----|
-| icon | 图标插槽 |
-
-## 样式类
-| 类名 | 说明 |
-| ----|----|
-| amd-tag | 整体样式 |
-| amd-tag-outline | 整体样式 |
-| amd-tag-fill | 整体样式 |
-| amd-tag-fill-light | 整体样式 |
-| amd-tag-primary | 整体样式 |
-| amd-tag-success | 整体样式 |
-| amd-tag-warn | 整体样式 |
-| amd-tag-danger | 整体样式 |
-| amd-tag-icon-container | 图标区域样式 |
-| amd-tag-content | 默认插槽内容样式 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| className | 类名| `string` | - |
+| color |  标签颜色, 内建 primary(蓝), success(绿), warning(黄), danger(红) | 'primary' &verbar; 'success' &verbar; 'warning' &verbar; 'danger' | 'primary' | 
+| icon | 图标，支持Icon类型和插槽 | `string`\|`slot` | - |
+| style | 样式| `string` | - |
+| type | 类型 | 'outline' &verbar; 'fill' &verbar; 'fill-light' | 'fill' |
