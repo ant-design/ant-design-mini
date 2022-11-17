@@ -55,6 +55,7 @@
     "pages/Loading/index",
     "pages/Checkbox/index",
     "pages/CheckboxGroup/index",
+    "pages/Radio/index",
     "pages/RadioGroup/index",
     "pages/Selector/index",
     "pages/SafeArea/index",

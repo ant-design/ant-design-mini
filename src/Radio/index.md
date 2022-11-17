@@ -27,7 +27,7 @@ toc: 'content'
 | checked | 是否选中 | `boolean` | false |
 | className | 类名| `string` | - |
 | disabled | 是否禁用  | `boolean` | false | 
-| icon | 图标插槽 | `slot` | - |
+| color | 图标颜色 | `string` | - |
 | style | 样式| `string` | - |
 | value | checkbox 携带的 value 值 | `string` | - |
 | onChange | 选中状态改变，触发回调 | (checked: `boolean`, event:  `Event` => void | - |

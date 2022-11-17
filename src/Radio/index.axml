@@ -2,7 +2,7 @@
 <import-sjs from="./index.sjs" name="componentUtils" />
 
 
-<label class="amd-radio-item {{class ? class : ''}}"  style="{{style || ''}}">
+<label class="amd-radio-item {{class ? class : ''}}"  style="{{style}}">
   <view hidden="{{hidden}}" class="amd-radio-item-container">
     <view class="amd-radio-item-wrap" slot="image">
       <radio class="amd-radio-item-base"
@@ -13,11 +13,9 @@
         disabled="{{disabled}}"
       />
       <view class="amd-radio-item-fake">
-        <slot name="icon" checked="{{utils.getValue(checked, selfChecked, defaultChecked)}}" disabled="{{disabled}}">
-          <view class="amd-radio-item-fake-{{componentUtils.getClassName(utils.getValue(checked, selfChecked, defaultChecked), disabled)}}">
-            <icon a:if="{{utils.getValue(checked, selfChecked, defaultChecked)}}" type="CheckOutline" class="amd-radio-item-fake-{{componentUtils.getClassName(utils.getValue(checked, selfChecked, defaultChecked), disabled)}}-icon" />
-          </view>
-        </slot>
+        <view class="amd-radio-item-fake-{{componentUtils.getClassName(utils.getValue(checked, selfChecked, defaultChecked), disabled)}}" style="{{utils.getValue(checked, selfChecked, defaultChecked) && !disabled && color ? 'background:' + color : ''}}">
+          <icon a:if="{{utils.getValue(checked, selfChecked, defaultChecked)}}" type="CheckOutline" class="amd-radio-item-fake-{{componentUtils.getClassName(utils.getValue(checked, selfChecked, defaultChecked), disabled)}}-icon" />
+        </view>
       </view>
     </view>
     <view class="amd-radio-item-content {{disabled ? 'amd-radio-item-disabled' : ''}}">
