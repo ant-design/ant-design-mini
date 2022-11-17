@@ -1,0 +1,29 @@
+
+<view class="amd-progress amd-progress-{{type}} {{className || ''}}" style="{{style || ''}};{{type === 'circle'?`width:${width}px;height:${width}px`:'' }}">
+  <canvas 
+    a:if="{{ type === 'circle' }}" 
+    class="amd-progress-canvas" 
+    id="progress-canvas-{{$id}}" 
+    width="{{canvasWidth}}"
+    height="{{canvasWidth}}" />
+  <view 
+    a:elif="{{ type === 'line' }}" 
+    class="amd-progress-outer" 
+    style="{{strokeWidth? 'height:'+strokeWidth+'px;':''}}{{trailColor?'background-color:'+trailColor:''}}">
+    <view 
+      class="amd-progress-inner {{(status == 'success' || status == 'fail') ? `amd-progress-inner-${status}`:''}}" 
+      style="{{`width: ${curProgress}%; ${strokeColor ?'background-color:'+ strokeColor:''}`}}">
+    </view>
+  </view>
+  <view class="amd-progress-indicator">
+    <slot name="indicator" percent="{{percent}}">
+      <icon 
+        a:if="{{status == 'success' || status == 'fail' }}" 
+        type="{{status == 'success'?'CheckCircleFill':'CloseCircleFill'}}"  
+        class="amd-progress-status-icon amd-progress-status-icon-{{status}}"/>
+      <block a:else>
+        {{percent}}%
+      </block>
+    </slot>
+  </view>
+</view>

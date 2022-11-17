@@ -1,27 +1,22 @@
-<view class="demo-image-upload">
-  <view class="demo-image-upload-title">基本用法</view>
-  <view class="demo-image-upload-show">
-    <uploader 
-      action='{{action}}'
-      maxCount="{{1}}"
-      value="{{value_1}}"
-      onChange="onChange"
-      onAfterUpload="onAfterUpload"
-    />
-  </view>
-
-  <view class="demo-image-upload-title">上传状态</view>
-  <view class="demo-image-upload-show">
-    <uploader 
+<container title="基本用法">
+  <uploader 
+    action='{{action}}'
+    maxCount="{{1}}"
+    value="{{value_1}}"
+    onChange="onChange"
+    onAfterUpload="onAfterUpload"
+  />
+</container>
+<container title="上传状态">
+  <uploader 
       action='{{action}}'
       maxCount="{{8}}"
       value="{{value_2}}"
       onChange="onChange"
     />
-  </view>
-  <view class="demo-image-upload-title">自定义上传图标</view>
-  <view class="demo-image-upload-show">
-    <uploader 
+</container>
+<container title="自定义上传图标">
+  <uploader 
       action='{{action}}'
       maxCount="{{3}}"
       value="{{value_3}}"
@@ -31,42 +26,37 @@
         <am-icon type="CameraOutline" style="color:#999"/>
       </view>
     </uploader>
-  </view>
-  <view class="demo-image-upload-title">自定义容器大小</view>
-  <view class="demo-image-upload-show">
-    <uploader 
+</container>
+<container title="自定义容器大小">
+  <uploader 
       action='{{action}}'
       maxCount="{{2}}"
       width="168"
       height="120"
       onChange="onChange"
     />
-  </view>
-  <view class="demo-image-upload-title">删除图片确认</view>
-  <view class="demo-image-upload-show">
-    <uploader 
-      action='{{action}}'
-      maxCount="{{2}}"
-      value="{{value_1}}"
-      onDelete="onDelete"
-    />
-  </view>
-  <view class="demo-image-upload-title">限制上传图片大小和类型</view>
-  <view class="demo-image-upload-show">
-    <uploader 
-      action='{{action}}'
-      maxCount="{{3}}"
-      value="{{value_1}}"
-      onBeforeUpload="onBeforeUpload"
-    />
-  </view>
-  <view class="demo-image-upload-title">自定义上传方法</view>
-  <view class="demo-image-upload-show">
-    <uploader 
-      maxCount="{{2}}"
-      value="{{value_1}}"
-      onUpload="onUpload"
-      onChange="onChange"
-    />
-  </view>
-</view> 
+</container>
+<container title="删除图片确认">
+  <uploader 
+    action='{{action}}'
+    maxCount="{{2}}"
+    value="{{value_1}}"
+    onDelete="onDelete"
+  />
+</container>
+<container title="限制上传图片大小和类型">
+  <uploader 
+    action='{{action}}'
+    maxCount="{{3}}"
+    value="{{value_1}}"
+    onBeforeUpload="onBeforeUpload"
+  />
+</container>
+<container title="自定义上传方法">
+  <uploader 
+    maxCount="{{2}}"
+    value="{{value_1}}"
+    onUpload="onUpload"
+    onChange="onChange"
+  />
+</container>
