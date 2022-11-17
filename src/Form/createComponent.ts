@@ -51,12 +51,6 @@ function createComponent({
     methods: {
       ...methods,
       emit(trigger: EventTrigger, value?: Value) {},
-      onChange(value, e) {
-        this.emit('onChange', value);
-        if (methods.onChange) {
-          methods.onChange(value, e);
-        }
-      },
     }
   })
 };
