@@ -17,21 +17,6 @@
     &-icon {
       background-position: center;
       background-repeat: no-repeat;
-      
-      // hack, 如果自定义指示器是空，则不显示
-      &-indicator:empty {
-        display: none;
-      }
-
-      // 默认隐藏默认指示器
-      &+& {
-        display: none;
-      }
-
-      // hack, 如果自定义指示器为空，则显示默认指示器
-      &-indicator:empty+& {
-        display: initial;
-      }
 
       &-light {
         opacity: 0.6;
