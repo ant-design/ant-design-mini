@@ -1,4 +1,5 @@
 <text
   class="amd-icon amd-icon-{{type}} {{className ? className : ''}}"
-  style="{{size ? `fontSize: ${size}px;` : ''}}{{style || ''}}"
+  style="{{style}}"
+  onTap="onTap"
 />
