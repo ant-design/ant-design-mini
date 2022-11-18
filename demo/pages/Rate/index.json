@@ -2,7 +2,7 @@
   "defaultTitle": "Rate",
   "usingComponents": {
     "rate": "../../../src/Rate/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "container": "../../../src/Container/index"
   },
   "allowsBounceVertical": "NO"
 }

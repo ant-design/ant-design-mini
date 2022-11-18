@@ -17,45 +17,24 @@ toc: false
 
 ## 属性
 
-```typescript
-type IGridItem = {
-    /** 标题 */
-  title: string;
-  /** 图标，支持图片和icon */
-  icon: string;
-  /** 描述 */
-  desc?: string;
-  /** 图标类型，优先级高于grid */
-  iconStyle?: 'normal' | 'circle';
-}
-```
-<hr />
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| className | 类名| `string` | - |
+| columns | 每行展示的元素个数，tile模式生效 | `number` | 5 | 
+| gridItemLayout | item布局。垂直/水平，水平仅columns=2生效 | 'vertical' \| 'horizontal' | 'vertical' | 
+| items | 内容文字 | [GridItem](#griditem)[] | - | 
+| mode | 样式类型，平铺/滑动  | 'tile' \| 'scroll' | 'tile' | 
+| paginationFillColor | 分页符背景色，scroll模式生效 | `string` | - | 
+| paginationFrontColor | 分页符颜色，scroll模式生效 | `string` | - | 
+| style | 样式 | `string` | - |
+| onTap | 点击每个元素触发 | (item: [GridItem](#griditem) ) => void |
+| onFirstAppear | 当前元素首次可见面积达到50%时触发 | (item: [GridItem](#griditem) ) => void |
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| items | IGridItem[] | 是 | - | 内容文字 |
-| mode | 'tile' &verbar; 'scroll'  | 否 | 'tile' | 样式类型，平铺/滑动 |
-| columns | number | 否 | 5 | 每行展示的元素个数，tile模式生效 |
-| gridItemLayout | 'vertical' &verbar; 'horizontal' | 否 | 'vertical' | item布局。垂直/水平，水平仅columns=2生效 |
-| paginationFillColor | string | 否 | '#ddd' | 分页符背景色，scroll模式生效 |
-| paginationFrontColor | string | 否 | '#1677ff' | 分页符颜色，scroll模式生效 |
-| className | string | 否 | - | 类名 |
 
-## 事件
-
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onTap | 点击每个元素触发 | (item: IGridItem ) => void |
-| onFirstAppear | 当前元素首次可见面积达到50%时触发 | (item: IGridItem ) => void |
-
-## 样式类
-| 类名 | 说明 |
-| ----|----|
-| amd-grid | 整体样式 |
-| amd-grid-tile | 平铺模式样式 |
-| amd-grid-tile | 滑动模式样式 |
-| amd-grid-item | 每个元素样式 |
-| amd-grid-item-title | 元素标题 |
-| amd-grid-item-desc | 元素描述 |
-| amd-grid-item-img | 元素图片 |
-| amd-grid-item-icon | 元素Icon图标 |
+#### GridItem
+| 参数 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| description | 文字 | `string` | - |
+| icon | 图标，支持图片和[Icon](./Icon)| `string` | - |
+| iconStyle | 图标类型，优先级高于grid | 'normal' \| 'circle' | - |
+| title | 标题 | `string` | - |

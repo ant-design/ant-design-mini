@@ -1,4 +1,4 @@
-<view class="amd-footer-link {{className ? className : ''}}">
+<view class="amd-footer-link {{className ? className : ''}}" style="{{style || ''}}">
   <block a:for="{{links}}">
     <view class="amd-footer-link-divider"
       a:if="{{index - 1 >= 0}}" />

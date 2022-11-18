@@ -1,47 +1,36 @@
-<view>
-  <demo-block title="基础用法" background="#f5f5f5" padding="0">
-    <search-bar 
-      placeholder="请输入内容" 
-      data-value="value"
-      value="{{basicValue}}" 
-      onInput="handleBasicInput" 
-      onClear="handleBasicClear"/>
-  </demo-block>
-  <demo-block title="取消按钮常显" background="#f5f5f5" padding="0">
-    <search-bar 
-      placeholder="请输入内容" 
-      showCancelButton
-      value="{{withCancelValue}}" 
-      onInput="handleWithCancelInput" 
-      onClear="handleBasicClear"
-      onCancel="handleCancelWithCancel"/>
-  </demo-block>
-  <demo-block title="获取焦点后显示取消按钮" background="#f5f5f5" padding="0">
-    <search-bar 
-      placeholder="请输入内容" 
-      value="{{focusWithCancelValue}}" 
-      showCancelButton="{{focusWithCancelFocus}}"
-      onInput="handleFocusWithCancelInput" 
-      onClear="handleFocusWithCancelClear"
-      onCancel="handleFocusCancelWithCancel"
-      onBlur="handleFocusCancelWithBlur"
-      onFocus="handleFocusCancelWithFocus"/>
-  </demo-block>
-  <demo-block title="额外Voice图标" background="#f5f5f5" padding="0">
-    <search-bar 
-      placeholder="请输入内容" 
-      showBizIcon
-      value="{{voiceValue}}" 
-      onInput="handleVoiceInput" 
-      onClear="handleVoiceClear"
-      onBizIconTap="handleTapVoice"/>
-  </demo-block>
-  <demo-block title="支持唤起数字键盘" background="#f5f5f5" padding="0">
-    <search-bar 
-      placeholder="请输入内容" 
-      value="{{numberValue}}" 
-      type="number"
-      onInput="handleNumberInput" 
-      onClear="handleNumberClear"/>
-  </demo-block>
-</view>
+<container title="基础用法">
+  <search-bar 
+    placeholder="请输入内容" 
+    data-value="value"
+    value="{{basicValue}}" 
+    onInput="handleBasicInput" 
+    onClear="handleBasicClear"/>
+</container>
+<container title="右侧取消按钮">
+  <search-bar 
+    placeholder="请输入内容" 
+    value="{{withCancelValue}}" 
+    onInput="handleWithCancelInput" 
+    onClear="handleBasicClear">
+    <view slot="right" catchTap="handleCancelWithCancel">取消</view>
+  </search-bar>
+</container>
+<container title="额外Voice图标">
+  <search-bar 
+    placeholder="请输入内容" 
+    value="{{voiceValue}}" 
+    onInput="handleVoiceInput" 
+    onClear="handleVoiceClear">
+    <view slot="icon" onTap="handleTapVoice">
+      <amd-icon type="AudioOutline"/>
+    </view>
+  </search-bar>
+</container>
+<container title="支持唤起数字键盘">
+  <search-bar 
+    placeholder="请输入内容" 
+    value="{{numberValue}}" 
+    type="number"
+    onInput="handleNumberInput" 
+    onClear="handleNumberClear"/>
+</container>

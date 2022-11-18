@@ -45,13 +45,6 @@ Component({
       }
       this.clearcValue();
     },
-    onBizIconTap(e) {
-      if (typeof this.props.onBizIconTap === 'function') {
-        this.props.onBizIconTap(fmtEvent(this.props, e));
-      } else if (typeof this.props.onVoiceTap === 'function') {
-        this.props.onVoiceTap(fmtEvent(this.props, e));
-      }
-    },
     onFocus(e) {
       this.setData({
         focus: true,
