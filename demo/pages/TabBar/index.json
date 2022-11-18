@@ -1,7 +1,7 @@
 {
   "defaultTitle": "TabBar",
   "usingComponents": {
-    "demo-block": "../../components/DemoBlock/index",
+    "container": "../../../src/Container/index",
     "tab-bar": "../../../src/TabBar/index"
   }
 }

@@ -8,7 +8,7 @@ export interface IGridItem {
   /**
    * @description 副文案
    */
-  desc?: string;
+   description?: string;
   /**
    * @description 图标
    */

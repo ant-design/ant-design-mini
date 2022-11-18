@@ -2,6 +2,7 @@
   "defaultTitle": "SearchBar",
   "usingComponents": {
     "search-bar": "../../../src/SearchBar/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "container": "../../../src/Container/index",
+    "amd-icon": "../../../src/Icon/index"
   }
 }

@@ -68,49 +68,49 @@ Page({
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-        desc: '描述信息',
+        description: '描述信息',
       },
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-        desc: '描述信息',
+        description: '描述信息',
       },
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-        desc: '描述信息',
+        description: '描述信息',
       },
     ],
     items2withDesc: [
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-        desc: '描述文字最多一行',
+        description: '描述文字最多一行',
       },
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-        desc: '描述文字最多一行',
+        description: '描述文字最多一行',
       },
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-        desc: '描述文字最多一行',
+        description: '描述文字最多一行',
       },
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-        desc: '描述文字最多一行',
+        description: '描述文字最多一行',
       },
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-        desc: '描述文字最多一行',
+        description: '描述文字最多一行',
       },
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-        desc: '描述文字最多一行',
+        description: '描述文字最多一行',
       },
     ],
     itemsCustom: [

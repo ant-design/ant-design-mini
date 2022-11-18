@@ -1,4 +1,4 @@
-@import (reference) "./variable.less";
+@import (reference) './variable.less';
 
 @searchBarPrefix: amd-search-bar;
 
@@ -11,8 +11,9 @@
   overflow: hidden;
   font-size: @font-size-content;
   box-sizing: border-box;
+  background-color: @COLOR_GREY_CARD;
   &-focus {
-    background-color: #fff;
+    background-color: @COLOR_CARD;
   }
   &-padding-right {
     padding-right: 0;
@@ -29,20 +30,16 @@
     width: 100%;
     height: @search-bar-input-height;
     overflow: hidden;
-    border: 2 * @rpx solid #fff;
+    border: 2 * @rpx solid @COLOR_CARD;
     background-color: @search-bar-fill;
     border-radius: @search-bar-border-radius;
-    caret-color: var(--am-color-brand-1, @color-brand-1);
+    caret-color: @COLOR_BRAND1;
     box-sizing: border-box;
     &-focus {
-      border: 2 * @rpx solid @color-text-primary;
+      border: 2 * @rpx solid @COLOR_BRAND1;
       & .a-input-placeholder {
-        font-family: PingFangSC-Regular;
         font-size: 30 * @rpx;
-        color: #ccc !important;
-        & :first-child {
-          padding-left: 0;
-        }
+        color: @COLOR_TEXT_WEAK !important;
       }
     }
     .@{searchBarPrefix}-synthetic {
@@ -65,41 +62,16 @@
     border: 0 none;
     background-color: transparent;
     z-index: 1;
-    color: #333;
+    color: @COLOR_TEXT_PRIMARY;
     & .a-input-placeholder {
-      font-family: PingFangSC-Regular;
       font-size: 30 * @rpx;
-      color: #999;
-      & :first-child {
-        padding-left: 0;
-      }
+      color: @COLOR_TEXT_ASSIST;
     }
   }
   &-clear,
-  &-voice {
-    z-index: 2;
-    right: 24 * @rpx;
-    color: @search-bar-clear-icon-color;
-    box-sizing: content-box;
-  }
   &-clear {
     &-biz {
       right: 78 * @rpx;
-    }
-  }
-  &-cancel {
-    height: @search-bar-input-height;
-    padding: 0 8 * @rpx;
-    font-size: 30 * @rpx;
-    line-height: @search-bar-input-height;
-    border-radius: 8 * @rpx;
-    color: #333;
-    &-container {
-      border-radius: 8 * @rpx;
-      &-show {
-        margin-left: 24 * @rpx;
-        margin-right: 16 * @rpx;
-      }
     }
   }
   &-clear-icon {
@@ -107,22 +79,25 @@
     padding: 11 * @rpx 8 * @rpx;
     right: 0;
     margin: 0 16 * @rpx;
-    &-biz {
-      right: 48 * @rpx;
-    }
     .amd-icon {
       font-size: 30 * @rpx;
     }
   }
-
   &-biz-icon {
-    color: @search-bar-clear-icon-color;
-    padding: 11 * @rpx 8 * @rpx;
-    right: 0;
-    margin-right: 16 * @rpx;
-    .amd-icon {
-      font-size: 30 * @rpx;
-      color: #999;
+    &:empty {
+      display: none;
     }
+    color: @COLOR_TEXT_ASSIST;
+    padding: 11 * @rpx 8 * @rpx;
+    font-size: 30 * @rpx;
+    margin-right: 16 * @rpx;
+  }
+  &-right {
+    &:empty {
+      display: none;
+    }
+    color: @COLOR_TEXT_PRIMARY;
+    padding: 0 24 * @rpx;
+    font-size: 30 * @rpx;
   }
 }

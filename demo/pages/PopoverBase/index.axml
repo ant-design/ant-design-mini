@@ -1,59 +1,57 @@
-<view>
-  <demo-block title="基础用法">
-    <view class="wrap dark">
-      <popover 
-        placement="bottom"
-        visible="{{showDark}}"
-        onVisibleChange="handleDarkVisibleChange">
-        <button inlineSize="large" inline>点我</button>
-        <view slot="content" class="tooltip">Hello World</view>
-      </popover>
-    </view>
-  </demo-block>
-  <demo-block title="浅色气泡">
-    <view class="wrap">
-      <popover 
-        placement="right"
-        mode="light"
-        visible="{{showLight}}"
-        onVisibleChange="handleLightVisibleChange">
-        <button inlineSize="large" inline>点我</button>
-        <view slot="content" class="tooltip">Hello World</view>
-      </popover>
-    </view>
-  </demo-block>
-  <demo-block title="气泡位置" className="multi-demo">
-    <view class="multi-wrap">
-      <popover 
-        placement="{{placement}}"
-        visible="{{show}}"
-        mask="{{showMask}}"
-        onVisibleChange="handleVisibleChange">
-        <view class="multi">
-          <view>点击{{show ? '隐藏' : '显示'}}</view>
-          <view>
-            {{placement}}
-          </view>
+<container title="基础用法">
+  <view class="wrap dark">
+    <popover 
+      placement="bottom"
+      visible="{{showDark}}"
+      onVisibleChange="handleDarkVisibleChange">
+      <button inlineSize="large" inline>点我</button>
+      <view slot="content" class="tooltip">Hello World</view>
+    </popover>
+  </view>
+</container>
+<container title="浅色气泡">
+  <view class="wrap">
+    <popover 
+      placement="right"
+      mode="light"
+      visible="{{showLight}}"
+      onVisibleChange="handleLightVisibleChange">
+      <button inlineSize="large" inline>点我</button>
+      <view slot="content" class="tooltip">Hello World</view>
+    </popover>
+  </view>
+</container>
+<container title="气泡位置" className="multi-demo">
+  <view class="multi-wrap">
+    <popover 
+      placement="{{placement}}"
+      visible="{{show}}"
+      mask="{{showMask}}"
+      onVisibleChange="handleVisibleChange">
+      <view class="multi">
+        <view>点击{{show ? '隐藏' : '显示'}}</view>
+        <view>
+          {{placement}}
         </view>
-        <view slot="content" class="tooltip">
-          <view>Popover</view> 
-          <view>
-            Content
-          </view>
+      </view>
+      <view slot="content" class="tooltip">
+        <view>Popover</view> 
+        <view>
+          Content
         </view>
-      </popover>
-    </view>
-    <view class="demo-btn-container">
-      <button 
-        class="demo-btn"
-        onTap="handleNextPosition">
-        下个位置
-      </button>
-      <button 
-        class="demo-btn"
-        onTap="handleToggleMask">
-        {{showMask?'隐藏':'显示'}}蒙层
-      </button>
-    </view>
-  </demo-block>
-</view>
+      </view>
+    </popover>
+  </view>
+  <view class="demo-btn-container">
+    <button 
+      class="demo-btn"
+      onTap="handleNextPosition">
+      下个位置
+    </button>
+    <button 
+      class="demo-btn"
+      onTap="handleToggleMask">
+      {{showMask?'隐藏':'显示'}}蒙层
+    </button>
+  </view>
+</container>

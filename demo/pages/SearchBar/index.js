@@ -7,7 +7,6 @@ Page({
     withCancelValue: '',
     voiceValue: '',
     numberValue: '',
-    focusWithCancelValue: '',
     focusWithCancelFocus: false,
   },
   handleBasicInput(value, e) {
@@ -37,21 +36,13 @@ Page({
   handleTapVoice() {
     my.showToast({ content: 'click voice', duration: 1000 });
   },
-  handleFocusWithCancelInput(value) {
-    this.setData({ focusWithCancelValue: value });
-  },
-  handleFocusWithCancelClear() {
-    this.setData({ focusWithCancelValue: '' });
-  },
-  handleFocusCancelWithCancel() {
-    this.setData({ focusWithCancelValue: '' });
-    my.showToast({ content: 'click cancel', duration: 1000 });
-  },
   handleFocusCancelWithFocus() {
     this.setData({ focusWithCancelFocus: true });
   },
   handleFocusCancelWithBlur() {
-    this.setData({ focusWithCancelFocus: false });
+    setTimeout(() => {
+      this.setData({ focusWithCancelFocus: false });
+    }, 500);
   },
   handleNumberInput(value) {
     this.setData({ numberValue: value });

@@ -1,4 +1,4 @@
-@import (reference) '../_base/index.less';
+@import (reference) "../style/themes/index.less";
 
 @pageInfinite : amd-page-infinite;
 
@@ -30,6 +30,7 @@
       overflow: hidden;
       border-radius: @corner-radius-sm / 2;
       transform: translateX(-50%);
+      background-color: @COLOR_GREY_CARD;
     }
     &-move {
       position: absolute;
@@ -39,5 +40,6 @@
       height: 100%;
       transition: all 100ms linear;
       border-radius: @corner-radius-sm / 2;
+      background-color: @COLOR_BRAND1;
     }
   }

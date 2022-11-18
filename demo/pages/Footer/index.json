@@ -7,6 +7,6 @@
     "footer-link": "../../../src/Footer/FooterLink/index",
     "footer-tag": "../../../src/Footer/FooterTag/index",
     "footer-text": "../../../src/Footer/FooterText/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "container": "../../../src/Container/index"
   }
 }
