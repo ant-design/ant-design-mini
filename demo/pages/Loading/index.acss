@@ -1,0 +1,11 @@
+page {
+  padding: 24rpx;
+}
+
+page .amd-container {
+  padding-bottom: 24rpx;
+}
+
+.amd-container-content {
+  background-color: #1A1A1A;
+}

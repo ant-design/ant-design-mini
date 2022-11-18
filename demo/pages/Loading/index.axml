@@ -1,34 +1,28 @@
-<view class="demo">
-  <demo-block title="基础用法" padding="0" background="rgba(0, 0, 0, 0.7)">
-    <loading type="mini"></loading>
-  </demo-block>
-  <demo-block title="主题色 Loading"  padding="0">
-    <loading type="mini" color="#1677ff"></loading>
-  </demo-block>
-  <demo-block title="spin" background="rgba(0, 0, 0, 0.7)">
-    <loading type="spin" size="x-large" text="x-large" />
-    <loading type="spin" size="large" text="large" />
-    <loading type="spin" size="medium" text="medium" />
-    <loading type="spin" size="small" text="small" />
-  </demo-block>
-  <demo-block title="浅色spin" background="rgba(0, 0, 0, 0.7)">
-    <loading size="x-large" text="x-large" theme="light" />
-    <loading size="large" text="large" theme="light" />
-    <loading size="medium" text="medium" theme="light" />
-    <loading size="small" text="small" theme="light" />
-  </demo-block>
-  <demo-block title="自定义颜色">
-    <loading size="x-large" text="x-large" color="#ff0000" />
-    <loading size="large" text="large" color="#ff0000" />
-    <loading size="medium" text="medium" color="#ff0000" />
-    <loading size="small" text="small" color="#ff0000" />
-  </demo-block>
-  <demo-block title="延迟3000ms出现">
-    <loading  delay="{{3000}}" />
-  </demo-block>
-  <demo-block title="自定义图标">
-    <loading text="自定义图标">
-      <am-icon slot="indicator" type="HeartFill" />
-    </loading>
-  </demo-block>
-</view>
+<container title="基础用法-mini">
+  <loading type="mini" />
+</container>
+
+<container title="基础用法-spin">
+  <loading type="spin" size="{{60}}" />
+  <loading type="spin" size="{{48}}" />
+  <loading type="spin" size="{{36}}" />
+  <loading type="spin" size="{{24}}" />
+</container>
+
+<container title="自定义颜色">
+  <loading type="mini" color="#1677ff" />
+  <loading size="{{60}}" color="#1677ff" />
+  <loading size="{{48}}" color="#34B368" />
+  <loading size="{{36}}" color="#ff8f1f" />
+  <loading size="{{24}}" color="#ff0000" />
+</container>
+
+<container title="延迟3000ms出现">
+  <loading delay="{{3000}}" />
+</container>
+
+<container title="自定义图标">
+  <loading>
+    <am-icon slot="indicator" type="HeartFill" style="color: #1677ff" size="{{40}}" />
+  </loading>
+</container>

@@ -18,9 +18,9 @@ export interface ILoadingProps extends IBaseProps {
 
   /**
    * @description 加载图标高度，不传则默认与 size 大小一致，当 type 为 'mini' 时生效
-   * @default '200rpx'
+   * @default 100
    */
-  height?: string;
+  height?: string | number;
 
   /**
    * @description 是否加载中，当 type 为 'spin' 时生效
@@ -39,11 +39,6 @@ export interface ILoadingProps extends IBaseProps {
    * @default "medium"
    */
   size?: 'x-large' | 'large' | 'medium' | 'small';
-
-  /**
-   * @description 加载中文案，当 type 为 'spin' 时生效
-   */
-  text?: string;
 
   /**
    * @description 颜色，dark/深色, light/浅色，当 type 为 'spin' 时生效
