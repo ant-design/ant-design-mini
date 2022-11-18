@@ -19,7 +19,6 @@ toc: 'content'
 | -----|-----|-----|----- |
 | className | 根节点类名 |  `string` | - | 
 | color | 加载时的颜色，当 type 为 'spin' 时，只支持十六进制颜色码 | `string` | `'#999'` | 
-| delay | 延时显示加载状态，单位 ms, 注意，delay 的变更不能实时生效，当 type 为 'spin' 时生效 | `number` | - | 
 | height | 加载图标高度，不传则默认与 size 大小一致，当 type 为 'mini' 时生效, 单位px | `number|string` | `100` | 
 | loading | 是否加载中，当 type 为 'spin' 时生效 | `boolean` | `true` | 
 | miniSize | 加载图标宽度，当 type 为 'mini' 时生效, 单位px | `string` | `100` | 

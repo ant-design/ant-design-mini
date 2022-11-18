@@ -16,13 +16,3 @@
   <loading size="{{36}}" color="#ff8f1f" />
   <loading size="{{24}}" color="#ff0000" />
 </container>
-
-<container title="延迟3000ms出现">
-  <loading delay="{{3000}}" />
-</container>
-
-<container title="自定义图标">
-  <loading>
-    <am-icon slot="indicator" type="HeartFill" style="color: #1677ff" size="{{40}}" />
-  </loading>
-</container>

@@ -10,23 +10,17 @@ Component({
   },
   didUpdate(prevProps) {
     if (prevProps.loading !== this.props.loading) {
-      if (this.timeout) {
-        clearTimeout(this.timeout);
-      }
       this.setLoading();
     }
   },
   methods: {
     setLoading() {
-      const { delay, loading } = this.props;
-      const realDelay: number = isNaN(delay) ? 0 : delay;
+      const { loading } = this.props;
 
       if (loading && !this.data._loading) {
-        this.timeout = setTimeout(() => {
-          this.setData({
-            _loading: true,
-          });
-        }, realDelay);
+        this.setData({
+          _loading: true,
+        });
       } else if (!loading && this.data._loading) {
         this.setData({
           _loading: false,
