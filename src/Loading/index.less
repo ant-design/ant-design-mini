@@ -17,27 +17,7 @@
     &-icon {
       background-position: center;
       background-repeat: no-repeat;
-
-      &-small {
-        width: @loading-icon-size-small;
-        height: @loading-icon-size-small;
-      }
-
-      &-medium {
-        width: @loading-icon-size-medium;
-        height: @loading-icon-size-medium;
-      }
-
-      &-large {
-        width: @loading-icon-size-large;
-        height: @loading-icon-size-large;
-      }
-
-      &-x-large {
-        width: @loading-icon-size-x-large;
-        height: @loading-icon-size-x-large;
-      }
-
+      
       // hack, 如果自定义指示器是空，则不显示
       &-indicator:empty {
         display: none;
@@ -78,7 +58,7 @@
       margin-right: @h-spacing-standard;
       font-size: 0;
       border-radius: @corner-radius-sm / 2;
-      background-color: @color-text-subtitle;
+      background-color: @COLOR_TEXT_ASSIST;
       animation: amd-loading-animation 1s 0s infinite linear;
 
       &__1 {

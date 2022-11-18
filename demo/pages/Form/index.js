@@ -1,6 +1,5 @@
 import { Form } from '../../../src/Form/form';
 
-
 Page({
   form: new Form(),
   handleRef(ref) {
