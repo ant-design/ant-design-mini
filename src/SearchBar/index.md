@@ -19,7 +19,7 @@ toc: 'content'
 - SearchBar 输入框在手写输入情况下，部分安卓手机会出现连续输入现象，只需要将 controlled 属性设置为 false 即可。
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/SearchBar'></code>
+<code src='pages/SearchBar/index'></code>
 
 ## 属性 
 | 属性 | 说明 | 类型 | 默认值 |

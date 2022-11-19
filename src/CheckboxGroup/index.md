@@ -17,7 +17,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/CheckboxGroup'></code>
+<code src='pages/CheckboxGroup/index'></code>
 ## 属性
 #### CheckboxGroup
 | 属性 | 说明 | 类型 | 默认值 |

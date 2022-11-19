@@ -19,7 +19,7 @@ toc: false
 
 ### 基本使用
 
-<code src='../../demo/pages/Divider'></code>
+<code src='pages/Divider/index'></code>
 
 
 ## 属性 

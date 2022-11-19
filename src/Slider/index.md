@@ -15,7 +15,7 @@ toc: false
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Slider'></code>
+<code src='pages/Slider/index'></code>
 
 ## 属性 
 | 属性 | 说明 | 类型 | 默认值 |

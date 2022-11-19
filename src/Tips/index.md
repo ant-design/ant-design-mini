@@ -12,13 +12,13 @@ toc: 'content'
 强化界面中的某个元素对用户的提示信息
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Tips'></code>
+<code src='pages/Tips/index'></code>
 
 ### 插槽
-<code src='../../demo/pages/TipsSlot'></code>
+<code src='pages/TipsSlot/index'></code>
 
 ### 关闭组件
-<code src='../../demo/pages/TipsClose'></code>
+<code src='pages/TipsClose/index'></code>
 
 
 ## 属性

@@ -16,7 +16,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Selector'></code>
+<code src='pages/Selector/index'></code>
 
 ## 属性
 

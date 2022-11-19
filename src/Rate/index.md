@@ -11,7 +11,7 @@ toc: false
 用于展示事物评级以及快速打分
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Rate'></code>
+<code src='pages/Rate/index'></code>
     
 ## 属性
 | 属性 | 类型 | 必填 | 默认值 | 说明 |

@@ -15,7 +15,7 @@ toc: 'content'
 ## 代码示例
 ### 基本使用
 
-<code src="../../demo/pages/Avatar"></code>
+<code src='pages/Avatar/index'></code>
 
 
 

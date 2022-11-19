@@ -11,7 +11,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Loading'></code>
+<code src='pages/Loading/index'></code>
 
 ## 属性 
 
