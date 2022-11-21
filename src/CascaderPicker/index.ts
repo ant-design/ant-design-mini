@@ -1,11 +1,9 @@
 import { CascaderDefaultProps } from './props';
-import formMixin from '../mixins/form';
 import fmtEvent from '../_util/fmtEvent';
 import equal from 'fast-deep-equal';
 
 Component({
-  mixins: [formMixin({ trigger: 'onOk' })],
-  _visible: false,
+  pickerVisible: false,
   props: CascaderDefaultProps,
   data() {
     return {
@@ -24,7 +22,7 @@ Component({
     const { value, options } = this.props;
     const { columns, currentValue } = this.data;
     // onTriggerPicker展开时会自动重置数据，此处只有展开状态下才需要重置columns和currentValue，否则只需设置cValue
-    if (this._visible) {
+    if (this.pickerVisible) {
       if (options !== prevProps.options) {
         const newData: any = {};
         if (!equal(value, prevProps.value)) {
@@ -162,7 +160,7 @@ Component({
     onTriggerPicker(visible) {
       const { onTriggerPicker } = this.props;
       const { columns } = this.data;
-      this._visible = visible;
+      this.pickerVisible = visible;
       const realValue = this.getValue();
       if (visible) {
         const newColumns = this.getterColumns(realValue);

@@ -12,7 +12,7 @@ import fmtEvent from '../_util/fmtEvent';
 
 Component({
   props: DatePickerDefaultProps,
-  _visible: false,
+  pickerVisible: false,
   data() {
     return {
       selfValue: undefined,
@@ -23,7 +23,7 @@ Component({
   },
 
   didMount() {
-    this._visible = false;
+    this.pickerVisible = false;
   },
 
   didUpdate(prevProps) {
@@ -32,7 +32,7 @@ Component({
         forceUpdate: this.data.forceUpdate + 1,
       });
       // 展开状态才更新picker的数据，否则下次triggerVisible触发
-      if (this._visible) {
+      if (this.pickerVisible) {
         this.setCurrentValue();
       }
     }
@@ -211,7 +211,7 @@ Component({
     },
 
     onTriggerPicker(visible) {
-      this._visible = visible;
+      this.pickerVisible = visible;
       const { onTriggerPicker } = this.props;
       if (visible) {
         this.setCurrentValue();

@@ -15,7 +15,7 @@ Component({
   mixins: [computed],
 
   props: DateRangePickerDefaultProps,
-  _visible: false,
+  pickerVisible: false,
   data() {
     return {
       selfValue: undefined,
@@ -29,7 +29,7 @@ Component({
   },
 
   didMount() {
-    this._visible = false;
+    this.pickerVisible = false;
   },
   didUpdate(prevProps) {
     if (
@@ -39,7 +39,7 @@ Component({
       this.setData({
         forceUpdate: this.data.forceUpdate + 1,
       });
-      if (this._visible) {
+      if (this.pickerVisible) {
         // 展开状态才更新picker的数据，否则下次triggerVisible触发
         this.setCurrentValue();
       }
@@ -116,7 +116,7 @@ Component({
     },
     // didUpdate、弹窗打开、切换pickerType触发
     setCurrentValue() {
-      const { _visible } = this; // 隐藏状态下从CValue触发，展开状态使用当前数据
+      const { pickerVisible } = this; // 隐藏状态下从CValue触发，展开状态使用当前数据
       const { precision } = this.props;
       const { pickerType, columns } = this.data;
       const realValue = this.getValue();
@@ -125,7 +125,7 @@ Component({
       const currentEndDateByCValue = realValue?.[1] || null;
 
       // 展开状态，说明在切换pickerType
-      if (_visible) {
+      if (pickerVisible) {
         if (pickerType === 'start') {
           // currentStartDate 无需变化
         } else {
@@ -308,7 +308,7 @@ Component({
       if (onTriggerPicker) {
         onTriggerPicker(visible, fmtEvent(this.props));
       }
-      this._visible = visible;
+      this.pickerVisible = visible;
     },
     onChangeCurrentPickerType(e) {
       const { type } = e.target.dataset;
