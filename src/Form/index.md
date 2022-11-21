@@ -23,9 +23,6 @@ Form 表单	高性能表单控件，自带数据域管理。包含数据录入�
 
 ## 代码示例
 
-### 基本使用
-<code src="../../demo/pages/FormBasic" ></code>
-
 ### 结合表单组件
 <code src="../../demo/pages/Form" ></code>
 
