@@ -25,7 +25,7 @@
         />
     </list-item>
 </container>
-<container title="外部控制value">
+<container title="受控模式">
     <list-item>
         请选择城市
         <cascader-picker 

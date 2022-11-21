@@ -95,7 +95,7 @@ Component({
           })
           .join('-');
       }
-      return (column && column.label) || column;
+      return (column && column.label) || column || '';
     },
     getterFormatText() {
       const { onFormat } = this.props;

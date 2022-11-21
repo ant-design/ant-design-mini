@@ -1,5 +1,6 @@
 Page({
   data: {
+    defaultValue: '上海',
     value: '上海',
     list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
     weekList: [
@@ -30,7 +31,15 @@ Page({
     });
     console.log(e);
   },
-
+  handleClearControlled() {
+    this.setData({ value: '' });
+  },
+  handleChangeControlled() {
+    this.setData({ value: '深圳' });
+  },
+  handleControlledOk(value) {
+    this.setData({ value });
+  },
   handleOk(value, column, e) {
     console.log('onOk value', value, 'onOk  column', column, e);
   },
