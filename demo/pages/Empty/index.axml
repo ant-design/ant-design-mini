@@ -1,54 +1,60 @@
-<view class="demo-empty">
-  <empty a:if="{{mode==='page'}}" onSubBtnClick="onSubBtnClick" onMainBtnClick="onMainBtnClick" />
-  
-  <view a:else>
-    <demo-block title="基础样式" padding="0">
-      <container title="模块标题" class="demo-empty-container">
-        <empty mode="section" mainText="" subText="这里什么也没有"/>
-      </container>
-    </demo-block>
-    
-    <demo-block title="添加操作按钮组" padding="0">
-      <container title="模块标题" class="demo-empty-container">
-        <empty 
-          mode="section" 
-          mainText=""
-          subText="这里什么也没有"
-          onSubBtnClick="onSubBtnClick" 
-          onMainBtnClick="onMainBtnClick" 
-        />
-      </container>
-    </demo-block>
-    
-    <demo-block title="只有一个按钮" padding="0">
-      <container title="模块标题" class="demo-empty-container">
-        <empty 
-          mode="section" 
-          mainText=""
-          subText="这里什么也没有"
-          onSubBtnClick="onSubBtnClick" 
-        />
-      </container>
-    </demo-block>
+<radio-group  
+  position="horizontal"
+  options="{{modeList}}"
+  onChange="handleChangeMode"
+/>
 
-    <demo-block title="自定义样式" padding="0">
-      <container title="模块标题" class="demo-empty-container">
-        <empty 
-          mode="section" 
-          mainText="" 
-          subText="没有找到你需要的东西" 
-        >
-          <image slot="image" src="{{imageUrl}}" class="demo-empty-container-image"/>
-        </empty>
-      </container>
-    </demo-block>
-    <view class="demo-empty-whitespace" />
+<empty a:if="{{mode==='page'}}" title="这里什么都没有" message="看看其它的吧">
+  <view class="demo-empty-btn" slot="extra">
+    <button class="demo-empty-btn-sub" type='primary' fill="outline" inline onTap="onSubBtnClick">
+      操作1
+    </button>
+    <button class="demo-empty-btn-main" type='primary' inline onTap="onMainBtnClick">
+      操作2
+    </button>
   </view>
+</empty>
+
+<view a:else>
+  <container title="基础样式" class="demo-empty-container">
+    <empty mode="section" message="这里什么也没有"/>
+  </container>
   
-  <radio-group  
-    class="demo-empty-mode-switch"
-    position="horizontal"
-    options="{{modeList}}"
-    onChange="handleChangeMode"
-  />
+  <container title="添加操作按钮组" class="demo-empty-container">
+    <empty 
+      mode="section" 
+      message="这里什么也没有"
+    >
+      <view class="demo-empty-btn" slot="extra">
+        <button class="demo-empty-btn-sub" type='primary' fill="outline" inline onTap="onSubBtnClick">
+          操作1
+        </button>
+        <button class="demo-empty-btn-main" type='primary' inline onTap="onMainBtnClick">
+          操作2
+        </button>
+      </view>
+    </empty>
+  </container>
+  
+  <container title="只有一个按钮" class="demo-empty-container">
+    <empty 
+      mode="section" 
+      message="这里什么也没有"
+    >
+      <view class="demo-empty-btn" slot="extra">
+        <button class="demo-empty-btn-sub" type='primary' fill="outline" inline onTap="onSubBtnClick">
+          操作1
+        </button>
+      </view>
+    </empty>
+  </container>
+  
+  <container title="自定义图片" class="demo-empty-container">
+    <empty 
+      mode="section"
+      message="没有找到你需要的东西" 
+    >
+      <image slot="image" src="{{imageUrl}}" class="demo-empty-container-image"/>
+    </empty>
+  </container>
 </view>

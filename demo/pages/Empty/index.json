@@ -3,7 +3,7 @@
   "usingComponents": {
     "empty": "../../../src/Empty/index",
     "container": "../../../src/Container/index",
-    "demo-block": "../../components/DemoBlock/index",
-    "radio-group": "../../../src/Radio/RadioGroup/index"
+    "radio-group": "../../../src/Radio/RadioGroup/index",
+    "button": "../../../src/Button/index"
   }
 }
