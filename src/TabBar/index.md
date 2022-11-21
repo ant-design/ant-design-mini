@@ -16,7 +16,7 @@ toc: false
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/TabBar'></code>
+<code src='pages/TabBar/index'></code>
 
 ## 属性
 

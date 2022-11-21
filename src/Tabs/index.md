@@ -15,28 +15,28 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Tabs'></code>
+<code src='pages/Tabs/index'></code>
 
 ### 控制
-<code src='../../demo/pages/TabsControl'></code>
+<code src='pages/TabsControl/index'></code>
 
 ### 电梯模式
-<code src='../../demo/pages/TabsElevator'></code>
+<code src='pages/TabsElevator/index'></code>
 
 ### 可滚动
-<code src='../../demo/pages/TabsScroll'></code>
+<code src='pages/TabsScroll/index'></code>
 
 ### 吸顶
-<code src='../../demo/pages/TabsSticky'></code>
+<code src='pages/TabsSticky/index'></code>
 
 ### Swiper
-<code src='../../demo/pages/TabsSwiper'></code>
+<code src='pages/TabsSwiper/index'></code>
 
 ### 纵向模式
-<code src='../../demo/pages/TabsVertical'></code>
+<code src='pages/TabsVertical/index'></code>
 
 ### 纵向电梯模式
-<code src='../../demo/pages/TabsVerticalElevator'></code>
+<code src='pages/TabsVerticalElevator/index'></code>
 
 ## 属性
 

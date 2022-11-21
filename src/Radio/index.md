@@ -15,10 +15,10 @@ toc: 'content'
 
 ## 代码示例
 ### Radio
-<code src='../../demo/pages/Radio'></code>
+<code src='pages/Radio/index'></code>
 
 ### RadioGroup
-<code src='../../demo/pages/RadioGroup'></code>
+<code src='pages/RadioGroup/index'></code>
 
 ## 属性
 

@@ -12,7 +12,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Modal'></code>
+<code src='pages/Modal/index'></code>
 
 
 

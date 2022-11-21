@@ -19,10 +19,10 @@ toc: 'content'
 ## 代码示例
 ### 基础使用
 
-<code src='../../demo/pages/FloatPanel'></code>
+<code src='pages/FloatPanel/index'></code>
 
 ### 事件监听
-<code src='../../demo/pages/FloatPanelEvent'></code>
+<code src='pages/FloatPanelEvent/index'></code>
 
 
 ## 属性

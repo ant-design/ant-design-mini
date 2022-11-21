@@ -16,19 +16,19 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
-<code src='../../demo/pages/Collapse'></code>
+<code src='pages/Collapse/index'></code>
 
 ### 手风琴
 
-<code src='../../demo/pages/CollapseAccordion'></code>
+<code src='pages/CollapseAccordion/index'></code>
 
 ### 控制
 
-<code src='../../demo/pages/CollapseControl'></code>
+<code src='pages/CollapseControl/index'></code>
 
 ### 更多自定义
 
-<code src='../../demo/pages/CollapseCustom'></code>
+<code src='pages/CollapseCustom/index'></code>
 
 
 ## 属性

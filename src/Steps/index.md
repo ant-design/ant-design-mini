@@ -13,10 +13,10 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
-<code src='../../demo/pages/Steps'></code>
+<code src='pages/Steps/index'></code>
 
 ### 控制示例
-<code src='../../demo/pages/StepsControl'></code>
+<code src='pages/StepsControl/index'></code>
 
 
 ## API

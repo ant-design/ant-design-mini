@@ -14,7 +14,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Tag'></code>
+<code src='pages/Tag/index'></code>
 
 
 

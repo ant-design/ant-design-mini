@@ -16,7 +16,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Stepper'></code>
+<code src='pages/Stepper/index'></code>
 
 ## 属性
 

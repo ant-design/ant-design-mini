@@ -10,7 +10,7 @@ toc: 'content'
 相比较于原生my.datePicker实现了ios跟android端体验一致
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/DatePicker'></code>
+<code src='pages/DatePicker/index'></code>
 
 
 

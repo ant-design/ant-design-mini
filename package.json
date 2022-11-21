@@ -2,11 +2,9 @@
   "name": "antd-mini",
   "version": "0.0.23",
   "scripts": {
-    "dev": "minidev dev --no-source-map",
-    "dev:site": "dumi dev",
+    "dev": "node ./scripts/dev.js",
     "build": "npm run build:component && npm run build:site",
     "build:component": "NODE_ENV=production node scripts/compile.js",
-    "build:component:rpx": "NODE_ENV=production node scripts/compile.js --rpx",
     "build:site": "dumi build",
     "build:demo": "minidev build --output=$PWD/dist --typescript --less --no-source-map",
     "deploy:docs": "npm run build:site && echo 'mini.ant.design' > ./docs-dist/CNAME && gh-pages -d docs-dist",

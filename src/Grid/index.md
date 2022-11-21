@@ -11,7 +11,7 @@ toc: false
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Grid'></code>
+<code src='pages/Grid/index'></code>
 
 
 

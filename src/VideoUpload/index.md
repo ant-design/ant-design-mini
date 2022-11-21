@@ -17,7 +17,7 @@ toc: 'content'
 ## 代码示例
 ### 基本使用
 
-<code src='../../demo/pages/VideoUpload'></code>
+<code src='pages/VideoUpload/index'></code>
 
 ## 属性 
 

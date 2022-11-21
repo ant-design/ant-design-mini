@@ -13,7 +13,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/NoticeBar'></code>
+<code src='pages/NoticeBar/index'></code>
 
 
 ## 属性

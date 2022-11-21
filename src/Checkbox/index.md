@@ -18,7 +18,7 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
-<code src='../../demo/pages/Checkbox'></code>
+<code src='pages/Checkbox/index'></code>
 
 ## 属性
 

@@ -14,7 +14,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Icon'></code>
+<code src='pages/Icon/index'></code>
 
 
 ## 属性
@@ -22,5 +22,4 @@ toc: 'content'
 | -----|:-----:|:-----:|:-----:|----- |
 | type | string | 是 | - | icon 图标的类型 |
 | className | string | 否 | - | 类名 |
-| size | number | 否 | - | 图标字体大小，单位px |
 | style | string | 否 | - | 整体样式 |

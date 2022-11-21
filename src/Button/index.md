@@ -13,17 +13,17 @@ toc: 'content'
 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Button'></code>
+<code src='pages/Button/index'></code>
 
 ### 内联按钮
 
-<code src='../../demo/pages/ButtonInline'></code>
+<code src='pages/ButtonInline/index'></code>
 
 ### 自定义Icon
-<code src='../../demo/pages/ButtonIcon'></code>
+<code src='pages/ButtonIcon/index'></code>
 
 ### 辅助按钮
-<code src='../../demo/pages/ButtonAddon'></code>
+<code src='pages/ButtonAddon/index'></code>
 
 ## 属性
 

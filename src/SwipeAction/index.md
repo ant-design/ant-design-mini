@@ -15,10 +15,10 @@ toc: 'content'
 ## 代码示例
 
 ### 基础用法
-<code src="../../demo/pages/SwipeActionTest">
+<code src='pages/SwipeActionTest/index'></code>
 
 ### 组件使用
-<code src='../../demo/pages/SwipeAction'></code>
+<code src='pages/SwipeAction/index'></code>
 
 ### 使用限制
 

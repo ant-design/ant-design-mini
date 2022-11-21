@@ -13,7 +13,7 @@ toc: 'content'
 当有重要操作需告知用户处理结果，且反馈内容较为复杂时使用
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Result'></code>
+<code src='pages/Result/index'></code>
     
 
 ## 属性

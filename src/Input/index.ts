@@ -7,6 +7,20 @@ Component({
     selfValue: undefined,
     selfFocus: undefined,
   },
+  ref() {
+    return {
+      focus: () => {
+        this.setData({
+          selfFocus: true,
+        });
+      },
+      blur: () => {
+        this.setData({
+          selfFocus: false,
+        });
+      },
+    }
+  },
   methods: {
     onChange(e) {
       const value = e.detail.value;
@@ -33,6 +47,11 @@ Component({
         this.props.onBlur(fmtEvent(this.props, e));
       }
     },
+    onConfirm(e) {
+      if (this.props.onConfirm) {
+        this.props.onConfirm(fmtEvent(this.props, e));
+      }
+    },
     onClear(e) {
       this.setData({
         selfValue: '',
@@ -40,7 +59,12 @@ Component({
       if (this.props.onClear) {
         this.props.onClear(fmtEvent(this.props, e));
       }
-    }
+    },
+    onTap() {
+      this.setData({
+        selfFocus: true,
+      });
+    },
   }
 });
 

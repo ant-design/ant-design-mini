@@ -12,10 +12,10 @@ toc: false
 
 ## 代码示例
 ### line
-<code src='../../demo/pages/ProgressLine'></code>
+<code src='pages/ProgressLine/index'></code>
 
 ### circle
-<code src='../../demo/pages/ProgressCircle'></code>
+<code src='pages/ProgressCircle/index'></code>
 
 
 ## 属性
