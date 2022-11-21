@@ -5,7 +5,7 @@
       slot="extra"
       onDismiss="handleDismissPicker"
       onTriggerPicker="handleTriggerPicker"
-      onOk="handleOk1"
+      onOk="handleOk"
       defaultValue="{{value}}"
       placeholder="请选择"
       title="请选择"
@@ -29,7 +29,23 @@
     </picker>
   </list-item>
 </container>
-
+<container title="受控模式">
+  <list-item>
+    选择城市
+    <picker 
+      slot="extra"
+      onOk="handleControlledOk"
+      value="{{controlledValue}}"
+      placeholder="请选择"
+      title="请选择"
+      options="{{list}}">
+    </picker>
+  </list-item>
+  <view class="btn-wrapper">
+    <button inline onTap="handleChangeControlled">选择深圳</button>
+    <button inline onTap="handleClearControlled">清空</button>
+  </view>
+</container>
 <container title="对象用法" >
   <list-item>
     选择日期

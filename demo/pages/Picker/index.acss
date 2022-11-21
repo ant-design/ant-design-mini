@@ -1,11 +1,7 @@
-.pickerTips {
+.btn-wrapper {
+  text-align: center;
   padding: 24rpx;
 }
-
-.pickerTips text {
-  color: #1677ff;
-}
-
-.pickerItem {
-  display: inline-block;
+.btn-wrapper .amd-button {
+  margin: 0 12rpx;
 }

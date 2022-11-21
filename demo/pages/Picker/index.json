@@ -3,6 +3,7 @@
   "usingComponents": {
     "picker": "../../../src/Picker/index",
     "list-item": "../../../src/List/ListItem/index",
-    "container": "../../../src/Container/index"
+    "container": "../../../src/Container/index",
+    "button": "../../../src/Button/index"
   }
 }
