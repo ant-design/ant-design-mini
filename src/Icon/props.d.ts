@@ -10,5 +10,10 @@ export interface IIconProps<T = any> extends IBaseProps {
    * @default ""
    */
   type: string;
+
+  /**
+   * 点击图标
+   */
+  onTap?: (e: any) => void;
 }
 export declare const IconDefaultProps: Partial<IIconProps>;

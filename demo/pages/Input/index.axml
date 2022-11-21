@@ -1,11 +1,12 @@
 <container title="基础用法">
-  <input placeholder="请输入内容" onChange="onChange"/>
+  <input placeholder="请输入内容" onChange="onChange" />
 </container>
 
-<container title="带有value">
+<container title="初始值">
   <input
     placeholder="请输入内容"
-    value="小程序"
+    defaultValue="这是antd mini小程序组件"
+    onChange="onChange"
   />
 </container>
 
@@ -17,6 +18,44 @@
   </input>
 </container>
 
+<container title="带有前缀后缀">
+  <input
+    placeholder="请输入内容"
+    onChange="onChange"
+    allowClear
+  >
+    <icon slot="prefix" type="SearchOutline" />
+  </input>
+</container>
+
+<container title="输入金额">
+  <input
+    placeholder="请输入金额"
+    onChange="onChange"
+    type="digit"
+    className="input money"
+    focusClassName="border"
+  >
+    <icon slot="prefix" type="PayOutline" />
+    <view slot="suffix">
+      RMB
+    </view>
+  </input>
+</container>
+
+<container title="搜索">
+  <input
+    placeholder="请输入内容"
+    onChange="onChange"
+    className="input"
+    focusClassName="border"
+    allowClear
+  >
+    <icon slot="prefix" type="SearchOutline" />
+    <icon slot="suffix" type="AudioOutline" />
+  </input>
+</container>
+
 <container title="禁用状态">
   <input
     placeholder="被禁用的输入框"
@@ -24,11 +63,18 @@
   />
 </container>
 
+<container title="控制focus、blur">
+  <input placeholder="请输入内容" ref="handleRef" />
+  <button onTap="focus" inline style="margin: 8px;">focus</button>
+  <button onTap="blur" inline>blur</button>
+</container>
 
-<container title="修改value">
+
+<container title="受控模式">
   <input
     value="{{value}}"
-    placeholder="请输入内容"
+    placeholder="请输入数字"
+    type="digit"
     allowClear
     onChange="handleChange"
     onClear="handleClear"
