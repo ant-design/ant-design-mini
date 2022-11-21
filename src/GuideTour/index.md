@@ -19,7 +19,7 @@ toc: false
 
 ### 基本使用
 
-<code src='../../demo/pages/GuideTour'></code>
+<code src='pages/GuideTour/index'></code>
 
 ## 属性
 

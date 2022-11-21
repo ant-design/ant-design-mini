@@ -11,7 +11,7 @@ toc: false
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Calendar'></code>
+<code src='pages/Calendar/index'></code>
 
 ## 属性
 

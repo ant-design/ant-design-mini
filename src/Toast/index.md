@@ -14,7 +14,7 @@ toc: 'content'
 最长文案不超过2行，最多可以显示24个字符，文案过长会被截断
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Toast'></code>
+<code src='pages/Toast/index'></code>
 
 ## 属性
 

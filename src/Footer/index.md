@@ -13,7 +13,7 @@ toc: 'content'
 
 ## 代码示例
 
-<code src='../../demo/pages/Footer'></code>
+<code src='pages/Footer/index'></code>
 
 ## API
 ### 属性

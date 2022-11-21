@@ -15,7 +15,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Input'></code>
+<code src='pages/Input/index'></code>
 
 
 # API

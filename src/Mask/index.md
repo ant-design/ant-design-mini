@@ -19,7 +19,7 @@ toc: 'content'
 
 ### 基本使用
 
-<code src='../../demo/pages/Mask'></code>
+<code src='pages/Mask/index'></code>
 
 ## 属性
 

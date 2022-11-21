@@ -22,7 +22,7 @@ toc: false
 
 ### 基本使用
 
-<code src='../../demo/pages/BladeView'></code>
+<code src='pages/BladeView/index'></code>
 
 ## 属性
 

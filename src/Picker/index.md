@@ -17,10 +17,10 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 
 ## 代码示例
 ### 基本使用
-<code src='../../demo/pages/Picker'></code>
+<code src='pages/Picker/index'></code>
 
 ### 级联Picker
-<code src='../../demo/pages/CascaderPicker'></code>
+<code src='pages/CascaderPicker/index'></code>
 
 ## 属性
 

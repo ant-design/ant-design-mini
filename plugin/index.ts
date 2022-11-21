@@ -1,9 +1,8 @@
 import { IApi } from 'dumi';
-import * as path from 'path';
-import * as fs from 'fs';
+import path from 'path';
+import fs from 'fs';
+import less from 'less';
 
-const CDN_URL =
-'https://opendocs.alipay.com/openbox/mini/antd-mini/antd-mini-demo';
 
 export default (api: IApi) => {
   api.register({
@@ -12,47 +11,75 @@ export default (api: IApi) => {
       name: 'CustomDemoPreviewer',
       component: path.join(__dirname, './render'),
       transformer(opts) {
-        if (opts.attrs && opts.attrs.src && opts.attrs.src.endsWith('.tsx')) {
-          return null;
+        if (opts.attrs.src.startsWith('pages')) {
+          return {
+            previewerProps: {
+              herboxUrl: `/preview?defaultPage=${opts.attrs.src}&defaultOpenedFiles=${opts.attrs.src}&theme=light&compilerServer=${process.env.SERVER}`
+            },
+          };
         }
-        // 检测 demo 文件夹
-        if (!fs.existsSync(path.join(process.cwd(), 'demo/pages'))) {
-          throw new Error('组件库 demo 文件夹：缺失');
-        }
-        return {
-          previewerProps: {
-            herboxUrl: getHerboxUrl(opts),
-          },
-        };
       },
     }),
   });
+
+  api.addBeforeMiddlewares(() => [
+    (req, res, next) => {
+      if (req.path === '/preview') {
+        fs.createReadStream(path.join(__dirname, '../.dumi/theme/builtins/iframe.html')).pipe(res);
+        return;
+      }
+      if (req.path.startsWith('/sourceCode/')) {
+        const page = req.path.replace('/sourceCode/', '');
+        getSourceCode(page).then(json => res.json(json));
+        return;
+      }
+      if (req.url === '/mini/packageInfo.json') {
+        res.json({});
+        return;
+      }
+      next();
+    },
+  ]);
 };
-function getHerboxUrl(opts) {
-  const sourcesPath = parseAlias(process.cwd(), opts.attrs.src, opts.mdAbsPath);
-  const prefix = sourcesPath.match(/.*(\/demo\/)(pages\/.+)/)[2];
-  const demoAxmlFile = fs
-    .readdirSync(sourcesPath)
-    .find((file) => file.endsWith('.axml'));
-  const tail = demoAxmlFile.match(/(.+)\.axml$/)[1];
-  const page = `${prefix}/${tail}`;
-  return `${CDN_URL}?view=preview&defaultPage=${page}&defaultOpenedFiles=${page}&mode=snippets&theme=light`;
+
+function getFileContent(file) {
+  return fs.promises.readFile(file, 'utf-8');
 }
 
-export function parseAlias(
-  cwd: string,
-  src: string,
-  mdAbsPath: string,
-  alias?: Record<string, string>
-): string {
-  if (alias) {
-    const aliasKeyArr = Object.keys(alias);
-    const alia = aliasKeyArr.find((key) => src.startsWith(key));
-    if (!alia) {
-      return path.join(mdAbsPath, `../${src}`);
+async function getSourceCode(page: string) {
+  const map = {
+    '.js': getFileContent,
+    '.axml': getFileContent,
+    '.acss': getFileContent,
+    '.less': lessCompile,
+    '.json': getFileContent,
+  };
+  const list: Promise<string>[] = [];
+  const arr: string[] = [];
+  Object.keys(map).forEach(item => {
+    const filename = path.join(__dirname, '../demo', page + item);
+    if (fs.existsSync(filename)) {
+      arr.push(page + (item === '.less' ? '.acss' : item));
+      list.push(map[item](filename));
     }
-    const realPath = src.replace(alia, alias[alia]);
-    return path.join(cwd, realPath);
-  }
-  return path.join(mdAbsPath, `../${src}`);
+  });
+  const json = {};
+  (await Promise.all(list)).forEach((item, index) => {
+    json[arr[index]] = item;
+  });
+  return json;
+}
+
+
+function lessCompile(filename: string) {
+  return fs.promises.readFile(filename, 'utf-8').then(content => new Promise((resolve, reject) => {
+    less.render(content, {
+      filename,
+    }, (e, output) => {
+      if (e) {
+        reject(e);
+      }
+      resolve(output!.css);
+    });
+  }));  
 }
