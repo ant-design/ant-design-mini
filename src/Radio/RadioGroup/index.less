@@ -8,22 +8,26 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      background: @COLOR_CARD;
+
       .amd-list-item-line {
         padding-right: 0;
       }
+
       .amd-radio-item {
         flex-flow: 0;
       }
+
       .amd-list-item-line::after {
         display: none;
       }
     }
   }
+
   &-header:empty,
   &-footer:empty {
     display: none;
   }
+
   &-header,
   &-footer {
     display: flex;
@@ -33,6 +37,7 @@
     font-size: 30 * @rpx;
     color: @radio-header-color;
   }
+
   &-body {
     position: relative;
     overflow: hidden;

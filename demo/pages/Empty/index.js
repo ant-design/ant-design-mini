@@ -12,12 +12,12 @@ Page({
   },
   onSubBtnClick() {
     my.alert({
-      title: '你点击了次按钮',
+      title: '你点击了按钮1',
     });
   },
   onMainBtnClick() {
     my.alert({
-      title: '你点击了主按钮',
+      title: '你点击了按钮2',
     });
   },
   handleChangeMode(v) {
