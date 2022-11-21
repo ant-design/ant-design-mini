@@ -6,9 +6,9 @@
       <slot name="plus" value="{{item}}" index="{{index}}" />
     </view>
     <view class="amd-tabs-bar-fade amd-tabs-bar-fade-left"
-      a:if="{{leftFade}}" />
+      style="opacity: {{leftFade ? '1' : '0'}}" />
     <view class="amd-tabs-bar-fade amd-tabs-bar-fade-right"
-      a:if="{{rightFade}}" />
+      style="opacity: {{rightFade ? '1' : '0'}}" />
     <scroll-view class="amd-tabs-bar-scroll-view"
       id="amd-tabs-bar-scroll-view-{{$id}}"
       onScroll="onScroll"
@@ -17,10 +17,7 @@
       scroll-with-animation="{{true}}"
       scroll-animation-duration="{{300}}"
     >
-      <!-- onAppear 控制阴影显示/隐藏 「左」 -->
-      <view class="amd-tabs-bar-item-placeholder"
-        onAppear="appearLeft"
-        onDisappear="disappearLeft"></view>
+      <view></view>
       <view a:for="{{items}}" class="amd-tabs-bar-wrap {{`amd-tabs-bar-wrap-${type}`}}">
         <!-- basic 基础类型 -->
         <view 
@@ -68,10 +65,7 @@
           </view>
         </view>
       </view>
-      <!-- onAppear 控制阴影显示/隐藏「右」-->
-      <view class="amd-tabs-bar-item-placeholder"
-        onAppear="appearRight"
-        onDisappear="disappearRight"></view>
+      <view></view>
     </scroll-view>
   </view>
   <view class="amd-tabs-content">
