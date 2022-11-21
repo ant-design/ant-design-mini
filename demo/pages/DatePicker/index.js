@@ -8,17 +8,17 @@ Page({
     minDate1: new Date('2017/01/15'),
     maxDate1: new Date('2018/08/20'),
   },
-  handlePickerChange(date, dateStr, dateArr, e) {
-    console.log('onPickerChange', date, dateStr, dateArr, e);
+  handlePickerChange(date, dateStr, e) {
+    console.log('onPickerChange', date, dateStr, e);
   },
-  handleOk(date, format, dateArr, e) {
-    console.log('onOk', date, format, dateArr, e);
+  handleOk(date, format, e) {
+    console.log('onOk', date, format, e);
   },
-  handlePickerRangeChange(type, date, dateStr, dateArr, e) {
-    console.log('onPickerRangeChange', type, date, dateStr, dateArr, e);
+  handlePickerRangeChange(type, date, dateStr, e) {
+    console.log('onPickerRangeChange', type, date, dateStr, e);
   },
-  handleRangeOk(date, format, dateArr, e) {
-    console.log('onRangeOk', date, format, dateArr, e);
+  handleRangeOk(date, format, e) {
+    console.log('onRangeOk', date, format, e);
   },
   handleChangeDate() {
     this.setData({ defaultDate: new Date('2019/05/02') });
@@ -28,6 +28,6 @@ Page({
   },
 
   handleDismiss(e) {
-    console.log('e', e)
-  }
+    console.log('e', e);
+  },
 });

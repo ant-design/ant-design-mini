@@ -1,6 +1,5 @@
 import { DateRangePickerDefaultProps } from './props';
 import dayjs from 'dayjs';
-import formMixin from '../mixins/form';
 import computed from '../mixins/computed';
 import equal from 'fast-deep-equal';
 import {
@@ -13,13 +12,13 @@ import {
 import fmtEvent from '../_util/fmtEvent';
 
 Component({
-  mixins: [computed, formMixin({ trigger: 'onOk' })],
+  mixins: [computed],
 
   props: DateRangePickerDefaultProps,
-
+  pickerVisible: false,
   data() {
     return {
-      cValue: null,
+      selfValue: undefined,
       currentValue: [], // 当前picker选中值，didmount、弹窗打开、切换开始结束、picker变化时更新
       columns: [], // 当前可选项，didmound、弹窗打开、切换开始结束、picker变化时更新
       pickerType: 'start' as 'start' | 'end',
@@ -30,53 +29,23 @@ Component({
   },
 
   didMount() {
-    this._visible = false;
-    const cValue = this.getValidPropValue();
-    this.setData({
-      cValue,
-    });
+    this.pickerVisible = false;
   },
   didUpdate(prevProps) {
     if (
       !isEqualDate(prevProps.value?.[0], this.props.value?.[0]) ||
       !isEqualDate(prevProps.value?.[1], this.props.value?.[1])
     ) {
-      const cValue = this.getValidPropValue();
       this.setData({
-        cValue,
         forceUpdate: this.data.forceUpdate + 1,
       });
-      if (this._visible) {
+      if (this.pickerVisible) {
         // 展开状态才更新picker的数据，否则下次triggerVisible触发
         this.setCurrentValue();
       }
     }
   },
   methods: {
-    // 判断value是否有效
-    getValidPropValue() {
-      const { value, min, max } = this.props;
-      let cValue = null;
-      if (
-        value?.[0] instanceof Date &&
-        (!min || value[0] >= min) &&
-        (!max || value[0] <= max)
-      ) {
-        cValue = [value[0]];
-      }
-      if (
-        value?.[1] instanceof Date &&
-        (!min || value[1] >= min) &&
-        (!max || value[1] <= max)
-      ) {
-        if (cValue) {
-          cValue.push(value[1]);
-        } else {
-          cValue = [null, value[1]];
-        }
-      }
-      return cValue;
-    },
     computed() {
       const { currentStartDate, currentEndDate, pickerType } = this.data;
       const { format } = this.props;
@@ -89,6 +58,17 @@ Component({
             ? dayjs(currentEndDate).format(format)
             : '',
         };
+    },
+    getValue() {
+      const { defaultValue, value } = this.props;
+      const { selfValue } = this.data;
+      if (typeof value !== 'undefined') {
+        return value;
+      }
+      if (typeof selfValue !== 'undefined') {
+        return selfValue;
+      }
+      return defaultValue || null;
     },
     getMin() {
       const { min } = this.props;
@@ -136,15 +116,16 @@ Component({
     },
     // didUpdate、弹窗打开、切换pickerType触发
     setCurrentValue() {
-      const { _visible } = this; // 隐藏状态下从CValue触发，展开状态使用当前数据
+      const { pickerVisible } = this; // 隐藏状态下从CValue触发，展开状态使用当前数据
       const { precision } = this.props;
-      const { cValue, pickerType, columns } = this.data;
+      const { pickerType, columns } = this.data;
+      const realValue = this.getValue();
       let { currentStartDate, currentEndDate } = this.data;
-      const currentStartDateByCValue = cValue?.[0] || null;
-      const currentEndDateByCValue = cValue?.[1] || null;
+      const currentStartDateByCValue = realValue?.[0] || null;
+      const currentEndDateByCValue = realValue?.[1] || null;
 
       // 展开状态，说明在切换pickerType
-      if (_visible) {
+      if (pickerVisible) {
         if (pickerType === 'start') {
           // currentStartDate 无需变化
         } else {
@@ -244,7 +225,6 @@ Component({
                 pickerType,
                 date,
                 dayjs(date).format(format),
-                selectedIndex,
                 fmtEvent(this.props)
               );
             }
@@ -257,7 +237,6 @@ Component({
             pickerType,
             date,
             dayjs(date).format(format),
-            selectedIndex,
             fmtEvent(this.props)
           );
         }
@@ -272,32 +251,47 @@ Component({
     },
 
     onOk() {
-      const { format, precision } = this.props;
+      const { format } = this.props;
       const { currentStartDate, currentEndDate } = this.data;
-      const cValue = [currentStartDate, currentEndDate];
-      this.setData({ cValue });
+      const realValue = [currentStartDate, currentEndDate] as any;
+      if (typeof this.props.value === 'undefined') {
+        this.setData({
+          selfValue: realValue,
+        });
+      }
       if (this.props.onOk) {
         this.props.onOk(
-          cValue,
-          cValue.map((v) => dayjs(v).format(format)),
-          cValue.map((v) => getValueByDate(v, precision)),
+          realValue,
+          realValue.map((v) => dayjs(v).format(format)),
           fmtEvent(this.props)
         );
       }
     },
-
+    defaultFormat(date, valueStrs) {
+      const { format, splitCharacter } = this.props;
+      if (format && valueStrs && valueStrs[0] && valueStrs[1]) {
+        return valueStrs.join(`${splitCharacter}`);
+      }
+      return '';
+    },
     onFormat() {
-      const { onFormat, format, precision, value } = this.props;
-      const { cValue } = this.data;
-      const realValue = cValue && cValue[0] && cValue[1] ? cValue : value;
-      return onFormat.call(
-        this,
+      const { onFormat, format } = this.props;
+      const realValue = this.getValue();
+      const formatValueByProps =
+        onFormat &&
+        onFormat(
+          realValue,
+          realValue
+            ? realValue.map((v) => (v ? dayjs(v).format(format) : null))
+            : null
+        );
+      if (typeof formatValueByProps !== 'undefined') {
+        return formatValueByProps;
+      }
+      return this.defaultFormat(
         realValue,
         realValue
           ? realValue.map((v) => (v ? dayjs(v).format(format) : null))
-          : null,
-        realValue
-          ? realValue.map((v) => (v ? getValueByDate(v, precision) : null))
           : null
       );
     },
@@ -314,7 +308,7 @@ Component({
       if (onTriggerPicker) {
         onTriggerPicker(visible, fmtEvent(this.props));
       }
-      this._visible = visible;
+      this.pickerVisible = visible;
     },
     onChangeCurrentPickerType(e) {
       const { type } = e.target.dataset;

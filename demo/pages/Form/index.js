@@ -1,7 +1,12 @@
 import { Form } from '../../../src/Form/form';
+import cityList from '../CascaderPicker/city';
 
 Page({
   form: new Form(),
+  data: {
+    fruitList: ['苹果', '香蕉', '橘子', '西瓜'],
+    cityList,
+  },
   handleRef(ref) {
     this.form.addItem(ref);
   },
@@ -14,5 +19,5 @@ Page({
       title: '提交',
       content: JSON.stringify(values),
     });
-  }
+  },
 });

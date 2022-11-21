@@ -1,7 +1,5 @@
 import equal from 'fast-deep-equal';
 import { PickerDefaultProps } from './props';
-import controlled from '../mixins/controlled';
-import formMixin from '../mixins/form';
 import {
   getMatchedItemByValue,
   getMatchedItemByIndex,
@@ -10,96 +8,128 @@ import {
 import fmtEvent from '../_util/fmtEvent';
 
 Component({
-  mixins: [controlled(), formMixin({ trigger: 'onOk' })],
   props: PickerDefaultProps,
   data: {
     formatValue: '',
     columns: [],
     visible: false,
+    selfValue: undefined,
+    selectedIndex: [],
   },
   tempSelectedIndex: null,
   single: false,
   isChangingPickerView: false,
   didMount() {
     const columns = this.getterColumns();
-    this.setData({
-      columns
-    }, () => {
-      const formatValue = this.getterFormatText()
-      const selectedIndex = this.getterSelectedIndex()
-      this.setData({
-        formatValue,
-        selectedIndex
-      })
-    })
+    this.setData(
+      {
+        columns,
+      },
+      () => {
+        const formatValue = this.getterFormatText();
+        const selectedIndex = this.getterSelectedIndex();
+        this.setData({
+          formatValue,
+          selectedIndex,
+        });
+      }
+    );
   },
-  didUpdate(prevProps, prevData) {
-    const { cValue } = this.data;
-    const { cValue: prevCValue } = prevData;
-    if (!equal(prevProps.data, this.props.data)) {
+  didUpdate(prevProps) {
+    if (!equal(prevProps.options, this.props.options)) {
       const newColums = this.getterColumns();
-      this.setData({
-        columns: newColums
-      }, () => {
-        // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
-        if (!this.isChangingPickerView) {
-          this.tempSelectedIndex = null;
-          const selectedIndex = this.getterSelectedIndex()
-          this.setData({
-            selectedIndex
-          })
+      this.setData(
+        {
+          columns: newColums,
+        },
+        () => {
+          // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
+          if (!this.isChangingPickerView) {
+            this.tempSelectedIndex = null;
+            const selectedIndex = this.getterSelectedIndex();
+            this.setData({
+              selectedIndex,
+            });
+          }
+          this.isChangingPickerView = false;
         }
-        this.isChangingPickerView = false;
-      })
+      );
     }
-    if (!equal(cValue, prevCValue)) {
-      const selectedIndex = this.getterSelectedIndex()
+    if (!equal(this.props.value, prevProps.value)) {
+      const selectedIndex = this.getterSelectedIndex();
       this.tempSelectedIndex = null;
       this.setData({
         selectedIndex,
-      })
+      });
     }
-    const formatValue = this.getterFormatText()
+    const formatValue = this.getterFormatText();
     if (formatValue !== this.data.formatValue) {
       this.setData({
-        formatValue
-      })
+        formatValue,
+      });
     }
   },
   methods: {
     getterColumns() {
       let columns = [];
-      if (this.props.data.length > 0) {
-        if (this.props.data.every((item) => item instanceof Array)) {
+      if (this.props.options.length > 0) {
+        if (this.props.options.every((item) => item instanceof Array)) {
           this.single = false;
-          columns = this.props.data.slice();
+          columns = this.props.options.slice();
         } else {
           this.single = true;
-          columns = [this.props.data];
+          columns = [this.props.options];
         }
       }
       return columns;
     },
+    defaultFormat(value, column) {
+      if (column instanceof Array) {
+        return column
+          .filter((c) => c !== undefined)
+          .map(function (c) {
+            if (typeof c === 'object') {
+              return c.label;
+            }
+            return c;
+          })
+          .join('-');
+      }
+      return (column && column.label) || column;
+    },
     getterFormatText() {
       const { onFormat } = this.props;
-      const { cValue, columns } = this.data;
-      let formatValue = '';
+      const { columns } = this.data;
+      const realValue = this.getValue();
       const { matchedColumn } = getStrictMatchedItemByValue(
         columns,
-        cValue,
+        realValue,
         this.single
       );
-      formatValue = onFormat(cValue, matchedColumn, this.props.data);
-      return formatValue;
+      const formatValueByProps = onFormat && onFormat(realValue, matchedColumn);
+      if (typeof formatValueByProps !== 'undefined') {
+        return formatValueByProps;
+      }
+      return this.defaultFormat(realValue, matchedColumn);
     },
-
+    getValue() {
+      const { defaultValue, value } = this.props;
+      const { selfValue } = this.data;
+      if (typeof value !== 'undefined') {
+        return value;
+      }
+      if (typeof selfValue !== 'undefined') {
+        return selfValue;
+      }
+      return defaultValue;
+    },
     getterSelectedIndex() {
       const selectedIndex = [];
       const columns = this.data.columns;
-      const { cValue } = this.data;
-      let value = cValue;
+      const realValue = this.getValue();
+      let value = realValue;
       if (this.single) {
-        value = [cValue];
+        value = [realValue];
       }
       for (let i = 0; i < columns.length; i++) {
         const column = columns[i];
@@ -143,10 +173,10 @@ Component({
       });
       this.triggerPicker(false);
       if (onDismiss) {
-        return onDismiss(fmtEvent(this.props, { detail: {type: 'mask'} }));
+        return onDismiss(fmtEvent(this.props, { detail: { type: 'mask' } }));
       }
     },
- 
+
     onDismiss() {
       const { onDismiss } = this.props;
       this.setData({
@@ -154,7 +184,7 @@ Component({
       });
       this.triggerPicker(false);
       if (onDismiss) {
-        return onDismiss(fmtEvent(this.props, { detail: {type: 'cancel'} }));
+        return onDismiss(fmtEvent(this.props, { detail: { type: 'cancel' } }));
       }
     },
 
@@ -168,8 +198,16 @@ Component({
         this.tempSelectedIndex,
         this.single
       );
+      this.setData({
+        selectedIndex,
+      });
       if (onChange) {
-        onChange.call(this, matchedValues, matchedColumn, fmtEvent(this.props, e));
+        onChange.call(
+          this,
+          matchedValues,
+          matchedColumn,
+          fmtEvent(this.props, e)
+        );
       }
     },
 
@@ -184,7 +222,7 @@ Component({
       } else {
         result = getMatchedItemByValue(
           this.data.columns,
-          this.data.cValue,
+          this.getValue(),
           this.single
         );
       }
@@ -194,16 +232,27 @@ Component({
       });
       this.triggerPicker(false);
       if (this.props.onBeforeOk) {
-        const isContinue = await this.props.onBeforeOk(matchedValues, matchedColumn, fmtEvent(this.props));
+        const isContinue = await this.props.onBeforeOk(
+          matchedValues,
+          matchedColumn,
+          fmtEvent(this.props)
+        );
         if (!isContinue) {
-          return
+          return;
         }
       }
-      this.setData({
-        cValue: matchedValues,
-      });
+      if (typeof this.props.value === 'undefined') {
+        this.setData({
+          selfValue: matchedValues,
+        });
+      }
       if (this.props.onOk) {
-        this.props.onOk.call(this, matchedValues, matchedColumn, fmtEvent(this.props));
+        this.props.onOk.call(
+          this,
+          matchedValues,
+          matchedColumn,
+          fmtEvent(this.props)
+        );
       }
     },
   },

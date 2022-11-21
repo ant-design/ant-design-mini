@@ -238,6 +238,11 @@ export const componentList = [
         path: '/pages/Picker/index',
       },
       {
+        name: 'CascaderPicker',
+        nameZN: '级联选择器',
+        path: '/pages/CascaderPicker/index',
+      },
+      {
         name: 'DatePicker',
         nameZN: '时间选择器',
         path: '/pages/DatePicker/index',

@@ -1,6 +1,5 @@
 import { DatePickerDefaultProps } from './props';
 import dayjs from 'dayjs';
-import formMixin from '../mixins/form';
 import equal from 'fast-deep-equal';
 import {
   getRangeData,
@@ -12,36 +11,28 @@ import {
 import fmtEvent from '../_util/fmtEvent';
 
 Component({
-  mixins: [formMixin({ trigger: 'onOk' })],
-
   props: DatePickerDefaultProps,
-
+  pickerVisible: false,
   data() {
     return {
+      selfValue: undefined,
       currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
       columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
-      cValue: null,
       forceUpdate: 0, // 强制更新picker组件，已知需处理的情况：value超限，但是需要更新format，由于picker的参数均未变化，无法触发picker的渲染
     };
   },
 
   didMount() {
-    this._visible = false;
-    const cValue = this.getValidPropValue();
-    this.setData({
-      cValue,
-    });
+    this.pickerVisible = false;
   },
 
   didUpdate(prevProps) {
     if (!isEqualDate(prevProps.value, this.props.value)) {
-      const cValue = this.getValidPropValue();
       this.setData({
-        cValue,
         forceUpdate: this.data.forceUpdate + 1,
       });
       // 展开状态才更新picker的数据，否则下次triggerVisible触发
-      if (this._visible) {
+      if (this.pickerVisible) {
         this.setCurrentValue();
       }
     }
@@ -49,10 +40,10 @@ Component({
   methods: {
     // 当前选中的picker值，处理无cValue时的情况，优先取当前时间，不在时间范围内取开始时间
     getCurrentValueWithCValue() {
-      const { cValue } = this.data;
+      const realValue = this.getValue();
       const { min, max, precision } = this.props;
-      if (cValue) {
-        return getValueByDate(cValue, precision);
+      if (realValue) {
+        return getValueByDate(realValue, precision);
       } else {
         const now = new Date();
         if (
@@ -64,20 +55,6 @@ Component({
           return getValueByDate(this.getMin().toDate(), precision);
         }
       }
-    },
-
-    // 判断value是否有效
-    getValidPropValue() {
-      const { min, max, value } = this.props;
-      let cValue = null;
-      if (
-        value instanceof Date &&
-        (!min || value >= min) &&
-        (!max || value <= max)
-      ) {
-        cValue = value;
-      }
-      return cValue;
     },
 
     getMin() {
@@ -192,31 +169,49 @@ Component({
       const { currentValue } = this.data;
       const { format } = this.props;
       const date = getDateByValue(currentValue);
-      this.setData({ cValue: date });
+      if (typeof this.props.value === 'undefined') {
+        this.setData({
+          selfValue: date,
+        });
+      }
       if (this.props.onOk) {
-        this.props.onOk(
-          date,
-          dayjs(date).format(format),
-          currentValue,
-          fmtEvent(this.props)
-        );
+        this.props.onOk(date, dayjs(date).format(format), fmtEvent(this.props));
       }
     },
-
-    onFormat(values) {
-      const { onFormat, format, value } = this.props;
-      const { cValue } = this.data;
-      const realValue = cValue || value;
-      return onFormat.call(
-        this,
+    defaultFormat(value, valueStr) {
+      if (this.props.format && valueStr) {
+        return valueStr;
+      }
+      return '';
+    },
+    getValue() {
+      const { defaultValue, value } = this.props;
+      const { selfValue } = this.data;
+      if (typeof value !== 'undefined') {
+        return value;
+      }
+      if (typeof selfValue !== 'undefined') {
+        return selfValue;
+      }
+      return defaultValue || null;
+    },
+    onFormat() {
+      const { onFormat, format } = this.props;
+      const realValue = this.getValue();
+      const formatValueByProps =
+        onFormat &&
+        onFormat(realValue, realValue ? dayjs(realValue).format(format) : null);
+      if (typeof formatValueByProps !== 'undefined') {
+        return formatValueByProps;
+      }
+      return this.defaultFormat(
         realValue,
-        realValue ? dayjs(realValue).format(format) : null,
-        values
+        realValue ? dayjs(realValue).format(format) : null
       );
     },
 
     onTriggerPicker(visible) {
-      this._visible = visible;
+      this.pickerVisible = visible;
       const { onTriggerPicker } = this.props;
       if (visible) {
         this.setCurrentValue();

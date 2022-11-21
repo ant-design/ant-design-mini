@@ -1,30 +1,28 @@
 import { CascaderDefaultProps } from './props';
-import formMixin from '../mixins/form';
 import fmtEvent from '../_util/fmtEvent';
 import equal from 'fast-deep-equal';
 
 Component({
-  mixins: [formMixin({ trigger: 'onOk' })],
-  _visible: false,
+  pickerVisible: false,
   props: CascaderDefaultProps,
   data() {
     return {
       currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
       columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
-      cValue: null,
+      selfValue: undefined,
     };
   },
   didMount() {
-    const { value } = this.props;
-    const columns = this.getterColumns(value);
+    const realValue = this.getValue();
+    const columns = this.getterColumns(realValue);
     // 首次无需校验value有效性，onOk时会校验
-    this.setData({ columns, cValue: value });
+    this.setData({ columns });
   },
   didUpdate(prevProps) {
     const { value, options } = this.props;
     const { columns, currentValue } = this.data;
     // onTriggerPicker展开时会自动重置数据，此处只有展开状态下才需要重置columns和currentValue，否则只需设置cValue
-    if (this._visible) {
+    if (this.pickerVisible) {
       if (options !== prevProps.options) {
         const newData: any = {};
         if (!equal(value, prevProps.value)) {
@@ -32,7 +30,6 @@ Component({
           newData.columns = newColumns;
           const currentValue = this.getValidValue(value, newColumns);
           newData.currentValue = currentValue;
-          newData.cValue = value;
         } else {
           const newColumns = this.getterColumns(currentValue);
           newData.columns = newColumns;
@@ -40,21 +37,34 @@ Component({
         this.setData(newData);
       } else {
         if (!equal(value, prevProps.value)) {
-          const currentValue = this.getValidValue(value, columns);
-          this.setData({ cValue: value, currentValue });
+          const realValue = this.getValue();
+          const currentValue = this.getValidValue(realValue, columns);
+          this.setData({ currentValue });
         }
       }
     } else {
+      const realValue = this.getValue();
       if (!equal(value, prevProps.value)) {
         this.setData({
           cValue: value,
-          currentValue: this.getValidValue(value, columns),
+          currentValue: this.getValidValue(realValue, columns),
         });
       }
     }
   },
 
   methods: {
+    getValue() {
+      const { defaultValue, value } = this.props;
+      const { selfValue } = this.data;
+      if (typeof value !== 'undefined') {
+        return value;
+      }
+      if (typeof selfValue !== 'undefined') {
+        return selfValue;
+      }
+      return defaultValue || null;
+    },
     getterColumns(value) {
       const getColumns = (options, value, columns = []) => {
         columns.push(options.map((v) => ({ value: v.value, label: v.label })));
@@ -134,7 +144,11 @@ Component({
           return;
         }
       }
-      this.setData({ cValue: validValue });
+      if (typeof this.props.value === 'undefined') {
+        this.setData({
+          selfValue: validValue,
+        });
+      }
       if (onOk) {
         onOk(
           validValue,
@@ -145,11 +159,12 @@ Component({
     },
     onTriggerPicker(visible) {
       const { onTriggerPicker } = this.props;
-      const { cValue, columns } = this.data;
-      this._visible = visible;
+      const { columns } = this.data;
+      this.pickerVisible = visible;
+      const realValue = this.getValue();
       if (visible) {
-        const newColumns = this.getterColumns(cValue);
-        const currentValue = this.getValidValue(cValue, newColumns);
+        const newColumns = this.getterColumns(realValue);
+        const currentValue = this.getValidValue(realValue, newColumns);
         const newData: any = { currentValue };
         if (!equal(columns, newColumns)) {
           newData.columns = newColumns;
@@ -160,13 +175,21 @@ Component({
         onTriggerPicker(visible, fmtEvent(this.props));
       }
     },
+    defaultFormat(value, options) {
+      if (options) {
+        return options.map((v) => v.label).join('');
+      }
+      return '';
+    },
     onFormat() {
-      const { cValue } = this.data;
-      return this.props.onFormat.call(
-        this,
-        cValue,
-        this.getOptionByValue(cValue)
-      );
+      const realValue = this.getValue();
+      const { onFormat } = this.props;
+      const formatValueByProps =
+        onFormat && onFormat(realValue, this.getOptionByValue(realValue));
+      if (typeof formatValueByProps !== 'undefined') {
+        return formatValueByProps;
+      }
+      return this.defaultFormat(realValue, this.getOptionByValue(realValue));
     },
 
     onDismiss(e) {
