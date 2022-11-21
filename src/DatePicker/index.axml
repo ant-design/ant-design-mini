@@ -3,7 +3,7 @@
   popClassName="amd-date-picker-popup {{popClassName || ''}}"
   style="{{style}}"
   popStyle="{{popStyle}}"
-  data="{{columns}}"
+  options="{{columns}}"
   value="{{currentValue}}"
   disabled="{{disabled}}"
   title="{{title}}" 

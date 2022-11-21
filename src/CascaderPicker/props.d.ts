@@ -1,4 +1,4 @@
-import { IBaseFormItemPropsWithOutFocus } from '../_base';
+import { IBaseProps } from '../_base';
 
 export interface ICascaderOption {
   label: string;
@@ -9,11 +9,15 @@ export interface ICascaderOption {
 /**
  * @description 级联组件，基于Picker封装
  */
-export interface ICascaderProps extends IBaseFormItemPropsWithOutFocus {
+export interface ICascaderProps extends IBaseProps {
   /**
    * @description 当前数据
    */
   value: any[];
+  /**
+   * @description 默认值
+   */
+  defaultValue: any[];
   /**
    * @description 可选项数据
    */

@@ -4,6 +4,10 @@
     "form-input": "../../../src/Form/FormInput/index",
     "form-switch": "../../../src/Form/FormSwitch/index",
     "form-stepper": "../../../src/Form/FormStepper/index",
+    "form-picker": "../../../src/Form/FormPicker/index",
+    "form-date-picker": "../../../src/Form/FormDatePicker/index",
+    "form-range-picker": "../../../src/Form/FormRangePicker/index",
+    "form-cascader-picker": "../../../src/Form/FormCascaderPicker/index",
     "button": "../../../src/Button/index"
   }
 }

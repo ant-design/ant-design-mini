@@ -30,6 +30,7 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | -----|-----|-----|-----|
 | className | 类名| `string` | - |
 | data | picker 数据，配置每一列的选项 | [PickerColumnItem](#pickercolumnitem)[] | [] |
+| defaultValue | 默认值 | `string` \| `number` \| [PickerColumnItem](#pickercolumnitem) \| Array\<`string` \| `number` \| [PickerColumnItem](#pickercolumnitem)\> | - | 
 | disabled | 是否禁用  | `boolean` | false | 
 | dismissText | 取消文案 | `string` | '取消' |  
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | `string` | 'YYYY/MM/DD' | 
@@ -42,7 +43,6 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | placeholder | 提示文案 | `string` | '请选择' |  
 | popClassName |  弹出框类名 | `string` | - |
 | popStyle |  弹出框样式 | `string` | - |
-| precision | 选择精度 | 'year' \|  'month' \|  'day' \|  'hour' \|  'minute' \|  'second' | 'day' | 
 | style | 样式| `string` | - |
 | title | 弹出框标题 | `string` \| `slot` | - |  
 | value | 选中的值 | `string` \| `number` \| [PickerColumnItem](#pickercolumnitem) \| Array\<`string` \| `number` \| [PickerColumnItem](#pickercolumnitem)\> | - | 
@@ -71,7 +71,6 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | placeholder | 提示文案 | `string` | '请选择' |  
 | popClassName |  弹出框类名 | `string` | - |
 | popStyle |  弹出框样式 | `string` | - |
-| precision | 选择精度 | 'year' \|  'month' \|  'day' \|  'hour' \|  'minute' \|  'second' | 'day' | 
 | style | 样式| `string` | - |
 | title | 弹出框标题 | `string` \| `slot` | - |  
 | value | 选中的值 | `any`[] | - | 

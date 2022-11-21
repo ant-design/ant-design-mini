@@ -1,10 +1,10 @@
-import { IBaseFormItemPropsWithOutFocus } from '../_base';
+import { IBaseProps } from '../_base';
 
 export type PickerValue = Date;
 /**
  * @description 对话框
  */
-export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
+export interface IDatePickerProps extends IBaseProps {
   /**
    * @description 时间格式化显示，例如YYYY-MM-DD
    */
@@ -23,6 +23,10 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
    * @description 当前数据
    */
   value: PickerValue;
+  /**
+   * @description 默认值
+   */
+  defaultValue: PickerValue;
   /**
    * @description 标题
    */
@@ -50,12 +54,7 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 点击确认回调
    */
-  onOk?: (
-    date: PickerValue,
-    dateStr: string,
-    dateArr: number[],
-    e: Record<string, any>
-  ) => void;
+  onOk?: (date: PickerValue, dateStr: string, e: Record<string, any>) => void;
   /**
    * @description 点击取消回调
    */
@@ -66,7 +65,6 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   onPickerChange?: (
     date: PickerValue,
     dateStr: string,
-    dateArr: number[],
     e: Record<string, any>
   ) => void;
   /**
@@ -79,7 +77,7 @@ export interface IDatePickerProps extends IBaseFormItemPropsWithOutFocus {
   /**
    * @description 选中值的文本显示格式
    */
-  onFormat?: (date: PickerValue, dateStr: string, dateArr: number[]) => string;
+  onFormat?: (date: PickerValue, dateStr: string) => string;
   /**
    * @description 切换显示隐藏
    */

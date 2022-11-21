@@ -26,7 +26,28 @@
   name="quantity"
   ref="handleRef"
 />
-
+<form-picker
+  label="水果"
+  name="fruit"
+  options="{{fruitList}}"
+  ref="handleRef"
+/>
+<form-date-picker
+  label="出生日期"
+  name="birthday"
+  ref="handleRef"
+/>
+<form-range-picker
+  label="时间范围"
+  name="range"
+  ref="handleRef"
+/>
+<form-cascader-picker
+  label="城市"
+  options="{{cityList}}"
+  name="city"
+  ref="handleRef"
+/>
 <view class="buttons">
   <button type="primary" onTap="submit" style="margin-bottom: 12px;">提交</button>
   <button onTap="reset">重置</button>

@@ -3,7 +3,7 @@
     style="{{style}}"
     popClassName="amd-cascader-picker-popup {{popClassName || ''}}"
     popStyle="{{popStyle}}"
-    data="{{columns}}"
+    options="{{columns}}"
     value="{{currentValue}}"
     disabled="{{disabled}}"
     title="{{title}}" 

@@ -37,10 +37,10 @@ toc: 'content'
 | style | 样式| `string` | - |
 | title | 弹出框标题 | `string` \| `slot` | - |  
 | value | 选中的时间 | `Date` | - | 
-| onOk | 点击确定按钮，触发回调 | (date: `Date`, dateStr: `string`, dateArr:`number`[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onOk | 点击确定按钮，触发回调 | (date: `Date`, dateStr: `string`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onDismiss | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onPickerChange | 选中项发生变化，触发回调 | (date: `Date`, dateStr: `string`, dateArr: `number`[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onFormat | 选中值的文本显示格式 | (date: `Date`, dateStr: `string`, dateArr: `number`[]) => string |
+| onPickerChange | 选中项发生变化，触发回调 | (date: `Date`, dateStr: `string`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onFormat | 选中值的文本显示格式 | (date: `Date`, dateStr: `string`) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible: `boolean`, (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 #### RangePicker
@@ -68,8 +68,8 @@ toc: 'content'
 | style | 样式 | `string` | - |
 | title | 弹出框标题 | `string` | - |  
 | value | 选中的时间 | [`Date`, `Date`] | - | 
-| onOk | 点击确定按钮，触发回调 | (date: [`Date`,`Date`], dateStr: [`string`,`string`], dateArr: [`number`[],`number`[]], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onOk | 点击确定按钮，触发回调 | (date: [`Date`,`Date`], dateStr: [`string`,`string`], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onDismiss | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onPickerChange | 选中项发生变化，触发回调 | (type: 'start'\|'end', date: `Date`, dateStr: `string`, dateArr: `number`[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onFormat | 选中值的文本显示格式 | (date: [`Date`,`Date`], dateStr: [`string`,`string`], dateArr: [`number`[],`number`[]]) => string |
+| onPickerChange | 选中项发生变化，触发回调 | (type: 'start'\|'end', date: `Date`, dateStr: `string`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onFormat | 选中值的文本显示格式 | (date: [`Date`,`Date`], dateStr: [`string`,`string`]) => string |
 | onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible: `boolean`, (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
