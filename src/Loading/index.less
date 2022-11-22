@@ -4,32 +4,20 @@
 
 .@{loadingPrefix} {
   &-spin {
-    &-container {
-      display: inline-block;
-    }
-
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: @v-spacing-large;
 
     &-icon {
       background-position: center;
       background-repeat: no-repeat;
-
-      &-light {
-        opacity: 0.6;
-      }
     }
   }
 
   &-mini {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: @size-1;
-    height: @size-1;
     min-width: 66 * @rpx;
     min-height: 66 * @rpx;
 

@@ -7,49 +7,17 @@ import { IBaseProps } from '../_base';
 export interface ILoadingProps extends IBaseProps {
   /**
    * @description 加载时的颜色，当 type 为 'spin' 时，只支持十六进制颜色码，如'#fff'
-   * @default '#999'
+   * @default '#fff'
    */
   color?: string;
 
-  /**
-  * @description 延时显示加载状态，单位 ms, 注意，delay 的变更不能实时生效，当 type 为 'spin' 时生效
-  */
-  delay?: number;
-
-  /**
-   * @description 加载图标高度，不传则默认与 size 大小一致，当 type 为 'mini' 时生效
-   * @default 100
-   */
-  height?: string | number;
-
-  /**
-   * @description 是否加载中，当 type 为 'spin' 时生效
-   * @default true
-   */
-  loading?: boolean;
-
-  /**
-   * @description 加载图标宽度，当 type 为 'mini' 时生效
-   * @default '200rpx'
-   */
-  miniSize?: string;
-
+  
   /**
    * @description 加载图标尺寸，当 type 为 'spin' 时生效
-   * @default "medium"
+   * @default 40px
    */
-  size?: 'x-large' | 'large' | 'medium' | 'small';
+  size?: 'number' | 'string';
 
-  /**
-   * @description 颜色，dark/深色, light/浅色，当 type 为 'spin' 时生效
-   * @default "dark"
-   */
-  theme?: 'dark' | 'light';
-
-  /**
-   * @description 加载样式类型
-   * @default 'spin'
-   */
   type?: 'spin' | 'mini';
 }
 
