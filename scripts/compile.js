@@ -6,26 +6,18 @@ const rename = require('gulp-rename');
 const cleanCss = require('gulp-clean-css');
 const babel = require('gulp-babel');
 const gulpif = require('gulp-if');
-const injectEnvs = require('gulp-inject-envs');
 const ts = require('gulp-typescript');
 
-const isProduction = process.env.NODE_ENV === 'production';
-const dist = isProduction ? path.join(__dirname, '../es') : path.join(__dirname, '../demo/es');
+
+const dist = path.join(__dirname, '../es');
 const src = path.join(__dirname, '../src');
 const extTypes = ['ts', 'less', 'json', 'axml', 'sjs', 'js'];
-const isRpx = process.argv.splice(2)[0] === '--rpx';
-const env = { jsUnitRpx: isRpx };
 
 gulp.task('less', () => gulp.src(`${src}/**/index.less`)
-  .pipe(less({
-    modifyVars: {
-      '@rpx': isRpx ? '1rpx': '0.5px',
-      '@pixelSize': isRpx ? '1rpx': '0.5px',
-    },
-  }))
+  .pipe(less())
   // eslint-disable-next-line no-console
   .on('error', (e) => console.error(e))
-  .pipe(gulpif(isProduction, cleanCss()))
+  .pipe(cleanCss())
   .pipe(rename({
     extname: '.acss',
   }))
@@ -58,13 +50,10 @@ gulp.task('ts', () => gulp.src(`${src}/**/*.ts`)
     allowSyntheticDefaultImports: true,
     target: 'ES5'
   })))
-  .pipe(injectEnvs(env))
   .on('error', (err) => {
     // eslint-disable-next-line no-console
     console.log(err);
   })
   .pipe(gulp.dest(dist)));
 
-const build = gulp.series(...extTypes);
-
-build();
+module.exports = () => new Promise(resolve => gulp.series(...extTypes, resolve)());

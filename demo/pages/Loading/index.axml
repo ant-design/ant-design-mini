@@ -1,18 +1,18 @@
 <container title="基础用法-mini">
-  <loading type="mini" />
+   <loading type="mini" />
 </container>
 
 <container title="基础用法-spin">
   <loading type="spin" size="{{60}}" />
-  <loading type="spin" size="{{48}}" />
-  <loading type="spin" size="{{36}}" />
-  <loading type="spin" size="{{24}}" />
+  <loading type="spin" size="48" />
+  <loading type="spin" size="36px" />
+  <loading type="spin" size="24px" />
 </container>
 
-<container title="自定义颜色">
+<container title="自定义">
   <loading type="mini" color="#1677ff" />
-  <loading size="{{60}}" color="#1677ff" />
-  <loading size="{{48}}" color="#34B368" />
-  <loading size="{{36}}" color="#ff8f1f" />
-  <loading size="{{24}}" color="#ff0000" />
+  <loading size="60" color="#1677ff" />
+  <loading size="48" color="#34B368" />
+  <loading size="36" color="#ff8f1f" />
+  <loading size="24" color="#ff0000" />
 </container>

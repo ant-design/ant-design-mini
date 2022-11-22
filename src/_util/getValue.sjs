@@ -11,4 +11,12 @@ function getValue(propsValue, dataValue, defaultValue, alternativeValue) {
   return alternativeValue;
 }
 
-export default { getValue };
+function getPixel(size) {
+  size = size + '';
+  if (Number(size)) {
+    return size + 'px';
+  }
+  return size;
+}
+
+export default { getValue, getPixel };

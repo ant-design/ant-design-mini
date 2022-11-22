@@ -14,7 +14,7 @@ export default (api: IApi) => {
         if (opts.attrs.src.startsWith('pages')) {
           return {
             previewerProps: {
-              herboxUrl: `/preview?defaultPage=${opts.attrs.src}&defaultOpenedFiles=${opts.attrs.src}&theme=light&compilerServer=${process.env.SERVER}`
+              herboxUrl: `/preview.html?defaultPage=${opts.attrs.src}&defaultOpenedFiles=${opts.attrs.src}&theme=light&compilerServer=${process.env.SERVER || ''}`
             },
           };
         }
@@ -24,7 +24,7 @@ export default (api: IApi) => {
 
   api.addBeforeMiddlewares(() => [
     (req, res, next) => {
-      if (req.path === '/preview') {
+      if (req.path === '/preview.html') {
         fs.createReadStream(path.join(__dirname, '../.dumi/theme/builtins/iframe.html')).pipe(res);
         return;
       }
@@ -65,7 +65,7 @@ async function getSourceCode(page: string) {
   });
   const json = {};
   (await Promise.all(list)).forEach((item, index) => {
-    json[arr[index]] = item;
+    json[arr[index]] = item.replace(/('|")[^'"]*\/src/g, '$1antd-mini');
   });
   return json;
 }
