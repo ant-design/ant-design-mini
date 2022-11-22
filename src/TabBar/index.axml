@@ -1,12 +1,12 @@
+<import-sjs from="./index.sjs" name="utils" />
 <view class="amd-tab-bar {{className || ''}}" style="{style || ''}">
   <view class="amd-tab-bar-wrap">
     <view
-      class="amd-tab-bar-item {{ index === activeIndex ? ('amd-tab-bar-item-active' + (activeClassName || '')) : '' }}"
-      style="{{index === activeIndex? (activeStyle||'') : ''}}"
-      a:for="{{tabs}}"
+      class="amd-tab-bar-item {{ index === utils.getValue(current, selfCurrent, defaultCurrent) ? ('amd-tab-bar-item-active' + (activeClassName || '')) : '' }}"
+      style="{{index === utils.getValue(current, selfCurrent, defaultCurrent)? (activeStyle||'') : ''}}"
+      a:for="{{items}}"
       onTap="onChange"
       data-index="{{index}}"
-      a:if="{{index < maxTabCount}}"
     >
       <badge
         a:if="{{item.badge}}"
@@ -20,21 +20,21 @@
         offsetX="{{item.badge.offsetX || '-9px'}}"
         offsetY="{{item.badge.offsetY || '0px'}}"
         >
-        <slot name="icon" active="{{activeIndex == index}}" item="{{item}}" index="{{index}}">
+        <slot name="icon" active="{{utils.getValue(current, selfCurrent, defaultCurrent) == index}}" item="{{item}}" index="{{index}}">
           <image-icon
             className="amd-tab-bar"
-            image="{{activeIndex === index? item.activeIcon : item.icon}}"
+            image="{{utils.getValue(current, selfCurrent, defaultCurrent) === index? item.activeIcon : item.icon}}"
           />
         </slot>
       </badge>
-      <slot a:else name="icon" active="{{activeIndex == index}}" item="{{item}}" index="{{index}}">
+      <slot a:else name="icon" active="{{utils.getValue(current, selfCurrent, defaultCurrent) == index}}" item="{{item}}" index="{{index}}">
         <image-icon
           className="amd-tab-bar"
-          image="{{activeIndex === index?item.activeIcon : item.icon}}"
+          image="{{utils.getValue(current, selfCurrent, defaultCurrent) === index?item.activeIcon : item.icon}}"
         />
       </slot>
       <view class="amd-tab-bar-text-wrap">
-        <slot name="text" active="{{activeIndex === index}}" item="{{item}}" index="{{index}}">
+        <slot name="text" active="{{utils.getValue(current, selfCurrent, defaultCurrent) === index}}" item="{{item}}" index="{{index}}">
           <text class="amd-tab-bar-text">
             {{item.text}}
           </text>

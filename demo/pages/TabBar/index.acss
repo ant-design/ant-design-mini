@@ -1,6 +1,0 @@
-.tab-bar-demo .demo-block-title {
-  padding: 48rpx 0 16rpx 32rpx;
-  font-size: 28rpx;
-  color: #697b8c;
-  letter-spacing: 0;
-}

@@ -1,40 +1,31 @@
 <container title="基础用法">
   <tab-bar
-    tabs="{{tabs}}"
-    activeKey="{{tabsIndex}}"
-    onChange="handleChangeTabs"
+    items="{{tabs}}"
+  />
+</container>
+<container title="受控模式">
+  <tab-bar
+    items="{{tabs}}"
+    current="{{current}}"
+    onChange="handleChange"
   />
 </container>
 
 <container title="红点用法">
   <tab-bar
-    tabs="{{tabsBadge}}"
-    activeKey="{{tabsBadgeIndex}}"
-    onChange="handleChangeTabsBadge"
+    items="{{tabsBadge}}"
   />
 </container>
 
 <container title="图片和 Icon 混合">
   <tab-bar
-    tabs="{{tabsImage}}"
-    activeKey="{{tabsImageIndex}}"
-    onChange="handleChangeTabsImage"
+    items="{{tabsImage}}"
   />
 </container>
 
 <container title="自定义高亮颜色">
   <tab-bar
-    tabs="{{tabs}}"
-    activeKey="{{tabsColorIndex}}"
-    onChange="handleChangeTabsColor"
+    items="{{tabs}}"
     activeStyle="color:red;"
-  />
-</container>
-
-<container title="Tab 数量超过 5 个后进行截取">
-  <tab-bar
-    tabs="{{tabsCount6}}"
-    activeKey="{{tabsCount6Index}}"
-    onChange="handleChangeTabsCount6"
   />
 </container>

@@ -1,7 +1,7 @@
 import { IBaseProps } from '../_base';
 import { IBadgeProps } from '../Badge/props.d';
 
-export interface ITabsConfig {
+export interface ITabItem {
   /**
    * @description 底部图标，支持 Icon 或图片
    * @default ''
@@ -14,7 +14,6 @@ export interface ITabsConfig {
    */
   activeIcon?: string;
 
-
   /**
    * @description 底部的文本信息
    * @default ''
@@ -26,3 +25,34 @@ export interface ITabsConfig {
    */
   badge?: IBadgeProps;
 }
+
+/**
+ * @description 标签栏，内部配合 TabItem 使用。
+ */
+export interface ITabBarProps extends IBaseProps {
+  /**
+   * @description tabbar 配置，为一个数组
+   * @default []
+   */
+  items: ITabItem[];
+
+  /**
+   * @description 选中
+   */
+  current?: number;
+  /**
+   * @description 初始值
+   */
+  defaultCurrent?: number;
+
+  /**
+   * @description 高亮状态图标和文本的颜色
+   */
+  activeColor?: string;
+
+  /**
+   * @description tabbar 切换时的回调
+   */
+  onChange?: (index: number, e: Record<string, any>) => void;
+}
+export declare const TabBarDefaultProps: Partial<ITabBarProps>;
