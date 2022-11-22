@@ -1,13 +1,24 @@
 @import (reference) './variable.less';
 
-@checkBoxPrefix: amd-checkbox;
+@checkboxItemPrefix: amd-checkbox-item;
 
-.@{checkBoxPrefix} {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  padding-left: @checkbox-size;
-  height: @checkbox-size;
+.@{checkboxItemPrefix} {
+  color: @COLOR_TEXT_PRIMARY;
+  margin-right: 16 * @rpx;
+
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &-content {
+    padding-left: 10 * @rpx;
+  }
+  &-wrap {
+    position: relative;
+    width: @checkbox-size;
+    height: @checkbox-size;
+  }
   &-base {
     position: absolute;
     top: 0;
@@ -21,8 +32,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: @checkbox-size;
-    height: @checkbox-size;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     z-index: 1;
     pointer-events: none;
@@ -71,14 +82,6 @@
     }
   }
   &-disabled {
-    .@{checkBoxPrefix}-content {
-      opacity: @opacity-disabled;
-    }
-  }
-  &-content {
-    padding-left: 16 * @rpx;
-    &:empty {
-      display: none;
-    }
+    opacity: @opacity-disabled;
   }
 }

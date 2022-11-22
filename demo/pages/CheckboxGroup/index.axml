@@ -1,77 +1,51 @@
-<demo-block title="基础用法">
-  <checkbox-group 
-    uid="group1"
-    data-list="{{list}}"
-    onChange="handleChange"
-  >
-    <checkbox-item 
-      a:for="{{list}}"
-      value="{{item.value}}"  
-      uid="group1">
-        {{item.label}}
-    </checkbox-item>
-  </checkbox-group>
-</demo-block>
+<container title="基础用法">
+  <checkbox-group
+    options="{{options}}"
+    onChange="onChange"
+  />
+</container>
 
+<container title="初始值">
+  <checkbox-group
+    defaultValue="{{['banana']}}"
+    options="{{options}}"
+    onChange="onChange"
+  />
+</container>
 
-<demo-block title="横向布局">
-  <checkbox-group 
-    uid="group4"
+<container title="横向布局">
+  <checkbox-group
+    options="{{options}}"
     position="horizontal"
+  />
+</container>
+
+<container title="禁用模式">
+  <checkbox-group
+    options="{{options}}"
+    disabled
+  />
+</container>
+
+<container title="控制模式">
+  <checkbox-group
+    value="{{value}}"
+    options="{{options}}"
     onChange="handleChange"
-  >
-  <checkbox-item 
-    a:for="{{list}}"
-    value="{{item.value}}"  
-    uid="group4">
-      {{item.label}}
-  </checkbox-item>
+  />
+</container>
+<container title="自定义颜色">
+  <checkbox-group
+    options="{{options}}"
+    defaultValue="{{['apple','banana']}}"
+    color="red"
+  />
+</container>
+<container title="自定义">
+  <checkbox-group options="{{options}}">
+    <view slot="label" slot-scope="item">
+      {{item.index +1}} {{item.value.label}}
+    </view>
   </checkbox-group>
-</demo-block>
+</container>
 
-<demo-block title="部分禁用">
-  <checkbox-group 
-    uid="group2"
-    value="{{['orange','banner']}}"
-  >
-    <checkbox-item 
-      a:for="{{list}}"
-      value="{{item.value}}"  
-      disabled="{{index===1}}"
-      uid="group2">
-        {{item.label}}
-    </checkbox-item>
-  </checkbox-group>
-</demo-block>
-
-<demo-block title="整组禁用">
-  <checkbox-group 
-    uid="group3"
-    value="{{['orange','banner']}}"
-    disabled="{{true}}">
-
-    <checkbox-item 
-      a:for="{{list}}"
-      value="{{item.value}}"  
-      uid="group3">
-        {{item.label}}
-    </checkbox-item>
-  </checkbox-group>
-</demo-block>
-
-<demo-block title="自定义图标">
-  <checkbox-group 
-    uid="group5"
-    onChange="handleChange"
-  >
-    <checkbox-item 
-      a:for="{{list}}"
-      value="{{item.value}}"  
-      uid="group5">
-        {{item.label}}
-        <am-icon type="SmileOutline" style="color:#1677ff;font-size:44rpx;" slot="icon"/>
-        <am-icon type="SmileFill" style="color:#1677ff;font-size:44rpx;"  slot="checkedIcon"/>
-    </checkbox-item>
-
-  </checkbox-group>
-</demo-block>

@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "amd-icon": "../Icon/index",
-    "picker": "../Picker/index"
-  }
-}

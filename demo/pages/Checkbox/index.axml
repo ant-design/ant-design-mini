@@ -1,39 +1,25 @@
-<view class="demo">
-  <demo-block title="基础用法" padding="0">
-    <list>
-      <list-item className="demo-item">
-        <checkbox/>
-      </list-item>
-      <list-item className="demo-item">
-        <checkbox>有描述的复选框</checkbox>
-      </list-item>
-      <list-item className="demo-item">
-        <label class="wrapper"><checkbox/><text>自定义布局</text>
-        </label>
-      </list-item>
-    </list>
-  </demo-block>
-  <demo-block title="默认选中" padding="0">
-    <list-item className="demo-item">
-      <checkbox checked>默认选中</checkbox>
-    </list-item>
-  </demo-block>
-  <demo-block title="禁用状态" padding="0">
-    <list-item className="demo-item">
-      <checkbox disabled checked>禁用状态</checkbox>
-    </list-item>
-  </demo-block>
-  <demo-block title="自定义图标" padding="0">
-    <list-item className="demo-item demo-item-icon">
-      <checkbox>自定义图标（Icon）
-        <am-icon type="SmileOutline" style="color:#1677ff;font-size:44rpx;" slot="icon"/>
-        <am-icon type="SmileFill" style="color:#1677ff;font-size:44rpx;"  slot="checkedIcon"/>
-      </checkbox>
-    </list-item>
-    <list-item className="demo-item demo-item-image">
-      <checkbox checked>自定义图标（图片）
-        <image style="width:100%;height:100%;border-radius:50%;" slot="checkedIcon" src="https://gw.alipayobjects.com/mdn/rms_ffbcbf/afts/img/A*2oqcRL38fWwAAAAAAAAAAAAAARQnAQ"/>
-      </checkbox>
-    </list-item>
-  </demo-block>
-</view>
+<container title="基础用法">
+  <checkbox onChange="onChange">Checkbox</checkbox>
+</container>
+
+<container title="初始值">
+  <checkbox defaultChecked="{{true}}">Checkbox</checkbox>
+</container>
+
+<container title="禁用模式">
+  <checkbox disabled>Checkbox1</checkbox>
+  <checkbox defaultChecked disabled>Checkbox2</checkbox>
+</container>
+
+<container title="自定义颜色">
+  <checkbox color="red" defaultChecked>Checkbox</checkbox>
+</container>
+
+<container title="控制模式">
+  <checkbox
+    checked="{{checked}}"
+    onChange="handleChange"
+  >
+  Checkbox
+  </checkbox>
+</container>
