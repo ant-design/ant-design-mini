@@ -1,5 +1,5 @@
-import { FormItemProps } from '../../FormItem/props';
-import { ICheckboxGroupProps } from '../../../Checkbox/CheckboxGroup/props';
+import { FormItemProps } from '../FormItem/props';
+import { ICheckboxGroupProps } from '../../Checkbox/CheckboxGroup/props';
 
 export interface FormCheckboxGroupProps
   extends ICheckboxGroupProps,

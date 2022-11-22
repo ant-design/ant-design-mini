@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "form-item": "../FormItem/index",
-    "checkbox": "../../Checkbox/index"
+    "checkbox-group": "../../Checkbox/CheckboxGroup/index"
   }
 }

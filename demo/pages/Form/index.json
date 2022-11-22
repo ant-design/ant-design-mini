@@ -8,8 +8,7 @@
     "form-date-picker": "../../../src/Form/FormDatePicker/index",
     "form-range-picker": "../../../src/Form/FormDatePicker/FormRangePicker/index",
     "form-cascader-picker": "../../../src/Form/FormPicker/FormCascaderPicker/index",
-    "form-checkbox": "../../../src/Form/FormCheckbox/index",
-    "form-checkbox-group": "../../../src/Form/FormCheckbox/FormCheckboxGroup/index",
+    "form-checkbox-group": "../../../src/Form/FormCheckboxGroup/index",
     "button": "../../../src/Button/index"
   }
 }

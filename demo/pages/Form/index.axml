@@ -55,13 +55,14 @@
   options="{{checkboxOptions}}"
   ref="handleRef"
 />
-<form-checkbox
-  name="checkbox"
+<form-checkbox-group
   position="vertical"
+  name="agreement"
+  options="{{[{value:'agreement'}]}}"
   ref="handleRef"
 >
-  同意协议
-</form-checkbox>
+  <view slot="label">同意协议</view>
+</form-checkbox-group>
 <view class="buttons">
   <button type="primary" onTap="submit" style="margin-bottom: 12px;">提交</button>
   <button onTap="reset">重置</button>
