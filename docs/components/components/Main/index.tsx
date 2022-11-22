@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'antd';
-import Lottie from 'react-lottie';
+// import Lottie from 'react-lottie';
 import ResizeObserver from 'resize-observer-polyfill';
 import { RightOutlined } from '@ant-design/icons';
 import MainSection from './MainSection';
@@ -112,7 +112,7 @@ export default () => {
                     {
                       value.icons.map((icon, index) => (
                         <div key={icon.text} className={styles.productDesignValuesIcon} id={`my_lottie_${index}`}>
-                          <Lottie
+                          {/* <Lottie
                             options={{
                               loop: false,
                               autoplay: false,
@@ -130,7 +130,7 @@ export default () => {
                             width={62}
                             isStopped={!startAnimation[index]}
                             style={{ pointerEvents: 'none' }}
-                          />
+                          /> */}
                           <div className={styles.productDesignValuesIconText}>{icon.text}</div>
                         </div>
                       ))

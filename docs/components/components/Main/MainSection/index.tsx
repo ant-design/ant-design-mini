@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
-import Lottie from 'react-lottie';
+// import Lottie from 'react-lottie';
 import styles from './index.local.less';
 
 export default () => {
@@ -46,7 +46,7 @@ export default () => {
       <div className={styles.imageContainer}>
         <div className={styles.calendarImage} id="calendarImage">
           <div className={styles.publishDayAnimation}>
-            <Lottie
+            {/* <Lottie
               options={{
                 loop: false,
                 autoplay: false,
@@ -64,11 +64,11 @@ export default () => {
               width={startFireAnimation ? (isWidthScreen ? 280 : 172) : 0}
               isStopped={!startFireAnimation}
               style={{ pointerEvents: 'none' }}
-            />
+            /> */}
           </div>
         </div>
         <div className={styles.resultImage} id="resultImage">
-          <Lottie
+          {/* <Lottie
             options={{
               loop: false,
               autoplay: false,
@@ -86,7 +86,7 @@ export default () => {
             width={isWidthScreen ? 94 : 56}
             isStopped={!startResultAnimation}
             style={{ pointerEvents: 'none' }}
-          />
+          /> */}
         </div>
         <img
           className={styles.staticImage}
