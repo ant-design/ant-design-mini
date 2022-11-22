@@ -1,4 +1,4 @@
-import { PickerDefaultProps } from '../Picker/props';
+import { PickerDefaultProps } from '../../Picker/props';
 
 export const DateRangePickerDefaultProps = {
   ...PickerDefaultProps,

@@ -1,6 +1,6 @@
 import { DateRangePickerDefaultProps } from './props';
 import dayjs from 'dayjs';
-import computed from '../mixins/computed';
+import computed from '../../mixins/computed';
 import equal from 'fast-deep-equal';
 import {
   getRangeData,
@@ -8,8 +8,8 @@ import {
   getValueByDate,
   getValidValue,
   isEqualDate,
-} from '../DatePicker/util';
-import fmtEvent from '../_util/fmtEvent';
+} from '../util';
+import fmtEvent from '../../_util/fmtEvent';
 
 Component({
   mixins: [computed],

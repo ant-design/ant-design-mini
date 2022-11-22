@@ -6,6 +6,10 @@ Page({
   data: {
     fruitList: ['苹果', '香蕉', '橘子', '西瓜'],
     cityList,
+    checkboxOptions: [
+      { value: 'apple', label: '苹果' },
+      { value: 'orange', label: '橘子' },
+    ],
   },
   handleRef(ref) {
     this.form.addItem(ref);

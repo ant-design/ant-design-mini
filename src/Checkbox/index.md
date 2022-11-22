@@ -20,20 +20,32 @@ toc: 'content'
 ### 基本使用
 <code src='pages/Checkbox/index'></code>
 
+### CheckboxGroup
+<code src='pages/CheckboxGroup/index'></code>
+
 ## 属性
 
+#### Checkbox
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| checked | 是否选中 | `boolean` | false |
-| checkedIcon | 勾选状态图标插槽 | `slot`| - |
+| checked | 是否选中 | `boolean` | - |
 | className | 类名| `string` | - |
+| color | 选中的颜色，同 CSS 色值| `string` | - |
+| defaultChecked | 默认是否选中 | `boolean` | - |
 | disabled | 是否禁用  | `boolean` | false | 
-| disbaledIcon | 禁用时未勾选状态图标插槽 | `slot` | - |
-| disabledCheckedIcon | 禁用时勾选状态图标 插槽| `slot` | - |
-| name |  表单元素name | `string` | - |
-| icon | 未勾选状态图标插槽 | `slot` | - |
-| id | 表单元素id | `string` | - |
 | style | 样式| `string` | - |
-| value | checkbox 携带的 value 值, 在原生 form 表单提交的时候有用 | `string` | - |
 | onChange | 选中状态改变，触发回调 | (checked: `boolean`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
+
+#### CheckboxGroup
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| className | 类名| `string` | - |
+| color | 选中的颜色，同 CSS 色值| `string` | - |
+| defaultValue | 默认选中值  | `string[]` | - | 
+| disabled | 是否禁用  | `boolean` | false | 
+| options | 指定可选项 | `{label: string; value: string; disabled: boolean}[]` | - |
+| position | 布局 | 'horizontal' \|  'vertical' | 'vertical' |
+| style | 样式| `string` | - |
+| value | CheckboxGroup 的值，决定子元素是否勾选 | `string[]` | - |
+| onChange | 勾选状态变化时，触发此函数 |(value: `string[]`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 

@@ -1,15 +1,22 @@
 import { CheckboxDefaultProps } from './props';
-import controlled from '../mixins/controlled';
-import formMixin from '../mixins/form';
-import  fmtEvent from '../_util/fmtEvent';
+import fmtEvent from '../_util/fmtEvent';
 
 Component({
   props: CheckboxDefaultProps,
-  mixins: [controlled('checked'), formMixin()],
+  data: {
+    selfChecked: undefined,
+  },
   methods: {
     onChange(e) {
-      const { value } = e.detail;
-      this.cOnChange(value, fmtEvent(this.props, e));
-    },
-  },
+      const value = e.detail.value;
+      if (typeof this.props.checked === 'undefined') {
+        this.setData({
+          selfChecked: value,
+        });
+      }
+      if (this.props.onChange) {
+        this.props.onChange(value, fmtEvent(this.props, e));
+      }
+    }
+  }
 });

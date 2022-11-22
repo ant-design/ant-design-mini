@@ -1,5 +1,5 @@
 import { CascaderDefaultProps } from './props';
-import fmtEvent from '../_util/fmtEvent';
+import fmtEvent from '../../_util/fmtEvent';
 import equal from 'fast-deep-equal';
 
 Component({

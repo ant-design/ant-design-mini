@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
+    "list": "../../List/index",
     "list-item": "../../List/ListItem/index",
-    "checkbox":"../../Checkbox/index",
-    "amd-icon":"../../Icon/index"
+    "checkbox": "../index"
   }
 }

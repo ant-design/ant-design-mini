@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "form-item": "../FormItem/index",
-    "cascader-picker": "../../CascaderPicker/index"
+    "checkbox-group": "../../Checkbox/CheckboxGroup/index"
   }
 }

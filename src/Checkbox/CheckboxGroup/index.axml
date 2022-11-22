@@ -1,0 +1,45 @@
+<import-sjs from="../../_util/getValue.sjs" name="utils" />
+<import-sjs from="../index.sjs" name="componentUtils" />
+
+<list 
+  className="amd-checkbox-group {{className ? className : ''}} amd-checkbox-group-{{position}}" style="{{style}}">
+  <checkbox-group
+    value="{{utils.getValue(value, selfValue, defaultValue, [])}}"
+  >
+    <view class="amd-checkbox-group-body">
+      <block a:if="{{position === 'vertical'}}">
+        <list-item stopPropagation a:for="{{options}}">
+          <checkbox
+            color="{{color}}"
+            checked="{{componentUtils.getChecked(item, utils.getValue(value, selfValue, defaultValue,[]))}}"
+            data-index="{{index}}"
+            value="{{item.value}}"
+            disabled="{{disabled || item.disabled}}"
+            data-currentValue="{{utils.getValue(value, selfValue, defaultValue,[])}}"
+            onChange="onChange"
+          > 
+            <slot name="label" value="{{item}}" index="{{index}}">
+              {{item.label}}
+            </slot>  
+          </checkbox>
+        </list-item>
+      </block>
+      <block a:else>
+        <checkbox
+          a:for="{{options}}"
+          color="{{color}}"
+          checked="{{componentUtils.getChecked(item, utils.getValue(value, selfValue, defaultValue,[]))}}"
+          data-index="{{index}}"
+          value="{{item.value}}"
+          data-currentValue="{{utils.getValue(value, selfValue, defaultValue,[])}}"
+          disabled="{{disabled || item.disabled}}"
+          onChange="onChange"
+        >
+          <slot name="label" value="{{item}}" index="{{index}}">
+            {{item.label}}
+          </slot>
+        </checkbox>
+      </block>
+    </view>
+  </checkbox-group>
+</list>

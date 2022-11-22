@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "list": "../List/index",
-    "checkbox-item": "./CheckboxItem/index"
-  }
-}
