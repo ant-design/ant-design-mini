@@ -98,6 +98,9 @@ async function buildPreview() {
     sourceCode,
   }));
   fs.writeFileSync(path.join(__dirname, '../docs-dist/preview.html'), iframeContent);
+  fs.mkdirSync(path.join(__dirname, '../docs-dist/mini'));
+  const packageInfo = {};
+  fs.writeFileSync(path.join(__dirname, '../docs-dist/mini/packageInfo.json'), JSON.stringify(packageInfo));
 }
 
 
