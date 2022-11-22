@@ -24,18 +24,18 @@ toc: false
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | activeClassName |  选项卡激活类名 | `string` | ''  |
-| activeKey |  默认高亮的 key | `number` |  0  |
 | activeStyle | 选项卡激活样式 | `string` | '' |
 | className | 类名| `string` | - |
-| text | 选项卡图标作用域插槽，接收item、index、active参数 | `slot` | - |
-| maxTabCount |  最大展示的 Tab 数量| `number` | 5   |
+| current |  选中项| `number` |  -  |
+| defaultCurrent |  初始选中项 | `number` |  -  |
+| items | 底部图标配置 | [TabItem](#tabitem)[] | []  |
 | style | 样式| `string` | - |
-| tabs | 底部图标配置 | [TabConfig](#tabconfig)[] | []  |
+| text | 选项卡图标作用域插槽，接收item、index、active参数 | `slot` | - |
 | text | 选项卡底部文字作用域插槽，接收item、index、active参数 | `slot` | - |
-| onChange | Tab 切换时触发回调 |(tab: [TabConfig](#tabconfig), index: `number`) => void|
+| onChange | Tab 切换时触发回调 |(item: [TabItem](#tabitem), index: `number`) => void|
 
 
-#### TabConfig
+#### TabItem
 
 | 参数 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
