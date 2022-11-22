@@ -1,0 +1,209 @@
+@import "../style/themes/color.less";
+@import (reference) "../_base/index.less";
+@font-face {
+  font-family: iconfont;
+  src: url("https://gw.alipayobjects.com/os/bmw-prod/7f455529-929a-46b3-9e8d-3e5ed7d4fd16.ttf") format("truetype");
+}
+@font-face {
+  font-family: AlipayNumber;
+  src: url("https://gw.alipayobjects.com/as/g/antui/antui-static/1.0.3/fonts/AlipayNumber-Regular.ttf") format("truetype");
+}
+
+.iconfont {
+  font-family: iconfont, sans-serif !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-huitui:before {
+  content: "\e6d4";
+}
+
+.icon-xiangxia:before {
+  content: "\e6ad";
+}
+
+@keyframes number-input-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.amount-input {
+  font-family: AlipayNumber, sans-serif;
+  color: #333;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  &-code {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    &_view {
+      width: 80 * @rpx;
+      height: 80 * @rpx;
+      line-height: 80 * @rpx;
+      font-size: 48 * @rpx;
+      text-align: center;
+      border: 1px solid #e5e5e5;
+      border-radius: 8 * @rpx;
+      margin-right: 24 * @rpx;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &_tip {
+      margin-left: 8 * @rpx;
+      height: calc(100% - 40 * @rpx;);
+      width: 4 * @rpx;
+      border-radius: 4 * @rpx;
+      display: inline-block;
+      background: #1677ff;
+      vertical-align: middle;
+      animation: number-input-cursor 1s step-start infinite;
+    }
+    &_border {
+      border: 1px solid #1677ff;
+      box-shadow: 0 0 2px 0 #1677ff;
+    }
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(100% - 48 * @rpx;);
+    padding: 0 24 * @rpx;
+    height: 100%;
+    position: relative;
+    &_tip {
+      position: absolute;
+      left: 30 * @rpx;
+    }
+  }
+  &-placeholder {
+    color: #ccc;
+  }
+  &-light {
+    margin-left: 6 * @rpx;
+    height: calc(100% - 40 * @rpx;);
+    width: 4 * @rpx;
+    border-radius: 4 * @rpx;
+    display: inline-block;
+    vertical-align: middle;
+    animation: number-input-cursor 1s step-start infinite;
+  }
+  &-kb {
+    background: #f5f5f5;
+    max-height: 600px;
+    min-width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transition: all 200ms linear;
+    z-index: 999;
+    &_hide {
+      transform: translateY(100%);
+      max-height: 0;
+    }
+    &_bd {
+      display: flex;
+    }
+    &_row {
+      display: flex;
+    }
+    &_keys {
+      flex: 3;
+    }
+    &_function {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    &_none {
+      height: 60 * @rpx;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1 * @rpx solid #f8f8f8;
+      .iconfont {
+        color: #ccc;
+      }
+    }
+    &_number {
+      font-family: AlipayNumber, sans-serif;
+      flex: 1;
+      height: calc(100vh / 14);
+      text-align: center;
+      font-size: 25px;
+      color: #333;
+      background: #fff;
+      border-right: 1 * @rpx solid #f8f8f8;
+      border-bottom: 1 * @rpx solid #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      &:active {
+        background-color: #d3d3d3;
+        opacity: 0.5;
+        color: #333;
+      }
+    }
+    &_disable {
+      &:active {
+        opacity: 1;
+      }
+    }
+    &_zero {
+      flex: 2;
+    }
+    &_point {
+      flex: 1;
+    }
+    &_transfer {
+      flex: 3;
+      border-right: none;
+      &-btn {
+        font-size: 32 * @rpx;
+      }
+    }
+    &_del {
+      position: relative;
+      flex: none;
+      border-right: none;
+      &::before {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+      }
+    }
+    &_iphonex {
+      height: 24px;
+      width: 100%;
+      background: white;
+    }
+  }
+}
+.icon-huitui {
+  font-size: 46 * @rpx;
+  color: #333;
+}

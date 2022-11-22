@@ -233,6 +233,11 @@ export const componentList = [
         path: '/pages/Input/index',
       },
       {
+        name: 'VirtualKeyboard',
+        nameZN: '虚拟键盘',
+        path: '/pages/VirtualKeyboard/index',
+      },
+      {
         name: 'Picker',
         nameZN: '选择器',
         path: '/pages/Picker/index',

@@ -1,0 +1,73 @@
+<view a:key="paytm-input-{{$id}}" class="amount-input amd-amount-input {{ className || '' }}" >
+  <view
+    a:if="{{type === 'amount'}}"
+    class="amount-input-content amd-amount-input-view {{ _val ? '' : 'amount-input-placeholder'}}"
+    style="{{{'font-size': `${fontSize}px`}}}"
+    catchTap="onAmountFocus"
+  >
+    <text a:if="{{_val}}" class="{{valueClass}}">{{ _val }}</text>
+    <text a:else class="amount-input-content_tip {{placeholderClass}}">{{ placeholder }}</text>
+    <view
+      a:if="{{_focus}}"
+      class="amount-input-light {{lightClass}}"
+      style="{{{background: `${lightColor}`, position: _val ? 'static' : 'absolute'}}}"
+    ></view>
+  </view>
+  <view a:if="{{ type === 'code' }}" class="amount-input-code amd-amount-input-code" onTap="onCodeTap">
+    <view
+      a:for="{{codeLength}}"
+      a:for-index="index"
+      class="amount-input-code_view {{ _focus && _val.length === index ? 'amount-input-code_border' : '' }}">
+        {{_val[index] || ''}}
+        <view a:if="{{_focus && _val.length === index}}" class="amount-input-code_tip"></view>
+    </view>
+  </view>
+  <view a:key="{{$id}}" class="amount-input-kb amd-amount-input-kb {{_focus ? '': 'amount-input-kb_hide'}}">
+    <view a:if="{{!hideArrow}}" catchTap="onHide" class="amount-input-kb_none">
+      <view class="iconfont icon-xiangxia"></view>
+    </view>
+    <view class="amount-input-kb_bd">
+      <view class="amount-input-kb_keys">
+        <view class="amount-input-kb_row">
+          <view class="amount-input-kb_number" data-key="1" catchTouchStart="tapButton">1</view>
+          <view class="amount-input-kb_number" data-key="2" catchTouchStart="tapButton">2</view>
+          <view class="amount-input-kb_number" data-key="3" catchTouchStart="tapButton">3</view>
+        </view>
+        <view class="amount-input-kb_row">
+          <view class="amount-input-kb_number" data-key="4" catchTouchStart="tapButton">4</view>
+          <view class="amount-input-kb_number" data-key="5" catchTouchStart="tapButton">5</view>
+          <view class="amount-input-kb_number" data-key="6" catchTouchStart="tapButton">6</view>
+        </view>
+        <view class="amount-input-kb_row">
+          <view class="amount-input-kb_number" data-key="7" catchTouchStart="tapButton">7</view>
+          <view class="amount-input-kb_number" data-key="8" catchTouchStart="tapButton">8</view>
+          <view class="amount-input-kb_number" data-key="9" catchTouchStart="tapButton">9</view>
+        </view>
+        <view class="amount-input-kb_row">
+          <view class="amount-input-kb_number amount-input-kb_zero" data-key="0" catchTouchStart="tapButton">0</view>
+          <view a:if="{{point}}" class="amount-input-kb_number amount-input-kb_point" data-key="." catchTouchStart="tapButton">.</view>
+        </view>
+      </view>
+      <view class="amount-input-kb_function">
+        <view class="amount-input-kb_number amount-input-kb_del" data-key="del" catchTouchStart="tapButton">
+          <view class="iconfont icon-huitui"></view>
+        </view>
+        <view
+          catchTap="tapButton"
+          style="{{{color: disableSureBtn ? '#ddd' : sureColor, background: disableSureBtn ? '#f8f8f8' : sureBtnBg }}}"
+          class="amount-input-kb_number amount-input-kb_transfer {{disableSureBtn ? 'amount-input-kb_disable' : ''}}"
+          data-key="enter">
+          <view a:if="{{isSureBtnSlot}}">
+            <slot name="sureBtn" data="{{disableSureBtn}}"/>
+          </view>
+          <view a:else class="amount-input-kb_transfer-btn">
+            <text a:if="{{showBtnText}}">{{sureBtnText}}</text>
+            <view a:else class="iconfont icon-xiangxia"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="amount-input-kb_iphonex"></view>
+  </view>
+</view>
+  
