@@ -65,7 +65,7 @@ async function getSourceCode(page: string) {
   });
   const json = {};
   (await Promise.all(list)).forEach((item, index) => {
-    json[arr[index]] = item;
+    json[arr[index]] = item.replace(/('|")[^'"]*\/src/g, '$1antd-mini');
   });
   return json;
 }

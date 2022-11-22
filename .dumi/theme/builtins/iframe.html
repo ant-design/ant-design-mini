@@ -42,28 +42,37 @@
       return fetch(`/sourceCode/${defaultPage}`).then(res => res.json());
     }
 
-    function startWebOpenBoxPreviewApp() {
-      Promise.all([
-        getDist(),
-        getSourceCode(),
-      ]).then(([dist, sourceCode]) => {
-        window.OpenBoxPreview.StartWebOpenBoxPreviewApp({
-          containerStyle: {
-            width: '100%',
-            height: '100%',
-          },
-          sourceCode,
-          dist,
-          isShowToolbar: true,
-          toolbarOptions: {
-            isShowQrcode: false,
-            isShowDownload: false,
-            isShowEditMode: false,
-            isShowLyraRefresh: true,
-            isShowSwitchLyra: true
-          },
-          isShowHeaderLogo: false
-        });
+    async function startWebOpenBoxPreviewApp() {
+      let dist;
+      let sourceCode;
+      if (location.port) {
+        const arr = await Promise.all([
+          getDist(),
+          getSourceCode(),
+        ]);
+        dist = arr[0];
+        sourceCode = arr[1];
+      } else {
+        const obj = await fetch('/preview.json').then(res => res.json());
+        dist = obj.dist;
+        sourceCode = obj.sourceCode;
+      }
+      window.OpenBoxPreview.StartWebOpenBoxPreviewApp({
+        containerStyle: {
+          width: '100%',
+          height: '100%',
+        },
+        sourceCode,
+        dist,
+        isShowToolbar: true,
+        toolbarOptions: {
+          isShowQrcode: false,
+          isShowDownload: false,
+          isShowEditMode: false,
+          isShowLyraRefresh: true,
+          isShowSwitchLyra: true
+        },
+        isShowHeaderLogo: true
       });
     }
     startWebOpenBoxPreviewApp();
