@@ -1,4 +1,1 @@
-export const CheckboxDefaultProps = {
-  disabled: false,
-  checked: false
-};
+export const CheckboxDefaultProps = {};

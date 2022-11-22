@@ -1,7 +1,0 @@
-.wrapper {
-  display: flex;
-  align-items: center;
-}
-.wrapper > text {
-  padding-left: 16rpx;
-}

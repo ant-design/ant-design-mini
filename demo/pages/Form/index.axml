@@ -48,6 +48,21 @@
   name="city"
   ref="handleRef"
 />
+<form-checkbox-group
+  label="checkboxGroup"
+  labelWidth="140px"
+  name="checkboxGroup"
+  options="{{checkboxOptions}}"
+  ref="handleRef"
+/>
+<form-checkbox-group
+  position="vertical"
+  name="agreement"
+  options="{{[{value:'agreement'}]}}"
+  ref="handleRef"
+>
+  <view slot="label">同意协议</view>
+</form-checkbox-group>
 <view class="buttons">
   <button type="primary" onTap="submit" style="margin-bottom: 12px;">提交</button>
   <button onTap="reset">重置</button>

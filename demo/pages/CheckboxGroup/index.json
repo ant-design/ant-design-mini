@@ -1,10 +1,7 @@
 {
-  "defaultTitle": "CheckBoxGroup",
+  "defaultTitle": "CheckboxGroup",
   "usingComponents": {
-    "am-icon": "../../../src/Icon/index",
-    "demo-block": "../../components/DemoBlock/index",
-    "checkbox-group": "../../../src/CheckboxGroup/index",
-    "checkbox-item": "../../../src/CheckboxGroup/CheckboxItem/index",
-    "list-item": "../../../src/List/ListItem/index"
+    "checkbox-group": "../../../src/Checkbox/CheckboxGroup/index",
+    "container": "../../../src/Container/index"
   }
 }
