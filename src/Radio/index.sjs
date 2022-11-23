@@ -17,10 +17,6 @@ function getChecked(index, options, value) {
   if (options[index].value === value) {
     return true;
   };
-  const result = options.find(item => item.value === value);
-  if (!result && index === 0) {
-    return true;
-  }
   return false;
 }
 

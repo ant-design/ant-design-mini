@@ -24,9 +24,11 @@ Component({
   methods: {
     onChange(e) {
       const value = e.detail.value;
-      this.setData({
-        selfValue: value,
-      });
+      if (!('value' in this.props)) {
+        this.setData({
+          selfValue: value,
+        });
+      }
       if (this.props.onChange) {
         this.props.onChange(value, fmtEvent(this.props, e));
       }

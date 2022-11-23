@@ -9,6 +9,7 @@
     "form-range-picker": "../../../src/Form/FormDatePicker/FormRangePicker/index",
     "form-cascader-picker": "../../../src/Form/FormPicker/FormCascaderPicker/index",
     "form-checkbox-group": "../../../src/Form/FormCheckboxGroup/index",
+    "form-radio-group": "../../../src/Form/FormRadioGroup/index",
     "button": "../../../src/Button/index"
   }
 }

@@ -40,20 +40,24 @@ Component({
         this.lastNumber = num;
       }
     },
-    onInput(e) {
-      const { value } = e.detail;
-      this.setLastNumber(value);
+    setSelfValue(value) {
+      if ('value' in this.props) {
+        return;
+      }
       this.setData({
         selfValue: value,
       });
+    },
+    onInput(e) {
+      const { value } = e.detail;
+      this.setLastNumber(value);
+      this.setSelfValue(value);
       if (this.props.onChange) {
         this.props.onChange(this.lastNumber, fmtEvent(this.props, e));
       }
     },
     onBlur(e) {
-      this.setData({
-        selfValue: this.lastNumber,
-      });
+      this.setSelfValue(this.lastNumber);
       if (this.props.onBlur) {
         this.props.onBlur(fmtEvent(this.props, e));
       }
@@ -81,9 +85,7 @@ Component({
         }
         this.setLastNumber(result);
         if (typeof this.props.value === 'undefined') {
-          this.setData({
-            selfValue: result,
-          });
+          this.setSelfValue(result);
         }
         if (this.props.onChange) {
           this.props.onChange(result, fmtEvent(this.props, e));

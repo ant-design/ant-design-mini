@@ -9,7 +9,7 @@ Component({
   methods: {
     onChange(e) {
       const value = e.detail.value;
-      if (typeof this.props.checked === 'undefined') {
+      if (!('checked' in this.props)) {
         this.setData({
           selfChecked: value,
         });
