@@ -1,29 +1,30 @@
-<view class="amd-guide-tour {{className?className:''}}" a:if="{{visible}}">
-    <mask show="{{true}}" maskZindex="{{9999}}" />
-    <am-icon class="amd-guide-tour-clear" type="CloseOutline" onTap="onCancel" />
+<import-sjs from="./index.sjs" name="utils" />
+<view class="amd-guide-tour {{className?className:''}}" style="{{style || ''}}" a:if="{{visible}}">
+    <mask show style="z-index:9999;{{maskStyle || ''}}" />
+    <am-icon type="CloseOutline" class="amd-guide-tour-clear" onTap="onCancel" />
     <view class="amd-guide-tour-button">
-        <button inline="{{true}}" inlineSize="small" a:if="{{jumpButtonVisible}}" onTap="onCancel">
+        <button inline inlineSize="small" a:if="{{utils.checkShowJump(utils.getValue(current, selfCurrent, defaultCurrent),items)}}" onTap="onCancel">
             跳过
         </button>
-        <button inline="{{true}}" inlineSize="small" onTap="onPrev" a:if="{{lastButtonVisible}}">
+        <button inline inlineSize="small" onTap="onPrev" a:if="{{utils.checkShowPrev(utils.getValue(current, selfCurrent, defaultCurrent),items)}}" data-currentValue="{{utils.getValue(current, selfCurrent, defaultCurrent)}}">
             上一步
         </button>
-        <button inline="{{true}}" inlineSize="small" onTap="onNext" a:if="{{nextButtonVisible}}">
+        <button inline inlineSize="small" onTap="onNext" a:if="{{utils.checkShowNext(utils.getValue(current, selfCurrent, defaultCurrent),items)}}" data-currentValue="{{utils.getValue(current, selfCurrent, defaultCurrent)}}">
             下一步
         </button>
-        <button type="default" inline="{{true}}" inlineSize="small" a:if="{{knowButtonVisible}}" onTap="onCancel">
+        <button type="default" inline inlineSize="small" a:if="{{utils.checkShowKnow(utils.getValue(current, selfCurrent, defaultCurrent),items)}}" onTap="onCancel">
             知道了
         </button>
     </view>
     <block a:if="{{swiperable}}">
         <view class="amd-guide-tour-indicator">
-            <view a:for="{{steps}}" a:for-index="dataIndex" class="amd-guide-tour-indicator-dot {{dataIndex === current ? 'amd-guide-tour-indicator-dot-active':''}}" />
+            <view a:for="{{items}}" class="amd-guide-tour-indicator-dot {{index === utils.getValue(current, selfCurrent, defaultCurrent) ? 'amd-guide-tour-indicator-dot-active':''}}" />
         </view>
-        <swiper class="amd-guide-tour-swiper" current="{{current}}" adjust-height="none" style="height:100vh" disable-touch="{{ture}}" 
-            onChange="handleSwiperChange">
-            <swiper-item a:for-index="dataIndex" key="{{dataIndex}}" a:for="{{steps}}">
+        <swiper class="amd-guide-tour-swiper" current="{{utils.getValue(current, selfCurrent, defaultCurrent)}}" adjust-height="none" style="height:100vh" disable-touch="{{ture}}" 
+            onChange="onSwiperChange">
+            <swiper-item  a:for="{{items}}">
                 <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px">
-                    <slot name="step-{{current}}">
+                    <slot name="step" index="{{current}}">
                         <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
                             mode="{{item.imageMode}}" />
                     </slot>
@@ -31,10 +32,10 @@
             </swiper-item>
         </swiper>
     </block>
-    <block a:else a:for="{{steps}}" a:for-index="dataIndex">
+    <block a:else a:for="{{items}}">
         <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px" 
-            a:if="{{current===dataIndex}}">
-            <slot name="step-{{dataIndex}}">
+            a:if="{{utils.getValue(current, selfCurrent, defaultCurrent) === index}}">
+            <slot name="step" index="{{index}}">
                 <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
                     mode="{{item.imageMode}}" />
             </slot>
