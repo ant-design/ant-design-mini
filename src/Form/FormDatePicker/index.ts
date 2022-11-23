@@ -4,7 +4,6 @@ import fmtEvent from '../../_util/fmtEvent';
 
 createComponent({
   props: FormDatePickerDefaultProps,
-  initialValue: '',
   methods: {
     onOk(date, dateStr, e) {
       this.emit('onChange', date);

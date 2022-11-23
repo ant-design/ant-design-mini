@@ -4,7 +4,6 @@ import fmtEvent from '../../_util/fmtEvent';
 
 createComponent({
   props: FormSwitchDefaultProps,
-  initialValue: false,
   methods: {
     onChange(value, e) {
       this.emit('onChange', value);
