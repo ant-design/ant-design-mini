@@ -6,9 +6,14 @@ Page({
   data: {
     fruitList: ['苹果', '香蕉', '橘子', '西瓜'],
     cityList,
-    checkboxOptions: [
-      { value: 'apple', label: '苹果' },
-      { value: 'orange', label: '橘子' },
+    radioGroupOptions: [
+      { value: 'cat', label: '🐱' },
+      { value: 'fox', label: '🦊' },
+    ],
+    checkboxGroupOptions: [
+      { value: 'tomato', label: '🍅' },
+      { value: 'potato', label: '🥔' },
+      { value: 'eggplant', label: '🍆' },
     ],
   },
   handleRef(ref) {
@@ -21,7 +26,8 @@ Page({
     const values = await this.form.submit();
     my.alert({
       title: '提交',
-      content: JSON.stringify(values),
+      content: JSON.stringify(values, null, 2),
     });
+    console.log(values);
   },
 });

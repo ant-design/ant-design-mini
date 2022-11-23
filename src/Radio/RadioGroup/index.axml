@@ -3,9 +3,6 @@
 
 <list 
   className="amd-radio-group {{className ? className : ''}} amd-radio-group-{{position}}" style="{{style}}">
-  <view class="amd-list-header">
-    <slot name="header"/>
-  </view>
   <radio-group
     name="{{name}}"
     value="{{utils.getValue(value, selfValue, defaultValue, options[0].value)}}"
@@ -17,7 +14,8 @@
             checked="{{componentUtils.getChecked(index, options, utils.getValue(value, selfValue, defaultValue))}}"
             data-index="{{index}}"
             value="{{item.value}}"
-            disabled="{{disabled}}"
+            disabled="{{disabled || item.disabled}}"
+            color="{{color}}"
             onChange="onChange"
           > 
             <slot name="label" value="{{item}}" index="{{index}}">
@@ -32,18 +30,15 @@
           checked="{{componentUtils.getChecked(index, options, utils.getValue(value, selfValue, defaultValue))}}"
           data-index="{{index}}"
           value="{{item.value}}"
-          disabled="{{disabled}}"
+          disabled="{{disabled || item.disabled}}"
+          color="{{item.color}}"
           onChange="onChange"
         >
           <slot name="label" value="{{item}}" index="{{index}}">
             {{item.label}}
           </slot>
-          <slot name="icon" slot="icon" />
         </radio>
       </block>
     </view>
   </radio-group>
-  <view class="amd-radio-group-footer">
-    <slot name="footer"/>
-  </view>
 </list>

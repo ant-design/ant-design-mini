@@ -24,7 +24,6 @@ export interface ValidatorStatus {
 }
 export interface FromItemRef {
   setFormData: (values: Values) => void;
-  getInitialValue: () => Value;
   getFormData: () => Values;
   getProps: () => Record<string, Value>;
   on: (callback: (trigger: EventTrigger, value?: Value) => void) => void;
@@ -204,7 +203,7 @@ class Field {
    */
   setValue(value: Value) {
     this.ref.setFormData({
-      value: typeof value === 'undefined' ? this.ref.getInitialValue() : value,
+      value,
     });
   }
 
@@ -213,9 +212,6 @@ class Field {
    */
   getValue() {
     const value = this.ref.getFormData().value;
-    if (typeof value === 'undefined') {
-      return this.ref.getInitialValue();
-    }
     return value;
   }
 
@@ -280,18 +276,14 @@ class Field {
         value,
       };
     }
-  };
+  }
 
   /**
    * 重置 Field
    * @param initialValue 
    */
   reset(initialValue: Value) {
-    let value = initialValue;
-    if (typeof initialValue === 'undefined') {
-      value = this.ref.getInitialValue();
-    }
-    this.setValue(value);
+    this.setValue(initialValue);
     this.setValidatorStatus({
       status: 'default',
       errors: [],
@@ -399,7 +391,7 @@ export class Form {
         [name]: this.rules[name],
       });
       validator.messages(this.validateMessages);
-    };
+    }
     const validatorTrigger = props.validatorTrigger;
     const field = this.fields[name] = new Field(ref, value, validator, validatorTrigger);
     field.onChange(value => {
