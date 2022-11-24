@@ -19,6 +19,7 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| `string` | - |
+| defaultValue | 默认选中的时间 | `Date` | - |  
 | disabled | 是否禁用  | `boolean` | false | 
 | dismissText | 取消文案 | `string` | '取消' |  
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | `string` | 'YYYY/MM/DD' | 
@@ -47,6 +48,7 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| `string` | - |
+| defaultValue | 默认选中的时间 | [`Date`,`Date`] | - |  
 | disabled | 是否禁用  | `boolean` | false | 
 | dismissText | 取消文案 | `string` | '取消' |  
 | endPlaceholder | 结束时间提示文案 | `string` | '未选择' |  

@@ -10,7 +10,7 @@ Component({
     onChange(e) {
       const { index } = e.target.dataset;
       const { current, onChange } = this.props;
-      if (typeof current === 'undefined') {
+      if (!('current' in this.props)) {
         if (index === this.data.selfCurrent) {
           return;
         }

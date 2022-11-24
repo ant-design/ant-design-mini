@@ -8,9 +8,9 @@ Component({
   methods: {
     async onNext(e) {
       const { currentValue } = e.target.dataset;
-      const { onChange, current } = this.props;
+      const { onChange } = this.props;
       const newCurrent = currentValue + 1;
-      if (typeof current === 'undefined') {
+      if (!('current' in this.props)) {
         this.setData({ selfCurrent: newCurrent });
       }
       if (onChange) {
@@ -20,9 +20,9 @@ Component({
 
     async onPrev(e) {
       const { currentValue } = e.target.dataset;
-      const { onChange, current } = this.props;
+      const { onChange } = this.props;
       const newCurrent = currentValue - 1;
-      if (typeof current === 'undefined') {
+      if (!('current' in this.props)) {
         this.setData({ selfCurrent: newCurrent });
       }
       if (onChange) {
@@ -40,7 +40,7 @@ Component({
     async onSwiperChange(e) {
       const { current } = e.detail;
       const { onChange } = this.props;
-      if (typeof this.props.current === 'undefined') {
+      if (!('current' in this.props)) {
         this.setData({ selfCurrent: current });
       }
       if (onChange) {
