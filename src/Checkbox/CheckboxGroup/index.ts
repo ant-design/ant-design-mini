@@ -19,7 +19,7 @@ Component({
       } else {
         currentValue = [...currentValue, value];
       }
-      if (typeof this.props.value === 'undefined') {
+      if (!('value' in this.props)) {
         this.setData({
           selfValue: currentValue,
         });

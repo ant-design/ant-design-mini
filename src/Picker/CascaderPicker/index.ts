@@ -144,7 +144,7 @@ Component({
           return;
         }
       }
-      if (typeof this.props.value === 'undefined') {
+      if (!('value' in this.props)) {
         this.setData({
           selfValue: validValue,
         });

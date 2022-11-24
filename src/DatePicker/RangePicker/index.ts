@@ -254,7 +254,7 @@ Component({
       const { format } = this.props;
       const { currentStartDate, currentEndDate } = this.data;
       const realValue = [currentStartDate, currentEndDate] as any;
-      if (typeof this.props.value === 'undefined') {
+      if (!('value' in this.props)) {
         this.setData({
           selfValue: realValue,
         });
