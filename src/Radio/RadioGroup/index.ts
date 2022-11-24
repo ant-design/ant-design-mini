@@ -9,12 +9,9 @@ Component({
   },
   methods: {
     onChange(_, e) {
-      if (this.props.disabled) {
-        return;
-      }
       const index = e.currentTarget.dataset.index;
       const value = this.props.options[index].value;
-      if (typeof this.props.value === 'undefined') {  
+      if (!('value' in this.props)) {  
         this.setData({
           selfValue: value,
         });

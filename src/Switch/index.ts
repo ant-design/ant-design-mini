@@ -13,7 +13,7 @@ Component({
         return;
       }
       let checked: boolean;
-      if (typeof this.props.checked !== 'undefined') {
+      if ('checked' in this.props) {
         checked = !this.props.checked;
       } else {
         checked = !(typeof this.data.selfChecked !== 'undefined' ? this.data.selfChecked : this.props.defaultChecked);

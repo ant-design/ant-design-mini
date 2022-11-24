@@ -4,7 +4,6 @@ function createComponent({
   props = {},
   data = {},
   methods = {} as any,
-  initialValue,
 }) {
   Component({
     props,
@@ -18,9 +17,6 @@ function createComponent({
     },
     ref() {
       const formItemRef: FromItemRef = {
-        getInitialValue: () => {
-          return initialValue;
-        },
         setFormData: (values: Values) => {
           this.setData({
             ...this.data,
@@ -53,7 +49,7 @@ function createComponent({
       emit(trigger: EventTrigger, value?: Value) {},
     }
   })
-};
+}
 
 export default createComponent;
 

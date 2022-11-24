@@ -1,9 +1,9 @@
-import { FormCheckboxGroupDefaultProps } from './props';
+import { FormRadioGroupDefaultProps } from './props';
 import createComponent from '../createComponent';
 import fmtEvent from '../../_util/fmtEvent';
 
 createComponent({
-  props: FormCheckboxGroupDefaultProps,
+  props: FormRadioGroupDefaultProps,
   methods: {
     onChange(value, e) {
       this.emit('onChange', value);

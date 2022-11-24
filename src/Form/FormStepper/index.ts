@@ -4,7 +4,6 @@ import fmtEvent from '../../_util/fmtEvent';
 
 createComponent({
   props: FormStepperDefaultProps,
-  initialValue: 0,
   methods: {
     onChange(value, e) {
       this.emit('onChange', value);
