@@ -1,4 +1,5 @@
 <import-sjs from="./index.sjs" name="_sjs" />
+
 <view
   class="amd-picker {{disabled ? 'amd-picker-disabled' : ''}} {{className ? className : ''}}"
   style="{{style || ''}}"

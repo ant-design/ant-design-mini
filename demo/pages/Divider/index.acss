@@ -1,5 +1,17 @@
+page {
+  padding: 24rpx;
+}
+
+page .amd-container {
+  margin-bottom: 24rpx;
+}
+
 .demo-divider {
   margin-top: 80rpx;
+}
+
+.demo-divider-icon {
+  font-size: 64rpx;
 }
 
 .demo-divider-vertical {
@@ -8,6 +20,7 @@
   align-items: center;
   font-size: 30rpx;
   color: #333;
+  margin-top: 40rpx;
 }
 
 .demo-divider-vertical-icon {
@@ -23,10 +36,9 @@
   color: #333;
 }
 
-.demo-divider-vertical-item > text {
+.demo-divider-vertical-item>text {
   margin-top: 12rpx;
 }
-
 
 .demo-block-last {
   padding-bottom: 100rpx;

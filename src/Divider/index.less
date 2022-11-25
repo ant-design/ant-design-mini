@@ -1,4 +1,4 @@
-@import (reference) "../_base/index.less";
+@import (reference) "./variable.less";
 @import "../style/mixins/hairline.less";
 
 @dividerPrefix: amd-divider;
@@ -11,26 +11,15 @@
     align-items: center;
     margin: @v-spacing-standard 0;
 
-    &-line {
-      border-bottom-width: @border-width-standard;
-      transform: scaleY(.5);
-    }
-
     &-text {
       font-size: @font-size-subtitle;
-      color: @color-text-title;
+      color: @COLOR_TEXT_PRIMARY;
       margin: 0 32 * @rpx;
     }
 
-    &-left {
-      flex: 1;
-      border-bottom-width: @border-width-standard;
-      transform: scaleY(.5);
-    }
-
+    &-left,
     &-right {
-      flex: 1;
-      border-bottom-width: @border-width-standard;
+      border: @border-width-standard solid @COLOR_BORDER;
       transform: scaleY(.5);
     }
   }
@@ -39,7 +28,7 @@
   &-vertical {
     margin: 0 16 * @rpx;
     width: 2 * @rpx;
-    border-right: @border-width-standard solid @color-divider-line;
+    border-right: @border-width-standard solid @COLOR_BORDER;
     transform: scaleX(.5);
   }
 }
