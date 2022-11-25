@@ -1,14 +1,14 @@
 <import-sjs from="../_util/getValue.sjs" name="utils" />
 
 <view 
-  class="amd-switch {{className ? className : ''}} amd-switch-{{size}} {{utils.getValue(checkedInProps, hasChange, checked, selfChecked, defaultChecked) ? 'amd-switch-checked':''}}  {{disabled?'amd-switch-disabled':''}}   {{loading ? 'amd-switch-loading':''}}"
-  style="{{utils.getValue(checkedInProps, hasChange, checked, selfChecked, defaultChecked) && color ? 'background:'+color + '; border-color:' + color:''}};"
+  class="amd-switch {{className ? className : ''}} amd-switch-{{size}} {{mixin.value ? 'amd-switch-checked':''}}  {{disabled?'amd-switch-disabled':''}}   {{loading ? 'amd-switch-loading':''}}"
+  style="{{mixin.value && color ? 'background:'+color + '; border-color:' + color:''}};"
   catchTap="onChange">
   <view class="amd-switch-handle">
     <icon type="UndoOutline" a:if="{{loading}}" className="amd-switch-loading-icon"/>
   </view>
   <view class="amd-switch-inner">
-    <slot name="checked" a:if="{{utils.getValue(checkedInProps, hasChange, checked, selfChecked, defaultChecked)}}">{{checkedText}}</slot>
+    <slot name="checked" a:if="{{mixin.value}}">{{checkedText}}</slot>
     <slot name="unchecked" a:else>{{uncheckedText}}</slot>
   </view>
 </view>
