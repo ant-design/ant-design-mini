@@ -1,4 +1,3 @@
-<import-sjs from="../_util/getValue.sjs" name="utils" />
 <import-sjs from="./index.sjs" name="componentUtils" />
 
 <label class="amd-radio-item {{class ? class : ''}}"  style="{{style}}">
