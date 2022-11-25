@@ -3,29 +3,48 @@ import { upStep, downStep } from './utils';
 import fmtEvent from '../_util/fmtEvent';
 
 
-function getValue(propsValue, dataValue, defaultValue) {
-  if (typeof propsValue !== 'undefined') {
-    return propsValue;
-  }
-  if (typeof dataValue !== 'undefined') {
-    return dataValue;
-  }
-  return defaultValue;
-}
-
-
 Component({
   props: StepperDefaultProps,
   data: {
-    selfValue: undefined,
+    selfValue: '',
+  },
+  didUpdate(prevProps) {
+    if (prevProps.value !== this.props.value) {
+      this.update(this.props.value);
+    }
+  },
+  didMount() {
+    this.update(typeof this.props.value !== 'undefined' ? this.props.value : this.props.defaultValue);
   },
   methods: {
-    lastNumber: 0,
-    setLastNumber(value: string | number) {
+    lastNumber: '',
+    focus: false,
+    update(num) {
+      const lastNumber = this.lastNumber;
+      const { needChange, value } = this.getValue(num);
+      if (needChange && lastNumber !== value) {
+        this.setSelfValue(value);
+        this.lastNumber = value;
+      }
+      return needChange;
+    },
+    getValue(value: string | number) {
+      if (typeof value === 'undefined') {
+        return {
+          needChange: true,
+          value: '',
+        };
+      }
       let num: number;
       const { min = -Infinity, max = Infinity } = this.props;
       if (typeof value === 'string') {
-        if (value && !isNaN(Number(value))) {
+        if (/^\s*$/.test(value)) {
+          return {
+            needChange: true,
+            value: '',
+          };
+        }
+        if (!isNaN(Number(value))) {
           num = Number(value);
         }
       } else {
@@ -36,28 +55,36 @@ Component({
       } else if (num < min) {
         num = min;
       }
-      if (typeof num !== 'undefined') {
-        this.lastNumber = num;
+      if (typeof num === 'number') {
+        return {
+          needChange: true,
+          value: String(num),
+        };
       }
+      return {
+        needChange: false,
+      };
     },
     setSelfValue(value) {
-      if ('value' in this.props) {
-        return;
-      }
       this.setData({
         selfValue: value,
       });
     },
-    onInput(e) {
-      const { value } = e.detail;
-      this.setLastNumber(value);
-      this.setSelfValue(value);
-      if (this.props.onChange) {
-        this.props.onChange(this.lastNumber, fmtEvent(this.props, e));
+    onFocus(e) {
+      if (this.props.onFocus) {
+        this.props.onFocus(fmtEvent(this.props, e));
+      }
+    },
+    onChange(value, e) {
+      const needChange = this.update(value);
+      if (this.props.onChange && needChange) {
+        this.props.onChange(this.lastNumber === '' ? undefined : Number(this.lastNumber), fmtEvent(this.props, e));
       }
     },
     onBlur(e) {
-      this.setSelfValue(this.lastNumber);
+      if ('value' in this.props) {
+        this.update(this.props.value);
+      }
       if (this.props.onBlur) {
         this.props.onBlur(fmtEvent(this.props, e));
       }
@@ -67,10 +94,10 @@ Component({
         this.props.onConfirm(fmtEvent(this.props, e));
       }
     },
-    onChange(e) {
+    onTap(e) {
       const { step, disabled, precision } = this.props;
       const { min = -Infinity, max = Infinity } = this.props;
-      const value = getValue(this.props.value, this.data.selfValue, this.props.defaultValue);
+      const value = Number(this.lastNumber);
       if (!disabled) {
         const { mode } = e.currentTarget.dataset;
         let result: number = value;
@@ -83,11 +110,11 @@ Component({
           const addTemp = upStep(value, step, precision);
           result = Math.min(addTemp, max);
         }
-        this.setLastNumber(result);
-        if (typeof this.props.value === 'undefined') {
-          this.setSelfValue(result);
-        }
-        if (this.props.onChange) {
+        const needChange = this.update(result);
+        // const lastNumber = this.lastNumber;
+        // this.lastNumber = String(result);
+        // this.setSelfValue(result);
+        if (this.props.onChange && needChange) {
           this.props.onChange(result, fmtEvent(this.props, e));
         }
       }

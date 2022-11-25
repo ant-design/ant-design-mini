@@ -24,6 +24,7 @@ toc: 'content'
 | -----|-----|-----|----- |
 | className | 类名 | `string` | - | 
 | disabled |  是否禁用 | `boolean` | `false` |
+| defaultValue |  初始值 | `number` | - |
 | focus |  输入框选中状态 | `boolean` | `false` |
 | inputClassName |  输入框类型 | `string` | - |
 | inputStyle |  输入框样式 | `string` | - |
