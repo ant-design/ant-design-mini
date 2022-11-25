@@ -4,29 +4,24 @@ import fmtEvent from '../_util/fmtEvent';
 Component({
   props: InputDefaultProps,
   data: {
-    selfValue: undefined,
-    selfFocus: undefined,
+    obj: {
+      value: undefined,
+    },
+    selfFocus: false,
+    valueInProps: false,
   },
-  ref() {
-    return {
-      focus: () => {
-        this.setData({
-          selfFocus: true,
-        });
-      },
-      blur: () => {
-        this.setData({
-          selfFocus: false,
-        });
-      },
-    }
+  didMount() {
+    this.setData({
+      valueInProps: 'value' in this.props,
+    });
   },
   methods: {
-    onChange(e) {
-      const value = e.detail.value;
+    onChange(value, e) {
       if (!('value' in this.props)) {
         this.setData({
-          selfValue: value,
+          obj: {
+            value,
+          },
         });
       }
       if (this.props.onChange) {
@@ -56,16 +51,13 @@ Component({
     },
     onClear(e) {
       this.setData({
-        selfValue: '',
+        obj: {
+          value: undefined,
+        },
       });
       if (this.props.onClear) {
         this.props.onClear(fmtEvent(this.props, e));
       }
-    },
-    onTap() {
-      this.setData({
-        selfFocus: true,
-      });
     },
   }
 });
