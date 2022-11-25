@@ -4,7 +4,7 @@
   class="{{className}}"
   style="{{style}}"
   disabled="{{disabled}}" 
-  value="{{obj.value}}" 
+  value="{{mixin.value}}" 
   type="{{type}}"
   password="{{password}}"
   placeholder="{{placeholder}}" 

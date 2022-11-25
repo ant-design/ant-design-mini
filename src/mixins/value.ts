@@ -37,11 +37,13 @@ export default ({
       isControlled() {
         return [valueKey] in this.props;
       },
-      update(val) {
-        const { needUpdate, value } = transformValue.call(this, val);
+      update(...args) {
+        const { needUpdate, value } = transformValue.call(this, ...args);
         if (needUpdate) {
           this.setData({
-            [`${scopeKey}.value`]: value,
+            [scopeKey]: {
+              value,
+            },
           });
         }
         return {

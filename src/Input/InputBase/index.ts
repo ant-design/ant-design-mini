@@ -1,37 +1,30 @@
 import { InputBaseDefaultProps } from './props';
 import fmtEvent from '../../_util/fmtEvent';
+import mixinValue from '../../mixins/value';
 
 
 Component({
   props: InputBaseDefaultProps,
-  data: {
-    obj: {
-      value: undefined,
-    },
-  },
-  didUpdate(prevProps, prevData) {
-    if (prevProps.value !== this.props.value) {
-      if (this.focus) {
-        return;
+  mixins: [mixinValue({
+    transformValue(value, updateWithoutFocusCheck) {
+      if (!updateWithoutFocusCheck && this.focus) {
+        return {
+          needUpdate: false,
+        };
       }
-      this.setSelfValue(this.props.value);
+      return {
+        needUpdate: true,
+        value,
+      }
     }
-  },
-  didMount() {
-    this.setSelfValue(typeof this.props.value === 'undefined' ?  this.props.defaultValue : this.props.value);
-  },
+  })],
   methods: {
     focus: false,
-    setSelfValue(value) {
-      this.setData({
-        obj: {
-          value, 
-        },
-      });
-    },
     onChange(e) {
       const value = e.detail.value;
-      this.setSelfValue(value);
+      if (this.isControlled()) {
+        this.update(value, true);
+      }
       if (this.props.onChange) {
         this.props.onChange(value, fmtEvent(this.props, e));
       }
@@ -44,8 +37,8 @@ Component({
     },
     onBlur(e) {
       this.focus = false;
-      if ('value' in this.props) {
-        this.setSelfValue(this.props.value);
+      if (this.isControlled()) {
+        this.update(this.props.value);
       }
       if (this.props.onBlur) {
         this.props.onBlur(fmtEvent(this.props, e));
