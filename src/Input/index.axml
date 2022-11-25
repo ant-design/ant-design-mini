@@ -1,5 +1,3 @@
-<import-sjs from="../_util/getValue.sjs" name="utils" />
-
 <view class="amd-input-item 
     {{disabled ? 'amd-input-item-disabled' : ''}}
     {{className ? className : ''}}
@@ -19,7 +17,7 @@
         class="amd-input-item-content {{inputClassName}}"
         style="{{inputStyle}}"
         disabled="{{disabled}}" 
-        value="{{valueInProps ? value : obj.value}}"
+        value="{{controlled ? value : selfValue}}"
         defaultValue="{{defaultValue}}"
         type="{{type}}"
         password="{{password}}"
@@ -42,7 +40,7 @@
     </view>
     <view
       a:if="{{allowClear}}"
-      class="amd-input-item-clear {{(valueInProps ? value : obj.value) && (valueInProps ? value : obj.value).length > 0 && selfFocus ? 'show' : 'hidden'}}" 
+      class="amd-input-item-clear {{(controlled ? value : selfValue) && (controlled ? value : selfValue).length > 0 && selfFocus ? 'show' : 'hidden'}}" 
       onTap="onClear">
       <icon size="x-small" class="amd-input-item-clear-icon" type="CloseCircleFill" ></icon>
     </view>

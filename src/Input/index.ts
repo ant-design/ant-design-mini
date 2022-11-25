@@ -4,24 +4,20 @@ import fmtEvent from '../_util/fmtEvent';
 Component({
   props: InputDefaultProps,
   data: {
-    obj: {
-      value: undefined,
-    },
+    selfValue: undefined,
     selfFocus: false,
-    valueInProps: false,
+    controlled: false,
   },
   didMount() {
     this.setData({
-      valueInProps: 'value' in this.props,
+      controlled: 'value' in this.props,
     });
   },
   methods: {
     onChange(value, e) {
-      if (!('value' in this.props)) {
+      if (!this.data.controlled) {
         this.setData({
-          obj: {
-            value,
-          },
+          selfValue: value,
         });
       }
       if (this.props.onChange) {
@@ -51,9 +47,7 @@ Component({
     },
     onClear(e) {
       this.setData({
-        obj: {
-          value: undefined,
-        },
+        selfValue: '',
       });
       if (this.props.onClear) {
         this.props.onClear(fmtEvent(this.props, e));
