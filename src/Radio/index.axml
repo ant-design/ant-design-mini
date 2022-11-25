@@ -1,19 +1,18 @@
 <import-sjs from="../_util/getValue.sjs" name="utils" />
 <import-sjs from="./index.sjs" name="componentUtils" />
 
-
 <label class="amd-radio-item {{class ? class : ''}}"  style="{{style}}">
   <view class="amd-radio-item-container">
     <view class="amd-radio-item-wrap">
       <radio class="amd-radio-item-base"
         onChange="onChange"
         value="{{value}}"
-        checked="{{utils.getValue(checkedInProps, hasChange, checked, selfChecked, defaultChecked)}}"
+        checked="{{mixin.value}}"
         disabled="{{disabled}}"
       />
       <view class="amd-radio-item-fake">
-        <view class="amd-radio-item-fake-{{componentUtils.getClassName(utils.getValue(checkedInProps, hasChange, checked, selfChecked, defaultChecked), disabled)}}" style="{{utils.getValue(checkedInProps, hasChange, checked, selfChecked, defaultChecked) && !disabled && color ? 'background:' + color : ''}}">
-          <icon a:if="{{utils.getValue(checkedInProps, hasChange, checked, selfChecked, defaultChecked)}}" type="CheckOutline" class="amd-radio-item-fake-{{componentUtils.getClassName(utils.getValue(checkedInProps, hasChange, checked, selfChecked, defaultChecked), disabled)}}-icon" />
+        <view class="amd-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}" style="{{mixin.value && !disabled && color ? 'background:' + color : ''}}">
+          <icon a:if="{{mixin.value}}" type="CheckOutline" class="amd-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon" />
         </view>
       </view>
     </view>
