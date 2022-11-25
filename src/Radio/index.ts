@@ -1,17 +1,38 @@
-import { RadioItemDefaultProps } from './props';
+import { RadioDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 
 Component({
-  props: RadioItemDefaultProps,
+  props: RadioDefaultProps,
   data: {
     selfChecked: undefined,
+    hasChange: false,
+    checkedInProps: undefined,
+  },
+  onInit() {
+    this.setCheckedInProps();
+  },
+  didMount() {
+    this.setCheckedInProps();
   },
   methods: {
+    setCheckedInProps() {
+      if (typeof this.data.checkedInProps !== 'undefined') {
+        return;
+      }
+      this.setData({
+        checkedInProps: 'checked' in this.props,
+      });
+    },
     onChange(e) {
       const value = e.detail.value;
-      if (!('checked' in this.props)) {
+      if ('checked' in this.props) {
+        this.setData({
+          hasChange: true,
+        });
+      } else {
         this.setData({
           selfChecked: value,
+          hasChange: true,
         });
       }
       if (this.props.onChange) {

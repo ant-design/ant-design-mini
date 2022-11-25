@@ -1,14 +1,20 @@
-function getValue(propsValue, dataValue, defaultValue, alternativeValue) {
-  if (typeof propsValue !== 'undefined') {
+function getValue(controlled, hasChange, propsValue, dataValue, defaultPropsValue) {
+  if (controlled) {
+    if (hasChange) {
+      return propsValue;
+    }
+    if (typeof propsValue === 'undefined') {
+      return defaultPropsValue;
+    }
     return propsValue;
   }
-  if (typeof dataValue !== 'undefined') {
+  if (hasChange) {
     return dataValue;
   }
-  if (typeof defaultValue !== 'undefined') {
-    return defaultValue;
-  } 
-  return alternativeValue;
+  if (typeof dataValue === 'undefined') {
+    return defaultPropsValue;
+  }
+  return dataValue;
 }
 
 function getPixel(size) {
