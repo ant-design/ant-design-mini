@@ -2,7 +2,7 @@
   <button
     className="amd-stepper-handler-down"
     data-mode="minus"
-    disabled="{{disabled || selfValue === '' || selfValue <= min}}"
+    disabled="{{disabled || mixin.value === '' || mixin.value <= min}}"
     onTap="onTap">
     <view class="amd-stepper-handler-down-inner">
       <icon type="MinusOutline"
@@ -20,7 +20,7 @@
       onFocus="onFocus"
       onBlur="onBlur"
       onConfirm="onConfirm"
-      value="{{selfValue}}"
+      value="{{mixin.value}}"
     />
   </view>
 
@@ -28,7 +28,7 @@
     className="amd-stepper-handler-up"
     activeClassName="amd-stepper-handler-up-hover"
     data-mode="add"
-    disabled="{{disabled || selfValue === '' || selfValue >= max}}"
+    disabled="{{disabled || mixin.value === '' || mixin.value >= max}}"
     onTap="onTap">
     <view class="amd-stepper-handler-up-inner">
       <icon type="AddOutline"/>

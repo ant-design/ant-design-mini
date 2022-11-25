@@ -1,36 +1,30 @@
 import { StepperDefaultProps } from './props';
 import { upStep, downStep } from './utils';
 import fmtEvent from '../_util/fmtEvent';
+import mixinValue from '../mixins/value';
 
 
 Component({
   props: StepperDefaultProps,
-  data: {
-    selfValue: '',
-  },
-  didUpdate(prevProps) {
-    if (prevProps.value !== this.props.value) {
-      this.update(this.props.value);
-    }
-  },
-  didMount() {
-    this.update(typeof this.props.value !== 'undefined' ? this.props.value : this.props.defaultValue);
-  },
-  methods: {
-    lastNumber: '',
-    update(num) {
-      const lastNumber = this.lastNumber;
-      const { needChange, value } = this.getValue(num);
-      if (needChange && lastNumber !== value) {
-        this.setSelfValue(value);
-        this.lastNumber = value;
+  mixins: [mixinValue({
+    transformValue(num) {
+      const { valid, value } = this.getValidNumber(num);
+      if (valid && this.getValue() !== value) {
+        return {
+          needUpdate: true,
+          value,
+        }
       }
-      return needChange;
+      return {
+        needUpdate: false,
+      };
     },
-    getValue(value) {
+  })],
+  methods: {
+    getValidNumber(value) {
       if (typeof value === 'undefined' || value === null) {
         return {
-          needChange: true,
+          valid: true,
           value: '',
         };
       }
@@ -39,7 +33,7 @@ Component({
       if (typeof value === 'string') {
         if (/^\s*$/.test(value)) {
           return {
-            needChange: true,
+            valid: true,
             value: '',
           };
         }
@@ -56,32 +50,27 @@ Component({
       }
       if (typeof num === 'number') {
         return {
-          needChange: true,
+          valid: true,
           value: String(num),
         };
       }
       return {
-        needChange: false,
+        valid: false,
       };
-    },
-    setSelfValue(value) {
-      this.setData({
-        selfValue: value,
-      });
     },
     onFocus(e) {
       if (this.props.onFocus) {
         this.props.onFocus(fmtEvent(this.props, e));
       }
     },
-    onChange(value, e) {
-      const needChange = this.update(value);
-      if (this.props.onChange && needChange) {
-        this.props.onChange(this.lastNumber === '' ? null : Number(this.lastNumber), fmtEvent(this.props, e));
+    onChange(val, e) {
+      const { needUpdate, value } = this.update(val);
+      if (this.props.onChange && needUpdate) {
+        this.props.onChange(value === '' ? null : Number(value), fmtEvent(this.props, e));
       }
     },
     onBlur(e) {
-      if ('value' in this.props) {
+      if (this.isControlled()) {
         this.update(this.props.value);
       }
       if (this.props.onBlur) {
@@ -96,7 +85,7 @@ Component({
     onTap(e) {
       const { step, disabled, precision } = this.props;
       const { min = -Infinity, max = Infinity } = this.props;
-      const value = Number(this.lastNumber);
+      const value = this.getValue();
       if (!disabled) {
         const { mode } = e.currentTarget.dataset;
         let result: number = value;
@@ -109,8 +98,8 @@ Component({
           const addTemp = upStep(value, step, precision);
           result = Math.min(addTemp, max);
         }
-        const needChange = this.update(result);
-        if (this.props.onChange && needChange) {
+        const { needUpdate } = this.update(result);
+        if (this.props.onChange && needUpdate) {
           this.props.onChange(result, fmtEvent(this.props, e));
         }
       }
