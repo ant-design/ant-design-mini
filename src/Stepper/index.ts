@@ -18,7 +18,6 @@ Component({
   },
   methods: {
     lastNumber: '',
-    focus: false,
     update(num) {
       const lastNumber = this.lastNumber;
       const { needChange, value } = this.getValue(num);
@@ -28,8 +27,8 @@ Component({
       }
       return needChange;
     },
-    getValue(value: string | number) {
-      if (typeof value === 'undefined') {
+    getValue(value) {
+      if (typeof value === 'undefined' || value === null) {
         return {
           needChange: true,
           value: '',
@@ -78,7 +77,7 @@ Component({
     onChange(value, e) {
       const needChange = this.update(value);
       if (this.props.onChange && needChange) {
-        this.props.onChange(this.lastNumber === '' ? undefined : Number(this.lastNumber), fmtEvent(this.props, e));
+        this.props.onChange(this.lastNumber === '' ? null : Number(this.lastNumber), fmtEvent(this.props, e));
       }
     },
     onBlur(e) {
@@ -111,9 +110,6 @@ Component({
           result = Math.min(addTemp, max);
         }
         const needChange = this.update(result);
-        // const lastNumber = this.lastNumber;
-        // this.lastNumber = String(result);
-        // this.setSelfValue(result);
         if (this.props.onChange && needChange) {
           this.props.onChange(result, fmtEvent(this.props, e));
         }
