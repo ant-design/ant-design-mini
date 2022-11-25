@@ -5,13 +5,13 @@
   className="amd-radio-group {{className ? className : ''}} amd-radio-group-{{position}}" style="{{style}}">
   <radio-group
     name="{{name}}"
-    value="{{utils.getValue(valueInProps, hasChange, value, selfValue, defaultValue)}}"
+    value="{{mixin.value}}"
   >
     <view class="amd-radio-group-body">
       <block a:if="{{position === 'vertical'}}">
         <list-item stopPropagation a:for="{{options}}">
           <radio
-            checked="{{componentUtils.getChecked(index, options, utils.getValue(valueInProps, hasChange, value, selfValue, defaultValue))}}"
+            checked="{{componentUtils.getChecked(index, options, mixin.value)}}"
             data-index="{{index}}"
             value="{{item.value}}"
             disabled="{{disabled || item.disabled}}"
@@ -27,7 +27,7 @@
       <block a:else>
         <radio
           a:for="{{options}}"
-          checked="{{componentUtils.getChecked(index, options, utils.getValue(valueInProps, hasChange, value, selfValue, defaultValue))}}"
+          checked="{{componentUtils.getChecked(index, options, mixin.value)}}"
           data-index="{{index}}"
           value="{{item.value}}"
           disabled="{{disabled || item.disabled}}"
