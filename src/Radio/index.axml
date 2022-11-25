@@ -9,7 +9,6 @@
         onChange="onChange"
         value="{{value}}"
         checked="{{utils.getValue(checkedInProps, hasChange, checked, selfChecked, defaultChecked)}}"
-        controlled="{{checkedInProps}}"
         disabled="{{disabled}}"
       />
       <view class="amd-radio-item-fake">

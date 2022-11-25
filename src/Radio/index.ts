@@ -23,16 +23,20 @@ Component({
         checkedInProps: 'checked' in this.props,
       });
     },
+    setChange() {
+      if (this.data.hasChange) {
+        return;
+      }
+      this.setData({
+        hasChange: true,
+      });
+    },
     onChange(e) {
       const value = e.detail.value;
-      if ('checked' in this.props) {
-        this.setData({
-          hasChange: true,
-        });
-      } else {
+      this.setChange();
+      if (!this.data.checkedInProps) {
         this.setData({
           selfChecked: value,
-          hasChange: true,
         });
       }
       if (this.props.onChange) {

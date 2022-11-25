@@ -24,14 +24,19 @@ Component({
         valueInProps: 'value' in this.props,
       });
     },
+    setChange() {
+      if (this.data.hasChange) {
+        return;
+      }
+      this.setData({
+        hasChange: true,
+      });
+    },
     onChange(_, e) {
       const index = e.currentTarget.dataset.index;
       const value = this.props.options[index].value;
-      if ('value' in this.props) {  
-        this.setData({
-          hasChange: true,
-        });
-      } else {
+      this.setChange();
+      if (!this.data.valueInProps) {  
         this.setData({
           hasChange: true,
           selfValue: value,
