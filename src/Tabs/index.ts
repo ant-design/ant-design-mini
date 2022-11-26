@@ -34,7 +34,7 @@ Component({
     this.updateScrollLeft();
   },
   didUpdate(prevProps, prevData) {
-    if (prevProps.current !== this.props.current || prevProps.items !== this.props.items || this.getValue(prevData) !== this.getValue()) {
+    if (prevProps.items !== this.props.items || !this.isEqualValue(prevData)) {
       this.updateScrollLeft();
     }
   },
