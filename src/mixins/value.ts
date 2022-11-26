@@ -31,8 +31,8 @@ export default ({
       this.update(value);
     },
     methods: {
-      getValue() {
-        return this.data[scopeKey].value;
+      getValue(prevData) {
+        return (prevData || this.data)[scopeKey].value;
       },
       isControlled() {
         return [valueKey] in this.props;
