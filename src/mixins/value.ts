@@ -22,7 +22,7 @@ export default ({
       },
     },
     didUpdate(prevProps) {
-      if (prevProps[valueKey] !== this.props[valueKey]) {
+      if (prevProps[valueKey] !== this.props[valueKey] && !(isNaN(prevProps[valueKey]) && isNaN(this.props[valueKey]))) {
         this.update(this.props[valueKey]);
       }
     },
