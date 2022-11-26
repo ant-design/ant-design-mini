@@ -1,3 +1,13 @@
+function equal(a, b) {
+  if (a === b) {
+    return true;
+  }
+  if (a !== a && b !== b) {
+    return true;
+  }
+  return false;
+}
+
 export default ({
   valueKey = 'value',
   defaultValueKey = 'defaultValue',
@@ -14,15 +24,16 @@ export default ({
     needUpdate: boolean;
     value?: any;
   };
-} = {} as any) => {
+} = {}) => {
   return {
     data: {
       [scopeKey]: {
         value: undefined,
+        updated: false,
       },
     },
     didUpdate(prevProps) {
-      if (prevProps[valueKey] !== this.props[valueKey] && !(isNaN(prevProps[valueKey]) && isNaN(this.props[valueKey]))) {
+      if (!equal(prevProps[valueKey], this.props[valueKey])) {
         this.update(this.props[valueKey]);
       }
     },
@@ -31,18 +42,25 @@ export default ({
       this.update(value);
     },
     methods: {
-      getValue(prevData) {
+      getValue(prevData?) {
         return (prevData || this.data)[scopeKey].value;
+      },
+      isEqualValue(prevData) {
+        if (!prevData[scopeKey].updated) {
+          return true;
+        }
+        return equal(this.getValue(prevData), this.getValue());
       },
       isControlled() {
         return [valueKey] in this.props;
       },
       update(val, ...args) {
-        const { needUpdate, value } = transformValue.call(this, val, ...args);
+        const { needUpdate, value } = transformValue.call(this, val, ...args) || {};
         if (needUpdate) {
           this.setData({
             [scopeKey]: {
               value,
+              updated: true,
             },
           });
         }
