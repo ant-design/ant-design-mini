@@ -12,12 +12,21 @@ Component({
   data: {
     currentKey: '',
     scrollTop: 0,
+    value: undefined,
     isTouchingSideBar: false
   },
 
   didMount() {
-    this.computeTopRange();
+    const { defaultValue } = this.props;
+    this.computeTopRange(defaultValue);
     this.computeSideBar();
+
+    if (defaultValue) {
+      this.setData({
+        value: defaultValue
+      })
+    }
+
     this.debounce = debounce((func, ...rest) => {
       func.call(this, ...rest);
     }, 50);
@@ -31,13 +40,18 @@ Component({
       this.computeTopRange();
       this.computeSideBar();
     }
+    if (!equal(prevProps.value, this.props.value)) {
+      this.setData({
+        value: this.props.value
+      })
+    }
   },
 
   methods: {
     /** 
      * 渲染后计算每个group距离容器顶部的top值，并设置currentKey
      */
-    computeTopRange() {
+    computeTopRange(curVal) {
       (my.createSelectorQuery as any)()
         .selectAll('.amd-blade-view-body-group')
         .boundingClientRect()
@@ -53,14 +67,9 @@ Component({
             return pre;
           }, []);
           /** 
-           * 初始化时设置currentKey
+           * 获取当前value到顶部的距离
            */
-          const { scrollToKey } = this.props;
-          const findItem = this.topRange.find((item) => item.key === scrollToKey);
-          this.setData({
-            currentKey: scrollToKey || (this.props.data && this.props.data[0] && this.props.data[0].key || ''),
-            scrollTop: scrollToKey ? findItem.top - findItem.height : 0,
-          });
+          this.getCurValNodeToTop(curVal);
         });
     },
 
@@ -103,6 +112,42 @@ Component({
         currentKey
       });
     },
+
+    /** 
+     * 找到当前value所处的分组
+     */
+    onSearchCurValueGroup(curVal) {
+      const { data = [] } = this.props;
+      for (let i = 0; i < data.length; i++) {
+        const groupItem = data[i] || [];
+        if (Array.isArray(groupItem.items) && groupItem.items.find(child => child.value === curVal)) {
+          return groupItem.key;
+        }
+      }
+    },
+
+    /** 
+     * 获取当前value距离顶部的距离
+     */
+    getCurValNodeToTop(curValue) {
+      /** 
+       * 获取当前value所处的数据分组
+       */
+      const curKey = this.onSearchCurValueGroup(curValue);
+      (my.createSelectorQuery as any)()
+        .selectAll(`#amd-blade-view-group-${curValue}`)
+        .boundingClientRect()
+        .exec(async (res) => {
+          if (res[0] === null) throw new Error('找不到元素');
+          const curValToTop = res[0][0].top;
+
+          this.setData({
+            currentKey: curKey,
+            scrollTop: curValToTop - 300,
+          });
+        });
+    },
+
 
     /** 
      * 点击sidebar

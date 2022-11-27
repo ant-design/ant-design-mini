@@ -1,4 +1,4 @@
-@import (reference) "../_base/index.less";
+@import (reference) "./variable.less";
 @import '../style/mixins/hairline.less';
 
 @BladeViewPrefix: amd-blade-view;
@@ -6,7 +6,7 @@
 .@{BladeViewPrefix} {
   &-container {
     position: relative;
-    background: #fff;
+    background: @COLOR_CARD;
   }
 
   &-body {
@@ -19,12 +19,12 @@
         justify-content: center;
         height: 70 * @rpx;
         padding: 0 24 * @rpx;
-        color: #999;
+        color: @COLOR_TEXT_ASSIST;
         font-size: 26 * @rpx;
-        background: #f5f5f5;
+        background: @COLOR_BACKGROUND;
 
         &-first {
-          border-top: 1 * @rpx solid #eee;
+          border-top: 1 * @rpx solid @COLOR_BORDER;
         }
 
         &-sticky {
@@ -49,6 +49,7 @@
           text-overflow: ellipsis;
           white-space: nowrap;
           line-height: 48 * @rpx;
+          color: @COLOR_BLACK_CHANGE;
 
           &-not-first {
             position: relative;
@@ -56,12 +57,12 @@
           }
 
           &-selected {
-            color: #3875f6;
+            color: @COLOR_BRAND1;
           }
         }
 
         &-hover {
-          background: #eee;
+          background: @COLOR_BORDER;
           opacity: 0.7;
         }
       }
@@ -88,14 +89,14 @@
         width: 32 * @rpx;
         height: 32 * @rpx;
         border-radius: 32 * @rpx;
-        color: #999;
+        color: @COLOR_TEXT_ASSIST;
         font-size: 22 * @rpx;
         margin-left: 64 * @rpx;
 
         &.active {
-          color: #fff;
+          color: @COLOR_WHITE;
           border-radius: 32 * @rpx;
-          background: #3875f6;
+          background: @COLOR_BRAND1;
         }
       }
     }
@@ -107,11 +108,11 @@
       right: 96 * @rpx;
       width: 96 * @rpx;
       height: 96 * @rpx;
-      color: #fff;
+      color: @COLOR_WHITE;
       font-size: 50 * @rpx;
       line-height: 96 * @rpx;
       text-align: center;
-      background: #ccc;
+      background-color: @COLOR_TEXT_WEAK;
       border-radius: 50%;
     }
   }

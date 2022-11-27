@@ -1,9 +1,12 @@
 <view>
   <blade-view
     data="{{groups}}"
-    scrollToKey="S"
+    defaultValue="B-2"
     value="{{value}}"
     onChange="onChange"
     sticky={{false}}
-  ></blade-view>
+  />
 </view>
+
+
+<!-- scrollToKey="S" -->
