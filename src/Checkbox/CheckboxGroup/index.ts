@@ -10,7 +10,7 @@ Component({
       if (this.props.disabled) {
         return;
       }
-      let currentValue = this.getValue()|| [];
+      let currentValue = this.getValue();
       const { index } = e.currentTarget.dataset;
       const value = this.props.options[index].value;
       if (currentValue.indexOf(value) > -1) {

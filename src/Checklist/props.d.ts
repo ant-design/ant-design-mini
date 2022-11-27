@@ -47,7 +47,11 @@ interface IChecklistProps extends IBaseProps {
   /**
    * @description 可勾选列表值改变时触发
    */
-  onChange: (v: Array<string | number>| string| number,  item: ChecklistItem| Array<ChecklistItem>) => void;
+  onChange: (
+    v: Array<string | number> | string | number,
+    item: ChecklistItem | Array<ChecklistItem>,
+    e: Record<string, any>
+  ) => void;
 }
 
 export declare const ChecklistDefaultProps: Partial<IChecklistProps>;
