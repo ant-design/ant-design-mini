@@ -3,24 +3,24 @@
     <mask show style="z-index:9999;{{maskStyle || ''}}" />
     <am-icon type="CloseOutline" class="amd-guide-tour-clear" onTap="onCancel" />
     <view class="amd-guide-tour-button">
-        <button inline inlineSize="small" a:if="{{utils.checkShowJump(utils.getValue(current, selfCurrent, defaultCurrent),items)}}" onTap="onCancel">
+        <button inline inlineSize="small" a:if="{{utils.checkShowJump(mixin.value,items)}}" onTap="onCancel">
             跳过
         </button>
-        <button inline inlineSize="small" onTap="onPrev" a:if="{{utils.checkShowPrev(utils.getValue(current, selfCurrent, defaultCurrent),items)}}" data-currentValue="{{utils.getValue(current, selfCurrent, defaultCurrent)}}">
+        <button inline inlineSize="small" onTap="onPrev" a:if="{{utils.checkShowPrev(mixin.value,items)}}" data-currentValue="{{mixin.value}}">
             上一步
         </button>
-        <button inline inlineSize="small" onTap="onNext" a:if="{{utils.checkShowNext(utils.getValue(current, selfCurrent, defaultCurrent),items)}}" data-currentValue="{{utils.getValue(current, selfCurrent, defaultCurrent)}}">
+        <button inline inlineSize="small" onTap="onNext" a:if="{{utils.checkShowNext(mixin.value,items)}}" data-currentValue="{{mixin.value}}">
             下一步
         </button>
-        <button type="default" inline inlineSize="small" a:if="{{utils.checkShowKnow(utils.getValue(current, selfCurrent, defaultCurrent),items)}}" onTap="onCancel">
+        <button type="default" inline inlineSize="small" a:if="{{utils.checkShowKnow(mixin.value,items)}}" onTap="onCancel">
             知道了
         </button>
     </view>
     <block a:if="{{swiperable}}">
         <view class="amd-guide-tour-indicator">
-            <view a:for="{{items}}" class="amd-guide-tour-indicator-dot {{index === utils.getValue(current, selfCurrent, defaultCurrent) ? 'amd-guide-tour-indicator-dot-active':''}}" />
+            <view a:for="{{items}}" class="amd-guide-tour-indicator-dot {{index === mixin.value ? 'amd-guide-tour-indicator-dot-active':''}}" />
         </view>
-        <swiper class="amd-guide-tour-swiper" current="{{utils.getValue(current, selfCurrent, defaultCurrent)}}" adjust-height="none" style="height:100vh" disable-touch="{{ture}}" 
+        <swiper class="amd-guide-tour-swiper" current="{{mixin.value}}" adjust-height="none" style="height:100vh" disable-touch="{{ture}}" 
             onChange="onSwiperChange">
             <swiper-item  a:for="{{items}}">
                 <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px">
@@ -34,7 +34,7 @@
     </block>
     <block a:else a:for="{{items}}">
         <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px" 
-            a:if="{{utils.getValue(current, selfCurrent, defaultCurrent) === index}}">
+            a:if="{{mixin.value === index}}">
             <slot name="step" index="{{index}}">
                 <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
                     mode="{{item.imageMode}}" />

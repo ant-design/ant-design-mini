@@ -9,19 +9,19 @@ import {
   isEqualDate,
 } from './util';
 import fmtEvent from '../_util/fmtEvent';
+import mixinValue from '../mixins/value';
 
 Component({
   props: DatePickerDefaultProps,
   pickerVisible: false,
   data() {
     return {
-      selfValue: undefined,
       currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
       columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
       forceUpdate: 0, // 强制更新picker组件，已知需处理的情况：value超限，但是需要更新format，由于picker的参数均未变化，无法触发picker的渲染
     };
   },
-
+  mixins: [mixinValue()],
   didMount() {
     this.pickerVisible = false;
   },
@@ -47,8 +47,8 @@ Component({
       } else {
         const now = new Date();
         if (
-          !(min && dayjs(now).isBefore(dayjs(min))) &&
-          !(max && dayjs(now).isAfter(dayjs(max)))
+          !(min && dayjs(now).isBefore(dayjs(min as any))) &&
+          !(max && dayjs(now).isAfter(dayjs(max as any)))
         ) {
           return getValueByDate(now, precision);
         } else {
@@ -59,14 +59,12 @@ Component({
 
     getMin() {
       const { min } = this.props;
-      //@ts-ignore
-      return min ? dayjs(min) : dayjs().subtract(10, 'year');
+      return min ? dayjs(min as any) : dayjs().subtract(10, 'year');
     },
 
     getMax() {
       const { max } = this.props;
-      //@ts-ignore
-      return max ? dayjs(max) : dayjs().add(10, 'year');
+      return max ? dayjs(max as any) : dayjs().add(10, 'year');
     },
     /**
      * didUpdate、弹窗打开触发
@@ -138,7 +136,6 @@ Component({
               onPickerChange(
                 date,
                 dayjs(date).format(format),
-                selectedIndex,
                 fmtEvent(this.props)
               );
             }
@@ -151,7 +148,6 @@ Component({
           onPickerChange(
             date,
             dayjs(date).format(format),
-            selectedIndex,
             fmtEvent(this.props)
           );
         }
@@ -169,10 +165,8 @@ Component({
       const { currentValue } = this.data;
       const { format } = this.props;
       const date = getDateByValue(currentValue);
-      if (!('value' in this.props)) {
-        this.setData({
-          selfValue: date,
-        });
+      if (!this.isControlled()) {
+        this.update(date);
       }
       if (this.props.onOk) {
         this.props.onOk(date, dayjs(date).format(format), fmtEvent(this.props));
@@ -183,17 +177,6 @@ Component({
         return valueStr;
       }
       return '';
-    },
-    getValue() {
-      const { defaultValue, value } = this.props;
-      const { selfValue } = this.data;
-      if (typeof value !== 'undefined') {
-        return value;
-      }
-      if (typeof selfValue !== 'undefined') {
-        return selfValue;
-      }
-      return defaultValue || null;
     },
     onFormat() {
       const { onFormat, format } = this.props;

@@ -1,17 +1,16 @@
 import { CheckboxGroupDefaultProps } from './props';
 import fmtEvent from '../../_util/fmtEvent';
+import mixinValue from '../../mixins/value';
 
 Component({
   props: CheckboxGroupDefaultProps,
-  data: {
-    selfValue: undefined,
-  },
+  mixins: [mixinValue()],
   methods: {
     onChange(_, e) {
       if (this.props.disabled) {
         return;
       }
-      let { currentValue } = e.currentTarget.dataset;
+      let currentValue = this.getValue()|| [];
       const { index } = e.currentTarget.dataset;
       const value = this.props.options[index].value;
       if (currentValue.indexOf(value) > -1) {
@@ -19,10 +18,8 @@ Component({
       } else {
         currentValue = [...currentValue, value];
       }
-      if (!('value' in this.props)) {
-        this.setData({
-          selfValue: currentValue,
-        });
+      if (!this.isControlled()) {
+        this.update(currentValue);
       }
       if (this.props.onChange) {
         this.props.onChange(currentValue, fmtEvent(this.props, e));

@@ -1,6 +1,7 @@
 import { CascaderDefaultProps } from './props';
 import fmtEvent from '../../_util/fmtEvent';
 import equal from 'fast-deep-equal';
+import mixinValue from '../../mixins/value';
 
 Component({
   pickerVisible: false,
@@ -9,9 +10,9 @@ Component({
     return {
       currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
       columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
-      selfValue: undefined,
     };
   },
+  mixins: [mixinValue()],
   didMount() {
     const realValue = this.getValue();
     const columns = this.getterColumns(realValue);
@@ -54,17 +55,6 @@ Component({
   },
 
   methods: {
-    getValue() {
-      const { defaultValue, value } = this.props;
-      const { selfValue } = this.data;
-      if (typeof value !== 'undefined') {
-        return value;
-      }
-      if (typeof selfValue !== 'undefined') {
-        return selfValue;
-      }
-      return defaultValue || null;
-    },
     getterColumns(value) {
       const getColumns = (options, value, columns = []) => {
         columns.push(options.map((v) => ({ value: v.value, label: v.label })));
@@ -144,10 +134,8 @@ Component({
           return;
         }
       }
-      if (!('value' in this.props)) {
-        this.setData({
-          selfValue: validValue,
-        });
+      if (!this.isControlled()) {
+        this.update(validValue);
       }
       if (onOk) {
         onOk(

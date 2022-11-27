@@ -10,15 +10,15 @@ import {
   isEqualDate,
 } from '../util';
 import fmtEvent from '../../_util/fmtEvent';
+import mixinValue from '../../mixins/value';
 
 Component({
-  mixins: [computed],
+  mixins: [mixinValue(), computed],
 
   props: DateRangePickerDefaultProps,
   pickerVisible: false,
   data() {
     return {
-      selfValue: undefined,
       currentValue: [], // 当前picker选中值，didmount、弹窗打开、切换开始结束、picker变化时更新
       columns: [], // 当前可选项，didmound、弹窗打开、切换开始结束、picker变化时更新
       pickerType: 'start' as 'start' | 'end',
@@ -59,17 +59,6 @@ Component({
             : '',
         };
     },
-    getValue() {
-      const { defaultValue, value } = this.props;
-      const { selfValue } = this.data;
-      if (typeof value !== 'undefined') {
-        return value;
-      }
-      if (typeof selfValue !== 'undefined') {
-        return selfValue;
-      }
-      return defaultValue || null;
-    },
     getMin() {
       const { min } = this.props;
       const { pickerType, currentStartDate, currentEndDate } = this.data;
@@ -81,13 +70,12 @@ Component({
         if (
           currentStartDate &&
           min &&
-          dayjs(currentStartDate).isAfter(dayjs(min))
+          dayjs(currentStartDate).isAfter(dayjs(min as any))
         ) {
           realMin = currentStartDate;
         }
       }
-      //@ts-ignore
-      let res = realMin ? dayjs(realMin) : dayjs().subtract(10, 'year');
+      let res = realMin ? dayjs(realMin as any) : dayjs().subtract(10, 'year');
       // 从end切回start的情况，end取了打开时的十年前，min再取当前时间十年前会出现>max的情况
       if (currentEndDate && res.isAfter(currentEndDate)) {
         res = dayjs(currentEndDate);
@@ -106,13 +94,12 @@ Component({
         if (
           currentEndDate &&
           max &&
-          dayjs(currentEndDate).isBefore(dayjs(max))
+          dayjs(currentEndDate).isBefore(dayjs(max as any))
         ) {
           realMax = currentEndDate;
         }
       }
-      //@ts-ignore
-      return realMax ? dayjs(realMax) : dayjs().add(10, 'year');
+      return realMax ? dayjs(realMax as any) : dayjs().add(10, 'year');
     },
     // didUpdate、弹窗打开、切换pickerType触发
     setCurrentValue() {
@@ -254,10 +241,8 @@ Component({
       const { format } = this.props;
       const { currentStartDate, currentEndDate } = this.data;
       const realValue = [currentStartDate, currentEndDate] as any;
-      if (!('value' in this.props)) {
-        this.setData({
-          selfValue: realValue,
-        });
+      if (!this.isControlled()) {
+        this.update(realValue);
       }
       if (this.props.onOk) {
         this.props.onOk(
