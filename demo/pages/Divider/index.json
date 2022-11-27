@@ -1,8 +1,8 @@
 {
   "defaultTitle": "Divider",
   "usingComponents": {
-    "demo-block": "../../components/DemoBlock/index",
     "divider": "../../../src/Divider/index",
-    "am-icon": "../../../src/Icon/index"
+    "am-icon": "../../../src/Icon/index",
+    "container": "../../../src/Container/index"
   }
 }
