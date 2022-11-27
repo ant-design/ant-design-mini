@@ -36,13 +36,14 @@ export interface ISwitchProps extends IBaseProps {
   disabled?: boolean;
 
   /**
-   * 初始是否选中
+   * 初始值
    */
   defaultChecked?: boolean;
 
   /**
-   * @description 表单触发变更回调
+   * @description 修改回调方法
    */
-  onChange?: (value: boolean, e: Record<string,any>) => void;
+  onChange?: (checked: boolean, e: Record<string,any>) => void;
 }
+
 export declare const SwitchDefaultProps: Partial<ISwitchProps>;

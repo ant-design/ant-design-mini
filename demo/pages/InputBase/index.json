@@ -1,7 +1,7 @@
 {
-  "defaultTitle": "Stepper",
+  "defaultTitle": "InputBase",
   "usingComponents": {
-    "stepper": "../../../src/Stepper/index",
+    "input": "../../../src/Input/InputBase/index",
     "container": "../../../src/Container/index",
     "button": "../../../src/Button/index"
   }

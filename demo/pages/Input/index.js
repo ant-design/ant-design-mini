@@ -1,20 +1,27 @@
 Page({
   data: {
     value: '',
+    money: '',
+    focus: false,
   },
   onChange(value, e) {
     console.log(value, e);
   },
   handleChange(value) {
-    if (isNaN(Number(value))) {
-      return;
-    }
-    console.log(value);
     this.setData({
       value,
     });
   },
-  handleClear() {
+  handleMoney(value) {
+    console.log(value);
+    if (isNaN(Number(value))) {
+      return;
+    }
+    this.setData({
+      money: value,
+    })
+  },
+  clear() {
     this.setData({
       value: '',
     });
@@ -23,9 +30,13 @@ Page({
     this.input = ref;
   },
   focus() {
-    this.input.focus();
+    this.setData({
+      focus: true,
+    });
   },
   blur() {
-    this.input.blur();
+    this.setData({
+      focus: false,
+    });
   },
 });

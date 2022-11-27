@@ -1,29 +1,22 @@
-import { SwitchDefaultProps } from './props';
-import  fmtEvent from '../_util/fmtEvent';
-
+import { RadioDefaultProps } from './props';
+import fmtEvent from '../_util/fmtEvent';
+import mixinValue from '../mixins/value';
 
 Component({
-  props: SwitchDefaultProps,
-  data: {
-    selfChecked: undefined,
-  },
+  props: RadioDefaultProps,
+  mixins: [mixinValue({
+    valueKey: 'checked',
+    defaultValueKey: 'defaultChecked',
+  })],
   methods: {
     onChange(e) {
-      if (this.props.disabled) {
-        return;
-      }
-      let checked: boolean;
-      if ('checked' in this.props) {
-        checked = !this.props.checked;
-      } else {
-        checked = !(typeof this.data.selfChecked !== 'undefined' ? this.data.selfChecked : this.props.defaultChecked);
-        this.setData({
-          selfChecked: checked,
-        });
+      const value = !this.getValue();
+      if (!this.isControlled()) {
+        this.update(value);
       }
       if (this.props.onChange) {
-        this.props.onChange(checked,  fmtEvent(this.props, e));
+        this.props.onChange(value, fmtEvent(this.props, e));
       }
-    },
+    }
   },
 });

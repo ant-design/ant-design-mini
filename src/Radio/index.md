@@ -24,10 +24,11 @@ toc: 'content'
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| checked | 是否选中 | `boolean` | false |
+| checked | 是否选中 | `boolean` | - |
 | className | 类名| `string` | - |
 | disabled | 是否禁用  | `boolean` | false | 
 | color | 图标颜色 | `string` | - |
+| defaultChecked | 是否选中 | `boolean` | - |
 | style | 样式| `string` | - |
 | value | checkbox 携带的 value 值 | `string` | - |
 | onChange | 选中状态改变，触发回调 | (checked: `boolean`, event:  `Event` => void | - |
@@ -38,8 +39,10 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| `string` | - |
-| disabled | 是否禁用  | `boolean` | false | 
-| defaultValue | 初始值  | `string` | - | 
-| style | 样式| `string` | - |
-| options | 指定可选项 | `{label: string; value: string}[]` | - |
+| color | 图标颜色 | `string` | - |
+| disabled | 是否禁用  | `boolean` | false |
+| defaultValue | 初始值  | `string` | - |
+| style | 样式 | `string` | - |
+| value | radio group 里选中的值 | `string` | - |
+| options | 指定可选项 | `{label?: string; value?: string; disabled?: boolean;}[]` | - |
 | onChange | 选中状态改变，触发回调 | (value: `string`, event:  `Event` => void | - |
