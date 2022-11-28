@@ -1,30 +1,43 @@
 import { ChecklistDefaultProps } from './props';
-import controlled from '../mixins/controlled'
+import mixinValue from '../mixins/value';
 import fmtEvent from '../_util/fmtEvent';
 
 Component({
   props: ChecklistDefaultProps,
-  mixins: [controlled()],
-  didMount() {
-    const { multiple, value } = this.props
-    if (multiple && !Array.isArray(value)) {
-      this.setData({
-        cValue: []
-      })
-    }
-  },
+  mixins: [mixinValue()],
   methods: {
-    onChange(value) {
-      const { multiple, options } = this.props
-      let items = null
-      if (multiple && Array.isArray(value)) {
-        items = value.map(v => {
-          return options.filter(o => o.value === v)?.[0]
-        })
+    onChange(item) {
+      const { multiple, options, onChange } = this.props;
+      const value = item.value;
+      if (multiple) {
+        let currentValue = this.getValue() || [];
+        if (currentValue.indexOf(value) > -1) {
+          currentValue = currentValue.filter((v) => v !== value);
+        } else {
+          currentValue = [...currentValue, value];
+        }
+        if (!this.isControlled()) {
+          this.update(currentValue);
+        }
+        if (onChange) {
+          onChange(
+            currentValue,
+            options.filter((v) => currentValue.indexOf(v.value) > -1) as any,
+            fmtEvent(this.props)
+          );
+        }
       } else {
-        items =  options.filter(o => o.value === value)?.[0];
+        if (!this.isControlled()) {
+          this.update(value);
+        }
+        if (onChange) {
+          onChange(
+            value,
+            options.find((v) => v.value === value) as any,
+            fmtEvent(this.props)
+          );
+        }
       }
-      this.cOnChange(value, items, fmtEvent(this.props));
-    }
+    },
   },
 });
