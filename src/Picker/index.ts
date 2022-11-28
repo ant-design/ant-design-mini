@@ -6,6 +6,7 @@ import {
   getStrictMatchedItemByValue,
 } from './utils';
 import fmtEvent from '../_util/fmtEvent';
+import mixinValue from '../mixins/value';
 
 Component({
   props: PickerDefaultProps,
@@ -13,9 +14,9 @@ Component({
     formatValue: '',
     columns: [],
     visible: false,
-    selfValue: undefined,
     selectedIndex: [],
   },
+  mixins: [mixinValue()],
   tempSelectedIndex: null,
   single: false,
   isChangingPickerView: false,
@@ -111,17 +112,6 @@ Component({
         return formatValueByProps;
       }
       return this.defaultFormat(realValue, matchedColumn);
-    },
-    getValue() {
-      const { defaultValue, value } = this.props;
-      const { selfValue } = this.data;
-      if (typeof value !== 'undefined') {
-        return value;
-      }
-      if (typeof selfValue !== 'undefined') {
-        return selfValue;
-      }
-      return defaultValue;
     },
     getterSelectedIndex() {
       const selectedIndex = [];
@@ -241,10 +231,8 @@ Component({
           return;
         }
       }
-      if (typeof this.props.value === 'undefined') {
-        this.setData({
-          selfValue: matchedValues,
-        });
+      if (!this.isControlled()) {
+        this.update(matchedValues);
       }
       if (this.props.onOk) {
         this.props.onOk.call(

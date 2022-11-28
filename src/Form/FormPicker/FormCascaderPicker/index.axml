@@ -1,5 +1,3 @@
-<import-sjs from="../../../_util/getValue.sjs" name="utils" />
-
 <form-item
   className="{{className}}"
   position="{{position}}"

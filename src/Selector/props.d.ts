@@ -1,4 +1,4 @@
-import { IBaseFormItemPropsWithOutFocus } from '../_base';
+import { IBaseProps } from '../_base';
 
 export interface ISelectorItem {
   /**
@@ -25,8 +25,7 @@ export interface ISelectorItem {
  * @description 筛选器，可供用户进行单选或者多选。
  */
 
-export interface ISelectorProps
-  extends IBaseFormItemPropsWithOutFocus<string[]> {
+export interface ISelectorProps extends IBaseProps {
   /**
    * @description 已选择项, 取 items 每一项的 value
    */
@@ -35,12 +34,17 @@ export interface ISelectorProps
    * @description 可选项
    */
 
-  items: ISelectorItem[];
+  options: ISelectorItem[];
   /**
    * @description 每一项激活时新加类名
    */
 
   activeItemClassName?: string;
+  /**
+   * @description 每一项激活时样式
+   */
+
+  activeItemStyle?: string;
   /**
    * @description 是否允许多选
    * @default false
@@ -49,11 +53,6 @@ export interface ISelectorProps
   multiple?: boolean;
 
   /**
-   * @description 是否受控
-   * @default false
-   */
-  controlled?: boolean;
-  /**
    * @description 最小选择数量
    */
   minSelectedCount?: number;
@@ -61,6 +60,11 @@ export interface ISelectorProps
    * @description 最大选择数量
    */
   maxSelectedCount?: number;
+  onChange(
+    value: string | string[],
+    item: ISelectorItem | ISelectorItem[],
+    e: Record<string, any>
+  ): void;
   /**
    * @description 触发最大限制
    */

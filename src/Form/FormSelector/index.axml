@@ -2,7 +2,6 @@
   className="{{className}}"
   position="{{position}}"
   label="{{label}}"
-  labelWidth="{{labelWidth}}"
   status="{{formData.status}}"
   errors="{{formData.errors}}"
   tooltip="{{tooltip}}"
@@ -12,9 +11,17 @@
   help="{{help}}"
 >
   <view>
-    <checkbox-group options="{{options}}" value="{{formData.value}}" onChange="onChange" color="{{color}}" position="{{checkboxPosition}}">
-      <slot name="label" slot="label" slot-scope="props" value="{{props.value}}" index="{{props.index}}"/>
-    </checkbox-group>
+    <selector
+      value="{{formData.value}}"
+      options="{{options}}"
+      minSelectedCount="{{minSelectedCount}}"
+      maxSelectedCount="{{maxSelectedCount}}"
+      activeItemClassName="{{activeItemClassName}}"
+      activeItemStyle="{{activeItemStyle}}"
+      onSelectMax="onSelectMax"
+      onSelectMin="onSelectMin"
+      onChange="onChange"
+    />
   </view>
   <view slot="extra">
     <slot name="extra">

@@ -25,13 +25,21 @@ interface IStep {
 
 export interface IGuideTour extends IBaseProps {
   /**
+   * @description 蒙层样式
+   */
+  maskStyle?: string;
+  /**
    * @description 步骤详情
    */
-  steps: IStep[];
+  items: IStep[];
   /**
-   * @description 当前步骤，默认0
+   * @description 当前步骤
    */
-  index?: number;
+  current?: number;
+  /**
+   * @description 初始step
+   */
+  defaultCurrent?: number;
   /**
    * @description 是否开启滑动模式
    */

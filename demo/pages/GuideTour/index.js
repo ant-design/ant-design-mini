@@ -4,7 +4,6 @@ Page({
     moreVisible: false,
     swiperVisible: false,
     slotVisible: false,
-    index: 0,
     list: [
       {
         left: 20,
@@ -34,7 +33,7 @@ Page({
     this.setData({ visible: true });
   },
   onChange(index) {
-    console.log('index', index)
+    console.log('index', index);
   },
 
   openBaseTour() {
@@ -68,7 +67,6 @@ Page({
   commonShow(prop) {
     this.setData({
       [prop]: true,
-      index: 0,
     });
   },
   commonHide(prop) {
