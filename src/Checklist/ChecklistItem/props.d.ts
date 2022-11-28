@@ -1,29 +1,17 @@
 import { IBaseProps } from '../../_base';
-import { ChecklistItem } from '../props'
+import { ChecklistItem } from '../props';
 
 /**
  * @description 可勾选列表单项
  */
 
 interface IChecklistItemProps extends IBaseProps {
-  /**
-   * @description 是否支持多选
-   * @default false
-   */
-  multiple: boolean;
-
-  
-  item: ChecklistItem
-
-  /**
-   * @description 可勾选列表的值
-   */
-  value: Array<string | number>| string| number;
-
+  item: ChecklistItem;
+  checked: boolean;
   /**
    * @description 当项选项值改变时触发
    */
-  onChange: (v: string | number) => any
+  onChange: (item: ChecklistItem) => void;
 }
 
 export declare const ChecklistItemDefaultProps: Partial<IChecklistItemProps>;
