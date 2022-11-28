@@ -18,34 +18,30 @@ toc: 'content'
 
 ## 属性
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| title | string | 否 | - | 标题 |
-| content | string | 是 | - | 内容 |
-| image | string | 否 | - | 缩略图 |
-| imageSize | 'medium' &verbar; 'large' &verbar; 'x-large' | 否 | 'medium' | 缩略图尺寸 |
-| visible | boolean | 是 | false | 是否可见，受控模式 |
-| duration | number | 否 | - | 过渡动画时长，单位毫秒 |
-| mainButtonText | string | 否 | '主操作' | 主按钮 |
-| addonButtonText | string | 否 | '辅助操作' | 辅助按钮，第二个按钮 |
-| maskClosable | boolean | 否 | true | 点击蒙层关闭 |
-| disableScroll | boolean | 否 | true | 弹窗展示时，是否禁止页面滚动 |
-| animation | boolean | 否 | true | 是否开启过渡动画 |
-| zIndex | number | 否 | 998 | 弹窗层级 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| body | 完全自定义内容区 | `slot` | - | 
+| bodyClassName | body类名 | `string` | - | 
+| bodyStyle | body样式 | `string` | - | 
+| cancelButtonStyle | 取消按钮样式 | `string` | - |
+| cancelButtonText | 取消按钮文本 | `string` | - |
+| className | 类名 | `string` | - | 
+| closable | 是否显示右上角的关闭按钮。只有在 type 为 focus 生效 | `boolean` | - | 
+| content | 内容 | `string`\|`slot` | - |
+| footer | 自定义按钮区 | `slot` | - |
+| maskClosable |  点击蒙层是否可以关闭 | `boolean` |false |  | 
+| maskClassName | 蒙层的类名 | `string` | - | 
+| maskStyle | 蒙层的样式 | `string` | - | 
+| primaryButtonStyle | 主按钮样式 | `string` | - |
+| primaryButtonText | 主按钮文本 | `string` | - |
+| secondaryButtonStyle | 辅助按钮样式 | `string` | - |
+| secondaryButtonText | 辅助按钮文本 | `string` | - |
+| style | 样式 | `string` | - |
+| title | 标题 | `string`\|`slot` | - |
+| visible |  是否显示 | `boolean` | false | 
+| onCancelButtonTap |  取消按钮点击事件 | ()=>void | - | 
+| onClose |  触发关闭时回调 | ()=>void | - | 
+| onPrimaryButtonTap |  主按钮点击事件 | ()=>void | - | 
+| onSecondaryButtonTap |  辅助按钮点击事件 | ()=>void | - | 
 
-## 事件
-
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onButtonTap | 点击 Modal 组件内部按钮，触发回调 | (type: 'main' \| 'addon' ) => void |
-| onClose | 点击 close 图标触发回调 | () => void |
-
-## 插槽
-| 名称 | 说明 |
-| ----|----|
-| image | 弹窗图片 |
-| title | 弹窗标题 |
-| content | 弹窗内容 |
 

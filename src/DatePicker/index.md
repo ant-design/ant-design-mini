@@ -25,9 +25,9 @@ toc: 'content'
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | `string` | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | `string` | - |  
 | indicatorClass | 选中框的类名 | `string` |  - |  
+| maskClassName | 蒙层的类名 | `string` | - | 
 | maskClosable |  点击蒙层是否可以关闭 | `boolean` |false |  | 
 | maskStyle | 蒙层的样式 | `string` | - | 
-| maskClass | 蒙层的类名 | `string` | - | 
 | max | 最大值 | `Date` | 十年后 | 
 | min | 最小值 | `Date` | 十年前 | 
 | okText | 确认按钮文案 | `string` | '确定' |  
@@ -55,9 +55,9 @@ toc: 'content'
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | `string` | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | `string` | - |  
 | indicatorClass | 选中框的类名 | `string` |  - |  
+| maskClassName | 蒙层的类名 | `string` | - | 
 | maskClosable |  点击蒙层是否可以关闭 | `boolean` |false |  | 
 | maskStyle | 蒙层的样式 | `string` | - | 
-| maskClass | 蒙层的类名 | `string` | - | 
 | max | 最大值 | `Date` | 十年后 | 
 | min | 最小值 | `Date` | 十年前 | 
 | okText | 确认按钮文案 | `string` | '确定' |  
