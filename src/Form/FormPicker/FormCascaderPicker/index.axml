@@ -23,7 +23,7 @@
       popStyle="{{popStyle}}"
       disabled="{{disabled}}"
       title="{{title}}" 
-      maskClass="{{maskClass}}"
+      maskClassName="{{maskClassName}}"
       indicatorStyle="{{indicatorStyle}}"
       indicatorClass="{{indicatorClass}}"
       value="{{formData.value}}" 
