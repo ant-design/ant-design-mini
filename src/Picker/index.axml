@@ -42,7 +42,7 @@
     <block a:if="{{columns}}">
       <picker-view 
         mask-style="{{maskStyle}}"
-        mask-class="{{ maskClass}}"
+        mask-class="{{ maskClassName}}"
         indicator-style="{{indicatorStyle}}"
         indicator-class="{{indicatorClass}}"
         value="{{selectedIndex}}"

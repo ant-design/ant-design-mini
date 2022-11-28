@@ -62,7 +62,6 @@
     "pages/RadioGroup/index",
     "pages/Selector/index",
     "pages/SafeArea/index",
-    "pages/Dialog/index",
     "pages/Container/index",
     "pages/Checklist/index",
     "pages/Empty/index",

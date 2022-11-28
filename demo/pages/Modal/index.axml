@@ -1,81 +1,101 @@
-<view class="demo">
-  <modal
-    visible="{{isBaseModalShow}}"
-    content="人在天边月上明"
-    mainButtonText="我知道了"
-    addonButtonText=""
-    maskClosable="{{false}}"
-    onClose="closeBaseModal"
-    onButtonTap="closeBaseModal">
-  </modal>
-
-  <modal 
-    visible="{{isCloseableModalShow}}"
-    content="人在天边月上明"
-    mainButtonText="我知道了"
-    addonButtonText=""
-    maskClosable
-    onClose="closeCloseableModal"
-    onButtonTap="closeCloseableModal">
-  </modal>
-  <modal
-    visible="{{isCustomBtnModalShow}}"
-    content="人在天边月上明"
-    mainButtonText="在线阅读"
-    addonButtonText="下载文件"
-    maskClosable="{{false}}"
-    onClose="closeCustomBtnModal"
-    onButtonTap="handleButtonTap">
-  </modal>
-  <modal
-    visible="{{isMainBtnModalShow}}"
-    content="人在天边月上明"
-    mainButtonText="在线阅读"
-    addonButtonText=""
-    maskClosable="{{false}}"
-    onClose="closeMainBtnModal"
-    onButtonTap="handleButtonTap">
-  </modal>
-
-  <modal 
-    title="温馨提示"
-    content="请选择范围"
-    visible="{{isCustomModalShow}}"
-    onClose="closeCustomModal"   
-    mainButtonText="确定"
-    addonButtonText="取消"
-    maskClosable="{{true}}"
-    onButtonTap="closeCustomModal">
-      <slider value="5" step="5" />
-  </modal>
-
-  <modal 
-    title="带图弹窗"
-    imageSize="x-large"
-    image="{{url}}" 
-    visible="{{isLImgModalShow}}" 
-    content="说明提示用户解决方案。"
-    mainButtonText="主按钮"
-    addonButtonText="辅助按钮"
-    onClose="closeLImgModal"
-    onButtonTap="closeLImgModal">
-  </modal>
-  <demo-block title="基础用法">
-    <view class="btn-list">
-      <button onTap="openBaseModal">最简单的弹框</button>
-      <button onTap="openCloseableModal">点击遮罩关闭</button>
-    </view>
-  </demo-block>
-  <demo-block title="操作按钮">
-    <view class="btn-list">
-      <button onTap="openCustomBtnModal">自定义按钮</button>
-      <button onTap="openMainBtnModal">只有主按钮</button>
-    </view>
-  </demo-block>
-  <demo-block title="内容区域">
-    <view class="btn-list">
-      <button  onTap="openCustomModal">自定义内容区域</button>
-      <button  onTap="openLImgModal">带图弹窗</button>
-    </view>
-  </demo-block>
-</view>
+<modal
+  content="人在天边月上明"
+  visible="{{basicVisible}}"
+  onClose="handleClose"
+  primaryButtonText="我知道了"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+/>
+<modal
+  title="带标题的弹窗"
+  content="人在天边月上明"
+  visible="{{withTitleVisible}}"
+  onClose="handleClose"
+  primaryButtonText="我知道了"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+/>
+<modal
+  title="确定删除吗？"
+  content="删除后无法恢复"
+  visible="{{basicTwoVisible}}"
+  onClose="handleClose"
+  primaryButtonText="确定"
+  secondaryButtonText="取消"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+  onSecondaryButtonTap="handleSecondaryButtonTap"
+/>
+<modal
+  title="标题"
+  content="人在天边月上明"
+  visible="{{basicThreeVisible}}"
+  onClose="handleClose"
+  primaryButtonText="主按钮"
+  secondaryButtonText="更多"
+  cancelButtonText="取消"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+  onSecondaryButtonTap="handleSecondaryButtonTap"
+  onCancelButtonTap="handleSecondaryButtonTap"
+/>
+<modal
+  title="强调模式"
+  content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
+  type="focus"
+  visible="{{focusOneVisible}}"
+  onClose="handleClose"
+  primaryButtonText="我知道了"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+/>
+<modal
+  title="强调模式"
+  content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
+  type="focus"
+  visible="{{focusTwoVisible}}"
+  onClose="handleClose"
+  primaryButtonText="我知道了"
+  secondaryButtonText="辅助操作"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+  onSecondaryButtonTap="handleSecondaryButtonTap"
+/>
+<modal
+  title="强调模式"
+  content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
+  type="focus"
+  visible="{{focusThreeVisible}}"
+  onClose="handleClose"
+  primaryButtonText="我知道了"
+  secondaryButtonText="辅助操作"
+  cancelButtonText="取消"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+  onSecondaryButtonTap="handleSecondaryButtonTap"
+  onCancelButtonTap="handleSecondaryButtonTap"
+/>
+<modal
+  title="确定删除吗？"
+  content="删除后无法恢复"
+  visible="{{customVisible}}"
+  onClose="handleClose"
+  primaryButtonText="删除"
+  primaryButtonStyle="color:red;"
+  secondaryButtonText="取消"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+  onSecondaryButtonTap="handleSecondaryButtonTap"
+/>
+<container title="基础用法">
+  <view class="btn-list">
+    <button data-field="basicVisible" onTap="handleOpen">最简单的弹框</button>
+    <button data-field="withTitleVisible" onTap="handleOpen">带有标题</button>
+    <button data-field="basicTwoVisible" onTap="handleOpen">带辅助按钮</button>
+    <button data-field="basicThreeVisible" onTap="handleOpen">带辅助和取消按钮</button>
+  </view>
+</container>
+<container title="强调模式">
+  <view class="btn-list">
+    <button data-field="focusOneVisible" onTap="handleOpen">只有主按钮</button>
+    <button data-field="focusTwoVisible" onTap="handleOpen">带辅助按钮</button>
+    <button data-field="focusThreeVisible" onTap="handleOpen">带辅助和取消按钮</button>
+  </view>
+</container>
+<container title="自定义样式">
+  <view class="btn-list">
+    <button data-field="customVisible" onTap="handleOpen">自定义样式</button>
+  </view>
+</container>

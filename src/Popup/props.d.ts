@@ -25,7 +25,7 @@ export interface IPopupProps extends IBaseProps {
   /**
    * @description 展示关闭图标
    * @default false
-  */
+   */
   showCloseIcon?: boolean;
   /**
    * @desciption 是否开启过渡动画
@@ -44,5 +44,13 @@ export interface IPopupProps extends IBaseProps {
    * @default false
    */
   autoHeight?: boolean;
+  /**
+   * @description 遮罩层类名
+   */
+  maskClassName?: string;
+  /**
+   * @description 遮罩层样式
+   */
+  maskStyle?: string;
 }
 export declare const PopupDefaultProps: Partial<IPopupProps>;
