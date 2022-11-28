@@ -1,10 +1,38 @@
-
 import { IBaseProps } from '../_base';
 /**
  * @description 对话框，当应用中需要比较明显的对用户当前的操作行为进行警示或提醒时，可以使用对话框。用户需要针对对话框进行操作后方可结束。
  */
 
 export interface IModalProps extends IBaseProps {
+  /**
+   * @description Modal body类名
+   */
+  bodyClassName?: string;
+  /**
+   * @description Modal body样式
+   */
+  bodyStyle?: string;
+  /**
+   * @description 遮罩层类名
+   */
+  maskClassName?: string;
+  /**
+   * @description 遮罩层样式
+   */
+  maskStyle?: string;
+  /**
+   * @description 是否可点击蒙层关闭
+   * @default true
+   */
+  maskClosable: boolean;
+  /**
+   * @description 类型
+   */
+  type: 'default' | 'focus';
+  /**
+   * @description 是否显示右上角的关闭按钮。只有在 type 为 focus 生效
+   */
+  closable?: string;
   /**
    * @description 标题
    */
@@ -14,48 +42,50 @@ export interface IModalProps extends IBaseProps {
    */
   content: string;
   /**
-   * @description 缩略图
-   */
-  image?: string;
-  /**
-   * @description 缩略图尺寸
-   * @default "medium"
-   */
-  imageSize?: 'medium' | 'large' | 'x-large';
-  /**
    * @description 是否可见，受控模式
    * @default false
    */
   visible: boolean;
-  /**
- * @description 点击蒙层关闭
- * @default true
- */
-  maskClosable: boolean;
+
   /**
    * @description 主按钮文本
    */
-  mainButtonText: string
+  primaryButtonText: string;
   /**
    * @description 辅助按钮文本
    */
-  addonButtonText: string
+  secondaryButtonText: string;
   /**
-   * @description 关闭图标的颜色，用于在深色和浅色背景上切换，不传时表示无关闭图标
+   * @description 取消按钮文案
    */
-  closeType?: 'dark' | 'light';
+  cancelButtonText: string;
   /**
-   * @description 弹窗动画时长，单位 ms
-   * @default 300
+   * @description 主按钮样式
    */
-  duration: number;
+  primaryButtonStyle: string;
+  /**
+   * @description 辅助按钮样式
+   */
+  secondaryButtonStyle: string;
+  /**
+   * @description 取消按钮样式
+   */
+  cancelButtonStyle: string;
   /**
    * @description 触发关闭时回调
    */
   onClose?: () => void;
   /**
-   * @description 点击按钮回调
+   * @description 主按钮点击事件
    */
-  onButtonTap?: (type: 'main' | 'addon' | 'cancel') => void;
+  onPrimaryButtonTap?: () => void;
+  /**
+   * @description 次要按钮点击事件
+   */
+  onSecondaryButtonTap?: () => void;
+  /**
+   * @description 取消按钮点击事件
+   */
+  onCancelButtonTap?: () => void;
 }
 export declare const ModalDefaultProps: Partial<IModalProps>;

@@ -1,5 +1,9 @@
+<import-sjs from="./index.sjs" name="{getDirection}" />
 <popup 
-  className="amd-modal {{className ? className : ''}}"
+  className="amd-modal {{className || ''}}"
+  style="{{style || ''}}"
+  maskClassName="{{maskClassName}}"
+  maskStyle="{{maskStyle}}"
   visible="{{visible}}" 
   duration="{{duration}}"
   maskClosable="{{maskClosable}}"
@@ -7,43 +11,108 @@
   animation="{{animation}}"
   zIndex="{{zIndex}}"
   onClose="onClose">
-  <view class="amd-modal-content {{className ? className : ''}}" style="{{style}}">
-    <view class="amd-modal-content-image-container">
-      <slot name="image">
-        <image class="amd-modal-content-image amd-modal-content-image-{{imageSize}}"
-          src="{{image}}"
-          a:if="{{image}}" />
+  <slot name="body">
+    <view class="amd-modal-body {{bodyClassName || ''}}" style="{{bodyStyle || ''}}">
+      <slot name="header">
       </slot>
-    </view>
-    <view class="amd-modal-content-comb">
       <slot name="title">
-        <view class="amd-modal-content-title">
+        <view class="amd-modal-body-title" a:if="{{ title }}">
           {{title}}
         </view>
       </slot>
       <slot name="content">
-        <view class="amd-modal-content-content">{{content}}</view>
+        <view class="amd-modal-body-content" a:if="{{ content }}">{{content}}</view>
+      </slot>
+      <slot name="footer">
+        <view 
+          a:if="{{ type === 'focus' }}"
+          class="amd-modal-body-footer-focus">
+          <button
+            type="primary"
+            class="amd-modal-body-footer-focus-primary"
+            style="{{primaryButtonStyle || ''}}"
+            onTap="onPrimaryButtonTap">
+              {{primaryButtonText}}
+          </button>
+          <view 
+            class="amd-modal-body-footer-focus-secondary"
+            a:if="{{secondaryButtonText}}"
+            style="{{secondaryButtonStyle || ''}}"
+            onTap="onSecondaryButtonTap"
+            >
+            {{secondaryButtonText}}
+          </view>
+          <view 
+            class="amd-modal-body-footer-focus-cancel"
+            a:if="{{cancelButtonText}}"
+            style="{{cancelButtonStyle || ''}}"
+            onTap="onCancelButtonTap"
+            >
+            {{cancelButtonText}}
+          </view>
+        </view>
+        <view 
+          a:elif="{{ getDirection(primaryButtonText,secondaryButtonText,cancelButtonText,type) === 'horizontal' }}"
+          class="amd-modal-body-footer-horizontal">
+          <view 
+            class="amd-modal-body-footer-horizontal-cancel"
+            a:if="{{cancelButtonText}}"
+            style="{{cancelButtonStyle || ''}}"
+            onTap="onCancelButtonTap"
+            >
+            {{cancelButtonText}}
+          </view>
+          <view 
+            class="amd-modal-body-footer-horizontal-secondary"
+            a:if="{{secondaryButtonText}}"
+            style="{{secondaryButtonStyle || ''}}"
+            onTap="onSecondaryButtonTap"
+            >
+            {{secondaryButtonText}}
+          </view>
+          <view 
+            class="amd-modal-body-footer-horizontal-primary"
+            a:if="{{primaryButtonText}}"
+            style="{{primaryButtonStyle || ''}}"
+            onTap="onPrimaryButtonTap"
+            >
+            {{primaryButtonText}}
+          </view>
+        </view>
+        <view 
+          a:elif="{{ getDirection(primaryButtonText,secondaryButtonText,cancelButtonText,type) === 'vertical' }}"
+          class="amd-modal-body-footer-vertical">
+          <view 
+            class="amd-modal-body-footer-vertical-primary"
+            a:if="{{primaryButtonText}}"
+            style="{{primaryButtonStyle || ''}}"
+            onTap="onPrimaryButtonTap"
+            >
+            {{primaryButtonText}}
+          </view>
+          <view 
+            class="amd-modal-body-footer-vertical-secondary"
+            a:if="{{secondaryButtonText}}"
+            style="{{secondaryButtonStyle || ''}}"
+            onTap="onSecondaryButtonTap"
+            >
+            {{secondaryButtonText}}
+          </view>
+          <view 
+            class="amd-modal-body-footer-vertical-cancel"
+            a:if="{{cancelButtonText}}"
+            style="{{cancelButtonStyle || ''}}"
+            onTap="onCancelButtonTap"
+            >
+            {{cancelButtonText}}
+          </view>
+        </view>
       </slot>
     </view>
-    <view class="amd-modal-buttons-container">
-      <button
-        type="primary"
-        data-type="main"
-        onTap="onButtonTap">
-          {{mainButtonText || '主操作'}}
-      </button>
-      <view 
-        class="amd-modal-buttons-addon"
-        a:if="{{addonButtonText}}"
-        data-type="addon"
-        onTap="onButtonTap"
-        >
-        {{addonButtonText || '辅助操作'}}
-      </view>
-    </view>
-  </view>
-    <amd-icon 
-      type="CloseOutline" 
-      onTap="onClose" 
-      className="amd-modal-close"/>
+  </slot>
+  <amd-icon 
+    a:if="{{ type==='focus' && closable }}"
+    type="CloseOutline" 
+    onTap="onClose" 
+    className="amd-modal-close"/>
 </popup>
