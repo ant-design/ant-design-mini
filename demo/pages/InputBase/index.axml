@@ -1,0 +1,32 @@
+<container title="基础模式">
+  <input
+    placeholder="请输入内容"
+    onChange="onChange"
+  />
+</container>
+
+<container title="初始值">
+  <input
+    placeholder="请输入内容"
+    defaultValue="lily"
+    onChange="onChange"
+  />
+</container>
+
+
+<container title="受控模式">
+  <view>value: {{value}}</view>
+  <input
+    placeholder="请输入内容"
+    value="{{value}}"
+    focus="{{focus}}"
+    onChange="handleChange"
+  />
+
+  <view>
+    <button inline onTap="randomValue">random</button>
+    <button inline onTap="clear">clear</button>
+    <button inline onTap="focus">focus</button>
+    <button inline onTap="blur">blur</button>
+  </view>
+</container>

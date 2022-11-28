@@ -1,5 +1,1 @@
-export const ChecklistItemDefaultProps = {
-  multiple: false,
-  item: {}
-};
-
+export const ChecklistItemDefaultProps = {};

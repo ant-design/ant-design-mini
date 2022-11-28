@@ -1,5 +1,3 @@
-<import-sjs from="../../_util/getValue.sjs" name="utils" />
-
 <form-item
   className="{{className}}"
   style="{{style}}"
@@ -28,7 +26,6 @@
       inputStyle="{{inputStyle}}"
       precision="{{precision}}"
       onBlur="{{onBlur}}"
-      onChange="{{onChange}}"
       onConfirm="{{onConfirm}}"
       onFocus="{{onFocus}}"
     />

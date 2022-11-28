@@ -27,7 +27,7 @@ toc: false
 | activeStyle | 选项卡激活样式 | `string` | '' |
 | className | 类名| `string` | - |
 | current |  选中项| `number` |  -  |
-| defaultCurrent |  初始选中项 | `number` |  -  |
+| defaultCurrent |  初始选中项 | `number` |  0  |
 | items | 底部图标配置 | [TabItem](#tabitem)[] | []  |
 | style | 样式| `string` | - |
 | text | 选项卡图标作用域插槽，接收item、index、active参数 | `slot` | - |

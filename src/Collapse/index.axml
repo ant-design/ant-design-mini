@@ -2,11 +2,11 @@
 
 <view class="amd-collapse {{className ? className : ''}}" style="{{style}}">
   <view a:for="{{items}}" class="amd-collapse-item 
-    {{utils.isActive(utils.getValue(current, selfCurrent, defaultCurrent), index, item.disabled) ? 'amd-collapse-item-active' : ''}} 
+    {{utils.isActive(mixin.value, index, item.disabled) ? 'amd-collapse-item-active' : ''}} 
     {{item.disabled ? 'amd-collapse-item-disabled' : ''}}"
   >
     <view class="amd-collapse-item-title"
-      data-active="{{utils.isActive(utils.getValue(current, selfCurrent, defaultCurrent), index, item.disabled)}}" 
+      data-active="{{utils.isActive(mixin.value, index, item.disabled)}}" 
       data-index="{{index}}"
       data-id="{{$id}}"
       onTap="onChange"
@@ -25,8 +25,8 @@
           </view>
           
           <view class="amd-collapse-item-title-arrow">
-            <slot name="icon" value="{{item}}" index="{{index}}" current="{{utils.getValue(current, selfCurrent, defaultCurrent)}}">
-              <am-icon type="{{utils.isActive(utils.getValue(current, selfCurrent, defaultCurrent), index, item.disabled) ? 'UpOutline' : 'DownOutline'}}" size="x-small" /> 
+            <slot name="icon" value="{{item}}" index="{{index}}" current="{{mixin.value}}">
+              <am-icon type="{{utils.isActive(mixin.value, index, item.disabled) ? 'UpOutline' : 'DownOutline'}}" size="x-small" /> 
             </slot>
           </view>
         </view>

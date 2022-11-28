@@ -1,6 +1,7 @@
 import { TabsDefaultProps } from './props';
 import { IBoundingClientRect } from "../_base";
 import fmtEvent from '../_util/fmtEvent';
+import createValue from '../mixins/value';
 
 function getBoundingClientRect(selector: string) {
   return new Promise<IBoundingClientRect>((resolve, reject) => {
@@ -17,31 +18,23 @@ function getBoundingClientRect(selector: string) {
   });
 }
 
-function getValue(value, selfValue, defaultValue) {
-  if (typeof value !== 'undefined') {
-    return value;
-  }
-  if (typeof selfValue !== 'undefined') {
-    return selfValue;
-  }
-  return defaultValue || 0;
-}
-
-
 Component({
   props: TabsDefaultProps,
   data: {
     scrollLeft: 0,
     leftFade: false,
     rightFade: false,
-    selfCurrent: undefined,
   },
+  mixins: [createValue({
+    valueKey: 'current',
+    defaultValueKey: 'defaultCurrent',
+  })],
   scrollLeft: 0,
   didMount() {
     this.updateScrollLeft();
   },
   didUpdate(prevProps, prevData) {
-    if (prevProps.current !== this.props.current || prevProps.items !== this.props.items || prevData.selfCurrent !== this.data.selfCurrent) {
+    if (prevProps.items !== this.props.items || !this.isEqualValue(prevData)) {
       this.updateScrollLeft();
     }
   },
@@ -66,7 +59,7 @@ Component({
       if (this.props.vertical) {
         return;
       }
-      const current = getValue(this.props.current, this.data.selfCurrent, this.props.defaultCurrent);
+      const current = this.getValue();
       const [view, item] = await Promise.all([
         getBoundingClientRect(`#amd-tabs-bar-scroll-view-${this.$id}`),
         getBoundingClientRect(`#amd-tabs-bar-item-${this.$id}-${current}`),
@@ -101,17 +94,11 @@ Component({
       if (this.props.items[index].disabled) {
         return;
       }
-      if (typeof this.props.current === 'undefined') {
-        if (index === this.data.selfCurrent) {
-          return;
-        }
-        this.setData({
-          selfCurrent: index,
-        });
-      } else {
-        if (index === this.props.current) {
-          return;
-        }
+      if (this.getValue() === index) {
+        return;
+      }
+      if (!this.isControlled()) {
+        this.update(index);
       }
       if (onChange) {
         onChange(index, fmtEvent(this.props, e));

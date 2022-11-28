@@ -23,13 +23,13 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | allowClear | 可以点击清除图标删除内容 | `boolean` | false |  
-| defaultFocus | 聚焦初始值值 | `boolean` | false | 
 | defaultValue | 始值值 | `boolean` | - | 
 | className | 类名| `string` | - |
 | confirmType | type=text 时有效。设置键盘右下角按钮的文字 可选：`done`（完成）\| `go`（前往）\| `next`（下一个）\| `search`（搜索）\| `send`（显示“发送”）| `string` | - |
 | cursor | 指定 focus 时的光标位置 | `number` | - |
 | disabled | 是否禁用 | `boolean` | false |
 | enableNative | 是否启用 Native 渲染，一般不需要使用。[查看为什么需要](https://opendocs.alipay.com/mini/component/input#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%20input%20%E8%BE%93%E5%85%A5%E6%A1%86%E5%9C%A8%20iOS%20%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E5%85%89%E6%A0%87%E6%BC%82%E7%A7%BB%E9%97%AE%E9%A2%98%EF%BC%9F) | `boolean` | - |
+| focus | 聚焦值 | `boolean` | false | 
 | focusClassName | input 输入框focus的样式类名 | `string` | - |
 | focusStyle | input 输入框focus的样式 | `string` | - |
 | maxLength | 最大长度 | `number` | 140 |
@@ -46,29 +46,3 @@ toc: 'content'
 | onFocus | 聚焦时触发触发此回调 | (event: `Event`) => void | - |
 | onBlur | 失焦时触发此回调 | (event: `Event`) => void | - |
 | onChange | 输入时触发此回调 | (value: `string`, event: `Event`) => void | - |
-
-## Input Methods
-注意，使用这个方法需要在 `mini.project.json` 开启 `component2: true`。
-```html
-<input ref="handleRef" />
-<button onTap="focus">focus</button>
-<button onTap="blur">blur</button>
-```
-```js
-Page({
-  handleRef(ref) {
-    this.input = ref;
-  },
-  focus() {
-    this.input.focus();
-  },
-  blur() {
-    this.input.blur();
-  }
-})
-```
-
-| 方法 | 说明 | 类型 |
-| -----|-----|-----|
-| focus | 获取焦点 | () => void | - |
-| blue | 取消焦点 | () => void | - |

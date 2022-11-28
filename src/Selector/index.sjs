@@ -1,22 +1,11 @@
-const getFixedValue = (value, multiple) => {
-  let fixedValue = [];
-  if (value === null) {
-    fixedValue = []
-  } else if (multiple && value.constructor === 'Array') {
-    fixedValue = value
-  } else if (!(value.constructor === 'Array')) {
-    fixedValue =  [value]
+function getChecked(value, values, multiple) {
+  if (!multiple) {
+    return value === values;
   }
-  return fixedValue;
-};
-
-const getIsCurItemSelected = (value, multiple, itemValue) => {
-  const fixedValue = getFixedValue(value, multiple);
-
-  return fixedValue.indexOf(itemValue) !== -1;
+  return (values || []).indexOf(value) > -1;
 }
 
 
 export default {
-  getIsCurItemSelected,
+  getChecked,
 };

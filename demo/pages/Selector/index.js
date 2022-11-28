@@ -3,7 +3,7 @@ Page({
     items1: [
       { text: '选项一', value: '1' },
       { text: '选项二', value: '2' },
-      { text: '选项三', value: '11' },
+      { text: '选项三', value: '3' },
     ],
     items2: [
       { text: '选项一', subText: '描述文案一', value: '1' },
@@ -17,10 +17,9 @@ Page({
     ],
     value: '1',
   },
-  handleChangeValue(e) {
-    const { value } = e.currentTarget.dataset;
+  handleChangeValue() {
     this.setData({
-      value,
+      value: '3',
     });
   },
   handleChange(value, items, e) {

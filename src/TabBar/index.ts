@@ -1,26 +1,24 @@
 import { TabBarDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
+import mixinValue from '../mixins/value';
 
 Component({
   props: TabBarDefaultProps,
-  data: {
-    selfCurrent: undefined,
-  },
+  mixins: [
+    mixinValue({
+      valueKey: 'current',
+      defaultValueKey: 'defaultCurrent',
+    }),
+  ],
   methods: {
     onChange(e) {
       const { index } = e.target.dataset;
-      const { current, onChange } = this.props;
-      if (typeof current === 'undefined') {
-        if (index === this.data.selfCurrent) {
-          return;
-        }
-        this.setData({
-          selfCurrent: index,
-        });
-      } else {
-        if (index === current) {
-          return;
-        }
+      const { onChange } = this.props;
+      if (index === this.getValue()) {
+        return;
+      }
+      if (!this.isControlled()) {
+        this.update(index);
       }
       if (onChange) {
         onChange(index, fmtEvent(this.props, e));

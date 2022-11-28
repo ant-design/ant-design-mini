@@ -20,5 +20,4 @@ function getChecked(index, options, value) {
   return false;
 }
 
-
 export default { getClassName, getChecked };

@@ -1,5 +1,3 @@
-<import-sjs from="./index.sjs" name="utils" />
-
 <view a:if="{{!vertical}}" class="amd-tabs {{className ? className : ''}}" style="{{style}}">
   <view class="amd-tabs-bar {{type === 'basic'?'amd-tabs-bar-underline':''}} {{tabsBarClassName ? tabsBarClassName : ''}}">
     <view class="amd-tabs-bar-plus">
@@ -22,7 +20,7 @@
         <!-- basic 基础类型 -->
         <view 
           a:if="{{type === 'basic'}}"
-          class="amd-tabs-bar-item amd-tabs-bar-basic {{tabClassName ? tabClassName: ''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index && !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-basic {{tabClassName ? tabClassName: ''}} {{mixin.value === index && !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
@@ -35,7 +33,7 @@
         <!-- capsule 胶囊类型 -->
         <view 
           a:elif="{{type === 'capsule'}}"
-          class="amd-tabs-bar-item amd-tabs-bar-capsule {{tabsBarClassName ? tabsBarClassName: ''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-capsule {{tabsBarClassName ? tabsBarClassName: ''}} {{mixin.value === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
@@ -47,9 +45,9 @@
         </view>
 
         <!-- mixin 混合类型 -->
-        <view 
+        <view
           a:else
-          class="amd-tabs-bar-item amd-tabs-bar-mixin {{tabsBarClassName ? tabsBarClassName: ''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
+          class="amd-tabs-bar-item amd-tabs-bar-mixin {{tabsBarClassName ? tabsBarClassName: ''}} {{mixin.value === index&& !item.disabled?'amd-tabs-bar-active':''}} {{item.disabled ?'amd-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           id="amd-tabs-bar-item-{{$id}}-{{index}}"
           onTap="onChange"
           data-index="{{index}}">
@@ -69,8 +67,8 @@
     </scroll-view>
   </view>
   <view class="amd-tabs-content">
-    <slot name="content" value="{{items[utils.getValue(current, selfCurrent, defaultCurrent)]}}" index="{{utils.getValue(current, selfCurrent, defaultCurrent)}}">
-      {{items[utils.getValue(current, selfCurrent, defaultCurrent)].content}}
+    <slot name="content" value="{{items[mixin.value]}}" index="{{mixin.value}}">
+      {{items[mixin.value].content}}
     </slot>
   </view>
 </view>
@@ -82,8 +80,8 @@
       <view class="amd-vtabs-bar-item-wrap">
         <view
           a:for="{{items}}"
-          class="amd-vtabs-bar-item {{tabsBarClassName ? tabsBarClassName: ''}} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&&!item.disabled?'amd-vtabs-bar-item-active' :''}} {{item.disabled?'amd-vtabs-bar-item-disabled' : '' }} {{utils.getValue(current, selfCurrent, defaultCurrent) === index&!item.disabled&&tabActiveClassName?tabActiveClassName : ''}}"
-          style="{{`${utils.getValue(current, selfCurrent, defaultCurrent) + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${utils.getValue(current, selfCurrent, defaultCurrent) - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
+          class="amd-vtabs-bar-item {{tabsBarClassName ? tabsBarClassName: ''}} {{mixin.value === index&&!item.disabled?'amd-vtabs-bar-item-active' :''}} {{item.disabled?'amd-vtabs-bar-item-disabled' : '' }} {{mixin.value === index&!item.disabled&&tabActiveClassName?tabActiveClassName : ''}}"
+          style="{{`${mixin.value + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${mixin.value - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
           onTap="onChange"
           data-index="{{index}}"
         >
@@ -97,8 +95,8 @@
     </scroll-view>
   </view>
   <view class="amd-vtabs-content">
-    <slot name="content" value="{{items[utils.getValue(current, selfCurrent, defaultCurrent)]}}" index="{{utils.getValue(current, selfCurrent, defaultCurrent)}}">
-      {{items[utils.getValue(current, selfCurrent, defaultCurrent)].content}}
+    <slot name="content" value="{{items[mixin.value]}}" index="{{mixin.value}}">
+      {{items[mixin.value].content}}
     </slot>
   </view>
 </view>
