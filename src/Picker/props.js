@@ -5,4 +5,5 @@ export const PickerDefaultProps = {
   maskClosable: false,
   options: [],
   placeholder: '请选择',
+  defaultValue: [],
 };

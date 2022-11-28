@@ -26,7 +26,6 @@
       inputStyle="{{inputStyle}}"
       precision="{{precision}}"
       onBlur="{{onBlur}}"
-      onChange="{{onChange}}"
       onConfirm="{{onConfirm}}"
       onFocus="{{onFocus}}"
     />

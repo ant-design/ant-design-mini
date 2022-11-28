@@ -51,22 +51,3 @@ toc: false
 | onChange   | (index: number) => void \| boolean | 否   | -      | 步骤改变回调，返回false时阻止默认步骤改变| 
 | onCancel   | () => void              | 否   | -      | 关闭回调           |
 | className  | string                  | 否   | -      | 类名               |
-
-## 插槽
-
-| 名称           | 说明           |
-| -------------- | -------------- |
-| step-{{index}} | 自定义内容插槽 |
-
-## 样式类
-
-#### GuideTour
-
-| 类名                     | 说明             |
-| ------------------------ | ---------------- |
-| amd-guide-tour           | 整体样式         |
-| amd-guide-tour-clear     | 关闭按钮样式     |
-| amd-guide-tour-indicator | 进度标志整体样式 |
-| amd-guide-tour-button    | 按钮组整体样式   |
-| amd-guide-tour-item      | 步骤整体样式     |
-| amd-guide-tour-item-img  | 图片样式         |
