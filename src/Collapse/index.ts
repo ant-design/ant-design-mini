@@ -1,6 +1,7 @@
 import { CollapseDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import { IBoundingClientRect } from "../_base";
+import createValue from '../mixins/value';
 
 
 function getBoundingClientRect(selector: string) {
@@ -18,33 +19,34 @@ function getBoundingClientRect(selector: string) {
   });
 }
 
-function getValue(value, selfValue, defaultValue) {
-  if (typeof value !== 'undefined') {
-    return value;
-  }
-  if (typeof selfValue !== 'undefined') {
-    return selfValue;
-  }
-  return defaultValue || [];
-}
 
 Component({
   props: CollapseDefaultProps,
   data: {
     contentHeight: [],
     hasChange: false,
-    selfCurrent: undefined,
   },
+  mixins: [createValue({
+    valueKey: 'current',
+    defaultValueKey: 'defaultCurrent',
+    transformValue(current) {
+      const value = this.formatCurrent(current);
+      return {
+        needUpdate: true,
+        value,
+      };
+    },
+  })],
   didUpdate(prevProps, prevData) {
-    if (prevProps.current !== this.props.current || prevProps.items !== this.props.items || prevData.selfCurrent !== this.data.selfCurrent) {
+    if (prevProps.items !== this.props.items || !this.isEqualValue(prevData)) {
       this.updateContentHeight(
-        getValue(prevProps.current, prevData.selfCurrent, this.props.defaultCurrent),
-        getValue(this.props.current, this.data.selfCurrent, this.props.defaultCurrent)
+        this.getValue(prevData),
+        this.getValue()
       );
     }
   },
   didMount() {
-    const current = this.formatCurrent(getValue(this.props.current, this.data.selfCurrent, this.props.defaultCurrent));
+    const current = this.getValue();
     const contentHeight = this.props.items.map((item, index) => {
       if (current.indexOf(index) >= 0) {
         return '';
@@ -54,25 +56,31 @@ Component({
     this.setData({
       hasChange: true,
       contentHeight,
-    })
+    });
   },
   methods: {
     formatCurrent(val: number[]) {
-      const current = [...(val || [])];
+      let current = [...(val || [])];
       const items = this.props.items;
-      return current.filter(item => {
+      current = current.filter(item => {
         if (!items[item] || items[item].disabled) {
           return false;
         }
         return true;
       });
+      if (this.props.accordion) {
+        current = current.length > 0 ? [current[0]] : [];
+      }
+      return [...current];
     },
     onChange(e) {
       const itemIndex = parseInt(e.currentTarget.dataset.index, 10);
       if (this.props.items[itemIndex] && this.props.items[itemIndex].disabled) {
         return;
       }
-      let current = this.formatCurrent(getValue(this.props.current, this.data.selfCurrent, this.props.defaultCurrent));
+      const arr = this.getValue();
+      let current = [...arr];
+      console.log(arr, current);
       const index = current.indexOf(itemIndex);
       if (index >= 0) {
         current.splice(index, 1);
@@ -84,18 +92,16 @@ Component({
           current.sort();
         }
       }
-      if (typeof this.props.current === 'undefined') {
-        this.setData({
-          selfCurrent: current,
-        });
+      if (!this.isControlled()) {
+        this.update(current);
       }
       if (this.props.onChange) {
         this.props.onChange(current, fmtEvent(this.props, e));
       }
     },
     async updateContentHeight(prevCurrent: number[], nextCurrent: number[]) {
-      const prevCurrentArray = this.formatCurrent(prevCurrent);
-      const nextCurrentArray = this.formatCurrent(nextCurrent);
+      const prevCurrentArray = prevCurrent;
+      const nextCurrentArray = nextCurrent;
       const expandArray = [];
       const closeArray = [];
       nextCurrentArray.forEach(item => {
@@ -138,7 +144,7 @@ Component({
     },
     resetContentHeight(e) {
       const index = parseInt(e.currentTarget.dataset.index, 10);
-      if (this.formatCurrent(getValue(this.props.current, this.data.selfCurrent, this.props.defaultCurrent)).indexOf(index) < 0) {
+      if (this.getValue().indexOf(index) < 0) {
         return;
       }
       const contentHeight = [...this.data.contentHeight];

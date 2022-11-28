@@ -1,11 +1,9 @@
 Page({
-  data: {
-    checked: false,
-  },
   onChange(checked, e) {
-    console.log('change checked', checked, 'e', e)
+    console.log(checked)
   },
   handleChange(checked, e) {
+    console.log(checked);
     this.setData({
       checked,
     });

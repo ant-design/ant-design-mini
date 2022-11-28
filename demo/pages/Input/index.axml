@@ -28,21 +28,6 @@
   </input>
 </container>
 
-<container title="输入金额">
-  <input
-    placeholder="请输入金额"
-    onChange="onChange"
-    type="digit"
-    className="input money"
-    focusClassName="border"
-  >
-    <icon slot="prefix" type="PayOutline" />
-    <view slot="suffix">
-      RMB
-    </view>
-  </input>
-</container>
-
 <container title="搜索">
   <input
     placeholder="请输入内容"
@@ -64,7 +49,7 @@
 </container>
 
 <container title="控制focus、blur">
-  <input placeholder="请输入内容" ref="handleRef" />
+  <input placeholder="请输入内容" focus="{{focus}}" />
   <button onTap="focus" inline style="margin: 8px;">focus</button>
   <button onTap="blur" inline>blur</button>
 </container>
@@ -73,10 +58,29 @@
 <container title="受控模式">
   <input
     value="{{value}}"
-    placeholder="请输入数字"
+    placeholder="请输入内容"
     type="digit"
     allowClear
     onChange="handleChange"
-    onClear="handleClear"
+    onClear="clear"
   />
+
+  <button onTap="clear" inline>clear</button>
+</container>
+
+
+<container title="受控模式-输入金额">
+  <input
+    placeholder="请输入金额"
+    value="{{money}}"
+    onChange="handleMoney"
+    type="digit"
+    className="input money"
+    focusClassName="border"
+  >
+    <icon slot="prefix" type="PayOutline" />
+    <view slot="suffix">
+      RMB
+    </view>
+  </input>
 </container>

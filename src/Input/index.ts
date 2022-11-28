@@ -5,26 +5,17 @@ Component({
   props: InputDefaultProps,
   data: {
     selfValue: undefined,
-    selfFocus: undefined,
+    selfFocus: false,
+    controlled: false,
   },
-  ref() {
-    return {
-      focus: () => {
-        this.setData({
-          selfFocus: true,
-        });
-      },
-      blur: () => {
-        this.setData({
-          selfFocus: false,
-        });
-      },
-    }
+  didMount() {
+    this.setData({
+      controlled: 'value' in this.props,
+    });
   },
   methods: {
-    onChange(e) {
-      const value = e.detail.value;
-      if (!('value' in this.props)) {
+    onChange(value, e) {
+      if (!this.data.controlled) {
         this.setData({
           selfValue: value,
         });
@@ -61,11 +52,6 @@ Component({
       if (this.props.onClear) {
         this.props.onClear(fmtEvent(this.props, e));
       }
-    },
-    onTap() {
-      this.setData({
-        selfFocus: true,
-      });
     },
   }
 });

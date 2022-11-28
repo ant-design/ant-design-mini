@@ -17,6 +17,7 @@
     "pages/Picker/index",
     "pages/DatePicker/index",
     "pages/Input/index",
+    "pages/InputBase/index",
     "pages/Badge/index",
     "pages/Button/index",
     "pages/ButtonInline/index",

@@ -20,5 +20,11 @@ function getChecked(index, options, value) {
   return false;
 }
 
+function getValue(hasChange, value, defaultValue) {
+  if (hasChange || typeof value !== 'undefined') {
+    return value;
+  }
+ return defaultValue;
+}
 
-export default { getClassName, getChecked };
+export default { getClassName, getChecked, getValue };
