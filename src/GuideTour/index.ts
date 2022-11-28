@@ -1,59 +1,36 @@
-import equal from 'fast-deep-equal';
 import { GuideTourDefaultProps } from './props';
-import { changeButtonVisible } from './utils';
-import { log } from '../_util/console';
+import mixinValue from '../mixins/value';
 
 Component({
-  data: {
-    nextButtonVisible: false,
-    lastButtonVisible: false,
-    jumpButtonVisible: false,
-    knowButtonVisible: false,
-    current: 0,
-  },
+  mixins: [
+    mixinValue({
+      valueKey: 'current',
+      defaultValueKey: 'defaultCurrent',
+    }),
+  ],
   props: GuideTourDefaultProps,
-  didMount() {
-    const { index } = this.props;
-    if (typeof index !== 'number') {
-      log.error(
-        'GuideTour',
-        `当前激活的索引值类型非 number 类型，修改当前 index 的 ${typeof index} 类型，以保证展示的正确性。`
-      );
-    } else {
-      this.setData({ current: index });
-      this.buttonController();
-    }
-  },
-  didUpdate(prevProps) {
-    const { index } = this.props;
-    if (
-      (prevProps.index !== index && index !== this.data.current) ||
-      !equal(this.props.steps, prevProps.steps)
-    ) {
-      this.setData({ current: index });
-      this.buttonController();
-    }
-  },
   methods: {
     async onNext() {
-      const { onChange, steps } = this.props;
-      const { current } = this.data;
-      if (current < steps.length - 1) {
-        if (!onChange || (await onChange(current + 1)) !== false) {
-          this.setData({ current: current + 1 });
-          this.buttonController();
-        }
+      const currentValue = this.getValue();
+      const { onChange } = this.props;
+      const newCurrent = currentValue + 1;
+      if (!this.isControlled()) {
+        this.update(newCurrent);
+      }
+      if (onChange) {
+        onChange(newCurrent);
       }
     },
 
     async onPrev() {
+      const currentValue = this.getValue();
       const { onChange } = this.props;
-      const { current } = this.data;
-      if (current !== 0) {
-        if (!onChange || (await onChange(current - 1)) !== false) {
-          this.setData({ current: current - 1 });
-          this.buttonController();
-        }
+      const newCurrent = currentValue - 1;
+      if (!this.isControlled()) {
+        this.update(newCurrent);
+      }
+      if (onChange) {
+        onChange(newCurrent);
       }
     },
 
@@ -64,39 +41,14 @@ Component({
       }
     },
 
-    async handleSwiperChange(e) {
+    async onSwiperChange(e) {
       const { current } = e.detail;
       const { onChange } = this.props;
-      if (!onChange || (await onChange(current)) !== false) {
-        this.setData({ current });
-        this.buttonController();
+      if (!this.isControlled()) {
+        this.update(current);
       }
-    },
-
-    buttonController() {
-      const { steps } = this.props;
-      const { current } = this.data;
-      if (steps.length === 1) {
-        this.setData(changeButtonVisible(['knowButtonVisible']));
-      } else {
-        switch (current) {
-          case 0:
-            this.setData(
-              changeButtonVisible(['jumpButtonVisible', 'nextButtonVisible'])
-            );
-            break;
-
-          case steps.length - 1:
-            this.setData(
-              changeButtonVisible(['lastButtonVisible', 'knowButtonVisible'])
-            );
-            break;
-          default:
-            this.setData(
-              changeButtonVisible(['lastButtonVisible', 'nextButtonVisible'])
-            );
-            break;
-        }
+      if (onChange) {
+        onChange(current);
       }
     },
   },

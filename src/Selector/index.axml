@@ -1,11 +1,11 @@
-<import-sjs from="./index.sjs" name="selector" />
+<import-sjs from="./index.sjs" name="util" />
 
 <view class="amd-selector {{className ? className : ''}} {{disabled ? 'amd-selector-disabled' : ''}}" style="{{style}}">
   <view class="amd-selector-content-container">
-    <view a:for="{{items}}" class="amd-selector-content {{items.length <= 2 ? 'amd-selector-content-item2' : ''}}">
+    <view a:for="{{options}}" class="amd-selector-content {{options.length <= 2 ? 'amd-selector-content-item2' : ''}}">
       <view
-        class="amd-selector-item {{item.disabled ? 'amd-selector-item-disabled' : ''}} {{selector.getIsCurItemSelected(cValue, multiple, item.value) ? `amd-selector-item-active ${activeItemClassName ? activeItemClassName: ''}` :''}}"
-        style="{{selector.getIsCurItemSelected(cValue, multiple, item.value) ? activeItemStyle : ''}}"
+        class="amd-selector-item {{item.disabled ? 'amd-selector-item-disabled' : ''}} {{util.getChecked(item.value, mixin.value, multiple) ? `amd-selector-item-active ${activeItemClassName ? activeItemClassName: ''}` :''}}"
+        style="{{util.getChecked(item.value, mixin.value, multiple) ? (activeItemStyle||'') : ''}}"
         data-value="{{item.value}}"
         data-disabled="{{item.disabled}}"
         onTap="onChange">
@@ -14,7 +14,7 @@
         <view class="amd-selector-item-subtext"
           a:if="{{item.subText}}">{{item.subText}}</view>
         <view class="amd-selector-item-badge-active"
-            a:if="{{selector.getIsCurItemSelected(cValue, multiple, item.value)}}" />
+            a:if="{{util.getChecked(item.value, mixin.value, multiple)}}" />
       </view>
     </view>
   </view>

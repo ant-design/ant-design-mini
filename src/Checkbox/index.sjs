@@ -13,8 +13,8 @@ function getClassName(checked, disabled) {
   }
 }
 
-function getChecked(item, value) {
+function getCheckboxChecked(item, value) {
   return (value || []).indexOf(item.value) > -1;
 }
 
-export default { getClassName, getChecked };
+export default { getClassName, getCheckboxChecked };
