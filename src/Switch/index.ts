@@ -1,9 +1,9 @@
-import { RadioDefaultProps } from './props';
+import { SwitchDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
 
 Component({
-  props: RadioDefaultProps,
+  props: SwitchDefaultProps,
   mixins: [mixinValue({
     valueKey: 'checked',
     defaultValueKey: 'defaultChecked',

@@ -14,7 +14,7 @@
   <input
     placeholder="请输入内容"
     allowClear
-  />
+  >
   </input>
 </container>
 
