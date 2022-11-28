@@ -1,8 +1,10 @@
 <container title="基础用法">
+  <stepper onChange="onChange" />
+</container>
+
+<container title="初始值">
   <stepper 
-    defaultValue="{{0}}"
-    step="{{1}}"
-  />
+    defaultValue="{{0}}" />
 </container>
 
 <container title="步长设置 0.01">
@@ -30,9 +32,16 @@
 </container>
 
 <container title="受控组件">
+  value: {{value}}
   <stepper 
     value="{{value}}"
-    step="{{1}}"
+    focus="{{focus}}"
     onChange="handleChange"
+    style="margin: 8px 0"
   />
+  <button inline onTap="add">add</button>
+  <button inline onTap="minus">minus</button>
+  <button inline onTap="clear">clear</button>
+  <button inline onTap="focus">focus</button>
+  <button inline onTap="blur">blur</button>
 </container>

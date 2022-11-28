@@ -1,11 +1,8 @@
-<import-sjs from="../_util/getValue.sjs" name="utils" />
-
 <view class="amd-input-item 
     {{disabled ? 'amd-input-item-disabled' : ''}}
     {{className ? className : ''}}
-    {{utils.getValue(undefined, selfFocus, defaultFocus) ? (focusClassName ? focusClassName : '') : '' }}"
+    {{selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{(style || '') + ';' + (focusStyle || '')}}"
-  onTap="onTap"
 >
   <view class="amd-input-item-prefix">
     <slot name="prefix">
@@ -17,32 +14,33 @@
       <input
         enableNative="{{enableNative}}" 
         name="{{name}}"
-        controlled="{{typeof value !== 'undefined' && type && type !== 'text'}}"
-        class="amd-input-item-content"
+        class="amd-input-item-content {{inputClassName}}"
+        style="{{inputStyle}}"
         disabled="{{disabled}}" 
-        value="{{utils.getValue(value, selfValue, defaultValue)}}" 
+        value="{{controlled ? value : selfValue}}"
+        defaultValue="{{defaultValue}}"
         type="{{type}}"
         password="{{password}}"
         placeholder="{{placeholder}}" 
         placeholder-class="amd-input-item-placeholder-base {{placeholderClass ? placeholderClass : ''}}" 
         placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" 
         maxlength="{{maxLength}}" 
-        focus="{{utils.getValue(undefined, selfFocus, defaultFocus)}}"
+        focus="{{focus}}"
         confirm-type="{{confirmType}}" 
         confirm-hold="{{confirmHold}}" 
         cursor="{{cursor}}"
         selection-start="{{selectionStart}}" 
         selection-end="{{selectionEnd}}" 
         random-number="{{randomNumber}}" 
-        onInput="onChange" 
-        onConfirm="onConfirm" 
+        onChange="onChange"
+        onConfirm="onConfirm"
         onFocus="onFocus"
         onBlur="onBlur"
       />
     </view>
     <view
       a:if="{{allowClear}}"
-      class="amd-input-item-clear {{utils.getValue(value, selfValue, defaultValue).length > 0 && utils.getValue(undefined, selfFocus, defaultFocus) ? 'show' : 'hidden'}}" 
+      class="amd-input-item-clear {{(controlled ? value : selfValue) && (controlled ? value : selfValue).length > 0 && selfFocus ? 'show' : 'hidden'}}" 
       onTap="onClear">
       <icon size="x-small" class="amd-input-item-clear-icon" type="CloseCircleFill" ></icon>
     </view>

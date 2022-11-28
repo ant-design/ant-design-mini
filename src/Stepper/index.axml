@@ -1,11 +1,9 @@
-<import-sjs from="../_util/getValue.sjs" name="utils" />
-
 <view class="amd-stepper {{className ? className : ''}}" style="{{style}}">
-  <button 
+  <button
     className="amd-stepper-handler-down"
     data-mode="minus"
-    disabled="{{disabled || utils.getValue(value, selfValue, defaultValue) <= min || utils.getValue(value, nextValue, defaultValue) < min }}"
-    onTap="onChange">
+    disabled="{{disabled || mixin.value === '' || mixin.value <= min}}"
+    onTap="onTap">
     <view class="amd-stepper-handler-down-inner">
       <icon type="MinusOutline"
       size="x-small" />
@@ -18,11 +16,11 @@
       type="{{type}}"
       disabled="{{disabled}}"
       focus="{{focus}}"
-      onInput="onInput"
+      onChange="onChange"
       onFocus="onFocus"
       onBlur="onBlur"
       onConfirm="onConfirm"
-      value="{{utils.getValue(value, selfValue, defaultValue)}}"
+      value="{{mixin.value}}"
     />
   </view>
 
@@ -30,8 +28,8 @@
     className="amd-stepper-handler-up"
     activeClassName="amd-stepper-handler-up-hover"
     data-mode="add"
-    disabled="{{disabled || utils.getValue(value, selfValue, defaultValue) >= max || utils.getValue(value, nextValue, defaultValue) > max}}"
-    onTap="onChange">
+    disabled="{{disabled || mixin.value === '' || mixin.value >= max}}"
+    onTap="onTap">
     <view class="amd-stepper-handler-up-inner">
       <icon type="AddOutline"/>
     </view>

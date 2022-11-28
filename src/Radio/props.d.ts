@@ -1,8 +1,9 @@
 import { IBaseProps } from '../_base';
 
-export interface IRadioItemProps extends IBaseProps {
+export interface IRadioProps extends IBaseProps {
+  defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;
   onChange?: (checked: boolean, e: any) => void;
 }
-export declare const RadioItemDefaultProps: Partial<IRadioItemProps>;
+export declare const RadioDefaultProps: Partial<IRadioProps>;
