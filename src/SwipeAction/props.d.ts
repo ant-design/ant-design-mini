@@ -28,20 +28,10 @@ interface ISwipeActionProps extends IBaseProps  {
    */
    right?: SwipeButton[];
   /**
-   * @description 滑出按钮宽度
-   * @default 150
-   */
-   itemWidth?: number;
-  /**
    * @description 滑动速度
    * @default 20
    */
    damping?: number;
-  /**
-   * @description 唯一标识
-   * @default ''
-   */
-   key: string;
   /**
    * @description 滑动弹性
    * @default true
@@ -63,29 +53,20 @@ interface ISwipeActionProps extends IBaseProps  {
    */
    disable?: boolean;
   /**
-   * @description 回调数据
-   * @default {}
-   */
-   callbackData?: object;
-  /**
    * @description 滑动结束
    */
-   onSwipeEnd: (key: string, swipeObj: SwipeEnd, callbackData: object) => void;
+   onSwipeEnd: (swipeObj: SwipeEnd, callbackData: object) => void;
   /**
    * @description 滑动、触摸开始
    */
-   onSwipeStart: (key: string, callbackData: object) => void;
-  /**
-   * @description 触摸结束
-   */
-   onTouchEnd: (key: string, callbackData: object) => void;
+   onSwipeStart: (callbackData: object) => void;
   /**
    * @description 右侧滑动按钮的点击事件回调
    */
-   onRightItemEvent: (type: string, key: string, callbackData: object) => void;
+   onRightItemEvent: (type: string, callbackData: object) => void;
   /**
    * @description 左侧滑动按钮的点击事件回调
    */
-   onLeftItemEvent: (type: string, key: string, callbackData: object) => void;
+   onLeftItemEvent: (type: string, callbackData: object) => void;
 }
 export declare const SwipeActionDefaultProps: Partial<ISwipeActionProps>;

@@ -1,55 +1,205 @@
 <view class="t-swipe">
-  <view class="t-swipe-item" a:for="{{baseList}}" key="{{item.event.left.length + '-' + item.event.right.length + '-' + damping}}">
+  <view class="t-swipe-item">
+    <view class="t-swipe-item-title">按钮在左侧-基础用法</view>
     <swipe-action
-      rightSwiped="{{item.event.key === swipeStr}}"
-      leftSwiped="{{item.event.key === swipeStr}}"
-      right="{{item.event.right || []}}"
-      left="{{item.event.left || []}}"
-      key="{{item.event.key}}"
-      callbackData="{{ item.event }}"
-      itemWidth="{{item.event.itemWidth}}"
-      disable="{{item.event.disable}}"
-      inertia="{{inertia}}"
-      damping="{{damping}}"
-      onRightItemEvent="onRightItemEvent"
-      onLeftItemEvent="onLeftItemEvent"
+      data-item="{{{index: 1}}}"
+      leftButtons="{{[set]}}"
+      swiped="{{swipedIdx === 1}}"
+      animation="{{false}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
-      onTouchEnd="onTouchEnd">
+      onButtonTap="onButtonTap"
+      >
       <view class="t-swipe-item-con">
-        {{ item.detail }}
+        一个按钮
       </view>
     </swipe-action>
-  </view>
-  <view class="s-action">
-    <view class="s-action-title">事件按钮放置位置</view>
-    <radio-group
-      class="radio-group"
-      options="{{list}}"
-      position="horizontal"
-      onChange="handleChange"
-    />
-    <view class="s-action-title">二次确认效果</view>
-    <radio-group
-      class="radio-group"
-      options="{{list}}"
-      position="horizontal"
-      onChange="handleChangeCheck"
-    />
-    <view class="s-action-title">是否带有滑动回弹</view>
-    <view class="s-action-switch">
-      <switch onChange="onChangeSwitch" checked="{{inertia}}" />
-    </view>
-    <view class="s-action-title">滑动速度</view>
-    <view class="s-action-switch">
-      <slider 
-        min="{{0}}"
-        max="{{100}}"
-        value="{{damping}}"
-        step="{{10}}"
-        ticks="{{true}}"
-        showNumber="{{true}}"
-        onAfterChange="handleAfterChange"/>
-    </view>
+    <swipe-action
+      data-item="{{{index: 2}}}"
+      leftButtons="{{[set, his]}}"
+      swiped="{{swipedIdx === 2}}"
+      animation="{{false}}"
+      damping="20"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        两个按钮-设置弹性速度
+      </view>
+    </swipe-action>
+    <swipe-action
+      data-item="{{{index: 3}}}"
+      leftButtons="{{[set, his, del]}}"
+      swiped="{{swipedIdx === 3}}"
+      animation="{{true}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        三个按钮-弹性动画
+      </view>
+    </swipe-action>
+    <view class="t-swipe-item-title">按钮在右侧-基础用法</view>
+    <swipe-action
+      data-item="{{{index: 4}}}"
+      rightButtons="{{[set]}}"
+      swiped="{{swipedIdx === 4}}"
+      animation="{{false}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        一个按钮
+      </view>
+    </swipe-action>
+    <swipe-action
+      data-item="{{{index: 5}}}"
+      rightButtons="{{[set, his]}}"
+      swiped="{{swipedIdx === 5}}"
+      animation="{{false}}"
+      damping="20"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        两个按钮-设置弹性速度
+      </view>
+    </swipe-action>
+    <swipe-action
+      data-item="{{{index: 6}}}"
+      rightButtons="{{[set, his, del]}}"
+      swiped="{{swipedIdx === 6}}"
+      animation="{{true}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        三个按钮-弹性动画
+      </view>
+    </swipe-action>
+    <view class="t-swipe-item-title">按钮在右侧-点击二次确认-弹性动画</view>
+    <swipe-action
+      data-item="{{{index: 7}}}"
+      rightButtons="{{[{...setTap, width: 330}]}}"
+      swiped="{{swipedIdx === 7}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        一个按钮-自定义按钮宽度
+      </view>
+    </swipe-action>
+    <swipe-action
+      data-item="{{{index: 8}}}"
+      rightButtons="{{[setTap, {...hisTap, width: 200}]}}"
+      swiped="{{swipedIdx === 8}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        两个按钮-自定义按钮宽度
+      </view>
+    </swipe-action>
+    <swipe-action
+      data-item="{{{index: 9}}}"
+      rightButtons="{{[setTap, hisTap, {...delTap, width: 120}]}}"
+      swiped="{{swipedIdx === 9}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        三个按钮-自定义按钮宽度
+      </view>
+    </swipe-action>
+    <view class="t-swipe-item-title">按钮在右侧-滑动二次确认-弹性动画</view>
+    <swipe-action
+      data-item="{{{index: 10}}}"
+      rightButtons="{{[{...setTap, confirmType: 'move', width: 340}]}}"
+      swiped="{{swipedIdx === 10}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        一个按钮-自定义按钮宽度
+      </view>
+    </swipe-action>
+    <swipe-action
+      data-item="{{{index: 11}}}"
+      rightButtons="{{[{...setTap, confirmType: 'move'}, hisTap]}}"
+      swiped="{{swipedIdx === 11}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        两个按钮(限制:仅一个按钮可设置滑动确认)
+      </view>
+    </swipe-action>
+    <swipe-action
+      data-item="{{{index: 12}}}"
+      rightButtons="{{[setTap, hisTap, moveTap]}}"
+      swiped="{{swipedIdx === 12}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        三个按钮(限制:仅一个按钮可设置滑动确认)
+      </view>
+    </swipe-action>
+    <view class="t-swipe-item-title">左右测都有按钮(限制: 两侧所有按钮宽度相加需要相等)</view>
+    <swipe-action
+      data-item="{{{index: 13}}}"
+      leftButtons="{{[set]}}"
+      rightButtons="{{[set]}}"
+      swiped="{{swipedIdx === 13}}"
+      animation="{{false}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        一个按钮
+      </view>
+    </swipe-action>
+    <swipe-action
+      data-item="{{{index: 14}}}"
+      leftButtons="{{[set, his]}}"
+      rightButtons="{{[set, his]}}"
+      swiped="{{swipedIdx === 14}}"
+      animation="{{false}}"
+      damping="20"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        两个按钮-设置弹性速度
+      </view>
+    </swipe-action>
+    <swipe-action
+      data-item="{{{index: 15}}}"
+      leftButtons="{{[set, his, del]}}"
+      rightButtons="{{[set, his, del]}}"
+      swiped="{{swipedIdx === 15}}"
+      animation="{{true}}"
+      onSwipeEnd="onSwipeEnd"
+      onSwipeStart="onSwipeStart"
+      onButtonTap="onButtonTap"
+      >
+      <view class="t-swipe-item-con">
+        三个按钮-弹性动画
+      </view>
+    </swipe-action>
+    <view class="safe-view"></view>
   </view>
 </view>

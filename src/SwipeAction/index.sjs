@@ -22,12 +22,13 @@ const getSlotWidthStyle = (rightWidth, leftWidth, left = [], right = [], inertia
     return { width : `100%`, marginLeft: `0` };
   }
 };
-const getLeft = (tapType, item, idx, right, isLeft) => {
+const getLeft = (tapType, idx, right, isLeft) => {
+  const tip = !isLeft ? 'L-' : 'R-';
   if (right.length === 1) {
-    return tapType && tapType === item.type ? 'text-move-midd' : '';
+    return tapType && tapType === `${tip}${idx}` ? 'text-move-midd' : '';
   }
   if (right.length === 3 && idx === 1) {
-    return tapType && tapType === item.type ? 'text-move-midd' : '';
+    return tapType && tapType === `${tip}${idx}` ? 'text-move-midd' : '';
   }
   let cls = '';
   if (idx === 0) {
@@ -35,7 +36,7 @@ const getLeft = (tapType, item, idx, right, isLeft) => {
   } else {
     cls = isLeft ? 'text-move-right' : 'text-move-left';
   }
-  return tapType && tapType === item.type ? cls : '';
+  return tapType && tapType === `${tip}${idx}` ? cls : '';
 }
 
 const getWidth2 = (rightWidth, leftWidth, inertiaWidth) => {
@@ -45,11 +46,15 @@ const getWidth2 = (rightWidth, leftWidth, inertiaWidth) => {
 const getMarginLeft2 = (rightWidth, leftWidth, inertiaWidth) => {
   const num = rightWidth > 0 ? inertiaWidth : 0;
   const width = rightWidth > leftWidth ? rightWidth : leftWidth;
-  return leftWidth && rightWidth ? `${(leftWidth + num) / 2}px` : (leftWidth > 0 ? 0 : `${(width + inertiaWidth) / 2}px`);
+  return leftWidth && rightWidth ? `${(width + num) / 2}px` : (leftWidth > 0 ? 0 : `${(width + inertiaWidth) / 2}px`);
 };
 const getMarginLeft3 = (rightWidth, leftWidth, inertiaWidth) => {
   const width = rightWidth > leftWidth ? rightWidth : leftWidth;
   return leftWidth && rightWidth ? `calc(100% - ${(width + inertiaWidth) / 2}px)` : `calc(100% - ${(rightWidth) / 2 - 1}px)`;
+};
+const getMoveX = (rightButtons, idx) => {
+  const arr = rightButtons.slice(idx, rightButtons.length);
+  return arr.reduce((tolal, cur) => { return parseFloat(tolal) + cur.width }, 0);
 };
 
 
@@ -61,4 +66,5 @@ export default {
   getWidth,
   getSlotWidthStyle,
   getMarginLeft,
+  getMoveX,
 };
