@@ -1,10 +1,10 @@
+<import-sjs from="./index.sjs" name="{getChecked}" />
 <view class="amd-checklist {{className ? className : ''}}" style="{{style || ''}}">
   <view class="amd-checklist-body">
     <checklist-item
       a:for="{{options}}"
-      value="{{cValue}}"
+      checked="{{getChecked(item.value,mixin.value,multiple)}}"
       item="{{item}}"
-      multiple="{{multiple}}"
       onChange="onChange"
     >
       <view slot="content" class="amd-checklist-item-content-box-nut">
