@@ -2,21 +2,29 @@ import { ModalDefaultProps } from './props';
 
 Component({
   props: ModalDefaultProps,
-  data: {
-    isShowBtn: true,
-  },
   methods: {
     onClose() {
       const { onClose } = this.props;
-      if (typeof onClose === 'function') {
-        return onClose();
+      if (onClose) {
+        onClose();
       }
     },
-    onButtonTap(e) {
-      const { onButtonTap } = this.props;
-      if (typeof onButtonTap === 'function') {
-        const { type } = e.currentTarget.dataset;
-        return onButtonTap(type);
+    onPrimaryButtonTap() {
+      const { onPrimaryButtonTap } = this.props;
+      if (onPrimaryButtonTap) {
+        onPrimaryButtonTap();
+      }
+    },
+    onSecondaryButtonTap() {
+      const { onSecondaryButtonTap } = this.props;
+      if (onSecondaryButtonTap) {
+        onSecondaryButtonTap();
+      }
+    },
+    onCancelButtonTap() {
+      const { onCancelButtonTap } = this.props;
+      if (onCancelButtonTap) {
+        onCancelButtonTap();
       }
     },
   },
