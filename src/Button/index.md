@@ -21,6 +21,9 @@ toc: 'content'
 ### Icon
 <code src='pages/ButtonIcon/index'></code>
 
+### 更多自定义
+<code src='pages/ButtonCustom/index'></code>
+
 ## API
 
 ### button

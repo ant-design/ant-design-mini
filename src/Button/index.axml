@@ -13,19 +13,6 @@
   class="amd-button {{inline ? `amd-button-inline ${utils.getClass(size)}` : ''}} {{`amd-button-${type}${danger ? '-danger' : ''}`}} {{(disabled || loading) ? 'amd-button-disabled' : ''}} {{className ? className : ''}}"
   style="{{ inline && typeof size !== 'undefined' ? `font-size: ${size}px;` : ''}} {{style ? style : ''}}"
 >
-  
-  <!-- <block a:if="{{loading}}">
-    <view class="amd-button-loading-container {{inline ? 'amd-button-loading-container-inline' : ''}}">
-      <view class="amd-button-loading-text {{inline ? `amd-button-loading-text-${inlineSize}` : '' }}"
-        a:if="{{loadingText}}"></view>
-      <view class="amd-button-loading {{inline ? `amd-button-loading-inline amd-button-loading-${inlineSize}` : ''}}">
-        <loading 
-          type="mini"
-          color="currentColor"
-        />
-      </view>
-    </view>
-  </block> -->
   <view class="amd-button-wrap">
     <block a:if="{{icon}}">
       <icon type="{{icon}}" style="{{typeof size !== 'undefined' ? `font-size: ${size}:px;` : ''}}" />

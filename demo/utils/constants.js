@@ -18,6 +18,11 @@ export const componentList = [
         path: '/pages/ButtonIcon/index',
       },
       {
+        name: 'ButtonCustom',
+        nameZN: '按钮-Custom',
+        path: '/pages/ButtonCustom/index',
+      },
+      {
         name: 'Icon',
         nameZN: '图标',
         path: '/pages/Icon/index',
