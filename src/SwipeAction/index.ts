@@ -27,17 +27,7 @@ const getDirectionLeft = (arr: number[]): boolean => {
 }
 
 Component({
-  props: {
-    leftButtons: [],
-    rightButtons: [],
-    animation: true,
-    swiped: '',
-    damping: 60,
-    disable: false,
-    onSwipeStart: (obj) => {},
-    onSwipeEnd: (obj) => {},
-    onButtonTap: (obj) => {},
-  },
+  props: SwipeActionDefaultProps,
   data: {
     swipeLeft: true, // 是否是进行左滑
     swipeX: 0, // 主体部分左滑的位置
@@ -56,9 +46,9 @@ Component({
     inertiaWidth: 20,
   },
   didMount() {
-    const { swiped, animation } = this.props;
+    const { swiped, elasticity } = this.props;
     this.setButtonItemWidth();
-    this.setData({ inertiaWidth: animation ? 20 : 0 });
+    this.setData({ inertiaWidth: elasticity ? 20 : 0 });
     if (swiped) {
       this.initWidth((maxSwipe: any) => {
         maxSwipe && this.setData({
@@ -70,16 +60,16 @@ Component({
     }
   },
   didUpdate(prevProp) {
-    const { swiped, damping, animation } = this.props;
+    const { swiped, damping, elasticity } = this.props;
     // 设置不同的滑动位置时需要重置
     const rs = prevProp.swiped !== swiped;
-    const is = prevProp.animation !== animation;
+    const is = prevProp.elasticity !== elasticity;
     const ds = prevProp.damping !== damping;
     if (rs || is || ds) {
       this.setData({ swipeX: 0, swipedR: false, swipedL: false, tapTypeL: '', tapTypeR: '' });
     }
     if (is) {
-      this.setData({ inertiaWidth: animation ? 20 : 0 });
+      this.setData({ inertiaWidth: elasticity ? 20 : 0 });
     }
   },
   methods: {
@@ -216,7 +206,7 @@ Component({
       !isRight && this.setData({ tapTypeR: '', myStyle: {} });
       if (inTouch && !!tapTypeR) {
         this.setData({ tapTypeR: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props, { direction: 'right', btnIdx: tapTypeR.replace('R-', '') }));
+        onButtonTap(fmtEvent(this.props), { direction: 'right', btnIdx: tapTypeR.replace('R-', '')});
         this.onSwipeRight(false);
         return;
       }
@@ -326,7 +316,7 @@ Component({
         !swipeLeft ? this.setData({ tapTypeL: 'L-' + idx }) :  this.setData({ tapTypeR: 'R-' + idx });
       } else {
         !swipeLeft ? this.onSetSwipeLeft(0, true) : this.onSetSwipeRight(0, true);
-        onButtonTap(fmtEvent(this.props), { direction: tapTypeL === ('L-' + idx) ? 'left' : 'right', btnIdx: idx  });
+        onButtonTap(fmtEvent(this.props), { direction: !swipeLeft ? 'left' : 'right', btnIdx: idx  });
       }
     },
   },

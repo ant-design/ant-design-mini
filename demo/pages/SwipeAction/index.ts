@@ -45,14 +45,18 @@ Page({
       confirmText: '确认删除吗?'
     }
   },
-  onSwipeEnd() {
+  onSwipeEnd(e, obj) {
+    const { index } = e.currentTarget.dataset.item;
+    const { direction, swiped } = obj;
+    console.log(`${index}-${direction}-${swiped}`);
   },
   onSwipeStart(e) {
     const { index } = e.currentTarget.dataset.item;
     this.setData({ swipedIdx: index });
   },
-  onButtonTap(e) {
+  onButtonTap(e, obj) {
     const { index } = e.currentTarget.dataset.item;
-    my.showToast({ content: `tap: ${index}` });
+    const { direction, btnIdx } = obj;
+    my.showToast({ content: `tap: ${index}-${direction}-${btnIdx}`, duration: 1000 });
   },
 });
