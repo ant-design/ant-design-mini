@@ -42,7 +42,6 @@ toc: 'content'
 | type | 输入框的类型，可选 `text` \| `number` \| `idcard` \| `digit` \| `numberpad` \| `digitpad` \| `idcardpad` | `text` | `string` | `test` |
 | value | 输入框的值。 | `string` | - | 
 | onConfirm | 	点击键盘完成时触发此回调 | (event: `Event` => void | - |
-| onClear | 清除输入内容时触发此回调 | (event: `Event`) => void | - |
 | onFocus | 聚焦时触发触发此回调 | (event: `Event`) => void | - |
 | onBlur | 失焦时触发此回调 | (event: `Event`) => void | - |
 | onChange | 输入时触发此回调 | (value: `string`, event: `Event`) => void | - |
