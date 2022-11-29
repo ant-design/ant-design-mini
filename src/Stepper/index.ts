@@ -48,7 +48,7 @@ Component({
       } else if (num < min) {
         num = min;
       }
-      if (typeof num === 'number') {
+      if (typeof num === 'number' && !isNaN(value)) {
         return {
           valid: true,
           value: String(num),
