@@ -26,7 +26,7 @@ toc: false
 | mode | 样式类型，平铺/滑动  | 'tile' \| 'scroll' | 'tile' | 
 | paginationFillColor | 分页符背景色，scroll模式生效 | `string` | - | 
 | paginationFrontColor | 分页符颜色，scroll模式生效 | `string` | - | 
-| showSplitLine | 是否展示分割线 | `boolean` | - |
+| showDivider | 是否展示分割线 | `boolean` | - |
 | style | 样式 | `string` | - |
 | onTap | 点击每个元素触发 | (item: [GridItem](#griditem) ) => void |
 | onFirstAppear | 当前元素首次可见面积达到50%时触发 | (item: [GridItem](#griditem) ) => void |

@@ -15,8 +15,8 @@ function getTitleSize(columns) {
   }
   return 'small';
 }
-function checkShowSplitLine(index, count, columns, mode, showSplitLine) {
-  if (!showSplitLine) {
+function checkShowSplitLine(index, count, columns, mode, showDivider) {
+  if (!showDivider) {
     return false;
   }
   if (index === count - 1) {

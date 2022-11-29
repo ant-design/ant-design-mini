@@ -5,7 +5,7 @@
     <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}" gridItemLayout="horizontal"/>
 </container>
 <container title="3列-展示分割线">
-    <grid items="{{items3}}" onTap="handleTapItem" columns="{{3}}" showSplitLine />
+    <grid items="{{items3}}" onTap="handleTapItem" columns="{{3}}" showDivider />
 </container>
 <container title="4列">
     <grid items="{{items4}}" onTap="handleTapItem" columns="{{4}}" />

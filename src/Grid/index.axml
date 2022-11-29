@@ -6,7 +6,7 @@
         iconSize="{{iconSize}}"
         onTap="onTap"
         onFirstAppear="onFirstAppear"
-        showSplitLine="{{sjs.checkShowSplitLine(index,items.length,columns,mode,showSplitLine)}}"
+        showDivider="{{sjs.checkShowSplitLine(index,items.length,columns,mode,showDivider)}}"
         item="{{item}}"
         layout="{{gridItemLayout}}"
         columns="{{columns}}"
@@ -22,7 +22,7 @@
             onTap="onTap"
             layout="{{gridItemLayout}}"
             onFirstAppear="onFirstAppear"
-            showSplitLine="{{sjs.checkShowSplitLine(index,items.length,columns,mode,showSplitLine)}}"
+            showDivider="{{sjs.checkShowSplitLine(index,items.length,columns,mode,showDivider)}}"
             columns="scroll"
             item="{{item}}"
             verticalSpace="{{false}}"/>
