@@ -1,9 +1,9 @@
 function getClass(size) {
-  if (size <= 15) {
-    return 'amd-button-padding-small';
-  }
   if (size >= 18) {
     return 'amd-button-padding-large';
+  }
+  if (size >15) {
+    return 'amd-button-padding-medium';
   }
   return 'amd-button-padding-default';
 }
