@@ -27,7 +27,7 @@
   />
 </container>
 
-<container title="控制模式">
+<container title="受控模式">
   <checkbox-group
     value="{{value}}"
     options="{{options}}"
