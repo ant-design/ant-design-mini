@@ -10,52 +10,35 @@
   overflow: hidden;
   box-sizing: border-box;
 
-  &-handler {
-    &-up {
-      background-color: @COLOR_BACKGROUND;
+  &-button {
+    width: 56 * @rpx;
+    height: 56 * @rpx;
+    line-height: 56 * @rpx;
+    padding: 0;
+    color: @COLOR_BRAND1;
+    background-color: @COLOR_BACKGROUND;
+  }
 
-      .amd-button-content {
-        border-top-left-radius: 0;
-        border-top-right-radius: 4 * @rpx;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 4 * @rpx;
-      }
+  &-button-hover {
+    background-color: fade(@COLOR_BLACK_CHANGE, 8%);
+  }
 
-      &-inner {
-        .amd-icon {
-          display: flex;
-          align-items: center;
-          font-size: 26 * @rpx;
-        }
-      }
+  &-button-up {
+    border-top-left-radius: 0;
+    border-top-right-radius: 4 * @rpx;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 4 * @rpx;
+  }
 
-      &-hover {
-        background-color: fade(@COLOR_BLACK_CHANGE, 8%);
-      }
-    }
+  &-button-down {
+    border-top-right-radius: 0;
+    border-top-left-radius: 4 * @rpx;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 4 * @rpx;
+  }
 
-    &-down {
-      background-color: @COLOR_BACKGROUND;
-
-      .amd-button-content {
-        border-top-right-radius: 0;
-        border-top-left-radius: 4 * @rpx;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 4 * @rpx;
-      }
-
-      &-inner {
-        .amd-icon {
-          display: flex;
-          align-items: center;
-          font-size: 26 * @rpx;
-        }
-      }
-
-      &-hover {
-        background-color: fade(@COLOR_BLACK_CHANGE, 8%);
-      }
-    }
+  &-button-disabled {
+    color: @COLOR_TEXT_ASSIST;
   }
 
   &-input {
@@ -74,20 +57,6 @@
 
     &-disabled {
       opacity: 0.4;
-    }
-  }
-
-  .amd-button-content,
-  .amd-button-wrap {
-    width: 56 * @rpx;
-    height: 56 * @rpx;
-    padding: 0;
-    color: @COLOR_BRAND1;
-  }
-
-  .amd-button-content-disabled {
-    .amd-icon {
-      color: @COLOR_TEXT_ASSIST;
     }
   }
 }

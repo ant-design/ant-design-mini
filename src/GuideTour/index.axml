@@ -3,16 +3,16 @@
     <mask show style="z-index:9999;{{maskStyle || ''}}" />
     <am-icon type="CloseOutline" class="amd-guide-tour-clear" onTap="onCancel" />
     <view class="amd-guide-tour-button">
-        <button inline inlineSize="small" a:if="{{utils.checkShowJump(mixin.value,items)}}" onTap="onCancel">
+        <button inline size="{{13}}" a:if="{{utils.checkShowJump(mixin.value,items)}}" onTap="onCancel">
             跳过
         </button>
-        <button inline inlineSize="small" onTap="onPrev" a:if="{{utils.checkShowPrev(mixin.value,items)}}" data-currentValue="{{mixin.value}}">
+        <button inline size="{{13}}" onTap="onPrev" a:if="{{utils.checkShowPrev(mixin.value,items)}}" data-currentValue="{{mixin.value}}">
             上一步
         </button>
-        <button inline inlineSize="small" onTap="onNext" a:if="{{utils.checkShowNext(mixin.value,items)}}" data-currentValue="{{mixin.value}}">
+        <button inline size="{{13}}" onTap="onNext" a:if="{{utils.checkShowNext(mixin.value,items)}}" data-currentValue="{{mixin.value}}">
             下一步
         </button>
-        <button type="default" inline inlineSize="small" a:if="{{utils.checkShowKnow(mixin.value,items)}}" onTap="onCancel">
+        <button type="default" inline size="{{13}}" a:if="{{utils.checkShowKnow(mixin.value,items)}}" onTap="onCancel">
             知道了
         </button>
     </view>
