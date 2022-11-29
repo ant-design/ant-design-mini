@@ -2,9 +2,7 @@
   <view class="t-swipe-item">
     <view class="t-swipe-item-title">按钮在左侧-基础用法</view>
     <swipe-action
-      data-item="{{{index: 1}}}"
       leftButtons="{{[set]}}"
-      swiped="{{swipedIdx === 1}}"
       elasticity="{{false}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
@@ -15,9 +13,7 @@
       </view>
     </swipe-action>
     <swipe-action
-      data-item="{{{index: 2}}}"
       leftButtons="{{[set, his]}}"
-      swiped="{{swipedIdx === 2}}"
       elasticity="{{false}}"
       damping="20"
       onSwipeEnd="onSwipeEnd"
@@ -29,9 +25,7 @@
       </view>
     </swipe-action>
     <swipe-action
-      data-item="{{{index: 3}}}"
       leftButtons="{{[set, his, del]}}"
-      swiped="{{swipedIdx === 3}}"
       elasticity="{{true}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
@@ -43,9 +37,7 @@
     </swipe-action>
     <view class="t-swipe-item-title">按钮在右侧-基础用法</view>
     <swipe-action
-      data-item="{{{index: 4}}}"
       rightButtons="{{[set]}}"
-      swiped="{{swipedIdx === 4}}"
       elasticity="{{false}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
@@ -56,9 +48,7 @@
       </view>
     </swipe-action>
     <swipe-action
-      data-item="{{{index: 5}}}"
       rightButtons="{{[set, his]}}"
-      swiped="{{swipedIdx === 5}}"
       elasticity="{{false}}"
       damping="20"
       onSwipeEnd="onSwipeEnd"
@@ -70,9 +60,7 @@
       </view>
     </swipe-action>
     <swipe-action
-      data-item="{{{index: 6}}}"
       rightButtons="{{[set, his, del]}}"
-      swiped="{{swipedIdx === 6}}"
       elasticity="{{true}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
@@ -84,9 +72,7 @@
     </swipe-action>
     <view class="t-swipe-item-title">按钮在右侧-点击二次确认-弹性动画</view>
     <swipe-action
-      data-item="{{{index: 7}}}"
       rightButtons="{{[{...setTap, width: 330}]}}"
-      swiped="{{swipedIdx === 7}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
       onButtonTap="onButtonTap"
@@ -96,9 +82,7 @@
       </view>
     </swipe-action>
     <swipe-action
-      data-item="{{{index: 8}}}"
       rightButtons="{{[setTap, {...hisTap, width: 200}]}}"
-      swiped="{{swipedIdx === 8}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
       onButtonTap="onButtonTap"
@@ -108,9 +92,7 @@
       </view>
     </swipe-action>
     <swipe-action
-      data-item="{{{index: 9}}}"
       rightButtons="{{[setTap, hisTap, {...delTap, width: 120}]}}"
-      swiped="{{swipedIdx === 9}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
       onButtonTap="onButtonTap"
@@ -121,9 +103,7 @@
     </swipe-action>
     <view class="t-swipe-item-title">按钮在右侧-滑动二次确认-弹性动画</view>
     <swipe-action
-      data-item="{{{index: 10}}}"
       rightButtons="{{[{...setTap, confirmType: 'move', width: 340}]}}"
-      swiped="{{swipedIdx === 10}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
       onButtonTap="onButtonTap"
@@ -133,9 +113,7 @@
       </view>
     </swipe-action>
     <swipe-action
-      data-item="{{{index: 11}}}"
       rightButtons="{{[{...setTap, confirmType: 'move'}, hisTap]}}"
-      swiped="{{swipedIdx === 11}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
       onButtonTap="onButtonTap"
@@ -145,9 +123,7 @@
       </view>
     </swipe-action>
     <swipe-action
-      data-item="{{{index: 12}}}"
       rightButtons="{{[setTap, hisTap, moveTap]}}"
-      swiped="{{swipedIdx === 12}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
       onButtonTap="onButtonTap"
@@ -158,10 +134,8 @@
     </swipe-action>
     <view class="t-swipe-item-title">左右测都有按钮(限制: 两侧所有按钮宽度相加需要相等)</view>
     <swipe-action
-      data-item="{{{index: 13}}}"
       leftButtons="{{[set]}}"
       rightButtons="{{[set]}}"
-      swiped="{{swipedIdx === 13}}"
       elasticity="{{false}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
@@ -172,10 +146,8 @@
       </view>
     </swipe-action>
     <swipe-action
-      data-item="{{{index: 14}}}"
       leftButtons="{{[set, his]}}"
       rightButtons="{{[set, his]}}"
-      swiped="{{swipedIdx === 14}}"
       elasticity="{{false}}"
       damping="20"
       onSwipeEnd="onSwipeEnd"
@@ -187,10 +159,8 @@
       </view>
     </swipe-action>
     <swipe-action
-      data-item="{{{index: 15}}}"
       leftButtons="{{[set, his, del]}}"
       rightButtons="{{[set, his, del]}}"
-      swiped="{{swipedIdx === 15}}"
       elasticity="{{true}}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"

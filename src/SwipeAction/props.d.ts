@@ -42,6 +42,11 @@ interface ISwipeActionProps extends IBaseProps  {
    */
   swiped?: '' | 'left' | 'right';
   /**
+   * @description 禁止滑动
+   * @default ''
+   */
+  defaultSwiped?: '' | 'left' | 'right';
+  /**
    * @description 弹性超出最大滑动距离自动弹回
    * @default true
    */

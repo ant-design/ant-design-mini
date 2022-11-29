@@ -33,7 +33,8 @@ toc: 'content'
 | rightButtons | SwipeButton[]  | 否    | []    | 右侧按钮                                    |
 | damping      | number         | 否    | 60    | 滑动速度                                    |
 | elasticity   | boolean        | 否    | true  | 滑动弹性                                    |
-| swiped       | '' &verbar; 'left' &verbar; 'right' | 否    | false | 是否默认滑开            |
+| swiped       | '' &verbar; 'left' &verbar; 'right' | 否    | false | 是否滑开               |
+| defaultSwiped| '' &verbar; 'left' &verbar; 'right' | 否    | false | 是否默认滑开            |
 | disable      | false          | 否    | false | 禁止滑动                                    |
 
 ### SwipeButton

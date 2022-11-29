@@ -46,15 +46,15 @@ Component({
     inertiaWidth: 20,
   },
   didMount() {
-    const { swiped, elasticity } = this.props;
+    const { defaultSwiped, elasticity } = this.props;
     this.setButtonItemWidth();
     this.setData({ inertiaWidth: elasticity ? 20 : 0 });
-    if (swiped) {
+    if (defaultSwiped) {
       this.initWidth((maxSwipe: any) => {
         maxSwipe && this.setData({
-          swipeX: (maxSwipe + 0.01) * (swiped === 'right' ? -1 : 1),
-          swipedR: swiped === 'right',
-          swipedL: swiped === 'left',
+          swipeX: (maxSwipe + 0.01) * (defaultSwiped === 'right' ? -1 : 1),
+          swipedR: defaultSwiped === 'right',
+          swipedL: defaultSwiped === 'left',
         });
       });
     }

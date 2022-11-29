@@ -3,6 +3,7 @@ export const SwipeActionDefaultProps = {
   rightButtons: [],
   elasticity: true,
   swiped: '',
+  defaultSwiped: '',
   damping: 60,
   disable: false,
   onSwipeStart: (e) => {},
