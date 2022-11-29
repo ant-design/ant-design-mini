@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "dialog": "../../../src/Dialog/index",
-    "button": "../../../src/Button/index",
-    "demo-block": "../../components/DemoBlock/index"
-  }
-}

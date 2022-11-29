@@ -86,12 +86,15 @@
       margin-top: @title-size-middle-margin;
     }
   }
-  &-desc {
+  &-description {
     font-family: PingFangSC-Regular;
     font-size: @desc-size;
     color: @desc-color;
     line-height: 33 * @rpx;
     width: 100%;
     .ellipsis();
+    &:empty{
+      display: none;
+    }
   }
 }

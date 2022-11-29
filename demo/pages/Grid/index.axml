@@ -1,13 +1,14 @@
 <container title="2列">
-    <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}" gridItemLayout="horizontal"/>
-    <view class="space"/>
     <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}"/>
 </container>
-<container title="3列">
-    <grid items="{{items3}}" onTap="handleTapItem" columns="{{3}}"/>
+<container title="2列-水平布局">
+    <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}" gridItemLayout="horizontal"/>
+</container>
+<container title="3列-展示分割线">
+    <grid items="{{items3}}" onTap="handleTapItem" columns="{{3}}" showDivider />
 </container>
 <container title="4列">
-    <grid items="{{items4}}" onTap="handleTapItem" columns="{{4}}"/>
+    <grid items="{{items4}}" onTap="handleTapItem" columns="{{4}}" />
 </container>
 <container title="5列">
     <grid items="{{items5}}" onTap="handleTapItem" columns="{{5}}"/>

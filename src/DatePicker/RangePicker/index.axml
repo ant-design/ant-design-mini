@@ -20,7 +20,7 @@
     okText="{{okText}}"
     dismissText="{{dismissText}}"
     maskStyle="{{maskStyle}}"
-    maskClass="{{maskClass}}"
+    maskClassName="{{maskClassName}}"
     indicatorStyle="{{indicatorStyle}}"
     indicatorClass="{{indicatorClass}}"
     onChange="onChange"

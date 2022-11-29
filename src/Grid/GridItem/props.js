@@ -1,5 +1,5 @@
 export const GridItemDefaultProps = {
   titleSize: 'small',
-  showSplitLine: false,
+  showDivider: false,
   layout: 'vertical',
 };

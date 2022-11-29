@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IBaseProps, IconType } from '../_base';
+import { IBaseProps } from '../_base';
 
 /**
  * @description 按钮，用户只需单击一下即可执行操作并做出选择。
@@ -12,7 +12,7 @@ export interface IButtonProps extends IBaseProps {
    * @description 按钮类型
    * @default "default"
    */
-  type?: 'default' | 'primary' | 'danger' | 'ghost' | 'danger-ghost' | 'light';
+  type?: 'default' | 'primary' | 'text';
   /**
    * @description 是否禁用
    * @default false
@@ -33,22 +33,19 @@ export interface IButtonProps extends IBaseProps {
   inline?: boolean;
   /**
    * @description 内联尺寸
-   * @default "medium"
+   * @default 15
    */
-  inlineSize?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large';
+  size?: number;
   /**
    * @description 按钮左侧图标
    */
-  icon?: IconType;
+  icon?: string;
   /**
    * @description 是否加载中，加载中时不可点击
    * @default false
    */
   loading?: boolean;
-  /**
-   * @description 加载中时的文字
-   */
-  loadingText?: string;
+
   /**
    * @description 按钮原生类型，在表单提交时有效
    * @default "button"
@@ -70,10 +67,7 @@ export interface IButtonProps extends IBaseProps {
    * @description 当 openType 为 getAuthorize 时有效。
    */
   scope?: string;
-  /**
-   * @description 当 openType 为 getAuthorize 时有效。
-   */
-  fill?: 'outline' | 'solid' | 'none';
+
   /**
   * @description 是否阻止事件冒泡
   */

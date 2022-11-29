@@ -2,7 +2,6 @@
   "component": true,
   "usingComponents": {
     "icon": "../Icon/index",
-    "button": "../Button/index",
     "image-icon": "../ImageIcon/index"
   }
 }
