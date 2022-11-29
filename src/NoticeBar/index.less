@@ -12,39 +12,43 @@
   font-size: @notice-font-size;
   color: @notice-color;
   background-color: @notice-background-color;
-  border: 1px solid @notice-border-color;
   box-sizing: border-box;
+
   &-error {
     color: @notice-error-color;
     background-color: @notice-error-background-color;
-    border: 1px solid #D9281E;
+
     &-scroll-left,
     &-scroll-right {
       background: @notice-error-background-color;
     }
   }
+
   &-primary {
     color: @notice-primary-color;
     background-color: @notice-primary-background-color;
-    border: 1px solid @notice-primary-border-color;
+
     &-scroll-left,
     &-scroll-right {
       background: @notice-primary-background-color;
     }
   }
+
   &-info {
-    color: white;
-    border: 1px solid #999;
-    background: #ABABAB;
+    color: @COLOR_WHITE;
+    background: @COLOR_TEXT_SECONDARY;
+
     &-scroll-left,
     &-scroll-right {
-      background: #ABABAB;
+      background: @COLOR_TEXT_SECONDARY;
     }
   }
+
   &-icon {
     margin-right: @h-spacing-standard;
     font-size: 36 * @rpx;
   }
+
   &-content {
     position: relative;
     z-index: 2;
@@ -53,18 +57,22 @@
     vertical-align: middle;
     line-height: @default-line-height;
   }
+
   &-marquee {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     vertical-align: middle;
   }
+
   &-operation {
     display: flex;
     align-items: center;
+
     &-icon {
       margin-left: 24 * @rpx;
     }
+
     &-text {
       margin-left: 24 * @rpx;
       white-space: nowrap;

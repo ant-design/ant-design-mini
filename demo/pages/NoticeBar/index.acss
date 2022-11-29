@@ -1,0 +1,11 @@
+page {
+  padding: 24rpx;
+}
+
+.amd-container {
+  padding-bottom: 24rpx;
+}
+
+.amd-notice-bar {
+  margin-bottom: 16rpx;
+}
