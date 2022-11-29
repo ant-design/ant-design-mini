@@ -9,7 +9,6 @@
   catchTap="{{stopPropagation?'onTap':''}}"
   public-id="{{publicId}}"
   open-type="{{openType}}"
-  disabled="{{disabled || loading}}"
   class="amd-button {{inline ? `amd-button-inline ${utils.getClass(size)}` : ''}} {{`amd-button-${type}${danger ? '-danger' : ''}`}} {{(disabled || loading) ? 'amd-button-disabled' : ''}} {{className ? className : ''}}"
   style="{{ inline && typeof size !== 'undefined' ? `font-size: ${size}px;` : ''}} {{style ? style : ''}}"
 >

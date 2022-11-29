@@ -28,6 +28,7 @@ toc: 'content'
 
 ### button
 | 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
 | type | 按钮类型, 可选 `primary` `default` `text`  | string | `default` |
 | danger | 是否为危险按钮 | boolean | false |
 | disabled | 是否为失效按钮 | boolean | false |
@@ -44,6 +45,7 @@ toc: 'content'
 
 ### 其他属性
 | 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
 | publicId | 生活号 id，必须是当前小程序同主体且已关联的生活号，open-type="lifestyle" 时有效。| string | - |
 | openType | 开放能力 | string | 否 | - |
 | scope | 当 openType 为 getAuthorize 时有效string | 否 | - |
