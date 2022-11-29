@@ -1,7 +1,12 @@
-<search placeholder="以组件英文名搜索"
-  onInput="onSearch"
-  onClear="onClearSearch"
-  onSubmit="onSearch" />
+<input
+    placeholder="请输入内容"
+    onChange="onSearch"
+    focusClassName="border"
+    className="input"
+    allowClear
+  >
+    <icon slot="prefix" type="SearchOutline" />
+</input>
 <block a:if="{{finding}}">
   <list className="list"
     header="搜索结果列表"

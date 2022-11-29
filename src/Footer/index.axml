@@ -1,3 +1,0 @@
-<view class="amd-footer {{className ? className : ''}}" style="{{style || ''}}">
-  <slot />
-</view>

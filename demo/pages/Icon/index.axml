@@ -1,5 +1,12 @@
 <view class="demo">
-  <search-bar placeholder="搜索" onInput="handleSearchChange" borderColor="#1677ff" />
+  <input
+    placeholder="请输入内容"
+    onChange="handleSearchChange"
+    className="input"
+    allowClear
+    >
+      <icon slot="prefix" type="SearchOutline" />
+  </input>
   <view class="sum" a:if="{{!searchValue}}">
     目前共有
     <text>{{iconTypes.length}}</text>个图标类型

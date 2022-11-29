@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "ProgressBar",
-  "usingComponents": {
-    "progress-bar": "../../../src/ProgressBar/index",
-    "list": "../../../src/List/index",
-    "list-item": "../../../src/List/ListItem/index"
-  }
-}
