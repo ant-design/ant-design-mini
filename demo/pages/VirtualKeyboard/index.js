@@ -4,7 +4,7 @@ Page({
     focus1: false,
   },
   onLoad() {},
-  onChangeValue1(val: string) {
+  onChangeValue1(val) {
     this.setData({ value1: val });
   },
   onFocus1() {

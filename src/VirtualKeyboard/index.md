@@ -21,7 +21,7 @@ toc: 'content'
 | 属性 | 类型 | 必填 | 默认值 | 说明 |
 | ------------|---------|----|-----|----- |
 | className   | string  | 否 | -   | className |
-| value       | string  | 否 | -   | 默认值，支持动态修改 |
+| value       | string  | 否 | -   | 默认值 |
 | valueClass  | string  | 否 | -   | 默认值的className |
 | type        | 'keyboard'&verbar;'amount'&verbar;'code'  | 否 | 'keyboard' | 类型：只需键盘&verbar;金额输入&verbar;验证码 |
 | focus       | boolean | 否 | false | 获取焦点 |
@@ -33,8 +33,8 @@ toc: 'content'
 | sureColor   | string  | 否 | 'fff'  | 确认按钮字体颜色 |
 | showBtnText | boolean | 否 |  true  | 展示确认字体还是向下的icon |
 | disableSureBtn | boolean  | 否 | false  | 禁用确认按钮 |
-| isSureBtnSlot | boolean  | 否 | false  | 确定按钮是否使用slot, <slot name="sureBtn" data="{{disableSureBtn}}"/> |
-| placeholder | string  | 否 | -  | type === 'amount'时的placeholder |
+| isSureBtnSlot | boolean  | 否 | false  | 确定按钮是否使用slot name="sureBtn" data="{{disableSureBtn}}" |
+| placeholder | string  | 否 | -  | 金额输入框的placeholder |
 | placeholderClass | string  | 否 | -  | placeholder className |
 | lightColor | string  | 否 | '#1677ff'  | 光标颜色 |
 | lightClass | string  | 否 | -  | 光标className |

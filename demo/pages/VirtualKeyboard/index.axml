@@ -13,12 +13,18 @@
   </list>  
   <list header="金额输入">
     <view class="ali-v-kb_amount">
-      <virtual-keyboard type="amount" />
+      <virtual-keyboard
+        type="amount"
+        min="0.1"
+        max="10000000"
+        onEnter="onEnter"/>
     </view>
   </list>
   <list header="验证码">
     <view class="ali-v-kb_code">
-      <virtual-keyboard type="code"/>
+      <virtual-keyboard
+        type="code"
+        onEnter="onEnter"/>
     </view>
   </list>
 </view>
