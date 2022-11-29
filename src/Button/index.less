@@ -77,150 +77,11 @@
     opacity: @button-disabled-opacity;
   }
 
-  // &&-disabled {
-  //   height: auto;
-  //   opacity: @button-disabled-opacity;
-  //   color: @button-color;
-  //   background-color: @button-background-color;
-  // }
-
-  // &&-default.@{buttonPrefix}-default-none {
-  //   background-color: transparent;
-  //   box-shadow: none;
-  // }
-
-  // &&-primary,
-  // &&-primary.@{buttonPrefix}-primary-solid,
-  // &&-primary.@{buttonPrefix}-disabled {
-  //   color: @button-primary-color;
-  //   background-color: @button-primary-background-color;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_BRAND1;
-  // }
-  // &&-primary,
-  // &&-primary.@{buttonPrefix}-primary-outline {
-  //   color: @COLOR_BRAND1;
-  //   background-color: @COLOR_WHITE_CHANGE;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_BRAND1;
-  // }
-  // &&-primary,
-  // &&-primary.@{buttonPrefix}-primary-none {
-  //   color: @COLOR_BRAND1;
-  //   background-color: @COLOR_WHITE_CHANGE;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_WHITE_CHANGE;
-  // }
-  // &&-primary,
-  // &&-primary.@{buttonPrefix}-primary-light {
-  //   color: @button-light-color;
-  //   background-color: @button-light-background-color;
-  //   box-shadow: inset 0 0 0 @button-border-size @button-light-border-color;
-  // }
-
-  // &&-danger,
-  // &&-danger.@{buttonPrefix}-danger-solid,
-  // &&-danger.@{buttonPrefix}-disabled {
-  //   color: @button-danger-color;
-  //   background-color: @COLOR_RED;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_RED;
-  // }
-  // &&-danger,
-  // &&-danger.@{buttonPrefix}-danger-outline {
-  //   color: @COLOR_RED;
-  //   background-color: @COLOR_WHITE_CHANGE;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_RED;
-  // }
-  // &&-danger,
-  // &&-danger.@{buttonPrefix}-danger-none {
-  //   color: @COLOR_RED;
-  //   background-color: @COLOR_WHITE_CHANGE;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_WHITE_CHANGE;
-  // }
-
-  // &&-warn,
-  // &&-warn.@{buttonPrefix}-warn-solid,
-  // &&-warn.@{buttonPrefix}-disabled {
-  //   color: @button-danger-color;
-  //   background-color: @COLOR_YELLOW;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_YELLOW;
-  // }
-  // &&-warn,
-  // &&-warn.@{buttonPrefix}-warn-none {
-  //   color: @COLOR_YELLOW;
-  //   background-color: @COLOR_WHITE_CHANGE;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_WHITE_CHANGE;
-  // }
-  // &&-warn,
-  // &&-warn.@{buttonPrefix}-warn-outline {
-  //   color: @COLOR_YELLOW;
-  //   background-color: @COLOR_WHITE_CHANGE;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_YELLOW;
-  // }
-
-  // &&-success,
-  // &&-success.@{buttonPrefix}-success-solid,
-  // &&-success.@{buttonPrefix}-disabled {
-  //   color: @button-danger-color;
-  //   background-color: @COLOR_GREEN;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_GREEN;
-  // }
-  // &&-success,
-  // &&-success.@{buttonPrefix}-success-none {
-  //   color: @COLOR_GREEN;
-  //   background-color: @COLOR_WHITE_CHANGE;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_WHITE_CHANGE;
-  // }
-  // &&-success,
-  // &&-success.@{buttonPrefix}-success-outline {
-  //   color: @COLOR_GREEN;
-  //   background-color: @COLOR_WHITE_CHANGE;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_GREEN;
-  // }
-
-  // &&-light,
-  // &&-light.@{buttonPrefix}-light-solid,
-  // &&-light.@{buttonPrefix}-disabled {
-  //   color: @button-light-color;
-  //   background-color: @button-light-background-color;
-  //   box-shadow: inset 0 0 0 @button-border-size @button-light-border-color;
-  // }
-  // &&-light,
-  // &&-light.@{buttonPrefix}-light-none {
-  //   color: @button-light-color;
-  //   background-color: @COLOR_WHITE_CHANGE;
-  //   box-shadow: inset 0 0 0 @button-border-size @COLOR_WHITE_CHANGE;
-  // }
-  // &&-light,
-  // &&-light.@{buttonPrefix}-light-outline {
-  //   color: @button-light-color;
-  //   background-color: @COLOR_WHITE_CHANGE;
-  //   box-shadow: inset 0 0 0 @button-border-size @button-light-background-color;
-  // }
-
   &-wrap {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-  }
-
-  &-content-icon {
-    display: flex;
-    // justify-content: center;
-    // &:empty {
-    //   display: none;
-    // }
-  }
-
-  &-content-loading-container {
-    position: relative;
-    margin-left: 16 * @rpx;
-    min-width: 33px;
-    min-height: 33px;
-  }
-
-  &-content-loading {
-    position: absolute;
-    right: 0;
-    top: 0;
   }
 
   &-content-text-margin {
@@ -242,15 +103,34 @@
     opacity: 0.6;
   }
 
+  &-content-loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33px;
+    height: 33px;
+    margin-left: 8px;
+    min-width: 33px;
+    min-height: 33px;
+  }
+  
+  &-content-loading {
+    position: relative;
+  }
+
   &-inline {
     display: inline-block;
     border-radius: @button-inline-corner;
 
     .@{buttonPrefix}-content-loading-container {
-      margin: 0;
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      min-height: 16px;
     }
+
     .@{buttonPrefix}-content-loading {
       transform: scale(0.5);
     }
-  }
+  } 
 }
