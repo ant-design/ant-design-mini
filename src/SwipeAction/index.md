@@ -14,9 +14,6 @@ toc: 'content'
 
 ## 代码示例
 
-### 基础用法
-<code src='pages/SwipeActionTest/index'></code>
-
 ### 组件使用
 <code src='pages/SwipeAction/index'></code>
 
