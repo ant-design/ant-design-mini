@@ -13,8 +13,8 @@
   <view a:if="{{buttonText}}" class="amd-tips-button-container amd-tips-button-container-{{buttonPosition}}">
     <button 
     className="amd-tips-button"
-    inline="{{true}}"
-    inlineSize="small"
+    inline
+    size="{{12}}"
     onTap="onButtonTap">
       {{buttonText}}
   </button>
