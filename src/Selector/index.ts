@@ -3,7 +3,17 @@ import mixinValue from '../mixins/value';
 import fmtEvent from '../_util/fmtEvent';
 
 Component({
-  mixins: [mixinValue()],
+  mixins: [
+    mixinValue({
+      transformValue(val) {
+        const value = val || [];
+        return {
+          needUpdate: true,
+          value,
+        };
+      },
+    }),
+  ],
   props: SelectorDefaultProps,
   methods: {
     onChange(e) {
@@ -22,7 +32,7 @@ Component({
         return;
       }
       if (multiple) {
-        let currentValue = this.getValue() || [];
+        let currentValue = this.getValue();
         if (currentValue.indexOf(value) > -1) {
           if (
             !isNaN(maxSelectedCount) &&

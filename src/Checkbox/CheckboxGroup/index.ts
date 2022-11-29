@@ -4,7 +4,17 @@ import mixinValue from '../../mixins/value';
 
 Component({
   props: CheckboxGroupDefaultProps,
-  mixins: [mixinValue()],
+  mixins: [
+    mixinValue({
+      transformValue(val) {
+        const value = val || [];
+        return {
+          needUpdate: true,
+          value,
+        };
+      },
+    }),
+  ],
   methods: {
     onChange(_, e) {
       if (this.props.disabled) {
