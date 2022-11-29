@@ -1,11 +1,7 @@
 export const ButtonDefaultProps = {
   type: 'default',
-  disabled: false,
-  inline: false,
-  inlineSize: 'medium',
-  loading: false,
+  size: 15,
   htmlType: 'button',
-  _submit: undefined,
   fill: 'solid',
   stopPropagation: false,
 };

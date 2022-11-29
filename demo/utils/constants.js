@@ -8,6 +8,16 @@ export const componentList = [
         path: '/pages/Button/index',
       },
       {
+        name: 'ButtonInline',
+        nameZN: '按钮-Inline',
+        path: '/pages/ButtonInline/index',
+      },
+      {
+        name: 'ButtonIcon',
+        nameZN: '按钮-Icon',
+        path: '/pages/ButtonIcon/index',
+      },
+      {
         name: 'Icon',
         nameZN: '图标',
         path: '/pages/Icon/index',

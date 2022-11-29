@@ -15,15 +15,14 @@ toc: 'content'
 ### 基本使用
 <code src='pages/Button/index'></code>
 
-### 内联按钮
-
+### Inline
 <code src='pages/ButtonInline/index'></code>
 
-### 自定义Icon
+### Icon
 <code src='pages/ButtonIcon/index'></code>
 
-### 辅助按钮
-<code src='pages/ButtonAddon/index'></code>
+### 自定义
+<code src='pages/ButtonCustom/index'></code>
 
 ## 属性
 
