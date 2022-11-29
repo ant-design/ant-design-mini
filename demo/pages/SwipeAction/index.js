@@ -1,6 +1,5 @@
 Page({
   data: {
-    swipedIdx: -1,
     set: {
       text: '设为常用',
       bgColor: '#1677FF',
@@ -45,18 +44,7 @@ Page({
       confirmText: '确认删除吗?'
     }
   },
-  onSwipeEnd(e, obj) {
-    const { index } = e.currentTarget.dataset.item;
-    const { direction, swiped } = obj;
-    console.log(`${index}-${direction}-${swiped}`);
-  },
-  onSwipeStart(e) {
-    const { index } = e.currentTarget.dataset.item;
-    this.setData({ swipedIdx: index });
-  },
-  onButtonTap(e, obj) {
-    const { index } = e.currentTarget.dataset.item;
-    const { direction, btnIdx } = obj;
-    my.showToast({ content: `tap: ${index}-${direction}-${btnIdx}`, duration: 1000 });
-  },
+  onSwipeStart(e) {},
+  onSwipeEnd(e, data) {},
+  onButtonTap(e, data) {},
 });

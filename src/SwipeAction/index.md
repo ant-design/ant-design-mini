@@ -14,10 +14,9 @@ toc: 'content'
 
 ## 代码示例
 
-### 组件使用
 <code src='pages/SwipeAction/index'></code>
 
-### Tip
+## Tip
 
 1. 该组件父级容器必须设置css的width和height
 2. 左右两侧都需要滑动按钮时，两侧设置的宽度总和需一致
