@@ -34,6 +34,10 @@ export interface IGridProps extends IBaseProps {
    */
   items: IGridItem[];
   /**
+   * @description 是否展示分割线
+   */
+  showDivider?: boolean;
+  /**
    * @description 分页符背景色
    * @default '#ddd'
    */

@@ -3,4 +3,5 @@ export const GridDefaultProps = {
   mode: 'tile',
   columns: 5,
   gridItemLayout: 'vertical',
+  showDivider: false,
 };
