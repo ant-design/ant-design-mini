@@ -49,8 +49,8 @@ Component({
       this.setData({
         selfValue: '',
       });
-      if (this.props.onClear) {
-        this.props.onClear(fmtEvent(this.props, e));
+      if (this.props.onChange) {
+        this.props.onChange('', fmtEvent(this.props, e));
       }
     },
   }
