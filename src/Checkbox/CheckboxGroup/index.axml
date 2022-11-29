@@ -3,6 +3,7 @@
 <list 
   className="amd-checkbox-group {{className ? className : ''}} amd-checkbox-group-{{position}}" style="{{style}}">
   <checkbox-group
+    name="{{name}}"
     value="{{ mixin.value }}"
   >
     <view class="amd-checkbox-group-body">
