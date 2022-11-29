@@ -21,7 +21,7 @@
     "pages/Button/index",
     "pages/ButtonInline/index",
     "pages/ButtonIcon/index",
-    "pages/ButtonAddon/index",
+    "pages/ButtonCustom/index",
     "pages/Modal/index",
     "pages/SwipeAction/index",
     "pages/SwipeActionTest/index",

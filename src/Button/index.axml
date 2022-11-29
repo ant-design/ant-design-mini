@@ -1,45 +1,33 @@
-<view class="amd-button {{inline ? 'amd-button-inline' : ''}} {{className ? className : ''}}" style="{{style}}">
-  <button form-type="{{htmlType}}"
-    hover-class="{{loading ? '' : (activeClassName ? activeClassName : 'amd-button-active')}}"
-    scope="{{scope}}"
-    onTap="{{stopPropagation?'':'onTap'}}"
-    catchTap="{{stopPropagation?'onTap':''}}"
-    public-id="{{publicId}}"
-    open-type="{{openType}}"
-    disabled="{{disabled || loading}}"
-    type="{{type}}"
-    class="amd-button-content {{type ? `amd-button-content-${type}` : ''}} {{(disabled || loading) ? 'amd-button-content-disabled' : ''}} {{inline ? `amd-button-content-inline amd-button-content-inline-${inlineSize}` : ''}} {{fill ? type ? `amd-button-content-${type}-${fill}` : '' : ''}}">
-    <block a:if="{{loading}}">
-      <view class="amd-button-loading-container {{inline ? 'amd-button-loading-container-inline' : ''}}">
-        <view class="amd-button-loading-text {{inline ? `amd-button-loading-text-${inlineSize}` : '' }}"
-          a:if="{{loadingText}}">{{loadingText}}</view>
-        <view class="amd-button-loading {{inline ? `amd-button-loading-inline amd-button-loading-${inlineSize}` : ''}}">
-          <loading 
-            type="mini"
-            color="currentColor"
-            size="6rpx"
-            hieght="10rpx" />
-        </view>
-      </view>
+<import-sjs from="./index.sjs" name="utils" />
+
+
+<button
+  form-type="{{htmlType}}"
+  hover-class="{{utils.getHoverClass(loading, type, activeClassName)}}"
+  scope="{{scope}}"
+  onTap="{{stopPropagation?'':'onTap'}}"
+  catchTap="{{stopPropagation?'onTap':''}}"
+  public-id="{{publicId}}"
+  open-type="{{openType}}"
+  class="amd-button {{inline ? `amd-button-inline ${utils.getClass(size)}` : ''}} {{`amd-button-${type}${danger ? '-danger' : ''}`}} {{(disabled || loading) ? 'amd-button-disabled' : ''}} {{className ? className : ''}}"
+  style="{{ inline && typeof size !== 'undefined' ? `font-size: ${size}px;` : ''}} {{style ? style : ''}}"
+>
+  <view class="amd-button-wrap">
+    <block a:if="{{icon}}">
+      <icon type="{{icon}}" style="{{typeof size !== 'undefined' ? `font-size: ${size}:px;` : ''}}" />
     </block>
-    <view class="amd-button-wrap  {{loading ? 'amd-button-loading-show' : ''}}">
-      <block a:if="{{icon}}">
-        <image-icon className="amd-button-icon"
-          iconSize="small"
-          image="{{icon}}" />
-      </block>
-      <block a:else>
-        <view class="amd-button-icon">
-          <slot name="icon" />
-        </view>
-      </block>
-      <view class="amd-button-text">
-        <slot />
-          <view a:if="{{ !inline && subText}}"
-          class="amd-button-subtext">
-            {{subText}}
-          </view>
+    <view class="amd-button-content-text {{icon ? 'amd-button-content-text-margin' : ''}}" >
+      <slot />
+      <view a:if="{{ !inline && subText}}" class="amd-button-content-subtext">
+        {{subText}}
       </view>
     </view>
-  </button>
-</view>
+    <view a:if="{{loading}}" class="amd-button-content-loading-container">
+      <loading
+        type="mini"
+        color="currentColor"
+        className="amd-button-content-loading"
+      />
+    </view>
+  </view>
+</button>

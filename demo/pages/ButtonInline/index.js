@@ -1,7 +1,8 @@
 Page({
-  data: {
-    types: ['default', 'primary', 'warn', 'danger', 'success', 'light'],
-    sizes: ['small', 'medium', 'large', 'x-large'],
-    fills: ['solid', 'outline', 'none'],
-  },
+  handleTap(e) {
+    console.log(e);
+    my.alert({
+      title: '点击按钮'
+    });
+  }
 });

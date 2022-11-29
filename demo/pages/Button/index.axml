@@ -1,55 +1,90 @@
-<view class="demo">
-  <demo-block title="填充模式">
-    <view class="btn-list btn-list-default">
-      <button 
-        type="primary"
-        onTap="handleTap"
-        fill="solid">
-        solid
-      </button>
-      <button 
-        type="primary"
-        fill="outline">
-        outline
-      </button>
-      <button 
-        type="primary"
-        fill="none">
-        none
-      </button>
-    </view>
-  </demo-block>
-  <demo-block title="语义按钮">
-    <view class="btn-list">
-      <button 
-        a:for="{{list}}" 
-        type="{{item.type}}">
-        {{item.type}}
-      </button>
-    </view>
-  </demo-block>
-  <demo-block title="禁用状态">
-    <button 
-      disabled
-      type="primary">
-      禁用状态
-    </button>
-  </demo-block>
-  <demo-block title="加载状态">
-    <button 
-      loading
-      type="primary"
-      loadingText="正在加载">
-      加载状态
-    </button>
-  </demo-block>
-  <demo-block title="含有副标题">
-    <view class="btn-list">
-      <button 
-        subText="副标题"
-        type="primary">
-        按钮
-      </button>
-    </view>
-  </demo-block>
-</view>
+<container title="按钮类型" class="list">
+  <button  type="primary" onTap="handleTap">
+    主要按钮
+  </button>
+
+  <button type="default" onTap="handleTap">
+    次要按钮
+  </button>
+
+  <button type="text" onTap="handleTap">
+    文本按钮
+  </button>
+
+</container>
+
+<container title="带辅助文案按钮" class="list">
+  <button  type="primary" subText="副标题" onTap="handleTap">
+    主要按钮
+  </button>
+
+  <button type="default" subText="副标题" onTap="handleTap">
+    次要按钮
+  </button>
+
+  <button type="text" subText="副标题" onTap="handleTap">
+    文本按钮
+  </button>
+</container>
+
+<container title="危险" class="list">
+  <button  type="primary" danger onTap="handleTap">
+    主要按钮
+  </button>
+
+  <button type="default" danger onTap="handleTap">
+    次要按钮
+  </button>
+
+  <button type="text" danger onTap="handleTap">
+    文本按钮
+  </button>
+
+</container>
+
+<container title="禁用" class="list">
+  <button type="primary" disabled>
+    主要按钮
+  </button>
+
+  <button type="default" disabled>
+    次要按钮
+  </button>
+
+  <button type="text" disabled>
+    文本按钮
+  </button>
+</container>
+
+<container title="危险、禁用" class="list">
+  <button  type="primary" danger disabled onTap="handleTap">
+    主要按钮
+  </button>
+
+  <button type="default" danger disabled onTap="handleTap">
+    次要按钮
+  </button>
+
+  <button type="text" danger disabled onTap="handleTap">
+    文本按钮
+  </button>
+
+</container>
+
+
+
+
+<container title="加载状态" class="list">
+  <button type="primary" loading>
+    主要按钮
+  </button>
+
+  <button type="default" loading>
+    次要按钮
+  </button>
+
+  <button type="text" loading>
+    文本
+  </button>
+</container>
+
