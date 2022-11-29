@@ -15,14 +15,19 @@ function getTitleSize(columns) {
   }
   return 'small';
 }
-function checkShowSplitLine(count, index, columns) {
-  if (columns == 3) {
-    if ((index + 1) % 3 === 0) {
+function checkShowSplitLine(index, count, columns, mode, showDivider) {
+  if (!showDivider) {
+    return false;
+  }
+  if (index === count - 1) {
+    return false;
+  }
+  if (mode === 'tile') {
+    if ((index + 1) % columns === 0) {
       return false;
     }
-    return true;
   }
-  return false;
+  return true;
 }
 export default {
   checkNeedVerticalSpace,
