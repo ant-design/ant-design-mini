@@ -2,7 +2,6 @@
   "component": true,
   "usingComponents": {
     "loading": "../Loading/index",
-    "icon": "../Icon/index",
-    "image-icon": "../ImageIcon/index"
+    "icon": "../Icon/index"
   }
 }
