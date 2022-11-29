@@ -28,7 +28,6 @@ toc: 'content'
 | offsetX | string | 否 | '-50%' | 水平方向偏移量 |
 | offsetY | string | 否 | '-50%' | 垂直方向偏移量 |
 | stroke | boolean | 否 | false | 是否有描边 |
-| iconType | string | 否 | - | 自定义图标 |
 | bgColor | string | 否 | - | 自定义背景色，css色值 |
 | className | string | 否 | - | 组件根节点类名 |
 | style | string | 否 | - | 组件根节点 style |

@@ -22,29 +22,25 @@
       {{stroke ? 'amd-badge-content-stroke' : ''}}"
     style=" background-color: {{bgColor}};{{_sjs.setBubbleStyle(type, position)}};{{_sjs.setPositionStyle(position, offsetX, offsetY)}}">
       <view class="amd-badge-icon-container">
-    <amd-icon
-      a:if="{{iconType}}"
-      type="{{iconType}}"
-      className="amd-badge-icon"/>
     </view>
-      <slot name="text">
-        <view class="amd-badge-content-text">
-          <view
-            a:if="{{type === 'number'}}"
-            class="amd-badge-number">
-            {{overCount ? '99+' : text}}
-          </view>
-          <view
-            a:if="{{type==='text'}}"
-            class="amd-badge-text">
-            {{text}}
-          </view>
-          <view a:if="{{type==='bubble'}}"
-          class="amd-badge-bubble">
-            {{text}}
-          </view>
+    <slot name="text">
+      <view class="amd-badge-content-text">
+        <view
+          a:if="{{type === 'number'}}"
+          class="amd-badge-number">
+          {{overCount ? '99+' : text}}
         </view>
-      </slot>
+        <view
+          a:if="{{type==='text'}}"
+          class="amd-badge-text">
+          {{text}}
+        </view>
+        <view a:if="{{type==='bubble'}}"
+        class="amd-badge-bubble">
+          {{text}}
+        </view>
+      </view>
+    </slot>
   </view>
 
 </view>
