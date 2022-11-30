@@ -23,8 +23,9 @@
     style="{{bgColor ? `background-color: ${bgColor};`: ''}} {{_sjs.setBubbleStyle(type, position)}};{{_sjs.setPositionStyle(position, offsetX, offsetY)}}">
       <view class="amd-badge-icon-container">
     </view>
-    <slot name="text">
-      <view class="amd-badge-content-text">
+
+    <view class="amd-badge-content-text">
+      <slot name="text">
         <view
           a:if="{{type === 'number'}}"
           class="amd-badge-number">
@@ -39,8 +40,7 @@
         class="amd-badge-bubble">
           {{text}}
         </view>
-      </view>
-    </slot>
+      </slot>
+    </view>
   </view>
-
 </view>

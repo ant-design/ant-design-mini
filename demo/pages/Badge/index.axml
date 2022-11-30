@@ -143,9 +143,7 @@
       type="text"
       iconType="GlobalOutline"
       position="top-right">
-      <block slot="text">
-        <am-icon type="GlobalOutline"/>
-      </block>
+      <am-icon type="GlobalOutline"  slot="text"/>
       <view class="box"/>
     </badge>
   </view>
