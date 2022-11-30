@@ -11,7 +11,7 @@
   style="{{_sjs.setPositionStyle(position, offsetX, offsetY)}}">
   <view
   class="amd-badge-dot {{stroke ? 'amd-badge-dot-stroke' : ''}}"
-  style="background-color: {{bgColor}}">
+  style="{{bgColor ? `background-color: ${bgColor};`: ''}}">
 </view>
   </view>
   <view
@@ -20,7 +20,7 @@
       amd-badge-content-not-dot
       {{type==='bubble' ? `amd-badge-content-${position}-bubble` : ''}}
       {{stroke ? 'amd-badge-content-stroke' : ''}}"
-    style=" background-color: {{bgColor}};{{_sjs.setBubbleStyle(type, position)}};{{_sjs.setPositionStyle(position, offsetX, offsetY)}}">
+    style="{{bgColor ? `background-color: ${bgColor};`: ''}} {{_sjs.setBubbleStyle(type, position)}};{{_sjs.setPositionStyle(position, offsetX, offsetY)}}">
       <view class="amd-badge-icon-container">
     </view>
     <slot name="text">

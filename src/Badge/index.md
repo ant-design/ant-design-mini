@@ -20,20 +20,20 @@ toc: 'content'
 
 ## 属性
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| type | 'dot' &verbar; 'text' &verbar; 'bubble' &verbar; 'number' | 否 | 'dot' | badge 类型<br/>'dot':红点<br>'number':数字类型，会自动做>99转换<br>'text':文字气泡<br>'bubble':气泡形态(带箭头) |
-| text | string &verbar; number | 否 | - | 红点内容，为空时表示只显示红点；可以是数字，也可以是文字；如果是数字，超过 99 会自动变成 ... |
-| position | 'top-left' &verbar; 'top-right' | 否 | 'top-right' | 相对于 children 所在方位，left-top(左上角) top-right(右上角) |
-| offsetX | string | 否 | '-50%' | 水平方向偏移量 |
-| offsetY | string | 否 | '-50%' | 垂直方向偏移量 |
-| stroke | boolean | 否 | false | 是否有描边 |
-| bgColor | string | 否 | - | 自定义背景色，css色值 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点 style |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|----- |
+| bgColor | 自定义背景色，css色值 | `string` | - | 
+| className | 组件根节点类名 | `string` | - | 
+| offsetX | 水平方向偏移量 | `string` | `'-50%'` | 
+| offsetY | 垂直方向偏移量 | `string` | `'-50%'` | 
+| position | 相对于容器徽标的位置 | `'top-left' \| 'top-right' \| 'top-center' \| 'left' \| 'right' \| 'bottom-left' \| 'bottom-center' \| 'bottom-right'` | `'top-right'` | 
+| stroke | 是否有描边 | `boolean` | `false` | 
+| style | 样式 | `string` | - | 
+| text | 红点内容，为空时表示只显示红点；可以是数字，也可以是文字；如果是数字，超过 99 会自动变成 ... | `string \| number` | - |
+| type | badge 类型<br/>'dot':红点<br>'number':数字类型，会自动做>99转换<br>'text':文字气泡<br>'bubble':气泡形态(带箭头) |  `'dot' \| 'text' \| 'bubble' \| 'number'` | `'dot'` | 
 
 ## 插槽
 
-| 插槽名称 | 说明                                                       |
-| -------- | ---------------------------------------------------------- |
+| 插槽名称 | 说明  |
+| -------- | ------- |
 | text    | 红点内容 |
