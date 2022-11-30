@@ -129,7 +129,7 @@ Component({
     onChange(e: any) {
       const { changeArr, maxSwipeR, maxSwipeL, inTouch, swipedR, swipedL, inertiaWidth } = this.data;
       const { x } = e.detail;
-      let L = x;
+      const L = x;
       // changeArr用于精准的控制滑动的方向
       const newArr = changeArr[1] === L ? [changeArr] : [changeArr[1], L];
       this.setData({ moveX: L, changeArr: newArr });
@@ -137,14 +137,14 @@ Component({
       const ridx = this.props.rightButtons.findIndex((u) => u.confirmType === 'move');
       const lidx = this.props.leftButtons.findIndex((u) => u.confirmType === 'move');
       if (ridx === -1 && lidx === -1)  return;
-      let isRight = getDirectionLeft(changeArr);
+      const isRight = getDirectionLeft(changeArr);
       // 左滑时的滑动确认、收起处理
       if (isRight) {
         if (L < 0 && Math.abs(L) >= maxSwipeR && inTouch && !swipedR) {
           clearTimeout(myTimeOut);
           myTimeOut = setTimeout(() => {
             const { changeArr, maxSwipeR, inTouch, swipedR, moveX } = this.data;
-            let _left = getDirectionLeft(changeArr) && changeArr[0] >= changeArr[1];
+            const _left = getDirectionLeft(changeArr) && changeArr[0] >= changeArr[1];
             if (inTouch && maxSwipeR + inertiaWidth + 2 >= Math.abs(moveX) && _left && !swipedR) {
               this.onSetCheck(true);
             }
@@ -158,7 +158,7 @@ Component({
           clearTimeout(myTimeOut);
           myTimeOut = setTimeout(() => {
             const { changeArr, maxSwipeL, inTouch, swipedL, moveX } = this.data;
-            let _right = !getDirectionLeft(changeArr) && changeArr[1] >= changeArr[0];
+            const _right = !getDirectionLeft(changeArr) && changeArr[1] >= changeArr[0];
             if (inTouch && maxSwipeL <= moveX + 1 && _right && !swipedL) {
               this.onSetCheck(false);
             }
