@@ -7,7 +7,7 @@
         <icon 
           type="{{result.iconType(type)}}"
           className="amd-result-image-{{type}}"
-          size="{{64}}"
+          style="font-size:64px"
         />
       </view>
     </block>

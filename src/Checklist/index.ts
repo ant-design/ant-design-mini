@@ -4,13 +4,23 @@ import fmtEvent from '../_util/fmtEvent';
 
 Component({
   props: ChecklistDefaultProps,
-  mixins: [mixinValue()],
+  mixins: [
+    mixinValue({
+      transformValue(val) {
+        const value = val || [];
+        return {
+          needUpdate: true,
+          value,
+        };
+      },
+    }),
+  ],
   methods: {
     onChange(item) {
       const { multiple, options, onChange } = this.props;
       const value = item.value;
       if (multiple) {
-        let currentValue = this.getValue() || [];
+        let currentValue = this.getValue();
         if (currentValue.indexOf(value) > -1) {
           currentValue = currentValue.filter((v) => v !== value);
         } else {
