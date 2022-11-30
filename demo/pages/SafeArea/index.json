@@ -1,8 +1,0 @@
-{
-    "defaultTitle": "SafeArea",
-    "usingComponents": {
-      "safe-area": "../../../src/SafeArea/index"
-    },
-    "transparentTitle": "always"
-  }
-  

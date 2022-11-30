@@ -50,7 +50,7 @@
 
 <container title="控制focus、blur">
   <input placeholder="请输入内容" focus="{{focus}}" />
-  <button onTap="focus" inline style="margin: 8px;">focus</button>
+  <button onTap="focus" inline style="margin-right: 8px;">focus</button>
   <button onTap="blur" inline>blur</button>
 </container>
 

@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "Filter",
-  "usingComponents": {
-    "filter": "../../../src/Filter/index",
-    "filter-item": "../../../src/Filter/FilterItem/index",
-    "icon": "../../../src/Icon/index",
-    "demo-block": "../../components/DemoBlock/index"
-  }
-}
