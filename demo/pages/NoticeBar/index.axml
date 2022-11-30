@@ -1,59 +1,68 @@
-<view>
-  <demo-block title="通告栏语义" padding="0">
+<container title="基础用法">
+  <notice 
+    type="default"
+    showIcon>
+    default
+  </notice>
+  <notice 
+    type="error"
+    showIcon>
+    error
+  </notice>
+  <notice 
+    type="info"
+    showIcon>
+    info
+  </notice>
+  <notice 
+    type="primary"
+    showIcon>
+    primary
+  </notice>
+</container>
+
+<container title="可关闭通告栏">
+  <notice 
+    showIcon
+    onTap="handleClose"
+    mode="closeable">
+    这条通知可以关闭
+  </notice>
+</container>
+
+<container title="可滚动通告栏">
+  <block a:for="{{typeList}}">
     <notice 
-      type="default"
-      showIcon>
-      default
-    </notice>
-    <white-space/>
-    <notice 
-      type="error"
-      showIcon>
-      error
-    </notice>
-    <white-space/>
-    <notice 
-      type="info"
-      showIcon>
-      info
-    </notice>
-    <white-space/>
-    <notice 
-      type="primary"
-      showIcon>
-      primary
-    </notice>
-  </demo-block>
-  <demo-block title="可关闭" padding="0">
-    <notice 
-      showIcon
-      onTap="handleClose"
-      mode="closeable">
-      这条通知可以关闭
-    </notice>
-  </demo-block>
-  <demo-block title="超长滚动" padding="0">
-    <block a:for="{{typeList}}">
-      <notice 
-        type="{{item}}"
-        showIcon="{{true}}" 
-        enableMarquee="{{true}}"
-        loop="{{true}}"
-        onTap="handleTapLink"
-        mode="link">
-        文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
-      </notice>
-      <white-space/>
-    </block>
-  </demo-block>
-  <demo-block title="自定义" padding="0">
-    <notice 
-      showIcon
-      actions="{{actionsText2}}"
-      mode="link"
+      type="{{item}}"
+      showIcon="{{true}}" 
+      enableMarquee="{{true}}"
+      loop="{{true}}"
       onTap="handleTapLink"
-      onActionTap="handleTapAction">
-      自定义右侧按钮
+      mode="link">
+      文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
     </notice>
-  </demo-block>
-</view>
+  </block>
+</container>
+
+<container title="自定义通告栏">
+  <notice 
+    showIcon
+    actions="{{actionsText2}}"
+    mode="link"
+    onTap="handleTapLink"
+    onActionTap="handleTapAction">
+    自定义右侧按钮
+  </notice>
+  <notice 
+    showIcon
+    type="primary"
+    enableMarquee="{{true}}"
+    loop="{{true}}"
+    mode="link"
+    onTap="handleTapLink">
+    <block slot="icon">
+      <am-icon type="GlobalOutline" />
+    </block>
+    自定义左侧图标自定义左侧图标自定义左侧图标
+  </notice>
+</container>
