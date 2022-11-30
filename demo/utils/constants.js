@@ -387,11 +387,6 @@ export const componentList = [
         nameZN: '通告栏',
         path: '/pages/NoticeBar/index',
       },
-      {
-        name: 'Tips',
-        nameZN: '向导提示',
-        path: '/pages/Tips/index',
-      },
     ],
   },
 ];
