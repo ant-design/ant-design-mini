@@ -5,6 +5,7 @@
 .@{badgePrefix} {
   display: inline-block;
   position: relative;
+
   &-content {
     position: absolute;
     display: flex;
@@ -23,18 +24,22 @@
     &-stroke {
       border: 2 * @rpx solid white;
     }
+
     &-text {
       padding-left: 4 * @rpx;
+
       &:empty {
         display: none;
       }
-      .amd-badge-icon-container:empty ~ & {
+
+      .amd-badge-icon-container:empty~& {
         padding-left: 0;
       }
     }
+
     .amd-icon {
       font-size: 18 * @rpx;
-      color: white;
+      color: @COLOR_WHITE;
     }
 
     &-not-dot {
@@ -44,17 +49,20 @@
       display: flex;
     }
   }
+
   &-dot {
     width: 20 * @rpx;
     height: 20 * @rpx;
     border-radius: 50%;
+
     &-stroke {
       border: 2 * @rpx solid white;
     }
   }
+
   &-number,
   &-text,
   &-bubble {
-    color: white;
+    color: @COLOR_WHITE;
   }
 }

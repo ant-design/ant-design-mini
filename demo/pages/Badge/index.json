@@ -2,6 +2,7 @@
   "defaultTitle": "Badge",
   "usingComponents": {
     "badge": "../../../src/Badge/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "container": "../../../src/Container/index",
+    "am-icon": "../../../src/Icon/index"
   }
 }

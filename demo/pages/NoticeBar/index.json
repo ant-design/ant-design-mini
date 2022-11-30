@@ -2,7 +2,7 @@
   "defaultTitle": "Notice",
   "usingComponents": {
     "notice": "../../../src/NoticeBar/index",
-    "white-space": "../../components/WhiteSpace/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "container": "../../../src/Container/index",
+    "am-icon": "../../../src/Icon/index"
   }
 }
