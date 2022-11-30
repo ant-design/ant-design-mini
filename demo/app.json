@@ -46,13 +46,7 @@
     "pages/CollapseControl/index",
     "pages/CollapseCustom/index",
     "pages/Tag/index",
-<<<<<<< HEAD
     "pages/Mask/index",
-=======
-    "pages/Tips/index",
-    "pages/TipsSlot/index",
-    "pages/TipsClose/index",
->>>>>>> d1775c737e6a8bd9ff7de8d6a49f2566d10a1162
     "pages/Avatar/index",
     "pages/Loading/index",
     "pages/Checkbox/index",
