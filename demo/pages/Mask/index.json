@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "Mask",
-  "usingComponents": {
-    "mask": "../../../src/Mask/index",
-    "demo-block": "../../components/DemoBlock/index",
-    "button": "../../../src/Button/index"
-  }
-}

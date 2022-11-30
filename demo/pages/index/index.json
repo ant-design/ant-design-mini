@@ -4,6 +4,7 @@
     "list": "../../../src/List/index",
     "list-item": "../../../src/List/ListItem/index",
     "tag": "../../../src/Tag/index",
-    "search": "../../../src/SearchBar/index"
+    "icon": "../../../src/Icon/index",
+    "input": "../../../src/Input/index"
   }
 }

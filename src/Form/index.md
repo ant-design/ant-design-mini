@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: 实验性质的组件
-  order: 16
+  title: 信息输入
+  order: 12
 toc: 'content'
 ---
 

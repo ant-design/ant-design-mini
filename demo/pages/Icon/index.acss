@@ -6,7 +6,7 @@
   padding: 24rpx;
 }
 
-.sum>text {
+.sum > text {
   color: red;
 }
 
@@ -52,4 +52,11 @@
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
+}
+.input {
+  padding: 4px 0 4px 0;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.5s;
+  margin: 24rpx;
 }

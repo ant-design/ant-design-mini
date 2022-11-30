@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "Terms",
-  "usingComponents": {
-    "terms": "../../../src/Terms/index",
-    "demo-block": "../../components/DemoBlock/index"
-  }
-}
