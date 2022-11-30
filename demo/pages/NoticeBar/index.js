@@ -1,5 +1,6 @@
 Page({
   data: {
+    actionsText1: ['查看详情'],
     actionsText2: ['不再提示', '查看详情'],
     typeList: ['default', 'error', 'info', 'primary'],
   },

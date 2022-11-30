@@ -46,10 +46,6 @@ export interface IBadgeProps extends IBaseProps {
    */
   stroke?: boolean;
   /**
-   * @description 自定义图标
-   */
-  iconType?: string;
-  /**
    * @description 背景色
    */
   bgColor?: string;
