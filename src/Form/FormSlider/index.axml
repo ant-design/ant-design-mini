@@ -1,0 +1,43 @@
+<form-item
+  className="{{className}}"
+  style="{{style}}"
+  position="{{position}}"
+  label="{{label}}"
+  status="{{formData.status}}"
+  errors="{{formData.errors}}"
+  tooltip="{{tooltip}}"
+  required="{{formData.required}}"
+  requiredMark="{{requiredMark}}"
+  validateStatus="{{validateStatus}}"
+  help="{{help}}"
+>
+  <view>
+    <slider
+      value="{{formData.value}}"
+      className="{{sliderClassName}}"
+      style="{{sliderStyle}}"
+      activeLineClassName="{{activeLineClassName}}"
+      activeLineStyle="{{activeLineStyle}}"
+      activeDotClassName="{{activeDotClassName}}"
+      activeDotStyle="{{activeDotStyle}}"
+      min="{{min}}"
+      max="{{max}}"
+      range="{{range}}"
+      showNumber="{{showNumber}}"
+      step="{{step}}"
+      showTicks="{{showTicks}}"
+      showTooltip="{{showTooltip}}"
+      disabled="{{disabled}}"
+      onChange="onChange"
+      onAfterChange="onAfterChange"
+    />
+  </view>
+  <view slot="extra">
+    <slot name="extra">
+      {{extra}}
+    </slot>
+  </view>
+  <view slot="label">
+    <slot name="label" />
+  </view>
+</form-item>
