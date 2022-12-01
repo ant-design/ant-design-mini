@@ -1,63 +1,62 @@
 <import-sjs from="./index.sjs" name="sliderSjs" />
 
 <template name='slider-handler'>
-  <view class="amd-slider-handler" style="left: {{position}}%">
-    <slot name="slider">
-      <view class="amd-slider-handler-block">
-        <view class="amd-slider-handler-icon-default">
-          <view class="amd-slider-handler-icon-default-line1" />
-          <view class="amd-slider-handler-icon-default-line2" />
-          <view class="amd-slider-handler-icon-default-line3" />
+   <view class="amd-slider-handler" style="left: {{position}}%">
+       <popover placement="top" visible="{{showTooltip}}">
+        <slot name="slider">
+          <view class="amd-slider-handler-block">
+            <view class="amd-slider-handler-icon-default">
+              <view class="amd-slider-handler-icon-default-line1" />
+              <view class="amd-slider-handler-icon-default-line2" />
+              <view class="amd-slider-handler-icon-default-line3" />
+            </view>
+          </view>
+        </slot>
+        <view slot="content" class="amd-slider-tooltip-content">
+          <slot name="tooltip" value="{{value}}">{{value}}</slot>
         </view>
-      </view>
-    </slot>
-  </view>
+      </popover>
+    </view>
 </template>
 
 <view 
   class="amd-slider {{className ? className : ''}}"
   style="opacity: {{disabled ? '0.4' : '1'}};"
 >
-    <view class="amd-slider-track {{showNumber ? 'amd-slider-track-number' : ''}}" >
+  <view class="amd-slider-track {{showNumber ? 'amd-slider-track-number' : ''}}" >
+    <view 
+      class="amd-slider-track-touch-area"
+      id="amd-slider-id-{{$id}}"
+      onTouchStart="handleTrackTouchStart"
+      onTouchEnd="handleTrackTouchEnd"
+      onTouchMove="handleTrackTouchMove"
+    >
       <view 
-        class="amd-slider-track-touch-area"
-        id="{{sliderId}}"
-        onTouchStart="handleTrackTouchStart"
-        onTouchEnd="handleTrackTouchEnd"
-        onTouchMove="handleTrackTouchMove"
+        class="amd-slider-track-fill"
       >
+        <view class="amd-slider-track-fill-background" /> 
         <view 
-          class="amd-slider-track-fill"
-        >
-          <view class="amd-slider-track-fill-background" /> 
+          class="amd-slider-track-fill-front {{activeLineClassName || ''}}"
+          style="width: {{sliderWidth}}%; left: {{sliderLeft}}%; {{activeLineStyle || ''}}"
+        /> 
+
+        <view class="amd-slider-showTicks">
           <view 
-            class="amd-slider-track-fill-front {{activeLineClassName}}"
-            style="width: {{sliderWidth}}%; left: {{sliderLeft}}%; {{activeLineStyle}}"
-          /> 
-
-          <view class="amd-slider-ticks">
-            <view 
-              a:for="{{tickList}}" 
-              class= "amd-slider-tick amd-slider-tick-{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? 'front' : 'back' }} {{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? activeDotClassName : ''}}"
-              style="left: {{item.left}}%;{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? activeDotStyle: ''}}"
-          >
-            <view a:if={{showNumber}} class="amd-slider-tick-number">
-              <slot name="tick" value="{{item.value}}">
-                {{item.value}}
-              </slot>
-            </view>
+            a:for="{{tickList}}" 
+            class= "amd-slider-tick amd-slider-tick-{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? 'front' : 'back' }} {{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotClassName ? activeDotClassName : ''}}"
+            style="left: {{item.left}}%;{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotStyle ? activeDotStyle: ''}}"
+        >
+          <view a:if={{showNumber}} class="amd-slider-tick-number">
+            <slot name="tick" value="{{item.value}}">
+              {{item.value}}
+            </slot>
           </view>
-          </view>
-
-          <template a:if="{{range}}" is="slider-handler" data="{{ position: sliderLeft, icon: icon, color: color, value: value[0], showTooltip: changingStart&&tooltip }}"/>
-          <template is="slider-handler" data="{{ position: sliderLeft + sliderWidth, icon: icon, color: color, value: range?value[1]:value, showTooltip: changingEnd&&tooltip }}"/>
         </view>
+        </view>
+
+        <template a:if="{{range}}" is="slider-handler" data="{{ position: sliderLeft, icon: icon, value: mixin.value[0], showTooltip: changingStart&&showTooltip }}"/>
+        <template is="slider-handler" data="{{ position: sliderLeft + sliderWidth, icon: icon, value: range? mixin.value[1]: mixin.value, showTooltip: changingEnd&&showTooltip }}"/>
       </view>
     </view>
-    <popover placement="top" visible="{{showTooltip}}" class="amd-slider-tooltip">
-      <view slot="items" class="amd-slider-tooltip-content">
-        <slot name="tooltip" value="{{value}}">{{value}}</slot>
-      </view>
-      <view/>
-    </popover>
+  </view>
 <view>

@@ -2,7 +2,8 @@
   "defaultTitle": "Slider",
   "usingComponents": {
     "slider": "../../../src/Slider/index",
-    "amd-icon": "../../../src/Icon/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "icon": "../../../src/Icon/index",
+    "stepper": "../../../src/Stepper/index",
+    "container": "../../../src/Container/index"
   }
 }

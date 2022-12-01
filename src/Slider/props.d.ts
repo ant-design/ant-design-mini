@@ -14,6 +14,8 @@ interface ISliderProps extends IBaseProps {
    */
   value?: SliderValue;
 
+  defaultValue?: SliderValue;
+
   /**
    * @description 是否禁用
    * @default false
@@ -54,13 +56,13 @@ interface ISliderProps extends IBaseProps {
    * @description 是否显示刻度
    * @default false
    */
-  ticks?: boolean;
+  showTicks?: boolean;
 
   /**
    * @description 是否在拖动时显示悬浮提示
    * @default false
    */
-   tooltip: boolean;
+   showTooltip: boolean;
 
   /**
    * @description 输入变化的时候触发， 参数为滑动组件的当前值
