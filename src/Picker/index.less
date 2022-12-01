@@ -1,11 +1,11 @@
-@import (reference) "./variable.less";
-@import "../style/mixins/hairline.less";
+@import (reference) './variable.less';
+@import '../style/mixins/hairline.less';
 
 @pickerPrefix: amd-picker;
 
 .@{pickerPrefix} {
   &-disabled {
-    color: @color-text-weak;
+    color: @COLOR_TEXT_WEAK;
   }
   &-placeholder {
     color: @picker-placeholder-color;
@@ -17,7 +17,7 @@
     justify-content: space-between;
     padding: @picker-header-padding;
     box-sizing: border-box;
-    .hairline-picker("bottom");
+    .hairline('bottom', @COLOR_BORDER);
 
     &-item {
       display: flex;
@@ -37,17 +37,33 @@
       box-orient: vertical;
       white-space: normal;
       color: @picker-item-color;
-      width: picker-header-title-width;
+      width: @picker-header-title-width;
     }
   }
 
   &-content {
-    &-item {
-      font-size: @picker-item-size;
+    background: @COLOR_CARD;
+    .a-picker-view-picker-item {
+      color: @COLOR_TEXT_PRIMARY;
     }
-  }
-  .a-picker-view-picker-indicator:before, .a-picker-view-picker-indicator:after {
-    background-color: #e5e5e5;
+    &-indicator {
+      &::before,
+      &::after {
+        border-color: @COLOR_BORDER;
+      }
+    }
+    &-mask {
+      background-image: linear-gradient(
+          to bottom,
+          fade(@COLOR_CARD, 95),
+          fade(@COLOR_CARD, 60)
+        ),
+        linear-gradient(
+          to top,
+          fade(@COLOR_CARD, 95),
+          fade(@COLOR_CARD, 60)
+        );
+    }
   }
   &-placeholder {
     color: @picker-placeholder-color;

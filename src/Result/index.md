@@ -25,7 +25,7 @@ toc: 'content'
 | message | 副文案 | `string \| slot` | - | 
 | style | 样式 | `string` | - | 
 | title | 主文案 | `string \| slot` | - | 
-| type | 内置类型 success=成功 danger=错误/危险 info=信息提示 wait=等待处理 | `'success' \| 'danger' \| 'info' \| 'warn' \| 'wait'` | - | 
+| type | 内置类型 success=成功 error=错误/危险 info=信息提示 wait=等待处理 | `'success' \| 'error' \| 'info' \| 'warning' \| 'wait'` | - | 
 
 ## 插槽
 | 名称 | 说明 |

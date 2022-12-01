@@ -1,14 +1,9 @@
-.deleteBtn {
-  color: #f93a4a;
-  font-weight: bolder;
+.bodyImg {
+  width: 500rpx;
+  height: 700rpx;
 }
-.cancelBtn {
-  color: #ccc;
-}
-.buttonBold,
-.modalButtonBold .am-modal-footer {
-  font-weight: bold;
-}
-.space {
-  margin-top: 10px;
+.bodyAction {
+  padding-top: 32rpx;
+  font-size: 48rpx;
+  text-align: center;
 }

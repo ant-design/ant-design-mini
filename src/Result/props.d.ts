@@ -6,9 +6,9 @@ import { IBaseProps, IconType } from '../_base';
 
 export interface IResultProps extends IBaseProps {
   /**
-   * @description 内置类型 success=成功 danger=错误/危险 info=信息提示 wait=等待处理
+   * @description 内置类型 success=成功 error=错误/危险 info=信息提示 wait=等待处理
    */
-  type?: 'success' | 'danger' | 'info' | 'warn' | 'wait';
+  type?: 'success' | 'error' | 'info' | 'warning' | 'wait';
   
   /**
    * @description 自定义图片，如果配置了 type， 则不生效
