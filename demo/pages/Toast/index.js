@@ -13,6 +13,8 @@ Page({
     toast5Show: false,
     toast6Show: false,
     toast7Show: false,
+    toast8Show: false,
+    toast9Show: false,
     icon2: "LikeOutline",
     image1: 'https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ'
   },

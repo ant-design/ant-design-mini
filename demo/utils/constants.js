@@ -163,29 +163,9 @@ export const componentList = [
         path: '/pages/ProgressCircle/index',
       },
       {
-        name: 'FloatPanel',
-        nameZN: '滑动面板',
-        path: '/pages/FloatPanel/index',
-      },
-      {
-        name: 'Footer',
-        nameZN: '页脚',
-        path: '/pages/Footer/index',
-      },
-      {
         name: 'Divider',
         nameZN: '分割线',
         path: '/pages/Divider/index',
-      },
-      {
-        name: 'Calendar',
-        nameZN: '日历',
-        path: '/pages/Calendar/index',
-      },
-      {
-        name: 'Calendar',
-        nameZN: '日历高级用法',
-        path: '/pages/Calendar2/index',
       },
     ],
   },
@@ -308,11 +288,6 @@ export const componentList = [
         path: '/pages/VideoUpload/index',
       },
       {
-        name: 'Terms',
-        nameZN: '协议',
-        path: '/pages/Terms/index',
-      },
-      {
         name: 'Rate',
         nameZN: '星级',
         path: '/pages/Rate/index',
@@ -386,11 +361,6 @@ export const componentList = [
         name: 'NoticeBar',
         nameZN: '通告栏',
         path: '/pages/NoticeBar/index',
-      },
-      {
-        name: 'Tips',
-        nameZN: '向导提示',
-        path: '/pages/Tips/index',
       },
     ],
   },

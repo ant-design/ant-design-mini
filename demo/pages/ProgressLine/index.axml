@@ -8,7 +8,7 @@
 
 <container title="语义进度条">
   <progress status="success" percent="100" />
-  <progress status="fail" percent="50" />
+  <progress status="exception" percent="50" />
 </container>
 
 <container title="自定义进度条高度">

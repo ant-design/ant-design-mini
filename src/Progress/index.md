@@ -24,7 +24,7 @@ toc: false
 | -----|-----|-----|-----|
 | className | 类名| `string` | - |
 | percent | 百分比  | `number` | 0 | 
-| status | 状态，仅限 line 模式 | 'success' \| 'fail' | - | 
+| status | 状态，仅限 line 模式 | 'success' \| 'exception' | - | 
 | strokeColor | 进度条颜色 | `string` | - |
 | strokeWidth | 进度条宽度，单位px | `number` | 8 |
 | style | 样式| `string` | - |
