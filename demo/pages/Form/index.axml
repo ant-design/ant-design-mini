@@ -67,6 +67,13 @@
   ref="handleRef"
 />
 
+<form-slider
+  label="选择分数"
+  name="slider"
+  showTooltip
+  ref="handleRef"
+/>
+
 <view class="buttons">
   <button type="primary" onTap="submit" style="margin-bottom: 12px;">提交</button>
   <button onTap="reset">重置</button>
