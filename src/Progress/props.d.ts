@@ -3,10 +3,6 @@ import { IBaseProps } from '../_base';
  * @description 弹窗，可在其中加入具体内容，展示更多信息供用户使用。
  */
 
-export enum EProgressBarStatus {
-  success = 'success',
-  fail = 'fail',
-}
 export interface IProgressBarProps extends IBaseProps {
   /**
    * @description 当前进度，范围 0-100
@@ -30,7 +26,7 @@ export interface IProgressBarProps extends IBaseProps {
   /**
    * @description 状态，仅限 line
    */
-  status: 'success' | 'fail';
+  status: 'success' | 'exception';
   /**
    * @description 进度条颜色
    */

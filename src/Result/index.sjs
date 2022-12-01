@@ -1,8 +1,8 @@
 const iconMap = {
   'success': 'CheckCircleFill',
-  'danger': 'CloseCircleFill',
+  'error': 'CloseCircleFill',
   'info': 'InformationCircleFill',
-  'warn': 'ExclamationCircleFill',
+  'warning': 'ExclamationCircleFill',
   'wait': 'ClockCircleFill',
 };
 
