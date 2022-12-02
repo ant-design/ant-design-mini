@@ -1,38 +1,35 @@
+const placement = [
+  'top',
+  'top-right',
+  'top-left',
+  'bottom',
+  'bottom-left',
+  'bottom-right',
+  'left',
+  'left-top',
+  'left-bottom',
+  'right',
+  'right-top',
+  'right-bottom',
+];
 Page({
   data: {
-    showLight: false,
-    showDark: false,
-    showNoIcon: false,
-    url: 'https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ',
+    placement: placement[0],
   },
-  handleLightVisibleChange(e, mode) {
+  handleNextPosition() {
+    let index = placement.indexOf(this.data.placement);
+    index = index >= placement.length - 1 ? 0 : index + 1;
     this.setData({
-      showLight: e,
+      show: true,
+      placement: placement[index],
     });
-    if (mode === 'mask') {
-      my.showToast({ content: '点击mask关闭', duration: 2000 });
-    }
   },
-  handleDarkVisibleChange(e, mode) {
-    this.setData({
-      showDark: e,
-    });
-    if (mode === 'mask') {
-      my.showToast({ content: '点击mask关闭', duration: 2000 });
-    }
+  handleVisibleChange(visible, e) {
+    console.log('onVisibleChange', visible, e);
   },
-  handleNoIconVisibleChange(e, mode) {
+  handleToggleMask() {
     this.setData({
-      showNoIcon: e,
+      showMask: !this.data.showMask,
     });
-    if (mode === 'mask') {
-      my.showToast({ content: '点击mask关闭', duration: 2000 });
-    }
-  },
-  handleTapItem(e) {
-    this.setData({
-      [e.target.dataset.type]: false,
-    });
-    my.showToast({ content: `点击了${e.target.dataset.name}` });
   },
 });

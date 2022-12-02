@@ -1,129 +1,75 @@
-<container title="深色气泡菜单">
+<container title="基础用法">
   <view class="wrap">
     <popover 
-      placement="bottom-left"
-      visible="{{showDark}}"
-      mask
-      onVisibleChange="handleDarkVisibleChange">
-      <button inline inlineSize="large">点我</button>
-      <block slot="content">
-        <popover-item 
-          onTap="handleTapItem"
-          icon="ScanningOutline"
-          data-type="showDark"
-          data-name="扫一扫">
-          扫一扫
-        </popover-item>
-
-        <popover-item 
-          onTap="handleTapItem"
-          icon="ReceivePaymentOutline"
-          data-type="showDark"
-          data-name="付钱/收钱">
-          付钱/收钱
-        </popover-item>
-
-        <popover-item 
-          onTap="handleTapItem"
-          icon="TransportQRcodeOutline"
-          data-type="showDark"
-          data-name="乘车码">
-          乘车码
-        </popover-item>
-        <popover-item 
-          onTap="handleTapItem"
-          data-type="showDark"
-          data-name="icon 插槽">
-          <image
-            slot="icon"
-            mode="scaleToFill"
-            src="{{url}}"
-            style="width: 100%;height: 100%;"/>
-          icon 插槽
-        </popover-item>
-      </block>
+      placement="top"
+      content="prompt"
+      onVisibleChange="handleVisibleChange">
+      <button inline>点我</button>
     </popover>
   </view>
 </container>
-<container title="浅色气泡菜单">
+<container title="指定颜色">
   <view class="wrap">
     <popover 
-      placement="bottom-left"
-      visible="{{showLight}}"
-      mode="light"
-      mask
-      onVisibleChange="handleLightVisibleChange">
-      <button inline inlineSize="large">点我</button>
-      <block slot="content">
-        <popover-item 
-          onTap="handleTapItem"
-          icon="ScanningOutline"
-          data-type="showLight"
-          data-name="扫一扫">
-          扫一扫
-        </popover-item>
-
-        <popover-item 
-          onTap="handleTapItem"
-          icon="ReceivePaymentOutline"
-          data-type="showLight"
-          data-name="付钱/收钱">
-          付钱/收钱
-        </popover-item>
-
-          <popover-item 
-            onTap="handleTapItem"
-            icon="TransportQRcodeOutline"
-            data-type="showLight"
-            data-name="乘车码">
-            乘车码
-        </popover-item>
-        <popover-item 
-          onTap="handleTapItem"
-          data-type="showLight"
-          data-name="icon 插槽">
-          <image
-            slot="icon"
-            mode="scaleToFill"
-            src="{{url}}"
-            style="width: 100%;height: 100%;"/>
-          icon 插槽
-        </popover-item>
-      </block>
+      placement="top"
+      color="pink"
+      content="prompt"
+      onVisibleChange="handleVisibleChange">
+      <button inline>pink</button>
+    </popover>
+    <popover 
+      placement="top"
+      color="red"
+      content="prompt"
+      onVisibleChange="handleVisibleChange">
+      <button inline>red</button>
+    </popover>
+    <popover 
+      placement="top"
+      color="green"
+      content="prompt"
+      onVisibleChange="handleVisibleChange">
+      <button inline>green</button>
+    </popover>
+    <popover 
+      placement="top"
+      color="orange"
+      content="prompt"
+      onVisibleChange="handleVisibleChange">
+      <button inline>orange</button>
     </popover>
   </view>
 </container>
-<container title="无图标气泡菜单">
-  <view class="wrap">
+<container title="气泡位置">
+  <view class="multi-wrap">
     <popover 
-      placement="bottom-left"
-      visible="{{showNoIcon}}"
-      mask
-      onVisibleChange="handleNoIconVisibleChange">
-      <button inline inlineSize="large">点我</button>
-      <block slot="content">
-        <popover-item 
-          onTap="handleTapItem"
-          data-type="showNoIcon"
-          data-name="扫一扫">
-          扫一扫
-        </popover-item>
-
-        <popover-item 
-          onTap="handleTapItem"
-          data-type="showNoIcon"
-          data-name="付钱/收钱">
-          付钱/收钱
-        </popover-item>
-
-        <popover-item 
-          onTap="handleTapItem"
-          data-type="showNoIcon"
-          data-name="乘车码">
-          乘车码
-        </popover-item>
-      </block>
+      placement="{{placement}}"
+      showMask="{{showMask}}"
+      onVisibleChange="handleVisibleChange">
+      <view class="multi">
+        <view>点击{{show ? '隐藏' : '显示'}}</view>
+        <view>
+          {{placement}}
+        </view>
+      </view>
+      <view slot="content" class="tooltip">
+        <view>Popover</view> 
+        <view>
+          Content
+        </view>
+      </view>
     </popover>
   </view>
+  <view class="demo-btn-container">
+    <button 
+      class="demo-btn"
+      onTap="handleNextPosition">
+      下个位置
+    </button>
+    <button 
+      class="demo-btn"
+      onTap="handleToggleMask">
+      {{showMask?'隐藏':'显示'}}蒙层
+    </button>
+  </view>
 </container>
-  

@@ -324,8 +324,13 @@ export const componentList = [
       },
       {
         name: 'Popover',
+        nameZN: '气泡卡片',
+        path: '/pages/Popover/index',
+      },
+      {
+        name: 'PopoverList',
         nameZN: '气泡菜单',
-        path: '/pages/PopoverBase/index',
+        path: '/pages/PopoverList/index',
       },
       {
         name: 'Popup',

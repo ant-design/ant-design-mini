@@ -1,19 +1,20 @@
-<view class="amd-popover {{className ? className : ''}}" style="{{style}}">
+<view class="amd-popover {{className ? className : ''}}" style="{{style || ''}}">
   <view onTap="onVisibleChange">
     <slot />
   </view>
   <view class="amd-popover-container"
-    a:if="{{visible}}">
+    a:if="{{mixin.value}}">
     <!-- 蒙层 -->
-    <mask show="{{mask}}" fixMaskFull="{{fixMaskFull}}" maskZindex="{{99}}" onMaskTap="onMaskTap" className="{{transparentMask?'amd-popover-transparent-mask':''}}"></mask>
+    <mask 
+      show="{{showMask}}" 
+      fixMaskFull
+      className="{{maskClassName}}"
+      style="z-index:99;{{transparentMask?'background-color:transparent':''}};{{maskStyle||''}}" 
+      onMaskTap="onVisibleChange"/>
     <view class="amd-popover-content amd-popover-{{placement}}">
-      <view class="amd-popover-arrow {{mode==='light' ? 'amd-popover-arrow-light' : ''}}"></view>
-      <view class="amd-popover-content-bg">
-        <view class="amd-popover-inner {{mode==='light' ? 'amd-popover-inner-light' : ''}}">
-          <view class="amd-popover-inner-pseudo">
-            <slot name="content"></slot>
-          </view>
-        </view>
+      <view class="amd-popover-arrow" style="{{color?`border-bottom-color:${color}`:''}}"></view>
+      <view class="amd-popover-inner {{contentClassName || ''}}" style="{{color?`background:${color}`:''}};{{contentStyle || ''}}">
+        <slot name="content">{{content}}</slot>
       </view>
     </view>
   </view>
