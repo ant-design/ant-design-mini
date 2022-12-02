@@ -9,9 +9,7 @@
   hover-stay-time="{{40}}">
   <view class="amd-list-item-line {{showDiver?'amd-list-item-line-diver':''}} {{disabled? 'amd-list-item-line-disabled' : ''}}">
     <slot name="image" >
-      <view a:if="{{image}}" class="amd-list-item-image">
-        <image-icon image="{{image}}"/>
-      </view>
+      <image-icon a:if="{{image}}" image="{{image}}" className="amd-list-item-image"/>
     </slot>
       <view class="amd-list-item-content-container">
       <view class="amd-list-item-content-title-container">

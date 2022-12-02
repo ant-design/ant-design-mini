@@ -5,9 +5,9 @@
     <list-item>3</list-item>
   </list>
   <list header="可点击列表"  radius="{{radius}}">
-    <list-item image="UnorderedListOutline" arrow="right" onTap="handleTap" data-info="账单">账单</list-item>
     <list-item image="PayCircleOutline" arrow="right" onTap="handleTap" data-info="总资产">总资产</list-item>
     <list-item image="SetOutline" arrow="right" onTap="handleTap" data-info="设置">设置</list-item>
+    <list-item image="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ" arrow="right" onTap="handleTap" data-info="图片">图片</list-item>
   </list>
   <list 
     radius="{{radius}}" 
