@@ -7,7 +7,7 @@
   hover-class="{{onTap ? 'amd-list-item-hover' : ''}}"
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}">
-  <view class="amd-list-item-line {{showDiver?'amd-list-item-line-diver':''}} {{disabled? 'amd-list-item-line-disabled' : ''}}">
+  <view class="amd-list-item-line {{showDivider?'amd-list-item-line-divider':''}} {{disabled? 'amd-list-item-line-disabled' : ''}}">
     <slot name="image" >
       <image-icon a:if="{{image}}" image="{{image}}" className="amd-list-item-image"/>
     </slot>

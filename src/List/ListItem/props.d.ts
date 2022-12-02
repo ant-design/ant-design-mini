@@ -37,7 +37,7 @@ export interface IListItemProps extends IBaseProps {
    * @description 是否显示下划线
    * @default true
    */
-  showDiver: boolean;
+  showDivider: boolean;
   /**
    * @description 点击整行回调
    */

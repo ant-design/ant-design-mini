@@ -38,7 +38,6 @@ toc: 'content'
 | placement | 方向  | 'top' &verbar; 'top-right' &verbar; 'top-left' &verbar; 'bottom' &verbar; 'bottom-left' &verbar; 'bottom-right' &verbar; 'left' &verbar; 'left-top' &verbar; 'left-bottom' &verbar; 'right' &verbar; 'right-top' &verbar; 'right-bottom' | 'bottom-right' |
 | showMask | 是否展示蒙层 | `boolean` | false |
 | style | 样式 | `string` | - |
-| transparentMask | 蒙层是否透明 | `boolean` | false |
 | visible |  是否显示 | `boolean` | false | 
 | onVisibleChange |  visible 变更时回调 | (visible: `boolean`, event: [`Event`](https://opendocs.alipay.com/mini/framework/event-object))=>void | - | 
 

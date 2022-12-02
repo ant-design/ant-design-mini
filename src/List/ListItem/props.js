@@ -1,5 +1,5 @@
 export const ListItemDefaultProps = {
   disabled: false,
-  showDiver: true,
+  showDivider: true,
   stopPropagation: false,
 };

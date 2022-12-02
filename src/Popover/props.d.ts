@@ -65,10 +65,5 @@ export interface IPopoverProps extends IBaseProps {
    * @default true
    */
   maskClosable?: boolean;
-  /**
-   * @description 蒙层是否透明
-   * @default false
-   */
-  transparentMask?: boolean;
 }
 export declare const PopoverDefaultProps: Partial<IPopoverProps>;

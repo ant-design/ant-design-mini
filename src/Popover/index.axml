@@ -9,10 +9,10 @@
       show="{{showMask}}" 
       fixMaskFull
       className="{{maskClassName}}"
-      style="z-index:99;{{transparentMask?'background-color:transparent':''}};{{maskStyle||''}}" 
+      style="z-index:99;{{maskStyle || ''}}" 
       onMaskTap="onVisibleChange"/>
     <view class="amd-popover-content amd-popover-{{placement}}">
-      <view class="amd-popover-arrow" style="{{color?`border-bottom-color:${color}`:''}}"></view>
+      <view class="amd-popover-arrow" style="{{color?`border-bottom-color:${color}` : ''}}"></view>
       <view class="amd-popover-inner {{contentClassName || ''}}" style="{{color?`background:${color}`:''}};{{contentStyle || ''}}">
         <slot name="content">{{content}}</slot>
       </view>

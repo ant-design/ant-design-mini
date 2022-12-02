@@ -3,5 +3,4 @@ export const PopoverDefaultProps = {
   showMask: false,
   maskClosable: true,
   placement: 'bottom-right',
-  transparentMask: false,
 };
