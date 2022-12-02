@@ -1,17 +1,17 @@
-<import-sjs name="ImageIcon" from='./index.sjs' />
+<import-sjs name="{isIcon}" from='./index.sjs' />
 
 <view class="amd-imageIcon {{className ? className : ''}}">
-  <block a:if="{{ImageIcon.image(image).icon}}">
+  <block a:if="{{isIcon(image)}}">
     <icon 
-      type="{{ImageIcon.image(image).icon}}"
+      type="{{image}}"
       className="{{className ? className + '-icon' : ''}}"
-      color="{{iconColor}}"
-      size="{{iconSize}}" />
+      style="{{style}}" />
   </block>
-  <block a:elif="{{ImageIcon.image(image).url}}">
+  <block a:else>
     <image 
-      src="{{ImageIcon.image(image).url}}"
+      src="{{image}}"
       class="{{className ? className + '-image' : ''}}"
+      style="{{style || ''}}"
       mode="aspectFit" />
   </block>
 </view>

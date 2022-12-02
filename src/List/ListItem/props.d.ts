@@ -1,5 +1,4 @@
-
-import { IBaseProps, IconType } from '../../_base';
+import { IBaseProps } from '../../_base';
 /**
  * @description 列表内部元素，必须配合 ListItem 使用。
  */
@@ -8,11 +7,7 @@ export interface IListItemProps extends IBaseProps {
   /**
    * @description 左侧图片
    */
-  image: IconType;
-  /**
-   * @description 图片尺寸
-   */
-  imageSize: 'small' | 'medium' | 'large';
+  image: string;
   /**
    * @description 标题信息
    */
@@ -39,17 +34,17 @@ export interface IListItemProps extends IBaseProps {
    */
   disabled: boolean;
   /**
-   * @description 用于处理下划线是否显示
-   * @default false
+   * @description 是否显示下划线
+   * @default true
    */
-  last: boolean;
+  showDiver: boolean;
   /**
    * @description 点击整行回调
    */
   onTap?: (event?: any) => void;
   /**
-  * @description 是否阻止事件冒泡
-  */
+   * @description 是否阻止事件冒泡
+   */
   stopPropagation?: boolean;
 }
 export declare const ListItemDefaultProps: Partial<IListItemProps>;
