@@ -70,7 +70,7 @@ Component({
         scrollLeft = (this.scrollLeft || 0) + item.left;
         needScroll = true;
       } else if (item.left + item.width > view.width) {
-        scrollLeft = (this.scrollLeft || 0) + item.left + item.width - view.width;
+        scrollLeft = (this.scrollLeft || 0) + Math.min(item.left + item.width - view.width, item.left);
         needScroll = true;
       }
       if (needScroll) {

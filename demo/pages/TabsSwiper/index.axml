@@ -3,19 +3,17 @@
   current="{{current}}"
   onChange="onChange"
 >
-  <view slot="content">
-    <swiper
-      current="{{current}}"
-      autoplay="{{false}}"
-      vertical="{{false}}"
-      circular="{{false}}"
-      onChange="onSwipeChange"
-    >
-      <swiper-item a:for="{{items}}">
-        <view style="height: 150px; line-height: 150px; text-align: center;">
-          {{item.content}}
-        </view>
-      </swiper-item>
-    </swiper>
-  </view>
+  <swiper
+    current="{{current}}"
+    autoplay="{{false}}"
+    vertical="{{false}}"
+    circular="{{false}}"
+    onChange="onSwipeChange"
+  >
+    <swiper-item a:for="{{items}}">
+      <view class="content">
+        {{item.content}}
+      </view>
+    </swiper-item>
+  </swiper>
 </tabs>

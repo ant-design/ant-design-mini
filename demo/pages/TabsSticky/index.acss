@@ -1,15 +1,14 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  
-}
-
 .tabs {
   position: sticky;
-  top: 0;
+  top: -1px;
   z-index: 999;
 }
 
 .content {
   padding: 12px;
+}
+
+.intro {
+  padding: 20px;
+  height: 100px;
 }

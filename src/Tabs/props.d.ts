@@ -9,9 +9,9 @@ export interface ITabsProps extends IBaseProps {
   type?: 'basis' | 'capsule' | 'mixin';
 
   /**
-   * @description 垂直
+   * @description tabs方向
    */
-  vertical?: boolean;
+   direction?: 'horizontal' | 'vertical';
 
   /**
    * @description tab 切换时的回调
