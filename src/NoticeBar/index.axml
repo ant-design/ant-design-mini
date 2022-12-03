@@ -3,20 +3,13 @@
   a:if="{{show}}"
   style="{{style}}"
 >
-  <block a:if="{{showIcon && type !=='error'}}">
+  <slot name="icon">
     <view className="amd-notice-bar-icon" >
-      <slot name="icon">
-        <icon type="SoundOutline"/>
-      </slot>
+      <image-icon image="{{icon}}" a:if="{{ icon }}" class="amd-notice-bar-icon-image"/>
+      <icon type="InformationCircleOutline" a:elif="{{type ==='error'}}"/>
+      <icon type="SoundOutline" a:else/>
     </view>
-  </block>
-  <block a:if="{{showIcon && type ==='error'}}">
-    <view className="amd-notice-bar-icon" >
-      <slot name="icon">
-        <icon type="InformationCircleOutline"/>
-      </slot>
-    </view>
-  </block>
+  </slot>
   <view class="amd-notice-bar-content amd-notice-bar-content-{{$id}}">
     <!-- 文本内容展示区域 -->
     <view
@@ -27,13 +20,7 @@
     </view>
   </view>
   <view class="amd-notice-bar-operation">
-    <block a:for="{{actions.slice(0,2)}}">
-      <text 
-        class="amd-notice-bar-operation-text"
-        onTap="onActionTap"
-        data-index="{{index}}">{{item}}
-      </text>
-    </block>
+    <slot name="extra"/>
     <!-- icon 类型 -->
     <icon
       className="amd-notice-bar-operation-icon"

@@ -5,19 +5,6 @@
       从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
     </view>
   </popup>
-  <popup visible="{{showCenterDisableScoll}}" maskClosable="{{maskClosable}}" position="center" animation="{{animation}}" 
-    onClose="handlePopupClose" showCloseIcon="{{showCloseIcon}}">
-    <scroll-view scroll-y="{{true}}" class="box center" disable-lower-scroll="out-of-bounds" disable-upper-scroll="out-of-bounds">
-      <view class="centerContent"> 试一下滚动</view>
-    </scroll-view>
-  </popup>
-  
-  <popup visible="{{showCenterScoll}}" maskClosable="{{maskClosable}}" position="center" animation="{{animation}}" onClose="handlePopupClose" 
-    showCloseIcon="{{showCloseIcon}}" disableScroll="{{false}}">
-    <scroll-view scroll-y="{{true}}" class="box center">
-      <view class="centerContent"> 试一下滚动</view>
-    </scroll-view>
-  </popup>
   <container title="弹出位置">
     <view class="btn-list">
       <button data-position="top" onTap="handleShowBasic">顶部弹出</button>
@@ -44,10 +31,4 @@
       <switch slot="extra" checked="{{autoHeight}}" controlled onChange="handleChangeAutoHeight" />
     </list-item>
   </list>
-  <container title="设置disableScroll">
-    <view class="btn-list">
-      <button onTap="handleShowDisableScroll">弹窗内部滚动 - 禁用页面滚动</button>
-      <button onTap="handleShowScroll">弹窗内部滚动 - 允许页面滚动</button>
-    </view>
-  </container>
 </view>

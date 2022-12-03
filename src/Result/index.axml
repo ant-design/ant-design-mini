@@ -12,15 +12,13 @@
       </view>
     </block>
     <block a:else>
-      <block a:if="{{image}}">
-        <image-icon className="amd-result-image"
-          iconSize="large"
+      <slot name="image">
+        <image-icon 
+          a:if="{{image}}"
+          className="amd-result-image"
           image="{{image}}" 
         />
-      </block>
-      <block a:else>
-        <slot name="image" />
-      </block>
+      </slot>
     </block>
     <view class="amd-result-title"
       a:if="{{title && title.length > 0}}">{{title}}</view>

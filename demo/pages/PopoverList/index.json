@@ -1,8 +1,10 @@
 {
-  "defaultTitle": "PopoverBase",
+  "defaultTitle": "Popover：结合 PopoverItem 组件",
   "usingComponents": {
     "popover": "../../../src/Popover/index",
     "container": "../../../src/Container/index",
+    "list": "../../../src//List/index",
+    "list-item": "../../../src//List/ListItem/index",
     "button": "../../../src/Button/index"
   }
 }
