@@ -1,4 +1,4 @@
-@import (reference) "./variable.less";
+@import (reference) './variable.less';
 
 @noticeBarPrefix: amd-notice-bar;
 
@@ -47,6 +47,10 @@
   &-icon {
     margin-right: @h-spacing-standard;
     font-size: 36 * @rpx;
+    &-image-image {
+      width: 36 * @rpx;
+      height: 36 * @rpx;
+    }
   }
 
   &-content {
@@ -68,14 +72,8 @@
   &-operation {
     display: flex;
     align-items: center;
-
     &-icon {
       margin-left: 24 * @rpx;
-    }
-
-    &-text {
-      margin-left: 24 * @rpx;
-      white-space: nowrap;
     }
   }
 }

@@ -1,22 +1,23 @@
 Page({
   data: {
-    actionsText1: ['查看详情'],
-    actionsText2: ['不再提示', '查看详情'],
     typeList: ['default', 'error', 'info', 'primary'],
   },
-  handleTapAction(e) {
-    my.alert({
-      title: `当前点击的是 actions 中的第 ${e} 个元素。`,
+  handleTapAction() {
+    my.showToast({
+      content: `点击按钮`,
+      duration: 1000,
     });
   },
   handleTapLink() {
-    my.alert({
-      title: 'link 类型被点击了。',
+    my.showToast({
+      content: 'link 类型被点击了',
+      duration: 1000,
     });
   },
   handleClose() {
-    my.alert({
-      title: '点击关闭',
+    my.showToast({
+      content: `点击关闭`,
+      duration: 1000,
     });
   },
 });

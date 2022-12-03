@@ -1,6 +1,5 @@
 export const ListItemDefaultProps = {
-  imageSize: 'small',
   disabled: false,
-  last: false,
+  showDivider: true,
   stopPropagation: false,
 };

@@ -1,11 +1,7 @@
-page {
-  padding: 24rpx;
+.extra {
+  display: flex;
 }
-
-.amd-container {
-  padding-bottom: 24rpx;
-}
-
-.amd-notice-bar {
-  margin-bottom: 16rpx;
+.extra > view {
+  white-space: nowrap;
+  margin-left: 8rpx;
 }

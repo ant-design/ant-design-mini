@@ -25,12 +25,6 @@ export interface INoticeBarProps extends INoticeCommonProps {
 
   actions?: string[];
   /**
-   * @description 是否显示左侧的图标
-   * @default false
-   */
-
-  showIcon?: boolean;
-  /**
    * @description 是否开启滚动动画
    * @default false
    */
