@@ -1,19 +1,24 @@
-<!--basic-->
 <tabs
   items="{{items}}"
   current="{{current}}"
   onChange="onChange"
 >
-  <view slot="content">
+  <view class="content">
     {{items[current].content}}
   </view>
 </tabs>
 
 
+<view class="container">
+  current: {{current}}
+  length: {{items.length}}
+</view>
 
-{{current}}/{{items.length}}
-<button onTap="onPrevTap">选中上一个</button>
-<button onTap="onNextTap">选中下一个</button>
+<view class="buttons">
+  <button inline onTap="onPrevTap">上一个</button>
+  <button inline onTap="onNextTap">下一个</button>
+  <button inline onTap="onAddTap">添加</button>
+  <button inline onTap="onMinusTap">减少</button>
+</view>
 
-<button onTap="onAddTap">添加一个选项</button>
-<button onTap="onMinusTap">减少一个选项</button>
+

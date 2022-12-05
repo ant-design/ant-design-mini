@@ -9,6 +9,7 @@ Page({
       },{
         title:"蔬菜",
         subTitle:"描述文案",
+        badge: true,
         content:"西红柿",
       },{
         title:"动物",
@@ -42,6 +43,11 @@ Page({
   handleChange(current) {
     this.setData({
       current,
+    });
+  },
+  onPlus() {
+    my.alert({
+      content: 'plus',
     });
   }
 });

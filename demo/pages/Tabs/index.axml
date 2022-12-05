@@ -3,9 +3,9 @@
 </container>
 
 
-<container title="自定义content">
+<container title="带有content">
   <tabs items="{{items}}">
-    <view slot="content" class="content" slot-scope="item">
+    <view class="content" slot-scope="item">
       {{item.value.content}}
     </view>
   </tabs>
@@ -25,7 +25,6 @@
   <tabs
     type="mixin"
     items="{{items}}"
-    defaultCurrent="{{0}}"
   />
 </container>
 
@@ -33,11 +32,13 @@
 <container title="带徽标">
   <tabs items="{{items}}">
     <view slot="title" slot-scope="item">
-      <badge a:if="{{item.index === 0}}">
-        {{item.value.title}}
-      </badge>
+      <view a:if="{{item.value.badge}}">
+        <badge>
+          {{item.value.title}}
+        </badge>
+      </view>
       <view a:else>
-        {{item.value.title}}
+         {{item.value.title}}
       </view>
     </view>
   </tabs>
@@ -57,7 +58,7 @@
 <container title="plus按钮">
   <tabs items="{{items}}">
     <view slot="plus">
-      <icon type="AddOutline" />
+      <icon type="AddOutline" onTap="onPlus" />
     </view>
   </tabs>
 </container>
@@ -77,9 +78,7 @@
     items="{{items}}"
     current="{{current}}"
     onChange="handleChange"
-  >
-    <view slot="content"></view>
-  </tabs>
+  />
   <view class="content">
     {{items[current].content}}
   </view>
