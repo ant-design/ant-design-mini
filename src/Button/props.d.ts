@@ -54,7 +54,12 @@ export interface IButtonProps extends IBaseProps {
   /**
    * @description 点击回调
    */
-  onTap?: (event?: any) => void;
+  onTap?: (event: any) => void;
+
+  /**
+   * @description 点击回调
+   */
+   catchTap?: (event: any) => void;
   /**
    * @description 生活号 id，必须是当前小程序同主体且已关联的生活号，open-type="lifestyle" 时有效。
    */

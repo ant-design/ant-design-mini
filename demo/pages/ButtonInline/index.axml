@@ -14,15 +14,15 @@
 </container>
 
 <container title="按钮尺寸" class="list">
-  <button type="primary" inline size="{{18}}" onTap="handleTap">
+  <button type="primary" inline size="large" onTap="handleTap">
     主要按钮
   </button>
 
-  <button type="primary" inline size="{{17}}" onTap="handleTap">
+  <button type="primary" inline size="medium" onTap="handleTap">
     主要按钮
   </button>
 
-  <button type="primary" inline size="{{15}}" onTap="handleTap">
+  <button type="primary" inline size="small" onTap="handleTap">
     主要按钮
   </button>
 

@@ -11,5 +11,12 @@ Component({
         return onTap(event);
       }
     },
+    catchTap(e) {
+      const { catchTap, disabled, loading } = this.props;
+      if (catchTap && !disabled && !loading) {
+        const event = fmtEvent(this.props, e);
+        return catchTap(event);
+      }
+    }
   },
 });
