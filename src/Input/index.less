@@ -1,6 +1,6 @@
 @import (reference) "./variable.less";
 
-@inputItemPrefix: amd-input-item;
+@inputItemPrefix: amd-input;
 .@{inputItemPrefix} {
   display: flex;
   align-items: center;
@@ -32,45 +32,14 @@
       display: none;
     }
   }
-  &-layer {
-    display: flex;
-    flex: 1;
-    &-vertical {
-      flex-direction: column;
-      .amd-input-item-label {
-        align-self: flex-start;
-        font-family: PingFangSC-Regular;
-        font-size: 30 * @rpx;
-        color: @COLOR_TEXT_SECONDARY;
-      }
-      .a-input-placeholder {
-        margin-left: -6 * @rpx;
-      }
-      .@{inputItemPrefix}-content {
-        align-self: stretch;
-        color: @COLOR_TEXT_PRIMARY;
-        font-size: 30 * @rpx;
-      }
-    }
-  }
   &-content {
-    flex: 1;
-    display: flex;
+    width: 100%;
     align-self: center;
     padding: 0;
     font-size: 34 * @rpx;
     text-align: left;
     color: @input-item-color;
     background: @COLOR_CARD;
-    .a-input-placeholder {
-      font-family: PingFangSC-Regular;
-      font-size: 34 * @rpx;
-      color: @input-item-placeholder-color;
-    }
-  }
-
-  &-content .a-input-wrap {
-    flex: 1;
   }
 
   &-clear {
@@ -78,20 +47,23 @@
     justify-content: center;
     align-items: center;
     border-radius: 16 * @rpx;
+    margin-left: 8 * @rpx;
     &-icon {
       color: @COLOR_TEXT_WEAK;
       font-size: 34 * @rpx;
     }
   }
 
-  &-clear.show {
-    visibility: visible;
+  &-clear-show {
+    display: block;
   }
-  &-clear.hidden {
-    visibility: hidden;
+  &-clear-hidden {
+    display: none;
     pointer-events: none;
   }
-  &-placeholder-base {
+  &-placeholder {
+    font-size: 34 * @rpx;
     color: @input-item-placeholder-color;
+    margin-left: -6 * @rpx;
   }
 }
