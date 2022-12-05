@@ -1,15 +1,17 @@
-<view style="height: 50px;">tabs 吸顶模式</view>
+<view class="intro">
+  tabs 吸顶模式，
+  滑动到最顶部会吸顶，
+  切换tab content会滚动到最顶部
+</view>
 
 <tabs
   items="{{items}}"
   current="{{current}}"
   onChange="onChange"
   class="tabs"
->
-  <view slot="content" />
-</tabs>
+/>
 
-123
+
 <scroll-view
   id="scroll-view"
   scrollTop="{{scrollTop}}"

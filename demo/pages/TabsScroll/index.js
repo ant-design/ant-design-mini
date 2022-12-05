@@ -6,7 +6,7 @@ Page({
     const items = new Array(30).fill(null).map((_, index) => {
       return {
         title: `Tab ${index}`,
-        content: `Content of tab ${index}`,
+        subTitle:"描述文案",
       }
     });
     this.setData({

@@ -2,8 +2,10 @@
   items="{{items}}"
   current="{{current}}"
   onChange="onChange"
-  vertical
+  direction="vertical"
   class="tabs"
+  tabsBarClassName="tabs-bar"
+  tabActiveClassName="tab-active"
 >
   <scroll-view
     id="scroll-view"
@@ -13,7 +15,6 @@
     scroll-y="{{true}}"
     scroll-with-animation="{{true}}"
     scroll-animation-duration="{{300}}"
-    slot="content"
     class="content"
   >
     <view a:for="{{items}}" class="item">
