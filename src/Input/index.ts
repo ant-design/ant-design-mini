@@ -8,11 +8,21 @@ Component({
     selfFocus: false,
     controlled: false,
   },
-  didMount() {
+  onInit() {
+    this.setControlled = true;
     this.setData({
       controlled: 'value' in this.props,
     });
   },
+  didMount() {
+    if (this.setControlled) {
+      return;
+    }
+    this.setData({
+      controlled: 'value' in this.props,
+    });
+  },
+  setControlled: false,
   methods: {
     onChange(value, e) {
       if (!this.data.controlled) {
