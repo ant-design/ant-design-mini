@@ -3,9 +3,9 @@
 @avatarPrefix: amd-avatar;
 
 .@{avatarPrefix} {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  &-src {
+  &-image {
     width: @avatar-size-medium;
     height: @avatar-size-medium;
     border-radius: @avatar-img-radius;
@@ -26,5 +26,8 @@
       width: @avatar-size-large;
       height: @avatar-size-large;
     }
+  }
+  &-circle {
+    border-radius: 100vh;
   }
 }
