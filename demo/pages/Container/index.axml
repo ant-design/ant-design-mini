@@ -1,15 +1,16 @@
-<view style="margin-bottom: 10px;">标题在容器内</view>
-<container title="标题">
+<!-- 标题在容器内 -->
+<container title="标题" style="margin: 20px 0;">
   <view class="content">
   </view>
 </container>
 
-<view style="margin: 20px 0 10px;">标题在容器外</view>
 
-<container headerInBox="{{false}}">
+<!-- 标题在容器外 -->
+
+<container headerInBox="{{false}}" style="margin-bottom: 40px;">
   <view slot="title">
     <view class="icon">
-      <am-icon type="SmileOutline" style="margin-right: 8px;" />
+      <icon type="SmileOutline" style="margin-right: 8px;" />
       标题
     </view>
   </view>
@@ -19,7 +20,7 @@
 </container>
 
 
-<view style="margin: 20px 0 10px;">容器内多个盒子</view>
+<!-- 容器内多个盒子 -->
 <container title="标题">
   <view slot="headerRight">右部内容</view>
   <view class="content">
