@@ -3,6 +3,6 @@
   "usingComponents": {
     "avatar": "../../../src/Avatar/index",
     "list-item": "../../../src/List/ListItem/index",
-    "demo-block": "../../components/DemoBlock/index"
+    "container": "../../../src/Container/index"
   }
 }
