@@ -3,12 +3,11 @@ import { ISkeletonBaseProps } from '../props';
 interface IProps extends ISkeletonBaseProps {
   shape?: 'circle' | 'square';
   size?: string;
-  style: string;
 }
 Component<Record<string, never>, IProps>({
   props: {
     shape: 'square',
     loading: true,
-    style: ''
+    size: 'medium',
   },
 });

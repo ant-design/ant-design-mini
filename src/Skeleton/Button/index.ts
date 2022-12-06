@@ -1,9 +1,11 @@
 import { ISkeletonBaseProps } from '../props';
 
-type IProps = ISkeletonBaseProps;
+interface IProps extends ISkeletonBaseProps {
+  size?: string;
+}
 Component<Record<string, never>, IProps>({
   props: {
     loading: true,
-    style: ''
+    size: 'medium',
   },
 });

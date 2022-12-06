@@ -13,10 +13,14 @@ export interface ISkeletonBaseProps extends IBaseProps {
    */
   animate?: boolean;
   /**
-   * @description style
-   * @default ''
+   * @description 样式
    */
   style?: string;
+
+  /**
+   * @description 类名
+   */
+  className?: string;
 }
 /**
  * @description 骨架屏
@@ -26,26 +30,22 @@ export interface ISkeletonProps extends ISkeletonBaseProps {
    * @description 是否显示头像占位图
    * @default false
    */
-  avatar?: boolean;
+  avatar?: boolean | {
+    shape?: 'circle' | 'square';
+    size?: 'x-small' | 'small' | 'medium' | 'large';
+  };
   /**
    * @description 是否显示标题占位图
    * @default true
    */
   title?: boolean;
   /**
-   * @description 段落行数
-   * @default 3
+   * @description 段落
+   * @default true
    */
-  rows?: number;
-  /**
-   * @description 头像大小
-   * @default '88rpx''
-   */
-  avatarSize?:string;
-  /**
-   * @description 头像形状
-   * @default 'circle'
-   */
-  avatarShape?: 'circle' | 'square';
+  paragraph?: boolean | {
+    rows?: number;
+  };
+  
 }
 export declare const SkeletonDefaultProps: ISkeletonProps;

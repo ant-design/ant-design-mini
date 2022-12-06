@@ -18,72 +18,64 @@ toc: false
 ### 基本使用
 <code src='pages/Skeleton/index'></code>
 
-## 属性
+## API
 
-#### Skeleton
+### Skeleton
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
-| animate | 是否展示动画效果 | `boolean` | `false` | 
-| avatar | 是否显示头像占位图 | `boolean` | `false` | 
+| animate | 是否展示动画效果 | `boolean` | false | 
+| avatar | 是否显示头像占位图 | `boolean \| Avatar`  | false | 
 | className | 类名 | `string` | - | 
-| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` | 
-| rows | 段落行数，大于0展示 |  `number` | `3` | 
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | true | 
+| paragraph | 段落 |  `number \| Paragraph` | true | 
 | style | 样式 | `string` | - | 
-| title | 是否显示标题占位图 | `boolean` | `true` | 
+| title | 是否显示标题占位图 | `boolean` | true | 
 
-#### Avatar 头像
+### Avatar
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
-| animate | 是否展示动画效果 | `boolean` | `false` | 
+| animate | 是否展示动画效果 | `boolean` | false | 
 | className | 类名 | `string` | - | 
-| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
-| shape | 头像形状 | `'circle' \| 'square'` | `'square'` | 
-| size | 头像大小 | `string` | `44` | 
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | true |
+| shape | 头像形状 `circle` `square` | `string` | square | 
+| size | 头像大小 `x-small` `small` `medium` `large`  | `string` | medium | 
 | style | 样式 | `string` | - | 
 
 #### Paragraph 段落
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
-| animate | 是否展示动画效果 | `boolean` | `false` | 
+| animate | 是否展示动画效果 | `boolean` | false | 
 | className | 类名 | `string` | - | 
-| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
-| rows | 段落行数，大于0展示 | `number` | `3` | 
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | true |
+| rows | 段落行数，大于0展示 | `number` | 3 | 
 | style | 样式 | `string` | - | 
 
 #### Title 标题
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
-| animate | 是否展示动画效果 | `boolean` | `false` | 
+| animate | 是否展示动画效果 | `boolean` | false | 
 | className | 类名 | `string` | - | 
-| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | true |
 | style | 样式 | `string` | - | 
 
 #### Button 按钮
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
-| animate | 是否展示动画效果 | `boolean` | `false` | 
+| animate | 是否展示动画效果 | `boolean` | false | 
 | className | 类名 | `string` | - | 
-| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | true |
+| size | 大小，`small` `medium` `large` | `string` | medium |
 | style | 样式 | `string` | - | 
 
 #### Input 输入框
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
-| animate | 是否展示动画效果 | `boolean` | `false` | 
+| animate | 是否展示动画效果 | `boolean` | false | 
 | className | 类名 | `string` | - | 
-| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
-| style | 样式 | `string` | - | 
-
-#### Custom 自定义组件，添加标准容器和动画样式
-
-| 属性 | 说明 | 类型 | 默认值 |
-| -----|-----|-----|----- |
-| animate | 是否展示动画效果 | `boolean` | `false` | 
-| className | 类名 | `string` | - | 
-| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | `true` |
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | `boolean`  | true |
 | style | 样式 | `string` | - | 
