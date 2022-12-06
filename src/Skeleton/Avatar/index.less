@@ -1,4 +1,5 @@
-@import '../variable.less';
+@import (reference) '../variable.less';
+@import (reference) '../../Avatar/variable.less';
 
 .@{skeletonPrefix}-avatar {
   &-animate {
@@ -12,4 +13,22 @@
   &-circle {
     border-radius: 50%;
   }
+
+  &-x-small {
+    width: @avatar-size-x-small;
+    height: @avatar-size-x-small;
+  }
+  &-small {
+    width: @avatar-size-small;
+    height: @avatar-size-small;
+  }
+  &-medium {
+    width: @avatar-size-medium;
+    height: @avatar-size-medium;
+  }
+  &-large {
+    width: @avatar-size-large;
+    height: @avatar-size-large;
+  }
+  
 }
