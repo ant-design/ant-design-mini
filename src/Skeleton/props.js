@@ -3,7 +3,5 @@ export const SkeletonDefaultProps = {
   animate: false,
   avatar: false,
   title: true,
-  rows: 3,
-  avatarShape: 'square',
-  style: ''
+  paragraph: true,
 };

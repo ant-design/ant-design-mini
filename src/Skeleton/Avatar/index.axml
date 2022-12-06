@@ -1,6 +1,8 @@
-<view 
+<import-sjs from="./index.sjs" name="utils" />
+
+<view
   a:if="{{loading}}" 
-  style="{{size?`width: ${size}px; height: + ${size};`:''}}{{style || ''}}" 
-  class="amd-skeleton-avatar amd-skeleton-avatar-{{shape}} {{animate?'amd-skeleton-avatar-animate':''}} {{className || ''}}" 
+  style="{{style}}" 
+  class="amd-skeleton-avatar amd-skeleton-avatar-{{shape}} {{animate?'amd-skeleton-avatar-animate':''}} {{utils.getClass(size)}} {{className || ''}}" 
 />
 <slot a:else/>

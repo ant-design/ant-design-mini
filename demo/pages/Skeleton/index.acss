@@ -1,40 +1,9 @@
 page {
-  padding: 24rpx;
+  padding: 24px;
 }
 
-page .amd-container {
-  margin-bottom: 24rpx;
-}
-
-.demo-skeleton-switch {
-  margin-left: 20rpx;
-}
-
-.demo-skeleton-content {
+.list {
   display: flex;
-  align-items: flex-start;
-}
-
-.demo-skeleton-content-text {
-  color: #999;
-  margin-left: 24rpx;
-}
-
-.demo-skeleton-custom-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12rpx;
-}
-
-.demo-skeleton-custom-header .amd-skeleton-avatar {
-  margin-right: 32rpx;
-}
-
-.demo-skeleton-custom>.amd-skeleton-custom {
-  height: 160rpx;
-  margin-bottom: 16rpx;
-}
-
-.demo-skeleton-custom>.amd-skeleton-paragraph {
-  margin-bottom: 16rpx;
+  flex-direction: column;
+  gap: 8px;
 }
