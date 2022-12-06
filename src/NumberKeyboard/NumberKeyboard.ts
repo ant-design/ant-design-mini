@@ -1,15 +1,20 @@
-import { VirtualKeyboardDefaultProps } from './props';
+// import { VirtualKeyboardDefaultProps } from './props';
 
 Component({
   props: {
-    className: '',
-    codeLength: 4, // 验证码长度
-    themeColor: '#1677ff', // 光标颜色
-    focus: true,
-    onBlur: ()=> {},
-    onFocus: ()=> {},
-    onChange: ()=> {},
-    onFill: ()=> {},
+    value: '', // 值
+    defaultValue: '', // 默认值
+    visible: false, // 是否展示
+    safeArea: true, // 安全区域
+    arrow: false, // 隐藏箭头
+    random: false, // 乱序
+    point: true, // 展示小数点
+    disable: false, // 禁用确认按钮
+    confirmText: '确定', // 确认按钮文字
+    onInput: ()=> {}, // 输入
+    onConfirm: ()=> {}, // 确认
+    onDelete: ()=> {}, // 删除
+    onClose: () => {}, // 关闭
   },
   data: {
     _val: '',
@@ -17,15 +22,14 @@ Component({
     _disable: false,
   },
   didMount() {
-    const {  focus } = this.props;
+    const { value, focus } = this.props;
     this.setData({
-      // _val: value,
+      _val: value,
       _focus: focus,
     });
   },
   didUpdate(prevProps) {
     const { value, focus } = this.props;
-    // console.log('`````123', focus, prevProps.focus);
     if (focus !== prevProps.focus) {
       this.setData({ _focus: focus });
       !focus && this.onHide();

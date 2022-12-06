@@ -1,30 +1,8 @@
 <view class="ali-v-kb">
-  <list header="数字键盘">
-    <view class="ali-v-kb_lebal">输入值：{{value1}}</view>
-    <view class="ali-v-kb_btn">
-      <view class="ali-v-kb_bs" onTap="onFocus1">打开键盘</view>
-      <view class="ali-v-kb_bs close" onTap="onBlur1">收起键盘</view>
-    </view>
-    <virtual-keyboard
-      type="keyboard"
-      focus="{{focus1}}"
-      onChange="onChangeValue1"
-    />
-  </list>  
-  <list header="金额输入">
-    <view class="ali-v-kb_amount">
-      <virtual-keyboard
-        type="amount"
-        min="0.1"
-        max="10000000"
-        onEnter="onEnter"/>
-    </view>
-  </list>
   <list header="验证码">
-    <view class="ali-v-kb_code">
-      <virtual-keyboard
+    <virtual-keyboard
         type="code"
-        onEnter="onEnter"/>
-    </view>
+        focus="{{true}}"
+        onFocus="onFocus2"/>
   </list>
 </view>

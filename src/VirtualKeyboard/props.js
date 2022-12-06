@@ -3,7 +3,7 @@ export const VirtualKeyboardDefaultProps = {
   hideArrow: false, // 隐藏箭头
   point: true, // 展示小数点
   disableSureBtn: false, // 禁用确认按钮，支持动态修改
-  sureBtnText: '确认', // 确认按钮字
+  sureBtnText: '确定', // 确认按钮字
   isSureBtnSlot: false, // slot 确定按钮
   type: 'keyboard', // 是否只需要键盘 keyboard | amount | code
   vibrate: true,

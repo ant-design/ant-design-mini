@@ -24,65 +24,6 @@
   height: 100%;
   position: relative;
   overflow: hidden;
-  &-code {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    &_view {
-      width: 80 * @rpx;
-      height: 80 * @rpx;
-      line-height: 80 * @rpx;
-      font-size: 48 * @rpx;
-      text-align: center;
-      border: 1px solid #e5e5e5;
-      border-radius: 8 * @rpx;
-      margin-right: 24 * @rpx;
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-    &_tip {
-      height: calc(100% - 40 * @rpx;);
-      width: 4 * @rpx;
-      border-radius: 4 * @rpx;
-      display: inline-block;
-      background: #1677ff;
-      vertical-align: middle;
-      animation: number-input-cursor 1s step-start infinite;
-    }
-    &_border {
-      border: 1px solid #1677ff;
-      box-shadow: 0 0 2px 0 #1677ff;
-    }
-  }
-  &-content {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: calc(100% - 48 * @rpx;);
-    padding: 0 24 * @rpx;
-    height: 100%;
-    position: relative;
-    &_tip {
-      position: absolute;
-      left: 30 * @rpx;
-    }
-  }
-  &-placeholder {
-    color: #ccc;
-  }
-  &-light {
-    margin-left: 6 * @rpx;
-    height: calc(100% - 40 * @rpx;);
-    width: 4 * @rpx;
-    border-radius: 4 * @rpx;
-    display: inline-block;
-    vertical-align: middle;
-    animation: number-input-cursor 1s step-start infinite;
-  }
   &-kb {
     background: #f5f5f5;
     max-height: 600px;
@@ -107,7 +48,7 @@
       flex: 3;
     }
     &_function {
-      flex: 0; // todo
+      flex: 1;
       display: flex;
       flex-direction: column;
     }
@@ -118,7 +59,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-bottom: 1px solid #f8f8f8;
+      border-bottom: 1 * @rpx solid #f8f8f8;
       .icon-xiangxia {
         width: 30 * @rpx;
         height: 30 * @rpx;
@@ -136,8 +77,8 @@
       font-size: 25px;
       color: #333;
       background: #fff;
-      border-right: 1px solid #f8f8f8;
-      border-bottom: 1px solid #f8f8f8;
+      border-right: 1 * @rpx solid #f8f8f8;
+      border-bottom: 1 * @rpx solid #f8f8f8;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -154,7 +95,7 @@
       }
     }
     &_zero {
-      flex: 1; // todo
+      flex: 2;
     }
     &_point {
       flex: 1;
@@ -180,6 +121,14 @@
         left: 0;
         content: "";
       }
+      .icon-huitui {
+        width: 52 * @rpx;
+        height: 52 * @rpx;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-image: url(https://mdn.alipayobjects.com/huamei_ze58cv/afts/img/A*V-ZkTahhId0AAAAAAAAAAAAADueHAQ/original);
+      }
     }
     &_iphonex {
       height: 24px;
@@ -187,15 +136,4 @@
       background: white;
     }
   }
-}
-.icon-huitui {
-  width: 52 * @rpx;
-  height: 52 * @rpx;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-image: url(https://mdn.alipayobjects.com/huamei_ze58cv/afts/img/A*V-ZkTahhId0AAAAAAAAAAAAADueHAQ/original);
-}
-.ccc {
-  background-color: #eee;
 }
