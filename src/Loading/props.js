@@ -1,5 +1,5 @@
 export const LoadingDefaultProps = {
-  size: 40,
+  size: 'medium',
   color: '#fff',
   type: 'spin',
 };
