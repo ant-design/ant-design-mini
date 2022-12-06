@@ -11,12 +11,11 @@ export interface ILoadingProps extends IBaseProps {
    */
   color?: string;
 
-  
   /**
    * @description 加载图标尺寸，当 type 为 'spin' 时生效
-   * @default 40px
+   * @default medium
    */
-  size?: 'number' | 'string';
+  size?: 'string';
 
   type?: 'spin' | 'mini';
 }
