@@ -1,11 +1,9 @@
+<import-sjs from="./index.sjs" name="utils" />
+
 <view class="amd-avatar {{className ? className : ''}}" style="{{style}}">
-  <block a:if="{{lazyLoad}}">
-    <image class="amd-avatar-src amd-avatar-src-{{size}}"
-      src="{{src}}"
-      lazy-load="{{lazyLoad}}" />
-  </block>
-  <block a:else>
-    <image class="amd-avatar-src amd-avatar-src-{{size}}"
-      src="{{src}}" />
-  </block>
+  <image
+    class="amd-avatar-image {{utils.getClass(size)}}"
+    src="{{src}}"
+    a:if="{{src}}"
+  />
 </view>

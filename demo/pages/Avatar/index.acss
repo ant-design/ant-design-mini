@@ -1,12 +1,12 @@
-.demo-list {
-  display: flex;
-  align-items: flex-start;
-}
-.list-item {
-  margin-right: 24rpx;
-  text-align: left;
+.avatar {
+  margin: 8px;
 }
 
-.list-item .size-text {
-  padding-top: 12rpx;
+.avatar-custom {
+  margin: 8px;
+}
+
+.avatar-custom image {
+  width: 40px;
+  height: 40px;
 }
