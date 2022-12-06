@@ -39,8 +39,9 @@ toc: 'content'
 | icon | 按钮左侧图标 | string | - |
 | loading | 是否加载中，加载中时不可点击 | boolean | - |
 | size | 按钮大小。仅在 inline 下生效  | number | - |
-| subText | 辅助文字，显示在第二行 | string | - |
+| subText | 辅助文字，显示在第二行。inline 下不生效 | string | - |
 | stopPropagation | 是否阻止事件冒泡 | boolean | false |
+| catchTap | 点击按钮，触发此回调 | (e: Event) => void  | - |
 | onTap | 点击按钮，触发此回调 | (e: Event) => void  | - |
 
 ### 其他属性

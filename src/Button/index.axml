@@ -5,16 +5,16 @@
   form-type="{{htmlType}}"
   hover-class="{{utils.getHoverClass(loading, type, activeClassName)}}"
   scope="{{scope}}"
-  onTap="{{stopPropagation?'':'onTap'}}"
-  catchTap="{{stopPropagation?'onTap':''}}"
+  onTap="{{onTap ? 'onTap' : ''}}"
+  catchTap="{{catchTap ? 'catchTap' : ''}}"
   public-id="{{publicId}}"
   open-type="{{openType}}"
   class="amd-button {{inline ? `amd-button-inline ${utils.getClass(size)}` : ''}} {{`amd-button-${type}${danger ? '-danger' : ''}`}} {{(disabled || loading) ? 'amd-button-disabled' : ''}} {{className ? className : ''}}"
-  style="{{ inline && typeof size !== 'undefined' ? `font-size: ${size}px;` : ''}} {{style ? style : ''}}"
+  style="{{style}}"
 >
   <view class="amd-button-wrap">
     <block a:if="{{icon}}">
-      <icon type="{{icon}}" style="{{typeof size !== 'undefined' ? `font-size: ${size}:px;` : ''}}" />
+      <icon type="{{icon}}" />
     </block>
     <view class="amd-button-content-text {{icon ? 'amd-button-content-text-margin' : ''}}" >
       <slot />
