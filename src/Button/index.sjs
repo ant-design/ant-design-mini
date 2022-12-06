@@ -1,11 +1,9 @@
 function getClass(size) {
-  if (size >= 18) {
-    return 'amd-button-padding-large';
+  const list = ['x-small', 'small', 'medium', 'large'];
+  if (list.indexOf(size) >=0) {
+    return `amd-button-${size}`;
   }
-  if (size >15) {
-    return 'amd-button-padding-medium';
-  }
-  return 'amd-button-padding-default';
+  return 'amd-button-medium';
 }
 
 function getHoverClass(loading, type, activeClassName) {
