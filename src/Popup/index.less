@@ -9,25 +9,12 @@
   left: 0;
   right: 0;
   z-index: 998;
-
+  touch-action: none;
   &-close {
-    &-container {
-      display: flex;
-      height: 36 * @rpx;
-      width: 36 * @rpx;
-      position: absolute;
-      justify-content: center;
-      right: 24 * @rpx;
-      .amd-icon {
-        font-size: 36 * @rpx;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
-  &.@{popupPrefix}-disable-scroll {
-    touch-action: none;
+    font-size: 36 * @rpx;
+    position: absolute;
+    right: 24 * @rpx;
+    top: 24 * @rpx;
   }
   &.@{popupPrefix}-animation &-content {
     animation-timing-function: ease-out;
@@ -50,11 +37,6 @@
     flex-direction: column;
     animation-fill-mode: forwards;
     color: @COLOR_TEXT_PRIMARY;
-    &&-auto {
-      height: auto;
-      min-width: 0;
-      min-height: 0;
-    }
   }
   &-top {
     top: 0;
@@ -62,7 +44,6 @@
     right: 0;
     animation-name: amd-popup-top;
     border-radius: 0 0 @popup-radius @popup-radius;
-    height: 540 * @rpx;
     &-close {
       animation-name: amd-popup-top-close;
     }
@@ -83,7 +64,6 @@
     bottom: 0;
     animation-name: amd-popup-bottom;
     border-radius: @popup-radius @popup-radius 0 0;
-    height: 540 * @rpx;
     &-close {
       animation-name: amd-popup-bottom-close;
     }

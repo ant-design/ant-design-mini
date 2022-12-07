@@ -7,7 +7,7 @@
   visible="{{visible}}" 
   duration="{{duration}}"
   maskClosable="{{maskClosable}}"
-  disableScroll="{{disableScroll}}"
+  position="center"
   animation="{{animation}}"
   zIndex="{{zIndex}}"
   onClose="onClose">

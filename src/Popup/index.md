@@ -23,23 +23,19 @@ toc: 'content'
 
 ## 属性
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| visible | boolean | 否 | false | 是否显示 |
-| maskClosable | boolean | 否 | false | 点击蒙层是否可以关闭 |
-| showCloseIcon | boolean | 否 | false | 是否展示关闭图标 |
-| disableScroll | boolean | 否 | true | 弹窗展示时，是否禁止页面滚动 |
-| autoHeight | boolean | 否 | false | 是否自适应内容区高度 |
-| animation | boolean | 否 | true | 是否开启过渡动画 |
-| duration | number | 否 | 300 | 过渡动画时长，单位毫秒 |
-| position | 'center' &verbar; 'top' &verbar; 'bottom' &verbar; 'left' &verbar; 'right' | 否 | 'center' | 弹窗布局 |
-| zIndex | number | 否 | 998 | 弹窗层级 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| animation | 是否开启过渡动画 | `boolean` | true |  
+| className | 类名 | `string` | - | 
+| closeable | 是否展示关闭图标 | `boolean` | false |
+| duration | 过渡动画时长，单位毫秒 | `number` | 300 | 
+| maskClassName | 蒙层的类名 | `string` | - | 
+| maskClosable | 是否可点击蒙层关闭 | `boolean` | true |
+| maskStyle | 蒙层的样式 | `string` | - | 
+| position | 弹窗布局 | 'top' \| 'bottom' \| 'left' \| 'right' | 'bottom' | 
+| style | 样式 | `string` | - |
+| visible |  是否显示 | `boolean` | false | 
+| zIndex | 弹窗层级 | `number` | 998 | 
+| onClose | 弹窗关闭时，触发回调 | ( visible: `boolean` ) => void |
 
-## 事件
-
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onClose | 弹窗关闭时，触发回调 | ( visible: boolean ) => void |
 
