@@ -4,7 +4,6 @@ import fmtEvent from '../../../_util/fmtEvent';
 
 createComponent({
   props: FormRangePickerDefaultProps,
-  initialValue: null,
   methods: {
     onOk(date, dateStr, e) {
       this.emit('onChange', date);
@@ -25,6 +24,11 @@ createComponent({
     onFormat(date, dateStr) {
       if (this.props.onFormat) {
         return this.props.onFormat(date, dateStr);
+      }
+    },
+    onDismissPicker(e) {
+      if (this.props.onDismiss) {
+        this.props.onDismissPicker(fmtEvent(this.props, e));
       }
     },
   },

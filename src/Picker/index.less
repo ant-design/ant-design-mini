@@ -46,23 +46,19 @@
     .a-picker-view-picker-item {
       color: @COLOR_TEXT_PRIMARY;
     }
-    &-indicator {
+    .a-picker-view-picker-indicator {
       &::before,
       &::after {
         border-color: @COLOR_BORDER;
       }
     }
-    &-mask {
+    .a-picker-view-picker-mask {
       background-image: linear-gradient(
           to bottom,
           fade(@COLOR_CARD, 95),
           fade(@COLOR_CARD, 60)
         ),
-        linear-gradient(
-          to top,
-          fade(@COLOR_CARD, 95),
-          fade(@COLOR_CARD, 60)
-        );
+        linear-gradient(to top, fade(@COLOR_CARD, 95), fade(@COLOR_CARD, 60));
     }
   }
   &-placeholder {

@@ -43,8 +43,8 @@ export interface IListItemProps extends IBaseProps {
    */
   onTap?: (event?: any) => void;
   /**
-   * @description 是否阻止事件冒泡
+   * @description 点击整行回调
    */
-  stopPropagation?: boolean;
+  catchTap?: (event?: any) => void;
 }
 export declare const ListItemDefaultProps: Partial<IListItemProps>;

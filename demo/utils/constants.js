@@ -258,11 +258,6 @@ export const componentList = [
         path: '/pages/RadioGroup/index',
       },
       {
-        name: 'SearchBar',
-        nameZN: '搜索框',
-        path: '/pages/SearchBar/index',
-      },
-      {
         name: 'Selector',
         nameZN: '选择组',
         path: '/pages/Selector/index',

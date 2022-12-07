@@ -8,6 +8,17 @@
     </popover>
   </view>
 </container>
+<container title="点击空白处关闭">
+  <view class="wrap">
+    <popover 
+      placement="top"
+      content="prompt"
+      showMask
+      maskStyle="background:transparent;">
+      <button inline>点我</button>
+    </popover>
+  </view>
+</container>
 <container title="指定颜色">
   <view class="wrap">
     <popover 
@@ -41,35 +52,38 @@
   </view>
 </container>
 <container title="气泡位置">
-  <view class="multi-wrap">
+  <view style="display:flex;justify-content:space-between;padding-top:30px;">
     <popover 
-      placement="{{placement}}"
-      showMask="{{showMask}}"
-      onVisibleChange="handleVisibleChange">
-      <view class="multi">
-        <view>点击{{show ? '隐藏' : '显示'}}</view>
-        <view>
-          {{placement}}
-        </view>
-      </view>
-      <view slot="content" class="tooltip">
-        <view>Popover</view> 
-        <view>
-          Content
-        </view>
-      </view>
+      placement="{{item}}"
+      a:for="{{ ['top','top-left','top-right'] }}"
+      content="prompt">
+      <button inline style="width:110px;">{{item}}</button>
     </popover>
   </view>
-  <view class="demo-btn-container">
-    <button 
-      class="demo-btn"
-      onTap="handleNextPosition">
-      下个位置
-    </button>
-    <button 
-      class="demo-btn"
-      onTap="handleToggleMask">
-      {{showMask?'隐藏':'显示'}}蒙层
-    </button>
+  <view style="padding:20px 64px;display:flex;align-items:stretch;justify-content:space-between;">
+    <view>
+      <popover 
+        placement="{{item}}"
+        a:for="{{ ['left','left-top','left-bottom'] }}"
+        content="prompt">
+        <button inline style="width:110px;">{{item}}</button>
+      </popover>
+    </view>
+    <view>
+      <popover 
+        placement="{{item}}"
+        a:for="{{ ['right','right-top','right-bottom'] }}"
+        content="prompt">
+        <button inline style="width:110px;">{{item}}</button>
+      </popover>
+    </view>
+  </view>
+  <view style="display:flex;justify-content:space-between;padding-bottom:30px;">
+    <popover 
+      placement="{{item}}"
+      a:for="{{ ['bottom','bottom-left','bottom-right'] }}"
+      content="prompt">
+      <button inline style="width:110px;">{{item}}</button>
+    </popover>
   </view>
 </container>

@@ -3,7 +3,6 @@ import { PopupDefaultProps } from './props';
 Component({
   props: PopupDefaultProps,
   data: {
-    supportSjs: my.canIUse('sjs.event'),
     closing: false,
   },
   didUpdate(prevProps) {

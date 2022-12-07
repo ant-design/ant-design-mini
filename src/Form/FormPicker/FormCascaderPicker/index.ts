@@ -4,7 +4,6 @@ import fmtEvent from '../../../_util/fmtEvent';
 
 createComponent({
   props: FormCascaderPickerDefaultProps,
-  initialValue: null,
   methods: {
     onOk(value, option, e) {
       this.emit('onChange', value);
@@ -25,6 +24,16 @@ createComponent({
     onFormat(value, option) {
       if (this.props.onFormat) {
         return this.props.onFormat(value, option);
+      }
+    },
+    onDismissPicker(e) {
+      if (this.props.onDismiss) {
+        this.props.onDismiss(fmtEvent(this.props, e));
+      }
+    },
+    onChange(value, options, e) {
+      if (this.props.onChange) {
+        this.props.onChange(value, options, fmtEvent(this.props, e));
       }
     },
   },

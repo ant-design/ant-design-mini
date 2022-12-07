@@ -42,9 +42,9 @@
     <block a:if="{{columns}}">
       <picker-view 
         mask-style="{{maskStyle || ''}}"
-        mask-class="amd-picker-content-mask {{ maskClassName || ''}}"
+        mask-class="{{ maskClassName || ''}}"
         indicator-style="{{indicatorStyle|| ''}}"
-        indicator-class="amd-picker-content-indicator {{indicatorClass || ''}}"
+        indicator-class="{{indicatorClass || ''}}"
         value="{{selectedIndex}}"
         onChange="onChange">
         <block 

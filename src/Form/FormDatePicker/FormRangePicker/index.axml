@@ -34,7 +34,7 @@
       indicatorClass="{{indicatorClass}}"
       value="{{formData.value}}" 
       onOk="onOk"
-      onChange="onChange"
+      onChange="onPickerChange"
       onDismiss="onDismissPicker"
       onTriggerPicker="onTriggerPicker"
       onFormat="onFormat">

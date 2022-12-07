@@ -2,9 +2,9 @@
   from="./index.sjs" />
 
 <view class="amd-list-item  {{className ? className : ''}}"
-  onTap="{{stopPropagation?'':'onTap'}}"
-  catchTap="{{stopPropagation?'onTap':''}}"
-  hover-class="{{onTap ? 'amd-list-item-hover' : ''}}"
+  onTap="{{onTap ? 'onTap' : ''}}"
+  catchTap="{{catchTap ? 'catchTap' : ''}}"
+  hover-class="{{(onTap||catchTap) ? 'amd-list-item-hover' : ''}}"
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}">
   <view class="amd-list-item-line {{showDivider?'amd-list-item-line-divider':''}} {{disabled? 'amd-list-item-line-disabled' : ''}}">
@@ -37,7 +37,7 @@
         </slot>
       </view>
       <view class="amd-list-item-extra-brief">
-        <slot name="extra-brief">
+        <slot name="extraBrief">
           {{extraBrief}}
         </slot>
       </view>
