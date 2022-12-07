@@ -230,10 +230,10 @@ Component({
       }
     },
 
-    onDismiss(e) {
-      const { onDismiss } = this.props;
-      if (onDismiss) {
-        onDismiss(fmtEvent(this.props, e));
+    onCancel(e) {
+      const { onCancel } = this.props;
+      if (onCancel) {
+        onCancel(fmtEvent(this.props, e));
       }
     },
 
@@ -284,14 +284,14 @@ Component({
      * 显示/隐藏切换
      * @param visible
      */
-    onTriggerPicker(visible) {
-      const { onTriggerPicker } = this.props;
+    onVisibleChange(visible) {
+      const { onVisibleChange } = this.props;
       if (visible) {
         this.setData({ pickerType: 'start' });
         this.setCurrentValue();
       }
-      if (onTriggerPicker) {
-        onTriggerPicker(visible, fmtEvent(this.props));
+      if (onVisibleChange) {
+        onVisibleChange(visible, fmtEvent(this.props));
       }
       this.pickerVisible = visible;
     },

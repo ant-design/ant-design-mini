@@ -3,8 +3,8 @@
     选择城市
     <picker 
       slot="extra"
-      onDismiss="handleDismissPicker"
-      onTriggerPicker="handleTriggerPicker"
+      onCancel="handleDismissPicker"
+      onVisibleChange="handleTriggerPicker"
       onOk="handleOk"
       defaultValue="{{defaultValue}}"
       placeholder="请选择"
@@ -17,8 +17,8 @@
     选择城市（点击蒙层关闭）
     <picker 
       slot="extra"
-      onDismiss="handleDismissPicker"
-      onTriggerPicker="handleTriggerPicker"
+      onCancel="handleDismissPicker"
+      onVisibleChange="handleTriggerPicker"
       onOk="handleOk"
       defaultValue="{{defaultValue}}"
       placeholder="请选择"
@@ -51,8 +51,8 @@
     选择日期
     <picker 
       slot="extra"
-      onDismiss="handleDismissPicker"
-      onTriggerPicker="handleTriggerPicker"
+      onCancel="handleDismissPicker"
+      onVisibleChange="handleTriggerPicker"
       onOk="handleOk"
       placeholder="请选择"
       title="请选择"
@@ -70,7 +70,7 @@
     <picker 
       slot="extra"
       placeholder="请选择"
-      onTriggerPicker="handleTriggerPicker"
+      onVisibleChange="handleTriggerPicker"
       defaultValue="{{['Tues', 'pm']}}"
       title="请选择"
       onOk="handleOk"

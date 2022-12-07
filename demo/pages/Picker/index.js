@@ -56,6 +56,6 @@ Page({
     console.log('value', value, 'column', column);
   },
   handleTriggerPicker(visible, e) {
-    console.log('onTriggerPicker', visible, e);
+    console.log('onVisibleChange', visible, e);
   },
 });

@@ -16,9 +16,9 @@ createComponent({
         this.props.onPickerChange(value, option, fmtEvent(this.props, e));
       }
     },
-    onTriggerPicker(visible, e) {
-      if (this.props.onTriggerPicker) {
-        this.props.onTriggerPicker(visible, fmtEvent(this.props, e));
+    onVisibleChange(visible, e) {
+      if (this.props.onVisibleChange) {
+        this.props.onVisibleChange(visible, fmtEvent(this.props, e));
       }
     },
     onFormat(value, option) {
@@ -27,8 +27,8 @@ createComponent({
       }
     },
     onDismissPicker(e) {
-      if (this.props.onDismiss) {
-        this.props.onDismiss(fmtEvent(this.props, e));
+      if (this.props.onCancel) {
+        this.props.onCancel(fmtEvent(this.props, e));
       }
     },
     onChange(value, options, e) {

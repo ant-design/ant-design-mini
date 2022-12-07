@@ -24,7 +24,7 @@ Page({
     this.setData({ defaultDate: new Date('2019/05/02') });
   },
   handleTriggerPicker(visible, e) {
-    console.log('onTriggerPicker', visible, e);
+    console.log('onVisibleChange', visible, e);
   },
 
   handleDismiss(e) {

@@ -25,7 +25,7 @@
       hover-class="amd-picker-header-item-hover"
       hover-start-time="20"
       hover-stay-time="50"
-      onTap="onDismiss">{{dismissText}}</view>
+      onTap="onCancel">{{cancelText}}</view>
     <view class="amd-picker-header-item amd-picker-header-title">
       <slot name="title">
         {{title}}
