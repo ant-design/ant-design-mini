@@ -34,13 +34,6 @@
   padding: 24 * @rpx 24 * @rpx 24 * @rpx 32 * @rpx;
   position: relative;
   .hairline("bottom");
-  // &-disabled {
-  //   opacity: 0.4;
-  // }
-
-  .amd-input-item {
-    height: 48 * @rpx;
-  }
 
   &-line {
     display: flex;
@@ -49,9 +42,6 @@
     align-self: stretch;
     max-width: 100%;
     position: relative;
-    // &-disabled {
-    //   opacity: 0.4;
-    // }
   }
 
   &-content {
@@ -69,9 +59,6 @@
     line-height: 37 * @rpx;
     text-align: left;
     margin-top: 8 * @rpx;
-    // &-disabled {
-    //   opacity: 0.4;
-    // }
   }
 
   &-help-info {
@@ -97,14 +84,6 @@
       position: relative;
     }
 
-    .amd-icon {
-      margin-left: 4 * @rpx;
-    }
-
-    .amd-popover-content {
-      min-width: 0;
-    }
-
     &-help-content {
       color: @COLOR_WHITE_CHANGE;
       font-size: 30 * @rpx;
@@ -121,9 +100,6 @@
       .formItemLabelVertical();
     }
 
-    // &-disabled {
-    //   opacity: 0.4;
-    // }
   }
 
   &-field {
@@ -134,42 +110,20 @@
     }
   }
 
-  &-arrow {
-    margin-left: 24 * @rpx;
-    color: @COLOR_TEXT_WEAK;
-    display: flex;
-    align-items: center;
-
-    .amd-icon {
-      font-size: 36 * @rpx;
-      display: flex;
-      align-items: center;
-    }
-  }
-
-  &-other {
-    display: flex;
-    align-items: center;
-    // &-disabled {
-    //   opacity: 0.4;
-    // }
-  }
+  // &-other {
+  //   display: flex;
+  //   align-items: center;
+  // }
 
   &-extra {
-    flex: 1;
-    margin-left: 24 * @rpx;
+    display: flex;
+    align-items: center;
     font-size: 32 * @rpx;
     color: @COLOR_TEXT_ASSIST;
-
-    &:empty {
-      display: none;
-    }
   }
-}
 
-.amd-form-require-style {
   &-asterisk {
-    .amd-form-item-label-required .amd-form-item-label-text {
+    .@{formItemPrefix}-label-required .@{formItemPrefix}-label-text {
       &::before {
         content: "*";
         position: absolute;
@@ -182,7 +136,7 @@
   }
 
   &-text-required {
-    .amd-form-item-label-required .amd-form-item-label-text {
+    .@{formItemPrefix}-label-required .@{formItemPrefix}-label-text {
       &::after {
         padding-left: 4 * @rpx;
         content: "(必填)";
@@ -196,7 +150,7 @@
   }
 
   &-text-optional {
-    .amd-form-item-label .amd-form-item-label-text {
+    .@{formItemPrefix}-label .@{formItemPrefix}-label-text {
       &::after {
         padding-left: 4 * @rpx;
         content: "(选填)";
@@ -208,7 +162,7 @@
       }
     }
 
-    .amd-form-item-label-required .amd-form-item-label-text {
+    .@{formItemPrefix}-label-required .@{formItemPrefix}-label-text {
       &::after {
         content: none;
       }
