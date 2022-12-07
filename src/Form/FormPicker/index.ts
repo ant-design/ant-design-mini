@@ -26,5 +26,10 @@ createComponent({
         return this.props.onFormat(value, column);
       }
     },
+    onDismissPicker(e) {
+      if (this.props.onDismiss) {
+        this.props.onDismiss(fmtEvent(this.props, e));
+      }
+    },
   },
 });
