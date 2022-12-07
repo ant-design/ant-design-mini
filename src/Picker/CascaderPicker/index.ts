@@ -100,7 +100,7 @@ Component({
       return result;
     },
     onChange(selectedValue) {
-      const { onPickerChange } = this.props;
+      const { onChange } = this.props;
       const { columns } = this.data;
       const newColumns = this.getterColumns(selectedValue);
       // columns没变化说明selectedValue在范围内，无需重置
@@ -111,8 +111,8 @@ Component({
       }
       newData.currentValue = selectedValue;
       this.setData(newData);
-      if (onPickerChange) {
-        onPickerChange(
+      if (onChange) {
+        onChange(
           selectedValue,
           this.getOptionByValue(selectedValue),
           fmtEvent(this.props)

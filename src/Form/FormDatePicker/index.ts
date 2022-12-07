@@ -21,6 +21,11 @@ createComponent({
         this.props.onTriggerPicker(visible, fmtEvent(this.props, e));
       }
     },
+    onDismissPicker(e) {
+      if (this.props.onDismiss) {
+        this.props.onDismissPicker(fmtEvent(this.props, e));
+      }
+    },
     onFormat(date, dateStr) {
       if (this.props.onFormat) {
         return this.props.onFormat(date, dateStr);

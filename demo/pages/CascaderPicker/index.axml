@@ -5,7 +5,7 @@
             slot="extra"
             placeholder="请选择归属地" 
             options="{{cityList}}" 
-            onPickerChange="handleCityPickerChange" 
+            onChange="handleCityPickerChange" 
             onOk="handleCityOnOk"
             onDismiss="handleDismiss"
             />
@@ -20,7 +20,7 @@
             defaultValue="{{['34','330']}}"
             placeholder="请选择城市" 
             options="{{cityList}}" 
-            onPickerChange="handleCityPickerChange" 
+            onChange="handleCityPickerChange" 
             onOk="handleCityOnOk"
         />
     </list-item>
@@ -33,7 +33,7 @@
             value="{{value}}"
             placeholder="请选择城市" 
             options="{{cityList}}" 
-            onPickerChange="handleCityPickerChange" 
+            onChange="handleCityPickerChange" 
             onOk="handleOk"
         />
     </list-item>

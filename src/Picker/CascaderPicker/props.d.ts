@@ -1,4 +1,4 @@
-import { IBaseProps } from '../_base';
+import { IBaseProps } from '../../_base';
 
 export interface ICascaderOption {
   label: string;
@@ -72,7 +72,7 @@ export interface ICascaderProps extends IBaseProps {
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
-  onPickerChange?: (
+  onChange?: (
     value: any[],
     selectedOptions: ICascaderOption[],
     e: Record<string, any>
