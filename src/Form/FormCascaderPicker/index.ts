@@ -1,6 +1,6 @@
 import { FormCascaderPickerDefaultProps } from './props';
-import createComponent from '../../createComponent';
-import fmtEvent from '../../../_util/fmtEvent';
+import createComponent from '../createComponent';
+import fmtEvent from '../../_util/fmtEvent';
 
 createComponent({
   props: FormCascaderPickerDefaultProps,
