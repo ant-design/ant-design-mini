@@ -14,7 +14,7 @@
   </slot>
 </view>
 <popup
-  className="amd-picker-popup {{popClassName}}"
+  className="amd-picker-popup {{popClassName || ''}}"
   style="{{popStyle || ''}}"
   position="bottom"
   maskClosable

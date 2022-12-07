@@ -23,11 +23,6 @@ export interface IPopupProps extends IBaseProps {
    */
   position?: 'center' | 'top' | 'bottom' | 'left' | 'right';
   /**
-   * @description 展示关闭图标
-   * @default false
-   */
-  closeable?: boolean;
-  /**
    * @desciption 是否开启过渡动画
    */
   animation?: boolean;
@@ -37,9 +32,12 @@ export interface IPopupProps extends IBaseProps {
   duration?: number;
   /**
    * @description 内容区高度，单位px
-   * @default 270
    */
   height?: number;
+  /**
+   * @description 内容区宽度，单位px
+   */
+  width?: number;
   /**
    * @description 遮罩层类名
    */
