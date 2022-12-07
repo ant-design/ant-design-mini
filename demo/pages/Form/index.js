@@ -15,6 +15,11 @@ Page({
       { value: 'potato', label: '🥔' },
       { value: 'eggplant', label: '🍆' },
     ],
+    selectorOptions: [
+      { value: 'basketball', text: '🏀' },
+      { value: 'football', text: '⚽️' },
+      { value: 'badminton', text: '🏸️' },
+    ],
   },
   handleRef(ref) {
     this.form.addItem(ref);
