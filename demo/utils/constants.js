@@ -278,11 +278,6 @@ export const componentList = [
         path: '/pages/ImageUpload/index',
       },
       {
-        name: 'VideoUpload',
-        nameZN: '视频上传',
-        path: '/pages/VideoUpload/index',
-      },
-      {
         name: 'Rate',
         nameZN: '星级',
         path: '/pages/Rate/index',
