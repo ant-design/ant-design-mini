@@ -11,10 +11,11 @@
           a:if="{{tooltip}}"
           placement="top"
           visible="{{helpVisible}}" 
-          mask
-          maskClosable 
+          showMask
+          maskClosable
+          maskStyle="background: none;"
           onVisibleChange="onHelpVisibleChange"
-          transparentMask>
+        >
           <view slot="content" class="amd-form-item-label-help-content">{{tooltip}}</view>
           <icon type="QuestionCircleOutline" size="x-small" onTap="onToggleHelpVisible"/>
         </popover>
