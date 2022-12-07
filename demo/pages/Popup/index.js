@@ -1,47 +1,36 @@
 Page({
   data: {
     position: '',
-    basicShow: false,
+    basicVisible: false,
     maskClosable: true,
-    closeable: false,
     animation: true,
     scrollVisible: false,
+    closeVisile: false,
   },
   handlePopupClose() {
     this.setData({
-      basicShow: false,
+      basicVisible: false,
       scrollVisible: false,
+      closeVisile: false,
     });
   },
   handleShowBasic(e) {
     const { position } = e.target.dataset;
     this.setData({
       position,
-      basicShow: true,
+      basicVisible: true,
     });
   },
   handleShowScroll() {
     this.setData({ scrollVisible: true });
   },
   handleChangeMaskClosable(checked) {
-    const { closeable } = this.data;
-    if (!closeable && !checked) {
-      return my.alert({
-        content: '同时隐藏关闭按钮和蒙层关闭事件将无法关闭弹出层',
-      });
-    }
     this.setData({ maskClosable: checked });
-  },
-  handleChangecloseable(checked) {
-    const { maskClosable } = this.data;
-    if (!maskClosable && !checked) {
-      return my.alert({
-        content: '同时隐藏关闭按钮和蒙层关闭事件将无法关闭弹出层',
-      });
-    }
-    this.setData({ closeable: checked });
   },
   handleChangeAnimation(checked) {
     this.setData({ animation: checked });
+  },
+  handleShowClose() {
+    this.setData({ closeVisile: true });
   },
 });

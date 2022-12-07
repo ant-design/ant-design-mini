@@ -1,15 +1,15 @@
+<import-sjs from="./index.sjs" name="{getContentStyle}" />
 <view
-  class="amd-popup {{className||''}} {{animation?'amd-popup-animation':''}}"
+  class="amd-popup {{className||''}}"
   style="{{zIndex ? `z-index:${zIndex}` : ''}};{{style  || ''}}"
   a:if="{{visible||closing}}"
 >
-  <view class="amd-popup-mask {{maskClassName || ''}} {{closing&&!visible?'amd-popup-mask-closing':''}}" onTap="onMaskClose" style="{{animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : ''}} {{maskStyle || ''}}"/>
+  <view class="amd-popup-mask {{maskClassName || ''}} {{closing&&!visible?'amd-popup-mask-closing':''}}" onTap="onTapMask" style="{{animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : ''}} {{maskStyle || ''}}"/>
   <view
     class="amd-popup-content amd-popup-{{position}} {{closing?('amd-popup-'+position+'-close'):''}}"
-    style="{{animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : ''}};{{height&&(position==='top'||position==='bottom') ? `height:${height}px;` : ''}}"
+    style="{{getContentStyle(position, animation, duration, width, height)}}"
     onAnimationEnd="onAnimationEnd"
   >
-  <icon type="CloseOutline" className="amd-popup-close" a:if="{{closeable}}"  onTap="onClose"/>
   <slot />
   </view>
 </view>

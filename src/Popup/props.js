@@ -8,5 +8,4 @@ export const PopupDefaultProps = {
   duration: 300,
   // 弹窗层级
   zIndex: 998,
-  closeable: false,
 };
