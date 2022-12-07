@@ -27,14 +27,15 @@ toc: 'content'
 | -----|-----|-----|-----|
 | animation | 是否开启过渡动画 | `boolean` | true |  
 | className | 类名 | `string` | - | 
-| closeable | 是否展示关闭图标 | `boolean` | false |
 | duration | 过渡动画时长，单位毫秒 | `number` | 300 | 
+| height | 高度, 在 position 为 top 或 bottom 时使用 | `number` | - | 
 | maskClassName | 蒙层的类名 | `string` | - | 
 | maskClosable | 是否可点击蒙层关闭 | `boolean` | true |
 | maskStyle | 蒙层的样式 | `string` | - | 
 | position | 弹窗布局 | 'top' \| 'bottom' \| 'left' \| 'right' | 'bottom' | 
 | style | 样式 | `string` | - |
 | visible |  是否显示 | `boolean` | false | 
+| width | 宽度, 在 position 为 left 或 right 时使用 | `number` | - | 
 | zIndex | 弹窗层级 | `number` | 998 | 
 | onClose | 弹窗关闭时，触发回调 | ( visible: `boolean` ) => void |
 
