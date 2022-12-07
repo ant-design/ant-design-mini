@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/SwipeAction/index",
+    "pages/Steps/index",
     "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormLayout/index",
@@ -23,8 +25,6 @@
     "pages/ButtonIcon/index",
     "pages/ButtonCustom/index",
     "pages/Modal/index",
-    "pages/SwipeAction/index",
-    "pages/SwipeActionTest/index",
     "pages/Tabs/index",
     "pages/TabsScroll/index",
     "pages/TabsSticky/index",
@@ -33,7 +33,6 @@
     "pages/TabsVertical/index",
     "pages/TabsVerticalElevator/index",
     "pages/Stepper/index",
-    "pages/Steps/index",
     "pages/StepsControl/index",
     "pages/Popover/index",
     "pages/PopoverBase/index",

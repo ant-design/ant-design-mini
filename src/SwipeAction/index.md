@@ -18,9 +18,10 @@ toc: 'content'
 
 ## Tip
 
-1. 该组件父级容器必须设置css的width和height
-2. 左右两侧都需要滑动按钮时，两侧设置的宽度总和需一致
-3. elasticity设置为false时设置damping数值小一点体验更佳
+1. 该组件父级容器必须设置width和height。
+2. 左右两侧都需要滑动按钮时，两侧设置的宽度总和需一致。
+3. elasticity设置为false时设置damping数值小一点体验更佳。
+4. appx1.0（钉钉小程序、网页端模拟器）中没有touchend之后滑动过渡效果，appx2.0不受影响。
 
 
 ## 属性

@@ -1,5 +1,6 @@
 import { SwipeActionDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
+import { compareVersion } from '../_util/compareVersion';
 
 const setStyleObj1 = (buttons: any[], inertiaWidth?: number) => [
   { marginLeft: 0 },
@@ -26,6 +27,9 @@ const getDirectionLeft = (arr: number[]): boolean => {
   return arr[0] + arr[1] <= 0;
 }
 
+const SDKVersion = my.SDKVersion;
+const isOldVersion = compareVersion(SDKVersion, '2.0.0') < 0;
+
 Component({
   props: SwipeActionDefaultProps,
   data: {
@@ -44,11 +48,12 @@ Component({
     changeArr: [0, 0], // 用来判断最后一次滑动的方向
     myStyle: {},
     inertiaWidth: 20,
+    animation: !isOldVersion,
   },
   didMount() {
     const { defaultSwiped, elasticity } = this.props;
     this.setButtonItemWidth();
-    this.setData({ inertiaWidth: elasticity ? 20 : 0 });
+    this.setData({ inertiaWidth: !isOldVersion && elasticity ? 20 : 0 });
     if (defaultSwiped) {
       this.initWidth((maxSwipe: any) => {
         maxSwipe && this.setData({
@@ -78,8 +83,8 @@ Component({
       const _rightArr = rightButtons || [];
       const _leftArr = leftButtons || [];
       this.setData({
-        rightWidth: _rightArr.reduce((tolal, cur) => { return parseFloat(tolal) + cur.width }, 0),
-        leftWidth: _leftArr.length ? _leftArr.reduce((tolal, cur) => { return parseFloat(tolal) + cur.width }, 0) : 0,
+        rightWidth: _rightArr.reduce((tolal, cur) => { return tolal + cur.width }, 0),
+        leftWidth: _leftArr.length ? _leftArr.reduce((tolal, cur) => { return tolal + cur.width }, 0) : 0,
       });
     },
     setButtonItemWidth() {
@@ -202,11 +207,12 @@ Component({
       if (!swipedR && Math.abs(x) < 10) {
         isRight = false;
       }
+      
       needBack && (isRight = false);
       !isRight && this.setData({ tapTypeR: '', myStyle: {} });
       if (inTouch && !!tapTypeR) {
         this.setData({ tapTypeR: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props), { direction: 'right', btnIdx: tapTypeR.replace('R-', '')});
+        onButtonTap(fmtEvent(this.props), { direction: 'right', btnIdx: parseInt(tapTypeR.replace('R-', ''))});
         this.onSwipeRight(false);
         return;
       }
@@ -227,7 +233,7 @@ Component({
       // 处理滑动-触发事件
       if (inTouch && !!tapTypeL) {
         this.setData({ tapTypeL: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props), { direction: 'left', btnIdx: tapTypeL.replace('L-', '') });
+        onButtonTap(fmtEvent(this.props), { direction: 'left', btnIdx: parseInt(tapTypeL.replace('L-', '')) });
         this.onSwipeLeft(false);
         return;
       }
@@ -299,13 +305,13 @@ Component({
       if (tapTypeL === ('L-' + idx)) {
         this.onSetSwipeLeft(0, true);
         this.setData({ tapTypeL: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props, { direction: 'left', btnIdx: idx }));
+        onButtonTap(fmtEvent(this.props), { direction: 'left', btnIdx: idx });
         return;
       }
       if (tapTypeR === ('R-' + idx)) {
         this.onSetSwipeRight(0, true);
         this.setData({ tapTypeR: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props, { direction: 'right', btnIdx: idx }));
+        onButtonTap(fmtEvent(this.props), { direction: 'right', btnIdx: idx });
         return;
       }
       // auto 是展开按钮二次确认的效果
