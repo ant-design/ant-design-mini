@@ -110,7 +110,7 @@
       </slot>
     </view>
   </slot>
-  <amd-icon 
+  <icon 
     a:if="{{ type==='focus' && closable }}"
     type="CloseOutline" 
     onTap="onClose" 

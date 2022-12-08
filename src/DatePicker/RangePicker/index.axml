@@ -5,7 +5,7 @@
         data-type="{{type}}">
         <view a:if="{{value}}" class="amd-range-picker-selector-item-value">{{value}}</view>
         <view a:else class="amd-range-picker-selector-item-placeholder">{{placeholder}}</view>
-        <amd-icon type="CalendarOutline" className="amd-range-picker-selector-item-icon" a:if="{{precision==='year'||precision==='month'||precision==='day'||precision==='hour'}}"/>
+        <icon type="CalendarOutline" className="amd-range-picker-selector-item-icon" a:if="{{precision==='year'||precision==='month'||precision==='day'||precision==='hour'}}"/>
     </view>
 </template>
 <picker 
