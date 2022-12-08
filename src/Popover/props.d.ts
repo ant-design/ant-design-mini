@@ -65,5 +65,10 @@ export interface IPopoverProps extends IBaseProps {
    * @default true
    */
   maskClosable?: boolean;
+  /**
+   * @description 气泡被遮挡时自动调整位置
+   * @default true
+   */
+  autoAdjustOverflow?: boolean;
 }
 export declare const PopoverDefaultProps: Partial<IPopoverProps>;
