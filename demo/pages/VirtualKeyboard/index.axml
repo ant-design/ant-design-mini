@@ -1,8 +1,0 @@
-<view class="ali-v-kb">
-  <list header="验证码">
-    <virtual-keyboard
-        type="code"
-        focus="{{true}}"
-        onFocus="onFocus2"/>
-  </list>
-</view>

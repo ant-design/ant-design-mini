@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "ViryualKeyboard",
-  "usingComponents": {
-    "virtual-keyboard": "../../../src/VirtualKeyboard/index",
-    "list": "../../../src/List/index"
-  }
-}

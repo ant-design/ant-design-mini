@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/NumberKeyboard/index",
-    "pages/VirtualKeyboard/index",
     "pages/index/index",
     "pages/ActionSheet/index",
     "pages/Form/index",

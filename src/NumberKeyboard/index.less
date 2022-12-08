@@ -20,10 +20,19 @@
 .amount-input {
   font-family: AlipayNumber, sans-serif;
   color: #333;
-  width: 100%;
-  height: 100%;
+  width: 0;
+  height: 0;
   position: relative;
   overflow: hidden;
+  &-modal {
+    z-index: 998;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+  }
   &-kb {
     background: #f5f5f5;
     max-height: 600px;
@@ -54,20 +63,17 @@
     }
     &_none {
       height: 80 * @rpx;
-      width: 100%;
+      width: calc(100% - 48px);
+      padding: 0 24px;
+      font-size: 28rpx;
       background-color: white;
       display: flex;
+      position: relative;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       border-bottom: 1px solid #f8f8f8;
-      .icon-xiangxia {
-        width: 30 * @rpx;
-        height: 30 * @rpx;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        background-image: url(https://mdn.alipayobjects.com/huamei_ze58cv/afts/img/A*XrNLS7my7xMAAAAAAAAAAAAADueHAQ/original);
-      }
+      color: #999;
     }
     &_number {
       font-family: AlipayNumber, sans-serif;
@@ -101,11 +107,27 @@
       flex: 1;
     }
     &_transfer {
-      flex: 3;
       border-right: none;
+      background-color: #1677ff;
+      color: white;
+      font-family: AlipayNumber, sans-serif;
+      flex: 1;
+      height: calc(100vh / 14);
+      text-align: center;
+      font-size: 25px;
+      border-right: 1px solid #f8f8f8;
+      border-bottom: 1px solid #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      position: relative;
       &-btn {
         font-size: 32 * @rpx;
         font-weight: bold;
+      }
+      &:active {
+        opacity: 0.9;
       }
     }
     &_del {
@@ -136,6 +158,14 @@
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-image: url(https://mdn.alipayobjects.com/huamei_ze58cv/afts/img/A*V-ZkTahhId0AAAAAAAAAAAAADueHAQ/original);
+}
+.icon-xiangxia {
+  width: 28 * @rpx;
+  height: 28 * @rpx;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-image: url(https://mdn.alipayobjects.com/huamei_ze58cv/afts/img/A*XrNLS7my7xMAAAAAAAAAAAAADueHAQ/original);
 }
 .flex-1 {
   flex: 1;
