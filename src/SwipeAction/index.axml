@@ -14,7 +14,7 @@
           marginLeft: util.getMarginLeft2(rightWidth, leftWidth, inertiaWidth)}}}"
         x="{{swipeX}}"
         data-type="content"
-        animation="{{true}}"
+        animation="{{animation}}"
         damping="{{damping}}"
         direction="horizontal"
         out-of-bounds="{{ false }}"
