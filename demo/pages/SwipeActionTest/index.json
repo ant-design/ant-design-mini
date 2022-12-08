@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "Swipe-Action-Test",
-  "pullRefresh": "NO",
-  "showProgress": "NO",
-  "allowsBounceVertical": "NO",
-  "usingComponents": {
-    "swipe-action": "../../../src/SwipeAction/index"
-  }
-}
