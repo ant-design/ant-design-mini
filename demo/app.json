@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/NumberKeyboard/index",
     "pages/VirtualKeyboard/index",
     "pages/index/index",
     "pages/ActionSheet/index",
@@ -84,8 +85,7 @@
     "pages/Slider/index",
     "pages/TabsElevator/index",
     "pages/Calendar/index",
-    "pages/Calendar2/index",
-    "pages/NumberKeyboard/index"
+    "pages/Calendar2/index"
   ],
   "window": {
     "enableWK": "YES",

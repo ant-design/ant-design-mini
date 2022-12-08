@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "styleIsolation": "apply-shared"
+  "defaultTitle": "NumberKeyboard",
+  "usingComponents": {
+    "number-keyboard": "../../../src/NumberKeyboard/index"
+  }
 }

@@ -1,5 +1,5 @@
 <view a:key="paytm-input-{{$id}}" class="amount-input amd-amount-input {{ className || '' }}" >
-  <view class="amount-input-kb amd-amount-input-kb {{_focus ? '': 'amount-input-kb_hide'}}">
+  <view class="amount-input-kb amd-amount-input-kb {{_visible ? '': 'amount-input-kb_hide'}}">
     <view a:if="{{!hideArrow}}" catchTap="onHide" class="amount-input-kb_none">
       <view class="icon-xiangxia"></view>
     </view>
@@ -20,12 +20,20 @@
           <view class="amount-input-kb_number" data-key="8" catchTouchStart="tapButton">8</view>
           <view class="amount-input-kb_number" data-key="9" catchTouchStart="tapButton">9</view>
         </view>
-        <view class="amount-input-kb_row">
+        <!-- <view class="amount-input-kb_row">
           <view class="amount-input-kb_number amount-input-kb_zero" data-key="0" catchTouchStart="tapButton">0</view>
           <view a:if="{{point}}" class="amount-input-kb_number amount-input-kb_point" data-key="." catchTouchStart="tapButton">.</view>
+        </view> -->
+        <view class="amount-input-kb_row">
+          <!-- <view class="amount-input-kb_number amount-input-kb_point flex-1 color-eee" /> -->
+          <view a:if="{{point}}" class="amount-input-kb_number amount-input-kb_point flex-1" data-key="." catchTouchStart="tapButton">.</view>
+          <view class="amount-input-kb_number amount-input-kb_zero flex-1" data-key="0" catchTouchStart="tapButton">0</view>
+          <view class="amount-input-kb_number amount-input-kb_point flex-1" data-key="del" catchTouchStart="tapButton">
+            <view class="icon-huitui"></view>
+          </view>
         </view>
       </view>
-      <view class="amount-input-kb_function">
+      <!-- <view class="amount-input-kb_function">
         <view class="amount-input-kb_number amount-input-kb_del" data-key="del" catchTouchStart="tapButton">
           <view class="icon-huitui"></view>
         </view>
@@ -42,7 +50,7 @@
             <view a:else class="iconfont icon-xiangxia"></view>
           </view>
         </view>
-      </view>
+      </view> -->
     </view>
     <view class="amount-input-kb_iphonex"></view>
   </view>

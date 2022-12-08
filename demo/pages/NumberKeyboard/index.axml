@@ -1,3 +1,8 @@
 <view>
-  New Page
+  <view>{{value1}}</view>
+  <number-keyboard
+    visible="{{visible}}"
+    value="{{value1}}"
+    onInput="onInput"
+  />
 </view>
