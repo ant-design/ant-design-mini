@@ -11,6 +11,7 @@
     "pages/FormRules/index",
     "pages/FormDependency/index",
     "pages/FormValidate/index",
+    "pages/FormMultiple/index",
     "pages/List/index",
     "pages/Icon/index",
     "pages/Switch/index",

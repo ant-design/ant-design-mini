@@ -227,7 +227,7 @@ class Field {
    * 得到 Field 校验器状态
    * @returns 
    */
-  getValidatorStatus() {
+  getValidatorStatus(): ValidatorStatus {
     const { status, errors } = this.ref.getFormData();
     return {
       status,
@@ -371,6 +371,14 @@ export class Form {
   }
 
   /**
+   * 设置 rules
+   * @param rules 
+   */
+   private setRules(rules: Rules) {
+    this.rules = this.transformRules(rules);
+  }
+
+  /**
    * 添加表单对象
    * @param ref 表单ref对象
    */
@@ -434,13 +442,6 @@ export class Form {
    */
   setInitialValues(initialValues: Values) {
     this.initialValues = initialValues;
-  }
-
-  /**
-   * 更新 rules
-   */
-  setRules(rules: Rules) {
-    this.rules = this.transformRules(rules);
   }
 
   /**
