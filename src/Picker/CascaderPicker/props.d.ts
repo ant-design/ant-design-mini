@@ -31,7 +31,7 @@ export interface ICascaderProps extends IBaseProps {
    * @description 取消文案
    * @default "取消"
    */
-  dismissText?: string;
+  cancelText?: string;
   /**
    * @description 标题
    */
@@ -41,14 +41,6 @@ export interface ICascaderProps extends IBaseProps {
    * @default "确定"
    */
   okText?: string;
-  /**
-   * @description 点击确认前回调
-   */
-  onBeforeOk?: (
-    value: any[],
-    selectedOptions: ICascaderOption[],
-    e: Record<string, any>
-  ) => boolean;
   /**
    * @description 点击确认回调
    */
@@ -60,7 +52,7 @@ export interface ICascaderProps extends IBaseProps {
   /**
    * @description 点击取消回调
    */
-  onDismiss?: (e: Record<string, any>) => void;
+  onCancel?: (e: Record<string, any>) => void;
   /**
    * @description 选中值的文本显示格式
    */
@@ -68,7 +60,7 @@ export interface ICascaderProps extends IBaseProps {
   /**
    * @description 切换显示隐藏
    */
-  onTriggerPicker?: (visible: boolean, e: Record<string, any>) => void;
+  onVisibleChange?: (visible: boolean, e: Record<string, any>) => void;
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */

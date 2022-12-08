@@ -7,7 +7,7 @@
             options="{{cityList}}" 
             onChange="handleCityPickerChange" 
             onOk="handleCityOnOk"
-            onDismiss="handleDismiss"
+            onCancel="handleDismiss"
             />
     </list-item>
 </container>

@@ -21,7 +21,7 @@ toc: 'content'
 | className | 类名| `string` | - |
 | defaultValue | 默认选中的时间 | `Date` | - |  
 | disabled | 是否禁用  | `boolean` | false | 
-| dismissText | 取消文案 | `string` | '取消' |  
+| cancelText | 取消文案 | `string` | '取消' |  
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | `string` | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | `string` | - |  
 | indicatorClass | 选中框的类名 | `string` |  - |  
@@ -39,10 +39,10 @@ toc: 'content'
 | title | 弹出框标题 | `string` \| `slot` | - |  
 | value | 选中的时间 | `Date` | - | 
 | onOk | 点击确定按钮，触发回调 | (date: `Date`, dateStr: `string`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onDismiss | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onPickerChange | 选中项发生变化，触发回调 | (date: `Date`, dateStr: `string`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式 | (date: `Date`, dateStr: `string`) => string |
-| onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible: `boolean`, (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: `boolean`, (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 #### RangePicker
 | 属性 | 说明 | 类型 | 默认值 |
@@ -50,7 +50,7 @@ toc: 'content'
 | className | 类名| `string` | - |
 | defaultValue | 默认选中的时间 | [`Date`,`Date`] | - |  
 | disabled | 是否禁用  | `boolean` | false | 
-| dismissText | 取消文案 | `string` | '取消' |  
+| cancelText | 取消文案 | `string` | '取消' |  
 | endPlaceholder | 结束时间提示文案 | `string` | '未选择' |  
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | `string` | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | `string` | - |  
@@ -71,7 +71,7 @@ toc: 'content'
 | title | 弹出框标题 | `string` | - |  
 | value | 选中的时间 | [`Date`, `Date`] | - | 
 | onOk | 点击确定按钮，触发回调 | (date: [`Date`,`Date`], dateStr: [`string`,`string`], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onDismiss | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onPickerChange | 选中项发生变化，触发回调 | (type: 'start'\|'end', date: `Date`, dateStr: `string`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onFormat | 选中值的文本显示格式 | (date: [`Date`,`Date`], dateStr: [`string`,`string`]) => string |
-| onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible: `boolean`, (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: `boolean`, (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |

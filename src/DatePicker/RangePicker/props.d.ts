@@ -40,7 +40,7 @@ export interface IDateRangePickerProps extends IBaseProps {
    * @description 取消文案
    * @default "取消"
    */
-  dismissText?: string;
+  cancelText?: string;
   /**
    * @description 提示文案
    * @default '请选择'
@@ -57,7 +57,7 @@ export interface IDateRangePickerProps extends IBaseProps {
   /**
    * @description 点击取消回调
    */
-  onDismiss?: (e: Record<string, any>) => void;
+  onCancel?: (e: Record<string, any>) => void;
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
@@ -81,7 +81,7 @@ export interface IDateRangePickerProps extends IBaseProps {
   /**
    * @description 切换显示隐藏
    */
-  onTriggerPicker?: (visible, e: Record<string, any>) => void;
+  onVisibleChange?: (visible, e: Record<string, any>) => void;
   /**
    * @description 显示连接符
    * @default '~''

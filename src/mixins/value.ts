@@ -22,7 +22,7 @@ export default ({
   valueKey?: string;
   defaultValueKey?: string;
   scopeKey?: string;
-  transformValue?: (value: any) => {
+  transformValue?: (this: any, value: any) => {
     needUpdate: boolean;
     value?: any;
   };

@@ -63,7 +63,6 @@
     "pages/BladeView/index",
     "pages/TabBar/index",
     "pages/ImageUpload/index",
-    "pages/VideoUpload/index",
     "pages/Skeleton/index",
     "pages/Divider/index",
     "pages/Grid/index",
