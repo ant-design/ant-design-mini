@@ -1,6 +1,8 @@
 <view class="amd-container {{className ? className : ''}}" style="{{style}}">
   <header title="{{title}}" headerInBox="{{headerInBox}}">
-    <slot name="headerRight"></slot>
+    <view>
+      <slot name="headerRight"></slot>
+    </view>
     <view slot="title">
       <slot name="title"></slot>
     </view>

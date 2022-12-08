@@ -54,7 +54,12 @@ export interface IButtonProps extends IBaseProps {
   /**
    * @description 点击回调
    */
-  onTap?: (event?: any) => void;
+  onTap?: (event: any) => void;
+
+  /**
+   * @description 点击回调
+   */
+   catchTap?: (event: any) => void;
   /**
    * @description 生活号 id，必须是当前小程序同主体且已关联的生活号，open-type="lifestyle" 时有效。
    */
@@ -67,10 +72,5 @@ export interface IButtonProps extends IBaseProps {
    * @description 当 openType 为 getAuthorize 时有效。
    */
   scope?: string;
-
-  /**
-  * @description 是否阻止事件冒泡
-  */
-  stopPropagation?: boolean;
 }
 export declare const ButtonDefaultProps: Partial<IButtonProps>;

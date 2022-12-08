@@ -23,41 +23,22 @@ toc: 'content'
 ## 属性
 
 #### Popover
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| visible | boolean | 否 | false | 是否可见 |
-| mode | 'dark' &verbar; 'light' | 否 | 'dark' | 组件显示模式 |
-| placement | 'top' &verbar; 'top-right' &verbar; 'top-left' &verbar; 'bottom' &verbar; 'bottom-left' &verbar; 'bottom-right' &verbar; 'left' &verbar; 'left-top' &verbar; 'left-bottom' &verbar; 'right' &verbar; 'right-top' &verbar; 'right-bottom' | 否 | 'bottom-right' | 方向 |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
-| mask | boolean | 否 | false | 是否展示蒙层 |
-| maskClosable | boolean | 否 | true | 是否可点击蒙层关闭 |
-| fixMaskFull | boolean | 否 | false | 用以解决遮罩层受到 transform 影响而显示不全的问题 |
 
-#### PopoverItem
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| icon | string | 否 | - | 图标类型 |
-| className | string | 否 | - | 类名 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| autoAdjustOverflow |  气泡被遮挡时自动调整位置 | `boolean` | true | 
+| className | 类名 | `string` | - | 
+| color | 背景颜色 | `string` | - |
+| contentClassName | content类名 | `string` | - | 
+| contentStyle | content样式 | `string` | - | 
+| content | 内容 | `string`\|`slot` | - |
+| defaultVisible |  默认是否显示 | `boolean` | false | 
+| maskClassName | 蒙层的类名 | `string` | - | 
+| maskClosable | 是否可点击蒙层关闭 | `boolean` | true |
+| maskStyle | 蒙层的样式 | `string` | - | 
+| placement | 方向  | 'top' &verbar; 'top-right' &verbar; 'top-left' &verbar; 'bottom' &verbar; 'bottom-left' &verbar; 'bottom-right' &verbar; 'left' &verbar; 'left-top' &verbar; 'left-bottom' &verbar; 'right' &verbar; 'right-top' &verbar; 'right-bottom' | 'bottom-right' |
+| showMask | 是否展示蒙层 | `boolean` | false |
+| style | 样式 | `string` | - |
+| visible |  是否显示 | `boolean` | false | 
+| onVisibleChange |  visible 变更时回调 | (visible: `boolean`, event: [`Event`](https://opendocs.alipay.com/mini/framework/event-object))=>void | - | 
 
-## 事件
-#### Popover
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onVisibleChange | 组件隐藏/显示切换，触发回调 | ( visible: boolean, mode: 'component' &verbar; 'mask' ) => void |
-
-#### PopoverItem
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onTap | 点击组件，触发回调 | () => void |
-
-## 插槽
-#### Popover
-| 名称 | 说明 |
-| ----|----|
-| content | tooltip 提示插槽，可以使用 PopoverItem 渲染列表 |
-
-#### PopoverItem
-| 名称 | 说明 |
-| -----|-----|
-| icon | 图标插槽 |

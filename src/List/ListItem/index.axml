@@ -2,65 +2,44 @@
   from="./index.sjs" />
 
 <view class="amd-list-item  {{className ? className : ''}}"
-  onTap="{{stopPropagation?'':'onTap'}}"
-  catchTap="{{stopPropagation?'onTap':''}}"
-  hover-class="{{onTap ? 'amd-list-item-hover' : ''}}"
+  onTap="{{onTap ? 'onTap' : ''}}"
+  catchTap="{{catchTap ? 'catchTap' : ''}}"
+  hover-class="{{(onTap||catchTap) ? 'amd-list-item-hover' : ''}}"
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}">
-  <view class="amd-list-item-line {{last?'amd-list-item-line-last':''}} {{disabled? 'amd-list-item-line-disabled' : ''}}">
-    <view class="amd-list-item-image-container-placeholder">
-        <image-icon a:if="{{image}}" image="{{image}}"></image-icon>
-      <block a:else >
-        <slot name="image" >
-        </slot>
-      </block> 
-    </view>
-    <view class="amd-list-item-image-container amd-list-item-image-container-{{imageSize}}">
-      <view a:if="{{image}}" class="amd-list-item-image amd-list-item-image-{{imageSize}}">
-        <image-icon image="{{image}}"></image-icon>
-      </view>
-      <block a:else >
-        <slot name="image" >
-        </slot>
-      </block> 
-    </view>
-      <view class="amd-list-item-content-container amd-list-item-content-container-{{imageSize}}">
+  <view class="amd-list-item-line {{showDivider?'amd-list-item-line-divider':''}} {{disabled? 'amd-list-item-line-disabled' : ''}}">
+    <slot name="image" >
+      <image-icon a:if="{{image}}" image="{{image}}" className="amd-list-item-image"/>
+    </slot>
+      <view class="amd-list-item-content-container">
       <view class="amd-list-item-content-title-container">
-        <view a:if="{{title}}" class="amd-list-item-content-title">
-          {{title}}
-        </view>
-        <block a:else >
-          <slot name="title"/>
-        </block>
+        <slot name="title">
+          <view a:if="{{title}}" class="amd-list-item-content-title">
+            {{title}}
+          </view>
+        </slot>
       </view>
       <view class="amd-list-item-content-main">
         <slot/>
       </view>
       <view class="amd-list-item-content-brief-container">
-        <view a:if="{{brief}}" class="amd-list-item-content-brief">
-          {{brief}}
-        </view>
-        <block a:else>
-          <slot name="brief"/>
-        </block>
+        <slot name="brief">
+          <view a:if="{{brief}}" class="amd-list-item-content-brief">
+            {{brief}}
+          </view>
+        </slot>
       </view>
     </view>
     <view class="amd-list-item-extra-container">
       <view class="amd-list-item-extra">
-        <view a:if="{{extra}}">
+        <slot name="extra">
           {{extra}}
-        </view>
-        <block a:else>
-          <slot name="extra"></slot>
-        </block>
+        </slot>
       </view>
       <view class="amd-list-item-extra-brief">
-        <view a:if="{{extraBrief}}">
+        <slot name="extraBrief">
           {{extraBrief}}
-        </view>
-        <view a:else>
-          <slot name="extra-brief"></slot>
-        </view>
+        </slot>
       </view>
     </view>
     <view class="amd-list-item-arrow" >

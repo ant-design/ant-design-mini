@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "icon": "../../Icon/index",
-    "button": "../../Button/index"
-  }
-}

@@ -3,23 +3,14 @@
   current="{{current}}"
   onChange="onChange"
   class="tabs"
-  vertical
+  direction="vertical"
 >
-  <view slot="title" slot-scope="item">
-    <badge a:if="{{item.index ===2}}">
-      {{item.value.title}}
-    </badge>
-    <view a:else>
-      {{item.value.title}}
-    </view>
-  </view>
   <scroll-view
     scroll-top="{{scrollTop}}"
     scroll-y="{{true}}"
     onScroll="onScroll"
     scroll-with-animation="{{true}}"
     scroll-animation-duration="{{300}}"
-    slot="content"
     class="content"
   >
     {{items[current].content}}

@@ -1,3 +1,4 @@
 .content {
+  color: red;
   padding: 12px;
 }

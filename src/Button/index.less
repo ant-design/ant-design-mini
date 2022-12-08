@@ -14,19 +14,22 @@
   border-radius: @button-corner-radius;
   border: 0 none;
   box-sizing: border-box;
-  font-size: 30 * @rpx;
+  font-size: 36 * @rpx;
   z-index: 2;
 
-  &-padding-default {
-    padding: 8 * @rpx 24 * @rpx 8 * @rpx 24 * @rpx;
+  &-large {
+    font-size: 36 * @rpx;
+    padding: 24 * @rpx 24 * @rpx 24 * @rpx 24 * @rpx;
   }
 
-  &-padding-medium {
+  &-medium {
+    font-size: 34 * @rpx;
     padding: 16 * @rpx 24 * @rpx 16 * @rpx 24 * @rpx;
   }
 
-  &-padding-large {
-    padding: 24 * @rpx;
+  &-small {
+    font-size: 30 * @rpx;
+    padding: 8 * @rpx 24 * @rpx 8 * @rpx 24 * @rpx;
   }
 
   &-primary {
@@ -37,7 +40,7 @@
 
   &-default {
     color: @COLOR_BRAND1;
-    background-color: @COLOR_WHITE_CHANGE;
+    background-color: @COLOR_CARD;
     box-shadow: inset 0 0 0 @button-border-size @COLOR_BRAND1;
   }
 
@@ -55,7 +58,7 @@
 
   &-default-danger {
     color: @COLOR_RED;
-    background-color: @COLOR_WHITE_CHANGE;
+    background-color: @COLOR_CARD;
     box-shadow: inset 0 0 0 @button-border-size @COLOR_RED;
   }
 

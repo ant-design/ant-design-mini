@@ -1,0 +1,47 @@
+<form-item
+  className="{{className}}"
+  position="{{position}}"
+  label="{{label}}"
+  status="{{formData.status}}"
+  errors="{{formData.errors}}"
+  tooltip="{{tooltip}}"
+  required="{{formData.required}}"
+  requiredMark="{{requiredMark}}"
+  validateStatus="{{validateStatus}}"
+  help="{{help}}"
+>
+  <view>
+    <cascader-picker 
+      options="{{options}}"
+      cancelText="{{cancelText}}"
+      okText="{{okText}}"
+      placeholder="{{placeholder}}"
+      maskClosable="{{maskClosable}}"
+      maskStyle="{{maskStyle}}"
+      popClassName="{{popClassName}}"
+      style="{{style}}"
+      popStyle="{{popStyle}}"
+      disabled="{{disabled}}"
+      title="{{title}}" 
+      maskClassName="{{maskClassName}}"
+      indicatorStyle="{{indicatorStyle}}"
+      indicatorClass="{{indicatorClass}}"
+      value="{{formData.value}}" 
+      onOk="onOk"
+      onChange="onChange"
+      onCancel="onDismissPicker"
+      onVisibleChange="onVisibleChange"
+      onFormat="onFormat">
+      <slot name="title" slot="title"/>
+      <slot/>
+    </cascader-picker>
+  </view>
+  <view slot="extra">
+    <slot name="extra">
+      {{extra}}
+    </slot>
+  </view>
+  <view slot="label">
+    <slot name="label" />
+  </view>
+</form-item>

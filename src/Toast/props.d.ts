@@ -3,10 +3,10 @@ import { IBaseProps, IconType } from '../_base';
  * @description 标签，突出利益点、以及属性说明。
  */
 
-enum EnumToastType {
+declare enum EnumToastType {
   success = "success",
-  warn = "warn",
-  fail = "error",
+  warning = "warning",
+  error = "error",
   loading = "loading"
 }
 

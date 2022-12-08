@@ -163,29 +163,9 @@ export const componentList = [
         path: '/pages/ProgressCircle/index',
       },
       {
-        name: 'FloatPanel',
-        nameZN: '滑动面板',
-        path: '/pages/FloatPanel/index',
-      },
-      {
-        name: 'Footer',
-        nameZN: '页脚',
-        path: '/pages/Footer/index',
-      },
-      {
         name: 'Divider',
         nameZN: '分割线',
         path: '/pages/Divider/index',
-      },
-      {
-        name: 'Calendar',
-        nameZN: '日历',
-        path: '/pages/Calendar/index',
-      },
-      {
-        name: 'Calendar',
-        nameZN: '日历高级用法',
-        path: '/pages/Calendar2/index',
       },
     ],
   },
@@ -228,6 +208,11 @@ export const componentList = [
         path: '/pages/FormInitialValuesAsync/index',
       },
       {
+        name: 'FormValidate',
+        nameZN: '表单-校验',
+        path: '/pages/FormValidate/index',
+      },
+      {
         name: 'FormRules',
         nameZN: '表单-校验',
         path: '/pages/FormRules/index',
@@ -235,12 +220,17 @@ export const componentList = [
       {
         name: 'FormDynamic',
         nameZN: '表单-动态增减表单项',
-        path: '/pages/FormLayout/index',
+        path: '/pages/FormDynamic/index',
       },
       {
         name: 'FormDependency',
         nameZN: '表单-表单联动',
         path: '/pages/FormDependency/index',
+      },
+      {
+        name: 'FormMultiple',
+        nameZN: '表单-多个表单',
+        path: '/pages/FormMultiple/index',
       },
       {
         name: 'Input',
@@ -273,11 +263,6 @@ export const componentList = [
         path: '/pages/RadioGroup/index',
       },
       {
-        name: 'SearchBar',
-        nameZN: '搜索框',
-        path: '/pages/SearchBar/index',
-      },
-      {
         name: 'Selector',
         nameZN: '选择组',
         path: '/pages/Selector/index',
@@ -301,16 +286,6 @@ export const componentList = [
         name: 'ImageUpload',
         nameZN: '图片上传',
         path: '/pages/ImageUpload/index',
-      },
-      {
-        name: 'VideoUpload',
-        nameZN: '视频上传',
-        path: '/pages/VideoUpload/index',
-      },
-      {
-        name: 'Terms',
-        nameZN: '协议',
-        path: '/pages/Terms/index',
       },
       {
         name: 'Rate',
@@ -349,8 +324,13 @@ export const componentList = [
       },
       {
         name: 'Popover',
+        nameZN: '气泡卡片',
+        path: '/pages/Popover/index',
+      },
+      {
+        name: 'PopoverList',
         nameZN: '气泡菜单',
-        path: '/pages/PopoverBase/index',
+        path: '/pages/PopoverList/index',
       },
       {
         name: 'Popup',
@@ -386,11 +366,6 @@ export const componentList = [
         name: 'NoticeBar',
         nameZN: '通告栏',
         path: '/pages/NoticeBar/index',
-      },
-      {
-        name: 'Tips',
-        nameZN: '向导提示',
-        path: '/pages/Tips/index',
       },
     ],
   },

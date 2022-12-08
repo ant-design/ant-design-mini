@@ -1,23 +1,15 @@
-<import-sjs from="../_util/event.sjs" name="_sjs" />
-
+<import-sjs from="./index.sjs" name="{getContentStyle}" />
 <view
-  class="amd-popup {{className||''}} {{disableScroll?'amd-popup-disable-scroll':''}} {{animation?'amd-popup-animation':''}}"
-  style="z-index: 998; {{style}}"
+  class="amd-popup {{className||''}}"
+  style="{{zIndex ? `z-index:${zIndex}` : ''}};{{style  || ''}}"
   a:if="{{visible||closing}}"
-  onTouchMove="{{disableScroll && supportSjs ? _sjs.disableScrollEvent : ''}}"
 >
-  <view class="amd-popup-mask {{maskClassName || ''}} {{closing&&!visible?'amd-popup-mask-closing':''}}" onTap="onMaskClose" style="{{animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : ''}} {{maskStyle || ''}}"/>
+  <view class="amd-popup-mask {{maskClassName || ''}} {{closing&&!visible?'amd-popup-mask-closing':''}}" onTap="onTapMask" style="{{animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : ''}} {{maskStyle || ''}}"/>
   <view
-    class="amd-popup-content {{autoHeight?'amd-popup-content-auto':''}} amd-popup-{{position}} {{closing?('amd-popup-'+position+'-close'):''}}"
-    style="{{animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : ''}}"
+    class="amd-popup-content amd-popup-{{position}} {{closing?('amd-popup-'+position+'-close'):''}}"
+    style="{{getContentStyle(position, animation, duration, width, height)}}"
     onAnimationEnd="onAnimationEnd"
-    onTouchMove="{{disableScroll && supportSjs ? _sjs.enableScrollEvent : ''}}"
   >
-  <view class="amd-popup-close-container" a:if="{{showCloseIcon}}">
-    <icon type="CloseOutline"  onTap="onClose"/>
-  </view>
-    <view>
-      <slot />
-    </view>
+  <slot />
   </view>
 </view>

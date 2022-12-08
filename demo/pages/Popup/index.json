@@ -6,6 +6,7 @@
     "button": "../../../src/Button/index",
     "list": "../../../src/List/index",
     "list-item": "../../../src/List/ListItem/index",
-    "switch": "../../../src/Switch/index"
+    "switch": "../../../src/Switch/index",
+    "icon": "../../../src//Icon/index"
   }
 }

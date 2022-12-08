@@ -100,7 +100,7 @@ Component({
       return result;
     },
     onChange(selectedValue) {
-      const { onPickerChange } = this.props;
+      const { onChange } = this.props;
       const { columns } = this.data;
       const newColumns = this.getterColumns(selectedValue);
       // columns没变化说明selectedValue在范围内，无需重置
@@ -111,8 +111,8 @@ Component({
       }
       newData.currentValue = selectedValue;
       this.setData(newData);
-      if (onPickerChange) {
-        onPickerChange(
+      if (onChange) {
+        onChange(
           selectedValue,
           this.getOptionByValue(selectedValue),
           fmtEvent(this.props)
@@ -121,19 +121,9 @@ Component({
     },
     async onOk() {
       const { currentValue, columns } = this.data;
-      const { onOk, onBeforeOk } = this.props;
+      const { onOk } = this.props;
       // 完成时再次校验value，避免visible状态下props无效
       const validValue = this.getValidValue(currentValue, columns);
-      if (onBeforeOk) {
-        const isContinue = await onBeforeOk(
-          validValue,
-          this.getOptionByValue(validValue),
-          fmtEvent(this.props)
-        );
-        if (!isContinue) {
-          return;
-        }
-      }
       if (!this.isControlled()) {
         this.update(validValue);
       }
@@ -145,8 +135,8 @@ Component({
         );
       }
     },
-    onTriggerPicker(visible) {
-      const { onTriggerPicker } = this.props;
+    onVisibleChange(visible) {
+      const { onVisibleChange } = this.props;
       const { columns } = this.data;
       this.pickerVisible = visible;
       const realValue = this.getValue();
@@ -159,8 +149,8 @@ Component({
         }
         this.setData(newData);
       }
-      if (onTriggerPicker) {
-        onTriggerPicker(visible, fmtEvent(this.props));
+      if (onVisibleChange) {
+        onVisibleChange(visible, fmtEvent(this.props));
       }
     },
     defaultFormat(value, options) {
@@ -180,10 +170,10 @@ Component({
       return this.defaultFormat(realValue, this.getOptionByValue(realValue));
     },
 
-    onDismiss(e) {
-      const { onDismiss } = this.props;
-      if (onDismiss) {
-        onDismiss(fmtEvent(this.props, e));
+    onCancel(e) {
+      const { onCancel } = this.props;
+      if (onCancel) {
+        onCancel(fmtEvent(this.props, e));
       }
     },
   },

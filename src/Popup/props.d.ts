@@ -23,27 +23,21 @@ export interface IPopupProps extends IBaseProps {
    */
   position?: 'center' | 'top' | 'bottom' | 'left' | 'right';
   /**
-   * @description 展示关闭图标
-   * @default false
-   */
-  showCloseIcon?: boolean;
-  /**
    * @desciption 是否开启过渡动画
    */
   animation?: boolean;
-  /**
-   * @description 弹窗展示时，是否禁止页面滚动
-   */
-  disableScroll?: boolean;
   /**
    * @description 过渡动画时长，单位毫秒
    */
   duration?: number;
   /**
-   * @description 是否自适应内容区高度
-   * @default false
+   * @description 内容区高度，单位px
    */
-  autoHeight?: boolean;
+  height?: number;
+  /**
+   * @description 内容区宽度，单位px
+   */
+  width?: number;
   /**
    * @description 遮罩层类名
    */

@@ -28,7 +28,22 @@
   >
     成功提示
   </button>
-
+  <button 
+    class="button" 
+    inline="{{true}}" 
+    data-index="8" 
+    onTap="handleShowToast" 
+  >
+    失败提示
+  </button>
+  <button 
+    class="button" 
+    inline="{{true}}" 
+    data-index="9" 
+    onTap="handleShowToast" 
+  >
+    警告提示
+  </button>
   <button 
     class="button" 
     inline="{{true}}" 
@@ -40,7 +55,6 @@
   <button 
     class="button" 
     inline="{{true}}" 
-    type="warn"
     data-index="5" 
     onTap="handleShowToast" 
   >
@@ -144,6 +158,28 @@
   class="toastWrapper" 
   data-index="7" 
   type="success" 
+  onClose="handleCloseToast" 
+  showMask="{{true}}" 
+  duration="{{0}}" 
+  maskCloseable="{{true}}" 
+/>
+<toast 
+  content="{{content5}}" 
+  visible="{{toast8Show}}" 
+  class="toastWrapper" 
+  data-index="8" 
+  type="error" 
+  onClose="handleCloseToast" 
+  showMask="{{true}}" 
+  duration="{{0}}" 
+  maskCloseable="{{true}}" 
+/>
+<toast 
+  content="{{content5}}" 
+  visible="{{toast9Show}}" 
+  class="toastWrapper" 
+  data-index="9" 
+  type="warning" 
   onClose="handleCloseToast" 
   showMask="{{true}}" 
   duration="{{0}}" 

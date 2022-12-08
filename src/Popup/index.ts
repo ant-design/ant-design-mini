@@ -3,7 +3,6 @@ import { PopupDefaultProps } from './props';
 Component({
   props: PopupDefaultProps,
   data: {
-    supportSjs: my.canIUse('sjs.event'),
     closing: false,
   },
   didUpdate(prevProps) {
@@ -15,19 +14,13 @@ Component({
     }
   },
   methods: {
-    onMaskClose() {
+    onTapMask() {
       const { closing } = this.data;
       if (closing) {
         return;
       }
-      const { maskClosable } = this.props;
-      if (maskClosable) {
-        this.onClose();
-      }
-    },
-    onClose() {
-      const { onClose } = this.props;
-      if (onClose) {
+      const { maskClosable, onClose } = this.props;
+      if (maskClosable && onClose) {
         onClose();
       }
     },

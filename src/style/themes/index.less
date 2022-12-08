@@ -43,6 +43,8 @@
 
 
 @opacity-disabled: 0.4;
+@opacity-product-mask: 0.55;
+@opacity-marketing-mask: 0.75;
 
 @h-spacing-standard: 16 * @pixelSize; //标准
 @h-spacing-large: 24 * @pixelSize; //大间距
@@ -70,3 +72,9 @@
 //边框尺寸
 @border-width-standard: 2 * @pixelSize; //标准
 @border-width-thick: 4 * @pixelSize; //粗
+
+@color-product-mask: fade(@COLOR_BLACK, @opacity-product-mask*100); //产品蒙层
+@color-marketing-mask: fade(
+  @COLOR_BLACK,
+  @opacity-marketing-mask*100
+); //营销蒙层

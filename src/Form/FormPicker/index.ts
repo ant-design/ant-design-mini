@@ -16,14 +16,19 @@ createComponent({
         this.props.onChange(value, column, fmtEvent(this.props, e));
       }
     },
-    onTriggerPicker(visible, e) {
-      if (this.props.onTriggerPicker) {
-        this.props.onTriggerPicker(visible, fmtEvent(this.props, e));
+    onVisibleChange(visible, e) {
+      if (this.props.onVisibleChange) {
+        this.props.onVisibleChange(visible, fmtEvent(this.props, e));
       }
     },
     onFormat(value, column) {
       if (this.props.onFormat) {
         return this.props.onFormat(value, column);
+      }
+    },
+    onDismissPicker(e) {
+      if (this.props.onCancel) {
+        this.props.onCancel(fmtEvent(this.props, e));
       }
     },
   },

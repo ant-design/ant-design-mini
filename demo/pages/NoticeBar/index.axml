@@ -1,59 +1,61 @@
-<view>
-  <demo-block title="通告栏语义" padding="0">
-    <notice 
-      type="default"
-      showIcon>
-      default
-    </notice>
-    <white-space/>
-    <notice 
-      type="error"
-      showIcon>
-      error
-    </notice>
-    <white-space/>
-    <notice 
-      type="info"
-      showIcon>
-      info
-    </notice>
-    <white-space/>
-    <notice 
-      type="primary"
-      showIcon>
-      primary
-    </notice>
-  </demo-block>
-  <demo-block title="可关闭" padding="0">
-    <notice 
-      showIcon
-      onTap="handleClose"
-      mode="closeable">
-      这条通知可以关闭
-    </notice>
-  </demo-block>
-  <demo-block title="超长滚动" padding="0">
-    <block a:for="{{typeList}}">
-      <notice 
-        type="{{item}}"
-        showIcon="{{true}}" 
-        enableMarquee="{{true}}"
-        loop="{{true}}"
-        onTap="handleTapLink"
-        mode="link">
-        文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
-      </notice>
-      <white-space/>
-    </block>
-  </demo-block>
-  <demo-block title="自定义" padding="0">
-    <notice 
-      showIcon
-      actions="{{actionsText2}}"
-      mode="link"
-      onTap="handleTapLink"
-      onActionTap="handleTapAction">
-      自定义右侧按钮
-    </notice>
-  </demo-block>
-</view>
+<container title="基础用法">
+  <notice 
+    a:for="{{ typeList }}"
+    style="margin-bottom:8px"
+    type="{{item}}">
+    {{item}}
+  </notice>
+</container>
+
+<container title="可关闭通告栏">
+  <notice 
+    onTap="handleClose"
+    mode="closeable">
+    这条通知可以关闭
+  </notice>
+</container>
+
+<container title="可滚动通告栏">
+  <notice 
+    a:for="{{typeList}}"
+    type="{{item}}"
+    style="margin-bottom:8px"
+    enableMarquee="{{true}}"
+    loop="{{true}}"
+    onTap="handleTapLink"
+    mode="link">
+    文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
+  </notice>
+</container>
+
+<container title="自定义通告栏">
+  <notice 
+    style="margin-bottom:8px">
+    不展示图标
+    <view slot="icon"/>
+  </notice>
+  <notice 
+    type="primary"
+    icon="GlobalOutline"
+    style="margin-bottom:8px"
+    mode="link">
+    自定义左侧图标
+  </notice>
+  <notice 
+    type="primary"
+    icon="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
+    style="margin-bottom:8px"
+    mode="link">
+    自定义左侧图标图片
+  </notice>
+  <notice 
+    mode="link"
+    style="margin-bottom:8px"
+    onTap="handleTapLink">
+    自定义右侧按钮
+    <view slot="extra" class="extra">
+      <view onTap="handleTapAction">不再提示</view>
+      <view onTap="handleTapAction">查看详情</view>
+    </view>
+  </notice>
+</container>

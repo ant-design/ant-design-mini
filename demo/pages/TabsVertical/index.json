@@ -1,7 +1,6 @@
 {
   "defaultTitle": "Tabs",
   "usingComponents": {
-    "tabs": "../../../src/Tabs/index",
-    "badge": "../../../src/Badge/index"
+    "tabs": "../../../src/Tabs/index"
   }
 }

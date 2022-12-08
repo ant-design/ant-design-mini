@@ -57,10 +57,17 @@ Page({
   async onReady() {
     await this.updateRect();
   },
+  onTap() {
+    this.tap = true;
+    const scrollTop = this.itemRectList[this.data.current].top - this.scrollViewRect.top;
+    this.setData({
+      scrollTop: scrollTop+Math.random(),
+    });
+  },
   onChange(current) {
     this.tap = true;
     this.setData({
-      scrollTop: this.itemRectList[current].top - this.scrollViewRect.top,
+      scrollTop: this.itemRectList[current].top - this.scrollViewRect.top + Math.random(),
       current,
     });
   },

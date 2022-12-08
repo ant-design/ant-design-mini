@@ -1,3 +1,16 @@
 .wrap {
   display: flex;
+  padding: 24rpx;
+  flex-wrap: wrap;
+}
+.wrap button {
+  margin: 0 18rpx;
+}
+.demo-btn-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.demo-btn {
+  width: 45%;
 }

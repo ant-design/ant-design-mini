@@ -1,4 +1,4 @@
-.demo-slider-handler-custom {
+.custom-slider-handler {
   width: 56rpx;
   height: 56rpx;
   background: #FFFFFF;

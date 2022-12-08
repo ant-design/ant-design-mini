@@ -1,20 +1,15 @@
-<view class="
-  amd-notice-bar
-  {{className ? className : ''}}
-  {{type ? 'amd-notice-bar-' + type : ''}}"
+<view 
+  class="amd-notice-bar {{className || ''}} {{type ? 'amd-notice-bar-' + type : ''}}"
   a:if="{{show}}"
   style="{{style}}"
 >
-  <block a:if="{{showIcon && type !=='error'}}">
-    <icon size="x-small"
-      type="SoundOutline"
-      className="amd-notice-bar-icon" />
-  </block>
-  <block a:if="{{showIcon && type ==='error'}}">
-    <icon size="x-small"
-      type="InformationCircleOutline"
-      className="amd-notice-bar-icon" />
-  </block>
+  <slot name="icon">
+    <view className="amd-notice-bar-icon" >
+      <image-icon image="{{icon}}" a:if="{{ icon }}" class="amd-notice-bar-icon-image"/>
+      <icon type="InformationCircleOutline" a:elif="{{type ==='error'}}"/>
+      <icon type="SoundOutline" a:else/>
+    </view>
+  </slot>
   <view class="amd-notice-bar-content amd-notice-bar-content-{{$id}}">
     <!-- 文本内容展示区域 -->
     <view
@@ -25,21 +20,19 @@
     </view>
   </view>
   <view class="amd-notice-bar-operation">
-    <block a:for="{{actions.slice(0,2)}}">
-      <text class="amd-notice-bar-operation-text"
-      onTap="onActionTap"
-      data-index="{{index}}">{{item}}</text>
-      <!-- icon 类型 -->
-    </block>
-    <icon size="x-small"
-        className="amd-notice-bar-operation-icon"
-        type="RightOutline"
-        onTap="onTap"
-        a:if="{{mode==='link'}}" />
-      <icon size="x-small"
-        className="amd-notice-bar-operation-icon"
-        type="CloseOutline"
-        a:if="{{mode==='closeable'}}"
-        onTap="onTap" />
+    <slot name="extra"/>
+    <!-- icon 类型 -->
+    <icon
+      className="amd-notice-bar-operation-icon"
+      type="RightOutline"
+      onTap="onTap"
+      a:if="{{mode==='link'}}"
+    />
+    <icon
+      className="amd-notice-bar-operation-icon"
+      type="CloseOutline"
+      a:if="{{mode==='closeable'}}"
+      onTap="onTap" 
+    />
   </view>
 </view>

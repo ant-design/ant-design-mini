@@ -33,7 +33,7 @@ export interface IPickerProps extends IBaseProps {
    * @description 取消文案
    * @default "取消"
    */
-  dismissText?: string;
+  cancelText?: string;
   /**
    * @description 提示文案
    * @default '请选择'
@@ -42,15 +42,7 @@ export interface IPickerProps extends IBaseProps {
   /**
    * @description picker 数据
    */
-   options: PickerValue[];
-  /**
-   * @description 点击确认前回调
-   */
-  onBeforeOk?: (
-    value: PickerValue,
-    column: PickerData,
-    e: Record<string, any>
-  ) => boolean;
+  options: PickerValue[];
   /**
    * @description 点击确认回调
    */
@@ -62,7 +54,7 @@ export interface IPickerProps extends IBaseProps {
   /**
    * @description 点击取消回调
    */
-  onDismiss?: (e: Record<string, any>) => void;
+  onCancel?: (e: Record<string, any>) => void;
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
@@ -78,7 +70,7 @@ export interface IPickerProps extends IBaseProps {
   /**
    * @description 切换显示隐藏
    */
-  onTriggerPicker?: (visible: boolean, e: Record<string, any>) => void;
+  onVisibleChange?: (visible: boolean, e: Record<string, any>) => void;
   /**
    * @description 点击蒙层是否可以关闭
    * @default false

@@ -9,15 +9,15 @@
     title="{{title}}" 
     placeholder="{{placeholder}}"
     okText="{{okText}}"
-    dismissText="{{dismissText}}"
+    cancelText="{{cancelText}}"
     maskStyle="{{maskStyle}}"
     maskClassName="{{maskClassName}}"
     indicatorStyle="{{indicatorStyle}}"
     indicatorClass="{{indicatorClass}}"
     onChange="onChange"
-    onDismiss="onDismiss"
+    onCancel="onCancel"
     onOk="onOk"
-    onTriggerPicker="onTriggerPicker"
+    onVisibleChange="onVisibleChange"
     maskClosable="{{maskClosable}}"
     onFormat="onFormat">
     <slot name="title" slot="title"/>

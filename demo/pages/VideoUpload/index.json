@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "VideoUpload",
-  "usingComponents": {
-    "uploader": "../../../src/VideoUpload/index",
-    "am-icon": "../../../src/Icon/index"
-  }
-}

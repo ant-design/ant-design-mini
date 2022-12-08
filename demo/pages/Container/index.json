@@ -1,7 +1,7 @@
 {
   "defaultTitle": "Container",
   "usingComponents": {
-    "am-icon": "../../../src/Icon/index",
+    "icon": "../../../src/Icon/index",
     "container": "../../../src/Container/index"
   }
 }

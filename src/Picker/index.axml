@@ -14,7 +14,7 @@
   </slot>
 </view>
 <popup
-  className="amd-picker-popup {{popClassName}}"
+  className="amd-picker-popup {{popClassName || ''}}"
   style="{{popStyle || ''}}"
   position="bottom"
   maskClosable
@@ -25,7 +25,7 @@
       hover-class="amd-picker-header-item-hover"
       hover-start-time="20"
       hover-stay-time="50"
-      onTap="onDismiss">{{dismissText}}</view>
+      onTap="onCancel">{{cancelText}}</view>
     <view class="amd-picker-header-item amd-picker-header-title">
       <slot name="title">
         {{title}}
@@ -41,10 +41,10 @@
     <slot name="content-header"/>
     <block a:if="{{columns}}">
       <picker-view 
-        mask-style="{{maskStyle}}"
-        mask-class="{{ maskClassName}}"
-        indicator-style="{{indicatorStyle}}"
-        indicator-class="{{indicatorClass}}"
+        mask-style="{{maskStyle || ''}}"
+        mask-class="{{ maskClassName || ''}}"
+        indicator-style="{{indicatorStyle|| ''}}"
+        indicator-class="{{indicatorClass || ''}}"
         value="{{selectedIndex}}"
         onChange="onChange">
         <block 

@@ -5,9 +5,9 @@
     <list-item>3</list-item>
   </list>
   <list header="可点击列表"  radius="{{radius}}">
-    <list-item image="UnorderedListOutline" arrow="right" onTap="handleTap" data-info="账单">账单</list-item>
     <list-item image="PayCircleOutline" arrow="right" onTap="handleTap" data-info="总资产">总资产</list-item>
     <list-item image="SetOutline" arrow="right" onTap="handleTap" data-info="设置">设置</list-item>
+    <list-item image="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ" arrow="right" onTap="handleTap" data-info="图片">图片</list-item>
   </list>
   <list 
     radius="{{radius}}" 
@@ -29,12 +29,13 @@
     <list-item 
       title="标题"
       brief="描述信息"
-      image="AlipaySquareFill" 
       extra="次要信息"
-      imageSize="large"
       extraBrief="次要辅助信息"
+      onTap="handleTap"
+      data-info="三行列表"
       arrow="right">
       三行列表
+      <icon slot="image" type="AlipaySquareFill" style="font-size:64px"/>
     </list-item>
   </list>
   <list 
@@ -43,5 +44,4 @@
     <list-item disabled image="UnorderedListOutline" arrow="right" data-info="账单">账单</list-item>
     <list-item disabled image="PayCircleOutline" arrow="right" data-info="总资产">总资产</list-item>
   </list>
-  <white-space />
 </view>

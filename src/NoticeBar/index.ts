@@ -71,15 +71,6 @@ Component<INoticeBarData, Partial<INoticeBarProps>, INoticeBarMethods>({
         return onTap();
       }
     },
-    onActionTap(e) {
-      const { onActionTap } = this.props;
-      if (onActionTap) {
-        const { index } = e.currentTarget.dataset;
-        return onActionTap(index);
-      } else {
-        log.error('NoticeBar', '缺少 onActionTap 回调。');
-      }
-    },
     // 文本滚动的计算
     resetMarquee() {
       const { loop } = this.props;

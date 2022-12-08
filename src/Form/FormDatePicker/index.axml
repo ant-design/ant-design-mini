@@ -16,7 +16,7 @@
       max="{{max}}"
       format="{{format}}"
       precision="{{precision}}"
-      dismissText="{{dismissText}}"
+      cancelText="{{cancelText}}"
       okText="{{okText}}"
       placeholder="{{placeholder}}"
       maskClosable="{{maskClosable}}"
@@ -31,9 +31,9 @@
       indicatorClass="{{indicatorClass}}"
       value="{{formData.value}}" 
       onOk="onOk"
-      onChange="onChange"
-      onDismiss="onDismissPicker"
-      onTriggerPicker="onTriggerPicker"
+      onChange="onPickerChange"
+      onCancel="onDismissPicker"
+      onVisibleChange="onVisibleChange"
       onFormat="onFormat">
       <slot name="title" slot="title"/>
       <slot/>

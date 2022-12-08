@@ -8,6 +8,8 @@ function equal(a, b) {
   return false;
 }
 
+const component2 = my.canIUse('component2');
+
 export default ({
   valueKey = 'value',
   defaultValueKey = 'defaultValue',
@@ -20,7 +22,7 @@ export default ({
   valueKey?: string;
   defaultValueKey?: string;
   scopeKey?: string;
-  transformValue?: (value: any) => {
+  transformValue?: (this: any, value: any) => {
     needUpdate: boolean;
     value?: any;
   };
@@ -32,15 +34,31 @@ export default ({
         updated: false,
       },
     },
+    onInit() {
+      const value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
+      this.update(value);
+    },
+    deriveDataFromProps(nextProps) {
+      if (!equal(nextProps[valueKey], this.props[valueKey])) {
+        this.update(nextProps[valueKey]);
+      }
+    },
     didUpdate(prevProps) {
+      if (component2) {
+        return;
+      }
       if (!equal(prevProps[valueKey], this.props[valueKey])) {
         this.update(this.props[valueKey]);
       }
     },
     didMount() {
+      if (component2) {
+        return;
+      }
       const value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
       this.update(value);
     },
+    
     methods: {
       getValue(prevData?) {
         return (prevData || this.data)[scopeKey].value;

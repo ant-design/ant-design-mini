@@ -1,11 +1,18 @@
 page {
-  padding: 24rpx;
+  padding: 24px;
 }
 
-page .amd-container {
-  padding-bottom: 24rpx;
+.container {
+  padding-bottom: 24px;
 }
 
-.amd-container-content {
-  background-color: #1A1A1A;
+.list {
+  display: flex;
+  align-items: center;
+  background: #000;
+}
+
+.custom-size {
+  width: 20px;
+  height: 20px;
 }

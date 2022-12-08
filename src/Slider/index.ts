@@ -1,91 +1,54 @@
 import equal from 'fast-deep-equal';
 import { sliderDefaultProps, SliderValue } from './props';
 import fmtEvent from '../_util/fmtEvent';
+import createValue from '../mixins/value';
 
 
 Component({
   props: sliderDefaultProps,
+  mixins: [createValue({
+    transformValue(val, needUpdate = true, emit) {
+      const value = this.formatValue(val);
+      if (needUpdate) {
+        this.setSliderStyleByValue(value);
+        this.setTickList();
+      }
+      this.onChangeValue = typeof this.onChangeValue === 'undefined' ? this.getValue() : this.onChangeValue;
+      if (emit && this.props.onChange && !this.isSliderValueEqual(this.onChangeValue, value)) {
+        this.onChangeValue = value;
+        this.props.onChange(value, fmtEvent(this.props));
+      }
+      return {
+        value,
+        needUpdate,
+      };
+    },
+  })],
   data: {
-    value: undefined,
     sliderLeft: 0,
     sliderWidth: 0,
     tickList: [],
     changingStart: false,
     changingEnd: false,
   },
-
-  didMount() {
-    const { value } = this.props;
-    const sliderId = `amd-slider-id-${this.$id}`;
-    this.setData({
-      sliderId
-    });
-    this.updateByProps(value, {
-      isAfterChange: false,
-      isSilentOnChange: true,
-    });
-  },
-
+ 
   didUpdate(prevProps) {
-    if (!equal(this.props.value, prevProps.value)) {
-      this.updateByProps(this.props.value, {
-        isAfterChange: false,
-        isSilentOnChange: true,
-
-      });
-    } else if (!equal(this.props.min, prevProps.min) ||
-    !equal(this.props.max, prevProps.max) ||
-    !equal(this.props.step, prevProps.step) ||
-    !equal(this.props.range, prevProps.range) ||
-    !equal(this.props.ticks, prevProps.ticks)
+    if (!equal(this.props.min, prevProps.min) ||
+      !equal(this.props.max, prevProps.max) ||
+      !equal(this.props.step, prevProps.step) ||
+      !equal(this.props.range, prevProps.range) ||
+      !equal(this.props.showTicks, prevProps.showTicks)
     ) {
-      this.updateByProps(this.data.value, {
-        isAfterChange: false,
-        isSilentOnChange: true,
-
-      })
+      this.update(this.props.value);
     }
   },
 
   methods: {
-    updateByProps(newValue, {
-      isAfterChange = false,
-      isSilentOnChange = true,
-    } = {}) {
-      const { min, max, step, range, ticks } = this.props;
-      const value = this.fitSliderValue(newValue, min, max, step, range);
-
-      this.updateValue(value, step, {
-        isAfterChange,
-        isSilentOnChange
-      });
-
-      if (ticks) {
-        this.setTickList(step, min, max);
-      }
-    },
-
-    updateValue(value: SliderValue, step = 1, {
-      isAfterChange = false,
-      isSilentOnChange = false
-    }= {}) {
-      const { onChange, onAfterChange } = this.props;
-      const prevValue = this.getRoundedValue(this.data.value, step);
-      const currentValue = this.getRoundedValue(value, step);
-
-      this.setData({
-        value: currentValue,
-      });
-
-      this.setSliderStyleByValue(currentValue);
-
-      if (!this.isSliderValueEqual(currentValue, prevValue) && typeof onChange === 'function' && !isSilentOnChange) {
-        onChange(currentValue, fmtEvent(this.props));
-      }
-
-      if (isAfterChange && typeof onAfterChange === 'function') {
-        onAfterChange(currentValue, fmtEvent(this.props));
-      }
+    onChangeValue: undefined,
+    formatValue(val) {
+      let value = this.fitSliderValue(val, this.props.min, this.props.max, this.props.step, this.props.range)
+      value = this.getRoundedValue(value, this.props.step);
+      return value;
     },
 
     getRoundedValue(value: SliderValue, step = 1) {
@@ -128,7 +91,11 @@ Component({
       });
     },
 
-    setTickList(step: number, min: number, max: number) {
+    setTickList() {
+      const { step, min, max, showTicks } = this.props;
+      if (!showTicks) {
+        return;
+      }
       const tickList = [];
       const stepCount = (max - min) / step;
 
@@ -175,25 +142,10 @@ Component({
                 touchPosition * (this.props.max - this.props.min);
 
               if (!this.props.range) {
-                this.updateValue(
-                  this.fitSliderValue(
-                    value,
-                    this.props.min,
-                    this.props.max,
-                    this.props.step,
-                    this.props.range,
-                  ),
-                  this.props.step
-                );
+                this.update(value, !this.isControlled(), true);
                 changeMoving({ changingEnd: true });
               } else {
-                const currentValue = this.fitSliderValue(
-                  this.data.value,
-                  this.props.min,
-                  this.props.max,
-                  this.props.step,
-                  this.props.range,
-                );
+                const currentValue = this.getValue();
 
                 const leftValue = currentValue[0];
                 const rightValue = currentValue[1];
@@ -201,16 +153,8 @@ Component({
                 const rightDistance = Math.abs(rightValue - value);
                 const isFarFromLeft = leftDistance > rightDistance;
                 const farValue = isFarFromLeft ? leftValue : rightValue;
-                this.updateValue(
-                  this.fitSliderValue(
-                    [value, farValue],
-                    this.props.min,
-                    this.props.max,
-                    this.props.step,
-                    this.props.range,
-                  ),
-                  this.props.step
-                );
+                
+                this.update([value, farValue], !this.isControlled(), 'onChange');
                 if(isFarFromLeft) {
                   changeMoving({ changingEnd: true });
                 }else {
@@ -289,13 +233,9 @@ Component({
     },
 
     handleTrackTouchEnd(e) {
-      const { onAfterChange } = this.props;
       this.onTouchChanged(e, 'end');
-      if (typeof onAfterChange === 'function') {
-        this.updateByProps(this.data.value, {
-          isAfterChange: true,
-          isSilentOnChange: false
-        });
+      if (this.props.onAfterChange) {
+        this.props.onAfterChange(this.getValue(), fmtEvent(this.props, e));
       }
     },
   },

@@ -31,7 +31,7 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | className | 类名| `string` | - |
 | defaultValue | 默认值 | `string` \| `number` \| [PickerColumnItem](#pickercolumnitem) \| Array\<`string` \| `number` \| [PickerColumnItem](#pickercolumnitem)\> | - | 
 | disabled | 是否禁用  | `boolean` | false | 
-| dismissText | 取消文案 | `string` | '取消' |  
+| cancelText | 取消文案 | `string` | '取消' |  
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | `string` | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | `string` | - |  
 | indicatorClass | 选中框的类名 | `string` |  - |  
@@ -47,11 +47,10 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | title | 弹出框标题 | `string` \| `slot` | - |  
 | value | 选中的值 | `string` \| `number` \| [PickerColumnItem](#pickercolumnitem) \| Array\<`string` \| `number` \| [PickerColumnItem](#pickercolumnitem)\> | - | 
 | onOk | 点击确定按钮，触发回调 | (value: [PickerColumnItem](#pickercolumnitem),  column: [PickerColumnItem](#pickercolumnitem), event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
-| onDismiss | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 | onChange | 选中项发生变化，触发回调 | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 | onFormat | 选中值的文本显示格式 | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem)) => string | - | 
-| onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible: `boolean`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
-| onBeforeOk | 点击确认按钮之前，触发回调，返回false时阻止默认确定流程 | (value: [PickerColumnItem](#pickercolumnitem),  column: [PickerColumnItem](#pickercolumnitem), event: [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => `boolean` | - | 
+| onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: `boolean`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 
 #### CascaderPicker
 
@@ -60,7 +59,7 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | className | 类名| `string` | - |
 | defaultValue | 默认选中的值 | `string`[] | - | 
 | disabled | 是否禁用  | `boolean` | false | 
-| dismissText | 取消文案 | `string` | '取消' |  
+| cancelText | 取消文案 | `string` | '取消' |  
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | `string` | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | `string` | - |  
 | indicatorClass | 选中框的类名 | `string` |  - |  
@@ -76,11 +75,10 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | title | 弹出框标题 | `string` \| `slot` | - |  
 | value | 选中的值 | `string`[] | - | 
 | onOk | 点击确定按钮，触发回调 | (value: `string`[], selectedOptions: [CascaderOption](#cascaderoption)[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
-| onDismiss | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onChange | 选中项发生变化，触发回调 | (value: `string`[], selectedOptions: [CascaderOption](#cascaderoption)[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 | onFormat | 选中值的文本显示格式，默认展示labels.join('') | (value: `string`[], selectedOptions: [CascaderOption](#cascaderoption)[]) => string | - | 
-| onTriggerPicker | 弹出框显示/隐藏状态变化触发 | (visible: `boolean`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
-| onBeforeOk | 点击确认按钮之前，触发回调，返回false时阻止默认确定流程 | (value: `string`[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => `boolean` | - | 
+| onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: `boolean`, event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 
 #### PickerColumnItem 
 | 参数 | 说明 | 类型 | 默认值 |

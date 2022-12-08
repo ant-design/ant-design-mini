@@ -1,4 +1,4 @@
-<view class="amd-form-item {{className ? className :''}} amd-form-require-style-{{requiredMark}}">
+<view class="amd-form-item {{className ? className :''}} amd-form-item-{{requiredMark}}">
   <view class="amd-form-item-line amd-form-item-line-{{position}} {{ !!errorInfo ? 'noLine'  : '' }}">
     <view class="amd-form-item-content amd-form-item-content-{{position}}">
       <!--label-->
@@ -9,12 +9,13 @@
         <view class="amd-form-item-label-text">{{label}}</view>
         <popover 
           a:if="{{tooltip}}"
-          placement="top" 
+          placement="top"
           visible="{{helpVisible}}" 
-          mask 
-          maskClosable 
+          showMask
+          maskClosable
+          maskStyle="background: none;"
           onVisibleChange="onHelpVisibleChange"
-          transparentMask>
+        >
           <view slot="content" class="amd-form-item-label-help-content">{{tooltip}}</view>
           <icon type="QuestionCircleOutline" size="x-small" onTap="onToggleHelpVisible"/>
         </popover>
@@ -29,15 +30,8 @@
         </view>
       </view>
     </view>
-    <view class="amd-form-item-other {{disabled ? 'amd-form-item-other-disabled' : ''}}">
-      <!--extra-->
-      <view class="amd-form-item-extra">
-        <slot name="extra" />
-      </view>
-      <!--arrow-->
-      <view class="amd-form-item-arrow" a:if="{{arrow}}">
-        <icon type="RightOutline" size="x-small"/>
-      </view>
+    <view class="amd-form-item-extra">
+      <slot name="extra" />
     </view>
   </view>
 </view>
