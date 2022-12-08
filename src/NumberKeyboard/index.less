@@ -1,5 +1,6 @@
 @import "../style/themes/color.less";
 @import (reference) "../_base/index.less";
+
 @font-face {
   font-family: AlipayNumber;
   src: url("https://gw.alipayobjects.com/as/g/antui/antui-static/1.0.3/fonts/AlipayNumber-Regular.ttf") format("truetype");
@@ -65,8 +66,8 @@
       height: 80 * @rpx;
       width: calc(100% - 48px);
       padding: 0 24px;
-      font-size: 28rpx;
-      background-color: white;
+      font-size: 28 * @rpx;
+      background-color: #fff;
       display: flex;
       position: relative;
       flex-direction: row;
@@ -108,7 +109,7 @@
     }
     &_transfer {
       border-right: none;
-      background-color: #1677ff;
+      background-color: @COLOR_BRAND1;
       color: white;
       font-family: AlipayNumber, sans-serif;
       flex: 1;
@@ -122,6 +123,7 @@
       align-items: center;
       user-select: none;
       position: relative;
+      overflow: hidden;
       &-btn {
         font-size: 32 * @rpx;
         font-weight: bold;

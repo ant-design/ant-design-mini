@@ -1,7 +1,7 @@
-<view a:key="paytm-input-{{$id}}" class="amount-input amd-amount-input {{ className || '' }}" >
+<view a:key="paytm-input-{{$id}}" class="amount-input amd-number-keyboard {{className}} " >
   <view a:if="{{visible}}" class="amount-input-modal" onTap="onHide"/>
-  <view class="amount-input-kb amd-amount-input-kb {{visible ? '': 'amount-input-kb_hide'}}">
-    <view a:if="{{arrow}}" catchTap="onHide" class="amount-input-kb_none" style="{{{'justify-content': title ? 'space-between' : 'center'}}}">
+  <view class="amount-input-kb {{visible ? '': 'amount-input-kb_hide'}}">
+    <view a:if="{{arrow}}" catchTap="onHide" class="amount-input-kb_none amd-number-title" style="{{{'justify-content': title ? 'space-between' : 'center'}}}">
       <view>{{title}}</view>
       <view class="icon-xiangxia"></view>
       <slot name="title"></slot>

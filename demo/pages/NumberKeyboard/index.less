@@ -1,43 +1,21 @@
+@import "../../../src/style/themes/color.less";
+@import (reference) "../../../src/_base/index.less";
+
+@keyframes number-input-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .ali-v-kb {
   width: 100%;
-  min-height: 2000rpx;
-  &_lebal {
-      padding: 2px 12px;
-      line-height: 1.4;
-      color: #333;
-      font-size: 16px;
-  }
-  &_btn {
-      display: flex;
-      flex-direction: row;
-      padding: 2px 12px;
-  }
-  &_bs {
-      width: 150rpx;
-      height: 54rpx;
-      background-color: #1677ff;
-      color: white;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-  }
-  .close {
-      background-color: darkorange;
-      margin-left: 12px;
-  }
-  &_amount {
-      width: 200px;
-      height: 40px;
-      border: 1px solid #e5e5e5;
-      border-radius: 12px;
-      margin: 2px 0 2px 12px;
-  }
-  &_code {
-      width: 250px;
-      height: 60px;
-  }
+  min-height: 1000px;
 }
 .title {
   width: 100%;
@@ -48,7 +26,7 @@
   z-index: 1;
 }
 .ali-v-title {
-  background-color: #eee;
+  background-color: @COLOR_BORDER;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -64,81 +42,69 @@
   height: 100%;
   left: 0;
   top: 0;
-  background-color: white;
+  background-color: @COLOR_WHITE_CHANGE;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 36rpx auto;
+  background-size: 18px auto;
   background-image: url(https://mdn.alipayobjects.com/huamei_ze58cv/afts/img/A*XrNLS7my7xMAAAAAAAAAAAAADueHAQ/original);
 }
-@keyframes number-input-cursor {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+
+.number-code {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 24px;
 }
-.number {
-  &-content {
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: calc(100% - 48rpx;);
-    position: relative;
-    &_tip {
-      position: absolute;
-      left: 4rpx;
-    }
-  }
-  &-placeholder {
-    color: #ccc;
-  }
-  &-light {
-    margin-left: 4rpx;
-    height: calc(100% - 4px;);
-    width: 4rpx;
-    border-radius: 4rpx;
-    display: inline-block;
-    vertical-align: middle;
-    background: #1677ff;
-    animation: number-input-cursor 1s step-start infinite;
-  }
-  &-code {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 24px;
-    &-view {
-      width: 80rpx;
-      height: 80rpx;
-      line-height: 80rpx;
-      font-size: 48rpx;
-      text-align: center;
-      border: 1px solid #e5e5e5;
-      border-radius: 8rpx;
-      margin-right: 24rpx;
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-    &-tip {
-      height: calc(100% - 40rpx;);
-      width: 4rpx;
-      border-radius: 4rpx;
-      display: inline-block;
-      background: #1677ff;
-      vertical-align: middle;
-      animation: number-input-cursor 1s step-start infinite;
-    }
-    &-border {
-      border: 1px solid #1677ff;
-      box-shadow: 0 0 2px 0 #1677ff;
-    }
-  }
+.number-content {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: calc(100% - 24px);
+  position: relative;
+}
+.number-content_tip {
+  position: absolute;
+  left: 2px;
+}
+.number-placeholder {
+  color: @COLOR_TEXT_WEAK;
+}
+.number-light {
+  margin-left: 2px;
+  height: calc(100% - 4px);
+  width: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  background: @COLOR_BRAND1;
+  animation: number-input-cursor 1s step-start infinite;
+}
+.number-code-view {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  text-align: center;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+.number-code-view:last-child {
+  margin-right: 0;
+}
+.number-code-tip {
+  height: calc(100% - 20px);
+  width: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  background: @COLOR_BRAND1;
+  vertical-align: middle;
+  animation: number-input-cursor 1s step-start infinite;
+}
+.number-code-border {
+  border: 1px solid @COLOR_BRAND1;
+  box-shadow: 0 0 2px 0 @COLOR_BRAND1;
 }

@@ -1,4 +1,4 @@
-// import { VirtualKeyboardDefaultProps } from './props';
+import { NumberKeyboardDefaultProps } from './props';
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const newArr = arr.sort(function () {
@@ -6,21 +6,7 @@ const newArr = arr.sort(function () {
 });
 
 Component({
-  props: {
-    value: '', // 值
-    visible: false, // 是否展示
-    safeArea: true, // 安全区域
-    arrow: false, // 隐藏箭头
-    title: '', // 标题
-    random: false, // 乱序
-    vibrate: false, // 震动反馈
-    point: true, // 展示小数点
-    disable: false, // 禁用确认按钮
-    confirmText: '', // 确认按钮文字
-    onInput: (val)=> {}, // 输入
-    onConfirm: ()=> {}, // 确认
-    onClose: () => {}, // 关闭
-  },
+  props: NumberKeyboardDefaultProps,
   data: {
     numArr: [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ],
     randomArr: [ newArr.slice(0, 3), newArr.slice(3, 6), newArr.slice(6, 9) ],

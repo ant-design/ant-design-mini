@@ -9,8 +9,8 @@ const defOption = {
 }
 Page({
   data: {
-    visible: false, // 展示键盘
     ...defOption,
+    visible: false, // 展示键盘
     value1: '', // 特殊示例：数据输入框
     focus1: false,
     value2: '', // 特殊示例：金额输入框
