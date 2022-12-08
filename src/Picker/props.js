@@ -1,6 +1,6 @@
 export const PickerDefaultProps = {
   okText: '确定',
-  dismissText: '取消',
+  cancelText: '取消',
   disabled: false,
   maskClosable: false,
   options: [],

@@ -1,6 +1,6 @@
 import { FormRangePickerDefaultProps } from './props';
-import createComponent from '../../createComponent';
-import fmtEvent from '../../../_util/fmtEvent';
+import createComponent from '../createComponent';
+import fmtEvent from '../../_util/fmtEvent';
 
 createComponent({
   props: FormRangePickerDefaultProps,
@@ -16,9 +16,9 @@ createComponent({
         this.props.onPickerChange(type, date, dateStr, fmtEvent(this.props, e));
       }
     },
-    onTriggerPicker(visible, e) {
-      if (this.props.onTriggerPicker) {
-        this.props.onTriggerPicker(visible, fmtEvent(this.props, e));
+    onVisibleChange(visible, e) {
+      if (this.props.onVisibleChange) {
+        this.props.onVisibleChange(visible, fmtEvent(this.props, e));
       }
     },
     onFormat(date, dateStr) {
@@ -27,7 +27,7 @@ createComponent({
       }
     },
     onDismissPicker(e) {
-      if (this.props.onDismiss) {
+      if (this.props.onCancel) {
         this.props.onDismissPicker(fmtEvent(this.props, e));
       }
     },

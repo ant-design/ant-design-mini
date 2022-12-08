@@ -150,31 +150,31 @@ Component({
     },
 
     triggerPicker(visible) {
-      const { onTriggerPicker } = this.props;
-      if (onTriggerPicker) {
-        onTriggerPicker(visible, fmtEvent(this.props));
+      const { onVisibleChange } = this.props;
+      if (onVisibleChange) {
+        onVisibleChange(visible, fmtEvent(this.props));
       }
     },
 
     onMaskDismiss() {
-      const { onDismiss } = this.props;
+      const { onCancel } = this.props;
       this.setData({
         visible: false,
       });
       this.triggerPicker(false);
-      if (onDismiss) {
-        return onDismiss(fmtEvent(this.props, { detail: { type: 'mask' } }));
+      if (onCancel) {
+        return onCancel(fmtEvent(this.props, { detail: { type: 'mask' } }));
       }
     },
 
-    onDismiss() {
-      const { onDismiss } = this.props;
+    onCancel() {
+      const { onCancel } = this.props;
       this.setData({
         visible: false,
       });
       this.triggerPicker(false);
-      if (onDismiss) {
-        return onDismiss(fmtEvent(this.props, { detail: { type: 'cancel' } }));
+      if (onCancel) {
+        return onCancel(fmtEvent(this.props, { detail: { type: 'cancel' } }));
       }
     },
 
@@ -221,16 +221,6 @@ Component({
         visible: false,
       });
       this.triggerPicker(false);
-      if (this.props.onBeforeOk) {
-        const isContinue = await this.props.onBeforeOk(
-          matchedValues,
-          matchedColumn,
-          fmtEvent(this.props)
-        );
-        if (!isContinue) {
-          return;
-        }
-      }
       if (!this.isControlled()) {
         this.update(matchedValues);
       }

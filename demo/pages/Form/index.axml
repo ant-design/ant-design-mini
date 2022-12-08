@@ -67,6 +67,12 @@
   ref="handleRef"
 />
 
+<form-selector
+  label="喜好"
+  name="likeChoose"
+  options="{{selectorOptions}}"
+  ref="handleRef"
+/>
 <form-slider
   label="选择分数"
   name="slider"
