@@ -3,6 +3,7 @@
   name="account"
   allowClear
   required
+  tooltip="用户名说明"
   message="需要填写用户名"
   ref="handleRef"
 />
