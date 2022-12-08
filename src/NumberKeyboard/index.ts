@@ -13,9 +13,8 @@ Component({
     disable: false, // 禁用确认按钮
     confirmText: '确定', // 确认按钮文字
     controlled: true, // 是否受控
-    onInput: ()=> {}, // 输入
+    onInput: (val)=> {}, // 输入
     onConfirm: ()=> {}, // 确认
-    onDelete: (val)=> {}, // 删除
     onClose: () => {}, // 关闭
   },
   data: {
@@ -51,10 +50,10 @@ Component({
       console.log('?', this.props.value);
       console.log('*', `${_val}${_key}`);
       
-      const { onInput, onDelete } = this.props;
+      const { onInput } = this.props;
       // 回退
       if (_key === 'del') {
-        onDelete(this.data._val );
+        onInput(`${this.props.value.substr(0, _val.length - 1)}` );
         // onInput(this.data._val);
         return;
       }
