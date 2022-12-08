@@ -26,7 +26,6 @@
     "pages/ButtonCustom/index",
     "pages/Modal/index",
     "pages/SwipeAction/index",
-    "pages/SwipeActionTest/index",
     "pages/Tabs/index",
     "pages/TabsScroll/index",
     "pages/TabsSticky/index",
