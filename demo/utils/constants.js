@@ -208,6 +208,11 @@ export const componentList = [
         path: '/pages/FormInitialValuesAsync/index',
       },
       {
+        name: 'FormValidate',
+        nameZN: '表单-校验',
+        path: '/pages/FormValidate/index',
+      },
+      {
         name: 'FormRules',
         nameZN: '表单-校验',
         path: '/pages/FormRules/index',
@@ -215,12 +220,17 @@ export const componentList = [
       {
         name: 'FormDynamic',
         nameZN: '表单-动态增减表单项',
-        path: '/pages/FormLayout/index',
+        path: '/pages/FormDynamic/index',
       },
       {
         name: 'FormDependency',
         nameZN: '表单-表单联动',
         path: '/pages/FormDependency/index',
+      },
+      {
+        name: 'FormMultiple',
+        nameZN: '表单-多个表单',
+        path: '/pages/FormMultiple/index',
       },
       {
         name: 'Input',
