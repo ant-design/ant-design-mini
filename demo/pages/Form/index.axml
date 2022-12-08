@@ -79,6 +79,7 @@
   name="slider"
   showTicks
   showNumber
+  showTooltip
   step="{{10}}"
   ref="handleRef"
 />
