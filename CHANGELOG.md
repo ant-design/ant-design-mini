@@ -1,3 +1,12 @@
+# 1.0.0-alpha.0 (2022-12-08)
+
+
+### Features
+
+* swipe-action兼容appx1.0版本 ([#418](https://github.com/ant-design/ant-design-mini/issues/418)) ([1ddb1f4](https://github.com/ant-design/ant-design-mini/commit/1ddb1f4034ae25f8ec1c4716aeff1c7c0e8a4420))
+
+
+
 ## 0.0.22 (2022-09-07)
 
 
