@@ -26,6 +26,7 @@ toc: 'content'
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
+| autoAdjustOverflow |  气泡被遮挡时自动调整位置 | `boolean` | true | 
 | className | 类名 | `string` | - | 
 | color | 背景颜色 | `string` | - |
 | contentClassName | content类名 | `string` | - | 
