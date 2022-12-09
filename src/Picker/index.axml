@@ -4,6 +4,7 @@
   style="{{style || ''}}"
   onTap="onOpen"
 >
+  <slot name="prefix"/>
   <slot>
     <view a:if="{{formatValue}}" class="amd-picker-text">
       {{formatValue}}
@@ -12,6 +13,7 @@
       {{placeholder}}
     </view>
   </slot>
+  <slot name="suffix"/>
 </view>
 <popup
   className="amd-picker-popup {{popClassName || ''}}"

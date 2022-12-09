@@ -20,7 +20,6 @@ toc: 'content'
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| body | 完全自定义内容区 | `slot` | - | 
 | bodyClassName | body类名 | `string` | - | 
 | bodyStyle | body样式 | `string` | - | 
 | cancelButtonStyle | 取消按钮样式 | `string` | - |

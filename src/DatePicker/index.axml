@@ -22,4 +22,6 @@
   forceUpdate="{{forceUpdate}}"
   onFormat="onFormat">
   <slot name="title" slot="title"/>
+  <slot name="prefix" slot="prefix"/>
+  <slot name="suffix" slot="suffix"/>
 </picker>

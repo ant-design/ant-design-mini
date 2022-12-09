@@ -11,5 +11,6 @@
     onAnimationEnd="onAnimationEnd"
   >
   <slot />
+  <slot a:if="{{ isOldVersion }}" name="content"/>
   </view>
 </view>

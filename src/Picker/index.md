@@ -71,7 +71,9 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | placeholder | 提示文案 | `string` | '请选择' |  
 | popClassName |  弹出框类名 | `string` | - |
 | popStyle |  弹出框样式 | `string` | - |
+| prefix |  前缀 | `slot` | - |
 | style | 样式| `string` | - |
+| suffix |  后缀 | `slot` | - |
 | title | 弹出框标题 | `string` \| `slot` | - |  
 | value | 选中的值 | `string`[] | - | 
 | onOk | 点击确定按钮，触发回调 | (value: `string`[], selectedOptions: [CascaderOption](#cascaderoption)[], event:  [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
