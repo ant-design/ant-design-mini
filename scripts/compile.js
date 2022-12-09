@@ -16,7 +16,10 @@ const extTypes = ['ts', 'less', 'json', 'axml', 'sjs', 'js'];
 gulp.task('less', () => gulp.src(`${src}/**/index.less`)
   .pipe(less())
   // eslint-disable-next-line no-console
-  .on('error', (e) => console.error(e))
+  .on('error', (e) => {
+    console.error(e);
+    process.exit(1);
+  })
   .pipe(cleanCss())
   .pipe(rename({
     extname: '.acss',
@@ -53,6 +56,7 @@ gulp.task('ts', () => gulp.src(`${src}/**/*.ts`)
   .on('error', (err) => {
     // eslint-disable-next-line no-console
     console.log(err);
+    process.exit(1);
   })
   .pipe(gulp.dest(dist)));
 
