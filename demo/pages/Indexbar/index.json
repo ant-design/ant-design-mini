@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Indexbar",
+  "usingComponents": {
+    "indexbar": "../../../src/Indexbar/index",
+    "list": "../../../src/List/index"
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "defaultTitle": "BladeView",
-  "usingComponents": {
-    "blade-view": "../../../src/BladeView/index"
-  }
-}

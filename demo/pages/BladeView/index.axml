@@ -1,9 +1,0 @@
-<view>
-  <blade-view
-    data="{{groups}}"
-    defaultValue="B-2"
-    value="{{value}}"
-    onChange="onChange"
-    sticky={{false}}
-  />
-</view>
