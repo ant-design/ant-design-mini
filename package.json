@@ -59,6 +59,7 @@
     "antd": "^4.20.7",
     "chalk": "^4.1.0",
     "conventional-changelog-cli": "^2.1.1",
+    "copy-to-clipboard": "^3.3.3",
     "dumi": "^1.1.35",
     "eslint": "^8.4.1",
     "eslint-config-ali": "^13.0.0",
