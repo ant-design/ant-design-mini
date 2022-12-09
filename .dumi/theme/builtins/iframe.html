@@ -57,6 +57,7 @@
         dist = obj.dist;
         sourceCode = obj.sourceCode;
       }
+      sourceCode['mini.project.json'] = '{ "enableAppxNg": true }';
       window.OpenBoxPreview.StartWebOpenBoxPreviewApp({
         containerStyle: {
           width: '100%',
@@ -73,9 +74,6 @@
           isShowSwitchLyra: true
         },
         isShowHeaderLogo: false,
-        customizeLyraConfig: {
-          useAppXNg: true,
-        } 
       });
     }
     startWebOpenBoxPreviewApp();
