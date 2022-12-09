@@ -1,10 +1,10 @@
-<view class="amd-tag amd-tag-{{type}} amd-tag-{{color}} {{className ? className : ''}}" style="{{style || ''}}">
-  <view class="amd-tag-icon-container" a:if="{{icon}}">
+<view class="amd-v1-tag amd-v1-tag-{{type}} amd-v1-tag-{{color}} {{className ? className : ''}}" style="{{style || ''}}">
+  <view class="amd-v1-tag-icon-container" a:if="{{icon}}">
     <slot name="icon">
       <am-icon type="{{icon}}" />
     </slot>
   </view>
-  <view class="amd-tag-content">
+  <view class="amd-v1-tag-content">
     <slot />
   </view>
 </view>

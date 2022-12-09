@@ -1,6 +1,6 @@
 @import (reference) "./variable.less";
 
-@loadingPrefix: amd-loading;
+@loadingPrefix: amd-v1-loading;
 
 .@{loadingPrefix} {
   &-small {
@@ -54,7 +54,7 @@
       font-size: 0;
       border-radius: @corner-radius-sm / 2;
       background-color: @COLOR_TEXT_ASSIST;
-      animation: amd-loading-animation 1s 0s infinite linear;
+      animation: amd-v1-loading-animation 1s 0s infinite linear;
 
       &__1 {
         animation-delay: 0s;
@@ -72,7 +72,7 @@
   }
 }
 
-@keyframes amd-loading-animation {
+@keyframes amd-v1-loading-animation {
   0% {
     transform: translate3d(0, 0, 0);
   }

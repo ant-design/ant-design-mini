@@ -1,17 +1,17 @@
-<view class="amd-rate-wrapper {{className}} {{ disabled ? 'amd-rate-disabled' : '' }}" style="{{style}}">
-  <view class="amd-rate-star-wrapper amd-rate-{{$id}}" onTouchMove="handleStarMove" onTouchEnd="handleStarMoveEnd">
+<view class="amd-v1-rate-wrapper {{className}} {{ disabled ? 'amd-v1-rate-disabled' : '' }}" style="{{style}}">
+  <view class="amd-v1-rate-star-wrapper amd-v1-rate-{{$id}}" onTouchMove="handleStarMove" onTouchEnd="handleStarMoveEnd">
     <view 
-      class="amd-rate-star" 
+      class="amd-v1-rate-star" 
       a:for="{{maxRate}}" 
       onTap="handleRateTap"
       data-rate="{{index + 1}}"
     >
       <view 
-        class="amd-rate-star-{{ index + 0.5 === rate ? 'half' : (index + 1 > rate) ? 'empty' : 'full' }}-left"
+        class="amd-v1-rate-star-{{ index + 0.5 === rate ? 'half' : (index + 1 > rate) ? 'empty' : 'full' }}-left"
         data-type="half"
         style="{{ `${ image ? `-webkit-mask-image: url(${image});` : '' } background-color: ${index + 0.5 === rate ? activeColor : (index + 1 > rate) ? (allowHalf && !image && !inactiveColor && !activeColor ? halfInactiveColor : inactiveColor) : activeColor}`}}"
       />
-      <view class="amd-rate-star-{{ index + 0.5 === rate ? 'half' : (index + 1 > rate) ? 'empty' : 'full' }}-right"
+      <view class="amd-v1-rate-star-{{ index + 0.5 === rate ? 'half' : (index + 1 > rate) ? 'empty' : 'full' }}-right"
         data-type="full"
         style="{{ `${ image ? `-webkit-mask-image: url(${image});` : '' } background-color: ${index + 0.5 === rate ? inactiveColor : (index + 1 > rate) ? inactiveColor : activeColor}`}}"
       />

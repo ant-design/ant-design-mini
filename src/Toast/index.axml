@@ -1,9 +1,9 @@
 <view 
-  class="amd-toast {{className}} {{icon || image || type ? 'amd-toast-icon-wrapper' : ''}}" 
+  class="amd-v1-toast {{className}} {{icon || image || type ? 'amd-v1-toast-icon-wrapper' : ''}}" 
   a:if="{{show}}" 
   style="{{style}}"
 >
-  <view a:if="{{type}}" class="amd-toast-normal">
+  <view a:if="{{type}}" class="amd-v1-toast-normal">
     <loading 
       a:if="{{type === 'loading'}}" 
       type="mini" 
@@ -12,32 +12,32 @@
     <am-icon 
       a:elif="{{type === 'warning'}}" 
       type="ExclamationOutline" 
-      className="amd-toast-icon"
+      className="amd-v1-toast-icon"
     />
     <am-icon 
       a:elif="{{type === 'error'}}" 
       type="CloseOutline" 
-      className="amd-toast-icon" 
+      className="amd-v1-toast-icon" 
     />
     <am-icon 
       a:elif="{{type === 'success'}}" 
       type="CheckOutline" 
-      className="amd-toast-icon" 
+      className="amd-v1-toast-icon" 
     />
   </view>
   <am-icon 
     a:elif="{{icon}}" 
     type="{{icon}}" 
-    className="amd-toast-icon"
+    className="amd-v1-toast-icon"
   />
   <view 
     a:elif="{{image}}" 
     style="background-image: url({{image}})" 
-    class="amd-toast-image" 
+    class="amd-v1-toast-image" 
   />
-  <view class="amd-toast-text-body">
-    <view class="amd-toast-text-box">
-      <view class="amd-toast-text-content">
+  <view class="amd-v1-toast-text-body">
+    <view class="amd-v1-toast-text-box">
+      <view class="amd-v1-toast-text-content">
         {{content.substring(0, 24)}}
       </view>
     </view>
@@ -45,7 +45,7 @@
 </view>
 
 <mask 
-  className="amd-toast-mask"
+  className="amd-v1-toast-mask"
   a:if="{{show && showMask}}"
   show="{{true}}"
   onMaskTap="handleClickMask" 

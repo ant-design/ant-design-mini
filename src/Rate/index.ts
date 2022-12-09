@@ -60,7 +60,7 @@ Component({
       this.startMove = true
       
       my.createSelectorQuery()
-        .select(`.amd-rate-${this.$id}`)
+        .select(`.amd-v1-rate-${this.$id}`)
         .boundingClientRect()
         .exec(res => {
           const pos = res[0]

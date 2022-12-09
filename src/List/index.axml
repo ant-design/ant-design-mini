@@ -1,24 +1,24 @@
-<view class="amd-list {{className ? className : ''}} {{radius ? 'amd-list-radius' : ''}}">
+<view class="amd-v1-list {{className ? className : ''}} {{radius ? 'amd-v1-list-radius' : ''}}">
   <block a:if="{{header}}">
-    <view class="amd-list-header">
+    <view class="amd-v1-list-header">
       {{header}}
     </view>
   </block>
   <block a:else>
-    <view class="amd-list-header">
+    <view class="amd-v1-list-header">
       <slot name="header" />
     </view>
   </block>
-  <view class="amd-list-body">
+  <view class="amd-v1-list-body">
     <slot />
   </view>
   <block a:if="{{footer}}">
-    <view class="amd-list-footer">
+    <view class="amd-v1-list-footer">
       {{footer}}
     </view>
   </block>
   <block a:else>
-    <view class="amd-list-footer">
+    <view class="amd-v1-list-footer">
       <slot name="footer" />
     </view>
   </block>

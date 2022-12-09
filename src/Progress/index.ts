@@ -36,7 +36,7 @@ Component({
         this.ctx.imageSmoothingEnabled = true;
         this.ctx.imageSmoothingQuality = 'high';
         my.createSelectorQuery()
-          .select('.amd-progress')
+          .select('.amd-v1-progress')
           .boundingClientRect()
           .exec((res) => {
             const { width } = res[0];

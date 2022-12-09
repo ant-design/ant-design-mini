@@ -1,6 +1,6 @@
-<view class="amd-container-header {{ headerInBox ? 'amd-container-headerInBox' : '' }}">
-    <view class="amd-container-header-title">
-      <view class="amd-container-header-content">
+<view class="amd-v1-container-header {{ headerInBox ? 'amd-v1-container-headerInBox' : '' }}">
+    <view class="amd-v1-container-header-title">
+      <view class="amd-v1-container-header-content">
         <block a:if="{{typeof title !== 'undefined'}}">
           {{title}}
         </block>
@@ -10,7 +10,7 @@
       </view>
     </view>
     <view 
-      class="amd-container-header-right"
+      class="amd-v1-container-header-right"
     >
       <slot />
     </view>

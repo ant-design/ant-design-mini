@@ -1,4 +1,4 @@
-<view class="amd-container {{className ? className : ''}}" style="{{style}}">
+<view class="amd-v1-container {{className ? className : ''}}" style="{{style}}">
   <header title="{{title}}" headerInBox="{{headerInBox}}">
     <view>
       <slot name="headerRight"></slot>
@@ -7,7 +7,7 @@
       <slot name="title"></slot>
     </view>
   </header>
-  <view class="amd-container-content {{ headerInBox ? 'amd-container-content-withHalfRadius' : 'amd-container-content-withRadius' }}">
+  <view class="amd-v1-container-content {{ headerInBox ? 'amd-v1-container-content-withHalfRadius' : 'amd-v1-container-content-withRadius' }}">
     <slot />
   </view>
 </view>

@@ -1,19 +1,19 @@
 <import-sjs from="./index.sjs" name="util" />
 
-<view class="amd-selector {{className ? className : ''}} {{disabled ? 'amd-selector-disabled' : ''}}" style="{{style}}">
-  <view class="amd-selector-content-container">
-    <view a:for="{{options}}" class="amd-selector-content {{options.length <= 2 ? 'amd-selector-content-item2' : ''}}">
+<view class="amd-v1-selector {{className ? className : ''}} {{disabled ? 'amd-v1-selector-disabled' : ''}}" style="{{style}}">
+  <view class="amd-v1-selector-content-container">
+    <view a:for="{{options}}" class="amd-v1-selector-content {{options.length <= 2 ? 'amd-v1-selector-content-item2' : ''}}">
       <view
-        class="amd-selector-item {{item.disabled ? 'amd-selector-item-disabled' : ''}} {{util.getChecked(item.value, mixin.value, multiple) ? `amd-selector-item-active ${activeItemClassName ? activeItemClassName: ''}` :''}}"
+        class="amd-v1-selector-item {{item.disabled ? 'amd-v1-selector-item-disabled' : ''}} {{util.getChecked(item.value, mixin.value, multiple) ? `amd-v1-selector-item-active ${activeItemClassName ? activeItemClassName: ''}` :''}}"
         style="{{util.getChecked(item.value, mixin.value, multiple) ? (activeItemStyle||'') : ''}}"
         data-value="{{item.value}}"
         data-disabled="{{item.disabled}}"
         onTap="onChange">
-        <view class="amd-selector-item-text"
+        <view class="amd-v1-selector-item-text"
           a:if="{{item.text}}">{{item.text}}</view>
-        <view class="amd-selector-item-subtext"
+        <view class="amd-v1-selector-item-subtext"
           a:if="{{item.subText}}">{{item.subText}}</view>
-        <view class="amd-selector-item-badge-active"
+        <view class="amd-v1-selector-item-badge-active"
             a:if="{{util.getChecked(item.value, mixin.value, multiple)}}" />
       </view>
     </view>

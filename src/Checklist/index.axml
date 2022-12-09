@@ -1,20 +1,20 @@
 <import-sjs from="./index.sjs" name="{getChecked}" />
-<view class="amd-checklist {{className ? className : ''}}" style="{{style || ''}}">
-  <view class="amd-checklist-body">
+<view class="amd-v1-checklist {{className ? className : ''}}" style="{{style || ''}}">
+  <view class="amd-v1-checklist-body">
     <checklist-item
       a:for="{{options}}"
       checked="{{getChecked(item.value,mixin.value,multiple)}}"
       item="{{item}}"
       onChange="onChange"
     >
-      <view slot="content" class="amd-checklist-item-content-box-nut">
+      <view slot="content" class="amd-v1-checklist-item-content-box-nut">
         <slot name="content" item="{{item}}">
-          <image a:if="{{item.image}}" class="amd-checklist-item-image" src="{{item.image}}" />
-          <view class="amd-checklist-item-text {{item.image ? '': 'amd-checklist-item-text-no-image'}}">
-            <view class="amd-checklist-item-text-title {{item.disabled ? 'amd-checklist-item-text-disabled' : ''}}">
+          <image a:if="{{item.image}}" class="amd-v1-checklist-item-image" src="{{item.image}}" />
+          <view class="amd-v1-checklist-item-text {{item.image ? '': 'amd-v1-checklist-item-text-no-image'}}">
+            <view class="amd-v1-checklist-item-text-title {{item.disabled ? 'amd-v1-checklist-item-text-disabled' : ''}}">
               {{item.title}}
             </view>
-            <view a:if="{{item.description}}" class="amd-checklist-item-text-description {{item.disabled ? 'amd-checklist-item-text-disabled' : ''}}">
+            <view a:if="{{item.description}}" class="amd-v1-checklist-item-text-description {{item.disabled ? 'amd-v1-checklist-item-text-disabled' : ''}}">
               {{item.description}}
             </view>
           </view>
@@ -22,7 +22,7 @@
       </view>
       <view slot="icon">
         <slot name="icon">
-          <icon type="CheckOutline" class="amd-checklist-item-check-icon" />
+          <icon type="CheckOutline" class="amd-v1-checklist-item-check-icon" />
         </slot>
       </view>
     </checklist-item>

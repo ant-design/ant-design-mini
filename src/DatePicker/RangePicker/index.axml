@@ -1,16 +1,16 @@
 <template name="selector">
     <view 
-        class="amd-range-picker-selector-item {{active?'amd-range-picker-selector-item-active':''}}" 
+        class="amd-v1-range-picker-selector-item {{active?'amd-v1-range-picker-selector-item-active':''}}" 
         catchTap="onChangeCurrentPickerType" 
         data-type="{{type}}">
-        <view a:if="{{value}}" class="amd-range-picker-selector-item-value">{{value}}</view>
-        <view a:else class="amd-range-picker-selector-item-placeholder">{{placeholder}}</view>
-        <icon type="CalendarOutline" className="amd-range-picker-selector-item-icon" a:if="{{precision==='year'||precision==='month'||precision==='day'||precision==='hour'}}"/>
+        <view a:if="{{value}}" class="amd-v1-range-picker-selector-item-value">{{value}}</view>
+        <view a:else class="amd-v1-range-picker-selector-item-placeholder">{{placeholder}}</view>
+        <icon type="CalendarOutline" className="amd-v1-range-picker-selector-item-icon" a:if="{{precision==='year'||precision==='month'||precision==='day'||precision==='hour'}}"/>
     </view>
 </template>
 <picker 
-    className="amd-range-picker"
-    popClassName="{{(!currentStartDate||!currentEndDate)?'amd-range-picker-confirm-disabled':''}} {{popClassName || ''}}"
+    className="amd-v1-range-picker"
+    popClassName="{{(!currentStartDate||!currentEndDate)?'amd-v1-range-picker-confirm-disabled':''}} {{popClassName || ''}}"
     style="{{style}}"
     options="{{columns}}"
     value="{{currentValue}}"
@@ -30,9 +30,9 @@
     maskClosable="{{maskClosable}}"
     forceUpdate="{{forceUpdate}}"
     onFormat="onFormat">
-    <view class="amd-range-picker-selector" slot="content-header">
+    <view class="amd-v1-range-picker-selector" slot="content-header">
       <template is="selector" data="{{placeholder:startPlaceholder,active:pickerType==='start',type:'start',value:currentStartValueStr,precision:precision}}"/>
-      <view class="amd-range-picker-selector-split">
+      <view class="amd-v1-range-picker-selector-split">
         {{splitCharacter}}
       </view>
       <template is="selector" data="{{placeholder:endPlaceholder,active:pickerType==='end',type:'end',value:currentEndValueStr,precision:precision}}"/>

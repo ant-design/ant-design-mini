@@ -1,7 +1,7 @@
 <picker 
-    className="amd-cascader-picker {{className||''}}"
+    className="amd-v1-cascader-picker {{className||''}}"
     style="{{style}}"
-    popClassName="amd-cascader-picker-popup {{popClassName || ''}}"
+    popClassName="amd-v1-cascader-picker-popup {{popClassName || ''}}"
     popStyle="{{popStyle}}"
     options="{{columns}}"
     value="{{currentValue}}"

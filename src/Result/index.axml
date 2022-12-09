@@ -1,12 +1,12 @@
 <import-sjs name="result" from='./index.sjs' />
 
-<view class="amd-result {{className ? className : ''}}" style="{{style}}">
-  <view class="amd-result-main">
+<view class="amd-v1-result {{className ? className : ''}}" style="{{style}}">
+  <view class="amd-v1-result-main">
     <block a:if="{{type}}">
-      <view class="amd-result-image">
+      <view class="amd-v1-result-image">
         <icon 
           type="{{result.iconType(type)}}"
-          className="amd-result-image-{{type}}"
+          className="amd-v1-result-image-{{type}}"
           style="font-size:64px"
         />
       </view>
@@ -15,22 +15,22 @@
       <slot name="image">
         <image-icon 
           a:if="{{image}}"
-          className="amd-result-image"
+          className="amd-v1-result-image"
           image="{{image}}" 
         />
       </slot>
     </block>
-    <view class="amd-result-title"
+    <view class="amd-v1-result-title"
       a:if="{{title && title.length > 0}}">{{title}}</view>
-    <view class="amd-result-title"
+    <view class="amd-v1-result-title"
       a:else>
       <slot name="title" />
     </view>
-    <view class="amd-result-message"
+    <view class="amd-v1-result-message"
       a:if="{{message && message.length > 0}}">
       <text>{{message}}</text>
     </view>
-    <view class="amd-result-message"
+    <view class="amd-v1-result-message"
       a:else>
       <slot name="message" />
     </view>

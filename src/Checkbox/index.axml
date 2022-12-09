@@ -1,21 +1,21 @@
 <import-sjs from="./index.sjs" name="componentUtils" />
-<label class="amd-checkbox-item {{class || ''}}"  style="{{style || ''}}">
-  <view class="amd-checkbox-item-container">
-    <view class="amd-checkbox-item-wrap">
+<label class="amd-v1-checkbox-item {{class || ''}}"  style="{{style || ''}}">
+  <view class="amd-v1-checkbox-item-container">
+    <view class="amd-v1-checkbox-item-wrap">
       <checkbox 
-        class="amd-checkbox-item-base"
+        class="amd-v1-checkbox-item-base"
         value="{{value}}"
         onChange="onChange"
         checked="{{mixin.value}}"
         disabled="{{disabled}}"
       />
-      <view class="amd-checkbox-item-fake">
-        <view class="amd-checkbox-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}" style="{{mixin.value && !disabled && color ? 'background:' + color : ''}}">
-          <icon a:if="{{mixin.value}}" type="CheckOutline" class="amd-checkbox-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon" />
+      <view class="amd-v1-checkbox-item-fake">
+        <view class="amd-v1-checkbox-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}" style="{{mixin.value && !disabled && color ? 'background:' + color : ''}}">
+          <icon a:if="{{mixin.value}}" type="CheckOutline" class="amd-v1-checkbox-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon" />
         </view>
       </view>
     </view>
-    <view class="amd-checkbox-item-content {{disabled ? 'amd-checkbox-item-disabled' : ''}}">
+    <view class="amd-v1-checkbox-item-content {{disabled ? 'amd-v1-checkbox-item-disabled' : ''}}">
       <slot />
     </view>
   </view>

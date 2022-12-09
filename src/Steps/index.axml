@@ -1,26 +1,26 @@
 <import-sjs from="./index.sjs" name="utils" />
 
-<view class="amd-steps amd-steps-{{direction}} {{className ? className : ''}}" style="{{style}}" onTap="onChange">
+<view class="amd-v1-steps amd-v1-steps-{{direction}} {{className ? className : ''}}" style="{{style}}" onTap="onChange">
   <view a:for="{{items}}"
-    class="amd-steps-item amd-steps-item-{{direction}} 
-    {{index < current? 'amd-steps-item-finish' : ''}} 
-    {{index === current? 'amd-steps-item-active' : ''}} 
-    {{index > current? 'amd-steps-item-non-active' : ''}}"
+    class="amd-v1-steps-item amd-v1-steps-item-{{direction}} 
+    {{index < current? 'amd-v1-steps-item-finish' : ''}} 
+    {{index === current? 'amd-v1-steps-item-active' : ''}} 
+    {{index > current? 'amd-v1-steps-item-non-active' : ''}}"
   >
-    <view class="amd-steps-item-indicator amd-steps-item-indicator-{{direction}}">
-      <view class="amd-steps-item-indicator-icon amd-steps-item-{{utils.getClassName(current, index, status)}}-icon">
+    <view class="amd-v1-steps-item-indicator amd-v1-steps-item-indicator-{{direction}}">
+      <view class="amd-v1-steps-item-indicator-icon amd-v1-steps-item-{{utils.getClassName(current, index, status)}}-icon">
         <slot name="icon" value="{{item}}" index="{{index}}" current="{{current}}" status="{{status}}">
-          <view class="amd-steps-item-{{utils.getClassName(current, index, status)}}-icon-default" />
+          <view class="amd-v1-steps-item-{{utils.getClassName(current, index, status)}}-icon-default" />
         </slot>
       </view>
     </view>
-    <view class="amd-steps-item-text">
-      <view class="amd-steps-item-title amd-steps-item-title-{{utils.getClassName(current, index, status)}}">
+    <view class="amd-v1-steps-item-text">
+      <view class="amd-v1-steps-item-title amd-v1-steps-item-title-{{utils.getClassName(current, index, status)}}">
          <slot name="title" value="{{item}}" index="{{index}}">
           {{item.title}}
         </slot>
       </view>
-      <view class="amd-steps-item-desc">
+      <view class="amd-v1-steps-item-desc">
         <slot name="description" value="{{item}}" index="{{index}}">
           {{item.description}}
         </slot>

@@ -1,13 +1,13 @@
-<view class="amd-empty {{className || ''}}" style="{{style || ''}}">
-  <view class="amd-empty-{{mode}}">
+<view class="amd-v1-empty {{className || ''}}" style="{{style || ''}}">
+  <view class="amd-v1-empty-{{mode}}">
     <slot name='image'>
-      <view class="amd-empty-{{mode}}-image" />
+      <view class="amd-v1-empty-{{mode}}-image" />
     </slot>
-    <view a:if="{{title || message}}" class="amd-empty-{{mode}}-text">
-      <view a:if="{{title}}" class="amd-empty-{{mode}}-text-main">
+    <view a:if="{{title || message}}" class="amd-v1-empty-{{mode}}-text">
+      <view a:if="{{title}}" class="amd-v1-empty-{{mode}}-text-main">
         {{title}}
       </view>
-      <view a:if="{{message}}" class="amd-empty-{{mode}}-text-sub">
+      <view a:if="{{message}}" class="amd-v1-empty-{{mode}}-text-sub">
         {{message}}
       </view>
     </view>

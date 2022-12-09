@@ -1,19 +1,19 @@
-<view class="amd-input 
-    {{disabled ? 'amd-input-disabled' : ''}}
+<view class="amd-v1-input 
+    {{disabled ? 'amd-v1-input-disabled' : ''}}
     {{className ? className : ''}}
     {{selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{(style || '') + ';' + (focusStyle || '')}}"
 >
-  <view class="amd-input-prefix">
+  <view class="amd-v1-input-prefix">
     <slot name="prefix">
       {{prefix}}
     </slot>
   </view>
-  <view class="amd-input-line">
+  <view class="amd-v1-input-line">
     <input
       enableNative="{{enableNative}}" 
       name="{{name}}"
-      class="amd-input-content {{inputClassName || ''}}"
+      class="amd-v1-input-content {{inputClassName || ''}}"
       style="{{inputStyle}}"
       disabled="{{readOnly || disabled}}" 
       value="{{controlled ? value : selfValue}}"
@@ -21,7 +21,7 @@
       type="{{type}}"
       password="{{password}}"
       placeholder="{{placeholder}}" 
-      placeholder-class="amd-input-placeholder {{placeholderClass ? placeholderClass : ''}}" 
+      placeholder-class="amd-v1-input-placeholder {{placeholderClass ? placeholderClass : ''}}" 
       placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" 
       maxlength="{{maxLength}}" 
       focus="{{focus}}"
@@ -38,12 +38,12 @@
     />
     <view
       a:if="{{allowClear}}"
-      class="amd-input-clear {{(controlled ? value : selfValue) && (controlled ? value : selfValue).length > 0 ? 'amd-input-clear-show' : 'amd-input-clear-hidden'}}" 
+      class="amd-v1-input-clear {{(controlled ? value : selfValue) && (controlled ? value : selfValue).length > 0 ? 'amd-v1-input-clear-show' : 'amd-v1-input-clear-hidden'}}" 
       onTap="onClear">
-      <icon size="x-small" class="amd-input-clear-icon" type="CloseCircleFill" ></icon>
+      <icon size="x-small" class="amd-v1-input-clear-icon" type="CloseCircleFill" ></icon>
     </view>
   </view>
-  <view class="amd-input-suffix">
+  <view class="amd-v1-input-suffix">
     <slot name="suffix">
       {{suffix}}
     </slot>
