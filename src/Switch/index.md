@@ -49,6 +49,6 @@ toc: 'content'
 ## 样式类
 | 类名 | 说明 |
 | -----|-----|
-| amd-switch | 整体样式 |
-| amd-switch-checked | 选中时的样式 |
-| amd-switch-disabled | 禁用时的样式 |
+| amd-v1-switch | 整体样式 |
+| amd-v1-switch-checked | 选中时的样式 |
+| amd-v1-switch-disabled | 禁用时的样式 |

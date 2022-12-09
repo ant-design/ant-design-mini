@@ -1,7 +1,3 @@
-.amd-guide-tour-item-img {
-  width: 90vw;
-}
-
 .step-box {
   background-color: #fff;
   width: 200px;

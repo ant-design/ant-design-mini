@@ -1,6 +1,6 @@
 @import (reference) "./variable.less";
 
-@selectorPrefix: amd-selector;
+@selectorPrefix: amd-v1-selector;
 
 .@{selectorPrefix} {
   position: relative;
@@ -10,7 +10,7 @@
   background-color: @selector-background-color;
   line-height: @selector-line-height;
 
-  &-disabled .amd-selector-content {
+  &-disabled .amd-v1-selector-content {
     opacity: 0.6;
 
     .@{selectorPrefix}-item-disabled {
@@ -34,7 +34,7 @@
       justify-content: flex-start;
     }
 
-    .amd-tap-modal-mask {
+    .amd-v1-tap-modal-mask {
       width: calc(100% - 24 * @rpx);
       height: calc(100% - 24 * @rpx);
       margin: 12 * @rpx 0 0 12 * @rpx;

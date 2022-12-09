@@ -2,8 +2,6 @@
   "defaultTitle": "Loading",
   "usingComponents": {
     "loading": "../../../src/Loading/index",
-    "am-icon": "../../../src/Icon/index",
-    "demo-block": "../../components/DemoBlock/index",
     "container": "../../../src/Container/index"
   }
 }

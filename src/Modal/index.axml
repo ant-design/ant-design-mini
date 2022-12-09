@@ -1,6 +1,6 @@
 <import-sjs from="./index.sjs" name="{getDirection}" />
 <popup 
-  className="amd-modal {{className || ''}}"
+  className="amd-v1-modal {{className || ''}}"
   style="{{style || ''}}"
   maskClassName="{{maskClassName}}"
   maskStyle="{{maskStyle}}"
@@ -12,30 +12,30 @@
   zIndex="{{zIndex}}"
   onClose="onClose">
   <slot slot="content">
-    <view class="amd-modal-body {{bodyClassName || ''}}" style="{{bodyStyle || ''}}">
+    <view class="amd-v1-modal-body {{bodyClassName || ''}}" style="{{bodyStyle || ''}}">
       <slot name="header">
       </slot>
       <slot name="title">
-        <view class="amd-modal-body-title" a:if="{{ title }}">
+        <view class="amd-v1-modal-body-title" a:if="{{ title }}">
           {{title}}
         </view>
       </slot>
       <slot name="content">
-        <view class="amd-modal-body-content" a:if="{{ content }}">{{content}}</view>
+        <view class="amd-v1-modal-body-content" a:if="{{ content }}">{{content}}</view>
       </slot>
       <slot name="footer">
         <view 
           a:if="{{ type === 'focus' }}"
-          class="amd-modal-body-footer-focus">
+          class="amd-v1-modal-body-footer-focus">
           <button
             type="primary"
-            class="amd-modal-body-footer-focus-primary"
+            class="amd-v1-modal-body-footer-focus-primary"
             style="{{primaryButtonStyle || ''}}"
             onTap="onPrimaryButtonTap">
               {{primaryButtonText}}
           </button>
           <view 
-            class="amd-modal-body-footer-focus-secondary"
+            class="amd-v1-modal-body-footer-focus-secondary"
             a:if="{{secondaryButtonText}}"
             style="{{secondaryButtonStyle || ''}}"
             onTap="onSecondaryButtonTap"
@@ -43,7 +43,7 @@
             {{secondaryButtonText}}
           </view>
           <view 
-            class="amd-modal-body-footer-focus-cancel"
+            class="amd-v1-modal-body-footer-focus-cancel"
             a:if="{{cancelButtonText}}"
             style="{{cancelButtonStyle || ''}}"
             onTap="onCancelButtonTap"
@@ -53,9 +53,9 @@
         </view>
         <view 
           a:elif="{{ getDirection(primaryButtonText,secondaryButtonText,cancelButtonText,type) === 'horizontal' }}"
-          class="amd-modal-body-footer-horizontal">
+          class="amd-v1-modal-body-footer-horizontal">
           <view 
-            class="amd-modal-body-footer-horizontal-cancel"
+            class="amd-v1-modal-body-footer-horizontal-cancel"
             a:if="{{cancelButtonText}}"
             style="{{cancelButtonStyle || ''}}"
             onTap="onCancelButtonTap"
@@ -63,7 +63,7 @@
             {{cancelButtonText}}
           </view>
           <view 
-            class="amd-modal-body-footer-horizontal-secondary"
+            class="amd-v1-modal-body-footer-horizontal-secondary"
             a:if="{{secondaryButtonText}}"
             style="{{secondaryButtonStyle || ''}}"
             onTap="onSecondaryButtonTap"
@@ -71,7 +71,7 @@
             {{secondaryButtonText}}
           </view>
           <view 
-            class="amd-modal-body-footer-horizontal-primary"
+            class="amd-v1-modal-body-footer-horizontal-primary"
             a:if="{{primaryButtonText}}"
             style="{{primaryButtonStyle || ''}}"
             onTap="onPrimaryButtonTap"
@@ -81,9 +81,9 @@
         </view>
         <view 
           a:elif="{{ getDirection(primaryButtonText,secondaryButtonText,cancelButtonText,type) === 'vertical' }}"
-          class="amd-modal-body-footer-vertical">
+          class="amd-v1-modal-body-footer-vertical">
           <view 
-            class="amd-modal-body-footer-vertical-primary"
+            class="amd-v1-modal-body-footer-vertical-primary"
             a:if="{{primaryButtonText}}"
             style="{{primaryButtonStyle || ''}}"
             onTap="onPrimaryButtonTap"
@@ -91,7 +91,7 @@
             {{primaryButtonText}}
           </view>
           <view 
-            class="amd-modal-body-footer-vertical-secondary"
+            class="amd-v1-modal-body-footer-vertical-secondary"
             a:if="{{secondaryButtonText}}"
             style="{{secondaryButtonStyle || ''}}"
             onTap="onSecondaryButtonTap"
@@ -99,7 +99,7 @@
             {{secondaryButtonText}}
           </view>
           <view 
-            class="amd-modal-body-footer-vertical-cancel"
+            class="amd-v1-modal-body-footer-vertical-cancel"
             a:if="{{cancelButtonText}}"
             style="{{cancelButtonStyle || ''}}"
             onTap="onCancelButtonTap"
@@ -110,9 +110,9 @@
       </slot>
     </view>
   </slot>
-  <amd-icon 
+  <icon 
     a:if="{{ type==='focus' && closable }}"
     type="CloseOutline" 
     onTap="onClose" 
-    className="amd-modal-close"/>
+    className="amd-v1-modal-close"/>
 </popup>

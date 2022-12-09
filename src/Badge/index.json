@@ -1,6 +1,3 @@
 {
-  "component": true,
-  "usingComponents": {
-    "amd-icon": "../Icon/index"
-  }
+  "component": true
 }

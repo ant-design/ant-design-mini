@@ -1,62 +1,13 @@
-.demo {
-  background: #fff;
+.custom-color {
+  color: blue;
 }
 
-.sum {
-  padding: 24rpx;
+.custom-size {
+  font-size: 40px;
 }
 
-.sum > text {
+.custom {
+  font-size: 40px;
   color: red;
-}
-
-.list-title {
-  color: red;
-  font-size: 32rpx;
-  font-weight: bold;
-  padding: 24rpx;
-}
-
-.icon-list {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 24rpx;
-  background: #fff;
-}
-
-.icon-item {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex: 0 33.33333%;
-  height: 170rpx;
-  padding: 16rpx;
-  border: 1rpx solid #eee;
-  box-sizing: border-box;
-}
-
-.icon-desc {
-  flex: 0 100%;
-  margin-top: 24rpx;
-  font-size: 24rpx;
-  text-align: center;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
-.icon-item-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.input {
-  padding: 4px 0 4px 0;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  transition: all 0.5s;
-  margin: 24rpx;
+  margin: 10px;
 }

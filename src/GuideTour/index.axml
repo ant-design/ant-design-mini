@@ -1,8 +1,8 @@
 <import-sjs from="./index.sjs" name="utils" />
-<view class="amd-guide-tour {{className?className:''}}" style="{{style || ''}}" a:if="{{visible}}">
+<view class="amd-v1-guide-tour {{className?className:''}}" style="{{style || ''}}" a:if="{{visible}}">
     <mask show style="z-index:9999;{{maskStyle || ''}}" />
-    <am-icon type="CloseOutline" class="amd-guide-tour-clear" onTap="onCancel" />
-    <view class="amd-guide-tour-button">
+    <am-icon type="CloseOutline" class="amd-v1-guide-tour-clear" onTap="onCancel" />
+    <view class="amd-v1-guide-tour-button">
         <button inline size="{{13}}" a:if="{{utils.checkShowJump(mixin.value,items)}}" onTap="onCancel">
             跳过
         </button>
@@ -17,15 +17,15 @@
         </button>
     </view>
     <block a:if="{{swiperable}}">
-        <view class="amd-guide-tour-indicator">
-            <view a:for="{{items}}" class="amd-guide-tour-indicator-dot {{index === mixin.value ? 'amd-guide-tour-indicator-dot-active':''}}" />
+        <view class="amd-v1-guide-tour-indicator">
+            <view a:for="{{items}}" class="amd-v1-guide-tour-indicator-dot {{index === mixin.value ? 'amd-v1-guide-tour-indicator-dot-active':''}}" />
         </view>
-        <swiper class="amd-guide-tour-swiper" current="{{mixin.value}}" adjust-height="none" style="height:100vh" disable-touch="{{ture}}" 
+        <swiper class="amd-v1-guide-tour-swiper" current="{{mixin.value}}" adjust-height="none" style="height:100vh" disable-touch="{{ture}}" 
             onChange="onSwiperChange">
             <swiper-item  a:for="{{items}}">
-                <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px">
+                <view class="amd-v1-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px">
                     <slot name="step" index="{{current}}">
-                        <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
+                        <image a:if="{{item.imageUrl}}" class="amd-v1-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
                             mode="{{item.imageMode}}" />
                     </slot>
                 </view>
@@ -33,10 +33,10 @@
         </swiper>
     </block>
     <block a:else a:for="{{items}}">
-        <view class="amd-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px" 
+        <view class="amd-v1-guide-tour-item {{item.className ? item.className : ''}}" style="top:{{item.top}}px; left:{{item.left}}px" 
             a:if="{{mixin.value === index}}">
             <slot name="step" index="{{index}}">
-                <image a:if="{{item.imageUrl}}" class="amd-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
+                <image a:if="{{item.imageUrl}}" class="amd-v1-guide-tour-item-img" src="{{item.imageUrl}}" style="{{item.imageStyle}}" 
                     mode="{{item.imageMode}}" />
             </slot>
         </view>

@@ -2,16 +2,8 @@ page {
   padding: 24rpx;
 }
 
-page .amd-container {
-  padding-bottom: 24rpx;
-}
-
 .badge-list {
   display: flex;
-}
-
-.badge-list .amd-badge {
-  margin-right: 32rpx;
 }
 
 .box {

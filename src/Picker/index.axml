@@ -1,45 +1,45 @@
 <import-sjs from="./index.sjs" name="_sjs" />
 <view
-  class="amd-picker {{disabled ? 'amd-picker-disabled' : ''}} {{className ? className : ''}}"
+  class="amd-v1-picker {{disabled ? 'amd-v1-picker-disabled' : ''}} {{className ? className : ''}}"
   style="{{style || ''}}"
   onTap="onOpen"
 >
   <slot name="prefix"/>
   <slot>
-    <view a:if="{{formatValue}}" class="amd-picker-text">
+    <view a:if="{{formatValue}}" class="amd-v1-picker-text">
       {{formatValue}}
     </view>
-    <view a:elif="{{placeholder}}" class="amd-picker-placeholder">
+    <view a:elif="{{placeholder}}" class="amd-v1-picker-placeholder">
       {{placeholder}}
     </view>
   </slot>
   <slot name="suffix"/>
 </view>
 <popup
-  className="amd-picker-popup {{popClassName || ''}}"
+  className="amd-v1-picker-popup {{popClassName || ''}}"
   style="{{popStyle || ''}}"
   position="bottom"
   maskClosable
   onClose="onMaskDismiss"
   visible="{{visible}}">
-  <view class="amd-picker-header">
-    <view class="amd-picker-header-item amd-picker-header-cancel"
-      hover-class="amd-picker-header-item-hover"
+  <view class="amd-v1-picker-header">
+    <view class="amd-v1-picker-header-item amd-v1-picker-header-cancel"
+      hover-class="amd-v1-picker-header-item-hover"
       hover-start-time="20"
       hover-stay-time="50"
       onTap="onCancel">{{cancelText}}</view>
-    <view class="amd-picker-header-item amd-picker-header-title">
+    <view class="amd-v1-picker-header-item amd-v1-picker-header-title">
       <slot name="title">
         {{title}}
       </slot>
     </view>
-    <view class="amd-picker-header-item amd-picker-header-confirm"
-      hover-class="amd-picker-header-item-hover"
+    <view class="amd-v1-picker-header-item amd-v1-picker-header-confirm"
+      hover-class="amd-v1-picker-header-item-hover"
       hover-start-time="20"
       hover-stay-time="50"
       onTap="onOk">{{okText}}</view>
   </view>
-  <view class="amd-picker-content">
+  <view class="amd-v1-picker-content">
     <slot name="content-header"/>
     <block a:if="{{columns}}">
       <picker-view 
@@ -54,7 +54,7 @@
           a:for-item="dataRoot"
           a:for-index="dataIndex">
           <picker-view-column a:if="{{dataIndex < options.length}}">
-              <view a:for="{{dataRoot}}" class="amd-picker-content-item">
+              <view a:for="{{dataRoot}}" class="amd-v1-picker-content-item">
                 {{_sjs.getPickerViewLabel(item)}}
               </view>
           </picker-view-column>

@@ -1,11 +1,11 @@
 <view 
-  class="amd-switch {{className ? className : ''}} amd-switch-{{size}} {{mixin.value ? 'amd-switch-checked':''}}  {{disabled?'amd-switch-disabled':''}}   {{loading ? 'amd-switch-loading':''}}"
+  class="amd-v1-switch {{className ? className : ''}} amd-v1-switch-{{size}} {{mixin.value ? 'amd-v1-switch-checked':''}}  {{disabled?'amd-v1-switch-disabled':''}}   {{loading ? 'amd-v1-switch-loading':''}}"
   style="{{mixin.value && color ? 'background:'+color + '; border-color:' + color:''}};"
   catchTap="onChange">
-  <view class="amd-switch-handle">
-    <icon type="UndoOutline" a:if="{{loading}}" className="amd-switch-loading-icon"/>
+  <view class="amd-v1-switch-handle">
+    <icon type="UndoOutline" a:if="{{loading}}" className="amd-v1-switch-loading-icon"/>
   </view>
-  <view class="amd-switch-inner">
+  <view class="amd-v1-switch-inner">
     <slot name="checked" a:if="{{mixin.value}}">{{checkedText}}</slot>
     <slot name="unchecked" a:else>{{uncheckedText}}</slot>
   </view>

@@ -3,6 +3,6 @@
 <view
   a:if="{{loading}}" 
   style="{{style}}" 
-  class="amd-skeleton-avatar amd-skeleton-avatar-{{shape}} {{animate?'amd-skeleton-avatar-animate':''}} {{utils.getClass(size)}} {{className || ''}}" 
+  class="amd-v1-skeleton-avatar amd-v1-skeleton-avatar-{{shape}} {{animate?'amd-v1-skeleton-avatar-animate':''}} {{utils.getClass(size)}} {{className || ''}}" 
 />
 <slot a:else/>

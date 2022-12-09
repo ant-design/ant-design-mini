@@ -1,8 +1,8 @@
 <import-sjs from="./index.sjs" name="utils" />
 
-<view class="amd-avatar {{className ? className : ''}}" style="{{style}}">
+<view class="amd-v1-avatar {{className ? className : ''}}" style="{{style}}">
   <image
-    class="amd-avatar-image {{utils.getClass(size)}}"
+    class="amd-v1-avatar-image {{utils.getClass(size)}}"
     src="{{src}}"
     a:if="{{src}}"
   />

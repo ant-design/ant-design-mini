@@ -21,7 +21,7 @@
   </div>
   <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react/18.0.0/umd/react.production.min.js"></script>
   <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react-dom/18.0.0/umd/react-dom.production.min.js"></script>
-  <script src="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/0.0.17/web/preview.js"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/0.0.18/web/preview.js"></script>
   <script>
     const searchParams = new URL(location.href).searchParams;
 
@@ -57,6 +57,7 @@
         dist = obj.dist;
         sourceCode = obj.sourceCode;
       }
+      sourceCode['mini.project.json'] = '{ "enableAppxNg": true }';
       window.OpenBoxPreview.StartWebOpenBoxPreviewApp({
         containerStyle: {
           width: '100%',
@@ -67,12 +68,12 @@
         isShowToolbar: true,
         toolbarOptions: {
           isShowQrcode: false,
-          isShowDownload: false,
+          isShowDownload: true,
           isShowEditMode: false,
           isShowLyraRefresh: true,
           isShowSwitchLyra: true
         },
-        isShowHeaderLogo: true
+        isShowHeaderLogo: false,
       });
     }
     startWebOpenBoxPreviewApp();

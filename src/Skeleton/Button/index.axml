@@ -1,6 +1,6 @@
 <import-sjs from="./index.sjs" name="utils" />
 
-<view a:if="{{loading}}" class="amd-skeleton-button {{animate?'amd-skeleton-button-animate':''}} {{utils.getClass(size)}}  {{className||''}}" style="{{style}}">
+<view a:if="{{loading}}" class="amd-v1-skeleton-button {{animate?'amd-v1-skeleton-button-animate':''}} {{utils.getClass(size)}}  {{className||''}}" style="{{style}}">
 
 </view>
 <slot a:else/>

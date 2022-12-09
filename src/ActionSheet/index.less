@@ -1,7 +1,7 @@
 @import (reference) './variable.less';
 @import (reference) '../style/mixins/hairline.less';
 
-@actionsheetPrefix: amd-actionsheet;
+@actionsheetPrefix: amd-v1-actionsheet;
 .@{actionsheetPrefix} {
   padding-left: 24 * @rpx;
   padding-right: 24 * @rpx;
@@ -17,31 +17,31 @@
     text-align: left;
     padding: 36 * @rpx 30 * @rpx;
     font-size: 30 * @rpx;
-    color: @color-text-subtitle;
-    .hairline('bottom', @color-divider-line);
+    color: @COLOR_TEXT_ASSIST;
+    .hairline('bottom', @COLOR_BORDER);
   }
   &-list {
     margin: 0 -24 * @rpx;
   }
   &-list-item {
-    color: @color-fill-grey-dark;
+    color: @COLOR_TEXT_PRIMARY;
     padding: 32 * @rpx 30 * @rpx;
     text-align: center;
     position: relative;
     font-size: 36 * @rpx;
-    .hairline('bottom', @color-divider-line);
+    .hairline('bottom', @COLOR_BORDER);
     &-title-danger {
       color: @actionsheet-danger-color;
       font-weight: bold;
     }
     &-description {
-      color: @color-text-subtitle;
+      color: @COLOR_TEXT_ASSIST;
       font-size: 28 * @rpx;
       line-height: 40 * @rpx;
       margin-top: 8 * @rpx;
     }
     &-active {
-      background-color: #eee;
+      background-color: @COLOR_BORDER;
     }
     &:last-child {
       &&:after {
@@ -58,18 +58,18 @@
 
   &-cancel-gap {
     height: 16 * @rpx;
-    background: #f5f5f5;
+    background: @COLOR_BACKGROUND;
     margin: 0 -24 * @rpx;
   }
 
   &-cancel {
-    color: #333;
+    color: @COLOR_TEXT_PRIMARY;
     padding: 32 * @rpx 30 * @rpx;
     font-size: 36 * @rpx;
     text-align: center;
     margin: 0 -24 * @rpx;
     &:active {
-      background-color: #eee;
+      background-color: @COLOR_BORDER;
     }
   }
 }

@@ -1,7 +1,3 @@
-page .amd-container {
-  padding: 24rpx;
-}
-
 .image {
   width: 80rpx;
   height: 80rpx;

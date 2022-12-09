@@ -2,10 +2,6 @@ page {
   padding: 24rpx;
 }
 
-page .amd-container {
-  padding-bottom: 24rpx;
-}
-
 .demo-empty-btn {
   margin-top: 40rpx;
 }

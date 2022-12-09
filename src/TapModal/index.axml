@@ -1,9 +1,9 @@
 <view 
-  class="{{className}} amd-tap-modal"
+  class="{{className}} amd-v1-tap-modal"
   data-payload="{{payload}}"
   onTap="onTap">
   <slot></slot>
-  <view class="{{ disabled ? '' : 'amd-tap-modal-mask' }}"     
-    hover-class="{{ disabled ? '' : 'amd-tap-modal-mask-active' }}"
+  <view class="{{ disabled ? '' : 'amd-v1-tap-modal-mask' }}"     
+    hover-class="{{ disabled ? '' : 'amd-v1-tap-modal-mask-active' }}"
     hover-stay-time="0"/>
 </view>

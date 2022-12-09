@@ -1,43 +1,43 @@
 <import-sjs from="./index.sjs" name="_sjs" />
 
-<view class="amd-badge
+<view class="amd-v1-badge
   {{className ? className : ''}}" style="{{style}}">
-  <view class="amd-badge-body">
+  <view class="amd-v1-badge-body">
     <slot></slot>
   </view>
   <view
   a:if="{{type=== 'dot'}}"
-  class="amd-badge-content"
+  class="amd-v1-badge-content"
   style="{{_sjs.setPositionStyle(position, offsetX, offsetY)}}">
   <view
-  class="amd-badge-dot {{stroke ? 'amd-badge-dot-stroke' : ''}}"
+  class="amd-v1-badge-dot {{stroke ? 'amd-v1-badge-dot-stroke' : ''}}"
   style="{{bgColor ? `background-color: ${bgColor};`: ''}}">
 </view>
   </view>
   <view
     a:else
-    class="amd-badge-content
-      amd-badge-content-not-dot
-      {{type==='bubble' ? `amd-badge-content-${position}-bubble` : ''}}
-      {{stroke ? 'amd-badge-content-stroke' : ''}}"
+    class="amd-v1-badge-content
+      amd-v1-badge-content-not-dot
+      {{type==='bubble' ? `amd-v1-badge-content-${position}-bubble` : ''}}
+      {{stroke ? 'amd-v1-badge-content-stroke' : ''}}"
     style="{{bgColor ? `background-color: ${bgColor};`: ''}} {{_sjs.setBubbleStyle(type, position)}};{{_sjs.setPositionStyle(position, offsetX, offsetY)}}">
-      <view class="amd-badge-icon-container">
+      <view class="amd-v1-badge-icon-container">
     </view>
 
-    <view class="amd-badge-content-text">
+    <view class="amd-v1-badge-content-text">
       <slot name="text">
         <view
           a:if="{{type === 'number'}}"
-          class="amd-badge-number">
+          class="amd-v1-badge-number">
           {{overCount ? '99+' : text}}
         </view>
         <view
           a:if="{{type==='text'}}"
-          class="amd-badge-text">
+          class="amd-v1-badge-text">
           {{text}}
         </view>
         <view a:if="{{type==='bubble'}}"
-        class="amd-badge-bubble">
+        class="amd-v1-badge-bubble">
           {{text}}
         </view>
       </slot>

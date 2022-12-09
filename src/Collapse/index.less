@@ -1,12 +1,12 @@
 @import (reference) "./variable.less";
 @import "../style/mixins/hairline.less";
 
-@collapsePrefix: amd-collapse-item;
+@collapsePrefix: amd-v1-collapse-item;
 
 .@{collapsePrefix} {
   &-disabled {
-    .amd-collapse-item-title-node,
-    .amd-collapse-item-brief-container {
+    .amd-v1-collapse-item-title-node,
+    .amd-v1-collapse-item-brief-container {
     opacity: 0.4;
     }
     .@{collapsePrefix}-title:active {
@@ -54,7 +54,7 @@
       overflow: hidden;
       margin-right: 24 * @rpx;
 
-      .amd-icon {
+      .amd-v1-icon {
         font-size: 40 * @rpx;
       }
 
@@ -73,7 +73,7 @@
   &-brief {
     &-container {
       display: flex;
-      .amd-icon {
+      .amd-v1-icon {
         font-size: 40 * @rpx;
       }
     }
@@ -82,7 +82,6 @@
       display: flex;
       flex: 1;
       font-size: 30 * @rpx;
-      font-family: PingFangSC-Regular;
       color: @COLOR_TEXT_ASSIST;
       margin-right: 8 * @rpx;
     }

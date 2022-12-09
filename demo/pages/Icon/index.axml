@@ -1,37 +1,24 @@
-<view class="demo">
-  <input
-    placeholder="请输入内容"
-    onChange="handleSearchChange"
-    className="input"
-    allowClear
-    >
-      <icon slot="prefix" type="SearchOutline" />
-  </input>
-  <view class="sum" a:if="{{!searchValue}}">
-    目前共有
-    <text>{{iconTypes.length}}</text>个图标类型
+<container title="基本使用">
+  <icon type="SmileOutline" />
+  <icon type="PayCircleOutline" />
+  <icon type="LocationFill" />
+</container>
+
+<container title="自定义大小">
+  <icon type="SmileOutline" style="font-size: 20px" />
+  <icon type="SmileOutline" style="font-size: 30px" />
+  <icon type="SmileOutline" class="custom-size" />
+</container>
+
+<container title="自定义颜色">
+  <icon type="SmileOutline" style="color: red" />
+  <icon type="SmileOutline" class="custom-color" />
+</container>
+
+<container title="更多自定义">
+  <view class="custom">
+    <icon type="SmileOutline" />
   </view>
-  <view class="list-title">
-    线框风格
-  </view>
-  <view class="icon-list">
-    <view class="icon-item" a:for="{{iconTypes}}" a:if="{{item.indexOf('Outline') > 1&&item.toUpperCase().indexOf(searchValue.toUpperCase())>-1}}">
-      <view class="icon-item-wrapper" onTap="handleClickIcon" data-info="{{item}}">
-        <am-icon type="{{item}}" style="color:#1677ff;font-size:24px" />
-        <text class="icon-desc">{{item}}</text>
-      </view>
-    </view>
-  </view>
-  <view class="list-title">
-    实底风格
-  </view>
-  <view class="icon-list">
-    <view class="icon-item" a:for="{{iconTypes}}" a:if="{{item.indexOf('Fill') > 1&&item.toUpperCase().indexOf(searchValue.toUpperCase())>-1}}">
-      <view class="icon-item-wrapper" onTap="handleClickIcon" data-info="{{item}}">
-        <am-icon type="{{item}}" style="color:#1677ff;font-size:24px" />
-        <text class="icon-desc">{{item}}</text>
-      </view>
-    </view>
-  </view>
-  
-</view>
+</container>
+
+

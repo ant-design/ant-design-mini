@@ -1,9 +1,9 @@
 <import-sjs from="./index.sjs" name="{isComputing,getPlacement}" />
-<view class="amd-popover {{className ? className : ''}}" style="{{style || ''}}">
+<view class="amd-v1-popover {{className ? className : ''}}" style="{{style || ''}}">
   <view onTap="onVisibleChange">
     <slot />
   </view>
-  <view class="amd-popover-container"
+  <view class="amd-v1-popover-container"
     a:if="{{mixin.value}}">
     <!-- 蒙层 -->
     <mask 
@@ -12,11 +12,11 @@
       style="z-index:99;{{maskStyle || ''}}" 
       onMaskTap="onVisibleChange"/>
     <view
-      id="amd-popover-content-{{$id}}" 
-      class="amd-popover-content amd-popover-{{getPlacement(placement, adjustedPlacement, autoAdjustOverflow)}}" 
+      id="amd-v1-popover-content-{{$id}}" 
+      class="amd-v1-popover-content amd-v1-popover-{{getPlacement(placement, adjustedPlacement, autoAdjustOverflow)}}" 
       style="{{ isComputing(placement, adjustedPlacement, autoAdjustOverflow) ? 'opacity:0' : '' }}">
-      <view class="amd-popover-arrow" style="{{color?`border-bottom-color:${color}` : ''}}"></view>
-      <view class="amd-popover-inner {{contentClassName || ''}}" style="{{color?`background:${color}`:''}};{{contentStyle || ''}}">
+      <view class="amd-v1-popover-arrow" style="{{color?`border-bottom-color:${color}` : ''}}"></view>
+      <view class="amd-v1-popover-inner {{contentClassName || ''}}" style="{{color?`background:${color}`:''}};{{contentStyle || ''}}">
         <slot name="content">{{content}}</slot>
       </view>
     </view>
