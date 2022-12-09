@@ -24,7 +24,7 @@ Page({
     my.createSelectorQuery()
       .selectAll('.amd-indexbar-list')
       .boundingClientRect()
-      .exec((ret: any) => {
+      .exec((ret) => {
         const arr = []
         ret[0].forEach((u) => {
           arr.push(u.top - ret[0][0].top);
