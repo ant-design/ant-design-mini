@@ -1,7 +1,3 @@
-page .amd-container {
-  margin-bottom: 12px;
-}
-
 .demo-result-buttons {
   margin-bottom: 12px;
 }

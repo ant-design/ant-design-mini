@@ -3,7 +3,6 @@
   "usingComponents": {
     "selector": "../../../src/Selector/index",
     "button": "../../../src/Button/index",
-    "demo-block": "../../components/DemoBlock/index",
     "container": "../../../src/Container/index"
   }
 }

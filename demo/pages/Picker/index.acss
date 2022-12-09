@@ -2,6 +2,4 @@
   text-align: center;
   padding: 24rpx;
 }
-.btn-wrapper .amd-button {
-  margin: 0 12rpx;
-}
+

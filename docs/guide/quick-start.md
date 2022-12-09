@@ -4,25 +4,25 @@ toc: false
 
 ## 快速开始
 
-开始之前，请阅读支付宝小程序开发相关内容：[自定义组件](https://opendocs.alipay.com/mini/framework/custom-component-overview)
+> 注意，你看到的文档是 antd-mini 1.0 alpha 文档。1.0 正式版本还没有发布。正式版本为 0.x 可访问 https://mini.ant.design
 
 1. 安装依赖
-``` bash
-$ npm i antd-mini -S
+```
+$ npm i antd-mini@alpha --save
 ```
 <br>
 
 2. 在 json 文件中配置
 ``` json
 {
-    "usingComponents": {
-        "tag": "antd-mini/es/Tag/index"
-    }
+  "usingComponents": {
+    "button": "antd-mini/es/Button/index"
+  }
 }
 ```
 <br>
 
 3. 在 axml 文件中使用
-``` xml
-<tag></tag>
+```html
+<button>antd-mini</button>
 ```
