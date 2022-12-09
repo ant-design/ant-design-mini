@@ -17,7 +17,7 @@
           onVisibleChange="onHelpVisibleChange"
         >
           <view slot="content" class="amd-form-item-label-help-content">{{tooltip}}</view>
-          <icon type="QuestionCircleOutline" size="x-small" onTap="onToggleHelpVisible"/>
+          <icon type="QuestionCircleOutline"/>
         </popover>
       </view>
       <!--field-->

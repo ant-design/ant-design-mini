@@ -33,6 +33,7 @@
       onVisibleChange="onVisibleChange"
       onFormat="onFormat">
       <slot name="title" slot="title"/>
+      <icon a:if="{{ showArrow }}" class="amd-form-cascader-picker-arrow" type="RightOutline" slot="suffix"/>
       <slot/>
     </cascader-picker>
   </view>

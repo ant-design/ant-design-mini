@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "form-item": "../FormItem/index",
-    "range-picker": "../../DatePicker/RangePicker/index"
+    "range-picker": "../../DatePicker/RangePicker/index",
+    "icon": "../../Icon/index"
   }
 }
