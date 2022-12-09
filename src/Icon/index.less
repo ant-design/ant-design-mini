@@ -5,18 +5,14 @@
   src: url("https://gw.alipayobjects.com/os/bmw-prod/578c472b-19a7-44ab-a92d-adc367ee2fe2.ttf?v=20210115") format("truetype");
 }
 
-.fn_amd-v1-icon(@arrow-custom-color: --am-icon-size) {
-  /* stylelint-disable font-family-no-missing-generic-family-keyword */
-  font-family: antdmini-icon !important;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  line-height: @line-height-base;
-}
-
 @iconPrefix: amd-v1-icon;
 
 .@{iconPrefix} {
-  .fn_amd-v1-icon();
+   /* stylelint-disable font-family-no-missing-generic-family-keyword */
+   font-family: antdmini-icon !important;
+   font-style: normal;
+   -webkit-font-smoothing: antialiased;
+   line-height: @line-height-base;
 
   &-MinusOutline:before {
     content: "\e66f";
