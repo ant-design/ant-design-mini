@@ -13,10 +13,10 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
-<code src='pages/PopoverBase/index'></code>
-
-### 结合 PopoverItem 组件使用
 <code src='pages/Popover/index'></code>
+
+### 结合 List 组件使用
+<code src='pages/PopoverList/index'></code>
 
 
 

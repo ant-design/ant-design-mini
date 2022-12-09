@@ -1,8 +1,5 @@
-<import-sjs from="../_util/event.sjs" name="_sjs" />
-
 <view
-  class="amd-mask  {{className||''}} {{fixMaskFull ? 'amd-mask__fix' : ''}}"
+  class="amd-mask  {{className || ''}}"
   style="{{show?'':'display: none;'}} {{style}}"
   onTap="onMaskClick"
-  onTouchMove="{{disableScroll && supportSjs ? _sjs.disableScrollEvent : ''}}"
 ></view>
