@@ -18,18 +18,18 @@ toc: 'content'
 <code src='pages/NumberKeyboard/index'></code>
 
 ## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| ------------|---------|----|-----|----- |
-| value       | string  | 否 | -   | 输入值 |
-| visible     | boolean | 否 | false | 展示 |
-| vibrate     | boolean | 否 | true  | 震动 |
-| arrow       | boolean | 否 | false | 箭头    |
-| point       | boolean | 否 | true  | 小数点 |
-| title       | string  | 否 | -     | 标题    |
-| random      | boolean | 否 | false | 乱序    |
-| disable     | boolean | 否 | false | 禁用确认按钮    |
-| safeArea    | boolean | 否 | true  | 安全距离 |
-| confirmText | string  | 否 | -     | 确认按钮的文字 |
+| 属性 | 说明 | 类型 | 默认值 |
+| ------------|---------|----|-----|
+| value       | 输入值       | string  | -     |
+| visible     | 展示         | boolean | false |
+| vibrate     | 震动         | boolean | true  |
+| arrow       | 箭头         | boolean | false |
+| point       | 小数点       | boolean | true  |
+| title       | 标题         | string  | -     |
+| random      | 乱序         | boolean | false |
+| disable     | 禁用确认按钮  | boolean | false|
+| safeArea    | 安全距离      | boolean | true |
+| confirmText | 确认按钮的文字 | string  | -   |
 
 ## Slot
 | 属性 | 说明 |
@@ -41,12 +41,7 @@ toc: 'content'
 ## 事件
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|-----|
-| onInput | 数字发生改变时的回调 | (val: string) => void |
+| onChange | 数字发生改变时的回调 | (val: string) => void |
 | onClose | 隐藏键盘时的回调 | () => void |
 | onConfirm | 点击确认时的回调 | () => void |
 
-## 样式类
-| 类名 | 说明 |
-| ----|----|
-| amd-number-keyboard| 整体样式 |
-| amd-number-title | 标题样式 |

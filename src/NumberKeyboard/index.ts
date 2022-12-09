@@ -13,19 +13,18 @@ Component({
   },
   methods: {
     tapButton(e) {
-      const { value, onInput, disable, onClose } = this.props;
+      const { value, onChange, disable, onClose } = this.props;
       this.vibrate();
       const _key = e.target.dataset.key;
       const _val = `${value}`;
 
       // 回退
       if (_key === 'del') {
-        console.log('`````123', _val);
-        onInput(`${_val.substr(0, _val.length - 1)}` );
+        onChange(`${_val.substr(0, _val.length - 1)}` );
         return;
       }
       if (_key !== 'del' && _key !== 'enter') {
-        onInput(`${_val}${_key}` )
+        onChange(`${_val}${_key}` )
       }
       if (_key === 'enter' && !disable) {
         this.onClickEnter();
@@ -45,7 +44,7 @@ Component({
     },
     // 振动反馈
     vibrate() {
-      this.props.vibrate && my.canIUse('vibrateShort') && my.vibrateShort();
+      my.canIUse('vibrateShort') && this.props.vibrate && my.vibrateShort();
     },
   },
 });

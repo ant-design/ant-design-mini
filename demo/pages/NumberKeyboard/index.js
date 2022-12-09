@@ -78,7 +78,7 @@ Page({
     this.setData({ focus3: true, ...defOption, point: false, _type: 'code' });
   },
   // 输入值受控
-  onInput(e) {
+  onChange(e) {
     const { _type } = this.data;
     // 验证码
     if (_type === 'code') {

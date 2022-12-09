@@ -59,7 +59,7 @@ export interface INemberKeyboardProps extends IBaseProps {
   /**
    * @description 输入值变化时的回调
    */
-  onInput?: (val: string) => void;
+  onChange?: (val: string) => void;
   /**
    * @description 点击确认时的回调
    */

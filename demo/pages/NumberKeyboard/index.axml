@@ -61,7 +61,7 @@
     confirmText="{{confirmText}}"
     title="{{title}}"
     value="{{value1 || value2 || value3}}"
-    onInput="onInput"
+    onChange="onChange"
     onClose="onClose">
      <view slot="title" a:if="{{setTitle}}" class="ali-v-title">支付宝安全键盘</view>
      <view slot="confirm" a:if="{{setBtn}}" class="ali-v-btn"></view>

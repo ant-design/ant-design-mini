@@ -1,5 +1,5 @@
 <view a:key="paytm-input-{{$id}}" class="amount-input amd-number-keyboard {{className}} " >
-  <view a:if="{{visible}}" class="amount-input-modal" onTap="onHide"/>
+  <view a:if="{{visible}}" class="amount-input-modal" catchTap="onHide"/>
   <view class="amount-input-kb {{visible ? '': 'amount-input-kb_hide'}}">
     <view a:if="{{arrow}}" catchTap="onHide" class="amount-input-kb_none amd-number-title" style="{{{'justify-content': title ? 'space-between' : 'center'}}}">
       <view>{{title}}</view>
@@ -14,25 +14,25 @@
             a:for-item="itemKey"
             data-key="{{itemKey}}"
             class="amount-input-kb_number"
-            onTap="tapButton">
+            catchTap="tapButton">
             {{itemKey}}
           </view>
         </view>
         <view a:if="{{!confirmText}}" class="amount-input-kb_row">
           <view a:if="{{!point}}" class="amount-input-kb_number amount-input-kb_point flex-1 color-eee" />
-          <view a:if="{{point}}" class="amount-input-kb_number amount-input-kb_point flex-1" data-key="." onTap="tapButton">.</view>
-          <view class="amount-input-kb_number amount-input-kb_zero flex-1" data-key="0" onTap="tapButton">0</view>
-          <view class="amount-input-kb_number amount-input-kb_point flex-1 {{point ? '' : `color-eee`}}" data-key="del" onTap="tapButton">
+          <view a:if="{{point}}" class="amount-input-kb_number amount-input-kb_point flex-1" data-key="." catchTap="tapButton">.</view>
+          <view class="amount-input-kb_number amount-input-kb_zero flex-1" data-key="0" catchTap="tapButton">0</view>
+          <view class="amount-input-kb_number amount-input-kb_point flex-1 {{point ? '' : `color-eee`}}" data-key="del" catchTap="tapButton">
             <view class="icon-huitui"></view>
           </view>
         </view>
         <view a:if="{{confirmText}}" class="amount-input-kb_row">
-          <view class="amount-input-kb_number amount-input-kb_zero" data-key="0" onTap="tapButton">0</view>
-          <view a:if="{{point}}" class="amount-input-kb_number amount-input-kb_point" data-key="." onTap="tapButton">.</view>
+          <view class="amount-input-kb_number amount-input-kb_zero" data-key="0" catchTap="tapButton">0</view>
+          <view a:if="{{point}}" class="amount-input-kb_number amount-input-kb_point" data-key="." catchTap="tapButton">.</view>
         </view>
       </view>
       <view a:if="{{confirmText}}" class="amount-input-kb_function">
-        <view class="amount-input-kb_number amount-input-kb_del" data-key="del" onTap="tapButton">
+        <view class="amount-input-kb_number amount-input-kb_del" data-key="del" catchTap="tapButton">
           <view class="icon-huitui"></view>
         </view>
         <view
