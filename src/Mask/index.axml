@@ -1,5 +1,5 @@
 <view
-  class="amd-mask  {{className || ''}}"
+  class="amd-v1-mask  {{className || ''}}"
   style="{{show?'':'display: none;'}} {{style}}"
   onTap="onMaskClick"
 ></view>
