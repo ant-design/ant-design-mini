@@ -91,7 +91,7 @@
   visible="{{visible}}" 
   a:if="{{ type==='customBodyVisible' }}"
   onClose="handleClose">
-  <view slot="body" class="body">
+  <view class="body">
     <image mode="scaleToFill" src="{{url}}" class="bodyImg"/>
     <view class="bodyAction"><icon type="CloseCircleOutline" onTap="handleClose"/></view>
   </view>

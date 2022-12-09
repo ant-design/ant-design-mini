@@ -2,7 +2,7 @@ Page({
   data: {
     visible: false,
     type: '',
-    url: 'https://gw.alipayobjects.com/zos/rmsportal/yFeFExbGpDxvDYnKHcrs.png',
+    url: 'https://mdn.alipayobjects.com/huamei_yujk1o/afts/img/A*xYjqRJiKsvoAAAAAAAAAAAAADuaJAQ/original',
   },
   handleOpen(e) {
     const { field } = e.target.dataset;

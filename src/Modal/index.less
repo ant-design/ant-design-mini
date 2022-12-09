@@ -43,7 +43,7 @@
         }
       }
       &-vertical {
-        padding: 0 24 * @rpx 24 * @rpx;
+        padding: 0 0 24 * @rpx;
         &-primary,
         &-secondary,
         &-cancel {
@@ -52,6 +52,8 @@
           font-size: 36 * @rpx;
           margin-top: 16 * @rpx;
           padding-top: 24 * @rpx;
+          position: relative;
+          .hairline('top');
         }
         &-primary {
           font-family: PingFangSC-Medium;

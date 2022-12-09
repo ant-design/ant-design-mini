@@ -11,7 +11,7 @@
   animation="{{animation}}"
   zIndex="{{zIndex}}"
   onClose="onClose">
-  <slot name="body">
+  <slot slot="content">
     <view class="amd-modal-body {{bodyClassName || ''}}" style="{{bodyStyle || ''}}">
       <slot name="header">
       </slot>
