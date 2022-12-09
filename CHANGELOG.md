@@ -1,3 +1,12 @@
+# 1.0.0-alpha.1 (2022-12-09)
+
+
+### Bug Fixes
+
+* build ([#423](https://github.com/ant-design/ant-design-mini/issues/423)) ([dfbe348](https://github.com/ant-design/ant-design-mini/commit/dfbe348e519c874e6bfac7febfd6e004f9627da5))
+
+
+
 ## 0.0.22 (2022-09-07)
 
 
