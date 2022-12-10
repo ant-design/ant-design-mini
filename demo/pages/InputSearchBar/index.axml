@@ -1,0 +1,13 @@
+<view class="container">
+  <input
+    placeholder="请输入内容"
+    onChange="onChange"
+    className="search-bar"
+    focusClassName="search-bar-focus"
+    allowClear
+  >
+    <icon slot="prefix" type="SearchOutline" />
+    <icon slot="suffix" type="AudioOutline" />
+  </input>
+  <view class="cancel">取消</view>
+</view>
