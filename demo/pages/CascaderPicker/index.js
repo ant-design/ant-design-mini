@@ -2,7 +2,7 @@ import cityList from './city';
 Page({
   data: {
     cityList,
-    value: ["34", "330"],
+    value: ['34', '330'],
   },
 
   handleCityPickerChange(value, selectedOption, e) {
@@ -14,13 +14,15 @@ Page({
   },
   handleOk(value, selectedOption, e) {
     this.setData({ value: value });
-    console.log("cityOk", value, selectedOption, e);
+    console.log('cityOk', value, selectedOption, e);
   },
-  changeValue() {
-    this.setData({ value: ["31", "310"] });
+  handleChangeControlled() {
+    this.setData({ value: ['31', '310'] });
   },
-
+  handleClearControlled() {
+    this.setData({ value: [] });
+  },
   handleDismiss(e) {
-    console.log('handleDismiss', e)
-  }
+    console.log('handleDismiss', e);
+  },
 });

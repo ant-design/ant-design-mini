@@ -1,4 +1,4 @@
-<container title="基础用法">
+<list header="基础用法">
     <list-item>
         请选择省市
         <cascader-picker 
@@ -10,9 +10,9 @@
             onCancel="handleDismiss"
             />
     </list-item>
-</container>
+</list>
   
-<container title="默认值">
+<list header="默认值">
     <list-item>
         请选择城市
         <cascader-picker  
@@ -24,8 +24,8 @@
             onOk="handleCityOnOk"
         />
     </list-item>
-</container>
-<container title="受控模式">
+</list>
+<list header="受控模式">
     <list-item>
         请选择城市
         <cascader-picker 
@@ -37,5 +37,8 @@
             onOk="handleOk"
         />
     </list-item>
-    <button style="margin: 24rpx" type="primary" onTap="changeValue">改变value到上海</button>
-</container>
+    <view class="btn-wrapper">
+        <button inline onTap="handleChangeControlled" style="margin-right:8px">选择上海</button>
+        <button inline onTap="handleClearControlled">清空</button>
+      </view>
+</list>
