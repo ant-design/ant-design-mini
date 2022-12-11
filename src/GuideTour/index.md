@@ -25,29 +25,26 @@ toc: false
 
 ### GuideTour
 
-```typescript
- interface IStep {
-  /** 图片地址 */
-  imageUrl: string;
-  /** 图片模式，同 image 的 mode */
-  imageMode?: string;
-  /** 图片内联样式 */
-  imageStyle?: string;
-  /** 距离顶部距离，单位px */
-  top?: number;
-  /** 距离左边距离，单位px */
-  left?: number;
-}
-```
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| className | 类名 | `string` | - | 
+| current | 当前步骤  | `number` | - |
+| defaultCurrent | 默认当前步骤 | `number` | 0 |
+| items | 步骤信息 | [StepItem](#stepitem)[] | - |
+| maskClassName | 蒙层的类名 | `string` | - | 
+| maskStyle | 蒙层的样式 | `string` | - | 
+| style | 样式 | `string` | - |
+| swiperable | 是否开启滑动模式 | `boolean` | false |
+| visible |  是否显示 | `boolean` | false | 
+| onCancel   | 关闭回调  | () => void | - | 
+| onChange   | 步骤改变回调 | (index: `number`) => void | - | 
 
-<hr />
 
-| 属性       | 类型                    | 必填 | 默认值 | 说明               |
-| ---------- | ----------------------- | ---- | ------ | ------------------ |
-| steps      | IStep[]                 | 是   | []     | 步骤信息           |
-| visible    | boolean                 | 是   | false  | 引导是否可见, 受控 |
-| index      | number                  | 否   | 0      | 当前步骤     |
-| swiperable | boolean                 | 否   | false  | 是否开启滑动模式   |
-| onChange   | (index: number) => void \| boolean | 否   | -      | 步骤改变回调，返回false时阻止默认步骤改变| 
-| onCancel   | () => void              | 否   | -      | 关闭回调           |
-| className  | string                  | 否   | -      | 类名               |
+#### StepItem 
+| 参数 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| left | 距离左边距离，单位px | `number` | - |
+| imageMode | 图片模式，同 image 的 mode | `string` | - |
+| imageStyle | 图片内联样式 | `string` | - |
+| imageUrl | 图片地址 | `string` | - |
+| top | 距离顶部距离，单位px | `number` | - |

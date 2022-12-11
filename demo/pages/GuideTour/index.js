@@ -4,6 +4,8 @@ Page({
     moreVisible: false,
     swiperVisible: false,
     slotVisible: false,
+    controlledVisible: false,
+    current: 0,
     list: [
       {
         left: 20,
@@ -26,52 +28,25 @@ Page({
       },
     ],
   },
-  onCancel() {
-    this.setData({ visible: false });
-  },
-  onOpen() {
-    this.setData({ visible: true });
-  },
   onChange(index) {
     console.log('index', index);
   },
-
-  openBaseTour() {
-    this.commonShow('baseVisible');
+  onChangeControlled(index) {
+    this.setData({ current: index });
   },
-  closeBaseTour() {
-    this.commonHide('baseVisible');
-  },
-
-  openMoreTour() {
-    this.commonShow('moreVisible');
-  },
-  closeMoreTour() {
-    this.commonHide('moreVisible');
-  },
-
-  openSwiperTour() {
-    this.commonShow('swiperVisible');
-  },
-  closeSwiperTour() {
-    this.commonHide('swiperVisible');
-  },
-
-  openSlotTour() {
-    this.commonShow('slotVisible');
-  },
-  closeSlotTour() {
-    this.commonHide('slotVisible');
-  },
-
-  commonShow(prop) {
+  openTour(e) {
     this.setData({
-      [prop]: true,
+      [e.target.dataset.field]: true,
+      current: 0,
     });
   },
-  commonHide(prop) {
+  closeTour() {
     this.setData({
-      [prop]: false,
+      baseVisible: false,
+      moreVisible: false,
+      swiperVisible: false,
+      slotVisible: false,
+      controlledVisible: false,
     });
   },
 });
