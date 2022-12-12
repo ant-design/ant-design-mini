@@ -3,6 +3,6 @@
   "usingComponents": {
     "icon": "../Icon/index",
     "button":"../Button/index",
-    "input":"../Input/InputBase/index"
+    "input":"../Input/InputBlur/index"
   }
 }

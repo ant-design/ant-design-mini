@@ -32,18 +32,15 @@
 </container>
 
 <container title="受控组件">
-  value: {{value}}
   <stepper 
     value="{{value}}"
-    focus="{{focus}}"
     onChange="handleChange"
     style="margin: 8px 0"
   />
+  value: {{value}}
   <view class="list">
     <button inline onTap="add">add</button>
     <button inline onTap="minus">minus</button>
     <button inline onTap="clear">clear</button>
-    <button inline onTap="focus">focus</button>
-    <button inline onTap="blur">blur</button>
   </view>
 </container>

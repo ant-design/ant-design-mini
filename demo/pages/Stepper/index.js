@@ -13,7 +13,7 @@ Page({
   },
   add() {
     this.setData({
-      value: this.data.value + 1,
+      value: (this.data.value || 0) + 1,
     });
   },
   minus() {
@@ -24,16 +24,6 @@ Page({
   clear() {
     this.setData({
       value: null,
-    });
-  },
-  focus() {
-    this.setData({
-      focus: true,
-    });
-  },
-  blur() {
-    this.setData({
-      focus: false,
     });
   },
   handleAddValue() {

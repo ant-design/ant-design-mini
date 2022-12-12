@@ -1,11 +1,11 @@
 <view class="amd-v1-stepper {{className ? className : ''}}" style="{{style}}">
   <button
-    className="amd-v1-stepper-button amd-v1-stepper-button-down {{(disabled || mixin.value === '' || mixin.value <= min) ? 'amd-v1-stepper-button-disabled' : ''}}"
+    className="amd-v1-stepper-button amd-v1-stepper-button-down {{(disabled || (mixin.value !== '' && mixin.value <= min)) ? 'amd-v1-stepper-button-disabled' : ''}}"
     activeClassName="amd-v1-stepper-button-hover"
     icon="MinusOutline"
     type="text"
     data-mode="minus"
-    disabled="{{disabled || mixin.value === '' || mixin.value <= min}}"
+    disabled="{{disabled || (mixin.value !== '' && mixin.value <= min)}}"
     onTap="onTap"
   >
   </button>
@@ -14,6 +14,11 @@
     <input class="amd-v1-stepper-input {{disabled? 'amd-v1-stepper-input-disabled' : ''}} {{inputClassName ? inputClassName : ''}}"
       style="{{inputStyle}}"
       type="{{type}}"
+      enableNative="{{enableNative}}" 
+      alwaysSystem="{{alwaysSystem}}"
+      controlled="{{controlled}}"
+      confirm-type="{{confirmType}}" 
+      confirm-hold="{{confirmHold}}"
       disabled="{{disabled}}"
       focus="{{focus}}"
       onChange="onChange"
@@ -25,12 +30,12 @@
   </view>
 
   <button 
-    className="amd-v1-stepper-button amd-v1-stepper-button-up {{(disabled || mixin.value === '' || mixin.value >= max) ? 'amd-v1-stepper-button-disabled' : ''}}"
+    className="amd-v1-stepper-button amd-v1-stepper-button-up {{(disabled || (minin.value !== '' && mixin.value >= max)) ? 'amd-v1-stepper-button-disabled' : ''}}"
     activeClassName="amd-v1-stepper-button-hover"
     icon="AddOutline"
     type="text"
     data-mode="add"
-    disabled="{{disabled || mixin.value === '' || mixin.value >= max}}"
+    disabled="{{disabled || (minin.value !== '' && mixin.value >= max)}}"
     onTap="onTap"
   >
   </button>
