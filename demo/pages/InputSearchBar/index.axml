@@ -4,7 +4,9 @@
     onChange="onChange"
     className="search-bar"
     focusClassName="search-bar-focus"
+    confirm-type="search"
     allowClear
+    onConfirm="onConfirm"
   >
     <icon slot="prefix" type="SearchOutline" />
     <icon slot="suffix" type="AudioOutline" />

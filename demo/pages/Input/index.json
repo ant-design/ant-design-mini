@@ -3,7 +3,6 @@
   "usingComponents": {
     "input": "../../../src/Input/index",
     "button": "../../../src/Button/index",
-    "icon": "../../../src/Icon/index",
     "container": "../../../src/Container/index"
   }
 }

@@ -15,18 +15,28 @@
 
 
 <container title="受控模式">
-  <view>value: {{value}}</view>
+  <view>只能输入number: {{value}}</view>
   <input
     placeholder="请输入内容"
     value="{{value}}"
-    focus="{{focus}}"
     onChange="handleChange"
   />
 
   <view>
     <button inline onTap="randomValue">random</button>
     <button inline onTap="clear">clear</button>
-    <button inline onTap="focus">focus</button>
-    <button inline onTap="blur">blur</button>
+  </view>
+</container>
+
+
+<container title="非受控模式通过ref修改input">
+  <input
+    placeholder="请输入内容"
+    onChange="onChange"
+    ref="handleRef"
+  />
+
+  <view>
+    <button inline onTap="clearByInputRef">clear</button>
   </view>
 </container>

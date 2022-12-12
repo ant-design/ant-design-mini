@@ -13,17 +13,12 @@ Page({
       value: '',
     });
   },
-  focus() {
-    this.setData({
-      focus: true,
-    });
-  },
-  blur() {
-    this.setData({
-      focus: false,
-    });
+  handleRef(input) {
+    this.input = input;
   },
   onChange(value) {
+    // setTimeout(() => {})
+    // this.input.update(value + '1');
     console.log(value);
   },
   handleChange(value) {
@@ -34,4 +29,7 @@ Page({
       });
     }
   },
+  clearByInputRef() {
+    this.input.update('');
+  }
 });

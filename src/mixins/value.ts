@@ -32,11 +32,15 @@ export default ({
       [scopeKey]: {
         value: undefined,
         updated: false,
+        controlled: false,
       },
     },
     onInit() {
       const value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
-      this.update(value);
+      const { needUpdate } = this.update(value);
+      if (!needUpdate) {
+        this.updateControlled();
+      }
     },
     deriveDataFromProps(nextProps) {
       if (!equal(nextProps[valueKey], this.props[valueKey])) {
@@ -56,7 +60,10 @@ export default ({
         return;
       }
       const value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
-      this.update(value);
+      const { needUpdate } = this.update(value);
+      if (!needUpdate) {
+        this.updateControlled();
+      }
     },
     
     methods: {
@@ -72,6 +79,13 @@ export default ({
       isControlled() {
         return [valueKey] in this.props;
       },
+      updateControlled() {
+        this.setData({
+          [scopeKey]: {
+            controlled: this.isControlled(),
+          },
+        });
+      },
       update(val, ...args) {
         const { needUpdate, value } = transformValue.call(this, val, ...args) || {};
         if (needUpdate) {
@@ -79,6 +93,7 @@ export default ({
             [scopeKey]: {
               value,
               updated: true,
+              controlled: this.isControlled(),
             },
           });
         }

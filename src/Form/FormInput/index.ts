@@ -1,10 +1,51 @@
 import { FormInputDefaultProps } from './props';
-import createComponent from '../createComponent';
 import fmtEvent from '../../_util/fmtEvent';
 
-createComponent({
+
+Component({
   props: FormInputDefaultProps,
+  data: {
+    formData: {
+      value: undefined,
+      status: 'default',
+      errors: [],
+    },
+  },
+  ref() {
+    const formItemRef = {
+      setFormData: (values) => {
+        this.setData({
+          ...this.data,
+          formData: {
+            ...this.data.formData,
+            ...values,
+          }
+        });
+        this.input.update(this.data.formData.value);
+      },
+      getFormData: () => {
+        return this.data.formData;
+      },
+      on: (callback: (trigger, value) => void) => {
+        this.emit = callback;
+      },
+      getProps: () => {
+        return this.props;
+      },
+    };
+    return formItemRef;
+  },
+  didUnmount() {
+    this.emit('didUnmount');
+  },
+  deriveDataFromProps(nextProps) {
+    this.emit('deriveDataFromProps', nextProps);
+  },
+  input: { update: (value: any) => {} },
   methods: {
+    handleRef(input) {
+      this.input = input;
+    },
     onChange(value, e) {
       this.emit('onChange', value);
       if (this.props.onChange) {
@@ -28,9 +69,10 @@ createComponent({
     },
     onClear(e) {
       this.emit('onChange', '');
-      if (this.props.onClear) {
-        this.props.onClear(fmtEvent(this.props, e));
+      if (this.props.onChange) {
+        this.props.onChange('', fmtEvent(this.props, e));
       }
     },
+    emit(trigger, value?: any) {},
   }
 });

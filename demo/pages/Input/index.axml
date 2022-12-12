@@ -24,20 +24,8 @@
     onChange="onChange"
     allowClear
   >
-    <icon slot="prefix" type="SearchOutline" />
-  </input>
-</container>
-
-<container title="搜索">
-  <input
-    placeholder="请输入内容"
-    onChange="onChange"
-    className="input"
-    focusClassName="border"
-    allowClear
-  >
-    <icon slot="prefix" type="SearchOutline" />
-    <icon slot="suffix" type="AudioOutline" />
+    <view slot="prefix">￥</view>
+    <view slot="suffix">RMB</view>
   </input>
 </container>
 
@@ -48,24 +36,17 @@
   />
 </container>
 
-<container title="控制focus、blur">
-  <input placeholder="请输入内容" focus="{{focus}}" />
-  <button onTap="focus" inline style="margin-right: 8px;">focus</button>
-  <button onTap="blur" inline>blur</button>
-</container>
-
 
 <container title="受控模式">
   <input
     value="{{value}}"
     placeholder="请输入内容"
-    type="digit"
     allowClear
     onChange="handleChange"
     onClear="clear"
   />
 
-  <button onTap="clear" inline>clear</button>
+  <button onTap="clear" inline size="small">clear</button>
 </container>
 
 
@@ -78,9 +59,7 @@
     className="input money"
     focusClassName="border"
   >
-    <icon slot="prefix" type="PayOutline" />
-    <view slot="suffix">
-      RMB
-    </view>
+    <view slot="prefix">￥</view>
+    <view slot="suffix">RMB</view>
   </input>
 </container>
