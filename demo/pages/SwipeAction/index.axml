@@ -2,138 +2,17 @@
   <view class="t-swipe-item">
     <view class="t-swipe-item-title">基础用法</view>
     <swipe-action
-      rightButtons="{{[set, his, del]}}"
+      a:for="{{ 10 }}"
+      data-item="{{{ index }}}"
+      rightButtons="{{ rightBtns }}"
       elasticity="{{true}}"
+      swiped="{{ swipeIndex === index }}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
       >
       <view class="t-swipe-item-con">
         三个按钮-弹性动画
       </view>
     </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-    <swipe-action
-      rightButtons="{{[set, his, del]}}"
-      elasticity="{{true}}"
-      onSwipeEnd="onSwipeEnd"
-      onSwipeStart="onSwipeStart"
-      onButtonTap="onButtonTap"
-      >
-      <view class="t-swipe-item-con">
-        三个按钮-弹性动画
-      </view>
-    </swipe-action>
-
-    <view class="safe-view"></view>
   </view>
 </view>

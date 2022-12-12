@@ -26,7 +26,7 @@ interface ISwipeActionProps extends IBaseProps  {
   rightButtons?: SwipeButton[];
   /**
    * @description 滑动速度
-   * @default 60
+   * @default 70
    */
   damping?: number;
   /**
