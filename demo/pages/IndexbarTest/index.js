@@ -6,23 +6,23 @@ Page({
     current: 'A'
   },
   onLoad() {
-    this.setData({ items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('') });
+    this.setData({ items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(u => { return { label: u } }) });
     this.initTopRange();
   },
   onChange(e) {
-    this.setData({ scrollId: `amd-indexbar-${e}` })
+    this.setData({ scrollId: `amd-indexbar-${e.label}` })
   },
   onScroll(e) {
     const { current, topRange, items } = this.data;
     const { scrollTop } = e.detail;
     const _current = topRange.findIndex((item) => scrollTop < item - 1);
     if (current !== _current - 1 && _current - 1 >= 0) {
-      this.setData({ current: items[_current - 1] });
+      this.setData({ current: items[_current - 1].label });
     }
   },
   initTopRange() {
     my.createSelectorQuery()
-      .selectAll('.amd-indexbar-list')
+      .selectAll('.list')
       .boundingClientRect()
       .exec((ret) => {
         const arr = []

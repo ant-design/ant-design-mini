@@ -14,13 +14,13 @@ Component({
   didMount() {
     const { defaultCurrent, items } = this.props;    
     this.initItemHeight();
-    const _index = items.findIndex(u => defaultCurrent === u);
+    const _index = items.findIndex(u => defaultCurrent === u.label);
     this.setData({ currentKey: _index });
   },
   didUpdate(_prop) {
     const { current, items } = this.props;
     if (_prop.current !== current) {
-      const _index = items.findIndex(u => current === u);
+      const _index = items.findIndex(u => current === u.label);
       this.setData({ currentKey: _index });
     }
   },
@@ -48,7 +48,7 @@ Component({
       this.setData({
         touchClientY: clientY,
         touchKeyIndex: index,
-        touchKey: items[index].key,
+        touchKey: items[index].label,
         moving: true,
         showMask: true,
         currentKey: index,
@@ -87,9 +87,9 @@ Component({
       const newIndex = isUp ? touchKeyIndex - movingNum : touchKeyIndex + movingNum;
       
       // 超出索引列表范围 or 索引没变化return
-      if (!items[newIndex] || touchKey === items[newIndex]) return;
+      if (!items[newIndex] || touchKey === items[newIndex].label) return;
       // 结算
-      this.setData({ touchKey: items[newIndex], newIndex, currentKey: newIndex });
+      this.setData({ touchKey: items[newIndex].label, newIndex, currentKey: newIndex });
       this.onAlphabetClick(items[newIndex]);
     },
   },

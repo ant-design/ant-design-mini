@@ -1,14 +1,39 @@
 import { IBaseProps } from '../_base';
 
+interface ItemObj {
+  label: string,
+  disablePreview?: boolean
+}
+
 export interface IndexbarProps extends IBaseProps {
+  /**
+   * @description 触发的索引样式
+   */
   activeClassName?: string,
+  /**
+   * @description 默认触发的索引
+   */
   defaultCurrent?: string,
+  /**
+   * @description 触发的索引
+   */
   current?: string,
+  /**
+   * @description 索引触发时是否震动
+   */
   vibrate?: boolean,
-  items: [],
-  preview?: boolean,
+  /**
+   * @description 索引列表
+   */
+  items: ItemObj[],
+  /**
+   * @description 索引的尺寸
+   */
   itemSize?: number,
-  onChange?: (item: string) => void,
+  /**
+   * @description 触发索引时的回调
+   */
+  onChange?: (item: ItemObj) => void,
 }
 
 export declare const IndexbarDefaultProps: Partial<IndexbarProps>;

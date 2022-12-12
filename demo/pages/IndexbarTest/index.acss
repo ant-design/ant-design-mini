@@ -1,15 +1,15 @@
-.amd-indexbar-base {
+.base {
   width: calc(100% - 20px);
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.amd-indexbar-right {
+.right {
   position: fixed;
   right: 10px;
   top: 20vh;
 }
-.amd-indexbar-scroll {
+.scroll {
   width: 100%;
   height: 100vh;
   overflow: scroll;

@@ -1,18 +1,18 @@
 <view>
   <scroll-view
     scroll-y
-    class="amd-indexbar-scroll"
+    class="scroll"
     scroll-into-view="{{scrollId}}"
     onScroll="onScroll">
-    <view a:for="{{items}}" class="amd-indexbar-list" id="{{`amd-indexbar-${item}`}}">
-      <list header="{{item}}">
+    <view a:for="{{items}}" class="list" id="{{`amd-indexbar-${item}`}}">
+      <list header="{{item.label}}">
         <list-item a:for="{{4}}" a:for-item="itemX">
-          {{item}}-{{itemX}}
+          {{item.label}}-{{itemX}}
         </list-item>
       </list>
     </view>
   </scroll-view>
-  <view class="amd-indexbar-right">
+  <view class="right">
     <indexbar
       items="{{items}}"
       defaultCurrent="A"

@@ -1,4 +1,4 @@
-.amd-indexbar-base {
+.base {
   width: calc(100% - 20px);
   display: flex;
   align-items: center;

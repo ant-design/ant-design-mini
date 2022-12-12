@@ -1,6 +1,6 @@
 <view>
   <list header="基本使用"></list>
-  <view class="amd-indexbar-base">
+  <view class="base">
     <indexbar items="{{items}}"/>
   </view>
 </view>

@@ -5,7 +5,6 @@ export const IndexbarDefaultProps = {
   current: '',
   vibrate: true,
   items: [],
-  preview: true,
   itemSize: 16,
   onChange: (item) => {},
 }

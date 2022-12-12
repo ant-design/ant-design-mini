@@ -27,19 +27,24 @@ toc: false
 
 | 属性 | 说明 | 类型 | 默认值 |
 | ---------------|-----------------|-----------|------|
-| items          | 索引数组         | `string[]` | []    | 
+| items          | 索引数组         | `Item[]` | []    | 
 | className      | 类名             | `string`  | -    | 
 | activeClassName| 索引激活时的样式   | `string`  | -    | 
 | defaultCurrent | 默认索引          | `string`  | -    | 
 | current        | 索引值            | `string`  | -    | 
 | vibrate        | 索引改变时是否震动  | `boolean` | true | 
-| preview        | 索引激活时是否需要侧边预览  | `boolean` | true | 
 | itemSize       | 索引的尺寸（宽高，单位px）  | `number`  | 16    | 
 
-
+#### Item
+items 里每一项
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| label | 索引标识 | `string` | - |
+| disablePreview | 禁用索引触发时的预览效果 | `boolean` | - |
 ## 事件
 
 | 事件名    | 说明                   | 类型       |
 | --------- | ---------------------- | ---------- |
-| onChange | 索引改变时回调 | <pre>(index: string) => void; |
+| onChange | 索引改变时回调 | <pre>(item: Item) => void; |
+
 
