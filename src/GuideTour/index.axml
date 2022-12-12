@@ -1,6 +1,6 @@
 <import-sjs from="./index.sjs" name="utils" />
 <view class="amd-v1-guide-tour {{className?className:''}}" style="{{style || ''}}" a:if="{{visible}}">
-    <mask show style="z-index:9999;{{maskStyle || ''}}" />
+    <mask show className="{{maskClassName}}" style="z-index:9999;{{maskStyle || ''}}" />
     <am-icon type="CloseOutline" class="amd-v1-guide-tour-clear" onTap="onCancel" />
     <view class="amd-v1-guide-tour-button">
         <button inline size="{{13}}" a:if="{{utils.checkShowJump(mixin.value,items)}}" onTap="onCancel">

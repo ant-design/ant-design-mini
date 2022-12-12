@@ -4,8 +4,7 @@
       placement="bottom-left"
       showMask
       visible="{{visible}}"
-      contentStyle="padding-right:0;"
-      color="#fff"
+      className="popover"
       onVisibleChange="handleVisibleChange">
       <button inline>点我</button>
       <list slot="content">
