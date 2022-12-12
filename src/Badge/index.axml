@@ -1,43 +1,43 @@
 <import-sjs from="./index.sjs" name="_sjs" />
 
-<view class="amd-v1-badge
+<view class="ant-badge
   {{className ? className : ''}}" style="{{style}}">
-  <view class="amd-v1-badge-body">
+  <view class="ant-badge-body">
     <slot></slot>
   </view>
   <view
   a:if="{{type=== 'dot'}}"
-  class="amd-v1-badge-content"
+  class="ant-badge-content"
   style="{{_sjs.setPositionStyle(position, offsetX, offsetY)}}">
   <view
-  class="amd-v1-badge-dot {{stroke ? 'amd-v1-badge-dot-stroke' : ''}}"
+  class="ant-badge-dot {{stroke ? 'ant-badge-dot-stroke' : ''}}"
   style="{{bgColor ? `background-color: ${bgColor};`: ''}}">
 </view>
   </view>
   <view
     a:else
-    class="amd-v1-badge-content
-      amd-v1-badge-content-not-dot
-      {{type==='bubble' ? `amd-v1-badge-content-${position}-bubble` : ''}}
-      {{stroke ? 'amd-v1-badge-content-stroke' : ''}}"
+    class="ant-badge-content
+      ant-badge-content-not-dot
+      {{type==='bubble' ? `ant-badge-content-${position}-bubble` : ''}}
+      {{stroke ? 'ant-badge-content-stroke' : ''}}"
     style="{{bgColor ? `background-color: ${bgColor};`: ''}} {{_sjs.setBubbleStyle(type, position)}};{{_sjs.setPositionStyle(position, offsetX, offsetY)}}">
-      <view class="amd-v1-badge-icon-container">
+      <view class="ant-badge-icon-container">
     </view>
 
-    <view class="amd-v1-badge-content-text">
+    <view class="ant-badge-content-text">
       <slot name="text">
         <view
           a:if="{{type === 'number'}}"
-          class="amd-v1-badge-number">
+          class="ant-badge-number">
           {{overCount ? '99+' : text}}
         </view>
         <view
           a:if="{{type==='text'}}"
-          class="amd-v1-badge-text">
+          class="ant-badge-text">
           {{text}}
         </view>
         <view a:if="{{type==='bubble'}}"
-        class="amd-v1-badge-bubble">
+        class="ant-badge-bubble">
           {{text}}
         </view>
       </slot>

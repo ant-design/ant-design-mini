@@ -1,14 +1,14 @@
-<view a:if="{{direction !== 'vertical'}}" class="amd-v1-tabs {{className ? className : ''}}" style="{{style}}">
-  <view class="amd-v1-tabs-bar {{type === 'basic'?'amd-v1-tabs-bar-underline':''}} {{tabsBarClassName ? tabsBarClassName : ''}}">
-    <view class="amd-v1-tabs-bar-plus">
+<view a:if="{{direction !== 'vertical'}}" class="ant-tabs {{className ? className : ''}}" style="{{style}}">
+  <view class="ant-tabs-bar {{type === 'basic'?'ant-tabs-bar-underline':''}} {{tabsBarClassName ? tabsBarClassName : ''}}">
+    <view class="ant-tabs-bar-plus">
       <slot name="plus" value="{{item}}" index="{{index}}" />
     </view>
-    <view class="amd-v1-tabs-bar-fade amd-v1-tabs-bar-fade-left"
+    <view class="ant-tabs-bar-fade ant-tabs-bar-fade-left"
       style="opacity: {{leftFade ? '1' : '0'}}" />
-    <view class="amd-v1-tabs-bar-fade amd-v1-tabs-bar-fade-right"
+    <view class="ant-tabs-bar-fade ant-tabs-bar-fade-right"
       style="opacity: {{rightFade ? '1' : '0'}}" />
-    <scroll-view class="amd-v1-tabs-bar-scroll-view"
-      id="amd-v1-tabs-bar-scroll-view-{{$id}}"
+    <scroll-view class="ant-tabs-bar-scroll-view"
+      id="ant-tabs-bar-scroll-view-{{$id}}"
       onScroll="onScroll"
       scroll-left="{{scrollLeft}}"
       scroll-x="{{true}}"
@@ -16,15 +16,15 @@
       scroll-animation-duration="{{300}}"
     >
       <view></view>
-      <view a:for="{{items}}" id="amd-v1-tabs-bar-item-{{$id}}-{{index}}" class="amd-v1-tabs-bar-wrap {{`amd-v1-tabs-bar-wrap-${type}`}} {{tabsBarClassName ? tabsBarClassName: ''}}">
+      <view a:for="{{items}}" id="ant-tabs-bar-item-{{$id}}-{{index}}" class="ant-tabs-bar-wrap {{`ant-tabs-bar-wrap-${type}`}} {{tabsBarClassName ? tabsBarClassName: ''}}">
         <!-- basic 基础类型 -->
         <view 
           a:if="{{type === 'basic'}}"
-          class="amd-v1-tabs-bar-item amd-v1-tabs-bar-basic {{tabClassName ? tabClassName: ''}} {{mixin.value === index && !item.disabled?'amd-v1-tabs-bar-active':''}} {{item.disabled ?'amd-v1-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
+          class="ant-tabs-bar-item ant-tabs-bar-basic {{tabClassName ? tabClassName: ''}} {{mixin.value === index && !item.disabled?'ant-tabs-bar-active':''}} {{item.disabled ?'ant-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           
           catchTap="onChange"
           data-index="{{index}}">
-          <view class="amd-v1-tabs-bar-basic-title">
+          <view class="ant-tabs-bar-basic-title">
             <slot name="title" value="{{item}}" index="{{index}}">
               {{item.title}}
             </slot>
@@ -33,11 +33,11 @@
         <!-- capsule 胶囊类型 -->
         <view 
           a:elif="{{type === 'capsule'}}"
-          class="amd-v1-tabs-bar-item amd-v1-tabs-bar-capsule {{tabClassName ? tabClassName: ''}} {{mixin.value === index&& !item.disabled?'amd-v1-tabs-bar-active':''}} {{item.disabled ?'amd-v1-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
+          class="ant-tabs-bar-item ant-tabs-bar-capsule {{tabClassName ? tabClassName: ''}} {{mixin.value === index&& !item.disabled?'ant-tabs-bar-active':''}} {{item.disabled ?'ant-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           
           catchTap="onChange"
           data-index="{{index}}">
-          <view class="amd-v1-tabs-bar-capsule-title">
+          <view class="ant-tabs-bar-capsule-title">
             <slot name="title" value="{{item}}" index="{{index}}">
               {{item.title}}
             </slot>
@@ -47,16 +47,16 @@
         <!-- mixin 混合类型 -->
         <view
           a:else
-          class="amd-v1-tabs-bar-item amd-v1-tabs-bar-mixin {{tabClassName ? tabClassName: ''}} {{mixin.value === index&& !item.disabled?'amd-v1-tabs-bar-active':''}} {{item.disabled ?'amd-v1-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
+          class="ant-tabs-bar-item ant-tabs-bar-mixin {{tabClassName ? tabClassName: ''}} {{mixin.value === index&& !item.disabled?'ant-tabs-bar-active':''}} {{item.disabled ?'ant-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           
           catchTap="onChange"
           data-index="{{index}}">
-          <view class="amd-v1-tabs-bar-mixin-title">
+          <view class="ant-tabs-bar-mixin-title">
             <slot name="title" value="{{item}}" index="{{index}}">
               {{item.title}}
             </slot>
           </view>
-          <view class="amd-v1-tabs-bar-mixin-subtitle">
+          <view class="ant-tabs-bar-mixin-subtitle">
             <slot name="subTitle" value="{{item}}" index="{{index}}">
               {{item.subTitle}}
             </slot>
@@ -66,26 +66,26 @@
       <view></view>
     </scroll-view>
   </view>
-  <view class="amd-v1-tabs-content">
+  <view class="ant-tabs-content">
     <slot value="{{items[mixin.value]}}" index="{{mixin.value}}">
      
     </slot>
   </view>
 </view>
-<view a:else class="amd-v1-vtabs {{className ? className : ''}}" style="{{style}}">
-  <view class="amd-v1-vtabs-bar {{tabsBarClassName ? tabsBarClassName : ''}}">
-    <scroll-view class="amd-v1-vtabs-bar-scroll-view"
+<view a:else class="ant-vtabs {{className ? className : ''}}" style="{{style}}">
+  <view class="ant-vtabs-bar {{tabsBarClassName ? tabsBarClassName : ''}}">
+    <scroll-view class="ant-vtabs-bar-scroll-view"
       scroll-top="{{tabTop}}"
       scroll-y="{{true}}">
-      <view class="amd-v1-vtabs-bar-item-wrap">
+      <view class="ant-vtabs-bar-item-wrap">
         <view
           a:for="{{items}}"
-          class="amd-v1-vtabs-bar-item {{tabClassName ? tabClassName: ''}} {{mixin.value === index&&!item.disabled?'amd-v1-vtabs-bar-item-active' :''}} {{item.disabled?'amd-v1-vtabs-bar-item-disabled' : '' }} {{mixin.value === index&!item.disabled&&tabActiveClassName?tabActiveClassName : ''}}"
+          class="ant-vtabs-bar-item {{tabClassName ? tabClassName: ''}} {{mixin.value === index&&!item.disabled?'ant-vtabs-bar-item-active' :''}} {{item.disabled?'ant-vtabs-bar-item-disabled' : '' }} {{mixin.value === index&!item.disabled&&tabActiveClassName?tabActiveClassName : ''}}"
           style="{{`${mixin.value + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${mixin.value - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
           catchTap="onChange"
           data-index="{{index}}"
         >
-          <text class="amd-v1-vtabs-bar-item-title">
+          <text class="ant-vtabs-bar-item-title">
             <slot name="title" value="{{item}}" index="{{index}}">
               {{item.title}}
             </slot>
@@ -94,7 +94,7 @@
       </view>
     </scroll-view>
   </view>
-  <view class="amd-v1-vtabs-content">
+  <view class="ant-vtabs-content">
     <slot value="{{items[mixin.value]}}" index="{{mixin.value}}">
       {{items[mixin.value].content}}
     </slot>

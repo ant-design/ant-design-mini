@@ -1,18 +1,18 @@
 <import-sjs from="./index.sjs" name="sliderSjs" />
 
 <template name='slider-handler'>
-   <view class="amd-v1-slider-handler" style="left: {{position}}%">
+   <view class="ant-slider-handler" style="left: {{position}}%">
        <popover placement="top" visible="{{showTooltip}}">
         <slot name="slider">
-          <view class="amd-v1-slider-handler-block">
-            <view class="amd-v1-slider-handler-icon-default">
-              <view class="amd-v1-slider-handler-icon-default-line1" />
-              <view class="amd-v1-slider-handler-icon-default-line2" />
-              <view class="amd-v1-slider-handler-icon-default-line3" />
+          <view class="ant-slider-handler-block">
+            <view class="ant-slider-handler-icon-default">
+              <view class="ant-slider-handler-icon-default-line1" />
+              <view class="ant-slider-handler-icon-default-line2" />
+              <view class="ant-slider-handler-icon-default-line3" />
             </view>
           </view>
         </slot>
-        <view slot="content" class="amd-v1-slider-tooltip-content">
+        <view slot="content" class="ant-slider-tooltip-content">
           <slot name="tooltip" value="{{value}}">{{value}}</slot>
         </view>
       </popover>
@@ -20,33 +20,33 @@
 </template>
 
 <view 
-  class="amd-v1-slider {{className ? className : ''}}"
+  class="ant-slider {{className ? className : ''}}"
   style="opacity: {{disabled ? '0.4' : '1'}};"
 >
-  <view class="amd-v1-slider-track {{showNumber ? 'amd-v1-slider-track-number' : ''}}" >
+  <view class="ant-slider-track {{showNumber ? 'ant-slider-track-number' : ''}}" >
     <view 
-      class="amd-v1-slider-track-touch-area"
-      id="amd-v1-slider-id-{{$id}}"
+      class="ant-slider-track-touch-area"
+      id="ant-slider-id-{{$id}}"
       onTouchStart="handleTrackTouchStart"
       onTouchEnd="handleTrackTouchEnd"
       onTouchMove="handleTrackTouchMove"
     >
       <view 
-        class="amd-v1-slider-track-fill"
+        class="ant-slider-track-fill"
       >
-        <view class="amd-v1-slider-track-fill-background" /> 
+        <view class="ant-slider-track-fill-background" /> 
         <view 
-          class="amd-v1-slider-track-fill-front {{activeLineClassName || ''}}"
+          class="ant-slider-track-fill-front {{activeLineClassName || ''}}"
           style="width: {{sliderWidth}}%; left: {{sliderLeft}}%; {{activeLineStyle || ''}}"
         /> 
 
-        <view class="amd-v1-slider-showTicks">
+        <view class="ant-slider-showTicks">
           <view 
             a:for="{{tickList}}" 
-            class= "amd-v1-slider-tick amd-v1-slider-tick-{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? 'front' : 'back' }} {{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotClassName ? activeDotClassName : ''}}"
+            class= "ant-slider-tick ant-slider-tick-{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? 'front' : 'back' }} {{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotClassName ? activeDotClassName : ''}}"
             style="left: {{item.left}}%;{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotStyle ? activeDotStyle: ''}}"
         >
-          <view a:if={{showNumber}} class="amd-v1-slider-tick-number">
+          <view a:if={{showNumber}} class="ant-slider-tick-number">
             <slot name="tick" value="{{item.value}}">
               {{item.value}}
             </slot>

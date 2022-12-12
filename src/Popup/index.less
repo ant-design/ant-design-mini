@@ -1,6 +1,6 @@
 @import (reference) './variable.less';
 
-@popupPrefix: amd-v1-popup;
+@popupPrefix: ant-popup;
 
 .@{popupPrefix} {
   position: fixed;
@@ -16,7 +16,7 @@
     background-color: @popup-mask-product;
     animation-fill-mode: forwards;
     &-closing {
-      animation-name: amd-v1-popup-mask-close;
+      animation-name: ant-popup-mask-close;
     }
   }
   &-content {
@@ -31,53 +31,53 @@
     top: 0;
     left: 0;
     right: 0;
-    animation-name: amd-v1-popup-top;
+    animation-name: ant-popup-top;
     border-radius: 0 0 @popup-radius @popup-radius;
     &-close {
-      animation-name: amd-v1-popup-top-close;
+      animation-name: ant-popup-top-close;
     }
   }
   &-right {
     top: 0;
     right: 0;
     bottom: 0;
-    animation-name: amd-v1-popup-right;
+    animation-name: ant-popup-right;
     &-close {
-      animation-name: amd-v1-popup-right-close;
+      animation-name: ant-popup-right-close;
     }
   }
   &-bottom {
     left: 0;
     right: 0;
     bottom: 0;
-    animation-name: amd-v1-popup-bottom;
+    animation-name: ant-popup-bottom;
     border-radius: @popup-radius @popup-radius 0 0;
     &-close {
-      animation-name: amd-v1-popup-bottom-close;
+      animation-name: ant-popup-bottom-close;
     }
   }
   &-left {
     top: 0;
     left: 0;
     bottom: 0;
-    animation-name: amd-v1-popup-left;
+    animation-name: ant-popup-left;
     &-close {
-      animation-name: amd-v1-popup-left-close;
+      animation-name: ant-popup-left-close;
     }
   }
   &-center {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
-    animation-name: amd-v1-popup-center;
+    animation-name: ant-popup-center;
     border-radius: @popup-radius;
     &-close {
-      animation-name: amd-v1-popup-center-close;
+      animation-name: ant-popup-center-close;
     }
   }
 }
 
-@keyframes amd-v1-popup-top {
+@keyframes ant-popup-top {
   0% {
     top: -100%;
   }
@@ -86,7 +86,7 @@
   }
 }
 
-@keyframes amd-v1-popup-bottom {
+@keyframes ant-popup-bottom {
   0% {
     bottom: -100%;
   }
@@ -95,7 +95,7 @@
   }
 }
 
-@keyframes amd-v1-popup-left {
+@keyframes ant-popup-left {
   0% {
     left: -100%;
   }
@@ -104,7 +104,7 @@
   }
 }
 
-@keyframes amd-v1-popup-right {
+@keyframes ant-popup-right {
   0% {
     right: -100%;
   }
@@ -113,7 +113,7 @@
   }
 }
 
-@keyframes amd-v1-popup-center {
+@keyframes ant-popup-center {
   0% {
     transform: translate3d(-50%, -50%, 0) scale(0.1);
     opacity: 0;
@@ -138,7 +138,7 @@
   }
 }
 
-@keyframes amd-v1-popup-top-close {
+@keyframes ant-popup-top-close {
   0% {
     top: 0;
   }
@@ -147,7 +147,7 @@
   }
 }
 
-@keyframes amd-v1-popup-bottom-close {
+@keyframes ant-popup-bottom-close {
   0% {
     bottom: 0;
   }
@@ -156,7 +156,7 @@
   }
 }
 
-@keyframes amd-v1-popup-left-close {
+@keyframes ant-popup-left-close {
   0% {
     left: 0;
   }
@@ -165,7 +165,7 @@
   }
 }
 
-@keyframes amd-v1-popup-right-close {
+@keyframes ant-popup-right-close {
   0% {
     right: 0;
   }
@@ -174,7 +174,7 @@
   }
 }
 
-@keyframes amd-v1-popup-center-close {
+@keyframes ant-popup-center-close {
   0% {
     opacity: 1;
     transform: translate3d(-50%, -50%, 0) scale(1);
@@ -189,7 +189,7 @@
   }
 }
 
-@keyframes amd-v1-popup-mask-close {
+@keyframes ant-popup-mask-close {
   0% {
     background-color: @popup-mask-product;
   }

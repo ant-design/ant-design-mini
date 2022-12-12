@@ -1,12 +1,12 @@
-<view class="amd-v1-form-item {{className ? className :''}} amd-v1-form-item-{{requiredMark}}">
-  <view class="amd-v1-form-item-line amd-v1-form-item-line-{{position}} {{ !!errorInfo ? 'noLine'  : '' }}">
-    <view class="amd-v1-form-item-content amd-v1-form-item-content-{{position}}">
+<view class="ant-form-item {{className ? className :''}} ant-form-item-{{requiredMark}}">
+  <view class="ant-form-item-line ant-form-item-line-{{position}} {{ !!errorInfo ? 'noLine'  : '' }}">
+    <view class="ant-form-item-content ant-form-item-content-{{position}}">
       <!--label-->
       <view 
         a:if="{{label}}"
         style="{{labelWidth ? `width: ${labelWidth}` : ''}}"
-        class="amd-v1-form-item-label {{disabled ? 'amd-v1-form-item-label-disabled' : ''}} amd-v1-form-item-label-{{position}} {{required ? 'amd-v1-form-item-label-required' : ''}}">
-        <view class="amd-v1-form-item-label-text">{{label}}</view>
+        class="ant-form-item-label {{disabled ? 'ant-form-item-label-disabled' : ''}} ant-form-item-label-{{position}} {{required ? 'ant-form-item-label-required' : ''}}">
+        <view class="ant-form-item-label-text">{{label}}</view>
         <popover 
           a:if="{{tooltip}}"
           placement="top"
@@ -16,21 +16,21 @@
           maskStyle="background: none;"
           onVisibleChange="onHelpVisibleChange"
         >
-          <view slot="content" class="amd-v1-form-item-label-help-content">{{tooltip}}</view>
+          <view slot="content" class="ant-form-item-label-help-content">{{tooltip}}</view>
           <icon type="QuestionCircleOutline"/>
         </popover>
       </view>
       <!--field-->
-      <view class="amd-v1-form-item-field amd-v1-form-item-field-{{position}}">
+      <view class="ant-form-item-field ant-form-item-field-{{position}}">
         <slot />
         <view
-          class="{{(validateStatus === 'error' || status === 'error') ? 'amd-v1-form-item-error-info' : 'amd-v1-form-item-help-info'}} {{disabled ? 'amd-v1-form-item-error-info-disabled' : ''}} amd-v1-form-item-error-info-{{position}}"
+          class="{{(validateStatus === 'error' || status === 'error') ? 'ant-form-item-error-info' : 'ant-form-item-help-info'}} {{disabled ? 'ant-form-item-error-info-disabled' : ''}} ant-form-item-error-info-{{position}}"
           a:if="{{help || status === 'error'}}">
           <view>{{help || errors[0]}}</view>
         </view>
       </view>
     </view>
-    <view class="amd-v1-form-item-extra">
+    <view class="ant-form-item-extra">
       <slot name="extra" />
     </view>
   </view>

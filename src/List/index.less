@@ -1,6 +1,6 @@
 @import (reference) './variable.less';
 
-@listPrefix: amd-v1-list;
+@listPrefix: ant-list;
 
 .@{listPrefix} {
   &-radius {
@@ -29,8 +29,8 @@
     position: relative;
     overflow: hidden;
     // 隐藏最后一根分割线
-    > .amd-v1-list-item:last-child {
-      .amd-v1-list-item-line::after {
+    > .ant-list-item:last-child {
+      .ant-list-item-line::after {
         display: none;
       }
     }

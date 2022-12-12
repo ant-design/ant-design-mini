@@ -1,7 +1,7 @@
-<view class="amd-v1-tab-bar {{className || ''}}" style="{style || ''}">
-  <view class="amd-v1-tab-bar-wrap">
+<view class="ant-tab-bar {{className || ''}}" style="{style || ''}">
+  <view class="ant-tab-bar-wrap">
     <view
-      class="amd-v1-tab-bar-item {{ index === mixin.value ? ('amd-v1-tab-bar-item-active' + (activeClassName || '')) : '' }}"
+      class="ant-tab-bar-item {{ index === mixin.value ? ('ant-tab-bar-item-active' + (activeClassName || '')) : '' }}"
       style="{{index === mixin.value ? (activeStyle||'') : ''}}"
       a:for="{{items}}"
       onTap="onChange"
@@ -21,20 +21,20 @@
         >
         <slot name="icon" active="{{mixin.value == index}}" item="{{item}}" index="{{index}}">
           <image-icon
-            className="amd-v1-tab-bar"
+            className="ant-tab-bar"
             image="{{mixin.value === index? item.activeIcon : item.icon}}"
           />
         </slot>
       </badge>
       <slot a:else name="icon" active="{{mixin.value == index}}" item="{{item}}" index="{{index}}">
         <image-icon
-          className="amd-v1-tab-bar"
+          className="ant-tab-bar"
           image="{{mixin.value === index?item.activeIcon : item.icon}}"
         />
       </slot>
-      <view class="amd-v1-tab-bar-text-wrap">
+      <view class="ant-tab-bar-text-wrap">
         <slot name="text" active="{{mixin.value === index}}" item="{{item}}" index="{{index}}">
-          <text class="amd-v1-tab-bar-text">
+          <text class="ant-tab-bar-text">
             {{item.text}}
           </text>
         </slot>

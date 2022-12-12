@@ -1,11 +1,11 @@
 <import-sjs name="sjs" from='./index.sjs' />
-<view class="amd-v1-page-infinite {{className||''}}" style="{{style || ''}}">
-    <scroll-view scroll-x="true" class="amd-v1-page-infinite-content"  id="pageInfinite{{$id}}" onScroll="{{supportSjs?sjs.changeScollDistance:'onScroll'}}">
+<view class="ant-page-infinite {{className||''}}" style="{{style || ''}}">
+    <scroll-view scroll-x="true" class="ant-page-infinite-content"  id="pageInfinite{{$id}}" onScroll="{{supportSjs?sjs.changeScollDistance:'onScroll'}}">
         <slot></slot>
     </scroll-view>
-    <view class="amd-v1-page-infinite-wrap">
-        <view class="amd-v1-page-infinite-area" style="{{fillColor?'background-color:' + fillColor : ''}}">
-            <view class="amd-v1-page-infinite-move" style="{{frontColor?'background-color:'+ frontColor:''}}; transform: translateX({{pageDeg}}%);"></view>
+    <view class="ant-page-infinite-wrap">
+        <view class="ant-page-infinite-area" style="{{fillColor?'background-color:' + fillColor : ''}}">
+            <view class="ant-page-infinite-move" style="{{frontColor?'background-color:'+ frontColor:''}}; transform: translateX({{pageDeg}}%);"></view>
         </view>
     </view>
 </view>

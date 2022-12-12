@@ -9,24 +9,24 @@
   catchTap="{{catchTap ? 'catchTap' : ''}}"
   public-id="{{publicId}}"
   open-type="{{openType}}"
-  class="amd-v1-button {{inline ? `amd-v1-button-inline ${utils.getClass(size)}` : ''}} {{`amd-v1-button-${type}${danger ? '-danger' : ''}`}} {{(disabled || loading) ? 'amd-v1-button-disabled' : ''}} {{className ? className : ''}}"
+  class="ant-button {{inline ? `ant-button-inline ${utils.getClass(size)}` : ''}} {{`ant-button-${type}${danger ? '-danger' : ''}`}} {{(disabled || loading) ? 'ant-button-disabled' : ''}} {{className ? className : ''}}"
   style="{{style}}"
 >
-  <view class="amd-v1-button-wrap">
+  <view class="ant-button-wrap">
     <block a:if="{{icon}}">
       <icon type="{{icon}}" />
     </block>
-    <view class="amd-v1-button-content-text {{icon ? 'amd-v1-button-content-text-margin' : ''}}" >
+    <view class="ant-button-content-text {{icon ? 'ant-button-content-text-margin' : ''}}" >
       <slot />
-      <view a:if="{{ !inline && subText}}" class="amd-v1-button-content-subtext">
+      <view a:if="{{ !inline && subText}}" class="ant-button-content-subtext">
         {{subText}}
       </view>
     </view>
-    <view a:if="{{loading}}" class="amd-v1-button-content-loading-container">
+    <view a:if="{{loading}}" class="ant-button-content-loading-container">
       <loading
         type="mini"
         color="currentColor"
-        className="amd-v1-button-content-loading"
+        className="ant-button-content-loading"
       />
     </view>
   </view>

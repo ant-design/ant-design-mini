@@ -8,7 +8,7 @@
   type="{{type}}"
   password="{{password}}"
   placeholder="{{placeholder}}" 
-  placeholder-class="amd-v1-input-item-placeholder-base {{placeholderClass ? placeholderClass : ''}}" 
+  placeholder-class="ant-input-item-placeholder-base {{placeholderClass ? placeholderClass : ''}}" 
   placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" 
   maxlength="{{maxLength}}" 
   focus="{{focus}}"

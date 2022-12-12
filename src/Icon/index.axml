@@ -1,5 +1,5 @@
 <text
-  class="amd-v1-icon amd-v1-icon-{{type}} {{className ? className : ''}}"
+  class="ant-icon ant-icon-{{type}} {{className ? className : ''}}"
   style="{{style}}"
   onTap="onTap"
 />

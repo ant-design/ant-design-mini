@@ -70,19 +70,19 @@ toc: 'content'
 #### List
 | 类名 | 说明 |
 | -----|-----|
-| amd-v1-list | 整体样式 |
-| amd-v1-list-header | header 样式 |
-| amd-v1-list-body | 内部内容样式 |
-| amd-v1-list-footer | footer 样式 |
+| ant-list | 整体样式 |
+| ant-list-header | header 样式 |
+| ant-list-body | 内部内容样式 |
+| ant-list-footer | footer 样式 |
 
 #### ListItem
 | 类名 | 说明 |
 | -----|-----|
-| amd-v1-list-item | 整体样式 |
-| amd-v1-list-item-line | 内容样式 |
-| amd-v1-list-item-content | 除 extra、brief 外内容样式 |
-| amd-v1-list-item-content-main | 主要内容样式 |
-| amd-v1-list-item-image | 左侧图片样式 |
-| amd-v1-list-item-brief | brief 样式 |
-| amd-v1-list-item-extra | extra 样式 |
-| amd-v1-list-item-arrow| 右侧 arrow 样式 |
+| ant-list-item | 整体样式 |
+| ant-list-item-line | 内容样式 |
+| ant-list-item-content | 除 extra、brief 外内容样式 |
+| ant-list-item-content-main | 主要内容样式 |
+| ant-list-item-image | 左侧图片样式 |
+| ant-list-item-brief | brief 样式 |
+| ant-list-item-extra | extra 样式 |
+| ant-list-item-arrow| 右侧 arrow 样式 |

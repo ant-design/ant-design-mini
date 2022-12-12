@@ -3,11 +3,11 @@
 <!-- 水平分割线 -->
 <view 
   a:if="{{direction==='horizontal'}}" 
-  class="amd-v1-divider amd-v1-divider-horizontal {{className || ''}}"
+  class="ant-divider ant-divider-horizontal {{className || ''}}"
   style="{{style || ''}}"
 >
   <view 
-    class="amd-v1-divider-horizontal-left" 
+    class="ant-divider-horizontal-left" 
     style="
       flex: {{divider.getLineWidthFlex(textPosition,text)[0]}};
       {{lineHeight ? `borderBottomWidth:${lineHeight}px;`:'' }}
@@ -17,13 +17,13 @@
   />
   <slot name="text">
     <view 
-      class="amd-v1-divider-horizontal-text {{textClassName || ''}}" 
+      class="ant-divider-horizontal-text {{textClassName || ''}}" 
       a:if="{{text}}" 
       style="{{textStyle || ''}}"
     >{{text}}</view>
   </slot>
   <view 
-    class="amd-v1-divider-horizontal-right" 
+    class="ant-divider-horizontal-right" 
     style="
       flex: {{divider.getLineWidthFlex(textPosition,text)[1]}};
       {{lineHeight ? `borderBottomWidth:${lineHeight};`:'' }}
@@ -36,7 +36,7 @@
 <!-- 垂直分割线 -->
 <view 
   a:if="{{direction==='vertical'}}" 
-  class="amd-v1-divider amd-v1-divider-vertical {{className || ''}}" 
+  class="ant-divider ant-divider-vertical {{className || ''}}" 
   style="
     {{style || ''}};
     {{lineWidth ? `borderRightWidth:${lineWidth};`:'' }}

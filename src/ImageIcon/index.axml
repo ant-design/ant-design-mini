@@ -1,6 +1,6 @@
 <import-sjs name="{isIcon}" from='./index.sjs' />
 
-<view class="amd-v1-imageIcon {{className ? className : ''}}">
+<view class="ant-imageIcon {{className ? className : ''}}">
   <block a:if="{{isIcon(image)}}">
     <icon 
       type="{{image}}"

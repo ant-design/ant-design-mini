@@ -4,10 +4,10 @@ function handleCalendarChange (newVal, oldVal, ownerComponent, instance) {
     const dataset = instance.getDataset()
     const { id } = dataset
 
-    const baselineComp = ownerComponent.selectComponent('.amd-v1-calendar-days')
+    const baselineComp = ownerComponent.selectComponent('.ant-calendar-days')
     const basePos = baselineComp.getBoundingClientRect()
-    const subtitleComps = ownerComponent.selectAllComponents('.amd-v1-calendar-subtitle')
-    const scroller = ownerComponent.selectComponent('.amd-v1-subcalendar')
+    const subtitleComps = ownerComponent.selectAllComponents('.ant-calendar-subtitle')
+    const scroller = ownerComponent.selectComponent('.ant-subcalendar')
     const scrollTop = scroller.getDOMProperty(['scrollTop']).scrollTop
 
     const stickyRange = subtitleComps.map((comp, i) => {
@@ -25,14 +25,14 @@ function handleCalendarChange (newVal, oldVal, ownerComponent, instance) {
     }
 
     if (scrollTop == 0) {
-        subtitleComps[0].addClass('amd-v1-calendar-title-fixed')
+        subtitleComps[0].addClass('ant-calendar-title-fixed')
     }
 }
 
 function handleCheckScroll (newVal, oldVal, ownerComponent, instance) {
     const dataset = instance.getDataset()
     const { id } = dataset
-    const scroller = ownerComponent.selectComponent('.amd-v1-subcalendar')
+    const scroller = ownerComponent.selectComponent('.ant-subcalendar')
     const scrollTop = scroller.getDOMProperty(['scrollTop']).scrollTop
     
     const lastScrollTop = status[id] && status[id].lastScrollTop
@@ -53,8 +53,8 @@ function handleMove (event, ownerComponent) {
     const dataset = instance.getDataset()
     const { id } = dataset
 
-    const subtitleComps = ownerComponent.selectAllComponents('.amd-v1-calendar-subtitle')
-    const scroller = ownerComponent.selectComponent('.amd-v1-subcalendar')
+    const subtitleComps = ownerComponent.selectAllComponents('.ant-calendar-subtitle')
+    const scroller = ownerComponent.selectComponent('.ant-subcalendar')
     const scrollTop = scroller.getDOMProperty(['scrollTop']).scrollTop
     const stickyRange = status[id] && status[id].range
 
@@ -74,9 +74,9 @@ function handleMove (event, ownerComponent) {
         if (index != null) {
             subtitleComps.forEach((item, i) => {
                 if (i === index) {
-                    item.addClass('amd-v1-calendar-title-fixed')
+                    item.addClass('ant-calendar-title-fixed')
                 } else {
-                    item.removeClass('amd-v1-calendar-title-fixed')
+                    item.removeClass('ant-calendar-title-fixed')
                 }
             })
         }

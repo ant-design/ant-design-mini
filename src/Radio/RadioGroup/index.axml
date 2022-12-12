@@ -1,12 +1,12 @@
 <import-sjs from="../index.sjs" name="componentUtils" />
 
 <list 
-  className="amd-v1-radio-group {{className ? className : ''}} amd-v1-radio-group-{{position}}" style="{{style}}">
+  className="ant-radio-group {{className ? className : ''}} ant-radio-group-{{position}}" style="{{style}}">
   <radio-group
     name="{{name}}"
     value="{{mixin.value}}"
   >
-    <view class="amd-v1-radio-group-body">
+    <view class="ant-radio-group-body">
       <block a:if="{{position === 'vertical'}}">
         <list-item stopPropagation a:for="{{options}}">
           <radio

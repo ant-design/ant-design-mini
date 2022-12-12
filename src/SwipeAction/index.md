@@ -54,7 +54,7 @@ toc: 'content'
 ## 样式类
 | 类名 | 说明 |
 | -----|-----|
-| amd-v1-swipe-action | 整体样式 |
-| amd-v1-swipe-action-content | 内容区域样式 |
-| amd-v1-swipe-action-right | 右侧按钮区域样式 |
-| amd-v1-swipe-action-left  | 左侧按钮区域样式 |
+| ant-swipe-action | 整体样式 |
+| ant-swipe-action-content | 内容区域样式 |
+| ant-swipe-action-right | 右侧按钮区域样式 |
+| ant-swipe-action-left  | 左侧按钮区域样式 |
