@@ -17,12 +17,6 @@
   />
 </container>
 
-<container title="图片和 Icon 混合">
-  <tab-bar
-    items="{{tabsImage}}"
-  />
-</container>
-
 <container title="自定义高亮颜色">
   <tab-bar
     items="{{tabs}}"
