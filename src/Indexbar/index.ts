@@ -10,10 +10,12 @@ Component({
     moving: false, // 滑动进行时
     showMask: false, // 打开遮罩，防止和页面的滑动重叠了
     currentKey: 0,
+    topRange: [],
   },
   didMount() {
     const { defaultCurrent, items } = this.props;    
     this.initItemHeight();
+    this.initTopRange();
     const _index = items.findIndex(u => defaultCurrent === u.label);
     this.setData({ currentKey: _index });
   },
@@ -54,17 +56,18 @@ Component({
         currentKey: index,
       });
 
-      this.onAlphabetClick(item); // 触摸开始
+      this.onAlphabetClick(item, index); // 触摸开始
     },
-    async onAlphabetClick(item) {
+    async onAlphabetClick(item, index) {
       const { vibrate, onChange } = this.props;
       vibrate && await my.vibrateShort();
-      onChange(item);
+      onChange(item, index);
     },
     onTouchEnd() {
       // 没进入moving状态就不处理
       if (!this.data.moving) return;
-      this.setData({ 
+      
+      this.setData({
         touchKeyIndex: -1,
         touchKey: '',
         showMask: false,
@@ -89,8 +92,31 @@ Component({
       // 超出索引列表范围 or 索引没变化return
       if (!items[newIndex] || touchKey === items[newIndex].label) return;
       // 结算
-      this.setData({ touchKey: items[newIndex].label, newIndex, currentKey: newIndex });
-      this.onAlphabetClick(items[newIndex]);
+      this.setData({ touchKey: items[newIndex].label, currentKey: newIndex });
+      this.onAlphabetClick(items[newIndex], newIndex);
     },
+    onScroll(e) {
+      const { topRange, currentKey, moving } = this.data;
+      const { items } = this.props;
+      const { scrollTop } = e.detail;
+      
+      const newIndex = topRange.findIndex((h) => scrollTop + 1 < h);
+      if (currentKey !== newIndex - 1 && newIndex - 1 >= 0 && !moving) {
+        this.setData({ currentKey: newIndex - 1 });
+        this.onAlphabetClick(items[newIndex - 1], newIndex - 1);
+      }
+    },
+    initTopRange() {
+      my.createSelectorQuery()
+        .selectAll('.amd-indexbar-side-list')
+        .boundingClientRect()
+        .exec((ret) => {
+          const arr = []
+          ret[0].forEach((u) => {
+            arr.push(u.top - ret[0][0].top);
+          });
+          this.setData({ topRange: arr });
+        });
+    }
   },
 });

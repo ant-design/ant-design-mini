@@ -1,22 +1,13 @@
-<view>
-  <scroll-view
-    scroll-y
-    class="scroll"
-    scroll-into-view="{{scrollId}}"
-    onScroll="onScroll">
-    <view a:for="{{items}}" class="list" id="{{`amd-indexbar-${item}`}}">
-      <list header="{{item.label}}">
-        <list-item a:for="{{4}}" a:for-item="itemX">
-          {{item.label}}-{{itemX}}
-        </list-item>
-      </list>
-    </view>
-  </scroll-view>
-  <view class="right">
-    <indexbar
-      items="{{items}}"
-      defaultCurrent="A"
-      current="{{current}}"
-      onChange="onChange"/>
+<indexbar
+  items="{{items}}"
+  defaultCurrent="A"
+  scrollIntoView="{{true}}"
+  onChange="onChange">
+  <view slot-scope="props">
+    <list header="{{props.value.label}}">
+      <list-item a:for="{{4}}" a:for-item="itemX">
+        {{props.value.label}}-{{itemX}}
+      </list-item>
+    </list>
   </view>
-</view>
+</indexbar>

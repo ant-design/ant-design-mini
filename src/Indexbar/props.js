@@ -6,5 +6,6 @@ export const IndexbarDefaultProps = {
   vibrate: true,
   items: [],
   itemSize: 16,
-  onChange: (item) => {},
+  scrollIntoView: false,
+  onChange: (value, index) => {},
 }

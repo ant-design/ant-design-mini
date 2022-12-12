@@ -31,9 +31,13 @@ export interface IndexbarProps extends IBaseProps {
    */
   itemSize?: number,
   /**
+   * @description 是否需要将索引关联到scrollView的节点，需要插入slot
+   */
+  scrollIntoView?: boolean
+  /**
    * @description 触发索引时的回调
    */
-  onChange?: (item: ItemObj) => void,
+  onChange?: (value: ItemObj, index: number) => void,
 }
 
 export declare const IndexbarDefaultProps: Partial<IndexbarProps>;

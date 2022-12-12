@@ -34,6 +34,7 @@ toc: false
 | current        | 索引值            | `string`  | -    | 
 | vibrate        | 索引改变时是否震动  | `boolean` | true | 
 | itemSize       | 索引的尺寸（宽高，单位px）  | `number`  | 16    | 
+| scrollIntoView | 是否需要将索引联动scrollView滚动,需要插入默认插槽  | `boolean`  | false    | 
 
 #### Item
 items 里每一项
@@ -41,10 +42,17 @@ items 里每一项
 | -----|-----|-----|-----|
 | label | 索引标识 | `string` | - |
 | disablePreview | 禁用索引触发时的预览效果 | `boolean` | - |
+
+## 插槽
+
+| 插槽名称      | 说明  | 类型 |
+| -------------| ------|---------------------------------------------------|
+| default      | 列表内容|`slot-scope: {value: Item, index: number}`       |
+| labelPreview | 索引预览内容|`slot-scope: {value: Item, index: number}`    |
 ## 事件
 
 | 事件名    | 说明                   | 类型       |
 | --------- | ---------------------- | ---------- |
-| onChange | 索引改变时回调 | <pre>(item: Item) => void; |
+| onChange | 索引改变时回调 | `(value: Item, index: number) => void`  |
 
 

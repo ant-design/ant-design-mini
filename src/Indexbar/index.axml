@@ -1,4 +1,4 @@
-<view class="amd-indexbar-side {{className}}" disable-scroll="{{true}}" style="{{{ width: `${itemSize}px` }}}" hover-stop-propagation>
+<view class="amd-indexbar-side {{className}} {{scrollIntoView ? 'amd-indexbar-side-right' : ''}}" disable-scroll="{{true}}" style="{{{ width: `${itemSize}px` }}}" hover-stop-propagation>
   <view a:if="{{showMask}}" class="amd-indexbar-side-mask"></view>
   <view class="amd-indexbar-side-content">
     <view
@@ -14,7 +14,18 @@
       {{item.label}}
       <view class="amd-indexbar-side-item-tip" a:if="{{item.label === touchKey && !item.disablePreview}}">
         {{item.label}}
+        <slot value="{{item}}" index="{{index}}" name="labelPreview"/>
       </view>
     </view>
   </view>
 </view>
+<scroll-view
+  a:if="{{scrollIntoView}}"
+  scroll-y
+  class="amd-indexbar-side-scroll"
+  scroll-into-view="{{`amd-indexbar-${touchKey}`}}"
+  onScroll="onScroll">
+  <view a:for="{{items}}" class="amd-indexbar-side-list" id="{{`amd-indexbar-${item.label}`}}">
+    <slot value="{{item}}" index="{{index}}"/>
+  </view>
+</scroll-view>
