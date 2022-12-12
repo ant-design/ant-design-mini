@@ -88,9 +88,9 @@ export const componentList = [
         path: '/pages/Avatar/index',
       },
       {
-        name: 'BladeView',
+        name: 'Indexbar',
         nameZN: '索引',
-        path: '/pages/BladeView/index',
+        path: '/pages/IndexbarScrollView/index',
       },
       {
         name: 'Collapse',

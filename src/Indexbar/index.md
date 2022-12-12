@@ -21,7 +21,7 @@ toc: false
 <code src='pages/Indexbar/index'></code>
 
 ### 结合列表使用
-<code src='pages/IndexbarTest/index'></code>
+<code src='pages/IndexbarScrollView/index'></code>
 
 ## 属性
 
@@ -34,7 +34,6 @@ toc: false
 | current        | 索引值            | `string`  | -    | 
 | vibrate        | 索引改变时是否震动  | `boolean` | true | 
 | itemSize       | 索引的尺寸（宽高，单位px）  | `number`  | 16    | 
-| scrollIntoView | 是否需要将索引联动scrollView滚动,需要插入默认插槽  | `boolean`  | false    | 
 
 #### Item
 items 里每一项

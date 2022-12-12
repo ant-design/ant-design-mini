@@ -1,0 +1,16 @@
+<view class="base">
+  <indexbar
+    className="indexbar"
+    items="{{items}}"
+    defaultCurrent="A"
+    scrollIntoView="{{true}}"
+    onChange="onChange">
+    <view slot-scope="props">
+      <list header="{{props.value.label}}">
+        <list-item a:for="{{4}}" a:for-item="itemX">
+          {{props.value.label}}-{{itemX}}
+        </list-item>
+      </list>
+    </view>
+  </indexbar>
+</view>

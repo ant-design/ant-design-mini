@@ -1,9 +1,10 @@
-<view class="amd-indexbar-side {{className}} {{scrollIntoView ? 'amd-indexbar-side-right' : ''}}" disable-scroll="{{true}}" style="{{{ width: `${itemSize}px` }}}" hover-stop-propagation>
+<view class="amd-indexbar-side {{className}}" disable-scroll="{{true}}" style="{{{ width: `${itemSize}px` }}}" hover-stop-propagation>
   <view a:if="{{showMask}}" class="amd-indexbar-side-mask"></view>
   <view class="amd-indexbar-side-content">
     <view
       a:for="{{items}}"
-      class="amd-indexbar-side-item {{activeClassName}} {{touchKey ? ((touchKey === item.label) ? 'amd-indexbar-side-active' : '') : (index === currentKey ? 'amd-indexbar-side-active' : '')}}"
+      class="amd-indexbar-side-item {{activeClassName}} 
+      {{touchKey ? ((touchKey === item.label) ? 'amd-indexbar-side-active' : '') : (index === currentKey ? 'amd-indexbar-side-active' : '')}}"
       catchTouchStart="onTouchStart"
       catchTouchMove="onTouchMove"
       catchTouchEnd="onTouchEnd"
@@ -20,9 +21,9 @@
   </view>
 </view>
 <scroll-view
-  a:if="{{scrollIntoView}}"
+  a:if="{{ hasDefaultSlot }}"
   scroll-y
-  class="amd-indexbar-side-scroll"
+  class="amd-indexbar-side-scroll {{hasDefaultSlot && topRange.length === 0 ? 'amd-indexbar-side-notSee' : ''}}"
   scroll-into-view="{{`amd-indexbar-${touchKey}`}}"
   onScroll="onScroll">
   <view a:for="{{items}}" class="amd-indexbar-side-list" id="{{`amd-indexbar-${item.label}`}}">

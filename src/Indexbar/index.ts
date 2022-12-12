@@ -11,6 +11,7 @@ Component({
     showMask: false, // 打开遮罩，防止和页面的滑动重叠了
     currentKey: 0,
     topRange: [],
+    hasDefaultSlot: true,
   },
   didMount() {
     const { defaultCurrent, items } = this.props;    
@@ -111,11 +112,11 @@ Component({
         .selectAll('.amd-indexbar-side-list')
         .boundingClientRect()
         .exec((ret) => {
-          const arr = []
+          const arr = [];
           ret[0].forEach((u) => {
             arr.push(u.top - ret[0][0].top);
           });
-          this.setData({ topRange: arr });
+          this.setData({ topRange: arr, hasDefaultSlot: !!ret[0][0].height });
         });
     }
   },
