@@ -22,7 +22,7 @@
           a:if="{{type === 'basic'}}"
           class="amd-v1-tabs-bar-item amd-v1-tabs-bar-basic {{tabClassName ? tabClassName: ''}} {{mixin.value === index && !item.disabled?'amd-v1-tabs-bar-active':''}} {{item.disabled ?'amd-v1-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           
-          onTap="onChange"
+          catchTap="onChange"
           data-index="{{index}}">
           <view class="amd-v1-tabs-bar-basic-title">
             <slot name="title" value="{{item}}" index="{{index}}">
@@ -35,7 +35,7 @@
           a:elif="{{type === 'capsule'}}"
           class="amd-v1-tabs-bar-item amd-v1-tabs-bar-capsule {{tabClassName ? tabClassName: ''}} {{mixin.value === index&& !item.disabled?'amd-v1-tabs-bar-active':''}} {{item.disabled ?'amd-v1-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           
-          onTap="onChange"
+          catchTap="onChange"
           data-index="{{index}}">
           <view class="amd-v1-tabs-bar-capsule-title">
             <slot name="title" value="{{item}}" index="{{index}}">
@@ -49,7 +49,7 @@
           a:else
           class="amd-v1-tabs-bar-item amd-v1-tabs-bar-mixin {{tabClassName ? tabClassName: ''}} {{mixin.value === index&& !item.disabled?'amd-v1-tabs-bar-active':''}} {{item.disabled ?'amd-v1-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           
-          onTap="onChange"
+          catchTap="onChange"
           data-index="{{index}}">
           <view class="amd-v1-tabs-bar-mixin-title">
             <slot name="title" value="{{item}}" index="{{index}}">
@@ -82,7 +82,7 @@
           a:for="{{items}}"
           class="amd-v1-vtabs-bar-item {{tabClassName ? tabClassName: ''}} {{mixin.value === index&&!item.disabled?'amd-v1-vtabs-bar-item-active' :''}} {{item.disabled?'amd-v1-vtabs-bar-item-disabled' : '' }} {{mixin.value === index&!item.disabled&&tabActiveClassName?tabActiveClassName : ''}}"
           style="{{`${mixin.value + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${mixin.value - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
-          onTap="onChange"
+          catchTap="onChange"
           data-index="{{index}}"
         >
           <text class="amd-v1-vtabs-bar-item-title">

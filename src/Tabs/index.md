@@ -105,3 +105,25 @@ Page({
   </view>
 </tabs>
 ```
+
+## FAQ
+### onChange只有修改才能出发，想要在触发current标签的点击需要怎么做
+可以受用slot来自定义
+```html
+<tabs items="{{items}}" onChange="onChange">
+  <view slot="title" slot-scope="tab" data-index="{{tab.index}}" onTap="onTap">
+    {{tab.value.title}}
+  </view>
+</tabs>
+```
+
+```js
+Page({
+  onChange(index) {
+    console.log(index);
+  },
+  onTap(e) {
+    const { index } = e.currentTarget.dataset;
+  }
+})
+```

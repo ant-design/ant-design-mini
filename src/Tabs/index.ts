@@ -56,7 +56,7 @@ Component({
       });
     },
     async updateScrollLeft() {
-      if (this.props.vertical) {
+      if (this.props.direction === 'vertical') {
         return;
       }
       const current = this.getValue();
