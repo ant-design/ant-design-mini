@@ -238,6 +238,16 @@ export const componentList = [
         path: '/pages/Input/index',
       },
       {
+        name: 'InputBase',
+        nameZN: '输入框',
+        path: '/pages/InputBase/index',
+      },
+      {
+        name: 'InputSearchBar',
+        nameZN: '输入框-搜索框',
+        path: '/pages/InputSearchBar/index',
+      },
+      {
         name: 'Picker',
         nameZN: '选择器',
         path: '/pages/Picker/index',

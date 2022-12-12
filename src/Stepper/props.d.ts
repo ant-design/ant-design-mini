@@ -44,16 +44,11 @@ export interface IStepperProps extends IBaseProps {
   /**
    * @description onFocus
    */
-  onFocus?: (e: any) => void
+  onFocus?: (value: number, e: any) => void
   /**
    * @description onBlur
    */
-  onBlur?: (e: any) => void
-
-  /**
-   * @description onComfirm
-   */
-   onConfirm?: (e: any) => void
+  onBlur?: (value: number, e: any) => void
 
   /**
    * @description 是否禁用

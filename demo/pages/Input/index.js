@@ -2,7 +2,6 @@ Page({
   data: {
     value: '',
     money: '',
-    focus: false,
   },
   onChange(value, e) {
     console.log(value, e);
@@ -24,19 +23,6 @@ Page({
   clear() {
     this.setData({
       value: '',
-    });
-  },
-  handleRef(ref) {
-    this.input = ref;
-  },
-  focus() {
-    this.setData({
-      focus: true,
-    });
-  },
-  blur() {
-    this.setData({
-      focus: false,
     });
   },
 });

@@ -5,48 +5,47 @@ import mixinValue from '../../mixins/value';
 
 Component({
   props: InputBaseDefaultProps,
-  mixins: [mixinValue({
-    transformValue(value, updateWithoutFocusCheck) {
-      if (!updateWithoutFocusCheck && this.focus) {
-        return {
-          needUpdate: false,
-        };
-      }
-      return {
-        needUpdate: true,
-        value,
-      }
+  mixins: [mixinValue()],
+  ref() {
+    return {
+      update: (value) => {
+        if (this.isControlled()) {
+          console.warn('组件有value props为受控组件，更新使用setData外层的value');
+          return;
+        }
+        this.update(value);
+      },
+      getValue: () => {
+        return this.getValue();
+      },
     }
-  })],
+  },
   methods: {
-    focus: false,
     onChange(e) {
       const value = e.detail.value;
-      if (this.isControlled()) {
-        this.update(value, true);
+      if (!this.isControlled()) {
+        this.update(value);
       }
       if (this.props.onChange) {
         this.props.onChange(value, fmtEvent(this.props, e));
       }
     },
     onFocus(e) {
-      this.focus = true;
+      const value = e.detail.value;
       if (this.props.onFocus) {
-        this.props.onFocus(fmtEvent(this.props, e));
+        this.props.onFocus(value, fmtEvent(this.props, e));
       }
     },
     onBlur(e) {
-      this.focus = false;
-      if (this.isControlled()) {
-        this.update(this.props.value);
-      }
+      const value = e.detail.value;
       if (this.props.onBlur) {
-        this.props.onBlur(fmtEvent(this.props, e));
+        this.props.onBlur(value, fmtEvent(this.props, e));
       }
     },
     onConfirm(e) {
+      const value = e.detail.value;
       if (this.props.onConfirm) {
-        this.props.onConfirm(fmtEvent(this.props, e));
+        this.props.onConfirm(value, fmtEvent(this.props, e));
       }
     },
   }

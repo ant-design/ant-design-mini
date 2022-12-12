@@ -8,14 +8,13 @@
   type="{{type}}"
   password="{{password}}"
   placeholder="{{placeholder}}" 
-  placeholder-class="{{placeholderClass ? placeholderClass : ''}}" 
+  placeholder-class="amd-v1-input-item-placeholder-base {{placeholderClass ? placeholderClass : ''}}" 
   placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" 
   maxlength="{{maxLength}}" 
   focus="{{focus}}"
   confirm-type="{{confirmType}}" 
   confirm-hold="{{confirmHold}}"
   always-system="{{alwaysSystem}}"
-  controlled="{{mixin.controlled}}"
   cursor="{{cursor}}"
   selection-start="{{selectionStart}}" 
   selection-end="{{selectionEnd}}" 
@@ -25,3 +24,4 @@
   onFocus="onFocus"
   onBlur="onBlur"
 />
+

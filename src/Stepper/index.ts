@@ -59,8 +59,9 @@ Component({
       };
     },
     onFocus(e) {
+      const value = this.getValue();
       if (this.props.onFocus) {
-        this.props.onFocus(fmtEvent(this.props, e));
+        this.props.onFocus(value === '' ? null : Number(value), fmtEvent(this.props, e));
       }
     },
     onChange(val, e) {
@@ -70,22 +71,21 @@ Component({
       }
     },
     onBlur(e) {
+      const value = this.getValue();
       if (this.isControlled()) {
         this.update(this.props.value);
       }
       if (this.props.onBlur) {
-        this.props.onBlur(fmtEvent(this.props, e));
-      }
-    },
-    onConfirm(e) {
-      if (this.props.onConfirm) {
-        this.props.onConfirm(fmtEvent(this.props, e));
+        this.props.onBlur(value === '' ? null : Number(value), fmtEvent(this.props, e));
       }
     },
     onTap(e) {
       const { step, disabled, precision } = this.props;
       const { min = -Infinity, max = Infinity } = this.props;
-      const value = this.getValue();
+      let value = this.getValue();
+      if (value === '') {
+        value = 0;
+      }
       if (!disabled) {
         const { mode } = e.currentTarget.dataset;
         let result: number = value;

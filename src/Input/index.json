@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "input": "./InputBase/index",
     "icon": "../Icon/index"
   }
 }
