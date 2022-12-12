@@ -175,7 +175,7 @@ function Copy(props) {
     <div>
       {
         copied ? <div className='copied'>copied</div> : <>
-          <span className={`amd-v1-icon amd-v1-icon-${type}`} />
+          <span className={`ant-icon ant-icon-${type}`} />
           <div className="icontype">{type}</div>
         </>
       }

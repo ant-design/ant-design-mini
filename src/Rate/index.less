@@ -1,13 +1,13 @@
 @import (reference) "./variable.less";
 @import "../style/mixins/hairline.less";
 
-.amd-v1-rate-star-wrapper {
+.ant-rate-star-wrapper {
   display: flex;
   flex-direction: row;
   width: fit-content;
 }
 
-.amd-v1-rate-star {
+.ant-rate-star {
   width: 48 * @rpx;
   height: 48 * @rpx;
   background-size: 100% 100%;
@@ -16,7 +16,7 @@
   flex-direction: row;
 }
 
-.amd-v1-rate-star-half-left,.amd-v1-rate-star-half-right,.amd-v1-rate-star-empty-left,.amd-v1-rate-star-empty-right,.amd-v1-rate-star-full-left,.amd-v1-rate-star-full-right {
+.ant-rate-star-half-left,.ant-rate-star-half-right,.ant-rate-star-empty-left,.ant-rate-star-empty-right,.ant-rate-star-full-left,.ant-rate-star-full-right {
   flex: 1;
   height: 100%;
   mask-image: url("https://gw.alipayobjects.com/zos/bmw-prod/76ff3adf-bb6f-4fce-94e9-47806d53c8db.svg");
@@ -25,34 +25,34 @@
   mask-size: 200% 100%;
 }
 
-.amd-v1-rate-star-half-left {
+.ant-rate-star-half-left {
   mask-position: left top;
 }
-.amd-v1-rate-star-half-right {
+.ant-rate-star-half-right {
   mask-position: top right;
   position: relative;
 }
 
-.amd-v1-rate-star-empty-left {
+.ant-rate-star-empty-left {
   mask-position: left top;
 }
-.amd-v1-rate-star-empty-right {
+.ant-rate-star-empty-right {
   mask-position: top right;
   position: relative;
 }
 
-.amd-v1-rate-star-full-left {
+.ant-rate-star-full-left {
   mask-position: left top;
 }
-.amd-v1-rate-star-full-right {
+.ant-rate-star-full-right {
   mask-position: top right;
   position: relative;
 }
 
-.amd-v1-rate-star:last-of-type {
+.ant-rate-star:last-of-type {
   margin-right: 20 * @rpx;
 }
 
-.amd-v1-rate-disabled {
+.ant-rate-disabled {
   opacity: 0.4;
 }

@@ -4,13 +4,13 @@ function GetDateItemWrapperClass (dateItem = {}) {
   const { isToday, isRangeStart, isRangeEnd, isRangeArea, tag, lunar, disable, showBorderRadiusLeft, showBorderRadiusRight } = dateItem
   if (isRangeEnd || isRangeStart) {
     style = "background: #1777FF;";
-    className += 'amd-v1-calendar-dateItem-wrapper-rangeedge'
+    className += 'ant-calendar-dateItem-wrapper-rangeedge'
   } else if (isRangeArea) {
     style = "background: rgba(22,119,255,0.10);"
-    className += 'amd-v1-calendar-dateItem-wrapper-rangearea'
+    className += 'ant-calendar-dateItem-wrapper-rangearea'
   } else if (disable) {
     style = "opacity: 0.4;"
-    className += 'amd-v1-calendar-dateItem-wrapper-disabled'
+    className += 'ant-calendar-dateItem-wrapper-disabled'
   }
 
   if (showBorderRadiusLeft && showBorderRadiusRight) {
@@ -50,7 +50,7 @@ function GetDateItemAboveAreaTextAndClass (dateItem = {}) {
 
   if (isRangeEnd || isRangeStart) {
     color = '#FFFFFF'
-    className += 'amd-v1-calendar-dateItem-above-rangeedge'
+    className += 'ant-calendar-dateItem-above-rangeedge'
   }
 
   return {
@@ -69,7 +69,7 @@ function GetDateItemMiddleAreaTextAndClass (dateItem = {}) {
 
   if (isRangeStart || isRangeEnd) {
     color = "#fff"
-    className += 'amd-v1-calendar-dateItem-middle-rangeedge'
+    className += 'ant-calendar-dateItem-middle-rangeedge'
   }
 
   return {
@@ -94,7 +94,7 @@ function GetDateItemBottomAreaTextAndClass (dateItem = {}) {
 
   if (isRangeStart || isRangeEnd) {
     color = '#FFFFFF'
-    className += 'amd-v1-calendar-dateItem-bottom-rangeedge'
+    className += 'ant-calendar-dateItem-bottom-rangeedge'
   }
 
   return {

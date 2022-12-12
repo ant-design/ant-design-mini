@@ -116,7 +116,7 @@ Component({
       });
       let contentHeight = await Promise.all(this.props.items.map(async (item, index) => {
         if (expandArray.indexOf(index) >= 0 || closeArray.indexOf(index) >= 0) {
-          const { height } = await getBoundingClientRect(`.amd-v1-collapse-item-content-${this.$id}-${index}`);
+          const { height } = await getBoundingClientRect(`.ant-collapse-item-content-${this.$id}-${index}`);
           return `${height}px`;
         }
         return this.data.contentHeight[index];

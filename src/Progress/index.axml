@@ -1,26 +1,26 @@
 
-<view class="amd-v1-progress amd-v1-progress-{{type}} {{className || ''}}" style="{{style || ''}};{{type === 'circle'?`width:${width}px;height:${width}px`:'' }}">
+<view class="ant-progress ant-progress-{{type}} {{className || ''}}" style="{{style || ''}};{{type === 'circle'?`width:${width}px;height:${width}px`:'' }}">
   <canvas 
     a:if="{{ type === 'circle' }}" 
-    class="amd-v1-progress-canvas" 
+    class="ant-progress-canvas" 
     id="progress-canvas-{{$id}}" 
     width="{{canvasWidth}}"
     height="{{canvasWidth}}" />
   <view 
     a:elif="{{ type === 'line' }}" 
-    class="amd-v1-progress-outer" 
+    class="ant-progress-outer" 
     style="{{strokeWidth? 'height:'+strokeWidth+'px;':''}}{{trailColor?'background-color:'+trailColor:''}}">
     <view 
-      class="amd-v1-progress-inner {{(status == 'success' || status == 'exception') ? `amd-v1-progress-inner-${status}`:''}}" 
+      class="ant-progress-inner {{(status == 'success' || status == 'exception') ? `ant-progress-inner-${status}`:''}}" 
       style="{{`width: ${curProgress}%; ${strokeColor ?'background-color:'+ strokeColor:''}`}}">
     </view>
   </view>
-  <view class="amd-v1-progress-indicator">
+  <view class="ant-progress-indicator">
     <slot name="indicator" percent="{{percent}}">
       <icon 
         a:if="{{status == 'success' || status == 'exception' }}" 
         type="{{status == 'success'?'CheckCircleFill':'CloseCircleFill'}}"  
-        class="amd-v1-progress-status-icon amd-v1-progress-status-icon-{{status}}"/>
+        class="ant-progress-status-icon ant-progress-status-icon-{{status}}"/>
       <block a:else>
         {{percent}}%
       </block>

@@ -1,48 +1,48 @@
 <import-sjs name="listItem"
   from="./index.sjs" />
 
-<view class="amd-v1-list-item  {{className ? className : ''}}"
+<view class="ant-list-item  {{className ? className : ''}}"
   onTap="{{onTap ? 'onTap' : ''}}"
   catchTap="{{catchTap ? 'catchTap' : ''}}"
-  hover-class="{{(onTap||catchTap) ? 'amd-v1-list-item-hover' : ''}}"
+  hover-class="{{(onTap||catchTap) ? 'ant-list-item-hover' : ''}}"
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}">
-  <view class="amd-v1-list-item-line {{showDivider?'amd-v1-list-item-line-divider':''}} {{disabled? 'amd-v1-list-item-line-disabled' : ''}}">
+  <view class="ant-list-item-line {{showDivider?'ant-list-item-line-divider':''}} {{disabled? 'ant-list-item-line-disabled' : ''}}">
     <slot name="image" >
-      <image-icon a:if="{{image}}" image="{{image}}" className="amd-v1-list-item-image"/>
+      <image-icon a:if="{{image}}" image="{{image}}" className="ant-list-item-image"/>
     </slot>
-      <view class="amd-v1-list-item-content-container">
-      <view class="amd-v1-list-item-content-title-container">
+      <view class="ant-list-item-content-container">
+      <view class="ant-list-item-content-title-container">
         <slot name="title">
-          <view a:if="{{title}}" class="amd-v1-list-item-content-title">
+          <view a:if="{{title}}" class="ant-list-item-content-title">
             {{title}}
           </view>
         </slot>
       </view>
-      <view class="amd-v1-list-item-content-main">
+      <view class="ant-list-item-content-main">
         <slot/>
       </view>
-      <view class="amd-v1-list-item-content-brief-container">
+      <view class="ant-list-item-content-brief-container">
         <slot name="brief">
-          <view a:if="{{brief}}" class="amd-v1-list-item-content-brief">
+          <view a:if="{{brief}}" class="ant-list-item-content-brief">
             {{brief}}
           </view>
         </slot>
       </view>
     </view>
-    <view class="amd-v1-list-item-extra-container">
-      <view class="amd-v1-list-item-extra">
+    <view class="ant-list-item-extra-container">
+      <view class="ant-list-item-extra">
         <slot name="extra">
           {{extra}}
         </slot>
       </view>
-      <view class="amd-v1-list-item-extra-brief">
+      <view class="ant-list-item-extra-brief">
         <slot name="extraBrief">
           {{extraBrief}}
         </slot>
       </view>
     </view>
-    <view class="amd-v1-list-item-arrow" >
+    <view class="ant-list-item-arrow" >
       <icon a:if="{{arrow}}" type="{{listItem.getArrow(arrow)}}" size="x-small" />
     </view>
   </view>

@@ -1,6 +1,6 @@
 @import (reference) "./variable.less";
 
-.amd-v1-calendar-wrapper {
+.ant-calendar-wrapper {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -10,11 +10,11 @@
     display: flex;
     flex-direction: column;
 
-    .amd-v1-calendar-default-title-no-border-radius {
+    .ant-calendar-default-title-no-border-radius {
         border-radius: 0 !important;
     }
 
-    .amd-v1-calendar-default-title {
+    .ant-calendar-default-title {
         position: relative;
         height: 98 * @rpx;
         line-height: 98 * @rpx;
@@ -28,7 +28,7 @@
         border-bottom: 1px solid #eee;
         border-radius: 16 * @rpx 16 * @rpx 0 0;
 
-        .amd-v1-calendar-default-title-close {
+        .ant-calendar-default-title-close {
             width: 24 * @rpx;
             height: 24 * @rpx;
             position: absolute;
@@ -38,7 +38,7 @@
         }
     }
 
-    .amd-v1-calendar-days {
+    .ant-calendar-days {
         position: relative;
         height: 88 * @rpx;
         box-sizing: border-box;
@@ -47,7 +47,7 @@
         background-color: #fff;
         z-index: 1;
 
-        .amd-v1-calendar-day {
+        .ant-calendar-day {
             flex: 1;
             font-family: PingFangSC-Regular;
             font-size: 28 * @rpx;
@@ -58,7 +58,7 @@
         }
     }
 
-    .amd-v1-subcalendar-wrapper {
+    .ant-subcalendar-wrapper {
         // height: 60vh;
         flex: 1;
         box-sizing: border-box;
@@ -66,19 +66,19 @@
         overflow: hidden;
     }
 
-    .amd-v1-subcalendar {
+    .ant-subcalendar {
         -webkit-overflow-scrolling: auto;
         overflow-y: auto;
         // height: 60vh;
         height: 100%;
         box-sizing: border-box;
 
-        .amd-v1-calendar-subtitle-wrapper {
+        .ant-calendar-subtitle-wrapper {
             height: 82 * @rpx;
             overflow: hidden;
         }
     
-        .amd-v1-calendar-subtitle {
+        .ant-calendar-subtitle {
             width: 100%;
             background: rgba(248,248,248,1);
             height: 82 * @rpx;
@@ -93,18 +93,18 @@
             z-index: 1;
         }
     
-        .amd-v1-calendar-dates {
+        .ant-calendar-dates {
             display: flex;
             flex-direction: column;
             padding: 8 * @rpx 16 * @rpx 0 16 * @rpx;
     
-            .amd-v1-calendar-week {
+            .ant-calendar-week {
                 display: flex;
                 flex-direction: row;
                 // padding: 16 * @rpx;
                 margin-bottom: 8 * @rpx;
     
-                .amd-v1-calendar-date-wrap {
+                .ant-calendar-date-wrap {
                     position: relative;
                     text-align: center;
                     display: flex;
@@ -119,7 +119,7 @@
         }
     }
 
-    .amd-v1-calendar-button-wrapper {
+    .ant-calendar-button-wrapper {
         font-family: PingFangSC-Regular;
         font-size: 36 * @rpx;
         color: #FFFFFF;
@@ -132,7 +132,7 @@
         border-top: 2 * @rpx solid #E5E5E5;
     }
 
-    .amd-v1-calendar-botton-inner-check,.amd-v1-calendar-botton-inner-cancel {
+    .ant-calendar-botton-inner-check,.ant-calendar-botton-inner-cancel {
         height: 98 * @rpx;
         background-color: #1677FF;
         display: flex;
@@ -142,19 +142,19 @@
         flex: 1;
     }
 
-    .amd-v1-calendar-botton-inner-cancel {
+    .ant-calendar-botton-inner-cancel {
         margin-right: 24 * @rpx;
     }
 
-    .amd-v1-calendar-button-range-wrapper {
+    .ant-calendar-button-range-wrapper {
 
-        .amd-v1-calendar-botton-inner-check {
+        .ant-calendar-botton-inner-check {
             width: calc((100% - 48 * @rpx) / 2);
             margin: 0;
             margin-top: 24 * @rpx;
         }
 
-        .amd-v1-calendar-botton-inner-cancel {
+        .ant-calendar-botton-inner-cancel {
             width: calc((100% - 48 * @rpx) / 2);
             border: 2 * @rpx solid #E5E5E5;
             color: #333333;
@@ -168,11 +168,11 @@
     }
 }
 
-.amd-v1-calendar-title-fixed {
+.ant-calendar-title-fixed {
     position: absolute;
     top: -1 * @rpx;
 }
 
-.amd-v1-calendar-botton-disabled {
+.ant-calendar-botton-disabled {
     opacity: 0.4;
 }

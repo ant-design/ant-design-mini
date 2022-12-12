@@ -1,18 +1,18 @@
 function getClass(size) {
   const list = ['x-small', 'small', 'medium', 'large'];
   if (list.indexOf(size) >=0) {
-    return `amd-v1-button-${size}`;
+    return `ant-button-${size}`;
   }
-  return 'amd-v1-button-medium';
+  return 'ant-button-medium';
 }
 
 function getHoverClass(loading, type, activeClassName) {
   if (loading) {
     return '';
   }
-  let className = 'amd-v1-button-active';
+  let className = 'ant-button-active';
   if (type === 'text') {
-    className += ' amd-v1-button-text-active';
+    className += ' ant-button-text-active';
   }
   if (activeClassName) {
     className += ' ' + activeClassName;

@@ -53,13 +53,13 @@ Component({
      */
     computeTopRange(curVal) {
       (my.createSelectorQuery as any)()
-        .selectAll('.amd-v1-blade-view-body-group')
+        .selectAll('.ant-blade-view-body-group')
         .boundingClientRect()
         .exec((res) => {
           if (res[0] === null) throw new Error('找不到元素');
           this.topRange = res[0].reduce((pre, cur) => {
             pre.push({
-              id: cur.id || `amd-v1-blade-view-group-${cur.dataset.key}`,
+              id: cur.id || `ant-blade-view-group-${cur.dataset.key}`,
               key: cur.dataset.key,
               height: cur.height,
               top: cur.height + (pre && pre[`${pre.length - 1}`] && pre[`${pre.length - 1}`].top || 0),
@@ -78,7 +78,7 @@ Component({
      */
     computeSideBar() {
       (my.createSelectorQuery as any)()
-        .selectAll('.amd-v1-blade-view-sidebar-item')
+        .selectAll('.ant-blade-view-sidebar-item')
         .boundingClientRect()
         .exec((res) => {
           if (res[0] === null) throw new Error('找不到元素');
@@ -135,7 +135,7 @@ Component({
        */
       const curKey = this.onSearchCurValueGroup(curValue);
       (my.createSelectorQuery as any)()
-        .selectAll(`#amd-v1-blade-view-group-${curValue}`)
+        .selectAll(`#ant-blade-view-group-${curValue}`)
         .boundingClientRect()
         .exec(async (res) => {
           if (res[0] === null) throw new Error('找不到元素');

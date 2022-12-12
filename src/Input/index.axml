@@ -1,26 +1,26 @@
-<view class="amd-v1-input 
-    {{disabled ? 'amd-v1-input-disabled' : ''}}
+<view class="ant-input 
+    {{disabled ? 'ant-input-disabled' : ''}}
     {{className ? className : ''}}
     {{selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{(style || '') + ';' + (focusStyle || '')}}"
 >
-  <view class="amd-v1-input-prefix">
+  <view class="ant-input-prefix">
     <slot name="prefix">
       {{prefix}}
     </slot>
   </view>
-  <view class="amd-v1-input-line">
+  <view class="ant-input-line">
     <input
       enableNative="{{enableNative}}" 
       name="{{name}}"
-      class="amd-v1-input-content {{inputClassName || ''}}"
+      class="ant-input-content {{inputClassName || ''}}"
       style="{{inputStyle}}"
       disabled="{{disabled}}" 
       value="{{mixin.value}}" 
       type="{{type}}"
       password="{{password}}"
       placeholder="{{placeholder}}" 
-      placeholder-class="amd-v1-input-placeholder {{placeholderClass ? placeholderClass : ''}}" 
+      placeholder-class="ant-input-placeholder {{placeholderClass ? placeholderClass : ''}}" 
       placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" 
       maxlength="{{maxLength}}" 
       focus="{{focus}}"
@@ -39,12 +39,12 @@
     />
     <view
       a:if="{{allowClear}}"
-      class="amd-v1-input-clear {{mixin.value && mixin.value.length > 0 ? 'amd-v1-input-clear-show' : 'amd-v1-input-clear-hidden'}}" 
+      class="ant-input-clear {{mixin.value && mixin.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden'}}" 
       onTap="onClear">
-      <icon size="x-small" class="amd-v1-input-clear-icon" type="CloseCircleFill" ></icon>
+      <icon size="x-small" class="ant-input-clear-icon" type="CloseCircleFill" ></icon>
     </view>
   </view>
-  <view class="amd-v1-input-suffix">
+  <view class="ant-input-suffix">
     <slot name="suffix">
       {{suffix}}
     </slot>

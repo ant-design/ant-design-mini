@@ -7,7 +7,7 @@ export function getLoadingColor(color) {
 export function getClass(size) {
   const list = ['small', 'medium', 'large', 'x-large'];
   if (list.indexOf(size) >=0) {
-    return `amd-v1-loading-${size}`;
+    return `ant-loading-${size}`;
   }
-  return 'amd-v1-loading-medium';
+  return 'ant-loading-medium';
 }

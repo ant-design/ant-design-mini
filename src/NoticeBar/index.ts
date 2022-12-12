@@ -115,9 +115,9 @@ Component<INoticeBarData, Partial<INoticeBarProps>, INoticeBarMethods>({
       // 计算文本所占据的宽度，计算需要滚动的宽度
       setTimeout(() => {
         my.createSelectorQuery()
-          .select(`.amd-v1-notice-bar-marquee-${this.$id}`)
+          .select(`.ant-notice-bar-marquee-${this.$id}`)
           .boundingClientRect()
-          .select(`.amd-v1-notice-bar-content-${this.$id}`)
+          .select(`.ant-notice-bar-content-${this.$id}`)
           .boundingClientRect()
           .exec((ret) => {
             // eslint-disable-next-line max-len

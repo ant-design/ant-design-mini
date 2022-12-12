@@ -1,6 +1,6 @@
 <picker 
-  className="amd-v1-date-picker"
-  popClassName="amd-v1-date-picker-popup {{popClassName || ''}}"
+  className="ant-date-picker"
+  popClassName="ant-date-picker-popup {{popClassName || ''}}"
   style="{{style}}"
   popStyle="{{popStyle}}"
   options="{{columns}}"

@@ -48,8 +48,8 @@ Component({
         leftFade: !!this.scrollLeft,
       });
       const [view, item] = await Promise.all([
-        getBoundingClientRect(`#amd-v1-tabs-bar-scroll-view-${this.$id}`),
-        getBoundingClientRect(`#amd-v1-tabs-bar-item-${this.$id}-${this.props.items.length - 1}`),
+        getBoundingClientRect(`#ant-tabs-bar-scroll-view-${this.$id}`),
+        getBoundingClientRect(`#ant-tabs-bar-item-${this.$id}-${this.props.items.length - 1}`),
       ]);
       this.setData({
         rightFade: item.left + item.width / 2 > view.width,
@@ -61,8 +61,8 @@ Component({
       }
       const current = this.getValue();
       const [view, item] = await Promise.all([
-        getBoundingClientRect(`#amd-v1-tabs-bar-scroll-view-${this.$id}`),
-        getBoundingClientRect(`#amd-v1-tabs-bar-item-${this.$id}-${current}`),
+        getBoundingClientRect(`#ant-tabs-bar-scroll-view-${this.$id}`),
+        getBoundingClientRect(`#ant-tabs-bar-item-${this.$id}-${current}`),
       ]);
       let scrollLeft = this.scrollLeft || 0;
       let needScroll = false;

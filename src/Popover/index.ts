@@ -20,7 +20,7 @@ Component({
           if (value) {
             setTimeout(() => {
               my.createSelectorQuery()
-                .select(`#amd-v1-popover-content-${this.$id}`)
+                .select(`#ant-popover-content-${this.$id}`)
                 .boundingClientRect()
                 .exec(async (ret) => {
                   const rect = ret?.[0];

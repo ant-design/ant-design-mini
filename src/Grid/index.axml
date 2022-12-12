@@ -1,5 +1,5 @@
 <import-sjs name="sjs" from='./index.sjs' />
-<view class="amd-v1-grid amd-v1-grid-columns-{{columns}} amd-v1-grid-{{mode}} {{className||''}}" a:if="{{mode==='tile'}}">
+<view class="ant-grid ant-grid-columns-{{columns}} ant-grid-{{mode}} {{className||''}}" a:if="{{mode==='tile'}}">
     <grid-item
         a:for="{{items}}"
         iconStyle="{{iconStyle}}"
@@ -14,7 +14,7 @@
         verticalSpace="{{sjs.checkNeedVerticalSpace(items.length,index,columns)}}"/>
 </view>
 <pagination a:elif="{{mode==='scroll'}}" fillColor="{{paginationFillColor}}" frontColor="{{paginationFrontColor}}">
-    <view class="amd-v1-grid amd-v1-grid-{{mode}}">
+    <view class="ant-grid ant-grid-{{mode}}">
         <grid-item
             a:for="{{items}}"
             iconStyle="{{iconStyle}}"

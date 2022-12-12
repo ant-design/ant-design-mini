@@ -1,6 +1,6 @@
 @import (reference) "./variable.less";
 
-@stepsPrefix: amd-v1-steps;
+@stepsPrefix: ant-steps;
 
 .@{stepsPrefix} {
   display: flex;
@@ -21,13 +21,13 @@
   }
 }
 
-.amd-v1-steps-item-vertical:last-child {
+.ant-steps-item-vertical:last-child {
   padding-bottom: 0;
 }
 
 
 
-@stepItemPrefix: amd-v1-steps-item;
+@stepItemPrefix: ant-steps-item;
 
 .@{stepItemPrefix} {
   position: relative;
@@ -39,13 +39,13 @@
     padding-bottom: 48 * @rpx;
     margin: 0;
 
-    .amd-v1-steps-item-title {
+    .ant-steps-item-title {
       margin-bottom: 8 * @rpx;
       font-size: 26 * @rpx;
       color: @COLOR_TEXT_PRIMARY;
     }
 
-    .amd-v1-steps-item-desc {
+    .ant-steps-item-desc {
       font-size: 24 * @rpx;
       color: @COLOR_TEXT_ASSIST;
     }
@@ -61,7 +61,7 @@
       // transform: translateX(-50%);
     }
 
-    .amd-v1-steps-item-text {
+    .ant-steps-item-text {
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -118,7 +118,7 @@
     }
   }
 
-  .amd-v1-steps-item-active-icon-image {
+  .ant-steps-item-active-icon-image {
     transform: translateX(0);
   }
 
@@ -126,7 +126,7 @@
     flex: 1;
     display: flex;
 
-    .amd-v1-steps-item-title {
+    .ant-steps-item-title {
       margin-bottom: 4 * @rpx;
       font-size: 26 * @rpx;
 
@@ -135,7 +135,7 @@
       }
     }
 
-    .amd-v1-steps-item-desc {
+    .ant-steps-item-desc {
       margin: 4 * @rpx 0 4 * @rpx 0;
       color: @COLOR_TEXT_ASSIST;
       font-size: 24 * @rpx;
@@ -258,7 +258,7 @@
     }
   }
 
-  .amd-v1-steps-item-title-error {
+  .ant-steps-item-title-error {
     color: @COLOR_RED;
   }
 }

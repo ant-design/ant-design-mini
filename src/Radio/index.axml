@@ -1,21 +1,21 @@
 <import-sjs from="./index.sjs" name="componentUtils" />
 
-<label class="amd-v1-radio-item {{class ? class : ''}}"  style="{{style}}">
-  <view class="amd-v1-radio-item-container">
-    <view class="amd-v1-radio-item-wrap">
-      <radio class="amd-v1-radio-item-base"
+<label class="ant-radio-item {{class ? class : ''}}"  style="{{style}}">
+  <view class="ant-radio-item-container">
+    <view class="ant-radio-item-wrap">
+      <radio class="ant-radio-item-base"
         onChange="onChange"
         value="{{value}}"
         checked="{{mixin.value}}"
         disabled="{{disabled}}"
       />
-      <view class="amd-v1-radio-item-fake">
-        <view class="amd-v1-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}" style="{{mixin.value && !disabled && color ? 'background:' + color : ''}}">
-          <icon a:if="{{mixin.value}}" type="CheckOutline" class="amd-v1-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon" />
+      <view class="ant-radio-item-fake">
+        <view class="ant-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}" style="{{mixin.value && !disabled && color ? 'background:' + color : ''}}">
+          <icon a:if="{{mixin.value}}" type="CheckOutline" class="ant-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon" />
         </view>
       </view>
     </view>
-    <view class="amd-v1-radio-item-content {{disabled ? 'amd-v1-radio-item-disabled' : ''}}">
+    <view class="ant-radio-item-content {{disabled ? 'ant-radio-item-disabled' : ''}}">
       <slot />
     </view>
   </view>

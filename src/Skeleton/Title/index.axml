@@ -1,4 +1,4 @@
-<view a:if="{{loading}}" class="amd-v1-skeleton-title {{animate?'amd-v1-skeleton-title-animate':''}} {{className||''}}" style="{{style}}">
+<view a:if="{{loading}}" class="ant-skeleton-title {{animate?'ant-skeleton-title-animate':''}} {{className||''}}" style="{{style}}">
 
 </view>
 <slot a:else/>
