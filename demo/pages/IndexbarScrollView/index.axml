@@ -3,7 +3,6 @@
     className="indexbar"
     items="{{items}}"
     defaultCurrent="A"
-    scrollIntoView="{{true}}"
     onChange="onChange">
     <view slot-scope="props">
       <list header="{{props.value.label}}">
