@@ -1,3 +1,12 @@
+# 1.0.0-alpha.2 (2022-12-13)
+
+
+### Bug Fixes
+
+* fix GuideTour button ([#430](https://github.com/ant-design/ant-design-mini/issues/430)) ([cb44856](https://github.com/ant-design/ant-design-mini/commit/cb44856fd214280c21528aac2accff9c4ad4a6e3))
+
+
+
 ## 0.0.22 (2022-09-07)
 
 
