@@ -29,7 +29,7 @@ export interface IndexbarProps extends IBaseProps {
   /**
    * @description 索引的尺寸
    */
-  itemSize?: number,
+  size?: number,
   /**
    * @description 触发索引时的回调
    */

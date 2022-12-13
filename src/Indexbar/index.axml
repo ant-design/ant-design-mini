@@ -1,19 +1,19 @@
-<view class="amd-indexbar-side {{className}}" disable-scroll="{{true}}" style="{{{ width: `${itemSize}px` }}}" hover-stop-propagation>
-  <view a:if="{{showMask}}" class="amd-indexbar-side-mask"></view>
-  <view class="amd-indexbar-side-content">
+<view class="ant-indexbar-side {{className}}" disable-scroll="{{true}}" style="{{{ width: `${size}px` }}}" hover-stop-propagation>
+  <view a:if="{{showMask}}" class="ant-indexbar-side-mask"></view>
+  <view class="ant-indexbar-side-content">
     <view
       a:for="{{items}}"
-      class="amd-indexbar-side-item {{activeClassName}} 
-      {{touchKey ? ((touchKey === item.label) ? 'amd-indexbar-side-active' : '') : (index === currentKey ? 'amd-indexbar-side-active' : '')}}"
+      class="ant-indexbar-side-item {{activeClassName}} 
+      {{touchKey ? ((touchKey === item.label) ? 'ant-indexbar-side-active' : '') : (index === currentKey ? 'ant-indexbar-side-active' : '')}}"
       catchTouchStart="onTouchStart"
       catchTouchMove="onTouchMove"
       catchTouchEnd="onTouchEnd"
       data-item="{{item, index}}"
-      id="{{'amd-alphabet-' + index}}"
-      style="{{{ width: `${itemSize}px`, height: `${itemSize}px` }}}"
+      id="{{'ant-alphabet-' + index}}"
+      style="{{{ width: `${size}px`, height: `${size}px` }}}"
     >
       {{item.label}}
-      <view class="amd-indexbar-side-item-tip" a:if="{{item.label === touchKey && !item.disablePreview}}">
+      <view class="ant-indexbar-side-item-tip" a:if="{{item.label === touchKey && !item.disablePreview}}">
         {{item.label}}
         <slot value="{{item}}" index="{{index}}" name="labelPreview"/>
       </view>
@@ -23,10 +23,10 @@
 <scroll-view
   a:if="{{ hasDefaultSlot }}"
   scroll-y
-  class="amd-indexbar-side-scroll {{hasDefaultSlot && topRange.length === 0 ? 'amd-indexbar-side-notSee' : ''}}"
-  scroll-into-view="{{`amd-indexbar-${touchKey}`}}"
+  class="ant-indexbar-side-scroll {{hasDefaultSlot && topRange.length === 0 ? 'ant-indexbar-side-notSee' : ''}}"
+  scroll-into-view="{{`ant-indexbar-${touchKey}`}}"
   onScroll="onScroll">
-  <view a:for="{{items}}" class="amd-indexbar-side-list" id="{{`amd-indexbar-${item.label}`}}">
+  <view a:for="{{items}}" class="ant-indexbar-side-list" id="{{`ant-indexbar-${item.label}`}}">
     <slot value="{{item}}" index="{{index}}"/>
   </view>
 </scroll-view>
