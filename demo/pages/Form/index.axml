@@ -85,6 +85,13 @@
   ref="handleRef"
 />
 
+<form-upload-image
+  label="图片"
+  name="image"
+  onUpload="onUpload"
+  ref="handleRef"
+/>
+
 <view class="buttons">
   <button type="primary" onTap="submit" style="margin-bottom: 12px;">提交</button>
   <button onTap="reset">重置</button>

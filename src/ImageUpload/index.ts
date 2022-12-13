@@ -7,7 +7,7 @@ Component({
   mixins: [createValue({
     defaultValueKey: 'defaultFileList',
     valueKey: 'fileList',
-    transformValue(fileList) {
+    transformValue(fileList = []) {
       return {
         needUpdate: true,
         value: fileList.map(item => {
@@ -30,7 +30,10 @@ Component({
   })],
   methods: {
     async chooseImage() {
-      const { onBeforeUpload } = this.props;
+      const { onBeforeUpload, onUpload } = this.props;
+      if (!onUpload) {
+        throw new Error('need props onUpload');
+      }
       const fileList = this.getValue();
       const { maxCount, sourceType } = this.props;
 
@@ -66,24 +69,20 @@ Component({
           if (beforeUploadRes === false) {
             return;
           }
-          if (typeof beforeUploadRes === 'object') {
+          if (Array.isArray(beforeUploadRes)) {
             localFileList = beforeUploadRes;
           }
         } catch(err) {
           return;
         }
       }
+
       const tasks = localFileList.map((file) => this.uploadFile(file));
       await Promise.all(tasks);
     },
 
     async uploadFile(localFile: LocalFile) {
       const { onUpload } = this.props;
-
-      if (!onUpload) {
-        console.error('need props onUpload')
-        return;
-      }
 
       const uid = String(Math.random());
       const tempFileList = [...this.getValue(), {
@@ -102,6 +101,12 @@ Component({
 
       try {
         const url = await onUpload(localFile);
+        if (typeof url !== 'string' || !url) {
+          this.updateFile(uid, {
+            status: 'error',
+          });
+          return;
+        }
         this.updateFile(uid, {
           status: 'done',
           url,
