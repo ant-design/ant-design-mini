@@ -42,5 +42,5 @@ Page({
         resolve('https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ');
       }, 2000);
     });
-  }
+  },
 });

@@ -47,6 +47,9 @@ Form 表单。包含数据录入、校验以及对应样式
 ### 多个表单
 <code src='pages/FormMultiple/index'></code>
 
+### 图片校验
+<code src='pages/FormImageUploadRules/index'></code>
+
 ## API
 
 ### 所有Form组件都包括的属性
@@ -138,3 +141,6 @@ Form 表单。包含数据录入、校验以及对应样式
 
 ### FormSelector
 同 Selector
+
+### FormImageUpload
+同 ImageUpload

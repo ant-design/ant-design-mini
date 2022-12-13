@@ -12,11 +12,15 @@
 >
   <image-upload
     fileList="{{formData.value}}"
+    maxCount="{{maxCount}}"
+    imageMode="{{imageMode}}"
+    sourceType="{{sourceType}}"
     onChange="onChange"
     onUpload="onUpload"
     onRemove="onRemove"
     onPreview="onPreview"
     onBeforeUpload="onBeforeUpload"
+    onChooseImageError="onChooseImageError"
   />
   <view slot="extra">
     <slot name="extra">

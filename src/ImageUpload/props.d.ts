@@ -45,7 +45,7 @@ export interface IUploaderProps extends IBaseProps {
    * @description 图片缩放模式和裁剪模式
    * @default 'scaleToFill'
    */
-  mode: 'scaleToFill' | 'aspectFit' | 'aspectFill' | 'widthFix' | 'heightFix' | 'top' | 'bottom' | 'center' | 'left' | 'right' | 'top left' | 'top right' | 'bottom left' | 'bottom right'
+  imageMode: 'scaleToFill' | 'aspectFit' | 'aspectFill' | 'widthFix' | 'heightFix' | 'top' | 'bottom' | 'center' | 'left' | 'right' | 'top left' | 'top right' | 'bottom left' | 'bottom right'
 
   /**
    * @description 视频选择的来源

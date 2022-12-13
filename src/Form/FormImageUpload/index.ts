@@ -31,6 +31,11 @@ createComponent({
         return this.props.onBeforeUpload(localFileList);
       }
     },
+    onChooseImageError(err) {
+      if (this.props.onChooseImageError) {
+        this.props.onChooseImageError(err);
+      }
+    },
   }
 });
 
