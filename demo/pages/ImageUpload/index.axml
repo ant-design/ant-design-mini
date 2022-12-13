@@ -1,62 +1,41 @@
 <container title="基本用法">
-  <uploader 
-    action='{{action}}'
-    maxCount="{{1}}"
-    value="{{value_1}}"
+  <uploader
     onChange="onChange"
-    onAfterUpload="onAfterUpload"
-  />
-</container>
-<container title="上传状态">
-  <uploader 
-      action='{{action}}'
-      maxCount="{{8}}"
-      value="{{value_2}}"
-      onChange="onChange"
-    />
-</container>
-<container title="自定义上传图标">
-  <uploader 
-      action='{{action}}'
-      maxCount="{{3}}"
-      value="{{value_3}}"
-      onChange="onChange"
-    >
-      <view slot="uploadIcon">
-        <am-icon type="CameraOutline" style="color:#999"/>
-      </view>
-    </uploader>
-</container>
-<container title="自定义容器大小">
-  <uploader 
-      action='{{action}}'
-      maxCount="{{2}}"
-      width="168"
-      height="120"
-      onChange="onChange"
-    />
-</container>
-<container title="删除图片确认">
-  <uploader 
-    action='{{action}}'
-    maxCount="{{2}}"
-    value="{{value_1}}"
-    onDelete="onDelete"
-  />
-</container>
-<container title="限制上传图片大小和类型">
-  <uploader 
-    action='{{action}}'
-    maxCount="{{3}}"
-    value="{{value_1}}"
-    onBeforeUpload="onBeforeUpload"
-  />
-</container>
-<container title="自定义上传方法">
-  <uploader 
-    maxCount="{{2}}"
-    value="{{value_1}}"
     onUpload="onUpload"
+  />
+</container>
+
+<container title="初始值">
+  <uploader
+    defaultFileList="{{defaultFileList}}"
     onChange="onChange"
+    onUpload="onUpload"
+  />
+</container>
+
+<container title="上传最大限制">
+  限制只能上传1个
+  <uploader
+    maxCount="{{1}}"
+    onChange="onChange"
+    onUpload="onUpload"
+  />
+</container>
+
+<container title="自定义移除">
+  <uploader
+    defaultFileList="{{defaultFileList}}"
+    onRemove="onRemove"
+    onChange="onChange"
+    onUpload="onUpload"
+  />
+</container>
+
+<container title="自定义上传前">
+  <uploader
+    defaultFileList="{{defaultFileList}}"
+    onBeforeUpload="onBeforeUpload"
+    onChange="onChange"
+    onUpload="onUpload"
   />
 </container>
