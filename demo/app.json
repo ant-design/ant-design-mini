@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/IndexbarScrollView/index",
+    "pages/Indexbar/index",
     "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormLayout/index",
@@ -60,7 +62,6 @@
     "pages/ProgressLine/index",
     "pages/ProgressCircle/index",
     "pages/GuideTour/index",
-    "pages/BladeView/index",
     "pages/TabBar/index",
     "pages/ImageUpload/index",
     "pages/Skeleton/index",
