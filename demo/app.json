@@ -1,8 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/IndexbarScrollView/index",
-    "pages/Indexbar/index",
     "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormLayout/index",
@@ -13,6 +11,7 @@
     "pages/FormDependency/index",
     "pages/FormValidate/index",
     "pages/FormMultiple/index",
+    "pages/FormImageUploadRules/index",
     "pages/List/index",
     "pages/Icon/index",
     "pages/Switch/index",
@@ -64,6 +63,7 @@
     "pages/GuideTour/index",
     "pages/TabBar/index",
     "pages/ImageUpload/index",
+    "pages/ImageUploadControl/index",
     "pages/Skeleton/index",
     "pages/Divider/index",
     "pages/Grid/index",

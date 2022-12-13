@@ -1,0 +1,7 @@
+<container title="受控模式">
+  <uploader 
+    fileList="{{fileList}}"
+    onChange="onChange"
+    onUpload="onUpload"
+  />
+</container>

@@ -233,6 +233,11 @@ export const componentList = [
         path: '/pages/FormMultiple/index',
       },
       {
+        name: 'FormImageUploadRules',
+        nameZN: '表单-图片校验',
+        path: '/pages/FormImageUploadRules/index'
+      },
+      {
         name: 'Input',
         nameZN: '输入框',
         path: '/pages/Input/index',
@@ -296,6 +301,11 @@ export const componentList = [
         name: 'ImageUpload',
         nameZN: '图片上传',
         path: '/pages/ImageUpload/index',
+      },
+      {
+        name: 'ImageUploadControl',
+        nameZN: '图片上传-控制',
+        path: '/pages/ImageUploadControl/index',
       },
       {
         name: 'Rate',

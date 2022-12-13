@@ -13,24 +13,8 @@
   };
 }
 
-/*
- *@Description: 把所有my.call(xx)的方法变成promise
- */
-function promisifyCall(name) {
-  return function (options) {
-    return new Promise((resolve) => {
-      my.call(
-        name,
-        {
-          ...options,
-        },
-        resolve,
-      );
-    });
-  };
-}
-
-export declare namespace My {
+// eslint-disable-next-line @typescript-eslint/no-namespace
+declare namespace My {
   interface TempFile {
     /**
      * @description 本地临时文件路径（本地路径）
@@ -43,11 +27,10 @@ export declare namespace My {
   }
 
   interface ChooseImage {
-    apFilePaths: Array<string>;
-    tempFilePaths: Array<string>;
-    success: boolean;
-    // 钉钉小程序1.x下不返回该字段
-    tempFiles?: Array<TempFile>;
+    apFilePaths?: string[];
+    tempFilePaths?: string[];
+    filePaths?: string[];
+    tempFiles?: TempFile[];
   }
 
   interface ChooseVideo {

@@ -24,16 +24,16 @@ InputBase是没有样式的Input
 <code src='pages/InputSearchBar/index'></code>
 
 
-# API
+## API
 
-## Input属性
+### Input属性
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | allowClear | 可以点击清除图标删除内容 | `boolean` | false |
 | inputClassName | input类名 | `string` | - |
 | inputStyle | input样式 | `string` | - |
 
-## Input, InputBase 相同的属性
+### Input, InputBase 相同的属性
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | defaultValue | 始值值 | `boolean` | - | 
@@ -48,7 +48,7 @@ InputBase是没有样式的Input
 | onBlur | 失焦时触发此回调 | (value: string, event: `Event`) => void | - |
 | onChange | 输入时触发此回调 | (value: `string`, event: `Event`) => void | - |
 
-## Input, InputBase 更多相同属性
+### Input, InputBase 更多相同属性
 
 以下属性同 https://opendocs.alipay.com/mini/component/input
 - focus
@@ -67,7 +67,7 @@ InputBase是没有样式的Input
 - confirm-type
 - confirm-hold
 
-## Input, InputBase 实例方法
+### Input, InputBase 实例方法
 实例方案需要小程序 `component2` 可使用
 | 属性 | 说明 | 类型 |
 | -----|-----|-----|

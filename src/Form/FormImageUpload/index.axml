@@ -1,0 +1,33 @@
+<form-item
+  className="{{className}}"
+  position="{{position}}"
+  label="{{label}}"
+  status="{{formData.status}}"
+  errors="{{formData.errors}}"
+  tooltip="{{tooltip}}"
+  required="{{formData.required}}"
+  requiredMark="{{requiredMark}}"
+  validateStatus="{{validateStatus}}"
+  help="{{help}}"
+>
+  <image-upload
+    fileList="{{formData.value}}"
+    maxCount="{{maxCount}}"
+    imageMode="{{imageMode}}"
+    sourceType="{{sourceType}}"
+    onChange="onChange"
+    onUpload="onUpload"
+    onRemove="onRemove"
+    onPreview="onPreview"
+    onBeforeUpload="onBeforeUpload"
+    onChooseImageError="onChooseImageError"
+  />
+  <view slot="extra">
+    <slot name="extra">
+      {{extra}}
+    </slot>
+  </view>
+  <view slot="label">
+    <slot name="label" />
+  </view>
+</form-item>

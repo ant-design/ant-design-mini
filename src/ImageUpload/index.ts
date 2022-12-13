@@ -1,205 +1,170 @@
-import equal from "fast-deep-equal";
-import { UploaderDefaultProps, IUploaderData, File } from './props';
-import { chooseImage, previewImage, uploadFile } from '../_util/promisify';
+import { UploaderDefaultProps, File, LocalFile } from './props';
+import { chooseImage } from '../_util/promisify';
+import createValue from '../mixins/value';
 
 Component({
   props: UploaderDefaultProps,
-  data: {
-    fileList: [],
-  } as IUploaderData,
-  didMount() {
-    this.handleValue();
-  },
-  didUpdate(prevProps) {
-    if (!equal(prevProps.value, this.props.value)) {
-      this.handleValue();
-    }
-  },
-  methods: {
-    handleValue() {
-      let curValue;
-      const { value } = this.props;
-
-      if (typeof value === 'string') {
-        curValue = [].concat({
-          url: value,
-          status: 'done'
-        });
-      } else if (
-        Array.isArray(value) &&
-        value.length &&
-        value.some(v => typeof v === 'string')
-      ) {
-        curValue = value.map(v => (typeof v === 'string' ? {
-          url: v,
-          status: 'done'
-        } : v));
-      } else {
-        curValue = value;
-      }
-      this.setData({
-        fileList: curValue
-      });
+  mixins: [createValue({
+    defaultValueKey: 'defaultFileList',
+    valueKey: 'fileList',
+    transformValue(fileList = []) {
+      return {
+        needUpdate: true,
+        value: fileList.map(item => {
+          const file = {
+            ...item,
+          };
+          if (typeof item.url === 'undefined') {
+            file.url = '';
+          }
+          if (typeof item.uid === 'undefined') {
+            file.uid = String(Math.random());
+          }
+          if (typeof item.status === 'undefined') {
+            item.status = 'done';
+          }
+          return file;
+        }),
+      };
     },
-
-    async onChooseImage() {
-      const { fileList } = this.data;
+  })],
+  methods: {
+    async chooseImage() {
+      const { onBeforeUpload, onUpload } = this.props;
+      if (!onUpload) {
+        throw new Error('need props onUpload');
+      }
+      const fileList = this.getValue();
       const { maxCount, sourceType } = this.props;
 
-      const chooseImageRes = await chooseImage({
-        count: maxCount - fileList.length,
-        sourceType
-      });
-
-      if (chooseImageRes && chooseImageRes.success) {
-        const { tempFiles, tempFilePaths } = chooseImageRes;
-        const tasks = (tempFiles || tempFilePaths).map((file) =>
-          this.uploadFile(
-            typeof file === 'string' ?
-              {
-                path: file
-              } :
-              file
-          ));
-        await Promise.all(tasks);
-      }
-    },
-
-    async uploadFile(file) {
-      const { action, fileName, formData, onBeforeUpload, onUpload, onAfterUpload } = this.props;
-      const { path } = file;
-
+      let localFileList: LocalFile[];
       try {
-        if (onBeforeUpload) {
-          const beforeUploadRes = await onBeforeUpload.call(this.props, file, this.data.fileList);
-          if (beforeUploadRes === false) return;
-        }
-
-        const tempFileList = this.data.fileList.concat([{
-          /** 这里以图片的本地地址作为key */
-          key: path,
-          url: '',
-          localPath: path,
-          status: 'pending'
-        }]);
-
-        this.setData({
-          fileList: tempFileList
+        const chooseImageRes = await chooseImage({
+          count: typeof maxCount === 'undefined' ? Infinity : (maxCount - fileList.length),
+          sourceType,
         });
-
-        if (action && !onUpload) {
-          const res = await uploadFile({
-            url: action,
-            fileType: 'image',
-            fileName: fileName,
-            filePath: path,
-            formData: formData || {},
-            hideLoading: true,
-          });
-
-          /** 这里uploadFile api接口类型定义有问题，ide返回的是string，真机返回的是number，作下兼容 */
-          if (res.statusCode === 200 || res.statusCode === '200') {
-            const response = JSON.parse(res.data);
-
-            if (onAfterUpload) {
-              const resUrl = await onAfterUpload.call(this.props, response);
-              if (resUrl) {
-                this.updateFileList(path, 'done', resUrl);
-              } else {
-                this.updateFileList(path, 'error');
-              }
-            } else if (response.success && response.data && response.data.url) {
-              this.updateFileList(path, 'done', response.data.url);
-            } else {
-              this.updateFileList(path, 'error');
-              my.showToast({
-                content: '接口返回格式非默认格式，请使用onAfterUpload进行处理'
-              });
-            }
-          } else {
-            this.updateFileList(path, 'error');
-            my.showToast({
-              content: '上传失败，请重试'
-            })
+        localFileList = (chooseImageRes.tempFiles || chooseImageRes.tempFilePaths || chooseImageRes.apFilePaths || chooseImageRes.filePaths || []).map(item => {
+          if (typeof item === 'string') {
+            return {
+              path: item,
+            };
           }
-          return;
+          if (item.path) {
+            return {
+              path: item.path,
+              size: item.size,
+            }
+          }
+        }).filter(item => !!item);
+      } catch(err) {
+        if (this.props.onChooseImageError) {
+          this.props.onChooseImageError(err);
         }
-
-        if (onUpload) {
-          const onUploadRes = await onUpload.call(this.props, {
-            key: path,
-            url: '',
-            localPath: path,
-            status: 'pending'
-          });
-          this.updateFileList(path, onUploadRes.status, onUploadRes.url);
-        }
-      } catch (e) {
-        this.updateFileList(path, 'error');
-        my.showToast({
-          content: e.errorMessage || '上传失败，请重试',
-          type: 'fail',
-        });
-      }
-    },
-
-    updateFileList(path, status, url?) {
-      const { fileList } = this.data;
-      const { onChange } = this.props;
-
-      const tempFileList = fileList.map((file) => {
-        if (file.key === path) {
-          return {
-            ...file,
-            url: url ? url : '',
-            status
-          } as File;
-        }
-        return file;
-      });
-
-      this.setData({
-        fileList: tempFileList
-      });
-
-      onChange && onChange.call(this.props, tempFileList);
-    },
-
-    async onDeleteImage(e) {
-      const { fileList } = this.data;
-      const { onDelete, onChange } = this.props;
-      const { deleteImageIndex } = e.target.dataset;
-      const deleteFile = fileList.find((item, index) => index === deleteImageIndex);
-      const tempFileList = fileList.filter((item, index) => index !== deleteImageIndex);
-
-      if (onDelete) {
-        const onDeleteRes = await onDelete.call(this.props, deleteFile);
-        if (onDeleteRes === false) return;
-      }
-      this.setData({
-        fileList: tempFileList
-      });
-      onChange && onChange.call(this.props, tempFileList);
-    },
-
-    onPreviewImage(e) {
-      const { fileList } = this.data;
-      const { enablePreview, enableShowPhotoDownload, enableSavePhoto, onPreview } = this.props;
-      const { previewImageIndex } = e.target.dataset;
-
-      if (!enablePreview) return;
-
-      if (onPreview) {
-        onPreview.call(this.props, fileList);
         return;
       }
 
-      previewImage({
-        current: previewImageIndex,
-        urls: fileList.map((file) => file.localPath || file.url),
-        enableShowPhotoDownload,
-        enablesavephoto: enableSavePhoto
+      if (onBeforeUpload) {
+        try {
+          const beforeUploadRes = await onBeforeUpload(localFileList);
+          if (beforeUploadRes === false) {
+            return;
+          }
+          if (Array.isArray(beforeUploadRes)) {
+            localFileList = beforeUploadRes;
+          }
+        } catch(err) {
+          return;
+        }
+      }
+
+      const tasks = localFileList.map((file) => this.uploadFile(file));
+      await Promise.all(tasks);
+    },
+
+    async uploadFile(localFile: LocalFile) {
+      const { onUpload } = this.props;
+
+      const uid = String(Math.random());
+      const tempFileList = [...this.getValue(), {
+        path: localFile.path,
+        size: localFile.size,
+        uid,
+        status: 'uploading'
+      }];
+
+      if (!this.isControlled()) {
+        this.update(tempFileList);
+      }
+      if (this.props.onChange) {
+        this.props.onChange(tempFileList);
+      }
+
+      try {
+        const url = await onUpload(localFile);
+        if (typeof url !== 'string' || !url) {
+          this.updateFile(uid, {
+            status: 'error',
+          });
+          return;
+        }
+        this.updateFile(uid, {
+          status: 'done',
+          url,
+        });
+      } catch(err) {
+        this.updateFile(uid, {
+          status: 'error',
+        });
+      }
+    },
+
+    updateFile(uid: string, file: Partial<File>) {
+      const fileList = this.getValue();
+      const tempFileList = fileList.map(item => {
+        if (item.uid === uid) {
+          return {
+            ...item,
+            ...file,
+          };
+        }
+        return item;
       });
+      if (!this.isControlled()) {
+        this.update(tempFileList);
+      }
+      if (this.props.onChange) {
+        this.props.onChange(tempFileList);
+      }
+    },
+
+    async onRemove(e) {
+      const fileList = this.getValue();
+      const { onRemove, onChange } = this.props;
+      const { uid } = e.target.dataset;
+      const file = fileList.find(item => item.uid === uid);
+
+      if (onRemove) {
+        const result = await onRemove(file);
+        if (result === false) {
+          return;
+        }
+      }
+      const tempFileList = fileList.filter(item => item.uid !== uid);
+      if (!this.isControlled()) {
+        this.update(tempFileList);
+      }
+      if (onChange) {
+        onChange(tempFileList);
+      }
+    },
+
+    onPreview(e) {
+      const { uid } = e.target.dataset;
+      const fileList = this.getValue();
+      const file = fileList.find(item => item.uid === uid);
+      if (this.props.onPreview) {
+        this.props.onPreview(file);
+      }
     },
   }
-})
+});
