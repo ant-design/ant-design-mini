@@ -18,11 +18,11 @@ toc: 'content'
 
 
 
-## 属性
+## API
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| className | 类名| `string` | - |
-| color |  标签颜色, 内建 primary(蓝), success(绿), warning(黄), danger(红) | 'primary' &verbar; 'success' &verbar; 'warning' &verbar; 'danger' | 'primary' | 
-| icon | 图标，支持Icon类型和插槽 | `string`\|`slot` | - |
-| style | 样式| `string` | - |
-| type | 类型 | 'outline' &verbar; 'fill' &verbar; 'fill-light' | 'fill' |
+| className | 类名| string | - |
+| color |  标签颜色, 内建 `primary`(蓝), `success`(绿), `warning`(黄), `danger`(红) | string | `primary` | 
+| icon | 图标，支持Icon类型和插槽 | string\|slot | - |
+| style | 样式| string | - |
+| type | 类型，可选`outline` `fill` `fill-light` | string | `fill` |

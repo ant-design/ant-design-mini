@@ -29,24 +29,24 @@ InputBase是没有样式的Input
 ### Input属性
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| allowClear | 可以点击清除图标删除内容 | `boolean` | false |
-| inputClassName | input类名 | `string` | - |
-| inputStyle | input样式 | `string` | - |
+| allowClear | 可以点击清除图标删除内容 | boolean | false |
+| inputClassName | input类名 | string | - |
+| inputStyle | input样式 | string | - |
 
 ### Input, InputBase 相同的属性
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| defaultValue | 始值值 | `boolean` | - | 
-| className | 类名| `string` | - |
-| disabled | 是否禁用 | `boolean` | false |
-| password | 是否是密码类型 | `boolean` | false |  |
-| placeholder | 占位符 | `string` | - |
-| style | 样式| `string` | - |
-| value | 输入框的值。受控模式。 | `string` | - | 
-| onConfirm | 点击键盘完成时触发此回调 | (value: string, event: `Event` => void | - |
-| onFocus | 聚焦时触发触发此回调 | (value: string, event: `Event`) => void | - |
-| onBlur | 失焦时触发此回调 | (value: string, event: `Event`) => void | - |
-| onChange | 输入时触发此回调 | (value: `string`, event: `Event`) => void | - |
+| defaultValue | 始值值 | boolean | - | 
+| className | 类名| string | - |
+| disabled | 是否禁用 | boolean | false |
+| password | 是否是密码类型 | boolean | false |  |
+| placeholder | 占位符 | string | - |
+| style | 样式| string | - |
+| value | 输入框的值。受控模式。 | string | - | 
+| onConfirm | 点击键盘完成时触发此回调 | (value: string, event: Event => void | - |
+| onFocus | 聚焦时触发触发此回调 | (value: string, event: Event) => void | - |
+| onBlur | 失焦时触发此回调 | (value: string, event: Event) => void | - |
+| onChange | 输入时触发此回调 | (value: string, event: Event) => void | - |
 
 ### Input, InputBase 更多相同属性
 

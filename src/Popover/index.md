@@ -20,25 +20,23 @@ toc: 'content'
 
 
 
-## 属性
-
-#### Popover
+## API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| autoAdjustOverflow |  气泡被遮挡时自动调整位置 | `boolean` | true | 
-| className | 类名 | `string` | - | 
-| color | 背景颜色 | `string` | - |
-| contentClassName | content类名 | `string` | - | 
-| contentStyle | content样式 | `string` | - | 
-| content | 内容 | `string`\|`slot` | - |
-| defaultVisible |  默认是否显示 | `boolean` | false | 
-| maskClassName | 蒙层的类名 | `string` | - | 
-| maskClosable | 是否可点击蒙层关闭 | `boolean` | true |
-| maskStyle | 蒙层的样式 | `string` | - | 
-| placement | 方向  | 'top' &verbar; 'top-right' &verbar; 'top-left' &verbar; 'bottom' &verbar; 'bottom-left' &verbar; 'bottom-right' &verbar; 'left' &verbar; 'left-top' &verbar; 'left-bottom' &verbar; 'right' &verbar; 'right-top' &verbar; 'right-bottom' | 'bottom-right' |
-| showMask | 是否展示蒙层 | `boolean` | false |
-| style | 样式 | `string` | - |
-| visible |  是否显示 | `boolean` | false | 
-| onVisibleChange |  visible 变更时回调 | (visible: `boolean`, event: [`Event`](https://opendocs.alipay.com/mini/framework/event-object))=>void | - | 
+| autoAdjustOverflow |  气泡被遮挡时自动调整位置 | boolean | true | 
+| className | 类名 | string | - | 
+| color | 背景颜色 | string | - |
+| contentClassName | content类名 | string | - | 
+| contentStyle | content样式 | string | - | 
+| content | 内容 | string\|slot | - |
+| defaultVisible |  默认是否显示 | boolean | false | 
+| maskClassName | 蒙层的类名 | string | - | 
+| maskClosable | 是否可点击蒙层关闭 | boolean | true |
+| maskStyle | 蒙层的样式 | string | - | 
+| placement | 方向，可选`top`  `top-right`  `top-left` `bottom` `bottom-left` `bottom-right` `left` `left-top` `left-bottom` `right` `right-top` `right-bottom`  | string | `bottom-right` |
+| showMask | 是否展示蒙层 | boolean | false |
+| style | 样式 | string | - |
+| visible |  是否显示 | boolean | false | 
+| onVisibleChange |  visible 变更时回调 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object))=>void | - | 
 

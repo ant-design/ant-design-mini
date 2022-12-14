@@ -18,20 +18,14 @@ toc: 'content'
 
 
 
-## 属性
+## API
 
-| 属性      | 类型   | 必填 | 默认值 | 说明       |
-| --------- | ------ | ---- | ------ | ---------- |
-| title     | string | 否   | -      | 标题       |
-| className | string | 否   | -      | 类名       |
-| style | string | 否   | -      | 类名       |
-| headerInBox | boolean | 否   | true      | 标题是否在容器中       |
+| 属性 | 说明 | 类型 | 默认值 |
+| --------- | ------ | ---- | ------ | 
+| className | 类名 | string | - |
+| headerRight | 头部右侧内容 | slot | - |
+| headerInBox | 标题是否在容器中 | boolean | true | 
+| style | 样式 | string | - |
+| title | 标题 | string\|slot | - | 
 
-## 插槽
-
-| 插槽名称 | 说明                                                       |
-| -------- | ---------------------------------------------------------- |
-| headerRight    | 头部右侧内容 |
-| title    | 标题内容 |
-| default | Container内容 |
 

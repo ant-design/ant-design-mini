@@ -25,8 +25,7 @@ toc: 'content'
 <code src='pages/ButtonCustom/index'></code>
 
 ## API
-
-### button
+### Button
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | type | 按钮类型, 可选 `primary` `default` `text`  | string | `default` |
@@ -40,14 +39,14 @@ toc: 'content'
 | loading | 是否加载中，加载中时不可点击 | boolean | - |
 | size | 按钮大小。仅在 inline 下生效  | number | - |
 | subText | 辅助文字，显示在第二行。inline 下不生效 | string | - |
-| catchTap | 点击按钮，触发此回调 | (e: Event) => void  | - |
-| onTap | 点击按钮，触发此回调 | (e: Event) => void  | - |
+| catchTap | 点击按钮，触发此回调 | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  | - |
+| onTap | 点击按钮，触发此回调 | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  | - |
 
 ### 其他属性
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | publicId | 生活号 id，必须是当前小程序同主体且已关联的生活号，open-type="lifestyle" 时有效。| string | - |
-| openType | 开放能力 | string | 否 | - |
-| scope | 当 openType 为 getAuthorize 时有效string | 否 | - |
+| openType | 开放能力 | string | - |
+| scope | 当 openType 为 getAuthorize 时有效string | - |
 | htmlType | 按钮原生类型，在表单提交时有效 | string | - |
 

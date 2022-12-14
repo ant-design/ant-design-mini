@@ -55,24 +55,24 @@ toc: 'content'
 #### Tabs
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| className | 类名| `string` | - |
-| current | 选中索引 | `number` | - |
-| defaultCurrent | 选中索引初始值 | `number` | 0 |
-| direction | tabs方向, `horizontal`(水平) `vertical` (垂直) | `string` | horizontal |
+| className | 类名| string | - |
+| current | 选中索引 | number | - |
+| defaultCurrent | 选中索引初始值 | number | 0 |
+| direction | tabs方向, `horizontal`(水平) `vertical` (垂直) | string | horizontal |
 | items | 选项 | `Item[]` | [] |
-| plus | 右上角操作按钮插槽; <br /> slot-scope 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | `slot` | - |
-| style | 样式| `string` | - |
-| tabsBarClassName | tabs bar类名 | `string` | - |
-| tabClassName | tab类名 | `string` | - |
-| tabActiveClassName | tab active类名 | `string` | - |
-| title | 自定义 `Items` 标题；<br /> slot-scope 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | `slot` | - |
-| type | 类型，`basis`(基础)，`capsule`(胶囊)，`mixin`(混合) | `string` | `basic` |
-| onChange | 面板切换时候，触发回调 | (index: `number`, e: `Event`) => void| - |
+| plus | 右上角操作按钮插槽; <br /> slot-scope 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | slot | - |
+| style | 样式| string | - |
+| tabsBarClassName | tabs bar类名 | string | - |
+| tabClassName | tab类名 | string | - |
+| tabActiveClassName | tab active类名 | string | - |
+| title | 自定义 `Items` 标题；<br /> slot-scope 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | slot | - |
+| type | 类型，`basis`(基础)，`capsule`(胶囊)，`mixin`(混合) | string | `basic` |
+| onChange | 面板切换时候，触发回调 | (index: number, e: Event) => void| - |
 
 ## Item
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| title | 标题 | `string` | - |
+| title | 标题 | string | - |
 
 在 Item 里除了可以有 `title`，还可以加上自定义的属性，比如 `content`, `badge` 等，这些属性可使用使用 `sloc-scope` 访问：
 

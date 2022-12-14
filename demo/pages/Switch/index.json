@@ -3,6 +3,7 @@
   "usingComponents": {
     "switch": "../../../src/Switch/index",
     "container": "../../../src/Container/index",
-    "am-icon": "../../../src/Icon/index"
+    "am-icon": "../../../src/Icon/index",
+    "list-item": "../../../src/List/ListItem/index"
   }
 }

@@ -17,11 +17,11 @@ toc: 'content'
 
 <code src='pages/Avatar/index'></code>
 
-## 属性
+## API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | className | 类名 | string | - |
-| style | string | 样式 | - | 类名 |
-| size | 大小，可选 `x-small`，`small`，`medium`，`large` | string | medium |
-| src | 头像地址 | string | - | 灰色的内置图片  |
+| size | 大小，可选 `x-small`，`small`，`medium`，`large` | string | `medium` |
+| src | 头像地址 | string | 灰色的内置图片 |
+| style | 样式 | string | - |
