@@ -9,3 +9,7 @@
   text-align: center;
   color: #fff;
 }
+
+.list button {
+  margin-bottom: 8px;
+}
