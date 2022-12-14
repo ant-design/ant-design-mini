@@ -38,13 +38,22 @@
     <switch loading />
   </container>
 
-  <container title="尺寸small">
-    medium: <switch />
-    small: <switch size="small" />
-    x-small: <switch size="x-small" />
+  <container title="不同尺寸">
+    <view class="line">
+      <view>medium：</view>
+      <switch size="medium" />
+    </view>
+    <view class="line">
+      <view>small：</view>
+      <switch size="small" />
+    </view>
+    <view class="line">
+      <view>x-small：</view>
+      <switch size="x-small" />
+    </view>
   </container>
 
-  <container title="控制">
+  <container title="受控模式">
     <switch
       checked="{{checked}}"
       onChange="handleChange"
