@@ -21,7 +21,7 @@
   }
   &-content {
     position: fixed;
-    background-color: @popup-background;
+    background: @popup-background;
     z-index: 2;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
@@ -71,6 +71,7 @@
     transform: translate3d(-50%, -50%, 0);
     animation-name: ant-popup-center;
     border-radius: @popup-radius;
+    background: none;
     &-close {
       animation-name: ant-popup-center-close;
     }
