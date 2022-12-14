@@ -64,7 +64,7 @@ toc: 'content'
 #### ListItem
 | 事件名 | 说明 | 类型 |
 | -----|-----|-----|
-| onTap | 点击图标，触发此回调 | ( e: [`Event`](https://opendocs.alipay.com/mini/framework/event-object) ) => void |
+| onTap | 点击图标，触发此回调 | ( e: [Event](https://opendocs.alipay.com/mini/framework/event-object) ) => void |
 
 ## 样式类
 #### List

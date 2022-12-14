@@ -24,6 +24,7 @@ toc: 'content'
 ## API
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| className | 类名 | `string` | - |
-| style | 样式 | `string` | - |
-| type | icon 图标的类型 | `string` | - |
+| className | 类名 | string | - |
+| style | 样式 | string | - |
+| type | icon 图标的类型 | string | - |
+| onTap | 点击按钮，触发此回调 | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  | - |

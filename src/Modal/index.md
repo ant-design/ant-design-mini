@@ -16,28 +16,29 @@ toc: 'content'
 
 
 
-## 属性
+## API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| bodyClassName | body类名 | `string` | - | 
-| bodyStyle | body样式 | `string` | - | 
-| cancelButtonStyle | 取消按钮样式 | `string` | - |
-| cancelButtonText | 取消按钮文本 | `string` | - |
-| className | 类名 | `string` | - | 
-| closable | 是否显示右上角的关闭按钮。只有在 type 为 focus 生效 | `boolean` | - | 
-| content | 内容 | `string`\|`slot` | - |
-| footer | 自定义按钮区 | `slot` | - |
-| maskClosable |  点击蒙层是否可以关闭 | `boolean` |false |  | 
-| maskClassName | 蒙层的类名 | `string` | - | 
-| maskStyle | 蒙层的样式 | `string` | - | 
-| primaryButtonStyle | 主按钮样式 | `string` | - |
-| primaryButtonText | 主按钮文本 | `string` | - |
-| secondaryButtonStyle | 辅助按钮样式 | `string` | - |
-| secondaryButtonText | 辅助按钮文本 | `string` | - |
-| style | 样式 | `string` | - |
-| title | 标题 | `string`\|`slot` | - |
-| visible |  是否显示 | `boolean` | false | 
+| bodyClassName | body类名 | string | - | 
+| bodyStyle | body样式 | string | - | 
+| cancelButtonStyle | 取消按钮样式 | string | - |
+| cancelButtonText | 取消按钮文本 | string | - |
+| className | 类名 | string | - | 
+| closable | 是否显示右上角的关闭按钮。只有在 type 为 focus 生效 | boolean | - | 
+| content | 内容 | string\|slot | - |
+| footer | 自定义按钮区 | slot | - |
+| maskClosable |  点击蒙层是否可以关闭 | boolean |false |  | 
+| maskClassName | 蒙层的类名 | string | - | 
+| maskStyle | 蒙层的样式 | string | - | 
+| primaryButtonStyle | 主按钮样式 | string | - |
+| primaryButtonText | 主按钮文本 | string | - |
+| secondaryButtonStyle | 辅助按钮样式 | string | - |
+| secondaryButtonText | 辅助按钮文本 | string | - |
+| style | 样式 | string | - |
+| title | 标题 | string\|slot | - |
+| type | 类型，可选`default`(默认) `focus`(强调模式) | string | `default` |
+| visible |  是否显示 | boolean | false | 
 | onCancelButtonTap |  取消按钮点击事件 | ()=>void | - | 
 | onClose |  触发关闭时回调 | ()=>void | - | 
 | onPrimaryButtonTap |  主按钮点击事件 | ()=>void | - | 

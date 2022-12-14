@@ -13,23 +13,19 @@ toc: false
 ### 基本使用
 <code src='pages/Rate/index'></code>
     
-## 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| value | number | 否 | - | 当前星级 |
-| allowHalf | boolean | 否 | true | 是否允许半星 |
-| allowClear | boolean | 否 | false | 是否允许再次点击后清除 |
-| readOnly | boolean | 否 | false | 只读，无法进行交互 |
-| maxRate | number | 否 | 5 | 最大星级 |
-| activeColor | string | 否 | - | 填充色 |
-| inactiveColor | string | 否 | - | 原始填充色 |
-| disabled | boolean | 否 | - | 是否禁用 |
-| image | string | 否 | - | 自定义图片，格式 svg |
-| className | string | 否 | - | 组件根节点类名 |
-| style | string | 否 | - | 组件根节点style |
+## API
+| 属性 | 说明 | 类型 | 默认值  |
+| -----|-----|-----|-----|
+| value | 当前星级 | number | - |
+| allowHalf | 是否允许半星 | boolean | true |
+| allowClear | 是否允许再次点击后清除 | boolean | false |
+| readOnly | 只读，无法进行交互 | boolean | false |
+| maxRate | 最大星级 | number | 5 |
+| activeColor | 填充色 | string | - |
+| inactiveColor | 原始填充色 | string | - |
+| disabled | 是否禁用 | boolean | - |
+| image | 自定义图片，格式 svg | string | - |
+| className | 类名| string | - |
+| style | 样式 | string | - |
+| onChange | 打分结束时，触发回调 | (idx: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 
-## 事件
-
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
-| onChange | 打分结束时，触发回调 | (idx: number, e: [`Event`](https://opendocs.alipay.com/mini/framework/event-object)) => void |

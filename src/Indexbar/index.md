@@ -23,24 +23,26 @@ toc: false
 ### 结合列表使用
 <code src='pages/IndexbarScrollView/index'></code>
 
-## 属性
+## API
+
+### Indexbar
 
 | 属性            | 说明                  | 类型       | 默认值 |
 | ---------------|-----------------------|-----------|------|
 | items          | 索引数组               | `Item[]`  | []    | 
-| className      | 类名                  | `string`  | -    | 
-| activeClassName| 索引激活时的样式        | `string`  | -    | 
-| defaultCurrent | 默认索引               | `string`  | -    | 
-| current        | 索引值                 | `string`  | -    | 
-| vibrate        | 索引改变时是否震动       | `boolean` | true | 
-| size           | 索引的尺寸（宽高，单位px）| `number`  | 16    | 
+| className      | 类名                  | string  | -    | 
+| activeClassName| 索引激活时的样式        | string  | -    | 
+| defaultCurrent | 默认索引               | string  | -    | 
+| current        | 索引值                 | string  | -    | 
+| vibrate        | 索引改变时是否震动       | boolean | true | 
+| size           | 索引的尺寸（宽高，单位px）| number  | 16    | 
 
 #### Item
 items 里每一项
 | 属性            | 说明                 | 类型        | 默认值 |
 | ---------------|----------------------|------------|-------|
-| label          | 索引标识              | `string`   | -      |
-| disablePreview | 禁用索引触发时的预览效果 | `boolean`  | -      |
+| label          | 索引标识              | string   | -      |
+| disablePreview | 禁用索引触发时的预览效果 | boolean  | -      |
 
 ## 插槽
 

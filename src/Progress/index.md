@@ -18,17 +18,17 @@ toc: false
 <code src='pages/ProgressCircle/index'></code>
 
 
-## 属性
+## API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| className | 类名| `string` | - |
-| percent | 百分比  | `number` | 0 | 
-| status | 状态，仅限 line 模式 | 'success' \| 'exception' | - | 
-| strokeColor | 进度条颜色 | `string` | - |
-| strokeWidth | 进度条宽度，单位px | `number` | 8 |
-| style | 样式| `string` | - |
-| trailColor | 轨道颜色 | `string` | - |
-| type | 类型，可选 line circle  | 'line' \| 'circle' | 'line' | 
-| width | 圆形进度条画布宽度，单位 px | `number` | 100 |
+| className | 类名| string | - |
+| percent | 百分比  | number | 0 | 
+| status | 状态，仅限 line 模式可用，可选`success` `exception` | string | - | 
+| strokeColor | 进度条颜色 | string | - |
+| strokeWidth | 进度条宽度，单位px | number | 8 |
+| style | 样式| string | - |
+| trailColor | 轨道颜色 | string | - |
+| type | 类型，可选 `line` `circle`  | string | `line` | 
+| width | 圆形进度条画布宽度，单位 px | number | 100 |
 

@@ -18,16 +18,16 @@ toc: 'content'
 ### 基本使用
 <code src='pages/Empty/index'></code>
 
-## 属性 
+## API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
-| className | 根节点类名 |  `string` | - | 
-| title | 标题文案 | `string` | - | 
-| image | 图片区内容 | `slot` | - | 
-| mode |  空状态模式, 'page'表示整页空状态，'section'表示局部空状态 | `'page' \| 'section'` | `'page'` |
-| message | 描述文案 | `string` | - | 
-| style | 样式 | `string` | - | 
+| className | 根节点类名 |  string | - | 
+| title | 标题文案 | string | - | 
+| image | 图片区内容 | slot | - | 
+| mode |  空状态模式, 'page'表示整页空状态，'section'表示局部空状态 | string | `page` |
+| message | 描述文案 | string | - | 
+| style | 样式 | string | - | 
 
 
 
