@@ -1,3 +1,1 @@
-export const FormPickerDefaultProps = {
-  showArrow: true,
-};
+export const FormPickerDefaultProps = {};
