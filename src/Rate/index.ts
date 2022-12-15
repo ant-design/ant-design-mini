@@ -1,84 +1,104 @@
-import fmtEvent from '../_util/fmtEvent';
+
 import { RateDefaultProps } from './props';
+import fmtEvent from '../_util/fmtEvent';
+import createValue from '../mixins/value';
+
+function getBoundingClientRect(selector: string) {
+  return new Promise<IBoundingClientRect>((resolve, reject) => {
+    my.createSelectorQuery()
+      .select(selector)
+      .boundingClientRect()
+      .exec((ret) => {
+        if (ret && ret[0]) {
+          resolve(ret[0]);
+          return;
+        }
+        reject();
+      });
+  });
+}
+
 
 Component({
-  data: {
-    rate: 0,
-    starWidth: 0
-  },
   props: RateDefaultProps,
-  didMount () {
-    const { value } = this.props
-    if (value !== void 0) {
-      const rate = this.formatRate(value)
-      this.setData({ rate })
-    }
-  },
-  didUpdate (prev) {
-    if (prev.value !== this.props.value) {
-      const rate = this.formatRate(this.props.value)
-      this.setData({ rate })
-    }
-  },
-  methods: {
-    formatRate (rate) {
-      if (rate % 0.5 !== 0) {
-        return Math.round(rate)
-      }
-      return rate
-    },
-    handleRateTap (e) {
-      if (this.props.readOnly || this.props.disabled) return
-      const { dataset } = e.currentTarget
-      const { rate } = dataset
-      const newRate = this.calculateRate(rate)
-      if (newRate === this.data.rate) return
-      this.setData({ rate: newRate })
-      this.props.onChange?.(newRate, fmtEvent(this.props))
-    },
-    calculateRate (rate) {
-      const curRate = this.data.rate
-      
+  mixins: [createValue({
+    transformValue(value) {
       if (this.props.allowHalf) {
-        if (rate == curRate) {
-          // 全星 -> 半星
-          return rate - 0.5
-        } else if (rate == curRate + 0.5) {
-          // 全星 -> 半星
-          return curRate + 0.5
-        } else {
-          return rate - 0.5
-        }
+        return {
+          needUpdate: true,
+          value: value % 0.5 !== 0 ? Math.round(value) : value,
+        };
       }
-      
-      return rate
+      return {
+        needUpdate: true,
+        value: Math.ceil(value),
+      };
+    }
+  })],
+  methods: {
+    async handleStarTap(e) {
+      if (this.props.readonly) {
+        return;
+      }
+      const { clientX } = e.detail;
+      const startTapRate = this.getValue();
+      let rate = await this.updateRate(clientX);
+      if (startTapRate === rate && this.props.allowClear) {
+        rate = 0;
+      }
+      if (!this.isControlled()) {
+        this.update(rate);
+      }
+      if (startTapRate !== rate && this.props.onChange) {
+        this.props.onChange(rate);
+      }
     },
-    handleStarMove (e) {
-      if (this.props.readOnly || this.props.disabled) return
+    startMoveRate: undefined,
+    async handleStarMove(e) {
+      if (this.props.readonly) {
+        return;
+      }
       const { touches } = e
-      const { clientX } = touches[0]
-      this.startMove = true
-      
-      my.createSelectorQuery()
-        .select(`.ant-rate-${this.$id}`)
-        .boundingClientRect()
-        .exec(res => {
-          const pos = res[0]
-          const rawValue = ((clientX - pos.left) / pos.width) * this.props.maxRate
-          const ceiledValue = this.props.allowHalf
-            ? Math.ceil(rawValue * 2) / 2
-            : Math.ceil(rawValue)
-
-          this.setData({
-            rate: Math.min(this.props.maxRate, Math.max(0, ceiledValue))
-          })
-        })
+      const { clientX } = touches[0];
+      if (typeof this.startMoveRate === 'undefined') {
+        this.startMoveRate = this.getValue();
+      }
+      const rate = await this.updateRate(clientX);
+      this.update(rate);
     },
-    handleStarMoveEnd () {
-      if (this.props.readOnly || this.props.disabled) return
-      if (!this.startMove) return
-      this.startMove = false
-      this.props.onChange?.(this.data.rate, fmtEvent(this.props))
+    handleStarMoveEnd() {
+      if (this.props.readonly) {
+        return;
+      }
+      if (typeof this.startMoveRate === 'undefined') {
+        return;
+      }
+      const startMoveRate = this.startMoveRate;
+      this.startMoveRate = undefined;
+      const rate = this.getValue();
+      if (this.isControlled()) {
+        this.update(startMoveRate);
+      }
+      if (startMoveRate !== rate && this.props.onChange) {
+        this.props.onChange(rate);
+      }
+    },
+    async updateRate(clientX: number) {
+      const { gutter, count } = this.props;
+      const { left, width } = await getBoundingClientRect(`#ant-rate-container-${this.$id}`);
+      const halfRateWidth = ((width - (count - 1) * gutter) / count) / 2;
+      const num = clientX - left;
+      let halfRateCount = 0;
+      /* eslint-disable no-constant-condition */
+      while(true) {
+        const val = halfRateWidth * halfRateCount + gutter * (Math.floor(halfRateCount / 2));
+        if (halfRateCount >= count * 2 || num <= val) {
+          break
+        }
+        halfRateCount++; 
+      }
+      const rate = this.props.allowHalf ? halfRateCount * 0.5 : Math.ceil(halfRateCount * 0.5);
+      return rate;
     }
   },
 });

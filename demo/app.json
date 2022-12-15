@@ -69,6 +69,7 @@
     "pages/Grid/index",
     "pages/CascaderPicker/index",
     "pages/Rate/index",
+    "pages/RateCustom/index",
     "pages/Slider/index",
     "pages/TabsElevator/index"
   ],
