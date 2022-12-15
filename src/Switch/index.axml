@@ -6,7 +6,7 @@
     <icon type="UndoOutline" a:if="{{loading}}" className="ant-switch-loading-icon"/>
   </view>
   <view class="ant-switch-inner">
-    <slot name="checked" a:if="{{mixin.value}}">{{checkedText}}</slot>
-    <slot name="unchecked" a:else>{{uncheckedText}}</slot>
+    <slot name="checkedText" a:if="{{mixin.value}}">{{checkedText}}</slot>
+    <slot name="unCheckedText" a:else>{{uncheckedText}}</slot>
   </view>
 </view>
