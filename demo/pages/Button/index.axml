@@ -56,23 +56,6 @@
   </button>
 </container>
 
-<container title="危险、禁用" class="list">
-  <button  type="primary" danger disabled onTap="handleTap">
-    主要按钮
-  </button>
-
-  <button type="default" danger disabled onTap="handleTap">
-    次要按钮
-  </button>
-
-  <button type="text" danger disabled onTap="handleTap">
-    文本按钮
-  </button>
-
-</container>
-
-
-
 
 <container title="加载状态" class="list">
   <button type="primary" loading>
