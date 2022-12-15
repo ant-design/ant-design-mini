@@ -1,1 +1,1 @@
-export const FormCascaderPickerDefaultProps = { showArrow: true };
+export const FormCascaderPickerDefaultProps = {};

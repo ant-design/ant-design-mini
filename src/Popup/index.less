@@ -21,8 +21,7 @@
   }
   &-content {
     position: fixed;
-    background-color: @popup-background;
-    z-index: 2;
+    background: @popup-background;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
     color: @COLOR_TEXT_PRIMARY;
@@ -71,6 +70,7 @@
     transform: translate3d(-50%, -50%, 0);
     animation-name: ant-popup-center;
     border-radius: @popup-radius;
+    background: none;
     &-close {
       animation-name: ant-popup-center-close;
     }
@@ -118,23 +118,9 @@
     transform: translate3d(-50%, -50%, 0) scale(0.1);
     opacity: 0;
   }
-  70% {
-    transform: translate3d(-50%, -50%, 0) scale(1.2);
-    opacity: 1;
-  }
-  80% {
-    transform: translate3d(-50%, -50%, 0) scale(0.95);
-  }
-  85% {
-    transform: translate3d(-50%, -50%, 0) scale(1.1);
-    opacity: 0.9;
-  }
-  95% {
-    transform: translate3d(-50%, -50%, 0) scale(0.97);
-    opacity: 1;
-  }
   100% {
     transform: translate3d(-50%, -50%, 0) scale(1);
+    opacity: 1;
   }
 }
 

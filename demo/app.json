@@ -71,7 +71,9 @@
     "pages/Rate/index",
     "pages/RateCustom/index",
     "pages/Slider/index",
-    "pages/TabsElevator/index"
+    "pages/TabsElevator/index",
+    "pages/Indexbar/index",
+    "pages/IndexbarScrollView/index"
   ],
   "window": {
     "enableWK": "YES",

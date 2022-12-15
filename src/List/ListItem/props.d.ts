@@ -19,7 +19,7 @@ export interface IListItemProps extends IBaseProps {
   /**
    * @description 箭头方向，不传表示没有箭头
    */
-  arrow: 'right' | 'up' | 'down';
+  arrow: boolean | 'right' | 'up' | 'down';
   /**
    * @description 右侧额外内容，即，辅助信息
    */

@@ -4,7 +4,7 @@ nav:
 group:
   title: 反馈
   order: 12
-toc: false
+toc: 'content'
 ---
 
 #  Skeleton 骨架屏
@@ -15,7 +15,6 @@ toc: false
 - 适用于图文信息较多且重要的首页、列表、卡片中，小的模块类组件（例如弹窗）不要使用；
 
 ## 代码示例
-### 基本使用
 <code src='pages/Skeleton/index'></code>
 
 ## API

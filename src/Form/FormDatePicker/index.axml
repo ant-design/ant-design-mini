@@ -1,3 +1,4 @@
+<import-sjs name="arrowUtil" from="../../_util/arrow.sjs" />
 <form-item
   className="{{className}}"
   position="{{position}}"
@@ -35,9 +36,9 @@
       onCancel="onDismissPicker"
       onVisibleChange="onVisibleChange"
       onFormat="onFormat">
+      <slot name="content" slot="content"/>
       <slot name="title" slot="title"/>
-      <icon a:if="{{ showArrow }}" class="amd-form-date-picker-arrow" type="RightOutline" slot="suffix"/>
-      <slot/>
+      <icon a:if="{{arrowUtil.getArrow(arrow)}}" class="amd-form-date-picker-arrow" type="{{arrowUtil.getArrow(arrow)}}" slot="suffix"/>
     </date-picker>
   </view>
   <view slot="extra">

@@ -12,16 +12,10 @@ toc: 'content'
 ## 何时使用
 用于展示弹窗、信息提示、选择输入、切换等内容，支持多个弹出层叠加展示
 
-## 注意事项
-- maskClosable 为 false 时，onClose 函数不触发
-
 ## 代码示例
-### 基本使用
 <code src='pages/Popup/index'></code>
 
-
-
-## 属性
+## API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
@@ -38,5 +32,11 @@ toc: 'content'
 | width | 宽度, 在 position 为 `left` 或 `right` 时使用，单位px | number | - | 
 | zIndex | 弹窗层级 | number | 998 | 
 | onClose | 弹窗关闭时，触发回调 | ( visible: boolean ) => void |
+
+## FAQ
+### onClose不触发
+maskClosable为true时，才会触发onClose
+
+
 
 

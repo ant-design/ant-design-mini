@@ -15,33 +15,26 @@ toc: 'content'
 ### 基本使用
 <code src='pages/Steps/index'></code>
 
-### 控制示例
+### 受控模式
 <code src='pages/StepsControl/index'></code>
 
 
 ## API
-  
-#### 属性
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| className | string | 否 | - | 类名 |
-| current | number | 否 | 0 | 当前步骤 |
-| direction | string | 否 | `horizontal` | 方向，可选 `horizontal` `vertical` |
-| items | Items[] | 是 | - | 样式 |
-| status | string | 否 | `finish` | 指定当前步骤的状态，可选 `finish` `error` |
-| style | string | 否 | - | 样式 |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| className | 类名 | string | - |
+| current | 当前步骤 | number | - |
+| defaultCurrent | 默认当前步骤 | number | 0 |
+| description | 自定义描述内容渲染，接收index和value | slot | - |
+| direction | 方向，可选 `horizontal` `vertical` | string | `horizontal` |
+| icon | 自定义图标渲染，接收index和value | slot | - |
+| items | 展示项 | [Item](#item)[] | - |
+| status | 指定当前步骤的状态，可选 `finish` `error` | string | `finish` |
+| style | 样式 | string | - |
+| title | 自定义标题渲染，接收index和value | slot | - |
 
-#### 插槽
-
-| slot | slot-scope | 说明 |
-| ----|----| ----|
-| title | value: Item; index: number | 标题 |
-| description | value: Item; index: number | 描述内容 |
-| icon | value: Item; index: number | 图标插槽 |
-
-#### Item
-Item 里每一项
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| description | string | 否 | - | 内容 |
-| title | string | 否 | - | 标题 |
+### Item
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| description | 内容 | string | - |
+| title | 标题 | string | - |

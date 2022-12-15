@@ -1,5 +1,4 @@
-<import-sjs name="listItem"
-  from="./index.sjs" />
+<import-sjs name="arrowUtil" from="../../_util/arrow.sjs" />
 
 <view class="ant-list-item  {{className ? className : ''}}"
   onTap="{{onTap ? 'onTap' : ''}}"
@@ -43,7 +42,7 @@
       </view>
     </view>
     <view class="ant-list-item-arrow" >
-      <icon a:if="{{arrow}}" type="{{listItem.getArrow(arrow)}}" size="x-small" />
+      <icon a:if="{{arrowUtil.getArrow(arrow)}}" type="{{arrowUtil.getArrow(arrow)}}" size="x-small" />
     </view>
   </view>
 </view>

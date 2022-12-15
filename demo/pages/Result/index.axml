@@ -38,15 +38,13 @@
   />
 </container>
 
-<container title="自定义图标">
+<container title="自定义">
   <result 
-    buttons="{{buttons}}"
     image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original"
-    onButtonTap="handleTabBtn"
   >
     <view slot="title">标题插槽</view>
     <view slot="message">描述插槽</view>
-    <view slot="buttons">
+    <view slot="extra">
       <block a:for="{{buttons}}">
         <button className="demo-result-buttons"
           type="{{item.type}}"

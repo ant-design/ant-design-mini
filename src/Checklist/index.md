@@ -13,11 +13,9 @@ toc: 'content'
 - 可勾选列表的使用需要默认至少勾选一项，方便用户了解列表是可以勾选的
 
 ## 代码示例
-### 基本使用
 <code src='pages/Checklist/index'></code>
 
 ## API
-
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |
@@ -29,7 +27,7 @@ toc: 'content'
 | value | 选中数据 | (string \| number)[] | [] | 
 | onChange | 选中项发生变化，触发回调 | (value: string \| number&#124; [], column: [ChecklistItem](#checklistitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
-#### ChecklistItem
+### ChecklistItem
 
 | 参数 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|

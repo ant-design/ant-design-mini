@@ -32,8 +32,6 @@ toc: 'content'
 
 
 ## API
-
-### Collapse
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | accordion | 是否是手风琴模式，仅一个内容被展开 | boolean | false |
@@ -47,7 +45,7 @@ toc: 'content'
 | onChange | 切换面板的回调 | ( current : number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### CollapseItem
-| 属性 | 说明  | 类型 | 默认值|
-| -----|-----|-----|-----|----- |
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
 | content | 内容 | string | - |
 | title | 标题 | string | - |

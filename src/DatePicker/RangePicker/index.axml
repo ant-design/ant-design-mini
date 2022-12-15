@@ -37,6 +37,8 @@
       </view>
       <template is="selector" data="{{placeholder:endPlaceholder,active:pickerType==='end',type:'end',value:currentEndValueStr,precision:precision}}"/>
     </view>
+    <slot name="content" slot="content"/>
+    <slot name="title" slot="title"/>
     <slot name="prefix" slot="prefix"/>
     <slot name="suffix" slot="suffix"/>
 </picker>

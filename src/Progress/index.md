@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 12
-toc: false
+toc: 'content'
 ---
 
 # Progress 进度条
@@ -19,7 +19,6 @@ toc: false
 
 
 ## API
-
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |

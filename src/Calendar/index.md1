@@ -4,7 +4,7 @@ nav:
 group:
   title: 通用
   order: 2
-toc: false
+toc: 'content'
 ---
 # Calendar 日历
 选择日期或日期区间

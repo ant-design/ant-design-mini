@@ -13,7 +13,6 @@ toc: 'content'
 需要更加直观的展现人物或事物特征
 
 ## 代码示例
-### 基本使用
 
 <code src='pages/Avatar/index'></code>
 

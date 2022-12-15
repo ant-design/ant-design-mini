@@ -21,6 +21,7 @@
   maskClosable="{{maskClosable}}"
   forceUpdate="{{forceUpdate}}"
   onFormat="onFormat">
+  <slot name="content" slot="content"/>
   <slot name="title" slot="title"/>
   <slot name="prefix" slot="prefix"/>
   <slot name="suffix" slot="suffix"/>

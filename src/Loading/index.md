@@ -10,11 +10,9 @@ toc: 'content'
 用于提示局部或页面在加载中。
 
 ## 代码示例
-### 基本使用
 <code src='pages/Loading/index'></code>
 
 ## API
-
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
 | className | 根节点类名 |  string | - | 

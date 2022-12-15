@@ -13,13 +13,11 @@ toc: 'content'
 可承载文字、列表、图片、段落等，便于用户浏览内容
 
 ## 代码示例
-### 基本使用
 <code src='pages/Container/index'></code>
 
 
 
 ## API
-
 | 属性 | 说明 | 类型 | 默认值 |
 | --------- | ------ | ---- | ------ | 
 | className | 类名 | string | - |

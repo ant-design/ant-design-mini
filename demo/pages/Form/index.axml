@@ -29,6 +29,7 @@
 
 <form-picker
   label="水果"
+  arrow
   name="fruit"
   options="{{fruitList}}"
   ref="handleRef"
@@ -36,18 +37,21 @@
 
 <form-date-picker
   label="出生日期"
+  arrow
   name="birthday"
   ref="handleRef"
 />
 
 <form-range-picker
   label="时间范围"
+  arrow
   name="range"
   ref="handleRef"
 />
 
 <form-cascader-picker
   label="城市"
+  arrow
   options="{{cityList}}"
   name="city"
   tooltip="选择城市"

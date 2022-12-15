@@ -22,6 +22,7 @@ toc: 'content'
 
 ## API
 
+### Radio
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | checked | 是否选中 | boolean | - |
@@ -34,7 +35,7 @@ toc: 'content'
 | onChange | 选中状态改变，触发回调 | (checked: boolean, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 
 
-## RadioGroup属性
+### RadioGroup
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|

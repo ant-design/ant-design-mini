@@ -12,77 +12,32 @@ toc: 'content'
 ## 何时使用
 以列表的形式干净高效的承载文字、列表、图片、段落等
 ## 代码示例
-### 基本使用
 <code src='pages/List/index'></code>
 
 
 
-## 属性
+## API
+### List
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| className | 类名 | string | - | 
+| footer | 底部说明 | string \| slot | - |
+| header | 头部说明 | string \| slot | - |
+| radius | 是否带圆角 | boolean | false | 
+| style | 样式 | string | - |
 
-#### List
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| radius | boolean | 否 | false | 是否带圆角 |
-| header | string | 否 | - | 头部说明 |
-| footer | string | 否 | - | 底部说明 |
-| className | string | 否 | - | 类名 |
-
-#### ListItem
-
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| -----|-----|-----|-----|----- |
-| image | string | 否 | - | 左侧图片 |
-| imageSize |  'small'  &verbar; 'medium'  &verbar; 'large' | 否 | 'small' | 左侧图片大小 |
-| arrow | 'right' &verbar; 'up' &verbar; 'down' | 否 | - | 箭头方向，不传表示没有箭头 |
-| title | string | 否 | - | 标题信息 |
-| brief | string | 否 | - | 第二行信息 |
-| extra | string | 否 | - | 右侧额外内容 |
-| extraBrief | string | 否 | - | 右侧辅助信息 |
-| disabled | boolean | 否 | false | 是否禁用 |
-| last |boolean	| 否 | false|  用于处理下划线是否显示 |
-| stopPropagation | boolean | 否 | false | 是否阻止事件冒泡 |
-| className | string | 否 | - | 类名 |
-
-
-## 插槽
-
-#### List
-| 名称 | 说明 |
-| ----|----|
-| header | 头部内容插槽 |
-| footer | 尾部内容插槽 |
-
-#### ListItem
-| 名称 | 说明 |
-| ----|----|
-| brief | 下方简介内容插槽 |
-| extra | 右侧内容插槽 |
-| image | 左侧图标插槽 |
-
-## 事件
-
-#### ListItem
-| 事件名 | 说明 | 类型 |
-| -----|-----|-----|
+### ListItem
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| arrow | 右侧肩头，可选`right` `up` `down`，传true为`right` | string \| boolean | - |
+| brief | 第二行信息 | string \| slot | - | 
+| className | 类名 | string | - | 
+| disabled | 是否禁用  | boolean | false | 
+| extra | 右侧额外内容 | string \| slot | - | 
+| extraBrief | 右侧辅助信息 | string \| slot | - | 
+| image | 左侧图片 | string | - |  
+| radius | 是否带圆角 | boolean | false | 
+| showDivider | 是否显示下划线  | boolean | true | 
+| style | 样式 | string | - |
+| title | 标题信息 | string \| slot | - | 
 | onTap | 点击图标，触发此回调 | ( e: [Event](https://opendocs.alipay.com/mini/framework/event-object) ) => void |
-
-## 样式类
-#### List
-| 类名 | 说明 |
-| -----|-----|
-| ant-list | 整体样式 |
-| ant-list-header | header 样式 |
-| ant-list-body | 内部内容样式 |
-| ant-list-footer | footer 样式 |
-
-#### ListItem
-| 类名 | 说明 |
-| -----|-----|
-| ant-list-item | 整体样式 |
-| ant-list-item-line | 内容样式 |
-| ant-list-item-content | 除 extra、brief 外内容样式 |
-| ant-list-item-content-main | 主要内容样式 |
-| ant-list-item-image | 左侧图片样式 |
-| ant-list-item-brief | brief 样式 |
-| ant-list-item-extra | extra 样式 |
-| ant-list-item-arrow| 右侧 arrow 样式 |

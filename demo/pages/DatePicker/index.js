@@ -3,10 +3,7 @@ Page({
     min: new Date('2019/01/15'),
     max: new Date('2023/08/20'),
     defaultDate: new Date('2019/02/02'),
-    defaultDateRange: [null, new Date('2022/05/20')],
-    date1: [new Date('2014/05/20'), new Date('2015/05/20')],
-    minDate1: new Date('2017/01/15'),
-    maxDate1: new Date('2018/08/20'),
+    defaultDateRange: [new Date('2022/03/21'), new Date('2022/05/20')],
   },
   handlePickerChange(date, dateStr, e) {
     console.log('onPickerChange', date, dateStr, e);

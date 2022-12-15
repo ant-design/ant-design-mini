@@ -5,3 +5,7 @@
   line-height: 200px;
   text-align: center;
 }
+
+.list button {
+  margin-bottom: 8px;
+}

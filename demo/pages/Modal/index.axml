@@ -96,24 +96,18 @@
     <view class="bodyAction"><icon type="CloseCircleOutline" onTap="handleClose"/></view>
   </view>
 </modal>
-<container title="基础用法">
-  <view class="btn-list">
-    <button data-field="basicVisible" onTap="handleOpen">最简单的弹框</button>
-    <button data-field="withTitleVisible" onTap="handleOpen">带有标题</button>
-    <button data-field="basicTwoVisible" onTap="handleOpen">带辅助按钮</button>
-    <button data-field="basicThreeVisible" onTap="handleOpen">带辅助和取消按钮</button>
-  </view>
+<container title="基础用法" class="list">
+  <button data-field="basicVisible" onTap="handleOpen">最简单的弹框</button>
+  <button data-field="withTitleVisible" onTap="handleOpen">带有标题</button>
+  <button data-field="basicTwoVisible" onTap="handleOpen">带辅助按钮</button>
+  <button data-field="basicThreeVisible" onTap="handleOpen">带辅助和取消按钮</button>
 </container>
-<container title="强调模式">
-  <view class="btn-list">
-    <button data-field="focusOneVisible" onTap="handleOpen">只有主按钮</button>
-    <button data-field="focusTwoVisible" onTap="handleOpen">带辅助按钮</button>
-    <button data-field="focusThreeVisible" onTap="handleOpen">带辅助和取消按钮</button>
-  </view>
+<container title="强调模式" class="list">
+  <button data-field="focusOneVisible" onTap="handleOpen">只有主按钮</button>
+  <button data-field="focusTwoVisible" onTap="handleOpen">带辅助按钮</button>
+  <button data-field="focusThreeVisible" onTap="handleOpen">带辅助和取消按钮</button>
 </container>
-<container title="自定义">
-  <view class="btn-list">
-    <button data-field="customVisible" onTap="handleOpen">自定义按钮样式</button>
-    <button data-field="customBodyVisible" onTap="handleOpen">完全自定义内容区</button>
-  </view>
+<container title="自定义" class="list">
+  <button data-field="customVisible" onTap="handleOpen">自定义按钮样式</button>
+  <button data-field="customBodyVisible" onTap="handleOpen">完全自定义内容区</button>
 </container>

@@ -5,9 +5,12 @@ const arrowType = {
 };
 
 const getArrow = (arrow) => {
-  return arrow ? arrowType[arrow] : '';
+  if (arrow === true) {
+    return arrowType.right;
+  }
+  return arrowType[arrow] || '';
 };
 
-export default { 
-  getArrow 
+export default {
+  getArrow,
 };

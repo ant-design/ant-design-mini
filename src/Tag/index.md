@@ -13,7 +13,6 @@ toc: 'content'
 - 进行分类
 
 ## 代码示例
-### 基本使用
 <code src='pages/Tag/index'></code>
 
 

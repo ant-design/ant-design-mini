@@ -3,6 +3,8 @@ import fmtEvent from '../../_util/fmtEvent';
 import equal from 'fast-deep-equal';
 import mixinValue from '../../mixins/value';
 
+const component2 = my.canIUse('component2');
+
 Component({
   pickerVisible: false,
   props: CascaderDefaultProps,
@@ -13,11 +15,13 @@ Component({
     };
   },
   mixins: [mixinValue()],
+  onInit() {
+    this.initColumns();
+  },
   didMount() {
-    const realValue = this.getValue();
-    const columns = this.getterColumns(realValue);
-    // 首次无需校验value有效性，onOk时会校验
-    this.setData({ columns });
+    if (!component2) {
+      this.initColumns();
+    }
   },
   didUpdate(prevProps) {
     const { value, options } = this.props;
@@ -55,6 +59,12 @@ Component({
   },
 
   methods: {
+    initColumns() {
+      const realValue = this.getValue();
+      const columns = this.getterColumns(realValue);
+      // 首次无需校验value有效性，onOk时会校验
+      this.setData({ columns });
+    },
     getterColumns(value) {
       const getColumns = (options, value, columns = []) => {
         columns.push(options.map((v) => ({ value: v.value, label: v.label })));

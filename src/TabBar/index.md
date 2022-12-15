@@ -4,23 +4,15 @@ nav:
 group:
   title: 导航
   order: 6
-toc: false
+toc: 'content'
 ---
 # TabBar 底部导航栏
 用于在不同页面之间进行切换。
 
-## 注意事项
-
-- 默认 2～5 个选项卡，默认按整体宽度等分居中排布
-- 可以使用 Ant Design Mini 自带的图标库或者自定义图片作为图标
-
 ## 代码示例
-### 基本使用
 <code src='pages/TabBar/index'></code>
 
 ## API
-
-#### TabBar
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | activeClassName |  选项卡激活类名 | string | - |
@@ -35,7 +27,7 @@ toc: false
 | onChange | Tab 切换时触发回调 |(item: [TabItem](#tabitem), index: number) => void| - |
 
 
-#### TabItem
+### TabItem
 
 | 参数 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|

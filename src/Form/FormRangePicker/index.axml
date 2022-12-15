@@ -1,3 +1,4 @@
+<import-sjs name="arrowUtil" from="../../_util/arrow.sjs" />
 <form-item
   className="{{className}}"
   position="{{position}}"
@@ -38,9 +39,9 @@
       onCancel="onDismissPicker"
       onVisibleChange="onVisibleChange"
       onFormat="onFormat">
+      <slot name="content" slot="content"/>
       <slot name="title" slot="title"/>
-      <icon a:if="{{ showArrow }}" class="amd-form-range-picker-arrow" type="RightOutline" slot="suffix"/>
-      <slot/>
+      <icon a:if="{{arrowUtil.getArrow(arrow)}}" class="amd-form-range-picker-arrow" type="{{arrowUtil.getArrow(arrow)}}" slot="suffix"/>
     </range-picker>
   </view>
   <view slot="extra">

@@ -6,10 +6,13 @@ page {
   display: flex;
 }
 
+.ant-badge {
+  margin-right: 16px;
+}
 .box {
   width: 40px;
   height: 40px;
   display: block;
   border-radius: 8px;
-  background: #B3B3B3;
+  background: #b3b3b3;
 }
