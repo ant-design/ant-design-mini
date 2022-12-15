@@ -1,3 +1,12 @@
+## 0.0.26 (2022-12-15)
+
+
+### Bug Fixes
+
+* 解决tab item可能为空问题 ([#438](https://github.com/ant-design/ant-design-mini/issues/438)) ([6a4b409](https://github.com/ant-design/ant-design-mini/commit/6a4b40987ef19e5b85782748c1a5a95869a5310d))
+
+
+
 ## 0.0.25 (2022-11-17)
 
 
