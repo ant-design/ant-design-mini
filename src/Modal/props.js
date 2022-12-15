@@ -3,4 +3,5 @@ export const ModalDefaultProps = {
   maskClosable: true,
   closable: true,
   type: 'default',
+  duration: 200,
 };
