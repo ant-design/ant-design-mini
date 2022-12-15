@@ -42,7 +42,6 @@
       <slot name="content" slot="content"/>
       <slot name="title" slot="title"/>
       <icon a:if="{{arrowUtil.getArrow(arrow)}}" class="amd-form-range-picker-arrow" type="{{arrowUtil.getArrow(arrow)}}" slot="suffix"/>
-      <slot/>
     </range-picker>
   </view>
   <view slot="extra">

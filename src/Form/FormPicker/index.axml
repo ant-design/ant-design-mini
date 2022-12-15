@@ -36,7 +36,6 @@
       <slot name="title" slot="title"/>
       <slot name="content" slot="content"/>
       <icon a:if="{{arrowUtil.getArrow(arrow)}}" class="amd-form-picker-arrow" type="{{arrowUtil.getArrow(arrow)}}" slot="suffix"/>
-      <slot/>
     </picker>
   </view>
   <view slot="extra">
