@@ -169,7 +169,7 @@ Component({
       if(group){
         objectValues(group.items).forEach(item=>{
           // @ts-ignore
-          item.setFallback(v)
+          item?.setFallback(v)
         })
       }
     },
