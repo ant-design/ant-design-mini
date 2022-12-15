@@ -4,7 +4,17 @@ export interface IRateProps extends IBaseProps {
   /**
    * @description 当前星级
    */
-  value?: number;
+  rate?: number;
+
+  /**
+   * description 初始星级
+   */
+  defaultRate?: number;
+
+  /**
+   * description 间距
+   */
+  gutter?: number;
 
   /**
    * @description 是否允许半星
@@ -17,43 +27,29 @@ export interface IRateProps extends IBaseProps {
   allowClear?: boolean;
 
   /**
-   * @description 只读，无法进行交互
+   * @description star 总数
    */
-  readOnly?: boolean;
+  count?: number;
 
   /**
-   * @description 是否禁用
+   *  @description 自定义字符选中状态类名
    */
-  disabled?: boolean;
+  characterActiveClassName?: string;
 
   /**
-   * @description 最大星级，默认 5
+   *  @description 自定义字符类名
    */
-  maxRate?: number;
+  characterClassName?: string;
 
   /**
-   * @description 填充色
+   * @description 是否只读
    */
-  activeColor?: string;
-
-  /**
-   * @description 原始填充色
-   */
-  inactiveColor?: string;
-
-  /**
-   * @description 自定义图片
-   */
-  image?: string;
-
-  /**
-   * @description 类名
-   */
-  className?: string;
+  readonly?: boolean;
 
   /**
    * @description 打分结束回调
    */
-   onChange?: (rate: number, e: any)
+   onChange?: (rate: number) => void;
 }
+
 export declare const RateDefaultProps: Partial<IRateProps>;

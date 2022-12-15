@@ -1,0 +1,41 @@
+<form-item
+  className="{{className}}"
+  style="{{style}}"
+  position="{{position}}"
+  label="{{label}}"
+  status="{{formData.status}}"
+  errors="{{formData.errors}}"
+  tooltip="{{tooltip}}"
+  required="{{formData.required}}"
+  requiredMark="{{requiredMark}}"
+  validateStatus="{{validateStatus}}"
+  help="{{help}}"
+>
+  <rate
+    value="{{formData.value}}"
+    count="{{count}}"
+    gutter="{{gutter}}"
+    readonly="{{readonly}}"
+    allowHalf="{{allowHalf}}"
+    allowClear="{{allowClear}}"
+    className="{{rateClassName}}"
+    style="{{rateStyle}}"
+    characterActiveClassName="{{characterActiveClassName}}"
+    characterClassName="{{characterActiveClassName}}"
+    onChange="onChange"
+  >
+    <view slot="character">
+      <slot name="character">
+        <icon type="StarFill" />
+      </slot>
+    </view>
+  </rate>
+  <view slot="extra">
+    <slot name="extra">
+      {{extra}}
+    </slot>
+  </view>
+  <view slot="label">
+    <slot name="label" />
+  </view>
+</form-item>

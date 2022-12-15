@@ -1,13 +1,14 @@
 Page({
   data: {
-    rate1: 4
+    value: 3
   },
-  handleChange (rate, e) {
-    console.log('e', e)
-    my.alert({ content: rate })
+  onChange (value) {
+    console.log(value);
+  },
+  handleChange(value) {
+    console.log(value);
     this.setData({
-      rate1: rate
-    })
+      value,
+    });
   }
-
 });

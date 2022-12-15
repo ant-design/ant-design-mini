@@ -312,6 +312,11 @@ export const componentList = [
         nameZN: '星级',
         path: '/pages/Rate/index',
       },
+      {
+        name: 'RateCustom',
+        nameZN: '星级-自定义',
+        path: '/page/RateCustom/index',
+      }
     ],
   },
   {
