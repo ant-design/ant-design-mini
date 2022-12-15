@@ -5,7 +5,7 @@
   onTap="onOpen"
 >
   <slot name="prefix"/>
-  <slot>
+  <slot name="content">
     <view a:if="{{formatValue}}" class="ant-picker-text">
       {{formatValue}}
     </view>

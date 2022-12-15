@@ -13,7 +13,20 @@ import fmtEvent from '../../_util/fmtEvent';
 import mixinValue from '../../mixins/value';
 
 Component({
-  mixins: [mixinValue(), computed],
+  mixins: [
+    mixinValue({
+      transformValue(value) {
+        return {
+          value:
+            value && value[0] && value[1]
+              ? [dayjs(value[0]).toDate(), dayjs(value[1]).toDate()]
+              : undefined,
+          needUpdate: true,
+        };
+      },
+    }),
+    computed,
+  ],
 
   props: DateRangePickerDefaultProps,
   pickerVisible: false,

@@ -21,7 +21,16 @@ Component({
       forceUpdate: 0, // 强制更新picker组件，已知需处理的情况：value超限，但是需要更新format，由于picker的参数均未变化，无法触发picker的渲染
     };
   },
-  mixins: [mixinValue()],
+  mixins: [
+    mixinValue({
+      transformValue(value) {
+        return {
+          value: value ? dayjs(value).toDate() : undefined,
+          needUpdate: true,
+        };
+      },
+    }),
+  ],
   didMount() {
     this.pickerVisible = false;
   },

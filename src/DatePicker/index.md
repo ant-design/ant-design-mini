@@ -9,9 +9,6 @@ toc: 'content'
 # DatePicker 时间选择器
 相比较于原生my.datePicker实现了ios跟android端体验一致
 
-## 注意事项
-需要开启[component2](https://opendocs.alipay.com/mini/03dbc3#compileOptions)
-
 ## 代码示例
 ### 基本使用
 <code src='pages/DatePicker/index'></code>
@@ -26,6 +23,7 @@ toc: 'content'
 | defaultValue | 默认选中的时间 | Date | - |  
 | disabled | 是否禁用  | boolean | false | 
 | cancelText | 取消文案 | string | 取消 |  
+| content | 自定义内容插槽 | slot | - |
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | string | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | string | - |  
 | indicatorClass | 选中框的类名 | string |  - |  
@@ -55,6 +53,7 @@ toc: 'content'
 | defaultValue | 默认选中的时间 | [Date,Date] | - |  
 | disabled | 是否禁用  | boolean | false | 
 | cancelText | 取消文案 | string | 取消 |  
+| content | 自定义内容插槽 | slot | - |
 | endPlaceholder | 结束时间提示文案 | string | 未选择 |  
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | string | YYYY/MM/DD | 
 | indicatorStyle | 选中框样式 | string | - |  
@@ -72,7 +71,7 @@ toc: 'content'
 | splitCharacter | 显示连接符 | string | ~ |  
 | startPlaceholder | 开始时间提示文案 | string | 未选择 |  
 | style | 样式 | string | - |
-| title | 弹出框标题 | string | - |  
+| title | 弹出框标题 | string \| slot| - |  
 | value | 选中的时间 | [Date, Date] | - | 
 | onOk | 点击确定按钮，触发回调 | (date: [Date,Date], dateStr: [string,string], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
