@@ -77,7 +77,7 @@
 />
 <form-slider
   label="选择分数"
-  name="slider"
+  name="slider2"
   showTicks
   showNumber
   showTooltip
@@ -89,6 +89,12 @@
   label="图片"
   name="image"
   onUpload="onUpload"
+  ref="handleRef"
+/>
+
+<form-rate
+  label="评分"
+  name="rate"
   ref="handleRef"
 />
 

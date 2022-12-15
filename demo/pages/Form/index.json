@@ -13,6 +13,7 @@
     "form-slider": "../../../src/Form/FormSlider/index",
     "form-selector": "../../../src/Form/FormSelector/index",
     "form-upload-image": "../../../src/Form/FormImageUpload/index",
+    "form-rate": "../../../src/Form/FormRate/index",
     "button": "../../../src/Button/index"
   }
 }
