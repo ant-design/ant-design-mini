@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 9
-toc: false
+toc: 'content'
 ---
 
 # GuideTour 新手引导
@@ -16,15 +16,9 @@ toc: false
 适用于页面上关键功能的介绍。
 
 ## 代码示例
-
-### 基本使用
-
 <code src='pages/GuideTour/index'></code>
 
 ## API
-
-### GuideTour
-
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名 | string | - | 
@@ -40,7 +34,7 @@ toc: false
 | onChange   | 步骤改变回调 | (index: number) => void | - | 
 
 
-#### GuideTourItem 
+### GuideTourItem 
 | 参数 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | left | 距离左边距离，单位px | number | - |

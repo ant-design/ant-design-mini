@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息展示
   order: 8
-toc: false
+toc: 'content'
 ---
 
 # Indexbar 索引
@@ -24,36 +24,18 @@ toc: false
 <code src='pages/IndexbarScrollView/index'></code>
 
 ## API
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| activeClassName | 索引激活时的样式 | string | - |
+| className | 类名 | string | - |
+| current | 索引值 | string | - |
+| defaultCurrent | 默认索引 | string | - |
+| labelPreview | 索引预览内容，接收value和index | slot | - |
+| items | 索引数组 | [Item](#item) | [] |
+| size | 样式 | string | - |
+| style | 索引的尺寸（宽高，单位px) | number | 16 |
+| vibrate | 索引改变时是否震动 | boolean | false |
+| onChange | 索引改变时回调 | (value: [Item](#item), index: number) => void |
 
-### Indexbar
-
-| 属性            | 说明                  | 类型       | 默认值 |
-| ---------------|-----------------------|-----------|------|
-| items          | 索引数组               | `Item[]`  | []    | 
-| className      | 类名                  | string  | -    | 
-| activeClassName| 索引激活时的样式        | string  | -    | 
-| defaultCurrent | 默认索引               | string  | -    | 
-| current        | 索引值                 | string  | -    | 
-| vibrate        | 索引改变时是否震动       | boolean | true | 
-| size           | 索引的尺寸（宽高，单位px）| number  | 16    | 
-
-#### Item
-items 里每一项
-| 属性            | 说明                 | 类型        | 默认值 |
-| ---------------|----------------------|------------|-------|
-| label          | 索引标识              | string   | -      |
-| disablePreview | 禁用索引触发时的预览效果 | boolean  | -      |
-
-## 插槽
-
-| 插槽名称      | 说明  | 类型 |
-| -------------| ------|---------------------------------------------------|
-| default      | 列表内容|`slot-scope: {value: Item, index: number}`       |
-| labelPreview | 索引预览内容|`slot-scope: {value: Item, index: number}`    |
-## 事件
-
-| 事件名    | 说明                   | 类型       |
-| ---------| ---------------------- | ---------- |
-| onChange | 索引改变时回调            | `(value: Item, index: number) => void`  |
 
 

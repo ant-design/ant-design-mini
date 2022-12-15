@@ -2,7 +2,6 @@ import { IBaseProps } from '../_base';
 
 export interface IActionItem {
   text: string;
-  key: string;
   icon: string;
   description?: string;
   danger?: boolean;

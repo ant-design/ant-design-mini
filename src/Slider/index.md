@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 信息输入
-toc: false
+toc: 'content'
 ---
 
 # Slider 滑块
@@ -14,7 +14,6 @@ toc: false
 用于在一定范围内移动滑块获取单个或者区间数值
 
 ## 代码示例
-### 基本使用
 <code src='pages/Slider/index'></code>
 
 ## API

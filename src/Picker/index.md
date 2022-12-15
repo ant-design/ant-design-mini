@@ -12,9 +12,6 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 - 提供一组或多组关联选项供用户选择
 - 当少于5个选项时，建议直接将选项平铺，使用 Radio 是更好的选择
 
-## 注意事项 
-- Picker、CascaderPicker暂不支持动态改变Column列数
-
 ## 代码示例
 ### 基本使用
 <code src='pages/Picker/index'></code>
@@ -22,10 +19,8 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 ### 级联Picker
 <code src='pages/CascaderPicker/index'></code>
 
-## 属性
-
-#### Picker
-
+## API
+### Picker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |
@@ -53,8 +48,7 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | onFormat | 选中值的文本显示格式 | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem)) => string | - | 
 | onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 
-#### CascaderPicker
-
+### CascaderPicker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |
@@ -84,16 +78,20 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | onFormat | 选中值的文本显示格式，默认展示labels.join('') | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[]) => string | - | 
 | onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 
-#### PickerColumnItem 
+### PickerColumnItem 
 | 参数 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | label | 文字 | string | - |
 | value | 值 | string \| number | - |
 
-#### CascaderOption
+### CascaderOption
 | 参数 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | label | 文字 | string | - |
 | value | 值 | string \| number | - |
 | children | 子级 | CascaderOption[] | - |
+
+## FAQ 
+### 动态改变picker列数时展示异常
+由于原生picker-view的限制，暂不支持动态改变列数
 

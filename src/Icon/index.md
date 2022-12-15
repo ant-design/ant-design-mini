@@ -17,7 +17,6 @@ toc: 'content'
 <Icon />
 
 ## 代码示例
-### 基本使用
 <code src='pages/Icon/index'></code>
 
 

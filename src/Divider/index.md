@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 信息展示
-toc: false
+toc: 'content'
 ---
 
 # Divider 分割线
@@ -16,9 +16,6 @@ toc: false
 - 对行内文字/链接进行分割，例如表格的操作列。
 
 ## 代码示例
-
-### 基本使用
-
 <code src='pages/Divider/index'></code>
 
 

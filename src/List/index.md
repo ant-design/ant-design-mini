@@ -12,7 +12,6 @@ toc: 'content'
 ## 何时使用
 以列表的形式干净高效的承载文字、列表、图片、段落等
 ## 代码示例
-### 基本使用
 <code src='pages/List/index'></code>
 
 

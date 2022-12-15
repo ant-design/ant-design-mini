@@ -70,7 +70,9 @@
     "pages/CascaderPicker/index",
     "pages/Rate/index",
     "pages/Slider/index",
-    "pages/TabsElevator/index"
+    "pages/TabsElevator/index",
+    "pages/Indexbar/index",
+    "pages/IndexbarScrollView/index"
   ],
   "window": {
     "enableWK": "YES",

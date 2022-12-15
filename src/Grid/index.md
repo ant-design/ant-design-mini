@@ -4,25 +4,22 @@ nav:
 group:
   title: 信息展示
   order: 8
-toc: false
+toc: 'content'
 ---
 # Grid 宫格
 宫格用于业务中多个子功能的导航，相比于列表的形式，具有更高的屏效。
 
 ## 代码示例
-### 基本使用
 <code src='pages/Grid/index'></code>
 
 
 
 ## API
-
-### Grid
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |
 | columns | 每行展示的元素个数，tile模式生效 | number | 5 | 
-| gridItemLayout | item布局。垂直/水平 | 'vertical' \| 'horizontal' | 'vertical' | 
+| gridItemLayout | item布局，可选`vertical`(垂直) `horizontal`(水平) | string | `vertical` | 
 | items | 内容文字 | [GridItem](#griditem)[] | - | 
 | mode | 样式类型，可选`tile`(平铺) `scroll`(滑动)  | string | `tile` | 
 | paginationFillColor | 分页符背景色，scroll模式生效 | string | - | 

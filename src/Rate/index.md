@@ -4,13 +4,12 @@ nav:
 group:
   title: 反馈
   order: 12
-toc: false
+toc: 'content'
 ---
           
 # Rate 评分
 用于展示事物评级以及快速打分
 ## 代码示例
-### 基本使用
 <code src='pages/Rate/index'></code>
     
 ## API

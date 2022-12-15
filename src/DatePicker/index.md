@@ -10,13 +10,12 @@ toc: 'content'
 相比较于原生my.datePicker实现了ios跟android端体验一致
 
 ## 代码示例
-### 基本使用
 <code src='pages/DatePicker/index'></code>
 
 
 
 ## API
-#### DatePicker
+### DatePicker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |
@@ -46,7 +45,7 @@ toc: 'content'
 | onFormat | 选中值的文本显示格式 | (date: Date, dateStr: string) => string |
 | onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
-#### RangePicker
+### RangePicker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |

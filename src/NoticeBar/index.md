@@ -12,12 +12,10 @@ toc: 'content'
 用于当前页面内信息的通知，是一种较醒目的页面内通知方式
 
 ## 代码示例
-### 基本使用
 <code src='pages/NoticeBar/index'></code>
 
 
 ## API
-
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名 | string | - | 

@@ -21,7 +21,6 @@ toc: 'content'
 
 
 ## API
-
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | autoAdjustOverflow |  气泡被遮挡时自动调整位置 | boolean | true | 
