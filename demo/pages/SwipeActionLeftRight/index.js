@@ -2,12 +2,12 @@ Page({
   data: {
     rightBtns: [
       {
-        text: '设为常用',
+        text: '往来记录',
         bgColor: '#1677FF',
         color: '#fff',
       },
       {
-        text: '往来记录',
+        text: '设为常用',
         bgColor: '#FFA91B',
         color: '#fff',
       },
@@ -15,7 +15,7 @@ Page({
         text: '删除',
         bgColor: '#FF2B00',
         color: '#fff',
-      },
+      }
     ],
     swipeIndex: -1
   },

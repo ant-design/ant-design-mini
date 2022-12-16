@@ -1,6 +1,6 @@
 <view class="t-swipe">
   <view class="t-swipe-item">
-    <view class="t-swipe-item-title">左侧按钮</view>
+    <view class="t-swipe-item-title">按钮在左侧</view>
     <swipe-action
       a:for="{{ 10 }}"
       data-item="{{{ index }}}"

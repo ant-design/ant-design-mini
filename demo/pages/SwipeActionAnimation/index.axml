@@ -1,11 +1,10 @@
 <view class="t-swipe">
   <view class="t-swipe-item">
-    <view class="t-swipe-item-title">基础用法</view>
+    <view class="t-swipe-item-title">去除松开手之后的滑动回弹效果</view>
     <swipe-action
       a:for="{{ 10 }}"
       data-item="{{{ index }}}"
       rightButtons="{{ rightBtns }}"
-      elasticity="{{true}}"
       elasticity="{{false}}"
       swiped="{{ swipeIndex === index }}"
       onSwipeEnd="onSwipeEnd"

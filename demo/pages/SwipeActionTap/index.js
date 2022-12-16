@@ -15,6 +15,8 @@ Page({
         text: '删除',
         bgColor: '#FF2B00',
         color: '#fff',
+        confirmType: 'tap',
+        confirmText: '确认删除吗?',
       },
     ],
     swipeIndex: -1

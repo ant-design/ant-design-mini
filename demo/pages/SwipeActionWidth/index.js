@@ -5,11 +5,13 @@ Page({
         text: '设为常用',
         bgColor: '#1677FF',
         color: '#fff',
+        width: 170,
       },
       {
         text: '往来记录',
         bgColor: '#FFA91B',
         color: '#fff',
+        width: 170,
       },
       {
         text: '删除',
