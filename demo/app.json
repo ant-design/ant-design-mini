@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/SwipeActionNumber/index",
+    "pages/SwipeActionLeft/index",
     "pages/SwipeAction/index",
     "pages/index/index",
     "pages/ActionSheet/index",

@@ -6,6 +6,7 @@
       data-item="{{{ index }}}"
       rightButtons="{{ rightBtns }}"
       elasticity="{{true}}"
+      elasticity="{{false}}"
       swiped="{{ swipeIndex === index }}"
       onSwipeEnd="onSwipeEnd"
       onSwipeStart="onSwipeStart"

@@ -14,8 +14,17 @@ toc: 'content'
 
 ## 代码示例
 
+### 基础用法
 <code src='pages/SwipeAction/index'></code>
 
+### 按钮在左侧
+<code src='pages/SwipeActionLeft/index'></code>
+
+### 改变按钮数量
+<code src='pages/SwipeActionNumber/index'></code>
+
+### 禁用滑动弹性
+<code src='pages/SwipeActionAnimation/index'></code>
 ## Tip
 
 1. 该组件父级容器必须设置width和height。
