@@ -5,7 +5,7 @@ interface ItemObj {
   disablePreview?: boolean
 }
 
-export interface IndexbarProps extends IBaseProps {
+export interface IndexBarProps extends IBaseProps {
   /**
    * @description 触发的索引样式
    */
@@ -36,4 +36,4 @@ export interface IndexbarProps extends IBaseProps {
   onChange?: (value: ItemObj, index: number) => void,
 }
 
-export declare const IndexbarDefaultProps: Partial<IndexbarProps>;
+export declare const IndexBarDefaultProps: Partial<IndexBarProps>;

@@ -1,10 +1,10 @@
 {
-  "defaultTitle": "Indexbar",
+  "defaultTitle": "IndexBar",
   "pullRefresh": "NO",
   "showProgress": "NO",
   "allowsBounceVertical": "NO",
   "usingComponents": {
-    "indexbar": "../../../src/Indexbar/index",
+    "index-bar": "../../../src/IndexBar/index",
     "list": "../../../src/List/index"
   }
 }

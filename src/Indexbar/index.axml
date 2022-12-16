@@ -1,4 +1,4 @@
-<view class="ant-indexbar-side {{className}}" disable-scroll="{{true}}" style="{{{ width: `${size}px` }}}" hover-stop-propagation>
+<view class="ant-indexbar-side {{className}}" disable-scroll="{{true}}" style="{{{ width: `${size}px;` }}} {{style}}" hover-stop-propagation>
   <view a:if="{{showMask}}" class="ant-indexbar-side-mask"></view>
   <view class="ant-indexbar-side-content">
     <view
