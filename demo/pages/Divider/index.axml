@@ -11,7 +11,7 @@
 <container title="水平分割线-自定义" headerInBox="{{false}}">
   <divider 
     text="自定义样式" 
-    textStyle="color:#1677ff;fontWeight:600" 
+    textStyle="color:#1677ff; fontWeight:600" 
     lineHeight="2"
     lineType="dashed"
     lineColor="#1677ff" 
@@ -19,11 +19,8 @@
 </container>
 
 <container title="垂直分割线" headerInBox="{{false}}">
-  <view class="demo-divider-vertical">
-    <view>
-      <am-icon class="demo-divider-vertical-icon" type="EnvironmentOutline" />
-      <text>距你100m</text>
-    </view>
+  <view class="divider-vertical">
+    <view>100m</view>
     <divider direction="vertical"/>
     <view>浙江省杭州市西湖区西溪路556号</view>
   </view>
