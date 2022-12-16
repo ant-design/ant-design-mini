@@ -26,9 +26,16 @@
   <script src="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/0.0.18/web/preview.js"></script>
   <script>
     const searchParams = new URL(location.href).searchParams;
-    let theme = searchParams.get('less-theme');
-    if (theme === null) {
-      theme = localStorage.getItem('theme') || '';
+    let theme;
+    let noChangeButton;
+    if (searchParams.get('noChangeButton')) {
+      theme = '';
+      noChangeButton = true;
+    } else {
+      theme = searchParams.get('less-theme');
+      if (theme === null) {
+        theme = localStorage.getItem('theme') || '';
+      }
     }
 
     function getDist() {
@@ -82,13 +89,17 @@
         isShowHeaderLogo: false,
       });
 
+      if (noChangeButton) {
+        return;
+      }
+
       window.navigate = () => {
         const urlObj = new URL(location.href);
         const value = theme === 'dark' ? '' : 'dark';
         localStorage.setItem('theme', value);
         urlObj.searchParams.set('less-theme', value);
         window.parent.postMessage({
-          previewURL: urlObj.toString(),
+          theme: value,
         }, '*');
       }
 

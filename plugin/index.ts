@@ -14,7 +14,7 @@ export default (api: IApi) => {
         if (opts.attrs.src.startsWith('pages')) {
           return {
             previewerProps: {
-              herboxUrl: `/preview.html?defaultPage=${opts.attrs.src}&defaultOpenedFiles=${opts.attrs.src}&theme=light&compilerServer=${process.env.SERVER || ''}`
+              herboxUrl: `/preview.html?defaultPage=${opts.attrs.src}&defaultOpenedFiles=${opts.attrs.src}&theme=light&compilerServer=${process.env.SERVER || ''}&noChangeButton=${opts.attrs.nochangebutton || ''}`
             },
           };
         }

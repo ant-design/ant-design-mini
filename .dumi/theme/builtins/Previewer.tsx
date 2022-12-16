@@ -6,15 +6,18 @@ interface IProps {
 }
 const Previewer: React.FC<IProps> = (props) => {
   const [loaded, setLoaded] = useState(false);
+  const [url, setURL] = useState(window.location.protocol + '//' + window.location.host + props.herboxUrl);
+
   useEffect(() => {
     window.addEventListener("message", (event) => {
-      if (event.data.previewURL) {
-        setURL(event.data.previewURL);
+      if (typeof event.data.theme !== 'undefined') {
+        const urlObj = new URL(url);
+        urlObj.searchParams.set('less-theme', event.data.theme);
+        setURL(urlObj.toString());
       }
     }, false);
   }, []);
 
-  const [url, setURL] = useState(props.herboxUrl);
 
   return (
     <div className="previewer">
