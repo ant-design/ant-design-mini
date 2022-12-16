@@ -9,9 +9,10 @@
 
 # production
 /es
+/less
 /docs-dist
 /dist
-/demo/es
+/dist-theme-dark
 
 # misc
 .DS_Store

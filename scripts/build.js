@@ -6,19 +6,31 @@ const less = require('less');
 const compile = require('./compile');
 
 
-function buildMiniProgram() {
-  return minidev.build({
+async function buildMiniProgram() {
+  await minidev.build({
     project: path.join(__dirname, '../'),
     output: path.join(__dirname, '../dist'),
     enableLess: true,
     enableTypescript: true,
-  }).catch(() => {
-    process.exit(1);
   });
+  const colorFilename = path.join(__dirname, '../src/style/themes/color.less');
+  const colorContent = await fs.promises.readFile(colorFilename, 'utf-8');
+  const appJSONFilename = path.join(__dirname, '../demo/app.json');
+  const appJSONContent = await fs.promises.readFile(appJSONFilename, 'utf-8');
+  await fs.promises.writeFile(colorFilename, colorContent.replace('default', 'dark'));
+  await fs.promises.writeFile(appJSONFilename, appJSONContent.replace('#FFFFFF', '#000000'));
+  await minidev.build({
+    project: path.join(__dirname, '../'),
+    output: path.join(__dirname, '../dist-theme-dark'),
+    enableLess: true,
+    enableTypescript: true,
+  });
+  await fs.promises.writeFile(colorFilename, colorContent);
+  await fs.promises.writeFile(appJSONFilename, appJSONContent);
 }
 
 function buildDocs() {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     const child = fork(`${process.cwd()}/node_modules/dumi/bin/dumi.js`, ['build'], {
       env: {
         FORCE_COLOR: 1,
@@ -26,7 +38,7 @@ function buildDocs() {
     });
     child.on('close', (code) => {
       if (code !== 0) {
-        process.exit(code);
+        reject();
       }
       resolve();
     });
@@ -36,18 +48,21 @@ function buildDocs() {
   })
 }
 
-async function buildPreview() {
+async function buildPreview(theme = 'default') {
   function lessCompile(filename) {
     return fs.promises.readFile(filename, 'utf-8').then(content => new Promise((resolve, reject) => {
       less.render(content, {
         filename,
+        modifyVars: {
+          theme,
+        },
       }, (e, output) => {
         if (e) {
           reject(e);
         }
         resolve(output.css);
       });
-    }));  
+    }));
   }
   
   function getFileContent(file) {
@@ -81,7 +96,7 @@ async function buildPreview() {
   const list = ['appConfig.json', 'index.html', 'index.js', 'index.worker.js'];
   const dist = {};
   list.forEach(item => {
-    const content = fs.readFileSync(path.join(__dirname, '../dist/ng-main', item), 'utf-8');
+    const content = fs.readFileSync(path.join(__dirname, theme === 'dark' ? '../dist-theme-dark/ng-main' : '../dist/ng-main', item), 'utf-8');
     dist[item] = content;
   });
 
@@ -93,10 +108,13 @@ async function buildPreview() {
     Object.assign(sourceCode, item);
   });
   const iframeContent = fs.readFileSync(path.join(__dirname, '../.dumi/theme/builtins/iframe.html'), 'utf-8');
-  fs.writeFileSync(path.join(__dirname, '../docs-dist/preview.json'), JSON.stringify({
+  fs.writeFileSync(path.join(__dirname, `../docs-dist/preview${theme === 'dark' ? '-theme-dark' : ''}.json`), JSON.stringify({
     dist,
     sourceCode,
   }));
+  if (theme === 'dark') {
+    return;
+  }
   fs.writeFileSync(path.join(__dirname, '../docs-dist/preview.html'), iframeContent);
   fs.mkdirSync(path.join(__dirname, '../docs-dist/mini'));
   const packageInfo = {};
@@ -105,11 +123,19 @@ async function buildPreview() {
 
 
 (async () => {
-  await Promise.all([
-    buildMiniProgram(),
-    buildDocs(),
-    compile(),
-  ]);
-  await buildPreview()
-  console.log('build success!');
+  try {
+    await compile();
+    await Promise.all([
+      buildMiniProgram(),
+      buildDocs(),
+    ]);
+    await Promise.all([
+      buildPreview(),
+      buildPreview('dark'),
+    ]);
+    console.log('build success!');
+  } catch(err) {
+    console.log(err);
+    process.exit(1);
+  }
 })();

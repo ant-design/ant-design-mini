@@ -80,7 +80,7 @@
     "enableDSL": "YES",
     "enableJSC": "YES",
     "defaultTitle": "小程序版 antd-mini 库",
-    "backgroundColor": "#F5F5F9",
+    "titleBarColor": "#FFFFFF",
     "pullRefresh": false,
     "allowsBounceVertical": false
   },
