@@ -91,7 +91,8 @@
     "yorkie": "^2.0.0"
   },
   "files": [
-    "es"
+    "es",
+    "less"
   ],
   "repository": {
     "type": "git",
