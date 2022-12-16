@@ -1,4 +1,4 @@
-export const IndexbarDefaultProps = {
+export const IndexBarDefaultProps = {
   className: '',
   activeClassName: '',
   defaultCurrent: '',
@@ -6,5 +6,6 @@ export const IndexbarDefaultProps = {
   vibrate: true,
   items: [],
   size: 16,
+  style: '',
   onChange: (value, index) => {},
 }

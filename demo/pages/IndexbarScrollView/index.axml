@@ -1,5 +1,5 @@
 <view class="base">
-  <indexbar
+  <index-bar
     className="indexbar"
     items="{{items}}"
     defaultCurrent="A"
@@ -11,5 +11,5 @@
         </list-item>
       </list>
     </view>
-  </indexbar>
+  </index-bar>
 </view>

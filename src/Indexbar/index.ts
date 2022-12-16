@@ -1,7 +1,7 @@
-import { IndexbarDefaultProps } from './props';
+import { IndexBarDefaultProps } from './props';
 
 Component({
-  props: IndexbarDefaultProps,
+  props: IndexBarDefaultProps,
   data: {
     touchClientY: 0, // 按下触摸点所处页面的高度
     touchKeyIndex: -1, // 选中的字母

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/IndexBar/index",
     "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormLayout/index",
@@ -72,8 +73,7 @@
     "pages/RateCustom/index",
     "pages/Slider/index",
     "pages/TabsElevator/index",
-    "pages/Indexbar/index",
-    "pages/IndexbarScrollView/index"
+    "pages/IndexBarScrollView/index"
   ],
   "window": {
     "enableWK": "YES",
