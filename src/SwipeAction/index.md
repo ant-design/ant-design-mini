@@ -53,7 +53,7 @@ toc: 'content'
 | -------------|----------------|-------|-------|------------------------------------------- |
 | leftButtons  | `SwipeButton[]`  | 否    | []    | 左侧按钮                                    |
 | rightButtons | `SwipeButton[]`  | 否    | []    | 右侧按钮                                    |
-| damping      | number         | 否    | 60    | 滑动速度                                    |
+| damping      | number         | 否    | 70    | 滑动速度                                    |
 | elasticity   | boolean        | 否    | true  | 滑动弹性                                    |
 | swiped       | `''` &verbar; `'left'` &verbar; `'right'` | 否    | false | 是否滑开               |
 | defaultSwiped| `''` &verbar; `'left'` &verbar; `'right'` | 否    | false | 是否默认滑开            |
