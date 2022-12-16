@@ -4,7 +4,7 @@ export const SwipeActionDefaultProps = {
   elasticity: true,
   swiped: '',
   defaultSwiped: '',
-  damping: 60,
+  damping: 70,
   disable: false,
   onSwipeStart: (e) => {},
   onSwipeEnd: (e, data) => {},

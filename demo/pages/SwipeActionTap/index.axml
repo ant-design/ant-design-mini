@@ -1,6 +1,6 @@
 <view class="t-swipe">
   <view class="t-swipe-item">
-    <view class="t-swipe-item-title">基础用法</view>
+    <view class="t-swipe-item-title">删除按钮点击二次确认</view>
     <swipe-action
       a:for="{{ 10 }}"
       data-item="{{{ index }}}"

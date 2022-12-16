@@ -67,7 +67,7 @@ Component({
   didUpdate(prevProp) {
     const { swiped, damping, elasticity } = this.props;
     // 设置不同的滑动位置时需要重置
-    const rs = prevProp.swiped !== swiped;
+    const rs = prevProp.swiped !== swiped && !swiped;
     const is = prevProp.elasticity !== elasticity;
     const ds = prevProp.damping !== damping;
     if (rs || is || ds) {
@@ -263,7 +263,7 @@ Component({
                 onSwipeEnd(fmtEvent(this.props), { direction: 'left', swiped: !!isRight });
               },
             );
-          }, inertiaWidth > 0 ? 200 : 0)
+          }, inertiaWidth > 0 ? 180 : 0)
         },
       );
     },
@@ -290,7 +290,7 @@ Component({
                 onSwipeEnd(fmtEvent(this.props), { direction: 'right', swiped: !!isRight });
               },
             );
-          },  inertiaWidth > 0 ? 200 : 0);
+          },  inertiaWidth > 0 ? 180 : 0);
         },
       );
     },
