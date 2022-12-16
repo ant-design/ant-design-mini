@@ -45,12 +45,8 @@
     <view slot="title">标题插槽</view>
     <view slot="message">描述插槽</view>
     <view slot="extra">
-      <block a:for="{{buttons}}">
-        <button className="demo-result-buttons"
-          type="{{item.type}}"
-          onTap="onButtonTap"
-        >{{item.text}}</button>
-      </block>
+      <button inline>辅助操作</button>
+      <button type="primary" inline style="margin-left: 12px;">主要操作</button>
     </view>
   </result>
 </container>

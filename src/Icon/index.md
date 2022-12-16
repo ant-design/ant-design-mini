@@ -17,7 +17,7 @@ toc: 'content'
 <Icon />
 
 ## 代码示例
-<code src='pages/Icon/index'></code>
+<code src='pages/Icon/index' noChangeButton></code>
 
 
 ## API

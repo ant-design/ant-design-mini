@@ -13,25 +13,25 @@
 
 <container title="自定义组合">
   <view class="list">
-    <skeleton-avatar shape="circle" />
-    <skeleton-paragraph rows="{{1}}" />
-    <skeleton-input />
-    <skeleton-input />
-    <skeleton-input />
-    <skeleton-button size="small" />
+    <skeleton-avatar className="custom" />
+    <skeleton-paragraph className="custom" rows="{{1}}" />
+    <skeleton-input className="custom" />
+    <skeleton-input className="custom" />
+    <skeleton-input className="custom" />
+    <skeleton-button className="custom" size="small" />
   </view>
 </container>
 
 <container title="复杂组合">
-  <skeleton loading="{{showLoading}}" title="{{false}}" avatar>
-    <view class="demo-skeleton-content">
+  <skeleton loading="{{showLoading}}" title="{{false}}" avatar paragraph="{{paragraph}}">
+    <view class="container">
       <avatar src="https://images.unsplash.com/photo-1546967191-fdfb13ed6b1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" />
-      <view class="demo-skeleton-content-text">We supply a series of design principles, practical patterns and high quality design resources, to help people create their product prototypes beautifully and efficiently.
+      <view class="content">We supply a series of design principles, practical patterns and high quality design resources, to help people create their product prototypes beautifully and efficiently.
       </view>
     </view>
   </skeleton>
   <view slot="headerRight">
     显示骨架
-    <switch class="demo-skeleton-switch" checked="{{showLoading}}" onChange="handleToggleShowLoading" />
+    <switch checked="{{showLoading}}" onChange="handleToggleShowLoading" />
   </view>
 </container>

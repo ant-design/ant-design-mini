@@ -9,7 +9,7 @@
     <button class="demo-empty-btn-sub" type='primary' fill="outline" inline onTap="onSubBtnClick">
       操作1
     </button>
-    <button class="demo-empty-btn-main" type='primary' inline onTap="onMainBtnClick">
+    <button class="demo-empty-btn-main" inline onTap="onMainBtnClick">
       操作2
     </button>
   </view>

@@ -42,15 +42,7 @@ export default ({
         this.updateControlled();
       }
     },
-    deriveDataFromProps(nextProps) {
-      if (!equal(nextProps[valueKey], this.props[valueKey])) {
-        this.update(nextProps[valueKey]);
-      }
-    },
     didUpdate(prevProps) {
-      if (component2) {
-        return;
-      }
       if (!equal(prevProps[valueKey], this.props[valueKey])) {
         this.update(this.props[valueKey]);
       }

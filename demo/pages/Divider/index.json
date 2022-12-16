@@ -2,7 +2,6 @@
   "defaultTitle": "Divider",
   "usingComponents": {
     "divider": "../../../src/Divider/index",
-    "am-icon": "../../../src/Icon/index",
     "container": "../../../src/Container/index"
   }
 }

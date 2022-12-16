@@ -13,13 +13,13 @@
     >
       <view class="ant-collapse-item-line">
         <view class="ant-collapse-item-title-node">
-          <slot name="title" value="{{item}}" index="{{index}}">
+          <slot name="title" value="{{item}}" index="{{index}}" current="{{mixin.value}}">
             {{item.title}}
           </slot>
         </view>
         <view class="ant-collapse-item-brief-container">
           <view class="ant-collapse-item-brief-node">
-            <slot name="brief" value="{{item}}" index="{{index}}">
+            <slot name="brief" value="{{item}}" index="{{index}}" current="{{mixin.value}}">
               {{brief}}
             </slot>
           </view>
@@ -40,7 +40,7 @@
     >
       <view class="ant-collapse-item-content-container">
         <view class="ant-collapse-item-content {{`ant-collapse-item-content-${$id}-${index}`}}">
-          <slot name="content" value="{{item}}" index="{{index}}">
+          <slot name="content" value="{{item}}" index="{{index}}" current="{{mixin.value}}">
             {{item.content}}
           </slot>
         </view>

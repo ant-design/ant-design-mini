@@ -18,7 +18,7 @@ toc: 'content'
 
 ### InputBase 基本使用
 InputBase是没有样式的Input
-<code src='pages/InputBase/index'></code>
+<code src='pages/InputBase/index' noChangeButton></code>
 
 ### SearchBar 搜索框 
 <code src='pages/InputSearchBar/index'></code>
