@@ -32,10 +32,13 @@ toc: 'content'
 | defaultCurrent | 默认索引 | string | - |
 | labelPreview | 索引预览内容，接收value和index | slot | - |
 | items | 索引数组 | [Item](#item) | [] |
-| size | 样式 | string | - |
-| style | 索引的尺寸（宽高，单位px) | number | 16 |
+| style | 样式 | string | - |
+| size | 索引的尺寸（宽高，单位px) | number | 16 |
 | vibrate | 索引改变时是否震动 | boolean | false |
 | onChange | 索引改变时回调 | (value: [Item](#item), index: number) => void |
+
+### Item
+| 属性 | 说明 | 类型 | 默认值 |
 
 
 
