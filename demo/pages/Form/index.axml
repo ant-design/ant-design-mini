@@ -1,16 +1,16 @@
 <form-input
   label="用户名"
   name="account"
-  allowClear
-  required
+  placeholder="请输入用户名"
   tooltip="用户名说明"
-  message="需要填写用户名"
+  allowClear
   ref="handleRef"
 />
 
 <form-input
   label="地址"
   name="address"
+  placeholder="请输入地址"
   allowClear
   ref="handleRef"
 />
@@ -79,13 +79,11 @@
   options="{{selectorOptions}}"
   ref="handleRef"
 />
+
 <form-slider
   label="选择分数"
-  name="slider2"
-  showTicks
-  showNumber
+  name="slider"
   showTooltip
-  step="{{10}}"
   ref="handleRef"
 />
 
