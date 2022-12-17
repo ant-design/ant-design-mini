@@ -88,7 +88,7 @@ async function buildPreview(theme = 'default') {
     });
     const json = {};
     (await Promise.all(list)).forEach((item, index) => {
-      json[arr[index]] = item.replace(/('|")[^'"]*\/src/g, '$1antd-mini/es');
+      json[arr[index]] = item.replace(/('|")[^'"]*\/src/g, theme === 'dark' ? '$1antd-mini/less' : '$1antd-mini/es');
     });
     return json;
   }
