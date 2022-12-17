@@ -1,17 +1,3 @@
 page {
-  padding: 24rpx;
-}
-
-.demo-empty-btn {
-  margin-top: 40rpx;
-}
-
-.demo-empty-btn-main,
-.demo-empty-btn-sub {
-  margin: 0 12rpx;
-}
-
-.demo-empty-container-image {
-  width: 200rpx;
-  height: 170rpx;
+  padding: 12px;
 }

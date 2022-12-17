@@ -10,19 +10,4 @@ Page({
       value: 'section',
     }]
   },
-  onSubBtnClick() {
-    my.alert({
-      title: '你点击了按钮1',
-    });
-  },
-  onMainBtnClick() {
-    my.alert({
-      title: '你点击了按钮2',
-    });
-  },
-  handleChangeMode(v) {
-    this.setData({
-      mode: v
-    })
-  }
 });
