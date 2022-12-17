@@ -14,21 +14,46 @@ toc: 'content'
 
 ## 代码示例
 
+### 基础用法
 <code src='pages/SwipeAction/index'></code>
 
+### 按钮在左侧
+<code src='pages/SwipeActionLeft/index'></code>
+
+### 改变按钮数量
+<code src='pages/SwipeActionNumber/index'></code>
+
+### 禁用滑动回弹
+<code src='pages/SwipeActionAnimation/index'></code>
+
+### 设置按钮宽度
+<code src='pages/SwipeActionWidth/index'></code>
+
+### 设置滑动速度
+<code src='pages/SwipeActionSpeed/index'></code>
+
+### 按钮点击二次确认
+<code src='pages/SwipeActionTap/index'></code>
+
+### 按钮滑出最大距离二次确认
+<code src='pages/SwipeActionMove/index'></code>
+
+### 左右两侧都有按钮
+<code src='pages/SwipeActionLeftRight/index'></code>
 ## Tip
 
 1. 该组件父级容器必须设置width和height。
 2. 左右两侧都需要滑动按钮时，两侧设置的宽度总和需一致。
 3. elasticity设置为false时设置damping数值小一点体验更佳。
-4. appx1.0（钉钉小程序、网页端模拟器）中没有touchend之后滑动过渡效果，appx2.0不受影响。
+4. 每一侧的滑动二次确认只会触发第一个，其他不会触发。
+5. appx1.0（钉钉小程序）中没有touchend之后滑动过渡效果，appx2.0不受影响。
 
 ## 属性
 | 属性         | 类型            | 必填   | 默认值 | 说明                  |
 | -------------|----------------|-------|-------|------------------------------------------- |
 | leftButtons  | `SwipeButton[]`  | 否    | []    | 左侧按钮                                    |
 | rightButtons | `SwipeButton[]`  | 否    | []    | 右侧按钮                                    |
-| damping      | number         | 否    | 60    | 滑动速度                                    |
+| damping      | number         | 否    | 70    | 滑动速度                                    |
 | elasticity   | boolean        | 否    | true  | 滑动弹性                                    |
 | swiped       | `''` &verbar; `'left'` &verbar; `'right'` | 否    | false | 是否滑开               |
 | defaultSwiped| `''` &verbar; `'left'` &verbar; `'right'` | 否    | false | 是否默认滑开            |

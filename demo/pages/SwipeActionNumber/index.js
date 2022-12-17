@@ -7,13 +7,13 @@ Page({
         color: '#fff',
       },
       {
-        text: '删除',
-        bgColor: '#FF2B00',
+        text: '往来记录',
+        bgColor: '#FFA91B',
         color: '#fff',
       },
       {
-        text: '往来记录',
-        bgColor: '#FFA91B',
+        text: '删除',
+        bgColor: '#FF2B00',
         color: '#fff',
       },
     ],
