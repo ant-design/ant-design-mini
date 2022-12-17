@@ -21,11 +21,9 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|----- |
 | className | 根节点类名 |  string | - | 
-| title | 标题文案 | string | - | 
-| image | 图片区内容 | slot | - | 
-| mode |  空状态模式，`page`(整页空状态) `section`(局部空状态) | string | `page` |
-| message | 描述文案 | string | - | 
+| title | 标题文案 | string \| slot | - | 
+| image | 图片，可传入字符串作为图片地址 | string \| slot | - | 
+| message | 描述文案 | string \| slot | - | 
 | style | 样式 | string | - | 
-
 
 

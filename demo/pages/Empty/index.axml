@@ -1,60 +1,24 @@
-<radio-group  
-  position="horizontal"
-  options="{{modeList}}"
-  onChange="handleChangeMode"
-/>
+<container title="基础样式">
+  <empty title="这里什么也没有" message="看看其它吧" />
+</container>
 
-<empty a:if="{{mode==='page'}}" title="这里什么都没有" message="看看其它的吧">
-  <view class="demo-empty-btn" slot="extra">
-    <button class="demo-empty-btn-sub" type='primary' fill="outline" inline onTap="onSubBtnClick">
-      操作1
-    </button>
-    <button class="demo-empty-btn-main" inline onTap="onMainBtnClick">
-      操作2
-    </button>
-  </view>
-</empty>
+<container title="添加操作按钮组">
+  <empty title="这里什么也没有" message="看看其它吧">
+    <view slot="extra">
+      <button size="small" inline>
+        操作1
+      </button>
+      <button type="primary" size="small" inline style="margin-left: 12px;">
+        操作2
+      </button>
+    </view>
+  </empty>
+</container>
 
-<view a:else>
-  <container title="基础样式" class="demo-empty-container">
-    <empty mode="section" message="这里什么也没有"/>
-  </container>
-  
-  <container title="添加操作按钮组" class="demo-empty-container">
-    <empty 
-      mode="section" 
-      message="这里什么也没有"
-    >
-      <view class="demo-empty-btn" slot="extra">
-        <button class="demo-empty-btn-sub" type='primary' fill="outline" inline onTap="onSubBtnClick">
-          操作1
-        </button>
-        <button class="demo-empty-btn-main" type='primary' inline onTap="onMainBtnClick">
-          操作2
-        </button>
-      </view>
-    </empty>
-  </container>
-  
-  <container title="只有一个按钮" class="demo-empty-container">
-    <empty 
-      mode="section" 
-      message="这里什么也没有"
-    >
-      <view class="demo-empty-btn" slot="extra">
-        <button class="demo-empty-btn-sub" type='primary' fill="outline" inline onTap="onSubBtnClick">
-          操作1
-        </button>
-      </view>
-    </empty>
-  </container>
-  
-  <container title="自定义图片" class="demo-empty-container">
-    <empty 
-      mode="section"
-      message="没有找到你需要的东西" 
-    >
-      <image slot="image" src="{{imageUrl}}" class="demo-empty-container-image"/>
-    </empty>
-  </container>
-</view>
+<container title="自定义图片">
+  <empty
+    title="这里什么也没有"
+    message="看看其它吧"
+    image="https://gw.alipayobjects.com/mdn/rms_7cc883/afts/img/A*PG7NQoXbN38AAAAAAAAAAAAAARQnAQ"
+  />
+</container>
