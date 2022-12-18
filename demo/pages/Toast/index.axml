@@ -84,30 +84,28 @@
 </container>
 
 <toast 
-  content="{{content1}}" 
+  content="最少字符" 
   visible="{{toast1Show}}" 
   duration="{{0}}" 
   showMask="{{true}}" 
   maskCloseable="{{true}}" 
   onClose="handleCloseToast" 
-  data-index="1" 
-  class="toastWrapper" 
+  data-index="1"
 />
 
 <toast 
-  content="{{content4}}" 
+  content="最长文案不超过2行，最多可以显示24个字符" 
   visible="{{toast4Show}}" 
   data-index="4" 
   duration="{{0}}" 
   showMask="{{true}}" 
   maskCloseable="{{true}}" 
-  onClose="handleCloseToast" 
-  class="toastWrapper" 
+  onClose="handleCloseToast"
 />
 
 <toast 
-  content="{{content5}}" 
-  icon="{{icon2}}" 
+  content="欢迎使用新版本" 
+  icon="LikeOutline" 
   visible="{{toast2Show}}" 
   duration="{{0}}" 
   showMask="{{true}}" 
@@ -118,22 +116,20 @@
 />
 
 <toast 
-  content="{{content2}}" 
-  image="{{image1}}" 
+  content="自定义图片" 
+  image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" 
   visible="{{toast5Show}}"
   duration="{{0}}" 
   showMask="{{true}}" 
   maskCloseable="{{true}}" 
   onClose="handleCloseToast" 
-  data-index="5" 
-  class="toastWrapper" 
+  data-index="5"
 />
 
 <toast 
-  content="{{content3}}"
+  content="这个提示持续时间3s"
   visible="{{toast3Show}}" 
-  duration="{{3000}}" 
-  class="toastWrapper" 
+  duration="{{3000}}"
   data-index="3" 
   onClose="handleCloseToast" 
   showMask="{{true}}" 
@@ -141,9 +137,8 @@
 />
 
 <toast 
-  content="{{content2}}" 
-  visible="{{toast6Show}}" 
-  class="toastWrapper" 
+  content="加载状态" 
+  visible="{{toast6Show}}"
   data-index="6" 
   type="loading" 
   onClose="handleCloseToast" 
@@ -153,9 +148,8 @@
 />
 
 <toast 
-  content="{{content5}}" 
-  visible="{{toast7Show}}" 
-  class="toastWrapper" 
+  content="操作成功" 
+  visible="{{toast7Show}}"
   data-index="7" 
   type="success" 
   onClose="handleCloseToast" 
@@ -164,9 +158,8 @@
   maskCloseable="{{true}}" 
 />
 <toast 
-  content="{{content5}}" 
-  visible="{{toast8Show}}" 
-  class="toastWrapper" 
+  content="失败提示" 
+  visible="{{toast8Show}}"
   data-index="8" 
   type="error" 
   onClose="handleCloseToast" 
@@ -175,9 +168,8 @@
   maskCloseable="{{true}}" 
 />
 <toast 
-  content="{{content5}}" 
-  visible="{{toast9Show}}" 
-  class="toastWrapper" 
+  content="警示信息" 
+  visible="{{toast9Show}}"
   data-index="9" 
   type="warning" 
   onClose="handleCloseToast" 
