@@ -27,6 +27,7 @@
   }
 
   &-image {
+    margin-right: 24 * @rpx;
     &-icon {
       font-size: 52 * @rpx;
     }
@@ -35,6 +36,9 @@
       height: 52 * @rpx;
       overflow: hidden;
     }
+    &:empty {
+      display: none;
+    }
   }
 
   &-content {
@@ -42,7 +46,6 @@
       display: flex;
       flex: 1;
       flex-direction: column;
-      padding-left: 24 * @rpx;
     }
 
     &-main {
