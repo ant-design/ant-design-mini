@@ -9,10 +9,12 @@
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}">
   <view class="ant-list-item-line {{showDivider?'ant-list-item-line-divider':''}} {{disabled? 'ant-list-item-line-disabled' : ''}}">
-    <slot name="image" >
-      <image-icon a:if="{{image}}" image="{{image}}" className="ant-list-item-image"/>
-    </slot>
-      <view class="ant-list-item-content-container">
+    <view class="ant-list-item-image-container">
+      <slot name="image" >
+        <image-icon a:if="{{image}}" image="{{image}}" className="ant-list-item-image"/>
+      </slot>
+    </view>
+    <view class="ant-list-item-content-container">
       <view class="ant-list-item-content-title-container">
         <slot name="title">
           <view a:if="{{title}}" class="ant-list-item-content-title">

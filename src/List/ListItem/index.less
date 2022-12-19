@@ -27,7 +27,12 @@
   }
 
   &-image {
-    margin-right: 24 * @rpx;
+    &-container {
+      margin-right: 24 * @rpx;
+      &:empty {
+        display: none;
+      }
+    }
     &-icon {
       font-size: 52 * @rpx;
     }
@@ -35,9 +40,6 @@
       width: 52 * @rpx;
       height: 52 * @rpx;
       overflow: hidden;
-    }
-    &:empty {
-      display: none;
     }
   }
 
