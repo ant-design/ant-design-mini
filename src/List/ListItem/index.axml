@@ -1,6 +1,8 @@
 <import-sjs name="arrowUtil" from="../../_util/arrow.sjs" />
 
-<view class="ant-list-item  {{className ? className : ''}}"
+<view 
+  class="ant-list-item  {{className ? className : ''}}"
+  style="{{style || ''}}"
   onTap="{{onTap ? 'onTap' : ''}}"
   catchTap="{{catchTap ? 'catchTap' : ''}}"
   hover-class="{{(onTap||catchTap) ? 'ant-list-item-hover' : ''}}"

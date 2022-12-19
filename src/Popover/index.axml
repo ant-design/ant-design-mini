@@ -8,7 +8,7 @@
     <!-- 蒙层 -->
     <mask 
       show="{{showMask&&!isComputing(placement, adjustedPlacement, autoAdjustOverflow)}}"    
-      className="{{maskClassName}}"
+      className="ant-popover-mask {{maskClassName || ''}}"
       style="z-index:99;{{maskStyle || ''}}" 
       onMaskTap="onVisibleChange"/>
     <view
