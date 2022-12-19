@@ -7,6 +7,6 @@
   </view>
   <view class="ant-switch-inner">
     <slot name="checkedText" a:if="{{mixin.value}}">{{checkedText}}</slot>
-    <slot name="unCheckedText" a:else>{{uncheckedText}}</slot>
+    <slot name="uncheckedText" a:else>{{uncheckedText}}</slot>
   </view>
 </view>

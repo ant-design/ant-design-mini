@@ -1,4 +1,4 @@
-@import (reference) "./variable.less";
+@import (reference) './variable.less';
 
 @switchPrefix: ant-switch;
 
@@ -16,7 +16,6 @@
   align-self: center;
   min-width: @switch-width;
   height: @switch-height;
-  box-sizing: border-box;
   border: @switch-border solid @COLOR_BORDER;
   border-radius: @switch-height * 0.5;
   background: @COLOR_WHITE;
@@ -30,7 +29,7 @@
     }
     .@{switchPrefix}-inner {
       color: @COLOR_WHITE;
-      margin: 0 (@switch-height - @switch-border * 2 + 10 * @rpx) 0 16 * @rpx;
+      justify-content: flex-start;
     }
   }
   &-disabled {
@@ -54,26 +53,28 @@
     border-radius: 50%;
     background: @COLOR_WHITE;
     position: absolute;
-    z-index: 2;
     top: 0;
     left: 0;
     transition: all 200ms;
-    box-shadow:
-    0 0 2px 0 fade(@COLOR_WHITE_CHANGE_DARK, 20%), 
-    0 2px 11.5px 0 fade(@COLOR_WHITE_CHANGE_DARK, 8%), 
-    -1px 2px 2px 0 fade(@COLOR_WHITE_CHANGE_DARK, 10%)
+    box-shadow: 0 0 2px 0 fade(@COLOR_WHITE_CHANGE_DARK, 20%),
+      0 2px 11.5px 0 fade(@COLOR_WHITE_CHANGE_DARK, 8%),
+      -1px 2px 2px 0 fade(@COLOR_WHITE_CHANGE_DARK, 10%);
   }
   &-inner {
     position: relative;
-    z-index: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    margin: 0 10 * @rpx 0 (@switch-height - @switch-border * 2 + 10 * @rpx);
     height: 100%;
     color: @COLOR_TEXT_ASSIST;
     transition: margin 200ms;
     font-size: 30 * @rpx;
+    padding: 0 14 * @rpx;
+    min-width: 108 * @rpx;
+    box-sizing: border-box;
+    &:empty {
+      display: none;
+    }
   }
 
   &-small {
@@ -85,16 +86,14 @@
       height: @switch-height-small - 2 * @switch-border;
     }
     .@{switchPrefix}-inner {
-      margin: 0 10 * @rpx 0 (@switch-height-small - @switch-border * 2 + 10 * @rpx);
+      font-size: 16 * @rpx;
+      padding: 0 10 * @rpx;
+      min-width: 72 * @rpx;
     }
   }
   &-small&-checked {
     .@{switchPrefix}-handle {
       left: calc(100% - (@switch-height-small - 2 * @switch-border));
-    }
-    .@{switchPrefix}-inner {
-      color: @COLOR_WHITE;
-      margin: 0 (@switch-height-small - @switch-border * 2 + 10 * @rpx) 0 16 * @rpx;
     }
   }
 
@@ -107,16 +106,14 @@
       height: @switch-height-x-small - 2 * @switch-border;
     }
     .@{switchPrefix}-inner {
-      margin: 0 10 * @rpx 0 (@switch-height-x-small - @switch-border * 2 + 10 * @rpx);
+      font-size: 10 * @rpx;
+      padding: 0 6 * @rpx;
+      min-width: 56 * @rpx;
     }
   }
   &-x-small&-checked {
     .@{switchPrefix}-handle {
       left: calc(100% - (@switch-height-x-small - 2 * @switch-border));
-    }
-    .@{switchPrefix}-inner {
-      color: @COLOR_WHITE;
-      margin: 0 (@switch-height-x-small - @switch-border * 2 + 10 * @rpx) 0 16 * @rpx;
     }
   }
 }
