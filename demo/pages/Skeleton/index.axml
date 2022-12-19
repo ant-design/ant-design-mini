@@ -32,6 +32,6 @@
   </skeleton>
   <view slot="headerRight">
     显示骨架
-    <switch checked="{{showLoading}}" onChange="handleToggleShowLoading" />
+    <switch style="margin-left:8px" checked="{{showLoading}}" onChange="handleToggleShowLoading" />
   </view>
 </container>
