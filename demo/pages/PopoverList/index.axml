@@ -1,36 +1,33 @@
-<container title="气泡菜单">
-  <view class="wrap">
-    <popover 
-      placement="bottom-left"
-      showMask
-      visible="{{visible}}"
-      className="popover"
-      onVisibleChange="handleVisibleChange">
-      <button inline>点我</button>
-      <list slot="content">
-        <list-item 
-          onTap="handleTapItem"
-          image="ScanningOutline">
-          扫一扫
-        </list-item>
+<view class="wrap">
+  <popover 
+    placement="bottom-left"
+    visible="{{visible}}"
+    className="popover"
+    onVisibleChange="handleVisibleChange">
+    <button inline>点我</button>
+    <list slot="content">
+      <list-item 
+        onTap="handleTapItem"
+        image="ScanningOutline">
+        扫一扫
+      </list-item>
 
-        <list-item 
-          onTap="handleTapItem"
-          image="ReceivePaymentOutline">
-          付钱/收钱
-        </list-item>
+      <list-item 
+        onTap="handleTapItem"
+        image="ReceivePaymentOutline">
+        付钱/收钱
+      </list-item>
 
-        <list-item 
-          onTap="handleTapItem"
-          image="TransportQRcodeOutline">
-          乘车码
-        </list-item>
-        <list-item 
-          onTap="handleTapItem"
-          image="{{url}}">
-          图片
-        </list-item>
-      </list>
-    </popover>
-  </view>
-</container>
+      <list-item 
+        onTap="handleTapItem"
+        image="TransportQRcodeOutline">
+        乘车码
+      </list-item>
+      <list-item 
+        onTap="handleTapItem"
+        image="{{url}}">
+        图片
+      </list-item>
+    </list>
+  </popover>
+</view>

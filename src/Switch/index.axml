@@ -1,12 +1,12 @@
 <view 
   class="ant-switch {{className ? className : ''}} ant-switch-{{size}} {{mixin.value ? 'ant-switch-checked':''}}  {{disabled?'ant-switch-disabled':''}}   {{loading ? 'ant-switch-loading':''}}"
-  style="{{mixin.value && color ? 'background:'+color + '; border-color:' + color:''}};"
+  style="{{mixin.value && color ? 'background:'+color + '; border-color:' + color:''}};{{style || ''}}"
   catchTap="onChange">
   <view class="ant-switch-handle">
     <icon type="UndoOutline" a:if="{{loading}}" className="ant-switch-loading-icon"/>
   </view>
   <view class="ant-switch-inner">
     <slot name="checkedText" a:if="{{mixin.value}}">{{checkedText}}</slot>
-    <slot name="unCheckedText" a:else>{{uncheckedText}}</slot>
+    <slot name="uncheckedText" a:else>{{uncheckedText}}</slot>
   </view>
 </view>

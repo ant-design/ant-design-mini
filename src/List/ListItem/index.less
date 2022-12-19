@@ -27,6 +27,12 @@
   }
 
   &-image {
+    &-container {
+      margin-right: 24 * @rpx;
+      &:empty {
+        display: none;
+      }
+    }
     &-icon {
       font-size: 52 * @rpx;
     }
@@ -42,7 +48,6 @@
       display: flex;
       flex: 1;
       flex-direction: column;
-      padding-left: 24 * @rpx;
     }
 
     &-main {

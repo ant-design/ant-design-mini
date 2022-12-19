@@ -4,18 +4,7 @@
       placement="top"
       content="prompt"
       onVisibleChange="handleVisibleChange">
-      <button inline>点我</button>
-    </popover>
-  </view>
-</container>
-<container title="点击空白处关闭">
-  <view class="wrap">
-    <popover 
-      placement="top"
-      content="prompt"
-      showMask
-      maskStyle="background:transparent;">
-      <button inline>点我</button>
+      <button inline size="small">点我</button>
     </popover>
   </view>
 </container>
@@ -26,28 +15,28 @@
       color="pink"
       content="prompt"
       onVisibleChange="handleVisibleChange">
-      <button inline>pink</button>
+      <button inline size="small">pink</button>
     </popover>
     <popover 
       placement="top"
       color="red"
       content="prompt"
       onVisibleChange="handleVisibleChange">
-      <button inline>red</button>
+      <button inline size="small">red</button>
     </popover>
     <popover 
       placement="top"
       color="green"
       content="prompt"
       onVisibleChange="handleVisibleChange">
-      <button inline>green</button>
+      <button inline size="small">green</button>
     </popover>
     <popover 
       placement="top"
       color="orange"
       content="prompt"
       onVisibleChange="handleVisibleChange">
-      <button inline>orange</button>
+      <button inline size="small">orange</button>
     </popover>
   </view>
 </container>
@@ -57,25 +46,27 @@
       placement="{{item}}"
       a:for="{{ ['top','top-left','top-right'] }}"
       content="prompt">
-      <button inline style="width:110px;">{{item}}</button>
+      <button inline style="width:96px;" size="small">{{item}}</button>
     </popover>
   </view>
-  <view style="padding:20px 64px;display:flex;align-items:stretch;justify-content:space-between;">
+  <view style="padding:20px 80px 0;display:flex;align-items:stretch;justify-content:space-between;">
     <view>
-      <popover 
-        placement="{{item}}"
-        a:for="{{ ['left','left-top','left-bottom'] }}"
-        content="prompt">
-        <button inline style="width:110px;">{{item}}</button>
-      </popover>
+      <view style="margin-bottom:20px;" a:for="{{ ['left','left-top','left-bottom'] }}">
+        <popover 
+          placement="{{item}}"
+          content="prompt">
+          <button inline style="width:96px;height:60px;display:inline-flex;justify-content:center" size="small">{{item}}</button>
+        </popover>
+      </view>
     </view>
     <view>
-      <popover 
-        placement="{{item}}"
-        a:for="{{ ['right','right-top','right-bottom'] }}"
-        content="prompt">
-        <button inline style="width:110px;">{{item}}</button>
-      </popover>
+      <view style="margin-bottom:20px;" a:for="{{ ['right','right-top','right-bottom'] }}">
+        <popover 
+          placement="{{item}}"
+          content="prompt">
+          <button inline style="width:96px;height:60px;display:inline-flex;justify-content:center" size="small">{{item}}</button>
+        </popover>
+      </view>
     </view>
   </view>
   <view style="display:flex;justify-content:space-between;padding-bottom:30px;">
@@ -83,7 +74,7 @@
       placement="{{item}}"
       a:for="{{ ['bottom','bottom-left','bottom-right'] }}"
       content="prompt">
-      <button inline style="width:110px;">{{item}}</button>
+      <button inline style="width:96px;" size="small">{{item}}</button>
     </popover>
   </view>
 </container>
