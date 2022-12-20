@@ -11,9 +11,9 @@ export interface IGridProps extends IBaseProps {
    */
   iconStyle?: 'normal' | 'circle';
   /**
-   * @description 图标尺寸
+   * @description 图标尺寸，单位px
    */
-  iconSize?: string;
+  iconSize?: number;
   /**
    * @description item布局。垂直/水平，水平仅columns=2生效
    * @default 'vertical'
@@ -21,9 +21,9 @@ export interface IGridProps extends IBaseProps {
   gridItemLayout?: 'vertical' | 'horizontal';
   /**
    * @description 组合形式
-   * @default 'tile'
+   * @default 'default'
    */
-  mode: 'tile' | 'scroll';
+  mode: 'default' | 'scroll';
   /**
    * @description 每行展示的元素个数
    * @default 5

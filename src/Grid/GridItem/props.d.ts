@@ -8,7 +8,7 @@ export interface IGridItem {
   /**
    * @description 副文案
    */
-   description?: string;
+  description?: string;
   /**
    * @description 图标
    */
@@ -36,11 +36,7 @@ export interface IGridItemProps extends IBaseProps {
    * @default 'normal'
    */
   iconStyle?: 'normal' | 'circle';
-  iconSize?: string | number;
-  /**
-   * @description 标题大小，2列时large，3列时middle，其余small
-   */
-  titleSize: 'large' | 'middle' | 'small';
+  iconSize?: number;
   showDivider: boolean;
   layout?: 'vertical' | 'horizontal';
 }

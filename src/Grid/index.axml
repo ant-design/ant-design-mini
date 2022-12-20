@@ -1,5 +1,8 @@
 <import-sjs name="sjs" from='./index.sjs' />
-<view class="ant-grid ant-grid-columns-{{columns}} ant-grid-{{mode}} {{className||''}}" a:if="{{mode==='tile'}}">
+<view 
+    class="ant-grid ant-grid-columns-{{columns}} ant-grid-{{mode}} {{className||''}}" 
+    a:if="{{mode==='default'}}" 
+    style="{{style || ''}}">
     <grid-item
         a:for="{{items}}"
         iconStyle="{{iconStyle}}"
@@ -10,11 +13,15 @@
         item="{{item}}"
         layout="{{gridItemLayout}}"
         columns="{{columns}}"
-        titleSize="{{sjs.getTitleSize(columns)}}"
         verticalSpace="{{sjs.checkNeedVerticalSpace(items.length,index,columns)}}"/>
 </view>
-<pagination a:elif="{{mode==='scroll'}}" fillColor="{{paginationFillColor}}" frontColor="{{paginationFrontColor}}">
-    <view class="ant-grid ant-grid-{{mode}}">
+<pagination 
+    a:elif="{{mode==='scroll'}}" 
+    fillColor="{{paginationFillColor}}" 
+    frontColor="{{paginationFrontColor}}" 
+    className="{{className||''}}" 
+    style="{{style || ''}}">
+    <view class="ant-grid ant-grid-{{mode}}" >
         <grid-item
             a:for="{{items}}"
             iconStyle="{{iconStyle}}"
