@@ -13,9 +13,8 @@
     <input
       enableNative="{{enableNative}}" 
       name="{{name}}"
-      class="ant-input-content {{inputClassName || ''}}"
-      style="{{inputStyle}}"
-      disabled="{{disabled}}" 
+      class="ant-input-content"
+      disabled="{{disabled}}"
       value="{{mixin.value}}" 
       type="{{type}}"
       password="{{password}}"
@@ -41,7 +40,7 @@
       a:if="{{allowClear}}"
       class="ant-input-clear {{mixin.value && mixin.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden'}}" 
       onTap="onClear">
-      <icon size="x-small" class="ant-input-clear-icon" type="CloseCircleFill" ></icon>
+      <icon class="ant-input-clear-icon" type="CloseCircleFill" ></icon>
     </view>
   </view>
   <view class="ant-input-suffix">

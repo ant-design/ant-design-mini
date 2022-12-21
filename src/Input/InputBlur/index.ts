@@ -30,23 +30,26 @@ Component({
       }
     },
     onFocus(e) {
+      const value = e.detail.value;
       this.focus = true;
       if (this.props.onFocus) {
-        this.props.onFocus(fmtEvent(this.props, e));
+        this.props.onFocus(value, fmtEvent(this.props, e));
       }
     },
     onBlur(e) {
+      const value = e.detail.value;
       this.focus = false;
       if (this.isControlled()) {
         this.update(this.props.value);
       }
       if (this.props.onBlur) {
-        this.props.onBlur(fmtEvent(this.props, e));
+        this.props.onBlur(value, fmtEvent(this.props, e));
       }
     },
     onConfirm(e) {
+      const value = e.detail.value;
       if (this.props.onConfirm) {
-        this.props.onConfirm(fmtEvent(this.props, e));
+        this.props.onConfirm(value, fmtEvent(this.props, e));
       }
     },
   }

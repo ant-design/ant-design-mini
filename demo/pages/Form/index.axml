@@ -94,6 +94,15 @@
   ref="handleRef"
 />
 
+<form-textarea
+  label="说明"
+  name="description"
+  placeholder="请输入说明"
+  allowClear
+  autoHeight
+  ref="handleRef"
+/>
+
 <form-rate
   label="评分"
   name="rate"

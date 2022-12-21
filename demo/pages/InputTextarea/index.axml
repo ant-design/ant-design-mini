@@ -1,76 +1,54 @@
 <container title="基础用法">
-  <input placeholder="请输入内容" onChange="onChange" />
+  <textarea
+    placeholder="请输入内容"
+    autoHeight
+    onChange="onChange"
+  />
 </container>
 
 <container title="初始值">
-  <input
+  <textarea
     placeholder="请输入内容"
     defaultValue="这是antd mini小程序组件"
+    autoHeight
     onChange="onChange"
   />
 </container>
 
 <container title="带清除按钮">
-  <input
+  <textarea
     placeholder="请输入内容"
+    autoHeight
     allowClear
   >
-  </input>
-</container>
-
-<container title="带有前缀后缀">
-  <input
-    placeholder="请输入内容"
-    onChange="onChange"
-    allowClear
-  >
-    <view slot="prefix">￥</view>
-    <view slot="suffix">RMB</view>
-  </input>
+  </textarea>
 </container>
 
 <container title="禁用状态">
-  <input
+  <textarea
     placeholder="被禁用的输入框"
-    disabled="{{true}}"
+    disabled
   />
 </container>
 
-
 <container title="受控模式">
-  <input
+  <textarea
     value="{{value}}"
     placeholder="请输入内容"
     allowClear
     onChange="handleChange"
     onClear="clear"
   />
-
   <button onTap="clear" inline size="small">clear</button>
 </container>
 
-
-<container title="受控模式-输入金额">
-  <input
-    placeholder="请输入金额"
-    value="{{money}}"
-    onChange="handleMoney"
-    type="digit"
-    className="input money"
-    focusClassName="border"
-  >
-    <view slot="prefix">￥</view>
-    <view slot="suffix">RMB</view>
-  </input>
-</container>
-
 <container title="非受控模式通过ref修改input">
-  <input
+  <textarea
     placeholder="请输入内容"
+    allowClear
     onChange="onChange"
     ref="handleRef"
   />
-
   <view>
     <button inline onTap="clearByInputRef">clear</button>
   </view>

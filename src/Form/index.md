@@ -88,17 +88,14 @@ Form 表单。包含数据录入、校验以及对应样式
 }
 ```
 
-
 ### FormInput
-同 Input，添加：
+同 Input
 
-| 属性 | 说明 | 类型 | 默认值 |
-| -----|-----|-----|-----|
-| inputClassName | 对应Input组件className | string | - |
-| inputStyle | 对应Input组件style | string | - |
+### FormTextarea
+同 Textarea
 
 ### FormSwitch
-同 Switch，添加
+同 Switch
 
 ### FormStepper
 同 Switch，添加：

@@ -1,24 +1,13 @@
-import { InputBaseDefaultProps } from './props';
+import { TextareaDefaultProps } from './props';
 import fmtEvent from '../../_util/fmtEvent';
 import mixinValue from '../../mixins/value';
 
 
 Component({
-  props: InputBaseDefaultProps,
+  props: TextareaDefaultProps,
   mixins: [mixinValue()],
-  ref() {
-    return {
-      update: (value) => {
-        if (this.isControlled()) {
-          console.warn('组件有value props为受控组件，更新使用setData外层的value');
-          return;
-        }
-        this.update(value);
-      },
-      getValue: () => {
-        return this.getValue();
-      },
-    }
+  data: {
+    selfFocus: false,
   },
   methods: {
     onChange(e) {
@@ -32,12 +21,18 @@ Component({
     },
     onFocus(e) {
       const value = e.detail.value;
+      this.setData({
+        selfFocus: true,
+      });
       if (this.props.onFocus) {
         this.props.onFocus(value, fmtEvent(this.props, e));
       }
     },
     onBlur(e) {
       const value = e.detail.value;
+      this.setData({
+        selfFocus: false,
+      });
       if (this.props.onBlur) {
         this.props.onBlur(value, fmtEvent(this.props, e));
       }
@@ -46,6 +41,14 @@ Component({
       const value = e.detail.value;
       if (this.props.onConfirm) {
         this.props.onConfirm(value, fmtEvent(this.props, e));
+      }
+    },
+    onClear(e) {
+      if (!this.isControlled()) {
+        this.update('');
+      }
+      if (this.props.onChange) {
+        this.props.onChange('', fmtEvent(this.props, e));
       }
     },
   }

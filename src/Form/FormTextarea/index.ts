@@ -1,10 +1,10 @@
-import { FormInputDefaultProps } from './props';
+import { FormTextareaDefaultProps } from './props';
 import { createForm } from '../form';
 import fmtEvent from '../../_util/fmtEvent';
 
 
 Component({
-  props: FormInputDefaultProps,
+  props: FormTextareaDefaultProps,
   mixins: [createForm()],  
   methods: {
     handleRef(input) {
