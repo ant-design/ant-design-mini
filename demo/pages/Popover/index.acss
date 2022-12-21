@@ -1,6 +1,5 @@
 .wrap {
   display: flex;
-  padding: 24rpx;
   flex-wrap: wrap;
 }
 .wrap button {
