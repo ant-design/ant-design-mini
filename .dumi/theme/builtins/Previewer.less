@@ -33,3 +33,47 @@
     opacity: 0;
   }
 }
+
+@font-face {
+  font-family: "iconfont"; /* Project id 3833957 */
+  src: url('//at.alicdn.com/t/c/font_3833957_pevgxdugwu.woff2?t=1671537169361') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3833957_pevgxdugwu.woff?t=1671537169361') format('woff'),
+       url('//at.alicdn.com/t/c/font_3833957_pevgxdugwu.ttf?t=1671537169361') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sun:before {
+  content: "\e85c";
+}
+
+.icon-moon:before {
+  content: "\e760";
+}
+
+.btns {
+  position: absolute;
+  right: 135px;
+  top: 9px;
+  display: flex;
+}
+
+.btn {
+  background-color: #f9fafb;
+  border-radius: 4px;
+  width: 48px;
+  height: 24px;
+  margin-right: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgb(49, 70, 89);
+  font-size: 17px;
+}
