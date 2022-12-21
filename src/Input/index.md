@@ -25,20 +25,14 @@ toc: 'content'
 
 ## API
 
-### Input属性
-| 属性 | 说明 | 类型 | 默认值 |
-| -----|-----|-----|-----|
-| allowClear | 可以点击清除图标删除内容 | boolean | false |
-| password | 是否是密码类型 | boolean | false |
-
-
 ### Input, Textarea 相同的属性
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |
 | defaultValue | 始值值 | boolean | - | 
 | disabled | 是否禁用 | boolean | false |
-| enableNative | 光标问题，查看[Input出现光标问题](input出现光标问题) | boolean | false |
+| enableNative | 光标问题，查看[Input出现光标问题](#input出现光标问题) | boolean | false |
+| maxLength | 最大长度 | number | 140 |
 | placeholder | 占位符 | string | - |
 | style | 样式| string | - |
 | value | 输入框的值。受控模式。 | string | - | 
@@ -46,6 +40,19 @@ toc: 'content'
 | onFocus | 聚焦时触发触发此回调 | (value: string, event: Event) => void | - |
 | onBlur | 失焦时触发此回调 | (value: string, event: Event) => void | - |
 | onChange | 输入时触发此回调 | (value: string, event: Event) => void | - |
+
+### Input属性
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| allowClear | 可以点击清除图标删除内容 | boolean | false |
+| password | 是否是密码类型 | boolean | false |
+
+### Textarea属性
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| autoHeight | 是否自动增高。 | boolean | false |
+| showCount | 是否显示字数统计 | boolean | true |
+
 
 ### Input, Textarea 更多相同属性
 
@@ -59,7 +66,6 @@ https://opendocs.alipay.com/mini/component/textarea
 - placeholder-style
 - placeholder-class
 - type
-- maxlength
 - name
 - random-number
 - selection-start

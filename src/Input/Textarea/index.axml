@@ -1,18 +1,18 @@
-<view class="ant-input-textarea 
-    {{disabled ? 'ant-input-textarea-disabled' : ''}}
+<view class="ant-textarea 
+    {{disabled ? 'ant-textarea-disabled' : ''}}
     {{className ? className : ''}}
     {{selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{(style || '') + ';' + (focusStyle || '')}}"
 >
-  <view class="ant-input-textarea-line">
+  <view class="ant-textarea-line">
     <textarea
       enableNative="{{enableNative}}" 
       name="{{name}}"
-      class="ant-input-textarea-content"
+      class="ant-textarea-content"
       disabled="{{disabled}}" 
-      value="{{mixin.value}}" 
+      value="{{typeof mixin.value === 'undefined' ? '' : mixin.value}}"
       placeholder="{{placeholder}}"
-      placeholder-class="ant-input-textarea-placeholder {{placeholderClass ? placeholderClass : ''}}" 
+      placeholder-class="ant-textarea-placeholder {{placeholderClass ? placeholderClass : ''}}" 
       placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" 
       maxlength="{{maxLength}}" 
       focus="{{focus}}"
@@ -28,9 +28,9 @@
     />
     <view
       a:if="{{allowClear}}"
-      class="ant-input-textarea-clear {{mixin.value && mixin.value.length > 0 ? 'ant-input-textarea-clear-show' : 'ant-input-textarea-clear-hidden'}}" 
+      class="ant-textarea-clear {{mixin.value && mixin.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden'}}" 
       onTap="onClear">
-      <icon class="ant-input-textarea-clear-icon" type="CloseCircleFill" ></icon>
+      <icon class="ant-textarea-clear-icon" type="CloseCircleFill" ></icon>
     </view>
   </view>
 </view>
