@@ -16,12 +16,11 @@ toc: 'content'
 ### Input 基本使用
 <code src='pages/Input/index'></code>
 
-### InputBase 基本使用
-InputBase是没有样式的Input
-<code src='pages/InputBase/index' noChangeButton></code>
-
 ### SearchBar 搜索框 
 <code src='pages/InputSearchBar/index'></code>
+
+### Textarea
+<code src='pages/InputTextarea/index'></code>
 
 
 ## API
@@ -30,16 +29,16 @@ InputBase是没有样式的Input
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | allowClear | 可以点击清除图标删除内容 | boolean | false |
-| inputClassName | input类名 | string | - |
-| inputStyle | input样式 | string | - |
+| password | 是否是密码类型 | boolean | false |
 
-### Input, InputBase 相同的属性
+
+### Input, Textarea 相同的属性
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| defaultValue | 始值值 | boolean | - | 
 | className | 类名| string | - |
+| defaultValue | 始值值 | boolean | - | 
 | disabled | 是否禁用 | boolean | false |
-| password | 是否是密码类型 | boolean | false |  |
+| enableNative | 光标问题，查看[Input出现光标问题](input出现光标问题) | boolean | false |
 | placeholder | 占位符 | string | - |
 | style | 样式| string | - |
 | value | 输入框的值。受控模式。 | string | - | 
@@ -48,9 +47,10 @@ InputBase是没有样式的Input
 | onBlur | 失焦时触发此回调 | (value: string, event: Event) => void | - |
 | onChange | 输入时触发此回调 | (value: string, event: Event) => void | - |
 
-### Input, InputBase 更多相同属性
+### Input, Textarea 更多相同属性
 
-以下属性同 https://opendocs.alipay.com/mini/component/input
+https://opendocs.alipay.com/mini/component/input
+https://opendocs.alipay.com/mini/component/textarea
 - focus
 - enableNative
 - always-system
@@ -58,6 +58,7 @@ InputBase是没有样式的Input
 - password
 - placeholder-style
 - placeholder-class
+- type
 - maxlength
 - name
 - random-number
@@ -67,7 +68,7 @@ InputBase是没有样式的Input
 - confirm-type
 - confirm-hold
 
-### Input, InputBase 实例方法
+### Input, Textarea 实例方法
 实例方案需要小程序 `component2` 可使用
 | 属性 | 说明 | 类型 |
 | -----|-----|-----|

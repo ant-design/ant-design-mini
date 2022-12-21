@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "InputBase",
-  "usingComponents": {
-    "input": "../../../src/Input/InputBase/index",
-    "container": "../../../src/Container/index",
-    "button": "../../../src/Button/index"
-  }
-}

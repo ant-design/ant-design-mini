@@ -1,3 +1,3 @@
-export const InputBlurProps = {
-
+export const InputBlurDefaultProps = {
+  enableNative: false,
 };

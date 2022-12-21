@@ -29,7 +29,7 @@
     "pages/DatePicker/index",
     "pages/Input/index",
     "pages/InputSearchBar/index",
-    "pages/InputBase/index",
+    "pages/InputTextarea/index",
     "pages/Badge/index",
     "pages/Button/index",
     "pages/ButtonInline/index",

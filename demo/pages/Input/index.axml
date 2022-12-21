@@ -63,3 +63,16 @@
     <view slot="suffix">RMB</view>
   </input>
 </container>
+
+<container title="非受控模式通过ref修改input">
+  <input
+    placeholder="请输入内容"
+    onChange="onChange"
+    ref="handleRef"
+  />
+
+  <view>
+    <button inline onTap="clearByInputRef">clear</button>
+  </view>
+</container>
+

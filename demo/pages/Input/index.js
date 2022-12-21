@@ -25,4 +25,10 @@ Page({
       value: '',
     });
   },
+  handleRef(input) {
+    this.input = input;
+  },
+  clearByInputRef() {
+    this.input.update('');
+  }
 });
