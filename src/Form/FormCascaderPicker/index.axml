@@ -35,7 +35,7 @@
       onFormat="onFormat">
       <slot name="content" slot="content"/>
       <slot name="title" slot="title"/>
-      <icon a:if="{{arrowUtil.getArrow(arrow)}}" class="amd-form-cascader-picker-arrow" type="{{arrowUtil.getArrow(arrow)}}" slot="suffix"/>
+      <icon a:if="{{arrowUtil.getArrow(arrow)}}" className="ant-form-cascader-picker-arrow" type="{{arrowUtil.getArrow(arrow)}}" slot="suffix"/>
     </cascader-picker>
   </view>
   <view slot="extra">
