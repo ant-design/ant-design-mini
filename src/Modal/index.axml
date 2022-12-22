@@ -6,11 +6,10 @@
   maskStyle="{{maskStyle}}"
   visible="{{visible}}" 
   duration="{{duration}}"
-  maskClosable="{{maskClosable}}"
   position="center"
   animation="{{animation}}"
   zIndex="{{zIndex}}"
-  onClose="onClose">
+  onClose="onMaskClose">
   <slot slot="content">
     <view class="ant-modal-body {{bodyClassName || ''}}" style="{{bodyStyle || ''}}">
       <slot name="header">

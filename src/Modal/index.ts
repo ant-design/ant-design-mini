@@ -9,6 +9,12 @@ Component({
         onClose();
       }
     },
+    onMaskClose() {
+      const { onClose, maskClosable } = this.props;
+      if (maskClosable && onClose) {
+        onClose();
+      }
+    },
     onPrimaryButtonTap() {
       const { onPrimaryButtonTap } = this.props;
       if (onPrimaryButtonTap) {

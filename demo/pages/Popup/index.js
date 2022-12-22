@@ -2,7 +2,6 @@ Page({
   data: {
     position: '',
     basicVisible: false,
-    maskClosable: true,
     animation: true,
     scrollVisible: false,
     closeVisile: false,
@@ -23,9 +22,6 @@ Page({
   },
   handleShowScroll() {
     this.setData({ scrollVisible: true });
-  },
-  handleChangeMaskClosable(checked) {
-    this.setData({ maskClosable: checked });
   },
   handleChangeAnimation(checked) {
     this.setData({ animation: checked });

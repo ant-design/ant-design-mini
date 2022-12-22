@@ -38,7 +38,7 @@
       onFormat="onFormat">
       <slot name="content" slot="content"/>
       <slot name="title" slot="title"/>
-      <icon a:if="{{arrowUtil.getArrow(arrow)}}" class="amd-form-date-picker-arrow" type="{{arrowUtil.getArrow(arrow)}}" slot="suffix"/>
+      <icon a:if="{{arrowUtil.getArrow(arrow)}}" className="ant-form-date-picker-arrow" type="{{arrowUtil.getArrow(arrow)}}" slot="suffix"/>
     </date-picker>
   </view>
   <view slot="extra">

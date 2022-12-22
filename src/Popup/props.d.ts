@@ -9,10 +9,10 @@ export interface IPopupProps extends IBaseProps {
    */
   visible?: boolean;
   /**
-   * @description 点击蒙层是否可以关闭
-   * @default false
+   * @description 是否展示蒙层
+   * @default true
    */
-  maskClosable?: boolean;
+  showMask?: boolean;
   /**
    * @description 关闭时回调
    */
