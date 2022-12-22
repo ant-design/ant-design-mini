@@ -24,8 +24,8 @@ Component({
       if (closing) {
         return;
       }
-      const { maskClosable, onClose } = this.props;
-      if (maskClosable && onClose) {
+      const { onClose } = this.props;
+      if (onClose) {
         onClose();
       }
     },

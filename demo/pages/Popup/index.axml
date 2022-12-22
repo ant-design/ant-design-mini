@@ -1,8 +1,7 @@
 <popup 
   visible="{{basicVisible}}" 
   height="{{250}}" 
-  width="{{250}}"
-  maskClosable="{{maskClosable}}" 
+  width="{{250}}" 
   position="{{position}}" 
   animation="{{animation}}" 
   onClose="handlePopupClose">
@@ -12,8 +11,7 @@
 </popup>
 <popup 
   visible="{{closeVisile}}" 
-  height="{{250}}" 
-  maskClosable="{{maskClosable}}" 
+  height="{{250}}"  
   position="bottom" 
   animation="{{animation}}" 
   onClose="handlePopupClose">
@@ -23,8 +21,7 @@
   <icon  style="position:absolute;right:12px;top:12px;" type="CloseOutline" onTap="handlePopupClose" />
 </popup>
 <popup 
-  visible="{{scrollVisible}}"
-  maskClosable="{{maskClosable}}" 
+  visible="{{scrollVisible}}" 
   position="bottom" 
   animation="{{animation}}" 
   onClose="handlePopupClose">
@@ -42,11 +39,7 @@
 </container>
 <list>
   <list-item>
-    可点击遮罩层关闭
-    <switch slot="extra" checked="{{maskClosable}}" controlled onChange="handleChangeMaskClosable" />
-  </list-item>
-  <list-item>
     开启过渡动画
-    <switch slot="extra" checked="{{animation}}" controlled onChange="handleChangeAnimation" />
+    <switch slot="extra" checked="{{animation}}" onChange="handleChangeAnimation" />
   </list-item>
 </list>

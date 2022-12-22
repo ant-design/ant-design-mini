@@ -26,7 +26,7 @@ toc: 'content'
 | closable | 是否显示右上角的关闭按钮。只有在 type 为 focus 生效 | boolean | - | 
 | content | 内容 | string\|slot | - |
 | footer | 自定义按钮区 | slot | - |
-| maskClosable |  点击蒙层是否可以关闭 | boolean |false |  | 
+| maskClosable |  点击蒙层是否触发onClose | boolean | true | 
 | maskClassName | 蒙层的类名 | string | - | 
 | maskStyle | 蒙层的样式 | string | - | 
 | primaryButtonStyle | 主按钮样式 | string | - |
@@ -38,7 +38,7 @@ toc: 'content'
 | type | 类型，可选`default`(默认) `focus`(强调模式) | string | `default` |
 | visible |  是否显示 | boolean | false | 
 | onCancelButtonTap |  取消按钮点击事件 | ()=>void | - | 
-| onClose |  触发关闭时回调 | ()=>void | - | 
+| onClose |  点击蒙层或强调模式下点击右上角关闭按钮，出发回调 | ()=>void | - | 
 | onPrimaryButtonTap |  主按钮点击事件 | ()=>void | - | 
 | onSecondaryButtonTap |  辅助按钮点击事件 | ()=>void | - | 
 
