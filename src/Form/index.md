@@ -48,9 +48,15 @@ Form 表单。包含数据录入、校验以及对应样式
 ### 图片校验
 <code src='pages/FormImageUploadRules/index'></code>
 
+### 自定义表单项
+`form-checklist`, `form-location` 为自定义表单项。通过使用 [FormItem](#formitem)、[createForm](#createform) 可自定义表单项。
+<code src='pages/FormCustom/index'></code>
+
 ## API
 
-### 所有Form组件都包括的属性
+### FormItem
+
+所有Form组件都包括的属性
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | name | 名称 | string | - |
@@ -139,3 +145,44 @@ Form 表单。包含数据录入、校验以及对应样式
 
 ### FormImageUpload
 同 ImageUpload
+
+### createform
+
+createform是一个mixin，在自定义表单项使用
+```js
+import { createform } from 'antd-mini/es/Form/form';
+
+Component({
+  mixins: [createform()],
+  methods: {
+    onChange(value) {
+      this.emit('onChange', value);
+    }
+  }
+})
+```
+
+createform会在Component加上
+- data
+```js
+{
+  formData: {
+    value: undefined, // 表单项的值
+    status: 'default', // 表单项校验状态，包括 default, success, error, validating
+    errors: [], // 错误信息
+  },
+}
+```
+- methods
+```js
+// 表单项修改需要调用emit方法。需要自定义表单项组件在值修改去调用。
+function emit(trigger: 'onChange' | 'onBlur' | 'onFocus' , value: any):  void;
+```
+
+更多方法可查看createForm方法。使用`formData`, `emit` 即可完成自定义表单项。
+
+
+## FAQ
+
+### Form好像没有没有调用
+Form组件需要 `component2`，查看是否使用了 https://opendocs.alipay.com/mini/framework/component-ref
