@@ -5,20 +5,23 @@ import fmtEvent from '../../_util/fmtEvent';
 
 Component({
   props: FormInputDefaultProps,
-  mixins: [createForm()],  
+  mixins: [createForm({
+    methods: {
+      setFormData(values) {
+        this.setData({
+          ...this.data,
+          formData: {
+            ...this.data.formData,
+            ...values,
+          }
+        });
+        this.input.update(this.data.formData.value);  
+      },
+    },
+  })],  
   methods: {
     handleRef(input) {
       this.input = input;
-    },
-    setFormData(values) {
-      this.setData({
-        ...this.data,
-        formData: {
-          ...this.data.formData,
-          ...values,
-        }
-      });
-      this.input.update(this.data.formData.value);  
     },
     onChange(value, e) {
       this.emit('onChange', value);
