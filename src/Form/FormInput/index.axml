@@ -18,7 +18,7 @@
     type="{{type}}"
     password="{{password}}"
     placeholder="{{placeholder}}"
-    placeholderClass="{{placeholderClass}}"
+    placeholderClassName="{{placeholderClassName}}"
     placeholderStyle="{{placeholderStyle}}"
     maxLength="{{maxLength}}"
     confirmType="{{confirmType}}"

@@ -8,7 +8,7 @@
   type="{{type}}"
   password="{{password}}"
   placeholder="{{placeholder}}" 
-  placeholder-class="ant-input-item-placeholder-base {{placeholderClass ? placeholderClass : ''}}" 
+  placeholder-class="ant-input-item-placeholder-base {{placeholderClassName ? placeholderClassName : ''}}" 
   placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" 
   maxlength="{{maxLength}}" 
   focus="{{focus}}"
