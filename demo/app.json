@@ -22,6 +22,7 @@
     "pages/FormValidate/index",
     "pages/FormMultiple/index",
     "pages/FormImageUploadRules/index",
+    "pages/FormCustom/index",
     "pages/List/index",
     "pages/Icon/index",
     "pages/Switch/index",
