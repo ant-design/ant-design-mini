@@ -30,6 +30,7 @@
     "pages/Input/index",
     "pages/InputSearchBar/index",
     "pages/InputTextarea/index",
+    "pages/InputCustom/index",
     "pages/Badge/index",
     "pages/Button/index",
     "pages/ButtonInline/index",

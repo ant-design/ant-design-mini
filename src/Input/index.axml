@@ -19,7 +19,7 @@
       type="{{type}}"
       password="{{password}}"
       placeholder="{{placeholder}}" 
-      placeholder-class="ant-input-placeholder {{placeholderClass ? placeholderClass : ''}}" 
+      placeholder-class="ant-input-placeholder {{placeholderClassName ? placeholderClassName : ''}}" 
       placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" 
       maxlength="{{maxLength}}" 
       focus="{{focus}}"

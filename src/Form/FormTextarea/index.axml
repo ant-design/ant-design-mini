@@ -16,7 +16,7 @@
     enableNative="{{enableNative}}"
     disabled="{{disabled}}"
     placeholder="{{placeholder}}"
-    placeholderClass="{{placeholderClass}}"
+    placeholderClassName="{{placeholderClassName}}"
     placeholderStyle="{{placeholderStyle}}"
     maxLength="{{maxLength}}"
     autoHeight="{{autoHeight}}"

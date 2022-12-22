@@ -10,7 +10,7 @@ toc: 'content'
 # Input 输入框
 通过键盘输入内容，是最基础的表单域包装
 ## 何时使用
-一般用在表单页进行信息的收集，提供文本框、选择框两种类型
+一般用在表单页进行信息的收集
 
 ## 代码示例
 ### Input 基本使用
@@ -22,6 +22,9 @@ toc: 'content'
 ### Textarea
 <code src='pages/InputTextarea/index'></code>
 
+### 自定义
+<code src='pages/InputCustom/index'></code>
+
 
 ## API
 
@@ -29,7 +32,7 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |
-| defaultValue | 始值值 | boolean | - | 
+| defaultValue | 初始值 | string | - | 
 | disabled | 是否禁用 | boolean | false |
 | enableNative | 光标问题，查看[Input出现光标问题](#input出现光标问题) | boolean | false |
 | maxLength | 最大长度 | number | 140 |
@@ -56,12 +59,9 @@ toc: 'content'
 
 ### Input, Textarea 更多相同属性
 
-https://opendocs.alipay.com/mini/component/input
-https://opendocs.alipay.com/mini/component/textarea
 - focus
 - enableNative
 - always-system
-- controlled
 - password
 - placeholder-style
 - placeholder-class
@@ -73,6 +73,10 @@ https://opendocs.alipay.com/mini/component/textarea
 - cursor
 - confirm-type
 - confirm-hold
+
+https://opendocs.alipay.com/mini/component/input
+<br />
+https://opendocs.alipay.com/mini/component/textarea
 
 ### Input, Textarea 实例方法
 实例方案需要小程序 `component2` 可使用

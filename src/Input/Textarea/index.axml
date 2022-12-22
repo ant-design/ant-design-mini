@@ -12,7 +12,7 @@
       disabled="{{disabled}}" 
       value="{{typeof mixin.value === 'undefined' ? '' : mixin.value}}"
       placeholder="{{placeholder}}"
-      placeholder-class="ant-textarea-placeholder {{placeholderClass ? placeholderClass : ''}}" 
+      placeholder-class="ant-textarea-placeholder {{placeholderClassName ? placeholderClassName : ''}}" 
       placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}" 
       maxlength="{{maxLength}}" 
       focus="{{focus}}"
