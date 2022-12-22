@@ -1,3 +1,12 @@
+# 1.0.0-alpha.8 (2022-12-22)
+
+
+### Bug Fixes
+
+* input ([#459](https://github.com/ant-design/ant-design-mini/issues/459)) ([82a0c55](https://github.com/ant-design/ant-design-mini/commit/82a0c55926419d0f24c526ab14bf9501f982a37d))
+
+
+
 ## 0.0.22 (2022-09-07)
 
 
