@@ -545,7 +545,7 @@ export class Form {
   }
 }
 
-export function createForm() {
+export function createForm({ methods = {} } = {}) {
   return {
     data: {
       formData: {
@@ -580,6 +580,7 @@ export function createForm() {
       getProps() {
         return this.props;
       },
+      ...methods,
     }
   }
 }
