@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/NumberKeyboardCode/index",
+    "pages/NumberKeyboardAmount/index",
+    "pages/NumberKeyboardNumber/index",
+    "pages/NumberKeyboard/index",
     "pages/IndexBar/index",
     "pages/SwipeActionLeftRight/index",
     "pages/SwipeActionMove/index",
