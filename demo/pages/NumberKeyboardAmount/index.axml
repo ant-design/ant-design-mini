@@ -1,0 +1,23 @@
+<list header="数字键盘示例: 金额输入">
+  <list-item>
+    <view
+      class="number-content {{ value ? '' : 'number-placeholder'}}"
+      catchTap="onAmountFocus"
+    >
+      <text a:if="{{value}}">{{ value }}</text>
+      <text a:else class="number-content_tip">0.00</text>
+      <view
+        a:if="{{visible}}"
+        class="number-light"
+        style="{{{position: value ? 'static' : 'absolute'}}}"
+      />
+    </view>
+  </list-item>
+  <number-keyboard
+    visible="{{visible}}"
+    arrow="{{true}}"
+    value="{{value}}"
+    onChange="onChange"
+    onVisibleChange="onVisibleChange"
+  />
+</list>
