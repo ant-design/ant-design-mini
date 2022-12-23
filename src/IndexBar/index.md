@@ -40,6 +40,6 @@ toc: 'content'
 #### Item
 | 属性            | 说明                 | 类型        | 默认值 |
 | ---------------|----------------------|------------|-------|
-| label          | 索引标识              | `string`   | -      |
-| disablePreview | 禁用索引触发时的预览效果 | `boolean`  | -      |
+| label          | 索引标识              | string   | -      |
+| disablePreview | 禁用索引触发时的预览效果 | boolean  | -      |
 
