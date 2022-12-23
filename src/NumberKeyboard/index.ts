@@ -1,19 +1,32 @@
 import { NumberKeyboardDefaultProps } from './props';
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const newArr = arr.sort(function () {
- return Math.random() - 0.5;
-});
 
 Component({
   props: NumberKeyboardDefaultProps,
   data: {
     numArr: [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ],
-    randomArr: [ newArr.slice(0, 3), newArr.slice(3, 6), newArr.slice(6, 9) ],
+    randomArr: [],
+  },
+  didMount() {
+    this.setRandom();
   },
   methods: {
+    catchAppearModal() {
+      this.setRandom();
+    },
+    setRandom() {
+      if (this.props.random) {
+        const newArr = arr.sort(function () {
+          return Math.random() - 0.5;
+         });
+        this.setData({
+          randomArr: [ newArr.slice(0, 3), newArr.slice(3, 6), newArr.slice(6, 9) ]
+        });
+      }
+    },
     tapButton(e) {
-      const { value, onChange, disable, onClose } = this.props;
+      const { value, onChange, disable, onVisibleChange } = this.props;
       this.vibrate();
       const _key = e.target.dataset.key;
       const _val = `${value}`;
@@ -28,13 +41,13 @@ Component({
       }
       if (_key === 'enter' && !disable) {
         this.onClickEnter();
-        onClose();
+        onVisibleChange();
       }
     },
     // 隐藏键盘，失去焦点
     onHide() {
-      const { onClose } = this.props;
-      onClose();
+      const { onVisibleChange } = this.props;
+      onVisibleChange();
     },
     onClickEnter() {
       const { disable, onConfirm } = this.props;

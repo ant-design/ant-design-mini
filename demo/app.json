@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/NumberKeyboard/index",
     "pages/index/index",
+    "pages/NumberKeyboardCode/index",
+    "pages/NumberKeyboardAmount/index",
+    "pages/NumberKeyboardNumber/index",
+    "pages/NumberKeyboard/index",
     "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormLayout/index",

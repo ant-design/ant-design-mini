@@ -1,6 +1,6 @@
 import { IBaseProps } from '../_base';
 
-export interface INemberKeyboardProps extends IBaseProps {
+export interface INumberKeyboardProps extends IBaseProps {
   /**
    * @description 样式
    * @default ''
@@ -70,4 +70,4 @@ export interface INemberKeyboardProps extends IBaseProps {
   onClose?: () => void;
 }
 
-export declare const NumverKeyboardDefaultProps: Partial<INemberKeyboardProps>;
+export declare const NumverKeyboardDefaultProps: Partial<INumberKeyboardProps>;

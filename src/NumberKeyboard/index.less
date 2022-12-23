@@ -12,8 +12,8 @@
   }
 }
 
-.amount-input {
-  color: #333;
+.amd-number-keyboard {
+  color: @COLOR_TEXT_PRIMARY;
   width: 0;
   height: 0;
   position: relative;
@@ -28,7 +28,7 @@
     background-color: transparent;
   }
   &-kb {
-    background: #f5f5f5;
+    background: @COLOR_BACKGROUND;
     max-height: 600px;
     min-width: 100vw;
     overflow: hidden;
@@ -57,27 +57,27 @@
     }
     &_none {
       height: 80 * @rpx;
-      width: calc(100% - 48px);
-      padding: 0 24px;
+      width: calc(100% - 96 * @rpx);
+      padding: 0 48 * @rpx;
       font-size: 28 * @rpx;
-      background-color: #fff;
+      background-color: @COLOR_CARD;
       display: flex;
       position: relative;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #f8f8f8;
-      color: #999;
+      border-bottom: @border-width-standard solid @COLOR_BACKGROUND;
+      color: @COLOR_TEXT_ASSIST;
     }
     &_number {
       flex: 1;
       height: calc(100vh / 14);
       text-align: center;
-      font-size: 25px;
-      color: #333;
-      background: #fff;
-      border-right: 1px solid #f8f8f8;
-      border-bottom: 1px solid #f8f8f8;
+      font-size: 50 * @rpx;
+      color: @COLOR_TEXT_PRIMARY;
+      background: @COLOR_CARD;
+      border-right: @border-width-standard solid @COLOR_BACKGROUND;
+      border-bottom: @border-width-standard solid @COLOR_BACKGROUND;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -85,7 +85,7 @@
       &:active {
         background-color: #d3d3d3;
         opacity: 0.5;
-        color: #333;
+        color: @COLOR_TEXT_PRIMARY;
       }
     }
     &_disable {
@@ -106,9 +106,9 @@
       flex: 1;
       height: calc(100vh / 14);
       text-align: center;
-      font-size: 25px;
-      border-right: 1px solid #f8f8f8;
-      border-bottom: 1px solid #f8f8f8;
+      font-size: 34 * @rpx;
+      border-right: @border-width-standard solid @COLOR_BACKGROUND;
+      border-bottom: @border-width-standard solid @COLOR_BACKGROUND;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -137,32 +137,22 @@
         content: "";
       }
     }
-    &_iphonex {
+    &_iphonex-safe {
       height: 24px;
       width: 100%;
-      background: white;
+      background-color: @COLOR_CARD;
+    }
+    &_flex {
+      flex: 1;
+    }
+    &-e {
+      background-color: @COLOR_BORDER;
     }
   }
-}
-.icon-huitui {
-  width: 50 * @rpx;
-  height: 50 * @rpx;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-image: url(https://mdn.alipayobjects.com/huamei_ze58cv/afts/img/A*V-ZkTahhId0AAAAAAAAAAAAADueHAQ/original);
-}
-.icon-xiangxia {
-  width: 28 * @rpx;
-  height: 28 * @rpx;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-image: url(https://mdn.alipayobjects.com/huamei_ze58cv/afts/img/A*XrNLS7my7xMAAAAAAAAAAAAADueHAQ/original);
-}
-.flex-1 {
-  flex: 1;
-}
-.color-eee {
-  background-color: #eee;
+  &-down {
+    font-size: 40 * @rpx;
+  }
+  &-del {
+    font-size: 50 * @rpx;
+  }
 }

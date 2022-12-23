@@ -1,53 +1,55 @@
-<view a:key="paytm-input-{{$id}}" class="amount-input amd-number-keyboard {{className}} " >
-  <view a:if="{{visible}}" class="amount-input-modal" catchTap="onHide"/>
-  <view class="amount-input-kb {{visible ? '': 'amount-input-kb_hide'}}">
-    <view a:if="{{arrow}}" catchTap="onHide" class="amount-input-kb_none amd-number-title" style="{{{'justify-content': title ? 'space-between' : 'center'}}}">
-      <view>{{title}}</view>
-      <view class="icon-xiangxia"></view>
-      <slot name="title"></slot>
-    </view>
-    <view class="amount-input-kb_bd">
-      <view class="amount-input-kb_keys">
-        <view class="amount-input-kb_row" a:for="{{random ? randomArr : numArr}}" a:for-item="item">
+<view a:key="amd-number-input-{{$id}}" class="amd-number-keyboard {{className}}">
+  <view a:if="{{visible}}" class="amd-number-keyboard-modal" catchTap="onHide" onAppear="catchAppearModal"/>
+  <view class="amd-number-keyboard-kb {{visible ? '': 'amd-number-keyboard-kb_hide'}}">
+    <slot name="header">
+      <view a:if="{{arrow}}" catchTap="onHide" class="amd-number-keyboard-kb_none" style="{{{'justify-content': title ? 'space-between' : 'center'}}}">
+        <view>{{title}}</view>
+        <icon type="DownOutline" class="amd-number-keyboard-down" />
+      </view>
+    </slot>
+    <view class="amd-number-keyboard-kb_bd">
+      <view class="amd-number-keyboard-kb_keys">
+        <view class="amd-number-keyboard-kb_row" a:for="{{random ? randomArr : numArr}}" a:for-item="item">
           <view
             a:for="{{item}}"
             a:for-item="itemKey"
             data-key="{{itemKey}}"
-            class="amount-input-kb_number"
+            class="amd-number-keyboard-kb_number"
             catchTap="tapButton">
             {{itemKey}}
           </view>
         </view>
-        <view a:if="{{!confirmText}}" class="amount-input-kb_row">
-          <view a:if="{{!point}}" class="amount-input-kb_number amount-input-kb_point flex-1 color-eee" />
-          <view a:if="{{point}}" class="amount-input-kb_number amount-input-kb_point flex-1" data-key="." catchTap="tapButton">.</view>
-          <view class="amount-input-kb_number amount-input-kb_zero flex-1" data-key="0" catchTap="tapButton">0</view>
-          <view class="amount-input-kb_number amount-input-kb_point flex-1 {{point ? '' : `color-eee`}}" data-key="del" catchTap="tapButton">
-            <view class="icon-huitui"></view>
+        <view a:if="{{!confirmText}}" class="amd-number-keyboard-kb_row">
+          <view a:if="{{!point}}" class="amd-number-keyboard-kb_number amd-number-keyboard-kb_point amd-number-keyboard-kb_flex amd-number-keyboard-kb_e" />
+          <view a:if="{{point}}" class="amd-number-keyboard-kb_number amd-number-keyboard-kb_point amd-number-keyboard-kb_flex" data-key="." catchTap="tapButton">.</view>
+          <view class="amd-number-keyboard-kb_number amd-number-keyboard-kb_zero amd-number-keyboard-kb_flex" data-key="0" catchTap="tapButton">0</view>
+          <view class="amd-number-keyboard-kb_number amd-number-keyboard-kb_point amd-number-keyboard-kb_flex {{point ? '' : `amd-number-keyboard-kb_e`}}" data-key="del" catchTap="tapButton">
+            <icon type="TextDeletionOutline" class="amd-number-keyboard-del" />
           </view>
         </view>
-        <view a:if="{{confirmText}}" class="amount-input-kb_row">
-          <view class="amount-input-kb_number amount-input-kb_zero" data-key="0" catchTap="tapButton">0</view>
-          <view a:if="{{point}}" class="amount-input-kb_number amount-input-kb_point" data-key="." catchTap="tapButton">.</view>
+        <view a:if="{{confirmText}}" class="amd-number-keyboard-kb_row">
+          <view class="amd-number-keyboard-kb_number amd-number-keyboard-kb_zero" data-key="0" catchTap="tapButton">0</view>
+          <view a:if="{{point}}" class="amd-number-keyboard-kb_number amd-number-keyboard-kb_point" data-key="." catchTap="tapButton">.</view>
         </view>
       </view>
-      <view a:if="{{confirmText}}" class="amount-input-kb_function">
-        <view class="amount-input-kb_number amount-input-kb_del" data-key="del" catchTap="tapButton">
-          <view class="icon-huitui"></view>
+      <view a:if="{{confirmText}}" class="amd-number-keyboard-kb_function">
+        <view class="amd-number-keyboard-kb_number amd-number-keyboard-kb_del" data-key="del" catchTap="tapButton">
+          <icon type="TextDeletionOutline" class="amd-number-keyboard-del" />
         </view>
         <view
           style="{{{opacity: disable ? '0.5' : 1 }}}"
           catchTap="tapButton"
-          class="amount-input-kb_transfer"
+          class="amd-number-keyboard-kb_transfer"
           data-key="enter">
-          <view class="amount-input-kb_transfer-btn">
-            {{confirmText}}
-          </view>
-          <slot name="confirm"></slot>
+          <slot name="confirm">
+            <view class="amount-input-kb_transfer-btn">
+              {{confirmText}}
+            </view>
+          </slot>
         </view>
       </view>
     </view>
-    <view class="amount-input-kb_iphonex"></view>
+    <view class="amd-number-keyboard-kb_iphonex-safe"></view>
   </view>
 </view>
   
