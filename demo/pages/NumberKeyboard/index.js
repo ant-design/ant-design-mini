@@ -19,6 +19,9 @@ Page({
     focus3: false,
     _type: '', // 特殊示例中使用判断类型
   },
+  onLoad() {
+    console.log('```123', this);
+  },
   // 默认键盘
   onTap() {
     this.setData({ visible: !this.data.visible, ...defOption });
