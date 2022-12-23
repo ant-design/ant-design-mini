@@ -7,7 +7,7 @@ import createValue from '../mixins/value';
 Component({
   props: sliderDefaultProps,
   mixins: [createValue({
-    transformValue(val, needUpdate = true, emit) {
+    transformValue(val, extra, needUpdate = true, emit) {
       const value = this.formatValue(val);
       if (needUpdate) {
         this.setSliderStyleByValue(value);
@@ -142,7 +142,7 @@ Component({
                 touchPosition * (this.props.max - this.props.min);
 
               if (!this.props.range) {
-                this.update(value, !this.isControlled(), true);
+                this.update(value, {}, !this.isControlled(), true);
                 changeMoving({ changingEnd: true });
               } else {
                 const currentValue = this.getValue();
@@ -154,7 +154,7 @@ Component({
                 const isFarFromLeft = leftDistance > rightDistance;
                 const farValue = isFarFromLeft ? leftValue : rightValue;
                 
-                this.update([value, farValue], !this.isControlled(), 'onChange');
+                this.update([value, farValue], {}, !this.isControlled(), 'onChange');
                 if(isFarFromLeft) {
                   changeMoving({ changingEnd: true });
                 }else {
