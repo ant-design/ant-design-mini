@@ -22,7 +22,7 @@ export default ({
   valueKey?: string;
   defaultValueKey?: string;
   scopeKey?: string;
-  transformValue?: (this: any, value: any) => {
+  transformValue?: (this: any, value: any, extra: { nextProps: Record<string, any> }, ...args: any) => {
     needUpdate: boolean;
     value?: any;
   };
@@ -37,14 +37,28 @@ export default ({
     },
     onInit() {
       const value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
-      const { needUpdate } = this.update(value);
+      const { needUpdate } = this.update(value, {
+        nextProps: this.props,
+      });
       if (!needUpdate) {
         this.updateControlled();
       }
     },
+    deriveDataFromProps(nextProps) {
+      if (!equal(nextProps[valueKey], this.props[valueKey])) {
+        this.update(nextProps[valueKey], {
+          nextProps,
+        });
+      }
+    },
     didUpdate(prevProps) {
+      if (component2) {
+        return;
+      }
       if (!equal(prevProps[valueKey], this.props[valueKey])) {
-        this.update(this.props[valueKey]);
+        this.update(this.props[valueKey], {
+          nextProps: this.props,
+        });
       }
     },
     didMount() {
@@ -52,7 +66,9 @@ export default ({
         return;
       }
       const value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
-      const { needUpdate } = this.update(value);
+      const { needUpdate } = this.update(value, {
+        nextProps: this.props,
+      });
       if (!needUpdate) {
         this.updateControlled();
       }
@@ -69,7 +85,7 @@ export default ({
         return equal(this.getValue(prevData), this.getValue());
       },
       isControlled() {
-        return [valueKey] in this.props;
+        return valueKey in this.props;
       },
       updateControlled() {
         this.setData({
@@ -78,8 +94,8 @@ export default ({
           },
         });
       },
-      update(val, ...args) {
-        const { needUpdate, value } = transformValue.call(this, val, ...args) || {};
+      update(val, extra?, ...args) {
+        const { needUpdate, value } = transformValue.call(this, val, extra, ...args) || {};
         if (needUpdate) {
           this.setData({
             [scopeKey]: {

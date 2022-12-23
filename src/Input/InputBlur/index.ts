@@ -6,7 +6,7 @@ import mixinValue from '../../mixins/value';
 Component({
   props: InputBlurDefaultProps,
   mixins: [mixinValue({
-    transformValue(value, updateWithoutFocusCheck) {
+    transformValue(value, extra, updateWithoutFocusCheck) {
       if (!updateWithoutFocusCheck && this.focus) {
         return {
           needUpdate: false,
@@ -23,7 +23,7 @@ Component({
     onChange(e) {
       const value = e.detail.value;
       if (this.isControlled()) {
-        this.update(value, true);
+        this.update(value, {}, true);
       }
       if (this.props.onChange) {
         this.props.onChange(value, fmtEvent(this.props, e));

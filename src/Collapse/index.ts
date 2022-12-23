@@ -29,8 +29,8 @@ Component({
   mixins: [createValue({
     valueKey: 'current',
     defaultValueKey: 'defaultCurrent',
-    transformValue(current) {
-      const value = this.formatCurrent(current);
+    transformValue(current, extra) {
+      const value = this.formatCurrent(current, extra ? extra.nextProps : this.props);
       return {
         needUpdate: true,
         value,
@@ -59,16 +59,16 @@ Component({
     });
   },
   methods: {
-    formatCurrent(val: number[]) {
+    formatCurrent(val: number[], props) {
       let current = [...(val || [])];
-      const items = this.props.items;
+      const items = props.items;
       current = current.filter(item => {
         if (!items[item] || items[item].disabled) {
           return false;
         }
         return true;
       });
-      if (this.props.accordion) {
+      if (props.accordion) {
         current = current.length > 0 ? [current[0]] : [];
       }
       return [...current];
