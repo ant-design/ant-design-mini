@@ -48,16 +48,19 @@ toc: 'content'
 4. 每一侧的滑动二次确认只会触发第一个，其他不会触发。
 5. 建议在appx2.0的小程序中使用，1.0（如：钉钉小程序）中体验存在体验缺陷（没有touchend之后滑动过渡效果）。
 
-## 属性
-| 属性         | 类型            | 必填   | 默认值 | 说明                  |
-| -------------|----------------|-------|-------|------------------------------------------- |
-| leftButtons  | `SwipeButton[]`  | 否    | []    | 左侧按钮                                    |
-| rightButtons | `SwipeButton[]`  | 否    | []    | 右侧按钮                                    |
-| damping      | number         | 否    | 70    | 滑动速度                                    |
-| elasticity   | boolean        | 否    | true  | 滑动弹性                                    |
-| swiped       | `''` &verbar; `'left'` &verbar; `'right'` | 否    | false | 是否滑开               |
-| defaultSwiped| `''` &verbar; `'left'` &verbar; `'right'` | 否    | false | 是否默认滑开            |
-| disable      | boolean          | 否    | false | 禁止滑动                                    |
+## API
+| 属性         | 类型             | 默认值 | 说明                  |
+| -------------|----------------|-------|------------------------------------------- |
+| leftButtons  | [SwipeButton](#SwipeButton)  | []    | 左侧按钮                                    |
+| rightButtons | [SwipeButton](#SwipeButton)  | []    | 右侧按钮                                    |
+| damping      | number         | 70    | 滑动速度                                    |
+| elasticity   | boolean        | true  | 滑动弹性                                    |
+| swiped       | `''` &verbar; `'left'` &verbar; `'right'` | false | 是否滑开         |
+| defaultSwiped| `''` &verbar; `'left'` &verbar; `'right'` | false | 是否默认滑开      |
+| disable      | boolean         | false | 禁止滑动                                    |
+| onSwipeStart | 滑动开始         | (e: string) => void      |e: 组件上data-xxx中的数据  |
+| onSwipeEnd   | 滑动结束         | (e: string, data: object) => void |e: 组件上data-xxx中的数据, data: direction(滑动的按钮是左边还是右边)，swiped(是否滑开)|
+| onButtonTap  | 按钮触发         | (e: string, data: object) => void |e: 组件上data-xxx中的数据, data: direction(滑动的按钮是左边还是右边)，btnIdx(按钮的index, 靠近主体的部分为0) |
 
 ### SwipeButton
 | 属性         | 类型            | 必填   | 默认值 | 说明                  |
@@ -68,18 +71,3 @@ toc: 'content'
 | width        | number         | 否    | 150   | 按钮长度                                     |
 | confirmType  | `''` &verbar; `'move'` &verbar; `'tap'`  | 否    | -     | 二次确认的类型，不触发二次确认 &verbar; 滑动超出最大距离触发二次确认 &verbar; 点击触发二次确认               |
 | confirmText  | string         | 否    | -     | 二次确认的文案描述，不填则展示text               |
-
-## 事件
-| 事件名               | 说明                 | 类型             | 说明                  |
-| --------------------|---------------------|-------------------------------------------|----|
-| onSwipeStart        | 滑动开始             | (e: string) => void                  |e: 组件上data-xxx中的数据 |
-| onSwipeEnd          | 滑动结束             | (e: string, data: object) => void    |e: 组件上data-xxx中的数据, data: direction(滑动的按钮是左边还是右边)，swiped(是否滑开)|
-| onButtonTap         | 按钮触发             | (e: string, data: object) => void    |e: 组件上data-xxx中的数据, data: direction(滑动的按钮是左边还是右边)，btnIdx(按钮的index, 靠近主体的部分为0) |
-
-## 样式类
-| 类名 | 说明 |
-| -----|-----|
-| ant-swipe-action | 整体样式 |
-| ant-swipe-action-content | 内容区域样式 |
-| ant-swipe-action-right | 右侧按钮区域样式 |
-| ant-swipe-action-left  | 左侧按钮区域样式 |
