@@ -1,3 +1,12 @@
+# 1.0.0-alpha.11 (2022-12-23)
+
+
+### Features
+
+* 增加swipe action 在2.0中使用说明 ([#471](https://github.com/ant-design/ant-design-mini/issues/471)) ([d1f9d80](https://github.com/ant-design/ant-design-mini/commit/d1f9d804a9e112bf77a6f47b27e921838e2a5f7b))
+
+
+
 ## 0.0.22 (2022-09-07)
 
 
