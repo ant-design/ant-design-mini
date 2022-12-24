@@ -3,6 +3,7 @@ import { compareVersion } from '../_util/compareVersion';
 
 const SDKVersion = my.SDKVersion;
 const isOldVersion = compareVersion(SDKVersion, '2.0.0') < 0;
+const component2 = my.canIUse('component2');
 
 Component({
   props: PopupDefaultProps,
@@ -11,8 +12,19 @@ Component({
     isOldVersion,
   },
   didUpdate(prevProps) {
+    if (component2) {
+      return;
+    }
     const { visible, duration, animation } = this.props;
     if (prevProps.visible && !visible) {
+      if (animation && duration > 0) {
+        this.setData({ closing: true });
+      }
+    }
+  },
+  deriveDataFromProps(nextProps) {
+    const { visible, duration, animation } = nextProps;
+    if (this.props.visible && !visible) {
       if (animation && duration > 0) {
         this.setData({ closing: true });
       }

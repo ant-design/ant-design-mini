@@ -11,6 +11,8 @@ import {
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
 
+const component2 = my.canIUse('component2');
+
 Component({
   props: DatePickerDefaultProps,
   pickerVisible: false,
@@ -34,23 +36,30 @@ Component({
   didMount() {
     this.pickerVisible = false;
   },
-
+  deriveDataFromProps(nextProps) {
+    this.updateValue(this.props, nextProps);
+  },
   didUpdate(prevProps) {
-    if (!isEqualDate(prevProps.value, this.props.value)) {
-      this.setData({
-        forceUpdate: this.data.forceUpdate + 1,
-      });
-      // 展开状态才更新picker的数据，否则下次triggerVisible触发
-      if (this.pickerVisible) {
-        this.setCurrentValue();
-      }
+    if (!component2) {
+      this.updateValue(prevProps, this.props);
     }
   },
   methods: {
+    updateValue(prevProps, currentProps) {
+      if (!isEqualDate(prevProps.value, currentProps.value)) {
+        this.setData({
+          forceUpdate: this.data.forceUpdate + 1,
+        });
+        // 展开状态才更新picker的数据，否则下次triggerVisible触发
+        if (this.pickerVisible) {
+          this.setCurrentValue(currentProps);
+        }
+      }
+    },
     // 当前选中的picker值，处理无cValue时的情况，优先取当前时间，不在时间范围内取开始时间
-    getCurrentValueWithCValue() {
+    getCurrentValueWithCValue(currentProps) {
       const realValue = this.getValue();
-      const { min, max, precision } = this.props;
+      const { min, max, precision } = currentProps;
       if (realValue) {
         return getValueByDate(realValue, precision);
       } else {
@@ -61,26 +70,24 @@ Component({
         ) {
           return getValueByDate(now, precision);
         } else {
-          return getValueByDate(this.getMin().toDate(), precision);
+          return getValueByDate(this.getMin(min).toDate(), precision);
         }
       }
     },
 
-    getMin() {
-      const { min } = this.props;
+    getMin(min) {
       return min ? dayjs(min as any) : dayjs().subtract(10, 'year');
     },
 
-    getMax() {
-      const { max } = this.props;
+    getMax(max) {
       return max ? dayjs(max as any) : dayjs().add(10, 'year');
     },
     /**
      * didUpdate、弹窗打开触发
      */
-    setCurrentValue() {
-      const currentValue = this.getCurrentValueWithCValue();
-      const newColumns = this.generateData(currentValue);
+    setCurrentValue(currentProps) {
+      const currentValue = this.getCurrentValueWithCValue(currentProps);
+      const newColumns = this.generateData(currentValue, currentProps);
       if (!equal(newColumns, this.data.columns)) {
         this.setData(
           {
@@ -100,10 +107,10 @@ Component({
     },
 
     // 生成选项数据，didmound、picker change、打开弹窗触发
-    generateData(currentValue) {
-      const { precision } = this.props;
-      const min = this.getMin();
-      const max = this.getMax();
+    generateData(currentValue, currentProps) {
+      const { precision, min: propsMin, max: propsMax } = currentProps;
+      const min = this.getMin(propsMin);
+      const max = this.getMax(propsMax);
       if (max < min) {
         return [];
       }
@@ -122,8 +129,8 @@ Component({
       selectedIndex = getValidValue(selectedIndex);
       const { onPickerChange, format, precision } = this.props;
       let date = getDateByValue(selectedIndex);
-      const min = this.getMin();
-      const max = this.getMax();
+      const min = this.getMin(this.props.min);
+      const max = this.getMax(this.props.max);
       if (dayjs(date).isBefore(min)) {
         date = min.toDate();
         selectedIndex = getValueByDate(date, precision);
@@ -132,7 +139,7 @@ Component({
         date = max.toDate();
         selectedIndex = getValueByDate(date, precision);
       }
-      const newColumns = this.generateData(selectedIndex);
+      const newColumns = this.generateData(selectedIndex, this.props);
       if (!equal(newColumns, this.data.columns)) {
         this.setData(
           {
@@ -206,7 +213,7 @@ Component({
       this.pickerVisible = visible;
       const { onVisibleChange } = this.props;
       if (visible) {
-        this.setCurrentValue();
+        this.setCurrentValue(this.props);
       }
       if (onVisibleChange) {
         onVisibleChange(visible, fmtEvent(this.props));

@@ -12,6 +12,8 @@ import {
 import fmtEvent from '../../_util/fmtEvent';
 import mixinValue from '../../mixins/value';
 
+const component2 = my.canIUse('component2');
+
 Component({
   mixins: [
     mixinValue({
@@ -44,21 +46,29 @@ Component({
   didMount() {
     this.pickerVisible = false;
   },
+  deriveDataFromProps(nextProps) {
+    this.updateValue(this.props, nextProps);
+  },
   didUpdate(prevProps) {
-    if (
-      !isEqualDate(prevProps.value?.[0], this.props.value?.[0]) ||
-      !isEqualDate(prevProps.value?.[1], this.props.value?.[1])
-    ) {
-      this.setData({
-        forceUpdate: this.data.forceUpdate + 1,
-      });
-      if (this.pickerVisible) {
-        // 展开状态才更新picker的数据，否则下次triggerVisible触发
-        this.setCurrentValue();
-      }
+    if (!component2) {
+      this.updateValue(prevProps, this.props);
     }
   },
   methods: {
+    updateValue(prevProps, currentProps) {
+      if (
+        !isEqualDate(prevProps.value?.[0], currentProps.value?.[0]) ||
+        !isEqualDate(prevProps.value?.[1], currentProps.value?.[1])
+      ) {
+        this.setData({
+          forceUpdate: this.data.forceUpdate + 1,
+        });
+        if (this.pickerVisible) {
+          // 展开状态才更新picker的数据，否则下次triggerVisible触发
+          this.setCurrentValue(currentProps);
+        }
+      }
+    },
     computed() {
       const { currentStartDate, currentEndDate, pickerType } = this.data;
       const { format } = this.props;
@@ -72,8 +82,7 @@ Component({
             : '',
         };
     },
-    getMin() {
-      const { min } = this.props;
+    getMin(min) {
       const { pickerType, currentStartDate, currentEndDate } = this.data;
       let realMin = min;
       if (pickerType === 'end') {
@@ -96,8 +105,7 @@ Component({
       return res;
     },
 
-    getMax() {
-      const { max } = this.props;
+    getMax(max) {
       const { pickerType, currentEndDate } = this.data;
       let realMax = max;
       if (pickerType === 'start') {
@@ -115,9 +123,9 @@ Component({
       return realMax ? dayjs(realMax as any) : dayjs().add(10, 'year');
     },
     // didUpdate、弹窗打开、切换pickerType触发
-    setCurrentValue() {
+    setCurrentValue(currentProps) {
       const { pickerVisible } = this; // 隐藏状态下从CValue触发，展开状态使用当前数据
-      const { precision } = this.props;
+      const { precision } = currentProps;
       const { pickerType, columns } = this.data;
       const realValue = this.getValue();
       let { currentStartDate, currentEndDate } = this.data;
@@ -141,8 +149,8 @@ Component({
         currentEndDate = currentEndDateByCValue;
         // 开始默认取优先取当前时间，不在时间范围内取开始时间
         if (!currentStartDate) {
-          const min = this.getMin().toDate();
-          const { max } = this.props;
+          const min = this.getMin(currentProps.min).toDate();
+          const { max } = currentProps;
           currentStartDate = new Date();
           if (
             (min && currentStartDate < min) ||
@@ -158,7 +166,7 @@ Component({
         pickerType === 'start' ? currentStartDate : currentEndDate,
         precision
       );
-      const newColumns = this.generateData(currentValue);
+      const newColumns = this.generateData(currentValue, currentProps);
       if (!equal(newColumns, columns)) {
         this.setData({ columns: newColumns }, () => {
           this.setData({ currentStartDate, currentEndDate, currentValue });
@@ -170,10 +178,10 @@ Component({
     /**
      * 生成选项数据，didmound、picker change、打开弹窗、切换picker type触发
      */
-    generateData(currentValue) {
-      const { precision } = this.props;
-      const min = this.getMin();
-      const max = this.getMax();
+    generateData(currentValue, currentProps) {
+      const { precision, min: propsMin, max: propsMax } = currentProps;
+      const min = this.getMin(propsMin);
+      const max = this.getMax(propsMax);
       if (max < min) {
         return [];
       }
@@ -193,8 +201,8 @@ Component({
       selectedIndex = getValidValue(selectedIndex);
       const { onPickerChange, format, precision } = this.props;
       let date = getDateByValue(selectedIndex);
-      const min = this.getMin();
-      const max = this.getMax();
+      const min = this.getMin(this.props.min);
+      const max = this.getMax(this.props.max);
       if (dayjs(date).isBefore(min)) {
         date = min.toDate();
         selectedIndex = getValueByDate(date, precision);
@@ -212,7 +220,7 @@ Component({
       } else {
         newData.currentEndDate = date;
       }
-      const newColumns = this.generateData(selectedIndex);
+      const newColumns = this.generateData(selectedIndex, this.props);
       if (!equal(newColumns, columns)) {
         this.setData(
           {
@@ -301,7 +309,7 @@ Component({
       const { onVisibleChange } = this.props;
       if (visible) {
         this.setData({ pickerType: 'start' });
-        this.setCurrentValue();
+        this.setCurrentValue(this.props);
       }
       if (onVisibleChange) {
         onVisibleChange(visible, fmtEvent(this.props));
@@ -315,7 +323,7 @@ Component({
         this.setData({
           pickerType: type,
         });
-        this.setCurrentValue();
+        this.setCurrentValue(this.props);
       }
     },
   },
