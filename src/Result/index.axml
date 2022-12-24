@@ -1,6 +1,6 @@
 <import-sjs name="result" from='./index.sjs' />
 
-<view class="ant-result {{className ? className : ''}}" style="{{style}}">
+<view class="ant-result {{className ? className : ''}}" style="{{style || ''}}">
   <view class="ant-result-main">
     <slot name="image">
       <view class="ant-result-image" a:if="{{type}}">

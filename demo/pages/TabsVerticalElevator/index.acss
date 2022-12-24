@@ -20,7 +20,3 @@
   width: 80px;
 }
 
-.tab-active::after {
-  display: none;
-}
-
