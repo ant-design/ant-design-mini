@@ -1,5 +1,5 @@
 import { Form } from '../../../src/Form/form';
-import cityList from '../CascaderPicker/city';
+import cityList from './city';
 
 Page({
   form: new Form(),
@@ -36,10 +36,12 @@ Page({
     console.log(values);
   },
   onUpload(localFile) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       console.log('上传的图片为：', localFile);
       setTimeout(() => {
-        resolve('https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ');
+        resolve(
+          'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ'
+        );
       }, 2000);
     });
   },

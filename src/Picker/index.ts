@@ -8,6 +8,8 @@ import {
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
 
+const component2 = my.canIUse('component2');
+
 Component({
   props: PickerDefaultProps,
   data: {
@@ -20,66 +22,82 @@ Component({
   tempSelectedIndex: null,
   single: false,
   isChangingPickerView: false,
+  onInit() {
+    this.initData();
+  },
   didMount() {
-    const columns = this.getterColumns();
-    this.setData(
-      {
-        columns,
-      },
-      () => {
-        const formatValue = this.getterFormatText();
-        const selectedIndex = this.getterSelectedIndex();
-        this.setData({
-          formatValue,
-          selectedIndex,
-        });
-      }
-    );
+    if (!component2) {
+      this.initData();
+    }
+  },
+  deriveDataFromProps(nextProps) {
+    this.updateValue(this.props, nextProps);
   },
   didUpdate(prevProps) {
-    if (!equal(prevProps.options, this.props.options)) {
-      const newColums = this.getterColumns();
-      this.setData(
-        {
-          columns: newColums,
-        },
-        () => {
-          // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
-          if (!this.isChangingPickerView) {
-            this.tempSelectedIndex = null;
-            const selectedIndex = this.getterSelectedIndex();
-            this.setData({
-              selectedIndex,
-            });
-          }
-          this.isChangingPickerView = false;
-        }
-      );
-    }
-    if (!equal(this.props.value, prevProps.value)) {
-      const selectedIndex = this.getterSelectedIndex();
-      this.tempSelectedIndex = null;
-      this.setData({
-        selectedIndex,
-      });
-    }
-    const formatValue = this.getterFormatText();
-    if (formatValue !== this.data.formatValue) {
-      this.setData({
-        formatValue,
-      });
+    if (!component2) {
+      this.updateValue(prevProps, this.props);
     }
   },
   methods: {
-    getterColumns() {
+    initData() {
+      const columns = this.getterColumns(this.props.options);
+      this.setData(
+        {
+          columns,
+        },
+        () => {
+          const formatValue = this.getterFormatText();
+          const selectedIndex = this.getterSelectedIndex();
+          this.setData({
+            formatValue,
+            selectedIndex,
+          });
+        }
+      );
+    },
+    updateValue(prevProps, currentProps) {
+      if (!equal(prevProps.options, currentProps.options)) {
+        const newColums = this.getterColumns(currentProps.options);
+        this.setData(
+          {
+            columns: newColums,
+          },
+          () => {
+            // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
+            if (!this.isChangingPickerView) {
+              this.tempSelectedIndex = null;
+              const selectedIndex = this.getterSelectedIndex();
+              this.setData({
+                selectedIndex,
+              });
+            }
+            this.isChangingPickerView = false;
+          }
+        );
+      }
+      if (!equal(currentProps.value, prevProps.value)) {
+        const selectedIndex = this.getterSelectedIndex();
+        this.tempSelectedIndex = null;
+        this.setData({
+          selectedIndex,
+        });
+      }
+      const formatValue = this.getterFormatText();
+      if (formatValue !== this.data.formatValue) {
+        this.setData({
+          formatValue,
+        });
+      }
+    },
+    getterColumns(options) {
       let columns = [];
-      if (this.props.options.length > 0) {
-        if (this.props.options.every((item) => item instanceof Array)) {
+      if (options.length > 0) {
+        if (options.every((item) => item instanceof Array)) {
           this.single = false;
-          columns = this.props.options.slice();
+          columns = options.slice();
         } else {
           this.single = true;
-          columns = [this.props.options];
+          columns = [options];
         }
       }
       return columns;
