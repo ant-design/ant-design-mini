@@ -1,7 +1,7 @@
 <view 
-  class="ant-toast {{className}} {{icon || image || type ? 'ant-toast-icon-wrapper' : ''}}" 
+  class="ant-toast {{className || ''}} {{icon || image || type ? 'ant-toast-icon-wrapper' : ''}}" 
   a:if="{{show}}" 
-  style="{{style}}"
+  style="{{style || ''}}"
 >
   <view a:if="{{type}}" class="ant-toast-normal">
     <loading 

@@ -94,7 +94,7 @@
 />
 
 <toast 
-  content="最长文案不超过2行，最多可以显示24个字符" 
+  content="最长文案不超过2行, 最多可以显示24个字符" 
   visible="{{toast4Show}}" 
   data-index="4" 
   duration="{{0}}" 
