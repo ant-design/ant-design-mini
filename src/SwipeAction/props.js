@@ -6,7 +6,7 @@ export const SwipeActionDefaultProps = {
   defaultSwiped: '',
   damping: 70,
   disabled: false,
-  onSwipeStart: (e) => {},
+  onSwipeStart: (data, e) => {},
   onSwipeEnd: (data, e) => {},
   onButtonTap: (data, e) => {},
 };
