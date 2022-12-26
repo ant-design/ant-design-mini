@@ -22,7 +22,7 @@ Page({
   onSwipeStart() {
     this.setData({ swipeIndex: '' });
   },
-  onSwipeEnd(e, data) {
+  onSwipeEnd(data, e) {
     const { index } = e.target.dataset.item;
     data.swiped && this.setData({ swipeIndex: index });
   },

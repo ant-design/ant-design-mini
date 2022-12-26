@@ -102,7 +102,7 @@ Component({
       // 获取宽度信息，设置滑轨的宽度、初始化滑动位置
       // 如果没有获取到该信息则把左滑禁用掉
       rightButtons.length > 0 && my.createSelectorQuery()
-        .select(`.paytm-swipe-movable-right-${this.$id}`)
+        .select(`.ant-swipe-action-movable-right-${this.$id}`)
         .boundingClientRect()
         .exec((ret: any) => {
           if (ret && ret[0] && ret[0].width) {
@@ -111,7 +111,7 @@ Component({
           }
         });
         leftButtons.length > 0 && my.createSelectorQuery()
-          .select(`.paytm-swipe-movable-left-${this.$id}`)
+          .select(`.ant-swipe-action-movable-left-${this.$id}`)
           .boundingClientRect()
           .exec((ret: any) => {
             if (ret && ret[0] && ret[0].width) {
@@ -260,7 +260,7 @@ Component({
                 swipedL: !flag,
               },
               () => {
-                onSwipeEnd(fmtEvent(this.props), { direction: 'left', swiped: !!isRight });
+                onSwipeEnd({ direction: 'left', swiped: !!isRight }, fmtEvent(this.props));
               },
             );
           }, inertiaWidth > 0 ? 180 : 0)
@@ -287,7 +287,7 @@ Component({
                 swipedR: !flag,
               },
               () => {
-                onSwipeEnd(fmtEvent(this.props), { direction: 'right', swiped: !!isRight });
+                onSwipeEnd({ direction: 'right', swiped: !!isRight }, fmtEvent(this.props));
               },
             );
           },  inertiaWidth > 0 ? 180 : 0);
