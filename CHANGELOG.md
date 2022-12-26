@@ -1,3 +1,12 @@
+# 1.0.0-alpha.12 (2022-12-26)
+
+
+### Features
+
+* 官网导航添加国内镜像&版本切换 ([#479](https://github.com/ant-design/ant-design-mini/issues/479)) ([38d1f36](https://github.com/ant-design/ant-design-mini/commit/38d1f36a13ddd90dbde90cb0c602edb784e0f53f))
+
+
+
 ## 0.0.22 (2022-09-07)
 
 
