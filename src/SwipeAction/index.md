@@ -57,19 +57,19 @@ toc: 'content'
 | rightButtons | [SwipeButton](#SwipeButton)  | []    | 右侧按钮                                    |
 | damping      | number         | 70    | 滑动速度                                    |
 | elasticity   | boolean        | true  | 滑动弹性                                    |
-| swiped       | `''` &verbar; `'left'` &verbar; `'right'` | false | 是否滑开         |
-| defaultSwiped| `''` &verbar; `'left'` &verbar; `'right'` | false | 是否默认滑开      |
-| disable      | boolean         | false | 禁止滑动                                    |
+| swiped       | '' &verbar; 'left' &verbar; 'right' | false | 是否滑开         |
+| defaultSwiped| '' &verbar; 'left' &verbar; 'right' | false | 是否默认滑开      |
+| disabled     | boolean         | false | 禁止滑动                                    |
 | onSwipeStart | 滑动开始         | (e: string) => void      |e: 组件上data-xxx中的数据  |
-| onSwipeEnd   | 滑动结束         | (e: string, data: object) => void |e: 组件上data-xxx中的数据, data: direction(滑动的按钮是左边还是右边)，swiped(是否滑开)|
-| onButtonTap  | 按钮触发         | (e: string, data: object) => void |e: 组件上data-xxx中的数据, data: direction(滑动的按钮是左边还是右边)，btnIdx(按钮的index, 靠近主体的部分为0) |
+| onSwipeEnd   | 滑动结束         | (data: object, e: string) => void |e: 组件上data-xxx中的数据, data: direction(滑动的按钮是左边还是右边)，swiped(是否滑开)|
+| onButtonTap  | 按钮触发         | (data: object, e: string) => void |e: 组件上data-xxx中的数据, data: direction(滑动的按钮是左边还是右边)，btnIdx(按钮的index, 靠近主体的部分为0) |
 
 ### SwipeButton
-| 属性         | 类型            | 必填   | 默认值 | 说明                  |
-| -------------|----------------|-------|-------|------------------------------------------- |
-| text         | string         | 是    | -     | 按钮文字                                     |
-| bgColor      | string         | 是    | -     | 按钮背景颜色                                  |
-| color        | string         | 否    | #fff  | 按钮字体颜色                                  |
-| width        | number         | 否    | 150   | 按钮长度                                     |
-| confirmType  | `''` &verbar; `'move'` &verbar; `'tap'`  | 否    | -     | 二次确认的类型，不触发二次确认 &verbar; 滑动超出最大距离触发二次确认 &verbar; 点击触发二次确认               |
-| confirmText  | string         | 否    | -     | 二次确认的文案描述，不填则展示text               |
+| 属性         | 类型            | 默认值 | 说明                  |
+| -------------|----------------|-------|------------------------------------------- |
+| text         | string         | -     | 按钮文字                                     |
+| bgColor      | string         | -     | 按钮背景颜色                                  |
+| color        | string         | #fff  | 按钮字体颜色                                  |
+| width        | number         | 150   | 按钮长度                                     |
+| confirmType  | '' &verbar; 'move' &verbar; 'tap'  | -     | 二次确认的类型，不触发二次确认 &verbar; 滑动超出最大距离触发二次确认 &verbar; 点击触发二次确认               |
+| confirmText  | string         | -     | 二次确认的文案描述，不填则展示text               |

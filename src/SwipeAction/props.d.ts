@@ -33,7 +33,7 @@ interface ISwipeActionProps extends IBaseProps  {
    * @description 禁止滑动
    * @default false
    */
-  disable?: boolean;
+  disabled?: boolean;
   /**
    * @description 禁止滑动
    * @default ''
@@ -52,7 +52,7 @@ interface ISwipeActionProps extends IBaseProps  {
   /**
    * @description 滑动结束
    */
-  onSwipeEnd: (e: Record<string, any>, data: SwipeData) => void;
+  onSwipeEnd: (data: SwipeData, e: Record<string, any>) => void;
   /**
    * @description 滑动、触摸开始
    */
@@ -60,6 +60,6 @@ interface ISwipeActionProps extends IBaseProps  {
   /**
    * @description 右侧滑动按钮的点击事件回调
    */
-  onButtonTap: (e: Record<string, any>, data: SwipeData) => void;
+  onButtonTap: (data: SwipeData, e: Record<string, any>) => void;
 }
 export declare const SwipeActionDefaultProps: Partial<ISwipeActionProps>;
