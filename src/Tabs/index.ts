@@ -66,8 +66,8 @@ Component({
       ]);
       let scrollLeft = this.scrollLeft || 0;
       let needScroll = false;
-      if (item.left < 0) {
-        scrollLeft = (this.scrollLeft || 0) + item.left;
+      if (item.left - view.left < 0) {
+        scrollLeft = (this.scrollLeft || 0) + item.left - view.left;
         needScroll = true;
       } else if (item.left + item.width > view.width) {
         scrollLeft = (this.scrollLeft || 0) + Math.min(item.left + item.width - view.width, item.left);
