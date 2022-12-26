@@ -1,6 +1,6 @@
 export const GridDefaultProps = {
   iconStyle: 'normal',
-  mode: 'tile',
+  mode: 'default',
   columns: 5,
   gridItemLayout: 'vertical',
   showDivider: false,

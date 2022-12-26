@@ -5,16 +5,6 @@ function checkNeedVerticalSpace(count, index, columns) {
     return index < columns * Math.floor(count / columns);
   }
 }
-
-function getTitleSize(columns) {
-  if (columns === 2) {
-    return 'large';
-  }
-  if (columns === 3) {
-    return 'middle';
-  }
-  return 'small';
-}
 function checkShowSplitLine(index, count, columns, mode, showDivider) {
   if (!showDivider) {
     return false;
@@ -22,7 +12,7 @@ function checkShowSplitLine(index, count, columns, mode, showDivider) {
   if (index === count - 1) {
     return false;
   }
-  if (mode === 'tile') {
+  if (mode === 'default') {
     if ((index + 1) % columns === 0) {
       return false;
     }
@@ -31,6 +21,5 @@ function checkShowSplitLine(index, count, columns, mode, showDivider) {
 }
 export default {
   checkNeedVerticalSpace,
-  getTitleSize,
   checkShowSplitLine,
 };

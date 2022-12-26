@@ -53,37 +53,26 @@
   &-columns-scroll {
     width: @columnsscroll-width;
   }
-
-  &-img {
-    width: @icon-size;
-    height: @icon-size;
-    &-circle {
-      border-radius: 50%;
-    }
-  }
   &-icon {
-    font-size: @icon-size;
     &-circle {
       border-radius: 50%;
+      overflow: hidden;
+    }
+    &-icon{
+      font-size: @icon-size;
+    }
+    &-image {
+      width: @icon-size;
+      height: @icon-size;
     }
   }
   &-title {
-    font-size: @title-size-small;
+    font-size: 26 * @rpx;
     color: @title-color;
-    line-height: @title-size-small-height;
+    line-height: 37 * @rpx;
     width: 100%;
-    margin-top: @title-size-small-margin;
+    margin-top: 16 * @rpx;
     .ellipsis();
-    &-large {
-      font-size: @title-size-large;
-      line-height: @title-size-large-height;
-      margin-top: @title-size-large-margin;
-    }
-    &-middle {
-      font-size: @title-size-middle;
-      line-height: @title-size-middle-height;
-      margin-top: @title-size-middle-margin;
-    }
   }
   &-description {
     font-size: @description-size;

@@ -1,9 +1,13 @@
 <view class="ant-grid-item ant-grid-item-{{layout}}  {{verticalSpace?'ant-grid-item-vertical-space':''}} ant-grid-item-columns-{{columns}} {{showDivider?'ant-grid-item-line':''}}" catchTap="onTap" onFirstAppear="onFirstAppear">
-    <slot name="icon" item="{{item}}">
-        <image style="{{iconSize?('width:'+iconSize + ';height:' + iconSize) : ''}}" src="{{item.icon}}" class="ant-grid-item-img ant-grid-item-img-{{item.iconStyle||iconStyle}}" a:if="{{item.icon.indexOf('http')===0||item.icon.indexOf('data:')===0||item.icon.indexOf('.')===0||item.icon.indexOf('/')===0}}"/>
-        <icon fontSize="{{iconSize}}"  class="ant-grid-item-icon  ant-grid-item-icon-{{item.iconStyle||iconStyle}}"  a:else type="{{item.icon}}"/>
-    </slot>
-    <view class="ant-grid-item-title ant-grid-item-title-{{titleSize}}">
+    <view class="ant-grid-item-icon ant-grid-item-icon-{{item.iconStyle||iconStyle}}">
+        <slot name="icon" item="{{item}}">
+            <image-icon 
+                image="{{item.icon}}" 
+                className="ant-grid-item-icon" 
+                style="{{iconSize?`width:${iconSize}px;height:${iconSize}px;font-size:${iconSize}px`:''}}"  />
+        </slot>
+    </view>
+    <view class="ant-grid-item-title">
         <slot name="title" item="{{item}}">{{item.title}}</slot>
     </view>
     <view class="ant-grid-item-description">

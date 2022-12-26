@@ -31,7 +31,6 @@ toc: 'content'
 | content | 内容 | string\|slot | - |
 | defaultVisible |  默认是否显示 | boolean | false | 
 | maskClassName | 蒙层的类名 | string | - | 
-| maskClosable | 是否可点击蒙层关闭 | boolean | true |
 | maskStyle | 蒙层的样式 | string | - | 
 | placement | 方向，可选`top`  `top-right`  `top-left` `bottom` `bottom-left` `bottom-right` `left` `left-top` `left-bottom` `right` `right-top` `right-bottom`  | string | `bottom-right` |
 | showMask | 是否展示蒙层，为true时点击空白处可关闭Popover | boolean | true |

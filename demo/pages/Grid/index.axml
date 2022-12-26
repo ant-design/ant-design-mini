@@ -1,11 +1,8 @@
 <container title="2列">
     <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}"/>
 </container>
-<container title="2列-水平布局">
-    <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}" gridItemLayout="horizontal"/>
-</container>
-<container title="3列-展示分割线">
-    <grid items="{{items3}}" onTap="handleTapItem" columns="{{3}}" showDivider />
+<container title="3列">
+    <grid items="{{items3}}" onTap="handleTapItem" columns="{{3}}" />
 </container>
 <container title="4列">
     <grid items="{{items4}}" onTap="handleTapItem" columns="{{4}}" />
@@ -13,15 +10,21 @@
 <container title="5列">
     <grid items="{{items5}}" onTap="handleTapItem" columns="{{5}}"/>
 </container>
-<container title="带描述">
+<container title="2列-带描述">
+    <grid items="{{items2withDesc}}" onTap="handleTapItem" columns="{{2}}"/>
+</container>
+<container title="3列-带描述">
     <grid items="{{items3withDesc}}" onTap="handleTapItem" columns="{{3}}"/>
-    <view class="space"/>
-    <grid items="{{items2withDesc}}" onTap="handleTapItem" columns="{{2}}"  gridItemLayout="horizontal"/>
+</container>
+<container title="2列-元素横向布局">
+    <grid items="{{items2}}" onTap="handleTapItem" columns="{{2}}" gridItemLayout="horizontal"/>
+</container>
+<container title="3列-元素横向布局">
+    <grid items="{{items3}}" onTap="handleTapItem" columns="{{3}}" gridItemLayout="horizontal"/>
 </container>
 <container title="可滑动">
     <grid items="{{items4.concat(items4)}}" onTap="handleTapItem" mode="scroll"/>
 </container>
 <container title="自定义图标大小">
-    <grid items="{{itemsCustom}}" onTap="handleTapItem" columns="{{5}}" iconSize="88rpx"/>
-    <view class="space"/>
+    <grid items="{{itemsCustom}}" onTap="handleTapItem" columns="{{5}}" iconSize="{{44}}"/>
 </container>

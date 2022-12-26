@@ -20,8 +20,10 @@ toc: 'content'
 | className | 类名| string | - |
 | columns | 每行展示的元素个数，tile模式生效 | number | 5 | 
 | gridItemLayout | item布局，可选`vertical`(垂直) `horizontal`(水平) | string | `vertical` | 
+| iconSize | 图标尺寸，单位px | number | - |
+| iconStyle | 图标样式类型，可选`normal` `circle` | string | `normal` |
 | items | 内容文字 | [GridItem](#griditem)[] | - | 
-| mode | 样式类型，可选`tile`(平铺) `scroll`(滑动)  | string | `tile` | 
+| mode | 样式类型，可选`default`(平铺) `scroll`(滑动)  | string | `default` | 
 | paginationFillColor | 分页符背景色，scroll模式生效 | string | - | 
 | paginationFrontColor | 分页符颜色，scroll模式生效 | string | - | 
 | showDivider | 是否展示分割线 | boolean | - |
@@ -35,5 +37,5 @@ toc: 'content'
 | -----|-----|-----|-----|
 | description | 文字 | string | - |
 | icon | 图标，支持图片和[Icon](./Icon)| string | - |
-| iconStyle | 图标类型，优先级高于grid，可选`normal` `circle` | string | - |
+| iconStyle | 图标样式类型，优先级高于grid，可选`normal` `circle` | string | - |
 | title | 标题 | string | - |
