@@ -27,21 +27,6 @@
   </button>
 </container>
 
-<container title="危险" class="list">
-  <button  type="primary" danger onTap="handleTap">
-    主要按钮
-  </button>
-
-  <button type="default" danger onTap="handleTap">
-    次要按钮
-  </button>
-
-  <button type="text" danger onTap="handleTap">
-    文本按钮
-  </button>
-
-</container>
-
 <container title="禁用" class="list">
   <button type="primary" disabled>
     主要按钮
@@ -69,5 +54,20 @@
   <button type="text" loading>
     文本
   </button>
+</container>
+
+<container title="危险" class="list">
+  <button  type="primary" danger onTap="handleTap">
+    主要按钮
+  </button>
+
+  <button type="default" danger onTap="handleTap">
+    次要按钮
+  </button>
+
+  <button type="text" danger onTap="handleTap">
+    文本按钮
+  </button>
+
 </container>
 
