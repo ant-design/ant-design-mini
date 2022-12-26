@@ -8,7 +8,7 @@ interface SwipeButton {
   confirmText?: string,
 }
 interface SwipeData {
-  direction: 'right' | 'left',
+  direction: 'right' | 'left' | '',
   btnIdx?: number,
   swiped?: boolean,
 }
@@ -56,7 +56,7 @@ interface ISwipeActionProps extends IBaseProps  {
   /**
    * @description 滑动、触摸开始
    */
-  onSwipeStart: (e: Record<string, any>) => void;
+  onSwipeStart: (data: SwipeData, e: Record<string, any>) => void;
   /**
    * @description 右侧滑动按钮的点击事件回调
    */

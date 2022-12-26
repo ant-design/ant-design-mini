@@ -123,9 +123,10 @@ Component({
     // 向外透出事件
     onTouchStart() {
       const { onSwipeStart } = this.props;
+      const { swipedR, swipedL } = this.data;
       this.initWidth();
       this.setData({ tapTypeL: '', tapTypeR: '', inTouch: true }); // 清空confirmType = auto 的表现
-      onSwipeStart(fmtEvent(this.props));
+      onSwipeStart({ swiped: !!(swipedR || swipedL), direction: swipedL ? 'left' : (swipedR ? 'right' : '') }, fmtEvent(this.props));
     },
     onTouchEnd() {
       this.setData({ inTouch: false });
@@ -212,7 +213,7 @@ Component({
       !isRight && this.setData({ tapTypeR: '', myStyle: {} });
       if (inTouch && !!tapTypeR) {
         this.setData({ tapTypeR: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props), { direction: 'right', btnIdx: parseInt(tapTypeR.replace('R-', ''))});
+        onButtonTap({ direction: 'right', btnIdx: parseInt(tapTypeR.replace('R-', ''))}, fmtEvent(this.props));
         this.onSwipeRight(false);
         return;
       }
@@ -233,7 +234,7 @@ Component({
       // 处理滑动-触发事件
       if (inTouch && !!tapTypeL) {
         this.setData({ tapTypeL: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props), { direction: 'left', btnIdx: parseInt(tapTypeL.replace('L-', '')) });
+        onButtonTap({ direction: 'left', btnIdx: parseInt(tapTypeL.replace('L-', '')) }, fmtEvent(this.props));
         this.onSwipeLeft(false);
         return;
       }
