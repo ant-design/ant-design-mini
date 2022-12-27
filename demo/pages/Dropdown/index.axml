@@ -1,0 +1,20 @@
+<container title="基础用法" className="container">
+    <dropdown items="{{items1}}" onChange="handleChange">
+        <view slot="content" style="padding:12px;">
+            内容区
+        </view>
+    </dropdown>
+</container>
+<container title="两列" className="container">
+    <dropdown items="{{items2}}"  onChange="handleChange">
+        <view slot="content"  style="padding:12px;" slot-scope="props">{{props.value.title}}内容区</view>
+    </dropdown>
+</container>
+<container title="结合Checklist动态设置显示" className="container">
+    <dropdown items="{{items2}}"  onChange="handleChangeControlled" current="{{current}}">
+        <text slot="title" slot-scope="props" a:if="{{props.index === 0}}">{{sortText || props.value.title}}</text>
+        <text slot="title" slot-scope="props" a:if="{{props.index === 1}}">{{filterText || props.value.title}}</text>
+        <checklist slot="content" slot-scope="props" a:if="{{props.index === 0}}" options="{{sortOptions}}" onChange="handleSortChange"/>
+        <checklist slot="content" slot-scope="props" a:if="{{props.index === 1}}" options="{{filterOptions}}" onChange="handleFilterChange"/>
+    </dropdown>
+</container>

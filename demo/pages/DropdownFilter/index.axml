@@ -1,0 +1,8 @@
+<dropdown items="{{items}}"  onChange="handleChange" current="{{current}}">
+    <selector 
+        slot="content" 
+        slot-scope="props" 
+        options="{{props.value.selectorItems}}" 
+        onChange="handleSelectorChange" 
+        data-title="{{props.value.title}}"/>
+</dropdown>

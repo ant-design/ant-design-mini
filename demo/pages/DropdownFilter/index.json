@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "DropdownFilter",
+  "usingComponents": {
+    "selector": "../../../src/Selector/index",
+    "dropdown": "../../../src/Dropdown/index"
+  }
+}

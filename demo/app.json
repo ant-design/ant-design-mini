@@ -1,5 +1,5 @@
 {
-  "pages": [
+  "pages": [  
     "pages/index/index",
     "pages/IndexBar/index",
     "pages/SwipeActionLeftRight/index",
@@ -83,7 +83,9 @@
     "pages/RateCustom/index",
     "pages/Slider/index",
     "pages/TabsElevator/index",
-    "pages/IndexBarScrollView/index"
+    "pages/IndexBarScrollView/index",
+    "pages/Dropdown/index",
+    "pages/DropdownFilter/index"
   ],
   "window": {
     "enableWK": "YES",

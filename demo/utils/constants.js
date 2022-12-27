@@ -363,6 +363,16 @@ export const componentList = [
         path: '/pages/Popup/index',
       },
       {
+        name: 'Dropdown',
+        nameZN: '下拉菜单',
+        path: '/pages/Dropdown/index',
+      },
+      {
+        name: 'DropdownFilter',
+        nameZN: '下拉菜单结合Selector',
+        path: '/pages/DropdownFilter/index',
+      },
+      {
         name: 'Result',
         nameZN: '操作结果',
         path: '/pages/Result/index',

@@ -80,7 +80,6 @@ Component({
       }
       const arr = this.getValue();
       let current = [...arr];
-      console.log(arr, current);
       const index = current.indexOf(itemIndex);
       if (index >= 0) {
         current.splice(index, 1);

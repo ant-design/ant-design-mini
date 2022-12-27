@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Dropdown",
+  "usingComponents": {
+    "checklist": "../../../src/Checklist/index",
+    "container": "../../../src/Container/index",
+    "dropdown": "../../../src/Dropdown/index"
+  }
+}
