@@ -67,7 +67,7 @@ export interface INumberKeyboardProps extends IBaseProps {
   /**
    * @description 隐藏键盘时的回调
    */
-  onClose?: () => void;
+  onVisibleChange?: () => void;
 }
 
-export declare const NumverKeyboardDefaultProps: Partial<INumberKeyboardProps>;
+export declare const NumberKeyboardDefaultProps: Partial<INumberKeyboardProps>;
