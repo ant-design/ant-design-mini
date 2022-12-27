@@ -102,7 +102,7 @@ Component({
       // 获取宽度信息，设置滑轨的宽度、初始化滑动位置
       // 如果没有获取到该信息则把左滑禁用掉
       rightButtons.length > 0 && my.createSelectorQuery()
-        .select(`.paytm-swipe-movable-right-${this.$id}`)
+        .select(`.ant-swipe-action-movable-right-${this.$id}`)
         .boundingClientRect()
         .exec((ret: any) => {
           if (ret && ret[0] && ret[0].width) {
@@ -111,7 +111,7 @@ Component({
           }
         });
         leftButtons.length > 0 && my.createSelectorQuery()
-          .select(`.paytm-swipe-movable-left-${this.$id}`)
+          .select(`.ant-swipe-action-movable-left-${this.$id}`)
           .boundingClientRect()
           .exec((ret: any) => {
             if (ret && ret[0] && ret[0].width) {
@@ -123,9 +123,10 @@ Component({
     // 向外透出事件
     onTouchStart() {
       const { onSwipeStart } = this.props;
+      const { swipedR, swipedL } = this.data;
       this.initWidth();
       this.setData({ tapTypeL: '', tapTypeR: '', inTouch: true }); // 清空confirmType = auto 的表现
-      onSwipeStart(fmtEvent(this.props));
+      onSwipeStart({ swiped: !!(swipedR || swipedL), direction: swipedL ? 'left' : (swipedR ? 'right' : '') }, fmtEvent(this.props));
     },
     onTouchEnd() {
       this.setData({ inTouch: false });
@@ -212,7 +213,7 @@ Component({
       !isRight && this.setData({ tapTypeR: '', myStyle: {} });
       if (inTouch && !!tapTypeR) {
         this.setData({ tapTypeR: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props), { direction: 'right', btnIdx: parseInt(tapTypeR.replace('R-', ''))});
+        onButtonTap({ direction: 'right', btnIdx: parseInt(tapTypeR.replace('R-', ''))}, fmtEvent(this.props));
         this.onSwipeRight(false);
         return;
       }
@@ -233,7 +234,7 @@ Component({
       // 处理滑动-触发事件
       if (inTouch && !!tapTypeL) {
         this.setData({ tapTypeL: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props), { direction: 'left', btnIdx: parseInt(tapTypeL.replace('L-', '')) });
+        onButtonTap({ direction: 'left', btnIdx: parseInt(tapTypeL.replace('L-', '')) }, fmtEvent(this.props));
         this.onSwipeLeft(false);
         return;
       }
@@ -260,7 +261,7 @@ Component({
                 swipedL: !flag,
               },
               () => {
-                onSwipeEnd(fmtEvent(this.props), { direction: 'left', swiped: !!isRight });
+                onSwipeEnd({ direction: 'left', swiped: !!isRight }, fmtEvent(this.props));
               },
             );
           }, inertiaWidth > 0 ? 180 : 0)
@@ -287,7 +288,7 @@ Component({
                 swipedR: !flag,
               },
               () => {
-                onSwipeEnd(fmtEvent(this.props), { direction: 'right', swiped: !!isRight });
+                onSwipeEnd({ direction: 'right', swiped: !!isRight }, fmtEvent(this.props));
               },
             );
           },  inertiaWidth > 0 ? 180 : 0);

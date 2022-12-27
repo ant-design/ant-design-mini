@@ -1,14 +1,14 @@
 <import-sjs name="util" from="./index.sjs"/>
 
-<view class="my-paytm-swipe">
-  <view class="paytm-swipe ant-swipe-action" style="{{{ width: util.getWidth(rightWidth, leftWidth, inertiaWidth) }}}">
+<view class="ant-swipe">
+  <view class="ant-swipe-action" style="{{{ width: util.getWidth(rightWidth, leftWidth, inertiaWidth) }}}">
     <movable-area
-      class="paytm-swipe-movable"
+      class="ant-swipe-action-movable"
       style="{{{
         marginLeft: util.getMarginLeft(rightWidth, leftWidth, inertiaWidth),
       }}}">
       <movable-view
-        class="paytm-swipe-movable-content"
+        class="ant-swipe-action-movable-content"
         style="{{{
           width: util.getWidth2(rightWidth, leftWidth, inertiaWidth),
           marginLeft: util.getMarginLeft2(rightWidth, leftWidth, inertiaWidth)}}}"
@@ -18,7 +18,7 @@
         damping="{{damping}}"
         direction="horizontal"
         out-of-bounds="{{ false }}"
-        disabled="{{disable}}"
+        disabled="{{disabled}}"
         onTap="onSwipeTap"
         onChange="onChange"
         onChangeEnd="onChangeEnd"
@@ -27,16 +27,16 @@
         catchTouchStart="onTouchStart"
       >
         <view
-          class="paytm-swipe-movable-content-view ant-swipe-action-content"
+          class="ant-swipe-action-movable-content-view"
           style="{{util.getSlotWidthStyle(rightWidth, leftWidth, leftButtons, rightButtons, inertiaWidth)}}"
           catchTap="onClick">
-          <view class="paytm-swipe-movable-content-view-modal" a:if="{{swipedR || swipedL}}"></view>
+          <view class="ant-swipe-action-movable-content-view-modal" a:if="{{swipedR || swipedL}}"></view>
           <slot />
           <!-- {{ leftButtons.length+ 'dd' + rightButtons.length }} -->
         </view>
       </movable-view>
       <movable-view
-        class="paytm-swipe-movable-content {{`paytm-swipe-movable-right-${$id}`}}"
+        class="ant-swipe-action-movable-content {{`ant-swipe-action-movable-right-${$id}`}}"
         a:for="{{rightButtons}}"
         a:for-item="item"
         a:for-index="idx"
@@ -52,9 +52,9 @@
         direction="horizontal"
         x="{{moveX * (util.getMoveX(rightButtons, idx) / rightWidth)}}"
       >
-        <view class="paytm-swipe-movable-content-right" style="{{{background: item.bgColor,width: ((item.width + inertiaWidth + 1) / 2) + 'px'}}}">
+        <view class="ant-swipe-action-movable-content-right" style="{{{background: item.bgColor,width: ((item.width + inertiaWidth + 1) / 2) + 'px'}}}">
           <view
-            class="paytm-swipe-movable-content-right-text ant-swipe-action-right"
+            class="ant-swipe-action-movable-content-right-text"
             catchTap="onItemTap"
             data-item="{{item, idx}}"
             aria-hidden="{{!swipedR}}"
@@ -72,7 +72,7 @@
         </view>
       </movable-view>
       <movable-view
-        class="paytm-swipe-movable-content is-right-swipe {{`paytm-swipe-movable-left-${$id}`}}"
+        class="ant-swipe-action-movable-content ant-swipe-action-is-right-swipe {{`ant-swipe-action-movable-left-${$id}`}}"
         a:for="{{leftButtons}}"
         a:for-item="itemL"
         a:for-index="idx"
@@ -89,10 +89,10 @@
         x="{{moveX * (util.getMoveX(leftButtons, idx) / leftWidth)}}"
       >
       <view
-        class="paytm-swipe-movable-content-left"
+        class="ant-swipe-action-movable-content-left"
         style="{{{background: tapTypeL && tapTypeL === `L-${idx}` && leftButtons.length === 3 && idx === 1  ? 'none' : itemL.bgColor,width: ((leftWidth + inertiaWidth) / 2) + 'px'}}}">
         <view
-          class="paytm-swipe-movable-content-left-text1 ant-swipe-action-left"
+          class="ant-swipe-action-movable-content-left-text1 ant-swipe-action-left"
           catchTap="onItemTap"
           data-item="{{itemL, idx}}"
           aria-hidden="{{!swipedL}}"
