@@ -12,6 +12,7 @@ function createComponent({
       formData: {
         value: undefined,
         status: 'default',
+        required: false,
         errors: [],
       },
     },

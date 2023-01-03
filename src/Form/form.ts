@@ -1,4 +1,4 @@
-import AsyncValidator, { InternalRuleItem, Value, Values, Rules as RawRules, RuleItem, ValidateError, ValidateMessages } from 'async-validator';
+import AsyncValidator, { InternalRuleItem, Value, Values, Rule as RawRule, Rules as RawRules, RuleItem, ValidateError, ValidateMessages } from 'async-validator';
 
 
 export { Value, Values };
@@ -30,11 +30,35 @@ export interface FromItemRef {
 }
 export type ValidateTrigger = 'onChange' | 'onBlur' | 'onFocus';
 export type EventTrigger = ValidateTrigger | 'didUnmount' | 'deriveDataFromProps';
-class Field {
+
+class EventEmitter {
+  public listenders: Record<string, ((...args: any) => void)[]> = {};
+
+  on(event: string, listener: (...args: any) => void) {
+    this.listenders[event] = this.listenders[event] || [];
+    this.listenders[event].push(listener);
+    return this;
+  }
+
+  emit(event: string, ...args: any) {
+    const arr = this.listenders[event];
+    if (arr) {
+      arr.forEach(listener => listener(...args));
+    }
+  }
+}
+
+
+class Field extends EventEmitter{
   /**
    * Field ref对象
    */
   private ref: FromItemRef;
+
+  /**
+   * Field 名称
+   */
+  public name: string;
 
   /**
    * 校验器
@@ -46,6 +70,10 @@ class Field {
    */
   private touched: boolean;
 
+  /**
+   * required
+   */
+  private required: boolean;
 
   /**
    * 触发验证的时机，submit不需要设置也会触发校验器
@@ -53,53 +81,37 @@ class Field {
   private validateTrigger: ValidateTrigger[];
 
   /**
-   * Field change侦听
-   */
-  private changeListener = (value: Value) => {};
-
-  /**
-   * 组件unmount侦听
-   */
-  private  didUnmountListener = (replaceName?: string) => {};
-
-  /**
    * Field构建
    * @param ref field ref对象
    * @param initialValue 初始值
    */
-  constructor(ref: FromItemRef, initialValue: Value, validator: AsyncValidator, validateTrigger: ValidateTrigger | ValidateTrigger[]) {
+  constructor(
+    ref: FromItemRef,
+    name: string,
+    initialValues: Values,
+    rules: RawRules,
+    validateMessages: ValidateMessages,
+    required: boolean,
+    message: string,
+    validateTrigger: ValidateTrigger,
+  ) {
+    super();
     this.ref = ref;
-    const props = ref.getProps(); 
-    // validator
-    const required = this.transformValidatorRules(validator, props.required, props.message);
-    if (required) {
-      ref.setFormData({
-        required: true,
-      });
-    }
-    // validateTrigger
-    this.transformValidateTrigger(validateTrigger, props.validateTrigger);
-    this.setValue(initialValue);
-    ref.on((trigger, value) => {
+    this.create(name, initialValues[name], rules[name], validateMessages, required, message, validateTrigger);
+    this.ref.on((trigger, value) => {
       if (trigger === 'onChange') {
         this.setValue(value);
         this.touched = true;
-        this.changeListener(value);
+        this.emit('valueChange', value);
       } else if (trigger === 'didUnmount') {
-        this.didUnmountListener();
+        this.emit('didUnmount');
       } else if (trigger === 'deriveDataFromProps') {
-        const props = ref.getProps();
+        const props = this.ref.getProps();
+        if (value.name && value.name !== props.name || value.required !== props.required || value.message !== props.message || value.validateTrigger !== props.validateTrigger) {
+          this.create(value.name, initialValues[value.name], rules[value.name], validateMessages, value.required, value.message, value.validateTrigger);
+        }
         if (value.name !== props.name) {
-          this.didUnmountListener(value.name);
-        } else if (value.required !== props.required || value.message !== props.message) {
-          const required = this.transformValidatorRules(this.validator, value.required, value.message);
-          if (required) {
-            ref.setFormData({
-              required: true,
-            });
-          }
-        } else if (value.validateTrigger !== props.validateTrigger) {
-          this.transformValidateTrigger(validateTrigger, value.validateTrigger);
+          this.emit('replaceName', value.name);
         }
       }
       this.validateTrigger.forEach(item => {
@@ -110,91 +122,68 @@ class Field {
     })
   }
 
-  /**
-   * 修改 validateTrigger
-   * @param validateTrigger 
-   */
-  private transformValidateTrigger(validateTrigger: ValidateTrigger | ValidateTrigger[], propsValidateTrigger: ValidateTrigger | ValidateTrigger[]) {
-    const arr: ValidateTrigger[] = [];
-    let validateTriggerArr: ValidateTrigger[];
-    let propsValidateTriggerArr: ValidateTrigger[];
-    if (Array.isArray(validateTrigger)) {
-      validateTriggerArr = validateTrigger;
-    } else {
-      validateTriggerArr = validateTrigger ? [validateTrigger] : [];
+  create(
+    name: string,
+    initialValue: Value,
+    rule: RawRule,
+    validateMessages: ValidateMessages,
+    required: boolean,
+    message: string,
+    validateTrigger: ValidateTrigger,
+  ) {
+    this.name = name;
+    this.required = this.transformValidatorRules(name, rule, required, message, validateMessages);
+    this.reset(initialValue);
+    let validateTriggerList: ValidateTrigger[] | ValidateTrigger = validateTrigger || 'onChange';
+    if (!Array.isArray(validateTriggerList)) {
+      validateTriggerList = [validateTriggerList];
     }
-    if (Array.isArray(propsValidateTrigger)) {
-      propsValidateTriggerArr = propsValidateTrigger;
-    } else {
-      propsValidateTriggerArr = propsValidateTrigger ? [propsValidateTrigger] : [];
-    }
-    validateTriggerArr.forEach(item => {
-      if (arr.indexOf(item) < 0) {
-        arr.push(item);
-      }
-    });
-    propsValidateTriggerArr.forEach(item => {
-      if (arr.indexOf(item) < 0) {
-        arr.push(item);
-      }
-    });
-    if (arr.length === 0) {
-      arr.push('onChange');
-    }
-    this.validateTrigger = arr;
+    this.validateTrigger = validateTriggerList;
   }
 
   /**
-   * 修改 Validator
-   * @param required 传入required
-   * @param message 传入错误信息
+   * 
+   * @param rule 修改 Validator
+   * @param name 
+   * @param required 
+   * @param message 
+   * @param validateMessages 
+   * @returns 
    */
-  private transformValidatorRules(validator: AsyncValidator, required: boolean, message: string) {
-    const name = this.ref.getProps().name;
+  private transformValidatorRules(name: string, rule: RawRule, required: boolean, message: string, validateMessages: ValidateMessages) {
     let requiredRule = false;
-    if (validator) {
-      const rules = validator.rules[name];
-      const result = rules.find(item => item.required);
+    let validator: AsyncValidator;
+    if (rule) {
+      const ruleList = Array.isArray(rule) ? rule : [rule];
+      const result = ruleList.find(item => item.required)
       if (result) {
         if (message) {
           result.message = message;
         }
         requiredRule = true;
       } else if (required) {
-        rules.push({
+        ruleList.push({
           required,
           message: message,
         });
         requiredRule = true;
       }
-      this.validator = validator;
+      validator = new AsyncValidator({
+        [name]: ruleList,
+      });
     } else if (required) {
-      this.validator = new AsyncValidator({
+      validator = new AsyncValidator({
         [name]: {
           required,
           message: message,
         },
       });
-      requiredRule = true;
     }
+    if (validator) {
+      validator.messages(validateMessages);
+    }
+    this.validator = validator;
     return requiredRule;
-  }
-
-
-  /**
-   * onChange 侦听
-   * @param callback onChange 回调方法
-   */
-  onChange(callback: (value: Value) => void) {
-    this.changeListener = callback;
-  }
-
-  /**
-   * didUnmount 侦听
-   * @param callback didUnmount 回调方法
-   */
-  didUnmount(callback: (replaceName?: string) => void) {
-    this.didUnmountListener = callback;
   }
 
   /**
@@ -251,20 +240,27 @@ class Field {
         value,
       };
     }
+    let validator = this.validator;
     try {
       this.setValidatorStatus({
         status: 'validating',
         errors: []
       });
       await this.validator.validate({
-        [this.ref.getProps().name]: value,
+        [this.name]: value,
       });
+      if (validator !== this.validator) {
+        return;
+      }
       this.setValidatorStatus(validatorStatusSuccess);
       return {
         validatorStatus: validatorStatusSuccess,
         value,
       };
     } catch(err) {
+      if (validator !== this.validator) {
+        return;
+      }
       const errors: ValidateError[] = err.errors;
       const validatorStatus: ValidatorStatus = {
         status: 'error',
@@ -283,8 +279,10 @@ class Field {
    * @param initialValue 
    */
   reset(initialValue: Value) {
-    this.setValue(initialValue);
-    this.setValidatorStatus({
+    this.touched = false;
+    this.ref.setFormData({
+      value: initialValue,
+      require: this.required,
       status: 'default',
       errors: [],
     });
@@ -323,7 +321,7 @@ export class Form {
   /**
    * 表单字段 change侦听
    */
-   private changeListeners: Record<string, ((value: Value) => void)[]> = {};
+  private changeListeners: Record<string, ((value: Value) => void)[]> = {};
 
   /**
    * Form构建
@@ -374,7 +372,7 @@ export class Form {
    * 设置 rules
    * @param rules 
    */
-   private setRules(rules: Rules) {
+  private setRules(rules: Rules) {
     this.rules = this.transformRules(rules);
   }
 
@@ -382,40 +380,44 @@ export class Form {
    * 添加表单对象
    * @param ref 表单ref对象
    */
-  addItem(ref: FromItemRef) {
+  addItem(ref: FromItemRef, customName?: string) {
     const props = ref.getProps();
-    const name = props.name;
+    let name = customName || props.name;
     if (!name) {
-      throw new Error(`Form "addItem" need props "name"`);
+      ref.on((trigger, value) => {
+        if (trigger === 'deriveDataFromProps') {
+          if (value.name) {
+            this.addItem(ref, value.name);
+          }
+        }
+      });
+      return;
     }
     if (this.fields[name]) {
       throw new Error(`Form "addItem" same name: "${name}"`);
     }
-    const value = this.initialValues[name];
-    let validator: AsyncValidator;
-    const rule = this.rules[name];
-    if (rule) {
-      validator = new AsyncValidator({
-        [name]: this.rules[name],
-      });
-      validator.messages(this.validateMessages);
-    }
-    const validatorTrigger = props.validatorTrigger;
-    const field = this.fields[name] = new Field(ref, value, validator, validatorTrigger);
-    field.onChange(value => {
-      if (this.changeListeners[name]) {
+    const field = new Field(ref, name, this.initialValues, this.rules, this.validateMessages, props.require, props.message, props.validateTrigger);
+    field.on('valueChange', (value) => {
+      if (name && this.changeListeners[name]) {
         this.changeListeners[name].forEach(item => item(value));
       }
-    })
-    field.didUnmount((replaceName?: string) => {
-      if (replaceName) {
-        this.fields[replaceName] = this.fields[name];
-        this.rules[replaceName] = this.rules[name];
-      }
+    }).on('didUnmount', () => {
       delete this.fields[name];
-      delete this.rules[name];
-      delete this.changeListeners[name];
+    }).on('replaceName', (newName) => {
+      if (!newName) {
+        delete this.fields[name];
+        return;
+      }
+      if (this.fields[newName]) {
+        throw new Error(`Form "addItem" same name: "${newName}"`);
+      }
+      this.fields[newName] = field;
+      delete this.fields[name];
+      name = newName;
     });
+    if (name) {
+      this.fields[name] = field;
+    }
   }
 
   /**
@@ -516,7 +518,11 @@ export class Form {
       name: string;
       errors: string[];
     }[] = [];
-    result.forEach(({ name, value, validatorStatus }) => {
+    result.forEach(obj => {
+      if (!obj) {
+        return;
+      }
+      const { name, value, validatorStatus } = obj;
       if (validatorStatus.status === 'error') {
         errorFields.push({
           name,
