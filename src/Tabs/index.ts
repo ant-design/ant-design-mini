@@ -66,11 +66,12 @@ Component({
       ]);
       let scrollLeft = this.scrollLeft || 0;
       let needScroll = false;
-      if (item.left < 0) {
-        scrollLeft = (this.scrollLeft || 0) + item.left;
+      const distance = item.left - view.left;
+      if (distance < 0) {
+        scrollLeft = (this.scrollLeft || 0) + distance;
         needScroll = true;
-      } else if (item.left + item.width > view.width) {
-        scrollLeft = (this.scrollLeft || 0) + Math.min(item.left + item.width - view.width, item.left);
+      } else if (distance + item.width > view.width) {
+        scrollLeft = (this.scrollLeft || 0) + Math.min(distance + item.width - view.width, distance);
         needScroll = true;
       }
       if (needScroll) {
