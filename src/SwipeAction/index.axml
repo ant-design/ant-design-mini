@@ -29,7 +29,7 @@
         <view
           class="ant-swipe-action-movable-content-view"
           style="{{util.getSlotWidthStyle(rightWidth, leftWidth, leftButtons, rightButtons, inertiaWidth)}}"
-          catchTap="onClick">
+          onTap="onClick">
           <view class="ant-swipe-action-movable-content-view-modal" a:if="{{swipedR || swipedL}}"></view>
           <slot />
           <!-- {{ leftButtons.length+ 'dd' + rightButtons.length }} -->
@@ -55,7 +55,7 @@
         <view class="ant-swipe-action-movable-content-right" style="{{{background: item.bgColor,width: ((item.width + inertiaWidth + 1) / 2) + 'px'}}}">
           <view
             class="ant-swipe-action-movable-content-right-text"
-            catchTap="onItemTap"
+            onTap="onItemTap"
             data-item="{{item, idx}}"
             aria-hidden="{{!swipedR}}"
             style="{{{
@@ -93,7 +93,7 @@
         style="{{{background: tapTypeL && tapTypeL === `L-${idx}` && leftButtons.length === 3 && idx === 1  ? 'none' : itemL.bgColor,width: ((leftWidth + inertiaWidth) / 2) + 'px'}}}">
         <view
           class="ant-swipe-action-movable-content-left-text1 ant-swipe-action-left"
-          catchTap="onItemTap"
+          onTap="onItemTap"
           data-item="{{itemL, idx}}"
           aria-hidden="{{!swipedL}}"
           style="{{{

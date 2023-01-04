@@ -1,7 +1,7 @@
 <template name="selector">
     <view 
         class="ant-range-picker-selector-item {{active?'ant-range-picker-selector-item-active':''}}" 
-        catchTap="onChangeCurrentPickerType" 
+        onTap="onChangeCurrentPickerType" 
         data-type="{{type}}">
         <view a:if="{{value}}" class="ant-range-picker-selector-item-value">{{value}}</view>
         <view a:else class="ant-range-picker-selector-item-placeholder">{{placeholder}}</view>

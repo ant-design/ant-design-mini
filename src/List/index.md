@@ -39,5 +39,6 @@ toc: 'content'
 | radius | 是否带圆角 | boolean | false | 
 | showDivider | 是否显示下划线  | boolean | true | 
 | style | 样式 | string | - |
-| title | 标题信息 | string \| slot | - | 
-| onTap | 点击图标，触发此回调 | ( e: [Event](https://opendocs.alipay.com/mini/framework/event-object) ) => void |
+| title | 标题信息 | string \| slot | - |
+| catchTap | 点击图标，触发此回调 | (e: Event) => void |
+| onTap | 点击图标，触发此回调 | (e: Event) => void |

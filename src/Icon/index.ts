@@ -9,5 +9,10 @@ Component({
         this.props.onTap(fmtEvent(this.props, e));
       }
     },
+    catchTap(e) {
+      if (this.props.catchTap) {
+        this.props.catchTap(fmtEvent(this.props, e));
+      }
+    },
   },
 });

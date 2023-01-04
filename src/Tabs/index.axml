@@ -22,7 +22,7 @@
           a:if="{{type === 'basic'}}"
           class="ant-tabs-bar-item ant-tabs-bar-basic {{tabClassName ? tabClassName: ''}} {{mixin.value === index && !item.disabled?'ant-tabs-bar-active':''}} {{item.disabled ?'ant-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           
-          catchTap="onChange"
+          onTap="onChange"
           data-index="{{index}}">
           <view class="ant-tabs-bar-basic-title">
             <slot name="title" value="{{item}}" index="{{index}}">
@@ -35,7 +35,7 @@
           a:elif="{{type === 'capsule'}}"
           class="ant-tabs-bar-item ant-tabs-bar-capsule {{tabClassName ? tabClassName: ''}} {{mixin.value === index&& !item.disabled?'ant-tabs-bar-active':''}} {{item.disabled ?'ant-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           
-          catchTap="onChange"
+          onTap="onChange"
           data-index="{{index}}">
           <view class="ant-tabs-bar-capsule-title">
             <slot name="title" value="{{item}}" index="{{index}}">
@@ -49,7 +49,7 @@
           a:else
           class="ant-tabs-bar-item ant-tabs-bar-mixin {{tabClassName ? tabClassName: ''}} {{mixin.value === index&& !item.disabled?'ant-tabs-bar-active':''}} {{item.disabled ?'ant-tabs-bar-disabled':''}} {{mixin.value === index&& !item.disabled && tabActiveClassName ?tabActiveClassName:''}}"
           
-          catchTap="onChange"
+          onTap="onChange"
           data-index="{{index}}">
           <view class="ant-tabs-bar-mixin-title">
             <slot name="title" value="{{item}}" index="{{index}}">
@@ -82,7 +82,7 @@
           a:for="{{items}}"
           class="ant-vtabs-bar-item {{tabClassName ? tabClassName: ''}} {{mixin.value === index&&!item.disabled?'ant-vtabs-bar-item-active' :''}} {{item.disabled?'ant-vtabs-bar-item-disabled' : '' }} {{mixin.value === index&!item.disabled&&tabActiveClassName?tabActiveClassName : ''}}"
           style="{{`${mixin.value + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${mixin.value - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
-          catchTap="onChange"
+          onTap="onChange"
           data-index="{{index}}"
         >
           <text class="ant-vtabs-bar-item-title">

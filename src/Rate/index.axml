@@ -8,9 +8,8 @@
     onTouchEnd="handleStarMoveEnd"
   >
     <view class="ant-rate-star" 
-      a:for="{{count}}" 
-      catchTap="handleStarTap"
-      onTap="handleRateTap"
+      a:for="{{count}}"
+      onTap="handleStarTap"
       data-rate="{{index}}"
       style="margin-right: {{(index === count - 1 ? 0 : gutter) + 'px'}}"
     >
