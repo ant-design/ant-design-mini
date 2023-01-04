@@ -1,10 +1,6 @@
-# 1.0.0-beta.0 (2023-01-04)
+## 1.0.0-beta.0 (2023-01-04)
 
-
-### Bug Fixes
-
-* catchTap ([#489](https://github.com/ant-design/ant-design-mini/issues/489)) ([d3ee7a9](https://github.com/ant-design/ant-design-mini/commit/d3ee7a975f9b8ea4949044d3d382d22f37faa3ab))
-
+https://github.com/ant-design/ant-design-mini/issues/305
 
 
 ## 0.0.22 (2022-09-07)
