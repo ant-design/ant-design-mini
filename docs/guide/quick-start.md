@@ -26,3 +26,6 @@ $ npm i antd-mini@alpha --save
 ```html
 <button>antd-mini</button>
 ```
+
+## 查看示例
+<code src='pages/Button/index'></code>

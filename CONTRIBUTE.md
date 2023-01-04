@@ -37,20 +37,19 @@ git clone git@github.com:ant-design/ant-design-mini.git
 
 *** Tip：请遵循 git flow，正式开发时，新建 feat/xxx 或 fix/xxx 分支进行开发。 ***
 
-``` bash
+```
 // 安装依赖
-npm i
-
-// 开发环境
-npm run dev
+$ npm i
 ```
 
 ### 效果预览
 
-1. antd-mini 组件使用 [minidev](https://www.npmjs.com/package/minidev/v/0.0.7) 开发，可以通过编写、预览 demo 小程序来验证 src 目录下组件源码是否符合预期；
+1. 使用IDE打开进行组件开发。
 
-2. antd-mini 文档使用 [umi](https://umijs.org/zh-CN) 开发，可在代码开发的同时修改文档，并嵌入编写的 demo；
-
+2. 对于文档开发，使用
+```
+$ npm run dev
+```
 
 ### Commit 规范
 
