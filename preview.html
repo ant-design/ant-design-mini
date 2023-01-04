@@ -1,0 +1,85 @@
+
+<!doctype html>
+<html>
+<head>
+  <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/wNkELvnLHXPAlmqutRPI.png" type="image/x-icon">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/0.0.17/web/preview.css" />
+  <link rel="preload" href="/preview.json" as="fetch" crossorigin>
+  <link rel="preload" href="/preview-theme-dark.json" as="fetch" crossorigin>
+  <style>
+    body {
+      margin: 0;
+    }
+    #root {
+      width: 100vw;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+  </div>
+  <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react/18.0.0/umd/react.production.min.js"></script>
+  <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react-dom/18.0.0/umd/react-dom.production.min.js"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/0.0.18/web/preview.js"></script>
+  <script>
+    const searchParams = new URL(location.href).searchParams;
+    const theme = searchParams.get('less-theme');
+
+    function getDist() {
+      const server = searchParams.get('compilerServer');
+      const list = ['appConfig.json', 'index.js', 'index.worker.js', 'index.html'];
+      return Promise.all(list.map(item => fetch(`${server}/${item}`).then(res => res.text()))).then(arr => {
+        const dist = {};
+        list.forEach((item, index) => {
+          dist[item] = arr[index]; 
+        });
+        return dist;
+      });
+    }
+
+    function getSourceCode() {
+      const defaultPage = searchParams.get('defaultPage');
+      return fetch(`/sourceCode/${defaultPage}`).then(res => res.json());
+    }
+
+    async function startWebOpenBoxPreviewApp() {
+      let dist;
+      let sourceCode;
+      if (location.port) {
+        const arr = await Promise.all([
+          getDist(),
+          getSourceCode(),
+        ]);
+        dist = arr[0];
+        sourceCode = arr[1];
+      } else {
+        const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());
+        dist = obj.dist;
+        sourceCode = obj.sourceCode;
+      }
+      sourceCode['mini.project.json'] = '{ "enableAppxNg": true }';
+      window.OpenBoxPreview.StartWebOpenBoxPreviewApp({
+        containerStyle: {
+          width: '100%',
+          height: '100%',
+        },
+        sourceCode,
+        dist,
+        isShowToolbar: true,
+        toolbarOptions: {
+          isShowQrcode: false,
+          isShowDownload: true,
+          isShowEditMode: false,
+          isShowLyraRefresh: true,
+          isShowSwitchLyra: false
+        },
+        isShowHeaderLogo: false,
+      });
+    }
+    startWebOpenBoxPreviewApp();
+  </script>
+</body>
+</html>
