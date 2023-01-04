@@ -1,7 +1,7 @@
 <view class="ant-image-upload {{className || ''}}"  style="{{style || ''}}">
   <slot fileList="{{mixin.value}}">
     <view a:for="{{mixin.value}}" class="ant-image-upload-show" a:key="uid">
-      <view data-uid="{{item.uid}}" catchTap="onRemove">
+      <view data-uid="{{item.uid}}" onTap="onRemove">
         <slot name="removeButton" >
           <view class="ant-image-upload-close" />
         </slot>
@@ -29,12 +29,12 @@
           mode="{{imageMode}}"
           src="{{item.url || item.path}}"
           data-uid="{{item.uid}}"
-          catchTap="onPreview" 
+          onTap="onPreview" 
         />
       </slot>   
     </view>
 
-    <view catchTap="chooseImage">
+    <view onTap="chooseImage">
       <slot name="uploadButton">
         <view 
           a:if="{{typeof maxCount === 'undefined' || mixin.value.length < maxCount}}" 
