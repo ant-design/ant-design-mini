@@ -1,3 +1,8 @@
+## 1.0.0-beta.0 (2023-01-04)
+
+https://github.com/ant-design/ant-design-mini/issues/305
+
+
 ## 0.0.22 (2022-09-07)
 
 
