@@ -25,7 +25,7 @@ export const getProductResource = (isWideScreen) => [
     description: '你可以直接在 OpenDocs 上在线体验，无需安装和配置环境',
     backgroundImage: isWideScreen ? 'https://gw.alipayobjects.com/zos/bmw-prod/239bb8cf-3fcd-4cfe-bb5a-ba2d910342bc.svg' : 'https://gw.alipayobjects.com/zos/bmw-prod/613c0844-d32d-4b89-83f2-36bc6840628a.svg',
     buttonText: '开始体验',
-    buttonLink: 'https://opendocs.alipay.com/openbox/mini/antd-mini/antd-mini-demo?view=editor&defaultPage=pages%2Findex%2Findex&defaultOpenedFiles=pages%2Findex%2Findex&mode=snippets',
+    buttonLink: '',
   },
   {
     image: 'https://gw.alipayobjects.com/zos/bmw-prod/06ae4a67-b93a-413b-9c58-75dbbe79f5b7.svg',

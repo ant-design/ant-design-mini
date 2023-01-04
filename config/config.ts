@@ -392,8 +392,12 @@ const config: IConfig = {
         path: '/guide/quick-start',
       },
       {
-        title: '项目共建',
-        path: '/guide/cooperation',
+        title: '定制主题',
+        path: '/guide/customize-theme',
+      },
+      {
+        title: '升级到v1',
+        path: '/guide/migration-v1',
       },
       {
         title: '贡献指南',
