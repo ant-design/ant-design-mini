@@ -30,6 +30,7 @@ toc: 'content'
 | contentStyle | content样式 | string | - | 
 | content | 内容 | string\|slot | - |
 | defaultVisible |  默认是否显示 | boolean | false | 
+| destroyOnClose | 不可见时卸载内容 | boolean | false | 
 | maskClassName | 蒙层的类名 | string | - | 
 | maskStyle | 蒙层的样式 | string | - | 
 | placement | 方向，可选`top`  `top-right`  `top-left` `bottom` `bottom-left` `bottom-right` `left` `left-top` `left-bottom` `right` `right-top` `right-bottom`  | string | `bottom-right` |

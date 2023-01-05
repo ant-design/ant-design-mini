@@ -4,7 +4,8 @@
     <slot />
   </view>
   <view class="ant-popover-container"
-    a:if="{{mixin.value}}">
+    a:if="{{!destroyOnClose || mixin.value}}"
+    hidden="{{!mixin.value}}">
     <!-- 蒙层 -->
     <mask 
       show="{{showMask&&!isComputing(placement, adjustedPlacement, autoAdjustOverflow)}}"    
