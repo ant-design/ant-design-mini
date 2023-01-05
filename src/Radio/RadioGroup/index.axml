@@ -8,7 +8,7 @@
   >
     <view class="ant-radio-group-body">
       <block a:if="{{position === 'vertical'}}">
-        <list-item stopPropagation a:for="{{options}}">
+        <list-item a:for="{{options}}">
           <radio
             checked="{{componentUtils.getChecked(index, options, mixin.value)}}"
             data-index="{{index}}"
@@ -18,7 +18,7 @@
             onChange="onChange"
           > 
             <slot name="label" value="{{item}}" index="{{index}}">
-              {{item.label}}
+              <view class="ant-radio-group-item-label-default">{{item.label}}</view>
             </slot>  
           </radio>
         </list-item>
@@ -34,7 +34,7 @@
           onChange="onChange"
         >
           <slot name="label" value="{{item}}" index="{{index}}">
-            {{item.label}}
+            <view class="ant-radio-group-item-label-default">{{item.label}}</view>
           </slot>
         </radio>
       </block>

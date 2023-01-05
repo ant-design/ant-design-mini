@@ -13,7 +13,7 @@
 >
   <view>
     <radio-group options="{{options}}" value="{{formData.value}}" onChange="onChange" color="{{color}}" position="{{radioPosition}}">
-      <slot name="label" slot="label" slot-scope="props" value="{{props.value}}" index="{{props.index}}"/>
+      <slot name="radioLabel" slot="label" slot-scope="props" value="{{props.value}}" index="{{props.index}}"/>
     </radio-group>
   </view>
   <view slot="extra">

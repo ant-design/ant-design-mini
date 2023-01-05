@@ -41,5 +41,10 @@
   &-body {
     position: relative;
     overflow: hidden;
+    .ant-radio-item-content {
+      .ant-radio-group-item-label-default:not(:nth-child(1)) {
+        display: none;
+      }
+    }
   }
 }
