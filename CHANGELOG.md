@@ -1,3 +1,12 @@
+# 1.0.0-beta.1 (2023-01-05)
+
+
+### Features
+
+* add destroyOnClose ([#495](https://github.com/ant-design/ant-design-mini/issues/495)) ([f20a49f](https://github.com/ant-design/ant-design-mini/commit/f20a49f1d2a61801f07a9c693c78465e85f22382))
+
+
+
 ## 1.0.0-beta.0 (2023-01-04)
 
 https://github.com/ant-design/ant-design-mini/issues/305
