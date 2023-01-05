@@ -46,7 +46,11 @@ export interface IModalProps extends IBaseProps {
    * @default false
    */
   visible: boolean;
-
+  /**
+   * @description 是否关闭后销毁内部元素
+   * @default false
+   */
+  destroyOnClose?: boolean;
   /**
    * @description 主按钮文本
    */

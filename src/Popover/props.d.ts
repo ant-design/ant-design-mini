@@ -15,6 +15,11 @@ export interface IPopoverProps extends IBaseProps {
    */
   defaultVisible?: boolean;
   /**
+   * @description 是否关闭后销毁内部元素
+   * @default false
+   */
+  destroyOnClose?: boolean;
+  /**
    * @description 背景颜色
    */
   color?: string;

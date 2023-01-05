@@ -21,6 +21,7 @@ toc: 'content'
 | -----|-----|-----|-----|
 | animation | 是否开启过渡动画 | boolean | true |  
 | className | 类名 | string | - | 
+| destroyOnClose | 不可见时卸载内容 | boolean | false | 
 | duration | 过渡动画时长，单位毫秒 | number | 300 | 
 | height | 高度, 在 position 为 `top` 或 `bottom` 时使用，单位px | number | - | 
 | maskClassName | 蒙层的类名 | string | - | 
