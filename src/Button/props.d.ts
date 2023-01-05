@@ -72,5 +72,10 @@ export interface IButtonProps extends IBaseProps {
    * @description 当 openType 为 getAuthorize 时有效。
    */
   scope?: string;
+
+  /**
+   * 监控
+   */
+  onMonitor: (e: any) => void;
 }
 export declare const ButtonDefaultProps: Partial<IButtonProps>;

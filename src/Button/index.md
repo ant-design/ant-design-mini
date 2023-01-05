@@ -41,6 +41,7 @@ toc: 'content'
 | subText | 辅助文字，显示在第二行。inline 下不生效 | string | - |
 | catchTap | 点击按钮，触发此回调 | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  | - |
 | onTap | 点击按钮，触发此回调 | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  | - |
+| onMonitor | 埋点监控 | (e) => void  | - |
 
 ### 其他属性
 | 属性 | 说明 | 类型 | 默认值 |
