@@ -25,6 +25,7 @@ toc: 'content'
 | className | 类名 | string | - | 
 | closable | 是否显示右上角的关闭按钮。只有在 type 为 focus 生效 | boolean | - | 
 | content | 内容 | string\|slot | - |
+| destroyOnClose | 不可见时卸载内容 | boolean | true | 
 | footer | 自定义按钮区 | slot | - |
 | maskClosable |  点击蒙层是否触发onClose | boolean | true | 
 | maskClassName | 蒙层的类名 | string | - | 

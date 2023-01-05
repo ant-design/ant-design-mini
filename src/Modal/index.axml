@@ -9,6 +9,7 @@
   position="center"
   animation="{{animation}}"
   zIndex="{{zIndex}}"
+  destroyOnClose="{{destroyOnClose}}"
   onClose="onMaskClose">
   <slot slot="content">
     <view class="ant-modal-body {{bodyClassName || ''}}" style="{{bodyStyle || ''}}">

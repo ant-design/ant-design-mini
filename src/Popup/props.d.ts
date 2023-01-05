@@ -9,6 +9,11 @@ export interface IPopupProps extends IBaseProps {
    */
   visible?: boolean;
   /**
+   * @description 是否关闭后销毁内部元素
+   * @default false
+   */
+  destroyOnClose?: boolean;
+  /**
    * @description 是否展示蒙层
    * @default true
    */
