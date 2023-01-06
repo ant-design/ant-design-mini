@@ -20,6 +20,7 @@
   style="{{popStyle || ''}}"
   position="bottom"
   maskClosable
+  destroyOnClose
   onClose="onMaskDismiss"
   visible="{{visible}}">
   <view class="ant-picker-header">
