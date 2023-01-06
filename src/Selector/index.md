@@ -23,10 +23,10 @@ toc: 'content'
 | className | 类名 | string | - |
 | defaultValue | 默认选择项 | string \| number \| string[] \| number[]  | - | 
 | disabled | 是否整体禁用 | boolean | false |
-| items |  选项数据源 | [SelectorItem](#selectoritem)[] | [] |
 | maxSelectedCount | 最大可选中项的数量 | number | - | 
 | minSelectedCount | 最小可选中项的数量 | number | - | 
 | multiple | 是否允许多选，标签栏显示的时候会显示当前单选/多选的状态 | boolean | false | 
+| options |  选项数据源 | [SelectorItem](#selectoritem)[] | [] |
 | style | 样式 | string | - |
 | value | 当前选择项 | string \| number \| string[] \| number[]  | - | 
 | onChange | 选中值发生变化，触发回调 |(v: string \| string[], selectedItem: SelectorItem \| SelectorItem[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
