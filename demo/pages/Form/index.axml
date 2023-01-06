@@ -67,11 +67,13 @@
 />
 
 <form-checkbox-group
-  label="蔬菜多选"
+
   name="fruitChoose"
   options="{{checkboxGroupOptions}}"
   ref="handleRef"
-/>
+>
+  <view slot="checkboxLabel">111</view>
+</form-checkbox-group>
 
 <form-selector
   label="喜好"
