@@ -8,7 +8,7 @@
   >
     <view class="ant-checkbox-group-body">
       <block a:if="{{position === 'vertical'}}">
-        <list-item stopPropagation a:for="{{options}}">
+        <list-item a:for="{{options}}">
           <checkbox
             color="{{color}}"
             checked="{{componentUtils.getCheckboxChecked(item, mixin.value)}}"
@@ -18,7 +18,7 @@
             onChange="onChange"
           > 
             <slot name="label" value="{{item}}" index="{{index}}">
-              {{item.label}}
+              <view class="ant-checkbox-group-item-label-default">{{item.label}}</view>
             </slot>  
           </checkbox>
         </list-item>
@@ -34,7 +34,7 @@
           onChange="onChange"
         >
           <slot name="label" value="{{item}}" index="{{index}}">
-            {{item.label}}
+            <view class="ant-checkbox-group-item-label-default">{{item.label}}</view>
           </slot>
         </checkbox>
       </block>

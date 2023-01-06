@@ -1,4 +1,4 @@
-@import (reference) "../variable.less";
+@import (reference) '../variable.less';
 
 @checkGroupPrefix: ant-checkbox-group;
 
@@ -41,5 +41,10 @@
   &-body {
     position: relative;
     overflow: hidden;
+    .ant-checkbox-item-content {
+      .ant-checkbox-group-item-label-default:not(:nth-child(1)) {
+        display: none;
+      }
+    }
   }
 }
