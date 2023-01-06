@@ -1,3 +1,12 @@
+# 1.0.0-beta.2 (2023-01-06)
+
+
+### Bug Fixes
+
+* fix FormCheckboxGroup、FormRadioGroup label slot ([#497](https://github.com/ant-design/ant-design-mini/issues/497)) ([b8ca152](https://github.com/ant-design/ant-design-mini/commit/b8ca1529345f91f94a084c39ca37b7d031f90f7f))
+
+
+
 # 1.0.0-beta.1 (2023-01-05)
 
 
