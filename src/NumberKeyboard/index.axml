@@ -2,7 +2,7 @@
   <view a:if="{{visible}}" class="amd-number-keyboard-modal" catchTap="onHide" onAppear="catchAppearModal"/>
   <view class="amd-number-keyboard-kb {{visible ? '': 'amd-number-keyboard-kb_hide'}}">
     <slot name="header">
-      <view a:if="{{arrow}}" catchTap="onHide" class="amd-number-keyboard-kb_none" style="{{{'justify-content': title ? 'space-between' : 'center'}}}">
+      <view a:if="{{showArrow}}" catchTap="onHide" class="amd-number-keyboard-kb_none" style="{{{'justify-content': title ? 'space-between' : 'center'}}}">
         <view>{{title}}</view>
         <icon type="DownOutline" class="amd-number-keyboard-down" />
       </view>
@@ -37,7 +37,7 @@
           <icon type="TextDeletionOutline" class="amd-number-keyboard-del" />
         </view>
         <view
-          style="{{{opacity: disable ? '0.5' : 1 }}}"
+          style="{{{opacity: confirmDisabled ? '0.5' : 1 }}}"
           catchTap="tapButton"
           class="amd-number-keyboard-kb_transfer"
           data-key="enter">

@@ -15,9 +15,9 @@
   </list-item>
   <number-keyboard
     visible="{{visible}}"
-    arrow="{{true}}"
+    showArrow="{{true}}"
     value="{{value}}"
     onChange="onChange"
-    onVisibleChange="onVisibleChange"
+    onClose="onClose"
   />
 </list>

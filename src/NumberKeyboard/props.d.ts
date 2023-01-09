@@ -10,7 +10,7 @@ export interface INumberKeyboardProps extends IBaseProps {
    * @description 隐藏箭头
    * @default false
    */
-  arrow?: boolean;
+  showArrow?: boolean;
   /**
    * @description 展示小数点
    * @default true
@@ -55,7 +55,7 @@ export interface INumberKeyboardProps extends IBaseProps {
    * @description 禁用
    * @default false
    */
-  disable?: boolean;
+  confirmDisabled?: boolean;
   /**
    * @description 输入值变化时的回调
    */
@@ -67,7 +67,7 @@ export interface INumberKeyboardProps extends IBaseProps {
   /**
    * @description 隐藏键盘时的回调
    */
-  onVisibleChange?: () => void;
+  onClose?: () => void;
 }
 
 export declare const NumberKeyboardDefaultProps: Partial<INumberKeyboardProps>;

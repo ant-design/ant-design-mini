@@ -8,9 +8,9 @@ Page({
   },
   onChange(e) {
     this.setData({ value: e });
-    e.length === 4 && this.onVisibleChange();
+    e.length === 4 && this.onClose();
   },
-  onVisibleChange() {
+  onClose() {
     this.setData({ visible: false });
   },
 });

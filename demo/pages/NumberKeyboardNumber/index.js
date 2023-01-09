@@ -9,7 +9,7 @@ Page({
   onChange(e) {
     this.setData({ value: e ? parseFloat(e) : '' });
   },
-  onVisibleChange() {
+  onClose() {
     this.setData({ visible: false });
   },
 });

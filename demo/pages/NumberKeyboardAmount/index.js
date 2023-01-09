@@ -27,7 +27,7 @@ Page({
     }
     this.setData({ value: e });
   },
-  onVisibleChange() {
+  onClose() {
     // 失去焦点时如果末尾是小数点，自动去掉
     if (this.data.value[this.data.value.length - 1] === '.') {
       this.setData({ value: this.data.value.slice(0, this.data.value.length - 1) });

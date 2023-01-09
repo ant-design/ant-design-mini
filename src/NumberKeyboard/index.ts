@@ -26,7 +26,7 @@ Component({
       }
     },
     tapButton(e) {
-      const { value, onChange, disable, onVisibleChange } = this.props;
+      const { value, onChange, confirmDisabled, onClose } = this.props;
       this.vibrate();
       const _key = e.target.dataset.key;
       const _val = `${value}`;
@@ -39,19 +39,19 @@ Component({
       if (_key !== 'del' && _key !== 'enter') {
         onChange(`${_val}${_key}` )
       }
-      if (_key === 'enter' && !disable) {
+      if (_key === 'enter' && !confirmDisabled) {
         this.onClickEnter();
-        onVisibleChange();
+        onClose();
       }
     },
     // 隐藏键盘，失去焦点
     onHide() {
-      const { onVisibleChange } = this.props;
-      onVisibleChange();
+      const { onClose } = this.props;
+      onClose();
     },
     onClickEnter() {
-      const { disable, onConfirm } = this.props;
-      if (disable) return;
+      const { confirmDisabled, onConfirm } = this.props;
+      if (confirmDisabled) return;
       this.onHide();
       onConfirm();
     },
