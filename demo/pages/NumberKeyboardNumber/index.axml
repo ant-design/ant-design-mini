@@ -5,7 +5,7 @@
       catchTap="onNumberFocus"
     >
       <text a:if="{{value}}">{{ value }}</text>
-      <text a:else class="number-content_tip">0.00</text>
+      <text a:else class="number-content-tip">0.00</text>
       <view
         a:if="{{visible}}"
         class="number-light"

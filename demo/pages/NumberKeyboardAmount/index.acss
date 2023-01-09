@@ -18,13 +18,16 @@
   width: calc(100% - 24px);
   position: relative;
 }
-.number-content_tip {
+
+.number-content-tip {
   position: absolute;
   left: 2px;
 }
+
 .number-placeholder {
   color: #e5e5e5;
 }
+
 .number-light {
   margin-left: 2px;
   height: calc(100% - 4px);
