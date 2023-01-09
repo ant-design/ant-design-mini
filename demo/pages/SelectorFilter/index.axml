@@ -1,0 +1,22 @@
+<view class="filter {{className || ''}}" style="{{ style || ''}}">
+    <view class="filter-bar">
+      <view 
+        a:for="{{ items }}"   
+        class="filter-bar-item {{currentOpen=== index ? 'filter-bar-item-active' : ''}}"
+        data-index="{{index}}"
+        onTap="onTapItem">
+        {{item.title}}
+        <icon 
+        type="DownFill"
+        className="filter-bar-item-icon {{currentOpen=== index ? 'filter-bar-item-icon-up' : ''}}"
+        size="x-small" />
+      </view>
+    </view>
+    <view class="filter-items">
+      <view 
+        a:for="{{ items }}" 
+        class="filter-items-content {{currentOpen=== index ? 'filter-items-content-active' : ''}} {{contentClassName || ''}}" style="{{contentStyle || ''}}">
+        <selector options="{{item.options}}" onChange="handleChange"/>
+      </view>
+    </view>
+ </view>

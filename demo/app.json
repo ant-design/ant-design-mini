@@ -83,7 +83,8 @@
     "pages/RateCustom/index",
     "pages/Slider/index",
     "pages/TabsElevator/index",
-    "pages/IndexBarScrollView/index"
+    "pages/IndexBarScrollView/index",
+    "pages/SelectorFilter/index"
   ],
   "window": {
     "enableWK": "YES",

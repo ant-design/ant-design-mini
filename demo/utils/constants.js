@@ -235,7 +235,7 @@ export const componentList = [
       {
         name: 'FormImageUploadRules',
         nameZN: '表单-图片校验',
-        path: '/pages/FormImageUploadRules/index'
+        path: '/pages/FormImageUploadRules/index',
       },
       {
         name: 'Input',
@@ -283,6 +283,11 @@ export const componentList = [
         path: '/pages/Selector/index',
       },
       {
+        name: 'SelectorFilter',
+        nameZN: '选择组下拉筛选',
+        path: '/pages/SelectorFilter/index',
+      },
+      {
         name: 'Slider',
         nameZN: '滑动输入条',
         path: '/pages/Slider/index',
@@ -316,7 +321,7 @@ export const componentList = [
         name: 'RateCustom',
         nameZN: '星级-自定义',
         path: '/page/RateCustom/index',
-      }
+      },
     ],
   },
   {
