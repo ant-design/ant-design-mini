@@ -19,7 +19,7 @@
 
   <list-item onTap="onTap3">带向下箭头</list-item>
   <number-keyboard
-    arrow="{{true}}"
+    showArrow="{{true}}"
     visible="{{visible3}}"
     onClose="onTap3"
   />
@@ -34,7 +34,6 @@
   <list-item onTap="onTap5">设置标题</list-item>
   <number-keyboard
     title="安全键盘"
-    arrow="{{true}}"
     visible="{{visible5}}"
     onClose="onTap5"
   />
