@@ -1,5 +1,5 @@
 <import-sjs from="./index.sjs" name="{isComputing,getPlacement}" />
-<view class="ant-popover {{className ? className : ''}} {{childrenBlock?'ant-popover-block':''}}" style="{{style || ''}}">
+<view class="ant-popover ant-popover-{{childrenDisplay}} {{className ? className : ''}}" style="{{style || ''}}">
   <view onTap="onVisibleChange" class="ant-popover-wrapper">
     <slot />
   </view>

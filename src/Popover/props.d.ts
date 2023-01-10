@@ -76,9 +76,9 @@ export interface IPopoverProps extends IBaseProps {
    */
   autoAdjustOverflow?: boolean;
   /**
-   * @description 内部元素是否块级显示
+   * @description 内部元素css display值
    * @default false
    */
-  childrenBlock?: boolean;
+  childrenDisplay?: string;
 }
 export declare const PopoverDefaultProps: Partial<IPopoverProps>;

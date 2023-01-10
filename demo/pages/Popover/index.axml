@@ -9,7 +9,7 @@
 <container title="内部元素块级展示">
   <popover 
     placement="top"
-    childrenBlock
+    childrenDisplay="block"
     content="prompt"
     onVisibleChange="handleVisibleChange">
     <button  type="primary">点我</button>
