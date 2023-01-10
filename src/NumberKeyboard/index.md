@@ -35,14 +35,13 @@ toc: 'content'
 | value       | 输入值       | string  | -     |
 | visible     | 展示         | boolean | false |
 | vibrate     | 震动         | boolean | true  |
-| showArrow   | 箭头         | boolean | false |
+| closeable   | 关闭箭头      | boolean | false |
 | point       | 小数点       | boolean | true  |
-| title       | 标题         | string  | -     |
 | random      | 乱序         | boolean | false |
 | confirmDisabled| 禁用确认按钮  | boolean | false|
 | safeArea    | 安全距离      | boolean | true |
 | confirmText | 确认按钮的文字 | string  | -   |
-| title       | 覆盖键盘的标题栏 | slot  | -   |
+| header      | 覆盖键盘的标题栏 | slot  | -   |
 | confirm     | 覆盖键盘确认按钮 | slot  | -   |
 | onChange    | 数字发生改变时的回调 | (val: string) => void |-|
 | onClose     | 隐藏键盘时的回调 | () => void |-|

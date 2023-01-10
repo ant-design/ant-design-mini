@@ -17,9 +17,9 @@
     onClose="onTap2"
   />
 
-  <list-item onTap="onTap3">带向下箭头</list-item>
+  <list-item onTap="onTap3">带关闭箭头</list-item>
   <number-keyboard
-    showArrow="{{true}}"
+    closeable="{{true}}"
     visible="{{visible3}}"
     onClose="onTap3"
   />
@@ -29,13 +29,6 @@
     random="{{true}}"
     visible="{{visible4}}"
     onClose="onTap4"
-  />
-
-  <list-item onTap="onTap5">设置标题</list-item>
-  <number-keyboard
-    title="安全键盘"
-    visible="{{visible5}}"
-    onClose="onTap5"
   />
 
 </list>

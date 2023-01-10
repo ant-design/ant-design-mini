@@ -1,9 +1,8 @@
-<view a:key="ant-number-input-{{$id}}" class="ant-number-keyboard {{className}}">
+<view a:key="ant-number-input-{{$id}}" style="{{style}}" class="ant-number-keyboard {{className || ''}}">
   <view a:if="{{visible}}" class="ant-number-keyboard-modal" onTap="onHide" onAppear="catchAppearModal"/>
   <view class="ant-number-keyboard-kb {{visible ? '': 'ant-number-keyboard-kb_hide'}}">
     <slot name="header">
-      <view a:if="{{showArrow || title}}" onTap="onHide" class="ant-number-keyboard-kb_none" style="{{{'justify-content': title ? 'space-between' : 'center'}}}">
-        <view>{{title}}</view>
+      <view a:if="{{closeable}}" onTap="onHide" class="ant-number-keyboard-kb_none">
         <icon type="DownOutline" class="ant-number-keyboard-down" />
       </view>
     </slot>

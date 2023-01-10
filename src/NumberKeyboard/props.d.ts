@@ -7,10 +7,10 @@ export interface INumberKeyboardProps extends IBaseProps {
    */
   className?: string;
   /**
-   * @description 隐藏箭头
+   * @description 关闭箭头
    * @default false
    */
-  showArrow?: boolean;
+  closeable?: boolean;
   /**
    * @description 展示小数点
    * @default true
@@ -41,11 +41,6 @@ export interface INumberKeyboardProps extends IBaseProps {
    * @default true
    */
   safeArea?: boolean;
-  /**
-   * @description 标题
-   * @default '''
-   */
-  title?: string;
   /**
    * @description 乱序
    * @default fasle

@@ -13,7 +13,7 @@
   <number-keyboard
     visible="{{visible}}"
     point="{{false}}"
-    showArrow="{{true}}"
+    closeable="{{true}}"
     value="{{value}}"
     onChange="onChange"
     onClose="onClose"

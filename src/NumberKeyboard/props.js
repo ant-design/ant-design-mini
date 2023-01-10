@@ -3,8 +3,7 @@ export const NumberKeyboardDefaultProps = {
   value: '', // 值
   visible: false, // 是否展示
   safeArea: true, // 安全区域
-  showArrow: false, // 隐藏箭头
-  title: '', // 标题
+  closeable: false, // 关闭箭头
   random: false, // 乱序
   vibrate: false, // 震动反馈
   point: true, // 展示小数点
