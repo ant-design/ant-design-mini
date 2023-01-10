@@ -32,6 +32,8 @@ toc: 'content'
 ## API
 | 属性 | 说明 | 类型 | 默认值 |
 | ------------|---------|----|-----|
+| className   | 类名         | string | - | 
+| style       | 样式         | string | - |
 | value       | 输入值       | string  | -     |
 | visible     | 展示         | boolean | false |
 | vibrate     | 震动         | boolean | true  |
