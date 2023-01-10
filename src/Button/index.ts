@@ -17,6 +17,31 @@ Component({
         const event = fmtEvent(this.props, e);
         return catchTap(event);
       }
-    }
+    },
+    onGetAuthorize(e) {
+      if (this.props.onGetAuthorize) {
+        this.props.onGetAuthorize(fmtEvent(this.props, e));
+      }
+    },
+    onFollowLifestyle(e) {
+      if (this.props.onFollowLifestyle) {
+        this.props.onFollowLifestyle(fmtEvent(this.props, e));
+      }
+    },
+    onError(e) {
+      if (this.props.onError) {
+        this.props.onError(fmtEvent(this.props, e));
+      }
+    },
+    onGetUserInfo(e) {
+      if (this.props.onGetUserInfo) {
+        this.props.onGetUserInfo(fmtEvent(this.props, e));
+      }
+    },
+    onGetPhoneNumber(e) {
+      if (this.props.onGetPhoneNumber) {
+        this.props.onGetPhoneNumber(fmtEvent(this.props, e));
+      }
+    },
   },
 });
