@@ -24,6 +24,7 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | autoAdjustOverflow |  气泡被遮挡时自动调整位置 | boolean | true | 
+| childrenBlock | 内部是否是块级元素 | boolean | false | 
 | className | 类名 | string | - | 
 | color | 背景颜色 | string | - |
 | contentClassName | content类名 | string | - | 
@@ -39,3 +40,6 @@ toc: 'content'
 | visible |  是否显示 | boolean | false | 
 | onVisibleChange |  visible 变更时回调 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object))=>void | - | 
 
+## FAQ
+### 内部元素设置的块级显示，显示成行内了
+Popover设置childrenBlock为true

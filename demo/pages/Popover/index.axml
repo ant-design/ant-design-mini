@@ -1,12 +1,19 @@
 <container title="基础用法">
-  <view class="wrap">
-    <popover 
-      placement="top"
-      content="prompt"
-      onVisibleChange="handleVisibleChange">
-      <button inline size="small">点我</button>
-    </popover>
-  </view>
+  <popover 
+    placement="top"
+    content="prompt"
+    onVisibleChange="handleVisibleChange">
+    <button inline size="small">点我</button>
+  </popover>
+</container>
+<container title="内部元素块级展示">
+  <popover 
+    placement="top"
+    childrenBlock
+    content="prompt"
+    onVisibleChange="handleVisibleChange">
+    <button  type="primary">点我</button>
+  </popover>
 </container>
 <container title="指定颜色">
   <view class="wrap">
