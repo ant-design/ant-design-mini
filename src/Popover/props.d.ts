@@ -77,7 +77,6 @@ export interface IPopoverProps extends IBaseProps {
   autoAdjustOverflow?: boolean;
   /**
    * @description 内部元素css display值
-   * @default false
    */
   childrenDisplay?: string;
 }
