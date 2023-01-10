@@ -1,3 +1,12 @@
+# 1.0.0-beta.4 (2023-01-10)
+
+
+### Bug Fixes
+
+* tabs ([#512](https://github.com/ant-design/ant-design-mini/issues/512)) ([6e2c423](https://github.com/ant-design/ant-design-mini/commit/6e2c42362fc06281d892957b7bd8c2334f19afd1))
+
+
+
 # 1.0.0-beta.3 (2023-01-06)
 
 
