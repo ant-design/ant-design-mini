@@ -13,7 +13,11 @@ toc: 'content'
 提供多个选项供用户选择，一般在筛选和表单中使用
 
 ## 代码示例
+### 基本使用
 <code src='pages/Selector/index'></code>
+
+### 使用Selector自定义Filter
+<code src='pages/SelectorFilter/index'></code>
 
 ## API
 | 属性 | 说明 | 类型 | 默认值 |

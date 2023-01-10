@@ -283,6 +283,11 @@ export const componentList = [
         path: '/pages/Selector/index',
       },
       {
+        name: 'SelectorFilter',
+        nameZN: '选择组下拉筛选',
+        path: '/pages/SelectorFilter/index',
+      },
+      {
         name: 'Slider',
         nameZN: '滑动输入条',
         path: '/pages/Slider/index',
