@@ -24,7 +24,7 @@ function getURL(url: string) {
   return urlObj.toString();
 }
 
-const listeners: ((url: string) => void)[] = [];
+const listeners: ((url: any) => void)[] = [];
 
 const Previewer: React.FC<IProps> = (props) => {
   const [loaded, setLoaded] = useState(false);
@@ -35,10 +35,8 @@ const Previewer: React.FC<IProps> = (props) => {
     const searchParams = urlObj.searchParams;
     let theme = searchParams.get('less-theme');
     theme = theme === 'dark' ? '' : 'dark';
-    searchParams.set('less-theme', theme);
-    const newURL = urlObj.toString();
     localStorage.setItem('theme', theme);
-    listeners.forEach(item => item(newURL));
+    listeners.forEach(item => item(theme));
   }
 
   const urlObj = new URL(url);
@@ -47,9 +45,15 @@ const Previewer: React.FC<IProps> = (props) => {
   const theme = searchParams.get('less-theme');
   const noChangeButton = searchParams.get('noChangeButton');
   useEffect(() => {
-    listeners.push((url: string) => {
-      setURL(url);
-    })
+    listeners.push((theme) => {
+      setURL(url => {
+        const urlObj = new URL(url);
+        const searchParams = urlObj.searchParams;
+        searchParams.set('less-theme', theme);
+        const newURL = urlObj.toString();
+        return newURL;
+      });
+    });
   }, []);
 
   return (
