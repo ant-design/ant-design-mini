@@ -178,6 +178,7 @@ class Field extends EventEmitter{
           message: message,
         },
       });
+      requiredRule = true;
     }
     if (validator) {
       validator.messages(validateMessages);
@@ -282,7 +283,7 @@ class Field extends EventEmitter{
     this.touched = false;
     this.ref.setFormData({
       value: initialValue,
-      require: this.required,
+      required: this.required,
       status: 'default',
       errors: [],
     });
@@ -323,6 +324,10 @@ export class Form {
    */
   private changeListeners: Record<string, ((value: Value) => void)[]> = {};
 
+  /**
+   * 依赖表
+   */
+  private dependenciesMap: Record<string, string[]> = {};
   /**
    * Form构建
    * @param formConfig 表单配置项
@@ -396,10 +401,28 @@ export class Form {
     if (this.fields[name]) {
       throw new Error(`Form "addItem" same name: "${name}"`);
     }
-    const field = new Field(ref, name, this.initialValues, this.rules, this.validateMessages, props.require, props.message, props.validateTrigger);
+    const field = new Field(ref, name, this.initialValues, this.rules, this.validateMessages, props.required, props.message, props.validateTrigger);
+    if (props.dependencies) {
+      props.dependencies.forEach(item => {
+        this.dependenciesMap[item] = this.dependenciesMap[item] || [];
+        if (this.dependenciesMap[item].indexOf(name) < 0) {
+          this.dependenciesMap[item].push(name);
+        }
+      });
+    }
     field.on('valueChange', (value) => {
-      if (name && this.changeListeners[name]) {
-        this.changeListeners[name].forEach(item => item(value));
+      if (name) {
+        const arr = this.dependenciesMap[name];
+        if (arr) {
+          arr.forEach(item => {
+            if (this.fields[item]) {
+              this.fields[item].validate();
+            }
+          });
+        }
+        if (this.changeListeners[name]) {
+          this.changeListeners[name].forEach(item => item(value));
+        }
       }
     }).on('didUnmount', () => {
       delete this.fields[name];
@@ -429,6 +452,7 @@ export class Form {
     const field = this.fields[name];
     if (field) {
       field.setValue(value);
+      field.validate();
     }
   }
 

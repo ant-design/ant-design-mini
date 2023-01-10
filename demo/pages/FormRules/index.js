@@ -32,6 +32,11 @@ Page({
   reset() {
     this.form.reset();
   },
+  fill() {
+    this.form.setFieldValue('account', 'lily');
+    this.form.setFieldValue('password', '1234');
+    this.form.setFieldValue('confirm', '1234');
+  },
   async submit() {
     const values = await this.form.submit();
     my.alert({
