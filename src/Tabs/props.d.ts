@@ -3,10 +3,10 @@ import { IBaseProps } from '../_base';
 
 export interface ITabsProps extends IBaseProps {
   /**
-   * @description 类型，basis(基础)，capsule(胶囊)，mixin(混合)
-   * @default "basis"
+   * @description 类型，basic(基础)，capsule(胶囊)，mixin(混合)
+   * @default "basic"
    */
-  type?: 'basis' | 'capsule' | 'mixin';
+  type?: 'basic' | 'capsule' | 'mixin';
 
   /**
    * @description tabs方向

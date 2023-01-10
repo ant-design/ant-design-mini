@@ -64,7 +64,7 @@ toc: 'content'
 | tabClassName | tab类名 | string | - |
 | tabActiveClassName | tab active类名 | string | - |
 | title | 自定义 `Items` 标题；<br /> slot-scope 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | slot | - |
-| type | 类型，`basis`(基础)，`capsule`(胶囊)，`mixin`(混合) | string | `basic` |
+| type | 类型，`basic`(基础)，`capsule`(胶囊)，`mixin`(混合) | string | `basic` |
 | onChange | 面板切换时候，触发回调 | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void| - |
 
 ### Item
