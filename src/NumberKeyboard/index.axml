@@ -1,0 +1,54 @@
+<view a:key="ant-number-input-{{$id}}" style="{{style}}" class="ant-number-keyboard {{className || ''}}">
+  <view a:if="{{visible}}" class="ant-number-keyboard-modal" onTap="onHide" onAppear="catchAppearModal"/>
+  <view class="ant-number-keyboard-kb {{visible ? '': 'ant-number-keyboard-kb_hide'}}">
+    <slot name="header">
+      <view a:if="{{closeable}}" onTap="onHide" class="ant-number-keyboard-kb_none">
+        <icon type="DownOutline" class="ant-number-keyboard-down" />
+      </view>
+    </slot>
+    <view class="ant-number-keyboard-kb_bd">
+      <view class="ant-number-keyboard-kb_keys">
+        <view class="ant-number-keyboard-kb_row" a:for="{{random ? randomArr : numArr}}" a:for-item="item">
+          <view
+            a:for="{{item}}"
+            a:for-item="itemKey"
+            data-key="{{itemKey}}"
+            class="ant-number-keyboard-kb_number"
+            onTap="tapButton">
+            {{itemKey}}
+          </view>
+        </view>
+        <view a:if="{{!confirmText}}" class="ant-number-keyboard-kb_row">
+          <view a:if="{{!point}}" class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point ant-number-keyboard-kb_flex ant-number-keyboard-kb_e" />
+          <view a:if="{{point}}" class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point ant-number-keyboard-kb_flex" data-key="." onTap="tapButton">.</view>
+          <view class="ant-number-keyboard-kb_number ant-number-keyboard-kb_zero ant-number-keyboard-kb_flex" data-key="0" onTap="tapButton">0</view>
+          <view class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point ant-number-keyboard-kb_flex {{point ? '' : `ant-number-keyboard-kb_e`}}" data-key="del" onTap="tapButton">
+            <icon type="TextDeletionOutline" class="ant-number-keyboard-del" />
+          </view>
+        </view>
+        <view a:if="{{confirmText}}" class="ant-number-keyboard-kb_row">
+          <view class="ant-number-keyboard-kb_number ant-number-keyboard-kb_zero" data-key="0" onTap="tapButton">0</view>
+          <view a:if="{{point}}" class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point" data-key="." onTap="tapButton">.</view>
+        </view>
+      </view>
+      <view a:if="{{confirmText}}" class="ant-number-keyboard-kb_function">
+        <view class="ant-number-keyboard-kb_number ant-number-keyboard-kb_del" data-key="del" onTap="tapButton">
+          <icon type="TextDeletionOutline" class="ant-number-keyboard-del" />
+        </view>
+        <view
+          style="{{{opacity: confirmDisabled ? '0.5' : 1 }}}"
+          onTap="tapButton"
+          class="ant-number-keyboard-kb_transfer"
+          data-key="enter">
+          <slot name="confirm">
+            <view class="amount-input-kb_transfer-btn">
+              {{confirmText}}
+            </view>
+          </slot>
+        </view>
+      </view>
+    </view>
+    <view class="ant-number-keyboard-kb_iphonex-safe"></view>
+  </view>
+</view>
+  

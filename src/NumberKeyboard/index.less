@@ -1,0 +1,157 @@
+@import (reference) "../style/themes/index.less";
+
+@keyframes number-input-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.ant-number-keyboard {
+  color: @COLOR_TEXT_PRIMARY;
+  width: 0;
+  height: 0;
+  position: relative;
+  overflow: hidden;
+  &-modal {
+    z-index: 998;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+  }
+  &-kb {
+    background: @COLOR_BACKGROUND;
+    max-height: 600px;
+    min-width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transition: all 200ms linear;
+    z-index: 999;
+    &_hide {
+      transform: translateY(100%);
+      max-height: 0;
+    }
+    &_bd {
+      display: flex;
+    }
+    &_row {
+      display: flex;
+    }
+    &_keys {
+      flex: 3;
+    }
+    &_function {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    &_none {
+      height: 80 * @rpx;
+      width: calc(100% - 96 * @rpx);
+      padding: 0 48 * @rpx;
+      font-size: 28 * @rpx;
+      background-color: @COLOR_CARD;
+      display: flex;
+      position: relative;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      border-bottom: @border-width-standard solid @COLOR_BACKGROUND;
+      color: @COLOR_TEXT_ASSIST;
+    }
+    &_number {
+      flex: 1;
+      height: calc(100vh / 14);
+      text-align: center;
+      font-size: 50 * @rpx;
+      color: @COLOR_TEXT_PRIMARY;
+      background: @COLOR_CARD;
+      border-right: @border-width-standard solid @COLOR_BACKGROUND;
+      border-bottom: @border-width-standard solid @COLOR_BACKGROUND;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      &:active {
+        background-color: #d3d3d3;
+        opacity: 0.5;
+        color: @COLOR_TEXT_PRIMARY;
+      }
+    }
+    &_disable {
+      &:active {
+        opacity: 1;
+      }
+    }
+    &_zero {
+      flex: 2;
+    }
+    &_point {
+      flex: 1;
+    }
+    &_transfer {
+      background-color: @COLOR_BRAND1;
+      color: white;
+      flex: 1;
+      height: calc(100vh / 14);
+      text-align: center;
+      font-size: 34 * @rpx;
+      border-right: @border-width-standard solid @COLOR_BACKGROUND;
+      border-bottom: @border-width-standard solid @COLOR_BACKGROUND;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      &-btn {
+        font-size: 32 * @rpx;
+        font-weight: bold;
+      }
+      &:active {
+        opacity: 0.9;
+      }
+    }
+    &_del {
+      position: relative;
+      flex: none;
+      border-right: none;
+      &::before {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+      }
+    }
+    &_iphonex-safe {
+      height: 48 * @rpx;
+      width: 100%;
+      background-color: @COLOR_CARD;
+    }
+    &_flex {
+      flex: 1;
+    }
+    &-e {
+      background-color: @COLOR_BORDER;
+    }
+  }
+  &-down {
+    font-size: 40 * @rpx;
+  }
+  &-del {
+    font-size: 50 * @rpx;
+  }
+}
