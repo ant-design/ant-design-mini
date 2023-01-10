@@ -59,6 +59,7 @@ Form 表单。包含数据录入、校验以及对应样式
 所有Form组件都包括的属性
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
+| dependencies | 设置依赖字段，查看[详细说明](#dependencies) | string[] | - |
 | name | 名称 | string | - |
 | label | 文本 | string | - |
 | position | 布局，可选 `horizontal` `vertical` | string | horizontal |
@@ -82,6 +83,9 @@ Form 表单。包含数据录入、校验以及对应样式
 | isFieldTouched | 判断表单项是否被修改过 | () => boolean |
 | onValueChange | 侦听表单项的值修改 | (name: string, (value: any) => void) => void |
 | submit | 提交表单，返回promise表单值，校验错误会抛出 | () => Promise<Record<string, any>> |
+
+### dependencies
+当字段间存在依赖关系时使用。如果一个字段设置了 dependencies 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 dependencies 后，“密码”字段更新会重新触发“校验密码”的校验。
 
 ### submit 校验抛出错误
 ```js
