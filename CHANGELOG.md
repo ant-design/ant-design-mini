@@ -1,3 +1,12 @@
+# 1.0.0-beta.5 (2023-01-13)
+
+
+### Bug Fixes
+
+* fix CascaderPicker dynamic options ([#517](https://github.com/ant-design/ant-design-mini/issues/517)) ([a7b7213](https://github.com/ant-design/ant-design-mini/commit/a7b721399e7de2558c78218a6ed3bf905b6782cd))
+
+
+
 # 1.0.0-beta.4 (2023-01-10)
 
 
