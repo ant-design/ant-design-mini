@@ -6,7 +6,6 @@ import mixinValue from '../../mixins/value';
 const component2 = my.canIUse('component2');
 
 Component({
-  pickerVisible: false,
   props: CascaderDefaultProps,
   data() {
     return {
@@ -42,37 +41,26 @@ Component({
     updateValue(prevProps, currentProps) {
       const { value, options } = currentProps;
       const { columns, currentValue } = this.data;
-      // onTriggerPicker展开时会自动重置数据，此处只有展开状态下才需要重置columns和currentValue，否则只需设置cValue
-      if (this.pickerVisible) {
-        if (options !== prevProps.options) {
-          const newData: any = {};
-          if (!equal(value, prevProps.value)) {
-            const newColumns = this.getterColumns(value, currentProps.options);
-            newData.columns = newColumns;
-            const currentValue = this.getValidValue(value, newColumns);
-            newData.currentValue = currentValue;
-          } else {
-            const newColumns = this.getterColumns(
-              currentValue,
-              currentProps.options
-            );
-            newData.columns = newColumns;
-          }
-          this.setData(newData);
-        } else {
-          if (!equal(value, prevProps.value)) {
-            const realValue = this.getValue();
-            const currentValue = this.getValidValue(realValue, columns);
-            this.setData({ currentValue });
-          }
-        }
-      } else {
-        const realValue = this.getValue();
+      if (options !== prevProps.options) {
+        const newData: any = {};
         if (!equal(value, prevProps.value)) {
-          this.setData({
-            cValue: value,
-            currentValue: this.getValidValue(realValue, columns),
-          });
+          const newColumns = this.getterColumns(value, currentProps.options);
+          newData.columns = newColumns;
+          const currentValue = this.getValidValue(value, newColumns);
+          newData.currentValue = currentValue;
+        } else {
+          const newColumns = this.getterColumns(
+            currentValue,
+            currentProps.options
+          );
+          newData.columns = newColumns;
+        }
+        this.setData(newData);
+      } else {
+        if (!equal(value, prevProps.value)) {
+          const realValue = this.getValue();
+          const currentValue = this.getValidValue(realValue, columns);
+          this.setData({ currentValue });
         }
       }
     },
@@ -158,7 +146,6 @@ Component({
     onVisibleChange(visible) {
       const { onVisibleChange, options } = this.props;
       const { columns } = this.data;
-      this.pickerVisible = visible;
       const realValue = this.getValue();
       if (visible) {
         const newColumns = this.getterColumns(realValue, options);
