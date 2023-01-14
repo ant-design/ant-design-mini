@@ -97,7 +97,8 @@
     "defaultTitle": "小程序版 antd-mini 库",
     "titleBarColor": "#FFFFFF",
     "pullRefresh": false,
-    "allowsBounceVertical": false
+    "allowsBounceVertical": false,
+    "enableInPageRenderInput": "YES"
   },
   "debug": true
 }

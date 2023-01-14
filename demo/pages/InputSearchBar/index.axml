@@ -6,6 +6,7 @@
     focusClassName="search-bar-focus"
     confirm-type="search"
     allowClear
+    focus
     onConfirm="onConfirm"
   >
     <icon slot="prefix" type="SearchOutline" />

@@ -243,9 +243,14 @@ export const componentList = [
         path: '/pages/Input/index',
       },
       {
-        name: 'InputBase',
-        nameZN: '输入框',
-        path: '/pages/InputBase/index',
+        name: 'InputCustom',
+        nameZN: '输入框-自定义',
+        path: '/pages/InputCustom/index',
+      },
+      {
+        name: 'InputTextarea',
+        nameZN: '输入框-textarea',
+        path: '/pages/InputTextarea/index',
       },
       {
         name: 'InputSearchBar',
