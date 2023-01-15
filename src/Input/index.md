@@ -16,7 +16,7 @@ toc: 'content'
 ### Input 基本使用
 <code src='pages/Input/index'></code>
 
-### SearchBar 搜索框 
+### SearchBar 搜索框
 <code src='pages/InputSearchBar/index'></code>
 
 ### Textarea
@@ -34,7 +34,6 @@ toc: 'content'
 | className | 类名| string | - |
 | defaultValue | 初始值 | string | - | 
 | disabled | 是否禁用 | boolean | false |
-| enableNative | 光标问题，查看[Input出现光标问题](#input出现光标问题) | boolean | false |
 | maxLength | 最大长度 | number | 140 |
 | placeholder | 占位符 | string | - |
 | style | 样式| string | - |
@@ -48,35 +47,31 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | allowClear | 可以点击清除图标删除内容 | boolean | false |
+| enableNative | 是否使用native | boolean | - |
+| focus | 聚焦，查看[详细说明](#input-focus) |
 | password | 是否是密码类型 | boolean | false |
 
 ### Textarea属性
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | autoHeight | 是否自动增高。 | boolean | false |
+| enableNative | 是否使用native | boolean | false |
 | showCount | 是否显示字数统计 | boolean | true |
 
 
 ### Input, Textarea 更多相同属性
 
-- focus
-- enableNative
-- always-system
-- password
 - placeholder-style
 - placeholder-class
-- type
 - name
-- random-number
-- selection-start
-- selection-end
-- cursor
 - confirm-type
-- confirm-hold
 
 https://opendocs.alipay.com/mini/component/input
 <br />
 https://opendocs.alipay.com/mini/component/textarea
+
+### Input focus
+使用focus属性需要在app.json window里加上 `"enableInPageRenderInput": "YES"`，否则无法在IOS里打开键盘。
 
 ### Input, Textarea 实例方法
 实例方案需要小程序 `component2` 可使用
@@ -86,6 +81,9 @@ https://opendocs.alipay.com/mini/component/textarea
 | getValue | 得到值 | () => string |
 
 ## FAQ
+
+### Input focus没有打开键盘
+需要在app.json window里加上 `"enableInPageRenderInput": "YES"`
 ### Input出现光标问题
 可查看 https://opendocs.alipay.com/mini/component/input#FAQ 使用 `enableNative` 属性解决
 
