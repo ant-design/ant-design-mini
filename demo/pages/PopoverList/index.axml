@@ -1,6 +1,6 @@
 <view class="wrap">
   <popover 
-    placement="bottom-left"
+    placement="bottom-right"
     visible="{{visible}}"
     className="popover"
     onVisibleChange="handleVisibleChange">

@@ -44,8 +44,7 @@ export interface IPopoverProps extends IBaseProps {
    */
   onVisibleChange?: (visible: boolean, e: Record<string, any>) => void;
   /**
-   * @description 方向
-   * @default "bottom-right"
+   * @description 气泡框位置
    */
   placement?:
     | 'top'
@@ -65,11 +64,7 @@ export interface IPopoverProps extends IBaseProps {
    * @default false
    */
   showMask?: boolean;
-  /**
-   * @description 是否可点击蒙层关闭
-   * @default true
-   */
-  maskClosable?: boolean;
+
   /**
    * @description 气泡被遮挡时自动调整位置
    * @default true

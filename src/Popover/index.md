@@ -33,9 +33,9 @@ toc: 'content'
 | destroyOnClose | 不可见时卸载内容 | boolean | false | 
 | maskClassName | 蒙层的类名 | string | - | 
 | maskStyle | 蒙层的样式 | string | - | 
-| placement | 方向，可选`top`  `top-right`  `top-left` `bottom` `bottom-left` `bottom-right` `left` `left-top` `left-bottom` `right` `right-top` `right-bottom`  | string | `bottom-right` |
+| placement | 气泡框位置，可选`top`  `top-right`  `top-left` `bottom` `bottom-left` `bottom-right` `left` `left-top` `left-bottom` `right` `right-top` `right-bottom`  | string | top |
 | showMask | 是否展示蒙层，为true时点击空白处可关闭Popover | boolean | true |
 | style | 样式 | string | - |
-| visible |  是否显示 | boolean | false | 
+| visible |  是否显示 | boolean | - | 
 | onVisibleChange |  visible 变更时回调 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object))=>void | - | 
 

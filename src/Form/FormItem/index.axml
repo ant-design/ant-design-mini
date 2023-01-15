@@ -9,15 +9,9 @@
         <view class="ant-form-item-label-text">{{label}}</view>
         <popover 
           a:if="{{tooltip}}"
-          placement="top"
-          visible="{{helpVisible}}" 
-          showMask
-          maskClosable
-          maskStyle="background: none;"
-          onVisibleChange="onHelpVisibleChange"
         >
           <view slot="content" class="ant-form-item-label-help-content">{{tooltip}}</view>
-          <icon type="QuestionCircleOutline"/>
+          <icon type="QuestionCircleOutline" />
         </popover>
       </view>
       <!--field-->

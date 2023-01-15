@@ -2,25 +2,25 @@ Page({
   data: {
     placements: [
       'top',
-      'top-right',
-      'top-left',
       'bottom',
+      'left',
+      'right',
+      'top-left',
+      'top-right',
       'bottom-left',
       'bottom-right',
-      'left',
       'left-top',
       'left-bottom',
-      'right',
       'right-top',
       'right-bottom',
     ],
   },
-  handleVisibleChange(visible, e) {
+  onVisibleChange(visible, e) {
     console.log('onVisibleChange', visible, e);
   },
-  handleToggleMask() {
+  handleVisibleChange() {
     this.setData({
-      showMask: !this.data.showMask,
+      visible: !this.data.visible,
     });
   },
 });
