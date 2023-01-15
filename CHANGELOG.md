@@ -1,3 +1,12 @@
+# 1.0.0-beta.6 (2023-01-15)
+
+
+### Bug Fixes
+
+* popover ([#519](https://github.com/ant-design/ant-design-mini/issues/519)) ([f6f3aa7](https://github.com/ant-design/ant-design-mini/commit/f6f3aa7d8f7bf3afd453137ce31b43c6a140b9c4))
+
+
+
 # 1.0.0-beta.5 (2023-01-13)
 
 
