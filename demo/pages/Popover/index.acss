@@ -1,15 +1,21 @@
-.wrap {
+.custom {
   display: flex;
   flex-wrap: wrap;
 }
-.wrap button {
-  margin: 0 18rpx;
-}
-.demo-btn-container {
-  display: flex;
-  justify-content: space-around;
+
+.custom > * {
+  margin: 8px;
 }
 
-.demo-btn {
-  width: 45%;
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  min-height: 50px;
 }
+
+/* 
+.custom .popover {
+  margin: 12px;
+} */

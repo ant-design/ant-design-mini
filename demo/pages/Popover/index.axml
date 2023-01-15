@@ -1,80 +1,61 @@
 <container title="基础用法">
-  <view class="wrap">
-    <popover 
-      placement="top"
-      content="prompt"
-      onVisibleChange="handleVisibleChange">
-      <button inline size="small">点我</button>
+  <popover content="prompt">
+    <button size="small" inline>点我</button>
+  </popover>
+</container>
+
+<container title="基础用法-回调函数">
+  <popover content="prompt" placement="top" onVisibleChange="onVisibleChange">
+    <button>点我</button>
+  </popover>
+</container>
+
+<container title="自定义颜色">
+  <view class="custom">
+    <popover content="红色" color="red">
+      <text>点我红色</text>
     </popover>
+
+    <popover content="蓝色" color="blue">
+      <text>点我蓝色</text>
+    </popover>
+
   </view>
 </container>
-<container title="指定颜色">
-  <view class="wrap">
-    <popover 
-      placement="top"
-      color="pink"
-      content="prompt"
-      onVisibleChange="handleVisibleChange">
-      <button inline size="small">pink</button>
-    </popover>
-    <popover 
-      placement="top"
-      color="red"
-      content="prompt"
-      onVisibleChange="handleVisibleChange">
-      <button inline size="small">red</button>
-    </popover>
-    <popover 
-      placement="top"
-      color="green"
-      content="prompt"
-      onVisibleChange="handleVisibleChange">
-      <button inline size="small">green</button>
-    </popover>
-    <popover 
-      placement="top"
-      color="orange"
-      content="prompt"
-      onVisibleChange="handleVisibleChange">
-      <button inline size="small">orange</button>
-    </popover>
-  </view>
+
+
+<container title="点击icon查看">
+  查看说明
+  <popover content="说明" style="display: inline-block">
+    <icon type="QuestionCircleOutline" />
+  </popover>
 </container>
-<container title="气泡位置">
-  <view style="display:flex;justify-content:space-between;padding-top:30px;">
-    <popover 
-      placement="{{item}}"
-      a:for="{{ ['top','top-left','top-right'] }}"
-      content="prompt">
-      <button inline style="width:96px;" size="small">{{item}}</button>
-    </popover>
-  </view>
-  <view style="padding:20px 80px 0;display:flex;align-items:stretch;justify-content:space-between;">
-    <view>
-      <view style="margin-bottom:20px;" a:for="{{ ['left','left-top','left-bottom'] }}">
-        <popover 
-          placement="{{item}}"
-          content="prompt">
-          <button inline style="width:96px;height:60px;display:inline-flex;justify-content:center" size="small">{{item}}</button>
-        </popover>
+
+<container title="自定义位置">
+  <view class="custom">
+    <popover a:for="{{placements}}" placement="{{item}}">
+      <button size="small" inline>
+        <view>点我</view>
+        {{item}}
+      </button>
+      <view slot="content" className="content">
+        {{item}}
       </view>
-    </view>
-    <view>
-      <view style="margin-bottom:20px;" a:for="{{ ['right','right-top','right-bottom'] }}">
-        <popover 
-          placement="{{item}}"
-          content="prompt">
-          <button inline style="width:96px;height:60px;display:inline-flex;justify-content:center" size="small">{{item}}</button>
-        </popover>
-      </view>
-    </view>
-  </view>
-  <view style="display:flex;justify-content:space-between;padding-bottom:30px;">
-    <popover 
-      placement="{{item}}"
-      a:for="{{ ['bottom','bottom-left','bottom-right'] }}"
-      content="prompt">
-      <button inline style="width:96px;" size="small">{{item}}</button>
     </popover>
   </view>
 </container>
+
+<container title="自定义mask">
+  <popover content="prompt" maskStyle="background: rgba(0, 0, 0, 0.6);">
+    <button size="small" inline>点我</button>
+  </popover>
+</container>
+
+<container title="受控">
+  <popover content="prompt" placement="right" showMask="{{false}}" visible="{{visible}}">
+    <text>点击按钮修改visible</text>
+  </popover>
+
+  <button size="small" inline onTap="handleVisibleChange" style="margin-top: 8px;">change visible</button>
+</container>
+

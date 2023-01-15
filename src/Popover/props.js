@@ -1,7 +1,6 @@
 export const PopoverDefaultProps = {
   defaultVisible: false,
   showMask: true,
-  maskClosable: true,
-  placement: 'bottom-right',
+  placement: 'top',
   autoAdjustOverflow: true,
 };
