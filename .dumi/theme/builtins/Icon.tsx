@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Input } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
 import copy from 'copy-to-clipboard';
 import './Icon.less';
 
@@ -189,14 +188,20 @@ function Icon() {
   const outlineList = list.filter(item => item.includes('Outline'));
   const fillList = list.filter(item => item.includes('Fill'));
 
+  const onInput = (e: any) => {
+    const value = e.target.value.toLowerCase();
+    setList(iconTypes.filter((_, index) => iconLowerCaseTypes[index].includes(value)));
+  }
+
+  const onSearch = (v) => {
+    setList(iconTypes.filter((_, index) => iconLowerCaseTypes[index].includes(v.toLowerCase())));
+  }
+
   return <>
-    <div style={{marginTop: 20}}>
-      <Search placeholder="搜索图标" allowClear onInput={(e) => {
-        const value = e.target.value.toLowerCase();
-        setList(iconTypes.filter((item, index) => iconLowerCaseTypes[index].includes(value)));
-      }} />
+    <div style={{ marginTop: 20 }}>
+      <Search placeholder="搜索图标" allowClear onInput={onInput} onSearch={onSearch} />
     </div>
-    <div className="list-icons">   
+    <div className="list-icons">
       {
         outlineList.map(item => <Copy key={item} type={item} />)
       }
