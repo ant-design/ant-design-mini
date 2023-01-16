@@ -4,19 +4,32 @@ const shallowequal = require('shallowequal');
 
 const map = {};
 let currentName;
-global.Component = function(config) {
+(global as any).Component = function(config) {
   map[currentName] = config;
 }
 
-function createInstance(config, props) {
-  const component2 = typeof my !== 'undefined' && typeof my.canIUse === 'function' && my.canIUse('component2');
+interface Instance {
+  props: Record<string, any>;
+  data: Record<string, any>;
+  methods: Record<string, (this: Instance, ...args: any) => void>;
+  setData: (data: Record<string, any>, callback?: (this: Instance) => void) => void;
+  mixins?: Record<string, (this: Instance, ...args: any) => void>[]
+  onInit?: (this: Instance) => void;
+  deriveDataFromProps?: (this: Instance, nextProps: Record<string, any>) => void;
+  didUpdate?: (this: Instance, prevProps: Record<string, any>, prevData: Record<string, any>) => void;
+  didMount?: (this: Instance) => void;
+  didUnmount?: (this: Instance) => void;
+}
+
+function createInstance(config: Instance, props: Record<string, any>) {
+  const component2 = typeof my !== 'undefined' && typeof (my as any).canIUse === 'function' && (my as any).canIUse('component2');
   const onInit = [];
   const didMount = [];
   const didUpdate = [];
   const didUnmount = [];
   const deriveDataFromProps = [];
 
-  const instance = {
+  const instance: Instance = {
     ...config,
     ...config.methods,
     props: {
@@ -29,7 +42,7 @@ function createInstance(config, props) {
     methods: {
       ...config.methods,
     },
-    setData(data, callback) {
+    setData(data: Record<string, any>, callback: (this: Instance) => void) {
       if (shallowequal(data, instance.data)) {
         return;
       }
@@ -42,7 +55,7 @@ function createInstance(config, props) {
         deriveDataFromProps.forEach(item => item.call(instance, instance.props));
       }
       didUpdate.forEach(item => item.call(instance, prevProps, prevData));
-      callback && callback();
+      callback && callback.call(instance);
     },
   };
 
@@ -94,7 +107,7 @@ function createInstance(config, props) {
     getData() {
       return instance.data;
     },
-    setProps(props) {
+    setProps(props: Record<string, any>) {
       if (shallowequal(props, instance.props)) {
         return;
       }
@@ -111,7 +124,7 @@ function createInstance(config, props) {
       Object.assign(instance.props, props);
       didUpdate.forEach(item => item.call(instance, prevProps, prevData));
     },
-    callMethod(name, ...args) {
+    callMethod(name: string, ...args: any) {
       instance.methods[name].call(instance, ...args);
     },
     unMount() {
@@ -120,9 +133,9 @@ function createInstance(config, props) {
   }
 }
 
-function getInstance(name, props, api) {
+function getInstance(name: string, props: Record<string, any>, api?: Record<string, any>) {
   currentName = name;
-  global.my = api;
+  (global as any).my = api;
   try {
     require(path.join(__dirname, `../src/${name}/index.ts`));
   } catch (err) {
@@ -132,5 +145,7 @@ function getInstance(name, props, api) {
   return createInstance(cloneDeep(map[name]), props);
 }
 
-global.getInstance = getInstance;
+export {
+  getInstance,
+};
 

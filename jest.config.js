@@ -6,10 +6,10 @@ const config = {
   },
   testRegex: "(/__tests__/.*|(\\.|/)test)\\.ts$",
   moduleFileExtensions: ["js", "ts"],
-  setupFiles: ['<rootDir>/tests/setup.js'],
   collectCoverageFrom: [
     'src/**/*.{ts,js}',
-    '!src/.umi',
+    '!src/.umi/**',
+    '!src/.umi-production/**',
     '!src/**/*.d.ts'
   ],
   globals: {

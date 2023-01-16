@@ -1,3 +1,5 @@
+import { getInstance } from '../../../tests/utils';
+
 describe('popover', () => {
   it('popover top', async () => {
     const my = {
@@ -53,7 +55,7 @@ describe('popover', () => {
         }
       }
     };
-    const instance = global.getInstance('Popover', {
+    const instance = getInstance('Popover', {
       visible: true,
     }, my);
     await new Promise(r => setTimeout(r, 0));

@@ -1,8 +1,9 @@
+import { getInstance } from '../../../tests/utils';
+
 describe('button onTap', () => {
   it('button onTap', () => {
-
     const onTap = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       onTap,
     });
     instance.callMethod('onTap');
@@ -11,7 +12,7 @@ describe('button onTap', () => {
   
   it('button disabled', () => {
     const onTap = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       onTap,
       disabled: true,
     });
@@ -21,7 +22,7 @@ describe('button onTap', () => {
   
   it('button loading', () => {
     const onTap = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       onTap,
       loading: true,
     });
@@ -34,7 +35,7 @@ describe('button catchTap', () => {
   it('button catchTap', () => {
 
     const catchTap = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       catchTap,
     });
     instance.callMethod('catchTap');
@@ -43,7 +44,7 @@ describe('button catchTap', () => {
   
   it('button disabled', () => {
     const catchTap = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       catchTap,
       disabled: true,
     });
@@ -53,7 +54,7 @@ describe('button catchTap', () => {
   
   it('button loading', () => {
     const catchTap = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       catchTap,
       loading: true,
     });
@@ -65,7 +66,7 @@ describe('button catchTap', () => {
 describe('button extra function', () => {
   it('button onGetAuthorize', () => {
     const onGetAuthorize = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       onGetAuthorize,
     });
     instance.callMethod('onGetAuthorize');
@@ -74,7 +75,7 @@ describe('button extra function', () => {
 
   it('button onFollowLifestyle', () => {
     const onFollowLifestyle = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       onFollowLifestyle,
     });
     instance.callMethod('onFollowLifestyle');
@@ -83,7 +84,7 @@ describe('button extra function', () => {
 
   it('button onError', () => {
     const onError = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       onError,
     });
     instance.callMethod('onError');
@@ -92,7 +93,7 @@ describe('button extra function', () => {
 
   it('button onGetUserInfo', () => {
     const onGetUserInfo = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       onGetUserInfo,
     });
     instance.callMethod('onGetUserInfo');
@@ -101,7 +102,7 @@ describe('button extra function', () => {
 
   it('button onGetUserInfo', () => {
     const onGetPhoneNumber = jest.fn();
-    const instance = global.getInstance('Button', {
+    const instance = getInstance('Button', {
       onGetPhoneNumber,
     });
     instance.callMethod('onGetPhoneNumber');
