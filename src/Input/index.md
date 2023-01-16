@@ -48,7 +48,7 @@ toc: 'content'
 | -----|-----|-----|-----|
 | allowClear | 可以点击清除图标删除内容 | boolean | false |
 | enableNative | 是否使用native | boolean | - |
-| focus | 聚焦，查看[详细说明](#input-focus) |
+| focus | 聚焦，查看[详细说明](#input-focus) | boolean | - |
 | password | 是否是密码类型 | boolean | false |
 
 ### Textarea属性
