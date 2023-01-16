@@ -16,7 +16,7 @@ toc: 'content'
 <code src='pages/Popover/index'></code>
 
 ### 结合 List 组件使用
-<code src='pages/PopoverList/index'></code>
+<code src='pages/PopoverList/index' noChangeButton></code>
 
 
 
