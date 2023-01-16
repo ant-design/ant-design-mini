@@ -20,9 +20,9 @@ toc: 'content'
 | className | 类名| string | - |
 | current |  选中项| number |  -  |
 | defaultCurrent |  初始选中项 | number |  0  |
+| icon | 选项卡图标作用域插槽，接收item、index、active参数 | slot | - |
 | items | 底部图标配置 | [TabItem](#tabitem)[] | []  |
 | style | 样式| string | - |
-| text | 选项卡图标作用域插槽，接收item、index、active参数 | slot | - |
 | text | 选项卡底部文字作用域插槽，接收item、index、active参数 | slot | - |
 | onChange | Tab 切换时触发回调 |(item: [TabItem](#tabitem), index: number) => void| - |
 
