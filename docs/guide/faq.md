@@ -9,10 +9,10 @@ toc: false
 可以使用别名，比如 `antd-mini-v1` 进行安装：
 
 ```
-$ npm install antd-mini-v1@npm: antd-mini@beta --save
+$ npm install antd-mini-v1@npm:antd-mini@beta --save
 ```
 
-```diff
+```
 "antd-mini": "^0.0.25",
 "antd-mini-v1": "npm:antd-mini@beta"
 ```
