@@ -1,3 +1,12 @@
+# 1.0.0-beta.7 (2023-01-17)
+
+
+### Bug Fixes
+
+* docs ([#530](https://github.com/ant-design/ant-design-mini/issues/530)) ([23e14a1](https://github.com/ant-design/ant-design-mini/commit/23e14a1d0fc9e28b071e44b325f07c053ef9a657))
+
+
+
 # 1.0.0-beta.6 (2023-01-15)
 
 
