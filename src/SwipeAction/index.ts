@@ -298,7 +298,6 @@ Component({
     // 处理右侧点击事件
     onItemTap(e: any) {
       const { swipeLeft, tapTypeL, tapTypeR } = this.data;
-      console.log(e);
       const { onButtonTap, leftButtons, rightButtons } = this.props;
       if (!onButtonTap) return;
       const { itemL, idx, item } = e.target.dataset.item;

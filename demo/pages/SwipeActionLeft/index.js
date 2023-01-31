@@ -1,6 +1,6 @@
 Page({
   data: {
-    rightBtns: [
+    leftBtns: [
       {
         text: '往来记录',
         bgColor: '#1677FF',
@@ -25,5 +25,8 @@ Page({
   onSwipeEnd(data, e) {
     const { index } = e.target.dataset.item;
     data.swiped && this.setData({ swipeIndex: index });
+  },
+  onButtonTap(data, e) {
+    console.log(data, e);
   },
 });

@@ -28,4 +28,7 @@ Page({
     const { index } = e.target.dataset.item;
     data.swiped && this.setData({ swipeIndex: index });
   },
+  onButtonTap(data, e) {
+    console.log(data, e);
+  },
 });
