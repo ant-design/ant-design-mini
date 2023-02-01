@@ -29,7 +29,7 @@
       title="{{title}}" 
       maskClassName="{{maskClassName}}"
       indicatorStyle="{{indicatorStyle}}"
-      indicatorClass="{{indicatorClass}}"
+      indicatorClassName="{{indicatorClassName}}"
       value="{{formData.value}}" 
       onOk="onOk"
       onChange="onPickerChange"

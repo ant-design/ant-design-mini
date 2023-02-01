@@ -25,7 +25,7 @@
       title="{{title}}" 
       maskClassName="{{maskClassName}}"
       indicatorStyle="{{indicatorStyle}}"
-      indicatorClass="{{indicatorClass}}"
+      indicatorClassName="{{indicatorClassName}}"
       options="{{options}}"    
       value="{{formData.value}}" 
       onOk="onOk"
