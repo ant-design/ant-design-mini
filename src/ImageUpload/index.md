@@ -28,9 +28,9 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - | 
-| maxCount | 上传图片限制的最大数量，没有表示不限制上传数量。详见[maxCount](#maxcount) | number | - |
+| maxCount | 上传图片限制的最大数量，默认不限制上传数量。详见[maxCount](#maxcount) | number | - |
 | defaultFileList | 文件列表初始值 | [File](#file)[] | [] |  
-| sourceType | 上传选择的来源，可选 [album] [camera] ['album', 'camera'] | string[] | ['album', 'camera'] | 
+| sourceType | 上传选择的来源，可选 `[album]` `[camera]` `['album', 'camera']` | string[] | ['album', 'camera'] | 
 | style | 样式| string | - |
 | fileList | 文件列表（受控） | [File](#file)[] | - |
 | imageMode | 图片缩放模式和裁剪模式，详见[图片mode说明](https://opendocs.alipay.com/mini/component/image#mode) | string | scaleToFill |
