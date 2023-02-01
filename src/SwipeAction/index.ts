@@ -2,15 +2,18 @@ import { SwipeActionDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import { compareVersion } from '../_util/compareVersion';
 
-const setStyleObj1 = (buttons: any[], inertiaWidth?: number) => [
-  { marginLeft: 0 },
-  { marginLeft: `${-(buttons[0]?.width + 1 + ((inertiaWidth || 0) * 0.3333)) / 2}px` },
-  { marginLeft: `${-(buttons[0]?.width + buttons[1]?.width + 1 + (inertiaWidth || 0) * 0.6666) / 2}px` }
-];
+const setStyleObj1 = (buttons: any[], inertiaWidth?: number) => {
+  const widthPos = buttons.length === 2 ? 0.5 : 0.3333;
+  return [
+    { marginLeft: 0 },
+    { marginLeft: `${-(buttons[0]?.width + 1 + ((inertiaWidth || 0) * widthPos)) / 2}px` },
+    { marginLeft: `${-(buttons[0]?.width + buttons[1]?.width + 1 + (inertiaWidth || 0) * 0.6666) / 2}px` }
+  ]
+};
 const setStyleObj2 = (buttons: any[], inertiaWidth?: number) => {
   const length = buttons.length;
   if (length === 2) {
-    return [ { marginRight: 0 }, { marginRight: `-${(buttons[0]?.width + (inertiaWidth || 0)) / 2}px` } ]
+    return [ { marginRight: 0 }, { marginRight: `-${(buttons[0]?.width + (inertiaWidth || 0) * 0.5) / 2}px` } ]
   }
   if (length === 3) {
     return [ { marginRight: 0 }, { marginRight: `-${(buttons[0]?.width + ((inertiaWidth || 0) * 0.3333))/ 2}px` }, { marginRight: `-${((buttons[0]?.width + buttons[1]?.width + ((inertiaWidth || 0) * 0.6666))) / 2}px` } ]
