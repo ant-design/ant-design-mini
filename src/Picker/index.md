@@ -28,9 +28,8 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | disabled | 是否禁用  | boolean | false | 
 | cancelText | 取消文案 | string | '取消' |  
 | content | 自定义内容插槽 | slot | - |
-| format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | string | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | string | - |  
-| indicatorClass | 选中框的类名 | string |  - |  
+| indicatorClassName | 选中框的类名 | string |  - |  
 | maskClassName | 蒙层的类名 | string | - | 
 | maskClosable |  点击蒙层是否可以关闭 | boolean |false |  | 
 | maskStyle | 蒙层的样式 | string | - | 
@@ -58,7 +57,7 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | content | 自定义内容插槽 | slot | - |
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | string | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | string | - |  
-| indicatorClass | 选中框的类名 | string |  - |  
+| indicatorClassName | 选中框的类名 | string |  - |  
 | maskClassName | 蒙层的类名 | string | - | 
 | maskClosable |  点击蒙层是否可以关闭 | boolean |false |  | 
 | maskStyle | 蒙层的样式 | string | - | 
