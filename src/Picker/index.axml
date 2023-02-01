@@ -47,7 +47,7 @@
         mask-style="{{maskStyle || ''}}"
         mask-class="{{ maskClassName || ''}}"
         indicator-style="{{indicatorStyle|| ''}}"
-        indicator-class="{{indicatorClass || ''}}"
+        indicator-class="{{indicatorClassName || ''}}"
         value="{{selectedIndex}}"
         onChange="onChange">
         <block 
