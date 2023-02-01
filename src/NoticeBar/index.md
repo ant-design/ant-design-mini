@@ -21,7 +21,7 @@ toc: 'content'
 | className | 类名 | string | - | 
 | enableMarquee | 是否开启滚动动画 | boolean | false | 
 | extra | 自定义右侧内容 | slot | - | 
-| icon | 自定义左侧icon | slot | - | 
+| icon | 左侧icon，支持所以内置 iconType 和自定义链接，也支持自定义slot | slot \| string | - | 
 | loop | 是否循环滚动，enableMarquee 为 true 时有效 | boolean | false | 
 | mode | 通告类型，`link` 表示连接，整行可点；`closeable` 表示点击 x 可以关闭；不填时表示你右侧没有图标 | string | - | 
 | style | 样式 | string | - |
