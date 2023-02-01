@@ -61,10 +61,11 @@ toc: 'content'
 
 ### Input, Textarea 更多相同属性
 
-- placeholder-style
-- placeholder-class
-- name
 - confirm-type
+- name
+- placeholder-class
+- placeholder-style
+- type
 
 https://opendocs.alipay.com/mini/component/input
 <br />
