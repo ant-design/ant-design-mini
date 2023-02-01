@@ -4,8 +4,8 @@ import { compareVersion } from '../_util/compareVersion';
 
 const setStyleObj1 = (buttons: any[], inertiaWidth?: number) => [
   { marginLeft: 0 },
-  { marginLeft: `${-(buttons[0]?.width + 1 + (inertiaWidth || 0)) / 2}px` },
-  { marginLeft: `${-(buttons[0]?.width + buttons[1]?.width + 1 + (inertiaWidth || 0)) / 2}px` }
+  { marginLeft: `${-(buttons[0]?.width + 1 + ((inertiaWidth || 0) * 0.3333)) / 2}px` },
+  { marginLeft: `${-(buttons[0]?.width + buttons[1]?.width + 1 + (inertiaWidth || 0) * 0.6666) / 2}px` }
 ];
 const setStyleObj2 = (buttons: any[], inertiaWidth?: number) => {
   const length = buttons.length;
@@ -13,7 +13,7 @@ const setStyleObj2 = (buttons: any[], inertiaWidth?: number) => {
     return [ { marginRight: 0 }, { marginRight: `-${(buttons[0]?.width + (inertiaWidth || 0)) / 2}px` } ]
   }
   if (length === 3) {
-    return [ { marginRight: 0 }, { marginRight: `-${(buttons[0]?.width + (inertiaWidth || 0))/ 2}px` }, { marginRight: `-${((buttons[0]?.width + buttons[1]?.width + (inertiaWidth || 0))) / 2}px` } ]
+    return [ { marginRight: 0 }, { marginRight: `-${(buttons[0]?.width + ((inertiaWidth || 0) * 0.3333))/ 2}px` }, { marginRight: `-${((buttons[0]?.width + buttons[1]?.width + ((inertiaWidth || 0) * 0.6666))) / 2}px` } ]
   }
   return [{ marginRight: 0 }]
 }
@@ -49,6 +49,8 @@ Component({
     myStyle: {},
     inertiaWidth: 20,
     animation: !isOldVersion,
+    _leftButtons: [],
+    _rightButtons: [],
   },
   didMount() {
     const { defaultSwiped, elasticity } = this.props;
@@ -79,9 +81,9 @@ Component({
   },
   methods: {
     setWidth() {
-      const { leftButtons, rightButtons } = this.props;
-      const _rightArr = rightButtons || [];
-      const _leftArr = leftButtons || [];
+      const { _leftButtons, _rightButtons } = this.data;
+      const _rightArr = _rightButtons || [];
+      const _leftArr = _leftButtons || [];
       this.setData({
         rightWidth: _rightArr.reduce((tolal, cur) => { return tolal + cur.width }, 0),
         leftWidth: _leftArr.length ? _leftArr.reduce((tolal, cur) => { return tolal + cur.width }, 0) : 0,
@@ -95,7 +97,9 @@ Component({
       rightButtons.forEach(i => {
         i.width = i.width || 150
       });
-      this.setWidth();
+      this.setData({ _leftButtons: leftButtons, _rightButtons: rightButtons }, () => {
+        this.setWidth();
+      });
     },
     initWidth(func?: Function) {
       const { leftButtons, rightButtons } = this.props;
@@ -110,15 +114,15 @@ Component({
             func && func(ret[0].width);
           }
         });
-        leftButtons.length > 0 && my.createSelectorQuery()
-          .select(`.ant-swipe-action-movable-left-${this.$id}`)
-          .boundingClientRect()
-          .exec((ret: any) => {
-            if (ret && ret[0] && ret[0].width) {
-              this.setData({ maxSwipeL: ret[0].width });
-              func && func(ret[0].width);
-            }
-          });
+      leftButtons.length > 0 && my.createSelectorQuery()
+        .select(`.ant-swipe-action-movable-left-${this.$id}`)
+        .boundingClientRect()
+        .exec((ret: any) => {
+          if (ret && ret[0] && ret[0].width) {
+            this.setData({ maxSwipeL: ret[0].width });
+            func && func(ret[0].width);
+          }
+        });
     },
     // 向外透出事件
     onTouchStart() {
@@ -177,12 +181,12 @@ Component({
     },
     onSetCheck(isRight: boolean) {
       const { rightButtons, leftButtons } = this.props;
-      const { inertiaWidth } = this.data;
+      const { inertiaWidth, _leftButtons, _rightButtons } = this.data;
       const arr = isRight ? rightButtons : leftButtons;
       const idx = arr.findIndex((u) => u.confirmType === 'move');
       if (idx === -1)  return;
       my.vibrateShort({ success() {} });
-      const styArr = isRight ? setStyleObj1(rightButtons, inertiaWidth) : setStyleObj2(leftButtons);
+      const styArr = isRight ? setStyleObj1(_rightButtons, inertiaWidth) : setStyleObj2(_leftButtons, inertiaWidth);
       const sty = styArr[idx];
       this.setData({ myStyle: sty });
       isRight ? this.setData({ tapTypeR: 'R-' + idx }) : this.setData({ tapTypeL: 'L-' + idx });
@@ -297,7 +301,7 @@ Component({
     },
     // 处理右侧点击事件
     onItemTap(e: any) {
-      const { swipeLeft, tapTypeL, tapTypeR } = this.data;
+      const { swipeLeft, tapTypeL, tapTypeR, _leftButtons, _rightButtons } = this.data;
       const { onButtonTap, leftButtons, rightButtons } = this.props;
       if (!onButtonTap) return;
       const { itemL, idx, item } = e.target.dataset.item;
@@ -316,7 +320,7 @@ Component({
       }
       // auto 是展开按钮二次确认的效果
       if (confirmType === 'tap' || confirmType === 'move') {
-        const styArr = swipeLeft ? setStyleObj1(rightButtons) : setStyleObj2(leftButtons);
+        const styArr = swipeLeft ? setStyleObj1(_rightButtons) : setStyleObj2(_leftButtons);
         const sty = styArr[idx];
         this.setData({ myStyle: sty });
         !swipeLeft ? this.setData({ tapTypeL: 'L-' + idx }) :  this.setData({ tapTypeR: 'R-' + idx });
