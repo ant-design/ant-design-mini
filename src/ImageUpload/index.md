@@ -27,13 +27,13 @@ toc: 'content'
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| className | 类名| `string` | - | 
-| maxCount | 上传图片限制的最大数量，没有则不限制。详见[maxCount](#maxcount) | `number` | - |
-| defaultFileList | 文件列表初始值 | [File](#file)`[]` | `[]` |  
-| sourceType | 上传选择的来源，可选 `[album]` `[camera]` `['album', 'camera']` | `string[]` | `['album', 'camera']` | 
-| style | 样式| `string` | - |
-| fileList | 文件列表（受控） | [File](#file)`[]` | - |
-| imageMode | 图片缩放模式和裁剪模式，详见[图片mode说明](https://opendocs.alipay.com/mini/component/image#mode) | `string` | `scaleToFill` |
+| className | 类名| string | - | 
+| maxCount | 上传图片限制的最大数量，没有表示不限制上传数量。详见[maxCount](#maxcount) | number | - |
+| defaultFileList | 文件列表初始值 | [File](#file)[] | [] |  
+| sourceType | 上传选择的来源，可选 [album] [camera] ['album', 'camera'] | string[] | ['album', 'camera'] | 
+| style | 样式| string | - |
+| fileList | 文件列表（受控） | [File](#file)[] | - |
+| imageMode | 图片缩放模式和裁剪模式，详见[图片mode说明](https://opendocs.alipay.com/mini/component/image#mode) | string | scaleToFill |
 | onBeforeUpload | 上传文件之前的钩子，参数为上传的文件列表，若返回 false 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传（ resolve 传入修改后的 localFileList ） | (localFileList: [localFile](#localfile)[]) => boolean \| Promise<[localFile](#localfile)[]> | - | 
 | onChooseImageError | 选择图片失败回调，详见[onChooseImageError](###onChooseImageError) | (err) => void | - | 
 | onUpload | 图片上传方法，详见[onUpload](#onupload) | (localFile: [LocalFile](#localfile)) => Promise\<string\> | - | 
