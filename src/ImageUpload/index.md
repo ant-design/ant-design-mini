@@ -28,7 +28,7 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - | 
-| maxCount | 上传图片限制的最大数量，没有表则不限制。详见[maxCount](#maxcount) | number | - |
+| maxCount | 上传图片限制的最大数量，默认不限制上传数量。详见[maxCount](#maxcount) | number | - |
 | defaultFileList | 文件列表初始值 | [File](#file)[] | [] |  
 | sourceType | 上传选择的来源，可选 `[album]` `[camera]` `['album', 'camera']` | string[] | ['album', 'camera'] | 
 | style | 样式| string | - |
