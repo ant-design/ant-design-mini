@@ -25,7 +25,7 @@ toc: 'content'
 | content | 自定义内容插槽 | slot | - |
 | format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | string | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | string | - |  
-| indicatorClass | 选中框的类名 | string |  - |  
+| indicatorClassName | 选中框的类名 | string |  - |  
 | maskClassName | 蒙层的类名 | string | - | 
 | maskClosable |  点击蒙层是否可以关闭 | boolean |false |  | 
 | maskStyle | 蒙层的样式 | string | - | 
@@ -36,7 +36,9 @@ toc: 'content'
 | popClassName |  弹出框类名 | string | - |
 | popStyle |  弹出框样式 | string | - |
 | precision | 选择精度，可选`year` `month` `day` `hour` `minute` `second` | string | `day` | 
+| prefix |  前缀 | slot | - |
 | style | 样式| string | - |
+| suffix |  后缀 | slot | - |
 | title | 弹出框标题 | string \| slot | - |  
 | value | 选中的时间 | Date | - | 
 | onOk | 点击确定按钮，触发回调 | (date: Date, dateStr: string, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
@@ -54,9 +56,9 @@ toc: 'content'
 | cancelText | 取消文案 | string | 取消 |  
 | content | 自定义内容插槽 | slot | - |
 | endPlaceholder | 结束时间提示文案 | string | 未选择 |  
-| format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | string | YYYY/MM/DD | 
+| format | 时间格式化显示，格式同[dayjs](https://day.js.org/docs/zh-CN/display/format)  | string | 'YYYY/MM/DD' | 
 | indicatorStyle | 选中框样式 | string | - |  
-| indicatorClass | 选中框的类名 | string |  - |  
+| indicatorClassName | 选中框的类名 | string |  - |  
 | maskClassName | 蒙层的类名 | string | - | 
 | maskClosable |  点击蒙层是否可以关闭 | boolean |false |  | 
 | maskStyle | 蒙层的样式 | string | - | 
@@ -69,7 +71,9 @@ toc: 'content'
 | precision | 选择精度，可选`year` `month` `day` `hour` `minute` | string | `day` | 
 | splitCharacter | 显示连接符 | string | ~ |  
 | startPlaceholder | 开始时间提示文案 | string | 未选择 |  
-| style | 样式 | string | - |
+| prefix |  前缀 | slot | - |
+| style | 样式| string | - |
+| suffix |  后缀 | slot | - |
 | title | 弹出框标题 | string \| slot| - |  
 | value | 选中的时间 | [Date, Date] | - | 
 | onOk | 点击确定按钮，触发回调 | (date: [Date,Date], dateStr: [string,string], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |

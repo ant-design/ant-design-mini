@@ -24,7 +24,7 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |
-| defaultValue | 默认值 | string \| number \| [PickerColumnItem](#pickercolumnitem) \| Array\<string \| number \| [PickerColumnItem](#pickercolumnitem)\> | - | 
+| defaultValue | 默认值 | string \| number \| Array\<string \| number\> | - | 
 | disabled | 是否禁用  | boolean | false | 
 | cancelText | 取消文案 | string | '取消' |  
 | content | 自定义内容插槽 | slot | - |
@@ -38,9 +38,11 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | placeholder | 提示文案 | string | '请选择' |  
 | popClassName |  弹出框类名 | string | - |
 | popStyle |  弹出框样式 | string | - |
+| prefix |  前缀 | slot | - |
 | style | 样式| string | - |
+| suffix |  后缀 | slot | - |
 | title | 弹出框标题 | string \| slot | - |  
-| value | 选中的值 | string \| number \| [PickerColumnItem](#pickercolumnitem) \| Array\<string \| number \| [PickerColumnItem](#pickercolumnitem)\> | - | 
+| value | 选中的值 | string \| number \| Array\<string \| number\> | - | 
 | onOk | 点击确定按钮，触发回调 | (value: [PickerColumnItem](#pickercolumnitem),  column: [PickerColumnItem](#pickercolumnitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 | onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 | onChange | 选中项发生变化，触发回调 | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
