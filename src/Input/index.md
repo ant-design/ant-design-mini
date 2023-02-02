@@ -50,6 +50,8 @@ toc: 'content'
 | enableNative | 是否使用native | boolean | - |
 | focus | 聚焦，查看[详细说明](#input-focus) | boolean | - |
 | password | 是否是密码类型 | boolean | false |
+| prefix | input前缀 | slot | - |
+| suffix | input后缀 | slot | - |
 
 ### Textarea属性
 | 属性 | 说明 | 类型 | 默认值 |
