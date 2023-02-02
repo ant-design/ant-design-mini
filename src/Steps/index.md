@@ -24,7 +24,6 @@ toc: 'content'
 | -----|-----|-----|-----|
 | className | 类名 | string | - |
 | current | 当前步骤 | number | - |
-| defaultCurrent | 默认当前步骤 | number | 0 |
 | description | 自定义描述内容渲染，接收index和value | slot | - |
 | direction | 方向，可选 `horizontal` `vertical` | string | `horizontal` |
 | icon | 自定义图标渲染，接收index和value | slot | - |
