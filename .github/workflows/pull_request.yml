@@ -15,3 +15,9 @@ jobs:
         run: |
           npm i
           npm run build
+      - name: test
+        run: npm run cov
+      - name: Codecov
+        uses: codecov/codecov-action@v2.1.0
+        with:
+          directory: ./coverage/
