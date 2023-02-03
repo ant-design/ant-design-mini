@@ -30,7 +30,7 @@ v1对比v0做了很多修改，也有很多breakchange。使用v1可按照v1组�
 |  Tag | color可选项，warn重命名warning |
 |  Checkbox | 新增 defaultChecked 属性，支持受控/非受控模式，同时移除 icon、checkedIcon、disabledIcon、disabledCheckedIcon、id、name 等属性，让组件使用更轻便。 |
 |  CheckboxGroup | 废弃之前 checkboxGroup + checkboxItem 的使用方式，新增 options 进行数据配置驱动视图，解决了之前两者互相通信的问题，此外还新增了 defaultValue、color 等属性，移除了更多冗余属性，包括 uid、radius、header、footer、mode 等，让其成为一个更加纯粹的基础组件。 |
-|  Checklist |  完全兼容 |
+|  Checklist | 支持受控/非受控。 |
 |  DatePicker | 支持受控/非受控；修复appx1（钉钉）下的使用问题。 |
 |  Filter | 移除该组件，相关实现集成到 selector 中，具体使用方式可参考对应示例。 |
 |  ImageUpload | 支持受控/非受控，移除 action、value、enableShowPhotoDownload、enableSavePhoto、fileName、formData、height、mode、preview、width、onAfterUpload 等属性及方法，同时 onDelete 更名为 onRemove，新增 defaultFileList、fileList、onChooseImageError 等属性及方法；1.0里ImageUpload的上传为自定义方法，可调用小程序upload api方法进行上传。 |
@@ -38,8 +38,9 @@ v1对比v0做了很多修改，也有很多breakchange。使用v1可按照v1组�
 |  Textarea | 新增 Textarea 组件。 |
 |  NumberKeyboard | 新增数字键盘 NumberKeyboard 组件，让开发者可以定制自己的数字键盘。注意：数字键盘暂未解决键盘遮挡输入框的问题，需要开发者自行设置屏幕滚动来解决此类问题。 |
 |  Picker | dismissText 、maskClass、indicatorClass、onDismiss，onTriggerPicker 分别重命名为 cancelText、maskClassName、indicatorClassName、onCancel、onVisibleChange，同时新增 popClassName、popStyle、defaultValue，移除onBeforeOk，此外还新增了 content slot。 |
-|  RadioGroup、Radio | 新增 defaultChecked 属性，支持受控/非受控模式，同时移除 icon、checkedIcon、disabledIcon、disabledCheckedIcon、id、name 等属性，让组件使用更轻便。 |
-|  SearchBar | 不在单独作为组件提供，整合到 input 组件中，具体可参考相关实例 demo 实现。 |
+|  Radio | 新增 defaultChecked 属性，支持受控/非受控模式，同时移除 icon、checkedIcon、disabledIcon、disabledCheckedIcon、id、name 等属性，让组件使用更轻便。 |
+|  RadioGroup | 废弃之前 radioGroup + radioItem 的使用方式，新增 options 进行数据配置驱动视图，解决了之前两者互相通信的问题，此外还新增了 defaultValue、color 等属性，移除了更多冗余属性，包括 uid、radius、header、footer、mode 等，让其成为一个更加纯粹的基础组件。 |
+|  SearchBar | 不再单独作为组件提供，整合到 input 组件中，具体可参考相关实例 demo 实现。 |
 |  Selector | 支持受控/非受控，新增 activeItemStyle、defaultValue，options 重命名为 items，同时移除 title、desc 及表单模式下的字段 name、mode等。 |
 |  Slider | 组件支持更多更方便的自定义方式和受控/非受控模式，新增activeDotClassName、activeLineClassName、activeDotStyle、activeLineStyle 等相关属性。同时新增 defaultValue、showTicks 属性，此外还新增了slider slot。 |
 |  Stepper | 提供更好的受控/非受控方式，新增defaultValue、inputClassName，inputStyle、onConfirm，同时移除一些冗余属性 inputWidth、name、mode，此外 autoFocus 重命名为 focus。 |
@@ -62,7 +63,7 @@ v1对比v0做了很多修改，也有很多breakchange。使用v1可按照v1组�
 |  Skeleton | 细节调整，Skeleton Avatar size修改跟跟Avatar相同的 'x-small' &#124; 'small' &#124; 'medium' &#124; 'large' |
 |  Toast | type error统一修改为fail |
 |  Form | 支持了包括输入框、选择器、图片上传等表单项；有较为强大的表单校验功能。 |
-|  SafeArea | 去掉了这个组件，可使用完成相同功能。<br/>` padding-bottom: constant(safe-area-inset-bottom);`<br/>` padding-bottom: env(safe-area-inset-bottom);`<br/>` padding-top: constant(safe-area-inset-top);`<br/>` padding-top: env(safe-area-inset-top);` |
+|  SafeArea | 去掉了这个组件，可使用css完成相同功能。<br/>` padding-bottom: constant(safe-area-inset-bottom);`<br/>` padding-bottom: env(safe-area-inset-bottom);`<br/>` padding-top: constant(safe-area-inset-top);`<br/>` padding-top: env(safe-area-inset-top);` |
 
 <style>
     th:nth-of-type(1){
