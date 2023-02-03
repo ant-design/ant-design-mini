@@ -4,11 +4,9 @@ toc: false
 
 ## 快速开始
 
-> 注意，你看到的文档是 antd-mini 1.0 beta 文档。1.0 正式版本还没有发布。正式版本为 0.x 可访问 https://0x-mini.ant.design
-
 1. 安装依赖
 ```
-$ npm i antd-mini@beta --save
+$ npm i antd-mini --save
 ```
 <br>
 
