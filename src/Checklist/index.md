@@ -20,12 +20,13 @@ toc: 'content'
 | -----|-----|-----|-----|
 | className | 类名| string | - |
 | content | CheckListItem自定义内容区作用域插槽，接收item参数  | slot | - |
+| defaultValue | 默认选中数据 | string \| number \| (string \| number)[] | - | 
 | icon | 自定义选中Icon插槽 | slot |  - |
 | multiple |  是否支持多选 | boolean | false | 
 | options | 配置每一列的选项 | [ChecklistItem](#checklistitem)[] | [] |
 | style | 样式| string | - |
-| value | 选中数据 | (string \| number)[] | [] | 
-| onChange | 选中项发生变化，触发回调 | (value: string \| number&#124; [], column: [ChecklistItem](#checklistitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| value | 选中数据 | string \| number \| (string \| number)[] | - | 
+| onChange | 选中项发生变化，触发回调 | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### ChecklistItem
 
