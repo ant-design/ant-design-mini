@@ -29,9 +29,12 @@ export interface ChecklistItem {
 interface IChecklistProps extends IBaseProps {
   /**
    * @description 默认值
-   * @default []
    */
   value: Array<string | number> | string | number;
+  /**
+   * @description 默认值
+   */
+  defaultValue?: Array<string | number> | string | number;
 
   /**
    * @description 是否支持多选
