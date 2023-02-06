@@ -4,7 +4,7 @@
 <head>
   <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/wNkELvnLHXPAlmqutRPI.png" type="image/x-icon">
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/0.0.17/web/preview.css" />
+  <link rel="stylesheet" type="text/css" href="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.0.4/web/preview.css" />
   <link rel="preload" href="/preview.json" as="fetch" crossorigin>
   <link rel="preload" href="/preview-theme-dark.json" as="fetch" crossorigin>
   <style>
@@ -23,7 +23,7 @@
   </div>
   <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react/18.0.0/umd/react.production.min.js"></script>
   <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react-dom/18.0.0/umd/react-dom.production.min.js"></script>
-  <script src="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/0.0.18/web/preview.js"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.0.4/web/preview.js"></script>
   <script>
     const searchParams = new URL(location.href).searchParams;
     const theme = searchParams.get('less-theme');
@@ -34,15 +34,38 @@
       return Promise.all(list.map(item => fetch(`${server}/${item}`).then(res => res.text()))).then(arr => {
         const dist = {};
         list.forEach((item, index) => {
-          dist[item] = arr[index]; 
+          dist[item] = arr[index];
         });
         return dist;
       });
     }
 
     function getSourceCode() {
-      const defaultPage = searchParams.get('defaultPage');
-      return fetch(`/sourceCode/${defaultPage}`).then(res => res.json());
+      const folder = searchParams.get('folder');
+      return fetch(`/sourceCode/${folder}`).then(res => res.json());
+    }
+
+    function sortMiniPageFile(files) {
+      const xmlType = [];
+      const jsType = [];
+      const cssType = [];
+      const jsonType = [];
+      const restFiles = [];
+
+      files.forEach(file => {
+        if (/pages\/[a-zA-Z]*\/index.(axml|xml|html)$/.test(file)) {
+          xmlType.push(file);
+        } else if (/pages\/[a-zA-Z]*\/index.(js|ts|sjs)$/.test(file)) {
+          jsType.push(file);
+        } else if (/pages\/[a-zA-Z]*\/index.(acss|css|less|scss|sass)$/.test(file)) {
+          cssType.push(file);
+        } else if (/pages\/[a-zA-Z]*\/index.json$/.test(file)) {
+          jsonType.push(file);
+        } else {
+          restFiles.push(file);
+        }
+      });
+      return [...xmlType, ...jsType, ...cssType, ...jsonType, ...restFiles];
     }
 
     async function startWebOpenBoxPreviewApp() {
@@ -77,6 +100,7 @@
           isShowSwitchLyra: false
         },
         isShowHeaderLogo: false,
+        sortMiniPageFile
       });
     }
     startWebOpenBoxPreviewApp();
