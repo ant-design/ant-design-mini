@@ -1,7 +1,6 @@
 <modal
   content="人在天边月上明"
-  visible="{{visible}}"
-  a:if="{{type==='basicVisible'}}"
+  visible="{{basicVisible}}"
   onClose="handleClose"
   primaryButtonText="我知道了"
   onPrimaryButtonTap="handlePrimaryButtonTap"
@@ -9,8 +8,7 @@
 <modal
   title="带标题的弹窗"
   content="人在天边月上明"
-  visible="{{visible}}"
-  a:if="{{type==='withTitleVisible'}}"
+  visible="{{withTitleVisible}}"
   onClose="handleClose"
   primaryButtonText="我知道了"
   onPrimaryButtonTap="handlePrimaryButtonTap"
@@ -18,8 +16,7 @@
 <modal
   title="确定删除吗？"
   content="删除后无法恢复"
-  visible="{{visible}}"
-  a:if="{{type==='basicTwoVisible'}}"
+  visible="{{basicTwoVisible}}"
   onClose="handleClose"
   primaryButtonText="确定"
   secondaryButtonText="取消"
@@ -29,8 +26,7 @@
 <modal
   title="标题"
   content="人在天边月上明"
-  visible="{{visible}}"
-  a:if="{{type==='basicThreeVisible'}}"
+  visible="{{basicThreeVisible}}"
   onClose="handleClose"
   primaryButtonText="主按钮"
   secondaryButtonText="更多"
@@ -43,8 +39,7 @@
   title="强调模式"
   content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
   type="focus"
-  visible="{{visible}}"
-  a:if="{{type==='focusOneVisible'}}"
+  visible="{{focusOneVisible}}"
   onClose="handleClose"
   primaryButtonText="我知道了"
   onPrimaryButtonTap="handlePrimaryButtonTap"
@@ -53,8 +48,7 @@
   title="强调模式"
   content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
   type="focus"
-  visible="{{visible}}"
-  a:if="{{type==='focusTwoVisible'}}"
+  visible="{{focusTwoVisible}}"
   onClose="handleClose"
   primaryButtonText="我知道了"
   secondaryButtonText="辅助操作"
@@ -65,8 +59,7 @@
   title="强调模式"
   content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
   type="focus"
-  visible="{{visible}}"
-  a:if="{{type==='focusThreeVisible'}}"
+  visible="{{focusThreeVisible}}"
   onClose="handleClose"
   primaryButtonText="我知道了"
   secondaryButtonText="辅助操作"
@@ -78,8 +71,7 @@
 <modal
   title="确定删除吗？"
   content="删除后无法恢复"
-  visible="{{visible}}"
-  a:if="{{type==='customVisible'}}"
+  visible="{{customVisible}}"
   onClose="handleClose"
   primaryButtonText="删除"
   primaryButtonStyle="color:red;"
@@ -88,11 +80,10 @@
   onSecondaryButtonTap="handleSecondaryButtonTap"
 />
 <modal 
-  visible="{{visible}}" 
-  a:if="{{ type==='customBodyVisible' }}"
+  visible="{{customBodyVisible}}" 
   onClose="handleClose">
   <view class="body">
-    <image mode="scaleToFill" src="{{url}}" class="bodyImg"/>
+    <image mode="scaleToFill" src="https://mdn.alipayobjects.com/huamei_yujk1o/afts/img/A*xYjqRJiKsvoAAAAAAAAAAAAADuaJAQ/original" class="bodyImg"/>
     <view class="bodyAction"><icon type="CloseCircleOutline" onTap="handleClose"/></view>
   </view>
 </modal>
