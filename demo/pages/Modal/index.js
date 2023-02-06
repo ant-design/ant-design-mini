@@ -1,15 +1,31 @@
 Page({
   data: {
-    visible: false,
-    type: '',
-    url: 'https://mdn.alipayobjects.com/huamei_yujk1o/afts/img/A*xYjqRJiKsvoAAAAAAAAAAAAADuaJAQ/original',
+    basicVisible: false,
+    withTitleVisible: false,
+    basicTwoVisible: false,
+    basicThreeVisible: false,
+    focusOneVisible: false,
+    focusTwoVisible: false,
+    focusThreeVisible: false,
+    customVisible: false,
+    customBodyVisible: false,
   },
   handleOpen(e) {
     const { field } = e.target.dataset;
-    this.setData({ type: field, visible: true });
+    this.setData({ [field]: true });
   },
   handleClose() {
-    this.setData({ visible: false });
+    this.setData({
+      basicVisible: false,
+      withTitleVisible: false,
+      basicTwoVisible: false,
+      basicThreeVisible: false,
+      focusOneVisible: false,
+      focusTwoVisible: false,
+      focusThreeVisible: false,
+      customVisible: false,
+      customBodyVisible: false,
+    });
   },
   handlePrimaryButtonTap() {
     this.handleClose();
