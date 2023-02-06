@@ -83,7 +83,25 @@
         dist = obj.dist;
         sourceCode = obj.sourceCode;
       }
-      sourceCode['mini.project.json'] = '{ "enableAppxNg": true }';
+      sourceCode['mini.project.json'] = JSON.stringify({ 
+        enableAppxNg: true,
+        component2: true,
+      }, null, 2);
+      sourceCode['app.json'] = JSON.stringify({
+        "pages": [
+          `${searchParams.get('folder')}index`
+        ],
+        "window": {
+          "enableWK": "YES",
+          "enableDSL": "YES",
+          "enableJSC": "YES",
+          "defaultTitle": "小程序版 antd-mini 库",
+          "titleBarColor": "#FFFFFF",
+          "pullRefresh": false,
+          "allowsBounceVertical": false,
+          "enableInPageRenderInput": "YES"
+        },
+      }, null, 2);
       window.OpenBoxPreview.StartWebOpenBoxPreviewApp({
         containerStyle: {
           width: '100%',
@@ -102,6 +120,14 @@
         isShowHeaderLogo: false,
         sortMiniPageFile
       });
+      sourceCode['package.json'] = JSON.stringify({
+        "private": true,
+        "dependencies": {
+          "antd-mini": "latest"
+        },
+      }, null, 2);
+      sourceCode['app.js'] = `App({})`;
+      sourceCode['README.md'] = '需要先npm i';
     }
     startWebOpenBoxPreviewApp();
   </script>
