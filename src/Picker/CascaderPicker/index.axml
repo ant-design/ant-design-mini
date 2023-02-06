@@ -13,7 +13,7 @@
     maskStyle="{{maskStyle}}"
     maskClassName="{{maskClassName}}"
     indicatorStyle="{{indicatorStyle}}"
-    indicatorClass="{{indicatorClass}}"
+    indicatorClassName="{{indicatorClassName}}"
     onChange="onChange"
     onCancel="onCancel"
     onOk="onOk"
