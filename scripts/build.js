@@ -7,11 +7,18 @@ const compile = require('./compile');
 
 
 async function buildMiniProgram() {
+  const cache = path.join(__dirname, '../.cache');
+  if (fs.existsSync(cache)) {
+    fs.rmdirSync(cache, {
+      recursive: true,
+    }); 
+  }
   await minidev.build({
     project: path.join(__dirname, '../'),
     output: path.join(__dirname, '../dist'),
     enableLess: true,
     enableTypescript: true,
+    cacheDir: cache,
   });
   const colorFilename = path.join(__dirname, '../src/style/themes/color.less');
   const colorContent = await fs.promises.readFile(colorFilename, 'utf-8');
@@ -19,11 +26,17 @@ async function buildMiniProgram() {
   const appJSONContent = await fs.promises.readFile(appJSONFilename, 'utf-8');
   await fs.promises.writeFile(colorFilename, colorContent.replace('default', 'dark'));
   await fs.promises.writeFile(appJSONFilename, appJSONContent.replace('#FFFFFF', '#000000'));
+  if (fs.existsSync(cache)) {
+    fs.rmdirSync(cache, {
+      recursive: true,
+    }); 
+  }
   await minidev.build({
     project: path.join(__dirname, '../'),
     output: path.join(__dirname, '../dist-theme-dark'),
     enableLess: true,
     enableTypescript: true,
+    cacheDir: cache,
   });
   await fs.promises.writeFile(colorFilename, colorContent);
   await fs.promises.writeFile(appJSONFilename, appJSONContent);
