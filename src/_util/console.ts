@@ -4,7 +4,6 @@ export enum EComponents {
   AmountInput = 'AmountInput',
   Badge = 'Badge',
   Button = 'Button',
-  Calendar = 'Calendar',
   Checkbox = 'Checkbox',
   CheckboxGroup = 'CheckboxGroup',
   CheckboxItem = 'CheckboxItem',
