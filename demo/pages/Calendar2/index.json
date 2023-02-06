@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "Calendar",
-  "usingComponents": {
-    "calendar": "../../../src/Calendar/index",
-    "list": "../../../src/List/index",
-    "list-item": "../../../src/List/ListItem/index"
-  },
-  "allowsBounceVertical": "NO"
-}
