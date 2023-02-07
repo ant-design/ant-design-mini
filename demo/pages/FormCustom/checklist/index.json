@@ -1,4 +1,5 @@
 {
+  "component": true,
   "defaultTitle": "Form",
   "usingComponents": {
     "form-item": "../../../../src/Form/FormItem/index",
