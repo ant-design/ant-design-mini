@@ -48,4 +48,5 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | content | 内容 | string | - |
+| disabled | 是否禁用 | string | false |
 | title | 标题 | string | - |
