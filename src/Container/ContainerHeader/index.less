@@ -24,9 +24,13 @@
       display: flex;
       align-items: center;
       height: 96 * @rpx;
+      justify-content: flex-end;
       &:empty {
         display: none;
       }
+    }
+    .@{containerPrefix}-header-title:empty+.@{containerPrefix}-header-right:not(:empty){
+      flex: 1;
     }
   }
 
@@ -37,10 +41,6 @@
     .@{containerPrefix}-header-right{
       position: relative;
       .hairline('bottom');
-    }
-    .@{containerPrefix}-header-title:empty+.@{containerPrefix}-header-right:not(:empty){
-      flex: 1;
-      justify-content: flex-end;
     }
   }
 }
