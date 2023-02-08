@@ -1,13 +1,6 @@
 <view class="ant-container-header {{ headerInBox ? 'ant-container-headerInBox' : '' }}">
     <view class="ant-container-header-title">
-      <view class="ant-container-header-content">
-        <block a:if="{{typeof title !== 'undefined'}}">
-          {{title}}
-        </block>
-        <block a:else>
-          <slot name="title" />
-        </block>
-      </view>
+      <slot name="title">{{title}}</slot>
     </view>
     <view 
       class="ant-container-header-right"

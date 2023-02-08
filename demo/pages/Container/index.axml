@@ -32,3 +32,9 @@
     </view>
   </view>
 </container>
+
+<!-- 不含标题 -->
+<container>
+  <view class="content">
+  </view>
+</container>

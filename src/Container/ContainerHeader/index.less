@@ -1,5 +1,5 @@
-@import (reference) "../variable.less";
-@import "../../style/mixins/hairline.less";
+@import (reference) '../variable.less';
+@import '../../style/mixins/hairline.less';
 
 @containerPrefix: ant-container;
 
@@ -7,22 +7,28 @@
   &-header {
     position: relative;
     display: flex;
-    height: 93 * @rpx;
-    display: flex;
     align-items: center;
     justify-content: space-between;
-
     &-title {
       font-size: @container-header-size;
       font-weight: bold;
       color: @container-header-color;
       display: flex;
       align-items: center;
-      height: 45 * @rpx;
+      height: 96 * @rpx;
+      &:empty {
+        height: 0;
+      }
     }
 
     &-right {
       color: @COLOR_TEXT_ASSIST;
+      display: flex;
+      align-items: center;
+      height: 96 * @rpx;
+      &:empty {
+        height: 0;
+      }
     }
   }
 
