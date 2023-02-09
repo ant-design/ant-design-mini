@@ -188,6 +188,11 @@ export const componentList = [
         path: '/pages/CheckboxGroup/index',
       },
       {
+        name: 'CheckboxCustomGroup',
+        nameZN: '自定义分组',
+        path: '/pages/CheckboxCustomGroup/index',
+      },
+      {
         name: 'Checklist',
         nameZN: '可勾选列表',
         path: '/pages/Checklist/index',

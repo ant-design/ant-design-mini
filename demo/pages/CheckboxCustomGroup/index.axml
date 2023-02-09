@@ -1,0 +1,7 @@
+<container title="自定义分组">
+    <list header="{{ option.title }}" a:for="{{ options }}" a:for-item="option">
+        <list-item a:for="{{ option.list }}">
+            <checkbox data-value="{{ item.value }}" checked="{{ value.indexOf(item.value) > -1 }}" onChange="onChange">{{ item.title }}</checkbox>
+        </list-item>
+    </list>
+</container>
