@@ -6,17 +6,12 @@
 .@{containerPrefix} {
   border-radius: @container-radius;
   margin-bottom: 24 * @rpx;
-  overflow: hidden;
+  &-headerInBox {
+    background-color: @container-background-color;
+  }
   &-content {
     padding: @container-spacing;
     background-color: @container-background-color;
-
-    &-withRadius {
-      border-radius: @container-radius;
-    }
-
-    &-withHalfRadius {
-      border-radius: 0 0 @container-radius @container-radius;
-    }
+    border-radius: @container-radius;
   }
 }
