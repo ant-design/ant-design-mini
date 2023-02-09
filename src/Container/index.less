@@ -1,18 +1,12 @@
-@import (reference) "./variable.less";
-@import "../style/mixins/hairline.less";
+@import (reference) './variable.less';
+@import '../style/mixins/hairline.less';
 
 @containerPrefix: ant-container;
 
 .@{containerPrefix} {
   border-radius: @container-radius;
   margin-bottom: 24 * @rpx;
-
-  &-header {
-    position: relative;
-    display: flex;
-    height: 96 * @rpx;
-  }
-
+  overflow: hidden;
   &-content {
     padding: @container-spacing;
     background-color: @container-background-color;

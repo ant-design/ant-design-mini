@@ -1,11 +1,7 @@
 <view class="ant-container {{className ? className : ''}}" style="{{style}}">
   <header title="{{title}}" headerInBox="{{headerInBox}}">
-    <view>
-      <slot name="headerRight"></slot>
-    </view>
-    <view slot="title">
-      <slot name="title"></slot>
-    </view>
+    <slot name="headerRight"></slot>
+    <slot name="title" slot="title"></slot>
   </header>
   <view class="ant-container-content {{ headerInBox ? 'ant-container-content-withHalfRadius' : 'ant-container-content-withRadius' }}">
     <slot />
