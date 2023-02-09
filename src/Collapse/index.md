@@ -26,6 +26,9 @@ toc: 'content'
 
 <code src='pages/CollapseControl/index'></code>
 
+### 带Checkbox
+
+<code src="pages/CollapseWithCheckbox/index"></code>
 ### 更多自定义
 
 <code src='pages/CollapseCustom/index'></code>
