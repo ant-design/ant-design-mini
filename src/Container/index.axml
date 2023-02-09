@@ -1,8 +1,14 @@
 <view class="ant-container {{ headerInBox ? 'ant-container-headerInBox' : 'ant-container-headerNotInBox' }} {{className ? className : ''}}" style="{{style}}">
-  <header title="{{title}}" headerInBox="{{headerInBox}}">
-    <slot name="headerRight"></slot>
-    <slot name="title" slot="title"></slot>
-  </header>
+  <view class="ant-container-header">
+    <view class="ant-container-header-title">
+      <slot name="title">{{title}}</slot>
+    </view>
+    <view 
+      class="ant-container-header-right"
+    >
+      <slot name="headerRight"/>
+    </view>
+  </view>
   <view class="ant-container-content">
     <slot />
   </view>
