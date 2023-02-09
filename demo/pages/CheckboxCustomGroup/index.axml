@@ -1,24 +1,7 @@
 <container title="自定义分组">
-    <list header="分组一">
-        <list-item>
-            <checkbox data-value="1" onChange="onChange">选项一</checkbox>
-        </list-item>
-        <list-item>
-            <checkbox data-value="2" onChange="onChange">选项二</checkbox>
-        </list-item>
-        <list-item>
-            <checkbox data-value="3" onChange="onChange">选项三</checkbox>
-        </list-item>
-    </list>
-    <list header="分组二">
-        <list-item>
-            <checkbox data-value="4" onChange="onChange">选项四</checkbox>
-        </list-item>
-        <list-item>
-            <checkbox data-value="5" onChange="onChange">选项五</checkbox>
-        </list-item>
-        <list-item>
-            <checkbox data-value="6" onChange="onChange">选项六</checkbox>
+    <list header="{{ option.title }}" a:for="{{ options }}" a:for-item="option">
+        <list-item a:for="{{ option.list }}">
+            <checkbox data-value="{{ item.value }}" checked="{{ value.indexOf(item.value) > -1 }}" onChange="onChange">{{ item.title }}</checkbox>
         </list-item>
     </list>
 </container>
