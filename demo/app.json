@@ -60,6 +60,7 @@
     "pages/Collapse/index",
     "pages/CollapseAccordion/index",
     "pages/CollapseControl/index",
+    "pages/CollapseWithCheckbox/index",
     "pages/CollapseCustom/index",
     "pages/Tag/index",
     "pages/Avatar/index",

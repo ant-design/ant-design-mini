@@ -108,6 +108,11 @@ export const componentList = [
         path: '/pages/CollapseControl/index',
       },
       {
+        name: 'CollapseWithCheckbox',
+        nameZN: '折叠面板-Checkbox',
+        path: '/pages/CollapseWithCheckbox/index'
+      },
+      {
         name: 'CollapseCustom',
         nameZN: '折叠面板-更多自定义',
         path: '/pages/CollapseCustom/index',
