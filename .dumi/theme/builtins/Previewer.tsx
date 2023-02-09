@@ -41,7 +41,7 @@ const Previewer: React.FC<IProps> = (props) => {
 
   const urlObj = new URL(url);
   const searchParams = urlObj.searchParams;
-  const page = searchParams.get('defaultPage');
+  const page = searchParams.get('page');
   const theme = searchParams.get('less-theme');
   const noChangeButton = searchParams.get('noChangeButton');
   useEffect(() => {
