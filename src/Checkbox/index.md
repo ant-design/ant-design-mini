@@ -23,6 +23,9 @@ toc: 'content'
 ### CheckboxGroup
 <code src='pages/CheckboxGroup/index'></code>
 
+### Checkbox自定义分组
+<code src='pages/CheckboxCustomGroup/index'></code>
+
 ## API
 #### Checkbox
 | 属性 | 说明 | 类型 | 默认值 |

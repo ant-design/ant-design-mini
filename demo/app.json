@@ -66,6 +66,7 @@
     "pages/Avatar/index",
     "pages/Loading/index",
     "pages/Checkbox/index",
+    "pages/CheckboxCustomGroup/index",
     "pages/CheckboxGroup/index",
     "pages/Radio/index",
     "pages/RadioGroup/index",
