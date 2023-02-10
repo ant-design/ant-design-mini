@@ -37,8 +37,8 @@ toc: 'content'
 | animate | 是否展示动画效果 | boolean | false | 
 | className | 类名 | string | - | 
 | loading | 为 true 时，显示占位图。反之则直接展示子组件 | boolean  | true |
-| shape | 头像形状 `circle` `square` | string | square | 
-| size | 头像大小 `x-small` `small` `medium` `large`  | string | medium | 
+| shape | 头像形状 `circle` `square` | string | `square` | 
+| size | 头像大小 `x-small` `small` `medium` `large`  | string | `medium` | 
 | style | 样式 | string | - | 
 
 #### Paragraph 段落
@@ -67,7 +67,7 @@ toc: 'content'
 | animate | 是否展示动画效果 | boolean | false | 
 | className | 类名 | string | - | 
 | loading | 为 true 时，显示占位图。反之则直接展示子组件 | boolean  | true |
-| size | 大小，`small` `medium` `large` | string | medium |
+| size | 大小，`small` `medium` `large` | string | `medium` |
 | style | 样式 | string | - | 
 
 #### Input 输入框
