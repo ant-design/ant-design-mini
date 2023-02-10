@@ -108,7 +108,7 @@ Form 表单。包含数据录入、校验以及对应样式
 同 Switch
 
 ### FormStepper
-同 Switch，添加：
+同 Stepper，添加：
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
@@ -132,7 +132,7 @@ Form 表单。包含数据录入、校验以及对应样式
 | radioPosition | 对应RadioGroup组件position | string | - |
 
 ### FormPicker
-同 DatePicker，添加：
+同 Picker，添加：
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
