@@ -108,7 +108,7 @@ Form 表单。包含数据录入、校验以及对应样式
 同 Switch
 
 ### FormStepper
-同 Switch，添加：
+同 Stepper，添加：
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
@@ -120,6 +120,7 @@ Form 表单。包含数据录入、校验以及对应样式
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
+| checkboxLabel | 对应CheckGroup组件label | slot | - |
 | checkboxPosition | 对应CheckGroup组件position | string | - |
 
 ### FormRadioGroup
@@ -127,19 +128,36 @@ Form 表单。包含数据录入、校验以及对应样式
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
+| radioLabel | 对应RadioGroup组件label | slot | - |
 | radioPosition | 对应RadioGroup组件position | string | - |
 
 ### FormPicker
-同 DatePicker
+同 Picker，添加：
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| arrow | 右侧箭头，可选`right` `up` `down`，传true为`right` | string \| boolean | - |
 
 ### FormDatePicker
-同 DatePicker
+同 DatePicker，添加：
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| arrow | 右侧箭头，可选`right` `up` `down`，传true为`right` | string \| boolean | - |
 
 ### FormRangePicker
-同 RangePicker
+同 RangePicker，添加：
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| arrow | 右侧箭头，可选`right` `up` `down`，传true为`right` | string \| boolean | - |
 
 ### FormCascaderPicker
-同 CascaderPicker
+同 CascaderPicker，添加：
+
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| arrow | 右侧箭头，可选`right` `up` `down`，传true为`right` | string \| boolean | - |
 
 ### FormSlider
 同 Slider

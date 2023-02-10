@@ -43,7 +43,9 @@ toc: 'content'
 | color | 图标颜色 | string | - |
 | disabled | 是否禁用  | boolean | false |
 | defaultValue | 初始值  | string | - |
+| label | label区插槽，接收value（当前项可选项item）、index（索引） | slot | - | 
+| options | 指定可选项 | `{label?: string; value?: string; disabled?: boolean;}[]` | - |
+| position | 布局，可选`horizontal` `vertical` | string | `vertical` |
 | style | 样式 | string | - |
 | value | radio group 里选中的值 | string | - |
-| options | 指定可选项 | `{label?: string; value?: string; disabled?: boolean;}[]` | - |
 | onChange | 选中状态改变，触发回调 | (value: string, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |

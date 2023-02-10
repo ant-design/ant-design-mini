@@ -29,7 +29,7 @@ toc: 'content'
 ### ListItem
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| arrow | 右侧肩头，可选`right` `up` `down`，传true为`right` | string \| boolean | - |
+| arrow | 右侧箭头，可选`right` `up` `down`，传true为`right` | string \| boolean | - |
 | brief | 第二行信息 | string \| slot | - | 
 | className | 类名 | string | - | 
 | disabled | 是否禁用  | boolean | false | 

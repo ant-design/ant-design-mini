@@ -45,6 +45,7 @@ toc: 'content'
 | color | 选中的颜色，同 CSS 色值| string | - |
 | defaultValue | 默认选中值  | `string[]` | - | 
 | disabled | 是否禁用  | boolean | false | 
+| label | label区插槽，接收value（当前项可选项item）、index（索引） | slot | - | 
 | options | 指定可选项 | `{label: string; value: string; disabled: boolean}[]` | - |
 | position | 布局，可选`horizontal` `vertical` | string | `vertical` |
 | style | 样式| string | - |
