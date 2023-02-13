@@ -105,7 +105,7 @@ Page({
 ```
 
 ## FAQ
-### onChange只有修改才能出发，想要在触发current标签的点击需要怎么做
+### onChange只有修改才能触发，想要在触发current标签的点击需要怎么做
 可以受用slot来自定义
 ```html
 <tabs items="{{items}}" onChange="onChange">
