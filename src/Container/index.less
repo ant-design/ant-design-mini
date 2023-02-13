@@ -1,17 +1,15 @@
 @import (reference) './variable.less';
 @import '../style/mixins/hairline.less';
 
-@containerPrefix: ant-container;
-
-.@{containerPrefix} {
+.ant-container {
   border-radius: @container-radius;
   margin-bottom: 24 * @rpx;
   &-headerInBox {
     background-color: @container-background-color;
-    .@{containerPrefix}-header {
+    .ant-container-header {
       padding: 0 @container-spacing;
-      .@{containerPrefix}-header-title,
-      .@{containerPrefix}-header-right{
+      .ant-container-header-title,
+      .ant-container-header-right {
         position: relative;
         .hairline('bottom');
       }
@@ -47,7 +45,8 @@
         display: none;
       }
     }
-    .@{containerPrefix}-header-title:empty+.@{containerPrefix}-header-right:not(:empty){
+    .ant-container-header-title:empty
+      + .ant-container-header-right:not(:empty) {
       flex: 1;
     }
   }
