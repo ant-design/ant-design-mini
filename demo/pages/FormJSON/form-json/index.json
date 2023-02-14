@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "defaultTitle": "Form",
+  "usingComponents": {
+    "form-item": "../../../../src/Form/FormItem/index",
+    "form-input": "../../../../src/Form/FormInput/index",
+    "form-stepper": "../../../../src/Form/FormStepper/index"
+  }
+}

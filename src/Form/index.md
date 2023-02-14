@@ -48,6 +48,9 @@ Form 表单。包含数据录入、校验以及对应样式
 ### 图片校验
 <code src='pages/FormImageUploadRules/index'></code>
 
+### json生成表单
+<code src='pages/FormJSON/index'></code>
+
 ### 自定义表单项
 `form-checklist`, `form-location` 为自定义表单项。通过使用 [FormItem](#formitem)、[createForm](#createform) 可自定义表单项。
 <code src='pages/FormCustom/index'></code>
