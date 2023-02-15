@@ -248,6 +248,16 @@ export const componentList = [
         path: '/pages/FormImageUploadRules/index'
       },
       {
+        name: 'FormJSON',
+        nameZN: '表单-json生成',
+        path: '/pages/FormJSON/index'
+      },
+      {
+        name: 'FormCustom',
+        nameZN: '表单-自定义表单项',
+        path: '/pages/FormCustom/index'
+      },
+      {
         name: 'Input',
         nameZN: '输入框',
         path: '/pages/Input/index',
