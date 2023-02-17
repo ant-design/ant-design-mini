@@ -65,6 +65,7 @@ Form 表单。包含数据录入、校验以及对应样式
 | dependencies | 设置依赖字段，查看[详细说明](#dependencies) | string[] | - |
 | name | 名称 | string | - |
 | label | 文本 | string | - |
+| labelWidth | 文本宽度 | string | - |
 | position | 布局，可选 `horizontal` `vertical` | string | horizontal |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选 `default` `success` `error` `validating` | string | - |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | string | - |
