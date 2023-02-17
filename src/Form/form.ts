@@ -1,4 +1,5 @@
 import AsyncValidator, { InternalRuleItem, Value, Values, Rule as RawRule, Rules as RawRules, RuleItem, ValidateError, ValidateMessages } from 'async-validator';
+import { IMixin4Legacy } from '@mini-types/alipay';
 
 
 export { Value, Values };
@@ -612,5 +613,21 @@ export function createForm({ methods = {} } = {}) {
       },
       ...methods,
     }
-  }
+  } as IMixin4Legacy<
+    {
+      formData: {
+        value: Value;
+      } & ValidatorStatus;
+    },
+    Record<string, any>,
+    {
+      emit(trigger: EventTrigger, value?: Value): void;
+      setFormData(values: Values): void;
+      getFormData(): {
+        value: Value;
+      } & ValidatorStatus;
+      on(callback: (trigger: EventTrigger, value?: Value) => void): void;
+      getProps: Record<string, any>;
+    }
+  >
 }
