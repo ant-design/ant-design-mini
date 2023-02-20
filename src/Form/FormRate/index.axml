@@ -3,6 +3,7 @@
   style="{{style}}"
   position="{{position}}"
   label="{{label}}"
+  labelWidth="{{labelWidth}}"
   status="{{formData.status}}"
   errors="{{formData.errors}}"
   tooltip="{{tooltip}}"
