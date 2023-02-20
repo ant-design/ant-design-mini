@@ -13,7 +13,14 @@
 >
   <view>
     <switch
+      className="{{switchClassName}}"
       checked="{{formData.value}}"
+      checkedText="{{checkedText}}"
+      color="{{color}}"
+      disabled="{{disabled}}"
+      uncheckedText="{{uncheckedText}}"
+      size="{{size}}"
+      style="{{switchStyle}}"
       onChange="onChange"
     />
   </view>

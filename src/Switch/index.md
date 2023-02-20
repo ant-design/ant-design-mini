@@ -21,13 +21,13 @@ toc: 'content'
 ## API
 | 属性 | 说明 | 类型 | 默认值 | 
 | -----|-----|-----|-----|
-| checked  | 是否勾选 | boolean| - |
 | className | 类名 | string | - |
+| checkedText | 选中时的内容 | string \| slot | - |
+| checked  | 是否勾选 | boolean| - |
 | color | 选中背景色 |  string | - |
 | defaultChecked | 默认是否勾选 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
 | loading | 是否加载状态 | boolean  | false |
-| checkedText | 选中时的内容 | string \| slot | - |
 | uncheckedText | 非选中时的内容 | string \| slot | - |
 | size | 组件尺寸，可选 `medium` `small` `x-small` | string | `medium`  |
 | style | 样式 | string | - |
