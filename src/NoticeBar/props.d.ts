@@ -63,7 +63,6 @@ export type INoticeBarMethods = {
   resetState: () => void;
   showError: () => void;
   onTap: () => void;
-  onActionTap: (e: any) => void;
   resetMarquee: () => void;
   startMarquee: () => void;
   onTransitionEnd: () => void;
