@@ -3,7 +3,6 @@
   "usingComponents": {
     "button": "../Button/index",
     "icon": "../Icon/index",
-    "popup": "../Popup/index",
-    "tap-modal" : "../TapModal/index"
+    "popup": "../Popup/index"
   }
 }
