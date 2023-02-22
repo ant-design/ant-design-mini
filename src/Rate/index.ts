@@ -1,7 +1,7 @@
 
 import { RateDefaultProps } from './props';
 import createValue from '../mixins/value';
-import { IBoundingClientRect } from "../_base";
+import { IBoundingClientRect } from '../_util/base';
 
 function getBoundingClientRect(selector: string) {
   return new Promise<IBoundingClientRect>((resolve, reject) => {

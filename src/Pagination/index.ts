@@ -1,5 +1,5 @@
 import { PaginationDefaultProps } from './props';
-import { IBoundingClientRect } from '../_base';
+import { IBoundingClientRect } from '../_util/base';
 
 Component({
   props: PaginationDefaultProps,
