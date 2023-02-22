@@ -37,7 +37,11 @@ function series(tasks, output) {
 
     gulp.task('ts', () => {
       const tsResult = gulp.src([`${src}/**/*.ts`, `!${src}/**/__tests__/*.ts`])
-        .pipe(ts.createProject(path.join(__dirname, '../tsconfig.json'))());
+        .pipe(ts.createProject(path.join(__dirname, '../tsconfig.json'))())
+        .on('error', (err) => {
+          console.log(err);
+          process.exit(1);
+        });
       return merge([
         tsResult.dts.pipe(gulp.dest(output)),
         tsResult.js.pipe(gulp.dest(output))
