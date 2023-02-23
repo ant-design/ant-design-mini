@@ -27,14 +27,11 @@ toc: 'content'
 
 ## API
 
-| 属性            | 说明                                                          | 类型                                  | 默认值  |
-| --------------- | ------------------------------------------------------------- | ------------------------------------- | ------- |
-| visible         | 是否可见                                                      | boolean                               | false   |
-| type            | 键盘类型, pinyin（拼音）、stroke（笔画）、handwriting（手写） | string                                | pinyin  |
-| stopPropagation | 阻止某些事件的冒泡，默认阻止 click 事件                       | string[]                              | 'click' |
-| destroyOnClose  | 组件不可见时卸载内容                                          | boolean                               | false   |
-| forceRender     | 无论组件是隐藏或者显示，都会强制性的将组件渲染到 DOM 中       | boolean                               | false   |
-| onClose         | 关闭的时候触发的回调                                          | () => void                            | -       |
-| onFinish        | 输入完成的时候触发的回调                                      | (value: string, word: object) => void | -       |
-| onShow          | 打开的时候触发的回调                                          | () => void                            | -       |
-| ref             | 获取 dom 元素                                                 | Ref                                   | -       |
+| 属性     | 说明                                                          | 类型                                  | 默认值 |
+| -------- | ------------------------------------------------------------- | ------------------------------------- | ------ |
+| visible  | 是否可见                                                      | boolean                               | false  |
+| type     | 键盘类型, pinyin（拼音）、stroke（笔画）、handwriting（手写） | string                                | pinyin |
+| onClose  | 关闭的时候触发的回调                                          | () => void                            | -      |
+| onFinish | 输入完成的时候触发的回调                                      | (value: string, word: object) => void | -      |
+| onShow   | 打开的时候触发的回调                                          | () => void                            | -      |
+| onError  | 打开键盘出错                                                  | (err: Error) => void                  | -      |
