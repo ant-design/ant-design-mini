@@ -34,7 +34,7 @@ toc: 'content'
 | items | 索引数组 | [Item](#item) | [] |
 | style | 样式 | string | - |
 | size | 索引的尺寸（宽高，单位px) | number | 16 |
-| vibrate | 索引改变时是否震动 | boolean | false |
+| vibrate | 索引改变时是否震动 | boolean | true |
 | onChange | 索引改变时回调 | (value: [Item](#item), index: number) => void |
 
 #### Item
