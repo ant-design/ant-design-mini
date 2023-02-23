@@ -31,7 +31,7 @@ Component({
     // 初始化每个块的高度，用已计算滑动距离
     initItemHeight() {
       my.createSelectorQuery()
-        .select(`ant-alphabet-0`)
+        .select(`#ant-alphabet-0`)
         .boundingClientRect()
         .exec((ret: any) => {
           if (ret[0] === null) throw new Error('找不到Indexbar元素');
