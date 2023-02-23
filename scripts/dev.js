@@ -17,6 +17,7 @@ const { minidev } = require('minidev');
     server = true;
     fork(`${process.cwd()}/node_modules/dumi/bin/dumi.js`, ['dev'], {
       env: {
+        NODE_OPTIONS: '--openssl-legacy-provider',
         FORCE_COLOR: 1,
         SERVER: devServer.server,
       },

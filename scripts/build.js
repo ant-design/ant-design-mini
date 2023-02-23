@@ -46,6 +46,7 @@ function buildDocs() {
   return new Promise((resolve, reject) => {
     const child = fork(`${process.cwd()}/node_modules/dumi/bin/dumi.js`, ['build'], {
       env: {
+        NODE_OPTIONS: '--openssl-legacy-provider',
         FORCE_COLOR: 1,
       },
     });
