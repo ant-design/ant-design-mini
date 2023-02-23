@@ -71,10 +71,10 @@ jobs:
         run: |
           echo "CHECK_RUN_ID=${{steps.run-check-suite.outputs.result}}" >> $GITHUB_ENV
 
-      - name: Use Node.js 14
+      - name: Use Node.js 18
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 18
           registry-url: https://registry.npmjs.org/
 
       # 安装依赖并构建
