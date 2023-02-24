@@ -18,8 +18,8 @@
       <view class="ant-form-item-field ant-form-item-field-{{position}}">
         <slot />
         <view
-          class="{{(validateStatus === 'error' || status === 'error') ? 'ant-form-item-error-info' : 'ant-form-item-help-info'}} {{disabled ? 'ant-form-item-error-info-disabled' : ''}} ant-form-item-error-info-{{position}}"
-          a:if="{{help || status === 'error'}}">
+          class="{{(validateStatus === 'error' || (typeof validateStatus === 'undefined' && status === 'error'))  ? 'ant-form-item-error-info' : 'ant-form-item-help-info'}} ant-form-item-error-info-{{position}}"
+          a:if="{{help || ((validateStatus === 'error' || typeof validateStatus === 'undefined') && status === 'error')}}">
           <view>{{help || errors[0]}}</view>
         </view>
       </view>
