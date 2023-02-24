@@ -27,6 +27,7 @@
     "pages/FormMultiple/index",
     "pages/FormImageUploadRules/index",
     "pages/FormJSON/index",
+    "pages/FormCustomError/index",
     "pages/FormCustom/index",
     "pages/List/index",
     "pages/Icon/index",

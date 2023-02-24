@@ -51,9 +51,14 @@ Form 表单。包含数据录入、校验以及对应样式
 ### json生成表单
 <code src='pages/FormJSON/index'></code>
 
+### 自定义错误样式
+使用validateStatus: success 及 footer slot 来自定义错误样式。
+<code src='pages/FormCustomError/index'></code>
+
 ### 自定义表单项
-`form-checklist`, `form-location` 为自定义表单项。通过使用 [FormItem](#formitem)、[createForm](#createform) 可自定义表单项。
+通过使用 [FormItem](#formitem)、[createForm](#createform) 可自定义表单项。示例里 `form-checklist`, `form-location` 为自定义表单项组件。
 <code src='pages/FormCustom/index'></code>
+
 
 ## API
 
@@ -63,12 +68,14 @@ Form 表单。包含数据录入、校验以及对应样式
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | dependencies | 设置依赖字段，查看[详细说明](#dependencies) | string[] | - |
+| footer | 底部slot，接收errors、status | slot | - |
 | name | 名称 | string | - |
 | label | 文本 | string | - |
 | labelWidth | 文本宽度 | string | - |
 | position | 布局，可选 `horizontal` `vertical` | string | horizontal |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选 `default` `success` `error` `validating` | string | - |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | string | - |
+| header | 顶部slot，接收errors、status | slot | - |
 | tooltip | 表单项提示信息 | string | - |
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |
 | message | 校验错误信息。如不设置，则会根据校验规则自动生成 | string | false |
