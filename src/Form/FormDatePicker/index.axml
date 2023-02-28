@@ -47,7 +47,10 @@
       {{extra}}
     </slot>
   </view>
-  <view slot="label">
-    <slot name="label" />
+  <view slot="header" slot-scope="item">
+    <slot name="header" errors="{{item.errors}}" status="{{item.status}}" />
+  </view>
+  <view slot="footer" slot-scope="item">
+    <slot name="footer" errors="{{item.errors}}" status="{{item.status}}" />
   </view>
 </form-item>

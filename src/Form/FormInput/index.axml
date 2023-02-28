@@ -34,13 +34,23 @@
     onBlur="onBlur"
     onFocus="onFocus"
     onConfirm="onConfirm"
-  />
+  >
+    <view slot="prefix">
+      <slot name="prefix" />
+    </view>
+    <view slot="suffix">
+      <slot name="suffix" />
+    </view>
+  </input>
   <view slot="extra">
     <slot name="extra">
       {{extra}}
     </slot>
   </view>
-  <view slot="label">
-    <slot name="label" />
+  <view slot="header" slot-scope="item">
+    <slot name="header" errors="{{item.errors}}" status="{{item.status}}" />
+  </view>
+  <view slot="footer" slot-scope="item">
+    <slot name="footer" errors="{{item.errors}}" status="{{item.status}}" />
   </view>
 </form-item>
