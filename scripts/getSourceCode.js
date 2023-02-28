@@ -29,12 +29,13 @@ module.exports = async function getSourceCode(page, theme) {
     '.axml': getFileContent,
     '.acss': getFileContent,
     '.less': lessCompile,
+    '.sjs': getFileContent,
     '.json': getFileContent,
   };
 
   const cwd = path.join(__dirname, '../demo', page, '../');
   const json = {};
-  const list = (await glob('**/*.+(js|axml|acss|less|json)', {
+  const list = (await glob('**/*.+(js|axml|acss|less|sjs|json)', {
     cwd,
   })).map(async item => {
     const content = await map[path.extname(item)](path.join(cwd, item));
