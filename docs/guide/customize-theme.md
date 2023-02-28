@@ -4,12 +4,12 @@ toc: false
 
 ## 定制主题
 
-antd-mini 可使用less自定义主题。antd-mini 内置了两套主题，一套基础主题，一套深色主题。使用自定义less变量，可使用不同的主题、修改主题颜色。
+antd-mini 可使用less自定义主题。antd-mini 内置了两套主题，一套基础主题，一套深色主题。自定义less变量，可使用不同的主题、修改主题颜色。
 
 ## 使用方式
 > 需要小程序开发者工具IDE >= 3.0.0、命令行工具 CLI >= 1.4.0
 
-1. 使用 `antd-mini/less/组件` 来使用组件。
+1. 使用 `antd-mini/less/组件`
 
 ```json
 {
