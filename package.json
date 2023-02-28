@@ -50,6 +50,7 @@
     "eslint-plugin-import": "^2.25.3",
     "extract-changelog-release": "^1.0.2",
     "gh-pages": "^3.0.0",
+    "glob": "^9.0.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.0.0",
