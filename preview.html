@@ -106,15 +106,12 @@
         const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());
         dist = obj.dist;
         sourceCode = {};
-        debugger
         const str = page.replace('index', '');
         Object.keys(obj.sourceCode).forEach(item => {
-          debugger
           if (item.startsWith(str)) {
             sourceCode[item] = obj.sourceCode[item];
           }
         });
-        debugger
       }
       sourceCode['mini.project.json'] = JSON.stringify({ 
         enableAppxNg: true,
