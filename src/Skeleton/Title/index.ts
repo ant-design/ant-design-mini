@@ -1,9 +1,5 @@
-import { ISkeletonBaseProps } from '../props';
+import { SkeletonTitleDefaultProps } from './props';
 
-type IProps = ISkeletonBaseProps;
-Component<Record<string, never>, IProps>({
-  props: {
-    loading: true,
-    style: ''
-  },
+Component({
+  props: SkeletonTitleDefaultProps,
 });

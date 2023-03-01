@@ -1,5 +1,5 @@
 function getClass(size) {
-  const list = ['x-small', 'small', 'medium', 'large'];
+  const list = ['small', 'medium', 'large'];
   if (list.indexOf(size) >=0) {
     return `ant-button-${size}`;
   }

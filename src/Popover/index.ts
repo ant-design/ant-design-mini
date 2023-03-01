@@ -1,7 +1,7 @@
 import { PopoverDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
-import { IBoundingClientRect } from "../_base";
+import { IBoundingClientRect } from '../_util/base';
 
 
 function getSystemInfo() {
@@ -77,10 +77,10 @@ Component({
         getSystemInfo(),
       ]);
 
-      let left = childrenRect.left - containerRect.left;
-      let top = childrenRect.top - containerRect.top;
-      let bottom = containerRect.bottom - childrenRect.bottom;
-      let right = containerRect.right - childrenRect.right;
+      const left = childrenRect.left - containerRect.left;
+      const top = childrenRect.top - containerRect.top;
+      const bottom = containerRect.bottom - childrenRect.bottom;
+      const right = containerRect.right - childrenRect.right;
       let adjustedPlacement = placement as string;
       const arrowMargin = 12;
 

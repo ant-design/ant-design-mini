@@ -1,5 +1,5 @@
 import { TabsDefaultProps } from './props';
-import { IBoundingClientRect } from "../_base";
+import { IBoundingClientRect } from '../_util/base';
 import fmtEvent from '../_util/fmtEvent';
 import createValue from '../mixins/value';
 

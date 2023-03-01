@@ -1,11 +1,5 @@
-import { ISkeletonBaseProps } from '../props';
+import { SkeletonButtonDefaultProps } from './props';
 
-interface IProps extends ISkeletonBaseProps {
-  size?: string;
-}
-Component<Record<string, never>, IProps>({
-  props: {
-    loading: true,
-    size: 'medium',
-  },
+Component({
+  props: SkeletonButtonDefaultProps,
 });

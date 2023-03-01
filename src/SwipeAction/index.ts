@@ -104,7 +104,7 @@ Component({
         this.setWidth();
       });
     },
-    initWidth(func?: Function) {
+    initWidth(func?) {
       const { leftButtons, rightButtons } = this.props;
       // 获取宽度信息，设置滑轨的宽度、初始化滑动位置
       // 如果没有获取到该信息则把左滑禁用掉
@@ -279,7 +279,6 @@ Component({
       const { maxSwipeR, inertiaWidth } = this.data;
       const { onSwipeEnd } = this.props;
       // 处理x的位置，两次setData X是因为x如果相同位置不会变，刚好也把弹性在这里处理了
-      const _this = this;
       // 为了处理到重置状态的效果
       const maxX = -(maxSwipeR + 0.01 + inertiaWidth);
       this.setData(
@@ -287,7 +286,7 @@ Component({
           swipeX: isRight ? maxX : -0.01,
         },
         () => {
-          const flag = _this.data.swipeX === -0.01;
+          const flag = this.data.swipeX === -0.01;
           setTimeout(() => {
             this.setData(
               {
@@ -312,13 +311,13 @@ Component({
       if (tapTypeL === ('L-' + idx)) {
         this.onSetSwipeLeft(0, true);
         this.setData({ tapTypeL: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props), { direction: 'left', btnIdx: idx });
+        onButtonTap({ direction: 'left', btnIdx: idx }, fmtEvent(this.props));
         return;
       }
       if (tapTypeR === ('R-' + idx)) {
         this.onSetSwipeRight(0, true);
         this.setData({ tapTypeR: '', myStyle: {} });
-        onButtonTap(fmtEvent(this.props), { direction: 'right', btnIdx: idx });
+        onButtonTap({ direction: 'right', btnIdx: idx }, fmtEvent(this.props));
         return;
       }
       // auto 是展开按钮二次确认的效果
@@ -329,7 +328,7 @@ Component({
         !swipeLeft ? this.setData({ tapTypeL: 'L-' + idx }) :  this.setData({ tapTypeR: 'R-' + idx });
       } else {
         !swipeLeft ? this.onSetSwipeLeft(0, true) : this.onSetSwipeRight(0, true);
-        onButtonTap(fmtEvent(this.props), { direction: !swipeLeft ? 'left' : 'right', btnIdx: idx  });
+        onButtonTap({ direction: !swipeLeft ? 'left' : 'right', btnIdx: idx  }, fmtEvent(this.props));
       }
     },
   },

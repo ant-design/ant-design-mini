@@ -1,6 +1,5 @@
+import { ImageIconDefaultProps } from './props';
+
 Component({
-  props: {
-    image: '',
-    iconSize: 'small',
-  },
+  props: ImageIconDefaultProps,
 });

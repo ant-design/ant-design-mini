@@ -37,7 +37,7 @@ toc: 'content'
 | inline | 是否为内联按钮  | boolean | false |
 | icon | 按钮左侧图标 | string | - |
 | loading | 是否加载中，加载中时不可点击 | boolean | - |
-| size | 按钮大小。仅在 inline 下生效  | number | - |
+| size | 按钮大小。仅在 inline 下生效，可选 `small`, `medium`, `large`  | string | medium |
 | subText | 辅助文字，显示在第二行。inline 下不生效 | string | - |
 | catchTap | 点击按钮，触发此回调, 非冒泡 | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  | - |
 | onTap | 点击按钮，触发此回调 | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  | - |

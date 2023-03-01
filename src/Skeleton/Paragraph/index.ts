@@ -1,12 +1,5 @@
-import { ISkeletonBaseProps } from '../props';
+import { SkeletonParagraphDefaultProps } from './props';
 
-interface IProps extends ISkeletonBaseProps {
-  rows?: number;
-}
-Component<Record<string, never>, IProps>({
-  props: {
-    loading: true,
-    rows: 3,
-    style: ''
-  },
+Component({
+  props: SkeletonParagraphDefaultProps,
 });
