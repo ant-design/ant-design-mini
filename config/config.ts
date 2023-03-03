@@ -12,12 +12,12 @@ const config: IConfig = {
   // routes: [
   //   { path: '/preview', component: 'plugin/preview.tsx' },
   // ],
-  algolia: {
-    appId: '8V6T3YYVB3',
-    apiKey: '00471a2ff478c1da9b9e3634edf53a6f',
-    indexName: 'mini-ant',
-  },
-  ssr: {},
+  // algolia: {
+  //   appId: '8V6T3YYVB3',
+  //   apiKey: '00471a2ff478c1da9b9e3634edf53a6f',
+  //   indexName: 'mini-ant',
+  // },
+  // ssr: {},
   exportStatic: {},
   sitemap: {
     hostname: 'https://mini.ant.design',
