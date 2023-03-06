@@ -89,6 +89,7 @@ Form 表单。包含数据录入、校验以及对应样式
 | setFieldValue | 设置表单项的值 | (name: string, value: any) => void; |
 | setInitialValues | 设置表单初始值 | (initialValues: Record<string, any>) => void |
 | getFieldValue | 得到表单项的值 | (name: string) => any |
+| getFieldsValue | 获取一组字段名对应的值 | (nameList?: string) => any |
 | getFieldValidatorStatus | 得到表单校验状态 | () => {status: 'default' \| 'success' \| 'error' \| 'validating', errors: string[]} |
 | reset | 重置表单为初始值 | () => void |
 | isFieldTouched | 判断表单项是否被修改过 | () => boolean |

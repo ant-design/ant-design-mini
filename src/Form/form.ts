@@ -485,6 +485,30 @@ export class Form {
   }
 
   /**
+   * 获取一组字段名对应的值
+   * @param nameList 
+   * @returns 
+   */
+  getFieldsValue(nameList?: string[]) {
+    const fieldsValue: Values = {};
+    const fieldsMap = new Map<string, Field>();
+    const provideNameList = Array.isArray(nameList);
+    this.eachField((field, name) => {
+      if (provideNameList) {
+        fieldsMap.set(name, field);
+      } else {
+        fieldsValue[name] = field.getValue();
+      }
+    });
+    if (provideNameList) {
+      nameList.forEach(name => {
+        fieldsValue[name] = fieldsMap.get(name)?.getValue();
+      });
+    }
+    return fieldsValue;
+  }
+
+  /**
    * 获取对应字段名的校验器状态
    * @param name 
    * @returns 
