@@ -242,7 +242,7 @@ class Field extends EventEmitter{
         value,
       };
     }
-    let validator = this.validator;
+    const validator = this.validator;
     try {
       this.setValidatorStatus({
         status: 'validating',
