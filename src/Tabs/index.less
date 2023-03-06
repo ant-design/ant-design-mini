@@ -23,7 +23,7 @@
       background-color: @tabs-inverse-color;
       pointer-events: none;
       &-left {
-        left: -1 * @rpx;
+        left: 0;
         background: linear-gradient(90deg, @COLOR_WHITE_CHANGE, hsla(0, 0%, 100%, 0));
       }
       &-right {
@@ -46,7 +46,7 @@
       &:empty {
         display: none;
         ~ .@{tabsPrefix}-bar-fade-right {
-          right: -1 * @rpx;
+          right: 0
         }
       }
     }
