@@ -1,18 +1,6 @@
 import { IPinYinMapItem } from './props';
 
 /**
- * 笔画键盘按钮
- */
-export const STROKE_MAP = [
-  { value: '一', label: '一' },
-  { value: '丨', label: '丨' },
-  { value: 'ノ', label: 'ノ' },
-  { value: '丶', label: '丶' },
-  { value: 'フ', label: 'フ' },
-  { value: '*', label: '通配符', extraClassName: 'text-btn' },
-];
-
-/**
  * 拼音键盘按钮
  */
 export const PINYIN_MAP: IPinYinMapItem[][] = [
@@ -52,15 +40,3 @@ export const PINYIN_MAP: IPinYinMapItem[][] = [
     { label: 'M', value: 'M' },
   ],
 ];
-
-export const BTN_TEXT = {
-  SYMBOL: '符',
-  RETRY: '重试',
-  CONFIRM: '确认',
-};
-
-
-/**
- * 默认字体下载地址
- */
-export const DEFAULT_FONT_URL = 'https://mdn.alipayobjects.com/huamei_2fq7mt/afts/file/A*kPXwSqFoRTQAAAAAAAAAAAAADh58AQ/contains-pua-v1.0.2.ttf';
