@@ -1,12 +1,12 @@
 import { PINYIN_MAP } from './constants';
-import { RareWordsKeyboardDefaultProps } from './props';
+import { RareWordsKeyboardProps } from './props';
 import { formatZDatas, loadFontFace, matchWordsRecommend } from './utils';
 import { ZDATAS } from './zdatas';
 
 const wordsData = formatZDatas(ZDATAS.datas);
 
 Component({
-  props: RareWordsKeyboardDefaultProps,
+  props: RareWordsKeyboardProps,
   data: {
     inputValue: [], // 已输入的字符数组
     displayStr: '', // 已输入的字符串

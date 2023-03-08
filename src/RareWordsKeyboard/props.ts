@@ -32,6 +32,23 @@ export interface IWordsItem {
   sort?: number; // 排序得分
 }
 
+export type IFilterType = 'pinyin' | 'split' | 'all';
+
+export interface IWordsItem {
+  charId?: string; // 生僻字唯一ID
+  unicodeChar: string; // unicode 字符
+  unicodeCodePoint: string; // unicode 码点
+  unicodeFont: string | null; // 单个字字体文件地址
+  pinYinChars: string[]; // 拼音
+  splitChars: string[]; // 拆字
+  weight?: number | null; // 权重
+  type?: string; // 类型
+  extInfo?: string | null; // 其他信息
+  sort?: number; // 排序得分
+}
+
+export type IWordsData = IWordsItem[];
+
 export interface IRareWordsKeyboardProps extends IBaseProps {
   /**
    * @title 是否可见
@@ -71,22 +88,9 @@ export interface IRareWordsKeyboardProps extends IBaseProps {
   onError?: (err: Error) => void;
 }
 
-export declare const RareWordsKeyboardDefaultProps: Partial<IRareWordsKeyboardProps>;
-
-export type IFilterType = 'pinyin' | 'split' | 'all';
-
-export interface IWordsItem {
-  charId?: string; // 生僻字唯一ID
-  unicodeChar: string; // unicode 字符
-  unicodeCodePoint: string; // unicode 码点
-  unicodeFont: string | null; // 单个字字体文件地址
-  pinYinChars: string[]; // 拼音
-  splitChars: string[]; // 拆字
-  weight?: number | null; // 权重
-  type?: string; // 类型
-  extInfo?: string | null; // 其他信息
-  sort?: number; // 排序得分
-}
-
-
-export type IWordsData = IWordsItem[];
+export const RareWordsKeyboardProps: Partial<IRareWordsKeyboardProps> = {
+  visible: false,
+  type: 'pinyin',
+  showMask: true,
+  safeArea: true,
+};
