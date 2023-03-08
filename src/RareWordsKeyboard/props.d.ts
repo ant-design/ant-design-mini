@@ -50,6 +50,12 @@ export interface IRareWordsKeyboardProps extends IBaseProps {
   showMask?: boolean;
 
   /**
+   * @description 安全距离
+   * @default true
+   */
+  safeArea?: boolean;
+
+  /**
    * @title 关闭的时候触发的回调
    */
   onClose?: () => void;

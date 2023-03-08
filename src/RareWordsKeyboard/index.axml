@@ -8,7 +8,7 @@
   <view class="ant-rare-words-keyboard-kb {{visible ? '': 'hide'}}">
     <view class="ant-rare-words-keyboard-header">
       <!-- 输入值展示区 -->
-      <view a:if="{{type !== 'handwriting'}}" class="ant-rare-words-keyboard-input_value {{ displayStr.length > 0 ? '' : 'hide' }}">
+      <view a:if="{{type !== 'handwriting'}}" class="ant-rare-words-keyboard-input_value {{ displayStr.length > 0 && visible ? '' : 'hide' }}">
         {{ displayStr }}
       </view>
       <!-- 候选字展示区 -->
@@ -18,7 +18,12 @@
             <view a:if="{{ matchWordsList.length === 0 }}" class="ant-rare-words-keyboard-match_words_hidden">
               哈
             </view>
-            <view a:for="{{ matchWordsList }}" class="ant-rare-words-keyboard-match_words_item {{ showMoreWords ? 'all' : '' }}">
+            <view
+              a:for="{{ matchWordsList }}"
+              class="ant-rare-words-keyboard-match_words_item {{ showMoreWords ? 'all' : '' }}"
+              data-value="{{ item.unicodeChar }}"
+              onTap="handleWordClick"
+            >
               <view class="ant-rare-words-keyboard-match_words_item_text">
                 {{ item.unicodeChar }}
               </view>
@@ -50,17 +55,19 @@
       <view class="ant-rare-words-keyboard_main">
         <!-- 错误提示 -->
         <view a:if="{{ showErrorPage }}">
-          <view class="ant-rare-words-keyboard_error">
-            <image
-              class="ant-rare-words-keyboard_error_img"
-              mode="scaleToFill"
-              src="https://gw.alipayobjects.com/mdn/rms_997765/afts/img/A*i4GUT4z04egAAAAAAAAAAAAAARQnAQ"
-            />
-            <view class="ant-rare-words-keyboard_error_desc">页面遇到一些小问题</view>
-            <view class="ant-rare-words-keyboard_error_btn" type="primary" onTap="handleRetry">
-              重试
+          <slot name="resultError">
+            <view class="ant-rare-words-keyboard_error">
+              <result
+                class="ant-rare-words-keyboard_error-result"
+                image="https://gw.alipayobjects.com/mdn/rms_997765/afts/img/A*i4GUT4z04egAAAAAAAAAAAAAARQnAQ"
+              >
+                <view slot="message">页面遇到一些小问题</view>
+                <view slot="extra">
+                  <button type="primary" inline size="small" onTap="handleRetry">重试</button>
+                </view>
+              </result>
             </view>
-          </view>
+          </slot>
         </view>
         <!-- 键盘区域 -->
         <view a:else class="ant-rare-words-keyboard_pinyin">
@@ -95,6 +102,6 @@
         </view>
       </view>
     </view>
-    <view class="ant-rare-words-keyboard-kb_iphonex-safe"></view>
+    <view a:if="{{ safeArea }}" class="ant-rare-words-keyboard-kb_iphonex-safe"></view>
   </view>
 </view>

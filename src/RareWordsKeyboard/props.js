@@ -3,6 +3,7 @@ export const RareWordsKeyboardDefaultProps = {
   visible: false,
   type: 'pinyin',
   showMask: true,
+  safeArea: true,
   onClose: () => {},
   onShow: () => {},
   onFinish: () => {},

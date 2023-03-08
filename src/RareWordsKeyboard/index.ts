@@ -21,7 +21,7 @@ Component({
     this.computeMaxDisplayNum();
   },
   deriveDataFromProps(nextProps) {
-    if (nextProps.visible) {
+    if (!this.props.visible && nextProps.visible) {
       if (this.props.onShow) this.props.onShow();
     }
   },
@@ -112,9 +112,16 @@ Component({
         .then(() => {
           this.setData({ showErrorPage: false });
         })
-        .catch(() => {
-          my.showToast({ type: 'none', content: '加载生僻字字体失败' });
+        .catch((err) => {
+          if (this.props.onError) this.props.onError(err);
         });
     },
+
+    handleWordClick(e) {
+      const { value = '' } = e.target.dataset;
+      if (!value) return;
+      if (this.props.onFinish) this.props.onFinish(value);
+      this.onHide();
+    }
   },
 });
