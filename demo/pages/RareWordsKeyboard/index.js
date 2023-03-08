@@ -29,8 +29,8 @@ Page({
   onKeyBoardShow() {
     my.showToast({ content: 'onShow' });
   },
-  onKeyBoardFinish(value) {
-    my.showToast({ content: 'onFinish ' + value });
+  onChange(value) {
+    my.showToast({ content: 'onChange ' + value });
   },
   onKeyBoardError(err) {
     my.showToast({ content: 'onError ' + err.toString() });

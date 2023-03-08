@@ -28,6 +28,7 @@ Component({
   methods: {
     // 隐藏键盘，失去焦点
     onHide() {
+      this.setData({ inputValue: [], matchWordsList: [], displayStr: '' });
       if (this.props.onClose) this.props.onClose();
     },
 
@@ -97,9 +98,6 @@ Component({
     // 加载字体
     loadFont() {
       loadFontFace()
-        .then(() => {
-          if (this.props.onReady) this.props.onReady();
-        })
         .catch((err) => {
           this.setData({ showErrorPage: true });
           if (this.props.onError) this.props.onError(err);
@@ -120,7 +118,7 @@ Component({
     handleWordClick(e) {
       const { value = '' } = e.target.dataset;
       if (!value) return;
-      if (this.props.onFinish) this.props.onFinish(value);
+      if (this.props.onChange) this.props.onChange(value);
       this.onHide();
     }
   },

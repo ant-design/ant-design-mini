@@ -63,7 +63,7 @@ export interface IRareWordsKeyboardProps extends IBaseProps {
   /**
    * @title 输入完成的时候触发的回调
    */
-  onFinish?: (value: string) => void;
+  onChange?: (value: string) => void;
 
   /**
    * @title 展示的时候触发的回调
@@ -74,11 +74,6 @@ export interface IRareWordsKeyboardProps extends IBaseProps {
    * @title 组件错误的时候的回调
    */
   onError?: (err: Error) => void;
-
-  /**
-   * @title 组件加载好之后的回调
-   */
-  onReady?: () => void;
 }
 
 export declare const RareWordsKeyboardDefaultProps: Partial<IRareWordsKeyboardProps>;

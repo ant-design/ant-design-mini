@@ -24,6 +24,6 @@
     visible="{{visible3}}"
     onClose="onClose3"
     onShow="onKeyBoardShow"
-    onFinish="onKeyBoardFinish"
+    onChange="onChange"
     onError="onKeyBoardError" />
 </list>

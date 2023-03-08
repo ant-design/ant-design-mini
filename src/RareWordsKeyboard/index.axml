@@ -59,9 +59,9 @@
             <view class="ant-rare-words-keyboard_error">
               <result
                 class="ant-rare-words-keyboard_error-result"
-                image="https://gw.alipayobjects.com/mdn/rms_997765/afts/img/A*i4GUT4z04egAAAAAAAAAAAAAARQnAQ"
+                type="error"
+                message="页面遇到一些小问题"
               >
-                <view slot="message">页面遇到一些小问题</view>
                 <view slot="extra">
                   <button type="primary" inline size="small" onTap="handleRetry">重试</button>
                 </view>
