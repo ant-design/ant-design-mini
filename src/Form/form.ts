@@ -491,20 +491,10 @@ export class Form {
    */
   getFieldsValue(nameList?: string[]) {
     const fieldsValue: Values = {};
-    const fieldsMap = new Map<string, Field>();
-    const provideNameList = Array.isArray(nameList);
-    this.eachField((field, name) => {
-      if (provideNameList) {
-        fieldsMap.set(name, field);
-      } else {
-        fieldsValue[name] = field.getValue();
-      }
+    nameList = nameList || Object.keys(this.fields);
+    nameList.forEach(name => {
+      fieldsValue[name] = this.getFieldValue(name);
     });
-    if (provideNameList) {
-      nameList.forEach(name => {
-        fieldsValue[name] = fieldsMap.get(name)?.getValue();
-      });
-    }
     return fieldsValue;
   }
 
