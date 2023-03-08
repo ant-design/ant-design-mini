@@ -1,0 +1,28 @@
+<list header="基础使用">
+  <list-item onTap="onTap">
+    默认键盘
+  </list-item>
+
+  <rare-words-keyboard
+    visible="{{visible}}"
+    onClose="onClose" />
+
+  <list-item onTap="onTap2">
+    不带蒙层
+  </list-item>
+
+  <rare-words-keyboard
+    visible="{{visible2}}"
+    showMask="{{ false }}"
+    onClose="onClose2" />
+
+  <list-item onTap="onTap3">
+    监听输入完成、出错的回调
+  </list-item>
+
+  <rare-words-keyboard
+    visible="{{visible3}}"
+    onClose="onClose3"
+    onChange="onChange"
+    onError="onKeyBoardError" />
+</list>

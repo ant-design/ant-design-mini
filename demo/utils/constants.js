@@ -351,6 +351,11 @@ export const componentList = [
         name: 'RateCustom',
         nameZN: '星级-自定义',
         path: '/page/RateCustom/index',
+      },
+      {
+        name: 'RareWordsKeyboard',
+        nameZN: '生僻字输入键盘',
+        path: '/page/RareWordsKeyboard/index',
       }
     ],
   },

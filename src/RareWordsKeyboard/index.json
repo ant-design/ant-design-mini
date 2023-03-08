@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "icon": "../Icon/index",
+    "result": "../Result/index",
+    "button": "../Button/index"
+  }
+}
