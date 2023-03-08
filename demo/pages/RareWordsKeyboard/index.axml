@@ -17,13 +17,12 @@
     onClose="onClose2" />
 
   <list-item onTap="onTap3">
-    监听打开、输入完成、出错的回调
+    监听输入完成、出错的回调
   </list-item>
 
   <rare-words-keyboard
     visible="{{visible3}}"
     onClose="onClose3"
-    onShow="onKeyBoardShow"
     onChange="onChange"
     onError="onKeyBoardError" />
 </list>

@@ -35,5 +35,4 @@ toc: 'content'
 | safeArea | 安全距离                                                                         | boolean                 | true   |
 | onClose  | 关闭的时候触发的回调                                                             | () => void              | -      |
 | onChange | 输入完成的时候触发的回调                                                         | (value: string) => void | -      |
-| onShow   | 打开的时候触发的回调                                                             | () => void              | -      |
 | onError  | 打开键盘出错的回调                                                               | (err: Error) => void    | -      |

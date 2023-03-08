@@ -20,11 +20,6 @@ Component({
     this.loadFont();
     this.computeMaxDisplayNum();
   },
-  deriveDataFromProps(nextProps) {
-    if (!this.props.visible && nextProps.visible) {
-      if (this.props.onShow) this.props.onShow();
-    }
-  },
   methods: {
     // 隐藏键盘，失去焦点
     onHide() {

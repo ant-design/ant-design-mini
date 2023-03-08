@@ -5,7 +5,6 @@ export const RareWordsKeyboardDefaultProps = {
   showMask: true,
   safeArea: true,
   onClose: () => {},
-  onShow: () => {},
   onChange: () => {},
   onError: () => {},
 };

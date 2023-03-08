@@ -26,9 +26,6 @@ Page({
   onClose3() {
     this.setData({ visible3: false });
   },
-  onKeyBoardShow() {
-    my.showToast({ content: 'onShow' });
-  },
   onChange(value) {
     my.showToast({ content: 'onChange ' + value });
   },

@@ -66,11 +66,6 @@ export interface IRareWordsKeyboardProps extends IBaseProps {
   onChange?: (value: string) => void;
 
   /**
-   * @title 展示的时候触发的回调
-   */
-  onShow?: () => void;
-
-  /**
    * @title 组件错误的时候的回调
    */
   onError?: (err: Error) => void;
