@@ -16,6 +16,7 @@
       value="{{formData.value}}"
       options="{{options}}"
       multiple="{{multiple}}"
+      disabled="{{disabled}}"
       minSelectedCount="{{minSelectedCount}}"
       maxSelectedCount="{{maxSelectedCount}}"
       activeItemClassName="{{activeItemClassName}}"
