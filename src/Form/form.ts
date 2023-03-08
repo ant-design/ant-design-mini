@@ -242,7 +242,7 @@ class Field extends EventEmitter{
         value,
       };
     }
-    let validator = this.validator;
+    const validator = this.validator;
     try {
       this.setValidatorStatus({
         status: 'validating',
@@ -482,6 +482,20 @@ export class Form {
       return;
     }
     return field.getValue();
+  }
+
+  /**
+   * 获取一组字段名对应的值
+   * @param nameList 
+   * @returns 
+   */
+  getFieldsValue(nameList?: string[]) {
+    const fieldsValue: Values = {};
+    nameList = nameList || Object.keys(this.fields);
+    nameList.forEach(name => {
+      fieldsValue[name] = this.getFieldValue(name);
+    });
+    return fieldsValue;
   }
 
   /**
