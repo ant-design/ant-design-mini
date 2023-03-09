@@ -8,7 +8,7 @@ toc: 'content'
 ---
 
 # Form 表单
-Form 表单。包含数据录入、校验以及对应样式
+Form 表单。包含数据录入、校验以及对应样式。Form组件需要 `component2`。
 
 
 ## 何时使用
@@ -29,6 +29,9 @@ Form 表单。包含数据录入、校验以及对应样式
 
 ### 初始值异步加载
 <code src='pages/FormInitialValuesAsync/index'></code>
+
+### 表单侦听
+<code src='pages/FormWatch/index'></code>
 
 ### 校验
 <code src='pages/FormRules/index'></code>
@@ -89,7 +92,7 @@ Form 表单。包含数据录入、校验以及对应样式
 | setFieldValue | 设置表单项的值 | (name: string, value: any) => void; |
 | setInitialValues | 设置表单初始值 | (initialValues: Record<string, any>) => void |
 | getFieldValue | 得到表单项的值 | (name: string) => any |
-| getFieldsValue | 获取一组字段名对应的值 | (nameList?: string[]) => Record<string, any> |
+| getFieldsValue | 获取一组字段名对应的值。不传nameList则返回全部fields对 | (nameList?: string[]) => Record<string, any> |
 | getFieldValidatorStatus | 得到表单校验状态 | () => {status: 'default' \| 'success' \| 'error' \| 'validating', errors: string[]} |
 | reset | 重置表单为初始值 | () => void |
 | isFieldTouched | 判断表单项是否被修改过 | () => boolean |
@@ -229,9 +232,3 @@ function emit(trigger: 'onChange' | 'onBlur' | 'onFocus' , value: any):  void;
 ```
 
 更多方法可查看createForm方法。使用`formData`, `emit` 即可完成自定义表单项。
-
-
-## FAQ
-
-### Form好像没有没有调用
-Form组件需要 `component2`，查看是否使用了 https://opendocs.alipay.com/mini/framework/component-ref
