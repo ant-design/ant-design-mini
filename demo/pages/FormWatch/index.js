@@ -8,14 +8,14 @@ Page({
     allValuesText: '',
   },
   onReady() {
-    this.form.onValuesChange(changedValues => {
+    this.form.onValuesChange((changedValues, allValues) => {
       let changedValuesText = '';
       let allValuesText = '';
       Object.keys(changedValues).forEach(name => {
         const value = changedValues[name];
         changedValuesText += `${name}: ${value};`;
       });
-      const allValues = this.form.getFieldsValue();
+
       Object.keys(allValues).forEach(name => {
         const value = allValues[name];
         allValuesText += `${name}: ${value};`;
@@ -31,6 +31,10 @@ Page({
   },
   reset() {
     this.form.reset();
+    this.setData({
+      changedValuesText: '',
+      allValuesText: '',
+    });
   },
   async submit() {
     const values = await this.form.submit();
