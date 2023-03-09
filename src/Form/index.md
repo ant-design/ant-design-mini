@@ -8,7 +8,7 @@ toc: 'content'
 ---
 
 # Form 表单
-Form 表单。包含数据录入、校验以及对应样式。Form组件需要 `component2`。
+Form 表单。包含数据录入、校验以及对应样式。Form组件需要 [component2](https://opendocs.alipay.com/mini/framework/custom-component-overview)。
 
 
 ## 何时使用
