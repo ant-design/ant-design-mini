@@ -32,6 +32,7 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | className | 类名| string | - |
+| controlled | 有键盘输入问题，可使用 controlled="{{false}}" | boolean | - |
 | defaultValue | 初始值 | string | - | 
 | disabled | 是否禁用 | boolean | false |
 | maxLength | 最大长度 | number | 140 |

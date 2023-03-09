@@ -12,6 +12,7 @@ export interface TextareaProps extends IBaseProps {
   autoHeight: boolean;
   showCount: boolean;
   allowClear: boolean;
+  controlled: boolean;
   enableNative: boolean;
   maxLength: number;
   inputClassName: string;

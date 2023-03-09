@@ -16,6 +16,7 @@ export interface InputBlurProps extends IBaseProps {
   selectionStart: number;
   selectionEnd: number;
   cursor: number;
+  controlled: boolean;
   maxLength: number;
   inputClassName: string;
   inputStyle: string;
