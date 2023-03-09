@@ -13,6 +13,7 @@ export interface InputProps extends IBaseProps {
   enableNative: boolean;
   confirmType: string;
   confirmHold: string;
+  controlled: boolean;
   alwaysSystem: boolean;
   selectionStart: number;
   selectionEnd: number;
