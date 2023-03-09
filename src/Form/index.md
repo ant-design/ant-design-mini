@@ -8,7 +8,7 @@ toc: 'content'
 ---
 
 # Form 表单
-Form 表单。包含数据录入、校验以及对应样式
+Form 表单。包含数据录入、校验以及对应样式。Form组件需要 [component2](https://opendocs.alipay.com/mini/framework/custom-component-overview)。
 
 
 ## 何时使用
@@ -29,6 +29,9 @@ Form 表单。包含数据录入、校验以及对应样式
 
 ### 初始值异步加载
 <code src='pages/FormInitialValuesAsync/index'></code>
+
+### 表单侦听
+<code src='pages/FormWatch/index'></code>
 
 ### 校验
 <code src='pages/FormRules/index'></code>
@@ -87,18 +90,34 @@ Form 表单。包含数据录入、校验以及对应样式
 | -----|-----|-----|
 | addItem | 添加表单项 | (formItem: Ref) => void |
 | setFieldValue | 设置表单项的值 | (name: string, value: any) => void; |
+| setFieldsValue | 设置表单项的值 | (values: Record<string, any>) => void; |
 | setInitialValues | 设置表单初始值 | (initialValues: Record<string, any>) => void |
 | getFieldValue | 得到表单项的值 | (name: string) => any |
-| getFieldsValue | 获取一组字段名对应的值 | (nameList?: string[]) => Record<string, any> |
+| getFieldsValue | 获取一组字段名对应的值。不传nameList则返回全部fields对 | (nameList?: string[]) => Record<string, any> |
 | getFieldValidatorStatus | 得到表单校验状态 | () => {status: 'default' \| 'success' \| 'error' \| 'validating', errors: string[]} |
 | reset | 重置表单为初始值 | () => void |
 | isFieldTouched | 判断表单项是否被修改过 | () => boolean |
-| onValueChange | 侦听表单项的值修改 | (name: string, (value: any) => void) => void |
+| onValueChange | 侦听指定表单项的值修改，查看[详细说明](#onvaluechangeonvalueschange) | (name: string, (changedValue: any, allValues: Record<string, any>) => void) => void |
+| onValuesChange | 侦听表单项的值修改，查看[详细说明](#onvaluechangeonvalueschange) | ((changedValues: Record<string, any>, allValues: Record<string, any>) => void) => void |
 | submit | 提交表单，返回promise表单值，校验错误会抛出 | () => Promise<Record<string, any>> |
 
 ### dependencies
 当字段间存在依赖关系时使用。如果一个字段设置了 dependencies 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 dependencies 后，“密码”字段更新会重新触发“校验密码”的校验。
 
+### onValueChange,onValuesChange
+setFieldValue，setFieldsValue不会触发onValueChange, onValuesChange。onValueChange, onValuesChange只会被用户操作才会触发。要是你需要在setFieldValue，setFieldsValue之后想要去触发onValueChange, onValuesChange，你可以手动去调用onValueChange, onValuesChange方法。
+
+示例：
+```js
+const onValuesChangeCallback = changedValues => {
+  console.log(changedValues);
+};
+this.form.onValuesChange(onValuesChangeCallback);
+this.form.setFieldValue(name, value);
+onValuesChangeCallback({
+  [name]: value,
+});
+```
 ### submit 校验抛出错误
 ```js
 {
@@ -214,9 +233,3 @@ function emit(trigger: 'onChange' | 'onBlur' | 'onFocus' , value: any):  void;
 ```
 
 更多方法可查看createForm方法。使用`formData`, `emit` 即可完成自定义表单项。
-
-
-## FAQ
-
-### Form好像没有没有调用
-Form组件需要 `component2`，查看是否使用了 https://opendocs.alipay.com/mini/framework/component-ref

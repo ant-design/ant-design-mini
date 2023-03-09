@@ -218,6 +218,11 @@ export const componentList = [
         path: '/pages/FormInitialValuesAsync/index',
       },
       {
+        name: 'FormWatch',
+        nameZN: '表单-侦听',
+        path: '/pages/FormWatch/index',
+      },
+      {
         name: 'FormValidate',
         nameZN: '表单-校验',
         path: '/pages/FormValidate/index',

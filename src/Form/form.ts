@@ -323,7 +323,7 @@ export class Form {
   /**
    * 表单字段 change侦听
    */
-  private changeListeners: Record<string, ((value: Value) => void)[]> = {};
+  private changeListeners: ((changedValues: Values, allValues: Values) => void)[] = [];
 
   /**
    * 依赖表
@@ -421,9 +421,9 @@ export class Form {
             }
           });
         }
-        if (this.changeListeners[name]) {
-          this.changeListeners[name].forEach(item => item(value));
-        }
+        this.changeListeners.forEach(item => item({
+          [name]: value,
+        }, this.getFieldsValue()));
       }
     }).on('didUnmount', () => {
       delete this.fields[name];
@@ -455,6 +455,17 @@ export class Form {
       field.setValue(value);
       field.validate();
     }
+  }
+
+  /**
+   * 设置表单值
+   * @param name 表单名称
+   * @param value 表单初始值
+   */
+  setFieldsValue(values: Values) {
+    Object.keys(this.fields).forEach(name => {
+      this.setFieldValue(name, values[name]);
+    });
   }
 
   /**
@@ -525,13 +536,27 @@ export class Form {
   }
 
   /**
+   * 指定表单字段值更新时触发回调方法
+   * @param name 表单字段名称
+   * @param callback 回调方法
+   */
+  onValueChange(name: string, callback: (value: Value, allValues: Values) => void) {
+    this.changeListeners.push((changedValues: Values, allValues: Values) => {
+      if (name in changedValues) {
+        callback(changedValues[name], allValues);
+      }
+    });
+  }
+
+  /**
    * 表单字段值更新时触发回调方法
    * @param name 表单字段名称
    * @param callback 回调方法
    */
-  onValueChange(name: string, callback: (value: Value) => void) {
-    this.changeListeners[name] = this.changeListeners[name] || [];
-    this.changeListeners[name].push(callback);
+  onValuesChange(callback: (changedValues: Values, allValues: Values) => void) {
+    this.changeListeners.push((changedValues: Values, allValues: Values) => {
+      callback(changedValues, allValues);
+    });
   }
 
   /**

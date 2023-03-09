@@ -19,6 +19,7 @@
     "pages/ActionSheet/index",
     "pages/Form/index",
     "pages/FormLayout/index",
+    "pages/FormWatch/index",
     "pages/FormDynamic/index",
     "pages/FormInitialValues/index",
     "pages/FormInitialValuesAsync/index",
