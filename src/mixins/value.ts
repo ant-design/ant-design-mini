@@ -87,6 +87,9 @@ export default ({
         return equal(this.getValue(prevData), this.getValue());
       },
       isControlled() {
+        if ('controlled' in this.props) {
+          return this.props.controlled;
+        }
         return valueKey in this.props;
       },
       updateControlled() {
