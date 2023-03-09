@@ -458,6 +458,17 @@ export class Form {
   }
 
   /**
+   * 设置表单值
+   * @param name 表单名称
+   * @param value 表单初始值
+   */
+  setFieldsValue(values: Values) {
+    Object.keys(this.fields).forEach(name => {
+      this.setFieldValue(name, values[name]);
+    });
+  }
+
+  /**
    * 设置 initialValues，这个操作不会对页面进行修改，要是需要重置表单可跟上 reset 方法；
    * 这样是对于表单已经在编辑，但是需要重新initialValues的场景
    * 
