@@ -5,9 +5,13 @@ Component({
   data: {
     supportSjs: my.canIUse('sjs.event'),
     closing: false,
+    _visible: false,
   },
   didUpdate(prevProps) {
     const { visible, duration, animation } = this.props;
+    this.setData({
+      _visible: visible,
+    });
     if (prevProps.visible && !visible) {
       if (animation && duration > 0) {
         this.setData({ closing: true });
