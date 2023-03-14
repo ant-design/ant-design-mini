@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "pagination": "../Pagination/index",
-    "grid-item": "./GridItem/index"
+    "image-icon": "../ImageIcon/index",
+    "pagination": "../Pagination/index"
   }
 }

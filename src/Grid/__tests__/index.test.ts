@@ -6,7 +6,7 @@ describe('grid onTap', () => {
     const instance = getInstance('Grid', {
       onTap,
     });
-    instance.callMethod('onTap');
+    instance.callMethod('onTap', { target: { dataset: { item: {} } } });
     expect(onTap).toBeCalled();
   });
 });
@@ -16,29 +16,7 @@ describe('grid onFirstAppear', () => {
     const instance = getInstance('Grid', {
       onFirstAppear,
     });
-    instance.callMethod('onFirstAppear');
-    expect(onFirstAppear).toBeCalled();
-  });
-});
-
-describe('gridItem onTap', () => {
-  it('gridItem onTap', () => {
-    const onTap = jest.fn();
-    const instance = getInstance('Grid/GridItem', {
-      onTap,
-    });
-    instance.callMethod('onTap');
-    expect(onTap).toBeCalled();
-  });
-});
-
-describe('gridItem onFirstAppear', () => {
-  it('gridItem onFirstAppear', () => {
-    const onFirstAppear = jest.fn();
-    const instance = getInstance('Grid/GridItem', {
-      onFirstAppear,
-    });
-    instance.callMethod('onFirstAppear');
+    instance.callMethod('onFirstAppear', { target: { dataset: { item: {} } } });
     expect(onFirstAppear).toBeCalled();
   });
 });
