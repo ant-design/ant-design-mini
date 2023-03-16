@@ -3,4 +3,5 @@
   style="{{style}}"
   onTap="{{onTap ? 'onTap' : ''}}"
   catchTap="{{catchTap ? 'catchTap' : ''}}"
+  
 />
