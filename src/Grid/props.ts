@@ -1,6 +1,24 @@
 import { IBaseProps } from '../_util/base';
-import { IGridItem } from './GridItem/props';
 
+export interface IGridItem {
+  /**
+   * @description 主文案
+   */
+  title: string;
+  /**
+   * @description 副文案
+   */
+  description?: string;
+  /**
+   * @description 图标
+   */
+  icon: string;
+  /**
+   * @desscription 图标样式
+   * @default 'normal'
+   */
+  iconStyle: 'normal' | 'circle';
+}
 /**
  * @description 宫格
  */
