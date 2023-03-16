@@ -33,4 +33,5 @@ toc: 'content'
 | textClassName | 分割线文字类名 | string | - | 
 | textPosition | 分割线文字位置，可选`left` `center` `right` | string | `center` | 
 | textStyle | 分割线文字样式 | string | - | 
+| text | 分割线文字 | string \| slot | - |
 
