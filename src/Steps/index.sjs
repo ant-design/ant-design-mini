@@ -1,7 +1,7 @@
 function getClassName(current, index, status) {
   current = current || 0;
   if (index < current) {
-    return 'active';
+    return 'finish';
   }
   if (index === current) {
     if (status === 'error') {

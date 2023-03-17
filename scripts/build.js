@@ -2,8 +2,8 @@ const path = require('path');
 const { fork } = require("child_process");
 const { minidev } = require('minidev');
 const fs= require('fs');
-const less = require('less');
 const compile = require('./compile');
+const getSourceCode = require('./getSourceCode');
 
 
 async function buildMiniProgram() {
@@ -46,6 +46,7 @@ function buildDocs() {
   return new Promise((resolve, reject) => {
     const child = fork(`${process.cwd()}/node_modules/dumi/bin/dumi.js`, ['build'], {
       env: {
+        NODE_OPTIONS: '--openssl-legacy-provider',
         FORCE_COLOR: 1,
       },
     });
@@ -61,51 +62,9 @@ function buildDocs() {
   })
 }
 
-async function buildPreview(theme = 'default') {
-  function lessCompile(filename) {
-    return fs.promises.readFile(filename, 'utf-8').then(content => new Promise((resolve, reject) => {
-      less.render(content, {
-        filename,
-        modifyVars: {
-          theme,
-        },
-      }, (e, output) => {
-        if (e) {
-          reject(e);
-        }
-        resolve(output.css);
-      });
-    }));
-  }
-  
-  function getFileContent(file) {
-    return fs.promises.readFile(file, 'utf-8');
-  }
-  
-  async function getSourceCode(page) {
-    const map = {
-      '.js': getFileContent,
-      '.axml': getFileContent,
-      '.acss': getFileContent,
-      '.less': lessCompile,
-      '.json': getFileContent,
-    };
-    const list = [];
-    const arr = [];
-    Object.keys(map).forEach(item => {
-      const filename = path.join(__dirname, '../demo', page + item);
-      if (fs.existsSync(filename)) {
-        arr.push(page + (item === '.less' ? '.acss' : item));
-        list.push(map[item](filename));
-      }
-    });
-    const json = {};
-    (await Promise.all(list)).forEach((item, index) => {
-      json[arr[index]] = item.replace(/('|")[^'"]*\/src/g, theme === 'dark' ? '$1antd-mini/less' : '$1antd-mini/es');
-    });
-    return json;
-  }
 
+
+async function buildPreview(theme = 'default') {
   const list = ['appConfig.json', 'index.html', 'index.js', 'index.worker.js'];
   const dist = {};
   list.forEach(item => {

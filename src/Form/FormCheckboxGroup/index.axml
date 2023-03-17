@@ -12,7 +12,13 @@
   help="{{help}}"
 >
   <view>
-    <checkbox-group options="{{options}}" value="{{formData.value}}" onChange="onChange" color="{{color}}" position="{{checkboxPosition}}">
+    <checkbox-group 
+      options="{{options}}" 
+      value="{{formData.value}}" 
+      onChange="onChange" 
+      color="{{color}}" 
+      disabled="{{disabled}}"
+      position="{{checkboxPosition}}">
       <slot name="checkboxLabel" slot="label" slot-scope="props" value="{{props.value}}" index="{{props.index}}"/>
     </checkbox-group>
   </view>
@@ -21,7 +27,10 @@
       {{extra}}
     </slot>
   </view>
-  <view slot="label">
-    <slot name="label" />
+  <view slot="header" slot-scope="item">
+    <slot name="header" errors="{{item.errors}}" status="{{item.status}}" />
+  </view>
+  <view slot="footer" slot-scope="item">
+    <slot name="footer" errors="{{item.errors}}" status="{{item.status}}" />
   </view>
 </form-item>

@@ -1,3 +1,5 @@
+import { IMixin4Legacy } from '@mini-types/alipay';
+
 function equal(a, b) {
   if (a === b) {
     return true;
@@ -85,6 +87,9 @@ export default ({
         return equal(this.getValue(prevData), this.getValue());
       },
       isControlled() {
+        if ('controlled' in this.props) {
+          return this.props.controlled;
+        }
         return valueKey in this.props;
       },
       updateControlled() {
@@ -111,5 +116,18 @@ export default ({
         };
       },
     },
-  }
+  } as IMixin4Legacy<
+    Record<string, any>,
+    Record<string, any>,
+    {
+      getValue(prevData?: any): any;
+      isControlled(): boolean;
+      updateControlled() : void;
+      update(val: any, extra?: any, ...args: any): {
+        needUpdate: boolean;
+        value: any;
+      };
+      isEqualValue(prevData: any): boolean;
+    }
+  >
 };

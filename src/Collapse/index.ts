@@ -1,6 +1,6 @@
 import { CollapseDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
-import { IBoundingClientRect } from "../_base";
+import { IBoundingClientRect } from '../_util/base';
 import createValue from '../mixins/value';
 
 

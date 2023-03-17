@@ -7,7 +7,7 @@ Component({
   props: FormTextareaDefaultProps,
   mixins: [createForm({
     methods: {
-      setFormData(values) {
+      setFormData(this: any, values) {
         this.setData({
           ...this.data,
           formData: {

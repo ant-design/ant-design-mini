@@ -34,7 +34,5 @@
       {{extra}}
     </slot>
   </view>
-  <view slot="label">
-    <slot name="label" />
-  </view>
+  
 </form-item>

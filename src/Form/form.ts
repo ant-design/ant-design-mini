@@ -1,4 +1,5 @@
 import AsyncValidator, { InternalRuleItem, Value, Values, Rule as RawRule, Rules as RawRules, RuleItem, ValidateError, ValidateMessages } from 'async-validator';
+import { IMixin4Legacy } from '@mini-types/alipay';
 
 
 export { Value, Values };
@@ -241,7 +242,7 @@ class Field extends EventEmitter{
         value,
       };
     }
-    let validator = this.validator;
+    const validator = this.validator;
     try {
       this.setValidatorStatus({
         status: 'validating',
@@ -322,7 +323,7 @@ export class Form {
   /**
    * 表单字段 change侦听
    */
-  private changeListeners: Record<string, ((value: Value) => void)[]> = {};
+  private changeListeners: ((changedValues: Values, allValues: Values) => void)[] = [];
 
   /**
    * 依赖表
@@ -420,9 +421,9 @@ export class Form {
             }
           });
         }
-        if (this.changeListeners[name]) {
-          this.changeListeners[name].forEach(item => item(value));
-        }
+        this.changeListeners.forEach(item => item({
+          [name]: value,
+        }, this.getFieldsValue()));
       }
     }).on('didUnmount', () => {
       delete this.fields[name];
@@ -457,6 +458,17 @@ export class Form {
   }
 
   /**
+   * 设置表单值
+   * @param name 表单名称
+   * @param value 表单初始值
+   */
+  setFieldsValue(values: Values) {
+    Object.keys(this.fields).forEach(name => {
+      this.setFieldValue(name, values[name]);
+    });
+  }
+
+  /**
    * 设置 initialValues，这个操作不会对页面进行修改，要是需要重置表单可跟上 reset 方法；
    * 这样是对于表单已经在编辑，但是需要重新initialValues的场景
    * 
@@ -481,6 +493,20 @@ export class Form {
       return;
     }
     return field.getValue();
+  }
+
+  /**
+   * 获取一组字段名对应的值
+   * @param nameList 
+   * @returns 
+   */
+  getFieldsValue(nameList?: string[]) {
+    const fieldsValue: Values = {};
+    nameList = nameList || Object.keys(this.fields);
+    nameList.forEach(name => {
+      fieldsValue[name] = this.getFieldValue(name);
+    });
+    return fieldsValue;
   }
 
   /**
@@ -510,13 +536,27 @@ export class Form {
   }
 
   /**
+   * 指定表单字段值更新时触发回调方法
+   * @param name 表单字段名称
+   * @param callback 回调方法
+   */
+  onValueChange(name: string, callback: (value: Value, allValues: Values) => void) {
+    this.changeListeners.push((changedValues: Values, allValues: Values) => {
+      if (name in changedValues) {
+        callback(changedValues[name], allValues);
+      }
+    });
+  }
+
+  /**
    * 表单字段值更新时触发回调方法
    * @param name 表单字段名称
    * @param callback 回调方法
    */
-  onValueChange(name: string, callback: (value: Value) => void) {
-    this.changeListeners[name] = this.changeListeners[name] || [];
-    this.changeListeners[name].push(callback);
+  onValuesChange(callback: (changedValues: Values, allValues: Values) => void) {
+    this.changeListeners.push((changedValues: Values, allValues: Values) => {
+      callback(changedValues, allValues);
+    });
   }
 
   /**
@@ -612,5 +652,21 @@ export function createForm({ methods = {} } = {}) {
       },
       ...methods,
     }
-  }
+  } as IMixin4Legacy<
+    {
+      formData: {
+        value: Value;
+      } & ValidatorStatus;
+    },
+    Record<string, any>,
+    {
+      emit(trigger: EventTrigger, value?: Value): void;
+      setFormData(values: Values): void;
+      getFormData(): {
+        value: Value;
+      } & ValidatorStatus;
+      on(callback: (trigger: EventTrigger, value?: Value) => void): void;
+      getProps: Record<string, any>;
+    }
+  >
 }

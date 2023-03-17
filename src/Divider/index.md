@@ -26,9 +26,9 @@ toc: 'content'
 | className | 根节点类名 |  string | - | 
 | direction | 分割线方向，可选`horizontal` `vertical` | string | `horizontal` | 
 | lineColor | 分割线颜色 | string | - |
-| lineHeight | 分割线高，仅当 `direction` 为 `horizontal` 时生效，单位 `px` | number \| string | - |
+| lineHeight | 分割线高，仅当 `direction` 为 `horizontal` 时生效，单位 `px` | number | - |
 | lineType | 分割线类型，可选`solid` `dashed` `dotted` | string | - |
-| lineWidth | 分割线宽，仅当 `direction` 为 `vertical` 时生效，单位 `px` | number \| string | - |
+| lineWidth | 分割线宽，仅当 `direction` 为 `vertical` 时生效，单位 `px` | number | - |
 | style | 样式 | string | - | 
 | textClassName | 分割线文字类名 | string | - | 
 | textPosition | 分割线文字位置，可选`left` `center` `right` | string | `center` | 

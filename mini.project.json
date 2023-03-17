@@ -1,18 +1,11 @@
 {
   "format": 2,
   "compileOptions": {
-    "typescript": {
-      "transpileOnly": true
-    },
-    "less": "v2",
+    "typescript": true,
+    "less": true,
     "component2": true,
     "enableNodeModuleBabelTransform": true
   },
-  "developOptions": {
-    "disableParallel": true
-  },
   "uploadExclude": ["dist/**/*"],
-  "enableAppxNg": true,
-  "component2": true,
   "miniprogramRoot": "demo"
 }

@@ -218,6 +218,11 @@ export const componentList = [
         path: '/pages/FormInitialValuesAsync/index',
       },
       {
+        name: 'FormWatch',
+        nameZN: '表单-侦听',
+        path: '/pages/FormWatch/index',
+      },
+      {
         name: 'FormValidate',
         nameZN: '表单-校验',
         path: '/pages/FormValidate/index',
@@ -253,7 +258,12 @@ export const componentList = [
         path: '/pages/FormJSON/index'
       },
       {
-        name: 'FormCustom',
+        name: 'FormCustomError',
+        nameZN: '表单-自定义表单项错误',
+        path: '/pages/FormCustomError/index'
+      },
+      {
+        name: 'FormCustomError',
         nameZN: '表单-自定义表单项',
         path: '/pages/FormCustom/index'
       },

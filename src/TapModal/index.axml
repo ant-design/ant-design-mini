@@ -1,9 +1,0 @@
-<view 
-  class="{{className}} ant-tap-modal"
-  data-payload="{{payload}}"
-  onTap="onTap">
-  <slot></slot>
-  <view class="{{ disabled ? '' : 'ant-tap-modal-mask' }}"     
-    hover-class="{{ disabled ? '' : 'ant-tap-modal-mask-active' }}"
-    hover-stay-time="0"/>
-</view>

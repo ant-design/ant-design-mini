@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "baseUrl": ".",
-    "noEmit": true,
+    "target": "ES5",
+    "module": "ES6",
+    "skipLibCheck": true,
     "esModuleInterop": true,
-    "target": "ES6",
-    "jsx": "react",
     "moduleResolution": "node",
+    "importHelpers": true,
+    "declaration": true,
     "noImplicitThis": true,
     "types": ["@mini-types/alipay", "jest", "node"]
   },
-  "lib": ["ES2015"],
   "include": ["src/**/*"],
-  "exclude": ["node_modules","src/**/*.js"]
+  "exclude": ["node_modules"]
 }

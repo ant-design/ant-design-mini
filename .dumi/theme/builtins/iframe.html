@@ -4,7 +4,7 @@
 <head>
   <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/wNkELvnLHXPAlmqutRPI.png" type="image/x-icon">
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.0.5/web/preview.css" />
+  <link rel="stylesheet" type="text/css" href="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.0.7/web/preview.css" />
   <link rel="preload" href="/preview.json" as="fetch" crossorigin>
   <link rel="preload" href="/preview-theme-dark.json" as="fetch" crossorigin>
   <style>
@@ -23,10 +23,11 @@
   </div>
   <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react/18.0.0/umd/react.production.min.js"></script>
   <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react-dom/18.0.0/umd/react-dom.production.min.js"></script>
-  <script src="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.0.5/web/preview.js"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.0.7/web/preview.js"></script>
   <script>
     const searchParams = new URL(location.href).searchParams;
     const theme = searchParams.get('less-theme');
+    const page = searchParams.get('page');
 
     function getDist() {
       const server = searchParams.get('compilerServer');
@@ -41,31 +42,54 @@
     }
 
     function getSourceCode() {
-      const folder = searchParams.get('folder');
-      return fetch(`/sourceCode/${folder}`).then(res => res.json());
+      return fetch(`/sourceCode/${page}`).then(res => res.json());
+    }
+
+    function getExtName(name) {
+      const arr = name.split('.');
+      return `.${arr[arr.length - 1]}`;
     }
 
     function sortMiniPageFile(files) {
-      const xmlType = [];
-      const jsType = [];
-      const cssType = [];
-      const jsonType = [];
-      const restFiles = [];
-
-      files.forEach(file => {
-        if (/pages\/[a-zA-Z]*\/index.(axml|xml|html)$/.test(file)) {
-          xmlType.push(file);
-        } else if (/pages\/[a-zA-Z]*\/index.(js|ts|sjs)$/.test(file)) {
-          jsType.push(file);
-        } else if (/pages\/[a-zA-Z]*\/index.(acss|css|less|scss|sass)$/.test(file)) {
-          cssType.push(file);
-        } else if (/pages\/[a-zA-Z]*\/index.json$/.test(file)) {
-          jsonType.push(file);
-        } else {
-          restFiles.push(file);
+      const map = {
+        '.axml': 0,
+        '.js': 1,
+        '.acss': 2,
+        '.sjs': 3,
+        '.json': 4,
+      };
+      files.sort((a, b) => {
+        const arrA = a.split('/');
+        const arrB = b.split('/');
+        const lenA = arrA.length;
+        const lenB = arrB.length;
+        if (lenA === lenB) {
+          const nameA = arrA.slice(0, -1).join('/');
+          const nameB = arrB.slice(0, -1).join('/');
+          if (nameA === nameB) {
+            const result = map[getExtName(a)] - map[getExtName(b)];
+            if (result === 0) {
+              if (arrA[arrA.length - 1].startsWith('index')) {
+                return -1;
+              }
+              if (arrB[arrB.length - 1].startsWith('index')) {
+                return 1;
+              }
+              if (arrA[arrA.length - 1] < arrB[arrB.length - 1]) {
+                return -1;
+              }
+              return 1;
+            }
+            return result;
+          }
+          return nameA < nameB ? -1 : 1;
         }
+        if (lenA < lenB) {
+          return -1;
+        }
+        return 1;
       });
-      return [...xmlType, ...jsType, ...cssType, ...jsonType, ...restFiles];
+      return files;
     }
 
     async function startWebOpenBoxPreviewApp() {
@@ -81,7 +105,13 @@
       } else {
         const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());
         dist = obj.dist;
-        sourceCode = obj.sourceCode;
+        sourceCode = {};
+        const str = page.replace('index', '');
+        Object.keys(obj.sourceCode).forEach(item => {
+          if (item.startsWith(str)) {
+            sourceCode[item] = obj.sourceCode[item];
+          }
+        });
       }
       sourceCode['mini.project.json'] = JSON.stringify({ 
         enableAppxNg: true,

@@ -26,7 +26,7 @@
     class="ant-divider-horizontal-right" 
     style="
       flex: {{divider.getLineWidthFlex(textPosition,text)[1]}};
-      {{lineHeight ? `borderBottomWidth:${lineHeight};`:'' }}
+      {{lineHeight ? `borderBottomWidth:${lineHeight}px;`:'' }}
       {{lineType ? `borderBottomStyle:${lineType};`: ''}}
       {{lineColor ? `borderBottomColor:${lineColor};`: ''}}
     "
@@ -39,7 +39,7 @@
   class="ant-divider ant-divider-vertical {{className || ''}}" 
   style="
     {{style || ''}};
-    {{lineWidth ? `borderRightWidth:${lineWidth};`:'' }}
+    {{lineWidth ? `borderRightWidth:${lineWidth}px;`:'' }}
     {{lineType ? `borderRightStyle:${lineType};`: ''}}
     {{lineColor ? `borderRightColor:${lineColor};`: ''}}
   "

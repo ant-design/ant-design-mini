@@ -29,7 +29,10 @@
       {{extra}}
     </slot>
   </view>
-  <view slot="label">
-    <slot name="label" />
+  <view slot="header">
+    <slot name="header" />
+  </view>
+  <view slot="footer">
+    <slot name="footer" />
   </view>
 </form-item>

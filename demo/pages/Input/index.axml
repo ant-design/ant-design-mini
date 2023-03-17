@@ -43,7 +43,6 @@
     placeholder="请输入内容"
     allowClear
     onChange="handleChange"
-    onClear="clear"
   />
 
   <button onTap="clear" inline size="small">clear</button>

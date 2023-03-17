@@ -97,6 +97,7 @@ Page({
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*MwsuTZI4qA8AAAAAAAAAAAAAARQnAQ',
+        tag:'1',
       },
       {
         title: '标题文字',
@@ -105,6 +106,7 @@ Page({
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*UJf2QLxdoa8AAAAAAAAAAAAAARQnAQ',
+        tag:'新',
       },
       {
         title: '标题文字',
