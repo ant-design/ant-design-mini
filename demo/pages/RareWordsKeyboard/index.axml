@@ -5,7 +5,9 @@
 
   <rare-words-keyboard
     visible="{{visible}}"
-    onClose="onClose" />
+    onClose="onClose"
+    onChange="onChange"
+  />
 
   <list-item onTap="onTap2">
     不带蒙层
@@ -14,7 +16,9 @@
   <rare-words-keyboard
     visible="{{visible2}}"
     showMask="{{ false }}"
-    onClose="onClose2" />
+    onClose="onClose2"
+    onChange="onChange"
+  />
 
   <list-item onTap="onTap3">
     监听输入完成、出错的回调
@@ -24,5 +28,6 @@
     visible="{{visible3}}"
     onClose="onClose3"
     onChange="onChange"
-    onError="onKeyBoardError" />
+    onError="onKeyBoardError"
+  />
 </list>
