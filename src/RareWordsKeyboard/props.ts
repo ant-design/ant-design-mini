@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { IBaseProps } from '../_base';
-=======
 import { IBaseProps } from '../_util/base';
->>>>>>> master
 
 export interface ICommonError {
   detail: Error; // 错误详情
