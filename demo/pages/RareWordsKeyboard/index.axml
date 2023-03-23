@@ -1,4 +1,10 @@
 <list header="基础使用">
+  <container title="姓名">
+    <input placeholder="请输入姓名" value="{{ value }}" onChange="onInputChange">
+      <view slot="suffix" class="tips" onTap="onTap">生僻字？</view>
+    </input>
+  </container>
+
   <list-item onTap="onTap">
     默认键盘
   </list-item>

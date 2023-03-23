@@ -80,6 +80,7 @@ Component({
         .select('.ant-rare-words-keyboard-match_words_inner')
         .boundingClientRect()
         .exec((res) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const [singleWords, wordsWrap] = res as any;
           if (!wordsWrap?.width || !singleWords?.width) return;
           const maxDisplayNumInOneLine = parseInt(
