@@ -1,8 +1,12 @@
 Page({
   data: {
+    value: '',
     visible: false,
     visible2: false,
     visible3: false,
+  },
+  onInputChange(value) {
+    this.setData({ value });
   },
   // 默认键盘
   onTap() {
@@ -27,7 +31,8 @@ Page({
     this.setData({ visible3: false });
   },
   onChange(value) {
-    my.showToast({ content: 'onChange ' + value });
+    const curValue = this.data.value;
+    this.setData({ value: curValue + value });
   },
   onKeyBoardError(err) {
     my.showToast({ content: 'onError ' + err.toString() });
