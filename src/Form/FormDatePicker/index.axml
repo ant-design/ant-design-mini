@@ -36,6 +36,7 @@
       onChange="onPickerChange"
       onCancel="onDismissPicker"
       onVisibleChange="onVisibleChange"
+      onFormatLabel="onFormatLabel"
       onFormat="onFormat">
       <slot name="content" slot="content"/>
       <slot name="title" slot="title"/>

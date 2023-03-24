@@ -69,6 +69,23 @@
         </date-picker>
     </list-item>
 </list>
+<list header="自定义每列的渲染内容">
+    <list-item>
+        每列不显示单位
+        <date-picker 
+            min="{{min}}"
+            max="{{max}}"
+            slot="extra"
+            defaultValue="{{defaultDate}}"
+            placeholder="请选择"
+            onPickerChange="handlePickerChange"
+            onVisibleChange="handleTriggerPicker"
+            onCancel="handleDismiss"
+            onOk="handleOk"
+            onFormatLabel="handleFormatLabel">
+        </date-picker>
+    </list-item>
+</list>
 <list header="时间范围选择">
     <list-item>
         日期范围
@@ -79,6 +96,18 @@
             onPickerChange="handlePickerRangeChange"
             onVisibleChange="handleTriggerPicker"
             onOk="handleRangeOk">
+        </range-picker>
+    </list-item>
+    <list-item>
+        每列不显示单位
+        <range-picker 
+            slot="extra"
+            placeholder="请选择"
+            defaultValue="{{defaultDateRange}}"
+            onPickerChange="handlePickerRangeChange"
+            onVisibleChange="handleTriggerPicker"
+            onOk="handleRangeOk"
+            onFormatLabel="handleFormatLabel">
         </range-picker>
     </list-item>
 </list>

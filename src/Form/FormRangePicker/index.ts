@@ -31,5 +31,10 @@ createComponent({
         this.props.onDismissPicker(fmtEvent(this.props, e));
       }
     },
+    onFormatLabel(type, value) {
+      if (this.props.onFormatLabel) {
+        return this.props.onFormatLabel(type, value);
+      }
+    },
   },
 });
