@@ -463,7 +463,7 @@ export class Form {
    * @param value 表单初始值
    */
   setFieldsValue(values: Values) {
-    Object.keys(this.fields).forEach(name => {
+    Object.keys(values).forEach(name => {
       this.setFieldValue(name, values[name]);
     });
   }
@@ -520,6 +520,45 @@ export class Form {
       return;
     }
     return field.getValidatorStatus();
+  }
+
+  /**
+   * 获取一组字段名的校验器状态
+   * @param nameList 
+   * @returns 
+   */
+  getFieldsValidatorStatus(nameList?: string[]) {
+    const fieldsValidatorStatus: Record<string, ValidatorStatus> = {};
+    nameList = nameList || Object.keys(this.fields);
+    nameList.forEach(name => {
+      fieldsValidatorStatus[name] = this.getFieldValidatorStatus(name);
+    });
+    return fieldsValidatorStatus;
+  }
+
+  /**
+   * 设置对应字段名的校验器状态
+   * @param name 表单名称
+   * @param validatorStatus 校验状态
+   * @returns 
+   */
+  setFieldValidatorStatus(name: string, validatorStatus: ValidatorStatus) {
+    const field = this.fields[name];
+    if (!field) {
+      return;
+    }
+    return field.setValidatorStatus(validatorStatus);
+  }
+
+  /**
+   * 设置一组字段名的校验器状态
+   * @param fieldsValidatorStatus 表单校验状态
+   * @returns 
+   */
+  setFieldsValidatorStatus(fieldsValidatorStatus: Record<string, ValidatorStatus>) {
+    Object.keys(fieldsValidatorStatus).forEach(name => {
+      this.setFieldValidatorStatus(name, fieldsValidatorStatus[name]);
+    });
   }
 
   /**
