@@ -27,4 +27,7 @@ Page({
   handleDismiss(e) {
     console.log('e', e);
   },
+  handleFormatLabel(type, value) {
+    return String(value);
+  },
 });
