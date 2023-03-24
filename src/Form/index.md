@@ -89,16 +89,19 @@ Form 表单。包含数据录入、校验以及对应样式。Form组件需要 [
 | 属性 | 说明 | 类型 |
 | -----|-----|-----|
 | addItem | 添加表单项 | (formItem: Ref) => void |
-| setFieldValue | 设置表单项的值 | (name: string, value: any) => void; |
-| setFieldsValue | 设置表单项的值 | (values: Record<string, any>) => void; |
-| setInitialValues | 设置表单初始值 | (initialValues: Record<string, any>) => void |
 | getFieldValue | 得到表单项的值 | (name: string) => any |
 | getFieldsValue | 获取一组字段名对应的值。不传nameList则返回全部fields对 | (nameList?: string[]) => Record<string, any> |
-| getFieldValidatorStatus | 得到表单校验状态 | () => {status: 'default' \| 'success' \| 'error' \| 'validating', errors: string[]} |
+| getFieldValidatorStatus | 得到表单校验状态 | (name: string) => [ValidatorStatus](#validatorstatus) |
+| getFieldsValidatorStatus | 得到一组表单校验状态。。不传nameList则返回全部fields对 | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorStatus)}> |
 | reset | 重置表单为初始值 | () => void |
 | isFieldTouched | 判断表单项是否被修改过 | () => boolean |
 | onValueChange | 侦听指定表单项的值修改，查看[详细说明](#onvaluechangeonvalueschange) | (name: string, (changedValue: any, allValues: Record<string, any>) => void) => void |
 | onValuesChange | 侦听表单项的值修改，查看[详细说明](#onvaluechangeonvalueschange) | ((changedValues: Record<string, any>, allValues: Record<string, any>) => void) => void |
+| setFieldValue | 设置表单项的值 | (name: string, value: any) => void; |
+| setFieldsValue | 设置表单项的值 | (values: Record<string, any>) => void; |
+| setFieldValidatorStatus | 设置表单校验状态 | (name: string, validatorStatus: [ValidatorStatus](#validatorstatus)) => void |
+| setFieldsValidatorStatus | 设置一组表单校验状态 | (fieldsValidatorStatus: Record<string, [ValidatorStatus](#validatorstatus)>) => void |
+| setInitialValues | 设置表单初始值 | (initialValues: Record<string, any>) => void |
 | submit | 提交表单，返回promise表单值，校验错误会抛出 | () => Promise<Record<string, any>> |
 
 ### dependencies
@@ -106,6 +109,14 @@ Form 表单。包含数据录入、校验以及对应样式。Form组件需要 [
 
 ### onValueChange,onValuesChange
 setFieldValue，setFieldsValue不会触发onValueChange, onValuesChange。onValueChange, onValuesChange只会被用户操作才会触发。要是你需要在setFieldValue，setFieldsValue之后想要去触发onValueChange, onValuesChange，你可以手动去调用onValueChange, onValuesChange方法。
+
+### ValidatorStatus
+```js
+type ValidatorStatus = {
+  status: 'default' | 'success' | 'error' | 'validating';
+  errors: string[];
+}
+```
 
 示例：
 ```js
