@@ -35,7 +35,7 @@
     <grid items="{{itemsCustom}}" onTap="handleTapItem" columns="{{5}}">
         <view slot="icon" slot-scope="props">
             <badge a:if="{{ props.value.tag }}" offsetX="-10px" type="text" text="{{ props.value.tag }}"><image src="{{ props.value.icon }}" style="width:44px;height:44px"/></badge>
-            <image a:else src="{{ props.value.icon }}" style="width:50px;height:50px"/>
+            <image a:else src="{{ props.value.icon }}" style="width:44px;height:44px"/>
         </view>
         <view slot-scope="props" slot="title">第{{ props.index + 1}}项</view>
         <view slot-scope="props" slot="description">描述{{ props.index + 1}}</view>
