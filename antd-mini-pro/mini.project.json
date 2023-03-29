@@ -1,0 +1,13 @@
+{
+  "format": 2,
+  "compileOptions": {
+    "typescript": true,
+    "less": {
+      "modifyVars": {
+        "theme": "default"
+      }
+    },
+    "component2": true,
+    "enableNodeModuleBabelTransform": true
+  }
+}

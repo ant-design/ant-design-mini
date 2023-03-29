@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "市民中心",
+  "usingComponents": {
+    "button": "antd-mini/less/Button/index"
+  }
+}

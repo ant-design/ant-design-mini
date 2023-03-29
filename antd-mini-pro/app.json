@@ -1,0 +1,10 @@
+{
+  "pages": [
+    "pages/CityService/index"
+  ],
+  "window": {
+    "pullRefresh": false,
+    "allowsBounceVertical": "NO",
+    "enableInPageRenderInput": "YES"
+  }
+}

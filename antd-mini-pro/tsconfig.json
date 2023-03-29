@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "ES6",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "declaration": true,
+    "noImplicitThis": true,
+    "types": ["@mini-types/alipay", "jest", "node"]
+  },
+  "include": ["pages/**/*", "app.ts"],
+  "exclude": ["node_modules"]
+}
