@@ -37,7 +37,7 @@ function createInstance(config: Instance, props: Record<string, any>) {
       ...props,
     },
     data: {
-      ...config.data,
+      ...(typeof config.data==='function'?config.data(): config.data),
     },
     methods: {
       ...config.methods,
@@ -125,7 +125,7 @@ function createInstance(config: Instance, props: Record<string, any>) {
       didUpdate.forEach(item => item.call(instance, prevProps, prevData));
     },
     callMethod(name: string, ...args: any) {
-      instance.methods[name].call(instance, ...args);
+      return instance.methods[name].call(instance, ...args);
     },
     unMount() {
       didUnmount.forEach(item => item.call(instance));
