@@ -34,6 +34,20 @@ toc: 'content'
 | zIndex | 弹窗层级 | number | 998 | 
 | onClose | 点击蒙层关闭，触发回调 | () => void |
 
+## FAQ
+### Popup打开后，蒙层后面的页面能滚动
+阻止蒙层后页面滚动目前IDE和模拟器不生效，请在真机调试
+
+### Popup内部元素需要支持滚动
+弹窗内需要滚动，请使用scroll-view组件，并添加属性
+```html
+<popup height="{{ 250 }}" visible="{{ visible }}">
+  <scroll-view scroll-y disable-lower-scroll="out-of-bounds" disable-upper-scroll="out-of-bounds">
+    ...你的内容
+  </scroll-view>
+</popup>
+```
+
 
 
 
