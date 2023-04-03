@@ -244,12 +244,21 @@ class Field extends EventEmitter{
     }
     const validator = this.validator;
     try {
-      this.setValidatorStatus({
-        status: 'validating',
-        errors: []
+      let needUpdateStatus = true;
+      Promise.resolve().then(() => {
+        Promise.resolve().then(() => {
+          if (needUpdateStatus) {
+            this.setValidatorStatus({
+              status: 'validating',
+              errors: [],
+            });
+          }
+        });
       });
       await this.validator.validate({
         [this.name]: value,
+      }, () => {
+        needUpdateStatus = false;
       });
       if (validator !== this.validator) {
         return;
