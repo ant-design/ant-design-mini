@@ -26,6 +26,7 @@
     "pages/FormRules/index",
     "pages/FormDependency/index",
     "pages/FormValidate/index",
+    "pages/FormValidateMessages/index",
     "pages/FormMultiple/index",
     "pages/FormImageUploadRules/index",
     "pages/FormJSON/index",
