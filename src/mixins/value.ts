@@ -87,7 +87,7 @@ export default ({
         return equal(this.getValue(prevData), this.getValue());
       },
       isControlled() {
-        if ('controlled' in this.props) {
+        if (typeof this.props['controlled'] !== 'undefined') {
           return this.props.controlled;
         }
         return valueKey in this.props;
