@@ -16,7 +16,6 @@
       type="{{type}}"
       enableNative="{{enableNative}}" 
       alwaysSystem="{{alwaysSystem}}"
-      controlled="{{controlled}}"
       confirm-type="{{confirmType}}" 
       confirm-hold="{{confirmHold}}"
       disabled="{{disabled}}"
