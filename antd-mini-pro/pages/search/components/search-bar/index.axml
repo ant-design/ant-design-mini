@@ -1,0 +1,15 @@
+<view class="search-bar">
+    <input
+        placeholder="请输入内容"
+        onChange="onChange"
+        className="search-bar-input"
+        focusClassName="search-bar-input-focus"
+        confirm-type="search"
+        allowClear
+        focus
+        onConfirm="handleConfirm"
+        >
+        <icon slot="prefix" type="SearchOutline" />
+    </input>
+    <view class="search-bar-cancel" onTap="handleCancel">取消</view>
+</view>

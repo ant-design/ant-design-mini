@@ -1,1 +1,10 @@
-<button>1</button>
+<view>
+  <header 
+    placeholder="{{header.placeholder}}" 
+    backgroundImage="{{ header.backgroundImage }}" 
+    cityInfo="{{header.cityInfo}}"
+    onChangeCity="handleChangeCity" />
+  <view class="content">
+    <functions columns="{{ functions.columns }}" list="{{ functions.list }}"/>
+  </view>
+</view>

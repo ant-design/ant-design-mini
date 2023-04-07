@@ -1,0 +1,26 @@
+<view a:if="{{ list.length > 0 }}" class="functions">
+    <swiper indicator-dots autoplay="{{false}}">
+        <swiper-item class="functions-item" a:for="{{ list.length / (columns * 2) + (list.length % (columns * 2) === 0 ? 0: 1) }}">
+            <grid 
+                items="{{ list.slice(columns * index * 2, columns * index * 2 + columns * 2) }}" 
+                columns="{{ columns }}" 
+                onTap="handleTapItem">
+                <view slot="icon" slot-scope="props">
+                    <badge 
+                        a:if="{{ props.value.badge }}" 
+                        type="{{ props.value.badge.type }}" 
+                        position="{{ props.value.badge.position }}" 
+                        style="{{ props.value.badge.style }}" 
+                        offsetX="{{ props.value.badge.offsetX }}" 
+                        offsetY="{{ props.value.badge.offsetY }}" 
+                        bgColor="{{ props.value.badge.bgColor }}" 
+                        text="{{ props.value.badge.text }}"
+                        stroke="{{ props.value.badge.stroke }}">
+                        <image src="{{ props.value.icon }}" style="width:32px;height:32px;display:flex"/>
+                    </badge>
+                    <image a:else src="{{ props.value.icon }}" style="width:32px;height:32px;display:flex"/>
+                </view>
+            </grid>
+        </swiper-item>
+    </swiper>
+</view>

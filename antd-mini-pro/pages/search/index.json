@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "搜索",
+  "usingComponents": {
+    "search-bar": "./components//search-bar/index"
+  }
+}
