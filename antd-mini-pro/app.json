@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/CityService/index"
+    "pages/CityService/index",
+    "pages/search/index"
   ],
   "window": {
     "pullRefresh": false,

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "grid": "antd-mini/es/Grid/index",
+    "badge": "antd-mini/es/Badge/index"
+  }
+}

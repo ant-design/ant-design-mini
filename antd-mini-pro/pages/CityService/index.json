@@ -1,6 +1,8 @@
 {
   "defaultTitle": "市民中心",
+  "transparentTitle": "auto",
   "usingComponents": {
-    "button": "antd-mini/less/Button/index"
+    "header": "./components/header/index",
+    "functions": "./components/functions/index"
   }
 }

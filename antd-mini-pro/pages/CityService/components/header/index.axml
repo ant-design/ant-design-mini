@@ -1,0 +1,15 @@
+<view class="header" style="background-image:url({{ backgroundImage }});padding-top:{{ statusBarHeight }}px">
+    <view class="header-search">
+        <view class="header-search-city" onTap="handleChooseCity">
+            {{ cityInfo.cityName }}
+        </view>
+        <view class="header-search-input">
+          <view class="header-search-input-content" onTap="handleGoSearch">
+            {{ placeholder }}
+          </view>
+          <view class="header-search-input-btn" onTap="handleSearch">
+            搜索
+          </view>
+        </view>
+    </view>
+</view>

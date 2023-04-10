@@ -1,0 +1,55 @@
+.header {
+    height: 288rpx;
+    background-size: cover;
+    box-sizing: border-box;
+    position: relative;
+    &-search {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 16rpx 24rpx;
+        display: flex;
+        align-items: center;
+        &-city {
+            color: #fff;
+            font-size: 26rpx;
+            font-weight: bold;
+            flex-shrink: 0;
+            max-width: 180rpx;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-right: 32rpx;
+            margin-right: 24rpx;
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAAHsVM+iAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAIKADAAQAAAABAAAAGAAAAAAeH7OOAAABlklEQVRIDc1VMXbDIAytfYd07NgOPUguUN+mr2fJ7J4nQ7p2S7ZcIP2fIgwCinA8VO8RIfH1ERImwwPkBqGmjL+q8CuoQSYec3WaTgqNmONCx8AfWeVciQM5H0AzgSIKuJgELBZmsN8lSmsHhHOnF8QOTOJQeiLAnYITLlKLDBDO43M/6kWxg/ZbOGpxtgoluJp+cin4fD5rqJKfMZDvZA0pVkvm06c6J0ElIwLraXL+UmzwIdJ2N0JEYQKSEWNfWEpdAF0weuWDLPxEnqFPKaXNYhtGjC/Alw/DFktUuHkupDP/OdsHBJOVJAsWBwjOBpKd4Iu6QZCnrllAUD2KxlbtylH+Tl2zqaO0Uy8QhKPoNbONLPYY8bOVxcqLtPo6Z4x2xwu/AnnR+Dn018m+mUbO/hNM/ShXqLtq4pbmW7xr+N8RJ3bidTti9F07IahrPjivOLnt4UEiyYt8ZwnWtRebbtGSqV4UwwpbgmF55HSRGLNdG0HW05J1JW8VBElYWnJfyQ1J1FqybckNiRyiph9a+H+7/gPO1+DO1C7Q8wAAAABJRU5ErkJggg==") no-repeat 50%;
+            background-size: 16rpx 12rpx;
+            background-position: 100%;
+        }
+        &-input {
+            flex: 1;
+            background: #fff;
+            border-radius: 8rpx;
+            display: flex;
+            align-items: stretch;
+            padding-left: 24rpx;
+            height: 64rpx;
+            &-content {
+                flex: 1;
+                color: #999;
+                font-size: 28rpx;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+            &-btn {
+                color: #1677ff;
+                font-size: 32rpx;
+                padding: 0 32rpx;
+                font-weight: bold;
+                border-left: 1rpx solid #999;
+                align-self: center;
+            }
+        }
+    }
+}
