@@ -93,12 +93,13 @@ class Field extends EventEmitter{
     rules: RawRules,
     validateMessages: ValidateMessages,
     required: boolean,
+    label: string,
     message: string,
     validateTrigger: ValidateTrigger,
   ) {
     super();
     this.ref = ref;
-    this.create(name, initialValues[name], rules[name], validateMessages, required, message, validateTrigger);
+    this.create(name, initialValues[name], rules[name], validateMessages, required, label, message, validateTrigger);
     this.ref.on((trigger, value) => {
       if (trigger === 'onChange') {
         this.setValue(value);
@@ -108,8 +109,8 @@ class Field extends EventEmitter{
         this.emit('didUnmount');
       } else if (trigger === 'deriveDataFromProps') {
         const props = this.ref.getProps();
-        if (value.name && value.name !== props.name || value.required !== props.required || value.message !== props.message || value.validateTrigger !== props.validateTrigger) {
-          this.create(value.name, initialValues[value.name], rules[value.name], validateMessages, value.required, value.message, value.validateTrigger);
+        if (value.name && value.name !== props.name || value.required !== props.required || value.label !== props.label || value.message !== props.message || value.validateTrigger !== props.validateTrigger) {
+          this.create(value.name, initialValues[value.name], rules[value.name], validateMessages, value.required, value.message, value.label, value.validateTrigger);
         }
         if (value.name !== props.name) {
           this.emit('replaceName', value.name);
@@ -129,11 +130,12 @@ class Field extends EventEmitter{
     rule: RawRule,
     validateMessages: ValidateMessages,
     required: boolean,
+    label: string,
     message: string,
     validateTrigger: ValidateTrigger,
   ) {
     this.name = name;
-    this.required = this.transformValidatorRules(name, rule, required, message, validateMessages);
+    this.required = this.transformValidatorRules(name, rule, required, label, message, validateMessages);
     this.reset(initialValue);
     let validateTriggerList: ValidateTrigger[] | ValidateTrigger = validateTrigger || 'onChange';
     if (!Array.isArray(validateTriggerList)) {
@@ -151,7 +153,7 @@ class Field extends EventEmitter{
    * @param validateMessages 
    * @returns 
    */
-  private transformValidatorRules(name: string, rule: RawRule, required: boolean, message: string, validateMessages: ValidateMessages) {
+  private transformValidatorRules(name: string, rule: RawRule, required: boolean, label: string, message: string, validateMessages: ValidateMessages) {
     let requiredRule = false;
     let validator: AsyncValidator;
     if (rule) {
@@ -182,10 +184,70 @@ class Field extends EventEmitter{
       requiredRule = true;
     }
     if (validator) {
-      validator.messages(validateMessages);
+      const obj = {
+        label,
+      };
+      Object.keys(validator.rules).forEach(name => {
+        validator.rules[name].forEach(item => {
+          if (typeof item.len !== 'undefined') {
+            obj['len'] = item.len;
+          }
+          if (typeof item.min !== 'undefined') {
+            obj['min'] = item.min;
+          }
+          if (typeof item.max !== 'undefined') {
+            obj['max'] = item.max;
+          }
+          if (typeof item.pattern !== 'undefined') {
+            obj['pattern'] = item.pattern;
+          }
+        });
+      });
+      validator.messages(this.transformValidateMessages(validateMessages, obj));
     }
     this.validator = validator;
     return requiredRule;
+  }
+
+  private transformValidateMessages(validateMessages: ValidateMessages, obj: Partial<{
+    label: string;
+    len: number;
+    min: number;
+    max: number;
+    pattern: RegExp | string;
+  }>) {
+    if (!validateMessages) {
+      return;
+    }
+    function replaceLabel(validateMessages: ValidateMessages, target: ValidateMessages) {
+      Object.keys(validateMessages).forEach(item => {
+        if (typeof validateMessages[item] === 'string') {
+          target[item] = validateMessages[item].replace('${label}', obj.label || '');
+          if (typeof obj.len !== 'undefined') {
+            target[item] = target[item].replace('${len}', obj.len);
+          }
+          if (typeof obj.min !== 'undefined') {
+            target[item] = target[item].replace('${min}', obj.min);
+          }
+          if (typeof obj.max !== 'undefined') {
+            target[item] = target[item].replace('${max}', obj.max);
+          }
+          if (typeof obj.pattern !== 'undefined') {
+            target[item] = target[item].replace('${pattern}', obj.pattern);
+          }
+          return;
+        }
+        if (typeof validateMessages[item] === 'object') {
+          const val = target[item] = {};
+          replaceLabel(validateMessages[item], val);
+          return;
+        }
+        target[item] = validateMessages[item];
+      });
+    }
+    const messages: ValidateMessages = {};
+    replaceLabel(validateMessages, messages);
+    return messages;
   }
 
   /**
@@ -411,7 +473,7 @@ export class Form {
     if (this.fields[name]) {
       throw new Error(`Form "addItem" same name: "${name}"`);
     }
-    const field = new Field(ref, name, this.initialValues, this.rules, this.validateMessages, props.required, props.message, props.validateTrigger);
+    const field = new Field(ref, name, this.initialValues, this.rules, this.validateMessages, props.required, props.label, props.message, props.validateTrigger);
     if (props.dependencies) {
       props.dependencies.forEach(item => {
         this.dependenciesMap[item] = this.dependenciesMap[item] || [];
