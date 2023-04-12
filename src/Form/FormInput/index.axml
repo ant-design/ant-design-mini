@@ -35,12 +35,8 @@
     onFocus="onFocus"
     onConfirm="onConfirm"
   >
-    <view slot="prefix">
-      <slot name="prefix" />
-    </view>
-    <view slot="suffix">
-      <slot name="suffix" />
-    </view>
+    <slot slot="prefix" name="prefix" />
+    <slot slot="suffix" name="suffix" />
   </input>
   <view slot="extra">
     <slot name="extra">
