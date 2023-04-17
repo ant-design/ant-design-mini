@@ -524,7 +524,10 @@ export class Form {
     const field = this.fields[name];
     if (field) {
       field.setValue(value);
-      field.validate();
+      field.setValidatorStatus({
+        status: 'success',
+        errors: [],
+      });
     }
   }
 
