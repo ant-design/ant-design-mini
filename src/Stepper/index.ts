@@ -98,8 +98,13 @@ Component({
           const addTemp = upStep(value, step, precision);
           result = Math.min(addTemp, max);
         }
-        const { needUpdate } = this.update(result);
-        if (this.props.onChange && needUpdate) {
+        if (!this.isControlled()) {
+          const { needUpdate } = this.update(result);
+          if (!needUpdate) {
+            return;
+          }
+        }
+        if (this.props.onChange) {
           this.props.onChange(result, fmtEvent(this.props, e));
         }
       }
