@@ -110,7 +110,7 @@ class Field extends EventEmitter{
       } else if (trigger === 'deriveDataFromProps') {
         const props = this.ref.getProps();
         if (value.name && value.name !== props.name || value.required !== props.required || value.label !== props.label || value.message !== props.message || value.validateTrigger !== props.validateTrigger) {
-          this.create(value.name, initialValues[value.name], rules[value.name], validateMessages, value.required, value.message, value.label, value.validateTrigger);
+          this.create(value.name, initialValues[value.name], rules[value.name], validateMessages, value.required, value.message, value.label, value.validateTrigger, true);
         }
         if (value.name !== props.name) {
           this.emit('replaceName', value.name);
@@ -133,10 +133,17 @@ class Field extends EventEmitter{
     label: string,
     message: string,
     validateTrigger: ValidateTrigger,
+    update?: boolean,
   ) {
     this.name = name;
     this.required = this.transformValidatorRules(name, rule, required, label, message, validateMessages);
-    this.reset(initialValue);
+    if (!update) {
+      this.reset(initialValue);
+    } else {
+      this.ref.setFormData({
+        required: this.required,
+      });
+    }
     let validateTriggerList: ValidateTrigger[] | ValidateTrigger = validateTrigger || 'onChange';
     if (!Array.isArray(validateTriggerList)) {
       validateTriggerList = [validateTriggerList];
