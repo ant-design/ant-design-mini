@@ -18,6 +18,7 @@
       cancelText="{{cancelText}}"
       okText="{{okText}}"
       placeholder="{{placeholder}}"
+      animationType="{{ animationType }}"
       maskClosable="{{maskClosable}}"
       maskStyle="{{maskStyle}}"
       popClassName="{{popClassName}}"

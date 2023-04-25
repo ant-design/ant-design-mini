@@ -32,6 +32,11 @@ export interface IPopupProps extends IBaseProps {
    */
   animation: boolean;
   /**
+   * @desciption  动画类型
+   * @default "transform"
+   */
+  animationType: 'transform' | 'position';
+  /**
    * @description 过渡动画时长，单位毫秒
    */
   duration: number;
@@ -64,4 +69,5 @@ export const PopupDefaultProps: Partial<IPopupProps> = {
   // 弹窗层级
   zIndex: 998,
   showMask: true,
+  animationType: 'transform',
 };

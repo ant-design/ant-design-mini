@@ -26,58 +26,111 @@
     animation-timing-function: ease-out;
     color: @COLOR_TEXT_PRIMARY;
   }
-  &-top {
-    top: 0;
-    left: 0;
-    right: 0;
-    animation-name: ant-popup-top;
-    border-radius: 0 0 @popup-radius @popup-radius;
-    &-close {
-      animation-name: ant-popup-top-close;
+  &-transform {
+    &-top {
+      top: 0;
+      left: 0;
+      right: 0;
+      animation-name: ant-popup-transform-top;
+      border-radius: 0 0 @popup-radius @popup-radius;
+      &-close {
+        animation-name: ant-popup-transform-top-close;
+      }
+    }
+    &-right {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      animation-name: ant-popup-transform-right;
+      &-close {
+        animation-name: ant-popup-transform-right-close;
+      }
+    }
+    &-bottom {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      animation-name: ant-popup-transform-bottom;
+      border-radius: @popup-radius @popup-radius 0 0;
+      &-close {
+        animation-name: ant-popup-transform-bottom-close;
+      }
+    }
+    &-left {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      animation-name: ant-popup-transform-left;
+      &-close {
+        animation-name: ant-popup-transform-left-close;
+      }
+    }
+    &-center {
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      animation-name: ant-popup-transform-center;
+      border-radius: @popup-radius;
+      background: none;
+      &-close {
+        animation-name: ant-popup-transform-center-close;
+      }
     }
   }
-  &-right {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    animation-name: ant-popup-right;
-    &-close {
-      animation-name: ant-popup-right-close;
+  &-position {
+    &-top {
+      top: 0;
+      left: 0;
+      right: 0;
+      animation-name: ant-popup-position-top;
+      border-radius: 0 0 @popup-radius @popup-radius;
+      &-close {
+        animation-name: ant-popup-position-top-close;
+      }
     }
-  }
-  &-bottom {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    animation-name: ant-popup-bottom;
-    border-radius: @popup-radius @popup-radius 0 0;
-    &-close {
-      animation-name: ant-popup-bottom-close;
+    &-right {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      animation-name: ant-popup-position-right;
+      &-close {
+        animation-name: ant-popup-position-right-close;
+      }
     }
-  }
-  &-left {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    animation-name: ant-popup-left;
-    &-close {
-      animation-name: ant-popup-left-close;
+    &-bottom {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      animation-name: ant-popup-position-bottom;
+      border-radius: @popup-radius @popup-radius 0 0;
+      &-close {
+        animation-name: ant-popup-position-bottom-close;
+      }
     }
-  }
-  &-center {
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    animation-name: ant-popup-center;
-    border-radius: @popup-radius;
-    background: none;
-    &-close {
-      animation-name: ant-popup-center-close;
+    &-left {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      animation-name: ant-popup-position-left;
+      &-close {
+        animation-name: ant-popup-position-left-close;
+      }
+    }
+    &-center {
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      animation-name: ant-popup-position-center;
+      border-radius: @popup-radius;
+      background: none;
+      &-close {
+        animation-name: ant-popup-position-center-close;
+      }
     }
   }
 }
 
-@keyframes ant-popup-top {
+@keyframes ant-popup-transform-top {
   0% {
     transform: translateY(-100%);
   }
@@ -86,7 +139,7 @@
   }
 }
 
-@keyframes ant-popup-bottom {
+@keyframes ant-popup-transform-bottom {
   0% {
     transform: translateY(100%);
   }
@@ -95,7 +148,7 @@
   }
 }
 
-@keyframes ant-popup-left {
+@keyframes ant-popup-transform-left {
   0% {
     transform: translateX(-100%);
   }
@@ -104,7 +157,7 @@
   }
 }
 
-@keyframes ant-popup-right {
+@keyframes ant-popup-transform-right {
   0% {
     transform: translateX(100%);
   }
@@ -113,7 +166,7 @@
   }
 }
 
-@keyframes ant-popup-center {
+@keyframes ant-popup-transform-center {
   0% {
     transform: translate3d(-50%, -50%, 0) scale(0.1);
     opacity: 0;
@@ -124,7 +177,7 @@
   }
 }
 
-@keyframes ant-popup-top-close {
+@keyframes ant-popup-transform-top-close {
   0% {
     transform: translateY(0);
   }
@@ -133,7 +186,7 @@
   }
 }
 
-@keyframes ant-popup-bottom-close {
+@keyframes ant-popup-transform-bottom-close {
   0% {
     transform: translateY(0);
   }
@@ -142,7 +195,7 @@
   }
 }
 
-@keyframes ant-popup-left-close {
+@keyframes ant-popup-transform-left-close {
   0% {
     transform: translateX(0);
   }
@@ -151,7 +204,7 @@
   }
 }
 
-@keyframes ant-popup-right-close {
+@keyframes ant-popup-transform-right-close {
   0% {
     transform: translateX(0);
   }
@@ -160,7 +213,104 @@
   }
 }
 
-@keyframes ant-popup-center-close {
+@keyframes ant-popup-transform-center-close {
+  0% {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
+  }
+}
+@keyframes ant-popup-position-top {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes ant-popup-position-bottom {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes ant-popup-position-left {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes ant-popup-position-right {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes ant-popup-position-center {
+  0% {
+    transform: translate3d(-50%, -50%, 0) scale(0.1);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ant-popup-position-top-close {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+@keyframes ant-popup-position-bottom-close {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+
+@keyframes ant-popup-position-left-close {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes ant-popup-position-right-close {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -100%;
+  }
+}
+
+@keyframes ant-popup-position-center-close {
   0% {
     opacity: 1;
     transform: translate3d(-50%, -50%, 0) scale(1);

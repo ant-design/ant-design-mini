@@ -19,6 +19,7 @@
   className="ant-picker-popup {{popClassName || ''}}"
   style="{{popStyle || ''}}"
   position="bottom"
+  animationType="{{ animationType }}"
   maskClosable
   destroyOnClose
   onClose="onMaskDismiss"

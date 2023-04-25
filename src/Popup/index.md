@@ -20,10 +20,11 @@ toc: 'content'
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
 | animation | 是否开启过渡动画 | boolean | true |  
+| animationType | 动画类型，可选`transform` `position`，默认使用`transform`动画性能更好。但当弹窗内部存在fixed定位或者picker-view元素时可能存在样式问题，可切换为`position`解决 | string | `transform` |  
 | className | 类名 | string | - | 
 | destroyOnClose | 不可见时卸载内容 | boolean | false | 
 | duration | 过渡动画时长，单位毫秒 | number | 300 | 
-| height | 高度, 在 position 为 `top` 或 `bottom` 时使用，单位px | number | - | 
+| height | 高度，在 position 为 `top` 或 `bottom` 时使用，单位px。可选，不传时根据内容区高度自适应。 | number | - | 
 | maskClassName | 蒙层的类名 | string | - | 
 | maskStyle | 蒙层的样式 | string | - | 
 | position | 弹窗布局，可选`top` `bottom` `left` `right` | string | `bottom` | 

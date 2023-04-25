@@ -9,6 +9,11 @@ export declare type PickerValue = string | number | (string | number)[];
  */
 export interface IPickerProps extends IBaseProps {
   /**
+   * @desciption  动画类型
+   * @default "transform"
+   */
+  animationType: 'transform' | 'position';
+  /**
    * @description picker 数据
    */
   value: PickerValue;

@@ -22,6 +22,7 @@
       popClassName="{{popClassName}}"
       style="{{style}}"
       popStyle="{{popStyle}}"
+      animationType="{{ animationType }}"
       disabled="{{disabled}}"
       title="{{title}}" 
       maskClassName="{{maskClassName}}"
