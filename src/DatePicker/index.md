@@ -72,7 +72,7 @@ toc: 'content'
 | popClassName |  弹出框类名 | string | - |
 | popStyle |  弹出框样式 | string | - |
 | precision | 选择精度，可选`year` `month` `day` `hour` `minute` | string | `day` | 
-| splitCharacter | 显示连接符 | string | ~ |  
+| splitCharacter | 显示连接符 | string | - |  
 | startPlaceholder | 开始时间提示文案 | string | 未选择 |  
 | prefix |  前缀 | slot | - |
 | style | 样式| string | - |
