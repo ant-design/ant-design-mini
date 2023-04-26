@@ -3,6 +3,7 @@
   popClassName="ant-date-picker-popup {{popClassName || ''}}"
   style="{{style}}"
   popStyle="{{popStyle}}"
+  animationType="{{ animationType }}"
   options="{{columns}}"
   value="{{currentValue}}"
   disabled="{{disabled}}"

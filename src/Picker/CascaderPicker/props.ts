@@ -11,6 +11,11 @@ export interface ICascaderOption {
  */
 export interface ICascaderProps extends IBaseProps {
   /**
+   * @desciption  动画类型
+   * @default "transform"
+   */
+  animationType: 'transform' | 'position';
+  /**
    * @description 当前数据
    */
   value: any[];

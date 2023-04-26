@@ -6,6 +6,11 @@ export type PickerValue = [Date, Date];
  */
 export interface IDateRangePickerProps extends IBaseProps {
   /**
+   * @desciption  动画类型
+   * @default "transform"
+   */
+  animationType: 'transform' | 'position';
+  /**
    * @description 时间格式化显示，例如YYYY-MM-DD
    */
   format: string;

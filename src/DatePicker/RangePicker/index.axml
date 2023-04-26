@@ -12,6 +12,7 @@
     className="ant-range-picker"
     popClassName="{{(!currentStartDate||!currentEndDate)?'ant-range-picker-confirm-disabled':''}} {{popClassName || ''}}"
     style="{{style}}"
+    animationType="{{ animationType }}"
     options="{{columns}}"
     value="{{currentValue}}"
     disabled="{{disabled}}"
