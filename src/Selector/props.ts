@@ -1,5 +1,6 @@
 import { IBaseProps } from '../_util/base';
 
+export type Value = string | number;
 export interface ISelectorItem {
   /**
    * @description 主文案
@@ -9,7 +10,7 @@ export interface ISelectorItem {
    * @description 选项值，在同一个 Selector 中唯一
    */
 
-  value: string;
+  value: Value;
   /**
    * @description 辅助文案
    */
@@ -29,7 +30,11 @@ export interface ISelectorProps extends IBaseProps {
   /**
    * @description 已选择项, 取 items 每一项的 value
    */
-  value: string[];
+  value: Value | Value[];
+  /**
+   * @description 默认选择项, 取 items 每一项的 value
+   */
+  defaultValue: Value | Value[];
   /**
    * @description 可选项
    */
@@ -62,18 +67,18 @@ export interface ISelectorProps extends IBaseProps {
   maxSelectedCount: number;
   disabled: boolean;
   onChange(
-    value: string | string[],
-    item: ISelectorItem | ISelectorItem[],
+    value: Value | Value[] | undefined,
+    item: ISelectorItem | ISelectorItem[] | undefined,
     e: Record<string, any>
   ): void;
   /**
    * @description 触发最大限制
    */
-  onSelectMax(value: string, item: ISelectorItem, e: Record<string, any>): void;
+  onSelectMax(value: Value, item: ISelectorItem, e: Record<string, any>): void;
   /**
    * @description 触发最小限制
    */
-  onSelectMin(value: string, item: ISelectorItem, e: Record<string, any>): void;
+  onSelectMin(value: Value, item: ISelectorItem, e: Record<string, any>): void;
 }
 
 export const SelectorDefaultProps: Partial<ISelectorProps> = {
