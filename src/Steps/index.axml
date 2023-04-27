@@ -1,6 +1,6 @@
 <import-sjs from="./index.sjs" name="utils" />
 
-<view class="ant-steps ant-steps-{{direction}} {{className ? className : ''}}" style="{{style}}" onTap="onChange">
+<view class="ant-steps ant-steps-{{direction}} {{className ? className : ''}}" style="{{style}}">
   <view a:for="{{items}}"
     class="ant-steps-item ant-steps-item-{{direction}} 
     {{index < current? 'ant-steps-item-finish' : ''}} 
