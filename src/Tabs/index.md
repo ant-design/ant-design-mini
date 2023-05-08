@@ -59,6 +59,7 @@ toc: 'content'
 | direction | tabs方向, `horizontal`(水平) `vertical` (垂直) | string | horizontal |
 | items | 选项 | `Item[]` | [] |
 | plus | 右上角操作按钮插槽; <br /> slot-scope 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | slot | - |
+| scrollMode | 滚动方式，direction为horizontal生效，可选 'edge', 'center' | string | edge |
 | style | 样式| string | - |
 | tabsBarClassName | tabs bar类名 | string | - |
 | tabClassName | tab类名 | string | - |

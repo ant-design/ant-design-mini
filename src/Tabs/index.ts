@@ -66,13 +66,18 @@ Component({
       ]);
       let scrollLeft = this.scrollLeft || 0;
       let needScroll = false;
-      const distance = item.left - view.left;
-      if (distance < 0) {
-        scrollLeft = (this.scrollLeft || 0) + distance;
+      if (this.props.scrollMode === 'center') {
         needScroll = true;
-      } else if (distance + item.width > view.width) {
-        scrollLeft = (this.scrollLeft || 0) + Math.min(distance + item.width - view.width, distance);
-        needScroll = true;
+        scrollLeft += (item.left - view.left) - Math.max((view.width - item.width) / 2, 0);
+      } else {
+        const distance = item.left - view.left;
+        if (distance < 0) {
+          scrollLeft += distance;
+          needScroll = true;
+        } else if (distance + item.width > view.width) {
+          scrollLeft += Math.min(distance + item.width - view.width, distance);
+          needScroll = true;
+        }
       }
       if (needScroll) {
         if (scrollLeft === this.data.scrollLeft) {
