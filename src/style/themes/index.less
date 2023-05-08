@@ -1,13 +1,11 @@
 @import (reference) "./color.less";
 
 @hd: 1px;
-@pixelSize: 0.5 * @hd;
 @rpx: 0.5 * @hd;
-@size-base: 8 * @pixelSize; //基础
+@size-base: 8 * @rpx;
 @default-line-height: 1.4;
 
 //尺寸
-@size-base: 8 * @pixelSize; //基础
 @size-0: 0;
 @size-1: @size-base * 1;
 @size-2: @size-base * 2;
@@ -30,33 +28,33 @@
 @size-19: @size-base * 19;
 @size-20: @size-base * 20;
 
-@corner-radius-md: 8 * @pixelSize;
-@corner-radius-lg: 16 * @pixelSize;
+@corner-radius-md: 8 * @rpx;
+@corner-radius-lg: 16 * @rpx;
 
-@font-size-subcontent: 24 * @pixelSize; //次常规内容
-@font-size-content: 26 * @pixelSize; //常规内容
-@font-size-subtitle: 30 * @pixelSize; //小标题
-@font-size-list: 34 * @pixelSize; //列表
-@font-size-title: 36 * @pixelSize; //大标题
-@font-size-list: 34 * @pixelSize; //列表
-@font-size-weak: 22 * @pixelSize; //弱化内容和弱辅助文案
+@font-size-subcontent: 24 * @rpx; //次常规内容
+@font-size-content: 26 * @rpx; //常规内容
+@font-size-subtitle: 30 * @rpx; //小标题
+@font-size-list: 34 * @rpx; //列表
+@font-size-title: 36 * @rpx; //大标题
+@font-size-list: 34 * @rpx; //列表
+@font-size-weak: 22 * @rpx; //弱化内容和弱辅助文案
 
 
 @opacity-disabled: 0.4;
 @opacity-product-mask: 0.55;
 @opacity-marketing-mask: 0.75;
 
-@h-spacing-standard: 16 * @pixelSize; //标准
-@h-spacing-large: 24 * @pixelSize; //大间距
-@v-spacing-standard: 16 * @pixelSize; //标准
-@h-spacing-standard: 16 * @pixelSize; //标准
-@v-spacing-large: 24 * @pixelSize; //大间距
+@h-spacing-standard: 16 * @rpx; //标准
+@h-spacing-large: 24 * @rpx; //大间距
+@v-spacing-standard: 16 * @rpx; //标准
+@h-spacing-standard: 16 * @rpx; //标准
+@v-spacing-large: 24 * @rpx; //大间距
 
 //圆角
-@corner-radius-sm: 4 * @pixelSize; //小
-@corner-radius-md: 8 * @pixelSize; //中
-@corner-radius-md-plus: 12 * @pixelSize; //中加
-@corner-radius-lg: 16 * @pixelSize; //大
+@corner-radius-sm: 4 * @rpx; //小
+@corner-radius-md: 8 * @rpx; //中
+@corner-radius-md-plus: 12 * @rpx; //中加
+@corner-radius-lg: 16 * @rpx; //大
 @corner-radius-circle: 50vh; //圆
 
 //行高
@@ -64,14 +62,14 @@
 @line-height-paragraph: 1.5; // 多行行高
 
 //图标尺寸
-@icon-size-xs: 36 * @pixelSize; //特小
-@icon-size-sm: 44 * @pixelSize; //小
-@icon-size-md: 56 * @pixelSize; //中
-@icon-size-lg: 64 * @pixelSize; //大
+@icon-size-xs: 36 * @rpx; //特小
+@icon-size-sm: 44 * @rpx; //小
+@icon-size-md: 56 * @rpx; //中
+@icon-size-lg: 64 * @rpx; //大
 
 //边框尺寸
-@border-width-standard: 2 * @pixelSize; //标准
-@border-width-thick: 4 * @pixelSize; //粗
+@border-width-standard: 2 * @rpx; //标准
+@border-width-thick: 4 * @rpx; //粗
 
 @color-product-mask: fade(@COLOR_BLACK, @opacity-product-mask*100); //产品蒙层
 @color-marketing-mask: fade(
