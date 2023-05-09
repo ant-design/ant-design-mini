@@ -14,7 +14,7 @@ $ npm i antd-mini --save
 ``` json
 {
   "usingComponents": {
-    "button": "antd-mini/es/Button/index"
+    "button": "antd-mini/less/Button/index"
   }
 }
 ```
