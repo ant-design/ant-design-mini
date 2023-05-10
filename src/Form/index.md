@@ -91,7 +91,7 @@ Form 表单。包含数据录入、校验以及对应样式。Form组件需要 [
 ### Form
 | 属性 | 说明 | 类型 |
 | -----|-----|-----|
-| rules | 可选，校验规则 | 查看[rules](rules) |
+| rules | 可选，校验规则 | 查看[rules](#rules) |
 | initialValues | 可选，初始值 | Record<string, any> |
 | validateMessages | 可选，校验消息。| 查看[validateMessages](#validatemessages) |
 
