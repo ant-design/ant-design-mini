@@ -160,8 +160,10 @@ Component({
       const { disabled } = this.props;
       if (!disabled) {
         this.tempSelectedIndex = null;
+        const selectedIndex = this.getterSelectedIndex();
         this.setData({
           visible: true,
+          selectedIndex,
         });
         this.triggerPicker(true);
       }
