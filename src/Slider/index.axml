@@ -2,7 +2,7 @@
 
 <template name='slider-handler'>
    <view class="ant-slider-handler" style="left: {{position}}%">
-       <popover placement="top" visible="{{showTooltip}}">
+       <popover placement="top" visible="{{showTooltip}}" showMask="{{false}}">
         <slot name="slider">
           <view class="ant-slider-handler-block">
             <view class="ant-slider-handler-icon-default">
