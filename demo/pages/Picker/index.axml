@@ -8,7 +8,7 @@
       onOk="handleOk"
       defaultValue="{{defaultValue}}"
       placeholder="请选择"
-      header="请选择"
+      title="请选择"
       onChange="handleChange"
       options="{{list}}">
     </picker>
@@ -22,7 +22,7 @@
       onOk="handleOk"
       defaultValue="{{defaultValue}}"
       placeholder="请选择"
-      header="请选择"
+      title="请选择"
       onChange="handleChange"
       maskClosable
       options="{{list}}">
@@ -37,7 +37,7 @@
       onOk="handleControlledOk"
       value="{{value}}"
       placeholder="请选择"
-      header="请选择"
+      title="请选择"
       options="{{list}}">
     </picker>
   </list-item>
@@ -55,7 +55,7 @@
       onVisibleChange="handleTriggerPicker"
       onOk="handleOk"
       placeholder="请选择"
-      header="请选择"
+      title="请选择"
       onChange="handleChange"
       options="{{weekList}}">
     </picker>
