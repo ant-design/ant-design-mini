@@ -4,7 +4,6 @@
 
 .@{collapsePrefix} {
   user-select: none;
-  touch-action: none;
   width: 100%;
 
   &-track {
@@ -51,6 +50,7 @@
 
   &-handler {
     position: absolute;
+    touch-action: none;
     left: 0;
     transform: translate(-50%, -50%);
     top: 3*@rpx;
