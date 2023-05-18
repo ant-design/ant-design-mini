@@ -2,7 +2,7 @@
 
 
 <button
-  form-type="{{htmlType}}"
+  form-type="{{formType}}"
   hover-class="{{utils.getHoverClass(loading, type, activeClassName)}}"
   scope="{{scope}}"
   onTap="{{onTap ? 'onTap' : ''}}"
