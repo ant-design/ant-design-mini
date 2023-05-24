@@ -412,6 +412,10 @@ export class Form {
    * @param formConfig 表单配置项
    */
   constructor(formConfig:FormConfig = {}) {
+    const component2 = my.canIUse('component2');
+    if (!component2) {
+      throw new Error('需要使用component2');
+    }
     this.setInitialValues(formConfig.initialValues || {});
     this.setRules(formConfig.rules || {});
     this.validateMessages = formConfig.validateMessages;
