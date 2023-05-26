@@ -10,7 +10,7 @@
   overflow: hidden;
   box-sizing: border-box;
 
-  &-button {
+  & &-button {
     width: 56 * @rpx;
     height: 56 * @rpx;
     line-height: 56 * @rpx;
@@ -19,25 +19,25 @@
     background-color: @COLOR_BACKGROUND;
   }
 
-  &-button-hover {
+  & &-button-hover {
     background-color: fade(@COLOR_BLACK_CHANGE, 8%);
   }
 
-  &-button-up {
+  & &-button-up {
     border-top-left-radius: 0;
     border-top-right-radius: 4 * @rpx;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 4 * @rpx;
   }
 
-  &-button-down {
+  & &-button-down {
     border-top-right-radius: 0;
     border-top-left-radius: 4 * @rpx;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 4 * @rpx;
   }
 
-  &-button-disabled {
+  & &-button-disabled {
     color: @COLOR_TEXT_ASSIST;
   }
 
@@ -53,7 +53,7 @@
     box-sizing: border-box;
     background-color: @COLOR_BACKGROUND;
     padding: 7 *@rpx 14 *@rpx;
-    caret-color: #1677ff;
+    caret-color: @COLOR_BRAND1;
 
     &-disabled {
       opacity: 0.4;
