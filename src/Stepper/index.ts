@@ -70,6 +70,11 @@ Component({
         this.props.onChange(value === '' ? null : Number(value), fmtEvent(this.props, e));
       }
     },
+    onConfirm(value, e) {
+      if (this.props.onConfirm) {
+        this.props.onConfirm(value, fmtEvent(this.props, e));
+      }
+    },
     onBlur(e) {
       const value = this.getValue();
       if (this.isControlled()) {

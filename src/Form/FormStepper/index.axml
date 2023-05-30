@@ -26,9 +26,9 @@
       inputClassName="{{inputClassName}}"
       inputStyle="{{inputStyle}}"
       precision="{{precision}}"
-      onBlur="{{onBlur}}"
-      onConfirm="{{onConfirm}}"
-      onFocus="{{onFocus}}"
+      onBlur="onBlur"
+      onConfirm="onConfirm"
+      onFocus="onFocus"
     />
   </view>
   <view slot="extra">

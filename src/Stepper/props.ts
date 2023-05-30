@@ -8,14 +8,17 @@ export interface IStepperProps extends IBaseProps {
    * @description 输入框的值
    */
   value: number;
+  
   /**
    * @description 最小值
    */
   min: number;
+  
   /**
    * @description 最大值
    */
   max: number;
+  
   /**
    * @description 每次加减的值
    * @default 1
@@ -26,6 +29,7 @@ export interface IStepperProps extends IBaseProps {
    *  @description 输入框唤起键盘类型
    */
   type: 'number' | 'digit'
+  
   /**
    * @description 计算精度，保留几位小数
    * https://github.com/ant-design/ant-design/issues/5998
@@ -36,6 +40,7 @@ export interface IStepperProps extends IBaseProps {
    * @description 输入框类名
    */
   inputClassName: string;
+  
   /**
    * @description 输入框样式
    */
@@ -59,11 +64,19 @@ export interface IStepperProps extends IBaseProps {
   /**
    * @description 输入框初始值
    */
-   defaultValue: number;
+  defaultValue: number;
+
   /**
-   * @description 输入框宽度
+   * 
+   * @description onChange
    */
-  onChange: (value: number, e: any) => void
+  onChange: (value: number, e: any) => void;
+  
+  /**
+   * 
+   * @description onConfirm
+   */
+  onConfirm: (value: number, e: any) => void;
 }
 
 export const StepperDefaultProps: Partial<IStepperProps> = {
