@@ -21,9 +21,9 @@ createComponent({
         this.props.onFocus(fmtEvent(this.props, e));
       }
     },
-    onConfirm(e) {
+    onConfirm(value, e) {
       if (this.props.onConfirm) {
-        this.props.onConfirm(fmtEvent(this.props, e));
+        this.props.onConfirm(value, fmtEvent(this.props, e));
       }
     },
   }

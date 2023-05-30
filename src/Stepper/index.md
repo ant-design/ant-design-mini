@@ -33,5 +33,5 @@ toc: 'content'
 | value | 输入框的值, 表单提交的时候有效 | number | - |
 | onBlur | 输入框失去焦点时，触发此回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
 | onChange | 数据变化后，触发此回调 | ( value: number, [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
-| onConfirm | 点击键盘完成时触发此回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
+| onConfirm | 点击键盘完成时触发此回调 | (value: number, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
 | onFocus | 输入框聚焦时，触发此回调 | ( event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void  |
