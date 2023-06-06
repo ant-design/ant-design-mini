@@ -41,8 +41,8 @@ Component({
     moveX: 0, // 按钮滑动的位置
     tapTypeL: '', // 左侧点击中的type
     tapTypeR: '', // 右侧的点击中的type
-    leftWidth: 0, // 计算的右侧的宽度
-    rightWidth: 0, // 计算的右侧的宽度
+    leftWidth: 20, // 计算的右侧的宽度
+    rightWidth: 20, // 计算的右侧的宽度
     maxSwipeL: 0, // 左侧事件滑动最大距离
     maxSwipeR: 0, // 右侧事件滑动最大距离
     inTouch: false, // 在触摸中的状态
