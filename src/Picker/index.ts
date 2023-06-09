@@ -71,7 +71,6 @@ Component({
                 selectedIndex,
               });
             }
-            this.isChangingPickerView = false;
           }
         );
       }
@@ -88,6 +87,7 @@ Component({
           formatValue,
         });
       }
+      this.isChangingPickerView = false;
     },
     getterColumns(options) {
       let columns = [];
