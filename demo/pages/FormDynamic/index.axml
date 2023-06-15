@@ -1,10 +1,11 @@
 <form-input
-  label="用户{{index + 1}}"
-  name="account{{index}}"
+  label="{{list[index].id}}"
+  name="account{{list[index].id}}"
   required
   message="需要输入用户名"
   ref="handleRef"
   a:for="{{list}}"
+  a:key="id"
 >
   <view slot="extra" onTap="minus" data-index="{{index}}">
     <icon type="MinusCircleOutline" />
