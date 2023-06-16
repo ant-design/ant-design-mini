@@ -164,6 +164,9 @@ Component({
             }
             if(type === 'end') {
               changeMoving({ changingEnd: false, changingStart: false });
+              if (this.props.onAfterChange) {
+                this.props.onAfterChange(this.getValue(), fmtEvent(this.props, e));
+              }
             }
           });
       }
@@ -234,9 +237,6 @@ Component({
 
     handleTrackTouchEnd(e) {
       this.onTouchChanged(e, 'end');
-      if (this.props.onAfterChange) {
-        this.props.onAfterChange(this.getValue(), fmtEvent(this.props, e));
-      }
     },
   },
 });
