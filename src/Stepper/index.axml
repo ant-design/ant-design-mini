@@ -29,12 +29,12 @@
   </view>
 
   <button 
-    className="ant-stepper-button ant-stepper-button-up {{(disabled || (minin.value !== '' && mixin.value >= max)) ? 'ant-stepper-button-disabled' : ''}}"
+    className="ant-stepper-button ant-stepper-button-up {{(disabled || (mixin.value !== '' && mixin.value >= max)) ? 'ant-stepper-button-disabled' : ''}}"
     activeClassName="ant-stepper-button-hover"
     icon="AddOutline"
     type="text"
     data-mode="add"
-    disabled="{{disabled || (minin.value !== '' && mixin.value >= max)}}"
+    disabled="{{disabled || (mixin.value !== '' && mixin.value >= max)}}"
     onTap="onTap"
   >
   </button>
