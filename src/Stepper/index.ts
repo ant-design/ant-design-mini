@@ -3,7 +3,6 @@ import { upStep, downStep } from './utils';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
 
-
 Component({
   props: StepperDefaultProps,
   mixins: [mixinValue({

@@ -35,7 +35,7 @@ git clone git@github.com:ant-design/ant-design-mini.git
 
 ### 投入开发
 
-*** Tip：请遵循 git flow，正式开发时，新建 feat/xxx 或 fix/xxx 分支进行开发。 ***
+**Tip：请遵循 git flow，正式开发时，新建 feat/xxx 或 fix/xxx 分支进行开发。**
 
 ```
 // 安装依赖

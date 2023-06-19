@@ -1,3 +1,5 @@
+import type { TMixin } from "../src/mixins/value";
+
 const path = require('path');
 const cloneDeep = require('clone-deep');
 const shallowequal = require('shallowequal');
@@ -8,20 +10,32 @@ let currentName;
   map[currentName] = config;
 }
 
-interface Instance {
-  props: Record<string, any>;
-  data: Record<string, any>;
-  methods: Record<string, (this: Instance, ...args: any) => void>;
-  setData: (data: Record<string, any>, callback?: (this: Instance) => void) => void;
-  mixins?: Record<string, (this: Instance, ...args: any) => void>[]
-  onInit?: (this: Instance) => void;
-  deriveDataFromProps?: (this: Instance, nextProps: Record<string, any>) => void;
-  didUpdate?: (this: Instance, prevProps: Record<string, any>, prevData: Record<string, any>) => void;
-  didMount?: (this: Instance) => void;
-  didUnmount?: (this: Instance) => void;
+type TProps = Record<string, any>;
+
+interface IComponentOptions {
+  data?: Record<string, any>;
+  props?: Record<string, any>;
+  methods?: Record<string, (this: IComponentInstance, ...args: any) => void>;
+  mixins?: TMixin[];
+  onInit?: (this: IComponentInstance) => void;
+  deriveDataFromProps?: (this: IComponentInstance, nextProps: Record<string, any>) => void;
+  didUpdate?: (this: IComponentInstance, prevProps: TProps, prevData: Record<string, any>) => void;
+  didMount?: (this: IComponentInstance) => void;
+  didUnmount?: (this: IComponentInstance) => void;
 }
 
-function createInstance(config: Instance, props: Record<string, any>) {
+interface IComponentInstance extends IComponentOptions {
+  setData?: (data: Record<string, any>, callback?: (this: IComponentInstance) => void) => void;
+}
+
+interface ITestInstance {
+  callMethod: (methodName: string, ...args) => any;
+  getData: () => any;
+  setProps: (TProps) => void;
+  unmount: () => void;
+}
+
+function createInstance(config: IComponentOptions, props: Record<string, any>): ITestInstance {
   const component2 = typeof my !== 'undefined' && typeof (my as any).canIUse === 'function' && (my as any).canIUse('component2');
   const onInit = [];
   const didMount = [];
@@ -29,7 +43,7 @@ function createInstance(config: Instance, props: Record<string, any>) {
   const didUnmount = [];
   const deriveDataFromProps = [];
 
-  const instance: Instance = {
+  const instance = {
     ...config,
     ...config.methods,
     props: {
@@ -42,7 +56,7 @@ function createInstance(config: Instance, props: Record<string, any>) {
     methods: {
       ...config.methods,
     },
-    setData(data: Record<string, any>, callback: (this: Instance) => void) {
+    setData(data: Record<string, any>, callback: (this: IComponentInstance) => void) {
       if (shallowequal(data, instance.data)) {
         return;
       }
@@ -77,6 +91,10 @@ function createInstance(config: Instance, props: Record<string, any>) {
       }
       if (item.didUnmount) {
         didUnmount.push(item.didUnmount);
+      }
+
+      if (item.data) {
+        instance.data = Object.assign({}, item.data, instance.data);
       }
     });
   }
@@ -127,10 +145,10 @@ function createInstance(config: Instance, props: Record<string, any>) {
     callMethod(name: string, ...args: any) {
       return instance.methods[name].call(instance, ...args);
     },
-    unMount() {
+    unmount() {
       didUnmount.forEach(item => item.call(instance));
     },
-  }
+  };
 }
 
 function getInstance(name: string, props: Record<string, any>, api?: Record<string, any>) {
@@ -148,4 +166,3 @@ function getInstance(name: string, props: Record<string, any>, api?: Record<stri
 export {
   getInstance,
 };
-

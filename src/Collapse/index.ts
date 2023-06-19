@@ -3,7 +3,6 @@ import fmtEvent from '../_util/fmtEvent';
 import { IBoundingClientRect } from '../_util/base';
 import createValue from '../mixins/value';
 
-
 function getBoundingClientRect(selector: string) {
   return new Promise<IBoundingClientRect>((resolve, reject) => {
     my.createSelectorQuery()
@@ -18,7 +17,6 @@ function getBoundingClientRect(selector: string) {
       });
   });
 }
-
 
 Component({
   props: CollapseDefaultProps,

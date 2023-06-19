@@ -1,5 +1,20 @@
 import { IMixin4Legacy } from '@mini-types/alipay';
 
+export type TMixin = IMixin4Legacy<
+  Record<string, any>,
+  Record<string, any>,
+  {
+    getValue(prevData?: any): any;
+    isControlled(): boolean;
+    updateControlled(): void;
+    update(val: any, extra?: any, ...args: any): {
+      needUpdate: boolean;
+      value: any;
+    };
+    isEqualValue(prevData: any): boolean;
+  }
+>
+
 function equal(a, b) {
   if (a === b) {
     return true;
@@ -10,7 +25,9 @@ function equal(a, b) {
   return false;
 }
 
-const component2 = my.canIUse('component2');
+const ifComponent2 = () => {
+  return my.canIUse('component2');
+};
 
 export default ({
   valueKey = 'value',
@@ -54,7 +71,7 @@ export default ({
       }
     },
     didUpdate(prevProps) {
-      if (component2) {
+      if (ifComponent2()) {
         return;
       }
       if (!equal(prevProps[valueKey], this.props[valueKey])) {
@@ -64,7 +81,7 @@ export default ({
       }
     },
     didMount() {
-      if (component2) {
+      if (ifComponent2()) {
         return;
       }
       const value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
@@ -116,18 +133,5 @@ export default ({
         };
       },
     },
-  } as IMixin4Legacy<
-    Record<string, any>,
-    Record<string, any>,
-    {
-      getValue(prevData?: any): any;
-      isControlled(): boolean;
-      updateControlled() : void;
-      update(val: any, extra?: any, ...args: any): {
-        needUpdate: boolean;
-        value: any;
-      };
-      isEqualValue(prevData: any): boolean;
-    }
-  >
+  } as TMixin;
 };

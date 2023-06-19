@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`stepper load stepper 1`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "",
+  },
+}
+`;
+
+exports[`stepper 初始值0，步长 0.01 1`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "0",
+  },
+}
+`;
+
+exports[`stepper 初始值0，步长 0.01 2`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "0.01",
+  },
+}
+`;
+
+exports[`stepper 初始值0，步长 0.01 3`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "0",
+  },
+}
+`;
+
+exports[`stepper 初始值0，步长 0.01 4`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "0.01",
+  },
+}
+`;
+
+exports[`stepper 初始值0，步长 0.01 5`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "0",
+  },
+}
+`;
+
+exports[`stepper 受控组件 1`] = `
+Object {
+  "mixin": Object {
+    "controlled": true,
+    "updated": true,
+    "value": "0",
+  },
+}
+`;
+
+exports[`stepper 受控组件 2`] = `
+Object {
+  "mixin": Object {
+    "controlled": true,
+    "updated": true,
+    "value": "0",
+  },
+}
+`;
+
+exports[`stepper 受控组件 3`] = `
+Object {
+  "mixin": Object {
+    "controlled": true,
+    "updated": true,
+    "value": "10",
+  },
+}
+`;
+
+exports[`stepper 变更输入框 1`] = `
+Object {
+  "mixin": Object {
+    "controlled": true,
+    "updated": true,
+    "value": "0",
+  },
+}
+`;
+
+exports[`stepper 限制范围 [0,5] 1`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "0",
+  },
+}
+`;
+
+exports[`stepper 限制范围 [0,5] 2`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "5",
+  },
+}
+`;
+
+exports[`stepper 限制范围 [0,5] 3`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "5",
+  },
+}
+`;
+
+exports[`stepper 限制范围 [0,5] 4`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "0",
+  },
+}
+`;
+
+exports[`stepper 限制范围 [0,5] 5`] = `
+Object {
+  "mixin": Object {
+    "controlled": false,
+    "updated": true,
+    "value": "0",
+  },
+}
+`;
