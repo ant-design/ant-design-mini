@@ -31,10 +31,17 @@
   />
 </container>
 
-<container title="计算精度">
+<container title="指定精度">
   <stepper 
     defaultValue="{{1.23}}"
     precision="{{1}}"
+    step="{{0.1}}"
+  />
+</container>
+
+<container title="空输入">
+  <stepper 
+    defaultValue=" "
     step="{{0.1}}"
   />
 </container>
