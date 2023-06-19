@@ -1,5 +1,5 @@
 import { StepperDefaultProps } from './props';
-import { upStep, downStep } from './utils';
+import { upStep, downStep, getValidNumber } from './utils';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
 
@@ -7,7 +7,8 @@ Component({
   props: StepperDefaultProps,
   mixins: [mixinValue({
     transformValue(num) {
-      const { valid, value } = this.getValidNumber(num);
+      const { min = -Infinity, max = Infinity } = this.props;
+      const { valid, value } = getValidNumber(num, min, max);
       if (valid && this.getValue() !== value) {
         return {
           needUpdate: true,
@@ -20,43 +21,6 @@ Component({
     },
   })],
   methods: {
-    getValidNumber(value) {
-      if (typeof value === 'undefined' || value === null) {
-        return {
-          valid: true,
-          value: '',
-        };
-      }
-      let num: number;
-      const { min = -Infinity, max = Infinity } = this.props;
-      if (typeof value === 'string') {
-        if (/^\s*$/.test(value)) {
-          return {
-            valid: true,
-            value: '',
-          };
-        }
-        if (!isNaN(Number(value))) {
-          num = Number(value);
-        }
-      } else {
-        num = value;
-      }
-      if (num > max) {
-        num = max;
-      } else if (num < min) {
-        num = min;
-      }
-      if (typeof num === 'number' && !isNaN(value)) {
-        return {
-          valid: true,
-          value: String(num),
-        };
-      }
-      return {
-        valid: false,
-      };
-    },
     onFocus(e) {
       const value = this.getValue();
       if (this.props.onFocus) {

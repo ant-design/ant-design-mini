@@ -10,6 +10,43 @@ export function isNotCompleteNumber(num: any): boolean {
   );
 }
 
+export function getValidNumber(value, min, max) {
+  if (typeof value === 'undefined' || value === null) {
+    return {
+      valid: true,
+      value: '',
+    };
+  }
+  let num: number;
+  if (typeof value === 'string') {
+    if (/^\s*$/.test(value)) {
+      return {
+        valid: true,
+        value: '',
+      };
+    }
+    if (!isNaN(Number(value))) {
+      num = Number(value);
+    }
+  } else {
+    num = value;
+  }
+  if (num > max) {
+    num = max;
+  } else if (num < min) {
+    num = min;
+  }
+  if (typeof num === 'number' && !isNaN(value)) {
+    return {
+      valid: true,
+      value: String(num),
+    };
+  }
+  return {
+    valid: false,
+  };
+};
+
 export function toNumber(num: string, precision?: number): undefined | number {
   // num.length > 16 => This is to prevent input of large numbers
   const numberIsTooLarge = num && num.length > 16;
