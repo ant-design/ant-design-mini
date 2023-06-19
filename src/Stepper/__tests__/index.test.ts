@@ -1,6 +1,6 @@
 import { getInstance } from '../../../tests/utils';
 import fmtEvent from '../../_util/fmtEvent';
-import { downStep, getMaxPrecision, getPrecision, upStep } from '../utils';
+import { downStep, getMaxPrecision, getPrecision, upStep, getValidNumber } from '../utils';
 
 const component2 = {
   canIUse: (name) => name === 'component2',
@@ -112,6 +112,21 @@ describe('stepper', () => {
 
     expect(upStep(1.53, 0.1, 1)).toBe(2); // 不合预期，先按现有代码写用例，后续应该把代码改了
     expect(upStep(1.23, 0.1, 1)).toBe(1); // 同上，不合预期
+  });
+
+  it('getValidNumber', async () => {
+    const result = getValidNumber(0, -Infinity, Infinity);
+    expect(result.valid).toBeTruthy();
+    expect(result.value).toBe('0');
+
+    const result2 = getValidNumber('', -Infinity, Infinity);
+    expect(result2.valid).toBeTruthy();
+    expect(result2.value).toBe('');
+
+    const result3 = getValidNumber('-40', -Infinity, Infinity);
+    expect(result3.valid).toBeTruthy();
+    expect(result3.value).toBe('-40');
+
   });
 
   it('计算精度', async () => {
