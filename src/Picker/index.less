@@ -10,9 +10,6 @@
   &-disabled {
     color: @COLOR_TEXT_WEAK;
   }
-  &-placeholder {
-    color: @picker-placeholder-color;
-  }
   &-header {
     position: relative;
     display: flex;
@@ -64,7 +61,15 @@
         linear-gradient(to top, fade(@COLOR_CARD, 95), fade(@COLOR_CARD, 60));
     }
   }
-  &-placeholder {
-    color: @picker-placeholder-color;
+  &-value {
+    &-placeholder,
+    &-text {
+      &:not(:nth-child(1):nth-last-child(1)) {
+        display: none;
+      }
+    }
+    &-placeholder {
+      color: @picker-placeholder-color;
+    }
   }
 }
