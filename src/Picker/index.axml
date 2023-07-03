@@ -5,14 +5,15 @@
   onTap="onOpen"
 >
   <slot name="prefix"/>
-  <slot name="content">
-    <view a:if="{{formatValue}}" class="ant-picker-text">
+  <view class="ant-picker-value">
+    <slot name="content"/>
+    <view a:if="{{formatValue}}" class="ant-picker-value-text">
       {{formatValue}}
     </view>
-    <view a:elif="{{placeholder}}" class="ant-picker-placeholder">
+    <view a:elif="{{placeholder}}" class="ant-picker-value-placeholder">
       {{placeholder}}
     </view>
-  </slot>
+  </view>
   <slot name="suffix"/>
 </view>
 <popup
