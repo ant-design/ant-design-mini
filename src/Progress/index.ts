@@ -31,20 +31,12 @@ Component({
       if (this.ctx) return;
       const systemInfo = await my.getSystemInfo();
       const { pixelRatio } = systemInfo;
-      return new Promise<void>((resolve) => {
-        this.ctx = my.createCanvasContext(`progress-canvas-${this.$id}`);
-        this.ctx.imageSmoothingEnabled = true;
-        this.ctx.imageSmoothingQuality = 'high';
-        my.createSelectorQuery()
-          .select('.ant-progress')
-          .boundingClientRect()
-          .exec((res) => {
-            const { width } = res[0];
-            this.setData({
-              canvasWidth: width * pixelRatio,
-            });
-            resolve();
-          });
+      const { width } = this.props;
+      this.ctx = my.createCanvasContext(`progress-canvas-${this.$id}`);
+      this.ctx.imageSmoothingEnabled = true;
+      this.ctx.imageSmoothingQuality = 'high';
+      this.setData({
+        canvasWidth: width * pixelRatio,
       });
     },
     clearCanvas() {
@@ -58,7 +50,6 @@ Component({
       let curRad = Math.floor((prev / 100) * 360);
       const targetRad = Math.floor((this.data.curProgress / 100) * 360);
       const direction = curRad < targetRad ? 1 : -1;
-
       const draw = () => {
         if (curRad == targetRad) return;
         curRad = direction * this.props.speed + curRad;
