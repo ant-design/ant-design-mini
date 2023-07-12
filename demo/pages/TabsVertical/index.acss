@@ -1,10 +1,13 @@
 .tabs {
   height: 80vh;
 }
+
 .content {
   padding: 12px;
   height: 100%;
+  box-sizing: border-box;
 }
+
 .footer {
   background-color: #fff;
   height: 20vh;
