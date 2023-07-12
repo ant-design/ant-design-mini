@@ -1,5 +1,5 @@
 .tabs {
-  height: 100vh;
+  height: 80vh;
 }
 
 .content {
@@ -20,3 +20,7 @@
   width: 80px;
 }
 
+.footer {
+  background-color: #fff;
+  height: 20vh;
+}

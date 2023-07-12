@@ -75,11 +75,17 @@
 <view a:else class="ant-vtabs {{className ? className : ''}}" style="{{style}}">
   <view class="ant-vtabs-bar {{tabsBarClassName ? tabsBarClassName : ''}}">
     <scroll-view class="ant-vtabs-bar-scroll-view"
-      scroll-top="{{tabTop}}"
-      scroll-y="{{true}}">
+      id="ant-tabs-bar-scroll-view-{{$id}}"
+      onScroll="onScroll"
+      scroll-top="{{scrollTop}}"
+      scroll-y="{{true}}"
+      scroll-with-animation="{{true}}"
+      scroll-animation-duration="{{300}}"
+    >
       <view class="ant-vtabs-bar-item-wrap">
         <view
           a:for="{{items}}"
+          id="ant-tabs-bar-item-{{$id}}-{{index}}"
           class="ant-vtabs-bar-item {{tabClassName ? tabClassName: ''}} {{mixin.value === index&&!item.disabled?'ant-vtabs-bar-item-active' :''}} {{item.disabled?'ant-vtabs-bar-item-disabled' : '' }} {{mixin.value === index&!item.disabled&&tabActiveClassName?tabActiveClassName : ''}}"
           style="{{`${mixin.value + 1 === index ? 'border-radius: 0 16rpx 0 0': ''};${mixin.value - 1 === index ? 'border-radius: 0 0 16rpx 0': ''}`}}"
           onTap="onChange"

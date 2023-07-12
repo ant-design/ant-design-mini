@@ -23,3 +23,6 @@
     </view>
   </scroll-view>
 </tabs>
+
+<view class="footer">
+</view>
