@@ -30,16 +30,21 @@ Component({
     defaultValueKey: 'defaultCurrent',
   })],
   scrollLeft: 0,
+  scrollTop: 0,
   didMount() {
-    this.updateScrollLeft();
+    this.updateScroll();
   },
   didUpdate(prevProps, prevData) {
     if (prevProps.items !== this.props.items || !this.isEqualValue(prevData)) {
-      this.updateScrollLeft();
+      this.updateScroll();
     }
   },
   methods: {
     async onScroll(e) {   
+      if (this.props.direction === 'vertical') {
+        this.scrollTop = e.detail.scrollTop;
+        return;
+      }
       this.scrollLeft = e.detail.scrollLeft;
       this.updateFade();
     },
@@ -55,15 +60,38 @@ Component({
         rightFade: item.left + item.width / 2 > view.width,
       });
     },
-    async updateScrollLeft() {
-      if (this.props.direction === 'vertical') {
-        return;
-      }
+    async updateScroll() {
       const current = this.getValue();
       const [view, item] = await Promise.all([
         getBoundingClientRect(`#ant-tabs-bar-scroll-view-${this.$id}`),
         getBoundingClientRect(`#ant-tabs-bar-item-${this.$id}-${current}`),
       ]);
+      if (this.props.direction === 'vertical') { 
+        let scrollTop = this.scrollTop || 0;
+        let needScroll = false;
+        if (this.props.scrollMode === 'center') {
+          needScroll = true;
+          scrollTop += (item.top - view.top) - Math.max((view.height - item.height) / 2, 0);
+        } else {
+          const distance = item.top - view.top;
+          if (distance < 0) {
+            scrollTop += distance;
+            needScroll = true;
+          } else if (distance + item.height > view.height) {
+            scrollTop += Math.min(distance + item.height - view.height, distance);
+            needScroll = true;
+          }
+        }
+        if (needScroll) {
+          if (scrollTop === this.data.scrollTop) {
+            scrollTop += Math.random();
+          }
+          this.setData({
+            scrollTop,
+          });
+        }
+        return;
+      }
       let scrollLeft = this.scrollLeft || 0;
       let needScroll = false;
       if (this.props.scrollMode === 'center') {
