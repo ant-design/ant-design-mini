@@ -32,7 +32,7 @@ Component({
       const systemInfo = await my.getSystemInfo();
       const { pixelRatio } = systemInfo;
       const { width } = this.props;
-      this.ctx = my.createCanvasContext(`progress-canvas-${this.$id}`);
+      this.ctx = my.createCanvasContext(`ant-progress-canvas-${this.$id}`);
       this.ctx.imageSmoothingEnabled = true;
       this.ctx.imageSmoothingQuality = 'high';
       this.setData({

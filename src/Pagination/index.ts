@@ -12,7 +12,7 @@ Component({
     async clacWidth() {
       return new Promise<number>((resolve) => {
         my.createSelectorQuery()
-          .select(`#pageInfinite${this.$id}`)
+          .select(`#ant-pageInfinite-${this.$id}`)
           .boundingClientRect()
           .exec((ret) => {
             if (ret && ret[0]) {

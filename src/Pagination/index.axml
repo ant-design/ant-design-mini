@@ -1,6 +1,6 @@
 <import-sjs name="sjs" from='./index.sjs' />
 <view class="ant-page-infinite {{className||''}}" style="{{style || ''}}">
-    <scroll-view scroll-x="true" class="ant-page-infinite-content"  id="pageInfinite{{$id}}" onScroll="{{supportSjs?sjs.changeScollDistance:'onScroll'}}">
+    <scroll-view scroll-x="true" class="ant-page-infinite-content"  id="ant-pageInfinite-{{$id}}" onScroll="{{supportSjs?sjs.changeScollDistance:'onScroll'}}">
         <slot></slot>
     </scroll-view>
     <view class="ant-page-infinite-wrap">
