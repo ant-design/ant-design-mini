@@ -3,7 +3,7 @@
   <canvas 
     a:if="{{ type === 'circle' }}" 
     class="ant-progress-canvas" 
-    id="progress-canvas-{{$id}}" 
+    id="ant-progress-canvas-{{$id}}" 
     width="{{canvasWidth}}"
     height="{{canvasWidth}}" />
   <view 
