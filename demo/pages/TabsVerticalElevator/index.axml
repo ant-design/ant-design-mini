@@ -15,9 +15,9 @@
     scroll-animation-duration="{{scrollAnimationDuration}}"
     class="content"
   >
-    <view a:for="{{items}}" class="item">
-      <view class="title tab-item" id="tab-item-{{index}}">{{item.title}}</view>
-      <view>{{item.content}}</view>
+    <view a:for="{{items}}" class="item tab-item">
+      <view class="title tab-item-title" id="tab-item-title-{{index}}">{{item.title}}</view>
+      <view class="title tab-item-content" id="tab-item-content-{{index}}" >{{item.content}}</view>
     </view>
   </scroll-view>
 </tabs>

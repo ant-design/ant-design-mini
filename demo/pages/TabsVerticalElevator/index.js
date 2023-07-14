@@ -35,13 +35,24 @@ Page({
     this.initIntersectionObserver();
   },
   initIntersectionObserver() {
-    const IO = my.createIntersectionObserver({
+    // 观察 title
+    const titleIO = my.createIntersectionObserver({
       selectAll: true,
     });
-    IO.relativeTo('#scroll-view').observe('.tab-item', (res) => {
+    titleIO.relativeTo('#scroll-view').observe('.tab-item-title', (res) => {
       if (res.intersectionRatio > 0) {
         // https://opendocs.alipay.com/mini/api/intersectionobserver
         // console.log(res, 'intersectionObserver');
+        !this.scrollAnimating && this.setCurrent(res.id);
+      }
+    });
+
+    // 观察 content
+    const contentIO = my.createIntersectionObserver({
+      selectAll: true,
+    });
+    contentIO.relativeTo('#scroll-view').observe('.tab-item-content', (res) => {
+      if (res.intersectionRatio > 0) {
         !this.scrollAnimating && this.setCurrent(res.id);
       }
     });
@@ -51,7 +62,7 @@ Page({
     this.setData(
       {
         current,
-        scrollIntoView: `tab-item-${current}`,
+        scrollIntoView: `tab-item-title-${current}`,
       },
       () => {
         const timer = setTimeout(() => {
