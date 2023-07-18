@@ -121,13 +121,16 @@ describe('stepper', () => {
     expect(instance1.getData().mixin.value).toBe('0.0');
 
     const instance2 = getInstance('Stepper', {
-      defaultValue: 0.1,
-      step: 0.2,
+      defaultValue: 0.2,
+      step: 0.1,
+      onChange(value: number | null) {
+        expect(value).toBe(0.3);
+      },
     }, my);
     instance2.callMethod('onTap', fmtEvent({
-      'data-mode': 'minus',
+      'data-mode': 'add',
     }));
-    expect(instance2.getData().mixin.value).toBe('-0.1');
+    expect(instance2.getData().mixin.value).toBe('0.3');
   });
 
 

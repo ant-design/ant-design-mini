@@ -49,8 +49,7 @@ Component({
       }
     },
     onTap(e) {
-      const { step, disabled } = this.props;
-      const { min = -Infinity, max = Infinity } = this.props;
+      const { step, disabled, min = -Infinity, max = Infinity } = this.props;
       const value = Number(this.getValue());
       if (!disabled) {
         const { mode } = e.currentTarget.dataset;
@@ -76,7 +75,8 @@ Component({
           }
         }
         if (this.props.onChange) {
-          this.props.onChange(result, fmtEvent(this.props, e));
+          const { value } = getValidNumber(result, min, max, step, precision);
+          this.props.onChange(Number(value), fmtEvent(this.props, e));
         }
       }
     },
