@@ -3,10 +3,19 @@ Page({
     
   },
   onChange(value) {
-    console.log(value);
+    console.log('onChange', value);
+  },
+  onFocus(value) {
+    console.log('onFocus', value);
+  },
+  onConfirm(value) {
+    console.log('onConfirm', value);
+  },
+  onBlur(value) {
+    console.log('onBlur', value);
   },
   handleChange(value) {
-    console.log(value);
+    console.log('onChange', value);
     this.setData({
       value,
     });
