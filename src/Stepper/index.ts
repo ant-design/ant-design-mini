@@ -1,5 +1,5 @@
 import { StepperDefaultProps } from './props';
-import { upStep, downStep } from './utils';
+import { getPrecision, getValidNumber } from './utils';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
 
@@ -7,8 +7,8 @@ import mixinValue from '../mixins/value';
 Component({
   props: StepperDefaultProps,
   mixins: [mixinValue({
-    transformValue(num) {
-      const { valid, value } = this.getValidNumber(num);
+    transformValue(num, extra, precision) {
+      const { valid, value } = getValidNumber(num, this.props.min, this.props.max, this.props.step, precision >= 0 ? precision : this.props.precision);
       if (valid && this.getValue() !== value) {
         return {
           needUpdate: true,
@@ -21,46 +21,9 @@ Component({
     },
   })],
   methods: {
-    getValidNumber(value) {
-      if (typeof value === 'undefined' || value === null) {
-        return {
-          valid: true,
-          value: '',
-        };
-      }
-      let num: number;
-      const { min = -Infinity, max = Infinity } = this.props;
-      if (typeof value === 'string') {
-        if (/^\s*$/.test(value)) {
-          return {
-            valid: true,
-            value: '',
-          };
-        }
-        if (!isNaN(Number(value))) {
-          num = Number(value);
-        }
-      } else {
-        num = value;
-      }
-      if (num > max) {
-        num = max;
-      } else if (num < min) {
-        num = min;
-      }
-      if (typeof num === 'number' && !isNaN(value)) {
-        return {
-          valid: true,
-          value: String(num),
-        };
-      }
-      return {
-        valid: false,
-      };
-    },
     onFocus(e) {
-      const value = this.getValue();
       if (this.props.onFocus) {
+        const value = this.getValue();
         this.props.onFocus(value === '' ? null : Number(value), fmtEvent(this.props, e));
       }
     },
@@ -70,41 +33,44 @@ Component({
         this.props.onChange(value === '' ? null : Number(value), fmtEvent(this.props, e));
       }
     },
-    onConfirm(value, e) {
+    onConfirm(val, e) {
       if (this.props.onConfirm) {
-        this.props.onConfirm(value, fmtEvent(this.props, e));
+        const value = this.getValue();
+        this.props.onConfirm(value === '' ? null : Number(value), fmtEvent(this.props, e));
       }
     },
     onBlur(e) {
-      const value = this.getValue();
       if (this.isControlled()) {
         this.update(this.props.value);
       }
       if (this.props.onBlur) {
+        const value = this.getValue();
         this.props.onBlur(value === '' ? null : Number(value), fmtEvent(this.props, e));
       }
     },
     onTap(e) {
-      const { step, disabled, precision } = this.props;
+      const { step, disabled } = this.props;
       const { min = -Infinity, max = Infinity } = this.props;
-      let value = this.getValue();
-      if (value === '') {
-        value = 0;
-      }
+      const value = Number(this.getValue());
       if (!disabled) {
         const { mode } = e.currentTarget.dataset;
-        let result: number = value;
+        let result = value;
+        const precision = this.props.precision >= 0 ? this.props.precision : Math.max(getPrecision(value), getPrecision(step));
         if (mode === 'minus') {
           // 【减】按钮的操作
-          const minusTemp = downStep(value, step, precision);
-          result = Math.max(minusTemp, min);
+          result = value - step;
+          if (result < min) {
+            result = min;
+          }
         } else if (mode === 'add') {
           // 【加】按钮的操作
-          const addTemp = upStep(value, step, precision);
-          result = Math.min(addTemp, max);
+          result = value + step;
+          if (result > max) {
+            result = max;
+          }
         }
         if (!this.isControlled()) {
-          const { needUpdate } = this.update(result);
+          const { needUpdate } = this.update(result, {}, precision);
           if (!needUpdate) {
             return;
           }

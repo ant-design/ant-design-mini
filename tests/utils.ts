@@ -78,6 +78,12 @@ function createInstance(config: Instance, props: Record<string, any>) {
       if (item.didUnmount) {
         didUnmount.push(item.didUnmount);
       }
+      if (item.data) {
+        instance.data = {
+          ...item.data,
+          ...instance.data,
+        };
+      }
     });
   }
 
