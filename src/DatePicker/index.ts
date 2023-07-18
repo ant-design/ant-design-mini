@@ -65,8 +65,8 @@ Component({
       } else {
         const now = new Date();
         if (
-          !(min && dayjs(now).isBefore(dayjs(min as any))) &&
-          !(max && dayjs(now).isAfter(dayjs(max as any)))
+          !(min && dayjs(now).isBefore(dayjs(min as any), precision)) &&
+          !(max && dayjs(now).isAfter(dayjs(max as any), precision))
         ) {
           return getValueByDate(now, precision);
         } else {

@@ -122,8 +122,8 @@ Component({
           const { max } = currentProps;
           currentStartDate = new Date();
           if (
-            (min && currentStartDate < min) ||
-            (max && currentStartDate > max) ||
+            (min && dayjs(currentStartDate).isBefore(min, precision)) ||
+            (max && dayjs(currentStartDate).isAfter(max, precision)) ||
             (currentEndDateByCValue &&
               currentStartDate > currentEndDateByCValue)
           ) {
