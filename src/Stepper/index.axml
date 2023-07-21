@@ -33,7 +33,7 @@
     icon="AddOutline"
     type="text"
     data-mode="add"
-    disabled="{{disabled || (Number(mixin.value) >= max)}}"
+    disabled="{{disabled || mixin.value >= max}}"
     onTap="onTap"
   >
   </button>
