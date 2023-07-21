@@ -49,9 +49,9 @@ Page({
     }
     this.scrollTop = e.detail.scrollTop;
     const scrollTop = this.scrollTop + this.itemRectList[0].top;
-    for(let i=0;i<this.itemRectList.length - 1;i++) {
+    for(let i=0;i<this.itemRectList.length;i++) {
       const item = this.itemRectList[i];
-      if (scrollTop > item.top && scrollTop < this.itemRectList[i+1].top && i !== this.data.current) {
+      if (scrollTop > item.top && (!this.itemRectList[i+1] || scrollTop < this.itemRectList[i+1].top) && i !== this.data.current) {
         this.setData({
           current: i,
         });
