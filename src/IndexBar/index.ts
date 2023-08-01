@@ -100,8 +100,12 @@ Component({
       const { topRange, currentKey, moving } = this.data;
       const { items } = this.props;
       const { scrollTop } = e.detail;
-      
-      const newIndex = topRange.findIndex((h) => scrollTop + 1 < h);
+      let newIndex = 0;
+      if (scrollTop + 1 > topRange[topRange.length - 1]) {
+        newIndex = topRange.length;
+      } else {
+        newIndex = topRange.findIndex((h) => scrollTop + 1 < h);
+      }
       if (currentKey !== newIndex - 1 && newIndex - 1 >= 0 && !moving) {
         this.setData({ currentKey: newIndex - 1 });
         this.onAlphabetClick(items[newIndex - 1], newIndex - 1);
