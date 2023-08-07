@@ -18,7 +18,7 @@ toc: 'content'
 ### DatePicker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| animationType | 动画类型，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影样式在IOS下可能存在样式问题，可暂切换为`position`解决 | string | `transform` |  
+| animationType | 动画类型，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影样式在 iOS 下可能存在样式问题，可暂切换为`position`解决 | string | `transform` |  
 | className | 类名| string | - |
 | defaultValue | 默认选中的时间 | Date | - |  
 | disabled | 是否禁用  | boolean | false | 
@@ -52,7 +52,7 @@ toc: 'content'
 ### RangePicker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
-| animationType | 动画类型，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影样式在IOS下可能存在样式问题，可暂切换为`position`解决 | string | `transform` |  
+| animationType | 动画类型，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影样式在 iOS 下可能存在样式问题，可暂切换为`position`解决 | string | `transform` |  
 | className | 类名| string | - |
 | defaultValue | 默认选中的时间 | [Date,Date] | - |  
 | disabled | 是否禁用  | boolean | false | 

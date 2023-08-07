@@ -2,7 +2,6 @@ import { InputDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
 
-
 Component({
   props: InputDefaultProps,
   mixins: [mixinValue()],
