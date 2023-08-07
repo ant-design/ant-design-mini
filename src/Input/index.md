@@ -75,7 +75,7 @@ https://opendocs.alipay.com/mini/component/input
 https://opendocs.alipay.com/mini/component/textarea
 
 ### Input focus
-使用focus属性需要在app.json window里加上 `"enableInPageRenderInput": "YES"`，否则无法在IOS里打开键盘。
+使用focus属性需要在app.json window里加上 `"enableInPageRenderInput": "YES"`，否则无法在 iOS 里打开键盘。
 
 ### Input, Textarea 实例方法
 实例方案需要小程序 `component2` 可使用
