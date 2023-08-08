@@ -283,14 +283,14 @@ type ValidatorStatus = {
 ### FormImageUpload
 同 ImageUpload
 
-### createform
+### createForm
 
-createform是一个mixin，在自定义表单项使用
+createForm是一个mixin，在自定义表单项使用
 ```js
-import { createform } from 'antd-mini/es/Form/form';
+import { createForm } from 'antd-mini/es/Form/form';
 
 Component({
-  mixins: [createform()],
+  mixins: [createForm()],
   methods: {
     onChange(value) {
       this.emit('onChange', value);
@@ -299,7 +299,7 @@ Component({
 })
 ```
 
-createform会在Component加上
+createForm会在Component加上
 - data
 ```js
 {
