@@ -35,7 +35,7 @@ Component({
       }
     },
     onFocus(value, e) {
-      if (this.props.onChange) {
+      if (this.props.onFocus) {
         this.props.onFocus(value, fmtEvent(this.props, e));
       }
     },
