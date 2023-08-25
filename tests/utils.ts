@@ -1,9 +1,9 @@
-const path = require('path');
-const shallowequal = require('shallowequal');
-const esbuild = require('esbuild');
-const wewe = require('os');
-const fs = require('fs');
-const vm = require('vm');
+import os from 'os';
+import esbuild from 'esbuild';
+import fs from 'fs';
+import vm from 'vm';
+import path from 'path';
+import shallowequal from 'shallowequal';
 
 interface Instance {
   props: Record<string, any>;
@@ -159,7 +159,7 @@ function getInstance(
   api?: Record<string, any>
 ) {
   const expectFile = path.join(
-    wewe.tmpdir(),
+    os.tmpdir(),
     Math.random().toString(36),
     'out.js'
   );
@@ -170,6 +170,7 @@ function getInstance(
     sourcemap: true,
   });
   const code = fs.readFileSync(expectFile, 'utf-8');
+  fs.unlinkSync(expectFile);
   let result;
   const context = vm.createContext({
     my: api,
