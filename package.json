@@ -29,11 +29,11 @@
     "@mini-types/alipay": "^3.0.5",
     "async-validator": "^4.0.7",
     "dayjs": "^1.11.3",
-    "esbuild": "^0.19.2",
     "fast-deep-equal": "3.1.3",
     "tslib": "2.5.0"
   },
   "devDependencies": {
+    "esbuild": "^0.19.2",
     "vitest": "^0.34.2",
     "@vitest/coverage-istanbul": "^0.34.2",
     "@types/less": "^3.0.3",
