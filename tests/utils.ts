@@ -176,6 +176,7 @@ function getInstance(
     bundle: true,
     outfile: expectFile,
     sourcemap: true,
+    external: ['fast-deep-equal'],
   });
 
   const instrumenter = createInstrumenter({
@@ -210,6 +211,7 @@ function getInstance(
     my: api,
     console,
     COV: cov,
+    require,
     Component: (obj) => {
       result = createInstance(obj, props, api);
     },
