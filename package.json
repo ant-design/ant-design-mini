@@ -33,12 +33,10 @@
     "tslib": "2.5.0"
   },
   "devDependencies": {
-    "esbuild": "^0.19.2",
-    "vitest": "^0.34.2",
-    "@vitest/coverage-istanbul": "^0.34.2",
     "@types/less": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
+    "@vitest/coverage-istanbul": "^0.34.2",
     "antd": "^4.20.7",
     "auto-changelog": "^2.4.0",
     "chalk": "^4.1.0",
@@ -46,6 +44,7 @@
     "conventional-changelog-cli": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
     "dumi": "^1.1.35",
+    "esbuild": "^0.19.2",
     "eslint": "^8.4.1",
     "eslint-config-ali": "^13.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -61,6 +60,7 @@
     "gulp-rename": "^1.2.3",
     "gulp-typescript": "^6.0.0-alpha.1",
     "inquirer": "^8.2.1",
+    "istanbul-lib-coverage": "^3.2.0",
     "less": "^4.1.2",
     "lint-staged": "^10.0.7",
     "merge2": "^1.4.1",
@@ -74,6 +74,7 @@
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0",
     "typescript": "^4.0.0",
+    "vitest": "^0.34.2",
     "yorkie": "^2.0.0"
   },
   "files": [
