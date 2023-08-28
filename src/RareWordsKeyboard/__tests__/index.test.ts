@@ -1,5 +1,6 @@
 import fmtEvent from '../../_util/fmtEvent';
 import { getInstance } from '../../../tests/utils';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('rare-words-keyboard', () => {
   const my = {
@@ -62,7 +63,7 @@ describe('rare-words-keyboard', () => {
   });
 
   it('rare-words-keyboard showErrorPage', async () => {
-    const onError = jest.fn();
+    const onError = vi.fn();
     const instance = getInstance(
       'RareWordsKeyboard',
       {
@@ -84,7 +85,7 @@ describe('rare-words-keyboard', () => {
   });
 
   it('rare-words-keyboard onClose', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const instance = getInstance(
       'RareWordsKeyboard',
       {
@@ -99,8 +100,8 @@ describe('rare-words-keyboard', () => {
   });
 
   it('rare-words-keyboard onChange', () => {
-    const onChange = jest.fn();
-    const onClose = jest.fn();
+    const onChange = vi.fn();
+    const onClose = vi.fn();
     const instance = getInstance(
       'RareWordsKeyboard',
       {

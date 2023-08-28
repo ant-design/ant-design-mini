@@ -1,4 +1,5 @@
 import { getInstance } from '../../../tests/utils';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('guideTour onCancel', () => {
   it('guideTour onCancel', () => {
@@ -7,7 +8,7 @@ describe('guideTour onCancel', () => {
         return true;
       },
     };
-    const onCancel = jest.fn();
+    const onCancel = vi.fn();
     const instance = getInstance(
       'GuideTour',
       {
@@ -27,7 +28,7 @@ describe('guideTour onChange', () => {
         return true;
       },
     };
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const instance = getInstance(
       'GuideTour',
       {
@@ -45,7 +46,7 @@ describe('guideTour onChange', () => {
         return true;
       },
     };
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const instance = getInstance(
       'GuideTour',
       {
@@ -65,7 +66,7 @@ describe('guideTour onChange', () => {
         return true;
       },
     };
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const instance = getInstance(
       'GuideTour',
       {
@@ -84,7 +85,7 @@ describe('guideTour onChange', () => {
         return true;
       },
     };
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const instance = getInstance(
       'GuideTour',
       {

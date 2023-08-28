@@ -1,5 +1,6 @@
 import { getInstance } from '../../../tests/utils';
 import fmtEvent from '../../_util/fmtEvent';
+import { describe, it, expect, vi } from 'vitest';
 
 const my = {
   canIUse() {
@@ -8,7 +9,7 @@ const my = {
 };
 describe('picker onVisibleChange', () => {
   it('onOpen', () => {
-    const onVisibleChange = jest.fn();
+    const onVisibleChange = vi.fn();
     const instance = getInstance(
       'Picker',
       {
@@ -20,8 +21,8 @@ describe('picker onVisibleChange', () => {
     expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
   });
   it('onMaskDismiss', () => {
-    const onVisibleChange = jest.fn();
-    const onCancel = jest.fn();
+    const onVisibleChange = vi.fn();
+    const onCancel = vi.fn();
     const instance = getInstance(
       'Picker',
       {
@@ -35,8 +36,8 @@ describe('picker onVisibleChange', () => {
     expect(onCancel).toBeCalled();
   });
   it('onCancel', () => {
-    const onVisibleChange = jest.fn();
-    const onCancel = jest.fn();
+    const onVisibleChange = vi.fn();
+    const onCancel = vi.fn();
     const instance = getInstance(
       'Picker',
       {
@@ -55,8 +56,8 @@ describe('picker select', () => {
   it('singleOptions', () => {
     const options = ['北京', '上海', '深圳', '广州'];
     const value = '北京';
-    const onChange = jest.fn();
-    const onOk = jest.fn();
+    const onChange = vi.fn();
+    const onOk = vi.fn();
     const instance = getInstance(
       'Picker',
       {
@@ -90,8 +91,8 @@ describe('picker select', () => {
         { label: '下午', value: 'pm' },
       ],
     ];
-    const onChange = jest.fn();
-    const onOk = jest.fn();
+    const onChange = vi.fn();
+    const onOk = vi.fn();
     const instance = getInstance(
       'Picker',
       {
@@ -126,7 +127,7 @@ describe('picker value', () => {
   it('props value', () => {
     const options = ['北京', '上海', '深圳', '广州'];
     const value = '上海';
-    const onOk = jest.fn();
+    const onOk = vi.fn();
     const instance = getInstance(
       'Picker',
       {
@@ -141,7 +142,7 @@ describe('picker value', () => {
   });
   it('update value', () => {
     const options = ['北京', '上海', '深圳', '广州'];
-    const onOk = jest.fn();
+    const onOk = vi.fn();
     const instance = getInstance(
       'Picker',
       {
@@ -157,7 +158,7 @@ describe('picker value', () => {
   it('empty value', () => {
     const options = ['北京', '上海', '深圳', '广州'];
     const value = '';
-    const onOk = jest.fn();
+    const onOk = vi.fn();
     const instance = getInstance(
       'Picker',
       {
@@ -175,7 +176,7 @@ describe('picker updateColumns', () => {
   it('updateColumns', () => {
     const options = ['北京', '上海', '深圳', '广州'];
     const value = '上海';
-    const onOk = jest.fn();
+    const onOk = vi.fn();
     const instance = getInstance(
       'Picker',
       {
@@ -219,7 +220,7 @@ describe('picker value component2', () => {
   it('picker value component2', () => {
     const options = [['北京', '上海', '深圳', '广州']];
     const value = ['上海'];
-    const onOk = jest.fn();
+    const onOk = vi.fn();
     const instance = getInstance(
       'Picker',
       {

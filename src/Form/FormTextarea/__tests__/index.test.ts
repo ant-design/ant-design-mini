@@ -1,4 +1,5 @@
 import { getInstance } from '../../../../tests/utils';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('test FormTextarea', () => {
   it('onFocus', () => {
@@ -7,7 +8,7 @@ describe('test FormTextarea', () => {
         return false;
       },
     };
-    const onFocus = jest.fn();
+    const onFocus = vi.fn();
     const instance = getInstance(
       'Form/FormTextarea',
       {

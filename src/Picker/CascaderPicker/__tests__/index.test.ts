@@ -1,5 +1,6 @@
 import { getInstance } from '../../../../tests/utils';
 import fmtEvent from '../../../_util/fmtEvent';
+import { describe, it, expect, vi } from 'vitest';
 
 const cityList = [
   {
@@ -38,7 +39,7 @@ const my = {
 };
 describe('cascaderPicker onVisibleChange', () => {
   it('onVisibleChange', () => {
-    const onVisibleChange = jest.fn();
+    const onVisibleChange = vi.fn();
     const instance = getInstance(
       'Picker/CascaderPicker',
       {
@@ -51,7 +52,7 @@ describe('cascaderPicker onVisibleChange', () => {
     expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
   });
   it('onCancel', () => {
-    const onCancel = jest.fn();
+    const onCancel = vi.fn();
     const instance = getInstance(
       'Picker/CascaderPicker',
       {
@@ -83,8 +84,8 @@ describe('cascaderPicker component2', () => {
 
 describe('cascaderPicker select', () => {
   it('cascaderPicker select', () => {
-    const onChange = jest.fn();
-    const onOk = jest.fn();
+    const onChange = vi.fn();
+    const onOk = vi.fn();
     const instance = getInstance(
       'Picker/CascaderPicker',
       {
@@ -117,8 +118,8 @@ describe('cascaderPicker select', () => {
 });
 describe('cascaderPicker update', () => {
   it('cascaderPicker updateValue', () => {
-    const onChange = jest.fn();
-    const onOk = jest.fn();
+    const onChange = vi.fn();
+    const onOk = vi.fn();
     const value = ['11', '110'];
     const instance = getInstance(
       'Picker/CascaderPicker',
@@ -143,8 +144,8 @@ describe('cascaderPicker update', () => {
     );
   });
   it('cascaderPicker updateOptions', () => {
-    const onChange = jest.fn();
-    const onOk = jest.fn();
+    const onChange = vi.fn();
+    const onOk = vi.fn();
     const instance = getInstance(
       'Picker/CascaderPicker',
       {
