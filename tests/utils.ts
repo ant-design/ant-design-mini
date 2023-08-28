@@ -171,6 +171,8 @@ function getInstance(
     Math.random().toString(36),
     'out.js'
   );
+  const expectFileSourcemap = expectFile + '.map';
+
   esbuild.buildSync({
     entryPoints: [path.join(__dirname, `../src/${name}/index.ts`)],
     bundle: true,
@@ -191,16 +193,16 @@ function getInstance(
 
   const sourceCode = fs.readFileSync(expectFile, 'utf-8');
 
-  const sourceMapUrl = expectFile + '.map';
   const code = instrumenter.instrumentSync(
     sourceCode,
     expectFile,
-    JSON.parse(fs.readFileSync(sourceMapUrl, 'utf8'))
+    JSON.parse(fs.readFileSync(expectFileSourcemap, 'utf8'))
   );
-  const map = instrumenter.lastSourceMap() as any;
+  const map = instrumenter.lastSourceMap();
 
-  // 替换 sourcemap
-  fs.writeFileSync(expectFile + '.map', JSON.stringify(map));
+  fs.writeFileSync(expectFile, code);
+  fs.writeFileSync(expectFileSourcemap, JSON.stringify(map));
+
   const script = new vm.Script(code, {
     filename: expectFile,
   });
