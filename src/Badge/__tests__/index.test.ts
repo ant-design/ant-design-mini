@@ -1,4 +1,5 @@
 import { getInstance } from '../../../tests/utils';
+import { describe, it, expect } from 'vitest';
 
 describe('badge overCount', () => {
   it('badge overCount true', () => {

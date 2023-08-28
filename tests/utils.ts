@@ -4,6 +4,7 @@ import fs from 'fs';
 import vm from 'vm';
 import path from 'path';
 import shallowequal from 'shallowequal';
+import { type Instrumenter, createInstrumenter } from 'istanbul-lib-instrument';
 
 interface Instance {
   props: Record<string, any>;
@@ -28,7 +29,12 @@ interface Instance {
   didUnmount?: (this: Instance) => void;
 }
 
-function createInstance(config: Instance, props: Record<string, any>, my: any) {
+function createInstance(
+  config: Instance,
+  props: Record<string, any>,
+  my: any,
+  cov: any
+) {
   const component2 =
     typeof my !== 'undefined' &&
     typeof (my as any).canIUse === 'function' &&
@@ -125,6 +131,9 @@ function createInstance(config: Instance, props: Record<string, any>, my: any) {
     getData() {
       return JSON.parse(JSON.stringify(instance.data));
     },
+    getcov() {
+      return cov;
+    },
     setProps(props: Record<string, any>) {
       if (shallowequal(props, instance.props)) {
         return;
@@ -169,17 +178,42 @@ function getInstance(
     outfile: expectFile,
     sourcemap: true,
   });
-  const code = fs.readFileSync(expectFile, 'utf-8');
+
+  const instrumenter = createInstrumenter({
+    produceSourceMap: true,
+    autoWrap: false,
+    esModules: true,
+    compact: false,
+    coverageVariable: '__ANTD_COVERAGE__',
+    coverageGlobalScope: 'COV',
+    coverageGlobalScopeFunc: false,
+  });
+
+  const sourceCode = fs.readFileSync(expectFile, 'utf-8');
+
+  const code = instrumenter.instrumentSync(
+    sourceCode,
+    expectFile,
+    JSON.parse(fs.readFileSync(expectFile + '.map', 'utf8'))
+  );
+
   fs.unlinkSync(expectFile);
+
   let result;
+  const cov = {};
   const context = vm.createContext({
     my: api,
     console,
+    COV: cov,
     Component: (obj) => {
-      result = createInstance(obj, props, api);
+      result = createInstance(obj, props, api, cov);
     },
   });
+
+  globalThis.componentCoverage.push(cov);
+
   vm.runInContext(code, context);
+
   return result;
 }
 
