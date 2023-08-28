@@ -1,10 +1,10 @@
-import os from 'os';
 import esbuild from 'esbuild';
 import fs from 'fs';
-import vm from 'vm';
+import { createInstrumenter } from 'istanbul-lib-instrument';
+import os from 'os';
 import path from 'path';
 import shallowequal from 'shallowequal';
-import { type Instrumenter, createInstrumenter } from 'istanbul-lib-instrument';
+import vm from 'vm';
 
 interface Instance {
   props: Record<string, any>;
@@ -29,12 +29,14 @@ interface Instance {
   didUnmount?: (this: Instance) => void;
 }
 
-function createInstance(
-  config: Instance,
-  props: Record<string, any>,
-  my: any,
-  cov: any
-) {
+export interface TestInstance {
+  getData: () => Record<string, any>;
+  setProps: (props: Record<string, any>) => void;
+  callMethod: (name: string, ...args: any) => any;
+  unMount: () => void;
+}
+
+function createInstance(config: Instance, props: Record<string, any>, my: any) {
   const component2 =
     typeof my !== 'undefined' &&
     typeof (my as any).canIUse === 'function' &&
@@ -131,9 +133,6 @@ function createInstance(
     getData() {
       return JSON.parse(JSON.stringify(instance.data));
     },
-    getcov() {
-      return cov;
-    },
     setProps(props: Record<string, any>) {
       if (shallowequal(props, instance.props)) {
         return;
@@ -166,7 +165,7 @@ function getInstance(
   name: string,
   props: Record<string, any>,
   api?: Record<string, any>
-) {
+): TestInstance {
   const expectFile = path.join(
     os.tmpdir(),
     Math.random().toString(36),
@@ -191,13 +190,19 @@ function getInstance(
 
   const sourceCode = fs.readFileSync(expectFile, 'utf-8');
 
+  const sourceMapUrl = expectFile + '.map';
   const code = instrumenter.instrumentSync(
     sourceCode,
     expectFile,
-    JSON.parse(fs.readFileSync(expectFile + '.map', 'utf8'))
+    JSON.parse(fs.readFileSync(sourceMapUrl, 'utf8'))
   );
+  const map = instrumenter.lastSourceMap() as any;
 
-  fs.unlinkSync(expectFile);
+  // 替换 sourcemap
+  fs.writeFileSync(expectFile + '.map', JSON.stringify(map));
+  const script = new vm.Script(code, {
+    filename: expectFile,
+  });
 
   let result;
   const cov = {};
@@ -206,13 +211,13 @@ function getInstance(
     console,
     COV: cov,
     Component: (obj) => {
-      result = createInstance(obj, props, api, cov);
+      result = createInstance(obj, props, api);
     },
   });
 
   globalThis.componentCoverage.push(cov);
 
-  vm.runInContext(code, context);
+  script.runInContext(context);
 
   return result;
 }

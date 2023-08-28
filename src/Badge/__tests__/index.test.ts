@@ -12,6 +12,7 @@ describe('badge overCount', () => {
     const instance = getInstance('Badge', {
       text: 75,
     });
+
     expect(instance.getData().overCount).toBe(false);
   });
 });

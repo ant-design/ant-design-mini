@@ -11,6 +11,9 @@ Component({
     }),
   ],
   methods: {
+    gek() {
+      throw new Error('TODO: TabBar');
+    },
     onChange(e) {
       const { index } = e.target.dataset;
       const { onChange } = this.props;
