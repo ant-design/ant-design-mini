@@ -1,17 +1,18 @@
 import { getInstance } from '../../../tests/utils';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('button onTap', () => {
   it('button onTap', () => {
-    const onTap = jest.fn();
+    const onTap = vi.fn();
     const instance = getInstance('Button', {
       onTap,
     });
     instance.callMethod('onTap');
     expect(onTap).toBeCalled();
   });
-  
+
   it('button disabled', () => {
-    const onTap = jest.fn();
+    const onTap = vi.fn();
     const instance = getInstance('Button', {
       onTap,
       disabled: true,
@@ -19,9 +20,9 @@ describe('button onTap', () => {
     instance.callMethod('onTap');
     expect(onTap).not.toBeCalled();
   });
-  
+
   it('button loading', () => {
-    const onTap = jest.fn();
+    const onTap = vi.fn();
     const instance = getInstance('Button', {
       onTap,
       loading: true,
@@ -33,17 +34,16 @@ describe('button onTap', () => {
 
 describe('button catchTap', () => {
   it('button catchTap', () => {
-
-    const catchTap = jest.fn();
+    const catchTap = vi.fn();
     const instance = getInstance('Button', {
       catchTap,
     });
     instance.callMethod('catchTap');
     expect(catchTap).toBeCalled();
   });
-  
+
   it('button disabled', () => {
-    const catchTap = jest.fn();
+    const catchTap = vi.fn();
     const instance = getInstance('Button', {
       catchTap,
       disabled: true,
@@ -51,9 +51,9 @@ describe('button catchTap', () => {
     instance.callMethod('catchTap');
     expect(catchTap).not.toBeCalled();
   });
-  
+
   it('button loading', () => {
-    const catchTap = jest.fn();
+    const catchTap = vi.fn();
     const instance = getInstance('Button', {
       catchTap,
       loading: true,
@@ -65,7 +65,7 @@ describe('button catchTap', () => {
 
 describe('button extra function', () => {
   it('button onGetAuthorize', () => {
-    const onGetAuthorize = jest.fn();
+    const onGetAuthorize = vi.fn();
     const instance = getInstance('Button', {
       onGetAuthorize,
     });
@@ -74,7 +74,7 @@ describe('button extra function', () => {
   });
 
   it('button onFollowLifestyle', () => {
-    const onFollowLifestyle = jest.fn();
+    const onFollowLifestyle = vi.fn();
     const instance = getInstance('Button', {
       onFollowLifestyle,
     });
@@ -83,7 +83,7 @@ describe('button extra function', () => {
   });
 
   it('button onError', () => {
-    const onError = jest.fn();
+    const onError = vi.fn();
     const instance = getInstance('Button', {
       onError,
     });
@@ -92,7 +92,7 @@ describe('button extra function', () => {
   });
 
   it('button onGetUserInfo', () => {
-    const onGetUserInfo = jest.fn();
+    const onGetUserInfo = vi.fn();
     const instance = getInstance('Button', {
       onGetUserInfo,
     });
@@ -101,7 +101,7 @@ describe('button extra function', () => {
   });
 
   it('button onGetUserInfo', () => {
-    const onGetPhoneNumber = jest.fn();
+    const onGetPhoneNumber = vi.fn();
     const instance = getInstance('Button', {
       onGetPhoneNumber,
     });
@@ -109,4 +109,3 @@ describe('button extra function', () => {
     expect(onGetPhoneNumber).toBeCalled();
   });
 });
-

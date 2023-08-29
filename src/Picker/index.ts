@@ -92,7 +92,7 @@ Component({
     getterColumns(options) {
       let columns = [];
       if (options.length > 0) {
-        if (options.every((item) => item instanceof Array)) {
+        if (options.every((item) => Array.isArray(item))) {
           this.single = false;
           columns = options.slice();
         } else {
@@ -103,7 +103,7 @@ Component({
       return columns;
     },
     defaultFormat(value, column) {
-      if (column instanceof Array) {
+      if (Array.isArray(column)) {
         return column
           .filter((c) => c !== undefined)
           .map(function (c) {

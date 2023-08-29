@@ -1,6 +1,7 @@
 import { getInstance } from '../../../tests/utils';
 import fmtEvent from '../../_util/fmtEvent';
 import { getPrecision, getValidNumber } from '../utils';
+import { describe, it, expect } from 'vitest';
 
 describe('stepper', () => {
   const my = {
@@ -57,131 +58,194 @@ describe('stepper', () => {
       value: '1.0',
     });
   });
-  
+
   it('stepper defaultValue', async () => {
-    const instance = getInstance('Stepper', {
-      defaultValue: 1.02,
-    }, my);
+    const instance = getInstance(
+      'Stepper',
+      {
+        defaultValue: 1.02,
+      },
+      my
+    );
     expect(instance.getData().mixin.value).toBe('1.02');
   });
 
   it('stepper defaultValue with step', async () => {
-    const instance = getInstance('Stepper', {
-      defaultValue: 0,
-      step: 0.1
-    }, my);
+    const instance = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0,
+        step: 0.1,
+      },
+      my
+    );
     expect(instance.getData().mixin.value).toBe('0.0');
   });
 
-  
   it('stepper defaultValue with precision', async () => {
-    const instance1 = getInstance('Stepper', {
-      defaultValue: 1.02,
-      precision: 1
-    }, my);
+    const instance1 = getInstance(
+      'Stepper',
+      {
+        defaultValue: 1.02,
+        precision: 1,
+      },
+      my
+    );
     expect(instance1.getData().mixin.value).toBe('1.0');
 
-    const instance2 = getInstance('Stepper', {
-      defaultValue: 1.05,
-      precision: 1
-    }, my);
+    const instance2 = getInstance(
+      'Stepper',
+      {
+        defaultValue: 1.05,
+        precision: 1,
+      },
+      my
+    );
     expect(instance2.getData().mixin.value).toBe('1.1');
   });
 
-
   it('stepper add', async () => {
-    const instance1 = getInstance('Stepper', {
-      defaultValue: 0.9,
-      step: 0.1,
-    }, my);
-    instance1.callMethod('onTap', fmtEvent({
-      'data-mode': 'add',
-    }));
+    const instance1 = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0.9,
+        step: 0.1,
+      },
+      my
+    );
+    instance1.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
     expect(instance1.getData().mixin.value).toBe('1.0');
 
-    const instance2 = getInstance('Stepper', {
-      defaultValue: 0.9,
-      step: 0.12,
-    }, my);
-    instance2.callMethod('onTap', fmtEvent({
-      'data-mode': 'add',
-    }));
+    const instance2 = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0.9,
+        step: 0.12,
+      },
+      my
+    );
+    instance2.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
     expect(instance2.getData().mixin.value).toBe('1.02');
   });
 
-
   it('stepper minus', async () => {
-    const instance1 = getInstance('Stepper', {
-      defaultValue: 0.1,
-      step: 0.1,
-    }, my);
-    instance1.callMethod('onTap', fmtEvent({
-      'data-mode': 'minus',
-    }));
+    const instance1 = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0.1,
+        step: 0.1,
+      },
+      my
+    );
+    instance1.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'minus',
+      })
+    );
     expect(instance1.getData().mixin.value).toBe('0.0');
 
-    const instance2 = getInstance('Stepper', {
-      defaultValue: 0.2,
-      step: 0.1,
-      onChange(value: number | null) {
-        expect(value).toBe(0.3);
+    const instance2 = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0.2,
+        step: 0.1,
+        onChange(value: number | null) {
+          expect(value).toBe(0.3);
+        },
       },
-    }, my);
-    instance2.callMethod('onTap', fmtEvent({
-      'data-mode': 'add',
-    }));
+      my
+    );
+    instance2.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
     expect(instance2.getData().mixin.value).toBe('0.3');
   });
 
-
   it('stepper add with precision', async () => {
-    const instance = getInstance('Stepper', {
-      defaultValue: 1.02,
-      step: 0.1,
-      precision: 1
-    }, my);
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'add',
-    }));
+    const instance = getInstance(
+      'Stepper',
+      {
+        defaultValue: 1.02,
+        step: 0.1,
+        precision: 1,
+      },
+      my
+    );
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
     expect(instance.getData().mixin.value).toBe('1.1');
   });
 
-
   it('stepper minus with precision', async () => {
-    const instance = getInstance('Stepper', {
-      defaultValue: 1.02,
-      step: 0.1,
-      precision: 1
-    }, my);
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'minus',
-    }));
+    const instance = getInstance(
+      'Stepper',
+      {
+        defaultValue: 1.02,
+        step: 0.1,
+        precision: 1,
+      },
+      my
+    );
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'minus',
+      })
+    );
     expect(instance.getData().mixin.value).toBe('0.9');
   });
 
   it('stepper controlled', async () => {
     let onChangeValue: number | null;
-    const instance = getInstance('Stepper', {
-      value: 1.02,
-      step: 0.1,
-      precision: 1,
-      onChange(value: number | null) {
-        onChangeValue = value;
-      }
-    }, my);
+    const instance = getInstance(
+      'Stepper',
+      {
+        value: 1.02,
+        step: 0.1,
+        precision: 1,
+        onChange(value: number | null) {
+          onChangeValue = value;
+        },
+      },
+      my
+    );
     expect(instance.getData().mixin.value).toBe('1.0');
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'minus',
-    }));
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'minus',
+      })
+    );
     expect(onChangeValue).toBe(0.9);
     expect(instance.getData().mixin.value).toBe('1.0');
     instance.setProps({
       value: 0.9,
     });
     expect(instance.getData().mixin.value).toBe('0.9');
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'add',
-    }));
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
     expect(onChangeValue).toBe(1);
     expect(instance.getData().mixin.value).toBe('0.9');
     instance.setProps({
@@ -201,31 +265,50 @@ describe('stepper', () => {
   });
 
   it('stepper mix max', async () => {
-    const instance = getInstance('Stepper', {
-      defaultValue: 0.1,
-      step: 0.1,
-      min: 0,
-      max: 0.2,
-    }, my);
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'minus',
-    }));
+    const instance = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0.1,
+        step: 0.1,
+        min: 0,
+        max: 0.2,
+      },
+      my
+    );
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'minus',
+      })
+    );
     expect(instance.getData().mixin.value).toBe('0.0');
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'minus',
-    }));
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'minus',
+      })
+    );
     expect(instance.getData().mixin.value).toBe('0.0');
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'add',
-    }));
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
     expect(instance.getData().mixin.value).toBe('0.1');
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'add',
-    }));
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
     expect(instance.getData().mixin.value).toBe('0.2');
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'add',
-    }));
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
     expect(instance.getData().mixin.value).toBe('0.2');
   });
 
@@ -234,33 +317,43 @@ describe('stepper', () => {
     let onChangeValue: number | null;
     let onConfirmValue: number;
     let onBlurValue: number | null;
-    const instance = getInstance('Stepper', {
-      defaultValue: 0.1,
-      step: 0.1,
-      onFocus(value: number | null) {
-        onFoucsValue = value;
+    const instance = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0.1,
+        step: 0.1,
+        onFocus(value: number | null) {
+          onFoucsValue = value;
+        },
+        onChange(value: number | null) {
+          onChangeValue = value;
+        },
+        onConfirm(value: number | null) {
+          onConfirmValue = value;
+        },
+        onBlur(value: number | null) {
+          onBlurValue = value;
+        },
       },
-      onChange(value: number | null) {
-        onChangeValue = value;
-      },
-      onConfirm(value: number | null) {
-        onConfirmValue = value;
-      },
-      onBlur(value: number | null) {
-        onBlurValue = value;
-      }
-    }, my);
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'minus',
-    }));
+      my
+    );
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'minus',
+      })
+    );
     expect(onChangeValue).toBe(0);
-    instance.callMethod('onTap', fmtEvent({
-      'data-mode': 'add',
-    }));
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
     expect(onChangeValue).toBe(0.1);
     instance.callMethod('onChange', '.');
     expect(onChangeValue).toBe(0.1);
-    
+
     instance.callMethod('onChange', '');
     expect(onChangeValue).toBe(null);
     instance.callMethod('onFocus');
@@ -278,13 +371,17 @@ describe('stepper', () => {
     instance.callMethod('onConfirm');
     expect(onConfirmValue).toBe(1);
 
-    const instance2 = getInstance('Stepper', {
-      value: 0.1,
-      step: 0.1,
-      onBlur(value: number | null) {
-        onBlurValue = value;
-      }
-    }, my);
+    const instance2 = getInstance(
+      'Stepper',
+      {
+        value: 0.1,
+        step: 0.1,
+        onBlur(value: number | null) {
+          onBlurValue = value;
+        },
+      },
+      my
+    );
 
     instance2.setProps({
       value: 1,

@@ -1,8 +1,9 @@
 import { getInstance } from '../../../tests/utils';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('grid onTap', () => {
   it('grid onTap', () => {
-    const onTap = jest.fn();
+    const onTap = vi.fn();
     const instance = getInstance('Grid', {
       onTap,
     });
@@ -12,7 +13,7 @@ describe('grid onTap', () => {
 });
 describe('grid onFirstAppear', () => {
   it('grid onFirstAppear', () => {
-    const onFirstAppear = jest.fn();
+    const onFirstAppear = vi.fn();
     const instance = getInstance('Grid', {
       onFirstAppear,
     });

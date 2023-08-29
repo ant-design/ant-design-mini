@@ -1,5 +1,6 @@
 import { getInstance } from '../../../tests/utils';
 import fmtEvent from '../../_util/fmtEvent';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('tabBar onChange', () => {
   const my = {
@@ -19,7 +20,7 @@ describe('tabBar onChange', () => {
     },
   ];
   it('tabBar onChange', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const instance = getInstance(
       'TabBar',
       {
@@ -35,7 +36,7 @@ describe('tabBar onChange', () => {
     expect(onChange).toBeCalledTimes(1);
   });
   it('tabBar controlled', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const instance = getInstance(
       'TabBar',
       {

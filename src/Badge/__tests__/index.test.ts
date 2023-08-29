@@ -1,4 +1,5 @@
 import { getInstance } from '../../../tests/utils';
+import { describe, it, expect } from 'vitest';
 
 describe('badge overCount', () => {
   it('badge overCount true', () => {
@@ -11,6 +12,7 @@ describe('badge overCount', () => {
     const instance = getInstance('Badge', {
       text: 75,
     });
+
     expect(instance.getData().overCount).toBe(false);
   });
 });

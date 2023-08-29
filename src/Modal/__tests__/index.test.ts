@@ -1,19 +1,19 @@
 import { getInstance } from '../../../tests/utils';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('modal onClose', () => {
   it('modal onClose', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const instance = getInstance('Modal', {
       onClose,
     });
     instance.callMethod('onClose');
     expect(onClose).toBeCalled();
   });
-
 });
 describe('modal onMaskClose', () => {
   it('modal onMaskClose', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const instance = getInstance('Modal', {
       onClose,
       maskClosable: true,
@@ -23,7 +23,7 @@ describe('modal onMaskClose', () => {
   });
 
   it('maskClosable false', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const instance = getInstance('Modal', {
       onClose,
       maskClosable: false,
@@ -34,7 +34,7 @@ describe('modal onMaskClose', () => {
 });
 describe('modal button function', () => {
   it('modal onPrimaryButtonTap', () => {
-    const onPrimaryButtonTap = jest.fn();
+    const onPrimaryButtonTap = vi.fn();
     const instance = getInstance('Modal', {
       onPrimaryButtonTap,
     });
@@ -43,7 +43,7 @@ describe('modal button function', () => {
   });
 
   it('modal onSecondaryButtonTap', () => {
-    const onSecondaryButtonTap = jest.fn();
+    const onSecondaryButtonTap = vi.fn();
     const instance = getInstance('Modal', {
       onSecondaryButtonTap,
     });
@@ -51,7 +51,7 @@ describe('modal button function', () => {
     expect(onSecondaryButtonTap).toBeCalled();
   });
   it('modal onCancelButtonTap', () => {
-    const onCancelButtonTap = jest.fn();
+    const onCancelButtonTap = vi.fn();
     const instance = getInstance('Modal', {
       onCancelButtonTap,
     });
