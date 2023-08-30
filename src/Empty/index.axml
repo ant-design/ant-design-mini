@@ -2,7 +2,7 @@
   <view class="ant-empty">
     <view class="ant-empty-image">
       <slot name="image">
-        <image src="{{image || 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ'}}" />
+        <image class="ant-empty-image-element" src="{{image || 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ'}}" />
       </slot>
     </view>
     <view class="ant-empty-text">
