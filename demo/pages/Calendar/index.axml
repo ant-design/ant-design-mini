@@ -1,0 +1,10 @@
+<!-- <container title="默认情况下显示当月">
+  <calendar />
+</container> -->
+
+
+<container title="默认情况下显示当月">
+  <view >
+    <calendar />
+  </view>
+</container>

@@ -1,0 +1,32 @@
+<import-sjs from="./index.sjs" name="{getClassName}" />
+
+<view class="ant-calendar {{className ? className : ''}}" style="{{style}}">
+  <view class="ant-calendar-mark">
+    <view a:for="{{ markItems }}" class="ant-calendar-mark-cell">
+      <text>{{item}}</text>
+    </view>
+  </view>
+  <view class="ant-calendar-body">
+    <view a:for="{{ monthList }}" a:for-item="currentMonth">
+      <view class="ant-calendar-title">
+        {{currentMonth.title}}
+      </view>
+      <view class="ant-calendar-cells">
+        <view
+          a:for="{{ currentMonth.cells }}"
+          class="{{getClassName(item)}}"
+          data-time="{{item}}"
+          onTap="clickCell"
+        >
+          <view class="ant-calendar-cell-top">
+            {{item.topLabel}}
+          </view>
+          <view class="ant-calendar-cell-center">
+            {{item.date}}
+          </view>
+          <view class="ant-calendar-cell-bottom"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,99 @@
+@import (reference) './variable.less';
+
+@checkboxItemPrefix: ant-calendar;
+
+.@{checkboxItemPrefix} {
+  color: @COLOR_TEXT_PRIMARY;
+
+
+
+  &-mark {
+
+    height: 88rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    padding: 0 8px;
+
+    & &-cell {
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+  &-title {
+    background: #f8f8f8;
+    color: #333333;
+    font-size: 36rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    padding-left: 40rpx;
+  }
+
+  &-body {
+    max-height: 1070rpx;
+    overflow: scroll;
+  }
+
+  &-cells {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 8px 8px 4px;
+  }
+
+  &-cell {
+    flex: none;
+    box-sizing: border-box;
+    width: calc(100% / 7);
+    height: 110rpx;
+    padding-top: 7rpx;
+    padding-bottom: 8rpx;
+    margin-bottom: 8rpx;
+
+    &-top{
+      text-align: center;
+      font-size: 18rpx;
+      height: 25rpx;
+    }
+
+    &-center{
+      text-align: center;
+      height: 45rpx;
+      font-size: 32rpx;
+    }
+
+    &-bottom{
+      text-align: center;
+      font-size: 18rpx;
+      height: 25rpx;
+    }
+
+    &-selected{
+      background: rgba(22,119,255,0.10);
+    }
+
+    &-selected-begin{
+      background: #1677FF;
+      // border-radius: 8px;
+      color: white;
+    }
+    
+    &-selected-end{
+      background: #1677FF;
+      // border-radius: 8px;
+      color: white;
+    }
+  }
+
+
+
+  &-cell-disabled {
+    opacity: 0;
+  }
+}
