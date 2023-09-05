@@ -11,13 +11,14 @@ function getClassName(value) {
   } = value;
 
   const classNames = {
-    ['disabled']: disabled || !inThisMonth,
+    ['disabled']: disabled,
     ['today']: inThisMonth && isToday,
     ['selected']: inThisMonth && isSelect,
     ['selected-begin']: inThisMonth && isBegin,
     ['selected-end']: inThisMonth && isEnd,
     ['selected-row-begin']: inThisMonth && isSelectRowBegin,
     ['selected-row-end']: inThisMonth && isSelectRowEnd,
+    ['hidden']: !inThisMonth
   };
 
   let result = 'ant-calendar-cell';
@@ -29,4 +30,14 @@ function getClassName(value) {
   return result;
 }
 
-export default { getClassName };
+
+
+
+function handleScroll(v) {
+
+}
+
+export default {
+  getClassName,
+  handleScroll
+};

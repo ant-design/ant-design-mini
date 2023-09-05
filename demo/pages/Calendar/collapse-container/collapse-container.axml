@@ -1,0 +1,12 @@
+<container title="{{containerTitle}}">
+  <view slot="headerRight" onTap="handleToggle" data-id="demo1">
+    <text a:if="{{ !collapse }}">收起</text>
+    <text a:else>展开</text>
+  </view>
+  <view a:if="{{ !collapse }}">
+    <slot name="content"></slot>
+  </view>
+  <view a:else class="placeholder" onTap="handleToggle">
+    <text>展开</text>
+  </view>
+</container>

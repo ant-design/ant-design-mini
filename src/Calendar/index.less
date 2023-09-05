@@ -4,11 +4,27 @@
 
 .@{checkboxItemPrefix} {
   color: @COLOR_TEXT_PRIMARY;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
+  &-body {
+    flex: 1;
+  }
 
+  &-sticky {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 82rpx;
+    width: 100%;
+    overflow: hidden;
+    top: 88rpx;
+  }
 
+ 
   &-mark {
-
     height: 88rpx;
     display: flex;
     flex-direction: row;
@@ -16,13 +32,15 @@
     align-items: center;
     box-sizing: border-box;
     font-size: 28rpx;
-    padding: 0 8px;
+    padding: 0 8rpx;
 
     & &-cell {
       flex: 1;
       text-align: center;
     }
   }
+
+ 
 
   &-title {
     background: #f8f8f8;
@@ -31,11 +49,7 @@
     height: 82rpx;
     line-height: 82rpx;
     padding-left: 40rpx;
-  }
-
-  &-body {
-    max-height: 1070rpx;
-    overflow: scroll;
+    margin-bottom: 8rpx;
   }
 
   &-cells {
@@ -44,56 +58,74 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: stretch;
-    padding: 8px 8px 4px;
   }
+
+
 
   &-cell {
     flex: none;
     box-sizing: border-box;
     width: calc(100% / 7);
     height: 110rpx;
-    padding-top: 7rpx;
-    padding-bottom: 8rpx;
     margin-bottom: 8rpx;
 
-    &-top{
+    &-container {
+      padding-top: 7rpx;
+      padding-bottom: 8rpx;
+    }
+
+    &-top {
       text-align: center;
       font-size: 18rpx;
       height: 25rpx;
     }
 
-    &-center{
+    &-center {
       text-align: center;
       height: 45rpx;
       font-size: 32rpx;
     }
 
-    &-bottom{
+    &-bottom {
       text-align: center;
       font-size: 18rpx;
       height: 25rpx;
     }
 
-    &-selected{
-      background: rgba(22,119,255,0.10);
+    &-selected {
+      background: rgba(22, 119, 255, 0.10);
     }
 
-    &-selected-begin{
+    &-selected-begin {
+      border-top-left-radius: 8rpx;
+      border-bottom-left-radius: 8rpx;
+      background: rgba(22, 119, 255, 0.10);
+    }
+
+    &-selected-begin &-container {
       background: #1677FF;
-      // border-radius: 8px;
+      border-radius: 8rpx;
       color: white;
     }
-    
-    &-selected-end{
+
+    &-selected-end {
+      border-top-right-radius: 8rpx;
+      border-bottom-right-radius: 8rpx;
+      color: white;
+    }
+
+    &-selected-end &-container {
       background: #1677FF;
-      // border-radius: 8px;
+      border-radius: 8rpx;
       color: white;
     }
   }
 
-
-
   &-cell-disabled {
+    opacity: 0.4;
+  }
+
+  &-cell-hidden {
     opacity: 0;
   }
 }

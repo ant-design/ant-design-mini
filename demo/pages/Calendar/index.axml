@@ -1,10 +1,57 @@
-<!-- <container title="默认情况下显示当月">
-  <calendar />
-</container> -->
-
-
-<container title="默认情况下显示当月">
-  <view >
+<collapse-container title="默认情况下显示最近 6 个月">
+  <view slot="content" style="height:1000rpx">
     <calendar />
   </view>
-</container>
+</collapse-container>
+
+<collapse-container title="单选模式">
+  <view slot="content" style="height:1000rpx">
+    <calendar selectionMode="single"></calendar>
+  </view>
+</collapse-container>
+
+
+<collapse-container title="自定义日历顶部" defaultCollapse="{{false}}">
+  <view slot="content">
+    <view style="display:flex;justify-content:space-between;">
+      <view onTap="demo3PreviousMonth">
+        <icon type="LeftOutline" style="font-size: 20px" />
+        上个月
+      </view>
+      <view>
+        {{ demo3.title}}
+      </view>
+      <view onTap="demo3NextMonth">
+        下个月
+        <icon type="RightOutline" style="font-size: 20px" />
+      </view>
+    </view>
+    <calendar monthrange="{{demo3.monthrange}}">
+      <view slot="calendarTitle">
+      </view>
+    </calendar>
+  </view>
+</collapse-container>
+
+<collapse-container title="从周一开始">
+  <view slot="content" style="height:1000rpx">
+    <calendar weekStartsOn="Monday" />
+  </view>
+</collapse-container>
+
+<collapse-container title="禁止">
+  <view slot="content">
+    <calendar monthrange="{{demo4.monthrange}}" onFilterDate="demo4Filter" />
+  </view>
+</collapse-container>
+
+
+<collapse-container title="自定义底部农历">
+  <view slot="content">
+    <calendar monthrange="{{demo6.monthrange}}">
+      <view slot="cellEvent" slot-scope="prop">
+        <cn-day cell="{{prop.cell}}"></cn-day>
+      </view>
+    </calendar>
+  </view>
+</collapse-container>
