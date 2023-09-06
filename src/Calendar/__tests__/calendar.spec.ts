@@ -1,8 +1,7 @@
 import { getInstance } from '../../../tests/utils';
 import { describe, expect, it } from 'vitest';
 import dayjs, { Dayjs } from 'dayjs';
-import { CellState } from '../utils';
-import { ComponentProps } from '../props';
+import { CellState, ComponentProps } from '../props';
 
 class SelectorQuery {
   select() {
@@ -59,7 +58,7 @@ describe('Calendar', () => {
   it('测试 weekStartsOn', () => {
     const instance = initCalendar({
       weekStartsOn: 'Monday',
-      monthrange: [
+      monthRange: [
         new Date('2023-01-01').getTime(),
         new Date('2023-02-01').getTime(),
       ],

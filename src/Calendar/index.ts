@@ -95,8 +95,8 @@ const Calendar = (props: ComponentProps) => {
   );
 
   const monthList = getMonthListFromRange(
-    dayjs(props.monthrange[0]),
-    dayjs(props.monthrange[1])
+    dayjs(props.monthRange[0]),
+    dayjs(props.monthRange[1])
   ).map((p) => {
     return {
       title: p.format(localeText.title),
@@ -153,7 +153,7 @@ const Calendar = (props: ComponentProps) => {
 
 Component(
   alipayComponent(Calendar, {
-    monthrange: defaultMonthRange(),
+    monthRange: defaultMonthRange(),
     weekStartsOn: 'Sunday',
     localeText: defaultLocaleText,
   })

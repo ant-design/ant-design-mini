@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
-import { LocaleText, ValueType, SelectionMode } from './props';
+import { CellState, LocaleText, SelectionMode, ValueType } from './props';
 
 dayjs.extend(isoWeek);
 
@@ -51,21 +51,6 @@ export function getDate(month: Dayjs, weekStartsOn: string): Dayjs[] {
     iterator = iterator.add(1, 'day');
   }
   return cells;
-}
-
-export interface CellState {
-  disabled: boolean;
-  top?: { label: string; className?: string };
-  bottom?: { label: string; className?: string };
-
-  time: number;
-  date: number;
-  isSelect: boolean;
-  isBegin: boolean;
-  isEnd: boolean;
-  isRowBegin: boolean;
-  isRowEnd: boolean;
-  inThisMonth: boolean;
 }
 
 export function renderCells(

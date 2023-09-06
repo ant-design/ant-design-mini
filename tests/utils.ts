@@ -214,6 +214,7 @@ function getInstance(
     console,
     COV: cov,
     require,
+    setTimeout,
     Component: (obj) => {
       result = createInstance(obj, props, api);
     },

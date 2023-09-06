@@ -25,25 +25,29 @@ export interface LocaleText {
 export type ValueType = number | number[];
 export type SelectionMode = 'single' | 'range';
 
-export interface ComponentProps {
-  defaultValue?: ValueType;
-  value?: ValueType;
-  selectionMode?: SelectionMode;
-  monthrange: [number, number];
-  weekStartsOn?: 'Sunday' | 'Monday';
-  onChange?: (date: ValueType) => void;
-  localeText?: Partial<LocaleText>;
-  onFilterDate?: (date: number, value: ValueType) => boolean;
-}
+export type CustomCellState = Pick<CellState, 'disabled' | 'top' | 'bottom'>;
 
 export interface CellState {
-  topLabel?: string;
+  disabled: boolean;
+  top?: { label: string; className?: string };
+  bottom?: { label: string; className?: string };
   time: number;
   date: number;
   isSelect: boolean;
   isBegin: boolean;
   isEnd: boolean;
-  isSelectRowBegin: boolean;
-  isSelectRowEnd: boolean;
+  isRowBegin: boolean;
+  isRowEnd: boolean;
   inThisMonth: boolean;
+}
+
+export interface ComponentProps {
+  defaultValue?: ValueType;
+  value?: ValueType;
+  selectionMode?: SelectionMode;
+  monthRange: [number, number];
+  weekStartsOn?: 'Sunday' | 'Monday';
+  onChange?: (date: ValueType) => void;
+  localeText?: Partial<LocaleText>;
+  formatter?: (old: CustomCellState) => CustomCellState;
 }
