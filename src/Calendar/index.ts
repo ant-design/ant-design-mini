@@ -5,6 +5,7 @@ import {
   useEffect,
   useEvent,
   useState,
+  useComponent,
 } from 'functional-mini/component';
 import { ComponentProps, defaultLocaleText, ValueType } from './props';
 import {
@@ -15,6 +16,22 @@ import {
 } from './utils';
 
 dayjs.extend(isoWeek);
+
+function getBoundingClientRect(instance: any, selector: string) {
+  return new Promise<any>((resolve, reject) => {
+    instance
+      .createSelectorQuery()
+      .select(selector)
+      .boundingClientRect()
+      .exec((ret) => {
+        if (ret && ret[0]) {
+          resolve(ret[0]);
+        } else {
+          reject();
+        }
+      });
+  });
+}
 
 const Calendar = (props: ComponentProps) => {
   const localeText = Object.assign({}, defaultLocaleText, props.localeText);
@@ -34,13 +51,6 @@ const Calendar = (props: ComponentProps) => {
   const selectionMode =
     props.selectionMode ?? selectionModeFromValue ?? 'range';
 
-  if (
-    !!selectionModeFromValue &&
-    !!props.selectionMode &&
-    selectionModeFromValue !== props.selectionMode
-  ) {
-    console.error('selectionMode is not match with value');
-  }
   function updateValue(newValue: ValueType) {
     const isControl = typeof props.value !== 'undefined';
     if (props.onChange) {
@@ -104,37 +114,33 @@ const Calendar = (props: ComponentProps) => {
     [monthList]
   );
 
-  function getHeight(selector: string) {
-    return new Promise<any>((r) => {
-      my.createSelectorQuery()
-        .select(selector)
-        .boundingClientRect()
-        .exec((res) => {
-          r(res[0]);
-          // 高度
-        });
-    });
-  }
-
   const [elementSize, setElementSize] = useState<{
     monthTitleHeight: number;
     cellHight: number;
   }>(null);
 
-  useEffect(async () => {
+  const componentInstance = useComponent();
+
+  useEffect(() => {
     Promise.all([
-      getHeight('.ant-calendar-cells'),
-      getHeight('.ant-calendar-title-container'),
-    ]).then(([cellContainer, Title]) => {
-      const monthTitleHeight = Title.height + cellContainer.top - Title.bottom;
-      const cellHight = cellContainer.height / (monthList[0].cells.length / 7);
-      const paddingHeight = cellContainer.top - Title.bottom;
-      setElementSize({
-        monthTitleHeight,
-        cellHight,
-        paddingHeight,
+      getBoundingClientRect(componentInstance, '.ant-calendar-cells'),
+      getBoundingClientRect(componentInstance, '.ant-calendar-title-container'),
+    ])
+      .then(([cellContainer, Title]) => {
+        const monthTitleHeight =
+          Title.height + cellContainer.top - Title.bottom;
+        const cellHight =
+          cellContainer.height / (monthList[0].cells.length / 7);
+        const paddingHeight = cellContainer.top - Title.bottom;
+        setElementSize({
+          monthTitleHeight,
+          cellHight,
+          paddingHeight,
+        });
+      })
+      .catch(() => {
+        setElementSize(null);
       });
-    });
   }, [monthList]);
 
   return {

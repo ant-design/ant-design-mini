@@ -8,7 +8,7 @@
       <text>{{item}}</text>
     </view>
   </view>
-  <view class="ant-calendar-sticky">
+  <view a:if="{{ elementSize }}" class="ant-calendar-sticky">
     <view
       data-elementSize="{{elementSize}}"
       change:data-elementSize="{{scroll.handleElementSizeChange}}"
