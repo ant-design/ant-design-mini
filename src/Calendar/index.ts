@@ -16,8 +16,6 @@ import {
 
 dayjs.extend(isoWeek);
 
-const windowWidth = my.getSystemInfoSync().windowWidth;
-
 const Calendar = (props: ComponentProps) => {
   const localeText = Object.assign({}, defaultLocaleText, props.localeText);
 
@@ -41,7 +39,7 @@ const Calendar = (props: ComponentProps) => {
     !!props.selectionMode &&
     selectionModeFromValue !== props.selectionMode
   ) {
-    console.log('selectionMode is not match with value');
+    console.error('selectionMode is not match with value');
   }
   function updateValue(newValue: ValueType) {
     const isControl = typeof props.value !== 'undefined';
@@ -106,8 +104,41 @@ const Calendar = (props: ComponentProps) => {
     [monthList]
   );
 
+  function getHeight(selector: string) {
+    return new Promise<any>((r) => {
+      my.createSelectorQuery()
+        .select(selector)
+        .boundingClientRect()
+        .exec((res) => {
+          r(res[0]);
+          // 高度
+        });
+    });
+  }
+
+  const [elementSize, setElementSize] = useState<{
+    monthTitleHeight: number;
+    cellHight: number;
+  }>(null);
+
+  useEffect(async () => {
+    Promise.all([
+      getHeight('.ant-calendar-cells'),
+      getHeight('.ant-calendar-title-container'),
+    ]).then(([cellContainer, Title]) => {
+      const monthTitleHeight = Title.height + cellContainer.top - Title.bottom;
+      const cellHight = cellContainer.height / (monthList[0].cells.length / 7);
+      const paddingHeight = cellContainer.top - Title.bottom;
+      setElementSize({
+        monthTitleHeight,
+        cellHight,
+        paddingHeight,
+      });
+    });
+  }, [monthList]);
+
   return {
-    windowWidth,
+    elementSize,
     markItems,
     monthList,
     headerState,

@@ -74,8 +74,8 @@ export function renderCells(
   value: ValueType,
   localeText: LocaleText
 ): CellState[] {
-  let rowBeginDay = 6;
-  let rowEndDay = 0;
+  let rowBeginDay = 0;
+  let rowEndDay = 6;
   if (weekStartsOn === 'Monday') {
     rowBeginDay = 1;
     rowEndDay = 0;

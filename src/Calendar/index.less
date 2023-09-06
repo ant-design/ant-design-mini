@@ -17,21 +17,20 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    height: 82rpx;
+    max-height: @calendar-month-title-height;
     width: 100%;
     overflow: hidden;
-    top: 88rpx;
+    top: @calendar-weekday-names-height;
   }
 
   &-mark {
-    height: 88rpx;
+    height: @calendar-weekday-names-height;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     box-sizing: border-box;
-    font-size: 28rpx;
-    padding: 0 8rpx;
+    font-size: @calendar-weekday-names-font-size;
 
     & &-cell {
       flex: 1;
@@ -40,13 +39,13 @@
   }
 
   &-title {
-    background: #f8f8f8;
-    color: #333333;
+    color: @COLOR_TEXT_PRIMARY_DEFAULT;
     font-size: @font-size-title;
-    height: 82rpx;
-    line-height: 82rpx;
-    padding-left: 40rpx;
-    margin-bottom: 8rpx;
+    height: @calendar-month-title-height;
+    line-height: @calendar-month-title-height;
+    padding-left: @calendar-weekday-names-left-padding;
+    margin-bottom: @calendar-weekday-names-bottom-margin;
+    background: @calendar-weekday-names-background-color;
   }
 
   &-cells {
@@ -58,49 +57,43 @@
   }
 
   &-cell {
-    flex: none;
-    box-sizing: border-box;
     width: calc(100% / 7);
-    height: 110rpx;
-    margin-bottom: 8rpx;
+    height: @calendar-cell-height;
+    margin-bottom: @calendar-cell-bottom-margin;
 
     &-container {
-      padding-top: 7rpx;
-      padding-bottom: 8rpx;
+      box-sizing: border-box;
+      padding-top: @calendar-cell-top-padding;
+      height: 100%;
     }
 
     &-top {
+      color: @COLOR_TEXT_ASSIST_DEFAULT;
       text-align: center;
-      font-size: 18rpx;
-      height: 25rpx;
+      font-size: @calendar-cell-top-font-size;
+      height: @calendar-cell-top-height;
     }
 
     &-center {
       text-align: center;
-      height: 45rpx;
-      font-size: 32rpx;
+      height: @calendar-cell-center-height;
+      font-size: @calendar-cell-center-font-size;
     }
 
     &-bottom {
       text-align: center;
-      font-size: 18rpx;
-      height: 25rpx;
+      font-size: @calendar-cell-bottom-font-size;
+      height: @calendar-cell-bottom-height;
     }
 
     &-selected {
-      background: rgba(22, 119, 255, 0.1);
+      background: fade(@COLOR_BRAND1, 10%);
     }
 
     &-selected-begin {
       border-top-left-radius: @corner-radius-md;
       border-bottom-left-radius: @corner-radius-md;
-      background: rgba(22, 119, 255, 0.1);
-    }
-
-    &-selected-begin &-container {
-      background: #1677ff;
-      border-radius: 8rpx;
-      color: @COLOR_WHITE_DEFAULT;
+      background: fade(@COLOR_BRAND1, 10%);
     }
 
     &-selected-end {
@@ -119,15 +112,26 @@
       border-bottom-left-radius: @corner-radius-md;
     }
 
-    &-selected-end &-container {
-      background: #1677ff;
+    &-selected-begin &-container {
+      background: @COLOR_BRAND1_DEFAULT;
       border-radius: @corner-radius-md;
+      color: @COLOR_WHITE_DEFAULT;
+    }
+    &-selected-end &-container {
+      background: @COLOR_BRAND1_DEFAULT;
+      border-radius: @corner-radius-md;
+      color: @COLOR_WHITE_DEFAULT;
+    }
+    &-selected-end &-top {
+      color: @COLOR_WHITE_DEFAULT;
+    }
+    &-selected-begin &-top {
       color: @COLOR_WHITE_DEFAULT;
     }
   }
 
   &-cell-disabled {
-    opacity: 0.4;
+    opacity: @calendar-cell-disabled-opacity;
   }
 
   &-cell-hidden {

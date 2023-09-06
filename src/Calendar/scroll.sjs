@@ -1,49 +1,44 @@
-function rpxToPx(rpx, windowWidth) {
-  return rpx * (windowWidth / 750);
-}
-
 function handleScroll(event, ownerComponent) {
-  let currentScoll = event.detail.scrollTop;
-  const {
-    windowWidth,
-    monthList,
-    instance
-  } = ownerComponent.getState()
-
-  const monthHeight = 90;
-  const paddingHeight = 8;
-  const cellHeight = 118;
-  const heightList = monthList.map(p => {
-    return rpxToPx(monthHeight + cellHeight * p.cells.length / 7, windowWidth)
-  })
+  let currentScroll = event.detail.scrollTop;
+  const { elementSize, monthList, instance } = ownerComponent.getState();
+  if (!elementSize) return;
+  const monthHeight = elementSize.monthTitleHeight;
+  const paddingHeight = elementSize.paddingHeight;
+  const cellHeight = elementSize.cellHight;
+  const heightList = monthList.map((p) => {
+    return monthHeight + (cellHeight * p.cells.length) / 7;
+  });
   for (let i = 0; i < heightList.length; i++) {
-    if (currentScoll < heightList[i]) {
-      let topHeight = currentScoll - (heightList[i] - rpxToPx(monthHeight - paddingHeight, windowWidth))
-      topHeight = Math.max(topHeight, 0)
+    if (currentScroll < heightList[i]) {
+      let topHeight =
+        currentScroll - heightList[i] + monthHeight - paddingHeight;
+      topHeight = Math.max(topHeight, 0);
       instance.setStyle({
-        'transform': `translateY(-${topHeight}px)`
-      })
-      instance.callMethod('setCurrentMonth', topHeight > rpxToPx(60, windowWidth) ? i + 1 : i)
-      break
+        transform: `translateY(-${topHeight}px)`,
+      });
+      instance.callMethod(
+        'setCurrentMonth',
+        topHeight > monthHeight * 0.8 ? i + 1 : i
+      );
+      break;
     } else {
-      currentScoll = currentScoll - heightList[i]
+      currentScroll = currentScroll - heightList[i];
     }
   }
 }
 
-
 function handleMonthListChange(newValue, oldValue, ownerComponent, instance) {
-  ownerComponent.getState().monthList = newValue
+  ownerComponent.getState().monthList = newValue;
   ownerComponent.getState().instance = instance;
 }
 
-function handleWidthChange(newValue, oldValue, ownerComponent, instance) {
-  ownerComponent.getState().windowWidth = newValue
+function handleElementSizeChange(newValue, oldValue, ownerComponent, instance) {
+  ownerComponent.getState().elementSize = newValue;
   ownerComponent.getState().instance = instance;
 }
 
 export default {
-  handleWidthChange,
+  handleElementSizeChange,
   handleScroll,
   handleMonthListChange,
 };

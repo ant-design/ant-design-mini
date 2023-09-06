@@ -15,10 +15,8 @@ describe('Calendar', () => {
       'Calendar',
       {},
       {
-        getSystemInfoSync: () => {
-          return {
-            windowWidth: 750,
-          };
+        createSelectorQuery: () => {
+          return new SelectorQuery();
         },
         canIUse: () => {
           return true;
@@ -53,10 +51,8 @@ describe('Calendar', () => {
         ],
       },
       {
-        getSystemInfoSync: () => {
-          return {
-            windowWidth: 750,
-          };
+        createSelectorQuery: () => {
+          return new SelectorQuery();
         },
         canIUse: () => {
           return true;
@@ -66,9 +62,8 @@ describe('Calendar', () => {
 
     const initData = instance.getData();
 
-    const { windowWidth, monthList, markItems } = initData;
+    const { monthList, markItems } = initData;
 
-    expect({ windowWidth }).toEqual({ windowWidth: 750 });
     // 默认显示 6 个月
     expect(monthList.length).toEqual(2);
     // 默认从周日开启
@@ -87,3 +82,21 @@ describe('Calendar', () => {
     ]);
   });
 });
+
+class SelectorQuery {
+  select(selector: string) {
+    return this;
+  }
+  boundingClientRect() {
+    return this;
+  }
+  exec(callback: (ret: any) => void) {
+    callback([
+      {
+        top: 0,
+        bottom: 0,
+        height: 0,
+      },
+    ]);
+  }
+}

@@ -10,8 +10,8 @@
   </view>
   <view class="ant-calendar-sticky">
     <view
-      data-windowWidth="{{windowWidth}}"
-      change:data-windowWidth="{{scroll.handleWidthChange}}"
+      data-elementSize="{{elementSize}}"
+      change:data-elementSize="{{scroll.handleElementSizeChange}}"
       data-monthList="{{monthList}}"
       change:data-monthList="{{scroll.handleMonthListChange}}"
     >
@@ -29,11 +29,13 @@
     ref="handleRef"
   >
     <view a:for="{{ monthList }}" a:for-item="currentMonth">
-      <slot name="calendarTitle">
-        <view class="ant-calendar-title">
-          {{currentMonth.title}}
-        </view>
-      </slot>
+      <view class="ant-calendar-title-container">
+        <slot name="calendarTitle">
+          <view class="ant-calendar-title">
+            {{currentMonth.title}}
+          </view>
+        </slot>
+      </view>
       <view class="ant-calendar-cells">
         <view
           a:for="{{ currentMonth.cells }}"
