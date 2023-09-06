@@ -1,4 +1,4 @@
-<collapse-container title="默认情况下显示最近 6 个月" defaultCollapse="{{false}}">
+<collapse-container title="默认情况下显示最近 6 个月">
   <view slot="content" style="height:1000rpx">
     <calendar />
   </view>
@@ -39,9 +39,9 @@
   </view>
 </collapse-container>
 
-<collapse-container title="禁止">
+<collapse-container title="禁止" defaultCollapse="{{false}}">
   <view slot="content">
-    <calendar monthRange="{{demo4.monthRange}}" onFilterDate="demo4Filter" />
+    <calendar monthRange="{{demo4.monthRange}}" onFormatter="demoFormatter" />
   </view>
 </collapse-container>
 

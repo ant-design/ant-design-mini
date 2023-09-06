@@ -49,5 +49,5 @@ export interface ComponentProps {
   weekStartsOn?: 'Sunday' | 'Monday';
   onChange?: (date: ValueType) => void;
   localeText?: Partial<LocaleText>;
-  formatter?: (old: CustomCellState) => CustomCellState;
+  onFormatter?: (cell: CellState, currentValue: ValueType) => CellState;
 }

@@ -7,7 +7,12 @@ import {
   useState,
   useComponent,
 } from 'functional-mini/component';
-import { ComponentProps, defaultLocaleText, ValueType } from './props';
+import {
+  CellState,
+  ComponentProps,
+  defaultLocaleText,
+  ValueType,
+} from './props';
 import {
   defaultMonthRange,
   getMonthListFromRange,
@@ -98,9 +103,19 @@ const Calendar = (props: ComponentProps) => {
     dayjs(props.monthRange[0]),
     dayjs(props.monthRange[1])
   ).map((p) => {
+    let cells = renderCells(p, weekStartsOn, value, localeText);
+    if (props.onFormatter && typeof props.onFormatter === 'function') {
+      cells = cells.map((o): CellState => {
+        const newState = props.onFormatter(o, value) ?? {};
+        return {
+          ...o,
+          ...newState,
+        };
+      });
+    }
     return {
       title: p.format(localeText.title),
-      cells: renderCells(p, weekStartsOn, value, localeText),
+      cells,
     };
   });
 
@@ -141,7 +156,7 @@ const Calendar = (props: ComponentProps) => {
       .catch(() => {
         setElementSize(null);
       });
-  }, [monthList]);
+  }, []);
 
   return {
     elementSize,
