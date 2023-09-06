@@ -3,8 +3,8 @@ function getClassName(value) {
     isSelect,
     isBegin,
     isEnd,
-    isSelectRowBegin,
-    isSelectRowEnd,
+    isRowBegin,
+    isRowEnd,
     inThisMonth,
     isToday,
     disabled,
@@ -16,9 +16,9 @@ function getClassName(value) {
     ['selected']: inThisMonth && isSelect,
     ['selected-begin']: inThisMonth && isBegin,
     ['selected-end']: inThisMonth && isEnd,
-    ['selected-row-begin']: inThisMonth && isSelectRowBegin,
-    ['selected-row-end']: inThisMonth && isSelectRowEnd,
-    ['hidden']: !inThisMonth
+    ['selected-row-begin']: inThisMonth && isRowBegin && isSelect,
+    ['selected-row-end']: inThisMonth && isRowEnd && isSelect,
+    ['hidden']: !inThisMonth,
   };
 
   let result = 'ant-calendar-cell';
@@ -30,14 +30,9 @@ function getClassName(value) {
   return result;
 }
 
-
-
-
-function handleScroll(v) {
-
-}
+function handleScroll(v) {}
 
 export default {
   getClassName,
-  handleScroll
+  handleScroll,
 };

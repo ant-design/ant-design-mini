@@ -1,4 +1,8 @@
 import dayjs, { Dayjs } from 'dayjs';
+import isoWeek from 'dayjs/plugin/isoWeek';
+import { LocaleText, ValueType, SelectionMode } from './props';
+
+dayjs.extend(isoWeek);
 
 export function getMonthListFromRange(start: Dayjs, end: Dayjs): Dayjs[] {
   if (start.isAfter(end))
@@ -12,35 +16,163 @@ export function getMonthListFromRange(start: Dayjs, end: Dayjs): Dayjs[] {
   return result;
 }
 
-type SelectRange = Dayjs | [Dayjs, Dayjs];
-
-interface Options {
-  weekStartsOn: 'Monday' | 'Sunday';
-  range: SelectRange;
-  month: Dayjs;
-}
-
-export interface CellState {
-  topLabel?: string;
-  time: number;
-  date: number;
-  isSelect: boolean;
-  isBegin: boolean;
-  isEnd: boolean;
-  isSelectRowBegin: boolean;
-  isSelectRowEnd: boolean;
-  inThisMonth: boolean;
-}
-
 export function defaultMonthRange(): [number, number] {
   const start = dayjs().startOf('date');
   const end = dayjs().startOf('date').add(5, 'month');
   return [start.toDate().getTime(), end.toDate().getTime()];
 }
 
-export function calculateMonthCell(range: Dayjs[]) {
-  return 1;
+/**
+ *
+ * @param month 月份的某一天
+ * @param weekStartsOn 日历以星期几开始
+ * @returns 获取当月日历所有的日子
+ */
+export function getDate(month: Dayjs, weekStartsOn: string): Dayjs[] {
+  const startOfMonth = month.date(1);
+  const cells: Dayjs[] = [];
+  let iterator: Dayjs = startOfMonth
+    .subtract(startOfMonth.isoWeekday() % 7, 'day')
+    .startOf('day');
+
+  if (weekStartsOn === 'Monday') {
+    iterator = iterator.add(1, 'day');
+    if (
+      iterator.isSame(startOfMonth, 'month') &&
+      !iterator.isSame(startOfMonth.startOf('date'), 'date')
+    ) {
+      iterator = iterator.add(-7, 'days');
+    }
+  }
+  const diffDay = startOfMonth.date(1).add(1, 'month').diff(iterator, 'day');
+  const lintCount = Math.ceil(diffDay / 7);
+  while (cells.length < lintCount * 7) {
+    cells.push(iterator);
+    iterator = iterator.add(1, 'day');
+  }
+  return cells;
 }
 
-// 固定高度
-// 自适应
+export interface CellState {
+  disabled: boolean;
+  top?: { label: string; className?: string };
+  bottom?: { label: string; className?: string };
+
+  time: number;
+  date: number;
+  isSelect: boolean;
+  isBegin: boolean;
+  isEnd: boolean;
+  isRowBegin: boolean;
+  isRowEnd: boolean;
+  inThisMonth: boolean;
+}
+
+export function renderCells(
+  cellsMonth: Dayjs,
+  weekStartsOn: string,
+  value: ValueType,
+  localeText: LocaleText
+): CellState[] {
+  let rowBeginDay = 6;
+  let rowEndDay = 0;
+  if (weekStartsOn === 'Monday') {
+    rowBeginDay = 1;
+    rowEndDay = 0;
+  }
+  const dates = getDate(cellsMonth, weekStartsOn);
+  if (!value) {
+    return dates.map((d): CellState => {
+      const isToday = dayjs().isSame(d, 'day');
+      const isRowBegin =
+        d.isSame(cellsMonth.startOf('month'), 'date') ||
+        d.day() === rowBeginDay;
+      const isRowEnd =
+        d.isSame(cellsMonth.endOf('month'), 'date') || d.day() === rowEndDay;
+
+      let top: CellState['top'];
+      if (isToday) {
+        top = {
+          label: localeText.today,
+        };
+      }
+
+      return {
+        disabled: false,
+        time: d.toDate().getTime(),
+        date: d.get('date'),
+        isSelect: false,
+        isBegin: false,
+        top,
+        isEnd: false,
+        inThisMonth: d.month() === cellsMonth.month(),
+        isRowBegin,
+        isRowEnd,
+      };
+    });
+  }
+
+  let selectBegin: Dayjs;
+  let selectEnd: Dayjs;
+
+  if (Array.isArray(value)) {
+    selectBegin = dayjs(value[0]);
+    selectEnd = dayjs(value[1] ?? value[0]);
+  } else {
+    selectBegin = dayjs(value);
+    selectEnd = dayjs(value);
+  }
+
+  return dates.map((d): CellState => {
+    const isToday = dayjs().isSame(d, 'day');
+    const isRowBegin =
+      d.isSame(cellsMonth.startOf('month'), 'date') || d.day() === rowBeginDay;
+    const isRowEnd =
+      d.isSame(cellsMonth.endOf('month'), 'date') || d.day() === rowEndDay;
+
+    const isSelect =
+      !!selectBegin.isBefore(d, 'day') && !!selectEnd.isAfter(d, 'day');
+
+    const isBegin = selectBegin.isSame(d, 'day');
+    const isEnd = selectEnd.isSame(d, 'day');
+    const inThisMonth = d.month() === cellsMonth.month();
+    const time = d.toDate().getTime();
+    let topLabel = isToday ? localeText.today : '';
+    if (Array.isArray(value)) {
+      if (isBegin) {
+        if (isEnd && value.length === 2) {
+          topLabel = localeText.startAndEnd;
+        } else {
+          topLabel = localeText.start;
+        }
+      } else {
+        if (isEnd) {
+          topLabel = localeText.end;
+        }
+      }
+    }
+
+    return {
+      disabled: false,
+      time,
+      date: d.get('date'),
+      isSelect,
+      isBegin,
+      top: { label: topLabel },
+      isEnd,
+      inThisMonth,
+      isRowBegin,
+      isRowEnd,
+    };
+  });
+}
+
+export function getSelectionModeFromValue(value?: ValueType): SelectionMode {
+  if (Array.isArray(value)) {
+    return 'range';
+  }
+  if (typeof value === 'number') {
+    return 'single';
+  }
+  return null;
+}

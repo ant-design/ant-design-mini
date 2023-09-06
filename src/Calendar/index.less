@@ -23,7 +23,6 @@
     top: 88rpx;
   }
 
- 
   &-mark {
     height: 88rpx;
     display: flex;
@@ -39,8 +38,6 @@
       text-align: center;
     }
   }
-
- 
 
   &-title {
     background: #f8f8f8;
@@ -59,8 +56,6 @@
     justify-content: flex-start;
     align-items: stretch;
   }
-
-
 
   &-cell {
     flex: none;
@@ -93,17 +88,17 @@
     }
 
     &-selected {
-      background: rgba(22, 119, 255, 0.10);
+      background: rgba(22, 119, 255, 0.1);
     }
 
     &-selected-begin {
       border-top-left-radius: 8rpx;
       border-bottom-left-radius: 8rpx;
-      background: rgba(22, 119, 255, 0.10);
+      background: rgba(22, 119, 255, 0.1);
     }
 
     &-selected-begin &-container {
-      background: #1677FF;
+      background: #1677ff;
       border-radius: 8rpx;
       color: white;
     }
@@ -114,8 +109,18 @@
       color: white;
     }
 
+    &-selected-row-end {
+      border-top-right-radius: 8rpx;
+      border-bottom-right-radius: 8rpx;
+    }
+
+    &-selected-row-begin {
+      border-top-left-radius: 8rpx;
+      border-bottom-left-radius: 8rpx;
+    }
+
     &-selected-end &-container {
-      background: #1677FF;
+      background: #1677ff;
       border-radius: 8rpx;
       color: white;
     }
