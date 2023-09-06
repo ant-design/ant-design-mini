@@ -42,7 +42,7 @@
   &-title {
     background: #f8f8f8;
     color: #333333;
-    font-size: 36rpx;
+    font-size: @font-size-title;
     height: 82rpx;
     line-height: 82rpx;
     padding-left: 40rpx;
@@ -92,37 +92,37 @@
     }
 
     &-selected-begin {
-      border-top-left-radius: 8rpx;
-      border-bottom-left-radius: 8rpx;
+      border-top-left-radius: @corner-radius-md;
+      border-bottom-left-radius: @corner-radius-md;
       background: rgba(22, 119, 255, 0.1);
     }
 
     &-selected-begin &-container {
       background: #1677ff;
       border-radius: 8rpx;
-      color: white;
+      color: @COLOR_WHITE_DEFAULT;
     }
 
     &-selected-end {
-      border-top-right-radius: 8rpx;
-      border-bottom-right-radius: 8rpx;
-      color: white;
+      border-top-right-radius: @corner-radius-md;
+      border-bottom-right-radius: @corner-radius-md;
+      color: @COLOR_WHITE_DEFAULT;
     }
 
     &-selected-row-end {
-      border-top-right-radius: 8rpx;
-      border-bottom-right-radius: 8rpx;
+      border-top-right-radius: @corner-radius-md;
+      border-bottom-right-radius: @corner-radius-md;
     }
 
     &-selected-row-begin {
-      border-top-left-radius: 8rpx;
-      border-bottom-left-radius: 8rpx;
+      border-top-left-radius: @corner-radius-md;
+      border-bottom-left-radius: @corner-radius-md;
     }
 
     &-selected-end &-container {
       background: #1677ff;
-      border-radius: 8rpx;
-      color: white;
+      border-radius: @corner-radius-md;
+      color: @COLOR_WHITE_DEFAULT;
     }
   }
 
