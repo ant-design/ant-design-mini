@@ -1,0 +1,67 @@
+<import-sjs from="./index.sjs" name="{getClassName,handleScroll}" />
+<import-sjs from="./scroll.sjs" name="scroll"></import-sjs>
+
+
+<view class="ant-calendar {{className ? className : ''}}" style="{{style}}">
+  <view class="ant-calendar-mark">
+    <view a:for="{{ markItems }}" class="ant-calendar-mark-cell">
+      <text>{{item}}</text>
+    </view>
+  </view>
+  <view a:if="{{ elementSize }}" class="ant-calendar-sticky">
+    <view
+      data-elementSize="{{elementSize}}"
+      change:data-elementSize="{{scroll.handleElementSizeChange}}"
+      data-monthList="{{monthList}}"
+      change:data-monthList="{{scroll.handleMonthListChange}}"
+    >
+      <slot name="calendarTitle">
+        <view class="ant-calendar-title">
+          {{monthList[headerState].title}}
+        </view>
+      </slot>
+    </view>
+  </view>
+  <scroll-view
+    scroll-y="{{true}}"
+    class="ant-calendar-body"
+    onScroll="{{scroll.handleScroll}}"
+    ref="handleRef"
+  >
+    <view a:for="{{ monthList }}" a:for-item="currentMonth">
+      <view class="ant-calendar-title-container">
+        <slot name="calendarTitle">
+          <view class="ant-calendar-title">
+            {{currentMonth.title}}
+          </view>
+        </slot>
+      </view>
+      <view class="ant-calendar-cells">
+        <view
+          a:for="{{ currentMonth.cells }}"
+          class="{{getClassName(item)}}"
+          data-time="{{item}}"
+          onTap="clickCell"
+        >
+          <view class="ant-calendar-cell-container">
+            <view class="ant-calendar-cell-top">
+              <text a:if="{{ item.top }}" class="ant-calendar-cell-top-text {{item.top.className?item.top.className:''}}}}">
+                {{item.top.label}}
+              </text>
+            </view>
+            <view class="ant-calendar-cell-center">
+              {{item.date}}
+            </view>
+            <view class="ant-calendar-cell-bottom">
+              <slot name="cell-bottom" cell="{{item}}">
+                <text a:if="{{ item.bottom }}" class="{{item.top.className}}">
+                  {{item.bottom.label}}
+                </text>
+              </slot>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
