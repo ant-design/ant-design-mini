@@ -1,16 +1,20 @@
-
 <!doctype html>
 <html>
+
 <head>
-  <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/wNkELvnLHXPAlmqutRPI.png" type="image/x-icon">
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.0.7/web/preview.css" />
+  <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/wNkELvnLHXPAlmqutRPI.png"
+    type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <link rel="stylesheet" type="text/css"
+    href="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.0.7/web/preview.css" />
   <link rel="preload" href="/preview.json" as="fetch" crossorigin>
   <link rel="preload" href="/preview-theme-dark.json" as="fetch" crossorigin>
   <style>
     body {
       margin: 0;
     }
+
     #root {
       width: 100vw;
       height: 100vh;
@@ -18,17 +22,19 @@
     }
   </style>
 </head>
+
 <body>
   <div id="root">
   </div>
-  <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react/18.0.0/umd/react.production.min.js"></script>
-  <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react-dom/18.0.0/umd/react-dom.production.min.js"></script>
+  <script type="text/javascript"
+    src="https://gw.alipayobjects.com/os/lib/react/18.0.0/umd/react.production.min.js"></script>
+  <script type="text/javascript"
+    src="https://gw.alipayobjects.com/os/lib/react-dom/18.0.0/umd/react-dom.production.min.js"></script>
   <script src="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.0.7/web/preview.js"></script>
   <script>
     const searchParams = new URL(location.href).searchParams;
     const theme = searchParams.get('less-theme');
     const page = searchParams.get('page');
-
     function getDist() {
       const server = searchParams.get('compilerServer');
       const list = ['appConfig.json', 'index.js', 'index.worker.js', 'index.html'];
@@ -113,7 +119,7 @@
           }
         });
       }
-      sourceCode['mini.project.json'] = JSON.stringify({ 
+      sourceCode['mini.project.json'] = JSON.stringify({
         enableAppxNg: true,
         component2: true,
       }, null, 2);
@@ -162,4 +168,5 @@
     startWebOpenBoxPreviewApp();
   </script>
 </body>
+
 </html>

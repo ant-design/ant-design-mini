@@ -11,7 +11,7 @@ import {
   CellState,
   ComponentProps,
   defaultLocaleText,
-  ValueType,
+  CalendarValue,
 } from './props';
 import {
   defaultMonthRange,
@@ -56,7 +56,7 @@ const Calendar = (props: ComponentProps) => {
   const selectionMode =
     props.selectionMode ?? selectionModeFromValue ?? 'range';
 
-  function updateValue(newValue: ValueType) {
+  function updateValue(newValue: CalendarValue) {
     const isControl = typeof props.value !== 'undefined';
     if (props.onChange) {
       props.onChange(newValue);

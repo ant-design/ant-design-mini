@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
-import { CellState, LocaleText, SelectionMode, ValueType } from './props';
+import { CellState, LocaleText, SelectionMode, CalendarValue } from './props';
 
 dayjs.extend(isoWeek);
 
@@ -56,7 +56,7 @@ export function getDate(month: Dayjs, weekStartsOn: string): Dayjs[] {
 export function renderCells(
   cellsMonth: Dayjs,
   weekStartsOn: string,
-  value: ValueType,
+  value: CalendarValue,
   localeText: LocaleText
 ): CellState[] {
   let rowBeginDay = 0;
@@ -152,7 +152,9 @@ export function renderCells(
   });
 }
 
-export function getSelectionModeFromValue(value?: ValueType): SelectionMode {
+export function getSelectionModeFromValue(
+  value?: CalendarValue
+): SelectionMode {
   if (Array.isArray(value)) {
     return 'range';
   }

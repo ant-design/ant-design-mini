@@ -14,40 +14,114 @@ export const defaultLocaleText = {
 };
 
 export interface LocaleText {
+  /**
+   * 星期的名称。从周一到周日
+   * 默认为 ['一', '二', '三', '四', '五', '六', '日']
+   */
   weekdayNames: string[];
+  /**
+   * 月份标题的格式。 默认为 'YYYY年MM月'
+   */
   title: string;
+  /**
+   * 今日的文案。 默认为 '今日'
+   */
   today: string;
+  /**
+   * 开始的文案。 默认为 '开始'
+   */
   start: string;
+  /**
+   * 结束的文案。 默认为 '结束'
+   */
   startAndEnd: string;
+  /**
+   * 开始/结束的文案。 默认为 '开始/结束'
+   */
   end: string;
 }
-
-export type ValueType = number | number[];
-export type SelectionMode = 'single' | 'range';
 
 export type CustomCellState = Pick<CellState, 'disabled' | 'top' | 'bottom'>;
 
 export interface CellState {
+  /**
+   * 是否被禁止
+   */
   disabled: boolean;
+  /**
+   * 日历单元格的顶部内容
+   */
   top?: { label: string; className?: string };
+  /**
+   * 日历单元格的底部内容
+   */
   bottom?: { label: string; className?: string };
+  /**
+   * 时间戳
+   */
   time: number;
+  /**
+   * 日期
+   */
   date: number;
+  /**
+   * 是否被选择
+   */
   isSelect: boolean;
+  /**
+   * 是否是选择区间的开始
+   */
   isBegin: boolean;
+  /**
+   * 是否是选择区间的结束
+   */
   isEnd: boolean;
+  /**
+   * 是否是每一行的第一个
+   */
   isRowBegin: boolean;
   isRowEnd: boolean;
   inThisMonth: boolean;
 }
 
+export type CalendarValue = number | number[];
+export type SelectionMode = 'single' | 'range';
+
 export interface ComponentProps {
-  defaultValue?: ValueType;
-  value?: ValueType;
+  /**
+   * 初始值
+   */
+  defaultValue?: CalendarValue;
+  /**
+   * 日历选择的日期，受控模式
+   */
+  value?: CalendarValue;
+  /**
+   * 设置选择模式，单选或者连续区间, 默认为 'range'
+   */
   selectionMode?: SelectionMode;
-  monthRange: [number, number];
+  /**
+   * 月份范围。 默认为最近 6 个月
+   * @default [-6, 6]
+   */
+  monthRange?: [number, number];
+  /**
+   * 星期栏，以周几作为第一天显示。默认为 'Sunday'。
+   */
   weekStartsOn?: 'Sunday' | 'Monday';
-  onChange?: (date: ValueType) => void;
+  /**
+   * 日期变化回调
+   */
+  onChange?: (date: CalendarValue) => void;
+  /**
+   * onFormatter	用于设置单元格的自定义数据
+   * @param cell 原始数据
+   * @param currentValue 当前的 value
+   * @returns 返回新的数据
+   */
+  onFormatter?: (cell: CellState, currentValue: CalendarValue) => CellState;
+  /**
+   * 国际化文案
+   */
   localeText?: Partial<LocaleText>;
-  onFormatter?: (cell: CellState, currentValue: ValueType) => CellState;
 }

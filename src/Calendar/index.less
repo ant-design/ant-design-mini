@@ -72,6 +72,10 @@
       text-align: center;
       font-size: @calendar-cell-top-font-size;
       height: @calendar-cell-top-height;
+
+      &-text {
+        white-space: nowrap;
+      }
     }
 
     &-center {
@@ -81,6 +85,7 @@
     }
 
     &-bottom {
+      color: @COLOR_TEXT_ASSIST_DEFAULT;
       text-align: center;
       font-size: @calendar-cell-bottom-font-size;
       height: @calendar-cell-bottom-height;
@@ -117,15 +122,26 @@
       border-radius: @corner-radius-md;
       color: @COLOR_WHITE_DEFAULT;
     }
+
     &-selected-end &-container {
       background: @COLOR_BRAND1_DEFAULT;
       border-radius: @corner-radius-md;
       color: @COLOR_WHITE_DEFAULT;
     }
+
     &-selected-end &-top {
       color: @COLOR_WHITE_DEFAULT;
     }
+
     &-selected-begin &-top {
+      color: @COLOR_WHITE_DEFAULT;
+    }
+
+    &-selected-end &-bottom {
+      color: @COLOR_WHITE_DEFAULT;
+    }
+
+    &-selected-begin &-bottom {
       color: @COLOR_WHITE_DEFAULT;
     }
   }

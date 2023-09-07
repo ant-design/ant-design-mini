@@ -45,7 +45,7 @@
         >
           <view class="ant-calendar-cell-container">
             <view class="ant-calendar-cell-top">
-              <text a:if="{{ item.top }}" class="{{item.top.className}}">
+              <text a:if="{{ item.top }}" class="ant-calendar-cell-top-text {{item.top.className?item.top.className:''}}}}">
                 {{item.top.label}}
               </text>
             </view>
@@ -53,7 +53,7 @@
               {{item.date}}
             </view>
             <view class="ant-calendar-cell-bottom">
-              <slot name="cellEvent" cell="{{item}}">
+              <slot name="cell-bottom" cell="{{item}}">
                 <text a:if="{{ item.bottom }}" class="{{item.top.className}}">
                   {{item.bottom.label}}
                 </text>
