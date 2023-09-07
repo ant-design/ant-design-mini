@@ -1,175 +1,83 @@
 <container title="icon">
-  <button
-  xxx="2021-1"
-    hello="{{hello}}"
-    type="primary" 
-    icon="SmileOutline"
-  >
+  <button type="primary" icon="SmileOutline">
     Icon
   </button>
 
-  <button
-    type="default" 
-    icon="SmileOutline"
-  >
+  <button type="default" icon="SmileOutline">
     Icon
   </button>
 
-  <button
-    type="text" 
-    icon="SmileOutline"
-  >
+  <button type="text" icon="SmileOutline">
     Icon
   </button>
 
-  <button
-    type="primary"
-    danger
-    icon="ForbidFill"
-  >
+  <button type="primary" danger icon="ForbidFill">
     Icon
   </button>
 
-  <button
-    type="default"
-    danger
-    icon="ForbidFill"
-  >
+  <button type="default" danger icon="ForbidFill">
     Icon
   </button>
 
-  <button
-    type="text"
-    danger
-    icon="ForbidFill"
-  >
+  <button type="text" danger icon="ForbidFill">
     Icon
   </button>
 </container>
 
 <container title="inline button">
-  <button
-    type="primary" 
-    icon="SmileOutline"
-    inline
-    size="large"
-  >
+  <button type="primary" icon="SmileOutline" inline size="large">
     Icon
   </button>
 
-  <button
-    type="primary" 
-    icon="SmileOutline"
-    inline
-    size="medium"
-  >
+  <button type="primary" icon="SmileOutline" inline size="medium">
     Icon
   </button>
 
-  <button
-    type="primary" 
-    icon="SmileOutline"
-    inline
-    size="small"
-  >
+  <button type="primary" icon="SmileOutline" inline size="small">
     Icon
   </button>
 
 </container>
 
 <container title="inline danger icon">
-  <button
-    type="primary" 
-    icon="ForbidFill"
-    inline
-    danger
-    size="large"
-  >
+  <button type="primary" icon="ForbidFill" inline danger size="large">
     Icon
   </button>
 
-  <button
-    type="primary" 
-    icon="ForbidFill"
-    inline
-    danger
-    size="medium"
-  >
+  <button type="primary" icon="ForbidFill" inline danger size="medium">
     Icon
   </button>
 
-  <button
-    type="primary" 
-    icon="ForbidFill"
-    inline
-    danger
-    size="small"
-  >
+  <button type="primary" icon="ForbidFill" inline danger size="small">
     Icon
   </button>
 </container>
 
 
 <container title="loading icon">
-  <button 
-    type="primary" 
-    icon="SmileOutline"
-    onTap="handleTap"
-    inline
-    loading
-  >
+  <button type="primary" icon="SmileOutline" onTap="handleTap" inline loading>
     loading
   </button>
 
-  <button 
-    type="primary" 
-    icon="ForbidFill"
-    onTap="handleTap"
-    inline
-    danger
-    loading
-  >
+  <button type="primary" icon="ForbidFill" onTap="handleTap" inline danger loading>
     loading
   </button>
 
-  <button 
-    type="primary" 
-    icon="SmileOutline"
-    onTap="handleTap"
-    loading
-  >
+  <button type="primary" icon="SmileOutline" onTap="handleTap" loading>
     loading
   </button>
 </container>
 
 <container title="disabled icon">
-  <button 
-    type="primary" 
-    icon="SmileOutline"
-    onTap="handleTap"
-    inline
-    disabled
-  >
-    disabled
-  </button>
-  
-  <button 
-    type="primary" 
-    icon="ForbidFill"
-    onTap="handleTap"
-    inline
-    danger
-    disabled
-  >
+  <button type="primary" icon="SmileOutline" onTap="handleTap" inline disabled>
     disabled
   </button>
 
-  <button 
-    type="primary" 
-    icon="SmileOutline"
-    onTap="handleTap"
+  <button type="primary" icon="ForbidFill" onTap="handleTap" inline danger disabled>
     disabled
-  >
+  </button>
+
+  <button type="primary" icon="SmileOutline" onTap="handleTap" disabled>
     disabled
   </button>
 </container>
