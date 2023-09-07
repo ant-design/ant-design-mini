@@ -1,15 +1,18 @@
+<!-- 默认情况下显示最近 6 个月 -->
 <collapse-container a:if="{{ demo1.visible }}" title="默认情况下显示最近 6 个月">
   <view slot="content" style="height:1000rpx">
     <calendar />
   </view>
 </collapse-container>
 
+<!-- 单选 -->
 <collapse-container a:if="{{ demo2.visible }}" title="单选">
   <view slot="content" style="height:1000rpx">
     <calendar selectionMode="single"></calendar>
   </view>
 </collapse-container>
 
+<!-- 自定义日历顶部 -->
 <collapse-container a:if="{{ demo3.visible }}" title="自定义日历顶部">
   <view slot="content">
     <view class="custom-header">
@@ -32,19 +35,24 @@
   </view>
 </collapse-container>
 
+
+
+<!-- 自定义日历单元格 -->
 <collapse-container a:if="{{ demo4.visible }}" title="自定义日历单元格">
   <view slot="content">
     <calendar monthRange="{{demo4.monthRange}}" onFormatter="demoFormatter" />
   </view>
 </collapse-container>
 
+<!-- 从周一开始 -->
 <collapse-container a:if="{{ demo5.visible }}" title="从周一开始">
   <view slot="content" style="height:1000rpx">
     <calendar weekStartsOn="Monday" />
   </view>
 </collapse-container>
 
-<collapse-container a:if="{{ demo6.visible }}" title="自定义底部农历">
+<!-- 通过 slot 实现农历 -->
+<collapse-container a:if="{{ demo6.visible }}" title="通过 slot 实现农历">
   <view slot="content">
     <calendar monthRange="{{demo6.monthRange}}">
       <view slot="cell-bottom" slot-scope="prop">
@@ -54,6 +62,7 @@
   </view>
 </collapse-container>
 
+<!-- 国际化 -->
 <collapse-container a:if="{{ demo7.visible }}" title="国际化">
   <view slot="content">
     <calendar monthRange="{{demo7.monthRange}}" localeText="{{demo7.localeText}}">
