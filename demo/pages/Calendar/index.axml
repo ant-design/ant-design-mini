@@ -36,7 +36,7 @@
 </collapse-container>
 
 <!-- 标记奇偶数 -->
-<collapse-container a:if="{{ demo8.visible }}" title="标记奇偶数">
+<collapse-container a:if="{{ demo8.visible }}" title="自定义日期单元格">
   <view slot="content">
     <calendar monthRange="{{demo8.monthRange}}" onFormatter="demo8Formatter">
     </calendar>
