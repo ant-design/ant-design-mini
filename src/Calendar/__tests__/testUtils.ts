@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 import { CellState, ComponentProps } from '../props';
-import { getInstance } from '/tests/utils';
+import { getInstance } from '../../../tests/utils';
 
 export function getSelectedDay(data: { monthList: { cells: CellState[] }[] }) {
   return data.monthList
