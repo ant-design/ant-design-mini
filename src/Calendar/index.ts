@@ -106,7 +106,7 @@ const Calendar = (props: ComponentProps) => {
     let cells = renderCells(p, weekStartsOn, value, localeText);
     if (props.onFormatter && typeof props.onFormatter === 'function') {
       cells = cells.map((o): CellState => {
-        const { time, top, bottom, disabled } = o;
+        const { time, top, bottom, disabled, isBegin, isEnd, isSelected } = o;
         const newState =
           props.onFormatter(
             {
@@ -114,6 +114,9 @@ const Calendar = (props: ComponentProps) => {
               top: top ? { ...top } : undefined,
               bottom: bottom ? { ...bottom } : undefined,
               disabled,
+              isBegin,
+              isEnd,
+              isSelected,
             },
             value
           ) ?? {};

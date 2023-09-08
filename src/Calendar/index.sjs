@@ -1,6 +1,6 @@
 function getClassName(value) {
   const {
-    isSelect,
+    isSelected,
     isBegin,
     isEnd,
     isRowBegin,
@@ -13,11 +13,11 @@ function getClassName(value) {
   const classNames = {
     disabled: disabled,
     today: inThisMonth && isToday,
-    selected: inThisMonth && isSelect,
+    selected: inThisMonth && isSelected,
     'selected-begin': inThisMonth && isBegin,
     'selected-end': inThisMonth && isEnd,
-    'selected-row-begin': inThisMonth && isRowBegin && isSelect,
-    'selected-row-end': inThisMonth && isRowEnd && isSelect,
+    'selected-row-begin': inThisMonth && isRowBegin && isSelected,
+    'selected-row-end': inThisMonth && isRowEnd && isSelected,
     hidden: !inThisMonth,
   };
 

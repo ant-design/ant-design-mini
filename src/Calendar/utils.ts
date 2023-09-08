@@ -86,7 +86,7 @@ export function renderCells(
         disabled: false,
         time: d.toDate().getTime(),
         date: d.get('date'),
-        isSelect: false,
+        isSelected: false,
         isBegin: false,
         top,
         isEnd: false,
@@ -117,7 +117,7 @@ export function renderCells(
 
     const isBegin = selectBegin.isSame(d, 'day');
     const isEnd = selectEnd.isSame(d, 'day');
-    const isSelect =
+    const isSelected =
       (!!selectBegin.isBefore(d, 'day') && !!selectEnd.isAfter(d, 'day')) ||
       isBegin ||
       isEnd;
@@ -142,7 +142,7 @@ export function renderCells(
       disabled: false,
       time,
       date: d.get('date'),
-      isSelect,
+      isSelected,
       isBegin,
       top: { label: topLabel },
       isEnd,

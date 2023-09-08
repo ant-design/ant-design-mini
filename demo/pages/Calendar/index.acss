@@ -22,3 +22,7 @@ page {
 .odd {
   color: red;
 }
+
+.even{
+  color: blue;
+}

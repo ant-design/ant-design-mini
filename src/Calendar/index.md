@@ -59,7 +59,7 @@ interface CellState {
   /**
    * 是否被选择
    */
-  isSelect: boolean;
+  isSelected: boolean;
 }
 ```
 

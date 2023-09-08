@@ -18,7 +18,7 @@ describe('Calendar', () => {
     // 默认显示今天
     expect(today.top?.label).toEqual('今日');
     // 默认不选择
-    expect(today.isSelect).toEqual(false);
+    expect(today.isSelected).toEqual(false);
   });
 
   it('onFormatter 只允许修改三个字段', () => {
@@ -40,7 +40,7 @@ describe('Calendar', () => {
             className: 'bottom',
           },
           time: 0,
-          isSelect: true,
+          isSelected: true,
           isBegin: true,
           isEnd: true,
           inThisMonth: true,
@@ -58,7 +58,7 @@ describe('Calendar', () => {
         \\"disabled\\": true,
         \\"time\\": null,
         \\"date\\": 26,
-        \\"isSelect\\": false,
+        \\"isSelected\\": false,
         \\"isBegin\\": false,
         \\"top\\": {
           \\"label\\": \\"top\\",

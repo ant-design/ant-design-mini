@@ -50,7 +50,7 @@
             </view>
             <view class="ant-calendar-cell-bottom">
               <slot name="cell-bottom" cell="{{item}}">
-                <text a:if="{{ item.bottom }}" class="{{item.top.className}}">
+                <text a:if="{{ item.bottom }}" class="{{item.bottom.className}}">
                   {{item.bottom.label}}
                 </text>
               </slot>

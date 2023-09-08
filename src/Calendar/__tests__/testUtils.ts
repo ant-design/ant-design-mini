@@ -6,7 +6,7 @@ export function getSelectedDay(data: { monthList: { cells: CellState[] }[] }) {
   return data.monthList
     .map((o) => o.cells)
     .flat()
-    .filter((o) => o.isSelect)
+    .filter((o) => o.isSelected)
     .map((o) => dayjs(o.time).format('YYYY-MM-DD'));
 }
 

@@ -78,10 +78,23 @@ Page({
     return {};
   },
   demo8Formatter(cell) {
+    const isOdd = dayjs(cell.time).date() % 2 === 1;
+    const isNotBeginEnd = !cell.isBegin && !cell.isEnd;
+
+    const isWeekend = dayjs(cell.time).day() > 4;
+
+    let topClassName;
+    if (isNotBeginEnd) {
+      topClassName = isOdd ? 'odd' : 'even';
+    }
+
     return {
       top: {
-        className: dayjs(cell.time).date() % 2 === 1 && 'odd',
-        label: dayjs(cell.time).date() % 2 === 0 ? '偶数' : '奇数',
+        className: topClassName,
+        label: isOdd ? '奇数' : '偶数',
+      },
+      bottom: {
+        label: isWeekend ? '周末' : '',
       },
     };
   },

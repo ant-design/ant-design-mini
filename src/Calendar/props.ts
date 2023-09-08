@@ -65,7 +65,7 @@ export interface CellState {
   /**
    * 是否被选择
    */
-  isSelect: boolean;
+  isSelected: boolean;
   /**
    * 是否是选择区间的开始
    */
@@ -119,7 +119,16 @@ export interface ComponentProps {
    * @returns 返回新的数据
    */
   onFormatter?: (
-    cell: Pick<CellState, 'disabled' | 'top' | 'bottom' | 'time'>,
+    cell: Pick<
+      CellState,
+      | 'disabled'
+      | 'top'
+      | 'bottom'
+      | 'time'
+      | 'isBegin'
+      | 'isEnd'
+      | 'isSelected'
+    >,
     currentValue: CalendarValue
   ) => Pick<CellState, 'disabled' | 'top' | 'bottom'>;
   /**
