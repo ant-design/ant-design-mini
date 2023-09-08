@@ -1,7 +1,6 @@
 <import-sjs from="./index.sjs" name="{getClassName,handleScroll}" />
 <import-sjs from="./scroll.sjs" name="scroll"></import-sjs>
 
-
 <view class="ant-calendar {{className ? className : ''}}" style="{{style}}">
   <view class="ant-calendar-mark">
     <view a:for="{{ markItems }}" class="ant-calendar-mark-cell">
@@ -9,12 +8,7 @@
     </view>
   </view>
   <view a:if="{{ elementSize }}" class="ant-calendar-sticky">
-    <view
-      data-elementSize="{{elementSize}}"
-      change:data-elementSize="{{scroll.handleElementSizeChange}}"
-      data-monthList="{{monthList}}"
-      change:data-monthList="{{scroll.handleMonthListChange}}"
-    >
+    <view class="ant-calendar-sticky-title">
       <slot name="calendarTitle">
         <view class="ant-calendar-title">
           {{monthList[headerState].title}}
@@ -25,6 +19,8 @@
   <scroll-view
     scroll-y="{{true}}"
     class="ant-calendar-body"
+    data-elementSize="{{elementSize}}"
+    data-monthList="{{monthList}}"
     onScroll="{{scroll.handleScroll}}"
     ref="handleRef"
   >

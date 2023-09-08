@@ -1,7 +1,9 @@
 function handleScroll(event, ownerComponent) {
   let currentScroll = event.detail.scrollTop;
-  const { elementSize, monthList, instance } = ownerComponent.getState();
+  const { elementSize, monthList } = event.instance.getDataset();
   if (!elementSize) return;
+
+  const instance = ownerComponent.selectComponent('.ant-calendar-sticky-title');
   const monthHeight = elementSize.monthTitleHeight;
   const paddingHeight = elementSize.paddingHeight;
   const cellHeight = elementSize.cellHight;
@@ -20,6 +22,7 @@ function handleScroll(event, ownerComponent) {
         'setCurrentMonth',
         topHeight > monthHeight * 0.8 ? i + 1 : i
       );
+
       break;
     } else {
       currentScroll = currentScroll - heightList[i];
@@ -27,18 +30,6 @@ function handleScroll(event, ownerComponent) {
   }
 }
 
-function handleMonthListChange(newValue, oldValue, ownerComponent, instance) {
-  ownerComponent.getState().monthList = newValue;
-  ownerComponent.getState().instance = instance;
-}
-
-function handleElementSizeChange(newValue, oldValue, ownerComponent, instance) {
-  ownerComponent.getState().elementSize = newValue;
-  ownerComponent.getState().instance = instance;
-}
-
 export default {
-  handleElementSizeChange,
   handleScroll,
-  handleMonthListChange,
 };
