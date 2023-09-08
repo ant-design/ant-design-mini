@@ -35,10 +35,17 @@
   </view>
 </collapse-container>
 
+<!-- 标记奇偶数 -->
+<collapse-container a:if="{{ demo8.visible }}" title="标记奇偶数">
+  <view slot="content">
+    <calendar monthRange="{{demo8.monthRange}}" onFormatter="demo8Formatter">
+    </calendar>
+  </view>
+</collapse-container>
 
 
-<!-- 自定义日历单元格 -->
-<collapse-container a:if="{{ demo4.visible }}" title="自定义日历单元格">
+<!-- 最多选择三天 -->
+<collapse-container a:if="{{ demo4.visible }}" title="最多选择三天">
   <view slot="content">
     <calendar monthRange="{{demo4.monthRange}}" onFormatter="demoFormatter" />
   </view>

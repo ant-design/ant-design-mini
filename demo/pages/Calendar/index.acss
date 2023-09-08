@@ -18,3 +18,7 @@ page {
   display: flex;
   align-items: center;
 }
+
+.odd {
+  color: red;
+}
