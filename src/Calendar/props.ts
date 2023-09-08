@@ -41,8 +41,6 @@ export interface LocaleText {
   end: string;
 }
 
-export type CustomCellState = Pick<CellState, 'disabled' | 'top' | 'bottom'>;
-
 export interface CellState {
   /**
    * 是否被禁止
@@ -120,7 +118,10 @@ export interface ComponentProps {
    * @param currentValue 当前的 value
    * @returns 返回新的数据
    */
-  onFormatter?: (cell: CellState, currentValue: CalendarValue) => CellState;
+  onFormatter?: (
+    cell: Pick<CellState, 'disabled' | 'top' | 'bottom' | 'time'>,
+    currentValue: CalendarValue
+  ) => Pick<CellState, 'disabled' | 'top' | 'bottom'>;
   /**
    * 国际化文案
    */

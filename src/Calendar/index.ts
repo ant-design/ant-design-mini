@@ -67,8 +67,8 @@ const Calendar = (props: ComponentProps) => {
   }
 
   useEffect(() => {
-    setValue(value);
-  }, [value]);
+    setValue(props.value);
+  }, [props.value]);
 
   useEvent(
     'clickCell',
@@ -106,11 +106,27 @@ const Calendar = (props: ComponentProps) => {
     let cells = renderCells(p, weekStartsOn, value, localeText);
     if (props.onFormatter && typeof props.onFormatter === 'function') {
       cells = cells.map((o): CellState => {
-        const newState = props.onFormatter(o, value) ?? {};
-        return {
-          ...o,
-          ...newState,
-        };
+        const { time, top, bottom, disabled } = o;
+        const newState =
+          props.onFormatter(
+            {
+              time,
+              top: top ? { ...top } : undefined,
+              bottom: bottom ? { ...bottom } : undefined,
+              disabled,
+            },
+            value
+          ) ?? {};
+        const result = { ...o };
+        if (typeof newState === 'object') {
+          // 只允许修改三个字段
+          ['top', 'bottom', 'disabled'].forEach((key) => {
+            if (key in newState) {
+              result[key] = newState[key];
+            }
+          });
+        }
+        return result;
       });
     }
     return {

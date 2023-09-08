@@ -115,11 +115,12 @@ export function renderCells(
     const isRowEnd =
       d.isSame(cellsMonth.endOf('month'), 'date') || d.day() === rowEndDay;
 
-    const isSelect =
-      !!selectBegin.isBefore(d, 'day') && !!selectEnd.isAfter(d, 'day');
-
     const isBegin = selectBegin.isSame(d, 'day');
     const isEnd = selectEnd.isSame(d, 'day');
+    const isSelect =
+      (!!selectBegin.isBefore(d, 'day') && !!selectEnd.isAfter(d, 'day')) ||
+      isBegin ||
+      isEnd;
     const inThisMonth = d.month() === cellsMonth.month();
     const time = d.toDate().getTime();
     let topLabel = isToday ? localeText.today : '';

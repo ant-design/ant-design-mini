@@ -83,3 +83,91 @@ describe('Calendar', () => {
     ]);
   });
 });
+
+it('onFormatter 只允许修改三个字段', () => {
+  const instance = initCalendar({
+    weekStartsOn: 'Monday',
+    monthRange: [
+      new Date('2023-01-01').getTime(),
+      new Date('2023-02-01').getTime(),
+    ],
+    onFormatter() {
+      return {
+        disabled: true,
+        top: {
+          label: 'top',
+          className: 'top',
+        },
+        bottom: {
+          label: 'bottom',
+          className: 'bottom',
+        },
+        time: 0,
+        isSelect: true,
+        isBegin: true,
+        isEnd: true,
+        inThisMonth: true,
+      };
+    },
+  });
+
+  const first = instance.getData().monthList[0].cells[0];
+  // 数据不可改变
+  expect(
+    JSON.stringify({ ...first, time: null }, null, 2)
+  ).toMatchInlineSnapshot(
+    `
+    "{
+      \\"disabled\\": true,
+      \\"time\\": null,
+      \\"date\\": 26,
+      \\"isSelect\\": false,
+      \\"isBegin\\": false,
+      \\"top\\": {
+        \\"label\\": \\"top\\",
+        \\"className\\": \\"top\\"
+      },
+      \\"isEnd\\": false,
+      \\"inThisMonth\\": false,
+      \\"isRowBegin\\": true,
+      \\"isRowEnd\\": false,
+      \\"bottom\\": {
+        \\"label\\": \\"bottom\\",
+        \\"className\\": \\"bottom\\"
+      }
+    }"
+  `
+  );
+});
+
+it('测试 value 修改', async () => {
+  const instance = initCalendar({
+    weekStartsOn: 'Monday',
+    value: new Date('2023-01-01').getTime(),
+    monthRange: [
+      new Date('2023-01-01').getTime(),
+      new Date('2023-02-01').getTime(),
+    ],
+  });
+  expect(getSelectedDay(instance.getData().monthList)).toEqual(['2023-01-01']);
+
+  instance.setProps({
+    value: new Date('2023-01-02').getTime(),
+  });
+  await sleep(100);
+  expect(getSelectedDay(instance.getData().monthList)).toEqual(['2023-01-02']);
+});
+
+function getSelectedDay(monthList: { cells: CellState[] }[]) {
+  return monthList
+    .map((o) => o.cells)
+    .flat()
+    .filter((o) => o.isSelect)
+    .map((o) => dayjs(o.time).format('YYYY-MM-DD'));
+}
+
+function sleep(time) {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, time);
+  });
+}
