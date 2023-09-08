@@ -99,7 +99,7 @@ export interface ComponentProps {
    */
   selectionMode?: SelectionMode;
   /**
-   * 月份范围， 默认为最近 6 个月
+   * 月份范围，默认为最近 6 个月
    * 格式为时间戳
    * @default [本月第一天的时间戳, 5个月后第一天的时间戳]
    */
@@ -113,7 +113,7 @@ export interface ComponentProps {
    */
   onChange?: (date: CalendarValue) => void;
   /**
-   * onFormatter	用于设置单元格的自定义数据
+   * onFormatter 用于设置单元格的自定义数据
    * @param cell 原始数据
    * @param currentValue 当前的 value
    * @returns 返回新的数据
