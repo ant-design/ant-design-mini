@@ -69,11 +69,11 @@ export interface CellState {
   /**
    * 是否是选择区间的开始
    */
-  isBegin: boolean;
+  isSelectedBegin: boolean;
   /**
    * 是否是选择区间的结束
    */
-  isEnd: boolean;
+  isSelectedEnd: boolean;
   /**
    * 是否是每一行的第一个
    */
@@ -125,8 +125,8 @@ export interface ComponentProps {
       | 'top'
       | 'bottom'
       | 'time'
-      | 'isBegin'
-      | 'isEnd'
+      | 'isSelectedBegin'
+      | 'isSelectedEnd'
       | 'isSelected'
     >,
     currentValue: CalendarValue

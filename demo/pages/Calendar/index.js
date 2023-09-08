@@ -79,7 +79,7 @@ Page({
   },
   demo8Formatter(cell) {
     const isOdd = dayjs(cell.time).date() % 2 === 1;
-    const isNotBeginEnd = !cell.isBegin && !cell.isEnd;
+    const isNotBeginEnd = !cell.isSelectedBegin && !cell.isSelectedEnd;
 
     const isWeekend = dayjs(cell.time).day() > 4;
 

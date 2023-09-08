@@ -41,8 +41,8 @@ describe('Calendar', () => {
           },
           time: 0,
           isSelected: true,
-          isBegin: true,
-          isEnd: true,
+          isSelectedBegin: true,
+          isSelectedEnd: true,
           inThisMonth: true,
         };
       },
@@ -59,12 +59,12 @@ describe('Calendar', () => {
         \\"time\\": null,
         \\"date\\": 26,
         \\"isSelected\\": false,
-        \\"isBegin\\": false,
+        \\"isSelectedBegin\\": false,
         \\"top\\": {
           \\"label\\": \\"top\\",
           \\"className\\": \\"top\\"
         },
-        \\"isEnd\\": false,
+        \\"isSelectedEnd\\": false,
         \\"inThisMonth\\": false,
         \\"isRowBegin\\": true,
         \\"isRowEnd\\": false,

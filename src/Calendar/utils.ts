@@ -87,9 +87,9 @@ export function renderCells(
         time: d.toDate().getTime(),
         date: d.get('date'),
         isSelected: false,
-        isBegin: false,
+        isSelectedBegin: false,
         top,
-        isEnd: false,
+        isSelectedEnd: false,
         inThisMonth: d.month() === cellsMonth.month(),
         isRowBegin,
         isRowEnd,
@@ -115,24 +115,24 @@ export function renderCells(
     const isRowEnd =
       d.isSame(cellsMonth.endOf('month'), 'date') || d.day() === rowEndDay;
 
-    const isBegin = selectBegin.isSame(d, 'day');
-    const isEnd = selectEnd.isSame(d, 'day');
+    const isSelectedBegin = selectBegin.isSame(d, 'day');
+    const isSelectedEnd = selectEnd.isSame(d, 'day');
     const isSelected =
       (!!selectBegin.isBefore(d, 'day') && !!selectEnd.isAfter(d, 'day')) ||
-      isBegin ||
-      isEnd;
+      isSelectedBegin ||
+      isSelectedEnd;
     const inThisMonth = d.month() === cellsMonth.month();
     const time = d.toDate().getTime();
     let topLabel = isToday ? localeText.today : '';
     if (Array.isArray(value)) {
-      if (isBegin) {
-        if (isEnd && value.length === 2) {
+      if (isSelectedBegin) {
+        if (isSelectedEnd && value.length === 2) {
           topLabel = localeText.startAndEnd;
         } else {
           topLabel = localeText.start;
         }
       } else {
-        if (isEnd) {
+        if (isSelectedEnd) {
           topLabel = localeText.end;
         }
       }
@@ -143,9 +143,9 @@ export function renderCells(
       time,
       date: d.get('date'),
       isSelected,
-      isBegin,
+      isSelectedBegin,
       top: { label: topLabel },
-      isEnd,
+      isSelectedEnd,
       inThisMonth,
       isRowBegin,
       isRowEnd,
