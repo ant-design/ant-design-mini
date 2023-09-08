@@ -142,7 +142,7 @@ const Calendar = (props: ComponentProps) => {
     (e) => {
       setHeaderState(e);
     },
-    [monthList]
+    []
   );
 
   const [elementSize, setElementSize] = useState<{
