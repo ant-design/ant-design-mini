@@ -30,7 +30,7 @@ interface Instance {
 }
 
 export interface TestInstance {
-  getData: () => Record<string, any>;
+  getData<T = Record<string, any>>(): T;
   setProps: (props: Record<string, any>) => void;
   callMethod: (name: string, ...args: any) => any;
   unMount: () => void;
