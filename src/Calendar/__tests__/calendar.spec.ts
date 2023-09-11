@@ -1,7 +1,8 @@
 import dayjs from 'dayjs';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { CellState } from '../props';
 import { findDate, getSelectedDay, initCalendar, sleep } from './testUtils';
+import { TestInstance } from '/tests/utils';
 
 describe('Calendar', () => {
   it('测试默认值', () => {
@@ -121,5 +122,124 @@ describe('Calendar', () => {
       '2022-12-31',
       '2023-01-01',
     ]);
+  });
+
+  function extendInstance(instance: TestInstance) {
+    return {
+      clickCell(date: string) {
+        instance.callMethod('clickCell', {
+          target: {
+            dataset: {
+              time: {
+                time: dayjs(date).toDate().getTime(),
+              },
+            },
+          },
+        });
+      },
+    };
+  }
+
+  it('测试点击', async () => {
+    const instance = initCalendar({
+      weekStartsOn: 'Monday',
+      monthRange: [
+        new Date('2023-01-01').getTime(),
+        new Date('2023-02-01').getTime(),
+      ],
+    });
+    const extendFunctions = extendInstance(instance);
+
+    extendFunctions.clickCell('2023-01-04');
+    await sleep(100);
+    expect(getSelectedDay(instance.getData())).toEqual(['2023-01-04']);
+
+    // 如果选择的日期早于当前日期， 则切换 start
+    extendFunctions.clickCell('2023-01-02');
+    await sleep(100);
+    expect(getSelectedDay(instance.getData())).toEqual(['2023-01-02']);
+
+    extendFunctions.clickCell('2023-01-06');
+    await sleep(100);
+    expect(getSelectedDay(instance.getData())).toEqual([
+      '2023-01-02',
+      '2023-01-03',
+      '2023-01-04',
+      '2023-01-05',
+      '2023-01-06',
+    ]);
+  });
+
+  function lastClickDate(args: [number | [number, number]] | undefined) {
+    if (!args) {
+      return;
+    }
+    const first = args[0];
+    if (Array.isArray(first)) {
+      return first.map((o) => dayjs(o).format('YYYY-MM-DD'));
+    }
+
+    return dayjs(first).format('YYYY-MM-DD');
+  }
+
+  it('测试点击', async () => {
+    const mockFn = vi.fn();
+    const getLastChange = () => lastClickDate(mockFn.mock.lastCall);
+    const instance = initCalendar({
+      weekStartsOn: 'Monday',
+      monthRange: [
+        new Date('2023-01-01').getTime(),
+        new Date('2023-02-01').getTime(),
+      ],
+      onChange: mockFn,
+    });
+    const extendFunctions = extendInstance(instance);
+    extendFunctions.clickCell('2023-01-04');
+
+    await sleep(100);
+    expect(getLastChange()).toEqual(['2023-01-04']);
+    expect(getSelectedDay(instance.getData())).toEqual(['2023-01-04']);
+
+    // 如果选择的日期早于当前日期， 则切换 start
+    extendFunctions.clickCell('2023-01-02');
+    await sleep(100);
+    expect(getLastChange()).toEqual(['2023-01-02']);
+    expect(getSelectedDay(instance.getData())).toEqual(['2023-01-02']);
+
+    extendFunctions.clickCell('2023-01-06');
+    await sleep(100);
+    expect(getLastChange()).toEqual(['2023-01-02', '2023-01-06']);
+    expect(getSelectedDay(instance.getData())).toEqual([
+      '2023-01-02',
+      '2023-01-03',
+      '2023-01-04',
+      '2023-01-05',
+      '2023-01-06',
+    ]);
+    instance.setProps({
+      selectionMode: 'single',
+    });
+    await sleep(100);
+    extendFunctions.clickCell('2023-01-06');
+    await sleep(50);
+    expect(getLastChange()).toEqual('2023-01-06');
+    expect(getSelectedDay(instance.getData())).toEqual(['2023-01-06']);
+    extendFunctions.clickCell('2023-01-02');
+    await sleep(50);
+    expect(getLastChange()).toEqual('2023-01-02');
+    expect(getSelectedDay(instance.getData())).toEqual(['2023-01-02']);
+    instance.setProps({
+      onFormatter: (cell) => {
+        if (dayjs(cell.time).format('YYYY-MM-DD') === '2023-01-10') {
+          return {
+            disabled: true,
+          };
+        }
+      },
+    });
+    await sleep(50);
+    extendFunctions.clickCell('2023-01-02');
+    await sleep(50);
+    expect(getSelectedDay(instance.getData())).toEqual(['2023-01-02']);
   });
 });
