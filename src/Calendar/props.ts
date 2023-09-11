@@ -99,9 +99,9 @@ export interface ComponentProps {
    */
   selectionMode?: SelectionMode;
   /**
-   * 月份范围，默认为最近 6 个月
+   * 月份范围，默认为最近 3 个月
    * 格式为时间戳
-   * @default [本月第一天的时间戳, 5个月后第一天的时间戳]
+   * @default [本月第一天的时间戳, 3个月后第一天的时间戳]
    */
   monthRange?: [number, number];
   /**
