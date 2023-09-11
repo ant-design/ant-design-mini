@@ -1,5 +1,6 @@
 import { ActionSheetDefaultProps } from './props';
-import fmtEvent from '../_util/fmtEvent'
+import fmtEvent from '../_util/fmtEvent';
+import '../_util/assert-component2';
 
 Component({
   props: ActionSheetDefaultProps,
@@ -8,14 +9,14 @@ Component({
       const { item, index } = e.target.dataset;
       if (item?.disabled) return;
       const { onClose, onAction } = this.props;
-      const event = fmtEvent(this.props, e );
+      const event = fmtEvent(this.props, e);
       onClose?.(event);
-      onAction?.(item, index, event)
+      onAction?.(item, index, event);
     },
     onClose(e) {
-      const { onClose } = this.props
-      const event = fmtEvent(this.props, e );
-      onClose?.(event)
-    }
-  }
+      const { onClose } = this.props;
+      const event = fmtEvent(this.props, e);
+      onClose?.(event);
+    },
+  },
 });

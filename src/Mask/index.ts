@@ -1,5 +1,7 @@
 import fmtEvent from '../_util/fmtEvent';
 import { MaskDefaultProps } from './props';
+import '../_util/assert-component2';
+
 Component({
   data: {
     supportSjs: my.canIUse('sjs.event'),

@@ -1,6 +1,7 @@
 import { InputDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
+import '../_util/assert-component2';
 
 Component({
   props: InputDefaultProps,
@@ -50,6 +51,5 @@ Component({
         this.props.onChange('', fmtEvent(this.props, e));
       }
     },
-  }
+  },
 });
-

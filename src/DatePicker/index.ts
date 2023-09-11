@@ -10,6 +10,7 @@ import {
 } from './util';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
+import '../_util/assert-component2';
 
 const component2 = my.canIUse('component2');
 
@@ -132,8 +133,7 @@ Component({
     },
     onFormatLabel(type, value) {
       const { onFormatLabel } = this.props;
-      const formatValueByProps =
-        onFormatLabel && onFormatLabel(type, value);
+      const formatValueByProps = onFormatLabel && onFormatLabel(type, value);
       if (typeof formatValueByProps !== 'undefined') {
         return String(formatValueByProps);
       }

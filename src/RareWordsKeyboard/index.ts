@@ -2,6 +2,7 @@ import { PINYIN_MAP } from './constants';
 import { RareWordsKeyboardProps } from './props';
 import { formatZDatas, loadFontFace, matchWordsRecommend } from './utils';
 import { ZDATAS } from './zdatas';
+import '../_util/assert-component2';
 
 const wordsData = formatZDatas(ZDATAS.datas);
 
@@ -93,11 +94,10 @@ Component({
 
     // 加载字体
     loadFont() {
-      loadFontFace()
-        .catch((err) => {
-          this.setData({ showErrorPage: true });
-          if (this.props.onError) this.props.onError(err);
-        });
+      loadFontFace().catch((err) => {
+        this.setData({ showErrorPage: true });
+        if (this.props.onError) this.props.onError(err);
+      });
     },
 
     // 点击重试
@@ -116,6 +116,6 @@ Component({
       if (!value) return;
       if (this.props.onChange) this.props.onChange(value);
       this.onHide();
-    }
+    },
   },
 });
