@@ -11,7 +11,7 @@
     "prepublishOnly": "npm run build",
     "pub": "node scripts/publish.js",
     "test": "vitest run",
-    "cov": "vitest run --coverage && node scripts/patch-coverage.js"
+    "cov": "vitest run --coverage && node scripts/patch-coverage.mjs"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
