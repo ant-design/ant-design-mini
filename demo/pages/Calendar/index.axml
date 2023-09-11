@@ -1,5 +1,5 @@
 <!-- 默认情况下显示最近 6 个月 -->
-<collapse-container a:if="{{ demo1.visible }}" title="默认情况下显示最近 3 个月">
+<collapse-container a:if="{{ demo1.visible }}" title="默认多选，范围 3 个月">
   <view slot="content" style="height:1000rpx">
     <calendar />
   </view>
@@ -45,7 +45,7 @@
 
 
 <!-- 最多选择三天 -->
-<collapse-container a:if="{{ demo4.visible }}" title="最多选择三天">
+<collapse-container a:if="{{ demo4.visible }}" title="动态控制，只允许选择前后三天">
   <view slot="content">
     <calendar monthRange="{{demo4.monthRange}}" onFormatter="demoFormatter" />
   </view>
