@@ -63,6 +63,7 @@
     "pages/Popup/index",
     "pages/Result/index",
     "pages/Collapse/index",
+    "pages/Calendar/index",
     "pages/CollapseAccordion/index",
     "pages/CollapseControl/index",
     "pages/CollapseWithCheckbox/index",
