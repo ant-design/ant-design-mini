@@ -32,10 +32,16 @@
     align-items: center;
     box-sizing: border-box;
     font-size: @calendar-weekday-names-font-size;
+    padding: 0 @calendar-cells-padding;
 
     & &-cell {
       flex: 1;
       text-align: center;
+      width: calc((100% - 6 * @calendar-cell-space-size) / 7);
+      margin-right: @calendar-cell-space-size;
+    }
+    & &-cell-last {
+      margin-right: 0;
     }
   }
 
@@ -55,12 +61,23 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: stretch;
+    padding: 0 @calendar-cells-padding;
+  }
+
+  &-cell-space {
+    width: @calendar-cell-space-size;
+    height: @calendar-cell-height;
+  }
+  &-cell-space-active {
+    background: fade(@COLOR_BRAND1, 10%);
   }
 
   &-cell {
-    width: calc(100% / 7);
+    box-sizing: border-box;
+    width: calc((100% - 6 * @calendar-cell-space-size) / 7);
     height: @calendar-cell-height;
     margin-bottom: @calendar-cell-bottom-margin;
+    position: relative;
 
     &-container {
       box-sizing: border-box;
