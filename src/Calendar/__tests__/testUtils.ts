@@ -3,11 +3,18 @@ import { CellState, ComponentProps } from '../props';
 import { getInstance } from '../../../tests/utils';
 
 export function getSelectedDay(data: { monthList: { cells: CellState[] }[] }) {
-  return data.monthList
+  const result: string[] = [];
+  data.monthList
     .map((o) => o.cells)
-    .flat()
-    .filter((o) => o.isSelected)
-    .map((o) => dayjs(o.time).format('YYYY-MM-DD'));
+    .forEach((cellList) => {
+      cellList.forEach((cell) => {
+        if (cell.isSelected) {
+          result.push(dayjs(cell.time).format('YYYY-MM-DD'));
+        }
+      });
+    });
+
+  return result;
 }
 
 export function sleep(time) {
