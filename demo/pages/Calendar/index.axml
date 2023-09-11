@@ -1,5 +1,5 @@
 <!-- 默认情况下显示最近 6 个月 -->
-<collapse-container a:if="{{ demo1.visible }}" title="默认情况下显示最近 6 个月">
+<collapse-container a:if="{{ demo1.visible }}" title="默认情况下显示最近 3 个月">
   <view slot="content" style="height:1000rpx">
     <calendar />
   </view>

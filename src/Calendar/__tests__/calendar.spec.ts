@@ -12,7 +12,7 @@ describe('Calendar', () => {
     const { monthList, markItems } = initData;
 
     // 默认显示 6 个月
-    expect(monthList.length).toEqual(6);
+    expect(monthList.length).toEqual(3);
     // 默认从周日开启
     expect(markItems).toEqual(['日', '一', '二', '三', '四', '五', '六']);
     const today = findDate(monthList[0].cells, dayjs());

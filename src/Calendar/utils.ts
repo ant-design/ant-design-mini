@@ -18,7 +18,7 @@ export function getMonthListFromRange(start: Dayjs, end: Dayjs): Dayjs[] {
 
 export function defaultMonthRange(): [number, number] {
   const start = dayjs().startOf('date');
-  const end = dayjs().startOf('date').add(5, 'month');
+  const end = dayjs().startOf('date').add(2, 'month');
   return [start.toDate().getTime(), end.toDate().getTime()];
 }
 
