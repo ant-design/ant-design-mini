@@ -1,9 +1,15 @@
 function handleScroll(event, ownerComponent) {
   let currentScroll = event.detail.scrollTop;
-  const { elementSize, monthList } = event.instance.getDataset();
-  if (!elementSize) return;
-
+  const {
+    elementSize,
+    monthList
+  } = event.instance.getDataset();
   const instance = ownerComponent.selectComponent('.ant-calendar-sticky-title');
+  const sticky = ownerComponent.selectComponent('.ant-calendar-sticky');
+  sticky.setStyle({
+    display: currentScroll < 0 ? 'none' : 'block',
+  });
+  if (!elementSize) return;
   const monthHeight = elementSize.monthTitleHeight;
   const paddingHeight = elementSize.paddingHeight;
   const cellHeight = elementSize.cellHight;
