@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { describe, expect, it, vi } from 'vitest';
 import { CellState } from '../props';
 import { findDate, getSelectedDay, initCalendar, sleep } from './testUtils';
-import { TestInstance } from '/tests/utils';
+import { TestInstance } from '../../../tests/utils';
 
 describe('Calendar', () => {
   it('测试默认值', () => {
