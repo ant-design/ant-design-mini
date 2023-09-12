@@ -4,9 +4,9 @@ toc: false
 
 ## 升级到 v2
 
-在 Ant Design Mini v2 中，我们引入了一项重要的变化，即在所有的组件里增加了 Component2 的检查。
+在 Ant Design Mini v2 中，我们引入了一项重要的变化：所有的组件都依赖小程序 component2 特性。相比于之前的模式，component2 提供了更丰富、更稳定的生命周期方法，提升了组件的可维护性。
 
-如果您的项目之前已经开启的 component2 ，则 v1 到 v2 没有任何不兼容的改动。
+如果您的项目之前已经开启了 component2 ，则 v1 到 v2 没有任何不兼容的改动。
 
 您可以通过项目根目录的 mini.project.json 来判断项目是否是 component2。
 
