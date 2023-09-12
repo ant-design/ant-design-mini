@@ -19,6 +19,7 @@ import {
   getSelectionModeFromValue,
   renderCells,
 } from './utils';
+import '../_util/assert-component2';
 
 dayjs.extend(isoWeek);
 

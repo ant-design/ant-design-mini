@@ -1,5 +1,6 @@
 import { PopupDefaultProps } from './props';
 import { compareVersion } from '../_util/compareVersion';
+import '../_util/assert-component2';
 
 const SDKVersion = my.SDKVersion;
 const isOldVersion = compareVersion(SDKVersion, '2.0.0') < 0;

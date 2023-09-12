@@ -1,5 +1,6 @@
 import { IconDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
+import '../_util/assert-component2';
 
 Component({
   props: IconDefaultProps,

@@ -1,5 +1,6 @@
 import { GuideTourDefaultProps } from './props';
 import mixinValue from '../mixins/value';
+import '../_util/assert-component2';
 
 Component({
   mixins: [

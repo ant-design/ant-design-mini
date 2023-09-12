@@ -2,41 +2,58 @@ import { StepperDefaultProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
-
+import '../_util/assert-component2';
 
 Component({
   props: StepperDefaultProps,
-  mixins: [mixinValue({
-    transformValue(num, extra, precision) {
-      const { valid, value } = getValidNumber(num, this.props.min, this.props.max, this.props.step, precision >= 0 ? precision : this.props.precision);
-      if (valid && this.getValue() !== value) {
-        return {
-          needUpdate: true,
-          value,
+  mixins: [
+    mixinValue({
+      transformValue(num, extra, precision) {
+        const { valid, value } = getValidNumber(
+          num,
+          this.props.min,
+          this.props.max,
+          this.props.step,
+          precision >= 0 ? precision : this.props.precision
+        );
+        if (valid && this.getValue() !== value) {
+          return {
+            needUpdate: true,
+            value,
+          };
         }
-      }
-      return {
-        needUpdate: false,
-      };
-    },
-  })],
+        return {
+          needUpdate: false,
+        };
+      },
+    }),
+  ],
   methods: {
     onFocus(e) {
       if (this.props.onFocus) {
         const value = this.getValue();
-        this.props.onFocus(value === '' ? null : Number(value), fmtEvent(this.props, e));
+        this.props.onFocus(
+          value === '' ? null : Number(value),
+          fmtEvent(this.props, e)
+        );
       }
     },
     onChange(val, e) {
       const { needUpdate, value } = this.update(val);
       if (this.props.onChange && needUpdate) {
-        this.props.onChange(value === '' ? null : Number(value), fmtEvent(this.props, e));
+        this.props.onChange(
+          value === '' ? null : Number(value),
+          fmtEvent(this.props, e)
+        );
       }
     },
     onConfirm(val, e) {
       if (this.props.onConfirm) {
         const value = this.getValue();
-        this.props.onConfirm(value === '' ? null : Number(value), fmtEvent(this.props, e));
+        this.props.onConfirm(
+          value === '' ? null : Number(value),
+          fmtEvent(this.props, e)
+        );
       }
     },
     onBlur(e) {
@@ -45,7 +62,10 @@ Component({
       }
       if (this.props.onBlur) {
         const value = this.getValue();
-        this.props.onBlur(value === '' ? null : Number(value), fmtEvent(this.props, e));
+        this.props.onBlur(
+          value === '' ? null : Number(value),
+          fmtEvent(this.props, e)
+        );
       }
     },
     onTap(e) {
@@ -54,7 +74,10 @@ Component({
       if (!disabled) {
         const { mode } = e.currentTarget.dataset;
         let result = value;
-        const precision = this.props.precision >= 0 ? this.props.precision : Math.max(getPrecision(value), getPrecision(step));
+        const precision =
+          this.props.precision >= 0
+            ? this.props.precision
+            : Math.max(getPrecision(value), getPrecision(step));
         if (mode === 'minus') {
           // 【减】按钮的操作
           result = value - step;
