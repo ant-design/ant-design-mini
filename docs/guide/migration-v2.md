@@ -4,7 +4,7 @@ toc: false
 
 ## 升级到 v2
 
-在 antd-mini v2 中，我们引入了一项重要的变化，即在所有的组件里增加了 Component2 的检查。
+在 Ant Design Mini v2 中，我们引入了一项重要的变化，即在所有的组件里增加了 Component2 的检查。
 
 如果您的项目之前已经开启的 component2 ，则 v1 到 v2 没有任何不兼容的改动。
 
