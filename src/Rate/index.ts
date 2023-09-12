@@ -1,7 +1,7 @@
-
 import { RateDefaultProps } from './props';
 import createValue from '../mixins/value';
 import { IBoundingClientRect } from '../_util/base';
+import '../_util/assert-component2';
 
 function getBoundingClientRect(selector: string) {
   return new Promise<IBoundingClientRect>((resolve, reject) => {
@@ -18,23 +18,24 @@ function getBoundingClientRect(selector: string) {
   });
 }
 
-
 Component({
   props: RateDefaultProps,
-  mixins: [createValue({
-    transformValue(value) {
-      if (this.props.allowHalf) {
+  mixins: [
+    createValue({
+      transformValue(value) {
+        if (this.props.allowHalf) {
+          return {
+            needUpdate: true,
+            value: value % 0.5 !== 0 ? Math.round(value) : value,
+          };
+        }
         return {
           needUpdate: true,
-          value: value % 0.5 !== 0 ? Math.round(value) : value,
+          value: Math.ceil(value),
         };
-      }
-      return {
-        needUpdate: true,
-        value: Math.ceil(value),
-      };
-    }
-  })],
+      },
+    }),
+  ],
   methods: {
     async handleStarTap(e) {
       if (this.props.readonly) {
@@ -58,7 +59,7 @@ Component({
       if (this.props.readonly) {
         return;
       }
-      const { touches } = e
+      const { touches } = e;
       const { clientX } = touches[0];
       if (typeof this.startMoveRate === 'undefined') {
         this.startMoveRate = this.getValue();
@@ -85,20 +86,26 @@ Component({
     },
     async updateRate(clientX: number) {
       const { gutter, count } = this.props;
-      const { left, width } = await getBoundingClientRect(`#ant-rate-container-${this.$id}`);
-      const halfRateWidth = ((width - (count - 1) * gutter) / count) / 2;
+      const { left, width } = await getBoundingClientRect(
+        `#ant-rate-container-${this.$id}`
+      );
+      const halfRateWidth = (width - (count - 1) * gutter) / count / 2;
       const num = clientX - left;
       let halfRateCount = 0;
       /* eslint-disable no-constant-condition */
-      while(true) {
-        const val = halfRateWidth * halfRateCount + gutter * (Math.floor(halfRateCount / 2));
+      while (true) {
+        const val =
+          halfRateWidth * halfRateCount +
+          gutter * Math.floor(halfRateCount / 2);
         if (halfRateCount >= count * 2 || num <= val) {
-          break
+          break;
         }
-        halfRateCount++; 
+        halfRateCount++;
       }
-      const rate = this.props.allowHalf ? halfRateCount * 0.5 : Math.ceil(halfRateCount * 0.5);
+      const rate = this.props.allowHalf
+        ? halfRateCount * 0.5
+        : Math.ceil(halfRateCount * 0.5);
       return rate;
-    }
+    },
   },
 });

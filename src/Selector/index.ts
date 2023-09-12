@@ -1,11 +1,10 @@
 import { SelectorDefaultProps, ISelectorItem } from './props';
 import mixinValue from '../mixins/value';
 import fmtEvent from '../_util/fmtEvent';
+import '../_util/assert-component2';
 
 Component({
-  mixins: [
-    mixinValue(),
-  ],
+  mixins: [mixinValue()],
   props: SelectorDefaultProps,
   methods: {
     onChange(e) {

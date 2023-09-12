@@ -1,0 +1,78 @@
+<!-- 默认情况下显示最近 6 个月 -->
+<collapse-container a:if="{{ demo1.visible }}" title="默认多选，范围 3 个月">
+  <view slot="content" style="height:1000rpx">
+    <calendar />
+  </view>
+</collapse-container>
+
+<!-- 单选 -->
+<collapse-container a:if="{{ demo2.visible }}" title="单选">
+  <view slot="content" style="height:1000rpx">
+    <calendar selectionMode="single"></calendar>
+  </view>
+</collapse-container>
+
+<!-- 自定义日历顶部 -->
+<collapse-container a:if="{{ demo3.visible }}" title="自定义日历顶部">
+  <view slot="content">
+    <view class="custom-header">
+      <view onTap="demo3PreviousMonth" class="custom-header-left">
+        <icon type="LeftOutline" />
+        上个月
+      </view>
+      <view>
+        {{ demo3.title}}
+      </view>
+      <view onTap="demo3NextMonth" class="custom-header-right">
+        下个月
+        <icon type="RightOutline" />
+      </view>
+    </view>
+    <calendar monthRange="{{demo3.monthRange}}">
+      <view slot="calendarTitle">
+      </view>
+    </calendar>
+  </view>
+</collapse-container>
+
+<!-- 标记奇偶数 -->
+<collapse-container a:if="{{ demo8.visible }}" title="自定义日期单元格">
+  <view slot="content">
+    <calendar monthRange="{{demo8.monthRange}}" onFormatter="demo8Formatter">
+    </calendar>
+  </view>
+</collapse-container>
+
+
+<!-- 最多选择三天 -->
+<collapse-container a:if="{{ demo4.visible }}" title="动态控制，只允许选择前后三天">
+  <view slot="content">
+    <calendar monthRange="{{demo4.monthRange}}" onFormatter="demoFormatter" />
+  </view>
+</collapse-container>
+
+<!-- 从周一开始 -->
+<collapse-container a:if="{{ demo5.visible }}" title="从周一开始">
+  <view slot="content" style="height:1000rpx">
+    <calendar weekStartsOn="Monday" />
+  </view>
+</collapse-container>
+
+<!-- 通过 slot 实现农历 -->
+<collapse-container a:if="{{ demo6.visible }}" title="通过 slot 实现农历">
+  <view slot="content">
+    <calendar monthRange="{{demo6.monthRange}}">
+      <view slot="cell-bottom" slot-scope="prop">
+        <cn-day cell="{{prop.cell}}"></cn-day>
+      </view>
+    </calendar>
+  </view>
+</collapse-container>
+
+<!-- 国际化 -->
+<collapse-container a:if="{{ demo7.visible }}" title="国际化">
+  <view slot="content">
+    <calendar monthRange="{{demo7.monthRange}}" localeText="{{demo7.localeText}}">
+    </calendar>
+  </view>
+</collapse-container>

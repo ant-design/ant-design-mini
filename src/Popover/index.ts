@@ -2,21 +2,22 @@ import { PopoverDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
 import { IBoundingClientRect } from '../_util/base';
-
+import '../_util/assert-component2';
 
 function getSystemInfo() {
-  return new Promise<{windowWidth: number; windowHeight: number;}>((resolve, reject) => {
-    my.getSystemInfo({
-      success: (res) => {
-        resolve(res);
-      },
-      fail: () => {
-        reject();
-      },
-    })
-  });
+  return new Promise<{ windowWidth: number; windowHeight: number }>(
+    (resolve, reject) => {
+      my.getSystemInfo({
+        success: (res) => {
+          resolve(res);
+        },
+        fail: () => {
+          reject();
+        },
+      });
+    }
+  );
 }
-
 
 function getBoundingClientRect(selector: string) {
   return new Promise<IBoundingClientRect>((resolve, reject) => {
@@ -34,7 +35,9 @@ function getBoundingClientRect(selector: string) {
 }
 
 function getStyle(obj) {
-  return Object.keys(obj).map(item => `${item}: ${obj[item]}px`).join(';');
+  return Object.keys(obj)
+    .map((item) => `${item}: ${obj[item]}px`)
+    .join(';');
 }
 
 Component({
@@ -69,13 +72,14 @@ Component({
   },
   methods: {
     async updatePopover() {
-      const { placement, autoAdjustOverflow } = this.props; 
-      const [containerRect, childrenRect, contentRect, systemInfo] = await Promise.all([
-        getBoundingClientRect(`#ant-popover-children-${this.$id}`),
-        getBoundingClientRect(`#ant-popover-children-${this.$id} > *`),
-        getBoundingClientRect(`#ant-popover-content-${this.$id}`),
-        getSystemInfo(),
-      ]);
+      const { placement, autoAdjustOverflow } = this.props;
+      const [containerRect, childrenRect, contentRect, systemInfo] =
+        await Promise.all([
+          getBoundingClientRect(`#ant-popover-children-${this.$id}`),
+          getBoundingClientRect(`#ant-popover-children-${this.$id} > *`),
+          getBoundingClientRect(`#ant-popover-content-${this.$id}`),
+          getSystemInfo(),
+        ]);
 
       const left = childrenRect.left - containerRect.left;
       const top = childrenRect.top - containerRect.top;
@@ -93,7 +97,10 @@ Component({
             adjustedPlacement = 'bottom';
           }
         } else if (adjustedPlacement === 'bottom') {
-          if (childrenRect.bottom + contentRectHeight > systemInfo.windowHeight) {
+          if (
+            childrenRect.bottom + contentRectHeight >
+            systemInfo.windowHeight
+          ) {
             adjustedPlacement = 'top';
           }
         } else if (adjustedPlacement === 'left') {
@@ -119,14 +126,20 @@ Component({
             adjustedPlacement = adjustedPlacement.replace('right', 'left');
           }
         } else if (adjustedPlacement === 'bottom-left') {
-          if (childrenRect.bottom + contentRectHeight > systemInfo.windowHeight) {
+          if (
+            childrenRect.bottom + contentRectHeight >
+            systemInfo.windowHeight
+          ) {
             adjustedPlacement = adjustedPlacement.replace('bottom', 'top');
           }
           if (childrenRect.left + contentRectWidth > systemInfo.windowWidth) {
             adjustedPlacement = adjustedPlacement.replace('left', 'right');
           }
         } else if (adjustedPlacement === 'bottom-right') {
-          if (childrenRect.bottom + contentRectHeight > systemInfo.windowHeight) {
+          if (
+            childrenRect.bottom + contentRectHeight >
+            systemInfo.windowHeight
+          ) {
             adjustedPlacement = adjustedPlacement.replace('bottom', 'top');
           }
           if (childrenRect.right - contentRectWidth < 0) {
@@ -232,9 +245,12 @@ Component({
       });
     },
 
-
     onVisibleChange(e) {
-      if (!this.getValue() && e.target.id && e.target.id.indexOf('ant-popover-') === 0) {
+      if (
+        !this.getValue() &&
+        e.target.id &&
+        e.target.id.indexOf('ant-popover-') === 0
+      ) {
         return;
       }
       const { onVisibleChange } = this.props;

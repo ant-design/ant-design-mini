@@ -1,6 +1,7 @@
 import { UploaderDefaultProps, File, LocalFile } from './props';
 import { chooseImage } from '../_util/promisify';
 import createValue from '../mixins/value';
+import '../_util/assert-component2';
 
 Component({
   props: UploaderDefaultProps,

@@ -1,0 +1,28 @@
+page {
+  padding: 8px;
+}
+
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60rpx;
+}
+
+.custom-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.custom-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.odd {
+  color: red;
+}
+
+.even{
+  color: blue;
+}

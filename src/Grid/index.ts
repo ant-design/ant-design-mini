@@ -1,4 +1,5 @@
 import { GridDefaultProps } from './props';
+import '../_util/assert-component2';
 
 Component({
   props: GridDefaultProps,
@@ -13,7 +14,7 @@ Component({
     onFirstAppear(e) {
       const { item } = e.target.dataset;
       const { onFirstAppear } = this.props;
-      if(onFirstAppear) {
+      if (onFirstAppear) {
         onFirstAppear(item);
       }
     },

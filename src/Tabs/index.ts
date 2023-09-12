@@ -2,6 +2,7 @@ import { TabsDefaultProps } from './props';
 import { IBoundingClientRect } from '../_util/base';
 import fmtEvent from '../_util/fmtEvent';
 import createValue from '../mixins/value';
+import '../_util/assert-component2';
 
 function getBoundingClientRect(selector: string) {
   return new Promise<IBoundingClientRect>((resolve, reject) => {
@@ -25,10 +26,12 @@ Component({
     leftFade: false,
     rightFade: false,
   },
-  mixins: [createValue({
-    valueKey: 'current',
-    defaultValueKey: 'defaultCurrent',
-  })],
+  mixins: [
+    createValue({
+      valueKey: 'current',
+      defaultValueKey: 'defaultCurrent',
+    }),
+  ],
   scrollLeft: 0,
   scrollTop: 0,
   didMount() {
@@ -40,7 +43,7 @@ Component({
     }
   },
   methods: {
-    async onScroll(e) {   
+    async onScroll(e) {
       if (this.props.direction === 'vertical') {
         this.scrollTop = e.detail.scrollTop;
         return;
@@ -54,7 +57,9 @@ Component({
       });
       const [view, item] = await Promise.all([
         getBoundingClientRect(`#ant-tabs-bar-scroll-view-${this.$id}`),
-        getBoundingClientRect(`#ant-tabs-bar-item-${this.$id}-${this.props.items.length - 1}`),
+        getBoundingClientRect(
+          `#ant-tabs-bar-item-${this.$id}-${this.props.items.length - 1}`
+        ),
       ]);
       this.setData({
         rightFade: item.left + item.width / 2 > view.width,
@@ -66,19 +71,23 @@ Component({
         getBoundingClientRect(`#ant-tabs-bar-scroll-view-${this.$id}`),
         getBoundingClientRect(`#ant-tabs-bar-item-${this.$id}-${current}`),
       ]);
-      if (this.props.direction === 'vertical') { 
+      if (this.props.direction === 'vertical') {
         let scrollTop = this.scrollTop || 0;
         let needScroll = false;
         if (this.props.scrollMode === 'center') {
           needScroll = true;
-          scrollTop += (item.top - view.top) - Math.max((view.height - item.height) / 2, 0);
+          scrollTop +=
+            item.top - view.top - Math.max((view.height - item.height) / 2, 0);
         } else {
           const distance = item.top - view.top;
           if (distance < 0) {
             scrollTop += distance;
             needScroll = true;
           } else if (distance + item.height > view.height) {
-            scrollTop += Math.min(distance + item.height - view.height, distance);
+            scrollTop += Math.min(
+              distance + item.height - view.height,
+              distance
+            );
             needScroll = true;
           }
         }
@@ -96,7 +105,8 @@ Component({
       let needScroll = false;
       if (this.props.scrollMode === 'center') {
         needScroll = true;
-        scrollLeft += (item.left - view.left) - Math.max((view.width - item.width) / 2, 0);
+        scrollLeft +=
+          item.left - view.left - Math.max((view.width - item.width) / 2, 0);
       } else {
         const distance = item.left - view.left;
         if (distance < 0) {
@@ -119,7 +129,10 @@ Component({
     },
     scroll(scrollLeft: number) {
       this.setData({
-        scrollLeft: this.data.scrollLeft === scrollLeft ? scrollLeft - Math.random() : scrollLeft,
+        scrollLeft:
+          this.data.scrollLeft === scrollLeft
+            ? scrollLeft - Math.random()
+            : scrollLeft,
       });
     },
     onChange(e) {
@@ -138,5 +151,5 @@ Component({
         onChange(index, fmtEvent(this.props, e));
       }
     },
-  }
+  },
 });

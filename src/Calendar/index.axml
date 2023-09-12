@@ -1,0 +1,68 @@
+<import-sjs from="./index.sjs" name="{ getClassName , getSpaceClassName, getMarkCellClassName}" />
+<import-sjs from="./scroll.sjs" name="scroll"></import-sjs>
+
+<view class="ant-calendar {{className ? className : ''}}" style="{{style}}">
+  <view class="ant-calendar-mark">
+    <view a:for="{{ markItems }}" class="{{getMarkCellClassName(index,markItems)}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+  <view a:if="{{ elementSize }}" class="ant-calendar-sticky">
+    <view class="ant-calendar-sticky-title">
+      <slot name="calendarTitle">
+        <view class="ant-calendar-title">
+          {{monthList[headerState].title}}
+        </view>
+      </slot>
+    </view>
+  </view>
+  <scroll-view
+    scroll-y="{{true}}"
+    class="ant-calendar-body"
+    data-elementSize="{{elementSize}}"
+    data-monthList="{{monthList}}"
+    onScroll="{{scroll.handleScroll}}"
+    ref="handleRef"
+  >
+    <view a:for="{{ monthList }}" a:for-item="currentMonth">
+      <view class="ant-calendar-title-container">
+        <slot name="calendarTitle">
+          <view class="ant-calendar-title">
+            {{currentMonth.title}}
+          </view>
+        </slot>
+      </view>
+      <view class="ant-calendar-cells">
+        <block a:for="{{ currentMonth.cells }}">
+          <view
+            class="{{getClassName(item, index, currentMonth.cells)}}"
+            data-time="{{item}}"
+            onTap="clickCell"
+          >
+            <view class="ant-calendar-cell-container">
+              <view class="ant-calendar-cell-top">
+                <text a:if="{{ item.top }}" class="ant-calendar-cell-top-text {{item.top.className? item.top.className:''}}">
+                  {{item.top.label}}
+                </text>
+              </view>
+              <view class="ant-calendar-cell-center">
+                {{item.date}}
+              </view>
+              <view class="ant-calendar-cell-bottom">
+                <slot name="cell-bottom" cell="{{item}}">
+                  <text a:if="{{ item.bottom }}" class="{{item.bottom.className}}">
+                    {{item.bottom.label}}
+                  </text>
+                </slot>
+              </view>
+            </view>
+
+          </view>
+          <view a:if="{{ index % 7 !== 6 }}" class="{{getSpaceClassName(index, currentMonth.cells)}}">
+          </view>
+        </block>
+
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -7,6 +7,7 @@ import {
 } from './utils';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
+import '../_util/assert-component2';
 
 const component2 = my.canIUse('component2');
 

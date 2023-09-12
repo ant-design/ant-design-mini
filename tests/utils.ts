@@ -30,7 +30,7 @@ interface Instance {
 }
 
 export interface TestInstance {
-  getData: () => Record<string, any>;
+  getData<T = Record<string, any>>(): T;
   setProps: (props: Record<string, any>) => void;
   callMethod: (name: string, ...args: any) => any;
   unMount: () => void;
@@ -161,6 +161,24 @@ function createInstance(config: Instance, props: Record<string, any>, my: any) {
   };
 }
 
+function component2Patch(originalMy?: Record<string, any>) {
+  if (typeof originalMy !== 'undefined') {
+    const originalCanIUse = originalMy.canIUse;
+    originalMy.canIUse = function (name: string) {
+      if (name === 'component2') {
+        return true;
+      }
+      return originalCanIUse(name);
+    };
+    return originalMy;
+  }
+  return {
+    canIUse() {
+      return true;
+    },
+  };
+}
+
 function getInstance(
   name: string,
   props: Record<string, any>,
@@ -210,12 +228,13 @@ function getInstance(
   let result;
   const cov = {};
   const context = vm.createContext({
-    my: api,
+    my: component2Patch(api),
     console,
     COV: cov,
     require,
+    setTimeout,
     Component: (obj) => {
-      result = createInstance(obj, props, api);
+      result = createInstance(obj, props, component2Patch(api));
     },
   });
 
