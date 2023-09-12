@@ -1,9 +1,10 @@
-import type { IConfig } from 'dumi'
+import type { IConfig } from 'dumi';
 
 // const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const config: IConfig = {
   title: 'Ant Design Mini',
-  favicon: 'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
+  favicon:
+    'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
   logo: 'https://gw.alipayobjects.com/zos/bmw-prod/d1971355-ffff-44ef-9e20-1bc9a237d463.svg',
   outputPath: 'docs-dist',
   locales: [['zh', '中文']],
@@ -31,14 +32,16 @@ const config: IConfig = {
     },
   ],
   headScripts: [
-    { src: 'https://gw.alipayobjects.com/os/lib/current-device/0.10.2/umd/current-device.min.js' },
-    { src: 'https://v1.cnzz.com/z_stat.php?id=1280900245&web_id=1280900245' }
+    {
+      src: 'https://gw.alipayobjects.com/os/lib/current-device/0.10.2/umd/current-device.min.js',
+    },
+    { src: 'https://v1.cnzz.com/z_stat.php?id=1280900245&web_id=1280900245' },
   ],
   links: [
     {
       rel: 'preconnect',
-      href: 'https://8V6T3YYVB3-dsn.algolia.net'
-    }
+      href: 'https://8V6T3YYVB3-dsn.algolia.net',
+    },
   ],
   scripts: [
     `
@@ -72,7 +75,7 @@ const config: IConfig = {
 
         return isIE;
       }
-      
+
       function renderBrowserUpdate() {
         var div = document.createElement("div");
         var style = document.createElement("style");
@@ -109,9 +112,10 @@ const config: IConfig = {
         console.error("[BrowserUpdate ERROR]", navigator.userAgent, e);
       }
     })();
-    `
+    `,
   ],
-  styles: [`
+  styles: [
+    `
   html {
     touch-action: manipulation;
   }
@@ -342,7 +346,8 @@ const config: IConfig = {
   th:nth-last-child(2):nth-child(2) {
     width: 40%;
   }
-  `],
+  `,
+  ],
   navs: {
     zh: [
       {
@@ -396,7 +401,11 @@ const config: IConfig = {
         path: '/guide/customize-theme',
       },
       {
-        title: '升级到v1',
+        title: '升级到 v2',
+        path: '/guide/migration-v2',
+      },
+      {
+        title: '升级到 v1',
         path: '/guide/migration-v1',
       },
       {
@@ -409,17 +418,6 @@ const config: IConfig = {
       },
     ],
   },
-
-  chainWebpack(config) {
-    // @ts-ignore
-    // config.plugin('MonacoWebpackPlugin').use(MonacoWebpackPlugin, [
-    //   {
-    //     languages: ['javascript', 'typescript', 'json', 'css', 'html', 'xml'],
-    //     publicPath:
-    //       process.env.NODE_ENV === 'development' ? 'http://localhost:8000/' : 'https://gw.alipayobjects.com/a/minidev/',
-    //   },
-    // ])
-  }
 };
 
 export default config;
