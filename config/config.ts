@@ -367,10 +367,11 @@ const config: IConfig = {
         path: 'https://ant-design-mini.antgroup.com',
       },
       {
-        title: 'v1',
+        title: 'v2',
         // 可通过如下形式嵌套二级导航菜单，目前暂不支持更多层级嵌套：
         children: [
-          { title: 'v1', path: 'https://mini.ant.design' },
+          { title: 'v2', path: 'https://mini.ant.design' },
+          { title: 'v1', path: 'https://1x-mini.ant.design' },
           { title: 'v0', path: 'https://0x-mini.ant.design' },
         ],
       },
