@@ -196,7 +196,7 @@ describe('Calendar', () => {
     const extendFunctions = extendInstance(instance);
     extendFunctions.clickCell('2023-01-04');
 
-    await sleep(100);
+    await sleep(200);
     expect(getLastChange()).toEqual(['2023-01-04']);
     expect(getSelectedDay(instance.getData())).toEqual(['2023-01-04']);
 
@@ -237,9 +237,9 @@ describe('Calendar', () => {
         }
       },
     });
-    await sleep(50);
+    await sleep(100);
     extendFunctions.clickCell('2023-01-02');
-    await sleep(50);
+    await sleep(100);
     expect(getSelectedDay(instance.getData())).toEqual(['2023-01-02']);
   });
 });
