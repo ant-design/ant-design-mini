@@ -12,8 +12,7 @@ $ npm i antd-mini -S
 
 antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。你可以扫描下方的支付宝二维码体验，或者访问[官网](https://mini.ant.design/)以获取更多信息。
 
-<img src="https://user-images.githubusercontent.com/113670357/210477066-7161efb4-be87-455f-b198-02d87bd877f1.png" alt="logo" width="220" />
-
+<img src="https://mdn.alipayobjects.com/huamei_jlgevq/afts/img/A*2ZAZR7NQQJ4AAAAAAAAAAAAADtSSAQ/original" alt="logo" width="220" />
 
 如果你发现了 bug 或者是希望 antd-mini 增加一些特性，可以[提交 issue](https://github.com/ant-design/ant-design-mini/issues)。也欢迎参与共建，这里有一份[贡献指南](/CONTRIBUTE.md)。
 

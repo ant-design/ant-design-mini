@@ -1,6 +1,7 @@
 {
   "name": "antd-mini",
   "version": "2.11.0",
+  "description": "antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。",
   "scripts": {
     "dev": "node ./scripts/dev.js",
     "build": "node ./scripts/build.js",
