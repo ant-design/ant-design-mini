@@ -39,6 +39,10 @@ v2 版本的代码组成情况如下：
 }
 ```
 
+你也可以使用小程序开发者工具（IDE）的详情面板来配置，配置路径：在 IDE 中的 详情 > 项目配置 中，勾选 启用 component2 编译
+
+![](https://mdn.alipayobjects.com/huamei_384ylk/afts/img/A*MvGAQoOLfUQAAAAAAAAAAAAADk97AQ/original)
+
 ### 参考文档
 
 - [小程序全局配置](https://opendocs.alipay.com/mini/03dbc3)
