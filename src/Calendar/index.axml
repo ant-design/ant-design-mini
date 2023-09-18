@@ -1,5 +1,5 @@
 <import-sjs from="./helper.sjs" name="helper" />
-<import-sjs from="./scroll.sjs" name="scroll"></import-sjs>
+<import-sjs from="./scroll.sjs" name="scroll" />
 
 <view class="ant-calendar {{className ? className : ''}}" style="{{style}}">
   <view class="ant-calendar-mark">
