@@ -1,0 +1,5 @@
+<import-sjs
+  from="./sjs.sjs"
+  name="helper" />
+
+<view data-id="{{helper.format(b)}}">text</view>

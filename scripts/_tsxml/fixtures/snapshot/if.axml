@@ -1,0 +1,10 @@
+<view>
+  <block a:if="{{!!a}}"><text>a</text></block>
+  <block a:if="{{!!a && b}}"><text>a & b</text></block>
+  <block>
+    <block a:if="{{a}}"><text>a</text></block>
+    <block a:else><text>!a</text></block>
+  </block>
+  <text class="{{a ? '1' : '2'}}" />
+  <text class="1 {{a ? '1' + '2' : 2}} 2" />
+</view>

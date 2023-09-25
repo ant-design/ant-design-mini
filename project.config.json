@@ -1,0 +1,31 @@
+{
+  "description": "项目配置文件",
+  "miniprogramRoot": "wechat/",
+  "compileType": "miniprogram",
+  "libVersion": "3.0.1",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "ignoreUploadUnusedFiles": true,
+    "es6": true,
+    "enhance": true
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "useCompilerPlugins": [
+    "typescript",
+    "less"
+  ],
+  "srcMiniprogramRoot": "wechat/",
+  "projectname": "antd"
+}

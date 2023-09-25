@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2020",
+    "moduleResolution": "node",
+    "lib": ["es2015"],
+    "jsx": "preserve",
+    "types": ["node"],
+    "paths": {
+      "tsxml": ["../tsxml/lib/index.tsx"]
+    }
+  },
+  "include": ["./**/*"]
+}

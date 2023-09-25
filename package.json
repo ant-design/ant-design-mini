@@ -2,9 +2,12 @@
   "name": "antd-mini",
   "version": "2.11.0",
   "description": "antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。",
+  "miniprogram": "wechat/src",
   "scripts": {
-    "dev": "node ./scripts/dev.js",
-    "build": "node ./scripts/build.js",
+    "dev": "tsx ./scripts/dev.ts",
+    "build:tsxml":"tsx ./scripts/compile-tsxml.ts",
+    "dev:doc": "tsx ./scripts/dev-doc.ts",
+    "build": "npm run build:tsxml && node ./scripts/build.js",
     "deploy:docs": "npm run build && echo 'mini.ant.design' > ./docs-dist/CNAME && gh-pages -d docs-dist",
     "lint:code": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\"",
     "lint:code:fix": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\" --fix",
@@ -12,7 +15,7 @@
     "prepublishOnly": "npm run build",
     "pub": "node scripts/publish.js",
     "test": "vitest run",
-    "cov": "vitest run --coverage && node scripts/patch-coverage.mjs"
+    "cov": "vitest run --coverage && tsx ./scripts/patch-coverage.ts"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
@@ -35,6 +38,19 @@
     "tslib": "2.5.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.20",
+    "@babel/code-frame": "^7.22.13",
+    "@babel/generator": "^7.22.15",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-typescript": "^7.22.15",
+    "@diamondyuan/gulp-ifdef": "^0.3.0",
+    "@types/gulp": "^4.0.13",
+    "@types/through2": "^2.0.39",
+    "gulp-changed": "^4.0.3",
+    "gulp-debug": "^4.0.0",
+    "gulp-ifdef": "^0.2.0",
+    "gulp-watch": "^5.0.1",
+    "@babel/parser": "^7.22.16",
     "@types/less": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
@@ -76,13 +92,15 @@
     "shallowequal": "^1.1.0",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0",
+    "tsx": "^3.12.10",
     "typescript": "^4.0.0",
     "vitest": "^0.34.2",
     "yorkie": "^2.0.0"
   },
   "files": [
     "es",
-    "less"
+    "less",
+    "wechat/src"
   ],
   "repository": {
     "type": "git",
