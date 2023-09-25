@@ -18,7 +18,7 @@ createComponent({
     },
     onRemove(file) {
       if (this.props.onRemove) {
-        this.props.onRemove(file);
+        return this.props.onRemove(file);
       }
     },
     onPreview(file) {
@@ -36,6 +36,5 @@ createComponent({
         this.props.onChooseImageError(err);
       }
     },
-  }
+  },
 });
-
