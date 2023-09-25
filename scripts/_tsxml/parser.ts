@@ -192,9 +192,7 @@ export function transformJSXElement(ctx: ITransformContext) {
       return ctx.toAxmlExpression();
     }
     case 'ConditionalExpression': {
-      return ctx.h(
-        'block',
-        {},
+      return [
         ctx.h(
           'block',
           {
@@ -208,8 +206,8 @@ export function transformJSXElement(ctx: ITransformContext) {
             [ctx.else()]: true,
           },
           transformJSXElement(ctx.extends(ctx.node.alternate))
-        )
-      );
+        ),
+      ];
     }
     default: {
       throw ctx.throw(ctx.node, 'Unsupported JSXElement');
