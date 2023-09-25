@@ -1,16 +1,14 @@
 <container title="基本用法">
   <uploader
     onChange="onChange"
-    onUpload="onUpload"
-  />
+    onUpload="onUpload" />
 </container>
 
 <container title="初始值">
   <uploader
     defaultFileList="{{defaultFileList}}"
     onChange="onChange"
-    onUpload="onUpload"
-  />
+    onUpload="onUpload" />
 </container>
 
 <container title="上传最大限制">
@@ -18,8 +16,7 @@
   <uploader
     maxCount="{{1}}"
     onChange="onChange"
-    onUpload="onUpload"
-  />
+    onUpload="onUpload" />
 </container>
 
 <container title="自定义移除">
@@ -27,8 +24,7 @@
     defaultFileList="{{defaultFileList}}"
     onRemove="onRemove"
     onChange="onChange"
-    onUpload="onUpload"
-  />
+    onUpload="onUpload" />
 </container>
 
 <container title="自定义上传前">
@@ -36,6 +32,5 @@
     defaultFileList="{{defaultFileList}}"
     onBeforeUpload="onBeforeUpload"
     onChange="onChange"
-    onUpload="onUpload"
-  />
+    onUpload="onUpload" />
 </container>

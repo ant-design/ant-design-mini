@@ -1,8 +1,9 @@
 import { getInstance } from '../../../tests/utils';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('icon onTap', () => {
   it('icon onTap', () => {
-    const onTap = jest.fn();
+    const onTap = vi.fn();
     const instance = getInstance('Icon', {
       onTap,
     });
@@ -13,7 +14,7 @@ describe('icon onTap', () => {
 
 describe('icon catchTap', () => {
   it('icon catchTap', () => {
-    const catchTap = jest.fn();
+    const catchTap = vi.fn();
     const instance = getInstance('Icon', {
       catchTap,
     });

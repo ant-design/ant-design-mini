@@ -7,6 +7,7 @@ import {
 } from './utils';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
+import '../_util/assert-component2';
 
 const component2 = my.canIUse('component2');
 
@@ -71,7 +72,6 @@ Component({
                 selectedIndex,
               });
             }
-            this.isChangingPickerView = false;
           }
         );
       }
@@ -88,11 +88,12 @@ Component({
           formatValue,
         });
       }
+      this.isChangingPickerView = false;
     },
     getterColumns(options) {
       let columns = [];
       if (options.length > 0) {
-        if (options.every((item) => item instanceof Array)) {
+        if (options.every((item) => Array.isArray(item))) {
           this.single = false;
           columns = options.slice();
         } else {
@@ -103,7 +104,7 @@ Component({
       return columns;
     },
     defaultFormat(value, column) {
-      if (column instanceof Array) {
+      if (Array.isArray(column)) {
         return column
           .filter((c) => c !== undefined)
           .map(function (c) {
@@ -160,8 +161,10 @@ Component({
       const { disabled } = this.props;
       if (!disabled) {
         this.tempSelectedIndex = null;
+        const selectedIndex = this.getterSelectedIndex();
         this.setData({
           visible: true,
+          selectedIndex,
         });
         this.triggerPicker(true);
       }

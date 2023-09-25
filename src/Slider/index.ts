@@ -2,28 +2,37 @@ import equal from 'fast-deep-equal';
 import { sliderDefaultProps, SliderValue } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import createValue from '../mixins/value';
-
+import '../_util/assert-component2';
 
 Component({
   props: sliderDefaultProps,
-  mixins: [createValue({
-    transformValue(val, extra, needUpdate = true, emit) {
-      const value = this.formatValue(val);
-      if (needUpdate) {
-        this.setSliderStyleByValue(value);
-        this.setTickList();
-      }
-      this.onChangeValue = typeof this.onChangeValue === 'undefined' ? this.getValue() : this.onChangeValue;
-      if (emit && this.props.onChange && !this.isSliderValueEqual(this.onChangeValue, value)) {
-        this.onChangeValue = value;
-        this.props.onChange(value, fmtEvent(this.props));
-      }
-      return {
-        value,
-        needUpdate,
-      };
-    },
-  })],
+  mixins: [
+    createValue({
+      transformValue(val, extra, needUpdate = true, emit) {
+        const value = this.formatValue(val);
+        if (needUpdate) {
+          this.setSliderStyleByValue(value);
+          this.setTickList();
+        }
+        this.onChangeValue =
+          typeof this.onChangeValue === 'undefined'
+            ? this.getValue()
+            : this.onChangeValue;
+        if (
+          emit &&
+          this.props.onChange &&
+          !this.isSliderValueEqual(this.onChangeValue, value)
+        ) {
+          this.onChangeValue = value;
+          this.props.onChange(value, fmtEvent(this.props));
+        }
+        return {
+          value,
+          needUpdate,
+        };
+      },
+    }),
+  ],
   data: {
     sliderLeft: 0,
     sliderWidth: 0,
@@ -31,9 +40,10 @@ Component({
     changingStart: false,
     changingEnd: false,
   },
- 
+
   didUpdate(prevProps) {
-    if (!equal(this.props.min, prevProps.min) ||
+    if (
+      !equal(this.props.min, prevProps.min) ||
       !equal(this.props.max, prevProps.max) ||
       !equal(this.props.step, prevProps.step) ||
       !equal(this.props.range, prevProps.range) ||
@@ -46,7 +56,13 @@ Component({
   methods: {
     onChangeValue: undefined,
     formatValue(val) {
-      let value = this.fitSliderValue(val, this.props.min, this.props.max, this.props.step, this.props.range)
+      let value = this.fitSliderValue(
+        val,
+        this.props.min,
+        this.props.max,
+        this.props.step,
+        this.props.range
+      );
       value = this.getRoundedValue(value, this.props.step);
       return value;
     },
@@ -74,7 +90,8 @@ Component({
 
       if (roundedValue !== undefined) {
         if (typeof roundedValue === 'number') {
-          leftValue = min; rightValue = roundedValue;
+          leftValue = min;
+          rightValue = roundedValue;
         } else {
           leftValue = roundedValue[0];
           rightValue = roundedValue[1];
@@ -117,15 +134,15 @@ Component({
       }
       const changeMoving = (params) => {
         const newParams = {};
-        for(const key in params) {
-          if(params[key] !== this.data[key]) {
+        for (const key in params) {
+          if (params[key] !== this.data[key]) {
             newParams[key] = params[key];
           }
         }
-        if(Object.keys(newParams).length>0) {
+        if (Object.keys(newParams).length > 0) {
           this.setData(newParams);
         }
-      }
+      };
       if (e.currentTarget && e.changedTouches[0]) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -136,7 +153,8 @@ Component({
             const element = list[0];
             if (element) {
               const touch = e.changedTouches[0];
-              const touchPosition = (touch.pageX - element.left) / element.width;
+              const touchPosition =
+                (touch.pageX - element.left) / element.width;
               const value =
                 this.props.min +
                 touchPosition * (this.props.max - this.props.min);
@@ -153,17 +171,28 @@ Component({
                 const rightDistance = Math.abs(rightValue - value);
                 const isFarFromLeft = leftDistance > rightDistance;
                 const farValue = isFarFromLeft ? leftValue : rightValue;
-                
-                this.update([value, farValue], {}, !this.isControlled(), 'onChange');
-                if(isFarFromLeft) {
+
+                this.update(
+                  [value, farValue],
+                  {},
+                  !this.isControlled(),
+                  'onChange'
+                );
+                if (isFarFromLeft) {
                   changeMoving({ changingEnd: true });
-                }else {
+                } else {
                   changeMoving({ changingStart: true });
                 }
               }
             }
-            if(type === 'end') {
+            if (type === 'end') {
               changeMoving({ changingEnd: false, changingStart: false });
+              if (this.props.onAfterChange) {
+                this.props.onAfterChange(
+                  this.getValue(),
+                  fmtEvent(this.props, e)
+                );
+              }
             }
           });
       }
@@ -197,7 +226,13 @@ Component({
       return false;
     },
 
-    fitSliderValue(value: SliderValue | undefined, min: number, max: number, step: number, isRange: boolean,) {
+    fitSliderValue(
+      value: SliderValue | undefined,
+      min: number,
+      max: number,
+      step: number,
+      isRange: boolean
+    ) {
       if (value === undefined) {
         if (isRange) {
           return [min, min] as SliderValue;
@@ -221,7 +256,10 @@ Component({
       const leftValue = Math.min(value[0], value[1]);
       const rightValue = Math.max(value[0], value[1]);
 
-      return [(Math.max(min, leftValue)), Math.min(max, rightValue)] as SliderValue;
+      return [
+        Math.max(min, leftValue),
+        Math.min(max, rightValue),
+      ] as SliderValue;
     },
 
     handleTrackTouchStart(e) {
@@ -234,9 +272,6 @@ Component({
 
     handleTrackTouchEnd(e) {
       this.onTouchChanged(e, 'end');
-      if (this.props.onAfterChange) {
-        this.props.onAfterChange(this.getValue(), fmtEvent(this.props, e));
-      }
     },
   },
 });

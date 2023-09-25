@@ -1,9 +1,14 @@
 import { Form } from '../../../src/Form/form';
 
 
+let account = 1;
 Page({
   data: {
-    list: [{}],
+    list: [{
+      id: `Account${account++}`,
+    }, {
+      id: `Account${account++}`,
+    }],
   },
   form: new Form(),
   handleRef(ref) {
@@ -16,7 +21,9 @@ Page({
     this.setData({
       list: [
         ... this.data.list,
-        {},
+        {
+          id: `Account${account++}`,
+        },
       ],
     });
   },

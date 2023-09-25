@@ -1,0 +1,8 @@
+<view class="ant-calendar">
+  <block
+    wx:for="{{ todoList }}"
+    wx:for-index="taskIndex"
+    wx:for-item="task">
+    <text data-item-id="{{ taskIndex }}">{{ taskIndex }} {{ task }}</text>
+  </block>
+</view>

@@ -1,19 +1,15 @@
 <tabs
   items="{{items}}"
   current="{{current}}"
-  onChange="onChange"
->
+  onChange="onChange">
   <swiper
     current="{{current}}"
     autoplay="{{false}}"
     vertical="{{false}}"
     circular="{{false}}"
-    onChange="onSwipeChange"
-  >
+    onChange="onSwipeChange">
     <swiper-item a:for="{{items}}">
-      <view class="content">
-        {{item.content}}
-      </view>
+      <view class="content">{{item.content}}</view>
     </swiper-item>
   </swiper>
 </tabs>

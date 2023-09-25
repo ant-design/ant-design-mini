@@ -1,13 +1,19 @@
-<view 
+<view
   class="ant-notice-bar {{className || ''}} {{type ? 'ant-notice-bar-' + type : ''}}"
   a:if="{{show}}"
-  style="{{style}}"
->
+  style="{{style}}">
   <slot name="icon">
-    <view className="ant-notice-bar-icon" >
-      <image-icon image="{{icon}}" a:if="{{ icon }}" class="ant-notice-bar-icon-image"/>
-      <icon type="InformationCircleOutline" a:elif="{{type ==='error'}}"/>
-      <icon type="SoundOutline" a:else/>
+    <view className="ant-notice-bar-icon">
+      <image-icon
+        image="{{icon}}"
+        a:if="{{ icon }}"
+        class="ant-notice-bar-icon-image" />
+      <icon
+        type="InformationCircleOutline"
+        a:elif="{{type ==='error'}}" />
+      <icon
+        type="SoundOutline"
+        a:else />
     </view>
   </slot>
   <view class="ant-notice-bar-content ant-notice-bar-content-{{$id}}">
@@ -20,19 +26,17 @@
     </view>
   </view>
   <view class="ant-notice-bar-operation">
-    <slot name="extra"/>
+    <slot name="extra" />
     <!-- icon 类型 -->
     <icon
       className="ant-notice-bar-operation-icon"
       type="RightOutline"
       onTap="onTap"
-      a:if="{{mode==='link'}}"
-    />
+      a:if="{{mode==='link'}}" />
     <icon
       className="ant-notice-bar-operation-icon"
       type="CloseOutline"
       a:if="{{mode==='closeable'}}"
-      onTap="onTap" 
-    />
+      onTap="onTap" />
   </view>
 </view>

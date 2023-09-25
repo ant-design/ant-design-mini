@@ -1,9 +1,10 @@
 import { getInstance } from '../../../tests/utils';
 import fmtEvent from '../../_util/fmtEvent';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('actionSheet onClose', () => {
   it('actionSheet onClose', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const instance = getInstance('ActionSheet', {
       onClose,
     });
@@ -14,8 +15,8 @@ describe('actionSheet onClose', () => {
 
 describe('actionSheet onAction', () => {
   it('actionSheet onAction', () => {
-    const onClose = jest.fn();
-    const onAction = jest.fn();
+    const onClose = vi.fn();
+    const onAction = vi.fn();
     const instance = getInstance('ActionSheet', {
       onClose,
       onAction,
@@ -30,8 +31,8 @@ describe('actionSheet onAction', () => {
     expect(onAction).toBeCalledWith({}, 1, fmtEvent({}));
   });
   it('actionSheet disabled', () => {
-    const onClose = jest.fn();
-    const onAction = jest.fn();
+    const onClose = vi.fn();
+    const onAction = vi.fn();
     const instance = getInstance('ActionSheet', {
       onClose,
       onAction,

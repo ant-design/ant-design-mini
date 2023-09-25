@@ -16,6 +16,12 @@ Page({
       fileList,
     });
   },
+  handleUploaderRef(ref){
+    this.handleUploaderRef = ref;
+  },
+  upload(){
+    this.handleUploaderRef.chooseImage()
+  },
   onUpload(file) {
     console.log('当前上传的图片为：', file);
     return new Promise((resolve) => {

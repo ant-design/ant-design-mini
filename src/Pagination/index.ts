@@ -1,5 +1,6 @@
 import { PaginationDefaultProps } from './props';
 import { IBoundingClientRect } from '../_util/base';
+import '../_util/assert-component2';
 
 Component({
   props: PaginationDefaultProps,
@@ -12,7 +13,7 @@ Component({
     async clacWidth() {
       return new Promise<number>((resolve) => {
         my.createSelectorQuery()
-          .select(`#pageInfinite${this.$id}`)
+          .select(`#ant-pageInfinite-${this.$id}`)
           .boundingClientRect()
           .exec((ret) => {
             if (ret && ret[0]) {

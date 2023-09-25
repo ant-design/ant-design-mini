@@ -31,5 +31,10 @@ createComponent({
         return this.props.onFormat(date, dateStr);
       }
     },
+    onFormatLabel(type, value) {
+      if (this.props.onFormatLabel) {
+        return this.props.onFormatLabel(type, value);
+      }
+    },
   },
 });

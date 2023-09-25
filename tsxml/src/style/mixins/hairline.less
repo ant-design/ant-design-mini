@@ -1,0 +1,79 @@
+@import (reference) "../themes/color.less";
+
+.scale-hairline-common(@color, @top, @right, @bottom, @left) {
+  content: "";
+  position: absolute;
+  background-color: @color;
+  display: block;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+}
+
+.hairline(@direction, @color: @COLOR_BORDER) when (@direction = 'top') {
+  &::before {
+    .scale-hairline-common(@color, 0, 0, auto, 0);
+    height: 1px;
+    transform: scaleY(0.5);
+  }
+}
+
+.hairline(@direction, @color: @COLOR_BORDER) when (@direction = 'right') {
+  &::after {
+    .scale-hairline-common(@color, 0, 0, 0, auto);
+    width: 1px;
+    transform: scaleX(0.5);
+  }
+}
+
+.hairline(@direction, @color: @COLOR_BORDER) when (@direction = 'bottom') {
+  &::after {
+    .scale-hairline-common(@color, auto, 0, 0, 0);
+    height: 1px;
+    transform: scaleY(0.5);
+  }
+}
+
+.hairline-popover(@direction, @color: @COLOR_BORDER) when (@direction = 'bottom') {
+  &::after {
+    .scale-hairline-common(@color, auto, 0, 0, 104 * @rpx);
+    height: 1px;
+    transform: scaleY(0.5);
+  }
+}
+.hairline-collapse(@direction, @color: @COLOR_BORDER) when (@direction = 'bottom') {
+  &::after {
+    .scale-hairline-common(@color, auto, 0, 0, 24 * @rpx);
+    height: 1px;
+    transform: scaleY(0.5);
+    width: 100%;
+  }
+}
+
+.hairline-picker(@direction) when (@direction = 'bottom') {
+  &::after {
+    .scale-hairline-common(#e5e5e5, auto, 0, 0, 0);
+    height: 1px;
+    transform: scaleY(0.5);
+    width: 100%;
+  }
+}
+
+.hairline-radius(@color: @COLOR_BORDER, @radius){
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform-origin: 0 0;
+    pointer-events: none;
+    border: 1px solid @color;
+    border-radius: @radius;
+    transform: scale(0.5);
+    box-sizing: border-box;
+  }
+}

@@ -2,6 +2,7 @@ import { PINYIN_MAP } from './constants';
 import { RareWordsKeyboardProps } from './props';
 import { formatZDatas, loadFontFace, matchWordsRecommend } from './utils';
 import { ZDATAS } from './zdatas';
+import '../_util/assert-component2';
 
 const wordsData = formatZDatas(ZDATAS.datas);
 

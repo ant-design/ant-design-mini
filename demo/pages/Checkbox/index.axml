@@ -8,18 +8,25 @@
 
 <container title="禁用模式">
   <checkbox disabled>Checkbox1</checkbox>
-  <checkbox defaultChecked disabled>Checkbox2</checkbox>
+  <checkbox
+    defaultChecked
+    disabled>
+    Checkbox2
+  </checkbox>
 </container>
 
 <container title="自定义颜色">
-  <checkbox color="red" defaultChecked>Checkbox</checkbox>
+  <checkbox
+    color="red"
+    defaultChecked>
+    Checkbox
+  </checkbox>
 </container>
 
 <container title="控制模式">
   <checkbox
     checked="{{checked}}"
-    onChange="handleChange"
-  >
-  Checkbox
+    onChange="handleChange">
+    Checkbox
   </checkbox>
 </container>

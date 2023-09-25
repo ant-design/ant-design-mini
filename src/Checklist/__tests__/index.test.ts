@@ -1,9 +1,10 @@
 import { getInstance } from '../../../tests/utils';
 import fmtEvent from '../../_util/fmtEvent';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('checklist onChange', () => {
   it('checklistItem onChange', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const instance = getInstance('Checklist/ChecklistItem', {
       onChange,
     });
@@ -16,7 +17,7 @@ describe('checklist onChange', () => {
         return true;
       },
     };
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const options = [{ value: 0 }, { value: 1 }, { value: 2 }];
     const instance = getInstance(
       'Checklist',
@@ -36,7 +37,7 @@ describe('checklist onChange', () => {
         return true;
       },
     };
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const options = [{ value: 0 }, { value: 1 }, { value: 2 }];
     const instance = getInstance(
       'Checklist',
@@ -57,7 +58,7 @@ describe('checklist onChange', () => {
         return true;
       },
     };
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const options = [{ value: 0 }, { value: 1 }, { value: 2 }];
     const instance = getInstance(
       'Checklist',

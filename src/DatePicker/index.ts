@@ -10,6 +10,7 @@ import {
 } from './util';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
+import '../_util/assert-component2';
 
 const component2 = my.canIUse('component2');
 
@@ -65,8 +66,8 @@ Component({
       } else {
         const now = new Date();
         if (
-          !(min && dayjs(now).isBefore(dayjs(min as any))) &&
-          !(max && dayjs(now).isAfter(dayjs(max as any)))
+          !(min && dayjs(now).isBefore(dayjs(min as any), precision)) &&
+          !(max && dayjs(now).isAfter(dayjs(max as any), precision))
         ) {
           return getValueByDate(now, precision);
         } else {
@@ -121,10 +122,34 @@ Component({
       if (currentPickerDay < min || currentPickerDay > max) {
         currentPickerDay = min;
       }
-      const newColumns = getRangeData(precision, min, max, currentPickerDay);
+      const newColumns = getRangeData(
+        precision,
+        min,
+        max,
+        currentPickerDay,
+        this.onFormatLabel.bind(this)
+      );
       return newColumns;
     },
-
+    onFormatLabel(type, value) {
+      const { onFormatLabel } = this.props;
+      const formatValueByProps = onFormatLabel && onFormatLabel(type, value);
+      if (typeof formatValueByProps !== 'undefined') {
+        return String(formatValueByProps);
+      }
+      return this.defaultFormatLabel(type, value);
+    },
+    defaultFormatLabel(type, value) {
+      const suffixMap = {
+        year: '年',
+        month: '月',
+        day: '日',
+        hour: '时',
+        minute: '分',
+        second: '秒',
+      };
+      return `${value}${suffixMap[type]}`;
+    },
     onChange(selectedIndex) {
       selectedIndex = getValidValue(selectedIndex);
       const { onPickerChange, format, precision } = this.props;

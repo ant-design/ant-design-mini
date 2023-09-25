@@ -10,8 +10,7 @@
   required="{{formData.required}}"
   requiredMark="{{requiredMark}}"
   validateStatus="{{validateStatus}}"
-  help="{{help}}"
->
+  help="{{help}}">
   <rate
     value="{{formData.value}}"
     count="{{count}}"
@@ -23,8 +22,7 @@
     style="{{rateStyle}}"
     characterActiveClassName="{{characterActiveClassName}}"
     characterClassName="{{characterActiveClassName}}"
-    onChange="onChange"
-  >
+    onChange="onChange">
     <view slot="character">
       <slot name="character">
         <icon type="StarFill" />
@@ -32,14 +30,22 @@
     </view>
   </rate>
   <view slot="extra">
-    <slot name="extra">
-      {{extra}}
-    </slot>
+    <slot name="extra">{{extra}}</slot>
   </view>
- <view slot="header" slot-scope="item">
-    <slot name="header" errors="{{item.errors}}" status="{{item.status}}" />
+  <view
+    slot="header"
+    slot-scope="item">
+    <slot
+      name="header"
+      errors="{{item.errors}}"
+      status="{{item.status}}" />
   </view>
-  <view slot="footer" slot-scope="item">
-    <slot name="footer" errors="{{item.errors}}" status="{{item.status}}" />
+  <view
+    slot="footer"
+    slot-scope="item">
+    <slot
+      name="footer"
+      errors="{{item.errors}}"
+      status="{{item.status}}" />
   </view>
 </form-item>

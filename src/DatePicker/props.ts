@@ -6,6 +6,11 @@ export type PickerValue = Date;
  */
 export interface IDatePickerProps extends IBaseProps {
   /**
+   * @desciption  动画类型
+   * @default "transform"
+   */
+  animationType?: 'transform' | 'position';
+  /**
    * @description 时间格式化显示，例如YYYY-MM-DD
    */
   format: string;
@@ -95,6 +100,15 @@ export interface IDatePickerProps extends IBaseProps {
    * @description 弹出框样式
    */
   popStyle?: string;
+  /**
+   * 自定义每列展示的内容
+   * @param type
+   * @param value
+   */
+  onFormatLabel?(
+    type: 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second',
+    value: number
+  ): string;
 }
 
 export const DatePickerDefaultProps: IDatePickerProps = {

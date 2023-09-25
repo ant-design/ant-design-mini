@@ -1,5 +1,6 @@
 import { BadgeDefaultProps } from './props';
 import computed from '../mixins/computed';
+import '../_util/assert-component2';
 
 Component({
   mixins: [computed],

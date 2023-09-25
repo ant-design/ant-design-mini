@@ -6,8 +6,7 @@
   placeholder="请输入用户名"
   position="vertical"
   inputClassName="input"
-  ref="handleRef"
-/>
+  ref="handleRef" />
 
 <form-checklist
   label="喜欢"
@@ -16,8 +15,7 @@
   message="需要选择"
   options="{{likeOptions}}"
   position="vertical"
-  ref="handleRef"
-/>
+  ref="handleRef" />
 
 <form-location
   label="位置"
@@ -25,10 +23,18 @@
   required
   message="需要选择位置"
   position="vertical"
-  ref="handleRef"
-/>
+  ref="handleRef" />
 
 <view class="buttons">
-  <button type="primary" onTap="submit" class="button">提交</button>
-  <button onTap="reset" class="button">重置</button>
+  <button
+    type="primary"
+    onTap="submit"
+    class="button">
+    提交
+  </button>
+  <button
+    onTap="reset"
+    class="button">
+    重置
+  </button>
 </view>

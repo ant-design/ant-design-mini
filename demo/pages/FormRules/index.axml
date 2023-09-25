@@ -3,26 +3,32 @@
   name="account"
   required
   message="需要输入用户名"
-  ref="handleRef"
-/>
+  ref="handleRef" />
 
 <form-input
   label="密码"
   name="password"
   password
-  ref="handleRef"
-/>
+  ref="handleRef" />
 
 <form-input
   label="重复密码"
   name="confirm"
   password
   dependencies="{{['password']}}"
-  ref="handleRef"
-/>
+  ref="handleRef" />
 
 <view class="buttons">
-  <button type="primary" onTap="submit" style="margin-bottom: 12px;">提交</button>
-  <button onTap="reset" style="margin-bottom: 12px;">重置</button>
+  <button
+    type="primary"
+    onTap="submit"
+    style="margin-bottom: 12px">
+    提交
+  </button>
+  <button
+    onTap="reset"
+    style="margin-bottom: 12px">
+    重置
+  </button>
   <button onTap="fill">Fill表单</button>
 </view>

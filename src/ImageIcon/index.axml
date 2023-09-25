@@ -1,14 +1,16 @@
-<import-sjs name="{isIcon}" from='./index.sjs' />
+<import-sjs
+  name="{isIcon}"
+  from="./index.sjs" />
 
 <view class="ant-imageIcon {{className ? className : ''}}">
   <block a:if="{{isIcon(image)}}">
-    <icon 
+    <icon
       type="{{image}}"
       className="{{className ? className + '-icon' : ''}}"
       style="{{style}}" />
   </block>
   <block a:else>
-    <image 
+    <image
       src="{{image}}"
       class="{{className ? className + '-image' : ''}}"
       style="{{style || ''}}"

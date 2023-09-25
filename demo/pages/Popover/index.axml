@@ -1,44 +1,61 @@
 <container title="基础用法">
   <popover content="prompt">
-    <button size="small" inline>点我</button>
+    <button
+      size="small"
+      inline>
+      点我
+    </button>
   </popover>
 </container>
 
 <container title="基础用法-回调函数">
-  <popover content="prompt" placement="top" onVisibleChange="onVisibleChange">
+  <popover
+    content="prompt"
+    placement="top"
+    onVisibleChange="onVisibleChange">
     <button>点我</button>
   </popover>
 </container>
 
 <container title="自定义颜色">
   <view class="custom">
-    <popover content="红色" color="red">
+    <popover
+      content="红色"
+      color="red">
       <text>点我红色</text>
     </popover>
 
-    <popover content="蓝色" color="blue">
+    <popover
+      content="蓝色"
+      color="blue">
       <text>点我蓝色</text>
     </popover>
-
   </view>
 </container>
 
-
 <container title="点击icon查看">
   查看说明
-  <popover content="说明" style="display: inline-block">
+  <popover
+    content="说明"
+    style="display: inline-block">
     <icon type="QuestionCircleOutline" />
   </popover>
 </container>
 
 <container title="自定义位置">
   <view class="custom">
-    <popover a:for="{{placements}}" placement="{{item}}">
-      <button size="small" inline>
+    <popover
+      a:for="{{placements}}"
+      placement="{{item}}">
+      <button
+        size="small"
+        inline>
         <view>点我</view>
         {{item}}
       </button>
-      <view slot="content" className="content">
+      <view
+        slot="content"
+        className="content">
         {{item}}
       </view>
     </popover>
@@ -46,16 +63,31 @@
 </container>
 
 <container title="自定义mask">
-  <popover content="prompt" maskStyle="background: rgba(0, 0, 0, 0.6);">
-    <button size="small" inline>点我</button>
+  <popover
+    content="prompt"
+    maskStyle="background: rgba(0, 0, 0, 0.6);">
+    <button
+      size="small"
+      inline>
+      点我
+    </button>
   </popover>
 </container>
 
 <container title="受控">
-  <popover content="prompt" placement="right" showMask="{{false}}" visible="{{visible}}">
+  <popover
+    content="prompt"
+    placement="right"
+    showMask="{{false}}"
+    visible="{{visible}}">
     <text>点击按钮修改visible</text>
   </popover>
 
-  <button size="small" inline onTap="handleVisibleChange" style="margin-top: 8px;">change visible</button>
+  <button
+    size="small"
+    inline
+    onTap="handleVisibleChange"
+    style="margin-top: 8px">
+    change visible
+  </button>
 </container>
-

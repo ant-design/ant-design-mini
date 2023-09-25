@@ -1,0 +1,5 @@
+<wxs
+  src="./sjs.wxs"
+  module="helper" />
+
+<view data-id="{{ helper.format(b) }}">text</view>

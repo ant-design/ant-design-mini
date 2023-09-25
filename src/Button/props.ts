@@ -50,7 +50,7 @@ export interface IButtonProps extends IBaseProps {
    * @description 按钮原生类型，在表单提交时有效
    * @default button
    */
-  htmlType: 'button' | 'submit' | 'reset';
+  formType: 'button' | 'submit' | 'reset';
   /**
    * @description 点击回调
    */
@@ -82,6 +82,6 @@ export interface IButtonProps extends IBaseProps {
 
 export const ButtonDefaultProps: Partial<IButtonProps> = {
   type: 'default',
-  htmlType: 'button',
+  formType: 'button',
   size: 'medium',
 };

@@ -1,19 +1,10 @@
 import { SelectorDefaultProps, ISelectorItem } from './props';
 import mixinValue from '../mixins/value';
 import fmtEvent from '../_util/fmtEvent';
+import '../_util/assert-component2';
 
 Component({
-  mixins: [
-    mixinValue({
-      transformValue(val) {
-        const value = val || [];
-        return {
-          needUpdate: true,
-          value,
-        };
-      },
-    }),
-  ],
+  mixins: [mixinValue()],
   props: SelectorDefaultProps,
   methods: {
     onChange(e) {
@@ -32,7 +23,7 @@ Component({
         return;
       }
       if (multiple) {
-        let currentValue = this.getValue();
+        let currentValue = this.getValue() || [];
         if (currentValue.indexOf(value) > -1) {
           if (
             !isNaN(maxSelectedCount) &&
@@ -70,7 +61,7 @@ Component({
         if (onChange) {
           onChange(
             currentValue,
-            options.filter((v) => currentValue.indexOf(v.value) > -1) as any,
+            options.filter((v) => currentValue.indexOf(v.value) > -1),
             fmtEvent(this.props)
           );
         }
@@ -80,7 +71,7 @@ Component({
             if (onSelectMin) {
               onSelectMin(
                 value,
-                options.find((v) => v.value === value) as ISelectorItem,
+                options.find((v) => v.value === value),
                 event
               );
             }
@@ -99,7 +90,7 @@ Component({
           if (onChange) {
             onChange(
               value,
-              options.find((v) => v.value === value) as any,
+              options.find((v) => v.value === value),
               fmtEvent(this.props)
             );
           }

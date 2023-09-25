@@ -23,6 +23,7 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 ### Picker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
+| animationType | 动画类型，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影样式在 iOS 下可能存在样式问题，可暂切换为`position`解决 | string | `transform` |  
 | className | 类名| string | - |
 | defaultValue | 默认值 | string \| number \| Array\<string \| number\> | - | 
 | disabled | 是否禁用  | boolean | false | 
@@ -52,6 +53,7 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 ### CascaderPicker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
+| animationType | 动画类型，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影样式在iOS下可能存在样式问题，可暂切换为`position`解决 | string | `transform` |  
 | className | 类名| string | - |
 | defaultValue | 默认选中的值 | string[] | - | 
 | disabled | 是否禁用  | boolean | false | 

@@ -1,7 +1,7 @@
 import { NoticeBarDefaultProps } from './props';
 import { log } from '../_util/console';
-import { IBoundingClientRect } from '../_util/base'
-
+import { IBoundingClientRect } from '../_util/base';
+import '../_util/assert-component2';
 
 Component({
   props: NoticeBarDefaultProps,
@@ -31,32 +31,37 @@ Component({
     }
   },
 
-  pageEvents:{
-    onShow(){
+  pageEvents: {
+    onShow() {
       this.resetState();
     },
   },
 
   methods: {
-    resetState(){
-      if(this.props.enableMarquee) {
-        this.setData({
-          marqueeStyle: '',
-          animatedWidth: 0,
-          overflowWidth: 0,
-          duration: 0,
-          viewWidth: 0,
-        },()=>{
-          this.resetMarquee();
-          this.measureText(this.startMarquee.bind(this));
-        });
+    resetState() {
+      if (this.props.enableMarquee) {
+        this.setData(
+          {
+            marqueeStyle: '',
+            animatedWidth: 0,
+            overflowWidth: 0,
+            duration: 0,
+            viewWidth: 0,
+          },
+          () => {
+            this.resetMarquee();
+            this.measureText(this.startMarquee.bind(this));
+          }
+        );
       }
-     
     },
     showError() {
       const { actions } = this.props;
       if (!Array.isArray(actions) && typeof actions !== 'undefined') {
-        log.warn('NoticeBar', `当前定义的 actions 的类型为 ${typeof actions}，不符合属性定义，应该为数组，如：actions="{{['值', '值']}}`);
+        log.warn(
+          'NoticeBar',
+          `当前定义的 actions 的类型为 ${typeof actions}，不符合属性定义，应该为数组，如：actions="{{['值', '值']}}`
+        );
       }
     },
     onTap() {
@@ -92,7 +97,9 @@ Component({
       if (loop) {
         marqueeScrollWidth = overflowWidth + viewWidth;
       }
-      const marqueeStyle = `transform: translate3d(${-marqueeScrollWidth}px, 0, 0); transition: ${duration}s all linear ${typeof leading === 'number' ? `${leading / 1000}s` : '0s'};`;
+      const marqueeStyle = `transform: translate3d(${-marqueeScrollWidth}px, 0, 0); transition: ${duration}s all linear ${
+        typeof leading === 'number' ? `${leading / 1000}s` : '0s'
+      };`;
       if (this.data.marqueeStyle !== marqueeStyle) {
         this.setData({
           marqueeStyle,
@@ -121,7 +128,13 @@ Component({
           .boundingClientRect()
           .exec((ret) => {
             // eslint-disable-next-line max-len
-            const overflowWidth = (ret && ret[0] && ret[1] && ((<IBoundingClientRect>ret[0]).width - (<IBoundingClientRect>ret[1]).width)) || 0;
+            const overflowWidth =
+              (ret &&
+                ret[0] &&
+                ret[1] &&
+                (<IBoundingClientRect>ret[0]).width -
+                  (<IBoundingClientRect>ret[1]).width) ||
+              0;
             const viewWidth = (<IBoundingClientRect>ret[1])?.width || 0;
             let marqueeScrollWidth = overflowWidth;
             if (loop) {
@@ -131,7 +144,7 @@ Component({
               this.setData({
                 overflowWidth,
                 viewWidth,
-                duration: (marqueeScrollWidth / fps),
+                duration: marqueeScrollWidth / fps,
               });
               callback();
             }

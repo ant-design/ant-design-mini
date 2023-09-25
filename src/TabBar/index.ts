@@ -1,6 +1,7 @@
 import { TabBarDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import mixinValue from '../mixins/value';
+import '../_util/assert-component2';
 
 Component({
   props: TabBarDefaultProps,
@@ -11,6 +12,9 @@ Component({
     }),
   ],
   methods: {
+    gek() {
+      throw new Error('TODO: TabBar');
+    },
     onChange(e) {
       const { index } = e.target.dataset;
       const { onChange } = this.props;

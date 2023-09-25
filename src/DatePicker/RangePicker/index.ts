@@ -83,44 +83,11 @@ Component({
         };
     },
     getMin(min) {
-      const { pickerType, currentStartDate, currentEndDate } = this.data;
-      let realMin = min;
-      if (pickerType === 'end') {
-        if (currentStartDate) {
-          realMin = currentStartDate;
-        }
-        if (
-          currentStartDate &&
-          min &&
-          dayjs(currentStartDate).isAfter(dayjs(min as any))
-        ) {
-          realMin = currentStartDate;
-        }
-      }
-      let res = realMin ? dayjs(realMin as any) : dayjs().subtract(10, 'year');
-      // 从end切回start的情况，end取了打开时的十年前，min再取当前时间十年前会出现>max的情况
-      if (currentEndDate && res.isAfter(currentEndDate)) {
-        res = dayjs(currentEndDate);
-      }
-      return res;
+      return min ? dayjs(min as any) : dayjs().subtract(10, 'year');
     },
 
     getMax(max) {
-      const { pickerType, currentEndDate } = this.data;
-      let realMax = max;
-      if (pickerType === 'start') {
-        if (currentEndDate) {
-          realMax = currentEndDate;
-        }
-        if (
-          currentEndDate &&
-          max &&
-          dayjs(currentEndDate).isBefore(dayjs(max as any))
-        ) {
-          realMax = currentEndDate;
-        }
-      }
-      return realMax ? dayjs(realMax as any) : dayjs().add(10, 'year');
+      return max ? dayjs(max as any) : dayjs().add(10, 'year');
     },
     // didUpdate、弹窗打开、切换pickerType触发
     setCurrentValue(currentProps) {
@@ -135,7 +102,9 @@ Component({
       // 展开状态，说明在切换pickerType
       if (pickerVisible) {
         if (pickerType === 'start') {
-          // currentStartDate 无需变化
+          if (!currentStartDate) {
+            currentStartDate = currentEndDate;
+          }
         } else {
           // pickerType=end start已存在
           // 结束时间默认选中开始
@@ -153,8 +122,8 @@ Component({
           const { max } = currentProps;
           currentStartDate = new Date();
           if (
-            (min && currentStartDate < min) ||
-            (max && currentStartDate > max) ||
+            (min && dayjs(currentStartDate).isBefore(min, precision)) ||
+            (max && dayjs(currentStartDate).isAfter(max, precision)) ||
             (currentEndDateByCValue &&
               currentStartDate > currentEndDateByCValue)
           ) {
@@ -193,7 +162,13 @@ Component({
         currentPickerDay = min;
       }
 
-      const newColumns = getRangeData(precision, min, max, currentPickerDay);
+      const newColumns = getRangeData(
+        precision,
+        min,
+        max,
+        currentPickerDay,
+        this.onFormatLabel.bind(this)
+      );
       return newColumns;
     },
 
@@ -211,14 +186,21 @@ Component({
         date = max.toDate();
         selectedIndex = getValueByDate(date, precision);
       }
-      const { pickerType, columns } = this.data;
+      const { pickerType, columns, currentEndDate, currentStartDate } =
+        this.data;
       const newData: any = {
         currentValue: selectedIndex,
       };
       if (pickerType === 'start') {
         newData.currentStartDate = date;
+        if (currentEndDate && dayjs(date).isAfter(currentEndDate)) {
+          newData.currentEndDate = null;
+        }
       } else {
         newData.currentEndDate = date;
+        if (currentStartDate && dayjs(date).isBefore(currentStartDate)) {
+          newData.currentStartDate = null;
+        }
       }
       const newColumns = this.generateData(selectedIndex, this.props);
       if (!equal(newColumns, columns)) {
@@ -272,6 +254,25 @@ Component({
           fmtEvent(this.props)
         );
       }
+    },
+    onFormatLabel(type, value) {
+      const { onFormatLabel } = this.props;
+      const formatValueByProps = onFormatLabel && onFormatLabel(type, value);
+      if (typeof formatValueByProps !== 'undefined') {
+        return String(formatValueByProps);
+      }
+      return this.defaultFormatLabel(type, value);
+    },
+    defaultFormatLabel(type, value) {
+      const suffixMap = {
+        year: '年',
+        month: '月',
+        day: '日',
+        hour: '时',
+        minute: '分',
+        second: '秒',
+      };
+      return `${value}${suffixMap[type]}`;
     },
     defaultFormat(date, valueStrs) {
       const { format, splitCharacter } = this.props;

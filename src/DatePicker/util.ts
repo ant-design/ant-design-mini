@@ -1,9 +1,9 @@
 import dayjs, { Dayjs } from 'dayjs';
 
-function getArray(start, end, suffix) {
+function getArray(start, end, format) {
   const res = [];
   for (let i = 0; i < end - start + 1; i++) {
-    res.push({ label: start + i + suffix, value: start + i });
+    res.push({ label: format(start + i), value: start + i });
   }
   return res;
 }
@@ -17,11 +17,11 @@ const precisionLengthRecord = {
   second: 6,
 };
 
-function getYears(min: Dayjs, max: Dayjs) {
-  return getArray(min.year(), max.year(), '年');
+function getYears(min: Dayjs, max: Dayjs, format) {
+  return getArray(min.year(), max.year(), format.bind(null, 'year'));
 }
 
-function getMonths(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
+function getMonths(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
   let start = 1;
   let end = 12;
   if (
@@ -41,10 +41,10 @@ function getMonths(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
     end = max.month() + 1;
   }
 
-  return getArray(start, end, '月');
+  return getArray(start, end, format.bind(null, 'month'));
 }
 
-function getDates(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
+function getDates(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
   let start = 1;
   let end = currentPicker.daysInMonth();
   if (currentPicker.clone().set('date', start).isBefore(min)) {
@@ -53,10 +53,10 @@ function getDates(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
   if (currentPicker.clone().set('date', end).isAfter(max)) {
     end = max.date();
   }
-  return getArray(start, end, '日');
+  return getArray(start, end, format.bind(null, 'day'));
 }
 
-function getHours(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
+function getHours(min: Dayjs, max: Dayjs, currentPicker: Dayjs,format) {
   let start = 0;
   let end = 23;
   if (currentPicker.clone().set('hour', start).isBefore(min)) {
@@ -65,9 +65,9 @@ function getHours(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
   if (currentPicker.clone().set('hour', end).isAfter(max)) {
     end = max.hour();
   }
-  return getArray(start, end, '时');
+  return getArray(start, end, format.bind(null, 'hour'));
 }
-function getMinutes(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
+function getMinutes(min: Dayjs, max: Dayjs, currentPicker: Dayjs,format) {
   let start = 0;
   let end = 59;
   if (currentPicker.clone().set('minute', start).isBefore(min)) {
@@ -76,9 +76,9 @@ function getMinutes(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
   if (currentPicker.clone().set('minute', end).isAfter(max)) {
     end = max.minute();
   }
-  return getArray(start, end, '分');
+  return getArray(start, end, format.bind(null, 'minute'));
 }
-function getSeconds(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
+function getSeconds(min: Dayjs, max: Dayjs, currentPicker: Dayjs,format) {
   let start = 0;
   let end = 59;
   if (currentPicker.clone().set('second', start).isBefore(min)) {
@@ -87,13 +87,17 @@ function getSeconds(min: Dayjs, max: Dayjs, currentPicker: Dayjs) {
   if (currentPicker.clone().set('second', end).isAfter(max)) {
     end = max.second();
   }
-  return getArray(start, end, '秒');
+  return getArray(start, end, format.bind(null, 'second'));
 }
 export function getRangeData(
   precision: keyof typeof precisionLengthRecord,
   min: Dayjs,
   max: Dayjs,
-  currentPickerDay: Dayjs
+  currentPickerDay: Dayjs,
+  format: (
+    precision: keyof typeof precisionLengthRecord,
+    value: number
+  ) => string
 ) {
   const data = [];
   const len = precisionLengthRecord[precision];
@@ -101,22 +105,22 @@ export function getRangeData(
   for (let i = 0; i < len; i++) {
     switch (i) {
       case 0:
-        data.push(getYears(min, max));
+        data.push(getYears(min, max, format));
         break;
       case 1:
-        data.push(getMonths(min, max, currentPickerDay));
+        data.push(getMonths(min, max, currentPickerDay, format));
         break;
       case 2:
-        data.push(getDates(min, max, currentPickerDay));
+        data.push(getDates(min, max, currentPickerDay, format));
         break;
       case 3:
-        data.push(getHours(min, max, currentPickerDay));
+        data.push(getHours(min, max, currentPickerDay, format));
         break;
       case 4:
-        data.push(getMinutes(min, max, currentPickerDay));
+        data.push(getMinutes(min, max, currentPickerDay, format));
         break;
       case 5:
-        data.push(getSeconds(min, max, currentPickerDay));
+        data.push(getSeconds(min, max, currentPickerDay, format));
         break;
     }
   }

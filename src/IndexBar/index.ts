@@ -1,4 +1,5 @@
 import { IndexBarDefaultProps } from './props';
+import '../_util/assert-component2';
 
 Component({
   props: IndexBarDefaultProps,
@@ -14,16 +15,16 @@ Component({
     hasDefaultSlot: true,
   },
   didMount() {
-    const { defaultCurrent, items } = this.props;    
+    const { defaultCurrent, items } = this.props;
     this.initItemHeight();
     this.initTopRange();
-    const _index = items.findIndex(u => defaultCurrent === u.label);
+    const _index = items.findIndex((u) => defaultCurrent === u.label);
     this.setData({ currentKey: _index });
   },
   didUpdate(_prop) {
     const { current, items } = this.props;
     if (_prop.current !== current) {
-      const _index = items.findIndex(u => current === u.label);
+      const _index = items.findIndex((u) => current === u.label);
       this.setData({ currentKey: _index });
     }
   },
@@ -61,13 +62,13 @@ Component({
     },
     async onAlphabetClick(item, index) {
       const { vibrate, onChange } = this.props;
-      vibrate && await my.vibrateShort();
+      vibrate && (await my.vibrateShort());
       onChange(item, index);
     },
     onTouchEnd() {
       // 没进入moving状态就不处理
       if (!this.data.moving) return;
-      
+
       this.setData({
         touchKeyIndex: -1,
         touchKey: '',
@@ -88,8 +89,10 @@ Component({
       // 上 or 下
       const isUp = movePageY < touchClientY;
       // 新的触发的索引应该在哪个index
-      const newIndex = isUp ? touchKeyIndex - movingNum : touchKeyIndex + movingNum;
-      
+      const newIndex = isUp
+        ? touchKeyIndex - movingNum
+        : touchKeyIndex + movingNum;
+
       // 超出索引列表范围 or 索引没变化return
       if (!items[newIndex] || touchKey === items[newIndex].label) return;
       // 结算
@@ -100,8 +103,12 @@ Component({
       const { topRange, currentKey, moving } = this.data;
       const { items } = this.props;
       const { scrollTop } = e.detail;
-      
-      const newIndex = topRange.findIndex((h) => scrollTop + 1 < h);
+      let newIndex = 0;
+      if (scrollTop + 1 > topRange[topRange.length - 1]) {
+        newIndex = topRange.length;
+      } else {
+        newIndex = topRange.findIndex((h) => scrollTop + 1 < h);
+      }
       if (currentKey !== newIndex - 1 && newIndex - 1 >= 0 && !moving) {
         this.setData({ currentKey: newIndex - 1 });
         this.onAlphabetClick(items[newIndex - 1], newIndex - 1);
@@ -118,6 +125,6 @@ Component({
           });
           this.setData({ topRange: arr, hasDefaultSlot: !!ret[0][0].height });
         });
-    }
+    },
   },
 });

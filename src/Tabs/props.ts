@@ -36,10 +36,16 @@ export interface ITabsProps extends IBaseProps {
     * 选项初始值
     */
    defaultCurrent: number;
+
+   /**
+    * 滚动方式，direction为horizontal生效
+    */
+   scrollMode: 'edge' | 'center';
 }
 
 export const TabsDefaultProps: Partial<ITabsProps> = {
   type: 'basic',
   defaultCurrent: 0,
   items: [],
+  scrollMode: 'edge',
 };

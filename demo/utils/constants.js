@@ -361,7 +361,12 @@ export const componentList = [
         name: 'RareWordsKeyboard',
         nameZN: '生僻字输入键盘',
         path: '/page/RareWordsKeyboard/index',
-      }
+      },
+      {
+        name: 'Calendar',
+        nameZN: '日历',
+        path: '/pages/Calendar/index',
+      },
     ],
   },
   {

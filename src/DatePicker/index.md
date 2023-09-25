@@ -18,6 +18,7 @@ toc: 'content'
 ### DatePicker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
+| animationType | 动画类型，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影样式在 iOS 下可能存在样式问题，可暂切换为`position`解决 | string | `transform` |  
 | className | 类名| string | - |
 | defaultValue | 默认选中的时间 | Date | - |  
 | disabled | 是否禁用  | boolean | false | 
@@ -41,15 +42,17 @@ toc: 'content'
 | suffix |  后缀 | slot | - |
 | title | 弹出框标题 | string \| slot | - |  
 | value | 选中的时间 | Date | - | 
-| onOk | 点击确定按钮，触发回调 | (date: Date, dateStr: string, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onPickerChange | 选中项发生变化，触发回调 | (date: Date, dateStr: string, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onFormat | 选中值的文本显示格式 | (date: Date, dateStr: string) => string |
-| onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onOk | 点击确定按钮，触发回调 | (date: Date, dateStr: string, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| onPickerChange | 选中项发生变化，触发回调 | (date: Date, dateStr: string, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| onFormat | 选中值的文本显示格式 | (date: Date, dateStr: string) => string | - | 
+| onFormatLabel | 自定义每列展示的内容，默认添加年、月、日、时、分、秒单位 | (type: `year` \| `month` \| `day` \| `hour` \| `minute` \| `second`, value: number) => string | - | 
+| onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 
 ### RangePicker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
+| animationType | 动画类型，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影样式在 iOS 下可能存在样式问题，可暂切换为`position`解决 | string | `transform` |  
 | className | 类名| string | - |
 | defaultValue | 默认选中的时间 | [Date,Date] | - |  
 | disabled | 是否禁用  | boolean | false | 
@@ -69,15 +72,16 @@ toc: 'content'
 | popClassName |  弹出框类名 | string | - |
 | popStyle |  弹出框样式 | string | - |
 | precision | 选择精度，可选`year` `month` `day` `hour` `minute` | string | `day` | 
-| splitCharacter | 显示连接符 | string | ~ |  
+| splitCharacter | 显示连接符 | string | - |  
 | startPlaceholder | 开始时间提示文案 | string | 未选择 |  
 | prefix |  前缀 | slot | - |
 | style | 样式| string | - |
 | suffix |  后缀 | slot | - |
 | title | 弹出框标题 | string \| slot| - |  
 | value | 选中的时间 | [Date, Date] | - | 
-| onOk | 点击确定按钮，触发回调 | (date: [Date,Date], dateStr: [string,string], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onPickerChange | 选中项发生变化，触发回调 | (type: `start`\|`end`, date: Date, dateStr: string, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onFormat | 选中值的文本显示格式 | (date: [Date,Date], dateStr: [string,string]) => string |
-| onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onOk | 点击确定按钮，触发回调 | (date: [Date,Date], dateStr: [string,string], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| onPickerChange | 选中项发生变化，触发回调 | (type: `start`\|`end`, date: Date, dateStr: string, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| onFormat | 选中值的文本显示格式 | (date: [Date,Date], dateStr: [string,string]) => string | - | 
+| onFormatLabel | 自定义每列展示的内容，默认添加年、月、日、时、分、秒单位 | (type: `year` \| `month` \| `day` \| `hour` \| `minute`, value: number) => string | - | 
+| onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 

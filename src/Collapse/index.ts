@@ -2,7 +2,7 @@ import { CollapseDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import { IBoundingClientRect } from '../_util/base';
 import createValue from '../mixins/value';
-
+import '../_util/assert-component2';
 
 function getBoundingClientRect(selector: string) {
   return new Promise<IBoundingClientRect>((resolve, reject) => {
@@ -19,30 +19,31 @@ function getBoundingClientRect(selector: string) {
   });
 }
 
-
 Component({
   props: CollapseDefaultProps,
   data: {
     contentHeight: [],
     hasChange: false,
   },
-  mixins: [createValue({
-    valueKey: 'current',
-    defaultValueKey: 'defaultCurrent',
-    transformValue(current, extra) {
-      const value = this.formatCurrent(current, extra ? extra.nextProps : this.props);
-      return {
-        needUpdate: true,
-        value,
-      };
-    },
-  })],
+  mixins: [
+    createValue({
+      valueKey: 'current',
+      defaultValueKey: 'defaultCurrent',
+      transformValue(current, extra) {
+        const value = this.formatCurrent(
+          current,
+          extra ? extra.nextProps : this.props
+        );
+        return {
+          needUpdate: true,
+          value,
+        };
+      },
+    }),
+  ],
   didUpdate(prevProps, prevData) {
     if (prevProps.items !== this.props.items || !this.isEqualValue(prevData)) {
-      this.updateContentHeight(
-        this.getValue(prevData),
-        this.getValue()
-      );
+      this.updateContentHeight(this.getValue(prevData), this.getValue());
     }
   },
   didMount() {
@@ -62,7 +63,7 @@ Component({
     formatCurrent(val: number[], props) {
       let current = [...(val || [])];
       const items = props.items;
-      current = current.filter(item => {
+      current = current.filter((item) => {
         if (!items[item] || items[item].disabled) {
           return false;
         }
@@ -80,7 +81,6 @@ Component({
       }
       const arr = this.getValue();
       let current = [...arr];
-      console.log(arr, current);
       const index = current.indexOf(itemIndex);
       if (index >= 0) {
         current.splice(index, 1);
@@ -104,23 +104,30 @@ Component({
       const nextCurrentArray = nextCurrent;
       const expandArray = [];
       const closeArray = [];
-      nextCurrentArray.forEach(item => {
+      nextCurrentArray.forEach((item) => {
         if (prevCurrentArray.indexOf(item) < 0) {
           expandArray.push(item);
         }
       });
-      prevCurrentArray.forEach(item => {
+      prevCurrentArray.forEach((item) => {
         if (nextCurrentArray.indexOf(item) < 0) {
           closeArray.push(item);
         }
       });
-      let contentHeight = await Promise.all(this.props.items.map(async (item, index) => {
-        if (expandArray.indexOf(index) >= 0 || closeArray.indexOf(index) >= 0) {
-          const { height } = await getBoundingClientRect(`.ant-collapse-item-content-${this.$id}-${index}`);
-          return `${height}px`;
-        }
-        return this.data.contentHeight[index];
-      }));
+      let contentHeight = await Promise.all(
+        this.props.items.map(async (item, index) => {
+          if (
+            expandArray.indexOf(index) >= 0 ||
+            closeArray.indexOf(index) >= 0
+          ) {
+            const { height } = await getBoundingClientRect(
+              `.ant-collapse-item-content-${this.$id}-${index}`
+            );
+            return `${height}px`;
+          }
+          return this.data.contentHeight[index];
+        })
+      );
       if (closeArray.length === 0) {
         this.setData({
           contentHeight,

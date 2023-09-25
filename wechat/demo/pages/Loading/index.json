@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "Loading",
+  "usingComponents": {
+    "loading": "../../../src/Loading/index",
+    "container": "../../../src/Container/index"
+  }
+}
