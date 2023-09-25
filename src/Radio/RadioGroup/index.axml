@@ -1,11 +1,13 @@
-<import-sjs from="../index.sjs" name="componentUtils" />
+<import-sjs
+  from="../index.sjs"
+  name="componentUtils" />
 
-<list 
-  className="ant-radio-group {{className ? className : ''}} ant-radio-group-{{position}}" style="{{style}}">
+<list
+  className="ant-radio-group {{className ? className : ''}} ant-radio-group-{{position}}"
+  style="{{style}}">
   <radio-group
     name="{{name}}"
-    value="{{mixin.value}}"
-  >
+    value="{{mixin.value}}">
     <view class="ant-radio-group-body">
       <block a:if="{{position === 'vertical'}}">
         <list-item a:for="{{options}}">
@@ -15,11 +17,15 @@
             value="{{item.value}}"
             disabled="{{disabled || item.disabled}}"
             color="{{color}}"
-            onChange="onChange"
-          > 
-            <slot name="label" value="{{item}}" index="{{index}}">
-              <view class="ant-radio-group-item-label-default">{{item.label}}</view>
-            </slot>  
+            onChange="onChange">
+            <slot
+              name="label"
+              value="{{item}}"
+              index="{{index}}">
+              <view class="ant-radio-group-item-label-default">
+                {{item.label}}
+              </view>
+            </slot>
           </radio>
         </list-item>
       </block>
@@ -31,10 +37,14 @@
           value="{{item.value}}"
           disabled="{{disabled || item.disabled}}"
           color="{{item.color}}"
-          onChange="onChange"
-        >
-          <slot name="label" value="{{item}}" index="{{index}}">
-            <view class="ant-radio-group-item-label-default">{{item.label}}</view>
+          onChange="onChange">
+          <slot
+            name="label"
+            value="{{item}}"
+            index="{{index}}">
+            <view class="ant-radio-group-item-label-default">
+              {{item.label}}
+            </view>
           </slot>
         </radio>
       </block>

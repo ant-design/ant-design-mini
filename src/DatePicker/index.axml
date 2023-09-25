@@ -1,4 +1,4 @@
-<picker 
+<picker
   className="ant-date-picker"
   popClassName="ant-date-picker-popup {{popClassName || ''}}"
   style="{{style}}"
@@ -7,7 +7,7 @@
   options="{{columns}}"
   value="{{currentValue}}"
   disabled="{{disabled}}"
-  title="{{title}}" 
+  title="{{title}}"
   placeholder="{{placeholder}}"
   okText="{{okText}}"
   cancelText="{{cancelText}}"
@@ -22,8 +22,16 @@
   maskClosable="{{maskClosable}}"
   forceUpdate="{{forceUpdate}}"
   onFormat="onFormat">
-  <slot name="content" slot="content"/>
-  <slot name="title" slot="title"/>
-  <slot name="prefix" slot="prefix"/>
-  <slot name="suffix" slot="suffix"/>
+  <slot
+    name="content"
+    slot="content" />
+  <slot
+    name="title"
+    slot="title" />
+  <slot
+    name="prefix"
+    slot="prefix" />
+  <slot
+    name="suffix"
+    slot="suffix" />
 </picker>

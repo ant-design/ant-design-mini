@@ -1,7 +1,11 @@
-<import-sjs name="util" from="./index.sjs"/>
+<import-sjs
+  name="util"
+  from="./index.sjs" />
 
 <view class="ant-swipe">
-  <view class="ant-swipe-action" style="{{{ width: util.getWidth(rightWidth, leftWidth, inertiaWidth) }}}">
+  <view
+    class="ant-swipe-action"
+    style="{{{ width: util.getWidth(rightWidth, leftWidth, inertiaWidth) }}}">
     <movable-area
       class="ant-swipe-action-movable"
       style="{{{
@@ -24,13 +28,14 @@
         onChangeEnd="onChangeEnd"
         catchTouchEnd="onTouchEnd"
         onTouchCancel="onTouchCancel"
-        catchTouchStart="onTouchStart"
-      >
+        catchTouchStart="onTouchStart">
         <view
           class="ant-swipe-action-movable-content-view"
           style="{{util.getSlotWidthStyle(rightWidth, leftWidth, _leftButtons, _rightButtons, inertiaWidth)}}"
           onTap="onClick">
-          <view class="ant-swipe-action-movable-content-view-modal" a:if="{{swipedR || swipedL}}"></view>
+          <view
+            class="ant-swipe-action-movable-content-view-modal"
+            a:if="{{swipedR || swipedL}}"></view>
           <slot />
         </view>
       </movable-view>
@@ -49,9 +54,10 @@
         animation="{{false}}"
         disabled="{{true}}"
         direction="horizontal"
-        x="{{moveX * (util.getMoveX(_rightButtons, idx) / rightWidth)}}"
-      >
-        <view class="ant-swipe-action-movable-content-right" style="{{{background: item.bgColor,width: ((item.width + inertiaWidth + 1) / 2) + 'px'}}}">
+        x="{{moveX * (util.getMoveX(_rightButtons, idx) / rightWidth)}}">
+        <view
+          class="ant-swipe-action-movable-content-right"
+          style="{{{background: item.bgColor,width: ((item.width + inertiaWidth + 1) / 2) + 'px'}}}">
           <view
             class="ant-swipe-action-movable-content-right-text"
             onTap="onItemTap"
@@ -64,9 +70,11 @@
               width: tapTypeR && tapTypeR === `R-${idx}` ? ((rightWidth + 1 + (item.confirmType === 'move' && inTouch ? inertiaWidth : 0)) / 2) + 'px' : `${item.width / 2}px`,
               ...(tapTypeR && tapTypeR === `R-${idx}` ? myStyle : {})
               }}}">
-              <text class="right-text {{util.getLeft(tapTypeR, idx, _rightButtons, true)}}">
-                {{tapTypeR && tapTypeR === `R-${idx}` ? (item.confirmText || item.text) : item.text}}
-              </text>
+            <text
+              class="right-text {{util.getLeft(tapTypeR, idx, _rightButtons, true)}}">
+              {{tapTypeR && tapTypeR === `R-${idx}` ? (item.confirmText ||
+              item.text) : item.text}}
+            </text>
           </view>
         </view>
       </movable-view>
@@ -85,17 +93,16 @@
         animation="{{false}}"
         disabled="{{true}}"
         direction="horizontal"
-        x="{{moveX * (util.getMoveX(_leftButtons, idx) / leftWidth)}}"
-      >
-      <view
-        class="ant-swipe-action-movable-content-left"
-        style="{{{background: tapTypeL && tapTypeL === `L-${idx}` && _leftButtons.length === 3 && idx === 1  ? 'none' : itemL.bgColor,width: ((leftWidth + inertiaWidth) / 2) + 'px'}}}">
+        x="{{moveX * (util.getMoveX(_leftButtons, idx) / leftWidth)}}">
         <view
-          class="ant-swipe-action-movable-content-left-text1 ant-swipe-action-left"
-          onTap="onItemTap"
-          data-item="{{itemL, idx}}"
-          aria-hidden="{{!swipedL}}"
-          style="{{{
+          class="ant-swipe-action-movable-content-left"
+          style="{{{background: tapTypeL && tapTypeL === `L-${idx}` && _leftButtons.length === 3 && idx === 1  ? 'none' : itemL.bgColor,width: ((leftWidth + inertiaWidth) / 2) + 'px'}}}">
+          <view
+            class="ant-swipe-action-movable-content-left-text1 ant-swipe-action-left"
+            onTap="onItemTap"
+            data-item="{{itemL, idx}}"
+            aria-hidden="{{!swipedL}}"
+            style="{{{
             background: itemL.bgColor,
             height: `calc(100% + 2px)`,
             fontSize: ((itemL.fontSize || 28) / 2) + 'px',
@@ -103,13 +110,17 @@
             ...(tapTypeL && tapTypeL === `L-${idx}` ? myStyle : {}),
             width: tapTypeL && tapTypeL === `L-${idx}` ? ((leftWidth + 1 + (itemL.confirmType === 'move' && inTouch ? inertiaWidth : 0)) / 2) + 'px' : `${itemL.width / 2}px`,
             }}}">
-            <text class="right-text" style="{{{ width: `100%` }}}">
-              <text class="right-text {{util.getLeft(tapTypeL, idx, _leftButtons, false)}}">
-                {{tapTypeL && tapTypeL === `L-${idx}` ? (itemL.confirmText || itemL.text) : itemL.text}}
+            <text
+              class="right-text"
+              style="{{{ width: `100%` }}}">
+              <text
+                class="right-text {{util.getLeft(tapTypeL, idx, _leftButtons, false)}}">
+                {{tapTypeL && tapTypeL === `L-${idx}` ? (itemL.confirmText ||
+                itemL.text) : itemL.text}}
               </text>
             </text>
+          </view>
         </view>
-      </view>
       </movable-view>
     </movable-area>
   </view>
