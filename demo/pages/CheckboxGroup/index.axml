@@ -1,51 +1,46 @@
 <container title="基础用法">
   <checkbox-group
     options="{{options}}"
-    onChange="onChange"
-  />
+    onChange="onChange" />
 </container>
 
 <container title="初始值">
   <checkbox-group
     defaultValue="{{['banana']}}"
     options="{{options}}"
-    onChange="onChange"
-  />
+    onChange="onChange" />
 </container>
 
 <container title="横向布局">
   <checkbox-group
     options="{{options}}"
-    position="horizontal"
-  />
+    position="horizontal" />
 </container>
 
 <container title="禁用模式">
   <checkbox-group
     options="{{options}}"
-    disabled
-  />
+    disabled />
 </container>
 
 <container title="受控模式">
   <checkbox-group
     value="{{value}}"
     options="{{options}}"
-    onChange="handleChange"
-  />
+    onChange="handleChange" />
 </container>
 <container title="自定义颜色">
   <checkbox-group
     options="{{options}}"
     defaultValue="{{['apple','banana']}}"
-    color="red"
-  />
+    color="red" />
 </container>
 <container title="自定义">
   <checkbox-group options="{{options}}">
-    <view slot="label" slot-scope="item">
+    <view
+      slot="label"
+      slot-scope="item">
       {{item.index +1}} {{item.value.label}}
     </view>
   </checkbox-group>
 </container>
-

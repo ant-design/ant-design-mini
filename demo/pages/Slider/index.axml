@@ -2,8 +2,7 @@
   <slider
     defaultValue="{{80}}"
     onChange="onChange"
-    onAfterChange="onAfterChange"
-  />
+    onAfterChange="onAfterChange" />
 </container>
 
 <container title="无节点双滑快">
@@ -11,8 +10,7 @@
     defaultValue="{{[20, 60]}}"
     range
     onChange="onChange"
-    onAfterChange="onAfterChange"
-  />
+    onAfterChange="onAfterChange" />
 </container>
 
 <container title="节点单滑块">
@@ -21,8 +19,7 @@
     step="{{20}}"
     showTicks
     onChange="onChange"
-    onAfterChange="onAfterChange"
-  />
+    onAfterChange="onAfterChange" />
 </container>
 
 <container title="有数字节点单滑块">
@@ -32,8 +29,7 @@
     showTicks
     showNumber
     onChange="onChange"
-    onAfterChange="onAfterChange"
-  />
+    onAfterChange="onAfterChange" />
 </container>
 
 <container title="节点双滑块">
@@ -43,8 +39,7 @@
     showTicks
     range
     onChange="onChange"
-    onAfterChange="onAfterChange"
-  />
+    onAfterChange="onAfterChange" />
 </container>
 
 <container title="有数字节点双滑块">
@@ -55,18 +50,15 @@
     showNumber
     range
     onChange="onChange"
-    onAfterChange="onAfterChange"
-  />
+    onAfterChange="onAfterChange" />
 </container>
-
 
 <container title="在拖动时显示悬浮提示">
   <slider
     defaultValue="{{80}}"
     showTooltip
     onChange="onChange"
-    onAfterChange="onAfterChange"
-  />
+    onAfterChange="onAfterChange" />
 </container>
 
 <container title="受控模式">
@@ -74,14 +66,12 @@
     min="{{0}}"
     max="{{100}}"
     value="{{value}}"
-    onChange="handleChange"
-  />
+    onChange="handleChange" />
   <stepper
     min="{{0}}"
     max="{{100}}"
-    value={{value}}
-    onChange="handleChange"
-  />
+    value="{{value}}"
+    onChange="handleChange" />
 </container>
 
 <container title="自定义">
@@ -94,13 +84,22 @@
     activeLineStyle="background-color: #ff8f1f"
     activeDotStyle="background-color: red"
     onChange="onChange"
-    onAfterChange="onAfterChange"
-  >
-    <text slot='tick' slot-scope="props">{{props.value}}°C</text>
-    <text slot="showTooltip" slot-scope="props">{{props.value}}°C</text>
-    <view slot='slider'>
+    onAfterChange="onAfterChange">
+    <text
+      slot="tick"
+      slot-scope="props">
+      {{props.value}}°C
+    </text>
+    <text
+      slot="showTooltip"
+      slot-scope="props">
+      {{props.value}}°C
+    </text>
+    <view slot="slider">
       <view class="custom-slider-handler">
-        <icon type="SmileOutline" style="color: #ff8f1f"></icon>
+        <icon
+          type="SmileOutline"
+          style="color: #ff8f1f"></icon>
       </view>
     </view>
   </slider>
@@ -110,6 +109,5 @@
   <slider
     defaultValue="{{80}}"
     disabled="{{true}}"
-    onChange="onChange"
-  />
+    onChange="onChange" />
 </container>

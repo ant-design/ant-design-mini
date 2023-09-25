@@ -1,74 +1,130 @@
-<container title="按钮类型" class="list">
-  <button  type="primary" inline onTap="handleTap">
+<container
+  title="按钮类型"
+  class="list">
+  <button
+    type="primary"
+    inline
+    onTap="handleTap">
     主要按钮
   </button>
 
-  <button type="default" inline onTap="handleTap">
+  <button
+    type="default"
+    inline
+    onTap="handleTap">
     次要按钮
   </button>
 
-  <button type="text" inline onTap="handleTap">
-    文本按钮
-  </button>
-
-</container>
-
-<container title="按钮尺寸" class="list">
-  <button type="primary" inline size="large" onTap="handleTap">
-    主要按钮
-  </button>
-
-  <button type="primary" inline size="medium" onTap="handleTap">
-    主要按钮
-  </button>
-
-  <button type="primary" inline size="small" onTap="handleTap">
-    主要按钮
-  </button>
-
-</container>
-
-<container title="危险" class="list">
-  <button  type="primary" inline danger onTap="handleTap">
-    主要按钮
-  </button>
-
-  <button type="default" inline danger onTap="handleTap">
-    次要按钮
-  </button>
-
-  <button type="text" inline danger onTap="handleTap">
-    文本按钮
-  </button>
-
-</container>
-
-<container title="禁用" class="list">
-  <button type="primary" inline disabled>
-    主要按钮
-  </button>
-
-  <button type="default" inline disabled>
-    次要按钮
-  </button>
-
-  <button type="text" inline disabled>
+  <button
+    type="text"
+    inline
+    onTap="handleTap">
     文本按钮
   </button>
 </container>
 
-
-<container title="加载状态" class="list">
-  <button type="primary" inline loading>
+<container
+  title="按钮尺寸"
+  class="list">
+  <button
+    type="primary"
+    inline
+    size="large"
+    onTap="handleTap">
     主要按钮
   </button>
 
-  <button type="default" inline loading>
+  <button
+    type="primary"
+    inline
+    size="medium"
+    onTap="handleTap">
+    主要按钮
+  </button>
+
+  <button
+    type="primary"
+    inline
+    size="small"
+    onTap="handleTap">
+    主要按钮
+  </button>
+</container>
+
+<container
+  title="危险"
+  class="list">
+  <button
+    type="primary"
+    inline
+    danger
+    onTap="handleTap">
+    主要按钮
+  </button>
+
+  <button
+    type="default"
+    inline
+    danger
+    onTap="handleTap">
     次要按钮
   </button>
 
-  <button type="text" inline loading>
+  <button
+    type="text"
+    inline
+    danger
+    onTap="handleTap">
+    文本按钮
+  </button>
+</container>
+
+<container
+  title="禁用"
+  class="list">
+  <button
+    type="primary"
+    inline
+    disabled>
+    主要按钮
+  </button>
+
+  <button
+    type="default"
+    inline
+    disabled>
+    次要按钮
+  </button>
+
+  <button
+    type="text"
+    inline
+    disabled>
+    文本按钮
+  </button>
+</container>
+
+<container
+  title="加载状态"
+  class="list">
+  <button
+    type="primary"
+    inline
+    loading>
+    主要按钮
+  </button>
+
+  <button
+    type="default"
+    inline
+    loading>
+    次要按钮
+  </button>
+
+  <button
+    type="text"
+    inline
+    loading>
     文本
   </button>
 </container>
-

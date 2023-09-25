@@ -5,14 +5,24 @@
 </container>
 
 <container title="自定义大小">
-  <icon type="SmileOutline" style="font-size: 20px" />
-  <icon type="SmileOutline" style="font-size: 30px" />
-  <icon type="SmileOutline" class="custom-size" />
+  <icon
+    type="SmileOutline"
+    style="font-size: 20px" />
+  <icon
+    type="SmileOutline"
+    style="font-size: 30px" />
+  <icon
+    type="SmileOutline"
+    class="custom-size" />
 </container>
 
 <container title="自定义颜色">
-  <icon type="SmileOutline" style="color: red" />
-  <icon type="SmileOutline" class="custom-color" />
+  <icon
+    type="SmileOutline"
+    style="color: red" />
+  <icon
+    type="SmileOutline"
+    class="custom-color" />
 </container>
 
 <container title="更多自定义">
@@ -20,5 +30,3 @@
     <icon type="SmileOutline" />
   </view>
 </container>
-
-

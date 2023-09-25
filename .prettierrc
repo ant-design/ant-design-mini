@@ -4,11 +4,12 @@
       "files": "*.axml",
       "options": {
         "parser": "html",
-        "printWidth": 40,
+        "printWidth": 80,
         "tabWidth": 2,
-        "useTabs":true,
-        "bracketSameLine":true,
-        "bracketSpacing":true
+        "bracketSameLine": true,
+        "bracketSpacing": true,
+        "singleAttributePerLine": true,
+        "htmlWhitespaceSensitivity": "ignore"
       }
     }
   ],

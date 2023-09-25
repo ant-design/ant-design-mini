@@ -1,4 +1,6 @@
-<import-sjs name="arrowUtil" from="../../_util/arrow.sjs" />
+<import-sjs
+  name="arrowUtil"
+  from="../../_util/arrow.sjs" />
 <form-item
   className="{{className}}"
   position="{{position}}"
@@ -10,10 +12,9 @@
   required="{{formData.required}}"
   requiredMark="{{requiredMark}}"
   validateStatus="{{validateStatus}}"
-  help="{{help}}"
->
+  help="{{help}}">
   <view>
-    <picker 
+    <picker
       cancelText="{{cancelText}}"
       okText="{{okText}}"
       placeholder="{{placeholder}}"
@@ -24,31 +25,47 @@
       popStyle="{{popStyle}}"
       animationType="{{ animationType }}"
       disabled="{{disabled}}"
-      title="{{title}}" 
+      title="{{title}}"
       maskClassName="{{maskClassName}}"
       indicatorStyle="{{indicatorStyle}}"
       indicatorClassName="{{indicatorClassName}}"
-      options="{{options}}"    
-      value="{{formData.value}}" 
+      options="{{options}}"
+      value="{{formData.value}}"
       onOk="onOk"
       onChange="onChange"
       onCancel="onDismissPicker"
       onVisibleChange="onVisibleChange"
       onFormat="onFormat">
-      <slot name="title" slot="title"/>
-      <slot name="content" slot="content"/>
-      <icon a:if="{{arrowUtil.getArrow(arrow)}}" className="ant-form-picker-arrow" type="{{arrowUtil.getArrow(arrow)}}" slot="suffix"/>
+      <slot
+        name="title"
+        slot="title" />
+      <slot
+        name="content"
+        slot="content" />
+      <icon
+        a:if="{{arrowUtil.getArrow(arrow)}}"
+        className="ant-form-picker-arrow"
+        type="{{arrowUtil.getArrow(arrow)}}"
+        slot="suffix" />
     </picker>
   </view>
   <view slot="extra">
-    <slot name="extra">
-      {{extra}}
-    </slot>
+    <slot name="extra">{{extra}}</slot>
   </view>
-  <view slot="header" slot-scope="item">
-    <slot name="header" errors="{{item.errors}}" status="{{item.status}}" />
+  <view
+    slot="header"
+    slot-scope="item">
+    <slot
+      name="header"
+      errors="{{item.errors}}"
+      status="{{item.status}}" />
   </view>
-  <view slot="footer" slot-scope="item">
-    <slot name="footer" errors="{{item.errors}}" status="{{item.status}}" />
+  <view
+    slot="footer"
+    slot-scope="item">
+    <slot
+      name="footer"
+      errors="{{item.errors}}"
+      status="{{item.status}}" />
   </view>
 </form-item>

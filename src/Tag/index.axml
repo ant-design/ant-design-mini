@@ -1,5 +1,9 @@
-<view class="ant-tag ant-tag-{{type}} ant-tag-{{color}} {{className ? className : ''}}" style="{{style || ''}}">
-  <view class="ant-tag-icon-container" a:if="{{icon}}">
+<view
+  class="ant-tag ant-tag-{{type}} ant-tag-{{color}} {{className ? className : ''}}"
+  style="{{style || ''}}">
+  <view
+    class="ant-tag-icon-container"
+    a:if="{{icon}}">
     <slot name="icon">
       <am-icon type="{{icon}}" />
     </slot>

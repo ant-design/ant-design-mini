@@ -5,11 +5,16 @@
   placeholder="请输入用户名"
   message="需要输入用户名"
   validateStatus="success"
-  ref="handleRef"
->
-  <view slot="footer" slot-scope="item">
-    <view class="errors" a:if="{{item.status === 'error'}}">
-      <icon type="CloseCircleOutline" style="margin-right: 4px;" />
+  ref="handleRef">
+  <view
+    slot="footer"
+    slot-scope="item">
+    <view
+      class="errors"
+      a:if="{{item.status === 'error'}}">
+      <icon
+        type="CloseCircleOutline"
+        style="margin-right: 4px" />
       {{item.errors}}
     </view>
   </view>
@@ -22,17 +27,31 @@
   placeholder="请输入地址"
   message="需要输入地址"
   validateStatus="success"
-  ref="handleRef"
->
-  <view slot="footer" slot-scope="item">
-    <view class="errors" a:if="{{item.status === 'error'}}">
-      <icon type="CloseCircleOutline" style="margin-right: 4px;" />
+  ref="handleRef">
+  <view
+    slot="footer"
+    slot-scope="item">
+    <view
+      class="errors"
+      a:if="{{item.status === 'error'}}">
+      <icon
+        type="CloseCircleOutline"
+        style="margin-right: 4px" />
       {{item.errors}}
     </view>
   </view>
 </form-input>
 
 <view class="buttons">
-  <button type="primary" onTap="submit" style="margin-bottom: 12px;">提交</button>
-  <button onTap="reset" style="margin-bottom: 12px;">重置</button>
+  <button
+    type="primary"
+    onTap="submit"
+    style="margin-bottom: 12px">
+    提交
+  </button>
+  <button
+    onTap="reset"
+    style="margin-bottom: 12px">
+    重置
+  </button>
 </view>

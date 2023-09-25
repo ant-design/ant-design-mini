@@ -4,34 +4,38 @@
   </container>
 
   <container title="有默认值">
-    <switch defaultChecked="{{true}}" onChange="onChange" />
+    <switch
+      defaultChecked="{{true}}"
+      onChange="onChange" />
   </container>
 
   <container title="文字和图标">
     <switch
       checkedText="开"
       uncheckedText="关"
-      onChange="onChange"
-    />
+      onChange="onChange" />
 
     <switch>
-      <am-icon type="CheckOutline" slot="checkedText"/>
-      <am-icon type="CloseOutline" slot="uncheckedText"/>
+      <am-icon
+        type="CheckOutline"
+        slot="checkedText" />
+      <am-icon
+        type="CloseOutline"
+        slot="uncheckedText" />
     </switch>
   </container>
 
   <container title="自定义颜色">
-    <switch 
+    <switch
       defaultChecked="{{true}}"
-      color="#00b578"/>
+      color="#00b578" />
   </container>
 
   <container title="禁用状态">
-    <switch 
+    <switch
       defaultChecked="{{true}}"
-      disabled="{{true}}"/>
-    <switch 
-      disabled="{{true}}"/>
+      disabled="{{true}}" />
+    <switch disabled="{{true}}" />
   </container>
 
   <container title="加载状态">
@@ -57,7 +61,6 @@
     <switch
       checked="{{checked}}"
       onChange="handleChange"
-      defaultChecked="{{true}}"
-    />
+      defaultChecked="{{true}}" />
   </container>
 </view>

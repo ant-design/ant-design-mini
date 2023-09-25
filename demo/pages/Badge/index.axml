@@ -3,31 +3,31 @@
     <badge
       type="dot"
       position="top-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="text"
       text="新"
       position="top-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="number"
       text="{{2}}"
       position="top-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="number"
       text="{{100}}"
       position="top-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="bubble"
       text="new"
       position="top-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
   </view>
 </container>
@@ -38,35 +38,35 @@
       type="dot"
       stroke
       position="top-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="text"
       text="新"
       stroke
       position="top-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="number"
       text="{{1}}"
       stroke
       position="top-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="number"
       text="{{100}}"
       stroke
       position="top-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="bubble"
       text="new"
       stroke
       position="top-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
   </view>
 </container>
@@ -77,34 +77,34 @@
       type="number"
       text="{{1}}"
       position="top-left">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="bubble"
       text="1"
       position="bottom-right">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="number"
       text="{{100}}"
       stroke
       bgColor="#1677FF">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="text"
       text="new"
       bgColor="#FF9F18"
       position="top-center">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="bubble"
       text="new"
       stroke
       bgColor="#34B368">
-      <view class="box"/>
+      <view class="box" />
     </badge>
   </view>
 </container>
@@ -116,7 +116,7 @@
       text="1"
       offsetX="-20px"
       offsetY="0px">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="text"
@@ -124,7 +124,7 @@
       position="bottom-right"
       offsetX="-20px"
       offsetY="-14px">
-      <view class="box"/>
+      <view class="box" />
     </badge>
     <badge
       type="bubble"
@@ -132,7 +132,7 @@
       position="top-right"
       offsetX="2px"
       offsetY="-8px">
-      <view class="box"/>
+      <view class="box" />
     </badge>
   </view>
 </container>
@@ -143,8 +143,10 @@
       type="text"
       iconType="GlobalOutline"
       position="top-right">
-      <am-icon type="GlobalOutline"  slot="text"/>
-      <view class="box"/>
+      <am-icon
+        type="GlobalOutline"
+        slot="text" />
+      <view class="box" />
     </badge>
   </view>
 </container>

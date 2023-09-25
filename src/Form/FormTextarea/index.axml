@@ -9,8 +9,7 @@
   required="{{formData.required}}"
   requiredMark="{{requiredMark}}"
   validateStatus="{{validateStatus}}"
-  help="{{help}}"
->
+  help="{{help}}">
   <textarea
     ref="handleRef"
     allowClear="{{allowClear}}"
@@ -19,23 +18,30 @@
     placeholder="{{placeholder}}"
     placeholderClassName="{{placeholderClassName}}"
     placeholderStyle="{{placeholderStyle}}"
-    maxLength="{{maxLength}}"
+    maxlength="{{maxLength}}"
     autoHeight="{{autoHeight}}"
     showCount="{{showCount}}"
     onChange="onChange"
     onBlur="onBlur"
     onFocus="onFocus"
-    onConfirm="onConfirm"
-  />
+    onConfirm="onConfirm" />
   <view slot="extra">
-    <slot name="extra">
-      {{extra}}
-    </slot>
+    <slot name="extra">{{extra}}</slot>
   </view>
-  <view slot="header" slot-scope="item">
-    <slot name="header" errors="{{item.errors}}" status="{{item.status}}" />
+  <view
+    slot="header"
+    slot-scope="item">
+    <slot
+      name="header"
+      errors="{{item.errors}}"
+      status="{{item.status}}" />
   </view>
-  <view slot="footer" slot-scope="item">
-    <slot name="footer" errors="{{item.errors}}" status="{{item.status}}" />
+  <view
+    slot="footer"
+    slot-scope="item">
+    <slot
+      name="footer"
+      errors="{{item.errors}}"
+      status="{{item.status}}" />
   </view>
 </form-item>
