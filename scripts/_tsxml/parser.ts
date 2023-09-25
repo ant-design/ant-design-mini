@@ -221,7 +221,7 @@ function transformAttrExpression(ctx: ITransformContext) {
   const expression = ctx.node;
   switch (expression.type) {
     case 'Identifier': {
-      return `{{${expression.name}}}`;
+      return `{{ ${expression.name} }}`;
     }
     case 'TemplateLiteral': {
       const quasis = expression.quasis;

@@ -86,7 +86,7 @@ export class TransformContext<T extends types.Node = types.Node>
   }
 
   toAxmlExpression(): string {
-    return `{{${generate(this.node).code}}}`;
+    return `{{ ${generate(this.node).code} }}`;
   }
 
   getAttrName(tagName: string, name: string): string {
