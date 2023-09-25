@@ -284,8 +284,17 @@ function sortBySplitWord(
  */
 export async function loadFontFace() {
   const fontName = `url("${ZDATAS.fontUrl}")`;
-  return my.loadFontFace({
-    family: 'rare-words-font',
-    source: fontName,
+  return new Promise((resolve, reject) => {
+    my.loadFontFace({
+      family: 'rare-words-font',
+      source: fontName,
+      global: true,
+      success: () => {
+        resolve(true);
+      },
+      fail: (err) => {
+        reject(err);
+      },
+    });
   });
 }

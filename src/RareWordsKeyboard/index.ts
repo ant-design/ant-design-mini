@@ -8,6 +8,7 @@ const wordsData = formatZDatas(ZDATAS.datas);
 Component({
   props: RareWordsKeyboardProps,
   data: {
+    loading: true,
     inputValue: [], // 已输入的字符数组
     displayStr: '', // 已输入的字符串
     matchWordsList: [], // 候选字列表
@@ -23,12 +24,19 @@ Component({
   methods: {
     // 隐藏键盘，失去焦点
     onHide() {
-      this.setData({ inputValue: [], matchWordsList: [], displayStr: '' });
+      this.setData({
+        inputValue: [],
+        matchWordsList: [],
+        displayStr: '',
+        showMoreWords: false,
+        showErrorPage: false,
+      });
       if (this.props.onClose) this.props.onClose();
     },
 
     // 点击键盘key值
     handleKeyClick(e) {
+      if (this.data.loading) return;
       const { value = '' } = e.target.dataset;
       if (!value) return;
       const inputValue = [...this.data.inputValue, value];
@@ -94,20 +102,24 @@ Component({
     // 加载字体
     loadFont() {
       loadFontFace()
+        .then(() => {
+          this.setData({ loading: false });
+        })
         .catch((err) => {
-          this.setData({ showErrorPage: true });
+          this.setData({ showErrorPage: true, loading: false });
           if (this.props.onError) this.props.onError(err);
         });
     },
 
     // 点击重试
     handleRetry() {
+      this.setData({ loading: true });
       loadFontFace()
-        .then(() => {
-          this.setData({ showErrorPage: false });
-        })
         .catch((err) => {
           if (this.props.onError) this.props.onError(err);
+        })
+        .finally(() => {
+          this.setData({ loading: false });
         });
     },
 
@@ -116,6 +128,6 @@ Component({
       if (!value) return;
       if (this.props.onChange) this.props.onChange(value);
       this.onHide();
-    }
+    },
   },
 });
