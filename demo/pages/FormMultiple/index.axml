@@ -5,18 +5,21 @@
     allowClear
     required
     message="需要填写用户名"
-    ref="handleRef"
-  />
+    ref="handleRef" />
 
   <form-input
     label="地址"
     name="address"
     allowClear
-    ref="handleRef"
-  />
+    ref="handleRef" />
 
   <view class="buttons">
-    <button type="primary" onTap="submit" style="margin-bottom: 12px;">提交</button>
+    <button
+      type="primary"
+      onTap="submit"
+      style="margin-bottom: 12px">
+      提交
+    </button>
     <button onTap="reset">重置</button>
   </view>
 </container>
@@ -28,18 +31,21 @@
     allowClear
     required
     message="需要填写用户名"
-    ref="handleRef2"
-  />
+    ref="handleRef2" />
 
   <form-input
     label="地址"
     name="address"
     allowClear
-    ref="handleRef2"
-  />
+    ref="handleRef2" />
 
   <view class="buttons">
-    <button type="primary" onTap="submit2" style="margin-bottom: 12px;">提交</button>
+    <button
+      type="primary"
+      onTap="submit2"
+      style="margin-bottom: 12px">
+      提交
+    </button>
     <button onTap="reset2">重置</button>
   </view>
 </container>

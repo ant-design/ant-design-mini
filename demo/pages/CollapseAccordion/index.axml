@@ -1,5 +1,4 @@
 <collapse
   items="{{items}}"
   onChange="onChange"
-  accordion
-/>
+  accordion />

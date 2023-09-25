@@ -6,7 +6,9 @@
     onChange="onChange">
     <view slot-scope="props">
       <list header="{{props.value.label}}">
-        <list-item a:for="{{4}}" a:for-item="itemX">
+        <list-item
+          a:for="{{4}}"
+          a:for-item="itemX">
           {{props.value.label}}-{{itemX}}
         </list-item>
       </list>

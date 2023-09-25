@@ -4,23 +4,66 @@
 <container title="语义标签">
   <view class="tag-list">
     <tag className="myTag">default</tag>
-    <tag className="myTag" color="success">success</tag>
-    <tag className="myTag" color="warning">warning</tag>
-    <tag className="myTag" color="danger">danger</tag>
+    <tag
+      className="myTag"
+      color="success">
+      success
+    </tag>
+    <tag
+      className="myTag"
+      color="warning">
+      warning
+    </tag>
+    <tag
+      className="myTag"
+      color="danger">
+      danger
+    </tag>
   </view>
 </container>
 <container title="填充模式">
   <view class="tag-list">
-    <tag className="myTag" type="fill">fill</tag>
-    <tag className="myTag" type="outline">outline</tag>
-    <tag className="myTag" type="fill-light">fill-light</tag>
+    <tag
+      className="myTag"
+      type="fill">
+      fill
+    </tag>
+    <tag
+      className="myTag"
+      type="outline">
+      outline
+    </tag>
+    <tag
+      className="myTag"
+      type="fill-light">
+      fill-light
+    </tag>
   </view>
 </container>
 <container title="自定义图标">
   <view class="tag-list">
-    <tag className="myTag" icon="AlipayCircleFill">标签</tag>
-    <tag className="myTag" color="success" icon="AlipayCircleFill">标签</tag>
-    <tag className="myTag" color="warning" icon="AlipayCircleFill">标签</tag>
-    <tag className="myTag" color="danger" icon="AlipayCircleFill">标签</tag>
+    <tag
+      className="myTag"
+      icon="AlipayCircleFill">
+      标签
+    </tag>
+    <tag
+      className="myTag"
+      color="success"
+      icon="AlipayCircleFill">
+      标签
+    </tag>
+    <tag
+      className="myTag"
+      color="warning"
+      icon="AlipayCircleFill">
+      标签
+    </tag>
+    <tag
+      className="myTag"
+      color="danger"
+      icon="AlipayCircleFill">
+      标签
+    </tag>
   </view>
 </container>

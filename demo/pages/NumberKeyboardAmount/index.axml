@@ -2,15 +2,17 @@
   <list-item>
     <view
       class="number-content {{ value ? '' : 'number-placeholder'}}"
-      catchTap="onAmountFocus"
-    >
+      catchTap="onAmountFocus">
       <text a:if="{{value}}">{{ value }}</text>
-      <text a:else class="number-content-tip">0.00</text>
+      <text
+        a:else
+        class="number-content-tip">
+        0.00
+      </text>
       <view
         a:if="{{visible}}"
         class="number-light"
-        style="{{{position: value ? 'static' : 'absolute'}}}"
-      />
+        style="{{{position: value ? 'static' : 'absolute'}}}" />
     </view>
   </list-item>
   <number-keyboard
@@ -18,6 +20,5 @@
     closeable="{{true}}"
     value="{{value}}"
     onChange="onChange"
-    onClose="onClose"
-  />
+    onClose="onClose" />
 </list>

@@ -2,9 +2,11 @@
   items="{{items}}"
   current="{{current}}"
   onChange="onChange"
-  class="tabs"
->
-  <view slot="title" onTap="onTap" slot-scope="item">
+  class="tabs">
+  <view
+    slot="title"
+    onTap="onTap"
+    slot-scope="item">
     {{item.value.title}}
   </view>
 
@@ -16,10 +18,13 @@
     scroll-y="{{true}}"
     scroll-with-animation="{{true}}"
     scroll-animation-duration="{{300}}"
-    class="content"
-  >
-    <view a:for="{{items}}" class="item">
-      <view class="title" id="tab-item-{{index}}">
+    class="content">
+    <view
+      a:for="{{items}}"
+      class="item">
+      <view
+        class="title"
+        id="tab-item-{{index}}">
         {{item.title}}
       </view>
       {{item.content}}

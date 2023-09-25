@@ -1,5 +1,6 @@
-<import-sjs from="./index.sjs" name="utils" />
-
+<import-sjs
+  from="./index.sjs"
+  name="utils" />
 
 <button
   form-type="{{formType}}"
@@ -15,24 +16,27 @@
   public-id="{{publicId}}"
   open-type="{{openType}}"
   class="ant-button {{inline ? `ant-button-inline ${utils.getClass(size)}` : ''}} {{`ant-button-${type}${danger ? '-danger' : ''}`}} {{(disabled || loading) ? 'ant-button-disabled' : ''}} {{className ? className : ''}}"
-  style="{{style}}"
->
+  style="{{style}}">
   <view class="ant-button-wrap">
     <block a:if="{{icon}}">
       <icon type="{{icon}}" />
     </block>
-    <view class="ant-button-content-text {{icon ? 'ant-button-content-text-margin' : ''}}" >
+    <view
+      class="ant-button-content-text {{icon ? 'ant-button-content-text-margin' : ''}}">
       <slot />
-      <view a:if="{{ !inline && subText}}" class="ant-button-content-subtext">
+      <view
+        a:if="{{ !inline && subText}}"
+        class="ant-button-content-subtext">
         {{subText}}
       </view>
     </view>
-    <view a:if="{{loading}}" class="ant-button-content-loading-container">
+    <view
+      a:if="{{loading}}"
+      class="ant-button-content-loading-container">
       <loading
         type="mini"
         color="currentColor"
-        className="ant-button-content-loading"
-      />
+        className="ant-button-content-loading" />
     </view>
   </view>
 </button>
