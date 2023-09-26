@@ -37,15 +37,22 @@
             </view>
             <!-- 提示文案 -->
             <view
-              a:if="{{displayStr === '' && matchWordsList.length === 0}}"
-              class="ant-rare-words-keyboard-match_words_item_tips">
-              请输入生僻字对应的拼音
+              a:if="{{ loading }}"
+              class="ant-rare-words-keyboard-match_words_item_tips loading"
+            >
+              <loading class="ant-rare-words-keyboard-loading" type="mini" size="small" color="#666666" />
+              <text>加载中</text>
             </view>
-            <view
-              a:if="{{ displayStr !== '' && matchWordsList.length === 0 }}"
-              class="ant-rare-words-keyboard-match_words_item_tips">
-              更多生僻字完善中，敬请期待
-            </view>
+            <block a:else>
+              <view class="ant-rare-words-keyboard-match_words_item_tips">
+                <text a:if="{{ displayStr === '' && matchWordsList.length === 0 }}">
+                  请输入生僻字对应的拼音
+                </text>
+                <text a:if="{{ displayStr !== '' && matchWordsList.length === 0 }}">
+                  更多生僻字完善中，敬请期待
+                </text>
+              </view>
+            </block>
           </view>
           <!-- 候选字左侧操作按钮 -->
           <view
@@ -65,16 +72,11 @@
             <view class="ant-rare-words-keyboard_error">
               <result
                 class="ant-rare-words-keyboard_error-result"
-                type="error"
-                message="页面遇到一些小问题">
-                <view slot="extra">
-                  <button
-                    type="primary"
-                    inline
-                    size="small"
-                    onTap="handleRetry">
-                    重试
-                  </button>
+                image="https://mdn.alipayobjects.com/huamei_2fq7mt/afts/img/A*VtvFS4EJl0cAAAAAAAAAAAAADh58AQ/original"
+                message="页面遇到一些小问题"
+              >
+                <view slot="extra" class="ant-rare-words-keyboard_error-btns">
+                  <button type="primary" size="small" inline onTap="handleRetry">重试</button>
                 </view>
               </result>
             </view>

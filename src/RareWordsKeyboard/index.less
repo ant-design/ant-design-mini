@@ -113,7 +113,7 @@
         content: '';
         display: block;
         position: absolute;
-        top: -2 * @rpx;
+        top: 0;
         left: 0;
         background: @COLOR_TEXT_WEAK_DEFAULT;
         width: 100%;
@@ -127,6 +127,13 @@
       padding-left: 8 * @rpx;
       font-size: 28 * @rpx;
       color: @COLOR_TEXT_SECONDARY_DEFAULT;
+      line-height: 34 * @rpx;
+
+      &.loading {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+      }
     }
 
     &_inner {
@@ -248,6 +255,11 @@
     }
   }
 
+  &-loading {
+    min-height: 34 * @rpx;
+    margin-right: 12 * @rpx;
+  }
+
   &_delete {
     font-size: 48 * @rpx;
   }
@@ -313,6 +325,17 @@
       margin-bottom: 0;
       padding-top: 40 * @rpx;
       padding-bottom: 40 * @rpx;
+    }
+
+    .ant-result-message {
+      text-align: center;
+    }
+
+    &-btns {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
