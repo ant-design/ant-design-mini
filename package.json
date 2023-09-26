@@ -37,6 +37,9 @@
     "functional-mini": "^0.6.0",
     "tslib": "2.5.0"
   },
+  "overrides": {
+    "get-func-name": "2.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.22.20",
     "@babel/code-frame": "^7.22.13",
