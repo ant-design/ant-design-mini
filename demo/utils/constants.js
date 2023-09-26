@@ -355,12 +355,12 @@ export const componentList = [
       {
         name: 'RateCustom',
         nameZN: '星级-自定义',
-        path: '/page/RateCustom/index',
+        path: '/pages/RateCustom/index',
       },
       {
         name: 'RareWordsKeyboard',
         nameZN: '生僻字输入键盘',
-        path: '/page/RareWordsKeyboard/index',
+        path: '/pages/RareWordsKeyboard/index',
       },
       {
         name: 'Calendar',
