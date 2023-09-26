@@ -9,6 +9,7 @@ const wordsData = formatZDatas(ZDATAS.datas);
 Component({
   props: RareWordsKeyboardProps,
   data: {
+    loading: false,
     inputValue: [], // 已输入的字符数组
     displayStr: '', // 已输入的字符串
     matchWordsList: [], // 候选字列表
