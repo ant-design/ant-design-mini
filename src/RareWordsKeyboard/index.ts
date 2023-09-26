@@ -101,6 +101,9 @@ Component({
 
     // 加载字体
     loadFont() {
+      this.setData({
+        loading: true,
+      });
       loadFontFace()
         .then(() => {
           this.setData({ showErrorPage: false, loading: false });
