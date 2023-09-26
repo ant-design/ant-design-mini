@@ -130,5 +130,9 @@ Component({
       if (this.props.onChange) this.props.onChange(value);
       this.onHide();
     },
+
+    hideLoading() {
+      this.setData({ loading: false });
+    }
   },
 });
