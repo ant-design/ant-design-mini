@@ -1,0 +1,7 @@
+<view>
+  <text
+    onTap="a"
+    catchTap="b">
+    {{ a }}
+  </text>
+</view>

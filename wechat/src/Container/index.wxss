@@ -3,7 +3,7 @@
   margin-bottom: 12px;
 }
 .ant-container-headerInBox {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 .ant-container-headerInBox .ant-container-header {
   padding: 0 12px;
@@ -14,9 +14,9 @@
 }
 .ant-container-headerInBox .ant-container-header .ant-container-header-title::after,
 .ant-container-headerInBox .ant-container-header .ant-container-header-right::after {
-  content: "";
+  content: '';
   position: absolute;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   display: block;
   top: auto;
   right: 0;
@@ -27,7 +27,7 @@
 }
 .ant-container-content {
   padding: 12px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 8px;
 }
 .ant-container-header {

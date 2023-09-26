@@ -22,7 +22,10 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "useCompilerPlugins": ["typescript", "less"],
+  "useCompilerPlugins": [
+    "typescript",
+    "less"
+  ],
   "srcMiniprogramRoot": "wechat/",
   "projectname": "antd"
 }

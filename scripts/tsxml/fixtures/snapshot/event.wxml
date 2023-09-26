@@ -1,0 +1,7 @@
+<view>
+  <text
+    bindtap="a"
+    catchtap="b">
+    {{ a }}
+  </text>
+</view>

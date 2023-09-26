@@ -10,7 +10,10 @@ export const alipay: PlatformConfig = {
     tagName: 'import-sjs',
     ext: 'sjs',
   },
-  attributeName: {},
+  basicEvent: {
+    onTap: 'onTap',
+    catchTap: 'catchTap',
+  },
 };
 
 export const wechat: PlatformConfig = {
@@ -25,7 +28,10 @@ export const wechat: PlatformConfig = {
     tagName: 'wxs',
     ext: 'wxs',
   },
-  attributeName: {},
+  basicEvent: {
+    onTap: 'bindtap',
+    catchTap: 'catchtap',
+  },
 };
 
 export interface PlatformConfig {
@@ -40,7 +46,8 @@ export interface PlatformConfig {
     tagName: string;
     ext: string;
   };
-  attributeName: {
-    [tagName: string]: string;
+  basicEvent: {
+    onTap: string;
+    catchTap: string;
   };
 }
