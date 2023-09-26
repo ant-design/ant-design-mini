@@ -124,13 +124,55 @@ describe('rare-words-keyboard', () => {
         visible: true,
         showMask: true,
       },
-      my
+      {
+        ...my,
+        loadFontFace: (option) => {
+          option.success();
+        },
+      }
     );
+    await new Promise((r) => setTimeout(r, 10));
     instance.callMethod('handleKeyClick', fmtEvent({ 'data-value': 'Y' }));
     await new Promise((r) => setTimeout(r, 0));
     expect(instance.getData().inputValue[0]).toBe('Y');
     instance.callMethod('handleDelete');
     await new Promise((r) => setTimeout(r, 0));
     expect(instance.getData().inputValue[0]).toBe(undefined);
+  });
+
+  it('测试重试的情况', async () => {
+    const loadFontFaceRequests = [];
+    const instance = getInstance(
+      'RareWordsKeyboard',
+      {
+        visible: true,
+        showMask: true,
+      },
+      {
+        ...my,
+        loadFontFace: (option) => {
+          loadFontFaceRequests.push(option);
+        },
+      }
+    );
+    instance.getData().loading = true;
+    instance.getData().showMoreWords = true;
+    loadFontFaceRequests[loadFontFaceRequests.length - 1].fail(
+      new Error('fail')
+    );
+    await new Promise((r) => setTimeout(r, 0));
+    expect(instance.getData().loading).toBe(false);
+    expect(instance.getData().showErrorPage).toBe(true);
+
+    instance.callMethod('handleRetry');
+
+    expect(instance.getData().loading).toBe(true);
+    expect(instance.getData().showErrorPage).toBe(true);
+
+    loadFontFaceRequests[loadFontFaceRequests.length - 1].success();
+
+    await new Promise((r) => setTimeout(r, 0));
+    expect(instance.getData().loading).toBe(false);
+    expect(instance.getData().showErrorPage).toBe(false);
   });
 });
