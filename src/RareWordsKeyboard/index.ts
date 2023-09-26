@@ -30,7 +30,6 @@ Component({
         matchWordsList: [],
         displayStr: '',
         showMoreWords: false,
-        showErrorPage: false,
       });
       if (this.props.onClose) this.props.onClose();
     },
@@ -104,7 +103,7 @@ Component({
     loadFont() {
       loadFontFace()
         .then(() => {
-          this.setData({ loading: false });
+          this.setData({ showErrorPage: false, loading: false });
         })
         .catch((err) => {
           this.setData({ showErrorPage: true, loading: false });
@@ -114,14 +113,7 @@ Component({
 
     // 点击重试
     handleRetry() {
-      this.setData({ loading: true });
-      loadFontFace()
-        .catch((err) => {
-          if (this.props.onError) this.props.onError(err);
-        })
-        .finally(() => {
-          this.setData({ loading: false });
-        });
+      this.loadFont();
     },
 
     handleWordClick(e) {
@@ -130,9 +122,5 @@ Component({
       if (this.props.onChange) this.props.onChange(value);
       this.onHide();
     },
-
-    hideLoading() {
-      this.setData({ loading: false });
-    }
   },
 });

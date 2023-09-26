@@ -124,9 +124,14 @@ describe('rare-words-keyboard', () => {
         visible: true,
         showMask: true,
       },
-      my
+      {
+        ...my,
+        loadFontFace: (option) => {
+          option.success();
+        },
+      }
     );
-    instance.callMethod('hideLoading');
+    await new Promise((r) => setTimeout(r, 10));
     instance.callMethod('handleKeyClick', fmtEvent({ 'data-value': 'Y' }));
     await new Promise((r) => setTimeout(r, 0));
     expect(instance.getData().inputValue[0]).toBe('Y');
