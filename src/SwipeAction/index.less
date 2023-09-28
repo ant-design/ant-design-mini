@@ -1,4 +1,4 @@
-@import "../style/themes/index.less";
+@import '../style/themes/index.less';
 
 @keyframes text-animate-right {
   33% {
@@ -43,68 +43,68 @@
   animation-duration: 500ms;
 }
 .ant-swipe {
-    width: 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  &-action {
     height: 100%;
-    overflow: hidden;
-    &-action {
+    position: relative;
+    &-movable {
+      width: 100%;
       height: 100%;
-      position: relative;
-      &-movable {
-        width: 100%;
+      &-content {
         height: 100%;
-        &-content {
+        position: relative;
+        &-view {
           height: 100%;
-          position: relative;
-          &-view {
+          &-modal {
+            width: 100%;
             height: 100%;
-            &-modal {
-              width: 100%;
-              height: 100%;
-              background: transparent;
-              position: absolute;
-              left: 0;
-              top: 0;
-              z-index: 9;
-            }
-          }
-          &-right {
-            height: 100%;
-            color: @COLOR_WHITE;
-            &-text {
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              transition: all 120ms cubic-bezier(0.2, 0.2, 0.8, 1);
-              .right-text {
-                text-align: center;
-                white-space: nowrap;
-              }
-            }
-          }
-          &-left {
+            background: transparent;
             position: absolute;
-            right: 0;
+            left: 0;
             top: 0;
-            color: @COLOR_WHITE;
+            z-index: 9;
+          }
+        }
+        &-right {
+          height: 100%;
+          color: @COLOR_WHITE;
+          &-text {
+            height: 100%;
             display: flex;
-            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            transition: all 120ms cubic-bezier(0.2, 0.2, 0.8, 1);
+            .right-text {
+              text-align: center;
+              white-space: nowrap;
+            }
+          }
+        }
+        &-left {
+          position: absolute;
+          right: 0;
+          top: 0;
+          color: @COLOR_WHITE;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          &-text1 {
+            height: 100%;
+            display: flex;
+            align-items: center;
             justify-content: flex-end;
-            &-text1 {
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: flex-end;
-              transition: all 120ms cubic-bezier(0.2, 0.2, 0.8, 1);
-              .right-text {
-                text-align: center;
-                white-space: nowrap;
-              }
+            transition: all 120ms cubic-bezier(0.2, 0.2, 0.8, 1);
+            .right-text {
+              text-align: center;
+              white-space: nowrap;
             }
           }
         }
       }
     }
+  }
 }
 .ant-swipe-action-is-right-swipe {
   display: flex;

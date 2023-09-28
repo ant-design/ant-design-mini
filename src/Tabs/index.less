@@ -24,11 +24,19 @@
       pointer-events: none;
       &-left {
         left: 0;
-        background: linear-gradient(90deg, @COLOR_WHITE_CHANGE, hsla(0, 0%, 100%, 0));
+        background: linear-gradient(
+          90deg,
+          @COLOR_WHITE_CHANGE,
+          hsla(0, 0%, 100%, 0)
+        );
       }
       &-right {
         right: 84 * @rpx;
-        background: linear-gradient(270deg, @COLOR_WHITE_CHANGE, hsla(0, 0%, 100%, 0));
+        background: linear-gradient(
+          270deg,
+          @COLOR_WHITE_CHANGE,
+          hsla(0, 0%, 100%, 0)
+        );
       }
       transition: all 0.2s;
     }
@@ -46,7 +54,7 @@
       &:empty {
         display: none;
         ~ .@{tabsPrefix}-bar-fade-right {
-          right: 0
+          right: 0;
         }
       }
     }
@@ -91,7 +99,7 @@
       color: @tabs-basic-color;
       .ant-badge {
         width: 100%;
-    }
+      }
     }
     // 基础类型 tab 选项卡样式
     &-basic {
@@ -102,7 +110,7 @@
       box-sizing: border-box;
     }
 
-    &-basic&-active{
+    &-basic&-active {
       color: @tabs-active-color;
       position: relative;
       &:after {
@@ -118,7 +126,7 @@
         background-color: @tabs-active-decorate-color;
       }
     }
-    
+
     // 胶囊类型选项卡样式
     &-capsule {
       padding: @v-spacing-large 0;
@@ -160,7 +168,7 @@
         line-height: @line-height-paragraph;
         color: @tabs-weaken-color;
         border-radius: 50vh;
-        background-color:@COLOR_GREY_CARD;
+        background-color: @COLOR_GREY_CARD;
         margin: 2 * @rpx 0;
       }
     }
@@ -184,7 +192,6 @@
     color: @COLOR_TEXT_PRIMARY;
   }
 }
-
 
 @vtabsPrefix: ant-vtabs;
 
@@ -226,7 +233,7 @@
         background-color: @COLOR_CARD;
         &::after {
           position: absolute;
-          content: "";
+          content: '';
           top: @size-4;
           bottom: @size-4;
           left: 0;

@@ -1,5 +1,5 @@
-@import (reference) "./variable.less";
-@import "../style/mixins/hairline.less";
+@import (reference) './variable.less';
+@import '../style/mixins/hairline.less';
 
 @resultPrefix: ant-result;
 
@@ -8,7 +8,7 @@
   text-align: center;
   line-height: normal;
   box-sizing: border-box;
-  .hairline("bottom");
+  .hairline('bottom');
 
   &-main {
     padding: @size-8 @result-spacing-LR;
@@ -27,8 +27,8 @@
     text-align: center;
     line-height: @result-img-size;
 
-    &+.@{resultPrefix}-title,
-    &+.@{resultPrefix}-message {
+    & + .@{resultPrefix}-title,
+    & + .@{resultPrefix}-message {
       padding-top: @size-5;
     }
 
