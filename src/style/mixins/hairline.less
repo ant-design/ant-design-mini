@@ -1,7 +1,7 @@
-@import (reference) "../themes/color.less";
+@import (reference) '../themes/color.less';
 
 .scale-hairline-common(@color, @top, @right, @bottom, @left) {
-  content: "";
+  content: '';
   position: absolute;
   background-color: @color;
   display: block;
@@ -35,14 +35,18 @@
   }
 }
 
-.hairline-popover(@direction, @color: @COLOR_BORDER) when (@direction = 'bottom') {
+.hairline-popover(@direction, @color: @COLOR_BORDER)
+  when
+  (@direction = 'bottom') {
   &::after {
     .scale-hairline-common(@color, auto, 0, 0, 104 * @rpx);
     height: 1px;
     transform: scaleY(0.5);
   }
 }
-.hairline-collapse(@direction, @color: @COLOR_BORDER) when (@direction = 'bottom') {
+.hairline-collapse(@direction, @color: @COLOR_BORDER)
+  when
+  (@direction = 'bottom') {
   &::after {
     .scale-hairline-common(@color, auto, 0, 0, 24 * @rpx);
     height: 1px;
@@ -60,10 +64,10 @@
   }
 }
 
-.hairline-radius(@color: @COLOR_BORDER, @radius){
+.hairline-radius(@color: @COLOR_BORDER, @radius) {
   position: relative;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;

@@ -1,6 +1,5 @@
-@import (reference) "../../style/themes/index.less";
-@import "../../style/mixins/hairline.less";
-
+@import (reference) '../../style/themes/index.less';
+@import '../../style/mixins/hairline.less';
 
 .formItemLabelHorizontal() {
   width: 170 * @rpx;
@@ -32,7 +31,7 @@
   background-color: @COLOR_CARD;
   padding: 24 * @rpx 24 * @rpx 24 * @rpx 32 * @rpx;
   position: relative;
-  .hairline("bottom");
+  .hairline('bottom');
 
   &-line {
     display: flex;
@@ -94,7 +93,6 @@
     &-vertical {
       .formItemLabelVertical();
     }
-
   }
 
   &-field {
@@ -120,7 +118,7 @@
   &-asterisk {
     .@{formItemPrefix}-label-required .@{formItemPrefix}-label-text {
       &::before {
-        content: "*";
+        content: '*';
         position: absolute;
         left: -18 * @rpx;
         font-size: 30 * @rpx;
@@ -133,7 +131,7 @@
     .@{formItemPrefix}-label-required .@{formItemPrefix}-label-text {
       &::after {
         padding-left: 4 * @rpx;
-        content: "(必填)";
+        content: '(必填)';
         display: block;
         left: -18 * @rpx;
         font-size: 30 * @rpx;
@@ -146,7 +144,7 @@
     .@{formItemPrefix}-label .@{formItemPrefix}-label-text {
       &::after {
         padding-left: 4 * @rpx;
-        content: "(选填)";
+        content: '(选填)';
         display: block;
         left: -18 * @rpx;
         font-size: 30 * @rpx;
