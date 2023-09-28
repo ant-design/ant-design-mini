@@ -2,13 +2,12 @@
   color: blue;
 }
 .custom-size {
-  font-size: 40px;
+  font-size: 40px !important;
 }
 .custom {
-  font-size: 40px;
   color: red;
   margin: 10px;
 }
-.cc{
-  font-size: 100px;
+.custom text {
+  font-size: 40px;
 }

@@ -27,5 +27,17 @@ export default () => (
         <Icon type="SmileOutline" />
       </View>
     </Container>
+
+    <Container title="点击事件">
+      <View style="display:flex">
+        <Icon
+          //@ts-ignore
+          onTap="handleTap"
+          data-id="icon"
+          type="SmileOutline"
+          style="font-size: 50px;"
+        />
+      </View>
+    </Container>
   </Page>
 );

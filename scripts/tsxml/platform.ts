@@ -29,8 +29,8 @@ export const wechat: PlatformConfig = {
     ext: 'wxs',
   },
   basicEvent: {
-    onTap: 'bindtap',
-    catchTap: 'catchtap',
+    onTap: 'bind:tap',
+    catchTap: 'catch:tap',
   },
 };
 
