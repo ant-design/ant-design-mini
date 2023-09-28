@@ -17,7 +17,6 @@ export default () => (
     </Container>
 
     <Container title="自定义颜色">
-      <Text>11</Text>
       <Icon type="SmileOutline" style="color: red" />
       <Icon type="SmileOutline" className="custom-color" />
     </Container>
