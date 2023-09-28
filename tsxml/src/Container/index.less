@@ -11,7 +11,7 @@
     .@{containerPrefix}-header {
       padding: 0 @container-spacing;
       .@{containerPrefix}-header-title,
-      .@{containerPrefix}-header-right{
+      .@{containerPrefix}-header-right {
         position: relative;
         .hairline('bottom');
       }
@@ -47,7 +47,8 @@
         display: none;
       }
     }
-    .@{containerPrefix}-header-title:empty+.@{containerPrefix}-header-right:not(:empty){
+    .@{containerPrefix}-header-title:empty
+      + .@{containerPrefix}-header-right:not(:empty) {
       flex: 1;
     }
   }
