@@ -35,6 +35,6 @@ it('需要支持拍平 page 和 component', async () => {
   await textTsXml('component');
 });
 
-it.only('测试事件', async () => {
+it('测试事件', async () => {
   await textTsXml('event');
 });
