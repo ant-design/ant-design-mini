@@ -19,7 +19,7 @@ import {
   getSelectionModeFromValue,
   renderCells,
 } from './utils';
-import '../_util/assert-component2';
+import { useMergedState } from '../_util/hooks/useMergedState';
 
 dayjs.extend(isoWeek);
 
@@ -49,9 +49,9 @@ const Calendar = (props: ComponentProps) => {
     if (item) markItems.unshift(item);
   }
 
-  const [value, setValue] = useState<[number, number]>(
-    props.value ?? props.defaultValue ?? null
-  );
+  const [value, setValue] = useMergedState(props.defaultValue, {
+    value: props.value,
+  });
 
   const selectionModeFromValue = getSelectionModeFromValue(value);
   const selectionMode =
