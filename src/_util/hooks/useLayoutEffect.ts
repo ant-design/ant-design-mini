@@ -1,3 +1,7 @@
+/**
+ * copy from https://github.com/react-component/util/blob/9d5cb8946da29e690bead78b2c251da6f7cbd0eb/src/hooks/useLayoutEffect.ts
+ */
+
 import * as React from 'functional-mini/compat';
 
 /**
