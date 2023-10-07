@@ -31,3 +31,6 @@
 # other
 /.mini-ide
 /.cache
+
+# wechat
+project.private.config.json

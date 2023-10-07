@@ -34,7 +34,7 @@
 <container title="点击事件">
   <view style="display: flex">
     <icon
-      onTap="handleTap"
+      bind:tap="handleTap"
       data-id="icon"
       type="SmileOutline"
       style="font-size: 50px" />

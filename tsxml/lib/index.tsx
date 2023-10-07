@@ -7,6 +7,7 @@ interface Props {
   cell?: string;
   children?: any;
   onScroll?: any;
+  catchTap?: string;
 }
 
 export const Text = (props: Props): any => {};
