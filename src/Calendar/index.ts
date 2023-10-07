@@ -67,10 +67,6 @@ const Calendar = (props: ComponentProps) => {
     }
   }
 
-  useEffect(() => {
-    setValue(props.value);
-  }, [props.value]);
-
   useEvent(
     'clickCell',
     (e) => {

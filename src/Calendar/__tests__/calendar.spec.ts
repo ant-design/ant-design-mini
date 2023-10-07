@@ -170,6 +170,44 @@ describe('Calendar', () => {
     ]);
   });
 
+  it('defaultValue 应该生效', async () => {
+    const instance = initCalendar({
+      defaultValue: new Date('2023-01-04').getTime(),
+      monthRange: [
+        new Date('2023-01-01').getTime(),
+        new Date('2023-02-01').getTime(),
+      ],
+    });
+    expect(getSelectedDay(instance.getData())).toEqual(['2023-01-04']);
+
+    const instance2 = initCalendar({
+      defaultValue: [
+        new Date('2023-01-04').getTime(),
+        new Date('2023-01-05').getTime(),
+      ],
+      monthRange: [
+        new Date('2023-01-01').getTime(),
+        new Date('2023-02-01').getTime(),
+      ],
+    });
+    expect(getSelectedDay(instance2.getData())).toEqual([
+      '2023-01-04',
+      '2023-01-05',
+    ]);
+  });
+
+  it('value 优先级大于 default value', async () => {
+    const instance = initCalendar({
+      value: new Date('2023-01-01').getTime(),
+      defaultValue: new Date('2023-01-04').getTime(),
+      monthRange: [
+        new Date('2023-01-01').getTime(),
+        new Date('2023-02-01').getTime(),
+      ],
+    });
+    expect(getSelectedDay(instance.getData())).toEqual(['2023-01-01']);
+  });
+
   function lastClickDate(args: [number | [number, number]] | undefined) {
     if (!args) {
       return;
