@@ -5,7 +5,7 @@
   <view
     slot="content"
     style="height: 1000rpx">
-    <calendar />
+    <calendar defaultValue="{{demo1.defaultValue}}" />
   </view>
 </collapse-container>
 
@@ -16,7 +16,7 @@
   <view
     slot="content"
     style="height: 1000rpx">
-    <calendar selectionMode="single"></calendar>
+    <calendar selectionMode="single" defaultValue="{{demo2.defaultValue}}" ></calendar>
   </view>
 </collapse-container>
 
@@ -102,5 +102,22 @@
     <calendar
       monthRange="{{demo7.monthRange}}"
       localeText="{{demo7.localeText}}"></calendar>
+  </view>
+</collapse-container>
+
+
+<!-- 受控模式 -->
+<collapse-container
+  a:if="{{ demo9.visible }}"
+  title="受控模式">
+  <view slot="content">
+    <calendar
+      value="{{demo9.value}}"
+      monthRange="{{demo9.monthRange}}"
+      onChange="demo9HandleChange"
+      selectionMode="single"
+      />
+      <button size="default" type="primary" onTap="demo9HandlePreviousDay">上一天</button>
+      <button size="default" style="margin-top:8rpx" type="primary" onTap="demo9HandleNextDay">下一天</button>
   </view>
 </collapse-container>

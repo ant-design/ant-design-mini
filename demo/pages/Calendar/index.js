@@ -12,9 +12,11 @@ Page({
     };
     return {
       demo1: {
+        defaultValue: [Date.now(),Date.now()],
         visible: true,
       },
       demo2: {
+        defaultValue: Date.now(),
         visible: true,
       },
       demo3: {
@@ -39,6 +41,11 @@ Page({
       },
       demo8: {
         visible: true,
+        monthRange: [new Date().getTime(), new Date().getTime()],
+      },
+      demo9: {
+        visible: true,
+        value: Date.now(),
         monthRange: [new Date().getTime(), new Date().getTime()],
       },
     };
@@ -98,4 +105,19 @@ Page({
       },
     };
   },
+  demo9HandleChange(value){
+    this.setData({
+      'demo9.value':value
+    })
+  },
+  demo9HandlePreviousDay(){
+    this.setData({
+      'demo9.value': this.data.demo9.value - 1000 * 24 * 3600
+    })
+  },
+  demo9HandleNextDay(){
+    this.setData({
+      'demo9.value': this.data.demo9.value + 1000 * 24 * 3600
+    })
+  }
 });
