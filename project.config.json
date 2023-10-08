@@ -27,5 +27,6 @@
     "less"
   ],
   "srcMiniprogramRoot": "wechat/",
-  "projectname": "antd"
+  "projectname": "antd",
+  "simulatorPluginLibVersion": {}
 }

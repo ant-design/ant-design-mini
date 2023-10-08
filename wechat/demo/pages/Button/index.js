@@ -1,6 +1,6 @@
 Page({
     handleTap: function (e) {
-        my.alert({
+        wx.showToast({
             title: '点击按钮',
         });
     },

@@ -79,13 +79,16 @@ export function transformJSXElement(ctx: ITransformContext) {
           if (attr.type === 'JSXSpreadAttribute') {
             throw ctx.throw(ctx.node);
           }
-          if (!attr.value) {
-            return;
-          }
           const attrName = ctx.getAttrName(
             tagName,
             getJSXAttributeName(ctx.extends(attr))
           );
+          if (attr.value === null) {
+            return {
+              name: attrName,
+              value: true,
+            };
+          }
           switch (attr.value.type) {
             case 'StringLiteral': {
               return { name: attrName, value: attr.value.value };

@@ -8,7 +8,7 @@
     "paths": {
       "tsxml": ["./lib/index.tsx"]
     },
-    "types": ["node"]
+    "types": ["node", "global.d.ts"]
   },
   "include": ["./src/**/*", "./demo/**/*"]
 }

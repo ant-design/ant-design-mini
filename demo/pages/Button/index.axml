@@ -48,21 +48,45 @@
 <container
   title="禁用"
   className="list">
-  <button type="primary">主要按钮</button>
+  <button
+    type="primary"
+    disabled>
+    主要按钮
+  </button>
 
-  <button type="default">次要按钮</button>
+  <button
+    type="default"
+    disabled>
+    次要按钮
+  </button>
 
-  <button type="text">文本按钮</button>
+  <button
+    type="text"
+    disabled>
+    文本按钮
+  </button>
 </container>
 
 <container
   title="加载状态"
   className="list">
-  <button type="primary">主要按钮</button>
+  <button
+    type="primary"
+    loading>
+    主要按钮
+  </button>
 
-  <button type="default">次要按钮</button>
+  <button
+    type="default"
+    loading>
+    次要按钮
+  </button>
 
-  <button type="text">文本</button>
+  <button
+    type="text"
+    loading>
+    文本
+  </button>
 </container>
 
 <container
@@ -70,18 +94,21 @@
   className="list">
   <button
     type="primary"
+    danger
     onTap="handleTap">
     主要按钮
   </button>
 
   <button
     type="default"
+    danger
     onTap="handleTap">
     次要按钮
   </button>
 
   <button
     type="text"
+    danger
     onTap="handleTap">
     文本按钮
   </button>

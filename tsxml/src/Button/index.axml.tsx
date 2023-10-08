@@ -1,4 +1,4 @@
-import { Button, View, TSXMLProps } from 'tsxml';
+import { Button, View, TSXMLProps, Slot } from 'tsxml';
 import Icon from '../Icon/index.axml';
 import Loading from '../Loading/index.axml';
 import utils from './index.sjs';
@@ -39,8 +39,8 @@ export default ({
     public-id={publicId}
     open-type={openType}
     class={`ant-button ${
-      inline ? `ant-button-inline ${utils.getClass(size)}` : ''
-    } ${`ant-button-${type}${danger ? '-danger' : ''}`}${
+      inline ? 'ant-button-inline ' + utils.getClass(size) : ''
+    } ${'ant-button-' + type + (danger ? '-danger' : '')} ${
       disabled || loading ? 'ant-button-disabled' : ''
     } ${className ? className : ''}`}
     style={style}
@@ -52,6 +52,7 @@ export default ({
           icon ? 'ant-button-content-text-margin' : ''
         }`}
       >
+        <Slot />
         {!inline && subText && (
           <View class="ant-button-content-subtext">{subText}</View>
         )}

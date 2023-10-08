@@ -2,6 +2,47 @@ import { ButtonDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import '../_util/assert-component2';
 Component({
+    properties: {
+        type: {
+            type: String,
+        },
+        disabled: {
+            type: Boolean,
+        },
+        activeClassName: {
+            type: String,
+        },
+        subText: {
+            type: String,
+        },
+        inline: {
+            type: Boolean,
+        },
+        size: {
+            type: String,
+        },
+        icon: {
+            type: String,
+        },
+        loading: {
+            type: Boolean,
+        },
+        danger: {
+            type: String,
+        },
+        formType: {
+            type: String,
+        },
+        publicId: {
+            type: String,
+        },
+        openType: {
+            type: String,
+        },
+        scope: {
+            type: String,
+        },
+    },
     props: ButtonDefaultProps,
     methods: {
         onTap: function (e) {

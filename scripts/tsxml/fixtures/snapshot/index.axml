@@ -5,4 +5,5 @@
     a:for-item="task">
     <text data-item-id="{{ taskIndex }}">{{ taskIndex }} {{ task }}</text>
   </block>
+  <test loading />
 </view>
