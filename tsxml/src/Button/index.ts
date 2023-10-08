@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { ButtonDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import '../_util/assert-component2';
@@ -8,12 +9,8 @@ Component({
     type: {
       type: String,
     },
-    disabled: {
-      type: Boolean,
-    },
-    activeClassName: {
-      type: String,
-    },
+    disabled: Boolean,
+    activeClassName: String,
     subText: {
       type: String,
     },
@@ -48,6 +45,7 @@ Component({
   /// #endif
   props: ButtonDefaultProps,
   methods: {
+    /// #if ALIPAY
     onTap(e) {
       const { onTap, disabled, loading } = this.props;
       if (onTap && !disabled && !loading) {
@@ -77,15 +75,47 @@ Component({
         this.props.onError(fmtEvent(this.props, e));
       }
     },
-    onGetUserInfo(e) {
-      if (this.props.onGetUserInfo) {
-        this.props.onGetUserInfo(fmtEvent(this.props, e));
-      }
-    },
     onGetPhoneNumber(e) {
       if (this.props.onGetPhoneNumber) {
         this.props.onGetPhoneNumber(fmtEvent(this.props, e));
       }
     },
+    onGetUserInfo(e) {
+      if (this.props.onGetUserInfo) {
+        this.props.onGetUserInfo(fmtEvent(this.props, e));
+      }
+    },
+    /// #endif
+    /// #if WECHAT
+    ...{
+      onGetUserInfo: function (event) {
+        this.triggerEvent('getuserinfo', event.detail);
+      },
+      onContact: function (event) {
+        this.triggerEvent('contact', event.detail);
+      },
+      onGetPhoneNumber: function (event) {
+        this.triggerEvent('getphonenumber', event.detail);
+      },
+      onGetRealTimePhoneNumber: function (event) {
+        this.triggerEvent('getrealtimephonenumber', event.detail);
+      },
+      onError: function (event) {
+        this.triggerEvent('error', event.detail);
+      },
+      onLaunchApp: function (event) {
+        this.triggerEvent('launchapp', event.detail);
+      },
+      onOpenSetting: function (event) {
+        this.triggerEvent('opensetting', event.detail);
+      },
+      onAgreePrivacyAuthorization: function (event) {
+        this.triggerEvent('agreeprivacyauthorization', event.detail);
+      },
+      onChooseAvatar: function (event) {
+        this.triggerEvent('chooseavatar', event.detail);
+      },
+    },
+    /// #endif
   },
 });

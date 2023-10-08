@@ -1,17 +1,13 @@
+import { __assign } from "tslib";
 import { ButtonDefaultProps } from './props';
-import fmtEvent from '../_util/fmtEvent';
 import '../_util/assert-component2';
 Component({
     properties: {
         type: {
             type: String,
         },
-        disabled: {
-            type: Boolean,
-        },
-        activeClassName: {
-            type: String,
-        },
+        disabled: Boolean,
+        activeClassName: String,
         subText: {
             type: String,
         },
@@ -44,45 +40,33 @@ Component({
         },
     },
     props: ButtonDefaultProps,
-    methods: {
-        onTap: function (e) {
-            var _a = this.props, onTap = _a.onTap, disabled = _a.disabled, loading = _a.loading;
-            if (onTap && !disabled && !loading) {
-                var event_1 = fmtEvent(this.props, e);
-                return onTap(event_1);
-            }
+    methods: __assign({
+        onGetUserInfo: function (event) {
+            this.triggerEvent('getuserinfo', event.detail);
         },
-        catchTap: function (e) {
-            var _a = this.props, catchTap = _a.catchTap, disabled = _a.disabled, loading = _a.loading;
-            if (catchTap && !disabled && !loading) {
-                var event_2 = fmtEvent(this.props, e);
-                return catchTap(event_2);
-            }
+        onContact: function (event) {
+            this.triggerEvent('contact', event.detail);
         },
-        onGetAuthorize: function (e) {
-            if (this.props.onGetAuthorize) {
-                this.props.onGetAuthorize(fmtEvent(this.props, e));
-            }
+        onGetPhoneNumber: function (event) {
+            this.triggerEvent('getphonenumber', event.detail);
         },
-        onFollowLifestyle: function (e) {
-            if (this.props.onFollowLifestyle) {
-                this.props.onFollowLifestyle(fmtEvent(this.props, e));
-            }
+        onGetRealTimePhoneNumber: function (event) {
+            this.triggerEvent('getrealtimephonenumber', event.detail);
         },
-        onError: function (e) {
-            if (this.props.onError) {
-                this.props.onError(fmtEvent(this.props, e));
-            }
+        onError: function (event) {
+            this.triggerEvent('error', event.detail);
         },
-        onGetUserInfo: function (e) {
-            if (this.props.onGetUserInfo) {
-                this.props.onGetUserInfo(fmtEvent(this.props, e));
-            }
+        onLaunchApp: function (event) {
+            this.triggerEvent('launchapp', event.detail);
         },
-        onGetPhoneNumber: function (e) {
-            if (this.props.onGetPhoneNumber) {
-                this.props.onGetPhoneNumber(fmtEvent(this.props, e));
-            }
+        onOpenSetting: function (event) {
+            this.triggerEvent('opensetting', event.detail);
         },
-    },
+        onAgreePrivacyAuthorization: function (event) {
+            this.triggerEvent('agreeprivacyauthorization', event.detail);
+        },
+        onChooseAvatar: function (event) {
+            this.triggerEvent('chooseavatar', event.detail);
+        },
+    }),
 });

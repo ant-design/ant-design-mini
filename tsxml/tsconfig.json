@@ -5,6 +5,7 @@
     "target": "esnext",
     "lib": ["es2015"],
     "jsx": "preserve",
+    "noImplicitThis": false,
     "paths": {
       "tsxml": ["./lib/index.tsx"]
     },

@@ -30,12 +30,25 @@ export default ({
     /// #if ALIPAY
     onTap={onTap ? 'onTap' : ''}
     catchTap={catchTap ? 'catchTap' : ''}
-    /// #endif
     onGetAuthorize="onGetAuthorize"
     onFollowLifestyle="onFollowLifestyle"
     onError="onError"
     onGetUserInfo="onGetUserInfo"
     onGetPhoneNumber="onGetPhoneNumber"
+    /// #endif
+
+    /// #if WECHAT
+    bindgetuserinfo="onGetUserInfo"
+    bindcontact="onContact"
+    bindgetphonenumber="onGetPhoneNumber"
+    bindgetrealtimephonenumber="onGetRealTimePhoneNumber"
+    binderror="onError"
+    bindlaunchapp="onLaunchApp"
+    bindopensetting="onOpenSetting"
+    bindagreeprivacyauthorization="onAgreePrivacyAuthorization"
+    bindchooseavatar="onChooseAvatar"
+    /// #endif
+
     public-id={publicId}
     open-type={openType}
     class={`ant-button ${

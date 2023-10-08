@@ -14,6 +14,15 @@ interface Props {
   onError?: any;
   onGetUserInfo?: any;
   onGetPhoneNumber?: any;
+  bindgetuserinfo?: string;
+  bindcontact?: string;
+  bindgetphonenumber?: string;
+  bindgetrealtimephonenumber?: string;
+  bindagreeprivacyauthorization?: string;
+  binderror?: string;
+  bindlaunchapp?: string;
+  bindopensetting?: string;
+  bindchooseavatar?: string;
 }
 
 export const Text = (props: Props): any => {};
