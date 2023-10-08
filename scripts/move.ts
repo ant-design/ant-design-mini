@@ -80,11 +80,10 @@ export default ({ type, className, style, onTap, catchTap }: IconProps) => (
         ofs.writeFileSync(texmlPath, '');
         return false;
       }
-      if (ext === '.sjs') {
-        const sjsContent = ofs.readFileSync(src, 'utf-8');
-        const sjsTs = destination + '.ts';
-        ofs.writeFileSync(sjsTs, sjsContent);
-        return false;
+      for (const handler of handlers) {
+        if (handler(src, destination) === true) {
+          return false;
+        }
       }
       return true;
     },
@@ -98,3 +97,24 @@ export default ({ type, className, style, onTap, catchTap }: IconProps) => (
   cp.execSync(`cat ${randomDir} | pbcopy`);
   console.log('已经复制到剪切板了，可以直接粘贴到 markdown 里了');
 })();
+
+function transformExt(originalExt: string, newExt: string) {
+  return (src: string, destination: string) => {
+    const ext = path.extname(src);
+    if (ext !== originalExt) {
+      return false;
+    }
+    const content = ofs.readFileSync(src, 'utf-8');
+    ofs.writeFileSync(
+      path.basename(destination, originalExt) + newExt,
+      content
+    );
+    return true;
+  };
+}
+
+const handlers = [
+  transformExt('.js', '.ts'),
+  transformExt('.sjs', '.sjs.ts'),
+  transformExt('.acss', '.less'),
+];

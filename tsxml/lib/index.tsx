@@ -31,3 +31,7 @@ export const Page = (props: Props): any => {};
 export const Component = (props: Props): any => {};
 
 export const Button = (props: Props): any => {};
+
+export type TSXMLProps<T> = {
+  [K in keyof T]: T[K] extends (...args: unknown[]) => unknown ? string : T[K];
+};

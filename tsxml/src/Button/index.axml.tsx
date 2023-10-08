@@ -1,8 +1,8 @@
+import { Button, View, TSXMLProps } from 'tsxml';
+import Icon from '../Icon/index.axml';
+import Loading from '../Loading/index.axml';
 import utils from './index.sjs';
 import { IButtonProps } from './props';
-import { Button, View } from 'tsxml';
-import Loading from '../Loading/index.axml';
-import Icon from '../Icon/index.axml';
 
 export default ({
   formType,
@@ -11,11 +11,6 @@ export default ({
   activeClassName,
   scope,
   onTap,
-  onGetAuthorize,
-  onFollowLifestyle,
-  onError,
-  onGetUserInfo,
-  onGetPhoneNumber,
   catchTap,
   publicId,
   openType,
@@ -27,18 +22,20 @@ export default ({
   style,
   icon,
   subText,
-}: IButtonProps) => (
+}: TSXMLProps<IButtonProps>) => (
   <Button
     form-type={formType}
     hover-class={utils.getHoverClass(loading, type, activeClassName)}
     scope={scope}
+    /// #if ALIPAY
     onTap={onTap ? 'onTap' : ''}
-    onGetAuthorize={onGetAuthorize}
-    onFollowLifestyle={onFollowLifestyle}
-    onError={onError}
-    onGetUserInfo={onGetUserInfo}
-    onGetPhoneNumber={onGetPhoneNumber}
     catchTap={catchTap ? 'catchTap' : ''}
+    /// #endif
+    onGetAuthorize="onGetAuthorize"
+    onFollowLifestyle="onFollowLifestyle"
+    onError="onError"
+    onGetUserInfo="onGetUserInfo"
+    onGetPhoneNumber="onGetPhoneNumber"
     public-id={publicId}
     open-type={openType}
     class={`ant-button ${

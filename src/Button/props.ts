@@ -12,74 +12,77 @@ export interface IButtonProps extends IBaseProps {
    * @description 按钮类型
    * @default default
    */
-  type: 'default' | 'primary' | 'text';
+  type?: 'default' | 'primary' | 'text';
   /**
    * @description 是否禁用
    * @default false
    */
-  disabled: boolean;
+  disabled?: boolean;
   /**
    * @description 按下时的类名
    */
-  activeClassName: string;
+  activeClassName?: string;
   /**
    * @description 辅助文字，显示在第二行
    */
-  subText: string;
+  subText?: string;
   /**
    * @description 内联，不撑满父级宽度
    * @default false
    */
-  inline: boolean;
+  inline?: boolean;
   /**
    * @description 内联尺寸
    * @default medium
    */
-  size: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
   /**
    * @description 按钮左侧图标
    */
-  icon: string;
+  icon?: string;
   /**
    * @description 是否加载中，加载中时不可点击
    * @default false
    */
-  loading: boolean;
+  loading?: boolean;
 
+  /**
+   * @description 是否为危险按钮，危险按钮的颜色会变成红色
+   * @default false
+   */
+  danger?: boolean;
   /**
    * @description 按钮原生类型，在表单提交时有效
    * @default button
    */
-  formType: 'button' | 'submit' | 'reset';
+  formType?: 'button' | 'submit' | 'reset';
   /**
    * @description 点击回调
    */
-  onTap: (event: any) => void;
+  onTap?: (event: any) => void;
 
   /**
    * @description 点击回调
    */
-  catchTap: (event: any) => void;
+  catchTap?: (event: any) => void;
   /**
    * @description 生活号 id，必须是当前小程序同主体且已关联的生活号，open-type="lifestyle" 时有效。
    */
-  publicId: string;
+  publicId?: string;
   /**
    * @description 开放能力。
    */
-  openType: string;
+  openType?: string;
   /**
    * @description 当 openType 为 getAuthorize 时有效。
    */
-  scope: string;
+  scope?: string;
 
-  danger?: boolean;
-
-  onGetAuthorize: (event: any) => void;
-  onFollowLifestyle: (event: any) => void;
-  onError: (event: any) => void;
-  onGetUserInfo: (event: any) => void;
-  onGetPhoneNumber: (event: any) => void;
+  onGetAuthorize?: (event: any) => void;
+  onFollowLifestyle?: (event: any) => void;
+  onError?: (event: any) => void;
+  onGetUserInfo?: (event: any) => void;
+  onGetPhoneNumber?: (event: any) => void;
 }
 
 export const ButtonDefaultProps: Partial<IButtonProps> = {

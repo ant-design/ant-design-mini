@@ -3,19 +3,19 @@
   className="list">
   <button
     type="primary"
-    onTap="handleTap">
+    bind:tap="handleTap">
     主要按钮
   </button>
 
   <button
     type="default"
-    onTap="handleTap">
+    bind:tap="handleTap">
     次要按钮
   </button>
 
   <button
     type="text"
-    onTap="handleTap">
+    bind:tap="handleTap">
     文本按钮
   </button>
 </container>
@@ -26,21 +26,21 @@
   <button
     type="primary"
     subText="副标题"
-    onTap="handleTap">
+    bind:tap="handleTap">
     主要按钮
   </button>
 
   <button
     type="default"
     subText="副标题"
-    onTap="handleTap">
+    bind:tap="handleTap">
     次要按钮
   </button>
 
   <button
     type="text"
     subText="副标题"
-    onTap="handleTap">
+    bind:tap="handleTap">
     文本按钮
   </button>
 </container>
@@ -70,19 +70,19 @@
   className="list">
   <button
     type="primary"
-    onTap="handleTap">
+    bind:tap="handleTap">
     主要按钮
   </button>
 
   <button
     type="default"
-    onTap="handleTap">
+    bind:tap="handleTap">
     次要按钮
   </button>
 
   <button
     type="text"
-    onTap="handleTap">
+    bind:tap="handleTap">
     文本按钮
   </button>
 </container>
