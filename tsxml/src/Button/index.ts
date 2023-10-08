@@ -75,14 +75,14 @@ Component({
         this.props.onError(fmtEvent(this.props, e));
       }
     },
-    onGetPhoneNumber(e) {
-      if (this.props.onGetPhoneNumber) {
-        this.props.onGetPhoneNumber(fmtEvent(this.props, e));
-      }
-    },
     onGetUserInfo(e) {
       if (this.props.onGetUserInfo) {
         this.props.onGetUserInfo(fmtEvent(this.props, e));
+      }
+    },
+    onGetPhoneNumber(e) {
+      if (this.props.onGetPhoneNumber) {
+        this.props.onGetPhoneNumber(fmtEvent(this.props, e));
       }
     },
     /// #endif

@@ -1,4 +1,4 @@
-export var ButtonDefaultProps = {
+export const ButtonDefaultProps = {
     type: 'default',
     formType: 'button',
     size: 'medium',

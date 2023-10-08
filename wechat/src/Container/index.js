@@ -19,6 +19,7 @@ Component({
     options: {
         //@ts-ignore
         multipleSlots: true,
+        styleIsolation: 'apply-shared',
     },
     props: ContainerDefaultProps,
 });

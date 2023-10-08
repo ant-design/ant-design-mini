@@ -9,7 +9,7 @@
     "paths": {
       "tsxml": ["./lib/index.tsx"]
     },
-    "types": ["node", "global.d.ts"]
+    "types": ["@mini-types/alipay", "node"]
   },
-  "include": ["./src/**/*", "./demo/**/*"]
+  "include": ["./src/**/*", "./demo/**/*", "./global.d.ts"]
 }

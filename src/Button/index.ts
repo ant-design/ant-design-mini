@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { ButtonDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import '../_util/assert-component2';
@@ -34,14 +35,14 @@ Component({
         this.props.onError(fmtEvent(this.props, e));
       }
     },
-    onGetPhoneNumber(e) {
-      if (this.props.onGetPhoneNumber) {
-        this.props.onGetPhoneNumber(fmtEvent(this.props, e));
-      }
-    },
     onGetUserInfo(e) {
       if (this.props.onGetUserInfo) {
         this.props.onGetUserInfo(fmtEvent(this.props, e));
+      }
+    },
+    onGetPhoneNumber(e) {
+      if (this.props.onGetPhoneNumber) {
+        this.props.onGetPhoneNumber(fmtEvent(this.props, e));
       }
     },
   },

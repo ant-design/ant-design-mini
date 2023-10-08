@@ -254,7 +254,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
 
 export function compileAntdMini(watch: boolean) {
   miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    tsconfig: resolve(__dirname, '..', 'tsxml', 'tsconfig.json'),
     source: resolve(__dirname, '..', 'tsxml'),
     dest: resolve(__dirname, '..', 'wechat'),
     watch,
@@ -276,7 +276,7 @@ export function compileAntdMini(watch: boolean) {
   });
 
   miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    tsconfig: resolve(__dirname, '..', 'tsxml', 'tsconfig.json'),
     source: resolve(__dirname, '..', 'tsxml'),
     dest: resolve(__dirname, '..'),
     watch,

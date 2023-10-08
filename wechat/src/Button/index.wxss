@@ -107,3 +107,6 @@
 .ant-button-inline .ant-button-content-loading {
   transform: scale(0.5);
 }
+.ant-button::after {
+  border-width: 0;
+}

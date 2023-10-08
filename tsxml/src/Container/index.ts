@@ -21,6 +21,7 @@ Component({
   options: {
     //@ts-ignore
     multipleSlots: true,
+    styleIsolation: 'apply-shared',
   },
   /// #endif
 
