@@ -11,12 +11,34 @@ const rootDir = path.resolve(__dirname, '..');
 const sourceDir = path.resolve(rootDir, folder);
 
 const prompt = `
-帮我把下面的代码转化为 tsx.
+1. 参考这个例子
 
-1. import-sjs 转化为 import.
+原始代码
 
-举例子
-1.1。 <import-sjs from="./scroll.sjs" name="scroll"></import-sjs>  转化为  import scroll from './scroll.sjs'
+<text
+  class="ant-icon ant-icon-{{ type }} {{ className ? className : '' }}"
+  style="{{ style }}"
+  onTap="{{ onTap ? 'onTap' : '' }}"
+  catchTap="{{ catchTap ? 'catchTap' : '' }}" />
+
+转换结果
+
+import { Text } from 'tsxml';
+import { IconProps } from './props';
+
+export default ({ type, className, style, onTap, catchTap }: IconProps) => (
+  <Text
+    class={\`ant-icon ant-icon-\${type} \${className ? className : ''}\`}
+    style={style}
+    /// #if ALIPAY
+    onTap={onTap ? 'onTap' : ''}
+    catchTap={catchTap ? 'catchTap' : ''}
+    /// #endif
+  ></Text>
+);
+
+
+2. import-sjs 转化为 import.  比如 <import-sjs from="./scroll.sjs" name="scroll"></import-sjs>  转化为  import scroll from './scroll.sjs'
 
 2. <view a:if="{{expression}}" /> 转化为  {!!expression && <view />
 
@@ -24,13 +46,12 @@ const prompt = `
 
   monthList.map((currentMonth)=><view/>)
 
-4. 返回的 tsx 是通过 export default 导出。
+4. 不要定义 props 类型，从 ./props 导入
 
-类似于 export default ({className})=><view></view>
+5. 返回结果请包含在 markdown 的代码块里。
 
-请把代码里用到的变量都放到 props 里。 注意， export default 里不要用 return.  而是直接返回 ()=><view/>
+你现在是一个前端专家，帮我把下面的代码转化为 tsx.
 
-返回结果请包含在 markdown 的代码块里。
 `;
 
 (async () => {
