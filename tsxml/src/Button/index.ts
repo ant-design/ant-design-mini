@@ -20,6 +20,9 @@ Component({
     openType: String,
     scope: String,
   },
+  options: {
+    styleIsolation: 'shared',
+  } as unknown,
   /// #endif
   props: ButtonDefaultProps,
   methods: {

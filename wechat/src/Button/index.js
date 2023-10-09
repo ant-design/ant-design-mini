@@ -17,6 +17,9 @@ Component({
         openType: String,
         scope: String,
     },
+    options: {
+        styleIsolation: 'shared',
+    },
     props: ButtonDefaultProps,
     methods: {
         ...{

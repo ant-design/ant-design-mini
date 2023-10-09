@@ -21,6 +21,9 @@ Component({
       type: String,
     },
   },
+  options: {
+    styleIsolation: 'shared',
+  } as unknown,
   /// #endif
   props: LoadingDefaultProps,
 });
