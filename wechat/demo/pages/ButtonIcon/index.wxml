@@ -86,7 +86,7 @@
   <button
     type="primary"
     icon="SmileOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
     loading>
     loading
@@ -94,7 +94,7 @@
   <button
     type="primary"
     icon="ForbidFill"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
     danger
     loading>
@@ -103,7 +103,7 @@
   <button
     type="primary"
     icon="SmileOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     loading>
     loading
   </button>
@@ -112,7 +112,7 @@
   <button
     type="primary"
     icon="SmileOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
     disabled>
     disabled
@@ -120,7 +120,7 @@
   <button
     type="primary"
     icon="ForbidFill"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
     danger
     disabled>
@@ -129,7 +129,7 @@
   <button
     type="primary"
     icon="SmileOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     disabled>
     disabled
   </button>

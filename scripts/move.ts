@@ -9,47 +9,56 @@ const folder = process.argv[2];
 const rootDir = path.resolve(__dirname, '..');
 
 const sourceDir = path.resolve(rootDir, folder);
+const tsxmlFixtureRoot = path.resolve(rootDir, 'scripts/tsxml/fixtures');
+const files = ofs.readdirSync(path.resolve(rootDir, 'scripts/tsxml/fixtures'));
+
+const examples = files
+  .map((file) => {
+    if (!file.endsWith('.tsx')) {
+      return;
+    }
+    const content = ofs.readFileSync(
+      path.resolve(tsxmlFixtureRoot, file),
+      'utf-8'
+    );
+
+    const axml = ofs.readFileSync(
+      path.resolve(tsxmlFixtureRoot, 'snapshot', file.replace('.tsx', '.axml'))
+    );
+    return `
+原始的代码
+\`\`\`xml
+${axml}
+\`\`\`
+
+转换后的代码
+
+\`\`\`tsx
+${content}
+\`\`\`
+    `.trim();
+  })
+  .filter(Boolean)
+  .join('\n\n');
 
 const prompt = `
-1. 参考这个例子
-
-原始代码
-
-<text
-  class="ant-icon ant-icon-{{ type }} {{ className ? className : '' }}"
-  style="{{ style }}"
-  onTap="{{ onTap ? 'onTap' : '' }}"
-  catchTap="{{ catchTap ? 'catchTap' : '' }}" />
-
-转换结果
-
-import { Text } from 'tsxml';
-import { IconProps } from './props';
-
-export default ({ type, className, style, onTap, catchTap }: IconProps) => (
-  <Text
-    class={\`ant-icon ant-icon-\${type} \${className ? className : ''}\`}
-    style={style}
-    onTap={onTap ? 'onTap' : ''}
-    catchTap={catchTap ? 'catchTap' : ''}
-  ></Text>
-);
-
-
-2. import-sjs 转化为 import.  比如 <import-sjs from="./scroll.sjs" name="scroll"></import-sjs>  转化为  import scroll from './scroll.sjs'
-
-2. <view a:if="{{expression}}" /> 转化为  {!!expression && <view />
-
-3. <view a:for="{{ monthList }}" a:for-item="currentMonth"> 转化为
-
-  monthList.map((currentMonth)=><view/>)
-
-4. 不要定义 props 类型，从 ./props 导入
-
-5. 返回结果请包含在 markdown 的代码块里。
-
 你现在是一个前端专家，帮我把下面的代码转化为 tsx.
 
+首先是一些例子
+
+${examples}
+
+然后是一些额外的要求
+
+1. import-sjs 转化为 import.  比如 <import-sjs from="./scroll.sjs" name="scroll"></import-sjs>  转化为  import scroll from './scroll.sjs'
+
+2. 不要定义 props 类型，从 './props' 导入，举例子 import { IconProps } from 'tsxml';
+
+3. 返回结果请包含在 markdown 的代码块里。
+
+4. 如果最外层有多个组件，用 <Page /> 包裹起来
+
+请转换下面的代码
 `;
 
 (async () => {
@@ -104,7 +113,7 @@ function transformExt(originalExt: string, newExt: string) {
     }
     const content = ofs.readFileSync(src, 'utf-8');
     ofs.writeFileSync(
-      path.basename(destination, originalExt) + newExt,
+      path.resolve(path.dirname(destination), path.basename(src, ext) + newExt),
       content
     );
     return true;
