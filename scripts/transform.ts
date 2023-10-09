@@ -55,17 +55,23 @@ try {
 ${jsonConfig}
 \`\`\`
 
-1。 参考 usingComponents , 从对应路径导入
+1. 根据上方 usingComponents 的内容, 获取组件实际导入的位置, 从对应路径导入
 
+举个例子, 假设 usingComponents 是这样的
+
+\`\`\`
 "usingComponents": {
   "ant-button": "../../../src/Button/index",
   "container": "../../../src/Container/index"
 }
+\`\`\`
 
-那么 tsx 里就是从对应路径导入
+那么 tsx 的转换结果应该是这样的
 
+\`\`\`
 import AntButton from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
+\`\`\`
 
 2. 如果最外层有多个组件，用 <Page /> 或者 <Component / > 包裹起来 , 如果配置了 component: true, 用 <Component /> 包裹起来。
   `.trim();
