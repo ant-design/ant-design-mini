@@ -1,3 +1,3 @@
-export var ContainerDefaultProps = {
+export const ContainerDefaultProps = {
     headerInBox: true,
 };

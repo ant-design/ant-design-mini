@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { ButtonDefaultProps } from './props';
 import fmtEvent from '../_util/fmtEvent';
 import '../_util/assert-component2';

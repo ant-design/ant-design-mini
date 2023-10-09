@@ -1,3 +1,8 @@
 {
-  "pages": ["demo/pages/Icon/index", "demo/pages/Loading/index"]
+  "pages": [
+    "demo/pages/ButtonIcon/index",
+    "demo/pages/Button/index",
+    "demo/pages/Icon/index",
+    "demo/pages/Loading/index"
+  ]
 }

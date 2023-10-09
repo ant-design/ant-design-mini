@@ -23,8 +23,11 @@ async function textTsXml(fixtureName: string) {
   ).toMatchFileSnapshot(`fixtures/snapshot/${fixtureName}.wxml`);
 }
 
-it('测试解析为 axml', async () => {
+it('index', async () => {
   await textTsXml('index');
+});
+
+it('测试解析为 axml', async () => {
   await textTsXml('if');
   await textTsXml('sjs');
   await textTsXml('style');

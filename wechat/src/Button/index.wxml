@@ -1,0 +1,40 @@
+<wxs
+  src="./index.wxs"
+  module="utils" />
+
+<button
+  form-type="{{ formType }}"
+  hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"
+  scope="{{ scope }}"
+  bindgetuserinfo="onGetUserInfo"
+  bindcontact="onContact"
+  bindgetphonenumber="onGetPhoneNumber"
+  bindgetrealtimephonenumber="onGetRealTimePhoneNumber"
+  binderror="onError"
+  bindlaunchapp="onLaunchApp"
+  bindopensetting="onOpenSetting"
+  bindagreeprivacyauthorization="onAgreePrivacyAuthorization"
+  bindchooseavatar="onChooseAvatar"
+  public-id="{{ publicId }}"
+  open-type="{{ openType }}"
+  class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : '') }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
+  style="{{ style }}">
+  <view class="ant-button-wrap">
+    <block wx:if="{{ !!icon }}"><icon type="{{ icon }}" /></block>
+    <view
+      class="ant-button-content-text {{ icon ? 'ant-button-content-text-margin' : '' }}">
+      <slot />
+      <block wx:if="{{ !inline && subText }}">
+        <view class="ant-button-content-subtext">{{ subText }}</view>
+      </block>
+    </view>
+    <block wx:if="{{ loading }}">
+      <view class="ant-button-content-loading-container">
+        <loading
+          type="mini"
+          color="currentColor"
+          className="ant-button-content-loading" />
+      </view>
+    </block>
+  </view>
+</button>

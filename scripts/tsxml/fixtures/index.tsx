@@ -11,5 +11,6 @@ export default ({ todoList }: Props) => (
         {taskIndex} {task}
       </Text>
     ))}
+    <test loading />
   </View>
 );

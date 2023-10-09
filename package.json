@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsx ./scripts/dev.ts",
     "build:tsxml": "tsx ./scripts/compile-tsxml.ts",
+    "transform":"tsx ./scripts/transform.ts",
     "dev:doc": "tsx ./scripts/dev-doc.ts",
     "build": "npm run build:tsxml && node ./scripts/build.js",
     "deploy:docs": "npm run build && echo 'mini.ant.design' > ./docs-dist/CNAME && gh-pages -d docs-dist",

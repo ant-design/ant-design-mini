@@ -28,6 +28,7 @@ export function toHtml(vNode: Node | Children | Array<Node | Children>) {
         if (value === true) {
           return `${key}`;
         }
+
         return `${key}="${vNode.properties[key]}"`;
       })
       .join(' ');
