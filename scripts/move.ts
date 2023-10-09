@@ -115,8 +115,8 @@ ${extraPromo}
       if (ext === '.axml') {
         const axmlContent = ofs.readFileSync(src, 'utf-8');
         clipboardData = clipboardData + `\n${prompt}\n\n${axmlContent}`;
-        const texmlPath = destination + '.tsx';
-        ofs.writeFileSync(texmlPath, '');
+        const tsxmlPath = destination + '.tsx';
+        ofs.writeFileSync(tsxmlPath, '');
         return false;
       }
       for (const handler of handlers) {
@@ -127,14 +127,15 @@ ${extraPromo}
       return true;
     },
   });
-
-  const randomDir = path.resolve(
-    os.tmpdir(),
-    Math.random().toString(36).slice(2)
-  );
-  ofs.writeFileSync(randomDir, clipboardData);
-  cp.execSync(`cat ${randomDir} | pbcopy`);
-  console.log('已经复制到剪切板了，可以直接粘贴到 markdown 里了');
+  if (os.platform() === 'darwin') {
+    const randomDir = path.resolve(
+      os.tmpdir(),
+      Math.random().toString(36).slice(2)
+    );
+    ofs.writeFileSync(randomDir, clipboardData);
+    cp.execSync(`cat ${randomDir} | pbcopy`);
+    console.log('已经复制到剪切板了，可以直接粘贴到 markdown 里了');
+  }
 })();
 
 function transformExt(originalExt: string, newExt: string) {
