@@ -112,6 +112,7 @@ function transformExt(originalExt: string, newExt: string) {
       return false;
     }
     const content = ofs.readFileSync(src, 'utf-8');
+    ofs.unlinkSync(src);
     ofs.writeFileSync(
       path.resolve(path.dirname(destination), path.basename(src, ext) + newExt),
       content
