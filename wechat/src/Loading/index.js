@@ -19,5 +19,8 @@ Component({
             type: String,
         },
     },
+    options: {
+        styleIsolation: 'shared',
+    },
     props: LoadingDefaultProps,
 });
