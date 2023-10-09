@@ -29,12 +29,12 @@ export default ({
     scope={scope}
     /// #if ALIPAY
     onTap={onTap ? 'onTap' : ''}
-    catchTap={catchTap ? 'catchTap' : ''}
     onGetAuthorize="onGetAuthorize"
     onFollowLifestyle="onFollowLifestyle"
     onError="onError"
     onGetUserInfo="onGetUserInfo"
     onGetPhoneNumber="onGetPhoneNumber"
+    catchTap={catchTap ? 'catchTap' : ''}
     /// #endif
 
     /// #if WECHAT
