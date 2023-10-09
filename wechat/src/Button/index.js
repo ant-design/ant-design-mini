@@ -3,41 +3,19 @@ import { ButtonDefaultProps } from './props';
 import '../_util/assert-component2';
 Component({
     properties: {
-        type: {
-            type: String,
-        },
+        type: String,
         disabled: Boolean,
         activeClassName: String,
-        subText: {
-            type: String,
-        },
-        inline: {
-            type: Boolean,
-        },
-        size: {
-            type: String,
-        },
-        icon: {
-            type: String,
-        },
-        loading: {
-            type: Boolean,
-        },
-        danger: {
-            type: String,
-        },
-        formType: {
-            type: String,
-        },
-        publicId: {
-            type: String,
-        },
-        openType: {
-            type: String,
-        },
-        scope: {
-            type: String,
-        },
+        subText: String,
+        inline: Boolean,
+        size: String,
+        icon: String,
+        loading: Boolean,
+        danger: Boolean,
+        formType: String,
+        publicId: String,
+        openType: String,
+        scope: String,
     },
     props: ButtonDefaultProps,
     methods: {
