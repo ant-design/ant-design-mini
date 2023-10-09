@@ -41,6 +41,38 @@ ${content}
   .filter(Boolean)
   .join('\n\n');
 
+let extraPromo = '';
+
+try {
+  const jsonConfig = ofs.readFileSync(
+    path.resolve(sourceDir, 'index.json'),
+    'utf-8'
+  );
+  extraPromo = `
+你可以参考下面的 json 配置， 还有一些额外的要求
+
+\`\`\`
+${jsonConfig}
+\`\`\`
+
+1。 参考 usingComponents , 从对应路径导入
+
+"usingComponents": {
+  "ant-button": "../../../src/Button/index",
+  "container": "../../../src/Container/index"
+}
+
+那么 tsx 里就是从对应路径导入
+
+import AntButton from '../../../src/Button/index.axml';
+import Container from '../../../src/Container/index.axml';
+
+2. 如果最外层有多个组件，用 <Page /> 或者 <Component / > 包裹起来 , 如果配置了 component: true, 用 <Component /> 包裹起来。
+  `.trim();
+} catch (error) {
+  // 忽略
+}
+
 const prompt = `
 你现在是一个前端专家，帮我把下面的代码转化为 tsx.
 
@@ -56,7 +88,7 @@ ${examples}
 
 3. 返回结果请包含在 markdown 的代码块里。
 
-4. 如果最外层有多个组件，用 <Page /> 包裹起来
+${extraPromo}
 
 请转换下面的代码
 `;
