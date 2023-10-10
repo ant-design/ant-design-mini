@@ -1,7 +1,7 @@
 <view
   class="ant-tag ant-tag-{{ type }} ant-tag-{{ color }} {{ className || '' }}"
   style="{{ style || '' }}">
-  <block a:if="{{ icon }}">
+  <block wx:if="{{ icon }}">
     <view class="ant-tag-icon-container">
       <icon
         className="icon"
