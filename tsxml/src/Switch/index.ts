@@ -1,19 +1,12 @@
-import { SwitchDefaultProps } from './props';
+import * as mixinValue from '../mixins/mixin-value';
 import fmtEvent from '../_util/fmtEvent';
-/// #if ALIPAY
-import mixinValue from '../mixins/value';
-/// #endif
-
-/// #if WECHAT
-import wechatMixinValue from '../mixins/wechat-value';
-/// #endif
-import '../_util/assert-component2';
+import { SwitchDefaultProps } from './props';
 
 Component({
   /// #if ALIPAY
   props: SwitchDefaultProps,
   mixins: [
-    mixinValue({
+    mixinValue.mixinValue({
       valueKey: 'checked',
       defaultValueKey: 'defaultChecked',
     }),
@@ -42,7 +35,7 @@ Component({
     styleIsolation: 'shared',
   },
   behaviors: [
-    wechatMixinValue({
+    mixinValue.wechatMixinValue({
       valueKey: 'checked',
       defaultValueKey: 'defaultChecked',
     }),

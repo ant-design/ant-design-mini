@@ -1,13 +1,11 @@
-import { SwitchDefaultProps } from './props';
+import * as mixinValue from '../mixins/mixin-value';
 import fmtEvent from '../_util/fmtEvent';
-import mixinValue from '../mixins/value';
-
-import '../_util/assert-component2';
+import { SwitchDefaultProps } from './props';
 
 Component({
   props: SwitchDefaultProps,
   mixins: [
-    mixinValue({
+    mixinValue.mixinValue({
       valueKey: 'checked',
       defaultValueKey: 'defaultChecked',
     }),

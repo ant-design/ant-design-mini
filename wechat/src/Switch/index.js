@@ -1,5 +1,4 @@
-import wechatMixinValue from '../mixins/wechat-value';
-import '../_util/assert-component2';
+import * as mixinValue from '../mixins/mixin-value';
 Component({
     properties: {
         checked: {
@@ -22,7 +21,7 @@ Component({
         styleIsolation: 'shared',
     },
     behaviors: [
-        wechatMixinValue({
+        mixinValue.wechatMixinValue({
             valueKey: 'checked',
             defaultValueKey: 'defaultChecked',
         }),
