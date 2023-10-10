@@ -21,7 +21,7 @@ Component({
   },
   options: {
     //@ts-ignore
-    styleIsolation: 'apply-shared',
+    styleIsolation: 'shared',
   },
   /// #endif
 

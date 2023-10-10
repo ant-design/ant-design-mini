@@ -54,6 +54,7 @@ export type TSXMLProps<T> = {
 } & {
   $id?: string;
   mixin?: any;
+  slot?: string;
 };
 
 export type InternalData = any;

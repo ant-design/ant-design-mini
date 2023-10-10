@@ -11,5 +11,5 @@
     },
     "types": ["@mini-types/alipay", "node"]
   },
-  "include": ["./src/**/*", "./demo/**/*", "./global.d.ts"]
+  "include": ["./src/**/*", "./demo/**/*", "./global.d.ts", "src/mixins/.ts"]
 }

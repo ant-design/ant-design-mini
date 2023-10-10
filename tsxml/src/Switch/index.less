@@ -39,10 +39,19 @@
   &-loading {
     pointer-events: none;
 
+    /// #if WECHAT
+    ant-icon {
+      animation: loading-rotate 1s linear infinite;
+      font-size: 10px;
+      line-height: 1;
+    }
+    /// #endif
   }
   &-loading-icon {
     font-size: 20 * @rpx;
+    /// #if ALIPAY
     animation: loading-rotate 1s linear infinite;
+    /// #endif
     color: @COLOR_BRAND1;
   }
   &-handle {
