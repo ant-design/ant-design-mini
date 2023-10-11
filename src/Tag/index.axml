@@ -3,9 +3,9 @@
   style="{{ style || '' }}">
   <block a:if="{{ icon }}">
     <view class="ant-tag-icon-container">
-      <icon
-        className="icon"
-        type="{{ icon }}" />
+      <slot name="icon">
+        <icon type="{{ icon }}" />
+      </slot>
     </view>
   </block>
   <view class="ant-tag-content">

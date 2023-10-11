@@ -6,9 +6,14 @@ export default ({ type = 'fill', color = 'primary', className, style, icon }: TS
   <View class={`ant-tag ant-tag-${type} ant-tag-${color} ${className || ''}`} style={style || ''}>
     {
       icon && <View class="ant-tag-icon-container">
-
-        <Icon className='icon' type={icon} />
-
+        {/* #if ALIPAY */}
+        <Slot name="icon">
+          <Icon type={icon} />
+        </Slot>
+        {/* #endif */}
+        {/* #if WECHAT */}
+        <Icon className="icon" type={icon} />
+        {/* #endif */}
       </View>
     }
     <View class="ant-tag-content">

@@ -2,6 +2,7 @@ import { TagDefaultProps } from './props';
 import '../_util/assert-component2';
 
 Component({
+  /// #if WECHAT
   properties: {
     type: {
       value: 'fill',
@@ -24,5 +25,6 @@ Component({
   options: {
     styleIsolation: 'shared',
   } as unknown,
+  /// #endif
   props: TagDefaultProps,
 });
