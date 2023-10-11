@@ -4,7 +4,7 @@
   <block a:if="{{ icon }}">
     <view class="ant-tag-icon-container">
       <slot name="icon">
-        <icon type="{{ icon }}" />
+        <ant-icon type="{{ icon }}" />
       </slot>
     </view>
   </block>

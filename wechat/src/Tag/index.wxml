@@ -3,9 +3,7 @@
   style="{{ style || '' }}">
   <block wx:if="{{ icon }}">
     <view class="ant-tag-icon-container">
-      <icon
-        className="icon"
-        type="{{ icon }}" />
+      <ant-icon type="{{ icon }}" />
     </view>
   </block>
   <view class="ant-tag-content">

@@ -1,5 +1,5 @@
 import { View, Slot, TSXMLProps } from 'tsxml';
-import Icon from '../Icon/index.axml';
+import AntIcon from '../../src/Icon/index.axml';
 import { ITagProps } from './props';
 
 export default ({ type = 'fill', color = 'primary', className, style, icon }: TSXMLProps<ITagProps>) => (
@@ -8,11 +8,11 @@ export default ({ type = 'fill', color = 'primary', className, style, icon }: TS
       icon && <View class="ant-tag-icon-container">
         {/* #if ALIPAY */}
         <Slot name="icon">
-          <Icon type={icon} />
+          <AntIcon type={icon} />
         </Slot>
         {/* #endif */}
         {/* #if WECHAT */}
-        <Icon className="icon" type={icon} />
+        <AntIcon type={icon} />
         {/* #endif */}
       </View>
     }

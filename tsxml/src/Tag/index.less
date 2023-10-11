@@ -22,10 +22,12 @@
 
     .ant-icon {
       font-size: 24 * @rpx;
-      /// #if WECHAT
-      display: flex;
-      /// #endif
     }
+    /// #if WECHAT
+    ant-icon {
+      font-size: 24 * @rpx;
+    }
+    /// #endif
   }
   &-primary {
     background-color: @tag-primary-color;

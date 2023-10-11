@@ -18,7 +18,9 @@
 }
 .ant-tag-icon-container .ant-icon {
   font-size: 12px;
-  display: flex;
+}
+.ant-tag-icon-container ant-icon {
+  font-size: 12px;
 }
 .ant-tag-primary {
   background-color: #1677ff;
