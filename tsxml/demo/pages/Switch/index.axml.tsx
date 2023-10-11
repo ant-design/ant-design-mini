@@ -1,7 +1,7 @@
 import { View, InternalData, Button } from 'tsxml';
 import Container from '../../../src/Container/index.axml';
 import Switch from '../../../src/Switch/index.axml';
-import Icon from '../../../src/Icon/index.axml';
+import AntIcon from '../../../src/Icon/index.axml';
 
 export default (_, { checked }: InternalData) => (
   <View>
@@ -15,8 +15,8 @@ export default (_, { checked }: InternalData) => (
       <Switch checkedText="开" uncheckedText="关" onChange="onChange" />
       {/* #if ALIPAY */}
       <Switch>
-        <Icon type="CheckOutline" slot="checkedText" />
-        <Icon type="CloseOutline" slot="uncheckedText" />
+        <AntIcon type="CheckOutline" slot="checkedText" />
+        <AntIcon type="CloseOutline" slot="uncheckedText" />
       </Switch>
       {/* #endif */}
     </Container>
