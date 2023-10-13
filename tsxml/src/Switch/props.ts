@@ -26,6 +26,7 @@ export interface ISwitchProps extends IBaseProps {
    */
   uncheckedText?: string;
   /**
+   * @default medium
    * @description 尺寸
    */
   size?: 'medium' | 'small' | 'x-small';
