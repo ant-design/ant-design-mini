@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/Switch/index",
     "demo/pages/ButtonInline/index",
     "demo/pages/ButtonIcon/index",
     "demo/pages/Button/index",

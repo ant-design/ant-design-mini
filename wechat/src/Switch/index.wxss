@@ -1,0 +1,110 @@
+@keyframes loading-rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.ant-switch {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  position: relative;
+  align-self: center;
+  min-width: 51px;
+  height: 31px;
+  border: 2px solid #eeeeee;
+  border-radius: 15.5px;
+  background: #ffffff;
+  overflow: hidden;
+  line-height: 31px;
+}
+.ant-switch-checked {
+  background: #1677ff;
+  border-color: #1677ff;
+}
+.ant-switch-checked .ant-switch-handle {
+  left: calc(100% - (31px - 2 * 2px));
+}
+.ant-switch-checked .ant-switch-inner {
+  color: #ffffff;
+  justify-content: flex-start;
+}
+.ant-switch-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.ant-switch-loading {
+  pointer-events: none;
+}
+.ant-switch-loading ant-icon {
+  animation: loading-rotate 1s linear infinite;
+  font-size: 10px;
+  line-height: 1;
+}
+.ant-switch-loading-icon {
+  font-size: 10px;
+  color: #1677ff;
+}
+.ant-switch-handle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 200ms;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 11.5px 0 rgba(0, 0, 0, 0.08), -1px 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+.ant-switch-inner {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  color: #999999;
+  transition: margin 200ms;
+  font-size: 15px;
+  padding: 0 7px;
+  min-width: 54px;
+  box-sizing: border-box;
+}
+.ant-switch-inner:empty {
+  display: none;
+}
+.ant-switch-small {
+  min-width: 36px;
+  height: 21px;
+  border-radius: 10.5px;
+}
+.ant-switch-small .ant-switch-handle {
+  width: 17px;
+  height: 17px;
+}
+.ant-switch-small .ant-switch-inner {
+  font-size: 8px;
+  padding: 0 5px;
+  min-width: 36px;
+}
+.ant-switch-small.ant-switch-checked .ant-switch-handle {
+  left: calc(100% - (21px - 2 * 2px));
+}
+.ant-switch-x-small {
+  min-width: 26px;
+  height: 16px;
+  border-radius: 8px;
+}
+.ant-switch-x-small .ant-switch-handle {
+  width: 12px;
+  height: 12px;
+}
+.ant-switch-x-small .ant-switch-inner {
+  font-size: 5px;
+  padding: 0 3px;
+  min-width: 28px;
+}
+.ant-switch-x-small.ant-switch-checked .ant-switch-handle {
+  left: calc(100% - (16px - 2 * 2px));
+}

@@ -12,6 +12,14 @@ const sourceDir = path.resolve(rootDir, folder);
 const tsxmlFixtureRoot = path.resolve(rootDir, 'scripts/tsxml/fixtures');
 const files = ofs.readdirSync(path.resolve(rootDir, 'scripts/tsxml/fixtures'));
 
+function markdownCode(content: string) {
+  return `
+\`\`\`
+${content}
+\`\`\`
+  `.trim();
+}
+
 const examples = files
   .map((file) => {
     if (!file.endsWith('.tsx')) {
@@ -49,34 +57,61 @@ try {
     'utf-8'
   );
   extraPromo = `
-你可以参考下面的 json 配置， 还有一些额外的要求
+你可以根据下面的 json 配置, 生成代码。
 
-\`\`\`
-${jsonConfig}
-\`\`\`
+index.json 的内容为
 
-1. 根据上方 usingComponents 的内容, 获取组件实际导入的位置, 从对应路径导入
+${markdownCode(jsonConfig)}
+
+请根据 index.json 的内容, 导入正确的组件。
 
 举个例子, 假设 usingComponents 是这样的
 
 \`\`\`
 "usingComponents": {
-  "ant-button": "../../../src/Button/index",
-  "container": "../../../src/Container/index"
+  "component-name": "component_path",
 }
-\`\`\`
 
-那么 tsx 的转换结果应该是这样的
 
 \`\`\`
-import AntButton from '../../../src/Button/index.axml';
-import Container from '../../../src/Container/index.axml';
-\`\`\`
 
-2. 如果最外层有多个组件，用 <Page /> 或者 <Component / > 包裹起来 , 如果配置了 component: true, 用 <Component /> 包裹起来。
+
+1. 如果组件在 usingComponents 中存在, 则从正确的位置导入。
+
+比如 <component-name />  就需要写 import ComponentName from 'component_path.axml'; component 的名字需要改成驼峰。
+
+2. 如果组件不存在，就从 tsxml 导入
+
+比如 <view / > 就需要写 import { View } from 'tsxml';
+
+3. 如果最外层有多个组件，需要用 <Page /> 或者 <Component / > 包裹起来。 如果index.json 配置了 component: true, 用 <Component /> 包裹起来。
   `.trim();
 } catch (error) {
   // 忽略
+}
+
+let propsProps = '';
+
+try {
+  const propsContent = ofs.readFileSync(
+    path.resolve(sourceDir, 'props.ts'),
+    'utf-8'
+  );
+
+  propsProps = `
+
+props.ts 的内容为：
+
+${markdownCode(propsContent)}
+
+你需要参考 props.ts 的内容，获取 props 的名字。
+
+在生成的 tsx 里面添加正确的导入。 格式类似于  import { IProps } from './props';
+
+!! 注意, IProps 只是举个例子，要写的是正确的 props 的名字。
+`.trim();
+} catch (error) {
+  //
 }
 
 const prompt = `
@@ -92,11 +127,11 @@ ${examples}
 
 2. 不要定义 props 类型，从 './props' 导入，举例子 import { IconProps } from 'tsxml';
 
-3. 返回结果请包含在 markdown 的代码块里。
+${propsProps}
 
 ${extraPromo}
 
-请转换下面的代码
+参考上面的配置文件, 请转换下面的代码。
 `;
 
 (async () => {
@@ -120,7 +155,8 @@ ${extraPromo}
       const ext = path.extname(src);
       if (ext === '.axml') {
         const axmlContent = ofs.readFileSync(src, 'utf-8');
-        clipboardData = clipboardData + `\n${prompt}\n\n${axmlContent}`;
+        clipboardData =
+          clipboardData + `\n${prompt}\n\n${markdownCode(axmlContent)}`;
         const tsxmlPath = destination + '.tsx';
         ofs.writeFileSync(tsxmlPath, '');
         return false;

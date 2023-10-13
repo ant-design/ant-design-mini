@@ -246,3 +246,9 @@ function getInstance(
 }
 
 export { getInstance };
+
+export function sleep(time) {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, time);
+  });
+}

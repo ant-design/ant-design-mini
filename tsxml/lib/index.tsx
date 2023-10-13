@@ -6,6 +6,7 @@ interface Props {
   onTap?: string;
   cell?: string;
   children?: any;
+  id?: string;
   onScroll?: any;
   scope?: any;
   onGetAuthorize?: any;
@@ -23,6 +24,13 @@ interface Props {
   bindlaunchapp?: string;
   bindopensetting?: string;
   bindchooseavatar?: string;
+  onTouchMove?: string;
+  catchTouchStart?: string;
+  onTouchEnd?: string;
+  catchTouchEnd?: string;
+  catchTouchMove?: string;
+  value?: any;
+  index?: any;
 }
 
 export const Text = (props: Props): any => {};
@@ -43,4 +51,10 @@ export const Button = (props: Props): any => {};
 
 export type TSXMLProps<T> = {
   [K in keyof T]: T[K] extends (...args: unknown[]) => unknown ? string : T[K];
+} & {
+  $id?: string;
+  mixin?: any;
+  slot?: string;
 };
+
+export type InternalData = any;
