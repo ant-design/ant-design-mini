@@ -1,38 +1,30 @@
-import * as mixinValue from '../mixins/mixin-value';
-Component({
-    properties: {
-        checked: {
-            type: Boolean,
-            value: null,
-        },
-        loading: Boolean,
-        color: String,
-        checkedText: String,
-        uncheckedText: String,
-        size: {
-            type: String,
-            value: 'medium',
-        },
-        disabled: Boolean,
-        defaultChecked: Boolean,
-    },
-    options: {
-        //@ts-ignore
-        styleIsolation: 'shared',
-    },
-    behaviors: [
-        mixinValue.wechatMixinValue({
-            valueKey: 'checked',
-            defaultValueKey: 'defaultChecked',
-        }),
-    ],
-    methods: {
-        onChange(e) {
-            const value = !this.getValue();
-            if (!this.isControlled()) {
-                this.update(value);
-            }
-            this.triggerEvent('change', value);
-        },
-    },
+import { mountComponent } from '../_util/component';
+import { useMergedState, hasValue } from '../_util/hooks/useMergedState';
+import { useEvent } from 'functional-mini/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+const Switch = (props) => {
+    const [value, updateValue] = useMergedState(props.defaultChecked, {
+        value: props.checked,
+    });
+    const { triggerEvent } = useComponentEvent(props);
+    useEvent('onChange', (e) => {
+        const newValue = !value;
+        if (!hasValue(props.checked)) {
+            updateValue(newValue);
+        }
+        triggerEvent('change', value, e);
+    }, [props, value]);
+    return {
+        mixin: { value },
+    };
+};
+mountComponent(Switch, {
+    checked: null,
+    loading: false,
+    color: '',
+    checkedText: '',
+    uncheckedText: '',
+    size: 'medium',
+    disabled: false,
+    defaultChecked: false,
 });

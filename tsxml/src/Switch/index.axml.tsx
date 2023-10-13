@@ -1,18 +1,20 @@
-import { TSXMLProps, View, Block } from 'tsxml';
+import { TSXMLProps, View, Block, InternalData } from 'tsxml';
 import { ISwitchProps } from './props';
 import AntIcon from '../../src/Icon/index.axml';
 
-export default ({
-  className,
-  size,
-  mixin,
-  disabled,
-  loading,
-  color,
-  style,
-  checkedText,
-  uncheckedText,
-}: TSXMLProps<ISwitchProps>) => (
+export default (
+  {
+    className,
+    size,
+    disabled,
+    loading,
+    color,
+    style,
+    checkedText,
+    uncheckedText,
+  }: TSXMLProps<ISwitchProps>,
+  { mixin }: InternalData
+) => (
   <View
     class={`ant-switch ${className ? className : ''} ant-switch-${size} ${
       mixin.value ? 'ant-switch-checked' : ''

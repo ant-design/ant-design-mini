@@ -1,4 +1,7 @@
 Page({
+  data: {
+    checked: true,
+  },
   onChange(checked, e) {
     console.log(checked);
   },

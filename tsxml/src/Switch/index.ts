@@ -1,62 +1,38 @@
-import * as mixinValue from '../mixins/mixin-value';
-import fmtEvent from '../_util/fmtEvent';
-import { SwitchDefaultProps } from './props';
+import { mountComponent } from '../_util/component';
+import { useMergedState, hasValue } from '../_util/hooks/useMergedState';
+import { ISwitchProps } from './props';
+import { useEvent } from 'functional-mini/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 
-Component({
-  /// #if ALIPAY
-  props: SwitchDefaultProps,
-  mixins: [
-    mixinValue.mixinValue({
-      valueKey: 'checked',
-      defaultValueKey: 'defaultChecked',
-    }),
-  ],
-  /// #endif
-
-  /// #if WECHAT
-  properties: {
-    checked: {
-      type: Boolean,
-      value: null,
-    },
-    loading: Boolean,
-    color: String,
-    checkedText: String,
-    uncheckedText: String,
-    size: {
-      type: String,
-      value: 'medium',
-    },
-    disabled: Boolean,
-    defaultChecked: Boolean,
-  },
-  options: {
-    //@ts-ignore
-    styleIsolation: 'shared',
-  },
-  behaviors: [
-    mixinValue.wechatMixinValue({
-      valueKey: 'checked',
-      defaultValueKey: 'defaultChecked',
-    }),
-  ],
-  /// #endif
-  methods: {
-    onChange(e) {
-      const value = !this.getValue();
-      if (!this.isControlled()) {
-        this.update(value);
+const Switch = (props: ISwitchProps) => {
+  const [value, updateValue] = useMergedState(props.defaultChecked, {
+    value: props.checked,
+  });
+  const { triggerEvent } = useComponentEvent(props);
+  useEvent(
+    'onChange',
+    (e) => {
+      const newValue = !value;
+      if (!hasValue(props.checked)) {
+        updateValue(newValue);
       }
-
-      /// #if ALIPAY
-      if (this.props.onChange) {
-        this.props.onChange(value, fmtEvent(this.props, e));
-      }
-      /// #endif
-
-      /// #if WECHAT
-      this.triggerEvent('change', value);
-      /// #endif
+      triggerEvent('change', value, e);
     },
-  },
+    [props, value]
+  );
+
+  return {
+    mixin: { value },
+  };
+};
+
+mountComponent<ISwitchProps>(Switch, {
+  checked: null,
+  loading: false,
+  color: '',
+  checkedText: '',
+  uncheckedText: '',
+  size: 'medium',
+  disabled: false,
+  defaultChecked: false,
 });
