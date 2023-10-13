@@ -237,6 +237,7 @@ function transformAttrExpression(ctx: ITransformContext) {
       return res.join('');
     }
     case 'ConditionalExpression':
+    case 'LogicalExpression':
     case 'BooleanLiteral':
     case 'MemberExpression':
     case 'CallExpression': {
