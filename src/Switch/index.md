@@ -9,7 +9,7 @@ toc: 'content'
 
 # Switch 开关
 
-开关选择器，相比较于原生 Switch 实现了 ios 跟 android 端体验一致
+开关选择器，相比较于原生 Switch 实现了 iOS 跟 android 端体验一致
 
 ## 何时使用
 
