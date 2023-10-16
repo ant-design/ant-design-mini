@@ -1,4 +1,4 @@
-import { View, Page } from '../../../lib';
+import { View, Page } from 'tsxml';
 import Loading from '../../../src/Loading/index.axml';
 import Container from '../../../src/Container/index.axml';
 

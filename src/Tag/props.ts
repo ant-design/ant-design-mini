@@ -8,18 +8,18 @@ export interface ITagProps extends IBaseProps {
    * @description 类型
    * @default "fill"
    */
-  type: 'outline' | 'fill' | 'fill-light';
+  type?: 'outline' | 'fill' | 'fill-light';
   /**
    * @description 标签颜色, 内建 primary(蓝), success(绿), warning(黄), danger(红)
    * @default "primary"
    */
 
-  color: 'image' | 'primary' | 'success' | 'warning' | 'danger';
+  color?: 'image' | 'primary' | 'success' | 'warning' | 'danger';
   /**
    * @description 图标
    */
 
-  icon: IconType;
+  icon?: IconType;
 }
 
 export const TagDefaultProps: Partial<ITagProps> = {

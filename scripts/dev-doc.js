@@ -1,4 +1,4 @@
-const { fork } = require("child_process");
+const { fork } = require('child_process');
 const { minidev } = require('minidev');
 
 (async () => {
@@ -23,7 +23,7 @@ const { minidev } = require('minidev');
       },
     });
   });
-  
+
   devServer.on('error', (err) => {
     console.log(err);
   });

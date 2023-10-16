@@ -9,7 +9,10 @@
     "declaration": true,
     "noImplicitThis": false,
     "jsx": "preserve",
-    "types": ["@mini-types/alipay", "node"]
+    "types": ["@mini-types/alipay", "node"],
+    "paths": {
+      "tsxml": ["./src/tsxml/index.tsx"]
+    }
   },
   "include": ["src/**/*", "typings/**/*", "demo/**/*"],
   "exclude": ["node_modules"]
