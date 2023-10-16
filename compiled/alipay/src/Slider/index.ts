@@ -119,7 +119,7 @@ Component({
       for (let i = 0; i <= stepCount; i += 1) {
         tickList.push({
           left: i * (100 / stepCount),
-          value: i * step,
+          value: i * step + min,
         });
       }
 
@@ -250,7 +250,7 @@ Component({
           return min;
         }
 
-        return Math.round(value);
+        return value;
       }
 
       const leftValue = Math.min(value[0], value[1]);
