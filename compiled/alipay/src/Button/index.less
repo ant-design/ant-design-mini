@@ -1,0 +1,136 @@
+@import (reference) './variable.less';
+
+@buttonPrefix: ant-button;
+
+.@{buttonPrefix} {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  height: auto;
+  line-height: normal;
+  padding: @button-padding;
+  border-radius: @button-corner-radius;
+  border: 0 none;
+  box-sizing: border-box;
+  font-size: 36 * @rpx;
+  z-index: 2;
+
+  &-large {
+    font-size: 36 * @rpx;
+    padding: 24 * @rpx 24 * @rpx 24 * @rpx 24 * @rpx;
+  }
+
+  &-medium {
+    font-size: 34 * @rpx;
+    padding: 16 * @rpx 24 * @rpx 16 * @rpx 24 * @rpx;
+  }
+
+  &-small {
+    font-size: 30 * @rpx;
+    padding: 8 * @rpx 24 * @rpx 8 * @rpx 24 * @rpx;
+  }
+
+  &-primary {
+    color: @button-primary-color;
+    background-color: @button-primary-background-color;
+    box-shadow: inset 0 0 0 @button-border-size @COLOR_BRAND1;
+  }
+
+  &-default {
+    color: @COLOR_BRAND1;
+    background-color: @COLOR_CARD;
+    box-shadow: inset 0 0 0 @button-border-size @COLOR_BRAND1;
+  }
+
+  &-text {
+    color: @COLOR_BRAND1;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &-primary-danger {
+    color: @button-danger-color;
+    background-color: @COLOR_RED;
+    box-shadow: inset 0 0 0 @button-border-size @COLOR_RED;
+  }
+
+  &-default-danger {
+    color: @COLOR_RED;
+    background-color: @COLOR_CARD;
+    box-shadow: inset 0 0 0 @button-border-size @COLOR_RED;
+  }
+
+  &-text-danger {
+    color: @COLOR_RED;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &-text-active {
+    background-color: fade(@COLOR_WHITE_CHANGE, 92);
+  }
+
+  &-active {
+    filter: brightness(0.92);
+  }
+
+  &-disabled {
+    opacity: @button-disabled-opacity;
+  }
+
+  &-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-content-text-margin {
+    margin-left: @h-spacing-standard;
+  }
+  &-content-text {
+    &:empty {
+      margin-left: 0;
+      width: 0;
+      opacity: 0;
+      &::after {
+        content: '\00a0';
+      }
+    }
+  }
+
+  &-content-subtext {
+    font-size: @button-subtext-size;
+    opacity: 0.6;
+  }
+
+  &-content-loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33px;
+    height: 16px;
+    margin-left: 8px;
+  }
+
+  &-content-loading {
+    position: relative;
+  }
+
+  &-inline {
+    display: inline-block;
+    border-radius: @button-inline-corner;
+
+    .@{buttonPrefix}-content-loading-container {
+      width: 16px;
+      height: 16px;
+    }
+
+    .@{buttonPrefix}-content-loading {
+      transform: scale(0.5);
+    }
+  }
+
+}

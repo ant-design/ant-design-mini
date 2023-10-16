@@ -6,9 +6,16 @@ Page({
     console.log(checked);
   },
   handleChange(checked, e) {
+    /// #if WECHAT
+    this.setData({
+      checked: checked.detail,
+    });
+    /// #endif
+    /// #if ALIPAY
     this.setData({
       checked,
     });
+    /// #endif
   },
   handleChangeByButton() {
     console.log(this.data.checked);

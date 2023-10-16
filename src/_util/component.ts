@@ -14,6 +14,11 @@ export function mountComponent<T>(
   Hooks: (props: T) => unknown,
   defaultProps: T
 ) {
+  /// #if WECHAT
+  Component(wechatComponent(Hooks, defaultProps, { styleIsolation: 'shared' }));
+  /// #endif
 
+  /// #if ALIPAY
   Component(alipayComponent(Hooks, removeNullProps(defaultProps)));
+  /// #endif
 }

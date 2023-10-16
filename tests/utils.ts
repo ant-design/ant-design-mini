@@ -192,7 +192,9 @@ function getInstance(
   const expectFileSourcemap = expectFile + '.map';
 
   esbuild.buildSync({
-    entryPoints: [path.join(__dirname, `../src/${name}/index.ts`)],
+    entryPoints: [
+      path.join(__dirname, `../compiled/alipay/src/${name}/index.ts`),
+    ],
     bundle: true,
     outfile: expectFile,
     sourcemap: true,
