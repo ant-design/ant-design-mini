@@ -1,4 +1,4 @@
-import { View, Slot } from '../../lib';
+import { View, Slot } from 'tsxml';
 import { IContainerProps } from './props';
 
 export default ({ style, headerInBox, className, title }: IContainerProps) => (

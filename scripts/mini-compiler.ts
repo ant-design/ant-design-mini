@@ -103,7 +103,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'less',
-      glob: ['**/*.less'],
+      glob: ['src/**/*.less', 'demo/**/*.less'],
       destExtension: option.buildOption.compileLess
         ? option.buildOption.styleExt
         : '.less',
@@ -134,7 +134,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'md',
-      glob: ['**/*.md'],
+      glob: ['src/**/*.md'],
       destExtension: '.md',
     },
     function (stream: NodeJS.ReadWriteStream) {
@@ -146,7 +146,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'ts',
-      glob: ['**/*.ts', '!**/*.sjs.ts'],
+      glob: ['src/**/*.ts', 'demo/**/*.ts', '!**/*.sjs.ts'],
       destExtension: '.ts',
     },
     function (stream: NodeJS.ReadWriteStream) {
@@ -167,7 +167,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'sjs',
-      glob: ['**/*.sjs.ts'],
+      glob: ['src/**/*.sjs.ts', 'demo/**/*.sjs.ts'],
       destExtension: '.ts',
     },
     function (stream: NodeJS.ReadWriteStream, factory) {
@@ -190,7 +190,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'tsxml',
-      glob: ['**/*.axml.tsx'],
+      glob: ['src/**/*.axml.tsx', 'demo/**/*.axml.tsx'],
       destExtension: option.buildOption.xmlExt,
     },
     function (stream: NodeJS.ReadWriteStream, factory) {
@@ -220,7 +220,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'json',
-      glob: ['**/*.json', '!tsconfig.json'],
+      glob: ['src/**/*.json', 'demo/**/*.json5', '!tsconfig.json'],
       destExtension: '.json',
     },
     function (stream: NodeJS.ReadWriteStream) {
@@ -231,7 +231,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'json5',
-      glob: ['**/*.json5'],
+      glob: ['src/**/*.json5', 'demo/**/*.json5'],
       destExtension: '.json',
     },
     function (stream: NodeJS.ReadWriteStream, factory) {
@@ -254,9 +254,9 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
 
 export function compileAntdMini(watch: boolean) {
   miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsxml', 'tsconfig.json'),
-    source: resolve(__dirname, '..', 'tsxml'),
-    dest: resolve(__dirname, '..', 'wechat'),
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'src'),
+    dest: resolve(__dirname, '..', 'compiled', 'wechat'),
     watch,
     buildOption: {
       compileTs: true,
@@ -277,8 +277,8 @@ export function compileAntdMini(watch: boolean) {
 
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsxml', 'tsconfig.json'),
-    source: resolve(__dirname, '..', 'tsxml'),
-    dest: resolve(__dirname, '..'),
+    source: resolve(__dirname, '..'),
+    dest: resolve(__dirname, '..', 'compiled', 'alipay'),
     watch,
     buildOption: {
       defVar: {

@@ -1,5 +1,5 @@
 import helper from './index.sjs';
-import { View, Block } from '../../lib';
+import { View, Block } from 'tsxml';
 import type { ILoadingProps } from './props';
 
 export default ({ type, style, size, className, color }: ILoadingProps) => (
