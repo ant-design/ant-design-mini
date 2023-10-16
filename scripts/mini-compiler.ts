@@ -46,9 +46,12 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   ) {
     function taskImplFactory(init: boolean) {
       return () => {
-        let srcStream = gulp.src([...options.glob, '!**/__tests__/**'], {
-          cwd: option.source,
-        });
+        let srcStream = gulp.src(
+          [...options.glob, '!**/__tests__/**', '!global.d.ts'],
+          {
+            cwd: option.source,
+          }
+        );
         if (option.watch && !init) {
           srcStream = srcStream.pipe(
             changed(option.dest, { extension: options.destExtension })
@@ -300,7 +303,7 @@ export function compileAntdMini(watch: boolean) {
   };
 
   miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsxml', 'tsconfig.json'),
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
     source: resolve(__dirname, '..', 'src'),
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
     watch,
@@ -308,7 +311,7 @@ export function compileAntdMini(watch: boolean) {
   });
 
   miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsxml', 'tsconfig.json'),
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
     source: resolve(__dirname, '..', 'demo'),
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
     watch,
