@@ -47,7 +47,6 @@ const allowList = [
   'style',
   'Switch',
   'Tag',
-  'Popover',
 ];
 
 const demoAllowList = [
