@@ -10,8 +10,6 @@
     "dev:doc": "tsx ./scripts/dev-doc.ts",
     "build": "npm run build:tsxml && node ./scripts/build.js",
     "deploy:docs": "npm run build && echo 'mini.ant.design' > ./docs-dist/CNAME && gh-pages -d docs-dist",
-    "lint:code": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\"",
-    "lint:code:fix": "eslint \"demo/pages/**/*.js\" \"scripts/*.js\" \"src/**/*.ts\" --fix",
     "changelog": "auto-changelog -p --ignore-commit-pattern \"chore\\(release\\)\"",
     "prepublishOnly": "npm run build",
     "pub": "node scripts/publish.js",
