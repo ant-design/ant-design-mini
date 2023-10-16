@@ -253,45 +253,65 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
 }
 
 export function compileAntdMini(watch: boolean) {
+  const wechatBuildOption = {
+    compileTs: true,
+    compileLess: true,
+    platform: tsxml.wechat,
+    styleExt: '.wxss',
+    xmlExt: '.wxml',
+    xmlScriptExt: '.wxs',
+    defVar: {
+      WECHAT: true,
+      ALIPAY: false,
+    },
+    xmlScriptOption: {
+      forceCommonjs: true,
+    },
+  };
+
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
     source: resolve(__dirname, '..', 'src'),
     dest: resolve(__dirname, '..', 'compiled', 'wechat', 'src'),
     watch,
-    buildOption: {
-      compileTs: true,
-      compileLess: true,
-      platform: tsxml.wechat,
-      styleExt: '.wxss',
-      xmlExt: '.wxml',
-      xmlScriptExt: '.wxs',
-      defVar: {
-        WECHAT: true,
-        ALIPAY: false,
-      },
-      xmlScriptOption: {
-        forceCommonjs: true,
-      },
-    },
+    buildOption: wechatBuildOption,
   });
+
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'demo'),
+    dest: resolve(__dirname, '..', 'compiled', 'wechat', 'demo'),
+    watch,
+    buildOption: wechatBuildOption,
+  });
+
+  const alipayBuildOption = {
+    defVar: {
+      WECHAT: false,
+      ALIPAY: true,
+    },
+    compileTs: false,
+    compileLess: false,
+    platform: tsxml.alipay,
+    xmlExt: '.axml',
+    styleExt: '.acss',
+    xmlScriptExt: '.sjs',
+    xmlScriptOption: {},
+  };
 
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsxml', 'tsconfig.json'),
     source: resolve(__dirname, '..', 'src'),
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
     watch,
-    buildOption: {
-      defVar: {
-        WECHAT: false,
-        ALIPAY: true,
-      },
-      compileTs: false,
-      compileLess: false,
-      platform: tsxml.alipay,
-      xmlExt: '.axml',
-      styleExt: '.acss',
-      xmlScriptExt: '.sjs',
-      xmlScriptOption: {},
-    },
+    buildOption: alipayBuildOption,
+  });
+
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsxml', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'demo'),
+    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
+    watch,
+    buildOption: alipayBuildOption,
   });
 }

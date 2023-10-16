@@ -2,7 +2,7 @@
   "name": "antd-mini",
   "version": "2.12.2",
   "description": "antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。",
-  "miniprogram": "wechat/src",
+  "miniprogram": "compiled/wechat/src",
   "scripts": {
     "dev": "tsx ./scripts/dev.ts",
     "build:tsxml": "tsx ./scripts/compile-tsxml.ts",
