@@ -38,29 +38,40 @@ export type FilePrecess = (old: string) => Promise<string> | string;
 export type TransFormFactory = (handler) => any;
 
 const allowList = [
-  'demo/pages/Button',
-  'demo/pages/ButtonIcon',
-  'demo/pages/ButtonInline',
-  'demo/pages/Icon',
-  'demo/pages/Icon',
-  'demo/pages/Loading',
-  'demo/pages/Switch',
-  'demo/pages/Tag',
-  'src/_util',
-  'src/Button',
-  'src/Container',
-  'src/Icon',
-  'src/Loading',
-  'src/mixins',
-  'src/style',
-  'src/Switch',
-  'src/Tag',
+  '_util',
+  'Button',
+  'Container',
+  'Icon',
+  'Loading',
+  'mixins',
+  'style',
+  'Switch',
+  'Tag',
 ];
 
-const include = function (list: string[]) {
+const demoAllowList = [
+  'pages/Button',
+  'pages/ButtonIcon',
+  'pages/ButtonInline',
+  'pages/Icon',
+  'pages/Icon',
+  'pages/Loading',
+  'pages/Switch',
+  'pages/Tag',
+];
+
+const include = function (list: string[], source: string) {
   return through2.obj(function (file, enc, callback) {
-    console.log(file.path);
-    return callback();
+    const wewewe = path.relative(source, file.path);
+
+    const match = list.some((o) => {
+      return wewewe.startsWith(o);
+    });
+    if (match) {
+      this.push(file);
+    } else {
+      return callback();
+    }
   });
 };
 
@@ -80,8 +91,8 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
             cwd: option.source,
           }
         );
-        if (option.allowList) {
-          srcStream = srcStream.pipe(include(option.allowList));
+        if (Array.isArray(option.allowList)) {
+          srcStream = srcStream.pipe(include(option.allowList, option.source));
         }
         if (option.watch && !init) {
           srcStream = srcStream.pipe(
@@ -317,7 +328,7 @@ export function compileAntdMini(watch: boolean) {
     source: resolve(__dirname, '..', 'demo'),
     dest: resolve(__dirname, '..', 'compiled', 'wechat', 'demo'),
     watch,
-    allowList,
+    allowList: demoAllowList,
     buildOption: wechatBuildOption,
   });
 
