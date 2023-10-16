@@ -11,6 +11,6 @@
     "jsx": "preserve",
     "types": ["@mini-types/alipay", "node"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "typings/**/*", "demo/**/*"],
   "exclude": ["node_modules"]
 }
