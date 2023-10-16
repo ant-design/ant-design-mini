@@ -17,9 +17,9 @@ export function hasValue(value) {
  * Note that internal use rc-util `useState` hook.
  */
 export function useMergedState(defaultStateValue, option) {
-    const { defaultValue, value, onChange, postState } = option || {};
+    var _a = option || {}, defaultValue = _a.defaultValue, value = _a.value, onChange = _a.onChange, postState = _a.postState;
     // ======================= Init =======================
-    const [innerValue, setInnerValue] = useState(() => {
+    var _b = useState(function () {
         if (hasValue(value)) {
             return value;
         }
@@ -33,26 +33,26 @@ export function useMergedState(defaultStateValue, option) {
                 ? defaultStateValue()
                 : defaultStateValue;
         }
-    });
-    const mergedValue = hasValue(value) ? value : innerValue;
-    const postMergedValue = postState ? postState(mergedValue) : mergedValue;
+    }), innerValue = _b[0], setInnerValue = _b[1];
+    var mergedValue = hasValue(value) ? value : innerValue;
+    var postMergedValue = postState ? postState(mergedValue) : mergedValue;
     // ====================== Change ======================
-    const onChangeFn = useEvent(onChange);
-    const [prevValue, setPrevValue] = useState([mergedValue]);
-    useLayoutUpdateEffect(() => {
-        const prev = prevValue[0];
+    var onChangeFn = useEvent(onChange);
+    var _c = useState([mergedValue]), prevValue = _c[0], setPrevValue = _c[1];
+    useLayoutUpdateEffect(function () {
+        var prev = prevValue[0];
         if (innerValue !== prev) {
             onChangeFn(innerValue, prev);
         }
     }, [prevValue]);
     // Sync value back to `undefined` when it from control to un-control
-    useLayoutUpdateEffect(() => {
+    useLayoutUpdateEffect(function () {
         if (!hasValue(value)) {
             setInnerValue(value);
         }
     }, [value]);
     // ====================== Update ======================
-    const triggerChange = useEvent((updater, ignoreDestroy) => {
+    var triggerChange = useEvent(function (updater, ignoreDestroy) {
         setInnerValue(updater, ignoreDestroy);
         setPrevValue([mergedValue], ignoreDestroy);
     });

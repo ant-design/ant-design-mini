@@ -5,22 +5,22 @@ import * as React from 'functional-mini/compat';
 /**
  * Wrap `React.useLayoutEffect` which will not throw warning message in test env
  */
-const useInternalLayoutEffect = React.useEffect;
-const useLayoutEffect = (callback, deps) => {
-    const firstMountRef = React.useRef(true);
-    useInternalLayoutEffect(() => {
+var useInternalLayoutEffect = React.useEffect;
+var useLayoutEffect = function (callback, deps) {
+    var firstMountRef = React.useRef(true);
+    useInternalLayoutEffect(function () {
         return callback(firstMountRef.current);
     }, deps);
     // We tell react that first mount has passed
-    useInternalLayoutEffect(() => {
+    useInternalLayoutEffect(function () {
         firstMountRef.current = false;
-        return () => {
+        return function () {
             firstMountRef.current = true;
         };
     }, []);
 };
-export const useLayoutUpdateEffect = (callback, deps) => {
-    useLayoutEffect((firstMount) => {
+export var useLayoutUpdateEffect = function (callback, deps) {
+    useLayoutEffect(function (firstMount) {
         if (!firstMount) {
             return callback();
         }

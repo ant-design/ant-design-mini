@@ -1,5 +1,5 @@
 export function supportUndefinedProperty() {
-    let support = true;
+    var support = true;
     support = false;
     return support;
 }

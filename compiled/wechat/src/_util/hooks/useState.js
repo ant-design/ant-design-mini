@@ -8,11 +8,11 @@ import * as React from 'functional-mini/compat';
  * Developer should confirm it's safe to ignore themselves.
  */
 export function useSafeState(defaultValue) {
-    const destroyRef = React.useRef(false);
-    const [value, setValue] = React.useState(defaultValue);
-    React.useEffect(() => {
+    var destroyRef = React.useRef(false);
+    var _a = React.useState(defaultValue), value = _a[0], setValue = _a[1];
+    React.useEffect(function () {
         destroyRef.current = false;
-        return () => {
+        return function () {
             destroyRef.current = true;
         };
     }, []);

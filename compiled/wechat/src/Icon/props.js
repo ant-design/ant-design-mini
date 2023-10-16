@@ -1,3 +1,3 @@
-export const IconDefaultProps = {
+export var IconDefaultProps = {
     type: '',
 };

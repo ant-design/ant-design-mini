@@ -60,14 +60,14 @@ export var EComponents;
     EComponents["WhiteSpace"] = "WhiteSpace";
     EComponents["GuideTour"] = "GuideTour";
 })(EComponents || (EComponents = {}));
-export const log = {
-    warn(component, message) {
-        const info = `[antd-mini: ${component}] 📡 ${message}`;
+export var log = {
+    warn: function (component, message) {
+        var info = "[antd-mini: ".concat(component, "] \uD83D\uDCE1 ").concat(message);
         // eslint-disable-next-line no-console
         console.warn(info);
     },
-    error(component, message) {
-        const info = `[antd-mini: ${component}] 📡 ${message}`;
+    error: function (component, message) {
+        var info = "[antd-mini: ".concat(component, "] \uD83D\uDCE1 ").concat(message);
         // eslint-disable-next-line no-console
         console.error(info);
     },

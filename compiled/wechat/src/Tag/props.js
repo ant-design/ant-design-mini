@@ -1,4 +1,4 @@
-export const TagDefaultProps = {
+export var TagDefaultProps = {
     type: 'fill',
     color: 'primary',
 };

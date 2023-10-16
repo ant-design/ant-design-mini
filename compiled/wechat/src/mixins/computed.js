@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import deepEqual from 'fast-deep-equal';
 function computedData() {
-    const nextData = this.computed(this.props);
+    var _this = this;
+    var nextData = this.computed(this.props);
     // 浅比较就行了
-    const changedData = Object.keys(nextData).reduce((prev, item) => {
+    var changedData = Object.keys(nextData).reduce(function (prev, item) {
         // 移除 _ $ 开头的保留 props
         if (item[0] === '_' || item[0] === '$') {
             return prev;
@@ -11,7 +12,7 @@ function computedData() {
         if (typeof nextData[item] === 'function') {
             return prev;
         }
-        if (deepEqual(this.data[item], nextData[item])) {
+        if (deepEqual(_this.data[item], nextData[item])) {
             return prev;
         }
         // eslint-disable-next-line no-param-reassign
@@ -24,10 +25,10 @@ function computedData() {
     this.setData(changedData);
 }
 export default {
-    didMount() {
+    didMount: function () {
         computedData.call(this);
     },
-    didUpdate() {
+    didUpdate: function () {
         computedData.call(this);
     },
 };

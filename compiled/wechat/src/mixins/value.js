@@ -1,3 +1,4 @@
+import { __spreadArray } from "tslib";
 function equal(a, b) {
     if (a === b) {
         return true;
@@ -7,36 +8,38 @@ function equal(a, b) {
     }
     return false;
 }
-const component2 = my.canIUse('component2');
-export default ({ valueKey = 'value', defaultValueKey = 'defaultValue', scopeKey = 'mixin', transformValue = value => ({
-    needUpdate: true,
-    value,
-}), } = {}) => {
+var component2 = my.canIUse('component2');
+export default (function (_a) {
+    var _b;
+    var _c = _a === void 0 ? {} : _a, _d = _c.valueKey, valueKey = _d === void 0 ? 'value' : _d, _e = _c.defaultValueKey, defaultValueKey = _e === void 0 ? 'defaultValue' : _e, _f = _c.scopeKey, scopeKey = _f === void 0 ? 'mixin' : _f, _g = _c.transformValue, transformValue = _g === void 0 ? function (value) { return ({
+        needUpdate: true,
+        value: value,
+    }); } : _g;
     return {
-        data: {
-            [scopeKey]: {
+        data: (_b = {},
+            _b[scopeKey] = {
                 value: undefined,
                 updated: false,
                 controlled: false,
             },
-        },
-        onInit() {
-            const value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
-            const { needUpdate } = this.update(value, {
+            _b),
+        onInit: function () {
+            var value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
+            var needUpdate = this.update(value, {
                 nextProps: this.props,
-            });
+            }).needUpdate;
             if (!needUpdate) {
                 this.updateControlled();
             }
         },
-        deriveDataFromProps(nextProps) {
+        deriveDataFromProps: function (nextProps) {
             if (!equal(nextProps[valueKey], this.props[valueKey])) {
                 this.update(nextProps[valueKey], {
-                    nextProps,
+                    nextProps: nextProps,
                 });
             }
         },
-        didUpdate(prevProps) {
+        didUpdate: function (prevProps) {
             if (component2) {
                 return;
             }
@@ -46,57 +49,63 @@ export default ({ valueKey = 'value', defaultValueKey = 'defaultValue', scopeKey
                 });
             }
         },
-        didMount() {
+        didMount: function () {
             if (component2) {
                 return;
             }
-            const value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
-            const { needUpdate } = this.update(value, {
+            var value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
+            var needUpdate = this.update(value, {
                 nextProps: this.props,
-            });
+            }).needUpdate;
             if (!needUpdate) {
                 this.updateControlled();
             }
         },
         methods: {
-            getValue(prevData) {
+            getValue: function (prevData) {
                 return (prevData || this.data)[scopeKey].value;
             },
-            isEqualValue(prevData) {
+            isEqualValue: function (prevData) {
                 if (!prevData[scopeKey].updated) {
                     return true;
                 }
                 return equal(this.getValue(prevData), this.getValue());
             },
-            isControlled() {
+            isControlled: function () {
                 if ('controlled' in this.props) {
                     return this.props.controlled;
                 }
                 return valueKey in this.props;
             },
-            updateControlled() {
-                this.setData({
-                    [scopeKey]: {
+            updateControlled: function () {
+                var _a;
+                this.setData((_a = {},
+                    _a[scopeKey] = {
                         controlled: this.isControlled(),
                     },
-                });
+                    _a));
             },
-            update(val, extra, ...args) {
-                const { needUpdate, value } = transformValue.call(this, val, extra, ...args) || {};
+            update: function (val, extra) {
+                var _a;
+                var args = [];
+                for (var _i = 2; _i < arguments.length; _i++) {
+                    args[_i - 2] = arguments[_i];
+                }
+                var _b = transformValue.call.apply(transformValue, __spreadArray([this, val, extra], args, false)) || {}, needUpdate = _b.needUpdate, value = _b.value;
                 if (needUpdate) {
-                    this.setData({
-                        [scopeKey]: {
-                            value,
+                    this.setData((_a = {},
+                        _a[scopeKey] = {
+                            value: value,
                             updated: true,
                             controlled: this.isControlled(),
                         },
-                    });
+                        _a));
                 }
                 return {
-                    needUpdate,
-                    value,
+                    needUpdate: needUpdate,
+                    value: value,
                 };
             },
         },
     };
-};
+});

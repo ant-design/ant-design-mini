@@ -1,4 +1,4 @@
-export const LoadingDefaultProps = {
+export var LoadingDefaultProps = {
     size: 'medium',
     color: '#fff',
     type: 'spin',

@@ -1,3 +1,3 @@
-export const SwitchDefaultProps = {
+export var SwitchDefaultProps = {
     size: 'medium',
 };
