@@ -1,0 +1,12 @@
+{
+  "defaultTitle": "Popup",
+  "usingComponents": {
+    "popup": "../../../src/Popup/index",
+    "container": "../../../src/Container/index",
+    "button": "../../../src/Button/index",
+    "list": "../../../src/List/index",
+    "list-item": "../../../src/List/ListItem/index",
+    "switch": "../../../src/Switch/index",
+    "icon": "../../../src//Icon/index"
+  }
+}

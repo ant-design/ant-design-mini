@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Collapse",
+  "usingComponents": {
+    "collapse": "../../../src/Collapse/index",
+    "checkbox": "../../../src/Checkbox/index",
+    "button": "../../../src/Button/index"
+  }
+}

@@ -1,0 +1,40 @@
+<container title="基础用法-四种尺寸">
+  <avatar
+    src="{{item}}"
+    a:for="{{images}}"
+    class="avatar" />
+</container>
+
+<container title="占位头像">
+  <avatar size="{{item}}" />
+</container>
+
+<container title="不同大小">
+  <avatar
+    size="{{item}}"
+    src="{{images[0]}}"
+    a:for="{{sizes}}"
+    class="avatar" />
+</container>
+
+<container
+  title="配合列表使用"
+  className="container">
+  <list-item
+    imageSize="large"
+    brief="Deserunt dolor ea eaque eos">
+    Novalee Spicer
+    <avatar
+      slot="image"
+      name="Novlee Spicer"
+      desc="Deserunt dolor ea eaque eos"
+      src="{{images[0]}}" />
+  </list-item>
+</container>
+
+<container title="自定义">
+  <avatar
+    size="{{item}}"
+    src="{{images[0]}}"
+    class="avatar-custom" />
+</container>

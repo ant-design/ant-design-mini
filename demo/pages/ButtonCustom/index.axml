@@ -1,0 +1,84 @@
+<container
+  title="自定义大小"
+  class="list">
+  <button
+    type="primary"
+    icon="SmileOutline"
+    onTap="handleTap"
+    className="btn">
+    主要按钮
+  </button>
+
+  <button
+    type="primary"
+    onTap="handleTap"
+    icon="SmileOutline"
+    className="btn"
+    inline>
+    主要按钮
+  </button>
+
+  <button
+    type="primary"
+    onTap="handleTap"
+    icon="ForbidFill"
+    className="btn"
+    inline
+    danger>
+    主要按钮
+  </button>
+</container>
+
+<container
+  title="round"
+  class="list">
+  <button
+    type="primary"
+    icon="SearchOutline"
+    onTap="handleTap"
+    inline
+    className="round">
+    主要按钮
+  </button>
+
+  <button
+    type="primary"
+    onTap="handleTap"
+    inline
+    danger
+    className="round">
+    主要按钮
+  </button>
+</container>
+
+<container
+  title="circle"
+  class="list">
+  <button
+    type="primary"
+    icon="SearchOutline"
+    onTap="handleTap"
+    inline
+    className="circle"></button>
+
+  <button
+    icon="SearchOutline"
+    onTap="handleTap"
+    inline
+    className="circle"></button>
+
+  <button
+    type="primary"
+    onTap="handleTap"
+    inline
+    className="circle">
+    A
+  </button>
+
+  <button
+    onTap="handleTap"
+    inline
+    className="circle">
+    A
+  </button>
+</container>

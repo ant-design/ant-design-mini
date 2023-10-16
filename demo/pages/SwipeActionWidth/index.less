@@ -1,0 +1,45 @@
+@import "../../../src/style/themes/index.less";
+
+.t-swipe {
+  width: 100%;
+  margin: 0 auto;
+  background-color: @COLOR_BACKGROUND;
+  &-item {
+    height: 130 * @rpx;
+    line-height: 130 * @rpx;
+    font-size: 32 * @rpx;
+    color: @COLOR_TEXT_PRIMARY;
+    &-title {
+      width: 100%;
+      height: 90 * @rpx;
+      line-height: 100 * @rpx;
+      font-size: 28 * @rpx;
+      color: @COLOR_TEXT_ASSIST_DEFAULT;
+      text-indent: 1em;
+    }
+    &-con {
+      height: 130 * @rpx;
+      line-height: 130 * @rpx;
+      width: 100%;
+      &-view {
+        background-color: @COLOR_CARD;
+        text-indent: 1em;
+        position: relative;
+        height: 100%;
+        color: @COLOR_TEXT_PRIMARY;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          max-height: 1px;
+          min-height: 1px;
+          transform: scaleY(0.5);
+          background-color: @COLOR_BORDER;
+        }
+      }
+    }
+  }
+}

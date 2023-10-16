@@ -1,0 +1,12 @@
+{
+  "defaultTitle": "",
+  "usingComponents": {
+    "list": "../../../src/List/index",
+    "list-item": "../../../src/List/ListItem/index",
+    "tag": "../../../src/Tag/index",
+    "icon": "../../../src/Icon/index",
+    "input": "../../../src/Input/index"
+  },
+  "titleBarColor": "#fffff",
+  "transparentTitle": "always"
+}

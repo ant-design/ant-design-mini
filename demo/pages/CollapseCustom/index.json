@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Collapse",
+  "usingComponents": {
+    "collapse": "../../../src/Collapse/index"
+  }
+}
