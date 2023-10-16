@@ -102,7 +102,7 @@
   "files": [
     "es",
     "less",
-    "wechat/src"
+    "compiled/wechat/src"
   ],
   "repository": {
     "type": "git",
