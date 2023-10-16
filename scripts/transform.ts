@@ -142,33 +142,29 @@ ${extraPromo}
 
   let clipboardData = '';
 
-  const target = path.resolve(rootDir, 'tsxml', folder);
-  await fs.rm(target, { recursive: true, force: true });
-  await fs.mkdir(target, { recursive: true });
-  await fs.cp(sourceDir, target, {
-    recursive: true,
-    filter: (src, destination) => {
-      const basename = path.basename(src);
-      if (basename === '__tests__') {
+  const files = await fs.readdir(sourceDir);
+  for (const fileName of files) {
+    const src = path.resolve(sourceDir, fileName);
+    if (ofs.statSync(src).isDirectory()) {
+      continue;
+    }
+    const ext = path.extname(fileName);
+    if (ext === '.axml') {
+      const axmlContent = ofs.readFileSync(
+        path.resolve(sourceDir, fileName),
+        'utf-8'
+      );
+      clipboardData =
+        clipboardData + `\n${prompt}\n\n${markdownCode(axmlContent)}`;
+      const tsxmlPath = path.resolve(sourceDir, fileName) + '.tsx';
+      ofs.writeFileSync(tsxmlPath, '');
+    }
+    for (const handler of handlers) {
+      if (handler(path.resolve(sourceDir, fileName)) === true) {
         return false;
       }
-      const ext = path.extname(src);
-      if (ext === '.axml') {
-        const axmlContent = ofs.readFileSync(src, 'utf-8');
-        clipboardData =
-          clipboardData + `\n${prompt}\n\n${markdownCode(axmlContent)}`;
-        const tsxmlPath = destination + '.tsx';
-        ofs.writeFileSync(tsxmlPath, '');
-        return false;
-      }
-      for (const handler of handlers) {
-        if (handler(src, destination) === true) {
-          return false;
-        }
-      }
-      return true;
-    },
-  });
+    }
+  }
   if (os.platform() === 'darwin') {
     const randomDir = path.resolve(
       os.tmpdir(),
@@ -181,7 +177,7 @@ ${extraPromo}
 })();
 
 function transformExt(originalExt: string, newExt: string) {
-  return (src: string, destination: string) => {
+  return (src: string) => {
     const ext = path.extname(src);
     if (ext !== originalExt) {
       return false;
@@ -189,7 +185,7 @@ function transformExt(originalExt: string, newExt: string) {
     const content = ofs.readFileSync(src, 'utf-8');
     ofs.unlinkSync(src);
     ofs.writeFileSync(
-      path.resolve(path.dirname(destination), path.basename(src, ext) + newExt),
+      path.resolve(path.dirname(src), path.basename(src, ext) + newExt),
       content
     );
     return true;

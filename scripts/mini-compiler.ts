@@ -11,7 +11,7 @@ import less from 'gulp-less';
 import ifdef from '@diamondyuan/gulp-ifdef';
 import json5 from 'json5';
 import { resolve } from 'path';
-import fs from 'fs/promises';
+import * as fs from 'fs/promises';
 interface MiniProgramSourceCompileOption {
   source: string;
   dest: string;
@@ -287,6 +287,19 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
 }
 
 export async function compileAntdMini(watch: boolean) {
+  await Promise.all(
+    [
+      'compiled/alipay/demo/pages',
+      'compiled/alipay/src',
+      'compiled/wechat/demo',
+      'compiled/wechat/src',
+    ].map((dir) => {
+      return fs.rm(resolve(__dirname, '..', dir), {
+        recursive: true,
+        force: true,
+      });
+    })
+  );
   const wechatBuildOption = {
     compileTs: true,
     compileLess: true,
