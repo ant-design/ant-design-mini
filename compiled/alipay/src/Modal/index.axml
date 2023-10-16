@@ -1,0 +1,119 @@
+<import-sjs
+  from="./index.sjs"
+  name="{getDirection}" />
+<popup
+  className="ant-modal {{className || ''}}"
+  style="{{style || ''}}"
+  maskClassName="{{maskClassName}}"
+  maskStyle="{{maskStyle}}"
+  visible="{{visible}}"
+  duration="{{duration}}"
+  position="center"
+  animation="{{animation}}"
+  zIndex="{{zIndex}}"
+  destroyOnClose="{{destroyOnClose}}"
+  onClose="onMaskClose">
+  <slot slot="content">
+    <view
+      class="ant-modal-body {{bodyClassName || ''}}"
+      style="{{bodyStyle || ''}}">
+      <slot name="header"></slot>
+      <slot name="title">
+        <view
+          class="ant-modal-body-title"
+          a:if="{{ title }}">
+          {{title}}
+        </view>
+      </slot>
+      <slot name="content">
+        <view
+          class="ant-modal-body-content"
+          a:if="{{ content }}">
+          {{content}}
+        </view>
+      </slot>
+      <slot name="footer">
+        <view
+          a:if="{{ type === 'focus' }}"
+          class="ant-modal-body-footer-focus">
+          <button
+            type="primary"
+            class="ant-modal-body-footer-focus-primary"
+            style="{{primaryButtonStyle || ''}}"
+            onTap="onPrimaryButtonTap">
+            {{primaryButtonText}}
+          </button>
+          <view
+            class="ant-modal-body-footer-focus-secondary"
+            a:if="{{secondaryButtonText}}"
+            style="{{secondaryButtonStyle || ''}}"
+            onTap="onSecondaryButtonTap">
+            {{secondaryButtonText}}
+          </view>
+          <view
+            class="ant-modal-body-footer-focus-cancel"
+            a:if="{{cancelButtonText}}"
+            style="{{cancelButtonStyle || ''}}"
+            onTap="onCancelButtonTap">
+            {{cancelButtonText}}
+          </view>
+        </view>
+        <view
+          a:elif="{{ getDirection(primaryButtonText,secondaryButtonText,cancelButtonText,type) === 'horizontal' }}"
+          class="ant-modal-body-footer-horizontal">
+          <view
+            class="ant-modal-body-footer-horizontal-cancel"
+            a:if="{{cancelButtonText}}"
+            style="{{cancelButtonStyle || ''}}"
+            onTap="onCancelButtonTap">
+            {{cancelButtonText}}
+          </view>
+          <view
+            class="ant-modal-body-footer-horizontal-secondary"
+            a:if="{{secondaryButtonText}}"
+            style="{{secondaryButtonStyle || ''}}"
+            onTap="onSecondaryButtonTap">
+            {{secondaryButtonText}}
+          </view>
+          <view
+            class="ant-modal-body-footer-horizontal-primary"
+            a:if="{{primaryButtonText}}"
+            style="{{primaryButtonStyle || ''}}"
+            onTap="onPrimaryButtonTap">
+            {{primaryButtonText}}
+          </view>
+        </view>
+        <view
+          a:elif="{{ getDirection(primaryButtonText,secondaryButtonText,cancelButtonText,type) === 'vertical' }}"
+          class="ant-modal-body-footer-vertical">
+          <view
+            class="ant-modal-body-footer-vertical-primary"
+            a:if="{{primaryButtonText}}"
+            style="{{primaryButtonStyle || ''}}"
+            onTap="onPrimaryButtonTap">
+            {{primaryButtonText}}
+          </view>
+          <view
+            class="ant-modal-body-footer-vertical-secondary"
+            a:if="{{secondaryButtonText}}"
+            style="{{secondaryButtonStyle || ''}}"
+            onTap="onSecondaryButtonTap">
+            {{secondaryButtonText}}
+          </view>
+          <view
+            class="ant-modal-body-footer-vertical-cancel"
+            a:if="{{cancelButtonText}}"
+            style="{{cancelButtonStyle || ''}}"
+            onTap="onCancelButtonTap">
+            {{cancelButtonText}}
+          </view>
+        </view>
+      </slot>
+    </view>
+  </slot>
+  <icon
+    a:if="{{ type==='focus' && closable }}"
+    type="CloseOutline"
+    onTap="onClose"
+    className="ant-modal-close" />
+</popup>

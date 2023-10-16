@@ -1,0 +1,45 @@
+<view
+  class="ant-toast {{className || ''}} {{icon || image || type ? 'ant-toast-icon-wrapper' : ''}}"
+  a:if="{{show}}"
+  style="{{style || ''}}">
+  <view
+    a:if="{{type}}"
+    class="ant-toast-normal">
+    <loading
+      a:if="{{type === 'loading'}}"
+      type="mini"
+      height="40px" />
+    <am-icon
+      a:elif="{{type === 'warning'}}"
+      type="ExclamationOutline"
+      className="ant-toast-icon" />
+    <am-icon
+      a:elif="{{type === 'error'}}"
+      type="CloseOutline"
+      className="ant-toast-icon" />
+    <am-icon
+      a:elif="{{type === 'success'}}"
+      type="CheckOutline"
+      className="ant-toast-icon" />
+  </view>
+  <am-icon
+    a:elif="{{icon}}"
+    type="{{icon}}"
+    className="ant-toast-icon" />
+  <view
+    a:elif="{{image}}"
+    style="background-image: url({{image}})"
+    class="ant-toast-image" />
+  <view class="ant-toast-text-body">
+    <view class="ant-toast-text-box">
+      <view class="ant-toast-text-content">{{content.substring(0, 24)}}</view>
+    </view>
+  </view>
+</view>
+
+<mask
+  className="ant-toast-mask"
+  a:if="{{show && showMask}}"
+  show="{{true}}"
+  onMaskTap="handleClickMask"
+  style="{{maskStyle}}" />

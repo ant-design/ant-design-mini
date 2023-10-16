@@ -1,6 +1,6 @@
 {
   "description": "Ant Design Mini 示例小程序",
-  "miniprogramRoot": "wechat/",
+  "miniprogramRoot": "compiled/wechat",
   "compileType": "miniprogram",
   "libVersion": "3.0.1",
   "packOptions": {
@@ -23,10 +23,7 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "useCompilerPlugins": [
-    "typescript",
-    "less"
-  ],
+  "useCompilerPlugins": ["typescript", "less"],
   "srcMiniprogramRoot": "wechat/",
   "projectname": "antd",
   "simulatorPluginLibVersion": {}

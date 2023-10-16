@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Steps",
+  "usingComponents": {
+    "steps": "../../../src/Steps/index",
+    "icon": "../../../src/Icon/index",
+    "button": "../../../src/Button/index",
+    "container": "../../../src/Container/index"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "CascaderPicker",
+  "usingComponents": {
+    "cascader-picker": "../../../src/Picker/CascaderPicker/index",
+    "list-item": "../../../src/List/ListItem/index",
+    "list": "../../../src/List/index",
+    "button": "../../../src/Button/index"
+  }
+}

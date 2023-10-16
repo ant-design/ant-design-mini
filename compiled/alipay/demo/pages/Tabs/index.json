@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Tabs",
+  "usingComponents": {
+    "container": "../../../src/Container/index",
+    "tabs": "../../../src/Tabs/index",
+    "badge": "../../../src/Badge/index",
+    "icon": "../../../src/Icon/index"
+  }
+}

@@ -1,0 +1,34 @@
+<import-sjs
+  from="./index.sjs"
+  name="util" />
+
+<view
+  class="ant-selector {{className ? className : ''}} {{disabled ? 'ant-selector-disabled' : ''}}"
+  style="{{style}}">
+  <view class="ant-selector-content-container">
+    <view
+      a:for="{{options}}"
+      class="ant-selector-content {{options.length <= 2 ? 'ant-selector-content-item2' : ''}}">
+      <view
+        class="ant-selector-item {{item.disabled ? 'ant-selector-item-disabled' : ''}} {{util.getChecked(item.value, mixin.value, multiple) ? `ant-selector-item-active ${activeItemClassName ? activeItemClassName: ''}` :''}}"
+        style="{{util.getChecked(item.value, mixin.value, multiple) ? (activeItemStyle||'') : ''}}"
+        data-value="{{item.value}}"
+        data-disabled="{{item.disabled}}"
+        onTap="onChange">
+        <view
+          class="ant-selector-item-text"
+          a:if="{{item.text}}">
+          {{item.text}}
+        </view>
+        <view
+          class="ant-selector-item-subtext"
+          a:if="{{item.subText}}">
+          {{item.subText}}
+        </view>
+        <view
+          class="ant-selector-item-badge-active"
+          a:if="{{util.getChecked(item.value, mixin.value, multiple)}}" />
+      </view>
+    </view>
+  </view>
+</view>

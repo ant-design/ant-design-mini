@@ -17,6 +17,7 @@ interface MiniProgramSourceCompileOption {
   dest: string;
   watch: boolean;
   debug?: string | string[];
+  allowList?: string[];
   tsconfig: string;
   buildOption: {
     defVar: any;
@@ -36,6 +37,42 @@ export type FilePrecess = (old: string) => Promise<string> | string;
 
 export type TransFormFactory = (handler) => any;
 
+const allowList = [
+  '_util',
+  'Button',
+  'Container',
+  'Icon',
+  'Loading',
+  'mixins',
+  'style',
+  'Switch',
+  'Tag',
+];
+
+const demoAllowList = [
+  'pages/Button',
+  'pages/ButtonIcon',
+  'pages/ButtonInline',
+  'pages/Icon',
+  'pages/Loading',
+  'pages/Switch',
+  'pages/Tag',
+];
+
+const include = function (list: string[], source: string) {
+  return through2.obj(function (file, enc, callback) {
+    const relativeName = path.relative(source, file.path);
+    const match = list.some((o) => {
+      return relativeName.startsWith(o + '/');
+    });
+    if (match) {
+      callback(null, file);
+    } else {
+      return callback();
+    }
+  });
+};
+
 export function miniCompiler(option: MiniProgramSourceCompileOption) {
   function task(
     options: { name: string; glob: string[]; destExtension: string },
@@ -46,9 +83,15 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   ) {
     function taskImplFactory(init: boolean) {
       return () => {
-        let srcStream = gulp.src([...options.glob, '!**/__tests__/**'], {
-          cwd: option.source,
-        });
+        let srcStream = gulp.src(
+          [...options.glob, '!**/__tests__/**', '!global.d.ts'],
+          {
+            cwd: option.source,
+          }
+        );
+        if (Array.isArray(option.allowList)) {
+          srcStream = srcStream.pipe(include(option.allowList, option.source));
+        }
         if (option.watch && !init) {
           srcStream = srcStream.pipe(
             changed(option.dest, { extension: options.destExtension })
@@ -253,45 +296,67 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
 }
 
 export function compileAntdMini(watch: boolean) {
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsxml', 'tsconfig.json'),
-    source: resolve(__dirname, '..', 'tsxml'),
-    dest: resolve(__dirname, '..', 'wechat'),
-    watch,
-    buildOption: {
-      compileTs: true,
-      compileLess: true,
-      platform: tsxml.wechat,
-      styleExt: '.wxss',
-      xmlExt: '.wxml',
-      xmlScriptExt: '.wxs',
-      defVar: {
-        WECHAT: true,
-        ALIPAY: false,
-      },
-      xmlScriptOption: {
-        forceCommonjs: true,
-      },
+  const wechatBuildOption = {
+    compileTs: true,
+    compileLess: true,
+    platform: tsxml.wechat,
+    styleExt: '.wxss',
+    xmlExt: '.wxml',
+    xmlScriptExt: '.wxs',
+    defVar: {
+      WECHAT: true,
+      ALIPAY: false,
     },
+    xmlScriptOption: {
+      forceCommonjs: true,
+    },
+  };
+
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'src'),
+    dest: resolve(__dirname, '..', 'compiled', 'wechat', 'src'),
+    watch,
+    allowList,
+    buildOption: wechatBuildOption,
   });
 
   miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsxml', 'tsconfig.json'),
-    source: resolve(__dirname, '..', 'tsxml'),
-    dest: resolve(__dirname, '..'),
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'demo'),
+    dest: resolve(__dirname, '..', 'compiled', 'wechat', 'demo'),
     watch,
-    buildOption: {
-      defVar: {
-        WECHAT: false,
-        ALIPAY: true,
-      },
-      compileTs: false,
-      compileLess: false,
-      platform: tsxml.alipay,
-      xmlExt: '.axml',
-      styleExt: '.acss',
-      xmlScriptExt: '.sjs',
-      xmlScriptOption: {},
+    allowList: demoAllowList,
+    buildOption: wechatBuildOption,
+  });
+
+  const alipayBuildOption = {
+    defVar: {
+      WECHAT: false,
+      ALIPAY: true,
     },
+    compileTs: false,
+    compileLess: false,
+    platform: tsxml.alipay,
+    xmlExt: '.axml',
+    styleExt: '.acss',
+    xmlScriptExt: '.sjs',
+    xmlScriptOption: {},
+  };
+
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'src'),
+    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
+    watch,
+    buildOption: alipayBuildOption,
+  });
+
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'demo'),
+    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
+    watch,
+    buildOption: alipayBuildOption,
   });
 }

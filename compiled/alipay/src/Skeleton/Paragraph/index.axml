@@ -1,0 +1,9 @@
+<view
+  a:if="{{loading && rows > 0}}"
+  class="ant-skeleton-paragraph {{animate?'ant-skeleton-paragraph-animate':''}} {{className||''}}"
+  style="{{style}}">
+  <view
+    class="ant-skeleton-paragraph-row"
+    a:for="{{rows}}"></view>
+</view>
+<slot a:else />

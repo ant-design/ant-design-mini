@@ -33,7 +33,14 @@ module.exports = async function getSourceCode(page, theme) {
     '.json': getFileContent,
   };
 
-  const cwd = path.join(__dirname, '../demo', page, '../');
+  const cwd = path.join(
+    __dirname,
+    '..',
+    'compiled/alipay',
+    'demo',
+    page,
+    '../'
+  );
   const json = {};
   const list = (await glob('**/*.+(js|axml|acss|less|sjs|json)', {
     cwd,

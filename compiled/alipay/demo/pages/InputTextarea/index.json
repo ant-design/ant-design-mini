@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Input",
+  "usingComponents": {
+    "textarea": "../../../src/Input/Textarea/index",
+    "button": "../../../src/Button/index",
+    "container": "../../../src/Container/index"
+  }
+}

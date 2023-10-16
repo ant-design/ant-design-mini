@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Tabs",
+  "usingComponents": {
+    "tabs": "../../../src/Tabs/index",
+    "button": "../../../src/Button/index"
+  }
+}

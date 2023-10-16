@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "form-item": "../FormItem/index",
+    "cascader-picker": "../../Picker/CascaderPicker/index",
+    "icon": "../../Icon/index"
+  }
+}

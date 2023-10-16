@@ -1,0 +1,38 @@
+@import (reference) './variable.less';
+
+@listPrefix: ant-list;
+
+.@{listPrefix} {
+  &-radius {
+    margin: 0 @v-spacing-large;
+    & .@{listPrefix}-body {
+      border-radius: @list-radius;
+    }
+    .@{listPrefix}-header,
+    .@{listPrefix}-footer {
+      padding: @v-spacing-standard 0;
+    }
+  }
+  &-header,
+  &-footer {
+    display: flex;
+    align-items: center;
+    padding: @v-spacing-standard @v-spacing-large;
+    line-height: 1.4;
+    font-size: 30 * @rpx;
+    color: @list-header-color;
+    &:empty {
+      display: none;
+    }
+  }
+  &-body {
+    position: relative;
+    overflow: hidden;
+    // 隐藏最后一根分割线
+    > .ant-list-item:last-child {
+      .ant-list-item-line::after {
+        display: none;
+      }
+    }
+  }
+}

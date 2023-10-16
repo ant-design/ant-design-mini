@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "am-icon": "../Icon/index"
+  }
+}

@@ -1,0 +1,21 @@
+.custom {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.custom > * {
+  margin: 8px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  min-height: 50px;
+}
+
+/* 
+.custom .popover {
+  margin: 12px;
+} */

@@ -1,0 +1,74 @@
+@import (reference) './variable.less';
+@import '../style/mixins/hairline.less';
+
+@resultPrefix: ant-result;
+
+.@{resultPrefix} {
+  position: relative;
+  text-align: center;
+  line-height: normal;
+  box-sizing: border-box;
+  .hairline('bottom');
+
+  &-main {
+    padding: @size-8 @result-spacing-LR;
+    margin-bottom: @size-5;
+    background-color: @result-main-background;
+  }
+
+  &-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: @result-img-size;
+    height: @result-img-size;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+    line-height: @result-img-size;
+
+    & + .@{resultPrefix}-title,
+    & + .@{resultPrefix}-message {
+      padding-top: @size-5;
+    }
+
+    &-success {
+      color: @COLOR_BRAND1;
+    }
+
+    &-error {
+      color: @COLOR_TEXT_WARNING;
+    }
+
+    &-info {
+      color: @COLOR_BRAND1;
+    }
+
+    &-warning {
+      color: @COLOR_ORANGE_1;
+    }
+
+    &-wait {
+      color: @COLOR_POMONAGREEN_1;
+    }
+  }
+
+  &-title {
+    font-size: @result-title-size;
+    color: @result-title-color;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &-message {
+    padding-top: @size-2;
+    font-size: @result-desc-size;
+    color: @result-desc-color;
+
+    &:empty {
+      display: none;
+    }
+  }
+}

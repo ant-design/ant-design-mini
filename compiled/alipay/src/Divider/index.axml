@@ -1,0 +1,45 @@
+<import-sjs
+  from="./index.sjs"
+  name="divider" />
+
+<!-- 水平分割线 -->
+<view
+  a:if="{{direction==='horizontal'}}"
+  class="ant-divider ant-divider-horizontal {{className || ''}}"
+  style="{{style || ''}}">
+  <view
+    class="ant-divider-horizontal-left"
+    style="
+      flex: {{divider.getLineWidthFlex(textPosition,text)[0]}};
+      {{lineHeight ? `borderBottomWidth:${lineHeight}px;`:'' }}
+      {{lineType ? `borderBottomStyle:${lineType};`: ''}}
+      {{lineColor ? `borderBottomColor:${lineColor};`: ''}}
+    " />
+  <slot name="text">
+    <view
+      class="ant-divider-horizontal-text {{textClassName || ''}}"
+      a:if="{{text}}"
+      style="{{textStyle || ''}}">
+      {{text}}
+    </view>
+  </slot>
+  <view
+    class="ant-divider-horizontal-right"
+    style="
+      flex: {{divider.getLineWidthFlex(textPosition,text)[1]}};
+      {{lineHeight ? `borderBottomWidth:${lineHeight}px;`:'' }}
+      {{lineType ? `borderBottomStyle:${lineType};`: ''}}
+      {{lineColor ? `borderBottomColor:${lineColor};`: ''}}
+    " />
+</view>
+
+<!-- 垂直分割线 -->
+<view
+  a:if="{{direction==='vertical'}}"
+  class="ant-divider ant-divider-vertical {{className || ''}}"
+  style="
+    {{style || ''}};
+    {{lineWidth ? `borderRightWidth:${lineWidth}px;`:'' }}
+    {{lineType ? `borderRightStyle:${lineType};`: ''}}
+    {{lineColor ? `borderRightColor:${lineColor};`: ''}}
+  " />

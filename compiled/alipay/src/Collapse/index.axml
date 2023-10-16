@@ -1,0 +1,73 @@
+<import-sjs
+  name="utils"
+  from="./index.sjs" />
+
+<view
+  class="ant-collapse {{className ? className : ''}}"
+  style="{{style}}">
+  <view
+    a:for="{{items}}"
+    class="ant-collapse-item 
+    {{utils.isActive(mixin.value, index, item.disabled) ? 'ant-collapse-item-active' : ''}} 
+    {{item.disabled ? 'ant-collapse-item-disabled' : ''}}">
+    <view
+      class="ant-collapse-item-title"
+      data-active="{{utils.isActive(mixin.value, index, item.disabled)}}"
+      data-index="{{index}}"
+      data-id="{{$id}}"
+      onTap="onChange">
+      <view class="ant-collapse-item-line">
+        <view class="ant-collapse-item-title-node">
+          <slot
+            name="title"
+            value="{{item}}"
+            index="{{index}}"
+            current="{{mixin.value}}">
+            {{item.title}}
+          </slot>
+        </view>
+        <view class="ant-collapse-item-brief-container">
+          <view class="ant-collapse-item-brief-node">
+            <slot
+              name="brief"
+              value="{{item}}"
+              index="{{index}}"
+              current="{{mixin.value}}">
+              {{brief}}
+            </slot>
+          </view>
+
+          <view class="ant-collapse-item-title-arrow">
+            <slot
+              name="icon"
+              value="{{item}}"
+              index="{{index}}"
+              current="{{mixin.value}}">
+              <am-icon
+                type="{{utils.isActive(mixin.value, index, item.disabled) ? 'UpOutline' : 'DownOutline'}}"
+                size="x-small" />
+            </slot>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view
+      class="ant-collapse-item-content-wrap {{hasChange ? 'ant-collapse-item-content-wrap-transition' : ''}} {{`ant-collapse-item-content-wrap-${$id}-${index}`}}"
+      onTransitionEnd="resetContentHeight"
+      style="{{utils.getStyleHeight(index, contentHeight, item.disabled)}}"
+      data-index="{{index}}">
+      <view class="ant-collapse-item-content-container">
+        <view
+          class="ant-collapse-item-content {{`ant-collapse-item-content-${$id}-${index}`}}">
+          <slot
+            name="content"
+            value="{{item}}"
+            index="{{index}}"
+            current="{{mixin.value}}">
+            {{item.content}}
+          </slot>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

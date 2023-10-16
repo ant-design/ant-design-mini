@@ -1,0 +1,22 @@
+<view
+  class="ant-list {{className ? className : ''}} {{radius ? 'ant-list-radius' : ''}}">
+  <block a:if="{{header}}">
+    <view class="ant-list-header">{{header}}</view>
+  </block>
+  <block a:else>
+    <view class="ant-list-header">
+      <slot name="header" />
+    </view>
+  </block>
+  <view class="ant-list-body">
+    <slot />
+  </view>
+  <block a:if="{{footer}}">
+    <view class="ant-list-footer">{{footer}}</view>
+  </block>
+  <block a:else>
+    <view class="ant-list-footer">
+      <slot name="footer" />
+    </view>
+  </block>
+</view>

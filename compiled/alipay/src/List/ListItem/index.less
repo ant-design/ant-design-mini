@@ -1,0 +1,107 @@
+@import (reference) '../variable.less';
+@import '../../style/mixins/hairline.less';
+
+@listItemPrefix: ant-list-item;
+
+.@{listItemPrefix} {
+  align-items: center;
+  background-color: @list-background-color;
+  color: @COLOR_TEXT_PRIMARY;
+  line-height: 1.4;
+  &-hover {
+    background-color: @COLOR_BORDER;
+  }
+
+  &-line {
+    flex: 1;
+    display: flex;
+    padding: 24 * @rpx;
+    align-items: center;
+    position: relative;
+    &-divider {
+      .hairline('bottom');
+    }
+    &-disabled {
+      opacity: 0.4;
+    }
+  }
+
+  &-image {
+    &-container {
+      margin-right: 24 * @rpx;
+      &:empty {
+        display: none;
+      }
+    }
+    &-icon {
+      font-size: 52 * @rpx;
+    }
+    &-image {
+      width: 52 * @rpx;
+      height: 52 * @rpx;
+      overflow: hidden;
+    }
+  }
+
+  &-content {
+    &-container {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    &-main {
+      font-size: 34 * @rpx;
+    }
+    &-title {
+      &-container {
+        font-size: 26 * @rpx;
+        color: @COLOR_TEXT_ASSIST;
+      }
+    }
+    &-brief {
+      &-container {
+        font-size: 26 * @rpx;
+        color: @COLOR_TEXT_ASSIST;
+      }
+    }
+  }
+
+  &-extra {
+    font-size: 34 * @rpx;
+    display: flex;
+    flex-direction: row-reverse;
+    &:empty {
+      display: none;
+    }
+    &-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-brief {
+      display: flex;
+      flex-direction: row-reverse;
+      font-size: 30 * @rpx;
+      color: @COLOR_TEXT_ASSIST;
+    }
+  }
+
+  &-arrow {
+    margin-left: 8 * @rpx;
+    color: @COLOR_TEXT_WEAK;
+    display: flex;
+    align-items: center;
+    .ant-icon {
+      font-size: 36 * @rpx;
+    }
+  }
+
+  .line {
+    height: 1 * @rpx;
+    background-color: @COLOR_BORDER;
+    width: calc(100% - 24 * @rpx);
+    position: absolute;
+    right: 0;
+  }
+}

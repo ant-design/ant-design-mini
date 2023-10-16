@@ -1,0 +1,35 @@
+@import (reference) '../style/themes/index.less';
+
+@skeletonPrefix: ant-skeleton;
+
+@skeleton-fill: @COLOR_BORDER;
+
+@avatar-size: 88 * @rpx;
+
+@default-radius: 8 * @rpx;
+
+@button-width: 120 * @rpx;
+@button-height: 48 * @rpx;
+
+@input-width: 400 * @rpx;
+@input-height: 40 * @rpx;
+
+.skeleton-animation() {
+  background: linear-gradient(
+    90deg,
+    @COLOR_BORDER 25%,
+    fade(@COLOR_TEXT_WEAK, 60) 37%,
+    @COLOR_BORDER 63%
+  );
+  background-size: 400% 100%;
+  animation: ant-skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes ant-skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

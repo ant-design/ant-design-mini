@@ -7,7 +7,7 @@
     "jsx": "preserve",
     "types": ["node"],
     "paths": {
-      "tsxml": ["../tsxml/lib/index.tsx"]
+      "tsxml": ["../src/tsxml/index.tsx"]
     }
   },
   "include": ["./**/*"]

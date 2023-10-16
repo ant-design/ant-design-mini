@@ -1,0 +1,58 @@
+<view
+  class="ant-image-upload {{className || ''}}"
+  style="{{style || ''}}">
+  <slot fileList="{{mixin.value}}">
+    <view
+      a:for="{{mixin.value}}"
+      class="ant-image-upload-show"
+      a:key="uid">
+      <view
+        data-uid="{{item.uid}}"
+        onTap="onRemove">
+        <slot name="removeButton">
+          <view class="ant-image-upload-close" />
+        </slot>
+      </view>
+      <slot
+        name="image"
+        value="{{item}}">
+        <view
+          class="ant-image-upload-cover"
+          a:if="{{item.status === 'uploading' || item.status === 'error'}}">
+          <view
+            a:if="{{item.status === 'uploading'}}"
+            class="ant-image-upload-cover-loading">
+            <loading class="ant-image-upload-cover-loading-icon" />
+            <view class="ant-image-upload-cover-loading-text">上传中...</view>
+          </view>
+          <view
+            a:if="{{item.status === 'error'}}"
+            class="ant-image-upload-cover-error">
+            <icon
+              class="ant-image-upload-cover-error-icon"
+              type="CloseCircleOutline" />
+            <view class="ant-image-upload-cover-error-text">上传失败</view>
+          </view>
+        </view>
+        <image
+          class="ant-image-upload-image"
+          mode="{{imageMode}}"
+          src="{{item.url || item.path}}"
+          data-uid="{{item.uid}}"
+          onTap="onPreview" />
+      </slot>
+    </view>
+
+    <view onTap="chooseImage">
+      <slot name="uploadButton">
+        <view
+          a:if="{{typeof maxCount === 'undefined' || mixin.value.length < maxCount}}"
+          class="ant-image-upload-add-image-wrapper">
+          <icon
+            type="AddOutline"
+            className="ant-image-upload-add-image-icon" />
+        </view>
+      </slot>
+    </view>
+  </slot>
+</view>

@@ -1,0 +1,80 @@
+<import-sjs
+  from="./index.sjs"
+  name="sliderSjs" />
+
+<template name="slider-handler">
+  <view
+    class="ant-slider-handler"
+    style="left: {{position}}%">
+    <popover
+      placement="top"
+      visible="{{showTooltip}}"
+      showMask="{{false}}">
+      <slot name="slider">
+        <view class="ant-slider-handler-block">
+          <view class="ant-slider-handler-icon-default">
+            <view class="ant-slider-handler-icon-default-line1" />
+            <view class="ant-slider-handler-icon-default-line2" />
+            <view class="ant-slider-handler-icon-default-line3" />
+          </view>
+        </view>
+      </slot>
+      <view
+        slot="content"
+        class="ant-slider-tooltip-content">
+        <slot
+          name="tooltip"
+          value="{{value}}">
+          {{value}}
+        </slot>
+      </view>
+    </popover>
+  </view>
+</template>
+
+<view
+  class="ant-slider {{className ? className : ''}}"
+  style="opacity: {{disabled ? '0.4' : '1'}};">
+  <view
+    class="ant-slider-track {{showNumber ? 'ant-slider-track-number' : ''}}">
+    <view
+      class="ant-slider-track-touch-area"
+      id="ant-slider-id-{{$id}}"
+      onTouchStart="handleTrackTouchStart"
+      onTouchEnd="handleTrackTouchEnd"
+      onTouchMove="handleTrackTouchMove">
+      <view class="ant-slider-track-fill">
+        <view class="ant-slider-track-fill-background" />
+        <view
+          class="ant-slider-track-fill-front {{activeLineClassName || ''}}"
+          style="width: {{sliderWidth}}%; left: {{sliderLeft}}%; {{activeLineStyle || ''}}" />
+
+        <view class="ant-slider-showTicks">
+          <view
+            a:for="{{tickList}}"
+            class="ant-slider-tick ant-slider-tick-{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? 'front' : 'back' }} {{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotClassName ? activeDotClassName : ''}}"
+            style="left: {{item.left}}%;{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotStyle ? activeDotStyle: ''}}">
+            <view
+              a:if="{{showNumber}}"
+              class="ant-slider-tick-number">
+              <slot
+                name="tick"
+                value="{{item.value}}">
+                {{item.value}}
+              </slot>
+            </view>
+          </view>
+        </view>
+
+        <template
+          a:if="{{range}}"
+          is="slider-handler"
+          data="{{ position: sliderLeft, icon: icon, value: mixin.value[0], showTooltip: changingStart&&showTooltip }}" />
+        <template
+          is="slider-handler"
+          data="{{ position: sliderLeft + sliderWidth, icon: icon, value: range? mixin.value[1]: mixin.value, showTooltip: changingEnd&&showTooltip }}" />
+      </view>
+    </view>
+  </view>
+  <view></view>
+</view>
