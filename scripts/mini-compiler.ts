@@ -11,7 +11,7 @@ import less from 'gulp-less';
 import ifdef from '@diamondyuan/gulp-ifdef';
 import json5 from 'json5';
 import { resolve } from 'path';
-
+import fs from 'fs/promises';
 interface MiniProgramSourceCompileOption {
   source: string;
   dest: string;
@@ -19,6 +19,7 @@ interface MiniProgramSourceCompileOption {
   debug?: string | string[];
   allowList?: string[];
   tsconfig: string;
+  assets: string[];
   buildOption: {
     defVar: any;
     compileTs: boolean;
@@ -173,18 +174,6 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
     }
   );
 
-  // 拷贝 markdown 文件
-  task(
-    {
-      name: 'md',
-      glob: ['**/*.md'],
-      destExtension: '.md',
-    },
-    function (stream: NodeJS.ReadWriteStream) {
-      return stream.pipe(gulp.dest(option.dest));
-    }
-  );
-
   // 拷贝 ts 源码文件
   task(
     {
@@ -260,16 +249,18 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
     }
   );
 
-  task(
-    {
-      name: 'json',
-      glob: ['**/*.json', '!tsconfig.json'],
-      destExtension: '.json',
-    },
-    function (stream: NodeJS.ReadWriteStream) {
-      return stream.pipe(gulp.dest(option.dest));
-    }
-  );
+  option.assets.forEach((ext) => {
+    task(
+      {
+        name: `copy-${ext}`,
+        glob: ['**/*.' + ext],
+        destExtension: '.' + ext,
+      },
+      function (stream: NodeJS.ReadWriteStream) {
+        return stream.pipe(gulp.dest(option.dest));
+      }
+    );
+  });
 
   task(
     {
@@ -295,7 +286,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   );
 }
 
-export function compileAntdMini(watch: boolean) {
+export async function compileAntdMini(watch: boolean) {
   const wechatBuildOption = {
     compileTs: true,
     compileLess: true,
@@ -318,6 +309,7 @@ export function compileAntdMini(watch: boolean) {
     dest: resolve(__dirname, '..', 'compiled', 'wechat', 'src'),
     watch,
     allowList,
+    assets: ['md', 'js', 'json'],
     buildOption: wechatBuildOption,
   });
 
@@ -327,6 +319,7 @@ export function compileAntdMini(watch: boolean) {
     dest: resolve(__dirname, '..', 'compiled', 'wechat', 'demo'),
     watch,
     allowList: demoAllowList,
+    assets: ['md', 'js', 'json'],
     buildOption: wechatBuildOption,
   });
 
@@ -349,6 +342,7 @@ export function compileAntdMini(watch: boolean) {
     source: resolve(__dirname, '..', 'src'),
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
     watch,
+    assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
     buildOption: alipayBuildOption,
   });
 
@@ -357,6 +351,7 @@ export function compileAntdMini(watch: boolean) {
     source: resolve(__dirname, '..', 'demo'),
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
     watch,
+    assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
     buildOption: alipayBuildOption,
   });
 }

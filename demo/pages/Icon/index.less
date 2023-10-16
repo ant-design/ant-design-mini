@@ -1,0 +1,29 @@
+.custom-color {
+  color: blue;
+}
+
+.custom-size {
+  /// #if ALIPAY
+  font-size: 40px;
+  /// #endif
+
+  /// #if WECHAT
+  font-size: 40px !important;
+  /// #endif
+}
+
+.custom {
+  /// #if ALIPAY
+  font-size: 40px;
+  /// #endif
+
+  color: red;
+  margin: 10px;
+}
+
+/// #if WECHAT
+.custom text {
+  font-size: 40px;
+}
+
+/// #endif

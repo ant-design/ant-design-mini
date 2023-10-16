@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Switch",
+  "usingComponents": {
+    "switch": "../../../src/Switch/index",
+    "container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index"
+  }
+}
