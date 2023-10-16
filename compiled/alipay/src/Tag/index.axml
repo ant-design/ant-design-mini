@@ -1,0 +1,14 @@
+<view
+  class="ant-tag ant-tag-{{ type }} ant-tag-{{ color }} {{ className || '' }}"
+  style="{{ style || '' }}">
+  <block a:if="{{ icon }}">
+    <view class="ant-tag-icon-container">
+      <slot name="icon">
+        <ant-icon type="{{ icon }}" />
+      </slot>
+    </view>
+  </block>
+  <view class="ant-tag-content">
+    <slot />
+  </view>
+</view>
