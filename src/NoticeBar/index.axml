@@ -1,0 +1,42 @@
+<view
+  class="ant-notice-bar {{className || ''}} {{type ? 'ant-notice-bar-' + type : ''}}"
+  a:if="{{show}}"
+  style="{{style}}">
+  <slot name="icon">
+    <view className="ant-notice-bar-icon">
+      <image-icon
+        image="{{icon}}"
+        a:if="{{ icon }}"
+        class="ant-notice-bar-icon-image" />
+      <icon
+        type="InformationCircleOutline"
+        a:elif="{{type ==='error'}}" />
+      <icon
+        type="SoundOutline"
+        a:else />
+    </view>
+  </slot>
+  <view class="ant-notice-bar-content ant-notice-bar-content-{{$id}}">
+    <!-- 文本内容展示区域 -->
+    <view
+      class="ant-notice-bar-marquee ant-notice-bar-marquee-{{$id}}"
+      style="{{marqueeStyle}} display: {{enableMarquee ? 'inline-block' : 'block'}}"
+      onTransitionEnd="onTransitionEnd">
+      <slot />
+    </view>
+  </view>
+  <view class="ant-notice-bar-operation">
+    <slot name="extra" />
+    <!-- icon 类型 -->
+    <icon
+      className="ant-notice-bar-operation-icon"
+      type="RightOutline"
+      onTap="onTap"
+      a:if="{{mode==='link'}}" />
+    <icon
+      className="ant-notice-bar-operation-icon"
+      type="CloseOutline"
+      a:if="{{mode==='closeable'}}"
+      onTap="onTap" />
+  </view>
+</view>

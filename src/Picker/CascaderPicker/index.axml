@@ -1,0 +1,36 @@
+<picker
+  className="ant-cascader-picker {{className||''}}"
+  style="{{style}}"
+  animationType="{{ animationType }}"
+  popClassName="ant-cascader-picker-popup {{popClassName || ''}}"
+  popStyle="{{popStyle}}"
+  options="{{columns}}"
+  value="{{currentValue}}"
+  disabled="{{disabled}}"
+  title="{{title}}"
+  placeholder="{{placeholder}}"
+  okText="{{okText}}"
+  cancelText="{{cancelText}}"
+  maskStyle="{{maskStyle}}"
+  maskClassName="{{maskClassName}}"
+  indicatorStyle="{{indicatorStyle}}"
+  indicatorClassName="{{indicatorClassName}}"
+  onChange="onChange"
+  onCancel="onCancel"
+  onOk="onOk"
+  onVisibleChange="onVisibleChange"
+  maskClosable="{{maskClosable}}"
+  onFormat="onFormat">
+  <slot
+    name="content"
+    slot="content" />
+  <slot
+    name="title"
+    slot="title" />
+  <slot
+    name="prefix"
+    slot="prefix" />
+  <slot
+    name="suffix"
+    slot="suffix" />
+</picker>

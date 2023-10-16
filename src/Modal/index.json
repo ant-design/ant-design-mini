@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "button": "../Button/index",
+    "icon": "../Icon/index",
+    "popup": "../Popup/index"
+  }
+}

@@ -1,0 +1,98 @@
+<import-sjs
+  from="./index.sjs"
+  name="utils" />
+<view
+  class="ant-guide-tour {{className?className:''}}"
+  style="{{style || ''}}"
+  a:if="{{visible}}">
+  <mask
+    show
+    className="{{maskClassName}}"
+    style="z-index:9999;{{maskStyle || ''}}" />
+  <am-icon
+    type="CloseOutline"
+    class="ant-guide-tour-clear"
+    onTap="onCancel" />
+  <view class="ant-guide-tour-button">
+    <button
+      inline
+      size="small"
+      a:if="{{utils.checkShowJump(mixin.value,items)}}"
+      onTap="onCancel">
+      跳过
+    </button>
+    <button
+      inline
+      size="small"
+      onTap="onPrev"
+      a:if="{{utils.checkShowPrev(mixin.value,items)}}"
+      data-currentValue="{{mixin.value}}">
+      上一步
+    </button>
+    <button
+      inline
+      size="small"
+      onTap="onNext"
+      a:if="{{utils.checkShowNext(mixin.value,items)}}"
+      data-currentValue="{{mixin.value}}">
+      下一步
+    </button>
+    <button
+      inline
+      size="small"
+      a:if="{{utils.checkShowKnow(mixin.value,items)}}"
+      onTap="onCancel">
+      知道了
+    </button>
+  </view>
+  <block a:if="{{swiperable}}">
+    <view class="ant-guide-tour-indicator">
+      <view
+        a:for="{{items}}"
+        class="ant-guide-tour-indicator-dot {{index === mixin.value ? 'ant-guide-tour-indicator-dot-active':''}}" />
+    </view>
+    <swiper
+      class="ant-guide-tour-swiper"
+      current="{{mixin.value}}"
+      adjust-height="none"
+      style="height: 100vh"
+      disable-touch="{{ture}}"
+      onChange="onSwiperChange">
+      <swiper-item a:for="{{items}}">
+        <view
+          class="ant-guide-tour-item {{item.className ? item.className : ''}}"
+          style="top:{{item.top}}px; left:{{item.left}}px">
+          <slot
+            name="step"
+            index="{{current}}">
+            <image
+              a:if="{{item.imageUrl}}"
+              class="ant-guide-tour-item-img"
+              src="{{item.imageUrl}}"
+              style="{{item.imageStyle}}"
+              mode="{{item.imageMode}}" />
+          </slot>
+        </view>
+      </swiper-item>
+    </swiper>
+  </block>
+  <block
+    a:else
+    a:for="{{items}}">
+    <view
+      class="ant-guide-tour-item {{item.className ? item.className : ''}}"
+      style="top:{{item.top}}px; left:{{item.left}}px"
+      a:if="{{mixin.value === index}}">
+      <slot
+        name="step"
+        index="{{index}}">
+        <image
+          a:if="{{item.imageUrl}}"
+          class="ant-guide-tour-item-img"
+          src="{{item.imageUrl}}"
+          style="{{item.imageStyle}}"
+          mode="{{item.imageMode}}" />
+      </slot>
+    </view>
+  </block>
+</view>

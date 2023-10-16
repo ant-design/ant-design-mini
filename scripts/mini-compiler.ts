@@ -17,6 +17,7 @@ interface MiniProgramSourceCompileOption {
   dest: string;
   watch: boolean;
   debug?: string | string[];
+  allowList?: string[];
   tsconfig: string;
   buildOption: {
     defVar: any;
@@ -36,6 +37,33 @@ export type FilePrecess = (old: string) => Promise<string> | string;
 
 export type TransFormFactory = (handler) => any;
 
+const allowList = [
+  'demo/pages/Button',
+  'demo/pages/ButtonIcon',
+  'demo/pages/ButtonInline',
+  'demo/pages/Icon',
+  'demo/pages/Icon',
+  'demo/pages/Loading',
+  'demo/pages/Switch',
+  'demo/pages/Tag',
+  'src/_util',
+  'src/Button',
+  'src/Container',
+  'src/Icon',
+  'src/Loading',
+  'src/mixins',
+  'src/style',
+  'src/Switch',
+  'src/Tag',
+];
+
+const include = function (list: string[]) {
+  return through2.obj(function (file, enc, callback) {
+    console.log(file.path);
+    return callback();
+  });
+};
+
 export function miniCompiler(option: MiniProgramSourceCompileOption) {
   function task(
     options: { name: string; glob: string[]; destExtension: string },
@@ -52,6 +80,9 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
             cwd: option.source,
           }
         );
+        if (option.allowList) {
+          srcStream = srcStream.pipe(include(option.allowList));
+        }
         if (option.watch && !init) {
           srcStream = srcStream.pipe(
             changed(option.dest, { extension: options.destExtension })
@@ -277,6 +308,7 @@ export function compileAntdMini(watch: boolean) {
     source: resolve(__dirname, '..', 'src'),
     dest: resolve(__dirname, '..', 'compiled', 'wechat', 'src'),
     watch,
+    allowList,
     buildOption: wechatBuildOption,
   });
 
@@ -285,6 +317,7 @@ export function compileAntdMini(watch: boolean) {
     source: resolve(__dirname, '..', 'demo'),
     dest: resolve(__dirname, '..', 'compiled', 'wechat', 'demo'),
     watch,
+    allowList,
     buildOption: wechatBuildOption,
   });
 

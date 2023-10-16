@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "checklist-item": "./ChecklistItem/index",
+    "icon": "../Icon/index"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "form-item": "../FormItem/index",
+    "textarea": "../../Input/Textarea/index"
+  }
+}

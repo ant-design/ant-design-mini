@@ -1,0 +1,54 @@
+<import-sjs
+  from="./index.sjs"
+  name="helper" />
+<popup
+  className="ant-actionsheet-popup"
+  visible="{{visible}}"
+  maskClosable="{{true}}"
+  position="bottom"
+  onClose="onClose">
+  <view
+    style="{{style}}"
+    class="ant-actionsheet {{className ? className : ''}} {{helper.isIconMode(actions) ? 'ant-actionsheet-icon' : ''}}">
+    <slot name="title">
+      <view
+        class="ant-actionsheet-title-wrap"
+        a:if="{{title}}">
+        <view class="ant-actionsheet-title-content">{{title}}</view>
+      </view>
+    </slot>
+    <view class="ant-actionsheet-list">
+      <view
+        a:for="{{actions}}"
+        class="ant-actionsheet-list-item {{ item.disabled ? 'ant-actionsheet-list-item-disabled' : ''}}"
+        hover-class="{{ item.disabled ? '': 'ant-actionsheet-list-item-active' }} "
+        onTap="onAction"
+        data-index="{{index}}"
+        data-item="{{item}}">
+        <view
+          class="ant-actionsheet-list-item-icon"
+          a:if="{{helper.isIconMode(actions)}}"
+          style="background-image: url('{{item.icon}}')"></view>
+        <view class="ant-actionsheet-list-item-content">
+          <view
+            class="ant-actionsheet-list-item-title {{ item.danger ? 'ant-actionsheet-list-item-title-danger' : ''}}">
+            {{item.text}}
+          </view>
+          <view
+            a:if="{{item.description}}"
+            class="ant-actionsheet-list-item-description">
+            {{item.description}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="ant-actionsheet-cancel-gap" />
+    <slot name="cancelText">
+      <view
+        class="ant-actionsheet-cancel"
+        onTap="onClose">
+        {{cancelText}}
+      </view>
+    </slot>
+  </view>
+</popup>

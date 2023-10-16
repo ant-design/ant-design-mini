@@ -1,0 +1,83 @@
+@import (reference) './variable.less';
+
+@noticeBarPrefix: ant-notice-bar;
+
+.@{noticeBarPrefix} {
+  position: relative;
+  display: flex;
+  height: 75 * @rpx;
+  align-items: center;
+  overflow: hidden;
+  padding: @v-spacing-standard @h-spacing-large;
+  font-size: @notice-font-size;
+  color: @notice-color;
+  background-color: @notice-background-color;
+  box-sizing: border-box;
+
+  &-error {
+    color: @notice-error-color;
+    background-color: @notice-error-background-color;
+
+    &-scroll-left,
+    &-scroll-right {
+      background: @notice-error-background-color;
+    }
+  }
+
+  &-primary {
+    color: @notice-primary-color;
+    background-color: @notice-primary-background-color;
+
+    &-scroll-left,
+    &-scroll-right {
+      background: @notice-primary-background-color;
+    }
+  }
+
+  &-info {
+    color: @COLOR_WHITE;
+    background: @COLOR_TEXT_SECONDARY;
+
+    &-scroll-left,
+    &-scroll-right {
+      background: @COLOR_TEXT_SECONDARY;
+    }
+  }
+
+  &-icon {
+    margin-right: @h-spacing-standard;
+    font-size: 36 * @rpx;
+    &-image-image {
+      width: 36 * @rpx;
+      height: 36 * @rpx;
+    }
+  }
+
+  &-content {
+    position: relative;
+    z-index: 2;
+    flex: 1 100%;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: @default-line-height;
+  }
+
+  &-marquee {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  &-operation {
+    display: flex;
+    align-items: center;
+    &-icon {
+      margin-left: 24 * @rpx;
+    }
+  }
+}
+
+.ant-icon-size-x-small {
+  font-size: 18px;
+}

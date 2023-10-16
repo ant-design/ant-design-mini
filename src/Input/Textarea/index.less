@@ -1,0 +1,56 @@
+@import (reference) '../variable.less';
+
+@inputItemPrefix: ant-textarea;
+.@{inputItemPrefix} {
+  display: flex;
+  align-items: center;
+  background: @COLOR_CARD;
+  &-disabled {
+    opacity: 0.4;
+  }
+  &-line {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  &-content {
+    width: 100%;
+    align-self: center;
+    padding: 0;
+    font-size: 34 * @rpx;
+    text-align: left;
+    color: @input-item-color;
+    background: @COLOR_CARD;
+  }
+
+  &-clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16 * @rpx;
+    margin-left: 8 * @rpx;
+    &-icon {
+      color: @COLOR_TEXT_WEAK;
+      font-size: 34 * @rpx;
+    }
+  }
+
+  &-clear-show {
+    display: flex;
+  }
+  &-clear-hidden {
+    display: none;
+    pointer-events: none;
+  }
+  &-placeholder {
+    font-size: 34 * @rpx;
+    color: @input-item-placeholder-color;
+    margin-left: -6 * @rpx;
+  }
+}

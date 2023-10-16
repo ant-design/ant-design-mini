@@ -1,0 +1,70 @@
+@import (reference) './variable.less';
+
+.@{guideTourPrefix} {
+  &-button {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: @guide-tour-button-bottom;
+    z-index: @guide-tour-z-index-3;
+    display: flex;
+    justify-content: center;
+    .ant-button:nth-of-type(1) {
+      color: @guide-tour-text-color;
+      background-color: transparent;
+      box-shadow: inset 0 0 0 @border-width-standard @COLOR_BORDER_DEFAULT;
+    }
+    .ant-button:nth-of-type(2) {
+      color: @COLOR_TEXT_PRIMARY_DEFAULT;
+      background-color: @COLOR_WHITE_DEFAULT;
+      box-shadow: none;
+    }
+    .ant-button {
+      margin: 0 12 * @rpx;
+      width: 152 * @rpx;
+    }
+  }
+
+  &-indicator {
+    width: 100%;
+    position: absolute;
+    bottom: @guide-tour-dot-bottom;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: @guide-tour-z-index-2;
+    display: flex;
+    justify-content: center;
+    &-dot {
+      margin: 0 3 * @rpx;
+      background-color: @guide-tour-dot-color;
+      width: @guide-tour-dot-size;
+      height: @guide-tour-dot-size;
+      border-radius: @guide-tour-dot-border-radius;
+      &-active {
+        width: @guide-tour-dot-active-width;
+        background-color: @guide-tour-text-color;
+      }
+    }
+  }
+  &-clear {
+    position: fixed;
+    top: 80 * @rpx;
+    right: 40 * @rpx;
+    z-index: @guide-tour-z-index-3;
+    font-size: 56 * @rpx;
+    color: @guide-tour-clear-color;
+  }
+
+  &-item {
+    z-index: @guide-tour-z-index-2;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  &-swiper {
+    z-index: @guide-tour-z-index-2;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}

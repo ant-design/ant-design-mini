@@ -1,0 +1,86 @@
+<import-sjs
+  from="./index.sjs"
+  name="_sjs" />
+<view
+  class="ant-picker {{disabled ? 'ant-picker-disabled' : ''}} {{className ? className : ''}}"
+  style="{{style || ''}}"
+  onTap="onOpen">
+  <slot name="prefix" />
+  <view class="ant-picker-value">
+    <slot name="content" />
+    <view
+      a:if="{{formatValue}}"
+      class="ant-picker-value-text">
+      {{formatValue}}
+    </view>
+    <view
+      a:elif="{{placeholder}}"
+      class="ant-picker-value-placeholder">
+      {{placeholder}}
+    </view>
+  </view>
+  <slot name="suffix" />
+</view>
+<popup
+  className="ant-picker-popup {{popClassName || ''}}"
+  style="{{popStyle || ''}}"
+  position="bottom"
+  animationType="{{ animationType }}"
+  maskClosable
+  destroyOnClose
+  onClose="onMaskDismiss"
+  visible="{{visible}}">
+  <view class="ant-picker-header">
+    <view
+      class="ant-picker-header-item ant-picker-header-cancel"
+      hover-class="ant-picker-header-item-hover"
+      hover-start-time="20"
+      hover-stay-time="50"
+      onTap="onCancel">
+      {{cancelText}}
+    </view>
+    <view class="ant-picker-header-item ant-picker-header-title">
+      <slot name="title">{{title}}</slot>
+    </view>
+    <view
+      class="ant-picker-header-item ant-picker-header-confirm"
+      hover-class="ant-picker-header-item-hover"
+      hover-start-time="20"
+      hover-stay-time="50"
+      onTap="onOk">
+      {{okText}}
+    </view>
+  </view>
+  <view class="ant-picker-content">
+    <slot name="content-header" />
+    <block a:if="{{columns}}">
+      <picker-view
+        mask-style="{{maskStyle || ''}}"
+        mask-class="{{ maskClassName || ''}}"
+        indicator-style="{{indicatorStyle|| ''}}"
+        indicator-class="{{indicatorClassName || ''}}"
+        value="{{selectedIndex}}"
+        onChange="onChange">
+        <block
+          a:for="{{columns}}"
+          a:for-item="dataRoot"
+          a:for-index="dataIndex">
+          <picker-view-column a:if="{{dataIndex < options.length}}">
+            <view
+              a:for="{{dataRoot}}"
+              class="ant-picker-content-item">
+              {{_sjs.getPickerViewLabel(item)}}
+            </view>
+          </picker-view-column>
+        </block>
+      </picker-view>
+    </block>
+    <block a:else>
+      <picker-view>
+        <picker-view-column>
+          <text style="color: #ccc">暂无数据</text>
+        </picker-view-column>
+      </picker-view>
+    </block>
+  </view>
+</popup>

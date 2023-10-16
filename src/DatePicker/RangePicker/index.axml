@@ -1,0 +1,68 @@
+<template name="selector">
+  <view
+    class="ant-range-picker-selector-item {{active?'ant-range-picker-selector-item-active':''}}"
+    onTap="onChangeCurrentPickerType"
+    data-type="{{type}}">
+    <view
+      a:if="{{value}}"
+      class="ant-range-picker-selector-item-value">
+      {{value}}
+    </view>
+    <view
+      a:else
+      class="ant-range-picker-selector-item-placeholder">
+      {{placeholder}}
+    </view>
+    <icon
+      type="CalendarOutline"
+      className="ant-range-picker-selector-item-icon"
+      a:if="{{precision==='year'||precision==='month'||precision==='day'||precision==='hour'}}" />
+  </view>
+</template>
+<picker
+  className="ant-range-picker"
+  popClassName="{{(!currentStartDate||!currentEndDate)?'ant-range-picker-confirm-disabled':''}} {{popClassName || ''}}"
+  style="{{style}}"
+  animationType="{{ animationType }}"
+  options="{{columns}}"
+  value="{{currentValue}}"
+  disabled="{{disabled}}"
+  title="{{title}}"
+  placeholder="{{placeholder}}"
+  okText="{{okText}}"
+  cancelText="{{cancelText}}"
+  maskStyle="{{maskStyle}}"
+  maskClassName="{{maskClassName}}"
+  indicatorStyle="{{indicatorStyle}}"
+  indicatorClassName="{{indicatorClassName}}"
+  onChange="onChange"
+  onCancel="onCancel"
+  onOk="onOk"
+  onVisibleChange="onVisibleChange"
+  maskClosable="{{maskClosable}}"
+  forceUpdate="{{forceUpdate}}"
+  onFormat="onFormat">
+  <view
+    class="ant-range-picker-selector"
+    slot="content-header">
+    <template
+      is="selector"
+      data="{{placeholder:startPlaceholder,active:pickerType==='start',type:'start',value:currentStartValueStr,precision:precision}}" />
+    <view class="ant-range-picker-selector-split">{{splitCharacter}}</view>
+    <template
+      is="selector"
+      data="{{placeholder:endPlaceholder,active:pickerType==='end',type:'end',value:currentEndValueStr,precision:precision}}" />
+  </view>
+  <slot
+    name="content"
+    slot="content" />
+  <slot
+    name="title"
+    slot="title" />
+  <slot
+    name="prefix"
+    slot="prefix" />
+  <slot
+    name="suffix"
+    slot="suffix" />
+</picker>

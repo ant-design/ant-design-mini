@@ -1,0 +1,140 @@
+@import (reference) './variable.less';
+@import '../style/mixins/hairline.less';
+
+@collapsePrefix: ant-collapse-item;
+
+.@{collapsePrefix} {
+  &-disabled {
+    .ant-collapse-item-title-node,
+    .ant-collapse-item-brief-container {
+      opacity: 0.4;
+    }
+    .@{collapsePrefix}-title:active {
+      background: @collapse-title-background-color;
+      transition: 0s;
+    }
+  }
+  &-line {
+    display: flex;
+    flex: 1;
+    border-bottom: 1px solid @COLOR_BORDER;
+    padding: 0 @collapse-title-padding @collapse-title-padding 0;
+  }
+  &-title {
+    position: relative;
+    display: flex;
+    text-align: justify;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 48 * @rpx;
+    padding: @collapse-title-padding 0 0 @collapse-title-padding;
+    font-size: @collapse-title-size;
+    color: @collapse-title-color;
+    background-color: @collapse-title-background-color;
+    transition: all 300ms linear;
+    box-sizing: border-box;
+    &-node {
+      display: flex;
+      flex: 1;
+      max-width: 100%;
+      // height: @collapse-title-height;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 34 * @rpx;
+      color: @COLOR_TEXT_PRIMARY;
+    }
+    &-arrow {
+      color: @COLOR_TEXT_WEAK;
+    }
+
+    &-icon {
+      width: 44 * @rpx;
+      height: 44 * @rpx;
+      overflow: hidden;
+      margin-right: 24 * @rpx;
+
+      .ant-icon {
+        font-size: 40 * @rpx;
+      }
+
+      & image {
+        width: 44 * @rpx;
+        height: 44 * @rpx;
+      }
+    }
+
+    &:active {
+      background-color: @COLOR_BORDER;
+      transition: 0s;
+    }
+  }
+
+  &-brief {
+    &-container {
+      display: flex;
+      .ant-icon {
+        font-size: 40 * @rpx;
+      }
+    }
+
+    &-node {
+      display: flex;
+      flex: 1;
+      font-size: 30 * @rpx;
+      color: @COLOR_TEXT_ASSIST;
+      margin-right: 8 * @rpx;
+    }
+  }
+
+  &-content {
+    color: @COLOR_TEXT_PRIMARY;
+    border-bottom: 1px solid @COLOR_BORDER;
+    padding: 24 * @rpx 24 * @rpx 24 * @rpx 0;
+    box-sizing: border-box;
+    &-container {
+      padding-left: 24 * @rpx;
+      background: @COLOR_WHITE_CHANGE;
+    }
+    &-wrap {
+      will-change: height;
+      overflow: hidden;
+
+      &-active {
+        animation: trigger1 0.2s;
+      }
+
+      &-non-active {
+        animation: trigger2 0.2s;
+      }
+
+      &-transition {
+        transition: height 0.2s ease-in-out;
+      }
+
+      &-first {
+        height: 0;
+      }
+    }
+  }
+}
+
+@keyframes trigger1 {
+  0% {
+    content: '';
+  }
+
+  100% {
+    content: '';
+  }
+}
+
+@keyframes trigger2 {
+  0% {
+    content: '';
+  }
+
+  100% {
+    content: '';
+  }
+}
