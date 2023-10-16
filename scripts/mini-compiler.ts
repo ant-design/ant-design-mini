@@ -47,13 +47,13 @@ const allowList = [
   'style',
   'Switch',
   'Tag',
+  'Popover',
 ];
 
 const demoAllowList = [
   'pages/Button',
   'pages/ButtonIcon',
   'pages/ButtonInline',
-  'pages/Icon',
   'pages/Icon',
   'pages/Loading',
   'pages/Switch',
@@ -62,13 +62,12 @@ const demoAllowList = [
 
 const include = function (list: string[], source: string) {
   return through2.obj(function (file, enc, callback) {
-    const wewewe = path.relative(source, file.path);
-
+    const relativeName = path.relative(source, file.path);
     const match = list.some((o) => {
-      return wewewe.startsWith(o);
+      return relativeName.startsWith(o + '/');
     });
     if (match) {
-      this.push(file);
+      callback(null, file);
     } else {
       return callback();
     }
