@@ -11,9 +11,11 @@
     "jsx": "preserve",
     "types": ["@mini-types/alipay", "node"],
     "paths": {
+      "tests/*": ["./tests/*"],
+      "compiled-alipay/*": ["./compiled/alipay/src/*"],
       "tsxml": ["./src/tsxml/index.tsx"]
     }
   },
-  "include": ["src/**/*", "typings/**/*", "demo/**/*"],
+  "include": ["src/**/*", "typings/**/*", "demo/**/*", "tests/**/*"],
   "exclude": ["node_modules"]
 }
