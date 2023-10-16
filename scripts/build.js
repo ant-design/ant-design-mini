@@ -88,8 +88,11 @@ async function buildPreview(theme = 'default') {
     );
     dist[item] = content;
   });
-
-  const appConfig = require(path.join(__dirname, '../demo/app.json'));
+  const appJSONFilename = path.join(
+    __dirname,
+    '../compiled/alipay/demo/app.json'
+  );
+  const appConfig = require(appJSONFilename);
   const pages = appConfig.pages;
   const sourceCode = {};
   const arr = await Promise.all(pages.map((item) => getSourceCode(item)));
