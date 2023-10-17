@@ -15,6 +15,7 @@ it('受控模式', async () => {
   const onChange = vi.fn();
   const instance = testSwitch({
     checked: false,
+    'data-instance-uid': '1',
     onChange,
   });
 
@@ -24,6 +25,24 @@ it('受控模式', async () => {
   instance.callMethod('onChange', {});
   await sleep(20);
   expect(onChange.mock.calls.length).toBe(1);
+  expect(onChange.mock.calls[0][0]).toBe(true);
+  expect(onChange.mock.calls[0][1]).toMatchInlineSnapshot(`
+    {
+      "currentTarget": {
+        "dataset": {
+          "instance-uid": "1",
+        },
+      },
+      "target": {
+        "dataset": {
+          "instance-uid": "1",
+        },
+        "targetDataset": {
+          "instance-uid": "1",
+        },
+      },
+    }
+  `);
   expect(instance.getData()).toEqual({
     mixin: { value: false },
   });

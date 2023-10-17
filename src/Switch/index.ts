@@ -16,7 +16,7 @@ const Switch = (props: ISwitchProps) => {
       if (!hasValue(props.checked)) {
         updateValue(newValue);
       }
-      triggerEvent('change', value, e);
+      triggerEvent('change', newValue, e);
     },
     [props, value]
   );
