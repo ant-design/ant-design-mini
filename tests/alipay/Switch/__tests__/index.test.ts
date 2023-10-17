@@ -87,3 +87,10 @@ it('测试默认值', async () => {
     mixin: { value: false },
   });
 });
+
+it('测试构造函数', async () => {
+  const instance = testSwitch({});
+  expect(instance.getConfig()).toMatchFileSnapshot(
+    'snapshot/alipay_config.txt'
+  );
+});

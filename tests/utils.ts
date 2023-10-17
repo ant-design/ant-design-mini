@@ -34,6 +34,7 @@ export interface TestInstance {
   setProps: (props: Record<string, any>) => void;
   callMethod: (name: string, ...args: any) => any;
   unMount: () => void;
+  getConfig(): Record<string, any>;
 }
 
 function createInstance(config: Instance, props: Record<string, any>, my: any) {
@@ -133,6 +134,9 @@ function createInstance(config: Instance, props: Record<string, any>, my: any) {
     getData() {
       return JSON.parse(JSON.stringify(instance.data));
     },
+    getConfig() {
+      return config;
+    },
     setProps(props: Record<string, any>) {
       if (shallowequal(props, instance.props)) {
         return;
@@ -184,49 +188,12 @@ function getInstance(
   props: Record<string, any>,
   api?: Record<string, any>
 ): TestInstance {
-  const expectFile = path.join(
-    os.tmpdir(),
-    Math.random().toString(36),
-    'out.js'
+  const { path: expectFile, code } = compileCode(
+    path.join(__dirname, `../compiled/alipay/src/${name}/index.ts`)
   );
-  const expectFileSourcemap = expectFile + '.map';
-
-  esbuild.buildSync({
-    entryPoints: [
-      path.join(__dirname, `../compiled/alipay/src/${name}/index.ts`),
-    ],
-    bundle: true,
-    outfile: expectFile,
-    sourcemap: true,
-    external: ['fast-deep-equal'],
-  });
-
-  const instrumenter = createInstrumenter({
-    produceSourceMap: true,
-    autoWrap: false,
-    esModules: true,
-    compact: false,
-    coverageVariable: '__ANTD_COVERAGE__',
-    coverageGlobalScope: 'COV',
-    coverageGlobalScopeFunc: false,
-  });
-
-  const sourceCode = fs.readFileSync(expectFile, 'utf-8');
-
-  const code = instrumenter.instrumentSync(
-    sourceCode,
-    expectFile,
-    JSON.parse(fs.readFileSync(expectFileSourcemap, 'utf8'))
-  );
-  const map = instrumenter.lastSourceMap();
-
-  fs.writeFileSync(expectFile, code);
-  fs.writeFileSync(expectFileSourcemap, JSON.stringify(map));
-
   const script = new vm.Script(code, {
     filename: expectFile,
   });
-
   let result;
   const cov = {};
   const context = vm.createContext({
@@ -241,10 +208,51 @@ function getInstance(
   });
 
   globalThis.componentCoverage.push(cov);
-
   script.runInContext(context);
-
   return result;
+}
+
+const compileCache = new Map();
+
+// 编译打包代码，新增缓存
+function compileCode(source: string): { code: string; path: string } {
+  if (compileCache.has(source)) {
+    return compileCache.get(source);
+  }
+  const expectFile = path.join(
+    os.tmpdir(),
+    Math.random().toString(36),
+    'out.js'
+  );
+  const expectFileSourcemap = expectFile + '.map';
+  esbuild.buildSync({
+    entryPoints: [source],
+    bundle: true,
+    outfile: expectFile,
+    sourcemap: true,
+    external: ['fast-deep-equal'],
+  });
+  const instrumenter = createInstrumenter({
+    produceSourceMap: true,
+    autoWrap: false,
+    esModules: true,
+    compact: false,
+    coverageVariable: '__ANTD_COVERAGE__',
+    coverageGlobalScope: 'COV',
+    coverageGlobalScopeFunc: false,
+  });
+  const sourceCode = fs.readFileSync(expectFile, 'utf-8');
+  const code = instrumenter.instrumentSync(
+    sourceCode,
+    expectFile,
+    JSON.parse(fs.readFileSync(expectFileSourcemap, 'utf8'))
+  );
+  const map = instrumenter.lastSourceMap();
+
+  fs.writeFileSync(expectFile, code);
+  fs.writeFileSync(expectFileSourcemap, JSON.stringify(map));
+  compileCache.set(source, { code, path: expectFile });
+  return { code: code, path: expectFile };
 }
 
 export { getInstance };

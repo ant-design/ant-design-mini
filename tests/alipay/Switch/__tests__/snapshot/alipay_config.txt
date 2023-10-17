@@ -1,0 +1,26 @@
+{
+  "data": {
+    "mixin": {
+      "value": false,
+    },
+  },
+  "deriveDataFromProps": [Function],
+  "didUnmount": [Function],
+  "lifetimes": {},
+  "methods": {
+    "onChange": [Function],
+  },
+  "onInit": [Function],
+  "options": {
+    "lifetimes": true,
+  },
+  "props": {
+    "checkedText": "",
+    "color": "",
+    "defaultChecked": false,
+    "disabled": false,
+    "loading": false,
+    "size": "medium",
+    "uncheckedText": "",
+  },
+}
