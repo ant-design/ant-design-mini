@@ -11,7 +11,7 @@ function testSlider(props) {
   return instance;
 }
 
-it('受控模式', async () => {
+it('测试 tickList', async () => {
   const instance = testSlider({
     checked: false,
     min: 2,
