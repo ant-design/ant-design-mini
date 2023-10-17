@@ -19,35 +19,34 @@ cd mycomponents
 
 # 安装依赖
 npm init -y
-npm i antd-mini --save-dev
+npm i antd-mini --save
 ```
 
 操作完成后，项目结构应该是类似这样的：
 
 ```diff
-.
-├── App.vue
-├── index.html
-├── main.js
-├── manifest.json
+ .
+  ├── App.vue
+  ├── index.html
+  ├── main.js
+  ├── manifest.json
 + ├── mycomponents
-+ │   ├── antd-mini
 + │   ├── node_modules
-+ │   └── package.json
-├── pages
-│   └── index
-├── pages.json
-├── static
-│   └── logo.png
-├── uni.promisify.adaptor.js
-├── uni.scss
-└── unpackage
-    └── dist
++ │   │   ├── antd-mini
++ │   │   │   ├── es
++ │   │   │   │   ├── Button
++ │   │   │   │   ├── Calendar
++ │   │   │   ├── package.json
+  ├── pages
+  ├── pages.json
+  ├── static
+  └── unpackage
 ```
 
 ### 2. 在项目中引用组件
 
-修改 page.json，在 page.style 配置下新增 usingComponents 
+修改 page.json，在 page.style 配置下新增 usingComponents。
+配置时需要注意路径大小写和实际组件一致，否则可能引发报错。
 
 ```diff
 {

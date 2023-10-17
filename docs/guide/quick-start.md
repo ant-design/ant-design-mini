@@ -4,6 +4,8 @@ toc: false
 
 ## 快速开始
 
+这里介绍如何在原生支付宝小程序中安装使用 Ant Design Mini 组件库。
+
 ### 1. 安装依赖
 
 ```
@@ -25,7 +27,7 @@ $ npm i antd-mini --save
 ```json
 {
   "usingComponents": {
-    "button": "antd-mini/es/Button/index"
+    "ant-button": "antd-mini/es/Button/index"
   }
 }
 ```
@@ -35,7 +37,7 @@ $ npm i antd-mini --save
 ### 4. 在 axml 文件中使用
 
 ```html
-<button>我是一个按钮</button>
+<ant-button>我是一个按钮</ant-button>
 ```
 
 ## 查看示例
