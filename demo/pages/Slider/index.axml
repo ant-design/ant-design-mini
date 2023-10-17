@@ -5,7 +5,7 @@
     onAfterChange="onAfterChange" />
 </container>
 
-<container title="无节点双滑快">
+<container title="无节点双滑块">
   <slider
     defaultValue="{{[20, 60]}}"
     range

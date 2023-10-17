@@ -389,6 +389,10 @@ const config: IConfig = {
         path: '/guide/quick-start',
       },
       {
+        title: '在 uni-app 中使用',
+        path: '/guide/using-uni-app',
+      },
+      {
         title: '定制主题',
         path: '/guide/customize-theme',
       },
