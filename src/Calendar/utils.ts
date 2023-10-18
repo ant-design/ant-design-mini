@@ -1,8 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
-import isoWeek from 'dayjs/plugin/isoWeek';
+import { isoWeekday } from '../_util/dayjs/iso-weekday';
 import { CellState, LocaleText, SelectionMode, CalendarValue } from './props';
-
-dayjs.extend(isoWeek);
 
 export function getMonthListFromRange(start: Dayjs, end: Dayjs): Dayjs[] {
   if (start.isAfter(end))
@@ -32,7 +30,7 @@ export function getDate(month: Dayjs, weekStartsOn: string): Dayjs[] {
   const startOfMonth = month.date(1);
   const cells: Dayjs[] = [];
   let iterator: Dayjs = startOfMonth
-    .subtract(startOfMonth.isoWeekday() % 7, 'day')
+    .subtract(isoWeekday(startOfMonth) % 7, 'day')
     .startOf('day');
 
   if (weekStartsOn === 'Monday') {
