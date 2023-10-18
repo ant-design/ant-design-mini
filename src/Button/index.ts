@@ -6,6 +6,7 @@ import '../_util/assert-component2';
 Component({
   /// #if WECHAT
   properties: {
+    style: String,
     type: String,
     disabled: Boolean,
     activeClassName: String,

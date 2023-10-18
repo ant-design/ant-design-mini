@@ -1,7 +1,8 @@
 <view>
+  <!-- display: inline -->
   <text
     onTap="a"
-    catchTap="b">
-    {{ a }}
-  </text>
+    catchTap="b"
+    >{{ a }}</text
+  >
 </view>

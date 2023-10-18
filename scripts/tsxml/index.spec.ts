@@ -25,11 +25,11 @@ async function textTsXml(fixtureName: string) {
 
 it('index', async () => {
   await textTsXml('index');
+  await textTsXml('if');
+  await textTsXml('sjs');
 });
 
 it('测试解析为 axml', async () => {
-  await textTsXml('if');
-  await textTsXml('sjs');
   await textTsXml('style');
 });
 

@@ -7,6 +7,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "declaration": true,
+    "rootDir": "./",
     "noImplicitThis": false,
     "jsx": "preserve",
     "types": ["@mini-types/alipay", "node"],

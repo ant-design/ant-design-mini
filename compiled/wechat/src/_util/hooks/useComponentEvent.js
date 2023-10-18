@@ -4,7 +4,7 @@ export function useComponentEvent(props) {
     return {
         triggerEvent: function (eventName, value, e) {
             // 首字母大写，然后加上 on
-            component.triggerEvent('change', value);
+            component.triggerEvent(eventName, value);
         },
     };
 }

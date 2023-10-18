@@ -3,7 +3,8 @@
     a:for="{{ todoList }}"
     a:for-index="taskIndex"
     a:for-item="task">
-    <text data-item-id="{{ taskIndex }}">{{ taskIndex }} {{ task }}</text>
+    <!-- display: inline -->
+    <text data-item-id="{{ taskIndex }}">{{ taskIndex }}{{ task }}</text>
   </block>
   <test loading />
 </view>
