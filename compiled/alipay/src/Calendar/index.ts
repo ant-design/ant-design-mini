@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-import isoWeek from 'dayjs/plugin/isoWeek';
 import {
   alipayComponent,
   useEffect,
@@ -20,8 +19,6 @@ import {
   renderCells,
 } from './utils';
 import { useMergedState } from '../_util/hooks/useMergedState';
-
-dayjs.extend(isoWeek);
 
 function getBoundingClientRect(instance: any, selector: string) {
   return new Promise<any>((resolve, reject) => {
