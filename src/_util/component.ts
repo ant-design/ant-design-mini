@@ -15,7 +15,11 @@ export function mountComponent<T>(
   defaultProps: T
 ) {
   /// #if WECHAT
-  Component(wechatComponent(Hooks, defaultProps, { styleIsolation: 'shared' }));
+  Component(
+    wechatComponent(Hooks, defaultProps, {
+      options: { styleIsolation: 'shared', multipleSlots: true },
+    })
+  );
   /// #endif
 
   /// #if ALIPAY

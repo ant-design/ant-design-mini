@@ -287,19 +287,21 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
 }
 
 export async function compileAntdMini(watch: boolean) {
-  await Promise.all(
-    [
-      'compiled/alipay/demo/pages',
-      'compiled/alipay/src',
-      'compiled/wechat/demo',
-      'compiled/wechat/src',
-    ].map((dir) => {
-      return fs.rm(resolve(__dirname, '..', dir), {
-        recursive: true,
-        force: true,
-      });
-    })
-  );
+  if (!watch) {
+    await Promise.all(
+      [
+        'compiled/alipay/demo/pages',
+        'compiled/alipay/src',
+        'compiled/wechat/demo',
+        'compiled/wechat/src',
+      ].map((dir) => {
+        return fs.rm(resolve(__dirname, '..', dir), {
+          recursive: true,
+          force: true,
+        });
+      })
+    );
+  }
   const wechatBuildOption = {
     compileTs: true,
     compileLess: true,
@@ -317,7 +319,7 @@ export async function compileAntdMini(watch: boolean) {
   };
 
   miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
     source: resolve(__dirname, '..', 'src'),
     dest: resolve(__dirname, '..', 'compiled', 'wechat', 'src'),
     watch,
@@ -327,7 +329,7 @@ export async function compileAntdMini(watch: boolean) {
   });
 
   miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
     source: resolve(__dirname, '..', 'demo'),
     dest: resolve(__dirname, '..', 'compiled', 'wechat', 'demo'),
     watch,

@@ -62,6 +62,9 @@ export function transformJSXElement(ctx: ITransformContext) {
     case 'ArrowFunctionExpression': {
       return transformJSXElement(ctx.extends(ctx.node.body));
     }
+    case 'JSXEmptyExpression': {
+      return null;
+    }
     case 'JSXElement': {
       const tagName = ctx.getTagName(
         getJSXElementName(ctx as ITransformContext<types.JSXElement>)

@@ -4,7 +4,7 @@ import fmtEvent from '../fmtEvent';
 export function useComponentEvent<T>(props: T) {
   const component = useComponent();
   return {
-    triggerEvent: (eventName: string, value: unknown, e: any) => {
+    triggerEvent: (eventName: string, value: unknown, e?: any) => {
       // 首字母大写，然后加上 on
 
       const alipayCallbackName =

@@ -1,6 +1,6 @@
 {
   "description": "Ant Design Mini 示例小程序",
-  "miniprogramRoot": "compiled/wechat",
+  "miniprogramRoot": "compiled/wechat/",
   "compileType": "miniprogram",
   "libVersion": "3.0.1",
   "packOptions": {
@@ -8,6 +8,13 @@
     "include": []
   },
   "setting": {
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "compiled/wechat/package.json",
+        "miniprogramNpmDistDir": "compiled/wechat"
+      }
+    ],
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -23,8 +30,12 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "useCompilerPlugins": ["typescript", "less"],
+  "useCompilerPlugins": [
+    "typescript",
+    "less"
+  ],
   "srcMiniprogramRoot": "wechat/",
   "projectname": "antd",
-  "simulatorPluginLibVersion": {}
+  "simulatorPluginLibVersion": {},
+  "appid": "wx6d1d41437b0746e6"
 }

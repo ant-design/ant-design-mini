@@ -9,5 +9,7 @@ function removeNullProps(props) {
     return newProps;
 }
 export function mountComponent(Hooks, defaultProps) {
-    Component(wechatComponent(Hooks, defaultProps, { styleIsolation: 'shared' }));
+    Component(wechatComponent(Hooks, defaultProps, {
+        options: { styleIsolation: 'shared', multipleSlots: true },
+    }));
 }

@@ -6,6 +6,13 @@
       <loading style="width: 40px; height: 40px" />
       <loading style="width: 30px; height: 30px" />
       <loading className="custom-size" />
+      <!-- display: inline -->
+      <text
+        a="1"
+        b="2"
+        class="ant-calendar-cell-top-text {{ item.top.className ? item.top.className : '' }}"
+        >1111</text
+      >
     </view>
   </container>
 </view>

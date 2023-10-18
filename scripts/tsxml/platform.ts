@@ -32,6 +32,7 @@ export const wechat: PlatformConfig = {
     onTap: 'bind:tap',
     catchTap: 'catch:tap',
     onChange: 'bind:change',
+    onScroll: 'bind:scroll',
   },
 };
 
@@ -51,5 +52,6 @@ export interface PlatformConfig {
     onTap: string;
     catchTap: string;
     onChange?: string;
+    onScroll?: string;
   };
 }

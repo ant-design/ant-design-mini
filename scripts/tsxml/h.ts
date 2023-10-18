@@ -14,6 +14,7 @@ export function h(tagName: string, props: any, ...children: any[]) {
 }
 
 export function toHtml(vNode: Node | Children | Array<Node | Children>) {
+  if (!vNode) return '';
   if (typeof vNode === 'string') {
     return vNode;
   }
@@ -35,7 +36,18 @@ export function toHtml(vNode: Node | Children | Array<Node | Children>) {
   }
 
   if (Array.isArray(vNode.children) && vNode.children.length > 0) {
-    return `<${vNode.tagName} ${props}>${vNode.children
+    let prefix = '';
+    if (vNode.tagName === 'text') {
+      prefix = `<!-- display: inline -->`;
+    }
+    return `${prefix}<${vNode.tagName} ${props}>${vNode.children
+      .filter(Boolean)
+      .map((o) => {
+        if (typeof o === 'string' && vNode.tagName === 'text') {
+          return o.trim();
+        }
+        return o;
+      })
       .map((o) => toHtml(o))
       .join('')}</${vNode.tagName}>`;
   }

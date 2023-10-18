@@ -7,6 +7,7 @@ interface Props {
 
 export default ({ a, b }: Props) => (
   <View>
+    {/* one */}
     {!!a && <Text>a</Text>}
     {!!a && b && <Text> a & b</Text>}
     {a ? <Text>a</Text> : <Text>!a</Text>}
