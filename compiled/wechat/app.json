@@ -1,6 +1,5 @@
 {
   "pages": [
-    "demo/pages/Calendar/index",
     "demo/pages/Switch/index",
     "demo/pages/ButtonInline/index",
     "demo/pages/ButtonIcon/index",
