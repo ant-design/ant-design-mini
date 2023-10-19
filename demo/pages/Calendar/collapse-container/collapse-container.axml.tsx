@@ -7,7 +7,7 @@ export default (
   { containerTitle, collapse }: InternalData
 ) => (
   <Container title={containerTitle}>
-    <View slot="headerRight" onTap="handleClick" data-id="demo1">
+    <View slot="headerRight" onTap="handleToggle" data-id="demo1">
       {!collapse ? <Text>收起</Text> : <Text>展示</Text>}
     </View>
     {!collapse ? (

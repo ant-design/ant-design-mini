@@ -1,7 +1,7 @@
 <container title="{{ containerTitle }}">
   <view
     slot="headerRight"
-    onTap="handleClick"
+    onTap="handleToggle"
     data-id="demo1">
     <block a:if="{{ !collapse }}">
       <!-- display: inline -->

@@ -1,7 +1,7 @@
 <container title="{{ containerTitle }}">
   <view
     slot="headerRight"
-    bind:tap="handleClick"
+    bind:tap="handleToggle"
     data-id="demo1">
     <block wx:if="{{ !collapse }}">
       <!-- display: inline -->
