@@ -1,7 +1,7 @@
 function keys(obj) {
-  if (typeof Object.keys === 'function') {
-    return Object.keys(obj);
-  }
+  return JSON.stringify(obj).replace(getRegExp('{|}|"', 'g'), '').split(',').map(function (item) {
+    return item.split(':')[0];
+  });
 }
 function getClassName(value, index) {
   var isSelected = value.isSelected,
@@ -53,7 +53,7 @@ function getMarkCellClassName(index, items) {
   }
   return 'ant-calendar-mark-cell';
 }
-export default {
+module.exports = {
   getSpaceClassName: getSpaceClassName,
   getClassName: getClassName,
   getMarkCellClassName: getMarkCellClassName

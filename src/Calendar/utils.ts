@@ -32,7 +32,6 @@ export function getDate(month: Dayjs, weekStartsOn: string): Dayjs[] {
   let iterator: Dayjs = startOfMonth
     .subtract(isoWeekday(startOfMonth) % 7, 'day')
     .startOf('day');
-
   if (weekStartsOn === 'Monday') {
     iterator = iterator.add(1, 'day');
     if (

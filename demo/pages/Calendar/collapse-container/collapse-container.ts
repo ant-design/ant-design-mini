@@ -1,10 +1,11 @@
-import { alipayComponent, useEvent, useState } from 'functional-mini/component';
+import { useEvent, useState } from 'functional-mini/component';
+import { mountComponent } from '../../../../src/_util/component';
 
-interface Props {
-  hide: boolean;
+export interface Props {
+  hide?: boolean;
   defaultCollapse?: boolean;
-  title: string;
-  handleClick(id: string): void;
+  title?: string;
+  handleClick?(id: string): void;
 }
 
 const CollapseContainer = (props: Props) => {
@@ -25,4 +26,8 @@ const CollapseContainer = (props: Props) => {
   };
 };
 
-Component(alipayComponent(CollapseContainer));
+mountComponent<Props>(CollapseContainer, {
+  hide: false,
+  defaultCollapse: false,
+  title: '',
+});

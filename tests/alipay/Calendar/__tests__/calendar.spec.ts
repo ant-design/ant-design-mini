@@ -127,7 +127,7 @@ describe('Calendar', () => {
     return {
       clickCell(date: string) {
         instance.callMethod('clickCell', {
-          target: {
+          currentTarget: {
             dataset: {
               time: {
                 time: dayjs(date).toDate().getTime(),

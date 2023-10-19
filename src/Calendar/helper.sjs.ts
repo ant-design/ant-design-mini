@@ -1,4 +1,24 @@
-function getClassName(value, index, items) {
+declare function getRegExp(reg: string, mode: string): any;
+
+function keys(obj) {
+  /// #if ALIPAY
+
+  if (typeof Object.keys === 'function') {
+    return Object.keys(obj);
+  }
+  /// #endif
+
+  /// #if WECHAT
+  return JSON.stringify(obj)
+    .replace(getRegExp('{|}|"', 'g'), '')
+    .split(',')
+    .map(function (item) {
+      return item.split(':')[0];
+    });
+  /// #endif
+}
+
+function getClassName(value, index) {
   const {
     isSelected,
     isSelectedBegin,
@@ -23,7 +43,7 @@ function getClassName(value, index, items) {
   };
 
   let result = 'ant-calendar-cell';
-  Object.keys(classNames).forEach((key) => {
+  keys(classNames).forEach((key) => {
     if (classNames[key]) {
       result += ` ant-calendar-cell-${key}`;
     }
@@ -41,7 +61,7 @@ function getSpaceClassName(index, items) {
     active: isNotEnd && isSelected && nextSelected,
   };
   let result = 'ant-calendar-cell-space';
-  Object.keys(classNames).forEach((key) => {
+  keys(classNames).forEach((key) => {
     if (classNames[key]) {
       result += ` ant-calendar-cell-space-${key}`;
     }

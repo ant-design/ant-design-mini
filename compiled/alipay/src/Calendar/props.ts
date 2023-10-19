@@ -1,3 +1,5 @@
+import { IBaseProps } from '../_util/base';
+
 export interface CalendarDate {
   year: number;
   month: number;
@@ -85,7 +87,7 @@ export interface CellState {
 export type CalendarValue = number | number[];
 export type SelectionMode = 'single' | 'range';
 
-export interface ComponentProps {
+export interface ICalendarProps extends IBaseProps {
   /**
    * 初始值
    */
@@ -109,6 +111,10 @@ export interface ComponentProps {
    */
   weekStartsOn?: 'Sunday' | 'Monday';
   /**
+   * 国际化文案
+   */
+  localeText?: Partial<LocaleText>;
+  /**
    * 日期变化回调
    */
   onChange?: (date: CalendarValue) => void;
@@ -131,8 +137,4 @@ export interface ComponentProps {
     >,
     currentValue: CalendarValue
   ) => Pick<CellState, 'disabled' | 'top' | 'bottom'>;
-  /**
-   * 国际化文案
-   */
-  localeText?: Partial<LocaleText>;
 }

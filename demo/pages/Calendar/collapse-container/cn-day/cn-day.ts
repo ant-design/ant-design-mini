@@ -1,6 +1,6 @@
-import { alipayComponent } from 'functional-mini/component';
-import Converter from 'js-calendar-converter';
 import dayjs from 'dayjs';
+import Converter from './js-calendar-converter';
+import { mountComponent } from '../../../../../src/_util/component';
 
 interface Props {
   cell: any;
@@ -26,4 +26,6 @@ const CollapseContainer = (props: Props) => {
   };
 };
 
-Component(alipayComponent(CollapseContainer));
+mountComponent(CollapseContainer, {
+  cell: null,
+});
