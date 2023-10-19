@@ -31,6 +31,7 @@ interface Props {
   catchTouchMove?: string;
   slot?: string;
   value?: any;
+  key?: any;
   index?: any;
 }
 

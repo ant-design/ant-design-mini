@@ -1,14 +1,14 @@
 import { Text, View } from 'tsxml';
 
 interface Props {
-  todoList: string[];
+  todoList: { id: string; content: string }[];
 }
 
 export default ({ todoList }: Props) => (
   <View class="ant-calendar">
     {todoList.map((task, taskIndex) => (
-      <Text data-item-id={taskIndex}>
-        {taskIndex} {task}
+      <Text key={task.id} data-item-id={taskIndex}>
+        {taskIndex} {task.content}
       </Text>
     ))}
     <test loading />

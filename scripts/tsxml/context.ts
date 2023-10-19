@@ -14,6 +14,7 @@ export interface ITransformContext<T extends types.Node = types.Node> {
   else(): string;
   for(): string;
   forItem(): string;
+  forKey(): string;
   forIndex(): string;
   readonly platform: PlatformConfig;
   getAttrName(tagName: string, name: string): string;
@@ -114,6 +115,9 @@ export class TransformContext<T extends types.Node = types.Node>
   }
   forItem(): string {
     return this.config.forItem;
+  }
+  forKey(): string {
+    return this.config.forKey;
   }
   getFrame() {
     const result = codeFrameColumns(this.code, this._node.loc, {});
