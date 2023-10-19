@@ -14,6 +14,6 @@ var CollapseContainer = function (props) {
 };
 mountComponent(CollapseContainer, {
     hide: false,
-    defaultCollapse: false,
+    defaultCollapse: null,
     title: '',
 });

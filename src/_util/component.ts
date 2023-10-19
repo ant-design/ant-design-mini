@@ -16,13 +16,25 @@ export function mountComponent<T>(
 ) {
   /// #if WECHAT
   Component(
-    wechatComponent(Hooks, defaultProps, {
+    wechatComponent(Hooks, mergeDefaultProps(defaultProps), {
       options: { styleIsolation: 'shared', multipleSlots: true },
     })
   );
   /// #endif
 
   /// #if ALIPAY
-  Component(alipayComponent(Hooks, removeNullProps(defaultProps)));
+  Component(
+    alipayComponent(Hooks, removeNullProps(mergeDefaultProps(defaultProps)))
+  );
   /// #endif
+}
+
+function mergeDefaultProps(defaultProps: Record<string, any> = {}) {
+  return {
+    /// #if WECHAT
+    className: '',
+    style: '',
+    /// #endif
+    ...defaultProps,
+  };
 }

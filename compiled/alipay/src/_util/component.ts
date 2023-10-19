@@ -15,5 +15,13 @@ export function mountComponent<T>(
   defaultProps: T
 ) {
 
-  Component(alipayComponent(Hooks, removeNullProps(defaultProps)));
+  Component(
+    alipayComponent(Hooks, removeNullProps(mergeDefaultProps(defaultProps)))
+  );
+}
+
+function mergeDefaultProps(defaultProps: Record<string, any> = {}) {
+  return {
+    ...defaultProps,
+  };
 }

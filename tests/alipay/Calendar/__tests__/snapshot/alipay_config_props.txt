@@ -1,0 +1,22 @@
+{
+  "className": undefined,
+  "localeText": {
+    "end": "结束",
+    "start": "开始",
+    "startAndEnd": "开始/结束",
+    "title": "YYYY年MM月",
+    "today": "今日",
+    "weekdayNames": [
+      "一",
+      "二",
+      "三",
+      "四",
+      "五",
+      "六",
+      "日",
+    ],
+  },
+  "selectionMode": "range",
+  "style": undefined,
+  "weekStartsOn": "Sunday",
+}
