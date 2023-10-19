@@ -1,4 +1,4 @@
-<block a:if="{{ demo1.visible }}">
+<block wx:if="{{ demo1.visible }}">
   <collapse-container title="默认多选，范围 3 个月">
     <view
       slot="content"
@@ -8,7 +8,7 @@
   </collapse-container>
 </block>
 
-<block a:if="{{ demo2.visible }}">
+<block wx:if="{{ demo2.visible }}">
   <collapse-container title="单选">
     <view
       slot="content"
@@ -20,19 +20,19 @@
   </collapse-container>
 </block>
 
-<block a:if="{{ demo3.visible }}">
+<block wx:if="{{ demo3.visible }}">
   <collapse-container title="自定义日历顶部">
     <view slot="content">
       <view class="custom-header">
         <view
-          onTap="demo3PreviousMonth"
+          bind:tap="demo3PreviousMonth"
           class="custom-header-left">
           <icon type="LeftOutline" />
           上个月
         </view>
         <view>{{ demo3.title }}</view>
         <view
-          onTap="demo3NextMonth"
+          bind:tap="demo3NextMonth"
           class="custom-header-right">
           下个月
           <icon type="RightOutline" />
@@ -45,7 +45,7 @@
   </collapse-container>
 </block>
 
-<block a:if="{{ demo8.visible }}">
+<block wx:if="{{ demo8.visible }}">
   <collapse-container title="自定义日期单元格">
     <view slot="content">
       <calendar
@@ -55,7 +55,7 @@
   </collapse-container>
 </block>
 
-<block a:if="{{ demo4.visible }}">
+<block wx:if="{{ demo4.visible }}">
   <collapse-container title="动态控制，只允许选择前后三天">
     <view slot="content">
       <calendar
@@ -65,7 +65,7 @@
   </collapse-container>
 </block>
 
-<block a:if="{{ demo5.visible }}">
+<block wx:if="{{ demo5.visible }}">
   <collapse-container title="从周一开始">
     <view
       slot="content"
@@ -75,21 +75,7 @@
   </collapse-container>
 </block>
 
-<block a:if="{{ demo6.visible }}">
-  <collapse-container title="通过 slot 实现农历">
-    <view slot="content">
-      <calendar monthRange="{{ demo6.monthRange }}">
-        <view
-          slot="cell-bottom"
-          slot-scope="prop">
-          <cn-day cell="{{ prop.cell }}" />
-        </view>
-      </calendar>
-    </view>
-  </collapse-container>
-</block>
-
-<block a:if="{{ demo7.visible }}">
+<block wx:if="{{ demo7.visible }}">
   <collapse-container title="国际化">
     <view slot="content">
       <calendar
@@ -99,23 +85,23 @@
   </collapse-container>
 </block>
 
-<block a:if="{{ demo9.visible }}">
+<block wx:if="{{ demo9.visible }}">
   <collapse-container title="受控模式">
     <view slot="content">
       <calendar
         value="{{ demo9.value }}"
         monthRange="{{ demo9.monthRange }}"
-        onChange="demo9HandleChange"
+        bind:change="demo9HandleChange"
         selectionMode="single" />
       <ant-button
         type="primary"
-        onTap="demo9HandlePreviousDay">
+        bind:tap="demo9HandlePreviousDay">
         上一天
       </ant-button>
       <ant-button
         style="margin-top: 8rpx"
         type="primary"
-        onTap="demo9HandleNextDay">
+        bind:tap="demo9HandleNextDay">
         下一天
       </ant-button>
     </view>

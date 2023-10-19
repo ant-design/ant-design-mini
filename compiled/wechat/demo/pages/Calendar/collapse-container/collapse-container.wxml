@@ -1,24 +1,24 @@
 <container title="{{ containerTitle }}">
   <view
     slot="headerRight"
-    onTap="handleToggle"
+    bind:tap="handleToggle"
     data-id="demo1">
-    <block a:if="{{ !collapse }}">
+    <block wx:if="{{ !collapse }}">
       <!-- display: inline -->
       <text>收起</text>
     </block>
-    <block a:else>
+    <block wx:else>
       <!-- display: inline -->
       <text>展示</text>
     </block>
   </view>
-  <block a:if="{{ !collapse }}">
+  <block wx:if="{{ !collapse }}">
     <view>
       <slot name="content" />
     </view>
   </block>
-  <block a:else>
-    <view onTap="handleToggle">
+  <block wx:else>
+    <view bind:tap="handleToggle">
       <slot name="description" />
       <view class="placeholder">展示</view>
     </view>

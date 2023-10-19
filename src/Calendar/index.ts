@@ -1,16 +1,18 @@
 import dayjs from 'dayjs';
 import {
-  alipayComponent,
-  useEffect,
-  useEvent,
-  useState,
   useComponent,
+  useEvent,
+  useReady,
+  useState,
 } from 'functional-mini/component';
+import { mountComponent } from '../_util/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
 import {
-  CellState,
-  ComponentProps,
-  defaultLocaleText,
   CalendarValue,
+  CellState,
+  defaultLocaleText,
+  ICalendarProps,
 } from './props';
 import {
   defaultMonthRange,
@@ -18,7 +20,6 @@ import {
   getSelectionModeFromValue,
   renderCells,
 } from './utils';
-import { useMergedState } from '../_util/hooks/useMergedState';
 
 function getBoundingClientRect(instance: any, selector: string) {
   return new Promise<any>((resolve, reject) => {
@@ -36,7 +37,7 @@ function getBoundingClientRect(instance: any, selector: string) {
   });
 }
 
-const Calendar = (props: ComponentProps) => {
+const Calendar = (props: ICalendarProps) => {
   const localeText = Object.assign({}, defaultLocaleText, props.localeText);
 
   const markItems = [...localeText.weekdayNames];
@@ -54,11 +55,10 @@ const Calendar = (props: ComponentProps) => {
   const selectionMode =
     props.selectionMode ?? selectionModeFromValue ?? 'range';
 
+  const { triggerEvent } = useComponentEvent(props);
   function updateValue(newValue: CalendarValue) {
-    const isControl = typeof props.value !== 'undefined';
-    if (props.onChange) {
-      props.onChange(newValue);
-    }
+    const isControl = hasValue(props.value);
+    triggerEvent('change', newValue);
     if (!isControl) {
       setValue(newValue);
     }
@@ -67,8 +67,9 @@ const Calendar = (props: ComponentProps) => {
   useEvent(
     'clickCell',
     (e) => {
-      const clickDate = dayjs(e.target.dataset.time.time);
-      if (e.target.dataset.time.disabled) {
+      const time = e.currentTarget.dataset.time;
+      const clickDate = dayjs(time.time);
+      if (time.disabled) {
         return;
       }
       if (selectionMode === 'range') {
@@ -145,7 +146,7 @@ const Calendar = (props: ComponentProps) => {
   useEvent(
     'setCurrentMonth',
     (e) => {
-      setHeaderState(e);
+      setHeaderState(e.month);
     },
     []
   );
@@ -157,7 +158,7 @@ const Calendar = (props: ComponentProps) => {
 
   const componentInstance = useComponent();
 
-  useEffect(() => {
+  useReady(() => {
     Promise.all([
       getBoundingClientRect(componentInstance, '.ant-calendar-cells'),
       getBoundingClientRect(componentInstance, '.ant-calendar-title-container'),
@@ -187,10 +188,12 @@ const Calendar = (props: ComponentProps) => {
   };
 };
 
-Component(
-  alipayComponent(Calendar, {
-    monthRange: defaultMonthRange(),
-    weekStartsOn: 'Sunday',
-    localeText: defaultLocaleText,
-  })
-);
+mountComponent<ICalendarProps>(Calendar, {
+  defaultValue: null,
+  value: null,
+  selectionMode: 'range',
+  monthRange: defaultMonthRange(),
+  weekStartsOn: 'Sunday',
+  localeText: defaultLocaleText,
+  onFormatter: null,
+});

@@ -31,6 +31,6 @@ function handleScroll(event, ownerComponent) {
     }
   }
 }
-export default {
+module.exports = {
   handleScroll: handleScroll
 };

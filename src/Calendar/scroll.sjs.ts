@@ -1,9 +1,7 @@
 function handleScroll(event, ownerComponent) {
   let currentScroll = event.detail.scrollTop;
-  const {
-    elementSize,
-    monthList
-  } = event.instance.getDataset();
+  const dataset = event.instance.getDataset();
+  const { elementsize: elementSize, monthlist: monthList } = dataset;
   const instance = ownerComponent.selectComponent('.ant-calendar-sticky-title');
   const sticky = ownerComponent.selectComponent('.ant-calendar-sticky');
   sticky.setStyle({
@@ -24,10 +22,9 @@ function handleScroll(event, ownerComponent) {
       instance.setStyle({
         transform: `translateY(-${topHeight}px)`,
       });
-      instance.callMethod(
-        'setCurrentMonth',
-        topHeight > monthHeight * 0.8 ? i + 1 : i
-      );
+      ownerComponent.callMethod('setCurrentMonth', {
+        month: topHeight > monthHeight * 0.8 ? i + 1 : i,
+      });
 
       break;
     } else {

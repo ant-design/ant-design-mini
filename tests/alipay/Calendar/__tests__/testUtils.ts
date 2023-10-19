@@ -1,5 +1,5 @@
 import dayjs, { Dayjs } from 'dayjs';
-import { CellState, ComponentProps } from 'compiled-alipay/Calendar/props';
+import { CellState, ICalendarProps } from 'compiled-alipay/Calendar/props';
 import { getInstance } from 'tests/utils';
 
 export function getSelectedDay(data: { monthList: { cells: CellState[] }[] }) {
@@ -47,7 +47,7 @@ export class SelectorQuery {
   }
 }
 
-export function initCalendar(props: Partial<ComponentProps>) {
+export function initCalendar(props: Partial<ICalendarProps>) {
   return getInstance('Calendar', props, {
     createSelectorQuery: () => {
       return new SelectorQuery();
