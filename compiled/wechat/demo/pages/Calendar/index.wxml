@@ -75,20 +75,6 @@
   </collapse-container>
 </block>
 
-<block wx:if="{{ demo6.visible }}">
-  <collapse-container title="通过 slot 实现农历">
-    <view slot="content">
-      <calendar monthRange="{{ demo6.monthRange }}">
-        <view
-          slot="cell-bottom"
-          slot-scope="prop">
-          <cn-day cell="{{ prop.cell }}" />
-        </view>
-      </calendar>
-    </view>
-  </collapse-container>
-</block>
-
 <block wx:if="{{ demo7.visible }}">
   <collapse-container title="国际化">
     <view slot="content">

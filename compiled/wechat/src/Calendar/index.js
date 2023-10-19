@@ -19,7 +19,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import dayjs from 'dayjs';
-import { useComponent, useEvent, useState, useReady, } from 'functional-mini/component';
+import { useComponent, useEvent, useReady, useState, } from 'functional-mini/component';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';

@@ -1,8 +1,8 @@
-import CollapseContainer from './collapse-container/collapse-container.axml';
-import Calendar from '../../../src/Calendar/index.axml';
 import { InternalData, Page, View } from 'tsxml';
-import Icon from '../../../src/Icon/index.axml';
 import AntButton from '../../../src/Button/index.axml';
+import Calendar from '../../../src/Calendar/index.axml';
+import Icon from '../../../src/Icon/index.axml';
+import CollapseContainer from './collapse-container/collapse-container.axml';
 
 export default (
   _,
@@ -90,7 +90,7 @@ export default (
       </CollapseContainer>
     )}
     {/* 通过 slot 实现农历 */}
-    {/* /// #if ALIPAY */}
+    {/* #if ALIPAY */}
     {demo6.visible && (
       <CollapseContainer title="通过 slot 实现农历">
         <View slot="content">
@@ -102,7 +102,7 @@ export default (
         </View>
       </CollapseContainer>
     )}
-    {/* /// #endif */}
+    {/* #endif */}
     {/* 国际化 */}
     {demo7.visible && (
       <CollapseContainer title="国际化">

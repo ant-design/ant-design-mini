@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 import {
   useComponent,
   useEvent,
-  useState,
   useReady,
+  useState,
 } from 'functional-mini/component';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
