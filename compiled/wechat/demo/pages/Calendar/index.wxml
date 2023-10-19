@@ -50,7 +50,7 @@
     <view slot="content">
       <calendar
         monthRange="{{ demo8.monthRange }}"
-        onFormatter="{{ demo8Formatter }}" />
+        onFormatter="{{ demo8Formatter ? demo8Formatter : 'demoFormatter' }}" />
     </view>
   </collapse-container>
 </block>
@@ -60,7 +60,7 @@
     <view slot="content">
       <calendar
         monthRange="{{ demo4.monthRange }}"
-        onFormatter="{{ demoFormatter }}" />
+        onFormatter="{{ demoFormatter ? demoFormatter : 'demoFormatter' }}" />
     </view>
   </collapse-container>
 </block>

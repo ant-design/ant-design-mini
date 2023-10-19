@@ -65,13 +65,7 @@ export default (
         <View slot="content">
           <Calendar
             monthRange={demo8.monthRange}
-            /// #if ALIPAY
-            onFormatter="demo8Formatter"
-            /// #endif
-
-            /// #if WECHAT
-            onFormatter={demo8Formatter}
-            /// #endif
+            onFormatter={demo8Formatter ? demo8Formatter : 'demoFormatter'}
           />
         </View>
       </CollapseContainer>
@@ -82,13 +76,7 @@ export default (
         <View slot="content">
           <Calendar
             monthRange={demo4.monthRange}
-            /// #if ALIPAY
-            onFormatter="demoFormatter"
-            /// #endif
-
-            /// #if WECHAT
-            onFormatter={demoFormatter}
-            /// #endif
+            onFormatter={demoFormatter ? demoFormatter : 'demoFormatter'}
           />
         </View>
       </CollapseContainer>
