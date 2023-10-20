@@ -2,9 +2,12 @@
   <block
     wx:for="{{ todoList }}"
     wx:for-index="taskIndex"
-    wx:for-item="task">
+    wx:for-item="task"
+    wx:key="{{ task.id }}">
     <!-- display: inline -->
-    <text data-item-id="{{ taskIndex }}">{{ taskIndex }}{{ task }}</text>
+    <text data-item-id="{{ taskIndex }}"
+      >{{ taskIndex }}{{ task.content }}</text
+    >
   </block>
   <test loading />
 </view>

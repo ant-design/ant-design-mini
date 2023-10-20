@@ -182,10 +182,15 @@ export function transformJSXElement(ctx: ITransformContext) {
         [ctx.forIndex()]: indexName,
         [ctx.forItem()]: itemName,
       };
+
+      const { forKey, arrowFunction } = findForKey(ctx.node.arguments[0], ctx);
+      if (forKey) {
+        forProps[ctx.forKey()] = forKey;
+      }
       return ctx.h(
         'block',
         forProps,
-        transformJSXElement(ctx.extends(ctx.node.arguments[0]))
+        transformJSXElement(ctx.extends(arrowFunction))
       );
     }
     case 'ObjectExpression': {
@@ -219,6 +224,31 @@ export function transformJSXElement(ctx: ITransformContext) {
       throw ctx.throw(ctx.node, 'Unsupported JSXElement');
     }
   }
+}
+
+function findForKey(_arrowFunction: types.Node, ctx) {
+  const arrowFunction = types.cloneNode(_arrowFunction, true);
+  if (arrowFunction.type !== 'ArrowFunctionExpression') {
+    return { arrowFunction };
+  }
+  const body = arrowFunction.body;
+  if (body.type !== 'JSXElement') {
+    return { arrowFunction };
+  }
+  const attrIndex = body.openingElement.attributes.findIndex((e) => {
+    return e.type === 'JSXAttribute' && e.name.name === 'key';
+  });
+  if (attrIndex !== -1) {
+    const attr = body.openingElement.attributes[attrIndex];
+    if (attr.type === 'JSXAttribute') {
+      body.openingElement.attributes.splice(attrIndex, 1);
+      return {
+        arrowFunction,
+        forKey: transformJSXElement(ctx.extends(attr.value)),
+      };
+    }
+  }
+  return { arrowFunction };
 }
 
 function transformAttrExpression(ctx: ITransformContext) {

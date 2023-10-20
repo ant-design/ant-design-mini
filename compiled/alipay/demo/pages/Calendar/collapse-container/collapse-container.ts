@@ -28,6 +28,6 @@ const CollapseContainer = (props: Props) => {
 
 mountComponent<Props>(CollapseContainer, {
   hide: false,
-  defaultCollapse: false,
+  defaultCollapse: null,
   title: '',
 });

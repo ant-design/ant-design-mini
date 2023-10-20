@@ -16,7 +16,7 @@ import * as fs from 'node:fs/promises';
     if (key.includes('ant-design-mini/node_modules')) {
       delete coverageInfo[key];
     }
-    if (key.includes('ant-design-mini/ scripts')) {
+    if (key.includes('ant-design-mini/scripts')) {
       delete coverageInfo[key];
     }
   });

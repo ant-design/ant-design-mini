@@ -6,6 +6,17 @@ import { TestInstance } from 'tests/utils';
 describe('Calendar', () => {
   it('测试默认值', () => {
     const instance = initCalendar({});
+
+    const { className, style, localeText, selectionMode, weekStartsOn } =
+      instance.getConfig().props;
+    expect({
+      className,
+      style,
+      localeText,
+      selectionMode,
+      weekStartsOn,
+    }).toMatchFileSnapshot('snapshot/alipay_config_props.txt');
+
     const initData = instance.getData();
 
     const { monthList, markItems } = initData;

@@ -216,9 +216,6 @@ const compileCache = new Map();
 
 // 编译打包代码，新增缓存
 function compileCode(source: string): { code: string; path: string } {
-  if (compileCache.has(source)) {
-    return compileCache.get(source);
-  }
   const expectFile = path.join(
     os.tmpdir(),
     Math.random().toString(36),
