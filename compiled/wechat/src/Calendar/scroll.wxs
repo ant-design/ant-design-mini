@@ -3,12 +3,21 @@ function handleScroll(event, ownerComponent) {
   var dataset = event.instance.getDataset();
   var elementSize = dataset.elementsize,
     monthList = dataset.monthlist;
+  if (!elementSize) {
+    return;
+  }
+  // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 elementSize 为 0
+  if (elementSize.cellHight === 0) {
+    ownerComponent.callMethod('refresh');
+    return;
+  }
   var instance = ownerComponent.selectComponent('.ant-calendar-sticky-title');
   var sticky = ownerComponent.selectComponent('.ant-calendar-sticky');
-  sticky.setStyle({
-    display: currentScroll < 0 ? 'none' : 'block'
-  });
-  if (!elementSize) return;
+  if (sticky) {
+    sticky.setStyle({
+      display: currentScroll < 0 ? 'none' : 'block'
+    });
+  }
   var monthHeight = elementSize.monthTitleHeight;
   var paddingHeight = elementSize.paddingHeight;
   var cellHeight = elementSize.cellHight;

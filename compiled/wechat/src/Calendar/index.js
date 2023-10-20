@@ -131,7 +131,7 @@ var Calendar = function (props) {
     }, []);
     var _e = useState(null), elementSize = _e[0], setElementSize = _e[1];
     var componentInstance = useComponent();
-    useReady(function () {
+    function calculateSize() {
         Promise.all([
             getBoundingClientRect(componentInstance, '.ant-calendar-cells'),
             getBoundingClientRect(componentInstance, '.ant-calendar-title-container'),
@@ -150,7 +150,17 @@ var Calendar = function (props) {
             .catch(function () {
             setElementSize(null);
         });
+    }
+    useReady(function () {
+        calculateSize();
     }, []);
+    useEvent('refresh', function () {
+        // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 elementSize 为 0
+        // 此时需要重新计算
+        if (!elementSize || elementSize.cellHight === 0) {
+            calculateSize();
+        }
+    }, [elementSize]);
     return {
         elementSize: elementSize,
         markItems: markItems,

@@ -8,6 +8,7 @@ import {
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
+import { useLayoutUpdateEffect } from '../_util/hooks/useLayoutEffect';
 import {
   CalendarValue,
   CellState,
@@ -158,7 +159,7 @@ const Calendar = (props: ICalendarProps) => {
 
   const componentInstance = useComponent();
 
-  useReady(() => {
+  function calculateSize() {
     Promise.all([
       getBoundingClientRect(componentInstance, '.ant-calendar-cells'),
       getBoundingClientRect(componentInstance, '.ant-calendar-title-container'),
@@ -178,7 +179,23 @@ const Calendar = (props: ICalendarProps) => {
       .catch(() => {
         setElementSize(null);
       });
+  }
+
+  useReady(() => {
+    calculateSize();
   }, []);
+
+  useEvent(
+    'refresh',
+    () => {
+      // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHight 为 0
+      // 此时需要重新计算
+      if (!elementSize || elementSize.cellHight === 0) {
+        calculateSize();
+      }
+    },
+    [elementSize]
+  );
 
   return {
     elementSize,
