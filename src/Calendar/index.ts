@@ -158,17 +158,20 @@ const Calendar = (props: ICalendarProps) => {
 
   const componentInstance = useComponent();
 
-  useReady(() => {
+  function measurement() {
     Promise.all([
+      getBoundingClientRect(componentInstance, '.ant-calendar-body-container'),
       getBoundingClientRect(componentInstance, '.ant-calendar-cells'),
       getBoundingClientRect(componentInstance, '.ant-calendar-title-container'),
     ])
-      .then(([cellContainer, Title]) => {
-        const monthTitleHeight =
-          Title.height + cellContainer.top - Title.bottom;
+      .then(([bodyContainer, cellContainer, Title]) => {
+        // 滚动的时候 top 和 bottom 等尺寸会变
+        // 所以只能依赖 height 来计算
+        const paddingHeight =
+          bodyContainer.height - cellContainer.height - Title.height;
+        const monthTitleHeight = Title.height + paddingHeight;
         const cellHight =
           cellContainer.height / (monthList[0].cells.length / 7);
-        const paddingHeight = cellContainer.top - Title.bottom;
         setElementSize({
           monthTitleHeight,
           cellHight,
@@ -178,7 +181,23 @@ const Calendar = (props: ICalendarProps) => {
       .catch(() => {
         setElementSize(null);
       });
+  }
+
+  useReady(() => {
+    measurement();
   }, []);
+
+  useEvent(
+    'measurement',
+    () => {
+      // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHight 为 0
+      // 此时需要重新计算
+      if (!elementSize || elementSize.cellHight === 0) {
+        measurement();
+      }
+    },
+    [elementSize]
+  );
 
   return {
     elementSize,

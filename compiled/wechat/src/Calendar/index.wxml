@@ -40,7 +40,7 @@
       wx:for="{{ monthList }}"
       wx:for-index="index"
       wx:for-item="currentMonth">
-      <view>
+      <view class="ant-calendar-body-container">
         <view class="ant-calendar-title-container">
           <view class="ant-calendar-title">{{ currentMonth.title }}</view>
         </view>
