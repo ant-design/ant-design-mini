@@ -9,6 +9,6 @@ var getArrow = function getArrow(arrow) {
   }
   return arrowType[arrow] || '';
 };
-export default {
+module.exports = {
   getArrow: getArrow
 };

@@ -4,6 +4,8 @@ interface Props {
   ref?: string;
   name?: string;
   onTap?: string;
+  src?: string;
+  mode?: string;
   cell?: string;
   children?: any;
   id?: string;
@@ -38,6 +40,8 @@ interface Props {
 export const Text = (props: Props): any => {};
 
 export const View = (props: Props): any => {};
+
+export const Image = (props: Props): any => {};
 
 export const ScrollView = (props: Props): any => {};
 

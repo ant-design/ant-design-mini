@@ -1,19 +1,19 @@
 <import-sjs
-  name="{isIcon}"
-  from="./index.sjs" />
+  from="./index.sjs"
+  name="helper" />
 
-<view class="ant-imageIcon {{className ? className : ''}}">
-  <block a:if="{{isIcon(image)}}">
+<view class="ant-imageIcon {{ className ? className : '' }}">
+  <block a:if="{{ helper.isIcon(image) }}">
     <icon
-      type="{{image}}"
-      className="{{className ? className + '-icon' : ''}}"
-      style="{{style}}" />
+      type="{{ image }}"
+      className="{{ className ? className + '-icon' : '' }}"
+      style="{{ style }}" />
   </block>
   <block a:else>
     <image
-      src="{{image}}"
-      class="{{className ? className + '-image' : ''}}"
-      style="{{style || ''}}"
+      src="{{ image }}"
+      class="{{ className ? className + '-image' : '' }}"
+      style="{{ style || '' }}"
       mode="aspectFit" />
   </block>
 </view>
