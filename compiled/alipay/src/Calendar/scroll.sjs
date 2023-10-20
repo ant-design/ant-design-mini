@@ -6,9 +6,9 @@ function handleScroll(event, ownerComponent) {
   if (!elementSize) {
     return;
   }
-  // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 elementSize 为 0
+  // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHight 为 0
   if (elementSize.cellHight === 0) {
-    ownerComponent.callMethod('refresh');
+    ownerComponent.callMethod('measurement');
     return;
   }
   var instance = ownerComponent.selectComponent('.ant-calendar-sticky-title');
