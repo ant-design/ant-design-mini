@@ -5,8 +5,10 @@
     a:for-item="task"
     a:key="{{ task.id }}">
     <!-- display: inline -->
-    <text data-item-id="{{ taskIndex }}"
-      >{{ taskIndex }}{{ task.content }}</text
+    <text
+      data-item-id="{{ taskIndex }}"
+      data-num="{{ 20 }}"
+      >{{ taskIndex }}{{ task }}</text
     >
   </block>
   <test loading />

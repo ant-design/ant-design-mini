@@ -273,6 +273,7 @@ function transformAttrExpression(ctx: ITransformContext) {
     case 'LogicalExpression':
     case 'BooleanLiteral':
     case 'MemberExpression':
+    case 'NumericLiteral':
     case 'CallExpression': {
       return ctx.toAxmlExpression();
     }

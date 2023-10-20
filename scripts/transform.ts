@@ -171,6 +171,7 @@ ${extraPromo}
       Math.random().toString(36).slice(2)
     );
     ofs.writeFileSync(randomDir, clipboardData);
+    console.log(randomDir);
     cp.execSync(`cat ${randomDir} | pbcopy`);
     console.log('已经复制到剪切板了，可以直接粘贴到 markdown 里了');
   }
