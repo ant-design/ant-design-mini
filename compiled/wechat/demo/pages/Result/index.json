@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Result",
+  "usingComponents": {
+    "result": "../../../src/Result/index",
+    "button": "../../../src/Button/index",
+    "container": "../../../src/Container/index"
+  }
+}

@@ -49,9 +49,7 @@ export default () => (
     <Container title="自定义">
       <Result image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
         <View slot="title">标题插槽</View>
-
         <View slot="message">描述插槽</View>
-
         <View slot="extra">
           <Button inline>辅助操作</Button>
           <Button type="primary" inline style={`margin-left: 12px;`}>

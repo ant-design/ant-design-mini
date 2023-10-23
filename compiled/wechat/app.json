@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/Result/index",
     "demo/pages/List/index",
     "demo/pages/Calendar/index",
     "demo/pages/Switch/index",

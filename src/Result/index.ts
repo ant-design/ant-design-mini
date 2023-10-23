@@ -1,6 +1,11 @@
-import { ResultDefaultProps } from './props';
-import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import { IResultProps } from './props';
 
-Component({
-  props: ResultDefaultProps,
+const Result = () => {};
+
+mountComponent<IResultProps>(Result, {
+  type: null,
+  image: '',
+  title: '',
+  message: '',
 });
