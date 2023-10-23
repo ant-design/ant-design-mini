@@ -8,9 +8,9 @@ export function useComponentEvent(props) {
         },
         // 转发 catch 事件
         forwardCatchEvent: function (eventName, e) {
-            // 首字母大写，然后加上 on
+            // 首字母大写，然后加上 catch
         },
-        // 转发 catch 事件
+        // 转发事件
         forwardEvent: function (eventName, e) {
             // 首字母大写，然后加上 on
         },

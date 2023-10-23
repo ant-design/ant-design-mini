@@ -17,7 +17,7 @@ export function useComponentEvent<T>(props: T) {
     },
     // 转发 catch 事件
     forwardCatchEvent: (eventName: string, e: any) => {
-      // 首字母大写，然后加上 on
+      // 首字母大写，然后加上 catch
 
       const alipayCallbackName =
         'catch' + eventName.charAt(0).toUpperCase() + eventName.slice(1);
@@ -26,7 +26,7 @@ export function useComponentEvent<T>(props: T) {
         props[alipayCallbackName](fmtEvent(props, e));
       }
     },
-    // 转发 catch 事件
+    // 转发事件
     forwardEvent: (eventName: string, e: any) => {
       // 首字母大写，然后加上 on
 

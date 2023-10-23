@@ -22,7 +22,7 @@ export function useComponentEvent<T>(props: T) {
     },
     // 转发 catch 事件
     forwardCatchEvent: (eventName: string, e: any) => {
-      // 首字母大写，然后加上 on
+      // 首字母大写，然后加上 catch
 
       /// #if ALIPAY
       const alipayCallbackName =
@@ -33,7 +33,7 @@ export function useComponentEvent<T>(props: T) {
       }
       /// #endif
     },
-    // 转发 catch 事件
+    // 转发事件
     forwardEvent: (eventName: string, e: any) => {
       // 首字母大写，然后加上 on
 
