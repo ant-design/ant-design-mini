@@ -57,8 +57,6 @@ try {
     'utf-8'
   );
   extraPromo = `
-你可以根据下面的 json 配置, 生成代码。
-
 index.json 的内容为
 
 ${markdownCode(jsonConfig)}
@@ -79,6 +77,8 @@ ${markdownCode(jsonConfig)}
 1. 如果组件在 usingComponents 中存在, 则从正确的位置导入。
 
 比如 <component-name />  就需要写 import ComponentName from 'component_path.axml'; component 的名字需要改成驼峰。
+
+导入 component 的时候，需要以 .axml 结尾。 例如 "component-name": "component_path"  就需要写 import ComponentName from 'component_path.axml';
 
 2. 如果组件不存在，就从 tsxml 导入
 
@@ -104,11 +104,10 @@ props.ts 的内容为：
 
 ${markdownCode(propsContent)}
 
-你需要参考 props.ts 的内容，获取 props 的名字。
+你需要参考 props.ts 的内容，获取 props 的名字。然后 在生成的 tsx 里面添加正确的导入
+不要自己定义 props 类型，而是从 './props' 导入，举例子 import { IconProps } from 'tsxml';
 
-在生成的 tsx 里面添加正确的导入。 格式类似于  import { IProps } from './props';
-
-!! 注意, IProps 只是举个例子，要写的是正确的 props 的名字。
+!! 注意, IconProps 只是举个例子，要写的是正确的 props 的名字。 在使用的时候，不要忘记用 TSXMLProps 包一层。
 `.trim();
 } catch (error) {
   //
@@ -125,7 +124,20 @@ ${examples}
 
 1. import-sjs 转化为 import.  比如 <import-sjs from="./scroll.sjs" name="scroll"></import-sjs>  转化为  import scroll from './scroll.sjs'
 
-2. 不要定义 props 类型，从 './props' 导入，举例子 import { IconProps } from 'tsxml';
+2. 参考下面的代码，如果用户使用的 slot 有默认值, 需要在 slob 标签的前后加上 if alipay 的注释。
+
+${markdownCode(`
+{/* #if ALIPAY */}
+<Slot name="extraBrief">
+  {/* #endif */}
+
+  {extraBrief}
+
+  {/* #if ALIPAY */}
+</Slot>
+{/* #endif */}`)}
+
+请加上注释。 不要使用三元表达式
 
 ${propsProps}
 
@@ -160,9 +172,7 @@ ${extraPromo}
       ofs.writeFileSync(tsxmlPath, '');
     }
     for (const handler of handlers) {
-      if (handler(path.resolve(sourceDir, fileName)) === true) {
-        return false;
-      }
+      handler(path.resolve(sourceDir, fileName));
     }
   }
   if (os.platform() === 'darwin') {
