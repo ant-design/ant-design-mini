@@ -45,28 +45,21 @@ export default () => (
       />
     </Container>
 
+    {/* #if ALIPAY */}
     <Container title="自定义">
-      <Result
-        image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
-        <view slot="title">
-          标题插槽
-        </view>
+      <Result image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
+        <View slot="title">标题插槽</View>
 
-        <View slot="message">
-          描述插槽
-        </View>
+        <View slot="message">描述插槽</View>
 
-        <view slot="extra">
+        <View slot="extra">
           <Button inline>辅助操作</Button>
-          <Button
-            type="primary"
-            inline
-            style={`"margin-left": "12px"`}
-          >
+          <Button type="primary" inline style={`margin-left: 12px;`}>
             主要操作
           </Button>
-        </view>
+        </View>
       </Result>
     </Container>
+    {/* #endif */}
   </Page>
 );

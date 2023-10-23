@@ -14,7 +14,9 @@ export default ({
 }: TSXMLProps<IResultProps>) => (
   <View class={`ant-result ${className ? className : ''}`} style={style || ''}>
     <View class="ant-result-main">
+      {/* #if ALIPAY */}
       <Slot name="image">
+        {/* #endif */}
         {type ? (
           <View class="ant-result-image">
             <Icon
@@ -28,14 +30,26 @@ export default ({
         ) : (
           <Block></Block>
         )}
+        {/* #if ALIPAY */}
       </Slot>
+      {/* #endif */}
       <View class="ant-result-title">
-        <Slot name="title">{title}</Slot>
+        {/* #if ALIPAY */}
+        <Slot name="title">
+          {/* #endif */}
+          {title}
+          {/* #if ALIPAY */}
+        </Slot>
+        {/* #endif */}
       </View>
       <View class="ant-result-message">
+        {/* #if ALIPAY */}
         <Slot name="message">
+          {/* #endif */}
           <Text>{message}</Text>
+          {/* #if ALIPAY */}
         </Slot>
+        {/* #endif */}
       </View>
     </View>
     <Slot name="extra"></Slot>

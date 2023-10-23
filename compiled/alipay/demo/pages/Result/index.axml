@@ -37,7 +37,9 @@
   <result
     image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
     <view slot="title">标题插槽</view>
+
     <view slot="message">描述插槽</view>
+
     <view slot="extra">
       <button inline>辅助操作</button>
       <button
