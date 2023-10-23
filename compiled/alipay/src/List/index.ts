@@ -1,6 +1,12 @@
-import { ListDefaultProps } from './props';
-import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import { IListProps } from './props';
 
-Component({
-  props: ListDefaultProps,
+const List = () => {
+  //
+};
+
+mountComponent<IListProps>(List, {
+  radius: false,
+  header: '',
+  footer: '',
 });

@@ -21,8 +21,10 @@ export default ({
   <View
     class={`ant-list-item  ${className ? className : ''}`}
     style={style || ''}
+    /// #if ALIPAY
     onTap={onTap ? 'onTap' : ''}
     catchTap={catchTap ? 'catchTap' : ''}
+    /// #endif
     hover-class={onTap || catchTap ? 'ant-list-item-hover' : ''}
     hover-start-time={20}
     hover-stay-time={40}
@@ -33,31 +35,57 @@ export default ({
       } ${disabled ? 'ant-list-item-line-disabled' : ''}`}
     >
       <View class="ant-list-item-image-container">
+        {/* #if ALIPAY */}
         <Slot name="image">
+          {/* #endif */}
           {image && <ImageIcon image={image} className="ant-list-item-image" />}
+          {/* #if ALIPAY */}
         </Slot>
+        {/* #endif */}
       </View>
       <View class="ant-list-item-content-container">
         <View class="ant-list-item-content-title-container">
+          {/* #if ALIPAY */}
           <Slot name="title">
+            {/* #endif */}
             {title && <View class="ant-list-item-content-title">{title}</View>}
+            {/* #if ALIPAY */}
           </Slot>
+          {/* #endif */}
         </View>
         <View class="ant-list-item-content-main">
           <Slot />
         </View>
         <View class="ant-list-item-content-brief-container">
+          {/* #if ALIPAY */}
           <Slot name="brief">
+            {/* #endif */}
+
             {brief && <View class="ant-list-item-content-brief">{brief}</View>}
+            {/* #if ALIPAY */}
           </Slot>
+          {/* #endif */}
         </View>
       </View>
       <View class="ant-list-item-extra-container">
         <View class="ant-list-item-extra">
-          <Slot name="extra">{extra}</Slot>
+          {/* #if ALIPAY */}
+          <Slot name="extra">
+            {/* #endif */}
+            {extra}
+            {/* #if ALIPAY */}
+          </Slot>
+          {/* #endif */}
         </View>
         <View class="ant-list-item-extra-brief">
-          <Slot name="extraBrief">{extraBrief}</Slot>
+          {/* #if ALIPAY */}
+
+          <Slot name="extraBrief">
+            {/* #endif */}
+            {extraBrief}
+            {/* #if ALIPAY */}
+          </Slot>
+          {/* #endif */}
         </View>
       </View>
       <View class="ant-list-item-arrow">

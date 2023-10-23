@@ -21,7 +21,11 @@ function removeNullProps(props) {
 }
 export function mountComponent(Hooks, defaultProps) {
     Component(wechatComponent(Hooks, mergeDefaultProps(defaultProps), {
-        options: { styleIsolation: 'shared', multipleSlots: true },
+        options: {
+            styleIsolation: 'shared',
+            multipleSlots: true,
+            virtualHost: true,
+        },
     }));
 }
 function mergeDefaultProps(defaultProps) {

@@ -17,7 +17,11 @@ export function mountComponent<T>(
   /// #if WECHAT
   Component(
     wechatComponent(Hooks, mergeDefaultProps(defaultProps), {
-      options: { styleIsolation: 'shared', multipleSlots: true },
+      options: {
+        styleIsolation: 'shared',
+        multipleSlots: true,
+        virtualHost: true,
+      },
     })
   );
   /// #endif

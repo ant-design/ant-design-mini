@@ -49,6 +49,8 @@ const allowList = [
   'Switch',
   'Tag',
   'Calendar',
+  'List',
+  'ImageIcon',
 ];
 
 const demoAllowList = [
@@ -60,6 +62,7 @@ const demoAllowList = [
   'pages/Switch',
   'pages/Tag',
   'pages/Calendar',
+  'pages/List',
 ];
 
 const include = function (list: string[], source: string) {

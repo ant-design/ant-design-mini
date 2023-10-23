@@ -1,0 +1,23 @@
+{
+  "data": {},
+  "deriveDataFromProps": [Function],
+  "didUnmount": [Function],
+  "lifetimes": {},
+  "methods": {
+    "catchTap": [Function],
+    "onTap": [Function],
+  },
+  "onInit": [Function],
+  "options": {
+    "lifetimes": true,
+  },
+  "props": {
+    "brief": "",
+    "disabled": false,
+    "extra": "",
+    "extraBrief": "",
+    "image": "",
+    "showDivider": true,
+    "title": "",
+  },
+}

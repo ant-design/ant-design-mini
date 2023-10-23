@@ -7,6 +7,8 @@ Page({
       title: 'onTap',
       content: e.currentTarget.dataset.info,
     });
+
+    console.log(e);
   },
   handleSetRadius(checked) {
     this.setData({
