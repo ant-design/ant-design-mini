@@ -4,10 +4,7 @@ import ListItem from '../../../src/List/ListItem/index.axml';
 import Icon from '../../../src/Icon/index.axml';
 import Switch from '../../../src/Switch/index.axml';
 
-export default (
-  _,
-  { item, radius, handleTap, handleSetRadius }: InternalData
-) => (
+export default (_, { item, radius }: InternalData) => (
   <View>
     <List header="基础用法" radius={radius}>
       <ListItem>1</ListItem>
@@ -18,7 +15,7 @@ export default (
       <ListItem
         image="PayCircleOutline"
         arrow="right"
-        onTap={handleTap}
+        onTap="handleTap"
         data-info="总资产"
       >
         总资产
@@ -26,7 +23,7 @@ export default (
       <ListItem
         image="SetOutline"
         arrow="right"
-        onTap={handleTap}
+        onTap="handleTap"
         data-info="设置"
       >
         设置
@@ -34,7 +31,7 @@ export default (
       <ListItem
         image="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
         arrow="right"
-        onTap={handleTap}
+        onTap="handleTap"
         data-info="图片"
       >
         图片
