@@ -43,7 +43,7 @@ export default (
     <List radius={radius} header="复杂布局">
       <ListItem>
         圆角
-        <Switch slot="extra" checked={radius} onChange={handleSetRadius} />
+        <Switch slot="extra" checked={radius} onChange="handleSetRadius" />
       </ListItem>
       <ListItem extraBrief="未开启" arrow="right">
         大字号模式
@@ -56,7 +56,7 @@ export default (
         brief="描述信息"
         extra="次要信息"
         extraBrief="次要辅助信息"
-        onTap={handleTap}
+        onTap="handleTap"
         data-info="三行列表"
         arrow="right"
       >

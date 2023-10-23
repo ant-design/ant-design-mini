@@ -39,7 +39,7 @@
       <switch
         slot="extra"
         checked="{{ radius }}"
-        onChange="{{ handleSetRadius }}" />
+        onChange="handleSetRadius" />
     </list-item>
     <list-item
       extraBrief="未开启"
@@ -56,7 +56,7 @@
       brief="描述信息"
       extra="次要信息"
       extraBrief="次要辅助信息"
-      onTap="{{ handleTap }}"
+      onTap="handleTap"
       data-info="三行列表"
       arrow="right">
       三行列表
