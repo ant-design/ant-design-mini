@@ -18,7 +18,7 @@
     placeholder="{{placeholder}}"
     placeholderClassName="{{placeholderClassName}}"
     placeholderStyle="{{placeholderStyle}}"
-    maxlength="{{maxLength}}"
+    maxLength="{{maxLength}}"
     autoHeight="{{autoHeight}}"
     showCount="{{showCount}}"
     onChange="onChange"
