@@ -1,0 +1,3 @@
+export var ImageIconDefaultProps = {
+    image: '',
+};

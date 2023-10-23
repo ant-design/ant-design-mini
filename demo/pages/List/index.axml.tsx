@@ -38,16 +38,19 @@ export default (_, { item, radius }: InternalData) => (
       </ListItem>
     </List>
     <List radius={radius} header="复杂布局">
+      {/* #if ALIPAY */}
       <ListItem>
         圆角
         <Switch slot="extra" checked={radius} onChange="handleSetRadius" />
       </ListItem>
+      {/* #endif */}
       <ListItem extraBrief="未开启" arrow="right">
         大字号模式
       </ListItem>
       <ListItem brief="管理已授权的产品和设备" arrow={item.arrow}>
         授权管理
       </ListItem>
+      {/* #if ALIPAY */}
       <ListItem
         title="标题"
         brief="描述信息"
@@ -60,6 +63,7 @@ export default (_, { item, radius }: InternalData) => (
         三行列表
         <Icon slot="image" type="AlipaySquareFill" style="font-size: 64px" />
       </ListItem>
+      {/* #endif */}
     </List>
     <List radius={radius} header="禁用状态">
       <ListItem

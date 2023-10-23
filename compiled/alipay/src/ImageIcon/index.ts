@@ -1,6 +1,10 @@
-import { ImageIconDefaultProps } from './props';
-import '../_util/assert-component2';
+import { ImageIconProps } from './props';
+import { mountComponent } from '../_util/component';
 
-Component({
-  props: ImageIconDefaultProps,
+const ImageIcon = () => {
+  //
+};
+
+mountComponent<ImageIconProps>(ImageIcon, {
+  image: '',
 });
