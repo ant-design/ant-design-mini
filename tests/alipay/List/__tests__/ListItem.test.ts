@@ -1,6 +1,18 @@
 import { getInstance } from 'tests/utils';
 import { describe, it, expect, vi } from 'vitest';
 
+describe('listItem props', () => {
+  it('listItem getConfig', () => {
+    const onTap = vi.fn();
+    const instance = getInstance('List/ListItem', {
+      onTap,
+    });
+    expect(instance.getConfig()).toMatchFileSnapshot(
+      'snapshot/list_item_alipay_config.txt'
+    );
+  });
+});
+
 describe('listItem onTap', () => {
   it('listItem onTap', () => {
     const onTap = vi.fn();
