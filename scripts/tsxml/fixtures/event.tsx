@@ -1,11 +1,11 @@
-import { Text, View } from 'tsxml';
+import { Text, View, TSXMLProps } from 'tsxml';
 
 interface Props {
   a: boolean;
   b: boolean;
 }
 
-export default ({ a }: Props) => (
+export default ({ a }: TSXMLProps<Props>) => (
   <View>
     <Text onTap="a" catchTap="b">
       {a}

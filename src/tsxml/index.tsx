@@ -55,12 +55,11 @@ export const Component = (props: Props): any => {};
 
 export const Button = (props: Props): any => {};
 
-export type TSXMLProps<T> = {
+export type TSXMLProps<T> = Partial<{
   [K in keyof T]: T[K] extends (...args: unknown[]) => unknown ? string : T[K];
 } & {
   $id?: string;
-  mixin?: any;
   slot?: string;
-};
+}>
 
 export type InternalData = any;

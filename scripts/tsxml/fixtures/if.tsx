@@ -1,11 +1,11 @@
-import { Text, View } from 'tsxml';
+import { Text, View, TSXMLProps } from 'tsxml';
 
 interface Props {
   a: boolean;
   b: boolean;
 }
 
-export default ({ a, b }: Props) => (
+export default ({ a, b }: TSXMLProps<Props>) => (
   <View>
     {/* one */}
     {!!a && <Text>a</Text>}
