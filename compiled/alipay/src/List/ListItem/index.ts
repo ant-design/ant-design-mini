@@ -1,25 +1,42 @@
-import { ListItemDefaultProps } from './props';
-import fmtEvent from '../../_util/fmtEvent';
-import '../../_util/assert-component2';
+import { useEvent } from 'functional-mini/component';
+import { ISwitchProps } from '../../Switch/props';
+import { mountComponent } from '../../_util/component';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { IListItemProps } from './props';
 
-Component({
-  props: ListItemDefaultProps,
-  methods: {
-    onTap(e) {
-      if (this.props.disabled) return;
-      const { onTap } = this.props;
-      if (onTap) {
-        const event = fmtEvent(this.props, e);
-        onTap(event);
+const ListItem = (props: ISwitchProps) => {
+  const { forwardCatchEvent, forwardEvent } = useComponentEvent(props);
+
+  useEvent(
+    'onTap',
+    (e) => {
+      if (props.disabled) {
+        return;
       }
+      forwardEvent('tap', e);
     },
-    catchTap(e) {
-      if (this.props.disabled) return;
-      const { catchTap } = this.props;
-      if (catchTap) {
-        const event = fmtEvent(this.props, e);
-        catchTap(event);
+    [props]
+  );
+  useEvent(
+    'catchTap',
+    (e) => {
+      if (props.disabled) {
+        return;
       }
+      forwardCatchEvent('tap', e);
     },
-  },
+    [props]
+  );
+  return {};
+};
+
+mountComponent<IListItemProps>(ListItem, {
+  image: '',
+  title: '',
+  brief: '',
+  arrow: null,
+  extra: '',
+  extraBrief: '',
+  disabled: false,
+  showDivider: true,
 });

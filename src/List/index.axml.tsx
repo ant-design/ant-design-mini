@@ -1,5 +1,5 @@
 import { IListProps } from './props';
-import { View, TSXMLProps } from 'tsxml';
+import { View, TSXMLProps, Slot } from 'tsxml';
 import './index.css';
 
 export default ({
@@ -17,17 +17,17 @@ export default ({
       <View class="ant-list-header">{header}</View>
     ) : (
       <View class="ant-list-header">
-        <slot name="header" />
+        <Slot name="header" />
       </View>
     )}
     <View class="ant-list-body">
-      <slot />
+      <Slot />
     </View>
     {footer ? (
       <View class="ant-list-footer">{footer}</View>
     ) : (
       <View class="ant-list-footer">
-        <slot name="footer" />
+        <Slot name="footer" />
       </View>
     )}
   </View>

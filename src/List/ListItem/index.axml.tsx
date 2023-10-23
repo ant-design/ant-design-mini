@@ -21,8 +21,10 @@ export default ({
   <View
     class={`ant-list-item  ${className ? className : ''}`}
     style={style || ''}
+    /// #if ALIPAY
     onTap={onTap ? 'onTap' : ''}
     catchTap={catchTap ? 'catchTap' : ''}
+    /// #endif
     hover-class={onTap || catchTap ? 'ant-list-item-hover' : ''}
     hover-start-time={20}
     hover-stay-time={40}
