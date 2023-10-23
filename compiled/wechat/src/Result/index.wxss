@@ -1,0 +1,68 @@
+.ant-result {
+  position: relative;
+  text-align: center;
+  line-height: normal;
+  box-sizing: border-box;
+}
+.ant-result::after {
+  content: '';
+  position: absolute;
+  background-color: #eeeeee;
+  display: block;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  transform: scaleY(0.5);
+}
+.ant-result-main {
+  padding: 32px 12px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+}
+.ant-result-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+  line-height: 64px;
+}
+.ant-result-image + .ant-result-title,
+.ant-result-image + .ant-result-message {
+  padding-top: 20px;
+}
+.ant-result-image-success {
+  color: #1677ff;
+}
+.ant-result-image-error {
+  color: #ff3b30;
+}
+.ant-result-image-info {
+  color: #1677ff;
+}
+.ant-result-image-warning {
+  color: #ff8f1f;
+}
+.ant-result-image-wait {
+  color: #00b578;
+}
+.ant-result-title {
+  font-size: 18px;
+  color: #333333;
+}
+.ant-result-title:empty {
+  display: none;
+}
+.ant-result-message {
+  padding-top: 8px;
+  font-size: 13px;
+  color: #999999;
+}
+.ant-result-message:empty {
+  display: none;
+}
