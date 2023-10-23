@@ -148,6 +148,7 @@ ${extraPromo}
     if (ofs.statSync(src).isDirectory()) {
       continue;
     }
+    console.log(fileName);
     const ext = path.extname(fileName);
     if (ext === '.axml') {
       const axmlContent = ofs.readFileSync(

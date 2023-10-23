@@ -1,4 +1,4 @@
-import { View, Slot } from 'tsxml';
+import { View, Slot, TSXMLProps } from 'tsxml';
 import Icon from '../../Icon/index.axml';
 import arrowUtil from '../../_util/arrow.sjs';
 import ImageIcon from '../../ImageIcon/index.axml';
@@ -17,7 +17,7 @@ export default ({
   extra,
   extraBrief,
   arrow,
-}: IListItemProps) => (
+}: TSXMLProps<IListItemProps>) => (
   <View
     class={`ant-list-item  ${className ? className : ''}`}
     style={style || ''}

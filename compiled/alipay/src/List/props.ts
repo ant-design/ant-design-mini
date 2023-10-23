@@ -1,4 +1,3 @@
-
 import { IBaseProps } from '../_util/base';
 /**
  * @description 列表，内部配合 ListItem 使用。
@@ -9,17 +8,17 @@ export interface IListProps extends IBaseProps {
    * @description 是否带圆角
    * @default false
    */
-  radius: boolean;
+  radius?: boolean;
   /**
    * @description 头部说明
    */
 
-  header: string;
+  header?: string;
   /**
    * @description 底部说明
    */
 
-  footer: string;
+  footer?: string;
 }
 
 export const ListDefaultProps: Partial<IListProps> = {
