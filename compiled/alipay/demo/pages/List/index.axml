@@ -1,14 +1,14 @@
 <view>
   <list
     header="基础用法"
-    radius="{{radius}}">
+    radius="{{ radius }}">
     <list-item>1</list-item>
     <list-item>2</list-item>
     <list-item>3</list-item>
   </list>
   <list
     header="可点击列表"
-    radius="{{radius}}">
+    radius="{{ radius }}">
     <list-item
       image="PayCircleOutline"
       arrow="right"
@@ -32,13 +32,13 @@
     </list-item>
   </list>
   <list
-    radius="{{radius}}"
+    radius="{{ radius }}"
     header="复杂布局">
     <list-item>
       圆角
       <switch
         slot="extra"
-        checked="{{radius}}"
+        checked="{{ radius }}"
         onChange="handleSetRadius" />
     </list-item>
     <list-item
@@ -48,7 +48,7 @@
     </list-item>
     <list-item
       brief="管理已授权的产品和设备"
-      arrow="{{item.arrow}}">
+      arrow="{{ item.arrow }}">
       授权管理
     </list-item>
     <list-item
@@ -67,7 +67,7 @@
     </list-item>
   </list>
   <list
-    radius="{{radius}}"
+    radius="{{ radius }}"
     header="禁用状态">
     <list-item
       disabled
