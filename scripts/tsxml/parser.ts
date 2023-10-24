@@ -113,7 +113,7 @@ export function transformJSXElement(ctx: ITransformContext) {
         .reduce((acc, cur) => {
           acc[cur.name] = cur.value;
           return acc;
-        }, {});
+        }, ctx.extraAttr);
 
       return ctx.h(
         tagName,
@@ -133,12 +133,10 @@ export function transformJSXElement(ctx: ITransformContext) {
       if (ctx.node.operator !== '&&') {
         throw ctx.throw(ctx.node);
       }
-      return ctx.h(
-        'block',
-        {
+      return transformJSXElement(
+        ctx.extends(ctx.node.right, {
           [ctx.if()]: ctx.extends(ctx.node.left).toAxmlExpression(),
-        },
-        transformJSXElement(ctx.extends(ctx.node.right))
+        })
       );
     }
     case 'CallExpression': {
@@ -204,19 +202,15 @@ export function transformJSXElement(ctx: ITransformContext) {
     }
     case 'ConditionalExpression': {
       return [
-        ctx.h(
-          'block',
-          {
+        transformJSXElement(
+          ctx.extends(ctx.node.consequent, {
             [ctx.if()]: ctx.extends(ctx.node.test).toAxmlExpression(),
-          },
-          transformJSXElement(ctx.extends(ctx.node.consequent))
+          })
         ),
-        ctx.h(
-          'block',
-          {
+        transformJSXElement(
+          ctx.extends(ctx.node.alternate, {
             [ctx.else()]: true,
-          },
-          transformJSXElement(ctx.extends(ctx.node.alternate))
+          })
         ),
       ];
     }

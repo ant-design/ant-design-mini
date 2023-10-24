@@ -3,22 +3,17 @@
   style="{{ mixin.value && color ? 'background:' + color + '; border-color:' + color : '' }};{{ style || '' }}"
   onTap="onChange">
   <view class="ant-switch-handle">
-    <block a:if="{{ loading }}">
-      <ant-icon
-        type="UndoOutline"
-        className="ant-switch-loading-icon" />
-    </block>
+    <ant-icon
+      a:if="{{ loading }}"
+      type="UndoOutline"
+      className="ant-switch-loading-icon" />
   </view>
   <view class="ant-switch-inner">
     <block a:if="{{ mixin.value }}">
-      <block>
-        <slot name="checkedText">{{ checkedText }}</slot>
-      </block>
+      <slot name="checkedText">{{ checkedText }}</slot>
     </block>
     <block a:else>
-      <block>
-        <slot name="uncheckedText">{{ uncheckedText }}</slot>
-      </block>
+      <slot name="uncheckedText">{{ uncheckedText }}</slot>
     </block>
   </view>
 </view>

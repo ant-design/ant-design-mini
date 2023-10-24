@@ -3,17 +3,15 @@
   module="helper" />
 
 <view class="ant-imageIcon {{ className ? className : '' }}">
-  <block wx:if="{{ helper.isIcon(image) }}">
-    <icon
-      type="{{ image }}"
-      className="{{ className ? className + '-icon' : '' }}"
-      style="{{ style }}" />
-  </block>
-  <block wx:else>
-    <image
-      src="{{ image }}"
-      class="{{ className ? className + '-image' : '' }}"
-      style="{{ style || '' }}"
-      mode="aspectFit" />
-  </block>
+  <icon
+    wx:if="{{ helper.isIcon(image) }}"
+    type="{{ image }}"
+    className="{{ className ? className + '-icon' : '' }}"
+    style="{{ style }}" />
+  <image
+    wx:else
+    src="{{ image }}"
+    class="{{ className ? className + '-image' : '' }}"
+    style="{{ style || '' }}"
+    mode="aspectFit" />
 </view>

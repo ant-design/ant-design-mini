@@ -3,14 +3,13 @@
   style="{{ mixin.value && color ? 'background:' + color + '; border-color:' + color : '' }};{{ style || '' }}"
   bind:tap="onChange">
   <view class="ant-switch-handle">
-    <block wx:if="{{ loading }}">
-      <ant-icon
-        type="UndoOutline"
-        className="ant-switch-loading-icon" />
-    </block>
+    <ant-icon
+      wx:if="{{ loading }}"
+      type="UndoOutline"
+      className="ant-switch-loading-icon" />
   </view>
   <view class="ant-switch-inner">
-    <block wx:if="{{ mixin.value }}"><block>{{ checkedText }}</block></block>
-    <block wx:else><block>{{ uncheckedText }}</block></block>
+    <block wx:if="{{ mixin.value }}">{{ checkedText }}</block>
+    <block wx:else>{{ uncheckedText }}</block>
   </view>
 </view>
