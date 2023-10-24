@@ -141,8 +141,8 @@
         </block>
       </view>
     </view>
+    <block a:if="{{ safeArea }}">
+      <view class="ant-rare-words-keyboard-kb_iphonex-safe" />
+    </block>
   </view>
-  <block a:if="{{ safeArea }}">
-    <view class="ant-rare-words-keyboard-kb_iphonex-safe" />
-  </block>
 </view>

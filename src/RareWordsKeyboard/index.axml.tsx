@@ -190,7 +190,9 @@ export default (
           )}
         </View>
       </View>
+      {safeArea && (
+        <View class="ant-rare-words-keyboard-kb_iphonex-safe"></View>
+      )}
     </View>
-    {safeArea && <View class="ant-rare-words-keyboard-kb_iphonex-safe"></View>}
   </View>
 );
