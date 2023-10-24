@@ -91,6 +91,9 @@ export class TransformContext<T extends types.Node = types.Node>
   }
 
   getAttrName(tagName: string, name: string): string {
+    if (name === 'key') {
+      return this.config.forKey;
+    }
     if (this.platform.basicEvent[name]) {
       return this.platform.basicEvent[name];
     }
