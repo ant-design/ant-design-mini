@@ -81,8 +81,10 @@ Page({
       visible: true,
       monthRange: [new Date().getTime(), new Date().getTime()],
     },
+    /// #if WECHAT
     demoFormatter,
     demo8Formatter,
+    /// #endif
     demo9: {
       visible: true,
       value: Date.now(),

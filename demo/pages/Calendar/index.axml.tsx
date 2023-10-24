@@ -65,7 +65,7 @@ export default (
         <View slot="content">
           <Calendar
             monthRange={demo8.monthRange}
-            onFormatter={demo8Formatter ? demo8Formatter : 'demoFormatter'}
+            onFormatter={demo8Formatter ? demo8Formatter : 'demo8Formatter'}
           />
         </View>
       </CollapseContainer>
