@@ -26,11 +26,11 @@ export default (
   }: InternalData
 ) => (
   <View
-    a:key={`ant-rare-words-input-${id}`}
+    key={`ant-rare-words-input-${id}`}
     style={style}
     class={`ant-rare-words-keyboard ${className || ''}`}
   >
-    {!!visible && (
+    {visible && (
       <View
         class={`ant-rare-words-keyboard-modal ${showMask ? '' : 'hide'}`}
         onTap="onHide"
@@ -40,7 +40,7 @@ export default (
     <View class={`ant-rare-words-keyboard-kb ${visible ? '' : 'hide'}`}>
       <View class="ant-rare-words-keyboard-header">
         {/* 输入值展示区 */}
-        {!!(type !== 'handwriting') && (
+        {type !== 'handwriting' && (
           <View
             class={`ant-rare-words-keyboard-input_value ${
               displayStr.length > 0 && visible ? '' : 'hide'
@@ -172,7 +172,7 @@ export default (
                       </View>
                     </View>
                   ))}
-                  {!!(mapIndex === pinyinMaps.length - 1) && (
+                  {mapIndex === pinyinMaps.length - 1 && (
                     <View
                       class="ant-rare-words-keyboard_pinyin_key delete"
                       onTap="handleDelete"
@@ -192,8 +192,6 @@ export default (
         </View>
       </View>
     </View>
-    {!!safeArea && (
-      <View class="ant-rare-words-keyboard-kb_iphonex-safe"></View>
-    )}
+    {safeArea && <View class="ant-rare-words-keyboard-kb_iphonex-safe"></View>}
   </View>
 );

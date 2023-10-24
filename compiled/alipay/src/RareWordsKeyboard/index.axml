@@ -1,8 +1,8 @@
 <view
-  a-key="ant-rare-words-input-{{ id }}"
+  key="ant-rare-words-input-{{ id }}"
   style="{{ style }}"
   class="ant-rare-words-keyboard {{ className || '' }}">
-  <block a:if="{{ !!visible }}">
+  <block a:if="{{ visible }}">
     <view
       class="ant-rare-words-keyboard-modal {{ showMask ? '' : 'hide' }}"
       onTap="onHide"
@@ -10,7 +10,7 @@
   </block>
   <view class="ant-rare-words-keyboard-kb {{ visible ? '' : 'hide' }}">
     <view class="ant-rare-words-keyboard-header">
-      <block a:if="{{ !!(type !== 'handwriting') }}">
+      <block a:if="{{ type !== 'handwriting' }}">
         <view
           class="ant-rare-words-keyboard-input_value {{ displayStr.length > 0 && visible ? '' : 'hide' }}">
           {{ displayStr }}
@@ -40,11 +40,11 @@
               </view>
             </block>
 
-            <block a:if="{{ !!loading }}">
+            <block a:if="{{ loading }}">
               <view
                 class="ant-rare-words-keyboard-match_words_item_tips loading">
                 <loading
-                  class="ant-rare-words-keyboard-loading"
+                  className="ant-rare-words-keyboard-loading"
                   type="mini"
                   size="small"
                   color="#666666" />
@@ -72,19 +72,19 @@
             class="ant-rare-words-keyboard-match_words_right {{ showMoreWords ? 'sticky' : '' }} {{ matchWordsList.length > maxDisplayNum && !showMoreWords ? 'overflow' : '' }}"
             onTap="hanleLookMore">
             <icon
-              class="ant-rare-words-keyboard_down"
+              className="ant-rare-words-keyboard_down"
               type="DownOutline" />
           </view>
         </view>
       </view>
 
       <view class="ant-rare-words-keyboard_main">
-        <block a:if="{{ !!showErrorPage }}">
+        <block a:if="{{ showErrorPage }}">
           <view>
             <slot name="resultError">
               <view class="ant-rare-words-keyboard_error">
                 <result
-                  class="ant-rare-words-keyboard_error-result"
+                  className="ant-rare-words-keyboard_error-result"
                   image="https://mdn.alipayobjects.com/huamei_2fq7mt/afts/img/A*VtvFS4EJl0cAAAAAAAAAAAAADh58AQ/original"
                   message="页面遇到一些小问题">
                   <view
@@ -127,7 +127,7 @@
                     </view>
                   </view>
                 </block>
-                <block a:if="{{ !!(mapIndex === pinyinMaps.length - 1) }}">
+                <block a:if="{{ mapIndex === pinyinMaps.length - 1 }}">
                   <view
                     class="ant-rare-words-keyboard_pinyin_key delete"
                     onTap="handleDelete">
@@ -145,7 +145,7 @@
       </view>
     </view>
   </view>
-  <block a:if="{{ !!safeArea }}">
+  <block a:if="{{ safeArea }}">
     <view class="ant-rare-words-keyboard-kb_iphonex-safe" />
   </block>
 </view>

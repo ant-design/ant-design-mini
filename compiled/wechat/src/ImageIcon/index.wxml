@@ -1,0 +1,19 @@
+<wxs
+  src="./index.wxs"
+  module="helper" />
+
+<view class="ant-imageIcon {{ className ? className : '' }}">
+  <block wx:if="{{ helper.isIcon(image) }}">
+    <icon
+      type="{{ image }}"
+      className="{{ className ? className + '-icon' : '' }}"
+      style="{{ style }}" />
+  </block>
+  <block wx:else>
+    <image
+      src="{{ image }}"
+      class="{{ className ? className + '-image' : '' }}"
+      style="{{ style || '' }}"
+      mode="aspectFit" />
+  </block>
+</view>
