@@ -20,17 +20,17 @@
       </view>
     </block>
   </view>
-  <block a:if="{{ !!elementSize }}">
-    <view class="ant-calendar-sticky">
-      <view class="ant-calendar-sticky-title">
-        <slot name="calendarTitle">
-          <view class="ant-calendar-title">
-            {{ monthList[headerState].title }}
-          </view>
-        </slot>
-      </view>
+  <view
+    a:if="{{ !!elementSize }}"
+    class="ant-calendar-sticky">
+    <view class="ant-calendar-sticky-title">
+      <slot name="calendarTitle">
+        <view class="ant-calendar-title">
+          {{ monthList[headerState].title }}
+        </view>
+      </slot>
     </view>
-  </block>
+  </view>
   <scroll-view
     scroll-y="{{ true }}"
     class="ant-calendar-body"
@@ -60,33 +60,31 @@
                 onTap="clickCell">
                 <view class="ant-calendar-cell-container">
                   <view class="ant-calendar-cell-top">
-                    <block a:if="{{ item.top }}">
-                      <!-- display: inline -->
-                      <text
-                        class="ant-calendar-cell-top-text {{ item.top.className ? item.top.className : '' }}"
-                        >{{ item.top.label }}</text
-                      >
-                    </block>
+                    <!-- display: inline -->
+                    <text
+                      a:if="{{ item.top }}"
+                      class="ant-calendar-cell-top-text {{ item.top.className ? item.top.className : '' }}"
+                      >{{ item.top.label }}</text
+                    >
                   </view>
                   <view class="ant-calendar-cell-center">{{ item.date }}</view>
                   <view class="ant-calendar-cell-bottom">
                     <slot
                       name="cell-bottom"
                       cell="{{ item }}">
-                      <block a:if="{{ item.bottom }}">
-                        <!-- display: inline -->
-                        <text class="{{ item.bottom.className }}"
-                          >{{ item.bottom.label }}</text
-                        >
-                      </block>
+                      <!-- display: inline -->
+                      <text
+                        a:if="{{ item.bottom }}"
+                        class="{{ item.bottom.className }}"
+                        >{{ item.bottom.label }}</text
+                      >
                     </slot>
                   </view>
                 </view>
               </view>
-              <block a:if="{{ index % 7 !== 6 }}">
-                <view
-                  class="{{ helper.getSpaceClassName(index, currentMonth.cells) }}" />
-              </block>
+              <view
+                a:if="{{ index % 7 !== 6 }}"
+                class="{{ helper.getSpaceClassName(index, currentMonth.cells) }}" />
             </block>
           </block>
         </view>

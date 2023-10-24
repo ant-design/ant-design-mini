@@ -20,15 +20,13 @@
       </view>
     </block>
   </view>
-  <block wx:if="{{ !!elementSize }}">
-    <view class="ant-calendar-sticky">
-      <view class="ant-calendar-sticky-title">
-        <view class="ant-calendar-title">
-          {{ monthList[headerState].title }}
-        </view>
-      </view>
+  <view
+    wx:if="{{ !!elementSize }}"
+    class="ant-calendar-sticky">
+    <view class="ant-calendar-sticky-title">
+      <view class="ant-calendar-title">{{ monthList[headerState].title }}</view>
     </view>
-  </block>
+  </view>
   <scroll-view
     scroll-y="{{ true }}"
     class="ant-calendar-body"
@@ -56,29 +54,27 @@
                 bind:tap="clickCell">
                 <view class="ant-calendar-cell-container">
                   <view class="ant-calendar-cell-top">
-                    <block wx:if="{{ item.top }}">
-                      <!-- display: inline -->
-                      <text
-                        class="ant-calendar-cell-top-text {{ item.top.className ? item.top.className : '' }}"
-                        >{{ item.top.label }}</text
-                      >
-                    </block>
+                    <!-- display: inline -->
+                    <text
+                      wx:if="{{ item.top }}"
+                      class="ant-calendar-cell-top-text {{ item.top.className ? item.top.className : '' }}"
+                      >{{ item.top.label }}</text
+                    >
                   </view>
                   <view class="ant-calendar-cell-center">{{ item.date }}</view>
                   <view class="ant-calendar-cell-bottom">
-                    <block wx:if="{{ item.bottom }}">
-                      <!-- display: inline -->
-                      <text class="{{ item.bottom.className }}"
-                        >{{ item.bottom.label }}</text
-                      >
-                    </block>
+                    <!-- display: inline -->
+                    <text
+                      wx:if="{{ item.bottom }}"
+                      class="{{ item.bottom.className }}"
+                      >{{ item.bottom.label }}</text
+                    >
                   </view>
                 </view>
               </view>
-              <block wx:if="{{ index % 7 !== 6 }}">
-                <view
-                  class="{{ helper.getSpaceClassName(index, currentMonth.cells) }}" />
-              </block>
+              <view
+                wx:if="{{ index % 7 !== 6 }}"
+                class="{{ helper.getSpaceClassName(index, currentMonth.cells) }}" />
             </block>
           </block>
         </view>

@@ -1,20 +1,12 @@
 <view>
-  <block a:if="{{ !!a }}">
-    <!-- display: inline -->
-    <text>a</text>
-  </block>
-  <block a:if="{{ !!a && b }}">
-    <!-- display: inline -->
-    <text>a & b</text>
-  </block>
-  <block a:if="{{ a }}">
-    <!-- display: inline -->
-    <text>a</text>
-  </block>
-  <block a:else>
-    <!-- display: inline -->
-    <text>!a</text>
-  </block>
+  <!-- display: inline -->
+  <text a:if="{{ !!a }}">a</text>
+  <!-- display: inline -->
+  <text a:if="{{ !!a && b }}">a & b</text>
+  <!-- display: inline -->
+  <text a:if="{{ a }}">a</text>
+  <!-- display: inline -->
+  <text a:else>!a</text>
   <text class="{{ a ? '1' : '2' }}" />
   <text class="1 {{ a ? '1' + '2' : 2 }} 2" />
 </view>

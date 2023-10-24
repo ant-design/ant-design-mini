@@ -1,20 +1,12 @@
 <view>
-  <block wx:if="{{ !!a }}">
-    <!-- display: inline -->
-    <text>a</text>
-  </block>
-  <block wx:if="{{ !!a && b }}">
-    <!-- display: inline -->
-    <text>a & b</text>
-  </block>
-  <block wx:if="{{ a }}">
-    <!-- display: inline -->
-    <text>a</text>
-  </block>
-  <block wx:else>
-    <!-- display: inline -->
-    <text>!a</text>
-  </block>
+  <!-- display: inline -->
+  <text wx:if="{{ !!a }}">a</text>
+  <!-- display: inline -->
+  <text wx:if="{{ !!a && b }}">a & b</text>
+  <!-- display: inline -->
+  <text wx:if="{{ a }}">a</text>
+  <!-- display: inline -->
+  <text wx:else>!a</text>
   <text class="{{ a ? '1' : '2' }}" />
   <text class="1 {{ a ? '1' + '2' : 2 }} 2" />
 </view>

@@ -14,19 +14,20 @@
     class="ant-list-item-line {{ showDivider ? 'ant-list-item-line-divider' : '' }} {{ disabled ? 'ant-list-item-line-disabled' : '' }}">
     <view class="ant-list-item-image-container">
       <slot name="image">
-        <block a:if="{{ image }}">
-          <image-icon
-            image="{{ image }}"
-            className="ant-list-item-image" />
-        </block>
+        <image-icon
+          a:if="{{ image }}"
+          image="{{ image }}"
+          className="ant-list-item-image" />
       </slot>
     </view>
     <view class="ant-list-item-content-container">
       <view class="ant-list-item-content-title-container">
         <slot name="title">
-          <block a:if="{{ title }}">
-            <view class="ant-list-item-content-title">{{ title }}</view>
-          </block>
+          <view
+            a:if="{{ title }}"
+            class="ant-list-item-content-title">
+            {{ title }}
+          </view>
         </slot>
       </view>
       <view class="ant-list-item-content-main">
@@ -34,9 +35,11 @@
       </view>
       <view class="ant-list-item-content-brief-container">
         <slot name="brief">
-          <block a:if="{{ brief }}">
-            <view class="ant-list-item-content-brief">{{ brief }}</view>
-          </block>
+          <view
+            a:if="{{ brief }}"
+            class="ant-list-item-content-brief">
+            {{ brief }}
+          </view>
         </slot>
       </view>
     </view>
@@ -49,9 +52,9 @@
       </view>
     </view>
     <view class="ant-list-item-arrow">
-      <block a:if="{{ arrowUtil.getArrow(arrow) }}">
-        <icon type="{{ arrowUtil.getArrow(arrow) }}" />
-      </block>
+      <icon
+        a:if="{{ arrowUtil.getArrow(arrow) }}"
+        type="{{ arrowUtil.getArrow(arrow) }}" />
     </view>
   </view>
 </view>

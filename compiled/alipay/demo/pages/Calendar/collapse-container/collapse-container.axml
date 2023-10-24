@@ -3,24 +3,18 @@
     slot="headerRight"
     onTap="handleToggle"
     data-id="demo1">
-    <block a:if="{{ !collapse }}">
-      <!-- display: inline -->
-      <text>收起</text>
-    </block>
-    <block a:else>
-      <!-- display: inline -->
-      <text>展示</text>
-    </block>
+    <!-- display: inline -->
+    <text a:if="{{ !collapse }}">收起</text>
+    <!-- display: inline -->
+    <text a:else>展示</text>
   </view>
-  <block a:if="{{ !collapse }}">
-    <view>
-      <slot name="content" />
-    </view>
-  </block>
-  <block a:else>
-    <view onTap="handleToggle">
-      <slot name="description" />
-      <view class="placeholder">展示</view>
-    </view>
-  </block>
+  <view a:if="{{ !collapse }}">
+    <slot name="content" />
+  </view>
+  <view
+    a:else
+    onTap="handleToggle">
+    <slot name="description" />
+    <view class="placeholder">展示</view>
+  </view>
 </container>

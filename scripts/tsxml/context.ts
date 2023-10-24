@@ -6,8 +6,12 @@ import { h, toHtml } from './h';
 import { PlatformConfig } from './platform';
 
 export interface ITransformContext<T extends types.Node = types.Node> {
+  readonly extraAttr?: Record<string, boolean>;
   node: T;
-  extends<V extends types.Node>(node: V): ITransformContext<V>;
+  extends<V extends types.Node>(
+    node: V,
+    extraAttr?: Record<string, string | boolean>
+  ): ITransformContext<V>;
   throw(node: types.Node, message?: string): TransformError;
   h(tagName: string, props: unknown, ...children: unknown[]): unknown;
   if(): string;
@@ -69,11 +73,15 @@ export class TransformContext<T extends types.Node = types.Node>
   private constructor(
     private _node: T,
     private config: PlatformConfig,
-    private code: string
+    private code: string,
+    public extraAttr: Record<string, string> = {}
   ) {}
 
-  extends<T extends types.Node = types.Node>(child: T): ITransformContext<T> {
-    return new TransformContext<T>(child, this.config, this.code);
+  extends<T extends types.Node = types.Node>(
+    child: T,
+    x
+  ): ITransformContext<T> {
+    return new TransformContext<T>(child, this.config, this.code, x);
   }
 
   throw(child: types.Node, message?: string): TransformError {

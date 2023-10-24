@@ -7,22 +7,19 @@
   style="{{ style || '' }}">
   <view class="ant-result-main">
     <slot name="image">
-      <block a:if="{{ type }}">
-        <view class="ant-result-image">
-          <icon
-            type="{{ result.iconType(type) }}"
-            className="ant-result-image-{{ type }}"
-            style="font-size: 64px" />
-        </view>
-      </block>
-      <block a:else>
-        <block a:if="{{ image }}">
-          <image-icon
-            className="ant-result-image"
-            image="{{ image }}" />
-        </block>
-        <block a:else><block /></block>
-      </block>
+      <view
+        a:if="{{ type }}"
+        class="ant-result-image">
+        <icon
+          type="{{ result.iconType(type) }}"
+          className="ant-result-image-{{ type }}"
+          style="font-size: 64px" />
+      </view>
+      <image-icon
+        a:if="{{ image }}"
+        className="ant-result-image"
+        image="{{ image }}" />
+      <block a:else />
     </slot>
     <view class="ant-result-title">
       <slot name="title">{{ title }}</slot>

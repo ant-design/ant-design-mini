@@ -18,21 +18,25 @@
   class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : '') }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
   style="{{ style }}">
   <view class="ant-button-wrap">
-    <block a:if="{{ !!icon }}"><icon type="{{ icon }}" /></block>
+    <icon
+      a:if="{{ !!icon }}"
+      type="{{ icon }}" />
     <view
       class="ant-button-content-text {{ icon ? 'ant-button-content-text-margin' : '' }}">
       <slot />
-      <block a:if="{{ !inline && subText }}">
-        <view class="ant-button-content-subtext">{{ subText }}</view>
-      </block>
-    </view>
-    <block a:if="{{ loading }}">
-      <view class="ant-button-content-loading-container">
-        <loading
-          type="mini"
-          color="currentColor"
-          className="ant-button-content-loading" />
+      <view
+        a:if="{{ !inline && subText }}"
+        class="ant-button-content-subtext">
+        {{ subText }}
       </view>
-    </block>
+    </view>
+    <view
+      a:if="{{ loading }}"
+      class="ant-button-content-loading-container">
+      <loading
+        type="mini"
+        color="currentColor"
+        className="ant-button-content-loading" />
+    </view>
   </view>
 </button>
