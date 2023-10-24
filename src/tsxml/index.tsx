@@ -3,6 +3,7 @@ interface Props {
   style?: string;
   ref?: string;
   name?: string;
+  'a:key'?: string;
   onTap?: string;
   src?: string;
   mode?: string;
@@ -35,6 +36,7 @@ interface Props {
   value?: any;
   key?: any;
   index?: any;
+  onAppear?: any;
 }
 
 export const Text = (props: Props): any => {};
@@ -55,11 +57,15 @@ export const Component = (props: Props): any => {};
 
 export const Button = (props: Props): any => {};
 
-export type TSXMLProps<T> = Partial<{
-  [K in keyof T]: T[K] extends (...args: unknown[]) => unknown ? string : T[K];
-} & {
-  $id?: string;
-  slot?: string;
-}>
+export type TSXMLProps<T> = Partial<
+  {
+    [K in keyof T]: T[K] extends (...args: unknown[]) => unknown
+      ? string
+      : T[K];
+  } & {
+    $id?: string;
+    slot?: string;
+  }
+>;
 
 export type InternalData = any;
