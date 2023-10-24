@@ -22,11 +22,11 @@ export default (
     matchWordsList,
     maxDisplayNum,
     displayStr,
-    id,
+    $id,
   }: InternalData
 ) => (
   <View
-    key={`ant-rare-words-input-${id}`}
+    key={`ant-rare-words-input-${$id}`}
     style={style}
     class={`ant-rare-words-keyboard ${className || ''}`}
   >

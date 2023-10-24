@@ -1,5 +1,5 @@
 <view
-  a:key="ant-rare-words-input-{{ id }}"
+  a:key="ant-rare-words-input-{{ $id }}"
   style="{{ style }}"
   class="ant-rare-words-keyboard {{ className || '' }}">
   <block a:if="{{ visible }}">
