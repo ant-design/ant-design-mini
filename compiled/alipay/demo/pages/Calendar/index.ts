@@ -81,8 +81,6 @@ Page({
       visible: true,
       monthRange: [new Date().getTime(), new Date().getTime()],
     },
-    demoFormatter,
-    demo8Formatter,
     demo9: {
       visible: true,
       value: Date.now(),
