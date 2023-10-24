@@ -155,7 +155,7 @@ export default (
             </View>
           ) : (
             /* 键盘区域 */
-            <View class="ant-rare-words-keyboard_pinyin" a-else>
+            <View class="ant-rare-words-keyboard_pinyin">
               {pinyinMaps.map((mapItem, mapIndex) => (
                 <View key={mapIndex} class="ant-rare-words-keyboard_pinyin_row">
                   {mapItem.map((item) => (
