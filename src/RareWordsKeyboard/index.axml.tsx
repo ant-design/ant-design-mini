@@ -68,7 +68,6 @@ export default (
               )}
               {matchWordsList.map((item) => (
                 <View
-                  key={item}
                   class={`ant-rare-words-keyboard-match_words_item ${
                     showMoreWords ? 'all' : ''
                   }`}

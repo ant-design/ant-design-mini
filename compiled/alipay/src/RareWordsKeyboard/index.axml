@@ -28,8 +28,7 @@
             <block
               a:for="{{ matchWordsList }}"
               a:for-index="index"
-              a:for-item="item"
-              a:key="{{ item }}">
+              a:for-item="item">
               <view
                 class="ant-rare-words-keyboard-match_words_item {{ showMoreWords ? 'all' : '' }}"
                 data-value="{{ item.unicodeChar }}"
