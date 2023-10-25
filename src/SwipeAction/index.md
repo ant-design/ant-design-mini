@@ -8,6 +8,9 @@ toc: 'content'
 ---
 
 # SwipeAction 滑动组件
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 列表的功能扩展
 ## 何时使用
 通过滑动操作来展示隐藏的功能菜单

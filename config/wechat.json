@@ -10,5 +10,20 @@
     "pages/Calendar",
     "pages/List",
     "pages/Result"
+  ],
+  "src": [
+    "_util",
+    "Button",
+    "Container",
+    "Icon",
+    "Loading",
+    "mixins",
+    "style",
+    "Switch",
+    "Tag",
+    "Calendar",
+    "List",
+    "ImageIcon",
+    "Result"
   ]
 }

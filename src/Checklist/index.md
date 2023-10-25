@@ -7,6 +7,9 @@ group:
 toc: 'content'
 ---
 # Checklist 可勾选列表
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 列表的勾选操作
 ## 何时使用
 - 在一组列表项中选择一个或多个

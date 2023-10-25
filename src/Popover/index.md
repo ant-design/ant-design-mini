@@ -7,6 +7,9 @@ group:
 toc: 'content'
 ---
 # Popover 气泡菜单
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 点击元素，弹出气泡式的菜单
 ## 何时使用
 用于功能的导航，只可由导航栏上图标唤起，通常用于收纳低频使用的功能

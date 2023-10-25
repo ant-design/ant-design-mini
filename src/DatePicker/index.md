@@ -7,6 +7,9 @@ group:
 toc: 'content'
 ---
 # DatePicker 时间选择器
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 相比较于原生my.datePicker实现了ios跟android端体验一致
 
 ## 代码示例

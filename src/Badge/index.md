@@ -8,6 +8,9 @@ toc: 'content'
 ---
 
 # Badge 徽标
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 徽标，红点、数字或文字。用于告诉用户待处理的事物或更新数。
 ## 何时使用
 在右上角展示数字、文字、小红点	适用于产品化的新消息、新功能、新服务等内容的提醒，通过醒目视觉形式吸引用户处理

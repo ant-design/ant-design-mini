@@ -101,7 +101,7 @@ const Previewer: React.FC<IProps> = (props) => {
       <div className="left-btns">
         <div className="btn">
           <Tooltip
-            title={disablePlatformSwitch ? '此组件暂时不支持微信' : '切换平台'}
+            title={disablePlatformSwitch ? '此组件暂只支持支付宝' : '切换平台'}
             placement="top"
           >
             <Segmented

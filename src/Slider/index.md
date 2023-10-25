@@ -8,6 +8,8 @@ toc: 'content'
 
 # Slider 滑块
 
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 可以通过移动滑块在某一范围内取值
 
 ## 何时使用
