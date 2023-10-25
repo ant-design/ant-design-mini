@@ -12,7 +12,7 @@ export default () => {
           .map((o) => {
             return (
               <li style={{ padding: 4 }}>
-                <a href={`/components/${o}`}>{o}</a>
+                <a href={`/components/${o.toLocaleLowerCase()}`}>{o}</a>
               </li>
             );
           })}
