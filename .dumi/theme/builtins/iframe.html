@@ -112,7 +112,7 @@
         dist = obj.dist;
         sourceCode = {};
         const str = page.replace('index', '');
-        Object.keys(obj.sourceCode).forEach(item => {
+        Object.keys(obj.sourceCode[platform]).forEach(item => {
           if (item.startsWith(str)) {
             sourceCode[item] = obj.sourceCode[item];
           }

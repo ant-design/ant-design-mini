@@ -77,6 +77,23 @@ function buildDocs() {
   });
 }
 
+async function getPagesSourceCode(pages, theme, platform) {
+  const sourceCode = {};
+  const arr = await Promise.all(
+    pages.map((item) =>
+      getSourceCode({
+        page: item,
+        theme,
+        platform,
+      })
+    )
+  );
+  arr.forEach((item) => {
+    Object.assign(sourceCode, item);
+  });
+  return sourceCode;
+}
+
 async function buildPreview(theme = 'default') {
   const list = ['appConfig.json', 'index.html', 'index.js', 'index.worker.js'];
   const dist = {};
@@ -97,18 +114,6 @@ async function buildPreview(theme = 'default') {
   );
   const appConfig = require(appJSONFilename);
   const pages = appConfig.pages;
-  const sourceCode = {};
-  const arr = await Promise.all(
-    pages.map((item) =>
-      getSourceCode({
-        page: item,
-        theme,
-      })
-    )
-  );
-  arr.forEach((item) => {
-    Object.assign(sourceCode, item);
-  });
   const iframeContent = fs.readFileSync(
     path.join(__dirname, '../.dumi/theme/builtins/iframe.html'),
     'utf-8'
@@ -120,7 +125,10 @@ async function buildPreview(theme = 'default') {
     ),
     JSON.stringify({
       dist,
-      sourceCode,
+      sourceCode: {
+        alipay: await getPagesSourceCode(pages, theme, 'alipay'),
+        wechat: await getPagesSourceCode(pages, theme, 'wechat'),
+      },
     })
   );
   if (theme === 'dark') {
