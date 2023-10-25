@@ -20,7 +20,7 @@ const CollapseContainer = (props: Props) => {
   }
 
   return {
-    cnday: vs.lunarFestival ?? vs.festival ?? vs.IDayCn,
+    cnday: vs.lunarFestival || vs.festival || vs.IDayCn,
     festival: !!vs.festival || !!vs.lunarFestival,
     unset: props.cell?.isSelectedBegin || props.cell?.isSelectedEnd,
   };

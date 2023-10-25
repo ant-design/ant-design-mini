@@ -353,6 +353,9 @@ export async function compileAntdMini(watch: boolean) {
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
     watch,
     assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
-    buildOption: alipayBuildOption,
+    buildOption: {
+      ...alipayBuildOption,
+      compileTs: true,
+    },
   });
 }
