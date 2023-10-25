@@ -7,6 +7,9 @@ group:
 toc: 'content'
 ---
 # Tabs 标签页
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 内容组之间进行导航切换
 ## 何时使用
 - 内容组之间进行导航切换

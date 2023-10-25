@@ -7,6 +7,9 @@ toc: 'content'
 ---
 
 # Loading 加载
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 用于提示局部或页面在加载中。
 
 ## 代码示例

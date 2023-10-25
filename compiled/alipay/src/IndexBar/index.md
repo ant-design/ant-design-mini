@@ -9,6 +9,8 @@ toc: 'content'
 
 # IndexBar 索引
 
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 侧边索引组件
 
 ## 何时使用

@@ -7,6 +7,9 @@ group:
 toc: 'content'
 ---
 # Tag 标签
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 进行标记和分类的小标签
 ## 何时使用
 - 用于标记事物的属性和维度

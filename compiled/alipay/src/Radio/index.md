@@ -8,6 +8,9 @@ toc: 'content'
 ---
 
 # Radio 单选框
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 在一组可选项中进行单选
 ## 何时使用
 - 在一组可选项中进行单选时

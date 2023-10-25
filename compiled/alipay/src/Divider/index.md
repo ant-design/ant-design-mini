@@ -8,6 +8,8 @@ toc: 'content'
 
 # Divider 分割线
 
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 区隔内容的分割线
 
 ## 何时使用

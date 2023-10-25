@@ -7,6 +7,9 @@ group:
 toc: 'content'
 ---
 # NoticeBar 通告栏
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 展示一组消息通知
 ## 何时使用
 用于当前页面内信息的通知，是一种较醒目的页面内通知方式

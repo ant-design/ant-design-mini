@@ -7,6 +7,9 @@ group:
 toc: 'content'
 ---
 # Picker 选择器
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比较于原生picker实现了ios跟android端体验一致
 ## 何时使用
 - 提供一组或多组关联选项供用户选择
