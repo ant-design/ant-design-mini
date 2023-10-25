@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons';
 import { QRCodeSVG } from 'qrcode.react';
 import './Previewer.less';
+import wechatConfig from '../../../config/wechat.json';
 
 interface IProps {
   herboxUrl: string;
@@ -28,11 +29,15 @@ function buildUrl(
     searchParams.set('less-theme', options.theme);
   }
   const page = searchParams.get('page');
-  searchParams.set('platform', options.platform);
+  const { platform: supportPlatform, disablePlatformSwitch } =
+    getSupportPlatform(options.platform, page);
+  searchParams.set('platform', supportPlatform);
   return {
     url: urlObj.toString(),
     noChangeButton,
     page,
+    supportPlatform,
+    disablePlatformSwitch,
   };
 }
 
@@ -56,43 +61,67 @@ const useLocalState = (key, defaultValue) => {
   return [state, setState];
 };
 
+const DefaultPlatform = 'alipay';
+
+function getSupportPlatform(platform: string, page: string | null) {
+  const supportWechat = wechatConfig.pages
+    .map((o) => `${o}/index`)
+    .some((i) => i === page);
+  if (!supportWechat && platform === 'wechat') {
+    return {
+      platform: DefaultPlatform,
+      disablePlatformSwitch: true,
+    };
+  }
+  return {
+    platform,
+    disablePlatformSwitch: false,
+  };
+}
+
 const Previewer: React.FC<IProps> = (props) => {
   const [theme, setTheme] = useLocalState('theme', 'light');
-  const [platform, setPlatform] = useLocalState('platform', 'alipay');
-
+  const [platform, setPlatform] = useLocalState('platform', DefaultPlatform);
   const [loaded, setLoaded] = useState(false);
 
   const basicUrl =
     window.location.protocol + '//' + window.location.host + props.herboxUrl;
 
-  const { url, noChangeButton, page } = useMemo(() => {
-    return buildUrl(basicUrl, {
-      theme,
-      platform,
-    });
-  }, [basicUrl, theme, platform]);
+  const { url, noChangeButton, page, disablePlatformSwitch, supportPlatform } =
+    useMemo(() => {
+      return buildUrl(basicUrl, {
+        theme,
+        platform,
+      });
+    }, [basicUrl, theme, platform]);
 
   return (
     <div className="previewer">
       {!loaded && <div className="previewer-loading" />}
       <div className="left-btns">
         <div className="btn">
-          <Segmented
-            value={platform}
-            onChange={(value) => {
-              setPlatform(value as string);
-            }}
-            options={[
-              {
-                label: <AlipayOutlined></AlipayOutlined>,
-                value: 'alipay',
-              },
-              {
-                label: <WechatOutlined></WechatOutlined>,
-                value: 'wechat',
-              },
-            ]}
-          />
+          <Tooltip
+            title={disablePlatformSwitch ? '此组件暂时不支持微信' : '切换平台'}
+            placement="top"
+          >
+            <Segmented
+              disabled={disablePlatformSwitch}
+              value={supportPlatform}
+              onChange={(value) => {
+                setPlatform(value as string);
+              }}
+              options={[
+                {
+                  label: <AlipayOutlined></AlipayOutlined>,
+                  value: 'alipay',
+                },
+                {
+                  label: <WechatOutlined></WechatOutlined>,
+                  value: 'wechat',
+                },
+              ]}
+            />
+          </Tooltip>
         </div>
       </div>
       <div className="btns">

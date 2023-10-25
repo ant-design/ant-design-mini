@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/Button",
+    "pages/ButtonIcon",
+    "pages/ButtonInline",
+    "pages/Icon",
+    "pages/Loading",
+    "pages/Switch",
+    "pages/Tag",
+    "pages/Calendar",
+    "pages/List",
+    "pages/Result"
+  ]
+}
