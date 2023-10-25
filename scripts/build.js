@@ -19,7 +19,10 @@ async function buildMiniProgram() {
     enableTypescript: true,
     cacheDir: cache,
   });
-  const colorFilename = path.join(__dirname, '../src/style/themes/color.less');
+  const colorFilename = path.join(
+    __dirname,
+    '../compiled/alipay/src/style/themes/color.less'
+  );
   const colorContent = await fs.promises.readFile(colorFilename, 'utf-8');
   const appJSONFilename = path.join(
     __dirname,
@@ -95,7 +98,14 @@ async function buildPreview(theme = 'default') {
   const appConfig = require(appJSONFilename);
   const pages = appConfig.pages;
   const sourceCode = {};
-  const arr = await Promise.all(pages.map((item) => getSourceCode(item)));
+  const arr = await Promise.all(
+    pages.map((item) =>
+      getSourceCode({
+        page: item,
+        theme,
+      })
+    )
+  );
   arr.forEach((item) => {
     Object.assign(sourceCode, item);
   });

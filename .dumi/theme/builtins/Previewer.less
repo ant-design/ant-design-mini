@@ -35,25 +35,28 @@
 }
 
 @font-face {
-  font-family: "iconfont"; /* Project id 3833957 */
-  src: url('//at.alicdn.com/t/c/font_3833957_pevgxdugwu.woff2?t=1671537169361') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3833957_pevgxdugwu.woff?t=1671537169361') format('woff'),
-       url('//at.alicdn.com/t/c/font_3833957_pevgxdugwu.ttf?t=1671537169361') format('truetype');
+  font-family: 'iconfont'; /* Project id 3833957 */
+  src: url('//at.alicdn.com/t/c/font_3833957_pevgxdugwu.woff2?t=1671537169361')
+      format('woff2'),
+    url('//at.alicdn.com/t/c/font_3833957_pevgxdugwu.woff?t=1671537169361')
+      format('woff'),
+    url('//at.alicdn.com/t/c/font_3833957_pevgxdugwu.ttf?t=1671537169361')
+      format('truetype');
 }
 
 .iconfont {
-  font-family: "iconfont" !important;
+  font-family: 'iconfont' !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-sun:before {
-  content: "\e85c";
+  content: '\e85c';
 }
 
 .icon-moon:before {
-  content: "\e760";
+  content: '\e760';
 }
 
 .btns {
@@ -76,4 +79,16 @@
   cursor: pointer;
   color: rgb(49, 70, 89);
   font-size: 17px;
+}
+
+.left-btns {
+  position: absolute;
+  left: 26px;
+  top: 9px;
+  display: flex;
+
+  .ant-segmented-item-label {
+    line-height: 24px;
+    min-height: 24px;
+  }
 }
