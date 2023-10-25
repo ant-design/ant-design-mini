@@ -62,11 +62,14 @@ module.exports = async function getSourceCode({ page, theme, platform }) {
     })
   ).map(async (item) => {
     const content = await map[path.extname(item)](path.join(cwd, item));
+
+    let componentBase = '$1antd-mini';
+    if (platform === 'alipay') {
+      componentBase = theme === 'dark' ? '$1antd-mini/less' : '$1antd-mini/es';
+    }
+
     json[path.join(page, '../', item).replace('.less', '.acss')] =
-      content.replace(
-        /('|")[^'"]*\/src/g,
-        theme === 'dark' ? '$1antd-mini/less' : '$1antd-mini/es'
-      );
+      content.replace(/('|")[^'"]*\/src/g, componentBase);
   });
   await Promise.all(list);
   return json;
