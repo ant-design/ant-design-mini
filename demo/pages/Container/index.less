@@ -1,8 +1,11 @@
-@import "../../../src/style/themes/color.less";
+@import '../../../src/style/themes/color.less';
 
 page {
   padding: 12px;
   color: @COLOR_TEXT_PRIMARY;
+  /// #if WECHAT
+  box-sizing: border-box;
+  /// #endif
 }
 
 .content {
@@ -18,4 +21,3 @@ page {
     border-radius: 4px;
   }
 }
-
