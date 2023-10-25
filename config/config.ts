@@ -393,6 +393,10 @@ const config: IConfig = {
         path: '/guide/using-uni-app',
       },
       {
+        title: '在微信小程序中使用',
+        path: '/guide/using-wechat',
+      },
+      {
         title: '定制主题',
         path: '/guide/customize-theme',
       },
