@@ -8,6 +8,9 @@ toc: 'content'
 ---
           
 # Result 操作结果
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 对前一步操作的结果进行反馈
 ## 何时使用
 当有重要操作需告知用户处理结果，且反馈内容较为复杂时使用

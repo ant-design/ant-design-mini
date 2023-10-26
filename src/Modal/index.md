@@ -7,6 +7,9 @@ group:
 toc: 'content'
 ---
 # Modal 弹窗
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 ## 何时使用
 当应用中需要比较明显的对用户当前的操作行为进行警示或提醒时，可以使用对话框。用户需要针对对话框进行操作后方可结束。
 

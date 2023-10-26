@@ -7,6 +7,9 @@ group:
 toc: 'content'
 ---
 # Button 按钮
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 用于开始一个即时操作
 
 ## 何时使用

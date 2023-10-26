@@ -8,6 +8,9 @@ toc: 'content'
 ---
 
 # Selector 选择组
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 在一组选项中选择一个或多个
 ## 何时使用
 提供多个选项供用户选择，一般在筛选和表单中使用

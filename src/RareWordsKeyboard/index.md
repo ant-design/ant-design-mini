@@ -9,6 +9,8 @@ toc: 'content'
 
 # RareWordsKeyboard 生僻字键盘
 
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 ## 何时使用
 
 生僻字问题一直是社会难点之一，各行业由于不同时期不同标准开发使得支持的汉字字符不同，导致生僻字姓名互联互通困难，严重影响生僻字人办理互联网业务；

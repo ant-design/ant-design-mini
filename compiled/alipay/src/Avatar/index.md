@@ -8,6 +8,9 @@ toc: 'content'
 ---
 
 # Avatar 头像
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 用来代表用户或事物
 ## 何时使用
 需要更加直观的展现人物或事物特征

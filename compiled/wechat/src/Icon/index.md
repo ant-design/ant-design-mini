@@ -8,6 +8,9 @@ toc: 'content'
 ---
 
 # Icon 图标
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 语义化的矢量图形
 ## 何时使用
 需要使用图形来对基础操作功能进行隐喻呈现，给予用户正确、友好且清晰的操作指引

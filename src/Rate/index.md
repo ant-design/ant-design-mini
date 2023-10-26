@@ -8,6 +8,9 @@ toc: 'content'
 ---
 
 # Rate 评分
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 用于展示事物评级以及快速打分
 ## 代码示例
 <code src='pages/Rate/index'></code>

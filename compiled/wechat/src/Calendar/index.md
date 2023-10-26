@@ -9,6 +9,8 @@ toc: 'content'
 
 # Calendar 日历
 
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 日历组件
 
 ## 代码示例

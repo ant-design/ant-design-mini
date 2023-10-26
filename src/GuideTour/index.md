@@ -9,6 +9,9 @@ toc: 'content'
 
 # GuideTour 新手引导
 
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
+
 蒙层与自定义卡片的引导组件
 
 ## 何时使用

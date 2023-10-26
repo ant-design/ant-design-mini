@@ -8,6 +8,9 @@ toc: 'content'
 ---
 
 # Input 输入框
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 通过键盘输入内容，是最基础的表单域包装
 ## 何时使用
 一般用在表单页进行信息的收集

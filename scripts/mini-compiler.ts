@@ -12,6 +12,7 @@ import ifdef from '@diamondyuan/gulp-ifdef';
 import json5 from 'json5';
 import { resolve } from 'path';
 import * as fs from 'fs/promises';
+import * as ofs from 'fs';
 interface MiniProgramSourceCompileOption {
   source: string;
   dest: string;
@@ -38,34 +39,12 @@ export type FilePrecess = (old: string) => Promise<string> | string;
 
 export type TransFormFactory = (handler) => any;
 
-const allowList = [
-  '_util',
-  'Button',
-  'Container',
-  'Icon',
-  'Loading',
-  'mixins',
-  'style',
-  'Switch',
-  'Tag',
-  'Calendar',
-  'List',
-  'ImageIcon',
-  'Result',
-];
+const wechatConfig = JSON.parse(
+  ofs.readFileSync(resolve(__dirname, '..', 'config/wechat.json'), 'utf-8')
+);
 
-const demoAllowList = [
-  'pages/Button',
-  'pages/ButtonIcon',
-  'pages/ButtonInline',
-  'pages/Icon',
-  'pages/Loading',
-  'pages/Switch',
-  'pages/Tag',
-  'pages/Calendar',
-  'pages/List',
-  'pages/Result',
-];
+const allowList = wechatConfig.src;
+const demoAllowList = wechatConfig.pages;
 
 const include = function (list: string[], source: string) {
   return through2.obj(function (file, enc, callback) {
@@ -374,6 +353,9 @@ export async function compileAntdMini(watch: boolean) {
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
     watch,
     assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
-    buildOption: alipayBuildOption,
+    buildOption: {
+      ...alipayBuildOption,
+      compileTs: true,
+    },
   });
 }

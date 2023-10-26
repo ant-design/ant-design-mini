@@ -7,6 +7,9 @@ group:
 toc: 'content'
 ---
 # Toast 轻提示
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 ## 何时使用
 对操作结果的轻量级反馈，无需用户操作即可自行消失。最长文案不超过2行，最多可以显示24个字符，文案过长会被截断
 

@@ -8,6 +8,9 @@ toc: 'content'
 
 # ImageUpload 图片上传
 
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
+
 用于将图片上传到服务器，并简略展示上传文件的信息以及提供预览功能。
 
 ## 何时使用

@@ -1,68 +1,129 @@
-import React, { useState, useEffect } from 'react';
-import { Tooltip, Popover } from 'antd';
-import { QrcodeOutlined } from '@ant-design/icons';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Tooltip, Popover, Segmented } from 'antd';
+import {
+  QrcodeOutlined,
+  WechatOutlined,
+  AlipayOutlined,
+} from '@ant-design/icons';
 import { QRCodeSVG } from 'qrcode.react';
 import './Previewer.less';
+import wechatConfig from '../../../config/wechat.json';
 
 interface IProps {
   herboxUrl: string;
 }
 
-function getURL(url: string) {
-  const urlObj = new URL(url);
-  const searchParams = urlObj.searchParams;
-  let theme = '';
-  if (!searchParams.get('noChangeButton')) {
-    const themeObj = searchParams.get('less-theme');
-    if (themeObj === null) {
-      theme = localStorage.getItem('theme') || '';
-    } else {
-      theme = themeObj;
-    }
+function buildUrl(
+  basic: string,
+  options: {
+    platform: string;
+    theme: string;
   }
-  searchParams.set('less-theme', theme);
-  return urlObj.toString();
+) {
+  const urlObj = new URL(basic);
+  const searchParams = urlObj.searchParams;
+  const noChangeButton = !!searchParams.get('noChangeButton');
+  if (noChangeButton) {
+    searchParams.set('less-theme', 'light');
+  } else {
+    searchParams.set('less-theme', options.theme);
+  }
+  const page = searchParams.get('page');
+  const { platform: supportPlatform, disablePlatformSwitch } =
+    getSupportPlatform(options.platform, page);
+  searchParams.set('platform', supportPlatform);
+  return {
+    url: urlObj.toString(),
+    noChangeButton,
+    page,
+    supportPlatform,
+    disablePlatformSwitch,
+  };
 }
 
-const listeners: ((url: any) => void)[] = [];
+const useLocalState = (key, defaultValue) => {
+  const [state, setState] = useState(() => {
+    const local = localStorage.getItem(key);
+    if (local) {
+      try {
+        return JSON.parse(local);
+      } catch (error) {
+        return defaultValue;
+      }
+    }
+    return defaultValue;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+
+  return [state, setState];
+};
+
+const DefaultPlatform = 'alipay';
+
+function getSupportPlatform(platform: string, page: string | null) {
+  const supportWechat = wechatConfig.pages
+    .map((o) => `${o}/index`)
+    .some((i) => i === page);
+  if (!supportWechat && platform === 'wechat') {
+    return {
+      platform: DefaultPlatform,
+      disablePlatformSwitch: true,
+    };
+  }
+  return {
+    platform,
+    disablePlatformSwitch: false,
+  };
+}
 
 const Previewer: React.FC<IProps> = (props) => {
+  const [theme, setTheme] = useLocalState('theme', 'light');
+  const [platform, setPlatform] = useLocalState('platform', DefaultPlatform);
   const [loaded, setLoaded] = useState(false);
-  const [url, setURL] = useState(
-    getURL(
-      window.location.protocol + '//' + window.location.host + props.herboxUrl
-    )
-  );
 
-  function changeURL(url) {
-    const urlObj = new URL(url);
-    const searchParams = urlObj.searchParams;
-    let theme = searchParams.get('less-theme');
-    theme = theme === 'dark' ? '' : 'dark';
-    localStorage.setItem('theme', theme);
-    listeners.forEach((item) => item(theme));
-  }
+  const basicUrl =
+    window.location.protocol + '//' + window.location.host + props.herboxUrl;
 
-  const urlObj = new URL(url);
-  const searchParams = urlObj.searchParams;
-  const page = searchParams.get('page');
-  const theme = searchParams.get('less-theme');
-  const noChangeButton = searchParams.get('noChangeButton');
-  useEffect(() => {
-    listeners.push((theme) => {
-      setURL((url) => {
-        const urlObj = new URL(url);
-        const searchParams = urlObj.searchParams;
-        searchParams.set('less-theme', theme);
-        const newURL = urlObj.toString();
-        return newURL;
+  const { url, noChangeButton, page, disablePlatformSwitch, supportPlatform } =
+    useMemo(() => {
+      return buildUrl(basicUrl, {
+        theme,
+        platform,
       });
-    });
-  }, []);
+    }, [basicUrl, theme, platform]);
 
   return (
     <div className="previewer">
       {!loaded && <div className="previewer-loading" />}
+      <div className="left-btns">
+        <div className="btn">
+          <Tooltip
+            title={disablePlatformSwitch ? '此组件暂只支持支付宝' : '切换平台'}
+            placement="top"
+          >
+            <Segmented
+              disabled={disablePlatformSwitch}
+              value={supportPlatform}
+              onChange={(value) => {
+                setPlatform(value as string);
+              }}
+              options={[
+                {
+                  label: <AlipayOutlined></AlipayOutlined>,
+                  value: 'alipay',
+                },
+                {
+                  label: <WechatOutlined></WechatOutlined>,
+                  value: 'wechat',
+                },
+              ]}
+            />
+          </Tooltip>
+        </div>
+      </div>
       <div className="btns">
         <Popover
           content={
@@ -91,7 +152,7 @@ const Previewer: React.FC<IProps> = (props) => {
                   theme === 'dark' ? 'icon-sun' : 'icon-moon'
                 }`}
                 onClick={() => {
-                  changeURL(url);
+                  setTheme(theme === 'dark' ? 'light' : 'dark');
                 }}
                 style={{
                   fontSize: theme === 'dark' ? 20 : 14,

@@ -8,6 +8,9 @@ toc: 'content'
 ---
 
 # Stepper 步进器
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 一种两段式控制，增加、减少或修改数值
 ## 何时使用
 用于在一定范围内输入、调整当前数值

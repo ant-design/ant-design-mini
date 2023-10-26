@@ -9,6 +9,8 @@ toc: 'content'
 
 # NumberKeyboard 数字键盘
 
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 ## 何时使用
 需要自定义数字键盘时
 

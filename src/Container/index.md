@@ -8,6 +8,9 @@ toc: 'content'
 ---
 
 # Container 容器
+
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 通用卡片容器
 ## 何时使用
 可承载文字、列表、图片、段落等，便于用户浏览内容
