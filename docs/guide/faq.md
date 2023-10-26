@@ -32,9 +32,9 @@ $ npm install antd-mini-v1@npm:antd-mini --save
 <button>这是0.x antd-mini</button> <button-v1>这是1.0 antd-mini</button-v1>
 ```
 
-### 在 page 里覆盖 antd-mini 的样式不生效
+### 在支付宝小程序 Page 里覆盖 antd-mini 的样式不生效
 
-新版小程序开发者工具在创建页面时会默认加上 `styleIsolation: 'apply-shared'`, 此时页面的样式无法影响到外部。
+新版支付宝小程序开发者工具在创建页面时会默认加上 `styleIsolation: 'apply-shared'`, 此时页面的样式无法影响到外部。
 
 可以在 `page.json` 里设置 `styleIsolation: 'shared'`。
 
@@ -43,5 +43,11 @@ $ npm install antd-mini-v1@npm:antd-mini --save
   "styleIsolation": "shared"
 }
 ```
+
+styleIsolation 配置有两种模式：
+
+`apply-shared`: 表示 app.acss 样式以及其他（设置了 shared 的其他页面和自定义组件）的样式将影响到当前页面，但当前页面 acss 中指定的样式不会影响外部。
+
+`shared`（默认）表示 app.acss 样式以及其他（设置了 shared 的其他页面和自定义组件）的样式将影响到当前页面，当前页面 acss 中指定的样式也会影响到外部。
 
 参考: https://opendocs.alipay.com/mini/framework/page-acss#%E9%A1%B5%E9%9D%A2%E6%A0%B7%E5%BC%8F%E9%9A%94%E7%A6%BB

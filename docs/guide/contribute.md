@@ -76,7 +76,7 @@ $ npm run dev:doc
 
 我们使用 tsx 语法编写视图层，通过编译器解析 tsx 语法，生成小程序视图层代码。这样做的好处是：
 
-1. 可以使用 import 语法引入其他组件，享受自定义组件的类型提示
+- 可以使用 import 语法引入其他组件，享受自定义组件的类型提示
 
 ```tsx | pure
 import AntButton from '../../../src/Button/index.axml';
@@ -86,7 +86,7 @@ import AntButton from '../../../src/Button/index.axml';
 </AntButton>;
 ```
 
-2. 只需要编写一份代码，就可以同时生成支付宝小程序与微信小程序的视图层代码。
+- 只需要编写一份代码，就可以同时生成支付宝小程序与微信小程序的视图层代码
 
 ```tsx | pure
 export default ({ a, b }: TSXMLProps<Props>) => (
