@@ -88,7 +88,7 @@ import AntButton from '../../../src/Button/index.axml';
 
 2. 只需要编写一份代码，就可以同时生成支付宝小程序与微信小程序的视图层代码。
 
-```tsx
+```tsx | pure
 export default ({ a, b }: TSXMLProps<Props>) => (
   <View>
     {!!a && <Text>a</Text>}
