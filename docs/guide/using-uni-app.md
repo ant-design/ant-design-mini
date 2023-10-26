@@ -99,7 +99,7 @@ npm i antd-mini --save
 +        // #ifdef MP-WEIXIN
 +        "usingComponents": {
 +          "ant-button": "/wxcomponents/miniprogram_npm/antd-mini/Button/index"
-+        }
++        },
 +        // #endif
 +        // #ifdef MP-ALIPAY
 +        "usingComponents": {
