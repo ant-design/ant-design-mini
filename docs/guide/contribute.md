@@ -71,3 +71,61 @@ $ npm run dev:doc
 [functional-mini](https://github.com/ant-design/functional-mini) 是纯运行时 SDK，它接管了小程序的逻辑层代码，但又不侵入视图层，为我们在项目架构复杂度和编码习惯上带来了平衡。函数式组件的基本特性也因此得以施展，提升了代码可维护度，如更易组装数据加工逻辑、更方便实现 hooks 逻辑复用等。
 
 我们欢迎你一同参与 Ant Design Mini 的函数式组件开发，共同探索更优质的小程序工程形态。
+
+### 使用 tsx 语法编写视图层
+
+我们使用 tsx 语法编写视图层，通过编译器解析 tsx 语法，生成小程序视图层代码。这样做的好处是：
+
+1. 可以使用 import 语法引入其他组件，享受自定义组件的类型提示
+
+```tsx
+import AntButton from '../../../src/Button/index.axml';
+
+<AntButton type="primary" onTap="handleTap">
+  主要按钮
+</AntButton>;
+```
+
+2. 只需要编写一份代码，就可以同时生成支付宝小程序与微信小程序的视图层代码。
+
+```tsx
+export default ({ a, b }: TSXMLProps<Props>) => (
+  <View>
+    {!!a && <Text>a</Text>}
+    {!!a && b && <Text> a & b</Text>}
+    {a ? <Text>a</Text> : <Text>!a</Text>}
+    {<Text class={a ? '1' : '2'}></Text>}
+    <Text class={`1 ${a ? '1' + '2' : 2} 2`}></Text>
+  </View>
+);
+```
+
+```xml
+<view>
+  <!-- display: inline -->
+  <text wx:if="{{ !!a }}">a</text>
+  <!-- display: inline -->
+  <text wx:if="{{ !!a && b }}">a & b</text>
+  <!-- display: inline -->
+  <text wx:if="{{ a }}">a</text>
+  <!-- display: inline -->
+  <text wx:else>!a</text>
+  <text class="{{ a ? '1' : '2' }}" />
+  <text class="1 {{ a ? '1' + '2' : 2 }} 2" />
+</view>
+```
+
+```xml
+<view>
+  <!-- display: inline -->
+  <text a:if="{{ !!a }}">a</text>
+  <!-- display: inline -->
+  <text a:if="{{ !!a && b }}">a & b</text>
+  <!-- display: inline -->
+  <text a:if="{{ a }}">a</text>
+  <!-- display: inline -->
+  <text a:else>!a</text>
+  <text class="{{ a ? '1' : '2' }}" />
+  <text class="1 {{ a ? '1' + '2' : 2 }} 2" />
+</view>
+```
