@@ -32,9 +32,9 @@ $ npm install antd-mini-v1@npm:antd-mini --save
 <button>这是0.x antd-mini</button> <button-v1>这是1.0 antd-mini</button-v1>
 ```
 
-### 在 page 里覆盖 ant design 的样式不生效
+### 在 page 里覆盖 antd-mini 的样式不生效
 
-新版小程序开发者工具在创建页面时会默认加上 `styleIsolation: 'apply-shared'`，这会导致在 page 里覆盖 ant design 的样式不生效。
+新版小程序开发者工具在创建页面时会默认加上 `styleIsolation: 'apply-shared'`, 此时页面的样式无法影响到外部。
 
 可以在 `page.json` 里设置 `styleIsolation: 'shared'`。
 
