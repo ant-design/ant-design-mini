@@ -78,7 +78,7 @@ $ npm run dev:doc
 
 1. 可以使用 import 语法引入其他组件，享受自定义组件的类型提示
 
-```tsx
+```tsx | pure
 import AntButton from '../../../src/Button/index.axml';
 
 <AntButton type="primary" onTap="handleTap">
