@@ -385,16 +385,16 @@ const config: IConfig = {
     ],
     '/guide': [
       {
-        title: '快速开始',
+        title: '在支付宝小程序中使用',
         path: '/guide/quick-start',
-      },
-      {
-        title: '在 uni-app 中使用',
-        path: '/guide/using-uni-app',
       },
       {
         title: '在微信小程序中使用',
         path: '/guide/using-wechat',
+      },
+      {
+        title: '在 uni-app 中使用',
+        path: '/guide/using-uni-app',
       },
       {
         title: '定制主题',

@@ -15,8 +15,10 @@ export default () => {
 
   return (
     <div className={styles.tags}>
-      {<span className={styles.support}>适配支付宝</span>}
-      {supportWechat && <span className={styles.support}>适配微信</span>}
+      {<span className={styles.support}>支付宝小程序</span>}
+      {supportWechat && (
+        <span className={styles.support}>微信小程序(beta)</span>
+      )}
     </div>
   );
 };

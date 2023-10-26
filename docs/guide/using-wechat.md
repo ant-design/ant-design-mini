@@ -2,11 +2,11 @@
 toc: true
 ---
 
-## 在 微信小程序 中使用
+## 在 微信小程序 中使用（Beta）
 
-目前 antd-mini 部分组件已经支持在微信小程序中使用，后续会逐步支持更多组件。
+从 Ant Design Mini v2.12 开始，我们改造了部分组件的工程实现，用以适配微信小程序。目前这套能力正在 Beta 过程中，相关的 API、组件列表都有可能发生调整。
 
-这里以按钮组件（Button) 为例，讲解如何在微信小程序中使用 antd-mini。
+这里以按钮组件（Button）为例，讲解如何在微信小程序中使用 antd-mini。
 
 ### 1. 安装依赖
 
@@ -15,9 +15,11 @@ toc: true
 npm i antd-mini --save
 ```
 
+### 2. 构建 npm
+
 安装好依赖以后，点击开发者工具中的菜单栏：工具 --> 构建 npm
 
-### 2. 在项目中引用组件
+### 3. 在项目中引用组件
 
 修改页面配置的 usingComponents 字段, 使用 antd-mini 的组件。
 
@@ -26,13 +28,13 @@ npm i antd-mini --save
 ```diff
 {
   "usingComponents": {
-++  "ant-button": "antd-mini/Button/index",
++   "ant-button": "antd-mini/Button/index",
   }
 }
 
 ```
 
-### 3. 在页面中使用即可
+### 4. 在页面中使用即可
 
 ```diff
 +   <ant-button type="primary" bind:tap="handleTap"> 主要按钮 </ant-button>
