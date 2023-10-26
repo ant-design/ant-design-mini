@@ -95,7 +95,6 @@ npm i antd-mini --save
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "uni-app",
 +        // #ifdef MP-WEIXIN
 +        "usingComponents": {
 +          "ant-button": "/wxcomponents/miniprogram_npm/antd-mini/Button/index"
@@ -106,6 +105,7 @@ npm i antd-mini --save
 +          "ant-button": "/mycomponents/node_modules/antd-mini/es/Button/index"
 +        }
 +        // #endif
+        "navigationBarTitleText": "uni-app",
       }
     }
   ],
