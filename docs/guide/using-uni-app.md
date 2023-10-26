@@ -108,19 +108,18 @@ npm i antd-mini --save
 
 此时项目结构应该是类似这样的：
 
-```
+```diff
+.
   ├── mp-weixin
-+ |   ├── wxcomponents
-+ |   │   ├── node_modules
-+ |   │   │   ├── antd-mini
-+ |   │   │   miniprogram_npm
-+ |   │   │   │   ├── antd-mini
-+ |   │   │   │   │   ├── Button
++ │   ├── wxcomponents
++ │   │   ├── node_modules
++ │   │   │   ├── antd-mini
++ │   │   │   miniprogram_npm
++ │   │   │   │   ├── antd-mini
++ │   │   │   │   │   ├── Button
 ```
 
-我们需要引用 wxcomponents/miniprogram_npm 下面的组件。
-
-修改 page.json，在 page.style 配置下新增 usingComponents。
+修改 page.json，在 page.style 配置下新增 usingComponents。引用 wxcomponents/miniprogram_npm 下面的组件。
 配置时需要注意路径大小写和实际组件一致，否则可能引发报错。
 
 ```diff
