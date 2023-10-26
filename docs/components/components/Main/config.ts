@@ -96,7 +96,7 @@ export const getGuides = (isWideScreen) => [
     buttonText: '在支付宝小程序中使用',
     buttonLink: '/guide/quick-start',
     // 第二个
-    secondText: '在微信小程序中使用（beta）',
+    secondText: '在微信小程序中使用(beta)',
     secondLink: '/guide/using-wechat',
   },
   {
