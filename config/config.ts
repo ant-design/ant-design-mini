@@ -389,7 +389,7 @@ const config: IConfig = {
         path: '/guide/quick-start',
       },
       {
-        title: '在微信小程序中使用',
+        title: '在微信小程序中使用（beta）',
         path: '/guide/using-wechat',
       },
       {
