@@ -1,6 +1,6 @@
 <container
   title="自定义大小"
-  class="list">
+  className="list">
   <button
     type="primary"
     icon="SmileOutline"
@@ -8,7 +8,6 @@
     className="btn">
     主要按钮
   </button>
-
   <button
     type="primary"
     onTap="handleTap"
@@ -17,7 +16,6 @@
     inline>
     主要按钮
   </button>
-
   <button
     type="primary"
     onTap="handleTap"
@@ -31,7 +29,7 @@
 
 <container
   title="round"
-  class="list">
+  className="list">
   <button
     type="primary"
     icon="SearchOutline"
@@ -40,7 +38,6 @@
     className="round">
     主要按钮
   </button>
-
   <button
     type="primary"
     onTap="handleTap"
@@ -53,20 +50,18 @@
 
 <container
   title="circle"
-  class="list">
+  className="list">
   <button
     type="primary"
     icon="SearchOutline"
     onTap="handleTap"
     inline
-    className="circle"></button>
-
+    className="circle" />
   <button
     icon="SearchOutline"
     onTap="handleTap"
     inline
-    className="circle"></button>
-
+    className="circle" />
   <button
     type="primary"
     onTap="handleTap"
@@ -74,7 +69,6 @@
     className="circle">
     A
   </button>
-
   <button
     onTap="handleTap"
     inline
