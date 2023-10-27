@@ -1,4 +1,4 @@
-import { View, Image, TSXMLProps } from 'tsxml';
+import { Image, TSXMLProps, View } from 'tsxml';
 import utils from './index.sjs';
 import { IAvatarProps } from './props';
 

@@ -1,6 +1,6 @@
-import { InternalData, TSXMLProps } from 'tsxml';
-import Container from '../../../src/Container/index.axml';
+import { InternalData } from 'tsxml';
 import Avatar from '../../../src/Avatar/index.axml';
+import Container from '../../../src/Container/index.axml';
 import ListItem from '../../../src/List/ListItem/index.axml';
 
 export default (_, { images, sizes, item }: InternalData) => (
