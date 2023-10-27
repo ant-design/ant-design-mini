@@ -14,7 +14,11 @@ export interface IEmptyProps extends IBaseProps {
    * @description 副文案
    */
   message: string;
+
+  /**
+   * @description 图片路径
+   */
+  image: string;
 }
 
-export const EmptyDefaultProps: Partial<IEmptyProps> = {
-};
+export const EmptyDefaultProps: Partial<IEmptyProps> = {};
