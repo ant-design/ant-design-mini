@@ -38,3 +38,14 @@
     src="{{images[0]}}"
     class="avatar-custom" />
 </container>
+os"
+      src="{{ images[0] }}" />
+  </list-item>
+</container>
+
+<container title="自定义">
+  <avatar
+    size="{{ item }}"
+    src="{{ images[0] }}"
+    className="avatar-custom" />
+</container>
