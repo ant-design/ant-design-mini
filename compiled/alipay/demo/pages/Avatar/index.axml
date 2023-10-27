@@ -2,8 +2,7 @@
   <block
     a:for="{{ images }}"
     a:for-index="index"
-    a:for-item="item"
-    a:key="{{ item }}">
+    a:for-item="item">
     <avatar
       src="{{ item }}"
       className="avatar" />

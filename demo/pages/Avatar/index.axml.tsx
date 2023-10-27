@@ -7,7 +7,7 @@ export default (_, { images, sizes, item }: InternalData) => (
   <Component>
     <Container title="基础用法-四种尺寸">
       {images.map((item) => (
-        <Avatar key={item} src={item} className="avatar" />
+        <Avatar src={item} className="avatar" />
       ))}
     </Container>
 
