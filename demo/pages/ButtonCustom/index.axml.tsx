@@ -1,19 +1,19 @@
 import { Page } from 'tsxml';
 import Container from '../../../src/Container/index.axml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 
 export default () => (
   <Page>
     <Container title="自定义大小" className="list">
-      <Button
+      <AntButton
         type="primary"
         icon="SmileOutline"
         onTap="handleTap"
         className="btn"
       >
         主要按钮
-      </Button>
-      <Button
+      </AntButton>
+      <AntButton
         type="primary"
         onTap="handleTap"
         icon="SmileOutline"
@@ -21,8 +21,8 @@ export default () => (
         inline
       >
         主要按钮
-      </Button>
-      <Button
+      </AntButton>
+      <AntButton
         type="primary"
         onTap="handleTap"
         icon="ForbidFill"
@@ -31,11 +31,11 @@ export default () => (
         danger
       >
         主要按钮
-      </Button>
+      </AntButton>
     </Container>
 
     <Container title="round" className="list">
-      <Button
+      <AntButton
         type="primary"
         icon="SearchOutline"
         onTap="handleTap"
@@ -43,32 +43,38 @@ export default () => (
         className="round"
       >
         主要按钮
-      </Button>
-      <Button type="primary" onTap="handleTap" inline danger className="round">
+      </AntButton>
+      <AntButton
+        type="primary"
+        onTap="handleTap"
+        inline
+        danger
+        className="round"
+      >
         主要按钮
-      </Button>
+      </AntButton>
     </Container>
 
     <Container title="circle" className="list">
-      <Button
+      <AntButton
         type="primary"
         icon="SearchOutline"
         onTap="handleTap"
         inline
         className="circle"
-      ></Button>
-      <Button
+      ></AntButton>
+      <AntButton
         icon="SearchOutline"
         onTap="handleTap"
         inline
         className="circle"
-      ></Button>
-      <Button type="primary" onTap="handleTap" inline className="circle">
+      ></AntButton>
+      <AntButton type="primary" onTap="handleTap" inline className="circle">
         A
-      </Button>
-      <Button onTap="handleTap" inline className="circle">
+      </AntButton>
+      <AntButton onTap="handleTap" inline className="circle">
         A
-      </Button>
+      </AntButton>
     </Container>
   </Page>
 );

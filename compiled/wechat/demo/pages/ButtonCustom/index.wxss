@@ -1,0 +1,16 @@
+.list button {
+  margin: 0 8px 8px 0;
+}
+.btn {
+  font-size: 22px;
+}
+.round {
+  border-radius: 50px;
+}
+.circle {
+  border-radius: 50px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
