@@ -3,6 +3,7 @@
     "pages/Container",
     "pages/Button",
     "pages/ButtonIcon",
+    "pages/ButtonCustom",
     "pages/ButtonInline",
     "pages/Icon",
     "pages/Loading",

@@ -1,84 +1,78 @@
 <container
   title="自定义大小"
-  class="list">
-  <button
+  className="list">
+  <ant-button
     type="primary"
     icon="SmileOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     className="btn">
     主要按钮
-  </button>
-
-  <button
+  </ant-button>
+  <ant-button
     type="primary"
-    onTap="handleTap"
+    bind:tap="handleTap"
     icon="SmileOutline"
     className="btn"
     inline>
     主要按钮
-  </button>
-
-  <button
+  </ant-button>
+  <ant-button
     type="primary"
-    onTap="handleTap"
+    bind:tap="handleTap"
     icon="ForbidFill"
     className="btn"
     inline
     danger>
     主要按钮
-  </button>
+  </ant-button>
 </container>
 
 <container
   title="round"
-  class="list">
-  <button
+  className="list">
+  <ant-button
     type="primary"
     icon="SearchOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
     className="round">
     主要按钮
-  </button>
-
-  <button
+  </ant-button>
+  <ant-button
     type="primary"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
     danger
     className="round">
     主要按钮
-  </button>
+  </ant-button>
 </container>
 
 <container
   title="circle"
-  class="list">
-  <button
+  className="list">
+  <ant-button
     type="primary"
     icon="SearchOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
-    className="circle"></button>
-
-  <button
+    className="circle" />
+  <ant-button
     icon="SearchOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
-    className="circle"></button>
-
-  <button
+    className="circle" />
+  <ant-button
     type="primary"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
     className="circle">
     A
-  </button>
-
-  <button
-    onTap="handleTap"
+  </ant-button>
+  <ant-button
+    bind:tap="handleTap"
     inline
     className="circle">
     A
-  </button>
+  </ant-button>
 </container>
