@@ -1,8 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "icon": "../Icon/index",
-    "button":"../Button/index",
-    "input":"../Input/InputBlur/index"
+    "ant-button": "../Button/index",
+    "ant-input": "../Input/InputBlur/index"
   }
 }
