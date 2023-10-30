@@ -6,7 +6,7 @@ import { h, toHtml } from './h';
 import { PlatformConfig } from './platform';
 
 export interface ITransformContext<T extends types.Node = types.Node> {
-  readonly extraAttr?: Record<string, boolean>;
+  readonly extraAttr?: Record<string, boolean | string>;
   node: T;
   extends<V extends types.Node>(
     node: V,
@@ -74,7 +74,7 @@ export class TransformContext<T extends types.Node = types.Node>
     private _node: T,
     private config: PlatformConfig,
     private code: string,
-    public extraAttr: Record<string, string> = {}
+    public extraAttr: Record<string, string | boolean> = {}
   ) {}
 
   extends<T extends types.Node = types.Node>(
