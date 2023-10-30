@@ -1,5 +1,5 @@
 <view
-  class="ant-input {{ disabled ? 'ant-input-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? focusClassName ? focusClassName : '' : '' }}"
+  class="ant-input {{ disabled ? 'ant-input-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{ style || '' }};{{ focusStyle || '' }}">
   <view class="ant-input-prefix">
     <slot name="prefix">{{ prefix }}</slot>
@@ -32,7 +32,9 @@
       onBlur="onBlur" />
     <view
       a:if="{{ allowClear }}"
-      class="ant-input-clear {{ mixin.value && mixin.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden' }}"
+      class="ant-input-clear {{ mixin.value && mixin.value.length > 0
+  ? 'ant-input-clear-show'
+  : 'ant-input-clear-hidden' }}"
       onTap="onClear">
       <icon
         className="ant-input-clear-icon"

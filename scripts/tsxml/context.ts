@@ -54,6 +54,20 @@ export class TransformContext<T extends types.Node = types.Node>
     });
   }
 
+  static format(axml: string) {
+    return prettier.format(axml, {
+      parser: 'babel',
+      printWidth: 80,
+      tabWidth: 2,
+      singleQuote: true,
+      semi: false,
+      bracketSameLine: true,
+      bracketSpacing: true,
+      singleAttributePerLine: true,
+      htmlWhitespaceSensitivity: 'ignore',
+    });
+  }
+
   static create<T extends types.Node = types.Node>(
     node: T,
     config: PlatformConfig,
@@ -95,7 +109,7 @@ export class TransformContext<T extends types.Node = types.Node>
   }
 
   toAxmlExpression(): string {
-    return `{{ ${generate(this.node).code} }}`;
+    return `{{ ${TransformContext.format(generate(this.node).code).trim()} }}`;
   }
 
   getAttrName(tagName: string, name: string): string {

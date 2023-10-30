@@ -25,7 +25,7 @@ export default (
     {(!destroyOnClose || visible || closing) && (
       <View
         class={`ant-popup ${className || ''}`}
-        style={`${zIndex ? `z-index:${zIndex}` : ''};${style || ''}`}
+        style={`${zIndex ? 'z-index:' + zIndex : ''};${style || ''}`}
         hidden={!destroyOnClose && !visible && !closing}
       >
         {showMask && (
@@ -36,7 +36,11 @@ export default (
             onTap="onTapMask"
             style={`${
               animation
-                ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;`
+                ? '-webkit-animation-duration:' +
+                  duration +
+                  'ms; animation-duration:' +
+                  duration +
+                  'ms;'
                 : ''
             } ${maskStyle || ''}`}
           />
