@@ -37,6 +37,8 @@ interface Props {
   key?: any;
   index?: any;
   onAppear?: any;
+  onAnimationEnd?: any;
+  hidden?: any;
 }
 
 export const Text = (props: Props): any => {};

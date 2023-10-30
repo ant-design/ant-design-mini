@@ -29,21 +29,20 @@ export interface IActionSheetProps extends IBaseProps {
    */
   cancelText: string;
 
-
   /**
    * @description 是否显示
-   * @default []
+   * @default false
    */
-  visible: string;
+  visible: boolean;
 
   /**
    * @description 点击选项时触发，禁用或加载状态下不会触发
    */
-   
+
   onAction: (aciton: IActionItem, index: number, e) => void;
 
   /**
-    * @description 关闭时触发
+   * @description 关闭时触发
    */
 
   onClose: (e) => void;

@@ -1,19 +1,20 @@
 <import-sjs
   from="./index.sjs"
-  name="{getContentStyle}" />
+  name="utils" />
+
 <view
-  class="ant-popup {{className||''}}"
-  style="{{zIndex ? `z-index:${zIndex}` : ''}};{{style  || ''}}"
-  a:if="{{!destroyOnClose || visible || closing}}"
-  hidden="{{!destroyOnClose && !visible && !closing}}">
+  a:if="{{ !destroyOnClose || visible || closing }}"
+  class="ant-popup {{ className || '' }}"
+  style="{{ zIndex ? `z-index:${zIndex}` : '' }};{{ style || '' }}"
+  hidden="{{ !destroyOnClose && !visible && !closing }}">
   <view
-    a:if="{{showMask}}"
-    class="ant-popup-mask {{maskClassName || ''}} {{closing&&!visible?'ant-popup-mask-closing':''}}"
+    a:if="{{ showMask }}"
+    class="ant-popup-mask {{ maskClassName || '' }} {{ closing && !visible ? 'ant-popup-mask-closing' : '' }}"
     onTap="onTapMask"
-    style="{{animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : ''}} {{maskStyle || ''}}" />
+    style="{{ animation ? `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;` : '' }} {{ maskStyle || '' }}" />
   <view
-    class="ant-popup-content ant-popup-{{ animationType }}-{{position}} {{ closing?('ant-popup-' + animationType + '-' + position + '-close') : '' }}"
-    style="{{getContentStyle(position, animation, duration, width, height)}}"
+    class="ant-popup-content ant-popup-{{ animationType }}-{{ position }} {{ closing ? 'ant-popup-' + animationType + '-' + position + '-close' : '' }}"
+    style="{{ utils.getContentStyle(position, animation, duration, width, height) }}"
     onAnimationEnd="onAnimationEnd">
     <slot />
     <slot
@@ -21,4 +22,3 @@
       name="content" />
   </view>
 </view>
-

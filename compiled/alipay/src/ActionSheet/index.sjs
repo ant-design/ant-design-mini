@@ -1,6 +1,8 @@
 function isIconMode(actions) {
-  return actions.some(action => !!action.icon)
+  return actions.some(function (action) {
+    return !!action.icon;
+  });
 }
 export default {
-  isIconMode,
-}
+  isIconMode: isIconMode
+};

@@ -1,19 +1,20 @@
 function getContentStyle(position, animation, duration, width, height) {
-  let style = '';
+  var style = '';
   if (animation) {
-    style += `-webkit-animation-duration:${duration}ms; animation-duration:${duration}ms;`;
+    style += "-webkit-animation-duration:".concat(duration, "ms; animation-duration:").concat(duration, "ms;");
   }
   if (position === 'top' || position === 'bottom') {
     if (typeof height !== 'undefined') {
-      style += `height:${height}px`;
+      style += "height:".concat(height, "px");
     }
   }
   if (position === 'left' || position === 'right') {
     if (typeof width !== 'undefined') {
-      style += `width:${width}px`;
+      style += "width:".concat(width, "px");
     }
   }
   return style;
 }
-
-export default { getContentStyle };
+export default {
+  getContentStyle: getContentStyle
+};
