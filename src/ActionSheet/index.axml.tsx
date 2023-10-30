@@ -8,7 +8,6 @@ export default ({
   title,
   actions,
   className,
-  onClose,
   cancelText,
   style,
 }: TSXMLProps<IActionSheetProps>) => (
@@ -16,7 +15,7 @@ export default ({
     className="ant-actionsheet-popup"
     visible={visible}
     position="bottom"
-    onClose={onClose}
+    onClose="onClose"
   >
     <View
       style={style}
@@ -79,7 +78,7 @@ export default ({
       <Slot name="cancelText">
         {/* #endif */}
 
-        <View class="ant-actionsheet-cancel" onTap={onClose}>
+        <View class="ant-actionsheet-cancel" onTap="onClose">
           {cancelText}
         </View>
         {/* #if ALIPAY */}

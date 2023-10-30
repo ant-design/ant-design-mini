@@ -6,7 +6,7 @@
   className="ant-actionsheet-popup"
   visible="{{ visible }}"
   position="bottom"
-  onClose="{{ onClose }}">
+  onClose="onClose">
   <view
     style="{{ style }}"
     class="ant-actionsheet {{ className ? className : '' }} {{ helper.isIconMode(actions) ? 'ant-actionsheet-icon' : '' }}">
@@ -53,7 +53,7 @@
     <slot name="cancelText">
       <view
         class="ant-actionsheet-cancel"
-        onTap="{{ onClose }}">
+        onTap="onClose">
         {{ cancelText }}
       </view>
     </slot>
