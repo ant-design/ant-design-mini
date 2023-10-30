@@ -6,7 +6,7 @@ import { h, toHtml } from './h';
 import { PlatformConfig } from './platform';
 
 export interface ITransformContext<T extends types.Node = types.Node> {
-  readonly extraAttr?: Record<string, boolean>;
+  readonly extraAttr?: Record<string, boolean | string>;
   node: T;
   extends<V extends types.Node>(
     node: V,
@@ -54,6 +54,20 @@ export class TransformContext<T extends types.Node = types.Node>
     });
   }
 
+  static format(axml: string) {
+    return prettier.format(axml, {
+      parser: 'babel',
+      printWidth: 80,
+      tabWidth: 2,
+      singleQuote: true,
+      semi: false,
+      bracketSameLine: true,
+      bracketSpacing: true,
+      singleAttributePerLine: true,
+      htmlWhitespaceSensitivity: 'ignore',
+    });
+  }
+
   static create<T extends types.Node = types.Node>(
     node: T,
     config: PlatformConfig,
@@ -74,7 +88,7 @@ export class TransformContext<T extends types.Node = types.Node>
     private _node: T,
     private config: PlatformConfig,
     private code: string,
-    public extraAttr: Record<string, string> = {}
+    public extraAttr: Record<string, string | boolean> = {}
   ) {}
 
   extends<T extends types.Node = types.Node>(
@@ -95,7 +109,7 @@ export class TransformContext<T extends types.Node = types.Node>
   }
 
   toAxmlExpression(): string {
-    return `{{ ${generate(this.node).code} }}`;
+    return `{{ ${TransformContext.format(generate(this.node).code).trim()} }}`;
   }
 
   getAttrName(tagName: string, name: string): string {

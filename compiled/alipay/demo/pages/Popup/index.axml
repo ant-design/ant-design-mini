@@ -1,19 +1,19 @@
 <popup
-  visible="{{basicVisible}}"
-  height="{{250}}"
-  width="{{250}}"
-  position="{{position}}"
-  animation="{{animation}}"
+  visible="{{ basicVisible }}"
+  height="{{ 250 }}"
+  width="{{ 250 }}"
+  position="{{ position }}"
+  animation="{{ animation }}"
   onClose="handlePopupClose">
   <view style="padding: 12px">
     从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
   </view>
 </popup>
 <popup
-  visible="{{closeVisile}}"
-  height="{{250}}"
+  visible="{{ closeVisile }}"
+  height="{{ 250 }}"
   position="bottom"
-  animation="{{animation}}"
+  animation="{{ animation }}"
   onClose="handlePopupClose">
   <view style="padding: 12px">
     从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
@@ -24,9 +24,9 @@
     onTap="handlePopupClose" />
 </popup>
 <popup
-  visible="{{scrollVisible}}"
+  visible="{{ scrollVisible }}"
   position="bottom"
-  animation="{{animation}}"
+  animation="{{ animation }}"
   onClose="handlePopupClose">
   <scroll-view
     scroll-y
@@ -96,7 +96,7 @@
 </popup>
 <container
   title="弹出位置"
-  class="list">
+  className="list">
   <button
     data-position="top"
     onTap="handleShowBasic">
@@ -125,7 +125,7 @@
     开启过渡动画
     <switch
       slot="extra"
-      checked="{{animation}}"
+      checked="{{ animation }}"
       onChange="handleChangeAnimation" />
   </list-item>
 </list>
