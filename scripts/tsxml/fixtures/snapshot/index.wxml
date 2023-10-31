@@ -6,6 +6,7 @@
     wx:key="{{ task.id }}">
     <!-- display: inline -->
     <text
+      hidden="{{ !mixin.value }}"
       data-item-id="{{ taskIndex }}"
       data-num="{{ 20 }}"
       >{{ taskIndex }}{{ task }}</text
