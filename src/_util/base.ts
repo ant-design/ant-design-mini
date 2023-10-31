@@ -1,4 +1,5 @@
 export interface IBaseProps {
+  id?: string;
   /**
    * @description 类名
    */
