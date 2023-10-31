@@ -1,6 +1,6 @@
 import { View, TSXMLProps } from 'tsxml';
 import { IStepperProps } from './props';
-import AntInput from '../../src/Input/index.axml';
+import AntInput from '../../src/Input/InputBlur/index.axml';
 import AntButton from '../../src/Button/index.axml';
 
 export default (
