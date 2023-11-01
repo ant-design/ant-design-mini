@@ -49,8 +49,7 @@
     <block
       a:for="{{ placements }}"
       a:for-index="index"
-      a:for-item="item"
-      a:key="{{ item }}">
+      a:for-item="item">
       <popover placement="{{ item }}">
         <button
           size="small"

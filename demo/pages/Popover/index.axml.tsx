@@ -46,7 +46,7 @@ export default (_, { placements, visible }: InternalData) => (
     <Container title="自定义位置">
       <View class="custom">
         {placements.map((item) => (
-          <Popover key={item} placement={item}>
+          <Popover placement={item}>
             <Button size="small" inline>
               <View>点我</View>
               {item}
