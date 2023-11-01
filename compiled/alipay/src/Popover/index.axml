@@ -3,7 +3,7 @@
   style="{{ style || '' }}">
   <view
     id="ant-popover-children-{{ $id }}"
-    onTap="{{ onVisibleChange }}">
+    onTap="onVisibleChange">
     <slot />
   </view>
   <view
@@ -27,4 +27,4 @@
   id="ant-popover-mask-{{ $id }}"
   className="ant-popover-mask {{ maskClassName || '' }}"
   style="{{ maskStyle }}"
-  onMaskTap="{{ onVisibleChange }}" />
+  onMaskTap="onVisibleChange" />

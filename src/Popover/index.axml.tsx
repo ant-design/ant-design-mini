@@ -14,7 +14,6 @@ export default (
     showMask,
     maskClassName,
     maskStyle,
-    onVisibleChange,
   }: TSXMLProps<IPopoverProps>,
   { mixin, popoverContentStyle, $id, adjustedPlacement }: InternalData
 ) => (
@@ -25,7 +24,7 @@ export default (
       } ${className ? className : ''}`}
       style={style || ''}
     >
-      <View id={`ant-popover-children-${$id}`} onTap={onVisibleChange}>
+      <View id={`ant-popover-children-${$id}`} onTap="onVisibleChange">
         <Slot />
       </View>
       {(!destroyOnClose || mixin.value) && (
@@ -57,7 +56,7 @@ export default (
       id={`ant-popover-mask-${$id}`}
       className={`ant-popover-mask ${maskClassName || ''}`}
       style={maskStyle}
-      onMaskTap={onVisibleChange}
+      onMaskTap="onVisibleChange"
     />
   </Component>
 );
