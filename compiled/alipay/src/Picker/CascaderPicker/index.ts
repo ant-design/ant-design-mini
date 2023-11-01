@@ -7,11 +7,9 @@ const component2 = my.canIUse('component2');
 
 Component({
   props: CascaderDefaultProps,
-  data() {
-    return {
-      currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
-      columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
-    };
+  data: {
+    currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
+    columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
   },
   mixins: [mixinValue()],
   onInit() {

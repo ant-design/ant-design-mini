@@ -22,12 +22,14 @@
     <popover
       content="红色"
       color="red">
+      <!-- display: inline -->
       <text>点我红色</text>
     </popover>
 
     <popover
       content="蓝色"
       color="blue">
+      <!-- display: inline -->
       <text>点我蓝色</text>
     </popover>
   </view>
@@ -44,21 +46,26 @@
 
 <container title="自定义位置">
   <view class="custom">
-    <popover
-      a:for="{{placements}}"
-      placement="{{item}}">
-      <button
-        size="small"
-        inline>
-        <view>点我</view>
-        {{item}}
-      </button>
-      <view
-        slot="content"
-        className="content">
-        {{item}}
-      </view>
-    </popover>
+    <block
+      a:for="{{ placements }}"
+      a:for-index="index"
+      a:for-item="item"
+      a:key="{{ item }}">
+      <popover placement="{{ item }}">
+        <button
+          size="small"
+          inline>
+          <view>点我</view>
+          {{ item }}
+        </button>
+
+        <view
+          slot="content"
+          class="content">
+          {{ item }}
+        </view>
+      </popover>
+    </block>
   </view>
 </container>
 
@@ -78,8 +85,9 @@
   <popover
     content="prompt"
     placement="right"
-    showMask="{{false}}"
-    visible="{{visible}}">
+    showMask="{{ false }}"
+    visible="{{ visible }}">
+    <!-- display: inline -->
     <text>点击按钮修改visible</text>
   </popover>
 
