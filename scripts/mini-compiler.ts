@@ -214,15 +214,16 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
     function (stream: NodeJS.ReadWriteStream, factory) {
       return stream
         .pipe(
-          factory((content: string) => {
+          factory(async (content: string) => {
             const ast = tsxml.parseCode(content);
-            return tsxml.tsxmlToAxml(
+            const res = await tsxml.tsxmlToAxml(
               tsxml.TransformContext.create(
                 ast,
                 option.buildOption.platform,
                 content
               )
             );
+            return res;
           })
         )
         .pipe(

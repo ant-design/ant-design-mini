@@ -263,6 +263,7 @@ function transformAttrExpression(ctx: ITransformContext) {
       }
       return res.join('');
     }
+    case 'UnaryExpression':
     case 'ConditionalExpression':
     case 'LogicalExpression':
     case 'BooleanLiteral':
@@ -272,7 +273,7 @@ function transformAttrExpression(ctx: ITransformContext) {
       return ctx.toAxmlExpression();
     }
     default: {
-      throw ctx.throw(ctx.node, '解析 Attribute 失败');
+      throw ctx.throw(ctx.node, '解析 Attribute 失败 + ' + expression.type);
     }
   }
 }

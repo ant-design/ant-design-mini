@@ -32,6 +32,10 @@ export interface IPopoverProps extends IBaseProps {
    */
   contentClassName: string;
   /**
+   * @description content 内容
+   */
+  content?: string;
+  /**
    * @description 蒙层类名
    */
   maskClassName: string;

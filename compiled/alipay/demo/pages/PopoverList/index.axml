@@ -1,6 +1,6 @@
 <popover
   placement="bottom-right"
-  visible="{{visible}}"
+  visible="{{ visible }}"
   onVisibleChange="handleVisibleChange"
   color="#fff">
   <button
@@ -30,7 +30,7 @@
     </list-item>
     <list-item
       onTap="handleTapItem"
-      image="{{url}}">
+      image="{{ url }}">
       图片
     </list-item>
   </list>
