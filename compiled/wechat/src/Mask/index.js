@@ -1,14 +1,14 @@
-import fmtEvent from '../_util/fmtEvent';
-import { MaskDefaultProps } from './props';
+import { useEvent } from 'functional-mini/component';
 import '../_util/assert-component2';
-Component({
-    props: MaskDefaultProps,
-    methods: {
-        onMaskClick: function (e) {
-            var onMaskTap = this.props.onMaskTap;
-            if (typeof onMaskTap === 'function') {
-                onMaskTap(fmtEvent(this.props, e));
-            }
-        },
-    },
+import { mountComponent } from '../_util/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+var Mask = function (props) {
+    var triggerEventOnly = useComponentEvent(props).triggerEventOnly;
+    useEvent('onMaskClick', function (e) {
+        triggerEventOnly('maskTap', e);
+    }, [props]);
+    return {};
+};
+mountComponent(Mask, {
+    show: true,
 });

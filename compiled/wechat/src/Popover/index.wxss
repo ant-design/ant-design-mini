@@ -128,15 +128,3 @@
   transform: translate(-75%, 0) rotate(-90deg);
   bottom: 12px;
 }
-.content-slot:empty + .content-slot-default {
-  display: inline-block;
-}
-.content-slot-default {
-  display: none;
-}
-.content-slot-default {
-  display: inline-block;
-}
-.content-slot {
-  display: inline-block;
-}

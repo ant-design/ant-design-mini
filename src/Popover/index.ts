@@ -8,25 +8,10 @@ import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
 import { IPopoverProps } from './props';
 import { getPopoverStyle } from './utils';
-
-function getBoundingClientRect(instance: any, selector: string) {
-  return new Promise<any>((resolve, reject) => {
-    instance
-      .createSelectorQuery()
-      .select(selector)
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0]) {
-          resolve(ret[0]);
-        } else {
-          reject();
-        }
-      });
-  });
-}
 
 const Popover = (props: IPopoverProps) => {
   const [value, updateValue] = useMergedState(props.defaultVisible, {
@@ -48,7 +33,7 @@ const Popover = (props: IPopoverProps) => {
     return instance;
   }
 
-  const { forwardEvent } = useComponentEvent(props);
+  const { alipayForwardEvent: forwardEvent } = useComponentEvent(props);
 
   useEffect(() => {
     if (!value) {
@@ -60,17 +45,17 @@ const Popover = (props: IPopoverProps) => {
     }
     const { placement, autoAdjustOverflow } = props;
     Promise.all([
-      getBoundingClientRect(
+      getInstanceBoundingClientRect(
         getInstance(),
         `#ant-popover-children${instance.$id ? `-${instance.$id}` : ''}`
       ),
-      getBoundingClientRect(
+      getInstanceBoundingClientRect(
         getInstance(),
         instance.$id
           ? `#ant-popover-children-${instance.$id} > *`
-          : `#ant-popover-children`
+          : `#ant-popover-children-container`
       ),
-      getBoundingClientRect(
+      getInstanceBoundingClientRect(
         getInstance(),
         instance.$id
           ? `#ant-popover-content-${instance.$id}`
@@ -135,5 +120,4 @@ mountComponent<IPopoverProps>(Popover, {
   contentClassName: '',
   contentStyle: '',
   color: '',
-  childrenContainerStyle: '',
 });

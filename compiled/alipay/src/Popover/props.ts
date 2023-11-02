@@ -74,10 +74,6 @@ export interface IPopoverProps extends IBaseProps {
    * @default true
    */
   autoAdjustOverflow: boolean;
-
-
-
-
 }
 
 export const PopoverDefaultProps: Partial<IPopoverProps> = {

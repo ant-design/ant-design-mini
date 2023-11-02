@@ -5,7 +5,7 @@ import { IBaseProps } from '../_util/base';
  */
 export interface IMaskProps extends IBaseProps {
   show: boolean;
-  onMaskTap: (v: Record<string, unknown>) => void;
+  onMaskTap?: (v: Record<string, unknown>) => void;
 }
 
 export const MaskDefaultProps: Partial<IMaskProps> = {

@@ -14,24 +14,9 @@ import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
 import { getPopoverStyle } from './utils';
-function getBoundingClientRect(instance, selector) {
-    return new Promise(function (resolve, reject) {
-        instance
-            .createSelectorQuery()
-            .select(selector)
-            .boundingClientRect()
-            .exec(function (ret) {
-            if (ret && ret[0]) {
-                resolve(ret[0]);
-            }
-            else {
-                reject();
-            }
-        });
-    });
-}
 var Popover = function (props) {
     var _a = useMergedState(props.defaultVisible, {
         value: props.visible,
@@ -48,7 +33,7 @@ var Popover = function (props) {
         }
         return instance;
     }
-    var forwardEvent = useComponentEvent(props).forwardEvent;
+    var forwardEvent = useComponentEvent(props).alipayForwardEvent;
     useEffect(function () {
         if (!value) {
             setPopoverStyle(function (old) { return (__assign(__assign({}, old), { adjustedPlacement: '' })); });
@@ -56,11 +41,11 @@ var Popover = function (props) {
         }
         var placement = props.placement, autoAdjustOverflow = props.autoAdjustOverflow;
         Promise.all([
-            getBoundingClientRect(getInstance(), "#ant-popover-children".concat(instance.$id ? "-".concat(instance.$id) : '')),
-            getBoundingClientRect(getInstance(), instance.$id
+            getInstanceBoundingClientRect(getInstance(), "#ant-popover-children".concat(instance.$id ? "-".concat(instance.$id) : '')),
+            getInstanceBoundingClientRect(getInstance(), instance.$id
                 ? "#ant-popover-children-".concat(instance.$id, " > *")
-                : "#ant-popover-children"),
-            getBoundingClientRect(getInstance(), instance.$id
+                : "#ant-popover-children-container"),
+            getInstanceBoundingClientRect(getInstance(), instance.$id
                 ? "#ant-popover-content-".concat(instance.$id)
                 : '#ant-popover-content'),
             getSystemInfo(),
@@ -106,5 +91,4 @@ mountComponent(Popover, {
     contentClassName: '',
     contentStyle: '',
     color: '',
-    childrenContainerStyle: '',
 });

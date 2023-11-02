@@ -5,7 +5,8 @@ import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { IListItemProps } from './props';
 
 const ListItem = (props: ISwitchProps) => {
-  const { forwardCatchEvent, forwardEvent } = useComponentEvent(props);
+  const { alipayForwardCatchEvent, alipayForwardEvent } =
+    useComponentEvent(props);
 
   /// #if ALIPAY
   useEvent(
@@ -14,7 +15,7 @@ const ListItem = (props: ISwitchProps) => {
       if (props.disabled) {
         return;
       }
-      forwardEvent('tap', e);
+      alipayForwardEvent('tap', e);
     },
     [props]
   );
@@ -24,7 +25,7 @@ const ListItem = (props: ISwitchProps) => {
       if (props.disabled) {
         return;
       }
-      forwardCatchEvent('tap', e);
+      alipayForwardCatchEvent('tap', e);
     },
     [props]
   );

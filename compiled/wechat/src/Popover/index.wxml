@@ -4,9 +4,7 @@
   <view
     id="ant-popover-children{{ $id ? '-' + $id : '' }}"
     bind:tap="onVisibleChange">
-    <view
-      id="ant-popover-children-container"
-      style="display:inline-block; {{ childrenContainerStyle ? childrenContainerStyle : '' }}">
+    <view id="ant-popover-children-container">
       <slot />
     </view>
   </view>
@@ -34,4 +32,4 @@
   id="ant-popover-mask{{ $id ? '-' + $id : '' }}"
   className="ant-popover-mask {{ maskClassName || '' }}"
   style="{{ maskStyle }}"
-  onMaskTap="onVisibleChange" />
+  bind:masktap="onVisibleChange" />

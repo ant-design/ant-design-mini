@@ -1,6 +1,8 @@
-import { Component, TSXMLProps, View, Slot, InternalData, Text } from 'tsxml';
+import { Component, TSXMLProps, View, Slot, InternalData } from 'tsxml';
 import { IPopoverProps } from './props';
 import Mask from '../Mask/index.axml';
+
+
 
 export default (
   {
@@ -14,7 +16,6 @@ export default (
     showMask,
     maskClassName,
     maskStyle,
-    childrenContainerStyle
   }: TSXMLProps<IPopoverProps>,
   { mixin, popoverContentStyle, adjustedPlacement, $id }: InternalData
 ) => (
@@ -33,7 +34,9 @@ export default (
         <Slot />
         {/* #endif */}
         {/* #if WECHAT*/}
-        <View id="ant-popover-children-container" style={`display:inline-block; ${childrenContainerStyle?childrenContainerStyle:''}`}>
+        <View
+          id="ant-popover-children-container"
+        >
           <Slot />
         </View>
         {/* #endif */}
@@ -61,10 +64,7 @@ export default (
             <Slot name="content">{content}</Slot>
             {/* #endif */}
             {/* #if WECHAT*/}
-            {
-              !content?   <Slot name="content"></Slot>:content
-            }
-            
+            {!content ? <Slot name="content"></Slot> : content}
             {/* #endif */}
           </View>
         </View>

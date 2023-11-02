@@ -74,13 +74,6 @@ export interface IPopoverProps extends IBaseProps {
    * @default true
    */
   autoAdjustOverflow: boolean;
-
-
-
-  /// #if WECHAT
-  childrenContainerStyle ?:string
-  /// #endif
-
 }
 
 export const PopoverDefaultProps: Partial<IPopoverProps> = {
