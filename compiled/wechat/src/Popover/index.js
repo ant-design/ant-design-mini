@@ -23,7 +23,6 @@ function getBoundingClientRect(instance, selector) {
             .select(selector)
             .boundingClientRect()
             .exec(function (ret) {
-            console.log(selector, ret);
             if (ret && ret[0]) {
                 resolve(ret[0]);
             }
@@ -73,10 +72,6 @@ var Popover = function (props) {
                 contentRect: contentRect,
                 systemInfo: systemInfo,
             }), popoverContentStyle = _a.popoverContentStyle, adjustedPlacement = _a.adjustedPlacement;
-            console.log({
-                popoverContentStyle: popoverContentStyle,
-                adjustedPlacement: adjustedPlacement,
-            });
             setPopoverStyle({
                 popoverContentStyle: popoverContentStyle,
                 adjustedPlacement: adjustedPlacement,

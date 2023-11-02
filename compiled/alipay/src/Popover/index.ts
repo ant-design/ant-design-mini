@@ -19,7 +19,6 @@ function getBoundingClientRect(instance: any, selector: string) {
       .select(selector)
       .boundingClientRect()
       .exec((ret) => {
-        console.log(selector, ret);
         if (ret && ret[0]) {
           resolve(ret[0]);
         } else {
@@ -90,10 +89,6 @@ const Popover = (props: IPopoverProps) => {
           systemInfo,
         }
       );
-      console.log({
-        popoverContentStyle,
-        adjustedPlacement,
-      });
       setPopoverStyle({
         popoverContentStyle,
         adjustedPlacement,
