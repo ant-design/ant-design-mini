@@ -1,5 +1,5 @@
 import { InternalData, Text, View } from 'tsxml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
 import Icon from '../../../src/Icon/index.axml';
 import Popover from '../../../src/Popover/index.axml';
@@ -8,9 +8,9 @@ export default (_, { placements, visible }: InternalData) => (
   <Component>
     <Container title="基础用法">
       <Popover content="prompt">
-        <Button size="small" inline>
+        <AntButton size="small" inline>
           点我
-        </Button>
+        </AntButton>
       </Popover>
     </Container>
 
@@ -20,7 +20,7 @@ export default (_, { placements, visible }: InternalData) => (
         placement="top"
         onVisibleChange="onVisibleChange"
       >
-        <Button>点我</Button>
+        <AntButton>点我</AntButton>
       </Popover>
     </Container>
 
@@ -47,10 +47,10 @@ export default (_, { placements, visible }: InternalData) => (
       <View class="custom">
         {placements.map((item) => (
           <Popover placement={item}>
-            <Button size="small" inline>
+            <AntButton size="small" inline className="custom-child">
               <View>点我</View>
               {item}
-            </Button>
+            </AntButton>
 
             <View slot="content" class="content">
               {item}
@@ -62,9 +62,9 @@ export default (_, { placements, visible }: InternalData) => (
 
     <Container title="自定义mask">
       <Popover content="prompt" maskStyle="background: rgba(0, 0, 0, 0.6);">
-        <Button size="small" inline>
+        <AntButton size="small" inline>
           点我
-        </Button>
+        </AntButton>
       </Popover>
     </Container>
 
@@ -78,14 +78,14 @@ export default (_, { placements, visible }: InternalData) => (
         <Text>点击按钮修改visible</Text>
       </Popover>
 
-      <Button
+      <AntButton
         size="small"
         inline
         onTap="handleVisibleChange"
         style="margin-top: 8px"
       >
         change visible
-      </Button>
+      </AntButton>
     </Container>
   </Component>
 );

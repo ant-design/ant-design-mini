@@ -67,7 +67,7 @@ describe('popover', () => {
       },
       my
     );
-    await new Promise((r) => setTimeout(r, 0));
+    await new Promise((r) => setTimeout(r, 10));
     expect(instance.getData().adjustedPlacement).toBe('top');
     const placements = [
       'bottom',
@@ -87,7 +87,7 @@ describe('popover', () => {
       instance.setProps({
         placement,
       });
-      await new Promise((r) => setTimeout(r, 0));
+      await new Promise((r) => setTimeout(r, 10));
       expect(instance.getData().adjustedPlacement).toBe(placement);
     }
   });

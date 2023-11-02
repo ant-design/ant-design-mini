@@ -2,9 +2,6 @@
   display: flex;
   flex-wrap: wrap;
 }
-
-
-
 .content {
   display: flex;
   align-items: center;
@@ -12,7 +9,6 @@
   min-width: 30px;
   min-height: 50px;
 }
-
-.custom-child{
-  margin: 8px
+.custom-child {
+  margin: 8px;
 }

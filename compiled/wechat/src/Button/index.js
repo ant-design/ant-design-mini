@@ -14,20 +14,30 @@ import { ButtonDefaultProps } from './props';
 import '../_util/assert-component2';
 Component({
     properties: {
+        className: String,
         style: String,
-        type: String,
         disabled: Boolean,
         activeClassName: String,
         subText: String,
         inline: Boolean,
-        size: String,
+        size: {
+            type: String,
+            value: 'medium'
+        },
         icon: String,
         loading: Boolean,
         danger: Boolean,
-        formType: String,
+        formType: {
+            type: String,
+            value: 'button'
+        },
         publicId: String,
         openType: String,
         scope: String,
+        type: {
+            type: String,
+            value: 'default'
+        }
     },
     options: {
         styleIsolation: 'shared',

@@ -3,11 +3,15 @@
   style="{{ style || '' }}">
   <view
     id="ant-popover-children{{ $id ? '-' + $id : '' }}"
-    onTap="onVisibleChange">
-    <slot />
+    bind:tap="onVisibleChange">
+    <view
+      id="ant-popover-children-container"
+      style="display:inline-block; {{ childrenContainerStyle ? childrenContainerStyle : '' }}">
+      <slot />
+    </view>
   </view>
   <view
-    a:if="{{ !destroyOnClose || mixin.value }}"
+    wx:if="{{ !destroyOnClose || mixin.value }}"
     hidden="{{ !mixin.value }}"
     id="ant-popover-content{{ $id ? '-' + $id : '' }}"
     class="ant-popover-content ant-popover-{{ adjustedPlacement }}"
@@ -18,7 +22,10 @@
     <view
       class="ant-popover-inner {{ contentClassName || '' }}"
       style="{{ color ? 'background:' + color : '' }};{{ contentStyle || '' }}">
-      <slot name="content">{{ content }}</slot>
+      <slot
+        wx:if="{{ !content }}"
+        name="content" />
+      {{ content }}
     </view>
   </view>
 </view>

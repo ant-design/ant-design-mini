@@ -47,9 +47,9 @@
 <container title="自定义位置">
   <view class="custom">
     <block
-      a:for="{{ placements }}"
-      a:for-index="index"
-      a:for-item="item">
+      wx:for="{{ placements }}"
+      wx:for-index="index"
+      wx:for-item="item">
       <popover placement="{{ item }}">
         <ant-button
           size="small"
@@ -94,7 +94,7 @@
   <ant-button
     size="small"
     inline
-    onTap="handleVisibleChange"
+    bind:tap="handleVisibleChange"
     style="margin-top: 8px">
     change visible
   </ant-button>
