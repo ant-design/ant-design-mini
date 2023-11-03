@@ -13,23 +13,23 @@ Component({
     subText: String,
     inline: Boolean,
     size: {
-      type:String,
-      value: 'medium'
+      type: String,
+      value: 'medium',
     },
     icon: String,
     loading: Boolean,
     danger: Boolean,
     formType: {
-      type:String,
-      value: 'button'
+      type: String,
+      value: 'button',
     },
     publicId: String,
     openType: String,
     scope: String,
-    type:{
-      type:String,
-      value:'default'
-    }
+    type: {
+      type: String,
+      value: 'default',
+    },
   },
   options: {
     styleIsolation: 'shared',
