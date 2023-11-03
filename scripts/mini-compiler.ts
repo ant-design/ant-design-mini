@@ -13,6 +13,7 @@ import json5 from 'json5';
 import { resolve } from 'path';
 import * as fs from 'fs/promises';
 import * as ofs from 'fs';
+
 interface MiniProgramSourceCompileOption {
   source: string;
   dest: string;
@@ -145,8 +146,10 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
             .pipe(less())
             // eslint-disable-next-line no-console
             .on('error', (e) => {
-              console.error(e);
-              process.exit(1);
+              console.log(e);
+              if (!option.watch) {
+                process.exit(1);
+              }
             })
             .pipe(
               rename({
@@ -173,7 +176,9 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
           .pipe(ts.createProject(option.tsconfig)())
           .on('error', (err) => {
             console.log(err);
-            process.exit(1);
+            if (!option.watch) {
+              process.exit(1);
+            }
           });
         return tsResult.js.pipe(gulp.dest(option.dest));
       }
@@ -226,6 +231,12 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
             return res;
           })
         )
+        .on('error', (e) => {
+          console.error(e);
+          if (!option.watch) {
+            process.exit(1);
+          }
+        })
         .pipe(
           rename(function (file) {
             file.basename = path.basename(file.basename, '.axml');

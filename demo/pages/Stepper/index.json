@@ -3,6 +3,6 @@
   "usingComponents": {
     "stepper": "../../../src/Stepper/index",
     "container": "../../../src/Container/index",
-    "button": "../../../src/Button/index"
+    "ant-button": "../../../src/Button/index"
   }
 }

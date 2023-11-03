@@ -22,22 +22,22 @@ Component({
         inline: Boolean,
         size: {
             type: String,
-            value: 'medium'
+            value: 'medium',
         },
         icon: String,
         loading: Boolean,
         danger: Boolean,
         formType: {
             type: String,
-            value: 'button'
+            value: 'button',
         },
         publicId: String,
         openType: String,
         scope: String,
         type: {
             type: String,
-            value: 'default'
-        }
+            value: 'default',
+        },
     },
     options: {
         styleIsolation: 'shared',
