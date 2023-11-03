@@ -1,5 +1,6 @@
 Page({
     data: {
+        visible: true,
         placements: [
             'top',
             'bottom',
