@@ -4,3 +4,12 @@ export function supportUndefinedProperty(): boolean {
 
   return support;
 }
+
+export function platform() {
+  let platform = 'unknown';
+
+
+  platform = 'alipay';
+
+  return platform;
+}

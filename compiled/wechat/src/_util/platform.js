@@ -3,3 +3,8 @@ export function supportUndefinedProperty() {
     support = false;
     return support;
 }
+export function platform() {
+    var platform = 'unknown';
+    platform = 'wechat';
+    return platform;
+}

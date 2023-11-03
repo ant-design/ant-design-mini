@@ -17,11 +17,29 @@ export function useComponentEvent<T>(props: T) {
       /// #endif
 
       /// #if WECHAT
-      component.triggerEvent(eventName, value);
+      component.triggerEvent(eventName.toLocaleLowerCase(), value);
       /// #endif
     },
+
+    triggerEventOnly: (eventName: string, e?: any) => {
+      // 首字母大写，然后加上 on
+
+      /// #if ALIPAY
+      const alipayCallbackName =
+        'on' + eventName.charAt(0).toUpperCase() + eventName.slice(1);
+
+      if (props[alipayCallbackName]) {
+        props[alipayCallbackName](fmtEvent(props, e));
+      }
+      /// #endif
+
+      /// #if WECHAT
+      component.triggerEvent(eventName.toLocaleLowerCase());
+      /// #endif
+    },
+
     // 转发 catch 事件
-    forwardCatchEvent: (eventName: string, e: any) => {
+    alipayForwardCatchEvent: (eventName: string, e: any) => {
       // 首字母大写，然后加上 catch
 
       /// #if ALIPAY
@@ -34,7 +52,7 @@ export function useComponentEvent<T>(props: T) {
       /// #endif
     },
     // 转发事件
-    forwardEvent: (eventName: string, e: any) => {
+    alipayForwardEvent: (eventName: string, e: any) => {
       // 首字母大写，然后加上 on
 
       /// #if ALIPAY

@@ -7,6 +7,7 @@ import shallowequal from 'shallowequal';
 import vm from 'vm';
 
 interface Instance {
+  $id: number;
   props: Record<string, any>;
   data: Record<string, any>;
   methods: Record<string, (this: Instance, ...args: any) => void>;
@@ -49,6 +50,7 @@ function createInstance(config: Instance, props: Record<string, any>, my: any) {
   const deriveDataFromProps = [];
 
   const instance: Instance = {
+    $id: 1,
     ...config,
     ...config.methods,
     props: {

@@ -15,8 +15,21 @@ export function useComponentEvent<T>(props: T) {
       }
 
     },
+
+    triggerEventOnly: (eventName: string, e?: any) => {
+      // 首字母大写，然后加上 on
+
+      const alipayCallbackName =
+        'on' + eventName.charAt(0).toUpperCase() + eventName.slice(1);
+
+      if (props[alipayCallbackName]) {
+        props[alipayCallbackName](fmtEvent(props, e));
+      }
+
+    },
+
     // 转发 catch 事件
-    forwardCatchEvent: (eventName: string, e: any) => {
+    alipayForwardCatchEvent: (eventName: string, e: any) => {
       // 首字母大写，然后加上 catch
 
       const alipayCallbackName =
@@ -27,7 +40,7 @@ export function useComponentEvent<T>(props: T) {
       }
     },
     // 转发事件
-    forwardEvent: (eventName: string, e: any) => {
+    alipayForwardEvent: (eventName: string, e: any) => {
       // 首字母大写，然后加上 on
 
       const alipayCallbackName =

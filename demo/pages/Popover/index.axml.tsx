@@ -1,5 +1,5 @@
 import { InternalData, Text, View } from 'tsxml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
 import Icon from '../../../src/Icon/index.axml';
 import Popover from '../../../src/Popover/index.axml';
@@ -7,10 +7,10 @@ import Popover from '../../../src/Popover/index.axml';
 export default (_, { placements, visible }: InternalData) => (
   <Component>
     <Container title="基础用法">
-      <Popover content="prompt">
-        <Button size="small" inline>
+      <Popover content="prompt" style="display:inline-block;">
+        <AntButton size="small" inline>
           点我
-        </Button>
+        </AntButton>
       </Popover>
     </Container>
 
@@ -20,7 +20,7 @@ export default (_, { placements, visible }: InternalData) => (
         placement="top"
         onVisibleChange="onVisibleChange"
       >
-        <Button>点我</Button>
+        <AntButton>点我</AntButton>
       </Popover>
     </Container>
 
@@ -47,10 +47,10 @@ export default (_, { placements, visible }: InternalData) => (
       <View class="custom">
         {placements.map((item) => (
           <Popover placement={item}>
-            <Button size="small" inline>
+            <AntButton size="small" inline className="custom-child">
               <View>点我</View>
               {item}
-            </Button>
+            </AntButton>
 
             <View slot="content" class="content">
               {item}
@@ -61,31 +61,37 @@ export default (_, { placements, visible }: InternalData) => (
     </Container>
 
     <Container title="自定义mask">
-      <Popover content="prompt" maskStyle="background: rgba(0, 0, 0, 0.6);">
-        <Button size="small" inline>
+      <Popover
+        content="prompt"
+        maskStyle="background: rgba(0, 0, 0, 0.6);"
+        style="display:inline-block;"
+      >
+        <AntButton size="small" inline>
           点我
-        </Button>
+        </AntButton>
       </Popover>
     </Container>
 
     <Container title="受控">
-      <Popover
-        content="prompt"
-        placement="right"
-        showMask={false}
-        visible={visible}
-      >
-        <Text>点击按钮修改visible</Text>
-      </Popover>
-
-      <Button
+      <View>
+        <Popover
+          content="prompt"
+          placement="right"
+          showMask={false}
+          visible={visible}
+          style="display:inline-block;"
+        >
+          <Text>点击按钮修改visible</Text>
+        </Popover>
+      </View>
+      <AntButton
         size="small"
         inline
         onTap="handleVisibleChange"
         style="margin-top: 8px"
       >
         change visible
-      </Button>
+      </AntButton>
     </Container>
   </Component>
 );

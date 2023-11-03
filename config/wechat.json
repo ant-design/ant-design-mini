@@ -11,7 +11,9 @@
     "pages/Tag",
     "pages/Calendar",
     "pages/List",
-    "pages/Result"
+    "pages/Result",
+    "pages/Popover",
+    "pages/PopoverList"
   ],
   "src": [
     "_util",
@@ -26,6 +28,8 @@
     "Calendar",
     "List",
     "ImageIcon",
-    "Result"
+    "Result",
+    "Popover",
+    "Mask"
   ]
 }

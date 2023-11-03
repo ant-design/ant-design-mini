@@ -4,6 +4,6 @@
     "popover": "../../../src/Popover/index",
     "container": "../../../src/Container/index",
     "icon": "../../../src/Icon/index",
-    "button": "../../../src/Button/index"
+    "ant-button": "../../../src/Button/index"
   }
 }

@@ -4,14 +4,18 @@ export function useComponentEvent(props) {
     return {
         triggerEvent: function (eventName, value, e) {
             // 首字母大写，然后加上 on
-            component.triggerEvent(eventName, value);
+            component.triggerEvent(eventName.toLocaleLowerCase(), value);
+        },
+        triggerEventOnly: function (eventName, e) {
+            // 首字母大写，然后加上 on
+            component.triggerEvent(eventName.toLocaleLowerCase());
         },
         // 转发 catch 事件
-        forwardCatchEvent: function (eventName, e) {
+        alipayForwardCatchEvent: function (eventName, e) {
             // 首字母大写，然后加上 catch
         },
         // 转发事件
-        forwardEvent: function (eventName, e) {
+        alipayForwardEvent: function (eventName, e) {
             // 首字母大写，然后加上 on
         },
     };

@@ -1,10 +1,12 @@
 <container title="基础用法">
-  <popover content="prompt">
-    <button
+  <popover
+    content="prompt"
+    style="display: inline-block">
+    <ant-button
       size="small"
       inline>
       点我
-    </button>
+    </ant-button>
   </popover>
 </container>
 
@@ -13,7 +15,7 @@
     content="prompt"
     placement="top"
     onVisibleChange="onVisibleChange">
-    <button>点我</button>
+    <ant-button>点我</ant-button>
   </popover>
 </container>
 
@@ -51,12 +53,13 @@
       a:for-index="index"
       a:for-item="item">
       <popover placement="{{ item }}">
-        <button
+        <ant-button
           size="small"
-          inline>
+          inline
+          className="custom-child">
           <view>点我</view>
           {{ item }}
-        </button>
+        </ant-button>
 
         <view
           slot="content"
@@ -71,30 +74,33 @@
 <container title="自定义mask">
   <popover
     content="prompt"
-    maskStyle="background: rgba(0, 0, 0, 0.6);">
-    <button
+    maskStyle="background: rgba(0, 0, 0, 0.6);"
+    style="display: inline-block">
+    <ant-button
       size="small"
       inline>
       点我
-    </button>
+    </ant-button>
   </popover>
 </container>
 
 <container title="受控">
-  <popover
-    content="prompt"
-    placement="right"
-    showMask="{{ false }}"
-    visible="{{ visible }}">
-    <!-- display: inline -->
-    <text>点击按钮修改visible</text>
-  </popover>
-
-  <button
+  <view>
+    <popover
+      content="prompt"
+      placement="right"
+      showMask="{{ false }}"
+      visible="{{ visible }}"
+      style="display: inline-block">
+      <!-- display: inline -->
+      <text>点击按钮修改visible</text>
+    </popover>
+  </view>
+  <ant-button
     size="small"
     inline
     onTap="handleVisibleChange"
     style="margin-top: 8px">
     change visible
-  </button>
+  </ant-button>
 </container>
