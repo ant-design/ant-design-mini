@@ -1,44 +1,42 @@
 Page({
-  data: {
-    
-  },
-  onChange(value) {
-    console.log('onChange', value);
-  },
-  onFocus(value) {
-    console.log('onFocus', value);
-  },
-  onConfirm(value) {
-    console.log('onConfirm', value);
-  },
-  onBlur(value) {
-    console.log('onBlur', value);
-  },
-  handleChange(value) {
-    console.log('onChange', value);
-    this.setData({
-      value,
-    });
-  },
-  add() {
-    this.setData({
-      value: (this.data.value || 0) + 1,
-    });
-  },
-  minus() {
-    this.setData({
-      value: this.data.value - 1,
-    });
-  },
-  clear() {
-    this.setData({
-      value: null,
-    });
-  },
-  handleAddValue() {
-    this.setData({ value: this.data.value + 1 });
-  },
-  handleMinusValue() {
-    this.setData({ value: this.data.value - 1 });
-  },
+    data: {},
+    onChange: function (value) {
+        console.log('onChange', value);
+    },
+    onFocus: function (value) {
+        console.log('onFocus', value);
+    },
+    onConfirm: function (value) {
+        console.log('onConfirm', value);
+    },
+    onBlur: function (value) {
+        console.log('onBlur', value);
+    },
+    handleChange: function (value) {
+        console.log('onChange', value);
+        this.setData({
+            value: value,
+        });
+    },
+    add: function () {
+        this.setData({
+            value: (this.data.value || 0) + 1,
+        });
+    },
+    minus: function () {
+        this.setData({
+            value: this.data.value - 1,
+        });
+    },
+    clear: function () {
+        this.setData({
+            value: null,
+        });
+    },
+    handleAddValue: function () {
+        this.setData({ value: this.data.value + 1 });
+    },
+    handleMinusValue: function () {
+        this.setData({ value: this.data.value - 1 });
+    },
 });

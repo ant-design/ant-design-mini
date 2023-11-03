@@ -126,6 +126,8 @@ ${examples}
 
 2. 参考下面的代码，如果用户使用的 slot 有默认值, 需要在 slob 标签的前后加上 if alipay 的注释。
 
+3. 所有的事件不要转换成 props 里的函数。 例如必要写 <view onClick={this.onClick} />  而是保持 <view onClick="onClick" />
+
 ${markdownCode(`
 {/* #if ALIPAY */}
 <Slot name="extraBrief">
