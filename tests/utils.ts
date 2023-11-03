@@ -256,7 +256,11 @@ function compileCode(source: string): { code: string; path: string } {
 
 export { getInstance };
 
-export function sleep(time) {
+export function sleep(_time) {
+  let time = _time;
+  if (os.platform() === 'linux') {
+    time = time * 2;
+  }
   return new Promise<void>((resolve) => {
     setTimeout(resolve, time);
   });
