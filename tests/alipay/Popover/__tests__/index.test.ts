@@ -87,7 +87,7 @@ describe('popover', () => {
       instance.setProps({
         placement,
       });
-      await new Promise((r) => setTimeout(r, 10));
+      await new Promise((r) => setTimeout(r, 20));
       expect(instance.getData().adjustedPlacement).toBe(placement);
     }
   });
