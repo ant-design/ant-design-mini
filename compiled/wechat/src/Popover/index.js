@@ -33,7 +33,7 @@ var Popover = function (props) {
         }
         return instance;
     }
-    var forwardEvent = useComponentEvent(props).alipayForwardEvent;
+    var triggerEvent = useComponentEvent(props).triggerEvent;
     useEffect(function () {
         if (!value) {
             setPopoverStyle(function (old) { return (__assign(__assign({}, old), { adjustedPlacement: '' })); });
@@ -68,7 +68,7 @@ var Popover = function (props) {
         if (!isControl) {
             updateValue(newValue);
         }
-        forwardEvent('visibleChange', e);
+        triggerEvent('visibleChange', newValue, e);
     }, [value, isControl]);
     return {
         adjustedPlacement: popoverStyle.adjustedPlacement,

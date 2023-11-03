@@ -7,7 +7,7 @@ import Popover from '../../../src/Popover/index.axml';
 export default (_, { placements, visible }: InternalData) => (
   <Component>
     <Container title="基础用法">
-      <Popover content="prompt">
+      <Popover content="prompt" style="display:inline-block;">
         <AntButton size="small" inline>
           点我
         </AntButton>
@@ -61,7 +61,11 @@ export default (_, { placements, visible }: InternalData) => (
     </Container>
 
     <Container title="自定义mask">
-      <Popover content="prompt" maskStyle="background: rgba(0, 0, 0, 0.6);">
+      <Popover
+        content="prompt"
+        maskStyle="background: rgba(0, 0, 0, 0.6);"
+        style="display:inline-block;"
+      >
         <AntButton size="small" inline>
           点我
         </AntButton>
@@ -69,15 +73,17 @@ export default (_, { placements, visible }: InternalData) => (
     </Container>
 
     <Container title="受控">
-      <Popover
-        content="prompt"
-        placement="right"
-        showMask={false}
-        visible={visible}
-      >
-        <Text>点击按钮修改visible</Text>
-      </Popover>
-
+      <View>
+        <Popover
+          content="prompt"
+          placement="right"
+          showMask={false}
+          visible={visible}
+          style="display:inline-block;"
+        >
+          <Text>点击按钮修改visible</Text>
+        </Popover>
+      </View>
       <AntButton
         size="small"
         inline

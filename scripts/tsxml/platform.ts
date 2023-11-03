@@ -31,6 +31,7 @@ export const wechat: PlatformConfig = {
     ext: 'wxs',
   },
   basicEvent: {
+    onVisibleChange: 'bind:visiblechange',
     onMaskTap: 'bind:masktap',
     onTap: 'bind:tap',
     catchTap: 'catch:tap',
@@ -53,6 +54,7 @@ export interface PlatformConfig {
     ext: string;
   };
   basicEvent: {
+    onVisibleChange?: string;
     onMaskTap?: string;
     onTap: string;
     catchTap: string;

@@ -12,7 +12,8 @@
     "pages/Calendar",
     "pages/List",
     "pages/Result",
-    "pages/Popover"
+    "pages/Popover",
+    "pages/PopoverList"
   ],
   "src": [
     "_util",

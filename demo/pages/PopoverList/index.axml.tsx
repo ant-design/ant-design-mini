@@ -1,5 +1,5 @@
 import { InternalData } from 'tsxml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 import List from '../../../src/List/index.axml';
 import ListItem from '../../../src/List/ListItem/index.axml';
 import Popover from '../../../src/Popover/index.axml';
@@ -8,12 +8,13 @@ export default (_, { visible, url }: InternalData) => (
   <Popover
     placement="bottom-right"
     visible={visible}
+    style="display: inline-block; margin: 20px"
     onVisibleChange="handleVisibleChange"
     color="#fff"
   >
-    <Button inline style="margin: 20px">
+    <AntButton inline >
       点我
-    </Button>
+    </AntButton>
     <List slot="content" className="popover">
       <ListItem onTap="handleTapItem" image="ScanningOutline">
         扫一扫

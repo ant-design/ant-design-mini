@@ -33,7 +33,7 @@ const Popover = (props: IPopoverProps) => {
     return instance;
   }
 
-  const { alipayForwardEvent: forwardEvent } = useComponentEvent(props);
+  const { triggerEvent } = useComponentEvent(props);
 
   useEffect(() => {
     if (!value) {
@@ -93,7 +93,7 @@ const Popover = (props: IPopoverProps) => {
       if (!isControl) {
         updateValue(newValue);
       }
-      forwardEvent('visibleChange', e);
+      triggerEvent('visibleChange', newValue, e);
     },
     [value, isControl]
   );
