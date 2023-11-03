@@ -2,8 +2,6 @@ import { Component, TSXMLProps, View, Slot, InternalData } from 'tsxml';
 import { IPopoverProps } from './props';
 import Mask from '../Mask/index.axml';
 
-
-
 export default (
   {
     className,
@@ -34,9 +32,7 @@ export default (
         <Slot />
         {/* #endif */}
         {/* #if WECHAT*/}
-        <View
-          id="ant-popover-children-container"
-        >
+        <View id="ant-popover-children-container">
           <Slot />
         </View>
         {/* #endif */}
