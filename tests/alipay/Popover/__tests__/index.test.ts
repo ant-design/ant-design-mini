@@ -1,69 +1,70 @@
 import { getInstance } from 'tests/utils';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('popover', () => {
-  it('popover top', async () => {
-    const my = {
-      canIUse() {
-        return false;
-      },
-      getSystemInfo({ success }) {
-        success({
-          windowWidth: 600,
-          windowHeight: 1000,
-        });
-      },
-      createSelectorQuery() {
-        return {
-          select(selector) {
-            return {
-              boundingClientRect() {
-                return {
-                  exec(callback) {
-                    if (selector.startsWith('#ant-popover-children-')) {
-                      if (selector.indexOf('*') < 0) {
-                        callback([
-                          {
-                            left: 100,
-                            top: 100,
-                            bottom: 200,
-                            right: 200,
-                            width: 100,
-                            height: 100,
-                          },
-                        ]);
-                      } else {
-                        callback([
-                          {
-                            left: 100,
-                            top: 100,
-                            bottom: 200,
-                            right: 200,
-                            width: 100,
-                            height: 100,
-                          },
-                        ]);
-                      }
+  const my = {
+    canIUse() {
+      return false;
+    },
+    getSystemInfo({ success }) {
+      success({
+        windowWidth: 600,
+        windowHeight: 1000,
+      });
+    },
+    createSelectorQuery() {
+      return {
+        select(selector) {
+          return {
+            boundingClientRect() {
+              return {
+                exec(callback) {
+                  if (selector.startsWith('#ant-popover-children-')) {
+                    if (selector.indexOf('*') < 0) {
+                      callback([
+                        {
+                          left: 100,
+                          top: 100,
+                          bottom: 200,
+                          right: 200,
+                          width: 100,
+                          height: 100,
+                        },
+                      ]);
                     } else {
                       callback([
                         {
-                          width: 20,
-                          height: 20,
+                          left: 100,
+                          top: 100,
+                          bottom: 200,
+                          right: 200,
+                          width: 100,
+                          height: 100,
                         },
                       ]);
                     }
-                  },
-                };
-              },
-            };
-          },
-        };
-      },
-    };
+                  } else {
+                    callback([
+                      {
+                        width: 20,
+                        height: 20,
+                      },
+                    ]);
+                  }
+                },
+              };
+            },
+          };
+        },
+      };
+    },
+  };
+
+  it('popover top', async () => {
     const instance = getInstance(
       'Popover',
       {
-        visible: true,
+        defaultVisible: true,
       },
       my
     );
@@ -90,5 +91,61 @@ describe('popover', () => {
       await new Promise((r) => setTimeout(r, 20));
       expect(instance.getData().adjustedPlacement).toBe(placement);
     }
+  });
+
+  it('visible 优先级大于 defaultVisible', async () => {
+    const instance = getInstance(
+      'Popover',
+      {
+        visible: false,
+        defaultVisible: true,
+      },
+      my
+    );
+    await new Promise((r) => setTimeout(r, 10));
+    expect(instance.getData().adjustedPlacement).toBe('');
+  });
+
+  describe('trigger', () => {
+    it('测试受控模式', async () => {
+      const mock = vi.fn();
+      const instance = getInstance(
+        'Popover',
+        {
+          visible: false,
+          onVisibleChange: mock,
+        },
+        my
+      );
+      await new Promise((r) => setTimeout(r, 10));
+      expect(instance.getData().adjustedPlacement).toBe('');
+      instance.callMethod('onVisibleChange', { target: {} });
+      await new Promise((r) => setTimeout(r, 10));
+      expect(instance.getData().mixin).toEqual({ value: false });
+      expect(mock.mock.calls.length).toBe(1);
+      expect(mock.mock.calls[0][0]).toBe(true);
+      instance.setProps({ visible: true });
+      await new Promise((r) => setTimeout(r, 10));
+      expect(instance.getData().mixin).toEqual({ value: true });
+    });
+
+    it('测试非受控模式', async () => {
+      const mock = vi.fn();
+      const instance = getInstance(
+        'Popover',
+        {
+          defaultVisible: true,
+          onVisibleChange: mock,
+        },
+        my
+      );
+      await new Promise((r) => setTimeout(r, 10));
+      expect(instance.getData().mixin).toEqual({ value: true });
+      instance.callMethod('onVisibleChange', { target: {} });
+      await new Promise((r) => setTimeout(r, 10));
+      expect(instance.getData().mixin).toEqual({ value: false });
+      expect(mock.mock.calls.length).toBe(1);
+      expect(mock.mock.calls[0][0]).toBe(false);
+    });
   });
 });
