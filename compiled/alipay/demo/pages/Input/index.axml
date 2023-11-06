@@ -30,7 +30,7 @@
 <container title="禁用状态">
   <ant-input
     placeholder="被禁用的输入框"
-    disabled="{{ disabled }}" />
+    disabled="{{ true }}" />
 </container>
 
 <container title="受控模式">

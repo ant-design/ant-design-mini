@@ -45,7 +45,7 @@
     placeholder="请输入内容"
     allowClear
     onChange="onChange"
-    ref="{{ ref.handleRef }}" />
+    ref="handleRef" />
   <view>
     <ant-button
       inline

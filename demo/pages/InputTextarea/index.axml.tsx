@@ -1,9 +1,9 @@
-import { TSXMLProps, View, Page } from 'tsxml';
+import { View, Page, InternalData } from 'tsxml';
 import Container from '../../../src/Container/index.axml';
 import AntTextarea from '../../../src/Input/Textarea/index.axml';
 import AntButton from '../../../src/Button/index.axml';
 
-export default ({ value }: TSXMLProps<{ value: string }>, ref: any) => (
+export default (_, { value }: InternalData) => (
   <Page>
     <Container title="基础用法">
       <AntTextarea placeholder="请输入内容" autoHeight onChange="onChange" />
@@ -43,7 +43,7 @@ export default ({ value }: TSXMLProps<{ value: string }>, ref: any) => (
         placeholder="请输入内容"
         allowClear
         onChange="onChange"
-        ref={ref.handleRef}
+        ref="handleRef"
       />
       <View>
         <AntButton inline onTap="clearByInputRef">
