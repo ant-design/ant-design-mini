@@ -1,7 +1,7 @@
 import { getInstance, sleep } from 'tests/utils';
 import { describe, it, expect, vi } from 'vitest';
 
-describe('list props', () => {
+describe('InputBlur', () => {
   it('test onChange', async () => {
     const onChange = vi.fn();
     const instance = getInstance('Input/InputBlur', {
