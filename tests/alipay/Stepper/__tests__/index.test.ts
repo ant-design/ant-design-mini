@@ -59,15 +59,52 @@ describe('stepper', () => {
     });
   });
 
+  function testMixinValue(props, expectValue) {
+    const instance = getInstance('Stepper', props, my);
+    expect(instance.getData().mixin.value).toBe(expectValue);
+  }
+
   it('stepper defaultValue', async () => {
-    const instance = getInstance(
-      'Stepper',
+    [
       {
-        defaultValue: 1.02,
+        props: {
+          defaultValue: 1.02,
+        },
+        expectValue: '1.02',
       },
-      my
-    );
-    expect(instance.getData().mixin.value).toBe('1.02');
+      {
+        props: {
+          defaultValue: null,
+        },
+        expectValue: '',
+      },
+      {
+        props: {
+          defaultValue: 'not_a_number',
+        },
+        expectValue: undefined,
+      },
+      {
+        props: {
+          defaultValue: '10.0',
+        },
+        expectValue: '10',
+      },
+      {
+        props: {
+          value: null,
+        },
+        expectValue: '',
+      },
+      {
+        props: {
+          value: {},
+        },
+        expectValue: undefined,
+      },
+    ].forEach(({ props, expectValue }) => {
+      testMixinValue(props, expectValue);
+    });
   });
 
   it('stepper defaultValue with step', async () => {

@@ -214,16 +214,34 @@ function getInstance(
   return result;
 }
 
-const compileCache = new Map();
+interface CompileResult {
+  code: string;
+  path: string;
+  map: string;
+}
+
+const buildCache = new Map<string, CompileResult>();
 
 // 编译打包代码，新增缓存
-function compileCode(source: string): { code: string; path: string } {
+function compileCode(source: string): CompileResult {
   const expectFile = path.join(
     os.tmpdir(),
     Math.random().toString(36),
     'out.js'
   );
   const expectFileSourcemap = expectFile + '.map';
+  const cache = buildCache.get(source);
+  if (cache) {
+    // 需要把产物里的路径改成新的路径，否则会有覆盖率计算错误的问题
+    const code = cache.code.replace(new RegExp(cache.path, 'g'), expectFile);
+    fs.mkdirSync(path.dirname(expectFile), { recursive: true });
+    return {
+      code,
+      // 仍然使用原来的路径，否则在 vm 运行时，如果报错，会找不到 sourcemap
+      path: cache.path,
+      map: cache.map,
+    };
+  }
   esbuild.buildSync({
     entryPoints: [source],
     bundle: true,
@@ -246,12 +264,16 @@ function compileCode(source: string): { code: string; path: string } {
     expectFile,
     JSON.parse(fs.readFileSync(expectFileSourcemap, 'utf8'))
   );
-  const map = instrumenter.lastSourceMap();
+  const map = JSON.stringify(instrumenter.lastSourceMap());
 
   fs.writeFileSync(expectFile, code);
-  fs.writeFileSync(expectFileSourcemap, JSON.stringify(map));
-  compileCache.set(source, { code, path: expectFile });
-  return { code: code, path: expectFile };
+  fs.writeFileSync(expectFileSourcemap, map);
+  buildCache.set(source, {
+    path: expectFile,
+    code,
+    map,
+  });
+  return { code: code, path: expectFile, map };
 }
 
 export { getInstance };
