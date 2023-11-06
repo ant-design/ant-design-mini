@@ -1,46 +1,42 @@
 <container title="带有border">
-  <input
+  <ant-input
     className="custom"
     placeholder="请输入内容"
-    onChange="onChange"
-  />
+    onChange="onChange" />
 
-  <input
+  <ant-input
     className="custom"
     placeholder="请输入内容"
-    onChange="onChange"
-  >
-    <icon slot="prefix" type="SearchOutline" />
-    <icon slot="suffix" type="AudioOutline" />
-  </input>
+    onChange="onChange">
+    <ant-icon
+      type="SearchOutline"
+      slot="prefix" />
+    <ant-icon
+      type="AudioOutline"
+      slot="suffix" />
+  </ant-input>
 
-  <textarea
+  <ant-textarea
     className="custom"
     placeholder="请输入内容"
-    onChange="onChange"
-  />
+    onChange="onChange" />
 </container>
 
 <container title="自定义颜色">
-  <input
+  <ant-input
     className="custom-color"
     placeholder="请输入内容"
-    onChange="onChange"
-  />
+    onChange="onChange" />
 
-  <textarea
+  <ant-textarea
     className="custom-color"
     placeholder="请输入内容"
-    onChange="onChange"
-  />
+    onChange="onChange" />
 </container>
 
 <container title="自定义placeholderClassName">
-  <input
+  <ant-input
     placeholderClassName="placeholder"
     placeholder="请输入内容"
-    onChange="onChange"
-  />
+    onChange="onChange" />
 </container>
-
-

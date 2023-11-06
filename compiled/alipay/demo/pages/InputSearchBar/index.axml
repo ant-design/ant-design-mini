@@ -1,5 +1,5 @@
 <view class="container">
-  <input
+  <ant-input
     placeholder="请输入内容"
     onChange="onChange"
     className="search-bar"
@@ -7,10 +7,14 @@
     confirm-type="search"
     allowClear
     focus
-    onConfirm="onConfirm"
-  >
-    <icon slot="prefix" type="SearchOutline" />
-    <icon slot="suffix" type="AudioOutline" />
-  </input>
+    onConfirm="onConfirm">
+    <icon
+      slot="prefix"
+      type="SearchOutline" />
+
+    <icon
+      slot="suffix"
+      type="AudioOutline" />
+  </ant-input>
   <view class="cancel">取消</view>
 </view>
