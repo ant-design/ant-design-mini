@@ -3,10 +3,7 @@ import AntButton from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
 import AntInput from '../../../src/Input/index.axml';
 
-export default (
-  _,
-  { value, money, true: disabled, handleRef }: InternalData
-) => (
+export default (_, { value, money }: InternalData) => (
   <Page>
     <Container title="基础用法">
       <AntInput placeholder="请输入内容" onChange="onChange" />
@@ -32,7 +29,7 @@ export default (
     </Container>
 
     <Container title="禁用状态">
-      <AntInput placeholder="被禁用的输入框" disabled={disabled} />
+      <AntInput placeholder="被禁用的输入框" disabled={true} />
     </Container>
 
     <Container title="受控模式">
@@ -62,7 +59,7 @@ export default (
     </Container>
 
     <Container title="非受控模式通过ref修改input">
-      <AntInput placeholder="请输入内容" onChange="onChange" ref={handleRef} />
+      <AntInput placeholder="请输入内容" onChange="onChange" ref="handleRef" />
 
       <View>
         <AntButton inline onTap="clearByInputRef">
