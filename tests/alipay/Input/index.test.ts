@@ -75,6 +75,7 @@ describe('Input 受控模式', () => {
       },
     });
     await sleep(30);
+    expect(instance.getData().selfFocus).toBeTruthy();
     expect(onFocus.mock.calls.map((o) => o[0])).toMatchInlineSnapshot(`
     [
       "2",
