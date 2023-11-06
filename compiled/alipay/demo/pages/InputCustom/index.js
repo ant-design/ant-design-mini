@@ -1,34 +1,34 @@
 Page({
-  data: {
-    value: '',
-    money: '',
-  },
-  onChange(value, e) {
-    console.log(value, e);
-  },
-  handleChange(value) {
-    this.setData({
-      value,
-    });
-  },
-  handleMoney(value) {
-    console.log(value);
-    if (isNaN(Number(value))) {
-      return;
+    data: {
+        value: '',
+        money: '',
+    },
+    onChange: function (value, e) {
+        console.log(value, e);
+    },
+    handleChange: function (value) {
+        this.setData({
+            value: value,
+        });
+    },
+    handleMoney: function (value) {
+        console.log(value);
+        if (isNaN(Number(value))) {
+            return;
+        }
+        this.setData({
+            money: value,
+        });
+    },
+    clear: function () {
+        this.setData({
+            value: '',
+        });
+    },
+    handleRef: function (input) {
+        this.input = input;
+    },
+    clearByInputRef: function () {
+        this.input.update('');
     }
-    this.setData({
-      money: value,
-    })
-  },
-  clear() {
-    this.setData({
-      value: '',
-    });
-  },
-  handleRef(input) {
-    this.input = input;
-  },
-  clearByInputRef() {
-    this.input.update('');
-  }
 });

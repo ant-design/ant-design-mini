@@ -2,6 +2,19 @@ import { getInstance, sleep } from 'tests/utils';
 import { describe, it, expect, vi } from 'vitest';
 
 describe('Input 非受控', () => {
+  it('如果有 controlled, 以 controlled 为准', async () => {
+    const instance = getInstance('Input', {
+      value: '1',
+      controlled: false,
+    });
+    expect(instance.getData().mixin).toMatchInlineSnapshot(`
+      {
+        "controlled": false,
+        "updated": true,
+        "value": "1",
+      }
+    `);
+  });
   it('onChange and onClear', async () => {
     const onChange = vi.fn();
     const instance = getInstance('Input', { onChange });
@@ -37,6 +50,17 @@ describe('Input 受控模式', () => {
   it('test default props', async () => {
     const instance = getInstance('Input', {});
     expect(instance.getConfig().props).toMatchInlineSnapshot('{}');
+  });
+  it('如果有 controlled, 以 controlled 为准', async () => {
+    const instance = getInstance('Input', {
+      controlled: true,
+    });
+    expect(instance.getData().mixin).toMatchInlineSnapshot(`
+      {
+        "controlled": true,
+        "updated": true,
+      }
+    `);
   });
   it('test onChange', async () => {
     const onChange = vi.fn();

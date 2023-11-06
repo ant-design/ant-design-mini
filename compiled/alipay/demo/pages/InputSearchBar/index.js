@@ -1,10 +1,10 @@
 Page({
-  onChange(value, e) {
-    console.log(value, e);
-  },
-  onConfirm(value) {
-    my.alert({
-      content: value,
-    });
-  }
+    onChange: function (value, e) {
+        console.log(value, e);
+    },
+    onConfirm: function (value) {
+        my.alert({
+            content: value,
+        });
+    }
 });
