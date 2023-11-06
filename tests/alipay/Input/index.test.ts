@@ -34,6 +34,10 @@ describe('Input 非受控', () => {
 });
 
 describe('Input 受控模式', () => {
+  it('test default props', async () => {
+    const instance = getInstance('Input', {});
+    expect(instance.getConfig().props).toMatchInlineSnapshot('{}');
+  });
   it('test onChange', async () => {
     const onChange = vi.fn();
     const instance = getInstance('Input', {
