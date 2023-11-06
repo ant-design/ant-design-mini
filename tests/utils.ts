@@ -273,7 +273,7 @@ function compileCode(source: string): CompileResult {
     code,
     map,
   });
-  return { code: code, path: expectFile, map, cachePath: expectFile };
+  return { code: code, path: expectFile, map };
 }
 
 export { getInstance };
