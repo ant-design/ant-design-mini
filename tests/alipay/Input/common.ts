@@ -150,5 +150,16 @@ export function textInputAndTextArea(componentName: string, defaultProps) {
       await callMethod(instance, 'onConfirm', wrapValue('1'));
       expect(onConfirm.mock.calls.map((o) => o[0])).toEqual(['1']);
     });
+
+    it('受控模式下调用 onClear, 数据不变', async () => {
+      const onChange = vi.fn();
+      const instance = getInstance(componentName, {
+        value: '1',
+        onChange,
+      });
+      await callMethod(instance, 'onClear', {});
+      expect(onChange.mock.calls.map((o) => o[0])).toEqual(['']);
+      expect(instance.getData().mixin.value).toEqual('1');
+    });
   });
 }
