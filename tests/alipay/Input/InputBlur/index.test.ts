@@ -1,41 +1,25 @@
-import { getInstance, sleep } from 'tests/utils';
-import { describe, it, expect, vi } from 'vitest';
+import { callMethod, getInstance, wrapValue } from 'tests/utils';
+import { describe, expect, it, vi } from 'vitest';
 
-describe('InputBlur', () => {
+describe('InputBlur 的 Controlled 模式', () => {
   it('如果有 controlled, 以 controlled 为准', async () => {
     const instance = getInstance('Input/InputBlur', {
       value: '1',
       controlled: false,
     });
-    expect(instance.getData().mixin).toMatchInlineSnapshot(`
-      {
-        "controlled": false,
-        "updated": true,
-        "value": "1",
-      }
-    `);
+    expect(instance.getData().mixin.value).toBe('1');
+    expect(instance.getData().mixin.controlled).toBe(false);
   });
+
   it('test onChange', async () => {
     const onChange = vi.fn();
     const instance = getInstance('Input/InputBlur', {
       value: '1',
       onChange,
     });
-    expect(instance.getData()).toMatchInlineSnapshot(`
-      {
-        "mixin": {
-          "controlled": true,
-          "updated": true,
-          "value": "1",
-        },
-      }
-    `);
-    instance.callMethod('onChange', {
-      detail: {
-        value: '3',
-      },
-    });
-    await sleep(20);
+    expect(instance.getData().mixin.value).toBe('1');
+    expect(instance.getData().mixin.controlled).toBe(true);
+    await callMethod(instance, 'onChange', wrapValue('3'));
     expect(instance.getData().mixin.value).toMatchInlineSnapshot('"3"');
   });
 
@@ -45,50 +29,29 @@ describe('InputBlur', () => {
       value: '1',
       onFocus,
     });
-    instance.callMethod('onFocus', {
-      detail: {
-        value: '2',
-      },
-    });
-    await sleep(30);
-    instance.callMethod('update', '3');
-    await sleep(30);
-    expect(onFocus.mock.calls.map((o) => o[0])).toMatchInlineSnapshot(`
-      [
-        "2",
-      ]
-    `);
+
+    await callMethod(instance, 'onFocus', wrapValue('2'));
+    expect(onFocus.mock.calls.map((o) => o[0])).toEqual(['2']);
     expect(instance.getData().mixin.value).toMatchInlineSnapshot('"1"');
-    instance.callMethod('onChange', {
-      detail: {
-        value: '4',
-      },
-    });
-    await sleep(30);
+    await callMethod(instance, 'onChange', wrapValue('4'));
     expect(instance.getData().mixin.value).toMatchInlineSnapshot('"4"');
+
+    // focus 的时候不响应 value 的变化
+    instance.setProps({ value: '2' });
+    expect(instance.getData().mixin.value).toEqual('4');
   });
+
   it('test onBlur', async () => {
     const onBlur = vi.fn();
     const instance = getInstance('Input/InputBlur', {
       value: '1',
       onBlur,
     });
-
-    instance.callMethod('update', '2');
-    await sleep(30);
-    expect(instance.getData().mixin.value).toMatchInlineSnapshot('"2"');
-    instance.callMethod('onBlur', {
-      detail: {
-        value: '4',
-      },
-    });
-    await sleep(20);
+    await callMethod(instance, 'onChange', wrapValue('2'));
+    expect(instance.getData().mixin.value).toEqual('2');
+    await callMethod(instance, 'onBlur', wrapValue('4'));
     expect(instance.getData().mixin.value).toMatchInlineSnapshot('"1"');
-    expect(onBlur.mock.calls.map((o) => o[0])).toMatchInlineSnapshot(`
-      [
-        "4",
-      ]
-    `);
+    expect(onBlur.mock.calls.map((o) => o[0])).toEqual(['4']);
   });
 
   it('test onConfirm', async () => {
@@ -97,17 +60,8 @@ describe('InputBlur', () => {
       value: '1',
       onConfirm,
     });
-    instance.callMethod('onConfirm', {
-      detail: {
-        value: '2',
-      },
-    });
-    await sleep(30);
+    await callMethod(instance, 'onConfirm', wrapValue('2'));
     expect(instance.getData().mixin.value).toMatchInlineSnapshot('"1"');
-    expect(onConfirm.mock.calls.map((o) => o[0])).toMatchInlineSnapshot(`
-      [
-        "2",
-      ]
-    `);
+    expect(onConfirm.mock.calls.map((o) => o[0])).toEqual(['2']);
   });
 });

@@ -2,22 +2,23 @@ import { InputBlurDefaultProps } from './props';
 import fmtEvent from '../../_util/fmtEvent';
 import mixinValue from '../../mixins/value';
 
-
 Component({
   props: InputBlurDefaultProps,
-  mixins: [mixinValue({
-    transformValue(value, extra, updateWithoutFocusCheck) {
-      if (!updateWithoutFocusCheck && this.focus) {
+  mixins: [
+    mixinValue({
+      transformValue(value, extra, updateWithoutFocusCheck) {
+        if (!updateWithoutFocusCheck && this.focus) {
+          return {
+            needUpdate: false,
+          };
+        }
         return {
-          needUpdate: false,
+          needUpdate: true,
+          value,
         };
-      }
-      return {
-        needUpdate: true,
-        value,
-      }
-    }
-  })],
+      },
+    }),
+  ],
   methods: {
     focus: false,
     onChange(e) {
@@ -52,5 +53,5 @@ Component({
         this.props.onConfirm(value, fmtEvent(this.props, e));
       }
     },
-  }
+  },
 });

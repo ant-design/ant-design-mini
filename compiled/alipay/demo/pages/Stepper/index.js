@@ -19,9 +19,11 @@ Page({
         });
     },
     add: function () {
-        this.setData({
-            value: (this.data.value || 0) + 1,
-        });
+
+      setTimeout(()=>{
+        this.setData({ value: this.data.value + 2 });
+      },2000)
+      
     },
     minus: function () {
         this.setData({
@@ -34,7 +36,9 @@ Page({
         });
     },
     handleAddValue: function () {
-        this.setData({ value: this.data.value + 1 });
+      setTimeout(()=>{
+        this.setData({ value: this.data.value + 2 });
+      },5000)
     },
     handleMinusValue: function () {
         this.setData({ value: this.data.value - 1 });

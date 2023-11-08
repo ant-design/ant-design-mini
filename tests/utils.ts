@@ -287,3 +287,16 @@ export function sleep(_time) {
     setTimeout(resolve, time);
   });
 }
+
+export async function callMethod(instance, name, value) {
+  instance.callMethod(name, value);
+  await sleep(30);
+}
+
+export function wrapValue(value: string) {
+  return {
+    detail: {
+      value,
+    },
+  };
+}
