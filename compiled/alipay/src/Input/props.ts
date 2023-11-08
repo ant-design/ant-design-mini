@@ -45,10 +45,10 @@ export interface InputProps extends IBaseProps {
    * @default false
    */
   randomNumber?: boolean;
-  onChange: (value: string, e: any) => void;
-  onBlur: (value: string, e: any) => void;
-  onFocus: (value: string, e: any) => void;
-  onConfirm: (value: string, e: any) => void;
+  onChange?: (value: string, e: any) => void;
+  onBlur?: (value: string, e: any) => void;
+  onFocus?: (value: string, e: any) => void;
+  onConfirm?: (value: string, e: any) => void;
 }
 
 export const InputDefaultProps: Partial<InputProps> = {};

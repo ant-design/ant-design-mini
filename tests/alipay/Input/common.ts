@@ -1,0 +1,126 @@
+import { getInstance, sleep, callMethod, wrapValue } from 'tests/utils';
+import { describe, it, expect, vi } from 'vitest';
+
+export function textInputAndTextArea(componentName: string, defaultProps) {
+  it('test default props', async () => {
+    const instance = getInstance(componentName, {});
+    expect(instance.getConfig().props).toEqual(defaultProps);
+  });
+
+  describe('Input 非受控', () => {
+    it('如果有 value 且 controlled 为 false, 以 controlled 为准', async () => {
+      const onChange = vi.fn();
+
+      const instance = getInstance(componentName, {
+        value: '1',
+        controlled: false,
+        onChange,
+      });
+      expect(instance.getData().mixin.value).toBe('1');
+      expect(instance.getData().mixin.controlled).toBe(false);
+      await callMethod(instance, 'onChange', wrapValue('3'));
+      expect(instance.getData().mixin.value).toEqual('3');
+      expect(onChange.mock.calls.map((o) => o[0])).toEqual(['3']);
+    });
+
+    it('调用 update 函数的时候, 不触发 onChange', async () => {
+      const onChange = vi.fn();
+      const instance = getInstance(componentName, {
+        value: '1',
+        controlled: false,
+        onChange,
+      });
+      await callMethod(instance, 'update', '2');
+      expect(instance.getData().mixin.value).toBe('2');
+      expect(onChange.mock.calls.map((o) => o[0])).toEqual([]);
+    });
+
+    it('onClear 触发的时候会调用 onChange', async () => {
+      const onChange = vi.fn();
+      const instance = getInstance(componentName, { onChange });
+      expect(instance.getData().mixin.controlled).toBe(false);
+      expect(instance.getData().mixin.value).toEqual(undefined);
+
+      await callMethod(instance, 'onChange', wrapValue('3'));
+      expect(instance.getData().mixin.value).toEqual('3');
+
+      await callMethod(instance, 'onClear', {});
+      expect(instance.getData().mixin.value).toEqual('');
+
+      expect(onChange.mock.calls.map((o) => o[0])).toMatchInlineSnapshot(`
+        [
+          "3",
+          "",
+        ]
+      `);
+    });
+  });
+
+  describe('Input 受控模式', () => {
+    it('如果有 controlled, 以 controlled 为准', async () => {
+      const instance = getInstance(componentName, {
+        controlled: true,
+      });
+      expect(instance.getData().mixin.controlled).toBe(true);
+    });
+
+    it('受控模式下, update 无效', async () => {
+      const instance = getInstance(componentName, {
+        value: '1',
+        controlled: true,
+      });
+      expect(instance.getData().mixin.value).toBe('1');
+      expect(instance.getData().mixin.controlled).toBe(true);
+      await callMethod(instance, 'update', '3');
+
+      if (componentName === 'Input') {
+        expect(instance.getData().mixin.value).toBe('1');
+      }
+      if (componentName === 'Input/TextArea') {
+        expect(instance.getData().mixin.value).toBe('3');
+      }
+    });
+
+    it('受控模式下 onChange 无效', async () => {
+      const onChange = vi.fn();
+      const instance = getInstance(componentName, {
+        value: '1',
+        onChange,
+      });
+      expect(instance.getData().mixin.value).toBe('1');
+      await callMethod(instance, 'onChange', wrapValue('3'));
+      expect(instance.getData().mixin.value).toEqual('1');
+      expect(onChange.mock.calls.map((o) => o[0])).toEqual(['3']);
+      instance.setProps({ value: '3' });
+      expect(instance.getData().mixin.value).toEqual('3');
+    });
+
+    it('测试 onFocus 和 onBlur', async () => {
+      const onFocus = vi.fn();
+      const onBlur = vi.fn();
+      const instance = getInstance(componentName, {
+        value: '1',
+        onFocus,
+        onBlur,
+      });
+      expect(instance.getData().selfFocus).toBeFalsy();
+      await callMethod(instance, 'onFocus', wrapValue('3'));
+      await sleep(30);
+      expect(instance.getData().selfFocus).toBeTruthy();
+      expect(onFocus.mock.calls.map((o) => o[0])).toEqual(['3']);
+      await callMethod(instance, 'onBlur', wrapValue('4'));
+      expect(instance.getData().mixin.value).toMatchInlineSnapshot('"1"');
+      expect(onBlur.mock.calls.map((o) => o[0])).toEqual(['4']);
+    });
+
+    it('test onConfirm', async () => {
+      const onConfirm = vi.fn();
+      const instance = getInstance(componentName, {
+        value: '1',
+        onConfirm,
+      });
+      await callMethod(instance, 'onConfirm', wrapValue('1'));
+      expect(onConfirm.mock.calls.map((o) => o[0])).toEqual(['1']);
+    });
+  });
+}
