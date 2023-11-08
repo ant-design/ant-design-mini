@@ -13,6 +13,17 @@ describe('InputBlur 的受控模式', () => {
     expect(instance.getData().mixin.value).toMatchInlineSnapshot('"3"');
   });
 
+  it('受控模式, 随着 value 改变而改变', async () => {
+    const onFocus = vi.fn();
+    const instance = getInstance('Input/InputBlur', {
+      value: '1',
+      onFocus,
+    });
+
+    instance.setProps({ value: '2' });
+    expect(instance.getData().mixin.value).toEqual('2');
+  });
+
   it('onFocus 时，不会随着 value 改变而改变', async () => {
     const onFocus = vi.fn();
     const instance = getInstance('Input/InputBlur', {
@@ -74,6 +85,12 @@ describe('InputBlur 的非受控模式', () => {
     await callMethod(instance, 'onChange', wrapValue('3'));
     expect(onChange.mock.calls.map((o) => o[0])).toEqual(['3']);
     expect(instance.getData().mixin.value).toBe(undefined);
+
+    instance.setProps({ value: '4' });
+    expect(instance.getData().mixin.value).toBe('4');
+
+    instance.setProps({ value: undefined });
+    expect(instance.getData().mixin.value).toBe(undefined);
   });
 
   it('controlled 优先级高于 value', async () => {
@@ -90,5 +107,22 @@ describe('InputBlur 的非受控模式', () => {
 
     instance.setProps({ value: '4' });
     expect(instance.getData().mixin.value).toBe('4');
+
+    instance.setProps({ value: undefined });
+    expect(instance.getData().mixin.value).toBe(undefined);
+  });
+
+  it('在有 value 的非受控模式, 仍然有 onBlur 的逻辑', async () => {
+    const onChange = vi.fn();
+    const instance = getInstance('Input/InputBlur', {
+      value: '3',
+      controlled: false,
+      onChange,
+    });
+    await callMethod(instance, 'onFocus', wrapValue('2'));
+    instance.setProps({ value: '4' });
+    expect(instance.getData().mixin.value).toBe('3');
+    await callMethod(instance, 'onBlur', wrapValue('4'));
+    instance.setProps({ value: '4' });
   });
 });
