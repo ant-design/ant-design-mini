@@ -1,3 +1,3 @@
 import { textInputAndTextArea } from '../common';
 
-textInputAndTextArea('Input/TextArea', { enableNative: false });
+textInputAndTextArea('Input/Textarea', { enableNative: false });
