@@ -1,4 +1,4 @@
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, it, expect, vi } from 'vitest';
 
 describe('popover', () => {
@@ -88,7 +88,7 @@ describe('popover', () => {
       instance.setProps({
         placement,
       });
-      await new Promise((r) => setTimeout(r, 30));
+      await sleep(50);
       expect(instance.getData().adjustedPlacement).toBe(placement);
     }
   });
