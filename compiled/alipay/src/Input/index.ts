@@ -1,4 +1,4 @@
-import { useEvent, useState } from 'functional-mini/component';
+import { useEvent, useState, useEffect } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
@@ -21,6 +21,13 @@ const Input = (props: InputProps) => {
   const [value, updateValue] = useMergedState(props.defaultValue, option);
   const [selfFocus, setSelfFocus] = useState(false);
   const { triggerEvent } = useComponentEvent(props);
+
+  useEffect(() => {
+    // 非受控模式下, props 变化后, 需要更新 value
+    if (!isControlled) {
+      updateValue(props.value);
+    }
+  }, [props.value]);
 
   useEvent(
     'onChange',

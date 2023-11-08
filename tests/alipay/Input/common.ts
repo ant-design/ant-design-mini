@@ -10,7 +10,6 @@ export function textInputAndTextArea(componentName: string, defaultProps) {
   describe('Input 非受控', () => {
     it('如果有 value 且 controlled 为 false, 以 controlled 为准', async () => {
       const onChange = vi.fn();
-
       const instance = getInstance(componentName, {
         value: '1',
         controlled: false,
@@ -21,6 +20,13 @@ export function textInputAndTextArea(componentName: string, defaultProps) {
       await callMethod(instance, 'onChange', wrapValue('3'));
       expect(instance.getData().mixin.value).toEqual('3');
       expect(onChange.mock.calls.map((o) => o[0])).toEqual(['3']);
+
+      instance.setProps({ value: '2' });
+      expect(instance.getData().mixin.value).toEqual('2');
+      instance.setProps({ value: undefined });
+      expect(instance.getData().mixin.value).toEqual(undefined);
+      instance.setProps({ value: null });
+      expect(instance.getData().mixin.value).toEqual(null);
     });
 
     it('调用 update 函数的时候, 不触发 onChange', async () => {
@@ -62,6 +68,28 @@ export function textInputAndTextArea(componentName: string, defaultProps) {
         controlled: true,
       });
       expect(instance.getData().mixin.controlled).toBe(true);
+
+      instance.setProps({ value: '2' });
+      expect(instance.getData().mixin.value).toEqual('2');
+      instance.setProps({ value: undefined });
+      expect(instance.getData().mixin.value).toEqual(undefined);
+      instance.setProps({ value: null });
+      expect(instance.getData().mixin.value).toEqual(null);
+    });
+
+    it('受控模式下, update 无效', async () => {
+      const instance = getInstance(componentName, {
+        value: '1',
+      });
+      expect(instance.getData().mixin.controlled).toBe(true);
+      expect(instance.getData().mixin.value).toBe('1');
+
+      instance.setProps({ value: '2' });
+      expect(instance.getData().mixin.value).toEqual('2');
+      instance.setProps({ value: undefined });
+      expect(instance.getData().mixin.value).toEqual(undefined);
+      instance.setProps({ value: null });
+      expect(instance.getData().mixin.value).toEqual(null);
     });
 
     it('受控模式下, update 无效', async () => {
