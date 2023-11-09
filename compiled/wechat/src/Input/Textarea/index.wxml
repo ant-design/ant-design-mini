@@ -23,9 +23,9 @@
       onFocus="onFocus"
       onBlur="onBlur" />
     <view
-      a:if="{{ allowClear }}"
+      wx:if="{{ allowClear }}"
       class="ant-textarea-clear {{ mixin.value && mixin.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden' }}"
-      onTap="onClear">
+      bind:tap="onClear">
       <icon
         className="ant-textarea-clear-icon"
         type="CloseCircleFill" />

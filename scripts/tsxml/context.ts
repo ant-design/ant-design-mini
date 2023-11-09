@@ -23,7 +23,7 @@ export interface ITransformContext<T extends types.Node = types.Node> {
   readonly platform: PlatformConfig;
   getAttrName(tagName: string, name: string): string;
   getTagName(tagName: string): string;
-  toAxmlExpression(): string;
+  toAxmlExpression(disableFormatWhenMultipleLine?: boolean): string;
 }
 
 export class TransformError extends Error {
@@ -108,8 +108,17 @@ export class TransformContext<T extends types.Node = types.Node>
     return h(tagName, props, ...children);
   }
 
-  toAxmlExpression(): string {
-    return `{{ ${TransformContext.format(generate(this.node).code).trim()} }}`;
+  toAxmlExpression(disableFormatWhenMultipleLine: boolean): string {
+    const res = `{{ ${TransformContext.format(
+      generate(this.node).code
+    ).trim()} }}`;
+
+    if (disableFormatWhenMultipleLine && res.split('\n').length > 0) {
+      console.log(generate(this.node).code);
+      return `{{ ${generate(this.node).code} }}`;
+    }
+
+    return res;
   }
 
   getAttrName(tagName: string, name: string): string {

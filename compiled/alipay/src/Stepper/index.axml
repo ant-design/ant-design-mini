@@ -2,9 +2,7 @@
   class="ant-stepper {{ className ? className : '' }}"
   style="{{ style }}">
   <ant-button
-    className="ant-stepper-button ant-stepper-button-down {{ disabled || (mixin.value !== '' && mixin.value <= min)
-  ? 'ant-stepper-button-disabled'
-  : '' }}"
+    className="ant-stepper-button ant-stepper-button-down {{ disabled || mixin.value !== '' && mixin.value <= min ? 'ant-stepper-button-disabled' : '' }}"
     activeClassName="ant-stepper-button-hover"
     icon="MinusOutline"
     type="text"
@@ -29,9 +27,7 @@
       value="{{ mixin.value }}" />
   </view>
   <ant-button
-    className="ant-stepper-button ant-stepper-button-up {{ disabled || (mixin.value !== '' && mixin.value >= max)
-  ? 'ant-stepper-button-disabled'
-  : '' }}"
+    className="ant-stepper-button ant-stepper-button-up {{ disabled || mixin.value !== '' && mixin.value >= max ? 'ant-stepper-button-disabled' : '' }}"
     activeClassName="ant-stepper-button-hover"
     icon="AddOutline"
     type="text"

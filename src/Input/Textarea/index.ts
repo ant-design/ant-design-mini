@@ -111,7 +111,9 @@ mountComponent<TextareaProps>(Textarea, {
   allowClear: null,
   controlled: null,
   enableNative: false,
-  maxLength: null,
+  /// #if WECHAT
+  maxLength: -1,
+  /// #endif
   inputClassName: null,
   disabled: null,
   inputStyle: null,
