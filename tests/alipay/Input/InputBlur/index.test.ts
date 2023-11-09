@@ -1,6 +1,16 @@
 import { callMethod, getInstance, wrapValue } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 
+it('测试 InputBlur 默认的 props', () => {
+  const instance = getInstance('Input/InputBlur', {
+    value: '1',
+  });
+  expect(instance.getConfig().props).toEqual({
+    placeholderClassName: '',
+    placeholderStyle: '',
+  });
+});
+
 describe('InputBlur 的受控模式', () => {
   it('InputBlur 即使在受控模式下, 也会更新', async () => {
     const onChange = vi.fn();

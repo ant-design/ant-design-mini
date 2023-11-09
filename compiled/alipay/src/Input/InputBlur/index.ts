@@ -1,57 +1,101 @@
-import { InputBlurDefaultProps } from './props';
-import fmtEvent from '../../_util/fmtEvent';
-import mixinValue from '../../mixins/value';
+import { useEffect, useEvent, useRef } from 'functional-mini/component';
+import { mountComponent } from '../../_util/component';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { hasValue, useMergedState } from '../../_util/hooks/useMergedState';
+import { InputBlurProps } from './props';
 
-Component({
-  props: InputBlurDefaultProps,
-  mixins: [
-    mixinValue({
-      transformValue(value, extra, updateWithoutFocusCheck) {
-        if (!updateWithoutFocusCheck && this.focus) {
-          return {
-            needUpdate: false,
-          };
-        }
-        return {
-          needUpdate: true,
-          value,
-        };
-      },
-    }),
-  ],
-  methods: {
-    focus: false,
-    onChange(e) {
-      const value = e.detail.value;
-      if (this.isControlled()) {
-        this.update(value, {}, true);
+const InputBlur = (props: InputBlurProps) => {
+  const isControlled = hasValue(props.controlled)
+    ? !!props.controlled
+    : hasValue(props.value);
+
+  const [value, doUpdateValue] = useMergedState(props.defaultValue, {
+    defaultValue: props.value,
+  });
+  function updateValue(value, updateWithoutFocusCheck?: boolean) {
+    if (!updateWithoutFocusCheck && focusRef.current) {
+      return;
+    }
+    doUpdateValue(value);
+  }
+  const focusRef = useRef(false);
+
+  useEffect(() => {
+    if (!focusRef.current) {
+      doUpdateValue(props.value);
+    }
+  }, [props, focusRef]);
+
+  const { triggerEvent } = useComponentEvent(props);
+  useEvent(
+    'onChange',
+    (e) => {
+      const newValue = e.detail.value;
+      if (isControlled) {
+        updateValue(newValue, true);
       }
-      if (this.props.onChange) {
-        this.props.onChange(value, fmtEvent(this.props, e));
-      }
+      triggerEvent('change', newValue, e);
     },
-    onFocus(e) {
-      const value = e.detail.value;
-      this.focus = true;
-      if (this.props.onFocus) {
-        this.props.onFocus(value, fmtEvent(this.props, e));
-      }
+    []
+  );
+
+  useEvent(
+    'onFocus',
+    (e) => {
+      const newValue = e.detail.value;
+      focusRef.current = true;
+      triggerEvent('focus', newValue, e);
     },
-    onBlur(e) {
-      const value = e.detail.value;
-      this.focus = false;
-      if (this.isControlled()) {
-        this.update(this.props.value);
+    []
+  );
+  useEvent(
+    'onBlur',
+    (e) => {
+      const newValue = e.detail.value;
+      focusRef.current = false;
+      if (isControlled) {
+        updateValue(props.value);
       }
-      if (this.props.onBlur) {
-        this.props.onBlur(value, fmtEvent(this.props, e));
-      }
+      triggerEvent('blur', newValue, e);
     },
-    onConfirm(e) {
-      const value = e.detail.value;
-      if (this.props.onConfirm) {
-        this.props.onConfirm(value, fmtEvent(this.props, e));
-      }
+    [props]
+  );
+  useEvent(
+    'onConfirm',
+    (e) => {
+      const newValue = e.detail.value;
+      triggerEvent('confirm', newValue, e);
     },
-  },
+    [props]
+  );
+  return {
+    mixin: {
+      value,
+    },
+  };
+};
+
+mountComponent<InputBlurProps>(InputBlur, {
+  value: null,
+  defaultValue: null,
+  placeholder: null,
+  placeholderClassName: '',
+  placeholderStyle: '',
+  enableNative: null,
+  confirmType: null,
+  confirmHold: null,
+  alwaysSystem: null,
+  selectionStart: null,
+  selectionEnd: null,
+  cursor: null,
+  controlled: null,
+  maxLength: null,
+  inputClassName: null,
+  inputStyle: null,
+  focus: null,
+  password: null,
+  disabled: null,
+  name: null,
+  type: null,
+  randomNumber: null,
 });
