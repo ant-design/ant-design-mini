@@ -8,7 +8,6 @@ export default (
     className,
     style,
     disabled,
-
     type,
     password,
     placeholder,
@@ -28,7 +27,7 @@ export default (
     onFocus,
     onBlur,
   }: TSXMLProps<InputBlurProps>,
-  { mixin }
+  { inputValue }
 ) => (
   <Input
     enableNative={enableNative}
@@ -36,7 +35,7 @@ export default (
     class={className}
     style={style}
     disabled={disabled}
-    value={mixin.value}
+    value={inputValue}
     type={type}
     password={password}
     placeholder={placeholder}

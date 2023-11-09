@@ -4,7 +4,7 @@
   class="{{ className }}"
   style="{{ style }}"
   disabled="{{ disabled }}"
-  value="{{ mixin.value }}"
+  value="{{ inputValue }}"
   type="{{ type }}"
   password="{{ password }}"
   placeholder="{{ placeholder }}"
