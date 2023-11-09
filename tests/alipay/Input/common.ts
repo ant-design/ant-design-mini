@@ -100,13 +100,7 @@ export function textInputAndTextArea(componentName: string, defaultProps) {
       expect(instance.getData().mixin.value).toBe('1');
       expect(instance.getData().mixin.controlled).toBe(true);
       await callMethod(instance, 'update', '3');
-
-      if (componentName === 'Input') {
-        expect(instance.getData().mixin.value).toBe('1');
-      }
-      if (componentName === 'Input/TextArea') {
-        expect(instance.getData().mixin.value).toBe('3');
-      }
+      expect(instance.getData().mixin.value).toBe('1');
     });
 
     it('受控模式下 onChange 无效', async () => {
