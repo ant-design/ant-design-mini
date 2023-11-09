@@ -26,14 +26,14 @@
       selection-start="{{ selectionStart }}"
       selection-end="{{ selectionEnd }}"
       random-number="{{ randomNumber }}"
-      onInput="onChange"
-      onConfirm="onConfirm"
-      onFocus="onFocus"
-      onBlur="onBlur" />
+      bindinput="onChange"
+      bindconfirm="onConfirm"
+      bindfocus="onFocus"
+      bindblur="onBlur" />
     <view
-      a:if="{{ allowClear }}"
+      wx:if="{{ allowClear }}"
       class="ant-input-clear {{ mixin.value && mixin.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden' }}"
-      onTap="onClear">
+      bind:tap="onClear">
       <icon
         className="ant-input-clear-icon"
         type="CloseCircleFill" />
