@@ -111,7 +111,6 @@ mountComponent<TextareaProps>(Textarea, {
   allowClear: null,
   controlled: null,
   enableNative: false,
-  maxLength: null,
   inputClassName: null,
   disabled: null,
   inputStyle: null,

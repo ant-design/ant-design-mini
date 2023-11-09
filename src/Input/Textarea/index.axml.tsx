@@ -36,7 +36,7 @@ export default (
         name={name}
         class="ant-textarea-content"
         disabled={disabled}
-        value={typeof mixin.value === 'undefined' ? '' : mixin.value}
+        value={mixin.value || ''}
         placeholder={placeholder}
         placeholder-class={`ant-textarea-placeholder ${
           placeholderClassName ? placeholderClassName : ''
@@ -56,11 +56,8 @@ export default (
       />
       {allowClear && (
         <View
-          class={`ant-textarea-clear ${
-            mixin.value && mixin.value.length > 0
-              ? 'ant-textarea-clear-show'
-              : 'ant-textarea-clear-hidden'
-          }`}
+          // prettier-ignore
+          class={`ant-textarea-clear ${ mixin.value && mixin.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden'}`}
           onTap="onClear"
         >
           <Icon

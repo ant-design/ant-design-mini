@@ -1,0 +1,63 @@
+.ant-input {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+}
+.ant-input-disabled {
+  opacity: 0.4;
+}
+.ant-input-line {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.ant-input-prefix {
+  color: #cccccc;
+  font-size: 17px;
+  margin: 0 4px 0 4px;
+}
+.ant-input-prefix:empty {
+  display: none;
+}
+.ant-input-suffix {
+  color: #cccccc;
+  font-size: 17px;
+  margin: 0 4px 0 4px;
+}
+.ant-input-suffix:empty {
+  display: none;
+}
+.ant-input-content {
+  width: 100%;
+  align-self: center;
+  padding: 0;
+  font-size: 17px;
+  text-align: left;
+  color: #333333;
+  background: #ffffff;
+}
+.ant-input-clear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-left: 4px;
+}
+.ant-input-clear-icon {
+  color: #cccccc;
+  font-size: 17px;
+}
+.ant-input-clear-show {
+  display: flex;
+}
+.ant-input-clear-hidden {
+  display: none;
+  pointer-events: none;
+}
+.ant-input-placeholder {
+  font-size: 17px;
+  color: #cccccc;
+  margin-left: -3px;
+}

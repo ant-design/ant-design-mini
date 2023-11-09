@@ -258,7 +258,7 @@ function transformAttrExpression(ctx: ITransformContext) {
       for (let i = 0; i < quasis.length; i++) {
         res.push(quasis[i].value.raw);
         if (expressions[i]) {
-          res.push(ctx.extends(expressions[i]).toAxmlExpression());
+          res.push(ctx.extends(expressions[i]).toAxmlExpression(true));
         }
       }
       return res.join('');

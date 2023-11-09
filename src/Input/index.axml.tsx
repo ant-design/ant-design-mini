@@ -72,11 +72,10 @@ export default (
       />
       {allowClear && (
         <View
-          class={`ant-input-clear ${
-            mixin.value && mixin.value.length > 0
+          // prettier-ignore
+          class={`ant-input-clear ${mixin.value && mixin.value.length > 0
               ? 'ant-input-clear-show'
-              : 'ant-input-clear-hidden'
-          }`}
+              : 'ant-input-clear-hidden'}`}
           onTap="onClear"
         >
           <Icon className="ant-input-clear-icon" type="CloseCircleFill"></Icon>
