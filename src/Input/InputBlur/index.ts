@@ -10,6 +10,7 @@ const InputBlur = (props: InputBlurProps) => {
     : hasValue(props.value);
 
   const [value, doUpdateValue] = useMergedState(props.defaultValue, {
+    // 因为受控模式下 value 也是会随着 props.value 变化的, 所以这里不需要判断是否受控
     defaultValue: props.value,
   });
   function updateValue(value, updateWithoutFocusCheck?: boolean) {
@@ -18,6 +19,7 @@ const InputBlur = (props: InputBlurProps) => {
     }
     doUpdateValue(value);
   }
+
   const focusRef = useRef(false);
 
   useEffect(() => {
@@ -69,9 +71,7 @@ const InputBlur = (props: InputBlurProps) => {
     [props]
   );
   return {
-    mixin: {
-      value,
-    },
+    inputValue: value,
   };
 };
 
