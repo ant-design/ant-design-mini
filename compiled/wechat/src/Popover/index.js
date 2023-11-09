@@ -17,6 +17,13 @@ import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
 import { getPopoverStyle } from './utils';
+function wait() {
+    return new Promise(function (resolve) {
+        setTimeout(function () {
+            return resolve();
+        });
+    });
+}
 var Popover = function (props) {
     var _a = useMergedState(props.defaultVisible, {
         value: props.visible,
@@ -40,26 +47,28 @@ var Popover = function (props) {
             return;
         }
         var placement = props.placement, autoAdjustOverflow = props.autoAdjustOverflow;
-        Promise.all([
-            getInstanceBoundingClientRect(getInstance(), "#ant-popover-children".concat(instance.$id ? "-".concat(instance.$id) : '')),
-            getInstanceBoundingClientRect(getInstance(), instance.$id
-                ? "#ant-popover-children-".concat(instance.$id, " > *")
-                : "#ant-popover-children-container"),
-            getInstanceBoundingClientRect(getInstance(), instance.$id
-                ? "#ant-popover-content-".concat(instance.$id)
-                : '#ant-popover-content'),
-            getSystemInfo(),
-        ]).then(function (res) {
-            var containerRect = res[0], childrenRect = res[1], contentRect = res[2], systemInfo = res[3];
-            var _a = getPopoverStyle(placement, autoAdjustOverflow, {
-                containerRect: containerRect,
-                childrenRect: childrenRect,
-                contentRect: contentRect,
-                systemInfo: systemInfo,
-            }), popoverContentStyle = _a.popoverContentStyle, adjustedPlacement = _a.adjustedPlacement;
-            setPopoverStyle({
-                popoverContentStyle: popoverContentStyle,
-                adjustedPlacement: adjustedPlacement,
+        wait().then(function () {
+            Promise.all([
+                getInstanceBoundingClientRect(getInstance(), "#ant-popover-children".concat(instance.$id ? "-".concat(instance.$id) : '')),
+                getInstanceBoundingClientRect(getInstance(), instance.$id
+                    ? "#ant-popover-children-".concat(instance.$id, " > *")
+                    : "#ant-popover-children-container"),
+                getInstanceBoundingClientRect(getInstance(), instance.$id
+                    ? "#ant-popover-content-".concat(instance.$id)
+                    : '#ant-popover-content'),
+                getSystemInfo(),
+            ]).then(function (res) {
+                var containerRect = res[0], childrenRect = res[1], contentRect = res[2], systemInfo = res[3];
+                var _a = getPopoverStyle(placement, autoAdjustOverflow, {
+                    containerRect: containerRect,
+                    childrenRect: childrenRect,
+                    contentRect: contentRect,
+                    systemInfo: systemInfo,
+                }), popoverContentStyle = _a.popoverContentStyle, adjustedPlacement = _a.adjustedPlacement;
+                setPopoverStyle({
+                    popoverContentStyle: popoverContentStyle,
+                    adjustedPlacement: adjustedPlacement,
+                });
             });
         });
     }, [value, props.autoAdjustOverflow, props.placement]);

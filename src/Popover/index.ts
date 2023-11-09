@@ -13,6 +13,14 @@ import { getSystemInfo } from '../_util/jsapi/get-system-info';
 import { IPopoverProps } from './props';
 import { getPopoverStyle } from './utils';
 
+function wait(): Promise<void> {
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {
+      return resolve();
+    });
+  });
+}
+
 const Popover = (props: IPopoverProps) => {
   const [value, updateValue] = useMergedState(props.defaultVisible, {
     value: props.visible,
@@ -44,39 +52,41 @@ const Popover = (props: IPopoverProps) => {
       return;
     }
     const { placement, autoAdjustOverflow } = props;
-    Promise.all([
-      getInstanceBoundingClientRect(
-        getInstance(),
-        `#ant-popover-children${instance.$id ? `-${instance.$id}` : ''}`
-      ),
-      getInstanceBoundingClientRect(
-        getInstance(),
-        instance.$id
-          ? `#ant-popover-children-${instance.$id} > *`
-          : `#ant-popover-children-container`
-      ),
-      getInstanceBoundingClientRect(
-        getInstance(),
-        instance.$id
-          ? `#ant-popover-content-${instance.$id}`
-          : '#ant-popover-content'
-      ),
-      getSystemInfo(),
-    ]).then((res) => {
-      const [containerRect, childrenRect, contentRect, systemInfo] = res;
-      const { popoverContentStyle, adjustedPlacement } = getPopoverStyle(
-        placement,
-        autoAdjustOverflow,
-        {
-          containerRect,
-          childrenRect,
-          contentRect,
-          systemInfo,
-        }
-      );
-      setPopoverStyle({
-        popoverContentStyle,
-        adjustedPlacement,
+    wait().then(() => {
+      Promise.all([
+        getInstanceBoundingClientRect(
+          getInstance(),
+          `#ant-popover-children${instance.$id ? `-${instance.$id}` : ''}`
+        ),
+        getInstanceBoundingClientRect(
+          getInstance(),
+          instance.$id
+            ? `#ant-popover-children-${instance.$id} > *`
+            : `#ant-popover-children-container`
+        ),
+        getInstanceBoundingClientRect(
+          getInstance(),
+          instance.$id
+            ? `#ant-popover-content-${instance.$id}`
+            : '#ant-popover-content'
+        ),
+        getSystemInfo(),
+      ]).then((res) => {
+        const [containerRect, childrenRect, contentRect, systemInfo] = res;
+        const { popoverContentStyle, adjustedPlacement } = getPopoverStyle(
+          placement,
+          autoAdjustOverflow,
+          {
+            containerRect,
+            childrenRect,
+            contentRect,
+            systemInfo,
+          }
+        );
+        setPopoverStyle({
+          popoverContentStyle,
+          adjustedPlacement,
+        });
       });
     });
   }, [value, props.autoAdjustOverflow, props.placement]);
