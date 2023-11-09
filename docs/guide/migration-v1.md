@@ -11,7 +11,7 @@ v1对比v0做了很多修改，也有很多breakchange。使用v1可按照v1组�
 | --- | --- |
 |  Button | 重新设计包括default size等去掉复杂的props组合式用法，使用更为清晰明确的 `primary` `default` `text` 语义确定按钮。添加`catchTap`取代`stopPropagation`用于非冒泡；添加更多的示例包括自定义按钮。 |
 |  Icon | 去掉的之前default的font-size。让icon使用不再必须要去修改size props，而是通过自身及上层font-size就可修改icon。这里也是对比了antd的做法。在antd-mini内部，也对所有使用icon的组件进行了修改，使用上传的class即可修改icon大小、颜色等；对于使用界面上，也重构了交互，实现了类似antd的icon查看及复制界面，让搜索使用icon更方便。 |
-|  Tabbar | 支持受控/非受控，current+onChange+defaultCurrent。<br/>新增icon、text支持slot自定义 |
+|  Tabbar | 支持受控/非受控，current+onChange+defaultCurrent。<br/>新增icon、text支持slot自定义, onChange 的的类型改为 (index:number)=>void |
 |  Tabs | 使用slot的方式，不再需要tabs+tab-content使用uid关联，移除uid，使用options数据驱动视图，slot-scopes抛出渲染信息，自定义更方便；<br/>1.0中Tabs&VTabs组件合并到Tabs，使用direction区分模式；<br/>新增受控/非受控模式，current+onChange+defaultCurrent；<br/>另外1.0里的Tabs只是Tabs区域，content是作为slot方式，文档示例里添加了不同的使用方式。 |
 |  Avatar | 重新设计组件props，移除不应该属于Avatar的name和desc，改为搭配ListItem使用 |
 |  BladeView | 新命名为Indexbar，全新设计的props，支持更多自定义 |
