@@ -30,10 +30,10 @@ export interface TextareaProps extends IBaseProps {
   focus?: boolean;
   confirmHold?: string;
   focusClassName?: boolean;
-  onChange: (value: string, e: any) => void;
-  onBlur: (value: string, e: any) => void;
-  onFocus: (value: string, e: any) => void;
-  onConfirm: (value: string, e: any) => void;
+  onChange?: (value: string, e: any) => void;
+  onBlur?: (value: string, e: any) => void;
+  onFocus?: (value: string, e: any) => void;
+  onConfirm?: (value: string, e: any) => void;
 }
 
 export const TextareaDefaultProps: Partial<TextareaProps> = {
