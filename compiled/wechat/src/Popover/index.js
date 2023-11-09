@@ -47,6 +47,7 @@ var Popover = function (props) {
             return;
         }
         var placement = props.placement, autoAdjustOverflow = props.autoAdjustOverflow;
+        // 在 value 刚变成 true 的时候, 此时 content 还没有渲染出来, 需要等待一下
         wait().then(function () {
             Promise.all([
                 getInstanceBoundingClientRect(getInstance(), "#ant-popover-children".concat(instance.$id ? "-".concat(instance.$id) : '')),

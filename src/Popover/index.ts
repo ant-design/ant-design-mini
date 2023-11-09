@@ -52,6 +52,7 @@ const Popover = (props: IPopoverProps) => {
       return;
     }
     const { placement, autoAdjustOverflow } = props;
+    // 在 value 刚变成 true 的时候, 此时 content 还没有渲染出来, 需要等待一下
     wait().then(() => {
       Promise.all([
         getInstanceBoundingClientRect(
