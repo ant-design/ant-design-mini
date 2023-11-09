@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/Input/index",
     "demo/pages/Popover/index",
     "demo/pages/PopoverList/index",
     "demo/pages/Container/index",
