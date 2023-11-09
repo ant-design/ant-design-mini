@@ -119,6 +119,10 @@ export class TransformContext<T extends types.Node = types.Node>
     if (this.platform.basicEvent[name]) {
       return this.platform.basicEvent[name];
     }
+    const result = this.config.props?.[tagName]?.[name];
+    if (result) {
+      return result;
+    }
     return name;
   }
 

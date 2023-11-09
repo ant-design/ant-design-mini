@@ -13,7 +13,11 @@
     "pages/List",
     "pages/Result",
     "pages/Popover",
-    "pages/PopoverList"
+    "pages/PopoverList",
+    "pages/Input",
+    "pages/InputCustom",
+    "pages/InputSearchBar",
+    "pages/InputTextarea"
   ],
   "src": [
     "_util",
@@ -25,6 +29,7 @@
     "style",
     "Switch",
     "Tag",
+    "Input",
     "Calendar",
     "List",
     "ImageIcon",

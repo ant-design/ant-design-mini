@@ -38,6 +38,19 @@ export const wechat: PlatformConfig = {
     onChange: 'bind:change',
     onScroll: 'bind:scroll',
   },
+  props: {
+    input: {
+      onInput: 'bindinput',
+      onConfirm: 'bindconfirm',
+      onFocus: 'bindfocus',
+      onBlur: 'bindblur',
+      onKeyboardHeightChange: 'bindkeyboardheightchange',
+      onNicknameReview: 'bindnicknamereview',
+    },
+    'ant-input': {
+      onChange: 'bind:change',
+    },
+  },
 };
 
 export interface PlatformConfig {
@@ -60,5 +73,8 @@ export interface PlatformConfig {
     catchTap: string;
     onChange?: string;
     onScroll?: string;
+  };
+  props?: {
+    [key: string]: Record<string, string>;
   };
 }
