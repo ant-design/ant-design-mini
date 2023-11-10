@@ -29,7 +29,6 @@ export interface TextareaProps extends IBaseProps {
   confirmType?: ConfirmType;
   focus?: boolean;
   confirmHold?: string;
-  focusClassName?: boolean;
   onChange?: (value: string, e: any) => void;
   onBlur?: (value: string, e: any) => void;
   onFocus?: (value: string, e: any) => void;

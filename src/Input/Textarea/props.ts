@@ -29,7 +29,28 @@ export interface TextareaProps extends IBaseProps {
   confirmType?: ConfirmType;
   focus?: boolean;
   confirmHold?: string;
+  /// #if WECHAT
   focusClassName?: boolean;
+  /**
+   * @default true
+   * @description 是否显示键盘上方带有”完成“按钮那一栏
+   */
+  showConfirmBar?: boolean;
+  /**
+   * @default false
+   * @description focus时，点击页面的时候不收起键盘
+   */
+  holdKeyboard?: boolean;
+  /**
+   * @default false
+   * @description 是否去掉 iOS 下的默认内边距
+   */
+  disableDefaultPadding?: boolean;
+  /**
+   * @description 键盘对齐位置
+   */
+  adjustKeyboardTo?: 'cursor' | 'bottom';
+  /// #endif
   onChange?: (value: string, e: any) => void;
   onBlur?: (value: string, e: any) => void;
   onFocus?: (value: string, e: any) => void;

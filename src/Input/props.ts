@@ -57,36 +57,33 @@ export interface InputProps extends IBaseProps {
    */
   randomNumber?: boolean;
 
+  /// #if WECHAT
   /**
    * @default 指定光标与键盘的距离，取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离
-   * @platform wechat
    */
   cursorSpacing?: number;
 
   /**
    * @default 强制 input 处于同层状态，默认 focus 时 input 会切到非同层状态 (仅在 iOS 下生效)
-   * @platform wechat
    */
   alwaysEmbed?: boolean;
 
   /**
    * @description 光标颜色。iOS 下的格式为十六进制颜色值 #000000，安卓下的只支持 default 和 green，Skyline 下无限制
-   * @platform wechat
    */
   cursorColor?: number;
 
   /**
    * @default true
    * @description 键盘弹起时，是否自动上推页面
-   * @platform wechat
    */
   adjustPosition?: boolean;
   /**
    * @default false
    * @description focus时，点击页面的时候不收起键盘
-   * @platform wechat
    */
   holdKeyboard?: boolean;
+  /// #endif
 
   onChange?: (value: string, e: any) => void;
   onBlur?: (value: string, e: any) => void;

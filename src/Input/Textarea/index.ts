@@ -124,9 +124,6 @@ mountComponent<TextareaProps>(Textarea, {
   allowClear: null,
   controlled: null,
   enableNative: false,
-  /// #if WECHAT
-  maxLength: -1,
-  /// #endif
   inputClassName: null,
   disabled: null,
   inputStyle: null,
@@ -136,4 +133,11 @@ mountComponent<TextareaProps>(Textarea, {
   focus: null,
   confirmHold: null,
   focusClassName: null,
+  /// #if WECHAT
+  maxLength: -1,
+  showConfirmBar: true,
+  holdKeyboard: false,
+  disableDefaultPadding: false,
+  adjustKeyboardTo: 'cursor',
+  /// #endif
 });

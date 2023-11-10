@@ -82,7 +82,6 @@ mountComponent(Textarea, {
     allowClear: null,
     controlled: null,
     enableNative: false,
-    maxLength: -1,
     inputClassName: null,
     disabled: null,
     inputStyle: null,
@@ -92,4 +91,9 @@ mountComponent(Textarea, {
     focus: null,
     confirmHold: null,
     focusClassName: null,
+    maxLength: -1,
+    showConfirmBar: true,
+    holdKeyboard: false,
+    disableDefaultPadding: false,
+    adjustKeyboardTo: 'cursor',
 });
