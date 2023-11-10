@@ -20,6 +20,7 @@ export default (
     confirmHold,
     autoHeight,
     showCount,
+
     allowClear,
   }: TSXMLProps<TextareaProps>,
   { state, selfFocus }: InternalData

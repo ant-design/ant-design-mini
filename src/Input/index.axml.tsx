@@ -28,6 +28,11 @@ export default (
     disabled,
     prefix,
     suffix,
+    cursorSpacing,
+    alwaysEmbed,
+    cursorColor,
+    adjustPosition,
+    holdKeyboard,
   }: TSXMLProps<InputProps>,
 
   { selfFocus, state }: InternalData
@@ -49,6 +54,13 @@ export default (
         disabled={disabled}
         value={state.value}
         type={type}
+        /// #if WECHAT
+        cursor-spacing={cursorSpacing}
+        always-embed={alwaysEmbed}
+        cursor-color={cursorColor}
+        adjust-position={adjustPosition}
+        hold-keyboard={holdKeyboard}
+        /// #endif
         password={password}
         placeholder={placeholder}
         placeholder-class={`ant-input-placeholder ${

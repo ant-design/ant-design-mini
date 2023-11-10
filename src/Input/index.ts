@@ -133,6 +133,11 @@ mountComponent<InputProps>(Input, {
   cursor: null,
   /// #if WECHAT
   maxLength: -1,
+  alwaysEmbed: false,
+  cursorSpacing: 0,
+  cursorColor: null,
+  adjustPosition: true,
+  holdKeyboard: false,
   /// #endif
   inputClassName: null,
   inputStyle: null,
