@@ -65,7 +65,7 @@ var Input = function (props) {
     }, []);
     return {
         counter: counter,
-        mixin: {
+        state: {
             value: value,
             controlled: isControlled,
         },

@@ -22,7 +22,7 @@ export default (
     showCount,
     allowClear,
   }: TSXMLProps<TextareaProps>,
-  { mixin, selfFocus }: InternalData
+  { state, selfFocus }: InternalData
 ) => (
   <View
     class={`ant-textarea ${disabled ? 'ant-textarea-disabled' : ''} ${
@@ -36,7 +36,7 @@ export default (
         name={name}
         class="ant-textarea-content"
         disabled={disabled}
-        value={mixin.value || ''}
+        value={state.value || ''}
         placeholder={placeholder}
         placeholder-class={`ant-textarea-placeholder ${
           placeholderClassName ? placeholderClassName : ''
@@ -48,7 +48,7 @@ export default (
         confirm-hold={confirmHold}
         auto-height={autoHeight}
         show-count={showCount}
-        controlled={mixin.controlled}
+        controlled={state.controlled}
         onInput="onChange"
         onConfirm="onConfirm"
         onFocus="onFocus"
@@ -57,7 +57,7 @@ export default (
       {allowClear && (
         <View
           // prettier-ignore
-          class={`ant-textarea-clear ${ mixin.value && mixin.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden'}`}
+          class={`ant-textarea-clear ${ state.value && state.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden'}`}
           onTap="onClear"
         >
           <Icon

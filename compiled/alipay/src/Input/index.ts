@@ -98,7 +98,7 @@ const Input = (props: InputProps) => {
   );
 
   return {
-    mixin: {
+    state: {
       value,
       controlled: isControlled,
     },

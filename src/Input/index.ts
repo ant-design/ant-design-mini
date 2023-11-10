@@ -107,7 +107,7 @@ const Input = (props: InputProps) => {
     /// #if WECHAT
     counter,
     /// #endif
-    mixin: {
+    state: {
       value,
       controlled: isControlled,
     },
