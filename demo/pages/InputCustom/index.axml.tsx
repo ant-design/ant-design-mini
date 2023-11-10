@@ -25,7 +25,7 @@ export default () => (
       />
     </Container>
 
-    <Container title="自定义颜色">
+    <Container title="自定义背景颜色">
       <AntInput
         className="custom-color"
         placeholder="请输入内容"
@@ -39,9 +39,20 @@ export default () => (
       />
     </Container>
 
-    <Container title="自定义placeholderClassName">
+    {/* #if ALIPAY */}
+    {/* 微信不支持  placeholderClassName */}
+    <Container title="自定义 placeholderClassName">
       <AntInput
         placeholderClassName="placeholder"
+        placeholder="请输入内容"
+        onChange="onChange"
+      />
+    </Container>
+    {/* #endif */}
+
+    <Container title="自定义 placeholderStyle">
+      <AntInput
+        placeholderStyle="color: red;"
         placeholder="请输入内容"
         onChange="onChange"
       />

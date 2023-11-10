@@ -1,8 +1,10 @@
-import { useEvent, useState, useEffect } from 'functional-mini/component';
+import { useEvent, useState } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import useLayoutEffect from '../_util/hooks/useLayoutEffect';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
+import { triggerRefEvent } from '../_util/hooks/useReportRef';
 import { InputProps } from './props';
 
 const Input = (props: InputProps) => {
@@ -18,23 +20,33 @@ const Input = (props: InputProps) => {
       defaultValue: props.value,
     };
   }
+
+  /// #if WECHAT
+  const [counter, setCounter] = useState(0);
+  /// #endif
+
   const [value, updateValue] = useMergedState(props.defaultValue, option);
   const [selfFocus, setSelfFocus] = useState(false);
   const { triggerEvent } = useComponentEvent(props);
-
-  useEffect(() => {
-    // 非受控模式下, props 变化后, 需要更新 value
-    if (!isControlled) {
-      updateValue(props.value);
-    }
-  }, [props.value]);
-
+  triggerRefEvent();
+  useLayoutEffect(
+    (mount) => {
+      if (!isControlled && !mount) {
+        updateValue(props.value);
+      }
+    },
+    [props.value]
+  );
   useEvent(
     'onChange',
     (e) => {
       const newValue = e.detail.value;
       if (!isControlled) {
         updateValue(newValue);
+      } else {
+        /// #if WECHAT
+        setCounter((c) => c + 1);
+        /// #endif
       }
       triggerEvent('change', newValue, e);
     },
@@ -92,9 +104,11 @@ const Input = (props: InputProps) => {
   );
 
   return {
+    /// #if WECHAT
+    counter,
+    /// #endif
     mixin: {
       value,
-      updated: true,
       controlled: isControlled,
     },
     selfFocus,
@@ -117,7 +131,9 @@ mountComponent<InputProps>(Input, {
   selectionStart: null,
   selectionEnd: null,
   cursor: null,
-  maxLength: null,
+  /// #if WECHAT
+  maxLength: -1,
+  /// #endif
   inputClassName: null,
   inputStyle: null,
   password: null,

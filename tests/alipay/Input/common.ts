@@ -8,6 +8,34 @@ export function textInputAndTextArea(componentName: string, defaultProps) {
   });
 
   describe('Input 非受控', () => {
+    it('测试 default value', async () => {
+      const onChange = vi.fn();
+      const instance = getInstance(componentName, {
+        defaultValue: '1',
+        onChange,
+      });
+      expect(instance.getData().mixin.value).toBe('1');
+      instance.setProps({ value: '2' });
+      expect(instance.getData().mixin.value).toEqual('2');
+      instance.setProps({ value: undefined });
+      expect(instance.getData().mixin.value).toEqual(undefined);
+    });
+
+    it('测试 default value 和 value 同时存在', async () => {
+      const onChange = vi.fn();
+      const instance = getInstance(componentName, {
+        value: '3',
+        isControlled: false,
+        defaultValue: '1',
+        onChange,
+      });
+      expect(instance.getData().mixin.value).toBe('3');
+      instance.setProps({ value: '2' });
+      expect(instance.getData().mixin.value).toEqual('2');
+      instance.setProps({ value: undefined });
+      expect(instance.getData().mixin.value).toEqual(undefined);
+    });
+
     it('如果有 value 且 controlled 为 false, 以 controlled 为准', async () => {
       const onChange = vi.fn();
       const instance = getInstance(componentName, {
@@ -63,6 +91,20 @@ export function textInputAndTextArea(componentName: string, defaultProps) {
   });
 
   describe('Input 受控模式', () => {
+    it('测试 default value 和 value 同时存在', async () => {
+      const onChange = vi.fn();
+      const instance = getInstance(componentName, {
+        value: '3',
+        defaultValue: '1',
+        onChange,
+      });
+      expect(instance.getData().mixin.value).toBe('3');
+      instance.setProps({ value: '2' });
+      expect(instance.getData().mixin.value).toEqual('2');
+      instance.setProps({ value: undefined });
+      expect(instance.getData().mixin.value).toEqual(undefined);
+    });
+
     it('如果有 controlled, 以 controlled 为准', async () => {
       const instance = getInstance(componentName, {
         controlled: true,
