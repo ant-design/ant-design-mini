@@ -1,14 +1,24 @@
 import { Props } from './type';
 
+type InputType =
+  | 'text'
+  | 'number'
+  | 'idcard'
+  | 'digit'
+  /**
+   * 支付宝
+   */
+  | 'numberpad'
+  | 'digitpad'
+  | 'idcardpad'
+  /**
+   * 只支持微信
+   */
+  | 'safe-password'
+  | 'nickname';
+
 interface AlipayInputProps {
-  type?:
-    | 'text'
-    | 'number'
-    | 'idcard'
-    | 'digit'
-    | 'numberpad'
-    | 'digitpad'
-    | 'idcardpad';
+  type?: InputType;
   /**
    * @description 当 type 为 number, digit, idcard 数字键盘是否随机排列。
    * @default false
