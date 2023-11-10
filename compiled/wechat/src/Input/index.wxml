@@ -1,5 +1,5 @@
 <view
-  class="ant-input {{ disabled ? 'ant-input-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? focusClassName ? focusClassName : '' : '' }}"
+  class="ant-input {{ disabled ? 'ant-input-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{ style || '' }};{{ focusStyle || '' }}">
   <view class="ant-input-prefix">
     <slot name="prefix">{{ prefix }}</slot>
