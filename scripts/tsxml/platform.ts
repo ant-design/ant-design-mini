@@ -31,6 +31,7 @@ export const wechat: PlatformConfig = {
     ext: 'wxs',
   },
   basicEvent: {
+    ref: 'bind:ref',
     onVisibleChange: 'bind:visiblechange',
     onMaskTap: 'bind:masktap',
     onTap: 'bind:tap',
@@ -46,6 +47,15 @@ export const wechat: PlatformConfig = {
       onBlur: 'bindblur',
       onKeyboardHeightChange: 'bindkeyboardheightchange',
       onNicknameReview: 'bindnicknamereview',
+    },
+    textarea: {
+      onInput: 'bindinput',
+      onConfirm: 'bindconfirm',
+      onFocus: 'bindfocus',
+      onBlur: 'bindblur',
+    },
+    'ant-textarea': {
+      onChange: 'bind:change',
     },
     'ant-input': {
       onChange: 'bind:change',
@@ -66,14 +76,7 @@ export interface PlatformConfig {
     tagName: string;
     ext: string;
   };
-  basicEvent: {
-    onVisibleChange?: string;
-    onMaskTap?: string;
-    onTap: string;
-    catchTap: string;
-    onChange?: string;
-    onScroll?: string;
-  };
+  basicEvent: Record<string, string>;
   props?: {
     [key: string]: Record<string, string>;
   };

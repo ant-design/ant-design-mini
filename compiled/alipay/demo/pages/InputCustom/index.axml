@@ -22,7 +22,7 @@
     onChange="onChange" />
 </container>
 
-<container title="自定义颜色">
+<container title="自定义背景颜色">
   <ant-input
     className="custom-color"
     placeholder="请输入内容"
@@ -34,9 +34,16 @@
     onChange="onChange" />
 </container>
 
-<container title="自定义placeholderClassName">
+<container title="自定义 placeholderClassName">
   <ant-input
     placeholderClassName="placeholder"
+    placeholder="请输入内容"
+    onChange="onChange" />
+</container>
+
+<container title="自定义 placeholderStyle">
+  <ant-input
+    placeholderStyle="color: red;"
     placeholder="请输入内容"
     onChange="onChange" />
 </container>

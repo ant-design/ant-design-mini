@@ -33,7 +33,7 @@
     data-elementsize="{{ elementSize }}"
     data-monthlist="{{ monthList }}"
     bind:scroll="{{ scroll.handleScroll }}"
-    ref="handleRef">
+    bind:ref="handleRef">
     <block
       wx:for="{{ monthList }}"
       wx:for-index="index"

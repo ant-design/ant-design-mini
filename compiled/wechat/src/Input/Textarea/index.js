@@ -1,7 +1,9 @@
-import { useEvent, useState, useEffect } from 'functional-mini/component';
+import { useEvent, useState } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import useLayoutEffect from '../../_util/hooks/useLayoutEffect';
 import { hasValue, useMergedState } from '../../_util/hooks/useMergedState';
+import { triggerRefEvent } from '../../_util/hooks/useReportRef';
 var Textarea = function (props) {
     var isControlled = hasValue(props.controlled)
         ? !!props.controlled
@@ -14,12 +16,13 @@ var Textarea = function (props) {
             defaultValue: props.value,
         };
     }
-    var _a = useMergedState(props.defaultValue, option), value = _a[0], updateValue = _a[1];
-    var _b = useState(false), selfFocus = _b[0], setSelfFocus = _b[1];
+    var _a = useState(0), counter = _a[0], setCounter = _a[1];
+    var _b = useMergedState(props.defaultValue, option), value = _b[0], updateValue = _b[1];
+    var _c = useState(false), selfFocus = _c[0], setSelfFocus = _c[1];
     var triggerEvent = useComponentEvent(props).triggerEvent;
-    useEffect(function () {
-        // 非受控模式下, props 变化后, 需要更新 value
-        if (!isControlled) {
+    triggerRefEvent();
+    useLayoutEffect(function (mount) {
+        if (!isControlled && !mount) {
             updateValue(props.value);
         }
     }, [props.value]);
@@ -27,6 +30,9 @@ var Textarea = function (props) {
         var newValue = e.detail.value;
         if (!isControlled) {
             updateValue(newValue);
+        }
+        else {
+            setCounter(function (c) { return c + 1; });
         }
         triggerEvent('change', newValue, e);
     }, []);
@@ -57,9 +63,9 @@ var Textarea = function (props) {
         updateValue(e);
     }, []);
     return {
+        counter: counter,
         mixin: {
             value: value,
-            updated: true,
             controlled: isControlled,
         },
         selfFocus: selfFocus,

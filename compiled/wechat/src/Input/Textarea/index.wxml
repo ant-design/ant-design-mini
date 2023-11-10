@@ -18,10 +18,10 @@
       auto-height="{{ autoHeight }}"
       show-count="{{ showCount }}"
       controlled="{{ mixin.controlled }}"
-      onInput="onChange"
-      onConfirm="onConfirm"
-      onFocus="onFocus"
-      onBlur="onBlur" />
+      bindinput="onChange"
+      bindconfirm="onConfirm"
+      bindfocus="onFocus"
+      bindblur="onBlur" />
     <view
       wx:if="{{ allowClear }}"
       class="ant-textarea-clear {{ mixin.value && mixin.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden' }}"

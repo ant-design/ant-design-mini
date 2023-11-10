@@ -1,3 +1,4 @@
+import { resolveEventValue } from './utils';
 Page({
     data: {
         value: '',
@@ -8,16 +9,16 @@ Page({
     },
     handleChange: function (value) {
         this.setData({
-            value: value,
+            value: resolveEventValue(value),
         });
     },
     handleMoney: function (value) {
         console.log(value);
-        if (isNaN(Number(value))) {
+        if (isNaN(Number(resolveEventValue(value)))) {
             return;
         }
         this.setData({
-            money: value,
+            money: resolveEventValue(value),
         });
     },
     clear: function () {
@@ -26,9 +27,9 @@ Page({
         });
     },
     handleRef: function (input) {
-        this.input = input;
+        this.input = resolveEventValue(input);
     },
     clearByInputRef: function () {
         this.input.update('');
-    }
+    },
 });

@@ -1,7 +1,9 @@
-import { useEvent, useState, useEffect } from 'functional-mini/component';
+import { useEvent, useState } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import useLayoutEffect from '../../_util/hooks/useLayoutEffect';
 import { hasValue, useMergedState } from '../../_util/hooks/useMergedState';
+import { triggerRefEvent } from '../../_util/hooks/useReportRef';
 import { TextareaProps } from './props';
 
 const Textarea = (props: TextareaProps) => {
@@ -20,13 +22,15 @@ const Textarea = (props: TextareaProps) => {
   const [value, updateValue] = useMergedState(props.defaultValue, option);
   const [selfFocus, setSelfFocus] = useState(false);
   const { triggerEvent } = useComponentEvent(props);
-
-  useEffect(() => {
-    // 非受控模式下, props 变化后, 需要更新 value
-    if (!isControlled) {
-      updateValue(props.value);
-    }
-  }, [props.value]);
+  triggerRefEvent();
+  useLayoutEffect(
+    (mount) => {
+      if (!isControlled && !mount) {
+        updateValue(props.value);
+      }
+    },
+    [props.value]
+  );
 
   useEvent(
     'onChange',
@@ -34,6 +38,7 @@ const Textarea = (props: TextareaProps) => {
       const newValue = e.detail.value;
       if (!isControlled) {
         updateValue(newValue);
+      } else {
       }
       triggerEvent('change', newValue, e);
     },
@@ -93,7 +98,6 @@ const Textarea = (props: TextareaProps) => {
   return {
     mixin: {
       value,
-      updated: true,
       controlled: isControlled,
     },
     selfFocus,

@@ -64,7 +64,7 @@
   <ant-input
     placeholder="请输入内容"
     bind:change="onChange"
-    ref="handleRef" />
+    bind:ref="handleRef" />
 
   <view>
     <ant-button

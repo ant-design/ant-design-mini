@@ -1,6 +1,9 @@
 {
   "pages": [
     "demo/pages/Input/index",
+    "demo/pages/InputCustom/index",
+    "demo/pages/InputSearchBar/index",
+    "demo/pages/InputTextarea/index",
     "demo/pages/Popover/index",
     "demo/pages/PopoverList/index",
     "demo/pages/Container/index",
