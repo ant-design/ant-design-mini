@@ -10,7 +10,7 @@
       name="{{ name }}"
       class="ant-input-content"
       disabled="{{ disabled }}"
-      value="{{ mixin.value }}"
+      value="{{ state.value }}"
       type="{{ type }}"
       password="{{ password }}"
       placeholder="{{ placeholder }}"
@@ -21,7 +21,7 @@
       confirm-type="{{ confirmType }}"
       confirm-hold="{{ confirmHold }}"
       always-system="{{ alwaysSystem }}"
-      controlled="{{ mixin.controlled }}"
+      controlled="{{ state.controlled }}"
       cursor="{{ cursor }}"
       selection-start="{{ selectionStart }}"
       selection-end="{{ selectionEnd }}"
@@ -32,7 +32,7 @@
       onBlur="onBlur" />
     <view
       a:if="{{ allowClear }}"
-      class="ant-input-clear {{ mixin.value && mixin.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden' }}"
+      class="ant-input-clear {{ state.value && state.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden' }}"
       onTap="onClear">
       <icon
         className="ant-input-clear-icon"

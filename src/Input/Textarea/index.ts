@@ -105,7 +105,7 @@ const Textarea = (props: TextareaProps) => {
     /// #if WECHAT
     counter,
     /// #endif
-    mixin: {
+    state: {
       value,
       controlled: isControlled,
     },

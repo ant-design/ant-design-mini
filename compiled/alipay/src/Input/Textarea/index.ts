@@ -96,7 +96,7 @@ const Textarea = (props: TextareaProps) => {
   );
 
   return {
-    mixin: {
+    state: {
       value,
       controlled: isControlled,
     },

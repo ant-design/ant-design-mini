@@ -30,7 +30,7 @@ export default (
     suffix,
   }: TSXMLProps<InputProps>,
 
-  { selfFocus, mixin }: InternalData
+  { selfFocus, state }: InternalData
 ) => (
   <View
     class={`ant-input ${disabled ? 'ant-input-disabled' : ''} ${
@@ -47,7 +47,7 @@ export default (
         name={name}
         class="ant-input-content"
         disabled={disabled}
-        value={mixin.value}
+        value={state.value}
         type={type}
         password={password}
         placeholder={placeholder}
@@ -60,7 +60,7 @@ export default (
         confirm-type={confirmType}
         confirm-hold={confirmHold}
         always-system={alwaysSystem}
-        controlled={mixin.controlled}
+        controlled={state.controlled}
         cursor={cursor}
         selection-start={selectionStart}
         selection-end={selectionEnd}
@@ -73,7 +73,7 @@ export default (
       {allowClear && (
         <View
           // prettier-ignore
-          class={`ant-input-clear ${mixin.value && mixin.value.length > 0
+          class={`ant-input-clear ${state.value && state.value.length > 0
               ? 'ant-input-clear-show'
               : 'ant-input-clear-hidden'}`}
           onTap="onClear"

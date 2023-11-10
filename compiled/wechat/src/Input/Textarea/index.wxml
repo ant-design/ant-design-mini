@@ -7,7 +7,7 @@
       name="{{ name }}"
       class="ant-textarea-content"
       disabled="{{ disabled }}"
-      value="{{ mixin.value || '' }}"
+      value="{{ state.value || '' }}"
       placeholder="{{ placeholder }}"
       placeholder-class="ant-textarea-placeholder {{ placeholderClassName ? placeholderClassName : '' }}"
       placeholder-style="{{ placeholderStyle ? placeholderStyle : '' }}"
@@ -17,14 +17,14 @@
       confirm-hold="{{ confirmHold }}"
       auto-height="{{ autoHeight }}"
       show-count="{{ showCount }}"
-      controlled="{{ mixin.controlled }}"
+      controlled="{{ state.controlled }}"
       bindinput="onChange"
       bindconfirm="onConfirm"
       bindfocus="onFocus"
       bindblur="onBlur" />
     <view
       wx:if="{{ allowClear }}"
-      class="ant-textarea-clear {{ mixin.value && mixin.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden' }}"
+      class="ant-textarea-clear {{ state.value && state.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden' }}"
       bind:tap="onClear">
       <icon
         className="ant-textarea-clear-icon"
