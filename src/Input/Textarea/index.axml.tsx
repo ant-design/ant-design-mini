@@ -20,8 +20,11 @@ export default (
     confirmHold,
     autoHeight,
     showCount,
-
+    showConfirmBar,
     allowClear,
+    disableDefaultPadding,
+    holdKeyboard,
+    adjustKeyboardTo,
   }: TSXMLProps<TextareaProps>,
   { state, selfFocus }: InternalData
 ) => (
@@ -50,6 +53,12 @@ export default (
         auto-height={autoHeight}
         show-count={showCount}
         controlled={state.controlled}
+        /// #if WECHAT
+        show-confirm-bar={showConfirmBar}
+        hold-keyboard={holdKeyboard}
+        disable-default-padding={disableDefaultPadding}
+        adjust-keyboard-to={adjustKeyboardTo}
+        /// #endif
         onInput="onChange"
         onConfirm="onConfirm"
         onFocus="onFocus"
