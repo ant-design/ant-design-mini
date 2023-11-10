@@ -114,7 +114,6 @@ export class TransformContext<T extends types.Node = types.Node>
     ).trim()} }}`;
 
     if (disableFormatWhenMultipleLine && res.split('\n').length > 0) {
-      console.log(generate(this.node).code);
       return `{{ ${generate(this.node).code} }}`;
     }
 
