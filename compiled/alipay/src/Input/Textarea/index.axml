@@ -1,5 +1,5 @@
 <view
-  class="ant-textarea {{ disabled ? 'ant-textarea-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? focusClassName ? focusClassName : '' : '' }}"
+  class="ant-textarea {{ disabled ? 'ant-textarea-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{ style || '' }};{{ focusStyle || '' }}">
   <view class="ant-textarea-line">
     <textarea
