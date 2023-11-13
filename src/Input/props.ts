@@ -37,8 +37,8 @@ export interface InputProps extends IBaseProps {
   selectionStart: number;
   selectionEnd: number;
   cursor: number;
-  maxLength: number;
-  inputClassName: string;
+  maxLength?: number;
+  inputClassName?: string;
   inputStyle: string;
   password?: boolean;
   prefix?: string;

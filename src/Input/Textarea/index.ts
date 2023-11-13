@@ -132,8 +132,8 @@ mountComponent<TextareaProps>(Textarea, {
   confirmType: null,
   focus: null,
   confirmHold: null,
-  focusClassName: null,
   /// #if WECHAT
+  focusClassName: null,
   maxLength: -1,
   showConfirmBar: true,
   holdKeyboard: false,
