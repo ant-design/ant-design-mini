@@ -427,4 +427,54 @@ describe('stepper', () => {
     expect(instance2.getData().mixin.value).toBe('1.0');
     expect(onBlurValue).toBe(1);
   });
+
+  it('测试 onChange 格式化数据', async () => {
+    const instance = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0.1,
+        step: 0.1,
+      },
+      my
+    );
+
+    instance.callMethod('onChange', '1.00');
+    expect(instance.getData().mixin.value).toBe('1.0');
+    instance.callMethod('onChange', '1.000');
+    expect(instance.getData().mixin.value).toBe('1.0');
+  });
+
+  it('测试 disabled', async () => {
+    const instance = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0.1,
+      },
+      my
+    );
+
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
+    expect(instance.getData().mixin.value).toBe('1.1');
+    instance.setProps({ disabled: true });
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
+    expect(instance.getData().mixin.value).toBe('1.1');
+    instance.setProps({ disabled: false });
+    instance.callMethod(
+      'onTap',
+      fmtEvent({
+        'data-mode': 'add',
+      })
+    );
+    expect(instance.getData().mixin.value).toBe('2.1');
+  });
 });
