@@ -1,7 +1,7 @@
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
 import { getPrecision, getValidNumber } from 'compiled-alipay/Stepper/utils';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('stepper', () => {
   const my = {
@@ -156,6 +156,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
+    await sleep(0);
     expect(instance1.getData().mixin.value).toBe('1.0');
 
     const instance2 = getInstance(
@@ -172,6 +173,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
+    await sleep(0);
     expect(instance2.getData().mixin.value).toBe('1.02');
   });
 
@@ -190,6 +192,7 @@ describe('stepper', () => {
         'data-mode': 'minus',
       })
     );
+    await sleep(0);
     expect(instance1.getData().mixin.value).toBe('0.0');
 
     const instance2 = getInstance(
@@ -209,6 +212,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
+    await sleep(0);
     expect(instance2.getData().mixin.value).toBe('0.3');
   });
 
@@ -228,6 +232,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
+    await sleep(0);
     expect(instance.getData().mixin.value).toBe('1.1');
   });
 
@@ -247,6 +252,7 @@ describe('stepper', () => {
         'data-mode': 'minus',
       })
     );
+    await sleep(0);
     expect(instance.getData().mixin.value).toBe('0.9');
   });
 
@@ -271,6 +277,7 @@ describe('stepper', () => {
         'data-mode': 'minus',
       })
     );
+    await sleep(0);
     expect(onChangeValue).toBe(0.9);
     expect(instance.getData().mixin.value).toBe('1.0');
     instance.setProps({
@@ -283,6 +290,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
+    await sleep(0);
     expect(onChangeValue).toBe(1);
     expect(instance.getData().mixin.value).toBe('0.9');
     instance.setProps({
@@ -318,6 +326,7 @@ describe('stepper', () => {
         'data-mode': 'minus',
       })
     );
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe('0.0');
     instance.callMethod(
       'onTap',
@@ -332,6 +341,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe('0.1');
     instance.callMethod(
       'onTap',
@@ -339,6 +349,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe('0.2');
     instance.callMethod(
       'onTap',
@@ -380,19 +391,24 @@ describe('stepper', () => {
         'data-mode': 'minus',
       })
     );
+    await sleep(10);
     expect(onChangeValue).toBe(0);
+    expect(instance.getData().mixin.value).toBe('0.0');
     instance.callMethod(
       'onTap',
       fmtEvent({
         'data-mode': 'add',
       })
     );
+    await sleep(10);
+    expect(instance.getData().mixin.value).toBe('0.1');
     expect(onChangeValue).toBe(0.1);
     instance.callMethod('onChange', '.');
+    await sleep(10);
     expect(onChangeValue).toBe(0.1);
-
     instance.callMethod('onChange', '');
     expect(onChangeValue).toBe(null);
+    await sleep(10);
     instance.callMethod('onFocus');
     expect(onFoucsValue).toBe(null);
     instance.callMethod('onBlur');
@@ -401,7 +417,9 @@ describe('stepper', () => {
     expect(onConfirmValue).toBe(null);
 
     instance.callMethod('onChange', '1');
+    await sleep(10);
     instance.callMethod('onFocus');
+    await sleep(10);
     expect(onFoucsValue).toBe(1);
     instance.callMethod('onBlur');
     expect(onBlurValue).toBe(1);
@@ -439,6 +457,7 @@ describe('stepper', () => {
     );
 
     instance.callMethod('onChange', '1.00');
+    await sleep(0);
     expect(instance.getData().mixin.value).toBe('1.0');
     instance.callMethod('onChange', '1.000');
     expect(instance.getData().mixin.value).toBe('1.0');
@@ -459,6 +478,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
+    await sleep(0);
     expect(instance.getData().mixin.value).toBe('1.1');
     instance.setProps({ disabled: true });
     instance.callMethod(
@@ -475,6 +495,22 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
+    await sleep(0);
     expect(instance.getData().mixin.value).toBe('2.1');
+  });
+
+  it('测试 onChange 变化', async () => {
+    const onChange = vi.fn();
+    const instance = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0.1,
+        onChange,
+      },
+      my
+    );
+    instance.callMethod('onChange', '1.00');
+    expect(onChange.mock.calls.length).toBe(1);
+    expect(onChange.mock.calls[0][0]).toBe(1);
   });
 });
