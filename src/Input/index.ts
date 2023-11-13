@@ -22,6 +22,8 @@ const Input = (props: InputProps) => {
   }
 
   /// #if WECHAT
+  // 微信的 textarea 不支持受控模式
+  // 通过 counter 的变化，重新渲染组件，让 value 改回去
   const [counter, setCounter] = useState(0);
   /// #endif
 
