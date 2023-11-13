@@ -123,5 +123,4 @@ mountComponent<TextareaProps>(Textarea, {
   confirmType: null,
   focus: null,
   confirmHold: null,
-  focusClassName: null,
 });
