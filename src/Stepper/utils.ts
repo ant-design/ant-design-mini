@@ -10,8 +10,13 @@ export function getPrecision(value: number): number {
   return p;
 }
 
-
-export function getValidNumber(value: any, min = -Infinity, max = Infinity, step: number, precision?: number) {
+export function getValidNumber(
+  value: any,
+  min = -Infinity,
+  max = Infinity,
+  step: number,
+  precision?: number
+) {
   if (typeof value === 'undefined' || value === null) {
     return {
       valid: true,
@@ -38,13 +43,13 @@ export function getValidNumber(value: any, min = -Infinity, max = Infinity, step
     num = min;
   }
   if (typeof num === 'number' && !isNaN(num)) {
-    if (precision >= 0) {
+    if (typeof precision === 'number' && precision >= 0) {
       return {
         valid: true,
         value: num.toFixed(precision),
       };
     }
-    precision = Math.max(getPrecision(num), getPrecision(step))
+    precision = Math.max(getPrecision(num), getPrecision(step));
     return {
       valid: true,
       value: num.toFixed(precision),

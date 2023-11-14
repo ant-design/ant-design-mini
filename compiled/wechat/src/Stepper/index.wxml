@@ -8,7 +8,7 @@
     type="text"
     data-mode="minus"
     disabled="{{ disabled || (mixin.value !== '' && mixin.value <= min) }}"
-    onTap="onTap" />
+    bind:tap="onTap" />
   <view class="ant-stepper-input-wrap">
     <ant-input
       className="ant-stepper-input {{ disabled ? 'ant-stepper-input-disabled' : '' }} {{ inputClassName ? inputClassName : '' }}"
@@ -20,10 +20,10 @@
       confirm-hold="{{ confirmHold }}"
       disabled="{{ disabled }}"
       focus="{{ focus }}"
-      onChange="onChange"
-      onFocus="onFocus"
-      onBlur="onBlur"
-      onConfirm="onConfirm"
+      bind:change="onChange"
+      bind:focus="onFocus"
+      bind:blur="onBlur"
+      bind:confirm="onConfirm"
       value="{{ mixin.value }}" />
   </view>
   <ant-button
@@ -33,5 +33,5 @@
     type="text"
     data-mode="add"
     disabled="{{ disabled || (mixin.value !== '' && mixin.value >= max) }}"
-    onTap="onTap" />
+    bind:tap="onTap" />
 </view>

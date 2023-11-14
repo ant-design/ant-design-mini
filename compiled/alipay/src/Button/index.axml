@@ -18,7 +18,7 @@
   class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : '') }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
   style="{{ style }}">
   <view class="ant-button-wrap">
-    <icon
+    <ant-icon
       a:if="{{ !!icon }}"
       type="{{ icon }}" />
     <view

@@ -22,10 +22,6 @@ export default (
     selectionStart,
     selectionEnd,
     randomNumber,
-    onChange,
-    onConfirm,
-    onFocus,
-    onBlur,
   }: TSXMLProps<InputBlurProps>,
   { inputValue }
 ) => (
@@ -52,9 +48,9 @@ export default (
     selection-start={selectionStart}
     selection-end={selectionEnd}
     random-number={randomNumber}
-    onInput={onChange}
-    onConfirm={onConfirm}
-    onFocus={onFocus}
-    onBlur={onBlur}
+    onInput="onChange"
+    onConfirm="onConfirm"
+    onFocus="onFocus"
+    onBlur="onBlur"
   />
 );

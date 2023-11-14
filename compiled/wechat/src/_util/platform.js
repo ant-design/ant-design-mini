@@ -8,3 +8,9 @@ export function platform() {
     platform = 'wechat';
     return platform;
 }
+export function resolveEventValue(value) {
+    if (platform() === 'wechat') {
+        return value.detail;
+    }
+    return value;
+}

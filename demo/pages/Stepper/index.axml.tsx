@@ -3,7 +3,7 @@ import AntButton from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
 import Stepper from '../../../src/Stepper/index.axml';
 
-export default (_, { value }: InternalData) => (
+export default (_, { value, }: InternalData) => (
   <Page>
     <Container title="基础用法">
       <Stepper

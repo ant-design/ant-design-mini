@@ -1,5 +1,5 @@
 import { Button, View, TSXMLProps, Slot } from 'tsxml';
-import Icon from '../Icon/index.axml';
+import AntIcon from '../Icon/index.axml';
 import Loading from '../Loading/index.axml';
 import utils from './index.sjs';
 import { IButtonProps } from './props';
@@ -59,7 +59,7 @@ export default ({
     style={style}
   >
     <View class="ant-button-wrap">
-      {!!icon && <Icon type={icon} />}
+      {!!icon && <AntIcon type={icon} />}
       <View
         class={`ant-button-content-text ${
           icon ? 'ant-button-content-text-margin' : ''

@@ -21,3 +21,14 @@ export function platform() {
 
   return platform;
 }
+
+export function resolveEventValue(value) {
+  /// #if WECHAT
+
+  if (platform() === 'wechat') {
+    return value.detail;
+  }
+  /// #endif
+
+  return value;
+}

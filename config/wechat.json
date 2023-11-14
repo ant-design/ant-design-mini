@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/Container",
+    "pages/Stepper",
     "pages/Button",
     "pages/ButtonIcon",
     "pages/ButtonCustom",
@@ -35,6 +36,7 @@
     "ImageIcon",
     "Result",
     "Popover",
-    "Mask"
+    "Mask",
+    "Stepper"
   ]
 }

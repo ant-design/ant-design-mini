@@ -89,7 +89,6 @@ mountComponent<InputBlurProps>(InputBlur, {
   selectionEnd: null,
   cursor: null,
   controlled: null,
-  maxLength: null,
   inputClassName: null,
   inputStyle: null,
   focus: null,

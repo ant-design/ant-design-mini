@@ -3,6 +3,7 @@ import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
+import { resolveEventValue } from '../_util/platform';
 import { IStepperProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
 
@@ -40,13 +41,9 @@ const Stepper = (props: IStepperProps) => {
   useEvent(
     'onChange',
     (v, event) => {
-      const state = update(v);
+      const state = update(resolveEventValue(v));
       if (state.changed) {
-        triggerEvent(
-          'change',
-          state.newValue === '' ? null : Number(state.newValue),
-          event
-        );
+        triggerEvent('change', toNumber(state.newValue), event);
       }
     },
     [value]
@@ -60,7 +57,7 @@ const Stepper = (props: IStepperProps) => {
   );
   useEvent(
     'onBlur',
-    (event) => {
+    (_v, event) => {
       if (isControlled) {
         const state = update(props.value);
         if (state.changed) {
@@ -87,7 +84,7 @@ const Stepper = (props: IStepperProps) => {
         const { mode } = e.currentTarget.dataset;
         let result = newValue;
         const precision =
-          props.precision >= 0
+          typeof props.precision === 'number' && props.precision >= 0
             ? props.precision
             : Math.max(getPrecision(newValue), getPrecision(step));
         if (mode === 'minus') {
@@ -125,13 +122,13 @@ const Stepper = (props: IStepperProps) => {
 
 mountComponent(Stepper, {
   value: null,
-  min: null,
-  max: null,
+  defaultValue: null,
+  precision: -1,
+  min: Number.MIN_SAFE_INTEGER,
+  max: Number.MAX_SAFE_INTEGER,
   step: 1,
   type: 'digit',
-  precision: null,
   inputClassName: '',
   inputStyle: '',
   disabled: false,
-  defaultValue: null,
 });
