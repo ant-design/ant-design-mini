@@ -30,9 +30,6 @@ export function useMixState(defaultStateValue, option) {
     var state = postState(value);
     var merge = hasValue(value) && state.valid ? state.value : innerValue;
     useLayoutUpdateEffect(function () {
-        if (!hasValue(value)) {
-            return;
-        }
         var state = postState(value);
         if (state.valid) {
             setInnerValue(state.value);

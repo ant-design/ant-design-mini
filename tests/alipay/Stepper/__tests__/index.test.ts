@@ -371,7 +371,6 @@ describe('stepper', () => {
         defaultValue: 0.1,
         step: 0.1,
         onFocus(value: number | null) {
-          console.log('onFocus', value);
           onFoucsValue = value;
         },
         onChange(value: number | null) {
