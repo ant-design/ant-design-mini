@@ -1,4 +1,4 @@
-import { useEvent } from 'functional-mini/component';
+import { useEvent, useRef } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
@@ -31,10 +31,11 @@ const Stepper = (props: IStepperProps) => {
       },
     }
   );
-
+  const valueRef = useRef();
   useLayoutUpdateEffect(() => {
     const { valid, value } = formatValue(props.value);
     if (valid) {
+      valueRef.current = value;
       setValue(value);
     }
   }, [props.value]);
@@ -42,6 +43,7 @@ const Stepper = (props: IStepperProps) => {
   function updateValue(val: number | string, precision?: number) {
     const { value: newValue, valid } = formatValue(val, precision);
     if (valid && newValue !== value) {
+      valueRef.current = newValue;
       setValue(newValue);
       return { changed: true, newValue };
     }
@@ -51,9 +53,13 @@ const Stepper = (props: IStepperProps) => {
   useEvent(
     'onFocus',
     (e) => {
-      triggerEvent('focus', value === '' ? null : Number(value), e);
+      triggerEvent(
+        'focus',
+        valueRef.current === '' ? null : Number(valueRef.current),
+        e
+      );
     },
-    [value]
+    []
   );
   useEvent(
     'onChange',
@@ -72,7 +78,11 @@ const Stepper = (props: IStepperProps) => {
   useEvent(
     'onConfirm',
     (_v, event) => {
-      triggerEvent('confirm', value === '' ? null : Number(value), event);
+      triggerEvent(
+        'confirm',
+        valueRef.current === '' ? null : Number(valueRef.current),
+        event
+      );
     },
     [value]
   );
@@ -88,10 +98,18 @@ const Stepper = (props: IStepperProps) => {
             event
           );
         } else {
-          triggerEvent('blur', value === '' ? null : Number(value), event);
+          triggerEvent(
+            'blur',
+            valueRef.current === '' ? null : Number(valueRef.current),
+            event
+          );
         }
       } else {
-        triggerEvent('blur', value === '' ? null : Number(value), event);
+        triggerEvent(
+          'blur',
+          valueRef.current === '' ? null : Number(valueRef.current),
+          event
+        );
       }
     },
     [value, props]
