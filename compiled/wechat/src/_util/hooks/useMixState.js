@@ -27,7 +27,12 @@ export function useMixState(defaultStateValue, option) {
             return state.value;
         }
     }), innerValue = _c[0], setInnerValue = _c[1];
+    var state = postState(value);
+    var merge = hasValue(value) && state.valid ? state.value : innerValue;
     useLayoutUpdateEffect(function () {
+        if (!hasValue(value)) {
+            return;
+        }
         var state = postState(value);
         if (state.valid) {
             setInnerValue(state.value);
@@ -38,7 +43,7 @@ export function useMixState(defaultStateValue, option) {
     });
     var isControlled = hasValue(value);
     return [
-        innerValue,
+        merge,
         {
             isControlled: isControlled,
             update: function (value, option) {
