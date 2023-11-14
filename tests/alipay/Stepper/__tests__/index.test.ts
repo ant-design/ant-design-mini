@@ -156,7 +156,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
-    await sleep(0);
+    await sleep(10);
     expect(instance1.getData().mixin.value).toBe('1.0');
 
     const instance2 = getInstance(
@@ -173,7 +173,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
-    await sleep(0);
+    await sleep(10);
     expect(instance2.getData().mixin.value).toBe('1.02');
   });
 
@@ -192,7 +192,7 @@ describe('stepper', () => {
         'data-mode': 'minus',
       })
     );
-    await sleep(0);
+    await sleep(10);
     expect(instance1.getData().mixin.value).toBe('0.0');
 
     const instance2 = getInstance(
@@ -212,7 +212,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
-    await sleep(0);
+    await sleep(10);
     expect(instance2.getData().mixin.value).toBe('0.3');
   });
 
@@ -232,7 +232,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
-    await sleep(0);
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe('1.1');
   });
 
@@ -252,7 +252,7 @@ describe('stepper', () => {
         'data-mode': 'minus',
       })
     );
-    await sleep(0);
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe('0.9');
   });
 
@@ -456,7 +456,7 @@ describe('stepper', () => {
     );
 
     instance.callMethod('onChange', '1.00');
-    await sleep(0);
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe('1.0');
     instance.callMethod('onChange', '1.000');
     expect(instance.getData().mixin.value).toBe('1.0');
@@ -477,7 +477,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
-    await sleep(0);
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe('1.1');
     instance.setProps({ disabled: true });
     instance.callMethod(
@@ -494,7 +494,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
-    await sleep(0);
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe('2.1');
   });
 
