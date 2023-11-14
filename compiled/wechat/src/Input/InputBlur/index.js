@@ -65,7 +65,6 @@ mountComponent(InputBlur, {
     selectionEnd: null,
     cursor: null,
     controlled: null,
-    maxLength: null,
     inputClassName: null,
     inputStyle: null,
     focus: null,
@@ -74,4 +73,5 @@ mountComponent(InputBlur, {
     name: null,
     type: null,
     randomNumber: null,
+    maxLength: -1,
 });

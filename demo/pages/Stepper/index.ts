@@ -1,5 +1,8 @@
+import { resolveEventValue } from './utils';
+
 Page({
-  data: {},
+  data: {
+  },
   onChange(value) {
     console.log('onChange', value);
   },
@@ -15,7 +18,7 @@ Page({
   handleChange(value) {
     console.log('onChange', value);
     this.setData({
-      value,
+      value:resolveEventValue(value),
     });
   },
   add() {
@@ -25,7 +28,7 @@ Page({
   },
   minus() {
     this.setData({
-      value: this.data.value - 1,
+      value: (this.data.value || 0) - 1,
     });
   },
   clear() {

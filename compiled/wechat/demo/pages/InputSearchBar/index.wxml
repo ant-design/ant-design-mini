@@ -7,7 +7,7 @@
     confirm-type="search"
     allowClear
     focus
-    onConfirm="onConfirm">
+    bind:confirm="onConfirm">
     <icon
       slot="prefix"
       type="SearchOutline" />

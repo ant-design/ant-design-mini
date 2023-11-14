@@ -58,6 +58,9 @@ export const wechat: PlatformConfig = {
       onChange: 'bind:change',
     },
     'ant-input': {
+      onBlur: 'bind:blur',
+      onConfirm: 'bind:confirm',
+      onFocus: 'bind:focus',
       onChange: 'bind:change',
     },
   },

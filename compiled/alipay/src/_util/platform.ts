@@ -13,3 +13,8 @@ export function platform() {
 
   return platform;
 }
+
+export function resolveEventValue(value) {
+
+  return value;
+}

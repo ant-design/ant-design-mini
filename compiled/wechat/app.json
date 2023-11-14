@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/Stepper/index",
     "demo/pages/Input/index",
     "demo/pages/InputCustom/index",
     "demo/pages/InputSearchBar/index",

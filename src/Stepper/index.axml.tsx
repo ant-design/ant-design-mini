@@ -60,7 +60,7 @@ export default (
       icon="AddOutline"
       type="text"
       data-mode="add"
-      disabled={disabled || mixin.value >= max}
+      disabled={disabled || (mixin.value !== '' && mixin.value >= max)}
       onTap="onTap"
     />
   </View>

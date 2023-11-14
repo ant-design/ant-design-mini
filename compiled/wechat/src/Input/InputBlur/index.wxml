@@ -19,7 +19,7 @@
   selection-start="{{ selectionStart }}"
   selection-end="{{ selectionEnd }}"
   random-number="{{ randomNumber }}"
-  bindinput="{{ onChange }}"
-  bindconfirm="{{ onConfirm }}"
-  bindfocus="{{ onFocus }}"
-  bindblur="{{ onBlur }}" />
+  bindinput="onChange"
+  bindconfirm="onConfirm"
+  bindfocus="onFocus"
+  bindblur="onBlur" />
