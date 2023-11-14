@@ -54,13 +54,9 @@ export function useMixState<T, R = T, O = undefined>(
   });
 
   const state = postState(value);
-
   const merge = hasValue(value) && state.valid ? state.value : innerValue;
 
   useLayoutUpdateEffect(() => {
-    if (!hasValue(value)) {
-      return;
-    }
     const state = postState(value);
     if (state.valid) {
       setInnerValue(state.value);
@@ -71,7 +67,6 @@ export function useMixState<T, R = T, O = undefined>(
     setInnerValue(newState, ignoreDestroy);
   });
   const isControlled = hasValue(value);
-
   return [
     merge as unknown as R,
     {
