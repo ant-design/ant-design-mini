@@ -1,74 +1,50 @@
-import { useEvent, useRef } from 'functional-mini/component';
+import { useEvent } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useLayoutUpdateEffect } from '../_util/hooks/useLayoutEffect';
-import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
+import { useMixState } from '../_util/hooks/useMixState';
 import { IStepperProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
 
 const Stepper = (props: IStepperProps) => {
-  function formatValue(num: string | number, precision?: number) {
-    const { valid, value } = getValidNumber(
-      num,
-      props.min,
-      props.max,
-      props.step,
-      precision >= 0 ? precision : props.precision
-    );
-    if (valid) {
-      return { valid, value };
-    }
-    return { valid: false };
-  }
-  const isControlled = hasValue(props.value);
-  const [value, setValue] = useMergedState<number | string>(
-    props.defaultValue,
-    {
-      defaultValue: props.value,
-      postState(value) {
-        return formatValue(value).value;
-      },
-    }
-  );
-  const valueRef = useRef();
-  useLayoutUpdateEffect(() => {
-    const { valid, value } = formatValue(props.value);
-    if (valid) {
-      valueRef.current = value;
-      setValue(value);
-    }
-  }, [props.value]);
+  const [value, { isControlled, update }] = useMixState<
+    number | string,
+    number | string,
+    number
+  >(props.defaultValue, {
+    value: props.value,
+    postState(num: string | number, precision?: number) {
+      const { valid, value } = getValidNumber(
+        num,
+        props.min,
+        props.max,
+        props.step,
+        precision >= 0 ? precision : props.precision
+      );
+      if (valid) {
+        return { valid, value };
+      }
+      return { valid: false };
+    },
+  });
 
-  function updateValue(val: number | string, precision?: number) {
-    const { value: newValue, valid } = formatValue(val, precision);
-    if (valid && newValue !== value) {
-      valueRef.current = newValue;
-      setValue(newValue);
-      return { changed: true, newValue };
-    }
-    return { changed: false };
-  }
   const { triggerEvent } = useComponentEvent(props);
+  const toNumber = (v: string | number) => (v === '' ? null : Number(v));
   useEvent(
     'onFocus',
     (e) => {
-      triggerEvent(
-        'focus',
-        valueRef.current === '' ? null : Number(valueRef.current),
-        e
-      );
+      triggerEvent('focus', toNumber(value), e);
     },
-    []
+    [value]
   );
   useEvent(
     'onChange',
     (v, event) => {
-      const { changed, newValue } = updateValue(v);
-      if (changed) {
+      const state = update(v);
+      if (state.changed) {
         triggerEvent(
           'change',
-          newValue === '' ? null : Number(newValue),
+          state.newValue === '' ? null : Number(state.newValue),
           event
         );
       }
@@ -78,11 +54,7 @@ const Stepper = (props: IStepperProps) => {
   useEvent(
     'onConfirm',
     (_v, event) => {
-      triggerEvent(
-        'confirm',
-        valueRef.current === '' ? null : Number(valueRef.current),
-        event
-      );
+      triggerEvent('confirm', value === '' ? null : Number(value), event);
     },
     [value]
   );
@@ -90,26 +62,18 @@ const Stepper = (props: IStepperProps) => {
     'onBlur',
     (event) => {
       if (isControlled) {
-        const { changed, newValue } = updateValue(props.value);
-        if (changed) {
+        const state = update(props.value);
+        if (state.changed) {
           triggerEvent(
             'blur',
-            newValue === '' ? null : Number(newValue),
+            state.newValue === '' ? null : Number(state.newValue),
             event
           );
         } else {
-          triggerEvent(
-            'blur',
-            valueRef.current === '' ? null : Number(valueRef.current),
-            event
-          );
+          triggerEvent('blur', value === '' ? null : Number(value), event);
         }
       } else {
-        triggerEvent(
-          'blur',
-          valueRef.current === '' ? null : Number(valueRef.current),
-          event
-        );
+        triggerEvent('blur', value === '' ? null : Number(value), event);
       }
     },
     [value, props]
@@ -139,7 +103,7 @@ const Stepper = (props: IStepperProps) => {
           }
         }
         if (!isControlled) {
-          const { changed } = updateValue(result, precision);
+          const { changed } = update(result, precision);
           if (!changed) {
             return;
           }

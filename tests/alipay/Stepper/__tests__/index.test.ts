@@ -270,6 +270,7 @@ describe('stepper', () => {
       },
       my
     );
+
     expect(instance.getData().mixin.value).toBe('1.0');
     instance.callMethod(
       'onTap',
@@ -277,8 +278,8 @@ describe('stepper', () => {
         'data-mode': 'minus',
       })
     );
-    await sleep(0);
     expect(onChangeValue).toBe(0.9);
+
     expect(instance.getData().mixin.value).toBe('1.0');
     instance.setProps({
       value: 0.9,
@@ -290,7 +291,6 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
-    await sleep(0);
     expect(onChangeValue).toBe(1);
     expect(instance.getData().mixin.value).toBe('0.9');
     instance.setProps({
@@ -371,6 +371,7 @@ describe('stepper', () => {
         defaultValue: 0.1,
         step: 0.1,
         onFocus(value: number | null) {
+          console.log('onFocus', value);
           onFoucsValue = value;
         },
         onChange(value: number | null) {
@@ -391,8 +392,8 @@ describe('stepper', () => {
         'data-mode': 'minus',
       })
     );
-    await sleep(10);
     expect(onChangeValue).toBe(0);
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe('0.0');
     instance.callMethod(
       'onTap',
@@ -404,7 +405,6 @@ describe('stepper', () => {
     expect(instance.getData().mixin.value).toBe('0.1');
     expect(onChangeValue).toBe(0.1);
     instance.callMethod('onChange', '.');
-    await sleep(10);
     expect(onChangeValue).toBe(0.1);
     instance.callMethod('onChange', '');
     expect(onChangeValue).toBe(null);
@@ -419,7 +419,6 @@ describe('stepper', () => {
     instance.callMethod('onChange', '1');
     await sleep(10);
     instance.callMethod('onFocus');
-    await sleep(10);
     expect(onFoucsValue).toBe(1);
     instance.callMethod('onBlur');
     expect(onBlurValue).toBe(1);
