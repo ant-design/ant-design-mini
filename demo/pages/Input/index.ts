@@ -1,5 +1,3 @@
-import { resolveEventValue } from './utils';
-
 Page({
   data: {
     value: '',
@@ -9,18 +7,39 @@ Page({
     console.log(value, e);
   },
   handleChange(value) {
+    /// #if ALIPAY
     this.setData({
-      value: resolveEventValue(value),
+      value,
     });
+    /// #endif
+
+    /// #if WECHAT
+    this.setData({
+      value: value.detail,
+    });
+    /// #endif
   },
+
   handleMoney(value) {
     console.log(value);
-    if (isNaN(Number(resolveEventValue(value)))) {
+
+    /// #if ALIPAY
+    if (isNaN(Number(value))) {
       return;
     }
     this.setData({
-      money: resolveEventValue(value),
+      money: value,
     });
+    /// #endif
+
+    /// #if WECHAT
+    if (isNaN(Number(value.detail))) {
+      return;
+    }
+    this.setData({
+      money: value.detail,
+    });
+    /// #endif
   },
   clear() {
     this.setData({
@@ -28,7 +47,13 @@ Page({
     });
   },
   handleRef(input) {
-    this.input = resolveEventValue(input);
+    /// #if WECHAT
+    this.input = input.detail;
+    /// #endif
+
+    /// #if ALIPAY
+    this.input = input;
+    /// #endif
   },
   clearByInputRef() {
     this.input.update('');

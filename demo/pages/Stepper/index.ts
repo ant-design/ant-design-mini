@@ -1,8 +1,5 @@
-import { resolveEventValue } from './utils';
-
 Page({
-  data: {
-  },
+  data: {},
   onChange(value) {
     console.log('onChange', value);
   },
@@ -17,9 +14,18 @@ Page({
   },
   handleChange(value) {
     console.log('onChange', value);
+
+    /// #if ALIPAY
     this.setData({
-      value:resolveEventValue(value),
+      value: value,
     });
+    /// #endif
+
+    /// #if WECHAT
+    this.setData({
+      value: value.detail,
+    });
+    /// #endif
   },
   add() {
     this.setData({
