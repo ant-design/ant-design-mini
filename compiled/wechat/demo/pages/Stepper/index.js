@@ -1,4 +1,3 @@
-import { resolveEventValue } from './utils';
 Page({
     data: {},
     onChange: function (value) {
@@ -16,7 +15,7 @@ Page({
     handleChange: function (value) {
         console.log('onChange', value);
         this.setData({
-            value: resolveEventValue(value),
+            value: value.detail,
         });
     },
     add: function () {
