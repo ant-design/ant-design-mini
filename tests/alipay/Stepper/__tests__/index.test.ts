@@ -21,6 +21,10 @@ describe('stepper', () => {
   });
 
   it('getValidNumber', async () => {
+    expect(getValidNumber(undefined, undefined, undefined, 1, 1)).toEqual({
+      valid: true,
+      value: '',
+    });
     expect(getValidNumber(undefined, -Infinity, Infinity, 1, 1)).toEqual({
       valid: true,
       value: '',
@@ -495,6 +499,21 @@ describe('stepper', () => {
     );
     await sleep(10);
     expect(instance.getData().mixin.value).toBe('2.1');
+  });
+
+  it('测试 onChange 变化', async () => {
+    const onChange = vi.fn();
+    const instance = getInstance(
+      'Stepper',
+      {
+        defaultValue: 0.1,
+        onChange,
+      },
+      my
+    );
+    instance.callMethod('onChange', '1.00');
+    expect(onChange.mock.calls.length).toBe(1);
+    expect(onChange.mock.calls[0][0]).toBe(1);
   });
 
   it('测试 onChange 变化', async () => {
