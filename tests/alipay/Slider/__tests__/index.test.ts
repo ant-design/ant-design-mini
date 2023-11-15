@@ -118,6 +118,18 @@ it('测试双滑块滑动', async () => {
   ]);
 });
 
+it('测试 range 的默认值', async () => {
+  const instance = testSlider(
+    {
+      range: true,
+      min: 0,
+      max: 4,
+    },
+    selectorMock
+  );
+  expect(instance.getData().mixin.value).toEqual([0, 0]);
+});
+
 it('测试 tickList', async () => {
   const instance = testSlider({
     checked: false,
@@ -184,6 +196,19 @@ describe('受控模式', () => {
       selectorMock
     );
     expect(instance.getData().mixin.value).toBe(0);
+  });
+
+  it('测试 range 的 value 超出范围的情况', async () => {
+    const instance = testSlider(
+      {
+        value: [-1, 5],
+        range: true,
+        min: 0,
+        max: 4,
+      },
+      selectorMock
+    );
+    expect(instance.getData().mixin.value).toEqual([0, 4]);
   });
 
   it('测试受控模式', async () => {
