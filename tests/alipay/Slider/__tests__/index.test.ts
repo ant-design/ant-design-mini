@@ -1,8 +1,8 @@
 import { createSelectorQueryFactory, MockSelect } from 'tests/selector-query';
 import { getInstance, sleep, TestInstance } from 'tests/utils';
-import { expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
-function testSlider(props, mock?: MockSelect) {
+function testSlider(props, mock?: MockSelect): TestInstance {
   const my = {
     canIUse() {
       return true;
@@ -12,47 +12,6 @@ function testSlider(props, mock?: MockSelect) {
   const instance = getInstance('Slider', props, my);
   return instance;
 }
-
-async function touchEvent(
-  instance: TestInstance,
-  event: string,
-  pageX: number,
-  id = ''
-) {
-  instance.callMethod(event, {
-    currentTarget: {
-      id,
-    },
-    changedTouches: [
-      {
-        pageX: pageX,
-      },
-    ],
-  });
-  await sleep(10);
-}
-
-it('测试滚动到末尾', async () => {
-  const selectorMock = vi.fn().mockImplementation(async () => {
-    return {
-      left: 0,
-      width: 100,
-    };
-  });
-  const instance = testSlider(
-    {
-      min: 0,
-      max: 50,
-    },
-    selectorMock
-  );
-  await touchEvent(instance, 'handleTrackTouchStart', -10);
-  expect(instance.getData().mixin.value).toBe(0);
-  await touchEvent(instance, 'handleTrackTouchEnd', 30);
-  expect(instance.getData().mixin.value).toBe(15);
-  await touchEvent(instance, 'handleTrackTouchEnd', 110);
-  expect(instance.getData().mixin.value).toBe(50);
-});
 
 async function callStep(
   instance: TestInstance,
@@ -75,13 +34,49 @@ async function callStep(
   return dataList;
 }
 
-it('测试 step 为 0.5', async () => {
-  const selectorMock = vi.fn().mockImplementation(async () => {
-    return {
-      left: 0,
-      width: 100,
-    };
+const selectorMock = vi.fn().mockImplementation(async () => {
+  return {
+    left: 0,
+    width: 100,
+  };
+});
+
+async function touchEvent(
+  instance: TestInstance,
+  event: string,
+  pageX: number,
+  id = ''
+) {
+  instance.callMethod(event, {
+    currentTarget: {
+      id,
+    },
+    changedTouches: [
+      {
+        pageX: pageX,
+      },
+    ],
   });
+  await sleep(10);
+}
+
+it('测试滚动到末尾', async () => {
+  const instance = testSlider(
+    {
+      min: 0,
+      max: 50,
+    },
+    selectorMock
+  );
+  await touchEvent(instance, 'handleTrackTouchStart', -10);
+  expect(instance.getData().mixin.value).toBe(0);
+  await touchEvent(instance, 'handleTrackTouchEnd', 30);
+  expect(instance.getData().mixin.value).toBe(15);
+  await touchEvent(instance, 'handleTrackTouchEnd', 110);
+  expect(instance.getData().mixin.value).toBe(50);
+});
+
+it('测试 step 为 0.5', async () => {
   const instance = testSlider(
     {
       min: 0,
@@ -96,12 +91,6 @@ it('测试 step 为 0.5', async () => {
 });
 
 it('测试双滑块滑动', async () => {
-  const selectorMock = vi.fn().mockImplementation(async () => {
-    return {
-      left: 0,
-      width: 100,
-    };
-  });
   const instance = testSlider(
     {
       min: 0,
@@ -156,26 +145,103 @@ it('测试 tickList', async () => {
   `);
 });
 
-it('测试受控模式', async () => {
-  const selectorMock = vi.fn().mockImplementation(async () => {
-    return {
-      left: 0,
-      width: 100,
-    };
+describe('受控模式', () => {
+  it('测试 value 大于 max 的情况', async () => {
+    const instance = testSlider(
+      {
+        value: 5,
+        min: 0,
+        max: 4,
+        showTicks: true,
+      },
+      selectorMock
+    );
+    expect(instance.getData().mixin.value).toBe(4);
   });
 
-  const instance = testSlider(
-    {
-      value: 2,
-      min: 0,
-      max: 4,
-      step: 0.5,
-      showTicks: true,
-    },
-    selectorMock
-  );
-  await touchEvent(instance, 'handleTrackTouchStart', 0);
-  expect(instance.getData().mixin.value).toBe(2);
-  expect(instance.getData().changingEnd).toBe(true);
-  expect(instance.getData().changingStart).toBe(false);
+  it('测试 defaultValue 大于 max 的情况', async () => {
+    const instance = testSlider(
+      {
+        defaultValue: 5,
+        min: 0,
+        max: 4,
+        showTicks: true,
+      },
+      selectorMock
+    );
+    expect(instance.getData().mixin.value).toBe(4);
+  });
+
+  it('测试 defaultValue 与 value 优先级', async () => {
+    const instance = testSlider(
+      {
+        value: -1,
+        defaultValue: 5,
+        min: 0,
+        max: 4,
+        showTicks: true,
+      },
+      selectorMock
+    );
+    expect(instance.getData().mixin.value).toBe(0);
+  });
+
+  it('测试受控模式', async () => {
+    const instance = testSlider(
+      {
+        value: 2,
+        min: 0,
+        max: 4,
+        step: 0.5,
+        showTicks: true,
+      },
+      selectorMock
+    );
+    await touchEvent(instance, 'handleTrackTouchStart', 0);
+    expect(instance.getData().mixin.value).toBe(2);
+    expect(instance.getData().changingEnd).toBe(true);
+    expect(instance.getData().changingStart).toBe(false);
+
+    instance.setProps({
+      value: 3,
+    });
+    expect(instance.getData().mixin.value).toBe(3);
+  });
+});
+
+describe('事件测试', () => {
+  it('测试 onAfterChange', async () => {
+    const onAfterChange = vi.fn();
+    const instance = testSlider(
+      {
+        onAfterChange,
+      },
+      selectorMock
+    );
+    await touchEvent(instance, 'handleTrackTouchStart', 50);
+    expect(instance.getData().mixin.value).toBe(50);
+    await touchEvent(instance, 'handleTrackTouchEnd', 51);
+    expect(onAfterChange.mock.calls[0][0]).toEqual(51);
+  });
+
+  it('数据不变的情况下 onChange 只会调用一次', async () => {
+    const onChange = vi.fn();
+    const instance = testSlider(
+      {
+        min: 0,
+        max: 4,
+        onChange,
+      },
+      selectorMock
+    );
+    await touchEvent(instance, 'handleTrackTouchStart', 50);
+    expect(instance.getData().mixin.value).toBe(2);
+    await touchEvent(instance, 'handleTrackTouchMove', 55);
+    await touchEvent(instance, 'handleTrackTouchMove', 60);
+    expect(onChange.mock.lastCall[0]).toEqual(2);
+    expect(onChange.mock.calls.length).toBe(1);
+    await touchEvent(instance, 'handleTrackTouchEnd', 75);
+    expect(onChange.mock.lastCall[0]).toEqual(3);
+    expect(onChange.mock.calls.length).toBe(2);
+  });
 });
