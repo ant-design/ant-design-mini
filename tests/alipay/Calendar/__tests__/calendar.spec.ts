@@ -269,11 +269,11 @@ describe('Calendar', () => {
     });
     await sleep(100);
     extendFunctions.clickCell('2023-01-06');
-    await sleep(50);
+    await sleep(100);
     expect(getLastChange()).toEqual('2023-01-06');
     expect(getSelectedDay(instance.getData())).toEqual(['2023-01-06']);
     extendFunctions.clickCell('2023-01-02');
-    await sleep(50);
+    await sleep(100);
     expect(getLastChange()).toEqual('2023-01-02');
     expect(getSelectedDay(instance.getData())).toEqual(['2023-01-02']);
     instance.setProps({
