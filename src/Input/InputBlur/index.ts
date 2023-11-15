@@ -98,6 +98,7 @@ mountComponent<InputBlurProps>(InputBlur, {
   type: null,
   randomNumber: null,
   /// #if WECHAT
+  // 微信小程序的 maxLength 需要为 -1 才能不限制输入长度。 不能传 null
   maxLength: -1,
   /// #endif
 });
