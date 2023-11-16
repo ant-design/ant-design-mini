@@ -24,6 +24,7 @@ export interface ITransformContext<T extends types.Node = types.Node> {
   getAttrName(tagName: string, name: string): string;
   getTagName(tagName: string): string;
   toAxmlExpression(disableFormatWhenMultipleLine?: boolean): string;
+  toAxmlObject(): string;
 }
 
 export class TransformError extends Error {
@@ -118,6 +119,14 @@ export class TransformContext<T extends types.Node = types.Node>
     }
 
     return res;
+  }
+
+  toAxmlObject() {
+    return `{${
+      generate(this.node, {
+        compact: true,
+      }).code
+    }}`;
   }
 
   getAttrName(tagName: string, name: string): string {

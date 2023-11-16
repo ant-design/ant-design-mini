@@ -272,6 +272,9 @@ function transformAttrExpression(ctx: ITransformContext) {
     case 'CallExpression': {
       return ctx.toAxmlExpression();
     }
+    case 'ObjectExpression': {
+      return ctx.toAxmlObject();
+    }
     default: {
       throw ctx.throw(ctx.node, '解析 Attribute 失败 + ' + expression.type);
     }
