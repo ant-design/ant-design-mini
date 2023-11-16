@@ -6,7 +6,6 @@ import { IBaseProps } from '../_util/base';
 
 export type SliderValue = number | [number, number];
 
-
 export interface ISliderProps extends IBaseProps {
   /**
    * @description 当前值
@@ -61,14 +60,18 @@ export interface ISliderProps extends IBaseProps {
    * @description 是否在拖动时显示悬浮提示
    * @default false
    */
-   showTooltip: boolean;
+  showTooltip: boolean;
+
+  activeLineClassName?: string;
+  sliderWidth?: string;
+  sliderLeft?: string;
 
   /**
    * @description 输入变化的时候触发， 参数为滑动组件的当前值
    */
   onChange: (value: SliderValue, event) => void;
 
-  /** 
+  /**
    * @description 与 touchend 触发时机一致，把当前值作为参数传入
    */
   onAfterChange: (value: SliderValue, event) => void;

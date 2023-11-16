@@ -29,6 +29,7 @@ export interface Props {
   bindchooseavatar?: string;
   onTouchMove?: string;
   catchTouchStart?: string;
+  onTouchStart?: string;
   onTouchEnd?: string;
   catchTouchEnd?: string;
   catchTouchMove?: string;
