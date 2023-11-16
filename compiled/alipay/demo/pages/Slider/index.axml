@@ -98,15 +98,13 @@
       >{{ props.value }}</text
     >
 
-    <slot name="showTooltip">{{ value }}°C</slot>
-
-    <slot name="slider">
+    <view slot="slider">
       <view class="custom-slider-handler">
         <icon
           type="SmileOutline"
           style="color: #ff8f1f" />
       </view>
-    </slot>
+    </view>
   </slider>
 </container>
 
