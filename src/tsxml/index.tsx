@@ -2,6 +2,7 @@ import { Props } from './type';
 
 export { Textarea } from './textarea';
 export { Input } from './input';
+export { Template } from './template';
 
 export const Text = (props: Props): any => {};
 

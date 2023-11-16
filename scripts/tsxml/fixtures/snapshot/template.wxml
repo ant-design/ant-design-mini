@@ -1,0 +1,11 @@
+<view>
+  <template name="taskTpl">
+    <view class="task-item">
+      <!-- display: inline -->
+      <text class="desc">{{ taskDescription }}</text>
+    </view>
+  </template>
+  <template
+    is="taskTpl"
+    data="{{ taskDescription }}" />
+</view>

@@ -1,0 +1,133 @@
+import { View, Template, TSXMLProps } from 'tsxml';
+import sliderSjs from './index.sjs';
+import { ISliderProps } from './props';
+import Popover from '../Popover/index.axml';
+
+export default (
+  {
+    className,
+    disabled,
+    showNumber,
+    id,
+    activeLineClassName,
+    sliderWidth,
+    sliderLeft,
+
+    showTooltip,
+
+    range,
+    value,
+  }: TSXMLProps<ISliderProps>,
+  {
+    tickList,
+    changingStart,
+    changingEnd,
+    mixin,
+    icon,
+    activeLineStyle,
+    activeDotClassName,
+    activeDotStyle,
+    position,
+  }
+) => (
+  <Component>
+    <Template name="slider-handler">
+      <View class="ant-slider-handler" style={`left: ${position}%`}>
+        <Popover placement="top" visible={showTooltip} showMask={false}>
+          {/* #if ALIPAY */}
+          <slot name="slider">
+            {/* #endif */}
+            <View class="ant-slider-handler-block">
+              <View class="ant-slider-handler-icon-default">
+                <View class="ant-slider-handler-icon-default-line1" />
+                <View class="ant-slider-handler-icon-default-line2" />
+                <View class="ant-slider-handler-icon-default-line3" />
+              </View>
+            </View>
+            {/* #if ALIPAY */}
+          </slot>
+          {/* #endif */}
+
+          <View slot="content" class="ant-slider-tooltip-content">
+            {value}
+          </View>
+        </Popover>
+      </View>
+    </Template>
+
+    <View
+      class={`ant-slider ${className ? className : ''}`}
+      style={`opacity: ${disabled ? '0.4' : '1'}`}
+    >
+      <View
+        class={`ant-slider-track ${
+          showNumber ? 'ant-slider-track-number' : ''
+        }`}
+      >
+        <View
+          class="ant-slider-track-touch-area"
+          id={`ant-slider-id-${id}`}
+          onTouchStart="handleTrackTouchStart"
+          onTouchEnd="handleTrackTouchEnd"
+          onTouchMove="handleTrackTouchMove"
+        >
+          <View class="ant-slider-track-fill">
+            <View class="ant-slider-track-fill-background" />
+            <View
+              class={`ant-slider-track-fill-front ${activeLineClassName || ''}`}
+              style={`width: ${sliderWidth}%; left: ${sliderLeft}%; ${
+                activeLineStyle || ''
+              }`}
+            >
+              <View class="ant-slider-showTicks">
+                {tickList.map((item) => (
+                  <View
+                    class={`ant-slider-tick ant-slider-tick-${
+                      sliderSjs.isFrontTick(item, sliderLeft, sliderWidth)
+                        ? 'front'
+                        : 'back'
+                    } ${
+                      sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) &&
+                      activeDotClassName
+                        ? activeDotClassName
+                        : ''
+                    }`}
+                    style={`left: ${item.left}%;${
+                      sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) &&
+                      activeDotStyle
+                        ? activeDotStyle
+                        : ''
+                    }`}
+                  >
+                    {showNumber && (
+                      <View class="ant-slider-tick-number">{item.value}</View>
+                    )}
+                  </View>
+                ))}
+              </View>
+
+              {range && sliderLeft && (
+                <Template
+                  is="slider-handler"
+                  data="{{ position: sliderLeft, icon: icon, value: mixin.value[0], showTooltip: changingStart&&showTooltip }}"
+                />
+              )}
+              {sliderLeft &&
+                sliderWidth &&
+                icon &&
+                mixin &&
+                changingEnd &&
+                showTooltip && (
+                  <Template
+                    is="slider-handler"
+                    data="{{ position: sliderLeft + sliderWidth, icon: icon, value: range? mixin.value[1]: mixin.value, showTooltip: changingEnd&&showTooltip }}"
+                  />
+                )}
+            </View>
+          </View>
+        </View>
+        <View></View>
+      </View>
+    </View>
+  </Component>
+);

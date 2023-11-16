@@ -41,3 +41,7 @@ it('需要支持拍平 page 和 component', async () => {
 it('测试事件', async () => {
   await textTsXml('event');
 });
+
+it('template', async () => {
+  await textTsXml('template');
+});
