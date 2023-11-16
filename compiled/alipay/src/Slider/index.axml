@@ -60,7 +60,7 @@
                 <view
                   a:if="{{ showNumber }}"
                   class="ant-slider-tick-number">
-                  {{ item.value }}
+                  <slot name="tick">{{ item.value }}</slot>
                 </view>
               </view>
             </block>
