@@ -1,4 +1,8 @@
 <view>
+  <text
+    value="{{ [1, 2] }}"
+    slot="123"
+    slot-scope="props" />
   <template name="taskTpl">
     <view class="task-item">
       <!-- display: inline -->

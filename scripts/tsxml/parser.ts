@@ -272,6 +272,14 @@ function transformAttrExpression(ctx: ITransformContext) {
     case 'CallExpression': {
       return ctx.toAxmlExpression();
     }
+    case 'ArrayExpression': {
+      const result = ctx.toAxmlExpression();
+      if (result.startsWith('{{ ;')) {
+        return result.replace(/^\{\{ ;/, '{{ ');
+      }
+      break;
+    }
+
     case 'ObjectExpression': {
       return ctx.toAxmlObject();
     }
