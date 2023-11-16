@@ -100,13 +100,11 @@ export default ({ value, props }: InternalData) => (
           {props.value}
         </Text>
 
-        <Slot name="showTooltip">{value}°C</Slot>
-
-        <Slot name="slider">
+        <View slot="slider">
           <View class="custom-slider-handler">
             <Icon type="SmileOutline" style="color: #ff8f1f" />
           </View>
-        </Slot>
+        </View>
       </Slider>
     </Container>
 
