@@ -47,7 +47,7 @@ export default (
           {/* #endif */}
 
           <View slot="content" class="ant-slider-tooltip-content">
-            <Slot name="tooltip" value="{{value}}">
+            <Slot name="tooltip" value={value}>
               {value}
             </Slot>
           </View>
@@ -101,7 +101,9 @@ export default (
                   >
                     {showNumber && (
                       <View class="ant-slider-tick-number">
-                        <Slot name="tick">{item.value}</Slot>
+                        <Slot name="tick" value={item.value}>
+                          {item.value}
+                        </Slot>
                       </View>
                     )}
                   </View>
