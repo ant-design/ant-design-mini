@@ -161,6 +161,24 @@ it('测试 tickList', async () => {
   `);
 });
 
+it('测试 disabled', async () => {
+  const instance = testSlider(
+    {
+      min: 0,
+      max: 50,
+      disabled: true,
+    },
+    selectorMock
+  );
+  await touchEvent(instance, 'handleTrackTouchStart', 50);
+  expect(instance.getData().mixin.value).toBe(0);
+  instance.setProps({
+    disabled: false,
+  });
+  await touchEvent(instance, 'handleTrackTouchStart', 50);
+  expect(instance.getData().mixin.value).toBe(25);
+});
+
 describe('受控模式测试', () => {
   it('测试 value 大于 max 的情况', async () => {
     const instance = testSlider(
@@ -305,5 +323,23 @@ describe('事件测试', () => {
       }
     `);
     expect(onChange.mock.calls.length).toBe(2);
+  });
+
+  it('测试忽略比较旧的事件', async () => {
+    const selectorMock = vi.fn().mockImplementation(async (id) => {
+      if (id === '#2') {
+        await sleep(100);
+      }
+      return {
+        left: 0,
+        width: 100,
+      };
+    });
+    const instance = testSlider({}, selectorMock);
+    await touchEvent(instance, 'handleTrackTouchStart', 50, '1');
+    await touchEvent(instance, 'handleTrackTouchMove', 55, '2');
+    await touchEvent(instance, 'handleTrackTouchEnd', 60, '3');
+    await sleep(300);
+    expect(instance.getData().mixin.value).toBe(60);
   });
 });

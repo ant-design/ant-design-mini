@@ -34,7 +34,7 @@ const Slider = (props) => {
   sliderController.updateValue(value);
   sliderController.updateMoveStatus(moveStatus);
   sliderController.onChange(
-    (v, moveStatus, { valueChange, moveStatusChange, type }) => {
+    (v, moveStatus, { valueChange, moveStatusChange, type, event }) => {
       if (!isControlled) {
         update(v);
       }
@@ -48,7 +48,7 @@ const Slider = (props) => {
         }));
       }
       if (value && type === 'end') {
-        triggerEvent('afterChange', v);
+        triggerEvent('afterChange', v, event);
       }
     }
   );
