@@ -48,7 +48,7 @@ export default (
 
           <View slot="content" class="ant-slider-tooltip-content">
             <Slot name="tooltip" value="{{value}}">
-              {{ value }}
+              {value}
             </Slot>
           </View>
         </Popover>
