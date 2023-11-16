@@ -30,7 +30,6 @@ toc: 'content'
 | style | 样式 | string | - |
 | title | 标题 | string\|slot | - |
 | type | 类型，可选 `default`, `error`, `primary`, `info` | string | default |
-| visible |  是否显示 | boolean | false | 
 | onTap |  点击通知栏右侧的图标（箭头或者叉），触发回调 | ()=>void | - | 
 
 

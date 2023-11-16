@@ -41,7 +41,7 @@ export class SliderController {
     this.getRect(e).then((res) => {
       const { value, moveStatus } = this.getValue(res, type);
       const formatValue = this.formatValue(value);
-      this.fireChange(currentId, formatValue, moveStatus, type);
+      this.fireChange(currentId, formatValue, moveStatus, type, e);
     });
   }
 
@@ -49,7 +49,8 @@ export class SliderController {
     id: number,
     value: SliderValue,
     moveStatus: MoveStatus,
-    type: MoveType
+    type: MoveType,
+    event: unknown
   ) {
     if (id < this.valueId) {
       return;
@@ -67,6 +68,7 @@ export class SliderController {
           valueChange: changed,
           moveStatusChange: moveStatusChanged,
           type,
+          event,
         });
       }
     }
