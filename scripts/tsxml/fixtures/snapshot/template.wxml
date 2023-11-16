@@ -7,5 +7,5 @@
   </template>
   <template
     is="taskTpl"
-    data="{{ taskDescription }}" />
+    data="{{taskDescription,a}}" />
 </view>
