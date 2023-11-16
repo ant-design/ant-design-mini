@@ -23,7 +23,11 @@
       <view
         slot="content"
         class="ant-slider-tooltip-content">
-        {{ value }}
+        <slot
+          name="tooltip"
+          value="{{value}}">
+          {{ { value } }}
+        </slot>
       </view>
     </popover>
   </view>
@@ -31,12 +35,12 @@
 
 <view
   class="ant-slider {{ className ? className : '' }}"
-  style="opacity: {{ disabled ? '0.4' : '1' }}">
+  style="opacity: {{ disabled ? '0.4' : '1' }};">
   <view
     class="ant-slider-track {{ showNumber ? 'ant-slider-track-number' : '' }}">
     <view
       class="ant-slider-track-touch-area"
-      id="ant-slider-id-{{ id }}"
+      id="ant-slider-id-{{ $id }}"
       onTouchStart="handleTrackTouchStart"
       onTouchEnd="handleTrackTouchEnd"
       onTouchMove="handleTrackTouchMove">
@@ -63,16 +67,14 @@
           </view>
 
           <template
-            a:if="{{ range && sliderLeft }}"
+            a:if="{{ range }}"
             is="slider-handler"
-            data="{{ position: sliderLeft, icon: icon, value: mixin.value[0], showTooltip: changingStart&&showTooltip }}" />
+            data="{{position:sliderLeft,icon:icon,value:mixin.value[0],showTooltip:changingStart&&showTooltip}}" />
           <template
-            a:if="{{ sliderLeft && sliderWidth && icon && mixin && changingEnd && showTooltip }}"
             is="slider-handler"
-            data="{{ position: sliderLeft + sliderWidth, icon: icon, value: range? mixin.value[1]: mixin.value, showTooltip: changingEnd&&showTooltip }}" />
+            data="{{position:sliderLeft+sliderWidth,icon:icon,value:range?mixin.value[1]:mixin.value,showTooltip:changingEnd&&showTooltip}}" />
         </view>
       </view>
     </view>
-    <view />
   </view>
 </view>
