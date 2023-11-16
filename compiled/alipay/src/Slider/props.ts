@@ -61,7 +61,14 @@ export interface ISliderProps extends IBaseProps {
    * @default false
    */
   showTooltip: boolean;
-
+  /**
+   * @deprecated 选中线条的样式
+   */
+  activeLineStyle?: string;
+  /**
+   * @description 选中线条的样式
+   */
+  activeDotStyle?: string;
   /**
    * @description 选中线条的样式
    * @default '''
@@ -72,8 +79,6 @@ export interface ISliderProps extends IBaseProps {
    * @description 选中小圆点的类名
    */
   activeDotClassName?: string;
-  sliderWidth?: string;
-  sliderLeft?: string;
 
   /**
    * @description 输入变化的时候触发， 参数为滑动组件的当前值

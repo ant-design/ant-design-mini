@@ -9,13 +9,12 @@ export default (
     disabled,
     showNumber,
     activeLineClassName,
-    sliderWidth,
-    sliderLeft,
-
     showTooltip,
     activeDotClassName,
     range,
     value,
+    activeLineStyle,
+    activeDotStyle,
   }: TSXMLProps<ISliderProps>,
   {
     tickList,
@@ -23,10 +22,10 @@ export default (
     changingEnd,
     mixin,
     icon,
-    activeLineStyle,
-    activeDotStyle,
     position,
     $id,
+    sliderWidth,
+    sliderLeft,
   }
 ) => (
   <Component>
