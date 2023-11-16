@@ -60,74 +60,78 @@ async function touchEvent(
   await sleep(10);
 }
 
-it('测试滚动到末尾', async () => {
-  const instance = testSlider(
-    {
-      min: 0,
-      max: 50,
-    },
-    selectorMock
-  );
-  await touchEvent(instance, 'handleTrackTouchStart', -10);
-  expect(instance.getData().mixin.value).toBe(0);
-  await touchEvent(instance, 'handleTrackTouchEnd', 30);
-  expect(instance.getData().mixin.value).toBe(15);
-  await touchEvent(instance, 'handleTrackTouchEnd', 110);
-  expect(instance.getData().mixin.value).toBe(50);
+describe('单滑块', () => {
+  it('测试滚动到末尾', async () => {
+    const instance = testSlider(
+      {
+        min: 0,
+        max: 50,
+      },
+      selectorMock
+    );
+    await touchEvent(instance, 'handleTrackTouchStart', -10);
+    expect(instance.getData().mixin.value).toBe(0);
+    await touchEvent(instance, 'handleTrackTouchEnd', 30);
+    expect(instance.getData().mixin.value).toBe(15);
+    await touchEvent(instance, 'handleTrackTouchEnd', 110);
+    expect(instance.getData().mixin.value).toBe(50);
+  });
+
+  it('测试 step 为 0.5', async () => {
+    const instance = testSlider(
+      {
+        min: 0,
+        max: 4,
+        step: 0.5,
+        showTicks: true,
+      },
+      selectorMock
+    );
+    const dataList = await callStep(instance, -10, 100, 10);
+    expect(dataList).toEqual([0, 0, 0.5, 1, 1, 1.5, 2, 2.5, 3, 3, 3.5, 4]);
+  });
 });
 
-it('测试 step 为 0.5', async () => {
-  const instance = testSlider(
-    {
-      min: 0,
-      max: 4,
-      step: 0.5,
-      showTicks: true,
-    },
-    selectorMock
-  );
-  const dataList = await callStep(instance, -10, 100, 10);
-  expect(dataList).toEqual([0, 0, 0.5, 1, 1, 1.5, 2, 2.5, 3, 3, 3.5, 4]);
-});
+describe('双滑块', () => {
+  it('测试双滑块滑动', async () => {
+    const instance = testSlider(
+      {
+        min: 0,
+        max: 10,
+        defaultValue: [1, 5],
+        range: true,
+        step: 1,
+      },
+      selectorMock
+    );
+    const dataList = await callStep(instance, -10, 100, 10);
+    expect(dataList).toEqual([
+      [0, 5],
+      [0, 5],
+      [1, 5],
+      [2, 5],
+      [3, 5],
+      [4, 5],
+      [4, 5],
+      [4, 6],
+      [4, 7],
+      [4, 8],
+      [4, 9],
+      [4, 10],
+    ]);
+  });
 
-it('测试双滑块滑动', async () => {
-  const instance = testSlider(
-    {
-      min: 0,
-      max: 10,
-      defaultValue: [1, 5],
-      range: true,
-      step: 1,
-    },
-    selectorMock
-  );
-  const dataList = await callStep(instance, -10, 100, 10);
-  expect(dataList).toEqual([
-    [0, 5],
-    [0, 5],
-    [1, 5],
-    [2, 5],
-    [3, 5],
-    [4, 5],
-    [4, 5],
-    [4, 6],
-    [4, 7],
-    [4, 8],
-    [4, 9],
-    [4, 10],
-  ]);
-});
-
-it('测试 range 的默认值', async () => {
-  const instance = testSlider(
-    {
-      range: true,
-      min: 0,
-      max: 4,
-    },
-    selectorMock
-  );
-  expect(instance.getData().mixin.value).toEqual([0, 0]);
+  it('测试默认值', async () => {
+    const instance = testSlider(
+      {
+        range: true,
+        min: 0,
+        max: 4,
+      },
+      selectorMock
+    );
+    expect(instance.getData().mixin.value).toEqual([0, 0]);
+  });
 });
 
 it('测试 tickList', async () => {
@@ -157,7 +161,7 @@ it('测试 tickList', async () => {
   `);
 });
 
-describe('受控模式', () => {
+describe('受控模式测试', () => {
   it('测试 value 大于 max 的情况', async () => {
     const instance = testSlider(
       {
@@ -211,7 +215,7 @@ describe('受控模式', () => {
     expect(instance.getData().mixin.value).toEqual([0, 4]);
   });
 
-  it('测试受控模式', async () => {
+  it('测试更新 props', async () => {
     const instance = testSlider(
       {
         value: 2,
@@ -226,7 +230,6 @@ describe('受控模式', () => {
     expect(instance.getData().mixin.value).toBe(2);
     expect(instance.getData().changingEnd).toBe(true);
     expect(instance.getData().changingStart).toBe(false);
-
     instance.setProps({
       value: 3,
     });
@@ -247,6 +250,22 @@ describe('事件测试', () => {
     expect(instance.getData().mixin.value).toBe(50);
     await touchEvent(instance, 'handleTrackTouchEnd', 51);
     expect(onAfterChange.mock.calls[0][0]).toEqual(51);
+    expect(onAfterChange.mock.calls[0][1]).toMatchInlineSnapshot(`
+      {
+        "changedTouches": [
+          {
+            "pageX": 51,
+          },
+        ],
+        "currentTarget": {
+          "dataset": {},
+        },
+        "target": {
+          "dataset": {},
+          "targetDataset": {},
+        },
+      }
+    `);
   });
 
   it('数据不变的情况下 onChange 只会调用一次', async () => {
@@ -255,6 +274,7 @@ describe('事件测试', () => {
       {
         min: 0,
         max: 4,
+        'data-test': 1,
         onChange,
       },
       selectorMock
@@ -267,6 +287,23 @@ describe('事件测试', () => {
     expect(onChange.mock.calls.length).toBe(1);
     await touchEvent(instance, 'handleTrackTouchEnd', 75);
     expect(onChange.mock.lastCall[0]).toEqual(3);
+    expect(onChange.mock.lastCall[1]).toMatchInlineSnapshot(`
+      {
+        "currentTarget": {
+          "dataset": {
+            "test": 1,
+          },
+        },
+        "target": {
+          "dataset": {
+            "test": 1,
+          },
+          "targetDataset": {
+            "test": 1,
+          },
+        },
+      }
+    `);
     expect(onChange.mock.calls.length).toBe(2);
   });
 });
