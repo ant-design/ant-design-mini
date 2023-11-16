@@ -62,7 +62,16 @@ export interface ISliderProps extends IBaseProps {
    */
   showTooltip: boolean;
 
+  /**
+   * @description 选中线条的样式
+   * @default '''
+   */
   activeLineClassName?: string;
+
+  /**
+   * @description 选中小圆点的类名
+   */
+  activeDotClassName?: string;
   sliderWidth?: string;
   sliderLeft?: string;
 
