@@ -100,7 +100,9 @@ export default (
                     }`}
                   >
                     {showNumber && (
-                      <View class="ant-slider-tick-number">{item.value}</View>
+                      <View class="ant-slider-tick-number">
+                        <Slot name="tick">{item.value}</Slot>
+                      </View>
                     )}
                   </View>
                 ))}
