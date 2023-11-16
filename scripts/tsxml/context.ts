@@ -124,7 +124,7 @@ export class TransformContext<T extends types.Node = types.Node>
   toAxmlObject() {
     return `{${
       generate(this.node, {
-        compact: true,
+        concise: true,
       }).code
     }}`;
   }
