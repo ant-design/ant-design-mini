@@ -40,6 +40,11 @@ export const wechat: PlatformConfig = {
     onScroll: 'bind:scroll',
   },
   props: {
+    view: {
+      onTouchStart: 'bind:touchstart',
+      onTouchMove: 'bind:touchmove',
+      onTouchEnd: 'bind:touchend',
+    },
     input: {
       onInput: 'bindinput',
       onConfirm: 'bindconfirm',
@@ -56,6 +61,9 @@ export const wechat: PlatformConfig = {
     },
     'ant-textarea': {
       onChange: 'bind:change',
+    },
+    'ant-slider': {
+      onAfterChange: 'bind:afterchange',
     },
     'ant-input': {
       onBlur: 'bind:blur',

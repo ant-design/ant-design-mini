@@ -1,6 +1,6 @@
-<import-sjs
-  from="./index.sjs"
-  name="sliderSjs" />
+<wxs
+  src="./index.wxs"
+  module="sliderSjs" />
 
 <template name="slider-handler">
   <view
@@ -10,23 +10,17 @@
       placement="top"
       visible="{{ showTooltip }}"
       showMask="{{ false }}">
-      <slot name="slider">
-        <view class="ant-slider-handler-block">
-          <view class="ant-slider-handler-icon-default">
-            <view class="ant-slider-handler-icon-default-line1" />
-            <view class="ant-slider-handler-icon-default-line2" />
-            <view class="ant-slider-handler-icon-default-line3" />
-          </view>
+      <view class="ant-slider-handler-block">
+        <view class="ant-slider-handler-icon-default">
+          <view class="ant-slider-handler-icon-default-line1" />
+          <view class="ant-slider-handler-icon-default-line2" />
+          <view class="ant-slider-handler-icon-default-line3" />
         </view>
-      </slot>
+      </view>
       <view
         slot="content"
         class="ant-slider-tooltip-content">
-        <slot
-          name="tooltip"
-          value="{{ value }}">
-          {{ value }}
-        </slot>
+        {{ value }}
       </view>
     </popover>
   </view>
@@ -40,9 +34,9 @@
     <view
       class="ant-slider-track-touch-area"
       id="ant-slider-id-{{ $id }}"
-      onTouchStart="handleTrackTouchStart"
-      onTouchEnd="handleTrackTouchEnd"
-      onTouchMove="handleTrackTouchMove">
+      bind:touchstart="handleTrackTouchStart"
+      bind:touchend="handleTrackTouchEnd"
+      bind:touchmove="handleTrackTouchMove">
       <view class="ant-slider-track-fill">
         <view class="ant-slider-track-fill-background" />
         <view
@@ -50,26 +44,22 @@
           style="width: {{ sliderWidth }}%; left: {{ sliderLeft }}%; {{ activeLineStyle || '' }}" />
         <view class="ant-slider-showTicks">
           <block
-            a:for="{{ tickList }}"
-            a:for-index="index"
-            a:for-item="item">
+            wx:for="{{ tickList }}"
+            wx:for-index="index"
+            wx:for-item="item">
             <view
               class="ant-slider-tick ant-slider-tick-{{ sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? 'front' : 'back' }} {{ sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotClassName ? activeDotClassName : '' }}"
               style="left: {{ item.left }}%;{{ sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotStyle ? activeDotStyle : '' }}">
               <view
-                a:if="{{ showNumber }}"
+                wx:if="{{ showNumber }}"
                 class="ant-slider-tick-number">
-                <slot
-                  name="tick"
-                  value="{{ item.value }}">
-                  {{ item.value }}
-                </slot>
+                {{ item.value }}
               </view>
             </view>
           </block>
         </view>
         <template
-          a:if="{{ range }}"
+          wx:if="{{ range }}"
           is="slider-handler"
           data="{{ position: sliderLeft, icon: icon, value: mixin.value[0], showTooltip: changingStart && showTooltip }}" />
         <template

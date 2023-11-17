@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Slider",
     "pages/Container",
     "pages/Stepper",
     "pages/Button",
@@ -23,6 +24,7 @@
   "src": [
     "_util",
     "Button",
+    "Slider",
     "Container",
     "Icon",
     "Loading",

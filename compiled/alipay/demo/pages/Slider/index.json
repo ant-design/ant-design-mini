@@ -1,9 +1,9 @@
 {
   "defaultTitle": "Slider",
   "usingComponents": {
-    "slider": "../../../src/Slider/index",
-    "icon": "../../../src/Icon/index",
-    "stepper": "../../../src/Stepper/index",
+    "ant-slider": "../../../src/Slider/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-stepper": "../../../src/Stepper/index",
     "container": "../../../src/Container/index"
   }
 }
