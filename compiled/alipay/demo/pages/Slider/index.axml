@@ -89,13 +89,13 @@
     <text
       slot="tick"
       slot-scope="props"
-      >{{ props.value }}</text
+      >{{ props.value }}°C</text
     >
     <!-- display: inline -->
     <text
-      slot="showTooltip"
+      slot="tooltip"
       slot-scope="props"
-      >{{ props.value }}</text
+      >{{ props.value }}°C</text
     >
 
     <view slot="slider">

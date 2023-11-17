@@ -84,28 +84,7 @@
     activeLineStyle="background-color: #ff8f1f"
     activeDotStyle="background-color: red"
     bind:change="onChange"
-    bind:afterchange="onAfterChange">
-    <!-- display: inline -->
-    <text
-      slot="tick"
-      slot-scope="props"
-      >{{ props.value }}</text
-    >
-    <!-- display: inline -->
-    <text
-      slot="showTooltip"
-      slot-scope="props"
-      >{{ props.value }}</text
-    >
-
-    <view slot="slider">
-      <view class="custom-slider-handler">
-        <ant-icon
-          type="SmileOutline"
-          style="color: #ff8f1f" />
-      </view>
-    </view>
-  </ant-slider>
+    bind:afterchange="onAfterChange"></ant-slider>
 </container>
 
 <container title="禁用状态">

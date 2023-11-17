@@ -93,11 +93,13 @@ export default ({ value, props }: InternalData) => (
         onChange="onChange"
         onAfterChange="onAfterChange"
       >
+        {/* #if ALIPAY */}
+        {/* 微信暂时不支持 slot */}
         <Text slot="tick" slot-scope="props">
-          {props.value}
+          {props.value}°C
         </Text>
-        <Text slot="showTooltip" slot-scope="props">
-          {props.value}
+        <Text slot="tooltip" slot-scope="props">
+          {props.value}°C
         </Text>
 
         <View slot="slider">
@@ -105,6 +107,7 @@ export default ({ value, props }: InternalData) => (
             <AntIcon type="SmileOutline" style="color: #ff8f1f" />
           </View>
         </View>
+        {/* #endif */}
       </AntSlider>
     </Container>
 
