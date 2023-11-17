@@ -5,7 +5,6 @@ import List from '../../List/index.axml';
 import ListItem from '../../List/ListItem/index.axml';
 import Checkbox from '../index.axml';
 
-// 注释
 export default (
   {
     options,

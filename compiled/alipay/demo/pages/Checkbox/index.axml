@@ -3,7 +3,7 @@
 </container>
 
 <container title="初始值">
-  <checkbox defaultChecked="{{true}}">Checkbox</checkbox>
+  <checkbox defaultChecked="{{ true }}">Checkbox</checkbox>
 </container>
 
 <container title="禁用模式">
@@ -25,7 +25,7 @@
 
 <container title="控制模式">
   <checkbox
-    checked="{{checked}}"
+    checked="{{ checked }}"
     onChange="handleChange">
     Checkbox
   </checkbox>
