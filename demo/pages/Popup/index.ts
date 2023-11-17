@@ -4,13 +4,13 @@ Page({
     basicVisible: false,
     animation: true,
     scrollVisible: false,
-    closeVisile: false,
+    closeVisible: false,
   },
   handlePopupClose() {
     this.setData({
       basicVisible: false,
       scrollVisible: false,
-      closeVisile: false,
+      closeVisible: false,
     });
   },
   handleShowBasic(e) {
@@ -24,9 +24,15 @@ Page({
     this.setData({ scrollVisible: true });
   },
   handleChangeAnimation(checked) {
+    /// #if ALIPAY
     this.setData({ animation: checked });
+    /// #endif
+
+    /// #if WECHAT
+    this.setData({ animation: checked.detail });
+    /// #endif
   },
   handleShowClose() {
-    this.setData({ closeVisile: true });
+    this.setData({ closeVisible: true });
   },
 });

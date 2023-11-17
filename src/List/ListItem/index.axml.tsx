@@ -1,4 +1,4 @@
-import { View, Slot, TSXMLProps } from 'tsxml';
+import { View, Slot, TSXMLProps, Block } from 'tsxml';
 import Icon from '../../Icon/index.axml';
 import arrowUtil from '../../_util/arrow.sjs';
 import ImageIcon from '../../ImageIcon/index.axml';
@@ -70,11 +70,17 @@ export default ({
       <View class="ant-list-item-extra-container">
         <View class="ant-list-item-extra">
           {/* #if ALIPAY */}
-          <Slot name="extra">
-            {/* #endif */}
-            {extra}
-            {/* #if ALIPAY */}
-          </Slot>
+          <Slot name="extra">{extra}</Slot>
+          {/* #endif */}
+
+          {/* #if WECHAT */}
+          {extra ? (
+            <Block>{extra}</Block>
+          ) : (
+            <Block>
+              <Slot name="extra"></Slot>
+            </Block>
+          )}
           {/* #endif */}
         </View>
         <View class="ant-list-item-extra-brief">

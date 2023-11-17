@@ -19,7 +19,8 @@
     "pages/Input",
     "pages/InputCustom",
     "pages/InputSearchBar",
-    "pages/InputTextarea"
+    "pages/InputTextarea",
+    "pages/Popup"
   ],
   "src": [
     "_util",
@@ -39,6 +40,7 @@
     "Result",
     "Popover",
     "Mask",
-    "Stepper"
+    "Stepper",
+    "Popup"
   ]
 }

@@ -24,7 +24,7 @@ Page({
         this.setData({ scrollVisible: true });
     },
     handleChangeAnimation: function (checked) {
-        this.setData({ animation: checked });
+        this.setData({ animation: checked.detail });
     },
     handleShowClose: function () {
         this.setData({ closeVisible: true });
