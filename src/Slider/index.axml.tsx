@@ -45,11 +45,14 @@ export default (
             {/* #if ALIPAY */}
           </Slot>
           {/* #endif */}
-
           <View slot="content" class="ant-slider-tooltip-content">
+            {/* #if ALIPAY */}
             <Slot name="tooltip" value={value}>
+              {/* #endif */}
               {value}
+              {/* #if ALIPAY */}
             </Slot>
+            {/* #endif */}
           </View>
         </Popover>
       </View>
@@ -78,62 +81,66 @@ export default (
               style={`width: ${sliderWidth}%; left: ${sliderLeft}%; ${
                 activeLineStyle || ''
               }`}
-            >
-              <View class="ant-slider-showTicks">
-                {tickList.map((item) => (
-                  <View
-                    class={`ant-slider-tick ant-slider-tick-${
-                      sliderSjs.isFrontTick(item, sliderLeft, sliderWidth)
-                        ? 'front'
-                        : 'back'
-                    } ${
-                      sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) &&
-                      activeDotClassName
-                        ? activeDotClassName
-                        : ''
-                    }`}
-                    style={`left: ${item.left}%;${
-                      sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) &&
-                      activeDotStyle
-                        ? activeDotStyle
-                        : ''
-                    }`}
-                  >
-                    {showNumber && (
-                      <View class="ant-slider-tick-number">
-                        <Slot name="tick" value={item.value}>
-                          {item.value}
-                        </Slot>
-                      </View>
-                    )}
-                  </View>
-                ))}
-              </View>
+            />
+            <View class="ant-slider-showTicks">
+              {tickList.map((item) => (
+                <View
+                  class={`ant-slider-tick ant-slider-tick-${
+                    sliderSjs.isFrontTick(item, sliderLeft, sliderWidth)
+                      ? 'front'
+                      : 'back'
+                  } ${
+                    sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) &&
+                    activeDotClassName
+                      ? activeDotClassName
+                      : ''
+                  }`}
+                  style={`left: ${item.left}%;${
+                    sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) &&
+                    activeDotStyle
+                      ? activeDotStyle
+                      : ''
+                  }`}
+                >
+                  {showNumber && (
+                    <View class="ant-slider-tick-number">
+                      {/* #if ALIPAY */}
+                      <Slot name="tick" value={item.value}>
+                        {/* #endif */}
 
-              {range && (
-                <Template
-                  is="slider-handler"
-                  data={{
-                    position: sliderLeft,
-                    icon: icon,
-                    value: mixin.value[0],
-                    showTooltip: changingStart && showTooltip,
-                  }}
-                />
-              )}
+                        {item.value}
+                        {/* #if ALIPAY */}
+                      </Slot>
+                      {/* #endif */}
+                    </View>
+                  )}
+                </View>
+              ))}
+            </View>
+            {range && (
               <Template
                 is="slider-handler"
                 data={{
-                  position: sliderLeft + sliderWidth,
+                  position: sliderLeft,
                   icon: icon,
-                  value: range ? mixin.value[1] : mixin.value,
-                  showTooltip: changingEnd && showTooltip,
+                  value: mixin.value[0],
+                  showTooltip: changingStart && showTooltip,
                 }}
               />
-            </View>
+            )}
+            <Template
+              is="slider-handler"
+              data={{
+                position: sliderLeft + sliderWidth,
+                icon: icon,
+                value: range ? mixin.value[1] : mixin.value,
+                showTooltip: changingEnd && showTooltip,
+              }}
+            />
           </View>
         </View>
       </View>
+      <View></View>
     </View>
   </Component>
 );

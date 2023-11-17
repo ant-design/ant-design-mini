@@ -17,6 +17,12 @@
       "tsxml": ["./src/tsxml/index.tsx"]
     }
   },
-  "include": ["src/**/*", "typings/**/*", "demo/**/*", "tests/**/*"],
+  "include": [
+    "src/**/*",
+    "./typings/**/*",
+    "demo/**/*",
+    "tests/**/*",
+    "demo/wechat.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

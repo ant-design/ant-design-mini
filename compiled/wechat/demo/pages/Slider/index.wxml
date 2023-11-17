@@ -1,16 +1,16 @@
 <container title="基本使用">
   <ant-slider
     defaultValue="{{ 80 }}"
-    onChange="onChange"
-    onAfterChange="onAfterChange" />
+    bind:change="onChange"
+    bind:afterchange="onAfterChange" />
 </container>
 
 <container title="无节点双滑块">
   <ant-slider
     defaultValue="{{ [20, 60] }}"
     range
-    onChange="onChange"
-    onAfterChange="onAfterChange" />
+    bind:change="onChange"
+    bind:afterchange="onAfterChange" />
 </container>
 
 <container title="节点单滑块">
@@ -18,8 +18,8 @@
     defaultValue="{{ 60 }}"
     step="{{ 20 }}"
     showTicks
-    onChange="onChange"
-    onAfterChange="onAfterChange" />
+    bind:change="onChange"
+    bind:afterchange="onAfterChange" />
 </container>
 
 <container title="有数字节点单滑块">
@@ -28,8 +28,8 @@
     step="{{ 20 }}"
     showTicks
     showNumber
-    onChange="onChange"
-    onAfterChange="onAfterChange" />
+    bind:change="onChange"
+    bind:afterchange="onAfterChange" />
 </container>
 
 <container title="节点双滑块">
@@ -38,8 +38,8 @@
     step="{{ 10 }}"
     showTicks
     range
-    onChange="onChange"
-    onAfterChange="onAfterChange" />
+    bind:change="onChange"
+    bind:afterchange="onAfterChange" />
 </container>
 
 <container title="有数字节点双滑块">
@@ -49,16 +49,16 @@
     showTicks
     showNumber
     range
-    onChange="onChange"
-    onAfterChange="onAfterChange" />
+    bind:change="onChange"
+    bind:afterchange="onAfterChange" />
 </container>
 
 <container title="在拖动时显示悬浮提示">
   <ant-slider
     defaultValue="{{ 80 }}"
     showTooltip
-    onChange="onChange"
-    onAfterChange="onAfterChange" />
+    bind:change="onChange"
+    bind:afterchange="onAfterChange" />
 </container>
 
 <container title="受控模式">
@@ -66,12 +66,12 @@
     min="{{ 0 }}"
     max="{{ 100 }}"
     value="{{ value }}"
-    onChange="handleChange" />
+    bind:change="handleChange" />
   <ant-stepper
     min="{{ 0 }}"
     max="{{ 100 }}"
     value="{{ value }}"
-    onChange="handleChange" />
+    bind:change="handleChange" />
 </container>
 
 <container title="自定义">
@@ -83,34 +83,13 @@
     showNumber
     activeLineStyle="background-color: #ff8f1f"
     activeDotStyle="background-color: red"
-    onChange="onChange"
-    onAfterChange="onAfterChange">
-    <!-- display: inline -->
-    <text
-      slot="tick"
-      slot-scope="props"
-      >{{ props.value }}°C</text
-    >
-    <!-- display: inline -->
-    <text
-      slot="tooltip"
-      slot-scope="props"
-      >{{ props.value }}°C</text
-    >
-
-    <view slot="slider">
-      <view class="custom-slider-handler">
-        <ant-icon
-          type="SmileOutline"
-          style="color: #ff8f1f" />
-      </view>
-    </view>
-  </ant-slider>
+    bind:change="onChange"
+    bind:afterchange="onAfterChange"></ant-slider>
 </container>
 
 <container title="禁用状态">
   <ant-slider
     defaultValue="{{ 80 }}"
     disabled
-    onChange="onChange" />
+    bind:change="onChange" />
 </container>

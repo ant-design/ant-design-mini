@@ -1,13 +1,13 @@
-import Slider from '../../../src/Slider/index.axml';
-import Icon from '../../../src/Icon/index.axml';
-import Stepper from '../../../src/Stepper/index.axml';
+import { Component, InternalData, Text, View } from 'tsxml';
 import Container from '../../../src/Container/index.axml';
-import { View, Component, Slot, InternalData, Text } from 'tsxml';
+import AntIcon from '../../../src/Icon/index.axml';
+import AntSlider from '../../../src/Slider/index.axml';
+import AntStepper from '../../../src/Stepper/index.axml';
 
 export default ({ value, props }: InternalData) => (
   <Component>
     <Container title="基本使用">
-      <Slider
+      <AntSlider
         defaultValue={80}
         onChange="onChange"
         onAfterChange="onAfterChange"
@@ -15,7 +15,7 @@ export default ({ value, props }: InternalData) => (
     </Container>
 
     <Container title="无节点双滑块">
-      <Slider
+      <AntSlider
         defaultValue={[20, 60]}
         range
         onChange="onChange"
@@ -24,7 +24,7 @@ export default ({ value, props }: InternalData) => (
     </Container>
 
     <Container title="节点单滑块">
-      <Slider
+      <AntSlider
         defaultValue={60}
         step={20}
         showTicks
@@ -34,7 +34,7 @@ export default ({ value, props }: InternalData) => (
     </Container>
 
     <Container title="有数字节点单滑块">
-      <Slider
+      <AntSlider
         defaultValue={80}
         step={20}
         showTicks
@@ -45,7 +45,7 @@ export default ({ value, props }: InternalData) => (
     </Container>
 
     <Container title="节点双滑块">
-      <Slider
+      <AntSlider
         defaultValue={[10, 50]}
         step={10}
         showTicks
@@ -56,7 +56,7 @@ export default ({ value, props }: InternalData) => (
     </Container>
 
     <Container title="有数字节点双滑块">
-      <Slider
+      <AntSlider
         defaultValue={[10, 50]}
         step={10}
         showTicks
@@ -68,7 +68,7 @@ export default ({ value, props }: InternalData) => (
     </Container>
 
     <Container title="在拖动时显示悬浮提示">
-      <Slider
+      <AntSlider
         defaultValue={80}
         showTooltip
         onChange="onChange"
@@ -77,12 +77,12 @@ export default ({ value, props }: InternalData) => (
     </Container>
 
     <Container title="受控模式">
-      <Slider min={0} max={100} value={value} onChange="handleChange" />
-      <Stepper min={0} max={100} value={value} onChange="handleChange" />
+      <AntSlider min={0} max={100} value={value} onChange="handleChange" />
+      <AntStepper min={0} max={100} value={value} onChange="handleChange" />
     </Container>
 
     <Container title="自定义">
-      <Slider
+      <AntSlider
         defaultValue={80}
         step={20}
         showTooltip
@@ -93,23 +93,26 @@ export default ({ value, props }: InternalData) => (
         onChange="onChange"
         onAfterChange="onAfterChange"
       >
+        {/* #if ALIPAY */}
+        {/* 微信暂时不支持 slot */}
         <Text slot="tick" slot-scope="props">
-          {props.value}
+          {props.value}°C
         </Text>
-        <Text slot="showTooltip" slot-scope="props">
-          {props.value}
+        <Text slot="tooltip" slot-scope="props">
+          {props.value}°C
         </Text>
 
         <View slot="slider">
           <View class="custom-slider-handler">
-            <Icon type="SmileOutline" style="color: #ff8f1f" />
+            <AntIcon type="SmileOutline" style="color: #ff8f1f" />
           </View>
         </View>
-      </Slider>
+        {/* #endif */}
+      </AntSlider>
     </Container>
 
     <Container title="禁用状态">
-      <Slider defaultValue={80} disabled onChange="onChange" />
+      <AntSlider defaultValue={80} disabled onChange="onChange" />
     </Container>
   </Component>
 );

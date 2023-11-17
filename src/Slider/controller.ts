@@ -1,3 +1,4 @@
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { ISliderProps, SliderValue } from './props';
 
 interface Rect {
@@ -33,12 +34,12 @@ export class SliderController {
 
   constructor(private _value: SliderValue, private _props: ISliderProps) {}
 
-  handleMove(e, type: MoveType) {
+  handleMove(component: any, e, type: MoveType) {
     if (this.props.disabled) {
       return;
     }
     const currentId = this.getId();
-    this.getRect(e).then((res) => {
+    this.getRect(component, e).then((res) => {
       const { value, moveStatus } = this.getValue(res, type);
       const formatValue = this.formatValue(value);
       this.fireChange(currentId, formatValue, moveStatus, type, e);
@@ -116,28 +117,24 @@ export class SliderController {
     return id;
   }
 
-  private getRect(e): Promise<any> {
+  private async getRect(component: any, e: any): Promise<any> {
     const elementId = e.currentTarget.id;
-    return new Promise((r) => {
-      my.createSelectorQuery()
-        .select(`#${elementId}`)
-        .boundingClientRect()
-        .exec((list) => {
-          const element = list[0];
-          const touch = e.changedTouches[0];
-          if (element) {
-            return r({
-              touch: {
-                pageX: touch.pageX,
-              },
-              element: {
-                left: element.left,
-                width: element.width,
-              },
-            });
-          }
-        });
-    });
+    const element = await getInstanceBoundingClientRect(
+      component,
+      `#${elementId}`
+    );
+    const touch = e.changedTouches[0];
+    if (element) {
+      return {
+        touch: {
+          pageX: touch.pageX,
+        },
+        element: {
+          left: element.left,
+          width: element.width,
+        },
+      };
+    }
   }
 
   fitSliderValue(
@@ -146,7 +143,7 @@ export class SliderController {
     max: number,
     isRange: boolean
   ) {
-    if (value === undefined) {
+    if (value === undefined || value === null) {
       if (isRange) {
         return [min, min] as SliderValue;
       } else {

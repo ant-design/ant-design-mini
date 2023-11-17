@@ -7,14 +7,16 @@ Page({
     },
     onAfterChange: function (value, e) {
         console.log('当前值:', value, e);
-        my.showToast({
-            content: 'value: ' + value,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        wx.showToast({
+            title: "value: ".concat(value.detail),
         });
     },
     handleChange: function (value, e) {
         console.log('slider changed:', value, e);
         this.setData({
-            value: value,
+            value: value.detail,
         });
     },
 });

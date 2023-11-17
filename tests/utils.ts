@@ -5,12 +5,14 @@ import os from 'os';
 import path from 'path';
 import shallowequal from 'shallowequal';
 import vm from 'vm';
+import { SelectorQuery } from './selector-query';
 
 interface Instance {
   $id: number;
   props: Record<string, any>;
   data: Record<string, any>;
   methods: Record<string, (this: Instance, ...args: any) => void>;
+  createSelectorQuery: () => SelectorQuery;
   setData: (
     data: Record<string, any>,
     callback?: (this: Instance) => void
@@ -63,6 +65,7 @@ function createInstance(config: Instance, props: Record<string, any>, my: any) {
     methods: {
       ...config.methods,
     },
+    createSelectorQuery: my.createSelectorQuery,
     setData(data: Record<string, any>, callback: (this: Instance) => void) {
       if (shallowequal(data, instance.data)) {
         return;

@@ -1,4 +1,10 @@
-import { useEvent, useMemo, useRef, useState } from 'functional-mini/component';
+import {
+  useEvent,
+  useMemo,
+  useRef,
+  useState,
+  useComponent,
+} from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
@@ -15,6 +21,7 @@ const useSliderController = (props: ISliderProps) => {
 };
 
 const Slider = (props) => {
+  const component = useComponent();
   const sliderController: SliderController = useSliderController(props);
   const [value, { update, isControlled }] = useMixState(props.defaultValue, {
     value: props.value,
@@ -55,18 +62,18 @@ const Slider = (props) => {
 
   useEvent(
     'handleTrackTouchStart',
-    (e) => sliderController.handleMove(e, 'start'),
-    [props]
+    (e) => sliderController.handleMove(component, e, 'start'),
+    [component]
   );
   useEvent(
     'handleTrackTouchMove',
-    (e) => sliderController.handleMove(e, 'move'),
-    [props]
+    (e) => sliderController.handleMove(component, e, 'move'),
+    [component]
   );
   useEvent(
     'handleTrackTouchEnd',
-    (e) => sliderController.handleMove(e, 'end'),
-    [props]
+    (e) => sliderController.handleMove(component, e, 'end'),
+    [component, props]
   );
 
   const tickList = useMemo(() => {
@@ -126,7 +133,18 @@ const Slider = (props) => {
 };
 
 mountComponent(Slider, {
-  min: 0,
+  value: null,
+  defaultValue: null,
+  disabled: false,
   max: 100,
+  min: 0,
+  range: false,
+  showNumber: false,
   step: 1,
+  showTicks: false,
+  showTooltip: false,
+  activeLineStyle: '',
+  activeDotStyle: '',
+  activeLineClassName: '',
+  activeDotClassName: '',
 });
