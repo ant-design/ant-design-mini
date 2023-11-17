@@ -1,3 +1,5 @@
+import { compareVersion } from './compareVersion';
+
 export function supportUndefinedProperty(): boolean {
   let support = true;
 
@@ -31,4 +33,13 @@ export function resolveEventValue(value) {
   /// #endif
 
   return value;
+}
+
+export function isOldSDKVersion() {
+  if (platform() === 'wechat') {
+    return false;
+  }
+  const SDKVersion = my.SDKVersion;
+  const isOldVersion = compareVersion(SDKVersion, '2.0.0') < 0;
+  return isOldVersion;
 }

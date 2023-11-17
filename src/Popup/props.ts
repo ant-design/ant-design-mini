@@ -18,21 +18,18 @@ export interface IPopupProps extends IBaseProps {
    * @default true
    */
   showMask: boolean;
-  /**
-   * @description 关闭时回调
-   */
-  onClose: () => void;
+
   /**
    * @description 弹窗布局
-   * @default "center"
+   * @default "bottom"
    */
   position: 'center' | 'top' | 'bottom' | 'left' | 'right';
   /**
-   * @desciption 是否开启过渡动画
+   * @description 是否开启过渡动画
    */
   animation: boolean;
   /**
-   * @desciption  动画类型
+   * @description  动画类型
    * @default "transform"
    */
   animationType: 'transform' | 'position';
@@ -56,7 +53,12 @@ export interface IPopupProps extends IBaseProps {
    * @description 遮罩层样式
    */
   maskStyle: string;
+
   zIndex: number;
+  /**
+   * @description 关闭时回调
+   */
+  onClose?: () => void;
 }
 
 export const PopupDefaultProps: Partial<IPopupProps> = {

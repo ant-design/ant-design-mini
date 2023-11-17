@@ -1,4 +1,4 @@
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 
 function createPopupInstance(props: any, SDKVersion?: string) {
@@ -18,7 +18,7 @@ describe('Popup', () => {
     expect(instance.getData().isOldVersion).toBe(true);
   });
 
-  it('测试 onAnimationEnd 逻辑', () => {
+  it('测试 onAnimationEnd 逻辑', async () => {
     const instance = createPopupInstance({
       visible: true,
     });
@@ -27,6 +27,7 @@ describe('Popup', () => {
     });
     expect(instance.getData().closing).toBe(true);
     instance.callMethod('onAnimationEnd');
+    await sleep(20);
     expect(instance.getData().closing).toBe(false);
   });
 
@@ -45,6 +46,7 @@ describe('Popup', () => {
     instance.callMethod('onTapMask');
     expect(onClose.mock.calls.length).toBe(1);
     instance.callMethod('onAnimationEnd');
+    await sleep(20);
     expect(instance.getData().closing).toBe(false);
   });
 
