@@ -1,52 +1,66 @@
-import { PopupDefaultProps } from './props';
-import { compareVersion } from '../_util/compareVersion';
+import { useState, useEvent } from 'functional-mini/component';
 import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useLayoutUpdateEffect } from '../_util/hooks/useLayoutEffect';
+import { isOldSDKVersion } from '../_util/platform';
+import { IPopupProps } from './props';
 
-const SDKVersion = my.SDKVersion;
-const isOldVersion = compareVersion(SDKVersion, '2.0.0') < 0;
-const component2 = my.canIUse('component2');
+const isOldVersion = isOldSDKVersion();
 
-Component({
-  props: PopupDefaultProps,
-  data: {
-    closing: false,
-    isOldVersion,
-  },
-  didUpdate(prevProps) {
-    if (component2) {
-      return;
+const Popup = (props: IPopupProps) => {
+  const enableAnimation = props.animation && props.duration > 0;
+  const [closing, setClosing] = useState(false);
+
+  const { triggerEventOnly } = useComponentEvent(props);
+
+  useLayoutUpdateEffect(() => {
+    if (!props.visible && enableAnimation) {
+      setClosing(true);
     }
-    const { visible, duration, animation } = this.props;
-    if (prevProps.visible && !visible) {
-      if (animation && duration > 0) {
-        this.setData({ closing: true });
+  }, [props.visible]);
+
+  useEvent(
+    'onAnimationEnd',
+    () => {
+      if (closing) {
+        setClosing(false);
       }
-    }
-  },
-  deriveDataFromProps(nextProps) {
-    const { visible, duration, animation } = nextProps;
-    if (this.props.visible && !visible) {
-      if (animation && duration > 0) {
-        this.setData({ closing: true });
-      }
-    }
-  },
-  methods: {
-    onTapMask() {
-      const { closing } = this.data;
+    },
+    [closing]
+  );
+
+  useEvent(
+    'onTapMask',
+    () => {
       if (closing) {
         return;
       }
-      const { onClose } = this.props;
-      if (onClose) {
-        onClose();
-      }
+      triggerEventOnly('close');
     },
-    onAnimationEnd() {
-      const { closing } = this.data;
-      if (closing) {
-        this.setData({ closing: false });
-      }
-    },
-  },
+    [closing]
+  );
+
+  return {
+    closing,
+    isOldVersion,
+  };
+};
+
+mountComponent(Popup, {
+  visible: false,
+  destroyOnClose: false,
+  showMask: true,
+  position: 'bottom',
+  // 是否开启动画
+  animation: true,
+  animationType: 'transform',
+  // 动画持续时间
+  duration: 300,
+  height: null,
+  width: null,
+  maskClassName: '',
+  maskStyle: '',
+  // 弹窗层级
+  zIndex: 998,
 });
