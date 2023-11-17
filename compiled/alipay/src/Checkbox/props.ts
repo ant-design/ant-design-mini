@@ -4,11 +4,12 @@ import { IBaseProps } from '../_util/base';
  */
 
 export interface ICheckboxProps extends IBaseProps {
+  value?: any;
   checked: boolean;
+  defaultChecked?: boolean;
   disabled: boolean;
   color: string;
   onChange: (checked: boolean, e: any) => void;
 }
 
-export const CheckboxDefaultProps: Partial<ICheckboxProps> = {
-};
+export const CheckboxDefaultProps: Partial<ICheckboxProps> = {};

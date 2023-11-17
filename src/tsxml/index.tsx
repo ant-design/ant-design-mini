@@ -24,6 +24,10 @@ export const Button = (props: Props): any => {};
 
 export const Event = (...args: any[]): any => {};
 
+export const Label = (props: Props): any => {};
+
+export const Checkbox = (...args: any[]): any => {};
+
 export type TSXMLProps<T> = Partial<
   {
     [K in keyof T]: T[K] extends (...args: unknown[]) => unknown
