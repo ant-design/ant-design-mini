@@ -44,6 +44,7 @@ export const wechat: PlatformConfig = {
       onTouchStart: 'bind:touchstart',
       onTouchMove: 'bind:touchmove',
       onTouchEnd: 'bind:touchend',
+      onAnimationEnd: 'bindanimationend',
     },
     input: {
       onInput: 'bindinput',
@@ -70,6 +71,9 @@ export const wechat: PlatformConfig = {
       onConfirm: 'bind:confirm',
       onFocus: 'bind:focus',
       onChange: 'bind:change',
+    },
+    'ant-popup': {
+      onClose: 'bind:close',
     },
   },
 };

@@ -1,24 +1,24 @@
 import { InternalData, View } from 'tsxml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
-import Icon from '../../../src/Icon/index.axml';
+import AntIcon from '../../../src/Icon/index.axml';
 import List from '../../../src/List/index.axml';
 import ListItem from '../../../src/List/ListItem/index.axml';
-import Popup from '../../../src/Popup/index.axml';
+import AntPopup from '../../../src/Popup/index.axml';
 import Switch from '../../../src/Switch/index.axml';
 
 export default (
   _,
   {
     basicVisible,
-    closeVisile,
+    closeVisible,
     scrollVisible,
     position,
     animation,
   }: InternalData
 ) => (
   <Page>
-    <Popup
+    <AntPopup
       visible={basicVisible}
       height={250}
       width={250}
@@ -29,9 +29,9 @@ export default (
       <View style="padding: 12px">
         从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
       </View>
-    </Popup>
-    <Popup
-      visible={closeVisile}
+    </AntPopup>
+    <AntPopup
+      visible={closeVisible}
       height={250}
       position="bottom"
       animation={animation}
@@ -40,13 +40,13 @@ export default (
       <View style="padding: 12px">
         从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
       </View>
-      <Icon
+      <AntIcon
         style="position: absolute; right: 12px; top: 12px"
         type="CloseOutline"
         onTap="handlePopupClose"
       />
-    </Popup>
-    <Popup
+    </AntPopup>
+    <AntPopup
       visible={scrollVisible}
       position="bottom"
       animation={animation}
@@ -121,22 +121,22 @@ export default (
         do cupidatat quis ea sint anim duis labore proident minim excepteur
         dolor proident elit.
       </scroll-view>
-    </Popup>
+    </AntPopup>
     <Container title="弹出位置" className="list">
-      <Button data-position="top" onTap="handleShowBasic">
+      <AntButton data-position="top" onTap="handleShowBasic">
         顶部弹出
-      </Button>
-      <Button data-position="bottom" onTap="handleShowBasic">
+      </AntButton>
+      <AntButton data-position="bottom" onTap="handleShowBasic">
         底部弹出
-      </Button>
-      <Button data-position="left" onTap="handleShowBasic">
+      </AntButton>
+      <AntButton data-position="left" onTap="handleShowBasic">
         左侧弹出
-      </Button>
-      <Button data-position="right" onTap="handleShowBasic">
+      </AntButton>
+      <AntButton data-position="right" onTap="handleShowBasic">
         右侧弹出
-      </Button>
-      <Button onTap="handleShowClose">自定义弹窗内关闭</Button>
-      <Button onTap="handleShowScroll">超长内容滚动</Button>
+      </AntButton>
+      <AntButton onTap="handleShowClose">自定义弹窗内关闭</AntButton>
+      <AntButton onTap="handleShowScroll">超长内容滚动</AntButton>
     </Container>
     <List>
       <ListItem>
