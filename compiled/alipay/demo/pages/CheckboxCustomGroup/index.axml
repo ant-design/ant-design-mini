@@ -2,14 +2,12 @@
   <block
     a:for="{{ options }}"
     a:for-index="index"
-    a:for-item="option"
-    a:key="{{ option.title }}">
+    a:for-item="option">
     <list header="{{ option.title }}">
       <block
         a:for="{{ option.list }}"
         a:for-index="index"
-        a:for-item="item"
-        a:key="{{ item.value }}">
+        a:for-item="item">
         <list-item>
           <checkbox
             data-value="{{ item.value }}"

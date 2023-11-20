@@ -41,7 +41,7 @@ Page({
   onChange(checked, e) {
     let { value } = this.data;
     if (checked) {
-      value = [...value, e.target.dataset.value];
+      value = value.concat(e.target.dataset.value);
     } else {
       value = value.filter((v) => v !== e.target.dataset.value);
     }

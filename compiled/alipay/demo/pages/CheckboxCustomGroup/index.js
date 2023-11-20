@@ -1,12 +1,3 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Page({
     data: {
         options: [
@@ -50,7 +41,7 @@ Page({
     onChange: function (checked, e) {
         var value = this.data.value;
         if (checked) {
-            value = __spreadArray(__spreadArray([], value, true), [e.target.dataset.value], false);
+            value = value.concat(e.target.dataset.value);
         }
         else {
             value = value.filter(function (v) { return v !== e.target.dataset.value; });

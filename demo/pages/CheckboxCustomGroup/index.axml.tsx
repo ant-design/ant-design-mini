@@ -7,9 +7,9 @@ import ListItem from '../../../src/List/ListItem/index.axml';
 export default ({ options, value }: InternalData) => (
   <Container title="自定义分组">
     {options.map((option) => (
-      <List header={option.title} key={option.title}>
+      <List header={option.title}>
         {option.list.map((item) => (
-          <ListItem key={item.value}>
+          <ListItem>
             <Checkbox
               data-value={item.value}
               checked={value.indexOf(item.value) > -1}
