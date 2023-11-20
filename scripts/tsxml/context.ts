@@ -133,12 +133,12 @@ export class TransformContext<T extends types.Node = types.Node>
     if (name === 'key') {
       return this.config.forKey;
     }
-    if (this.platform.basicEvent[name]) {
-      return this.platform.basicEvent[name];
-    }
     const result = this.config.props?.[tagName]?.[name];
     if (result) {
       return result;
+    }
+    if (this.platform.basicEvent[name]) {
+      return this.platform.basicEvent[name];
     }
     return name;
   }

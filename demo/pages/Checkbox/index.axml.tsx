@@ -1,34 +1,39 @@
-import { Page } from 'tsxml';
+import { Page, View } from 'tsxml';
 import Container from '../../../src/Container/index.axml';
-import Checkbox from '../../../src/Checkbox/index.axml';
+import AntCheckbox from '../../../src/Checkbox/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 
 export default ({ checked }) => (
   <Page>
     <Container title="基础用法">
-      <Checkbox onChange="onChange">Checkbox</Checkbox>
+      <AntCheckbox onChange="onChange">Checkbox</AntCheckbox>
     </Container>
 
     <Container title="初始值">
-      <Checkbox defaultChecked={true}>Checkbox</Checkbox>
+      <AntCheckbox defaultChecked={true}>Checkbox</AntCheckbox>
     </Container>
 
     <Container title="禁用模式">
-      <Checkbox disabled>Checkbox1</Checkbox>
-      <Checkbox defaultChecked disabled>
+      <AntCheckbox disabled>Checkbox1</AntCheckbox>
+      <AntCheckbox defaultChecked disabled>
         Checkbox2
-      </Checkbox>
+      </AntCheckbox>
     </Container>
 
     <Container title="自定义颜色">
-      <Checkbox color="red" defaultChecked>
+      <AntCheckbox color="red" defaultChecked>
         Checkbox
-      </Checkbox>
+      </AntCheckbox>
     </Container>
 
     <Container title="控制模式">
-      <Checkbox checked={checked} onChange="handleChange">
-        Checkbox
-      </Checkbox>
+      <View>
+        <AntCheckbox checked={checked} onChange="handleChange">
+          Checkbox
+        </AntCheckbox>
+      </View>
+
+      <AntButton onTap="toggleChange">切换</AntButton>
     </Container>
   </Page>
 );

@@ -3,6 +3,7 @@ import Checkbox from '../../../src/Checkbox/index.axml';
 import Container from '../../../src/Container/index.axml';
 import List from '../../../src/List/index.axml';
 import ListItem from '../../../src/List/ListItem/index.axml';
+import utils from './index.sjs';
 
 export default ({ options, value }: InternalData) => (
   <Container title="自定义分组">
@@ -12,7 +13,7 @@ export default ({ options, value }: InternalData) => (
           <ListItem>
             <Checkbox
               data-value={item.value}
-              checked={value.indexOf(item.value) > -1}
+              checked={utils.indexOf(value, item.value) > -1}
               onChange="onChange"
             >
               {item.title}

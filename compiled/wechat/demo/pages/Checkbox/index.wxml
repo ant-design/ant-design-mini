@@ -1,5 +1,5 @@
 <container title="基础用法">
-  <ant-checkbox onChange="onChange">Checkbox</ant-checkbox>
+  <ant-checkbox bind:change="onChange">Checkbox</ant-checkbox>
 </container>
 
 <container title="初始值">
@@ -27,10 +27,10 @@
   <view>
     <ant-checkbox
       checked="{{ checked }}"
-      onChange="handleChange">
+      bind:change="handleChange">
       Checkbox
     </ant-checkbox>
   </view>
 
-  <ant-button onTap="toggleChange">切换</ant-button>
+  <ant-button bind:tap="toggleChange">切换</ant-button>
 </container>

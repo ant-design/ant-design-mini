@@ -11,8 +11,15 @@ Page({
     console.log(value, e);
   },
   handleChange(value) {
+    /// #if WECHAT
+    this.setData({
+      value: value.detail,
+    });
+    /// #endif
+    /// #if ALIPAY
     this.setData({
       value,
     });
+    /// #endif
   },
 });

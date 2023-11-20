@@ -60,6 +60,9 @@ export const wechat: PlatformConfig = {
       onFocus: 'bindfocus',
       onBlur: 'bindblur',
     },
+    'checkbox-group': {
+      onChange: 'bindchange',
+    },
     'ant-textarea': {
       onChange: 'bind:change',
     },
