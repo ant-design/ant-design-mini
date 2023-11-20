@@ -1,15 +1,22 @@
 <container title="自定义分组">
-  <list
-    header="{{ option.title }}"
+  <block
     a:for="{{ options }}"
+    a:for-index="index"
     a:for-item="option">
-    <list-item a:for="{{ option.list }}">
-      <checkbox
-        data-value="{{ item.value }}"
-        checked="{{ value.indexOf(item.value) > -1 }}"
-        onChange="onChange">
-        {{ item.title }}
-      </checkbox>
-    </list-item>
-  </list>
+    <list header="{{ option.title }}">
+      <block
+        a:for="{{ option.list }}"
+        a:for-index="index"
+        a:for-item="item">
+        <list-item>
+          <checkbox
+            data-value="{{ item.value }}"
+            checked="{{ value.indexOf(item.value) > -1 }}"
+            onChange="onChange">
+            {{ item.title }}
+          </checkbox>
+        </list-item>
+      </block>
+    </list>
+  </block>
 </container>

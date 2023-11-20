@@ -12,9 +12,10 @@ function getClassName(checked, disabled) {
     return 'disabledCheckedIcon';
   }
 }
-
 function getCheckboxChecked(item, value) {
   return (value || []).indexOf(item.value) > -1;
 }
-
-export default { getClassName, getCheckboxChecked };
+export default {
+  getClassName: getClassName,
+  getCheckboxChecked: getCheckboxChecked
+};

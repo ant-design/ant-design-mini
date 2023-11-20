@@ -197,6 +197,9 @@ export function transformJSXElement(ctx: ITransformContext) {
     case 'MemberExpression': {
       return ctx.toAxmlExpression();
     }
+    case 'BinaryExpression': {
+      return ctx.toAxmlExpression();
+    }
     case 'Identifier': {
       return ctx.toAxmlExpression();
     }
@@ -214,8 +217,12 @@ export function transformJSXElement(ctx: ITransformContext) {
         ),
       ];
     }
+
     default: {
-      throw ctx.throw(ctx.node, 'Unsupported JSXElement');
+      throw ctx.throw(
+        ctx.node,
+        'Unsupported JSXElement (' + ctx.node.type + ')'
+      );
     }
   }
 }
@@ -269,9 +276,11 @@ function transformAttrExpression(ctx: ITransformContext) {
     case 'BooleanLiteral':
     case 'MemberExpression':
     case 'NumericLiteral':
+    case 'BinaryExpression':
     case 'CallExpression': {
       return ctx.toAxmlExpression();
     }
+
     case 'ArrayExpression': {
       const result = ctx.toAxmlExpression();
       if (result.startsWith('{{ ;')) {
