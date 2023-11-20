@@ -4,7 +4,10 @@ import { describe, expect, it, vi } from 'vitest';
 describe('Calendar', () => {
   it('测试默认的 props', () => {
     const instance = getInstance('Checkbox', {});
-    expect(instance.getConfig().props).toEqual({});
+    expect(instance.getConfig().props).toEqual({
+      color: '',
+      disabled: false,
+    });
     expect(instance.getData().mixin.value).toEqual(undefined);
   });
 
