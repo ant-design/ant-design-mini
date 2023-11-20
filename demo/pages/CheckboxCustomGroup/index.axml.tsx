@@ -1,26 +1,26 @@
 import { InternalData } from 'tsxml';
-import Checkbox from '../../../src/Checkbox/index.axml';
-import Container from '../../../src/Container/index.axml';
-import List from '../../../src/List/index.axml';
-import ListItem from '../../../src/List/ListItem/index.axml';
+import AntCheckbox from '../../../src/Checkbox/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
+import AntList from '../../../src/List/index.axml';
+import AntListItem from '../../../src/List/ListItem/index.axml';
 import utils from './index.sjs';
 
 export default ({ options, value }: InternalData) => (
-  <Container title="自定义分组">
+  <AntContainer title="自定义分组">
     {options.map((option) => (
-      <List header={option.title}>
+      <AntList header={option.title}>
         {option.list.map((item) => (
-          <ListItem>
-            <Checkbox
+          <AntListItem>
+            <AntCheckbox
               data-value={item.value}
               checked={utils.indexOf(value, item.value) > -1}
               onChange="onChange"
             >
               {item.title}
-            </Checkbox>
-          </ListItem>
+            </AntCheckbox>
+          </AntListItem>
         ))}
-      </List>
+      </AntList>
     ))}
-  </Container>
+  </AntContainer>
 );

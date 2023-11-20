@@ -1,29 +1,29 @@
-<container title="基础用法">
+<ant-container title="基础用法">
   <ant-checkbox onChange="onChange">Checkbox</ant-checkbox>
-</container>
+</ant-container>
 
-<container title="初始值">
+<ant-container title="初始值">
   <ant-checkbox defaultChecked="{{ true }}">Checkbox</ant-checkbox>
-</container>
+</ant-container>
 
-<container title="禁用模式">
+<ant-container title="禁用模式">
   <ant-checkbox disabled>Checkbox1</ant-checkbox>
   <ant-checkbox
     defaultChecked
     disabled>
     Checkbox2
   </ant-checkbox>
-</container>
+</ant-container>
 
-<container title="自定义颜色">
+<ant-container title="自定义颜色">
   <ant-checkbox
     color="red"
     defaultChecked>
     Checkbox
   </ant-checkbox>
-</container>
+</ant-container>
 
-<container title="控制模式">
+<ant-container title="控制模式">
   <view>
     <ant-checkbox
       checked="{{ checked }}"
@@ -33,4 +33,4 @@
   </view>
 
   <ant-button onTap="toggleChange">切换</ant-button>
-</container>
+</ant-container>

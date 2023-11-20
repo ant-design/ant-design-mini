@@ -2,25 +2,25 @@
   src="./index.wxs"
   module="utils" />
 
-<container title="自定义分组">
+<ant-container title="自定义分组">
   <block
     wx:for="{{ options }}"
     wx:for-index="index"
     wx:for-item="option">
-    <list header="{{ option.title }}">
+    <ant-list header="{{ option.title }}">
       <block
         wx:for="{{ option.list }}"
         wx:for-index="index"
         wx:for-item="item">
-        <list-item>
-          <checkbox
+        <ant-list-item>
+          <ant-checkbox
             data-value="{{ item.value }}"
             checked="{{ utils.indexOf(value, item.value) > -1 }}"
             bind:change="onChange">
             {{ item.title }}
-          </checkbox>
-        </list-item>
+          </ant-checkbox>
+        </ant-list-item>
       </block>
-    </list>
+    </ant-list>
   </block>
-</container>
+</ant-container>
