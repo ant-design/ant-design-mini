@@ -15,11 +15,11 @@ const Checkbox = (props: ICheckboxProps) => {
     (e) => {
       const newValue = !value;
       if (!isControlled) {
-        update(value);
+        update(newValue);
       }
       triggerEvent('change', newValue, e);
     },
-    []
+    [value, isControlled]
   );
 
   return {

@@ -1,4 +1,4 @@
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('Calendar', () => {
@@ -11,10 +11,16 @@ describe('Calendar', () => {
     expect(instance.getData().mixin.value).toEqual(undefined);
   });
 
-  it('测试 defaultChecked', () => {
+  it('测试 defaultChecked', async () => {
     const instance = getInstance('Checkbox', {
       defaultChecked: true,
     });
+    expect(instance.getData().mixin.value).toEqual(true);
+    instance.callMethod('onChange', {});
+    await sleep(10);
+    expect(instance.getData().mixin.value).toEqual(false);
+    instance.callMethod('onChange', {});
+    await sleep(20);
     expect(instance.getData().mixin.value).toEqual(true);
   });
 
