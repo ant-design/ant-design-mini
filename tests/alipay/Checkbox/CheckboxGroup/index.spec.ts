@@ -29,6 +29,14 @@ describe('Calendar', () => {
     expect(instance.getData().mixin.value).toEqual([]);
   });
 
+  it('测试 value 和 defaultValue 优先级', () => {
+    const instance = getInstance('Checkbox/CheckboxGroup', {
+      value: ['1'],
+      defaultValue: [],
+    });
+    expect(instance.getData().mixin.value).toEqual(['1']);
+  });
+
   it('测试 clickIndex 点击', async () => {
     const instance = getInstance('Checkbox/CheckboxGroup', {
       options: [{ value: '1' }, { value: '2' }],
@@ -44,6 +52,9 @@ describe('Calendar', () => {
     });
     await clickIndex(instance, 0);
     expect(instance.getData().mixin.value).toEqual(['2']);
+    instance.setProps({ disabled: false });
+    await clickIndex(instance, 0);
+    expect(instance.getData().mixin.value).toEqual(['2', '1']);
   });
 
   it('测试受控模式', async () => {
@@ -79,5 +90,22 @@ describe('Calendar', () => {
       value: ['1', '2'],
     });
     expect(instance.getData().mixin.value).toEqual(['1', '2']);
+  });
+
+  it('测试 disabled', async () => {
+    const instance = getInstance('Checkbox/CheckboxGroup', {
+      options: [{ value: '1' }, { value: '2' }],
+      defaultValue: [],
+    });
+    instance.setProps({
+      disabled: true,
+    });
+    await clickIndex(instance, 0);
+    expect(instance.getData().mixin.value).toEqual([]);
+    instance.setProps({
+      disabled: false,
+    });
+    await clickIndex(instance, 0);
+    expect(instance.getData().mixin.value).toEqual(['1']);
   });
 });
