@@ -1,11 +1,9 @@
-import { CheckboxDefaultProps, ICheckboxProps } from './props';
-import fmtEvent from '../_util/fmtEvent';
-import mixinValue from '../mixins/value';
-import '../_util/assert-component2';
-import { useMixState } from '../_util/hooks/useMixState';
 import { useEvent } from 'functional-mini/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useMixState } from '../_util/hooks/useMixState';
+import { ICheckboxProps } from './props';
 
 const Checkbox = (props: ICheckboxProps) => {
   const [value, { isControlled, update }] = useMixState(props.defaultChecked, {

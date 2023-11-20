@@ -1,39 +1,51 @@
-import { CheckboxGroupDefaultProps } from './props';
-import fmtEvent from '../../_util/fmtEvent';
-import mixinValue from '../../mixins/value';
+import { useEvent } from 'functional-mini/component';
+import { mountComponent } from '../../_util/component';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { useMixState } from '../../_util/hooks/useMixState';
+import { ICheckboxGroupProps } from './props';
 
-Component({
-  props: CheckboxGroupDefaultProps,
-  mixins: [
-    mixinValue({
-      transformValue(val) {
-        const value = val || [];
-        return {
-          needUpdate: true,
-          value,
-        };
-      },
-    }),
-  ],
-  methods: {
-    onChange(_, e) {
-      if (this.props.disabled) {
+const CheckboxGroup = (props: ICheckboxGroupProps) => {
+  const [value, { isControlled, update }] = useMixState(props.defaultValue, {
+    value: props.value,
+    postState(value) {
+      return {
+        valid: true,
+        value: value || [],
+      };
+    },
+  });
+  const { triggerEvent } = useComponentEvent(props);
+  useEvent(
+    'onChange',
+    (_, e) => {
+      if (props.disabled) {
         return;
       }
-      let currentValue = this.getValue();
+      let currentValue = value;
       const { index } = e.currentTarget.dataset;
-      const value = this.props.options[index].value;
-      if (currentValue.indexOf(value) > -1) {
-        currentValue = currentValue.filter((v) => v !== value);
+      const selectValue = props.options[index].value;
+      if (currentValue.indexOf(selectValue) > -1) {
+        currentValue = currentValue.filter((v) => v !== selectValue);
       } else {
-        currentValue = [...currentValue, value];
+        currentValue = [...currentValue, selectValue];
       }
-      if (!this.isControlled()) {
-        this.update(currentValue);
+      if (!isControlled) {
+        update(currentValue);
       }
-      if (this.props.onChange) {
-        this.props.onChange(currentValue, fmtEvent(this.props, e));
-      }
+      triggerEvent('change', currentValue, e);
     },
-  },
+    [props, value, isControlled]
+  );
+  return {
+    mixin: { value },
+  };
+};
+
+mountComponent(CheckboxGroup, {
+  value: null,
+  defaultValue: [],
+  disabled: false,
+  position: 'vertical',
+  color: '',
+  options: [],
 });

@@ -20,8 +20,10 @@ describe('Calendar', () => {
   it('测试默认的 props', () => {
     const instance = getInstance('Checkbox/CheckboxGroup', {});
     expect(instance.getConfig().props).toEqual({
+      color: '',
       defaultValue: [],
       options: [],
+      disabled: false,
       position: 'vertical',
     });
     expect(instance.getData().mixin.value).toEqual([]);
