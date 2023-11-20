@@ -5,13 +5,13 @@ export interface ICheckboxGroupProps extends IBaseProps {
   defaultValue: string[];
   disabled: boolean;
   position: 'horizontal' | 'vertical';
-  onChange: (value: string[], e: any) => void;
   color: string;
   options: {
     label?: string;
     value?: string;
     disabled?: boolean;
   }[];
+  onChange?: (value: string[], e: any) => void;
 }
 
 export const CheckboxGroupDefaultProps: Partial<ICheckboxGroupProps> = {
