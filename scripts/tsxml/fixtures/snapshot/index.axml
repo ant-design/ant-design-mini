@@ -13,4 +13,10 @@
     >
   </block>
   <test loading />
+
+  <view
+    slot="label"
+    slot-scope="item">
+    {{ item.index + 1 }} {{ item.value.label }}
+  </view>
 </view>
