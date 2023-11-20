@@ -3,6 +3,6 @@
   "usingComponents": {
     "list": "../../List/index",
     "list-item": "../../List/ListItem/index",
-    "checkbox": "../index"
+    "ant-checkbox": "../index"
   }
 }

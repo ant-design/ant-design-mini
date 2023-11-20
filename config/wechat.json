@@ -20,7 +20,10 @@
     "pages/InputCustom",
     "pages/InputSearchBar",
     "pages/InputTextarea",
-    "pages/Popup"
+    "pages/Popup",
+    "pages/Checkbox",
+    "pages/CheckboxCustomGroup",
+    "pages/CheckboxGroup"
   ],
   "src": [
     "_util",
@@ -41,6 +44,7 @@
     "Popover",
     "Mask",
     "Stepper",
-    "Popup"
+    "Popup",
+    "Checkbox"
   ]
 }

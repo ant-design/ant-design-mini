@@ -27,6 +27,7 @@ export const Event = (...args: any[]): any => {};
 export const Label = (props: Props): any => {};
 
 export const Checkbox = (...args: any[]): any => {};
+export const CheckboxGroup = (...args: any[]): any => {};
 
 export type TSXMLProps<T> = Partial<
   {

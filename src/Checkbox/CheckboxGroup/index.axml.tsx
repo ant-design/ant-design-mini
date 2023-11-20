@@ -3,7 +3,7 @@ import { ICheckboxGroupProps } from './props';
 import componentUtils from '../index.sjs';
 import List from '../../List/index.axml';
 import ListItem from '../../List/ListItem/index.axml';
-import Checkbox from '../index.axml';
+import AntCheckbox from '../index.axml';
 
 export default (
   {
@@ -29,7 +29,7 @@ export default (
           <Block>
             {options.map((item, index) => (
               <ListItem>
-                <Checkbox
+                <AntCheckbox
                   color={color}
                   checked={componentUtils.getCheckboxChecked(item, mixin.value)}
                   data-index={index}
@@ -38,22 +38,22 @@ export default (
                   onChange="onChange"
                 >
                   {/* #if ALIPAY */}
-                  <slot name="label" value={item} index={index}>
+                  <Slot name="label" value={item} index={index}>
                     {/* #endif */}
                     <View class="ant-checkbox-group-item-label-default">
                       {item.label}
                     </View>
                     {/* #if ALIPAY */}
-                  </slot>
+                  </Slot>
                   {/* #endif */}
-                </Checkbox>
+                </AntCheckbox>
               </ListItem>
             ))}
           </Block>
         ) : (
           <Block>
             {options.map((item, index) => (
-              <Checkbox
+              <AntCheckbox
                 color={color}
                 checked={componentUtils.getCheckboxChecked(item, mixin.value)}
                 data-index={index}
@@ -70,7 +70,7 @@ export default (
                   {/* #if ALIPAY */}
                 </Slot>
                 {/* #endif */}
-              </Checkbox>
+              </AntCheckbox>
             ))}
           </Block>
         )}

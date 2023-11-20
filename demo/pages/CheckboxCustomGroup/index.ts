@@ -39,12 +39,25 @@ Page({
     value: [],
   },
   onChange(checked, e) {
-    let { value } = this.data;
+    let value = this.data.value;
+
+    /// #if WECHAT
+    const event = checked;
+    if (event.detail) {
+      value = value.concat(event.target.dataset.value);
+    } else {
+      value = value.filter((v) => v !== event.target.dataset.value);
+    }
+    /// #endif
+
+    /// #if ALIPAY
     if (checked) {
       value = value.concat(e.target.dataset.value);
     } else {
       value = value.filter((v) => v !== e.target.dataset.value);
     }
+    /// #endif
+
     this.setData({ value });
     console.log(value);
   },

@@ -17,12 +17,15 @@ const CheckboxGroup = (props: ICheckboxGroupProps) => {
   const { triggerEvent } = useComponentEvent(props);
   useEvent(
     'onChange',
-    (_, e) => {
+    (args, e) => {
       if (props.disabled) {
         return;
       }
+      let event;
+      event = e;
+
       let currentValue = value;
-      const { index } = e.currentTarget.dataset;
+      const { index } = event.currentTarget.dataset;
       const selectValue = props.options[index].value;
       if (currentValue.indexOf(selectValue) > -1) {
         currentValue = currentValue.filter((v) => v !== selectValue);

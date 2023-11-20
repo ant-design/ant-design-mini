@@ -1,5 +1,8 @@
 {
   "pages": [
+    "demo/pages/CheckboxGroup/index",
+    "demo/pages/CheckboxCustomGroup/index",
+    "demo/pages/Checkbox/index",
     "demo/pages/Popup/index",
     "demo/pages/Slider/index",
     "demo/pages/Stepper/index",
