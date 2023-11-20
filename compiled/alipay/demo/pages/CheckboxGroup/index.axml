@@ -37,7 +37,7 @@
       <view
         slot="label"
         slot-scope="item">
-        ${{ item.index + 1 }} ${{ item.value.label }}
+        {{ item.index + 1 }} {{ item.value.label }}
       </view>
     </checkbox-group>
   </container>

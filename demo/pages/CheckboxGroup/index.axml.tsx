@@ -33,7 +33,7 @@ export default ({ options, value, item }: InternalData) => (
     <Container title="自定义">
       <CheckboxGroup options={options}>
         <View slot="label" slot-scope="item">
-          ${item.index + 1} ${item.value.label}
+          {item.index + 1} {item.value.label}
         </View>
       </CheckboxGroup>
     </Container>
