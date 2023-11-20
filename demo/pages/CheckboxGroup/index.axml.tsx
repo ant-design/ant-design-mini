@@ -1,9 +1,9 @@
-import { InternalData, View } from 'tsxml';
+import { InternalData, View, Component } from 'tsxml';
 import Container from '../../../src/Container/index.axml';
 import CheckboxGroup from '../../../src/Checkbox/CheckboxGroup/index.axml';
 
 export default ({ options, value, item }: InternalData) => (
-  <View>
+  <Component>
     <Container title="基础用法">
       <CheckboxGroup options={options} onChange="onChange" />
     </Container>
@@ -37,5 +37,5 @@ export default ({ options, value, item }: InternalData) => (
         </View>
       </CheckboxGroup>
     </Container>
-  </View>
+  </Component>
 );
