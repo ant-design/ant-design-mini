@@ -1,9 +1,9 @@
 <view
   class="ant-image-upload {{ className || '' }}"
   style="{{ style }}">
-  <slot fileList="{{ value }}">
+  <slot fileList="{{ mixin.value }}">
     <block
-      a:for="{{ value }}"
+      a:for="{{ mixin.value }}"
       a:for-index="index"
       a:for-item="item"
       a:key="{{ item.uid }}">
@@ -19,7 +19,8 @@
           name="image"
           value="{{ item }}">
           <view
-            class="ant-image-upload-cover {{ item.status === 'uploading' || item.status === 'error' ? '' : 'hidden' }}">
+            a:if="{{ item.status === 'uploading' || item.status === 'error' }}"
+            class="ant-image-upload-cover">
             <view
               a:if="{{ item.status === 'uploading' }}"
               class="ant-image-upload-cover-loading">
@@ -35,6 +36,7 @@
               <view class="ant-image-upload-cover-error-text">上传失败</view>
             </view>
           </view>
+
           <image
             class="ant-image-upload-image"
             mode="{{ imageMode }}"
@@ -47,7 +49,7 @@
     <view onTap="chooseImage">
       <slot name="uploadButton">
         <view
-          a:if="{{ !maxCount || value.length < maxCount }}"
+          a:if="{{ !maxCount || mixin.value.length < maxCount }}"
           class="ant-image-upload-add-image-wrapper">
           <icon
             type="AddOutline"

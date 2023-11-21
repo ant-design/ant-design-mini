@@ -5,11 +5,11 @@ import { IUploaderProps } from './props';
 
 export default (
   { className, style, imageMode, maxCount }: IUploaderProps,
-  { value }: InternalData
+  { mixin }: InternalData
 ) => (
   <View class={`ant-image-upload ${className || ''}`} style={style}>
-    <Slot fileList={value}>
-      {value.map((item) => (
+    <Slot fileList={mixin.value}>
+      {mixin.value.map((item) => (
         <View key={item.uid} class="ant-image-upload-show">
           <View data-uid={item.uid} onTap="onRemove">
             {/* #if ALIPAY */}
@@ -23,33 +23,30 @@ export default (
           {/* #if ALIPAY */}
           <Slot name="image" value={item}>
             {/* #endif */}
-            <View
-              class={`ant-image-upload-cover ${
-                item.status === 'uploading' || item.status === 'error'
-                  ? ''
-                  : 'hidden'
-              }`}
-            >
-              {item.status === 'uploading' && (
-                <View class="ant-image-upload-cover-loading">
-                  <Loading className="ant-image-upload-cover-loading-icon" />
-                  <View class="ant-image-upload-cover-loading-text">
-                    上传中...
+            {(item.status === 'uploading' || item.status === 'error') && (
+              <View class="ant-image-upload-cover">
+                {item.status === 'uploading' && (
+                  <View class="ant-image-upload-cover-loading">
+                    <Loading className="ant-image-upload-cover-loading-icon" />
+                    <View class="ant-image-upload-cover-loading-text">
+                      上传中...
+                    </View>
                   </View>
-                </View>
-              )}
-              {item.status === 'error' && (
-                <View class="ant-image-upload-cover-error">
-                  <Icon
-                    className="ant-image-upload-cover-error-icon"
-                    type="CloseCircleOutline"
-                  />
-                  <View class="ant-image-upload-cover-error-text">
-                    上传失败
+                )}
+                {item.status === 'error' && (
+                  <View class="ant-image-upload-cover-error">
+                    <Icon
+                      className="ant-image-upload-cover-error-icon"
+                      type="CloseCircleOutline"
+                    />
+                    <View class="ant-image-upload-cover-error-text">
+                      上传失败
+                    </View>
                   </View>
-                </View>
-              )}
-            </View>
+                )}
+              </View>
+            )}
+
             <image
               class="ant-image-upload-image"
               mode={imageMode}
@@ -66,7 +63,7 @@ export default (
         {/* #if ALIPAY */}
         <Slot name="uploadButton">
           {/* #endif */}
-          {(!maxCount || value.length < maxCount) && (
+          {(!maxCount || mixin.value.length < maxCount) && (
             <View class="ant-image-upload-add-image-wrapper">
               <Icon
                 type="AddOutline"
