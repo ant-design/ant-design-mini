@@ -157,6 +157,7 @@ ${extraPromo}
   let clipboardData = '';
 
   const files = await fs.readdir(sourceDir);
+  let axmlContent = '';
   for (const fileName of files) {
     const src = path.resolve(sourceDir, fileName);
     if (ofs.statSync(src).isDirectory()) {
@@ -164,7 +165,7 @@ ${extraPromo}
     }
     const ext = path.extname(fileName);
     if (ext === '.axml') {
-      const axmlContent = ofs.readFileSync(
+      axmlContent = ofs.readFileSync(
         path.resolve(sourceDir, fileName),
         'utf-8'
       );
@@ -183,6 +184,8 @@ ${extraPromo}
       Math.random().toString(36).slice(2)
     );
     ofs.writeFileSync(randomDir, clipboardData);
+    const randomJSon = randomDir + '.json';
+    ofs.writeFileSync(randomJSon, JSON.stringify({ text: clipboardData }));
     console.log(randomDir);
     cp.execSync(`cat ${randomDir} | pbcopy`);
     console.log('已经复制到剪切板了，可以直接粘贴到 markdown 里了');
