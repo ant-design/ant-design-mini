@@ -42,4 +42,5 @@ export interface Props {
   hidden?: any;
   enableNative?: any;
   disabled?: boolean;
+  fileList?: any;
 }

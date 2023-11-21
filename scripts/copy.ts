@@ -16,6 +16,42 @@ function tryRead(filePath: string) {
   }
 }
 
+const files = ofs.readdirSync(path.resolve(rootDir, 'scripts/tsxml/fixtures'));
+const examples = files
+  .map((file) => {
+    if (!file.endsWith('.tsx')) {
+      return;
+    }
+    const tsx = ofs.readFileSync(
+      path.resolve(rootDir, 'scripts/tsxml/fixtures', file),
+      'utf-8'
+    );
+
+    const axml = ofs.readFileSync(
+      path.resolve(
+        rootDir,
+        'scripts/tsxml/fixtures',
+        'snapshot',
+        file.replace('.tsx', '.axml')
+      ),
+      'utf-8'
+    );
+    return `
+${markdownCode(
+  JSON.stringify(
+    {
+      tsx,
+      axml,
+    },
+    null,
+    2
+  )
+)}
+    `.trim();
+  })
+  .filter(Boolean)
+  .join('\n\n');
+
 const json = tryRead(path.resolve(sourceDir, 'index.json'));
 const props = tryRead(path.resolve(sourceDir, 'props.ts'));
 const axml = tryRead(path.resolve(sourceDir, 'index.axml'));
@@ -28,6 +64,9 @@ const randomPath = path.resolve(
 ofs.writeFileSync(
   randomPath,
   `
+这个是参考代码
+${examples}
+
  Generate tsx from axml.
  1. 不要写 import React from 'react';
  2. 分析 json 的内容。 如果组件在 usingComponents 中存在, 则从正确的位置导入。
@@ -59,6 +98,19 @@ ofs.writeFileSync(
     7.1 你需要从 props 的代码里获取 props 的名字。然后 在生成的 tsx 里面添加正确的导入
     7.2 请不要自己定义 props 类型，而是从 './props' 导入，举例子 import { IconProps } from 'tsxml';
     7.3 注意, IconProps 只是举个例子，要写的是正确的 props 的名字。 在使用的时候，不要忘记用 TSXMLProps 包一层。
+    7.3 对于 props 上为使用到的变量，请忽略
+    7.4 对于 props 里未声明的变量，请使用 InternalData'
+
+      import { InternalData } from 'tsxml'
+      export default (
+        { className, style, imageMode, maxCount }: IUploaderProps,
+        { value }: InternalData
+      )
+
+8. Adjust the style field to use a string instead of an object in the TSX code. Here is the revised version:
+
+最后请一次返回 tsx 的完整结果。 而不是 import 和代码分开返回。
+
 
 ${JSON.stringify({ json, props, axml }, null, 2)}
 `

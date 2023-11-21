@@ -1,6 +1,6 @@
-import glob, { globSync } from 'glob';
-import * as path from 'path';
 import * as fs from 'fs';
+import { globSync } from 'glob';
+import * as path from 'path';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const rootDir = path.resolve(__dirname, '../');
