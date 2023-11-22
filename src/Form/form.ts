@@ -336,10 +336,10 @@ class Field extends EventEmitter {
 
   /**
    * 设置 Field 校验器状态
-   * @param validatorStatue
+   * @param validatorStatus
    */
-  setValidatorStatus(validatorStatue: ValidatorStatus) {
-    this.ref.setFormData(validatorStatue);
+  setValidatorStatus(validatorStatus: ValidatorStatus) {
+    this.ref.setFormData(validatorStatus);
   }
 
   /**
