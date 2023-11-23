@@ -109,13 +109,15 @@ CalendarValue 的类型为 `number | [number,number]`，代表单选或者连续
 
 ### 通过 `onFormatter` 设置单元格的自定义数据
 
-通过 `onFormatter` 设置单元格的自定义数据，返回的数据中，`disabled` 为 `true` 的单元格将不可选。
+我们可以通过 `onFormatter` 设置单元格的自定义数据， `onFormatter` 的格式为 `(cell: CellState, currentValue: CalendarValue) => CellState`。
 
-在支付宝小程序里，我们可以设置 `onFormatter` 为 `handleFormat`，然后在 page 的 `handleFormat` 中返回日期的状态。
+我们会调用每一个单元格的状态，以及当前的 value。 通过返回新的单元格数据，我们可以设置单元格的状态。
 
 下面是一些常见的用例
 
 #### 如何让当天之前的时间不可选？
+
+支付宝小程序，我们可以通过 page 上的方法来设置，在 wxml 里需要传入一个方法名字符串。
 
 axml: `<calendar onFormatter="handleFormat" />`
 
@@ -127,8 +129,28 @@ import dayjs from 'dayjs';
 Page({
   handleFormat(cell: CellState) {
     return {
+      // 如果 cell 的时间小于今天的开始时间，那么就禁止选择
       disabled: dayjs(cell.time).isBefore(dayjs().startOf('date')),
     };
+  },
+});
+```
+
+支付宝小程序，我们可以通过 data 里的方法来设置。 在 wxml 里需要传入一个变量名。
+
+wxml: `<calendar onFormatter="{{ handleFormat }}" />`
+
+```ts
+import dayjs from 'dayjs';
+
+Page({
+  data: {
+    handleFormat: (cell: CellState) => {
+      return {
+        // 如果 cell 的时间小于今天的开始时间，那么就禁止选择
+        disabled: dayjs(cell.time).isBefore(dayjs().startOf('date')),
+      };
+    },
   },
 });
 ```
