@@ -159,6 +159,21 @@ class Field extends EventEmitter {
     });
   }
 
+  updateFieldRules(rules: RawRules, validateMessages: ValidateMessages) {
+    const props = this.ref.getProps();
+    this.create(
+      props.name,
+      null,
+      rules[props.name],
+      validateMessages,
+      props.required,
+      props.label,
+      props.message,
+      props.validateTrigger,
+      true
+    );
+  }
+
   create(
     name: string,
     initialValue: Value,
@@ -526,6 +541,13 @@ export class Form {
    */
   private setRules(rules: Rules) {
     this.rules = this.transformRules(rules);
+  }
+
+  updateRules(rules: Rules) {
+    this.rules = this.transformRules(rules);
+    Object.keys(this.fields).forEach((name) => {
+      this.fields[name].updateFieldRules(this.rules, this.validateMessages);
+    });
   }
 
   /**
