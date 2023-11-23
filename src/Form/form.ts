@@ -199,6 +199,7 @@ class Field extends EventEmitter {
 
   updateFieldRules(rules: RawRule, validateMessages: ValidateMessages) {
     const props = this.ref.getProps();
+    this.formRules = rules;
     this.create(
       props.name,
       null,
