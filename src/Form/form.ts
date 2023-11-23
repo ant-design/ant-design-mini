@@ -194,6 +194,21 @@ class Field extends EventEmitter {
     this.validateTrigger = validateTriggerList;
   }
 
+  updateFieldRules(rules: RawRule, validateMessages: ValidateMessages) {
+    const props = this.ref.getProps();
+    this.create(
+      props.name,
+      null,
+      rules[props.name],
+      validateMessages,
+      props.required,
+      props.label,
+      props.message,
+      props.validateTrigger,
+      true
+    );
+  }
+
   /**
    *
    * @param rule 修改 Validator
@@ -517,6 +532,18 @@ export class Form {
     Object.keys(fields).forEach((name) => {
       const field = fields[name];
       callback(field, name);
+    });
+  }
+
+  /**
+   * 更新 rules
+   * @param rules
+   */
+  updateRules(rules: Rules) {
+    this.rules = this.transformRules(rules);
+    const rules2 = this.rules;
+    Object.keys(this.fields).forEach((name) => {
+      this.fields[name].updateFieldRules(rules2, this.validateMessages);
     });
   }
 

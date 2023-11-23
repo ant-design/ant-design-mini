@@ -159,21 +159,6 @@ class Field extends EventEmitter {
     });
   }
 
-  updateFieldRules(rules: RawRules, validateMessages: ValidateMessages) {
-    const props = this.ref.getProps();
-    this.create(
-      props.name,
-      null,
-      rules[props.name],
-      validateMessages,
-      props.required,
-      props.label,
-      props.message,
-      props.validateTrigger,
-      true
-    );
-  }
-
   create(
     name: string,
     initialValue: Value,
@@ -207,6 +192,21 @@ class Field extends EventEmitter {
       validateTriggerList = [validateTriggerList];
     }
     this.validateTrigger = validateTriggerList;
+  }
+
+  updateFieldRules(rules: RawRule, validateMessages: ValidateMessages) {
+    const props = this.ref.getProps();
+    this.create(
+      props.name,
+      null,
+      rules[props.name],
+      validateMessages,
+      props.required,
+      props.label,
+      props.message,
+      props.validateTrigger,
+      true
+    );
   }
 
   /**
@@ -536,18 +536,23 @@ export class Form {
   }
 
   /**
+   * 更新 rules
+   * @param rules
+   */
+  updateRules(rules: Rules) {
+    this.rules = this.transformRules(rules);
+    const rules2 = this.rules;
+    Object.keys(this.fields).forEach((name) => {
+      this.fields[name].updateFieldRules(rules2, this.validateMessages);
+    });
+  }
+
+  /**
    * 设置 rules
    * @param rules
    */
   private setRules(rules: Rules) {
     this.rules = this.transformRules(rules);
-  }
-
-  updateRules(rules: Rules) {
-    this.rules = this.transformRules(rules);
-    Object.keys(this.fields).forEach((name) => {
-      this.fields[name].updateFieldRules(this.rules, this.validateMessages);
-    });
   }
 
   /**
