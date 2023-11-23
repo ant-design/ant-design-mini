@@ -91,6 +91,8 @@ class Field extends EventEmitter {
    */
   private validateTrigger: ValidateTrigger[];
 
+  private formRules: RawRule;
+
   /**
    * Field构建
    * @param ref field ref对象
@@ -109,6 +111,7 @@ class Field extends EventEmitter {
   ) {
     super();
     this.ref = ref;
+    this.formRules = rules;
     this.create(
       name,
       initialValues[name],
@@ -138,7 +141,7 @@ class Field extends EventEmitter {
           this.create(
             value.name,
             initialValues[value.name],
-            rules[value.name],
+            this.formRules[value.name],
             validateMessages,
             value.required,
             value.message,
@@ -540,10 +543,10 @@ export class Form {
    * @param rules
    */
   updateRules(rules: Rules) {
-    this.rules = this.transformRules(rules);
-    const rules2 = this.rules;
+    const rawRules = this.transformRules(rules);
+    this.rules = rawRules;
     Object.keys(this.fields).forEach((name) => {
-      this.fields[name].updateFieldRules(rules2, this.validateMessages);
+      this.fields[name].updateFieldRules(rawRules, this.validateMessages);
     });
   }
 
