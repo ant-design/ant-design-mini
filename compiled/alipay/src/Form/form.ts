@@ -91,6 +91,8 @@ class Field extends EventEmitter {
    */
   private validateTrigger: ValidateTrigger[];
 
+  private formRules: RawRule;
+
   /**
    * Field构建
    * @param ref field ref对象
@@ -109,6 +111,7 @@ class Field extends EventEmitter {
   ) {
     super();
     this.ref = ref;
+    this.formRules = rules;
     this.create(
       name,
       initialValues[name],
@@ -138,7 +141,7 @@ class Field extends EventEmitter {
           this.create(
             value.name,
             initialValues[value.name],
-            rules[value.name],
+            this.formRules[value.name],
             validateMessages,
             value.required,
             value.message,
@@ -192,6 +195,22 @@ class Field extends EventEmitter {
       validateTriggerList = [validateTriggerList];
     }
     this.validateTrigger = validateTriggerList;
+  }
+
+  updateFieldRules(rules: RawRule, validateMessages: ValidateMessages) {
+    const props = this.ref.getProps();
+    this.formRules = rules;
+    this.create(
+      props.name,
+      null,
+      rules[props.name],
+      validateMessages,
+      props.required,
+      props.label,
+      props.message,
+      props.validateTrigger,
+      true
+    );
   }
 
   /**
@@ -517,6 +536,18 @@ export class Form {
     Object.keys(fields).forEach((name) => {
       const field = fields[name];
       callback(field, name);
+    });
+  }
+
+  /**
+   * 更新 rules
+   * @param rules
+   */
+  updateRules(rules: Rules) {
+    const rawRules = this.transformRules(rules);
+    this.rules = rawRules;
+    Object.keys(this.fields).forEach((name) => {
+      this.fields[name].updateFieldRules(rawRules, this.validateMessages);
     });
   }
 

@@ -33,6 +33,7 @@ interface Instance {
 }
 
 export interface TestInstance {
+  componentInstance(): Instance;
   getData<T = Record<string, any>>(): T;
   setProps: (props: Record<string, any>) => void;
   callMethod: (name: string, ...args: any) => any;
@@ -136,6 +137,9 @@ function createInstance(config: Instance, props: Record<string, any>, my: any) {
   didMount.forEach((item) => item.call(instance));
 
   return {
+    componentInstance() {
+      return instance;
+    },
     getData() {
       return JSON.parse(JSON.stringify(instance.data));
     },
@@ -193,9 +197,10 @@ function getInstance(
   props: Record<string, any>,
   api?: Record<string, any>
 ): TestInstance {
-  const { path: expectFile, code } = compileCode(
-    path.join(__dirname, `../compiled/alipay/src/${name}/index.ts`)
-  );
+  const sourceCodePath = path.isAbsolute(name)
+    ? name
+    : path.join(__dirname, `../compiled/alipay/src/${name}/index.ts`);
+  const { path: expectFile, code } = compileCode(sourceCodePath);
   const script = new vm.Script(code, {
     filename: expectFile,
   });
@@ -209,6 +214,35 @@ function getInstance(
     setTimeout,
     Component: (obj) => {
       result = createInstance(obj, props, component2Patch(api));
+    },
+    updateResult: (res) => {
+      result = res;
+    },
+  });
+
+  globalThis.componentCoverage.push(cov);
+  script.runInContext(context);
+  return result;
+}
+
+export function runInMiniprogram<T>(
+  filePath: string,
+  api?: Record<string, any>
+): T {
+  const { path: expectFile, code } = compileCode(filePath);
+  const script = new vm.Script(code, {
+    filename: expectFile,
+  });
+  let result;
+  const cov = {};
+  const context = vm.createContext({
+    my: component2Patch(api),
+    console,
+    COV: cov,
+    require,
+    setTimeout,
+    updateResult: (res) => {
+      result = res;
     },
   });
 
