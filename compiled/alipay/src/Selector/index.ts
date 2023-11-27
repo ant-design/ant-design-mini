@@ -26,11 +26,11 @@ Component({
         let currentValue = this.getValue() || [];
         if (currentValue.indexOf(value) > -1) {
           if (
-            !isNaN(maxSelectedCount) &&
-            currentValue.length >= maxSelectedCount
+            !isNaN(minSelectedCount) &&
+            currentValue.length <= minSelectedCount
           ) {
-            if (onSelectMax) {
-              onSelectMax(
+            if (onSelectMin) {
+              onSelectMin(
                 value,
                 options.find((v) => v.value === value) as ISelectorItem,
                 event
@@ -41,11 +41,11 @@ Component({
           currentValue = currentValue.filter((v) => v !== value);
         } else {
           if (
-            !isNaN(minSelectedCount) &&
-            currentValue.length <= minSelectedCount
+            !isNaN(maxSelectedCount) &&
+            currentValue.length >= maxSelectedCount
           ) {
-            if (onSelectMin) {
-              onSelectMin(
+            if (onSelectMax) {
+              onSelectMax(
                 value,
                 options.find((v) => v.value === value) as ISelectorItem,
                 event
