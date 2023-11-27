@@ -105,7 +105,11 @@ interface LocaleText {
 
 CalendarValue 的类型为 `number | [number,number]`，代表单选或者连续区间的日期。 是一个时间戳，单位为毫秒。
 
-举个例子，如果我们想要设置默认的开始时间为今天，结束时间为 7 天后，所以我们可以在 defaultValue 内传入 `[dayjs().startOf('date'), dayjs().add(7, 'days').startOf('date')]`
+举个例子，如果我们想要设置默认的开始时间为今天，结束时间为 7 天后，所以我们可以在 defaultValue 内传入
+
+```ts
+[dayjs().startOf('date'), dayjs().add(7, 'days').startOf('date')];
+```
 
 ### 通过 `onFormatter` 设置单元格的自定义数据
 
@@ -119,7 +123,11 @@ CalendarValue 的类型为 `number | [number,number]`，代表单选或者连续
 
 支付宝小程序，我们可以通过 page 上的方法来设置，在 wxml 里需要传入一个方法名字符串。
 
-axml: `<calendar onFormatter="handleFormat" />`
+axml:
+
+```xml
+<calendar onFormatter="handleFormat" />
+```
 
 ts:
 
@@ -138,7 +146,11 @@ Page({
 
 支付宝小程序，我们可以通过 data 里的方法来设置。 在 wxml 里需要传入一个变量名。
 
-wxml: `<calendar onFormatter="{{ handleFormat }}" />`
+wxml:
+
+```xml
+<calendar onFormatter="{{ handleFormat }}" />
+```
 
 ```ts
 import dayjs from 'dayjs';
