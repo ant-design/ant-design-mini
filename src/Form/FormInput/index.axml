@@ -21,6 +21,7 @@
     type="{{type}}"
     password="{{password}}"
     placeholder="{{placeholder}}"
+    alwaysSystem="{{alwaysSystem}}"
     placeholderClassName="{{placeholderClassName}}"
     placeholderStyle="{{placeholderStyle}}"
     maxLength="{{maxLength}}"
