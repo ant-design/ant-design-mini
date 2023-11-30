@@ -3,11 +3,17 @@ export interface PickerData {
   value: PickerValue;
   label: string;
 }
-export declare type PickerValue = string | number | (string | number)[];
+export declare type PickerValue =
+  | string
+  | number
+  | PickerData
+  | (string | number | PickerData)[];
 /**
  * @description 选择器，包括一个或多个不同值的可滚动列表，每个值可以在视图的中心以较暗的文本形式显示。当用户激活 **Picker** 后，将会从底部弹出。
  */
 export interface IPickerProps extends IBaseProps {
+  visible?: boolean;
+  defaultVisible?: boolean;
   /**
    * @desciption  动画类型
    * @default "transform"
@@ -48,34 +54,7 @@ export interface IPickerProps extends IBaseProps {
    * @description picker 数据
    */
   options: PickerValue[];
-  /**
-   * @description 点击确认回调
-   */
-  onOk: (
-    value: PickerValue,
-    column: PickerData,
-    e: Record<string, any>
-  ) => void;
-  /**
-   * @description 点击取消回调
-   */
-  onCancel: (e: Record<string, any>) => void;
-  /**
-   * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
-   */
-  onChange: (
-    value: PickerValue,
-    column: PickerData,
-    e: Record<string, any>
-  ) => void;
-  /**
-   * @description 选中值的文本显示格式
-   */
-  onFormat: (value: PickerValue, column: PickerValue) => string;
-  /**
-   * @description 切换显示隐藏
-   */
-  onVisibleChange: (visible: boolean, e: Record<string, any>) => void;
+
   /**
    * @description 点击蒙层是否可以关闭
    * @default false
@@ -89,6 +68,34 @@ export interface IPickerProps extends IBaseProps {
    * @description 弹出框样式
    */
   popStyle: string;
+  /**
+   * @description 点击确认回调
+   */
+  onOk?: (
+    value: PickerValue,
+    column: PickerData,
+    e: Record<string, any>
+  ) => void;
+  /**
+   * @description 点击取消回调
+   */
+  onCancel?: (e: Record<string, any>) => void;
+  /**
+   * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
+   */
+  onChange?: (
+    value: PickerValue,
+    column: PickerData,
+    e: Record<string, any>
+  ) => void;
+  /**
+   * @description 选中值的文本显示格式
+   */
+  onFormat?: (value: PickerValue, column: PickerValue) => string;
+  /**
+   * @description 切换显示隐藏
+   */
+  onVisibleChange?: (visible: boolean, e: Record<string, any>) => void;
 }
 
 export const PickerDefaultProps: Partial<IPickerProps> = {

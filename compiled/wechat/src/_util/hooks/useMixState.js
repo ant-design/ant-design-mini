@@ -32,25 +32,27 @@ export function useMixState(defaultStateValue, option) {
     useLayoutUpdateEffect(function () {
         var state = postState(value);
         if (state.valid) {
+            console.log('useLayoutUpdateEffect setInnerValue', state.value);
             setInnerValue(state.value);
         }
     }, [value]);
     var triggerChange = useEvent(function (newState, ignoreDestroy) {
         setInnerValue(newState, ignoreDestroy);
     });
+    var triggerUpdate = useEvent(function (value, option) {
+        var state = postState(value, option);
+        if (state.valid && state.value !== innerValue) {
+            triggerChange(state.value);
+            return { changed: true, newValue: state.value };
+        }
+        return { changed: false };
+    });
     var isControlled = hasValue(value);
     return [
         merge,
         {
             isControlled: isControlled,
-            update: function (value, option) {
-                var state = postState(value, option);
-                if (state.valid && state.value !== innerValue) {
-                    triggerChange(state.value);
-                    return { changed: true, newValue: state.value };
-                }
-                return { changed: false };
-            },
+            update: triggerUpdate,
         },
     ];
 }

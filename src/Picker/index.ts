@@ -1,258 +1,163 @@
-import equal from 'fast-deep-equal';
-import { PickerDefaultProps } from './props';
 import {
-  getMatchedItemByValue,
-  getMatchedItemByIndex,
-  getStrictMatchedItemByValue,
-} from './utils';
-import fmtEvent from '../_util/fmtEvent';
-import mixinValue from '../mixins/value';
+  useEvent,
+  useRef,
+  useState,
+  useEffect,
+  useMemo,
+} from 'functional-mini/component';
 import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useMixState } from '../_util/hooks/useMixState';
+import { IPickerProps } from './props';
+import {
+  getMatchedItemByIndex,
+  getMatchedItemByValue,
+  getterColumns,
+  getterFormatText,
+  getterSelectedIndex,
+} from './utils';
 
-const component2 = my.canIUse('component2');
+const Picker = (props: IPickerProps) => {
+  const [value, { isControlled: isValueControlled, update: updateValue }] =
+    useMixState(props.defaultValue, {
+      value: props.value,
+    });
 
-Component({
-  props: PickerDefaultProps,
-  data: {
-    formatValue: '',
-    columns: [],
-    visible: false,
-    selectedIndex: [],
-  },
-  mixins: [mixinValue()],
-  tempSelectedIndex: null,
-  single: false,
-  isChangingPickerView: false,
-  onInit() {
-    this.initData();
-  },
-  didMount() {
-    if (!component2) {
-      this.initData();
-    }
-  },
-  deriveDataFromProps(nextProps) {
-    this.updateValue(this.props, nextProps);
-  },
-  didUpdate(prevProps) {
-    if (!component2) {
-      this.updateValue(prevProps, this.props);
-    }
-  },
-  methods: {
-    initData() {
-      const columns = this.getterColumns(this.props.options);
-      this.setData(
-        {
-          columns,
-        },
-        () => {
-          const formatValue = this.getterFormatText();
-          const selectedIndex = this.getterSelectedIndex();
-          this.setData({
-            formatValue,
-            selectedIndex,
-          });
-        }
-      );
-    },
-    updateValue(prevProps, currentProps) {
-      if (!equal(prevProps.options, currentProps.options)) {
-        const newColums = this.getterColumns(currentProps.options);
-        this.setData(
-          {
-            columns: newColums,
-          },
-          () => {
-            // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
-            if (!this.isChangingPickerView) {
-              this.tempSelectedIndex = null;
-              const selectedIndex = this.getterSelectedIndex();
-              this.setData({
-                selectedIndex,
-              });
-            }
-          }
-        );
-      }
-      if (!equal(currentProps.value, prevProps.value)) {
-        const selectedIndex = this.getterSelectedIndex();
-        this.tempSelectedIndex = null;
-        this.setData({
-          selectedIndex,
-        });
-      }
-      const formatValue = this.getterFormatText();
-      if (formatValue !== this.data.formatValue) {
-        this.setData({
-          formatValue,
-        });
-      }
-      this.isChangingPickerView = false;
-    },
-    getterColumns(options) {
-      let columns = [];
-      if (options.length > 0) {
-        if (options.every((item) => Array.isArray(item))) {
-          this.single = false;
-          columns = options.slice();
-        } else {
-          this.single = true;
-          columns = [options];
-        }
-      }
-      return columns;
-    },
-    defaultFormat(value, column) {
-      if (Array.isArray(column)) {
-        return column
-          .filter((c) => c !== undefined)
-          .map(function (c) {
-            if (typeof c === 'object') {
-              return c.label;
-            }
-            return c;
-          })
-          .join('-');
-      }
-      return (column && column.label) || column || '';
-    },
-    getterFormatText() {
-      const { onFormat } = this.props;
-      const { columns } = this.data;
-      const realValue = this.getValue();
-      const { matchedColumn } = getStrictMatchedItemByValue(
-        columns,
-        realValue,
-        this.single
-      );
-      const formatValueByProps = onFormat && onFormat(realValue, matchedColumn);
-      if (typeof formatValueByProps !== 'undefined') {
-        return formatValueByProps;
-      }
-      return this.defaultFormat(realValue, matchedColumn);
-    },
-    getterSelectedIndex() {
-      const selectedIndex = [];
-      const columns = this.data.columns;
-      const realValue = this.getValue();
-      let value = realValue;
-      if (this.single) {
-        value = [realValue];
-      }
-      for (let i = 0; i < columns.length; i++) {
-        const column = columns[i];
-        const compareValue = value[i];
-        if (compareValue === undefined || compareValue === null) {
-          selectedIndex[i] = 0;
-        }
-        let index = column.findIndex((c) => {
-          return c === compareValue || c.value === compareValue;
-        });
-        if (index === -1) {
-          index = 0;
-        }
-        selectedIndex[i] = index;
-      }
-      return selectedIndex;
-    },
+  const { triggerEvent, triggerEventOnly, triggerEventValues } =
+    useComponentEvent(props);
 
-    onOpen() {
-      const { disabled } = this.props;
-      if (!disabled) {
-        this.tempSelectedIndex = null;
-        const selectedIndex = this.getterSelectedIndex();
-        this.setData({
-          visible: true,
-          selectedIndex,
-        });
-        this.triggerPicker(true);
-      }
-    },
+  const [visible, { update: updateVisible }] = useMixState(props.visible, {
+    defaultValue: props.defaultVisible,
+  });
+  const singleRef = useRef(false);
+  const selectIndexRef = useRef(null);
 
-    triggerPicker(visible) {
-      const { onVisibleChange } = this.props;
-      if (onVisibleChange) {
-        onVisibleChange(visible, fmtEvent(this.props));
-      }
-    },
+  function triggerPicker(newVisibleValue: boolean) {
+    updateVisible(newVisibleValue);
+    triggerEvent('visibleChange', newVisibleValue);
+  }
 
-    onMaskDismiss() {
-      const { onCancel } = this.props;
-      this.setData({
-        visible: false,
-      });
-      this.triggerPicker(false);
-      if (onCancel) {
-        return onCancel(fmtEvent(this.props, { detail: { type: 'mask' } }));
-      }
-    },
+  const [selectedIndex, setSelectedIndex] = useState([]);
 
-    onCancel() {
-      const { onCancel } = this.props;
-      this.setData({
-        visible: false,
-      });
-      this.triggerPicker(false);
-      if (onCancel) {
-        return onCancel(fmtEvent(this.props, { detail: { type: 'cancel' } }));
-      }
-    },
+  const columns = useMemo(() => {
+    return getterColumns(props.options, singleRef);
+  }, [props.options]);
 
-    onChange(e) {
-      const { onChange } = this.props;
+  useEffect(() => {
+    setSelectedIndex(getterSelectedIndex(columns, value, singleRef));
+  }, [columns, value]);
+
+  const { formatValue } = useMemo(() => {
+    const formatValue = getterFormatText(
+      columns,
+      value,
+      props.onFormat,
+      singleRef
+    );
+    return {
+      formatValue,
+    };
+  }, [visible, columns, value, props.onFormat]);
+
+  useEvent(
+    'onOpen',
+    (e) => {
+      if (props.disabled) {
+        return;
+      }
+      const selectedIndex = getterSelectedIndex(columns, value, singleRef);
+      setSelectedIndex(selectedIndex);
+      triggerPicker(true);
+    },
+    [columns, value, props]
+  );
+
+  useEvent(
+    'onCancel',
+    (e) => {
+      triggerPicker(false);
+      triggerEventOnly('cancel', e);
+    },
+    [columns, value]
+  );
+
+  useEvent(
+    'onMaskDismiss',
+    () => {
+      triggerPicker(false);
+      triggerEventOnly('cancel', { detail: { type: 'mask' } });
+    },
+    [columns]
+  );
+
+  useEvent(
+    'onChange',
+    (e) => {
       const { value: selectedIndex } = e.detail;
-      this.tempSelectedIndex = selectedIndex;
-      this.isChangingPickerView = true;
       const { matchedColumn, matchedValues } = getMatchedItemByIndex(
-        this.data.columns,
-        this.tempSelectedIndex,
-        this.single
-      );
-      this.setData({
+        columns,
         selectedIndex,
-      });
-      if (onChange) {
-        onChange.call(
-          this,
-          matchedValues,
-          matchedColumn,
-          fmtEvent(this.props, e)
-        );
-      }
+        singleRef
+      );
+      selectIndexRef.current = selectedIndex;
+      setSelectedIndex(selectedIndex);
+      triggerEventValues('change', [matchedValues, matchedColumn], e);
     },
+    [columns]
+  );
 
-    async onOk() {
+  useEvent(
+    'onOk',
+    () => {
       let result;
-      if (this.tempSelectedIndex) {
+      if (selectIndexRef.current) {
         result = getMatchedItemByIndex(
-          this.data.columns,
-          this.tempSelectedIndex,
-          this.single
+          columns,
+          selectIndexRef.current,
+          singleRef
         );
       } else {
-        result = getMatchedItemByValue(
-          this.data.columns,
-          this.getValue(),
-          this.single
-        );
+        result = getMatchedItemByValue(columns, value, singleRef);
       }
+
       const { matchedColumn, matchedValues } = result;
-      this.setData({
-        visible: false,
-      });
-      this.triggerPicker(false);
-      if (!this.isControlled()) {
-        this.update(matchedValues);
+
+      triggerPicker(false);
+      if (!isValueControlled) {
+        updateValue(matchedValues);
       }
-      if (this.props.onOk) {
-        this.props.onOk.call(
-          this,
-          matchedValues,
-          matchedColumn,
-          fmtEvent(this.props)
-        );
-      }
+      triggerEventValues('ok', [matchedValues, matchedColumn]);
     },
-  },
+    [value, columns]
+  );
+
+  return {
+    formatValue,
+    selectedIndex,
+    columns,
+    state: {
+      visible,
+    },
+    mixin: {
+      value,
+    },
+  };
+};
+
+mountComponent(Picker, {
+  visible: null,
+  defaultVisible: null,
+  animationType: null,
+  value: [],
+  defaultValue: [],
+  disabled: false,
+  title: '',
+  okText: '确定',
+  cancelText: '取消',
+  placeholder: '请选择',
+  options: [],
+  popClassName: '',
+  popStyle: '',
+  maskClosable: false,
 });
