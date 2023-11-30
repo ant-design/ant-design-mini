@@ -130,7 +130,6 @@ const Picker = (props: IPickerProps) => {
       const { matchedColumn, matchedValues } = result;
 
       triggerPicker(false);
-      console.log('isValueControlled', isValueControlled);
       if (!isValueControlled) {
         updateValue(matchedValues);
       }

@@ -262,3 +262,30 @@ describe('非受控模式', () => {
     );
   });
 });
+
+describe('visible 受控模式', () => {
+  it('value 优先级大于 defaultValue', async () => {
+    const options = [['北京', '上海', '深圳', '广州']];
+    const { instance, callMethod, onVisibleChange } = createPicker({
+      options,
+      visible: false,
+      defaultVisible: true,
+    });
+    expect(instance.getData().state.visible).toEqual(false);
+    await callMethod('onOpen');
+    expect(instance.getData().state.visible).toEqual(false);
+    expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
+  });
+});
+
+describe('value 受控模式', async () => {
+  it('value 优先级大于 defaultValue', () => {
+    const options = [['北京', '上海', '深圳', '广州']];
+    const { instance } = createPicker({
+      options,
+      defaultValue: ['上海'],
+      value: ['深圳'],
+    });
+    expect(instance.getData().selectedIndex).toEqual([2]);
+  });
+});
