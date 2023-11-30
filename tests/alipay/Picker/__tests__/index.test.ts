@@ -1,51 +1,24 @@
-import { getInstance } from 'tests/utils';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { describe, it, expect, vi } from 'vitest';
+import { sleep } from 'tests/utils';
+import { describe, expect, it, vi } from 'vitest';
+import { createPicker } from './utils';
 
-const my = {
-  canIUse() {
-    return false;
-  },
-};
 describe('picker onVisibleChange', () => {
   it('onOpen', () => {
-    const onVisibleChange = vi.fn();
-    const instance = getInstance(
-      'Picker',
-      {
-        onVisibleChange,
-      },
-      my
-    );
+    const { instance, onVisibleChange } = createPicker({});
     instance.callMethod('onOpen');
     expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
   });
+
   it('onMaskDismiss', () => {
-    const onVisibleChange = vi.fn();
-    const onCancel = vi.fn();
-    const instance = getInstance(
-      'Picker',
-      {
-        onVisibleChange,
-        onCancel,
-      },
-      my
-    );
+    const { instance, onVisibleChange, onCancel } = createPicker({});
     instance.callMethod('onMaskDismiss');
     expect(onVisibleChange).toBeCalledWith(false, fmtEvent({}));
     expect(onCancel).toBeCalled();
   });
+
   it('onCancel', () => {
-    const onVisibleChange = vi.fn();
-    const onCancel = vi.fn();
-    const instance = getInstance(
-      'Picker',
-      {
-        onVisibleChange,
-        onCancel,
-      },
-      my
-    );
+    const { instance, onVisibleChange, onCancel } = createPicker({});
     instance.callMethod('onCancel');
     expect(onVisibleChange).toBeCalledWith(false, fmtEvent({}));
     expect(onCancel).toBeCalled();
@@ -55,18 +28,9 @@ describe('picker onVisibleChange', () => {
 describe('picker select', () => {
   it('singleOptions', () => {
     const options = ['北京', '上海', '深圳', '广州'];
-    const value = '北京';
-    const onChange = vi.fn();
-    const onOk = vi.fn();
-    const instance = getInstance(
-      'Picker',
-      {
-        options,
-        onChange,
-        onOk,
-      },
-      my
-    );
+    const { instance, onChange, onOk } = createPicker({
+      options,
+    });
     expect(instance.getData().columns).toStrictEqual([options]);
     instance.callMethod('onChange', { detail: { value: [1] } });
     expect(onChange).toBeCalledWith(
@@ -77,7 +41,7 @@ describe('picker select', () => {
     instance.callMethod('onOk');
     expect(onOk).toBeCalledWith('上海', '上海', fmtEvent({}));
   });
-  it('multiOptions', () => {
+  it('multiOptions', async () => {
     const options = [
       [
         { label: '周一', value: 'Mon' },
@@ -91,17 +55,9 @@ describe('picker select', () => {
         { label: '下午', value: 'pm' },
       ],
     ];
-    const onChange = vi.fn();
-    const onOk = vi.fn();
-    const instance = getInstance(
-      'Picker',
-      {
-        options,
-        onChange,
-        onOk,
-      },
-      my
-    );
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-expect-error
+    const { instance, onChange, onOk } = createPicker({ options });
     expect(instance.getData().columns).toStrictEqual(options);
     instance.callMethod('onChange', { detail: { value: [1, 0] } });
     expect(onChange).toBeCalledWith(
@@ -127,30 +83,18 @@ describe('picker value', () => {
   it('props value', () => {
     const options = ['北京', '上海', '深圳', '广州'];
     const value = '上海';
-    const onOk = vi.fn();
-    const instance = getInstance(
-      'Picker',
-      {
-        options,
-        value,
-        onOk,
-      },
-      my
-    );
+    const { instance, onOk } = createPicker({
+      options,
+      value,
+    });
     instance.callMethod('onOk');
     expect(onOk).toBeCalledWith('上海', '上海', fmtEvent({}));
   });
   it('update value', () => {
     const options = ['北京', '上海', '深圳', '广州'];
-    const onOk = vi.fn();
-    const instance = getInstance(
-      'Picker',
-      {
-        options,
-        onOk,
-      },
-      my
-    );
+    const { instance, onOk } = createPicker({
+      options,
+    });
     instance.setProps({ value: '上海' });
     instance.callMethod('onOk');
     expect(onOk).toBeCalledWith('上海', '上海', fmtEvent({}));
@@ -158,16 +102,10 @@ describe('picker value', () => {
   it('empty value', () => {
     const options = ['北京', '上海', '深圳', '广州'];
     const value = '';
-    const onOk = vi.fn();
-    const instance = getInstance(
-      'Picker',
-      {
-        options,
-        value,
-        onOk,
-      },
-      my
-    );
+    const { instance, onOk } = createPicker({
+      options,
+      value,
+    });
     instance.callMethod('onOk');
     expect(onOk).toBeCalledWith('北京', '北京', fmtEvent({}));
   });
@@ -176,16 +114,10 @@ describe('picker updateColumns', () => {
   it('updateColumns', () => {
     const options = ['北京', '上海', '深圳', '广州'];
     const value = '上海';
-    const onOk = vi.fn();
-    const instance = getInstance(
-      'Picker',
-      {
-        options,
-        value,
-        onOk,
-      },
-      my
-    );
+    const { instance, onOk } = createPicker({
+      options,
+      value,
+    });
     instance.setProps({ options: ['北京', '深圳', '广州'] });
     expect(instance.getData().selectedIndex).toStrictEqual([0]);
     instance.callMethod('onOk');
@@ -198,38 +130,99 @@ describe('picker onFormat', () => {
     const options = ['北京', '上海', '深圳', '广州'];
     const value = '上海';
     const onFormat = (value) => `选择了${value}`;
-    const instance = getInstance(
-      'Picker',
-      {
-        options,
-        value,
-        onFormat,
-      },
-      my
-    );
+    const { instance } = createPicker({
+      options,
+      onFormat,
+      value,
+    });
     expect(instance.getData().formatValue).toBe('选择了上海');
   });
 });
 
-describe('picker value component2', () => {
-  const my = {
-    canIUse() {
-      return true;
-    },
-  };
-  it('picker value component2', () => {
-    const options = [['北京', '上海', '深圳', '广州']];
-    const value = ['上海'];
-    const onOk = vi.fn();
-    const instance = getInstance(
-      'Picker',
-      {
-        options,
-        value,
-        onOk,
-      },
-      my
-    );
-    expect(instance.getData().columns).toStrictEqual(options);
+it('测试 format 事件', async () => {
+  const { instance, onCancel } = createPicker({
+    'data-test': 1,
   });
+  instance.callMethod('onCancel');
+  expect(onCancel.mock.calls[0][0].currentTarget.dataset).toEqual({ test: 1 });
+  instance.setProps({ 'data-test': 2 });
+  instance.callMethod('onCancel');
+  expect(onCancel.mock.calls[1][0].currentTarget.dataset).toEqual({ test: 2 });
+});
+
+it('picker value component2', () => {
+  const options = [['北京', '上海', '深圳', '广州']];
+  const value = ['上海'];
+  const { instance } = createPicker({
+    options,
+    value,
+  });
+  expect(instance.getData().columns).toStrictEqual(options);
+});
+
+it('模拟 picker 打开后关闭，需要调用 onFormat', async () => {
+  const options = [['北京', '上海', '深圳', '广州']];
+  const internalState = {
+    value: ['上海'],
+  };
+  const onFormat = vi.fn();
+  const { instance, callMethod, onChange, onOk } = createPicker({
+    options,
+    value: internalState.value,
+    onFormat,
+  });
+  onFormat.mockImplementation(() => internalState.value.join('-'));
+  onChange.mockImplementation((val) => {
+    instance.setProps({ value: val });
+  });
+  onOk.mockImplementation((val) => {
+    internalState.value = val;
+  });
+  await callMethod('onChange', { detail: { value: [0] } });
+  expect(instance.getData().selectedIndex).toStrictEqual([0]);
+  expect(instance.getData().formatValue).toEqual('上海');
+  await callMethod('onOk');
+  expect(internalState.value).toEqual(['北京']);
+});
+
+it('假设在滚动的时候, options 变化', async () => {
+  const options = [['北京', '上海', '深圳', '广州']];
+  const onFormat = vi.fn();
+  const { instance, callMethod, onOk } = createPicker({
+    options,
+    onFormat,
+  });
+
+  await callMethod('onChange', { detail: { value: [1] } });
+  instance.setProps({ options: [['上海', '深圳', '广州']] });
+  expect(instance.getData().selectedIndex).toStrictEqual([0]);
+  await callMethod('onOk');
+  expect(onOk.mock.calls[0][0]).toEqual(['上海']);
+});
+
+it('假设在滚动的时候, value 变化', async () => {
+  const options = [['北京', '上海', '深圳', '广州']];
+  const onFormat = vi.fn();
+  const { instance, callMethod, onOk } = createPicker({
+    options,
+    onFormat,
+  });
+
+  await callMethod('onChange', { detail: { value: [1] } });
+  instance.setProps({ value: ['深圳'] });
+  expect(instance.getData().selectedIndex).toStrictEqual([2]);
+  await callMethod('onOk');
+  expect(onOk.mock.calls[0][0]).toEqual(['深圳']);
+});
+
+it.skip('多次开启关闭, visible 状态应该正确', async () => {
+  const { instance, callMethod } = createPicker();
+  await callMethod('onOpen');
+  expect(instance.getData().state.visible).toBe(true);
+  await callMethod('onOk');
+  expect(instance.getData().state.visible).toBe(false);
+  await callMethod('onOpen');
+  expect(instance.getData().state.visible).toBe(true);
+  await callMethod('onOk');
+  expect(instance.getData().state.visible).toBe(false);
 });
