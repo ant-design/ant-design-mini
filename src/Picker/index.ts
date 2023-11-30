@@ -81,9 +81,9 @@ const Picker = (props: IPickerProps) => {
 
   useEvent(
     'onCancel',
-    (e) => {
+    () => {
       triggerPicker(false);
-      triggerEventOnly('cancel', e);
+      triggerEventOnly('cancel', { detail: { type: 'cancel' } });
     },
     [columns, value]
   );

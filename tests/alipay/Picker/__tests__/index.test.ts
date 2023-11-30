@@ -14,6 +14,7 @@ describe('picker onVisibleChange', () => {
     instance.callMethod('onMaskDismiss');
     expect(onVisibleChange).toBeCalledWith(false, fmtEvent({}));
     expect(onCancel).toBeCalled();
+    expect(onCancel.mock.calls[0][0].detail).toEqual({ type: 'mask' });
   });
 
   it('onCancel', () => {
@@ -21,6 +22,7 @@ describe('picker onVisibleChange', () => {
     instance.callMethod('onCancel');
     expect(onVisibleChange).toBeCalledWith(false, fmtEvent({}));
     expect(onCancel).toBeCalled();
+    expect(onCancel.mock.calls[0][0].detail).toEqual({ type: 'cancel' });
   });
 });
 
