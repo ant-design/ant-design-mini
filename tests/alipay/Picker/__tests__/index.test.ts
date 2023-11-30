@@ -40,6 +40,7 @@ describe('picker select', () => {
     instance.callMethod('onOk');
     expect(onOk).toBeCalledWith('上海', '上海', fmtEvent({}));
   });
+
   it('multiOptions', async () => {
     const options = [
       [
@@ -54,8 +55,6 @@ describe('picker select', () => {
         { label: '下午', value: 'pm' },
       ],
     ];
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-expect-error
     const { instance, onChange, onOk } = createPicker({ options });
     expect(instance.getData().columns).toStrictEqual(options);
     instance.callMethod('onChange', { detail: { value: [1, 0] } });
@@ -224,4 +223,42 @@ it('多次开启关闭, visible 状态应该正确', async () => {
   expect(instance.getData().state.visible).toBe(true);
   await callMethod('onOk');
   expect(instance.getData().state.visible).toBe(false);
+});
+
+describe('非受控模式', () => {
+  it('测试非受控模式', async () => {
+    const options = [['北京', '上海', '深圳', '广州']];
+    const { instance, callMethod } = createPicker({
+      options,
+    });
+    await callMethod('onOpen');
+    expect(instance.getData().state.visible).toBe(true);
+    await callMethod('onChange', { detail: { value: [1] } });
+    expect(instance.getData().selectedIndex).toStrictEqual([1]);
+    expect(instance.getData().mixin.value).toStrictEqual([]);
+    await callMethod('onOk');
+    expect(instance.getData().state.visible).toBe(false);
+    expect(instance.getData().mixin.value).toStrictEqual(['上海']);
+  });
+
+  it('测试 defaultVisible 与 defaultValue', async () => {
+    const options = [['北京', '上海', '深圳', '广州']];
+    const { instance, callMethod, onOk } = createPicker({
+      options,
+      defaultValue: ['上海'],
+      defaultVisible: true,
+      'data-1': 2,
+    });
+    expect(instance.getData().state.visible).toBe(true);
+    expect(instance.getData().selectedIndex).toEqual([1]);
+    await callMethod('onOk');
+    expect(instance.getData().state.visible).toBe(false);
+    expect(onOk).toBeCalledWith(
+      ['上海'],
+      ['上海'],
+      fmtEvent({
+        'data-1': 2,
+      })
+    );
+  });
 });

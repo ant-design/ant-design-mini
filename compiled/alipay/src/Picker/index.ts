@@ -126,6 +126,7 @@ const Picker = (props: IPickerProps) => {
       const { matchedColumn, matchedValues } = result;
 
       triggerPicker(false);
+      console.log('isValueControlled', isValueControlled);
       if (!isValueControlled) {
         updateValue(matchedValues);
       }
@@ -151,7 +152,7 @@ mountComponent(Picker, {
   visible: null,
   defaultVisible: null,
   animationType: null,
-  value: [],
+  value: null,
   defaultValue: [],
   disabled: false,
   title: '',
