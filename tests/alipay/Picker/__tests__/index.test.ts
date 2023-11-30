@@ -183,6 +183,36 @@ it('模拟 picker 打开后关闭，需要调用 onFormat', async () => {
   expect(internalState.value).toEqual(['北京']);
 });
 
+it('假设在滚动的时候, options 变化', async () => {
+  const options = [['北京', '上海', '深圳', '广州']];
+  const onFormat = vi.fn();
+  const { instance, callMethod, onOk } = createPicker({
+    options,
+    onFormat,
+  });
+
+  await callMethod('onChange', { detail: { value: [1] } });
+  instance.setProps({ options: [['上海', '深圳', '广州']] });
+  expect(instance.getData().selectedIndex).toStrictEqual([0]);
+  await callMethod('onOk');
+  expect(onOk.mock.calls[0][0]).toEqual(['上海']);
+});
+
+it('假设在滚动的时候, value 变化', async () => {
+  const options = [['北京', '上海', '深圳', '广州']];
+  const onFormat = vi.fn();
+  const { instance, callMethod, onOk } = createPicker({
+    options,
+    onFormat,
+  });
+
+  await callMethod('onChange', { detail: { value: [1] } });
+  instance.setProps({ value: ['深圳'] });
+  expect(instance.getData().selectedIndex).toStrictEqual([2]);
+  await callMethod('onOk');
+  expect(onOk.mock.calls[0][0]).toEqual(['深圳']);
+});
+
 it.skip('多次开启关闭, visible 状态应该正确', async () => {
   const { instance, callMethod } = createPicker();
   await callMethod('onOpen');
