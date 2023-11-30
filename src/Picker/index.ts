@@ -27,9 +27,13 @@ const Picker = (props: IPickerProps) => {
   const { triggerEvent, triggerEventOnly, triggerEventValues } =
     useComponentEvent(props);
 
-  const [visible, { update: updateVisible }] = useMixState(props.visible, {
-    defaultValue: props.defaultVisible,
-  });
+  const [visible, { update: updateVisible }] = useMixState(
+    props.defaultVisible,
+    {
+      value: props.visible,
+    }
+  );
+  console.log(visible);
   const singleRef = useRef(false);
   const selectIndexRef = useRef(null);
 
