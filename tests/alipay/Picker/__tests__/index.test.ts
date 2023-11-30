@@ -55,6 +55,8 @@ describe('picker select', () => {
         { label: '下午', value: 'pm' },
       ],
     ];
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-expect-error
     const { instance, onChange, onOk } = createPicker({ options });
     expect(instance.getData().columns).toStrictEqual(options);
     instance.callMethod('onChange', { detail: { value: [1, 0] } });
