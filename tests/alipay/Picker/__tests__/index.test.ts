@@ -1,6 +1,6 @@
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
 import { sleep } from 'tests/utils';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createPicker } from './utils';
 
 describe('picker onVisibleChange', () => {
@@ -156,6 +156,31 @@ it('picker value component2', () => {
     value,
   });
   expect(instance.getData().columns).toStrictEqual(options);
+});
+
+it('模拟 picker 打开后关闭，需要调用 onFormat', async () => {
+  const options = [['北京', '上海', '深圳', '广州']];
+  const internalState = {
+    value: ['上海'],
+  };
+  const onFormat = vi.fn();
+  const { instance, callMethod, onChange, onOk } = createPicker({
+    options,
+    value: internalState.value,
+    onFormat,
+  });
+  onFormat.mockImplementation(() => internalState.value.join('-'));
+  onChange.mockImplementation((val) => {
+    instance.setProps({ value: val });
+  });
+  onOk.mockImplementation((val) => {
+    internalState.value = val;
+  });
+  await callMethod('onChange', { detail: { value: [0] } });
+  expect(instance.getData().selectedIndex).toStrictEqual([0]);
+  expect(instance.getData().formatValue).toEqual('上海');
+  await callMethod('onOk');
+  expect(internalState.value).toEqual(['北京']);
 });
 
 it.skip('多次开启关闭, visible 状态应该正确', async () => {
