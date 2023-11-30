@@ -1,5 +1,4 @@
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createPicker } from './utils';
 
@@ -215,7 +214,7 @@ it('假设在滚动的时候, value 变化', async () => {
   expect(onOk.mock.calls[0][0]).toEqual(['深圳']);
 });
 
-it.skip('多次开启关闭, visible 状态应该正确', async () => {
+it('多次开启关闭, visible 状态应该正确', async () => {
   const { instance, callMethod } = createPicker();
   await callMethod('onOpen');
   expect(instance.getData().state.visible).toBe(true);

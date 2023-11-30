@@ -45,6 +45,7 @@ const Picker = (props: IPickerProps) => {
   }, [props.options]);
 
   useEffect(() => {
+    selectIndexRef.current = null;
     setSelectedIndex(getterSelectedIndex(columns, value, singleRef));
   }, [columns, value]);
 
@@ -62,10 +63,11 @@ const Picker = (props: IPickerProps) => {
 
   useEvent(
     'onOpen',
-    (e) => {
+    () => {
       if (props.disabled) {
         return;
       }
+      selectIndexRef.current = null;
       const selectedIndex = getterSelectedIndex(columns, value, singleRef);
       setSelectedIndex(selectedIndex);
       triggerPicker(true);
