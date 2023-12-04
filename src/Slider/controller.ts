@@ -119,8 +119,13 @@ export class SliderController {
 
   private async getRect(component: any, e: any): Promise<any> {
     const elementId = e.currentTarget.id;
+
+    let instance = component;
+    /// #if ALIPAY
+    instance = my;
+    /// #endif
     const element = await getInstanceBoundingClientRect(
-      component,
+      instance,
       `#${elementId}`
     );
     const touch = e.changedTouches[0];
