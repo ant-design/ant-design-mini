@@ -126,12 +126,13 @@ var SliderController = /** @class */ (function () {
     };
     SliderController.prototype.getRect = function (component, e) {
         return __awaiter(this, void 0, void 0, function () {
-            var elementId, element, touch;
+            var elementId, instance, element, touch;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         elementId = e.currentTarget.id;
-                        return [4 /*yield*/, getInstanceBoundingClientRect(component, "#".concat(elementId))];
+                        instance = component;
+                        return [4 /*yield*/, getInstanceBoundingClientRect(instance, "#".concat(elementId))];
                     case 1:
                         element = _a.sent();
                         touch = e.changedTouches[0];

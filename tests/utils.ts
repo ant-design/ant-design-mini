@@ -66,7 +66,6 @@ function createInstance(config: Instance, props: Record<string, any>, my: any) {
     methods: {
       ...config.methods,
     },
-    createSelectorQuery: my.createSelectorQuery,
     setData(data: Record<string, any>, callback: (this: Instance) => void) {
       if (shallowequal(data, instance.data)) {
         return;
