@@ -18,13 +18,13 @@ var Popup = function (props) {
         if (closing) {
             setClosing(false);
         }
-    }, [closing]);
+    });
     useEvent('onTapMask', function () {
         if (closing) {
             return;
         }
         triggerEventOnly('close');
-    }, [closing]);
+    });
     return {
         closing: closing,
         isOldVersion: isOldVersion,

@@ -29,47 +29,31 @@ const InputBlur = (props: InputBlurProps) => {
   }, [props, focusRef]);
 
   const { triggerEvent } = useComponentEvent(props);
-  useEvent(
-    'onChange',
-    (e) => {
-      const newValue = e.detail.value;
-      if (isControlled) {
-        updateValue(newValue, true);
-      }
-      triggerEvent('change', newValue, e);
-    },
-    []
-  );
+  useEvent('onChange', (e) => {
+    const newValue = e.detail.value;
+    if (isControlled) {
+      updateValue(newValue, true);
+    }
+    triggerEvent('change', newValue, e);
+  });
 
-  useEvent(
-    'onFocus',
-    (e) => {
-      const newValue = e.detail.value;
-      focusRef.current = true;
-      triggerEvent('focus', newValue, e);
-    },
-    []
-  );
-  useEvent(
-    'onBlur',
-    (e) => {
-      const newValue = e.detail.value;
-      focusRef.current = false;
-      if (isControlled) {
-        updateValue(props.value);
-      }
-      triggerEvent('blur', newValue, e);
-    },
-    [props]
-  );
-  useEvent(
-    'onConfirm',
-    (e) => {
-      const newValue = e.detail.value;
-      triggerEvent('confirm', newValue, e);
-    },
-    [props]
-  );
+  useEvent('onFocus', (e) => {
+    const newValue = e.detail.value;
+    focusRef.current = true;
+    triggerEvent('focus', newValue, e);
+  });
+  useEvent('onBlur', (e) => {
+    const newValue = e.detail.value;
+    focusRef.current = false;
+    if (isControlled) {
+      updateValue(props.value);
+    }
+    triggerEvent('blur', newValue, e);
+  });
+  useEvent('onConfirm', (e) => {
+    const newValue = e.detail.value;
+    triggerEvent('confirm', newValue, e);
+  });
   return {
     inputValue: value,
   };

@@ -92,7 +92,7 @@ var Calendar = function (props) {
         else if (selectionMode === 'single') {
             updateValue(clickDate.toDate().getTime());
         }
-    }, [selectionMode, value]);
+    });
     var monthList = getMonthListFromRange(dayjs(props.monthRange[0]), dayjs(props.monthRange[1])).map(function (p) {
         var cells = renderCells(p, weekStartsOn, value, localeText);
         if (props.onFormatter && typeof props.onFormatter === 'function') {
@@ -128,7 +128,7 @@ var Calendar = function (props) {
     var _d = useState(0), headerState = _d[0], setHeaderState = _d[1];
     useEvent('setCurrentMonth', function (e) {
         setHeaderState(e.month);
-    }, []);
+    });
     var _e = useState(null), elementSize = _e[0], setElementSize = _e[1];
     var componentInstance = useComponent();
     function measurement() {
@@ -163,7 +163,7 @@ var Calendar = function (props) {
         if (!elementSize || elementSize.cellHight === 0) {
             measurement();
         }
-    }, [elementSize]);
+    });
     return {
         elementSize: elementSize,
         markItems: markItems,

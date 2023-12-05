@@ -13,7 +13,7 @@ var Switch = function (props) {
             updateValue(newValue);
         }
         triggerEvent('change', newValue, e);
-    }, [props, value]);
+    });
     return {
         mixin: { value: value },
     };

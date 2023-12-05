@@ -227,6 +227,12 @@ it('多次开启关闭, visible 状态应该正确', async () => {
   expect(instance.getData().state.visible).toBe(false);
 });
 
+it('如果 disabled, 则无法打开', async () => {
+  const { instance, callMethod } = createPicker({ disabled: true });
+  await callMethod('onOpen');
+  expect(instance.getData().state.visible).toBe(undefined);
+});
+
 describe('非受控模式', () => {
   it('测试非受控模式', async () => {
     const options = [['北京', '上海', '深圳', '广州']];

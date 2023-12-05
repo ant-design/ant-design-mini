@@ -6,7 +6,7 @@ var Mask = function (props) {
     var triggerEventOnly = useComponentEvent(props).triggerEventOnly;
     useEvent('onMaskClick', function (e) {
         triggerEventOnly('maskTap', e);
-    }, [props]);
+    });
     return {};
 };
 mountComponent(Mask, {

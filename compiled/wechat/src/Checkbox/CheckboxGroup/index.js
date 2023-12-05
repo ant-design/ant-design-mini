@@ -41,7 +41,7 @@ var CheckboxGroup = function (props) {
             update(currentValue);
         }
         triggerEvent('change', currentValue, e);
-    }, [props, value, isControlled]);
+    });
     return {
         mixin: { value: value },
     };

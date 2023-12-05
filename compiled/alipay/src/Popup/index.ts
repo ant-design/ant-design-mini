@@ -20,26 +20,18 @@ const Popup = (props: IPopupProps) => {
     }
   }, [props.visible]);
 
-  useEvent(
-    'onAnimationEnd',
-    () => {
-      if (closing) {
-        setClosing(false);
-      }
-    },
-    [closing]
-  );
+  useEvent('onAnimationEnd', () => {
+    if (closing) {
+      setClosing(false);
+    }
+  });
 
-  useEvent(
-    'onTapMask',
-    () => {
-      if (closing) {
-        return;
-      }
-      triggerEventOnly('close');
-    },
-    [closing]
-  );
+  useEvent('onTapMask', () => {
+    if (closing) {
+      return;
+    }
+    triggerEventOnly('close');
+  });
 
   return {
     closing,

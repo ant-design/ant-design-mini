@@ -9,26 +9,18 @@ const ListItem = (props: ISwitchProps) => {
     useComponentEvent(props);
 
   /// #if ALIPAY
-  useEvent(
-    'onTap',
-    (e) => {
-      if (props.disabled) {
-        return;
-      }
-      alipayForwardEvent('tap', e);
-    },
-    [props]
-  );
-  useEvent(
-    'catchTap',
-    (e) => {
-      if (props.disabled) {
-        return;
-      }
-      alipayForwardCatchEvent('tap', e);
-    },
-    [props]
-  );
+  useEvent('onTap', (e) => {
+    if (props.disabled) {
+      return;
+    }
+    alipayForwardEvent('tap', e);
+  });
+  useEvent('catchTap', (e) => {
+    if (props.disabled) {
+      return;
+    }
+    alipayForwardCatchEvent('tap', e);
+  });
   /// #endif
   return {};
 };
