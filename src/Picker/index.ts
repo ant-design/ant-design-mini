@@ -33,7 +33,6 @@ const Picker = (props: IPickerProps) => {
       value: props.visible,
     }
   );
-  console.log(visible);
   const singleRef = useRef(false);
   const selectIndexRef = useRef(null);
 
@@ -65,78 +64,58 @@ const Picker = (props: IPickerProps) => {
     };
   }, [visible, columns, value, props.onFormat]);
 
-  useEvent(
-    'onOpen',
-    () => {
-      if (props.disabled) {
-        return;
-      }
-      selectIndexRef.current = null;
-      const selectedIndex = getterSelectedIndex(columns, value, singleRef);
-      setSelectedIndex(selectedIndex);
-      triggerPicker(true);
-    },
-    [columns, value, props]
-  );
+  useEvent('onOpen', () => {
+    if (props.disabled) {
+      return;
+    }
+    selectIndexRef.current = null;
+    const selectedIndex = getterSelectedIndex(columns, value, singleRef);
+    setSelectedIndex(selectedIndex);
+    triggerPicker(true);
+  });
 
-  useEvent(
-    'onCancel',
-    () => {
-      triggerPicker(false);
-      triggerEventOnly('cancel', { detail: { type: 'cancel' } });
-    },
-    [columns, value]
-  );
+  useEvent('onCancel', () => {
+    triggerPicker(false);
+    triggerEventOnly('cancel', { detail: { type: 'cancel' } });
+  });
 
-  useEvent(
-    'onMaskDismiss',
-    () => {
-      triggerPicker(false);
-      triggerEventOnly('cancel', { detail: { type: 'mask' } });
-    },
-    [columns]
-  );
+  useEvent('onMaskDismiss', () => {
+    triggerPicker(false);
+    triggerEventOnly('cancel', { detail: { type: 'mask' } });
+  });
 
-  useEvent(
-    'onChange',
-    (e) => {
-      const { value: selectedIndex } = e.detail;
-      const { matchedColumn, matchedValues } = getMatchedItemByIndex(
+  useEvent('onChange', (e) => {
+    const { value: selectedIndex } = e.detail;
+    const { matchedColumn, matchedValues } = getMatchedItemByIndex(
+      columns,
+      selectedIndex,
+      singleRef
+    );
+    selectIndexRef.current = selectedIndex;
+    setSelectedIndex(selectedIndex);
+    triggerEventValues('change', [matchedValues, matchedColumn], e);
+  });
+
+  useEvent('onOk', () => {
+    let result;
+    if (selectIndexRef.current) {
+      result = getMatchedItemByIndex(
         columns,
-        selectedIndex,
+        selectIndexRef.current,
         singleRef
       );
-      selectIndexRef.current = selectedIndex;
-      setSelectedIndex(selectedIndex);
-      triggerEventValues('change', [matchedValues, matchedColumn], e);
-    },
-    [columns]
-  );
+    } else {
+      result = getMatchedItemByValue(columns, value, singleRef);
+    }
 
-  useEvent(
-    'onOk',
-    () => {
-      let result;
-      if (selectIndexRef.current) {
-        result = getMatchedItemByIndex(
-          columns,
-          selectIndexRef.current,
-          singleRef
-        );
-      } else {
-        result = getMatchedItemByValue(columns, value, singleRef);
-      }
+    const { matchedColumn, matchedValues } = result;
 
-      const { matchedColumn, matchedValues } = result;
-
-      triggerPicker(false);
-      if (!isValueControlled) {
-        updateValue(matchedValues);
-      }
-      triggerEventValues('ok', [matchedValues, matchedColumn]);
-    },
-    [value, columns]
-  );
+    triggerPicker(false);
+    if (!isValueControlled) {
+      updateValue(matchedValues);
+    }
+    triggerEventValues('ok', [matchedValues, matchedColumn]);
+  });
 
   return {
     formatValue,
