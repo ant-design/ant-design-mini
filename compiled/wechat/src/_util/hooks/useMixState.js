@@ -32,7 +32,6 @@ export function useMixState(defaultStateValue, option) {
     useLayoutUpdateEffect(function () {
         var state = postState(value);
         if (state.valid) {
-            console.log('useLayoutUpdateEffect setInnerValue', state.value);
             setInnerValue(state.value);
         }
     }, [value]);
