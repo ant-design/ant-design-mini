@@ -100,6 +100,9 @@ Page({
   },
   handleTriggerPicker(visible, e) {
     console.log('onVisibleChange', visible, e);
+  },
+  handleTriggerControlledPicker(visible, e) {
+    console.log('handleTriggerControlledPicker', visible, e);
     this.setData({
       pickerVisible: visible,
     });

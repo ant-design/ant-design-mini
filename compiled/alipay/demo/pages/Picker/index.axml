@@ -92,7 +92,7 @@
         slot="extra"
         visible="{{pickerVisible}}"
         placeholder="请选择"
-        onVisibleChange="handleTriggerPicker"
+        onVisibleChange="handleTriggerControlledPicker"
         defaultValue="{{['Tues', 'pm']}}"
         header="请选择"
         onOk="handleOk"
