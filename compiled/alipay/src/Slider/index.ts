@@ -60,20 +60,14 @@ const Slider = (props) => {
     }
   );
 
-  useEvent(
-    'handleTrackTouchStart',
-    (e) => sliderController.handleMove(component, e, 'start'),
-    [component]
+  useEvent('handleTrackTouchStart', (e) =>
+    sliderController.handleMove(component, e, 'start')
   );
-  useEvent(
-    'handleTrackTouchMove',
-    (e) => sliderController.handleMove(component, e, 'move'),
-    [component]
+  useEvent('handleTrackTouchMove', (e) =>
+    sliderController.handleMove(component, e, 'move')
   );
-  useEvent(
-    'handleTrackTouchEnd',
-    (e) => sliderController.handleMove(component, e, 'end'),
-    [component, props]
+  useEvent('handleTrackTouchEnd', (e) =>
+    sliderController.handleMove(component, e, 'end')
   );
 
   const tickList = useMemo(() => {

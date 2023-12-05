@@ -57,7 +57,7 @@ async function touchEvent(
       },
     ],
   });
-  await sleep(10);
+  await sleep(20);
 }
 
 describe('单滑块', () => {

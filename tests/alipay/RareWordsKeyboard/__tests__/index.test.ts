@@ -1,5 +1,5 @@
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, it, expect, vi } from 'vitest';
 
 describe('rare-words-keyboard', () => {
@@ -131,12 +131,13 @@ describe('rare-words-keyboard', () => {
         },
       }
     );
-    await new Promise((r) => setTimeout(r, 10));
+    await sleep(20);
     instance.callMethod('handleKeyClick', fmtEvent({ 'data-value': 'Y' }));
-    await new Promise((r) => setTimeout(r, 0));
+    await sleep(0);
+
     expect(instance.getData().inputValue[0]).toBe('Y');
     instance.callMethod('handleDelete');
-    await new Promise((r) => setTimeout(r, 0));
+    await sleep(0);
     expect(instance.getData().inputValue[0]).toBe(undefined);
   });
 

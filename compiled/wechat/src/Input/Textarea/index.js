@@ -37,33 +37,33 @@ var Textarea = function (props) {
             setCounter(function (c) { return c + 1; });
         }
         triggerEvent('change', newValue, e);
-    }, []);
+    });
     useEvent('onFocus', function (e) {
         var newValue = e.detail.value;
         setSelfFocus(true);
         triggerEvent('focus', newValue, e);
-    }, []);
+    });
     useEvent('onBlur', function (e) {
         var newValue = e.detail.value;
         setSelfFocus(false);
         triggerEvent('blur', newValue, e);
-    }, []);
+    });
     useEvent('onConfirm', function (e) {
         var newValue = e.detail.value;
         triggerEvent('confirm', newValue, e);
-    }, []);
+    });
     useEvent('onClear', function (e) {
         if (!isControlled) {
             updateValue('');
         }
         triggerEvent('change', '', e);
-    }, []);
+    });
     useEvent('update', function (e) {
         if (isControlled) {
             return;
         }
         updateValue(e);
-    }, []);
+    });
     return {
         counter: counter,
         state: {

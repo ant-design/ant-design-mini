@@ -102,7 +102,7 @@ describe('popover', () => {
       },
       my
     );
-    await new Promise((r) => setTimeout(r, 10));
+    await sleep(20);
     expect(instance.getData().adjustedPlacement).toBe('');
   });
 
@@ -117,15 +117,15 @@ describe('popover', () => {
         },
         my
       );
-      await new Promise((r) => setTimeout(r, 10));
+      await sleep(20);
       expect(instance.getData().adjustedPlacement).toBe('');
       instance.callMethod('onVisibleChange', { target: {} });
-      await new Promise((r) => setTimeout(r, 10));
+      await sleep(20);
       expect(instance.getData().mixin).toEqual({ value: false });
       expect(mock.mock.calls.length).toBe(1);
       expect(mock.mock.calls[0][0]).toBe(true);
       instance.setProps({ visible: true });
-      await new Promise((r) => setTimeout(r, 10));
+      await sleep(20);
       expect(instance.getData().mixin).toEqual({ value: true });
     });
 
@@ -139,10 +139,10 @@ describe('popover', () => {
         },
         my
       );
-      await new Promise((r) => setTimeout(r, 10));
+      await sleep(20);
       expect(instance.getData().mixin).toEqual({ value: true });
       instance.callMethod('onVisibleChange', { target: {} });
-      await new Promise((r) => setTimeout(r, 10));
+      await sleep(20);
       expect(instance.getData().mixin).toEqual({ value: false });
       expect(mock.mock.calls.length).toBe(1);
       expect(mock.mock.calls[0][0]).toBe(false);

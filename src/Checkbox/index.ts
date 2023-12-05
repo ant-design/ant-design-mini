@@ -10,17 +10,13 @@ const Checkbox = (props: ICheckboxProps) => {
     value: props.checked,
   });
   const { triggerEvent } = useComponentEvent(props);
-  useEvent(
-    'onChange',
-    (e) => {
-      const newValue = !value;
-      if (!isControlled) {
-        update(newValue);
-      }
-      triggerEvent('change', newValue, e);
-    },
-    [value, isControlled]
-  );
+  useEvent('onChange', (e) => {
+    const newValue = !value;
+    if (!isControlled) {
+      update(newValue);
+    }
+    triggerEvent('change', newValue, e);
+  });
 
   return {
     mixin: {

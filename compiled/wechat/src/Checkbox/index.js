@@ -14,7 +14,7 @@ var Checkbox = function (props) {
             update(newValue);
         }
         triggerEvent('change', newValue, e);
-    }, [value, isControlled]);
+    });
     return {
         mixin: {
             value: value,

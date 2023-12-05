@@ -81,3 +81,25 @@
       options="{{columns}}"></picker>
   </list-item>
 </list>
+
+
+
+<ant-container style="margin-top:20rpx;">
+  <list header="多列复杂类型数据">
+    <list-item>
+      请选择时间
+      <picker
+        slot="extra"
+        visible="{{pickerVisible}}"
+        placeholder="请选择"
+        onVisibleChange="handleTriggerControlledPicker"
+        defaultValue="{{['Tues', 'pm']}}"
+        header="请选择"
+        onOk="handleOk"
+        onFormat="formatTime"
+        options="{{columns}}"></picker>
+    </list-item>
+  </list>
+
+  <button  size="default" type="primary" onTap="handleOpenPicker">打开 Picker</button>
+</ant-container>

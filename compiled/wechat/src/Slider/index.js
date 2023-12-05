@@ -58,9 +58,15 @@ var Slider = function (props) {
             triggerEvent('afterChange', v, event);
         }
     });
-    useEvent('handleTrackTouchStart', function (e) { return sliderController.handleMove(component, e, 'start'); }, [component]);
-    useEvent('handleTrackTouchMove', function (e) { return sliderController.handleMove(component, e, 'move'); }, [component]);
-    useEvent('handleTrackTouchEnd', function (e) { return sliderController.handleMove(component, e, 'end'); }, [component, props]);
+    useEvent('handleTrackTouchStart', function (e) {
+        return sliderController.handleMove(component, e, 'start');
+    });
+    useEvent('handleTrackTouchMove', function (e) {
+        return sliderController.handleMove(component, e, 'move');
+    });
+    useEvent('handleTrackTouchEnd', function (e) {
+        return sliderController.handleMove(component, e, 'end');
+    });
     var tickList = useMemo(function () {
         var step = props.step, min = props.min, max = props.max, showTicks = props.showTicks;
         if (!showTicks) {

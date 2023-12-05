@@ -69,7 +69,7 @@ var Popover = function (props) {
             updateValue(newValue);
         }
         triggerEvent('visibleChange', newValue, e);
-    }, [value, isControl]);
+    });
     return {
         adjustedPlacement: popoverStyle.adjustedPlacement,
         popoverContentStyle: popoverStyle.popoverContentStyle,

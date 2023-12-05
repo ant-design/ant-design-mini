@@ -160,7 +160,7 @@ describe('stepper', () => {
         'data-mode': 'add',
       })
     );
-    await sleep(10);
+    await sleep(20);
     expect(instance1.getData().mixin.value).toBe('1.0');
 
     const instance2 = getInstance(
@@ -330,7 +330,7 @@ describe('stepper', () => {
         'data-mode': 'minus',
       })
     );
-    await sleep(10);
+    await sleep(20);
     expect(instance.getData().mixin.value).toBe('0.0');
     instance.callMethod(
       'onTap',
@@ -491,13 +491,13 @@ describe('stepper', () => {
     );
     expect(instance.getData().mixin.value).toBe('1.1');
     instance.setProps({ disabled: false });
-    instance.callMethod(
+    await instance.callMethod(
       'onTap',
       fmtEvent({
         'data-mode': 'add',
       })
     );
-    await sleep(10);
+    await sleep(20);
     expect(instance.getData().mixin.value).toBe('2.1');
   });
 

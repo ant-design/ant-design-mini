@@ -81,20 +81,16 @@ const Popover = (props: IPopoverProps) => {
     });
   }, [value, props.autoAdjustOverflow, props.placement]);
 
-  useEvent(
-    'onVisibleChange',
-    (e) => {
-      if (!value && e.target.id && e.target.id.indexOf('ant-popover-') === 0) {
-        return;
-      }
-      const newValue = !value;
-      if (!isControl) {
-        updateValue(newValue);
-      }
-      triggerEvent('visibleChange', newValue, e);
-    },
-    [value, isControl]
-  );
+  useEvent('onVisibleChange', (e) => {
+    if (!value && e.target.id && e.target.id.indexOf('ant-popover-') === 0) {
+      return;
+    }
+    const newValue = !value;
+    if (!isControl) {
+      updateValue(newValue);
+    }
+    triggerEvent('visibleChange', newValue, e);
+  });
 
   return {
     adjustedPlacement: popoverStyle.adjustedPlacement,

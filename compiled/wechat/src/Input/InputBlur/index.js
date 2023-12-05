@@ -29,12 +29,12 @@ var InputBlur = function (props) {
             updateValue(newValue, true);
         }
         triggerEvent('change', newValue, e);
-    }, []);
+    });
     useEvent('onFocus', function (e) {
         var newValue = e.detail.value;
         focusRef.current = true;
         triggerEvent('focus', newValue, e);
-    }, []);
+    });
     useEvent('onBlur', function (e) {
         var newValue = e.detail.value;
         focusRef.current = false;
@@ -42,11 +42,11 @@ var InputBlur = function (props) {
             updateValue(props.value);
         }
         triggerEvent('blur', newValue, e);
-    }, [props]);
+    });
     useEvent('onConfirm', function (e) {
         var newValue = e.detail.value;
         triggerEvent('confirm', newValue, e);
-    }, [props]);
+    });
     return {
         inputValue: value,
     };

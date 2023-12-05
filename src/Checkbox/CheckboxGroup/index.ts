@@ -15,35 +15,31 @@ const CheckboxGroup = (props: ICheckboxGroupProps) => {
     },
   });
   const { triggerEvent } = useComponentEvent(props);
-  useEvent(
-    'onChange',
-    (args, e) => {
-      if (props.disabled) {
-        return;
-      }
-      let event;
-      /// #if WECHAT
-      event = args;
-      /// #endif
-      /// #if ALIPAY
-      event = e;
-      /// #endif
+  useEvent('onChange', (args, e) => {
+    if (props.disabled) {
+      return;
+    }
+    let event;
+    /// #if WECHAT
+    event = args;
+    /// #endif
+    /// #if ALIPAY
+    event = e;
+    /// #endif
 
-      let currentValue = value;
-      const { index } = event.currentTarget.dataset;
-      const selectValue = props.options[index].value;
-      if (currentValue.indexOf(selectValue) > -1) {
-        currentValue = currentValue.filter((v) => v !== selectValue);
-      } else {
-        currentValue = [...currentValue, selectValue];
-      }
-      if (!isControlled) {
-        update(currentValue);
-      }
-      triggerEvent('change', currentValue, e);
-    },
-    [props, value, isControlled]
-  );
+    let currentValue = value;
+    const { index } = event.currentTarget.dataset;
+    const selectValue = props.options[index].value;
+    if (currentValue.indexOf(selectValue) > -1) {
+      currentValue = currentValue.filter((v) => v !== selectValue);
+    } else {
+      currentValue = [...currentValue, selectValue];
+    }
+    if (!isControlled) {
+      update(currentValue);
+    }
+    triggerEvent('change', currentValue, e);
+  });
   return {
     mixin: { value },
   };

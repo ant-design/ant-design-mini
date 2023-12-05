@@ -39,71 +39,47 @@ const Input = (props: InputProps) => {
     },
     [props.value]
   );
-  useEvent(
-    'onChange',
-    (e) => {
-      const newValue = e.detail.value;
-      if (!isControlled) {
-        updateValue(newValue);
-      } else {
-        /// #if WECHAT
-        setCounter((c) => c + 1);
-        /// #endif
-      }
-      triggerEvent('change', newValue, e);
-    },
-    []
-  );
+  useEvent('onChange', (e) => {
+    const newValue = e.detail.value;
+    if (!isControlled) {
+      updateValue(newValue);
+    } else {
+      /// #if WECHAT
+      setCounter((c) => c + 1);
+      /// #endif
+    }
+    triggerEvent('change', newValue, e);
+  });
 
-  useEvent(
-    'onFocus',
-    (e) => {
-      const newValue = e.detail.value;
-      setSelfFocus(true);
-      triggerEvent('focus', newValue, e);
-    },
-    []
-  );
+  useEvent('onFocus', (e) => {
+    const newValue = e.detail.value;
+    setSelfFocus(true);
+    triggerEvent('focus', newValue, e);
+  });
 
-  useEvent(
-    'onBlur',
-    (e) => {
-      const newValue = e.detail.value;
-      setSelfFocus(false);
-      triggerEvent('blur', newValue, e);
-    },
-    []
-  );
+  useEvent('onBlur', (e) => {
+    const newValue = e.detail.value;
+    setSelfFocus(false);
+    triggerEvent('blur', newValue, e);
+  });
 
-  useEvent(
-    'onConfirm',
-    (e) => {
-      const newValue = e.detail.value;
-      triggerEvent('confirm', newValue, e);
-    },
-    []
-  );
-  useEvent(
-    'onClear',
-    (e) => {
-      if (!isControlled) {
-        updateValue('');
-      }
-      triggerEvent('change', '', e);
-    },
-    []
-  );
+  useEvent('onConfirm', (e) => {
+    const newValue = e.detail.value;
+    triggerEvent('confirm', newValue, e);
+  });
+  useEvent('onClear', (e) => {
+    if (!isControlled) {
+      updateValue('');
+    }
+    triggerEvent('change', '', e);
+  });
 
-  useEvent(
-    'update',
-    (e) => {
-      if (isControlled) {
-        return;
-      }
-      updateValue(e);
-    },
-    []
-  );
+  useEvent('update', (e) => {
+    if (isControlled) {
+      return;
+    }
+    updateValue(e);
+  });
 
   return {
     /// #if WECHAT

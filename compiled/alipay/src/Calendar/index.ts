@@ -64,35 +64,31 @@ const Calendar = (props: ICalendarProps) => {
     }
   }
 
-  useEvent(
-    'clickCell',
-    (e) => {
-      const time = e.currentTarget.dataset.time;
-      const clickDate = dayjs(time.time);
-      if (time.disabled) {
-        return;
-      }
-      if (selectionMode === 'range') {
-        if (Array.isArray(value)) {
-          if (value.length === 1) {
-            const current = value[0];
-            if (dayjs(clickDate.toDate().getTime()).isBefore(dayjs(current))) {
-              updateValue([clickDate.toDate().getTime()]);
-            } else {
-              updateValue([value[0], clickDate.toDate().getTime()]);
-            }
-          } else {
+  useEvent('clickCell', (e) => {
+    const time = e.currentTarget.dataset.time;
+    const clickDate = dayjs(time.time);
+    if (time.disabled) {
+      return;
+    }
+    if (selectionMode === 'range') {
+      if (Array.isArray(value)) {
+        if (value.length === 1) {
+          const current = value[0];
+          if (dayjs(clickDate.toDate().getTime()).isBefore(dayjs(current))) {
             updateValue([clickDate.toDate().getTime()]);
+          } else {
+            updateValue([value[0], clickDate.toDate().getTime()]);
           }
         } else {
           updateValue([clickDate.toDate().getTime()]);
         }
-      } else if (selectionMode === 'single') {
-        updateValue(clickDate.toDate().getTime());
+      } else {
+        updateValue([clickDate.toDate().getTime()]);
       }
-    },
-    [selectionMode, value]
-  );
+    } else if (selectionMode === 'single') {
+      updateValue(clickDate.toDate().getTime());
+    }
+  });
 
   const monthList = getMonthListFromRange(
     dayjs(props.monthRange[0]),
@@ -143,13 +139,9 @@ const Calendar = (props: ICalendarProps) => {
 
   const [headerState, setHeaderState] = useState(0);
 
-  useEvent(
-    'setCurrentMonth',
-    (e) => {
-      setHeaderState(e.month);
-    },
-    []
-  );
+  useEvent('setCurrentMonth', (e) => {
+    setHeaderState(e.month);
+  });
 
   const [elementSize, setElementSize] = useState<{
     monthTitleHeight: number;
@@ -187,17 +179,13 @@ const Calendar = (props: ICalendarProps) => {
     measurement();
   }, []);
 
-  useEvent(
-    'measurement',
-    () => {
-      // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHight 为 0
-      // 此时需要重新计算
-      if (!elementSize || elementSize.cellHight === 0) {
-        measurement();
-      }
-    },
-    [elementSize]
-  );
+  useEvent('measurement', () => {
+    // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHight 为 0
+    // 此时需要重新计算
+    if (!elementSize || elementSize.cellHight === 0) {
+      measurement();
+    }
+  });
 
   return {
     elementSize,

@@ -6,13 +6,9 @@ import { IMaskProps } from './props';
 
 const Mask = (props: IMaskProps) => {
   const { triggerEventOnly } = useComponentEvent(props);
-  useEvent(
-    'onMaskClick',
-    (e) => {
-      triggerEventOnly('maskTap', e);
-    },
-    [props]
-  );
+  useEvent('onMaskClick', (e) => {
+    triggerEventOnly('maskTap', e);
+  });
   return {};
 };
 

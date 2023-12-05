@@ -9,17 +9,13 @@ const Switch = (props: ISwitchProps) => {
     value: props.checked,
   });
   const { triggerEvent } = useComponentEvent(props);
-  useEvent(
-    'onChange',
-    (e) => {
-      const newValue = !value;
-      if (!hasValue(props.checked)) {
-        updateValue(newValue);
-      }
-      triggerEvent('change', newValue, e);
-    },
-    [props, value]
-  );
+  useEvent('onChange', (e) => {
+    const newValue = !value;
+    if (!hasValue(props.checked)) {
+      updateValue(newValue);
+    }
+    triggerEvent('change', newValue, e);
+  });
 
   return {
     mixin: { value },

@@ -1,5 +1,4 @@
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createPicker } from './utils';
 
@@ -15,6 +14,7 @@ describe('picker onVisibleChange', () => {
     instance.callMethod('onMaskDismiss');
     expect(onVisibleChange).toBeCalledWith(false, fmtEvent({}));
     expect(onCancel).toBeCalled();
+    expect(onCancel.mock.calls[0][0].detail).toEqual({ type: 'mask' });
   });
 
   it('onCancel', () => {
@@ -22,6 +22,7 @@ describe('picker onVisibleChange', () => {
     instance.callMethod('onCancel');
     expect(onVisibleChange).toBeCalledWith(false, fmtEvent({}));
     expect(onCancel).toBeCalled();
+    expect(onCancel.mock.calls[0][0].detail).toEqual({ type: 'cancel' });
   });
 });
 
@@ -41,6 +42,7 @@ describe('picker select', () => {
     instance.callMethod('onOk');
     expect(onOk).toBeCalledWith('上海', '上海', fmtEvent({}));
   });
+
   it('multiOptions', async () => {
     const options = [
       [
@@ -55,8 +57,6 @@ describe('picker select', () => {
         { label: '下午', value: 'pm' },
       ],
     ];
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-expect-error
     const { instance, onChange, onOk } = createPicker({ options });
     expect(instance.getData().columns).toStrictEqual(options);
     instance.callMethod('onChange', { detail: { value: [1, 0] } });
@@ -215,7 +215,7 @@ it('假设在滚动的时候, value 变化', async () => {
   expect(onOk.mock.calls[0][0]).toEqual(['深圳']);
 });
 
-it.skip('多次开启关闭, visible 状态应该正确', async () => {
+it('多次开启关闭, visible 状态应该正确', async () => {
   const { instance, callMethod } = createPicker();
   await callMethod('onOpen');
   expect(instance.getData().state.visible).toBe(true);
@@ -225,4 +225,75 @@ it.skip('多次开启关闭, visible 状态应该正确', async () => {
   expect(instance.getData().state.visible).toBe(true);
   await callMethod('onOk');
   expect(instance.getData().state.visible).toBe(false);
+});
+
+it('如果 disabled, 则无法打开', async () => {
+  const { instance, callMethod } = createPicker({ disabled: true });
+  await callMethod('onOpen');
+  expect(instance.getData().state.visible).toBe(undefined);
+});
+
+describe('非受控模式', () => {
+  it('测试非受控模式', async () => {
+    const options = [['北京', '上海', '深圳', '广州']];
+    const { instance, callMethod } = createPicker({
+      options,
+    });
+    await callMethod('onOpen');
+    expect(instance.getData().state.visible).toBe(true);
+    await callMethod('onChange', { detail: { value: [1] } });
+    expect(instance.getData().selectedIndex).toStrictEqual([1]);
+    expect(instance.getData().mixin.value).toStrictEqual([]);
+    await callMethod('onOk');
+    expect(instance.getData().state.visible).toBe(false);
+    expect(instance.getData().mixin.value).toStrictEqual(['上海']);
+  });
+
+  it('测试 defaultVisible 与 defaultValue', async () => {
+    const options = [['北京', '上海', '深圳', '广州']];
+    const { instance, callMethod, onOk } = createPicker({
+      options,
+      defaultValue: ['上海'],
+      defaultVisible: true,
+      'data-1': 2,
+    });
+    expect(instance.getData().state.visible).toBe(true);
+    expect(instance.getData().selectedIndex).toEqual([1]);
+    await callMethod('onOk');
+    expect(instance.getData().state.visible).toBe(false);
+    expect(onOk).toBeCalledWith(
+      ['上海'],
+      ['上海'],
+      fmtEvent({
+        'data-1': 2,
+      })
+    );
+  });
+});
+
+describe('visible 受控模式', () => {
+  it('value 优先级大于 defaultValue', async () => {
+    const options = [['北京', '上海', '深圳', '广州']];
+    const { instance, callMethod, onVisibleChange } = createPicker({
+      options,
+      visible: false,
+      defaultVisible: true,
+    });
+    expect(instance.getData().state.visible).toEqual(false);
+    await callMethod('onOpen');
+    expect(instance.getData().state.visible).toEqual(false);
+    expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
+  });
+});
+
+describe('value 受控模式', async () => {
+  it('value 优先级大于 defaultValue', () => {
+    const options = [['北京', '上海', '深圳', '广州']];
+    const { instance } = createPicker({
+      options,
+      defaultValue: ['上海'],
+      value: ['深圳'],
+    });
+    expect(instance.getData().selectedIndex).toEqual([2]);
+  });
 });
