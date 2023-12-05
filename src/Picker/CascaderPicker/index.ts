@@ -40,7 +40,7 @@ Component({
     },
     updateValue(prevProps, currentProps) {
       const { value, options } = currentProps;
-      const { columns, currentValue } = this.data;
+      const { currentValue } = this.data;
       if (options !== prevProps.options) {
         const newData: any = {};
         if (!equal(value, prevProps.value)) {
@@ -59,7 +59,11 @@ Component({
       } else {
         if (!equal(value, prevProps.value)) {
           const realValue = this.getValue();
-          const currentValue = this.getValidValue(realValue, columns);
+          const newColumns = this.getterColumns(
+            realValue,
+            currentProps.options
+          );
+          const currentValue = this.getValidValue(realValue, newColumns);
           this.setData({ currentValue });
         }
       }
