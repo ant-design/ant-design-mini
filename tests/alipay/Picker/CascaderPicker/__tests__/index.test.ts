@@ -237,6 +237,10 @@ describe('cascaderPicker 受控模式', () => {
     expect(instance.getData().currentValue).toEqual([]);
     await callMethod('onChange', ['18', '110']);
     expect(instance.getData().currentValue).toEqual(['18', '188']);
+    instance.setProps({ value: [] });
+    expect(instance.getData().currentValue).toEqual(['11', '110']);
+    const formatValue = await callMethod('onFormat');
+    expect(formatValue).toBe('');
   });
 
   it('测试 default value', async () => {
