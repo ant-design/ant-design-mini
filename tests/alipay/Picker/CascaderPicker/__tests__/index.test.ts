@@ -83,13 +83,13 @@ describe('columns ', () => {
 });
 
 describe('cascaderPicker select', () => {
-  it('cascaderPicker select', () => {
+  it('cascaderPicker select', async () => {
     const { callMethod, onChange, onOk } = createCascaderPicker({
       options: cityList,
     });
 
-    callMethod('onChange', ['11', '110']);
-    callMethod('onChange', ['18', '188']);
+    await callMethod('onChange', ['11', '110']);
+    await callMethod('onChange', ['18', '188']);
     expect(onChange).toBeCalledWith(
       ['18', '188'],
       [
@@ -262,7 +262,7 @@ describe('cascaderPicker 受控模式', () => {
       options: cityList,
       value,
     });
-    expect(instance.getData().currentValue).toEqual([]);
+    expect(instance.getData().currentValue).toEqual(['11', '110']);
     expect(await callMethod('onFormat')).toBe('北京北京');
     await callMethod('onChange', ['18', '110']);
     expect(instance.getData().currentValue).toEqual(['18', '188']);
@@ -282,7 +282,7 @@ describe('cascaderPicker 受控模式', () => {
       options: cityList,
       defaultValue: value,
     });
-    expect(instance.getData().currentValue).toStrictEqual([]);
+    expect(instance.getData().currentValue).toStrictEqual(['18', '110']);
     expect(instance.getData().columns).toStrictEqual([
       [
         { value: '11', label: '北京' },
@@ -299,7 +299,7 @@ describe('cascaderPicker 受控模式', () => {
     ]);
     instance.setProps({ defaultValue: ['11', '110'] });
     expect(await callMethod('onFormat')).toBe('');
-    expect(instance.getData().currentValue).toStrictEqual([]);
+    expect(instance.getData().currentValue).toStrictEqual(['18', '110']);
     instance.setProps({ value: ['11', '110'] });
     expect(instance.getData().currentValue).toStrictEqual(['11', '110']);
     expect(await callMethod('onFormat')).toBe('北京北京');

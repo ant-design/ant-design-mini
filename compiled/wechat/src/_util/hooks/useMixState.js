@@ -1,5 +1,5 @@
 import { useEvent } from './useEvent';
-import { useLayoutUpdateEffect } from './useLayoutEffect';
+import { useComponentUpdateEffect } from './useLayoutEffect';
 import { hasValue } from './useMergedState';
 import { useSafeState as useState } from './useState';
 export function useMixState(defaultStateValue, option) {
@@ -29,7 +29,7 @@ export function useMixState(defaultStateValue, option) {
     }), innerValue = _c[0], setInnerValue = _c[1];
     var state = postState(value);
     var merge = hasValue(value) && state.valid ? state.value : innerValue;
-    useLayoutUpdateEffect(function () {
+    useComponentUpdateEffect(function () {
         var state = postState(value);
         if (state.valid) {
             setInnerValue(state.value);

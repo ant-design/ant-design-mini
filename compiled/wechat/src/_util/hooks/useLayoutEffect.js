@@ -19,7 +19,7 @@ var useLayoutEffect = function (callback, deps) {
         };
     }, []);
 };
-export var useLayoutUpdateEffect = function (callback, deps) {
+export var useComponentUpdateEffect = function (callback, deps) {
     useLayoutEffect(function (firstMount) {
         if (!firstMount) {
             return callback();

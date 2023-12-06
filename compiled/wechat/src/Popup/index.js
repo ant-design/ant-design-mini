@@ -2,14 +2,14 @@ import { useState, useEvent } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useLayoutUpdateEffect } from '../_util/hooks/useLayoutEffect';
+import { useComponentUpdateEffect } from '../_util/hooks/useLayoutEffect';
 import { isOldSDKVersion } from '../_util/platform';
 var isOldVersion = isOldSDKVersion();
 var Popup = function (props) {
     var enableAnimation = props.animation && props.duration > 0;
     var _a = useState(false), closing = _a[0], setClosing = _a[1];
     var triggerEventOnly = useComponentEvent(props).triggerEventOnly;
-    useLayoutUpdateEffect(function () {
+    useComponentUpdateEffect(function () {
         if (!props.visible && enableAnimation) {
             setClosing(true);
         }
