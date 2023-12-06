@@ -226,8 +226,25 @@ describe('cascaderPicker onFormat', () => {
   });
 });
 
+it('value 非受控', async () => {
+  const { instance, callMethod } = createCascaderPicker({
+    options: cityList,
+  });
+  expect(instance.getData().currentValue).toEqual([]);
+  expect(await callMethod('onFormat')).toBe('');
+  await callMethod('onChange', ['18', '110']);
+  expect(instance.getData().currentValue).toEqual(['18', '188']);
+  expect(await callMethod('onFormat')).toBe('');
+  await callMethod('onOk');
+  expect(await callMethod('onFormat')).toBe('河北石家庄');
+  instance.setProps({ value: [] });
+  expect(instance.getData().currentValue).toEqual(['11', '110']);
+  const formatValue = await callMethod('onFormat');
+  expect(formatValue).toBe('');
+});
+
 describe('cascaderPicker 受控模式', () => {
-  it('value 不支持受控', async () => {
+  it('value 受控', async () => {
     const value = ['11', '110'];
     const { instance, callMethod } = createCascaderPicker({
       options: cityList,
@@ -237,6 +254,8 @@ describe('cascaderPicker 受控模式', () => {
     expect(await callMethod('onFormat')).toBe('北京北京');
     await callMethod('onChange', ['18', '110']);
     expect(instance.getData().currentValue).toEqual(['18', '188']);
+    expect(await callMethod('onFormat')).toBe('北京北京');
+    await callMethod('onOk');
     expect(await callMethod('onFormat')).toBe('北京北京');
     instance.setProps({ value: [] });
     expect(instance.getData().currentValue).toEqual(['11', '110']);
