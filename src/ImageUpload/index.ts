@@ -22,7 +22,7 @@ Component({
             file.uid = String(Math.random());
           }
           if (typeof item.status === 'undefined') {
-            item.status = 'done';
+            file.status = 'done';
           }
           return file;
         }),
