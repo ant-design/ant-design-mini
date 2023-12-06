@@ -1,6 +1,5 @@
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { callMethod, sleep } from 'tests/utils';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { cityList, createCascaderPicker } from './utils';
 
 describe('cascaderPicker onVisibleChange', () => {
@@ -235,8 +234,10 @@ describe('cascaderPicker 受控模式', () => {
       value,
     });
     expect(instance.getData().currentValue).toEqual([]);
+    expect(await callMethod('onFormat')).toBe('北京北京');
     await callMethod('onChange', ['18', '110']);
     expect(instance.getData().currentValue).toEqual(['18', '188']);
+    expect(await callMethod('onFormat')).toBe('北京北京');
     instance.setProps({ value: [] });
     expect(instance.getData().currentValue).toEqual(['11', '110']);
     const formatValue = await callMethod('onFormat');
@@ -246,7 +247,7 @@ describe('cascaderPicker 受控模式', () => {
   it('测试 default value', async () => {
     const value = ['18', '110'];
     // 仅有初始化的时候看 defaultValue
-    const { instance } = createCascaderPicker({
+    const { instance, callMethod } = createCascaderPicker({
       options: cityList,
       defaultValue: value,
     });
@@ -266,8 +267,10 @@ describe('cascaderPicker 受控模式', () => {
       ],
     ]);
     instance.setProps({ defaultValue: ['11', '110'] });
+    expect(await callMethod('onFormat')).toBe('');
     expect(instance.getData().currentValue).toStrictEqual([]);
     instance.setProps({ value: ['11', '110'] });
     expect(instance.getData().currentValue).toStrictEqual(['11', '110']);
+    expect(await callMethod('onFormat')).toBe('北京北京');
   });
 });
