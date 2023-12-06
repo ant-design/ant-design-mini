@@ -53,7 +53,7 @@ export interface ICascaderProps extends IBaseProps {
   /**
    * @description 点击确认回调
    */
-  onOk: (
+  onOk?: (
     value: any[],
     selectedOptions: ICascaderOption[],
     e: Record<string, any>
@@ -61,19 +61,19 @@ export interface ICascaderProps extends IBaseProps {
   /**
    * @description 点击取消回调
    */
-  onCancel: (e: Record<string, any>) => void;
+  onCancel?: (e: Record<string, any>) => void;
   /**
    * @description 选中值的文本显示格式
    */
-  onFormat: (value: any[], selectedOptions: ICascaderOption[]) => string;
+  onFormat?: (value: any[], selectedOptions: ICascaderOption[]) => string;
   /**
    * @description 切换显示隐藏
    */
-  onVisibleChange: (visible: boolean, e: Record<string, any>) => void;
+  onVisibleChange?: (visible: boolean, e: Record<string, any>) => void;
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
-  onChange: (
+  onChange?: (
     value: any[],
     selectedOptions: ICascaderOption[],
     e: Record<string, any>
