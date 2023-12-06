@@ -1,7 +1,7 @@
 import { useEvent, useState } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { useLayoutUpdateEffect } from '../../_util/hooks/useLayoutEffect';
+import { useComponentUpdateEffect } from '../../_util/hooks/useLayoutEffect';
 import { defaultFormat, getterColumns, getValidValue } from './utils';
 import { ICascaderProps } from './props';
 import { useMixState } from '../../_util/hooks/useMixState';
@@ -25,7 +25,7 @@ const CascaderPicker = (props: ICascaderProps) => {
   const { triggerEventOnly, triggerEventValues, triggerEvent } =
     useComponentEvent(props);
 
-  useLayoutUpdateEffect(() => {
+  useComponentUpdateEffect(() => {
     const newColumns = getterColumns(props.value, props.options);
     const value = getValidValue(props.value, newColumns);
     setState({ value, columns: newColumns });

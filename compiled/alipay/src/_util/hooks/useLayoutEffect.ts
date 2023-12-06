@@ -28,7 +28,7 @@ const useLayoutEffect = (
   }, []);
 };
 
-export const useLayoutUpdateEffect: typeof React.useEffect = (
+export const useComponentUpdateEffect: typeof React.useEffect = (
   callback,
   deps
 ) => {

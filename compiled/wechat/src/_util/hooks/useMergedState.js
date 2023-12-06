@@ -2,7 +2,7 @@
  * copy from https://github.com/react-component/util/blob/9d5cb8946da29e690bead78b2c251da6f7cbd0eb/src/hooks/useMergedState.ts
  */
 import { useEvent } from './useEvent';
-import { useLayoutUpdateEffect } from './useLayoutEffect';
+import { useComponentUpdateEffect } from './useLayoutEffect';
 import { useSafeState as useState } from './useState';
 import { supportUndefinedProperty } from '../platform';
 /** We only think `undefined` is empty */
@@ -39,14 +39,14 @@ export function useMergedState(defaultStateValue, option) {
     // ====================== Change ======================
     var onChangeFn = useEvent(onChange);
     var _c = useState([mergedValue]), prevValue = _c[0], setPrevValue = _c[1];
-    useLayoutUpdateEffect(function () {
+    useComponentUpdateEffect(function () {
         var prev = prevValue[0];
         if (innerValue !== prev) {
             onChangeFn(innerValue, prev);
         }
     }, [prevValue]);
     // Sync value back to `undefined` when it from control to un-control
-    useLayoutUpdateEffect(function () {
+    useComponentUpdateEffect(function () {
         if (!hasValue(value)) {
             setInnerValue(value);
         }

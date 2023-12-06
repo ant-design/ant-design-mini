@@ -2,7 +2,7 @@
  * copy from https://github.com/react-component/util/blob/9d5cb8946da29e690bead78b2c251da6f7cbd0eb/src/hooks/useMergedState.ts
  */
 import { useEvent } from './useEvent';
-import { useLayoutUpdateEffect } from './useLayoutEffect';
+import { useComponentUpdateEffect } from './useLayoutEffect';
 import { useSafeState as useState } from './useState';
 import { supportUndefinedProperty } from '../platform';
 
@@ -57,7 +57,7 @@ export function useMergedState<T, R = T>(
 
   const [prevValue, setPrevValue] = useState<[T]>([mergedValue]);
 
-  useLayoutUpdateEffect(() => {
+  useComponentUpdateEffect(() => {
     const prev = prevValue[0];
     if (innerValue !== prev) {
       onChangeFn(innerValue, prev);
@@ -65,7 +65,7 @@ export function useMergedState<T, R = T>(
   }, [prevValue]);
 
   // Sync value back to `undefined` when it from control to un-control
-  useLayoutUpdateEffect(() => {
+  useComponentUpdateEffect(() => {
     if (!hasValue(value)) {
       setInnerValue(value);
     }

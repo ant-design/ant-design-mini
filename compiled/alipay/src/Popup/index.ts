@@ -2,7 +2,7 @@ import { useState, useEvent } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useLayoutUpdateEffect } from '../_util/hooks/useLayoutEffect';
+import { useComponentUpdateEffect } from '../_util/hooks/useLayoutEffect';
 import { isOldSDKVersion } from '../_util/platform';
 import { IPopupProps } from './props';
 
@@ -14,7 +14,7 @@ const Popup = (props: IPopupProps) => {
 
   const { triggerEventOnly } = useComponentEvent(props);
 
-  useLayoutUpdateEffect(() => {
+  useComponentUpdateEffect(() => {
     if (!props.visible && enableAnimation) {
       setClosing(true);
     }
