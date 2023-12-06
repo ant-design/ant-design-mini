@@ -108,6 +108,18 @@ describe('cascaderPicker select', () => {
       fmtEvent({})
     );
   });
+
+  it('选择后再次打开 需要恢复状态', async () => {
+    const { callMethod, instance } = createCascaderPicker({
+      options: cityList,
+    });
+
+    await callMethod('onChange', ['18', '188']);
+
+    await callMethod('onVisibleChange', false);
+    await callMethod('onVisibleChange', true);
+    expect(instance.getData().currentValue).toEqual(['11', '110']);
+  });
 });
 describe('cascaderPicker update', () => {
   it('cascaderPicker updateValue', async () => {
