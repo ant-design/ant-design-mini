@@ -29,7 +29,21 @@ const CascaderPicker = (props: ICascaderProps) => {
     const newColumns = getterColumns(props.value, props.options);
     const value = getValidValue(props.value, newColumns);
     setState({ value, columns: newColumns });
-  }, [props.value, props.options]);
+  }, [
+    props.value,
+    props.options,
+    /**
+     * 这里不要删
+     *
+     * 1. picker 触发 onOk
+     * 2. 更新 realValue
+     * 3. picker 触发 onFormat (此时 realValue 未更新)
+     * 4. 依赖里的 realValue 更新
+     * 5. 触发组件再次渲染
+     * 6. 此时 onFormat 读取到最新的realValue
+     */
+    realValue,
+  ]);
 
   function getOptionByValue(value, options) {
     if (!(value?.length > 0)) return null;
