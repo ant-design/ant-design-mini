@@ -3,6 +3,49 @@ import dayjs from 'dayjs';
 import { describe, expect, it } from 'vitest';
 import { createDateRangePicker } from './utils';
 
+describe('非受控模式', () => {
+  it('测试 onFormat', async () => {
+    const x: unknown[] = [];
+    const { instance } = createDateRangePicker({
+      defaultValue: [
+        dayjs('2023-01-01').toDate(),
+        dayjs('2023-10-01').toDate(),
+      ],
+      format: 'YYYY / MM / DD',
+      onFormat: (value, datestr) => {
+        x.push(datestr);
+        return value.map((v) => dayjs(v).format('YYYY--MM--DD')).join('-|-');
+      },
+    });
+    expect(instance.callMethod('onFormat')).toEqual(
+      '2023--01--01-|-2023--10--01'
+    );
+    expect(x).toEqual([['2023 / 01 / 01', '2023 / 10 / 01']]);
+  });
+
+  it('测试调整数据', async () => {
+    const { instance, callMethod } = createDateRangePicker({
+      defaultValue: [
+        dayjs('2023-01-01').toDate(),
+        dayjs('2023-10-02').toDate(),
+      ],
+    });
+    expect(instance.callMethod('onFormat')).toEqual('2023/01/01-2023/10/02');
+    instance.callMethod('onVisibleChange', true);
+    await callMethod('onChange', [2023, 9, 5]);
+    await callMethod('onChangeCurrentPickerType', {
+      target: {
+        dataset: {
+          type: 'end',
+        },
+      },
+    });
+    await callMethod('onChange', [2023, 9, 20]);
+    await callMethod('onOk');
+    expect(instance.callMethod('onFormat')).toEqual('2023/09/05-2023/09/20');
+  });
+});
+
 describe('受控模式', () => {
   it('测试 onOk 事件', async () => {
     const { instance, callMethod, onOk } = createDateRangePicker({
