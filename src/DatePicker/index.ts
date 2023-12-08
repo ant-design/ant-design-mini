@@ -186,11 +186,7 @@ Component({
         this.setData({ currentValue: selectedIndex });
         if (onPickerChange) {
           const date = getDateByValue(selectedIndex);
-          onPickerChange(
-            date,
-            dayjs(date).format(format),
-            fmtEvent(this.props)
-          );
+          onPickerChange(date, dayjs(date).format(format));
         }
       }
     },

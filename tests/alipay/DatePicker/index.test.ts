@@ -10,7 +10,7 @@ const date = [
 ];
 
 describe('DatePicker', () => {
-  it('测试 oncancel', async () => {
+  it('测试 onCancel 事件', async () => {
     const { onCancel, callMethod } = createDatePicker({
       'data-test': '123',
     } as any);
@@ -20,6 +20,26 @@ describe('DatePicker', () => {
         'data-test': '123',
       })
     );
+  });
+
+  it('测试 onVisibleChange 事件', async () => {
+    const { onVisibleChange, callMethod } = createDatePicker();
+    await callMethod('onVisibleChange', true);
+    expect(onVisibleChange.mock.lastCall).toEqual([true, fmtEvent({})]);
+    await callMethod('onVisibleChange', false);
+    expect(onVisibleChange.mock.lastCall).toEqual([false, fmtEvent({})]);
+  });
+
+  it('测试 onOk 事件', async () => {
+    const { onOk, callMethod } = createDatePicker();
+    await callMethod('onVisibleChange', true);
+    await callMethod('onChange', [2023, 1, 2]);
+    await callMethod('onOk');
+    expect(onOk.mock.lastCall).toEqual([
+      dayjs('2023-01-02').toDate(),
+      '2023/01/02',
+      fmtEvent({}),
+    ]);
   });
 
   it('测试 columns', async () => {
@@ -141,10 +161,11 @@ describe('受控模式', () => {
     await callOk();
     // 数据应该不变
     expect(instance.callMethod('onFormat')).toEqual('2023/01/01');
-    expect(dayjs(onOk.mock.calls[0][0]).format('YYYY-MM-DD')).toEqual(
-      '2023-02-01'
-    );
-    expect(onOk.mock.calls[0][1]).toEqual('2023/02/01');
+    expect(onOk.mock.calls[0]).toEqual([
+      dayjs('2023-02-01').toDate(),
+      '2023/02/01',
+      fmtEvent({}),
+    ]);
   });
 });
 
