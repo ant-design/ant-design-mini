@@ -4,6 +4,59 @@ import { describe, expect, it } from 'vitest';
 import { createDateRangePicker } from './utils';
 
 describe('非受控模式', () => {
+  it('测试 onCancel', async () => {
+    const { onCancel, callMethod } = createDateRangePicker({
+      'data-test': '123',
+    } as any);
+    await callMethod('onCancel');
+    expect(onCancel).toBeCalledWith(
+      fmtEvent({
+        'data-test': '123',
+      })
+    );
+  });
+
+  it('测试 onVisibleChange', async () => {
+    const { onVisibleChange, callMethod } = createDateRangePicker();
+    await callMethod('onVisibleChange', true);
+    expect(onVisibleChange.mock.lastCall).toEqual([true, fmtEvent({})]);
+    await callMethod('onVisibleChange', false);
+    expect(onVisibleChange.mock.lastCall).toEqual([false, fmtEvent({})]);
+  });
+
+  it('测试 onOk 与 onPickerChange', async () => {
+    const { onPickerChange, callMethod, onOk } = createDateRangePicker();
+    await callMethod('onVisibleChange', true);
+    await callMethod('onChange', [2023, 10, 1]);
+    expect(onPickerChange.mock.lastCall).toEqual([
+      'start',
+      dayjs('2023-10-01').toDate(),
+      '2023/10/01',
+      fmtEvent({}),
+    ]);
+    await callMethod('onChangeCurrentPickerType', {
+      target: {
+        dataset: {
+          type: 'end',
+        },
+      },
+    });
+    await callMethod('onChange', [2023, 10, 2]);
+    expect(onPickerChange.mock.lastCall).toEqual([
+      'end',
+      dayjs('2023-10-02').toDate(),
+      '2023/10/02',
+      fmtEvent({}),
+    ]);
+
+    await callMethod('onOk');
+    expect(onOk.mock.lastCall).toEqual([
+      [dayjs('2023-10-01').toDate(), dayjs('2023-10-02').toDate()],
+      ['2023/10/01', '2023/10/02'],
+      fmtEvent({}),
+    ]);
+  });
+
   it('测试 onFormat', async () => {
     const x: unknown[] = [];
     const { instance } = createDateRangePicker({
@@ -89,7 +142,7 @@ describe('非受控模式', () => {
   });
 
   it('测试 min 与 max', async () => {
-    const { instance, callMethod, currentDate } = createDateRangePicker({
+    const { callMethod, currentDate } = createDateRangePicker({
       defaultValue: [
         dayjs('2023-01-01').toDate(),
         dayjs('2023-10-02').toDate(),
@@ -119,18 +172,6 @@ describe('非受控模式', () => {
       currentStartDate: dayjs('2023-01-20').toDate().toISOString(),
       currentEndDate: dayjs('2024-12-10').toDate().toISOString(),
     });
-  });
-
-  it('测试 oncancel', async () => {
-    const { onCancel, callMethod } = createDateRangePicker({
-      'data-test': '123',
-    } as any);
-    await callMethod('onCancel');
-    expect(onCancel).toBeCalledWith(
-      fmtEvent({
-        'data-test': '123',
-      })
-    );
   });
 });
 
