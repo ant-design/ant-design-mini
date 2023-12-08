@@ -34,5 +34,10 @@ export const createDatePicker = (props?: Partial<IDatePickerProps>) => {
     onPickerChange,
     onVisibleChange,
     instance,
+    callMethod: async (name, ...args) => {
+      const res = instance.callMethod(name, ...args);
+      await sleep(20);
+      return res;
+    },
   };
 };
