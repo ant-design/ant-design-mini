@@ -1,6 +1,6 @@
 import { IRadioProps } from 'compiled-alipay/radio/props';
 import { getInstance, sleep } from 'tests/utils';
-import { describe, it, vi } from 'vitest';
+import { vi } from 'vitest';
 
 export function createRadio(props: IRadioProps) {
   const onChange = vi.fn();
