@@ -29,5 +29,13 @@ export const createDateRangePicker = (
       await sleep(20);
       return res;
     },
+
+    currentDate() {
+      const { currentStartDate, currentEndDate } = instance.getData();
+      return {
+        currentEndDate,
+        currentStartDate,
+      };
+    },
   };
 };
