@@ -1,3 +1,4 @@
+import fmtEvent from 'compiled-alipay/_util/fmtEvent';
 import dayjs from 'dayjs';
 import { describe, expect, it } from 'vitest';
 import { createDatePicker } from './utils';
@@ -9,6 +10,18 @@ const date = [
 ];
 
 describe('DatePicker', () => {
+  it('测试 oncancel', async () => {
+    const { instance, onCancel } = createDatePicker({
+      'data-test': '123',
+    } as any);
+    instance.callMethod('onCancel', true);
+    expect(onCancel).toBeCalledWith(
+      fmtEvent({
+        'data-test': '123',
+      })
+    );
+  });
+
   it('测试 columns', async () => {
     const { instance } = createDatePicker();
     instance.callMethod('onVisibleChange', true);
