@@ -1,4 +1,5 @@
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
+import { sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createPicker } from './utils';
 
@@ -9,12 +10,20 @@ describe('picker onVisibleChange', () => {
     expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
   });
 
-  it('onMaskDismiss', () => {
+  it('onMaskDismiss', async () => {
     const { instance, onVisibleChange, onCancel } = createPicker({});
     instance.callMethod('onMaskDismiss');
     expect(onVisibleChange).toBeCalledWith(false, fmtEvent({}));
     expect(onCancel).toBeCalled();
     expect(onCancel.mock.calls[0][0].detail).toEqual({ type: 'mask' });
+
+    instance.callMethod('onOpen');
+    await sleep(20);
+    expect(instance.getData().state.visible).toBeTruthy();
+    instance.setProps({ maskClosable: false });
+    instance.callMethod('onMaskDismiss');
+    await sleep(20);
+    expect(instance.getData().state.visible).toBeTruthy();
   });
 
   it('onCancel', () => {

@@ -13,7 +13,7 @@
       options="{{list}}"></picker>
   </list-item>
   <list-item>
-    选择城市（点击蒙层关闭）
+    选择城市（点击蒙层不关闭）
     <picker
       slot="extra"
       onCancel="handleDismissPicker"
@@ -23,7 +23,7 @@
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
-      maskClosable
+      maskClosable="{{false}}"
       options="{{list}}"></picker>
   </list-item>
 </list>

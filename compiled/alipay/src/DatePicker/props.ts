@@ -110,7 +110,7 @@ export interface IDatePickerProps extends IBaseProps {
 export const DatePickerDefaultProps: IDatePickerProps = {
   okText: '确定',
   cancelText: '取消',
-  maskClosable: false,
+  maskClosable: true,
   placeholder: '请选择',
   format: 'YYYY/MM/DD',
   precision: 'day',

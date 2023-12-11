@@ -126,7 +126,7 @@ mountComponent(CascaderPicker, {
   disabled: false,
   title: '',
   okText: '确定',
-  maskClosable: false,
+  maskClosable: true,
   popClassName: '',
   popStyle: '',
 });

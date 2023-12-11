@@ -13,7 +13,7 @@
       onOk="handleOk"></date-picker>
   </list-item>
   <list-item>
-    请选择日期（点击蒙层关闭）
+    请选择日期（点击蒙层不关闭）
     <date-picker
       min="{{min}}"
       max="{{max}}"
@@ -22,7 +22,7 @@
       placeholder="请选择"
       onPickerChange="handlePickerChange"
       onVisibleChange="handleTriggerPicker"
-      maskClosable
+      maskClosable="{{false}}"
       onOk="handleOk"></date-picker>
   </list-item>
 </list>

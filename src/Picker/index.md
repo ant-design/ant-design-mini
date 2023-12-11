@@ -35,7 +35,7 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | indicatorStyle | 选中框样式 | string | - |  
 | indicatorClassName | 选中框的类名 | string |  - |  
 | maskClassName | 蒙层的类名 | string | - | 
-| maskClosable |  点击蒙层是否可以关闭 | boolean |false |  | 
+| maskClosable |  点击蒙层是否可以关闭 | boolean |true |  | 
 | maskStyle | 蒙层的样式 | string | - | 
 | okText | 确认按钮文案 | string | '确定' |  
 | options | picker 数据，配置每一列的选项 | [PickerColumnItem](#pickercolumnitem)[] | [] |
@@ -66,7 +66,7 @@ Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比
 | indicatorStyle | 选中框样式 | string | - |  
 | indicatorClassName | 选中框的类名 | string |  - |  
 | maskClassName | 蒙层的类名 | string | - | 
-| maskClosable |  点击蒙层是否可以关闭 | boolean |false |  | 
+| maskClosable |  点击蒙层是否可以关闭 | boolean |true |  | 
 | maskStyle | 蒙层的样式 | string | - | 
 | okText | 确认按钮文案 | string | '确定' |  
 | options | 可选数据 | [CascaderOption](#cascaderoption)[] | [] |
