@@ -20,8 +20,9 @@ describe('picker onVisibleChange', () => {
     instance.callMethod('onOpen');
     await sleep(20);
     expect(instance.getData().state.visible).toBeTruthy();
-    instance.setProps({ maskClosable: true });
+    instance.setProps({ maskClosable: false });
     instance.callMethod('onMaskDismiss');
+    await sleep(20);
     expect(instance.getData().state.visible).toBeTruthy();
   });
 
