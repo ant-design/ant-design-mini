@@ -2,7 +2,7 @@ import { IBaseProps } from '../../_util/base';
 
 export interface IRadioGroupProps extends IBaseProps {
   value: string;
-  defaultValue: string;
+  defaultValue: boolean;
   name: string;
   disabled: boolean;
   color: string;
@@ -12,10 +12,10 @@ export interface IRadioGroupProps extends IBaseProps {
     label?: string;
     value?: string;
     disabled?: boolean;
-  }[];
+  }[]
 }
 
 export const RadioGroupDefaultProps: Partial<IRadioGroupProps> = {
   options: [],
-  position: 'vertical',
+  position: 'vertical'
 };
