@@ -80,7 +80,6 @@ const Picker = (props: IPickerProps) => {
   });
 
   useEvent('onMaskDismiss', () => {
-    console.log('props.maskClosable', props.maskClosable);
     if (!props.maskClosable) {
       return;
     }
