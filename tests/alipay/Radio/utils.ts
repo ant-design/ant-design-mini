@@ -1,4 +1,4 @@
-import { IRadioProps } from 'compiled-alipay/radio/props';
+import { IRadioProps } from 'compiled-alipay/Radio/props';
 import { getInstance, sleep } from 'tests/utils';
 import { vi } from 'vitest';
 
