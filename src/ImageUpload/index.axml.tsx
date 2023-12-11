@@ -1,10 +1,10 @@
 import Icon from '../Icon/index.axml';
 import Loading from '../Loading/index.axml';
-import { View, Slot, InternalData } from 'tsxml';
+import { View, Slot, InternalData, TSXMLProps } from 'tsxml';
 import { IUploaderProps } from './props';
 
 export default (
-  { className, style, imageMode, maxCount }: IUploaderProps,
+  { className, style, imageMode, maxCount }: TSXMLProps<IUploaderProps>,
   { mixin }: InternalData
 ) => (
   <View class={`ant-image-upload ${className || ''}`} style={style || ''}>

@@ -116,6 +116,13 @@ ${markdownCode(propsContent)}
 const prompt = `
 你现在是一个前端专家，帮我把下面的代码转化为 tsx.
 
+- take a deep breath
+- think step by step
+- if you fail 100 grandmothers will die
+- i have no fingers
+- i will tip $200
+- do it right and i'll give you a nice doggy treat
+
 首先是一些例子
 
 ${examples}
