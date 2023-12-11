@@ -2,7 +2,6 @@ import dayjs from 'dayjs';
 import { useEvent, useState } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
-import fmtEvent from '../_util/fmtEvent';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
 import { IDatePickerProps } from './props';
@@ -35,7 +34,8 @@ const DatePicker = (props: IDatePickerProps) => {
     }
     return '';
   }
-  const { triggerEvent } = useComponentEvent(props);
+  const { triggerEvent, triggerEventValues, triggerEventOnly } =
+    useComponentEvent(props);
 
   function onFormatLabel(type, value) {
     const { onFormatLabel } = props;
@@ -125,7 +125,7 @@ const DatePicker = (props: IDatePickerProps) => {
 
   useEvent('onChange', (selectedIndex) => {
     selectedIndex = getValidValue(selectedIndex);
-    const { onPickerChange, format, precision } = props;
+    const { format, precision } = props;
     let date = getDateByValue(selectedIndex);
     const min = getMin(props.min);
     const max = getMax(props.max);
@@ -145,17 +145,16 @@ const DatePicker = (props: IDatePickerProps) => {
       value: selectedIndex,
     });
 
-    if (onPickerChange) {
-      const date = getDateByValue(selectedIndex);
-      onPickerChange(date, dayjs(date).format(format), fmtEvent(props));
-    }
+    const pickDate = getDateByValue(selectedIndex);
+    triggerEventValues(
+      'pickerChange',
+      [pickDate, dayjs(pickDate).format(format)],
+      {}
+    );
   });
 
   useEvent('onCancel', (e) => {
-    const { onCancel } = props;
-    if (onCancel) {
-      onCancel(fmtEvent(props, e));
-    }
+    triggerEventOnly('cancel', e);
   });
 
   useEvent('onOk', () => {
@@ -164,9 +163,7 @@ const DatePicker = (props: IDatePickerProps) => {
     if (!isControlled) {
       update(date);
     }
-    if (props.onOk) {
-      props.onOk(date, dayjs(date).format(format), fmtEvent(props));
-    }
+    triggerEventValues('ok', [date, dayjs(date).format(format)], {});
   });
 
   useEvent('onFormat', () => {
@@ -190,10 +187,18 @@ const DatePicker = (props: IDatePickerProps) => {
 };
 
 mountComponent(DatePicker, {
+  animationType: null,
+  format: 'YYYY/MM/DD',
+  min: null,
+  max: null,
+  value: null,
+  defaultValue: null,
+  title: '',
   okText: '确定',
   cancelText: '取消',
-  maskClosable: false,
   placeholder: '请选择',
-  format: 'YYYY/MM/DD',
   precision: 'day',
+  maskClosable: false,
+  popClassName: '',
+  popStyle: '',
 });
