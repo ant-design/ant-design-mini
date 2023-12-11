@@ -4,12 +4,12 @@ export interface IRateProps extends IBaseProps {
   /**
    * @description 当前星级
    */
-  rate: number;
+  value: number;
 
   /**
    * description 初始星级
    */
-  defaultRate: number;
+  defaultValue: number;
 
   /**
    * description 间距
@@ -49,7 +49,7 @@ export interface IRateProps extends IBaseProps {
   /**
    * @description 打分结束回调
    */
-   onChange: (rate: number) => void;
+  onChange: (rate: number) => void;
 }
 
 export const RateDefaultProps: Partial<IRateProps> = {

@@ -4,6 +4,59 @@ import { describe, expect, it } from 'vitest';
 import { createDateRangePicker } from './utils';
 
 describe('非受控模式', () => {
+  it('测试 onCancel', async () => {
+    const { onCancel, callMethod } = createDateRangePicker({
+      'data-test': '123',
+    } as any);
+    await callMethod('onCancel');
+    expect(onCancel).toBeCalledWith(
+      fmtEvent({
+        'data-test': '123',
+      })
+    );
+  });
+
+  it('测试 onVisibleChange', async () => {
+    const { onVisibleChange, callMethod } = createDateRangePicker();
+    await callMethod('onVisibleChange', true);
+    expect(onVisibleChange.mock.lastCall).toEqual([true, fmtEvent({})]);
+    await callMethod('onVisibleChange', false);
+    expect(onVisibleChange.mock.lastCall).toEqual([false, fmtEvent({})]);
+  });
+
+  it('测试 onOk 与 onPickerChange', async () => {
+    const { onPickerChange, callMethod, onOk } = createDateRangePicker();
+    await callMethod('onVisibleChange', true);
+    await callMethod('onChange', [2023, 10, 1]);
+    expect(onPickerChange.mock.lastCall).toEqual([
+      'start',
+      dayjs('2023-10-01').toDate(),
+      '2023/10/01',
+      fmtEvent({}),
+    ]);
+    await callMethod('onChangeCurrentPickerType', {
+      target: {
+        dataset: {
+          type: 'end',
+        },
+      },
+    });
+    await callMethod('onChange', [2023, 10, 2]);
+    expect(onPickerChange.mock.lastCall).toEqual([
+      'end',
+      dayjs('2023-10-02').toDate(),
+      '2023/10/02',
+      fmtEvent({}),
+    ]);
+
+    await callMethod('onOk');
+    expect(onOk.mock.lastCall).toEqual([
+      [dayjs('2023-10-01').toDate(), dayjs('2023-10-02').toDate()],
+      ['2023/10/01', '2023/10/02'],
+      fmtEvent({}),
+    ]);
+  });
+
   it('测试 onFormat', async () => {
     const x: unknown[] = [];
     const { instance } = createDateRangePicker({
@@ -31,7 +84,7 @@ describe('非受控模式', () => {
       ],
     });
     expect(instance.callMethod('onFormat')).toEqual('2023/01/01-2023/10/02');
-    instance.callMethod('onVisibleChange', true);
+    await callMethod('onVisibleChange', true);
     await callMethod('onChange', [2023, 9, 5]);
     expect(onPickerChange.mock.lastCall).toEqual([
       'start',
@@ -53,13 +106,13 @@ describe('非受控模式', () => {
   });
 
   it('当 start 晚于 end , 或者 end 早于 start 时', async () => {
-    const { instance, callMethod, currentDate } = createDateRangePicker({
+    const { callMethod, currentDate } = createDateRangePicker({
       defaultValue: [
         dayjs('2023-01-01').toDate(),
         dayjs('2023-10-02').toDate(),
       ],
     });
-    instance.callMethod('onVisibleChange', true);
+    await callMethod('onVisibleChange', true);
     expect(currentDate()).toEqual({
       currentStartDate: dayjs('2023-01-01').toDate().toISOString(),
       currentEndDate: dayjs('2023-10-02').toDate().toISOString(),
@@ -89,7 +142,7 @@ describe('非受控模式', () => {
   });
 
   it('测试 min 与 max', async () => {
-    const { instance, callMethod, currentDate } = createDateRangePicker({
+    const { callMethod, currentDate } = createDateRangePicker({
       defaultValue: [
         dayjs('2023-01-01').toDate(),
         dayjs('2023-10-02').toDate(),
@@ -97,7 +150,7 @@ describe('非受控模式', () => {
       min: dayjs('2023-01-20').toDate(),
       max: dayjs('2024-12-10').toDate(),
     });
-    instance.callMethod('onVisibleChange', true);
+    await callMethod('onVisibleChange', true);
     expect(currentDate()).toEqual({
       currentStartDate: dayjs('2023-01-01').toDate().toISOString(),
       currentEndDate: dayjs('2023-10-02').toDate().toISOString(),
@@ -120,18 +173,6 @@ describe('非受控模式', () => {
       currentEndDate: dayjs('2024-12-10').toDate().toISOString(),
     });
   });
-
-  it('测试 oncancel', async () => {
-    const { instance, onCancel } = createDateRangePicker({
-      'data-test': '123',
-    } as any);
-    instance.callMethod('onCancel', true);
-    expect(onCancel).toBeCalledWith(
-      fmtEvent({
-        'data-test': '123',
-      })
-    );
-  });
 });
 
 describe('受控模式', () => {
@@ -140,7 +181,7 @@ describe('受控模式', () => {
       value: [dayjs('2023-01-01').toDate(), dayjs('2023-10-01').toDate()],
     });
     expect(instance.callMethod('onFormat')).toEqual('2023/01/01-2023/10/01');
-    instance.callMethod('onVisibleChange', true);
+    await callMethod('onVisibleChange', true);
     await callMethod('onChange', [2023, 1, 4]);
 
     await callMethod('onChangeCurrentPickerType', {
@@ -161,10 +202,10 @@ describe('受控模式', () => {
 });
 
 describe('测试各个精度', () => {
-  function getColumnText(
+  async function getColumnText(
     precision: 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second'
   ) {
-    const { instance } = createDateRangePicker({
+    const { instance, callMethod } = createDateRangePicker({
       defaultValue: [
         dayjs('2023-01-01').toDate(),
         dayjs('2023-01-01').toDate(),
@@ -173,7 +214,7 @@ describe('测试各个精度', () => {
       max: dayjs('2024-12-10').toDate(),
       precision: precision,
     });
-    instance.callMethod('onVisibleChange', true);
+    await callMethod('onVisibleChange', true);
     return instance
       .getData()
       .columns.map((o) => {
@@ -183,17 +224,17 @@ describe('测试各个精度', () => {
   }
 
   it('精度为年', async () => {
-    expect(getColumnText('year')).toEqual('2023年,2024年');
+    expect(await getColumnText('year')).toEqual('2023年,2024年');
   });
 
   it('精度为月', async () => {
-    expect(getColumnText('month')).toEqual(
+    expect(await getColumnText('month')).toEqual(
       `2023年,2024年\n1月,2月,3月,4月,5月,6月,7月,8月,9月,10月,11月,12月`
     );
   });
 
   it('精度为小时', async () => {
-    expect(getColumnText('hour')).toEqual(
+    expect(await getColumnText('hour')).toEqual(
       `2023年,2024年
 1月,2月,3月,4月,5月,6月,7月,8月,9月,10月,11月,12月
 20日,21日,22日,23日,24日,25日,26日,27日,28日,29日,30日,31日
@@ -202,7 +243,7 @@ describe('测试各个精度', () => {
   });
 
   it('精度为分', async () => {
-    expect(getColumnText('minute')).toEqual(
+    expect(await getColumnText('minute')).toEqual(
       `2023年,2024年
 1月,2月,3月,4月,5月,6月,7月,8月,9月,10月,11月,12月
 20日,21日,22日,23日,24日,25日,26日,27日,28日,29日,30日,31日
@@ -212,7 +253,7 @@ describe('测试各个精度', () => {
   });
 
   it('精度为秒', async () => {
-    expect(getColumnText('second')).toEqual(
+    expect(await getColumnText('second')).toEqual(
       `2023年,2024年
 1月,2月,3月,4月,5月,6月,7月,8月,9月,10月,11月,12月
 20日,21日,22日,23日,24日,25日,26日,27日,28日,29日,30日,31日
