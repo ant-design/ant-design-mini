@@ -13,7 +13,7 @@ export interface IDatePickerProps extends IBaseProps {
   /**
    * @description 时间格式化显示，例如YYYY-MM-DD
    */
-  format: string;
+  format?: string;
   /**
    * @description 最小值
    * @default 十年前
@@ -52,10 +52,26 @@ export interface IDatePickerProps extends IBaseProps {
    */
   placeholder?: string;
   /**
-   * @description 是否受控
+   * @description 精度
+   * @default 'day'
+   */
+  precision: 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second';
+  // | 'week'
+  // | 'week-day';
+
+  /**
+   * @description 点击蒙层是否可以关闭
    * @default false
    */
-  controlled?: boolean;
+  maskClosable?: boolean;
+  /**
+   * @description 弹出框类名
+   */
+  popClassName?: string;
+  /**
+   * @description 弹出框样式
+   */
+  popStyle?: string;
   /**
    * @description 点击确认回调
    */
@@ -73,13 +89,6 @@ export interface IDatePickerProps extends IBaseProps {
     e: Record<string, any>
   ) => void;
   /**
-   * @description 精度
-   * @default 'day'
-   */
-  precision: 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second';
-  // | 'week'
-  // | 'week-day';
-  /**
    * @description 选中值的文本显示格式
    */
   onFormat?: (date: PickerValue, dateStr: string) => string;
@@ -87,19 +96,6 @@ export interface IDatePickerProps extends IBaseProps {
    * @description 切换显示隐藏
    */
   onVisibleChange?: (visible, e: Record<string, any>) => void;
-  /**
-   * @description 点击蒙层是否可以关闭
-   * @default false
-   */
-  maskClosable?: boolean;
-  /**
-   * @description 弹出框类名
-   */
-  popClassName?: string;
-  /**
-   * @description 弹出框样式
-   */
-  popStyle?: string;
   /**
    * 自定义每列展示的内容
    * @param type
