@@ -3,33 +3,29 @@
     onChange="onChange"
     onUpload="onUpload" />
 </container>
-
 <container title="初始值">
   <uploader
-    defaultFileList="{{defaultFileList}}"
+    defaultFileList="{{ defaultFileList }}"
     onChange="onChange"
     onUpload="onUpload" />
 </container>
-
 <container title="上传最大限制">
   限制只能上传1个
   <uploader
-    maxCount="{{1}}"
+    maxCount="{{ 1 }}"
     onChange="onChange"
     onUpload="onUpload" />
 </container>
-
 <container title="自定义移除">
   <uploader
-    defaultFileList="{{defaultFileList}}"
+    defaultFileList="{{ defaultFileList }}"
     onRemove="onRemove"
     onChange="onChange"
     onUpload="onUpload" />
 </container>
-
 <container title="自定义上传前">
   <uploader
-    defaultFileList="{{defaultFileList}}"
+    defaultFileList="{{ defaultFileList }}"
     onBeforeUpload="onBeforeUpload"
     onChange="onChange"
     onUpload="onUpload" />
