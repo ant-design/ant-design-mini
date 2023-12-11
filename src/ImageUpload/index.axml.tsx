@@ -7,7 +7,7 @@ export default (
   { className, style, imageMode, maxCount }: IUploaderProps,
   { mixin }: InternalData
 ) => (
-  <View class={`ant-image-upload ${className || ''}`} style={style}>
+  <View class={`ant-image-upload ${className || ''}`} style={style || ''}>
     <Slot fileList={mixin.value}>
       {mixin.value.map((item) => (
         <View key={item.uid} class="ant-image-upload-show">

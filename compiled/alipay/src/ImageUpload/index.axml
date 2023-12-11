@@ -1,6 +1,6 @@
 <view
   class="ant-image-upload {{ className || '' }}"
-  style="{{ style }}">
+  style="{{ style || '' }}">
   <slot fileList="{{ mixin.value }}">
     <block
       a:for="{{ mixin.value }}"
