@@ -2,6 +2,7 @@
   "defaultTitle": "ImageUpload",
   "usingComponents": {
     "uploader": "../../../src/ImageUpload/index",
+    "ant-button": "../../../src/Button/index",
     "container": "../../../src/Container/index"
   }
 }
