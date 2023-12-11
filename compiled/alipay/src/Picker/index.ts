@@ -80,6 +80,10 @@ const Picker = (props: IPickerProps) => {
   });
 
   useEvent('onMaskDismiss', () => {
+    console.log('props.maskClosable', props.maskClosable);
+    if (!props.maskClosable) {
+      return;
+    }
     triggerPicker(false);
     triggerEventOnly('cancel', { detail: { type: 'mask' } });
   });
@@ -144,5 +148,5 @@ mountComponent(Picker, {
   options: [],
   popClassName: '',
   popStyle: '',
-  maskClosable: false,
+  maskClosable: true,
 });

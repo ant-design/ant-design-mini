@@ -31,7 +31,7 @@ toc: 'content'
 | indicatorStyle | 选中框样式 | string | - |  
 | indicatorClassName | 选中框的类名 | string |  - |  
 | maskClassName | 蒙层的类名 | string | - | 
-| maskClosable |  点击蒙层是否可以关闭 | boolean |false |  | 
+| maskClosable |  点击蒙层是否可以关闭 | boolean |true |  | 
 | maskStyle | 蒙层的样式 | string | - | 
 | max | 最大值 | Date | 十年后 | 
 | min | 最小值 | Date | 十年前 | 
@@ -66,7 +66,7 @@ toc: 'content'
 | indicatorStyle | 选中框样式 | string | - |  
 | indicatorClassName | 选中框的类名 | string |  - |  
 | maskClassName | 蒙层的类名 | string | - | 
-| maskClosable |  点击蒙层是否可以关闭 | boolean |false |  | 
+| maskClosable |  点击蒙层是否可以关闭 | boolean |true |  | 
 | maskStyle | 蒙层的样式 | string | - | 
 | max | 最大值 | Date | 十年后 | 
 | min | 最小值 | Date | 十年前 | 

@@ -26,7 +26,6 @@
   style="{{popStyle || ''}}"
   position="bottom"
   animationType="{{ animationType }}"
-  maskClosable
   destroyOnClose
   onClose="onMaskDismiss"
   visible="{{state.visible}}">

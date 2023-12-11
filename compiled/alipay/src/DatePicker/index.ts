@@ -198,7 +198,7 @@ mountComponent(DatePicker, {
   cancelText: '取消',
   placeholder: '请选择',
   precision: 'day',
-  maskClosable: false,
+  maskClosable: true,
   popClassName: '',
   popStyle: '',
 });
