@@ -19,6 +19,11 @@ export interface Props {
   onGetUserInfo?: any;
   onGetPhoneNumber?: any;
   bindgetuserinfo?: string;
+  maskStyle?: string;
+  maskClassName?: string;
+  indicatorStyle?: string;
+  indicatorClassName?: string;
+  onChange?: string;
   bindcontact?: string;
   bindgetphonenumber?: string;
   bindgetrealtimephonenumber?: string;

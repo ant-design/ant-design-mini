@@ -4,6 +4,7 @@ function getPickerViewLabel(item) {
   }
   return item;
 }
+
 export default {
-  getPickerViewLabel: getPickerViewLabel
+  getPickerViewLabel,
 };

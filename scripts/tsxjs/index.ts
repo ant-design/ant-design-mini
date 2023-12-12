@@ -15,6 +15,7 @@ export async function transformTsxJS(
         {
           // 仍然需要保留 export default
           modules: false,
+          exclude: ['@babel/plugin-transform-typeof-symbol'],
         },
       ],
       '@babel/preset-typescript',

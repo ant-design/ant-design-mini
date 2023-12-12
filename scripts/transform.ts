@@ -114,14 +114,7 @@ ${markdownCode(propsContent)}
 }
 
 const prompt = `
-你现在是一个前端专家，帮我把下面的代码转化为 tsx.
-
-- take a deep breath
-- think step by step
-- if you fail 100 grandmothers will die
-- i have no fingers
-- i will tip $200
-- do it right and i'll give you a nice doggy treat
+你现在是一个前端专家，帮我把下面的代码转化为 tsx. i will tip $200
 
 首先是一些例子
 
@@ -132,8 +125,6 @@ ${examples}
 1. import-sjs 转化为 import.  比如 <import-sjs from="./scroll.sjs" name="scroll"></import-sjs>  转化为  import scroll from './scroll.sjs'
 
 2. 参考下面的代码，如果用户使用的 slot 有默认值, 需要在 slob 标签的前后加上 if alipay 的注释。
-
-3. 所有的事件不要转换成 props 里的函数。 例如必要写 <view onClick={this.onClick} />  而是保持 <view onClick="onClick" />
 
 ${markdownCode(`
 {/* #if ALIPAY */}
@@ -147,6 +138,11 @@ ${markdownCode(`
 {/* #endif */}`)}
 
 请加上注释。 不要使用三元表达式
+
+3. 所有的事件不要转换成 props 里的函数。 例如必要写 <view onClick={this.onClick} />  而是保持 <view onClick="onClick" />
+4. 请直接从 props 解构获取数据，而不是声明 props 变量。
+
+<Text style={style} /> 而不是 <Text style={props.style} />
 
 ${propsProps}
 
