@@ -1,9 +1,9 @@
 {
   "defaultTitle": "DatePicker",
   "usingComponents": {
-    "date-picker": "../../../src/DatePicker/index",
-    "range-picker": "../../../src/DatePicker/RangePicker/index",
-    "list-item": "../../../src/List/ListItem/index",
-    "list": "../../../src/List/index"
+    "ant-date-picker": "../../../src/DatePicker/index",
+    "ant-range-picker": "../../../src/DatePicker/RangePicker/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
+    "ant-list": "../../../src/List/index"
   }
 }
