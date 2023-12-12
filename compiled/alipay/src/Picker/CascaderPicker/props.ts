@@ -50,6 +50,15 @@ export interface ICascaderProps extends IBaseProps {
    * @default "确定"
    */
   okText: string;
+
+  indicatorStyle?: string;
+
+  indicatorClassName?: string;
+
+  maskStyle?: string;
+
+  maskClassName?: string;
+
   /**
    * @description 点击确认回调
    */

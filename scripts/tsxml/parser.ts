@@ -148,7 +148,7 @@ export function transformJSXElement(ctx: ITransformContext) {
         !types.isIdentifier(callee.property) ||
         callee.property.name !== 'map'
       ) {
-        throw ctx.throw(ctx.node);
+        return ctx.toAxmlExpression(ctx.node);
       }
       if (ctx.node.arguments.length !== 1) {
         throw ctx.throw(ctx.node);

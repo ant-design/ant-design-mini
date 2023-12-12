@@ -1,50 +1,51 @@
-<list header="基础用法">
-  <list-item>
+<ant-list header="基础用法">
+  <ant-list-item>
     请选择省市
-    <cascader-picker
+    <ant-cascader-picker
       slot="extra"
       placeholder="请选择归属地"
-      options="{{cityList}}"
+      options="{{ cityList }}"
       onChange="handleCityPickerChange"
       onOk="handleCityOnOk"
       onCancel="handleDismiss" />
-  </list-item>
-</list>
+  </ant-list-item>
+</ant-list>
 
-<list header="默认值">
-  <list-item>
+<ant-list header="默认值">
+  <ant-list-item>
     请选择城市
-    <cascader-picker
+    <ant-cascader-picker
       slot="extra"
-      defaultValue="{{['34','330']}}"
+      defaultValue="{{ ['34', '330'] }}"
       placeholder="请选择城市"
-      options="{{cityList}}"
+      options="{{ cityList }}"
       onChange="handleCityPickerChange"
       onOk="handleCityOnOk" />
-  </list-item>
-</list>
-<list header="受控模式">
-  <list-item>
+  </ant-list-item>
+</ant-list>
+
+<ant-list header="受控模式">
+  <ant-list-item>
     请选择城市
-    <cascader-picker
+    <ant-cascader-picker
       slot="extra"
-      value="{{value}}"
+      value="{{ value }}"
       placeholder="请选择城市"
-      options="{{cityList}}"
+      options="{{ cityList }}"
       onChange="handleCityPickerChange"
       onOk="handleOk" />
-  </list-item>
+  </ant-list-item>
   <view class="btn-wrapper">
-    <button
+    <ant-button
       inline
       onTap="handleChangeControlled"
       style="margin-right: 8px">
       选择上海
-    </button>
-    <button
+    </ant-button>
+    <ant-button
       inline
       onTap="handleClearControlled">
       清空
-    </button>
+    </ant-button>
   </view>
-</list>
+</ant-list>

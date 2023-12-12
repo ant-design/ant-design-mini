@@ -68,6 +68,14 @@ export interface IPickerProps extends IBaseProps {
    * @description 弹出框样式
    */
   popStyle: string;
+
+  indicatorStyle?: string;
+
+  indicatorClassName?: string;
+
+  maskStyle?: string;
+
+  maskClassName?: string;
   /**
    * @description 点击确认回调
    */

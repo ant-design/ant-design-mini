@@ -2,4 +2,4 @@
   src="./sjs.wxs"
   module="helper" />
 
-<view data-id="{{ helper.format(b) }}">text</view>
+<view data-id="{{ helper.format(b) }}">text {{ helper.format(c) }}</view>

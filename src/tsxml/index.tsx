@@ -10,6 +10,10 @@ export const View = (props: Props): any => {};
 
 export const Image = (props: Props): any => {};
 
+export const PickerViewColumn = (props: Props): any => {};
+
+export const PickerView = (props: Props): any => {};
+
 export const ScrollView = (props: Props): any => {};
 
 export const Slot = (props: Props): any => {};
