@@ -54,10 +54,7 @@ const ImageUpload = (props: IUploaderProps) => {
         },
       ];
       triggerEvent('change', tempFileList);
-      if (!isControlled) {
-        return tempFileList;
-      }
-      return oldFiles;
+      return tempFileList;
     });
     try {
       const url = await onUpload(localFile);
@@ -90,10 +87,7 @@ const ImageUpload = (props: IUploaderProps) => {
         return item;
       });
       triggerEvent('change', tempFileList);
-      if (!isControlled) {
-        return tempFileList;
-      }
-      return old;
+      return tempFileList;
     });
   }
 

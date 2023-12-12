@@ -48,14 +48,19 @@ export function useMixState(defaultStateValue, option) {
         return { changed: false };
     });
     var triggerUpdater = useEvent(function (getValue, option) {
-        triggerChange(function (old) {
-            var newValue = getValue(isControlled ? merge : old);
-            var state = postState(newValue, option);
-            if (state.valid && state.value !== innerValue) {
-                return state.value;
-            }
-            return old;
-        });
+        if (isControlled) {
+            getValue(merge);
+        }
+        else {
+            triggerChange(function (old) {
+                var newValue = getValue(old);
+                var state = postState(newValue, option);
+                if (state.valid && state.value !== innerValue) {
+                    return state.value;
+                }
+                return old;
+            });
+        }
     });
     return [
         merge,

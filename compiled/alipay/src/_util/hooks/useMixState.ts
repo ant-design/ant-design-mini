@@ -19,16 +19,16 @@ export function useMixState<T, R = T, O = undefined>(
     ) => { valid: true; value: T } | { valid: false };
   }
 ): [
-    R,
-    {
-      isControlled: boolean;
-      triggerUpdater: (value: (old: T) => T, option?: O) => void;
-      update(
-        value: T,
-        option?: O
-      ): { changed: true; newValue: T } | { changed: false };
-    }
-  ] {
+  R,
+  {
+    isControlled: boolean;
+    triggerUpdater: (value: (old: T) => T, option?: O) => void;
+    update(
+      value: T,
+      option?: O
+    ): { changed: true; newValue: T } | { changed: false };
+  }
+] {
   const {
     defaultValue,
     value,
@@ -83,14 +83,18 @@ export function useMixState<T, R = T, O = undefined>(
 
   const triggerUpdater: (value: (old: T) => T, option?: O) => void = useEvent(
     (getValue, option) => {
-      triggerChange((old: T): T => {
-        const newValue = getValue(isControlled ? merge : old);
-        const state = postState(newValue, option);
-        if (state.valid && state.value !== innerValue) {
-          return state.value;
-        }
-        return old;
-      });
+      if (isControlled) {
+        getValue(merge);
+      } else {
+        triggerChange((old: T): T => {
+          const newValue = getValue(old);
+          const state = postState(newValue, option);
+          if (state.valid && state.value !== innerValue) {
+            return state.value;
+          }
+          return old;
+        });
+      }
     }
   );
 
