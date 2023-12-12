@@ -51,6 +51,14 @@ export interface IDateRangePickerProps extends IBaseProps {
    * @default '请选择'
    */
   placeholder: string;
+  disabled?: boolean;
+  indicatorStyle?: string;
+
+  indicatorClassName?: string;
+
+  maskStyle?: string;
+
+  maskClassName?: string;
   /**
    * @description 点击确认回调
    */

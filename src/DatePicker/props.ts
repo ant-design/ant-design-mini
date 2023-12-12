@@ -68,10 +68,19 @@ export interface IDatePickerProps extends IBaseProps {
    * @description 弹出框类名
    */
   popClassName?: string;
+
   /**
    * @description 弹出框样式
    */
   popStyle?: string;
+  disabled?: boolean;
+  indicatorStyle?: string;
+
+  indicatorClassName?: string;
+
+  maskStyle?: string;
+
+  maskClassName?: string;
   /**
    * @description 点击确认回调
    */
