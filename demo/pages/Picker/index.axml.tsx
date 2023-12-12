@@ -1,7 +1,7 @@
 import { View, Page, InternalData } from 'tsxml';
-import List from '../../../src/List/index.axml';
-import ListItem from '../../../src/List/ListItem/index.axml';
-import Picker from '../../../src/Picker/index.axml';
+import AntList from '../../../src/List/index.axml';
+import AntListItem from '../../../src/List/ListItem/index.axml';
+import AntPicker from '../../../src/Picker/index.axml';
 import AntButton from '../../../src/Button/index.axml';
 import AntContainer from '../../../src/Container/index.axml';
 
@@ -14,10 +14,10 @@ export default ({
   value,
 }: InternalData) => (
   <Page>
-    <List header="基础用法">
-      <ListItem>
+    <AntList header="基础用法">
+      <AntListItem>
         选择城市
-        <Picker
+        <AntPicker
           slot="extra"
           onCancel="handleDismissPicker"
           onVisibleChange="handleTriggerPicker"
@@ -27,11 +27,11 @@ export default ({
           title="请选择"
           onChange="handleChange"
           options={list}
-        ></Picker>
-      </ListItem>
-      <ListItem>
+        ></AntPicker>
+      </AntListItem>
+      <AntListItem>
         选择城市（点击蒙层关闭）
-        <Picker
+        <AntPicker
           slot="extra"
           onCancel="handleDismissPicker"
           onVisibleChange="handleTriggerPicker"
@@ -42,21 +42,21 @@ export default ({
           onChange="handleChange"
           maskClosable
           options={list}
-        ></Picker>
-      </ListItem>
-    </List>
-    <List header="受控模式">
-      <ListItem>
+        ></AntPicker>
+      </AntListItem>
+    </AntList>
+    <AntList header="受控模式">
+      <AntListItem>
         选择城市
-        <Picker
+        <AntPicker
           slot="extra"
           onOk="handleControlledOk"
           value={value}
           placeholder="请选择"
           title="请选择"
           options={list}
-        ></Picker>
-      </ListItem>
+        ></AntPicker>
+      </AntListItem>
       <View class="btn-wrapper">
         <AntButton
           inline
@@ -69,11 +69,11 @@ export default ({
           清空
         </AntButton>
       </View>
-    </List>
-    <List header="对象用法">
-      <ListItem>
+    </AntList>
+    <AntList header="对象用法">
+      <AntListItem>
         选择日期
-        <Picker
+        <AntPicker
           slot="extra"
           onCancel="handleDismissPicker"
           onVisibleChange="handleTriggerPicker"
@@ -82,14 +82,14 @@ export default ({
           title="请选择"
           onChange="handleChange"
           options={weekList}
-        ></Picker>
-      </ListItem>
-    </List>
+        ></AntPicker>
+      </AntListItem>
+    </AntList>
 
-    <List header="多列复杂类型数据">
-      <ListItem>
+    <AntList header="多列复杂类型数据">
+      <AntListItem>
         请选择时间
-        <Picker
+        <AntPicker
           slot="extra"
           placeholder="请选择"
           onVisibleChange="handleTriggerPicker"
@@ -98,15 +98,15 @@ export default ({
           onOk="handleOk"
           onFormat="formatTime"
           options={columns}
-        ></Picker>
-      </ListItem>
-    </List>
+        ></AntPicker>
+      </AntListItem>
+    </AntList>
 
     <AntContainer style="margin-top:20rpx;">
-      <List header="多列复杂类型数据">
-        <ListItem>
+      <AntList header="多列复杂类型数据">
+        <AntListItem>
           请选择时间
-          <Picker
+          <AntPicker
             slot="extra"
             visible={pickerVisible}
             placeholder="请选择"
@@ -116,9 +116,9 @@ export default ({
             onOk="handleOk"
             onFormat="formatTime"
             options={columns}
-          ></Picker>
-        </ListItem>
-      </List>
+          ></AntPicker>
+        </AntListItem>
+      </AntList>
 
       <AntButton size="medium" type="primary" onTap="handleOpenPicker">
         打开 Picker
