@@ -1,7 +1,7 @@
 {
   "defaultTitle": "Picker",
   "usingComponents": {
-    "button": "../../../src/Button/index",
+    "ant-button": "../../../src/Button/index",
     "picker": "../../../src/Picker/index",
     "list-item": "../../../src/List/ListItem/index",
     "list": "../../../src/List/index",

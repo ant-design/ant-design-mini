@@ -10,7 +10,7 @@
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
-      options="{{list}}"></picker>
+      options="{{ list }}" />
   </list-item>
   <list-item>
     选择城市（点击蒙层不关闭）
@@ -23,8 +23,8 @@
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
-      maskClosable="{{false}}"
-      options="{{list}}"></picker>
+      maskClosable
+      options="{{ list }}" />
   </list-item>
 </list>
 <list header="受控模式">
@@ -36,20 +36,20 @@
       value="{{value}}"
       placeholder="请选择"
       title="请选择"
-      options="{{list}}"></picker>
+      options="{{ list }}" />
   </list-item>
   <view class="btn-wrapper">
-    <button
+    <ant-button
       inline
       onTap="handleChangeControlled"
       style="margin-right: 8px">
       选择深圳
-    </button>
-    <button
+    </ant-button>
+    <ant-button
       inline
       onTap="handleClearControlled">
       清空
-    </button>
+    </ant-button>
   </view>
 </list>
 <list header="对象用法">
@@ -63,7 +63,7 @@
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
-      options="{{weekList}}"></picker>
+      options="{{ weekList }}" />
   </list-item>
 </list>
 
@@ -75,31 +75,34 @@
       placeholder="请选择"
       onVisibleChange="handleTriggerPicker"
       defaultValue="{{['Tues', 'pm']}}"
-      header="请选择"
+      title="请选择"
       onOk="handleOk"
       onFormat="formatTime"
-      options="{{columns}}"></picker>
+      options="{{ columns }}" />
   </list-item>
 </list>
 
-
-
-<ant-container style="margin-top:20rpx;">
+<ant-container style="margin-top: 20rpx">
   <list header="多列复杂类型数据">
     <list-item>
       请选择时间
       <picker
         slot="extra"
-        visible="{{pickerVisible}}"
+        visible="{{ pickerVisible }}"
         placeholder="请选择"
         onVisibleChange="handleTriggerControlledPicker"
         defaultValue="{{['Tues', 'pm']}}"
-        header="请选择"
+        title="请选择"
         onOk="handleOk"
         onFormat="formatTime"
-        options="{{columns}}"></picker>
+        options="{{ columns }}" />
     </list-item>
   </list>
 
-  <button  size="default" type="primary" onTap="handleOpenPicker">打开 Picker</button>
+  <ant-button
+    size="medium"
+    type="primary"
+    onTap="handleOpenPicker">
+    打开 Picker
+  </ant-button>
 </ant-container>
