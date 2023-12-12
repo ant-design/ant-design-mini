@@ -129,7 +129,7 @@ export interface IDateRangePickerProps extends IBaseProps {
 export const DateRangePickerDefaultProps: Partial<IDateRangePickerProps> = {
   okText: '确定',
   cancelText: '取消',
-  maskClosable: true,
+  maskClosable: false,
   placeholder: '请选择',
   format: 'YYYY/MM/DD',
   splitCharacter: '-',

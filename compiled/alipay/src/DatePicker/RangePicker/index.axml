@@ -20,6 +20,7 @@
   </view>
 </template>
 <picker
+  realValue={{realValue}}
   className="ant-range-picker"
   popClassName="{{(!currentStartDate||!currentEndDate)?'ant-range-picker-confirm-disabled':''}} {{popClassName || ''}}"
   style="{{style}}"
@@ -40,7 +41,6 @@
   onOk="onOk"
   onVisibleChange="onVisibleChange"
   maskClosable="{{maskClosable}}"
-  forceUpdate="{{forceUpdate}}"
   onFormat="onFormat">
   <view
     class="ant-range-picker-selector"
