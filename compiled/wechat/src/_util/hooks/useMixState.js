@@ -35,6 +35,7 @@ export function useMixState(defaultStateValue, option) {
             setInnerValue(state.value);
         }
     }, [value]);
+    var isControlled = hasValue(value);
     var triggerChange = useEvent(function (newState, ignoreDestroy) {
         setInnerValue(newState, ignoreDestroy);
     });
@@ -46,12 +47,27 @@ export function useMixState(defaultStateValue, option) {
         }
         return { changed: false };
     });
-    var isControlled = hasValue(value);
+    var triggerUpdater = useEvent(function (getValue, option) {
+        if (isControlled) {
+            getValue(merge);
+        }
+        else {
+            triggerChange(function (old) {
+                var newValue = getValue(old);
+                var state = postState(newValue, option);
+                if (state.valid && state.value !== innerValue) {
+                    return state.value;
+                }
+                return old;
+            });
+        }
+    });
     return [
         merge,
         {
             isControlled: isControlled,
             update: triggerUpdate,
+            triggerUpdater: triggerUpdater,
         },
     ];
 }

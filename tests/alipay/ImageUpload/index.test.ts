@@ -1,4 +1,5 @@
-import { getInstance } from 'tests/utils';
+import fmtEvent from 'compiled-alipay/_util/fmtEvent';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it } from 'vitest';
 import {
   callChooseImage,
@@ -131,7 +132,7 @@ describe('ImageUpload', () => {
       url: 'path-2-size-2',
     });
 
-    expect(onChange.mock.lastCall).toEqual([[]]);
+    expect(onChange.mock.lastCall).toEqual([[], fmtEvent({})]);
     expectData(instance, []);
   });
 
@@ -167,6 +168,133 @@ describe('ImageUpload', () => {
         uid: 'string',
         url: 'path-2-size-2',
       },
+    ]);
+  });
+
+  it('测试同时上传多个图片', async () => {
+    const { instance, onChange, chooseImage, onUpload } = createImageUpload();
+    onUpload.mockImplementation(async (file) => {
+      await sleep(200);
+      return `path-${file.path}-size-${file.size}`;
+    });
+    chooseImage.mockImplementation(({ success }) => {
+      return success({
+        tempFiles: [
+          {
+            path: '2',
+            size: 2,
+          },
+          {
+            path: '3',
+            size: 3,
+          },
+        ],
+      });
+    });
+    await callChooseImage(instance);
+    expect(onChange.mock.calls.length).toEqual(2);
+    expect(
+      onChange.mock.calls[0].map((v, index) => {
+        if (index === 0) {
+          return v.map((item) => ({ ...item, uid: 'uid' }));
+        }
+        return v;
+      })
+    ).toEqual([
+      [
+        {
+          path: '2',
+          size: 2,
+          status: 'uploading',
+          uid: 'uid',
+        },
+      ],
+      fmtEvent({}),
+    ]);
+    expect(
+      onChange.mock.calls[1].map((v, index) => {
+        if (index === 0) {
+          return v.map((item) => ({ ...item, uid: 'uid' }));
+        }
+        return v;
+      })
+    ).toEqual([
+      [
+        {
+          path: '2',
+          size: 2,
+          status: 'uploading',
+          uid: 'uid',
+          url: '',
+        },
+        {
+          path: '3',
+          size: 3,
+          status: 'uploading',
+          uid: 'uid',
+        },
+      ],
+      fmtEvent({}),
+    ]);
+
+    await sleep(500);
+    expect(onChange.mock.calls.length).toEqual(4);
+  });
+
+  it('测试受控模式', async () => {
+    const { instance, onChange, chooseImage, onUpload } = createImageUpload({
+      fileList: [{ url: 'a1' }],
+    });
+    onUpload.mockImplementation(async (file) => {
+      return `path-${file.path}-size-${file.size}`;
+    });
+    chooseImage.mockImplementation(({ success }) => {
+      return success({
+        tempFiles: [
+          {
+            path: '2',
+            size: 2,
+          },
+          {
+            path: '3',
+            size: 3,
+          },
+        ],
+      });
+    });
+    onChange.mockImplementation((fileList) => {
+      instance.setProps({
+        fileList,
+      });
+    });
+    await callChooseImage(instance);
+    expect(onChange.mock.calls.length).toEqual(4);
+    expect(
+      onChange.mock.lastCall.map((v, index) => {
+        if (index === 0) {
+          return v.map((item) => ({ ...item, uid: 'uid' }));
+        }
+        return v;
+      })
+    ).toEqual([
+      [
+        { url: 'a1', uid: 'uid', status: 'done' },
+        {
+          path: '2',
+          size: 2,
+          uid: 'uid',
+          status: 'done',
+          url: 'path-2-size-2',
+        },
+        {
+          path: '3',
+          size: 3,
+          uid: 'uid',
+          status: 'done',
+          url: 'path-3-size-3',
+        },
+      ],
+      fmtEvent({}),
     ]);
   });
 });

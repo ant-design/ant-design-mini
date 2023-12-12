@@ -3,7 +3,10 @@ import { useComponentUpdateEffect } from './useLayoutEffect';
 import { hasValue } from './useMergedState';
 import { useSafeState as useState } from './useState';
 
-type Updater<T> = (updater: T, ignoreDestroy?: boolean) => void;
+type Updater<T> = (
+  updater: T | ((old: T) => T),
+  ignoreDestroy?: boolean
+) => void;
 
 export function useMixState<T, R = T, O = undefined>(
   defaultStateValue: T | (() => T),
@@ -19,6 +22,7 @@ export function useMixState<T, R = T, O = undefined>(
   R,
   {
     isControlled: boolean;
+    triggerUpdater: (value: (old: T) => T, option?: O) => void;
     update(
       value: T,
       option?: O
@@ -63,6 +67,7 @@ export function useMixState<T, R = T, O = undefined>(
     }
   }, [value]);
 
+  const isControlled = hasValue(value);
   const triggerChange: Updater<T> = useEvent((newState, ignoreDestroy) => {
     setInnerValue(newState, ignoreDestroy);
   });
@@ -75,12 +80,30 @@ export function useMixState<T, R = T, O = undefined>(
     }
     return { changed: false };
   });
-  const isControlled = hasValue(value);
+
+  const triggerUpdater: (value: (old: T) => T, option?: O) => void = useEvent(
+    (getValue, option) => {
+      if (isControlled) {
+        getValue(merge);
+      } else {
+        triggerChange((old: T): T => {
+          const newValue = getValue(old);
+          const state = postState(newValue, option);
+          if (state.valid && state.value !== innerValue) {
+            return state.value;
+          }
+          return old;
+        });
+      }
+    }
+  );
+
   return [
     merge as unknown as R,
     {
       isControlled,
       update: triggerUpdate as any,
+      triggerUpdater,
     },
   ];
 }
