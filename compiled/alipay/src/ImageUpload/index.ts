@@ -6,12 +6,6 @@ import { useMixState } from '../_util/hooks/useMixState';
 import { chooseImage } from '../_util/promisify';
 import { File, IUploaderProps, LocalFile } from './props';
 
-export function sleep(_time) {
-  return new Promise<void>((resolve) => {
-    setTimeout(resolve, _time);
-  });
-}
-
 const ImageUpload = (props: IUploaderProps) => {
   const [fileList, { isControlled, update, triggerUpdater }] = useMixState(
     props.defaultFileList,
@@ -46,22 +40,25 @@ const ImageUpload = (props: IUploaderProps) => {
     const { onUpload } = props;
 
     const uid = String(Math.random());
-    const tempFileList: File[] = [
-      ...fileList,
-      {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-expect-error
-        path: localFile.path,
-        size: localFile.size,
-        uid,
-        status: 'uploading',
-      },
-    ];
 
-    if (!isControlled) {
-      update(tempFileList);
-    }
-    triggerEvent('change', tempFileList);
+    triggerUpdater((oldFiles) => {
+      const tempFileList: File[] = [
+        ...oldFiles,
+        {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          //@ts-expect-error
+          path: localFile.path,
+          size: localFile.size,
+          uid,
+          status: 'uploading',
+        },
+      ];
+      triggerEvent('change', tempFileList);
+      if (!isControlled) {
+        return tempFileList;
+      }
+      return oldFiles;
+    });
     try {
       const url = await onUpload(localFile);
       if (typeof url !== 'string' || !url) {
@@ -92,10 +89,10 @@ const ImageUpload = (props: IUploaderProps) => {
         }
         return item;
       });
+      triggerEvent('change', tempFileList);
       if (!isControlled) {
         return tempFileList;
       }
-      triggerEvent('change', tempFileList);
       return old;
     });
   }
@@ -140,7 +137,7 @@ const ImageUpload = (props: IUploaderProps) => {
       return;
     }
 
-    if (onBeforeUpload && typeof onBeforeUpload) {
+    if (onBeforeUpload && typeof onBeforeUpload === 'function') {
       try {
         const beforeUploadRes = await onBeforeUpload(localFileList);
         if (beforeUploadRes === false) {
