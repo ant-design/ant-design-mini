@@ -140,7 +140,7 @@ const ImageUpload = (props: IUploaderProps) => {
       return;
     }
 
-    if (onBeforeUpload && typeof onBeforeUpload) {
+    if (onBeforeUpload && typeof onBeforeUpload === 'function') {
       try {
         const beforeUploadRes = await onBeforeUpload(localFileList);
         if (beforeUploadRes === false) {
