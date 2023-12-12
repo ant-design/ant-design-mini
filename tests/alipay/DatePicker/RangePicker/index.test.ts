@@ -17,7 +17,7 @@ describe('非受控模式', () => {
   });
 
   it('测试 onVisibleChange', async () => {
-    const { onVisibleChange, callMethod } = createDateRangePicker();
+    const { onVisibleChange, callMethod } = createDateRangePicker({});
     await callMethod('onVisibleChange', true);
     expect(onVisibleChange.mock.lastCall).toEqual([true, fmtEvent({})]);
     await callMethod('onVisibleChange', false);

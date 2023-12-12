@@ -5,7 +5,7 @@ import { useMinAndMax } from './hooks';
 export function useDateState(props) {
   const { getMin } = useMinAndMax();
 
-  const [datestate, setDateState] = useState({
+  const [dateState, setDateState] = useState({
     pickerType: 'start',
     start: null,
     end: null,
@@ -35,8 +35,8 @@ export function useDateState(props) {
     return newState;
   };
   const changeType = (newType) => {
-    let currentStartDate = datestate.start;
-    let currentEndDate = datestate.end;
+    let currentStartDate = dateState.start;
+    let currentEndDate = dateState.end;
 
     if (newType === 'start') {
       if (!currentStartDate) {
@@ -62,21 +62,32 @@ export function useDateState(props) {
   function updateValue(newValue) {
     setDateState((old) => {
       if (old.pickerType === 'start') {
+        let newEnd = old.end;
+        if (old.end && dayjs(newValue).isAfter(old.end)) {
+          newEnd = null;
+        }
+
         return {
           ...old,
           start: newValue,
+          end: newEnd,
         };
+      }
+      let newStart = old.start;
+      if (old.start && dayjs(newValue).isBefore(old.start)) {
+        newStart = null;
       }
       return {
         ...old,
         end: newValue,
+        start: newStart,
       };
     });
   }
 
   return {
     updateValue,
-    datestate,
+    dateState,
     init,
     changeType,
   };

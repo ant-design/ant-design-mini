@@ -7,12 +7,12 @@ import {
   getValueByDate,
   getValidValue,
 } from '../util';
-import fmtEvent from '../../_util/fmtEvent';
 import { useMixState } from '../../_util/hooks/useMixState';
 import { useFormatValue, useMinAndMax, useFormatLabel } from './hooks';
 import { useDateState } from './useDateState';
 import { mountComponent } from '../../_util/component';
 import { PickerValue } from '../props';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 
 const RangePicker = (props: IDateRangePickerProps) => {
   const [realValue, { isControlled, update }] = useMixState<PickerValue[]>(
@@ -33,7 +33,9 @@ const RangePicker = (props: IDateRangePickerProps) => {
       },
     }
   );
-  const { datestate, init, changeType, updateValue } = useDateState(props);
+  const { dateState, init, changeType, updateValue } = useDateState(props);
+  const { triggerEvent, triggerEventValues, triggerEventOnly } =
+    useComponentEvent(props);
   const [{ columns, currentValue }, doUpdateColumns] = useState({
     currentValue: [],
     columns: [],
@@ -41,14 +43,14 @@ const RangePicker = (props: IDateRangePickerProps) => {
   const onFormat = useFormatValue(props);
   const { currentStartValueStr, currentEndValueStr } = useMemo(() => {
     return {
-      currentStartValueStr: datestate.start
-        ? dayjs(datestate.start).format(props.format)
+      currentStartValueStr: dateState.start
+        ? dayjs(dateState.start).format(props.format)
         : '',
-      currentEndValueStr: datestate.end
-        ? dayjs(datestate.end).format(props.format)
+      currentEndValueStr: dateState.end
+        ? dayjs(dateState.end).format(props.format)
         : '',
     };
-  }, [props.format, datestate.start, datestate.end]);
+  }, [props.format, dateState.start, dateState.end]);
 
   const onFormatLabel = useFormatLabel(props.onFormatLabel);
 
@@ -82,7 +84,6 @@ const RangePicker = (props: IDateRangePickerProps) => {
   });
 
   useEvent('onVisibleChange', (visible) => {
-    const { onVisibleChange } = props;
     if (visible) {
       const state = init(realValue);
       const currentValue = getValueByDate(
@@ -91,9 +92,7 @@ const RangePicker = (props: IDateRangePickerProps) => {
       );
       updateColumns(currentValue, props);
     }
-    if (onVisibleChange) {
-      onVisibleChange(visible, fmtEvent(props));
-    }
+    triggerEvent('visibleChange', visible);
   });
 
   useEvent('onChangeCurrentPickerType', (e) => {
@@ -108,15 +107,12 @@ const RangePicker = (props: IDateRangePickerProps) => {
   const { getMin, getMax } = useMinAndMax();
 
   useEvent('onCancel', (e) => {
-    const { onCancel } = props;
-    if (onCancel) {
-      onCancel(fmtEvent(props, e));
-    }
+    triggerEventOnly('cancel', e);
   });
 
   useEvent('onChange', (selectedIndex) => {
     selectedIndex = getValidValue(selectedIndex);
-    const { onPickerChange, format, precision } = props;
+    const { format, precision } = props;
     let date = getDateByValue(selectedIndex);
     const min = getMin(props.min);
     const max = getMax(props.max);
@@ -130,52 +126,54 @@ const RangePicker = (props: IDateRangePickerProps) => {
     }
     updateColumns(selectedIndex, props);
     updateValue(date);
-    if (onPickerChange) {
-      onPickerChange(
-        datestate.pickerType,
-        date,
-        dayjs(date).format(format),
-        fmtEvent(props)
-      );
-    }
+    triggerEventValues('pickerChange', [
+      dateState.pickerType,
+      date,
+      dayjs(date).format(format),
+    ]);
   });
 
   useEvent('onOk', () => {
     const { format } = props;
-    const { start, end } = datestate;
+    const { start, end } = dateState;
     const realValue = [start, end] as any;
     if (!isControlled) {
       update(realValue);
     }
-    if (props.onOk) {
-      props.onOk(
-        realValue,
-        realValue.map((v) => dayjs(v).format(format)),
-        fmtEvent(props)
-      );
-    }
+    triggerEventValues('ok', [
+      realValue,
+      realValue.map((v) => dayjs(v).format(format)),
+    ]);
   });
 
   return {
     realValue,
     columns,
     currentValue,
-    currentStartDate: datestate.start,
-    currentEndDate: datestate.end,
+    currentStartDate: dateState.start,
+    currentEndDate: dateState.end,
     currentEndValueStr,
     currentStartValueStr,
-    pickerType: datestate.pickerType,
+    pickerType: dateState.pickerType,
   };
 };
 
 mountComponent(RangePicker, {
+  animationType: null,
+  format: 'YYYY/MM/DD',
+  min: null,
+  max: null,
+  value: null,
+  defaultValue: null,
+  title: '',
   okText: '确定',
   cancelText: '取消',
-  maskClosable: false,
   placeholder: '请选择',
-  format: 'YYYY/MM/DD',
+  precision: 'day',
   splitCharacter: '-',
   startPlaceholder: '未选择',
   endPlaceholder: '未选择',
-  precision: 'day',
+  maskClosable: true,
+  popClassName: '',
+  popStyle: '',
 });

@@ -54,7 +54,7 @@ export interface IDateRangePickerProps extends IBaseProps {
   /**
    * @description 点击确认回调
    */
-  onOk: (
+  onOk?: (
     date: PickerValue,
     dateStr: [string, string],
     e: Record<string, any>
@@ -62,11 +62,11 @@ export interface IDateRangePickerProps extends IBaseProps {
   /**
    * @description 点击取消回调
    */
-  onCancel: (e: Record<string, any>) => void;
+  onCancel?: (e: Record<string, any>) => void;
   /**
    * @description 发生滚动即触发， 与 onChange 点击 ok 后触发不同
    */
-  onPickerChange: (
+  onPickerChange?: (
     type: 'start' | 'end',
     date: Date,
     dateStr: string,
@@ -77,16 +77,15 @@ export interface IDateRangePickerProps extends IBaseProps {
    * @default 'day'
    */
   precision: 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second';
-  // | 'week'
-  // | 'week-day';
+
   /**
    * @description 选中值的文本显示格式
    */
-  onFormat: (date: PickerValue, dateStr: [string, string]) => string;
+  onFormat?: (date: PickerValue, dateStr: [string, string]) => string;
   /**
    * @description 切换显示隐藏
    */
-  onVisibleChange: (visible, e: Record<string, any>) => void;
+  onVisibleChange?: (visible, e: Record<string, any>) => void;
   /**
    * @description 显示连接符
    * @default '-''
@@ -129,7 +128,7 @@ export interface IDateRangePickerProps extends IBaseProps {
 export const DateRangePickerDefaultProps: Partial<IDateRangePickerProps> = {
   okText: '确定',
   cancelText: '取消',
-  maskClosable: false,
+  maskClosable: true,
   placeholder: '请选择',
   format: 'YYYY/MM/DD',
   splitCharacter: '-',
