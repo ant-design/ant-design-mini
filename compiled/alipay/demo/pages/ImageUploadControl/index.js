@@ -12,6 +12,7 @@ Page({
             }],
     },
     onChange: function (fileList) {
+        console.log('set data', fileList);
         this.setData({
             fileList: fileList,
         });

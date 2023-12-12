@@ -35,6 +35,7 @@ export function useMixState(defaultStateValue, option) {
             setInnerValue(state.value);
         }
     }, [value]);
+    var isControlled = hasValue(value);
     var triggerChange = useEvent(function (newState, ignoreDestroy) {
         setInnerValue(newState, ignoreDestroy);
     });
@@ -48,7 +49,7 @@ export function useMixState(defaultStateValue, option) {
     });
     var triggerUpdater = useEvent(function (getValue, option) {
         triggerChange(function (old) {
-            var newValue = getValue(old);
+            var newValue = getValue(isControlled ? merge : old);
             var state = postState(newValue, option);
             if (state.valid && state.value !== innerValue) {
                 return state.value;
@@ -56,7 +57,6 @@ export function useMixState(defaultStateValue, option) {
             return old;
         });
     });
-    var isControlled = hasValue(value);
     return [
         merge,
         {

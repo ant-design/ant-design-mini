@@ -67,6 +67,7 @@ export function useMixState<T, R = T, O = undefined>(
     }
   }, [value]);
 
+  const isControlled = hasValue(value);
   const triggerChange: Updater<T> = useEvent((newState, ignoreDestroy) => {
     setInnerValue(newState, ignoreDestroy);
   });
@@ -82,18 +83,25 @@ export function useMixState<T, R = T, O = undefined>(
 
   const triggerUpdater: (value: (old: T) => T, option?: O) => void = useEvent(
     (getValue, option) => {
-      triggerChange((old: T): T => {
-        const newValue = getValue(old);
+      if (isControlled) {
+        const newValue = getValue(merge);
         const state = postState(newValue, option);
         if (state.valid && state.value !== innerValue) {
-          return state.value;
+          triggerChange(state.value);
         }
-        return old;
-      });
+      } else {
+        triggerChange((old: T): T => {
+          const newValue = getValue(old);
+          const state = postState(newValue, option);
+          if (state.valid && state.value !== innerValue) {
+            return state.value;
+          }
+          return old;
+        });
+      }
     }
   );
 
-  const isControlled = hasValue(value);
   return [
     merge as unknown as R,
     {
