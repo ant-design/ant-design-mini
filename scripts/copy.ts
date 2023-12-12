@@ -67,11 +67,12 @@ ofs.writeFileSync(
 这个是参考代码
 ${examples}
 
- Generate tsx from axml.
+ Generate tsx from axml. I will tip $200.
  1. 不要写 import React from 'react';
  2. 分析 json 的内容。 如果组件在 usingComponents 中存在, 则从正确的位置导入。
     2.1 比如 <component-name />  就需要写 import ComponentName from 'component_path.axml'; component 的名字需要改成驼峰。
     2.2 导入 component 的时候，需要以 .axml 结尾。 例如 "component-name": "component_path"  就需要写 import ComponentName from 'component_path.axml';
+    2.3 如果最外层有多个组件，需要用 <Page /> 或者 <Component / > 包裹起来。 如果index.json 配置了 component: true, 用 <Component /> 包裹起来。
 
  3. 如果组件不存在，就从 tsxml 导入
     比如 <view / > 就需要写 import { View } from 'tsxml';
@@ -106,8 +107,14 @@ ${examples}
         { className, style, imageMode, maxCount }: IUploaderProps,
         { value }: InternalData
       )
+  
+    7.5. 请直接从 props 解构获取数据，而不是声明 props 变量。
+
+<Text style={style} /> 而不是 <Text style={props.style} />
 
 8. Adjust the style field to use a string instead of an object in the TSX code. Here is the revised version:
+
+9. import-sjs 转化为 import.  比如 <import-sjs from="./scroll.sjs" name="scroll"></import-sjs>  转化为  import scroll from './scroll.sjs'
 
 最后请一次返回 tsx 的完整结果。 而不是 import 和代码分开返回。
 
