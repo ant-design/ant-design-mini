@@ -1,9 +1,9 @@
 {
   "defaultTitle": "CascaderPicker",
   "usingComponents": {
-    "cascader-picker": "../../../src/Picker/CascaderPicker/index",
-    "list-item": "../../../src/List/ListItem/index",
-    "list": "../../../src/List/index",
-    "button": "../../../src/Button/index"
+    "ant-cascader-picker": "../../../src/Picker/CascaderPicker/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
+    "ant-list": "../../../src/List/index",
+    "ant-button": "../../../src/Button/index"
   }
 }

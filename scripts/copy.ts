@@ -100,7 +100,7 @@ ${examples}
     7.2 请不要自己定义 props 类型，而是从 './props' 导入，举例子 import { IconProps } from 'tsxml';
     7.3 注意, IconProps 只是举个例子，要写的是正确的 props 的名字。 在使用的时候，不要忘记用 TSXMLProps 包一层。
     7.3 对于 props 上为使用到的变量，请忽略
-    7.4 对于 props 里未声明的变量，请使用 InternalData'
+    7.4 对于 props 里未声明的变量，请使用 InternalData
 
       import { InternalData } from 'tsxml'
       export default (
@@ -109,8 +109,8 @@ ${examples}
       )
   
     7.5. 请直接从 props 解构获取数据，而不是声明 props 变量。
-
-<Text style={style} /> 而不是 <Text style={props.style} />
+    
+      <Text style={style} /> 而不是 <Text style={props.style} />
 
 8. Adjust the style field to use a string instead of an object in the TSX code. Here is the revised version:
 
