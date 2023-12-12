@@ -1,3 +1,4 @@
+import fmtEvent from 'compiled-alipay/_util/fmtEvent';
 import { getInstance } from 'tests/utils';
 import { describe, expect, it } from 'vitest';
 import {
@@ -131,7 +132,7 @@ describe('ImageUpload', () => {
       url: 'path-2-size-2',
     });
 
-    expect(onChange.mock.lastCall).toEqual([[]]);
+    expect(onChange.mock.lastCall).toEqual([[], fmtEvent({})]);
     expectData(instance, []);
   });
 

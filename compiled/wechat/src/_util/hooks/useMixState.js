@@ -46,12 +46,23 @@ export function useMixState(defaultStateValue, option) {
         }
         return { changed: false };
     });
+    var triggerUpdater = useEvent(function (getValue, option) {
+        triggerChange(function (old) {
+            var newValue = getValue(old);
+            var state = postState(newValue, option);
+            if (state.valid && state.value !== innerValue) {
+                return state.value;
+            }
+            return old;
+        });
+    });
     var isControlled = hasValue(value);
     return [
         merge,
         {
             isControlled: isControlled,
             update: triggerUpdate,
+            triggerUpdater: triggerUpdater,
         },
     ];
 }
