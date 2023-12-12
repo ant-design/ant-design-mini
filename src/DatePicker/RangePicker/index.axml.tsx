@@ -9,7 +9,6 @@ export default (
     popClassName,
     style,
     animationType,
-
     disabled,
     title,
     placeholder,
@@ -19,9 +18,7 @@ export default (
     maskClassName,
     indicatorStyle,
     indicatorClassName,
-
     maskClosable,
-    onFormat,
     startPlaceholder,
     endPlaceholder,
     splitCharacter,
@@ -96,7 +93,7 @@ export default (
       onOk="onOk"
       onVisibleChange="onVisibleChange"
       maskClosable={maskClosable}
-      onFormat={onFormat}
+      onFormat="onFormat"
     >
       <View class="ant-range-picker-selector" slot="content-header">
         <Template
