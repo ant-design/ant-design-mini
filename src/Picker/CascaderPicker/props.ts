@@ -51,12 +51,28 @@ export interface ICascaderProps extends IBaseProps {
    */
   okText: string;
 
+  /**
+   *@description 选中框样式
+   * 版本要求： 支付宝小程序基础库 1.10.0 及以上
+   */
   indicatorStyle?: string;
 
+  /**
+   *@description 选中框类名
+   * 版本要求： 支付宝小程序基础库 1.10.0 及以上
+   */
   indicatorClassName?: string;
 
+  /**
+   * @description 蒙层的样式。
+   * 版本要求： 支付宝小程序基础库 1.10.0 及以上
+   */
   maskStyle?: string;
 
+  /**
+   * @description 蒙层的类名。
+   * 版本要求： 支付宝小程序基础库 1.10.0 及以上
+   */
   maskClassName?: string;
 
   /**
