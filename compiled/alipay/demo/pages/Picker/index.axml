@@ -6,7 +6,7 @@
       onCancel="handleDismissPicker"
       onVisibleChange="handleTriggerPicker"
       onOk="handleOk"
-      defaultValue="{{defaultValue}}"
+      defaultValue="{{ defaultValue }}"
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
@@ -19,7 +19,7 @@
       onCancel="handleDismissPicker"
       onVisibleChange="handleTriggerPicker"
       onOk="handleOk"
-      defaultValue="{{defaultValue}}"
+      defaultValue="{{ defaultValue }}"
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
@@ -33,7 +33,7 @@
     <picker
       slot="extra"
       onOk="handleControlledOk"
-      value="{{value}}"
+      value="{{ value }}"
       placeholder="请选择"
       title="请选择"
       options="{{ list }}" />
