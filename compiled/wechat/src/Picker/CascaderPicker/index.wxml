@@ -15,11 +15,11 @@
   maskClassName="{{ maskClassName }}"
   indicatorStyle="{{ indicatorStyle }}"
   indicatorClassName="{{ indicatorClassName }}"
-  onChange="onChange"
+  bind:change="onChange"
   onCancel="onCancel"
-  onOk="onOk"
+  bind:ok="onOk"
   formattedValueText="{{ formattedValueText }}"
-  onVisibleChange="onVisibleChange"
+  bind:visiblechange="onVisibleChange"
   maskClosable="{{ maskClosable }}">
   <slot
     name="content"

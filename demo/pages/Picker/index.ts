@@ -102,11 +102,22 @@ Page({
     console.log('onVisibleChange', visible, e);
   },
   handleTriggerControlledPicker(visible, e) {
+    /// #if WECHAT
+    console.log('handleTriggerControlledPicker', visible)
+    this.setData({
+      pickerVisible: visible.detail,
+    });
+    /// #endif
+
+    /// #if ALIPAY
     console.log('handleTriggerControlledPicker', visible, e);
     this.setData({
       pickerVisible: visible,
     });
+    /// #endif
+
   },
+
   handleOpenPicker() {
     this.setData({
       pickerVisible: true,

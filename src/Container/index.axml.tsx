@@ -1,4 +1,4 @@
-import { View, Slot } from 'tsxml';
+import { View, Slot, Text } from 'tsxml';
 import { IContainerProps } from './props';
 
 export default ({ style, headerInBox, className, title }: IContainerProps) => (
@@ -11,10 +11,7 @@ export default ({ style, headerInBox, className, title }: IContainerProps) => (
     <View class="ant-container-header">
       <View class="ant-container-header-title">
         {/* #if WECHAT*/}
-        <View class="title-slot">
-          <Slot name="title"></Slot>
-        </View>
-        <View class="title-slot-default">{title}</View>
+        {title ? <Text>{title}</Text> : <Slot name="title"></Slot>}
         {/* #endif */}
         {/* #if ALIPAY */}
         <Slot name="title">{title}</Slot>

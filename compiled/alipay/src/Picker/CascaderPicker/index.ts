@@ -1,10 +1,11 @@
-import { useEvent, useState } from 'functional-mini/component';
+import { useEvent, useMemo, useState } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { useComponentUpdateEffect } from '../../_util/hooks/useLayoutEffect';
-import { defaultFormat, getterColumns, getValidValue } from './utils';
-import { ICascaderProps } from './props';
 import { useMixState } from '../../_util/hooks/useMixState';
+import { resolveEventValues } from '../../_util/platform';
+import { ICascaderProps } from './props';
+import { defaultFormat, getterColumns, getValidValue } from './utils';
 
 const CascaderPicker = (props: ICascaderProps) => {
   const [
@@ -66,7 +67,7 @@ const CascaderPicker = (props: ICascaderProps) => {
     triggerEventOnly('cancel', e);
   });
 
-  useEvent('onFormat', () => {
+  const formattedValueText = useMemo(() => {
     const { onFormat } = props;
     const formatValueByProps =
       onFormat &&
@@ -75,7 +76,7 @@ const CascaderPicker = (props: ICascaderProps) => {
       return formatValueByProps;
     }
     return defaultFormat(realValue, getOptionByValue(realValue, props.options));
-  });
+  }, [realValue]);
 
   useEvent('onVisibleChange', (visible) => {
     if (visible) {
@@ -100,7 +101,8 @@ const CascaderPicker = (props: ICascaderProps) => {
     ]);
   });
 
-  useEvent('onChange', (selectedValue) => {
+  useEvent('onChange', (event) => {
+    const [selectedValue] = resolveEventValues(event);
     const newColumns = getterColumns(selectedValue, props.options);
     const value = getValidValue(selectedValue, newColumns);
     setState({ value, columns: newColumns });
@@ -111,16 +113,17 @@ const CascaderPicker = (props: ICascaderProps) => {
   });
 
   return {
+    formattedValueText,
     currentValue: value,
     columns,
   };
 };
 
 mountComponent(CascaderPicker, {
-  animationType: null,
+  animationType: 'transform',
   value: null,
   defaultValue: null,
-  options: null,
+  options: [],
   placeholder: '请选择',
   cancelText: '取消',
   disabled: false,

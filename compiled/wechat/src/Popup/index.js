@@ -20,9 +20,11 @@ var Popup = function (props) {
         }
     });
     useEvent('onTapMask', function () {
+        console.log('11111', 'close');
         if (closing) {
             return;
         }
+        console.log('close event');
         triggerEventOnly('close');
     });
     return {

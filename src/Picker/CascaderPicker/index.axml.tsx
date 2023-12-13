@@ -1,6 +1,6 @@
 import { TSXMLProps, Slot, InternalData } from 'tsxml';
 import { ICascaderProps } from './props'; // 假设原始的 props 文件路径是 './props'
-import Picker from '../index.axml'; // 从 index.json 知道 picker 组件路径是 '../index'
+import AntPicker from '../index.axml'; // 从 index.json 知道 picker 组件路径是 '../index'
 
 export default (
   {
@@ -20,10 +20,10 @@ export default (
     indicatorClassName,
     maskClosable,
   }: TSXMLProps<ICascaderProps>,
-  { columns, currentValue }: InternalData
+  { columns, currentValue, formattedValueText }: InternalData
 ) => (
   <Component>
-    <Picker
+    <AntPicker
       className={`ant-cascader-picker ${className || ''}`}
       style={style}
       animationType={animationType}
@@ -43,14 +43,14 @@ export default (
       onChange="onChange"
       onCancel="onCancel"
       onOk="onOk"
+      formattedValueText={formattedValueText}
       onVisibleChange="onVisibleChange"
       maskClosable={maskClosable}
-      onFormat="onFormat"
     >
       <Slot name="content" slot="content" />
       <Slot name="title" slot="title" />
       <Slot name="prefix" slot="prefix" />
       <Slot name="suffix" slot="suffix" />
-    </Picker>
+    </AntPicker>
   </Component>
 );

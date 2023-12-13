@@ -52,16 +52,17 @@ const Picker = (props: IPickerProps) => {
     setSelectedIndex(getterSelectedIndex(columns, value, singleRef));
   }, [columns, value]);
 
-  const { formatValue } = useMemo(() => {
+  const formatValue = useMemo(() => {
+    if (typeof props.formattedValueText === 'string') {
+      return props.formattedValueText;
+    }
     const formatValue = getterFormatText(
       columns,
       value,
       props.onFormat,
       singleRef
     );
-    return {
-      formatValue,
-    };
+    return formatValue;
   }, [visible, columns, value, props.onFormat]);
 
   useEvent('onOpen', () => {
@@ -134,9 +135,10 @@ const Picker = (props: IPickerProps) => {
 };
 
 mountComponent(Picker, {
+  formattedValueText: null,
   visible: null,
   defaultVisible: null,
-  animationType: null,
+  animationType: 'transform',
   value: null,
   defaultValue: [],
   disabled: false,
