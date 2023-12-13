@@ -27,11 +27,9 @@ const Popup = (props: IPopupProps) => {
   });
 
   useEvent('onTapMask', () => {
-    console.log('11111', 'close');
     if (closing) {
       return;
     }
-    console.log('close event');
     triggerEventOnly('close');
   });
 
