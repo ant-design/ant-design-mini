@@ -16,7 +16,7 @@
   indicatorStyle="{{ indicatorStyle }}"
   indicatorClassName="{{ indicatorClassName }}"
   bind:change="onChange"
-  onCancel="onCancel"
+  bind:cancel="onCancel"
   bind:ok="onOk"
   formattedValueText="{{ formattedValueText }}"
   bind:visiblechange="onVisibleChange"

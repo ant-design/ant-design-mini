@@ -70,9 +70,14 @@ const CascaderPicker = (props: ICascaderProps) => {
   const formattedValueText = useMemo(() => {
     const { onFormat } = props;
     const formatValueByProps =
-      onFormat &&
+      typeof onFormat === 'function' &&
       onFormat(realValue, getOptionByValue(realValue, props.options));
-    if (typeof formatValueByProps !== 'undefined') {
+
+    if (
+      typeof onFormat === 'function' &&
+      typeof formatValueByProps !== 'undefined'
+    ) {
+      console.log('formatValueByProps', formatValueByProps);
       return formatValueByProps;
     }
     return defaultFormat(realValue, getOptionByValue(realValue, props.options));
@@ -132,4 +137,5 @@ mountComponent(CascaderPicker, {
   maskClosable: true,
   popClassName: '',
   popStyle: '',
+  onFormat: null,
 });

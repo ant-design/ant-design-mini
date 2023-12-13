@@ -77,7 +77,7 @@
       defaultValue="{{['Tues', 'pm']}}"
       title="请选择"
       onOk="handleOk"
-      onFormat="formatTime"
+      onFormat="{{ formatTime ? formatTime : 'formatTime' }}"
       options="{{ columns }}" />
   </ant-list-item>
 </ant-list>
@@ -94,7 +94,7 @@
         defaultValue="{{['Tues', 'pm']}}"
         title="请选择"
         onOk="handleOk"
-        onFormat="formatTime"
+        onFormat="{{ formatTime ? formatTime : 'formatTime' }}"
         options="{{ columns }}" />
     </ant-list-item>
   </ant-list>

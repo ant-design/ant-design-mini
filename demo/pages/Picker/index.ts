@@ -4,6 +4,11 @@ Page({
     defaultValue: '上海',
     value: '上海',
     list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
+    /// #if WECHAT
+    formatTime: (value, column) => {
+      return column.map((c) => c && c.label).join('');
+    },
+    /// #endif
     weekList: [
       {
         label: '周一',
@@ -63,10 +68,12 @@ Page({
   },
 
   handleDismissPicker(e) {
+    /// #if ALIPAY
     my.showToast({
       content: '取消操作，关闭 picker',
     });
     console.log(e);
+    /// #endif
   },
   handleClearControlled() {
     this.setData({
@@ -90,11 +97,11 @@ Page({
   handleChange(value, column, e) {
     console.log('onChange value', value, 'onChange  column', column, e);
   },
-
+  /// #if ALIPAY
   formatTime(value, column) {
     return column.map((c) => c && c.label).join('');
   },
-
+  /// #endif
   handleOnOk(value, column) {
     console.log('value', value, 'column', column);
   },
@@ -103,7 +110,7 @@ Page({
   },
   handleTriggerControlledPicker(visible, e) {
     /// #if WECHAT
-    console.log('handleTriggerControlledPicker', visible)
+    console.log('handleTriggerControlledPicker', visible);
     this.setData({
       pickerVisible: visible.detail,
     });
@@ -115,7 +122,6 @@ Page({
       pickerVisible: visible,
     });
     /// #endif
-
   },
 
   handleOpenPicker() {

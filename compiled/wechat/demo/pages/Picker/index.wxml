@@ -3,7 +3,7 @@
     选择城市
     <ant-picker
       slot="extra"
-      onCancel="handleDismissPicker"
+      bind:cancel="handleDismissPicker"
       bind:visiblechange="handleTriggerPicker"
       bind:ok="handleOk"
       defaultValue="{{ defaultValue }}"
@@ -16,7 +16,7 @@
     选择城市（点击蒙层关闭）
     <ant-picker
       slot="extra"
-      onCancel="handleDismissPicker"
+      bind:cancel="handleDismissPicker"
       bind:visiblechange="handleTriggerPicker"
       bind:ok="handleOk"
       defaultValue="{{ defaultValue }}"
@@ -57,7 +57,7 @@
     选择日期
     <ant-picker
       slot="extra"
-      onCancel="handleDismissPicker"
+      bind:cancel="handleDismissPicker"
       bind:visiblechange="handleTriggerPicker"
       bind:ok="handleOk"
       placeholder="请选择"
@@ -77,7 +77,7 @@
       defaultValue="{{['Tues', 'pm']}}"
       title="请选择"
       bind:ok="handleOk"
-      onFormat="formatTime"
+      onFormat="{{ formatTime ? formatTime : 'formatTime' }}"
       options="{{ columns }}" />
   </ant-list-item>
 </ant-list>
@@ -94,7 +94,7 @@
         defaultValue="{{['Tues', 'pm']}}"
         title="请选择"
         bind:ok="handleOk"
-        onFormat="formatTime"
+        onFormat="{{ formatTime ? formatTime : 'formatTime' }}"
         options="{{ columns }}" />
     </ant-list-item>
   </ant-list>

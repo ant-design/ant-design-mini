@@ -12,6 +12,7 @@ export default ({
   pickerVisible,
   defaultValue,
   value,
+  formatTime,
 }: InternalData) => (
   <Page>
     <AntList header="基础用法">
@@ -96,7 +97,7 @@ export default ({
           defaultValue="{{['Tues', 'pm']}}"
           title="请选择"
           onOk="handleOk"
-          onFormat="formatTime"
+          onFormat={formatTime ? formatTime : 'formatTime'}
           options={columns}
         ></AntPicker>
       </AntListItem>
@@ -114,7 +115,7 @@ export default ({
             defaultValue="{{['Tues', 'pm']}}"
             title="请选择"
             onOk="handleOk"
-            onFormat="formatTime"
+            onFormat={formatTime ? formatTime : 'formatTime'}
             options={columns}
           ></AntPicker>
         </AntListItem>

@@ -5,20 +5,21 @@ import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
 import { getMatchedItemByIndex, getMatchedItemByValue, getterColumns, getterFormatText, getterSelectedIndex, } from './utils';
 var Picker = function (props) {
-    var _a = useMixState(props.defaultValue, {
+    var _a;
+    var _b = useMixState((_a = props.defaultValue) !== null && _a !== void 0 ? _a : [], {
         value: props.value,
-    }), value = _a[0], _b = _a[1], isValueControlled = _b.isControlled, updateValue = _b.update;
-    var _c = useComponentEvent(props), triggerEvent = _c.triggerEvent, triggerEventOnly = _c.triggerEventOnly, triggerEventValues = _c.triggerEventValues;
-    var _d = useMixState(props.defaultVisible, {
+    }), value = _b[0], _c = _b[1], isValueControlled = _c.isControlled, updateValue = _c.update;
+    var _d = useComponentEvent(props), triggerEvent = _d.triggerEvent, triggerEventOnly = _d.triggerEventOnly, triggerEventValues = _d.triggerEventValues;
+    var _e = useMixState(props.defaultVisible, {
         value: props.visible,
-    }), visible = _d[0], updateVisible = _d[1].update;
+    }), visible = _e[0], updateVisible = _e[1].update;
     var singleRef = useRef(false);
     var selectIndexRef = useRef(null);
     function triggerPicker(newVisibleValue) {
         updateVisible(newVisibleValue);
         triggerEvent('visibleChange', newVisibleValue);
     }
-    var _e = useState([]), selectedIndex = _e[0], setSelectedIndex = _e[1];
+    var _f = useState([]), selectedIndex = _f[0], setSelectedIndex = _f[1];
     var columns = useMemo(function () {
         return getterColumns(props.options, singleRef);
     }, [props.options]);
@@ -93,7 +94,7 @@ mountComponent(Picker, {
     defaultVisible: null,
     animationType: 'transform',
     value: null,
-    defaultValue: [],
+    defaultValue: null,
     disabled: false,
     title: '',
     okText: '确定',
@@ -103,4 +104,5 @@ mountComponent(Picker, {
     popClassName: '',
     popStyle: '',
     maskClosable: true,
+    onFormat: null,
 });

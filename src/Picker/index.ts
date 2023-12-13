@@ -20,7 +20,7 @@ import {
 
 const Picker = (props: IPickerProps) => {
   const [value, { isControlled: isValueControlled, update: updateValue }] =
-    useMixState(props.defaultValue, {
+    useMixState(props.defaultValue ?? [], {
       value: props.value,
     });
 
@@ -140,7 +140,7 @@ mountComponent(Picker, {
   defaultVisible: null,
   animationType: 'transform',
   value: null,
-  defaultValue: [],
+  defaultValue: null,
   disabled: false,
   title: '',
   okText: '确定',
@@ -150,4 +150,5 @@ mountComponent(Picker, {
   popClassName: '',
   popStyle: '',
   maskClosable: true,
+  onFormat: null,
 });

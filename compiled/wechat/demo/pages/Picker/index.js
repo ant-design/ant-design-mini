@@ -4,6 +4,9 @@ Page({
         defaultValue: '上海',
         value: '上海',
         list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
+        formatTime: function (value, column) {
+            return column.map(function (c) { return c && c.label; }).join('');
+        },
         weekList: [
             {
                 label: '周一',
@@ -62,10 +65,6 @@ Page({
         ],
     },
     handleDismissPicker: function (e) {
-        my.showToast({
-            content: '取消操作，关闭 picker',
-        });
-        console.log(e);
     },
     handleClearControlled: function () {
         this.setData({
@@ -87,9 +86,6 @@ Page({
     },
     handleChange: function (value, column, e) {
         console.log('onChange value', value, 'onChange  column', column, e);
-    },
-    formatTime: function (value, column) {
-        return column.map(function (c) { return c && c.label; }).join('');
     },
     handleOnOk: function (value, column) {
         console.log('value', value, 'column', column);

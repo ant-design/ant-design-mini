@@ -122,9 +122,11 @@ export function defaultFormat(value, column) {
 }
 export function getterFormatText(columns, realValue, onFormat, singleRef) {
     var matchedColumn = getStrictMatchedItemByValue(columns, realValue, singleRef.current).matchedColumn;
-    var formatValueByProps = onFormat && onFormat(realValue, matchedColumn);
-    if (typeof formatValueByProps !== 'undefined') {
-        return formatValueByProps;
+    if (typeof onFormat === 'function') {
+        var formatValueByProps = onFormat(realValue, matchedColumn);
+        if (formatValueByProps !== undefined) {
+            return formatValueByProps;
+        }
     }
     return defaultFormat(realValue, matchedColumn);
 }

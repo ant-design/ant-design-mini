@@ -62,9 +62,11 @@ var CascaderPicker = function (props) {
     });
     var formattedValueText = useMemo(function () {
         var onFormat = props.onFormat;
-        var formatValueByProps = onFormat &&
+        var formatValueByProps = typeof onFormat === 'function' &&
             onFormat(realValue, getOptionByValue(realValue, props.options));
-        if (typeof formatValueByProps !== 'undefined') {
+        if (typeof onFormat === 'function' &&
+            typeof formatValueByProps !== 'undefined') {
+            console.log('formatValueByProps', formatValueByProps);
             return formatValueByProps;
         }
         return defaultFormat(realValue, getOptionByValue(realValue, props.options));
@@ -117,4 +119,5 @@ mountComponent(CascaderPicker, {
     maskClosable: true,
     popClassName: '',
     popStyle: '',
+    onFormat: null,
 });

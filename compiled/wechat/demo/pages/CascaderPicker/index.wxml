@@ -6,8 +6,8 @@
       placeholder="请选择归属地"
       options="{{ cityList }}"
       bind:change="handleCityPickerChange"
-      onOk="handleCityOnOk"
-      onCancel="handleDismiss" />
+      bind:ok="handleCityOnOk"
+      bind:cancel="handleDismiss" />
   </ant-list-item>
 </ant-list>
 
@@ -20,7 +20,7 @@
       placeholder="请选择城市"
       options="{{ cityList }}"
       bind:change="handleCityPickerChange"
-      onOk="handleCityOnOk" />
+      bind:ok="handleCityOnOk" />
   </ant-list-item>
 </ant-list>
 
@@ -33,7 +33,7 @@
       placeholder="请选择城市"
       options="{{ cityList }}"
       bind:change="handleCityPickerChange"
-      onOk="handleOk" />
+      bind:ok="handleOk" />
   </ant-list-item>
   <view class="btn-wrapper">
     <ant-button
