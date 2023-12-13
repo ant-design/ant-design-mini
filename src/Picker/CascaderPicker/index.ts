@@ -69,16 +69,16 @@ const CascaderPicker = (props: ICascaderProps) => {
 
   const formattedValueText = useMemo(() => {
     const { onFormat } = props;
-    const formatValueByProps =
-      typeof onFormat === 'function' &&
-      onFormat(realValue, getOptionByValue(realValue, props.options));
 
-    if (
-      typeof onFormat === 'function' &&
-      typeof formatValueByProps !== 'undefined'
-    ) {
-      console.log('formatValueByProps', formatValueByProps);
-      return formatValueByProps;
+    if (typeof onFormat === 'function') {
+      const formatValueByProps = onFormat(
+        realValue,
+        getOptionByValue(realValue, props.options)
+      );
+
+      if (typeof formatValueByProps !== 'undefined') {
+        return formatValueByProps;
+      }
     }
     return defaultFormat(realValue, getOptionByValue(realValue, props.options));
   }, [realValue]);

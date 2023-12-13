@@ -62,12 +62,11 @@ var CascaderPicker = function (props) {
     });
     var formattedValueText = useMemo(function () {
         var onFormat = props.onFormat;
-        var formatValueByProps = typeof onFormat === 'function' &&
-            onFormat(realValue, getOptionByValue(realValue, props.options));
-        if (typeof onFormat === 'function' &&
-            typeof formatValueByProps !== 'undefined') {
-            console.log('formatValueByProps', formatValueByProps);
-            return formatValueByProps;
+        if (typeof onFormat === 'function') {
+            var formatValueByProps = onFormat(realValue, getOptionByValue(realValue, props.options));
+            if (typeof formatValueByProps !== 'undefined') {
+                return formatValueByProps;
+            }
         }
         return defaultFormat(realValue, getOptionByValue(realValue, props.options));
     }, [realValue]);
