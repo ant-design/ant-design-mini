@@ -15,6 +15,12 @@ export function resolveEventValue(value) {
     }
     return value;
 }
+export function resolveEventValues(args1, args2) {
+    if (platform() === 'wechat') {
+        return args1.detail;
+    }
+    return [args1, args2];
+}
 export function isOldSDKVersion() {
     if (platform() === 'wechat') {
         return false;

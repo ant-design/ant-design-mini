@@ -12,6 +12,7 @@ export default ({
   pickerVisible,
   defaultValue,
   value,
+  formatTime,
 }: InternalData) => (
   <Page>
     <AntList header="基础用法">
@@ -30,7 +31,7 @@ export default ({
         ></AntPicker>
       </AntListItem>
       <AntListItem>
-        选择城市（点击蒙层关闭）
+        选择城市（点击蒙层不关闭）
         <AntPicker
           slot="extra"
           onCancel="handleDismissPicker"
@@ -40,7 +41,7 @@ export default ({
           placeholder="请选择"
           title="请选择"
           onChange="handleChange"
-          maskClosable
+          maskClosable={false}
           options={list}
         ></AntPicker>
       </AntListItem>
@@ -96,7 +97,7 @@ export default ({
           defaultValue="{{['Tues', 'pm']}}"
           title="请选择"
           onOk="handleOk"
-          onFormat="formatTime"
+          onFormat={formatTime ? formatTime : 'formatTime'}
           options={columns}
         ></AntPicker>
       </AntListItem>
@@ -114,7 +115,7 @@ export default ({
             defaultValue="{{['Tues', 'pm']}}"
             title="请选择"
             onOk="handleOk"
-            onFormat="formatTime"
+            onFormat={formatTime ? formatTime : 'formatTime'}
             options={columns}
           ></AntPicker>
         </AntListItem>

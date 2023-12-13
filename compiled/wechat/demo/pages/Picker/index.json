@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "Picker",
+  "usingComponents": {
+    "ant-button": "../../../src/Button/index",
+    "ant-picker": "../../../src/Picker/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
+    "ant-list": "../../../src/List/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

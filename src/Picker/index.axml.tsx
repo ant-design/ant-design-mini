@@ -10,7 +10,7 @@ import {
   TSXMLProps,
 } from 'tsxml';
 import { IPickerProps } from './props';
-import Popup from '../Popup/index.axml';
+import AntPopup from '../Popup/index.axml';
 import _sjs from './index.sjs';
 
 export default (
@@ -62,7 +62,7 @@ export default (
       <Slot name="suffix" />
       {/* #endif */}
     </View>
-    <Popup
+    <AntPopup
       className={`ant-picker-popup ${popClassName || ''}`}
       style={popStyle || ''}
       position="bottom"
@@ -101,6 +101,7 @@ export default (
         {columns ? (
           <Block>
             <PickerView
+              class="ant-picker-picker-view"
               mask-style={maskStyle || ''}
               mask-class={maskClassName || ''}
               indicator-style={indicatorStyle || ''}
@@ -111,7 +112,7 @@ export default (
               {columns.map(
                 (dataRoot, dataIndex) =>
                   dataIndex < options.length && (
-                    <PickerViewColumn>
+                    <PickerViewColumn class="ant-picker-picker-view-column">
                       {dataRoot.map((item) => (
                         <View class="ant-picker-content-item">
                           {_sjs.getPickerViewLabel(item)}
@@ -132,6 +133,6 @@ export default (
           </Block>
         )}
       </View>
-    </Popup>
+    </AntPopup>
   </Page>
 );

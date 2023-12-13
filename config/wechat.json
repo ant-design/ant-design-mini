@@ -23,12 +23,15 @@
     "pages/Popup",
     "pages/Checkbox",
     "pages/CheckboxCustomGroup",
-    "pages/CheckboxGroup"
+    "pages/CheckboxGroup",
+    "pages/CascaderPicker",
+    "pages/Picker"
   ],
   "src": [
     "_util",
     "Button",
     "Slider",
+    "Picker",
     "Container",
     "Icon",
     "Loading",

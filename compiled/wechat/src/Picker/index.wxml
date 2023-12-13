@@ -1,28 +1,25 @@
-<import-sjs
-  from="./index.sjs"
-  name="_sjs" />
+<wxs
+  src="./index.wxs"
+  module="_sjs" />
 
 <view
   class="ant-picker {{ disabled ? 'ant-picker-disabled' : '' }} {{ className || '' }}"
   style="{{ style || '' }}"
-  onTap="onOpen">
-  <slot name="prefix" />
+  bind:tap="onOpen">
   <view class="ant-picker-value">
-    <slot name="content" />
     <view
-      a:if="{{ formatValue }}"
+      wx:if="{{ formatValue }}"
       class="ant-picker-value-text">
       {{ formatValue }}
     </view>
-    <block a:else>
+    <block wx:else>
       <view
-        a:if="{{ placeholder }}"
+        wx:if="{{ placeholder }}"
         class="ant-picker-value-placeholder">
         {{ placeholder }}
       </view>
     </block>
   </view>
-  <slot name="suffix" />
 </view>
 <ant-popup
   className="ant-picker-popup {{ popClassName || '' }}"
@@ -30,7 +27,7 @@
   position="bottom"
   animationType="{{ animationType }}"
   destroyOnClose
-  onClose="onMaskDismiss"
+  bind:close="onMaskDismiss"
   visible="{{ state.visible }}">
   <view class="ant-picker-header">
     <view
@@ -38,24 +35,22 @@
       hover-class="ant-picker-header-item-hover"
       hover-start-time="20"
       hover-stay-time="50"
-      onTap="onCancel">
+      bind:tap="onCancel">
       {{ cancelText }}
     </view>
-    <view class="ant-picker-header-item ant-picker-header-title">
-      <slot name="title">{{ title }}</slot>
-    </view>
+    <view class="ant-picker-header-item ant-picker-header-title"></view>
     <view
       class="ant-picker-header-item ant-picker-header-confirm"
       hover-class="ant-picker-header-item-hover"
       hover-start-time="20"
       hover-stay-time="50"
-      onTap="onOk">
+      bind:tap="onOk">
       {{ okText }}
     </view>
   </view>
   <view class="ant-picker-content">
     <slot name="content-header" />
-    <block a:if="{{ columns }}">
+    <block wx:if="{{ columns }}">
       <picker-view
         class="ant-picker-picker-view"
         mask-style="{{ maskStyle || '' }}"
@@ -63,18 +58,18 @@
         indicator-style="{{ indicatorStyle || '' }}"
         indicator-class="{{ indicatorClassName || '' }}"
         value="{{ selectedIndex }}"
-        onChange="onChange">
+        bind:change="onChange">
         <block
-          a:for="{{ columns }}"
-          a:for-index="dataIndex"
-          a:for-item="dataRoot">
+          wx:for="{{ columns }}"
+          wx:for-index="dataIndex"
+          wx:for-item="dataRoot">
           <picker-view-column
-            a:if="{{ dataIndex < options.length }}"
+            wx:if="{{ dataIndex < options.length }}"
             class="ant-picker-picker-view-column">
             <block
-              a:for="{{ dataRoot }}"
-              a:for-index="index"
-              a:for-item="item">
+              wx:for="{{ dataRoot }}"
+              wx:for-index="index"
+              wx:for-item="item">
               <view class="ant-picker-content-item">
                 {{ _sjs.getPickerViewLabel(item) }}
               </view>
@@ -83,7 +78,7 @@
         </block>
       </picker-view>
     </block>
-    <block a:else>
+    <block wx:else>
       <picker-view>
         <picker-view-column>
           <!-- display: inline -->

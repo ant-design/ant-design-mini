@@ -41,8 +41,20 @@
     }
   }
 
+  /// #if WECHAT
+  &-picker-view {
+    width: 100%;
+    height: @picker-view-height;
+  }
+
+  &-picker-view-column {
+    text-align: center;
+  }
+  /// #endif
+
   &-content {
     background: @COLOR_CARD;
+
     .a-picker-view-picker-item {
       color: @COLOR_TEXT_PRIMARY;
     }

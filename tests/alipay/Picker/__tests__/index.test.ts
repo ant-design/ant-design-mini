@@ -159,6 +159,16 @@ it('测试 format 事件', async () => {
   expect(onCancel.mock.calls[1][0].currentTarget.dataset).toEqual({ test: 2 });
 });
 
+it('formattedValueText 优先级大于 onFormat', async () => {
+  const { instance } = createPicker({
+    formattedValueText: '1',
+    onFormat: () => '3',
+  });
+  expect(instance.getData().formatValue).toEqual('1');
+  instance.setProps({ formattedValueText: '2' });
+  expect(instance.getData().formatValue).toEqual('1');
+});
+
 it('picker value component2', () => {
   const options = [['北京', '上海', '深圳', '广州']];
   const value = ['上海'];

@@ -78,6 +78,14 @@ export const wechat: PlatformConfig = {
     'ant-popup': {
       onClose: 'bind:close',
     },
+    'ant-picker': {
+      onOk: 'bind:ok',
+      onCancel: 'bind:cancel',
+    },
+    'ant-cascader-picker': {
+      onOk: 'bind:ok',
+      onCancel: 'bind:cancel',
+    },
   },
 };
 

@@ -1,5 +1,7 @@
 {
   "pages": [
+    "demo/pages/CascaderPicker/index",
+    "demo/pages/Picker/index",
     "demo/pages/CheckboxGroup/index",
     "demo/pages/CheckboxCustomGroup/index",
     "demo/pages/Checkbox/index",

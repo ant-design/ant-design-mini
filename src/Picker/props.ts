@@ -24,6 +24,10 @@ export interface IPickerProps extends IBaseProps {
    */
   value: PickerValue;
   /**
+   * @description 格式化后的 value 文本, 优先级大于 onFormat
+   */
+  formattedValueText?: string;
+  /**
    * @description 默认picker 数据
    */
   defaultValue: PickerValue;
