@@ -229,6 +229,28 @@ describe('测试各个精度', () => {
       .join('\n');
   }
 
+  it('测试 onFormatLabel', async () => {
+    const { instance, callMethod } = createDateRangePicker({
+      defaultValue: [
+        dayjs('2023-01-01').toDate(),
+        dayjs('2023-01-01').toDate(),
+      ],
+      min: dayjs('2023-01-20').toDate(),
+      max: dayjs('2024-12-10').toDate(),
+      onFormatLabel: (v, v2) => `${v} ${v2}`,
+      precision: 'year',
+    });
+    await callMethod('onVisibleChange', true);
+    expect(
+      instance
+        .getData()
+        .columns.map((o) => {
+          return o.map((p) => `${p.label}`).join(',');
+        })
+        .join('\n')
+    ).toEqual(`year 2023,year 2024`);
+  });
+
   it('精度为年', async () => {
     expect(await getColumnText('year')).toEqual('2023年,2024年');
   });
