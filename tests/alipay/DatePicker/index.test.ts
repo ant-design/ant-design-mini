@@ -42,6 +42,14 @@ describe('DatePicker', () => {
     ]);
   });
 
+  it('当前时间不在 min max 范围', async () => {
+    const { instance, callMethod } = createDatePicker({
+      min: new Date('2020-01-01'),
+      max: new Date('2021-01-01'),
+    });
+    await callMethod('onVisibleChange', true);
+    expect(instance.getData().currentValue).toEqual([2020, 1, 1]);
+  });
   it('测试 columns', async () => {
     const { instance, callMethod } = createDatePicker();
     await callMethod('onVisibleChange', true);
