@@ -90,7 +90,7 @@ var DatePicker = function (props) {
                 return getValueByDate(now, precision);
             }
             else {
-                return getValueByDate(this.getMin(min).toDate(), precision);
+                return getValueByDate(getMin(min).toDate(), precision);
             }
         }
     }
