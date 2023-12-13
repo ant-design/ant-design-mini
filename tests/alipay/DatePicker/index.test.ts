@@ -79,10 +79,10 @@ describe('DatePicker', () => {
       defaultValue: dayjs('2023-01-01').toDate(),
     });
     await callMethod('onVisibleChange', true);
-    expect(instance.callMethod('onFormat')).toEqual('2023/01/01');
+    expect(instance.getData().formattedValueText).toEqual('2023/01/01');
     await changeSelect([2023, 2, 1]);
     await callOk();
-    expect(instance.callMethod('onFormat')).toEqual('2023/02/01');
+    expect(instance.getData().formattedValueText).toEqual('2023/02/01');
   });
 
   it('测试 onFormat', async () => {
@@ -95,7 +95,7 @@ describe('DatePicker', () => {
         return dayjs(v).format('YYYY--MM--DD');
       },
     });
-    expect(instance.callMethod('onFormat')).toEqual('2023--01--01');
+    expect(instance.getData().formattedValueText).toEqual('2023--01--01');
     expect(x).toEqual('2023 / 01 / 01');
   });
 
@@ -105,7 +105,7 @@ describe('DatePicker', () => {
       max: dayjs('2023-05-15').toDate(),
       defaultValue: dayjs('2023-02-01').toDate(),
     });
-    expect(instance.callMethod('onFormat')).toEqual('2023/02/01');
+    expect(instance.getData().formattedValueText).toEqual('2023/02/01');
     await callMethod('onVisibleChange', true);
     expect(
       instance.getData().columns.map((o) => {
@@ -143,7 +143,7 @@ describe('DatePicker', () => {
     expect(instance.getData().currentValue).toEqual([2023, 5, 12]);
 
     await callOk();
-    expect(instance.callMethod('onFormat')).toEqual('2023/05/12');
+    expect(instance.getData().formattedValueText).toEqual('2023/05/12');
   });
 });
 
@@ -155,12 +155,12 @@ describe('受控模式', () => {
         defaultValue: dayjs('2023-01-02').toDate(),
       });
     await callMethod('onVisibleChange', true);
-    expect(instance.callMethod('onFormat')).toEqual('2023/01/01');
+    expect(instance.getData().formattedValueText).toEqual('2023/01/01');
     await changeSelect([2023, 2, 1]);
     expect(instance.getData().currentValue).toEqual([2023, 2, 1]);
     await callOk();
     // 数据应该不变
-    expect(instance.callMethod('onFormat')).toEqual('2023/01/01');
+    expect(instance.getData().formattedValueText).toEqual('2023/01/01');
     expect(onOk.mock.calls[0]).toEqual([
       dayjs('2023-02-01').toDate(),
       '2023/02/01',

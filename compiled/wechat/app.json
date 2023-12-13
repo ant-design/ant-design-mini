@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/DatePicker/index",
     "demo/pages/CascaderPicker/index",
     "demo/pages/Picker/index",
     "demo/pages/CheckboxGroup/index",

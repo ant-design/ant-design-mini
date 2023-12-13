@@ -1,20 +1,20 @@
 <template name="selector">
   <view
     class="ant-range-picker-selector-item {{ active ? 'ant-range-picker-selector-item-active' : '' }}"
-    onTap="onChangeCurrentPickerType"
+    bind:tap="onChangeCurrentPickerType"
     data-type="{{ type }}">
     <view
-      a:if="{{ value }}"
+      wx:if="{{ value }}"
       class="ant-range-picker-selector-item-value">
       {{ value }}
     </view>
     <view
-      a:else
+      wx:else
       class="ant-range-picker-selector-item-placeholder">
       {{ placeholder }}
     </view>
     <icon
-      a:if="{{ precision === 'year' || precision === 'month' || precision === 'day' || precision === 'hour' }}"
+      wx:if="{{ precision === 'year' || precision === 'month' || precision === 'day' || precision === 'hour' }}"
       type="CalendarOutline"
       className="ant-range-picker-selector-item-icon" />
   </view>
@@ -36,10 +36,10 @@
   maskClassName="{{ maskClassName }}"
   indicatorStyle="{{ indicatorStyle }}"
   indicatorClassName="{{ indicatorClassName }}"
-  onChange="onChange"
-  onCancel="onCancel"
-  onOk="onOk"
-  onVisibleChange="onVisibleChange"
+  bind:change="onChange"
+  bind:cancel="onCancel"
+  bind:ok="onOk"
+  bind:visiblechange="onVisibleChange"
   maskClosable="{{ maskClosable }}"
   onFormat="onFormat">
   <view

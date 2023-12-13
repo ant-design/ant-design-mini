@@ -70,7 +70,7 @@ describe('非受控模式', () => {
         return value.map((v) => dayjs(v).format('YYYY--MM--DD')).join('-|-');
       },
     });
-    expect(instance.callMethod('onFormat')).toEqual(
+    expect(instance.getData().formattedValueText).toEqual(
       '2023--01--01-|-2023--10--01'
     );
     expect(x).toEqual([['2023 / 01 / 01', '2023 / 10 / 01']]);
@@ -83,7 +83,9 @@ describe('非受控模式', () => {
         dayjs('2023-10-02').toDate(),
       ],
     });
-    expect(instance.callMethod('onFormat')).toEqual('2023/01/01-2023/10/02');
+    expect(instance.getData().formattedValueText).toEqual(
+      '2023/01/01-2023/10/02'
+    );
     await callMethod('onVisibleChange', true);
     await callMethod('onChange', [2023, 9, 5]);
     expect(onPickerChange.mock.lastCall).toEqual([
@@ -102,7 +104,9 @@ describe('非受控模式', () => {
     await callMethod('onChange', [2023, 9, 10]);
     await callMethod('onChange', [2023, 9, 20]);
     await callMethod('onOk');
-    expect(instance.callMethod('onFormat')).toEqual('2023/09/05-2023/09/20');
+    expect(instance.getData().formattedValueText).toEqual(
+      '2023/09/05-2023/09/20'
+    );
   });
 
   it('当 start 晚于 end , 或者 end 早于 start 时', async () => {
@@ -180,7 +184,9 @@ describe('受控模式', () => {
     const { instance, callMethod, onOk } = createDateRangePicker({
       value: [dayjs('2023-01-01').toDate(), dayjs('2023-10-01').toDate()],
     });
-    expect(instance.callMethod('onFormat')).toEqual('2023/01/01-2023/10/01');
+    expect(instance.getData().formattedValueText).toEqual(
+      '2023/01/01-2023/10/01'
+    );
     await callMethod('onVisibleChange', true);
     await callMethod('onChange', [2023, 1, 4]);
 

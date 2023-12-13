@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "icon": "../../Icon/index",
-    "picker": "../../Picker/index"
+    "ant-picker": "../../Picker/index"
   }
 }

@@ -7,10 +7,10 @@
       slot="extra"
       defaultValue="{{ defaultDate }}"
       placeholder="请选择"
-      onPickerChange="handlePickerChange"
-      onVisibleChange="handleTriggerPicker"
+      bind:pickerchange="handlePickerChange"
+      bind:visiblechange="handleTriggerPicker"
       onCancel="handleDismiss"
-      onOk="handleOk" />
+      bind:ok="handleOk" />
   </ant-list-item>
   <ant-list-item>
     请选择日期（点击蒙层不关闭）
@@ -20,10 +20,10 @@
       slot="extra"
       defaultValue="{{ defaultDate }}"
       placeholder="请选择"
-      onPickerChange="handlePickerChange"
-      onVisibleChange="handleTriggerPicker"
+      bind:pickerchange="handlePickerChange"
+      bind:visiblechange="handleTriggerPicker"
       maskClosable="{{ false }}"
-      onOk="handleOk" />
+      bind:ok="handleOk" />
   </ant-list-item>
 </ant-list>
 <ant-list header="选择精度">
@@ -34,7 +34,7 @@
       precision="year"
       format="YYYY"
       placeholder="选择"
-      onOk="handleOk" />
+      bind:ok="handleOk" />
   </ant-list-item>
   <ant-list-item>
     请选择月份
@@ -43,8 +43,8 @@
       precision="month"
       format="YYYY-MM"
       placeholder="选择"
-      onVisibleChange="handleTriggerPicker"
-      onOk="handleOk" />
+      bind:visiblechange="handleTriggerPicker"
+      bind:ok="handleOk" />
   </ant-list-item>
   <ant-list-item>
     请选择时间
@@ -53,8 +53,8 @@
       precision="minute"
       format="YYYY-MM-DD HH:mm"
       placeholder="选择"
-      onVisibleChange="handleTriggerPicker"
-      onOk="handleOk" />
+      bind:visiblechange="handleTriggerPicker"
+      bind:ok="handleOk" />
   </ant-list-item>
 </ant-list>
 <ant-list header="禁用状态">
@@ -75,10 +75,10 @@
       slot="extra"
       defaultValue="{{ defaultDate }}"
       placeholder="请选择"
-      onPickerChange="handlePickerChange"
-      onVisibleChange="handleTriggerPicker"
+      bind:pickerchange="handlePickerChange"
+      bind:visiblechange="handleTriggerPicker"
       onCancel="handleDismiss"
-      onOk="handleOk"
+      bind:ok="handleOk"
       onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
   </ant-list-item>
 </ant-list>
@@ -90,7 +90,7 @@
       placeholder="请选择"
       defaultValue="{{ defaultDateRange }}"
       onPickerChange="handlePickerRangeChange"
-      onVisibleChange="handleTriggerPicker"
+      bind:visiblechange="handleTriggerPicker"
       onOk="handleRangeOk" />
   </ant-list-item>
   <ant-list-item>
@@ -100,7 +100,7 @@
       placeholder="请选择"
       defaultValue="{{ defaultDateRange }}"
       onPickerChange="handlePickerRangeChange"
-      onVisibleChange="handleTriggerPicker"
+      bind:visiblechange="handleTriggerPicker"
       onOk="handleRangeOk"
       onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
   </ant-list-item>

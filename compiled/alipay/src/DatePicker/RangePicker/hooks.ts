@@ -63,9 +63,11 @@ function defaultFormatLabel(type, value) {
 export const useFormatLabel = (onFormatLabel) => {
   return useCallback(
     (type, value) => {
-      const formatValueByProps = onFormatLabel && onFormatLabel(type, value);
-      if (typeof formatValueByProps !== 'undefined') {
-        return String(formatValueByProps);
+      if (typeof onFormatLabel === 'function') {
+        const formatValueByProps = onFormatLabel(type, value);
+        if (typeof formatValueByProps !== 'undefined') {
+          return String(formatValueByProps);
+        }
       }
       return defaultFormatLabel(type, value);
     },

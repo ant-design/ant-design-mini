@@ -25,7 +25,8 @@
     "pages/CheckboxCustomGroup",
     "pages/CheckboxGroup",
     "pages/CascaderPicker",
-    "pages/Picker"
+    "pages/Picker",
+    "pages/DatePicker"
   ],
   "src": [
     "_util",
@@ -48,6 +49,7 @@
     "Mask",
     "Stepper",
     "Popup",
-    "Checkbox"
+    "Checkbox",
+    "DatePicker"
   ]
 }

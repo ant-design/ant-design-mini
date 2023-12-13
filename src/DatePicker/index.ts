@@ -1,9 +1,10 @@
 import dayjs from 'dayjs';
-import { useEvent, useState } from 'functional-mini/component';
+import { useEvent, useState, useMemo } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
+import { resolveEventValues } from '../_util/platform';
 import { IDatePickerProps } from './props';
 import {
   getDateByValue,
@@ -25,6 +26,18 @@ const DatePicker = (props: IDatePickerProps) => {
     props.defaultValue,
     {
       value: props.value,
+      postState(value) {
+        if (typeof value === 'number') {
+          return {
+            valid: true,
+            value: dayjs(value).toDate(),
+          };
+        }
+        return {
+          valid: true,
+          value: value,
+        };
+      },
     }
   );
 
@@ -39,9 +52,11 @@ const DatePicker = (props: IDatePickerProps) => {
 
   function onFormatLabel(type, value) {
     const { onFormatLabel } = props;
-    const formatValueByProps = onFormatLabel && onFormatLabel(type, value);
-    if (typeof formatValueByProps !== 'undefined') {
-      return String(formatValueByProps);
+    if (typeof onFormatLabel === 'function') {
+      const formatValueByProps = onFormatLabel(type, value);
+      if (typeof formatValueByProps !== 'undefined') {
+        return String(formatValueByProps);
+      }
     }
     return defaultFormatLabel(type, value);
   }
@@ -123,7 +138,8 @@ const DatePicker = (props: IDatePickerProps) => {
     triggerEvent('visibleChange', visible, {});
   });
 
-  useEvent('onChange', (selectedIndex) => {
+  useEvent('onChange', (event) => {
+    let [selectedIndex] = resolveEventValues(event);
     selectedIndex = getValidValue(selectedIndex);
     const { format, precision } = props;
     let date = getDateByValue(selectedIndex);
@@ -166,28 +182,33 @@ const DatePicker = (props: IDatePickerProps) => {
     triggerEventValues('ok', [date, dayjs(date).format(format)], {});
   });
 
-  useEvent('onFormat', () => {
+  const formattedValueText = useMemo(() => {
     const { onFormat, format } = props;
-    const formatValueByProps =
-      onFormat &&
-      onFormat(realValue, realValue ? dayjs(realValue).format(format) : null);
-    if (typeof formatValueByProps !== 'undefined') {
-      return formatValueByProps;
+    if (typeof onFormat === 'function') {
+      const formatValueByProps = onFormat(
+        realValue,
+        realValue ? dayjs(realValue).format(format) : null
+      );
+
+      if (typeof formatValueByProps !== 'undefined') {
+        return formatValueByProps;
+      }
     }
     return defaultFormat(
       realValue,
       realValue ? dayjs(realValue).format(format) : null
     );
-  });
+  }, [realValue]);
 
   return {
+    formattedValueText,
     currentValue: visible ? value : realValue,
     columns,
   };
 };
 
 mountComponent(DatePicker, {
-  animationType: null,
+  animationType: 'transform',
   format: 'YYYY/MM/DD',
   min: null,
   max: null,
@@ -201,4 +222,6 @@ mountComponent(DatePicker, {
   maskClosable: true,
   popClassName: '',
   popStyle: '',
+  disabled: false,
+  onFormatLabel: null,
 });

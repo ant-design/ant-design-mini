@@ -1,6 +1,6 @@
 import { TSXMLProps, View, Template, Slot, InternalData } from 'tsxml';
 import Icon from '../../Icon/index.axml';
-import Picker from '../../Picker/index.axml';
+import AntPicker from '../../Picker/index.axml';
 import { IDateRangePickerProps } from './props';
 
 export default (
@@ -25,7 +25,7 @@ export default (
     precision,
   }: TSXMLProps<IDateRangePickerProps>,
   {
-    realValue,
+    formattedValueText,
     columns,
     currentValue,
     currentStartDate,
@@ -65,10 +65,8 @@ export default (
         )}
       </View>
     </Template>
-    <Picker
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-expect-error
-      realValue={realValue}
+    <AntPicker
+      formattedValueText={formattedValueText}
       className={`ant-range-picker ${className || ''}`}
       popClassName={`${
         !currentStartDate || !currentEndDate
@@ -122,6 +120,6 @@ export default (
       <Slot name="title" slot="title" />
       <Slot name="prefix" slot="prefix" />
       <Slot name="suffix" slot="suffix" />
-    </Picker>
+    </AntPicker>
   </Component>
 );
