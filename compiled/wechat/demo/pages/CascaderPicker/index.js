@@ -11,7 +11,7 @@ Page({
         console.log('cityOk', value, selectedOption, e);
     },
     handleOk: function (value, selectedOption, e) {
-        this.setData({ value: value });
+        this.setData({ value: value.detail[0] });
         console.log('cityOk', value, selectedOption, e);
     },
     handleChangeControlled: function () {
