@@ -67,7 +67,7 @@ var RangePicker = function (props) {
         triggerEvent('visibleChange', visible);
     });
     useEvent('onChangeCurrentPickerType', function (e) {
-        var type = e.target.dataset.type;
+        var type = e.currentTarget.dataset.type;
         var state = changeType(type);
         var currentValue = getValueByDate(state.pickerType === 'start' ? state.start : state.end, props.precision);
         updateColumns(currentValue, props);

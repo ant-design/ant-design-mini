@@ -35,7 +35,7 @@ describe('非受控模式', () => {
       fmtEvent({}),
     ]);
     await callMethod('onChangeCurrentPickerType', {
-      target: {
+      currentTarget: {
         dataset: {
           type: 'end',
         },
@@ -95,7 +95,7 @@ describe('非受控模式', () => {
       fmtEvent({}),
     ]);
     await callMethod('onChangeCurrentPickerType', {
-      target: {
+      currentTarget: {
         dataset: {
           type: 'end',
         },
@@ -127,7 +127,7 @@ describe('非受控模式', () => {
       currentEndDate: null,
     });
     await callMethod('onChangeCurrentPickerType', {
-      target: {
+      currentTarget: {
         dataset: {
           type: 'end',
         },
@@ -165,7 +165,7 @@ describe('非受控模式', () => {
       currentEndDate: dayjs('2023-10-02').toDate().toISOString(),
     });
     await callMethod('onChangeCurrentPickerType', {
-      target: {
+      currentTarget: {
         dataset: {
           type: 'end',
         },
@@ -191,7 +191,7 @@ describe('受控模式', () => {
     await callMethod('onChange', [2023, 1, 4]);
 
     await callMethod('onChangeCurrentPickerType', {
-      target: {
+      currentTarget: {
         dataset: {
           type: 'end',
         },

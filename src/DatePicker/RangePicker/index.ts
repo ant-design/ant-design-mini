@@ -95,7 +95,7 @@ const RangePicker = (props: IDateRangePickerProps) => {
   });
 
   useEvent('onChangeCurrentPickerType', (e) => {
-    const { type } = e.target.dataset;
+    const { type } = e.currentTarget.dataset;
     const state = changeType(type) as any;
     const currentValue = getValueByDate(
       state.pickerType === 'start' ? state.start : state.end,
