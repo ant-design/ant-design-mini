@@ -42,7 +42,12 @@
     <view
       slot="label"
       slot-scope="item">
-      {{item.index +1}} {{item.value.label}}
+      <view>
+        <!-- display: inline -->
+        <text>{{ item.index + 1 }}</text>
+        <!-- display: inline -->
+        <text>{{ item.value.label }}</text>
+      </view>
     </view>
   </radio-group>
 </container>

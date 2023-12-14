@@ -12,12 +12,13 @@ function getClassName(checked, disabled) {
     return 'disabledCheckedIcon';
   }
 }
-
 function getChecked(index, options, value) {
   if (options[index].value === value) {
     return true;
-  };
+  }
   return false;
 }
-
-export default { getClassName, getChecked };
+export default {
+  getClassName: getClassName,
+  getChecked: getChecked
+};

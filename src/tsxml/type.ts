@@ -5,6 +5,7 @@ export interface Props {
   name?: string;
   'a:key'?: string;
   onTap?: string;
+  checked?: boolean;
   src?: string;
   mode?: string;
   cell?: string;

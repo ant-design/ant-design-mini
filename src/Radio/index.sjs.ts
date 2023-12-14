@@ -16,7 +16,7 @@ function getClassName(checked, disabled) {
 function getChecked(index, options, value) {
   if (options[index].value === value) {
     return true;
-  };
+  }
   return false;
 }
 
