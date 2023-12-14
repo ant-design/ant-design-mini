@@ -7,9 +7,9 @@
     onTouchMove="handleStarMove"
     onTouchEnd="handleStarMoveEnd">
     <block
-      a:for="{{ ;[...Array(count)] }}"
+      a:for="{{ count }}"
       a:for-index="index"
-      a:for-item="_">
+      a:for-item="item">
       <view
         class="ant-rate-star"
         onTap="handleStarTap"

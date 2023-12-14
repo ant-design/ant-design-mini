@@ -21,49 +21,53 @@ export default (
       onTouchMove="handleStarMove"
       onTouchEnd="handleStarMoveEnd"
     >
-      {[...Array(count)].map((_, index) => (
-        <View
-          class="ant-rate-star"
-          onTap="handleStarTap"
-          data-rate={index}
-          style={`margin-right: ${(index === count - 1 ? 0 : gutter) + 'px'}`}
-        >
-          {allowHalf && mixin.value === index + 0.5 && (
+      {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-expect-error
+        count.map((item, index) => (
+          <View
+            class="ant-rate-star"
+            onTap="handleStarTap"
+            data-rate={index}
+            style={`margin-right: ${(index === count - 1 ? 0 : gutter) + 'px'}`}
+          >
+            {allowHalf && mixin.value === index + 0.5 && (
+              <View
+                class={`ant-rate-star-icon-active ${characterClassName || ''} ${
+                  characterActiveClassName || ''
+                } ant-rate-star-icon-half-active`}
+              >
+                {/* #if ALIPAY */}
+                <Slot name="character" index={index} isActive={true}>
+                  {/* #endif */}
+                  <Icon type="StarFill" />
+                  {/* #if ALIPAY */}
+                </Slot>
+                {/* #endif */}
+              </View>
+            )}
             <View
-              class={`ant-rate-star-icon-active ${characterClassName || ''} ${
-                characterActiveClassName || ''
-              } ant-rate-star-icon-half-active`}
+              class={`ant-rate-star-icon ${
+                mixin.value >= index + 1
+                  ? 'ant-rate-star-icon-active' +
+                    ' ' +
+                    (characterClassName || '') +
+                    ' ' +
+                    (characterActiveClassName || '')
+                  : characterClassName
+              }`}
             >
               {/* #if ALIPAY */}
-              <Slot name="character" index={index} isActive={true}>
+              <Slot name="character" index={index}>
                 {/* #endif */}
                 <Icon type="StarFill" />
                 {/* #if ALIPAY */}
               </Slot>
               {/* #endif */}
             </View>
-          )}
-          <View
-            class={`ant-rate-star-icon ${
-              mixin.value >= index + 1
-                ? 'ant-rate-star-icon-active' +
-                  ' ' +
-                  (characterClassName || '') +
-                  ' ' +
-                  (characterActiveClassName || '')
-                : characterClassName
-            }`}
-          >
-            {/* #if ALIPAY */}
-            <Slot name="character" index={index}>
-              {/* #endif */}
-              <Icon type="StarFill" />
-              {/* #if ALIPAY */}
-            </Slot>
-            {/* #endif */}
           </View>
-        </View>
-      ))}
+        ))
+      }
     </View>
   </View>
 );
