@@ -48,4 +48,5 @@ export interface Props {
   enableNative?: any;
   disabled?: boolean;
   fileList?: any;
+  isActive?: boolean;
 }

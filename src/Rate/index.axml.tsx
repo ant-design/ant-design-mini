@@ -14,7 +14,7 @@ export default (
   }: TSXMLProps<IRateProps>,
   { mixin, $id }: InternalData
 ) => (
-  <Component className={`ant-rate ${className || ''}`} style={style}>
+  <View class={`ant-rate ${className || ''}`} style={style}>
     <View
       id={`ant-rate-container-${$id}`}
       class="ant-rate-container"
@@ -30,9 +30,7 @@ export default (
         >
           {allowHalf && mixin.value === index + 0.5 && (
             <View
-              className={`ant-rate-star-icon-active ${
-                characterClassName || ''
-              } ${
+              class={`ant-rate-star-icon-active ${characterClassName || ''} ${
                 characterActiveClassName || ''
               } ant-rate-star-icon-half-active`}
             >
@@ -67,5 +65,5 @@ export default (
         </View>
       ))}
     </View>
-  </Component>
+  </View>
 );
