@@ -8,7 +8,7 @@ export default ({
   contentClassName,
   contentStyle,
 }: InternalData) => (
-  <View class={`filterDemo $`}>
+  <View class="filterDemo">
     <View class="filterDemo-bar">
       {items.map((item, index) => (
         <View
@@ -24,7 +24,6 @@ export default ({
             className={`filterDemo-bar-item-icon  ${
               currentOpen === index ? 'filterDemo-bar-item-icon-up' : ''
             }`}
-            size="x-small"
           />
         </View>
       ))}

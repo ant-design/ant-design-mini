@@ -10,24 +10,24 @@
 
 <container title="多选">
   <selector
-    defaultValue="{{ defaultValue }}"
+    defaultValue="{{ ['1', '2'] }}"
     options="{{ items1 }}"
-    multiple="{{ multiple }}" />
+    multiple />
 </container>
 
 <container title="全禁用">
   <selector
-    value="{{ value }}"
+    value="{{ ['1', '2'] }}"
     options="{{ items1 }}"
-    disabled="{{ disabled }}"
-    multiple="{{ multiple }}" />
+    disabled
+    multiple />
 </container>
 
 <container title="部分禁用">
   <selector
-    defaultValue="{{ defaultValue }}"
+    defaultValue="{{ ['1', '2'] }}"
     options="{{ items3 }}"
-    multiple="{{ multiple }}" />
+    multiple />
 </container>
 
 <container title="受控模式">
@@ -36,7 +36,8 @@
     options="{{ items1 }}"
     onChange="handleChange" />
   <button
-    inlineSize="larger"
+    size="large"
+    inline
     onTap="handleChangeValue">
     改变选中值为选项三
   </button>
@@ -45,7 +46,7 @@
 <container title="单选-不允许清空">
   <selector
     defaultValue="11"
-    minSelectedCount="{{ minSelectedCount }}"
+    minSelectedCount="{{ 1 }}"
     onSelectMin="onSelectMin"
     options="{{ items1 }}" />
 </container>

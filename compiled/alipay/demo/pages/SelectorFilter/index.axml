@@ -1,4 +1,4 @@
-<view class="filterDemo $">
+<view class="filterDemo">
   <view class="filterDemo-bar">
     <block
       a:for="{{ items }}"
@@ -11,8 +11,7 @@
         {{ item.title }}
         <icon
           type="DownFill"
-          className="filterDemo-bar-item-icon  {{ currentOpen === index ? 'filterDemo-bar-item-icon-up' : '' }}"
-          size="x-small" />
+          className="filterDemo-bar-item-icon  {{ currentOpen === index ? 'filterDemo-bar-item-icon-up' : '' }}" />
       </view>
     </block>
   </view>
