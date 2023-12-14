@@ -37,7 +37,6 @@
     onChange="handleChange" />
   <button
     size="large"
-    inline
     onTap="handleChangeValue">
     改变选中值为选项三
   </button>

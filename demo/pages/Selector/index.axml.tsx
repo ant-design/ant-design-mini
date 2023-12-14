@@ -27,7 +27,7 @@ export default ({ items1, items2, items3, value }) => (
 
     <Container title="受控模式">
       <Selector value={value} options={items1} onChange="handleChange" />
-      <Button size="large" inline onTap="handleChangeValue">
+      <Button size="large" onTap="handleChangeValue">
         改变选中值为选项三
       </Button>
     </Container>
