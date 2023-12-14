@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "2.18.0",
+  "version": "2.19.0",
   "description": "antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。",
   "miniprogram": "compiled/wechat/src",
   "scripts": {
@@ -8,7 +8,7 @@
     "build:tsxml": "tsx ./scripts/compile-tsxml.ts",
     "transform": "tsx ./scripts/transform.ts",
     "copy": "tsx ./scripts/copy.ts",
-    "generate":"tsx ./scripts/generate.ts",
+    "generate": "tsx ./scripts/generate.ts",
     "dev:doc": "node ./scripts/dev-doc.js",
     "build": "npm run build:tsxml && node ./scripts/build.js",
     "deploy:docs": "npm run build && echo 'mini.ant.design' > ./docs-dist/CNAME && gh-pages -d docs-dist",
