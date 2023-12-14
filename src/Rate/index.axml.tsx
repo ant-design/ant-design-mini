@@ -29,7 +29,7 @@ export default (
             class="ant-rate-star"
             onTap="handleStarTap"
             data-rate={index}
-            style={`margin-right: ${(index === count - 1 ? 0 : gutter) + 'px'}`}
+            style={`margin-right: ${index === count - 1 ? 0 : gutter + 'px'}`}
           >
             {allowHalf && mixin.value === index + 0.5 && (
               <View
