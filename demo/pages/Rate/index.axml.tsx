@@ -1,10 +1,10 @@
 import Container from '../../../src/Container/index.axml';
 import Rate from '../../../src/Rate/index.axml';
 import Stepper from '../../../src/Stepper/index.axml';
-import { View } from 'tsxml';
+import { Component, View } from 'tsxml';
 
 export default () => (
-  <View>
+  <Component>
     <Container title="基础用法">
       <Rate defaultValue={3} onChange="onChange" />
     </Container>
@@ -34,5 +34,5 @@ export default () => (
         <Stepper value={{ value }} min={0} max={5} onChange="handleChange" />
       </View>
     </Container>
-  </View>
+  </Component>
 );
