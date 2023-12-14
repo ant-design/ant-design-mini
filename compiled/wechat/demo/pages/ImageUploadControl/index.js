@@ -8,6 +8,7 @@ function onUpload(file) {
 }
 Page({
     data: {
+        onUpload: onUpload,
         fileList: [
             {
                 url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*znK_ToIL8rQAAAAAAAAAAAAAARQnAQ',
@@ -25,15 +26,14 @@ Page({
     },
     onChange: function (fileList) {
         this.setData({
-            fileList: fileList,
+            fileList: fileList.detail,
         });
     },
     handleUploaderRef: function (ref) {
         console.log('handleUploaderRef', ref);
-        this.handleUploaderRef = ref;
+        this.handleUploaderRef = ref.detail;
     },
     upload: function () {
         this.handleUploaderRef.chooseImage();
     },
-    onUpload: onUpload,
 });

@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/ImageUploadControl",
+    "pages/ImageUpload",
     "pages/Slider",
     "pages/Container",
     "pages/Stepper",
@@ -50,6 +52,7 @@
     "Stepper",
     "Popup",
     "Checkbox",
-    "DatePicker"
+    "DatePicker",
+    "ImageUpload"
   ]
 }

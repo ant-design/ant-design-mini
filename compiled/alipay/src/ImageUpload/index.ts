@@ -3,7 +3,8 @@ import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
-import { chooseImage } from '../_util/promisify';
+import { triggerRefEvent } from '../_util/hooks/useReportRef';
+import { chooseImage } from '../_util/jsapi/choose-image';
 import { File, IUploaderProps, LocalFile } from './props';
 
 const ImageUpload = (props: IUploaderProps) => {
@@ -33,7 +34,7 @@ const ImageUpload = (props: IUploaderProps) => {
       },
     }
   );
-
+  triggerRefEvent();
   const { triggerEvent } = useComponentEvent(props);
 
   async function uploadFile(localFile: LocalFile) {
@@ -150,7 +151,7 @@ const ImageUpload = (props: IUploaderProps) => {
   });
 
   useEvent('onRemove', async (e) => {
-    const { uid } = e.target.dataset;
+    const { uid } = e.currentTarget.dataset;
     const file = fileList.find((item) => item.uid === uid);
     if (props.onRemove && typeof props.onRemove === 'function') {
       const result = await props.onRemove(file);
@@ -166,7 +167,7 @@ const ImageUpload = (props: IUploaderProps) => {
   });
 
   useEvent('onPreview', (e) => {
-    const { uid } = e.target.dataset;
+    const { uid } = e.currentTarget.dataset;
     const file = fileList.find((item) => item.uid === uid);
     triggerEvent('preview', file);
   });
@@ -184,4 +185,7 @@ mountComponent(ImageUpload, {
   maxCount: null,
   imageMode: 'scaleToFill',
   sourceType: ['camera', 'album'],
+  onUpload: null,
+  onBeforeUpload: null,
+  onRemove: null,
 });

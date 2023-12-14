@@ -1,0 +1,51 @@
+<view
+  class="ant-image-upload {{ className || '' }}"
+  style="{{ style || '' }}">
+  <block
+    wx:for="{{ mixin.value }}"
+    wx:for-index="index"
+    wx:for-item="item"
+    wx:key="{{ item.uid }}">
+    <view class="ant-image-upload-show">
+      <view
+        data-uid="{{ item.uid }}"
+        bind:tap="onRemove">
+        <view class="ant-image-upload-close" />
+      </view>
+      <view
+        wx:if="{{ item.status === 'uploading' || item.status === 'error' }}"
+        class="ant-image-upload-cover">
+        <view
+          wx:if="{{ item.status === 'uploading' }}"
+          class="ant-image-upload-cover-loading">
+          <loading className="ant-image-upload-cover-loading-icon" />
+          <view class="ant-image-upload-cover-loading-text">上传中...</view>
+        </view>
+        <view
+          wx:if="{{ item.status === 'error' }}"
+          class="ant-image-upload-cover-error">
+          <icon
+            className="ant-image-upload-cover-error-icon"
+            type="CloseCircleOutline" />
+          <view class="ant-image-upload-cover-error-text">上传失败</view>
+        </view>
+      </view>
+
+      <image
+        class="ant-image-upload-image"
+        mode="{{ imageMode }}"
+        src="{{ item.url || item.path }}"
+        data-uid="{{ item.uid }}"
+        bind:tap="onPreview" />
+    </view>
+  </block>
+  <view bind:tap="chooseImage">
+    <view
+      wx:if="{{ !maxCount || mixin.value.length < maxCount }}"
+      class="ant-image-upload-add-image-wrapper">
+      <icon
+        type="AddOutline"
+        className="ant-image-upload-add-image-icon" />
+    </view>
+  </view>
+</view>
