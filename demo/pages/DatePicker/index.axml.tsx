@@ -4,7 +4,13 @@ import AntListItem from '../../../src/List/ListItem/index.axml';
 import AntDatePicker from '../../../src/DatePicker/index.axml';
 import AntRangePicker from '../../../src/DatePicker/RangePicker/index.axml';
 
-export default ({ min, max, defaultDateRange, defaultDate }: InternalData) => (
+export default ({
+  min,
+  max,
+  defaultDateRange,
+  defaultDate,
+  handleFormatLabel,
+}: InternalData) => (
   <Page>
     <AntList header="基础用法">
       <AntListItem>
@@ -93,7 +99,9 @@ export default ({ min, max, defaultDateRange, defaultDate }: InternalData) => (
           onVisibleChange="handleTriggerPicker"
           onCancel="handleDismiss"
           onOk="handleOk"
-          onFormatLabel="handleFormatLabel"
+          onFormatLabel={
+            handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'
+          }
         ></AntDatePicker>
       </AntListItem>
     </AntList>
@@ -118,7 +126,9 @@ export default ({ min, max, defaultDateRange, defaultDate }: InternalData) => (
           onPickerChange="handlePickerRangeChange"
           onVisibleChange="handleTriggerPicker"
           onOk="handleRangeOk"
-          onFormatLabel="handleFormatLabel"
+          onFormatLabel={
+            handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'
+          }
         ></AntRangePicker>
       </AntListItem>
     </AntList>

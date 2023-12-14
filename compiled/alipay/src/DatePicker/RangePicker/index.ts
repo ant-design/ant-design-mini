@@ -13,6 +13,7 @@ import { useDateState } from './useDateState';
 import { mountComponent } from '../../_util/component';
 import { PickerValue } from '../props';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { resolveEventValues } from '../../_util/platform';
 
 const RangePicker = (props: IDateRangePickerProps) => {
   const [realValue, { isControlled, update }] = useMixState<PickerValue[]>(
@@ -79,9 +80,7 @@ const RangePicker = (props: IDateRangePickerProps) => {
     doUpdateColumns({ columns: newColumns, currentValue });
   }
 
-  useEvent('onFormat', () => {
-    return onFormat(realValue);
-  });
+  const formattedValueText = onFormat(realValue);
 
   useEvent('onVisibleChange', (visible) => {
     if (visible) {
@@ -96,7 +95,7 @@ const RangePicker = (props: IDateRangePickerProps) => {
   });
 
   useEvent('onChangeCurrentPickerType', (e) => {
-    const { type } = e.target.dataset;
+    const { type } = e.currentTarget.dataset;
     const state = changeType(type) as any;
     const currentValue = getValueByDate(
       state.pickerType === 'start' ? state.start : state.end,
@@ -110,7 +109,8 @@ const RangePicker = (props: IDateRangePickerProps) => {
     triggerEventOnly('cancel', e);
   });
 
-  useEvent('onChange', (selectedIndex) => {
+  useEvent('onChange', (event) => {
+    let [selectedIndex] = resolveEventValues(event);
     selectedIndex = getValidValue(selectedIndex);
     const { format, precision } = props;
     let date = getDateByValue(selectedIndex);
@@ -147,6 +147,7 @@ const RangePicker = (props: IDateRangePickerProps) => {
   });
 
   return {
+    formattedValueText,
     realValue,
     columns,
     currentValue,
@@ -159,7 +160,7 @@ const RangePicker = (props: IDateRangePickerProps) => {
 };
 
 mountComponent(RangePicker, {
-  animationType: null,
+  animationType: 'transform',
   format: 'YYYY/MM/DD',
   min: null,
   max: null,
@@ -176,4 +177,6 @@ mountComponent(RangePicker, {
   maskClosable: true,
   popClassName: '',
   popStyle: '',
+  disabled: false,
+  onFormatLabel: null,
 });

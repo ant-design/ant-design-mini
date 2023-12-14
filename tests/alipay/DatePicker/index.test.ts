@@ -42,6 +42,14 @@ describe('DatePicker', () => {
     ]);
   });
 
+  it('当前时间不在 min max 范围', async () => {
+    const { instance, callMethod } = createDatePicker({
+      min: new Date('2020-01-01'),
+      max: new Date('2021-01-01'),
+    });
+    await callMethod('onVisibleChange', true);
+    expect(instance.getData().currentValue).toEqual([2020, 1, 1]);
+  });
   it('测试 columns', async () => {
     const { instance, callMethod } = createDatePicker();
     await callMethod('onVisibleChange', true);
@@ -79,10 +87,10 @@ describe('DatePicker', () => {
       defaultValue: dayjs('2023-01-01').toDate(),
     });
     await callMethod('onVisibleChange', true);
-    expect(instance.callMethod('onFormat')).toEqual('2023/01/01');
+    expect(instance.getData().formattedValueText).toEqual('2023/01/01');
     await changeSelect([2023, 2, 1]);
     await callOk();
-    expect(instance.callMethod('onFormat')).toEqual('2023/02/01');
+    expect(instance.getData().formattedValueText).toEqual('2023/02/01');
   });
 
   it('测试 onFormat', async () => {
@@ -95,7 +103,7 @@ describe('DatePicker', () => {
         return dayjs(v).format('YYYY--MM--DD');
       },
     });
-    expect(instance.callMethod('onFormat')).toEqual('2023--01--01');
+    expect(instance.getData().formattedValueText).toEqual('2023--01--01');
     expect(x).toEqual('2023 / 01 / 01');
   });
 
@@ -105,7 +113,7 @@ describe('DatePicker', () => {
       max: dayjs('2023-05-15').toDate(),
       defaultValue: dayjs('2023-02-01').toDate(),
     });
-    expect(instance.callMethod('onFormat')).toEqual('2023/02/01');
+    expect(instance.getData().formattedValueText).toEqual('2023/02/01');
     await callMethod('onVisibleChange', true);
     expect(
       instance.getData().columns.map((o) => {
@@ -143,7 +151,7 @@ describe('DatePicker', () => {
     expect(instance.getData().currentValue).toEqual([2023, 5, 12]);
 
     await callOk();
-    expect(instance.callMethod('onFormat')).toEqual('2023/05/12');
+    expect(instance.getData().formattedValueText).toEqual('2023/05/12');
   });
 });
 
@@ -155,12 +163,12 @@ describe('受控模式', () => {
         defaultValue: dayjs('2023-01-02').toDate(),
       });
     await callMethod('onVisibleChange', true);
-    expect(instance.callMethod('onFormat')).toEqual('2023/01/01');
+    expect(instance.getData().formattedValueText).toEqual('2023/01/01');
     await changeSelect([2023, 2, 1]);
     expect(instance.getData().currentValue).toEqual([2023, 2, 1]);
     await callOk();
     // 数据应该不变
-    expect(instance.callMethod('onFormat')).toEqual('2023/01/01');
+    expect(instance.getData().formattedValueText).toEqual('2023/01/01');
     expect(onOk.mock.calls[0]).toEqual([
       dayjs('2023-02-01').toDate(),
       '2023/02/01',
@@ -185,6 +193,25 @@ describe('各个精度', () => {
       })
       .join('\n');
   }
+
+  it('测试 onFormatLabel', async () => {
+    const { instance, callMethod } = createDatePicker({
+      defaultValue: dayjs('2023-01-01').toDate(),
+      min: dayjs('2023-01-20').toDate(),
+      max: dayjs('2024-12-10').toDate(),
+      onFormatLabel: (v, v2) => `${v} ${v2}`,
+      precision: 'year',
+    });
+    await callMethod('onVisibleChange', true);
+    expect(
+      instance
+        .getData()
+        .columns.map((o) => {
+          return o.map((p) => `${p.label}`).join(',');
+        })
+        .join('\n')
+    ).toEqual(`year 2023,year 2024`);
+  });
 
   it('精度为年', async () => {
     expect(await getColumnText('year')).toEqual('2023年,2024年');

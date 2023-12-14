@@ -86,6 +86,10 @@ export const wechat: PlatformConfig = {
       onOk: 'bind:ok',
       onCancel: 'bind:cancel',
     },
+    'ant-date-picker': {
+      onOk: 'bind:ok',
+      onPickerChange: 'bind:pickerchange',
+    },
   },
 };
 

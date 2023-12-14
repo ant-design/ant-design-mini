@@ -1,6 +1,6 @@
 import { InternalData, Slot, TSXMLProps } from 'tsxml';
 import { IDatePickerProps } from './props';
-import Picker from '../Picker/index.axml';
+import AntPicker from '../Picker/index.axml';
 
 export default (
   {
@@ -19,9 +19,9 @@ export default (
     maskClosable,
     popClassName,
   }: TSXMLProps<IDatePickerProps>,
-  { columns, currentValue }: InternalData
+  { columns, currentValue, formattedValueText }: InternalData
 ) => (
-  <Picker
+  <AntPicker
     className="ant-date-picker"
     popClassName={`ant-date-picker-popup ${popClassName || ''}`}
     style={style}
@@ -41,13 +41,13 @@ export default (
     onChange="onChange"
     onCancel="onCancel"
     onOk="onOk"
+    formattedValueText={formattedValueText}
     onVisibleChange="onVisibleChange"
     maskClosable={maskClosable}
-    onFormat="onFormat"
   >
     <Slot name="content" slot="content" />
     <Slot name="title" slot="title" />
     <Slot name="prefix" slot="prefix" />
     <Slot name="suffix" slot="suffix" />
-  </Picker>
+  </AntPicker>
 );

@@ -135,7 +135,7 @@ export function transformJSXElement(ctx: ITransformContext) {
       }
       return transformJSXElement(
         ctx.extends(ctx.node.right, {
-          [ctx.if()]: ctx.extends(ctx.node.left).toAxmlExpression(),
+          [ctx.if()]: ctx.extends(ctx.node.left).toAxmlExpression(true),
         })
       );
     }

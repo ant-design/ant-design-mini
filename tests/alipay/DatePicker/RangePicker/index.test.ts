@@ -35,7 +35,7 @@ describe('非受控模式', () => {
       fmtEvent({}),
     ]);
     await callMethod('onChangeCurrentPickerType', {
-      target: {
+      currentTarget: {
         dataset: {
           type: 'end',
         },
@@ -70,7 +70,7 @@ describe('非受控模式', () => {
         return value.map((v) => dayjs(v).format('YYYY--MM--DD')).join('-|-');
       },
     });
-    expect(instance.callMethod('onFormat')).toEqual(
+    expect(instance.getData().formattedValueText).toEqual(
       '2023--01--01-|-2023--10--01'
     );
     expect(x).toEqual([['2023 / 01 / 01', '2023 / 10 / 01']]);
@@ -83,7 +83,9 @@ describe('非受控模式', () => {
         dayjs('2023-10-02').toDate(),
       ],
     });
-    expect(instance.callMethod('onFormat')).toEqual('2023/01/01-2023/10/02');
+    expect(instance.getData().formattedValueText).toEqual(
+      '2023/01/01-2023/10/02'
+    );
     await callMethod('onVisibleChange', true);
     await callMethod('onChange', [2023, 9, 5]);
     expect(onPickerChange.mock.lastCall).toEqual([
@@ -93,7 +95,7 @@ describe('非受控模式', () => {
       fmtEvent({}),
     ]);
     await callMethod('onChangeCurrentPickerType', {
-      target: {
+      currentTarget: {
         dataset: {
           type: 'end',
         },
@@ -102,7 +104,9 @@ describe('非受控模式', () => {
     await callMethod('onChange', [2023, 9, 10]);
     await callMethod('onChange', [2023, 9, 20]);
     await callMethod('onOk');
-    expect(instance.callMethod('onFormat')).toEqual('2023/09/05-2023/09/20');
+    expect(instance.getData().formattedValueText).toEqual(
+      '2023/09/05-2023/09/20'
+    );
   });
 
   it('当 start 晚于 end , 或者 end 早于 start 时', async () => {
@@ -123,7 +127,7 @@ describe('非受控模式', () => {
       currentEndDate: null,
     });
     await callMethod('onChangeCurrentPickerType', {
-      target: {
+      currentTarget: {
         dataset: {
           type: 'end',
         },
@@ -161,7 +165,7 @@ describe('非受控模式', () => {
       currentEndDate: dayjs('2023-10-02').toDate().toISOString(),
     });
     await callMethod('onChangeCurrentPickerType', {
-      target: {
+      currentTarget: {
         dataset: {
           type: 'end',
         },
@@ -180,12 +184,14 @@ describe('受控模式', () => {
     const { instance, callMethod, onOk } = createDateRangePicker({
       value: [dayjs('2023-01-01').toDate(), dayjs('2023-10-01').toDate()],
     });
-    expect(instance.callMethod('onFormat')).toEqual('2023/01/01-2023/10/01');
+    expect(instance.getData().formattedValueText).toEqual(
+      '2023/01/01-2023/10/01'
+    );
     await callMethod('onVisibleChange', true);
     await callMethod('onChange', [2023, 1, 4]);
 
     await callMethod('onChangeCurrentPickerType', {
-      target: {
+      currentTarget: {
         dataset: {
           type: 'end',
         },
@@ -222,6 +228,28 @@ describe('测试各个精度', () => {
       })
       .join('\n');
   }
+
+  it('测试 onFormatLabel', async () => {
+    const { instance, callMethod } = createDateRangePicker({
+      defaultValue: [
+        dayjs('2023-01-01').toDate(),
+        dayjs('2023-01-01').toDate(),
+      ],
+      min: dayjs('2023-01-20').toDate(),
+      max: dayjs('2024-12-10').toDate(),
+      onFormatLabel: (v, v2) => `${v} ${v2}`,
+      precision: 'year',
+    });
+    await callMethod('onVisibleChange', true);
+    expect(
+      instance
+        .getData()
+        .columns.map((o) => {
+          return o.map((p) => `${p.label}`).join(',');
+        })
+        .join('\n')
+    ).toEqual(`year 2023,year 2024`);
+  });
 
   it('精度为年', async () => {
     expect(await getColumnText('year')).toEqual('2023年,2024年');

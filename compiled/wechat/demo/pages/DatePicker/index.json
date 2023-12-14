@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "DatePicker",
+  "usingComponents": {
+    "ant-date-picker": "../../../src/DatePicker/index",
+    "ant-range-picker": "../../../src/DatePicker/RangePicker/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
+    "ant-list": "../../../src/List/index"
+  }
+}
