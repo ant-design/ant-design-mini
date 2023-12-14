@@ -1,6 +1,6 @@
-import { View, InternalData, TSXMLProps } from 'tsxml';
-import Selector from '../../../src/Selector/index.axml';
+import { InternalData, View } from 'tsxml';
 import Icon from '../../../src/Icon/index.axml';
+import Selector from '../../../src/Selector/index.axml';
 
 export default ({
   currentOpen,
