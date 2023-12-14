@@ -73,7 +73,7 @@ export async function callOnPreview(instance, index: number) {
   const data = instance.getData().mixin.value;
   const item = data[index];
   instance.callMethod('onPreview', {
-    target: {
+    currentTarget: {
       dataset: {
         uid: item.uid,
       },
@@ -86,7 +86,7 @@ export async function callOnRemove(instance, index: number) {
   const data = instance.getData().mixin.value;
   const item = data[index];
   instance.callMethod('onRemove', {
-    target: {
+    currentTarget: {
       dataset: {
         uid: item.uid,
       },

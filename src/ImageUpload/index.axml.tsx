@@ -8,7 +8,9 @@ export default (
   { mixin }: InternalData
 ) => (
   <View class={`ant-image-upload ${className || ''}`} style={style || ''}>
+    {/* #if ALIPAY */}
     <Slot fileList={mixin.value}>
+      {/* #endif */}
       {mixin.value.map((item) => (
         <View key={item.uid} class="ant-image-upload-show">
           <View data-uid={item.uid} onTap="onRemove">
@@ -75,6 +77,8 @@ export default (
         </Slot>
         {/* #endif */}
       </View>
+      {/* #if ALIPAY */}
     </Slot>
+    {/* #endif */}
   </View>
 );
