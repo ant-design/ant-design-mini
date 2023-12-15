@@ -21,7 +21,7 @@
               value="{{ item.value }}"
               disabled="{{ disabled || item.disabled }}"
               color="{{ item.color || color }}"
-              onChange="{{ onChange }}">
+              onChange="onChange">
               <slot
                 name="label"
                 value="{{ item }}"
@@ -45,7 +45,7 @@
             value="{{ item.value }}"
             disabled="{{ disabled || item.disabled }}"
             color="{{ item.color || color }}"
-            onChange="{{ onChange }}">
+            onChange="onChange">
             <slot
               name="label"
               value="{{ item }}"
