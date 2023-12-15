@@ -7,7 +7,7 @@ export interface IRadioGroupProps extends IBaseProps {
   disabled: boolean;
   color: string;
   position: 'horizontal' | 'vertical';
-  onChange: (value: string, e: any) => void;
+  onChange?: (value: string, e: any) => void;
   options: {
     label?: string;
     value?: string;
