@@ -11,7 +11,6 @@ export default (
     disabled,
     color,
     position,
-    onChange,
     options,
     className,
     style,
@@ -41,7 +40,7 @@ export default (
                     value={item.value}
                     disabled={disabled || item.disabled}
                     color={item.color || color}
-                    onChange={onChange}
+                    onChange="onChange"
                   >
                     {/* #if ALIPAY */}
                     <Slot name="label" value={item} index={index}>
@@ -69,7 +68,7 @@ export default (
                   value={item.value}
                   disabled={disabled || item.disabled}
                   color={item.color || color}
-                  onChange={onChange}
+                  onChange="onChange"
                 >
                   {/* #if ALIPAY */}
                   <Slot name="label" value={item} index={index}>
