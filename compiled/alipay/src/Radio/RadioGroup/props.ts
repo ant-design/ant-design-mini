@@ -12,6 +12,7 @@ export interface IRadioGroupProps extends IBaseProps {
     label?: string;
     value?: string;
     disabled?: boolean;
+    color?: string;
   }[];
 }
 

@@ -8,6 +8,7 @@
   <view class="ant-radio-item-container">
     <view class="ant-radio-item-wrap">
       <radio
+        value="{{ value }}"
         class="ant-radio-item-base"
         onChange="onChange"
         checked="{{ mixin.value }}"
@@ -15,7 +16,7 @@
       <view class="ant-radio-item-fake">
         <view
           class="ant-radio-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}"
-          style="{{ mixin.value && !disabled && color ? `background:${color}` : '' }}">
+          style="{{ mixin.value && !disabled && color ? 'background:' + color : '' }}">
           <icon
             a:if="{{ mixin.value }}"
             type="CheckOutline"

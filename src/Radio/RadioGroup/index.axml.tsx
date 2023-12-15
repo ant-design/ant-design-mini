@@ -30,7 +30,7 @@ export default (
           {position === 'vertical' ? (
             <Block>
               {options.map((item, index) => (
-                <ListItem key={item.value}>
+                <ListItem>
                   <Radio
                     checked={componentUtils.getChecked(
                       index,
@@ -40,7 +40,7 @@ export default (
                     data-index={index}
                     value={item.value}
                     disabled={disabled || item.disabled}
-                    color={color}
+                    color={item.color || color}
                     onChange={onChange}
                   >
                     {/* #if ALIPAY */}
@@ -60,7 +60,6 @@ export default (
             <Block>
               {options.map((item, index) => (
                 <Radio
-                  key={item.value}
                   checked={componentUtils.getChecked(
                     index,
                     options,
@@ -69,7 +68,7 @@ export default (
                   data-index={index}
                   value={item.value}
                   disabled={disabled || item.disabled}
-                  color={item.color}
+                  color={item.color || color}
                   onChange={onChange}
                 >
                   {/* #if ALIPAY */}

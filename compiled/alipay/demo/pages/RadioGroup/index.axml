@@ -1,53 +1,48 @@
 <container title="基础用法">
   <radio-group
-    options="{{options}}"
+    options="{{ options }}"
     onChange="onChange" />
 </container>
 
 <container title="初始值">
   <radio-group
     defaultValue="banana"
-    options="{{options}}"
+    options="{{ options }}"
     onChange="onChange" />
 </container>
 
 <container title="横向布局">
   <radio-group
-    options="{{options}}"
+    options="{{ options }}"
     position="horizontal" />
 </container>
 
 <container title="禁用模式-所有禁用">
   <radio-group
-    options="{{options}}"
+    options="{{ options }}"
     disabled />
 </container>
 
 <container title="禁用模式-其中有的禁用">
-  <radio-group options="{{optionsWithDisabled}}" />
+  <radio-group options="{{ optionsWithDisabled }}" />
 </container>
 
 <container title="控制模式">
   <radio-group
     value="{{value}}"
-    options="{{options}}"
+    options="{{ options }}"
     onChange="handleChange" />
 </container>
 
 <container title="自定义">
   <radio-group
-    options="{{options}}"
+    options="{{ options }}"
     color="red"
     defaultValue="banana">
     <view
       slot="label"
       slot-scope="item">
-      <view>
-        <!-- display: inline -->
-        <text>{{ item.index + 1 }}</text>
-        <!-- display: inline -->
-        <text>{{ item.value.label }}</text>
-      </view>
+      {{ item.index + 1 }} {{ item.value.label }}
     </view>
   </radio-group>
 </container>
