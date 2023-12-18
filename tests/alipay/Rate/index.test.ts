@@ -64,12 +64,22 @@ describe('Radio', () => {
   });
 
   it('测试 readonly', async () => {
-    const { instance, starMove } = testRate({
+    const { instance, starMove, starMoveEnd } = testRate({
       defaultValue: 2,
       readonly: true,
     });
     expect(instance.getData().mixin.value).toBe(2);
     await starMove(20);
+    expect(instance.getData().mixin.value).toBe(2);
+    await starMoveEnd();
+    expect(instance.getData().mixin.value).toBe(2);
+  });
+
+  it('测试 starMoveEnd', async () => {
+    const { instance, starMoveEnd } = testRate({
+      defaultValue: 2,
+    });
+    await starMoveEnd();
     expect(instance.getData().mixin.value).toBe(2);
   });
 });

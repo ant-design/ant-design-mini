@@ -34,7 +34,7 @@ export default ({ items1, items2, items3, value }) => (
 
     <Container title="单选-不允许清空">
       <Selector
-        defaultValue="11"
+        defaultValue="1"
         minSelectedCount={1}
         onSelectMin="onSelectMin"
         options={items1}

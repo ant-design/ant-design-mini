@@ -66,7 +66,8 @@ export interface ISelectorProps extends IBaseProps {
    */
   maxSelectedCount: number;
   disabled: boolean;
-  onChange(
+
+  onChange?(
     value: Value | Value[] | undefined,
     item: ISelectorItem | ISelectorItem[] | undefined,
     e: Record<string, any>
@@ -74,11 +75,11 @@ export interface ISelectorProps extends IBaseProps {
   /**
    * @description 触发最大限制
    */
-  onSelectMax(value: Value, item: ISelectorItem, e: Record<string, any>): void;
+  onSelectMax?(value: Value, item: ISelectorItem, e: Record<string, any>): void;
   /**
    * @description 触发最小限制
    */
-  onSelectMin(value: Value, item: ISelectorItem, e: Record<string, any>): void;
+  onSelectMin?(value: Value, item: ISelectorItem, e: Record<string, any>): void;
 }
 
 export const SelectorDefaultProps: Partial<ISelectorProps> = {

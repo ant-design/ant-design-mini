@@ -1,111 +1,141 @@
-import { RateDefaultProps } from './props';
-import createValue from '../mixins/value';
-import { IBoundingClientRect } from '../_util/base';
+import { IRateProps } from 'compiled-alipay/Rate/props';
+import {
+  useComponent,
+  useEvent,
+  useRef,
+  useState,
+} from 'functional-mini/component';
 import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useMixState } from '../_util/hooks/useMixState';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 
-function getBoundingClientRect(selector: string) {
-  return new Promise<IBoundingClientRect>((resolve, reject) => {
-    my.createSelectorQuery()
-      .select(selector)
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0]) {
-          resolve(ret[0]);
-          return;
-        }
-        reject();
-      });
-  });
-}
-
-Component({
-  props: RateDefaultProps,
-  mixins: [
-    createValue({
-      transformValue(value) {
-        if (this.props.allowHalf) {
+const Rate = (props: IRateProps) => {
+  const [rateValue, { isControlled, update }] = useMixState(
+    props.defaultValue,
+    {
+      value: props.value,
+      postState(value) {
+        if (props.allowHalf) {
           return {
-            needUpdate: true,
+            valid: true,
             value: value % 0.5 !== 0 ? Math.round(value) : value,
           };
         }
         return {
-          needUpdate: true,
+          valid: true,
           value: Math.ceil(value),
         };
       },
-    }),
-  ],
-  methods: {
-    async handleStarTap(e) {
-      if (this.props.readonly) {
-        return;
+    }
+  );
+
+  const { triggerEvent } = useComponentEvent(props);
+  const [displayValue, setDisplayValue] = useState(null);
+  const ref = useRef<{ originalRate: number; currentRate?: number } | null>(
+    false
+  );
+  const instance = useComponent();
+  async function getRate(clientX: number) {
+    const { gutter, count } = props;
+    const { left, width } = await getInstanceBoundingClientRect(
+      my,
+      `#ant-rate-container-${instance.$id}`
+    );
+    const halfRateWidth = (width - (count - 1) * gutter) / count / 2;
+    const num = clientX - left;
+    let halfRateCount = 0;
+    /* eslint-disable no-constant-condition */
+    while (true) {
+      const val =
+        halfRateWidth * halfRateCount + gutter * Math.floor(halfRateCount / 2);
+      if (halfRateCount >= count * 2 || num <= val) {
+        break;
       }
-      const { clientX } = e.detail;
-      const startTapRate = this.getValue();
-      let rate = await this.updateRate(clientX);
-      if (startTapRate === rate && this.props.allowClear) {
-        rate = 0;
+      halfRateCount++;
+    }
+    const rate = props.allowHalf
+      ? halfRateCount * 0.5
+      : Math.ceil(halfRateCount * 0.5);
+    return rate;
+  }
+
+  useEvent('handleStarTap', async (e) => {
+    if (props.readonly) {
+      return;
+    }
+    const { clientX } = e.detail;
+    let rate = await getRate(clientX);
+    if (rateValue === rate && props.allowClear) {
+      rate = 0;
+    }
+    if (!isControlled) {
+      update(rate);
+    }
+    if (rateValue !== rate) {
+      triggerEvent('change', rate);
+    }
+  });
+
+  useEvent('handleStarMove', async (e) => {
+    if (props.readonly) {
+      return;
+    }
+    const { touches } = e;
+    const { clientX } = touches[0];
+    if (!ref.current) {
+      ref.current = {
+        originalRate: rateValue,
+      };
+    }
+    const rate = await getRate(clientX);
+    if (ref.current) {
+      ref.current = {
+        ...ref.current,
+        currentRate: rate,
+      };
+
+      if (isControlled) {
+        setDisplayValue(rate);
+      } else {
+        update(rate);
       }
-      if (!this.isControlled()) {
-        this.update(rate);
-      }
-      if (startTapRate !== rate && this.props.onChange) {
-        this.props.onChange(rate);
-      }
+    }
+  });
+
+  useEvent('handleStarMoveEnd', async () => {
+    if (props.readonly) {
+      return;
+    }
+    if (!ref.current) {
+      return;
+    }
+    const { currentRate, originalRate } = ref.current;
+    ref.current = null;
+    if (isControlled) {
+      setDisplayValue(null);
+    }
+    if (currentRate !== originalRate) {
+      triggerEvent('change', currentRate);
+    }
+  });
+
+  return {
+    mixin: {
+      value: displayValue !== null ? displayValue : rateValue,
     },
-    startMoveRate: undefined,
-    async handleStarMove(e) {
-      if (this.props.readonly) {
-        return;
-      }
-      const { touches } = e;
-      const { clientX } = touches[0];
-      if (typeof this.startMoveRate === 'undefined') {
-        this.startMoveRate = this.getValue();
-      }
-      const rate = await this.updateRate(clientX);
-      this.update(rate);
-    },
-    handleStarMoveEnd() {
-      if (this.props.readonly) {
-        return;
-      }
-      if (typeof this.startMoveRate === 'undefined') {
-        return;
-      }
-      const startMoveRate = this.startMoveRate;
-      this.startMoveRate = undefined;
-      const rate = this.getValue();
-      if (this.isControlled()) {
-        this.update(startMoveRate);
-      }
-      if (startMoveRate !== rate && this.props.onChange) {
-        this.props.onChange(rate);
-      }
-    },
-    async updateRate(clientX: number) {
-      const { gutter, count } = this.props;
-      const { left, width } = await getBoundingClientRect(
-        `#ant-rate-container-${this.$id}`
-      );
-      const halfRateWidth = (width - (count - 1) * gutter) / count / 2;
-      const num = clientX - left;
-      let halfRateCount = 0;
-      /* eslint-disable no-constant-condition */
-      while (true) {
-        const val =
-          halfRateWidth * halfRateCount +
-          gutter * Math.floor(halfRateCount / 2);
-        if (halfRateCount >= count * 2 || num <= val) {
-          break;
-        }
-        halfRateCount++;
-      }
-      const rate = this.props.allowHalf
-        ? halfRateCount * 0.5
-        : Math.ceil(halfRateCount * 0.5);
-      return rate;
-    },
-  },
+  };
+};
+
+mountComponent(Rate, {
+  value: null,
+  defaultValue: null,
+  gutter: 4,
+  allowHalf: false,
+  allowClear: true,
+  count: 5,
+  characterActiveClassName: '',
+  characterClassName: '',
+  readonly: false,
 });
