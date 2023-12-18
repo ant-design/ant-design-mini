@@ -97,12 +97,12 @@
   <view class="ant-vtabs-bar {{ tabsBarClassName ? tabsBarClassName : '' }}">
     <scroll-view
       class="ant-vtabs-bar-scroll-view"
-      id="ant-tabs-bar-scroll-view-{{ '$id' }}"
+      id="ant-tabs-bar-scroll-view-{{ $id }}"
       onScroll="onScroll"
       scroll-top="{{ scrollTop }}"
-      scrollY="{{ true }}"
-      scrollWithAnimation="{{ true }}"
-      scrollAnimationDuration="{{ 300 }}">
+      scroll-y="{{ true }}"
+      scroll-with-animation="{{ true }}"
+      scroll-animation-duration="{{ 300 }}">
       <view class="ant-vtabs-bar-item-wrap">
         <block
           a:for="{{ items }}"
