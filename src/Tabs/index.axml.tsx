@@ -8,12 +8,11 @@ export default (
     type,
     direction,
     items,
-    current,
     tabsBarClassName,
     tabClassName,
     tabActiveClassName,
   }: TSXMLProps<ITabsProps>,
-  { scrollLeft, scrollTop, leftFade, rightFade, $id }: InternalData
+  { scrollLeft, scrollTop, leftFade, rightFade, $id, mixin }: InternalData
 ) => (
   <Component>
     {direction !== 'vertical' ? (
@@ -58,11 +57,13 @@ export default (
                     class={`ant-tabs-bar-item ant-tabs-bar-basic ${
                       tabClassName ? tabClassName : ''
                     } ${
-                      current === index && !item.disabled
+                      mixin.value === index && !item.disabled
                         ? 'ant-tabs-bar-active'
                         : ''
                     } ${item.disabled ? 'ant-tabs-bar-disabled' : ''} ${
-                      current === index && !item.disabled && tabActiveClassName
+                      mixin.value === index &&
+                      !item.disabled &&
+                      tabActiveClassName
                         ? tabActiveClassName
                         : ''
                     }`}
@@ -86,11 +87,13 @@ export default (
                     class={`ant-tabs-bar-item ant-tabs-bar-capsule ${
                       tabClassName ? tabClassName : ''
                     } ${
-                      current === index && !item.disabled
+                      mixin.value === index && !item.disabled
                         ? 'ant-tabs-bar-active'
                         : ''
                     } ${item.disabled ? 'ant-tabs-bar-disabled' : ''} ${
-                      current === index && !item.disabled && tabActiveClassName
+                      mixin.value === index &&
+                      !item.disabled &&
+                      tabActiveClassName
                         ? tabActiveClassName
                         : ''
                     }`}
@@ -112,11 +115,13 @@ export default (
                     class={`ant-tabs-bar-item ant-tabs-bar-mixin ${
                       tabClassName ? tabClassName : ''
                     } ${
-                      current === index && !item.disabled
+                      mixin.value === index && !item.disabled
                         ? 'ant-tabs-bar-active'
                         : ''
                     } ${item.disabled ? 'ant-tabs-bar-disabled' : ''} ${
-                      current === index && !item.disabled && tabActiveClassName
+                      mixin.value === index &&
+                      !item.disabled &&
+                      tabActiveClassName
                         ? tabActiveClassName
                         : ''
                     }`}
@@ -150,7 +155,7 @@ export default (
         </View>
         <View class="ant-tabs-content">
           {/* #if ALIPAY */}
-          <Slot value={items[current]} index={current} />
+          <Slot value={items[mixin.value]} index={mixin.value} />
           {/* #endif */}
         </View>
       </View>
@@ -174,18 +179,24 @@ export default (
                   class={`ant-vtabs-bar-item ${
                     tabClassName ? tabClassName : ''
                   } ${
-                    current === index && !item.disabled
+                    mixin.value === index && !item.disabled
                       ? 'ant-vtabs-bar-item-active'
                       : ''
                   } ${item.disabled ? 'ant-vtabs-bar-item-disabled' : ''} ${
-                    current === index && !item.disabled && tabActiveClassName
+                    mixin.value === index &&
+                    !item.disabled &&
+                    tabActiveClassName
                       ? tabActiveClassName
                       : ''
                   }`}
                   style={`${
-                    current + 1 === index ? 'border-radius: 0 16rpx 0 0' : ''
+                    mixin.value + 1 === index
+                      ? 'border-radius: 0 16rpx 0 0'
+                      : ''
                   };${
-                    current - 1 === index ? 'border-radius: 0 0 16rpx 0' : ''
+                    mixin.value - 1 === index
+                      ? 'border-radius: 0 0 16rpx 0'
+                      : ''
                   }`}
                   onTap="onChange"
                   data-index={index}
@@ -206,9 +217,9 @@ export default (
         </View>
         <View class="ant-vtabs-content">
           {/* #if ALIPAY */}
-          <Slot value={items[current]} index={current}>
+          <Slot value={items[mixin.value]} index={mixin.value}>
             {/* #endif */}
-            {items[current].content}
+            {items[mixin.value].content}
             {/* #if ALIPAY */}
           </Slot>
           {/* #endif */}

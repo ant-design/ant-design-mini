@@ -31,7 +31,7 @@
           class="ant-tabs-bar-wrap ant-tabs-bar-wrap-{{ type }} {{ tabsBarClassName ? tabsBarClassName : '' }}">
           <view
             a:if="{{ type === 'basic' }}"
-            class="ant-tabs-bar-item ant-tabs-bar-basic {{ tabClassName ? tabClassName : '' }} {{ current === index && !item.disabled ? 'ant-tabs-bar-active' : '' }} {{ item.disabled ? 'ant-tabs-bar-disabled' : '' }} {{ current === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
+            class="ant-tabs-bar-item ant-tabs-bar-basic {{ tabClassName ? tabClassName : '' }} {{ mixin.value === index && !item.disabled ? 'ant-tabs-bar-active' : '' }} {{ item.disabled ? 'ant-tabs-bar-disabled' : '' }} {{ mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
             onTap="onChange"
             data-index="{{ index }}">
             <view class="ant-tabs-bar-basic-title">
@@ -45,7 +45,7 @@
           </view>
           <view
             a:if="{{ type === 'capsule' }}"
-            class="ant-tabs-bar-item ant-tabs-bar-capsule {{ tabClassName ? tabClassName : '' }} {{ current === index && !item.disabled ? 'ant-tabs-bar-active' : '' }} {{ item.disabled ? 'ant-tabs-bar-disabled' : '' }} {{ current === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
+            class="ant-tabs-bar-item ant-tabs-bar-capsule {{ tabClassName ? tabClassName : '' }} {{ mixin.value === index && !item.disabled ? 'ant-tabs-bar-active' : '' }} {{ item.disabled ? 'ant-tabs-bar-disabled' : '' }} {{ mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
             onTap="onChange"
             data-index="{{ index }}">
             <view class="ant-tabs-bar-capsule-title">
@@ -59,7 +59,7 @@
           </view>
           <view
             a:else
-            class="ant-tabs-bar-item ant-tabs-bar-mixin {{ tabClassName ? tabClassName : '' }} {{ current === index && !item.disabled ? 'ant-tabs-bar-active' : '' }} {{ item.disabled ? 'ant-tabs-bar-disabled' : '' }} {{ current === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
+            class="ant-tabs-bar-item ant-tabs-bar-mixin {{ tabClassName ? tabClassName : '' }} {{ mixin.value === index && !item.disabled ? 'ant-tabs-bar-active' : '' }} {{ item.disabled ? 'ant-tabs-bar-disabled' : '' }} {{ mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
             onTap="onChange"
             data-index="{{ index }}">
             <view class="ant-tabs-bar-mixin-title">
@@ -86,8 +86,8 @@
   </view>
   <view class="ant-tabs-content">
     <slot
-      value="{{ items[current] }}"
-      index="{{ current }}" />
+      value="{{ items[mixin.value] }}"
+      index="{{ mixin.value }}" />
   </view>
 </view>
 <view
@@ -109,8 +109,8 @@
           a:for-index="index"
           a:for-item="item">
           <view
-            class="ant-vtabs-bar-item {{ tabClassName ? tabClassName : '' }} {{ current === index && !item.disabled ? 'ant-vtabs-bar-item-active' : '' }} {{ item.disabled ? 'ant-vtabs-bar-item-disabled' : '' }} {{ current === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
-            style="{{ current + 1 === index ? 'border-radius: 0 16rpx 0 0' : '' }};{{ current - 1 === index ? 'border-radius: 0 0 16rpx 0' : '' }}"
+            class="ant-vtabs-bar-item {{ tabClassName ? tabClassName : '' }} {{ mixin.value === index && !item.disabled ? 'ant-vtabs-bar-item-active' : '' }} {{ item.disabled ? 'ant-vtabs-bar-item-disabled' : '' }} {{ mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
+            style="{{ mixin.value + 1 === index ? 'border-radius: 0 16rpx 0 0' : '' }};{{ mixin.value - 1 === index ? 'border-radius: 0 0 16rpx 0' : '' }}"
             onTap="onChange"
             data-index="{{ index }}">
             <!-- display: inline -->
@@ -129,9 +129,9 @@
   </view>
   <view class="ant-vtabs-content">
     <slot
-      value="{{ items[current] }}"
-      index="{{ current }}">
-      {{ items[current].content }}
+      value="{{ items[mixin.value] }}"
+      index="{{ mixin.value }}">
+      {{ items[mixin.value].content }}
     </slot>
   </view>
 </view>
