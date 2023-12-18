@@ -16,13 +16,21 @@ export default (
   { mixin }: InternalData
 ) => (
   <Component>
-    <Label class={`ant-radio-item ${className || ''}`} style={style}>
+    <Label
+      class={`ant-radio-item ${className || ''}`}
+      style={style}
+      /// #if WECHAT
+      onTap="handleTap"
+      /// #endif
+    >
       <View class="ant-radio-item-container">
         <View class="ant-radio-item-wrap">
           <Radio
             value={value}
             class="ant-radio-item-base"
+            /// #if ALIPAY
             onChange="onChange"
+            /// #endif
             checked={mixin.value}
             disabled={disabled}
           />

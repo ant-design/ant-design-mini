@@ -7,7 +7,7 @@ Page({
     },
     handleChange: function (checked) {
         this.setData({
-            checked: checked,
+            checked: checked.detail,
         });
     },
 });

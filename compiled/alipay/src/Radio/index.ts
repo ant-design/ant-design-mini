@@ -15,13 +15,16 @@ const Radio = (props: IRadioProps) => {
 
   const { triggerEvent } = useComponentEvent(props);
 
+
   useEvent('onChange', (e) => {
+    console.log('e', e.detail);
     const value = e.detail.value;
     if (!isControlled) {
       update(value);
     }
     triggerEvent('change', value, e);
   });
+
   return {
     mixin: {
       value: radioValue,

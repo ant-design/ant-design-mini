@@ -15,13 +15,27 @@ const Radio = (props: IRadioProps) => {
 
   const { triggerEvent } = useComponentEvent(props);
 
+  /// #if WECHAT
+  useEvent('handleTap', (e) => {
+    const value = !radioValue;
+    if (!isControlled) {
+      update(value);
+    }
+    triggerEvent('change', value, e);
+  });
+  /// #endif
+
+  /// #if ALIPAY
   useEvent('onChange', (e) => {
+    console.log('e', e.detail);
     const value = e.detail.value;
     if (!isControlled) {
       update(value);
     }
     triggerEvent('change', value, e);
   });
+  /// #endif
+
   return {
     mixin: {
       value: radioValue,

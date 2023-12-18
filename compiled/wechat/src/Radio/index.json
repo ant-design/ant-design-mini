@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "list-item": "../List/ListItem/index",
+    "icon": "../Icon/index"
+  }
+}
