@@ -9,11 +9,14 @@ var Radio = function (props) {
     }), radioValue = _a[0], _b = _a[1], isControlled = _b.isControlled, update = _b.update;
     var triggerEvent = useComponentEvent(props).triggerEvent;
     useEvent('handleTap', function (e) {
-        var value = !radioValue;
-        if (!isControlled) {
-            update(value);
+        // 只能从 false -> true
+        if (radioValue) {
+            return;
         }
-        triggerEvent('change', value, e);
+        if (!isControlled) {
+            update(true);
+        }
+        triggerEvent('change', true, e);
     });
     return {
         mixin: {
@@ -22,7 +25,9 @@ var Radio = function (props) {
     };
 };
 mountComponent(Radio, {
+    value: null,
     defaultChecked: null,
+    color: '',
     checked: null,
     disabled: false,
 });

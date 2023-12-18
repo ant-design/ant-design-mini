@@ -17,7 +17,6 @@ const Radio = (props: IRadioProps) => {
 
 
   useEvent('onChange', (e) => {
-    console.log('e', e.detail);
     const value = e.detail.value;
     if (!isControlled) {
       update(value);
@@ -33,7 +32,9 @@ const Radio = (props: IRadioProps) => {
 };
 
 mountComponent(Radio, {
+  value: null,
   defaultChecked: null,
+  color: '',
   checked: null,
   disabled: false,
 });

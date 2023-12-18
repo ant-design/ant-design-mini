@@ -17,17 +17,19 @@ const Radio = (props: IRadioProps) => {
 
   /// #if WECHAT
   useEvent('handleTap', (e) => {
-    const value = !radioValue;
-    if (!isControlled) {
-      update(value);
+    // 只能从 false -> true
+    if (radioValue) {
+      return;
     }
-    triggerEvent('change', value, e);
+    if (!isControlled) {
+      update(true);
+    }
+    triggerEvent('change', true, e);
   });
   /// #endif
 
   /// #if ALIPAY
   useEvent('onChange', (e) => {
-    console.log('e', e.detail);
     const value = e.detail.value;
     if (!isControlled) {
       update(value);
@@ -44,7 +46,9 @@ const Radio = (props: IRadioProps) => {
 };
 
 mountComponent(Radio, {
+  value: null,
   defaultChecked: null,
+  color: '',
   checked: null,
   disabled: false,
 });
