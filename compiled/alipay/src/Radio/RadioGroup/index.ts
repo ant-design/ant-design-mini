@@ -9,6 +9,8 @@ const RadioGroup = (props: IRadioGroupProps) => {
     value: props.value,
   });
   const { triggerEvent } = useComponentEvent(props);
+
+
   useEvent('onChange', (_, e) => {
     const index = e.currentTarget.dataset.index;
     const value = props.options[index].value;
@@ -17,6 +19,7 @@ const RadioGroup = (props: IRadioGroupProps) => {
     }
     triggerEvent('change', value, e);
   });
+
   return {
     mixin: {
       value,

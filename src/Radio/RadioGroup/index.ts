@@ -9,6 +9,19 @@ const RadioGroup = (props: IRadioGroupProps) => {
     value: props.value,
   });
   const { triggerEvent } = useComponentEvent(props);
+
+  /// #if WECHAT
+  useEvent('onChange', (e) => {
+    const index = e.currentTarget.dataset.index;
+    const value = props.options[index].value;
+    if (!isControlled) {
+      update(value);
+    }
+    triggerEvent('change', value, e);
+  });
+  /// #endif
+
+  /// #if ALIPAY
   useEvent('onChange', (_, e) => {
     const index = e.currentTarget.dataset.index;
     const value = props.options[index].value;
@@ -17,6 +30,8 @@ const RadioGroup = (props: IRadioGroupProps) => {
     }
     triggerEvent('change', value, e);
   });
+  /// #endif
+
   return {
     mixin: {
       value,

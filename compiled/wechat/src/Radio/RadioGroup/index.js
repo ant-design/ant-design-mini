@@ -7,7 +7,7 @@ var RadioGroup = function (props) {
         value: props.value,
     }), value = _a[0], _b = _a[1], isControlled = _b.isControlled, update = _b.update;
     var triggerEvent = useComponentEvent(props).triggerEvent;
-    useEvent('onChange', function (_, e) {
+    useEvent('onChange', function (e) {
         var index = e.currentTarget.dataset.index;
         var value = props.options[index].value;
         if (!isControlled) {

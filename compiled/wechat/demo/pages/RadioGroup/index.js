@@ -18,7 +18,7 @@ Page({
     },
     handleChange: function (value) {
         this.setData({
-            value: value,
+            value: value.detail,
         });
     },
 });

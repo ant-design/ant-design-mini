@@ -1,6 +1,9 @@
 .ant-radio-item {
   color: #333333;
   margin-right: 8px;
+  height: 29.8px;
+  line-height: 29.8px;
+  display: inline-block;
 }
 .ant-radio-item-container {
   display: flex;

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/RadioGroup",
     "pages/Radio",
     "pages/ImageUploadControl",
     "pages/ImageUpload",

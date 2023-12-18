@@ -1,14 +1,14 @@
 <ant-container title="基础用法">
   <ant-radio-group
     options="{{ options }}"
-    onChange="onChange" />
+    bind:change="onChange" />
 </ant-container>
 
 <ant-container title="初始值">
   <ant-radio-group
     defaultValue="banana"
     options="{{ options }}"
-    onChange="onChange" />
+    bind:change="onChange" />
 </ant-container>
 
 <ant-container title="横向布局">
@@ -31,18 +31,5 @@
   <ant-radio-group
     value="{{ value }}"
     options="{{ options }}"
-    onChange="handleChange" />
-</ant-container>
-
-<ant-container title="自定义">
-  <ant-radio-group
-    options="{{ options }}"
-    color="red"
-    defaultValue="banana">
-    <view
-      slot="label"
-      slot-scope="item">
-      {{ item.index + 1 }} {{ item.value.label }}
-    </view>
-  </ant-radio-group>
+    bind:change="handleChange" />
 </ant-container>

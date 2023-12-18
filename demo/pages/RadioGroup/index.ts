@@ -11,20 +11,21 @@ Page({
       { value: 'orange', label: '橘子' },
       { value: 'watermelon', label: '西瓜', disabled: true },
       { value: 'banana', label: '香蕉' },
-      
     ],
   },
   onChange(value, e) {
     console.log(value, e);
   },
-  onSubmit(e) {
-    my.alert({
-      content: e.detail.value,
-    });
-  },
   handleChange(value) {
+    /// #if WECHAT
+    this.setData({
+      value: value.detail,
+    });
+    /// #endif
+    /// #if ALIPAY
     this.setData({
       value,
     });
+    /// #endif
   },
 });
