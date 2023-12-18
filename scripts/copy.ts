@@ -37,16 +37,11 @@ const examples = files
       'utf-8'
     );
     return `
-${markdownCode(
-  JSON.stringify(
-    {
-      tsx,
-      axml,
-    },
-    null,
-    2
-  )
-)}
+转换例子:
+axml
+${markdownCode(axml)}
+tsx
+${markdownCode(tsx)}
     `.trim();
   })
   .filter(Boolean)
@@ -64,10 +59,13 @@ const randomPath = path.resolve(
 ofs.writeFileSync(
   randomPath,
   `
-这个是参考代码
 ${examples}
 
- Generate tsx from axml. I will tip $200.
+请参考上面的例子，学习 axml 是如何转换为 tsx 的。
+然后将我写的 axml 转换为 tsx。 I will tip $200.
+
+下面是一些额外的要求。
+
  1. 不要写 import React from 'react';
  2. 分析 json 的内容。 如果组件在 usingComponents 中存在, 则从正确的位置导入。
     2.1 比如 <component-name />  就需要写 import ComponentName from 'component_path.axml'; component 的名字需要改成驼峰。
@@ -107,14 +105,16 @@ ${examples}
         { className, style, imageMode, maxCount }: IUploaderProps,
         { value }: InternalData
       )
-  
+
     7.5. 请直接从 props 解构获取数据，而不是声明 props 变量。
-    
+
       <Text style={style} /> 而不是 <Text style={props.style} />
 
 8. Adjust the style field to use a string instead of an object in the TSX code. Here is the revised version:
 
 9. import-sjs 转化为 import.  比如 <import-sjs from="./scroll.sjs" name="scroll"></import-sjs>  转化为  import scroll from './scroll.sjs'
+10. 组件的 prop 字段。如果在 axml 中使用了 class , 在转换后请保持 class。 而不是转换为 className
+11. 组件的 style 字段，请不要使用对象。 请使用字符串。 例如 style="color: red; font-size: 12px;"
 
 最后请一次返回 tsx 的完整结果。 而不是 import 和代码分开返回。
 
