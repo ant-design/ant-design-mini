@@ -4,8 +4,6 @@ function getChecked(value, values, multiple) {
   }
   return (values || []).indexOf(value) > -1;
 }
-
-
 export default {
-  getChecked,
+  getChecked: getChecked
 };
