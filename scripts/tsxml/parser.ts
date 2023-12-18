@@ -204,10 +204,13 @@ export function transformJSXElement(ctx: ITransformContext) {
       return ctx.toAxmlExpression();
     }
     case 'ConditionalExpression': {
+      const isElse = ctx.extraAttr?.[ctx.else()];
       return [
         transformJSXElement(
           ctx.extends(ctx.node.consequent, {
-            [ctx.if()]: ctx.extends(ctx.node.test).toAxmlExpression(),
+            [isElse ? ctx.elseif() : ctx.if()]: ctx
+              .extends(ctx.node.test)
+              .toAxmlExpression(),
           })
         ),
         transformJSXElement(

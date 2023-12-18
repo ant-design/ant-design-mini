@@ -44,7 +44,7 @@
             </view>
           </view>
           <view
-            a:if="{{ type === 'capsule' }}"
+            a:elif="{{ type === 'capsule' }}"
             class="ant-tabs-bar-item ant-tabs-bar-capsule {{ tabClassName ? tabClassName : '' }} {{ mixin.value === index && !item.disabled ? 'ant-tabs-bar-active' : '' }} {{ item.disabled ? 'ant-tabs-bar-disabled' : '' }} {{ mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
             onTap="onChange"
             data-index="{{ index }}">

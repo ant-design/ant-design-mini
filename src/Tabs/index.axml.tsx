@@ -52,7 +52,7 @@ export default (
                   tabsBarClassName ? tabsBarClassName : ''
                 }`}
               >
-                {type === 'basic' && (
+                {type === 'basic' ? (
                   <View
                     class={`ant-tabs-bar-item ant-tabs-bar-basic ${
                       tabClassName ? tabClassName : ''
@@ -81,8 +81,7 @@ export default (
                       {/* #endif */}
                     </View>
                   </View>
-                )}
-                {type === 'capsule' ? (
+                ) : type === 'capsule' ? (
                   <View
                     class={`ant-tabs-bar-item ant-tabs-bar-capsule ${
                       tabClassName ? tabClassName : ''
