@@ -15,18 +15,19 @@
       style="opacity: {{ rightFade ? '1' : '0' }}" />
     <scroll-view
       class="ant-tabs-bar-scroll-view"
-      id="ant-tabs-bar-scroll-view-{{ '$id' }}"
+      id="ant-tabs-bar-scroll-view-{{ $id }}"
       onScroll="onScroll"
-      scrollLeft="{{ scrollLeft }}"
-      scrollX="{{ true }}"
-      scrollWithAnimation="{{ true }}"
-      scrollAnimationDuration="{{ 300 }}">
+      scroll-left="{{ scrollLeft }}"
+      scroll-x="{{ true }}"
+      scroll-with-animation="{{ true }}"
+      scroll-animation-duration="{{ 300 }}">
       <view />
       <block
         a:for="{{ items }}"
         a:for-index="index"
         a:for-item="item">
         <view
+          id="ant-tabs-bar-item-{{ $id }}-{{ index }}"
           class="ant-tabs-bar-wrap ant-tabs-bar-wrap-{{ type }} {{ tabsBarClassName ? tabsBarClassName : '' }}">
           <view
             a:if="{{ type === 'basic' }}"
@@ -57,7 +58,7 @@
             </view>
           </view>
           <view
-            a:if="{{ type === 'mixin' }}"
+            a:else
             class="ant-tabs-bar-item ant-tabs-bar-mixin {{ tabClassName ? tabClassName : '' }} {{ current === index && !item.disabled ? 'ant-tabs-bar-active' : '' }} {{ item.disabled ? 'ant-tabs-bar-disabled' : '' }} {{ current === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
             onTap="onChange"
             data-index="{{ index }}">
@@ -98,7 +99,7 @@
       class="ant-vtabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view-{{ '$id' }}"
       onScroll="onScroll"
-      scrollTop="{{ scrollTop }}"
+      scroll-top="{{ scrollTop }}"
       scrollY="{{ true }}"
       scrollWithAnimation="{{ true }}"
       scrollAnimationDuration="{{ 300 }}">

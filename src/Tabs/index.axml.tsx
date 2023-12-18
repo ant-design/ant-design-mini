@@ -13,7 +13,7 @@ export default (
     tabClassName,
     tabActiveClassName,
   }: TSXMLProps<ITabsProps>,
-  { scrollLeft, scrollTop, leftFade, rightFade }: InternalData
+  { scrollLeft, scrollTop, leftFade, rightFade, $id }: InternalData
 ) => (
   <Component>
     {direction !== 'vertical' ? (
@@ -38,16 +38,17 @@ export default (
           />
           <ScrollView
             class="ant-tabs-bar-scroll-view"
-            id={`ant-tabs-bar-scroll-view-${'$id'}`}
+            id={`ant-tabs-bar-scroll-view-${$id}`}
             onScroll="onScroll"
-            scrollLeft={scrollLeft}
-            scrollX={true}
-            scrollWithAnimation={true}
-            scrollAnimationDuration={300}
+            scroll-left={scrollLeft}
+            scroll-x={true}
+            scroll-with-animation={true}
+            scroll-animation-duration={300}
           >
             <View />
             {items.map((item, index) => (
               <View
+                id={`ant-tabs-bar-item-${$id}-${index}`}
                 class={`ant-tabs-bar-wrap ant-tabs-bar-wrap-${type} ${
                   tabsBarClassName ? tabsBarClassName : ''
                 }`}
@@ -80,7 +81,7 @@ export default (
                     </View>
                   </View>
                 )}
-                {type === 'capsule' && (
+                {type === 'capsule' ? (
                   <View
                     class={`ant-tabs-bar-item ant-tabs-bar-capsule ${
                       tabClassName ? tabClassName : ''
@@ -106,8 +107,7 @@ export default (
                       {/* #endif */}
                     </View>
                   </View>
-                )}
-                {type === 'mixin' && (
+                ) : (
                   <View
                     class={`ant-tabs-bar-item ant-tabs-bar-mixin ${
                       tabClassName ? tabClassName : ''
@@ -161,12 +161,12 @@ export default (
         >
           <ScrollView
             class="ant-vtabs-bar-scroll-view"
-            id={`ant-tabs-bar-scroll-view-${'$id'}`}
+            id={`ant-tabs-bar-scroll-view-${$id}`}
             onScroll="onScroll"
-            scrollTop={scrollTop}
-            scrollY={true}
-            scrollWithAnimation={true}
-            scrollAnimationDuration={300}
+            scroll-top={scrollTop}
+            scroll-y={true}
+            scroll-with-animation={true}
+            scroll-animation-duration={300}
           >
             <View class="ant-vtabs-bar-item-wrap">
               {items.map((item, index) => (
