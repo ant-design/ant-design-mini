@@ -1,4 +1,4 @@
-import { View, ScrollView, Slot, TSXMLProps, InternalData } from 'tsxml';
+import { View, ScrollView, Slot, TSXMLProps, InternalData, Text } from 'tsxml';
 import { ITabsProps } from './props';
 
 export default (
@@ -71,7 +71,10 @@ export default (
                     <View class="ant-tabs-bar-basic-title">
                       {/* #if ALIPAY */}
                       <Slot name="title" value={item} index={index}>
+                        {/* #endif */}
+
                         {item.title}
+                        {/* #if ALIPAY */}
                       </Slot>
                       {/* #endif */}
                     </View>
@@ -96,7 +99,9 @@ export default (
                     <View class="ant-tabs-bar-capsule-title">
                       {/* #if ALIPAY */}
                       <Slot name="title" value={item} index={index}>
+                        {/* #endif */}
                         {item.title}
+                        {/* #if ALIPAY */}
                       </Slot>
                       {/* #endif */}
                     </View>
@@ -121,14 +126,18 @@ export default (
                     <View class="ant-tabs-bar-mixin-title">
                       {/* #if ALIPAY */}
                       <Slot name="title" value={item} index={index}>
+                        {/* #endif */}
                         {item.title}
+                        {/* #if ALIPAY */}
                       </Slot>
                       {/* #endif */}
                     </View>
                     <View class="ant-tabs-bar-mixin-subtitle">
                       {/* #if ALIPAY */}
                       <Slot name="subTitle" value={item} index={index}>
+                        {/* #endif */}
                         {item.subTitle}
+                        {/* #if ALIPAY */}
                       </Slot>
                       {/* #endif */}
                     </View>
@@ -181,13 +190,15 @@ export default (
                   onTap="onChange"
                   data-index={index}
                 >
-                  <text class="ant-vtabs-bar-item-title">
+                  <Text class="ant-vtabs-bar-item-title">
                     {/* #if ALIPAY */}
                     <Slot name="title" value={item} index={index}>
+                      {/* #endif */}
                       {item.title}
+                      {/* #if ALIPAY */}
                     </Slot>
                     {/* #endif */}
-                  </text>
+                  </Text>
                 </View>
               ))}
             </View>
@@ -196,7 +207,9 @@ export default (
         <View class="ant-vtabs-content">
           {/* #if ALIPAY */}
           <Slot value={items[current]} index={current}>
+            {/* #endif */}
             {items[current].content}
+            {/* #if ALIPAY */}
           </Slot>
           {/* #endif */}
         </View>
