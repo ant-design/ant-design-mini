@@ -3,7 +3,7 @@
 </container>
 
 <container title="初始值">
-  <radio defaultChecked="{{true}}">Radio</radio>
+  <radio defaultChecked="{{ true }}">Radio</radio>
 </container>
 
 <container title="禁用模式">
@@ -25,7 +25,7 @@
 
 <container title="控制模式">
   <radio
-    checked="{{checked}}"
+    checked="{{ checked }}"
     onChange="handleChange">
     Radio
   </radio>

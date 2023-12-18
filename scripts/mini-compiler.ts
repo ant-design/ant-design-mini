@@ -109,6 +109,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
                 file.contents = Buffer.from(res);
                 callback(null, file);
               } catch (error) {
+                console.log('compile error', file);
                 callback(error);
               }
             }
