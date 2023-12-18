@@ -15,7 +15,7 @@
         style="font-size: 64px" />
     </view>
     <image-icon
-      wx:if="{{ image }}"
+      wx:elif="{{ image }}"
       className="ant-result-image"
       image="{{ image }}" />
     <block wx:else />

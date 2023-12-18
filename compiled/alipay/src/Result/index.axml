@@ -16,7 +16,7 @@
           style="font-size: 64px" />
       </view>
       <image-icon
-        a:if="{{ image }}"
+        a:elif="{{ image }}"
         className="ant-result-image"
         image="{{ image }}" />
       <block a:else />

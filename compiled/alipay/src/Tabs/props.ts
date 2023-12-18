@@ -1,4 +1,3 @@
-
 import { IBaseProps } from '../_util/base';
 
 export interface ITabsProps extends IBaseProps {
@@ -11,7 +10,7 @@ export interface ITabsProps extends IBaseProps {
   /**
    * @description tabs方向
    */
-   direction: 'horizontal' | 'vertical';
+  direction: 'horizontal' | 'vertical';
 
   /**
    * @description tab 切换时的回调
@@ -21,26 +20,41 @@ export interface ITabsProps extends IBaseProps {
   /**
    * @description 选项
    */
-   current: number;
+  current: number;
 
-   /**
+  /**
    * @description 列表
    */
-   items: {
+  items: {
     title: string;
     content: string;
-    disabled?: boolean; 
-   }[];
+    disabled?: boolean;
+    subTitle?: string;
+  }[];
 
-   /**
-    * 选项初始值
-    */
-   defaultCurrent: number;
+  /**
+   * 选项初始值
+   */
+  defaultCurrent: number;
 
-   /**
-    * 滚动方式，direction为horizontal生效
-    */
-   scrollMode: 'edge' | 'center';
+  /**
+   * 滚动方式，direction为horizontal生效
+   */
+  scrollMode: 'edge' | 'center';
+
+  /**
+   * @description tabs bar类名
+   */
+  tabsBarClassName?: string;
+  /**
+   * @description tab类名
+   */
+  tabClassName?: string;
+
+  /**
+   *@description tab active类名
+   */
+  tabActiveClassName?: string;
 }
 
 export const TabsDefaultProps: Partial<ITabsProps> = {

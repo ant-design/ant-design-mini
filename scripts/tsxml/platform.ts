@@ -1,6 +1,7 @@
 export const alipay: PlatformConfig = {
   if: 'a:if',
   for: 'a:for',
+  elseif: 'a:elif',
   forItem: 'a:for-item',
   forIndex: 'a:for-index',
   forKey: 'a:key',
@@ -20,6 +21,7 @@ export const alipay: PlatformConfig = {
 export const wechat: PlatformConfig = {
   if: 'wx:if',
   for: 'wx:for',
+  elseif: 'wx:elif',
   else: 'wx:else',
   forItem: 'wx:for-item',
   forIndex: 'wx:for-index',
@@ -100,6 +102,7 @@ export interface PlatformConfig {
   for: string;
   if: string;
   else: string;
+  elseif: string;
   forItem: string;
   forIndex: string;
   forKey: string;

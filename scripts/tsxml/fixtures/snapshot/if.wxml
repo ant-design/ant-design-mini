@@ -7,6 +7,12 @@
   <text wx:if="{{ a }}">a</text>
   <!-- display: inline -->
   <text wx:else>!a</text>
+  <!-- display: inline -->
+  <text wx:if="{{ a }}">1</text>
+  <!-- display: inline -->
+  <text wx:elif="{{ b }}">2</text>
+  <!-- display: inline -->
+  <text wx:else>3</text>
   <text class="{{ a ? '1' : '2' }}" />
   <text class="1 {{ a ? '1' + '2' : 2 }} 2" />
 </view>

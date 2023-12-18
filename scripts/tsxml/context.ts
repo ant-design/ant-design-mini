@@ -16,6 +16,7 @@ export interface ITransformContext<T extends types.Node = types.Node> {
   h(tagName: string, props: unknown, ...children: unknown[]): unknown;
   if(): string;
   else(): string;
+  elseif(): string;
   for(): string;
   forItem(): string;
   forKey(): string;
@@ -155,6 +156,9 @@ export class TransformContext<T extends types.Node = types.Node>
   }
   else(): string {
     return this.config.else;
+  }
+  elseif(): string {
+    return this.config.elseif;
   }
   forIndex(): string {
     return this.config.forIndex;

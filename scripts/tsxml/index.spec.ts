@@ -27,8 +27,11 @@ it('index', async () => {
   await textTsXml('index');
 });
 
-it('测试解析为 axml', async () => {
+it('if', async () => {
   await textTsXml('if');
+});
+
+it('测试解析为 axml', async () => {
   await textTsXml('sjs');
   await textTsXml('style');
 });
