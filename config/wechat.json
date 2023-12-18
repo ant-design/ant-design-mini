@@ -2,6 +2,7 @@
   "pages": [
     "pages/RadioGroup",
     "pages/Radio",
+    "pages/Rate",
     "pages/ImageUploadControl",
     "pages/ImageUpload",
     "pages/Slider",
@@ -56,6 +57,10 @@
     "Checkbox",
     "DatePicker",
     "ImageUpload",
+<<<<<<< HEAD
     "Radio"
+=======
+    "Rate"
+>>>>>>> 58861dfb (feat: rate 适配微信)
   ]
 }

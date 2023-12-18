@@ -16,7 +16,7 @@ export default (
 ) => (
   <View class={`ant-rate ${className || ''}`} style={style}>
     <View
-      id={`ant-rate-container-${$id}`}
+      id={`ant-rate-container${$id ? '-' + $id : ''}`}
       class="ant-rate-container"
       onTouchMove="handleStarMove"
       onTouchEnd="handleStarMoveEnd"

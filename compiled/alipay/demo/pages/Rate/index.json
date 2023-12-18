@@ -1,9 +1,9 @@
 {
   "defaultTitle": "Rate",
   "usingComponents": {
-    "rate": "../../../src/Rate/index",
-    "stepper": "../../../src/Stepper/index",
-    "container": "../../../src/Container/index"
+    "ant-rate": "../../../src/Rate/index",
+    "ant-stepper": "../../../src/Stepper/index",
+    "ant-container": "../../../src/Container/index"
   },
   "allowsBounceVertical": "NO"
 }
