@@ -34,10 +34,10 @@
   <ant-selector
     value="{{ value }}"
     options="{{ items1 }}"
-    onChange="handleChange" />
+    bind:change="handleChange" />
   <ant-button
     size="large"
-    onTap="handleChangeValue">
+    bind:tap="handleChangeValue">
     改变选中值为选项三
   </ant-button>
 </ant-container>
@@ -46,6 +46,6 @@
   <ant-selector
     defaultValue="1"
     minSelectedCount="{{ 1 }}"
-    onSelectMin="onSelectMin"
+    bind:selectmin="onSelectMin"
     options="{{ items1 }}" />
 </ant-container>

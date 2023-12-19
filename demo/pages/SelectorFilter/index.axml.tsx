@@ -1,6 +1,6 @@
-import { InternalData, View } from 'tsxml';
-import Icon from '../../../src/Icon/index.axml';
-import Selector from '../../../src/Selector/index.axml';
+import { InternalData, View, Text } from 'tsxml';
+import AntIcon from '../../../src/Icon/index.axml';
+import AntSelector from '../../../src/Selector/index.axml';
 
 export default ({
   currentOpen,
@@ -19,7 +19,7 @@ export default ({
           data-index={index}
         >
           {item.title}
-          <Icon
+          <AntIcon
             type="DownFill"
             className={`filterDemo-bar-item-icon  ${
               currentOpen === index ? 'filterDemo-bar-item-icon-up' : ''
@@ -36,7 +36,7 @@ export default ({
           } ${contentClassName || ''}`}
           style={`${contentStyle || ''}`}
         >
-          <Selector
+          <AntSelector
             options={item.options}
             onChange="handleChange"
             data-index={index}

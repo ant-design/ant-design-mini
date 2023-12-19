@@ -92,6 +92,9 @@ export const wechat: PlatformConfig = {
       onOk: 'bind:ok',
       onPickerChange: 'bind:pickerchange',
     },
+    'ant-selector': {
+      onSelectMin: 'bind:selectmin',
+    },
     uploader: {
       onPreview: 'bind:preview',
     },
