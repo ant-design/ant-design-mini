@@ -24,7 +24,7 @@
       <view class="ant-form-item-field ant-form-item-field-{{ position }}">
         <slot />
         <view
-          a:if="{{ validateStatus === 'error' || typeof validateStatus === 'undefined' && status === 'error' }}"
+          a:if="{{ help || validateStatus === 'error' || typeof validateStatus === 'undefined' && status === 'error' }}"
           class="{{ validateStatus === 'error' || typeof validateStatus === 'undefined' && status === 'error' ? 'ant-form-item-error-info' : 'ant-form-item-help-info' }} ant-form-item-error-info-{{ position }}">
           <view>{{ help || errors[0] }}</view>
         </view>

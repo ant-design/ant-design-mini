@@ -50,7 +50,8 @@ export default (
           )}
           <View class={`ant-form-item-field ant-form-item-field-${position}`}>
             <Slot />
-            {(validateStatus === 'error' ||
+            {(help ||
+              validateStatus === 'error' ||
               (typeof validateStatus === 'undefined' &&
                 status === 'error')) && (
               <View
