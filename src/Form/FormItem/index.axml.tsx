@@ -12,8 +12,13 @@ export default (
     validateStatus,
     help,
     requiredMark,
+    status,
+    errors,
+    required,
+    disabled,
+    tooltip,
   }: TSXMLProps<FormItemProps>,
-  { errors, errorInfo, tooltip, required, disabled, status }: InternalData
+  { errorInfo }: InternalData
 ) => (
   <Component>
     <View
@@ -52,12 +57,11 @@ export default (
             <Slot />
             {(help ||
               validateStatus === 'error' ||
-              (typeof validateStatus === 'undefined' &&
-                status === 'error')) && (
+              (!validateStatus && status === 'error')) && (
               <View
                 class={`${
                   validateStatus === 'error' ||
-                  (typeof validateStatus === 'undefined' && status === 'error')
+                  (!validateStatus && status === 'error')
                     ? 'ant-form-item-error-info'
                     : 'ant-form-item-help-info'
                 } ant-form-item-error-info-${position}`}

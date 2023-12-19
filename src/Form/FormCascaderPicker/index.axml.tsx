@@ -31,8 +31,9 @@ export default (
     indicatorStyle,
     indicatorClassName,
     arrow,
+    tooltip,
   }: TSXMLProps<FormCascaderPickerProps>,
-  { item, formData, tooltip, extra }: InternalData
+  { item, formData, extra }: InternalData
 ) => (
   <Component>
     <FormItem
