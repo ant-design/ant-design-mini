@@ -15,6 +15,20 @@ const Radio = (props: IRadioProps) => {
 
   const { triggerEvent } = useComponentEvent(props);
 
+  /// #if WECHAT
+  useEvent('handleTap', (e) => {
+    // 只能从 false -> true
+    if (radioValue) {
+      return;
+    }
+    if (!isControlled) {
+      update(true);
+    }
+    triggerEvent('change', true, e);
+  });
+  /// #endif
+
+  /// #if ALIPAY
   useEvent('onChange', (e) => {
     const value = e.detail.value;
     if (!isControlled) {
@@ -22,6 +36,8 @@ const Radio = (props: IRadioProps) => {
     }
     triggerEvent('change', value, e);
   });
+  /// #endif
+
   return {
     mixin: {
       value: radioValue,
@@ -30,7 +46,9 @@ const Radio = (props: IRadioProps) => {
 };
 
 mountComponent(Radio, {
+  value: null,
   defaultChecked: null,
+  color: '',
   checked: null,
   disabled: false,
 });

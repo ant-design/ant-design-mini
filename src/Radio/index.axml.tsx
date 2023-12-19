@@ -9,20 +9,28 @@ import {
 } from 'tsxml';
 import { IRadioProps } from './props';
 import componentUtils from './index.sjs';
-import Icon from '../Icon/index.axml';
+import AntIcon from '../Icon/index.axml';
 
 export default (
   { className, style, disabled, value, color }: TSXMLProps<IRadioProps>,
   { mixin }: InternalData
 ) => (
   <Component>
-    <Label class={`ant-radio-item ${className || ''}`} style={style}>
+    <Label
+      class={`ant-radio-item ${className || ''}`}
+      style={style}
+      /// #if WECHAT
+      onTap="handleTap"
+      /// #endif
+    >
       <View class="ant-radio-item-container">
         <View class="ant-radio-item-wrap">
           <Radio
             value={value}
             class="ant-radio-item-base"
+            /// #if ALIPAY
             onChange="onChange"
+            /// #endif
             checked={mixin.value}
             disabled={disabled}
           />
@@ -37,7 +45,7 @@ export default (
               }
             >
               {mixin.value && (
-                <Icon
+                <AntIcon
                   type="CheckOutline"
                   className={`ant-radio-item-fake-${componentUtils.getClassName(
                     mixin.value,

@@ -6,6 +6,14 @@
   color: @COLOR_TEXT_PRIMARY;
   margin-right: 16 * @rpx;
 
+  /// #if WECHAT
+  // 支付宝默认 label 的高度
+  height: 59.6 * @rpx;
+  line-height: 59.6 * @rpx;
+  // 在 label 内嵌一个 view, 微信会变成 block 组件
+  display: inline-block;
+  /// #endif
+
   &-container {
     display: flex;
     align-items: center;

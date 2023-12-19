@@ -1,5 +1,7 @@
 {
   "pages": [
+    "demo/pages/RadioGroup/index",
+    "demo/pages/Radio/index",
     "demo/pages/ImageUploadControl/index",
     "demo/pages/ImageUpload/index",
     "demo/pages/DatePicker/index",

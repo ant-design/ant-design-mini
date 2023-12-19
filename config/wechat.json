@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/RadioGroup",
+    "pages/Radio",
     "pages/ImageUploadControl",
     "pages/ImageUpload",
     "pages/Slider",
@@ -53,6 +55,7 @@
     "Popup",
     "Checkbox",
     "DatePicker",
-    "ImageUpload"
+    "ImageUpload",
+    "Radio"
   ]
 }

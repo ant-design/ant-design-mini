@@ -15,6 +15,7 @@ const Radio = (props: IRadioProps) => {
 
   const { triggerEvent } = useComponentEvent(props);
 
+
   useEvent('onChange', (e) => {
     const value = e.detail.value;
     if (!isControlled) {
@@ -22,6 +23,7 @@ const Radio = (props: IRadioProps) => {
     }
     triggerEvent('change', value, e);
   });
+
   return {
     mixin: {
       value: radioValue,
@@ -30,7 +32,9 @@ const Radio = (props: IRadioProps) => {
 };
 
 mountComponent(Radio, {
+  value: null,
   defaultChecked: null,
+  color: '',
   checked: null,
   disabled: false,
 });

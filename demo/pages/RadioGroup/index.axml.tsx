@@ -1,40 +1,46 @@
 import { Page, View } from 'tsxml';
-import RadioGroup from '../../../src/Radio/RadioGroup/index.axml';
-import Container from '../../../src/Container/index.axml';
+import AntRadioGroup from '../../../src/Radio/RadioGroup/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
 
-export default ({ item, options, optionsWithDisabled }) => (
+export default ({ item, options, optionsWithDisabled, value }) => (
   <Page>
-    <Container title="基础用法">
-      <RadioGroup options={options} onChange="onChange" />
-    </Container>
+    <AntContainer title="基础用法">
+      <AntRadioGroup options={options} onChange="onChange" />
+    </AntContainer>
 
-    <Container title="初始值">
-      <RadioGroup defaultValue="banana" options={options} onChange="onChange" />
-    </Container>
+    <AntContainer title="初始值">
+      <AntRadioGroup
+        defaultValue="banana"
+        options={options}
+        onChange="onChange"
+      />
+    </AntContainer>
 
-    <Container title="横向布局">
-      <RadioGroup options={options} position="horizontal" />
-    </Container>
+    <AntContainer title="横向布局">
+      <AntRadioGroup options={options} position="horizontal" />
+    </AntContainer>
 
-    <Container title="禁用模式-所有禁用">
-      <RadioGroup options={options} disabled />
-    </Container>
+    <AntContainer title="禁用模式-所有禁用">
+      <AntRadioGroup options={options} disabled />
+    </AntContainer>
 
-    <Container title="禁用模式-其中有的禁用">
-      <RadioGroup options={optionsWithDisabled} />
-    </Container>
+    <AntContainer title="禁用模式-其中有的禁用">
+      <AntRadioGroup options={optionsWithDisabled} />
+    </AntContainer>
 
-    <Container title="控制模式">
-      <RadioGroup value="{{value}}" options={options} onChange="handleChange" />
-    </Container>
+    <AntContainer title="控制模式">
+      <AntRadioGroup value={value} options={options} onChange="handleChange" />
+    </AntContainer>
 
-    <Container title="自定义">
-      <RadioGroup options={options} color="red" defaultValue="banana">
+    {/* #if ALIPAY */}
+    <AntContainer title="自定义">
+      <AntRadioGroup options={options} color="red" defaultValue="banana">
         <View slot="label" slot-scope="item">
           {item.index + 1}
           {item.value.label}
         </View>
-      </RadioGroup>
-    </Container>
+      </AntRadioGroup>
+    </AntContainer>
+    {/* #endif */}
   </Page>
 );
