@@ -94,6 +94,7 @@ export const wechat: PlatformConfig = {
     },
     'ant-selector': {
       onSelectMin: 'bind:selectmin',
+      onSelectMax: 'bind:selectmax',
     },
     uploader: {
       onPreview: 'bind:preview',

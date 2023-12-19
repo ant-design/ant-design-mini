@@ -52,6 +52,20 @@ describe('Selector Test', () => {
       await selectByValue(3);
       expect(instance.getData().mixin.value).toEqual([1, 2]);
     });
+
+    it('测试 onSelectMax', async () => {
+      const { selectByValue, onSelectMax } = createSelector({
+        defaultValue: [1, 2],
+        multiple: true,
+        maxSelectedCount: 2,
+      });
+      await selectByValue(3);
+      expect(onSelectMax.mock.lastCall).toEqual([
+        3,
+        { text: '3', value: 3 },
+        fmtEvent({}),
+      ]);
+    });
   });
 
   describe('单选', () => {

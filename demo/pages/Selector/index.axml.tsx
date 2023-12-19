@@ -17,6 +17,17 @@ export default ({ items1, items2, items3, value }) => (
       <AntSelector defaultValue={['1', '2']} options={items1} multiple />
     </AntContainer>
 
+    <AntContainer title="多选 (最少选 2 个 最多选 4 个)">
+      <AntSelector
+        defaultValue={['1']}
+        options={items1}
+        multiple
+        maxSelectedCount={4}
+        minSelectedCount={2}
+        onSelectMax="onSelectMax"
+      />
+    </AntContainer>
+
     <AntContainer title="全禁用">
       <AntSelector value={['1', '2']} options={items1} disabled multiple />
     </AntContainer>
