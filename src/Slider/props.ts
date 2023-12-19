@@ -18,7 +18,7 @@ export interface ISliderProps extends IBaseProps {
    * @description 是否禁用
    * @default false
    */
-  disabled: boolean;
+  disabled?: boolean;
 
   /**
    * @description 最大值

@@ -15,4 +15,5 @@
   <text wx:else>3</text>
   <text class="{{ a ? '1' : '2' }}" />
   <text class="1 {{ a ? '1' + '2' : 2 }} 2" />
+  <view>{{ a || b }}</view>
 </view>

@@ -130,14 +130,14 @@ export function transformJSXElement(ctx: ITransformContext) {
       return transformJSXElement(ctx.extends(ctx.node.expression));
     }
     case 'LogicalExpression': {
-      if (ctx.node.operator !== '&&') {
-        throw ctx.throw(ctx.node);
+      if (ctx.node.operator === '&&') {
+        return transformJSXElement(
+          ctx.extends(ctx.node.right, {
+            [ctx.if()]: ctx.extends(ctx.node.left).toAxmlExpression(true),
+          })
+        );
       }
-      return transformJSXElement(
-        ctx.extends(ctx.node.right, {
-          [ctx.if()]: ctx.extends(ctx.node.left).toAxmlExpression(true),
-        })
-      );
+      return ctx.extends(ctx.node).toAxmlExpression(true);
     }
     case 'CallExpression': {
       if (ctx.node.callee.type !== 'MemberExpression') {

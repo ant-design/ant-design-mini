@@ -8,7 +8,12 @@ export interface FormItemProps extends IBaseProps {
   position: 'horizontal' | 'vertical';
   validateStatus: ValidateStatus;
   help: string;
-  requiredMark: 'asterisk' | 'text-required' | 'text-optional',
+  requiredMark: 'asterisk' | 'text-required' | 'text-optional';
+  status: 'default' | 'success' | 'error' | 'validating';
+  errors: string[];
+  tooltip?: string;
+  required?: boolean;
+  disabled?: boolean;
 }
 
 export const FormItemDefaultProps: Partial<FormItemProps> = {

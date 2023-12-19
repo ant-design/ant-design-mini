@@ -65,7 +65,8 @@ export interface ISelectorProps extends IBaseProps {
    * @description 最大选择数量
    */
   maxSelectedCount: number;
-  disabled: boolean;
+
+  disabled?: boolean;
 
   onChange?(
     value: Value | Value[] | undefined,
