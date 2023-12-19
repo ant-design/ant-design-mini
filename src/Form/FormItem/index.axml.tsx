@@ -56,12 +56,13 @@ export default (
           <View class={`ant-form-item-field ant-form-item-field-${position}`}>
             <Slot />
             {(help ||
-              validateStatus === 'error' ||
-              (!validateStatus && status === 'error')) && (
+              ((validateStatus === 'error' ||
+                typeof validateStatus === 'undefined') &&
+                status === 'error')) && (
               <View
                 class={`${
                   validateStatus === 'error' ||
-                  (!validateStatus && status === 'error')
+                  (typeof validateStatus === 'undefined' && status === 'error')
                     ? 'ant-form-item-error-info'
                     : 'ant-form-item-help-info'
                 } ant-form-item-error-info-${position}`}
