@@ -91,7 +91,6 @@ export default (
       onOk="onOk"
       onVisibleChange="onVisibleChange"
       maskClosable={maskClosable}
-      onFormat="onFormat"
     >
       <View class="ant-range-picker-selector" slot="content-header">
         <Template
