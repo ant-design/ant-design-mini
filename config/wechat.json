@@ -57,10 +57,7 @@
     "Checkbox",
     "DatePicker",
     "ImageUpload",
-<<<<<<< HEAD
-    "Radio"
-=======
+    "Radio",
     "Rate"
->>>>>>> 58861dfb (feat: rate 适配微信)
   ]
 }
