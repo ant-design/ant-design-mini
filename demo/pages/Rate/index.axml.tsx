@@ -29,9 +29,18 @@ export default ({ value }: InternalData) => (
     </AntContainer>
 
     <AntContainer title="受控模式">
-      <AntRate value={value} onChange="handleChange" />
-      <View style="margin-top: 8px">
-        <AntStepper value={value} min={0} max={5} onChange="handleChange" />
+      <View style="display: flex;justify-content: space-around;">
+        <View>
+          <AntRate value={value} onChange="handleChange" />
+
+          <View style="margin-top: 8px">
+            <AntStepper value={value} min={0} max={5} onChange="handleChange" />
+          </View>
+        </View>
+        <View>
+          <AntRate value={value} />
+          <View class="description">无 onChange 函数</View>
+        </View>
       </View>
     </AntContainer>
   </Component>
