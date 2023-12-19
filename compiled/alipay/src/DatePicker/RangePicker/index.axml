@@ -40,8 +40,7 @@
   onCancel="onCancel"
   onOk="onOk"
   onVisibleChange="onVisibleChange"
-  maskClosable="{{ maskClosable }}"
-  onFormat="onFormat">
+  maskClosable="{{ maskClosable }}">
   <view
     class="ant-range-picker-selector"
     slot="content-header">
