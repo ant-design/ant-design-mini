@@ -40,7 +40,7 @@ export interface ICascaderProps extends IBaseProps {
   /**
    * @description 是否禁用
    */
-  disabled: boolean;
+  disabled?: boolean;
   /**
    * @description 标题
    */

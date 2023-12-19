@@ -3,7 +3,7 @@ import { IBaseProps } from '../../_util/base';
 export interface ICheckboxGroupProps extends IBaseProps {
   value: string[];
   defaultValue: string[];
-  disabled: boolean;
+  disabled?: boolean;
   position: 'horizontal' | 'vertical';
   color: string;
   options: {

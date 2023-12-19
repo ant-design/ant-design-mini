@@ -3,5 +3,4 @@ import { ISelectorProps } from '../../Selector/props';
 
 export interface FormSelectorProps extends ISelectorProps, FormItemProps {}
 
-export const FormSelectorDefaultProps: Partial<FormSelectorProps> = {
-};
+export const FormSelectorDefaultProps: Partial<FormSelectorProps> = {};
