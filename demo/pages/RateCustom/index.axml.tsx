@@ -37,7 +37,7 @@ export default ({ rate }: InternalData) => (
       <View class="description">渐变</View>
     </AntContainer>
 
-    {/* #if WECHAT */}
+    {/* #if ALIPAY */}
     <AntContainer title="自定义图标">
       <AntRate defaultValue={3}>
         <AntIcon slot="character" type="HeartFill" />
