@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/RadioGroup",
+    "pages/RateCustom",
     "pages/Radio",
     "pages/Rate",
     "pages/ImageUploadControl",
