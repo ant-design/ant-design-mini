@@ -16,7 +16,11 @@ export const PickerView = (props: Props): any => {};
 
 export const ScrollView = (props: Props): any => {};
 
-export const Slot = (props: Props): any => {};
+type AnyProps = {
+  [key: string]: any;
+};
+
+export const Slot = (props: AnyProps): any => {};
 
 export const Block = (props: Props): any => {};
 
