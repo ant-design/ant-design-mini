@@ -15,6 +15,16 @@
     multiple />
 </ant-container>
 
+<ant-container title="多选 (最少选 2 个 最多选 4 个)">
+  <ant-selector
+    defaultValue="{{ ['1'] }}"
+    options="{{ items1 }}"
+    multiple
+    maxSelectedCount="{{ 4 }}"
+    minSelectedCount="{{ 2 }}"
+    onSelectMax="onSelectMax" />
+</ant-container>
+
 <ant-container title="全禁用">
   <ant-selector
     value="{{ ['1', '2'] }}"

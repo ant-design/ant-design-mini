@@ -42,7 +42,7 @@ const Selector = (props: ISelectorProps) => {
           currentValue.length >= maxSelectedCount
         ) {
           triggerEventValues(
-            'onSelectMax',
+            'selectMax',
             [value, options.find((v) => v.value === value)],
             e
           );

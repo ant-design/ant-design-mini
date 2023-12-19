@@ -36,7 +36,7 @@ var Selector = function (props) {
             else {
                 if (typeof maxSelectedCount === 'number' &&
                     currentValue_1.length >= maxSelectedCount) {
-                    triggerEventValues('onSelectMax', [value, options.find(function (v) { return v.value === value; })], e);
+                    triggerEventValues('selectMax', [value, options.find(function (v) { return v.value === value; })], e);
                     return;
                 }
                 currentValue_1 = __spreadArray(__spreadArray([], currentValue_1, true), [value], false);
