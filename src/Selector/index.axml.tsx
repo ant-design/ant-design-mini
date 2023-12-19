@@ -32,9 +32,7 @@ export default (
               item.disabled ? 'ant-selector-item-disabled' : ''
             } ${
               util.getChecked(item.value, mixin.value, multiple)
-                ? `ant-selector-item-active ${
-                    activeItemClassName ? activeItemClassName : ''
-                  }`
+                ? 'ant-selector-item-active ' + (activeItemClassName || '')
                 : ''
             }`}
             style={

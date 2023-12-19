@@ -1,44 +1,44 @@
-import Selector from '../../../src/Selector/index.axml';
-import Container from '../../../src/Container/index.axml';
-import Button from '../../../src/Button/index.axml';
+import AntSelector from '../../../src/Selector/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 import { Page } from 'tsxml';
 
 export default ({ items1, items2, items3, value }) => (
   <Page>
-    <Container title="单选">
-      <Selector options={items1} />
-    </Container>
+    <AntContainer title="单选">
+      <AntSelector options={items1} />
+    </AntContainer>
 
-    <Container title="单选-选项带有副标题">
-      <Selector defaultValue="2" options={items2} />
-    </Container>
+    <AntContainer title="单选-选项带有副标题">
+      <AntSelector defaultValue="2" options={items2} />
+    </AntContainer>
 
-    <Container title="多选">
-      <Selector defaultValue={['1', '2']} options={items1} multiple />
-    </Container>
+    <AntContainer title="多选">
+      <AntSelector defaultValue={['1', '2']} options={items1} multiple />
+    </AntContainer>
 
-    <Container title="全禁用">
-      <Selector value={['1', '2']} options={items1} disabled multiple />
-    </Container>
+    <AntContainer title="全禁用">
+      <AntSelector value={['1', '2']} options={items1} disabled multiple />
+    </AntContainer>
 
-    <Container title="部分禁用">
-      <Selector defaultValue={['1', '2']} options={items3} multiple />
-    </Container>
+    <AntContainer title="部分禁用">
+      <AntSelector defaultValue={['1', '2']} options={items3} multiple />
+    </AntContainer>
 
-    <Container title="受控模式">
-      <Selector value={value} options={items1} onChange="handleChange" />
-      <Button size="large" onTap="handleChangeValue">
+    <AntContainer title="受控模式">
+      <AntSelector value={value} options={items1} onChange="handleChange" />
+      <AntButton size="large" onTap="handleChangeValue">
         改变选中值为选项三
-      </Button>
-    </Container>
+      </AntButton>
+    </AntContainer>
 
-    <Container title="单选-不允许清空">
-      <Selector
+    <AntContainer title="单选-不允许清空">
+      <AntSelector
         defaultValue="1"
         minSelectedCount={1}
         onSelectMin="onSelectMin"
         options={items1}
       />
-    </Container>
+    </AntContainer>
   </Page>
 );

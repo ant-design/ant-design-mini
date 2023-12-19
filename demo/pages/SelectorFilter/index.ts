@@ -51,7 +51,7 @@ Page({
   },
   onTapItem(e) {
     console.log(e);
-    const { index } = e.target.dataset;
+    const { index } = e.currentTarget.dataset;
     const { currentOpen } = this.data;
     let value = index;
     if (currentOpen === index) {

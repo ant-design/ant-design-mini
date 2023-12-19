@@ -23,13 +23,31 @@ Page({
     });
   },
   handleChange(value, items, e) {
+    /// #if WECHAT
+    this.setData({
+      value: value.detail[0],
+    });
+    /// #endif
+    /// #if ALIPAY
     this.setData({
       value,
     });
+    /// #endif
     console.log(value, items, e);
   },
   onSelectMin(value, item) {
     console.log(value, item);
+
+    /// #if WECHAT
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    wx.showModal({
+      content: '不允许清空',
+    });
+    /// #endif
+
+    /// #if ALIPAY
     my.alert({ content: '不允许清空' });
+    /// #endif
   },
 });

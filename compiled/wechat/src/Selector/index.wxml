@@ -1,15 +1,15 @@
-<import-sjs
-  from="./index.sjs"
-  name="util" />
+<wxs
+  src="./index.wxs"
+  module="util" />
 
 <view
   class="ant-selector {{ className ? className : '' }} {{ disabled ? 'ant-selector-disabled' : '' }}"
   style="{{ style }}">
   <view class="ant-selector-content-container">
     <block
-      a:for="{{ options }}"
-      a:for-index="index"
-      a:for-item="item">
+      wx:for="{{ options }}"
+      wx:for-index="index"
+      wx:for-item="item">
       <view
         class="ant-selector-content {{ options.length <= 2 ? 'ant-selector-content-item2' : '' }}">
         <view
@@ -17,19 +17,19 @@
           style="{{ util.getChecked(item.value, mixin.value, multiple) ? activeItemStyle || '' : '' }}"
           data-value="{{ item.value }}"
           data-disabled="{{ item.disabled }}"
-          onTap="onChange">
+          bind:tap="onChange">
           <view
-            a:if="{{ item.text }}"
+            wx:if="{{ item.text }}"
             class="ant-selector-item-text">
             {{ item.text }}
           </view>
           <view
-            a:if="{{ item.subText }}"
+            wx:if="{{ item.subText }}"
             class="ant-selector-item-subtext">
             {{ item.subText }}
           </view>
           <view
-            a:if="{{ util.getChecked(item.value, mixin.value, multiple) }}"
+            wx:if="{{ util.getChecked(item.value, mixin.value, multiple) }}"
             class="ant-selector-item-badge-active" />
         </view>
       </view>

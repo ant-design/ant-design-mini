@@ -13,17 +13,19 @@ const Selector = (props: ISelectorProps) => {
     }
   );
   const { triggerEventValues } = useComponentEvent(props);
+
   useEvent('onChange', (e) => {
     const { disabled, value } = e.currentTarget.dataset;
     const { multiple, options, maxSelectedCount, minSelectedCount } = props;
     if (disabled || props.disabled) {
       return;
     }
+
     if (multiple) {
       let currentValue = (selectorValue as Value[]) || [];
       if (currentValue.indexOf(value) > -1) {
         if (
-          !isNaN(minSelectedCount) &&
+          typeof minSelectedCount === 'number' &&
           currentValue.length <= minSelectedCount
         ) {
           triggerEventValues(
@@ -36,7 +38,7 @@ const Selector = (props: ISelectorProps) => {
         currentValue = currentValue.filter((v) => v !== value);
       } else {
         if (
-          !isNaN(maxSelectedCount) &&
+          typeof maxSelectedCount === 'number' &&
           currentValue.length >= maxSelectedCount
         ) {
           triggerEventValues(
