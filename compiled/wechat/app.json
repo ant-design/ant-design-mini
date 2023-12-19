@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/RateCustom/index",
     "demo/pages/RadioGroup/index",
     "demo/pages/Radio/index",
     "demo/pages/Rate/index",

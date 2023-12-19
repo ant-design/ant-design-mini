@@ -27,3 +27,6 @@
   width: 50%;
   overflow: hidden;
 }
+.ant-rate .ant-icon {
+  font-size: unset;
+}

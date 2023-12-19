@@ -18,11 +18,11 @@
         <view
           wx:if="{{ allowHalf && mixin.value === index + 0.5 }}"
           class="ant-rate-star-icon-active {{ characterClassName || '' }} {{ characterActiveClassName || '' }} ant-rate-star-icon-half-active">
-          <icon type="StarFill" />
+          <ant-icon type="StarFill" />
         </view>
         <view
           class="ant-rate-star-icon {{ mixin.value >= index + 1 ? 'ant-rate-star-icon-active' + ' ' + (characterClassName || '') + ' ' + (characterActiveClassName || '') : characterClassName }}">
-          <icon type="StarFill" />
+          <ant-icon type="StarFill" />
         </view>
       </view>
     </block>

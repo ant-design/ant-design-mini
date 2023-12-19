@@ -22,7 +22,7 @@
             name="character"
             index="{{ index }}"
             isActive="{{ true }}">
-            <icon type="StarFill" />
+            <ant-icon type="StarFill" />
           </slot>
         </view>
         <view
@@ -30,7 +30,7 @@
           <slot
             name="character"
             index="{{ index }}">
-            <icon type="StarFill" />
+            <ant-icon type="StarFill" />
           </slot>
         </view>
       </view>

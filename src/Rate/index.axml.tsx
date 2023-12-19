@@ -1,5 +1,5 @@
 import { View, Slot, TSXMLProps, InternalData } from 'tsxml';
-import Icon from '../Icon/index.axml';
+import AntIcon from '../Icon/index.axml';
 import { IRateProps } from './props';
 
 export default (
@@ -40,7 +40,7 @@ export default (
                 {/* #if ALIPAY */}
                 <Slot name="character" index={index} isActive={true}>
                   {/* #endif */}
-                  <Icon type="StarFill" />
+                  <AntIcon type="StarFill" />
                   {/* #if ALIPAY */}
                 </Slot>
                 {/* #endif */}
@@ -60,7 +60,7 @@ export default (
               {/* #if ALIPAY */}
               <Slot name="character" index={index}>
                 {/* #endif */}
-                <Icon type="StarFill" />
+                <AntIcon type="StarFill" />
                 {/* #if ALIPAY */}
               </Slot>
               {/* #endif */}

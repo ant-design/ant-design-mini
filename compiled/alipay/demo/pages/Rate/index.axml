@@ -36,14 +36,23 @@
 </ant-container>
 
 <ant-container title="受控模式">
-  <ant-rate
-    value="{{ value }}"
-    onChange="handleChange" />
-  <view style="margin-top: 8px">
-    <ant-stepper
-      value="{{ value }}"
-      min="{{ 0 }}"
-      max="{{ 5 }}"
-      onChange="handleChange" />
+  <view style="display: flex; justify-content: space-around">
+    <view>
+      <ant-rate
+        value="{{ value }}"
+        onChange="handleChange" />
+
+      <view style="margin-top: 8px">
+        <ant-stepper
+          value="{{ value }}"
+          min="{{ 0 }}"
+          max="{{ 5 }}"
+          onChange="handleChange" />
+      </view>
+    </view>
+    <view>
+      <ant-rate value="{{ value }}" />
+      <view class="description">无 onChange 函数</view>
+    </view>
   </view>
 </ant-container>
