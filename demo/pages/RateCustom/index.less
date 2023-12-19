@@ -5,7 +5,13 @@
 }
 
 .star-active {
+  /// #if ALIPAY
   color: red;
+  /// #endif
+
+  /// #if WECHAT
+  color: red !important;
+  /// #endif
 }
 
 .description {

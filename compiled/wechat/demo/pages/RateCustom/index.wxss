@@ -2,7 +2,7 @@
   color: #767676;
 }
 .star-active {
-  color: red;
+  color: red !important;
 }
 .description {
   margin: 4px 0 16px 0;
