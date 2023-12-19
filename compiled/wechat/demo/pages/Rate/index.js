@@ -8,7 +8,7 @@ Page({
     handleChange: function (value) {
         console.log(value);
         this.setData({
-            value: value,
+            value: value.detail,
         });
     },
 });

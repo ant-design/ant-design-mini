@@ -37,11 +37,18 @@ const Rate = (props: IRateProps) => {
     false
   );
   const instance = useComponent();
+
+  function getInstance() {
+    if (instance.$id) {
+      return my;
+    }
+    return instance;
+  }
   async function getRate(clientX: number) {
     const { gutter, count } = props;
     const { left, width } = await getInstanceBoundingClientRect(
-      my,
-      `#ant-rate-container-${instance.$id}`
+      getInstance(),
+      `#ant-rate-container${instance.$id ? `-${instance.$id}` : ''}`
     );
     const halfRateWidth = (width - (count - 1) * gutter) / count / 2;
     const num = clientX - left;
@@ -65,8 +72,10 @@ const Rate = (props: IRateProps) => {
     if (props.readonly) {
       return;
     }
-    const { clientX } = e.detail;
-    let rate = await getRate(clientX);
+    const { clientX, x } = e.detail;
+
+    const clickX = typeof x === 'number' ? x : clientX;
+    let rate = await getRate(clickX);
     if (rateValue === rate && props.allowClear) {
       rate = 0;
     }

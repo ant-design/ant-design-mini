@@ -2,6 +2,7 @@
   "pages": [
     "pages/RadioGroup",
     "pages/Radio",
+    "pages/Rate",
     "pages/ImageUploadControl",
     "pages/ImageUpload",
     "pages/Slider",
@@ -56,6 +57,7 @@
     "Checkbox",
     "DatePicker",
     "ImageUpload",
-    "Radio"
+    "Radio",
+    "Rate"
   ]
 }
