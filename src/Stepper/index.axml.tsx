@@ -13,8 +13,9 @@ export default (
     inputStyle,
     type,
     max,
+    focus,
   }: TSXMLProps<IStepperProps>,
-  { mixin, enableNative, alwaysSystem, confirmType, confirmHold, focus }
+  { mixin, enableNative, alwaysSystem, confirmType, confirmHold }
 ) => (
   <View class={`ant-stepper ${className ? className : ''}`} style={style}>
     <AntButton

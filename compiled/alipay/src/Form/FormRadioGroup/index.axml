@@ -1,23 +1,23 @@
 <form-item
-  className="{{className}}"
-  position="{{position}}"
-  label="{{label}}"
-  labelWidth="{{labelWidth}}"
-  status="{{formData.status}}"
-  errors="{{formData.errors}}"
-  tooltip="{{tooltip}}"
-  required="{{formData.required}}"
-  requiredMark="{{requiredMark}}"
-  validateStatus="{{validateStatus}}"
-  help="{{help}}">
+  className="{{ className }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  labelWidth="{{ labelWidth }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
   <view>
     <radio-group
-      options="{{options}}"
-      value="{{formData.value}}"
+      options="{{ options }}"
+      value="{{ formData.value }}"
       onChange="onChange"
-      color="{{color}}"
-      disabled="{{disabled}}"
-      position="{{radioPosition}}">
+      color="{{ color }}"
+      disabled="{{ disabled }}"
+      position="{{ radioPosition }}">
       <slot
         name="radioLabel"
         slot="label"
@@ -26,9 +26,11 @@
         index="{{props.index}}" />
     </radio-group>
   </view>
+
   <view slot="extra">
-    <slot name="extra">{{extra}}</slot>
+    <slot name="extra">{{ extra }}</slot>
   </view>
+
   <view
     slot="header"
     slot-scope="item">
@@ -37,6 +39,7 @@
       errors="{{item.errors}}"
       status="{{item.status}}" />
   </view>
+
   <view
     slot="footer"
     slot-scope="item">

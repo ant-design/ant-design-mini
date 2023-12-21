@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "form-item": "../FormItem/index",
-    "input": "../../Input/index"
+    "ant-input": "../../Input/index"
   }
 }
