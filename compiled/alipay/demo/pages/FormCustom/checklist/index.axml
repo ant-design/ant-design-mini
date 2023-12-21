@@ -3,7 +3,7 @@
   name="utils" />
 
 <form-item
-  class="{{ className }}"
+  className="{{ className }}"
   position="{{ position }}"
   label="{{ label }}"
   status="{{ formData.status }}"
@@ -20,8 +20,7 @@
       <block
         a:for="{{ formData.value }}"
         a:for-index="index"
-        a:for-item="item"
-        a:key="{{ item }}">
+        a:for-item="item">
         <view class="input-item">{{ utils.getTitle(options, item) }}</view>
       </block>
     </view>
@@ -38,8 +37,8 @@
 
 <popup
   visible="{{ visible }}"
-  height="250"
-  width="250"
+  height="{{ 250 }}"
+  width="{{ 250 }}"
   position="right"
   onClose="handlePopupClose">
   <view style="padding: 12px">

@@ -17,10 +17,14 @@ export default ({
   visible,
   options,
   extra,
-}) => (
+  name,
+  required,
+  message,
+  ref,
+}: any) => (
   <Page>
     <FormItem
-      class={className}
+      className={className}
       position={position}
       label={label}
       status={formData.status}
@@ -34,9 +38,7 @@ export default ({
       <View class="input" onTap="showPopup">
         <View class="input-items">
           {formData.value.map((item) => (
-            <View class="input-item" key={item}>
-              {utils.getTitle(options, item)}
-            </View>
+            <View class="input-item">{utils.getTitle(options, item)}</View>
           ))}
         </View>
 
@@ -58,8 +60,8 @@ export default ({
 
     <Popup
       visible={visible}
-      height="250"
-      width="250"
+      height={250}
+      width={250}
       position="right"
       onClose="handlePopupClose"
     >

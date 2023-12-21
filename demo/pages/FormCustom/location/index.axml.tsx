@@ -1,4 +1,4 @@
-import { Page, View, Slot } from 'tsxml';
+import { Component, View, Slot } from 'tsxml';
 import FormItem from '../../../../src/Form/FormItem/index.axml';
 import Icon from '../../../../src/Icon/index.axml';
 
@@ -12,8 +12,12 @@ export default ({
   validateStatus,
   help,
   extra,
-}) => (
-  <Page>
+  name,
+  required,
+  message,
+  ref,
+}: any) => (
+  <Component>
     <FormItem
       className={className}
       position={position}
@@ -47,5 +51,5 @@ export default ({
         {/* #endif */}
       </View>
     </FormItem>
-  </Page>
+  </Component>
 );

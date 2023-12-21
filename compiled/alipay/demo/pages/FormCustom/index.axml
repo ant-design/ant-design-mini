@@ -5,7 +5,7 @@
   placeholder="请输入用户名"
   position="vertical"
   inputClassName="input"
-  ref="{{ handleRef }}" />
+  ref="handleRef" />
 
 <form-checklist
   label="喜欢"
@@ -14,7 +14,7 @@
   message="需要选择"
   options="{{ likeOptions }}"
   position="vertical"
-  ref="{{ handleRef }}" />
+  ref="handleRef" />
 
 <form-location
   label="位置"

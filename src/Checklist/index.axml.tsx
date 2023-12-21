@@ -5,13 +5,7 @@ import AntIcon from '../Icon/index.axml';
 import utils from './index.sjs';
 
 export default (
-  {
-    className,
-    style,
-    multiple,
-    options,
-    onChange,
-  }: TSXMLProps<IChecklistProps>,
+  { className, style, multiple, options }: TSXMLProps<IChecklistProps>,
   { mixin }: InternalData
 ) => (
   <Component>
@@ -21,7 +15,7 @@ export default (
           <AntChecklistItem
             checked={utils.getChecked(item.value, mixin.value, multiple)}
             item={item}
-            onChange={onChange}
+            onChange="onChange"
           >
             <View slot="content" class="ant-checklist-item-content-box-nut">
               {/* #if ALIPAY */}

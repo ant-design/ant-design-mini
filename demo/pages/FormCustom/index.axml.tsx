@@ -1,7 +1,7 @@
 import { Page, View } from 'tsxml';
 import FormInput from '../../../src/Form/FormInput/index.axml';
-import FormChecklist from './checklist.axml';
-import FormLocation from './location.axml';
+import FormChecklist from './checklist/index.axml';
+import FormLocation from './location/index.axml';
 import Button from '../../../src/Button/index.axml';
 
 export default ({ likeOptions, handleRef }) => (
@@ -13,7 +13,7 @@ export default ({ likeOptions, handleRef }) => (
       placeholder="请输入用户名"
       position="vertical"
       inputClassName="input"
-      ref={handleRef}
+      ref="handleRef"
     />
 
     <FormChecklist
@@ -23,7 +23,7 @@ export default ({ likeOptions, handleRef }) => (
       message="需要选择"
       options={likeOptions}
       position="vertical"
-      ref={handleRef}
+      ref="handleRef"
     />
 
     <FormLocation

@@ -9,8 +9,8 @@ export default ({ item, checked }: TSXMLProps<IChecklistItemProps>) => (
       hover-class={
         item.disabled || item.readonly ? '' : 'ant-checklist-item-hover'
       }
-      hover-start-time="20"
-      hover-stay-time="40"
+      hover-start-time={20}
+      hover-stay-time={40}
     >
       <View
         class={`ant-checklist-item-content ${

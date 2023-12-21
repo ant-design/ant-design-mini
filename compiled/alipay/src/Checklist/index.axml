@@ -13,7 +13,7 @@
       <ant-checklist-item
         checked="{{ utils.getChecked(item.value, mixin.value, multiple) }}"
         item="{{ item }}"
-        onChange="{{ onChange }}">
+        onChange="onChange">
         <view
           slot="content"
           class="ant-checklist-item-content-box-nut">
