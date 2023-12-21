@@ -14,6 +14,7 @@ export interface FormItemProps extends IBaseProps {
   tooltip?: string;
   required?: boolean;
   disabled?: boolean;
+  extra?: string;
 }
 
 export const FormItemDefaultProps: Partial<FormItemProps> = {

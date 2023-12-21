@@ -7,7 +7,6 @@
     "dev": "tsx ./scripts/dev.ts",
     "build:tsxml": "tsx ./scripts/compile-tsxml.ts",
     "transform": "tsx ./scripts/transform.ts",
-    "copy": "tsx ./scripts/copy.ts",
     "generate": "tsx ./scripts/generate.ts",
     "dev:doc": "node ./scripts/dev-doc.js",
     "build": "npm run build:tsxml && node ./scripts/build.js",

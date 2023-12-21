@@ -1,6 +1,7 @@
 import * as ofs from 'fs';
 import * as fs from 'fs/promises';
 import * as path from 'path';
+import { copyDirSourceCode } from './copy';
 
 const folder = process.argv[2];
 
@@ -9,6 +10,7 @@ const rootDir = path.resolve(__dirname, '..');
 const sourceDir = path.resolve(rootDir, folder);
 
 (async () => {
+  copyDirSourceCode(sourceDir);
   const stat = await fs.stat(sourceDir);
   if (!stat.isDirectory()) {
     console.log(folder, 'is not a directory');
