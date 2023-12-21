@@ -57,6 +57,8 @@ export interface IStepperProps extends IBaseProps {
    */
   defaultValue: number;
 
+  focus?: boolean;
+
   /**
    *
    * @description onChange
