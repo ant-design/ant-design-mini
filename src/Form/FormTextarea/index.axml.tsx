@@ -1,6 +1,6 @@
 import { Component, View, Slot, InternalData } from 'tsxml';
 import FormItem from '../FormItem/index.axml';
-import Textarea from '../../Input/Textarea/index.axml';
+import AntTextarea from '../../Input/Textarea/index.axml';
 import { FormTextareaProps } from './props';
 
 export default (
@@ -40,7 +40,7 @@ export default (
       validateStatus={validateStatus}
       help={help}
     >
-      <Textarea
+      <AntTextarea
         ref="handleRef"
         allowClear={allowClear}
         enableNative={enableNative}

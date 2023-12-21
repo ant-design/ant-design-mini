@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "form-item": "../FormItem/index",
-    "textarea": "../../Input/Textarea/index"
+    "ant-textarea": "../../Input/Textarea/index"
   }
 }

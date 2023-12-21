@@ -10,7 +10,7 @@
   requiredMark="{{ requiredMark }}"
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
-  <textarea
+  <ant-textarea
     ref="handleRef"
     allowClear="{{ allowClear }}"
     enableNative="{{ enableNative }}"
@@ -18,7 +18,7 @@
     placeholder="{{ placeholder }}"
     placeholderClassName="{{ placeholderClassName }}"
     placeholderStyle="{{ placeholderStyle }}"
-    maxlength="{{ maxLength }}"
+    maxLength="{{ maxLength }}"
     autoHeight="{{ autoHeight }}"
     showCount="{{ showCount }}"
     onChange="onChange"
