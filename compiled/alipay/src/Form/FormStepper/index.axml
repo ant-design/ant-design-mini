@@ -11,8 +11,6 @@
   requiredMark="{{ requiredMark }}"
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
-  <slot name="header" />
-  <slot name="footer" />
   <view>
     <stepper
       value="{{ formData.value }}"

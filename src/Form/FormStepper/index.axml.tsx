@@ -43,8 +43,6 @@ export default (
       validateStatus={validateStatus}
       help={help}
     >
-      <Slot name="header"></Slot>
-      <Slot name="footer"></Slot>
       <View>
         <Stepper
           value={formData.value}

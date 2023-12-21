@@ -25,7 +25,9 @@
     onBlur="onBlur"
     onFocus="onFocus"
     onConfirm="onConfirm" />
-  <slot name="extra">{{ extra }}</slot>
+  <view slot="extra">
+    <slot name="extra">{{ extra }}</slot>
+  </view>
   <view
     slot="header"
     slot-scope="item">
