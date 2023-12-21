@@ -37,6 +37,7 @@ export default (
     extra,
     arrow,
     validateStatus,
+    help,
   }: TSXMLProps<FormRangePickerProps>,
   { formData, item }: InternalData
 ) => (
@@ -52,7 +53,7 @@ export default (
       required={formData.required}
       requiredMark={requiredMark}
       validateStatus={validateStatus}
-      help={formData.help}
+      help={help}
     >
       <View>
         <RangePicker
