@@ -2,9 +2,9 @@ import { Page, View } from 'tsxml';
 import FormInput from '../../../src/Form/FormInput/index.axml';
 import FormChecklist from './checklist/index.axml';
 import FormLocation from './location/index.axml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 
-export default ({ likeOptions, handleRef }) => (
+export default ({ likeOptions }) => (
   <Page>
     <FormInput
       label="用户名"
@@ -32,16 +32,16 @@ export default ({ likeOptions, handleRef }) => (
       required
       message="需要选择位置"
       position="vertical"
-      ref={handleRef}
+      ref="handleRef"
     />
 
     <View class="buttons">
-      <Button type="primary" onTap="submit" className="button">
+      <AntButton type="primary" onTap="submit" className="button">
         提交
-      </Button>
-      <Button onTap="reset" className="button">
+      </AntButton>
+      <AntButton onTap="reset" className="button">
         重置
-      </Button>
+      </AntButton>
     </View>
   </Page>
 );
