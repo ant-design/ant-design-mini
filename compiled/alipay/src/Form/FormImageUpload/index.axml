@@ -22,7 +22,7 @@
     onBeforeUpload="onBeforeUpload"
     onChooseImageError="onChooseImageError" />
   <view slot="extra">
-    <slot name="extra">{{ formData.extra }}</slot>
+    <slot name="extra">{{ extra }}</slot>
   </view>
   <view
     slot="header"

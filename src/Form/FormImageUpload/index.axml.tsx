@@ -16,6 +16,7 @@ export default (
     maxCount,
     imageMode,
     sourceType,
+    extra,
   }: TSXMLProps<FormImageUploadProps>,
   { formData, item }: InternalData
 ) => (
@@ -49,7 +50,7 @@ export default (
         {/* #if ALIPAY */}
         <Slot name="extra">
           {/* #endif */}
-          {formData.extra}
+          {extra}
           {/* #if ALIPAY */}
         </Slot>
         {/* #endif */}
