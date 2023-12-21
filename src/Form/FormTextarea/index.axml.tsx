@@ -1,4 +1,4 @@
-import { Component, View, Slot, InternalData } from 'tsxml';
+import { Component, View, Slot, InternalData, TSXMLProps } from 'tsxml';
 import FormItem from '../FormItem/index.axml';
 import AntTextarea from '../../Input/Textarea/index.axml';
 import { FormTextareaProps } from './props';
@@ -23,7 +23,7 @@ export default (
     autoHeight,
     showCount,
     extra,
-  }: FormTextareaProps,
+  }: TSXMLProps<FormTextareaProps>,
   { formData, item }: InternalData
 ) => (
   <Component>

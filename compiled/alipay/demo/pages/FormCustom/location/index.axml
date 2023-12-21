@@ -1,25 +1,20 @@
-<import-sjs
-  from="./index.sjs"
-  name="utils" />
-
 <form-item
-  className="{{className}}"
-  position="{{position}}"
-  label="{{label}}"
-  status="{{formData.status}}"
-  errors="{{formData.errors}}"
-  tooltip="{{tooltip}}"
-  required="{{formData.required}}"
-  requiredMark="{{requiredMark}}"
-  validateStatus="{{validateStatus}}"
-  help="{{help}}">
+  className="{{ className }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
   <view
     class="input"
     onTap="showPopup">
     <view class="input-location">
-      <view a:if="{{formData.value}}">{{formData.value.name}}</view>
-
-      <view a:if="{{formData.value}}">{{formData.value.address}}</view>
+      <view a:if="{{ formData.value }}">{{ formData.value.name }}</view>
+      <view a:if="{{ formData.value }}">{{ formData.value.address }}</view>
     </view>
 
     <view class="choose">
@@ -28,6 +23,6 @@
     </view>
   </view>
   <view slot="extra">
-    <slot name="extra">{{extra}}</slot>
+    <slot name="extra">{{ extra }}</slot>
   </view>
 </form-item>
