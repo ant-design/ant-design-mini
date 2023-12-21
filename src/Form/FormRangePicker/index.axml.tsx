@@ -36,6 +36,7 @@ export default (
     indicatorClassName,
     extra,
     arrow,
+    validateStatus,
   }: TSXMLProps<FormRangePickerProps>,
   { formData, item }: InternalData
 ) => (
@@ -50,7 +51,7 @@ export default (
       tooltip={tooltip}
       required={formData.required}
       requiredMark={requiredMark}
-      validateStatus={formData.validateStatus}
+      validateStatus={validateStatus}
       help={formData.help}
       style={style}
     >
