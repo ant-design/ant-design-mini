@@ -56,7 +56,7 @@ export default (
       </View>
 
       <View slot="extra">
-        <Slot name="extra">{{ extra }}</Slot>
+        <Slot name="extra">{extra}</Slot>
       </View>
 
       <View slot="header" slot-scope="item">

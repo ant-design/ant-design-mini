@@ -84,15 +84,15 @@ export default (
           )}
         </Picker>
       </View>
-
-      {/* #if ALIPAY */}
-      <Slot name="extra" slot="extra">
-        {/* #endif */}
-        {extra}
+      <View slot="extra">
         {/* #if ALIPAY */}
-      </Slot>
-      {/* #endif */}
-
+        <Slot name="extra">
+          {/* #endif */}
+          {extra}
+          {/* #if ALIPAY */}
+        </Slot>
+        {/* #endif */}
+      </View>
       <View slot="header" slot-scope="item">
         <Slot name="header" errors={item.errors} status={item.status} />
       </View>

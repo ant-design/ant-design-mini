@@ -50,13 +50,9 @@
         slot="suffix" />
     </picker>
   </view>
-
-  <slot
-    name="extra"
-    slot="extra">
-    {{ extra }}
-  </slot>
-
+  <view slot="extra">
+    <slot name="extra">{{ extra }}</slot>
+  </view>
   <view
     slot="header"
     slot-scope="item">
