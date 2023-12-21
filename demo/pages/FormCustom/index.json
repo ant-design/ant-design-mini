@@ -4,6 +4,6 @@
     "form-input": "../../../src/Form/FormInput/index",
     "form-checklist": "./checklist",
     "form-location": "./location",
-    "button": "../../../src/Button/index"
+    "ant-button": "../../../src/Button/index"
   }
 }

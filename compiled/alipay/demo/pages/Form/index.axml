@@ -5,82 +5,69 @@
   tooltip="用户名说明"
   allowClear
   ref="handleRef" />
-
 <form-input
   label="地址"
   name="address"
   placeholder="请输入地址"
   allowClear
   ref="handleRef" />
-
 <form-switch
   label="选择"
   name="needDelivery"
   ref="handleRef" />
-
 <form-stepper
   label="数量"
   name="quantity"
   ref="handleRef" />
-
 <form-picker
   label="水果"
   arrow
   name="fruit"
-  options="{{fruitList}}"
+  options="{{ fruitList }}"
   ref="handleRef" />
-
 <form-date-picker
   label="出生日期"
   arrow
   name="birthday"
   ref="handleRef" />
-
 <form-range-picker
   label="时间范围"
   arrow
   name="range"
   ref="handleRef" />
-
 <form-cascader-picker
   label="城市"
   arrow
-  options="{{cityList}}"
+  options="{{ cityList }}"
   name="city"
   tooltip="选择城市"
   placeholder="请输入城市"
   ref="handleRef" />
-
 <form-radio-group
   label="动物单选"
   name="animalChoose"
-  options="{{radioGroupOptions}}"
+  options="{{ radioGroupOptions }}"
   ref="handleRef" />
-
 <form-checkbox-group
   label="蔬菜多选"
   name="fruitChoose"
-  options="{{checkboxGroupOptions}}"
+  options="{{ checkboxGroupOptions }}"
   ref="handleRef" />
-
 <form-selector
   label="喜好"
   name="likeChoose"
-  options="{{selectorOptions}}"
+  options="{{ selectorOptions }}"
   ref="handleRef" />
-
 <form-slider
   label="选择分数"
   name="slider"
   showTooltip
   ref="handleRef" />
-
 <form-upload-image
   label="图片"
   name="image"
   onUpload="onUpload"
   ref="handleRef" />
-
 <form-textarea
   label="说明"
   name="description"
@@ -88,12 +75,10 @@
   allowClear
   autoHeight
   ref="handleRef" />
-
 <form-rate
   label="评分"
   name="rate"
   ref="handleRef" />
-
 <view class="buttons">
   <button
     type="primary"

@@ -24,9 +24,12 @@ export interface ChecklistItem {
    * @description 可勾选项的值
    */
   value: string | number;
+
+  disabled?: boolean;
+  readonly?: boolean;
 }
 
-interface IChecklistProps extends IBaseProps {
+export interface IChecklistProps extends IBaseProps {
   /**
    * @description 默认值
    */
@@ -59,6 +62,5 @@ interface IChecklistProps extends IBaseProps {
 
 export const ChecklistDefaultProps: Partial<IChecklistProps> = {
   multiple: false,
-  options: []
+  options: [],
 };
-

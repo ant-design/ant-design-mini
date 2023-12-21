@@ -5,7 +5,7 @@ import { ChecklistItem } from '../props';
  * @description 可勾选列表单项
  */
 
-interface IChecklistItemProps extends IBaseProps {
+export interface IChecklistItemProps extends IBaseProps {
   item: ChecklistItem;
   checked: boolean;
   /**
@@ -14,5 +14,4 @@ interface IChecklistItemProps extends IBaseProps {
   onChange: (item: ChecklistItem) => void;
 }
 
-export const ChecklistItemDefaultProps: Partial<IChecklistItemProps> = {
-};
+export const ChecklistItemDefaultProps: Partial<IChecklistItemProps> = {};

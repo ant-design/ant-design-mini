@@ -1,7 +1,7 @@
 import { FormCheckboxGroupProps, FormCheckboxGroupDefaultProps } from './props';
 import FormItem from '../FormItem/index.axml';
 import CheckboxGroup from '../../Checkbox/CheckboxGroup/index.axml';
-import { InternalData, View, Slot } from 'tsxml';
+import { InternalData, View, Slot, TSXMLProps } from 'tsxml';
 
 export default (
   {
@@ -18,7 +18,7 @@ export default (
     disabled,
     checkboxPosition = FormCheckboxGroupDefaultProps.checkboxPosition,
     extra,
-  }: FormCheckboxGroupProps,
+  }: TSXMLProps<FormCheckboxGroupProps>,
   { formData, props, item }: InternalData
 ) => (
   <Component>
