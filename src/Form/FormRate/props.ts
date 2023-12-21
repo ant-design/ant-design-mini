@@ -1,9 +1,11 @@
 import { FormItemProps } from '../FormItem/props';
 import { IRateProps } from '../../Rate/props';
 
-
-export interface FormRateProps extends Omit<IRateProps, 'defaultValue'>, FormItemProps {
+export interface FormRateProps
+  extends Omit<IRateProps, 'defaultValue'>,
+    FormItemProps {
+  rateClassName?: string;
+  rateStyle?: string;
 }
 
-export const FormRateDefaultProps: Partial<FormRateProps> = {
-};
+export const FormRateDefaultProps: Partial<FormRateProps> = {};
