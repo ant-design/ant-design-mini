@@ -53,7 +53,6 @@ export default (
       requiredMark={requiredMark}
       validateStatus={validateStatus}
       help={formData.help}
-      style={style}
     >
       <View>
         <RangePicker
@@ -71,6 +70,7 @@ export default (
           maskClosable={maskClosable}
           maskStyle={maskStyle}
           popClassName={popClassName}
+          style={style}
           popStyle={popStyle}
           disabled={disabled}
           title={title}
