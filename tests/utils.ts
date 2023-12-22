@@ -33,6 +33,7 @@ interface Instance {
 }
 
 export interface TestInstance {
+  ref<T>(): T;
   componentInstance(): Instance;
   getData<T = Record<string, any>>(): T;
   setProps: (props: Record<string, any>) => void;
@@ -137,6 +138,13 @@ function createInstance(config: Instance, props: Record<string, any>, my: any) {
 
   return {
     componentInstance() {
+      return instance;
+    },
+    ref() {
+      const refFunc = (instance as any).ref;
+      if (typeof refFunc === 'function') {
+        return refFunc.call(instance);
+      }
       return instance;
     },
     getData() {

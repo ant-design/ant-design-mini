@@ -22,7 +22,7 @@ createComponent({
       }
     },
     onDismissPicker(e) {
-      if (this.props.onCancel) {
+      if (this.props.onDismissPicker) {
         this.props.onDismissPicker(fmtEvent(this.props, e));
       }
     },
