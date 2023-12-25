@@ -1,10 +1,6 @@
 import { FromItemRef, EventTrigger, Value, Values } from './form';
 
-function createComponent({
-  props = {},
-  data = {},
-  methods = {} as any,
-}) {
+function createComponent({ props = {}, data = {}, methods = {} as any }) {
   Component({
     props,
     data: {
@@ -24,8 +20,8 @@ function createComponent({
             formData: {
               ...this.data.formData,
               ...values,
-            }
-          })
+            },
+          });
         },
         getFormData: () => {
           return this.data.formData;
@@ -48,9 +44,8 @@ function createComponent({
     methods: {
       ...methods,
       emit(trigger: EventTrigger, value?: Value) {},
-    }
-  })
+    },
+  });
 }
 
 export default createComponent;
-

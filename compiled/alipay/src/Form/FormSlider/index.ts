@@ -12,10 +12,9 @@ createComponent({
       }
     },
     onAfterChange(value, e) {
-      // this.emit('onChange', value);
       if (this.props.onAfterChange) {
         this.props.onAfterChange(value, fmtEvent(this.props, e));
       }
     },
-  }
+  },
 });
