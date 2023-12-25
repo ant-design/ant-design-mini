@@ -2,23 +2,24 @@ import { FormTextareaDefaultProps } from './props';
 import { createForm } from '../form';
 import fmtEvent from '../../_util/fmtEvent';
 
-
 Component({
   props: FormTextareaDefaultProps,
-  mixins: [createForm({
-    methods: {
-      setFormData(this: any, values) {
-        this.setData({
-          ...this.data,
-          formData: {
-            ...this.data.formData,
-            ...values,
-          }
-        });
-        this.input.update(this.data.formData.value);  
+  mixins: [
+    createForm({
+      methods: {
+        setFormData(this: any, values) {
+          this.setData({
+            ...this.data,
+            formData: {
+              ...this.data.formData,
+              ...values,
+            },
+          });
+          this.input.update(this.data.formData.value);
+        },
       },
-    }
-  })],  
+    }),
+  ],
   methods: {
     handleRef(input) {
       this.input = input;
@@ -50,5 +51,5 @@ Component({
         this.props.onChange(value, fmtEvent(this.props, e));
       }
     },
-  }
+  },
 });
