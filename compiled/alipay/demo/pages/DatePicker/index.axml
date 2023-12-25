@@ -94,6 +94,14 @@
       onOk="handleRangeOk" />
   </ant-list-item>
   <ant-list-item>
+    受控模式
+    <ant-range-picker
+      slot="extra"
+      placeholder="请选择"
+      value="{{ controlledDateRange }}"
+      onOk="handleControlledRangeOk" />
+  </ant-list-item>
+  <ant-list-item>
     每列不显示单位
     <ant-range-picker
       slot="extra"

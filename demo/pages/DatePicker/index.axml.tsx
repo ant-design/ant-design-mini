@@ -10,6 +10,7 @@ export default ({
   defaultDateRange,
   defaultDate,
   handleFormatLabel,
+  controlledDateRange,
 }: InternalData) => (
   <Page>
     <AntList header="基础用法">
@@ -115,6 +116,15 @@ export default ({
           onPickerChange="handlePickerRangeChange"
           onVisibleChange="handleTriggerPicker"
           onOk="handleRangeOk"
+        ></AntRangePicker>
+      </AntListItem>
+      <AntListItem>
+        受控模式
+        <AntRangePicker
+          slot="extra"
+          placeholder="请选择"
+          value={controlledDateRange}
+          onOk="handleControlledRangeOk"
         ></AntRangePicker>
       </AntListItem>
       <AntListItem>

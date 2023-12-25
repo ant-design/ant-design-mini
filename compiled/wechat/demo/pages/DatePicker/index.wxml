@@ -91,7 +91,15 @@
       defaultValue="{{ defaultDateRange }}"
       onPickerChange="handlePickerRangeChange"
       bind:visiblechange="handleTriggerPicker"
-      onOk="handleRangeOk" />
+      bind:ok="handleRangeOk" />
+  </ant-list-item>
+  <ant-list-item>
+    受控模式
+    <ant-range-picker
+      slot="extra"
+      placeholder="请选择"
+      value="{{ controlledDateRange }}"
+      bind:ok="handleControlledRangeOk" />
   </ant-list-item>
   <ant-list-item>
     每列不显示单位
@@ -101,7 +109,7 @@
       defaultValue="{{ defaultDateRange }}"
       onPickerChange="handlePickerRangeChange"
       bind:visiblechange="handleTriggerPicker"
-      onOk="handleRangeOk"
+      bind:ok="handleRangeOk"
       onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
   </ant-list-item>
 </ant-list>

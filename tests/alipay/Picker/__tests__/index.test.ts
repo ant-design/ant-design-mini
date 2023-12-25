@@ -166,7 +166,7 @@ it('formattedValueText 优先级大于 onFormat', async () => {
   });
   expect(instance.getData().formatValue).toEqual('1');
   instance.setProps({ formattedValueText: '2' });
-  expect(instance.getData().formatValue).toEqual('1');
+  expect(instance.getData().formatValue).toEqual('2');
 });
 
 it('picker value component2', () => {

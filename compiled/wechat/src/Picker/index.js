@@ -33,7 +33,7 @@ var Picker = function (props) {
         }
         var formatValue = getterFormatText(columns, value, props.onFormat, singleRef);
         return formatValue;
-    }, [visible, columns, value, props.onFormat]);
+    }, [props.formattedValueText, visible, columns, value, props.onFormat]);
     useEvent('onOpen', function () {
         if (props.disabled) {
             return;

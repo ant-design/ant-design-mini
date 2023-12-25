@@ -99,6 +99,9 @@ export const wechat: PlatformConfig = {
     uploader: {
       onPreview: 'bind:preview',
     },
+    'ant-range-picker': {
+      onOk: 'bind:ok',
+    },
   },
 };
 
