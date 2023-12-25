@@ -63,7 +63,7 @@ const Picker = (props: IPickerProps) => {
       singleRef
     );
     return formatValue;
-  }, [visible, columns, value, props.onFormat]);
+  }, [props.formattedValueText, visible, columns, value, props.onFormat]);
 
   useEvent('onOpen', () => {
     if (props.disabled) {

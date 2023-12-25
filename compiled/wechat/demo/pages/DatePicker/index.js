@@ -7,9 +7,21 @@ Page({
             new Date('2022/03/21').getTime(),
             new Date('2022/05/20').getTime(),
         ],
+        controlledDateRange: [
+            new Date('2022/03/21').getTime(),
+            new Date('2022/05/20').getTime(),
+        ],
         handleFormatLabel: function (type, value) {
             return String(value);
         },
+    },
+    handleControlledRangeOk: function (value) {
+        console.log('handleControlledRangeOk');
+        console.log(value);
+        this.setData({
+            // 微信只支持传递时间戳
+            controlledDateRange: value.detail[0].map(function (o) { return o.getTime(); }),
+        });
     },
     handlePickerChange: function (date, dateStr, e) {
         console.log('onPickerChange', date, dateStr, e);

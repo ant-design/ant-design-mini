@@ -7,10 +7,30 @@ Page({
       new Date('2022/03/21').getTime(),
       new Date('2022/05/20').getTime(),
     ],
+    controlledDateRange: [
+      new Date('2022/03/21').getTime(),
+      new Date('2022/05/20').getTime(),
+    ],
     /// #if WECHAT
     handleFormatLabel(type, value) {
       return String(value);
     },
+    /// #endif
+  },
+  handleControlledRangeOk(value) {
+    console.log('handleControlledRangeOk');
+    console.log(value);
+    /// #if WECHAT
+    this.setData({
+      // 微信只支持传递时间戳
+      controlledDateRange: value.detail[0].map((o) => o.getTime()),
+    });
+    /// #endif
+
+    /// #if ALIPAY
+    this.setData({
+      controlledDateRange: value,
+    });
     /// #endif
   },
   handlePickerChange(date, dateStr, e) {

@@ -7,6 +7,17 @@ Page({
             new Date('2022/03/21').getTime(),
             new Date('2022/05/20').getTime(),
         ],
+        controlledDateRange: [
+            new Date('2022/03/21').getTime(),
+            new Date('2022/05/20').getTime(),
+        ],
+    },
+    handleControlledRangeOk: function (value) {
+        console.log('handleControlledRangeOk');
+        console.log(value);
+        this.setData({
+            controlledDateRange: value,
+        });
     },
     handlePickerChange: function (date, dateStr, e) {
         console.log('onPickerChange', date, dateStr, e);

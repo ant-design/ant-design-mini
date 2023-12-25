@@ -205,6 +205,18 @@ describe('受控模式', () => {
     expect(onOk.mock.calls[0][1]).toEqual(['2023/01/04', '2023/10/04']);
     expect(onOk.mock.calls[0][2]).toEqual(fmtEvent({}));
   });
+
+  it('测试 onOk 事件', async () => {
+    const { instance } = createDateRangePicker({
+      value: [dayjs('2023-01-01').toDate(), dayjs('2023-10-01').toDate()],
+    });
+    instance.setProps({
+      value: [dayjs('2023-01-01').toDate(), dayjs('2023-10-02').toDate()],
+    });
+    expect(instance.getData().formattedValueText).toEqual(
+      '2023/01/01-2023/10/02'
+    );
+  });
 });
 
 describe('测试各个精度', () => {
