@@ -145,7 +145,12 @@ function createInstance(config: Instance, props: Record<string, any>, my: any) {
       if (typeof refFunc === 'function') {
         return refFunc.call(instance);
       }
-      return instance;
+      const wewe = Object.keys(instance.methods).reduce((acc: any, key) => {
+        acc[key] = (...args) => instance.methods[key].call(instance, ...args);
+        return acc;
+      }, {});
+
+      return wewe;
     },
     getData() {
       return JSON.parse(JSON.stringify(instance.data));

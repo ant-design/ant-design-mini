@@ -11,5 +11,5 @@ createComponent({
         this.props.onChange(value, fmtEvent(this.props, e));
       }
     },
-  }
+  },
 });
