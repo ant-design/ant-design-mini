@@ -39,7 +39,6 @@ function createComponent({ props = {}, data = {}, methods = {} as any }) {
       this.emit('didUnmount');
     },
     deriveDataFromProps(nextProps) {
-      console.log('deriveDataFromProps', nextProps);
       this.emit('deriveDataFromProps', nextProps);
     },
     methods: {
