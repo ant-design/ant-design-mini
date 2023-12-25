@@ -1,6 +1,6 @@
-import { FormItemDefaultProps } from './props';
+import { mountComponent } from '../../_util/component';
+import { FormItemDefaultProps, FormItemProps } from './props';
 
-Component({
-  props: FormItemDefaultProps,
-});
+const FormItem = () => {};
 
+mountComponent(FormItem, FormItemDefaultProps as FormItemProps);

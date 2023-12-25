@@ -1,7 +1,7 @@
 import { FromItemRef } from 'compiled-alipay/Form/form';
 import { FormRateProps } from 'compiled-alipay/Form/FormRate/props';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createForm } from '../utils';
 
@@ -30,9 +30,10 @@ function createFormRate(props: Partial<FormRateProps>) {
 }
 
 describe('FormRate', () => {
-  it('测试集成 form', () => {
+  it('测试集成 form', async () => {
     const { instance, form } = createFormRate({});
     instance.callMethod('onChange', 3);
+    await sleep(10);
     expect(form.getFieldsValue()).toEqual({
       rate: 3,
     });

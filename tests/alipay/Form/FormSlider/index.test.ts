@@ -1,7 +1,7 @@
 import { FromItemRef } from 'compiled-alipay/Form/form';
 import { FormSliderProps } from 'compiled-alipay/Form/FormSlider/props';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createForm } from '../utils';
 
@@ -33,9 +33,10 @@ function createFormSlider(props: Partial<FormSliderProps>) {
 }
 
 describe('FormSlider', () => {
-  it('测试集成 form', () => {
+  it('测试集成 form', async () => {
     const { instance, form } = createFormSlider({});
     instance.callMethod('onChange', 50);
+    await sleep(10);
     expect(form.getFieldsValue()).toEqual({
       slider: 50,
     });

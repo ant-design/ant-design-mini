@@ -1,35 +1,40 @@
-import { FormPickerDefaultProps } from './props';
-import createComponent from '../createComponent';
-import fmtEvent from '../../_util/fmtEvent';
+import { FormPickerDefaultProps, FormPickerProps } from './props';
+import { useEvent } from 'functional-mini/component';
+import { mountComponent } from '../../_util/component';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { useFormItem } from '../use-form-item';
 
-createComponent({
-  props: FormPickerDefaultProps,
-  methods: {
-    onOk(value, column, e) {
-      this.emit('onChange', value);
-      if (this.props.onOk) {
-        this.props.onOk(value, column, fmtEvent(this.props, e));
-      }
-    },
-    onChange(value, column, e) {
-      if (this.props.onChange) {
-        this.props.onChange(value, column, fmtEvent(this.props, e));
-      }
-    },
-    onVisibleChange(visible, e) {
-      if (this.props.onVisibleChange) {
-        this.props.onVisibleChange(visible, fmtEvent(this.props, e));
-      }
-    },
-    onFormat(value, column) {
-      if (this.props.onFormat) {
-        return this.props.onFormat(value, column);
-      }
-    },
-    onDismissPicker(e) {
-      if (this.props.onCancel) {
-        this.props.onCancel(fmtEvent(this.props, e));
-      }
-    },
-  },
-});
+const FormPicker = (props: FormPickerProps) => {
+  const { formData, emit } = useFormItem(props);
+  const { triggerEventValues, triggerEventOnly, triggerEvent } =
+    useComponentEvent(props);
+
+  useEvent('onOk', (value, column, e) => {
+    emit('onChange', value);
+    triggerEventValues('ok', [value, column], e);
+  });
+
+  useEvent('onChange', (value, column, e) => {
+    triggerEventValues('change', [value, column], e);
+  });
+
+  useEvent('onVisibleChange', (visible, e) => {
+    triggerEvent('visibleChange', visible, e);
+  });
+
+  useEvent('onFormat', (value, column) => {
+    if (props.onFormat) {
+      return props.onFormat(value, column);
+    }
+  });
+
+  useEvent('onDismissPicker', (e) => {
+    triggerEventOnly('cancel', e);
+  });
+
+  return {
+    formData,
+  };
+};
+
+mountComponent(FormPicker, FormPickerDefaultProps as FormPickerProps);

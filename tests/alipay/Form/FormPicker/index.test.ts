@@ -1,7 +1,7 @@
 import { FromItemRef } from 'compiled-alipay/Form/form';
 import { FormPickerProps } from 'compiled-alipay/Form/FormPicker/props';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createForm } from '../utils';
 
@@ -41,9 +41,10 @@ function createFormPicker(props: Partial<FormPickerProps>) {
 }
 
 describe('FormPicker', () => {
-  it('测试集成 form', () => {
+  it('测试集成 form', async () => {
     const { instance, form } = createFormPicker({});
     instance.callMethod('onOk', 'value');
+    await sleep(10);
     expect(form.getFieldsValue()).toEqual({
       picker: 'value',
     });

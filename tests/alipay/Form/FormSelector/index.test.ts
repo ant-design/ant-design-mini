@@ -1,7 +1,7 @@
 import { FromItemRef } from 'compiled-alipay/Form/form';
 import { FormSelectorProps } from 'compiled-alipay/Form/FormSelector/props';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createForm } from '../utils';
 
@@ -35,10 +35,11 @@ function createFormSelector(props: Partial<FormSelectorProps>) {
 }
 
 describe('FormSelector', () => {
-  it('测试集成 form', () => {
+  it.only('测试集成 form', async () => {
     const { instance, form } = createFormSelector({});
     const TestValue = 'option1';
     instance.callMethod('onChange', TestValue);
+    await sleep(10);
     expect(form.getFieldsValue()).toEqual({
       selector: TestValue,
     });
