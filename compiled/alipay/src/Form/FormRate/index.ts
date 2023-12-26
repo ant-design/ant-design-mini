@@ -1,15 +1,21 @@
-import { FormRateDefaultProps } from './props';
-import createComponent from '../createComponent';
-import fmtEvent from '../../_util/fmtEvent';
+import { useEvent } from 'functional-mini/component';
+import { mountComponent } from '../../_util/component';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { useFormItem } from '../use-form-item';
+import { FormRateDefaultProps, FormRateProps } from './props';
 
-createComponent({
-  props: FormRateDefaultProps,
-  methods: {
-    onChange(value, e) {
-      this.emit('onChange', value);
-      if (this.props.onChange) {
-        this.props.onChange(value, fmtEvent(this.props, e));
-      }
-    },
-  }
-});
+const FormRate = (props: FormRateProps) => {
+  const { formData, emit } = useFormItem(props);
+
+  const { triggerEvent } = useComponentEvent(props);
+  useEvent('onChange', (value, e) => {
+    emit('onChange', value);
+    triggerEvent('change', value, e);
+  });
+
+  return {
+    formData,
+  };
+};
+
+mountComponent(FormRate, FormRateDefaultProps as FormRateProps);

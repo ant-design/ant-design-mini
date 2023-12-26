@@ -1,7 +1,7 @@
 import { FromItemRef } from 'compiled-alipay/Form/form';
 import { FormDatePickerProps } from 'compiled-alipay/Form/FormDatePicker/props';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createForm } from '../utils';
 
@@ -43,10 +43,11 @@ function createFormDatePicker(props: Partial<FormDatePickerProps>) {
 }
 
 describe('FormDatePicker', () => {
-  it('测试集成 form', () => {
+  it('测试集成 form', async () => {
     const { instance, form } = createFormDatePicker({});
     const testDate = new Date(2023, 3, 14); // April 14, 2023
     instance.callMethod('onOk', testDate);
+    await sleep(10);
     expect(form.getFieldsValue()).toEqual({
       birthday: testDate,
     });

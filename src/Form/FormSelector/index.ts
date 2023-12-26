@@ -1,25 +1,29 @@
-import { FormSelectorDefaultProps } from './props';
-import createComponent from '../createComponent';
-import fmtEvent from '../../_util/fmtEvent';
+import { useEvent } from 'functional-mini/component';
+import { mountComponent } from '../../_util/component';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { useFormItem } from '../use-form-item';
+import { FormSelectorDefaultProps, FormSelectorProps } from './props';
 
-createComponent({
-  props: FormSelectorDefaultProps,
-  methods: {
-    onChange(value, item, e) {
-      this.emit('onChange', value);
-      if (this.props.onChange) {
-        this.props.onChange(value, item, fmtEvent(this.props, e));
-      }
-    },
-    onSelectMax(value, item, e) {
-      if (this.props.onSelectMax) {
-        this.props.onSelectMax(value, item, fmtEvent(this.props, e));
-      }
-    },
-    onSelectMin(value, item, e) {
-      if (this.props.onSelectMin) {
-        this.props.onSelectMin(value, item, fmtEvent(this.props, e));
-      }
-    },
-  },
-});
+const FormSelector = (props: FormSelectorProps) => {
+  const { formData, emit } = useFormItem(props);
+
+  const { triggerEventValues } = useComponentEvent(props);
+  useEvent('onChange', (value, item, e) => {
+    emit('onChange', value);
+    triggerEventValues('change', [value, item], e);
+  });
+
+  useEvent('onSelectMax', (value, item, e) => {
+    triggerEventValues('selectMax', [value, item], e);
+  });
+
+  useEvent('onSelectMin', (value, item, e) => {
+    triggerEventValues('selectMin', [value, item], e);
+  });
+
+  return {
+    formData,
+  };
+};
+
+mountComponent(FormSelector, FormSelectorDefaultProps as FormSelectorProps);

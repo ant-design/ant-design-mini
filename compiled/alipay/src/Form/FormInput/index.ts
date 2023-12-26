@@ -1,54 +1,48 @@
-import { FormInputDefaultProps } from './props';
-import { createForm } from '../form';
-import fmtEvent from '../../_util/fmtEvent';
+import { useEvent, useRef, useEffect } from 'functional-mini/component';
+import { FormInputDefaultProps, FormInputProps } from './props';
+import { mountComponent } from '../../_util/component';
+import { useFormItem } from '../use-form-item';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 
+const FormInput = (props: FormInputProps) => {
+  const { formData, emit } = useFormItem(props);
+  const { triggerEvent } = useComponentEvent(props);
+  const inputRef = useRef();
+  useEvent('handleRef', (input) => {
+    inputRef.current = input;
+  });
 
-Component({
-  props: FormInputDefaultProps,
-  mixins: [createForm({
-    methods: {
-      setFormData(this: any, values) {
-        this.setData({
-          ...this.data,
-          formData: {
-            ...this.data.formData,
-            ...values,
-          }
-        });
-        this.input.update(this.data.formData.value);  
-      },
-    },
-  })],  
-  methods: {
-    handleRef(input) {
-      this.input = input;
-    },
-    onChange(value, e) {
-      this.emit('onChange', value);
-      if (this.props.onChange) {
-        this.props.onChange(value, fmtEvent(this.props, e));
-      }
-    },
-    onBlur(value, e) {
-      if (this.props.onBlur) {
-        this.props.onBlur(value, fmtEvent(this.props, e));
-      }
-    },
-    onFocus(value, e) {
-      if (this.props.onFocus) {
-        this.props.onFocus(value, fmtEvent(this.props, e));
-      }
-    },
-    onConfirm(value, e) {
-      if (this.props.onConfirm) {
-        this.props.onConfirm(value, fmtEvent(this.props, e));
-      }
-    },
-    onClear(value, e) {
-      this.emit('onChange', '');
-      if (this.props.onChange) {
-        this.props.onChange(value, fmtEvent(this.props, e));
-      }
-    },
-  }
-});
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.update(formData.value);
+    }
+  }, [formData]);
+
+  useEvent('onChange', (value, e) => {
+    emit('onChange', value);
+    triggerEvent('change', value, e);
+  });
+
+  useEvent('onBlur', (value, e) => {
+    triggerEvent('blur', value, e);
+  });
+
+  useEvent('onFocus', (value, e) => {
+    triggerEvent('focus', value, e);
+  });
+
+  useEvent('onConfirm', (value, e) => {
+    triggerEvent('confirm', value, e);
+  });
+
+  useEvent('onClear', (value, e) => {
+    emit('onChange', '');
+    triggerEvent('change', value, e);
+  });
+
+  return {
+    formData,
+  };
+};
+
+mountComponent(FormInput, FormInputDefaultProps as FormInputProps);

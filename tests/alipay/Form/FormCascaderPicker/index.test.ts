@@ -1,7 +1,7 @@
 import { FromItemRef } from 'compiled-alipay/Form/form';
 import { FormCascaderPickerProps } from 'compiled-alipay/Form/FormCascaderPicker/props';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createForm } from '../utils';
 
@@ -43,9 +43,10 @@ function createFormCascaderPicker(props: Partial<FormCascaderPickerProps>) {
 }
 
 describe('CascaderPicker', () => {
-  it('测试集成 form', () => {
+  it('测试集成 form', async () => {
     const { instance, form } = createFormCascaderPicker({});
     instance.callMethod('onOk', 2);
+    await sleep(10);
     expect(form.getFieldsValue()).toEqual({
       name: 2,
     });

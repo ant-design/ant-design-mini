@@ -1,7 +1,7 @@
 import { FromItemRef } from 'compiled-alipay/Form/form';
 import { FormTextareaProps } from 'compiled-alipay/Form/FormTextarea/props';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createForm } from '../utils';
 
@@ -23,7 +23,6 @@ function createFormTextarea(props: Partial<FormTextareaProps>) {
   };
 
   const instance = getInstance('Form/FormTextarea', propsData);
-
   const ref = instance.ref<FromItemRef>();
   instance.callMethod('handleRef', {
     update: InputRefUpdate,
@@ -43,9 +42,10 @@ function createFormTextarea(props: Partial<FormTextareaProps>) {
 }
 
 describe('FormTextarea', () => {
-  it('测试集成 form', () => {
+  it('测试集成 form', async () => {
     const { instance, form } = createFormTextarea({});
     instance.callMethod('onChange', 'test value');
+    await sleep(10);
     expect(form.getFieldsValue()).toEqual({
       textarea: 'test value',
     });
@@ -89,7 +89,7 @@ describe('FormTextarea', () => {
       expect(onConfirm.mock.calls[0]).toEqual([TestValue, fmtEvent(propsData)]);
     });
 
-    it('测试 onClear 事件', () => {
+    it('测试 onClear 事件', async () => {
       const { instance, onChange, propsData } = createFormTextarea({});
       instance.callMethod('onClear', TestValue, TestEvent);
       expect(onChange.mock.calls.length).toEqual(1);
@@ -97,6 +97,7 @@ describe('FormTextarea', () => {
         'test value',
         fmtEvent(propsData),
       ]);
+      await sleep(10);
       expect(instance.getData().formData.value).toEqual('');
     });
   });

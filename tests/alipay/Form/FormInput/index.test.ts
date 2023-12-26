@@ -1,7 +1,7 @@
 import { FromItemRef } from 'compiled-alipay/Form/form';
 import { FormInputProps } from 'compiled-alipay/Form/FormInput/props';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createForm } from '../utils';
 
@@ -42,9 +42,10 @@ function createFormInput(props: Partial<FormInputProps>) {
 }
 
 describe('FormInput', () => {
-  it('测试集成 form', () => {
+  it('测试集成 form', async () => {
     const { instance, form, InputRefUpdate } = createFormInput({});
     instance.callMethod('onChange', 'test value');
+    await sleep(10);
     expect(form.getFieldsValue()).toEqual({
       input: 'test value',
     });
@@ -89,9 +90,10 @@ describe('FormInput', () => {
       expect(onConfirm.mock.calls[0]).toEqual([TestValue, fmtEvent(propsData)]);
     });
 
-    it('测试 onClear 事件', () => {
+    it('测试 onClear 事件', async () => {
       const { instance, onChange, propsData, form } = createFormInput({});
       instance.callMethod('onClear', TestValue, TestEvent);
+      await sleep(10);
       expect(form.getFieldsValue()).toEqual({
         input: '',
       });

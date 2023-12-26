@@ -122,7 +122,7 @@ class Field extends EventEmitter {
       message,
       validateTrigger
     );
-    this.ref.on((trigger, value) => {
+    this.ref.on((trigger, value, extraInfo?: any) => {
       if (trigger === 'onChange') {
         this.setValue(value);
         this.touched = true;
@@ -130,7 +130,7 @@ class Field extends EventEmitter {
       } else if (trigger === 'didUnmount') {
         this.emit('didUnmount');
       } else if (trigger === 'deriveDataFromProps') {
-        const props = this.ref.getProps();
+        const props = extraInfo ? extraInfo : this.ref.getProps();
         if (
           (value.name && value.name !== props.name) ||
           value.required !== props.required ||
