@@ -50,7 +50,7 @@ export const useFormItem = (props) => {
     if (emitRef.current) {
       emitRef.current(event, value);
     } else {
-      console.log('emit callback is null', event, value);
+      console.log('emit callback is null', event);
     }
   }
 

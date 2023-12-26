@@ -35,7 +35,7 @@ function createFormSelector(props: Partial<FormSelectorProps>) {
 }
 
 describe('FormSelector', () => {
-  it.only('测试集成 form', async () => {
+  it('测试集成 form', async () => {
     const { instance, form } = createFormSelector({});
     const TestValue = 'option1';
     instance.callMethod('onChange', TestValue);
