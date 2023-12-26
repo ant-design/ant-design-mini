@@ -36,8 +36,9 @@ export const useFormItem = (props) => {
   });
 
   const originalProps = useRef();
+
   useEvent('getProps', () => {
-    return originalProps.current;
+    return props;
   });
 
   useEffect(() => {
@@ -46,16 +47,14 @@ export const useFormItem = (props) => {
     };
   }, []);
 
-  function emit(event: string, value?: any) {
+  function emit(event: string, value?: any, extraInfo?: any) {
     if (emitRef.current) {
-      emitRef.current(event, value);
-    } else {
-      console.log('emit callback is null', event);
+      emitRef.current(event, value, extraInfo);
     }
   }
 
   useEffect(() => {
-    emit('deriveDataFromProps', props);
+    emit('deriveDataFromProps', props, originalProps.current);
     originalProps.current = props;
   }, [props]);
 
