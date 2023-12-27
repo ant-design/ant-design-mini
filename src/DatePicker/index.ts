@@ -27,7 +27,7 @@ const DatePicker = (props: IDatePickerProps) => {
     {
       value: props.value,
       postState(value) {
-        if (typeof value === 'number') {
+        if (value) {
           return {
             valid: true,
             value: dayjs(value).toDate(),
@@ -35,7 +35,7 @@ const DatePicker = (props: IDatePickerProps) => {
         }
         return {
           valid: true,
-          value: value,
+          value: undefined,
         };
       },
     }

@@ -1,6 +1,6 @@
 import { IBaseProps } from '../_util/base';
 
-export type PickerValue = Date;
+export type PickerValue = Date | string | number;
 /**
  * @description 对话框
  */
