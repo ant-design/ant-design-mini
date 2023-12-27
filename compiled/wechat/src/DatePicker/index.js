@@ -16,7 +16,7 @@ var DatePicker = function (props) {
     var _a = useMixState(props.defaultValue, {
         value: props.value,
         postState: function (value) {
-            if (typeof value === 'number') {
+            if (value) {
                 return {
                     valid: true,
                     value: dayjs(value).toDate(),
@@ -24,7 +24,7 @@ var DatePicker = function (props) {
             }
             return {
                 valid: true,
-                value: value,
+                value: undefined,
             };
         },
     }), realValue = _a[0], _b = _a[1], isControlled = _b.isControlled, update = _b.update;

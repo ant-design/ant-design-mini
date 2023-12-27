@@ -50,6 +50,7 @@ describe('DatePicker', () => {
     await callMethod('onVisibleChange', true);
     expect(instance.getData().currentValue).toEqual([2020, 1, 1]);
   });
+
   it('测试 columns', async () => {
     const { instance, callMethod } = createDatePicker();
     await callMethod('onVisibleChange', true);
@@ -91,6 +92,15 @@ describe('DatePicker', () => {
     await changeSelect([2023, 2, 1]);
     await callOk();
     expect(instance.getData().formattedValueText).toEqual('2023/02/01');
+  });
+
+  it('测试当 defaultValue 为字符串格式化的问题', async () => {
+    const { instance, callMethod } = createDatePicker({
+      defaultValue: '2023-01-01',
+    });
+    expect(instance.getData().formattedValueText).toEqual('2023/01/01');
+    await callMethod('onVisibleChange', true);
+    expect(instance.getData().columns.length).toEqual(3);
   });
 
   it('测试 onFormat', async () => {
@@ -159,7 +169,7 @@ describe('受控模式', () => {
   it('测试', async () => {
     const { callMethod, instance, changeSelect, callOk, onOk } =
       createDatePicker({
-        value: dayjs('2023-01-01').toDate(),
+        value: '2023-01-01',
         defaultValue: dayjs('2023-01-02').toDate(),
       });
     await callMethod('onVisibleChange', true);
@@ -197,7 +207,7 @@ describe('各个精度', () => {
   it('测试 onFormatLabel', async () => {
     const { instance, callMethod } = createDatePicker({
       defaultValue: dayjs('2023-01-01').toDate(),
-      min: dayjs('2023-01-20').toDate(),
+      min: '2023-01-20',
       max: dayjs('2024-12-10').toDate(),
       onFormatLabel: (v, v2) => `${v} ${v2}`,
       precision: 'year',

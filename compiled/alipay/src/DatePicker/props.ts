@@ -1,6 +1,6 @@
 import { IBaseProps } from '../_util/base';
 
-export type PickerValue = Date;
+export type PickerValue = Date | string | number;
 /**
  * @description 对话框
  */
@@ -18,12 +18,12 @@ export interface IDatePickerProps extends IBaseProps {
    * @description 最小值
    * @default 十年前
    */
-  min?: Date;
+  min?: PickerValue;
   /**
    * @description 最大值
    * @default 十年后
    */
-  max?: Date;
+  max?: PickerValue;
   /**
    * @description 当前数据
    */
