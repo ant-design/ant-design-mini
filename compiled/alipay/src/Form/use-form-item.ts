@@ -17,18 +17,22 @@ export const useFormItem = (props) => {
     errors: [],
   });
 
+  const formRef = useRef(formData);
+
   const emitRef = useRef<EventCallback | null>(null);
   useEvent('setFormData', (values: Values) => {
     setFormDate((old) => {
-      return {
+      const newValue = {
         ...old,
         ...values,
       };
+      formRef.current = newValue;
+      return newValue;
     });
   });
 
   useEvent('getFormData', () => {
-    return formData;
+    return formRef.current;
   });
 
   useEvent('on', (callback: EventCallback) => {

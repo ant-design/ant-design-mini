@@ -52,6 +52,23 @@ describe('FormInput', () => {
     expect(InputRefUpdate.mock.lastCall).toEqual(['test value']);
   });
 
+  it('测试集成 form', async () => {
+    const { instance, form } = createFormInput({
+      required: true,
+    });
+    const handleChange = vi.fn();
+    form.onValuesChange(handleChange);
+    instance.callMethod('onChange', '');
+    expect(form.getFieldsValue()).toEqual({
+      input: '',
+    });
+    await sleep(10);
+    expect(form.getFieldValidatorStatus('input')).toEqual({
+      errors: ['input is required'],
+      status: 'error',
+    });
+  });
+
   it('测试 props 改变', async () => {
     const { instance } = createFormInput({});
     instance.setProps({ required: true });

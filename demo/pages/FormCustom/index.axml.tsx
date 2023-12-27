@@ -10,6 +10,7 @@ export default ({ likeOptions }) => (
       label="用户名"
       name="account"
       required
+      message="需要输入用户名"
       placeholder="请输入用户名"
       position="vertical"
       inputClassName="input"
