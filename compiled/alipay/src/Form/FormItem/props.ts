@@ -15,6 +15,7 @@ export interface FormItemProps extends IBaseProps {
   required?: boolean;
   disabled?: boolean;
   extra?: string;
+  message?: string;
 }
 
 export const FormItemDefaultProps: Partial<FormItemProps> = {
