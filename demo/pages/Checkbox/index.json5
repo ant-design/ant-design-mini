@@ -1,0 +1,15 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "CheckBox",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "CheckBox",
+  /// #endif
+
+  "usingComponents": {
+    "ant-checkbox": "../../../src/Checkbox/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-button": "../../../src/Button/index"
+  }
+}

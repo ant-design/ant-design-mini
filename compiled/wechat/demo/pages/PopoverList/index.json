@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "PopoverList",
+  "navigationBarTitleText": "PopoverList",
   "usingComponents": {
     "popover": "../../../src/Popover/index",
     "list": "../../../src//List/index",

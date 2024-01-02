@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Calendar",
+  "navigationBarTitleText": "Calendar",
   "usingComponents": {
     "icon": "../../../src/Icon/index",
     "collapse-container": "./collapse-container/collapse-container",

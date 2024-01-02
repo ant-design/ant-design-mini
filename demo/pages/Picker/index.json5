@@ -1,0 +1,17 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Picker",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Picker",
+  /// #endif
+
+  "usingComponents": {
+    "ant-button": "../../../src/Button/index",
+    "ant-picker": "../../../src/Picker/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
+    "ant-list": "../../../src/List/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

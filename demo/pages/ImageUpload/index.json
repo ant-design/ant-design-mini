@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "ImageUpload",
-  "usingComponents": {
-    "uploader": "../../../src/ImageUpload/index",
-    "container": "../../../src/Container/index"
-  }
-}

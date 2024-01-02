@@ -1,0 +1,15 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "ActionSheet",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "ActionSheet",
+  /// #endif
+
+  "usingComponents": {
+    "button": "../../../src/Button/index",
+    "action-sheet": "../../../src/ActionSheet/index",
+    "container": "../../../src/Container/index"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "ActionSheet",
-  "usingComponents": {
-    "button": "../../../src/Button/index",
-    "action-sheet": "../../../src/ActionSheet/index",
-    "container": "../../../src/Container/index"
-  }
-}

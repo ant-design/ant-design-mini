@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Selector",
+  "navigationBarTitleText": "Selector",
   "usingComponents": {
     "ant-selector": "../../../src/Selector/index",
     "ant-button": "../../../src/Button/index",

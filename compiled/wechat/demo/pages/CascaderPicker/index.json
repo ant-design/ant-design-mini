@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "CascaderPicker",
+  "navigationBarTitleText": "CascaderPicker",
   "usingComponents": {
     "ant-cascader-picker": "../../../src/Picker/CascaderPicker/index",
     "ant-list-item": "../../../src/List/ListItem/index",

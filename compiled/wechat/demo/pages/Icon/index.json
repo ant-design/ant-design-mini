@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Icon",
+  "navigationBarTitleText": "Icon",
   "usingComponents": {
     "icon": "../../../src/Icon/index",
     "container": "../../../src/Container/index"

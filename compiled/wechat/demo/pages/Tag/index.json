@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Tag",
+  "navigationBarTitleText": "Tag",
   "usingComponents": {
     "ant-tag": "../../../src/Tag/index",
     "container": "../../../src/Container/index"

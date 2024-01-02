@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "DatePicker",
+  "navigationBarTitleText": "DatePicker",
   "usingComponents": {
     "ant-date-picker": "../../../src/DatePicker/index",
     "ant-range-picker": "../../../src/DatePicker/RangePicker/index",

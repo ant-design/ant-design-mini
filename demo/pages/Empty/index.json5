@@ -1,0 +1,15 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Empty",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Empty",
+  /// #endif
+
+  "usingComponents": {
+    "empty": "../../../src/Empty/index",
+    "container": "../../../src/Container/index",
+    "button": "../../../src/Button/index"
+  }
+}

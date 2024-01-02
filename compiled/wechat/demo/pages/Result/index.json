@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Result",
+  "navigationBarTitleText": "Result",
   "usingComponents": {
     "result": "../../../src/Result/index",
     "button": "../../../src/Button/index",
