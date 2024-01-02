@@ -38,15 +38,15 @@ Page({
         ],
         value: [],
     },
-    onChange: function (checked, e) {
-        var value = this.data.value;
+    onChange(checked, e) {
+        let value = this.data.value;
         if (checked) {
             value = value.concat(e.target.dataset.value);
         }
         else {
-            value = value.filter(function (v) { return v !== e.target.dataset.value; });
+            value = value.filter((v) => v !== e.target.dataset.value);
         }
-        this.setData({ value: value });
+        this.setData({ value });
         console.log(value);
     },
 });

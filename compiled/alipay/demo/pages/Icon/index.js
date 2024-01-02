@@ -1,5 +1,5 @@
 Page({
-    handleTap: function (e) {
+    handleTap(e) {
         console.log(e);
         console.log('detail', e.detail);
         console.log('e.currentTarget.dataset', e.currentTarget.dataset);

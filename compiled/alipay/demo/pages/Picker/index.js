@@ -61,49 +61,49 @@ Page({
             ],
         ],
     },
-    handleDismissPicker: function (e) {
+    handleDismissPicker(e) {
         my.showToast({
             content: '取消操作，关闭 picker',
         });
         console.log(e);
     },
-    handleClearControlled: function () {
+    handleClearControlled() {
         this.setData({
             value: '',
         });
     },
-    handleChangeControlled: function () {
+    handleChangeControlled() {
         this.setData({
             value: '深圳',
         });
     },
-    handleControlledOk: function (value) {
+    handleControlledOk(value) {
         this.setData({
-            value: value,
+            value,
         });
     },
-    handleOk: function (value, column, e) {
+    handleOk(value, column, e) {
         console.log('onOk value', value, 'onOk  column', column, e);
     },
-    handleChange: function (value, column, e) {
+    handleChange(value, column, e) {
         console.log('onChange value', value, 'onChange  column', column, e);
     },
-    formatTime: function (value, column) {
-        return column.map(function (c) { return c && c.label; }).join('');
+    formatTime(value, column) {
+        return column.map((c) => c && c.label).join('');
     },
-    handleOnOk: function (value, column) {
+    handleOnOk(value, column) {
         console.log('value', value, 'column', column);
     },
-    handleTriggerPicker: function (visible, e) {
+    handleTriggerPicker(visible, e) {
         console.log('onVisibleChange', visible, e);
     },
-    handleTriggerControlledPicker: function (visible, e) {
+    handleTriggerControlledPicker(visible, e) {
         console.log('handleTriggerControlledPicker', visible, e);
         this.setData({
             pickerVisible: visible,
         });
     },
-    handleOpenPicker: function () {
+    handleOpenPicker() {
         this.setData({
             pickerVisible: true,
         });

@@ -49,21 +49,19 @@ Page({
             }
         ]
     },
-    handleOpenBasic: function (e) {
-        var _a;
-        var index = e.target.dataset.index;
-        this.setData((_a = {},
-            _a["visible".concat(index)] = true,
-            _a));
+    handleOpenBasic(e) {
+        const { index } = e.target.dataset;
+        this.setData({
+            [`visible${index}`]: true
+        });
     },
-    handleCloseBasic: function (e) {
-        var _a;
-        var index = e.target.dataset.index;
-        this.setData((_a = {},
-            _a["visible".concat(index)] = false,
-            _a));
+    handleCloseBasic(e) {
+        const { index } = e.target.dataset;
+        this.setData({
+            [`visible${index}`]: false
+        });
     },
-    handleAction: function (item, index, e) {
+    handleAction(item, index, e) {
         if (item.key === 'delete') {
             my.confirm({
                 content: '你确定要删除吗?'
@@ -71,7 +69,7 @@ Page({
             return;
         }
         my.alert({
-            content: "\u4F60\u70B9\u51FB\u4E86".concat(item.key)
+            content: `你点击了${item.key}`
         });
     }
 });

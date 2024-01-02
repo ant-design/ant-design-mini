@@ -2,15 +2,15 @@ Page({
     data: {
         checked: true,
     },
-    onChange: function (checked, e) {
+    onChange(checked, e) {
         console.log(checked);
     },
-    handleChange: function (checked, e) {
+    handleChange(checked, e) {
         this.setData({
-            checked: checked,
+            checked,
         });
     },
-    handleChangeByButton: function () {
+    handleChangeByButton() {
         console.log(this.data.checked);
         this.setData({
             checked: !this.data.checked,

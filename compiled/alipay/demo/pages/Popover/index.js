@@ -16,10 +16,10 @@ Page({
             'right-bottom',
         ],
     },
-    onVisibleChange: function (visible, e) {
+    onVisibleChange(visible, e) {
         console.log('onVisibleChange', visible, e);
     },
-    handleVisibleChange: function () {
+    handleVisibleChange() {
         this.setData({
             visible: !this.data.visible,
         });

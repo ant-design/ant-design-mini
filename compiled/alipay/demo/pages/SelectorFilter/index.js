@@ -46,14 +46,14 @@ Page({
             },
         ],
     },
-    handleChange: function (value, items, e) {
+    handleChange(value, items, e) {
         console.log(value, items, e);
     },
-    onTapItem: function (e) {
+    onTapItem(e) {
         console.log(e);
-        var index = e.currentTarget.dataset.index;
-        var currentOpen = this.data.currentOpen;
-        var value = index;
+        const { index } = e.currentTarget.dataset;
+        const { currentOpen } = this.data;
+        let value = index;
         if (currentOpen === index) {
             value = -1;
         }

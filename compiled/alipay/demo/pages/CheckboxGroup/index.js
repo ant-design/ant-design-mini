@@ -7,12 +7,12 @@ Page({
             { value: 'banana', label: '香蕉' },
         ],
     },
-    onChange: function (value, e) {
+    onChange(value, e) {
         console.log(value, e);
     },
-    handleChange: function (value) {
+    handleChange(value) {
         this.setData({
-            value: value,
+            value,
         });
     },
 });

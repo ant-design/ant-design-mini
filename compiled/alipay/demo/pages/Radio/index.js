@@ -2,12 +2,12 @@ Page({
     data: {
         checked: false,
     },
-    onChange: function (value, e) {
+    onChange(value, e) {
         console.log(value, e);
     },
-    handleChange: function (checked) {
+    handleChange(checked) {
         this.setData({
-            checked: checked,
+            checked,
         });
     },
 });
