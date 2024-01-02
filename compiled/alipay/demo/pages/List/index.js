@@ -2,14 +2,14 @@ Page({
     data: {
         radius: false,
     },
-    handleTap: function (e) {
+    handleTap(e) {
         my.alert({
             title: 'onTap',
             content: e.currentTarget.dataset.info,
         });
         console.log(e);
     },
-    handleSetRadius: function (checked) {
+    handleSetRadius(checked) {
         this.setData({
             radius: checked,
         });

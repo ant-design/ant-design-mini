@@ -5,20 +5,19 @@ Component({
         visible: false,
     },
     methods: {
-        showPopup: function () {
-            var _this = this;
+        showPopup() {
             my.chooseLocation({
-                success: function (res) {
-                    _this.emit('onChange', res);
+                success: (res) => {
+                    this.emit('onChange', res);
                 },
             });
         },
-        handlePopupClose: function () {
+        handlePopupClose() {
             this.setData({
                 visible: false,
             });
         },
-        onChange: function (value, e) {
+        onChange(value, e) {
             this.emit('onChange', value);
         },
     }

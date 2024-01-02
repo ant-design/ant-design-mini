@@ -2,19 +2,19 @@ Page({
     data: {
         value: 80,
     },
-    onChange: function (value, e) {
+    onChange(value, e) {
         console.log('slider changed:', value, e);
     },
-    onAfterChange: function (value, e) {
+    onAfterChange(value, e) {
         console.log('当前值:', value, e);
         my.showToast({
             content: 'value: ' + value,
         });
     },
-    handleChange: function (value, e) {
+    handleChange(value, e) {
         console.log('slider changed:', value, e);
         this.setData({
-            value: value,
+            value,
         });
     },
 });

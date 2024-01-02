@@ -2,13 +2,13 @@ Page({
     data: {
         value: 3,
     },
-    onChange: function (value) {
+    onChange(value) {
         console.log(value);
     },
-    handleChange: function (value) {
+    handleChange(value) {
         console.log(value);
         this.setData({
-            value: value,
+            value,
         });
     },
 });

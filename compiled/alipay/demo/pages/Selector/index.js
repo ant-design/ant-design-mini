@@ -20,22 +20,22 @@ Page({
         ],
         value: '1',
     },
-    handleChangeValue: function () {
+    handleChangeValue() {
         this.setData({
             value: '3',
         });
     },
-    handleChange: function (value, items, e) {
+    handleChange(value, items, e) {
         this.setData({
-            value: value,
+            value,
         });
         console.log(value, items, e);
     },
-    onSelectMin: function (value, item) {
+    onSelectMin(value, item) {
         console.log(value, item);
         my.alert({ content: '不允许清空' });
     },
-    onSelectMax: function () {
+    onSelectMax() {
         my.alert({ content: '选择已达上限' });
     },
 });

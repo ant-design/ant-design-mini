@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-var localeText = {
+const localeText = {
     weekdayNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     title: 'YYYY/MM',
     today: 'Today',
@@ -8,10 +8,10 @@ var localeText = {
     startAndEnd: 'Start/End',
 };
 function demo8Formatter(cell) {
-    var isOdd = dayjs(cell.time).date() % 2 === 1;
-    var isNotBeginEnd = !cell.isSelectedBegin && !cell.isSelectedEnd;
-    var isWeekend = dayjs(cell.time).day() > 4;
-    var topClassName;
+    const isOdd = dayjs(cell.time).date() % 2 === 1;
+    const isNotBeginEnd = !cell.isSelectedBegin && !cell.isSelectedEnd;
+    const isWeekend = dayjs(cell.time).day() > 4;
+    let topClassName;
     if (isNotBeginEnd) {
         topClassName = isOdd ? 'odd' : 'even';
     }
@@ -27,7 +27,7 @@ function demo8Formatter(cell) {
 }
 function demoFormatter(cell, value) {
     if (Array.isArray(value) && value.length == 1) {
-        var current = value[0];
+        const current = value[0];
         return {
             disabled: dayjs(cell.time).diff(dayjs(current), 'days') > 3,
             bottom: dayjs(cell.time).diff(dayjs(current), 'days') > 3
@@ -65,7 +65,7 @@ Page({
             visible: true,
         },
         demo7: {
-            localeText: localeText,
+            localeText,
             visible: true,
             monthRange: [new Date().getTime(), new Date().getTime()],
         },
@@ -79,35 +79,35 @@ Page({
             monthRange: [new Date().getTime(), new Date().getTime()],
         },
     },
-    demo3NextMonth: function () {
-        var current = this.data.demo3.monthRange[0];
-        var newMonth = dayjs(current).add(1, 'month').toDate().getTime();
+    demo3NextMonth() {
+        const current = this.data.demo3.monthRange[0];
+        const newMonth = dayjs(current).add(1, 'month').toDate().getTime();
         this.setData({
             'demo3.title': dayjs(newMonth).format('YYYY年MM月'),
             'demo3.monthRange': [newMonth, newMonth],
         });
     },
-    demo3PreviousMonth: function () {
-        var current = this.data.demo3.monthRange[0];
-        var newMonth = dayjs(current).add(-1, 'month').toDate().getTime();
+    demo3PreviousMonth() {
+        const current = this.data.demo3.monthRange[0];
+        const newMonth = dayjs(current).add(-1, 'month').toDate().getTime();
         this.setData({
             'demo3.title': dayjs(newMonth).format('YYYY年MM月'),
             'demo3.monthRange': [newMonth, newMonth],
         });
     },
-    demoFormatter: demoFormatter,
-    demo8Formatter: demo8Formatter,
-    demo9HandleChange: function (value) {
+    demoFormatter,
+    demo8Formatter,
+    demo9HandleChange(value) {
         this.setData({
             'demo9.value': value,
         });
     },
-    demo9HandlePreviousDay: function () {
+    demo9HandlePreviousDay() {
         this.setData({
             'demo9.value': this.data.demo9.value - 1000 * 24 * 3600,
         });
     },
-    demo9HandleNextDay: function () {
+    demo9HandleNextDay() {
         this.setData({
             'demo9.value': this.data.demo9.value + 1000 * 24 * 3600,
         });

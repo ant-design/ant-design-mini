@@ -361,7 +361,7 @@ export async function compileAntdMini(watch: boolean) {
   });
 
   miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
     source: resolve(__dirname, '..', 'demo'),
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
     watch,

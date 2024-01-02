@@ -1,42 +1,42 @@
 Page({
     data: {},
-    onChange: function (value) {
+    onChange(value) {
         console.log('onChange', value);
     },
-    onFocus: function (value) {
+    onFocus(value) {
         console.log('onFocus', value);
     },
-    onConfirm: function (value) {
+    onConfirm(value) {
         console.log('onConfirm', value);
     },
-    onBlur: function (value) {
+    onBlur(value) {
         console.log('onBlur', value);
     },
-    handleChange: function (value) {
+    handleChange(value) {
         console.log('onChange', value);
         this.setData({
             value: value,
         });
     },
-    add: function () {
+    add() {
         this.setData({
             value: (this.data.value || 0) + 1,
         });
     },
-    minus: function () {
+    minus() {
         this.setData({
             value: (this.data.value || 0) - 1,
         });
     },
-    clear: function () {
+    clear() {
         this.setData({
             value: null,
         });
     },
-    handleAddValue: function () {
+    handleAddValue() {
         this.setData({ value: this.data.value + 1 });
     },
-    handleMinusValue: function () {
+    handleMinusValue() {
         this.setData({ value: this.data.value - 1 });
     },
 });

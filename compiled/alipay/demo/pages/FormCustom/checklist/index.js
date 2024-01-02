@@ -5,17 +5,17 @@ Component({
         visible: false,
     },
     methods: {
-        showPopup: function () {
+        showPopup() {
             this.setData({
                 visible: true,
             });
         },
-        handlePopupClose: function () {
+        handlePopupClose() {
             this.setData({
                 visible: false,
             });
         },
-        onChange: function (value, e) {
+        onChange(value, e) {
             this.emit('onChange', value);
         },
     }
