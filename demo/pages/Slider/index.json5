@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Slider",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Slider",
+  /// #endif
+
+  "usingComponents": {
+    "ant-slider": "../../../src/Slider/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-stepper": "../../../src/Stepper/index",
+    "container": "../../../src/Container/index"
+  }
+}

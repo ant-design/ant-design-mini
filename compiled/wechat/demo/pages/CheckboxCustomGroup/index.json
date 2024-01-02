@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "CheckboxCustomGroup",
+  "navigationBarTitleText": "CheckboxCustomGroup",
   "usingComponents": {
     "ant-container": "../../../src/Container/index",
     "ant-checkbox": "../../../src//Checkbox/index",

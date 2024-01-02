@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Rate",
+  "navigationBarTitleText": "Rate",
   "usingComponents": {
     "ant-rate": "../../../src/Rate/index",
     "ant-stepper": "../../../src/Stepper/index",

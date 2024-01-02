@@ -1,0 +1,18 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Calendar",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Calendar",
+  /// #endif
+
+  "usingComponents": {
+    "icon": "../../../src/Icon/index",
+    "collapse-container": "./collapse-container/collapse-container",
+    "container": "../../../src/Container/index",
+    "ant-button": "../../../src/Button/index",
+    "calendar": "../../../src/Calendar/index",
+    "cn-day": "./collapse-container/cn-day/cn-day"
+  }
+}

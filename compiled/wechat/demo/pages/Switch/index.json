@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Switch",
+  "navigationBarTitleText": "Switch",
   "usingComponents": {
     "switch": "../../../src/Switch/index",
     "container": "../../../src/Container/index",

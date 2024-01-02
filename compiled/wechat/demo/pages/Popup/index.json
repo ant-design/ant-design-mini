@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Popup",
+  "navigationBarTitleText": "Popup",
   "usingComponents": {
     "ant-popup": "../../../src/Popup/index",
     "container": "../../../src/Container/index",

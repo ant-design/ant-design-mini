@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Button",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Button",
+  /// #endif
+
+  "usingComponents": {
+    "ant-button": "../../../src/Button/index",
+    "container": "../../../src/Container/index"
+  }
+}

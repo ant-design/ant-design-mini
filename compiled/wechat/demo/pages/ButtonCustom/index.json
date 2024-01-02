@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Button",
+  "navigationBarTitleText": "Button",
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "container": "../../../src/Container/index"

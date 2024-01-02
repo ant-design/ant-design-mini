@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Input",
+  "navigationBarTitleText": "Input",
   "usingComponents": {
     "ant-input": "../../../src/Input/index",
     "ant-textarea": "../../../src/Input/Textarea/index",

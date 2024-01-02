@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "List",
+  "navigationBarTitleText": "List",
   "usingComponents": {
     "list": "../../../src/List/index",
     "list-item": "../../../src/List/ListItem/index",

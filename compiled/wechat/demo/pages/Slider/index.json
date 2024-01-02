@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Slider",
+  "navigationBarTitleText": "Slider",
   "usingComponents": {
     "ant-slider": "../../../src/Slider/index",
     "ant-icon": "../../../src/Icon/index",

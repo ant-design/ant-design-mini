@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "CheckboxGroup",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "CheckboxGroup",
+  /// #endif
+
+  "usingComponents": {
+    "ant-checkbox-group": "../../../src/Checkbox/CheckboxGroup/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}
