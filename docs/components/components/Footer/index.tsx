@@ -214,7 +214,7 @@ export default () => {
         }
       </div>
       <div className={styles.copyright}>
-        © 2022 Made with ❤ by
+        © 2024 Made with ❤ by
         <a className={styles.copyrightLink} href='https://xtech.antfin.com' target='_blank'>
           XTech
         </a>
