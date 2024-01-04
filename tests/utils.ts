@@ -42,7 +42,11 @@ export interface TestInstance {
   getConfig(): Record<string, any>;
 }
 
-function createInstance(config: Instance, props: Record<string, any>, my: any) {
+export function createInstance(
+  config: Instance,
+  props: Record<string, any>,
+  my: any
+) {
   const component2 =
     typeof my !== 'undefined' &&
     typeof (my as any).canIUse === 'function' &&

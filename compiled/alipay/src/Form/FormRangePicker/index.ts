@@ -1,28 +1,36 @@
-import { FormRangePickerDefaultProps, FormRangePickerProps } from './props';
+import {
+  useHandleCustomEventOnly,
+  useMultipleValueHandleCustomEvent,
+} from 'compiled-alipay/_util/hooks/useHandleCustomEvent';
 import { useEvent } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
+import { FormRangePickerDefaultProps, FormRangePickerProps } from './props';
 
 const FormDatePicker = (props: FormRangePickerProps) => {
   const { formData, emit } = useFormItem(props);
   const { triggerEventValues, triggerEventOnly, triggerEvent } =
     useComponentEvent(props);
 
-  useEvent('onOk', (date, dateStr, e) => {
+  useMultipleValueHandleCustomEvent('onOk', (date, dateStr, e) => {
     emit('onChange', date);
     triggerEventValues('ok', [date, dateStr], e);
   });
 
-  useEvent('onPickerChange', (type, date, dateStr, e) => {
-    triggerEventValues('pickerChange', [type, date, dateStr], e);
-  });
+  useMultipleValueHandleCustomEvent(
+    'onPickerChange',
+    (type, date, dateStr, e) => {
+      triggerEventValues('pickerChange', [type, date, dateStr], e);
+    }
+  );
 
-  useEvent('onVisibleChange', (visible, e) => {
+  useHandleCustomEvent('onVisibleChange', (visible, e) => {
     triggerEvent('visibleChange', visible, e);
   });
 
-  useEvent('onDismissPicker', (e) => {
+  useHandleCustomEventOnly('onDismissPicker', (e) => {
     triggerEventOnly('dismissPicker', e);
   });
 
@@ -37,6 +45,7 @@ const FormDatePicker = (props: FormRangePickerProps) => {
       return props.onFormatLabel(type, value);
     }
   });
+
   return {
     formData,
   };

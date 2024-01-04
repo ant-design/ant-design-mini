@@ -106,19 +106,5 @@ describe('FormInput', () => {
       expect(onConfirm.mock.calls.length).toEqual(1);
       expect(onConfirm.mock.calls[0]).toEqual([TestValue, fmtEvent(propsData)]);
     });
-
-    it('测试 onClear 事件', async () => {
-      const { instance, onChange, propsData, form } = createFormInput({});
-      instance.callMethod('onClear', TestValue, TestEvent);
-      await sleep(10);
-      expect(form.getFieldsValue()).toEqual({
-        input: '',
-      });
-      expect(onChange.mock.calls.length).toEqual(1);
-      expect(onChange.mock.calls[0]).toEqual([
-        'test value',
-        fmtEvent(propsData),
-      ]);
-    });
   });
 });

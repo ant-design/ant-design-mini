@@ -1,3 +1,4 @@
+import { useMultipleValueHandleCustomEvent } from 'compiled-alipay/_util/hooks/useHandleCustomEvent';
 import { useEvent } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
@@ -8,16 +9,17 @@ const FormSelector = (props: FormSelectorProps) => {
   const { formData, emit } = useFormItem(props);
 
   const { triggerEventValues } = useComponentEvent(props);
-  useEvent('onChange', (value, item, e) => {
+
+  useMultipleValueHandleCustomEvent('onChange', (value, item, e) => {
     emit('onChange', value);
     triggerEventValues('change', [value, item], e);
   });
 
-  useEvent('onSelectMax', (value, item, e) => {
+  useMultipleValueHandleCustomEvent('onSelectMax', (value, item, e) => {
     triggerEventValues('selectMax', [value, item], e);
   });
 
-  useEvent('onSelectMin', (value, item, e) => {
+  useMultipleValueHandleCustomEvent('onSelectMin', (value, item, e) => {
     triggerEventValues('selectMin', [value, item], e);
   });
 

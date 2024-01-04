@@ -6,6 +6,8 @@
     "component2": true,
     "enableNodeModuleBabelTransform": true
   },
-  "uploadExclude": ["dist/**/*"],
+  "uploadExclude": [
+    "dist/**/*"
+  ],
   "miniprogramRoot": "compiled/alipay/demo"
 }

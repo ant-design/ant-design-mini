@@ -66,22 +66,22 @@ describe('Calendar', () => {
     ).toMatchInlineSnapshot(
       `
       "{
-        \\"disabled\\": true,
-        \\"time\\": null,
-        \\"date\\": 26,
-        \\"isSelected\\": false,
-        \\"isSelectedBegin\\": false,
-        \\"top\\": {
-          \\"label\\": \\"top\\",
-          \\"className\\": \\"top\\"
+        "disabled": true,
+        "time": null,
+        "date": 26,
+        "isSelected": false,
+        "isSelectedBegin": false,
+        "top": {
+          "label": "top",
+          "className": "top"
         },
-        \\"isSelectedEnd\\": false,
-        \\"inThisMonth\\": false,
-        \\"isRowBegin\\": true,
-        \\"isRowEnd\\": false,
-        \\"bottom\\": {
-          \\"label\\": \\"bottom\\",
-          \\"className\\": \\"bottom\\"
+        "isSelectedEnd": false,
+        "inThisMonth": false,
+        "isRowBegin": true,
+        "isRowEnd": false,
+        "bottom": {
+          "label": "bottom",
+          "className": "bottom"
         }
       }"
     `

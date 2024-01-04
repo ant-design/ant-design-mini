@@ -1,24 +1,28 @@
 import { useEvent } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import {
+  useHandleCustomEvent,
+  useMultipleValueHandleCustomEvent,
+} from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
-import { FormDatePickerProps, FormDatePickerDefaultProps } from './props';
+import { FormDatePickerDefaultProps, FormDatePickerProps } from './props';
 
 const FormDatePicker = (props: FormDatePickerProps) => {
   const { formData, emit } = useFormItem(props);
   const { triggerEventValues, triggerEventOnly, triggerEvent } =
     useComponentEvent(props);
 
-  useEvent('onOk', (date, dateStr, e) => {
+  useMultipleValueHandleCustomEvent('onOk', (date, dateStr, e) => {
     emit('onChange', date);
     triggerEventValues('ok', [date, dateStr], e);
   });
 
-  useEvent('onPickerChange', (date, dateStr, e) => {
+  useMultipleValueHandleCustomEvent('onPickerChange', (date, dateStr, e) => {
     triggerEventValues('pickerChange', [date, dateStr], e);
   });
 
-  useEvent('onVisibleChange', (visible, e) => {
+  useHandleCustomEvent('onVisibleChange', (visible, e) => {
     triggerEvent('visibleChange', visible, e);
   });
 
@@ -37,6 +41,7 @@ const FormDatePicker = (props: FormDatePickerProps) => {
       return props.onFormatLabel(type, value);
     }
   });
+
   return {
     formData,
   };

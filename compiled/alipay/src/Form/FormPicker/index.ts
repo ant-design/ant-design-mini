@@ -1,20 +1,21 @@
-import { FormPickerDefaultProps, FormPickerProps } from './props';
 import { useEvent } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { useMultipleValueHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
+import { FormPickerDefaultProps, FormPickerProps } from './props';
 
 const FormPicker = (props: FormPickerProps) => {
   const { formData, emit } = useFormItem(props);
   const { triggerEventValues, triggerEventOnly, triggerEvent } =
     useComponentEvent(props);
 
-  useEvent('onOk', (value, column, e) => {
+  useMultipleValueHandleCustomEvent('onOk', (value, column, e) => {
     emit('onChange', value);
     triggerEventValues('ok', [value, column], e);
   });
 
-  useEvent('onChange', (value, column, e) => {
+  useMultipleValueHandleCustomEvent('onChange', (value, column, e) => {
     triggerEventValues('change', [value, column], e);
   });
 

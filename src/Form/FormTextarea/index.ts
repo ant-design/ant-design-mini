@@ -1,3 +1,4 @@
+import { useHandleCustomEvent } from 'compiled-alipay/_util/hooks/useHandleCustomEvent';
 import { useEffect, useEvent, useRef } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
@@ -8,7 +9,8 @@ const FormTextarea = (props: FormTextareaProps) => {
   const { formData, emit } = useFormItem(props);
   const { triggerEvent } = useComponentEvent(props);
   const inputRef = useRef();
-  useEvent('handleRef', (input) => {
+
+  useHandleCustomEvent('handleRef', (input) => {
     inputRef.current = input;
   });
 
@@ -18,26 +20,21 @@ const FormTextarea = (props: FormTextareaProps) => {
     }
   }, [formData]);
 
-  useEvent('onChange', (value, e) => {
+  useHandleCustomEvent('onChange', (value, e) => {
     emit('onChange', value);
     triggerEvent('change', value, e);
   });
 
-  useEvent('onBlur', (value, e) => {
+  useHandleCustomEvent('onBlur', (value, e) => {
     triggerEvent('blur', value, e);
   });
 
-  useEvent('onFocus', (value, e) => {
+  useHandleCustomEvent('onFocus', (value, e) => {
     triggerEvent('focus', value, e);
   });
 
-  useEvent('onConfirm', (value, e) => {
+  useHandleCustomEvent('onConfirm', (value, e) => {
     triggerEvent('confirm', value, e);
-  });
-
-  useEvent('onClear', (value, e) => {
-    emit('onChange', '');
-    triggerEvent('change', value, e);
   });
 
   return {
