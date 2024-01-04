@@ -1,11 +1,11 @@
-import {
-  useHandleCustomEvent,
-  useMultipleValueHandleCustomEvent,
-} from 'compiled-alipay/_util/hooks/useHandleCustomEvent';
 import { useEvent } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { useHandleCustomEventOnly } from '../../_util/hooks/useHandleCustomEvent';
+import {
+  useHandleCustomEvent,
+  useHandleCustomEventOnly,
+  useMultipleValueHandleCustomEvent,
+} from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
 import {
   FormCascaderPickerDefaultProps,

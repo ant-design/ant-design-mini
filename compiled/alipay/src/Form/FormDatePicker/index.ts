@@ -3,6 +3,7 @@ import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import {
   useHandleCustomEvent,
+  useHandleCustomEventOnly,
   useMultipleValueHandleCustomEvent,
 } from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
@@ -26,7 +27,7 @@ const FormDatePicker = (props: FormDatePickerProps) => {
     triggerEvent('visibleChange', visible, e);
   });
 
-  useEvent('onDismissPicker', (e) => {
+  useHandleCustomEventOnly('onDismissPicker', (e) => {
     triggerEventOnly('dismissPicker', e);
   });
 

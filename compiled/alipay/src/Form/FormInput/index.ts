@@ -1,7 +1,7 @@
-import { useHandleCustomEvent } from 'compiled-alipay/_util/hooks/useHandleCustomEvent';
-import { useEffect, useEvent, useRef } from 'functional-mini/component';
+import { useEffect, useRef } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
 import { FormInputDefaultProps, FormInputProps } from './props';
 
@@ -10,7 +10,7 @@ const FormInput = (props: FormInputProps) => {
   const { triggerEvent } = useComponentEvent(props);
   const inputRef = useRef();
 
-  useEvent('handleRef', (input) => {
+  useHandleCustomEvent('handleRef', (input) => {
     inputRef.current = input;
   });
 

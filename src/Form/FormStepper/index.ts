@@ -1,10 +1,9 @@
+import { mountComponent } from '../../_util/component';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import {
   useHandleCustomEvent,
   useHandleCustomEventOnly,
-} from 'compiled-alipay/_util/hooks/useHandleCustomEvent';
-import { useEvent } from 'functional-mini/component';
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+} from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
 import { FormStepperDefaultProps, FormStepperProps } from './props';
 
