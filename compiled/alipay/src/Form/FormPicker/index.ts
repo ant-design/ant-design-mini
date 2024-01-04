@@ -1,3 +1,4 @@
+import { useHandleCustomEvent } from 'compiled-alipay/_util/hooks/useHandleCustomEvent';
 import { useEvent } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
@@ -19,7 +20,7 @@ const FormPicker = (props: FormPickerProps) => {
     triggerEventValues('change', [value, column], e);
   });
 
-  useEvent('onVisibleChange', (visible, e) => {
+  useHandleCustomEvent('onVisibleChange', (visible, e) => {
     triggerEvent('visibleChange', visible, e);
   });
 
@@ -29,7 +30,7 @@ const FormPicker = (props: FormPickerProps) => {
     }
   });
 
-  useEvent('onDismissPicker', (e) => {
+  useHandleCustomEvent('onDismissPicker', (e) => {
     triggerEventOnly('cancel', e);
   });
 

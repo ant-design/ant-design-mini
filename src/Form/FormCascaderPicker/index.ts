@@ -30,7 +30,7 @@ const FormCascaderPicker = (props: FormCascaderPickerProps) => {
     triggerEvent('visibleChange', visible, e);
   });
 
-  useEvent<any[]>('onFormat', (value, option) => {
+  useEvent('onFormat', (value, option) => {
     if (props.onFormat) {
       return props.onFormat(value, option);
     }
