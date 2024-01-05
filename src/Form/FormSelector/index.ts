@@ -1,5 +1,4 @@
-import { useMultipleValueHandleCustomEvent } from 'compiled-alipay/_util/hooks/useHandleCustomEvent';
-import { useEvent } from 'functional-mini/component';
+import { useMultipleValueHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { useFormItem } from '../use-form-item';
