@@ -233,7 +233,6 @@ class Field extends EventEmitter {
     let requiredRule = false;
     let validator: AsyncValidator;
     if (rule) {
-      console.log('rule', rule);
       const ruleList = Array.isArray(rule) ? rule : [rule];
       const result = ruleList.find((item) => item.required);
       if (result) {
@@ -252,12 +251,6 @@ class Field extends EventEmitter {
         [name]: ruleList,
       });
     } else if (required) {
-      console.log('xxx', {
-        [name]: {
-          required,
-          message: message,
-        },
-      });
       validator = new AsyncValidator({
         [name]: {
           required,
@@ -286,7 +279,6 @@ class Field extends EventEmitter {
           }
         });
       });
-      console.log('obj', validateMessages, obj);
       validator.messages(this.transformValidateMessages(validateMessages, obj));
     }
     this.validator = validator;
@@ -310,7 +302,6 @@ class Field extends EventEmitter {
       validateMessages: ValidateMessages,
       target: ValidateMessages
     ) {
-      console.log('validateMessages', validateMessages);
       Object.keys(validateMessages).forEach((item) => {
         if (typeof validateMessages[item] === 'string') {
           target[item] = validateMessages[item].replace(
@@ -386,7 +377,6 @@ class Field extends EventEmitter {
    * 校验 Field
    */
   async validate() {
-    console.log('11');
     const validatorStatusSuccess: ValidatorStatus = {
       status: 'success',
       errors: [] as string[],
@@ -399,10 +389,8 @@ class Field extends EventEmitter {
         value,
       };
     }
-    console.log('22');
     const validator = this.validator;
     try {
-      console.log('33');
       let needUpdateStatus = true;
       Promise.resolve().then(() => {
         Promise.resolve().then(() => {
@@ -414,7 +402,6 @@ class Field extends EventEmitter {
           }
         });
       });
-      console.log('55', this.name, value);
       await this.validator.validate(
         {
           [this.name]: value,
@@ -423,18 +410,15 @@ class Field extends EventEmitter {
           needUpdateStatus = false;
         }
       );
-      console.log('88');
       if (validator !== this.validator) {
         return;
       }
-      console.log('66');
       this.setValidatorStatus(validatorStatusSuccess);
       return {
         validatorStatus: validatorStatusSuccess,
         value,
       };
     } catch (err) {
-      console.log('44');
       if (validator !== this.validator) {
         return;
       }
@@ -824,7 +808,6 @@ export class Form {
       name: string;
     }>[] = [];
     this.eachField((field, name) => {
-      console.log('field', field);
       arr.push(
         (async () => {
           return {

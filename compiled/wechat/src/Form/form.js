@@ -156,11 +156,10 @@ var Field = /** @class */ (function (_super) {
      * @returns
      */
     Field.prototype.transformValidatorRules = function (name, rule, required, label, message, validateMessages) {
-        var _a, _b, _c;
+        var _a, _b;
         var requiredRule = false;
         var validator;
         if (rule) {
-            console.log('rule', rule);
             var ruleList = Array.isArray(rule) ? rule : [rule];
             var result = ruleList.find(function (item) { return item.required; });
             if (result) {
@@ -181,18 +180,12 @@ var Field = /** @class */ (function (_super) {
                 _a));
         }
         else if (required) {
-            console.log('xxx', (_b = {},
+            validator = new AsyncValidator((_b = {},
                 _b[name] = {
                     required: required,
                     message: message,
                 },
                 _b));
-            validator = new AsyncValidator((_c = {},
-                _c[name] = {
-                    required: required,
-                    message: message,
-                },
-                _c));
             requiredRule = true;
         }
         if (validator) {
@@ -215,7 +208,6 @@ var Field = /** @class */ (function (_super) {
                     }
                 });
             });
-            console.log('obj', validateMessages, obj_1);
             validator.messages(this.transformValidateMessages(validateMessages, obj_1));
         }
         this.validator = validator;
@@ -226,7 +218,6 @@ var Field = /** @class */ (function (_super) {
             return;
         }
         function replaceLabel(validateMessages, target) {
-            console.log('validateMessages', validateMessages);
             Object.keys(validateMessages).forEach(function (item) {
                 if (typeof validateMessages[item] === 'string') {
                     target[item] = validateMessages[item].replace('${label}', obj.label || '');
@@ -301,7 +292,6 @@ var Field = /** @class */ (function (_super) {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        console.log('11');
                         validatorStatusSuccess = {
                             status: 'success',
                             errors: [],
@@ -314,12 +304,10 @@ var Field = /** @class */ (function (_super) {
                                     value: value,
                                 }];
                         }
-                        console.log('22');
                         validator = this.validator;
                         _b.label = 1;
                     case 1:
                         _b.trys.push([1, 3, , 4]);
-                        console.log('33');
                         needUpdateStatus_1 = true;
                         Promise.resolve().then(function () {
                             Promise.resolve().then(function () {
@@ -331,7 +319,6 @@ var Field = /** @class */ (function (_super) {
                                 }
                             });
                         });
-                        console.log('55', this.name, value);
                         return [4 /*yield*/, this.validator.validate((_a = {},
                                 _a[this.name] = value,
                                 _a), function () {
@@ -339,11 +326,9 @@ var Field = /** @class */ (function (_super) {
                             })];
                     case 2:
                         _b.sent();
-                        console.log('88');
                         if (validator !== this.validator) {
                             return [2 /*return*/];
                         }
-                        console.log('66');
                         this.setValidatorStatus(validatorStatusSuccess);
                         return [2 /*return*/, {
                                 validatorStatus: validatorStatusSuccess,
@@ -351,7 +336,6 @@ var Field = /** @class */ (function (_super) {
                             }];
                     case 3:
                         err_1 = _b.sent();
-                        console.log('44');
                         if (validator !== this.validator) {
                             return [2 /*return*/];
                         }
@@ -699,7 +683,6 @@ var Form = /** @class */ (function () {
                         values = {};
                         arr = [];
                         this.eachField(function (field, name) {
-                            console.log('field', field);
                             arr.push((function () { return __awaiter(_this, void 0, void 0, function () {
                                 var _a;
                                 return __generator(this, function (_b) {
