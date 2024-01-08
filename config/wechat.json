@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/FormWatch",
     "pages/RadioGroup",
     "pages/RateCustom",
     "pages/Radio",
@@ -62,6 +63,7 @@
     "ImageUpload",
     "Radio",
     "Rate",
-    "Selector"
+    "Selector",
+    "Form"
   ]
 }

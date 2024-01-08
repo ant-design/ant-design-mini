@@ -5,6 +5,7 @@ import {
   useRef,
   useEffect,
 } from 'functional-mini/component';
+import { triggerRefEvent } from '../_util/hooks/useReportRef';
 import { EventTrigger } from './form';
 
 type EventCallback = (trigger: EventTrigger, value?: Value) => void;
@@ -44,6 +45,8 @@ export const useFormItem = (props) => {
   useEvent('getProps', () => {
     return props;
   });
+
+  triggerRefEvent();
 
   useEffect(() => {
     return () => {
