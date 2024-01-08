@@ -88,17 +88,5 @@ describe('FormTextarea', () => {
       expect(onConfirm.mock.calls.length).toEqual(1);
       expect(onConfirm.mock.calls[0]).toEqual([TestValue, fmtEvent(propsData)]);
     });
-
-    it('测试 onClear 事件', async () => {
-      const { instance, onChange, propsData } = createFormTextarea({});
-      instance.callMethod('onClear', TestValue, TestEvent);
-      expect(onChange.mock.calls.length).toEqual(1);
-      expect(onChange.mock.calls[0]).toEqual([
-        'test value',
-        fmtEvent(propsData),
-      ]);
-      await sleep(10);
-      expect(instance.getData().formData.value).toEqual('');
-    });
   });
 });

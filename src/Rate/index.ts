@@ -1,4 +1,3 @@
-import { IRateProps } from 'compiled-alipay/Rate/props';
 import {
   useComponent,
   useEvent,
@@ -10,6 +9,7 @@ import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { IRateProps } from './props';
 
 const Rate = (props: IRateProps) => {
   const [rateValue, { isControlled, update }] = useMixState(

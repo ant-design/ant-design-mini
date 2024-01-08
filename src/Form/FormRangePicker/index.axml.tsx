@@ -38,6 +38,8 @@ export default (
     arrow,
     validateStatus,
     help,
+    onFormat,
+    onFormatLabel,
   }: TSXMLProps<FormRangePickerProps>,
   { formData, item }: InternalData
 ) => (
@@ -83,8 +85,8 @@ export default (
           onPickerChange="onPickerChange"
           onCancel="onDismissPicker"
           onVisibleChange="onVisibleChange"
-          onFormatLabel="onFormatLabel"
-          onFormat="onFormat"
+          onFormatLabel={onFormatLabel ? onFormatLabel : 'onFormatLabel'}
+          onFormat={onFormat ? onFormat : 'onFormat'}
         >
           <Slot name="content" slot="content" />
           <Slot name="title" slot="title" />

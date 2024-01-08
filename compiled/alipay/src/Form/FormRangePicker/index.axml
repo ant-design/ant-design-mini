@@ -42,8 +42,8 @@
       onPickerChange="onPickerChange"
       onCancel="onDismissPicker"
       onVisibleChange="onVisibleChange"
-      onFormatLabel="onFormatLabel"
-      onFormat="onFormat">
+      onFormatLabel="{{ onFormatLabel ? onFormatLabel : 'onFormatLabel' }}"
+      onFormat="{{ onFormat ? onFormat : 'onFormat' }}">
       <slot
         name="content"
         slot="content" />

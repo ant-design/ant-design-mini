@@ -16,7 +16,7 @@ export function mountComponent<T>(
 ) {
   /// #if WECHAT
   Component(
-    wechatComponent(Hooks, mergeDefaultProps(defaultProps), {
+    wechatComponent(Hooks, mergeDefaultProps(defaultProps) as unknown as T, {
       options: {
         styleIsolation: 'shared',
         multipleSlots: true,
