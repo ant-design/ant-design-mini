@@ -30,11 +30,17 @@ const FormCascaderPicker = (props: FormCascaderPickerProps) => {
     triggerEvent('visibleChange', visible, e);
   });
 
-  useEvent('onFormat', (value, option) => {
-    if (props.onFormat) {
-      return props.onFormat(value, option);
+  useEvent(
+    'onFormat',
+    (value, option) => {
+      if (props.onFormat) {
+        return props.onFormat(value, option);
+      }
+    },
+    {
+      handleResult: true,
     }
-  });
+  );
 
   useHandleCustomEventOnly('onDismissPicker', (e) => {
     triggerEventOnly('cancel', e);

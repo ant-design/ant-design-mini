@@ -34,17 +34,29 @@ const FormDatePicker = (props: FormRangePickerProps) => {
     triggerEventOnly('dismissPicker', e);
   });
 
-  useEvent('onFormat', (date, dateStr) => {
-    if (props.onFormat) {
-      return props.onFormat(date, dateStr);
+  useEvent(
+    'onFormat',
+    (date, dateStr) => {
+      if (props.onFormat) {
+        return props.onFormat(date, dateStr);
+      }
+    },
+    {
+      handleResult: true,
     }
-  });
+  );
 
-  useEvent('onFormatLabel', (type, value) => {
-    if (props.onFormatLabel) {
-      return props.onFormatLabel(type, value);
+  useEvent(
+    'onFormatLabel',
+    (type, value) => {
+      if (props.onFormatLabel) {
+        return props.onFormatLabel(type, value);
+      }
+    },
+    {
+      handleResult: true,
     }
-  });
+  );
 
   return {
     formData,

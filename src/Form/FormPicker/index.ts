@@ -26,11 +26,17 @@ const FormPicker = (props: FormPickerProps) => {
     triggerEvent('visibleChange', visible, e);
   });
 
-  useEvent('onFormat', (value, column) => {
-    if (props.onFormat) {
-      return props.onFormat(value, column);
+  useEvent(
+    'onFormat',
+    (value, column) => {
+      if (props.onFormat) {
+        return props.onFormat(value, column);
+      }
+    },
+    {
+      handleResult: true,
     }
-  });
+  );
 
   useHandleCustomEvent('onDismissPicker', (e) => {
     triggerEventOnly('cancel', e);

@@ -36,7 +36,7 @@
       onChange="onChange"
       onCancel="onDismissPicker"
       onVisibleChange="onVisibleChange"
-      onFormat="onFormat">
+      onFormat="{{ onFormat ? onFormat : 'onFormat' }}">
       <slot
         name="title"
         slot="title" />
