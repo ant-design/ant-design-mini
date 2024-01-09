@@ -21,6 +21,10 @@ interface IStep {
    * @description 距离左边
    */
   left: string;
+  /**
+   * @description className
+   */
+  className?: string;
 }
 
 export interface IGuideTour extends IBaseProps {
@@ -28,6 +32,10 @@ export interface IGuideTour extends IBaseProps {
    * @description 蒙层样式
    */
   maskStyle: string;
+  /**
+   * @description 蒙层 className
+   */
+  maskClassName?: string;
   /**
    * @description 步骤详情
    */
