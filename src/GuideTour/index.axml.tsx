@@ -1,5 +1,5 @@
-import { GuideTourDefaultProps, IGuideTour } from './props';
-import { Component, View, Slot, InternalData, TSXMLProps } from 'tsxml';
+import { IGuideTour } from './props';
+import { Component, View, Slot, InternalData, TSXMLProps, Block } from 'tsxml';
 import Mask from '../Mask/index.axml';
 import Button from '../Button/index.axml';
 import Icon from '../Icon/index.axml';
@@ -63,7 +63,7 @@ export default (
           )}
         </View>
         {swiperable ? (
-          <>
+          <Block>
             <View class="ant-guide-tour-indicator">
               {items.map((_, index) => (
                 <View
@@ -108,7 +108,7 @@ export default (
                 </swiper-item>
               ))}
             </swiper>
-          </>
+          </Block>
         ) : (
           items.map(
             (item, index) =>

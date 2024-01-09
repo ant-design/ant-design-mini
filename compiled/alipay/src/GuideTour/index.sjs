@@ -11,8 +11,8 @@ function checkShowKnow(current, items) {
   return current === items.length - 1;
 }
 export default {
-  checkShowNext,
-  checkShowPrev,
-  checkShowJump,
-  checkShowKnow,
+  checkShowNext: checkShowNext,
+  checkShowPrev: checkShowPrev,
+  checkShowJump: checkShowJump,
+  checkShowKnow: checkShowKnow
 };
