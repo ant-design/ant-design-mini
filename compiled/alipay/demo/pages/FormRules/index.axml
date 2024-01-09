@@ -15,20 +15,20 @@
   label="重复密码"
   name="confirm"
   password
-  dependencies="{{['password']}}"
+  dependencies="{{ ['password'] }}"
   ref="handleRef" />
 
 <view class="buttons">
-  <button
+  <ant-button
     type="primary"
     onTap="submit"
     style="margin-bottom: 12px">
     提交
-  </button>
-  <button
+  </ant-button>
+  <ant-button
     onTap="reset"
     style="margin-bottom: 12px">
     重置
-  </button>
-  <button onTap="fill">Fill表单</button>
+  </ant-button>
+  <ant-button onTap="fill">Fill表单</ant-button>
 </view>

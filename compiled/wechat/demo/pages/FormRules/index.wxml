@@ -3,32 +3,32 @@
   name="account"
   required
   message="需要输入用户名"
-  ref="handleRef" />
+  bind:ref="handleRef" />
 
 <form-input
   label="密码"
   name="password"
   password
-  ref="handleRef" />
+  bind:ref="handleRef" />
 
 <form-input
   label="重复密码"
   name="confirm"
   password
-  dependencies="{{['password']}}"
-  ref="handleRef" />
+  dependencies="{{ ['password'] }}"
+  bind:ref="handleRef" />
 
 <view class="buttons">
-  <button
+  <ant-button
     type="primary"
-    onTap="submit"
+    bind:tap="submit"
     style="margin-bottom: 12px">
     提交
-  </button>
-  <button
-    onTap="reset"
+  </ant-button>
+  <ant-button
+    bind:tap="reset"
     style="margin-bottom: 12px">
     重置
-  </button>
-  <button onTap="fill">Fill表单</button>
+  </ant-button>
+  <ant-button bind:tap="fill">Fill表单</ant-button>
 </view>

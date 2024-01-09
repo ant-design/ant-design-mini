@@ -16,6 +16,7 @@ export interface FormItemProps extends IBaseProps {
   disabled?: boolean;
   extra?: string;
   message?: string;
+  dependencies?: string[];
 }
 
 export const FormItemDefaultProps: Partial<FormItemProps> = {
@@ -37,4 +38,5 @@ export const FormItemFunctionalProps: FormItemProps = {
   disabled: false,
   extra: '',
   message: null,
+  dependencies: null,
 };

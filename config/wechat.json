@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/FormRules",
     "pages/FormWatch",
     "pages/RadioGroup",
     "pages/RateCustom",

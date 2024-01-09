@@ -16,4 +16,5 @@ export var FormItemFunctionalProps = {
     disabled: false,
     extra: '',
     message: null,
+    dependencies: null,
 };
