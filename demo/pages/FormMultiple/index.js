@@ -1,5 +1,4 @@
 import { Form } from '../../../src/Form/form';
-import cityList from '../CascaderPicker/city';
 
 Page({
   form: new Form(),

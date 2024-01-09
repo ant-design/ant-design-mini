@@ -10,12 +10,12 @@
     slot="footer"
     slot-scope="item">
     <view
-      class="errors"
-      a:if="{{item.status === 'error'}}">
-      <icon
+      a:if="{{ item.status === 'error' }}"
+      class="errors">
+      <ant-icon
         type="CloseCircleOutline"
         style="margin-right: 4px" />
-      {{item.errors}}
+      {{ item.errors }}
     </view>
   </view>
 </form-input>
@@ -32,26 +32,26 @@
     slot="footer"
     slot-scope="item">
     <view
-      class="errors"
-      a:if="{{item.status === 'error'}}">
-      <icon
+      a:if="{{ item.status === 'error' }}"
+      class="errors">
+      <ant-icon
         type="CloseCircleOutline"
         style="margin-right: 4px" />
-      {{item.errors}}
+      {{ item.errors }}
     </view>
   </view>
 </form-input>
 
 <view class="buttons">
-  <button
+  <ant-button
     type="primary"
     onTap="submit"
     style="margin-bottom: 12px">
     提交
-  </button>
-  <button
+  </ant-button>
+  <ant-button
     onTap="reset"
     style="margin-bottom: 12px">
     重置
-  </button>
+  </ant-button>
 </view>

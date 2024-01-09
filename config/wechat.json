@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/FormCustomError",
     "pages/FormRules",
     "pages/FormWatch",
     "pages/RadioGroup",
