@@ -18,6 +18,7 @@ export var useFormItem = function (props) {
         required: false,
         errors: [],
     }), formData = _a[0], setFormDate = _a[1];
+    triggerRefEvent();
     var formRef = useRef(formData);
     var emitRef = useRef(null);
     useEvent('setFormData', function (values) {
@@ -37,7 +38,6 @@ export var useFormItem = function (props) {
     useEvent('getProps', function () {
         return props;
     });
-    triggerRefEvent();
     useEffect(function () {
         return function () {
             emit('didUnmount');

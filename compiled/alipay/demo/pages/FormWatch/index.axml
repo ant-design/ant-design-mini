@@ -21,15 +21,15 @@
 </view>
 
 <view class="buttons">
-  <button
+  <ant-button
     type="primary"
     onTap="submit"
     className="button">
     提交
-  </button>
-  <button
+  </ant-button>
+  <ant-button
     onTap="reset"
     className="button">
     重置
-  </button>
+  </ant-button>
 </view>

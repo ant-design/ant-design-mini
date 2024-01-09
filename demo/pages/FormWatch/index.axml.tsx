@@ -1,6 +1,6 @@
 import { InternalData, Page, View } from 'tsxml';
 import FormInput from '../../../src/Form/FormInput/index.axml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 
 export default ({ changedValuesText, allValuesText }: InternalData) => (
   <Page>
@@ -29,12 +29,12 @@ export default ({ changedValuesText, allValuesText }: InternalData) => (
     </View>
 
     <View class="buttons">
-      <Button type="primary" onTap="submit" className="button">
+      <AntButton type="primary" onTap="submit" className="button">
         提交
-      </Button>
-      <Button onTap="reset" className="button">
+      </AntButton>
+      <AntButton onTap="reset" className="button">
         重置
-      </Button>
+      </AntButton>
     </View>
   </Page>
 );

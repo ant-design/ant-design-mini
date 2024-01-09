@@ -18,8 +18,9 @@ export const useFormItem = (props) => {
     errors: [],
   });
 
-  const formRef = useRef(formData);
+  triggerRefEvent();
 
+  const formRef = useRef(formData);
   const emitRef = useRef<EventCallback | null>(null);
   useEvent('setFormData', (values: Values) => {
     setFormDate((old) => {
@@ -45,8 +46,6 @@ export const useFormItem = (props) => {
   useEvent('getProps', () => {
     return props;
   });
-
-  triggerRefEvent();
 
   useEffect(() => {
     return () => {
