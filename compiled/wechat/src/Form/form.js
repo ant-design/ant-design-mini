@@ -171,7 +171,8 @@ var Field = /** @class */ (function (_super) {
             else if (required) {
                 ruleList.push({
                     required: required,
-                    message: message,
+                    // message 不允许为 null
+                    message: message !== null && message !== void 0 ? message : undefined,
                 });
                 requiredRule = true;
             }
@@ -183,7 +184,8 @@ var Field = /** @class */ (function (_super) {
             validator = new AsyncValidator((_b = {},
                 _b[name] = {
                     required: required,
-                    message: message,
+                    // message 不允许为 null
+                    message: message !== null && message !== void 0 ? message : undefined,
                 },
                 _b));
             requiredRule = true;

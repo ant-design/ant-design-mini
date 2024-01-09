@@ -1,8 +1,16 @@
 import { Form } from '../../../src/Form/form';
 
-
 Page({
-  form: new Form(),
+  onLoad() {
+    this.form = new Form();
+    /// #if WECHAT
+    if (this.formRefList) {
+      this.formRefList.forEach((ref) => {
+        this.form.addItem(ref);
+      });
+    }
+    /// #endif
+  },
   data: {
     changedValuesText: '',
     allValuesText: '',
@@ -11,12 +19,12 @@ Page({
     this.form.onValuesChange((changedValues, allValues) => {
       let changedValuesText = '';
       let allValuesText = '';
-      Object.keys(changedValues).forEach(name => {
+      Object.keys(changedValues).forEach((name) => {
         const value = changedValues[name];
         changedValuesText += `${name}: ${value};`;
       });
 
-      Object.keys(allValues).forEach(name => {
+      Object.keys(allValues).forEach((name) => {
         const value = allValues[name];
         allValuesText += `${name}: ${value};`;
       });
@@ -27,7 +35,16 @@ Page({
     });
   },
   handleRef(ref) {
+    /// #if ALIPAY
     this.form.addItem(ref);
+    /// #endif
+
+    /// #if WECHAT
+    if (!this.formRefList) {
+      this.formRefList = [];
+    }
+    this.formRefList.push(ref.detail);
+    /// #endif
   },
   reset() {
     this.form.reset();
@@ -38,9 +55,13 @@ Page({
   },
   async submit() {
     const values = await this.form.submit();
+    /// #if ALIPAY
     my.alert({
       title: '提交',
       content: JSON.stringify(values),
     });
-  }
+    /// #endif
+
+    console.log(values);
+  },
 });
