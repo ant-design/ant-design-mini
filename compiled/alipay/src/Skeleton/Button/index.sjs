@@ -1,9 +1,10 @@
 function getClass(size) {
-  const list = ['small', 'medium', 'large'];
-  if (list.indexOf(size) >=0) {
-    return `ant-skeleton-button-${size}`;
+  var list = ['small', 'medium', 'large'];
+  if (list.indexOf(size) >= 0) {
+    return "ant-skeleton-button-".concat(size);
   }
   return 'ant-skeleton-button-medium';
 }
-
-export default { getClass };
+export default {
+  getClass: getClass
+};
