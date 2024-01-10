@@ -2,7 +2,7 @@
   "defaultTitle": "Form",
   "usingComponents": {
     "form-input": "../../../src/Form/FormInput/index",
-    "icon": "../../../src/Icon/index",
-    "button": "../../../src/Button/index"
+    "ant-icon": "../../../src/Icon/index",
+    "ant-button": "../../../src/Button/index"
   }
 }

@@ -5,7 +5,7 @@ import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import useLayoutEffect from '../_util/hooks/useLayoutEffect';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
 import { triggerRefEvent } from '../_util/hooks/useReportRef';
-import { InputProps } from './props';
+import { InputFunctionalProps, InputProps } from './props';
 
 const Input = (props: InputProps) => {
   const isControlled = hasValue(props.controlled)
@@ -82,31 +82,4 @@ const Input = (props: InputProps) => {
   };
 };
 
-mountComponent<InputProps>(Input, {
-  type: null,
-  value: null,
-  defaultValue: null,
-  placeholder: null,
-  placeholderClassName: null,
-  placeholderStyle: null,
-  allowClear: null,
-  enableNative: null,
-  confirmType: null,
-  confirmHold: null,
-  controlled: null,
-  alwaysSystem: null,
-  selectionStart: null,
-  selectionEnd: null,
-  cursor: null,
-  inputClassName: null,
-  inputStyle: null,
-  password: null,
-  prefix: null,
-  disabled: null,
-  focusClassName: null,
-  suffix: null,
-  focus: null,
-  name: null,
-  focusStyle: null,
-  randomNumber: null,
-});
+mountComponent<InputProps>(Input, InputFunctionalProps);

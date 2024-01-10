@@ -16,9 +16,27 @@ export interface FormItemProps extends IBaseProps {
   disabled?: boolean;
   extra?: string;
   message?: string;
+  dependencies?: string[];
 }
 
 export const FormItemDefaultProps: Partial<FormItemProps> = {
   position: 'horizontal',
   requiredMark: 'asterisk',
+};
+
+export const FormItemFunctionalProps: FormItemProps = {
+  name: null,
+  label: null,
+  labelWidth: null,
+  position: 'horizontal',
+  validateStatus: null,
+  help: null,
+  requiredMark: 'asterisk',
+  status: null,
+  errors: null,
+  required: false,
+  disabled: false,
+  extra: '',
+  message: null,
+  dependencies: null,
 };

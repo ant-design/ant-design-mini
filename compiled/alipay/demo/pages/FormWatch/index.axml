@@ -14,22 +14,22 @@
 <view style="margin: 12px">
   onValuesChange:
   <view style="margin: 12px">
-    <view>修改：{{changedValuesText}}</view>
+    <view>修改：{{ changedValuesText }}</view>
 
-    <view>表单：{{allValuesText}}</view>
+    <view>表单：{{ allValuesText }}</view>
   </view>
 </view>
 
 <view class="buttons">
-  <button
+  <ant-button
     type="primary"
     onTap="submit"
-    class="button">
+    className="button">
     提交
-  </button>
-  <button
+  </ant-button>
+  <ant-button
     onTap="reset"
-    class="button">
+    className="button">
     重置
-  </button>
+  </ant-button>
 </view>

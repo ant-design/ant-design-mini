@@ -3,7 +3,7 @@ import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
-import { FormInputDefaultProps, FormInputProps } from './props';
+import { FormInputFunctionalProps, FormInputProps } from './props';
 
 const FormInput = (props: FormInputProps) => {
   const { formData, emit } = useFormItem(props);
@@ -20,7 +20,7 @@ const FormInput = (props: FormInputProps) => {
     }
   }, [formData]);
 
-  useHandleCustomEvent('onChange', (value, e) => {
+  useHandleCustomEvent<string>('onChange', (value, e) => {
     emit('onChange', value);
     triggerEvent('change', value, e);
   });
@@ -42,4 +42,4 @@ const FormInput = (props: FormInputProps) => {
   };
 };
 
-mountComponent(FormInput, FormInputDefaultProps as FormInputProps);
+mountComponent(FormInput, FormInputFunctionalProps);

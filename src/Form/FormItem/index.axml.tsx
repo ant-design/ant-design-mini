@@ -35,7 +35,7 @@ export default (
         <View class={`ant-form-item-content ant-form-item-content-${position}`}>
           {label && (
             <View
-              style={labelWidth ? `width: ${labelWidth}` : ''}
+              style={labelWidth ? 'width: ' + labelWidth : ''}
               class={`ant-form-item-label ${
                 disabled ? 'ant-form-item-label-disabled' : ''
               } ant-form-item-label-${position} ${
@@ -56,13 +56,12 @@ export default (
           <View class={`ant-form-item-field ant-form-item-field-${position}`}>
             <Slot />
             {(help ||
-              ((validateStatus === 'error' ||
-                typeof validateStatus === 'undefined') &&
+              ((validateStatus === 'error' || !validateStatus) &&
                 status === 'error')) && (
               <View
                 class={`${
                   validateStatus === 'error' ||
-                  (typeof validateStatus === 'undefined' && status === 'error')
+                  (!validateStatus && status === 'error')
                     ? 'ant-form-item-error-info'
                     : 'ant-form-item-help-info'
                 } ant-form-item-error-info-${position}`}

@@ -243,7 +243,8 @@ class Field extends EventEmitter {
       } else if (required) {
         ruleList.push({
           required,
-          message: message,
+          // message 不允许为 null
+          message: message ?? undefined,
         });
         requiredRule = true;
       }
@@ -254,7 +255,8 @@ class Field extends EventEmitter {
       validator = new AsyncValidator({
         [name]: {
           required,
-          message: message,
+          // message 不允许为 null
+          message: message ?? undefined,
         },
       });
       requiredRule = true;

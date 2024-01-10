@@ -5,6 +5,7 @@ import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import useLayoutEffect from '../_util/hooks/useLayoutEffect';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
 import { triggerRefEvent } from '../_util/hooks/useReportRef';
+import { InputFunctionalProps } from './props';
 var Input = function (props) {
     var isControlled = hasValue(props.controlled)
         ? !!props.controlled
@@ -74,37 +75,4 @@ var Input = function (props) {
         selfFocus: selfFocus,
     };
 };
-mountComponent(Input, {
-    type: null,
-    value: null,
-    defaultValue: null,
-    placeholder: null,
-    placeholderClassName: null,
-    placeholderStyle: null,
-    allowClear: null,
-    enableNative: null,
-    confirmType: null,
-    confirmHold: null,
-    controlled: null,
-    alwaysSystem: null,
-    selectionStart: null,
-    selectionEnd: null,
-    cursor: null,
-    maxLength: -1,
-    alwaysEmbed: false,
-    cursorSpacing: 0,
-    cursorColor: null,
-    adjustPosition: true,
-    holdKeyboard: false,
-    inputClassName: null,
-    inputStyle: null,
-    password: null,
-    prefix: null,
-    disabled: null,
-    focusClassName: null,
-    suffix: null,
-    focus: null,
-    name: null,
-    focusStyle: null,
-    randomNumber: null,
-});
+mountComponent(Input, InputFunctionalProps);
