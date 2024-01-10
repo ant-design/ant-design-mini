@@ -2,8 +2,7 @@
   <block
     a:for="{{ typeList }}"
     a:for-index="index"
-    a:for-item="item"
-    a:key="{{ index }}">
+    a:for-item="item">
     <notice
       style="margin-bottom: 8px"
       type="{{ item }}">
@@ -24,8 +23,7 @@
   <block
     a:for="{{ typeList }}"
     a:for-index="index"
-    a:for-item="item"
-    a:key="{{ index }}">
+    a:for-item="item">
     <notice
       type="{{ item }}"
       style="margin-bottom: 8px"
@@ -41,7 +39,7 @@
 <container title="自定义通告栏">
   <notice style="margin-bottom: 8px">
     不展示图标
-    <icon slot="icon" />
+    <view slot="icon" />
   </notice>
 
   <notice

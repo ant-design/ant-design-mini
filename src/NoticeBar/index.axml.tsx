@@ -12,7 +12,7 @@ export default ({
   enableMarquee,
   show,
   marqueeStyle,
-  id,
+  $id,
 }: TSXMLProps<INoticeBarProps>) => (
   <Component>
     {show && (
@@ -33,9 +33,9 @@ export default ({
             )}
           </View>
         </Slot>
-        <View class={`ant-notice-bar-content ant-notice-bar-content-${id}`}>
+        <View class={`ant-notice-bar-content ant-notice-bar-content-${$id}`}>
           <View
-            class={`ant-notice-bar-marquee ant-notice-bar-marquee-${id}`}
+            class={`ant-notice-bar-marquee ant-notice-bar-marquee-${$id}`}
             style={`${marqueeStyle} display: ${
               enableMarquee ? 'inline-block' : 'block'
             }`}

@@ -1,13 +1,12 @@
 import { InternalData, Page, View } from 'tsxml';
 import Notice from '../../../src/NoticeBar/index.axml';
 import Container from '../../../src/Container/index.axml';
-import Icon from '../../../src/Icon/index.axml';
 
 export default ({ typeList }: InternalData) => (
   <Page>
     <Container title="基础用法">
-      {typeList.map((item, index) => (
-        <Notice key={index} style="margin-bottom: 8px" type={item}>
+      {typeList.map((item) => (
+        <Notice style="margin-bottom: 8px" type={item}>
           {item}
         </Notice>
       ))}
@@ -20,9 +19,8 @@ export default ({ typeList }: InternalData) => (
     </Container>
 
     <Container title="可滚动通告栏">
-      {typeList.map((item, index) => (
+      {typeList.map((item) => (
         <Notice
-          key={index}
           type={item}
           style="margin-bottom: 8px"
           enableMarquee={true}
@@ -38,7 +36,7 @@ export default ({ typeList }: InternalData) => (
     <Container title="自定义通告栏">
       <Notice style="margin-bottom: 8px">
         不展示图标
-        <Icon slot="icon" />
+        <View slot="icon" />
       </Notice>
 
       <Notice

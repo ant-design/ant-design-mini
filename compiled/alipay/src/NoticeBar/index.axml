@@ -16,9 +16,9 @@
         type="SoundOutline" />
     </view>
   </slot>
-  <view class="ant-notice-bar-content ant-notice-bar-content-{{ id }}">
+  <view class="ant-notice-bar-content ant-notice-bar-content-{{ $id }}">
     <view
-      class="ant-notice-bar-marquee ant-notice-bar-marquee-{{ id }}"
+      class="ant-notice-bar-marquee ant-notice-bar-marquee-{{ $id }}"
       style="{{ marqueeStyle }} display: {{ enableMarquee ? 'inline-block' : 'block' }}"
       onTransitionEnd="onTransitionEnd">
       <slot />
