@@ -92,7 +92,7 @@
           </view>
         </view>
         <view
-          a:if="{{ utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'vertical' }}"
+          a:elif="{{ utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'vertical' }}"
           class="ant-modal-body-footer-vertical">
           <view
             a:if="{{ primaryButtonText }}"
