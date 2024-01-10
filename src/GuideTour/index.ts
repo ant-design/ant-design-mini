@@ -1,56 +1,49 @@
-import { GuideTourDefaultProps } from './props';
-import mixinValue from '../mixins/value';
+import { useEvent } from 'functional-mini/component';
 import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useMixState } from '../_util/hooks/useMixState';
+import { GuideTourDefaultProps, IGuideTour } from './props';
 
-Component({
-  mixins: [
-    mixinValue({
-      valueKey: 'current',
-      defaultValueKey: 'defaultCurrent',
-    }),
-  ],
-  props: GuideTourDefaultProps,
-  methods: {
-    async onNext() {
-      const currentValue = this.getValue();
-      const { onChange } = this.props;
-      const newCurrent = currentValue + 1;
-      if (!this.isControlled()) {
-        this.update(newCurrent);
-      }
-      if (onChange) {
-        onChange(newCurrent);
-      }
-    },
+const GuideTour = (props: IGuideTour) => {
+  const [state, { isControlled, update }] = useMixState(props.defaultCurrent, {
+    value: props.current,
+  });
+  const { triggerEvent, triggerEventOnly } = useComponentEvent(props);
 
-    async onPrev() {
-      const currentValue = this.getValue();
-      const { onChange } = this.props;
-      const newCurrent = currentValue - 1;
-      if (!this.isControlled()) {
-        this.update(newCurrent);
-      }
-      if (onChange) {
-        onChange(newCurrent);
-      }
-    },
+  useEvent('onNext', () => {
+    const currentValue = state;
+    const newCurrent = currentValue + 1;
+    if (!isControlled) {
+      update(newCurrent);
+    }
+    triggerEvent('change', newCurrent);
+  });
 
-    onCancel() {
-      const { onCancel } = this.props;
-      if (onCancel) {
-        onCancel();
-      }
-    },
+  useEvent('onPrev', () => {
+    const currentValue = state;
+    const newCurrent = currentValue - 1;
+    if (!isControlled) {
+      update(newCurrent);
+    }
+    triggerEvent('change', newCurrent);
+  });
 
-    async onSwiperChange(e) {
-      const { current } = e.detail;
-      const { onChange } = this.props;
-      if (!this.isControlled()) {
-        this.update(current);
-      }
-      if (onChange) {
-        onChange(current);
-      }
-    },
-  },
-});
+  useEvent('onCancel', () => {
+    triggerEventOnly('cancel');
+  });
+
+  useEvent('onSwiperChange', (e) => {
+    const { current } = e.detail;
+    if (!isControlled) {
+      update(current);
+    }
+    triggerEvent('change', current);
+  });
+
+  return {
+    mixin: { value: state },
+  };
+};
+
+mountComponent(GuideTour, GuideTourDefaultProps);
