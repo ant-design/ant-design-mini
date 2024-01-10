@@ -73,3 +73,13 @@ export const GuideTourDefaultProps: Partial<IGuideTour> = {
   items: [],
   defaultCurrent: 0,
 };
+
+export const GuideTourFunctionalProps: Partial<IGuideTour> = {
+  maskStyle: '',
+  maskClassName: '',
+  items: [],
+  current: null,
+  defaultCurrent: 0,
+  swiperable: false,
+  visible: false,
+};
