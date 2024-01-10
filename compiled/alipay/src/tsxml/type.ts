@@ -7,6 +7,7 @@ export interface Props {
   current?: any;
   'a:key'?: string;
   scrollLeft?: any;
+  onTransitionEnd?: string;
   onTap?: string;
   checked?: boolean;
   src?: string;
