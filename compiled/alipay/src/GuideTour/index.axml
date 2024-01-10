@@ -10,41 +10,41 @@
     show
     className="{{ maskClassName }}"
     style="z-index:9999;{{ maskStyle || '' }}" />
-  <icon
+  <ant-icon
     type="CloseOutline"
     className="ant-guide-tour-clear"
     onTap="onCancel" />
   <view class="ant-guide-tour-button">
-    <button
+    <ant-button
       a:if="{{ utils.checkShowJump(value, items) }}"
       inline
       size="small"
       onTap="onCancel">
       跳过
-    </button>
-    <button
+    </ant-button>
+    <ant-button
       a:if="{{ utils.checkShowPrev(value, items) }}"
       inline
       size="small"
       onTap="onPrev"
       data-currentValue="{{ value }}">
       上一步
-    </button>
-    <button
+    </ant-button>
+    <ant-button
       a:if="{{ utils.checkShowNext(value, items) }}"
       inline
       size="small"
       onTap="onNext"
       data-currentValue="{{ value }}">
       下一步
-    </button>
-    <button
+    </ant-button>
+    <ant-button
       a:if="{{ utils.checkShowKnow(value, items) }}"
       inline
       size="small"
       onTap="onCancel">
       知道了
-    </button>
+    </ant-button>
   </view>
   <block a:if="{{ swiperable }}">
     <view class="ant-guide-tour-indicator">

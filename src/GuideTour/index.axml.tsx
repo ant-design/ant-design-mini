@@ -1,8 +1,8 @@
 import { IGuideTour } from './props';
 import { Component, View, Slot, InternalData, TSXMLProps, Block } from 'tsxml';
 import Mask from '../Mask/index.axml';
-import Button from '../Button/index.axml';
-import Icon from '../Icon/index.axml';
+import AntButton from '../Button/index.axml';
+import AntIcon from '../Icon/index.axml';
 import utils from './index.sjs';
 
 export default (
@@ -25,41 +25,41 @@ export default (
           className={maskClassName}
           style={`z-index:9999;${maskStyle || ''}`}
         />
-        <Icon
+        <AntIcon
           type="CloseOutline"
           className="ant-guide-tour-clear"
           onTap="onCancel"
         />
         <View class="ant-guide-tour-button">
           {utils.checkShowJump(value, items) && (
-            <Button inline size="small" onTap="onCancel">
+            <AntButton inline size="small" onTap="onCancel">
               跳过
-            </Button>
+            </AntButton>
           )}
           {utils.checkShowPrev(value, items) && (
-            <Button
+            <AntButton
               inline
               size="small"
               onTap="onPrev"
               data-currentValue={value}
             >
               上一步
-            </Button>
+            </AntButton>
           )}
           {utils.checkShowNext(value, items) && (
-            <Button
+            <AntButton
               inline
               size="small"
               onTap="onNext"
               data-currentValue={value}
             >
               下一步
-            </Button>
+            </AntButton>
           )}
           {utils.checkShowKnow(value, items) && (
-            <Button inline size="small" onTap="onCancel">
+            <AntButton inline size="small" onTap="onCancel">
               知道了
-            </Button>
+            </AntButton>
           )}
         </View>
         {swiperable ? (
