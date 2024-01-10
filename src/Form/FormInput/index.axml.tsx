@@ -1,6 +1,6 @@
-import { Component, Slot, TSXMLProps, InternalData, View, Text } from 'tsxml';
-import FormItem from '../FormItem/index.axml';
+import { Component, InternalData, Slot, TSXMLProps, View } from 'tsxml';
 import AntInput from '../../Input/index.axml';
+import FormItem from '../FormItem/index.axml';
 import { FormInputProps } from './props'; // assuming the props file is in the same directory
 
 export default (
