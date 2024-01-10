@@ -51,18 +51,39 @@ export default (
           style={bodyStyle || ''}
         >
           <Slot name="header" />
-          {title && (
+          {/* #if WECHAT */}
+          {title ? (
+            <View class="ant-modal-body-title">{title}</View>
+          ) : (
+            <Slot name="title"></Slot>
+          )}
+          {/* #endif */}
+          {/* #if ALIPAY */}
+          {
             <Slot name="title">
-              <View class="ant-modal-body-title">{title}</View>
+              {title && <View class="ant-modal-body-title">{title}</View>}
             </Slot>
+          }
+          {/* #endif */}
+
+          {/* #if WECHAT */}
+          {content ? (
+            <View class="ant-modal-body-content">{content}</View>
+          ) : (
+            <Slot name="content"></Slot>
           )}
-          {content && (
+          {/* #endif */}
+
+          {/* #if ALIPAY */}
+          {
             <Slot name="content">
-              <View class="ant-modal-body-content">{content}</View>
+              {content && <View class="ant-modal-body-content">{content}</View>}
             </Slot>
-          )}
+          }
+          {/* #endif */}
+
           <Slot name="footer">
-            {type === 'focus' && (
+            {type === 'focus' ? (
               <View class="ant-modal-body-footer-focus">
                 <AntButton
                   type="primary"
@@ -91,13 +112,12 @@ export default (
                   </View>
                 )}
               </View>
-            )}
-            {utils.getDirection(
-              primaryButtonText,
-              secondaryButtonText,
-              cancelButtonText,
-              type
-            ) === 'horizontal' && (
+            ) : utils.getDirection(
+                primaryButtonText,
+                secondaryButtonText,
+                cancelButtonText,
+                type
+              ) === 'horizontal' ? (
               <View class="ant-modal-body-footer-horizontal">
                 {cancelButtonText && (
                   <View
@@ -127,42 +147,43 @@ export default (
                   </View>
                 )}
               </View>
-            )}
-            {utils.getDirection(
-              primaryButtonText,
-              secondaryButtonText,
-              cancelButtonText,
-              type
-            ) === 'vertical' && (
-              <View class="ant-modal-body-footer-vertical">
-                {primaryButtonText && (
-                  <View
-                    class="ant-modal-body-footer-vertical-primary"
-                    style={primaryButtonStyle || ''}
-                    onTap="onPrimaryButtonTap"
-                  >
-                    {primaryButtonText}
-                  </View>
-                )}
-                {secondaryButtonText && (
-                  <View
-                    class="ant-modal-body-footer-vertical-secondary"
-                    style={secondaryButtonStyle || ''}
-                    onTap="onSecondaryButtonTap"
-                  >
-                    {secondaryButtonText}
-                  </View>
-                )}
-                {cancelButtonText && (
-                  <View
-                    class="ant-modal-body-footer-vertical-cancel"
-                    style={cancelButtonStyle || ''}
-                    onTap="onCancelButtonTap"
-                  >
-                    {cancelButtonText}
-                  </View>
-                )}
-              </View>
+            ) : (
+              utils.getDirection(
+                primaryButtonText,
+                secondaryButtonText,
+                cancelButtonText,
+                type
+              ) === 'vertical' && (
+                <View class="ant-modal-body-footer-vertical">
+                  {primaryButtonText && (
+                    <View
+                      class="ant-modal-body-footer-vertical-primary"
+                      style={primaryButtonStyle || ''}
+                      onTap="onPrimaryButtonTap"
+                    >
+                      {primaryButtonText}
+                    </View>
+                  )}
+                  {secondaryButtonText && (
+                    <View
+                      class="ant-modal-body-footer-vertical-secondary"
+                      style={secondaryButtonStyle || ''}
+                      onTap="onSecondaryButtonTap"
+                    >
+                      {secondaryButtonText}
+                    </View>
+                  )}
+                  {cancelButtonText && (
+                    <View
+                      class="ant-modal-body-footer-vertical-cancel"
+                      style={cancelButtonStyle || ''}
+                      onTap="onCancelButtonTap"
+                    >
+                      {cancelButtonText}
+                    </View>
+                  )}
+                </View>
+              )
             )}
           </Slot>
         </View>

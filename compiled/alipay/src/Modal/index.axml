@@ -19,16 +19,22 @@
       class="ant-modal-body {{ bodyClassName || '' }}"
       style="{{ bodyStyle || '' }}">
       <slot name="header" />
-      <slot
-        a:if="{{ title }}"
-        name="title">
-        <view class="ant-modal-body-title">{{ title }}</view>
+      <slot name="title">
+        <view
+          a:if="{{ title }}"
+          class="ant-modal-body-title">
+          {{ title }}
+        </view>
       </slot>
-      <slot
-        a:if="{{ content }}"
-        name="content">
-        <view class="ant-modal-body-content">{{ content }}</view>
+
+      <slot name="content">
+        <view
+          a:if="{{ content }}"
+          class="ant-modal-body-content">
+          {{ content }}
+        </view>
       </slot>
+
       <slot name="footer">
         <view
           a:if="{{ type === 'focus' }}"
@@ -56,7 +62,12 @@
           </view>
         </view>
         <view
-          a:if="{{ utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'horizontal' }}"
+          a:elif="{{ utils.getDirection(
+  primaryButtonText,
+  secondaryButtonText,
+  cancelButtonText,
+  type
+) === 'horizontal' }}"
           class="ant-modal-body-footer-horizontal">
           <view
             a:if="{{ cancelButtonText }}"
