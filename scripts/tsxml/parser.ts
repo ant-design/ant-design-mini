@@ -224,7 +224,7 @@ export function transformJSXElement(ctx: ITransformContext) {
           ctx.extends(ctx.node.consequent, {
             [isElse ? ctx.elseif() : ctx.if()]: ctx
               .extends(ctx.node.test)
-              .toAxmlExpression(),
+              .toAxmlExpression(true),
           })
         ),
         transformJSXElement(

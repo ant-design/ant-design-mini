@@ -62,12 +62,7 @@
           </view>
         </view>
         <view
-          a:elif="{{ utils.getDirection(
-  primaryButtonText,
-  secondaryButtonText,
-  cancelButtonText,
-  type
-) === 'horizontal' }}"
+          a:elif="{{ utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'horizontal' }}"
           class="ant-modal-body-footer-horizontal">
           <view
             a:if="{{ cancelButtonText }}"
