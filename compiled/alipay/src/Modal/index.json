@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "button": "../Button/index",
-    "icon": "../Icon/index",
-    "popup": "../Popup/index"
+    "ant-button": "../Button/index",
+    "ant-icon": "../Icon/index",
+    "ant-popup": "../Popup/index"
   }
 }

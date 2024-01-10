@@ -111,7 +111,14 @@ ${markdownCode(tsx)}
   11. 组件的 style 字段，请不要使用对象。 请使用字符串。 例如 style="color: red; font-size: 12px;"
   12. 组件最外层需要用 ${isComponent ? `<Component / >` : `<Page />`} 。
   13. 输出结果里不要有 a:if
+  ${
+    !isComponent
+      ? `14. 所有在 "{{variableName}}" 里声明的变量, 全部放到 InternalData 里
 
+      <Modal visible="{{basicVisible}}" /> 转换后应该是 ({ basicVisible }: InternalData) => <Modal visible={basicVisible} >
+      `
+      : ''
+  }
   Take a deep breath and work on this problem step-by-step.
   Finally, please return the complete result of tsx at one time. Instead of returning import and code separately.
   ${JSON.stringify({ json, props, axml }, null, 2)}
