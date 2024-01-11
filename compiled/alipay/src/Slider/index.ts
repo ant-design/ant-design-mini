@@ -10,7 +10,11 @@ import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
 import { SliderController } from './controller';
-import { ISliderProps, sliderDefaultProps } from './props';
+import {
+  ISliderProps,
+  sliderDefaultProps,
+  SliderFunctionalProps,
+} from './props';
 
 const useSliderController = (props: ISliderProps) => {
   const controllerRef = useRef<SliderController>();
@@ -126,19 +130,4 @@ const Slider = (props) => {
   };
 };
 
-mountComponent(Slider, {
-  value: null,
-  defaultValue: null,
-  disabled: false,
-  max: 100,
-  min: 0,
-  range: false,
-  showNumber: false,
-  step: 1,
-  showTicks: false,
-  showTooltip: false,
-  activeLineStyle: '',
-  activeDotStyle: '',
-  activeLineClassName: '',
-  activeDotClassName: '',
-});
+mountComponent(Slider, SliderFunctionalProps);

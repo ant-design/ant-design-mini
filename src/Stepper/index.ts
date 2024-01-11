@@ -4,7 +4,7 @@ import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
 import { resolveEventValue } from '../_util/platform';
-import { IStepperProps } from './props';
+import { IStepperProps, StepperFunctionalProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
 
 const Stepper = (props: IStepperProps) => {
@@ -100,15 +100,4 @@ const Stepper = (props: IStepperProps) => {
   return { mixin: { value } };
 };
 
-mountComponent(Stepper, {
-  value: null,
-  defaultValue: null,
-  precision: -1,
-  min: Number.MIN_SAFE_INTEGER,
-  max: Number.MAX_SAFE_INTEGER,
-  step: 1,
-  type: 'digit',
-  inputClassName: '',
-  inputStyle: '',
-  disabled: false,
-});
+mountComponent(Stepper, StepperFunctionalProps);

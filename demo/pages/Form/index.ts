@@ -2,7 +2,6 @@ import { Form } from '../../../src/Form/form';
 import cityList from './city';
 
 Page({
-  form: new Form(),
   data: {
     fruitList: ['苹果', '香蕉', '橘子', '西瓜'],
     cityList,
@@ -21,18 +20,39 @@ Page({
       { value: 'badminton', text: '🏸️' },
     ],
   },
+  onLoad() {
+    this.form = new Form();
+    /// #if WECHAT
+    if (this.formRefList) {
+      this.formRefList.forEach((ref) => {
+        this.form.addItem(ref);
+      });
+    }
+    /// #endif
+  },
   handleRef(ref) {
+    /// #if ALIPAY
     this.form.addItem(ref);
+    /// #endif
+
+    /// #if WECHAT
+    if (!this.formRefList) {
+      this.formRefList = [];
+    }
+    this.formRefList.push(ref.detail);
+    /// #endif
   },
   reset() {
     this.form.reset();
   },
   async submit() {
     const values = await this.form.submit();
+    /// #if ALIPAY
     my.alert({
       title: '提交',
       content: JSON.stringify(values, null, 2),
     });
+    /// #endif
     console.log(values);
   },
   onUpload(localFile) {

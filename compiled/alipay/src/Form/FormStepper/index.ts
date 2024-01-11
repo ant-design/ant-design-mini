@@ -33,4 +33,4 @@ const FormStepper = (props: FormStepperProps) => {
   };
 };
 
-mountComponent(FormStepper, FormStepperDefaultProps as FormStepperProps);
+mountComponent(FormStepper, FormStepperDefaultProps);

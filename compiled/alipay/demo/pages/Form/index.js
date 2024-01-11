@@ -1,7 +1,6 @@
 import { Form } from '../../../src/Form/form';
 import cityList from './city';
 Page({
-    form: new Form(),
     data: {
         fruitList: ['苹果', '香蕉', '橘子', '西瓜'],
         cityList,
@@ -19,6 +18,9 @@ Page({
             { value: 'football', text: '⚽️' },
             { value: 'badminton', text: '🏸️' },
         ],
+    },
+    onLoad() {
+        this.form = new Form();
     },
     handleRef(ref) {
         this.form.addItem(ref);

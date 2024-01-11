@@ -86,3 +86,16 @@ export const StepperDefaultProps: Partial<IStepperProps> = {
   disabled: false,
   type: 'digit',
 };
+
+export const StepperFunctionalProps: Partial<IStepperProps> = {
+  value: null,
+  defaultValue: null,
+  precision: -1,
+  min: Number.MIN_SAFE_INTEGER,
+  max: Number.MAX_SAFE_INTEGER,
+  step: 1,
+  type: 'digit',
+  inputClassName: '',
+  inputStyle: '',
+  disabled: false,
+};

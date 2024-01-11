@@ -18,7 +18,4 @@ const FormCheckboxGroup = (props: FormCheckboxGroupProps) => {
   };
 };
 
-mountComponent(
-  FormCheckboxGroup,
-  FormCheckboxGroupDefaultProps as FormCheckboxGroupProps
-);
+mountComponent(FormCheckboxGroup, FormCheckboxGroupDefaultProps);

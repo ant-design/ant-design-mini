@@ -23,4 +23,4 @@ const FormSlider = (props: FormSliderProps) => {
   };
 };
 
-mountComponent(FormSlider, FormSliderDefaultProps as FormSliderProps);
+mountComponent(FormSlider, FormSliderDefaultProps);
