@@ -4,7 +4,7 @@ import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import useLayoutEffect from '../../_util/hooks/useLayoutEffect';
 import { hasValue, useMergedState } from '../../_util/hooks/useMergedState';
 import { triggerRefEvent } from '../../_util/hooks/useReportRef';
-import { TextareaProps } from './props';
+import { TextareaFunctionalProps, TextareaProps } from './props';
 
 const Textarea = (props: TextareaProps) => {
   const isControlled = hasValue(props.controlled)
@@ -80,23 +80,4 @@ const Textarea = (props: TextareaProps) => {
   };
 };
 
-mountComponent<TextareaProps>(Textarea, {
-  value: null,
-  defaultValue: null,
-  placeholder: null,
-  placeholderClassName: null,
-  placeholderStyle: null,
-  autoHeight: null,
-  showCount: null,
-  allowClear: null,
-  controlled: null,
-  enableNative: false,
-  inputClassName: null,
-  disabled: null,
-  inputStyle: null,
-  focusStyle: null,
-  name: null,
-  confirmType: null,
-  focus: null,
-  confirmHold: null,
-});
+mountComponent<TextareaProps>(Textarea, TextareaFunctionalProps);

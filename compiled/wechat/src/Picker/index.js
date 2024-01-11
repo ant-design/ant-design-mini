@@ -3,6 +3,7 @@ import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
+import { PickerFunctionalProps } from './props';
 import { getMatchedItemByIndex, getMatchedItemByValue, getterColumns, getterFormatText, getterSelectedIndex, } from './utils';
 var Picker = function (props) {
     var _a;
@@ -88,21 +89,4 @@ var Picker = function (props) {
         },
     };
 };
-mountComponent(Picker, {
-    formattedValueText: null,
-    visible: null,
-    defaultVisible: null,
-    animationType: 'transform',
-    value: null,
-    defaultValue: null,
-    disabled: false,
-    title: '',
-    okText: '确定',
-    cancelText: '取消',
-    placeholder: '请选择',
-    options: [],
-    popClassName: '',
-    popStyle: '',
-    maskClosable: true,
-    onFormat: null,
-});
+mountComponent(Picker, PickerFunctionalProps);

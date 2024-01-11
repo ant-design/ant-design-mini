@@ -12,6 +12,7 @@ import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
+import { SelectorFunctionalProps } from './props';
 var Selector = function (props) {
     var _a = useMixState(props.defaultValue, {
         value: props.value,
@@ -74,14 +75,4 @@ var Selector = function (props) {
         },
     };
 };
-mountComponent(Selector, {
-    value: null,
-    defaultValue: null,
-    options: null,
-    activeItemClassName: '',
-    activeItemStyle: '',
-    multiple: false,
-    minSelectedCount: null,
-    maxSelectedCount: null,
-    disabled: false,
-});
+mountComponent(Selector, SelectorFunctionalProps);

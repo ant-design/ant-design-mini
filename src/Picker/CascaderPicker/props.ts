@@ -125,3 +125,19 @@ export const CascaderDefaultProps: Partial<ICascaderProps> = {
   disabled: false,
   maskClosable: false,
 };
+
+export const CascaderFunctionalProps: Partial<ICascaderProps> = {
+  animationType: 'transform',
+  value: null,
+  defaultValue: null,
+  options: [],
+  placeholder: '请选择',
+  cancelText: '取消',
+  disabled: false,
+  title: '',
+  okText: '确定',
+  maskClosable: true,
+  popClassName: '',
+  popStyle: '',
+  onFormat: null,
+};

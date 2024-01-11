@@ -57,3 +57,15 @@ export const RateDefaultProps: Partial<IRateProps> = {
   gutter: 4,
   allowClear: true,
 };
+
+export const RateFunctionalProps: Partial<IRateProps> = {
+  value: null,
+  defaultValue: null,
+  gutter: 4,
+  allowHalf: false,
+  allowClear: true,
+  count: 5,
+  characterActiveClassName: '',
+  characterClassName: '',
+  readonly: false,
+};

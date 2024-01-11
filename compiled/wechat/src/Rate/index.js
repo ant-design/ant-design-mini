@@ -51,6 +51,7 @@ import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { RateFunctionalProps } from './props';
 var Rate = function (props) {
     var _a = useMixState(props.defaultValue, {
         value: props.value,
@@ -189,14 +190,4 @@ var Rate = function (props) {
         },
     };
 };
-mountComponent(Rate, {
-    value: null,
-    defaultValue: null,
-    gutter: 4,
-    allowHalf: false,
-    allowClear: true,
-    count: 5,
-    characterActiveClassName: '',
-    characterClassName: '',
-    readonly: false,
-});
+mountComponent(Rate, RateFunctionalProps);
