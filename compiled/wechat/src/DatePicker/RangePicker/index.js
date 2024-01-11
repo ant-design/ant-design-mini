@@ -1,4 +1,5 @@
 import { useState, useEvent, useMemo } from 'functional-mini/component';
+import { DateRangePickerFunctionalProps } from './props';
 import dayjs from 'dayjs';
 import { getRangeData, getDateByValue, getValueByDate, getValidValue, } from '../util';
 import { useMixState } from '../../_util/hooks/useMixState';
@@ -123,24 +124,4 @@ var RangePicker = function (props) {
         pickerType: dateState.pickerType,
     };
 };
-mountComponent(RangePicker, {
-    animationType: 'transform',
-    format: 'YYYY/MM/DD',
-    min: null,
-    max: null,
-    value: null,
-    defaultValue: null,
-    title: '',
-    okText: '确定',
-    cancelText: '取消',
-    placeholder: '请选择',
-    precision: 'day',
-    splitCharacter: '-',
-    startPlaceholder: '未选择',
-    endPlaceholder: '未选择',
-    maskClosable: true,
-    popClassName: '',
-    popStyle: '',
-    disabled: false,
-    onFormatLabel: null,
-});
+mountComponent(RangePicker, DateRangePickerFunctionalProps);

@@ -27,4 +27,4 @@ const FormSelector = (props: FormSelectorProps) => {
   };
 };
 
-mountComponent(FormSelector, FormSelectorDefaultProps as FormSelectorProps);
+mountComponent(FormSelector, FormSelectorDefaultProps);

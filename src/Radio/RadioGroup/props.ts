@@ -20,3 +20,13 @@ export const RadioGroupDefaultProps: Partial<IRadioGroupProps> = {
   options: [],
   position: 'vertical',
 };
+
+export const RadioGroupFunctionalProps: Partial<IRadioGroupProps> = {
+  value: null,
+  defaultValue: null,
+  name: '',
+  disabled: false,
+  color: '',
+  position: 'vertical',
+  options: [],
+};

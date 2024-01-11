@@ -50,3 +50,14 @@ export interface ISwitchProps extends IBaseProps {
 export const SwitchDefaultProps: Partial<ISwitchProps> = {
   size: 'medium',
 };
+
+export const SwitchFunctionalProps: Partial<ISwitchProps> = {
+  checked: null,
+  loading: false,
+  color: '',
+  checkedText: '',
+  uncheckedText: '',
+  size: 'medium',
+  disabled: false,
+  defaultChecked: false,
+};

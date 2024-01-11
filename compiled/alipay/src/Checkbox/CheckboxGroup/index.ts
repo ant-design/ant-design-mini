@@ -2,7 +2,7 @@ import { useEvent } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { useMixState } from '../../_util/hooks/useMixState';
-import { ICheckboxGroupProps } from './props';
+import { CheckboxGroupFunctionalProps, ICheckboxGroupProps } from './props';
 
 const CheckboxGroup = (props: ICheckboxGroupProps) => {
   const [value, { isControlled, update }] = useMixState(props.defaultValue, {
@@ -40,11 +40,4 @@ const CheckboxGroup = (props: ICheckboxGroupProps) => {
   };
 };
 
-mountComponent(CheckboxGroup, {
-  value: null,
-  defaultValue: [],
-  disabled: false,
-  position: 'vertical',
-  color: '',
-  options: [],
-});
+mountComponent(CheckboxGroup, CheckboxGroupFunctionalProps);

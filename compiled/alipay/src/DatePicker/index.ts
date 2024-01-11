@@ -5,7 +5,7 @@ import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
 import { resolveEventValues } from '../_util/platform';
-import { IDatePickerProps } from './props';
+import { DatePickerFunctionalProps, IDatePickerProps } from './props';
 import {
   getDateByValue,
   getRangeData,
@@ -207,21 +207,4 @@ const DatePicker = (props: IDatePickerProps) => {
   };
 };
 
-mountComponent(DatePicker, {
-  animationType: 'transform',
-  format: 'YYYY/MM/DD',
-  min: null,
-  max: null,
-  value: null,
-  defaultValue: null,
-  title: '',
-  okText: '确定',
-  cancelText: '取消',
-  placeholder: '请选择',
-  precision: 'day',
-  maskClosable: true,
-  popClassName: '',
-  popStyle: '',
-  disabled: false,
-  onFormatLabel: null,
-});
+mountComponent(DatePicker, DatePickerFunctionalProps);

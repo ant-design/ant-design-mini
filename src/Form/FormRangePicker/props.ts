@@ -1,5 +1,6 @@
-import { FormItemProps } from '../FormItem/props';
+import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
 import { IDateRangePickerProps } from '../../DatePicker/RangePicker/props';
+import { DateRangePickerFunctionalProps } from '../../DatePicker/RangePicker/props';
 
 export interface FormRangePickerProps
   extends IDateRangePickerProps,
@@ -11,4 +12,7 @@ export interface FormRangePickerProps
 }
 
 export const FormRangePickerDefaultProps: Partial<FormRangePickerProps> = {
+  ...FormItemFunctionalProps,
+  ...DateRangePickerFunctionalProps,
+  arrow: false,
 };

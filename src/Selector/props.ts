@@ -87,3 +87,15 @@ export const SelectorDefaultProps: Partial<ISelectorProps> = {
   multiple: false,
   disabled: false,
 };
+
+export const SelectorFunctionalProps: Partial<ISelectorProps> = {
+  value: null,
+  defaultValue: null,
+  options: null,
+  activeItemClassName: '',
+  activeItemStyle: '',
+  multiple: false,
+  minSelectedCount: null,
+  maxSelectedCount: null,
+  disabled: false,
+};

@@ -10,7 +10,7 @@ export type ConfirmType = 'return' | 'done' | 'go' | 'next' | 'search' | 'send';
  */
 
 export interface TextareaProps extends IBaseProps {
-  value: string;
+  value?: string;
   defaultValue: string;
   placeholder: string;
   placeholderClassName: string;
@@ -59,4 +59,33 @@ export interface TextareaProps extends IBaseProps {
 
 export const TextareaDefaultProps: Partial<TextareaProps> = {
   enableNative: false,
+};
+
+export const TextareaFunctionalProps: TextareaProps = {
+  value: null,
+  defaultValue: null,
+  placeholder: null,
+  placeholderClassName: null,
+  placeholderStyle: null,
+  autoHeight: null,
+  showCount: null,
+  allowClear: null,
+  controlled: null,
+  enableNative: false,
+  inputClassName: null,
+  disabled: null,
+  inputStyle: null,
+  focusStyle: null,
+  name: null,
+  confirmType: null,
+  focus: null,
+  confirmHold: null,
+  /// #if WECHAT
+  focusClassName: null,
+  maxLength: -1,
+  showConfirmBar: true,
+  holdKeyboard: false,
+  disableDefaultPadding: false,
+  adjustKeyboardTo: 'cursor',
+  /// #endif
 };

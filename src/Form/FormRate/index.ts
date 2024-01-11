@@ -19,4 +19,4 @@ const FormRate = (props: FormRateProps) => {
   };
 };
 
-mountComponent(FormRate, FormRateDefaultProps as FormRateProps);
+mountComponent(FormRate, FormRateDefaultProps);

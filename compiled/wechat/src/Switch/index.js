@@ -1,5 +1,6 @@
 import { mountComponent } from '../_util/component';
 import { useMergedState, hasValue } from '../_util/hooks/useMergedState';
+import { SwitchFunctionalProps } from './props';
 import { useEvent } from 'functional-mini/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 var Switch = function (props) {
@@ -18,13 +19,4 @@ var Switch = function (props) {
         mixin: { value: value },
     };
 };
-mountComponent(Switch, {
-    checked: null,
-    loading: false,
-    color: '',
-    checkedText: '',
-    uncheckedText: '',
-    size: 'medium',
-    disabled: false,
-    defaultChecked: false,
-});
+mountComponent(Switch, SwitchFunctionalProps);

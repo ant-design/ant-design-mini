@@ -1,5 +1,8 @@
-import { FormItemProps } from '../FormItem/props';
-import { ICascaderProps } from '../../Picker/CascaderPicker/props';
+import {
+  CascaderFunctionalProps,
+  ICascaderProps,
+} from '../../Picker/CascaderPicker/props';
+import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
 
 export interface FormCascaderPickerProps extends ICascaderProps, FormItemProps {
   /**
@@ -8,5 +11,9 @@ export interface FormCascaderPickerProps extends ICascaderProps, FormItemProps {
   arrow: boolean | 'right' | 'up' | 'down';
 }
 
-export const FormCascaderPickerDefaultProps: Partial<FormCascaderPickerProps> = {
-};
+export const FormCascaderPickerDefaultProps: Partial<FormCascaderPickerProps> =
+  {
+    ...FormItemFunctionalProps,
+    ...CascaderFunctionalProps,
+    arrow: false,
+  };

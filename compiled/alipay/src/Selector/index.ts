@@ -3,7 +3,7 @@ import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
-import { ISelectorProps, Value } from './props';
+import { ISelectorProps, SelectorFunctionalProps, Value } from './props';
 
 const Selector = (props: ISelectorProps) => {
   const [selectorValue, { isControlled, update }] = useMixState(
@@ -95,14 +95,4 @@ const Selector = (props: ISelectorProps) => {
   };
 };
 
-mountComponent(Selector, {
-  value: null,
-  defaultValue: null,
-  options: null,
-  activeItemClassName: '',
-  activeItemStyle: '',
-  multiple: false,
-  minSelectedCount: null,
-  maxSelectedCount: null,
-  disabled: false,
-});
+mountComponent(Selector, SelectorFunctionalProps);

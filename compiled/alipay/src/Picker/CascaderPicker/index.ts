@@ -4,7 +4,7 @@ import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { useComponentUpdateEffect } from '../../_util/hooks/useLayoutEffect';
 import { useMixState } from '../../_util/hooks/useMixState';
 import { resolveEventValues } from '../../_util/platform';
-import { ICascaderProps } from './props';
+import { CascaderFunctionalProps, ICascaderProps } from './props';
 import { defaultFormat, getterColumns, getValidValue } from './utils';
 
 const CascaderPicker = (props: ICascaderProps) => {
@@ -124,18 +124,4 @@ const CascaderPicker = (props: ICascaderProps) => {
   };
 };
 
-mountComponent(CascaderPicker, {
-  animationType: 'transform',
-  value: null,
-  defaultValue: null,
-  options: [],
-  placeholder: '请选择',
-  cancelText: '取消',
-  disabled: false,
-  title: '',
-  okText: '确定',
-  maskClosable: true,
-  popClassName: '',
-  popStyle: '',
-  onFormat: null,
-});
+mountComponent(CascaderPicker, CascaderFunctionalProps);

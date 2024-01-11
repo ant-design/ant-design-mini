@@ -18,4 +18,4 @@ const FormSwitch = (props: FormSwitchProps) => {
   };
 };
 
-mountComponent(FormSwitch, FormSwitchDefaultProps as FormSwitchProps);
+mountComponent(FormSwitch, FormSwitchDefaultProps);

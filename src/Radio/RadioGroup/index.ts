@@ -1,4 +1,4 @@
-import { IRadioGroupProps } from './props';
+import { IRadioGroupProps, RadioGroupFunctionalProps } from './props';
 import { mountComponent } from '../../_util/component';
 import { useMixState } from '../../_util/hooks/useMixState';
 import { useEvent } from 'functional-mini/component';
@@ -39,12 +39,4 @@ const RadioGroup = (props: IRadioGroupProps) => {
   };
 };
 
-mountComponent(RadioGroup, {
-  value: null,
-  defaultValue: null,
-  name: '',
-  disabled: false,
-  color: '',
-  position: 'vertical',
-  options: [],
-});
+mountComponent(RadioGroup, RadioGroupFunctionalProps);

@@ -19,3 +19,12 @@ export const CheckboxGroupDefaultProps: Partial<ICheckboxGroupProps> = {
   position: 'vertical',
   defaultValue: [],
 };
+
+export const CheckboxGroupFunctionalProps: Partial<ICheckboxGroupProps> = {
+  value: null,
+  defaultValue: [],
+  disabled: false,
+  position: 'vertical',
+  color: '',
+  options: [],
+};

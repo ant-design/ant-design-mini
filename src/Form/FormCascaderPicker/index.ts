@@ -53,7 +53,4 @@ const FormCascaderPicker = (props: FormCascaderPickerProps) => {
   };
 };
 
-mountComponent(
-  FormCascaderPicker,
-  FormCascaderPickerDefaultProps as FormCascaderPickerProps
-);
+mountComponent(FormCascaderPicker, FormCascaderPickerDefaultProps);

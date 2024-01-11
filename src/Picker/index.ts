@@ -9,7 +9,7 @@ import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
-import { IPickerProps } from './props';
+import { IPickerProps, PickerFunctionalProps } from './props';
 import {
   getMatchedItemByIndex,
   getMatchedItemByValue,
@@ -134,21 +134,4 @@ const Picker = (props: IPickerProps) => {
   };
 };
 
-mountComponent(Picker, {
-  formattedValueText: null,
-  visible: null,
-  defaultVisible: null,
-  animationType: 'transform',
-  value: null,
-  defaultValue: null,
-  disabled: false,
-  title: '',
-  okText: '确定',
-  cancelText: '取消',
-  placeholder: '请选择',
-  options: [],
-  popClassName: '',
-  popStyle: '',
-  maskClosable: true,
-  onFormat: null,
-});
+mountComponent(Picker, PickerFunctionalProps);
