@@ -18,7 +18,7 @@
             class="ant-form-item-label-help-content">
             {{ tooltip }}
           </view>
-          <icon type="QuestionCircleOutline" />
+          <ant-icon type="QuestionCircleOutline" />
         </popover>
       </view>
       <view class="ant-form-item-field ant-form-item-field-{{ position }}">

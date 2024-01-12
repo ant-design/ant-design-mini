@@ -95,12 +95,4 @@ Page({
             });
         });
     },
-    onUpload: function (localFile) {
-        return new Promise(function (resolve) {
-            console.log('上传的图片为：', localFile);
-            setTimeout(function () {
-                resolve('https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ');
-            }, 2000);
-        });
-    },
 });
