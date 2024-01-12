@@ -36,7 +36,7 @@
       onChange="onChange"
       onCancel="onDismissPicker"
       onVisibleChange="onVisibleChange"
-      onFormat="{{ onFormat ? onFormat : 'onFormat' }}">
+      onFormat="{{ handleFormat ? handleFormat : 'onFormat' }}">
       <slot
         name="content"
         slot="content" />

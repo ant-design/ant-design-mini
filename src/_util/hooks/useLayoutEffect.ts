@@ -9,10 +9,7 @@ import * as React from 'functional-mini/compat';
  */
 const useInternalLayoutEffect = React.useEffect;
 
-const useLayoutEffect = (
-  callback: (mount: boolean) => void,
-  deps?: React.DependencyList
-) => {
+const useLayoutEffect = (callback: (mount: boolean) => void, deps?: any) => {
   const firstMountRef = React.useRef(true);
 
   useInternalLayoutEffect(() => {

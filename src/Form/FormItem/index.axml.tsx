@@ -1,7 +1,7 @@
 import { TSXMLProps, Slot, InternalData, View } from 'tsxml';
 import { FormItemProps } from './props';
 import Popover from '../../Popover/index.axml';
-import Icon from '../../Icon/index.axml';
+import AntIcon from '../../Icon/index.axml';
 
 export default (
   {
@@ -48,7 +48,7 @@ export default (
                   <View slot="content" class="ant-form-item-label-help-content">
                     {tooltip}
                   </View>
-                  <Icon type="QuestionCircleOutline" />
+                  <AntIcon type="QuestionCircleOutline" />
                 </Popover>
               )}
             </View>

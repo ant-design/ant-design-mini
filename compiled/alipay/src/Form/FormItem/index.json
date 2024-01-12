@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "popover": "../../Popover/index",
-    "icon": "../../Icon/index"
+    "ant-icon": "../../Icon/index"
   }
 }

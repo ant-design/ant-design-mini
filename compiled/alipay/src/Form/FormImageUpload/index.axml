@@ -16,10 +16,10 @@
     imageMode="{{ imageMode }}"
     sourceType="{{ sourceType }}"
     onChange="onChange"
-    onUpload="onUpload"
-    onRemove="onRemove"
+    onUpload="{{ handleUpload ? handleUpload : 'handleUpload' }}"
+    onRemove="{{ handleRemove ? handleRemove : 'handleRemove' }}"
     onPreview="onPreview"
-    onBeforeUpload="onBeforeUpload"
+    onBeforeUpload="{{ handleBeforeUpload ? handleBeforeUpload : 'handleBeforeUpload' }}"
     onChooseImageError="onChooseImageError" />
   <view slot="extra">
     <slot name="extra">{{ extra }}</slot>

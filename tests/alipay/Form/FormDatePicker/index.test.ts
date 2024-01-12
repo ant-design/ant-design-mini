@@ -106,14 +106,14 @@ describe('FormDatePicker', () => {
 
     it('测试 onFormat', () => {
       const { onFormat, instance } = createFormDatePicker({});
-      instance.callMethod('onFormat', TestDate, TestDateStr);
+      instance.callMethod('handleFormat', TestDate, TestDateStr);
       expect(onFormat.mock.calls.length).toEqual(1);
       expect(onFormat.mock.calls[0]).toEqual([TestDate, TestDateStr]);
     });
 
     it('测试 onFormatLabel', () => {
       const { onFormatLabel, instance } = createFormDatePicker({});
-      instance.callMethod('onFormatLabel', TestType, TestDate);
+      instance.callMethod('handleFormatLabel', TestType, TestDate);
       expect(onFormatLabel.mock.calls.length).toEqual(1);
       expect(onFormatLabel.mock.calls[0]).toEqual([TestType, TestDate]);
     });

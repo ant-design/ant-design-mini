@@ -13,7 +13,7 @@ import FormSelector from '../../../src/Form/FormSelector/index.axml';
 import FormUploadImage from '../../../src/Form/FormImageUpload/index.axml';
 import FormRate from '../../../src/Form/FormRate/index.axml';
 import FormTextarea from '../../../src/Form/FormTextarea/index.axml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 
 export default ({
   fruitList,
@@ -21,6 +21,7 @@ export default ({
   radioGroupOptions,
   checkboxGroupOptions,
   selectorOptions,
+  onUpload,
 }) => (
   <Page>
     <FormInput
@@ -80,7 +81,7 @@ export default ({
     <FormUploadImage
       label="图片"
       name="image"
-      onUpload="onUpload"
+      onUpload={onUpload ? onUpload : 'onUpload'}
       ref="handleRef"
     />
     <FormTextarea
@@ -93,10 +94,10 @@ export default ({
     />
     <FormRate label="评分" name="rate" ref="handleRef" />
     <View class="buttons">
-      <Button type="primary" onTap="submit" style="margin-bottom: 12px">
+      <AntButton type="primary" onTap="submit" style="margin-bottom: 12px">
         提交
-      </Button>
-      <Button onTap="reset">重置</Button>
+      </AntButton>
+      <AntButton onTap="reset">重置</AntButton>
     </View>
   </Page>
 );

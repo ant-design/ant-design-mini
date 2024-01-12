@@ -32,9 +32,8 @@ export default (
     options,
     arrow,
     extra,
-    onFormat,
   }: TSXMLProps<FormPickerProps>,
-  { formData, item }: InternalData
+  { formData, item, handleFormat }: InternalData
 ) => (
   <Component>
     <FormItem
@@ -72,7 +71,7 @@ export default (
           onChange="onChange"
           onCancel="onDismissPicker"
           onVisibleChange="onVisibleChange"
-          onFormat={onFormat ? onFormat : 'onFormat'}
+          onFormat={handleFormat ? handleFormat : 'handleFormat'}
         >
           <Slot name="title" slot="title" />
           <Slot name="content" slot="content" />

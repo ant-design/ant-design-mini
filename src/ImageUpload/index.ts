@@ -5,7 +5,12 @@ import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
 import { triggerRefEvent } from '../_util/hooks/useReportRef';
 import { chooseImage } from '../_util/jsapi/choose-image';
-import { File, IUploaderProps, LocalFile } from './props';
+import {
+  File,
+  IUploaderProps,
+  LocalFile,
+  UploaderFunctionalProps,
+} from './props';
 
 const ImageUpload = (props: IUploaderProps) => {
   const [fileList, { isControlled, update, triggerUpdater }] = useMixState(
@@ -179,13 +184,4 @@ const ImageUpload = (props: IUploaderProps) => {
   };
 };
 
-mountComponent(ImageUpload, {
-  defaultFileList: [],
-  fileList: null,
-  maxCount: null,
-  imageMode: 'scaleToFill',
-  sourceType: ['camera', 'album'],
-  onUpload: null,
-  onBeforeUpload: null,
-  onRemove: null,
-});
+mountComponent(ImageUpload, UploaderFunctionalProps);

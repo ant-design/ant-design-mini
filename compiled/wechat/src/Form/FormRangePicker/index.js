@@ -20,14 +20,14 @@ var FormDatePicker = function (props) {
     useHandleCustomEventOnly('onDismissPicker', function (e) {
         triggerEventOnly('dismissPicker', e);
     });
-    useEvent('onFormat', function (date, dateStr) {
+    useEvent('handleFormat', function (date, dateStr) {
         if (props.onFormat) {
             return props.onFormat(date, dateStr);
         }
     }, {
         handleResult: true,
     });
-    useEvent('onFormatLabel', function (type, value) {
+    useEvent('handleFormatLabel', function (type, value) {
         if (props.onFormatLabel) {
             return props.onFormatLabel(type, value);
         }

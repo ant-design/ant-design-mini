@@ -1,40 +1,67 @@
-import { FormImageUploadDefaultProps } from './props';
-import createComponent from '../createComponent';
+import { useEvent } from 'functional-mini/component';
+import { mountComponent } from '../../_util/component';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
+import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
+import { useFormItem } from '../use-form-item';
+import { FormImageUploadDefaultProps, FormImageUploadProps } from './props';
 
-createComponent({
-  props: FormImageUploadDefaultProps,
-  methods: {
-    onChange(value) {
-      this.emit('onChange', value);
-      if (this.props.onChange) {
-        this.props.onChange(value);
-      }
-    },
-    onUpload(localFile) {
-      if (!this.props.onUpload) {
+const FormImageUpload = (props: FormImageUploadProps) => {
+  const { formData, emit } = useFormItem(props);
+  const { triggerEvent } = useComponentEvent(props);
+
+  useHandleCustomEvent('onChange', (value) => {
+    emit('onChange', value);
+    triggerEvent('change', value);
+  });
+
+  useEvent(
+    'handleUpload',
+    (localFile) => {
+      if (!props.onUpload) {
         throw new Error('need props onUpload');
       }
-      return this.props.onUpload(localFile);
+      return props.onUpload(localFile);
     },
-    onRemove(file) {
-      if (this.props.onRemove) {
-        return this.props.onRemove(file);
+    {
+      handleResult: true,
+    }
+  );
+
+  useEvent(
+    'handleRemove',
+    (file) => {
+      if (props.onRemove) {
+        return props.onRemove(file);
       }
     },
-    onPreview(file) {
-      if (this.props.onPreview) {
-        this.props.onPreview(file);
+    {
+      handleResult: true,
+    }
+  );
+
+  useHandleCustomEvent('onPreview', (file, e) => {
+    triggerEvent('preview', file, e);
+  });
+
+  useEvent(
+    'handleBeforeUpload',
+    (localFileList) => {
+      if (props.onBeforeUpload) {
+        return props.onBeforeUpload(localFileList);
       }
     },
-    onBeforeUpload(localFileList) {
-      if (this.props.onBeforeUpload) {
-        return this.props.onBeforeUpload(localFileList);
-      }
-    },
-    onChooseImageError(err) {
-      if (this.props.onChooseImageError) {
-        this.props.onChooseImageError(err);
-      }
-    },
-  },
-});
+    {
+      handleResult: true,
+    }
+  );
+
+  useHandleCustomEvent('onChooseImageError', (err, e) => {
+    triggerEvent('chooseImageError', err, e);
+  });
+
+  return {
+    formData,
+  };
+};
+
+mountComponent(FormImageUpload, FormImageUploadDefaultProps);

@@ -104,3 +104,14 @@ export const UploaderDefaultProps: Partial<IUploaderProps> = {
   imageMode: 'scaleToFill',
   sourceType: ['camera', 'album'],
 };
+
+export const UploaderFunctionalProps: Partial<IUploaderProps> = {
+  defaultFileList: [],
+  fileList: null,
+  maxCount: null,
+  imageMode: 'scaleToFill',
+  sourceType: ['camera', 'album'],
+  onUpload: null,
+  onBeforeUpload: null,
+  onRemove: null,
+};

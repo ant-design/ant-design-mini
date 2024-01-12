@@ -34,6 +34,7 @@ export const FormItemFunctionalProps: FormItemProps = {
   requiredMark: 'asterisk',
   status: null,
   errors: null,
+  tooltip: '',
   required: false,
   disabled: false,
   extra: '',

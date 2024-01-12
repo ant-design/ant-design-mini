@@ -27,7 +27,7 @@ const FormPicker = (props: FormPickerProps) => {
   });
 
   useEvent(
-    'onFormat',
+    'handleFormat',
     (value, column) => {
       if (props.onFormat) {
         return props.onFormat(value, column);

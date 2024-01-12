@@ -35,7 +35,7 @@ const FormDatePicker = (props: FormRangePickerProps) => {
   });
 
   useEvent(
-    'onFormat',
+    'handleFormat',
     (date, dateStr) => {
       if (props.onFormat) {
         return props.onFormat(date, dateStr);
@@ -47,7 +47,7 @@ const FormDatePicker = (props: FormRangePickerProps) => {
   );
 
   useEvent(
-    'onFormatLabel',
+    'handleFormatLabel',
     (type, value) => {
       if (props.onFormatLabel) {
         return props.onFormatLabel(type, value);

@@ -3,6 +3,18 @@ import cityList from './city';
 
 Page({
   data: {
+    /// #if WECHAT
+    onUpload(localFile) {
+      return new Promise((resolve) => {
+        console.log('上传的图片为：', localFile);
+        setTimeout(() => {
+          resolve(
+            'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ'
+          );
+        }, 2000);
+      });
+    },
+    /// #endif
     fruitList: ['苹果', '香蕉', '橘子', '西瓜'],
     cityList,
     radioGroupOptions: [
@@ -55,6 +67,7 @@ Page({
     /// #endif
     console.log(values);
   },
+  /// #if ALIPAY
   onUpload(localFile) {
     return new Promise((resolve) => {
       console.log('上传的图片为：', localFile);
@@ -65,4 +78,5 @@ Page({
       }, 2000);
     });
   },
+  /// #endif
 });
