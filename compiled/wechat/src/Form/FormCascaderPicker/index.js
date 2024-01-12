@@ -17,7 +17,7 @@ var FormCascaderPicker = function (props) {
     useHandleCustomEvent('onVisibleChange', function (visible, e) {
         triggerEvent('visibleChange', visible, e);
     });
-    useEvent('onFormat', function (value, option) {
+    useEvent('handleFormat', function (value, option) {
         if (props.onFormat) {
             return props.onFormat(value, option);
         }

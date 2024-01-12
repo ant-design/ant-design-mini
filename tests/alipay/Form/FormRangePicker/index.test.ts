@@ -109,7 +109,7 @@ describe('FormRangePicker', () => {
 
     it('测试 onFormat', () => {
       const { onFormat, instance } = createFormRangePicker({});
-      instance.callMethod('onFormat', TestDate, TestDateStr);
+      instance.callMethod('handleFormat', TestDate, TestDateStr);
       expect(onFormat.mock.calls.length).toEqual(1);
       expect(onFormat.mock.calls[0]).toEqual([TestDate, TestDateStr]);
     });
@@ -126,7 +126,11 @@ describe('FormRangePicker', () => {
     it('测试 onFormatLabel', () => {
       const { onFormatLabel, instance } = createFormRangePicker({});
       onFormatLabel.mockImplementation(() => 'label');
-      const res = instance.callMethod('onFormatLabel', TestType, TestDate[0]);
+      const res = instance.callMethod(
+        'handleFormatLabel',
+        TestType,
+        TestDate[0]
+      );
       expect(res).toEqual('label');
       expect(onFormatLabel.mock.calls.length).toEqual(1);
       expect(onFormatLabel.mock.calls[0]).toEqual([TestType, TestDate[0]]);

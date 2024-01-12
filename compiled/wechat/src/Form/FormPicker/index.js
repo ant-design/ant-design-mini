@@ -17,7 +17,7 @@ var FormPicker = function (props) {
     useHandleCustomEvent('onVisibleChange', function (visible, e) {
         triggerEvent('visibleChange', visible, e);
     });
-    useEvent('onFormat', function (value, column) {
+    useEvent('handleFormat', function (value, column) {
         if (props.onFormat) {
             return props.onFormat(value, column);
         }

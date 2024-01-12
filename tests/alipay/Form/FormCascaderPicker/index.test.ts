@@ -106,7 +106,7 @@ describe('CascaderPicker', () => {
 
     it('测试 onFormat', () => {
       const { onFormat, instance } = createFormCascaderPicker({});
-      instance.callMethod('onFormat', TestValue, TestOption);
+      instance.callMethod('handleFormat', TestValue, TestOption);
       expect(onFormat.mock.calls.length).toEqual(1);
       expect(onFormat.mock.calls[0]).toEqual([TestValue, TestOption]);
     });

@@ -34,10 +34,8 @@ export default (
     indicatorStyle,
     indicatorClassName,
     extra,
-    onFormat,
-    onFormatLabel,
   }: TSXMLProps<FormDatePickerProps>,
-  { arrow, formData, item }: InternalData
+  { arrow, formData, item, handleFormatLabel, handleFormat }: InternalData
 ) => (
   <Component>
     <FormItem
@@ -78,8 +76,10 @@ export default (
           onPickerChange="onPickerChange"
           onCancel="onDismissPicker"
           onVisibleChange="onVisibleChange"
-          onFormatLabel={onFormatLabel ? onFormatLabel : 'onFormatLabel'}
-          onFormat={onFormat ? onFormat : 'onFormat'}
+          onFormatLabel={
+            handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'
+          }
+          onFormat={handleFormat ? handleFormat : 'handleFormat'}
         >
           <Slot name="content" slot="content" />
           <Slot name="title" slot="title" />

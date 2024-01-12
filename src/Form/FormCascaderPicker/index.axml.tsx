@@ -32,9 +32,8 @@ export default (
     indicatorClassName,
     arrow,
     tooltip,
-    onFormat,
   }: TSXMLProps<FormCascaderPickerProps>,
-  { item, formData, extra }: InternalData
+  { item, formData, extra, handleFormat }: InternalData
 ) => (
   <Component>
     <FormItem
@@ -72,7 +71,7 @@ export default (
           onChange="onChange"
           onCancel="onDismissPicker"
           onVisibleChange="onVisibleChange"
-          onFormat={onFormat ? onFormat : 'onFormat'}
+          onFormat={handleFormat ? handleFormat : 'onFormat'}
         >
           <slot name="content" slot="content"></slot>
           <slot name="title" slot="title"></slot>

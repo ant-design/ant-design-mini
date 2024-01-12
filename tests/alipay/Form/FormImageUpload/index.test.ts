@@ -66,14 +66,31 @@ describe('FormImageUpload', () => {
 
       instance.callMethod('onChange', TestValue);
       expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange).toHaveBeenCalledWith(TestValue);
+      expect(onChange.mock.calls[0]).toEqual([
+        ['image1.png', 'image2.png'],
+        {
+          'currentTarget': {
+            'dataset': {
+              'test': 'test',
+            },
+          },
+          'target': {
+            'dataset': {
+              'test': 'test',
+            },
+            'targetDataset': {
+              'test': 'test',
+            },
+          },
+        },
+      ]);
     });
 
     it('测试 onUpload 事件', () => {
       const { instance, onUpload } = createFormImageUpload({});
       const TestFile = { name: 'image1.png' };
 
-      instance.callMethod('onUpload', TestFile);
+      instance.callMethod('handleUpload', TestFile);
       expect(onUpload).toHaveBeenCalledTimes(1);
       expect(onUpload).toHaveBeenCalledWith(TestFile);
     });
@@ -82,9 +99,13 @@ describe('FormImageUpload', () => {
       const { instance, onRemove } = createFormImageUpload({});
       const TestFile = { name: 'image1.png' };
 
-      instance.callMethod('onRemove', TestFile);
+      instance.callMethod('handleRemove', TestFile);
       expect(onRemove).toHaveBeenCalledTimes(1);
-      expect(onRemove).toHaveBeenCalledWith(TestFile);
+      expect(onRemove.mock.calls[0]).toEqual([
+        {
+          'name': 'image1.png',
+        },
+      ]);
     });
 
     it('测试 onRemove 返回结果', () => {
@@ -93,7 +114,7 @@ describe('FormImageUpload', () => {
           return false;
         },
       });
-      expect(instance.callMethod('onRemove')).toBe(false);
+      expect(instance.callMethod('handleRemove')).toBe(false);
     });
 
     it('测试 onPreview 事件', () => {
@@ -102,7 +123,26 @@ describe('FormImageUpload', () => {
 
       instance.callMethod('onPreview', TestFile);
       expect(onPreview).toHaveBeenCalledTimes(1);
-      expect(onPreview).toHaveBeenCalledWith(TestFile);
+      expect(onPreview.mock.calls[0]).toEqual([
+        {
+          'name': 'image1.png',
+        },
+        {
+          'currentTarget': {
+            'dataset': {
+              'test': 'test',
+            },
+          },
+          'target': {
+            'dataset': {
+              'test': 'test',
+            },
+            'targetDataset': {
+              'test': 'test',
+            },
+          },
+        },
+      ]);
     });
 
     it('测试 onBeforeUpload 事件', () => {
@@ -110,7 +150,7 @@ describe('FormImageUpload', () => {
       onBeforeUpload.mockImplementation((v) => v);
       const TestFileList = [{ name: 'image1.png' }];
 
-      const res = instance.callMethod('onBeforeUpload', TestFileList);
+      const res = instance.callMethod('handleBeforeUpload', TestFileList);
       expect(res).toEqual(TestFileList);
       expect(onBeforeUpload).toHaveBeenCalledTimes(1);
       expect(onBeforeUpload).toHaveBeenCalledWith(TestFileList);
@@ -122,7 +162,26 @@ describe('FormImageUpload', () => {
 
       instance.callMethod('onChooseImageError', TestError);
       expect(onChooseImageError).toHaveBeenCalledTimes(1);
-      expect(onChooseImageError).toHaveBeenCalledWith(TestError);
+      expect(onChooseImageError.mock.calls[0]).toEqual([
+        {
+          'message': 'Error choosing image',
+        },
+        {
+          'currentTarget': {
+            'dataset': {
+              'test': 'test',
+            },
+          },
+          'target': {
+            'dataset': {
+              'test': 'test',
+            },
+            'targetDataset': {
+              'test': 'test',
+            },
+          },
+        },
+      ]);
     });
   });
 });

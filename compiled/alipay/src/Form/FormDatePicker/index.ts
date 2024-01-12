@@ -1,4 +1,4 @@
-import { useEvent } from 'functional-mini/component';
+import { useEvent, useComponent, useEffect } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import {
@@ -32,7 +32,7 @@ const FormDatePicker = (props: FormDatePickerProps) => {
   });
 
   useEvent(
-    'onFormat',
+    'handleFormat',
     (date, dateStr) => {
       if (props.onFormat) {
         return props.onFormat(date, dateStr);
@@ -44,7 +44,7 @@ const FormDatePicker = (props: FormDatePickerProps) => {
   );
 
   useEvent(
-    'onFormatLabel',
+    'handleFormatLabel',
     (type, value) => {
       if (props.onFormatLabel) {
         return props.onFormatLabel(type, value);

@@ -18,7 +18,13 @@ export default (
     sourceType,
     extra,
   }: TSXMLProps<FormImageUploadProps>,
-  { formData, item }: InternalData
+  {
+    formData,
+    item,
+    handleUpload,
+    handleRemove,
+    handleBeforeUpload,
+  }: InternalData
 ) => (
   <Component>
     <FormItem
@@ -40,10 +46,12 @@ export default (
         imageMode={imageMode}
         sourceType={sourceType}
         onChange="onChange"
-        onUpload="onUpload"
-        onRemove="onRemove"
+        onUpload={handleUpload ? handleUpload : 'handleUpload'}
+        onRemove={handleRemove ? handleRemove : 'handleRemove'}
         onPreview="onPreview"
-        onBeforeUpload="onBeforeUpload"
+        onBeforeUpload={
+          handleBeforeUpload ? handleBeforeUpload : 'handleBeforeUpload'
+        }
         onChooseImageError="onChooseImageError"
       />
       <View slot="extra">

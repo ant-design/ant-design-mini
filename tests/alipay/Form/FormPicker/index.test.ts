@@ -95,7 +95,7 @@ describe('FormPicker', () => {
 
     it('测试 onFormat', () => {
       const { onFormat, instance } = createFormPicker({});
-      instance.callMethod('onFormat', TestValue, TestColumn);
+      instance.callMethod('handleFormat', TestValue, TestColumn);
       expect(onFormat.mock.calls.length).toEqual(1);
       expect(onFormat.mock.calls[0]).toEqual([TestValue, TestColumn]);
     });
