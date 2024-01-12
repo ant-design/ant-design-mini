@@ -34,7 +34,7 @@ it('test useHandleCustomEvent', async () => {
   };
 
   const componentOptions = alipayComponent(Test, {});
-  const instance = createInstance(componentOptions, {}, testMy);
+  const instance = createInstance(componentOptions as any, {}, testMy);
   expect(
     instance.callMethod('handleEvent', 2, fmtEvent({ 'data-a': 1 })).count
   ).toBe(1);
@@ -67,7 +67,7 @@ it('test useMultipleValueHandleCustomEvent', async () => {
   };
 
   const componentOptions = alipayComponent(Test, {});
-  const instance = createInstance(componentOptions, {}, testMy);
+  const instance = createInstance(componentOptions as any, {}, testMy);
   expect(
     instance.callMethod('handleEvent', 1, 2, fmtEvent({ 'data-a': 1 }))
   ).toEqual({
@@ -107,7 +107,7 @@ it('test useHandleCustomEventOnly', async () => {
     return {};
   };
 
-  const componentOptions = alipayComponent(Test, {});
+  const componentOptions = alipayComponent(Test, {}) as any;
   const instance = createInstance(componentOptions, {}, testMy);
   expect(instance.callMethod('handleEvent', fmtEvent({ 'data-a': 1 }))).toEqual(
     {
