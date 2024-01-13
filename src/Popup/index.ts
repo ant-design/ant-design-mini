@@ -18,11 +18,19 @@ const Popup = (props: IPopupProps) => {
     if (!props.visible && enableAnimation) {
       setClosing(true);
     }
+
+    if (!enableAnimation) {
+      triggerEventOnly(props.visible ? 'afterShow' : 'afterClose');
+    }
   }, [props.visible]);
 
   useEvent('onAnimationEnd', () => {
     if (closing) {
       setClosing(false);
+    }
+
+    if (enableAnimation) {
+      triggerEventOnly(props.visible ? 'afterShow' : 'afterClose');
     }
   });
 

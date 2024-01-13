@@ -65,4 +65,45 @@ describe('Popup', () => {
     instance.callMethod('onTapMask');
     expect(onClose.mock.calls.length).toBe(1);
   });
+
+  it('测试 onAfterShow 与 onAfterClose', async () => {
+    const onAfterShow = vi.fn();
+    const onAfterClose = vi.fn();
+    const instance = createPopupInstance({
+      visible: true,
+      onAfterShow,
+      onAfterClose,
+    });
+
+    instance.callMethod('onAnimationEnd');
+    expect(onAfterShow.mock.calls.length).toBe(1);
+
+    instance.setProps({
+      visible: false,
+    });
+    instance.callMethod('onAnimationEnd');
+    expect(onAfterClose.mock.calls.length).toBe(1);
+  });
+
+  it('测试 onAfterShow 与 onAfterClose: animation 为 false 的情况', async () => {
+    const onAfterShow = vi.fn();
+    const onAfterClose = vi.fn();
+    const instance = createPopupInstance({
+      visible: true,
+      animation: false,
+      onAfterShow,
+      onAfterClose,
+    });
+
+    instance.setProps({
+      visible: false,
+    });
+
+    expect(onAfterClose.mock.calls.length).toBe(1);
+
+    instance.setProps({
+      visible: true,
+    });
+    expect(onAfterShow.mock.calls.length).toBe(1);
+  });
 });
