@@ -5,12 +5,16 @@ import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
 import { FormTextareaDefaultProps, FormTextareaProps } from './props';
 
+type TextareaRef = {
+  update(value: string): void;
+};
+
 const FormTextarea = (props: FormTextareaProps) => {
   const { formData, emit } = useFormItem(props);
   const { triggerEvent } = useComponentEvent(props);
-  const inputRef = useRef();
+  const inputRef = useRef<TextareaRef>();
 
-  useHandleCustomEvent('handleRef', (input) => {
+  useHandleCustomEvent('handleRef', (input: TextareaRef) => {
     inputRef.current = input;
   });
 

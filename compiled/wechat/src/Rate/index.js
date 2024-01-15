@@ -70,7 +70,7 @@ var Rate = function (props) {
     }), rateValue = _a[0], _b = _a[1], isControlled = _b.isControlled, update = _b.update;
     var triggerEvent = useComponentEvent(props).triggerEvent;
     var _c = useState(null), displayValue = _c[0], setDisplayValue = _c[1];
-    var ref = useRef(false);
+    var ref = useRef(null);
     var instance = useComponent();
     function getInstance() {
         if (instance.$id) {

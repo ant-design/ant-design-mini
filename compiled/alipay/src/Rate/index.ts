@@ -34,7 +34,7 @@ const Rate = (props: IRateProps) => {
   const { triggerEvent } = useComponentEvent(props);
   const [displayValue, setDisplayValue] = useState(null);
   const ref = useRef<{ originalRate: number; currentRate?: number } | null>(
-    false
+    null
   );
   const instance = useComponent();
 

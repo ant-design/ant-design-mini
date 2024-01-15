@@ -48,6 +48,7 @@ export type TSXMLProps<T> = Partial<
     key?: string;
     $id?: string;
     slot?: string;
+    children?: any;
   }
 >;
 

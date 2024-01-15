@@ -12,6 +12,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
  */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'functional-mini/compat';
+// eslint-disable-next-line @typescript-eslint/ban-types
 export function useEvent(callback) {
     var fnRef = React.useRef();
     fnRef.current = callback;

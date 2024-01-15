@@ -5,12 +5,16 @@ import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
 import { FormInputFunctionalProps, FormInputProps } from './props';
 
+interface InputRef {
+  update(value: string);
+}
+
 const FormInput = (props: FormInputProps) => {
   const { formData, emit } = useFormItem(props);
   const { triggerEvent } = useComponentEvent(props);
-  const inputRef = useRef();
+  const inputRef = useRef<InputRef>();
 
-  useHandleCustomEvent('handleRef', (input) => {
+  useHandleCustomEvent('handleRef', (input: InputRef) => {
     inputRef.current = input;
   });
 
