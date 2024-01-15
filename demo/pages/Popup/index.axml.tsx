@@ -1,4 +1,4 @@
-import { InternalData, View } from 'tsxml';
+import { InternalData, View, Page, ScrollView } from 'tsxml';
 import AntButton from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
 import AntIcon from '../../../src/Icon/index.axml';
@@ -7,16 +7,13 @@ import ListItem from '../../../src/List/ListItem/index.axml';
 import AntPopup from '../../../src/Popup/index.axml';
 import Switch from '../../../src/Switch/index.axml';
 
-export default (
-  _,
-  {
-    basicVisible,
-    closeVisible,
-    scrollVisible,
-    position,
-    animation,
-  }: InternalData
-) => (
+export default ({
+  basicVisible,
+  closeVisible,
+  scrollVisible,
+  position,
+  animation,
+}: InternalData) => (
   <Page>
     <AntPopup
       visible={basicVisible}
@@ -52,7 +49,7 @@ export default (
       animation={animation}
       onClose="handlePopupClose"
     >
-      <scroll-view
+      <ScrollView
         scroll-y
         style="padding: 12px; height: 300px"
         disable-lower-scroll="out-of-bounds"
@@ -120,7 +117,7 @@ export default (
         adipisicing aute voluptate deserunt fugiat nostrud nostrud. Id nostrud
         do cupidatat quis ea sint anim duis labore proident minim excepteur
         dolor proident elit.
-      </scroll-view>
+      </ScrollView>
     </AntPopup>
     <Container title="弹出位置" className="list">
       <AntButton data-position="top" onTap="handleShowBasic">

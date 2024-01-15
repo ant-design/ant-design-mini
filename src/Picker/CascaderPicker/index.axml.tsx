@@ -1,4 +1,4 @@
-import { TSXMLProps, Slot, InternalData } from 'tsxml';
+import { TSXMLProps, Slot, InternalData, Component } from 'tsxml';
 import { ICascaderProps } from './props'; // 假设原始的 props 文件路径是 './props'
 import AntPicker from '../index.axml'; // 从 index.json 知道 picker 组件路径是 '../index'
 

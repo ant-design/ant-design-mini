@@ -1,9 +1,17 @@
-import { IRadioGroupProps } from './props';
+import {
+  Block,
+  Component,
+  InternalData,
+  Slot,
+  TSXMLProps,
+  View,
+  RadioGroup,
+} from 'tsxml';
 import List from '../../List/index.axml';
 import ListItem from '../../List/ListItem/index.axml';
 import Radio from '../index.axml';
 import componentUtils from '../index.sjs';
-import { InternalData, TSXMLProps, Slot, View, Block } from 'tsxml';
+import { IRadioGroupProps } from './props';
 
 export default (
   {
@@ -24,7 +32,7 @@ export default (
       } ant-radio-group-${position}`}
       style={style}
     >
-      <radio-group name={name} value={mixin.value}>
+      <RadioGroup name={name} value={mixin.value}>
         <View class="ant-radio-group-body">
           {position === 'vertical' ? (
             <Block>
@@ -84,7 +92,7 @@ export default (
             </Block>
           )}
         </View>
-      </radio-group>
+      </RadioGroup>
     </List>
   </Component>
 );

@@ -1,7 +1,7 @@
 import { FormCheckboxGroupProps, FormCheckboxGroupDefaultProps } from './props';
 import FormItem from '../FormItem/index.axml';
 import CheckboxGroup from '../../Checkbox/CheckboxGroup/index.axml';
-import { InternalData, View, Slot, TSXMLProps } from 'tsxml';
+import { InternalData, View, Slot, TSXMLProps, Component } from 'tsxml';
 
 export default (
   {

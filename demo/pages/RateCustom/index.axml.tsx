@@ -1,4 +1,4 @@
-import { InternalData, View } from 'tsxml';
+import { InternalData, View, Component } from 'tsxml';
 import AntContainer from '../../../src/Container/index.axml';
 import AntIcon from '../../../src/Icon/index.axml';
 import AntRate from '../../../src/Rate/index.axml';

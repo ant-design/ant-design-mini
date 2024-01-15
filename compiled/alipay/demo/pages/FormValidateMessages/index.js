@@ -9,28 +9,30 @@ const validateMessages = {
     },
 };
 Page({
-    form: new Form({
-        validateMessages,
-        rules: {
-            account: [
-                {
-                    required: true,
-                    min: 6,
-                },
-            ],
-            password: [
-                {
-                    required: true,
-                },
-            ],
-            ip: [
-                {
-                    required: true,
-                    pattern: /^((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}$/
-                }
-            ]
-        }
-    }),
+    onLoad() {
+        this.form = new Form({
+            validateMessages,
+            rules: {
+                account: [
+                    {
+                        required: true,
+                        min: 6,
+                    },
+                ],
+                password: [
+                    {
+                        required: true,
+                    },
+                ],
+                ip: [
+                    {
+                        required: true,
+                        pattern: /^((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}$/,
+                    },
+                ],
+            },
+        });
+    },
     handleRef(ref) {
         this.form.addItem(ref);
     },
@@ -39,9 +41,10 @@ Page({
     },
     async submit() {
         const values = await this.form.submit();
+        console.log(values);
         my.alert({
             title: '提交',
             content: JSON.stringify(values),
         });
-    }
+    },
 });

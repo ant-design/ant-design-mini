@@ -1,4 +1,4 @@
-import { View } from 'tsxml';
+import { View, Page } from 'tsxml';
 import Container from '../../../src/Container/index.axml';
 import Empty from '../../../src/Empty/index.axml';
 import Button from '../../../src/Button/index.axml';

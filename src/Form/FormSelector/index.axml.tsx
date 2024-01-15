@@ -1,5 +1,5 @@
-import { View, Slot, TSXMLProps, InternalData } from 'tsxml';
-import { FormSelectorProps } from './props'; // Assumes the props file is in the same directory
+import { View, Slot, TSXMLProps, InternalData, Component } from 'tsxml';
+import { FormSelectorProps } from './props';
 import FormItem from '../FormItem/index.axml';
 import Selector from '../../Selector/index.axml';
 

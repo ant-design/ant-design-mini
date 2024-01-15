@@ -1,4 +1,11 @@
-import { TSXMLProps, View, Template, Slot, InternalData } from 'tsxml';
+import {
+  TSXMLProps,
+  View,
+  Template,
+  Slot,
+  InternalData,
+  Component,
+} from 'tsxml';
 import Icon from '../../Icon/index.axml';
 import AntPicker from '../../Picker/index.axml';
 import { IDateRangePickerProps } from './props';
