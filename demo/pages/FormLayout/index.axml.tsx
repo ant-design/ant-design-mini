@@ -1,7 +1,7 @@
 import FormInput from '../../../src/Form/FormInput/index.axml';
 import FormSwitch from '../../../src/Form/FormSwitch/index.axml';
 import FormStepper from '../../../src/Form/FormStepper/index.axml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 import { View, Page } from 'tsxml';
 
 export default ({ position }) => (
@@ -36,15 +36,15 @@ export default ({ position }) => (
     />
 
     <View class="buttons">
-      <Button type="primary" onTap="submit" class="button">
+      <AntButton type="primary" onTap="submit" className="button">
         提交
-      </Button>
-      <Button onTap="reset" class="button">
+      </AntButton>
+      <AntButton onTap="reset" className="button">
         重置
-      </Button>
-      <Button onTap="toggle" class="button">
+      </AntButton>
+      <AntButton onTap="toggle" className="button">
         切换表单布局
-      </Button>
+      </AntButton>
     </View>
   </Page>
 );
