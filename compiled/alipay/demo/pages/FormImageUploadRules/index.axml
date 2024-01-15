@@ -2,21 +2,19 @@
   label="用户名"
   name="username"
   ref="handleRef" />
-
 <form-image-upload
   label="图片上传"
   name="imageList"
-  onUpload="onUpload"
-  maxCount="{{3}}"
+  onUpload="{{ onUpload ? onUpload : 'onUpload' }}"
+  maxCount="{{ 3 }}"
   tooltip="需要上传3张图片"
   ref="handleRef" />
-
 <view class="buttons">
-  <button
+  <ant-button
     type="primary"
     onTap="submit"
     style="margin-bottom: 12px">
     提交
-  </button>
-  <button onTap="reset">重置</button>
+  </ant-button>
+  <ant-button onTap="reset">重置</ant-button>
 </view>

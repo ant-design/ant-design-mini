@@ -1,17 +1,17 @@
 <block
-  a:for="{{ list }}"
-  a:for-index="index"
-  a:for-item="item"
-  a:key="{{ item.id }}">
+  wx:for="{{ list }}"
+  wx:for-index="index"
+  wx:for-item="item"
+  wx:key="{{ item.id }}">
   <form-input
     label="{{ list[index].id }}"
     name="account{{ list[index].id }}"
     required
     message="需要输入用户名"
-    ref="handleRef">
+    bind:ref="handleRef">
     <view
       slot="extra"
-      onTap="minus"
+      bind:tap="minus"
       data-index="{{ index }}">
       <ant-icon type="MinusCircleOutline" />
     </view>
@@ -19,19 +19,19 @@
 </block>
 <view class="buttons">
   <ant-button
-    onTap="add"
+    bind:tap="add"
     className="button">
     添加用户
     <ant-icon type="AddCircleOutline" />
   </ant-button>
   <ant-button
     type="primary"
-    onTap="submit"
+    bind:tap="submit"
     className="button">
     提交
   </ant-button>
   <ant-button
-    onTap="reset"
+    bind:tap="reset"
     className="button">
     重置
   </ant-button>

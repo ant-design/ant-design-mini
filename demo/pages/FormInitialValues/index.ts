@@ -1,11 +1,15 @@
 import { Form } from '../../../src/Form/form';
 
 Page({
-  data: {
-    position: 'horizontal',
-  },
   onLoad() {
-    this.form = new Form();
+    this.form = new Form({
+      initialValues: {
+        account: 'lily',
+        address: 'alipay',
+        needDelivery: true,
+        quantity: 1,
+      },
+    });
     /// #if WECHAT
     if (this.formRefList) {
       this.formRefList.forEach((ref) => {
@@ -26,18 +30,13 @@ Page({
     this.formRefList.push(ref.detail);
     /// #endif
   },
+
   reset() {
     this.form.reset();
-  },
-  toggle() {
-    this.setData({
-      position: this.data.position === 'horizontal' ? 'vertical' : 'horizontal',
-    });
   },
   async submit() {
     const values = await this.form.submit();
     console.log(values);
-
     /// #if ALIPAY
     my.alert({
       title: '提交',

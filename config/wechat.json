@@ -1,10 +1,17 @@
 {
   "pages": [
-    "pages/FormValidateMessages",
     "pages/Form",
     "pages/FormCustomError",
     "pages/FormDependency",
+    "pages/FormDynamic",
+    "pages/FormImageUploadRules",
+    "pages/FormInitialValues",
+    "pages/FormInitialValuesAsync",
+    "pages/FormLayout",
+    "pages/FormMultiple",
     "pages/FormRules",
+    "pages/FormValidate",
+    "pages/FormValidateMessages",
     "pages/FormWatch",
     "pages/RadioGroup",
     "pages/RateCustom",
