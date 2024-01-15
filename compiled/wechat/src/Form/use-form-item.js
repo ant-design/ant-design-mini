@@ -18,7 +18,6 @@ export var useFormItem = function (props) {
         required: false,
         errors: [],
     }), formData = _a[0], setFormDate = _a[1];
-    triggerRefEvent();
     var formRef = useRef(formData);
     var emitRef = useRef(null);
     useEvent('setFormData', function (values) {
@@ -48,6 +47,8 @@ export var useFormItem = function (props) {
             emitRef.current(event, value, extraInfo);
         }
     }
+    // 这个必须要放在后面。
+    triggerRefEvent();
     useEffect(function () {
         emit('deriveDataFromProps', props, originalProps.current);
         originalProps.current = props;

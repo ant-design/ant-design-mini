@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/FormDependency/index",
     "demo/pages/Form/index",
     "demo/pages/FormCustomError/index",
     "demo/pages/FormRules/index",

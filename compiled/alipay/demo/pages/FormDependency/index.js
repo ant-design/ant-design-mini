@@ -1,6 +1,11 @@
 import { Form } from '../../../src/Form/form';
 Page({
-    form: new Form(),
+    onLoad() {
+        this.form = new Form();
+    },
+    handleRef(ref) {
+        this.form.addItem(ref);
+    },
     data: {
         needFruit: false,
     },
@@ -8,9 +13,6 @@ Page({
         this.setData({
             needFruit: value,
         });
-    },
-    handleRef(ref) {
-        this.form.addItem(ref);
     },
     reset() {
         this.setData({
@@ -20,9 +22,10 @@ Page({
     },
     async submit() {
         const values = await this.form.submit();
+        console.log(values);
         my.alert({
             title: '提交',
             content: JSON.stringify(values),
         });
-    }
+    },
 });

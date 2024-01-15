@@ -22,8 +22,6 @@ export const useFormItem = (props) => {
     errors: [],
   });
 
-  triggerRefEvent();
-
   const formRef = useRef(formData);
   const emitRef = useRef<EventCallback | null>(null);
 
@@ -63,6 +61,8 @@ export const useFormItem = (props) => {
       emitRef.current(event, value, extraInfo);
     }
   }
+  // 这个必须要放在后面。
+  triggerRefEvent();
 
   useEffect(() => {
     emit('deriveDataFromProps', props, originalProps.current);

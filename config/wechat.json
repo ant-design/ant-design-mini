@@ -2,6 +2,7 @@
   "pages": [
     "pages/Form",
     "pages/FormCustomError",
+    "pages/FormDependency",
     "pages/FormRules",
     "pages/FormWatch",
     "pages/RadioGroup",
