@@ -1,3 +1,4 @@
+import { useEvent } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import {
@@ -10,7 +11,6 @@ import {
   FormCascaderPickerDefaultProps,
   FormCascaderPickerProps,
 } from './props';
-import { useEvent } from 'functional-mini/component';
 
 const FormCascaderPicker = (props: FormCascaderPickerProps) => {
   const { formData, emit } = useFormItem(props);
