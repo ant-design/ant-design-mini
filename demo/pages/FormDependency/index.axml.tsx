@@ -2,7 +2,7 @@ import { Page, View } from 'tsxml';
 import FormInput from '../../../src/Form/FormInput/index.axml';
 import FormSwitch from '../../../src/Form/FormSwitch/index.axml';
 import FormStepper from '../../../src/Form/FormStepper/index.axml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 
 export default ({ needFruit }) => (
   <Page>
@@ -27,10 +27,10 @@ export default ({ needFruit }) => (
     )}
 
     <View class="buttons">
-      <Button type="primary" onTap="submit" style="margin-bottom: 12px">
+      <AntButton type="primary" onTap="submit" style="margin-bottom: 12px">
         提交
-      </Button>
-      <Button onTap="reset">重置</Button>
+      </AntButton>
+      <AntButton onTap="reset">重置</AntButton>
     </View>
   </Page>
 );

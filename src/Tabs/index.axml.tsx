@@ -1,4 +1,12 @@
-import { View, ScrollView, Slot, TSXMLProps, InternalData, Text } from 'tsxml';
+import {
+  View,
+  ScrollView,
+  Slot,
+  TSXMLProps,
+  InternalData,
+  Text,
+  Component,
+} from 'tsxml';
 import { ITabsProps } from './props';
 
 export default (

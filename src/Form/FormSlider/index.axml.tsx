@@ -1,7 +1,7 @@
 import { FormSliderProps } from './props';
 import FormItem from '../FormItem/index.axml';
 import Slider from '../../Slider/index.axml';
-import { View, TSXMLProps, Slot, InternalData } from 'tsxml';
+import { View, TSXMLProps, Slot, InternalData, Component } from 'tsxml';
 
 export default (
   {

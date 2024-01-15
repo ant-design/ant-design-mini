@@ -1,12 +1,13 @@
 import { Component, View } from 'tsxml';
 import AntTag from '../../../src/Tag/index.axml';
+import Container from '../../../src/Container/index.axml';
 
 export default () => (
   <Component>
-    <container title="基础用法">
+    <Container title="基础用法">
       <AntTag>标签</AntTag>
-    </container>
-    <container title="语义标签">
+    </Container>
+    <Container title="语义标签">
       <View class="tag-list">
         <AntTag className="myTag">default</AntTag>
         <AntTag className="myTag" color="success">
@@ -19,8 +20,8 @@ export default () => (
           danger
         </AntTag>
       </View>
-    </container>
-    <container title="填充模式">
+    </Container>
+    <Container title="填充模式">
       <View class="tag-list">
         <AntTag className="myTag" type="fill">
           fill
@@ -32,8 +33,8 @@ export default () => (
           fill-light
         </AntTag>
       </View>
-    </container>
-    <container title="自定义图标">
+    </Container>
+    <Container title="自定义图标">
       <View class="tag-list">
         <AntTag className="myTag" icon="AlipayCircleFill">
           标签
@@ -48,6 +49,6 @@ export default () => (
           标签
         </AntTag>
       </View>
-    </container>
+    </Container>
   </Component>
 );

@@ -3,7 +3,6 @@
   "usingComponents": {
     "form-input": "../../../src/Form/FormInput/index",
     "form-stepper": "../../../src/Form/FormStepper/index",
-    "container": "../../../src/Container/index",
-    "button": "../../../src/Button/index"
+    "ant-button": "../../../src/Button/index"
   }
 }

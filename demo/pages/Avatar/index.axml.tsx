@@ -1,9 +1,9 @@
-import { InternalData } from 'tsxml';
+import { InternalData, Component } from 'tsxml';
 import Avatar from '../../../src/Avatar/index.axml';
 import Container from '../../../src/Container/index.axml';
 import ListItem from '../../../src/List/ListItem/index.axml';
 
-export default (_, { images, sizes, item }: InternalData) => (
+export default ({ images, sizes, item }: InternalData) => (
   <Component>
     <Container title="基础用法-四种尺寸">
       {images.map((item) => (

@@ -3,24 +3,22 @@ import AntButton from '../../../src/Button/index.axml';
 import Calendar from '../../../src/Calendar/index.axml';
 import Icon from '../../../src/Icon/index.axml';
 import CollapseContainer from './collapse-container/collapse-container.axml';
+import CnDay from './collapse-container/cn-day/cn-day.axml';
 
-export default (
-  _,
-  {
-    demo1,
-    demo2,
-    demo3,
-    demo4,
-    demo5,
-    demo6,
-    demo7,
-    demo8,
-    demo9,
-    prop,
-    demo8Formatter,
-    demoFormatter,
-  }: InternalData
-) => (
+export default ({
+  demo1,
+  demo2,
+  demo3,
+  demo4,
+  demo5,
+  demo6,
+  demo7,
+  demo8,
+  demo9,
+  prop,
+  demo8Formatter,
+  demoFormatter,
+}: InternalData) => (
   <Page>
     {/* 默认情况下显示最近 6 个月 */}
     {demo1.visible && (
@@ -96,7 +94,7 @@ export default (
         <View slot="content">
           <Calendar monthRange={demo6.monthRange}>
             <View slot="cell-bottom" slot-scope="prop">
-              <cn-day cell={prop.cell} />
+              <CnDay cell={prop.cell} />
             </View>
           </Calendar>
         </View>

@@ -1,4 +1,4 @@
-import { View, Template, TSXMLProps, Slot } from 'tsxml';
+import { View, Template, TSXMLProps, Slot, Component } from 'tsxml';
 import sliderSjs from './index.sjs';
 import { ISliderProps } from './props';
 import Popover from '../Popover/index.axml';

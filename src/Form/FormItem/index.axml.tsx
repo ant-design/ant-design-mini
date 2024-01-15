@@ -1,4 +1,4 @@
-import { TSXMLProps, Slot, InternalData, View } from 'tsxml';
+import { TSXMLProps, Slot, InternalData, View, Component } from 'tsxml';
 import { FormItemProps } from './props';
 import Popover from '../../Popover/index.axml';
 import AntIcon from '../../Icon/index.axml';

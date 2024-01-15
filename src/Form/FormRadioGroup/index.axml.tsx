@@ -1,4 +1,4 @@
-import { View, Slot, InternalData } from 'tsxml';
+import { View, Slot, InternalData, Component } from 'tsxml';
 import { TSXMLProps } from 'tsxml';
 import { FormRadioGroupProps } from './props';
 import FormItem from '../FormItem/index.axml';
