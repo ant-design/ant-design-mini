@@ -2,6 +2,6 @@
   "defaultTitle": "Form",
   "usingComponents": {
     "form-input": "../../../src/Form/FormInput/index",
-    "button": "../../../src/Button/index"
+    "ant-button": "../../../src/Button/index"
   }
 }

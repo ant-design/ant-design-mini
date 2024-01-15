@@ -2,25 +2,25 @@
   label="用户名"
   name="account"
   required
-  position="{{position}}"
+  position="{{ position }}"
   ref="handleRef" />
 
 <form-input
   label="地址"
   name="address"
-  position="{{position}}"
+  position="{{ position }}"
   ref="handleRef" />
 
 <form-switch
   label="选择"
   name="needDelivery"
-  position="{{position}}"
+  position="{{ position }}"
   ref="handleRef" />
 
 <form-stepper
   label="数量"
   name="quantity"
-  position="{{position}}"
+  position="{{ position }}"
   ref="handleRef" />
 
 <view class="buttons">

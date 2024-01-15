@@ -4,7 +4,7 @@
   onChange="onChange"
   ref="handleRef" />
 
-<view a:if="{{needFruit}}">
+<view a:if="{{ needFruit }}">
   <form-stepper
     label="数量"
     name="quantity"

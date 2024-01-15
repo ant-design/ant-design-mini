@@ -4,7 +4,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'functional-mini/compat';
 
-export function useEvent<T>(callback: T): T {
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function useEvent<T extends Function>(callback: T): T {
   const fnRef = React.useRef<any>();
   fnRef.current = callback;
 
