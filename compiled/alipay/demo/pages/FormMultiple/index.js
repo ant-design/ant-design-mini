@@ -1,7 +1,9 @@
 import { Form } from '../../../src/Form/form';
 Page({
-    form: new Form(),
-    form2: new Form(),
+    onLoad() {
+        this.form = new Form();
+        this.form2 = new Form();
+    },
     handleRef(ref) {
         this.form.addItem(ref);
     },

@@ -5,30 +5,30 @@
   allowClear
   required
   message="需要填写用户名"
-  ref="handleRef" />
+  bind:ref="handleRef" />
 
 <form-input
   label="地址"
   name="address"
   allowClear
-  ref="handleRef" />
+  bind:ref="handleRef" />
 
 <form-switch
   label="选择"
   name="needDelivery"
-  ref="handleRef" />
+  bind:ref="handleRef" />
 
 <form-stepper
   label="数量"
   name="quantity"
-  ref="handleRef" />
+  bind:ref="handleRef" />
 
 <view class="buttons">
-  <button
+  <ant-button
     type="primary"
-    onTap="submit"
+    bind:tap="submit"
     style="margin-bottom: 12px">
     提交
-  </button>
-  <button onTap="reset">重置</button>
+  </ant-button>
+  <ant-button bind:tap="reset">重置</ant-button>
 </view>

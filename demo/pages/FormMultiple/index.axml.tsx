@@ -1,7 +1,7 @@
 import { Page, View } from 'tsxml';
 import FormInput from '../../../src/Form/FormInput/index.axml';
 import Container from '../../../src/Container/index.axml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 
 export default () => (
   <Page>
@@ -18,10 +18,10 @@ export default () => (
       <FormInput label="地址" name="address" allowClear ref="handleRef" />
 
       <View class="buttons">
-        <Button type="primary" onTap="submit" style="margin-bottom: 12px">
+        <AntButton type="primary" onTap="submit" style="margin-bottom: 12px">
           提交
-        </Button>
-        <Button onTap="reset">重置</Button>
+        </AntButton>
+        <AntButton onTap="reset">重置</AntButton>
       </View>
     </Container>
 
@@ -38,10 +38,10 @@ export default () => (
       <FormInput label="地址" name="address" allowClear ref="handleRef2" />
 
       <View class="buttons">
-        <Button type="primary" onTap="submit2" style="margin-bottom: 12px">
+        <AntButton type="primary" onTap="submit2" style="margin-bottom: 12px">
           提交
-        </Button>
-        <Button onTap="reset2">重置</Button>
+        </AntButton>
+        <AntButton onTap="reset2">重置</AntButton>
       </View>
     </Container>
   </Page>
