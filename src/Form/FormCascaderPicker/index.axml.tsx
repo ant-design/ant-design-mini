@@ -71,7 +71,7 @@ export default (
           onChange="onChange"
           onCancel="onDismissPicker"
           onVisibleChange="onVisibleChange"
-          onFormat={handleFormat ? handleFormat : 'onFormat'}
+          onFormat={handleFormat ? handleFormat : 'handleFormat'}
         >
           <slot name="content" slot="content"></slot>
           <slot name="title" slot="title"></slot>

@@ -1,4 +1,4 @@
-import { useEvent, useComponent, useEffect } from 'functional-mini/component';
+import { useEvent } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import {
