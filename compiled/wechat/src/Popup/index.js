@@ -13,10 +13,16 @@ var Popup = function (props) {
         if (!props.visible && enableAnimation) {
             setClosing(true);
         }
+        if (!enableAnimation) {
+            triggerEventOnly(props.visible ? 'afterShow' : 'afterClose');
+        }
     }, [props.visible]);
     useEvent('onAnimationEnd', function () {
         if (closing) {
             setClosing(false);
+        }
+        if (enableAnimation) {
+            triggerEventOnly(props.visible ? 'afterShow' : 'afterClose');
         }
     });
     useEvent('onTapMask', function () {

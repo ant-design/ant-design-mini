@@ -59,6 +59,14 @@ export interface IPopupProps extends IBaseProps {
    * @description 关闭时回调
    */
   onClose?: () => void;
+  /**
+   * @description 完全打开时回调
+   */
+  onAfterShow?: () => void;
+  /**
+   * @description 完全关闭时回调
+   */
+  onAfterClose?: () => void;
 }
 
 export const PopupDefaultProps: Partial<IPopupProps> = {
