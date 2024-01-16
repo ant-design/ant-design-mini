@@ -11,13 +11,9 @@ export interface Props {
 const CollapseContainer = (props: Props) => {
   const [collapse, setCollapse] = useState(props.defaultCollapse ?? true);
 
-  useEvent(
-    'handleToggle',
-    () => {
-      setCollapse((v) => !v);
-    },
-    [setCollapse]
-  );
+  useEvent('handleToggle', () => {
+    setCollapse((v) => !v);
+  });
 
   return {
     collapse,
