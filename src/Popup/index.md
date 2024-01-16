@@ -37,7 +37,9 @@ toc: 'content'
 | visible        | 是否显示                                                                                                                                                          | boolean    | false       |
 | width          | 宽度, 在 position 为 `left` 或 `right` 时使用，单位 px                                                                                                            | number     | -           |
 | zIndex         | 弹窗层级                                                                                                                                                          | number     | 998         |
-| onClose        | 点击蒙层关闭，触发回调                                                                                                                                            | () => void |
+| onClose        | 点击蒙层关闭，触发回调                                                                                                                                            | () => void | - |
+| onAfterShow        | 完全展示后触发                                                                                                                                            | () => void | - |
+| onAfterClose        | 完全关闭后触发                                                                                                                                            | () => void | - |
 
 ## FAQ
 
