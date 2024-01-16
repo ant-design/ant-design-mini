@@ -14,13 +14,13 @@
     ref="handleRef" />
 
   <view class="buttons">
-    <button
+    <ant-button
       type="primary"
       onTap="submit"
       style="margin-bottom: 12px">
       提交
-    </button>
-    <button onTap="reset">重置</button>
+    </ant-button>
+    <ant-button onTap="reset">重置</ant-button>
   </view>
 </container>
 
@@ -40,12 +40,12 @@
     ref="handleRef2" />
 
   <view class="buttons">
-    <button
+    <ant-button
       type="primary"
       onTap="submit2"
       style="margin-bottom: 12px">
       提交
-    </button>
-    <button onTap="reset2">重置</button>
+    </ant-button>
+    <ant-button onTap="reset2">重置</ant-button>
   </view>
 </container>

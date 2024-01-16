@@ -1,4 +1,4 @@
-import { View, TSXMLProps, InternalData, Slot, Image } from 'tsxml';
+import { View, TSXMLProps, InternalData, Slot, Image, Component } from 'tsxml';
 import { IChecklistProps, ChecklistItem } from './props';
 import AntChecklistItem from './ChecklistItem/index.axml';
 import AntIcon from '../Icon/index.axml';

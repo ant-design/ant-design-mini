@@ -3,6 +3,6 @@
   "usingComponents": {
     "form-input": "../../../src/Form/FormInput/index",
     "form-image-upload": "../../../src/Form/FormImageUpload/index",
-    "button": "../../../src/Button/index"
+    "ant-button": "../../../src/Button/index"
   }
 }

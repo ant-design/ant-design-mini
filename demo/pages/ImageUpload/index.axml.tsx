@@ -1,4 +1,4 @@
-import { InternalData, TSXMLProps } from 'tsxml';
+import { InternalData, TSXMLProps, Page } from 'tsxml';
 import Container from '../../../src/Container/index.axml';
 import Uploader from '../../../src/ImageUpload/index.axml';
 

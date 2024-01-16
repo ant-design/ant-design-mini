@@ -5,7 +5,7 @@ const CollapseContainer = (props) => {
     const [collapse, setCollapse] = useState((_a = props.defaultCollapse) !== null && _a !== void 0 ? _a : true);
     useEvent('handleToggle', () => {
         setCollapse((v) => !v);
-    }, [setCollapse]);
+    });
     return {
         collapse,
         internalHide: props.hide,

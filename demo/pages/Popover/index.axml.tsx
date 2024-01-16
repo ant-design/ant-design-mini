@@ -1,10 +1,10 @@
-import { InternalData, Text, View } from 'tsxml';
+import { InternalData, Text, View, Component } from 'tsxml';
 import AntButton from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
 import Icon from '../../../src/Icon/index.axml';
 import Popover from '../../../src/Popover/index.axml';
 
-export default (_, { placements, visible }: InternalData) => (
+export default ({ placements, visible }: InternalData) => (
   <Component>
     <Container title="基础用法">
       <Popover content="prompt" style="display:inline-block;">

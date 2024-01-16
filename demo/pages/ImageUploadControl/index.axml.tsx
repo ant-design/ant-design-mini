@@ -1,4 +1,4 @@
-import { InternalData } from 'tsxml';
+import { InternalData, Page } from 'tsxml';
 import Container from '../../../src/Container/index.axml';
 import Uploader from '../../../src/ImageUpload/index.axml';
 import AntButton from '../../../src/Button/index.axml';

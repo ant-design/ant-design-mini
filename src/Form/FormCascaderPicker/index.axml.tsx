@@ -1,4 +1,4 @@
-import { Component, InternalData, TSXMLProps, View } from 'tsxml';
+import { Component, InternalData, Slot, TSXMLProps, View } from 'tsxml';
 import { FormCascaderPickerProps } from './props';
 import arrowUtil from '../../_util/arrow.sjs';
 import FormItem from '../FormItem/index.axml';
@@ -71,7 +71,7 @@ export default (
           onChange="onChange"
           onCancel="onDismissPicker"
           onVisibleChange="onVisibleChange"
-          onFormat={handleFormat ? handleFormat : 'onFormat'}
+          onFormat={handleFormat ? handleFormat : 'handleFormat'}
         >
           <slot name="content" slot="content"></slot>
           <slot name="title" slot="title"></slot>
@@ -87,15 +87,15 @@ export default (
       </View>
 
       <View slot="extra">
-        <slot name="extra">{extra}</slot>
+        <Slot name="extra">{extra}</Slot>
       </View>
 
       <View slot="header" slot-scope="item">
-        <slot name="header" errors={item.errors} status={item.status}></slot>
+        <Slot name="header" errors={item.errors} status={item.status}></Slot>
       </View>
 
       <View slot="footer" slot-scope="item">
-        <slot name="footer" errors={item.errors} status={item.status}></slot>
+        <Slot name="footer" errors={item.errors} status={item.status}></Slot>
       </View>
     </FormItem>
   </Component>

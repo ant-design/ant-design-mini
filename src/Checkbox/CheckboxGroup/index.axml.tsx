@@ -1,4 +1,4 @@
-import { View, TSXMLProps, Block, Slot } from 'tsxml';
+import { View, TSXMLProps, Block, Slot, CheckboxGroup } from 'tsxml';
 import { ICheckboxGroupProps } from './props';
 import componentUtils from '../index.sjs';
 import List from '../../List/index.axml';
@@ -23,7 +23,7 @@ export default (
     } ant-checkbox-group-${position}`}
     style={style}
   >
-    <checkbox-group name={name} value={mixin.value}>
+    <CheckboxGroup name={name} value={mixin.value}>
       <View class="ant-checkbox-group-body">
         {position === 'vertical' ? (
           <Block>
@@ -75,6 +75,6 @@ export default (
           </Block>
         )}
       </View>
-    </checkbox-group>
+    </CheckboxGroup>
   </List>
 );

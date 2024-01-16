@@ -8,7 +8,11 @@ import {
 import { triggerRefEvent } from '../_util/hooks/useReportRef';
 import { EventTrigger } from './form';
 
-type EventCallback = (trigger: EventTrigger, value?: Value) => void;
+type EventCallback = (
+  trigger: EventTrigger,
+  value?: Value,
+  extraInfo?: any
+) => void;
 
 export const useFormItem = (props) => {
   const [formData, setFormDate] = useState({
@@ -17,8 +21,6 @@ export const useFormItem = (props) => {
     required: false,
     errors: [],
   });
-
-  triggerRefEvent();
 
   const formRef = useRef(formData);
   const emitRef = useRef<EventCallback | null>(null);
@@ -54,11 +56,13 @@ export const useFormItem = (props) => {
     };
   }, []);
 
-  function emit(event: string, value?: any, extraInfo?: any) {
+  function emit(event: EventTrigger, value?: any, extraInfo?: any) {
     if (emitRef.current) {
       emitRef.current(event, value, extraInfo);
     }
   }
+  // 这个必须要放在后面。
+  triggerRefEvent();
 
   useEffect(() => {
     emit('deriveDataFromProps', props, originalProps.current);

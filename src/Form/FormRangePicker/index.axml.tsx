@@ -1,4 +1,4 @@
-import { View, Slot, TSXMLProps, InternalData } from 'tsxml';
+import { View, Slot, TSXMLProps, InternalData, Component } from 'tsxml';
 import FormItem from '../FormItem/index.axml';
 import RangePicker from '../../DatePicker/RangePicker/index.axml';
 import Icon from '../../Icon/index.axml';

@@ -1,7 +1,12 @@
-import { View, Slot, Text } from 'tsxml';
+import { View, Slot, Text, TSXMLProps } from 'tsxml';
 import { IContainerProps } from './props';
 
-export default ({ style, headerInBox, className, title }: IContainerProps) => (
+export default ({
+  style,
+  headerInBox,
+  className,
+  title,
+}: TSXMLProps<IContainerProps>) => (
   <View
     class={`ant-container ${
       headerInBox ? 'ant-container-headerInBox' : 'ant-container-headerNotInBox'

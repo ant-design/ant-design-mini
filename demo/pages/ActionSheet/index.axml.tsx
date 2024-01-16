@@ -1,12 +1,16 @@
-import { InternalData } from 'tsxml';
+import { InternalData, Page } from 'tsxml';
 import ActionSheet from '../../../src/ActionSheet/index.axml';
 import Button from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
 
-export default (
-  _,
-  { visible1, visible2, visible3, actions1, actions2, actions3 }: InternalData
-) => (
+export default ({
+  visible1,
+  visible2,
+  visible3,
+  actions1,
+  actions2,
+  actions3,
+}: InternalData) => (
   <Page>
     <Container title="基础用法">
       <Button onTap="handleOpenBasic" inline={true} size="large" data-index="1">

@@ -146,6 +146,7 @@ const Calendar = (props: ICalendarProps) => {
   const [elementSize, setElementSize] = useState<{
     monthTitleHeight: number;
     cellHight: number;
+    paddingHeight: number;
   }>(null);
 
   const componentInstance = useComponent();

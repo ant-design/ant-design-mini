@@ -1,6 +1,6 @@
 import Icon from '../Icon/index.axml';
 import Loading from '../Loading/index.axml';
-import { View, Slot, InternalData, TSXMLProps } from 'tsxml';
+import { View, Slot, InternalData, TSXMLProps, Image } from 'tsxml';
 import { IUploaderProps } from './props';
 
 export default (
@@ -49,7 +49,7 @@ export default (
               </View>
             )}
 
-            <image
+            <Image
               class="ant-image-upload-image"
               mode={imageMode}
               src={item.url || item.path}
