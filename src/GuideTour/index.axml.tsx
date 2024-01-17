@@ -90,11 +90,11 @@ export default (
               current={mixin.value}
               adjust-height="none"
               style="height: 100vh"
-              disable-touch="true"
+              disable-touch={true}
               onChange="onSwiperChange"
             >
               {items.map((item, index) => (
-                <SwiperItem key={index}>
+                <SwiperItem>
                   {mixin.value === index && (
                     <View
                       class={`ant-guide-tour-item ${item.className || ''}`}

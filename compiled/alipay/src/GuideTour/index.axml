@@ -61,13 +61,12 @@
       current="{{ mixin.value }}"
       adjust-height="none"
       style="height: 100vh"
-      disable-touch="true"
+      disable-touch="{{ true }}"
       onChange="onSwiperChange">
       <block
         a:for="{{ items }}"
         a:for-index="index"
-        a:for-item="item"
-        a:key="{{ index }}">
+        a:for-item="item">
         <swiper-item>
           <view
             a:if="{{ mixin.value === index }}"
