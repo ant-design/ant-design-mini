@@ -1,0 +1,6 @@
+<block
+  wx:for="{{ row }}"
+  wx:for-index="index"
+  wx:for-item="_">
+  <view>{{ index }}</view>
+</block>

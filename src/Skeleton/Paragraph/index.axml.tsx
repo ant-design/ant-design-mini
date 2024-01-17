@@ -1,4 +1,4 @@
-import { View, Slot, TSXMLProps } from 'tsxml';
+import { $toArray, Slot, TSXMLProps, View, Component } from 'tsxml';
 import { SkeletonParagraphProps } from './props';
 
 export default ({
@@ -16,8 +16,8 @@ export default ({
         } ${className || ''}`}
         style={style}
       >
-        {Array.from({ length: rows }).map((_, index) => (
-          <View key={index} class="ant-skeleton-paragraph-row"></View>
+        {$toArray(rows).map(() => (
+          <View class="ant-skeleton-paragraph-row"></View>
         ))}
       </View>
     ) : (

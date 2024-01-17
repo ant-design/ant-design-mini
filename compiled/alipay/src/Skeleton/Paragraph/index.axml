@@ -3,12 +3,9 @@
   class="ant-skeleton-paragraph {{ animate ? 'ant-skeleton-paragraph-animate' : '' }} {{ className || '' }}"
   style="{{ style }}">
   <block
-    a:for="{{ Array.from({
-  length: rows,
-}) }}"
+    a:for="{{ rows }}"
     a:for-index="index"
-    a:for-item="_"
-    a:key="{{ index }}">
+    a:for-item="item">
     <view class="ant-skeleton-paragraph-row" />
   </block>
 </view>

@@ -1,4 +1,4 @@
-import { View, Slot, TSXMLProps } from 'tsxml';
+import { View, Slot, TSXMLProps, Component } from 'tsxml';
 import { SkeletonAvatarProps } from './props';
 import utils from './index.sjs';
 

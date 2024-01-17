@@ -1,5 +1,5 @@
-import fs from 'fs/promises';
-import path from 'path';
+import * as fs from 'fs/promises';
+import * as path from 'path';
 import { expect, it } from 'vitest';
 import { TransformContext } from './context';
 import { tsxmlToAxml } from './parser';
@@ -47,4 +47,8 @@ it('测试事件', async () => {
 
 it('template', async () => {
   await textTsXml('template');
+});
+
+it('command', async () => {
+  await textTsXml('command');
 });

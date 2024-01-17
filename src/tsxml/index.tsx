@@ -54,3 +54,7 @@ export type TSXMLProps<T> = Partial<
 >;
 
 export type InternalData = any;
+
+export function $toArray(num: number): Array<string> {
+  return [];
+}

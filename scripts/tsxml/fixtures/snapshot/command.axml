@@ -1,0 +1,6 @@
+<block
+  a:for="{{ row }}"
+  a:for-index="index"
+  a:for-item="_">
+  <view>{{ index }}</view>
+</block>
