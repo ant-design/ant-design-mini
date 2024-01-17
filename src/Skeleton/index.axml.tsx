@@ -1,7 +1,7 @@
-import { Component, Slot, View } from 'tsxml';
-import { ISkeletonProps } from './props';
+import { Component, Slot, TSXMLProps, View } from 'tsxml';
 import Avatar from './Avatar/index.axml';
 import Paragraph from './Paragraph/index.axml';
+import { ISkeletonProps } from './props';
 import Title from './Title/index.axml';
 
 export default ({
@@ -11,23 +11,23 @@ export default ({
   avatar,
   title,
   paragraph,
-}: ISkeletonProps) => (
+}: TSXMLProps<ISkeletonProps>) => (
   <Component>
     {loading ? (
       <View class={`ant-skeleton ${className || ''}`}>
         {avatar && (
           <View class="ant-skeleton-avatar-wrapper">
-            <Avatar animate={animate} loading size={(avatar as any).size} />
+            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+            {/* @ts-expect-error */}
+            <Avatar animate={animate} loading size={avatar.size} />)
           </View>
         )}
         <View class="ant-skeleton-content-wrapper">
           {title && <Title animate={animate} loading />}
           {paragraph && (
-            <Paragraph
-              animate={animate}
-              rows={(paragraph as any).rows}
-              loading
-            />
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-expect-error
+            <Paragraph animate={animate} rows={paragraph.rows} loading />
           )}
         </View>
       </View>

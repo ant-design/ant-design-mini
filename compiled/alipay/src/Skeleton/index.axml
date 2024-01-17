@@ -8,6 +8,7 @@
       animate="{{ animate }}"
       loading
       size="{{ avatar.size }}" />
+    )
   </view>
   <view class="ant-skeleton-content-wrapper">
     <title
