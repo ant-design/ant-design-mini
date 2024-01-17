@@ -17,3 +17,15 @@ export const DividerDefaultProps: Partial<IDividerProps> = {
   direction: 'horizontal',
   lineType: 'solid',
 };
+
+export const DividerFunctionalProps: Partial<IDividerProps> = {
+  lineColor: '',
+  lineHeight: 0,
+  lineType: 'solid',
+  lineWidth: 0,
+  text: '',
+  textStyle: '',
+  textClassName: '',
+  textPosition: 'center',
+  direction: 'horizontal',
+};

@@ -1,7 +1,11 @@
-@import "../../../src/style/themes/color.less";
+@import '../../../src/style/themes/color.less';
 
 page {
   padding: 24px;
+
+  /// #if WECHAT
+  box-sizing: border-box;
+  /// #endif
 }
 
 .divider-vertical {
@@ -10,4 +14,3 @@ page {
   align-items: center;
   color: @COLOR_TEXT_WEAK;
 }
-

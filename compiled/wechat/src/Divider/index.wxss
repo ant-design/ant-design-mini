@@ -1,0 +1,21 @@
+.ant-divider-horizontal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 0;
+}
+.ant-divider-horizontal-text {
+  font-size: 15px;
+  color: #333333;
+  margin: 0 16px;
+}
+.ant-divider-horizontal-left,
+.ant-divider-horizontal-right {
+  border-bottom: 1px solid #eeeeee;
+}
+.ant-divider-vertical {
+  margin: 0 8px;
+  height: 16px;
+  border-right: 1px solid #eeeeee;
+}

@@ -10,6 +10,6 @@ var getLineWidthFlex = function getLineWidthFlex(textPosition, text) {
   }
   return [1, 1];
 };
-export default {
+module.exports = {
   getLineWidthFlex: getLineWidthFlex
 };
