@@ -1,12 +1,12 @@
 <container
   title="水平分割线"
-  headerInBox="{{false}}">
+  headerInBox="{{ false }}">
   <divider />
 </container>
 
 <container
   title="水平分割线-带文字"
-  headerInBox="{{false}}">
+  headerInBox="{{ false }}">
   <divider text="中间内容" />
   <divider
     text="左侧内容"
@@ -18,18 +18,18 @@
 
 <container
   title="水平分割线-自定义"
-  headerInBox="{{false}}">
+  headerInBox="{{ false }}">
   <divider
     text="自定义样式"
     textStyle="color:#1677ff; fontWeight:600"
-    lineHeight="2"
+    lineHeight="{{ 2 }}"
     lineType="dashed"
     lineColor="#1677ff" />
 </container>
 
 <container
   title="垂直分割线"
-  headerInBox="{{false}}">
+  headerInBox="{{ false }}">
   <view class="divider-vertical">
     <view>100m</view>
     <divider direction="vertical" />

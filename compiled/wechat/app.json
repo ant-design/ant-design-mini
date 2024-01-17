@@ -8,6 +8,7 @@
     "demo/pages/FormInitialValues/index",
     "demo/pages/FormInitialValuesAsync/index",
     "demo/pages/FormLayout/index",
+    "demo/pages/Divider/index",
     "demo/pages/FormMultiple/index",
     "demo/pages/FormRules/index",
     "demo/pages/FormValidate/index",

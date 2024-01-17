@@ -1,0 +1,9 @@
+page {
+  padding: 24px;
+}
+.divider-vertical {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #cccccc;
+}

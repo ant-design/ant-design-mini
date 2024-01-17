@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Divider",
     "pages/Form",
     "pages/FormCustomError",
     "pages/FormDependency",
@@ -58,6 +59,7 @@
     "Container",
     "Icon",
     "Loading",
+    "Divider",
     "mixins",
     "style",
     "Switch",
