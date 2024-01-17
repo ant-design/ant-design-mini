@@ -25,7 +25,7 @@ export default (
     visible,
     swiperable,
   }: TSXMLProps<IGuideTour>,
-  { mixin }: InternalData
+  { mixin, current }: InternalData
 ) => (
   <Component>
     {visible && (
@@ -109,7 +109,7 @@ export default (
                           mode={item.imageMode}
                         />
                       ) : (
-                        <Slot name="step" index={mixin.value}></Slot>
+                        <Slot name="step" index={current}></Slot>
                       )}
                       {/* #endif */}
                       {/* #if ALIPAY */}
@@ -148,7 +148,7 @@ export default (
                       mode={item.imageMode}
                     />
                   ) : (
-                    <Slot name="step" index={mixin.value}></Slot>
+                    <Slot name="step" index={current}></Slot>
                   )}
                   {/* #endif */}
 
