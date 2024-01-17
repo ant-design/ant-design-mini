@@ -3,11 +3,11 @@
 </container>
 
 <container title="有动画的骨架屏">
-  <skeleton animate />
+  <skeleton animate="{{ true }}" />
 </container>
 
 <container title="带avatar">
-  <skeleton avatar />
+  <skeleton avatar="{{ true }}" />
 </container>
 
 <container title="自定义组合">
@@ -15,7 +15,7 @@
     <skeleton-avatar className="custom" />
     <skeleton-paragraph
       className="custom"
-      rows="{{1}}" />
+      rows="{{ 1 }}" />
     <skeleton-input className="custom" />
     <skeleton-input className="custom" />
     <skeleton-input className="custom" />
@@ -27,10 +27,10 @@
 
 <container title="复杂组合">
   <skeleton
-    loading="{{showLoading}}"
-    title="{{false}}"
-    avatar
-    paragraph="{{paragraph}}">
+    loading="{{ showLoading }}"
+    title="{{ false }}"
+    avatar="{{ true }}"
+    paragraph="{{ paragraph }}">
     <view class="container">
       <avatar
         src="https://images.unsplash.com/photo-1546967191-fdfb13ed6b1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" />
@@ -45,7 +45,7 @@
     显示骨架
     <switch
       style="margin-left: 8px"
-      checked="{{showLoading}}"
+      checked="{{ showLoading }}"
       onChange="handleToggleShowLoading" />
   </view>
 </container>

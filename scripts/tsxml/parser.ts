@@ -1,6 +1,6 @@
 import * as types from '@babel/types';
 import { ITransformContext, TransformContext } from './context';
-import { parseXmlScript, getAxmlArrowFunctionExpression } from './utils';
+import { getAxmlArrowFunctionExpression, parseXmlScript } from './utils';
 
 export function getJSXElementName(
   ctx: ITransformContext<types.JSXElement>
@@ -143,7 +143,9 @@ export function transformJSXElement(ctx: ITransformContext) {
       if (ctx.node.callee.type !== 'MemberExpression') {
         throw ctx.throw(ctx.node);
       }
+
       const callee = ctx.node.callee;
+
       if (
         !types.isIdentifier(callee.property) ||
         callee.property.name !== 'map'
@@ -175,8 +177,17 @@ export function transformJSXElement(ctx: ITransformContext) {
           indexName = mapFunctionItemIndex.name;
         }
       }
+
+      let forItem = ctx.extends(callee.object).toAxmlExpression();
+
+      if (
+        types.isCallExpression(callee.object) &&
+        types.isIdentifier(callee.object.callee, { name: '$toArray' })
+      ) {
+        forItem = ctx.extends(callee.object.arguments[0]).toAxmlExpression();
+      }
       const forProps = {
-        [ctx.for()]: ctx.extends(callee.object).toAxmlExpression(),
+        [ctx.for()]: forItem,
         [ctx.forIndex()]: indexName,
         [ctx.forItem()]: itemName,
       };
