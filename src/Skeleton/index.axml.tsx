@@ -19,7 +19,7 @@ export default ({
           <View class="ant-skeleton-avatar-wrapper">
             {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
             {/* @ts-expect-error */}
-            <Avatar animate={animate} loading size={avatar.size} />)
+            <Avatar animate={animate} loading size={avatar.size} />
           </View>
         )}
         <View class="ant-skeleton-content-wrapper">
