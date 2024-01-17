@@ -1,4 +1,4 @@
-import { ISkeletonBaseProps } from '../props';
+import { ISkeletonBaseProps, SkeletonDefaultBaseProps } from '../props';
 
 export interface SkeletonAvatarProps extends ISkeletonBaseProps {
   shape: 'circle' | 'square';
@@ -6,7 +6,7 @@ export interface SkeletonAvatarProps extends ISkeletonBaseProps {
 }
 
 export const SkeletonAvatarDefaultProps: Partial<SkeletonAvatarProps> = {
+  ...SkeletonDefaultBaseProps,
   shape: 'square',
-  loading: true,
   size: 'medium',
 };

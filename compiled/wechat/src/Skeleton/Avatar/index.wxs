@@ -1,0 +1,10 @@
+function getClass(size) {
+  var list = ['x-small', 'small', 'medium', 'large'];
+  if (list.indexOf(size) >= 0) {
+    return "ant-skeleton-avatar-".concat(size);
+  }
+  return 'ant-skeleton-avatar-medium';
+}
+module.exports = {
+  getClass: getClass
+};

@@ -17,17 +17,21 @@ export default ({
       <View class={`ant-skeleton ${className || ''}`}>
         {avatar && (
           <View class="ant-skeleton-avatar-wrapper">
-            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-            {/* @ts-expect-error */}
-            <Avatar animate={animate} loading size={avatar.size} />
+            <Avatar
+              animate={animate}
+              loading
+              size={avatar === true ? 'medium' : avatar.size}
+            />
           </View>
         )}
         <View class="ant-skeleton-content-wrapper">
           {title && <Title animate={animate} loading />}
           {paragraph && (
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            //@ts-expect-error
-            <Paragraph animate={animate} rows={paragraph.rows} loading />
+            <Paragraph
+              animate={animate}
+              rows={paragraph === true ? 3 : paragraph.rows}
+              loading
+            />
           )}
         </View>
       </View>

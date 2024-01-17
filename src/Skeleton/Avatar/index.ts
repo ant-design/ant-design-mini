@@ -1,5 +1,8 @@
+import { mountComponent } from '../../_util/component';
 import { SkeletonAvatarDefaultProps } from './props';
 
-Component({
-  props: SkeletonAvatarDefaultProps,
-});
+const Avatar = () => {
+  //
+};
+
+mountComponent(Avatar, SkeletonAvatarDefaultProps);

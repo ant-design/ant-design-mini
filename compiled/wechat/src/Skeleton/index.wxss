@@ -1,0 +1,18 @@
+.ant-skeleton {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  flex: 1;
+  flex-wrap: nowrap;
+}
+.ant-skeleton-avatar-wrapper {
+  flex-shrink: 0;
+  padding-right: 16px;
+}
+.ant-skeleton-avatar-wrapper + .ant-skeleton-content-wrapper {
+  padding-top: 12px;
+}
+.ant-skeleton-content-wrapper {
+  flex: 1;
+  width: 100%;
+}

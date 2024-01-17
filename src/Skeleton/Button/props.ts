@@ -1,10 +1,10 @@
-import { ISkeletonBaseProps } from '../props';
+import { ISkeletonBaseProps, SkeletonDefaultBaseProps } from '../props';
 
 export interface SkeletonButtonProps extends ISkeletonBaseProps {
   size?: 'small' | 'medium' | 'large';
 }
 
 export const SkeletonButtonDefaultProps: Partial<SkeletonButtonProps> = {
-  loading: true,
+  ...SkeletonDefaultBaseProps,
   size: 'medium',
 };

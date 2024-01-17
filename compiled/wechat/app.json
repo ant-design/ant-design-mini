@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/Skeleton/index",
     "demo/pages/Form/index",
     "demo/pages/FormCustomError/index",
     "demo/pages/FormDependency/index",

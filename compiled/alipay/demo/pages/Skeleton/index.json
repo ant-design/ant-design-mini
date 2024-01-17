@@ -1,7 +1,7 @@
 {
   "defaultTitle": "Skeleton",
   "usingComponents": {
-    "avatar":"../../../src/Avatar/index",
+    "avatar": "../../../src/Avatar/index",
     "skeleton": "../../../src/Skeleton/index",
     "switch": "../../../src/Switch/index",
     "skeleton-avatar": "../../../src/Skeleton/Avatar/index",

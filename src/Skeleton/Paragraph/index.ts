@@ -1,5 +1,8 @@
+import { mountComponent } from '../../_util/component';
 import { SkeletonParagraphDefaultProps } from './props';
 
-Component({
-  props: SkeletonParagraphDefaultProps,
-});
+const Paragraph = () => {
+  //
+};
+
+mountComponent(Paragraph, SkeletonParagraphDefaultProps);

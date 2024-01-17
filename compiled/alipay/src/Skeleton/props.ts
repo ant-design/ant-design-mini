@@ -12,15 +12,6 @@ export interface ISkeletonBaseProps extends IBaseProps {
    * @default false
    */
   animate?: boolean;
-  /**
-   * @description 样式
-   */
-  style?: string;
-
-  /**
-   * @description 类名
-   */
-  className?: string;
 }
 /**
  * @description 骨架屏
@@ -51,6 +42,11 @@ export interface ISkeletonProps extends ISkeletonBaseProps {
         rows?: number;
       };
 }
+
+export const SkeletonDefaultBaseProps: ISkeletonBaseProps = {
+  loading: true,
+  animate: false,
+};
 
 export const SkeletonDefaultProps: Partial<ISkeletonProps> = {
   loading: true,
