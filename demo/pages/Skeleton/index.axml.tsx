@@ -52,7 +52,6 @@ export default ({ showLoading, paragraph }) => (
       <View slot="headerRight">
         显示骨架
         <Switch
-          className="switch"
           style="margin-left: 8px"
           checked={showLoading}
           onChange="handleToggleShowLoading"
