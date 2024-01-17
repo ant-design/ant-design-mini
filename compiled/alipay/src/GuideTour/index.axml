@@ -86,24 +86,26 @@
       </block>
     </swiper>
   </block>
-  <block
-    a:for="{{ items }}"
-    a:for-index="index"
-    a:for-item="item">
-    <view
-      a:if="{{ mixin.value === index }}"
-      class="ant-guide-tour-item {{ item.className || '' }}"
-      style="top:{{ item.top }}px; left:{{ item.left }}px">
-      <slot
-        name="step"
-        index="{{ index }}">
-        <image
-          a:if="{{ item.imageUrl }}"
-          class="ant-guide-tour-item-img"
-          src="{{ item.imageUrl }}"
-          style="{{ item.imageStyle }}"
-          mode="{{ item.imageMode }}" />
-      </slot>
-    </view>
+  <block a:else>
+    <block
+      a:for="{{ items }}"
+      a:for-index="index"
+      a:for-item="item">
+      <view
+        a:if="{{ mixin.value === index }}"
+        class="ant-guide-tour-item {{ item.className || '' }}"
+        style="top:{{ item.top }}px; left:{{ item.left }}px">
+        <slot
+          name="step"
+          index="{{ index }}">
+          <image
+            a:if="{{ item.imageUrl }}"
+            class="ant-guide-tour-item-img"
+            src="{{ item.imageUrl }}"
+            style="{{ item.imageStyle }}"
+            mode="{{ item.imageMode }}" />
+        </slot>
+      </view>
+    </block>
   </block>
 </view>

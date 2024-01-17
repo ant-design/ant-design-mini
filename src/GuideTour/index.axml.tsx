@@ -129,41 +129,43 @@ export default (
             </Swiper>
           </Block>
         ) : (
-          items.map(
-            (item, index) =>
-              mixin.value === index && (
-                <View
-                  class={`ant-guide-tour-item ${item.className || ''}`}
-                  style={`top:${item.top}px; left:${item.left}px`}
-                >
-                  {/* #if WECHAT */}
-                  {item.imageUrl ? (
-                    <Image
-                      class="ant-guide-tour-item-img"
-                      src={item.imageUrl}
-                      style={item.imageStyle}
-                      mode={item.imageMode}
-                    />
-                  ) : (
-                    <Slot name="step" index={current}></Slot>
-                  )}
-                  {/* #endif */}
-
-                  {/* #if ALIPAY */}
-                  <Slot name="step" index={index}>
-                    {item.imageUrl && (
+          <Block>
+            {items.map(
+              (item, index) =>
+                mixin.value === index && (
+                  <View
+                    class={`ant-guide-tour-item ${item.className || ''}`}
+                    style={`top:${item.top}px; left:${item.left}px`}
+                  >
+                    {/* #if WECHAT */}
+                    {item.imageUrl ? (
                       <Image
                         class="ant-guide-tour-item-img"
                         src={item.imageUrl}
                         style={item.imageStyle}
                         mode={item.imageMode}
                       />
+                    ) : (
+                      <Slot name="step" index={current}></Slot>
                     )}
-                  </Slot>
-                  {/* #endif */}
-                </View>
-              )
-          )
+                    {/* #endif */}
+
+                    {/* #if ALIPAY */}
+                    <Slot name="step" index={index}>
+                      {item.imageUrl && (
+                        <Image
+                          class="ant-guide-tour-item-img"
+                          src={item.imageUrl}
+                          style={item.imageStyle}
+                          mode={item.imageMode}
+                        />
+                      )}
+                    </Slot>
+                    {/* #endif */}
+                  </View>
+                )
+            )}
+          </Block>
         )}
       </View>
     )}
