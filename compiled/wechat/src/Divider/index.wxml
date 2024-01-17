@@ -8,7 +8,7 @@
   style="{{ style || '' }}">
   <view
     class="ant-divider-horizontal-left"
-    style="flex: {{ divider.getLineWidthFlex(textPosition, text)[0] }};{{ lineHeight ? 'borderBottomWidth:' + lineHeight + 'px;' : '' }}{{ lineType ? 'borderBottomStyle:' + lineType + ';' : '' }}{{ lineColor ? 'borderBottomColor:' + lineColor + ';' : '' }}" />
+    style="flex: {{ divider.getLineWidthFlex(textPosition, text)[0] }};{{ lineHeight ? 'border-bottom-width:' + lineHeight + 'px;' : '' }}{{ lineType ? 'border-bottom-style:' + lineType + ';' : '' }}{{ lineColor ? 'border-bottom-color:' + lineColor + ';' : '' }}" />
 
   <view
     wx:if="{{ text }}"
@@ -21,10 +21,10 @@
     name="text" />
   <view
     class="ant-divider-horizontal-right"
-    style="flex: {{ divider.getLineWidthFlex(textPosition, text)[1] }};{{ lineHeight ? 'borderBottomWidth:' + lineHeight + 'px;' : '' }}{{ lineType ? 'borderBottomStyle:' + lineType + ';' : '' }}{{ lineColor ? 'borderBottomColor:' + lineColor + ';' : '' }}" />
+    style="flex: {{ divider.getLineWidthFlex(textPosition, text)[1] }};{{ lineHeight ? 'border-bottom-width:' + lineHeight + 'px;' : '' }}{{ lineType ? 'border-bottom-style:' + lineType + ';' : '' }}{{ lineColor ? 'border-bottom-color:' + lineColor + ';' : '' }}" />
 </view>
 
 <view
   wx:if="{{ direction === 'vertical' }}"
   class="ant-divider ant-divider-vertical {{ className || '' }}"
-  style="{{ style || '' }};{{ lineWidth ? 'borderRightWidth:' + lineWidth + 'px;' : '' }}{{ lineType ? 'borderRightStyle:' + lineType + ';' : '' }}{{ lineColor ? 'borderRightColor:' + lineColor + ';' : '' }}" />
+  style="{{ style || '' }};{{ lineWidth ? 'border-right-width:' + lineWidth + 'px;' : '' }}{{ lineType ? 'border-right-style:' + lineType + ';' : '' }}{{ lineColor ? 'border-right-color:' + lineColor + ';' : '' }}" />

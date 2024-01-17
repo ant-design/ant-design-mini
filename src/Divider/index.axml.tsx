@@ -24,9 +24,9 @@ export default ({
         <View
           class="ant-divider-horizontal-left"
           style={`flex: ${divider.getLineWidthFlex(textPosition, text)[0]};${
-            lineHeight ? 'borderBottomWidth:' + lineHeight + 'px;' : ''
-          }${lineType ? 'borderBottomStyle:' + lineType + ';' : ''}${
-            lineColor ? 'borderBottomColor:' + lineColor + ';' : ''
+            lineHeight ? 'border-bottom-width:' + lineHeight + 'px;' : ''
+          }${lineType ? 'border-bottom-style:' + lineType + ';' : ''}${
+            lineColor ? 'border-bottom-color:' + lineColor + ';' : ''
           }`}
         />
 
@@ -57,9 +57,9 @@ export default ({
         <View
           class="ant-divider-horizontal-right"
           style={`flex: ${divider.getLineWidthFlex(textPosition, text)[1]};${
-            lineHeight ? 'borderBottomWidth:' + lineHeight + 'px;' : ''
-          }${lineType ? 'borderBottomStyle:' + lineType + ';' : ''}${
-            lineColor ? 'borderBottomColor:' + lineColor + ';' : ''
+            lineHeight ? 'border-bottom-width:' + lineHeight + 'px;' : ''
+          }${lineType ? 'border-bottom-style:' + lineType + ';' : ''}${
+            lineColor ? 'border-bottom-color:' + lineColor + ';' : ''
           }`}
         />
       </View>
@@ -69,9 +69,9 @@ export default ({
       <View
         class={`ant-divider ant-divider-vertical ${className || ''}`}
         style={`${style || ''};${
-          lineWidth ? 'borderRightWidth:' + lineWidth + 'px;' : ''
-        }${lineType ? 'borderRightStyle:' + lineType + ';' : ''}${
-          lineColor ? 'borderRightColor:' + lineColor + ';' : ''
+          lineWidth ? 'border-right-width:' + lineWidth + 'px;' : ''
+        }${lineType ? 'border-right-style:' + lineType + ';' : ''}${
+          lineColor ? 'border-right-color:' + lineColor + ';' : ''
         }`}
       />
     )}
