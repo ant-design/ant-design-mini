@@ -93,39 +93,37 @@ export default (
               disable-touch={true}
               onChange="onSwiperChange"
             >
-              {items.map((item, index) => (
+              {items.map((item) => (
                 <SwiperItem>
-                  {mixin.value === index && (
-                    <View
-                      class={`ant-guide-tour-item ${item.className || ''}`}
-                      style={`top:${item.top}px; left:${item.left}px`}
-                    >
-                      {/* #if WECHAT */}
-                      {item.imageUrl ? (
+                  <View
+                    class={`ant-guide-tour-item ${item.className || ''}`}
+                    style={`top:${item.top}px; left:${item.left}px`}
+                  >
+                    {/* #if WECHAT */}
+                    {item.imageUrl ? (
+                      <Image
+                        class="ant-guide-tour-item-img"
+                        src={item.imageUrl}
+                        style={item.imageStyle}
+                        mode={item.imageMode}
+                      />
+                    ) : (
+                      <Slot name="step" index={current}></Slot>
+                    )}
+                    {/* #endif */}
+                    {/* #if ALIPAY */}
+                    <Slot name="step" index={mixin.value}>
+                      {item.imageUrl && (
                         <Image
                           class="ant-guide-tour-item-img"
                           src={item.imageUrl}
                           style={item.imageStyle}
                           mode={item.imageMode}
                         />
-                      ) : (
-                        <Slot name="step" index={current}></Slot>
                       )}
-                      {/* #endif */}
-                      {/* #if ALIPAY */}
-                      <Slot name="step" index={mixin.value}>
-                        {item.imageUrl && (
-                          <Image
-                            class="ant-guide-tour-item-img"
-                            src={item.imageUrl}
-                            style={item.imageStyle}
-                            mode={item.imageMode}
-                          />
-                        )}
-                      </Slot>
-                      {/* #endif */}
-                    </View>
-                  )}
+                    </Slot>
+                    {/* #endif */}
+                  </View>
                 </SwiperItem>
               ))}
             </Swiper>
@@ -135,7 +133,6 @@ export default (
             (item, index) =>
               mixin.value === index && (
                 <View
-                  key={index}
                   class={`ant-guide-tour-item ${item.className || ''}`}
                   style={`top:${item.top}px; left:${item.left}px`}
                 >

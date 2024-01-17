@@ -69,7 +69,6 @@
         a:for-item="item">
         <swiper-item>
           <view
-            a:if="{{ mixin.value === index }}"
             class="ant-guide-tour-item {{ item.className || '' }}"
             style="top:{{ item.top }}px; left:{{ item.left }}px">
             <slot
@@ -93,7 +92,6 @@
     a:for-item="item">
     <view
       a:if="{{ mixin.value === index }}"
-      a:key="{{ index }}"
       class="ant-guide-tour-item {{ item.className || '' }}"
       style="top:{{ item.top }}px; left:{{ item.left }}px">
       <slot
