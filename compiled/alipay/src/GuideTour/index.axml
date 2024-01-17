@@ -73,7 +73,7 @@
             style="top:{{ item.top }}px; left:{{ item.left }}px">
             <slot
               name="step"
-              index="{{ mixin.value }}">
+              index="{{ current }}">
               <image
                 a:if="{{ item.imageUrl }}"
                 class="ant-guide-tour-item-img"

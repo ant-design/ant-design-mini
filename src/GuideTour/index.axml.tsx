@@ -112,7 +112,7 @@ export default (
                     )}
                     {/* #endif */}
                     {/* #if ALIPAY */}
-                    <Slot name="step" index={mixin.value}>
+                    <Slot name="step" index={current}>
                       {item.imageUrl && (
                         <Image
                           class="ant-guide-tour-item-img"
@@ -146,7 +146,7 @@ export default (
                         mode={item.imageMode}
                       />
                     ) : (
-                      <Slot name="step" index={current}></Slot>
+                      <Slot name="step" index={index}></Slot>
                     )}
                     {/* #endif */}
 
