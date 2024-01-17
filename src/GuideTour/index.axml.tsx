@@ -90,7 +90,6 @@ export default (
               current={mixin.value}
               adjust-height="none"
               style="height: 100vh"
-              disable-touch={true}
               onChange="onSwiperChange"
             >
               {items.map((item) => (
