@@ -1,5 +1,15 @@
 import { IGuideTour } from './props';
-import { Component, View, Slot, InternalData, TSXMLProps, Block } from 'tsxml';
+import {
+  Component,
+  View,
+  Slot,
+  InternalData,
+  TSXMLProps,
+  Block,
+  Swiper,
+  SwiperItem,
+  Image,
+} from 'tsxml';
 import Mask from '../Mask/index.axml';
 import AntButton from '../Button/index.axml';
 import AntIcon from '../Icon/index.axml';
@@ -15,7 +25,7 @@ export default (
     visible,
     swiperable,
   }: TSXMLProps<IGuideTour>,
-  { value }: InternalData
+  { mixin }: InternalData
 ) => (
   <Component>
     {visible && (
@@ -31,32 +41,32 @@ export default (
           onTap="onCancel"
         />
         <View class="ant-guide-tour-button">
-          {utils.checkShowJump(value, items) && (
+          {utils.checkShowJump(mixin.value, items) && (
             <AntButton inline size="small" onTap="onCancel">
               跳过
             </AntButton>
           )}
-          {utils.checkShowPrev(value, items) && (
+          {utils.checkShowPrev(mixin.value, items) && (
             <AntButton
               inline
               size="small"
               onTap="onPrev"
-              data-currentValue={value}
+              data-currentValue={mixin.value}
             >
               上一步
             </AntButton>
           )}
-          {utils.checkShowNext(value, items) && (
+          {utils.checkShowNext(mixin.value, items) && (
             <AntButton
               inline
               size="small"
               onTap="onNext"
-              data-currentValue={value}
+              data-currentValue={mixin.value}
             >
               下一步
             </AntButton>
           )}
-          {utils.checkShowKnow(value, items) && (
+          {utils.checkShowKnow(mixin.value, items) && (
             <AntButton inline size="small" onTap="onCancel">
               知道了
             </AntButton>
@@ -65,71 +75,93 @@ export default (
         {swiperable ? (
           <Block>
             <View class="ant-guide-tour-indicator">
-              {items.map((_, index) => (
+              {items.map((item, index) => (
                 <View
-                  key={index}
                   class={`ant-guide-tour-indicator-dot ${
-                    index === value ? 'ant-guide-tour-indicator-dot-active' : ''
+                    index === mixin.value
+                      ? 'ant-guide-tour-indicator-dot-active'
+                      : ''
                   }`}
                 ></View>
               ))}
             </View>
-            <swiper
+            <Swiper
               class="ant-guide-tour-swiper"
-              current={value}
+              current={mixin.value}
               adjust-height="none"
               style="height: 100vh"
               disable-touch="true"
               onChange="onSwiperChange"
             >
               {items.map((item, index) => (
-                <swiper-item key={index}>
-                  {value === index && (
+                <SwiperItem key={index}>
+                  {mixin.value === index && (
                     <View
                       class={`ant-guide-tour-item ${item.className || ''}`}
                       style={`top:${item.top}px; left:${item.left}px`}
                     >
+                      {/* #if WECHAT */}
+                      {item.imageUrl ? (
+                        <Image
+                          class="ant-guide-tour-item-img"
+                          src={item.imageUrl}
+                          style={item.imageStyle}
+                          mode={item.imageMode}
+                        />
+                      ) : (
+                        <Slot name="step" index={mixin.value}></Slot>
+                      )}
+                      {/* #endif */}
                       {/* #if ALIPAY */}
-                      <Slot name="step" index={value}>
-                        {/* #endif */}
+                      <Slot name="step" index={mixin.value}>
                         {item.imageUrl && (
-                          <image
+                          <Image
                             class="ant-guide-tour-item-img"
                             src={item.imageUrl}
                             style={item.imageStyle}
                             mode={item.imageMode}
                           />
                         )}
-                        {/* #if ALIPAY */}
                       </Slot>
                       {/* #endif */}
                     </View>
                   )}
-                </swiper-item>
+                </SwiperItem>
               ))}
-            </swiper>
+            </Swiper>
           </Block>
         ) : (
           items.map(
             (item, index) =>
-              value === index && (
+              mixin.value === index && (
                 <View
                   key={index}
                   class={`ant-guide-tour-item ${item.className || ''}`}
                   style={`top:${item.top}px; left:${item.left}px`}
                 >
+                  {/* #if WECHAT */}
+                  {item.imageUrl ? (
+                    <Image
+                      class="ant-guide-tour-item-img"
+                      src={item.imageUrl}
+                      style={item.imageStyle}
+                      mode={item.imageMode}
+                    />
+                  ) : (
+                    <Slot name="step" index={mixin.value}></Slot>
+                  )}
+                  {/* #endif */}
+
                   {/* #if ALIPAY */}
                   <Slot name="step" index={index}>
-                    {/* #endif */}
                     {item.imageUrl && (
-                      <image
+                      <Image
                         class="ant-guide-tour-item-img"
                         src={item.imageUrl}
                         style={item.imageStyle}
                         mode={item.imageMode}
                       />
                     )}
-                    {/* #if ALIPAY */}
                   </Slot>
                   {/* #endif */}
                 </View>

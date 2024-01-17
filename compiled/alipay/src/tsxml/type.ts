@@ -4,6 +4,7 @@ export interface Props {
   ref?: string;
   name?: string;
   scrollX?: any;
+  current?: any;
   'a:key'?: string;
   scrollLeft?: any;
   onTap?: string;

@@ -17,7 +17,7 @@
     <paragraph
       a:if="{{ paragraph }}"
       animate="{{ animate }}"
-      rows="{{ paragraph !== true ? paragraph.rows : 3 }}"
+      rows="{{ paragraph === true ? 3 : paragraph.rows }}"
       loading />
   </view>
 </view>
