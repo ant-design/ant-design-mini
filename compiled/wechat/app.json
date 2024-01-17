@@ -13,6 +13,7 @@
     "demo/pages/FormValidate/index",
     "demo/pages/FormValidateMessages/index",
     "demo/pages/FormWatch/index",
+    "demo/pages/Avatar/index",
     "demo/pages/RateCustom/index",
     "demo/pages/RadioGroup/index",
     "demo/pages/Radio/index",

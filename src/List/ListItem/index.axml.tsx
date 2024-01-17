@@ -35,6 +35,16 @@ export default ({
       } ${disabled ? 'ant-list-item-line-disabled' : ''}`}
     >
       <View class="ant-list-item-image-container">
+        {/* #if WECHAT */}
+        {image ? (
+          <ImageIcon image={image} className="ant-list-item-image" />
+        ) : (
+          <Block>
+            <Slot name="image"></Slot>
+          </Block>
+        )}
+        {/* #endif */}
+
         {/* #if ALIPAY */}
         <Slot name="image">
           {/* #endif */}

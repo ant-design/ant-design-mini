@@ -1,4 +1,4 @@
-import { View, TSXMLProps, Slot } from 'tsxml';
+import { View, TSXMLProps, Slot, Component } from 'tsxml';
 import { SkeletonInputProps } from './props';
 
 export default ({

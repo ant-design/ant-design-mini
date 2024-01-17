@@ -1,4 +1,4 @@
-import { View, Slot, TSXMLProps } from 'tsxml';
+import { View, Slot, TSXMLProps, Component } from 'tsxml';
 import utils from './index.sjs';
 import { SkeletonButtonProps } from './props';
 

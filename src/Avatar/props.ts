@@ -13,14 +13,6 @@ export interface IAvatarProps extends IBaseProps {
    * @description 头像地址，默认为灰色的内置图片
    */
   src: string;
-  /**
-   * @description 第一行信息
-   */
-  name: string;
-  /**
-   * @description 第二行补充信息，当 name 不存在时，不显示；当 size=x-small，不显示
-   */
-  desc: string;
 }
 
 export const AvatarDefaultProps: Partial<IAvatarProps> = {
