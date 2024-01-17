@@ -25,6 +25,8 @@ export const Slot = (props: AnyProps): any => {};
 export const Block = (props: Props): any => {};
 
 export const Page = (props: Props): any => {};
+export const Swiper = (props: Props): any => {};
+export const SwiperItem = (props: Props): any => {};
 
 export const Component = (props: Props): any => {};
 

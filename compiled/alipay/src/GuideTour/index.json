@@ -2,7 +2,7 @@
   "component": true,
   "usingComponents": {
     "mask": "../Mask/index",
-    "button": "../Button/index",
-    "am-icon": "../Icon/index"
+    "ant-button": "../Button/index",
+    "ant-icon": "../Icon/index"
   }
 }
