@@ -7,10 +7,7 @@
     <avatar
       animate="{{ animate }}"
       loading
-      size="{{ // 这里和之前先保持一致
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-expect-error
-avatar.size }}" />
+      size="{{ avatar.size }}" />
   </view>
   <view class="ant-skeleton-content-wrapper">
     <title
@@ -20,10 +17,7 @@ avatar.size }}" />
     <paragraph
       a:if="{{ paragraph }}"
       animate="{{ animate }}"
-      rows="{{ // 这里和之前先保持一致
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-expect-error
-paragraph.rows }}"
+      rows="{{ paragraph.rows }}"
       loading />
   </view>
 </view>

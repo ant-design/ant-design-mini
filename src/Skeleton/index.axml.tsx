@@ -17,16 +17,7 @@ export default ({
       <View class={`ant-skeleton ${className || ''}`}>
         {avatar && (
           <View class="ant-skeleton-avatar-wrapper">
-            <Avatar
-              animate={animate}
-              loading
-              size={
-                // 这里和之前先保持一致
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                //@ts-expect-error
-                avatar.size
-              }
-            />
+            <Avatar animate={animate} loading size={(avatar as any).size} />
           </View>
         )}
         <View class="ant-skeleton-content-wrapper">
@@ -34,12 +25,7 @@ export default ({
           {paragraph && (
             <Paragraph
               animate={animate}
-              rows={
-                // 这里和之前先保持一致
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                //@ts-expect-error
-                paragraph.rows
-              }
+              rows={(paragraph as any).rows}
               loading
             />
           )}
