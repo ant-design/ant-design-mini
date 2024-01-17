@@ -7,7 +7,7 @@
     <avatar
       animate="{{ animate }}"
       loading
-      size="{{ avatar.size }}" />
+      size="{{ avatar === true ? 'medium' : avatar.size }}" />
   </view>
   <view class="ant-skeleton-content-wrapper">
     <title
@@ -17,7 +17,7 @@
     <paragraph
       a:if="{{ paragraph }}"
       animate="{{ animate }}"
-      rows="{{ paragraph.rows }}"
+      rows="{{ paragraph !== true ? paragraph.rows : 3 }}"
       loading />
   </view>
 </view>

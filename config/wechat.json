@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/Divider",
+    "pages/Skeleton",
     "pages/Form",
     "pages/FormCustomError",
     "pages/FormDependency",
@@ -80,6 +81,7 @@
     "Rate",
     "Selector",
     "Form",
-    "Avatar"
+    "Avatar",
+    "Skeleton"
   ]
 }

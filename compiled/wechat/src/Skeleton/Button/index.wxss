@@ -1,0 +1,24 @@
+.ant-skeleton-button {
+  width: 60px;
+  height: 24px;
+  border-radius: 4px;
+  background: #eeeeee;
+  display: inline-block;
+}
+.ant-skeleton-button-animate {
+  background: linear-gradient(90deg, #eeeeee 25%, rgba(204, 204, 204, 0.6) 37%, #eeeeee 63%);
+  background-size: 400% 100%;
+  animation: ant-skeleton-loading 1.4s ease infinite;
+}
+.ant-skeleton-button-large {
+  font-size: 18px;
+  padding: 12px 12px 12px 12px;
+}
+.ant-skeleton-button-medium {
+  font-size: 17px;
+  padding: 8px 12px 8px 12px;
+}
+.ant-skeleton-button-small {
+  font-size: 15px;
+  padding: 4px 12px 4px 12px;
+}

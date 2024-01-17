@@ -1,8 +1,7 @@
-import { ISkeletonBaseProps } from '../props';
+import { ISkeletonBaseProps, SkeletonDefaultBaseProps } from '../props';
 
-export interface SkeletonTitleProps extends ISkeletonBaseProps {
-}
+export interface SkeletonTitleProps extends ISkeletonBaseProps {}
 
 export const SkeletonTitleDefaultProps: Partial<SkeletonTitleProps> = {
-  loading: true,
+  ...SkeletonDefaultBaseProps,
 };

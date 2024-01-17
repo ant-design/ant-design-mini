@@ -1,0 +1,10 @@
+function getClass(size) {
+  var list = ['small', 'medium', 'large'];
+  if (list.indexOf(size) >= 0) {
+    return "ant-skeleton-button-".concat(size);
+  }
+  return 'ant-skeleton-button-medium';
+}
+module.exports = {
+  getClass: getClass
+};

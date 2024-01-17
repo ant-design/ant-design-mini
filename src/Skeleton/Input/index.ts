@@ -1,5 +1,8 @@
 import { SkeletonInputDefaultProps } from './props';
+import { mountComponent } from '../../_util/component';
 
-Component({
-  props: SkeletonInputDefaultProps,
-});
+const Input = () => {
+  //
+};
+
+mountComponent(Input, SkeletonInputDefaultProps);

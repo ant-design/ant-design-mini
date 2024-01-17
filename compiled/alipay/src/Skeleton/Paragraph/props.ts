@@ -1,10 +1,10 @@
-import { ISkeletonBaseProps } from '../props';
+import { ISkeletonBaseProps, SkeletonDefaultBaseProps } from '../props';
 
 export interface SkeletonParagraphProps extends ISkeletonBaseProps {
   rows: number;
 }
 
 export const SkeletonParagraphDefaultProps: Partial<SkeletonParagraphProps> = {
-  loading: true,
+  ...SkeletonDefaultBaseProps,
   rows: 3,
 };
