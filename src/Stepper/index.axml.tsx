@@ -14,6 +14,7 @@ export default (
     type,
     max,
     focus,
+    inputReadOnly,
   }: TSXMLProps<IStepperProps>,
   { mixin, enableNative, alwaysSystem, confirmType, confirmHold }
 ) => (
@@ -32,24 +33,30 @@ export default (
       onTap="onTap"
     />
     <View class="ant-stepper-input-wrap">
-      <AntInput
-        className={`ant-stepper-input ${
-          disabled ? 'ant-stepper-input-disabled' : ''
-        } ${inputClassName ? inputClassName : ''}`}
-        style={inputStyle}
-        type={type}
-        enableNative={enableNative}
-        alwaysSystem={alwaysSystem}
-        confirm-type={confirmType}
-        confirm-hold={confirmHold}
-        disabled={disabled}
-        focus={focus}
-        onChange="onChange"
-        onFocus="onFocus"
-        onBlur="onBlur"
-        onConfirm="onConfirm"
-        value={mixin.value}
-      />
+      {inputReadOnly ? (
+        <View class="ant-stepper-input ant-stepper-input-readonly">
+          {mixin.value}
+        </View>
+      ) : (
+        <AntInput
+          className={`ant-stepper-input ${
+            disabled ? 'ant-stepper-input-disabled' : ''
+          } ${inputClassName ? inputClassName : ''}`}
+          style={inputStyle}
+          type={type}
+          enableNative={enableNative}
+          alwaysSystem={alwaysSystem}
+          confirm-type={confirmType}
+          confirm-hold={confirmHold}
+          disabled={disabled}
+          focus={focus}
+          onChange="onChange"
+          onFocus="onFocus"
+          onBlur="onBlur"
+          onConfirm="onConfirm"
+          value={mixin.value}
+        />
+      )}
     </View>
     <AntButton
       className={`ant-stepper-button ant-stepper-button-up ${

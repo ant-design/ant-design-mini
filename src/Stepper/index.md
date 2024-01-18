@@ -23,6 +23,7 @@ toc: 'content'
 | -----|-----|-----|----- |
 | className | 类名 | string | - | 
 | disabled |  是否禁用 | boolean | false |
+| inputReadOnly |  输入框是否只读状态 | boolean | false |
 | defaultValue |  初始值 | number | - |
 | focus |  输入框选中状态 | boolean | false |
 | inputClassName |  输入框类型 | string | - |
