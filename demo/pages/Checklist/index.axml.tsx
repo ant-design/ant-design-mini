@@ -1,21 +1,20 @@
-import { Page, InternalData, View } from 'tsxml';
+import { InternalData, Page, View } from 'tsxml';
 import Checklist from '../../../src/Checklist/index.axml';
-import Icon from '../../../src/Icon/index.axml';
 import Container from '../../../src/Container/index.axml';
+import Icon from '../../../src/Icon/index.axml';
 
 export default ({
-  defaultValue,
   options_1,
   options_2,
   options_3,
   options_4,
   value,
-  item,
+  props,
 }: InternalData) => (
   <Page>
     <Container title="简单布局-单选">
       <Checklist
-        defaultValue={defaultValue}
+        defaultValue={[1]}
         options={options_1}
         data-options={options_1}
         onChange="onChange"
@@ -74,7 +73,7 @@ export default ({
           />
         </View>
         <View slot="content" slot-scope="props">
-          title: {item.title}
+          title: {props.item.title}
         </View>
       </Checklist>
     </Container>
