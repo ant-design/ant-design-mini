@@ -10,7 +10,13 @@
     disabled="{{ disabled || (mixin.value !== '' && mixin.value <= min) }}"
     bind:tap="onTap" />
   <view class="ant-stepper-input-wrap">
+    <view
+      wx:if="{{ inputReadOnly }}"
+      class="ant-stepper-input ant-stepper-input-readonly">
+      {{ mixin.value }}
+    </view>
     <ant-input
+      wx:else
       className="ant-stepper-input {{ disabled ? 'ant-stepper-input-disabled' : '' }} {{ inputClassName ? inputClassName : '' }}"
       style="{{ inputStyle }}"
       type="{{ type }}"
