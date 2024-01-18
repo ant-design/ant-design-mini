@@ -1,4 +1,5 @@
-import { getInstance } from 'tests/utils';
+import fmtEvent from 'compiled-alipay/_util/fmtEvent';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, it, expect, vi } from 'vitest';
 import { IGuideTour } from '../../../src/GuideTour/props';
 
@@ -35,21 +36,23 @@ describe('guideTour onCancel', () => {
 });
 
 describe('guideTour onChange', () => {
-  it('guideTour onNext', () => {
+  it('guideTour onNext', async () => {
     const { instance, onChange } = createGuideTour({});
     instance.callMethod('onNext');
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe(1);
-    expect(onChange).toBeCalledWith(1);
+    expect(onChange).toBeCalledWith(1, fmtEvent({}));
   });
 
-  it('guideTour onPrev', () => {
+  it('guideTour onPrev', async () => {
     const { instance, onChange } = createGuideTour({
       defaultCurrent: 1,
     });
 
     instance.callMethod('onPrev');
+    await sleep(10);
     expect(instance.getData().mixin.value).toBe(0);
-    expect(onChange).toBeCalledWith(0);
+    expect(onChange).toBeCalledWith(0, fmtEvent({}));
   });
   it('guideTour onSwiperChange', () => {
     const { instance, onChange } = createGuideTour({
@@ -57,7 +60,7 @@ describe('guideTour onChange', () => {
     });
     instance.callMethod('onSwiperChange', { detail: { current: 1 } });
     expect(instance.getData().mixin.value).toBe(1);
-    expect(onChange).toBeCalledWith(1);
+    expect(onChange).toBeCalledWith(1, fmtEvent({}));
   });
   it('guideTour controlled', () => {
     const { instance, onChange } = createGuideTour({
@@ -65,6 +68,6 @@ describe('guideTour onChange', () => {
     });
     instance.callMethod('onNext');
     expect(instance.getData().mixin.value).toBe(0);
-    expect(onChange).toBeCalledWith(1);
+    expect(onChange).toBeCalledWith(1, fmtEvent({}));
   });
 });

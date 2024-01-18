@@ -1,6 +1,6 @@
-import { InternalData, Page } from 'tsxml';
-import GuideTour from '../../../src/GuideTour/index.axml';
-import Button from '../../../src/Button/index.axml';
+import { InternalData, Page, View } from 'tsxml';
+import AntGuideTour from '../../../src/GuideTour/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
 
 export default ({
@@ -14,62 +14,66 @@ export default ({
   swiperVisible,
 }: InternalData) => (
   <Page>
-    <GuideTour
+    <AntGuideTour
       items={[list[0]]}
       visible={baseVisible}
       onCancel="closeTour"
       onChange="onChange"
     />
-    <GuideTour
+    <AntGuideTour
       items={list}
       visible={moreVisible}
       onCancel="closeTour"
       onChange="onChange"
     />
-    <GuideTour
+    <AntGuideTour
       items={list}
       visible={swiperVisible}
       onCancel="closeTour"
       onChange="onChange"
       swiperable={true}
     />
-    <GuideTour
+    <AntGuideTour
       items={list}
       current={current}
       visible={controlledVisible}
       onCancel="closeTour"
       onChange="onChangeControlled"
     />
-    <GuideTour
+    {/* #if ALIPAY */}
+    <AntGuideTour
       items={list}
       visible={slotVisible}
       onCancel="closeTour"
       onChange="onChange"
     >
-      <view class="step-box" slot="step" slot-scope="props">
+      <View class="step-box" slot="step" slot-scope="props">
         step-{props.index}
-      </view>
-    </GuideTour>
+      </View>
+    </AntGuideTour>
+    {/* #endif */}
 
     <Container title="基础用法" className="list">
-      <Button onTap="openTour" data-field="baseVisible">
+      <AntButton onTap="openTour" data-field="baseVisible">
         单图模式
-      </Button>
-      <Button onTap="openTour" data-field="moreVisible">
+      </AntButton>
+      <AntButton onTap="openTour" data-field="moreVisible">
         多图模式
-      </Button>
-      <Button onTap="openTour" data-field="swiperVisible">
+      </AntButton>
+      <AntButton onTap="openTour" data-field="swiperVisible">
         滑动模式
-      </Button>
-      <Button onTap="openTour" data-field="controlledVisible">
+      </AntButton>
+      <AntButton onTap="openTour" data-field="controlledVisible">
         受控模式
-      </Button>
+      </AntButton>
     </Container>
 
+    {/* #if ALIPAY */}
     <Container title="插槽用法" className="list">
-      <Button onTap="openTour" data-field="slotVisible">
+      <AntButton onTap="openTour" data-field="slotVisible">
         开始
-      </Button>
+      </AntButton>
     </Container>
+    {/* #endif */}
   </Page>
 );

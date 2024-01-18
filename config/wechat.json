@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/GuideTour",
     "pages/Divider",
     "pages/Skeleton",
     "pages/Form",
@@ -82,6 +83,7 @@
     "Selector",
     "Form",
     "Avatar",
-    "Skeleton"
+    "Skeleton",
+    "GuideTour"
   ]
 }

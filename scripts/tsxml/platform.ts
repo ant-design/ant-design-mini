@@ -96,6 +96,9 @@ export const wechat: PlatformConfig = {
       onSelectMin: 'bind:selectmin',
       onSelectMax: 'bind:selectmax',
     },
+    'ant-guide-tour': {
+      onCancel: 'bind:cancel',
+    },
     uploader: {
       onPreview: 'bind:preview',
     },

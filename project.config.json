@@ -21,9 +21,10 @@
       "outputPath": ""
     },
     "ignoreDevUnusedFiles": false,
-    "ignoreUploadUnusedFiles": true,
+    "ignoreUploadUnusedFiles": false,
     "es6": true,
-    "enhance": true
+    "enhance": true,
+    "postcss": false
   },
   "condition": {},
   "editorSetting": {
