@@ -18,5 +18,5 @@ Component({
         onChange(value, e) {
             this.emit('onChange', value);
         },
-    }
+    },
 });

@@ -3,7 +3,7 @@
     defaultValue="{{ defaultValue }}"
     options="{{ options_1 }}"
     data-options="{{ options_1 }}"
-    onChange="onChange" />
+    bind:change="onChange" />
 </container>
 
 <container title="复杂布局-多选">
@@ -11,7 +11,7 @@
     defaultValue="{{ [1, 2] }}"
     options="{{ options_2 }}"
     multiple
-    onChange="onChange" />
+    bind:change="onChange" />
 </container>
 
 <container title="受控模式">
@@ -19,7 +19,7 @@
     value="{{ value }}"
     options="{{ options_2 }}"
     multiple
-    onChange="onChangeControlled" />
+    bind:change="onChangeControlled" />
 </container>
 
 <container title="禁用状态">
@@ -27,7 +27,7 @@
     defaultValue="{{ [2] }}"
     options="{{ options_3 }}"
     multiple
-    onChange="onChange" />
+    bind:change="onChange" />
 </container>
 
 <container title="只读状态">
@@ -35,25 +35,5 @@
     defaultValue="{{ [2] }}"
     options="{{ options_4 }}"
     multiple
-    onChange="onChange" />
-</container>
-
-<container title="自定义勾选图标&&组件内容">
-  <checklist
-    defaultValue="{{ [2] }}"
-    options="{{ options_3 }}"
-    multiple
-    onChange="onChange">
-    <view slot="icon">
-      <icon
-        style="color: red"
-        type="LikeOutline"
-        className="demo-checklist-checked-icon" />
-    </view>
-    <view
-      slot="content"
-      slot-scope="props">
-      title: {{ item.title }}
-    </view>
-  </checklist>
+    bind:change="onChange" />
 </container>

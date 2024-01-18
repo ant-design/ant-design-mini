@@ -1,0 +1,7 @@
+.demo-checklist-label {
+  font-size: 32rpx;
+  padding: 36rpx 0 16rpx 16rpx;
+}
+.demo-checklist-checked-icon {
+  font-size: 36rpx;
+}
