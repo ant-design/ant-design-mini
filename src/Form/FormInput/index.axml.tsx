@@ -76,6 +76,11 @@ export default (
         <Slot slot="prefix" name="prefix" />
         <Slot slot="suffix" name="suffix" />
       </AntInput>
+      {!tooltip && (
+        <View slot="tooltip">
+          <Slot name="tooltip" />
+        </View>
+      )}
       <View slot="extra">
         {/* #if ALIPAY */}
         <Slot name="extra">

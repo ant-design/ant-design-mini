@@ -12,14 +12,16 @@
         style="{{ labelWidth ? 'width: ' + labelWidth : '' }}"
         class="ant-form-item-label {{ disabled ? 'ant-form-item-label-disabled' : '' }} ant-form-item-label-{{ position }} {{ required ? 'ant-form-item-label-required' : '' }}">
         <view class="ant-form-item-label-text">{{ label }}</view>
-        <popover a:if="{{ tooltip }}">
-          <view
-            slot="content"
-            class="ant-form-item-label-help-content">
-            {{ tooltip }}
-          </view>
-          <ant-icon type="QuestionCircleOutline" />
-        </popover>
+        <slot name="tooltip">
+          <popover a:if="{{ tooltip }}">
+            <view
+              slot="content"
+              class="ant-form-item-label-help-content">
+              {{ tooltip }}
+            </view>
+            <ant-icon type="QuestionCircleOutline" />
+          </popover>
+        </slot>
       </view>
       <view class="ant-form-item-field ant-form-item-field-{{ position }}">
         <slot />

@@ -23,6 +23,12 @@
       bind:change="onChange" />
   </view>
 
+  <view
+    wx:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
+
   <view slot="extra">
     <slot name="extra">{{ extra }}</slot>
   </view>

@@ -41,6 +41,11 @@
       slot="suffix"
       name="suffix" />
   </ant-input>
+  <view
+    wx:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
   <view slot="extra">{{ extra }}</view>
   <view
     slot="header"
