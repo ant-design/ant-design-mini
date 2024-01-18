@@ -1,10 +1,14 @@
 <container title="基础用法">
-  <notice
+  <block
     a:for="{{ typeList }}"
-    style="margin-bottom: 8px"
-    type="{{item}}">
-    {{item}}
-  </notice>
+    a:for-index="index"
+    a:for-item="item">
+    <notice
+      style="margin-bottom: 8px"
+      type="{{ item }}">
+      {{ item }}
+    </notice>
+  </block>
 </container>
 
 <container title="可关闭通告栏">
@@ -16,16 +20,20 @@
 </container>
 
 <container title="可滚动通告栏">
-  <notice
-    a:for="{{typeList}}"
-    type="{{item}}"
-    style="margin-bottom: 8px"
-    enableMarquee="{{true}}"
-    loop="{{true}}"
-    onTap="handleTapLink"
-    mode="link">
-    文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
-  </notice>
+  <block
+    a:for="{{ typeList }}"
+    a:for-index="index"
+    a:for-item="item">
+    <notice
+      type="{{ item }}"
+      style="margin-bottom: 8px"
+      enableMarquee="{{ true }}"
+      loop="{{ true }}"
+      onTap="handleTapLink"
+      mode="link">
+      文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
+    </notice>
+  </block>
 </container>
 
 <container title="自定义通告栏">
@@ -33,6 +41,7 @@
     不展示图标
     <view slot="icon" />
   </notice>
+
   <notice
     type="primary"
     icon="GlobalOutline"
@@ -40,6 +49,7 @@
     mode="link">
     自定义左侧图标
   </notice>
+
   <notice
     type="primary"
     icon="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
@@ -47,6 +57,7 @@
     mode="link">
     自定义左侧图标图片
   </notice>
+
   <notice
     mode="link"
     style="margin-bottom: 8px"
