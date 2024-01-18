@@ -1,5 +1,12 @@
 {
+  /// #if WECHAT
+  "navigationBarTitleText": "Skeleton",
+  /// #endif
+
+  /// #if ALIPAY
   "defaultTitle": "Skeleton",
+  /// #endif
+
   "usingComponents": {
     "avatar": "../../../src/Avatar/index",
     "skeleton": "../../../src/Skeleton/index",

@@ -1,5 +1,12 @@
 {
+  /// #if WECHAT
+  "navigationBarTitleText": "Form",
+  /// #endif
+
+  /// #if ALIPAY
   "defaultTitle": "Form",
+  /// #endif
+
   "usingComponents": {
     "form-input": "../../../src/Form/FormInput/index",
     "form-switch": "../../../src/Form/FormSwitch/index",

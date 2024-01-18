@@ -1,5 +1,12 @@
 {
+  /// #if WECHAT
+  "navigationBarTitleText": "Divider",
+  /// #endif
+
+  /// #if ALIPAY
   "defaultTitle": "Divider",
+  /// #endif
+
   "usingComponents": {
     "divider": "../../../src/Divider/index",
     "container": "../../../src/Container/index"
