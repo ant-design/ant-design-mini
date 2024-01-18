@@ -28,6 +28,9 @@ export default (_, { value, }: InternalData) => (
     <Container title="禁用状态">
       <Stepper defaultValue={0} disabled />
     </Container>
+    <Container title="输入框只读">
+      <Stepper defaultValue={0} inputReadOnly />
+    </Container>
     <Container title="受控组件">
       <Stepper
         value={value}

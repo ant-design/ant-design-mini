@@ -32,6 +32,11 @@
     defaultValue="{{ 0 }}"
     disabled />
 </container>
+<container title="输入框只读">
+  <stepper
+    defaultValue="{{ 0 }}"
+    inputReadOnly />
+</container>
 <container title="受控组件">
   <stepper
     value="{{ value }}"

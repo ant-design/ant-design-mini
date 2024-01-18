@@ -53,6 +53,12 @@ export interface IStepperProps extends IBaseProps {
   disabled?: boolean;
 
   /**
+   * @description 输入框是否只读
+   * @default false
+   */
+  inputReadOnly?: boolean;
+
+  /**
    * @description 输入框初始值
    */
   defaultValue: number;
@@ -98,4 +104,5 @@ export const StepperFunctionalProps: Partial<IStepperProps> = {
   inputClassName: '',
   inputStyle: '',
   disabled: false,
+  inputReadOnly: false,
 };
