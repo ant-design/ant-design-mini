@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "GuideTour",
+  "navigationBarTitleText": "GuideTour",
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "container": "../../../src/Container/index",

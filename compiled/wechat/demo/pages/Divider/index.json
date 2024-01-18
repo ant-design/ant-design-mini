@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Divider",
+  "navigationBarTitleText": "Divider",
   "usingComponents": {
     "divider": "../../../src/Divider/index",
     "container": "../../../src/Container/index"

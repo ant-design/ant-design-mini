@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Skeleton",
+  "navigationBarTitleText": "Skeleton",
   "usingComponents": {
     "avatar": "../../../src/Avatar/index",
     "skeleton": "../../../src/Skeleton/index",
