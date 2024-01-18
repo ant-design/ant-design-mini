@@ -1,6 +1,5 @@
 import { createForm } from '../../../../src/Form/form';
 
-
 Component({
   mixins: [createForm()],
   data: {
@@ -20,5 +19,5 @@ Component({
     onChange(value, e) {
       this.emit('onChange', value);
     },
-  }
+  },
 });

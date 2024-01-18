@@ -14,4 +14,7 @@ export interface IChecklistItemProps extends IBaseProps {
   onChange: (item: ChecklistItem) => void;
 }
 
-export const ChecklistItemDefaultProps: Partial<IChecklistItemProps> = {};
+export const ChecklistItemDefaultProps: Partial<IChecklistItemProps> = {
+  item: null,
+  checked: false,
+};
