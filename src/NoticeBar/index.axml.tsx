@@ -1,4 +1,4 @@
-import { Slot, TSXMLProps, View } from 'tsxml';
+import { Slot, TSXMLProps, View, Component } from 'tsxml';
 import Icon from '../Icon/index.axml';
 import ImageIcon from '../ImageIcon/index.axml';
 import { INoticeBarProps } from './props';

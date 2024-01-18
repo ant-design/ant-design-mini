@@ -1,20 +1,20 @@
 <modal
   content="人在天边月上明"
-  visible="{{basicVisible}}"
+  visible="{{ basicVisible }}"
   onClose="handleClose"
   primaryButtonText="我知道了"
   onPrimaryButtonTap="handlePrimaryButtonTap" />
 <modal
   title="带标题的弹窗"
   content="人在天边月上明"
-  visible="{{withTitleVisible}}"
+  visible="{{ withTitleVisible }}"
   onClose="handleClose"
   primaryButtonText="我知道了"
   onPrimaryButtonTap="handlePrimaryButtonTap" />
 <modal
   title="确定删除吗？"
   content="删除后无法恢复"
-  visible="{{basicTwoVisible}}"
+  visible="{{ basicTwoVisible }}"
   onClose="handleClose"
   primaryButtonText="确定"
   secondaryButtonText="取消"
@@ -23,7 +23,7 @@
 <modal
   title="标题"
   content="人在天边月上明"
-  visible="{{basicThreeVisible}}"
+  visible="{{ basicThreeVisible }}"
   onClose="handleClose"
   primaryButtonText="主按钮"
   secondaryButtonText="更多"
@@ -35,7 +35,7 @@
   title="强调模式"
   content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
   type="focus"
-  visible="{{focusOneVisible}}"
+  visible="{{ focusOneVisible }}"
   onClose="handleClose"
   primaryButtonText="我知道了"
   onPrimaryButtonTap="handlePrimaryButtonTap" />
@@ -43,7 +43,7 @@
   title="强调模式"
   content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
   type="focus"
-  visible="{{focusTwoVisible}}"
+  visible="{{ focusTwoVisible }}"
   onClose="handleClose"
   primaryButtonText="我知道了"
   secondaryButtonText="辅助操作"
@@ -53,7 +53,7 @@
   title="强调模式"
   content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
   type="focus"
-  visible="{{focusThreeVisible}}"
+  visible="{{ focusThreeVisible }}"
   onClose="handleClose"
   primaryButtonText="我知道了"
   secondaryButtonText="辅助操作"
@@ -64,7 +64,7 @@
 <modal
   title="确定删除吗？"
   content="删除后无法恢复"
-  visible="{{customVisible}}"
+  visible="{{ customVisible }}"
   onClose="handleClose"
   primaryButtonText="删除"
   primaryButtonStyle="color:red;"
@@ -72,7 +72,7 @@
   onPrimaryButtonTap="handlePrimaryButtonTap"
   onSecondaryButtonTap="handleSecondaryButtonTap" />
 <modal
-  visible="{{customBodyVisible}}"
+  visible="{{ customBodyVisible }}"
   onClose="handleClose">
   <view class="body">
     <image
@@ -88,7 +88,7 @@
 </modal>
 <container
   title="基础用法"
-  class="list">
+  className="list">
   <button
     data-field="basicVisible"
     onTap="handleOpen">
@@ -112,7 +112,7 @@
 </container>
 <container
   title="强调模式"
-  class="list">
+  className="list">
   <button
     data-field="focusOneVisible"
     onTap="handleOpen">
@@ -131,7 +131,7 @@
 </container>
 <container
   title="自定义"
-  class="list">
+  className="list">
   <button
     data-field="customVisible"
     onTap="handleOpen">
