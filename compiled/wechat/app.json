@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/Modal/index",
     "demo/pages/GuideTour/index",
     "demo/pages/Skeleton/index",
     "demo/pages/Form/index",

@@ -1,8 +1,8 @@
 import { Page, View, Image, InternalData } from 'tsxml';
-import Modal from '../../../src/Modal/index.axml';
-import Button from '../../../src/Button/index.axml';
-import Icon from '../../../src/Icon/index.axml';
-import Container from '../../../src/Container/index.axml';
+import AntModal from '../../../src/Modal/index.axml';
+import AntButton from '../../../src/Button/index.axml';
+import AntIcon from '../../../src/Icon/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
 
 export default ({
   basicVisible,
@@ -16,14 +16,14 @@ export default ({
   customBodyVisible,
 }: InternalData) => (
   <Page>
-    <Modal
+    <AntModal
       content="人在天边月上明"
       visible={basicVisible}
       onClose="handleClose"
       primaryButtonText="我知道了"
       onPrimaryButtonTap="handlePrimaryButtonTap"
     />
-    <Modal
+    <AntModal
       title="带标题的弹窗"
       content="人在天边月上明"
       visible={withTitleVisible}
@@ -31,7 +31,7 @@ export default ({
       primaryButtonText="我知道了"
       onPrimaryButtonTap="handlePrimaryButtonTap"
     />
-    <Modal
+    <AntModal
       title="确定删除吗？"
       content="删除后无法恢复"
       visible={basicTwoVisible}
@@ -41,7 +41,7 @@ export default ({
       onPrimaryButtonTap="handlePrimaryButtonTap"
       onSecondaryButtonTap="handleSecondaryButtonTap"
     />
-    <Modal
+    <AntModal
       title="标题"
       content="人在天边月上明"
       visible={basicThreeVisible}
@@ -51,9 +51,9 @@ export default ({
       cancelButtonText="取消"
       onPrimaryButtonTap="handlePrimaryButtonTap"
       onSecondaryButtonTap="handleSecondaryButtonTap"
-      onCancelButtonTap="handleSecondaryButtonTap"
+      onCancelButtonTap="handleCancelButtonTap"
     />
-    <Modal
+    <AntModal
       title="强调模式"
       content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
       type="focus"
@@ -62,7 +62,7 @@ export default ({
       primaryButtonText="我知道了"
       onPrimaryButtonTap="handlePrimaryButtonTap"
     />
-    <Modal
+    <AntModal
       title="强调模式"
       content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
       type="focus"
@@ -73,7 +73,7 @@ export default ({
       onPrimaryButtonTap="handlePrimaryButtonTap"
       onSecondaryButtonTap="handleSecondaryButtonTap"
     />
-    <Modal
+    <AntModal
       title="强调模式"
       content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
       type="focus"
@@ -84,9 +84,9 @@ export default ({
       cancelButtonText="取消"
       onPrimaryButtonTap="handlePrimaryButtonTap"
       onSecondaryButtonTap="handleSecondaryButtonTap"
-      onCancelButtonTap="handleSecondaryButtonTap"
+      onCancelButtonTap="handleCancelButtonTap"
     />
-    <Modal
+    <AntModal
       title="确定删除吗？"
       content="删除后无法恢复"
       visible={customVisible}
@@ -97,7 +97,8 @@ export default ({
       onPrimaryButtonTap="handlePrimaryButtonTap"
       onSecondaryButtonTap="handleSecondaryButtonTap"
     />
-    <Modal visible={customBodyVisible} onClose="handleClose">
+    {/* #if ALIPAY */}
+    <AntModal visible={customBodyVisible} onClose="handleClose">
       <View class="body">
         <Image
           mode="scaleToFill"
@@ -105,42 +106,46 @@ export default ({
           class="bodyImg"
         />
         <View class="bodyAction">
-          <Icon type="CloseCircleOutline" onTap="handleClose" />
+          <AntIcon type="CloseCircleOutline" onTap="handleClose" />
         </View>
       </View>
-    </Modal>
-    <Container title="基础用法" className="list">
-      <Button data-field="basicVisible" onTap="handleOpen">
+    </AntModal>
+    {/* #endif */}
+
+    <AntContainer title="基础用法" className="list">
+      <AntButton data-field="basicVisible" onTap="handleOpen">
         最简单的弹框
-      </Button>
-      <Button data-field="withTitleVisible" onTap="handleOpen">
+      </AntButton>
+      <AntButton data-field="withTitleVisible" onTap="handleOpen">
         带有标题
-      </Button>
-      <Button data-field="basicTwoVisible" onTap="handleOpen">
+      </AntButton>
+      <AntButton data-field="basicTwoVisible" onTap="handleOpen">
         带辅助按钮
-      </Button>
-      <Button data-field="basicThreeVisible" onTap="handleOpen">
+      </AntButton>
+      <AntButton data-field="basicThreeVisible" onTap="handleOpen">
         带辅助和取消按钮
-      </Button>
-    </Container>
-    <Container title="强调模式" className="list">
-      <Button data-field="focusOneVisible" onTap="handleOpen">
+      </AntButton>
+    </AntContainer>
+    <AntContainer title="强调模式" className="list">
+      <AntButton data-field="focusOneVisible" onTap="handleOpen">
         只有主按钮
-      </Button>
-      <Button data-field="focusTwoVisible" onTap="handleOpen">
+      </AntButton>
+      <AntButton data-field="focusTwoVisible" onTap="handleOpen">
         带辅助按钮
-      </Button>
-      <Button data-field="focusThreeVisible" onTap="handleOpen">
+      </AntButton>
+      <AntButton data-field="focusThreeVisible" onTap="handleOpen">
         带辅助和取消按钮
-      </Button>
-    </Container>
-    <Container title="自定义" className="list">
-      <Button data-field="customVisible" onTap="handleOpen">
+      </AntButton>
+    </AntContainer>
+    <AntContainer title="自定义" className="list">
+      <AntButton data-field="customVisible" onTap="handleOpen">
         自定义按钮样式
-      </Button>
-      <Button data-field="customBodyVisible" onTap="handleOpen">
+      </AntButton>
+      {/* #if ALIPAY */}
+      <AntButton data-field="customBodyVisible" onTap="handleOpen">
         完全自定义内容区
-      </Button>
-    </Container>
+      </AntButton>
+      {/* #endif */}
+    </AntContainer>
   </Page>
 );

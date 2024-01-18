@@ -10,12 +10,13 @@ Page({
         customVisible: false,
         customBodyVisible: false,
     },
-    handleOpen(e) {
+    handleOpen: function (e) {
+        var _a;
         console.log(e.target);
-        const { field } = e.target.dataset;
-        this.setData({ [field]: true });
+        var field = e.target.dataset.field;
+        this.setData((_a = {}, _a[field] = true, _a));
     },
-    handleClose() {
+    handleClose: function () {
         this.setData({
             basicVisible: false,
             withTitleVisible: false,
@@ -28,19 +29,23 @@ Page({
             customBodyVisible: false,
         });
     },
-    handlePrimaryButtonTap() {
+    handlePrimaryButtonTap: function () {
         this.handleClose();
         this.showToast('点击主要按钮');
     },
-    handleSecondaryButtonTap() {
+    handleSecondaryButtonTap: function () {
         this.handleClose();
         this.showToast('点击辅助按钮');
     },
-    handleCancelButtonTap() {
+    handleCancelButtonTap: function () {
         this.handleClose();
         this.showToast('点击取消按钮');
     },
-    showToast(content) {
-        my.showToast({ content, duration: 1000 });
+    showToast: function (content) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        wx.showToast({
+            title: content,
+        });
     },
 });

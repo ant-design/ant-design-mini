@@ -105,6 +105,12 @@ export const wechat: PlatformConfig = {
     'ant-range-picker': {
       onOk: 'bind:ok',
     },
+    'ant-modal': {
+      onPrimaryButtonTap: 'bind:primarybuttontap',
+      onSecondaryButtonTap: 'bind:secondarybuttontap',
+      onCancelButtonTap: 'bind:cancelbuttontap',
+      onClose: 'bind:close',
+    },
   },
 };
 
