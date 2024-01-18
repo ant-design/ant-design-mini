@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "Form",
-  "usingComponents": {
-    "form-input": "../../../src/Form/FormInput/index",
-    "container": "../../../src/Container/index",
-    "ant-button": "../../../src/Button/index"
-  }
-}

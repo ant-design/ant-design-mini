@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Form",
+  "navigationBarTitleText": "Form",
   "usingComponents": {
     "form-input": "../../../src/Form/FormInput/index",
     "form-image-upload": "../../../src/Form/FormImageUpload/index",

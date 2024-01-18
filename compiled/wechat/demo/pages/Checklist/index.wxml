@@ -1,6 +1,6 @@
 <container title="简单布局-单选">
   <checklist
-    defaultValue="{{ defaultValue }}"
+    defaultValue="{{ [1] }}"
     options="{{ options_1 }}"
     data-options="{{ options_1 }}"
     bind:change="onChange" />
