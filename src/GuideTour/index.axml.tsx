@@ -89,7 +89,7 @@ export default (
               class="ant-guide-tour-swiper"
               current={mixin.value}
               adjust-height="none"
-              style="height: 100vh"
+              style="height: 100vh;"
               onChange="onSwiperChange"
             >
               {items.map((item) => (

@@ -81,5 +81,5 @@ export const GuideTourFunctionalProps: Partial<IGuideTour> = {
   current: null,
   defaultCurrent: 0,
   swiperable: false,
-  visible: false,
+  visible: true,
 };

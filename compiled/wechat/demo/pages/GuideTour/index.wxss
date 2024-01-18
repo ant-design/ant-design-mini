@@ -1,0 +1,10 @@
+.step-box {
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+}
+.list button {
+  margin-bottom: 8px;
+}
