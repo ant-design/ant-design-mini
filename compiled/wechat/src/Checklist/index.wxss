@@ -1,0 +1,8 @@
+.ant-checklist-body {
+  position: relative;
+  overflow: hidden;
+}
+.ant-checklist-item-check-icon {
+  font-size: 18px;
+  color: #1677ff;
+}

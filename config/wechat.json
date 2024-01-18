@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Checklist",
     "pages/Modal",
     "pages/GuideTour",
     "pages/Divider",
@@ -86,6 +87,7 @@
     "Avatar",
     "Skeleton",
     "GuideTour",
-    "Modal"
+    "Modal",
+    "Checklist"
   ]
 }

@@ -1,0 +1,67 @@
+.ant-checklist-item {
+  background-color: #ffffff;
+}
+.ant-checklist-item-hover {
+  background-color: #eeeeee;
+}
+.ant-checklist-item-content {
+  display: flex;
+  align-items: center;
+  padding: 12px 12px;
+  color: #333333;
+}
+.ant-checklist-item-content-disabled {
+  opacity: 0.4;
+}
+.ant-checklist-item-content-box {
+  flex: 1;
+}
+.ant-checklist-item-content-box-nut {
+  display: flex;
+  align-items: center;
+}
+.ant-checklist-item-image {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+}
+.ant-checklist-item-text {
+  flex: 1;
+  margin-left: 12px;
+}
+.ant-checklist-item-text-no-image {
+  margin-left: 0;
+}
+.ant-checklist-item-text-title {
+  color: #333333;
+  font-size: 17px;
+  line-height: 24px;
+}
+.ant-checklist-item-text-description {
+  font-size: 13px;
+  color: #999999;
+  margin-top: 1px;
+  line-height: 18px;
+}
+.ant-checklist-item-checked-disabled {
+  opacity: 0.4;
+}
+.ant-checklist-item:last-child .ant-checklist-item-line {
+  display: none;
+}
+.ant-checklist-item-line {
+  margin-left: 12px;
+  position: relative;
+}
+.ant-checklist-item-line::after {
+  content: '';
+  position: absolute;
+  background-color: #eeeeee;
+  display: block;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  transform: scaleY(0.5);
+}

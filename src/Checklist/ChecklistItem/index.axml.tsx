@@ -18,15 +18,11 @@ export default ({ item, checked }: TSXMLProps<IChecklistItemProps>) => (
         }`}
       >
         <View class="ant-checklist-item-content-box">
-          {/* #if ALIPAY */}
           <Slot name="content" item={item} />
-          {/* #endif */}
         </View>
         {checked && (
           <View class="ant-checklist-item-content-icon">
-            {/* #if ALIPAY */}
             <Slot name="icon" />
-            {/* #endif */}
           </View>
         )}
       </View>

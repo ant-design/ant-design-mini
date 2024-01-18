@@ -66,10 +66,10 @@ Page({
             },
         ],
     },
-    onChange(v, items, e) {
+    onChange: function (v, items, e) {
         console.log('当前选中的值为：', v, items, e);
     },
-    onChangeControlled(value) {
-        this.setData({ value });
+    onChangeControlled: function (value) {
+        this.setData({ value: value.detail[0] });
     },
 });
