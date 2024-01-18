@@ -12,7 +12,6 @@ Page({
     },
     handleOpen: function (e) {
         var _a;
-        console.log(e.target);
         var field = e.target.dataset.field;
         this.setData((_a = {}, _a[field] = true, _a));
     },

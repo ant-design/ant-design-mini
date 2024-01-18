@@ -11,7 +11,6 @@ Page({
         customBodyVisible: false,
     },
     handleOpen(e) {
-        console.log(e.target);
         const { field } = e.target.dataset;
         this.setData({ [field]: true });
     },
