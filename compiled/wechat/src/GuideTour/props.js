@@ -11,5 +11,5 @@ export var GuideTourFunctionalProps = {
     current: null,
     defaultCurrent: 0,
     swiperable: false,
-    visible: true,
+    visible: false,
 };
