@@ -29,14 +29,28 @@ Page({
   },
   handlePrimaryButtonTap() {
     this.handleClose();
-    my.showToast({ content: '点击主按钮', duration: 1000 });
+    this.showToast('点击主要按钮');
   },
   handleSecondaryButtonTap() {
     this.handleClose();
-    my.showToast({ content: '点击辅助按钮', duration: 1000 });
+    this.showToast('点击辅助按钮');
   },
   handleCancelButtonTap() {
     this.handleClose();
-    my.showToast({ content: '点击取消按钮', duration: 1000 });
+    this.showToast('点击取消按钮');
+  },
+
+  showToast(content: string) {
+    /// #if ALIPAY
+    my.showToast({ content, duration: 1000 });
+    /// #endif
+
+    /// #if WECHAT
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    wx.showToast({
+      title: content,
+    });
+    /// #endif
   },
 });

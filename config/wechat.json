@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Modal",
     "pages/GuideTour",
     "pages/Divider",
     "pages/Skeleton",
@@ -84,6 +85,7 @@
     "Form",
     "Avatar",
     "Skeleton",
-    "GuideTour"
+    "GuideTour",
+    "Modal"
   ]
 }

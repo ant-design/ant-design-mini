@@ -104,3 +104,24 @@ export const ModalDefaultProps: Partial<IModalProps> = {
   type: 'default',
   duration: 200,
 };
+
+export const ModalFunctionalProps: Partial<IModalProps> = {
+  bodyClassName: '',
+  bodyStyle: '',
+  maskClassName: '',
+  maskStyle: '',
+  maskClosable: true,
+  type: 'default',
+  closable: true,
+  duration: 200,
+  title: '',
+  content: '',
+  visible: false,
+  destroyOnClose: false,
+  primaryButtonText: '',
+  secondaryButtonText: '',
+  cancelButtonText: '',
+  primaryButtonStyle: '',
+  secondaryButtonStyle: '',
+  cancelButtonStyle: '',
+};

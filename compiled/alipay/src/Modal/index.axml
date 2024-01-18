@@ -34,7 +34,6 @@
           {{ content }}
         </view>
       </slot>
-
       <slot name="footer">
         <view
           a:if="{{ type === 'focus' }}"
@@ -114,6 +113,7 @@
       </slot>
     </view>
   </slot>
+
   <ant-icon
     a:if="{{ type === 'focus' && closable }}"
     type="CloseOutline"

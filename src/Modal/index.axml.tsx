@@ -45,7 +45,9 @@ export default (
       destroyOnClose={destroyOnClose}
       onClose="onMaskClose"
     >
+      {/* #if ALIPAY */}
       <Slot slot="content">
+        {/* #endif */}
         <View
           class={`ant-modal-body ${bodyClassName || ''}`}
           style={bodyStyle || ''}
@@ -81,8 +83,9 @@ export default (
             </Slot>
           }
           {/* #endif */}
-
+          {/* #if ALIPAY */}
           <Slot name="footer">
+            {/* #endif */}
             {type === 'focus' ? (
               <View class="ant-modal-body-footer-focus">
                 <AntButton
@@ -185,9 +188,14 @@ export default (
                 </View>
               )
             )}
+            {/* #if ALIPAY */}
           </Slot>
+          {/* #endif */}
         </View>
+        {/* #if ALIPAY */}
       </Slot>
+      {/* #endif */}
+
       {type === 'focus' && closable && (
         <AntIcon
           type="CloseOutline"
