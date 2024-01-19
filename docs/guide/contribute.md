@@ -61,6 +61,7 @@ $ npm run dev:doc
   2. 使用 fix(scope): xxx 来描述一个 bug fixes 的 commit；
   3. 使用 chore(scope): xxx 来来描述一个无关 feature 和 bug fixes 的小调整；
 - issue：如果改动与 issue 相关，请在 Commit Message 中带上 issue 参数，如：fix(scope): [#1] xxxxxx；
+- 在提交 Pull Request 之前, 需要执行 `npm run build:tsxml`, 将源码编译到各个平台，然后将编译后的产物添加到 git 里。
 
 ## Ant Design Mini 的工程方案
 
