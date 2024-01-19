@@ -6,7 +6,6 @@ Component({
   props: ToastDefaultProps,
   data: {
     show: false,
-    timer: null,
   },
   didUpdate(prev) {
     if (!prev.visible && this.props.visible) {
@@ -22,11 +21,11 @@ Component({
   },
   methods: {
     closeMask() {
-      if (this.data.timer) {
-        clearTimeout(this.data.timer);
+      if (this.timer) {
+        clearTimeout(this.timer);
       }
-      this.setData({ show: false, timer: null });
-
+      this.setData({ show: false });
+      this.timer = false;
       this.props.onClose?.(fmtEvent(this.props, {}));
     },
     handleShowToast() {
@@ -35,7 +34,7 @@ Component({
         const timer = setTimeout(() => {
           this.closeMask();
         }, this.props.duration);
-        this.setData({ timer });
+        this.timer = timer;
       }
     },
     handleClickMask() {
