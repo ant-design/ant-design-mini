@@ -13,13 +13,13 @@
     </badge>
     <badge
       type="number"
-      text="{{2}}"
+      text="{{ text2 }}"
       position="top-right">
       <view class="box" />
     </badge>
     <badge
       type="number"
-      text="{{100}}"
+      text="{{ text100 }}"
       position="top-right">
       <view class="box" />
     </badge>
@@ -49,14 +49,14 @@
     </badge>
     <badge
       type="number"
-      text="{{1}}"
+      text="{{ text1 }}"
       stroke
       position="top-right">
       <view class="box" />
     </badge>
     <badge
       type="number"
-      text="{{100}}"
+      text="{{ text100 }}"
       stroke
       position="top-right">
       <view class="box" />
@@ -75,7 +75,7 @@
   <view class="badge-list">
     <badge
       type="number"
-      text="{{1}}"
+      text="{{ text1 }}"
       position="top-left">
       <view class="box" />
     </badge>
@@ -87,7 +87,7 @@
     </badge>
     <badge
       type="number"
-      text="{{100}}"
+      text="{{ text100 }}"
       stroke
       bgColor="#1677FF">
       <view class="box" />

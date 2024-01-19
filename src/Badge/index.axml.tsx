@@ -47,7 +47,6 @@ export default (
         <View class="ant-badge-content-text">
           {/* #if ALIPAY */}
           <Slot name="text">
-            {/* #endif */}
             {type === 'number' && (
               <View class="ant-badge-number">
                 {overCount ? <Text>99+</Text> : <Text>{text}</Text>}
@@ -55,7 +54,6 @@ export default (
             )}
             {type === 'text' && <View class="ant-badge-text">{text}</View>}
             {type === 'bubble' && <View class="ant-badge-bubble">{text}</View>}
-            {/* #if ALIPAY */}
           </Slot>
           {/* #endif */}
         </View>
