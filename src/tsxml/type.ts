@@ -9,6 +9,7 @@ export interface Props {
   scrollLeft?: any;
   onTransitionEnd?: string;
   onTap?: string;
+  onFirstAppear?: string;
   checked?: boolean;
   src?: string;
   mode?: string;

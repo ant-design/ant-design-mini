@@ -104,4 +104,5 @@ export const StepperFunctionalProps: Partial<IStepperProps> = {
   inputClassName: '',
   inputStyle: '',
   disabled: false,
+  inputReadOnly: false,
 };
