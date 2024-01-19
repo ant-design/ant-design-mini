@@ -20,14 +20,14 @@ toc: 'content'
 ## API
 
 | 属性          | 说明                                            | 类型                                                        | 默认值      |
-| ------------- | ----------------------------------------------- | ----------------------------------------------------------- | ----------- |
+| ------------- | ---------------------------------------------- | ----------------------------------------------------------- | ----------- |
 | defaultValue  | 初始值                                          | CalendarValue                                               | 无          |
-| value         | 日历选择的日期，传入后即为受控模式              | CalendarValue                                               | 无          |
-| selectionMode | 设置选择模式，单选或者连续区间，默认为 'range'  | `single` \| `range`                                         | 'range'     |
-| monthRange    | 月份范围，默认为最近 3 个月                     | `[number, number]`                                          | 最近 3 个月 |
-| weekStartsOn  | 星期栏，以周几作为第一天显示。默认为 'Sunday'。 | 'Sunday' \| 'Monday'                                        | 'Sunday'    |
+| value         | 日历选择的日期，传入后即为受控模式                   | CalendarValue                                               | 无          |
+| selectionMode | 设置选择模式，单选或者连续区间，默认为 `range`       | `single` \| `range`                                         | `range`     |
+| monthRange    | 月份范围，默认为最近 3 个月                       | `[number, number]`                                          | 最近 3 个月 |
+| weekStartsOn  | 星期栏，以周几作为第一天显示。默认为 `Sunday`       | `Sunday` \| `Monday`                                        | `Sunday`    |
 | onChange      | 日期变化回调                                    | (date: CalendarValue) => void                               | 无          |
-| onFormatter   | 用于设置单元格的自定义数据                      | (cell: CellState, currentValue: CalendarValue) => CellState | 无          |
+| onFormatter   | 用于设置单元格的自定义数据                        | (cell: CellState, currentValue: CalendarValue) => CellState  | 无          |
 | localeText    | 国际化文案                                      | Partial`<LocaleText>`                                       | 无          |
 
 ### 类型
