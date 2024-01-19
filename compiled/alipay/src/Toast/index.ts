@@ -1,46 +1,59 @@
-import { ToastDefaultProps } from './props';
-import fmtEvent from '../_util/fmtEvent';
+import {
+  useEffect,
+  useEvent,
+  useRef,
+  useState,
+} from 'functional-mini/component';
 import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
+import { IToastProps, ToastFunctionalProps } from './props';
 
-Component({
-  props: ToastDefaultProps,
-  data: {
-    show: false,
-  },
-  didUpdate(prev) {
-    if (!prev.visible && this.props.visible) {
-      this.handleShowToast();
-    } else if (!this.props.visible && this.data.show) {
-      this.closeMask();
+const Toast = (props: IToastProps) => {
+  const [show, setShow] = useState(false);
+  const timerRef = useRef<number>(null);
+
+  const { triggerEventOnly } = useComponentEvent(props);
+
+  const closeMask = useStableCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
     }
-  },
-  didMount() {
-    if (this.props.visible) {
-      this.handleShowToast();
+    const isShow = show;
+    setShow(false);
+    timerRef.current = null;
+    if (isShow) {
+      triggerEventOnly('close');
     }
-  },
-  methods: {
-    closeMask() {
-      if (this.timer) {
-        clearTimeout(this.timer);
-      }
-      this.setData({ show: false });
-      this.timer = false;
-      this.props.onClose?.(fmtEvent(this.props, {}));
-    },
-    handleShowToast() {
-      this.setData({ show: true });
-      if (this.props.duration > 0) {
-        const timer = setTimeout(() => {
-          this.closeMask();
-        }, this.props.duration);
-        this.timer = timer;
-      }
-    },
-    handleClickMask() {
-      if (this.props.showMask && this.props.maskCloseable) {
-        this.closeMask();
-      }
-    },
-  },
-});
+  });
+
+  const handleShowToast = useStableCallback(() => {
+    setShow(true);
+    if (props.duration > 0) {
+      const timer = setTimeout(() => {
+        closeMask();
+      }, props.duration);
+      timerRef.current = timer as unknown as number;
+    }
+  });
+
+  useEffect(() => {
+    if (props.visible) {
+      handleShowToast();
+    } else {
+      closeMask();
+    }
+  }, [props.visible]);
+
+  useEvent('handleClickMask', () => {
+    if (props.showMask && props.maskCloseable) {
+      closeMask();
+    }
+  });
+  return {
+    show,
+  };
+};
+
+mountComponent(Toast, ToastFunctionalProps);
