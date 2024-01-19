@@ -50,7 +50,7 @@
   </block>
 </view>
 <pagination
-  a:if="{{ mode === 'scroll' }}"
+  a:elif="{{ mode === 'scroll' }}"
   fillColor="{{ paginationFillColor }}"
   frontColor="{{ paginationFrontColor }}"
   className="{{ className || '' }}"

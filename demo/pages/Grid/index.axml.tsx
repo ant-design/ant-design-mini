@@ -1,4 +1,4 @@
-import { Page, Slot, InternalData } from 'tsxml';
+import { Page, Slot, InternalData, View } from 'tsxml';
 import Container from '../../../src/Container/index.axml';
 import Grid from '../../../src/Grid/index.axml';
 import Badge from '../../../src/Badge/index.axml';
@@ -24,6 +24,9 @@ export default ({
       <Grid items={items4} onTap="handleTapItem" columns={4} />
     </Container>
     <Container title="5列">
+      <Grid items={items5} onTap="handleTapItem" columns={5} />
+    </Container>
+    <Container title="5列-展示分割线">
       <Grid items={items5} onTap="handleTapItem" columns={5} showDivider />
     </Container>
     <Container title="2列-带描述">
@@ -61,22 +64,21 @@ export default ({
     </Container>
     <Container title="自定义">
       <Grid items={itemsCustom} onTap="handleTapItem" columns={5}>
-        <Slot name="icon" slot-scope="props">
-          {props.value.tag && (
+        <View slot="icon" slot-scope="props">
+          {props.value.tag ? (
             <Badge offsetX="-10px" type="text" text={props.value.tag}>
               <image src={props.value.icon} style="width: 44px; height: 44px" />
             </Badge>
-          )}
-          {!props.value.tag && (
+          ) : (
             <image src={props.value.icon} style="width: 44px; height: 44px" />
           )}
-        </Slot>
-        <Slot name="title" slot-scope="props">
+        </View>
+        <View slot="title" slot-scope="props">
           第{props.index + 1}项
-        </Slot>
-        <Slot name="description" slot-scope="props">
+        </View>
+        <View slot="description" slot-scope="props">
           描述{props.index + 1}
-        </Slot>
+        </View>
       </Grid>
     </Container>
   </Page>

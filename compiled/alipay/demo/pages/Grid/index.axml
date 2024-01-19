@@ -20,6 +20,12 @@
   <grid
     items="{{ items5 }}"
     onTap="handleTapItem"
+    columns="{{ 5 }}" />
+</container>
+<container title="5列-展示分割线">
+  <grid
+    items="{{ items5 }}"
+    onTap="handleTapItem"
     columns="{{ 5 }}"
     showDivider />
 </container>
@@ -67,8 +73,8 @@
     items="{{ itemsCustom }}"
     onTap="handleTapItem"
     columns="{{ 5 }}">
-    <slot
-      name="icon"
+    <view
+      slot="icon"
       slot-scope="props">
       <badge
         a:if="{{ props.value.tag }}"
@@ -80,19 +86,19 @@
           style="width: 44px; height: 44px" />
       </badge>
       <image
-        a:if="{{ !props.value.tag }}"
+        a:else
         src="{{ props.value.icon }}"
         style="width: 44px; height: 44px" />
-    </slot>
-    <slot
-      name="title"
+    </view>
+    <view
+      slot="title"
       slot-scope="props">
       第{{ props.index + 1 }}项
-    </slot>
-    <slot
-      name="description"
+    </view>
+    <view
+      slot="description"
       slot-scope="props">
       描述{{ props.index + 1 }}
-    </slot>
+    </view>
   </grid>
 </container>

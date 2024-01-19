@@ -1,4 +1,4 @@
-import { Component, InternalData, Slot, TSXMLProps, View } from 'tsxml';
+import { Component, Slot, TSXMLProps, View } from 'tsxml';
 import ImageIcon from '../ImageIcon/index.axml';
 import Pagination from '../Pagination/index.axml';
 import sjs from './index.sjs';
@@ -18,7 +18,7 @@ export default ({
   paginationFrontColor,
 }: TSXMLProps<IGridProps>) => (
   <Component>
-    {mode === 'default' && (
+    {mode === 'default' ? (
       <View
         class={`ant-grid ant-grid-columns-${columns} ant-grid-${mode} ${
           className || ''
@@ -89,76 +89,77 @@ export default ({
           </View>
         ))}
       </View>
-    )}
-    {mode === 'scroll' && (
-      <Pagination
-        fillColor={paginationFillColor}
-        frontColor={paginationFrontColor}
-        className={className || ''}
-        style={style || ''}
-      >
-        <View class={`ant-grid ant-grid-${mode}`}>
-          {items.map((item, index) => (
-            <View
-              key={item.title}
-              data-item={item}
-              class={`ant-grid-item ant-grid-item-${gridItemLayout} ant-grid-item-columns-scroll ${
-                sjs.checkShowSplitLine(
-                  index,
-                  items.length,
-                  columns,
-                  mode,
-                  showDivider
-                )
-                  ? 'ant-grid-item-line'
-                  : ''
-              }`}
-              onTap="onTap"
-              onFirstAppear="onFirstAppear"
-            >
+    ) : (
+      mode === 'scroll' && (
+        <Pagination
+          fillColor={paginationFillColor}
+          frontColor={paginationFrontColor}
+          className={className || ''}
+          style={style || ''}
+        >
+          <View class={`ant-grid ant-grid-${mode}`}>
+            {items.map((item, index) => (
               <View
-                class={`ant-grid-item-icon ant-grid-item-icon-${
-                  item.iconStyle || iconStyle
+                key={item.title}
+                data-item={item}
+                class={`ant-grid-item ant-grid-item-${gridItemLayout} ant-grid-item-columns-scroll ${
+                  sjs.checkShowSplitLine(
+                    index,
+                    items.length,
+                    columns,
+                    mode,
+                    showDivider
+                  )
+                    ? 'ant-grid-item-line'
+                    : ''
                 }`}
+                onTap="onTap"
+                onFirstAppear="onFirstAppear"
               >
-                {/* #if ALIPAY */}
-                <Slot name="icon" value={item} index={index}>
-                  {/* #endif */}
-                  <ImageIcon
-                    image={item.icon}
-                    className="ant-grid-item-icon"
-                    style={
-                      iconSize
-                        ? `width:${iconSize}px;height:${iconSize}px;font-size:${iconSize}px`
-                        : ''
-                    }
-                  />
+                <View
+                  class={`ant-grid-item-icon ant-grid-item-icon-${
+                    item.iconStyle || iconStyle
+                  }`}
+                >
                   {/* #if ALIPAY */}
-                </Slot>
-                {/* #endif */}
-              </View>
-              <View class="ant-grid-item-title">
-                {/* #if ALIPAY */}
-                <Slot name="title" value={item} index={index}>
+                  <Slot name="icon" value={item} index={index}>
+                    {/* #endif */}
+                    <ImageIcon
+                      image={item.icon}
+                      className="ant-grid-item-icon"
+                      style={
+                        iconSize
+                          ? `width:${iconSize}px;height:${iconSize}px;font-size:${iconSize}px`
+                          : ''
+                      }
+                    />
+                    {/* #if ALIPAY */}
+                  </Slot>
                   {/* #endif */}
-                  {item.title}
+                </View>
+                <View class="ant-grid-item-title">
                   {/* #if ALIPAY */}
-                </Slot>
-                {/* #endif */}
-              </View>
-              <View class="ant-grid-item-description">
-                {/* #if ALIPAY */}
-                <Slot name="description" value={item} index={index}>
+                  <Slot name="title" value={item} index={index}>
+                    {/* #endif */}
+                    {item.title}
+                    {/* #if ALIPAY */}
+                  </Slot>
                   {/* #endif */}
-                  {item.description}
+                </View>
+                <View class="ant-grid-item-description">
                   {/* #if ALIPAY */}
-                </Slot>
-                {/* #endif */}
+                  <Slot name="description" value={item} index={index}>
+                    {/* #endif */}
+                    {item.description}
+                    {/* #if ALIPAY */}
+                  </Slot>
+                  {/* #endif */}
+                </View>
               </View>
-            </View>
-          ))}
-        </View>
-      </Pagination>
+            ))}
+          </View>
+        </Pagination>
+      )
     )}
   </Component>
 );
