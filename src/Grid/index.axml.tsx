@@ -27,7 +27,6 @@ export default ({
       >
         {items.map((item, index) => (
           <View
-            key={item.title}
             data-item={item}
             class={`ant-grid-item ant-grid-item-${gridItemLayout} ${
               sjs.checkNeedVerticalSpace(items.length, index, columns)
@@ -100,7 +99,6 @@ export default ({
           <View class={`ant-grid ant-grid-${mode}`}>
             {items.map((item, index) => (
               <View
-                key={item.title}
                 data-item={item}
                 class={`ant-grid-item ant-grid-item-${gridItemLayout} ant-grid-item-columns-scroll ${
                   sjs.checkShowSplitLine(

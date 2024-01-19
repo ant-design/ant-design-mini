@@ -25,26 +25,29 @@ export default (
         }`}
         style={style || ''}
       >
-        {type && (
+        {type ? (
           <View class="ant-toast-normal">
-            {type === 'loading' && <Loading type="mini" />}
-            {type === 'warning' && (
+            {type === 'loading' ? (
+              <Loading type="mini" />
+            ) : type === 'warning' ? (
               <AmIcon type="ExclamationOutline" className="ant-toast-icon" />
-            )}
-            {type === 'error' && (
+            ) : type === 'error' ? (
               <AmIcon type="CloseOutline" className="ant-toast-icon" />
-            )}
-            {type === 'success' && (
-              <AmIcon type="CheckOutline" className="ant-toast-icon" />
+            ) : (
+              type === 'success' && (
+                <AmIcon type="CheckOutline" className="ant-toast-icon" />
+              )
             )}
           </View>
-        )}
-        {icon && <AmIcon type={icon} className="ant-toast-icon" />}
-        {image && (
-          <View
-            style={`background-image: url(${image})`}
-            class="ant-toast-image"
-          />
+        ) : icon ? (
+          <AmIcon type={icon} className="ant-toast-icon" />
+        ) : (
+          image && (
+            <View
+              style={`background-image: url(${image})`}
+              class="ant-toast-image"
+            />
+          )
         )}
         <View class="ant-toast-text-body">
           <View class="ant-toast-text-box">

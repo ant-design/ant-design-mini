@@ -9,24 +9,24 @@
       a:if="{{ type === 'loading' }}"
       type="mini" />
     <am-icon
-      a:if="{{ type === 'warning' }}"
+      a:elif="{{ type === 'warning' }}"
       type="ExclamationOutline"
       className="ant-toast-icon" />
     <am-icon
-      a:if="{{ type === 'error' }}"
+      a:elif="{{ type === 'error' }}"
       type="CloseOutline"
       className="ant-toast-icon" />
     <am-icon
-      a:if="{{ type === 'success' }}"
+      a:elif="{{ type === 'success' }}"
       type="CheckOutline"
       className="ant-toast-icon" />
   </view>
   <am-icon
-    a:if="{{ icon }}"
+    a:elif="{{ icon }}"
     type="{{ icon }}"
     className="ant-toast-icon" />
   <view
-    a:if="{{ image }}"
+    a:elif="{{ image }}"
     style="background-image: url({{ image }})"
     class="ant-toast-image" />
   <view class="ant-toast-text-body">

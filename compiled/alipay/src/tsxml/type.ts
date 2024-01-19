@@ -3,7 +3,6 @@ export interface Props {
   style?: string;
   ref?: string;
   name?: string;
-  scrollX?: any;
   current?: any;
   'a:key'?: string;
   scrollLeft?: any;
