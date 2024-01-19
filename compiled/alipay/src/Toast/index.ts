@@ -51,7 +51,14 @@ const Toast = (props: IToastProps) => {
       closeMask();
     }
   });
+
+  const displayContent =
+    typeof props.content === 'string'
+      ? props.content.substring(0, 24)
+      : props.content;
+
   return {
+    displayContent,
     show,
   };
 };
