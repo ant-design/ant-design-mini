@@ -1,11 +1,12 @@
 function changeScollDistance(event, ownerComponent) {
-  const { scrollLeft, scrollWidth } = event.detail;
-  const viewWidth = ownerComponent
-    .selectComponent('.ant-page-infinite-content')
-    .getBoundingClientRect().width;
-  const moveDom = ownerComponent.selectComponent('.ant-page-infinite-move');
-  const pageDeg = Math.ceil((scrollLeft / (scrollWidth - viewWidth)) * 100);
-  moveDom.setStyle(`transform: translateX(${pageDeg}%);`);
+  var _event$detail = event.detail,
+    scrollLeft = _event$detail.scrollLeft,
+    scrollWidth = _event$detail.scrollWidth;
+  var viewWidth = ownerComponent.selectComponent('.ant-page-infinite-content').getBoundingClientRect().width;
+  var moveDom = ownerComponent.selectComponent('.ant-page-infinite-move');
+  var pageDeg = Math.ceil(scrollLeft / (scrollWidth - viewWidth) * 100);
+  moveDom.setStyle("transform: translateX(".concat(pageDeg, "%);"));
 }
-
-export default { changeScollDistance };
+export default {
+  changeScollDistance: changeScollDistance
+};

@@ -1,4 +1,8 @@
-function setPositionStyle(position, offsetX = '-50%', offsetY = '-50%') {
+function setPositionStyle(
+  position,
+  offsetX: string | number = '-50%',
+  offsetY: string | number = '-50%'
+) {
   const transformStyle = `transform: translate(calc(${offsetX}), calc(${offsetY}));`;
   switch (position) {
     case 'top-left':

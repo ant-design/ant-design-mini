@@ -39,7 +39,7 @@ export interface IBadgeProps extends IBaseProps {
    * @description 垂直方向偏移量（字符串类型，需要带上像素单位）
    * @default "-50%"
    */
-  offsetY: number;
+  offsetY: number | string;
   /**
    * @description 是否有描边
    * @default false
@@ -56,5 +56,5 @@ export const BadgeDefaultProps: Partial<IBadgeProps> = {
   stroke: false,
   type: 'dot',
   bgColor: '',
-  style: ''
+  style: '',
 };

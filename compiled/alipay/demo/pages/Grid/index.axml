@@ -1,78 +1,78 @@
 <container title="2列">
   <grid
-    items="{{items2}}"
+    items="{{ items2 }}"
     onTap="handleTapItem"
-    columns="{{2}}" />
+    columns="{{ 2 }}" />
 </container>
 <container title="3列">
   <grid
-    items="{{items3}}"
+    items="{{ items3 }}"
     onTap="handleTapItem"
-    columns="{{3}}" />
+    columns="{{ 3 }}" />
 </container>
 <container title="4列">
   <grid
-    items="{{items4}}"
+    items="{{ items4 }}"
     onTap="handleTapItem"
-    columns="{{4}}" />
+    columns="{{ 4 }}" />
 </container>
 <container title="5列">
   <grid
-    items="{{items5}}"
+    items="{{ items5 }}"
     onTap="handleTapItem"
-    columns="{{5}}" />
+    columns="{{ 5 }}" />
 </container>
 <container title="5列-展示分割线">
   <grid
-    items="{{items5}}"
+    items="{{ items5 }}"
     onTap="handleTapItem"
-    columns="{{5}}"
+    columns="{{ 5 }}"
     showDivider />
 </container>
 <container title="2列-带描述">
   <grid
-    items="{{items2withDesc}}"
+    items="{{ items2withDesc }}"
     onTap="handleTapItem"
-    columns="{{2}}" />
+    columns="{{ 2 }}" />
 </container>
 <container title="3列-带描述">
   <grid
-    items="{{items3withDesc}}"
+    items="{{ items3withDesc }}"
     onTap="handleTapItem"
-    columns="{{3}}" />
+    columns="{{ 3 }}" />
 </container>
 <container title="2列-元素横向布局">
   <grid
-    items="{{items2}}"
+    items="{{ items2 }}"
     onTap="handleTapItem"
-    columns="{{2}}"
+    columns="{{ 2 }}"
     gridItemLayout="horizontal" />
 </container>
 <container title="3列-元素横向布局">
   <grid
-    items="{{items3}}"
+    items="{{ items3 }}"
     onTap="handleTapItem"
-    columns="{{3}}"
+    columns="{{ 3 }}"
     gridItemLayout="horizontal" />
 </container>
 <container title="可滑动">
   <grid
-    items="{{items4.concat(items4)}}"
+    items="{{ items4.concat(items4) }}"
     onTap="handleTapItem"
     mode="scroll" />
 </container>
 <container title="自定义图标大小">
   <grid
-    items="{{itemsCustom}}"
+    items="{{ itemsCustom }}"
     onTap="handleTapItem"
-    columns="{{5}}"
-    iconSize="{{44}}" />
+    columns="{{ 5 }}"
+    iconSize="{{ 44 }}" />
 </container>
 <container title="自定义">
   <grid
-    items="{{itemsCustom}}"
+    items="{{ itemsCustom }}"
     onTap="handleTapItem"
-    columns="{{5}}">
+    columns="{{ 5 }}">
     <view
       slot="icon"
       slot-scope="props">
@@ -91,14 +91,14 @@
         style="width: 44px; height: 44px" />
     </view>
     <view
-      slot-scope="props"
-      slot="title">
-      第{{ props.index + 1}}项
+      slot="title"
+      slot-scope="props">
+      第{{ props.index + 1 }}项
     </view>
     <view
-      slot-scope="props"
-      slot="description">
-      描述{{ props.index + 1}}
+      slot="description"
+      slot-scope="props">
+      描述{{ props.index + 1 }}
     </view>
   </grid>
 </container>

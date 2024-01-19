@@ -3,12 +3,12 @@ export interface Props {
   style?: string;
   ref?: string;
   name?: string;
-  scrollX?: any;
   current?: any;
   'a:key'?: string;
   scrollLeft?: any;
   onTransitionEnd?: string;
   onTap?: string;
+  onFirstAppear?: string;
   checked?: boolean;
   src?: string;
   mode?: string;

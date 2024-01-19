@@ -20,6 +20,6 @@ function checkShowSplitLine(index, count, columns, mode, showDivider) {
   return true;
 }
 export default {
-  checkNeedVerticalSpace,
-  checkShowSplitLine,
+  checkNeedVerticalSpace: checkNeedVerticalSpace,
+  checkShowSplitLine: checkShowSplitLine
 };
