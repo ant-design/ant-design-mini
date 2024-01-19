@@ -15,6 +15,7 @@ jobs:
         run: |
           npm i
           npm run build
+          npm run check-compiled
       - name: test
         run: npm run cov
       - name: Codecov
