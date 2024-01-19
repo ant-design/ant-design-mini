@@ -52,6 +52,7 @@
     color: @COLOR_TEXT_PRIMARY;
     box-sizing: border-box;
     background-color: @COLOR_BACKGROUND;
+
     /// #if ALIPAY
     // 在微信会导致 input 显示不居中
     padding: 7 * @rpx 14 * @rpx;
@@ -61,5 +62,10 @@
     &-disabled {
       opacity: 0.4;
     }
+  }
+
+  &-input-readonly {
+    line-height: 56 * @rpx;
+    padding: 0;
   }
 }

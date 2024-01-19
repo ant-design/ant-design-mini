@@ -14,4 +14,5 @@ export var StepperFunctionalProps = {
     inputClassName: '',
     inputStyle: '',
     disabled: false,
+    inputReadOnly: false,
 };

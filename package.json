@@ -15,6 +15,7 @@
     "prepublishOnly": "npm run build",
     "pub": "node scripts/publish.js",
     "test": "vitest run",
+    "check-compiled":"tsx ./scripts/check-compiled.ts",
     "cov": "vitest run --coverage && tsx ./scripts/patch-coverage.ts"
   },
   "gitHooks": {

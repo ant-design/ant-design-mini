@@ -48,3 +48,7 @@
 .ant-stepper-input-disabled {
   opacity: 0.4;
 }
+.ant-stepper-input-readonly {
+  line-height: 28px;
+  padding: 0;
+}
