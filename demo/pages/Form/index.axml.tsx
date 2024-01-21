@@ -14,6 +14,7 @@ import FormUploadImage from '../../../src/Form/FormImageUpload/index.axml';
 import FormRate from '../../../src/Form/FormRate/index.axml';
 import FormTextarea from '../../../src/Form/FormTextarea/index.axml';
 import AntButton from '../../../src/Button/index.axml';
+import Icon from '../../../src/Icon/index.axml';
 
 export default ({
   fruitList,
@@ -32,6 +33,17 @@ export default ({
       allowClear
       ref="handleRef"
     />
+    <FormInput
+      label="密码"
+      name="password"
+      placeholder="请输入密码"
+      allowClear
+      ref="handleRef"
+    >
+      <View slot="tooltip">
+        <Icon onTap="showToast" type="QuestionCircleOutline" />
+      </View>
+    </FormInput>
     <FormInput
       label="地址"
       name="address"
@@ -99,5 +111,11 @@ export default ({
       </AntButton>
       <AntButton onTap="reset">重置</AntButton>
     </View>
+
+    <toast
+      content="密码的自定义 tooltip"
+      visible="{{toastShow}}"
+      onClose="handleCloseToast"
+    />
   </Page>
 );

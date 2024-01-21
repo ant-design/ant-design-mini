@@ -98,7 +98,7 @@ Form 表单。包含数据录入、校验以及对应样式。Form 组件需要 
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选 `default` `success` `error` `validating` | string | - |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | string | - |
 | header | 顶部 slot，接收 errors、status | slot | - |
-| tooltip | 表单项提示信息 | string | - |
+| tooltip | 表单项提示信息 | string\|slot | - |
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |
 | message | 校验错误信息。如不设置，则会根据校验规则自动生成 | string | false |
 | requiredMark | 必填选填的标记样式，可选 `asterisk` `text-required` `text-optional` | string | asterisk |

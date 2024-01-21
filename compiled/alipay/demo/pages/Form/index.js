@@ -18,6 +18,7 @@ Page({
             { value: 'football', text: '⚽️' },
             { value: 'badminton', text: '🏸️' },
         ],
+        toastShow: false,
     },
     onLoad() {
         this.form = new Form();
@@ -42,6 +43,16 @@ Page({
             setTimeout(() => {
                 resolve('https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ');
             }, 2000);
+        });
+    },
+    showToast() {
+        this.setData({
+            toastShow: true,
+        });
+    },
+    handleCloseToast() {
+        this.setData({
+            toastShow: false,
         });
     },
 });

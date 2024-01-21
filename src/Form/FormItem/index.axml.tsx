@@ -43,19 +43,16 @@ export default (
               }`}
             >
               <View class="ant-form-item-label-text">{label}</View>
-              <Slot name="tooltip">
-                {tooltip && (
-                  <Popover>
-                    <View
-                      slot="content"
-                      class="ant-form-item-label-help-content"
-                    >
-                      {tooltip}
-                    </View>
-                    <AntIcon type="QuestionCircleOutline" />
-                  </Popover>
-                )}
-              </Slot>
+              {tooltip ? (
+                <Popover>
+                  <View slot="content" class="ant-form-item-label-help-content">
+                    {tooltip}
+                  </View>
+                  <AntIcon type="QuestionCircleOutline" />
+                </Popover>
+              ) : (
+                <Slot name="tooltip" />
+              )}
             </View>
           )}
           <View class={`ant-form-item-field ant-form-item-field-${position}`}>

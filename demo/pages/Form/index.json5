@@ -22,6 +22,8 @@
     "form-upload-image": "../../../src/Form/FormImageUpload/index",
     "form-rate": "../../../src/Form/FormRate/index",
     "form-textarea": "../../../src/Form/FormTextarea/index",
-    "ant-button": "../../../src/Button/index"
+    "ant-button": "../../../src/Button/index",
+    "icon": "../../../src/Icon/index",
+    "toast": "../../../src/Toast/index"
   }
 }

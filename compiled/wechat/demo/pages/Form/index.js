@@ -62,6 +62,7 @@ Page({
             { value: 'football', text: '⚽️' },
             { value: 'badminton', text: '🏸️' },
         ],
+        toastShow: false,
     },
     onLoad: function () {
         var _this = this;
@@ -93,6 +94,16 @@ Page({
                         return [2 /*return*/];
                 }
             });
+        });
+    },
+    showToast: function () {
+        this.setData({
+            toastShow: true,
+        });
+    },
+    handleCloseToast: function () {
+        this.setData({
+            toastShow: false,
         });
     },
 });
