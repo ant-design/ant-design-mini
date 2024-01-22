@@ -57,7 +57,7 @@
 </container>
 <container title="可滑动">
   <grid
-    items="{{ items4.concat(items4) }}"
+    items="{{ scrollItems }}"
     onTap="handleTapItem"
     mode="scroll" />
 </container>

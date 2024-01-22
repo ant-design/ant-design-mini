@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "image-icon": "../ImageIcon/index",
-    "pagination": "../Pagination/index"
+    "ant-pagination": "../Pagination/index"
   }
 }

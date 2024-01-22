@@ -1,5 +1,6 @@
 function changeScollDistance(event, ownerComponent) {
-  const { scrollLeft, scrollWidth } = event.detail;
+  const scrollLeft = event.detail.scrollLeft;
+  const scrollWidth = event.detail.scrollWidth;
   const viewWidth = ownerComponent
     .selectComponent('.ant-page-infinite-content')
     .getBoundingClientRect().width;

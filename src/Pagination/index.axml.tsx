@@ -1,7 +1,13 @@
-import { ScrollView, View, Slot, InternalData, Component } from 'tsxml';
-import { TSXMLProps } from 'tsxml';
-import { IPaginationProps } from './props';
+import {
+  Component,
+  InternalData,
+  ScrollView,
+  Slot,
+  TSXMLProps,
+  View,
+} from 'tsxml';
 import sjs from './index.sjs';
+import { IPaginationProps } from './props';
 
 export default (
   { className, style, fillColor, frontColor }: TSXMLProps<IPaginationProps>,
@@ -12,7 +18,7 @@ export default (
       <ScrollView
         scroll-x={true}
         class="ant-page-infinite-content"
-        id={`ant-pageInfinite-${$id}`}
+        id={`ant-pageInfinite${$id ? '-' + $id : ''}`}
         onScroll={supportSjs ? sjs.changeScollDistance : 'onScroll'}
       >
         <Slot></Slot>

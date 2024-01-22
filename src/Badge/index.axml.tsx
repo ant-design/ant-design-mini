@@ -27,16 +27,16 @@ export default (
       >
         <View
           class={`ant-badge-dot ${stroke ? 'ant-badge-dot-stroke' : ''}`}
-          style={bgColor ? `background-color: ${bgColor};` : ''}
+          style={bgColor ? 'background-color: ' + bgColor + ';' : ''}
         ></View>
       </View>
     ) : (
       <View
         class={`ant-badge-content ant-badge-content-not-dot ${
-          type === 'bubble' ? `ant-badge-content-${position}-bubble` : ''
+          type === 'bubble' ? 'ant-badge-content-' + position + '-bubble' : ''
         } ${stroke ? 'ant-badge-content-stroke' : ''}`}
         style={`${
-          bgColor ? `background-color: ${bgColor};` : ''
+          bgColor ? 'background-color: ' + bgColor + ';' : ''
         } ${_sjs.setBubbleStyle(type, position)};${_sjs.setPositionStyle(
           position,
           offsetX,
@@ -45,8 +45,12 @@ export default (
       >
         <View class="ant-badge-icon-container"></View>
         <View class="ant-badge-content-text">
+          {/* #if WECHAT */}
+          {!text && <Slot name="text"></Slot>}
+          {/* #endif */}
           {/* #if ALIPAY */}
           <Slot name="text">
+            {/* #endif */}
             {type === 'number' && (
               <View class="ant-badge-number">
                 {overCount ? <Text>99+</Text> : <Text>{text}</Text>}
@@ -54,6 +58,7 @@ export default (
             )}
             {type === 'text' && <View class="ant-badge-text">{text}</View>}
             {type === 'bubble' && <View class="ant-badge-bubble">{text}</View>}
+            {/* #if ALIPAY */}
           </Slot>
           {/* #endif */}
         </View>

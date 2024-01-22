@@ -14,4 +14,6 @@ export interface IPaginationProps extends IBaseProps {
 }
 
 export const PaginationDefaultProps: Partial<IPaginationProps> = {
+  fillColor: '',
+  frontColor: '',
 };

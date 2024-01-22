@@ -10,10 +10,6 @@ export interface IBadgeProps extends IBaseProps {
    */
   type: 'dot' | 'number' | 'text' | 'bubble';
   /**
-   * @description 数字内容，超过 99 会自动变成 99+
-   */
-  number: number;
-  /**
    * @description 红点内容，为空时表示只显示红点；可以是数字，也可以是文字；如果是数字，超过 99 会自动变成 ...
    */
   text: string | number;
@@ -56,5 +52,14 @@ export const BadgeDefaultProps: Partial<IBadgeProps> = {
   stroke: false,
   type: 'dot',
   bgColor: '',
-  style: '',
+};
+
+export const BadgeFunctionalProps: Partial<IBadgeProps> = {
+  type: 'dot',
+  text: '',
+  position: 'top-right',
+  offsetX: null,
+  offsetY: null,
+  stroke: false,
+  bgColor: '',
 };

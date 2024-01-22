@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/Badge",
+    "pages/Grid",
     "pages/Toast",
     "pages/Checklist",
     "pages/Modal",
@@ -90,6 +92,9 @@
     "GuideTour",
     "Modal",
     "Checklist",
-    "Toast"
+    "Toast",
+    "Grid",
+    "Pagination",
+    "Badge"
   ]
 }

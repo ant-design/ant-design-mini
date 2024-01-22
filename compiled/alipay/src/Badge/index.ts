@@ -1,20 +1,21 @@
-import { BadgeDefaultProps } from './props';
-import computed from '../mixins/computed';
+import { useMemo } from 'functional-mini/compat';
 import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import { BadgeFunctionalProps, IBadgeProps } from './props';
 
-Component({
-  mixins: [computed],
-  props: BadgeDefaultProps,
-  methods: {
-    computed(props) {
-      const { text } = props;
-      let overCount = false;
-      if (typeof text === 'number') {
-        if (text >= 100) {
-          overCount = true;
-        }
+const Badge = (props: IBadgeProps) => {
+  const overCount = useMemo(() => {
+    const { text } = props;
+    let overCount = false;
+    if (typeof text === 'number') {
+      if (text >= 100) {
+        overCount = true;
       }
-      return { overCount };
-    },
-  },
-});
+    }
+    return overCount;
+  }, [props.text]);
+
+  return { overCount };
+};
+
+mountComponent(Badge, BadgeFunctionalProps);

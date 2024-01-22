@@ -118,6 +118,11 @@ Page({
             },
         ],
     },
+    onLoad() {
+        this.setData({
+            scrollItems: this.data.items4.concat(this.data.items4),
+        });
+    },
     handleTapItem(item) {
         my.alert({ title: '点击了', content: JSON.stringify(item) });
     },
