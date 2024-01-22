@@ -48,7 +48,7 @@ export default (
         <View class="ant-number-keyboard-kb_bd">
           <View class="ant-number-keyboard-kb_keys">
             {(random ? randomArr : numArr).map((item) => (
-              <View class="ant-number-keyboard-kb_row" a:for-item="item">
+              <View class="ant-number-keyboard-kb_row">
                 {item.map((itemKey) => (
                   <View
                     data-key={itemKey}
