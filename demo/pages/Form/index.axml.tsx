@@ -14,7 +14,8 @@ import FormUploadImage from '../../../src/Form/FormImageUpload/index.axml';
 import FormRate from '../../../src/Form/FormRate/index.axml';
 import FormTextarea from '../../../src/Form/FormTextarea/index.axml';
 import AntButton from '../../../src/Button/index.axml';
-import Icon from '../../../src/Icon/index.axml';
+import AntIcon from '../../../src/Icon/index.axml';
+import AntToast from '../../../src/Toast/index.axml';
 
 export default ({
   fruitList,
@@ -23,6 +24,7 @@ export default ({
   checkboxGroupOptions,
   selectorOptions,
   onUpload,
+  toastShow,
 }) => (
   <Page>
     <FormInput
@@ -41,7 +43,7 @@ export default ({
       ref="handleRef"
     >
       <View slot="tooltip">
-        <Icon onTap="showToast" type="QuestionCircleOutline" />
+        <AntIcon onTap="showToast" type="QuestionCircleOutline" />
       </View>
     </FormInput>
     <FormInput
@@ -111,10 +113,9 @@ export default ({
       </AntButton>
       <AntButton onTap="reset">重置</AntButton>
     </View>
-
-    <toast
+    <AntToast
       content="密码的自定义 tooltip"
-      visible="{{toastShow}}"
+      visible={toastShow}
       onClose="handleCloseToast"
     />
   </Page>

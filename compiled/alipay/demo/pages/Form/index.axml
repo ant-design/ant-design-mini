@@ -12,7 +12,7 @@
   allowClear
   ref="handleRef">
   <view slot="tooltip">
-    <icon
+    <ant-icon
       onTap="showToast"
       type="QuestionCircleOutline" />
   </view>
@@ -100,8 +100,7 @@
   </ant-button>
   <ant-button onTap="reset">重置</ant-button>
 </view>
-
-<toast
+<ant-toast
   content="密码的自定义 tooltip"
-  visible="{{toastShow}}"
+  visible="{{ toastShow }}"
   onClose="handleCloseToast" />
