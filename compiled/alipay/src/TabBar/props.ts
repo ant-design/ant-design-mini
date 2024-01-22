@@ -50,6 +50,9 @@ export interface ITabBarProps extends IBaseProps {
    */
   activeColor: string;
 
+  activeClassName?: string;
+
+  activeStyle?: string;
   /**
    * @description tabbar 切换时的回调
    */
