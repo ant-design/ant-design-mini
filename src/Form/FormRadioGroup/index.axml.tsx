@@ -55,6 +55,12 @@ export default (
         </RadioGroup>
       </View>
 
+      {!tooltip && (
+        <View slot="tooltip">
+          <Slot name="tooltip" />
+        </View>
+      )}
+
       <View slot="extra">
         <Slot name="extra">{extra}</Slot>
       </View>

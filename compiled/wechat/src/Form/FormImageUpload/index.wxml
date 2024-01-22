@@ -21,6 +21,11 @@
     onPreview="onPreview"
     onBeforeUpload="{{ handleBeforeUpload ? handleBeforeUpload : 'handleBeforeUpload' }}"
     onChooseImageError="onChooseImageError" />
+  <view
+    wx:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
   <view slot="extra">{{ extra }}</view>
   <view
     slot="header"

@@ -20,6 +20,9 @@
           </view>
           <ant-icon type="QuestionCircleOutline" />
         </popover>
+        <slot
+          a:else
+          name="tooltip" />
       </view>
       <view class="ant-form-item-field ant-form-item-field-{{ position }}">
         <slot />

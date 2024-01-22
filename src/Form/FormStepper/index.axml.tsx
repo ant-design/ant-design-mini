@@ -62,6 +62,11 @@ export default (
           onFocus="onFocus"
         />
       </View>
+      {!tooltip && (
+        <View slot="tooltip">
+          <Slot name="tooltip" />
+        </View>
+      )}
       <View slot="extra">
         {/* #if ALIPAY */}
         <Slot name="extra">

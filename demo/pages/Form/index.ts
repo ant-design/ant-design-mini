@@ -31,6 +31,7 @@ Page({
       { value: 'football', text: '⚽️' },
       { value: 'badminton', text: '🏸️' },
     ],
+    toastShow: false,
   },
   onLoad() {
     this.form = new Form();
@@ -79,4 +80,14 @@ Page({
     });
   },
   /// #endif
+  showToast() {
+    this.setData({
+      toastShow: true,
+    });
+  },
+  handleCloseToast() {
+    this.setData({
+      toastShow: false,
+    });
+  },
 });

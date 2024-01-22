@@ -6,6 +6,18 @@
   allowClear
   ref="handleRef" />
 <form-input
+  label="密码"
+  name="password"
+  placeholder="请输入密码"
+  allowClear
+  ref="handleRef">
+  <view slot="tooltip">
+    <icon
+      onTap="showToast"
+      type="QuestionCircleOutline" />
+  </view>
+</form-input>
+<form-input
   label="地址"
   name="address"
   placeholder="请输入地址"
@@ -88,3 +100,8 @@
   </ant-button>
   <ant-button onTap="reset">重置</ant-button>
 </view>
+
+<toast
+  content="密码的自定义 tooltip"
+  visible="{{toastShow}}"
+  onClose="handleCloseToast" />

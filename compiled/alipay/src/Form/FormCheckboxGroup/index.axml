@@ -26,6 +26,11 @@
         index="{{ props.index }}" />
     </checkbox-group>
   </view>
+  <view
+    a:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
   <view slot="extra">
     <slot name="extra">{{ extra }}</slot>
   </view>
