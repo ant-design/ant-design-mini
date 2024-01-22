@@ -1,4 +1,4 @@
-import { Component, InternalData, TSXMLProps, View, Slot, Text } from 'tsxml';
+import { Component, InternalData, Slot, Text, TSXMLProps, View } from 'tsxml';
 import AntBadge from '../Badge/index.axml';
 import ImageIcon from '../ImageIcon/index.axml';
 import { ITabBarProps } from './props';
@@ -10,7 +10,6 @@ export default (
     items,
     activeClassName,
     activeStyle,
-    onChange,
   }: TSXMLProps<ITabBarProps>,
   { mixin }: InternalData
 ) => (
@@ -21,15 +20,14 @@ export default (
           <View
             class={`ant-tab-bar-item ${
               index === mixin.value
-                ? `ant-tab-bar-item-active${activeClassName || ''}`
+                ? 'ant-tab-bar-item-active' + (activeClassName || '')
                 : ''
             }`}
             style={index === mixin.value ? activeStyle || '' : ''}
-            onTap={onChange}
+            onTap="onChange"
             data-index={index}
-            key={index}
           >
-            {item.badge && (
+            {item.badge ? (
               <AntBadge
                 type={item.badge.type}
                 text={item.badge.text}
@@ -52,24 +50,19 @@ export default (
                   />
                 </Slot>
               </AntBadge>
+            ) : (
+              <Slot
+                name="icon"
+                active={mixin.value == index}
+                item={item}
+                index={index}
+              >
+                <ImageIcon
+                  className="ant-tab-bar"
+                  image={mixin.value === index ? item.activeIcon : item.icon}
+                />
+              </Slot>
             )}
-            {/* #if ALIPAY */}
-            <Slot
-              name="icon"
-              active={mixin.value == index}
-              item={item}
-              index={index}
-            >
-              {/* #endif */}
-
-              <ImageIcon
-                className="ant-tab-bar"
-                image={mixin.value === index ? item.activeIcon : item.icon}
-              />
-
-              {/* #if ALIPAY */}
-            </Slot>
-            {/* #endif */}
             <View class="ant-tab-bar-text-wrap">
               {/* #if ALIPAY */}
               <Slot
