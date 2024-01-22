@@ -1,8 +1,8 @@
 {
   "defaultTitle": "Toast",
   "usingComponents": {
-    "toast": "../../../src/Toast/index",
-    "button": "../../../src/Button/index",
+    "ant-toast": "../../../src/Toast/index",
+    "ant-button": "../../../src/Button/index",
     "container": "../../../src/Container/index"
   }
 }

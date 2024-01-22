@@ -228,6 +228,7 @@ function getInstance(
     COV: cov,
     require,
     setTimeout,
+    clearTimeout,
     Component: (obj) => {
       result = createInstance(obj, props, component2Patch(api));
     },

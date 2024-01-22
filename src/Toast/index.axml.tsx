@@ -15,7 +15,7 @@ export default (
     maskStyle,
     style,
   }: TSXMLProps<IToastProps>,
-  { show }: InternalData
+  { show, displayContent }: InternalData
 ) => (
   <Component>
     {show && (
@@ -51,9 +51,14 @@ export default (
         )}
         <View class="ant-toast-text-body">
           <View class="ant-toast-text-box">
+            {/* #if ALIPAY */}
             <View class="ant-toast-text-content">
               {content.substring(0, 24)}
             </View>
+            {/* #endif */}
+            {/* #if WECHAT */}
+            <View class="ant-toast-text-content">{displayContent}</View>
+            {/* #endif */}
           </View>
         </View>
       </View>

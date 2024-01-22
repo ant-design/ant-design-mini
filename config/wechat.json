@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Toast",
     "pages/Checklist",
     "pages/Modal",
     "pages/GuideTour",
@@ -88,6 +89,7 @@
     "Skeleton",
     "GuideTour",
     "Modal",
-    "Checklist"
+    "Checklist",
+    "Toast"
   ]
 }

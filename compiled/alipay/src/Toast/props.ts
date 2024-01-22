@@ -3,12 +3,7 @@ import { IBaseProps, IconType } from '../_util/base';
  * @description 标签，突出利益点、以及属性说明。
  */
 
-declare enum EnumToastType {
-  success = "success",
-  warning = "warning",
-  error = "error",
-  loading = "loading"
-}
+type EnumToastType = 'success' | 'warning' | 'error' | 'loading';
 
 export interface IToastProps extends IBaseProps {
   /**
@@ -32,10 +27,6 @@ export interface IToastProps extends IBaseProps {
    * @default 2000
    */
   duration: number;
-  /**
-   * @description 类名
-   */
-  className: string;
   /**
    * @description 是否展示 Toast
    */
@@ -61,5 +52,17 @@ export const ToastDefaultProps: Partial<IToastProps> = {
   maskCloseable: false,
   type: null,
   maskStyle: '',
-  style: ''
+  style: '',
+};
+
+export const ToastFunctionalProps: Partial<IToastProps> = {
+  content: null,
+  icon: null,
+  image: null,
+  duration: 2000,
+  visible: false,
+  showMask: false,
+  maskCloseable: false,
+  maskStyle: '',
+  type: null,
 };
