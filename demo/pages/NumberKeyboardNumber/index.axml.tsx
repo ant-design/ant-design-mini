@@ -11,8 +11,11 @@ export default ({ value, visible }: InternalData) => (
           class={`number-content ${value ? '' : 'number-placeholder'}`}
           catchTap="onNumberFocus"
         >
-          {value && <Text>{value}</Text>}
-          {!value && <Text class="number-content-tip">0.00</Text>}
+          {value ? (
+            <Text>{value}</Text>
+          ) : (
+            <Text class="number-content-tip">0.00</Text>
+          )}
           {visible && (
             <View
               class="number-light"

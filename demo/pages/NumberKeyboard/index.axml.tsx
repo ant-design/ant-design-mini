@@ -29,7 +29,7 @@ export default ({
       <NumberKeyboard visible={visible} onClose="onTap" />
 
       <ListItem onTap="onTap1">没有小数点</ListItem>
-      <NumberKeyboard visible={visible1} point={false} onClose="onTap1" />
+      <NumberKeyboard point={false} visible={visible1} onClose="onTap1" />
 
       <ListItem onTap="onTap2">带确认按钮</ListItem>
       <NumberKeyboard confirmText="确认" visible={visible2} onClose="onTap2" />
@@ -44,26 +44,18 @@ export default ({
     <List header="自定义按钮">
       <ListItem onTap="onTap6">自定义标题</ListItem>
       <NumberKeyboard visible={visible6} onClose="onTap6">
-        {/* #if ALIPAY */}
-        <Slot name="header">
-          {/* #endif */}
+        <View slot="header">
           <View class="number-keyboard-header">支付宝安全键盘</View>
-          {/* #if ALIPAY */}
-        </Slot>
-        {/* #endif */}
+        </View>
       </NumberKeyboard>
 
       <ListItem onTap="onTap7">自定义确认按钮</ListItem>
       <NumberKeyboard confirmText="确认" visible={visible7} onClose="onTap7">
-        {/* #if ALIPAY */}
-        <Slot name="confirm">
-          {/* #endif */}
+        <View slot="confirm">
           <View class="number-keyboard-confirm">
             <Icon type="DownOutline" />
           </View>
-          {/* #if ALIPAY */}
-        </Slot>
-        {/* #endif */}
+        </View>
       </NumberKeyboard>
     </List>
   </Page>

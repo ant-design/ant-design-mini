@@ -1,4 +1,4 @@
-<list header="{{ header }}">
+<list header="数字键盘示例: 金额输入">
   <list-item>
     <view
       class="number-content {{ value ? '' : 'number-placeholder' }}"
@@ -7,7 +7,7 @@
       <text a:if="{{ value }}">{{ value }}</text>
       <!-- display: inline -->
       <text
-        a:if="{{ !value }}"
+        a:else
         class="number-content-tip"
         >0.00</text
       >

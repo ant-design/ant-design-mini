@@ -1,4 +1,4 @@
-import { Component, InternalData, TSXMLProps, View } from 'tsxml';
+import { Component, InternalData, TSXMLProps, View, Slot } from 'tsxml';
 import AntIcon from '../Icon/index.axml';
 import { INumberKeyboardProps } from './props';
 
@@ -14,11 +14,11 @@ export default (
     point,
     confirmDisabled,
   }: TSXMLProps<INumberKeyboardProps>,
-  { numArr, randomArr }: InternalData
+  { numArr, randomArr, $id }: InternalData
 ) => (
   <Component>
     <View
-      key={`ant-number-input-${Math.random()}`}
+      key={`ant-number-input-${$id}`}
       style={style}
       class={`ant-number-keyboard ${className || ''}`}
     >
@@ -35,7 +35,7 @@ export default (
           visible ? '' : 'ant-number-keyboard-kb_hide'
         }`}
       >
-        <slot name="header">
+        <Slot name="header">
           {closeable && (
             <View onTap="onHide" class="ant-number-keyboard-kb_none">
               <AntIcon
@@ -44,7 +44,7 @@ export default (
               />
             </View>
           )}
-        </slot>
+        </Slot>
         <View class="ant-number-keyboard-kb_bd">
           <View class="ant-number-keyboard-kb_keys">
             {(random ? randomArr : numArr).map((item) => (

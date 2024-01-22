@@ -1,28 +1,21 @@
-import { View, Text, InternalData, Page } from 'tsxml';
-import NumberKeyboard from '../../../src/NumberKeyboard/index.axml';
-import ListItem from '../../../src/List/ListItem/index.axml';
+import { InternalData, Page, Text, View } from 'tsxml';
 import List from '../../../src/List/index.axml';
+import ListItem from '../../../src/List/ListItem/index.axml';
+import NumberKeyboard from '../../../src/NumberKeyboard/index.axml';
 
-interface Props {
-  header?: string;
-  value?: string;
-  visible?: boolean;
-  position?: string;
-  onChange: () => void;
-  onClose: () => void;
-  onAmountFocus: () => void;
-}
-
-export default ({ header, value, visible }: InternalData) => (
+export default ({ value, visible }: InternalData) => (
   <Page>
-    <List header={header}>
+    <List header="数字键盘示例: 金额输入">
       <ListItem>
         <View
           class={`number-content ${value ? '' : 'number-placeholder'}`}
           catchTap="onAmountFocus"
         >
-          {value && <Text>{value}</Text>}
-          {!value && <Text class="number-content-tip">0.00</Text>}
+          {value ? (
+            <Text>{value}</Text>
+          ) : (
+            <Text class="number-content-tip">0.00</Text>
+          )}
           {visible && (
             <View
               class="number-light"

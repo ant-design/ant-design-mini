@@ -4,15 +4,11 @@
       class="number-code"
       catchTap="onCodeFocus">
       <block
-        a:for="{{ Array.from({
-  length: 4,
-}) }}"
+        a:for="{{ 4 }}"
         a:for-index="index"
-        a:for-item="_val"
-        a:key="{{ index }}">
+        a:for-item="item">
         <view
-          class="{{ ;`number-code-view ` +
-  (visible && value.length === index ? 'number-code-border' : '') }}">
+          class="number-code-view {{ visible && value.length === index ? 'number-code-border' : '' }}">
           {{ value[index] || '' }}
           <view
             a:if="{{ visible && value.length === index }}"

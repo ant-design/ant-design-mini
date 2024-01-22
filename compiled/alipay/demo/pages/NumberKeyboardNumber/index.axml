@@ -7,7 +7,7 @@
       <text a:if="{{ value }}">{{ value }}</text>
       <!-- display: inline -->
       <text
-        a:if="{{ !value }}"
+        a:else
         class="number-content-tip"
         >0.00</text
       >

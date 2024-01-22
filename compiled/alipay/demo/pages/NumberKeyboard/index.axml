@@ -6,8 +6,8 @@
 
   <list-item onTap="onTap1">没有小数点</list-item>
   <number-keyboard
-    visible="{{ visible1 }}"
     point="{{ false }}"
+    visible="{{ visible1 }}"
     onClose="onTap1" />
 
   <list-item onTap="onTap2">带确认按钮</list-item>
@@ -34,9 +34,9 @@
   <number-keyboard
     visible="{{ visible6 }}"
     onClose="onTap6">
-    <slot name="header">
+    <view slot="header">
       <view class="number-keyboard-header">支付宝安全键盘</view>
-    </slot>
+    </view>
   </number-keyboard>
 
   <list-item onTap="onTap7">自定义确认按钮</list-item>
@@ -44,10 +44,10 @@
     confirmText="确认"
     visible="{{ visible7 }}"
     onClose="onTap7">
-    <slot name="confirm">
+    <view slot="confirm">
       <view class="number-keyboard-confirm">
         <icon type="DownOutline" />
       </view>
-    </slot>
+    </view>
   </number-keyboard>
 </list>
