@@ -23,7 +23,7 @@
     "form-rate": "../../../src/Form/FormRate/index",
     "form-textarea": "../../../src/Form/FormTextarea/index",
     "ant-button": "../../../src/Button/index",
-    "icon": "../../../src/Icon/index",
-    "toast": "../../../src/Toast/index"
+    "ant-icon": "../../../src/Icon/index",
+    "ant-toast": "../../../src/Toast/index"
   }
 }
