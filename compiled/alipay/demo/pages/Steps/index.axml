@@ -36,14 +36,13 @@
     items="{{ items }}"
     current="{{ 2 }}">
     <block
-      a:for="{{ iconList }}"
-      a:for-index="index"
-      a:for-item="iconType">
+      slot="icon"
+      slot-scope="item">
       <icon
-        a:if="{{ iconType }}"
-        slot="icon"
-        type="{{ iconType }}" />
+        a:if="{{ iconList[item.index] }}"
+        type="{{ iconList[item.index] }}" />
     </block>
+
     <view
       slot="title"
       slot-scope="item">

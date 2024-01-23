@@ -1,9 +1,9 @@
-import { Page, InternalData, View } from 'tsxml';
+import { Page, InternalData, View, Block } from 'tsxml';
 import Steps from '../../../src/Steps/index.axml';
 import Icon from '../../../src/Icon/index.axml';
 import Container from '../../../src/Container/index.axml';
 
-export default ({ items, iconList, item }: InternalData) => (
+export default ({ items, item, iconList }: InternalData) => (
   <Page>
     <Container title="横向步骤条">
       <Steps items={items} />
@@ -29,9 +29,10 @@ export default ({ items, iconList, item }: InternalData) => (
 
     <Container title="更多自定义">
       <Steps items={items} current={2}>
-        {iconList.map(
-          (iconType) => iconType && <Icon slot="icon" type={iconType} />
-        )}
+        <Block slot="icon" slot-scope="item">
+          {iconList[item.index] && <Icon type={iconList[item.index]} />}
+        </Block>
+
         <View slot="title" slot-scope="item">
           {item.index + 1}
         </View>

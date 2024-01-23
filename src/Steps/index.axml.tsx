@@ -18,10 +18,11 @@ export default ({
     >
       {items.map((item, index) => (
         <View
-          class={`ant-steps-item ant-steps-item-${direction}
-          ${index < current ? 'ant-steps-item-finish' : ''}
-          ${index === current ? 'ant-steps-item-active' : ''}
-          ${index > current ? 'ant-steps-item-non-active' : ''}`}
+          class={`ant-steps-item ant-steps-item-${direction} ${
+            index < current ? 'ant-steps-item-finish' : ''
+          } ${index === current ? 'ant-steps-item-active' : ''} ${
+            index > current ? 'ant-steps-item-non-active' : ''
+          }`}
         >
           <View
             class={`ant-steps-item-indicator ant-steps-item-indicator-${direction}`}
