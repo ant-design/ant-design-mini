@@ -10,7 +10,9 @@ async function check() {
   );
 
   const doneSet = new Set(
-    ['.umi-production', '.umi', 'tsxml', 'IndexBar'].concat(src).concat(pages)
+    ['.umi-production', '.umi', 'tsxml', 'IndexBar']
+      .concat(src)
+      .concat(pages.map((o) => o.replace('pages/', '')))
   );
 
   console.log('------pages-------');
