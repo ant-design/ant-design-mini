@@ -3,22 +3,25 @@
     <view
       class="number-code"
       catchTap="onCodeFocus">
-      <view
-        a:for="{{4}}"
+      <block
+        a:for="{{ 4 }}"
         a:for-index="index"
-        class="number-code-view {{ visible && value.length === index ? 'number-code-border' : '' }}">
-        {{value[index] || ''}}
+        a:for-item="item">
         <view
-          a:if="{{visible && value.length === index}}"
-          class="number-code-tip" />
-      </view>
+          class="number-code-view {{ visible && value.length === index ? 'number-code-border' : '' }}">
+          {{ value[index] || '' }}
+          <view
+            a:if="{{ visible && value.length === index }}"
+            class="number-code-tip" />
+        </view>
+      </block>
     </view>
   </list-item>
   <number-keyboard
-    visible="{{visible}}"
-    point="{{false}}"
-    closeable="{{true}}"
-    value="{{value}}"
+    visible="{{ visible }}"
+    point="{{ false }}"
+    closeable="{{ true }}"
+    value="{{ value }}"
     onChange="onChange"
     onClose="onClose" />
 </list>
