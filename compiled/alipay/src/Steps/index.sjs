@@ -11,5 +11,6 @@ function getClassName(current, index, status) {
   }
   return 'non-active';
 }
-
-export default { getClassName };
+export default {
+  getClassName: getClassName
+};

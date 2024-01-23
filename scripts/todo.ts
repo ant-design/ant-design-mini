@@ -9,17 +9,18 @@ async function check() {
   );
 
   const doneSet = new Set(
-    ['.umi-production', '.umi', 'tsxml'].concat(src).concat(pages)
+    ['.umi-production', '.umi', 'tsxml', 'IndexBar'].concat(src).concat(pages)
   );
 
-  console.log('------files-------');
-  filesList.forEach((e) => {
+  console.log('------pages-------');
+  pagesList.forEach((e) => {
     if (!doneSet.has(e)) {
       console.log(e);
     }
   });
-  console.log('------pages-------');
-  pagesList.forEach((e) => {
+
+  console.log('------files-------');
+  filesList.forEach((e) => {
     if (!doneSet.has(e)) {
       console.log(e);
     }
