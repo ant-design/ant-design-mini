@@ -20,7 +20,7 @@ export default (
           <View
             class={`ant-tab-bar-item ${
               index === mixin.value
-                ? 'ant-tab-bar-item-active' + (activeClassName || '')
+                ? 'ant-tab-bar-item-active ' + (activeClassName || '')
                 : ''
             }`}
             style={index === mixin.value ? activeStyle || '' : ''}
