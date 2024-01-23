@@ -1,30 +1,30 @@
 <container title="横向步骤条">
-  <steps items="{{items}}" />
+  <steps items="{{ items }}" />
 </container>
 
 <container title="横向步骤条失败">
   <steps
-    items="{{items}}"
+    items="{{ items }}"
     status="error"
-    current="{{1}}" />
+    current="{{ 1 }}" />
 </container>
 
 <container title="纵向步骤条">
   <steps
-    items="{{items}}"
+    items="{{ items }}"
     direction="vertical" />
 </container>
 
 <container title="纵向步骤条失败">
   <steps
-    items="{{items}}"
+    items="{{ items }}"
     status="error"
-    current="{{1}}"
+    current="{{ 1 }}"
     direction="vertical" />
 </container>
 
 <container title="自定义图标">
-  <steps items="{{items}}">
+  <steps items="{{ items }}">
     <icon
       slot="icon"
       type="SmileFill" />
@@ -33,25 +33,27 @@
 
 <container title="更多自定义">
   <steps
-    items="{{items}}"
-    current="{{2}}">
-    <icon
+    items="{{ items }}"
+    current="{{ 2 }}">
+    <block
       slot="icon"
-      slot-scope="item"
-      type="{{iconList[item.index]}}"
-      a:if="{{iconList[item.index]}}" />
+      slot-scope="item">
+      <icon
+        a:if="{{ iconList[item.index] }}"
+        type="{{ iconList[item.index] }}" />
+    </block>
 
     <view
       slot="title"
       slot-scope="item">
-      {{item.index + 1}}
+      {{ item.index + 1 }}
     </view>
 
     <view
       slot="description"
       slot-scope="item">
-      <view>{{item.value.title}}</view>
-      <view>{{item.value.description}}</view>
+      <view>{{ item.value.title }}</view>
+      <view>{{ item.value.description }}</view>
     </view>
   </steps>
 </container>

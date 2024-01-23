@@ -31,7 +31,6 @@ export default (
               <AntBadge
                 type={item.badge.type}
                 text={item.badge.text}
-                number={item.badge.number}
                 stroke={item.badge.stroke}
                 bgColor={item.badge.bgColor}
                 position={item.badge.position || 'top-right'}
