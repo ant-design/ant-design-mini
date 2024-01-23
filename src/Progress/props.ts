@@ -8,7 +8,7 @@ export interface IProgressBarProps extends IBaseProps {
    * @description 当前进度，范围 0-100
    * @default 0
    */
-  percent: number;
+  percent: number | string;
 
   /**
    * @description 模式
@@ -22,7 +22,7 @@ export interface IProgressBarProps extends IBaseProps {
   /**
    * @description 进度条宽度，单位px
    */
-  strokeWidth: number;
+  strokeWidth: number | string;
   /**
    * @description 状态，仅限 line
    */

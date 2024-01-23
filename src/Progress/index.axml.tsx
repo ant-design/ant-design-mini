@@ -1,0 +1,80 @@
+import AntIcon from '../Icon/index.axml';
+import { IProgressBarProps } from './props';
+
+import {
+  Block,
+  Canvas,
+  Component,
+  InternalData,
+  Slot,
+  TSXMLProps,
+  View,
+} from 'tsxml';
+
+export default (
+  {
+    type,
+    className,
+    style,
+    width,
+    $id,
+    strokeWidth,
+    trailColor,
+    status,
+    strokeColor,
+    percent,
+  }: TSXMLProps<IProgressBarProps>,
+  { canvasWidth }: InternalData
+) => (
+  <Component>
+    <View
+      class={`ant-progress ant-progress-${type} ${className || ''}`}
+      style={`${style || ''};${
+        type === 'circle' ? 'width:' + width + 'px;height:' + width + 'px;' : ''
+      }`}
+    >
+      {type === 'circle' ? (
+        <Canvas
+          class="ant-progress-canvas"
+          id={`ant-progress-canvas-${$id}`}
+          width={canvasWidth}
+          height={canvasWidth}
+        />
+      ) : (
+        type === 'line' && (
+          <View
+            class="ant-progress-outer"
+            style={`${strokeWidth ? 'height:' + strokeWidth + 'px;' : ''}${
+              trailColor ? 'background-color:' + trailColor : ''
+            }`}
+          >
+            <View
+              class={`ant-progress-inner ${
+                status === 'success' || status === 'exception'
+                  ? 'ant-progress-inner-' + status
+                  : ''
+              }`}
+              style={`width: ${percent}%; ${
+                strokeColor ? 'background-color:' + strokeColor : ''
+              }`}
+            ></View>
+          </View>
+        )
+      )}
+      <View class="ant-progress-indicator">
+        <Slot name="indicator" percent={percent}>
+          {status === 'success' || status === 'exception' ? (
+            <AntIcon
+              type={
+                status === 'success' ? 'CheckCircleFill' : 'CloseCircleFill'
+              }
+              className={`ant-progress-status-icon ant-progress-status-icon-${status}`}
+            />
+          ) : (
+            <Block>{percent}%</Block>
+          )}
+        </Slot>
+      </View>
+    </View>
+  </Component>
+);
