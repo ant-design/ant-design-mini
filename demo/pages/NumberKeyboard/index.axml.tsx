@@ -44,17 +44,15 @@ export default ({
     <List header="自定义按钮">
       <ListItem onTap="onTap6">自定义标题</ListItem>
       <NumberKeyboard visible={visible6} onClose="onTap6">
-        <View slot="header">
-          <View class="number-keyboard-header">支付宝安全键盘</View>
+        <View slot="header" class="number-keyboard-header">
+          支付宝安全键盘
         </View>
       </NumberKeyboard>
 
       <ListItem onTap="onTap7">自定义确认按钮</ListItem>
       <NumberKeyboard confirmText="确认" visible={visible7} onClose="onTap7">
-        <View slot="confirm">
-          <View class="number-keyboard-confirm">
-            <Icon type="DownOutline" />
-          </View>
+        <View slot="confirm" class="number-keyboard-confirm">
+          <Icon type="DownOutline" />
         </View>
       </NumberKeyboard>
     </List>

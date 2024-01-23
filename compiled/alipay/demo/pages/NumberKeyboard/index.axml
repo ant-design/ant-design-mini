@@ -34,8 +34,10 @@
   <number-keyboard
     visible="{{ visible6 }}"
     onClose="onTap6">
-    <view slot="header">
-      <view class="number-keyboard-header">支付宝安全键盘</view>
+    <view
+      slot="header"
+      class="number-keyboard-header">
+      支付宝安全键盘
     </view>
   </number-keyboard>
 
@@ -44,10 +46,10 @@
     confirmText="确认"
     visible="{{ visible7 }}"
     onClose="onTap7">
-    <view slot="confirm">
-      <view class="number-keyboard-confirm">
-        <icon type="DownOutline" />
-      </view>
+    <view
+      slot="confirm"
+      class="number-keyboard-confirm">
+      <icon type="DownOutline" />
     </view>
   </number-keyboard>
 </list>
