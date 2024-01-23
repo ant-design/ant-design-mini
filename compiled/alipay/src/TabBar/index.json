@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "badge": "../Badge/index",
+    "ant-badge": "../Badge/index",
     "image-icon": "../ImageIcon/index"
   }
 }
