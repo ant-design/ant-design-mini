@@ -1,8 +1,8 @@
 {
   "defaultTitle": "Empty",
   "usingComponents": {
-    "empty": "../../../src/Empty/index",
-    "container": "../../../src/Container/index",
-    "button": "../../../src/Button/index"
+    "ant-empty": "../../../src/Empty/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-button": "../../../src/Button/index"
   }
 }

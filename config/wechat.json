@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Empty",
     "pages/Badge",
     "pages/Grid",
     "pages/Toast",
@@ -59,6 +60,7 @@
     "pages/DatePicker"
   ],
   "src": [
+    "Empty",
     "_util",
     "Button",
     "Slider",

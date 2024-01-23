@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/Empty/index",
     "demo/pages/Badge/index",
     "demo/pages/Grid/index",
     "demo/pages/Toast/index",

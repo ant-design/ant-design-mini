@@ -22,3 +22,9 @@ export interface IEmptyProps extends IBaseProps {
 }
 
 export const EmptyDefaultProps: Partial<IEmptyProps> = {};
+
+export const EmptyFunctionalProps: IEmptyProps = {
+  title: '',
+  message: '',
+  image: '',
+};
