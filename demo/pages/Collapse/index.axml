@@ -1,4 +1,0 @@
-<collapse
-  defaultCurrent="{{[0]}}"
-  items="{{items}}"
-  onChange="onChange" />

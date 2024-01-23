@@ -13,9 +13,8 @@
   inline>
   添加items
 </button>
-{{current}}
-
+{{ current }}
 <collapse
-  items="{{items}}"
-  current="{{current}}"
+  items="{{ items }}"
+  current="{{ current }}"
   onChange="onChange" />
