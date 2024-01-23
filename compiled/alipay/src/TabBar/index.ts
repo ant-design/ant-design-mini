@@ -10,7 +10,7 @@ const TabBar = (props: ITabBarProps) => {
   });
   const { triggerEvent } = useComponentEvent(props);
   useEvent('onChange', (e) => {
-    const { index } = e.target.dataset;
+    const { index } = e.currentTarget.dataset;
     if (index === value) {
       return;
     }

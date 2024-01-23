@@ -1,4 +1,12 @@
-import { Component, InternalData, Slot, Text, TSXMLProps, View } from 'tsxml';
+import {
+  Block,
+  Component,
+  InternalData,
+  Slot,
+  Text,
+  TSXMLProps,
+  View,
+} from 'tsxml';
 import AntBadge from '../Badge/index.axml';
 import ImageIcon from '../ImageIcon/index.axml';
 import { ITabBarProps } from './props';
@@ -29,7 +37,7 @@ export default (
           >
             {item.badge ? (
               <AntBadge
-                type={item.badge.type}
+                type={item.badge.type || 'dot'}
                 text={item.badge.text}
                 stroke={item.badge.stroke}
                 bgColor={item.badge.bgColor}
@@ -37,30 +45,43 @@ export default (
                 offsetX={item.badge.offsetX || '-9px'}
                 offsetY={item.badge.offsetY || '0px'}
               >
+                {/* #if ALIPAY */}
+
                 <Slot
                   name="icon"
                   active={mixin.value == index}
                   item={item}
                   index={index}
                 >
+                  {/* #endif */}
+
                   <ImageIcon
                     className="ant-tab-bar"
                     image={mixin.value === index ? item.activeIcon : item.icon}
                   />
+                  {/* #if ALIPAY */}
                 </Slot>
+                {/* #endif */}
               </AntBadge>
             ) : (
-              <Slot
-                name="icon"
-                active={mixin.value == index}
-                item={item}
-                index={index}
-              >
-                <ImageIcon
-                  className="ant-tab-bar"
-                  image={mixin.value === index ? item.activeIcon : item.icon}
-                />
-              </Slot>
+              <Block>
+                {/* #if ALIPAY */}
+                <Slot
+                  name="icon"
+                  active={mixin.value == index}
+                  item={item}
+                  index={index}
+                >
+                  {/* #endif */}
+
+                  <ImageIcon
+                    className="ant-tab-bar"
+                    image={mixin.value === index ? item.activeIcon : item.icon}
+                  />
+                  {/* #if ALIPAY */}
+                </Slot>
+                {/* #endif */}
+              </Block>
             )}
             <View class="ant-tab-bar-text-wrap">
               {/* #if ALIPAY */}

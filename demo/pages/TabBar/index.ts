@@ -74,6 +74,12 @@ Page({
     current: 0,
   },
   handleChange(index) {
+    /// #if WECHAT
+    this.setData({ current: index.detail });
+    /// #endif
+
+    /// #if ALIPAY
     this.setData({ current: index });
+    /// #endif
   },
 });

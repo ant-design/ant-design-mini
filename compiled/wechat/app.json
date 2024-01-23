@@ -1,6 +1,7 @@
 {
   "pages": [
     "demo/pages/Badge/index",
+    "demo/pages/TabBar/index",
     "demo/pages/Grid/index",
     "demo/pages/Toast/index",
     "demo/pages/Checklist/index",
