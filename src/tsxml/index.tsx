@@ -16,6 +16,9 @@ export const PickerView = (props: Props): any => {};
 
 export const ScrollView = (props: Props): any => {};
 
+export const MovableArea = (props: Props): any => {};
+export const MovableView = (props: Props): any => {};
+
 type AnyProps = {
   [key: string]: any;
 };
