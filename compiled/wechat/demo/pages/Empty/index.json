@@ -1,12 +1,5 @@
 {
-  /// #if WECHAT
   "navigationBarTitleText": "Empty",
-  /// #endif
-
-  /// #if ALIPAY
-  "defaultTitle": "Empty",
-  /// #endif
-
   "usingComponents": {
     "ant-empty": "../../../src/Empty/index",
     "ant-container": "../../../src/Container/index",

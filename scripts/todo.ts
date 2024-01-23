@@ -1,3 +1,4 @@
+import { join } from 'path';
 import * as fs from 'fs';
 
 async function check() {
@@ -9,7 +10,9 @@ async function check() {
   );
 
   const doneSet = new Set(
-    ['.umi-production', '.umi', 'tsxml', 'IndexBar'].concat(src).concat(pages)
+    ['.umi-production', '.umi', 'tsxml', 'IndexBar']
+      .concat(src)
+      .concat(pages.map((o) => o.replace('pages/', '')))
   );
 
   console.log('------pages-------');
@@ -22,7 +25,10 @@ async function check() {
   console.log('------files-------');
   filesList.forEach((e) => {
     if (!doneSet.has(e)) {
-      console.log(e);
+      const lines = fs
+        .readFileSync(join(`src/${e}/index.ts`), 'utf8')
+        .split('\n').length;
+      console.log(e, lines);
     }
   });
 }
