@@ -76,6 +76,7 @@ export default ({
     <FormRadioGroup
       label="动物单选"
       name="animalChoose"
+      color="red"
       options={radioGroupOptions}
       ref="handleRef"
     />

@@ -1,22 +1,23 @@
-<collapse
-  items="{{items}}"
-  curr>
+<import-sjs
+  from="./index.sjs"
+  name="_sjs" />
+
+<collapse items="{{ items }}">
   <view
     slot="title"
     slot-scope="item">
-    {{item.value.title}} {{item.current.indexOf(item.index) >= 0 ? '' :
-    item.value.content.slice(0, 20) + '...' }}
+    {{ item.value.title }} {{ _sjs.itemContent(item.current, item) }}
   </view>
 
   <view
     slot="brief"
     slot-scope="item">
-    {{item.value.brief}}
+    {{ item.value.brief }}
   </view>
 
   <view
     slot="icon"
     slot-scope="item">
-    {{item.current.indexOf(item.index) >= 0 ? '关闭' : '展开'}}
+    {{ _sjs.extraText(item.current, item) }}
   </view>
 </collapse>
