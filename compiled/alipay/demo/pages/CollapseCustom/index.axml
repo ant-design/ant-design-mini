@@ -6,7 +6,7 @@
   <view
     slot="title"
     slot-scope="item">
-    ${{ item.value.title }} ${{ _sjs.itemContent(current, item) }}
+    {{ item.value.title }} {{ _sjs.itemContent(item.current, item) }}
   </view>
 
   <view
@@ -18,6 +18,6 @@
   <view
     slot="icon"
     slot-scope="item">
-    {{ _sjs.extraText(current, item) }}
+    {{ _sjs.extraText(item.current, item) }}
   </view>
 </collapse>
