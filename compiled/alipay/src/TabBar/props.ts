@@ -46,12 +46,13 @@ export interface ITabBarProps extends IBaseProps {
   defaultCurrent: number;
 
   /**
-   * @description 高亮状态图标和文本的颜色
+   * @description 高亮状态图标和文本的 className
    */
-  activeColor: string;
-
   activeClassName?: string;
 
+  /**
+   * @description 高亮状态图标和文本的 style
+   */
   activeStyle?: string;
   /**
    * @description tabbar 切换时的回调
@@ -62,4 +63,12 @@ export interface ITabBarProps extends IBaseProps {
 export const TabBarDefaultProps: Partial<ITabBarProps> = {
   items: [],
   defaultCurrent: 0,
+};
+
+export const TabBarFunctionalProps: Partial<ITabBarProps> = {
+  items: [],
+  current: null,
+  defaultCurrent: 0,
+  activeClassName: '',
+  activeStyle: '',
 };

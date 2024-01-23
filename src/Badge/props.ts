@@ -56,7 +56,7 @@ export const BadgeDefaultProps: Partial<IBadgeProps> = {
 
 export const BadgeFunctionalProps: Partial<IBadgeProps> = {
   type: 'dot',
-  text: '',
+  text: null,
   position: 'top-right',
   offsetX: null,
   offsetY: null,

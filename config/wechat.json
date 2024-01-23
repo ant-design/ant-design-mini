@@ -8,6 +8,7 @@
     "pages/GuideTour",
     "pages/Divider",
     "pages/Skeleton",
+    "pages/TabBar",
     "pages/Form",
     "pages/FormCustomError",
     "pages/FormDependency",
@@ -95,6 +96,7 @@
     "Toast",
     "Grid",
     "Pagination",
-    "Badge"
+    "Badge",
+    "TabBar"
   ]
 }

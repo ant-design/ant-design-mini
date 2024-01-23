@@ -1,0 +1,30 @@
+.ant-tab-bar-wrap {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+}
+.ant-tab-bar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  color: #666666;
+}
+.ant-tab-bar-item-active {
+  color: #1677ff;
+}
+.ant-tab-bar-icon {
+  max-width: 24px;
+  max-height: 24px;
+  font-size: 24px;
+}
+.ant-tab-bar-image {
+  font-size: 24px;
+  max-width: 24px;
+  max-height: 24px;
+}
+.ant-tab-bar-text {
+  font-size: 10px;
+}

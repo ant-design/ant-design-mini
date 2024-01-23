@@ -6,7 +6,7 @@ export var BadgeDefaultProps = {
 };
 export var BadgeFunctionalProps = {
     type: 'dot',
-    text: '',
+    text: null,
     position: 'top-right',
     offsetX: null,
     offsetY: null,

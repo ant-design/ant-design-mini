@@ -13,7 +13,7 @@
         data-index="{{ index }}">
         <ant-badge
           a:if="{{ item.badge }}"
-          type="{{ item.badge.type }}"
+          type="{{ item.badge.type || 'dot' }}"
           text="{{ item.badge.text }}"
           stroke="{{ item.badge.stroke }}"
           bgColor="{{ item.badge.bgColor }}"
@@ -30,16 +30,17 @@
               image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
           </slot>
         </ant-badge>
-        <slot
-          a:else
-          name="icon"
-          active="{{ mixin.value == index }}"
-          item="{{ item }}"
-          index="{{ index }}">
-          <image-icon
-            className="ant-tab-bar"
-            image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
-        </slot>
+        <block a:else>
+          <slot
+            name="icon"
+            active="{{ mixin.value == index }}"
+            item="{{ item }}"
+            index="{{ index }}">
+            <image-icon
+              className="ant-tab-bar"
+              image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
+          </slot>
+        </block>
         <view class="ant-tab-bar-text-wrap">
           <slot
             name="text"

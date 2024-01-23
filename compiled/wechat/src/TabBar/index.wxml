@@ -1,0 +1,39 @@
+<view
+  class="ant-tab-bar {{ className || '' }}"
+  style="{{ style || '' }}">
+  <view class="ant-tab-bar-wrap">
+    <block
+      wx:for="{{ items }}"
+      wx:for-index="index"
+      wx:for-item="item">
+      <view
+        class="ant-tab-bar-item {{ index === mixin.value ? 'ant-tab-bar-item-active ' + (activeClassName || '') : '' }}"
+        style="{{ index === mixin.value ? activeStyle || '' : '' }}"
+        bind:tap="onChange"
+        data-index="{{ index }}">
+        <ant-badge
+          wx:if="{{ item.badge }}"
+          type="{{ item.badge.type || 'dot' }}"
+          text="{{ item.badge.text }}"
+          stroke="{{ item.badge.stroke }}"
+          bgColor="{{ item.badge.bgColor }}"
+          position="{{ item.badge.position || 'top-right' }}"
+          offsetX="{{ item.badge.offsetX || '-9px' }}"
+          offsetY="{{ item.badge.offsetY || '0px' }}">
+          <image-icon
+            className="ant-tab-bar"
+            image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
+        </ant-badge>
+        <block wx:else>
+          <image-icon
+            className="ant-tab-bar"
+            image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
+        </block>
+        <view class="ant-tab-bar-text-wrap">
+          <!-- display: inline -->
+          <text class="ant-tab-bar-text">{{ item.text }}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
