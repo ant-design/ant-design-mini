@@ -13,7 +13,7 @@
     style="{{ strokeWidth ? 'height:' + strokeWidth + 'px;' : '' }}{{ trailColor ? 'background-color:' + trailColor : '' }}">
     <view
       class="ant-progress-inner {{ status === 'success' || status === 'exception' ? 'ant-progress-inner-' + status : '' }}"
-      style="width: {{ percent }}%; {{ strokeColor ? 'background-color:' + strokeColor : '' }}" />
+      style="width: {{ curProgress }}%; {{ strokeColor ? 'background-color:' + strokeColor : '' }}" />
   </view>
   <view class="ant-progress-indicator">
     <slot

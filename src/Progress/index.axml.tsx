@@ -24,7 +24,7 @@ export default (
     strokeColor,
     percent,
   }: TSXMLProps<IProgressBarProps>,
-  { canvasWidth }: InternalData
+  { canvasWidth, curProgress }: InternalData
 ) => (
   <Component>
     <View
@@ -54,7 +54,7 @@ export default (
                   ? 'ant-progress-inner-' + status
                   : ''
               }`}
-              style={`width: ${percent}%; ${
+              style={`width: ${curProgress}%; ${
                 strokeColor ? 'background-color:' + strokeColor : ''
               }`}
             ></View>
