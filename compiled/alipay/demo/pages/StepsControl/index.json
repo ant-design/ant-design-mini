@@ -1,9 +1,8 @@
 {
   "defaultTitle": "Steps",
   "usingComponents": {
-    "steps": "../../../src/Steps/index",
-    "icon": "../../../src/Icon/index",
-    "button": "../../../src/Button/index",
-    "container": "../../../src/Container/index"
+    "ant-steps": "../../../src/Steps/index",
+    "ant-button": "../../../src/Button/index",
+    "ant-container": "../../../src/Container/index"
   }
 }

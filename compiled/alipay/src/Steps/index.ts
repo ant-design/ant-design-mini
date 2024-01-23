@@ -1,6 +1,6 @@
-import { StepsDefaultProps } from './props';
-import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import { StepsFunctionalProps } from './props';
 
-Component({
-  props: StepsDefaultProps,
-});
+const Steps = () => {};
+
+mountComponent(Steps, StepsFunctionalProps);
