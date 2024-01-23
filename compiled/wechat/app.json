@@ -5,6 +5,8 @@
     "demo/pages/TabBar/index",
     "demo/pages/Grid/index",
     "demo/pages/Toast/index",
+    "demo/pages/Steps/index",
+    "demo/pages/StepsControl/index",
     "demo/pages/Checklist/index",
     "demo/pages/Modal/index",
     "demo/pages/GuideTour/index",

@@ -3,14 +3,14 @@
     items="{{ items }}"
     current="{{ current }}" />
   <ant-button
-    onTap="onNextTap"
+    bind:tap="onNextTap"
     type="primary">
-    <view a:if="{{ current < items.length - 1 }}">下一步</view>
-    <view a:else>完成</view>
+    <view wx:if="{{ current < items.length - 1 }}">下一步</view>
+    <view wx:else>完成</view>
   </ant-button>
   <ant-button
-    a:if="{{ current > 0 }}"
-    onTap="onPrevTap">
+    wx:if="{{ current > 0 }}"
+    bind:tap="onPrevTap">
     上一步
   </ant-button>
 </ant-container>

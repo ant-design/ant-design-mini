@@ -27,3 +27,10 @@ export const StepsDefaultProps: Partial<IStepsProps> = {
   direction: 'horizontal',
   status: 'finish',
 };
+
+export const StepsFunctionalProps: Partial<IStepsProps> = {
+  current: 0,
+  direction: 'horizontal',
+  status: 'finish',
+  items: [],
+};

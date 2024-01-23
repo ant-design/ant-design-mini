@@ -1,0 +1,31 @@
+<wxs
+  src="./index.wxs"
+  module="utils" />
+
+<view
+  class="ant-steps ant-steps-{{ direction }} {{ className || '' }}"
+  style="{{ style }}">
+  <block
+    wx:for="{{ items }}"
+    wx:for-index="index"
+    wx:for-item="item">
+    <view
+      class="ant-steps-item ant-steps-item-{{ direction }} {{ index < current ? 'ant-steps-item-finish' : '' }} {{ index === current ? 'ant-steps-item-active' : '' }} {{ index > current ? 'ant-steps-item-non-active' : '' }}">
+      <view
+        class="ant-steps-item-indicator ant-steps-item-indicator-{{ direction }}">
+        <view
+          class="ant-steps-item-indicator-icon ant-steps-item-{{ utils.getClassName(current, index, status) }}-icon">
+          <view
+            class="ant-steps-item-{{ utils.getClassName(current, index, status) }}-icon-default" />
+        </view>
+      </view>
+      <view class="ant-steps-item-text">
+        <view
+          class="ant-steps-item-title ant-steps-item-title-{{ utils.getClassName(current, index, status) }}">
+          {{ item.title }}
+        </view>
+        <view class="ant-steps-item-desc">{{ item.description }}</view>
+      </view>
+    </view>
+  </block>
+</view>

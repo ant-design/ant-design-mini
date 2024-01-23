@@ -21,6 +21,7 @@ export default ({ items, item, iconList }: InternalData) => (
       <Steps items={items} status="error" current={1} direction="vertical" />
     </Container>
 
+    {/* #if ALIPAY */}
     <Container title="自定义图标">
       <Steps items={items}>
         <Icon slot="icon" type="SmileFill" />
@@ -43,5 +44,6 @@ export default ({ items, item, iconList }: InternalData) => (
         </View>
       </Steps>
     </Container>
+    {/* #endif */}
   </Page>
 );
