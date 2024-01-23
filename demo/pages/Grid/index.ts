@@ -97,7 +97,7 @@ Page({
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*MwsuTZI4qA8AAAAAAAAAAAAAARQnAQ',
-        tag:'1',
+        tag: '1',
       },
       {
         title: '标题文字',
@@ -106,7 +106,7 @@ Page({
       {
         title: '标题文字',
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*UJf2QLxdoa8AAAAAAAAAAAAAARQnAQ',
-        tag:'新',
+        tag: '新',
       },
       {
         title: '标题文字',
@@ -118,7 +118,21 @@ Page({
       },
     ],
   },
+  onLoad() {
+    this.setData({
+      scrollItems: this.data.items4.concat(this.data.items4),
+    });
+  },
   handleTapItem(item) {
+    /// #if ALIPAY
     my.alert({ title: '点击了', content: JSON.stringify(item) });
+    /// #endif
+
+    /// #if WECHAT
+    //@ts-ignore
+    wx.showToast({
+      title: '点击',
+    });
+    /// #endif
   },
 });

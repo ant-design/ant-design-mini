@@ -1,6 +1,6 @@
 import { Component, Slot, TSXMLProps, View } from 'tsxml';
 import ImageIcon from '../ImageIcon/index.axml';
-import Pagination from '../Pagination/index.axml';
+import AntPagination from '../Pagination/index.axml';
 import sjs from './index.sjs';
 import { IGridProps } from './props';
 
@@ -59,7 +59,13 @@ export default ({
                   className="ant-grid-item-icon"
                   style={
                     iconSize
-                      ? `width:${iconSize}px;height:${iconSize}px;font-size:${iconSize}px`
+                      ? 'width:' +
+                        iconSize +
+                        'px;height:' +
+                        iconSize +
+                        'px;font-size:' +
+                        iconSize +
+                        'px'
                       : ''
                   }
                 />
@@ -90,7 +96,7 @@ export default ({
       </View>
     ) : (
       mode === 'scroll' && (
-        <Pagination
+        <AntPagination
           fillColor={paginationFillColor}
           frontColor={paginationFrontColor}
           className={className || ''}
@@ -127,7 +133,13 @@ export default ({
                       className="ant-grid-item-icon"
                       style={
                         iconSize
-                          ? `width:${iconSize}px;height:${iconSize}px;font-size:${iconSize}px`
+                          ? 'width:' +
+                            iconSize +
+                            'px;height:' +
+                            iconSize +
+                            'px;font-size:' +
+                            iconSize +
+                            'px'
                           : ''
                       }
                     />
@@ -156,7 +168,7 @@ export default ({
               </View>
             ))}
           </View>
-        </Pagination>
+        </AntPagination>
       )
     )}
   </Component>

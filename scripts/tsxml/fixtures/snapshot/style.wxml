@@ -5,7 +5,9 @@
     <view class="list">
       <loading style="width: 40px; height: 40px" />
       <loading style="width: 30px; height: 30px" />
-      <loading className="custom-size" />
+      <loading
+        className="custom-size"
+        style="{{ iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : '' }}" />
       <!-- display: inline -->
       <text
         a="1"

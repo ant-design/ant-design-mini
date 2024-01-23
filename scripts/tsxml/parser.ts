@@ -295,7 +295,7 @@ function transformAttrExpression(ctx: ITransformContext) {
     case 'NumericLiteral':
     case 'BinaryExpression':
     case 'CallExpression': {
-      return ctx.toAxmlExpression();
+      return ctx.toAxmlExpression(true);
     }
 
     case 'ArrayExpression': {

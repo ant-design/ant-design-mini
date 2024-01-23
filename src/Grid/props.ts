@@ -69,12 +69,12 @@ export interface IGridProps extends IBaseProps {
    * @description 点击事件
    * @param item
    */
-  onTap(item: IGridItem): void;
+  onTap?(item: IGridItem): void;
   /**
    * @description 当前元素首次可见面积达到50%时触发
    * @param item
    */
-  onFirstAppear(item: IGridItem): void;
+  onFirstAppear?(item: IGridItem): void;
 }
 
 export const GridDefaultProps: Partial<IGridProps> = {
@@ -83,4 +83,16 @@ export const GridDefaultProps: Partial<IGridProps> = {
   columns: 5,
   gridItemLayout: 'vertical',
   showDivider: false,
+};
+
+export const GridFunctionalProps: IGridProps = {
+  iconStyle: 'normal',
+  iconSize: null,
+  gridItemLayout: 'vertical',
+  mode: 'default',
+  columns: 5,
+  items: [],
+  showDivider: false,
+  paginationFrontColor: '',
+  paginationFillColor: '',
 };

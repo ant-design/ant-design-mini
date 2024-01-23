@@ -1,7 +1,7 @@
-import { Page, Slot, InternalData, View } from 'tsxml';
+import { InternalData, Page, View } from 'tsxml';
+import Badge from '../../../src/Badge/index.axml';
 import Container from '../../../src/Container/index.axml';
 import Grid from '../../../src/Grid/index.axml';
-import Badge from '../../../src/Badge/index.axml';
 
 export default ({
   items2,
@@ -12,6 +12,7 @@ export default ({
   items3withDesc,
   itemsCustom,
   props,
+  scrollItems,
 }: InternalData) => (
   <Page>
     <Container title="2列">
@@ -52,7 +53,7 @@ export default ({
       />
     </Container>
     <Container title="可滑动">
-      <Grid items={items4.concat(items4)} onTap="handleTapItem" mode="scroll" />
+      <Grid items={scrollItems} onTap="handleTapItem" mode="scroll" />
     </Container>
     <Container title="自定义图标大小">
       <Grid
@@ -62,6 +63,7 @@ export default ({
         iconSize={44}
       />
     </Container>
+    {/* #if ALIPAY */}
     <Container title="自定义">
       <Grid items={itemsCustom} onTap="handleTapItem" columns={5}>
         <View slot="icon" slot-scope="props">
@@ -81,5 +83,6 @@ export default ({
         </View>
       </Grid>
     </Container>
+    {/* #endif */}
   </Page>
 );
