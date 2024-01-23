@@ -111,14 +111,20 @@ export class TransformContext<T extends types.Node = types.Node>
   }
 
   toAxmlExpression(disableFormatWhenMultipleLine: boolean): string {
-    const res = `{{ ${TransformContext.format(
-      generate(this.node).code
-    ).trim()} }}`;
+    let messages = TransformContext.format(
+      generate(this.node, {
+        concise: disableFormatWhenMultipleLine,
+      }).code
+    ).trim() as string;
 
+    if (messages.startsWith(';')) {
+      messages = messages.slice(1);
+    }
+
+    const res = `{{ ${messages} }}`;
     if (disableFormatWhenMultipleLine && res.split('\n').length > 1) {
       return `{{ ${generate(this.node).code} }}`;
     }
-
     return res;
   }
 

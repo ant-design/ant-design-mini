@@ -22,6 +22,8 @@ type AnyProps = {
 
 export const Slot = (props: AnyProps): any => {};
 
+export const Canvas = (props: AnyProps): any => {};
+
 export const Block = (props: Props): any => {};
 
 export const Page = (props: Props): any => {};

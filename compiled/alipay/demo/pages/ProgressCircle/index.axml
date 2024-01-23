@@ -2,7 +2,7 @@
   <view class="line2">
     <progress
       type="circle"
-      percent="{{percent1}}" />
+      percent="{{ percent1 }}" />
   </view>
   <view class="buttonwrapper">
     <button
@@ -23,12 +23,12 @@
   <view class="line2">
     <progress
       type="circle"
-      percent="{{percent2}}"
-      strokeWidth="{{12}}" />
+      percent="{{ percent2 }}"
+      strokeWidth="{{ 12 }}" />
     <progress
       type="circle"
-      percent="{{percent2}}"
-      strokeWidth="{{2}}" />
+      percent="{{ percent2 }}"
+      strokeWidth="{{ 2 }}" />
   </view>
 </container>
 
@@ -36,25 +36,26 @@
   <view class="line2">
     <progress
       type="circle"
-      percent="{{percent3}}"
+      percent="{{ percent3 }}"
       strokeColor="#00B578" />
     <progress
       type="circle"
-      percent="{{percent3}}"
+      percent="{{ percent3 }}"
       strokeColor="#FF8F1F" />
   </view>
 </container>
+
 <container title="自定义提示文案">
   <view class="line2">
     <progress
       type="circle"
-      percent="{{percent5}}">
-      <view slot="indicator">{{percent5}}GB</view>
+      percent="{{ percent5 }}">
+      <view slot="indicator">{{ percent5 }}GB</view>
     </progress>
     <progress
       type="circle"
-      percent="{{percent5}}">
-      <view slot="indicator">{{percent5}}步</view>
+      percent="{{ percent5 }}">
+      <view slot="indicator">{{ percent5 }}步</view>
     </progress>
   </view>
 </container>
@@ -63,15 +64,15 @@
   <view class="line2">
     <progress
       type="circle"
-      percent="{{percent5}}"
-      width="{{80}}" />
+      percent="{{ percent5 }}"
+      width="{{ 80 }}" />
     <progress
       type="circle"
-      percent="{{percent5}}"
-      width="{{100}}" />
+      percent="{{ percent5 }}"
+      width="{{ 100 }}" />
     <progress
       type="circle"
-      percent="{{percent5}}"
-      width="{{120}}" />
+      percent="{{ percent5 }}"
+      width="{{ 120 }}" />
   </view>
 </container>

@@ -6,7 +6,7 @@ interface Props {
 
 export default (
   { todoList }: TSXMLProps<Props>,
-  { mixin, item }: InternalData
+  { mixin, item, progress3 }: InternalData
 ) => (
   <View class="ant-calendar">
     {todoList.map((task, taskIndex) => (
@@ -20,7 +20,7 @@ export default (
       </Text>
     ))}
     <test loading />
-
+    <Text>{(progress3 / 100) * 200}步</Text>
     <view slot="label" slot-scope="item">
       {item.index + 1} {item.value.label}
     </view>

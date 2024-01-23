@@ -13,7 +13,8 @@
     >
   </block>
   <test loading />
-
+  <!-- display: inline -->
+  <text>{{ (progress3 / 100) * 200 }}步</text>
   <view
     slot="label"
     slot-scope="item">

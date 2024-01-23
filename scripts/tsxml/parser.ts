@@ -302,6 +302,8 @@ function transformAttrExpression(ctx: ITransformContext) {
       const result = ctx.toAxmlExpression();
       if (result.startsWith('{{ ;')) {
         return result.replace(/^\{\{ ;/, '{{ ');
+      } else {
+        return result;
       }
       break;
     }
