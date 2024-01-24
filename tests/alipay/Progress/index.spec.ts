@@ -1,6 +1,6 @@
 /* eslint-disable prefer-rest-params */
 import { getInstance, sleep } from 'tests/utils';
-import { expect, it, vi } from 'vitest';
+import { expect, it } from 'vitest';
 import { IProgressBarProps } from '../../../src/Progress/props';
 
 class MockCanvas {
@@ -34,15 +34,16 @@ class MockCanvas {
 }
 
 function createProgress(props: Partial<IProgressBarProps>) {
-  const getSystemInfo = vi.fn().mockImplementation(() => {
-    return { pixelRatio: 2 };
-  });
   const canvasMap = new Map<string, MockCanvas>();
   const my = {
     canIUse() {
       return true;
     },
-    getSystemInfo,
+    getSystemInfo({ success }) {
+      success({
+        pixelRatio: 2,
+      });
+    },
     createCanvasContext(id: string) {
       if (!canvasMap.has(id)) {
         canvasMap.set(id, new MockCanvas(id));
@@ -85,7 +86,7 @@ it('测试默认绘图', async () => {
   expect(instance.getData().canvasWidth).toBe(200);
 });
 
-it('测试 speed strokeColor trailColor', async () => {
+it.only('测试 speed strokeColor trailColor', async () => {
   const { instance, canvasMap } = createProgress({
     type: 'circle',
   });

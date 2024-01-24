@@ -1,0 +1,55 @@
+.ant-progress-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ant-progress-line .ant-progress-outer {
+  background-color: #f5f5f5;
+  border-radius: 50vh;
+  height: 8px;
+  overflow: hidden;
+  flex: 1;
+}
+.ant-progress-line .ant-progress-inner {
+  border-radius: 50vh;
+  transition: width 0.3s;
+  height: 100%;
+  position: relative;
+  background-color: #1677ff;
+}
+.ant-progress-line .ant-progress-inner-success {
+  background-color: #22b35e;
+}
+.ant-progress-line .ant-progress-inner-exception {
+  background-color: #ff3141;
+}
+.ant-progress-line .ant-progress-indicator {
+  margin-left: 8px;
+  color: #999999;
+  font-size: 13px;
+  height: 18.5px;
+  display: flex;
+  align-items: center;
+}
+.ant-progress-line .ant-progress-status-icon-success {
+  color: #22b35e;
+}
+.ant-progress-line .ant-progress-status-icon-exception {
+  color: #ff3141;
+}
+.ant-progress-circle {
+  position: relative;
+}
+.ant-progress-circle > canvas {
+  width: 100%;
+  height: 100%;
+}
+.ant-progress-circle .ant-progress-indicator {
+  font-size: 20px;
+  color: #333333;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 10;
+}

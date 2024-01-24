@@ -1,5 +1,5 @@
 import { Page, View, InternalData, Text } from 'tsxml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 import Progress from '../../../src/Progress/index.axml';
 import Container from '../../../src/Container/index.axml';
 
@@ -13,17 +13,17 @@ export default ({
     <Container title="控制进度">
       <Progress percent={progress1} />
       <View class="buttonwrapper">
-        <Button
+        <AntButton
           size="small"
           inline
           style="margin-right: 16rpx"
           onTap="handleDelete"
         >
           减少
-        </Button>
-        <Button size="small" inline onTap="handleAdd">
+        </AntButton>
+        <AntButton size="small" inline onTap="handleAdd">
           增加
-        </Button>
+        </AntButton>
       </View>
     </Container>
 
