@@ -8,7 +8,7 @@ const ActionSheet = (props: IActionSheetProps) => {
   const { triggerEventOnly, triggerEventValues } = useComponentEvent(props);
 
   useEvent('onAction', (e) => {
-    const { item, index } = e.target.dataset;
+    const { item, index } = e.currentTarget.dataset;
     if (item?.disabled) return;
     triggerEventOnly('close', e);
     triggerEventValues('action', [item, index], e);

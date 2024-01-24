@@ -1,0 +1,105 @@
+.ant-actionsheet {
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.ant-actionsheet-title-wrap {
+  text-align: center;
+  position: relative;
+  margin: 0 -12px;
+}
+.ant-actionsheet-title-content {
+  display: inline-block;
+  text-align: left;
+  padding: 18px 15px;
+  font-size: 15px;
+  color: #999999;
+}
+.ant-actionsheet-title-content::after {
+  content: '';
+  position: absolute;
+  background-color: #eeeeee;
+  display: block;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  transform: scaleY(0.5);
+}
+.ant-actionsheet-list {
+  margin: 0 -12px;
+}
+.ant-actionsheet-list-item {
+  color: #333333;
+  padding: 16px 15px;
+  text-align: center;
+  position: relative;
+  font-size: 18px;
+}
+.ant-actionsheet-list-item::after {
+  content: '';
+  position: absolute;
+  background-color: #eeeeee;
+  display: block;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  transform: scaleY(0.5);
+}
+.ant-actionsheet-list-item-title-danger {
+  color: #ff3141;
+  font-weight: bold;
+}
+.ant-actionsheet-list-item-description {
+  color: #999999;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 4px;
+}
+.ant-actionsheet-list-item-active {
+  background-color: #eeeeee;
+}
+.ant-actionsheet-list-item:last-child.ant-actionsheet-list-item:last-child:after {
+  display: none;
+}
+.ant-actionsheet-list-item-disabled .ant-actionsheet-list-item-icon,
+.ant-actionsheet-list-item-disabled .ant-actionsheet-list-item-content {
+  opacity: 0.4;
+}
+.ant-actionsheet-cancel-gap {
+  height: 8px;
+  background: #f5f5f5;
+  margin: 0 -12px;
+}
+.ant-actionsheet-cancel {
+  color: #333333;
+  padding: 16px 15px;
+  font-size: 18px;
+  text-align: center;
+  margin: 0 -12px;
+}
+.ant-actionsheet-cancel:active {
+  background-color: #eeeeee;
+}
+.ant-actionsheet-icon .ant-actionsheet-title-wrap {
+  text-align: left;
+}
+.ant-actionsheet-icon .ant-actionsheet-list-item {
+  display: flex;
+  align-items: center;
+}
+.ant-actionsheet-icon .ant-actionsheet-list-item-icon {
+  height: 24px;
+  flex: 0 0 24px;
+  margin-right: 12px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.ant-actionsheet-icon .ant-actionsheet-list-item-content {
+  text-align: left;
+}
