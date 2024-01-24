@@ -107,6 +107,9 @@ Component({
         return this.setData({ curProgress: 0 });
       }
       const prevProgress = this.data.curProgress;
+      if (percent === prevProgress) {
+        return;
+      }
       this.setData({
         curProgress: percent > 100 ? 100 : percent < 0 ? 0 : percent,
       });
