@@ -86,7 +86,7 @@ it('测试默认绘图', async () => {
   expect(instance.getData().canvasWidth).toBe(200);
 });
 
-it.only('测试 speed strokeColor trailColor', async () => {
+it('测试 speed strokeColor trailColor', async () => {
   const { instance, canvasMap } = createProgress({
     type: 'circle',
   });
