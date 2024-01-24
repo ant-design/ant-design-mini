@@ -2,7 +2,7 @@
   from="./index.sjs"
   name="helper" />
 
-<popup
+<ant-popup
   className="ant-actionsheet-popup"
   visible="{{ visible }}"
   position="bottom"
@@ -58,4 +58,4 @@
       </view>
     </slot>
   </view>
-</popup>
+</ant-popup>

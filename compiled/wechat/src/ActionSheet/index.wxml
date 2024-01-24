@@ -2,11 +2,11 @@
   src="./index.wxs"
   module="helper" />
 
-<popup
+<ant-popup
   className="ant-actionsheet-popup"
   visible="{{ visible }}"
   position="bottom"
-  onClose="onClose">
+  bind:close="onClose">
   <view
     style="{{ style }}"
     class="ant-actionsheet {{ className ? className : '' }} {{ helper.isIconMode(actions) ? 'ant-actionsheet-icon' : '' }}">
@@ -55,4 +55,4 @@
       {{ cancelText }}
     </view>
   </view>
-</popup>
+</ant-popup>

@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "popup": "../Popup/index"
+    "ant-popup": "../Popup/index"
   }
 }
