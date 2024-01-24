@@ -1,3 +1,4 @@
+```markdown
 ---
 nav:
   path: /components
@@ -11,12 +12,12 @@ toc: 'content'
 
 <code src="../../docs/components/compatibility.tsx" inline="true"></code>
 
-Form 表单。包含数据录入、校验以及对应样式。Form 组件需要 [component2](https://opendocs.alipay.com/mini/framework/custom-component-overview)。
+Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 [component2](https://opendocs.alipay.com/mini/framework/custom-component-overview) 支持。
 
 ## 何时使用
 
-- 用于创建一个实体或收集信息
-- 需要对输入的数据类型进行校验时
+- 用于创建实体或收集信息。
+- 需要对输入的数据类型进行校验时。
 
 ## 代码示例
 
@@ -68,59 +69,76 @@ Form 表单。包含数据录入、校验以及对应样式。Form 组件需要 
 
 <code src='pages/FormImageUploadRules/index'></code>
 
-### json 生成表单
+### JSON 生成表单
 
 <code src='pages/FormJSON/index'></code>
 
 ### 自定义错误样式
 
-使用 validateStatus: success 及 footer slot 来自定义错误样式。
+使用 `validateStatus: success` 及 `footer slot` 来自定义错误样式。
 <code src='pages/FormCustomError/index'></code>
 
 ### 自定义表单项
 
-通过使用 [FormItem](#formitem)、[createForm](#createform) 可自定义表单项。示例里 `form-checklist`, `form-location` 为自定义表单项组件。
+通过使用 [FormItem](#formitem)、[createForm](#createform) 可自定义表单项。示例里 `form-checklist`、`form-location` 为自定义表单项组件。
 <code src='pages/FormCustom/index'></code>
+```
 
 ## API
 
 ### FormItem
 
 所有 Form 组件都包括的属性
-| 属性 | 说明 | 类型 | 默认值 |
-| -----|-----|-----|-----|
-| dependencies | 设置依赖字段，查看[详细说明](#dependencies) | string[] | - |
-| footer | 底部 slot，接收 errors、status | slot | - |
-| name | 名称 | string | - |
-| label | 文本 | string | - |
-| labelWidth | 文本宽度 | string | - |
-| position | 布局，可选 `horizontal` `vertical` | string | horizontal |
-| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选 `default` `success` `error` `validating` | string | - |
-| help | 提示信息，如不设置，则会根据校验规则自动生成 | string | - |
-| header | 顶部 slot，接收 errors、status | slot | - |
-| tooltip | 表单项提示信息 | string\|slot | - |
-| required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |
-| message | 校验错误信息。如不设置，则会根据校验规则自动生成 | string | false |
-| requiredMark | 必填选填的标记样式，可选 `asterisk` `text-required` `text-optional` | string | asterisk |
+
+| 属性           | 说明                                                                                        | 类型         | 默认值     |
+| -------------- | ------------------------------------------------------------------------------------------- | ------------ | ---------- |
+| dependencies   | 设置依赖字段，查看[详细说明](#dependencies)                                                 | string[]     | -          |
+| footer         | 底部 slot，接收 errors、status                                                              | slot         | -          |
+| name           | 名称                                                                                        | string       | -          |
+| label          | 文本                                                                                        | string       | -          |
+| labelWidth     | 文本宽度                                                                                    | string       | -          |
+| position       | 布局，可选 `horizontal` `vertical`                                                          | string       | horizontal |
+| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选 `default` `success` `error` `validating` | string       | -          |
+| help           | 提示信息，如不设置，则会根据校验规则自动生成                                                | string       | -          |
+| header         | 顶部 slot，接收 errors、status                                                              | slot         | -          |
+| tooltip        | 表单项提示信息                                                                              | string       | -          |
+| required       | 必填样式设置。如不设置，则会根据校验规则自动生成                                            | boolean      | false      |
+| message        | 校验错误信息。如不设置，则会根据校验规则自动生成                                            | string       | false      |
+| requiredMark   | 必填选填的标记样式，可选 `asterisk` `text-required` `text-optional`                         | string       | asterisk   |
+| 属性           | 说明                                                                                        | 类型         | 默认值     |
+| -----          | -----                                                                                       | -----        | -----      |
+| dependencies   | 设置依赖字段，查看[详细说明](#dependencies)                                                 | string[]     | -          |
+| footer         | 底部 slot，接收 errors、status                                                              | slot         | -          |
+| name           | 名称                                                                                        | string       | -          |
+| label          | 文本                                                                                        | string       | -          |
+| labelWidth     | 文本宽度                                                                                    | string       | -          |
+| position       | 布局，可选 `horizontal` `vertical`                                                          | string       | horizontal |
+| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选 `default` `success` `error` `validating` | string       | -          |
+| help           | 提示信息，如不设置，则会根据校验规则自动生成                                                | string       | -          |
+| header         | 顶部 slot，接收 errors、status                                                              | slot         | -          |
+| tooltip        | 表单项提示信息                                                                              | string\|slot | -          |
+| required       | 必填样式设置。如不设置，则会根据校验规则自动生成                                            | boolean      | false      |
+| message        | 校验错误信息。如不设置，则会根据校验规则自动生成                                            | string       | false      |
+| requiredMark   | 必填选填的标记样式，可选 `asterisk` `text-required` `text-optional`                         | string       | asterisk   |
 
 ### Form
 
-| 属性             | 说明             | 类型                                      |
-| ---------------- | ---------------- | ----------------------------------------- |
-| rules            | 可选，校验规则   | 查看[rules](#rules)                       |
-| initialValues    | 可选，初始值     | Record<string, any>                       |
-| validateMessages | 可选，校验消息。 | 查看[validateMessages](#validatemessages) |
+| 属性             | 说明           | 类型                                      |
+| ---------------- | -------------- | ----------------------------------------- |
+| rules            | 可选，校验规则 | 查看[rules](#rules)                       |
+| initialValues    | 可选，初始值   | Record<string, any>                       |
+| validateMessages | 可选，校验消息 | 查看[validateMessages](#validatemessages) |
 
 ### Form 实例方法
 
 | 属性                     | 说明                                                                 | 类型                                                                                   |
 | ------------------------ | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | addItem                  | 添加表单项                                                           | (formItem: Ref) => void                                                                |
-| updateRules              | 更新 form 的校验规则, 每次都需要传入全量的 rules                     | (rules:Rules) =>void, Rules 的类型可以看[rules](#rules)                                |
+| updateRules              | 更新 form 的校验规则，每次都需要传入全量的 rules                     | (rules: Rules) => void, Rules 的类型可以查看[rules](#rules)                            |
 | getFieldValue            | 得到表单项的值                                                       | (name: string) => any                                                                  |
 | getFieldsValue           | 获取一组字段名对应的值。不传 nameList 则返回全部 fields 对           | (nameList?: string[]) => Record<string, any>                                           |
 | getFieldValidatorStatus  | 得到表单校验状态                                                     | (name: string) => [ValidatorStatus](#validatorstatus)                                  |
-| getFieldsValidatorStatus | 得到一组表单校验状态。。不传 nameList 则返回全部 fields 对           | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)}>          |
+| getFieldsValidatorStatus | 得到一组表单校验状态。不传 nameList 则返回全部 fields 对             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
 | reset                    | 重置表单为初始值                                                     | () => void                                                                             |
 | isFieldTouched           | 判断表单项是否被修改过                                               | () => boolean                                                                          |
 | onValueChange            | 侦听指定表单项的值修改，查看[详细说明](#onvaluechangeonvalueschange) | (name: string, (changedValue: any, allValues: Record<string, any>) => void) => void    |
@@ -134,13 +152,13 @@ Form 表单。包含数据录入、校验以及对应样式。Form 组件需要 
 
 ### dependencies
 
-当字段间存在依赖关系时使用。如果一个字段设置了 dependencies 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 dependencies 后，“密码”字段更新会重新触发“校验密码”的校验。
+当字段间存在依赖关系时使用。例如注册用户表单的“密码”与“确认密码”字段，其中“确认密码”校验依赖于“密码”字段。设置 `dependencies` 后，“密码”字段更新将自动触发“确认密码”的校验。
 
 ### rules
 
 示例：
 
-```js
+```javascript
 {
   account: [
     {
@@ -163,14 +181,14 @@ Form 表单。包含数据录入、校验以及对应样式。Form 组件需要 
         if (!value || form.getFieldValue('password') === value) {
           return;
         }
-        throw new Error('验证密码需要跟密码相同');
+        throw new Error('两次密码需一致');
       },
     }),
   ]
 }
 ```
 
-rules 可以在 new Form 里设置，还可以在 FormItem 里通过 `required`, `message` 属性加上。
+`rules` 可以在 `new Form` 中设置，也可以在 `FormItem` 通过 `required` 或 `message` 属性设置。
 
 ```html
 <form-input
@@ -179,32 +197,32 @@ rules 可以在 new Form 里设置，还可以在 FormItem 里通过 `required`,
   required
   message="请输入用户名"
   ref="handleRef"
-/>
+></form-input>
 ```
 
 ### validateMessages
 
-可查看[message](https://github.com/yiminghe/async-validator/blob/master/src/messages.ts#L4-L55) antd-mini 在这个 message 上加上了 `${label}`,`${len}`,`${min}`,`${max}`,`${pattern}`
+可以参考 [Asynchronous validator](https://github.com/yiminghe/async-validator/blob/master/src/messages.ts#L4-L55) 的 message，antd-mini 在此基础上加了 `${label}`,`${len}`,`${min}`,`${max}`,`${pattern}`。
 
 示例：
 
-```js
+```javascript
 {
   required: '需要输入${label}',
   string: {
     min: '${label}最少${min}个字符',
   },
   pattern: {
-    mismatch: '${label}需要满足${pattern}',
+    mismatch: '${label}需要满足${pattern}模式',
   },
 }
 ```
 
-### onValueChange,onValuesChange
+### onValueChange 和 onValuesChange
 
-setFieldValue，setFieldsValue 不会触发 onValueChange, onValuesChange。onValueChange, onValuesChange 只会被用户操作才会触发。要是你需要在 setFieldValue，setFieldsValue 之后想要去触发 onValueChange, onValuesChange，你可以手动去调用 onValueChange, onValuesChange 方法。
+`setFieldValue` 和 `setFieldsValue` 不会触发 `onValueChange` 和 `onValuesChange`。`onValueChange` 和 `onValuesChange` 只有在用户操作时才会被触发。如果在 `setFieldValue` 或 `setFieldsValue` 之后想要触发 `onValueChange` 或 `onValuesChange`，你需要手动调用这些方法。
 
-示例：
+**示例**：
 
 ```js
 const onValuesChangeCallback = (changedValues) => {
@@ -226,12 +244,12 @@ type ValidatorStatus = {
 };
 ```
 
-### submit 校验抛出错误
+### submit 校验和抛出错误
 
 ```js
 {
-  values: Record<string, any>
-  errorFileds: {
+  values: Record<string, any>,
+  errorFields: {
     name: string;
     errors: string[];
   }[]
@@ -240,90 +258,90 @@ type ValidatorStatus = {
 
 ### FormInput
 
-同 Input
+与 `Input` 相同。
 
 ### FormTextarea
 
-同 Textarea
+与 `Textarea` 相同。
 
 ### FormSwitch
 
-同 Switch
+与 `Switch` 相同。
 
 ### FormStepper
 
-同 Stepper，添加：
+与 `Stepper` 相同，但添加了如下属性：
 
-| 属性             | 说明                        | 类型   | 默认值 |
-| ---------------- | --------------------------- | ------ | ------ |
-| stepperClassName | 对应 Stepper 组件 className | string | -      |
-| stepperStyle     | 对应 Stepper 组件 style     | string | -      |
+| 属性             | 说明                              | 类型   | 默认值 |
+| ---------------- | --------------------------------- | ------ | ------ |
+| stepperClassName | 对应 `Stepper` 组件的 `className` | string | -      |
+| stepperStyle     | 对应 `Stepper` 组件的 `style`     | string | -      |
 
 ### FormCheckGroup
 
-同 CheckGroup，添加：
+与 `CheckGroup` 相同，但添加了如下属性：
 
-| 属性             | 说明                          | 类型   | 默认值 |
-| ---------------- | ----------------------------- | ------ | ------ |
-| checkboxLabel    | 对应 CheckGroup 组件 label    | slot   | -      |
-| checkboxPosition | 对应 CheckGroup 组件 position | string | -      |
+| 属性             | 说明                                | 类型   | 默认值 |
+| ---------------- | ----------------------------------- | ------ | ------ |
+| checkboxLabel    | 对应 `CheckGroup` 组件的 `label`    | slot   | -      |
+| checkboxPosition | 对应 `CheckGroup` 组件的 `position` | string | -      |
 
 ### FormRadioGroup
 
-同 RadioGroup，添加：
+与 `RadioGroup` 相同，但添加了如下属性：
 
-| 属性          | 说明                          | 类型   | 默认值 |
-| ------------- | ----------------------------- | ------ | ------ |
-| radioLabel    | 对应 RadioGroup 组件 label    | slot   | -      |
-| radioPosition | 对应 RadioGroup 组件 position | string | -      |
+| 属性          | 说明                                | 类型   | 默认值 |
+| ------------- | ----------------------------------- | ------ | ------ |
+| radioLabel    | 对应 `RadioGroup` 组件的 `label`    | slot   | -      |
+| radioPosition | 对应 `RadioGroup` 组件的 `position` | string | -      |
 
 ### FormPicker
 
-同 Picker，添加：
+与 `Picker` 相同，但添加了如下属性：
 
-| 属性  | 说明                                                 | 类型              | 默认值 |
-| ----- | ---------------------------------------------------- | ----------------- | ------ |
-| arrow | 右侧箭头，可选`right` `up` `down`，传 true 为`right` | string \| boolean | -      |
+| 属性  | 说明                                                     | 类型              | 默认值 |
+| ----- | -------------------------------------------------------- | ----------------- | ------ |
+| arrow | 右侧箭头，可选 `right`、`up`、`down`，传 true 为 `right` | string \| boolean | -      |
 
 ### FormDatePicker
 
-同 DatePicker，添加：
+与 `DatePicker` 相同，但添加了如下属性：
 
-| 属性  | 说明                                                 | 类型              | 默认值 |
-| ----- | ---------------------------------------------------- | ----------------- | ------ |
-| arrow | 右侧箭头，可选`right` `up` `down`，传 true 为`right` | string \| boolean | -      |
+| 属性  | 说明                                                     | 类型              | 默认值 |
+| ----- | -------------------------------------------------------- | ----------------- | ------ |
+| arrow | 右侧箭头，可选 `right`、`up`、`down`，传 true 为 `right` | string \| boolean | -      |
 
 ### FormRangePicker
 
-同 RangePicker，添加：
+与 `RangePicker` 相同，但添加了如下属性：
 
-| 属性  | 说明                                                 | 类型              | 默认值 |
-| ----- | ---------------------------------------------------- | ----------------- | ------ |
-| arrow | 右侧箭头，可选`right` `up` `down`，传 true 为`right` | string \| boolean | -      |
+| 属性  | 说明                                                     | 类型              | 默认值 |
+| ----- | -------------------------------------------------------- | ----------------- | ------ |
+| arrow | 右侧箭头，可选 `right`、`up`、`down`，传 true 为 `right` | string \| boolean | -      |
 
 ### FormCascaderPicker
 
-同 CascaderPicker，添加：
+与 `CascaderPicker` 相同，但添加了如下属性：
 
-| 属性  | 说明                                                 | 类型              | 默认值 |
-| ----- | ---------------------------------------------------- | ----------------- | ------ |
-| arrow | 右侧箭头，可选`right` `up` `down`，传 true 为`right` | string \| boolean | -      |
+| 属性  | 说明                                                     | 类型              | 默认值 |
+| ----- | -------------------------------------------------------- | ----------------- | ------ |
+| arrow | 右侧箭头，可选 `right`、`up`、`down`，传 true 为 `right` | string \| boolean | -      |
 
 ### FormSlider
 
-同 Slider
+与 `Slider` 相同。
 
 ### FormSelector
 
-同 Selector
+与 `Selector` 相同。
 
 ### FormImageUpload
 
-同 ImageUpload
+与 `ImageUpload` 相同。
 
 ### createForm
 
-createForm 是一个 mixin，在自定义表单项使用
+`createForm` 是一个 `mixin`，用于自定义表单项。
 
 ```js
 import { createForm } from 'antd-mini/es/Form/form';
@@ -338,25 +356,25 @@ Component({
 });
 ```
 
-createForm 会在 Component 加上
+`createForm` 会为组件增加以下内容：
 
-- data
+- `data`
 
 ```js
 {
   formData: {
     value: undefined, // 表单项的值
-    status: 'default', // 表单项校验状态，包括 default, success, error, validating
+    status: 'default', // 表单项的校验状态，包括 `default`、`success`、`error`、`validating`
     errors: [], // 错误信息
   },
 }
 ```
 
-- methods
+- `methods`
 
 ```js
-// 表单项修改需要调用emit方法。需要自定义表单项组件在值修改去调用。
-function emit(trigger: 'onChange' | 'onBlur' | 'onFocus' , value: any):  void;
+// 修改表单项时，需调用 `emit` 方法。自定义表单项组件在值改变时，应该调用此方法。
+function emit(trigger: 'onChange' | 'onBlur' | 'onFocus', value: any): void;
 ```
 
-更多方法可查看 createForm 方法。使用`formData`, `emit` 即可完成自定义表单项。
+想要了解更多方法，请参考 `createForm` 方法相关文档。使用 `formData` 和 `emit` 即可完成自定义表单项的实现。
