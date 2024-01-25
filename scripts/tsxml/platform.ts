@@ -115,6 +115,12 @@ export const wechat: PlatformConfig = {
       onCancelButtonTap: 'bind:cancelbuttontap',
       onClose: 'bind:close',
     },
+    'number-keyboard': {
+      onClose: 'bind:close',
+    },
+    'ant-number-keyboard': {
+      onClose: 'bind:close',
+    },
   },
 };
 

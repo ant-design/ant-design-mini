@@ -40,7 +40,7 @@ export default ({
       <ListItem onTap="onTap4">乱序键盘</ListItem>
       <NumberKeyboard random={true} visible={visible4} onClose="onTap4" />
     </List>
-
+    {/* #if ALIPAY */}
     <List header="自定义按钮">
       <ListItem onTap="onTap6">自定义标题</ListItem>
       <NumberKeyboard visible={visible6} onClose="onTap6">
@@ -56,5 +56,6 @@ export default ({
         </View>
       </NumberKeyboard>
     </List>
+    {/* #endif */}
   </Page>
 );

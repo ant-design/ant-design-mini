@@ -1,5 +1,9 @@
 {
   "pages": [
+    "demo/pages/NumberKeyboard/index",
+    "demo/pages/NumberKeyboardAmount/index",
+    "demo/pages/NumberKeyboardCode/index",
+    "demo/pages/NumberKeyboardNumber/index",
     "demo/pages/NoticeBar/index",
     "demo/pages/ProgressCircle/index",
     "demo/pages/ProgressLine/index",
