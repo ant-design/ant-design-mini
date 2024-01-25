@@ -111,7 +111,7 @@ describe('modal onClose', () => {
     await sleep(500);
     expect(instance.getData()).toEqual({
       'marqueeStyle':
-        'transform: translate3d(100px, 0, 0); transition: 0s all linear;',
+        'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
       'show': true,
     });
   });

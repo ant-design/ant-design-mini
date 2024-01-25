@@ -54,9 +54,7 @@ var NoticeBar = function (props) {
             marqueeScrollWidth = overflowWidth + viewWidth;
         }
         var newMarqueeStyle = "transform: translate3d(".concat(-marqueeScrollWidth, "px, 0, 0); transition: ").concat(duration, "s all linear ").concat(typeof leading === 'number' ? "".concat(leading / 1000, "s") : '0s', ";");
-        if (newMarqueeStyle !== marqueeStyle) {
-            setMarqueeStyle(newMarqueeStyle);
-        }
+        setMarqueeStyle(newMarqueeStyle);
     });
     var getBoundingClientRectWithId = useInstanceBoundingClientRect().getBoundingClientRectWithId;
     function measureText(callback) {

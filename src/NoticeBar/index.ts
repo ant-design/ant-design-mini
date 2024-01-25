@@ -28,9 +28,7 @@ const NoticeBar = (props: INoticeBarProps) => {
     const newMarqueeStyle = `transform: translate3d(${-marqueeScrollWidth}px, 0, 0); transition: ${duration}s all linear ${
       typeof leading === 'number' ? `${leading / 1000}s` : '0s'
     };`;
-    if (newMarqueeStyle !== marqueeStyle) {
-      setMarqueeStyle(newMarqueeStyle);
-    }
+    setMarqueeStyle(newMarqueeStyle);
   });
 
   const { getBoundingClientRectWithId } = useInstanceBoundingClientRect();
