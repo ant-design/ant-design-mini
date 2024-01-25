@@ -2,25 +2,25 @@
   "env": {
     "node": true
   },
-    "globals": {
-      "my": true,
-      "App": true,
-      "Component": true,
-      "Page": true
-    },
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended"
-    ],
-    "rules": {
-      "no-console": "warn",
-      "@typescript-eslint/no-var-requires": "warn",
-      "@typescript-eslint/no-empty-function": "warn",
-      "@typescript-eslint/no-empty-interface": "warn"
-    }
+  "globals": {
+    "wx": true,
+    "my": true,
+    "App": true,
+    "Component": true,
+    "Page": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "@typescript-eslint/no-var-requires": "warn",
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
+}

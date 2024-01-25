@@ -1,0 +1,68 @@
+.ant-notice-bar {
+  position: relative;
+  display: flex;
+  height: 37.5px;
+  align-items: center;
+  overflow: hidden;
+  padding: 8px 12px;
+  font-size: 15px;
+  color: #ff6010;
+  background-color: #fff9ed;
+  box-sizing: border-box;
+}
+.ant-notice-bar-error {
+  color: #ffffff;
+  background-color: #ff3141;
+}
+.ant-notice-bar-error-scroll-left,
+.ant-notice-bar-error-scroll-right {
+  background: #ff3141;
+}
+.ant-notice-bar-primary {
+  color: #1677ff;
+  background-color: #d0e4ff;
+}
+.ant-notice-bar-primary-scroll-left,
+.ant-notice-bar-primary-scroll-right {
+  background: #d0e4ff;
+}
+.ant-notice-bar-info {
+  color: #ffffff;
+  background: #666666;
+}
+.ant-notice-bar-info-scroll-left,
+.ant-notice-bar-info-scroll-right {
+  background: #666666;
+}
+.ant-notice-bar-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+.ant-notice-bar-icon-image-image {
+  width: 18px;
+  height: 18px;
+}
+.ant-notice-bar-content {
+  position: relative;
+  z-index: 2;
+  flex: 1 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+.ant-notice-bar-marquee {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.ant-notice-bar-operation {
+  display: flex;
+  align-items: center;
+}
+.ant-notice-bar-operation-icon {
+  margin-left: 12px;
+}
+.ant-icon-size-x-small {
+  font-size: 18px;
+}

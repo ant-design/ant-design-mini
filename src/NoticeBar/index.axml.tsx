@@ -25,7 +25,10 @@ export default (
         }`}
         style={style}
       >
+        {/* #if ALIPAY */}
         <Slot name="icon">
+          {/* #endif */}
+
           <View class="ant-notice-bar-icon">
             {icon ? (
               <ImageIcon image={icon} className="ant-notice-bar-icon-image" />
@@ -35,7 +38,9 @@ export default (
               <Icon type="SoundOutline" />
             )}
           </View>
+          {/* #if ALIPAY */}
         </Slot>
+        {/* #endif */}
         <View
           class={`ant-notice-bar-content ant-notice-bar-content${
             $id ? '-' + $id : ''

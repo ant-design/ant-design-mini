@@ -3,21 +3,27 @@ Page({
     typeList: ['default', 'error', 'info', 'primary'],
   },
   handleTapAction() {
-    my.showToast({
-      content: `点击按钮`,
-      duration: 1000,
-    });
+    this.showToast('点击按钮');
   },
   handleTapLink() {
-    my.showToast({
-      content: 'link 类型被点击了',
-      duration: 1000,
-    });
+    this.showToast('link 类型被点击了');
   },
   handleClose() {
+    this.showToast('点击关闭');
+  },
+  showToast(content: string) {
+    /// #if ALIPAY
     my.showToast({
-      content: `点击关闭`,
+      content: content,
       duration: 1000,
     });
+    /// #endif
+
+    /// #if WECHAT
+    //@ts-ignore
+    wx.showToast({
+      title: content,
+    });
+    /// #endif
   },
 });

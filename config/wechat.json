@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/NoticeBar",
     "pages/ProgressLine",
     "pages/ProgressCircle",
     "pages/Empty",
@@ -107,6 +108,7 @@
     "Pagination",
     "Badge",
     "TabBar",
-    "Progress"
+    "Progress",
+    "NoticeBar"
   ]
 }
