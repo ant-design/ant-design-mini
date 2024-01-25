@@ -24,7 +24,15 @@
           <image-icon
             image="{{ item.icon }}"
             className="ant-grid-item-icon"
-            style="{{ iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : '' }}" />
+            style="{{ iconSize
+  ? 'width:' +
+    iconSize +
+    'px;height:' +
+    iconSize +
+    'px;font-size:' +
+    iconSize +
+    'px'
+  : '' }}" />
         </slot>
       </view>
       <view class="ant-grid-item-title">
@@ -47,7 +55,7 @@
   </block>
 </view>
 <ant-pagination
-  a:elif="{{ mode === 'scroll' }}"
+  a:if="{{ mode === 'scroll' }}"
   fillColor="{{ paginationFillColor }}"
   frontColor="{{ paginationFrontColor }}"
   className="{{ className || '' }}"
@@ -71,7 +79,15 @@
             <image-icon
               image="{{ item.icon }}"
               className="ant-grid-item-icon"
-              style="{{ iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : '' }}" />
+              style="{{ iconSize
+  ? 'width:' +
+    iconSize +
+    'px;height:' +
+    iconSize +
+    'px;font-size:' +
+    iconSize +
+    'px'
+  : '' }}" />
           </slot>
         </view>
         <view class="ant-grid-item-title">

@@ -50,7 +50,6 @@ describe('modal onClose', () => {
     });
     await sleep(30);
     expect(instance.getData()).toEqual({
-      'animatedWidth': 0,
       'duration': 2.5,
       'marqueeStyle':
         'transform: translate3d(-100px, 0, 0); transition: 2.5s all linear 0.5s;',
@@ -71,7 +70,6 @@ describe('modal onClose', () => {
     });
     await sleep(30);
     expect(instance.getData()).toEqual({
-      'animatedWidth': 0,
       'duration': 5,
       'marqueeStyle':
         'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
@@ -96,7 +94,6 @@ describe('modal onClose', () => {
     });
     await sleep(30);
     expect(instance.getData()).toEqual({
-      'animatedWidth': 0,
       'duration': 5,
       'marqueeStyle':
         'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
@@ -116,7 +113,6 @@ describe('modal onClose', () => {
     });
     await sleep(250);
     expect(instance.getData()).toEqual({
-      'animatedWidth': 0,
       'duration': 5,
       'marqueeStyle':
         'transform: translate3d(100px, 0, 0); transition: 0s all linear;',
@@ -126,7 +122,6 @@ describe('modal onClose', () => {
     });
     await sleep(300);
     expect(instance.getData()).toEqual({
-      'animatedWidth': 0,
       'duration': 5,
       'marqueeStyle':
         'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
@@ -151,7 +146,6 @@ describe('modal onClose', () => {
     });
     await sleep(30);
     expect(instance.getData()).toEqual({
-      'animatedWidth': 0,
       'duration': 0,
       'marqueeStyle': '',
       'overflowWidth': 0,
