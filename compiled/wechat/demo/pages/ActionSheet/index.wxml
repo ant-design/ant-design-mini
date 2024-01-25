@@ -1,6 +1,6 @@
 <container title="基础用法">
   <ant-button
-    onTap="handleOpenBasic"
+    bind:tap="handleOpenBasic"
     inline="{{ true }}"
     size="large"
     data-index="1">
@@ -9,7 +9,7 @@
 </container>
 <container title="选项状态">
   <ant-button
-    onTap="handleOpenBasic"
+    bind:tap="handleOpenBasic"
     inline="{{ true }}"
     size="large"
     data-index="2">
@@ -18,7 +18,7 @@
 </container>
 <container title="带注释及icon">
   <ant-button
-    onTap="handleOpenBasic"
+    bind:tap="handleOpenBasic"
     inline="{{ true }}"
     size="large"
     data-index="3">
@@ -30,19 +30,19 @@
   visible="{{ visible1 }}"
   actions="{{ actions1 }}"
   data-index="1"
-  onAction="handleAction"
-  onClose="handleCloseBasic" />
+  bind:action="handleAction"
+  bind:close="handleCloseBasic" />
 <ant-action-sheet
   title="请选择你要进行的操作"
   visible="{{ visible2 }}"
   actions="{{ actions2 }}"
   data-index="2"
-  onAction="handleAction"
-  onClose="handleCloseBasic" />
+  bind:action="handleAction"
+  bind:close="handleCloseBasic" />
 <ant-action-sheet
   title="请选择你要进行的操作"
   visible="{{ visible3 }}"
   actions="{{ actions3 }}"
   data-index="3"
-  onAction="handleAction"
-  onClose="handleCloseBasic" />
+  bind:action="handleAction"
+  bind:close="handleCloseBasic" />

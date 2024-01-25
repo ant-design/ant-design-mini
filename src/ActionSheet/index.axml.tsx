@@ -1,7 +1,7 @@
 import { View, TSXMLProps, Slot } from 'tsxml';
 import { IActionSheetProps } from './props';
 import helper from './index.sjs';
-import Popup from '../Popup/index.axml';
+import AntPopup from '../Popup/index.axml';
 
 export default ({
   visible,
@@ -11,7 +11,7 @@ export default ({
   cancelText,
   style,
 }: TSXMLProps<IActionSheetProps>) => (
-  <Popup
+  <AntPopup
     className="ant-actionsheet-popup"
     visible={visible}
     position="bottom"
@@ -85,5 +85,5 @@ export default ({
       </Slot>
       {/* #endif */}
     </View>
-  </Popup>
+  </AntPopup>
 );

@@ -52,4 +52,5 @@ export const ActionSheetDefaultProps: Partial<IActionSheetProps> = {
   title: '',
   actions: [],
   cancelText: '取消',
+  visible: false,
 };

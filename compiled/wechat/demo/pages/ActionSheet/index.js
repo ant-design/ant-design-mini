@@ -50,27 +50,25 @@ Page({
             },
         ],
     },
-    handleOpenBasic(e) {
-        const { index } = e.currentTarget.dataset;
-        this.setData({
-            [`visible${index}`]: true,
-        });
+    handleOpenBasic: function (e) {
+        var _a;
+        var index = e.currentTarget.dataset.index;
+        this.setData((_a = {},
+            _a["visible".concat(index)] = true,
+            _a));
     },
-    handleCloseBasic(e) {
-        const { index } = e.currentTarget.dataset;
-        this.setData({
-            [`visible${index}`]: false,
-        });
+    handleCloseBasic: function (e) {
+        var _a;
+        var index = e.currentTarget.dataset.index;
+        this.setData((_a = {},
+            _a["visible".concat(index)] = false,
+            _a));
     },
-    handleAction(item, index, e) {
-        if (item.key === 'delete') {
-            my.confirm({
-                content: '你确定要删除吗?',
-            });
-            return;
-        }
-        my.alert({
-            content: `你点击了${item.key}`,
+    handleAction: function (item, index, e) {
+        var _a = item.detail, clickItem = _a[0], clickIndex = _a[1];
+        //@ts-ignore
+        wx.showToast({
+            title: "\u4F60\u70B9\u51FB\u4E86".concat(clickItem.key, "(").concat(clickIndex, ")"),
         });
     },
 });
