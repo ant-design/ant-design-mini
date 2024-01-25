@@ -25,7 +25,7 @@ export default (
       {visible && (
         <View
           class="ant-number-keyboard-modal"
-          onTap="onHide"
+          onTap="handleHide"
           onAppear="catchAppearModal"
         />
       )}

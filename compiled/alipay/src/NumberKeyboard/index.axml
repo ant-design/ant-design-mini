@@ -5,7 +5,7 @@
   <view
     a:if="{{ visible }}"
     class="ant-number-keyboard-modal"
-    onTap="onHide"
+    onTap="handleHide"
     onAppear="catchAppearModal" />
 
   <view

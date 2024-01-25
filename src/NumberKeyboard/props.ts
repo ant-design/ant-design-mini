@@ -2,11 +2,6 @@ import { IBaseProps } from '../_util/base';
 
 export interface INumberKeyboardProps extends IBaseProps {
   /**
-   * @description 样式
-   * @default ''
-   */
-  className: string;
-  /**
    * @description 关闭箭头
    * @default false
    */
@@ -79,4 +74,16 @@ export const NumberKeyboardDefaultProps: Partial<INumberKeyboardProps> = {
   onChange: (val) => {}, // 输入
   onConfirm: () => {}, // 确认
   onClose: () => {}, // 关闭
+};
+
+export const NumberKeyboardFunctionalProps: Partial<INumberKeyboardProps> = {
+  closeable: false, // 关闭箭头
+  point: true, // 展示小数点
+  confirmText: '', // 确认按钮文字
+  vibrate: false, // 震动反馈
+  visible: false, // 是否展示
+  value: '', // 值
+  safeArea: true, // 安全区域
+  random: false, // 乱序
+  confirmDisabled: false, // 禁用确认按钮
 };
