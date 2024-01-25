@@ -15,14 +15,9 @@ import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
 const NoticeBar = (props: INoticeBarProps) => {
   const [marqueeStyle, setMarqueeStyle] = useState('');
   const [show, setShow] = useState(true);
-  const [state, setState] = useState({
-    overflowWidth: 0,
-    duration: 0,
-    viewWidth: 0,
-  });
 
   const { triggerEventOnly } = useComponentEvent(props);
-  const startMarquee = useStableCallback(() => {
+  const startMarquee = useStableCallback((state) => {
     const { loop } = props;
     const leading = 500;
     const { duration, overflowWidth, viewWidth } = state;
@@ -58,12 +53,11 @@ const NoticeBar = (props: INoticeBarProps) => {
         marqueeScrollWidth = overflowWidth + viewWidth;
       }
       if (overflowWidth > 0) {
-        setState({
+        callback({
           overflowWidth,
           viewWidth,
           duration: marqueeScrollWidth / fps,
         });
-        callback();
       }
     }, 0);
   }
@@ -75,7 +69,7 @@ const NoticeBar = (props: INoticeBarProps) => {
     }
   });
 
-  function resetMarquee() {
+  function resetMarquee(state) {
     const { loop } = props;
     const { viewWidth } = state;
     let showMarqueeWidth = '0px';
@@ -91,8 +85,10 @@ const NoticeBar = (props: INoticeBarProps) => {
     const trailing = 200;
     if (loop) {
       setTimeout(() => {
-        resetMarquee();
-        measureText(startMarquee);
+        measureText((state) => {
+          resetMarquee(state);
+          startMarquee(state);
+        });
       }, trailing);
     }
   });
@@ -114,12 +110,11 @@ const NoticeBar = (props: INoticeBarProps) => {
   usePageShow(() => {
     if (props.enableMarquee) {
       setMarqueeStyle('');
-      setState({
+      resetMarquee({
         overflowWidth: 0,
         duration: 0,
         viewWidth: 0,
       });
-      resetMarquee();
       measureText(startMarquee);
     }
   });
@@ -127,9 +122,6 @@ const NoticeBar = (props: INoticeBarProps) => {
   return {
     marqueeStyle,
     show,
-    overflowWidth: state.overflowWidth,
-    duration: state.duration,
-    viewWidth: state.viewWidth,
   };
 };
 

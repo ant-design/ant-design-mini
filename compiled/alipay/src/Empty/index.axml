@@ -6,8 +6,7 @@
       <slot name="image">
         <image
           class="ant-empty-image-element"
-          src="{{ image ||
-  'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ' }}" />
+          src="{{ image || 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ' }}" />
       </slot>
     </view>
     <view class="ant-empty-text">

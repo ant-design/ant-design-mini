@@ -57,6 +57,6 @@
 <container title="自定义进度条指示器">
   <progress percent="{{ progress3 }}">
     <!-- display: inline -->
-    <text slot="indicator">{{ ;(progress3 / 100) * 200 }}步</text>
+    <text slot="indicator">{{ (progress3 / 100) * 200 }}步</text>
   </progress>
 </container>

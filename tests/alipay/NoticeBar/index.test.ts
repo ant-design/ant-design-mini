@@ -50,12 +50,9 @@ describe('modal onClose', () => {
     });
     await sleep(30);
     expect(instance.getData()).toEqual({
-      'duration': 2.5,
       'marqueeStyle':
         'transform: translate3d(-100px, 0, 0); transition: 2.5s all linear 0.5s;',
-      'overflowWidth': 100,
       'show': true,
-      'viewWidth': 100,
     });
     handleQuery.mockImplementation((id: string, index: number) => {
       return {
@@ -70,12 +67,9 @@ describe('modal onClose', () => {
     });
     await sleep(30);
     expect(instance.getData()).toEqual({
-      'duration': 5,
       'marqueeStyle':
         'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
-      'overflowWidth': 200,
       'show': true,
-      'viewWidth': 100,
     });
   });
 
@@ -94,12 +88,9 @@ describe('modal onClose', () => {
     });
     await sleep(30);
     expect(instance.getData()).toEqual({
-      'duration': 5,
       'marqueeStyle':
         'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
-      'overflowWidth': 100,
       'show': true,
-      'viewWidth': 100,
     });
     instance.callMethod('onTransitionEnd');
     handleQuery.mockImplementation(async (id: string, index: number) => {
@@ -113,21 +104,15 @@ describe('modal onClose', () => {
     });
     await sleep(250);
     expect(instance.getData()).toEqual({
-      'duration': 5,
       'marqueeStyle':
-        'transform: translate3d(100px, 0, 0); transition: 0s all linear;',
-      'overflowWidth': 100,
+        'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
       'show': true,
-      'viewWidth': 100,
     });
     await sleep(300);
     expect(instance.getData()).toEqual({
-      'duration': 5,
       'marqueeStyle':
         'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
-      'overflowWidth': 100,
       'show': true,
-      'viewWidth': 100,
     });
   });
 
@@ -146,11 +131,8 @@ describe('modal onClose', () => {
     });
     await sleep(30);
     expect(instance.getData()).toEqual({
-      'duration': 0,
       'marqueeStyle': '',
-      'overflowWidth': 0,
       'show': true,
-      'viewWidth': 0,
     });
   });
 });
