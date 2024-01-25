@@ -2,19 +2,19 @@ Page({
     data: {
         typeList: ['default', 'error', 'info', 'primary'],
     },
-    handleTapAction() {
+    handleTapAction: function () {
         this.showToast('点击按钮');
     },
-    handleTapLink() {
+    handleTapLink: function () {
         this.showToast('link 类型被点击了');
     },
-    handleClose() {
+    handleClose: function () {
         this.showToast('点击关闭');
     },
-    showToast(content) {
-        my.showToast({
-            content: content,
-            duration: 1000,
+    showToast: function (content) {
+        //@ts-ignore
+        wx.showToast({
+            title: content,
         });
     },
 });

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "Notice",
+  "usingComponents": {
+    "notice": "../../../src/NoticeBar/index",
+    "container": "../../../src/Container/index",
+    "am-icon": "../../../src/Icon/index"
+  }
+}

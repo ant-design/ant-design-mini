@@ -1,8 +1,8 @@
 <container title="基础用法">
   <block
-    a:for="{{ typeList }}"
-    a:for-index="index"
-    a:for-item="item">
+    wx:for="{{ typeList }}"
+    wx:for-index="index"
+    wx:for-item="item">
     <notice
       style="margin-bottom: 8px"
       type="{{ item }}">
@@ -13,7 +13,7 @@
 
 <container title="可关闭通告栏">
   <notice
-    onTap="handleClose"
+    bind:tap="handleClose"
     mode="closeable">
     这条通知可以关闭
   </notice>
@@ -21,15 +21,15 @@
 
 <container title="可滚动通告栏">
   <block
-    a:for="{{ typeList }}"
-    a:for-index="index"
-    a:for-item="item">
+    wx:for="{{ typeList }}"
+    wx:for-index="index"
+    wx:for-item="item">
     <notice
       type="{{ item }}"
       style="margin-bottom: 8px"
       enableMarquee="{{ true }}"
       loop="{{ true }}"
-      onTap="handleTapLink"
+      bind:tap="handleTapLink"
       mode="link">
       文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
     </notice>
@@ -38,14 +38,14 @@
 
 <container title="可滚动通告栏(不循环)">
   <block
-    a:for="{{ typeList }}"
-    a:for-index="index"
-    a:for-item="item">
+    wx:for="{{ typeList }}"
+    wx:for-index="index"
+    wx:for-item="item">
     <notice
       type="{{ item }}"
       style="margin-bottom: 8px"
       enableMarquee="{{ true }}"
-      onTap="handleTapLink"
+      bind:tap="handleTapLink"
       mode="link">
       文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
     </notice>
@@ -77,13 +77,13 @@
   <notice
     mode="link"
     style="margin-bottom: 8px"
-    onTap="handleTapLink">
+    bind:tap="handleTapLink">
     自定义右侧按钮
     <view
       slot="extra"
       class="extra">
-      <view onTap="handleTapAction">不再提示</view>
-      <view onTap="handleTapAction">查看详情</view>
+      <view bind:tap="handleTapAction">不再提示</view>
+      <view bind:tap="handleTapAction">查看详情</view>
     </view>
   </notice>
 </container>

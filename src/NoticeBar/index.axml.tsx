@@ -1,19 +1,22 @@
-import { Slot, TSXMLProps, View, Component } from 'tsxml';
+import { Slot, TSXMLProps, View, Component, InternalData } from 'tsxml';
 import Icon from '../Icon/index.axml';
 import ImageIcon from '../ImageIcon/index.axml';
 import { INoticeBarProps } from './props';
 
-export default ({
-  className,
-  style,
-  type,
-  icon,
-  mode,
-  enableMarquee,
-  show,
-  marqueeStyle,
-  $id,
-}: TSXMLProps<INoticeBarProps>) => (
+export default (
+  {
+    className,
+    style,
+    type,
+    icon,
+    mode,
+    enableMarquee,
+
+    $id,
+  }: TSXMLProps<INoticeBarProps>,
+
+  { marqueeStyle, show }: InternalData
+) => (
   <Component>
     {show && (
       <View
@@ -22,7 +25,10 @@ export default ({
         }`}
         style={style}
       >
+        {/* #if ALIPAY */}
         <Slot name="icon">
+          {/* #endif */}
+
           <View class="ant-notice-bar-icon">
             {icon ? (
               <ImageIcon image={icon} className="ant-notice-bar-icon-image" />
@@ -32,10 +38,18 @@ export default ({
               <Icon type="SoundOutline" />
             )}
           </View>
+          {/* #if ALIPAY */}
         </Slot>
-        <View class={`ant-notice-bar-content ant-notice-bar-content-${$id}`}>
+        {/* #endif */}
+        <View
+          class={`ant-notice-bar-content ant-notice-bar-content${
+            $id ? '-' + $id : ''
+          }`}
+        >
           <View
-            class={`ant-notice-bar-marquee ant-notice-bar-marquee-${$id}`}
+            class={`ant-notice-bar-marquee ant-notice-bar-marquee${
+              $id ? '-' + $id : ''
+            }`}
             style={`${marqueeStyle} display: ${
               enableMarquee ? 'inline-block' : 'block'
             }`}

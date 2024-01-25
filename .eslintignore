@@ -6,3 +6,4 @@ src/.umi-production/**
 dist/**
 docs-dist/**
 node_modules
+compiled/

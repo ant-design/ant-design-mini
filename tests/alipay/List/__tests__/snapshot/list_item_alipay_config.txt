@@ -20,4 +20,5 @@
     "showDivider": true,
     "title": "",
   },
+  "rootEvents": {},
 }

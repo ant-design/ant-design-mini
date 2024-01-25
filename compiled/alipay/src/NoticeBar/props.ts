@@ -8,10 +8,6 @@ import { IBaseProps } from '../_util/base';
 
 export interface INoticeBarProps extends IBaseProps {
   /**
-   * 是否展示
-   */
-  show?: boolean;
-  /**
    * @description 消息的展示
    */
   icon?: string;
@@ -24,16 +20,7 @@ export interface INoticeBarProps extends IBaseProps {
   /**
    * @description 通告类型，link 表示连接，整行可点；closeable 表示点击 x 可以关闭；不填时表示你右侧没有图标
    */
-  mode: 'link' | 'closeable';
-  /**
-   * @description 行动点，最多两个行动点，action和mode可以同时搭配使用
-   */
-
-  actions: string[];
-  /**
-   * @description 滚动样式
-   */
-  marqueeStyle?: boolean;
+  mode?: 'link' | 'closeable';
   /**
    * @description 是否开启滚动动画
    * @default false
@@ -63,4 +50,12 @@ export const NoticeBarDefaultProps: Partial<INoticeBarProps> = {
   enableMarquee: false,
   loop: false,
   type: 'default',
+};
+
+export const NoticeBarFunctionalProps: Partial<INoticeBarProps> = {
+  icon: '',
+  type: 'default',
+  mode: null,
+  enableMarquee: false,
+  loop: false,
 };

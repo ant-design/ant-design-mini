@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/NoticeBar/index",
     "demo/pages/ProgressCircle/index",
     "demo/pages/ProgressLine/index",
     "demo/pages/Empty/index",

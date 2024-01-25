@@ -1,21 +1,19 @@
 <view
-  a:if="{{ show }}"
+  wx:if="{{ show }}"
   class="ant-notice-bar {{ className || '' }} {{ type ? 'ant-notice-bar-' + type : '' }}"
   style="{{ style }}">
-  <slot name="icon">
-    <view class="ant-notice-bar-icon">
-      <image-icon
-        a:if="{{ icon }}"
-        image="{{ icon }}"
-        className="ant-notice-bar-icon-image" />
-      <icon
-        a:elif="{{ type === 'error' }}"
-        type="InformationCircleOutline" />
-      <icon
-        a:else
-        type="SoundOutline" />
-    </view>
-  </slot>
+  <view class="ant-notice-bar-icon">
+    <image-icon
+      wx:if="{{ icon }}"
+      image="{{ icon }}"
+      className="ant-notice-bar-icon-image" />
+    <icon
+      wx:elif="{{ type === 'error' }}"
+      type="InformationCircleOutline" />
+    <icon
+      wx:else
+      type="SoundOutline" />
+  </view>
   <view
     class="ant-notice-bar-content ant-notice-bar-content{{ $id ? '-' + $id : '' }}">
     <view
@@ -28,14 +26,14 @@
   <view class="ant-notice-bar-operation">
     <slot name="extra" />
     <icon
-      a:if="{{ mode === 'link' }}"
+      wx:if="{{ mode === 'link' }}"
       className="ant-notice-bar-operation-icon"
       type="RightOutline"
-      onTap="onTap" />
+      bind:tap="onTap" />
     <icon
-      a:if="{{ mode === 'closeable' }}"
+      wx:if="{{ mode === 'closeable' }}"
       className="ant-notice-bar-operation-icon"
       type="CloseOutline"
-      onTap="onTap" />
+      bind:tap="onTap" />
   </view>
 </view>

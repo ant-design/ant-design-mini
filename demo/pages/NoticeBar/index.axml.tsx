@@ -33,6 +33,20 @@ export default ({ typeList }: InternalData) => (
       ))}
     </Container>
 
+    <Container title="可滚动通告栏(不循环)">
+      {typeList.map((item) => (
+        <Notice
+          type={item}
+          style="margin-bottom: 8px"
+          enableMarquee={true}
+          onTap="handleTapLink"
+          mode="link"
+        >
+          文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
+        </Notice>
+      ))}
+    </Container>
+
     <Container title="自定义通告栏">
       <Notice style="margin-bottom: 8px">
         不展示图标
