@@ -35,7 +35,8 @@ toc: 'content'
 | defaultChecked | 是否选中 | boolean | false |
 | style | 样式| string | - |
 | value | checkbox 携带的 value 值 | string | - |
-| onChange | 选中状态改变，触发回调 | (checked: boolean, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
+| value | checkbox 携带的 value 值 | string | - |
+| description | Radio 选项说明 | string | - |
 
 
 ### RadioGroup

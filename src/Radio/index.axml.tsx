@@ -12,7 +12,14 @@ import componentUtils from './index.sjs';
 import AntIcon from '../Icon/index.axml';
 
 export default (
-  { className, style, disabled, value, color }: TSXMLProps<IRadioProps>,
+  {
+    className,
+    style,
+    disabled,
+    value,
+    color,
+    description,
+  }: TSXMLProps<IRadioProps>,
   { mixin }: InternalData
 ) => (
   <Component>
@@ -65,5 +72,14 @@ export default (
         </View>
       </View>
     </Label>
+    {description && (
+      <View
+        class={`ant-radio-item-desc ${
+          disabled ? 'ant-radio-item-disabled' : ''
+        }`}
+      >
+        {description}
+      </View>
+    )}
   </Component>
 );
