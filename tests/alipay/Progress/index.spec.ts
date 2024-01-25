@@ -63,7 +63,10 @@ function createProgress(props: Partial<IProgressBarProps>) {
 }
 
 it('测试 lint', () => {
-  const { instance } = createProgress({});
+  const { instance } = createProgress({
+    // 测试异常情况
+    percent: 'aaa',
+  });
   instance.setProps({
     percent: 50,
   });
@@ -95,6 +98,7 @@ it('测试 speed strokeColor trailColor', async () => {
     speed: 60,
     strokeColor: 'red',
     trailColor: 'blue',
+    strokeWidth: '8',
   });
   await sleep(600);
   expect(instance.getData().curProgress).toBe(50);

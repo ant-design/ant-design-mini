@@ -77,7 +77,7 @@ var Progress = function (props) {
     function drawProgress(ctx, canvasWidth, color, rad) {
         ctx.beginPath();
         ctx.strokeStyle = color;
-        ctx.lineWidth = props.strokeWidth;
+        ctx.lineWidth = toNumber(props.strokeWidth, 8);
         ctx.setLineCap('round');
         ctx.arc(canvasWidth / 2, canvasWidth / 2, canvasWidth / 2 - toNumber(props.strokeWidth, 8), -Math.PI / 2, -Math.PI / 2 + (rad / 360) * 2 * Math.PI, false);
         ctx.stroke();
@@ -85,7 +85,7 @@ var Progress = function (props) {
     function drawOrbit(ctx, canvasWidth, color) {
         ctx.beginPath();
         ctx.strokeStyle = color;
-        ctx.lineWidth = props.strokeWidth;
+        ctx.lineWidth = toNumber(props.strokeWidth, 8);
         ctx.arc(canvasWidth / 2, canvasWidth / 2, canvasWidth / 2 - toNumber(props.strokeWidth, 8), 0, Math.PI * 2, false);
         ctx.stroke();
     }

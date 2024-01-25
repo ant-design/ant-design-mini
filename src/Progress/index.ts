@@ -44,7 +44,7 @@ const Progress = (props: IProgressBarProps) => {
   ) {
     ctx.beginPath();
     ctx.strokeStyle = color;
-    ctx.lineWidth = props.strokeWidth;
+    ctx.lineWidth = toNumber(props.strokeWidth, 8);
     ctx.setLineCap('round');
     ctx.arc(
       canvasWidth / 2,
@@ -59,7 +59,7 @@ const Progress = (props: IProgressBarProps) => {
   function drawOrbit(ctx: any, canvasWidth: number, color) {
     ctx.beginPath();
     ctx.strokeStyle = color;
-    ctx.lineWidth = props.strokeWidth;
+    ctx.lineWidth = toNumber(props.strokeWidth, 8);
     ctx.arc(
       canvasWidth / 2,
       canvasWidth / 2,
