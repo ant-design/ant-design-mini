@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/ProgressLine",
+    "pages/ProgressCircle",
     "pages/Empty",
     "pages/Badge",
     "pages/Grid",
@@ -104,6 +106,7 @@
     "Grid",
     "Pagination",
     "Badge",
-    "TabBar"
+    "TabBar",
+    "Progress"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "defaultTitle": "ProgressCircle",
   "usingComponents": {
-    "button": "../../../src/Button/index",
+    "ant-button": "../../../src/Button/index",
     "progress": "../../../src/Progress/index",
     "container": "../../../src/Container/index"
   }

@@ -24,7 +24,7 @@ export default (
     strokeColor,
     percent,
   }: TSXMLProps<IProgressBarProps>,
-  { canvasWidth, curProgress }: InternalData
+  { canvasWidth, curProgress, canvasId }: InternalData
 ) => (
   <Component>
     <View
@@ -36,9 +36,15 @@ export default (
       {type === 'circle' ? (
         <Canvas
           class="ant-progress-canvas"
+          /// #if WECHAT
+          canvas-id="ant-progress-canvas"
+          /// #endif
+
+          /// #if ALIPAY
           id={`ant-progress-canvas-${$id}`}
           width={canvasWidth}
           height={canvasWidth}
+          /// #endif
         />
       ) : (
         type === 'line' && (

@@ -8,12 +8,12 @@
     <ant-button
       inline
       style="margin-right: 16rpx"
-      onTap="handleDelete">
+      bind:tap="handleDelete">
       减少
     </ant-button>
     <ant-button
       inline
-      onTap="handleAdd">
+      bind:tap="handleAdd">
       增加
     </ant-button>
   </view>

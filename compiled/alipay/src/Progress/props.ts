@@ -49,3 +49,14 @@ export const ProgressBarDefaultProps: Partial<IProgressBarProps> = {
   width: 100,
   strokeWidth: 8,
 };
+
+export const ProgressBarFunctionalProps: Partial<IProgressBarProps> = {
+  percent: 0,
+  type: 'line',
+  width: 100,
+  strokeWidth: 8,
+  status: null,
+  strokeColor: '',
+  trailColor: '',
+  speed: 6,
+};

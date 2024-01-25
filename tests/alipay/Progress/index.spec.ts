@@ -1,6 +1,6 @@
 /* eslint-disable prefer-rest-params */
 import { getInstance, sleep } from 'tests/utils';
-import { expect, it, vi } from 'vitest';
+import { expect, it } from 'vitest';
 import { IProgressBarProps } from '../../../src/Progress/props';
 
 class MockCanvas {
@@ -34,15 +34,16 @@ class MockCanvas {
 }
 
 function createProgress(props: Partial<IProgressBarProps>) {
-  const getSystemInfo = vi.fn().mockImplementation(() => {
-    return { pixelRatio: 2 };
-  });
   const canvasMap = new Map<string, MockCanvas>();
   const my = {
     canIUse() {
       return true;
     },
-    getSystemInfo,
+    getSystemInfo({ success }) {
+      success({
+        pixelRatio: 2,
+      });
+    },
     createCanvasContext(id: string) {
       if (!canvasMap.has(id)) {
         canvasMap.set(id, new MockCanvas(id));
@@ -62,7 +63,10 @@ function createProgress(props: Partial<IProgressBarProps>) {
 }
 
 it('测试 lint', () => {
-  const { instance } = createProgress({});
+  const { instance } = createProgress({
+    // 测试异常情况
+    percent: 'aaa',
+  });
   instance.setProps({
     percent: 50,
   });
@@ -94,6 +98,7 @@ it('测试 speed strokeColor trailColor', async () => {
     speed: 60,
     strokeColor: 'red',
     trailColor: 'blue',
+    strokeWidth: '8',
   });
   await sleep(600);
   expect(instance.getData().curProgress).toBe(50);
