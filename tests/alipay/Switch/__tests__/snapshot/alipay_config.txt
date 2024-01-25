@@ -23,4 +23,5 @@
     "size": "medium",
     "uncheckedText": "",
   },
+  "rootEvents": {},
 }

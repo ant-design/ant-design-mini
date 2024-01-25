@@ -13,4 +13,5 @@
     "message": "",
     "title": "",
   },
+  "rootEvents": {},
 }

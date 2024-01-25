@@ -13,4 +13,5 @@
     "header": "",
     "radius": false,
   },
+  "rootEvents": {},
 }
