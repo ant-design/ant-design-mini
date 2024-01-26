@@ -52,13 +52,13 @@
         </view>
       </view>
       <view
-        class="ant-collapse-item-content-wrap {{ hasChange ? 'ant-collapse-item-content-wrap-transition' : '' }} ant-collapse-item-content-wrap-{{ $id }}-{{ index }}"
+        class="ant-collapse-item-content-wrap {{ hasChange ? 'ant-collapse-item-content-wrap-transition' : '' }} ant-collapse-item-content-wrap{{ $id ? '-' + $id : '' }}-{{ index }}"
         onTransitionEnd="resetContentHeight"
         style="{{ utils.getStyleHeight(index, contentHeight, item.disabled) }}"
         data-index="{{ index }}">
         <view class="ant-collapse-item-content-container">
           <view
-            class="ant-collapse-item-content ant-collapse-item-content-{{ $id }}-{{ index }}">
+            class="ant-collapse-item-content ant-collapse-item-content{{ $id ? '-' + $id : '' }}-{{ index }}">
             <slot
               name="content"
               value="{{ item }}"

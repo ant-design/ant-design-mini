@@ -29,7 +29,7 @@ function createCollapse(props: Partial<ICollapseProps>, mock: MockSelect) {
         dataset: { index },
       },
     });
-    await sleep(20);
+    await sleep(40);
   }
 
   async function resetContentHeight(index: string | number) {
@@ -38,7 +38,7 @@ function createCollapse(props: Partial<ICollapseProps>, mock: MockSelect) {
         dataset: { index },
       },
     });
-    await sleep(20);
+    await sleep(40);
   }
 
   return { instance, clickIndex, resetContentHeight, onChange };
@@ -99,10 +99,11 @@ describe('', () => {
     await clickIndex(0);
     expect(instance.getData().mixin.value).toEqual([0, 2]);
     expect(onChange.mock.calls[0]).toEqual([[2], fmtEvent({})]);
+    await sleep(30);
     instance.setProps({
       current: [2],
     });
-    await sleep(20);
+    await sleep(30);
     expect(instance.getData().contentHeight).toEqual(['0px', '0px', '', '0px']);
   });
 

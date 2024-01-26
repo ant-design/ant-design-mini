@@ -1,14 +1,17 @@
-import { View, Page, InternalData } from 'tsxml';
-import Collapse from '../../../src/Collapse/index.axml';
-import Checkbox from '../../../src/Checkbox/index.axml';
-import Button from '../../../src/Button/index.axml';
+import { View, Page, InternalData, Text } from 'tsxml';
+import AntCollapse from '../../../src/Collapse/index.axml';
+import AntCheckbox from '../../../src/Checkbox/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 
 export default ({ items, item }: InternalData) => (
   <Page>
-    <Collapse items={items}>
+    {/* #if WECHAT */}
+    <Text>由于微信小程序平台的限制, Collapse 暂时不支持 Slot</Text>
+    {/* #endif */}
+    <AntCollapse items={items}>
       <View slot="title" slot-scope="item" class="title">
         <View catchTap="true">
-          <Checkbox data-index={item.index} onChange="onChange" />
+          <AntCheckbox data-index={item.index} onChange="onChange" />
         </View>
         <View>{item.value.title}</View>
       </View>
@@ -16,10 +19,10 @@ export default ({ items, item }: InternalData) => (
       <View slot="content" slot-scope="item" class="content">
         {item.value.content}
       </View>
-    </Collapse>
+    </AntCollapse>
 
-    <Button type="primary" onTap="onTap">
+    <AntButton type="primary" onTap="onTap">
       提交
-    </Button>
+    </AntButton>
   </Page>
 );

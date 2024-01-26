@@ -1,0 +1,46 @@
+<wxs
+  src="./index.wxs"
+  module="utils" />
+
+<view
+  class="ant-collapse {{ className ? className : '' }}"
+  style="{{ style }}">
+  <block
+    wx:for="{{ items }}"
+    wx:for-index="index"
+    wx:for-item="item">
+    <view
+      class="ant-collapse-item {{ utils.isActive(mixin.value, index, item.disabled) ? 'ant-collapse-item-active' : '' }} {{ item.disabled ? 'ant-collapse-item-disabled' : '' }}">
+      <view
+        class="ant-collapse-item-title"
+        data-active="{{ utils.isActive(mixin.value, index, item.disabled) }}"
+        data-index="{{ index }}"
+        data-id="{{ $id }}"
+        bind:tap="onChange">
+        <view class="ant-collapse-item-line">
+          <view class="ant-collapse-item-title-node">{{ item.title }}</view>
+          <view class="ant-collapse-item-brief-container">
+            <view class="ant-collapse-item-brief-node">{{ brief }}</view>
+
+            <view class="ant-collapse-item-title-arrow">
+              <ant-icon
+                type="{{ utils.isActive(mixin.value, index, item.disabled) ? 'UpOutline' : 'DownOutline' }}" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view
+        class="ant-collapse-item-content-wrap {{ hasChange ? 'ant-collapse-item-content-wrap-transition' : '' }} ant-collapse-item-content-wrap{{ $id ? '-' + $id : '' }}-{{ index }}"
+        onTransitionEnd="resetContentHeight"
+        style="{{ utils.getStyleHeight(index, contentHeight, item.disabled) }}"
+        data-index="{{ index }}">
+        <view class="ant-collapse-item-content-container">
+          <view
+            class="ant-collapse-item-content ant-collapse-item-content{{ $id ? '-' + $id : '' }}-{{ index }}">
+            {{ item.content }}
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

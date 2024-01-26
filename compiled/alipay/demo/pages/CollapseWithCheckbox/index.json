@@ -1,8 +1,8 @@
 {
   "defaultTitle": "Collapse",
   "usingComponents": {
-    "collapse": "../../../src/Collapse/index",
-    "checkbox": "../../../src/Checkbox/index",
-    "button": "../../../src/Button/index"
+    "ant-collapse": "../../../src/Collapse/index",
+    "ant-checkbox": "../../../src/Checkbox/index",
+    "ant-button": "../../../src/Button/index"
   }
 }

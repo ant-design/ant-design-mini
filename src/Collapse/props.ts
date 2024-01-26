@@ -5,11 +5,6 @@ import { IBaseProps } from '../_util/base';
  */
 export interface ICollapseProps extends IBaseProps {
   /**
-   * @description collapse 切换时的回调
-   */
-
-  onChange?: (current: number[] | undefined, e: Record<string, any>) => void;
-  /**
    * @description 是否是手风琴模式，仅一个内容被展开
    */
 
@@ -21,7 +16,7 @@ export interface ICollapseProps extends IBaseProps {
   /**
    * @description 选中初始值
    */
-   defaultCurrent?: number[];
+  defaultCurrent?: number[];
 
   /**
    * @description accordion模式
@@ -36,8 +31,19 @@ export interface ICollapseProps extends IBaseProps {
     content?: string;
     disabled?: boolean;
   }[];
-  
+
+  /**
+   * @description collapse 切换时的回调
+   */
+
+  onChange?: (current: number[] | undefined, e: Record<string, any>) => void;
 }
 
-export const CollapseDefaultProps: ICollapseProps = {
+export const CollapseDefaultProps: ICollapseProps = {};
+
+export const CollapseFunctionalProps: ICollapseProps = {
+  current: null,
+  defaultCurrent: [],
+  accordion: false,
+  items: [],
 };
