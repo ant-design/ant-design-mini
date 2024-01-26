@@ -21,6 +21,7 @@
               value="{{ item.value }}"
               disabled="{{ disabled || item.disabled }}"
               color="{{ item.color || color }}"
+              description="{{ item.description }}"
               bind:change="onChange">
               <view class="ant-radio-group-item-label-default">
                 {{ item.label }}

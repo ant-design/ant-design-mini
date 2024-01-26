@@ -72,7 +72,7 @@ export default (
         </View>
       </View>
     </Label>
-    {description && (
+    {typeof description === 'string' && (
       <View
         class={`ant-radio-item-desc ${
           disabled ? 'ant-radio-item-disabled' : ''

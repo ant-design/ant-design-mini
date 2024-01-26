@@ -48,7 +48,7 @@ toc: 'content'
 | disabled | 是否禁用  | boolean | false |
 | defaultValue | 初始值  | string | - |
 | label | label区插槽，接收value（当前项可选项item）、index（索引） | slot | - | 
-| options | 指定可选项 | `{label?: string; value?: string; disabled?: boolean;}[]` | - |
+| options | 指定可选项 | `{label?: string; value?: string; disabled?: boolean; description?: string;}[]` | - |
 | position | 布局，可选`horizontal` `vertical` | string | `vertical` |
 | style | 样式 | string | - |
 | value | radio group 里选中的值 | string | - |

@@ -46,3 +46,9 @@
     </view>
   </ant-radio-group>
 </ant-container>
+
+<ant-container title="选项说明">
+  <ant-radio-group
+    options="{{ optionsWithDescription }}"
+    onChange="onChange" />
+</ant-container>

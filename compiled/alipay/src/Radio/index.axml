@@ -31,7 +31,7 @@
   </view>
 </label>
 <view
-  a:if="{{ description }}"
+  a:if="{{ typeof description === 'string' }}"
   class="ant-radio-item-desc {{ disabled ? 'ant-radio-item-disabled' : '' }}">
   {{ description }}
 </view>
