@@ -1,14 +1,14 @@
-<import-sjs
-  from="./index.sjs"
-  name="utils" />
+<wxs
+  src="./index.wxs"
+  module="utils" />
 
 <view
   class="ant-collapse {{ className ? className : '' }}"
   style="{{ style }}">
   <block
-    a:for="{{ items }}"
-    a:for-index="index"
-    a:for-item="item">
+    wx:for="{{ items }}"
+    wx:for-index="index"
+    wx:for-item="item">
     <view
       class="ant-collapse-item {{ utils.isActive(mixin.value, index, item.disabled) ? 'ant-collapse-item-active' : '' }} {{ item.disabled ? 'ant-collapse-item-disabled' : '' }}">
       <view
@@ -16,37 +16,15 @@
         data-active="{{ utils.isActive(mixin.value, index, item.disabled) }}"
         data-index="{{ index }}"
         data-id="{{ $id }}"
-        onTap="onChange">
+        bind:tap="onChange">
         <view class="ant-collapse-item-line">
-          <view class="ant-collapse-item-title-node">
-            <slot
-              name="title"
-              value="{{ item }}"
-              index="{{ index }}"
-              current="{{ mixin.value }}">
-              {{ item.title }}
-            </slot>
-          </view>
+          <view class="ant-collapse-item-title-node">{{ item.title }}</view>
           <view class="ant-collapse-item-brief-container">
-            <view class="ant-collapse-item-brief-node">
-              <slot
-                name="brief"
-                value="{{ item }}"
-                index="{{ index }}"
-                current="{{ mixin.value }}">
-                {{ brief }}
-              </slot>
-            </view>
+            <view class="ant-collapse-item-brief-node">{{ brief }}</view>
 
             <view class="ant-collapse-item-title-arrow">
-              <slot
-                name="icon"
-                value="{{ item }}"
-                index="{{ index }}"
-                current="{{ mixin.value }}">
-                <ant-icon
-                  type="{{ utils.isActive(mixin.value, index, item.disabled) ? 'UpOutline' : 'DownOutline' }}" />
-              </slot>
+              <ant-icon
+                type="{{ utils.isActive(mixin.value, index, item.disabled) ? 'UpOutline' : 'DownOutline' }}" />
             </view>
           </view>
         </view>
@@ -59,13 +37,7 @@
         <view class="ant-collapse-item-content-container">
           <view
             class="ant-collapse-item-content ant-collapse-item-content{{ $id ? '-' + $id : '' }}-{{ index }}">
-            <slot
-              name="content"
-              value="{{ item }}"
-              index="{{ index }}"
-              current="{{ mixin.value }}">
-              {{ item.content }}
-            </slot>
+            {{ item.content }}
           </view>
         </view>
       </view>

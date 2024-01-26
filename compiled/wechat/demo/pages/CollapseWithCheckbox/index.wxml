@@ -1,12 +1,14 @@
+<!-- display: inline -->
+<text>由于微信小程序平台的限制, Collapse 暂时不支持 Slot</text>
 <ant-collapse items="{{ items }}">
   <view
     slot="title"
     slot-scope="item"
     class="title">
-    <view catchTap="true">
+    <view catch:tap="true">
       <ant-checkbox
         data-index="{{ item.index }}"
-        onChange="onChange" />
+        bind:change="onChange" />
     </view>
     <view>{{ item.value.title }}</view>
   </view>
@@ -21,6 +23,6 @@
 
 <ant-button
   type="primary"
-  onTap="onTap">
+  bind:tap="onTap">
   提交
 </ant-button>

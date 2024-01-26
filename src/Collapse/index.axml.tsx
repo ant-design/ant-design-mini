@@ -82,14 +82,16 @@ export default (
           <View
             class={`ant-collapse-item-content-wrap ${
               hasChange ? 'ant-collapse-item-content-wrap-transition' : ''
-            } ant-collapse-item-content-wrap-${$id}-${index}`}
+            } ant-collapse-item-content-wrap${$id ? '-' + $id : ''}-${index}`}
             onTransitionEnd="resetContentHeight"
             style={utils.getStyleHeight(index, contentHeight, item.disabled)}
             data-index={index}
           >
             <View class="ant-collapse-item-content-container">
               <View
-                class={`ant-collapse-item-content ant-collapse-item-content-${$id}-${index}`}
+                class={`ant-collapse-item-content ant-collapse-item-content${
+                  $id ? '-' + $id : ''
+                }-${index}`}
               >
                 {/* #if ALIPAY */}
                 <Slot

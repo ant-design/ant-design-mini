@@ -9,6 +9,7 @@ export const useInstanceBoundingClientRect = () => {
     }
     return instance;
   }
+
   async function getBoundingClientRectWithId(prefix: string) {
     return await getInstanceBoundingClientRect(
       getInstance(),
@@ -16,7 +17,17 @@ export const useInstanceBoundingClientRect = () => {
     );
   }
 
+  async function getBoundingClientRectWithBuilder(
+    builder: (id: string) => string
+  ) {
+    return await getInstanceBoundingClientRect(
+      getInstance(),
+      builder(instance.$id ? `-${instance.$id}` : '')
+    );
+  }
+
   return {
     getBoundingClientRectWithId,
+    getBoundingClientRectWithBuilder,
   };
 };
