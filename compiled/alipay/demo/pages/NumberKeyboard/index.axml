@@ -28,7 +28,6 @@
     visible="{{ visible4 }}"
     onClose="onTap4" />
 </list>
-
 <list header="自定义按钮">
   <list-item onTap="onTap6">自定义标题</list-item>
   <number-keyboard

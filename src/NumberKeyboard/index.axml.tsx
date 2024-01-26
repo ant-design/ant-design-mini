@@ -25,7 +25,7 @@ export default (
       {visible && (
         <View
           class="ant-number-keyboard-modal"
-          onTap="onHide"
+          onTap="handleHide"
           onAppear="catchAppearModal"
         />
       )}
@@ -35,16 +35,20 @@ export default (
           visible ? '' : 'ant-number-keyboard-kb_hide'
         }`}
       >
+        {/* #if ALIPAY */}
         <Slot name="header">
+          {/* #endif */}
           {closeable && (
-            <View onTap="onHide" class="ant-number-keyboard-kb_none">
+            <View onTap="handleHide" class="ant-number-keyboard-kb_none">
               <AntIcon
                 type="DownOutline"
                 className="ant-number-keyboard-down"
               />
             </View>
           )}
+          {/* #if ALIPAY */}
         </Slot>
+        {/* #endif */}
         <View class="ant-number-keyboard-kb_bd">
           <View class="ant-number-keyboard-kb_keys">
             {(random ? randomArr : numArr).map((item) => (
@@ -134,11 +138,15 @@ export default (
                 class="ant-number-keyboard-kb_transfer"
                 data-key="enter"
               >
-                <slot name="confirm">
+                {/* #if ALIPAY */}
+                <Slot name="confirm">
+                  {/* #endif */}
                   <View class="amount-input-kb_transfer-btn">
                     {confirmText}
                   </View>
-                </slot>
+                  {/* #if ALIPAY */}
+                </Slot>
+                {/* #endif */}
               </View>
             </View>
           )}

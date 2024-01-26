@@ -7,6 +7,9 @@ Page({
     this.setData({ visible: true });
   },
   onChange(e) {
+    /// #if WECHAT
+    e = e.detail;
+    /// #endif
     this.setData({ value: e ? parseFloat(e) : '' });
   },
   onClose() {

@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/NumberKeyboard",
+    "pages/NumberKeyboardAmount",
+    "pages/NumberKeyboardCode",
+    "pages/NumberKeyboardNumber",
     "pages/NoticeBar",
     "pages/ProgressLine",
     "pages/ProgressCircle",
@@ -115,6 +119,7 @@
     "Badge",
     "TabBar",
     "Progress",
-    "NoticeBar"
+    "NoticeBar",
+    "NumberKeyboard"
   ]
 }

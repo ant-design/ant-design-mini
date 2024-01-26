@@ -29,7 +29,7 @@ function createNumberKeyboard(
 
   async function clickKey(key: string) {
     instance.callMethod('tapButton', {
-      target: {
+      currentTarget: {
         dataset: {
           key,
         },
