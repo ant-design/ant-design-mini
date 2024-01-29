@@ -13,6 +13,7 @@
     "demo/pages/CollapseWithCheckbox/index",
     "demo/pages/ProgressLine/index",
     "demo/pages/Empty/index",
+    "demo/pages/RareWordsKeyboard/index",
     "demo/pages/Badge/index",
     "demo/pages/TabBar/index",
     "demo/pages/Grid/index",

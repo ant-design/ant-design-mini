@@ -33,7 +33,7 @@ export default (
     {visible && (
       <View
         class={`ant-rare-words-keyboard-modal ${showMask ? '' : 'hide'}`}
-        onTap="onHide"
+        onTap="handleHide"
         onAppear="catchAppearModal"
       />
     )}

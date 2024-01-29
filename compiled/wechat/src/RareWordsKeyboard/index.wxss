@@ -1,0 +1,295 @@
+@keyframes number-input-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.ant-rare-words-keyboard {
+  color: #333333;
+  width: 0;
+  height: 0;
+  position: relative;
+  overflow: hidden;
+}
+.ant-rare-words-keyboard-modal {
+  z-index: 998;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+.ant-rare-words-keyboard-modal.hide {
+  visibility: hidden;
+}
+.ant-rare-words-keyboard-kb {
+  background: #f5f5f5;
+  max-height: 600px;
+  min-width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transition: all 200ms linear;
+  z-index: 999;
+}
+.ant-rare-words-keyboard-kb.hide {
+  transform: translateY(100%);
+  max-height: 0;
+}
+.ant-rare-words-keyboard-kb_iphonex-safe {
+  height: calc(constant(safe-area-inset-bottom) - 20 * 0.5px);
+  height: calc(env(safe-area-inset-bottom) - 20 * 0.5px);
+  width: 100%;
+  background-color: #f5f5f5;
+}
+.ant-rare-words-keyboard_header {
+  background-color: #f5f5f5;
+}
+.ant-rare-words-keyboard-input_value {
+  position: absolute;
+  top: -32px;
+  left: 0;
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background-color: #f5f5f5;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0.5px solid #eee;
+  border-bottom: 0;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  font-size: 12px;
+  color: #333;
+}
+.ant-rare-words-keyboard-input_value.hide {
+  display: none;
+}
+.ant-rare-words-keyboard-match_words {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px 12px 10px 4px;
+  background: #f5f5f5;
+  overflow: hidden;
+  font-family: 'rare-words-font';
+}
+.ant-rare-words-keyboard-match_words.absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  z-index: 10000;
+  padding-left: 0;
+  overflow: auto;
+}
+.ant-rare-words-keyboard-match_words_wrap {
+  min-height: 48px;
+}
+.ant-rare-words-keyboard-match_words_wrap::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #cccccc;
+  width: 100%;
+  height: 1px;
+  transform: scaleY(0.5);
+  transform-origin: 0 0;
+}
+.ant-rare-words-keyboard-match_words_item_tips {
+  padding-left: 4px;
+  font-size: 14px;
+  color: #666666;
+  line-height: 17px;
+}
+.ant-rare-words-keyboard-match_words_item_tips.loading {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.ant-rare-words-keyboard-match_words_inner {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  height: 28px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  margin-right: -16px;
+  padding-right: 21px;
+}
+.ant-rare-words-keyboard-match_words_inner.all {
+  height: auto;
+  margin-top: -10px;
+  position: relative;
+  padding-left: 4px;
+  padding-right: 21px;
+}
+.ant-rare-words-keyboard-match_words_inner.all::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -32px;
+  bottom: 0;
+  background: #cccccc;
+  width: 100%;
+  height: 1px;
+  transform: scaleY(0.5);
+  transform-origin: 0 0;
+}
+.ant-rare-words-keyboard-match_words_item {
+  color: #333333;
+  width: 36.5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+}
+.ant-rare-words-keyboard-match_words_item.all {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+.ant-rare-words-keyboard-match_words_item.all::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -10px;
+  bottom: 0;
+  background: #cccccc;
+  width: 100%;
+  height: 1px;
+  transform: scaleY(0.5);
+  transform-origin: 0 0;
+}
+.ant-rare-words-keyboard-match_words_item_text {
+  font-size: 21px;
+  line-height: 28.5px;
+  user-select: none;
+  color: #333333;
+}
+.ant-rare-words-keyboard-match_words_item_text:active {
+  color: #1677ff;
+}
+.ant-rare-words-keyboard-match_words_item_text:hover {
+  color: #1677ff;
+}
+.ant-rare-words-keyboard-match_words_hidden {
+  visibility: hidden;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 36.5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+}
+.ant-rare-words-keyboard-match_words_right {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 2px;
+  color: #333333;
+}
+.ant-rare-words-keyboard-match_words_right.sticky {
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+.ant-rare-words-keyboard-match_words_right.overflow::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #d8d8d8);
+  position: absolute;
+  left: -16px;
+}
+.ant-rare-words-keyboard-loading {
+  min-height: 17px;
+  margin-right: 6px;
+}
+.ant-rare-words-keyboard_delete {
+  font-size: 24px;
+}
+.ant-rare-words-keyboard_down {
+  font-size: 24px;
+}
+.ant-rare-words-keyboard_pinyin {
+  background: #f5f5f5;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.ant-rare-words-keyboard_pinyin_row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  background: #f5f5f5;
+  margin-bottom: 8px;
+}
+.ant-rare-words-keyboard_pinyin_row:last-child {
+  margin-bottom: 0;
+}
+.ant-rare-words-keyboard_pinyin_key {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: 31.5px;
+  background: #ffffff;
+  font-size: 18px;
+  color: #333333;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-right: 6px;
+  user-select: none;
+}
+.ant-rare-words-keyboard_pinyin_key:active {
+  background: #1677ff;
+  color: #ffffff;
+}
+.ant-rare-words-keyboard_pinyin_key:last-child {
+  margin-right: 0;
+}
+.ant-rare-words-keyboard_pinyin_key.delete {
+  width: 40px;
+}
+.ant-rare-words-keyboard_error {
+  background: #f5f5f5;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.ant-rare-words-keyboard_error .ant-result-main {
+  background: none;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.ant-rare-words-keyboard_error .ant-result-message {
+  text-align: center;
+}
+.ant-rare-words-keyboard_error-btns {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}

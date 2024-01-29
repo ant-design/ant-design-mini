@@ -1,5 +1,6 @@
 import { IWordsData, IFilterType } from './props';
 import { ZDATAS } from './zdatas';
+import { loadFontFace as loadFontFaceJSAPI } from '../_util/jsapi/load-font-face';
 
 /**
  * json转字符串
@@ -284,17 +285,8 @@ function sortBySplitWord(
  */
 export async function loadFontFace() {
   const fontName = `url("${ZDATAS.fontUrl}")`;
-  return new Promise((resolve, reject) => {
-    my.loadFontFace({
-      family: 'rare-words-font',
-      source: fontName,
-      global: true,
-      success: () => {
-        resolve(true);
-      },
-      fail: (err) => {
-        reject(err);
-      },
-    });
+  return loadFontFaceJSAPI({
+    family: 'rare-words-font',
+    source: fontName,
   });
 }

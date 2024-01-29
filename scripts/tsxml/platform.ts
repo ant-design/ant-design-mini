@@ -109,6 +109,14 @@ export const wechat: PlatformConfig = {
       onAction: 'bind:action',
       onClose: 'bind:close',
     },
+    'rare-words-keyboard': {
+      onClose: 'bind:close',
+      onError: 'bind:error',
+    },
+    'ant-rare-words-keyboard': {
+      onClose: 'bind:close',
+      onError: 'bind:error',
+    },
     'ant-modal': {
       onPrimaryButtonTap: 'bind:primarybuttontap',
       onSecondaryButtonTap: 'bind:secondarybuttontap',

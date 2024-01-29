@@ -3,36 +3,36 @@
     <ant-input
       placeholder="请输入姓名"
       value="{{ value }}"
-      onChange="onInputChange">
+      bind:change="onInputChange">
       <view
         slot="suffix"
         class="tips"
-        onTap="onTap">
+        bind:tap="onTap">
         生僻字？
       </view>
     </ant-input>
   </container>
 
-  <list-item onTap="onTap">默认键盘</list-item>
+  <list-item bind:tap="onTap">默认键盘</list-item>
 
   <rare-words-keyboard
     visible="{{ visible }}"
-    onClose="onClose"
-    onChange="onChange" />
+    bind:close="onClose"
+    bind:change="onChange" />
 
-  <list-item onTap="onTap2">不带蒙层</list-item>
+  <list-item bind:tap="onTap2">不带蒙层</list-item>
 
   <rare-words-keyboard
     visible="{{ visible2 }}"
     showMask="{{ false }}"
-    onClose="onClose2"
-    onChange="onChange" />
+    bind:close="onClose2"
+    bind:change="onChange" />
 
-  <list-item onTap="onTap3">监听输入完成、出错的回调</list-item>
+  <list-item bind:tap="onTap3">监听输入完成、出错的回调</list-item>
 
   <rare-words-keyboard
     visible="{{ visible3 }}"
-    onClose="onClose3"
-    onChange="onChange"
-    onError="onKeyBoardError" />
+    bind:close="onClose3"
+    bind:change="onChange"
+    bind:error="onKeyBoardError" />
 </list>
