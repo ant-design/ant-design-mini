@@ -18,11 +18,6 @@
       <block wx:else>
         <slot name="image" />
       </block>
-
-      <image-icon
-        wx:if="{{ image }}"
-        image="{{ image }}"
-        className="ant-list-item-image" />
     </view>
     <view class="ant-list-item-content-container">
       <view class="ant-list-item-content-title-container">
