@@ -28,7 +28,7 @@ export interface ISwipeActionProps extends IBaseProps {
    * @description 滑动速度
    * @default 70
    */
-  damping: number;
+  damping: number | string;
   /**
    * @description 禁止滑动
    * @default false
@@ -38,7 +38,7 @@ export interface ISwipeActionProps extends IBaseProps {
    * @description 禁止滑动
    * @default ''
    */
-  swiped: '' | 'left' | 'right';
+  swiped: '' | 'left' | 'right' | boolean;
   /**
    * @description 禁止滑动
    * @default ''

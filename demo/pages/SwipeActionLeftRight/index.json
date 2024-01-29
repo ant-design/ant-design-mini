@@ -4,6 +4,6 @@
   "showProgress": "NO",
   "allowsBounceVertical": "NO",
   "usingComponents": {
-    "swipe-action": "../../../src/SwipeAction/index"
+    "ant-swipe-action": "../../../src/SwipeAction/index"
   }
 }

@@ -71,26 +71,6 @@ const isOldVersion = compareVersion(SDKVersion, '2.0.0') < 0;
 
 Component({
   props: SwipeActionDefaultProps,
-  data: {
-    swipeLeft: true, // 是否是进行左滑
-    swipeX: 0, // 主体部分左滑的位置
-    moveX: 0, // 按钮滑动的位置
-    tapTypeL: '', // 左侧点击中的type
-    tapTypeR: '', // 右侧的点击中的type
-    leftWidth: 20, // 计算的右侧的宽度
-    rightWidth: 20, // 计算的右侧的宽度
-    maxSwipeL: 0, // 左侧事件滑动最大距离
-    maxSwipeR: 0, // 右侧事件滑动最大距离
-    inTouch: false, // 在触摸中的状态
-    swipedR: false, // 右侧已经滑开了
-    swipedL: false, // 左侧已经滑开了
-    changeArr: [0, 0], // 用来判断最后一次滑动的方向
-    myStyle: {},
-    inertiaWidth: 20,
-    animation: !isOldVersion,
-    _leftButtons: [],
-    _rightButtons: [],
-  },
   didMount() {
     const { defaultSwiped, elasticity } = this.props;
     this.setButtonItemWidth();
@@ -125,6 +105,27 @@ Component({
       this.setData({ inertiaWidth: elasticity ? 20 : 0 });
     }
   },
+  data: {
+    swipeLeft: true, // 是否是进行左滑
+    swipeX: 0, // 主体部分左滑的位置
+    moveX: 0, // 按钮滑动的位置
+    tapTypeL: '', // 左侧点击中的type
+    tapTypeR: '', // 右侧的点击中的type
+    leftWidth: 20, // 计算的右侧的宽度
+    rightWidth: 20, // 计算的右侧的宽度
+    maxSwipeL: 0, // 左侧事件滑动最大距离
+    maxSwipeR: 0, // 右侧事件滑动最大距离
+    inTouch: false, // 在触摸中的状态
+    swipedR: false, // 右侧已经滑开了
+    swipedL: false, // 左侧已经滑开了
+    changeArr: [0, 0], // 用来判断最后一次滑动的方向
+    myStyle: {},
+    inertiaWidth: 20,
+    animation: !isOldVersion,
+    _leftButtons: [],
+    _rightButtons: [],
+  },
+
   methods: {
     setWidth() {
       const { _leftButtons, _rightButtons } = this.data;

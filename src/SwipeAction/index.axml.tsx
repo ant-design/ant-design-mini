@@ -7,10 +7,11 @@ import {
   MovableArea,
   InternalData,
   Text,
+  TSXMLProps,
 } from 'tsxml';
 
 export default (
-  { damping, disabled }: ISwipeActionProps,
+  { damping, disabled }: TSXMLProps<ISwipeActionProps>,
   {
     leftWidth,
     rightWidth,

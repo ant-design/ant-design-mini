@@ -214,10 +214,19 @@ export function transformJSXElement(ctx: ITransformContext) {
     case 'BinaryExpression': {
       return ctx.toAxmlExpression();
     }
+    case 'NumericLiteral': {
+      return ctx.toAxmlExpression();
+    }
     case 'Identifier': {
       return ctx.toAxmlExpression();
     }
     case 'ConditionalExpression': {
+      if (
+        ctx.node.consequent.type !== 'JSXElement' &&
+        ctx.node.alternate.type !== 'JSXElement'
+      ) {
+        return ctx.toAxmlExpression();
+      }
       const isElse = ctx.extraAttr?.[ctx.else()];
       return [
         transformJSXElement(
