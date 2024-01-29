@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/SwipeAction/index",
     "demo/pages/NumberKeyboard/index",
     "demo/pages/NumberKeyboardAmount/index",
     "demo/pages/NumberKeyboardCode/index",

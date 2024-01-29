@@ -137,6 +137,13 @@ export const wechat: PlatformConfig = {
     'ant-number-keyboard': {
       onClose: 'bind:close',
     },
+    'movable-view': {
+      onChange: 'bindchange',
+      onChangeEnd: 'bindchangeend',
+      catchTouchEnd: 'catch:touchend',
+      onTouchCancel: 'bind:touchcancel',
+      catchTouchStart: 'catch:touchstart',
+    },
   },
 };
 

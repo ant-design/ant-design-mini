@@ -89,16 +89,21 @@ export default (
           </View>
         </MovableView>
         <MovableView
-          class={`ant-swipe-action-movable-content ant-swipe-action-movable-right-${$id}`}
+          class={`ant-swipe-action-movable-content ant-swipe-action-movable-right${
+            $id ? '-' + $id : ''
+          }`}
           tsxml-for={_rightButtons}
           tsxml-for-item="item"
           tsxml-for-index="idx"
           damping={damping}
           key={idx}
-          style="{{{
-            zIndex: tapTypeR === `R-${idx}` ? 1 : 0,
-            marginLeft: util.getMarginLeft3(rightWidth, leftWidth, inertiaWidth),
-            width: ((rightWidth - 0.1) / 2) + 'px' }}}"
+          style={util.getRightMovableContentStyle(
+            tapTypeR,
+            idx,
+            rightWidth,
+            leftWidth,
+            inertiaWidth
+          )}
           data-type="content"
           animation={false}
           disabled={true}
@@ -114,7 +119,7 @@ export default (
             <View
               class="ant-swipe-action-movable-content-right-text"
               onTap="onItemTap"
-              data-item={{ item, idx }}
+              data-item={util.axmlObj({ item, idx })}
               aria-hidden={!swipedR}
               style={util.getMovableContentRightStyle(
                 item,
@@ -140,16 +145,20 @@ export default (
           </View>
         </MovableView>
         <MovableView
-          class={`ant-swipe-action-movable-content ant-swipe-action-is-right-swipe ant-swipe-action-movable-left-${$id}`}
+          class={`ant-swipe-action-movable-content ant-swipe-action-is-right-swipe ant-swipe-action-movable-left${
+            $id ? '-' + $id : ''
+          }`}
           tsxml-for={_leftButtons}
           tsxml-for-item="itemL"
           tsxml-for-index="idx"
-          tsxml-for-key="{{`left-${idx}`}}"
+          tsxml-for-key={`left-${idx}`}
           damping={damping}
-          style="{{{
-          zIndex: tapTypeL === `L-${idx}` ? 1 : 0,
-          marginLeft: `${inertiaWidth / 2}px`,
-          width: ((leftWidth - 1) / 2) + 'px'}}}"
+          style={util.getLeftMovableContentStyle(
+            tapTypeL,
+            idx,
+            leftWidth,
+            inertiaWidth
+          )}
           data-type="content"
           animation={false}
           disabled={true}
@@ -160,7 +169,7 @@ export default (
             class="ant-swipe-action-movable-content-left"
             style={`background: ${
               tapTypeL &&
-              tapTypeL === `L-${idx}` &&
+              tapTypeL === 'L-' + idx &&
               _leftButtons.length === 3 &&
               idx === 1
                 ? 'none'
@@ -170,7 +179,7 @@ export default (
             <View
               class="ant-swipe-action-movable-content-left-text1 ant-swipe-action-left"
               onTap="onItemTap"
-              data-item={{ itemL, idx }}
+              data-item={util.axmlObj({ itemL, idx })}
               aria-hidden={!swipedL}
               style={util.getMovableContentLeftStyle(
                 itemL,
