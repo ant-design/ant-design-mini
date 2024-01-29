@@ -1,19 +1,19 @@
 import { IBaseProps } from '../_util/base';
 interface SwipeButton {
-  text: string,
-  width?: number,
-  bgColor?: string,
-  color?: string,
-  confirmType?: '' | 'move' | 'tap',
-  confirmText?: string,
+  text: string;
+  width?: number;
+  bgColor?: string;
+  color?: string;
+  confirmType?: '' | 'move' | 'tap';
+  confirmText?: string;
 }
 interface SwipeData {
-  direction: 'right' | 'left' | '',
-  btnIdx?: number,
-  swiped?: boolean,
+  direction: 'right' | 'left' | '';
+  btnIdx?: number;
+  swiped?: boolean;
 }
 
-interface ISwipeActionProps extends IBaseProps  {
+export interface ISwipeActionProps extends IBaseProps {
   /**
    * @description 左侧滑出事件
    * @default []
@@ -48,7 +48,7 @@ interface ISwipeActionProps extends IBaseProps  {
    * @description 弹性超出最大滑动距离自动弹回
    * @default true
    */
-  elasticity: boolean
+  elasticity: boolean;
   /**
    * @description 滑动结束
    */

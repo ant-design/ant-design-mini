@@ -3,8 +3,14 @@ export interface Props {
   style?: string;
   ref?: string;
   name?: string;
+  onChangeEnd?: any;
   current?: any;
+  damping?: any;
   'a:key'?: string;
+  direction?: string;
+  onTouchCancel?: any;
+  animation?: boolean;
+  x?: any;
   scrollLeft?: any;
   onTransitionEnd?: string;
   onTap?: string;
@@ -54,6 +60,7 @@ export interface Props {
   onAppear?: any;
   onAnimationEnd?: any;
   hidden?: any;
+  'a:for'?: string;
   enableNative?: any;
   disabled?: boolean;
   fileList?: any;
