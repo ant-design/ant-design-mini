@@ -1,16 +1,14 @@
-import { View, Page, InternalData } from 'tsxml';
-import SwipeAction from '../../../src/SwipeAction/index.axml';
+import { View, Page, InternalData, $toArray } from 'tsxml';
+import AntSwipeAction from '../../../src/SwipeAction/index.axml';
 
 export default ({ swipeIndex, leftBtns }: InternalData) => (
   <Page>
     <View class="t-swipe">
       <View class="t-swipe-item">
         <View class="t-swipe-item-title">按钮在左侧</View>
-        {/* 提示：需要给t-swipe-item-con设置固定的高宽 */}
-        {Array.from({ length: 10 }, (_, index) => (
+        {$toArray(10).map((_, index) => (
           <View key={index} class="t-swipe-item-con">
-            {/* 提示：右侧只有一个按钮的情况下建议把elasticity设为false */}
-            <SwipeAction
+            <AntSwipeAction
               data-item={index}
               leftButtons={leftBtns}
               elasticity={true}
@@ -20,7 +18,7 @@ export default ({ swipeIndex, leftBtns }: InternalData) => (
               onButtonTap="onButtonTap"
             >
               <View class="t-swipe-item-con-view">左侧-三个按钮</View>
-            </SwipeAction>
+            </AntSwipeAction>
           </View>
         ))}
       </View>

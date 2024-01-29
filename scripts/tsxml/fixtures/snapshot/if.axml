@@ -22,4 +22,6 @@
   <text class="{{ a ? '1' : '2' }}" />
   <text class="1 {{ a ? '1' + '2' : 2 }} 2" />
   <view>{{ a || b }}</view>
+  <!-- display: inline -->
+  <text>右侧-{{ index + 1 > 3 ? 3 : index + 1 }}个按钮</text>
 </view>
