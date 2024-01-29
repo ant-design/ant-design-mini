@@ -47,9 +47,7 @@ export default ({
 
         {/* #if ALIPAY */}
         <Slot name="image">
-          {/* #endif */}
           {image && <ImageIcon image={image} className="ant-list-item-image" />}
-          {/* #if ALIPAY */}
         </Slot>
         {/* #endif */}
       </View>
