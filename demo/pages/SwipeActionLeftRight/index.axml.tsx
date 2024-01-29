@@ -1,5 +1,5 @@
 import { View, InternalData, $toArray, Page } from 'tsxml';
-import SwipeAction from '../../../src/SwipeAction/index.axml';
+import AntSwipeAction from '../../../src/SwipeAction/index.axml';
 
 export default ({ rightBtns, swipeIndex }: InternalData) => (
   <Page>
@@ -8,7 +8,7 @@ export default ({ rightBtns, swipeIndex }: InternalData) => (
         <View class="t-swipe-item-title">左右两侧都有按钮</View>
         {$toArray(10).map((_, index) => (
           <View class="t-swipe-item-con" key={index}>
-            <SwipeAction
+            <AntSwipeAction
               data-item={index}
               leftButtons={rightBtns}
               rightButtons={rightBtns}
@@ -19,7 +19,7 @@ export default ({ rightBtns, swipeIndex }: InternalData) => (
               onButtonTap="onButtonTap"
             >
               <View class="t-swipe-item-con-view">三个按钮</View>
-            </SwipeAction>
+            </AntSwipeAction>
           </View>
         ))}
       </View>

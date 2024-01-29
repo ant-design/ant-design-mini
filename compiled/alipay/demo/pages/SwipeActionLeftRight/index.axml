@@ -7,7 +7,7 @@
       a:for-item="_"
       a:key="{{ index }}">
       <view class="t-swipe-item-con">
-        <swipe-action
+        <ant-swipe-action
           data-item="{{ index }}"
           leftButtons="{{ rightBtns }}"
           rightButtons="{{ rightBtns }}"
@@ -17,7 +17,7 @@
           onSwipeStart="onSwipeStart"
           onButtonTap="onButtonTap">
           <view class="t-swipe-item-con-view">三个按钮</view>
-        </swipe-action>
+        </ant-swipe-action>
       </view>
     </block>
   </view>
