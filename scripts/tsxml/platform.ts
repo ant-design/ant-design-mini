@@ -15,6 +15,10 @@ export const alipay: PlatformConfig = {
   basicEvent: {
     onTap: 'onTap',
     catchTap: 'catchTap',
+    'tsxml-for': 'a:for',
+    'tsxml-for-item': 'a:for-item',
+    'tsxml-for-index': 'a:for-index',
+    'tsxml-for-key': 'a:key',
   },
 };
 
@@ -40,6 +44,10 @@ export const wechat: PlatformConfig = {
     catchTap: 'catch:tap',
     onChange: 'bind:change',
     onScroll: 'bind:scroll',
+    'tsxml-for': 'wx:for',
+    'tsxml-for-item': 'wx:for-item',
+    'tsxml-for-index': 'wx:for-index',
+    'tsxml-for-key': 'wx:key',
   },
   props: {
     view: {
