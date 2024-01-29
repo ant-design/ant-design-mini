@@ -39,7 +39,7 @@ describe('rare-words-keyboard', () => {
       },
       my
     );
-    await new Promise((r) => setTimeout(r, 0));
+    await new Promise((r) => setTimeout(r, 20));
     expect(instance.getData().maxDisplayNum).toBe(10);
   });
 
@@ -60,7 +60,7 @@ describe('rare-words-keyboard', () => {
       }
     );
 
-    await new Promise((r) => setTimeout(r, 0));
+    await new Promise((r) => setTimeout(r, 20));
     expect(instance.getData().showErrorPage).toBe(true);
     expect(onError).toBeCalled();
   });
@@ -76,7 +76,7 @@ describe('rare-words-keyboard', () => {
       },
       my
     );
-    instance.callMethod('onHide');
+    instance.callMethod('handleHide');
     expect(onClose).toBeCalled();
   });
 
@@ -94,7 +94,7 @@ describe('rare-words-keyboard', () => {
       my
     );
     instance.callMethod('handleWordClick', fmtEvent({ 'data-value': '䶮' }));
-    expect(onChange).toBeCalledWith('䶮');
+    expect(onChange).toBeCalledWith('䶮', fmtEvent({}));
     expect(onClose).toBeCalled();
   });
 
@@ -142,18 +142,19 @@ describe('rare-words-keyboard', () => {
     loadFontFaceRequests[loadFontFaceRequests.length - 1].fail(
       new Error('fail')
     );
-    await new Promise((r) => setTimeout(r, 0));
+    await new Promise((r) => setTimeout(r, 20));
     expect(instance.getData().loading).toBe(false);
     expect(instance.getData().showErrorPage).toBe(true);
 
     instance.callMethod('handleRetry');
 
+    await new Promise((r) => setTimeout(r, 20));
     expect(instance.getData().loading).toBe(true);
     expect(instance.getData().showErrorPage).toBe(true);
 
     loadFontFaceRequests[loadFontFaceRequests.length - 1].success();
 
-    await new Promise((r) => setTimeout(r, 0));
+    await new Promise((r) => setTimeout(r, 20));
     expect(instance.getData().loading).toBe(false);
     expect(instance.getData().showErrorPage).toBe(false);
   });
@@ -216,11 +217,13 @@ describe('rare-words-keyboard', () => {
     instance.callMethod('handleKeyClick', fmtEvent({ 'data-value': 'T' }));
     await sleep(20);
     instance.callMethod('handleKeyClick', fmtEvent({ 'data-value': 'T' }));
+    await sleep(20);
     expect(instance.getData().inputValue).toEqual(['T', 'T']);
     instance.callMethod('handleDelete');
     await sleep(20);
     instance.callMethod('handleDelete');
     instance.callMethod('handleDelete');
+    await sleep(20);
     expect(instance.getData().inputValue).toEqual([]);
   });
 });

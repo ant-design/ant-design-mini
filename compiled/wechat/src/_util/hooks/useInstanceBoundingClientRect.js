@@ -54,6 +54,16 @@ export var useInstanceBoundingClientRect = function () {
             });
         });
     }
+    function getBoundingClientRect(query) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, getInstanceBoundingClientRect(getInstance(), query)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    }
     function getBoundingClientRectWithBuilder(builder) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -65,6 +75,7 @@ export var useInstanceBoundingClientRect = function () {
         });
     }
     return {
+        getBoundingClientRect: getBoundingClientRect,
         getBoundingClientRectWithId: getBoundingClientRectWithId,
         getBoundingClientRectWithBuilder: getBoundingClientRectWithBuilder,
     };
