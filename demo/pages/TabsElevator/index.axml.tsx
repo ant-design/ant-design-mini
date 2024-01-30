@@ -15,7 +15,7 @@ export default ({ items, current, scrollTop, item }: InternalData) => (
         scroll-top={scrollTop}
         scroll-y={true}
         scroll-with-animation={true}
-        scroll-animation-duration="300"
+        scroll-animation-duration={300}
         class="content"
       >
         {items.map((item, index) => (

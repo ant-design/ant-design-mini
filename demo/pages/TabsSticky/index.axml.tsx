@@ -19,7 +19,7 @@ export default ({ items, current, scrollTop }: InternalData) => (
       scroll-top={scrollTop}
       scroll-y={true}
       scroll-with-animation={true}
-      scroll-animation-duration="300"
+      scroll-animation-duration={300}
       class="content"
     >
       {items[current].content}
