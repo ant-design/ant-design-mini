@@ -63,3 +63,10 @@ export const TabsDefaultProps: Partial<ITabsProps> = {
   items: [],
   scrollMode: 'edge',
 };
+
+export const TabsFunctionalProps: Partial<ITabsProps> = {
+  type: 'basic',
+  defaultCurrent: 0,
+  items: [],
+  scrollMode: 'edge',
+};
