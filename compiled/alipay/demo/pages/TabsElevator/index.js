@@ -1,18 +1,3 @@
-function getBoundingClientRect(selector) {
-  return new Promise(resolve => {
-    my.createSelectorQuery()
-      .select(selector)
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0]) {
-          resolve(ret[0]);
-        }
-      });
-  });
-}
-
-
-
 Page({
   data: {
     current: 0,
@@ -51,23 +36,31 @@ Page({
     scrollTop: 0,
   },
   async updateRect() {
-    this.itemRectList = await Promise.all(this.data.items.map((item, index) => getBoundingClientRect(`#tab-item-${index}`)));
-    this.scrollViewRect = await getBoundingClientRect('#scroll-view');
+    this.itemRectList = await Promise.all(
+      this.data.items.map((item, index) =>
+        this.getBoundingClientRect(`#tab-item-${index}`)
+      )
+    );
+    this.scrollViewRect = await this.getBoundingClientRect('#scroll-view');
   },
   async onReady() {
     await this.updateRect();
   },
   onTap() {
     this.tap = true;
-    const scrollTop = this.itemRectList[this.data.current].top - this.scrollViewRect.top;
+    const scrollTop =
+      this.itemRectList[this.data.current].top - this.scrollViewRect.top;
     this.setData({
-      scrollTop: scrollTop+Math.random(),
+      scrollTop: scrollTop + Math.random(),
     });
   },
   onChange(current) {
     this.tap = true;
     this.setData({
-      scrollTop: this.itemRectList[current].top - this.scrollViewRect.top + Math.random(),
+      scrollTop:
+        this.itemRectList[current].top -
+        this.scrollViewRect.top +
+        Math.random(),
       current,
     });
   },
@@ -80,9 +73,13 @@ Page({
     }
     this.scrollTop = e.detail.scrollTop;
     const scrollTop = this.scrollTop + this.itemRectList[0].top;
-    for(let i=0;i<this.itemRectList.length - 1;i++) {
+    for (let i = 0; i < this.itemRectList.length - 1; i++) {
       const item = this.itemRectList[i];
-      if (scrollTop > item.top && scrollTop < this.itemRectList[i+1].top && i !== this.data.current) {
+      if (
+        scrollTop > item.top &&
+        scrollTop < this.itemRectList[i + 1].top &&
+        i !== this.data.current
+      ) {
         this.setData({
           current: i,
         });
@@ -90,4 +87,24 @@ Page({
       }
     }
   },
+  getBoundingClientRect(id) {
+    if (typeof my === 'undefined') {
+      return getInstanceBoundingClientRect(this, id);
+    }
+    return getInstanceBoundingClientRect(my, id);
+  },
 });
+
+function getInstanceBoundingClientRect(instance, selector) {
+  return new Promise((resolve) => {
+    instance
+      .createSelectorQuery()
+      .select(selector)
+      .boundingClientRect()
+      .exec((ret) => {
+        if (ret && ret[0]) {
+          resolve(ret[0]);
+        }
+      });
+  });
+}

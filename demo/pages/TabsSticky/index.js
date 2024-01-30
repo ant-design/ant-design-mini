@@ -1,17 +1,3 @@
-function getBoundingClientRect(selector) {
-  return new Promise(resolve => {
-    my.createSelectorQuery()
-      .select(selector)
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0]) {
-          resolve(ret[0]);
-        }
-      });
-  });
-}
-
-
 Page({
   data: {
     current: 0,
@@ -47,13 +33,13 @@ Page({
         content:
           'Do nisi tempor incididunt cupidatat magna id. Ullamco consectetur consequat laboris officia occaecat laboris consequat velit irure laboris exercitation aliqua. Laborum elit sit irure eiusmod anim fugiat magna ipsum aliqua esse tempor in. Commodo occaecat Lorem voluptate pariatur commodo proident et et exercitation ex exercitation culpa tempor id. Fugiat dolore aliquip voluptate in. Velit voluptate excepteur incididunt sint sit aliqua et aliquip. Aliqua nisi consequat excepteur eiusmod dolore culpa Lorem.',
       },
-    ]
+    ],
   },
   onPageScroll(e) {
     this.pageScrollTop = e.scrollTop;
   },
   async onReady() {
-    this.tabsTop = (await getBoundingClientRect('.tabs')).top;
+    this.tabsTop = (await this.getBoundingClientRect('.tabs')).top;
   },
   async onChange(current) {
     this.setData({
@@ -63,4 +49,24 @@ Page({
       scrollTop: Math.min(this.tabsTop, this.pageScrollTop),
     });
   },
+  getBoundingClientRect(id) {
+    if (typeof my === 'undefined') {
+      return getInstanceBoundingClientRect(this, id);
+    }
+    return getInstanceBoundingClientRect(my, id);
+  },
 });
+
+function getInstanceBoundingClientRect(instance, selector) {
+  return new Promise((resolve) => {
+    instance
+      .createSelectorQuery()
+      .select(selector)
+      .boundingClientRect()
+      .exec((ret) => {
+        if (ret && ret[0]) {
+          resolve(ret[0]);
+        }
+      });
+  });
+}
