@@ -4,62 +4,53 @@ import Tabs from '../../../src/Tabs/index.axml';
 import Badge from '../../../src/Badge/index.axml';
 import Icon from '../../../src/Icon/index.axml';
 
-export default ({ items, items2, current }: InternalData) => (
+export default ({ items, items2, current, item }: InternalData) => (
   <Page>
     <Container title="基础用法">
       <Tabs items={items} />
     </Container>
-
+    {/* #if ALIPAY */}
     <Container title="带有content">
       <Tabs items={items}>
-        <Slot name="content">
-          {({ value: { content } }) => <View class="content">{content}</View>}
-        </Slot>
+        <View class="content" slot-scope="item">
+          {item.value.content}
+        </View>
       </Tabs>
-    </Container>
-
+    </Container>{' '}
+    {/* #endif */}
     <Container title="胶囊">
       <Tabs type="capsule" items={items} defaultCurrent={1} />
     </Container>
-
     <Container title="带副标题">
       <Tabs type="mixin" items={items} />
     </Container>
-
     <Container title="带徽标">
       <Tabs items={items}>
-        {/* #if ALIPAY */}
-        <Slot name="title">
-          {/* #endif */}
-          {({ value: { badge, title } }) =>
-            badge ? <Badge>{title}</Badge> : <View>{title}</View>
-          }
-          {/* #if ALIPAY */}
-        </Slot>
-        {/* #endif */}
+        <View slot="title" slot-scope="item">
+          {item.value.badge ? (
+            <Badge>{item.value.title}</Badge>
+          ) : (
+            <View>{item.value.title}</View>
+          )}
+        </View>
       </Tabs>
     </Container>
-
     <Container title="禁用状态">
       <Tabs items={items2} />
     </Container>
-
     <Container title="onChange">
       <Tabs items={items} onChange="onChange" />
     </Container>
-
     <Container title="plus按钮">
       <Tabs items={items}>
-        <Slot name="plus">
+        <View slot="plus">
           <Icon type="AddOutline" onTap="onPlus" />
-        </Slot>
+        </View>
       </Tabs>
     </Container>
-
     <Container title="控制模式">
       <Tabs items={items} current={current} onChange="handleChange" />
     </Container>
-
     <Container title="content在外层自定义">
       <Tabs items={items} current={current} onChange="handleChange" />
       <View class="content">{items[current].content}</View>

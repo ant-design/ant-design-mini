@@ -4,9 +4,11 @@
 
 <container title="带有content">
   <tabs items="{{ items }}">
-    <slot name="content">
-      <view class="content">{{ content }}</view>
-    </slot>
+    <view
+      class="content"
+      slot-scope="item">
+      {{ item.value.content }}
+    </view>
   </tabs>
 </container>
 
