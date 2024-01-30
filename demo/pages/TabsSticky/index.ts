@@ -51,22 +51,21 @@ Page({
   },
   getBoundingClientRect(id) {
     if (typeof my === 'undefined') {
-      return getInstanceBoundingClientRect(this, id);
+      return this.getInstanceBoundingClientRect(this, id);
     }
-    return getInstanceBoundingClientRect(my, id);
+    return this.getInstanceBoundingClientRect(my, id);
+  },
+  getInstanceBoundingClientRect(instance, selector) {
+    return new Promise((resolve) => {
+      instance
+        .createSelectorQuery()
+        .select(selector)
+        .boundingClientRect()
+        .exec((ret) => {
+          if (ret && ret[0]) {
+            resolve(ret[0]);
+          }
+        });
+    });
   },
 });
-
-function getInstanceBoundingClientRect(instance, selector) {
-  return new Promise((resolve) => {
-    instance
-      .createSelectorQuery()
-      .select(selector)
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0]) {
-          resolve(ret[0]);
-        }
-      });
-  });
-}
