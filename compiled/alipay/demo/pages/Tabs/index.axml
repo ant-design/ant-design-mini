@@ -26,7 +26,9 @@
     <view
       slot="title"
       slot-scope="item">
-      <badge a:if="{{ item.value.badge }}">{{ item.value.title }}</badge>
+      <view a:if="{{ item.value.badge }}">
+        <badge>{{ item.value.title }}</badge>
+      </view>
       <view a:else>{{ item.value.title }}</view>
     </view>
   </tabs>

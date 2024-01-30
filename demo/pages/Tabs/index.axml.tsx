@@ -28,7 +28,9 @@ export default ({ items, items2, current, item }: InternalData) => (
       <Tabs items={items}>
         <View slot="title" slot-scope="item">
           {item.value.badge ? (
-            <Badge>{item.value.title}</Badge>
+            <View>
+              <Badge>{item.value.title}</Badge>
+            </View>
           ) : (
             <View>{item.value.title}</View>
           )}
