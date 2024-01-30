@@ -183,6 +183,7 @@ export default (
             <View class="ant-vtabs-bar-item-wrap">
               {items.map((item, index) => (
                 <View
+                  id={`ant-tabs-bar-item-${$id}-${index}`}
                   class={`ant-vtabs-bar-item ${
                     tabClassName ? tabClassName : ''
                   } ${

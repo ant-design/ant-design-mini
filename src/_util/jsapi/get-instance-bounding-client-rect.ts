@@ -1,5 +1,5 @@
 export function getInstanceBoundingClientRect(instance: any, selector: string) {
-  return new Promise<any>((resolve, reject) => {
+  return new Promise<any>((resolve) => {
     instance
       .createSelectorQuery()
       .select(selector)
@@ -8,7 +8,7 @@ export function getInstanceBoundingClientRect(instance: any, selector: string) {
         if (ret && ret[0]) {
           resolve(ret[0]);
         } else {
-          reject();
+          resolve(null);
         }
       });
   });
