@@ -16,10 +16,10 @@ export default ({ items, current, scrollTop }: InternalData) => (
 
     <ScrollView
       id="scroll-view"
-      scrollTop={scrollTop}
-      scrollY={true}
-      scrollWithAnimation={true}
-      scrollAnimationDuration={300}
+      scroll-top={scrollTop}
+      scroll-y={true}
+      scroll-with-animation={true}
+      scroll-animation-duration="300"
       class="content"
     >
       {items[current].content}

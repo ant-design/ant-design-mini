@@ -12,10 +12,10 @@ export default ({ items, current, scrollTop, item }: InternalData) => (
         id="scroll-view"
         onScroll="onScroll"
         onTouchStart="onTouchStart"
-        scrollTop={scrollTop}
-        scrollY={true}
-        scrollWithAnimation={true}
-        scrollAnimationDuration="300"
+        scroll-top={scrollTop}
+        scroll-y={true}
+        scroll-with-animation={true}
+        scroll-animation-duration="300"
         class="content"
       >
         {items.map((item, index) => (
