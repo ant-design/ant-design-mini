@@ -55,6 +55,9 @@ Page({
     });
   },
   onChange(current) {
+    /// #if WECHAT
+    current = current.detail;
+    /// #endif
     this.tap = true;
     this.setData({
       scrollTop:

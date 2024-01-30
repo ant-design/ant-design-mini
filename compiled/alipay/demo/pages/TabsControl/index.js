@@ -1,7 +1,7 @@
 Page({
     data: {
         current: 0,
-        items: []
+        items: [],
     },
     onLoad() {
         const items = new Array(3).fill(null).map((_, index) => {
@@ -23,7 +23,9 @@ Page({
         if (this.data.items.length === 0) {
             return;
         }
-        const current = this.data.current === 0 ? this.data.items.length - 1 : this.data.current - 1;
+        const current = this.data.current === 0
+            ? this.data.items.length - 1
+            : this.data.current - 1;
         this.setData({
             current,
         });
@@ -32,7 +34,9 @@ Page({
         if (this.data.items.length === 0) {
             return;
         }
-        const current = this.data.current >= this.data.items.length - 1 ? 0 : this.data.current + 1;
+        const current = this.data.current >= this.data.items.length - 1
+            ? 0
+            : this.data.current + 1;
         this.setData({
             current,
         });
@@ -58,5 +62,5 @@ Page({
             items,
             current: Math.min(this.data.current, items.length - 1),
         });
-    }
+    },
 });

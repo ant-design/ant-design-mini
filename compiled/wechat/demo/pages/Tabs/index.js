@@ -38,19 +38,22 @@ Page({
             },
         ],
     },
-    onChange(current) {
+    onChange: function (current) {
+        current = current.detail;
         this.alert('current ' + current);
     },
-    handleChange(current) {
+    handleChange: function (current) {
+        current = current.detail;
         this.setData({
-            current,
+            current: current,
         });
     },
-    onPlus() {
+    onPlus: function () {
         this.alert('plus');
     },
-    alert(content) {
-        my.alert({
+    alert: function (content) {
+        //@ts-ignore
+        wx.showToast({
             title: content,
         });
     },

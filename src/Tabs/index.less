@@ -15,6 +15,9 @@
       border-bottom: @border-width-standard solid @COLOR_BORDER;
     }
     &-fade {
+      /// #if WECHAT
+      display: none;
+      /// #endif
       position: absolute;
       top: 0;
       bottom: 0;
@@ -53,9 +56,11 @@
       order: 1;
       &:empty {
         display: none;
+        /// #if ALIPAY
         ~ .@{tabsPrefix}-bar-fade-right {
           right: 0;
         }
+        /// #endif
       }
     }
     &-scroll-view {
@@ -75,6 +80,10 @@
     &-wrap {
       display: flex;
       flex-shrink: 0;
+      /// #if WECHAT
+      align-items: flex-start;
+      /// #endif
+
       &-capsule {
         flex: 1;
       }

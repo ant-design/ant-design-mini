@@ -2,6 +2,7 @@
   "defaultTitle": "Tabs",
   "usingComponents": {
     "tabs": "../../../src/Tabs/index",
-    "ant-button": "../../../src/Button/index"
+    "icon": "../../../src/Icon/index",
+    "container": "../../../src/Container/index"
   }
 }

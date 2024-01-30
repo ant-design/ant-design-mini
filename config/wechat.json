@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/TabsScroll",
+    "pages/TabsElevator",
+    "pages/TabsControl",
+    "pages/Tabs",
     "pages/NumberKeyboard",
     "pages/NumberKeyboardAmount",
     "pages/NumberKeyboardCode",
@@ -122,6 +126,7 @@
     "TabBar",
     "Progress",
     "NoticeBar",
-    "NumberKeyboard"
+    "NumberKeyboard",
+    "Tabs"
   ]
 }

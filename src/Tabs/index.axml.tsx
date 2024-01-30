@@ -20,7 +20,15 @@ export default (
     tabClassName,
     tabActiveClassName,
   }: TSXMLProps<ITabsProps>,
-  { scrollLeft, scrollTop, leftFade, rightFade, $id, mixin }: InternalData
+  {
+    scrollLeft,
+    scrollTop,
+    leftFade,
+    rightFade,
+    $id,
+    mixin,
+    scrollHeight,
+  }: InternalData
 ) => (
   <Component>
     {direction !== 'vertical' ? (
@@ -31,9 +39,7 @@ export default (
           } ${tabsBarClassName ? tabsBarClassName : ''}`}
         >
           <View class="ant-tabs-bar-plus">
-            {/* #if ALIPAY */}
             <Slot name="plus" />
-            {/* #endif */}
           </View>
           <View
             class="ant-tabs-bar-fade ant-tabs-bar-fade-left"
@@ -45,17 +51,20 @@ export default (
           />
           <ScrollView
             class="ant-tabs-bar-scroll-view"
-            id={`ant-tabs-bar-scroll-view-${$id}`}
+            id={`ant-tabs-bar-scroll-view${$id ? '-' + $id : ''}`}
             onScroll="onScroll"
             scroll-left={scrollLeft}
             scroll-x={true}
             scroll-with-animation={true}
             scroll-animation-duration={300}
+            /// #if WECHAT
+            enable-flex="true"
+            style={`height: ${scrollHeight}px`}
+            /// #endif
           >
-            <View />
             {items.map((item, index) => (
               <View
-                id={`ant-tabs-bar-item-${$id}-${index}`}
+                id={`ant-tabs-bar-item${$id ? '-' + $id : ''}-${index}`}
                 class={`ant-tabs-bar-wrap ant-tabs-bar-wrap-${type} ${
                   tabsBarClassName ? tabsBarClassName : ''
                 }`}
@@ -161,9 +170,7 @@ export default (
           </ScrollView>
         </View>
         <View class="ant-tabs-content">
-          {/* #if ALIPAY */}
           <Slot value={items[mixin.value]} index={mixin.value} />
-          {/* #endif */}
         </View>
       </View>
     ) : (
@@ -173,17 +180,21 @@ export default (
         >
           <ScrollView
             class="ant-vtabs-bar-scroll-view"
-            id={`ant-tabs-bar-scroll-view-${$id}`}
+            id={`ant-tabs-bar-scroll-view${$id ? '-' + $id : ''}`}
             onScroll="onScroll"
             scroll-top={scrollTop}
             scroll-y={true}
             scroll-with-animation={true}
             scroll-animation-duration={300}
+            /// #if WECHAT
+            enable-flex="true"
+            style={`height: ${scrollHeight}px`}
+            /// #endif
           >
             <View class="ant-vtabs-bar-item-wrap">
               {items.map((item, index) => (
                 <View
-                  id={`ant-tabs-bar-item-${$id}-${index}`}
+                  id={`ant-tabs-bar-item${$id ? '-' + $id : ''}-${index}`}
                   class={`ant-vtabs-bar-item ${
                     tabClassName ? tabClassName : ''
                   } ${

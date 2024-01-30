@@ -1,5 +1,9 @@
 {
   "pages": [
+    "demo/pages/TabsScroll/index",
+    "demo/pages/TabsElevator/index",
+    "demo/pages/TabsControl/index",
+    "demo/pages/Tabs/index",
     "demo/pages/NumberKeyboard/index",
     "demo/pages/NumberKeyboardAmount/index",
     "demo/pages/NumberKeyboardCode/index",
