@@ -16,7 +16,7 @@ export default ({ items, items2, current, item }: InternalData) => (
           {item.value.content}
         </View>
       </Tabs>
-    </Container>{' '}
+    </Container>
     {/* #endif */}
     <Container title="胶囊">
       <Tabs type="capsule" items={items} defaultCurrent={1} />

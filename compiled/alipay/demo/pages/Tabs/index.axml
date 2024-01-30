@@ -1,7 +1,6 @@
 <container title="基础用法">
   <tabs items="{{ items }}" />
 </container>
-
 <container title="带有content">
   <tabs items="{{ items }}">
     <view
@@ -11,56 +10,50 @@
     </view>
   </tabs>
 </container>
-
 <container title="胶囊">
   <tabs
     type="capsule"
     items="{{ items }}"
     defaultCurrent="{{ 1 }}" />
 </container>
-
 <container title="带副标题">
   <tabs
     type="mixin"
     items="{{ items }}" />
 </container>
-
 <container title="带徽标">
   <tabs items="{{ items }}">
-    <slot name="title">
-      <badge a:if="{{ badge }}">{{ title }}</badge>
-      <view a:else>{{ title }}</view>
-    </slot>
+    <view
+      slot="title"
+      slot-scope="item">
+      <badge a:if="{{ item.value.badge }}">{{ item.value.title }}</badge>
+      <view a:else>{{ item.value.title }}</view>
+    </view>
   </tabs>
 </container>
-
 <container title="禁用状态">
   <tabs items="{{ items2 }}" />
 </container>
-
 <container title="onChange">
   <tabs
     items="{{ items }}"
     onChange="onChange" />
 </container>
-
 <container title="plus按钮">
   <tabs items="{{ items }}">
-    <slot name="plus">
+    <view slot="plus">
       <icon
         type="AddOutline"
         onTap="onPlus" />
-    </slot>
+    </view>
   </tabs>
 </container>
-
 <container title="控制模式">
   <tabs
     items="{{ items }}"
     current="{{ current }}"
     onChange="handleChange" />
 </container>
-
 <container title="content在外层自定义">
   <tabs
     items="{{ items }}"
