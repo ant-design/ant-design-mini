@@ -1,0 +1,26 @@
+<view class="container">
+  <tabs items="{{ items }}" />
+</view>
+
+<view class="container">
+  选择后居中滚动
+  <tabs
+    items="{{ items }}"
+    scrollMode="center" />
+</view>
+
+<view class="container">
+  <tabs items="{{ items }}"></tabs>
+</view>
+
+<view class="container">
+  <tabs
+    items="{{ items }}"
+    type="capsule" />
+</view>
+
+<view class="container">
+  <tabs
+    items="{{ items }}"
+    type="mixin" />
+</view>

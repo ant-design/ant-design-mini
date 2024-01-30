@@ -66,7 +66,12 @@ export const TabsDefaultProps: Partial<ITabsProps> = {
 
 export const TabsFunctionalProps: Partial<ITabsProps> = {
   type: 'basic',
+  direction: 'horizontal',
+  current: null,
   defaultCurrent: 0,
   items: [],
   scrollMode: 'edge',
+  tabsBarClassName: '',
+  tabActiveClassName: '',
+  tabClassName: '',
 };

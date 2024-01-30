@@ -1,5 +1,5 @@
 import { InternalData, Page, View } from 'tsxml';
-import Button from '../../../src/Button/index.axml';
+import AntButton from '../../../src/Button/index.axml';
 import Tabs from '../../../src/Tabs/index.axml';
 
 export default ({ items, current }: InternalData) => (
@@ -13,18 +13,18 @@ export default ({ items, current }: InternalData) => (
     </View>
 
     <View class="buttons">
-      <Button inline onTap="onPrevTap">
+      <AntButton inline onTap="onPrevTap">
         上一个
-      </Button>
-      <Button inline onTap="onNextTap">
+      </AntButton>
+      <AntButton inline onTap="onNextTap">
         下一个
-      </Button>
-      <Button inline onTap="onAddTap">
+      </AntButton>
+      <AntButton inline onTap="onAddTap">
         添加
-      </Button>
-      <Button inline onTap="onMinusTap">
+      </AntButton>
+      <AntButton inline onTap="onMinusTap">
         减少
-      </Button>
+      </AntButton>
     </View>
   </Page>
 );

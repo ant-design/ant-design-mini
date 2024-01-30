@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'functional-mini/compat';
-import { useEvent, useRef } from 'functional-mini/component';
+import { useEvent, useReady, useRef } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
-import fmtEvent from '../_util/fmtEvent';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
 import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
 import { useComponentUpdateEffect } from '../_util/hooks/useLayoutEffect';
 import { useMixState } from '../_util/hooks/useMixState';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
 import { TabsFunctionalProps } from './props';
 
 const Tabs = (props) => {
@@ -25,6 +25,8 @@ const Tabs = (props) => {
   });
   const scrollRef = useRef({ scrollLeft: 0, scrollTop: 0 });
 
+  const { triggerEvent } = useComponentEvent(props);
+
   const updatePartState = (part) => {
     updateState((old) => {
       return {
@@ -34,7 +36,8 @@ const Tabs = (props) => {
     });
   };
 
-  const { getBoundingClientRectWithBuilder } = useInstanceBoundingClientRect();
+  const { getBoundingClientRectWithBuilder, getBoundingClientRect } =
+    useInstanceBoundingClientRect();
 
   const updateFade = useStableCallback(async () => {
     updatePartState({
@@ -63,6 +66,7 @@ const Tabs = (props) => {
         (id) => `#ant-tabs-bar-item${id}-${current}`
       ),
     ]);
+
     if (props.direction === 'vertical') {
       let scrollTop = scrollRef.current.scrollTop || 0;
       let needScroll = false;
@@ -137,10 +141,7 @@ const Tabs = (props) => {
     if (!isControlled) {
       update(index);
     }
-    const { onChange } = props;
-    if (onChange) {
-      onChange(index, fmtEvent(props, e));
-    }
+    triggerEvent('change', index, e);
   });
 
   useEffect(() => {
@@ -150,6 +151,7 @@ const Tabs = (props) => {
   useComponentUpdateEffect(() => {
     updateScroll();
   }, [props.items, currentValue]);
+
 
   return {
     mixin: {

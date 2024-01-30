@@ -1,8 +1,8 @@
-import { Page, View, InternalData, Slot } from 'tsxml';
-import Container from '../../../src/Container/index.axml';
-import Tabs from '../../../src/Tabs/index.axml';
+import { InternalData, Page, View } from 'tsxml';
 import Badge from '../../../src/Badge/index.axml';
+import Container from '../../../src/Container/index.axml';
 import Icon from '../../../src/Icon/index.axml';
+import Tabs from '../../../src/Tabs/index.axml';
 
 export default ({ items, items2, current, item }: InternalData) => (
   <Page>
@@ -24,6 +24,7 @@ export default ({ items, items2, current, item }: InternalData) => (
     <Container title="带副标题">
       <Tabs type="mixin" items={items} />
     </Container>
+    {/* #if ALIPAY */}
     <Container title="带徽标">
       <Tabs items={items}>
         <View slot="title" slot-scope="item">
@@ -37,6 +38,7 @@ export default ({ items, items2, current, item }: InternalData) => (
         </View>
       </Tabs>
     </Container>
+    {/* #endif */}
     <Container title="禁用状态">
       <Tabs items={items2} />
     </Container>
