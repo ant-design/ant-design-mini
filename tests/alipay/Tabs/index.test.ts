@@ -113,15 +113,19 @@ describe('Tabs', () => {
     );
 
     instance.callMethod('onScroll', { detail: { scrollLeft: 100 } });
+    await sleep(20);
     expect(instance.getData().leftFade).toBe(true);
     await sleep(100);
     expect(instance.getData().scrollLeft).toBe(400);
 
     instance.setProps({
-      items: [...items, {
-        title: 'tab 4',
-        content: 'tab 4 content',
-      }]
+      items: [
+        ...items,
+        {
+          title: 'tab 4',
+          content: 'tab 4 content',
+        },
+      ],
     });
     await sleep(20);
     expect(instance.getData().scrollLeft - 400 < 1).toBe(true);
@@ -144,10 +148,13 @@ describe('Tabs', () => {
     expect(instance.getData().scrollTop).toBe(400);
 
     instance.setProps({
-      items: [...items, {
-        title: 'tab 4',
-        content: 'tab 4 content',
-      }]
+      items: [
+        ...items,
+        {
+          title: 'tab 4',
+          content: 'tab 4 content',
+        },
+      ],
     });
     await sleep(20);
     expect(instance.getData().scrollTop - 400 < 1).toBe(true);

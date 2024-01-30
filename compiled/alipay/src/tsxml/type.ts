@@ -5,6 +5,9 @@ export interface Props {
   name?: string;
   onChangeEnd?: any;
   current?: any;
+  circular?: any;
+  vertical?: any;
+  autoplay?: any;
   damping?: any;
   'a:key'?: string;
   direction?: string;

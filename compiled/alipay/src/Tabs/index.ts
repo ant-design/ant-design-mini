@@ -1,155 +1,162 @@
-import { TabsDefaultProps } from './props';
-import { IBoundingClientRect } from '../_util/base';
-import fmtEvent from '../_util/fmtEvent';
-import createValue from '../mixins/value';
+import { useEffect, useState } from 'functional-mini/compat';
+import { useEvent, useRef } from 'functional-mini/component';
 import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import fmtEvent from '../_util/fmtEvent';
+import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
+import { useComponentUpdateEffect } from '../_util/hooks/useLayoutEffect';
+import { useMixState } from '../_util/hooks/useMixState';
+import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
+import { TabsFunctionalProps } from './props';
 
-function getBoundingClientRect(selector: string) {
-  return new Promise<IBoundingClientRect>((resolve, reject) => {
-    my.createSelectorQuery()
-      .select(selector)
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0]) {
-          resolve(ret[0]);
-          return;
-        }
-        reject();
-      });
-  });
-}
+const Tabs = (props) => {
+  const [currentValue, { isControlled, update }] = useMixState(
+    props.defaultCurrent,
+    {
+      value: props.current,
+    }
+  );
 
-Component({
-  props: TabsDefaultProps,
-  data: {
+  const [state, updateState] = useState({
     scrollLeft: 0,
+    scrollTop: 0,
     leftFade: false,
     rightFade: false,
-  },
-  mixins: [
-    createValue({
-      valueKey: 'current',
-      defaultValueKey: 'defaultCurrent',
-    }),
-  ],
-  scrollLeft: 0,
-  scrollTop: 0,
-  didMount() {
-    this.updateScroll();
-  },
-  didUpdate(prevProps, prevData) {
-    if (prevProps.items !== this.props.items || !this.isEqualValue(prevData)) {
-      this.updateScroll();
-    }
-  },
-  methods: {
-    async onScroll(e) {
-      if (this.props.direction === 'vertical') {
-        this.scrollTop = e.detail.scrollTop;
-        return;
-      }
-      this.scrollLeft = e.detail.scrollLeft;
-      this.updateFade();
-    },
-    async updateFade() {
-      this.setData({
-        leftFade: !!this.scrollLeft,
-      });
-      const [view, item] = await Promise.all([
-        getBoundingClientRect(`#ant-tabs-bar-scroll-view-${this.$id}`),
-        getBoundingClientRect(
-          `#ant-tabs-bar-item-${this.$id}-${this.props.items.length - 1}`
-        ),
-      ]);
-      this.setData({
-        rightFade: item.left + item.width / 2 > view.width,
-      });
-    },
-    async updateScroll() {
-      const current = this.getValue();
-      const [view, item] = await Promise.all([
-        getBoundingClientRect(`#ant-tabs-bar-scroll-view-${this.$id}`),
-        getBoundingClientRect(`#ant-tabs-bar-item-${this.$id}-${current}`),
-      ]);
-      if (this.props.direction === 'vertical') {
-        let scrollTop = this.scrollTop || 0;
-        let needScroll = false;
-        if (this.props.scrollMode === 'center') {
-          needScroll = true;
-          scrollTop +=
-            item.top - view.top - Math.max((view.height - item.height) / 2, 0);
-        } else {
-          const distance = item.top - view.top;
-          if (distance < 0) {
-            scrollTop += distance;
-            needScroll = true;
-          } else if (distance + item.height > view.height) {
-            scrollTop += Math.min(
-              distance + item.height - view.height,
-              distance
-            );
-            needScroll = true;
-          }
-        }
-        if (needScroll) {
-          if (scrollTop === this.data.scrollTop) {
-            scrollTop += Math.random();
-          }
-          this.setData({
-            scrollTop,
-          });
-        }
-        return;
-      }
-      let scrollLeft = this.scrollLeft || 0;
+  });
+  const scrollRef = useRef({ scrollLeft: 0, scrollTop: 0 });
+
+  const updatePartState = (part) => {
+    updateState((old) => {
+      return {
+        ...old,
+        ...part,
+      };
+    });
+  };
+
+  const { getBoundingClientRectWithBuilder } = useInstanceBoundingClientRect();
+
+  const updateFade = useStableCallback(async () => {
+    updatePartState({
+      leftFade: !!scrollRef.current.scrollLeft,
+    });
+    const [view, item] = await Promise.all([
+      getBoundingClientRectWithBuilder(
+        (id) => `#ant-tabs-bar-scroll-view${id}`
+      ),
+      getBoundingClientRectWithBuilder(
+        (id) => `#ant-tabs-bar-item${id}-${props.items.length - 1}`
+      ),
+    ]);
+    updatePartState({
+      rightFade: item.left + item.width / 2 > view.width,
+    });
+  });
+
+  const updateScroll = useStableCallback(async () => {
+    const current = currentValue;
+    const [view, item] = await Promise.all([
+      getBoundingClientRectWithBuilder(
+        (id) => `#ant-tabs-bar-scroll-view${id}`
+      ),
+      getBoundingClientRectWithBuilder(
+        (id) => `#ant-tabs-bar-item${id}-${current}`
+      ),
+    ]);
+    if (props.direction === 'vertical') {
+      let scrollTop = scrollRef.current.scrollTop || 0;
       let needScroll = false;
-      if (this.props.scrollMode === 'center') {
+      if (props.scrollMode === 'center') {
         needScroll = true;
-        scrollLeft +=
-          item.left - view.left - Math.max((view.width - item.width) / 2, 0);
+        scrollTop +=
+          item.top - view.top - Math.max((view.height - item.height) / 2, 0);
       } else {
-        const distance = item.left - view.left;
+        const distance = item.top - view.top;
         if (distance < 0) {
-          scrollLeft += distance;
+          scrollTop += distance;
           needScroll = true;
-        } else if (distance + item.width > view.width) {
-          scrollLeft += Math.min(distance + item.width - view.width, distance);
+        } else if (distance + item.height > view.height) {
+          scrollTop += Math.min(distance + item.height - view.height, distance);
           needScroll = true;
         }
       }
       if (needScroll) {
-        if (scrollLeft === this.data.scrollLeft) {
-          scrollLeft += Math.random();
+        if (scrollTop === state.scrollTop) {
+          scrollTop += Math.random();
         }
-        this.setData({
-          scrollLeft,
+        updatePartState({
+          scrollTop,
         });
-        this.updateFade();
       }
-    },
-    scroll(scrollLeft: number) {
-      this.setData({
-        scrollLeft:
-          this.data.scrollLeft === scrollLeft
-            ? scrollLeft - Math.random()
-            : scrollLeft,
+      return;
+    }
+    let scrollLeft = scrollRef.current.scrollLeft || 0;
+    let needScroll = false;
+    if (props.scrollMode === 'center') {
+      needScroll = true;
+      scrollLeft +=
+        item.left - view.left - Math.max((view.width - item.width) / 2, 0);
+    } else {
+      const distance = item.left - view.left;
+      if (distance < 0) {
+        scrollLeft += distance;
+        needScroll = true;
+      } else if (distance + item.width > view.width) {
+        scrollLeft += Math.min(distance + item.width - view.width, distance);
+        needScroll = true;
+      }
+    }
+    if (needScroll) {
+      if (scrollLeft === state.scrollLeft) {
+        scrollLeft += Math.random();
+      }
+      updatePartState({
+        scrollLeft,
       });
+      updateFade();
+    }
+  });
+
+  useEvent('onScroll', async (e) => {
+    if (props.direction === 'vertical') {
+      scrollRef.current.scrollTop = e.detail.scrollTop;
+      return;
+    }
+    scrollRef.current.scrollLeft = e.detail.scrollLeft;
+    updateFade();
+  });
+
+  useEvent('onChange', async (e) => {
+    const index = parseInt(e.currentTarget.dataset.index, 10);
+    if (props.items[index].disabled) {
+      return;
+    }
+    if (currentValue === index) {
+      return;
+    }
+    if (!isControlled) {
+      update(index);
+    }
+    const { onChange } = props;
+    if (onChange) {
+      onChange(index, fmtEvent(props, e));
+    }
+  });
+
+  useEffect(() => {
+    updateScroll();
+  }, []);
+
+  useComponentUpdateEffect(() => {
+    updateScroll();
+  }, [props.items, currentValue]);
+
+  return {
+    mixin: {
+      value: currentValue,
     },
-    onChange(e) {
-      const { onChange } = this.props;
-      const index = parseInt(e.currentTarget.dataset.index, 10);
-      if (this.props.items[index].disabled) {
-        return;
-      }
-      if (this.getValue() === index) {
-        return;
-      }
-      if (!this.isControlled()) {
-        this.update(index);
-      }
-      if (onChange) {
-        onChange(index, fmtEvent(this.props, e));
-      }
-    },
-  },
-});
+    ...state,
+  };
+};
+
+mountComponent(Tabs, TabsFunctionalProps);

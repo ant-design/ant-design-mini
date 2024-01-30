@@ -1,11 +1,11 @@
 <tabs
-  items="{{items}}"
-  current="{{current}}"
+  items="{{ items }}"
+  current="{{ current }}"
   onChange="onChange">
-  <view class="content">{{items[current].content}}</view>
+  <view class="content">{{ items[current].content }}</view>
 </tabs>
 
-<view class="container">current: {{current}} length: {{items.length}}</view>
+<view class="container">current: {{ current }} length: {{ items.length }}</view>
 
 <view class="buttons">
   <button

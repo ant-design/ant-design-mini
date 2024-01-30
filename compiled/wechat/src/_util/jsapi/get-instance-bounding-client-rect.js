@@ -1,5 +1,5 @@
 export function getInstanceBoundingClientRect(instance, selector) {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function (resolve) {
         instance
             .createSelectorQuery()
             .select(selector)
@@ -9,7 +9,7 @@ export function getInstanceBoundingClientRect(instance, selector) {
                 resolve(ret[0]);
             }
             else {
-                reject();
+                resolve(null);
             }
         });
     });

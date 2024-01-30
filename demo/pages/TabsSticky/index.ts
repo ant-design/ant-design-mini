@@ -1,21 +1,7 @@
-function getBoundingClientRect(selector) {
-  return new Promise(resolve => {
-    my.createSelectorQuery()
-      .select(selector)
-      .boundingClientRect()
-      .exec((ret) => {
-        if (ret && ret[0]) {
-          resolve(ret[0]);
-        }
-      });
-  });
-}
-
-
-
 Page({
   data: {
     current: 0,
+    scrollTop: 0,
     items: [
       {
         title: '第一项',
@@ -48,46 +34,38 @@ Page({
           'Do nisi tempor incididunt cupidatat magna id. Ullamco consectetur consequat laboris officia occaecat laboris consequat velit irure laboris exercitation aliqua. Laborum elit sit irure eiusmod anim fugiat magna ipsum aliqua esse tempor in. Commodo occaecat Lorem voluptate pariatur commodo proident et et exercitation ex exercitation culpa tempor id. Fugiat dolore aliquip voluptate in. Velit voluptate excepteur incididunt sint sit aliqua et aliquip. Aliqua nisi consequat excepteur eiusmod dolore culpa Lorem.',
       },
     ],
-    scrollTop: 0,
   },
-  async updateRect() {
-    this.itemRectList = await Promise.all(this.data.items.map((item, index) => getBoundingClientRect(`#tab-item-${index}`)));
-    this.scrollViewRect = await getBoundingClientRect('#scroll-view');
+  onPageScroll(e) {
+    this.pageScrollTop = e.scrollTop;
   },
   async onReady() {
-    await this.updateRect();
+    this.tabsTop = (await this.getBoundingClientRect('.tabs')).top;
   },
-  onTap() {
-    this.tap = true;
-    const scrollTop = this.itemRectList[this.data.current].top - this.scrollViewRect.top;
+  async onChange(current) {
     this.setData({
-      scrollTop: scrollTop+Math.random(),
-    });
-  },
-  onChange(current) {
-    this.tap = true;
-    this.setData({
-      scrollTop: this.itemRectList[current].top - this.scrollViewRect.top + Math.random(),
       current,
     });
+    my.pageScrollTo({
+      scrollTop: Math.min(this.tabsTop, this.pageScrollTop),
+    });
   },
-  onTouchStart() {
-    this.tap = false;
-  },
-  onScroll(e) {
-    if (this.tap) {
-      return;
+  getBoundingClientRect(id) {
+    if (typeof my === 'undefined') {
+      return this.getInstanceBoundingClientRect(this, id);
     }
-    this.scrollTop = e.detail.scrollTop;
-    const scrollTop = this.scrollTop + this.itemRectList[0].top;
-    for(let i=0;i<this.itemRectList.length - 1;i++) {
-      const item = this.itemRectList[i];
-      if (scrollTop > item.top && scrollTop < this.itemRectList[i+1].top && i !== this.data.current) {
-        this.setData({
-          current: i,
+    return this.getInstanceBoundingClientRect(my, id);
+  },
+  getInstanceBoundingClientRect(instance, selector) {
+    return new Promise((resolve) => {
+      instance
+        .createSelectorQuery()
+        .select(selector)
+        .boundingClientRect()
+        .exec((ret) => {
+          if (ret && ret[0]) {
+            resolve(ret[0]);
+          }
         });
-        return;
-      }
-    }
+    });
   },
 });
