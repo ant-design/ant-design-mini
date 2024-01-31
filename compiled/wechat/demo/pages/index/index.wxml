@@ -16,7 +16,7 @@
   <view class="input-container">
     <ant-input
       placeholder="输入组件名称"
-      onChange="onSearch"
+      bind:change="onSearch"
       focusClassName="border"
       className="input"
       allowClear>
@@ -27,18 +27,18 @@
   </view>
 </view>
 <ant-list
-  a:if="{{ finding }}"
+  wx:if="{{ finding }}"
   className="list"
   header="搜索结果列表"
   radius>
   <block
-    a:for="{{ searchResult }}"
-    a:for-index="index"
-    a:for-item="item"
-    a:key="item-{{ index }}">
+    wx:for="{{ searchResult }}"
+    wx:for-index="index"
+    wx:for-item="item"
+    wx:key="item-{{ index }}">
     <ant-list-item
       arrow="right"
-      onTap="listPress"
+      bind:tap="listPress"
       data-url="{{ item.path }}">
       {{ item.name }}
       <view slot="brief">{{ item.nameZN }}</view>
@@ -46,28 +46,28 @@
   </block>
 </ant-list>
 <block
-  a:for="{{ componentList }}"
-  a:for-index="index"
-  a:for-item="item"
-  a:key="componentList-{{ index }}">
+  wx:for="{{ componentList }}"
+  wx:for-index="index"
+  wx:for-item="item"
+  wx:key="componentList-{{ index }}">
   <block>
     <ant-list
       className="list"
       radius>
       <view slot="header">{{ item.type }}</view>
       <block
-        a:for="{{ item.list }}"
-        a:for-index="listIndex"
-        a:for-item="itemList"
-        a:key="itemList-{{ listIndex }}">
+        wx:for="{{ item.list }}"
+        wx:for-index="listIndex"
+        wx:for-item="itemList"
+        wx:key="itemList-{{ listIndex }}">
         <ant-list-item
           arrow="right"
-          onTap="listPress"
+          bind:tap="listPress"
           data-url="{{ itemList.path }}">
           <view class="content-title">
             {{ itemList.name }}
             <view
-              a:if="{{ itemList.update }}"
+              wx:if="{{ itemList.update }}"
               style="margin-left: 16rpx">
               <ant-tag>Update</ant-tag>
             </view>

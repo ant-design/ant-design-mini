@@ -3,7 +3,7 @@
     wx:for="{{ todoList }}"
     wx:for-index="taskIndex"
     wx:for-item="task"
-    wx:key="{{ task.id }}">
+    wx:key="a-{{ task.id }}">
     <!-- display: inline -->
     <text
       hidden="{{ !mixin.value }}"

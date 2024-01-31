@@ -220,6 +220,19 @@ export function transformJSXElement(ctx: ITransformContext) {
     case 'Identifier': {
       return ctx.toAxmlExpression();
     }
+    case 'TemplateLiteral': {
+      const expression = ctx.node;
+      const quasis = expression.quasis;
+      const expressions = expression.expressions;
+      const res: string[] = [];
+      for (let i = 0; i < quasis.length; i++) {
+        res.push(quasis[i].value.raw);
+        if (expressions[i]) {
+          res.push(ctx.extends(expressions[i]).toAxmlExpression(true));
+        }
+      }
+      return res.join('');
+    }
     case 'ConditionalExpression': {
       if (
         ctx.node.consequent.type !== 'JSXElement' &&
