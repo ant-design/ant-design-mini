@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/index/index",
     "demo/pages/TabsSticky/index",
     "demo/pages/TabsSwiper/index",
     "demo/pages/TabsVertical/index",

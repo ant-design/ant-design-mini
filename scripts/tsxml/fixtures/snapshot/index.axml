@@ -3,7 +3,20 @@
     a:for="{{ todoList }}"
     a:for-index="taskIndex"
     a:for-item="task"
-    a:key="{{ task.id }}">
+    a:key="a-{{ task.id }}">
+    <!-- display: inline -->
+    <text
+      hidden="{{ !mixin.value }}"
+      data-item-id="{{ taskIndex }}"
+      data-num="{{ 20 }}"
+      >{{ taskIndex }}{{ task }}</text
+    >
+  </block>
+  <block
+    a:for="{{ todoList }}"
+    a:for-index="taskIndex"
+    a:for-item="task"
+    a:key="todoList">
     <!-- display: inline -->
     <text
       hidden="{{ !mixin.value }}"

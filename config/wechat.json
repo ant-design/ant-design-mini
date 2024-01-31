@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index",
     "pages/TabsSticky",
     "pages/TabsSwiper",
     "pages/TabsVertical",
@@ -12,6 +13,7 @@
     "pages/SwipeActionSpeed",
     "pages/SwipeActionTap",
     "pages/SwipeActionWidth",
+    "utils",
     "pages/SwipeAction",
     "pages/TabsScroll",
     "pages/TabsElevator",

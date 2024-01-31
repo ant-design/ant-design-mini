@@ -12,7 +12,17 @@ export default (
     {todoList.map((task, taskIndex) => (
       <Text
         hidden={!mixin.value}
-        key={task.id}
+        key={`a-${task.id}`}
+        data-item-id={taskIndex}
+        data-num={20}
+      >
+        {taskIndex} {task}
+      </Text>
+    ))}
+    {todoList.map((task, taskIndex) => (
+      <Text
+        hidden={!mixin.value}
+        key={'todoList'}
         data-item-id={taskIndex}
         data-num={20}
       >

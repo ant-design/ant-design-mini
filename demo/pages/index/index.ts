@@ -1,3 +1,4 @@
+//@ts-ignore
 import { componentList, allComponents } from '../../utils/constants';
 
 Page({
@@ -19,6 +20,9 @@ Page({
     });
   },
   onSearch(e) {
+    /// #if WECHAT
+    e = e.detail;
+    /// #endif
     if (e.length > 0) {
       const result = [];
       allComponents.forEach((searchKey) => {
@@ -38,6 +42,15 @@ Page({
     }
   },
   listPress(e) {
+    console.log('11');
+    if (typeof my === 'undefined') {
+      console.log('navigateTo', e.currentTarget.dataset.url);
+      //@ts-ignore
+      wx.navigateTo({
+        url: '/demo' + e.currentTarget.dataset.url,
+      });
+      return;
+    }
     my.navigateTo({
       url: e.currentTarget.dataset.url,
     });
