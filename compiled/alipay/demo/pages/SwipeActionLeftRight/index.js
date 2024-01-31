@@ -15,14 +15,17 @@ Page({
                 text: '删除',
                 bgColor: '#FF2B00',
                 color: '#fff',
-            }
+            },
         ],
-        swipeIndex: -1
+        swipeIndex: -1,
     },
     onSwipeStart() {
         this.setData({ swipeIndex: '' });
     },
-    onSwipeEnd(data, e) {
+    onSwipeEnd(args1, args2) {
+        let e, data;
+        e = args2;
+        data = args1;
         const { index } = e.target.dataset.item;
         data.swiped && this.setData({ swipeIndex: index });
     },

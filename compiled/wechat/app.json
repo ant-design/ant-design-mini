@@ -1,5 +1,17 @@
 {
   "pages": [
+    "demo/pages/TabsSticky/index",
+    "demo/pages/TabsSwiper/index",
+    "demo/pages/TabsVertical/index",
+    "demo/pages/TabsVerticalElevator/index",
+    "demo/pages/SwipeActionAnimation/index",
+    "demo/pages/SwipeActionLeft/index",
+    "demo/pages/SwipeActionLeftRight/index",
+    "demo/pages/SwipeActionMove/index",
+    "demo/pages/SwipeActionNumber/index",
+    "demo/pages/SwipeActionSpeed/index",
+    "demo/pages/SwipeActionTap/index",
+    "demo/pages/SwipeActionWidth/index",
     "demo/pages/SwipeAction/index",
     "demo/pages/TabsScroll/index",
     "demo/pages/TabsElevator/index",

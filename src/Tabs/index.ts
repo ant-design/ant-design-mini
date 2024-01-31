@@ -7,9 +7,9 @@ import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
 import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
 import { useComponentUpdateEffect } from '../_util/hooks/useLayoutEffect';
 import { useMixState } from '../_util/hooks/useMixState';
-import { TabsFunctionalProps } from './props';
+import { ITabsProps, TabsFunctionalProps } from './props';
 
-const Tabs = (props) => {
+const Tabs = (props: ITabsProps) => {
   const [currentValue, { isControlled, update }] = useMixState(
     props.defaultCurrent,
     {
@@ -144,19 +144,25 @@ const Tabs = (props) => {
     triggerEvent('change', index, e);
   });
 
+  /// #if ALIPAY
   useEffect(() => {
     updateScroll();
   }, []);
+  /// #endif
 
   useComponentUpdateEffect(() => {
     updateScroll();
   }, [props.items, currentValue]);
 
   /// #if WECHAT
-  const [scrollHeight, setScrollHeight] = useState(40);
+  const [scrollHeight, setScrollHeight] = useState(
+    // vertical 模式下，不需要设置高度
+    props.direction === 'vertical' ? 0 : 40
+  );
   useReady(() => {
+    updateScroll();
     getBoundingClientRect('.ant-tabs-bar-item').then((res) => {
-      if (res && res.height > 0) {
+      if (res && res.height > 0 && props.direction !== 'vertical') {
         setScrollHeight(res.height);
       }
     });

@@ -39,8 +39,17 @@ Page({
         this.setData({
             current,
         });
+        this.scrollTo(Math.min(this.tabsTop, this.pageScrollTop));
+    },
+    scrollTo(scrollTop) {
+        if (typeof my === 'undefined') {
+            //@ts-ignore
+            return wx.pageScrollTo({
+                scrollTop,
+            });
+        }
         my.pageScrollTo({
-            scrollTop: Math.min(this.tabsTop, this.pageScrollTop),
+            scrollTop,
         });
     },
     getBoundingClientRect(id) {

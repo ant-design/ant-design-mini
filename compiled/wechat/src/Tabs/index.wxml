@@ -22,7 +22,7 @@
       scroll-with-animation="{{ true }}"
       scroll-animation-duration="{{ 300 }}"
       enable-flex="true"
-      style="height: {{ scrollHeight }}px">
+      style="{{ scrollHeight > 0 ? 'height: ' + scrollHeight + 'px;' : '' }}">
       <block
         wx:for="{{ items }}"
         wx:for-index="index"
@@ -76,8 +76,7 @@
       scroll-y="{{ true }}"
       scroll-with-animation="{{ true }}"
       scroll-animation-duration="{{ 300 }}"
-      enable-flex="true"
-      style="height: {{ scrollHeight }}px">
+      enable-flex="true">
       <view class="ant-vtabs-bar-item-wrap">
         <block
           wx:for="{{ items }}"
@@ -96,5 +95,11 @@
       </view>
     </scroll-view>
   </view>
-  <view class="ant-vtabs-content">{{ items[mixin.value].content }}</view>
+  <view class="ant-vtabs-content">
+    <slot
+      value="{{ items[mixin.value] }}"
+      index="{{ mixin.value }}">
+      {{ items[mixin.value].content }}
+    </slot>
+  </view>
 </view>

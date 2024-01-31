@@ -19,6 +19,9 @@ Page({
     });
   },
   onChange(current) {
+    /// #if WECHAT
+    current = current.detail;
+    /// #endif
     this.setData({
       current,
       scrollTop: Math.random(),

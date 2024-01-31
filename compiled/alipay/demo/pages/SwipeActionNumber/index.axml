@@ -1,3 +1,7 @@
+<import-sjs
+  from="./slice.sjs"
+  name="utils" />
+
 <view class="t-swipe">
   <view class="t-swipe-item">
     <view class="t-swipe-item-title">调整按钮数量，最多为3个</view>
@@ -10,7 +14,7 @@
       <view class="t-swipe-item-con">
         <ant-swipe-action
           data-item="{{ index }}"
-          rightButtons="{{ rightBtns.slice(0, index + 1) }}"
+          rightButtons="{{ utils.sliceButton(rightBtns, index) }}"
           elasticity="{{ index !== 0 }}"
           swiped="{{ swipeIndex === index }}"
           onSwipeEnd="onSwipeEnd"

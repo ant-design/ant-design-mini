@@ -22,6 +22,9 @@ Page({
     await this.updateRect();
   },
   onChange(current) {
+    /// #if WECHAT
+    current = current.detail;
+    /// #endif
     this.tap = true;
     this.setData({
       scrollTop:

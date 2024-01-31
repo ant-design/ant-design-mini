@@ -59,7 +59,9 @@ export default (
             scroll-animation-duration={300}
             /// #if WECHAT
             enable-flex="true"
-            style={`height: ${scrollHeight}px`}
+            style={`${
+              scrollHeight > 0 ? 'height: ' + scrollHeight + 'px;' : ''
+            }`}
             /// #endif
           >
             {items.map((item, index) => (
@@ -188,7 +190,6 @@ export default (
             scroll-animation-duration={300}
             /// #if WECHAT
             enable-flex="true"
-            style={`height: ${scrollHeight}px`}
             /// #endif
           >
             <View class="ant-vtabs-bar-item-wrap">
@@ -235,13 +236,9 @@ export default (
           </ScrollView>
         </View>
         <View class="ant-vtabs-content">
-          {/* #if ALIPAY */}
           <Slot value={items[mixin.value]} index={mixin.value}>
-            {/* #endif */}
             {items[mixin.value].content}
-            {/* #if ALIPAY */}
           </Slot>
-          {/* #endif */}
         </View>
       </View>
     )}
