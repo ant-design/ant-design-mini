@@ -12,6 +12,19 @@
       >{{ taskIndex }}{{ task }}</text
     >
   </block>
+  <block
+    a:for="{{ todoList }}"
+    a:for-index="taskIndex"
+    a:for-item="task"
+    a:key="todoList">
+    <!-- display: inline -->
+    <text
+      hidden="{{ !mixin.value }}"
+      data-item-id="{{ taskIndex }}"
+      data-num="{{ 20 }}"
+      >{{ taskIndex }}{{ task }}</text
+    >
+  </block>
   <test loading />
   <!-- display: inline -->
   <text>{{ (progress3 / 100) * 200 }}步</text>

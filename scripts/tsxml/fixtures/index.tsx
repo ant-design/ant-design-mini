@@ -19,6 +19,16 @@ export default (
         {taskIndex} {task}
       </Text>
     ))}
+    {todoList.map((task, taskIndex) => (
+      <Text
+        hidden={!mixin.value}
+        key={'todoList'}
+        data-item-id={taskIndex}
+        data-num={20}
+      >
+        {taskIndex} {task}
+      </Text>
+    ))}
     <test loading />
     <Text>{(progress3 / 100) * 200}步</Text>
     <view slot="label" slot-scope="item">

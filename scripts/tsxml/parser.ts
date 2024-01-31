@@ -123,6 +123,9 @@ export function transformJSXElement(ctx: ITransformContext) {
         })
       );
     }
+    case 'StringLiteral': {
+      return ctx.node.value;
+    }
     case 'JSXText': {
       return ctx.node.value;
     }

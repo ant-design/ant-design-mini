@@ -1,9 +1,9 @@
-import { View, Image, Block, Text, Page, InternalData } from 'tsxml';
+import { Block, Image, InternalData, Page, Text, View } from 'tsxml';
+import AntIcon from '../../../src/Icon/index.axml';
+import AntInput from '../../../src/Input/index.axml';
 import AntList from '../../../src/List/index.axml';
 import AntListItem from '../../../src/List/ListItem/index.axml';
 import AntTag from '../../../src/Tag/index.axml';
-import AntIcon from '../../../src/Icon/index.axml';
-import AntInput from '../../../src/Input/index.axml';
 
 export default ({ finding, searchResult, componentList }: InternalData) => (
   <Page>
@@ -34,45 +34,44 @@ export default ({ finding, searchResult, componentList }: InternalData) => (
       </View>
     </View>
     {finding ? (
-      <AntList className="list" header="搜索结果列表" radius>
-        {searchResult.map((item, index) => (
-          <AntListItem
-            key={`item-${index}`}
-            arrow="right"
-            onTap="listPress"
-            data-url={item.path}
-          >
-            {item.name}
-            <View slot="brief">{item.nameZN}</View>
-          </AntListItem>
-        ))}
-      </AntList>
+      <Block>
+        <AntList className="list" header="搜索结果列表" radius>
+          {searchResult.map((item) => (
+            <AntListItem arrow="right" onTap="listPress" data-url={item.path}>
+              {item.name}
+              <View slot="brief">{item.nameZN}</View>
+            </AntListItem>
+          ))}
+        </AntList>
+      </Block>
     ) : (
-      componentList.map((item, index) => (
-        <Block key={`componentList-${index}`}>
-          <AntList className="list" radius>
-            <View slot="header">{item.type}</View>
-            {item.list.map((itemList, listIndex) => (
-              <AntListItem
-                key={`itemList-${listIndex}`}
-                arrow="right"
-                onTap="listPress"
-                data-url={itemList.path}
-              >
-                <View class="content-title">
-                  {itemList.name}
-                  {itemList.update && (
-                    <View style="margin-left: 16rpx;">
-                      <AntTag>Update</AntTag>
-                    </View>
-                  )}
-                </View>
-                <View slot="brief">{itemList.nameZN}</View>
-              </AntListItem>
-            ))}
-          </AntList>
-        </Block>
-      ))
+      <Block>
+        {componentList.map((item) => (
+          <Block key="componentList">
+            <AntList className="list" radius>
+              <View slot="header">{item.type}</View>
+              {item.list.map((itemList, listIndex) => (
+                <AntListItem
+                  key={`itemList-${listIndex}`}
+                  arrow="right"
+                  onTap="listPress"
+                  data-url={itemList.path}
+                >
+                  <View class="content-title">
+                    {itemList.name}
+                    {itemList.update && (
+                      <View style="margin-left: 16rpx;">
+                        <AntTag>Update</AntTag>
+                      </View>
+                    )}
+                  </View>
+                  <View slot="brief">{itemList.nameZN}</View>
+                </AntListItem>
+              ))}
+            </AntList>
+          </Block>
+        ))}
+      </Block>
     )}
   </Page>
 );
