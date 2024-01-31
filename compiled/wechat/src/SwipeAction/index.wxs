@@ -106,7 +106,7 @@ var getLeftMovableContentStyle = function getLeftMovableContentStyle(tapTypeL, i
 var axmlObj = function axmlObj(obj) {
   return obj;
 };
-export default {
+module.exports = {
   axmlObj: axmlObj,
   getWidth2: getWidth2,
   getMarginLeft2: getMarginLeft2,
@@ -124,7 +124,7 @@ export default {
   getLeftText: getLeftText
 };
 function keys(obj) {
-  if (typeof Object.keys === 'function') {
-    return Object.keys(obj);
-  }
+  return JSON.stringify(obj).replace(getRegExp('{|}|"', 'g'), '').split(',').map(function (item) {
+    return item.split(':')[0];
+  });
 }

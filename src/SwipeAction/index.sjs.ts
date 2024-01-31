@@ -88,6 +88,7 @@ const getMovableContentRightStyle = (
 ) => {
   const isTapTypeR = tapTypeR && tapTypeR === `R-${idx}`;
   const myStyleString = isTapTypeR ? styleObjectToString(myStyle) : '';
+
   return `
   font-size: ${(item.fontSize || 28) / 2}px;
   color: ${item.color};
@@ -110,6 +111,7 @@ const styleKeyMap = {
   'marginRight': 'margin-right',
   'marginLeft': 'margin-left',
   'fontSize': 'font-size',
+  zIndex: 'z-index',
 };
 
 function styleObjectToString(myStyle) {
@@ -162,10 +164,39 @@ const getRightText = (tapTypeR, idx, item) => {
     : item.text;
 };
 
+const getRightMovableContentStyle = (
+  tapTypeR,
+  idx,
+  rightWidth,
+  leftWidth,
+  inertiaWidth
+) => {
+  return styleObjectToString({
+    zIndex: tapTypeR === `R-${idx}` ? 1 : 0,
+    marginLeft: getMarginLeft3(rightWidth, leftWidth, inertiaWidth),
+    width: (rightWidth - 0.1) / 2 + 'px',
+  });
+};
+
+const getLeftMovableContentStyle = (tapTypeL, idx, leftWidth, inertiaWidth) => {
+  return styleObjectToString({
+    zIndex: tapTypeL === `L-${idx}` ? 1 : 0,
+    marginLeft: `${inertiaWidth / 2}px`,
+    width: (leftWidth - 1) / 2 + 'px',
+  });
+};
+
+const axmlObj = (obj) => {
+  return obj;
+};
+
 export default {
+  axmlObj,
   getWidth2,
   getMarginLeft2,
   getMarginLeft3,
+  getRightMovableContentStyle,
+  getLeftMovableContentStyle,
   getLeft,
   getWidth,
   getSlotWidthStyle,
