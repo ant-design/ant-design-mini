@@ -45,7 +45,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useEffect, useState } from 'functional-mini/compat';
+import { useState } from 'functional-mini/compat';
 import { useEvent, useReady, useRef } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
@@ -194,16 +194,16 @@ var Tabs = function (props) {
             return [2 /*return*/];
         });
     }); });
-    useEffect(function () {
-        updateScroll();
-    }, []);
     useComponentUpdateEffect(function () {
         updateScroll();
     }, [props.items, currentValue]);
-    var _e = useState(40), scrollHeight = _e[0], setScrollHeight = _e[1];
+    var _e = useState(
+    // vertical 模式下，不需要设置高度
+    props.direction === 'vertical' ? 0 : 40), scrollHeight = _e[0], setScrollHeight = _e[1];
     useReady(function () {
+        updateScroll();
         getBoundingClientRect('.ant-tabs-bar-item').then(function (res) {
-            if (res && res.height > 0) {
+            if (res && res.height > 0 && props.direction !== 'vertical') {
                 setScrollHeight(res.height);
             }
         });

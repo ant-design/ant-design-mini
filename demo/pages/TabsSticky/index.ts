@@ -42,11 +42,23 @@ Page({
     this.tabsTop = (await this.getBoundingClientRect('.tabs')).top;
   },
   async onChange(current) {
+    /// #if WECHAT
+    current = current.detail;
+    /// #endif
     this.setData({
       current,
     });
+    this.scrollTo(Math.min(this.tabsTop, this.pageScrollTop));
+  },
+  scrollTo(scrollTop) {
+    if (typeof my === 'undefined') {
+      //@ts-ignore
+      return wx.pageScrollTo({
+        scrollTop,
+      });
+    }
     my.pageScrollTo({
-      scrollTop: Math.min(this.tabsTop, this.pageScrollTop),
+      scrollTop,
     });
   },
   getBoundingClientRect(id) {

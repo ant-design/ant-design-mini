@@ -19,14 +19,15 @@ Page({
             },
         ],
     },
-    onSwipeChange(e) {
+    onSwipeChange: function (e) {
         this.setData({
             current: e.detail.current,
         });
     },
-    onChange(current) {
+    onChange: function (current) {
+        current = current.detail;
         this.setData({
-            current,
+            current: current,
         });
     },
 });

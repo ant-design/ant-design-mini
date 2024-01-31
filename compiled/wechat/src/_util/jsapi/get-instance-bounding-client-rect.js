@@ -1,4 +1,5 @@
 export function getInstanceBoundingClientRect(instance, selector) {
+    console.log('-------', selector);
     return new Promise(function (resolve) {
         instance
             .createSelectorQuery()

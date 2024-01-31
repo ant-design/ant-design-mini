@@ -7,9 +7,9 @@ import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
 import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
 import { useComponentUpdateEffect } from '../_util/hooks/useLayoutEffect';
 import { useMixState } from '../_util/hooks/useMixState';
-import { TabsFunctionalProps } from './props';
+import { ITabsProps, TabsFunctionalProps } from './props';
 
-const Tabs = (props) => {
+const Tabs = (props: ITabsProps) => {
   const [currentValue, { isControlled, update }] = useMixState(
     props.defaultCurrent,
     {

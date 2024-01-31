@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/TabsSticky",
+    "pages/TabsSwiper",
+    "pages/TabsVertical",
+    "pages/TabsVerticalElevator",
     "pages/SwipeActionAnimation",
     "pages/SwipeActionLeft",
     "pages/SwipeActionLeftRight",
