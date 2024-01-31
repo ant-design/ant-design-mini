@@ -13,7 +13,7 @@ export default ({ finding, searchResult, componentList }: InternalData) => (
           <Text>Ant Design Mini</Text>
         </View>
         <View>
-          <Text>探索移动端小程序的极致体验2</Text>
+          <Text>探索移动端小程序的极致体验</Text>
         </View>
       </View>
       <Image
@@ -47,12 +47,11 @@ export default ({ finding, searchResult, componentList }: InternalData) => (
     ) : (
       <Block>
         {componentList.map((item) => (
-          <Block key="componentList">
+          <Block key="*this">
             <AntList className="list" radius>
               <View slot="header">{item.type}</View>
-              {item.list.map((itemList, listIndex) => (
+              {item.list.map((itemList) => (
                 <AntListItem
-                  key={`itemList-${listIndex}`}
                   arrow="right"
                   onTap="listPress"
                   data-url={itemList.path}

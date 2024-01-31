@@ -6,7 +6,7 @@
     </view>
     <view>
       <!-- display: inline -->
-      <text>探索移动端小程序的极致体验2</text>
+      <text>探索移动端小程序的极致体验</text>
     </view>
   </view>
   <image
@@ -50,7 +50,7 @@
     a:for="{{ componentList }}"
     a:for-index="index"
     a:for-item="item"
-    a:key="componentList">
+    a:key="*this">
     <block>
       <ant-list
         className="list"
@@ -58,9 +58,8 @@
         <view slot="header">{{ item.type }}</view>
         <block
           a:for="{{ item.list }}"
-          a:for-index="listIndex"
-          a:for-item="itemList"
-          a:key="itemList-{{ listIndex }}">
+          a:for-index="index"
+          a:for-item="itemList">
           <ant-list-item
             arrow="right"
             onTap="listPress"

@@ -6,7 +6,7 @@
     </view>
     <view>
       <!-- display: inline -->
-      <text>探索移动端小程序的极致体验2</text>
+      <text>探索移动端小程序的极致体验</text>
     </view>
   </view>
   <image
@@ -50,7 +50,7 @@
     wx:for="{{ componentList }}"
     wx:for-index="index"
     wx:for-item="item"
-    wx:key="componentList">
+    wx:key="*this">
     <block>
       <ant-list
         className="list"
@@ -58,9 +58,8 @@
         <view slot="header">{{ item.type }}</view>
         <block
           wx:for="{{ item.list }}"
-          wx:for-index="listIndex"
-          wx:for-item="itemList"
-          wx:key="itemList-{{ listIndex }}">
+          wx:for-index="index"
+          wx:for-item="itemList">
           <ant-list-item
             arrow="right"
             bind:tap="listPress"
