@@ -19,12 +19,23 @@ Page({
         color: '#fff',
       },
     ],
-    swipeIndex: -1
+    swipeIndex: -1,
   },
   onSwipeStart() {
     this.setData({ swipeIndex: '' });
   },
-  onSwipeEnd(data, e) {
+  onSwipeEnd(args1, args2) {
+    let e, data;
+    /// #if WECHAT
+    e = args1;
+    data = args1.detail;
+    /// #endif
+
+    /// #if ALIPAY
+    e = args2;
+    data = args1;
+    /// #endif
+
     const { index } = e.target.dataset.item;
     data.swiped && this.setData({ swipeIndex: index });
   },

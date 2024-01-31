@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/SwipeActionNumber",
+    "pages/SwipeActionSpeed",
+    "pages/SwipeActionTap",
+    "pages/SwipeActionWidth",
     "pages/SwipeAction",
     "pages/TabsScroll",
     "pages/TabsElevator",

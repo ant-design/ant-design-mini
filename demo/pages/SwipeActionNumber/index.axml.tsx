@@ -1,5 +1,6 @@
 import { View, InternalData, $toArray, Page } from 'tsxml';
 import AntSwipeAction from '../../../src/SwipeAction/index.axml';
+import utils from './slice.sjs';
 
 export default ({ rightBtns, swipeIndex }: InternalData) => (
   <Page>
@@ -11,7 +12,7 @@ export default ({ rightBtns, swipeIndex }: InternalData) => (
           <View key={index} class="t-swipe-item-con">
             <AntSwipeAction
               data-item={index}
-              rightButtons={rightBtns.slice(0, index + 1)}
+              rightButtons={utils.sliceButton(rightBtns, index)}
               elasticity={index !== 0}
               swiped={swipeIndex === index}
               onSwipeEnd="onSwipeEnd"
