@@ -192,7 +192,7 @@ describe('modal onClose', () => {
       tapTypeR: '',
     });
     instance.callMethod('onItemTap', {
-      target: {
+      currentTarget: {
         dataset: {
           item: {
             item: rightButtons[0],
@@ -207,7 +207,7 @@ describe('modal onClose', () => {
       tapTypeR: 'R-0',
     });
     instance.callMethod('onItemTap', {
-      target: {
+      currentTarget: {
         dataset: {
           item: {
             item: rightButtons[0],
@@ -231,7 +231,7 @@ describe('modal onClose', () => {
     await sleep(50);
 
     instance.callMethod('onItemTap', {
-      target: {
+      currentTarget: {
         dataset: {
           item: {
             item: rightButtons[1],
@@ -280,7 +280,7 @@ describe('modal onClose', () => {
       'swipedR': false,
     });
     instance.callMethod('onItemTap', {
-      target: {
+      currentTarget: {
         dataset: {
           item: {
             itemL: leftButtons[0],
@@ -296,7 +296,7 @@ describe('modal onClose', () => {
     });
 
     instance.callMethod('onItemTap', {
-      target: {
+      currentTarget: {
         dataset: {
           item: {
             itemL: leftButtons[0],

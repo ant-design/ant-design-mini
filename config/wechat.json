@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/SwipeAction",
     "pages/TabsScroll",
     "pages/TabsElevator",
     "pages/TabsControl",
@@ -127,6 +128,7 @@
     "Progress",
     "NoticeBar",
     "NumberKeyboard",
-    "Tabs"
+    "Tabs",
+    "SwipeAction"
   ]
 }

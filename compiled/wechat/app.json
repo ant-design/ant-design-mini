@@ -1,5 +1,6 @@
 {
   "pages": [
+    "demo/pages/SwipeAction/index",
     "demo/pages/TabsScroll/index",
     "demo/pages/TabsElevator/index",
     "demo/pages/TabsControl/index",

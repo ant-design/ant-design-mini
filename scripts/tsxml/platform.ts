@@ -19,6 +19,7 @@ export const alipay: PlatformConfig = {
     'tsxml-for-item': 'a:for-item',
     'tsxml-for-index': 'a:for-index',
     'tsxml-for-key': 'a:key',
+    'tsxml-if': 'a:if',
   },
 };
 
@@ -48,6 +49,7 @@ export const wechat: PlatformConfig = {
     'tsxml-for-item': 'wx:for-item',
     'tsxml-for-index': 'wx:for-index',
     'tsxml-for-key': 'wx:key',
+    'tsxml-if': 'wx:if',
   },
   props: {
     view: {
@@ -136,6 +138,18 @@ export const wechat: PlatformConfig = {
     },
     'ant-number-keyboard': {
       onClose: 'bind:close',
+    },
+    'movable-view': {
+      onChange: 'bindchange',
+      onChangeEnd: 'bindchangeend',
+      catchTouchEnd: 'catch:touchend',
+      onTouchCancel: 'bind:touchcancel',
+      catchTouchStart: 'catch:touchstart',
+    },
+    'ant-swipe-action': {
+      onSwipeEnd: 'bind:swipeend',
+      onSwipeStart: 'bind:swipestart',
+      onButtonTap: 'bind:buttontap',
     },
   },
 };
