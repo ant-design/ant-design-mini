@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/SwipeActionAnimation",
+    "pages/SwipeActionLeft",
+    "pages/SwipeActionLeftRight",
+    "pages/SwipeActionMove",
     "pages/SwipeActionNumber",
     "pages/SwipeActionSpeed",
     "pages/SwipeActionTap",

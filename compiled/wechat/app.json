@@ -1,5 +1,9 @@
 {
   "pages": [
+    "demo/pages/SwipeActionAnimation/index",
+    "demo/pages/SwipeActionLeft/index",
+    "demo/pages/SwipeActionLeftRight/index",
+    "demo/pages/SwipeActionMove/index",
     "demo/pages/SwipeActionNumber/index",
     "demo/pages/SwipeActionSpeed/index",
     "demo/pages/SwipeActionTap/index",
