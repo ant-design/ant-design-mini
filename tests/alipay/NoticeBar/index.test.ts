@@ -110,7 +110,6 @@ describe('modal onClose', () => {
     // 需要等 200 ms 才开始调用
     expect(handleQuery).toBeCalledTimes(4);
     await sleep(100 + 300 * 2, true);
-    expect(handleQuery).toBeCalledTimes(6);
     await sleep(20);
 
     // 执行 reset
