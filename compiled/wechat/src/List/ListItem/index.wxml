@@ -26,6 +26,9 @@
           class="ant-list-item-content-title">
           {{ title }}
         </view>
+        <slot
+          wx:else
+          name="title" />
       </view>
       <view class="ant-list-item-content-main">
         <slot />
@@ -36,6 +39,9 @@
           class="ant-list-item-content-brief">
           {{ brief }}
         </view>
+        <slot
+          wx:else
+          name="brief" />
       </view>
     </view>
     <view class="ant-list-item-extra-container">
@@ -45,7 +51,12 @@
           <slot name="extra" />
         </block>
       </view>
-      <view class="ant-list-item-extra-brief">{{ extraBrief }}</view>
+      <view class="ant-list-item-extra-brief">
+        <block wx:if="{{ extraBrief }}">{{ extraBrief }}</block>
+        <block wx:else>
+          <slot name="extraBrief" />
+        </block>
+      </view>
     </view>
     <view class="ant-list-item-arrow">
       <icon
