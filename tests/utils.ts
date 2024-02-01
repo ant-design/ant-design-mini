@@ -332,9 +332,9 @@ function compileCode(source: string): CompileResult {
 
 export { getInstance };
 
-export function sleep(_time) {
+export function sleep(_time, ciNotSleepMore?: boolean) {
   let time = _time;
-  if (os.platform() === 'linux') {
+  if (os.platform() === 'linux' && !ciNotSleepMore) {
     time = time * 2;
   }
   return new Promise<void>((resolve) => {
