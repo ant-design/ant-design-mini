@@ -34,13 +34,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useState, useEffect, useEvent, usePageShow, } from 'functional-mini/component';
+import { useEffect, useEvent, usePageShow, useState, } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
 import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
 import { NoticeBarFunctionalProps } from './props';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
 var NoticeBar = function (props) {
     var _a = useState(''), marqueeStyle = _a[0], setMarqueeStyle = _a[1];
     var _b = useState(true), show = _b[0], setShow = _b[1];
@@ -114,7 +114,6 @@ var NoticeBar = function (props) {
             setTimeout(function () {
                 measureText(function (state) {
                     resetMarquee(state);
-                    startMarquee(state);
                 });
             }, trailing);
         }

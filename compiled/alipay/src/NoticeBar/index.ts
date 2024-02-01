@@ -1,22 +1,23 @@
 import {
-  useState,
   useEffect,
   useEvent,
   usePageShow,
+  useState,
 } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { IBoundingClientRect } from '../_util/base';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
 import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
 import { INoticeBarProps, NoticeBarFunctionalProps } from './props';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
 
 const NoticeBar = (props: INoticeBarProps) => {
   const [marqueeStyle, setMarqueeStyle] = useState('');
   const [show, setShow] = useState(true);
 
   const { triggerEventOnly } = useComponentEvent(props);
+
   const startMarquee = useStableCallback((state) => {
     const { loop } = props;
     const leading = 500;
@@ -28,6 +29,7 @@ const NoticeBar = (props: INoticeBarProps) => {
     const newMarqueeStyle = `transform: translate3d(${-marqueeScrollWidth}px, 0, 0); transition: ${duration}s all linear ${
       typeof leading === 'number' ? `${leading / 1000}s` : '0s'
     };`;
+
     setMarqueeStyle(newMarqueeStyle);
   });
 
@@ -85,7 +87,6 @@ const NoticeBar = (props: INoticeBarProps) => {
       setTimeout(() => {
         measureText((state) => {
           resetMarquee(state);
-          startMarquee(state);
         });
       }, trailing);
     }
