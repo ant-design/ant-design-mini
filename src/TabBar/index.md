@@ -9,13 +9,13 @@ toc: 'content'
 
 # TabBar 底部导航栏
 
-<code src="../../docs/components/compatibility.tsx" inline="true">`</code>
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
 
 用于在不同页面之间进行切换。
 
 ## 代码示例
 
-<code src='pages/TabBar/index'>`</code>
+<code src='pages/TabBar/index'></code>
 
 ## API
 
