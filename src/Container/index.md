@@ -25,12 +25,10 @@ toc: 'content'
 
 以下是 `Container` 组件的参数列表：
 
-| 属性        | 说明         | 类型    | 默认值 |
-| ----------- | ------------ | ------- | ------ |
-| className   | 类名         | string  | -      |
-| headerRight | 头部右侧内容  | slot    | -      |
-| headerInBox | 标题是否在容器中 | boolean | true   |
-| style       | 样式         | string  | -      |
-| title       | 标题         | string\|slot  | -      | 
-
-**注意**：在此文档中的 <code>` 标签用于表示代码组件的引用。
+| 属性        | 说明             | 类型         | 默认值 |
+| ----------- | ---------------- | ------------ | ------ |
+| className   | 类名             | string       | -      |
+| headerRight | 头部右侧内容     | slot         | -      |
+| headerInBox | 标题是否在容器中 | boolean      | true   |
+| style       | 样式             | string       | -      |
+| title       | 标题             | string\|slot | -      |
