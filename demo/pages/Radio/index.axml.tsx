@@ -30,5 +30,11 @@ export default ({ checked }) => (
         Radio
       </Radio>
     </Container>
+
+    <Container title="选项说明">
+      <Radio description="{{ '选项说明选项说明选项说明选项说明选项说明选项说明选项说明选项说明' }}">
+        Radio
+      </Radio>
+    </Container>
   </Component>
 );

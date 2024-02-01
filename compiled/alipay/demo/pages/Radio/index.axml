@@ -30,3 +30,10 @@
     Radio
   </radio>
 </container>
+
+<container title="选项说明">
+  <radio
+    description="{{ '选项说明选项说明选项说明选项说明选项说明选项说明选项说明选项说明' }}">
+    Radio
+  </radio>
+</container>

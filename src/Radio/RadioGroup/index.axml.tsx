@@ -48,6 +48,7 @@ export default (
                     value={item.value}
                     disabled={disabled || item.disabled}
                     color={item.color || color}
+                    description={item.description}
                     onChange="onChange"
                   >
                     {/* #if ALIPAY */}

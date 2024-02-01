@@ -84,6 +84,12 @@
   color: #cccccc;
   font-size: 14px;
 }
+.ant-radio-item-desc {
+  margin-left: 27px;
+  opacity: 0.6;
+  color: #333333;
+  font-size: 12px;
+}
 .ant-radio-item-disabled {
   opacity: 0.4;
 }

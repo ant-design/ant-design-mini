@@ -33,3 +33,9 @@
     options="{{ options }}"
     bind:change="handleChange" />
 </ant-container>
+
+<ant-container title="选项说明">
+  <ant-radio-group
+    options="{{ optionsWithDescription }}"
+    bind:change="onChange" />
+</ant-container>

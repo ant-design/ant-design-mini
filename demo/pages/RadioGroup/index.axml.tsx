@@ -2,7 +2,7 @@ import { Page, View } from 'tsxml';
 import AntRadioGroup from '../../../src/Radio/RadioGroup/index.axml';
 import AntContainer from '../../../src/Container/index.axml';
 
-export default ({ item, options, optionsWithDisabled, value }) => (
+export default ({ item, options, optionsWithDisabled, value, optionsWithDescription }) => (
   <Page>
     <AntContainer title="基础用法">
       <AntRadioGroup options={options} onChange="onChange" />
@@ -42,5 +42,9 @@ export default ({ item, options, optionsWithDisabled, value }) => (
       </AntRadioGroup>
     </AntContainer>
     {/* #endif */}
+
+    <AntContainer title="选项说明">
+      <AntRadioGroup options={optionsWithDescription} onChange="onChange" />
+    </AntContainer>
   </Page>
 );
