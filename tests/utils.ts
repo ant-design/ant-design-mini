@@ -334,7 +334,7 @@ export { getInstance };
 
 export function sleep(_time, ciNotSleepMore?: boolean) {
   let time = _time;
-  if (os.platform() === 'linux' && ciNotSleepMore) {
+  if (os.platform() === 'linux' && !ciNotSleepMore) {
     time = time * 2;
   }
   return new Promise<void>((resolve) => {

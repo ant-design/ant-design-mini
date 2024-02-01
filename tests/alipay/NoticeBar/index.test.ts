@@ -134,7 +134,7 @@ describe('modal onClose', () => {
         'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
       'show': true,
     });
-  });
+  }, 10000);
 
   it('测试 overflowWidth < 0', async () => {
     const { instance, handleQuery } = createNoticeBar({
