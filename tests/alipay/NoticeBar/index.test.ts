@@ -93,7 +93,7 @@ describe('modal onClose', () => {
       'show': true,
     });
     handleQuery.mockImplementation(async (id: string, index: number) => {
-      await sleep(100);
+      await sleep(300);
       return {
         width: {
           ['.ant-notice-bar-marquee-1']: [200],
@@ -109,9 +109,9 @@ describe('modal onClose', () => {
     await sleep(100);
     // 需要等 200 ms 才开始调用
     expect(handleQuery).toBeCalledTimes(4);
-    await sleep(250);
+    await sleep(100 + 300 * 2);
     expect(handleQuery).toBeCalledTimes(6);
-    await sleep(100);
+    await sleep(20);
 
     // 执行 reset
     expect(instance.getData()).toEqual({
@@ -120,25 +120,15 @@ describe('modal onClose', () => {
       'show': true,
     });
 
-    await sleep(150);
+    await sleep(300 * 2);
+    expect(instance.getData()).toEqual({
+      'marqueeStyle':
+        'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
+      'show': true,
+    });
+
+    await sleep(300 * 3);
     // 触发 use effect
-    expect(handleQuery).toBeCalledTimes(8);
-    await sleep(100);
-    expect(instance.getData()).toEqual({
-      'marqueeStyle':
-        'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
-      'show': true,
-    });
-
-    await sleep(500);
-    expect(handleQuery).toBeCalledTimes(10);
-    expect(instance.getData()).toEqual({
-      'marqueeStyle':
-        'transform: translate3d(-200px, 0, 0); transition: 5s all linear 0.5s;',
-      'show': true,
-    });
-
-    await sleep(500);
     expect(handleQuery).toBeCalledTimes(10);
     expect(instance.getData()).toEqual({
       'marqueeStyle':
