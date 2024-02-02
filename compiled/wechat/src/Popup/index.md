@@ -9,11 +9,11 @@ toc: 'content'
 
 # Popup 弹出层
 
-从屏幕滑出或弹出一块自定义内容区
+从屏幕滑出或弹出一块自定义内容区。
 
 ## 何时使用
 
-用于展示弹窗、信息提示、选择输入、切换等内容，支持多个弹出层叠加展示
+用于展示弹窗、信息提示、选择输入、切换等内容，支持多个弹出层叠加展示。
 
 ## 代码示例
 
@@ -37,19 +37,19 @@ toc: 'content'
 | visible        | 是否显示                                                                                                                                                          | boolean    | false       |
 | width          | 宽度, 在 position 为 `left` 或 `right` 时使用，单位 px                                                                                                            | number     | -           |
 | zIndex         | 弹窗层级                                                                                                                                                          | number     | 998         |
-| onClose        | 点击蒙层关闭，触发回调                                                                                                                                            | () => void | - |
-| onAfterShow        | 完全展示后触发                                                                                                                                            | () => void | - |
-| onAfterClose        | 完全关闭后触发                                                                                                                                            | () => void | - |
+| onClose        | 点击蒙层关闭，触发回调                                                                                                                                            | () => void | -           |
+| onAfterShow    | 完全展示后触发                                                                                                                                                    | () => void | -           |
+| onAfterClose   | 完全关闭后触发                                                                                                                                                    | () => void | -           |
 
 ## FAQ
 
-### Popup 打开后，蒙层后面的页面能滚动
+### Popup 打开后，蒙层后面的页面能滚动怎么办？
 
-阻止蒙层后页面滚动目前 IDE 和模拟器不生效，请在真机调试
+阻止蒙层后页面滚动目前在 IDE 和模拟器不生效，请在真机上调试。
 
-### Popup 内部元素需要支持滚动
+### Popup 内部元素需要支持滚动怎么处理？
 
-弹窗内需要滚动，请使用 scroll-view 组件，并添加属性
+如果弹窗内需要滚动，请使用 scroll-view 组件，并添加以下属性：
 
 ```html
 <popup height="{{ 250 }}" visible="{{ visible }}">
@@ -58,16 +58,14 @@ toc: 'content'
     disable-lower-scroll="out-of-bounds"
     disable-upper-scroll="out-of-bounds"
   >
-    ...你的内容
+    ...你的内容...
   </scroll-view>
 </popup>
 ```
 
-### Popup 内部的 picker-view 显示异常
+### Popup 内部的 picker-view 显示异常怎么解决？
 
-popup 默认是通过 display:none 隐藏的，而 picker-view 不能放到 display:none 的组件里。
-有下面两种解决方式
+Popup 默认是通过 `display:none` 隐藏的，而 picker-view 不能放到 `display:none` 的组件里。有以下两种解决方式：
 
-1. 在 picker-view 上添加属性 ` a:if ="{{ popupVisible }}"`，在 popup 显示时再显示 picker-view
-
-2. 在 popup 上设置 `destroyOnClose="{{true}}"`，在 popup 不可见时卸载内容
+1. 在 picker-view 上添加属性 `a:if="{{popupVisible}}"`，在 Popup 显示时再显示 picker-view。
+2. 在 Popup 上设置 `destroyOnClose="{{true}}"`，在 Popup 不可见时卸载内容。

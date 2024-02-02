@@ -10,10 +10,12 @@ toc: 'content'
 
 <code src="../../docs/components/compatibility.tsx" inline="true"></code>
 
-Picker 选择器	显示一个或多个选项集合的的可滚动列表，相比较于原生picker实现了ios跟android端体验一致
+Picker 选择器显示一个或多个选项集合的可滚动列表，相比于原生 picker，实现了 iOS 与 Android 端体验的一致性。
+
 ## 何时使用
-- 提供一组或多组关联选项供用户选择
-- 当少于5个选项时，建议直接将选项平铺，使用 Radio 是更好的选择
+
+- 提供一组或多组关联选项供用户选择。
+- 当少于 5 个选项时，建议直接将选项平铺，使用 Radio 是更好的选择。
 
 ## 代码示例
 ### 基本使用
