@@ -88,37 +88,23 @@ Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 
 ### FormItem
 
 所有 Form 组件都包括的属性
+| 属性 | 说明 | 类型 | 默认值 |
+| -----|-----|-----|-----|
+| dependencies | 设置依赖字段，查看[详细说明](#dependencies) | string[] | - |
+| footer | 底部 slot，接收 errors、status | slot | - |
+| name | 名称 | string | - |
+| label | 文本 | string | - |
+| labelWidth | 文本宽度 | string | - |
+| position | 布局，可选 `horizontal` `vertical` | string | horizontal |
+| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选 `default` `success` `error` `validating` | string | - |
+| help | 提示信息，如不设置，则会根据校验规则自动生成 | string | - |
+| header | 顶部 slot，接收 errors、status | slot | - |
+| tooltip | 表单项提示信息 | string\|slot | - |
+| required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |
+| message | 校验错误信息。如不设置，则会根据校验规则自动生成 | string | false |
+| requiredMark | 必填选填的标记样式，可选 `asterisk` `text-required` `text-optional` | string | asterisk |
 
-| 属性           | 说明                                                                                        | 类型         | 默认值     |
-| -------------- | ------------------------------------------------------------------------------------------- | ------------ | ---------- |
-| dependencies   | 设置依赖字段，查看[详细说明](#dependencies)                                                 | string[]     | -          |
-| footer         | 底部 slot，接收 errors、status                                                              | slot         | -          |
-| name           | 名称                                                                                        | string       | -          |
-| label          | 文本                                                                                        | string       | -          |
-| labelWidth     | 文本宽度                                                                                    | string       | -          |
-| position       | 布局，可选 `horizontal` `vertical`                                                          | string       | horizontal |
-| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选 `default` `success` `error` `validating` | string       | -          |
-| help           | 提示信息，如不设置，则会根据校验规则自动生成                                                | string       | -          |
-| header         | 顶部 slot，接收 errors、status                                                              | slot         | -          |
-| tooltip        | 表单项提示信息                                                                              | string       | -          |
-| required       | 必填样式设置。如不设置，则会根据校验规则自动生成                                            | boolean      | false      |
-| message        | 校验错误信息。如不设置，则会根据校验规则自动生成                                            | string       | false      |
-| requiredMark   | 必填选填的标记样式，可选 `asterisk` `text-required` `text-optional`                         | string       | asterisk   |
-| 属性           | 说明                                                                                        | 类型         | 默认值     |
-| -----          | -----                                                                                       | -----        | -----      |
-| dependencies   | 设置依赖字段，查看[详细说明](#dependencies)                                                 | string[]     | -          |
-| footer         | 底部 slot，接收 errors、status                                                              | slot         | -          |
-| name           | 名称                                                                                        | string       | -          |
-| label          | 文本                                                                                        | string       | -          |
-| labelWidth     | 文本宽度                                                                                    | string       | -          |
-| position       | 布局，可选 `horizontal` `vertical`                                                          | string       | horizontal |
-| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选 `default` `success` `error` `validating` | string       | -          |
-| help           | 提示信息，如不设置，则会根据校验规则自动生成                                                | string       | -          |
-| header         | 顶部 slot，接收 errors、status                                                              | slot         | -          |
-| tooltip        | 表单项提示信息                                                                              | string\|slot | -          |
-| required       | 必填样式设置。如不设置，则会根据校验规则自动生成                                            | boolean      | false      |
-| message        | 校验错误信息。如不设置，则会根据校验规则自动生成                                            | string       | false      |
-| requiredMark   | 必填选填的标记样式，可选 `asterisk` `text-required` `text-optional`                         | string       | asterisk   |
+
 
 ### Form
 
