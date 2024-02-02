@@ -64,6 +64,7 @@ export default (
             }`}
             /// #endif
           >
+            {/* 这个不能删，有用 */}
             <View />
             {items.map((item, index) => (
               <View
@@ -169,6 +170,7 @@ export default (
                 )}
               </View>
             ))}
+            {/* 这个不能删，有用 */}
             <View />
           </ScrollView>
         </View>
