@@ -4,17 +4,24 @@ toc: false
 
 ## 常见问题
 
-### 能否 0.x 跟 1.0 一起使用
+### 2.x 能否和 1.x, 0.x 一起使用
 
-可以使用别名，比如 `antd-mini-v1` 进行安装：
-
-```
-$ npm install antd-mini-v1@npm:antd-mini --save
-```
+因为 1.x 升级到 2.x 没有迁移成本，所以你可以直接从 1.x 升级到 2.x
+对于 0.x, 你可以使用 antd-mini-v0 这个 npm 包, 产物内容和 antd-mini@0.0.26 一模一样。
 
 ```
-"antd-mini": "^0.0.25",
-"antd-mini-v1": "npm:antd-mini"
+$ npm install antd-mini-v0 antd-mini
+```
+
+在 `package.json` 文件中是这样定义的：
+
+```json
+{
+  "dependencies": {
+    "antd-mini": "^2.25.0",
+    "antd-mini-v0": "^0.0.26"
+  }
+}
 ```
 
 使用：
@@ -23,20 +30,21 @@ $ npm install antd-mini-v1@npm:antd-mini --save
 {
   "usingComponents": {
     "button": "antd-mini/es/Button/index",
-    "button-v1": "antd-mini-v1/es/Button/index"
+    "button-v0": "antd-mini-v0/es/Button/index"
   }
 }
 ```
 
 ```html
-<button>这是0.x antd-mini</button> <button-v1>这是1.0 antd-mini</button-v1>
+<button>这是2.x antd-mini</button>
+<antd-mini-v0>这是0.x antd-mini</antd-mini-v0>
 ```
 
-### 在支付宝小程序 Page 里覆盖 antd-mini 的样式不生效
+### 在支付宝小程序页面中，如何覆盖 antd-mini 的样式并确保其生效
 
-新版支付宝小程序开发者工具在创建页面时会默认加上 `styleIsolation: 'apply-shared'`, 此时页面的样式无法影响到外部。
+新版支付宝小程序开发者工具默认为创建的页面配置了 `styleIsolation: 'apply-shared'`，这将导致页面样式无法影响到外部组件。
 
-可以在 `page.json` 里设置 `styleIsolation: 'shared'`。
+您可以通过修改对应 page.json 的样式隔离配置来解决此问题：
 
 ```json
 {
@@ -44,10 +52,9 @@ $ npm install antd-mini-v1@npm:antd-mini --save
 }
 ```
 
-styleIsolation 配置有两种模式：
+`styleIsolation` 配置项有如下两种模式可供选择：
 
-`apply-shared`: 表示 app.acss 样式以及其他（设置了 shared 的其他页面和自定义组件）的样式将影响到当前页面，但当前页面 acss 中指定的样式不会影响外部。
+- `apply-shared`：这意味着 app.acss 样式和其它设定了 `shared` 的页面或自定义组件样式会影响当前页面，但当前页面 acss 中的样式不会作用于外部。
+- `shared`（默认）：表示 app.acss 样式和其它设定了 `shared` 的页面或自定义组件样式会影响当前页面，同时当前页面 acss 中的样式也会作用于外部。
 
-`shared`（默认）表示 app.acss 样式以及其他（设置了 shared 的其他页面和自定义组件）的样式将影响到当前页面，当前页面 acss 中指定的样式也会影响到外部。
-
-参考: https://opendocs.alipay.com/mini/framework/page-acss#%E9%A1%B5%E9%9D%A2%E6%A0%B7%E5%BC%8F%E9%9A%94%E7%A6%BB
+官方文档参考链接：[页面样式隔离](https://opendocs.alipay.com/mini/framework/page-acss#%E9%A1%B5%E9%9D%A2%E6%A0%B7%E5%BC%8F%E9%9A%94%E7%A6%BB)

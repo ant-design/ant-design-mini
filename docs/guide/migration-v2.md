@@ -7,20 +7,20 @@ toc: false
 Ant Design Mini v1 的最后一个版本是 v1.10.6，v2 的第一个版本是 v2.11.0。
 
 v2 版本的代码组成情况如下：
-* 完全沿用了 v1 版本所有组件代码，组件的行为表现和 v1 一致
-* v2 版本强制要求应用开启 component2 特性，否则将无法运行。未开启时开发者将收到错误提示 "项目未开启 component2，无法使用 Ant Design Mini 组件库"
+* 完全继承了 v1 版本的所有组件代码，组件的行为表现与 v1 一致。
+* v2 版本要求启用 `component2` 特性，否则将无法运行。如果未开启此特性，开发者将收到错误提示“项目未开启 component2，无法使用 Ant Design Mini 组件库”。
 
-对于开发者而言，可以按如下方法评估升级 v2 版本的影响：
-* 如果您的项目之前已经开启了 component2 ，则 v1 到 v2 是完全兼容的
-* 如果您的项目之前没有开启 component2，此次升级需要您打开这个特性，并测试小程序内各个自定义组件的行为表现
+对于开发者而言，可以用下列方法评估升级到 v2 版本的影响：
+* 如果你的项目之前已经启用了 `component2`，那么从 v1 升级到 v2 是完全兼容的。
+* 如果你的项目以前未启用 `component2`，那么本次升级需要你开启这一特性，并测试小程序的各个自定义组件行为。
 
-> component2 为支付宝小程序提供了更丰富、更稳定的生命周期方法。具体可参考文档：[自定义组件介绍](https://opendocs.alipay.com/mini/framework/custom-component-overview)
+> `component2` 为支付宝小程序提供了更多更稳定的生命周期方法。具体信息请参考：[自定义组件介绍](https://opendocs.alipay.com/mini/framework/custom-component-overview)
 
-### 如何开启支付宝小程序 component2
+### 如何开启支付宝小程序的 `component2`
 
-您可以通过项目根目录的 `mini.project.json` 文件来判断项目是否打开了 component2 特性。
+可通过项目根目录下的 mini.project.json 文件来判断项目是否已开启了 `component2` 特性。
 
-1. 如果文件内有 `"format": 2` 字段 ， 可以把 compileOptions.component2 配置为 true：
+1. 如果文件包含 `"format": 2` 字段，将 `compileOptions.component2` 设置为 `true`：
 
 ```json
 {
@@ -31,7 +31,7 @@ v2 版本的代码组成情况如下：
 }
 ```
 
-2. 如果没有 format 字段，可以直接添加如下配置：
+2. 如果没有 `format` 字段，则直接添加以下配置：
 
 ```json
 {
@@ -39,7 +39,7 @@ v2 版本的代码组成情况如下：
 }
 ```
 
-你也可以使用小程序开发者工具（IDE）的详情面板来配置，配置路径：在 IDE 中的 详情 > 项目配置 中，勾选 启用 component2 编译
+你还可以使用小程序开发者工具（IDE）的详情面板来完成配置，配置路径：在 IDE 的“详情 > 项目配置”中勾选“启用 component2 编译”。
 
 ![](https://mdn.alipayobjects.com/huamei_384ylk/afts/img/A*MvGAQoOLfUQAAAAAAAAAAAAADk97AQ/original)
 
