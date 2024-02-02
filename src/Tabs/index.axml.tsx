@@ -64,6 +64,7 @@ export default (
             }`}
             /// #endif
           >
+            <View />
             {items.map((item, index) => (
               <View
                 id={`ant-tabs-bar-item${$id ? '-' + $id : ''}-${index}`}

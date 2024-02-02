@@ -23,6 +23,7 @@
       scroll-animation-duration="{{ 300 }}"
       enable-flex="true"
       style="{{ scrollHeight > 0 ? 'height: ' + scrollHeight + 'px;' : '' }}">
+      <view />
       <block
         wx:for="{{ items }}"
         wx:for-index="index"
