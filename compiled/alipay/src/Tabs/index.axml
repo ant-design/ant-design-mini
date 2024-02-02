@@ -21,6 +21,7 @@
       scroll-x="{{ true }}"
       scroll-with-animation="{{ true }}"
       scroll-animation-duration="{{ 300 }}">
+      <view />
       <block
         a:for="{{ items }}"
         a:for-index="index"
@@ -80,6 +81,7 @@
           </view>
         </view>
       </block>
+
       <view />
     </scroll-view>
   </view>
