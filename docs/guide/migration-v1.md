@@ -9,7 +9,7 @@ v1 比 v0 做了许多修改，也引入了许多不兼容的更改（break chan
 | 组件名称 | 升级说明 |
 |---|---|
 | Button | 全面重新设计，包括去掉 `default size` 等复杂的 `props` 组合方式，并采用 `primary`、`default`、`text` 这些具有语义性的属性来确定按钮的样式。新增 `catchTap` 属性取代 `stopPropagation`，用于控制事件冒泡；同时添加了更多自定义按钮的样例。 |
-| Icon | 删除了以前的默认 `font-size`，现在可以通过设置 `Icon` 的 `font-size` 或其父元素的大小来改变 `Icon` 的尺寸。同时，我们也对照参考了 `antd` 的实现方式。在 `antd-mini` 的内部使用中，有关图标的所有组件也都经过了涉及 `class` 的修改，开发者可以通过上传的 `class` 来调整图标尺寸、颜色等；而在使用用户界面上，我们也重构了用户交互设计，仿照 `antd` 实现的图标查看及复制页面，使得搜索和使用图标更为方便。 |
+| Icon | 删除了以前的默认 `font-size`，现在可以通过设置 `Icon` 的 `font-size` 或其父元素的大小来改变 `Icon` 的尺寸。同时，我们也对照参考了 `antd` 的实现方式。在 `antd-mini` 的内部使用中，有关图标的所有组件也都经过了涉及 `class` 的修改，开发者可以通过上层的 `class` 来调整图标尺寸、颜色等；而在使用用户界面上，我们也重构了用户交互设计，仿照 `antd` 实现的图标查看及复制页面，使得搜索和使用图标更为方便。 |
 | Tabbar | 支持受控模式和非受控模式，通过 `current`、`onChange`、`defaultCurrent` 来实现。<br/>新增 `icon`、`text` 支持 `slot` 进行自定义，并且 `onChange` 方法的类型改为 `(index: number) => void`。 |
 | Tabs | 以 `slot` 的形式实现，去除了之前的 `tabs` 和 `tab-content` 要通过 `uid` 来关联，取出 `uid`，使用 `options` 数据驱动视图，`slot-scopes` 用来投射渲染信息，自定义操作变得更加便捷。<br/>`Tabs` & `VTabs` 组件在 1.0 版本中合并为 `Tabs`，通过 `direction` 参数来区分使用模式；<br/>新增了受控模式和非受控模式，结合 `current`、`onChange`、`defaultCurrent` 来使用。<br/>值得注意的是，1.0 版本中的 `Tabs` 仅代表标签区域，内容通过 `slot` 形式展现，文档示例中提供了不同的使用案例。 |
 | Avatar | 对组件的 `props` 进行了重构，移除了原本不属于 `Avatar` 组件的 `name` 和 `desc` 属性，推荐和 `ListItem` 组件一起使用。 |
@@ -22,10 +22,10 @@ v1 比 v0 做了许多修改，也引入了许多不兼容的更改（break chan
 | Footer | 这个组件已被废弃。 |
 | Grid | 取消了 0.x 版本的一些内置样式限制，新增了 `iconSize`、`iconStyle`、`showDivider` 等属性以支持更广泛的自定义。 |
 | GuideTour | 新增对受控模式和非受控模式的支持，结合 `current`、`onChange`、`defaultCurrent` 来使用。 |
-| List | `ListItem` 新增了 `catchTap` 属性取代 `stopPropagation`，用于控制事件冒泡。<br/>重新设计了自定义 `image` 的方式，取出了 `imageSize`，转而采用 `slot` 方式。<br/>去除了 `last`，新增了 `showDivider` 属性用于设置分割线。 |
+| List | `ListItem` 新增了 `catchTap` 属性取代 `stopPropagation`，用于控制事件冒泡。<br/>重新设计了自定义 `image` 的方式，去除了 `imageSize`，转而采用 `slot` 方式。<br/>去除了 `last`，新增了 `showDivider` 属性用于设置分割线。 |
 | ProgressBar | 属性设置进行了整体调整，`ProgressBar` 和 `ProgressCircle` 合并为 `Progress`，通过 `type` 参数来区分 `circle` 和 `bar` 的样式，全新设计的属性使用起来更方便。 |
 | Steps | 去除了通过 `uid` 来关联 `steps` + `step-item` 的用法，改为以 `options` 数据为驱动，并通过 `slot` 方式渲染内容。<br/>新增支持受控模式和非受控模式，结合 `current`、`onChange`、`defaultCurrent` 使用。 |
-| SwipeAction | 属性进行了整体调整，采用业界通用的交云霄声方式，用户体验有所改进。 |
+| SwipeAction | 属性进行了整体调整，使用更业界使用的交互方式，有更好的体验。 |
 | Tag | 可选的 `color`，`warn` 重命名为 `warning`。 |
 | Checkbox | 新增了 `defaultChecked` 属性，支持受控模式及非受控模式。同时移除了 `icon`、`checkedIcon`、`disabledIcon`、`disabledCheckedIcon`、`id`、`name`等属性，使得组件的使用变得更加轻巧。 |
 | CheckboxGroup | 废弃了之前的 `checkboxGroup + checkboxItem` 的用法，新增了 `options` 属性来进行数据驱动展现视图，从而解决了之前两者相互通信的问题。此外，原来的许多其他视觉效果相关但冗余的属性，如 `uid`、`radius`、`header`、`footer` 以及模态模式下的 `name`、`mode` 等均已移除，使该组件变得更加纯粹和基础。 |
@@ -33,7 +33,7 @@ v1 比 v0 做了许多修改，也引入了许多不兼容的更改（break chan
 | DatePicker | 支持受控模式和非受控模式；修复了在 `appx1`（钉钉）环境下存在的使用问题。 |
 | Filter | 去除了这个组件，其相关功能集成到了 `selector` 组件中，具体使用方法请参见对应实例。 |
 | ImageUpload | 支持受控模式和非受控模式，移除了 `action`、`value`、`enableShowPhotoDownload`、`enableSavePhoto`、`fileName`、`formData`、`height`、`mode`、`preview`、`width` 以及 `onAfterUpload` 等属性和方法；同时 `onDelete` 更名为 `onRemove`，新增了 `defaultFileList`、`fileList`、`onChooseImageError` 等属性和方法；在 1.0 版本中，`ImageUpload` 的上传变为了自定义方法，可调用小程序的 `upload` `api` 方法进行上传。 |
-| Input | 移除了 `label`、`controlled`、`layer`、`inputCls`、`labelCls` 以外移除与之前表单模式相关的属性，同时 `autoFocus` 重命名为 `focus`，去除了 `onClear` 回调，尽可能保持与原生组件一致的前提下提供额外功能；添加 `prefix`，`suffix slot` 可用于完成之前 `SearchBar` 相同样式；添加受控和非受控属性 `value/defaultValue`；对自动聚集、聚集不准；控制等问题在内部实现了较好的体验，使得开发者的使用变得更加便捷。 |
+| Input | 移除了 `label`、`controlled`、`layer`、`inputCls`、`labelCls` 以外移除与之前表单模式相关的属性，同时 `autoFocus` 重命名为 `focus`，去除了 `onClear` 回调，尽可能保持与原生组件一致的前提下提供额外功能；添加 `prefix`，`suffix slot` 可用于完成之前 `SearchBar` 相同样式；添加受控和非受控属性 `value/defaultValue`；对自动聚集、聚集不准；controlled 等问题在内部实现了较好的体验，使得开发者的使用变得更加便捷。 |
 | Textarea | 新增了 `Textarea` 组件。 |
 | NumberKeyboard | 新增了数字键盘 `NumberKeyboard` 组件，允许开发者自定义数字键盘的样式。需要注意的是：数字键盘目前尚未解决键盘挡住输入框的问题，开发者需要通过调整屏幕滚动来解决此类问题。 |
 | Picker | `dismissText`、`maskClass`、`indicatorClass`、`onDismiss`，`onTriggerPicker` 分别重命名为 `cancelText`、`maskClassName`、`indicatorClassName`、`onCancel`、`onVisibleChange`，同时新增 `popClassName`、`popStyle`、`defaultValue` 属性，去除了 `onBeforeOk`。此外，还新增了 `content slot`。 |

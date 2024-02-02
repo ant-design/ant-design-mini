@@ -9,6 +9,7 @@ toc: content
 ---
 
 # NoticeBar 通告栏
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
 
 展示一组消息通知。
 
@@ -17,8 +18,7 @@ toc: content
 用于当前页面内信息的通知，是一种较醒目的页面内通知方式。
 
 ## 代码示例
-
-示例代码待提供。
+<code src='pages/NoticeBar/index'></code>
 
 ## API
 
@@ -35,4 +35,3 @@ toc: content
 | type       | 类型，可选 `default`, `error`, `primary`, `info` | string | default |
 | onTap      | 点击通知栏右侧的图标（箭头或者叉），触发回调 | () => void | -      |
 
-**注**：代码示例部分暂无具体代码显示，待补充完整示例代码。

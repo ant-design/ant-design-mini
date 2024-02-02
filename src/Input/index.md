@@ -133,4 +133,4 @@ Page({
 
 ### 实例方法不可用
 
-需要使用 `component2`，详情参见[组件引用](https://opendocs.alipay.com/mini/framework/component-ref)。
+需要使用 `component2`，详情参见[ref 获取组件实例](https://opendocs.alipay.com/mini/framework/component-ref)。

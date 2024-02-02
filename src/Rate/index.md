@@ -9,6 +9,8 @@ toc: 'content'
 
 # Rate 评分
 
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
 用于展示事物评级以及快速打分的组件。
 
 ## 代码示例
@@ -21,7 +23,6 @@ toc: 'content'
 
 ## 属性
 
-以下表格详细列出了 `Rate 评分` 组件的属性：
 
 | 属性 | 说明 | 类型 | 默认值 |
 | ---- | ---- | ---- | ---- |

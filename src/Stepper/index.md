@@ -4,7 +4,7 @@ nav:
 group:
   title: 信息输入
   order: 10
-toc: content
+toc: 'content'
 ---
 
 # Stepper 步进器

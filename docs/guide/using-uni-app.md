@@ -164,4 +164,3 @@ export default {
 
 - [uni-app 官方网站：小程序自定义组件支持](https://zh.uniapp.dcloud.io/tutorial/miniprogram-subject.html)
 - [uniapp 使用 antd-mini 示例](https://github.com/DiamondYuan/antd-mini-uniapp)
-```

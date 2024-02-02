@@ -1,4 +1,3 @@
-```
 ---
 nav:
   path: /components
@@ -49,4 +48,3 @@ toc: 'content'
 | subText   | 副文案        | string      | -      |
 | text      | 文案          | string      | -      |
 | value     | 当前项 value | string \| number | -      |
-```

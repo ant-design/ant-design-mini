@@ -9,11 +9,13 @@ toc: 'content'
 
 # Calendar 日历
 
-日历组件的认知介绍和代码示例链接。
+<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+
+日历组件
 
 ## 代码示例
 
-通过示例代码的链接，了解日历组件的实际应用。
+<code src='pages/Calendar/index' ></code>
 
 ## API
 
@@ -42,7 +44,7 @@ toc: 'content'
 
 ### 类型
 
-**CalendarValue** : 日历的值类型，为数字或数字元组，表示单选或连续日期区间。单位为毫秒的时间戳。
+**CalendarValue** : 日历的值类型，为数字或数字元组 `number | [number,number]`，表示单选或连续日期区间。单位为毫秒的时间戳。
 
 **CellState** : 定义了日历单元格的各种状态。
 
@@ -154,7 +156,7 @@ Page({
 });
 ```
 
-我们也可以通过 data 中的函数来设置，此时在 wxml 文件中需要传入一个变量名。
+在微信小程序，我们也可以通过 data 中的函数来设置，此时在 wxml 文件中需要传入一个变量名。
 
 wxml 文件：
 

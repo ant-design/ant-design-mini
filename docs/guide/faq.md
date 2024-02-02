@@ -4,41 +4,40 @@ toc: false
 
 ## 常见问题
 
-### 能否将 0.x 版本与 1.0 版本一起使用
+### 2.x 能否和 1.x, 0.x 一起使用
 
-可以通过使用别名进行安装，例如安装 `antd-mini-v1`：
+因为 1.x 升级到 2.x 没有迁移成本，所以你可以直接从 1.x 升级到 2.x
+对于 0.x, 你可以使用 antd-mini-v0 这个 npm 包, 产物内容和 antd-mini@0.0.26 一模一样。
 
-```shell
-$ npm install antd-mini-v1@npm:antd-mini --save
+```
+$ npm install antd-mini-v0 antd-mini
 ```
 
-然后在 `package.json` 文件中定义两个版本：
+在 `package.json` 文件中是这样定义的：
 
 ```json
 {
   "dependencies": {
-    "antd-mini": "^0.0.25",
-    "antd-mini-v1": "npm:antd-mini"
+    "antd-mini": "^2.25.0",
+    "antd-mini-v0": "^0.0.26"
   }
 }
 ```
 
-使用时，在组件中这样引用：
+使用：
 
 ```json
 {
   "usingComponents": {
     "button": "antd-mini/es/Button/index",
-    "button-v1": "antd-mini-v1/es/Button/index"
+    "button-v0": "antd-mini-v0/es/Button/index"
   }
 }
 ```
 
-在页面上这样书写标签：
-
 ```html
-<button>这是 0.x 版本的 antd-mini</button> 
-<button-v1>这是 1.0 版本的 antd-mini</button-v1>
+<button>这是2.x antd-mini</button>
+<antd-mini-v0>这是0.x antd-mini</antd-mini-v0>
 ```
 
 ### 在支付宝小程序页面中，如何覆盖 antd-mini 的样式并确保其生效
