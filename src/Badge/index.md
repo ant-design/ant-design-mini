@@ -25,10 +25,10 @@ toc: 'content'
 | --------- | ------------------------------------ | -------------------- | ------------ |
 | bgColor   | 自定义背景色，CSS 色值              | string               | -            |
 | className | 组件根节点的类名                     | string               | -            |
-| offsetX   | 水平方向偏移量，单位请自行指定      | string               | '-50%'       |
-| offsetY   | 垂直方向的偏移量，单位请自行指定    | string               | '-50%'       |
+| offsetX   | 水平方向偏移量      | string               | '-50%'       |
+| offsetY   | 垂直方向的偏移量    | string               | '-50%'       |
 | position  | 徽标相对于容器的位置，选项包括：`top-left`、`top-right`、`top-center`、`left`、`right`、`bottom-left`、`bottom-center` 和 `bottom-right` | string | `top-right` |
 | stroke    | 徽标是否带有描边                    | boolean              | false        |
 | style     | 自定义样式                           | object               | -            |
-| text      | 徽标内容，为空代表仅展示红点；可以是数字或文字；若是数字且超过 99，则显示为 `...` | string \| number     | -            |
+| text      | 徽标内容，为空代表仅展示红点；可以是数字或文字；若是数字且超过 99，则显示为 `...` | string \| number \| slot     | -            |
 | type      | 徽标类型，选项包括：`dot`（红点）、`number`（数字类型，超过 99 会自动转换）、`text`（文字气泡）和 `bubble`（气泡形态，带有箭头） | string | `dot`       |

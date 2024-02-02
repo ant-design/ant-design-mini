@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 信息输入
-toc: content
+toc: 'content'
 ---
 
 # ImageUpload 图片上传

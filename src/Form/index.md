@@ -1,4 +1,3 @@
-```markdown
 ---
 nav:
   path: /components
