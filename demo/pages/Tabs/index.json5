@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Tabs",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Tabs",
+  /// #endif
+
+  "usingComponents": {
+    "container": "../../../src/Container/index",
+    "tabs": "../../../src/Tabs/index",
+    "badge": "../../../src/Badge/index",
+    "icon": "../../../src/Icon/index"
+  }
+}

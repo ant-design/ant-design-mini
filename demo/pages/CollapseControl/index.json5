@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Collapse",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Collapse",
+  /// #endif
+
+  "usingComponents": {
+    "collapse": "../../../src/Collapse/index",
+    "ant-button": "../../../src/Button/index"
+  }
+}

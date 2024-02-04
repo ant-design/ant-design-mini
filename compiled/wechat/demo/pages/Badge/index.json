@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Badge",
+  "navigationBarTitleText": "Badge",
   "usingComponents": {
     "badge": "../../../src/Badge/index",
     "container": "../../../src/Container/index",

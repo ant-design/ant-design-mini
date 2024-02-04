@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "Grid",
-  "usingComponents": {
-    "container": "../../../src/Container/index",
-    "grid": "../../../src/Grid/index",
-    "badge":"../../../src/Badge/index"
-  }
-}

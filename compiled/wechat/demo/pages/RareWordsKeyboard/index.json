@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "RareWordsKeyboard",
+  "navigationBarTitleText": "RareWordsKeyboard",
   "usingComponents": {
     "rare-words-keyboard": "../../../src/RareWordsKeyboard/index",
     "list": "../../../src/List/index",
