@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Tabs",
+  "navigationBarTitleText": "Tabs",
   "usingComponents": {
     "tabs": "../../../src/Tabs/index"
   }

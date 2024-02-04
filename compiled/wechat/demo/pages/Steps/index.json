@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Steps",
+  "navigationBarTitleText": "Steps",
   "usingComponents": {
     "steps": "../../../src/Steps/index",
     "icon": "../../../src/Icon/index",

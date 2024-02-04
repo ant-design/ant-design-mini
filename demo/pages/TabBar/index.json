@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "TabBar",
-  "usingComponents": {
-    "container": "../../../src/Container/index",
-    "tab-bar": "../../../src/TabBar/index"
-  }
-}

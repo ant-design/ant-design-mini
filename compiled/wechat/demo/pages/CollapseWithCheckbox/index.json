@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Collapse",
+  "navigationBarTitleText": "Collapse",
   "usingComponents": {
     "ant-collapse": "../../../src/Collapse/index",
     "ant-checkbox": "../../../src/Checkbox/index",

@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "Badge",
-  "usingComponents": {
-    "badge": "../../../src/Badge/index",
-    "container": "../../../src/Container/index",
-    "am-icon": "../../../src/Icon/index"
-  }
-}

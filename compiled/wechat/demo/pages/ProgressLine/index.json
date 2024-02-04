@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "ProgressLine",
+  "navigationBarTitleText": "ProgressLine",
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "progress": "../../../src/Progress/index",

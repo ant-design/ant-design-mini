@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Steps",
+  "navigationBarTitleText": "Steps",
   "usingComponents": {
     "ant-steps": "../../../src/Steps/index",
     "ant-button": "../../../src/Button/index",

@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "ProgressCircle",
+  "navigationBarTitleText": "ProgressCircle",
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "progress": "../../../src/Progress/index",
