@@ -22,7 +22,7 @@ function buildProperties(props) {
         type = Number;
         break;
       case 'boolean':
-        type = Number;
+        type = Boolean;
         break;
     }
     newProperties[key] = {
