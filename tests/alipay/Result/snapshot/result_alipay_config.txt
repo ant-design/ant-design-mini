@@ -1,17 +1,7 @@
 {
-  "data": {},
-  "deriveDataFromProps": [Function],
-  "didUnmount": [Function],
-  "lifetimes": {},
-  "methods": {},
-  "onInit": [Function],
-  "options": {
-    "lifetimes": true,
-  },
   "props": {
     "image": "",
     "message": "",
     "title": "",
   },
-  "rootEvents": {},
 }
