@@ -1,7 +1,7 @@
 import { View, Slot, TSXMLProps, InternalData, Component } from 'tsxml';
 import FormItem from '../FormItem/index.axml';
-import RangePicker from '../../DatePicker/RangePicker/index.axml';
-import Icon from '../../Icon/index.axml';
+import AntRangePicker from '../../DatePicker/RangePicker/index.axml';
+import AntIcon from '../../Icon/index.axml';
 import { FormRangePickerProps } from './props';
 import arrowUtil from '../../_util/arrow.sjs';
 
@@ -56,7 +56,7 @@ export default (
       help={help}
     >
       <View>
-        <RangePicker
+        <AntRangePicker
           endPlaceholder={endPlaceholder}
           startPlaceholder={startPlaceholder}
           splitCharacter={splitCharacter}
@@ -91,13 +91,13 @@ export default (
           <Slot name="content" slot="content" />
           <Slot name="title" slot="title" />
           {arrowUtil.getArrow(arrow) && (
-            <Icon
+            <AntIcon
               className="ant-form-range-picker-arrow"
               type={arrowUtil.getArrow(arrow)}
               slot="suffix"
             />
           )}
-        </RangePicker>
+        </AntRangePicker>
       </View>
       {!tooltip && (
         <View slot="tooltip">

@@ -1,8 +1,8 @@
 import { Component, View, Slot, TSXMLProps, InternalData } from 'tsxml';
 import { FormPickerProps } from './props';
 import FormItem from '../FormItem/index.axml';
-import Picker from '../../Picker/index.axml';
-import Icon from '../../Icon/index.axml';
+import AntPicker from '../../Picker/index.axml';
+import AntIcon from '../../Icon/index.axml';
 import arrowUtil from '../../_util/arrow.sjs';
 
 export default (
@@ -50,7 +50,7 @@ export default (
       help={help}
     >
       <View>
-        <Picker
+        <AntPicker
           cancelText={cancelText}
           okText={okText}
           placeholder={placeholder}
@@ -76,13 +76,13 @@ export default (
           <Slot name="title" slot="title" />
           <Slot name="content" slot="content" />
           {arrowUtil.getArrow(arrow) && (
-            <Icon
+            <AntIcon
               className="ant-form-picker-arrow"
               type={arrowUtil.getArrow(arrow)}
               slot="suffix"
             />
           )}
-        </Picker>
+        </AntPicker>
       </View>
       {!tooltip && (
         <View slot="tooltip">

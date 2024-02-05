@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "form-item": "../FormItem/index",
-    "radio-group": "../../Radio/RadioGroup/index"
+    "ant-radio-group": "../../Radio/RadioGroup/index"
   }
 }

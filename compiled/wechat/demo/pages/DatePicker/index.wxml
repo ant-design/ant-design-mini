@@ -9,7 +9,7 @@
       placeholder="请选择"
       bind:pickerchange="handlePickerChange"
       bind:visiblechange="handleTriggerPicker"
-      onCancel="handleDismiss"
+      bind:cancel="handleDismiss"
       bind:ok="handleOk" />
   </ant-list-item>
   <ant-list-item>
@@ -77,7 +77,7 @@
       placeholder="请选择"
       bind:pickerchange="handlePickerChange"
       bind:visiblechange="handleTriggerPicker"
-      onCancel="handleDismiss"
+      bind:cancel="handleDismiss"
       bind:ok="handleOk"
       onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
   </ant-list-item>

@@ -15,7 +15,7 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <view>
-    <date-picker
+    <ant-date-picker
       min="{{ min }}"
       max="{{ max }}"
       format="{{ format }}"
@@ -47,12 +47,12 @@
       <slot
         name="title"
         slot="title" />
-      <icon
+      <ant-icon
         a:if="{{ arrowUtil.getArrow(arrow) }}"
         className="ant-form-date-picker-arrow"
         type="{{ arrowUtil.getArrow(arrow) }}"
         slot="suffix" />
-    </date-picker>
+    </ant-date-picker>
   </view>
   <view
     a:if="{{ !tooltip }}"
