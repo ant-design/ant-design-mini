@@ -12,10 +12,10 @@ export interface IAvatarProps extends IBaseProps {
   /**
    * @description 头像地址，默认为灰色的内置图片
    */
-  src: string | null;
+  src: string;
 }
 
 export const AvatarDefaultProps: Partial<IAvatarProps> = {
   size: 'medium',
-  src: null,
+  src: '',
 };

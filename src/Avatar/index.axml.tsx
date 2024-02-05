@@ -4,7 +4,7 @@ import { IAvatarProps } from './props';
 
 export default ({ className, style, size, src }: TSXMLProps<IAvatarProps>) => (
   <View class={`ant-avatar ${className ? className : ''}`} style={style}>
-    {(src !== null) && (
+    {(
       <Image class={`ant-avatar-image ${utils.getClass(size)}`} src={src || utils.defaultSrc} />
     )}
   </View>
