@@ -15,7 +15,7 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <view>
-    <picker
+    <ant-picker
       cancelText="{{ cancelText }}"
       okText="{{ okText }}"
       placeholder="{{ placeholder }}"
@@ -32,9 +32,9 @@
       indicatorClassName="{{ indicatorClassName }}"
       options="{{ options }}"
       value="{{ formData.value }}"
-      onOk="onOk"
+      bind:ok="onOk"
       bind:change="onChange"
-      onCancel="onDismissPicker"
+      bind:cancel="onDismissPicker"
       bind:visiblechange="onVisibleChange"
       onFormat="{{ handleFormat ? handleFormat : 'handleFormat' }}">
       <slot
@@ -43,12 +43,12 @@
       <slot
         name="content"
         slot="content" />
-      <icon
+      <ant-icon
         wx:if="{{ arrowUtil.getArrow(arrow) }}"
         className="ant-form-picker-arrow"
         type="{{ arrowUtil.getArrow(arrow) }}"
         slot="suffix" />
-    </picker>
+    </ant-picker>
   </view>
   <view
     wx:if="{{ !tooltip }}"

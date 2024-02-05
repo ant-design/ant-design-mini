@@ -1,7 +1,7 @@
 import { TSXMLProps, Component, View, Slot, InternalData } from 'tsxml';
 import FormItem from '../FormItem/index.axml';
-import DatePicker from '../../DatePicker/index.axml';
-import Icon from '../../Icon/index.axml';
+import AntDatePicker from '../../DatePicker/index.axml';
+import AntIcon from '../../Icon/index.axml';
 import arrowUtil from '../../_util/arrow.sjs';
 import { FormDatePickerProps } from './props'; // Assuming that './props' is the correct path for importing FormDatePickerProps
 
@@ -52,7 +52,7 @@ export default (
       help={help}
     >
       <View>
-        <DatePicker
+        <AntDatePicker
           min={min}
           max={max}
           format={format}
@@ -84,13 +84,13 @@ export default (
           <Slot name="content" slot="content" />
           <Slot name="title" slot="title" />
           {arrowUtil.getArrow(arrow) && (
-            <Icon
+            <AntIcon
               className="ant-form-date-picker-arrow"
               type={arrowUtil.getArrow(arrow)}
               slot="suffix"
             />
           )}
-        </DatePicker>
+        </AntDatePicker>
       </View>
       {!tooltip && (
         <View slot="tooltip">

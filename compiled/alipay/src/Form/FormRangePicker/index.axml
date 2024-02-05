@@ -15,7 +15,7 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <view>
-    <range-picker
+    <ant-range-picker
       endPlaceholder="{{ endPlaceholder }}"
       startPlaceholder="{{ startPlaceholder }}"
       splitCharacter="{{ splitCharacter }}"
@@ -50,12 +50,12 @@
       <slot
         name="title"
         slot="title" />
-      <icon
+      <ant-icon
         a:if="{{ arrowUtil.getArrow(arrow) }}"
         className="ant-form-range-picker-arrow"
         type="{{ arrowUtil.getArrow(arrow) }}"
         slot="suffix" />
-    </range-picker>
+    </ant-range-picker>
   </view>
   <view
     a:if="{{ !tooltip }}"

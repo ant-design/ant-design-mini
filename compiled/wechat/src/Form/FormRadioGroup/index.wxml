@@ -11,7 +11,7 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <view>
-    <radio-group
+    <ant-radio-group
       options="{{ options }}"
       value="{{ formData.value }}"
       bind:change="onChange"
@@ -24,7 +24,7 @@
         slot-scope="props"
         value="{{props.value}}"
         index="{{props.index}}" />
-    </radio-group>
+    </ant-radio-group>
   </view>
 
   <view

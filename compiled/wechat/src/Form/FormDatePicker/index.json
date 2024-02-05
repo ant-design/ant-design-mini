@@ -2,7 +2,7 @@
   "component": true,
   "usingComponents": {
     "form-item": "../FormItem/index",
-    "date-picker": "../../DatePicker/index",
-    "icon": "../../Icon/index"
+    "ant-date-picker": "../../DatePicker/index",
+    "ant-icon": "../../Icon/index"
   }
 }

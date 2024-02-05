@@ -2,7 +2,7 @@ import { View, Slot, InternalData, Component } from 'tsxml';
 import { TSXMLProps } from 'tsxml';
 import { FormRadioGroupProps } from './props';
 import FormItem from '../FormItem/index.axml';
-import RadioGroup from '../../Radio/RadioGroup/index.axml';
+import AntRadioGroup from '../../Radio/RadioGroup/index.axml';
 
 export default (
   {
@@ -37,7 +37,7 @@ export default (
       help={help}
     >
       <View>
-        <RadioGroup
+        <AntRadioGroup
           options={options}
           value={formData.value}
           onChange="onChange"
@@ -52,7 +52,7 @@ export default (
             value="{{props.value}}"
             index="{{props.index}}"
           />
-        </RadioGroup>
+        </AntRadioGroup>
       </View>
 
       {!tooltip && (

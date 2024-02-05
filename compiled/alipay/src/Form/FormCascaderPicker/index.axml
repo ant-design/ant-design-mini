@@ -15,7 +15,7 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <view>
-    <cascader-picker
+    <ant-cascader-picker
       options="{{ options }}"
       cancelText="{{ cancelText }}"
       okText="{{ okText }}"
@@ -44,12 +44,12 @@
         name="title"
         slot="title" />
 
-      <icon
+      <ant-icon
         a:if="{{ arrowUtil.getArrow(arrow) }}"
         className="ant-form-cascader-picker-arrow"
         type="{{ arrowUtil.getArrow(arrow) }}"
         slot="suffix" />
-    </cascader-picker>
+    </ant-cascader-picker>
   </view>
 
   <view

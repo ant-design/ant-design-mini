@@ -2,7 +2,7 @@
   "component": true,
   "usingComponents": {
     "form-item": "../FormItem/index",
-    "cascader-picker": "../../Picker/CascaderPicker/index",
-    "icon": "../../Icon/index"
+    "ant-cascader-picker": "../../Picker/CascaderPicker/index",
+    "ant-icon": "../../Icon/index"
   }
 }

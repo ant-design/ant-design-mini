@@ -4,11 +4,12 @@ import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { useHandleCustomEvent, useHandleCustomEventOnly, useMultipleValueHandleCustomEvent, } from '../../_util/hooks/useHandleCustomEvent';
 import { useFormItem } from '../use-form-item';
 import { FormDatePickerDefaultProps } from './props';
+import { platform } from '../../_util/platform';
 var FormDatePicker = function (props) {
     var _a = useFormItem(props), formData = _a.formData, emit = _a.emit;
     var _b = useComponentEvent(props), triggerEventValues = _b.triggerEventValues, triggerEventOnly = _b.triggerEventOnly, triggerEvent = _b.triggerEvent;
     useMultipleValueHandleCustomEvent('onOk', function (date, dateStr, e) {
-        emit('onChange', date);
+        emit('onChange', platform() === 'wechat' ? date.getTime() : date);
         triggerEventValues('ok', [date, dateStr], e);
     });
     useMultipleValueHandleCustomEvent('onPickerChange', function (date, dateStr, e) {
