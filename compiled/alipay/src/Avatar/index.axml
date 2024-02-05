@@ -6,7 +6,6 @@
   class="ant-avatar {{ className ? className : '' }}"
   style="{{ style }}">
   <image
-    a:if="{{ src !== null }}"
     class="ant-avatar-image {{ utils.getClass(size) }}"
     src="{{ src || utils.defaultSrc }}" />
 </view>
