@@ -1,6 +1,3 @@
-import { mountComponent } from '../../_util/component';
+import { Component } from '../../_util/simply';
 import { SkeletonTitleDefaultProps } from './props';
-var Title = function () {
-    //
-};
-mountComponent(Title, SkeletonTitleDefaultProps);
+Component(SkeletonTitleDefaultProps);

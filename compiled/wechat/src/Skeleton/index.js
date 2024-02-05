@@ -1,6 +1,3 @@
-import { mountComponent } from '../_util/component';
+import { Component } from '../_util/simply';
 import { SkeletonDefaultProps } from './props';
-var Skeleton = function () {
-    //
-};
-mountComponent(Skeleton, SkeletonDefaultProps);
+Component(SkeletonDefaultProps);

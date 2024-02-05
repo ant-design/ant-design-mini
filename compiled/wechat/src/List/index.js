@@ -1,8 +1,5 @@
-import { mountComponent } from '../_util/component';
-var List = function () {
-    //
-};
-mountComponent(List, {
+import { Component } from '../_util/simply';
+Component({
     radius: false,
     header: '',
     footer: '',

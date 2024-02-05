@@ -1,4 +1,3 @@
-import { mountComponent } from '../_util/component';
+import { Component } from '../_util/simply';
 import { StepsFunctionalProps } from './props';
-var Steps = function () { };
-mountComponent(Steps, StepsFunctionalProps);
+Component(StepsFunctionalProps);

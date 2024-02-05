@@ -1,6 +1,4 @@
-import { mountComponent } from '../_util/component';
+import { Component } from '../_util/simply';
 import { StepsFunctionalProps } from './props';
 
-const Steps = () => {};
-
-mountComponent(Steps, StepsFunctionalProps);
+Component(StepsFunctionalProps);
