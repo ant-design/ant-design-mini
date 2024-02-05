@@ -42,4 +42,18 @@ function setBubbleStyle(type, position) {
   }
 }
 
-export default { setPositionStyle, setBubbleStyle };
+function getOverCount(text) {
+  let overCount = false;
+  if (typeof text === 'number') {
+    if (text >= 100) {
+      overCount = true;
+    }
+  }
+  return overCount;
+}
+
+export default { 
+  setPositionStyle, 
+  setBubbleStyle,
+  getOverCount,
+};
