@@ -1,9 +1,9 @@
 import { Component } from '../_util/simply';
 import { IResultProps } from './props';
 
-Component<IResultProps>({
+Component({
   type: null,
   image: '',
   title: '',
   message: '',
-});
+} satisfies IResultProps);
