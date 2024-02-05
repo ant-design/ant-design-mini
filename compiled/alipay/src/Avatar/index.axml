@@ -8,5 +8,5 @@
   <image
     a:if="{{ src }}"
     class="ant-avatar-image {{ utils.getClass(size) }}"
-    src="{{ src }}" />
+    src="{{ src || utils.defaultSrc }}" />
 </view>
