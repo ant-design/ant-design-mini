@@ -71,10 +71,30 @@ function ComponentImpl<Props, Methods>(defaultProps: Props, methods?: Methods & 
 export interface IPlatformEvent {
   currentTarget: {
     dataset: Record<string, unknown>;
+  };
+  target: {
+    dataset: Record<string, unknown>;
   }
 }
 
-export function triggerEventOnly(instance: any, eventName: string, e: any) {
+export function triggerEvent(instance: any, eventName: string, value: unknown, e?: any) {
+  // 首字母大写，然后加上 on
+
+  /// #if ALIPAY
+  const alipayCallbackName =
+    'on' + eventName.charAt(0).toUpperCase() + eventName.slice(1);
+  const props = instance.props;
+  if (props[alipayCallbackName]) {
+    props[alipayCallbackName](value, fmtEvent(props, e));
+  }
+  /// #endif
+
+  /// #if WECHAT
+  instance.triggerEvent(eventName.toLocaleLowerCase(), value);
+  /// #endif
+}
+
+export function triggerEventOnly(instance: any, eventName: string, e?: any) {
   // 首字母大写，然后加上 on
 
   /// #if ALIPAY
