@@ -21,24 +21,22 @@ function removeNullProps(props) {
 function buildProperties(props) {
     var newProperties = {};
     for (var key in props) {
-        if (props[key] !== null) {
-            var type = null;
-            switch (typeof props[key]) {
-                case 'string':
-                    type = String;
-                    break;
-                case 'number':
-                    type = Number;
-                    break;
-                case 'boolean':
-                    type = Number;
-                    break;
-            }
-            newProperties[key] = {
-                type: type,
-                value: props[key]
-            };
+        var type = null;
+        switch (typeof props[key]) {
+            case 'string':
+                type = String;
+                break;
+            case 'number':
+                type = Number;
+                break;
+            case 'boolean':
+                type = Number;
+                break;
         }
+        newProperties[key] = {
+            type: type,
+            value: props[key]
+        };
     }
     return newProperties;
 }

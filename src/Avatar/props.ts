@@ -17,5 +17,5 @@ export interface IAvatarProps extends IBaseProps {
 
 export const AvatarDefaultProps: Partial<IAvatarProps> = {
   size: 'medium',
-  src: '',
+  src: null,
 };
