@@ -1,6 +1,6 @@
 import { ImageIconProps } from './props';
 import { Component } from '../_util/simply';
 
-Component({
+Component<ImageIconProps>({
   image: '',
-} satisfies ImageIconProps);
+});

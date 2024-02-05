@@ -47,7 +47,7 @@ type ComponentInstance<Props, Methods> = {
 
 };
 
-function ComponentImpl<Props, Methods>(defaultProps: Props, methods?: void | (Methods & ThisType<ComponentInstance<Props, Methods>>)) {
+function ComponentImpl<Props, Methods = void>(defaultProps: Props, methods?: void | (Methods & ThisType<ComponentInstance<Props, Methods>>)) {
   /// #if WECHAT
   Component({
     properties: buildProperties(mergeDefaultProps(defaultProps)),
