@@ -13,9 +13,7 @@ export default (
     stroke,
     bgColor,
     text,
-  }: TSXMLProps<IBadgeProps>,
-  { overCount }
-) => (
+  }: TSXMLProps<IBadgeProps>) => (
   <View class={`ant-badge ${className || ''}`} style={style}>
     <View class="ant-badge-body">
       <Slot></Slot>
