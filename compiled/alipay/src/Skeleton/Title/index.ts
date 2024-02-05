@@ -1,8 +1,4 @@
-import { mountComponent } from '../../_util/component';
+import { Component } from '../../_util/simply';
 import { SkeletonTitleDefaultProps } from './props';
 
-const Title = () => {
-  //
-};
-
-mountComponent(Title, SkeletonTitleDefaultProps);
+Component(SkeletonTitleDefaultProps);

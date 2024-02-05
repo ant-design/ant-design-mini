@@ -1,8 +1,4 @@
+import { Component } from '../../_util/simply';
 import { SkeletonInputDefaultProps } from './props';
-import { mountComponent } from '../../_util/component';
 
-const Input = () => {
-  //
-};
-
-mountComponent(Input, SkeletonInputDefaultProps);
+Component(SkeletonInputDefaultProps);

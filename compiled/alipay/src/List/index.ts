@@ -1,11 +1,7 @@
-import { mountComponent } from '../_util/component';
+import { Component } from '../_util/simply';
 import { IListProps } from './props';
 
-const List = () => {
-  //
-};
-
-mountComponent<IListProps>(List, {
+Component<IListProps>({
   radius: false,
   header: '',
   footer: '',

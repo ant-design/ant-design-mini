@@ -1,8 +1,4 @@
-import { mountComponent } from '../_util/component';
+import { Component } from '../_util/simply';
 import { DividerFunctionalProps } from './props';
 
-function Divider() {
-  //
-}
-
-mountComponent(Divider, DividerFunctionalProps);
+Component(DividerFunctionalProps);

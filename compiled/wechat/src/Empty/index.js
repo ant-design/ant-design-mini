@@ -1,5 +1,3 @@
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
+import { Component } from '../_util/simply';
 import { EmptyFunctionalProps } from './props';
-var Empty = function () { };
-mountComponent(Empty, EmptyFunctionalProps);
+Component(EmptyFunctionalProps);

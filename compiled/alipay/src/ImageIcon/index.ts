@@ -1,10 +1,6 @@
 import { ImageIconProps } from './props';
-import { mountComponent } from '../_util/component';
+import { Component } from '../_util/simply';
 
-const ImageIcon = () => {
-  //
-};
-
-mountComponent<ImageIconProps>(ImageIcon, {
+Component<ImageIconProps>({
   image: '',
 });

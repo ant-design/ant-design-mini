@@ -1,8 +1,4 @@
-import { mountComponent } from '../_util/component';
+import { Component } from '../_util/simply';
 import { SkeletonDefaultProps } from './props';
 
-const Skeleton = () => {
-  //
-};
-
-mountComponent(Skeleton, SkeletonDefaultProps);
+Component(SkeletonDefaultProps);

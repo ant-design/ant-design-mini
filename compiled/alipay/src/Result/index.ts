@@ -1,9 +1,7 @@
-import { mountComponent } from '../_util/component';
+import { Component } from '../_util/simply';
 import { IResultProps } from './props';
 
-const Result = () => {};
-
-mountComponent<IResultProps>(Result, {
+Component<IResultProps>({
   type: null,
   image: '',
   title: '',

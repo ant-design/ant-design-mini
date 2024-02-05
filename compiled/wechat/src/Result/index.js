@@ -1,6 +1,5 @@
-import { mountComponent } from '../_util/component';
-var Result = function () { };
-mountComponent(Result, {
+import { Component } from '../_util/simply';
+Component({
     type: null,
     image: '',
     title: '',

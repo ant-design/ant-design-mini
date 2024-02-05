@@ -108,5 +108,6 @@
     "allowsBounceVertical": false,
     "enableInPageRenderInput": "YES"
   },
+  "lazyCodeLoading": "requiredComponents",
   "debug": true
 }

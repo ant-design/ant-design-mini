@@ -1,6 +1,3 @@
-import { mountComponent } from '../../_util/component';
+import { Component } from '../../_util/simply';
 import { SkeletonParagraphDefaultProps } from './props';
-var Paragraph = function () {
-    //
-};
-mountComponent(Paragraph, SkeletonParagraphDefaultProps);
+Component(SkeletonParagraphDefaultProps);

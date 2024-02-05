@@ -9,5 +9,11 @@
   "uploadExclude": [
     "dist/**/*"
   ],
-  "miniprogramRoot": "compiled/alipay/demo"
+  "miniprogramRoot": "compiled/alipay/demo",
+  "developOptions": {
+    "skipTranspile": false,
+    "minify": false,
+    "sourcemap": false,
+    "lazyCompile": true
+  }
 }
