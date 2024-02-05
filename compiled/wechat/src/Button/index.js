@@ -11,7 +11,6 @@ var __assign = (this && this.__assign) || function () {
 };
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { ButtonDefaultProps } from './props';
-import '../_util/assert-component2';
 Component({
     properties: {
         className: String,

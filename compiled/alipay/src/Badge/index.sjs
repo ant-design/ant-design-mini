@@ -38,7 +38,17 @@ function setBubbleStyle(type, position) {
       return '';
   }
 }
+function getOverCount(text) {
+  var overCount = false;
+  if (typeof text === 'number') {
+    if (text >= 100) {
+      overCount = true;
+    }
+  }
+  return overCount;
+}
 export default {
   setPositionStyle: setPositionStyle,
-  setBubbleStyle: setBubbleStyle
+  setBubbleStyle: setBubbleStyle,
+  getOverCount: getOverCount
 };
