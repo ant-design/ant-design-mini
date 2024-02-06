@@ -81,7 +81,6 @@ Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 
 
 通过使用 [FormItem](#formitem)、[createForm](#createform) 可自定义表单项。示例里 `form-checklist`、`form-location` 为自定义表单项组件。
 <code src='pages/FormCustom/index'></code>
-```
 
 ## API
 
