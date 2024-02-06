@@ -44,7 +44,7 @@ function mergeDefaultProps(defaultProps) {
     if (defaultProps === void 0) { defaultProps = {}; }
     return __assign({ className: '', style: '' }, defaultProps);
 }
-function ComponentImpl(defaultProps) {
+function ComponentImpl(defaultProps, methods) {
     Component({
         properties: buildProperties(mergeDefaultProps(defaultProps)),
         options: {
@@ -52,6 +52,19 @@ function ComponentImpl(defaultProps) {
             multipleSlots: true,
             virtualHost: true,
         },
+        methods: methods,
     });
+}
+export function triggerEvent(instance, eventName, value, e) {
+    // 首字母大写，然后加上 on
+    instance.triggerEvent(eventName.toLocaleLowerCase(), value);
+}
+export function triggerEventOnly(instance, eventName, e) {
+    // 首字母大写，然后加上 on
+    instance.triggerEvent(eventName.toLocaleLowerCase());
+}
+export function triggerEventValues(instance, eventName, values, e) {
+    // 首字母大写，然后加上 on
+    instance.triggerEvent(eventName.toLocaleLowerCase(), values);
 }
 export { ComponentImpl as Component };

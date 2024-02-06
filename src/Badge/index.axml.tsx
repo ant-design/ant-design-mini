@@ -13,9 +13,7 @@ export default (
     stroke,
     bgColor,
     text,
-  }: TSXMLProps<IBadgeProps>,
-  { overCount }
-) => (
+  }: TSXMLProps<IBadgeProps>) => (
   <View class={`ant-badge ${className || ''}`} style={style}>
     <View class="ant-badge-body">
       <Slot></Slot>
@@ -53,7 +51,7 @@ export default (
             {/* #endif */}
             {type === 'number' && (
               <View class="ant-badge-number">
-                {overCount ? <Text>99+</Text> : <Text>{text}</Text>}
+                {_sjs.getOverCount(text) ? <Text>99+</Text> : <Text>{text}</Text>}
               </View>
             )}
             {type === 'text' && <View class="ant-badge-text">{text}</View>}

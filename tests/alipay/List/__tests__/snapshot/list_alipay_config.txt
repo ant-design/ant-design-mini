@@ -1,4 +1,5 @@
 {
+  "methods": undefined,
   "props": {
     "footer": "",
     "header": "",

@@ -1,23 +1,18 @@
-import { useEvent } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { ActionSheetDefaultProps, IActionSheetProps } from './props';
+import { IPlatformEvent, Component, triggerEventOnly, triggerEventValues } from '../_util/simply';
+import { ActionSheetDefaultProps, IActionItem } from './props';
 
-const ActionSheet = (props: IActionSheetProps) => {
-  const { triggerEventOnly, triggerEventValues } = useComponentEvent(props);
-
-  useEvent('onAction', (e) => {
-    const { item, index } = e.currentTarget.dataset;
+Component(ActionSheetDefaultProps, {
+  onAction(e: IPlatformEvent) {
+    const { item, index } = e.currentTarget.dataset as {
+      item: IActionItem,
+      index: number
+    };
     if (item?.disabled) return;
-    triggerEventOnly('close', e);
-    triggerEventValues('action', [item, index], e);
-  });
-  useEvent('onClose', (e) => {
-    triggerEventOnly('close', e);
-  });
 
-  return {};
-};
-
-mountComponent(ActionSheet, ActionSheetDefaultProps);
+    triggerEventOnly(this, 'close', e);
+    triggerEventValues(this, 'action', [item, index], e);
+  },
+  onClose(e: IPlatformEvent) {
+    triggerEventOnly(this, 'close', e);
+  }
+})

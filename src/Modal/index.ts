@@ -1,29 +1,22 @@
-import { useEvent } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { IModalProps, ModalFunctionalProps } from './props';
+import { Component, triggerEventOnly } from '../_util/simply';
+import { ModalFunctionalProps } from './props';
 
-const Modal = (props: IModalProps) => {
-  const { triggerEventOnly } = useComponentEvent(props);
-  useEvent('onClose', () => {
-    triggerEventOnly('close');
-  });
-  useEvent('onMaskClose', () => {
-    if (props.maskClosable) {
-      triggerEventOnly('close');
+Component(ModalFunctionalProps, {
+  onClose() {
+    triggerEventOnly(this, 'close');
+  },
+  onMaskClose() {
+    if (this.props.maskClosable) {
+      triggerEventOnly(this, 'close');
     }
-  });
-  useEvent('onPrimaryButtonTap', () => {
-    triggerEventOnly('primaryButtonTap');
-  });
-  useEvent('onSecondaryButtonTap', () => {
-    triggerEventOnly('secondaryButtonTap');
-  });
-  useEvent('onCancelButtonTap', () => {
-    triggerEventOnly('cancelButtonTap');
-  });
-  return {};
-};
-
-mountComponent(Modal, ModalFunctionalProps);
+  },
+  onPrimaryButtonTap() {
+    triggerEventOnly(this, 'primaryButtonTap');
+  },
+  onSecondaryButtonTap() {
+    triggerEventOnly(this, 'secondaryButtonTap');
+  },
+  onCancelButtonTap() {
+    triggerEventOnly(this, 'cancelButtonTap');
+  },
+})

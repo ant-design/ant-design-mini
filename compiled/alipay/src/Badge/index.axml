@@ -27,7 +27,7 @@
           a:if="{{ type === 'number' }}"
           class="ant-badge-number">
           <!-- display: inline -->
-          <text a:if="{{ overCount }}">99+</text>
+          <text a:if="{{ _sjs.getOverCount(text) }}">99+</text>
           <!-- display: inline -->
           <text a:else>{{ text }}</text>
         </view>

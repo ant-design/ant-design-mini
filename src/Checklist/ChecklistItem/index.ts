@@ -1,13 +1,14 @@
-import { useEvent } from 'functional-mini/component';
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { ChecklistItemDefaultProps, IChecklistItemProps } from './props';
+import { Component, triggerEvent } from '../../_util/simply';
+import { ChecklistItemDefaultProps } from './props';
 
-const CheckListItem = (props: IChecklistItemProps) => {
-  const { triggerEvent } = useComponentEvent(props);
-  useEvent('onChecklistItemClick', () => {
-    triggerEvent('change', props.item);
-  });
-};
+Component(ChecklistItemDefaultProps, {
+  onChecklistItemClick() {
+    /// #if ALIPAY
+    triggerEvent(this, 'change', this.props.item);
+    /// #endif
 
-mountComponent(CheckListItem, ChecklistItemDefaultProps);
+    /// #if WECHAT
+    triggerEvent(this, 'change', this.properties.item);
+    /// #endif
+  }
+})

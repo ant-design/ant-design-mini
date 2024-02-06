@@ -1,0 +1,9 @@
+{
+  "methods": undefined,
+  "props": {
+    "bgColor": "",
+    "position": "top-right",
+    "stroke": false,
+    "type": "dot",
+  },
+}
