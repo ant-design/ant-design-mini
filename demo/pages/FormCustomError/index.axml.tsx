@@ -1,5 +1,5 @@
 import { View, Page, InternalData, Text } from 'tsxml';
-import FormInput from '../../../src/Form/FormInput/index.axml';
+import AntFormInput from '../../../src/Form/FormInput/index.axml';
 import AntIcon from '../../../src/Icon/index.axml';
 import AntButton from '../../../src/Button/index.axml';
 
@@ -10,7 +10,7 @@ export default ({ item }: InternalData) => (
       由于微信小程序不支持 slot-scope="item", 所以暂时不支持自定义 Error
     </Text>
     {/* #endif */}
-    <FormInput
+    <AntFormInput
       label="用户名"
       name="account"
       required
@@ -27,9 +27,9 @@ export default ({ item }: InternalData) => (
           </View>
         )}
       </View>
-    </FormInput>
+    </AntFormInput>
 
-    <FormInput
+    <AntFormInput
       label="地址"
       name="address"
       required
@@ -46,7 +46,7 @@ export default ({ item }: InternalData) => (
           </View>
         )}
       </View>
-    </FormInput>
+    </AntFormInput>
 
     <View class="buttons">
       <AntButton type="primary" onTap="submit" style="margin-bottom: 12px">

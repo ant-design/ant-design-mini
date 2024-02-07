@@ -1,10 +1,10 @@
-<container title="标题">
+<ant-container title="标题">
   <view class="content" />
-</container>
-<container headerInBox="{{ false }}">
+</ant-container>
+<ant-container headerInBox="{{ false }}">
   <view slot="title">
     <view class="icon">
-      <icon
+      <ant-icon
         type="SmileOutline"
         style="margin-right: 8px" />
       标题
@@ -12,19 +12,19 @@
   </view>
   <view slot="headerRight">右侧内容</view>
   <view class="content" />
-</container>
-<container title="标题">
+</ant-container>
+<ant-container title="标题">
   <view slot="headerRight">右侧内容</view>
   <view class="content">
     <view class="box" />
     <view class="box" />
     <view class="box" />
   </view>
-</container>
-<container>
+</ant-container>
+<ant-container>
   <view class="content" />
   <view slot="headerRight">右侧内容</view>
-</container>
-<container>
+</ant-container>
+<ant-container>
   <view class="content" />
-</container>
+</ant-container>

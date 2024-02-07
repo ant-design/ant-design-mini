@@ -9,6 +9,6 @@
 
   "usingComponents": {
     "ant-input": "../../../src/Input/index",
-    "icon": "../../../src/Icon/index"
+    "ant-icon": "../../../src/Icon/index"
   }
 }

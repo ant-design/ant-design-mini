@@ -10,6 +10,6 @@
   "usingComponents": {
     "ant-textarea": "../../../src/Input/Textarea/index",
     "ant-button": "../../../src/Button/index",
-    "container": "../../../src/Container/index"
+    "ant-container": "../../../src/Container/index"
   }
 }

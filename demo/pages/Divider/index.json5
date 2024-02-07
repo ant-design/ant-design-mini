@@ -8,7 +8,7 @@
   /// #endif
 
   "usingComponents": {
-    "divider": "../../../src/Divider/index",
-    "container": "../../../src/Container/index"
+    "ant-divider": "../../../src/Divider/index",
+    "ant-container": "../../../src/Container/index"
   }
 }
