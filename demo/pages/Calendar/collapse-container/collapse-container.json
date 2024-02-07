@@ -2,7 +2,6 @@
   "component": true,
   "styleIsolation": "apply-shared",
   "usingComponents": {
-    "container": "../../../../src/Container/index",
-    "calendar": "../../../../src/Calendar/index"
+    "ant-container": "../../../../src/Container/index"
   }
 }
