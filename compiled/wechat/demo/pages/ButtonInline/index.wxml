@@ -1,4 +1,4 @@
-<container
+<ant-container
   title="按钮类型"
   className="list">
   <ant-button
@@ -19,8 +19,8 @@
     bind:tap="handleTap">
     文本按钮
   </ant-button>
-</container>
-<container
+</ant-container>
+<ant-container
   title="按钮尺寸"
   className="list">
   <ant-button
@@ -44,8 +44,8 @@
     bind:tap="handleTap">
     主要按钮
   </ant-button>
-</container>
-<container
+</ant-container>
+<ant-container
   title="危险"
   className="list">
   <ant-button
@@ -69,8 +69,8 @@
     bind:tap="handleTap">
     文本按钮
   </ant-button>
-</container>
-<container
+</ant-container>
+<ant-container
   title="禁用"
   className="list">
   <ant-button
@@ -91,8 +91,8 @@
     disabled>
     文本按钮
   </ant-button>
-</container>
-<container
+</ant-container>
+<ant-container
   title="加载状态"
   className="list">
   <ant-button
@@ -113,4 +113,4 @@
     loading>
     文本
   </ant-button>
-</container>
+</ant-container>

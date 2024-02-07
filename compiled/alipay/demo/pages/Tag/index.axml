@@ -1,7 +1,7 @@
-<container title="基础用法">
+<ant-container title="基础用法">
   <ant-tag>标签</ant-tag>
-</container>
-<container title="语义标签">
+</ant-container>
+<ant-container title="语义标签">
   <view class="tag-list">
     <ant-tag className="myTag">default</ant-tag>
     <ant-tag
@@ -20,8 +20,8 @@
       danger
     </ant-tag>
   </view>
-</container>
-<container title="填充模式">
+</ant-container>
+<ant-container title="填充模式">
   <view class="tag-list">
     <ant-tag
       className="myTag"
@@ -39,8 +39,8 @@
       fill-light
     </ant-tag>
   </view>
-</container>
-<container title="自定义图标">
+</ant-container>
+<ant-container title="自定义图标">
   <view class="tag-list">
     <ant-tag
       className="myTag"
@@ -66,4 +66,4 @@
       标签
     </ant-tag>
   </view>
-</container>
+</ant-container>

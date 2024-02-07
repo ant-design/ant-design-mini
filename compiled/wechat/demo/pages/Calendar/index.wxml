@@ -4,7 +4,7 @@
   <view
     slot="content"
     style="height: 1000rpx">
-    <calendar defaultValue="{{ demo1.defaultValue }}" />
+    <ant-calendar defaultValue="{{ demo1.defaultValue }}" />
   </view>
 </collapse-container>
 
@@ -14,7 +14,7 @@
   <view
     slot="content"
     style="height: 1000rpx">
-    <calendar
+    <ant-calendar
       selectionMode="single"
       defaultValue="{{ demo2.defaultValue }}" />
   </view>
@@ -28,7 +28,7 @@
       <view
         bind:tap="demo3PreviousMonth"
         class="custom-header-left">
-        <icon type="LeftOutline" />
+        <ant-icon type="LeftOutline" />
         上个月
       </view>
       <view>{{ demo3.title }}</view>
@@ -36,12 +36,12 @@
         bind:tap="demo3NextMonth"
         class="custom-header-right">
         下个月
-        <icon type="RightOutline" />
+        <ant-icon type="RightOutline" />
       </view>
     </view>
-    <calendar monthRange="{{ demo3.monthRange }}">
+    <ant-calendar monthRange="{{ demo3.monthRange }}">
       <view slot="calendarTitle" />
-    </calendar>
+    </ant-calendar>
   </view>
 </collapse-container>
 
@@ -49,7 +49,7 @@
   wx:if="{{ demo8.visible }}"
   title="自定义日期单元格">
   <view slot="content">
-    <calendar
+    <ant-calendar
       monthRange="{{ demo8.monthRange }}"
       onFormatter="{{ demo8Formatter ? demo8Formatter : 'demo8Formatter' }}" />
   </view>
@@ -59,7 +59,7 @@
   wx:if="{{ demo4.visible }}"
   title="动态控制，只允许选择前后三天">
   <view slot="content">
-    <calendar
+    <ant-calendar
       monthRange="{{ demo4.monthRange }}"
       onFormatter="{{ demoFormatter ? demoFormatter : 'demoFormatter' }}" />
   </view>
@@ -71,7 +71,7 @@
   <view
     slot="content"
     style="height: 1000rpx">
-    <calendar weekStartsOn="Monday" />
+    <ant-calendar weekStartsOn="Monday" />
   </view>
 </collapse-container>
 
@@ -79,7 +79,7 @@
   wx:if="{{ demo7.visible }}"
   title="国际化">
   <view slot="content">
-    <calendar
+    <ant-calendar
       monthRange="{{ demo7.monthRange }}"
       localeText="{{ demo7.localeText }}" />
   </view>
@@ -89,7 +89,7 @@
   wx:if="{{ demo9.visible }}"
   title="受控模式">
   <view slot="content">
-    <calendar
+    <ant-calendar
       value="{{ demo9.value }}"
       monthRange="{{ demo9.monthRange }}"
       bind:change="demo9HandleChange"

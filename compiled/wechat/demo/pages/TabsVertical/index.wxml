@@ -1,4 +1,4 @@
-<tabs
+<ant-tabs
   items="{{ items }}"
   current="{{ current }}"
   bind:change="onChange"
@@ -13,6 +13,6 @@
     class="content">
     {{ items[current].content }}
   </scroll-view>
-</tabs>
+</ant-tabs>
 
 <view class="footer" />

@@ -1,9 +1,9 @@
 import { Page, Swiper, SwiperItem, View, InternalData } from 'tsxml';
-import Tabs from '../../../src/Tabs/index.axml';
+import AntTabs from '../../../src/Tabs/index.axml';
 
 export default ({ items, current }: InternalData) => (
   <Page>
-    <Tabs items={items} current={current} onChange="onChange">
+    <AntTabs items={items} current={current} onChange="onChange">
       <Swiper
         current={current}
         autoplay={false}
@@ -17,6 +17,6 @@ export default ({ items, current }: InternalData) => (
           </SwiperItem>
         ))}
       </Swiper>
-    </Tabs>
+    </AntTabs>
   </Page>
 );

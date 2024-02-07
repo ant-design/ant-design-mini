@@ -9,6 +9,6 @@
 
   "usingComponents": {
     "ant-tag": "../../../src/Tag/index",
-    "container": "../../../src/Container/index"
+    "ant-container": "../../../src/Container/index"
   }
 }

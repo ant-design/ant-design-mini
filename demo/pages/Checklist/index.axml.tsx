@@ -1,7 +1,7 @@
 import { InternalData, Page, View } from 'tsxml';
-import Checklist from '../../../src/Checklist/index.axml';
-import Container from '../../../src/Container/index.axml';
-import Icon from '../../../src/Icon/index.axml';
+import AntChecklist from '../../../src/Checklist/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
+import AntIcon from '../../../src/Icon/index.axml';
 
 export default ({
   options_1,
@@ -12,61 +12,61 @@ export default ({
   props,
 }: InternalData) => (
   <Page>
-    <Container title="简单布局-单选">
-      <Checklist
+    <AntContainer title="简单布局-单选">
+      <AntChecklist
         defaultValue={[1]}
         options={options_1}
         data-options={options_1}
         onChange="onChange"
       />
-    </Container>
+    </AntContainer>
 
-    <Container title="复杂布局-多选">
-      <Checklist
+    <AntContainer title="复杂布局-多选">
+      <AntChecklist
         defaultValue={[1, 2]}
         options={options_2}
         multiple
         onChange="onChange"
       />
-    </Container>
+    </AntContainer>
 
-    <Container title="受控模式">
-      <Checklist
+    <AntContainer title="受控模式">
+      <AntChecklist
         value={value}
         options={options_2}
         multiple
         onChange="onChangeControlled"
       />
-    </Container>
+    </AntContainer>
 
-    <Container title="禁用状态">
-      <Checklist
+    <AntContainer title="禁用状态">
+      <AntChecklist
         defaultValue={[2]}
         options={options_3}
         multiple
         onChange="onChange"
       />
-    </Container>
+    </AntContainer>
 
-    <Container title="只读状态">
-      <Checklist
+    <AntContainer title="只读状态">
+      <AntChecklist
         defaultValue={[2]}
         options={options_4}
         multiple
         onChange="onChange"
       />
-    </Container>
+    </AntContainer>
 
     {/* #if ALIPAY */}
-    <Container title="自定义勾选图标&&组件内容">
-      <Checklist
+    <AntContainer title="自定义勾选图标&&组件内容">
+      <AntChecklist
         defaultValue={[2]}
         options={options_3}
         multiple
         onChange="onChange"
       >
         <View slot="icon">
-          <Icon
+          <AntIcon
             style="color: red"
             type="LikeOutline"
             className="demo-checklist-checked-icon"
@@ -75,8 +75,8 @@ export default ({
         <View slot="content" slot-scope="props">
           title: {props.item.title}
         </View>
-      </Checklist>
-    </Container>
+      </AntChecklist>
+    </AntContainer>
     {/* #endif */}
   </Page>
 );

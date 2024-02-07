@@ -1,10 +1,10 @@
 import AntButton from '../../../src/Button/index.axml';
-import Container from '../../../src/Container/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
 import { Page } from 'tsxml';
 
 export default () => (
   <Page>
-    <Container title="按钮类型" className="list">
+    <AntContainer title="按钮类型" className="list">
       <AntButton type="primary" onTap="handleTap">
         主要按钮
       </AntButton>
@@ -16,9 +16,9 @@ export default () => (
       <AntButton type="text" onTap="handleTap">
         文本按钮
       </AntButton>
-    </Container>
+    </AntContainer>
 
-    <Container title="带辅助文案按钮" className="list">
+    <AntContainer title="带辅助文案按钮" className="list">
       <AntButton type="primary" subText="副标题" onTap="handleTap">
         主要按钮
       </AntButton>
@@ -30,9 +30,9 @@ export default () => (
       <AntButton type="text" subText="副标题" onTap="handleTap">
         文本按钮
       </AntButton>
-    </Container>
+    </AntContainer>
 
-    <Container title="禁用" className="list">
+    <AntContainer title="禁用" className="list">
       <AntButton type="primary" disabled>
         主要按钮
       </AntButton>
@@ -44,9 +44,9 @@ export default () => (
       <AntButton type="text" disabled>
         文本按钮
       </AntButton>
-    </Container>
+    </AntContainer>
 
-    <Container title="加载状态" className="list">
+    <AntContainer title="加载状态" className="list">
       <AntButton type="primary" loading>
         主要按钮
       </AntButton>
@@ -58,9 +58,9 @@ export default () => (
       <AntButton type="text" loading>
         文本
       </AntButton>
-    </Container>
+    </AntContainer>
 
-    <Container title="危险" className="list">
+    <AntContainer title="危险" className="list">
       <AntButton type="primary" danger onTap="handleTap">
         主要按钮
       </AntButton>
@@ -72,6 +72,6 @@ export default () => (
       <AntButton type="text" danger onTap="handleTap">
         文本按钮
       </AntButton>
-    </Container>
+    </AntContainer>
   </Page>
 );

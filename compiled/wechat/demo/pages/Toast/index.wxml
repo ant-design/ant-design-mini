@@ -1,4 +1,4 @@
-<container title="基础使用">
+<ant-container title="基础使用">
   <ant-button
     className="button"
     inline="{{ true }}"
@@ -14,9 +14,9 @@
     bind:tap="handleShowToast">
     过长文字
   </ant-button>
-</container>
+</ant-container>
 
-<container title="带有图标">
+<ant-container title="带有图标">
   <ant-button
     className="button"
     inline="{{ true }}"
@@ -61,9 +61,9 @@
     bind:tap="handleShowToast">
     加载态
   </ant-button>
-</container>
+</ant-container>
 
-<container title="延迟关闭">
+<ant-container title="延迟关闭">
   <ant-button
     className="button"
     inline="{{ true }}"
@@ -72,7 +72,7 @@
     bind:tap="handleShowToast">
     提示持续3s
   </ant-button>
-</container>
+</ant-container>
 
 <ant-toast
   content="最少字符"

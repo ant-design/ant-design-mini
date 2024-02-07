@@ -1,4 +1,4 @@
-<container
+<ant-container
   title="自定义大小"
   className="list">
   <ant-button
@@ -25,9 +25,9 @@
     danger>
     主要按钮
   </ant-button>
-</container>
+</ant-container>
 
-<container
+<ant-container
   title="round"
   className="list">
   <ant-button
@@ -46,9 +46,9 @@
     className="round">
     主要按钮
   </ant-button>
-</container>
+</ant-container>
 
-<container
+<ant-container
   title="circle"
   className="list">
   <ant-button
@@ -75,4 +75,4 @@
     className="circle">
     A
   </ant-button>
-</container>
+</ant-container>

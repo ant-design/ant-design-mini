@@ -1,7 +1,7 @@
 import { InternalData, Page } from 'tsxml';
 import AntActionSheet from '../../../src/ActionSheet/index.axml';
 import AntButton from '../../../src/Button/index.axml';
-import Container from '../../../src/Container/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
 
 export default ({
   visible1,
@@ -12,7 +12,7 @@ export default ({
   actions3,
 }: InternalData) => (
   <Page>
-    <Container title="基础用法">
+    <AntContainer title="基础用法">
       <AntButton
         onTap="handleOpenBasic"
         inline={true}
@@ -21,8 +21,8 @@ export default ({
       >
         基础用法
       </AntButton>
-    </Container>
-    <Container title="选项状态">
+    </AntContainer>
+    <AntContainer title="选项状态">
       <AntButton
         onTap="handleOpenBasic"
         inline={true}
@@ -31,8 +31,8 @@ export default ({
       >
         危险状态&禁用状态
       </AntButton>
-    </Container>
-    <Container title="带注释及icon">
+    </AntContainer>
+    <AntContainer title="带注释及icon">
       <AntButton
         onTap="handleOpenBasic"
         inline={true}
@@ -41,7 +41,7 @@ export default ({
       >
         带注释及icon
       </AntButton>
-    </Container>
+    </AntContainer>
     <AntActionSheet
       title="请选择你要进行的操作"
       visible={visible1}

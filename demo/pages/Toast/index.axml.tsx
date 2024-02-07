@@ -1,6 +1,6 @@
 import { InternalData, Page } from 'tsxml';
 import AntButton from '../../../src/Button/index.axml';
-import Container from '../../../src/Container/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
 import AntToast from '../../../src/Toast/index.axml';
 
 export default ({
@@ -15,7 +15,7 @@ export default ({
   toast9Show,
 }: InternalData) => (
   <Page>
-    <Container title="基础使用">
+    <AntContainer title="基础使用">
       <AntButton
         className="button"
         inline={true}
@@ -33,9 +33,9 @@ export default ({
       >
         过长文字
       </AntButton>
-    </Container>
+    </AntContainer>
 
-    <Container title="带有图标">
+    <AntContainer title="带有图标">
       <AntButton
         className="button"
         inline={true}
@@ -86,9 +86,9 @@ export default ({
       >
         加载态
       </AntButton>
-    </Container>
+    </AntContainer>
 
-    <Container title="延迟关闭">
+    <AntContainer title="延迟关闭">
       <AntButton
         className="button"
         inline={true}
@@ -98,7 +98,7 @@ export default ({
       >
         提示持续3s
       </AntButton>
-    </Container>
+    </AntContainer>
 
     <AntToast
       content="最少字符"

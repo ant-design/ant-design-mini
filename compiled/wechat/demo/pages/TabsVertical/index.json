@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "Tabs",
   "usingComponents": {
-    "tabs": "../../../src/Tabs/index"
+    "ant-tabs": "../../../src/Tabs/index"
   }
 }

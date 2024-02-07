@@ -1,10 +1,10 @@
 import { Page } from 'tsxml';
 import AntButton from '../../../src/Button/index.axml';
-import Container from '../../../src/Container/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
 
 export default () => (
   <Page>
-    <Container title="icon">
+    <AntContainer title="icon">
       <AntButton type="primary" icon="SmileOutline">
         Icon
       </AntButton>
@@ -23,8 +23,8 @@ export default () => (
       <AntButton type="text" danger icon="ForbidFill">
         Icon
       </AntButton>
-    </Container>
-    <Container title="inline button">
+    </AntContainer>
+    <AntContainer title="inline button">
       <AntButton type="primary" icon="SmileOutline" inline size="large">
         Icon
       </AntButton>
@@ -34,8 +34,8 @@ export default () => (
       <AntButton type="primary" icon="SmileOutline" inline size="small">
         Icon
       </AntButton>
-    </Container>
-    <Container title="inline danger icon">
+    </AntContainer>
+    <AntContainer title="inline danger icon">
       <AntButton type="primary" icon="ForbidFill" inline danger size="large">
         Icon
       </AntButton>
@@ -45,8 +45,8 @@ export default () => (
       <AntButton type="primary" icon="ForbidFill" inline danger size="small">
         Icon
       </AntButton>
-    </Container>
-    <Container title="loading icon">
+    </AntContainer>
+    <AntContainer title="loading icon">
       <AntButton
         type="primary"
         icon="SmileOutline"
@@ -69,8 +69,8 @@ export default () => (
       <AntButton type="primary" icon="SmileOutline" onTap="handleTap" loading>
         loading
       </AntButton>
-    </Container>
-    <Container title="disabled icon">
+    </AntContainer>
+    <AntContainer title="disabled icon">
       <AntButton
         type="primary"
         icon="SmileOutline"
@@ -93,6 +93,6 @@ export default () => (
       <AntButton type="primary" icon="SmileOutline" onTap="handleTap" disabled>
         disabled
       </AntButton>
-    </Container>
+    </AntContainer>
   </Page>
 );

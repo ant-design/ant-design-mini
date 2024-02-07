@@ -1,10 +1,10 @@
 import { Page } from 'tsxml';
-import Container from '../../../src/Container/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
 import AntButton from '../../../src/Button/index.axml';
 
 export default () => (
   <Page>
-    <Container title="自定义大小" className="list">
+    <AntContainer title="自定义大小" className="list">
       <AntButton
         type="primary"
         icon="SmileOutline"
@@ -32,9 +32,9 @@ export default () => (
       >
         主要按钮
       </AntButton>
-    </Container>
+    </AntContainer>
 
-    <Container title="round" className="list">
+    <AntContainer title="round" className="list">
       <AntButton
         type="primary"
         icon="SearchOutline"
@@ -53,9 +53,9 @@ export default () => (
       >
         主要按钮
       </AntButton>
-    </Container>
+    </AntContainer>
 
-    <Container title="circle" className="list">
+    <AntContainer title="circle" className="list">
       <AntButton
         type="primary"
         icon="SearchOutline"
@@ -75,6 +75,6 @@ export default () => (
       <AntButton onTap="handleTap" inline className="circle">
         A
       </AntButton>
-    </Container>
+    </AntContainer>
   </Page>
 );
