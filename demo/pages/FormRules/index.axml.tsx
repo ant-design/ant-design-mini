@@ -1,10 +1,10 @@
 import { View, Page } from 'tsxml';
-import FormInput from '../../../src/Form/FormInput/index.axml';
+import AntFormInput from '../../../src/Form/FormInput/index.axml';
 import AntButton from '../../../src/Button/index.axml';
 
 export default () => (
   <Page>
-    <FormInput
+    <AntFormInput
       label="用户名"
       name="account"
       required
@@ -12,9 +12,9 @@ export default () => (
       ref="handleRef"
     />
 
-    <FormInput label="密码" name="password" password ref="handleRef" />
+    <AntFormInput label="密码" name="password" password ref="handleRef" />
 
-    <FormInput
+    <AntFormInput
       label="重复密码"
       name="confirm"
       password

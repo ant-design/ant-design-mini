@@ -1,8 +1,8 @@
-<form-input
+<ant-form-input
   label="用户名"
   name="username"
   bind:ref="handleRef" />
-<form-image-upload
+<ant-form-image-upload
   label="图片上传"
   name="imageList"
   onUpload="{{ onUpload ? onUpload : 'onUpload' }}"

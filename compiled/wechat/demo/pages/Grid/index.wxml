@@ -1,70 +1,70 @@
-<container title="2列">
-  <grid
+<ant-container title="2列">
+  <ant-grid
     items="{{ items2 }}"
     bind:tap="handleTapItem"
     columns="{{ 2 }}" />
-</container>
-<container title="3列">
-  <grid
+</ant-container>
+<ant-container title="3列">
+  <ant-grid
     items="{{ items3 }}"
     bind:tap="handleTapItem"
     columns="{{ 3 }}" />
-</container>
-<container title="4列">
-  <grid
+</ant-container>
+<ant-container title="4列">
+  <ant-grid
     items="{{ items4 }}"
     bind:tap="handleTapItem"
     columns="{{ 4 }}" />
-</container>
-<container title="5列">
-  <grid
+</ant-container>
+<ant-container title="5列">
+  <ant-grid
     items="{{ items5 }}"
     bind:tap="handleTapItem"
     columns="{{ 5 }}" />
-</container>
-<container title="5列-展示分割线">
-  <grid
+</ant-container>
+<ant-container title="5列-展示分割线">
+  <ant-grid
     items="{{ items5 }}"
     bind:tap="handleTapItem"
     columns="{{ 5 }}"
     showDivider />
-</container>
-<container title="2列-带描述">
-  <grid
+</ant-container>
+<ant-container title="2列-带描述">
+  <ant-grid
     items="{{ items2withDesc }}"
     bind:tap="handleTapItem"
     columns="{{ 2 }}" />
-</container>
-<container title="3列-带描述">
-  <grid
+</ant-container>
+<ant-container title="3列-带描述">
+  <ant-grid
     items="{{ items3withDesc }}"
     bind:tap="handleTapItem"
     columns="{{ 3 }}" />
-</container>
-<container title="2列-元素横向布局">
-  <grid
+</ant-container>
+<ant-container title="2列-元素横向布局">
+  <ant-grid
     items="{{ items2 }}"
     bind:tap="handleTapItem"
     columns="{{ 2 }}"
     gridItemLayout="horizontal" />
-</container>
-<container title="3列-元素横向布局">
-  <grid
+</ant-container>
+<ant-container title="3列-元素横向布局">
+  <ant-grid
     items="{{ items3 }}"
     bind:tap="handleTapItem"
     columns="{{ 3 }}"
     gridItemLayout="horizontal" />
-</container>
-<container title="可滑动">
-  <grid
+</ant-container>
+<ant-container title="可滑动">
+  <ant-grid
     items="{{ scrollItems }}"
     bind:tap="handleTapItem"
     mode="scroll" />
-</container>
-<container title="自定义图标大小">
-  <grid
+</ant-container>
+<ant-container title="自定义图标大小">
+  <ant-grid
     items="{{ itemsCustom }}"
     bind:tap="handleTapItem"
     columns="{{ 5 }}"
     iconSize="{{ 44 }}" />
-</container>
+</ant-container>

@@ -21,7 +21,7 @@
   bind:cancel="closeTour"
   bind:change="onChangeControlled" />
 
-<container
+<ant-container
   title="基础用法"
   className="list">
   <ant-button
@@ -44,4 +44,4 @@
     data-field="controlledVisible">
     受控模式
   </ant-button>
-</container>
+</ant-container>

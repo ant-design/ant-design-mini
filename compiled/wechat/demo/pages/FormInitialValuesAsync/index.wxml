@@ -1,4 +1,4 @@
-<form-input
+<ant-form-input
   label="用户名"
   name="account"
   tooltip="用户账户对应名称"
@@ -7,18 +7,18 @@
   message="需要填写用户名"
   bind:ref="handleRef" />
 
-<form-input
+<ant-form-input
   label="地址"
   name="address"
   allowClear
   bind:ref="handleRef" />
 
-<form-switch
+<ant-form-switch
   label="选择"
   name="needDelivery"
   bind:ref="handleRef" />
 
-<form-stepper
+<ant-form-stepper
   label="数量"
   name="quantity"
   bind:ref="handleRef" />

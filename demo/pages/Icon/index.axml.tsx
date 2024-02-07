@@ -1,35 +1,35 @@
-import { Page, Text, View } from 'tsxml';
-import Icon from '../../../src/Icon/index.axml';
-import Container from '../../../src/Container/index.axml';
+import { Page, View } from 'tsxml';
+import AntContainer from '../../../src/Container/index.axml';
+import AntIcon from '../../../src/Icon/index.axml';
 
 export default () => (
   <Page>
-    <Container title="基本使用">
-      <Icon type="SmileOutline" />
-      <Icon type="PayCircleOutline" />
-      <Icon type="LocationFill" />
-    </Container>
+    <AntContainer title="基本使用">
+      <AntIcon type="SmileOutline" />
+      <AntIcon type="PayCircleOutline" />
+      <AntIcon type="LocationFill" />
+    </AntContainer>
 
-    <Container title="自定义大小">
-      <Icon type="SmileOutline" style="font-size: 20px" />
-      <Icon type="SmileOutline" style="font-size: 30px" />
-      <Icon type="SmileOutline" className="custom-size" />
-    </Container>
+    <AntContainer title="自定义大小">
+      <AntIcon type="SmileOutline" style="font-size: 20px" />
+      <AntIcon type="SmileOutline" style="font-size: 30px" />
+      <AntIcon type="SmileOutline" className="custom-size" />
+    </AntContainer>
 
-    <Container title="自定义颜色">
-      <Icon type="SmileOutline" style="color: red" />
-      <Icon type="SmileOutline" className="custom-color" />
-    </Container>
+    <AntContainer title="自定义颜色">
+      <AntIcon type="SmileOutline" style="color: red" />
+      <AntIcon type="SmileOutline" className="custom-color" />
+    </AntContainer>
 
-    <Container title="更多自定义">
+    <AntContainer title="更多自定义">
       <View class="custom">
-        <Icon type="SmileOutline" />
+        <AntIcon type="SmileOutline" />
       </View>
-    </Container>
+    </AntContainer>
 
-    <Container title="点击事件">
+    <AntContainer title="点击事件">
       <View style="display:flex">
-        <Icon
+        <AntIcon
           //@ts-ignore
           onTap="handleTap"
           data-id="icon"
@@ -37,6 +37,6 @@ export default () => (
           style="font-size: 50px;"
         />
       </View>
-    </Container>
+    </AntContainer>
   </Page>
 );

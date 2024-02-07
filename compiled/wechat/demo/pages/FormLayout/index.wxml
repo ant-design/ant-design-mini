@@ -1,23 +1,23 @@
-<form-input
+<ant-form-input
   label="用户名"
   name="account"
   required
   position="{{ position }}"
   bind:ref="handleRef" />
 
-<form-input
+<ant-form-input
   label="地址"
   name="address"
   position="{{ position }}"
   bind:ref="handleRef" />
 
-<form-switch
+<ant-form-switch
   label="选择"
   name="needDelivery"
   position="{{ position }}"
   bind:ref="handleRef" />
 
-<form-stepper
+<ant-form-stepper
   label="数量"
   name="quantity"
   position="{{ position }}"

@@ -1,7 +1,7 @@
 import { InternalData, Page, View } from 'tsxml';
-import AntGuideTour from '../../../src/GuideTour/index.axml';
 import AntButton from '../../../src/Button/index.axml';
-import Container from '../../../src/Container/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
+import AntGuideTour from '../../../src/GuideTour/index.axml';
 
 export default ({
   list,
@@ -53,7 +53,7 @@ export default ({
     </AntGuideTour>
     {/* #endif */}
 
-    <Container title="基础用法" className="list">
+    <AntContainer title="基础用法" className="list">
       <AntButton onTap="openTour" data-field="baseVisible">
         单图模式
       </AntButton>
@@ -66,14 +66,14 @@ export default ({
       <AntButton onTap="openTour" data-field="controlledVisible">
         受控模式
       </AntButton>
-    </Container>
+    </AntContainer>
 
     {/* #if ALIPAY */}
-    <Container title="插槽用法" className="list">
+    <AntContainer title="插槽用法" className="list">
       <AntButton onTap="openTour" data-field="slotVisible">
         开始
       </AntButton>
-    </Container>
+    </AntContainer>
     {/* #endif */}
   </Page>
 );

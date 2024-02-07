@@ -1,12 +1,12 @@
 import { Page, View } from 'tsxml';
 import AntButton from '../../../src/Button/index.axml';
-import FormInput from '../../../src/Form/FormInput/index.axml';
+import AntFormInput from '../../../src/Form/FormInput/index.axml';
 import AntIcon from '../../../src/Icon/index.axml';
 
 export default ({ list }) => (
   <Page>
     {list.map((item, index) => (
-      <FormInput
+      <AntFormInput
         key={item.id}
         label={list[index].id}
         name={`account${list[index].id}`}
@@ -17,7 +17,7 @@ export default ({ list }) => (
         <View slot="extra" onTap="minus" data-index={index}>
           <AntIcon type="MinusCircleOutline" />
         </View>
-      </FormInput>
+      </AntFormInput>
     ))}
     <View class="buttons">
       <AntButton onTap="add" className="button">

@@ -33,7 +33,7 @@
   </view>
 </ant-guide-tour>
 
-<container
+<ant-container
   title="基础用法"
   className="list">
   <ant-button
@@ -56,9 +56,9 @@
     data-field="controlledVisible">
     受控模式
   </ant-button>
-</container>
+</ant-container>
 
-<container
+<ant-container
   title="插槽用法"
   className="list">
   <ant-button
@@ -66,4 +66,4 @@
     data-field="slotVisible">
     开始
   </ant-button>
-</container>
+</ant-container>
