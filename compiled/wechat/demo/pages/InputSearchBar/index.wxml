@@ -8,11 +8,11 @@
     allowClear
     focus
     bind:confirm="onConfirm">
-    <icon
+    <ant-icon
       slot="prefix"
       type="SearchOutline" />
 
-    <icon
+    <ant-icon
       slot="suffix"
       type="AudioOutline" />
   </ant-input>
