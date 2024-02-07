@@ -1,30 +1,30 @@
-<container title="基础用法">
+<ant-container title="基础用法">
   <block
     a:for="{{ typeList }}"
     a:for-index="index"
     a:for-item="item">
-    <notice
+    <ant-notice
       style="margin-bottom: 8px"
       type="{{ item }}">
       {{ item }}
-    </notice>
+    </ant-notice>
   </block>
-</container>
+</ant-container>
 
-<container title="可关闭通告栏">
-  <notice
+<ant-container title="可关闭通告栏">
+  <ant-notice
     onTap="handleClose"
     mode="closeable">
     这条通知可以关闭
-  </notice>
-</container>
+  </ant-notice>
+</ant-container>
 
-<container title="可滚动通告栏">
+<ant-container title="可滚动通告栏">
   <block
     a:for="{{ typeList }}"
     a:for-index="index"
     a:for-item="item">
-    <notice
+    <ant-notice
       type="{{ item }}"
       style="margin-bottom: 8px"
       enableMarquee="{{ true }}"
@@ -32,49 +32,49 @@
       onTap="handleTapLink"
       mode="link">
       文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
-    </notice>
+    </ant-notice>
   </block>
-</container>
+</ant-container>
 
-<container title="可滚动通告栏(不循环)">
+<ant-container title="可滚动通告栏(不循环)">
   <block
     a:for="{{ typeList }}"
     a:for-index="index"
     a:for-item="item">
-    <notice
+    <ant-notice
       type="{{ item }}"
       style="margin-bottom: 8px"
       enableMarquee="{{ true }}"
       onTap="handleTapLink"
       mode="link">
       文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
-    </notice>
+    </ant-notice>
   </block>
-</container>
+</ant-container>
 
-<container title="自定义通告栏">
-  <notice style="margin-bottom: 8px">
+<ant-container title="自定义通告栏">
+  <ant-notice style="margin-bottom: 8px">
     不展示图标
     <view slot="icon" />
-  </notice>
+  </ant-notice>
 
-  <notice
+  <ant-notice
     type="primary"
     icon="GlobalOutline"
     style="margin-bottom: 8px"
     mode="link">
     自定义左侧图标
-  </notice>
+  </ant-notice>
 
-  <notice
+  <ant-notice
     type="primary"
     icon="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
     style="margin-bottom: 8px"
     mode="link">
     自定义左侧图标图片
-  </notice>
+  </ant-notice>
 
-  <notice
+  <ant-notice
     mode="link"
     style="margin-bottom: 8px"
     onTap="handleTapLink">
@@ -85,5 +85,5 @@
       <view onTap="handleTapAction">不再提示</view>
       <view onTap="handleTapAction">查看详情</view>
     </view>
-  </notice>
-</container>
+  </ant-notice>
+</ant-container>
