@@ -1,76 +1,81 @@
 import { Page, View } from 'tsxml';
-import Badge from '../../../src/Badge/index.axml';
-import Container from '../../../src/Container/index.axml';
-import AmIcon from '../../../src/Icon/index.axml';
+import AntBadge from '../../../src/Badge/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
+import AntIcon from '../../../src/Icon/index.axml';
 
 export default () => (
   <Page>
-    <Container title="基本用法">
+    <AntContainer title="基本用法">
       <View class="badge-list">
-        <Badge type="dot" position="top-right">
+        <AntBadge type="dot" position="top-right">
           <View class="box" />
-        </Badge>
-        <Badge type="text" text="新" position="top-right">
+        </AntBadge>
+        <AntBadge type="text" text="新" position="top-right">
           <View class="box" />
-        </Badge>
-        <Badge type="number" text={2} position="top-right">
+        </AntBadge>
+        <AntBadge type="number" text={2} position="top-right">
           <View class="box" />
-        </Badge>
-        <Badge type="number" text={100} position="top-right">
+        </AntBadge>
+        <AntBadge type="number" text={100} position="top-right">
           <View class="box" />
-        </Badge>
-        <Badge type="bubble" text="new" position="top-right">
+        </AntBadge>
+        <AntBadge type="bubble" text="new" position="top-right">
           <View class="box" />
-        </Badge>
+        </AntBadge>
       </View>
-    </Container>
+    </AntContainer>
 
-    <Container title="带边框">
+    <AntContainer title="带边框">
       <View class="badge-list">
-        <Badge type="dot" stroke position="top-right">
+        <AntBadge type="dot" stroke position="top-right">
           <View class="box" />
-        </Badge>
-        <Badge type="text" text="新" stroke position="top-right">
+        </AntBadge>
+        <AntBadge type="text" text="新" stroke position="top-right">
           <View class="box" />
-        </Badge>
-        <Badge type="number" text={1} stroke position="top-right">
+        </AntBadge>
+        <AntBadge type="number" text={1} stroke position="top-right">
           <View class="box" />
-        </Badge>
-        <Badge type="number" text={100} stroke position="top-right">
+        </AntBadge>
+        <AntBadge type="number" text={100} stroke position="top-right">
           <View class="box" />
-        </Badge>
-        <Badge type="bubble" text="new" stroke position="top-right">
+        </AntBadge>
+        <AntBadge type="bubble" text="new" stroke position="top-right">
           <View class="box" />
-        </Badge>
+        </AntBadge>
       </View>
-    </Container>
+    </AntContainer>
 
-    <Container title="自定义背景和位置">
+    <AntContainer title="自定义背景和位置">
       <View class="badge-list">
-        <Badge type="number" text={1} position="top-left">
+        <AntBadge type="number" text={1} position="top-left">
           <View class="box" />
-        </Badge>
-        <Badge type="bubble" text="1" position="bottom-right">
+        </AntBadge>
+        <AntBadge type="bubble" text="1" position="bottom-right">
           <View class="box" />
-        </Badge>
-        <Badge type="number" text={100} stroke bgColor="#1677FF">
+        </AntBadge>
+        <AntBadge type="number" text={100} stroke bgColor="#1677FF">
           <View class="box" />
-        </Badge>
-        <Badge type="text" text="new" bgColor="#FF9F18" position="top-center">
+        </AntBadge>
+        <AntBadge
+          type="text"
+          text="new"
+          bgColor="#FF9F18"
+          position="top-center"
+        >
           <View class="box" />
-        </Badge>
-        <Badge type="bubble" text="new" stroke bgColor="#34B368">
+        </AntBadge>
+        <AntBadge type="bubble" text="new" stroke bgColor="#34B368">
           <View class="box" />
-        </Badge>
+        </AntBadge>
       </View>
-    </Container>
+    </AntContainer>
 
-    <Container title="设置偏移">
+    <AntContainer title="设置偏移">
       <View class="badge-list">
-        <Badge type="text" text="1" offsetX="-20px" offsetY="0px">
+        <AntBadge type="text" text="1" offsetX="-20px" offsetY="0px">
           <View class="box" />
-        </Badge>
-        <Badge
+        </AntBadge>
+        <AntBadge
           type="text"
           text="1"
           position="bottom-right"
@@ -78,8 +83,8 @@ export default () => (
           offsetY="-14px"
         >
           <View class="box" />
-        </Badge>
-        <Badge
+        </AntBadge>
+        <AntBadge
           type="bubble"
           text="new"
           position="top-right"
@@ -87,17 +92,17 @@ export default () => (
           offsetY="-8px"
         >
           <View class="box" />
-        </Badge>
+        </AntBadge>
       </View>
-    </Container>
+    </AntContainer>
 
-    <Container title="自定义内容">
+    <AntContainer title="自定义内容">
       <View class="badge-list">
-        <Badge type="text" position="top-right">
-          <AmIcon type="GlobalOutline" slot="text" />
+        <AntBadge type="text" position="top-right">
+          <AntIcon type="GlobalOutline" slot="text" />
           <View class="box" />
-        </Badge>
+        </AntBadge>
       </View>
-    </Container>
+    </AntContainer>
   </Page>
 );

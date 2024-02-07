@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "Collapse",
   "usingComponents": {
-    "collapse": "../../../src/Collapse/index"
+    "ant-collapse": "../../../src/Collapse/index"
   }
 }
