@@ -1,4 +1,4 @@
-<tabs
+<ant-tabs
   items="{{ items }}"
   current="{{ current }}"
   bind:change="onChange">
@@ -18,4 +18,4 @@
       </swiper-item>
     </block>
   </swiper>
-</tabs>
+</ant-tabs>

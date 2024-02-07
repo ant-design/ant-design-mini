@@ -1,9 +1,9 @@
 import { Page, View, ScrollView, InternalData } from 'tsxml';
-import Tabs from '../../../src/Tabs/index.axml';
+import AntTabs from '../../../src/Tabs/index.axml';
 
 export default ({ items, current, scrollTop }: InternalData) => (
   <Page>
-    <Tabs
+    <AntTabs
       items={items}
       current={current}
       onChange="onChange"
@@ -31,7 +31,7 @@ export default ({ items, current, scrollTop }: InternalData) => (
           </View>
         ))}
       </ScrollView>
-    </Tabs>
+    </AntTabs>
 
     <View class="footer"></View>
   </Page>
