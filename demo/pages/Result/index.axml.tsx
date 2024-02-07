@@ -1,7 +1,7 @@
-import { View, Page } from 'tsxml';
+import { Page, View } from 'tsxml';
+import Button from '../../../src/Button/index.axml';
 import Container from '../../../src/Container/index.axml';
 import Result from '../../../src/Result/index.axml';
-import Button from '../../../src/Button/index.axml';
 
 export default () => (
   <Page>

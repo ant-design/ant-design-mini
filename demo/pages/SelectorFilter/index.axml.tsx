@@ -1,4 +1,4 @@
-import { InternalData, View, Text } from 'tsxml';
+import { InternalData, View } from 'tsxml';
 import AntIcon from '../../../src/Icon/index.axml';
 import AntSelector from '../../../src/Selector/index.axml';
 
