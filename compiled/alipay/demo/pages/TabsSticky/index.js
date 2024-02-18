@@ -35,7 +35,7 @@ Page({
     async onReady() {
         this.tabsTop = (await this.getBoundingClientRect('.tabs')).top;
     },
-    onChange(current) {
+    async onChange(current) {
         this.setData({
             current,
         });

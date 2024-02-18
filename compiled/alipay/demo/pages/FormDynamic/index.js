@@ -38,9 +38,8 @@ Page({
             list,
         });
     },
-    submit() {
-        this.form.submit().then(values => {
-            console.log(values);
-        });
+    async submit() {
+        const values = await this.form.submit();
+        console.log(values);
     },
 });

@@ -29,14 +29,13 @@ Page({
     reset() {
         this.form.reset();
     },
-    submit() {
-        this.form.submit().then(values => {
-            my.alert({
-                title: '提交',
-                content: JSON.stringify(values, null, 2),
-            });
-            console.log(values);
+    async submit() {
+        const values = await this.form.submit();
+        my.alert({
+            title: '提交',
+            content: JSON.stringify(values, null, 2),
         });
+        console.log(values);
     },
     onUpload(localFile) {
         return new Promise((resolve) => {
