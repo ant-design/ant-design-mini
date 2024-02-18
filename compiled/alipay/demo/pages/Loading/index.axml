@@ -1,58 +1,58 @@
-<container
+<ant-container
   title="基础用法-spin"
   className="container">
   <view class="list">
-    <loading type="spin" />
+    <ant-loading type="spin" />
   </view>
-</container>
+</ant-container>
 
-<container
+<ant-container
   title="基础用法-mini"
   className="container">
   <view class="list">
-    <loading type="mini" />
+    <ant-loading type="mini" />
   </view>
-</container>
+</ant-container>
 
-<container
+<ant-container
   title="spin大小"
   className="container">
   <view class="list">
-    <loading
+    <ant-loading
       type="spin"
       size="x-large" />
-    <loading
+    <ant-loading
       type="spin"
       size="large" />
-    <loading
+    <ant-loading
       type="spin"
       size="medium" />
-    <loading
+    <ant-loading
       type="spin"
       size="small" />
   </view>
-</container>
+</ant-container>
 
-<container
+<ant-container
   title="自定义颜色"
   className="container">
   <view class="list">
-    <loading
+    <ant-loading
       type="mini"
       color="#1677ff" />
-    <loading color="#1677ff" />
-    <loading color="#34B368" />
-    <loading color="#ff8f1f" />
-    <loading color="#ff0000" />
+    <ant-loading color="#1677ff" />
+    <ant-loading color="#34B368" />
+    <ant-loading color="#ff8f1f" />
+    <ant-loading color="#ff0000" />
   </view>
-</container>
+</ant-container>
 
-<container
+<ant-container
   title="自定义大小"
   className="container">
   <view class="list">
-    <loading style="width: 40px; height: 40px" />
-    <loading style="width: 30px; height: 30px" />
-    <loading className="custom-size" />
+    <ant-loading style="width: 40px; height: 40px" />
+    <ant-loading style="width: 30px; height: 30px" />
+    <ant-loading className="custom-size" />
   </view>
-</container>
+</ant-container>

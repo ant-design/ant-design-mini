@@ -1,9 +1,7 @@
 {
   "defaultTitle": "Form",
   "usingComponents": {
-    "form-input": "../../../src/Form/FormInput/index",
-    "form-switch": "../../../src/Form/FormSwitch/index",
-    "form-stepper": "../../../src/Form/FormStepper/index",
+    "ant-form-input": "../../../src/Form/FormInput/index",
     "ant-button": "../../../src/Button/index",
     "ant-icon": "../../../src/Icon/index"
   }

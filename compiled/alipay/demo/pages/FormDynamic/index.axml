@@ -3,7 +3,7 @@
   a:for-index="index"
   a:for-item="item"
   a:key="{{ item.id }}">
-  <form-input
+  <ant-form-input
     label="{{ list[index].id }}"
     name="account{{ list[index].id }}"
     required
@@ -15,7 +15,7 @@
       data-index="{{ index }}">
       <ant-icon type="MinusCircleOutline" />
     </view>
-  </form-input>
+  </ant-form-input>
 </block>
 <view class="buttons">
   <ant-button

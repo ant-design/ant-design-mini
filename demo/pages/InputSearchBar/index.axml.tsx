@@ -1,6 +1,6 @@
 import { View } from 'tsxml';
 import AntInput from '../../../src/Input/index.axml';
-import Icon from '../../../src/Icon/index.axml';
+import AntIcon from '../../../src/Icon/index.axml';
 
 export default () => (
   <View class="container">
@@ -14,9 +14,9 @@ export default () => (
       focus
       onConfirm="onConfirm"
     >
-      <Icon slot="prefix" type="SearchOutline" />
+      <AntIcon slot="prefix" type="SearchOutline" />
 
-      <Icon slot="suffix" type="AudioOutline" />
+      <AntIcon slot="suffix" type="AudioOutline" />
     </AntInput>
     <View class="cancel">取消</View>
   </View>

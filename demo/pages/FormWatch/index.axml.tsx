@@ -1,10 +1,10 @@
 import { InternalData, Page, View } from 'tsxml';
-import FormInput from '../../../src/Form/FormInput/index.axml';
+import AntFormInput from '../../../src/Form/FormInput/index.axml';
 import AntButton from '../../../src/Button/index.axml';
 
 export default ({ changedValuesText, allValuesText }: InternalData) => (
   <Page>
-    <FormInput
+    <AntFormInput
       label="用户名"
       name="account"
       placeholder="请输入用户名"
@@ -12,7 +12,7 @@ export default ({ changedValuesText, allValuesText }: InternalData) => (
       ref="handleRef"
     />
 
-    <FormInput
+    <AntFormInput
       label="地址"
       name="address"
       placeholder="请输入地址"

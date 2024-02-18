@@ -1,4 +1,4 @@
-<form-input
+<ant-form-input
   label="用户名"
   name="account"
   required
@@ -18,9 +18,9 @@
       {{ item.errors }}
     </view>
   </view>
-</form-input>
+</ant-form-input>
 
-<form-input
+<ant-form-input
   label="地址"
   name="address"
   required
@@ -40,7 +40,7 @@
       {{ item.errors }}
     </view>
   </view>
-</form-input>
+</ant-form-input>
 
 <view class="buttons">
   <ant-button

@@ -1,19 +1,19 @@
 import { InternalData, Page } from 'tsxml';
-import Container from '../../../src/Container/index.axml';
-import Uploader from '../../../src/ImageUpload/index.axml';
 import AntButton from '../../../src/Button/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
+import AntUploader from '../../../src/ImageUpload/index.axml';
 
 export default ({ fileList, onUpload }: InternalData) => (
   <Page>
-    <Container title="受控模式">
-      <Uploader
+    <AntContainer title="受控模式">
+      <AntUploader
         fileList={fileList}
         onChange="onChange"
         onUpload={onUpload ? onUpload : 'onUpload'}
       />
-    </Container>
-    <Container title="手动触发上传">
-      <Uploader
+    </AntContainer>
+    <AntContainer title="手动触发上传">
+      <AntUploader
         ref="handleUploaderRef"
         fileList={fileList}
         onChange="onChange"
@@ -22,6 +22,6 @@ export default ({ fileList, onUpload }: InternalData) => (
       <AntButton size="medium" onTap="upload" type="primary">
         上传
       </AntButton>
-    </Container>
+    </AntContainer>
   </Page>
 );

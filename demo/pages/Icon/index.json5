@@ -8,7 +8,7 @@
   /// #endif
 
   "usingComponents": {
-    "icon": "../../../src/Icon/index",
-    "container": "../../../src/Container/index"
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index"
   }
 }

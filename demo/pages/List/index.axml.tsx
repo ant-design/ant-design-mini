@@ -1,57 +1,57 @@
 import { InternalData, View } from 'tsxml';
-import List from '../../../src/List/index.axml';
-import ListItem from '../../../src/List/ListItem/index.axml';
-import Icon from '../../../src/Icon/index.axml';
-import Switch from '../../../src/Switch/index.axml';
+import AntList from '../../../src/List/index.axml';
+import AntListItem from '../../../src/List/ListItem/index.axml';
+import AntIcon from '../../../src/Icon/index.axml';
+import AntSwitch from '../../../src/Switch/index.axml';
 
 export default (_, { item, radius }: InternalData) => (
   <View>
-    <List header="基础用法" radius={radius}>
-      <ListItem>1</ListItem>
-      <ListItem>2</ListItem>
-      <ListItem>3</ListItem>
-    </List>
-    <List header="可点击列表" radius={radius}>
-      <ListItem
+    <AntList header="基础用法" radius={radius}>
+      <AntListItem>1</AntListItem>
+      <AntListItem>2</AntListItem>
+      <AntListItem>3</AntListItem>
+    </AntList>
+    <AntList header="可点击列表" radius={radius}>
+      <AntListItem
         image="PayCircleOutline"
         arrow="right"
         onTap="handleTap"
         data-info="总资产"
       >
         总资产
-      </ListItem>
-      <ListItem
+      </AntListItem>
+      <AntListItem
         image="SetOutline"
         arrow="right"
         onTap="handleTap"
         data-info="设置"
       >
         设置
-      </ListItem>
-      <ListItem
+      </AntListItem>
+      <AntListItem
         image="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
         arrow="right"
         onTap="handleTap"
         data-info="图片"
       >
         图片
-      </ListItem>
-    </List>
-    <List radius={radius} header="复杂布局">
+      </AntListItem>
+    </AntList>
+    <AntList radius={radius} header="复杂布局">
       {/* #if ALIPAY */}
-      <ListItem>
+      <AntListItem>
         圆角
-        <Switch slot="extra" checked={radius} onChange="handleSetRadius" />
-      </ListItem>
+        <AntSwitch slot="extra" checked={radius} onChange="handleSetRadius" />
+      </AntListItem>
       {/* #endif */}
-      <ListItem extraBrief="未开启" arrow="right">
+      <AntListItem extraBrief="未开启" arrow="right">
         大字号模式
-      </ListItem>
-      <ListItem brief="管理已授权的产品和设备" arrow={item.arrow}>
+      </AntListItem>
+      <AntListItem brief="管理已授权的产品和设备" arrow={item.arrow}>
         授权管理
-      </ListItem>
+      </AntListItem>
       {/* #if ALIPAY */}
-      <ListItem
+      <AntListItem
         title="标题"
         brief="描述信息"
         extra="次要信息"
@@ -61,27 +61,27 @@ export default (_, { item, radius }: InternalData) => (
         arrow="right"
       >
         三行列表
-        <Icon slot="image" type="AlipaySquareFill" style="font-size: 64px" />
-      </ListItem>
+        <AntIcon slot="image" type="AlipaySquareFill" style="font-size: 64px" />
+      </AntListItem>
       {/* #endif */}
-    </List>
-    <List radius={radius} header="禁用状态">
-      <ListItem
+    </AntList>
+    <AntList radius={radius} header="禁用状态">
+      <AntListItem
         disabled
         image="UnorderedListOutline"
         arrow="right"
         data-info="账单"
       >
         账单
-      </ListItem>
-      <ListItem
+      </AntListItem>
+      <AntListItem
         disabled
         image="PayCircleOutline"
         arrow="right"
         data-info="总资产"
       >
         总资产
-      </ListItem>
-    </List>
+      </AntListItem>
+    </AntList>
   </View>
 );

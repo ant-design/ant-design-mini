@@ -1,17 +1,17 @@
-<form-input
+<ant-form-input
   label="用户名"
   name="account"
   validateStatus="error"
   help="需要填写用户名"
   bind:ref="handleRef" />
 
-<form-input
+<ant-form-input
   label="地址"
   name="address"
   help="需要填写地址"
   bind:ref="handleRef" />
 
-<form-input
+<ant-form-input
   label="水果"
   name="fruit"
   bind:ref="handleRef" />

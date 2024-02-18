@@ -1,12 +1,12 @@
 import { View, Page, InternalData } from 'tsxml';
-import FormInput from '../../../src/Form/FormInput/index.axml';
-import FormImageUpload from '../../../src/Form/FormImageUpload/index.axml';
+import AntFormInput from '../../../src/Form/FormInput/index.axml';
+import AntFormImageUpload from '../../../src/Form/FormImageUpload/index.axml';
 import AntButton from '../../../src/Button/index.axml';
 
 export default ({ onUpload }: InternalData) => (
   <Page>
-    <FormInput label="用户名" name="username" ref="handleRef" />
-    <FormImageUpload
+    <AntFormInput label="用户名" name="username" ref="handleRef" />
+    <AntFormImageUpload
       label="图片上传"
       name="imageList"
       onUpload={onUpload ? onUpload : 'onUpload'}

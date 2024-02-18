@@ -1,12 +1,12 @@
-import FormInput from '../../../src/Form/FormInput/index.axml';
-import FormSwitch from '../../../src/Form/FormSwitch/index.axml';
-import FormStepper from '../../../src/Form/FormStepper/index.axml';
+import AntFormInput from '../../../src/Form/FormInput/index.axml';
+import AntFormSwitch from '../../../src/Form/FormSwitch/index.axml';
+import AntFormStepper from '../../../src/Form/FormStepper/index.axml';
 import AntButton from '../../../src/Button/index.axml';
 import { View, Page } from 'tsxml';
 
 export default ({ position }) => (
   <Page>
-    <FormInput
+    <AntFormInput
       label="用户名"
       name="account"
       required
@@ -14,21 +14,21 @@ export default ({ position }) => (
       ref="handleRef"
     />
 
-    <FormInput
+    <AntFormInput
       label="地址"
       name="address"
       position={position}
       ref="handleRef"
     />
 
-    <FormSwitch
+    <AntFormSwitch
       label="选择"
       name="needDelivery"
       position={position}
       ref="handleRef"
     />
 
-    <FormStepper
+    <AntFormStepper
       label="数量"
       name="quantity"
       position={position}

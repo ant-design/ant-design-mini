@@ -1,6 +1,6 @@
 <!-- display: inline -->
 <text>由于微信小程序不支持 slot-scope="item", 所以暂时不支持自定义 Error</text>
-<form-input
+<ant-form-input
   label="用户名"
   name="account"
   required
@@ -20,9 +20,9 @@
       {{ item.errors }}
     </view>
   </view>
-</form-input>
+</ant-form-input>
 
-<form-input
+<ant-form-input
   label="地址"
   name="address"
   required
@@ -42,7 +42,7 @@
       {{ item.errors }}
     </view>
   </view>
-</form-input>
+</ant-form-input>
 
 <view class="buttons">
   <ant-button

@@ -1,9 +1,9 @@
 {
   "navigationBarTitleText": "List",
   "usingComponents": {
-    "list": "../../../src/List/index",
-    "list-item": "../../../src/List/ListItem/index",
-    "icon": "../../../src/Icon/index",
-    "switch": "../../../src/Switch/index"
+    "ant-list": "../../../src/List/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-switch": "../../../src/Switch/index"
   }
 }

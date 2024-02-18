@@ -1,46 +1,46 @@
 import { View, Page } from 'tsxml';
-import Loading from '../../../src/Loading/index.axml';
-import Container from '../../../src/Container/index.axml';
+import AntLoading from '../../../src/Loading/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
 
 export default () => (
   <Page>
-    <Container title="基础用法-spin" className="container">
+    <AntContainer title="基础用法-spin" className="container">
       <View class="list">
-        <Loading type="spin" />
+        <AntLoading type="spin" />
       </View>
-    </Container>
+    </AntContainer>
 
-    <Container title="基础用法-mini" className="container">
+    <AntContainer title="基础用法-mini" className="container">
       <View class="list">
-        <Loading type="mini" />
+        <AntLoading type="mini" />
       </View>
-    </Container>
+    </AntContainer>
 
-    <Container title="spin大小" className="container">
+    <AntContainer title="spin大小" className="container">
       <View class="list">
-        <Loading type="spin" size="x-large" />
-        <Loading type="spin" size="large" />
-        <Loading type="spin" size="medium" />
-        <Loading type="spin" size="small" />
+        <AntLoading type="spin" size="x-large" />
+        <AntLoading type="spin" size="large" />
+        <AntLoading type="spin" size="medium" />
+        <AntLoading type="spin" size="small" />
       </View>
-    </Container>
+    </AntContainer>
 
-    <Container title="自定义颜色" className="container">
+    <AntContainer title="自定义颜色" className="container">
       <View class="list">
-        <Loading type="mini" color="#1677ff" />
-        <Loading color="#1677ff" />
-        <Loading color="#34B368" />
-        <Loading color="#ff8f1f" />
-        <Loading color="#ff0000" />
+        <AntLoading type="mini" color="#1677ff" />
+        <AntLoading color="#1677ff" />
+        <AntLoading color="#34B368" />
+        <AntLoading color="#ff8f1f" />
+        <AntLoading color="#ff0000" />
       </View>
-    </Container>
+    </AntContainer>
 
-    <Container title="自定义大小" className="container">
+    <AntContainer title="自定义大小" className="container">
       <View class="list">
-        <Loading style="width: 40px; height: 40px;" />
-        <Loading style="width: 30px; height: 30px;" />
-        <Loading className="custom-size" />
+        <AntLoading style="width: 40px; height: 40px;" />
+        <AntLoading style="width: 30px; height: 30px;" />
+        <AntLoading className="custom-size" />
       </View>
-    </Container>
+    </AntContainer>
   </Page>
 );

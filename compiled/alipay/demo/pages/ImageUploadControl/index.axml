@@ -1,11 +1,11 @@
-<container title="受控模式">
-  <uploader
+<ant-container title="受控模式">
+  <ant-uploader
     fileList="{{ fileList }}"
     onChange="onChange"
     onUpload="{{ onUpload ? onUpload : 'onUpload' }}" />
-</container>
-<container title="手动触发上传">
-  <uploader
+</ant-container>
+<ant-container title="手动触发上传">
+  <ant-uploader
     ref="handleUploaderRef"
     fileList="{{ fileList }}"
     onChange="onChange"
@@ -16,4 +16,4 @@
     type="primary">
     上传
   </ant-button>
-</container>
+</ant-container>

@@ -8,8 +8,8 @@
   /// #endif
 
   "usingComponents": {
-    "form-input": "../../../src/Form/FormInput/index",
-    "container": "../../../src/Container/index",
+    "ant-form-input": "../../../src/Form/FormInput/index",
+    "ant-container": "../../../src/Container/index",
     "ant-button": "../../../src/Button/index"
   }
 }
