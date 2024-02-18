@@ -19,7 +19,7 @@ Page({
                         message: '需要上传图片',
                     },
                     () => ({
-                        async validator(_, fileList = []) {
+                        validator(_, fileList = []) {
                             if (fileList.length !== 3) {
                                 throw new Error('需要上传3张图片');
                             }
@@ -38,12 +38,13 @@ Page({
     reset() {
         this.form.reset();
     },
-    async submit() {
-        const values = await this.form.submit();
-        console.log(values);
-        my.alert({
-            title: '提交',
-            content: JSON.stringify(values),
+    submit() {
+        this.form.submit().then(values => {
+            console.log(values);
+            my.alert({
+                title: '提交',
+                content: JSON.stringify(values),
+            });
         });
     },
     onUpload(localFile) {

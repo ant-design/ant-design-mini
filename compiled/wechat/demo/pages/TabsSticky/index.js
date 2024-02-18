@@ -84,16 +84,11 @@ Page({
         });
     },
     onChange: function (current) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                current = current.detail;
-                this.setData({
-                    current: current,
-                });
-                this.scrollTo(Math.min(this.tabsTop, this.pageScrollTop));
-                return [2 /*return*/];
-            });
+        current = current.detail;
+        this.setData({
+            current: current,
         });
+        this.scrollTo(Math.min(this.tabsTop, this.pageScrollTop));
     },
     scrollTo: function (scrollTop) {
         if (typeof my === 'undefined') {

@@ -15,7 +15,7 @@ Page({
                         message: '需要输入确认密码',
                     },
                     (form) => ({
-                        async validator(_, value) {
+                        validator(_, value) {
                             if (!value || form.getFieldValue('password') === value) {
                                 return;
                             }
@@ -37,12 +37,13 @@ Page({
         this.form.setFieldValue('password', '1234');
         this.form.setFieldValue('confirm', '1234');
     },
-    async submit() {
-        const values = await this.form.submit();
-        my.alert({
-            title: '提交',
-            content: JSON.stringify(values),
+    submit() {
+        this.form.submit().then(values => {
+            my.alert({
+                title: '提交',
+                content: JSON.stringify(values),
+            });
+            console.log(values);
         });
-        console.log(values);
     },
 });

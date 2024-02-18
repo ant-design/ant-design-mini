@@ -33,8 +33,8 @@ Page({
         this.itemRectList = await Promise.all(this.data.items.map((item, index) => this.getBoundingClientRect(`#tab-item-${index}`)));
         this.scrollViewRect = await this.getBoundingClientRect('#scroll-view');
     },
-    async onReady() {
-        await this.updateRect();
+    onReady() {
+        this.updateRect();
     },
     onTap() {
         this.tap = true;

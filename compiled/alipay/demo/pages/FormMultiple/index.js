@@ -16,20 +16,22 @@ Page({
     reset2() {
         this.form2.reset();
     },
-    async submit() {
-        const values = await this.form.submit();
-        my.alert({
-            title: '表单1提交',
-            content: JSON.stringify(values, null, 2),
+    submit() {
+        this.form.submit().then(values => {
+            my.alert({
+                title: '表单1提交',
+                content: JSON.stringify(values, null, 2),
+            });
+            console.log(values);
         });
-        console.log(values);
     },
-    async submit2() {
-        const values = await this.form2.submit();
-        my.alert({
-            title: '表单2提交',
-            content: JSON.stringify(values, null, 2),
+    submit2() {
+        this.form.submit().then(values => {
+            my.alert({
+                title: '表单2提交',
+                content: JSON.stringify(values, null, 2),
+            });
+            console.log(values);
         });
-        console.log(values);
     },
 });
