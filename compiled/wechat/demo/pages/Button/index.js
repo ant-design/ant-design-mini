@@ -1,5 +1,5 @@
 Page({
-    handleTap: function (e) {
+    handleTap(e) {
         //@ts-ignore
         wx.showToast({
             title: '点击按钮',

@@ -7,44 +7,44 @@ Page({
         percent5: 60,
         speed1: 6
     },
-    handleAdd: function () {
-        var newPercent = this.data.percent1 + 20;
+    handleAdd() {
+        const newPercent = this.data.percent1 + 20;
         this.setData({
             percent1: Math.max(Math.min(100, newPercent), 0)
         });
     },
-    handleDelete: function () {
-        var newPercent = this.data.percent1 - 20;
+    handleDelete() {
+        const newPercent = this.data.percent1 - 20;
         this.setData({
             percent1: Math.max(Math.min(100, newPercent), 0)
         });
     },
-    handleInput1Change: function (e) {
+    handleInput1Change(e) {
         this.setData({
             percent1: +(e.detail.value)
         });
     },
-    handleInput2Change: function (e) {
+    handleInput2Change(e) {
         this.setData({
             percent2: +(e.detail.value)
         });
     },
-    handleInput3Change: function (e) {
+    handleInput3Change(e) {
         this.setData({
             percent3: +(e.detail.value)
         });
     },
-    handleInput4Change: function (e) {
+    handleInput4Change(e) {
         this.setData({
             percent4: +(e.detail.value)
         });
     },
-    handleInput5Change: function (e) {
+    handleInput5Change(e) {
         this.setData({
             speed1: +(e.detail.value)
         });
     },
-    handleInput6Change: function (e) {
+    handleInput6Change(e) {
         this.setData({
             percent5: +(e.detail.value)
         });

@@ -10,9 +10,8 @@ Page({
         toast8Show: false,
         toast9Show: false,
     },
-    handleShowToast: function (e) {
-        var _a;
-        var index = e.target.dataset.index;
+    handleShowToast(e) {
+        const { index } = e.target.dataset;
         this.setData({
             toast1Show: false,
             toast2Show: false,
@@ -22,16 +21,15 @@ Page({
             toast6Show: false,
             toast7Show: false
         });
-        this.setData((_a = {},
-            _a["toast".concat(index, "Show")] = true,
-            _a));
+        this.setData({
+            [`toast${index}Show`]: true
+        });
         console.log(this.data);
     },
-    handleCloseToast: function (e) {
-        var _a;
-        var index = e.target.dataset.index;
-        this.setData((_a = {},
-            _a["toast".concat(index, "Show")] = false,
-            _a));
+    handleCloseToast(e) {
+        const { index } = e.target.dataset;
+        this.setData({
+            [`toast${index}Show`]: false
+        });
     }
 });

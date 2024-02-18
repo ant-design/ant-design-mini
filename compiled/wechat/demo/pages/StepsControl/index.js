@@ -1,12 +1,3 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Page({
     data: {
         current: 0,
@@ -30,7 +21,7 @@ Page({
             'StarFill'
         ],
     },
-    onNextTap: function () {
+    onNextTap() {
         if (this.data.current === this.data.items.length - 1) {
             my.alert({
                 content: '完成',
@@ -41,7 +32,7 @@ Page({
             current: this.data.current + 1,
         });
     },
-    onPrevTap: function () {
+    onPrevTap() {
         if (this.data.current === 0) {
             return;
         }
@@ -49,13 +40,14 @@ Page({
             current: this.data.current - 1,
         });
     },
-    onAddTap: function () {
+    onAddTap() {
         this.setData({
-            items: __spreadArray(__spreadArray([], this.data.items, true), [
+            items: [
+                ...this.data.items,
                 {
                     title: '步骤' + this.data.items.length
                 }
-            ], false)
+            ]
         });
     }
 });

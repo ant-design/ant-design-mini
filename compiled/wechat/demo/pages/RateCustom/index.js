@@ -1,5 +1,5 @@
 Page({
-    onChange: function (value) {
+    onChange(value) {
         console.log(value);
     },
 });

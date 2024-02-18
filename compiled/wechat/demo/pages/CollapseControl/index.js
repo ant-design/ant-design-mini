@@ -1,12 +1,3 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Page({
     data: {
         current: [0],
@@ -25,38 +16,38 @@ Page({
             },
         ],
     },
-    onChange: function (current) {
+    onChange(current) {
         current = current.detail;
         this.setData({
-            current: current,
+            current,
         });
     },
-    changeContent: function () {
-        var items = __spreadArray([], this.data.items, true);
+    changeContent() {
+        const items = [...this.data.items];
         items[0].content = Math.random() + ' ' + items[0].content;
         this.setData({
-            items: items,
+            items,
         });
     },
-    addItems: function () {
-        var items = __spreadArray(__spreadArray([], this.data.items, true), [
+    addItems() {
+        const items = [
+            ...this.data.items,
             {
                 title: this.data.items.length,
                 content: 'Pariatur dolore commodo commodo elit adipisicing sunt adipisicing ex duis labore nisi sunt. Magna ut minim deserunt. Sunt velit occaecat incididunt aliqua. Dolore officia voluptate aute reprehenderit anim excepteur elit.',
             },
-        ], false);
+        ];
         this.setData({
-            items: items,
+            items,
             current: [this.data.items.length],
         });
     },
-    toggle: function () {
-        var _this = this;
+    toggle() {
         this.setData({
             current: this.data.items
-                .map(function (item, index) { return index; })
-                .filter(function (item) {
-                return _this.data.current.indexOf(item) < 0;
+                .map((item, index) => index)
+                .filter((item) => {
+                return this.data.current.indexOf(item) < 0;
             }),
         });
     },

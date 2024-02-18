@@ -70,7 +70,7 @@ Page({
         ],
         current: 0,
     },
-    handleChange: function (index) {
+    handleChange(index) {
         this.setData({ current: index.detail });
     },
 });

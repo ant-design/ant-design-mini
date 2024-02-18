@@ -38,20 +38,20 @@ Page({
             },
         ],
     },
-    onChange: function (current) {
+    onChange(current) {
         current = current.detail;
         this.alert('current ' + current);
     },
-    handleChange: function (current) {
+    handleChange(current) {
         current = current.detail;
         this.setData({
-            current: current,
+            current,
         });
     },
-    onPlus: function () {
+    onPlus() {
         this.alert('plus');
     },
-    alert: function (content) {
+    alert(content) {
         //@ts-ignore
         wx.showToast({
             title: content,

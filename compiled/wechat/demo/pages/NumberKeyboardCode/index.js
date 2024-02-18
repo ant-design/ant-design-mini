@@ -3,15 +3,15 @@ Page({
         value: '',
         visible: false,
     },
-    onCodeFocus: function () {
+    onCodeFocus() {
         this.setData({ visible: true });
     },
-    onChange: function (e) {
+    onChange(e) {
         e = e.detail;
         this.setData({ value: e });
         e.length === 4 && this.onClose();
     },
-    onClose: function () {
+    onClose() {
         this.setData({ visible: false });
     },
 });

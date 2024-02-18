@@ -11,40 +11,40 @@ Page({
             new Date('2022/03/21').getTime(),
             new Date('2022/05/20').getTime(),
         ],
-        handleFormatLabel: function (type, value) {
+        handleFormatLabel(type, value) {
             return String(value);
         },
     },
-    handleControlledRangeOk: function (value) {
+    handleControlledRangeOk(value) {
         console.log('handleControlledRangeOk');
         console.log(value);
         this.setData({
             // 微信只支持传递时间戳
-            controlledDateRange: value.detail[0].map(function (o) { return o.getTime(); }),
+            controlledDateRange: value.detail[0].map((o) => o.getTime()),
         });
     },
-    handlePickerChange: function (date, dateStr, e) {
+    handlePickerChange(date, dateStr, e) {
         console.log('onPickerChange', date, dateStr, e);
     },
-    handleOk: function (date, format, e) {
+    handleOk(date, format, e) {
         console.log('onOk', date, format, e);
     },
-    handlePickerRangeChange: function (type, date, dateStr, e) {
+    handlePickerRangeChange(type, date, dateStr, e) {
         console.log('onPickerRangeChange', type, date, dateStr, e);
     },
-    handleRangeOk: function (date, format, e) {
+    handleRangeOk(date, format, e) {
         console.log('onRangeOk', date, format, e);
     },
-    handleChangeDate: function () {
+    handleChangeDate() {
         this.setData({ defaultDate: new Date('2019/05/02').getTime() });
     },
-    handleTriggerPicker: function (visible, e) {
+    handleTriggerPicker(visible, e) {
         console.log('onVisibleChange', visible, e);
     },
-    handleDismiss: function (e) {
+    handleDismiss(e) {
         console.log('e', e);
     },
-    handleFormatLabel: function (type, value) {
+    handleFormatLabel(type, value) {
         return String(value);
     },
 });

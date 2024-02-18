@@ -21,17 +21,17 @@ Page({
         ],
         swipeIndex: -1,
     },
-    onSwipeStart: function () {
+    onSwipeStart() {
         this.setData({ swipeIndex: '' });
     },
-    onSwipeEnd: function (args1, args2) {
-        var e, data;
+    onSwipeEnd(args1, args2) {
+        let e, data;
         e = args1;
         data = args1.detail;
-        var index = e.target.dataset.item.index;
+        const { index } = e.target.dataset.item;
         data.swiped && this.setData({ swipeIndex: index });
     },
-    onButtonTap: function (data, e) {
+    onButtonTap(data, e) {
         console.log(data, e);
     },
 });

@@ -20,18 +20,18 @@ Page({
         ],
         value: '1',
     },
-    handleChangeValue: function () {
+    handleChangeValue() {
         this.setData({
             value: '3',
         });
     },
-    handleChange: function (value, items, e) {
+    handleChange(value, items, e) {
         this.setData({
             value: value.detail[0],
         });
         console.log(value, items, e);
     },
-    onSelectMin: function (value, item) {
+    onSelectMin(value, item) {
         console.log(value, item);
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
@@ -39,7 +39,7 @@ Page({
             content: '不允许清空',
         });
     },
-    onSelectMax: function () {
+    onSelectMax() {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         wx.showModal({

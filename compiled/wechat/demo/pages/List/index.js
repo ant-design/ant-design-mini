@@ -2,10 +2,10 @@ Page({
     data: {
         radius: false,
     },
-    handleTap: function (e) {
+    handleTap(e) {
         console.log(e);
     },
-    handleSetRadius: function (checked) {
+    handleSetRadius(checked) {
         this.setData({
             radius: checked,
         });

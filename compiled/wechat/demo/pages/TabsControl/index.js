@@ -1,75 +1,66 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Page({
     data: {
         current: 0,
         items: [],
     },
-    onLoad: function () {
-        var items = new Array(3).fill(null).map(function (_, index) {
+    onLoad() {
+        const items = new Array(3).fill(null).map((_, index) => {
             return {
-                title: "Tab ".concat(index),
-                content: "Content of tab ".concat(index),
+                title: `Tab ${index}`,
+                content: `Content of tab ${index}`,
             };
         });
         this.setData({
-            items: items,
+            items,
         });
     },
-    onChange: function (current) {
+    onChange(current) {
         current = current.detail;
         this.setData({
-            current: current,
+            current,
         });
     },
-    onPrevTap: function () {
+    onPrevTap() {
         if (this.data.items.length === 0) {
             return;
         }
-        var current = this.data.current === 0
+        const current = this.data.current === 0
             ? this.data.items.length - 1
             : this.data.current - 1;
         this.setData({
-            current: current,
+            current,
         });
     },
-    onNextTap: function () {
+    onNextTap() {
         if (this.data.items.length === 0) {
             return;
         }
-        var current = this.data.current >= this.data.items.length - 1
+        const current = this.data.current >= this.data.items.length - 1
             ? 0
             : this.data.current + 1;
         this.setData({
-            current: current,
+            current,
         });
     },
-    onAddTap: function () {
-        var items = __spreadArray([], this.data.items, true);
+    onAddTap() {
+        const items = [...this.data.items];
         items.push({
-            title: "Tab ".concat(items.length),
-            content: "Content of tab ".concat(items.length),
+            title: `Tab ${items.length}`,
+            content: `Content of tab ${items.length}`,
         });
         this.setData({
-            items: items,
+            items,
             current: items.length - 1,
         });
     },
-    onMinusTap: function () {
+    onMinusTap() {
         if (this.data.items.length === 1) {
             return;
         }
-        var items = __spreadArray([], this.data.items, true);
+        const items = [...this.data.items];
         items.splice(items.length - 1, 1);
         this.setData({
-            items: items,
+            items,
             current: Math.min(this.data.current, items.length - 1),
         });
     },

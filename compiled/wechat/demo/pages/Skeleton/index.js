@@ -5,7 +5,7 @@ Page({
             rows: 4,
         },
     },
-    handleToggleShowLoading: function () {
+    handleToggleShowLoading() {
         this.setData({ showLoading: !this.data.showLoading });
     },
 });

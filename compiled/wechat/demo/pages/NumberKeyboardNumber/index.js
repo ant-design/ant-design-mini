@@ -3,14 +3,14 @@ Page({
         value: '',
         visible: false,
     },
-    onNumberFocus: function () {
+    onNumberFocus() {
         this.setData({ visible: true });
     },
-    onChange: function (e) {
+    onChange(e) {
         e = e.detail;
         this.setData({ value: e ? parseFloat(e) : '' });
     },
-    onClose: function () {
+    onClose() {
         this.setData({ visible: false });
     },
 });

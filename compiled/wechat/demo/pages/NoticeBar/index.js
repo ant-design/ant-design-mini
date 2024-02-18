@@ -2,16 +2,16 @@ Page({
     data: {
         typeList: ['default', 'error', 'info', 'primary'],
     },
-    handleTapAction: function () {
+    handleTapAction() {
         this.showToast('点击按钮');
     },
-    handleTapLink: function () {
+    handleTapLink() {
         this.showToast('link 类型被点击了');
     },
-    handleClose: function () {
+    handleClose() {
         this.showToast('点击关闭');
     },
-    showToast: function (content) {
+    showToast(content) {
         //@ts-ignore
         wx.showToast({
             title: content,

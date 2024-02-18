@@ -15,7 +15,7 @@ Page({
             },
         ]
     },
-    onChange: function (current) {
+    onChange(current) {
         console.log(current);
     }
 });

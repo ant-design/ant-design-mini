@@ -1,5 +1,5 @@
 function onRemove(file) {
-    return new Promise(function (resolve) {
+    return new Promise((resolve) => {
         console.log('即将移除的图片为：', file);
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
@@ -27,27 +27,27 @@ Page({
                 status: 'done',
             },
         ],
-        onRemove: onRemove,
-        onUpload: function (file) {
-            return new Promise(function (resolve) {
+        onRemove,
+        onUpload(file) {
+            return new Promise((resolve) => {
                 console.log('上传的图片为：', file);
-                setTimeout(function () {
+                setTimeout(() => {
                     resolve('https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ');
                 }, 2000);
             });
         },
-        onBeforeUpload: function (localFileList) {
+        onBeforeUpload(localFileList) {
             console.log('即将上传的图片列表为：', localFileList);
-            localFileList = localFileList.filter(function (item) { return item.size < 10000; });
+            localFileList = localFileList.filter((item) => item.size < 10000);
             console.log('修改上传的图片列表为：', localFileList);
             return localFileList;
         },
     },
-    onChange: function (fileList) {
+    onChange(fileList) {
         // 这里的数据包括上传失败和成功的图片列表，如果需要筛选出上传成功的图片需要在此处理
         console.log('图片列表：', fileList);
     },
-    onPreview: function (file) {
+    onPreview(file) {
         console.log('preview', file);
     },
 });

@@ -2,34 +2,34 @@
 import { componentList, allComponents } from '../../utils/constants';
 Page({
     data: {
-        componentList: componentList,
+        componentList,
         finding: false,
         searchResult: [],
     },
-    onShow: function () {
+    onShow() {
         this.setData({
             finding: false,
             searchResult: [],
         });
     },
-    onClearSearch: function () {
+    onClearSearch() {
         this.setData({
             finding: false,
             searchResult: [],
         });
     },
-    onSearch: function (e) {
+    onSearch(e) {
         e = e.detail;
         if (e.length > 0) {
-            var result_1 = [];
-            allComponents.forEach(function (searchKey) {
+            const result = [];
+            allComponents.forEach((searchKey) => {
                 if (searchKey.name.toLowerCase().match(e)) {
-                    result_1.push(searchKey);
+                    result.push(searchKey);
                 }
             });
             this.setData({
                 finding: true,
-                searchResult: result_1,
+                searchResult: result,
             });
         }
         else {
@@ -39,7 +39,7 @@ Page({
             });
         }
     },
-    listPress: function (e) {
+    listPress(e) {
         console.log('11');
         if (typeof my === 'undefined') {
             console.log('navigateTo', e.currentTarget.dataset.url);
