@@ -4,15 +4,15 @@ Page({
         value: '',
         money: '',
     },
-    onChange: function (value, e) {
+    onChange(value, e) {
         console.log(value, e);
     },
-    handleChange: function (value) {
+    handleChange(value) {
         this.setData({
             value: resolveEventValue(value),
         });
     },
-    handleMoney: function (value) {
+    handleMoney(value) {
         console.log(value);
         if (isNaN(Number(resolveEventValue(value)))) {
             return;
@@ -21,15 +21,15 @@ Page({
             money: resolveEventValue(value),
         });
     },
-    clear: function () {
+    clear() {
         this.setData({
             value: '',
         });
     },
-    handleRef: function (input) {
+    handleRef(input) {
         this.input = resolveEventValue(input);
     },
-    clearByInputRef: function () {
+    clearByInputRef() {
         this.input.update('');
     },
 });

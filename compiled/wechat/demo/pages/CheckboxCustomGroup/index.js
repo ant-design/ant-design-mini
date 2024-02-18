@@ -38,16 +38,16 @@ Page({
         ],
         value: [],
     },
-    onChange: function (checked, e) {
-        var value = this.data.value;
-        var event = checked;
+    onChange(checked, e) {
+        let value = this.data.value;
+        const event = checked;
         if (event.detail) {
             value = value.concat(event.target.dataset.value);
         }
         else {
-            value = value.filter(function (v) { return v !== event.target.dataset.value; });
+            value = value.filter((v) => v !== event.target.dataset.value);
         }
-        this.setData({ value: value });
+        this.setData({ value });
         console.log(value);
     },
 });

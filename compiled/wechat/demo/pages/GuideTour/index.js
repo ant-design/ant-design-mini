@@ -25,20 +25,19 @@ Page({
             },
         ],
     },
-    onChange: function (index) {
+    onChange(index) {
         console.log('index', index);
     },
-    onChangeControlled: function (index) {
+    onChangeControlled(index) {
         this.setData({ current: index });
     },
-    openTour: function (e) {
-        var _a;
-        this.setData((_a = {},
-            _a[e.target.dataset.field] = true,
-            _a.current = 0,
-            _a));
+    openTour(e) {
+        this.setData({
+            [e.target.dataset.field]: true,
+            current: 0,
+        });
     },
-    closeTour: function () {
+    closeTour() {
         this.setData({
             baseVisible: false,
             moreVisible: false,

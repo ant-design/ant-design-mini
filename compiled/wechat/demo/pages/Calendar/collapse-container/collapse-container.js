@@ -1,13 +1,13 @@
 import { useEvent, useState } from 'functional-mini/component';
 import { mountComponent } from '../../../../src/_util/component';
-var CollapseContainer = function (props) {
+const CollapseContainer = (props) => {
     var _a;
-    var _b = useState((_a = props.defaultCollapse) !== null && _a !== void 0 ? _a : true), collapse = _b[0], setCollapse = _b[1];
-    useEvent('handleToggle', function () {
-        setCollapse(function (v) { return !v; });
+    const [collapse, setCollapse] = useState((_a = props.defaultCollapse) !== null && _a !== void 0 ? _a : true);
+    useEvent('handleToggle', () => {
+        setCollapse((v) => !v);
     });
     return {
-        collapse: collapse,
+        collapse,
         internalHide: props.hide,
         containerTitle: props.title,
     };

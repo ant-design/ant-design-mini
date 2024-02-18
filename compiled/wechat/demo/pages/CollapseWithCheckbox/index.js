@@ -1,13 +1,4 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-var items = [
+const items = [
     {
         title: '第一项',
         content: 'Pariatur dolore commodo commodo elit adipisicing sunt adipisicing ex duis labore nisi sunt. Magna ut minim deserunt. Sunt velit occaecat incididunt aliqua. Dolore officia voluptate aute reprehenderit anim excepteur elit.',
@@ -24,18 +15,18 @@ var items = [
 ];
 Page({
     data: {
-        checkboxList: items.map(function (item) { return false; }),
-        items: items,
+        checkboxList: items.map((item) => false),
+        items,
     },
-    onChange: function (checked, e) {
-        var index = e.currentTarget.dataset.index;
-        var checkboxList = __spreadArray([], this.data.checkboxList, true);
+    onChange(checked, e) {
+        const { index } = e.currentTarget.dataset;
+        const checkboxList = [...this.data.checkboxList];
         checkboxList[index] = checked;
         this.setData({
-            checkboxList: checkboxList,
+            checkboxList,
         });
     },
-    onTap: function () {
+    onTap() {
         my.alert({
             content: this.data.checkboxList,
         });

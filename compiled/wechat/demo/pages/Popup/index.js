@@ -6,27 +6,27 @@ Page({
         scrollVisible: false,
         closeVisible: false,
     },
-    handlePopupClose: function () {
+    handlePopupClose() {
         this.setData({
             basicVisible: false,
             scrollVisible: false,
             closeVisible: false,
         });
     },
-    handleShowBasic: function (e) {
-        var position = e.target.dataset.position;
+    handleShowBasic(e) {
+        const { position } = e.target.dataset;
         this.setData({
-            position: position,
+            position,
             basicVisible: true,
         });
     },
-    handleShowScroll: function () {
+    handleShowScroll() {
         this.setData({ scrollVisible: true });
     },
-    handleChangeAnimation: function (checked) {
+    handleChangeAnimation(checked) {
         this.setData({ animation: checked.detail });
     },
-    handleShowClose: function () {
+    handleShowClose() {
         this.setData({ closeVisible: true });
     },
 });

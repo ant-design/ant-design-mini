@@ -5,38 +5,38 @@ Page({
         visible2: false,
         visible3: false,
     },
-    onInputChange: function (value) {
+    onInputChange(value) {
         value = value.detail;
-        this.setData({ value: value });
+        this.setData({ value });
     },
     // 默认键盘
-    onTap: function () {
+    onTap() {
         this.setData({ visible: true });
     },
     // 关闭键盘
-    onClose: function () {
+    onClose() {
         this.setData({ visible: false });
     },
     // 不带蒙层
-    onTap2: function () {
+    onTap2() {
         this.setData({ visible2: true });
     },
-    onClose2: function () {
+    onClose2() {
         this.setData({ visible2: false });
     },
     // 监听各种事件
-    onTap3: function () {
+    onTap3() {
         this.setData({ visible3: true });
     },
-    onClose3: function () {
+    onClose3() {
         this.setData({ visible3: false });
     },
-    onChange: function (value) {
+    onChange(value) {
         value = value.detail;
-        var curValue = this.data.value;
+        const curValue = this.data.value;
         this.setData({ value: curValue + value });
     },
-    onKeyBoardError: function (err) {
+    onKeyBoardError(err) {
         err = err.detail;
         my.showToast({ content: 'onError ' + err.toString() });
     },

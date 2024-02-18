@@ -3,15 +3,15 @@ Page({
         value: '',
         money: '',
     },
-    onChange: function (value, e) {
+    onChange(value, e) {
         console.log(value, e);
     },
-    handleChange: function (value) {
+    handleChange(value) {
         this.setData({
-            value: value,
+            value,
         });
     },
-    handleMoney: function (value) {
+    handleMoney(value) {
         console.log(value);
         if (isNaN(Number(value))) {
             return;
@@ -20,15 +20,15 @@ Page({
             money: value,
         });
     },
-    clear: function () {
+    clear() {
         this.setData({
             value: '',
         });
     },
-    handleRef: function (input) {
+    handleRef(input) {
         this.input = input;
     },
-    clearByInputRef: function () {
+    clearByInputRef() {
         this.input.update('');
     }
 });

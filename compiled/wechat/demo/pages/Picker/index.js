@@ -4,8 +4,8 @@ Page({
         defaultValue: '上海',
         value: '上海',
         list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
-        formatTime: function (value, column) {
-            return column.map(function (c) { return c && c.label; }).join('');
+        formatTime: (value, column) => {
+            return column.map((c) => c && c.label).join('');
         },
         weekList: [
             {
@@ -64,42 +64,42 @@ Page({
             ],
         ],
     },
-    handleDismissPicker: function (e) {
+    handleDismissPicker(e) {
     },
-    handleClearControlled: function () {
+    handleClearControlled() {
         this.setData({
             value: '',
         });
     },
-    handleChangeControlled: function () {
+    handleChangeControlled() {
         this.setData({
             value: '深圳',
         });
     },
-    handleControlledOk: function (value) {
+    handleControlledOk(value) {
         this.setData({
-            value: value,
+            value,
         });
     },
-    handleOk: function (value, column, e) {
+    handleOk(value, column, e) {
         console.log('onOk value', value, 'onOk  column', column, e);
     },
-    handleChange: function (value, column, e) {
+    handleChange(value, column, e) {
         console.log('onChange value', value, 'onChange  column', column, e);
     },
-    handleOnOk: function (value, column) {
+    handleOnOk(value, column) {
         console.log('value', value, 'column', column);
     },
-    handleTriggerPicker: function (visible, e) {
+    handleTriggerPicker(visible, e) {
         console.log('onVisibleChange', visible, e);
     },
-    handleTriggerControlledPicker: function (visible, e) {
+    handleTriggerControlledPicker(visible, e) {
         console.log('handleTriggerControlledPicker', visible);
         this.setData({
             pickerVisible: visible.detail,
         });
     },
-    handleOpenPicker: function () {
+    handleOpenPicker() {
         this.setData({
             pickerVisible: true,
         });

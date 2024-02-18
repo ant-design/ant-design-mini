@@ -1,5 +1,5 @@
 Page({
-    handleTap: function (e) {
+    handleTap(e) {
         console.log(e);
     },
 });

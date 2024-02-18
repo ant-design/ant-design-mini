@@ -1,13 +1,4 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-export var componentList = [
+export const componentList = [
     {
         type: '通用',
         list: [
@@ -449,4 +440,4 @@ export var componentList = [
         ],
     },
 ];
-export var allComponents = componentList.reduce(function (re, v) { return __spreadArray(__spreadArray([], re, true), v.list, true); }, []);
+export const allComponents = componentList.reduce((re, v) => [...re, ...v.list], []);

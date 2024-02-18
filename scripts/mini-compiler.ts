@@ -328,7 +328,7 @@ export async function compileAntdMini(watch: boolean) {
   });
 
   miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
+    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.demo.json'),
     source: resolve(__dirname, '..', 'demo'),
     dest: resolve(__dirname, '..', 'compiled', 'wechat', 'demo'),
     watch,

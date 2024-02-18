@@ -118,12 +118,12 @@ Page({
             },
         ],
     },
-    onLoad: function () {
+    onLoad() {
         this.setData({
             scrollItems: this.data.items4.concat(this.data.items4),
         });
     },
-    handleTapItem: function (item) {
+    handleTapItem(item) {
         //@ts-ignore
         wx.showToast({
             title: '点击',

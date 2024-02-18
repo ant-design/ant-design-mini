@@ -2,15 +2,15 @@ Page({
     data: {
         items: [],
     },
-    onLoad: function () {
-        var items = new Array(30).fill(null).map(function (_, index) {
+    onLoad() {
+        const items = new Array(30).fill(null).map((_, index) => {
             return {
-                title: "Tab ".concat(index),
+                title: `Tab ${index}`,
                 subTitle: "描述文案",
             };
         });
         this.setData({
-            items: items,
+            items,
         });
     },
 });

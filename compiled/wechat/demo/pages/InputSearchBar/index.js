@@ -1,8 +1,8 @@
 Page({
-    onChange: function (value, e) {
+    onChange(value, e) {
         console.log(value, e);
     },
-    onConfirm: function (value) {
+    onConfirm(value) {
         my.alert({
             content: value,
         });

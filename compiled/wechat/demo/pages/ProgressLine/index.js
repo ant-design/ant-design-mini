@@ -5,34 +5,34 @@ Page({
         progress3: 50,
         progress4: 50,
     },
-    handleAdd: function () {
-        var progress1 = this.data.progress1 + 20;
+    handleAdd() {
+        const progress1 = this.data.progress1 + 20;
         this.setData({
             progress1: Math.max(Math.min(progress1, 100), 0)
         });
     },
-    handleDelete: function () {
-        var progress1 = this.data.progress1 - 20;
+    handleDelete() {
+        const progress1 = this.data.progress1 - 20;
         this.setData({
             progress1: Math.max(Math.min(progress1, 100), 0)
         });
     },
-    handleInputChange1: function (num) {
+    handleInputChange1(num) {
         this.setData({
             progress1: +num
         });
     },
-    handleInputChange2: function (num) {
+    handleInputChange2(num) {
         this.setData({
             progress2: +num
         });
     },
-    handleInputChange3: function (num) {
+    handleInputChange3(num) {
         this.setData({
             progress3: +num
         });
     },
-    handleInputChange4: function (num) {
+    handleInputChange4(num) {
         this.setData({
             progress4: +num
         });

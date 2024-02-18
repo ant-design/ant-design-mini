@@ -50,25 +50,23 @@ Page({
             },
         ],
     },
-    handleOpenBasic: function (e) {
-        var _a;
-        var index = e.currentTarget.dataset.index;
-        this.setData((_a = {},
-            _a["visible".concat(index)] = true,
-            _a));
+    handleOpenBasic(e) {
+        const { index } = e.currentTarget.dataset;
+        this.setData({
+            [`visible${index}`]: true,
+        });
     },
-    handleCloseBasic: function (e) {
-        var _a;
-        var index = e.currentTarget.dataset.index;
-        this.setData((_a = {},
-            _a["visible".concat(index)] = false,
-            _a));
+    handleCloseBasic(e) {
+        const { index } = e.currentTarget.dataset;
+        this.setData({
+            [`visible${index}`]: false,
+        });
     },
-    handleAction: function (item, index, e) {
-        var _a = item.detail, clickItem = _a[0], clickIndex = _a[1];
+    handleAction(item, index, e) {
+        const [clickItem, clickIndex] = item.detail;
         //@ts-ignore
         wx.showToast({
-            title: "\u4F60\u70B9\u51FB\u4E86".concat(clickItem.key, "(").concat(clickIndex, ")"),
+            title: `你点击了${clickItem.key}(${clickIndex})`,
         });
     },
 });
