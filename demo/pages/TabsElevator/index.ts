@@ -43,8 +43,8 @@ Page({
     );
     this.scrollViewRect = await this.getBoundingClientRect('#scroll-view');
   },
-  onReady() {
-    this.updateRect();
+  async onReady() {
+    await this.updateRect();
   },
   onTap() {
     this.tap = true;

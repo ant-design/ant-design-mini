@@ -48,26 +48,24 @@ Page({
   reset2() {
     this.form2.reset();
   },
-  submit() {
-    this.form.submit().then(values => {
-      /// #if ALIPAY
-      my.alert({
-        title: '表单1提交',
-        content: JSON.stringify(values, null, 2),
-      });
-      /// #endif
-      console.log(values);
+  async submit() {
+    const values = await this.form.submit();
+    /// #if ALIPAY
+    my.alert({
+      title: '表单1提交',
+      content: JSON.stringify(values, null, 2),
     });
+    /// #endif
+    console.log(values);
   },
-  submit2() {
-    this.form.submit().then(values => {
-      /// #if ALIPAY
-      my.alert({
-        title: '表单2提交',
-        content: JSON.stringify(values, null, 2),
-      });
-      /// #endif
-      console.log(values);
+  async submit2() {
+    const values = await this.form2.submit();
+    /// #if ALIPAY
+    my.alert({
+      title: '表单2提交',
+      content: JSON.stringify(values, null, 2),
     });
+    /// #endif
+    console.log(values);
   },
 });

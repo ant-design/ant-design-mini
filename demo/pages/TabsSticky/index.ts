@@ -41,7 +41,7 @@ Page({
   async onReady() {
     this.tabsTop = (await this.getBoundingClientRect('.tabs')).top;
   },
-  onChange(current) {
+  async onChange(current) {
     /// #if WECHAT
     current = current.detail;
     /// #endif

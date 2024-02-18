@@ -16,7 +16,7 @@ Page({
             message: '需要输入确认密码',
           },
           (form) => ({
-            validator(_, value) {
+            async validator(_, value) {
               if (!value || form.getFieldValue('password') === value) {
                 return;
               }
@@ -54,17 +54,16 @@ Page({
     this.form.setFieldValue('password', '1234');
     this.form.setFieldValue('confirm', '1234');
   },
-  submit() {
-    this.form.submit().then(values => {
+  async submit() {
+    const values = await this.form.submit();
 
-      /// #if ALIPAY
-      my.alert({
-        title: '提交',
-        content: JSON.stringify(values),
-      });
-      /// #endif    
-
-      console.log(values);
+    /// #if ALIPAY
+    my.alert({
+      title: '提交',
+      content: JSON.stringify(values),
     });
+    /// #endif
+
+    console.log(values);
   },
 });

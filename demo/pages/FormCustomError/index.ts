@@ -26,15 +26,14 @@ Page({
   reset() {
     this.form.reset();
   },
-  submit() {
-    this.form.submit().then(values => {
-      /// #if ALIPAY
-      my.alert({
-        title: '提交',
-        content: JSON.stringify(values),
-      });
-      /// #endif
-      console.log(values);
+  async submit() {
+    const values = await this.form.submit();
+    /// #if ALIPAY
+    my.alert({
+      title: '提交',
+      content: JSON.stringify(values),
     });
+    /// #endif
+    console.log(values);
   },
 });
