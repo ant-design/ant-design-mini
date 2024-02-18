@@ -58,15 +58,16 @@ Page({
   reset() {
     this.form.reset();
   },
-  async submit() {
-    const values = await this.form.submit();
-    /// #if ALIPAY
-    my.alert({
-      title: '提交',
-      content: JSON.stringify(values, null, 2),
+  submit() {
+    this.form.submit().then(values => {
+      /// #if ALIPAY
+      my.alert({
+        title: '提交',
+        content: JSON.stringify(values, null, 2),
+      });
+      /// #endif
+      console.log(values);
     });
-    /// #endif
-    console.log(values);
   },
   /// #if ALIPAY
   onUpload(localFile) {

@@ -18,8 +18,8 @@ Page({
     );
     this.scrollViewRect = await this.getBoundingClientRect('#scroll-view');
   },
-  async onReady() {
-    await this.updateRect();
+  onReady() {
+    this.updateRect();
   },
   onChange(current) {
     /// #if WECHAT
