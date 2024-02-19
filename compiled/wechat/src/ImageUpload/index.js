@@ -254,6 +254,12 @@ var ImageUpload = function (props) {
         var file = fileList.find(function (item) { return item.uid === uid; });
         triggerEvent('preview', file);
     });
+    useEvent('update', function (e) {
+        if (isControlled) {
+            return;
+        }
+        update(e);
+    });
     return {
         mixin: {
             value: fileList,

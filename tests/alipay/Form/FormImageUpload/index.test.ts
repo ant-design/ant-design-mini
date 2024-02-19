@@ -1,6 +1,6 @@
 import { FromItemRef } from 'compiled-alipay/Form/form';
 import { FormImageUploadProps } from 'compiled-alipay/Form/FormImageUpload/props';
-import { getInstance } from 'tests/utils';
+import { getInstance, sleep } from 'tests/utils';
 import { describe, expect, it, vi } from 'vitest';
 import { createForm } from '../utils';
 
@@ -60,10 +60,14 @@ describe('FormImageUpload', () => {
   });
 
   describe('测试事件', () => {
-    it('测试 onChange 事件', () => {
+    it('测试 onChange 事件', async () => {
       const { instance, onChange } = createFormImageUpload({});
       const TestValue = ['image1.png', 'image2.png'];
-
+      const updateFn = vi.fn();
+      instance.callMethod('handleRef', {
+        update: updateFn,
+      });
+      await sleep(20);
       instance.callMethod('onChange', TestValue);
       expect(onChange).toHaveBeenCalledTimes(1);
       expect(onChange.mock.calls[0]).toEqual([
@@ -84,6 +88,8 @@ describe('FormImageUpload', () => {
           },
         },
       ]);
+      await sleep(10);
+      expect(updateFn).toBeCalled();
     });
 
     it('测试 onUpload 事件', () => {

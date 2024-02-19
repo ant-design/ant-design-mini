@@ -41,7 +41,8 @@ export default (
       help={help}
     >
       <ImageUpload
-        fileList={formData.value}
+        ref="handleRef"
+        defaultFileList={formData.value}
         maxCount={maxCount}
         imageMode={imageMode}
         sourceType={sourceType}

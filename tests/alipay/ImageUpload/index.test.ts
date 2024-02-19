@@ -147,6 +147,29 @@ describe('ImageUpload', () => {
     expect(err.message).toEqual('need props onUpload');
   });
 
+  it('需要支持通过 update 更新数据', async () => {
+    const instance = getInstance('ImageUpload', {}, {});
+    await instance.callMethod('update', [
+      {
+        path: '2',
+        size: 2,
+        status: 'done',
+        uid: 'string',
+        url: 'path-2-size-2',
+      },
+    ]);
+    await sleep(20);
+    expect(instance.getData().mixin.value).toEqual([
+      {
+        'path': '2',
+        'size': 2,
+        'status': 'done',
+        'uid': 'string',
+        'url': 'path-2-size-2',
+      },
+    ]);
+  });
+
   it('测试 onRemove 返回 false', async () => {
     const { instance, onRemove } = createImageUpload();
     onRemove.mockImplementation(() => false);
