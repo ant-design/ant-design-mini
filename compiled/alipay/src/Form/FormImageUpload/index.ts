@@ -6,7 +6,7 @@ import { useFormItem } from '../use-form-item';
 import { FormImageUploadDefaultProps, FormImageUploadProps } from './props';
 
 interface ImageUploadRef {
-  update(value: string);
+  update(value: FormImageUploadProps['fileList']);
 }
 
 const FormImageUpload = (props: FormImageUploadProps) => {
