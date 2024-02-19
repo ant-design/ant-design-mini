@@ -11,7 +11,8 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <image-upload
-    fileList="{{ formData.value }}"
+    ref="handleRef"
+    defaultFileList="{{ formData.value }}"
     maxCount="{{ maxCount }}"
     imageMode="{{ imageMode }}"
     sourceType="{{ sourceType }}"

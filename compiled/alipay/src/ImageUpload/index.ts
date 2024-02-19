@@ -177,6 +177,13 @@ const ImageUpload = (props: IUploaderProps) => {
     triggerEvent('preview', file);
   });
 
+  useEvent('update', (e) => {
+    if (isControlled) {
+      return;
+    }
+    update(e);
+  });
+
   return {
     mixin: {
       value: fileList,

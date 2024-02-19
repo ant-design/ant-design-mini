@@ -1,4 +1,4 @@
-import { useEvent } from 'functional-mini/component';
+import { useEvent, useRef, useEffect } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
@@ -7,6 +7,15 @@ import { FormImageUploadDefaultProps } from './props';
 var FormImageUpload = function (props) {
     var _a = useFormItem(props), formData = _a.formData, emit = _a.emit;
     var triggerEvent = useComponentEvent(props).triggerEvent;
+    var imageUploadRef = useRef();
+    useHandleCustomEvent('handleRef', function (imageUpload) {
+        imageUploadRef.current = imageUpload;
+    });
+    useEffect(function () {
+        if (imageUploadRef.current) {
+            imageUploadRef.current.update(formData.value);
+        }
+    }, [formData.value]);
     useHandleCustomEvent('onChange', function (value) {
         emit('onChange', value);
         triggerEvent('change', value);
