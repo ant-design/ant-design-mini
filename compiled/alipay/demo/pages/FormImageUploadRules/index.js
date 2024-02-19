@@ -1,15 +1,6 @@
 import { Form } from '../../../src/Form/form';
 Page({
-    data: {
-        onUpload(localFile) {
-            return new Promise((resolve) => {
-                console.log('上传的图片为：', localFile);
-                setTimeout(() => {
-                    resolve('https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ');
-                }, 2000);
-            });
-        },
-    },
+    data: {},
     onLoad() {
         this.form = new Form({
             rules: {
