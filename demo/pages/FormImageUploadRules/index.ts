@@ -69,6 +69,7 @@ Page({
     });
     /// #endif
   },
+  /// #if ALIPAY
   onUpload(localFile) {
     return new Promise((resolve) => {
       console.log('上传的图片为：', localFile);
@@ -79,4 +80,5 @@ Page({
       }, 2000);
     });
   },
+  /// #endif
 });
