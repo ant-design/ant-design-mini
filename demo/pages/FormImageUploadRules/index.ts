@@ -2,6 +2,7 @@ import { Form } from '../../../src/Form/form';
 
 Page({
   data: {
+    /// #if WECHAT
     onUpload(localFile) {
       return new Promise((resolve) => {
         console.log('上传的图片为：', localFile);
@@ -12,6 +13,7 @@ Page({
         }, 2000);
       });
     },
+    /// #endif
   },
   onLoad() {
     this.form = new Form({
