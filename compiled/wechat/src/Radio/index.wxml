@@ -31,7 +31,7 @@
   </view>
 </label>
 <view
-  wx:if="{{ typeof description === 'string' }}"
+  wx:if="{{ description }}"
   class="ant-radio-item-desc {{ disabled ? 'ant-radio-item-disabled' : '' }}">
   {{ description }}
 </view>
