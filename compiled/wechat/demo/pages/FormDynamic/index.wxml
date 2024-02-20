@@ -2,7 +2,7 @@
   wx:for="{{ list }}"
   wx:for-index="index"
   wx:for-item="item"
-  wx:key="{{ item.id }}">
+  wx:key="id">
   <ant-form-input
     label="{{ list[index].id }}"
     name="account{{ list[index].id }}"

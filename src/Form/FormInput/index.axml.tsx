@@ -1,4 +1,4 @@
-import { Component, InternalData, Slot, TSXMLProps, View } from 'tsxml';
+import { Component, InternalData, Slot, TSXMLProps, View, Block } from 'tsxml';
 import AntInput from '../../Input/index.axml';
 import FormItem from '../FormItem/index.axml';
 import { FormInputProps } from './props'; // assuming the props file is in the same directory
@@ -82,12 +82,11 @@ export default (
         </View>
       )}
       <View slot="extra">
+        {/* #if WECHAT */}
+        {extra ? <Block>{extra}</Block> : <Slot name="extra"></Slot>}
+        {/* #endif */}
         {/* #if ALIPAY */}
-        <Slot name="extra">
-          {/* #endif */}
-          {extra}
-          {/* #if ALIPAY */}
-        </Slot>
+        <Slot name="extra">{extra}</Slot>
         {/* #endif */}
       </View>
       <View slot="header" slot-scope="item">

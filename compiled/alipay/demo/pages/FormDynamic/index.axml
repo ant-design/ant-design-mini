@@ -2,7 +2,7 @@
   a:for="{{ list }}"
   a:for-index="index"
   a:for-item="item"
-  a:key="{{ item.id }}">
+  a:key="id">
   <ant-form-input
     label="{{ list[index].id }}"
     name="account{{ list[index].id }}"

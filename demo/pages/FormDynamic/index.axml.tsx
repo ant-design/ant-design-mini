@@ -7,7 +7,7 @@ export default ({ list }) => (
   <Page>
     {list.map((item, index) => (
       <AntFormInput
-        key={item.id}
+        key={"id"}
         label={list[index].id}
         name={`account${list[index].id}`}
         required
