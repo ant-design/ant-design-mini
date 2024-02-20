@@ -54,7 +54,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { useEvent } from 'functional-mini/component';
+import { useEvent, useRef } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
@@ -62,7 +62,24 @@ import { useMixState } from '../_util/hooks/useMixState';
 import { triggerRefEvent } from '../_util/hooks/useReportRef';
 import { chooseImage } from '../_util/jsapi/choose-image';
 import { UploaderFunctionalProps, } from './props';
+import { useId } from 'functional-mini/compat';
+/**
+ * 获取一个内部使用的 uid
+ * 每次获取时自增
+ */
+var useCounter = function () {
+    var counterRef = useRef(0);
+    // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
+    var prefix = useId() + '-' + Date.now();
+    return {
+        getCount: function () {
+            counterRef.current = counterRef.current + 1;
+            return "".concat(prefix, "-").concat(counterRef.current);
+        },
+    };
+};
 var ImageUpload = function (props) {
+    var getCount = useCounter().getCount;
     var _a = useMixState(props.defaultFileList, {
         value: props.fileList,
         postState: function (fileList) {
@@ -74,7 +91,7 @@ var ImageUpload = function (props) {
                         file.url = '';
                     }
                     if (typeof item.uid === 'undefined') {
-                        file.uid = String(Math.random());
+                        file.uid = getCount();
                     }
                     if (typeof item.status === 'undefined') {
                         file.status = 'done';
@@ -93,7 +110,7 @@ var ImageUpload = function (props) {
                 switch (_a.label) {
                     case 0:
                         onUpload = props.onUpload;
-                        uid = String(Math.random());
+                        uid = getCount();
                         triggerUpdater(function (oldFiles) {
                             var tempFileList = __spreadArray(__spreadArray([], oldFiles, true), [
                                 {

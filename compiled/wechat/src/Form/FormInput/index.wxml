@@ -46,7 +46,12 @@
     slot="tooltip">
     <slot name="tooltip" />
   </view>
-  <view slot="extra">{{ extra }}</view>
+  <view slot="extra">
+    <block wx:if="{{ extra }}">{{ extra }}</block>
+    <slot
+      wx:else
+      name="extra" />
+  </view>
   <view
     slot="header"
     slot-scope="item">

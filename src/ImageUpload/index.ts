@@ -1,4 +1,4 @@
-import { useEvent } from 'functional-mini/component';
+import { useEvent, useRef } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
@@ -11,8 +11,26 @@ import {
   LocalFile,
   UploaderFunctionalProps,
 } from './props';
+import { useId } from 'functional-mini/compat';
+
+/**
+ * 获取一个内部使用的 uid
+ * 每次获取时自增
+ */
+const useCounter = () => {
+  const counterRef = useRef(0);
+  // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
+  const prefix = useId() + '-' + Date.now();
+  return {
+    getCount() {
+      counterRef.current = counterRef.current + 1;
+      return `${prefix}-${counterRef.current}`;
+    },
+  };
+};
 
 const ImageUpload = (props: IUploaderProps) => {
+  const { getCount } = useCounter();
   const [fileList, { isControlled, update, triggerUpdater }] = useMixState(
     props.defaultFileList,
     {
@@ -28,7 +46,7 @@ const ImageUpload = (props: IUploaderProps) => {
               file.url = '';
             }
             if (typeof item.uid === 'undefined') {
-              file.uid = String(Math.random());
+              file.uid = getCount();
             }
             if (typeof item.status === 'undefined') {
               file.status = 'done';
@@ -39,13 +57,14 @@ const ImageUpload = (props: IUploaderProps) => {
       },
     }
   );
+
   triggerRefEvent();
   const { triggerEvent } = useComponentEvent(props);
 
   async function uploadFile(localFile: LocalFile) {
     const { onUpload } = props;
 
-    const uid = String(Math.random());
+    const uid = getCount();
 
     triggerUpdater((oldFiles) => {
       const tempFileList: File[] = [
