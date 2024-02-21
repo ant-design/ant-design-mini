@@ -68,7 +68,8 @@ function ComponentImpl<Props, Methods = unknown>(defaultProps: Props, methods?: 
   /// #endif
 }
 
-export interface IPlatformEvent {
+export interface IPlatformEvent<T = unknown> {
+  detail?: T;
   currentTarget: {
     dataset: Record<string, unknown>;
   };

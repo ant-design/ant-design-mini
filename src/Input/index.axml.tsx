@@ -1,10 +1,13 @@
 import { View, Input, TSXMLProps, Slot, InternalData } from 'tsxml';
 import { InputProps } from './props';
 import Icon from '../../src/Icon/index.axml';
+import utils from './index.sjs';
 
 export default (
   {
     className,
+    controlled,
+    defaultValue,
     style,
     enableNative,
     password,
@@ -33,10 +36,12 @@ export default (
     cursorColor,
     adjustPosition,
     holdKeyboard,
-  }: TSXMLProps<InputProps>,
-
-  { selfFocus, state }: InternalData
-) => (
+    value,
+  }: TSXMLProps<InputProps>, {
+    selfFocus,
+    _value,
+    _valueModified,
+  }: InternalData) => (
   <View
     class={`ant-input ${disabled ? 'ant-input-disabled' : ''} ${
       className ? className : ''
@@ -52,7 +57,7 @@ export default (
         name={name}
         class="ant-input-content"
         disabled={disabled}
-        value={state.value}
+        value={utils.getValue(controlled, value, defaultValue, _value, _valueModified)}
         type={type}
         /// #if WECHAT
         cursor-spacing={cursorSpacing}
@@ -72,7 +77,7 @@ export default (
         confirm-type={confirmType}
         confirm-hold={confirmHold}
         always-system={alwaysSystem}
-        controlled={state.controlled}
+        controlled={utils.isControlled(controlled, value)}
         cursor={cursor}
         selection-start={selectionStart}
         selection-end={selectionEnd}
@@ -85,7 +90,7 @@ export default (
       {allowClear && (
         <View
           // prettier-ignore
-          class={`ant-input-clear ${state.value && state.value.length > 0
+          class={`ant-input-clear ${utils.getValue(controlled, value, defaultValue, _value, _valueModified)
               ? 'ant-input-clear-show'
               : 'ant-input-clear-hidden'}`}
           onTap="onClear"
