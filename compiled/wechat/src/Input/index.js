@@ -1,78 +1,60 @@
-import { useEvent, useState } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import useLayoutEffect from '../_util/hooks/useLayoutEffect';
-import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
-import { triggerRefEvent } from '../_util/hooks/useReportRef';
+import { hasValue } from '../_util/hooks/useMergedState';
+import { triggerEvent } from '../_util/simply';
 import { InputFunctionalProps } from './props';
-var Input = function (props) {
-    var isControlled = hasValue(props.controlled)
-        ? !!props.controlled
-        : hasValue(props.value);
-    var option = {
-        value: props.value,
-    };
-    if (!isControlled && hasValue(props.value)) {
-        option = {
-            defaultValue: props.value,
-        };
-    }
-    // 微信的 input 不支持受控模式
-    // 通过 counter 的变化，重新渲染组件，让 value 改回去
-    var _a = useState(0), counter = _a[0], setCounter = _a[1];
-    var _b = useMergedState(props.defaultValue, option), value = _b[0], updateValue = _b[1];
-    var _c = useState(false), selfFocus = _c[0], setSelfFocus = _c[1];
-    var triggerEvent = useComponentEvent(props).triggerEvent;
-    triggerRefEvent();
-    useLayoutEffect(function (mount) {
-        if (!isControlled && !mount) {
-            updateValue(props.value);
-        }
-    }, [props.value]);
-    useEvent('onChange', function (e) {
-        var newValue = e.detail.value;
-        if (!isControlled) {
-            updateValue(newValue);
-        }
-        else {
-            setCounter(function (c) { return c + 1; });
-        }
-        triggerEvent('change', newValue, e);
-    });
-    useEvent('onFocus', function (e) {
-        var newValue = e.detail.value;
-        setSelfFocus(true);
-        triggerEvent('focus', newValue, e);
-    });
-    useEvent('onBlur', function (e) {
-        var newValue = e.detail.value;
-        setSelfFocus(false);
-        triggerEvent('blur', newValue, e);
-    });
-    useEvent('onConfirm', function (e) {
-        var newValue = e.detail.value;
-        triggerEvent('confirm', newValue, e);
-    });
-    useEvent('onClear', function (e) {
-        if (!isControlled) {
-            updateValue('');
-        }
-        triggerEvent('change', '', e);
-    });
-    useEvent('update', function (e) {
-        if (isControlled) {
-            return;
-        }
-        updateValue(e);
-    });
-    return {
-        counter: counter,
-        state: {
-            value: value,
-            controlled: isControlled,
+Component({
+    props: InputFunctionalProps,
+    methods: {
+        isControlled: function () {
+            var _a = this.props, controlled = _a.controlled, value = _a.value;
+            return hasValue(controlled) || hasValue(value);
         },
-        selfFocus: selfFocus,
-    };
-};
-mountComponent(Input, InputFunctionalProps);
+        updateValue: function (newValue) {
+            this.setData({
+                _valueModified: true,
+                _value: newValue,
+            });
+        },
+        onChange: function (e) {
+            var newValue = e.detail.value;
+            if (!this.isControlled()) {
+                this.updateValue(newValue);
+            }
+            triggerEvent(this, 'change', newValue, e);
+        },
+        onFocus: function (e) {
+            var newValue = e.detail.value;
+            this.setData({
+                selfFocus: true
+            });
+            triggerEvent(this, 'focus', newValue, e);
+        },
+        onBlur: function (e) {
+            var newValue = e.detail.value;
+            this.setData({
+                selfFocus: false
+            });
+            triggerEvent(this, 'blur', newValue, e);
+        },
+        onConfirm: function (e) {
+            var newValue = e.detail.value;
+            triggerEvent(this, 'confirm', newValue, e);
+        },
+        onClear: function (e) {
+            if (!this.isControlled()) {
+                this.updateValue('');
+            }
+            triggerEvent(this, 'change', '', e);
+        },
+        update: function (e) {
+            if (this.isControlled()) {
+                return;
+            }
+            this.updateValue(e);
+        }
+    },
+    data: {
+        _valueModified: false,
+        _value: undefined,
+        selfFocus: false,
+    },
+});

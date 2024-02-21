@@ -1,4 +1,3 @@
-import '../_util/assert-component2';
 Component({
     properties: {
         type: {
@@ -20,3 +19,4 @@ Component({
         styleIsolation: 'shared',
     },
 });
+export {};

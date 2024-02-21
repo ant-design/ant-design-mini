@@ -1,3 +1,7 @@
+<import-sjs
+  from="./index.sjs"
+  name="utils" />
+
 <view
   class="ant-input {{ disabled ? 'ant-input-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{ style || '' }};{{ focusStyle || '' }}">
@@ -10,7 +14,7 @@
       name="{{ name }}"
       class="ant-input-content"
       disabled="{{ disabled }}"
-      value="{{ state.value }}"
+      value="{{ utils.getValue(controlled, value, defaultValue, _value, _valueModified) }}"
       type="{{ type }}"
       password="{{ password }}"
       placeholder="{{ placeholder }}"
@@ -21,7 +25,7 @@
       confirm-type="{{ confirmType }}"
       confirm-hold="{{ confirmHold }}"
       always-system="{{ alwaysSystem }}"
-      controlled="{{ state.controlled }}"
+      controlled="{{ utils.isControlled(controlled, value) }}"
       cursor="{{ cursor }}"
       selection-start="{{ selectionStart }}"
       selection-end="{{ selectionEnd }}"
@@ -32,7 +36,7 @@
       onBlur="onBlur" />
     <view
       a:if="{{ allowClear }}"
-      class="ant-input-clear {{ state.value && state.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden' }}"
+      class="ant-input-clear {{ utils.getValue(controlled, value, defaultValue, _value, _valueModified) ? 'ant-input-clear-show' : 'ant-input-clear-hidden' }}"
       onTap="onClear">
       <icon
         className="ant-input-clear-icon"

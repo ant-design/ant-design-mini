@@ -67,4 +67,10 @@ export function triggerEventValues(instance, eventName, values, e) {
     // 首字母大写，然后加上 on
     instance.triggerEvent(eventName.toLocaleLowerCase(), values);
 }
+export function alipayForwardEvent(instance, eventName, e) {
+    // 首字母大写，然后加上 on
+}
+export function alipayForwardCatchEvent(instance, eventName, e) {
+    // 首字母大写，然后加上 catch
+}
 export { ComponentImpl as Component };

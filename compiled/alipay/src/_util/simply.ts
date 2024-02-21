@@ -51,7 +51,8 @@ function ComponentImpl<Props, Methods = unknown>(defaultProps: Props, methods?: 
   });
 }
 
-export interface IPlatformEvent {
+export interface IPlatformEvent<T = unknown> {
+  detail?: T;
   currentTarget: {
     dataset: Record<string, unknown>;
   };
@@ -94,6 +95,28 @@ export function triggerEventValues(instance: any, eventName: string, values: any
     props[alipayCallbackName](...values, fmtEvent(props, e));
   }
 
+}
+
+export function alipayForwardEvent(instance: any, eventName: string, e: any) {
+  // 首字母大写，然后加上 on
+
+  const alipayCallbackName =
+    'on' + eventName.charAt(0).toUpperCase() + eventName.slice(1);
+  const props = instance.props;
+  if (props[alipayCallbackName]) {
+    props[alipayCallbackName](fmtEvent(props, e));
+  }
+}
+
+export function alipayForwardCatchEvent(instance: any, eventName: string, e: any) {
+  // 首字母大写，然后加上 catch
+
+  const alipayCallbackName =
+    'catch' + eventName.charAt(0).toUpperCase() + eventName.slice(1);
+  const props = instance.props;
+  if (props[alipayCallbackName]) {
+    props[alipayCallbackName](fmtEvent(props, e));
+  }
 }
 
 export {

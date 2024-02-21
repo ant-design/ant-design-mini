@@ -1,85 +1,61 @@
-import { useEvent, useState } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import useLayoutEffect from '../_util/hooks/useLayoutEffect';
-import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
-import { triggerRefEvent } from '../_util/hooks/useReportRef';
-import { InputFunctionalProps, InputProps } from './props';
+import { hasValue } from '../_util/hooks/useMergedState';
+import { IPlatformEvent, triggerEvent } from '../_util/simply';
+import { InputFunctionalProps } from './props';
 
-const Input = (props: InputProps) => {
-  const isControlled = hasValue(props.controlled)
-    ? !!props.controlled
-    : hasValue(props.value);
-
-  let option: any = {
-    value: props.value,
-  };
-  if (!isControlled && hasValue(props.value)) {
-    option = {
-      defaultValue: props.value,
-    };
-  }
-
-
-  const [value, updateValue] = useMergedState(props.defaultValue, option);
-  const [selfFocus, setSelfFocus] = useState(false);
-  const { triggerEvent } = useComponentEvent(props);
-  triggerRefEvent();
-  useLayoutEffect(
-    (mount) => {
-      if (!isControlled && !mount) {
-        updateValue(props.value);
+Component({
+  props: InputFunctionalProps,
+  methods: {
+    isControlled() {
+      const { controlled, value } = this.props;
+      return hasValue(controlled) || hasValue(value);
+    },
+    updateValue(newValue: unknown) {
+      this.setData({
+        _valueModified: true,
+        _value: newValue,
+      });
+    },
+    onChange(e: IPlatformEvent<{value: string;}>) {
+      const newValue = e.detail.value;
+      if (!this.isControlled()) {
+        this.updateValue(newValue);
       }
+      triggerEvent(this, 'change', newValue, e);
     },
-    [props.value]
-  );
-  useEvent('onChange', (e) => {
-    const newValue = e.detail.value;
-    if (!isControlled) {
-      updateValue(newValue);
-    } else {
-    }
-    triggerEvent('change', newValue, e);
-  });
-
-  useEvent('onFocus', (e) => {
-    const newValue = e.detail.value;
-    setSelfFocus(true);
-    triggerEvent('focus', newValue, e);
-  });
-
-  useEvent('onBlur', (e) => {
-    const newValue = e.detail.value;
-    setSelfFocus(false);
-    triggerEvent('blur', newValue, e);
-  });
-
-  useEvent('onConfirm', (e) => {
-    const newValue = e.detail.value;
-    triggerEvent('confirm', newValue, e);
-  });
-  useEvent('onClear', (e) => {
-    if (!isControlled) {
-      updateValue('');
-    }
-    triggerEvent('change', '', e);
-  });
-
-  useEvent('update', (e) => {
-    if (isControlled) {
-      return;
-    }
-    updateValue(e);
-  });
-
-  return {
-    state: {
-      value,
-      controlled: isControlled,
+    onFocus(e: IPlatformEvent<{value: string;}>) {
+      const newValue = e.detail.value;
+      this.setData({
+        selfFocus: true
+      });
+      triggerEvent(this, 'focus', newValue, e);
     },
-    selfFocus,
-  };
-};
-
-mountComponent<InputProps>(Input, InputFunctionalProps);
+    onBlur(e: IPlatformEvent<{value: string;}>) {
+      const newValue = e.detail.value;
+      this.setData({
+        selfFocus: false
+      });
+      triggerEvent(this, 'blur', newValue, e);
+    },
+    onConfirm(e: IPlatformEvent<{value: string;}>) {
+      const newValue = e.detail.value;
+      triggerEvent(this, 'confirm', newValue, e);
+    },
+    onClear(e: IPlatformEvent) {
+      if (!this.isControlled()) {
+        this.updateValue('');
+      }
+      triggerEvent(this, 'change', '', e);
+     },
+    update(e: string) {
+      if (this.isControlled()) {
+        return;
+      }
+      this.updateValue(e);
+    }
+  },
+  data: {
+    _valueModified: false,
+    _value: undefined,
+    selfFocus: false,
+  },
+})
