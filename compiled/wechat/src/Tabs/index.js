@@ -46,7 +46,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { useState } from 'functional-mini/compat';
-import { useEvent, useReady, useRef } from 'functional-mini/component';
+import { useEvent, useReady, useRef, } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
@@ -106,6 +106,9 @@ var Tabs = function (props) {
                         ])];
                 case 1:
                     _a = _b.sent(), view = _a[0], item = _a[1];
+                    if (!view || !item) {
+                        return [2 /*return*/];
+                    }
                     if (props.direction === 'vertical') {
                         scrollTop = scrollRef.current.scrollTop || 0;
                         needScroll_1 = false;
