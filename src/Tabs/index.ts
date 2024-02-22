@@ -56,6 +56,9 @@ const Tabs = (props: ITabsProps) => {
         (id) => `#ant-tabs-bar-item${id}-${props.items.length - 1}`
       ),
     ]);
+    if (!item || !view) {
+      return;
+    }
     updatePartState({
       rightFade: item.left + item.width / 2 > view.width,
     });
