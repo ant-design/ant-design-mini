@@ -1,5 +1,10 @@
-import { useEffect, useState } from 'functional-mini/compat';
-import { useEvent, useReady, useRef } from 'functional-mini/component';
+import { useState } from 'functional-mini/compat';
+import {
+  useDidMount,
+  useEvent,
+  useReady,
+  useRef,
+} from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
@@ -66,6 +71,9 @@ const Tabs = (props: ITabsProps) => {
         (id) => `#ant-tabs-bar-item${id}-${current}`
       ),
     ]);
+    if (!view || !item) {
+      return;
+    }
 
     if (props.direction === 'vertical') {
       let scrollTop = scrollRef.current.scrollTop || 0;
@@ -144,7 +152,7 @@ const Tabs = (props: ITabsProps) => {
     triggerEvent('change', index, e);
   });
 
-  useEffect(() => {
+  useDidMount(() => {
     updateScroll();
   }, []);
 
