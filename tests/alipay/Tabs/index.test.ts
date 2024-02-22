@@ -1,6 +1,7 @@
 import { getInstance, sleep } from 'tests/utils';
 import { describe, it, expect, vi } from 'vitest';
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
+import { createSelectorQueryFactory } from 'tests/selector-query';
 
 describe('Tabs', () => {
   let selectName = '';
@@ -158,5 +159,26 @@ describe('Tabs', () => {
     });
     await sleep(20);
     expect(instance.getData().scrollTop - 400 < 1).toBe(true);
+  });
+
+  it('scroll', async () => {
+    const onChange = vi.fn();
+    const instance = getInstance(
+      'Tabs',
+      {
+        onChange,
+        items,
+      },
+      {
+        ...my,
+        createSelectorQuery: createSelectorQueryFactory(() => {
+          return null;
+        }),
+      }
+    );
+
+    instance.callMethod('onScroll', { detail: { scrollTop: 100 } });
+    await sleep(200);
+    // 如果正常运行，就说明没有问题
   });
 });

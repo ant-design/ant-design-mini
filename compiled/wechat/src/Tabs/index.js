@@ -87,6 +87,9 @@ var Tabs = function (props) {
                         ])];
                 case 1:
                     _a = _b.sent(), view = _a[0], item = _a[1];
+                    if (!item || !view) {
+                        return [2 /*return*/];
+                    }
                     updatePartState({
                         rightFade: item.left + item.width / 2 > view.width,
                     });
