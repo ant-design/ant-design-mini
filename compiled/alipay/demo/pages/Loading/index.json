@@ -1,7 +1,7 @@
 {
   "defaultTitle": "Loading",
   "usingComponents": {
-    "ant-oading": "../../../src/Loading/index",
+    "ant-loading": "../../../src/Loading/index",
     "ant-container": "../../../src/Container/index"
   }
 }
