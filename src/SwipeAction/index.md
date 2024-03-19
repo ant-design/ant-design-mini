@@ -63,6 +63,10 @@ toc: 'content'
 
 <code src='pages/SwipeActionLeftRight/index'></code>
 
+### 自定义按钮
+
+<code src='pages/SwipeActionSlot/index'></code>
+
 ## API
 
 | 属性          | 类型                          | 默认值                            | 说明                                                                                                         |
