@@ -131,27 +131,17 @@ export default (
                 myStyle
               )}
             >
-              {/* #if ALIPAY */}
               {
                 <Text class={`right-text ${util.getLeft(tapTypeR, idx, _rightButtons, true)}`}>
+                  {/* #if ALIPAY */}
                   <Slot name={util.getRightSoltName(tapTypeR, idx, item)}>
+                    {/* #endif */}
                     {util.getRightText(tapTypeR, idx, item)}
+                    {/* #if ALIPAY */}
                   </Slot>
+                  {/* #endif */}
                 </Text>
               }
-              {/* #endif */}
-              {/* #if WECHAT */}
-              <Text
-                class={`right-text ${util.getLeft(
-                  tapTypeR,
-                  idx,
-                  _rightButtons,
-                  true
-                )}`}
-              >
-                {util.getRightText(tapTypeR, idx, item)}
-              </Text>
-              {/* #endif */}
             </View>
           </View>
         </MovableView>
@@ -200,28 +190,22 @@ export default (
                 myStyle
               )}
             >
-              {/* #if ALIPAY */}
+
               {
                 <Text class="right-text" style="width:100%;">
                   <Text
                     class={`right-text ${util.getLeft(tapTypeL, idx, _leftButtons, false)}`}
                   >
+                    {/* #if ALIPAY */}
                     <Slot name={util.getLeftSoltName(tapTypeL, idx, itemL)}>
+                      {/* #endif */}
                       {util.getLeftText(tapTypeL, idx, itemL)}
+                      {/* #if ALIPAY */}
                     </Slot>
+                    {/* #endif */}
                   </Text>
                 </Text>
               }
-              {/* #endif */}
-              {/* #if WECHAT */}
-              <Text class="right-text" style="width:100%;">
-                <Text
-                  class={`right-text ${util.getLeft(tapTypeL, idx, _leftButtons, false)}`}
-                >
-                  {util.getLeftText(tapTypeL, idx, itemL)}
-                </Text>
-              </Text>
-              {/* #endif */}
             </View>
           </View>
         </MovableView>
