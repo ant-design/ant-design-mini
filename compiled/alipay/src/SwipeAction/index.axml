@@ -58,13 +58,13 @@
             data-item="{{ util.axmlObj({ item, idx }) }}"
             aria-hidden="{{ !swipedR }}"
             style="{{ util.getMovableContentRightStyle(item, tapTypeR, idx, rightWidth, inTouch, inertiaWidth, myStyle) }}">
-            <slot name="{{ item.id }}">
-              <!-- display: inline -->
-              <text
-                class="right-text {{ util.getLeft(tapTypeR, idx, _rightButtons, true) }}"
-                >{{ util.getRightText(tapTypeR, idx, item) }}</text
-              >
-            </slot>
+            <!-- display: inline -->
+            <text
+              class="right-text {{ util.getLeft(tapTypeR, idx, _rightButtons, true) }}"
+              ><slot name="{{ util.getRightSoltName(tapTypeR, idx, item) }}">
+                {{ util.getRightText(tapTypeR, idx, item) }}
+              </slot></text
+            >
           </view>
         </view>
       </movable-view>
@@ -90,18 +90,18 @@
             data-item="{{ util.axmlObj({ itemL, idx }) }}"
             aria-hidden="{{ !swipedL }}"
             style="{{ util.getMovableContentLeftStyle(itemL, tapTypeL, idx, leftWidth, inTouch, inertiaWidth, myStyle) }}">
-            <slot name="{{ item.id }}">
-              <!-- display: inline -->
+            <!-- display: inline -->
+            <text
+              class="right-text"
+              style="width: 100%"
+              ><!-- display: inline -->
               <text
-                class="right-text"
-                style="width: 100%"
-                ><!-- display: inline -->
-                <text
-                  class="right-text {{ util.getLeft(tapTypeL, idx, _leftButtons, false) }}"
-                  >{{ util.getLeftText(tapTypeL, idx, itemL) }}</text
-                ></text
-              >
-            </slot>
+                class="right-text {{ util.getLeft(tapTypeL, idx, _leftButtons, false) }}"
+                ><slot name="{{ util.getLeftSoltName(tapTypeL, idx, itemL) }}">
+                  {{ util.getLeftText(tapTypeL, idx, itemL) }}
+                </slot></text
+              ></text
+            >
           </view>
         </view>
       </movable-view>

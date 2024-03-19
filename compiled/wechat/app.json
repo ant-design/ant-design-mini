@@ -10,6 +10,7 @@
     "demo/pages/SwipeActionLeftRight/index",
     "demo/pages/SwipeActionMove/index",
     "demo/pages/SwipeActionNumber/index",
+    "demo/pages/SwipeActionSlot/index",
     "demo/pages/SwipeActionSpeed/index",
     "demo/pages/SwipeActionTap/index",
     "demo/pages/SwipeActionWidth/index",

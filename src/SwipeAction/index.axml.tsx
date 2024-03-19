@@ -131,18 +131,27 @@ export default (
                 myStyle
               )}
             >
-              <Slot name={item.id}>
-                <Text
-                  class={`right-text ${util.getLeft(
-                    tapTypeR,
-                    idx,
-                    _rightButtons,
-                    true
-                  )}`}
-                >
-                  {util.getRightText(tapTypeR, idx, item)}
+              {/* #if ALIPAY */}
+              {
+                <Text class={`right-text ${util.getLeft(tapTypeR, idx, _rightButtons, true)}`}>
+                  <Slot name={util.getRightSoltName(tapTypeR, idx, item)}>
+                    {util.getRightText(tapTypeR, idx, item)}
+                  </Slot>
                 </Text>
-              </Slot>
+              }
+              {/* #endif */}
+              {/* #if WECHAT */}
+              <Text
+                class={`right-text ${util.getLeft(
+                  tapTypeR,
+                  idx,
+                  _rightButtons,
+                  true
+                )}`}
+              >
+                {util.getRightText(tapTypeR, idx, item)}
+              </Text>
+              {/* #endif */}
             </View>
           </View>
         </MovableView>
@@ -191,20 +200,28 @@ export default (
                 myStyle
               )}
             >
-              <Slot name={item.id}>
+              {/* #if ALIPAY */}
+              {
                 <Text class="right-text" style="width:100%;">
                   <Text
-                    class={`right-text ${util.getLeft(
-                      tapTypeL,
-                      idx,
-                      _leftButtons,
-                      false
-                    )}`}
+                    class={`right-text ${util.getLeft(tapTypeL, idx, _leftButtons, false)}`}
                   >
-                    {util.getLeftText(tapTypeL, idx, itemL)}
+                    <Slot name={util.getLeftSoltName(tapTypeL, idx, itemL)}>
+                      {util.getLeftText(tapTypeL, idx, itemL)}
+                    </Slot>
                   </Text>
                 </Text>
-              </Slot>
+              }
+              {/* #endif */}
+              {/* #if WECHAT */}
+              <Text class="right-text" style="width:100%;">
+                <Text
+                  class={`right-text ${util.getLeft(tapTypeL, idx, _leftButtons, false)}`}
+                >
+                  {util.getLeftText(tapTypeL, idx, itemL)}
+                </Text>
+              </Text>
+              {/* #endif */}
             </View>
           </View>
         </MovableView>
