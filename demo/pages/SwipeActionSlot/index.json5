@@ -12,6 +12,6 @@
   "allowsBounceVertical": "NO",
   "usingComponents": {
     "ant-swipe-action": "../../../src/SwipeAction/index",
-    "icon": "../../../src/Icon/index"
+    "ant-icon": "../../../src/Icon/index"
   }
 }

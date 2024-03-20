@@ -8,7 +8,6 @@ import {
   InternalData,
   Text,
   TSXMLProps,
-  Block,
 } from 'tsxml';
 
 export default (

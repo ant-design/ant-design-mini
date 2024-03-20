@@ -19,7 +19,7 @@
           <view
             slot="delete"
             class="t-swipe-item-con-btn">
-            <icon
+            <ant-icon
               type="DeleteOutline"
               className="t-swipe-item-con-btn-icon" />
             <!-- display: inline -->
@@ -28,7 +28,7 @@
           <view
             slot="delete-confirm"
             class="t-swipe-item-con-btn">
-            <icon
+            <ant-icon
               type="DeleteOutline"
               className="t-swipe-item-con-btn-icon" />
             <view class="t-swipe-item-con-btn-del">确认删除吗？</view>
@@ -36,7 +36,7 @@
           <view
             slot="reName"
             class="t-swipe-item-con-btn">
-            <icon
+            <ant-icon
               type="EditFill"
               className="t-swipe-item-con-btn-icon" />
             <view class="t-swipe-item-con-btn-del">重命名</view>
@@ -44,7 +44,7 @@
           <view
             slot="reName-confirm"
             class="t-swipe-item-con-btn">
-            <icon
+            <ant-icon
               type="EditFill"
               className="t-swipe-item-con-btn-icon" />
             <view class="t-swipe-item-con-btn-del">确认修改吗?</view>
