@@ -135,18 +135,18 @@ export default (
               )}
             >
               {/* #if ALIPAY */}
-              <Text
-                class={`right-text ${util.getLeft(
-                  tapTypeR,
-                  idx,
-                  _rightButtons,
-                  true
-                )}`}
-              >
-                <Slot name={util.getRightSlotName(tapTypeR, idx, item)}>
+              <Slot name={util.getRightSlotName(tapTypeR, idx, item)}>
+                <Text
+                  class={`right-text ${util.getLeft(
+                    tapTypeR,
+                    idx,
+                    _rightButtons,
+                    true
+                  )}`}
+                >
                   {util.getRightText(tapTypeR, idx, item)}
-                </Slot>
-              </Text>
+                </Text>
+              </Slot>
               {/* #endif */}
 
               {/* #if WECHAT */}
@@ -235,18 +235,18 @@ export default (
                   {/* #endif */}
 
                   {/* #if ALIPAY */}
-                  <Text
-                    class={`right-text ${util.getLeft(
-                      tapTypeL,
-                      idx,
-                      _leftButtons,
-                      false
-                    )}`}
-                  >
-                    <Slot name={util.getLeftSlotName(tapTypeL, idx, itemL)}>
+                  <Slot name={util.getLeftSlotName(tapTypeL, idx, itemL)}>
+                    <Text
+                      class={`right-text ${util.getLeft(
+                        tapTypeL,
+                        idx,
+                        _leftButtons,
+                        false
+                      )}`}
+                    >
                       {util.getLeftText(tapTypeL, idx, itemL)}
-                    </Slot>
-                  </Text>
+                    </Text>
+                  </Slot>
                   {/* #endif */}
                 </Text>
               }
