@@ -8,6 +8,7 @@ import {
   InternalData,
   Text,
   TSXMLProps,
+  Block,
 } from 'tsxml';
 
 export default (
@@ -91,8 +92,9 @@ export default (
           </View>
         </MovableView>
         <MovableView
-          class={`ant-swipe-action-movable-content ant-swipe-action-movable-right${$id ? '-' + $id : ''
-            }`}
+          class={`ant-swipe-action-movable-content ant-swipe-action-movable-right${
+            $id ? '-' + $id : ''
+          }`}
           tsxml-for={_rightButtons}
           tsxml-for-item="item"
           tsxml-for-index="idx"
@@ -113,8 +115,9 @@ export default (
         >
           <View
             class="ant-swipe-action-movable-content-right"
-            style={`background: ${item.bgColor};width: ${(item.width + inertiaWidth + 1) / 2
-              }px;`}
+            style={`background: ${item.bgColor};width: ${
+              (item.width + inertiaWidth + 1) / 2
+            }px;`}
           >
             <View
               class="ant-swipe-action-movable-content-right-text"
@@ -131,23 +134,44 @@ export default (
                 myStyle
               )}
             >
-              {
-                <Text class={`right-text ${util.getLeft(tapTypeR, idx, _rightButtons, true)}`}>
-                  {/* #if ALIPAY */}
-                  <Slot name={util.getRightSoltName(tapTypeR, idx, item)}>
-                    {/* #endif */}
-                    {util.getRightText(tapTypeR, idx, item)}
-                    {/* #if ALIPAY */}
-                  </Slot>
-                  {/* #endif */}
+              {/* #if ALIPAY */}
+              <Text
+                class={`right-text ${util.getLeft(
+                  tapTypeR,
+                  idx,
+                  _rightButtons,
+                  true
+                )}`}
+              >
+                <Slot name={util.getRightSlotName(tapTypeR, idx, item)}>
+                  {util.getRightText(tapTypeR, idx, item)}
+                </Slot>
+              </Text>
+              {/* #endif */}
+
+              {/* #if WECHAT */}
+              {util.getRightSlotName(tapTypeR, idx, item) ? (
+                <Slot name={util.getRightSlotName(tapTypeR, idx, item)}></Slot>
+              ) : (
+                <Text
+                  class={`right-text ${util.getLeft(
+                    tapTypeR,
+                    idx,
+                    _rightButtons,
+                    true
+                  )}`}
+                >
+                  {util.getRightText(tapTypeR, idx, item)}
                 </Text>
-              }
+              )}
+              {/* #endif */}
             </View>
           </View>
         </MovableView>
         <MovableView
-          class={`ant-swipe-action-movable-content ant-swipe-action-is-right-swipe ant-swipe-action-movable-left${$id ? '-' + $id : ''
-            }`}
+          class={`ant-swipe-action-movable-content ant-swipe-action-is-right-swipe ant-swipe-action-movable-left${
+            $id ? '-' + $id : ''
+          }`}
           tsxml-for={_leftButtons}
           tsxml-for-item="itemL"
           tsxml-for-index="idx"
@@ -167,13 +191,14 @@ export default (
         >
           <View
             class="ant-swipe-action-movable-content-left"
-            style={`background: ${tapTypeL &&
+            style={`background: ${
+              tapTypeL &&
               tapTypeL === 'L-' + idx &&
               _leftButtons.length === 3 &&
               idx === 1
-              ? 'none'
-              : itemL.bgColor
-              };width: ${(leftWidth + inertiaWidth) / 2}px`}
+                ? 'none'
+                : itemL.bgColor
+            };width: ${(leftWidth + inertiaWidth) / 2}px`}
           >
             <View
               class="ant-swipe-action-movable-content-left-text1 ant-swipe-action-left"
@@ -190,20 +215,39 @@ export default (
                 myStyle
               )}
             >
-
               {
                 <Text class="right-text" style="width:100%;">
-                  <Text
-                    class={`right-text ${util.getLeft(tapTypeL, idx, _leftButtons, false)}`}
-                  >
-                    {/* #if ALIPAY */}
-                    <Slot name={util.getLeftSoltName(tapTypeL, idx, itemL)}>
-                      {/* #endif */}
+                  {/* #if WECHAT */}
+                  {util.getLeftSlotName(tapTypeL, idx, itemL) ? (
+                    <Slot name={util.getLeftSlotName(tapTypeL, idx, itemL)} />
+                  ) : (
+                    <Text
+                      class={`right-text ${util.getLeft(
+                        tapTypeL,
+                        idx,
+                        _leftButtons,
+                        false
+                      )}`}
+                    >
                       {util.getLeftText(tapTypeL, idx, itemL)}
-                      {/* #if ALIPAY */}
+                    </Text>
+                  )}
+                  {/* #endif */}
+
+                  {/* #if ALIPAY */}
+                  <Text
+                    class={`right-text ${util.getLeft(
+                      tapTypeL,
+                      idx,
+                      _leftButtons,
+                      false
+                    )}`}
+                  >
+                    <Slot name={util.getLeftSlotName(tapTypeL, idx, itemL)}>
+                      {util.getLeftText(tapTypeL, idx, itemL)}
                     </Slot>
-                    {/* #endif */}
                   </Text>
+                  {/* #endif */}
                 </Text>
               }
             </View>

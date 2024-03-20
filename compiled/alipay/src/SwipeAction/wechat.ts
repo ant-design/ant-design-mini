@@ -11,6 +11,10 @@ export function transformOptions(original) {
           return didMount.call(this);
         },
       },
+      options: {
+        multipleSlots: true,
+        styleIsolation: 'shared',
+      },
       observers: {
         'damping, swiped': function () {
           this.setData({

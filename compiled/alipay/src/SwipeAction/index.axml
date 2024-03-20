@@ -61,7 +61,7 @@
             <!-- display: inline -->
             <text
               class="right-text {{ util.getLeft(tapTypeR, idx, _rightButtons, true) }}"
-              ><slot name="{{ util.getRightSoltName(tapTypeR, idx, item) }}">
+              ><slot name="{{ util.getRightSlotName(tapTypeR, idx, item) }}">
                 {{ util.getRightText(tapTypeR, idx, item) }}
               </slot></text
             >
@@ -97,7 +97,7 @@
               ><!-- display: inline -->
               <text
                 class="right-text {{ util.getLeft(tapTypeL, idx, _leftButtons, false) }}"
-                ><slot name="{{ util.getLeftSoltName(tapTypeL, idx, itemL) }}">
+                ><slot name="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}">
                   {{ util.getLeftText(tapTypeL, idx, itemL) }}
                 </slot></text
               ></text

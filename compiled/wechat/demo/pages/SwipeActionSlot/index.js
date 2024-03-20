@@ -2,12 +2,17 @@ Page({
     data: {
         rightBtns: [
             {
+                text: 'No Slot',
+                bgColor: '#1677FF',
+                color: '#fff',
+            },
+            {
                 text: '重命名',
                 bgColor: '#FFA91B',
                 color: '#fff',
                 slotName: 'reName',
                 confirmType: 'tap',
-                confirmText: '确认修改吗？'
+                confirmText: '确认修改吗？',
             },
             {
                 text: '删除',
@@ -15,7 +20,7 @@ Page({
                 color: '#fff',
                 slotName: 'delete',
                 confirmType: 'tap',
-                confirmText: '确认删除吗？'
+                confirmText: '确认删除吗？',
             },
         ],
         swipeIndex: -1,
@@ -25,8 +30,8 @@ Page({
     },
     onSwipeEnd(args1, args2) {
         let e, data;
-        e = args2;
-        data = args1;
+        e = args1;
+        data = args1.detail;
         const { index } = e.target.dataset.item;
         data.swiped && this.setData({ swipeIndex: index });
     },

@@ -24,8 +24,9 @@ const getSlotWidthStyle = (
   }
   // 左
   if (left.length > 0 && right.length === 0) {
-    return `width: calc(100% - ${leftWidth / 2}px); margin-left: ${(leftWidth + inertiaWidth) / 2
-      }px;`;
+    return `width: calc(100% - ${leftWidth / 2}px); margin-left: ${
+      (leftWidth + inertiaWidth) / 2
+    }px;`;
   }
   if (left.length > 0 && right.length > 0) {
     return `width: 100%;margin-left: 0;`;
@@ -60,8 +61,8 @@ const getMarginLeft2 = (rightWidth, leftWidth, inertiaWidth) => {
   return leftWidth && rightWidth
     ? `${(width + num) / 2}px`
     : leftWidth > 0
-      ? 0
-      : `${(width + inertiaWidth) / 2}px`;
+    ? 0
+    : `${(width + inertiaWidth) / 2}px`;
 };
 const getMarginLeft3 = (rightWidth, leftWidth, inertiaWidth) => {
   const width = rightWidth > leftWidth ? rightWidth : leftWidth;
@@ -93,14 +94,16 @@ const getMovableContentRightStyle = (
   color: ${item.color};
   background: ${item.bgColor};
   height: calc(100% + 2px);
-  ${isTapTypeR
-      ? `width: ${(rightWidth +
-        1 +
-        (item.confirmType === 'move' && inTouch ? inertiaWidth : 0)) /
-      2
-      }px;`
+  ${
+    isTapTypeR
+      ? `width: ${
+          (rightWidth +
+            1 +
+            (item.confirmType === 'move' && inTouch ? inertiaWidth : 0)) /
+          2
+        }px;`
       : `width: ${item.width / 2}px;`
-    }
+  }
   ${myStyleString}`;
 };
 
@@ -137,24 +140,32 @@ const getMovableContentLeftStyle = (
   height: calc(100% + 2px);
   font-size: ${(itemL.fontSize || 28) / 2}px;
   color: ${itemL.color};
-  ${isTapTypeL
-      ? `width: ${(leftWidth +
-        1 +
-        (itemL.confirmType === 'move' && inTouch ? inertiaWidth : 0)) /
-      2
-      }px;`
+  ${
+    isTapTypeL
+      ? `width: ${
+          (leftWidth +
+            1 +
+            (itemL.confirmType === 'move' && inTouch ? inertiaWidth : 0)) /
+          2
+        }px;`
       : `width: ${itemL.width / 2}px;`
-    }
+  }
   ${myStyleString}`;
 };
 
-const getLeftSoltName = (tapTypeL, idx, itemL) => {
+const getLeftSlotName = (tapTypeL, idx, itemL) => {
+  if (!itemL.slotName) {
+    return '';
+  }
   return tapTypeL && tapTypeL === `L-${idx}`
     ? `${itemL.slotName}-confirm`
     : itemL.slotName;
 };
 
-const getRightSoltName = (tapTypeR, idx, item) => {
+const getRightSlotName = (tapTypeR, idx, item) => {
+  if (!item.slotName) {
+    return '';
+  }
   return tapTypeR && tapTypeR === `R-${idx}`
     ? `${item.slotName}-confirm`
     : item.slotName;
@@ -213,8 +224,8 @@ export default {
   getMovableContentLeftStyle,
   getRightText,
   getLeftText,
-  getRightSoltName,
-  getLeftSoltName
+  getLeftSlotName,
+  getRightSlotName,
 };
 
 declare function getRegExp(reg: string, mode: string): any;

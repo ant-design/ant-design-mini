@@ -83,10 +83,16 @@ var getMovableContentLeftStyle = function getMovableContentLeftStyle(itemL, tapT
   var myStyleString = isTapTypeL ? styleObjectToString(myStyle) : '';
   return "\n  background: ".concat(itemL.bgColor, ";\n  height: calc(100% + 2px);\n  font-size: ").concat((itemL.fontSize || 28) / 2, "px;\n  color: ").concat(itemL.color, ";\n  ").concat(isTapTypeL ? "width: ".concat((leftWidth + 1 + (itemL.confirmType === 'move' && inTouch ? inertiaWidth : 0)) / 2, "px;") : "width: ".concat(itemL.width / 2, "px;"), "\n  ").concat(myStyleString);
 };
-var getLeftSoltName = function getLeftSoltName(tapTypeL, idx, itemL) {
+var getLeftSlotName = function getLeftSlotName(tapTypeL, idx, itemL) {
+  if (!itemL.slotName) {
+    return '';
+  }
   return tapTypeL && tapTypeL === "L-".concat(idx) ? "".concat(itemL.slotName, "-confirm") : itemL.slotName;
 };
-var getRightSoltName = function getRightSoltName(tapTypeR, idx, item) {
+var getRightSlotName = function getRightSlotName(tapTypeR, idx, item) {
+  if (!item.slotName) {
+    return '';
+  }
   return tapTypeR && tapTypeR === "R-".concat(idx) ? "".concat(item.slotName, "-confirm") : item.slotName;
 };
 var getLeftText = function getLeftText(tapTypeL, idx, itemL) {
@@ -128,8 +134,8 @@ export default {
   getMovableContentLeftStyle: getMovableContentLeftStyle,
   getRightText: getRightText,
   getLeftText: getLeftText,
-  getRightSoltName: getRightSoltName,
-  getLeftSoltName: getLeftSoltName
+  getLeftSlotName: getLeftSlotName,
+  getRightSlotName: getRightSlotName
 };
 function keys(obj) {
   if (typeof Object.keys === 'function') {
