@@ -13,6 +13,7 @@
     "pages/SwipeActionSpeed",
     "pages/SwipeActionTap",
     "pages/SwipeActionWidth",
+    "pages/SwipeActionSlot",
     "utils",
     "pages/SwipeAction",
     "pages/TabsScroll",

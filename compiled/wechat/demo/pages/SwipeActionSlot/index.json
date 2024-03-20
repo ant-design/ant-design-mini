@@ -1,12 +1,5 @@
 {
-  /// #if WECHAT
-  "navigationBarTitleText": "Swipe-Action-Slot",
-  /// #endif
-
-  /// #if ALIPAY
-  "defaultTitle": "Swipe-Action-Slot",
-  /// #endif
-
+  "navigationBarTitleText": "Swipe-Action",
   "pullRefresh": "NO",
   "showProgress": "NO",
   "allowsBounceVertical": "NO",
