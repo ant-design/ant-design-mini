@@ -214,41 +214,42 @@ export default (
                 myStyle
               )}
             >
-              {
+              {/* #if WECHAT */}
+              {util.getLeftSlotName(tapTypeL, idx, itemL) ? (
+                <View class="right-text" style="width:100%;">
+                  <Slot name={util.getLeftSlotName(tapTypeL, idx, itemL)} />
+                </View>
+              ) : (
                 <Text class="right-text" style="width:100%;">
-                  {/* #if WECHAT */}
-                  {util.getLeftSlotName(tapTypeL, idx, itemL) ? (
-                    <Slot name={util.getLeftSlotName(tapTypeL, idx, itemL)} />
-                  ) : (
-                    <Text
-                      class={`right-text ${util.getLeft(
-                        tapTypeL,
-                        idx,
-                        _leftButtons,
-                        false
-                      )}`}
-                    >
-                      {util.getLeftText(tapTypeL, idx, itemL)}
-                    </Text>
-                  )}
-                  {/* #endif */}
-
-                  {/* #if ALIPAY */}
-                  <Slot name={util.getLeftSlotName(tapTypeL, idx, itemL)}>
-                    <Text
-                      class={`right-text ${util.getLeft(
-                        tapTypeL,
-                        idx,
-                        _leftButtons,
-                        false
-                      )}`}
-                    >
-                      {util.getLeftText(tapTypeL, idx, itemL)}
-                    </Text>
-                  </Slot>
-                  {/* #endif */}
+                  <Text
+                    class={`right-text ${util.getLeft(
+                      tapTypeL,
+                      idx,
+                      _leftButtons,
+                      false
+                    )}`}
+                  >
+                    {util.getLeftText(tapTypeL, idx, itemL)}
+                  </Text>
                 </Text>
-              }
+              )}
+              {/* #endif */}
+              {/* #if ALIPAY */}
+              <Slot name={util.getLeftSlotName(tapTypeL, idx, itemL)}>
+                <Text class="right-text" style="width:100%;">
+                  <Text
+                    class={`right-text ${util.getLeft(
+                      tapTypeL,
+                      idx,
+                      _leftButtons,
+                      false
+                    )}`}
+                  >
+                    {util.getLeftText(tapTypeL, idx, itemL)}
+                  </Text>
+                </Text>
+              </Slot>
+              {/* #endif */}
             </View>
           </View>
         </MovableView>

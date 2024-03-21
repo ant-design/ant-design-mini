@@ -23,6 +23,22 @@ Page({
                 confirmText: '确认删除吗？',
             },
         ],
+        leftBtns: [
+            {
+                text: 'No Slot',
+                bgColor: '#1677FF',
+                color: '#fff',
+            },
+            {
+                text: '重命名',
+                bgColor: '#FFA91B',
+                color: '#fff',
+                width: 300,
+                slotName: 'reName-left',
+                confirmType: 'tap',
+                confirmText: '确认修改吗？',
+            },
+        ],
         swipeIndex: -1,
     },
     onSwipeStart() {

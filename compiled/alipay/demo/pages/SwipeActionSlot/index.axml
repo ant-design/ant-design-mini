@@ -10,6 +10,7 @@
         <ant-swipe-action
           data-item="{{ index }}"
           rightButtons="{{ rightBtns }}"
+          leftButtons="{{ leftBtns }}"
           elasticity="{{ true }}"
           swiped="{{ swipeIndex === index }}"
           onSwipeEnd="onSwipeEnd"
@@ -44,6 +45,22 @@
           <view
             slot="reName-confirm"
             class="t-swipe-item-con-btn">
+            <ant-icon
+              type="EditFill"
+              className="t-swipe-item-con-btn-icon" />
+            <view class="t-swipe-item-con-btn-del">确认修改吗?</view>
+          </view>
+          <view
+            slot="reName-left"
+            class="t-swipe-item-con-btn left-slot">
+            <ant-icon
+              type="EditFill"
+              className="t-swipe-item-con-btn-icon" />
+            <view class="t-swipe-item-con-btn-del">重命名</view>
+          </view>
+          <view
+            slot="reName-left-confirm"
+            class="t-swipe-item-con-btn left-slot">
             <ant-icon
               type="EditFill"
               className="t-swipe-item-con-btn-icon" />

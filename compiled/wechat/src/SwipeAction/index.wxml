@@ -92,16 +92,19 @@
             data-item="{{ util.axmlObj({ itemL, idx }) }}"
             aria-hidden="{{ !swipedL }}"
             style="{{ util.getMovableContentLeftStyle(itemL, tapTypeL, idx, leftWidth, inTouch, inertiaWidth, myStyle) }}">
+            <view
+              wx:if="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}"
+              class="right-text"
+              style="width: 100%">
+              <slot name="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}" />
+            </view>
             <!-- display: inline -->
             <text
+              wx:else
               class="right-text"
               style="width: 100%"
-              ><slot
-                wx:if="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}"
-                name="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}" />
-              <!-- display: inline -->
+              ><!-- display: inline -->
               <text
-                wx:else
                 class="right-text {{ util.getLeft(tapTypeL, idx, _leftButtons, false) }}"
                 >{{ util.getLeftText(tapTypeL, idx, itemL) }}</text
               ></text

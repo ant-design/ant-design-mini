@@ -2,7 +2,7 @@ import { View, InternalData, Page, $toArray, Text } from 'tsxml';
 import AntSwipeAction from '../../../src/SwipeAction/index.axml';
 import AntIcon from '../../../src/Icon/index.axml';
 
-export default ({ rightBtns, swipeIndex }: InternalData) => (
+export default ({ rightBtns, swipeIndex, leftBtns }: InternalData) => (
   <Page>
     <View class="t-swipe">
       <View class="t-swipe-item">
@@ -12,6 +12,7 @@ export default ({ rightBtns, swipeIndex }: InternalData) => (
             <AntSwipeAction
               data-item={index}
               rightButtons={rightBtns}
+              leftButtons={leftBtns}
               elasticity={true}
               swiped={swipeIndex === index}
               onSwipeEnd="onSwipeEnd"
@@ -41,6 +42,23 @@ export default ({ rightBtns, swipeIndex }: InternalData) => (
                 <View class="t-swipe-item-con-btn-del">重命名</View>
               </View>
               <View slot="reName-confirm" class="t-swipe-item-con-btn">
+                <AntIcon
+                  type="EditFill"
+                  className="t-swipe-item-con-btn-icon"
+                />
+                <View class="t-swipe-item-con-btn-del">确认修改吗?</View>
+              </View>
+              <View slot="reName-left" class="t-swipe-item-con-btn left-slot">
+                <AntIcon
+                  type="EditFill"
+                  className="t-swipe-item-con-btn-icon"
+                />
+                <View class="t-swipe-item-con-btn-del">重命名</View>
+              </View>
+              <View
+                slot="reName-left-confirm"
+                class="t-swipe-item-con-btn left-slot"
+              >
                 <AntIcon
                   type="EditFill"
                   className="t-swipe-item-con-btn-icon"
