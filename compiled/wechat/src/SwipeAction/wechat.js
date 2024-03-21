@@ -28,6 +28,9 @@ export function transformOptions(original) {
                 attached: function () {
                     return didMount_1.call(this);
                 },
+            }, options: {
+                multipleSlots: true,
+                styleIsolation: 'shared',
             }, observers: {
                 'damping, swiped': function () {
                     this.setData({

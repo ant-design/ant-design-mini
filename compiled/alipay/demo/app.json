@@ -15,6 +15,7 @@
     "pages/SwipeActionAnimation/index",
     "pages/SwipeActionNumber/index",
     "pages/SwipeActionLeft/index",
+    "pages/SwipeActionSlot/index",
     "pages/SwipeAction/index",
     "pages/ActionSheet/index",
     "pages/Form/index",

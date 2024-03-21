@@ -133,7 +133,7 @@ const getMovableContentLeftStyle = (
   inertiaWidth,
   myStyle
 ) => {
-  const isTapTypeL = tapTypeL && tapTypeL === `R-${idx}`;
+  const isTapTypeL = tapTypeL && tapTypeL === `L-${idx}`;
   const myStyleString = isTapTypeL ? styleObjectToString(myStyle) : '';
   return `
   background: ${itemL.bgColor};
@@ -151,6 +151,24 @@ const getMovableContentLeftStyle = (
       : `width: ${itemL.width / 2}px;`
   }
   ${myStyleString}`;
+};
+
+const getLeftSlotName = (tapTypeL, idx, itemL) => {
+  if (!itemL.slotName) {
+    return '';
+  }
+  return tapTypeL && tapTypeL === `L-${idx}`
+    ? `${itemL.slotName}-confirm`
+    : itemL.slotName;
+};
+
+const getRightSlotName = (tapTypeR, idx, item) => {
+  if (!item.slotName) {
+    return '';
+  }
+  return tapTypeR && tapTypeR === `R-${idx}`
+    ? `${item.slotName}-confirm`
+    : item.slotName;
 };
 
 const getLeftText = (tapTypeL, idx, itemL) => {
@@ -206,6 +224,8 @@ export default {
   getMovableContentLeftStyle,
   getRightText,
   getLeftText,
+  getLeftSlotName,
+  getRightSlotName,
 };
 
 declare function getRegExp(reg: string, mode: string): any;

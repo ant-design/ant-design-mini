@@ -4,6 +4,7 @@ interface SwipeButton {
   width?: number;
   bgColor?: string;
   color?: string;
+  slotName?: string;
   confirmType?: '' | 'move' | 'tap';
   confirmText?: string;
 }

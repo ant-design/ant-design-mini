@@ -79,9 +79,21 @@ function styleObjectToString(myStyle) {
   return res;
 }
 var getMovableContentLeftStyle = function getMovableContentLeftStyle(itemL, tapTypeL, idx, leftWidth, inTouch, inertiaWidth, myStyle) {
-  var isTapTypeL = tapTypeL && tapTypeL === "R-".concat(idx);
+  var isTapTypeL = tapTypeL && tapTypeL === "L-".concat(idx);
   var myStyleString = isTapTypeL ? styleObjectToString(myStyle) : '';
   return "\n  background: ".concat(itemL.bgColor, ";\n  height: calc(100% + 2px);\n  font-size: ").concat((itemL.fontSize || 28) / 2, "px;\n  color: ").concat(itemL.color, ";\n  ").concat(isTapTypeL ? "width: ".concat((leftWidth + 1 + (itemL.confirmType === 'move' && inTouch ? inertiaWidth : 0)) / 2, "px;") : "width: ".concat(itemL.width / 2, "px;"), "\n  ").concat(myStyleString);
+};
+var getLeftSlotName = function getLeftSlotName(tapTypeL, idx, itemL) {
+  if (!itemL.slotName) {
+    return '';
+  }
+  return tapTypeL && tapTypeL === "L-".concat(idx) ? "".concat(itemL.slotName, "-confirm") : itemL.slotName;
+};
+var getRightSlotName = function getRightSlotName(tapTypeR, idx, item) {
+  if (!item.slotName) {
+    return '';
+  }
+  return tapTypeR && tapTypeR === "R-".concat(idx) ? "".concat(item.slotName, "-confirm") : item.slotName;
 };
 var getLeftText = function getLeftText(tapTypeL, idx, itemL) {
   return tapTypeL && tapTypeL === "L-".concat(idx) ? itemL.confirmText || itemL.text : itemL.text;
@@ -121,7 +133,9 @@ module.exports = {
   getMovableContentRightStyle: getMovableContentRightStyle,
   getMovableContentLeftStyle: getMovableContentLeftStyle,
   getRightText: getRightText,
-  getLeftText: getLeftText
+  getLeftText: getLeftText,
+  getLeftSlotName: getLeftSlotName,
+  getRightSlotName: getRightSlotName
 };
 function keys(obj) {
   return JSON.stringify(obj).replace(getRegExp('{|}|"', 'g'), '').split(',').map(function (item) {

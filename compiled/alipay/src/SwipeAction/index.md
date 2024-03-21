@@ -63,6 +63,10 @@ toc: 'content'
 
 <code src='pages/SwipeActionLeftRight/index'></code>
 
+### 自定义按钮
+
+<code src='pages/SwipeActionSlot/index'></code>
+
 ## API
 
 | 属性          | 类型                          | 默认值                            | 说明                                                                                                         |
@@ -80,11 +84,12 @@ toc: 'content'
 
 ### SwipeButton
 
-| 属性        | 类型                        | 默认值 | 说明                                                                             |
-| ----------- | --------------------------- | ------ | -------------------------------------------------------------------------------- |
-| text        | string                      | -      | 按钮文字                                                                         |
-| bgColor     | string                      | -      | 按钮背景颜色                                                                     |
-| color       | string                      | `#fff` | 按钮字体颜色                                                                     |
-| width       | number                      | 150    | 按钮宽度                                                                         |
-| confirmType | `''` \| `'move'` \| `'tap'` | -      | 二次确认类型：不触发二次确认 \| 滑动超出最大距离触发二次确认 \| 点击触发二次确认 |
-| confirmText | string                      | -      | 二次确认的文案描述；若为空，则展示 text                                          |
+| 属性        | 类型                        | 默认值 | 说明                                                                                |
+| ----------- | --------------------------- | ------ | ----------------------------------------------------------------------------------- |
+| text        | string                      | -      | 按钮文字                                                                            |
+| slotName    | string                      | -      | slot 名称,可以自定义对应按钮的内容。`${slotName}-confirm`可以自定义确认时的按钮内容 |
+| bgColor     | string                      | -      | 按钮背景颜色                                                                        |
+| color       | string                      | `#fff` | 按钮字体颜色                                                                        |
+| width       | number                      | 150    | 按钮宽度                                                                            |
+| confirmType | `''` \| `'move'` \| `'tap'` | -      | 二次确认类型：不触发二次确认 \| 滑动超出最大距离触发二次确认 \| 点击触发二次确认    |
+| confirmText | string                      | -      | 二次确认的文案描述；若为空，则展示 text                                             |
