@@ -1,16 +1,11 @@
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-var ListItem = function (props) {
-    var _a = useComponentEvent(props), alipayForwardCatchEvent = _a.alipayForwardCatchEvent, alipayForwardEvent = _a.alipayForwardEvent;
-    return {};
-};
-mountComponent(ListItem, {
+import { Component, } from '../../_util/simply';
+Component({
     image: '',
     title: '',
     brief: '',
-    arrow: null,
+    arrow: false,
     extra: '',
     extraBrief: '',
     disabled: false,
     showDivider: true,
-});
+}, {});
