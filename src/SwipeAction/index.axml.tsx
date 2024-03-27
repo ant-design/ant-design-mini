@@ -216,9 +216,7 @@ export default (
             >
               {/* #if WECHAT */}
               {util.getLeftSlotName(tapTypeL, idx, itemL) ? (
-                <View class="right-text" style="width:100%;">
-                  <Slot name={util.getLeftSlotName(tapTypeL, idx, itemL)} />
-                </View>
+                <Slot name={util.getLeftSlotName(tapTypeL, idx, itemL)} />
               ) : (
                 <Text class="right-text" style="width:100%;">
                   <Text
