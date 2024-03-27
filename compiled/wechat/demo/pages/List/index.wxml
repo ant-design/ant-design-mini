@@ -19,7 +19,7 @@
     <ant-list-item
       image="SetOutline"
       arrow="right"
-      bind:tap="handleTap"
+      catch:tap="catchTap"
       data-info="设置">
       设置
     </ant-list-item>

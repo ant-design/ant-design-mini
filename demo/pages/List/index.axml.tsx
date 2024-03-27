@@ -23,7 +23,7 @@ export default (_, { item, radius }: InternalData) => (
       <AntListItem
         image="SetOutline"
         arrow="right"
-        onTap="handleTap"
+        catchTap="catchTap"
         data-info="设置"
       >
         设置

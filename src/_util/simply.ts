@@ -1,4 +1,4 @@
-import fmtEvent from "./fmtEvent";
+import fmtEvent from './fmtEvent';
 
 function removeNullProps(props) {
   const newProps = {};
@@ -27,7 +27,7 @@ function buildProperties(props) {
     }
     newProperties[key] = {
       type,
-      value: props[key]
+      value: props[key],
     };
   }
   return newProperties;
@@ -43,11 +43,12 @@ function mergeDefaultProps(defaultProps: Record<string, any> = {}) {
   };
 }
 
-type ComponentInstance<Props, Methods> = {
+type ComponentInstance<Props, Methods> = {};
 
-};
-
-function ComponentImpl<Props, Methods = unknown>(defaultProps: Props, methods?: (Methods & ThisType<ComponentInstance<Props, Methods>>)) {
+function ComponentImpl<Props, Methods = unknown>(
+  defaultProps: Props,
+  methods?: Methods & ThisType<ComponentInstance<Props, Methods>>
+) {
   /// #if WECHAT
   Component({
     properties: buildProperties(mergeDefaultProps(defaultProps)),
@@ -63,7 +64,7 @@ function ComponentImpl<Props, Methods = unknown>(defaultProps: Props, methods?: 
   /// #if ALIPAY
   Component({
     props: removeNullProps(mergeDefaultProps(defaultProps)),
-    methods
+    methods,
   });
   /// #endif
 }
@@ -74,10 +75,15 @@ export interface IPlatformEvent {
   };
   target: {
     dataset: Record<string, unknown>;
-  }
+  };
 }
 
-export function triggerEvent(instance: any, eventName: string, value: unknown, e?: any) {
+export function triggerEvent(
+  instance: any,
+  eventName: string,
+  value: unknown,
+  e?: any
+) {
   // 首字母大写，然后加上 on
 
   /// #if ALIPAY
@@ -111,7 +117,12 @@ export function triggerEventOnly(instance: any, eventName: string, e?: any) {
   /// #endif
 }
 
-export function triggerEventValues(instance: any, eventName: string, values: any[], e?: any) {
+export function triggerEventValues(
+  instance: any,
+  eventName: string,
+  values: any[],
+  e?: any
+) {
   // 首字母大写，然后加上 on
 
   /// #if ALIPAY
@@ -128,6 +139,17 @@ export function triggerEventValues(instance: any, eventName: string, values: any
   /// #endif
 }
 
-export {
-  ComponentImpl as Component
+export function triggerCatchEvent(instance: any, eventName: string, e?: any) {
+  /// #if ALIPAY
+  const props = instance.props;
+  if (props[eventName]) {
+    props[eventName](fmtEvent(props, e));
+  }
+  /// #endif
+
+  /// #if WECHAT
+  instance.triggerEvent(eventName.toLocaleLowerCase());
+  /// #endif
 }
+
+export { ComponentImpl as Component };
