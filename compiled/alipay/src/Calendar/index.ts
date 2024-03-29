@@ -4,6 +4,7 @@ import {
   useEvent,
   useReady,
   useState,
+  useEffect,
 } from 'functional-mini/component';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
@@ -74,9 +75,6 @@ const Calendar = (props: ICalendarProps) => {
   function updateValue(newValue: CalendarValue) {
     const isControl = hasValue(props.value);
     triggerEvent('change', newValue);
-    // 滚动到已选的位置
-    props.changedScrollIntoView &&
-      setScrollIntoViewId(getScrollIntoViewId(newValue));
     if (!isControl) {
       setValue(newValue);
     }
@@ -194,11 +192,22 @@ const Calendar = (props: ICalendarProps) => {
       });
   }
 
+  useEffect(() => {
+    // 滚动到已选的位置
+    props.changedScrollIntoView &&
+      setScrollIntoViewId(getScrollIntoViewId(value));
+  }, [value]);
+
   useReady(() => {
     measurement();
-    // 初始化默认值时，滚动到默认值位置
-    props.defaultValue &&
-      setScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
+    // 初始化默认值时，滚动到选中位置
+    const isControl = hasValue(props.value);
+    if (isControl) {
+      setScrollIntoViewId(getScrollIntoViewId(props.value));
+    } else {
+      props.defaultValue &&
+        setScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
+    }
   }, []);
 
   useEvent('measurement', () => {

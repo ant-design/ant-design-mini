@@ -19,7 +19,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import dayjs from 'dayjs';
-import { useComponent, useEvent, useReady, useState, } from 'functional-mini/component';
+import { useComponent, useEvent, useReady, useState, useEffect, } from 'functional-mini/component';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
@@ -71,9 +71,6 @@ var Calendar = function (props) {
     function updateValue(newValue) {
         var isControl = hasValue(props.value);
         triggerEvent('change', newValue);
-        // 滚动到已选的位置
-        props.changedScrollIntoView &&
-            setScrollIntoViewId(getScrollIntoViewId(newValue));
         if (!isControl) {
             setValue(newValue);
         }
@@ -168,11 +165,22 @@ var Calendar = function (props) {
             setElementSize(null);
         });
     }
+    useEffect(function () {
+        // 滚动到已选的位置
+        props.changedScrollIntoView &&
+            setScrollIntoViewId(getScrollIntoViewId(value));
+    }, [value]);
     useReady(function () {
         measurement();
-        // 初始化默认值时，滚动到默认值位置
-        props.defaultValue &&
-            setScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
+        // 初始化默认值时，滚动到选中位置
+        var isControl = hasValue(props.value);
+        if (isControl) {
+            setScrollIntoViewId(getScrollIntoViewId(props.value));
+        }
+        else {
+            props.defaultValue &&
+                setScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
+        }
     }, []);
     useEvent('measurement', function () {
         // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHight 为 0
