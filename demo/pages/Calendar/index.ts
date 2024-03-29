@@ -54,7 +54,7 @@ Page({
       visible: true,
     },
     demo2: {
-      defaultValue: Date.now(),
+      defaultValue: dayjs().add(1, 'M').toDate().getTime(),
       visible: true,
     },
     demo3: {

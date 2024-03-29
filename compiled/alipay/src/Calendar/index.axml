@@ -37,6 +37,9 @@
     data-elementsize="{{ elementSize }}"
     data-monthlist="{{ monthList }}"
     onScroll="{{ scroll.handleScroll }}"
+    scroll-into-view="{{ scrollIntoViewId }}"
+    scroll-with-animation
+    scroll-animation-duration="{{ 300 }}"
     ref="handleRef">
     <block
       a:for="{{ monthList }}"
@@ -56,6 +59,7 @@
             <block>
               <view
                 class="{{ helper.getClassName(item, index) }}"
+                id="id_{{ item.time }}"
                 data-time="{{ item }}"
                 onTap="clickCell">
                 <view class="ant-calendar-cell-container">

@@ -188,11 +188,19 @@ const Calendar = (props: ICalendarProps) => {
     }
   });
 
+  // 已选中时间滚动到可视区域内（微信不支持id为数字开头）
+  const scrollIntoViewId = `id_${dayjs(Array.isArray(value) ? value[0] : value)
+    .startOf('d')
+    .subtract(7, 'd') // 需要定位的地方往前推7天，让已选中时间定位到中间位置
+    .toDate()
+    .getTime()}`;
+
   return {
     elementSize,
     markItems,
     monthList,
     headerState,
+    scrollIntoViewId,
   };
 };
 
