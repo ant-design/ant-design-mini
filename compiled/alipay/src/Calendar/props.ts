@@ -115,7 +115,7 @@ export interface ICalendarProps extends IBaseProps {
    */
   localeText?: Partial<LocaleText>;
   /**
-   * 选中值改变后是否滚动视图
+   * 选中值改变后滚动视图
    */
   changedScrollIntoView?: boolean;
   /**
