@@ -19,12 +19,12 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import dayjs from 'dayjs';
-import { useComponent, useEvent, useReady, useState, } from 'functional-mini/component';
+import { useComponent, useEvent, useReady, useState, useEffect, } from 'functional-mini/component';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
 import { defaultLocaleText, } from './props';
-import { defaultMonthRange, getMonthListFromRange, getSelectionModeFromValue, renderCells, } from './utils';
+import { defaultMonthRange, getMonthListFromRange, getSelectionModeFromValue, renderCells, getScrollIntoViewId, } from './utils';
 function getBoundingClientRect(instance, selector) {
     return new Promise(function (resolve, reject) {
         instance
@@ -54,6 +54,7 @@ var Calendar = function (props) {
     var _c = useMergedState(props.defaultValue, {
         value: props.value,
     }), value = _c[0], setValue = _c[1];
+    var _d = useState(''), scrollIntoViewId = _d[0], setScrollIntoViewId = _d[1];
     var selectionModeFromValue = getSelectionModeFromValue(value);
     var selectionMode = (_b = (_a = props.selectionMode) !== null && _a !== void 0 ? _a : selectionModeFromValue) !== null && _b !== void 0 ? _b : 'range';
     var triggerEvent = useComponentEvent(props).triggerEvent;
@@ -125,11 +126,11 @@ var Calendar = function (props) {
             cells: cells,
         };
     });
-    var _d = useState(0), headerState = _d[0], setHeaderState = _d[1];
+    var _e = useState(0), headerState = _e[0], setHeaderState = _e[1];
     useEvent('setCurrentMonth', function (e) {
         setHeaderState(e.month);
     });
-    var _e = useState(null), elementSize = _e[0], setElementSize = _e[1];
+    var _f = useState(null), elementSize = _f[0], setElementSize = _f[1];
     var componentInstance = useComponent();
     function measurement() {
         Promise.all([
@@ -154,8 +155,22 @@ var Calendar = function (props) {
             setElementSize(null);
         });
     }
+    useEffect(function () {
+        // 滚动到已选的位置
+        props.changedScrollIntoView &&
+            setScrollIntoViewId(getScrollIntoViewId(value));
+    }, [value]);
     useReady(function () {
         measurement();
+        // 初始化默认值时，滚动到选中位置
+        var isControl = hasValue(props.value);
+        if (isControl) {
+            setScrollIntoViewId(getScrollIntoViewId(props.value));
+        }
+        else {
+            props.defaultValue &&
+                setScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
+        }
     }, []);
     useEvent('measurement', function () {
         // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHight 为 0
@@ -169,6 +184,7 @@ var Calendar = function (props) {
         markItems: markItems,
         monthList: monthList,
         headerState: headerState,
+        scrollIntoViewId: scrollIntoViewId,
     };
 };
 mountComponent(Calendar, {

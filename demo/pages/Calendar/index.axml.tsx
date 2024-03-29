@@ -35,6 +35,7 @@ export default ({
           <AntCalendar
             selectionMode="single"
             defaultValue={demo2.defaultValue}
+            changedScrollIntoView
           />
         </View>
       </CollapseContainer>

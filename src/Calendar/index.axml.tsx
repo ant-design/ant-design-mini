@@ -13,7 +13,13 @@ import {
 
 export default (
   { className, style }: TSXMLProps<ICalendarProps>,
-  { markItems, elementSize, monthList, headerState }: InternalData
+  {
+    markItems,
+    elementSize,
+    monthList,
+    headerState,
+    scrollIntoViewId,
+  }: InternalData
 ) => (
   <View class={`ant-calendar ${className ? className : ''}`} style={style}>
     <View class="ant-calendar-mark">
@@ -45,6 +51,9 @@ export default (
       data-elementsize={elementSize}
       data-monthlist={monthList}
       onScroll={scroll.handleScroll}
+      scroll-into-view={scrollIntoViewId}
+      scroll-with-animation
+      scroll-animation-duration={300}
       ref="handleRef"
     >
       {monthList.map((currentMonth) => (
@@ -65,6 +74,7 @@ export default (
               <Block>
                 <View
                   class={helper.getClassName(item, index)}
+                  id={`id_${item.time}`}
                   data-time={item}
                   onTap="clickCell"
                 >

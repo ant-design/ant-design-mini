@@ -33,6 +33,9 @@
     data-elementsize="{{ elementSize }}"
     data-monthlist="{{ monthList }}"
     bind:scroll="{{ scroll.handleScroll }}"
+    scroll-into-view="{{ scrollIntoViewId }}"
+    scroll-with-animation
+    scroll-animation-duration="{{ 300 }}"
     bind:ref="handleRef">
     <block
       wx:for="{{ monthList }}"
@@ -50,6 +53,7 @@
             <block>
               <view
                 class="{{ helper.getClassName(item, index) }}"
+                id="id_{{ item.time }}"
                 data-time="{{ item }}"
                 bind:tap="clickCell">
                 <view class="ant-calendar-cell-container">
