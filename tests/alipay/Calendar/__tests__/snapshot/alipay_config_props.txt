@@ -1,4 +1,5 @@
 {
+  "changedScrollIntoView": undefined,
   "className": undefined,
   "localeText": {
     "end": "结束",

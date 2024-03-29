@@ -1,6 +1,10 @@
 import dayjs, { Dayjs } from 'dayjs';
 import { describe, expect, it } from 'vitest';
-import { getDate, getMonthListFromRange } from 'compiled-alipay/Calendar/utils';
+import {
+  getDate,
+  getMonthListFromRange,
+  getScrollIntoViewId,
+} from 'compiled-alipay/Calendar/utils';
 
 describe('Calendar utils', () => {
   it('test dayjsToCalendarDate', () => {
@@ -30,6 +34,15 @@ it('测试 checkDates 生成的日期是否正确', () => {
     expect(checkDates(flag, 'Monday')).toBeTruthy();
     expect(checkDates(flag, 'Sunday')).toBeTruthy();
     flag = flag.add(1, 'month');
+  }
+});
+
+it('测试 getScrollIntoViewId 获取滚动视图的元素id是否正确', () => {
+  let flag = dayjs('2024-03-29 13:40:23').toDate().getTime();
+  for (let i = 0; i < 12 * 100; i++) {
+    expect(getScrollIntoViewId(flag)).toEqual(
+      `id_${dayjs('2024-03-22').toDate().getTime()}`
+    );
   }
 });
 

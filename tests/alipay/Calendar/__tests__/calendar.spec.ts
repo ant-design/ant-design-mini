@@ -2,19 +2,27 @@ import dayjs from 'dayjs';
 import { describe, expect, it, vi } from 'vitest';
 import { findDate, getSelectedDay, initCalendar, sleep } from './testUtils';
 import { TestInstance } from 'tests/utils';
+import { getScrollIntoViewId } from 'compiled-alipay/Calendar/utils';
 
 describe('Calendar', () => {
   it('测试默认值', () => {
     const instance = initCalendar({});
 
-    const { className, style, localeText, selectionMode, weekStartsOn } =
-      instance.getConfig().props;
+    const {
+      className,
+      style,
+      localeText,
+      selectionMode,
+      weekStartsOn,
+      changedScrollIntoView,
+    } = instance.getConfig().props;
     expect({
       className,
       style,
       localeText,
       selectionMode,
       weekStartsOn,
+      changedScrollIntoView,
     }).toMatchFileSnapshot('snapshot/alipay_config_props.txt');
 
     const initData = instance.getData();
@@ -289,5 +297,32 @@ describe('Calendar', () => {
     extendFunctions.clickCell('2023-01-02');
     await sleep(100);
     expect(getSelectedDay(instance.getData())).toEqual(['2023-01-02']);
+  });
+
+  it('测试滚动到选中位置', async () => {
+    const defaultValue = dayjs().add(1, 'M').toDate().getTime();
+    const instance = initCalendar({
+      defaultValue,
+      selectionMode: 'single',
+      changedScrollIntoView: true,
+    });
+    expect(instance.getData().scrollIntoViewId).toEqual(
+      getScrollIntoViewId(defaultValue)
+    );
+
+    const extendFunctions = extendInstance(instance);
+    extendFunctions.clickCell(
+      dayjs(defaultValue).add(1, 'd').format('YYYY-MM-DD')
+    );
+    await sleep(300);
+    expect(instance.getData().scrollIntoViewId).toEqual(
+      getScrollIntoViewId(dayjs(defaultValue).add(1, 'd').toDate().getTime())
+    );
+
+    extendFunctions.clickCell('2024-03-28');
+    await sleep(300);
+    expect(instance.getData().scrollIntoViewId).toEqual(
+      getScrollIntoViewId(dayjs('2024-03-28').toDate().getTime())
+    );
   });
 });
