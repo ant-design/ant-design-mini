@@ -41,6 +41,16 @@ function getBoundingClientRect(instance, selector) {
         });
     });
 }
+// 获取滚动视图的元素id
+function getScrollIntoViewId(value) {
+    // 已选中时间滚动到可视区域内（微信不支持id为数字开头）
+    return "id_".concat(value &&
+        dayjs(Array.isArray(value) ? value[0] : value)
+            .startOf('d')
+            .subtract(7, 'd') // 需要定位的地方往前推7天，让已选中时间定位到中间位置
+            .toDate()
+            .getTime());
+}
 var Calendar = function (props) {
     var _a, _b;
     var localeText = Object.assign({}, defaultLocaleText, props.localeText);
@@ -54,12 +64,16 @@ var Calendar = function (props) {
     var _c = useMergedState(props.defaultValue, {
         value: props.value,
     }), value = _c[0], setValue = _c[1];
+    var _d = useState(''), scrollIntoViewId = _d[0], setScrollIntoViewId = _d[1];
     var selectionModeFromValue = getSelectionModeFromValue(value);
     var selectionMode = (_b = (_a = props.selectionMode) !== null && _a !== void 0 ? _a : selectionModeFromValue) !== null && _b !== void 0 ? _b : 'range';
     var triggerEvent = useComponentEvent(props).triggerEvent;
     function updateValue(newValue) {
         var isControl = hasValue(props.value);
         triggerEvent('change', newValue);
+        // 滚动到已选的位置
+        props.changedScrollIntoView &&
+            setScrollIntoViewId(getScrollIntoViewId(newValue));
         if (!isControl) {
             setValue(newValue);
         }
@@ -125,11 +139,11 @@ var Calendar = function (props) {
             cells: cells,
         };
     });
-    var _d = useState(0), headerState = _d[0], setHeaderState = _d[1];
+    var _e = useState(0), headerState = _e[0], setHeaderState = _e[1];
     useEvent('setCurrentMonth', function (e) {
         setHeaderState(e.month);
     });
-    var _e = useState(null), elementSize = _e[0], setElementSize = _e[1];
+    var _f = useState(null), elementSize = _f[0], setElementSize = _f[1];
     var componentInstance = useComponent();
     function measurement() {
         Promise.all([
@@ -156,6 +170,9 @@ var Calendar = function (props) {
     }
     useReady(function () {
         measurement();
+        // 初始化默认值时，滚动到默认值位置
+        props.defaultValue &&
+            setScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
     }, []);
     useEvent('measurement', function () {
         // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHight 为 0
@@ -164,12 +181,6 @@ var Calendar = function (props) {
             measurement();
         }
     });
-    // 已选中时间滚动到可视区域内（微信不支持id为数字开头）
-    var scrollIntoViewId = "id_".concat(dayjs(Array.isArray(value) ? value[0] : value)
-        .startOf('d')
-        .subtract(7, 'd') // 需要定位的地方往前推7天，让已选中时间定位到中间位置
-        .toDate()
-        .getTime());
     return {
         elementSize: elementSize,
         markItems: markItems,

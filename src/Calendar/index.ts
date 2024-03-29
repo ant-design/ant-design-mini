@@ -37,6 +37,19 @@ function getBoundingClientRect(instance: any, selector: string) {
   });
 }
 
+// 获取滚动视图的元素id
+function getScrollIntoViewId(value) {
+  // 已选中时间滚动到可视区域内（微信不支持id为数字开头）
+  return `id_${
+    value &&
+    dayjs(Array.isArray(value) ? value[0] : value)
+      .startOf('d')
+      .subtract(7, 'd') // 需要定位的地方往前推7天，让已选中时间定位到中间位置
+      .toDate()
+      .getTime()
+  }`;
+}
+
 const Calendar = (props: ICalendarProps) => {
   const localeText = Object.assign({}, defaultLocaleText, props.localeText);
 
@@ -51,6 +64,8 @@ const Calendar = (props: ICalendarProps) => {
     value: props.value,
   });
 
+  const [scrollIntoViewId, setScrollIntoViewId] = useState<string>('');
+
   const selectionModeFromValue = getSelectionModeFromValue(value);
   const selectionMode =
     props.selectionMode ?? selectionModeFromValue ?? 'range';
@@ -59,6 +74,9 @@ const Calendar = (props: ICalendarProps) => {
   function updateValue(newValue: CalendarValue) {
     const isControl = hasValue(props.value);
     triggerEvent('change', newValue);
+    // 滚动到已选的位置
+    props.changedScrollIntoView &&
+      setScrollIntoViewId(getScrollIntoViewId(newValue));
     if (!isControl) {
       setValue(newValue);
     }
@@ -178,6 +196,9 @@ const Calendar = (props: ICalendarProps) => {
 
   useReady(() => {
     measurement();
+    // 初始化默认值时，滚动到默认值位置
+    props.defaultValue &&
+      setScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
   }, []);
 
   useEvent('measurement', () => {
@@ -187,13 +208,6 @@ const Calendar = (props: ICalendarProps) => {
       measurement();
     }
   });
-
-  // 已选中时间滚动到可视区域内（微信不支持id为数字开头）
-  const scrollIntoViewId = `id_${dayjs(Array.isArray(value) ? value[0] : value)
-    .startOf('d')
-    .subtract(7, 'd') // 需要定位的地方往前推7天，让已选中时间定位到中间位置
-    .toDate()
-    .getTime()}`;
 
   return {
     elementSize,

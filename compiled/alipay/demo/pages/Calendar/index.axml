@@ -16,7 +16,8 @@
     style="height: 1000rpx">
     <ant-calendar
       selectionMode="single"
-      defaultValue="{{ demo2.defaultValue }}" />
+      defaultValue="{{ demo2.defaultValue }}"
+      changedScrollIntoView />
   </view>
 </collapse-container>
 
