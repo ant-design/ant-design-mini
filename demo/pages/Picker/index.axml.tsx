@@ -28,6 +28,7 @@ export default ({
           title="请选择"
           onChange="handleChange"
           options={list}
+          emptyText="暂无数据"
         ></AntPicker>
       </AntListItem>
       <AntListItem>

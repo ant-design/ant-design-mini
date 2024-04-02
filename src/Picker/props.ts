@@ -55,6 +55,11 @@ export interface IPickerProps extends IBaseProps {
    */
   placeholder: string;
   /**
+   * @description 无数据时提示文案
+   * @default '暂无数据'
+   */
+  emptyText?: string;
+  /**
    * @description picker 数据
    */
   options: PickerValue[];
@@ -133,6 +138,7 @@ export const PickerDefaultProps: Partial<IPickerProps> = {
   options: [],
   placeholder: '请选择',
   defaultValue: [],
+  emptyText: '暂无数据'
 };
 
 export const PickerFunctionalProps: Partial<IPickerProps> = {

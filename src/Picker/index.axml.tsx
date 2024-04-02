@@ -30,6 +30,7 @@ export default (
     indicatorStyle,
     indicatorClassName,
     options,
+    emptyText
   }: TSXMLProps<IPickerProps>,
   { state, formatValue, selectedIndex, columns }: InternalData
 ) => (
@@ -127,7 +128,7 @@ export default (
           <Block>
             <PickerView>
               <PickerViewColumn>
-                <Text style="color: #ccc">暂无数据</Text>
+                <Text style="color: #ccc">{emptyText}</Text>
               </PickerViewColumn>
             </PickerView>
           </Block>
