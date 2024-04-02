@@ -65,6 +65,26 @@ export interface IGuideTour extends IBaseProps {
    * @description 步骤改变回调
    */
   onChange: (index: number) => boolean;
+   /**
+   * @description 上一步按钮文案
+   * @default "上一步"
+   */
+  prevStepText?: string;
+   /**
+   * @description 下一步按钮文案
+   * @default "下一步"
+   */
+  nextStepText?: string;
+   /**
+   * @description 知道了按钮文案
+   * @default "知道了"
+   */
+  gotItText?: string;
+   /**
+   * @description 跳过按钮文案
+   * @default "跳过"
+   */
+  jumpText?: string;
 }
 
 export const GuideTourDefaultProps: Partial<IGuideTour> = {
@@ -72,6 +92,10 @@ export const GuideTourDefaultProps: Partial<IGuideTour> = {
   swiperable: false,
   items: [],
   defaultCurrent: 0,
+  gotItText: '知道了',
+  nextStepText: '下一步',
+  prevStepText: '上一步',
+  jumpText: '跳过'
 };
 
 export const GuideTourFunctionalProps: Partial<IGuideTour> = {

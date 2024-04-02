@@ -24,6 +24,10 @@ export default (
     items,
     visible,
     swiperable,
+    jumpText,
+    nextStepText,
+    prevStepText,
+    gotItText
   }: TSXMLProps<IGuideTour>,
   { mixin, current }: InternalData
 ) => (
@@ -43,7 +47,7 @@ export default (
         <View class="ant-guide-tour-button">
           {utils.checkShowJump(mixin.value, items) && (
             <AntButton inline size="small" onTap="onCancel">
-              跳过
+              {jumpText}
             </AntButton>
           )}
           {utils.checkShowPrev(mixin.value, items) && (
@@ -53,7 +57,7 @@ export default (
               onTap="onPrev"
               data-currentValue={mixin.value}
             >
-              上一步
+              {prevStepText}
             </AntButton>
           )}
           {utils.checkShowNext(mixin.value, items) && (
@@ -63,12 +67,12 @@ export default (
               onTap="onNext"
               data-currentValue={mixin.value}
             >
-              下一步
+              {nextStepText}
             </AntButton>
           )}
           {utils.checkShowKnow(mixin.value, items) && (
             <AntButton inline size="small" onTap="onCancel">
-              知道了
+              {gotItText}
             </AntButton>
           )}
         </View>

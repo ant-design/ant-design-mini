@@ -20,7 +20,7 @@
       inline
       size="small"
       onTap="onCancel">
-      跳过
+      {{ jumpText }}
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowPrev(mixin.value, items) }}"
@@ -28,7 +28,7 @@
       size="small"
       onTap="onPrev"
       data-currentValue="{{ mixin.value }}">
-      上一步
+      {{ prevStepText }}
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowNext(mixin.value, items) }}"
@@ -36,14 +36,14 @@
       size="small"
       onTap="onNext"
       data-currentValue="{{ mixin.value }}">
-      下一步
+      {{ nextStepText }}
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowKnow(mixin.value, items) }}"
       inline
       size="small"
       onTap="onCancel">
-      知道了
+      {{ gotItText }}
     </ant-button>
   </view>
   <block a:if="{{ swiperable }}">

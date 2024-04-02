@@ -36,6 +36,10 @@ toc: 'content'
 | `visible`     | 是否显示       | `boolean`                     | `false`|
 | `onCancel`    | 关闭回调       | `() => void`                 | -      |
 | `onChange`    | 步骤改变回调   | `(index: number) => void`    | -      |
+| `jumpText`    | 跳过按钮的文案     | `string`                     | '跳过' |
+| `prevStepText`| 上一步按钮的文案     | `string`                     | '上一步' |
+| `nextStepText`| 下一步按钮的文案     | `string`                     | '下一步' |
+| `gotItText`| 知道了按钮的文案     | `string`                     | '知道了' |
 
 ### GuideTourItem 
 
