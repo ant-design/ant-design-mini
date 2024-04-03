@@ -10,7 +10,8 @@
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
-      options="{{ list }}" />
+      options="{{ list }}"
+      emptyText="暂无数据" />
   </ant-list-item>
   <ant-list-item>
     选择城市（点击蒙层不关闭）
