@@ -13,6 +13,8 @@ export default ({
       <AntUploader
         onChange="onChange"
         onUpload={onUpload ? onUpload : 'onUpload'}
+        uploadingText="上传中……"
+        uploadfailedText="上传失败"
       />
     </AntContainer>
     <AntContainer title="初始值">

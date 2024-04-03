@@ -97,6 +97,16 @@ export interface IUploaderProps extends IBaseProps {
    * @description 自定义上传方式，只在不存在action字段时生效
    */
   onUpload?: (localFile: LocalFile) => Promise<string>;
+  /**
+   * @description 上传中文案
+   * @default "上传中……"
+   */
+  uploadingText?: string;
+   /**
+   * @description 上传失败文案
+   * @default "上传失败"
+   */
+  uploadfailedText?: string;
 }
 
 export const UploaderDefaultProps: Partial<IUploaderProps> = {
@@ -114,4 +124,6 @@ export const UploaderFunctionalProps: Partial<IUploaderProps> = {
   onUpload: null,
   onBeforeUpload: null,
   onRemove: null,
+  uploadingText: '上传中',
+  uploadfailedText: '上传失败'
 };

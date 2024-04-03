@@ -4,7 +4,13 @@ import { View, Slot, InternalData, TSXMLProps, Image } from 'tsxml';
 import { IUploaderProps } from './props';
 
 export default (
-  { className, style, imageMode, maxCount }: TSXMLProps<IUploaderProps>,
+  { className,
+    style, 
+    imageMode, 
+    maxCount,    
+    uploadingText,
+    uploadfailedText 
+  }: TSXMLProps<IUploaderProps>,
   { mixin }: InternalData
 ) => (
   <View class={`ant-image-upload ${className || ''}`} style={style || ''}>
@@ -31,7 +37,7 @@ export default (
                   <View class="ant-image-upload-cover-loading">
                     <Loading className="ant-image-upload-cover-loading-icon" />
                     <View class="ant-image-upload-cover-loading-text">
-                      上传中...
+                      {uploadingText}
                     </View>
                   </View>
                 )}
@@ -42,7 +48,7 @@ export default (
                       type="CloseCircleOutline"
                     />
                     <View class="ant-image-upload-cover-error-text">
-                      上传失败
+                      {uploadfailedText}
                     </View>
                   </View>
                 )}
