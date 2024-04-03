@@ -1,0 +1,9 @@
+.base {
+  width: 100%;
+  height: 100vh;
+}
+.indexbar {
+  position: fixed;
+  right: 10px;
+  top: 20vh;
+}
