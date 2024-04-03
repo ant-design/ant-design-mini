@@ -6,6 +6,7 @@ export var PickerDefaultProps = {
     options: [],
     placeholder: '请选择',
     defaultValue: [],
+    emptyText: '暂无数据'
 };
 export var PickerFunctionalProps = {
     formattedValueText: null,
