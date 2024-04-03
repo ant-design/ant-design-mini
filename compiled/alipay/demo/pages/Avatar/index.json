@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "Avatar",
-  "usingComponents": {
-    "ant-avatar": "../../../src/Avatar/index",
-    "ant-list-item": "../../../src/List/ListItem/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

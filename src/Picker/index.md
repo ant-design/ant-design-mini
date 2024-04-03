@@ -40,6 +40,7 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
 | maskClosable |  点击蒙层是否可以关闭 | boolean |true |  | 
 | maskStyle | 蒙层的样式 | string | - | 
 | okText | 确认按钮文案 | string | '确定' |  
+| emptyText | 空状态按钮文案 | string | '暂无数据' |  
 | options | picker 数据，配置每一列的选项 | [PickerColumnItem](#pickercolumnitem)[] | [] |
 | placeholder | 提示文案 | string | '请选择' |  
 | popClassName |  弹出框类名 | string | - |

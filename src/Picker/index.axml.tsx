@@ -30,6 +30,7 @@ export default (
     indicatorStyle,
     indicatorClassName,
     options,
+    emptyText
   }: TSXMLProps<IPickerProps>,
   { state, formatValue, selectedIndex, columns }: InternalData
 ) => (
@@ -98,7 +99,7 @@ export default (
       </View>
       <View class="ant-picker-content">
         <Slot name="content-header" />
-        {columns ? (
+        {columns.length > 0 ? (
           <Block>
             <PickerView
               class="ant-picker-picker-view"
@@ -127,7 +128,7 @@ export default (
           <Block>
             <PickerView>
               <PickerViewColumn>
-                <Text style="color: #ccc">暂无数据</Text>
+                <Text style="color: #ccc">{emptyText}</Text>
               </PickerViewColumn>
             </PickerView>
           </Block>

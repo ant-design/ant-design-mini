@@ -24,4 +24,5 @@ export var PickerFunctionalProps = {
     popStyle: '',
     maskClosable: true,
     onFormat: null,
+    emptyText: '暂无数据'
 };
