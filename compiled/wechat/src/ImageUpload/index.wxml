@@ -19,7 +19,9 @@
           wx:if="{{ item.status === 'uploading' }}"
           class="ant-image-upload-cover-loading">
           <loading className="ant-image-upload-cover-loading-icon" />
-          <view class="ant-image-upload-cover-loading-text">上传中...</view>
+          <view class="ant-image-upload-cover-loading-text">
+            {{ uploadingText }}
+          </view>
         </view>
         <view
           wx:if="{{ item.status === 'error' }}"
@@ -27,7 +29,9 @@
           <icon
             className="ant-image-upload-cover-error-icon"
             type="CloseCircleOutline" />
-          <view class="ant-image-upload-cover-error-text">上传失败</view>
+          <view class="ant-image-upload-cover-error-text">
+            {{ uploadfailedText }}
+          </view>
         </view>
       </view>
 

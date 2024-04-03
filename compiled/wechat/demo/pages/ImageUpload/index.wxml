@@ -1,7 +1,9 @@
 <ant-container title="基本用法">
   <ant-uploader
     bind:change="onChange"
-    onUpload="{{ onUpload ? onUpload : 'onUpload' }}" />
+    onUpload="{{ onUpload ? onUpload : 'onUpload' }}"
+    uploadingText="上传中……"
+    uploadfailedText="上传失败" />
 </ant-container>
 <ant-container title="初始值">
   <ant-uploader
