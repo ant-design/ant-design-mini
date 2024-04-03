@@ -20,7 +20,7 @@
       inline
       size="small"
       bind:tap="onCancel">
-      跳过
+      {{ jumpText }}
     </ant-button>
     <ant-button
       wx:if="{{ utils.checkShowPrev(mixin.value, items) }}"
@@ -28,7 +28,7 @@
       size="small"
       bind:tap="onPrev"
       data-currentValue="{{ mixin.value }}">
-      上一步
+      {{ prevStepText }}
     </ant-button>
     <ant-button
       wx:if="{{ utils.checkShowNext(mixin.value, items) }}"
@@ -36,14 +36,14 @@
       size="small"
       bind:tap="onNext"
       data-currentValue="{{ mixin.value }}">
-      下一步
+      {{ nextStepText }}
     </ant-button>
     <ant-button
       wx:if="{{ utils.checkShowKnow(mixin.value, items) }}"
       inline
       size="small"
       bind:tap="onCancel">
-      知道了
+      {{ gotItText }}
     </ant-button>
   </view>
   <block wx:if="{{ swiperable }}">

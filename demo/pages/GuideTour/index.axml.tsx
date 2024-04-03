@@ -46,6 +46,10 @@ export default ({
       visible={slotVisible}
       onCancel="closeTour"
       onChange="onChange"
+      jumpText='跳过'
+      gotItText='知道了'
+      prevStepText='上一步'
+      nextStepText='下一步'
     >
       <View class="step-box" slot="step" slot-scope="props">
         step-{props.index}
