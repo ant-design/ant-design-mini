@@ -4,6 +4,8 @@ export var ModalDefaultProps = {
     closable: true,
     type: 'default',
     duration: 200,
+    animation: true,
+    zIndex: 998,
 };
 export var ModalFunctionalProps = {
     bodyClassName: '',
@@ -14,6 +16,8 @@ export var ModalFunctionalProps = {
     type: 'default',
     closable: true,
     duration: 200,
+    animation: true,
+    zIndex: 998,
     title: '',
     content: '',
     visible: false,

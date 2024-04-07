@@ -1,6 +1,57 @@
 import { getInstance } from 'tests/utils';
 import { describe, it, expect, vi } from 'vitest';
 
+describe('init', () => {
+  it('测试默认值', () => {
+    const instance = getInstance('Modal', {});
+
+    const {
+      bodyClassName,
+      bodyStyle,
+      maskClassName,
+      maskStyle,
+      maskClosable,
+      type,
+      closable,
+      duration,
+      animation,
+      zIndex,
+      title,
+      content,
+      visible,
+      destroyOnClose,
+      primaryButtonText,
+      secondaryButtonText,
+      cancelButtonText,
+      primaryButtonStyle,
+      secondaryButtonStyle,
+      cancelButtonStyle,
+    } = instance.getConfig().props;
+    expect({
+      bodyClassName,
+      bodyStyle,
+      maskClassName,
+      maskStyle,
+      maskClosable,
+      type,
+      closable,
+      duration,
+      animation,
+      zIndex,
+      title,
+      content,
+      visible,
+      destroyOnClose,
+      primaryButtonText,
+      secondaryButtonText,
+      cancelButtonText,
+      primaryButtonStyle,
+      secondaryButtonStyle,
+      cancelButtonStyle,
+    }).toMatchFileSnapshot('snapshot/alipay_config_props.txt');
+  });
+});
+
 describe('modal onClose', () => {
   it('modal onClose', () => {
     const onClose = vi.fn();
