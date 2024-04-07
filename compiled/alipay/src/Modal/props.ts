@@ -38,6 +38,14 @@ export interface IModalProps extends IBaseProps {
    */
   duration: number;
   /**
+   * @description 是否开启过渡动画
+   */
+  animation: boolean;
+  /**
+   * @description 弹窗层级
+   */
+  zIndex: number;
+  /**
    * @description 标题
    */
   title: string;
@@ -103,6 +111,8 @@ export const ModalDefaultProps: Partial<IModalProps> = {
   closable: true,
   type: 'default',
   duration: 200,
+  animation: true,
+  zIndex: 998,
 };
 
 export const ModalFunctionalProps: Partial<IModalProps> = {
@@ -114,6 +124,8 @@ export const ModalFunctionalProps: Partial<IModalProps> = {
   type: 'default',
   closable: true,
   duration: 200,
+  animation: true,
+  zIndex: 998,
   title: '',
   content: '',
   visible: false,

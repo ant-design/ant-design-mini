@@ -3,34 +3,32 @@ import AntPopup from '../Popup/index.axml';
 import AntButton from '../Button/index.axml';
 import AntIcon from '../Icon/index.axml';
 import { IModalProps } from './props';
-import { TSXMLProps, InternalData } from 'tsxml';
+import { TSXMLProps } from 'tsxml';
 import utils from './index.sjs';
 
-export default (
-  {
-    className,
-    style,
-    maskClassName,
-    maskStyle,
-    visible,
-    duration,
-    destroyOnClose,
-    bodyClassName,
-    bodyStyle,
-    title,
-    content,
-    type,
-    primaryButtonText,
-    primaryButtonStyle,
-    secondaryButtonText,
-    secondaryButtonStyle,
-    cancelButtonText,
-    cancelButtonStyle,
-    closable,
-  }: TSXMLProps<IModalProps>,
-
-  { animation, zIndex }: InternalData
-) => (
+export default ({
+  className,
+  style,
+  maskClassName,
+  maskStyle,
+  visible,
+  duration,
+  destroyOnClose,
+  bodyClassName,
+  bodyStyle,
+  title,
+  content,
+  type,
+  primaryButtonText,
+  primaryButtonStyle,
+  secondaryButtonText,
+  secondaryButtonStyle,
+  cancelButtonText,
+  cancelButtonStyle,
+  closable,
+  animation,
+  zIndex,
+}: TSXMLProps<IModalProps>) => (
   <Component>
     <AntPopup
       className={`ant-modal ${className || ''}`}
