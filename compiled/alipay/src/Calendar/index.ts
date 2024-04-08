@@ -233,4 +233,5 @@ mountComponent<ICalendarProps>(Calendar, {
   weekStartsOn: 'Sunday',
   localeText: defaultLocaleText,
   onFormatter: null,
+  changedScrollIntoView: null,
 });
