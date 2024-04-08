@@ -314,15 +314,8 @@ describe('Calendar', () => {
     extendFunctions.clickCell(
       dayjs(defaultValue).add(1, 'd').format('YYYY-MM-DD')
     );
-    await sleep(300);
-    expect(instance.getData().scrollIntoViewId).toEqual(
-      getScrollIntoViewId(dayjs(defaultValue).add(1, 'd').toDate().getTime())
-    );
 
-    extendFunctions.clickCell('2024-03-28');
     await sleep(300);
-    expect(instance.getData().scrollIntoViewId).toEqual(
-      getScrollIntoViewId(dayjs('2024-03-28').toDate().getTime())
-    );
+    expect(instance.getData().scrollIntoViewId).toEqual('');
   });
 });

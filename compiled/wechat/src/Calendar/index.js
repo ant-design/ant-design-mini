@@ -55,6 +55,14 @@ var Calendar = function (props) {
         value: props.value,
     }), value = _c[0], setValue = _c[1];
     var _d = useState(''), scrollIntoViewId = _d[0], setScrollIntoViewId = _d[1];
+    // scroll 触发滚动之后需要重置 scrollIntoViewId
+    function updateScrollIntoViewId(id) {
+        setScrollIntoViewId(id);
+        var timer = setTimeout(function () {
+            setScrollIntoViewId('');
+            clearTimeout(timer);
+        });
+    }
     var selectionModeFromValue = getSelectionModeFromValue(value);
     var selectionMode = (_b = (_a = props.selectionMode) !== null && _a !== void 0 ? _a : selectionModeFromValue) !== null && _b !== void 0 ? _b : 'range';
     var triggerEvent = useComponentEvent(props).triggerEvent;
@@ -158,18 +166,18 @@ var Calendar = function (props) {
     useEffect(function () {
         // 滚动到已选的位置
         props.changedScrollIntoView &&
-            setScrollIntoViewId(getScrollIntoViewId(value));
+            updateScrollIntoViewId(getScrollIntoViewId(value));
     }, [value]);
     useReady(function () {
         measurement();
         // 初始化默认值时，滚动到选中位置
         var isControl = hasValue(props.value);
         if (isControl) {
-            setScrollIntoViewId(getScrollIntoViewId(props.value));
+            updateScrollIntoViewId(getScrollIntoViewId(props.value));
         }
         else {
             props.defaultValue &&
-                setScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
+                updateScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
         }
     }, []);
     useEvent('measurement', function () {
@@ -195,4 +203,5 @@ mountComponent(Calendar, {
     weekStartsOn: 'Sunday',
     localeText: defaultLocaleText,
     onFormatter: null,
+    changedScrollIntoView: null,
 });

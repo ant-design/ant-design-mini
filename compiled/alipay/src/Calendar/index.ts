@@ -55,6 +55,16 @@ const Calendar = (props: ICalendarProps) => {
 
   const [scrollIntoViewId, setScrollIntoViewId] = useState<string>('');
 
+  // scroll 触发滚动之后需要重置 scrollIntoViewId
+  function updateScrollIntoViewId(id) {
+    setScrollIntoViewId(id);
+
+    const timer = setTimeout(() => {
+      setScrollIntoViewId('');
+      clearTimeout(timer);
+    });
+  }
+
   const selectionModeFromValue = getSelectionModeFromValue(value);
   const selectionMode =
     props.selectionMode ?? selectionModeFromValue ?? 'range';
@@ -183,7 +193,7 @@ const Calendar = (props: ICalendarProps) => {
   useEffect(() => {
     // 滚动到已选的位置
     props.changedScrollIntoView &&
-      setScrollIntoViewId(getScrollIntoViewId(value));
+      updateScrollIntoViewId(getScrollIntoViewId(value));
   }, [value]);
 
   useReady(() => {
@@ -191,10 +201,10 @@ const Calendar = (props: ICalendarProps) => {
     // 初始化默认值时，滚动到选中位置
     const isControl = hasValue(props.value);
     if (isControl) {
-      setScrollIntoViewId(getScrollIntoViewId(props.value));
+      updateScrollIntoViewId(getScrollIntoViewId(props.value));
     } else {
       props.defaultValue &&
-        setScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
+        updateScrollIntoViewId(getScrollIntoViewId(props.defaultValue));
     }
   }, []);
 
@@ -223,4 +233,5 @@ mountComponent<ICalendarProps>(Calendar, {
   weekStartsOn: 'Sunday',
   localeText: defaultLocaleText,
   onFormatter: null,
+  changedScrollIntoView: null,
 });

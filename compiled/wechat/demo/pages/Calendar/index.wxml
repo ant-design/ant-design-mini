@@ -89,12 +89,15 @@
 <collapse-container
   wx:if="{{ demo9.visible }}"
   title="受控模式">
-  <view slot="content">
+  <view
+    slot="content"
+    style="height: 1000rpx">
     <ant-calendar
       value="{{ demo9.value }}"
       monthRange="{{ demo9.monthRange }}"
       bind:change="demo9HandleChange"
-      selectionMode="single" />
+      selectionMode="single"
+      changedScrollIntoView />
     <ant-button
       type="primary"
       bind:tap="demo9HandlePreviousDay">
@@ -105,6 +108,12 @@
       type="primary"
       bind:tap="demo9HandleNextDay">
       下一天
+    </ant-button>
+    <ant-button
+      style="margin-top: 8rpx"
+      type="primary"
+      bind:tap="demo9HandleInit">
+      回到初始化日期
     </ant-button>
   </view>
 </collapse-container>
