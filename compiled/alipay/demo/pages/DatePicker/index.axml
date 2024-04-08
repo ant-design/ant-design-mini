@@ -113,3 +113,28 @@
       onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
   </ant-list-item>
 </ant-list>
+
+<ant-container style="margin-top: 20rpx">
+  <ant-list header="多列复杂类型数据">
+    <ant-list-item>
+      请选择时间
+      <ant-date-picker
+        min="{{ min }}"
+        max="{{ max }}"
+        slot="extra"
+        defaultValue="{{ defaultDate }}"
+        defaultVisible="{{ true }}"
+        visible="{{ pickerVisible }}"
+        placeholder="请选择"
+        onVisibleChange="handleTriggerControlledPicker"
+        onCancel="handleDismiss"
+        onOk="handleOk" />
+    </ant-list-item>
+  </ant-list>
+  <ant-button
+    size="medium"
+    type="primary"
+    onTap="handleOpenPicker">
+    打开 Picker
+  </ant-button>
+</ant-container>
