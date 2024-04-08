@@ -78,7 +78,6 @@ Page({
         demo9: {
             visible: true,
             value: Date.now(),
-            monthRange: [new Date().getTime(), new Date().getTime()],
         },
     },
     demo3NextMonth() {
@@ -112,6 +111,11 @@ Page({
     demo9HandleNextDay() {
         this.setData({
             'demo9.value': this.data.demo9.value + 1000 * 24 * 3600,
+        });
+    },
+    demo9HandleInit() {
+        this.setData({
+            'demo9.value': Date.now(),
         });
     },
 });

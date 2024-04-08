@@ -119,12 +119,13 @@ export default ({
     {/* 受控模式 */}
     {demo9.visible && (
       <CollapseContainer title="受控模式">
-        <View slot="content">
+        <View slot="content" style="height: 1000rpx">
           <AntCalendar
             value={demo9.value}
             monthRange={demo9.monthRange}
             onChange="demo9HandleChange"
             selectionMode="single"
+            changedScrollIntoView
           />
           <AntButton type="primary" onTap="demo9HandlePreviousDay">
             上一天
@@ -135,6 +136,13 @@ export default ({
             onTap="demo9HandleNextDay"
           >
             下一天
+          </AntButton>
+          <AntButton
+            style="margin-top:8rpx"
+            type="primary"
+            onTap="demo9HandleInit"
+          >
+            回到初始化日期
           </AntButton>
         </View>
       </CollapseContainer>
