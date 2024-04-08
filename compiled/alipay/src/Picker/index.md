@@ -28,6 +28,8 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
 ### Picker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
+| visible | 是否显示 | boolean | false |
+| defaultVisible | 默认显示| boolean | false |
 | animationType | 动画类型，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影样式在 iOS 下可能存在样式问题，可暂切换为`position`解决 | string | `transform` |  
 | className | 类名| string | - |
 | defaultValue | 默认值 | string \| number \| Array\<string \| number\> | - | 
