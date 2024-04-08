@@ -19,4 +19,4 @@ Component(ModalFunctionalProps, {
   onCancelButtonTap() {
     triggerEventOnly(this, 'cancelButtonTap');
   },
-})
+});

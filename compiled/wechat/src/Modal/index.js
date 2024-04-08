@@ -5,7 +5,7 @@ Component(ModalFunctionalProps, {
         triggerEventOnly(this, 'close');
     },
     onMaskClose: function () {
-        if (this.props.maskClosable) {
+        if (this.properties.maskClosable) {
             triggerEventOnly(this, 'close');
         }
     },
