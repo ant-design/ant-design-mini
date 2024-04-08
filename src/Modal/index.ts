@@ -6,9 +6,16 @@ Component(ModalFunctionalProps, {
     triggerEventOnly(this, 'close');
   },
   onMaskClose() {
+    /// #if WECHAT
+    if (this.properties.maskClosable) {
+      triggerEventOnly(this, 'close');
+    }
+    /// #endif
+    /// #if ALIPAY
     if (this.props.maskClosable) {
       triggerEventOnly(this, 'close');
     }
+    /// #endif
   },
   onPrimaryButtonTap() {
     triggerEventOnly(this, 'primaryButtonTap');
@@ -19,4 +26,4 @@ Component(ModalFunctionalProps, {
   onCancelButtonTap() {
     triggerEventOnly(this, 'cancelButtonTap');
   },
-})
+});
