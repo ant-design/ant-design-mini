@@ -55,6 +55,10 @@ const Calendar = (props: ICalendarProps) => {
 
   const [scrollIntoViewId, setScrollIntoViewId] = useState<string>('');
 
+  useEvent('scrollIntoView', (value) => {
+    updateScrollIntoViewId(getScrollIntoViewId(value));
+  });
+
   // scroll 触发滚动之后需要重置 scrollIntoViewId
   function updateScrollIntoViewId(id) {
     setScrollIntoViewId(id);

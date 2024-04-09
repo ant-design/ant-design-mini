@@ -107,6 +107,7 @@
     slot="content"
     style="height: 1000rpx">
     <ant-calendar
+      ref="handleRef"
       value="{{ demo9.value }}"
       monthRange="{{ demo9.monthRange }}"
       onChange="demo9HandleChange"

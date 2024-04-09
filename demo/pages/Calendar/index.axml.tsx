@@ -121,6 +121,7 @@ export default ({
       <CollapseContainer title="受控模式">
         <View slot="content" style="height: 1000rpx">
           <AntCalendar
+            ref="handleRef"
             value={demo9.value}
             monthRange={demo9.monthRange}
             onChange="demo9HandleChange"

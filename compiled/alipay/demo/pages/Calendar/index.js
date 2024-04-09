@@ -39,10 +39,11 @@ function demoFormatter(cell, value) {
     }
     return {};
 }
+const nowDate = Date.now();
 Page({
     data: {
         demo1: {
-            defaultValue: [Date.now(), Date.now()],
+            defaultValue: [nowDate, nowDate],
             visible: true,
         },
         demo2: {
@@ -75,7 +76,7 @@ Page({
         },
         demo9: {
             visible: true,
-            value: Date.now(),
+            value: nowDate,
         },
     },
     demo3NextMonth() {
@@ -112,8 +113,9 @@ Page({
         });
     },
     demo9HandleInit() {
-        this.setData({
-            'demo9.value': Date.now(),
-        });
+        this.ref.scrollIntoView(nowDate);
+    },
+    handleRef(ref) {
+        this.ref = ref;
     },
 });

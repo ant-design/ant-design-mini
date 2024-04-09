@@ -55,6 +55,9 @@ var Calendar = function (props) {
         value: props.value,
     }), value = _c[0], setValue = _c[1];
     var _d = useState(''), scrollIntoViewId = _d[0], setScrollIntoViewId = _d[1];
+    useEvent('scrollIntoView', function (value) {
+        updateScrollIntoViewId(getScrollIntoViewId(value));
+    });
     // scroll 触发滚动之后需要重置 scrollIntoViewId
     function updateScrollIntoViewId(id) {
         setScrollIntoViewId(id);
