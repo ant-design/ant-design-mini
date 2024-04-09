@@ -95,7 +95,6 @@
     <ant-calendar
       bind:ref="handleRef"
       value="{{ demo9.value }}"
-      monthRange="{{ demo9.monthRange }}"
       bind:change="demo9HandleChange"
       selectionMode="single"
       changedScrollIntoView />
@@ -113,8 +112,8 @@
     <ant-button
       style="margin-top: 8rpx"
       type="primary"
-      bind:tap="demo9HandleInit">
-      回到初始化日期
+      bind:tap="demo9HandleScrollIntoView">
+      滚动到指定日期
     </ant-button>
   </view>
 </collapse-container>

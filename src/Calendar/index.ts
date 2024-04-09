@@ -8,6 +8,7 @@ import {
 } from 'functional-mini/component';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { triggerRefEvent } from '../_util/hooks/useReportRef';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
 import {
   CalendarValue,
@@ -58,6 +59,8 @@ const Calendar = (props: ICalendarProps) => {
   useEvent('scrollIntoView', (value) => {
     updateScrollIntoViewId(getScrollIntoViewId(value));
   });
+
+  triggerRefEvent();
 
   // scroll 触发滚动之后需要重置 scrollIntoViewId
   function updateScrollIntoViewId(id) {

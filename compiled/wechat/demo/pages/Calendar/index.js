@@ -114,10 +114,10 @@ Page({
             'demo9.value': this.data.demo9.value + 1000 * 24 * 3600,
         });
     },
-    demo9HandleInit() {
+    demo9HandleScrollIntoView() {
         this.ref.scrollIntoView(nowDate);
     },
     handleRef(ref) {
-        this.ref = ref;
+        this.ref = ref.detail;
     },
 });

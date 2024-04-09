@@ -123,7 +123,6 @@ export default ({
           <AntCalendar
             ref="handleRef"
             value={demo9.value}
-            monthRange={demo9.monthRange}
             onChange="demo9HandleChange"
             selectionMode="single"
             changedScrollIntoView
@@ -141,9 +140,9 @@ export default ({
           <AntButton
             style="margin-top:8rpx"
             type="primary"
-            onTap="demo9HandleInit"
+            onTap="demo9HandleScrollIntoView"
           >
-            回到初始化日期
+            滚动到指定日期
           </AntButton>
         </View>
       </CollapseContainer>
