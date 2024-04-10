@@ -47,10 +47,11 @@ function demoFormatter(cell, value) {
   return {};
 }
 
+const nowDate = Date.now();
 Page({
   data: {
     demo1: {
-      defaultValue: [Date.now(), Date.now()],
+      defaultValue: [nowDate, nowDate],
       visible: true,
     },
     demo2: {
@@ -87,7 +88,7 @@ Page({
     /// #endif
     demo9: {
       visible: true,
-      value: Date.now(),
+      value: nowDate,
     },
   },
   demo3NextMonth() {
@@ -132,9 +133,15 @@ Page({
       'demo9.value': this.data.demo9.value + 1000 * 24 * 3600,
     });
   },
-  demo9HandleInit() {
-    this.setData({
-      'demo9.value': Date.now(),
-    });
+  demo9HandleScrollIntoView() {
+    this.ref.scrollIntoView(nowDate);
+  },
+  handleRef(ref) {
+    /// #if ALIPAY
+    this.ref = ref;
+    /// #endif
+    /// #if WECHAT
+    this.ref = ref.detail;
+    /// #endif
   },
 });

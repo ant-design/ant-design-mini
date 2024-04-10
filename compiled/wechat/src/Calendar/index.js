@@ -22,6 +22,7 @@ import dayjs from 'dayjs';
 import { useComponent, useEvent, useReady, useState, useEffect, } from 'functional-mini/component';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { triggerRefEvent } from '../_util/hooks/useReportRef';
 import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
 import { defaultLocaleText, } from './props';
 import { defaultMonthRange, getMonthListFromRange, getSelectionModeFromValue, renderCells, getScrollIntoViewId, } from './utils';
@@ -55,6 +56,10 @@ var Calendar = function (props) {
         value: props.value,
     }), value = _c[0], setValue = _c[1];
     var _d = useState(''), scrollIntoViewId = _d[0], setScrollIntoViewId = _d[1];
+    useEvent('scrollIntoView', function (value) {
+        updateScrollIntoViewId(getScrollIntoViewId(value));
+    });
+    triggerRefEvent();
     // scroll 触发滚动之后需要重置 scrollIntoViewId
     function updateScrollIntoViewId(id) {
         setScrollIntoViewId(id);
