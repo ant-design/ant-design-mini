@@ -4,7 +4,7 @@ import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
-import { resolveEventValues } from '../_util/platform';
+import { resolveEventValues, resolveEventValue } from '../_util/platform';
 import { DatePickerFunctionalProps } from './props';
 import { getDateByValue, getRangeData, getValidValue, getValueByDate, } from './util';
 function getMin(min) {
@@ -95,7 +95,8 @@ var DatePicker = function (props) {
             }
         }
     }
-    useEvent('onVisibleChange', function (visible) {
+    useEvent('onVisibleChange', function (event) {
+        var visible = resolveEventValue(event);
         if (visible) {
             var currentValue = getCurrentValueWithCValue(props);
             var newColumns = generateData(currentValue, props);
