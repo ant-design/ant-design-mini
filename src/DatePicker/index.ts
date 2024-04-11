@@ -4,7 +4,7 @@ import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
 import { useMixState } from '../_util/hooks/useMixState';
-import { resolveEventValues } from '../_util/platform';
+import { resolveEventValues, resolveEventValue } from '../_util/platform';
 import { DatePickerFunctionalProps, IDatePickerProps } from './props';
 import {
   getDateByValue,
@@ -119,7 +119,8 @@ const DatePicker = (props: IDatePickerProps) => {
     }
   }
 
-  useEvent('onVisibleChange', (visible) => {
+  useEvent('onVisibleChange', (event) => {
+    const visible = resolveEventValue(event)
     if (visible) {
       const currentValue = getCurrentValueWithCValue(props);
       const newColumns = generateData(currentValue, props);
