@@ -50,6 +50,8 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
 | suffix |  后缀 | slot | - |
 | title | 弹出框标题 | string \| slot | - |  
 | value | 选中的值 | string \| number \| Array\<string \| number\> | - | 
+| visible | 是否显示 | boolean | false |
+| defaultVisible | 默认是否显示 | boolean | false |
 | onOk | 点击确定按钮，触发回调 | (value: [PickerColumnItem](#pickercolumnitem),  column: [PickerColumnItem](#pickercolumnitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 | onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 | onChange | 选中项发生变化，触发回调 | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
