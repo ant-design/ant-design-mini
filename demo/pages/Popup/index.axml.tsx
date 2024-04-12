@@ -119,7 +119,7 @@ export default ({
         dolor proident elit.
       </ScrollView>
     </AntPopup>
-    <Container title="弹出位置" className="list">
+    <Container title="弹出位置" className="list" style="padding-top:99999px;">
       <AntButton data-position="top" onTap="handleShowBasic">
         顶部弹出
       </AntButton>

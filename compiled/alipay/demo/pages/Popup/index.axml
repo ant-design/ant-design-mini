@@ -96,7 +96,8 @@
 </ant-popup>
 <container
   title="弹出位置"
-  className="list">
+  className="list"
+  style="padding-top: 99999px">
   <ant-button
     data-position="top"
     onTap="handleShowBasic">

@@ -6,6 +6,15 @@ Page({
     scrollVisible: false,
     closeVisible: false,
   },
+  onLoad() {
+    setTimeout(() => {
+      this.setData({
+        position: 'bottom',
+        basicVisible: true,
+        animation: false,
+      });
+    }, 3000);
+  },
   handlePopupClose() {
     this.setData({
       basicVisible: false,
