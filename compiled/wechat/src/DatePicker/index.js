@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { useEvent, useState, useMemo } from 'functional-mini/component';
+import { useEvent, useState, useEffect, useMemo } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
@@ -58,10 +58,22 @@ var DatePicker = function (props) {
         return "".concat(value).concat(suffixMap[type]);
     }
     var _d = useState({
-        visible: false,
         value: [],
         columns: [],
-    }), _e = _d[0], visible = _e.visible, value = _e.value, columns = _e.columns, setState = _d[1];
+    }), _e = _d[0], value = _e.value, columns = _e.columns, setState = _d[1];
+    var _f = useMixState(props.defaultVisible, {
+        value: props.visible,
+    }), visible = _f[0], updateVisible = _f[1].update;
+    useEffect(function () {
+        setTimeout(function () {
+            if (visible) {
+                updateDateColumnsAndValue(true);
+            }
+            else {
+                updateDateColumnsAndValue(false);
+            }
+        });
+    }, [visible]);
     function generateData(currentValue, currentProps) {
         var precision = currentProps.precision, propsMin = currentProps.min, propsMax = currentProps.max;
         var min = getMin(propsMin);
@@ -95,23 +107,29 @@ var DatePicker = function (props) {
             }
         }
     }
-    useEvent('onVisibleChange', function (event) {
-        var visible = resolveEventValue(event);
+    function updateDateColumnsAndValue(visible) {
         if (visible) {
             var currentValue = getCurrentValueWithCValue(props);
             var newColumns = generateData(currentValue, props);
             setState({
                 value: currentValue,
                 columns: newColumns,
-                visible: true,
             });
         }
         else {
             setState({
                 value: [],
                 columns: [],
-                visible: false,
             });
+        }
+    }
+    useEvent('onVisibleChange', function (event) {
+        var visible = resolveEventValue(event);
+        if (visible) {
+            updateVisible(true);
+        }
+        else {
+            updateVisible(false);
         }
         triggerEvent('visibleChange', visible, {});
     });
@@ -132,7 +150,6 @@ var DatePicker = function (props) {
         }
         var newColumns = generateData(selectedIndex, props);
         setState({
-            visible: true,
             columns: newColumns,
             value: selectedIndex,
         });
@@ -161,6 +178,9 @@ var DatePicker = function (props) {
         return defaultFormat(realValue, realValue ? dayjs(realValue).format(format) : null);
     }, [realValue]);
     return {
+        state: {
+            visible: visible
+        },
         formattedValueText: formattedValueText,
         currentValue: visible ? value : realValue,
         columns: columns,

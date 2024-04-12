@@ -3,8 +3,11 @@ import AntList from '../../../src/List/index.axml';
 import AntListItem from '../../../src/List/ListItem/index.axml';
 import AntDatePicker from '../../../src/DatePicker/index.axml';
 import AntRangePicker from '../../../src/DatePicker/RangePicker/index.axml';
+import AntButton from '../../../src/Button/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
 
 export default ({
+  pickerVisible,
   min,
   max,
   defaultDateRange,
@@ -142,5 +145,28 @@ export default ({
         ></AntRangePicker>
       </AntListItem>
     </AntList>
+    <AntContainer style="margin-top:20rpx;">
+      <AntList header="外部控制选择器是否显示">
+        <AntListItem>
+          请选择时间
+          <AntDatePicker
+            min={min}
+            max={max}
+            slot="extra"
+            visible={pickerVisible}
+            defaultValue={defaultDate}
+            placeholder="请选择"
+            onPickerChange="handlePickerChange"
+            onVisibleChange="handleTriggerControlledPicker"
+            onCancel="handleDismiss"
+            onOk="handleOk"
+          ></AntDatePicker>
+        </AntListItem>
+      </AntList>
+
+      <AntButton size="medium" type="primary" onTap="handleOpenPicker">
+        打开 DatePicker
+      </AntButton>
+    </AntContainer>
   </Page>
 );
