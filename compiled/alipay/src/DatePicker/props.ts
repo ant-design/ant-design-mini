@@ -5,6 +5,8 @@ export type PickerValue = Date | string | number;
  * @description 对话框
  */
 export interface IDatePickerProps extends IBaseProps {
+  visible?: boolean;
+  defaultVisible?: boolean;
   /**
    * @desciption  动画类型
    * @default "transform"
@@ -145,6 +147,8 @@ export const DatePickerDefaultProps: IDatePickerProps = {
 };
 
 export const DatePickerFunctionalProps: IDatePickerProps = {
+  visible: null,
+  defaultVisible: null,
   animationType: 'transform',
   format: 'YYYY/MM/DD',
   min: null,

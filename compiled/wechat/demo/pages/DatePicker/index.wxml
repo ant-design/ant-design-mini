@@ -113,3 +113,28 @@
       onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
   </ant-list-item>
 </ant-list>
+<ant-container style="margin-top: 20rpx">
+  <ant-list header="外部控制选择器是否显示">
+    <ant-list-item>
+      请选择时间
+      <ant-date-picker
+        min="{{ min }}"
+        max="{{ max }}"
+        slot="extra"
+        visible="{{ pickerVisible }}"
+        defaultValue="{{ defaultDate }}"
+        placeholder="请选择"
+        bind:pickerchange="handlePickerChange"
+        bind:visiblechange="handleTriggerControlledPicker"
+        bind:cancel="handleDismiss"
+        bind:ok="handleOk" />
+    </ant-list-item>
+  </ant-list>
+
+  <ant-button
+    size="medium"
+    type="primary"
+    bind:tap="handleOpenPicker">
+    打开 DatePicker
+  </ant-button>
+</ant-container>

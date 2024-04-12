@@ -1,5 +1,6 @@
 Page({
     data: {
+        pickerVisible: false,
         min: new Date('2019/01/15').getTime(),
         max: new Date('2023/08/20').getTime(),
         defaultDate: new Date('2019/02/02').getTime(),
@@ -46,5 +47,16 @@ Page({
     },
     handleFormatLabel(type, value) {
         return String(value);
+    },
+    handleTriggerControlledPicker(visible, e) {
+        console.log('handleTriggerControlledPicker', visible);
+        this.setData({
+            pickerVisible: visible.detail,
+        });
+    },
+    handleOpenPicker() {
+        this.setData({
+            pickerVisible: true,
+        });
     },
 });

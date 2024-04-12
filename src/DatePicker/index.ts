@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { useEvent, useState, useMemo } from 'functional-mini/component';
+import { useEvent, useState, useEffect, useMemo } from 'functional-mini/component';
 import '../_util/assert-component2';
 import { mountComponent } from '../_util/component';
 import { useComponentEvent } from '../_util/hooks/useComponentEvent';
@@ -72,11 +72,27 @@ const DatePicker = (props: IDatePickerProps) => {
     return `${value}${suffixMap[type]}`;
   }
 
-  const [{ visible, value, columns }, setState] = useState({
-    visible: false,
+  const [{ value, columns }, setState] = useState({
     value: [],
     columns: [],
   });
+
+  const [visible, { update: updateVisible }] = useMixState(
+    props.defaultVisible,
+    {
+      value: props.visible,
+    }
+  );
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (visible) {
+        updateDateColumnsAndValue(true);
+      } else {
+        updateDateColumnsAndValue(false);
+      }
+    })
+  }, [visible]);
 
   function generateData(currentValue, currentProps) {
     const { precision, min: propsMin, max: propsMax } = currentProps;
@@ -119,22 +135,28 @@ const DatePicker = (props: IDatePickerProps) => {
     }
   }
 
-  useEvent('onVisibleChange', (event) => {
-    const visible = resolveEventValue(event)
+  function updateDateColumnsAndValue(visible) {
     if (visible) {
       const currentValue = getCurrentValueWithCValue(props);
       const newColumns = generateData(currentValue, props);
       setState({
         value: currentValue,
         columns: newColumns,
-        visible: true,
       });
     } else {
       setState({
         value: [],
         columns: [],
-        visible: false,
       });
+    }
+  }
+
+  useEvent('onVisibleChange', (event) => {
+    const visible = resolveEventValue(event)
+    if (visible) {
+      updateVisible(true);
+    } else {
+      updateVisible(false);
     }
     triggerEvent('visibleChange', visible, {});
   });
@@ -157,7 +179,6 @@ const DatePicker = (props: IDatePickerProps) => {
     const newColumns = generateData(selectedIndex, props);
 
     setState({
-      visible: true,
       columns: newColumns,
       value: selectedIndex,
     });
@@ -202,6 +223,9 @@ const DatePicker = (props: IDatePickerProps) => {
   }, [realValue]);
 
   return {
+    state: {
+      visible
+    },
     formattedValueText,
     currentValue: visible ? value : realValue,
     columns,
