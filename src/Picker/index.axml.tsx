@@ -126,8 +126,8 @@ export default (
           </Block>
         ) : (
           <Block>
-            <PickerView>
-              <PickerViewColumn>
+            <PickerView class="ant-picker-picker-view">
+              <PickerViewColumn class="ant-picker-picker-view-column">
                 <Text style="color: #ccc">{emptyText}</Text>
               </PickerViewColumn>
             </PickerView>
