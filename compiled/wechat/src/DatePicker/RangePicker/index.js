@@ -7,7 +7,7 @@ import { useFormatValue, useMinAndMax, useFormatLabel } from './hooks';
 import { useDateState } from './useDateState';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { resolveEventValues } from '../../_util/platform';
+import { resolveEventValues, resolveEventValue } from '../../_util/platform';
 var RangePicker = function (props) {
     var _a = useMixState(props.defaultValue, {
         value: props.value,
@@ -59,7 +59,8 @@ var RangePicker = function (props) {
         doUpdateColumns({ columns: newColumns, currentValue: currentValue });
     }
     var formattedValueText = onFormat(realValue);
-    useEvent('onVisibleChange', function (visible) {
+    useEvent('onVisibleChange', function (event) {
+        var visible = resolveEventValue(event);
         if (visible) {
             var state = init(realValue);
             var currentValue_1 = getValueByDate(state.pickerType === 'start' ? state.start : state.end, props.precision);
