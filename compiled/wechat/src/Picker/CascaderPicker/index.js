@@ -3,7 +3,7 @@ import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { useComponentUpdateEffect } from '../../_util/hooks/useLayoutEffect';
 import { useMixState } from '../../_util/hooks/useMixState';
-import { resolveEventValues } from '../../_util/platform';
+import { resolveEventValues, resolveEventValue } from '../../_util/platform';
 import { CascaderFunctionalProps } from './props';
 import { defaultFormat, getterColumns, getValidValue } from './utils';
 var CascaderPicker = function (props) {
@@ -71,7 +71,8 @@ var CascaderPicker = function (props) {
         }
         return defaultFormat(realValue, getOptionByValue(realValue, props.options));
     }, [realValue]);
-    useEvent('onVisibleChange', function (visible) {
+    useEvent('onVisibleChange', function (event) {
+        var visible = resolveEventValue(event);
         if (visible) {
             var newColumns = getterColumns(realValue, props.options);
             var currentValue = getValidValue(realValue, newColumns);

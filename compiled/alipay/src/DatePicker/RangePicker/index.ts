@@ -13,7 +13,7 @@ import { useDateState } from './useDateState';
 import { mountComponent } from '../../_util/component';
 import { PickerValue } from '../props';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { resolveEventValues } from '../../_util/platform';
+import { resolveEventValues, resolveEventValue } from '../../_util/platform';
 
 const RangePicker = (props: IDateRangePickerProps) => {
   const [realValue, { isControlled, update }] = useMixState<PickerValue[]>(
@@ -82,7 +82,8 @@ const RangePicker = (props: IDateRangePickerProps) => {
 
   const formattedValueText = onFormat(realValue);
 
-  useEvent('onVisibleChange', (visible) => {
+  useEvent('onVisibleChange', (event) => {
+    const visible = resolveEventValue(event)
     if (visible) {
       const state = init(realValue);
       const currentValue = getValueByDate(
