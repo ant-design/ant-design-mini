@@ -1,4 +1,4 @@
-import { useEvent, useMemo, useState } from 'functional-mini/component';
+import { useEvent, useMemo, useEffect, useState } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { useComponentUpdateEffect } from '../../_util/hooks/useLayoutEffect';
@@ -71,12 +71,25 @@ var CascaderPicker = function (props) {
         }
         return defaultFormat(realValue, getOptionByValue(realValue, props.options));
     }, [realValue]);
+    var _f = useMixState(props.defaultVisible, {
+        value: props.visible,
+    }), visible = _f[0], updateVisible = _f[1].update;
+    useEffect(function () {
+        setTimeout(function () {
+            if (visible) {
+                var newColumns = getterColumns(realValue, props.options);
+                var currentValue = getValidValue(realValue, newColumns);
+                setState({ value: currentValue, columns: newColumns });
+            }
+        });
+    }, [visible]);
     useEvent('onVisibleChange', function (event) {
         var visible = resolveEventValue(event);
         if (visible) {
-            var newColumns = getterColumns(realValue, props.options);
-            var currentValue = getValidValue(realValue, newColumns);
-            setState({ value: currentValue, columns: newColumns });
+            updateVisible(true);
+        }
+        else {
+            updateVisible(false);
         }
         triggerEvent('visibleChange', visible);
     });
@@ -84,7 +97,9 @@ var CascaderPicker = function (props) {
         // 完成时再次校验value，避免visible状态下props无效
         var validValue = getValidValue(value, columns);
         if (!isRealValueControlled) {
-            updateRealValue(validValue);
+            setTimeout(function () {
+                updateRealValue(validValue);
+            });
         }
         triggerEventValues('ok', [
             validValue,
@@ -102,6 +117,9 @@ var CascaderPicker = function (props) {
         ]);
     });
     return {
+        state: {
+            visible: visible
+        },
         formattedValueText: formattedValueText,
         currentValue: value,
         columns: columns,
