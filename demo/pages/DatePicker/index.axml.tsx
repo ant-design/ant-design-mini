@@ -8,6 +8,7 @@ import AntContainer from '../../../src/Container/index.axml';
 
 export default ({
   pickerVisible,
+  dateRangePickerVisible,
   min,
   max,
   defaultDateRange,
@@ -166,6 +167,26 @@ export default ({
 
       <AntButton size="medium" type="primary" onTap="handleOpenPicker">
         打开 DatePicker
+      </AntButton>
+    </AntContainer>
+    <AntContainer style="margin-top:20rpx;">
+      <AntList header="外部控制日期范围选择器是否显示">
+        <AntListItem>
+          请选择日期范围
+          <AntRangePicker
+            slot="extra"
+            visible={dateRangePickerVisible}
+            placeholder="请选择"
+            defaultValue={defaultDateRange}
+            onPickerChange="handlePickerRangeChange"
+            onVisibleChange="handleTriggerControlledDateRangePicker"
+            onOk="handleRangeOk"
+          ></AntRangePicker>
+        </AntListItem>
+      </AntList>
+
+      <AntButton size="medium" type="primary" onTap="handleOpenDateRangePicker">
+        打开 DateRangePicker
       </AntButton>
     </AntContainer>
   </Page>
