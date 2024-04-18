@@ -44,7 +44,7 @@ function mergeDefaultProps(defaultProps) {
     if (defaultProps === void 0) { defaultProps = {}; }
     return __assign({ className: '', style: '' }, defaultProps);
 }
-function ComponentImpl(defaultProps, methods) {
+function ComponentImpl(defaultProps, methods, mixins) {
     Component({
         properties: buildProperties(mergeDefaultProps(defaultProps)),
         options: {
@@ -53,6 +53,7 @@ function ComponentImpl(defaultProps, methods) {
             virtualHost: true,
         },
         methods: methods,
+        behaviors: mixins,
     });
 }
 export function triggerEvent(instance, eventName, value, e) {
@@ -69,5 +70,14 @@ export function triggerEventValues(instance, eventName, values, e) {
 }
 export function triggerCatchEvent(instance, eventName, e) {
     instance.triggerEvent(eventName.toLocaleLowerCase());
+}
+export function getValueFromProps(instance, propName) {
+    var value;
+    var properties = instance.properties;
+    if (!propName) {
+        return properties;
+    }
+    value = properties[propName];
+    return value;
 }
 export { ComponentImpl as Component };
