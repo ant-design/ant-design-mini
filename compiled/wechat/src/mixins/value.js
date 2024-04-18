@@ -7,6 +7,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
+import { getValueFromProps } from '../_util/simply';
 function equal(a, b) {
     if (a === b) {
         return true;
@@ -16,14 +17,13 @@ function equal(a, b) {
     }
     return false;
 }
-var component2 = my.canIUse('component2');
 export default (function (_a) {
     var _b;
     var _c = _a === void 0 ? {} : _a, _d = _c.valueKey, valueKey = _d === void 0 ? 'value' : _d, _e = _c.defaultValueKey, defaultValueKey = _e === void 0 ? 'defaultValue' : _e, _f = _c.scopeKey, scopeKey = _f === void 0 ? 'mixin' : _f, _g = _c.transformValue, transformValue = _g === void 0 ? function (value) { return ({
         needUpdate: true,
         value: value,
     }); } : _g;
-    return {
+    var mixin = {
         data: (_b = {},
             _b[scopeKey] = {
                 value: undefined,
@@ -31,45 +31,41 @@ export default (function (_a) {
                 controlled: false,
             },
             _b),
-        onInit: function () {
-            var value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
+        created: function () {
+            this.init();
+        },
+        observers: {
+            '**': function (nextProps) {
+                if (!equal(nextProps[valueKey], getValueFromProps(this, valueKey))) {
+                    this.update(nextProps[valueKey], {
+                        nextProps: nextProps,
+                    });
+                }
+            },
+        },
+        attached: function () {
+            var value = typeof this.properties[valueKey] !== 'undefined'
+                ? this.properties[valueKey]
+                : this.properties[defaultValueKey];
             var needUpdate = this.update(value, {
-                nextProps: this.props,
-            }).needUpdate;
-            if (!needUpdate) {
-                this.updateControlled();
-            }
-        },
-        deriveDataFromProps: function (nextProps) {
-            if (!equal(nextProps[valueKey], this.props[valueKey])) {
-                this.update(nextProps[valueKey], {
-                    nextProps: nextProps,
-                });
-            }
-        },
-        didUpdate: function (prevProps) {
-            if (component2) {
-                return;
-            }
-            if (!equal(prevProps[valueKey], this.props[valueKey])) {
-                this.update(this.props[valueKey], {
-                    nextProps: this.props,
-                });
-            }
-        },
-        didMount: function () {
-            if (component2) {
-                return;
-            }
-            var value = typeof this.props[valueKey] !== 'undefined' ? this.props[valueKey] : this.props[defaultValueKey];
-            var needUpdate = this.update(value, {
-                nextProps: this.props,
+                nextProps: this.properties,
             }).needUpdate;
             if (!needUpdate) {
                 this.updateControlled();
             }
         },
         methods: {
+            init: function () {
+                var value = typeof getValueFromProps(this, valueKey) !== 'undefined'
+                    ? getValueFromProps(this, valueKey)
+                    : getValueFromProps(this, defaultValueKey);
+                var needUpdate = this.update(value, {
+                    nextProps: getValueFromProps(this),
+                }).needUpdate;
+                if (!needUpdate) {
+                    this.updateControlled();
+                }
+            },
             getValue: function (prevData) {
                 return (prevData || this.data)[scopeKey].value;
             },
@@ -80,10 +76,10 @@ export default (function (_a) {
                 return equal(this.getValue(prevData), this.getValue());
             },
             isControlled: function () {
-                if ('controlled' in this.props) {
-                    return this.props.controlled;
+                if ('controlled' in getValueFromProps(this)) {
+                    return getValueFromProps(this, 'controlled');
                 }
-                return valueKey in this.props;
+                return valueKey in getValueFromProps(this);
             },
             updateControlled: function () {
                 var _a;
@@ -116,4 +112,7 @@ export default (function (_a) {
             },
         },
     };
+    // @ts-ignore
+    mixin = Behavior(mixin);
+    return mixin;
 });

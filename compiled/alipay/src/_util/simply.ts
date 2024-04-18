@@ -39,16 +39,18 @@ function mergeDefaultProps(defaultProps: Record<string, any> = {}) {
   };
 }
 
-type ComponentInstance<Props, Methods> = {};
+type ComponentInstance<Props, Methods, Mixins> = unknown;
 
-function ComponentImpl<Props, Methods = unknown>(
+function ComponentImpl<Props, Methods = unknown, Mixins = unknown>(
   defaultProps: Props,
-  methods?: Methods & ThisType<ComponentInstance<Props, Methods>>
+  methods?: Methods & ThisType<ComponentInstance<Props, Methods, Mixins>>,
+  mixins?: Mixins & any
 ) {
 
   Component({
     props: removeNullProps(mergeDefaultProps(defaultProps)),
     methods,
+    mixins,
   });
 }
 
@@ -113,6 +115,18 @@ export function triggerCatchEvent(instance: any, eventName: string, e?: any) {
     props[eventName](fmtEvent(props, e));
   }
 
+}
+
+export function getValueFromProps(instance: any, propName?: string) {
+  let value;
+  const props = instance.props;
+  if (!propName) {
+    return props;
+  }
+  value = props[propName];
+
+
+  return value;
 }
 
 export { ComponentImpl as Component };

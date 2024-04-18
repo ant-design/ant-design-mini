@@ -43,11 +43,12 @@ function mergeDefaultProps(defaultProps: Record<string, any> = {}) {
   };
 }
 
-type ComponentInstance<Props, Methods> = {};
+type ComponentInstance<Props, Methods, Mixins> = unknown;
 
-function ComponentImpl<Props, Methods = unknown>(
+function ComponentImpl<Props, Methods = unknown, Mixins = unknown>(
   defaultProps: Props,
-  methods?: Methods & ThisType<ComponentInstance<Props, Methods>>
+  methods?: Methods & ThisType<ComponentInstance<Props, Methods, Mixins>>,
+  mixins?: Mixins & any
 ) {
   /// #if WECHAT
   Component({
@@ -58,6 +59,7 @@ function ComponentImpl<Props, Methods = unknown>(
       virtualHost: true,
     } as any,
     methods,
+    behaviors: mixins,
   });
   /// #endif
 
@@ -65,6 +67,7 @@ function ComponentImpl<Props, Methods = unknown>(
   Component({
     props: removeNullProps(mergeDefaultProps(defaultProps)),
     methods,
+    mixins,
   });
   /// #endif
 }
@@ -150,6 +153,27 @@ export function triggerCatchEvent(instance: any, eventName: string, e?: any) {
   /// #if WECHAT
   instance.triggerEvent(eventName.toLocaleLowerCase());
   /// #endif
+}
+
+export function getValueFromProps(instance: any, propName?: string) {
+  let value;
+  /// #if ALIPAY
+  const props = instance.props;
+  if (!propName) {
+    return props;
+  }
+  value = props[propName];
+  /// #endif
+
+  /// #if WECHAT
+  const properties = instance.properties;
+  if (!propName) {
+    return properties;
+  }
+  value = properties[propName];
+  /// #endif
+
+  return value;
 }
 
 export { ComponentImpl as Component };
