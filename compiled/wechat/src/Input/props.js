@@ -1,4 +1,3 @@
-export var InputDefaultProps = {};
 export var InputFunctionalProps = {
     type: null,
     value: null,

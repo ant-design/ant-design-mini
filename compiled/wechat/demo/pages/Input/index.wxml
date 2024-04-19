@@ -35,6 +35,7 @@
 
 <container title="受控模式">
   <ant-input
+    controlled="{{ true }}"
     value="{{ value }}"
     placeholder="请输入内容"
     allowClear

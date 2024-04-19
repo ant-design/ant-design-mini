@@ -44,7 +44,7 @@ function mergeDefaultProps(defaultProps) {
     if (defaultProps === void 0) { defaultProps = {}; }
     return __assign({ className: '', style: '' }, defaultProps);
 }
-function ComponentImpl(defaultProps, methods, mixins) {
+function ComponentImpl(defaultProps, methods, data, mixins) {
     Component({
         properties: buildProperties(mergeDefaultProps(defaultProps)),
         options: {
@@ -54,6 +54,7 @@ function ComponentImpl(defaultProps, methods, mixins) {
         },
         methods: methods,
         behaviors: mixins,
+        data: data,
     });
 }
 export function triggerEvent(instance, eventName, value, e) {

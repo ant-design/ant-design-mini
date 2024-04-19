@@ -76,6 +76,7 @@ export default ({
           typeof getValueFromProps(this, valueKey) !== 'undefined'
             ? getValueFromProps(this, valueKey)
             : getValueFromProps(this, defaultValueKey);
+
         const { needUpdate } = this.update(value, {
           nextProps: getValueFromProps(this),
         });
