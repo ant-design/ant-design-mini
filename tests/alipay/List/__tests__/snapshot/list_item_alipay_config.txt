@@ -1,4 +1,5 @@
 {
+  "data": undefined,
   "methods": {
     "catchTap": [Function],
     "onTap": [Function],

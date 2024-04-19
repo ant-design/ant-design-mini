@@ -1,3 +1,4 @@
+import deepEqual from 'fast-deep-equal';
 import { Component, getValueFromProps } from '../_util/simply';
 import { ProgressBarDefaultProps } from './props';
 import { createCanvasContext } from '../_util/jsapi/create-canvas-context';
@@ -73,7 +74,7 @@ Component(
     drawProgress(color, rad) {
       const ctx = this.ctx;
       const { canvasWidth } = this.data;
-      const strokeWidth = getValueFromProps(this, 'strokeWidth');
+      const strokeWidth = Number(getValueFromProps(this, 'strokeWidth'));
       ctx.beginPath();
       ctx.strokeStyle = color;
       ctx.lineWidth = strokeWidth;
@@ -91,7 +92,7 @@ Component(
     drawOrbit(color) {
       const ctx = this.ctx;
       const { canvasWidth } = this.data;
-      const strokeWidth = getValueFromProps(this, 'strokeWidth');
+      const strokeWidth = Number(getValueFromProps(this, 'strokeWidth'));
       ctx.beginPath();
       ctx.strokeStyle = color;
       ctx.lineWidth = strokeWidth;
@@ -141,7 +142,8 @@ Component(
     didMount() {
       this.calProgress();
     },
-    didUpdate() {
+    didUpdate(prevProps) {
+      if (deepEqual(this.props, prevProps)) return;
       this.calProgress();
     },
 

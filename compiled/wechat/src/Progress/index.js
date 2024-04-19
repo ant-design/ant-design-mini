@@ -139,7 +139,7 @@ Component(ProgressBarDefaultProps, {
     drawProgress: function (color, rad) {
         var ctx = this.ctx;
         var canvasWidth = this.data.canvasWidth;
-        var strokeWidth = getValueFromProps(this, 'strokeWidth');
+        var strokeWidth = Number(getValueFromProps(this, 'strokeWidth'));
         ctx.beginPath();
         ctx.strokeStyle = color;
         ctx.lineWidth = strokeWidth;
@@ -150,7 +150,7 @@ Component(ProgressBarDefaultProps, {
     drawOrbit: function (color) {
         var ctx = this.ctx;
         var canvasWidth = this.data.canvasWidth;
-        var strokeWidth = getValueFromProps(this, 'strokeWidth');
+        var strokeWidth = Number(getValueFromProps(this, 'strokeWidth'));
         ctx.beginPath();
         ctx.strokeStyle = color;
         ctx.lineWidth = strokeWidth;

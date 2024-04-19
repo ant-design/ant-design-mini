@@ -63,10 +63,7 @@ function createProgress(props: Partial<IProgressBarProps>) {
 }
 
 it('测试默认值', () => {
-  const { instance } = createProgress({
-    // 测试异常情况
-    percent: 'aaa',
-  });
+  const { instance } = createProgress({});
 
   const { percent, type, speed, width, strokeWidth, animation } =
     instance.getConfig().props;
@@ -84,7 +81,10 @@ it('测试默认值', () => {
 });
 
 it('测试 lint', () => {
-  const { instance } = createProgress({});
+  const { instance } = createProgress({
+    // 测试异常情况
+    percent: 'aaa',
+  });
   instance.setProps({
     percent: 50,
   });
