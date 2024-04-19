@@ -37,7 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { Component, triggerEventValues, triggerEventOnly, } from '../_util/simply';
 import { GuideTourDefaultProps } from './props';
 import mixinValue from '../mixins/value';
-import '../_util/assert-component2';
 Component(GuideTourDefaultProps, {
     onNext: function () {
         return __awaiter(this, void 0, void 0, function () {
