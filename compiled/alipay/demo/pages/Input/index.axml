@@ -54,7 +54,8 @@
     onChange="handleMoney"
     type="digit"
     className="input money"
-    focusClassName="border">
+    focusClassName="border"
+    allowClear>
     <view slot="prefix">￥</view>
     <view slot="suffix">RMB</view>
   </ant-input>

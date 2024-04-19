@@ -52,6 +52,7 @@ export default (_, { value, money }: InternalData) => (
         type="digit"
         className="input money"
         focusClassName="border"
+        allowClear
       >
         <View slot="prefix">￥</View>
         <View slot="suffix">RMB</View>
