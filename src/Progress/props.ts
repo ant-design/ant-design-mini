@@ -40,17 +40,14 @@ export interface IProgressBarProps extends IBaseProps {
    * @default 6
    */
   speed: number;
+  /**
+   * @description 是否开启过渡动画
+   * @default true
+   */
+  animation: boolean;
 }
 
 export const ProgressBarDefaultProps: Partial<IProgressBarProps> = {
-  percent: 0,
-  type: 'line',
-  speed: 6,
-  width: 100,
-  strokeWidth: 8,
-};
-
-export const ProgressBarFunctionalProps: Partial<IProgressBarProps> = {
   percent: 0,
   type: 'line',
   width: 100,
@@ -59,4 +56,5 @@ export const ProgressBarFunctionalProps: Partial<IProgressBarProps> = {
   strokeColor: '',
   trailColor: '',
   speed: 6,
+  animation: true,
 };

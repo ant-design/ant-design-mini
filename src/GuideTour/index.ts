@@ -5,9 +5,7 @@ import {
 } from '../_util/simply';
 import { GuideTourDefaultProps } from './props';
 import mixinValue from '../mixins/value';
-/// #if ALIPAY
 import '../_util/assert-component2';
-/// #endif
 
 Component(
   GuideTourDefaultProps,
