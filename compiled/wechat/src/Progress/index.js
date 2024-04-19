@@ -41,8 +41,10 @@ import { mountComponent } from '../_util/component';
 import { createCanvasContext } from '../_util/jsapi/create-canvas-context';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
 import { ProgressBarFunctionalProps } from './props';
-function requestAnimationFrame(fn) {
-    setTimeout(fn, 16);
+var animationFrameDuration = 16;
+function requestAnimationFrame(fn, duration) {
+    if (duration === void 0) { duration = animationFrameDuration; }
+    setTimeout(fn, duration);
 }
 function toNumber(value, defaultValue) {
     if (typeof value === 'number') {
@@ -170,7 +172,7 @@ var Progress = function (props) {
                             drawOrbit(ctx, canvasWidth, drawColor.trailColor);
                             drawProgress(ctx, canvasWidth, drawColor.strokeColor, curRad);
                             ctx.draw(true);
-                            requestAnimationFrame(draw);
+                            requestAnimationFrame(draw, props.animation ? animationFrameDuration : 0);
                         };
                         draw();
                         return [2 /*return*/];

@@ -4,6 +4,7 @@ export var ProgressBarDefaultProps = {
     speed: 6,
     width: 100,
     strokeWidth: 8,
+    animation: true,
 };
 export var ProgressBarFunctionalProps = {
     percent: 0,
@@ -14,4 +15,5 @@ export var ProgressBarFunctionalProps = {
     strokeColor: '',
     trailColor: '',
     speed: 6,
+    animation: true,
 };

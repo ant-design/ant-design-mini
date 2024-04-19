@@ -1,0 +1,8 @@
+{
+  "animation": true,
+  "percent": 0,
+  "speed": 6,
+  "strokeWidth": 8,
+  "type": "line",
+  "width": 100,
+}

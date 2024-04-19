@@ -6,8 +6,9 @@ import { createCanvasContext } from '../_util/jsapi/create-canvas-context';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
 import { IProgressBarProps, ProgressBarFunctionalProps } from './props';
 
-function requestAnimationFrame(fn) {
-  setTimeout(fn, 16);
+const animationFrameDuration = 16;
+function requestAnimationFrame(fn, duration = animationFrameDuration) {
+  setTimeout(fn, duration);
 }
 
 function toNumber(value: string | number, defaultValue: number): number {
@@ -125,7 +126,7 @@ const Progress = (props: IProgressBarProps) => {
       drawOrbit(ctx, canvasWidth, drawColor.trailColor);
       drawProgress(ctx, canvasWidth, drawColor.strokeColor, curRad);
       ctx.draw(true);
-      requestAnimationFrame(draw);
+      requestAnimationFrame(draw, props.animation ? animationFrameDuration : 0);
     };
     draw();
   }
