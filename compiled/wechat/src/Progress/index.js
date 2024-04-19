@@ -38,7 +38,6 @@ import { Component, getValueFromProps } from '../_util/simply';
 import { ProgressBarDefaultProps } from './props';
 import { createCanvasContext } from '../_util/jsapi/create-canvas-context';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
-import '../_util/assert-component2';
 var animationFrameDuration = 16;
 Component(ProgressBarDefaultProps, {
     requestAnimationFrame: function (fn, duration) {
@@ -46,20 +45,15 @@ Component(ProgressBarDefaultProps, {
         setTimeout(fn, duration);
     },
     getDrawColor: function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _a, strokeColor, trailColor, drawColor;
-            return __generator(this, function (_b) {
-                _a = getValueFromProps(this, [
-                    'strokeColor',
-                    'trailColor',
-                ]), strokeColor = _a[0], trailColor = _a[1];
-                drawColor = {
-                    strokeColor: strokeColor || '#1677ff',
-                    trailColor: trailColor || '#F5F5F5',
-                };
-                return [2 /*return*/, drawColor];
-            });
-        });
+        var _a = getValueFromProps(this, [
+            'strokeColor',
+            'trailColor',
+        ]), strokeColor = _a[0], trailColor = _a[1];
+        var drawColor = {
+            strokeColor: strokeColor || '#1677ff',
+            trailColor: trailColor || '#F5F5F5',
+        };
+        return drawColor;
     },
     getCanvasContext: function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -101,11 +95,10 @@ Component(ProgressBarDefaultProps, {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getDrawColor()];
-                    case 1:
-                        drawColor = _a.sent();
+                    case 0:
+                        drawColor = this.getDrawColor();
                         return [4 /*yield*/, this.getCanvasContext()];
-                    case 2:
+                    case 1:
                         _a.sent();
                         curRad = Math.floor((prev / 100) * 360);
                         targetRad = Math.floor((this.data.curProgress / 100) * 360);
