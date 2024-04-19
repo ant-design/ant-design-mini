@@ -1,8 +1,12 @@
-<container title="默认进度条">
+<container title="默认进度条（有/无动画）">
   <view class="line2">
     <progress
       type="circle"
       percent="{{ percent1 }}" />
+    <progress
+      type="circle"
+      percent="{{ percent1 }}"
+      animation="{{ false }}" />
   </view>
   <view class="buttonwrapper">
     <ant-button

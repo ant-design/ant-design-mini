@@ -24,7 +24,7 @@ export default (
     strokeColor,
     percent,
   }: TSXMLProps<IProgressBarProps>,
-  { canvasWidth, curProgress, canvasId }: InternalData
+  { canvasWidth, curProgress }: InternalData
 ) => (
   <Component>
     <View
@@ -68,7 +68,9 @@ export default (
         )
       )}
       <View class="ant-progress-indicator">
+        {/* #if ALIPAY */}
         <Slot name="indicator" percent={percent}>
+          {/* #endif */}
           {status === 'success' || status === 'exception' ? (
             <AntIcon
               type={
@@ -79,7 +81,9 @@ export default (
           ) : (
             <Block>{percent}%</Block>
           )}
+          {/* #if ALIPAY */}
         </Slot>
+        {/* #endif */}
       </View>
     </View>
   </Component>

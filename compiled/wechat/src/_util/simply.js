@@ -44,18 +44,12 @@ function mergeDefaultProps(defaultProps) {
     if (defaultProps === void 0) { defaultProps = {}; }
     return __assign({ className: '', style: '' }, defaultProps);
 }
-function ComponentImpl(defaultProps, methods, data, mixins) {
-    Component({
-        properties: buildProperties(mergeDefaultProps(defaultProps)),
-        options: {
+function ComponentImpl(defaultProps, methods, mixins, data, instanceMethods) {
+    Component(__assign({ properties: buildProperties(mergeDefaultProps(defaultProps)), options: {
             styleIsolation: 'shared',
             multipleSlots: true,
             virtualHost: true,
-        },
-        methods: methods,
-        behaviors: mixins,
-        data: data,
-    });
+        }, methods: methods, behaviors: mixins, data: data }, instanceMethods));
 }
 export function triggerEvent(instance, eventName, value, e) {
     // 首字母大写，然后加上 on
@@ -78,7 +72,12 @@ export function getValueFromProps(instance, propName) {
     if (!propName) {
         return properties;
     }
-    value = properties[propName];
+    if (typeof propName === 'string') {
+        value = properties[propName];
+    }
+    if (Array.isArray(propName)) {
+        value = propName.map(function (name) { return properties[name]; });
+    }
     return value;
 }
 export { ComponentImpl as Component };

@@ -62,6 +62,24 @@ function createProgress(props: Partial<IProgressBarProps>) {
   return { instance, canvasMap };
 }
 
+it('测试默认值', () => {
+  const { instance } = createProgress({});
+
+  const { percent, type, speed, width, strokeWidth, animation } =
+    instance.getConfig().props;
+  expect({
+    percent,
+    type,
+    speed,
+    width,
+    strokeWidth,
+    animation,
+  }).toMatchFileSnapshot('snapshot/alipay_config_props.txt');
+
+  // 默认动画开启
+  expect(animation).toEqual(true);
+});
+
 it('测试 lint', () => {
   const { instance } = createProgress({
     // 测试异常情况

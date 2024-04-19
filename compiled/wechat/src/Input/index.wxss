@@ -50,10 +50,10 @@
   font-size: 17px;
 }
 .ant-input-clear-show {
-  display: flex;
+  opacity: 1;
 }
 .ant-input-clear-hidden {
-  display: none;
+  opacity: 0;
   pointer-events: none;
 }
 .ant-input-placeholder {

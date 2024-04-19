@@ -14,9 +14,10 @@ interface InternalData {
 
 export default ({ percent1, percent2, percent3, percent5 }: InternalData) => (
   <Page>
-    <Container title="默认进度条">
+    <Container title="默认进度条（有/无动画）">
       <View class="line2">
         <Progress type="circle" percent={percent1} />
+        <Progress type="circle" percent={percent1} animation={false} />
       </View>
       <View class="buttonwrapper">
         <AntButton inline style="margin-right: 16rpx" onTap="handleDelete">
