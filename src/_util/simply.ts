@@ -43,12 +43,21 @@ function mergeDefaultProps(defaultProps: Record<string, any> = {}) {
   };
 }
 
-type ComponentInstance<Props, Methods, Mixins> = unknown;
+type ComponentInstance<Props, Methods, Mixins, Data, InstanceMethods> = unknown;
 
-function ComponentImpl<Props, Methods = unknown, Mixins = unknown>(
+function ComponentImpl<
+  Props,
+  Methods = unknown,
+  Mixins = unknown,
+  Data = unknown,
+  InstanceMethods = unknown
+>(
   defaultProps: Props,
-  methods?: Methods & ThisType<ComponentInstance<Props, Methods, Mixins>>,
-  mixins?: Mixins & any
+  methods?: Methods &
+    ThisType<ComponentInstance<Props, Methods, Mixins, Data, InstanceMethods>>,
+  mixins?: Mixins & any,
+  data?: Data & any,
+  instanceMethods?: InstanceMethods & any
 ) {
   /// #if WECHAT
   Component({
@@ -60,6 +69,8 @@ function ComponentImpl<Props, Methods = unknown, Mixins = unknown>(
     } as any,
     methods,
     behaviors: mixins,
+    data,
+    ...instanceMethods,
   });
   /// #endif
 
@@ -68,6 +79,8 @@ function ComponentImpl<Props, Methods = unknown, Mixins = unknown>(
     props: removeNullProps(mergeDefaultProps(defaultProps)),
     methods,
     mixins,
+    data,
+    ...instanceMethods,
   });
   /// #endif
 }
@@ -155,14 +168,19 @@ export function triggerCatchEvent(instance: any, eventName: string, e?: any) {
   /// #endif
 }
 
-export function getValueFromProps(instance: any, propName?: string) {
+export function getValueFromProps(instance: any, propName?: string | string[]) {
   let value;
   /// #if ALIPAY
   const props = instance.props;
   if (!propName) {
     return props;
   }
-  value = props[propName];
+  if (typeof propName === 'string') {
+    value = props[propName];
+  }
+  if (Array.isArray(propName)) {
+    value = propName.map((name) => props[name]);
+  }
   /// #endif
 
   /// #if WECHAT
@@ -170,7 +188,12 @@ export function getValueFromProps(instance: any, propName?: string) {
   if (!propName) {
     return properties;
   }
-  value = properties[propName];
+  if (typeof propName === 'string') {
+    value = properties[propName];
+  }
+  if (Array.isArray(propName)) {
+    value = propName.map((name) => properties[name]);
+  }
   /// #endif
 
   return value;
