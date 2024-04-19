@@ -3,7 +3,6 @@ import { Component, getValueFromProps } from '../_util/simply';
 import { ProgressBarDefaultProps } from './props';
 import { createCanvasContext } from '../_util/jsapi/create-canvas-context';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
-import '../_util/assert-component2';
 
 const animationFrameDuration = 16;
 
@@ -13,7 +12,7 @@ Component(
     requestAnimationFrame(fn, duration = animationFrameDuration) {
       setTimeout(fn, duration);
     },
-    async getDrawColor() {
+    getDrawColor() {
       const [strokeColor, trailColor] = getValueFromProps(this, [
         'strokeColor',
         'trailColor',
@@ -46,7 +45,7 @@ Component(
       ctx.clearRect(0, 0, canvasWidth, canvasWidth);
     },
     async updateCanvasProgress(prev) {
-      const drawColor = await this.getDrawColor();
+      const drawColor = this.getDrawColor();
       await this.getCanvasContext();
       let curRad = Math.floor((prev / 100) * 360);
       const targetRad = Math.floor((this.data.curProgress / 100) * 360);
