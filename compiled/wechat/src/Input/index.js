@@ -33,9 +33,9 @@ Component(InputFunctionalProps, {
         }
         triggerEventValues(this, 'change', [''], e);
     },
-}, [mixinValue({ scopeKey: 'state' })], {
-    selfFocus: false,
 }, {
+    selfFocus: false,
+}, [mixinValue({ scopeKey: 'state' })], {
     attached: function () {
         this.triggerEvent('ref', this);
     },

@@ -43,20 +43,20 @@ function mergeDefaultProps(defaultProps: Record<string, any> = {}) {
   };
 }
 
-type ComponentInstance<Props, Methods, Mixins, Data, InstanceMethods> = unknown;
+type ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods> = unknown;
 
 function ComponentImpl<
   Props,
   Methods = unknown,
-  Mixins = unknown,
   Data = unknown,
+  Mixins = unknown,
   InstanceMethods = unknown
 >(
   defaultProps: Props,
   methods?: Methods &
-    ThisType<ComponentInstance<Props, Methods, Mixins, Data, InstanceMethods>>,
-  mixins?: Mixins & any,
+    ThisType<ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods>>,
   data?: Data & any,
+  mixins?: Mixins & any,
   instanceMethods?: InstanceMethods & any
 ) {
   /// #if WECHAT

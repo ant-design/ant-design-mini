@@ -44,7 +44,7 @@ function mergeDefaultProps(defaultProps) {
     if (defaultProps === void 0) { defaultProps = {}; }
     return __assign({ className: '', style: '' }, defaultProps);
 }
-function ComponentImpl(defaultProps, methods, mixins, data, instanceMethods) {
+function ComponentImpl(defaultProps, methods, data, mixins, instanceMethods) {
     Component(__assign({ properties: buildProperties(mergeDefaultProps(defaultProps)), options: {
             styleIsolation: 'shared',
             multipleSlots: true,

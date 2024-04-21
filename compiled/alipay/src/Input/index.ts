@@ -37,8 +37,8 @@ Component(
       triggerEventValues(this, 'change', [''], e);
     },
   },
-  [mixinValue({ scopeKey: 'state' })],
   {
     selfFocus: false,
   },
+  [mixinValue({ scopeKey: 'state' })],
 );
