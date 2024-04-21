@@ -1,7 +1,6 @@
 import { Component, triggerEventValues } from '../_util/simply';
 import { InputFunctionalProps } from './props';
 import mixinValue from '../mixins/value';
-import '../_util/assert-component2';
 
 Component(
   InputFunctionalProps,
@@ -38,8 +37,8 @@ Component(
       triggerEventValues(this, 'change', [''], e);
     },
   },
+  [mixinValue({ scopeKey: 'state' })],
   {
     selfFocus: false,
-  },
-  [mixinValue({ scopeKey: 'state' })]
+  }
 );

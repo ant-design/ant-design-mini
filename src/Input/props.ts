@@ -23,7 +23,7 @@ export type InputType =
 
 export interface InputProps extends IBaseProps {
   type?: InputType;
-  value: string;
+  value?: string;
   defaultValue: string;
   placeholder: string;
   placeholderClassName: string;
@@ -93,7 +93,6 @@ export interface InputProps extends IBaseProps {
 
 export const InputFunctionalProps: InputProps = {
   type: null,
-  value: null,
   defaultValue: null,
   placeholder: null,
   placeholderClassName: null,
