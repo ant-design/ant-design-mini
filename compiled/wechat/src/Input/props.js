@@ -1,5 +1,6 @@
 export var InputFunctionalProps = {
     type: null,
+    value: null,
     defaultValue: null,
     placeholder: null,
     placeholderClassName: null,

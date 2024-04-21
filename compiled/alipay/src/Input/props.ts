@@ -66,6 +66,7 @@ export interface InputProps extends IBaseProps {
 
 export const InputFunctionalProps: InputProps = {
   type: null,
+  value: null,
   defaultValue: null,
   placeholder: null,
   placeholderClassName: null,
