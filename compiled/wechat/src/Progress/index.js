@@ -173,10 +173,10 @@ Component(ProgressBarDefaultProps, {
             ? "ant-progress-canvas-".concat(this.$id)
             : "ant-progress-canvas";
     },
-}, undefined, {
+}, {
     curProgress: 0,
     canvasWidth: 100,
-}, {
+}, undefined, {
     ctx: null,
     drawColor: null,
     canvas: null,

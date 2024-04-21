@@ -133,11 +133,11 @@ Component(
         : `ant-progress-canvas`;
     },
   },
-  undefined,
   {
     curProgress: 0,
     canvasWidth: 100,
   },
+  undefined,
   {
     ctx: null as any,
     drawColor: null as any,
