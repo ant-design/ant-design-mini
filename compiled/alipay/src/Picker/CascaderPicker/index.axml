@@ -4,6 +4,7 @@
   animationType="{{ animationType }}"
   popClassName="ant-cascader-picker-popup {{ popClassName || '' }}"
   popStyle="{{ popStyle }}"
+  visible="{{ state.visible }}"
   options="{{ columns }}"
   value="{{ currentValue }}"
   disabled="{{ disabled }}"

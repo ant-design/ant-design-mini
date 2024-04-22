@@ -1,4 +1,4 @@
-import { useEvent, useMemo, useState } from 'functional-mini/component';
+import { useEvent, useMemo, useEffect, useState } from 'functional-mini/component';
 import { mountComponent } from '../../_util/component';
 import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import { useComponentUpdateEffect } from '../../_util/hooks/useLayoutEffect';
@@ -83,12 +83,28 @@ const CascaderPicker = (props: ICascaderProps) => {
     return defaultFormat(realValue, getOptionByValue(realValue, props.options));
   }, [realValue]);
 
+  const [visible, { update: updateVisible }] = useMixState(
+    props.defaultVisible,
+    {
+      value: props.visible,
+    }
+  );
+  useEffect(() => {
+    setTimeout(() => {
+      if (visible) {
+        const newColumns = getterColumns(realValue, props.options);
+        const currentValue = getValidValue(realValue, newColumns);
+        setState({ value: currentValue, columns: newColumns });
+      }
+    })
+  }, [visible]);
+
   useEvent('onVisibleChange', (event) => {
     const visible = resolveEventValue(event)
     if (visible) {
-      const newColumns = getterColumns(realValue, props.options);
-      const currentValue = getValidValue(realValue, newColumns);
-      setState({ value: currentValue, columns: newColumns });
+      updateVisible(true);
+    } else {
+      updateVisible(false);
     }
     triggerEvent('visibleChange', visible);
   });
@@ -98,7 +114,9 @@ const CascaderPicker = (props: ICascaderProps) => {
     const validValue = getValidValue(value, columns);
 
     if (!isRealValueControlled) {
-      updateRealValue(validValue);
+      setTimeout(() => {
+        updateRealValue(validValue);
+      })
     }
 
     triggerEventValues('ok', [
@@ -119,6 +137,9 @@ const CascaderPicker = (props: ICascaderProps) => {
   });
 
   return {
+    state: {
+      visible
+    },
     formattedValueText,
     currentValue: value,
     columns,

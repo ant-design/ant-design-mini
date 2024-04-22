@@ -90,6 +90,8 @@ toc: 'content'
 | suffix | 后缀 | slot | - |
 | title | 弹出框标题 | string \| slot | - |
 | value | 选中的时间范围 | [Date, Date] | - |
+| visible | 是否显示 | boolean | false |
+| defaultVisible | 默认是否显示 | boolean | false |
 | onOk | 点击确定按钮，触发回调 | (date: [Date, Date], dateStr: [string, string], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 | onCancel | 点击取消按钮/蒙层，触发回调 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 | onPickerChange | 选中项发生变化，触发回调 | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |

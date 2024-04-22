@@ -6,6 +6,8 @@ export var CascaderDefaultProps = {
     maskClosable: false,
 };
 export var CascaderFunctionalProps = {
+    visible: null,
+    defaultVisible: null,
     animationType: 'transform',
     value: null,
     defaultValue: null,

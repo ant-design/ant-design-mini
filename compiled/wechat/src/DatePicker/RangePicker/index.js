@@ -1,4 +1,4 @@
-import { useState, useEvent, useMemo } from 'functional-mini/component';
+import { useState, useEvent, useEffect, useMemo } from 'functional-mini/component';
 import { DateRangePickerFunctionalProps } from './props';
 import dayjs from 'dayjs';
 import { getRangeData, getDateByValue, getValueByDate, getValidValue, } from '../util';
@@ -41,6 +41,18 @@ var RangePicker = function (props) {
         };
     }, [props.format, dateState.start, dateState.end]), currentStartValueStr = _g.currentStartValueStr, currentEndValueStr = _g.currentEndValueStr;
     var onFormatLabel = useFormatLabel(props.onFormatLabel);
+    var _h = useMixState(props.defaultVisible, {
+        value: props.visible,
+    }), visible = _h[0], updateVisible = _h[1].update;
+    useEffect(function () {
+        setTimeout(function () {
+            if (visible) {
+                var state = init(realValue);
+                var currentValue_1 = getValueByDate(state.pickerType === 'start' ? state.start : state.end, props.precision);
+                updateColumns(currentValue_1, props);
+            }
+        });
+    }, [visible]);
     function updateColumns(currentValue, currentProps) {
         var precision = currentProps.precision, propsMin = currentProps.min, propsMax = currentProps.max;
         var min = getMin(propsMin);
@@ -62,9 +74,10 @@ var RangePicker = function (props) {
     useEvent('onVisibleChange', function (event) {
         var visible = resolveEventValue(event);
         if (visible) {
-            var state = init(realValue);
-            var currentValue_1 = getValueByDate(state.pickerType === 'start' ? state.start : state.end, props.precision);
-            updateColumns(currentValue_1, props);
+            updateVisible(true);
+        }
+        else {
+            updateVisible(false);
         }
         triggerEvent('visibleChange', visible);
     });
@@ -74,7 +87,7 @@ var RangePicker = function (props) {
         var currentValue = getValueByDate(state.pickerType === 'start' ? state.start : state.end, props.precision);
         updateColumns(currentValue, props);
     });
-    var _h = useMinAndMax(), getMin = _h.getMin, getMax = _h.getMax;
+    var _j = useMinAndMax(), getMin = _j.getMin, getMax = _j.getMax;
     useEvent('onCancel', function (e) {
         triggerEventOnly('cancel', e);
     });
@@ -114,6 +127,9 @@ var RangePicker = function (props) {
         ]);
     });
     return {
+        state: {
+            visible: visible
+        },
         formattedValueText: formattedValueText,
         realValue: realValue,
         columns: columns,

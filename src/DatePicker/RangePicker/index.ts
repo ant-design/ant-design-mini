@@ -1,4 +1,4 @@
-import { useState, useEvent, useMemo } from 'functional-mini/component';
+import { useState, useEvent, useEffect, useMemo } from 'functional-mini/component';
 import { DateRangePickerFunctionalProps, IDateRangePickerProps } from './props';
 import dayjs from 'dayjs';
 import {
@@ -55,6 +55,26 @@ const RangePicker = (props: IDateRangePickerProps) => {
 
   const onFormatLabel = useFormatLabel(props.onFormatLabel);
 
+  const [visible, { update: updateVisible }] = useMixState(
+    props.defaultVisible,
+    {
+      value: props.visible,
+    }
+  );
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (visible) {
+        const state = init(realValue);
+        const currentValue = getValueByDate(
+          state.pickerType === 'start' ? state.start : state.end,
+          props.precision
+        );
+        updateColumns(currentValue, props);
+      }
+    })
+  }, [visible]);
+
   function updateColumns(currentValue, currentProps) {
     const { precision, min: propsMin, max: propsMax } = currentProps;
     const min = getMin(propsMin);
@@ -85,12 +105,9 @@ const RangePicker = (props: IDateRangePickerProps) => {
   useEvent('onVisibleChange', (event) => {
     const visible = resolveEventValue(event)
     if (visible) {
-      const state = init(realValue);
-      const currentValue = getValueByDate(
-        state.pickerType === 'start' ? state.start : state.end,
-        props.precision
-      );
-      updateColumns(currentValue, props);
+      updateVisible(true);
+    } else {
+      updateVisible(false);
     }
     triggerEvent('visibleChange', visible);
   });
@@ -148,6 +165,9 @@ const RangePicker = (props: IDateRangePickerProps) => {
   });
 
   return {
+    state: {
+      visible
+    },
     formattedValueText,
     realValue,
     columns,

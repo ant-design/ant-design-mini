@@ -1,6 +1,7 @@
 Page({
     data: {
         pickerVisible: false,
+        dateRangePickerVisible: false,
         min: new Date('2019/01/15').getTime(),
         max: new Date('2023/08/20').getTime(),
         defaultDate: new Date('2019/02/02').getTime(),
@@ -57,6 +58,17 @@ Page({
     handleOpenPicker() {
         this.setData({
             pickerVisible: true,
+        });
+    },
+    handleTriggerControlledDateRangePicker(visible, e) {
+        console.log('handleTriggerControlledDateRangePicker', visible);
+        this.setData({
+            dateRangePickerVisible: visible.detail,
+        });
+    },
+    handleOpenDateRangePicker() {
+        this.setData({
+            dateRangePickerVisible: true,
         });
     },
 });
