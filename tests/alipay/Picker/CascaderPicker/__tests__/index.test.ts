@@ -1,14 +1,15 @@
 import fmtEvent from 'compiled-alipay/_util/fmtEvent';
 import { describe, expect, it } from 'vitest';
 import { cityList, createCascaderPicker } from './utils';
+import { sleep } from 'tests/utils';
 
 describe('cascaderPicker onVisibleChange', () => {
   it('onVisibleChange', () => {
-    const { onVisibleChange, callMethod } = createCascaderPicker({
+    const { onVisibleChange, callVisibleChange } = createCascaderPicker({
       options: cityList,
     });
 
-    callMethod('onVisibleChange', true);
+    callVisibleChange(true);
     expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
   });
   it('onCancel', () => {
@@ -110,26 +111,26 @@ describe('cascaderPicker select', () => {
   });
 
   it('选择后再次打开 需要恢复状态', async () => {
-    const { callMethod, instance } = createCascaderPicker({
+    const { callMethod, callVisibleChange, instance } = createCascaderPicker({
       options: cityList,
     });
 
     await callMethod('onChange', ['18', '188']);
 
-    await callMethod('onVisibleChange', false);
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(false);
+    await callVisibleChange(true);
     expect(instance.getData().currentValue).toEqual(['11', '110']);
   });
 });
 describe('cascaderPicker update', () => {
   it('cascaderPicker updateValue', async () => {
     const value = ['11', '110'];
-    const { callMethod, instance, onOk } = createCascaderPicker({
+    const { callMethod, callVisibleChange, instance, onOk } = createCascaderPicker({
       options: cityList,
       value,
     });
     instance.setProps({ value: ['18', '188'] });
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     await callMethod('onOk');
     expect(onOk).toBeCalledWith(
       ['18', '188'],
@@ -252,7 +253,7 @@ it('value 非受控', async () => {
   expect(instance.getData().formattedValueText).toBe('');
 });
 
-describe('cascaderPicker 受控模式', () => {
+describe('value 受控模式', () => {
   it('value 受控', async () => {
     const value = ['11', '110'];
     const { instance, callMethod } = createCascaderPicker({
@@ -300,5 +301,30 @@ describe('cascaderPicker 受控模式', () => {
     instance.setProps({ value: ['11', '110'] });
     expect(instance.getData().currentValue).toStrictEqual(['11', '110']);
     expect(instance.getData().formattedValueText).toBe('北京北京');
+  });
+});
+describe('visible 受控模式', () => {
+  it('visible 优先级大于 defaultVisible', async () => {
+    const { instance, onVisibleChange, callVisibleChange } = createCascaderPicker({
+      options: cityList,
+      visible: false,
+      defaultVisible: true,
+    });
+    expect(instance.getData().state.visible).toEqual(false);
+    await callVisibleChange(true);
+    expect(instance.getData().state.visible).toEqual(false);
+    expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
+  });
+  it('visible 受控', async () => {
+    const { instance } = createCascaderPicker({
+      options: cityList,
+      visible: false,
+    });
+    expect(instance.getData().state.visible).toEqual(false);
+    instance.setProps({
+      visible: true,
+    });
+    await sleep(100);
+    expect(instance.getData().state.visible).toEqual(true);
   });
 });

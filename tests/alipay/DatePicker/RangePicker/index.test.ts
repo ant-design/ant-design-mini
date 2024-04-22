@@ -2,6 +2,8 @@ import fmtEvent from 'compiled-alipay/_util/fmtEvent';
 import dayjs from 'dayjs';
 import { describe, expect, it } from 'vitest';
 import { createDateRangePicker } from './utils';
+import { sleep } from 'tests/utils';
+
 
 describe('非受控模式', () => {
   it('测试 onCancel', async () => {
@@ -17,16 +19,16 @@ describe('非受控模式', () => {
   });
 
   it('测试 onVisibleChange', async () => {
-    const { onVisibleChange, callMethod } = createDateRangePicker({});
-    await callMethod('onVisibleChange', true);
+    const { onVisibleChange, callVisibleChange } = createDateRangePicker({});
+    await callVisibleChange(true);
     expect(onVisibleChange.mock.lastCall).toEqual([true, fmtEvent({})]);
-    await callMethod('onVisibleChange', false);
+    await callVisibleChange(false);
     expect(onVisibleChange.mock.lastCall).toEqual([false, fmtEvent({})]);
   });
 
   it('测试 onOk 与 onPickerChange', async () => {
-    const { onPickerChange, callMethod, onOk } = createDateRangePicker();
-    await callMethod('onVisibleChange', true);
+    const { onPickerChange, callMethod, callVisibleChange, onOk } = createDateRangePicker();
+    await callVisibleChange(true);
     await callMethod('onChange', [2023, 10, 1]);
     expect(onPickerChange.mock.lastCall).toEqual([
       'start',
@@ -77,7 +79,7 @@ describe('非受控模式', () => {
   });
 
   it('测试调整数据', async () => {
-    const { instance, callMethod, onPickerChange } = createDateRangePicker({
+    const { instance, callMethod, callVisibleChange, onPickerChange } = createDateRangePicker({
       defaultValue: [
         dayjs('2023-01-01').toDate(),
         dayjs('2023-10-02').toDate(),
@@ -86,7 +88,7 @@ describe('非受控模式', () => {
     expect(instance.getData().formattedValueText).toEqual(
       '2023/01/01-2023/10/02'
     );
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     await callMethod('onChange', [2023, 9, 5]);
     expect(onPickerChange.mock.lastCall).toEqual([
       'start',
@@ -110,13 +112,13 @@ describe('非受控模式', () => {
   });
 
   it('当 start 晚于 end , 或者 end 早于 start 时', async () => {
-    const { callMethod, currentDate } = createDateRangePicker({
+    const { callMethod, callVisibleChange, currentDate } = createDateRangePicker({
       defaultValue: [
         dayjs('2023-01-01').toDate(),
         dayjs('2023-10-02').toDate(),
       ],
     });
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     expect(currentDate()).toEqual({
       currentStartDate: dayjs('2023-01-01').toDate().toISOString(),
       currentEndDate: dayjs('2023-10-02').toDate().toISOString(),
@@ -146,7 +148,7 @@ describe('非受控模式', () => {
   });
 
   it('测试 min 与 max', async () => {
-    const { callMethod, currentDate } = createDateRangePicker({
+    const { callMethod, callVisibleChange, currentDate } = createDateRangePicker({
       defaultValue: [
         dayjs('2023-01-01').toDate(),
         dayjs('2023-10-02').toDate(),
@@ -154,7 +156,7 @@ describe('非受控模式', () => {
       min: dayjs('2023-01-20').toDate(),
       max: dayjs('2024-12-10').toDate(),
     });
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     expect(currentDate()).toEqual({
       currentStartDate: dayjs('2023-01-01').toDate().toISOString(),
       currentEndDate: dayjs('2023-10-02').toDate().toISOString(),
@@ -179,15 +181,15 @@ describe('非受控模式', () => {
   });
 });
 
-describe('受控模式', () => {
+describe('value 受控模式', () => {
   it('测试 onOk 事件', async () => {
-    const { instance, callMethod, onOk } = createDateRangePicker({
+    const { instance, callMethod, callVisibleChange, onOk } = createDateRangePicker({
       value: [dayjs('2023-01-01').toDate(), dayjs('2023-10-01').toDate()],
     });
     expect(instance.getData().formattedValueText).toEqual(
       '2023/01/01-2023/10/01'
     );
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     await callMethod('onChange', [2023, 1, 4]);
 
     await callMethod('onChangeCurrentPickerType', {
@@ -219,11 +221,35 @@ describe('受控模式', () => {
   });
 });
 
+describe('visible 受控模式', () => {
+  it('visible 优先级大于 defaultVisible', async () => {
+    const { instance, onVisibleChange, callVisibleChange } = createDateRangePicker({
+      visible: false,
+      defaultVisible: true,
+    });
+    expect(instance.getData().state.visible).toEqual(false);
+    await callVisibleChange(true);
+    expect(instance.getData().state.visible).toEqual(false);
+    expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
+  });
+  it('visible 受控', async () => {
+    const { instance } = createDateRangePicker({
+      visible: false,
+    });
+    expect(instance.getData().state.visible).toEqual(false);
+    instance.setProps({
+      visible: true,
+    });
+    await sleep(100);
+    expect(instance.getData().state.visible).toEqual(true);
+  });
+});
+
 describe('测试各个精度', () => {
   async function getColumnText(
     precision: 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second'
   ) {
-    const { instance, callMethod } = createDateRangePicker({
+    const { instance, callVisibleChange } = createDateRangePicker({
       defaultValue: [
         dayjs('2023-01-01').toDate(),
         dayjs('2023-01-01').toDate(),
@@ -232,7 +258,7 @@ describe('测试各个精度', () => {
       max: dayjs('2024-12-10').toDate(),
       precision: precision,
     });
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     return instance
       .getData()
       .columns.map((o) => {
@@ -242,7 +268,7 @@ describe('测试各个精度', () => {
   }
 
   it('测试 onFormatLabel', async () => {
-    const { instance, callMethod } = createDateRangePicker({
+    const { instance, callVisibleChange } = createDateRangePicker({
       defaultValue: [
         dayjs('2023-01-01').toDate(),
         dayjs('2023-01-01').toDate(),
@@ -252,7 +278,7 @@ describe('测试各个精度', () => {
       onFormatLabel: (v, v2) => `${v} ${v2}`,
       precision: 'year',
     });
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     expect(
       instance
         .getData()
