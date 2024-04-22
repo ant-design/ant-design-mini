@@ -26,8 +26,13 @@ export function createCascaderPicker(
     },
     my
   );
+  async function callVisibleChange(visible) {
+    instance.callMethod('onVisibleChange', visible);
+    await sleep(100);
+  }
 
   return {
+    callVisibleChange,
     onCancel,
     onVisibleChange,
     onChange,
