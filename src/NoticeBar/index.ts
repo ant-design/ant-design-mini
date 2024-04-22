@@ -1,129 +1,197 @@
 import {
-  useEffect,
-  useEvent,
-  usePageShow,
-  useState,
-} from 'functional-mini/component';
-import '../_util/assert-component2';
+  Component,
+  triggerEventOnly,
+  getValueFromProps,
+} from '../_util/simply';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { NoticeBarDefaultProps } from './props';
 import { IBoundingClientRect } from '../_util/base';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
-import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
-import { INoticeBarProps, NoticeBarFunctionalProps } from './props';
 
-const NoticeBar = (props: INoticeBarProps) => {
-  const [marqueeStyle, setMarqueeStyle] = useState('');
-  const [show, setShow] = useState(true);
+Component(
+  NoticeBarDefaultProps,
+  {
+    getInstance() {
+      if (this.$id) {
+        return my;
+      }
+      return this;
+    },
 
-  const { triggerEventOnly } = useComponentEvent(props);
-
-  const startMarquee = useStableCallback((state) => {
-    const { loop } = props;
-    const leading = 500;
-    const { duration, overflowWidth, viewWidth } = state;
-    let marqueeScrollWidth = overflowWidth;
-    if (loop) {
-      marqueeScrollWidth = overflowWidth + viewWidth;
-    }
-    const newMarqueeStyle = `transform: translate3d(${-marqueeScrollWidth}px, 0, 0); transition: ${duration}s all linear ${
-      typeof leading === 'number' ? `${leading / 1000}s` : '0s'
-    };`;
-
-    setMarqueeStyle(newMarqueeStyle);
-  });
-
-  const { getBoundingClientRectWithId } = useInstanceBoundingClientRect();
-  function measureText(callback) {
-    const fps = 40;
-    const { loop } = props;
-    // 计算文本所占据的宽度，计算需要滚动的宽度
-    setTimeout(async () => {
-      const marqueeSize: IBoundingClientRect | null =
-        await getBoundingClientRectWithId('.ant-notice-bar-marquee');
-      const contentSize: IBoundingClientRect | null =
-        await getBoundingClientRectWithId('.ant-notice-bar-content');
-      const overflowWidth =
-        (marqueeSize && contentSize && marqueeSize.width - contentSize.width) ||
-        0;
-
-      const viewWidth = contentSize?.width || 0;
+    async getBoundingClientRectWithId(prefix: string) {
+      return await getInstanceBoundingClientRect(
+        this.getInstance(),
+        `${prefix}${this.$id ? `-${this.$id}` : ''}`
+      );
+    },
+    onTap() {
+      const mode = getValueFromProps(this, 'mode');
+      if (mode === 'link') {
+        triggerEventOnly(this, 'tap');
+      }
+      if (mode === 'closeable') {
+        /// #if ALIPAY
+        if (typeof this.props.onTap !== 'function') {
+          return;
+        }
+        /// #endif
+        this.setData({
+          show: false,
+        });
+        triggerEventOnly(this, 'tap');
+      }
+    },
+    startMarquee(state) {
+      const loop = getValueFromProps(this, 'loop');
+      const leading = 500;
+      const { duration, overflowWidth, viewWidth } = state;
       let marqueeScrollWidth = overflowWidth;
       if (loop) {
         marqueeScrollWidth = overflowWidth + viewWidth;
       }
-      if (overflowWidth > 0) {
-        callback({
-          overflowWidth,
-          viewWidth,
-          duration: marqueeScrollWidth / fps,
-        });
-      }
-    }, 0);
-  }
+      const newMarqueeStyle = `transform: translate3d(${-marqueeScrollWidth}px, 0, 0); transition: ${duration}s all linear ${
+        typeof leading === 'number' ? `${leading / 1000}s` : '0s'
+      };`;
 
-  useEffect(() => {
-    const { enableMarquee } = props;
-    if (enableMarquee) {
-      measureText(startMarquee);
-    }
-  });
-
-  function resetMarquee(state) {
-    const { loop } = props;
-    const { viewWidth } = state;
-    let showMarqueeWidth = '0px';
-    if (loop) {
-      showMarqueeWidth = `${viewWidth}px`;
-    }
-    const marqueeStyle = `transform: translate3d(${showMarqueeWidth}, 0, 0); transition: 0s all linear;`;
-    setMarqueeStyle(marqueeStyle);
-  }
-
-  useEvent('onTransitionEnd', () => {
-    const { loop } = props;
-    const trailing = 200;
-    if (loop) {
-      setTimeout(() => {
-        measureText((state) => {
-          resetMarquee(state);
-        });
-      }, trailing);
-    }
-  });
-
-  useEvent('onTap', () => {
-    const { mode } = props;
-    if (mode === 'link') {
-      triggerEventOnly('tap');
-    }
-    if (mode === 'closeable') {
-      /// #if ALIPAY
-      if (typeof props.onTap !== 'function') {
-        return;
-      }
-      /// #endif
-      setShow(false);
-      triggerEventOnly('tap');
-    }
-  });
-
-  usePageShow(() => {
-    if (props.enableMarquee) {
-      setMarqueeStyle('');
-      resetMarquee({
-        overflowWidth: 0,
-        duration: 0,
-        viewWidth: 0,
+      this.setData({
+        marqueeStyle: newMarqueeStyle,
       });
-      measureText(startMarquee);
-    }
-  });
+      return newMarqueeStyle;
+    },
 
-  return {
-    marqueeStyle,
-    show,
-  };
-};
+    measureText(callback) {
+      const fps = 40;
+      const loop = getValueFromProps(this, 'loop');
+      // 计算文本所占据的宽度，计算需要滚动的宽度
+      setTimeout(async () => {
+        const marqueeSize: IBoundingClientRect | null =
+          await this.getBoundingClientRectWithId('.ant-notice-bar-marquee');
+        const contentSize: IBoundingClientRect | null =
+          await this.getBoundingClientRectWithId('.ant-notice-bar-content');
+        const overflowWidth =
+          (marqueeSize &&
+            contentSize &&
+            marqueeSize.width - contentSize.width) ||
+          0;
 
-mountComponent(NoticeBar, NoticeBarFunctionalProps);
+        const viewWidth = contentSize?.width || 0;
+        let marqueeScrollWidth = overflowWidth;
+        if (loop) {
+          marqueeScrollWidth = overflowWidth + viewWidth;
+        }
+        if (overflowWidth > 0) {
+          callback({
+            overflowWidth,
+            viewWidth,
+            duration: marqueeScrollWidth / fps,
+          });
+        }
+      }, 0);
+    },
+    // 文本滚动的计算
+    resetMarquee(state) {
+      const loop = getValueFromProps(this, 'loop');
+      const { viewWidth } = state;
+      let showMarqueeWidth = '0px';
+      if (loop) {
+        showMarqueeWidth = `${viewWidth}px`;
+      }
+      const marqueeStyle = `transform: translate3d(${showMarqueeWidth}, 0, 0); transition: 0s all linear;`;
+      this.setData({
+        marqueeStyle,
+      });
+    },
+    onTransitionEnd() {
+      const loop = getValueFromProps(this, 'loop');
+      const trailing = 200;
+      if (loop) {
+        setTimeout(() => {
+          this.measureText((state) => {
+            this.resetMarquee.call(this, state);
+          });
+        }, trailing);
+      }
+    },
+  },
+  {
+    show: true,
+    marqueeStyle: '',
+  },
+  undefined,
+  {
+    /// #if ALIPAY
+    didMount() {
+      const { enableMarquee } = this.props;
+
+      if (enableMarquee) {
+        this.measureText((state) => {
+          this.startMarquee.call(this, state);
+        });
+      }
+    },
+
+    didUpdate() {
+      const { enableMarquee } = this.props;
+      // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
+      if (enableMarquee) {
+        console.log(enableMarquee);
+        this.measureText((state) => {
+          this.startMarquee.call(this, state);
+        });
+      }
+    },
+
+    pageEvents: {
+      onShow() {
+        if (this.props.enableMarquee) {
+          this.setData({ marqueeStyle: '' });
+          this.resetMarquee({
+            overflowWidth: 0,
+            duration: 0,
+            viewWidth: 0,
+          });
+          this.measureText((state) => {
+            this.startMarquee.call(this, state);
+          });
+        }
+      },
+    },
+    /// #endif
+
+    /// #if WECHAT
+    attached() {
+      const { enableMarquee } = this.properties;
+
+      if (enableMarquee) {
+        this.measureText((state) => {
+          this.startMarquee.call(this, state);
+        });
+      }
+    },
+
+    observers: {
+      'enableMarquee': function (enableMarquee) {
+        // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
+        if (enableMarquee) {
+          this.measureText((state) => {
+            this.startMarquee.call(this, state);
+          });
+        }
+      },
+    },
+
+    pageLifetimes: {
+      show: function () {
+        if (this.properties.enableMarquee) {
+          this.setData({ marqueeStyle: '' });
+          this.resetMarquee({
+            overflowWidth: 0,
+            duration: 0,
+            viewWidth: 0,
+          });
+          this.measureText((state) => this.startMarquee.call(this, state));
+        }
+      },
+    },
+    /// #endif
+  }
+);
