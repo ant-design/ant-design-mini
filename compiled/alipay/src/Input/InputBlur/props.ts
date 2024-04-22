@@ -49,4 +49,26 @@ export interface InputBlurProps extends IBaseProps {
   onConfirm?: (value: string, e: any) => void;
 }
 
-export const InputBlurDefaultProps: Partial<InputBlurProps> = {};
+export const InputBlurDefaultProps: Partial<InputBlurProps> = {
+  value: null,
+  defaultValue: null,
+  placeholder: null,
+  placeholderClassName: '',
+  placeholderStyle: '',
+  enableNative: null,
+  confirmType: null,
+  confirmHold: null,
+  alwaysSystem: null,
+  selectionStart: null,
+  selectionEnd: null,
+  cursor: null,
+  controlled: null,
+  inputClassName: null,
+  inputStyle: null,
+  focus: null,
+  password: null,
+  disabled: null,
+  name: null,
+  type: null,
+  randomNumber: null,
+};
