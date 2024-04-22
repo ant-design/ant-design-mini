@@ -1,95 +1,44 @@
-import { useEvent, useState } from 'functional-mini/component';
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import useLayoutEffect from '../../_util/hooks/useLayoutEffect';
-import { hasValue, useMergedState } from '../../_util/hooks/useMergedState';
-import { triggerRefEvent } from '../../_util/hooks/useReportRef';
-import { TextareaFunctionalProps, TextareaProps } from './props';
+import { Component, triggerEvent } from '../../_util/simply';
+import { TextareaDefaultProps } from './props';
+import mixinValue from '../../mixins/value';
 
-const Textarea = (props: TextareaProps) => {
-  const isControlled = hasValue(props.controlled)
-    ? !!props.controlled
-    : hasValue(props.value);
-
-  let option: any = {
-    value: props.value,
-  };
-  if (!isControlled && hasValue(props.value)) {
-    option = {
-      defaultValue: props.value,
-    };
-  }
-  /// #if WECHAT
-
-  // 微信的 textarea 不支持受控模式
-  // 通过 counter 的变化，重新渲染组件，让 value 改回去
-  const [counter, setCounter] = useState(0);
-  /// #endif
-  const [value, updateValue] = useMergedState(props.defaultValue, option);
-  const [selfFocus, setSelfFocus] = useState(false);
-  const { triggerEvent } = useComponentEvent(props);
-  triggerRefEvent();
-  useLayoutEffect(
-    (mount) => {
-      if (!isControlled && !mount) {
-        updateValue(props.value);
+Component(
+  TextareaDefaultProps,
+  {
+    onChange(e) {
+      const value = e.detail.value;
+      if (!this.isControlled()) {
+        this.update(value);
       }
+      triggerEvent(this, 'change', value, e);
     },
-    [props.value]
-  );
-
-  useEvent('onChange', (e) => {
-    const newValue = e.detail.value;
-    if (!isControlled) {
-      updateValue(newValue);
-    } else {
-      /// #if WECHAT
-      setCounter((c) => c + 1);
-      /// #endif
-    }
-    triggerEvent('change', newValue, e);
-  });
-
-  useEvent('onFocus', (e) => {
-    const newValue = e.detail.value;
-    setSelfFocus(true);
-    triggerEvent('focus', newValue, e);
-  });
-
-  useEvent('onBlur', (e) => {
-    const newValue = e.detail.value;
-    setSelfFocus(false);
-    triggerEvent('blur', newValue, e);
-  });
-
-  useEvent('onConfirm', (e) => {
-    const newValue = e.detail.value;
-    triggerEvent('confirm', newValue, e);
-  });
-  useEvent('onClear', (e) => {
-    if (!isControlled) {
-      updateValue('');
-    }
-    triggerEvent('change', '', e);
-  });
-
-  useEvent('update', (e) => {
-    if (isControlled) {
-      return;
-    }
-    updateValue(e);
-  });
-
-  return {
-    /// #if WECHAT
-    counter,
-    /// #endif
-    state: {
-      value,
-      controlled: isControlled,
+    onFocus(e) {
+      const value = e.detail.value;
+      this.setData({
+        selfFocus: true,
+      });
+      triggerEvent(this, 'focus', value, e);
     },
-    selfFocus,
-  };
-};
-
-mountComponent<TextareaProps>(Textarea, TextareaFunctionalProps);
+    onBlur(e) {
+      const value = e.detail.value;
+      this.setData({
+        selfFocus: false,
+      });
+      triggerEvent(this, 'blur', value, e);
+    },
+    onConfirm(e) {
+      const value = e.detail.value;
+      triggerEvent(this, 'confirm', value, e);
+    },
+    onClear(e) {
+      if (!this.isControlled()) {
+        this.update('');
+      }
+      triggerEvent(this, 'change', '', e);
+    },
+  },
+  {
+    selfFocus: false,
+  },
+  [mixinValue({ scopeKey: 'state' })]
+);

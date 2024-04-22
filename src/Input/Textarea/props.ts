@@ -57,11 +57,7 @@ export interface TextareaProps extends IBaseProps {
   onConfirm?: (value: string, e: any) => void;
 }
 
-export const TextareaDefaultProps: Partial<TextareaProps> = {
-  enableNative: false,
-};
-
-export const TextareaFunctionalProps: TextareaProps = {
+export const TextareaDefaultProps: TextareaProps = {
   value: null,
   defaultValue: null,
   placeholder: null,
