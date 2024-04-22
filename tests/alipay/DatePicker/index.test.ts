@@ -2,6 +2,7 @@ import fmtEvent from 'compiled-alipay/_util/fmtEvent';
 import dayjs from 'dayjs';
 import { describe, expect, it } from 'vitest';
 import { createDatePicker } from './utils';
+import { sleep } from 'tests/utils';
 
 const date = [
   dayjs().get('year'),
@@ -23,16 +24,16 @@ describe('DatePicker', () => {
   });
 
   it('测试 onVisibleChange 事件', async () => {
-    const { onVisibleChange, callMethod } = createDatePicker();
-    await callMethod('onVisibleChange', true);
+    const { onVisibleChange, callVisibleChange } = createDatePicker();
+    await callVisibleChange(true);
     expect(onVisibleChange.mock.lastCall).toEqual([true, fmtEvent({})]);
-    await callMethod('onVisibleChange', false);
+    await callVisibleChange(false);
     expect(onVisibleChange.mock.lastCall).toEqual([false, fmtEvent({})]);
   });
 
   it('测试 onOk 事件', async () => {
-    const { onOk, callMethod } = createDatePicker();
-    await callMethod('onVisibleChange', true);
+    const { onOk, callMethod, callVisibleChange } = createDatePicker();
+    await callVisibleChange(true);
     await callMethod('onChange', [2023, 1, 2]);
     await callMethod('onOk');
     expect(onOk.mock.lastCall).toEqual([
@@ -43,17 +44,17 @@ describe('DatePicker', () => {
   });
 
   it('当前时间不在 min max 范围', async () => {
-    const { instance, callMethod } = createDatePicker({
+    const { instance, callVisibleChange } = createDatePicker({
       min: new Date('2020-01-01'),
       max: new Date('2021-01-01'),
     });
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     expect(instance.getData().currentValue).toEqual([2020, 1, 1]);
   });
 
   it('测试 columns', async () => {
-    const { instance, callMethod } = createDatePicker();
-    await callMethod('onVisibleChange', true);
+    const { instance, callVisibleChange } = createDatePicker();
+    await callVisibleChange(true);
     expect(instance.getData().currentValue).toEqual(date);
     expect(instance.getData().columns.length).toEqual(3);
     expect(instance.getData().columns[0]).toEqual(
@@ -84,10 +85,10 @@ describe('DatePicker', () => {
   });
 
   it('非受控模式修改', async () => {
-    const { instance, changeSelect, callOk, callMethod } = createDatePicker({
+    const { instance, changeSelect, callOk, callVisibleChange } = createDatePicker({
       defaultValue: dayjs('2023-01-01').toDate(),
     });
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     expect(instance.getData().formattedValueText).toEqual('2023/01/01');
     await changeSelect([2023, 2, 1]);
     await callOk();
@@ -95,11 +96,11 @@ describe('DatePicker', () => {
   });
 
   it('测试当 defaultValue 为字符串格式化的问题', async () => {
-    const { instance, callMethod } = createDatePicker({
+    const { instance, callVisibleChange } = createDatePicker({
       defaultValue: '2023-01-01',
     });
     expect(instance.getData().formattedValueText).toEqual('2023/01/01');
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     expect(instance.getData().columns.length).toEqual(3);
   });
 
@@ -118,13 +119,13 @@ describe('DatePicker', () => {
   });
 
   it('测试 min max', async () => {
-    const { instance, changeSelect, callOk, callMethod } = createDatePicker({
+    const { instance, changeSelect, callOk, callVisibleChange } = createDatePicker({
       min: dayjs('2023-01-20').toDate(),
       max: dayjs('2023-05-15').toDate(),
       defaultValue: dayjs('2023-02-01').toDate(),
     });
     expect(instance.getData().formattedValueText).toEqual('2023/02/01');
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     expect(
       instance.getData().columns.map((o) => {
         return o.map((p) => `${p.label}`).join(',');
@@ -167,12 +168,12 @@ describe('DatePicker', () => {
 
 describe('受控模式', () => {
   it('测试', async () => {
-    const { callMethod, instance, changeSelect, callOk, onOk } =
+    const { callVisibleChange, instance, changeSelect, callOk, onOk } =
       createDatePicker({
         value: '2023-01-01',
         defaultValue: dayjs('2023-01-02').toDate(),
       });
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     expect(instance.getData().formattedValueText).toEqual('2023/01/01');
     await changeSelect([2023, 2, 1]);
     expect(instance.getData().currentValue).toEqual([2023, 2, 1]);
@@ -187,15 +188,39 @@ describe('受控模式', () => {
   });
 });
 
+describe('visible 受控模式', () => {
+  it('visible 优先级大于 defaultVisible', async () => {
+    const { instance, onVisibleChange, callVisibleChange } = createDatePicker({
+      visible: false,
+      defaultVisible: true,
+    });
+    expect(instance.getData().state.visible).toEqual(false);
+    await callVisibleChange(true);
+    expect(instance.getData().state.visible).toEqual(false);
+    expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
+  });
+  it('visible 受控', async () => {
+    const { instance } = createDatePicker({
+      visible: false,
+    });
+    expect(instance.getData().state.visible).toEqual(false);
+    instance.setProps({
+      visible: true,
+    });
+    await sleep(100);
+    expect(instance.getData().state.visible).toEqual(true);
+  });
+});
+
 describe('各个精度', () => {
   async function getColumnText(precision: string) {
-    const { instance, callMethod } = createDatePicker({
+    const { instance, callVisibleChange } = createDatePicker({
       defaultValue: dayjs('2023-01-01').toDate(),
       min: dayjs('2023-01-20').toDate(),
       max: dayjs('2024-12-10').toDate(),
       precision: precision as any,
     });
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     return instance
       .getData()
       .columns.map((o) => {
@@ -205,14 +230,14 @@ describe('各个精度', () => {
   }
 
   it('测试 onFormatLabel', async () => {
-    const { instance, callMethod } = createDatePicker({
+    const { instance, callVisibleChange } = createDatePicker({
       defaultValue: dayjs('2023-01-01').toDate(),
       min: '2023-01-20',
       max: dayjs('2024-12-10').toDate(),
       onFormatLabel: (v, v2) => `${v} ${v2}`,
       precision: 'year',
     });
-    await callMethod('onVisibleChange', true);
+    await callVisibleChange(true);
     expect(
       instance
         .getData()

@@ -16,6 +16,11 @@ export const createDatePicker = (props?: Partial<IDatePickerProps>) => {
     ...(props || {}),
   });
 
+  async function callVisibleChange(visible) {
+    instance.callMethod('onVisibleChange', visible);
+    await sleep(100);
+  }
+
   async function changeSelect(value) {
     instance.callMethod('onChange', value);
     await sleep(20);
@@ -27,6 +32,7 @@ export const createDatePicker = (props?: Partial<IDatePickerProps>) => {
   }
 
   return {
+    callVisibleChange,
     changeSelect,
     callOk,
     onOk,
