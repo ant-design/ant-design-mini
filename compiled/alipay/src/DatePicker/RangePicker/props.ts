@@ -5,6 +5,8 @@ export type PickerValue = [Date, Date];
  * @description 对话框
  */
 export interface IDateRangePickerProps extends IBaseProps {
+  visible?: boolean;
+  defaultVisible?: boolean;
   /**
    * @desciption  动画类型
    * @default "transform"
@@ -165,6 +167,8 @@ export const DateRangePickerDefaultProps: Partial<IDateRangePickerProps> = {
 };
 
 export const DateRangePickerFunctionalProps: Partial<IDateRangePickerProps> = {
+  visible: null,
+  defaultVisible: null,
   animationType: 'transform',
   format: 'YYYY/MM/DD',
   min: null,

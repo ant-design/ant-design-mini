@@ -10,6 +10,8 @@ export var DateRangePickerDefaultProps = {
     precision: 'day',
 };
 export var DateRangePickerFunctionalProps = {
+    visible: null,
+    defaultVisible: null,
     animationType: 'transform',
     format: 'YYYY/MM/DD',
     min: null,

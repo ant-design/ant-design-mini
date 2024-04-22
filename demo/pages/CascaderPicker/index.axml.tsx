@@ -3,8 +3,9 @@ import AntButton from '../../../src/Button/index.axml';
 import AntList from '../../../src/List/index.axml';
 import AntListItem from '../../../src/List/ListItem/index.axml';
 import AntCascaderPicker from '../../../src/Picker/CascaderPicker/index.axml';
+import AntContainer from '../../../src/Container/index.axml';
 
-export default ({ cityList, value }: InternalData) => (
+export default ({ pickerVisible, cityList, value }: InternalData) => (
   <Page>
     <AntList header="基础用法">
       <AntListItem>
@@ -59,5 +60,27 @@ export default ({ cityList, value }: InternalData) => (
         </AntButton>
       </View>
     </AntList>
+
+    <AntContainer style="margin-top:20rpx;">
+      <AntList header="外部控制选择器是否显示">
+        <AntListItem>
+          请选择省市
+          <AntCascaderPicker
+            slot="extra"
+            visible={pickerVisible}
+            placeholder="请选择归属地"
+            options={cityList}
+            onChange="handleCityPickerChange"
+            onVisibleChange="handleTriggerControlledPicker"
+            onOk="handleCityOnOk"
+            onCancel="handleDismiss"
+          />
+        </AntListItem>
+      </AntList>
+
+      <AntButton size="medium" type="primary" onTap="handleOpenPicker">
+        打开 CascaderPicker
+      </AntButton>
+    </AntContainer>
   </Page>
 );

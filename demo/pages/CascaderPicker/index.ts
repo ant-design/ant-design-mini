@@ -1,6 +1,7 @@
 import cityList from './city';
 Page({
   data: {
+    pickerVisible: false,
     cityList,
     value: ['34', '330'],
   },
@@ -30,5 +31,25 @@ Page({
   },
   handleDismiss(e) {
     console.log('handleDismiss', e);
+  },
+  handleTriggerControlledPicker(visible, e) {
+    /// #if WECHAT
+    console.log('handleTriggerControlledPicker', visible);
+    this.setData({
+      pickerVisible: visible.detail,
+    });
+    /// #endif
+
+    /// #if ALIPAY
+    console.log('handleTriggerControlledPicker', visible, e);
+    this.setData({
+      pickerVisible: visible,
+    });
+    /// #endif
+  },
+  handleOpenPicker() {
+    this.setData({
+      pickerVisible: true,
+    });
   },
 });

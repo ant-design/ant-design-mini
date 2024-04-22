@@ -10,6 +10,8 @@ export interface ICascaderOption {
  * @description 级联组件，基于Picker封装
  */
 export interface ICascaderProps extends IBaseProps {
+  visible?: boolean;
+  defaultVisible?: boolean;
   /**
    * @desciption  动画类型
    * @default "transform"
@@ -127,6 +129,8 @@ export const CascaderDefaultProps: Partial<ICascaderProps> = {
 };
 
 export const CascaderFunctionalProps: Partial<ICascaderProps> = {
+  visible: null,
+  defaultVisible: null,
   animationType: 'transform',
   value: null,
   defaultValue: null,

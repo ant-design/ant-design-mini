@@ -49,3 +49,27 @@
     </ant-button>
   </view>
 </ant-list>
+
+<ant-container style="margin-top: 20rpx">
+  <ant-list header="外部控制选择器是否显示">
+    <ant-list-item>
+      请选择省市
+      <ant-cascader-picker
+        slot="extra"
+        visible="{{ pickerVisible }}"
+        placeholder="请选择归属地"
+        options="{{ cityList }}"
+        bind:change="handleCityPickerChange"
+        bind:visiblechange="handleTriggerControlledPicker"
+        bind:ok="handleCityOnOk"
+        bind:cancel="handleDismiss" />
+    </ant-list-item>
+  </ant-list>
+
+  <ant-button
+    size="medium"
+    type="primary"
+    bind:tap="handleOpenPicker">
+    打开 CascaderPicker
+  </ant-button>
+</ant-container>
