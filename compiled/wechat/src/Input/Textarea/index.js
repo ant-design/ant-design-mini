@@ -35,4 +35,8 @@ Component(TextareaDefaultProps, {
     },
 }, {
     selfFocus: false,
-}, [mixinValue({ scopeKey: 'state' })]);
+}, [mixinValue({ scopeKey: 'state' })], {
+    attached: function () {
+        this.triggerEvent('ref', this);
+    },
+});

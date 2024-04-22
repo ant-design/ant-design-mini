@@ -40,5 +40,12 @@ Component(
   {
     selfFocus: false,
   },
-  [mixinValue({ scopeKey: 'state' })]
+  [mixinValue({ scopeKey: 'state' })],
+  /// #if WECHAT
+  {
+    attached() {
+      this.triggerEvent('ref', this);
+    },
+  }
+  /// #endif
 );

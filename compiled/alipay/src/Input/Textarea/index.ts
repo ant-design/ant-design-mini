@@ -40,5 +40,5 @@ Component(
   {
     selfFocus: false,
   },
-  [mixinValue({ scopeKey: 'state' })]
+  [mixinValue({ scopeKey: 'state' })],
 );
