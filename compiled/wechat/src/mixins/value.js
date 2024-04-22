@@ -35,8 +35,7 @@ export default (function (_a) {
             this.init();
         },
         observers: (_c = {},
-            _c["".concat(valueKey)] = function (_a) {
-                var value = _a[0];
+            _c["".concat(valueKey)] = function (value) {
                 this.update(value, {
                     nextProps: this.properties,
                 });

@@ -79,7 +79,7 @@ export default ({
       this.init();
     },
     observers: {
-      [`${valueKey}`]: function ([value]) {
+      [`${valueKey}`]: function (value) {
         this.update(value, {
           nextProps: this.properties,
         });
