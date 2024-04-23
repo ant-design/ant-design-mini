@@ -45,7 +45,8 @@ export interface TestInstance {
 export function createInstance(
   config: Instance,
   props: Record<string, any>,
-  my: any
+  my: any,
+  instanceApi?: any
 ) {
   const component2 =
     typeof my !== 'undefined' &&
@@ -58,6 +59,7 @@ export function createInstance(
   const deriveDataFromProps = [];
 
   const instance: Instance = {
+    ...(instanceApi ? instanceApi : {}),
     $id: 1,
     ...config,
     ...config.methods,
@@ -211,7 +213,8 @@ function component2Patch(originalMy?: Record<string, any>) {
 function getInstance(
   name: string,
   props: Record<string, any>,
-  api?: Record<string, any>
+  api?: Record<string, any>,
+  instanceApi?: Record<string, any>
 ): TestInstance {
   const sourceCodePath = path.isAbsolute(name)
     ? name
@@ -230,7 +233,7 @@ function getInstance(
     setTimeout,
     clearTimeout,
     Component: (obj) => {
-      result = createInstance(obj, props, component2Patch(api));
+      result = createInstance(obj, props, component2Patch(api), instanceApi);
     },
     updateResult: (res) => {
       result = res;

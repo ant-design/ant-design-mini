@@ -34,62 +34,49 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useMemo, useState } from 'functional-mini/compat';
-import { useComponent, useEvent } from 'functional-mini/component';
-import { mountComponent } from '../_util/component';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
-import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { Component } from '../_util/simply';
 import { PaginationDefaultProps } from './props';
-var Pagination = function () {
-    var componentInstance = useComponent();
-    var _a = useState(0), pageDeg = _a[0], setPageDeg = _a[1];
-    function getInstance() {
-        if (componentInstance.$id) {
-            return my;
-        }
-        return componentInstance;
-    }
-    var clacWidth = useStableCallback(function () { return __awaiter(void 0, void 0, void 0, function () {
-        var instance, rect;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    instance = getInstance();
-                    return [4 /*yield*/, getInstanceBoundingClientRect(getInstance(), "#ant-pageInfinite-".concat(instance.$id ? "-".concat(instance.$id) : ''))];
-                case 1:
-                    rect = _a.sent();
-                    if (rect) {
-                        return [2 /*return*/, rect.width];
-                    }
-                    return [2 /*return*/, 0];
-            }
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+Component(PaginationDefaultProps, {
+    clacWidth: function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var rect;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, getInstanceBoundingClientRect(this, "#ant-pageInfinite-".concat(this.$id ? "-".concat(this.$id) : ''))];
+                    case 1:
+                        rect = _a.sent();
+                        if (rect) {
+                            return [2 /*return*/, rect.width];
+                        }
+                        return [2 /*return*/, 0];
+                }
+            });
         });
-    }); });
-    useEvent('onScroll', function (e) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, scrollLeft, scrollWidth, viewWidth;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    _a = e.detail, scrollLeft = _a.scrollLeft, scrollWidth = _a.scrollWidth;
-                    return [4 /*yield*/, clacWidth()];
-                case 1:
-                    viewWidth = _b.sent();
-                    if (viewWidth) {
-                        setPageDeg(Math.ceil((scrollLeft / (scrollWidth - viewWidth)) * 100));
-                    }
-                    return [2 /*return*/];
-            }
+    },
+    onScroll: function (e) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, scrollLeft, scrollWidth, viewWidth;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = e.detail, scrollLeft = _a.scrollLeft, scrollWidth = _a.scrollWidth;
+                        return [4 /*yield*/, this.clacWidth()];
+                    case 1:
+                        viewWidth = _b.sent();
+                        if (viewWidth) {
+                            this.setData({
+                                pageDeg: Math.ceil((scrollLeft / (scrollWidth - viewWidth)) * 100),
+                            });
+                        }
+                        return [2 /*return*/];
+                }
+            });
         });
-    }); });
-    var supportSjs = useMemo(function () {
-        if (typeof my === 'undefined') {
-            return true;
-        }
-        return my.canIUse('sjs.event');
-    }, []);
-    return {
-        pageDeg: pageDeg,
-        supportSjs: supportSjs,
-    };
-};
-mountComponent(Pagination, PaginationDefaultProps);
+    },
+}, {
+    pageDeg: 0,
+    supportSjs: true,
+}, undefined, {
+    wrapWidth: 0,
+});
