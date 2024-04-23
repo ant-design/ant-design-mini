@@ -18,7 +18,13 @@ export const createDateRangePicker = (
     ...(props || {}),
   });
 
+  async function callVisibleChange(visible) {
+    instance.callMethod('onVisibleChange', visible);
+    await sleep(100);
+  }
+
   return {
+    callVisibleChange,
     onOk,
     onCancel,
     onPickerChange,
