@@ -4,6 +4,7 @@ import {
   triggerEventOnly,
   getValueFromProps,
 } from '../_util/simply';
+
 import { NumberKeyboardDefaultProps } from './props';
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];

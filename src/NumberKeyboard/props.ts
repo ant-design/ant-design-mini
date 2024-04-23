@@ -70,4 +70,7 @@ export const NumberKeyboardDefaultProps: Partial<INumberKeyboardProps> = {
   safeArea: true, // 安全区域
   random: false, // 乱序
   confirmDisabled: false, // 禁用确认按钮
+  onChange: () => {},
+  onConfirm: () => {},
+  onClose: () => {},
 };

@@ -1,7 +1,7 @@
 import { Component, triggerEvent, triggerEventOnly, getValueFromProps, } from '../_util/simply';
-import { NumberKeyboardFunctionalProps } from './props';
+import { NumberKeyboardDefaultProps } from './props';
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-Component(NumberKeyboardFunctionalProps, {
+Component(NumberKeyboardDefaultProps, {
     catchAppearModal: function () {
         this.setRandom();
     },

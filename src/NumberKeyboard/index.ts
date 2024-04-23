@@ -5,12 +5,12 @@ import {
   getValueFromProps,
 } from '../_util/simply';
 
-import { NumberKeyboardFunctionalProps } from './props';
+import { NumberKeyboardDefaultProps } from './props';
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 Component(
-  NumberKeyboardFunctionalProps,
+  NumberKeyboardDefaultProps,
   {
     catchAppearModal() {
       this.setRandom();
