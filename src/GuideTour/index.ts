@@ -39,6 +39,7 @@ Component(
       triggerEventValues(this, 'change', [current]);
     },
   },
+  undefined,
   [
     mixinValue({
       valueKey: 'current',

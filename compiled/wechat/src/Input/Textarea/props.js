@@ -1,7 +1,4 @@
 export var TextareaDefaultProps = {
-    enableNative: false,
-};
-export var TextareaFunctionalProps = {
     value: null,
     defaultValue: null,
     placeholder: null,

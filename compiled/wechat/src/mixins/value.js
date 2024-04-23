@@ -18,11 +18,11 @@ function equal(a, b) {
     return false;
 }
 export default (function (_a) {
-    var _b;
-    var _c = _a === void 0 ? {} : _a, _d = _c.valueKey, valueKey = _d === void 0 ? 'value' : _d, _e = _c.defaultValueKey, defaultValueKey = _e === void 0 ? 'defaultValue' : _e, _f = _c.scopeKey, scopeKey = _f === void 0 ? 'mixin' : _f, _g = _c.transformValue, transformValue = _g === void 0 ? function (value) { return ({
+    var _b, _c;
+    var _d = _a === void 0 ? {} : _a, _e = _d.valueKey, valueKey = _e === void 0 ? 'value' : _e, _f = _d.defaultValueKey, defaultValueKey = _f === void 0 ? 'defaultValue' : _f, _g = _d.scopeKey, scopeKey = _g === void 0 ? 'mixin' : _g, _h = _d.transformValue, transformValue = _h === void 0 ? function (value) { return ({
         needUpdate: true,
         value: value,
-    }); } : _g;
+    }); } : _h;
     var mixin = {
         data: (_b = {},
             _b[scopeKey] = {
@@ -34,17 +34,15 @@ export default (function (_a) {
         created: function () {
             this.init();
         },
-        observers: {
-            '**': function (nextProps) {
-                if (!equal(nextProps[valueKey], getValueFromProps(this, valueKey))) {
-                    this.update(nextProps[valueKey], {
-                        nextProps: nextProps,
-                    });
-                }
+        observers: (_c = {},
+            _c["".concat(valueKey)] = function (value) {
+                this.update(value, {
+                    nextProps: this.properties,
+                });
             },
-        },
+            _c),
         attached: function () {
-            var value = typeof this.properties[valueKey] !== 'undefined'
+            var value = this.properties[valueKey]
                 ? this.properties[valueKey]
                 : this.properties[defaultValueKey];
             var needUpdate = this.update(value, {
@@ -56,7 +54,7 @@ export default (function (_a) {
         },
         methods: {
             init: function () {
-                var value = typeof getValueFromProps(this, valueKey) !== 'undefined'
+                var value = getValueFromProps(this, valueKey)
                     ? getValueFromProps(this, valueKey)
                     : getValueFromProps(this, defaultValueKey);
                 var needUpdate = this.update(value, {

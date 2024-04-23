@@ -72,10 +72,9 @@ export default ({
 
     methods: {
       init() {
-        const value =
-          typeof getValueFromProps(this, valueKey) !== 'undefined'
-            ? getValueFromProps(this, valueKey)
-            : getValueFromProps(this, defaultValueKey);
+        const value = getValueFromProps(this, valueKey)
+          ? getValueFromProps(this, valueKey)
+          : getValueFromProps(this, defaultValueKey);
         const { needUpdate } = this.update(value, {
           nextProps: getValueFromProps(this),
         });

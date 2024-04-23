@@ -34,6 +34,7 @@ export default (_, { value, money }: InternalData) => (
 
     <Container title="受控模式">
       <AntInput
+        controlled={true}
         value={value}
         placeholder="请输入内容"
         allowClear

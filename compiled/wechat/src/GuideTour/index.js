@@ -82,7 +82,7 @@ Component(GuideTourDefaultProps, {
             });
         });
     },
-}, [
+}, undefined, [
     mixinValue({
         valueKey: 'current',
         defaultValueKey: 'defaultCurrent',

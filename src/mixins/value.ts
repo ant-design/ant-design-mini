@@ -79,20 +79,17 @@ export default ({
       this.init();
     },
     observers: {
-      '**': function (nextProps) {
-        if (!equal(nextProps[valueKey], getValueFromProps(this, valueKey))) {
-          this.update(nextProps[valueKey], {
-            nextProps,
-          });
-        }
+      [`${valueKey}`]: function (value) {
+        this.update(value, {
+          nextProps: this.properties,
+        });
       },
     },
 
     attached() {
-      const value =
-        typeof this.properties[valueKey] !== 'undefined'
-          ? this.properties[valueKey]
-          : this.properties[defaultValueKey];
+      const value = this.properties[valueKey]
+        ? this.properties[valueKey]
+        : this.properties[defaultValueKey];
       const { needUpdate } = this.update(value, {
         nextProps: this.properties,
       });
@@ -103,10 +100,9 @@ export default ({
     /// #endif
     methods: {
       init() {
-        const value =
-          typeof getValueFromProps(this, valueKey) !== 'undefined'
-            ? getValueFromProps(this, valueKey)
-            : getValueFromProps(this, defaultValueKey);
+        const value = getValueFromProps(this, valueKey)
+          ? getValueFromProps(this, valueKey)
+          : getValueFromProps(this, defaultValueKey);
         const { needUpdate } = this.update(value, {
           nextProps: getValueFromProps(this),
         });

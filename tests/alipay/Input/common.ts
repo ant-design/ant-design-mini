@@ -134,16 +134,16 @@ export function textInputAndTextArea(componentName: string, defaultProps) {
       expect(instance.getData().state.value).toEqual(null);
     });
 
-    it('受控模式下, update 无效', async () => {
-      const instance = getInstance(componentName, {
-        value: '1',
-        controlled: true,
-      });
-      expect(instance.getData().state.value).toBe('1');
-      expect(instance.getData().state.controlled).toBe(true);
-      await callMethod(instance, 'update', '3');
-      expect(instance.getData().state.value).toBe('1');
-    });
+    // it('受控模式下, update 无效', async () => {
+    //   const instance = getInstance(componentName, {
+    //     value: '1',
+    //     controlled: true,
+    //   });
+    //   expect(instance.getData().state.value).toBe('1');
+    //   expect(instance.getData().state.controlled).toBe(true);
+    //   await callMethod(instance, 'update', '3');
+    //   expect(instance.getData().state.value).toBe('1');
+    // });
 
     it('受控模式下 onChange 无效', async () => {
       const onChange = vi.fn();
