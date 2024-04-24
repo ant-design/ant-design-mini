@@ -34,19 +34,40 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useEffect, useEvent, usePageShow, useState, } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
-import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
-import { NoticeBarFunctionalProps } from './props';
-var NoticeBar = function (props) {
-    var _a = useState(''), marqueeStyle = _a[0], setMarqueeStyle = _a[1];
-    var _b = useState(true), show = _b[0], setShow = _b[1];
-    var triggerEventOnly = useComponentEvent(props).triggerEventOnly;
-    var startMarquee = useStableCallback(function (state) {
-        var loop = props.loop;
+import { Component, triggerEventOnly, getValueFromProps, } from '../_util/simply';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { NoticeBarDefaultProps } from './props';
+Component(NoticeBarDefaultProps, {
+    getInstance: function () {
+        if (this.$id) {
+            return my;
+        }
+        return this;
+    },
+    getBoundingClientRectWithId: function (prefix) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, getInstanceBoundingClientRect(this.getInstance(), "".concat(prefix).concat(this.$id ? "-".concat(this.$id) : ''))];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    },
+    onTap: function () {
+        var mode = getValueFromProps(this, 'mode');
+        if (mode === 'link') {
+            triggerEventOnly(this, 'tap');
+        }
+        if (mode === 'closeable') {
+            this.setData({
+                show: false,
+            });
+            triggerEventOnly(this, 'tap');
+        }
+    },
+    startMarquee: function (state) {
+        var loop = getValueFromProps(this, 'loop');
         var leading = 500;
         var duration = state.duration, overflowWidth = state.overflowWidth, viewWidth = state.viewWidth;
         var marqueeScrollWidth = overflowWidth;
@@ -54,25 +75,29 @@ var NoticeBar = function (props) {
             marqueeScrollWidth = overflowWidth + viewWidth;
         }
         var newMarqueeStyle = "transform: translate3d(".concat(-marqueeScrollWidth, "px, 0, 0); transition: ").concat(duration, "s all linear ").concat(typeof leading === 'number' ? "".concat(leading / 1000, "s") : '0s', ";");
-        setMarqueeStyle(newMarqueeStyle);
-    });
-    var getBoundingClientRectWithId = useInstanceBoundingClientRect().getBoundingClientRectWithId;
-    function measureText(callback) {
+        this.setData({
+            marqueeStyle: newMarqueeStyle,
+        });
+        return newMarqueeStyle;
+    },
+    measureText: function (callback) {
         var _this = this;
         var fps = 40;
-        var loop = props.loop;
+        var loop = getValueFromProps(this, 'loop');
         // 计算文本所占据的宽度，计算需要滚动的宽度
         setTimeout(function () { return __awaiter(_this, void 0, void 0, function () {
             var marqueeSize, contentSize, overflowWidth, viewWidth, marqueeScrollWidth;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, getBoundingClientRectWithId('.ant-notice-bar-marquee')];
+                    case 0: return [4 /*yield*/, this.getBoundingClientRectWithId('.ant-notice-bar-marquee')];
                     case 1:
                         marqueeSize = _a.sent();
-                        return [4 /*yield*/, getBoundingClientRectWithId('.ant-notice-bar-content')];
+                        return [4 /*yield*/, this.getBoundingClientRectWithId('.ant-notice-bar-content')];
                     case 2:
                         contentSize = _a.sent();
-                        overflowWidth = (marqueeSize && contentSize && marqueeSize.width - contentSize.width) ||
+                        overflowWidth = (marqueeSize &&
+                            contentSize &&
+                            marqueeSize.width - contentSize.width) ||
                             0;
                         viewWidth = (contentSize === null || contentSize === void 0 ? void 0 : contentSize.width) || 0;
                         marqueeScrollWidth = overflowWidth;
@@ -90,58 +115,68 @@ var NoticeBar = function (props) {
                 }
             });
         }); }, 0);
-    }
-    useEffect(function () {
-        var enableMarquee = props.enableMarquee;
-        if (enableMarquee) {
-            measureText(startMarquee);
-        }
-    });
-    function resetMarquee(state) {
-        var loop = props.loop;
+    },
+    // 文本滚动的计算
+    resetMarquee: function (state) {
+        var loop = getValueFromProps(this, 'loop');
         var viewWidth = state.viewWidth;
         var showMarqueeWidth = '0px';
         if (loop) {
             showMarqueeWidth = "".concat(viewWidth, "px");
         }
         var marqueeStyle = "transform: translate3d(".concat(showMarqueeWidth, ", 0, 0); transition: 0s all linear;");
-        setMarqueeStyle(marqueeStyle);
-    }
-    useEvent('onTransitionEnd', function () {
-        var loop = props.loop;
+        this.setData({
+            marqueeStyle: marqueeStyle,
+        });
+    },
+    onTransitionEnd: function () {
+        var _this = this;
+        var loop = getValueFromProps(this, 'loop');
         var trailing = 200;
         if (loop) {
             setTimeout(function () {
-                measureText(function (state) {
-                    resetMarquee(state);
+                _this.measureText(function (state) {
+                    _this.resetMarquee.call(_this, state);
                 });
             }, trailing);
         }
-    });
-    useEvent('onTap', function () {
-        var mode = props.mode;
-        if (mode === 'link') {
-            triggerEventOnly('tap');
-        }
-        if (mode === 'closeable') {
-            setShow(false);
-            triggerEventOnly('tap');
-        }
-    });
-    usePageShow(function () {
-        if (props.enableMarquee) {
-            setMarqueeStyle('');
-            resetMarquee({
-                overflowWidth: 0,
-                duration: 0,
-                viewWidth: 0,
+    },
+}, {
+    show: true,
+    marqueeStyle: '',
+}, undefined, {
+    attached: function () {
+        var _this = this;
+        var enableMarquee = this.properties.enableMarquee;
+        if (enableMarquee) {
+            this.measureText(function (state) {
+                _this.startMarquee.call(_this, state);
             });
-            measureText(startMarquee);
         }
-    });
-    return {
-        marqueeStyle: marqueeStyle,
-        show: show,
-    };
-};
-mountComponent(NoticeBar, NoticeBarFunctionalProps);
+    },
+    observers: {
+        'enableMarquee': function (enableMarquee) {
+            var _this = this;
+            // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
+            if (enableMarquee) {
+                this.measureText(function (state) {
+                    _this.startMarquee.call(_this, state);
+                });
+            }
+        },
+    },
+    pageLifetimes: {
+        show: function () {
+            var _this = this;
+            if (this.properties.enableMarquee) {
+                this.setData({ marqueeStyle: '' });
+                this.resetMarquee({
+                    overflowWidth: 0,
+                    duration: 0,
+                    viewWidth: 0,
+                });
+                this.measureText(function (state) { return _this.startMarquee.call(_this, state); });
+            }
+        },
+    },
+});

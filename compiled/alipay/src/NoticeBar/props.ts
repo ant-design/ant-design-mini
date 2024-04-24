@@ -47,12 +47,6 @@ export interface INoticeBarProps extends IBaseProps {
 }
 
 export const NoticeBarDefaultProps: Partial<INoticeBarProps> = {
-  enableMarquee: false,
-  loop: false,
-  type: 'default',
-};
-
-export const NoticeBarFunctionalProps: Partial<INoticeBarProps> = {
   icon: '',
   type: 'default',
   mode: null,
