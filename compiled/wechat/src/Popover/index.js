@@ -86,9 +86,7 @@ Component(PopoverDefaultProps, {
     },
     onVisibleChange: function (e) {
         var value = !this.getValue();
-        if (!this.isControlled()) {
-            this.update(value);
-        }
+        this.update(value);
         triggerEvent(this, 'visibleChange', value, e);
     },
 }, {
@@ -115,7 +113,7 @@ Component(PopoverDefaultProps, {
     }),
 ], {
     observers: {
-        'placement, autoAdjustOverflow': function () {
+        'placement, autoAdjustOverflow, mixin': function () {
             if (this.getValue()) {
                 this.updatePopover();
             }

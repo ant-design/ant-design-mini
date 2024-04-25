@@ -78,8 +78,7 @@ export default ({ placements, visible }: InternalData) => (
           content="prompt"
           placement="right"
           showMask={false}
-          visible={false}
-          defaultVisible={true}
+          visible={visible}
           style="display:inline-block;"
         >
           <Text>点击按钮修改visible</Text>
