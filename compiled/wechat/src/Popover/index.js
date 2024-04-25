@@ -85,11 +85,6 @@ Component(PopoverDefaultProps, {
         });
     },
     onVisibleChange: function (e) {
-        if (!this.getValue() &&
-            e.target.id &&
-            e.target.id.indexOf('ant-popover-') === 0) {
-            return;
-        }
         var value = !this.getValue();
         if (!this.isControlled()) {
             this.update(value);
@@ -119,15 +114,12 @@ Component(PopoverDefaultProps, {
         },
     }),
 ], {
-    didUpdate: function (prevProps) {
-        var _a = getValueFromProps(this, [
-            'placement',
-            'autoAdjustOverflow',
-        ]), placement = _a[0], autoAdjustOverflow = _a[1];
-        if ((prevProps.placement !== placement ||
-            prevProps.autoAdjustOverflow !== autoAdjustOverflow) &&
-            this.getValue()) {
-            this.updatePopover();
-        }
+    observers: {
+        'placement, autoAdjustOverflow': function () {
+            if (this.getValue()) {
+                console.log(123123);
+                this.updatePopover();
+            }
+        },
     },
 });

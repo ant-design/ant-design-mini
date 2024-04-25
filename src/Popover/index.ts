@@ -58,6 +58,7 @@ Component(
     },
 
     onVisibleChange(e) {
+      /// #if ALIPAY
       if (
         !this.getValue() &&
         e.target.id &&
@@ -65,6 +66,7 @@ Component(
       ) {
         return;
       }
+      /// #endif
       const value = !this.getValue();
       if (!this.isControlled()) {
         this.update(value);
@@ -96,6 +98,7 @@ Component(
     }),
   ],
   {
+    /// #if ALIPAY
     didUpdate(prevProps) {
       const [placement, autoAdjustOverflow] = getValueFromProps(this, [
         'placement',
@@ -109,5 +112,16 @@ Component(
         this.updatePopover();
       }
     },
+    /// #endif
+    /// #if WECHAT
+    observers: {
+      'placement, autoAdjustOverflow': function () {
+        if (this.getValue()) {
+          console.log(123123);
+          this.updatePopover();
+        }
+      },
+    },
+    /// #endif
   }
 );
