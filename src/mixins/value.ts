@@ -87,9 +87,10 @@ export default ({
     },
 
     attached() {
-      const value = this.properties[valueKey]
-        ? this.properties[valueKey]
-        : this.properties[defaultValueKey];
+      const value =
+        this.properties[valueKey] !== undefined
+          ? this.properties[valueKey]
+          : this.properties[defaultValueKey];
       const { needUpdate } = this.update(value, {
         nextProps: this.properties,
       });
@@ -100,9 +101,10 @@ export default ({
     /// #endif
     methods: {
       init() {
-        const value = getValueFromProps(this, valueKey)
-          ? getValueFromProps(this, valueKey)
-          : getValueFromProps(this, defaultValueKey);
+        const value =
+          getValueFromProps(this, valueKey) !== undefined
+            ? getValueFromProps(this, valueKey)
+            : getValueFromProps(this, defaultValueKey);
         const { needUpdate } = this.update(value, {
           nextProps: getValueFromProps(this),
         });

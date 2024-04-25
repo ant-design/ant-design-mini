@@ -117,7 +117,6 @@ Component(PopoverDefaultProps, {
     observers: {
         'placement, autoAdjustOverflow': function () {
             if (this.getValue()) {
-                console.log(123123);
                 this.updatePopover();
             }
         },

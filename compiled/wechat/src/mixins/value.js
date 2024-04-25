@@ -42,7 +42,7 @@ export default (function (_a) {
             },
             _c),
         attached: function () {
-            var value = this.properties[valueKey]
+            var value = this.properties[valueKey] !== undefined
                 ? this.properties[valueKey]
                 : this.properties[defaultValueKey];
             var needUpdate = this.update(value, {
@@ -54,7 +54,7 @@ export default (function (_a) {
         },
         methods: {
             init: function () {
-                var value = getValueFromProps(this, valueKey)
+                var value = getValueFromProps(this, valueKey) !== undefined
                     ? getValueFromProps(this, valueKey)
                     : getValueFromProps(this, defaultValueKey);
                 var needUpdate = this.update(value, {

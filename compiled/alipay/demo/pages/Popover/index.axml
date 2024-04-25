@@ -90,7 +90,8 @@
       content="prompt"
       placement="right"
       showMask="{{ false }}"
-      visible="{{ visible }}"
+      visible="{{ false }}"
+      defaultVisible="{{ true }}"
       style="display: inline-block">
       <!-- display: inline -->
       <text>点击按钮修改visible</text>
