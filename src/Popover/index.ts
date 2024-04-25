@@ -1,69 +1,45 @@
-import {
-  useComponent,
-  useEvent,
-  useEffect,
-  useState,
-} from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
+import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import { PopoverDefaultProps } from './props';
+import mixinValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
-import { IPopoverProps } from './props';
 import { getPopoverStyle } from './utils';
 
-const Popover = (props: IPopoverProps) => {
-  const [value, updateValue] = useMergedState(props.defaultVisible, {
-    value: props.visible,
-  });
-  const [popoverStyle, setPopoverStyle] = useState({
-    popoverContentStyle: '',
-    adjustedPlacement: '',
-  });
+Component(
+  PopoverDefaultProps,
+  {
+    getInstance() {
+      if (this.$id) {
+        return my;
+      }
+      return this;
+    },
+    async updatePopover() {
+      const [placement, autoAdjustOverflow] = getValueFromProps(this, [
+        'placement',
+        'autoAdjustOverflow',
+      ]);
+      const [containerRect, childrenRect, contentRect, systemInfo] =
+        await Promise.all([
+          getInstanceBoundingClientRect(
+            this.getInstance(),
+            `#ant-popover-children${this.$id ? `-${this.$id}` : ''}`
+          ),
+          getInstanceBoundingClientRect(
+            this.getInstance(),
+            this.$id
+              ? `#ant-popover-children-${this.$id} > *`
+              : `#ant-popover-children-container`
+          ),
+          getInstanceBoundingClientRect(
+            this.getInstance(),
+            this.$id
+              ? `#ant-popover-content-${this.$id}`
+              : '#ant-popover-content'
+          ),
+          getSystemInfo(),
+        ]);
 
-  const isControl = hasValue(props.visible);
-
-  const instance = useComponent();
-
-  function getInstance() {
-    if (instance.$id) {
-      return my;
-    }
-    return instance;
-  }
-
-  const { triggerEvent } = useComponentEvent(props);
-
-  useEffect(() => {
-    if (!value) {
-      setPopoverStyle((old) => ({
-        ...old,
-        adjustedPlacement: '',
-      }));
-      return;
-    }
-    const { placement, autoAdjustOverflow } = props;
-    Promise.all([
-      getInstanceBoundingClientRect(
-        getInstance(),
-        `#ant-popover-children${instance.$id ? `-${instance.$id}` : ''}`
-      ),
-      getInstanceBoundingClientRect(
-        getInstance(),
-        instance.$id
-          ? `#ant-popover-children-${instance.$id} > *`
-          : `#ant-popover-children-container`
-      ),
-      getInstanceBoundingClientRect(
-        getInstance(),
-        instance.$id
-          ? `#ant-popover-content-${instance.$id}`
-          : '#ant-popover-content'
-      ),
-      getSystemInfo(),
-    ]).then((res) => {
-      const [containerRect, childrenRect, contentRect, systemInfo] = res;
       const { popoverContentStyle, adjustedPlacement } = getPopoverStyle(
         placement,
         autoAdjustOverflow,
@@ -74,46 +50,64 @@ const Popover = (props: IPopoverProps) => {
           systemInfo,
         }
       );
-      setPopoverStyle({
+
+      this.setData({
         popoverContentStyle,
         adjustedPlacement,
       });
-    });
-  }, [value, props.autoAdjustOverflow, props.placement]);
-
-  useEvent('onVisibleChange', (e) => {
-    /// #if ALIPAY
-    if (!value && e.target.id && e.target.id.indexOf('ant-popover-') === 0) {
-      return;
-    }
-    /// #endif
-    const newValue = !value;
-    if (!isControl) {
-      updateValue(newValue);
-    }
-    triggerEvent('visibleChange', newValue, e);
-  });
-
-  return {
-    adjustedPlacement: popoverStyle.adjustedPlacement,
-    popoverContentStyle: popoverStyle.popoverContentStyle,
-    mixin: {
-      value,
     },
-  };
-};
 
-mountComponent<IPopoverProps>(Popover, {
-  visible: null,
-  defaultVisible: false,
-  destroyOnClose: false,
-  showMask: true,
-  placement: 'top',
-  autoAdjustOverflow: true,
-  maskClassName: '',
-  maskStyle: '',
-  content: '',
-  contentClassName: '',
-  contentStyle: '',
-  color: '',
-});
+    onVisibleChange(e) {
+      if (
+        !this.getValue() &&
+        e.target.id &&
+        e.target.id.indexOf('ant-popover-') === 0
+      ) {
+        return;
+      }
+      const value = !this.getValue();
+      if (!this.isControlled()) {
+        this.update(value);
+      }
+      triggerEvent(this, 'visibleChange', value, e);
+    },
+  },
+  {
+    adjustedPlacement: '',
+    popoverContentStyle: '',
+  },
+  [
+    mixinValue({
+      valueKey: 'visible',
+      defaultValueKey: 'defaultVisible',
+      transformValue(value) {
+        if (value) {
+          this.updatePopover();
+        } else {
+          this.setData({
+            adjustedPlacement: '',
+          });
+        }
+        return {
+          needUpdate: true,
+          value,
+        };
+      },
+    }),
+  ],
+  {
+    didUpdate(prevProps) {
+      const [placement, autoAdjustOverflow] = getValueFromProps(this, [
+        'placement',
+        'autoAdjustOverflow',
+      ]);
+      if (
+        (prevProps.placement !== placement ||
+          prevProps.autoAdjustOverflow !== autoAdjustOverflow) &&
+        this.getValue()
+      ) {
+        this.updatePopover();
+      }
+    },
+  }
+);
