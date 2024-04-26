@@ -1,4 +1,4 @@
-import { Component, triggerEventOnly, } from '../_util/simply';
+import { Component, triggerEventOnly, getValueFromProps, } from '../_util/simply';
 import { PopupDefaultProps } from './props';
 import { isOldSDKVersion } from '../_util/platform';
 var isOldVersion = isOldSDKVersion();
@@ -15,6 +15,15 @@ Component(PopupDefaultProps, {
         if (closing) {
             this.setData({ closing: false });
         }
+        var _a = getValueFromProps(this, [
+            'visible',
+            'duration',
+            'animation',
+        ]), visible = _a[0], duration = _a[1], animation = _a[2];
+        var enableAnimation = animation && duration > 0;
+        if (enableAnimation) {
+            triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
+        }
     },
 }, {
     closing: false,
@@ -26,6 +35,9 @@ Component(PopupDefaultProps, {
             var enableAnimation = animation && duration > 0;
             if (enableAnimation && !visible) {
                 this.setData({ closing: true });
+            }
+            if (!enableAnimation) {
+                triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
             }
         },
     },

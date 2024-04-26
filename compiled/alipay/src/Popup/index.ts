@@ -23,6 +23,15 @@ Component(
       if (closing) {
         this.setData({ closing: false });
       }
+      const [visible, duration, animation] = getValueFromProps(this, [
+        'visible',
+        'duration',
+        'animation',
+      ]);
+      const enableAnimation = animation && duration > 0;
+      if (enableAnimation) {
+        triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
+      }
     },
   },
   {
@@ -42,14 +51,8 @@ Component(
         if (enableAnimation && !visible) {
           this.setData({ closing: true });
         }
-      }
-    },
-    deriveDataFromProps(nextProps) {
-      const { visible, duration, animation } = nextProps;
-      const enableAnimation = animation && duration > 0;
-      if (getValueFromProps(this, 'visible') !== visible) {
-        if (enableAnimation && !visible) {
-          this.setData({ closing: true });
+        if (!enableAnimation) {
+          triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
         }
       }
     },
