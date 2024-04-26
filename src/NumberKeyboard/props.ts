@@ -49,34 +49,18 @@ export interface INumberKeyboardProps extends IBaseProps {
   /**
    * @description 输入值变化时的回调
    */
-  onChange: (val: string) => void;
+  onChange?: (val: string) => void;
   /**
    * @description 点击确认时的回调
    */
-  onConfirm: () => void;
+  onConfirm?: () => void;
   /**
    * @description 隐藏键盘时的回调
    */
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 export const NumberKeyboardDefaultProps: Partial<INumberKeyboardProps> = {
-  className: '',
-  value: '', // 值
-  visible: false, // 是否展示
-  safeArea: true, // 安全区域
-  closeable: false, // 关闭箭头
-  random: false, // 乱序
-  vibrate: false, // 震动反馈
-  point: true, // 展示小数点
-  confirmDisabled: false, // 禁用确认按钮
-  confirmText: '', // 确认按钮文字
-  onChange: (val) => {}, // 输入
-  onConfirm: () => {}, // 确认
-  onClose: () => {}, // 关闭
-};
-
-export const NumberKeyboardFunctionalProps: Partial<INumberKeyboardProps> = {
   closeable: false, // 关闭箭头
   point: true, // 展示小数点
   confirmText: '', // 确认按钮文字
@@ -86,4 +70,7 @@ export const NumberKeyboardFunctionalProps: Partial<INumberKeyboardProps> = {
   safeArea: true, // 安全区域
   random: false, // 乱序
   confirmDisabled: false, // 禁用确认按钮
+  onChange: () => {},
+  onConfirm: () => {},
+  onClose: () => {},
 };

@@ -9,10 +9,12 @@ function createPagination(props, myOverride?: Record<string, any>) {
     canIUse(args: string) {
       return canIUse(args);
     },
-    createSelectorQuery: createSelectorQueryFactory(selectorMock),
     ...myOverride,
   };
-  const instance = getInstance('Pagination', props, my);
+  const instanceApi = {
+    createSelectorQuery: createSelectorQueryFactory(selectorMock),
+  };
+  const instance = getInstance('Pagination', props, my, instanceApi);
   return { instance, selectorMock, canIUse };
 }
 

@@ -362,6 +362,26 @@ export const componentList = [
                 nameZN: '日历',
                 path: '/pages/Calendar/index',
             },
+            {
+                name: 'NumberKeyboard',
+                nameZN: '数字键盘-基本使用',
+                path: '/pages/NumberKeyboard/index',
+            },
+            {
+                name: 'NumberKeyboardAmount',
+                nameZN: '数字键盘-金额输入框',
+                path: '/pages/NumberKeyboardAmount/index',
+            },
+            {
+                name: 'NumberKeyboardCode',
+                nameZN: '数字键盘-验证码输入框',
+                path: '/pages/NumberKeyboardCode/index',
+            },
+            {
+                name: 'NumberKeyboardNumber',
+                nameZN: '数字键盘-数字输入框',
+                path: '/pages/NumberKeyboardNumber/index',
+            },
         ],
     },
     {

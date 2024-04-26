@@ -1,75 +1,92 @@
-import { useEffect } from 'functional-mini/compat';
-import { useEvent, useState } from 'functional-mini/component';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { INumberKeyboardProps, NumberKeyboardFunctionalProps } from './props';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
+import {
+  Component,
+  triggerEvent,
+  triggerEventOnly,
+  getValueFromProps,
+} from '../_util/simply';
+
+import { NumberKeyboardDefaultProps } from './props';
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const NumberKeyboard = (props: INumberKeyboardProps) => {
-  const numArr = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-  ];
-
-  const [randomArr, setRandomArr] = useState([]);
-  const { triggerEventOnly, triggerEvent } = useComponentEvent(props);
-  const setRandom = useStableCallback(() => {
-    if (props.random) {
-      const newArr = arr.sort(function () {
-        return Math.random() - 0.5;
-      });
-      setRandomArr([
-        newArr.slice(0, 3),
-        newArr.slice(3, 6),
-        newArr.slice(6, 9),
+Component(
+  NumberKeyboardDefaultProps,
+  {
+    catchAppearModal() {
+      this.setRandom();
+    },
+    setRandom() {
+      if (getValueFromProps(this, 'random')) {
+        const newArr = arr.sort(function () {
+          return Math.random() - 0.5;
+        });
+        this.setData({
+          randomArr: [
+            newArr.slice(0, 3),
+            newArr.slice(3, 6),
+            newArr.slice(6, 9),
+          ],
+        });
+      }
+    },
+    tapButton(e) {
+      const [value, confirmDisabled] = getValueFromProps(this, [
+        'value',
+        'confirmDisabled',
       ]);
-    }
-  });
-  const vibrate = useStableCallback(() => {
-    if (props.vibrate && typeof my !== 'undefined') {
-      my.canIUse('vibrateShort') && my.vibrateShort();
-    }
-  });
+      this.vibrate();
+      const _key = e.currentTarget.dataset.key;
+      const _val = `${value}`;
 
-  useEvent('handleHide', () => {
-    triggerEventOnly('close');
-  });
-
-  useEvent('tapButton', (e) => {
-    const { value, confirmDisabled } = props;
-    vibrate();
-    const _key = e.currentTarget.dataset.key;
-    const _val = `${value}`;
-    // 回退
-    if (_key === 'del') {
-      triggerEvent('change', `${_val.substr(0, _val.length - 1)}`);
-      return;
-    }
-    if (_key !== 'del' && _key !== 'enter') {
-      triggerEvent('change', `${_val}${_key}`);
-    }
-    if (_key === 'enter' && !confirmDisabled) {
-      triggerEventOnly('close');
-      triggerEventOnly('confirm');
-      triggerEventOnly('close'); // 保持和之前一样的逻辑
-    }
-  });
-
-  useEvent('catchAppearModal', () => {
-    setRandom();
-  });
-
-  useEffect(() => {
-    setRandom();
-  }, []);
-
-  return {
-    randomArr,
-    numArr,
-  };
-};
-
-mountComponent(NumberKeyboard, NumberKeyboardFunctionalProps);
+      // 回退
+      if (_key === 'del') {
+        triggerEvent(this, 'change', `${_val.substr(0, _val.length - 1)}`, e);
+        return;
+      }
+      if (_key !== 'del' && _key !== 'enter') {
+        triggerEvent(this, 'change', `${_val}${_key}`, e);
+      }
+      if (_key === 'enter' && !confirmDisabled) {
+        this.onClickEnter();
+        triggerEventOnly(this, 'close');
+      }
+    },
+    // 隐藏键盘，失去焦点
+    handleHide() {
+      triggerEventOnly(this, 'close');
+    },
+    onClickEnter() {
+      const confirmDisabled = getValueFromProps(this, 'confirmDisabled');
+      if (confirmDisabled) return;
+      this.handleHide();
+      triggerEventOnly(this, 'confirm');
+    },
+    // 振动反馈
+    vibrate() {
+      if (getValueFromProps(this, 'vibrate') && typeof my !== 'undefined') {
+        my.canIUse('vibrateShort') && my.vibrateShort();
+      }
+    },
+  },
+  {
+    numArr: [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+    ],
+    randomArr: [],
+  },
+  undefined,
+  {
+    /// #if ALIPAY
+    didMount() {
+      this.setRandom();
+    },
+    /// #endif
+    /// #if WECHAT
+    attached() {
+      this.setRandom();
+    },
+    /// #endif
+  }
+);

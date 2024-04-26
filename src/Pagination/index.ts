@@ -1,48 +1,46 @@
-import { useMemo, useState } from 'functional-mini/compat';
-import { useComponent, useEvent } from 'functional-mini/component';
-import { mountComponent } from '../_util/component';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
-import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { Component } from '../_util/simply';
 import { PaginationDefaultProps } from './props';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 
-const Pagination = () => {
-  const componentInstance = useComponent();
-  const [pageDeg, setPageDeg] = useState(0);
-  function getInstance() {
-    if (componentInstance.$id) {
-      return my;
-    }
-    return componentInstance;
+Component(
+  PaginationDefaultProps,
+  {
+    async clacWidth() {
+      const rect = await getInstanceBoundingClientRect(
+        this,
+        `#ant-pageInfinite-${this.$id ? `-${this.$id}` : ''}`
+      );
+      if (rect) {
+        return rect.width;
+      }
+      return 0;
+    },
+    async onScroll(e) {
+      const { scrollLeft, scrollWidth } = e.detail;
+      const viewWidth = await this.clacWidth();
+      if (viewWidth) {
+        this.setData({
+          pageDeg: Math.ceil((scrollLeft / (scrollWidth - viewWidth)) * 100),
+        });
+      }
+    },
+  },
+  {
+    pageDeg: 0,
+    supportSjs: true,
+  },
+  undefined,
+  {
+    wrapWidth: 0,
+    /// #if ALIPAY
+    onInit() {
+      let supportSjs;
+      if (typeof my === 'undefined') {
+        supportSjs = true;
+      }
+      supportSjs = my.canIUse('sjs.event');
+      this.setData({ supportSjs });
+    },
+    /// #endif
   }
-  const clacWidth = useStableCallback(async () => {
-    const instance = getInstance();
-    const rect = await getInstanceBoundingClientRect(
-      getInstance(),
-      `#ant-pageInfinite-${instance.$id ? `-${instance.$id}` : ''}`
-    );
-    if (rect) {
-      return rect.width;
-    }
-    return 0;
-  });
-  useEvent('onScroll', async (e) => {
-    const { scrollLeft, scrollWidth } = e.detail;
-    const viewWidth = await clacWidth();
-    if (viewWidth) {
-      setPageDeg(Math.ceil((scrollLeft / (scrollWidth - viewWidth)) * 100));
-    }
-  });
-
-  const supportSjs = useMemo(() => {
-    if (typeof my === 'undefined') {
-      return true;
-    }
-    return my.canIUse('sjs.event');
-  }, []);
-  return {
-    pageDeg,
-    supportSjs,
-  };
-};
-
-mountComponent(Pagination, PaginationDefaultProps);
+);
