@@ -1,52 +1,57 @@
-import { useEffect, useEvent, useRef, useState, } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
-import { ToastFunctionalProps } from './props';
-var Toast = function (props) {
-    var _a = useState(false), show = _a[0], setShow = _a[1];
-    var timerRef = useRef(null);
-    var triggerEventOnly = useComponentEvent(props).triggerEventOnly;
-    var closeMask = useStableCallback(function () {
-        if (timerRef.current) {
-            clearTimeout(timerRef.current);
+import { Component, triggerEventOnly, getValueFromProps, } from '../_util/simply';
+import { ToastDefaultProps } from './props';
+Component(ToastDefaultProps, {
+    closeMask: function () {
+        if (this.timer) {
+            clearTimeout(this.timer);
         }
-        var isShow = show;
-        setShow(false);
-        timerRef.current = null;
-        if (isShow) {
-            triggerEventOnly('close');
-        }
-    });
-    var handleShowToast = useStableCallback(function () {
-        setShow(true);
-        if (props.duration > 0) {
+        this.setData({ show: false });
+        this.timer = null;
+        triggerEventOnly(this, 'close');
+    },
+    handleShowToast: function () {
+        var _this = this;
+        this.setData({ show: true });
+        var duration = getValueFromProps(this, 'duration');
+        if (duration > 0) {
             var timer = setTimeout(function () {
-                closeMask();
-            }, props.duration);
-            timerRef.current = timer;
+                _this.closeMask();
+            }, duration);
+            this.timer = timer;
         }
-    });
-    useEffect(function () {
-        if (props.visible) {
-            handleShowToast();
+    },
+    handleClickMask: function () {
+        var _a = getValueFromProps(this, [
+            'showMask',
+            'maskCloseable',
+        ]), showMask = _a[0], maskCloseable = _a[1];
+        if (showMask && maskCloseable) {
+            this.closeMask();
         }
-        else {
-            closeMask();
+    },
+}, {
+    show: false,
+}, undefined, {
+    timer: null,
+    observers: {
+        'visible': function (visible) {
+            if (visible) {
+                this.handleShowToast();
+            }
+            else if (!visible && this.data.show) {
+                this.closeMask();
+            }
+        },
+        'content': function (content) {
+            this.setData({
+                displayContent: content === 'string' ? content.substring(0, 24) : content,
+            });
+        },
+    },
+    attached: function () {
+        var visible = getValueFromProps(this, 'visible');
+        if (visible) {
+            this.handleShowToast();
         }
-    }, [props.visible]);
-    useEvent('handleClickMask', function () {
-        if (props.showMask && props.maskCloseable) {
-            closeMask();
-        }
-    });
-    var displayContent = typeof props.content === 'string'
-        ? props.content.substring(0, 24)
-        : props.content;
-    return {
-        displayContent: displayContent,
-        show: show,
-    };
-};
-mountComponent(Toast, ToastFunctionalProps);
+    },
+});
