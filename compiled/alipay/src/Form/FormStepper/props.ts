@@ -1,5 +1,5 @@
 import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
-import { IStepperProps, StepperFunctionalProps } from '../../Stepper/props';
+import { IStepperProps, StepperDefaultProps } from '../../Stepper/props';
 
 export interface FormStepperProps
   extends Omit<IStepperProps, 'value' | 'defaultValue'>,
@@ -9,7 +9,7 @@ export interface FormStepperProps
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { value, defaultValue, ...rest } = StepperFunctionalProps;
+const { value, defaultValue, ...rest } = StepperDefaultProps;
 
 export const FormStepperDefaultProps: Partial<FormStepperProps> = {
   ...FormItemFunctionalProps,

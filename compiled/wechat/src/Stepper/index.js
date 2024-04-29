@@ -1,81 +1,89 @@
-import { useEvent } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useMixState } from '../_util/hooks/useMixState';
-import { resolveEventValue } from '../_util/platform';
-import { StepperFunctionalProps } from './props';
+import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import { StepperDefaultProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
-var Stepper = function (props) {
-    var _a = useMixState(props.defaultValue, {
-        value: props.value,
-        postState: function (num, precision) {
-            var _a = getValidNumber(num, props.min, props.max, props.step, precision >= 0 ? precision : props.precision), valid = _a.valid, value = _a.value;
-            if (valid) {
-                return { valid: valid, value: value };
-            }
-            return { valid: false };
-        },
-    }), value = _a[0], _b = _a[1], isControlled = _b.isControlled, update = _b.update;
-    var triggerEvent = useComponentEvent(props).triggerEvent;
-    var toNumber = function (v) { return (v === '' ? null : Number(v)); };
-    useEvent('onFocus', function (e) {
-        triggerEvent('focus', toNumber(value), e);
-    });
-    useEvent('onChange', function (v, event) {
-        var state = update(resolveEventValue(v));
-        if (state.changed) {
-            triggerEvent('change', toNumber(state.newValue), event);
+import mixinValue from '../mixins/value';
+Component(StepperDefaultProps, {
+    onFocus: function (e) {
+        var value = this.getValue();
+        triggerEvent(this, 'focus', value === '' ? null : Number(value), e);
+    },
+    onChange: function (val, e) {
+        var _a = this.update(val), needUpdate = _a.needUpdate, value = _a.value;
+        if (getValueFromProps(this, 'onChange') && needUpdate) {
+            triggerEvent(this, 'change', value === '' ? null : Number(value), e);
         }
-    });
-    useEvent('onConfirm', function (_v, event) {
-        triggerEvent('confirm', value === '' ? null : Number(value), event);
-    });
-    useEvent('onBlur', function (_v, event) {
-        if (isControlled) {
-            var state = update(props.value);
-            if (state.changed) {
-                triggerEvent('blur', state.newValue === '' ? null : Number(state.newValue), event);
-            }
-            else {
-                triggerEvent('blur', value === '' ? null : Number(value), event);
-            }
+    },
+    onConfirm: function (val, e) {
+        var value = this.getValue();
+        triggerEvent(this, 'confirm', value === '' ? null : Number(value), e);
+    },
+    onBlur: function (e) {
+        if (this.isControlled()) {
+            this.update(getValueFromProps(this, 'value'));
         }
-        else {
-            triggerEvent('blur', value === '' ? null : Number(value), event);
-        }
-    });
-    useEvent('onTap', function (e) {
-        var step = props.step, disabled = props.disabled, _a = props.min, min = _a === void 0 ? -Infinity : _a, _b = props.max, max = _b === void 0 ? Infinity : _b;
-        var newValue = Number(value);
+        var value = this.getValue();
+        triggerEvent(this, 'blur', value === '' ? null : Number(value), e);
+    },
+    onTap: function (e) {
+        var _a = getValueFromProps(this, [
+            'step',
+            'disabled',
+            'min',
+            'max',
+            'precision',
+        ]), step = _a[0], disabled = _a[1], _b = _a[2], min = _b === void 0 ? -Infinity : _b, _c = _a[3], max = _c === void 0 ? Infinity : _c, precisionFormProps = _a[4];
+        var value = Number(this.getValue());
         if (!disabled) {
             var mode = e.currentTarget.dataset.mode;
-            var result = newValue;
-            var precision = typeof props.precision === 'number' && props.precision >= 0
-                ? props.precision
-                : Math.max(getPrecision(newValue), getPrecision(step));
+            var result = value;
+            var precision = precisionFormProps >= 0
+                ? precisionFormProps
+                : Math.max(getPrecision(value), getPrecision(step));
             if (mode === 'minus') {
-                result = newValue - step;
+                // 【减】按钮的操作
+                result = value - step;
                 if (result < min) {
                     result = min;
                 }
             }
             else if (mode === 'add') {
-                result = newValue + step;
+                // 【加】按钮的操作
+                result = value + step;
                 if (result > max) {
                     result = max;
                 }
             }
-            if (!isControlled) {
-                var changed = update(result, precision).changed;
-                if (!changed) {
+            if (!this.isControlled()) {
+                var needUpdate = this.update(result, {}, precision).needUpdate;
+                if (!needUpdate) {
                     return;
                 }
             }
-            var validValue = getValidNumber(result, min, max, step, precision).value;
-            triggerEvent('change', Number(validValue), e);
+            {
+                var value_1 = getValidNumber(result, min, max, step, precision).value;
+                triggerEvent(this, 'change', Number(value_1), e);
+            }
         }
-    });
-    return { mixin: { value: value } };
-};
-mountComponent(Stepper, StepperFunctionalProps);
+    },
+}, undefined, [
+    mixinValue({
+        transformValue: function (num, extra, precision) {
+            var _a = getValueFromProps(this, [
+                'min',
+                'max',
+                'step',
+                'precision',
+            ]), min = _a[0], max = _a[1], step = _a[2], precisionFormProps = _a[3];
+            var _b = getValidNumber(num, min, max, step, precision >= 0 ? precision : precisionFormProps), valid = _b.valid, value = _b.value;
+            if (valid && this.getValue() !== value) {
+                return {
+                    needUpdate: true,
+                    value: value,
+                };
+            }
+            return {
+                needUpdate: false,
+            };
+        },
+    }),
+]);
