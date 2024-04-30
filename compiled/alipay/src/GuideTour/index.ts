@@ -1,8 +1,4 @@
-import {
-  Component,
-  triggerEventValues,
-  triggerEventOnly,
-} from '../_util/simply';
+import { Component, triggerEvent, triggerEventOnly } from '../_util/simply';
 import { GuideTourDefaultProps } from './props';
 import mixinValue from '../mixins/value';
 
@@ -15,7 +11,7 @@ Component(
       if (!this.isControlled()) {
         this.update(newCurrent);
       }
-      triggerEventValues(this, 'change', [newCurrent]);
+      triggerEvent(this, 'change', newCurrent);
     },
 
     async onPrev() {
@@ -24,7 +20,7 @@ Component(
       if (!this.isControlled()) {
         this.update(newCurrent);
       }
-      triggerEventValues(this, 'change', [newCurrent]);
+      triggerEvent(this, 'change', newCurrent);
     },
 
     onCancel() {
@@ -36,7 +32,7 @@ Component(
       if (!this.isControlled()) {
         this.update(current);
       }
-      triggerEventValues(this, 'change', [current]);
+      triggerEvent(this, 'change', current);
     },
   },
   undefined,
