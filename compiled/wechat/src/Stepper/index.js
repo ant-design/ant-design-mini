@@ -32,7 +32,7 @@ Component(StepperDefaultProps, {
             'max',
             'precision',
         ]), step = _a[0], disabled = _a[1], _b = _a[2], min = _b === void 0 ? -Infinity : _b, _c = _a[3], max = _c === void 0 ? Infinity : _c, precisionFormProps = _a[4];
-        var value = Number(this.getValue());
+        var value = Number(this.getValue() || 0);
         if (!disabled) {
             var mode = e.currentTarget.dataset.mode;
             var result = value;

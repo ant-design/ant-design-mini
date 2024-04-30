@@ -42,7 +42,7 @@ export default (function (_a) {
             },
             _c),
         attached: function () {
-            var value = this.properties[valueKey] !== undefined
+            var value = this.properties[valueKey] !== null
                 ? this.properties[valueKey]
                 : this.properties[defaultValueKey];
             var needUpdate = this.update(value, {
@@ -54,9 +54,11 @@ export default (function (_a) {
         },
         methods: {
             init: function () {
-                var value = getValueFromProps(this, valueKey) !== undefined
-                    ? getValueFromProps(this, valueKey)
-                    : getValueFromProps(this, defaultValueKey);
+                var value;
+                value =
+                    getValueFromProps(this, valueKey) !== null
+                        ? getValueFromProps(this, valueKey)
+                        : getValueFromProps(this, defaultValueKey);
                 var needUpdate = this.update(value, {
                     nextProps: getValueFromProps(this),
                 }).needUpdate;
@@ -77,7 +79,7 @@ export default (function (_a) {
                 if ('controlled' in getValueFromProps(this)) {
                     return getValueFromProps(this, 'controlled');
                 }
-                return valueKey in getValueFromProps(this);
+                return getValueFromProps(this, valueKey) !== null;
             },
             updateControlled: function () {
                 var _a;

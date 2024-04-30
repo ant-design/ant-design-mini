@@ -42,7 +42,7 @@ Component(
         'max',
         'precision',
       ]);
-      const value = Number(this.getValue());
+      const value = Number(this.getValue() || 0);
       if (!disabled) {
         const { mode } = e.currentTarget.dataset;
         let result = value;

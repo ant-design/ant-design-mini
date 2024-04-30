@@ -88,7 +88,7 @@ export default ({
 
     attached() {
       const value =
-        this.properties[valueKey] !== undefined
+        this.properties[valueKey] !== null
           ? this.properties[valueKey]
           : this.properties[defaultValueKey];
       const { needUpdate } = this.update(value, {
@@ -101,10 +101,19 @@ export default ({
     /// #endif
     methods: {
       init() {
-        const value =
+        let value;
+        /// #if ALIPAY
+        value =
           getValueFromProps(this, valueKey) !== undefined
             ? getValueFromProps(this, valueKey)
             : getValueFromProps(this, defaultValueKey);
+        /// #endif
+        /// #if WECHAT
+        value =
+          getValueFromProps(this, valueKey) !== null
+            ? getValueFromProps(this, valueKey)
+            : getValueFromProps(this, defaultValueKey);
+        /// #endif
         const { needUpdate } = this.update(value, {
           nextProps: getValueFromProps(this),
         });
@@ -125,7 +134,13 @@ export default ({
         if ('controlled' in getValueFromProps(this)) {
           return getValueFromProps(this, 'controlled');
         }
+
+        /// #if ALIPAY
         return valueKey in getValueFromProps(this);
+        /// #endif
+        /// #if WECHAT
+        return getValueFromProps(this, valueKey) !== null;
+        /// #endif
       },
       updateControlled() {
         this.setData({
