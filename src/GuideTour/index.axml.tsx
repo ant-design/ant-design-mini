@@ -27,9 +27,9 @@ export default (
     jumpText,
     nextStepText,
     prevStepText,
-    gotItText
+    gotItText,
   }: TSXMLProps<IGuideTour>,
-  { mixin, current }: InternalData
+  { mixin }: InternalData
 ) => (
   <Component>
     {visible && (
@@ -111,11 +111,11 @@ export default (
                         mode={item.imageMode}
                       />
                     ) : (
-                      <Slot name="step" index={current}></Slot>
+                      <Slot name="step" index={mixin.current}></Slot>
                     )}
                     {/* #endif */}
                     {/* #if ALIPAY */}
-                    <Slot name="step" index={current}>
+                    <Slot name="step" index={mixin.current}>
                       {item.imageUrl && (
                         <Image
                           class="ant-guide-tour-item-img"

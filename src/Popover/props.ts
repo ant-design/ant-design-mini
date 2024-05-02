@@ -77,8 +77,17 @@ export interface IPopoverProps extends IBaseProps {
 }
 
 export const PopoverDefaultProps: Partial<IPopoverProps> = {
+  visible: null,
   defaultVisible: false,
+  destroyOnClose: false,
+  contentClassName: '',
+  color: '',
+  contentStyle: '',
   showMask: true,
   placement: 'top',
   autoAdjustOverflow: true,
+  maskClassName: '',
+  maskStyle: '',
+  content: '',
+  onVisibleChange() {},
 };

@@ -79,7 +79,7 @@
             <slot
               wx:else
               name="step"
-              index="{{ current }}" />
+              index="{{ mixin.current }}" />
           </view>
         </swiper-item>
       </block>

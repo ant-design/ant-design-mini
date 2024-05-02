@@ -1,66 +1,88 @@
 import {
-  useEffect,
-  useEvent,
-  useRef,
-  useState,
-} from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
-import { IToastProps, ToastFunctionalProps } from './props';
+  Component,
+  triggerEventOnly,
+  getValueFromProps,
+} from '../_util/simply';
+import { ToastDefaultProps } from './props';
 
-const Toast = (props: IToastProps) => {
-  const [show, setShow] = useState(false);
-  const timerRef = useRef<number>(null);
+Component(
+  ToastDefaultProps,
+  {
+    closeMask() {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.setData({ show: false });
+      this.timer = null;
+      triggerEventOnly(this, 'close');
+    },
+    handleShowToast() {
+      this.setData({ show: true });
 
-  const { triggerEventOnly } = useComponentEvent(props);
+      const duration = getValueFromProps(this, 'duration');
+      if (duration > 0) {
+        const timer = setTimeout(() => {
+          this.closeMask();
+        }, duration);
+        this.timer = timer;
+      }
+    },
+    handleClickMask() {
+      const [showMask, maskCloseable] = getValueFromProps(this, [
+        'showMask',
+        'maskCloseable',
+      ]);
+      if (showMask && maskCloseable) {
+        this.closeMask();
+      }
+    },
+  },
+  {
+    show: false,
+  },
+  undefined,
+  {
+    timer: null,
 
-  const closeMask = useStableCallback(() => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
-    const isShow = show;
-    setShow(false);
-    timerRef.current = null;
-    if (isShow) {
-      triggerEventOnly('close');
-    }
-  });
+    /// #if ALIPAY
+    didUpdate(prev) {
+      const visible = getValueFromProps(this, 'visible');
+      if (!prev.visible && visible) {
+        this.handleShowToast();
+      } else if (!visible && this.data.show) {
+        this.closeMask();
+      }
+    },
+    didMount() {
+      const visible = getValueFromProps(this, 'visible');
+      if (visible) {
+        this.handleShowToast();
+      }
+    },
+    /// #endif
 
-  const handleShowToast = useStableCallback(() => {
-    setShow(true);
-    if (props.duration > 0) {
-      const timer = setTimeout(() => {
-        closeMask();
-      }, props.duration);
-      timerRef.current = timer as unknown as number;
-    }
-  });
-
-  useEffect(() => {
-    if (props.visible) {
-      handleShowToast();
-    } else {
-      closeMask();
-    }
-  }, [props.visible]);
-
-  useEvent('handleClickMask', () => {
-    if (props.showMask && props.maskCloseable) {
-      closeMask();
-    }
-  });
-
-  const displayContent =
-    typeof props.content === 'string'
-      ? props.content.substring(0, 24)
-      : props.content;
-
-  return {
-    displayContent,
-    show,
-  };
-};
-
-mountComponent(Toast, ToastFunctionalProps);
+    /// #if WECHAT
+    observers: {
+      'visible': function (visible) {
+        if (visible) {
+          this.handleShowToast();
+        } else if (!visible && this.data.show) {
+          this.closeMask();
+        }
+      },
+      'content': function (content) {
+        this.setData({
+          displayContent:
+            content === 'string' ? content.substring(0, 24) : content,
+        });
+      },
+    },
+    attached() {
+      const visible = getValueFromProps(this, 'visible');
+      if (visible) {
+        this.handleShowToast();
+      }
+    },
+    /// #endif
+  }
+);

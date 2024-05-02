@@ -28,8 +28,8 @@ Page({
     onChange(index) {
         console.log('index', index);
     },
-    onChangeControlled(index) {
-        this.setData({ current: index });
+    onChangeControlled(value) {
+        this.setData({ current: value });
     },
     openTour(e) {
         this.setData({

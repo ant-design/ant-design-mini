@@ -31,8 +31,13 @@ Page({
   onChange(index) {
     console.log('index', index);
   },
-  onChangeControlled(index) {
-    this.setData({ current: index });
+  onChangeControlled(value) {
+    /// #if ALIPAY
+    this.setData({ current: value });
+    /// #endif
+    /// #if WECHAT
+    this.setData({ current: value.detail });
+    /// #endif
   },
   openTour(e) {
     this.setData({

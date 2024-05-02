@@ -34,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { Component, triggerEventValues, triggerEventOnly, } from '../_util/simply';
+import { Component, triggerEvent, triggerEventOnly } from '../_util/simply';
 import { GuideTourDefaultProps } from './props';
 import mixinValue from '../mixins/value';
 Component(GuideTourDefaultProps, {
@@ -47,7 +47,7 @@ Component(GuideTourDefaultProps, {
                 if (!this.isControlled()) {
                     this.update(newCurrent);
                 }
-                triggerEventValues(this, 'change', [newCurrent]);
+                triggerEvent(this, 'change', newCurrent);
                 return [2 /*return*/];
             });
         });
@@ -61,7 +61,7 @@ Component(GuideTourDefaultProps, {
                 if (!this.isControlled()) {
                     this.update(newCurrent);
                 }
-                triggerEventValues(this, 'change', [newCurrent]);
+                triggerEvent(this, 'change', newCurrent);
                 return [2 /*return*/];
             });
         });
@@ -77,7 +77,7 @@ Component(GuideTourDefaultProps, {
                 if (!this.isControlled()) {
                     this.update(current);
                 }
-                triggerEventValues(this, 'change', [current]);
+                triggerEvent(this, 'change', current);
                 return [2 /*return*/];
             });
         });

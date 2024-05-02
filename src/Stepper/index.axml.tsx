@@ -21,7 +21,8 @@ export default (
   <View class={`ant-stepper ${className ? className : ''}`} style={style}>
     <AntButton
       className={`ant-stepper-button ant-stepper-button-down ${
-        disabled || (mixin.value !== '' && mixin.value <= min)
+        disabled ||
+        (mixin.value !== '' && mixin.value !== undefined && mixin.value <= min)
           ? 'ant-stepper-button-disabled'
           : ''
       }`}
@@ -29,7 +30,10 @@ export default (
       icon="MinusOutline"
       type="text"
       data-mode="minus"
-      disabled={disabled || (mixin.value !== '' && mixin.value <= min)}
+      disabled={
+        disabled ||
+        (mixin.value !== '' && mixin.value !== undefined && mixin.value <= min)
+      }
       onTap="onTap"
     />
     <View class="ant-stepper-input-wrap">
@@ -60,7 +64,8 @@ export default (
     </View>
     <AntButton
       className={`ant-stepper-button ant-stepper-button-up ${
-        disabled || (mixin.value !== '' && mixin.value >= max)
+        disabled ||
+        (mixin.value !== '' && mixin.value !== undefined && mixin.value >= max)
           ? 'ant-stepper-button-disabled'
           : ''
       }`}
@@ -68,7 +73,10 @@ export default (
       icon="AddOutline"
       type="text"
       data-mode="add"
-      disabled={disabled || (mixin.value !== '' && mixin.value >= max)}
+      disabled={
+        disabled ||
+        (mixin.value !== '' && mixin.value !== undefined && mixin.value >= max)
+      }
       onTap="onTap"
     />
   </View>

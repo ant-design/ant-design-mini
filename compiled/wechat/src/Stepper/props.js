@@ -1,9 +1,4 @@
 export var StepperDefaultProps = {
-    step: 1,
-    disabled: false,
-    type: 'digit',
-};
-export var StepperFunctionalProps = {
     value: null,
     defaultValue: null,
     precision: -1,

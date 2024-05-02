@@ -1,94 +1,122 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
-import { useComponent, useEvent, useEffect, useState, } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { hasValue, useMergedState } from '../_util/hooks/useMergedState';
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import { PopoverDefaultProps } from './props';
+import mixinValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
 import { getPopoverStyle } from './utils';
-var Popover = function (props) {
-    var _a = useMergedState(props.defaultVisible, {
-        value: props.visible,
-    }), value = _a[0], updateValue = _a[1];
-    var _b = useState({
-        popoverContentStyle: '',
-        adjustedPlacement: '',
-    }), popoverStyle = _b[0], setPopoverStyle = _b[1];
-    var isControl = hasValue(props.visible);
-    var instance = useComponent();
-    function getInstance() {
-        if (instance.$id) {
+Component(PopoverDefaultProps, {
+    getInstance: function () {
+        if (this.$id) {
             return my;
         }
-        return instance;
-    }
-    var triggerEvent = useComponentEvent(props).triggerEvent;
-    useEffect(function () {
-        if (!value) {
-            setPopoverStyle(function (old) { return (__assign(__assign({}, old), { adjustedPlacement: '' })); });
-            return;
-        }
-        var placement = props.placement, autoAdjustOverflow = props.autoAdjustOverflow;
-        Promise.all([
-            getInstanceBoundingClientRect(getInstance(), "#ant-popover-children".concat(instance.$id ? "-".concat(instance.$id) : '')),
-            getInstanceBoundingClientRect(getInstance(), instance.$id
-                ? "#ant-popover-children-".concat(instance.$id, " > *")
-                : "#ant-popover-children-container"),
-            getInstanceBoundingClientRect(getInstance(), instance.$id
-                ? "#ant-popover-content-".concat(instance.$id)
-                : '#ant-popover-content'),
-            getSystemInfo(),
-        ]).then(function (res) {
-            var containerRect = res[0], childrenRect = res[1], contentRect = res[2], systemInfo = res[3];
-            var _a = getPopoverStyle(placement, autoAdjustOverflow, {
-                containerRect: containerRect,
-                childrenRect: childrenRect,
-                contentRect: contentRect,
-                systemInfo: systemInfo,
-            }), popoverContentStyle = _a.popoverContentStyle, adjustedPlacement = _a.adjustedPlacement;
-            setPopoverStyle({
-                popoverContentStyle: popoverContentStyle,
-                adjustedPlacement: adjustedPlacement,
+        return this;
+    },
+    updatePopover: function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, placement, autoAdjustOverflow, _b, containerRect, childrenRect, contentRect, systemInfo, _c, popoverContentStyle, adjustedPlacement;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        _a = getValueFromProps(this, [
+                            'placement',
+                            'autoAdjustOverflow',
+                        ]), placement = _a[0], autoAdjustOverflow = _a[1];
+                        return [4 /*yield*/, Promise.all([
+                                getInstanceBoundingClientRect(this.getInstance(), "#ant-popover-children".concat(this.$id ? "-".concat(this.$id) : '')),
+                                getInstanceBoundingClientRect(this.getInstance(), this.$id
+                                    ? "#ant-popover-children-".concat(this.$id, " > *")
+                                    : "#ant-popover-children-container"),
+                                getInstanceBoundingClientRect(this.getInstance(), this.$id
+                                    ? "#ant-popover-content-".concat(this.$id)
+                                    : '#ant-popover-content'),
+                                getSystemInfo(),
+                            ])];
+                    case 1:
+                        _b = _d.sent(), containerRect = _b[0], childrenRect = _b[1], contentRect = _b[2], systemInfo = _b[3];
+                        _c = getPopoverStyle(placement, autoAdjustOverflow, {
+                            containerRect: containerRect,
+                            childrenRect: childrenRect,
+                            contentRect: contentRect,
+                            systemInfo: systemInfo,
+                        }), popoverContentStyle = _c.popoverContentStyle, adjustedPlacement = _c.adjustedPlacement;
+                        this.setData({
+                            popoverContentStyle: popoverContentStyle,
+                            adjustedPlacement: adjustedPlacement,
+                        });
+                        return [2 /*return*/];
+                }
             });
         });
-    }, [value, props.autoAdjustOverflow, props.placement]);
-    useEvent('onVisibleChange', function (e) {
-        var newValue = !value;
-        if (!isControl) {
-            updateValue(newValue);
-        }
-        triggerEvent('visibleChange', newValue, e);
-    });
-    return {
-        adjustedPlacement: popoverStyle.adjustedPlacement,
-        popoverContentStyle: popoverStyle.popoverContentStyle,
-        mixin: {
-            value: value,
+    },
+    onVisibleChange: function (e) {
+        var value = !this.getValue();
+        this.update(value);
+        triggerEvent(this, 'visibleChange', value, e);
+    },
+}, {
+    adjustedPlacement: '',
+    popoverContentStyle: '',
+}, [
+    mixinValue({
+        valueKey: 'visible',
+        defaultValueKey: 'defaultVisible',
+        transformValue: function (value) {
+            if (value) {
+                this.updatePopover();
+            }
+            else {
+                this.setData({
+                    adjustedPlacement: '',
+                });
+            }
+            return {
+                needUpdate: true,
+                value: value,
+            };
         },
-    };
-};
-mountComponent(Popover, {
-    visible: null,
-    defaultVisible: false,
-    destroyOnClose: false,
-    showMask: true,
-    placement: 'top',
-    autoAdjustOverflow: true,
-    maskClassName: '',
-    maskStyle: '',
-    content: '',
-    contentClassName: '',
-    contentStyle: '',
-    color: '',
+    }),
+], {
+    observers: {
+        'placement, autoAdjustOverflow, mixin': function () {
+            if (this.getValue()) {
+                this.updatePopover();
+            }
+        },
+    },
 });

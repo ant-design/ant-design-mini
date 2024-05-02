@@ -72,9 +72,11 @@ export default ({
 
     methods: {
       init() {
-        const value = getValueFromProps(this, valueKey)
-          ? getValueFromProps(this, valueKey)
-          : getValueFromProps(this, defaultValueKey);
+        let value;
+        value =
+          getValueFromProps(this, valueKey) !== undefined
+            ? getValueFromProps(this, valueKey)
+            : getValueFromProps(this, defaultValueKey);
         const { needUpdate } = this.update(value, {
           nextProps: getValueFromProps(this),
         });
@@ -95,6 +97,7 @@ export default ({
         if ('controlled' in getValueFromProps(this)) {
           return getValueFromProps(this, 'controlled');
         }
+
         return valueKey in getValueFromProps(this);
       },
       updateControlled() {

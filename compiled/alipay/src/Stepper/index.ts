@@ -1,103 +1,109 @@
-import { useEvent } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useMixState } from '../_util/hooks/useMixState';
-import { resolveEventValue } from '../_util/platform';
-import { IStepperProps, StepperFunctionalProps } from './props';
+import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import { StepperDefaultProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
+import mixinValue from '../mixins/value';
 
-const Stepper = (props: IStepperProps) => {
-  const [value, { isControlled, update }] = useMixState<
-    number | string,
-    number | string,
-    number
-  >(props.defaultValue, {
-    value: props.value,
-    postState(num: string | number, precision?: number) {
-      const { valid, value } = getValidNumber(
-        num,
-        props.min,
-        props.max,
-        props.step,
-        precision >= 0 ? precision : props.precision
-      );
-      if (valid) {
-        return { valid, value };
-      }
-      return { valid: false };
+Component(
+  StepperDefaultProps,
+  {
+    onFocus(e) {
+      const value = this.getValue();
+      triggerEvent(this, 'focus', value === '' ? null : Number(value), e);
     },
-  });
+    onChange(val, e) {
+      const { needUpdate, value } = this.update(val);
+      if (getValueFromProps(this, 'onChange') && needUpdate) {
+        triggerEvent(this, 'change', value === '' ? null : Number(value), e);
+      }
+    },
+    onConfirm(val, e) {
+      const value = this.getValue();
+      triggerEvent(this, 'confirm', value === '' ? null : Number(value), e);
+    },
+    onBlur(e) {
+      if (this.isControlled()) {
+        this.update(getValueFromProps(this, 'value'));
+      }
 
-  const { triggerEvent } = useComponentEvent(props);
-  const toNumber = (v: string | number) => (v === '' ? null : Number(v));
-  useEvent('onFocus', (e) => {
-    triggerEvent('focus', toNumber(value), e);
-  });
-  useEvent('onChange', (v, event) => {
-    const state = update(resolveEventValue(v));
-    if (state.changed) {
-      triggerEvent('change', toNumber(state.newValue), event);
-    }
-  });
-  useEvent('onConfirm', (_v, event) => {
-    triggerEvent('confirm', value === '' ? null : Number(value), event);
-  });
-  useEvent('onBlur', (_v, event) => {
-    if (isControlled) {
-      const state = update(props.value);
-      if (state.changed) {
-        triggerEvent(
-          'blur',
-          state.newValue === '' ? null : Number(state.newValue),
-          event
-        );
-      } else {
-        triggerEvent('blur', value === '' ? null : Number(value), event);
-      }
-    } else {
-      triggerEvent('blur', value === '' ? null : Number(value), event);
-    }
-  });
-  useEvent('onTap', (e) => {
-    const { step, disabled, min = -Infinity, max = Infinity } = props;
-    const newValue = Number(value);
-    if (!disabled) {
-      const { mode } = e.currentTarget.dataset;
-      let result = newValue;
-      const precision =
-        typeof props.precision === 'number' && props.precision >= 0
-          ? props.precision
-          : Math.max(getPrecision(newValue), getPrecision(step));
-      if (mode === 'minus') {
-        result = newValue - step;
-        if (result < min) {
-          result = min;
-        }
-      } else if (mode === 'add') {
-        result = newValue + step;
-
-        if (result > max) {
-          result = max;
-        }
-      }
-      if (!isControlled) {
-        const { changed } = update(result, precision);
-        if (!changed) {
-          return;
-        }
-      }
-      const { value: validValue } = getValidNumber(
-        result,
-        min,
-        max,
+      const value = this.getValue();
+      triggerEvent(this, 'blur', value === '' ? null : Number(value), e);
+    },
+    onTap(e) {
+      const [
         step,
-        precision
-      );
-      triggerEvent('change', Number(validValue), e);
-    }
-  });
-  return { mixin: { value } };
-};
+        disabled,
+        min = -Infinity,
+        max = Infinity,
+        precisionFormProps,
+      ] = getValueFromProps(this, [
+        'step',
+        'disabled',
+        'min',
+        'max',
+        'precision',
+      ]);
+      const value = Number(this.getValue() || 0);
+      if (!disabled) {
+        const { mode } = e.currentTarget.dataset;
+        let result = value;
+        const precision =
+          precisionFormProps >= 0
+            ? precisionFormProps
+            : Math.max(getPrecision(value), getPrecision(step));
+        if (mode === 'minus') {
+          // 【减】按钮的操作
+          result = value - step;
+          if (result < min) {
+            result = min;
+          }
+        } else if (mode === 'add') {
+          // 【加】按钮的操作
+          result = value + step;
+          if (result > max) {
+            result = max;
+          }
+        }
+        if (!this.isControlled()) {
+          const { needUpdate } = this.update(result, {}, precision);
+          if (!needUpdate) {
+            return;
+          }
+        }
 
-mountComponent(Stepper, StepperFunctionalProps);
+        {
+          const { value } = getValidNumber(result, min, max, step, precision);
+          triggerEvent(this, 'change', Number(value), e);
+        }
+      }
+    },
+  },
+  undefined,
+  [
+    mixinValue({
+      transformValue(num, extra, precision) {
+        const [min, max, step, precisionFormProps] = getValueFromProps(this, [
+          'min',
+          'max',
+          'step',
+          'precision',
+        ]);
+        const { valid, value } = getValidNumber(
+          num,
+          min,
+          max,
+          step,
+          precision >= 0 ? precision : precisionFormProps
+        );
+        if (valid && this.getValue() !== value) {
+          return {
+            needUpdate: true,
+            value,
+          };
+        }
+        return {
+          needUpdate: false,
+        };
+      },
+    }),
+  ]
+);

@@ -1,55 +1,44 @@
-import { useState, useEvent } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useComponentUpdateEffect } from '../_util/hooks/useLayoutEffect';
+import { Component, triggerEventOnly, getValueFromProps, } from '../_util/simply';
+import { PopupDefaultProps } from './props';
 import { isOldSDKVersion } from '../_util/platform';
 var isOldVersion = isOldSDKVersion();
-var Popup = function (props) {
-    var enableAnimation = props.animation && props.duration > 0;
-    var _a = useState(false), closing = _a[0], setClosing = _a[1];
-    var triggerEventOnly = useComponentEvent(props).triggerEventOnly;
-    useComponentUpdateEffect(function () {
-        if (!props.visible && enableAnimation) {
-            setClosing(true);
-        }
-        if (!enableAnimation) {
-            triggerEventOnly(props.visible ? 'afterShow' : 'afterClose');
-        }
-    }, [props.visible]);
-    useEvent('onAnimationEnd', function () {
-        if (closing) {
-            setClosing(false);
-        }
-        if (enableAnimation) {
-            triggerEventOnly(props.visible ? 'afterShow' : 'afterClose');
-        }
-    });
-    useEvent('onTapMask', function () {
+Component(PopupDefaultProps, {
+    onTapMask: function () {
+        var closing = this.data.closing;
         if (closing) {
             return;
         }
-        triggerEventOnly('close');
-    });
-    return {
-        closing: closing,
-        isOldVersion: isOldVersion,
-    };
-};
-mountComponent(Popup, {
-    visible: false,
-    destroyOnClose: false,
-    showMask: true,
-    position: 'bottom',
-    // 是否开启动画
-    animation: true,
-    animationType: 'transform',
-    // 动画持续时间
-    duration: 300,
-    height: null,
-    width: null,
-    maskClassName: '',
-    maskStyle: '',
-    // 弹窗层级
-    zIndex: 998,
+        triggerEventOnly(this, 'close');
+    },
+    onAnimationEnd: function () {
+        var closing = this.data.closing;
+        if (closing) {
+            this.setData({ closing: false });
+        }
+        var _a = getValueFromProps(this, [
+            'visible',
+            'duration',
+            'animation',
+        ]), visible = _a[0], duration = _a[1], animation = _a[2];
+        var enableAnimation = animation && duration > 0;
+        if (enableAnimation) {
+            triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
+        }
+    },
+}, {
+    closing: false,
+    isOldVersion: isOldVersion,
+}, undefined, {
+    observers: {
+        'visible': function (nextProps) {
+            var visible = nextProps.visible, duration = nextProps.duration, animation = nextProps.animation;
+            var enableAnimation = animation && duration > 0;
+            if (enableAnimation && !visible) {
+                this.setData({ closing: true });
+            }
+            if (!enableAnimation) {
+                triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
+            }
+        },
+    },
 });
