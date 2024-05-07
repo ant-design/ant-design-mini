@@ -17,7 +17,7 @@ Component(
     /// #if WECHAT
     handleTap(e) {
       // 只能从 false -> true
-      if (this.data.mixin.value) {
+      if (this.getValue()) {
         return;
       }
       if (!this.isControlled()) {
