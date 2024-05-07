@@ -21,7 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { FormItemFunctionalProps } from '../FormItem/props';
-import { RadioGroupFunctionalProps, } from '../../Radio/RadioGroup/props';
+import { RadioGroupDefaultProps, } from '../../Radio/RadioGroup/props';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-var value = RadioGroupFunctionalProps.value, defaultValue = RadioGroupFunctionalProps.defaultValue, position = RadioGroupFunctionalProps.position, name = RadioGroupFunctionalProps.name, rest = __rest(RadioGroupFunctionalProps, ["value", "defaultValue", "position", "name"]);
+var value = RadioGroupDefaultProps.value, defaultValue = RadioGroupDefaultProps.defaultValue, position = RadioGroupDefaultProps.position, name = RadioGroupDefaultProps.name, rest = __rest(RadioGroupDefaultProps, ["value", "defaultValue", "position", "name"]);
 export var FormRadioGroupDefaultProps = __assign(__assign(__assign({}, FormItemFunctionalProps), rest), { radioPosition: 'horizontal' });

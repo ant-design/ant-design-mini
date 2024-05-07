@@ -15,4 +15,10 @@ export interface IRadioProps extends IBaseProps {
   onChange?: (checked: boolean, e: any) => void;
 }
 
-export const RadioDefaultProps: Partial<IRadioProps> = {};
+export const RadioDefaultProps: Partial<IRadioProps> = {
+  value: null,
+  defaultChecked: null,
+  color: '',
+  checked: null,
+  disabled: false,
+};
