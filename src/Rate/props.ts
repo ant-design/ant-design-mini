@@ -53,12 +53,6 @@ export interface IRateProps extends IBaseProps {
 }
 
 export const RateDefaultProps: Partial<IRateProps> = {
-  count: 5,
-  gutter: 4,
-  allowClear: true,
-};
-
-export const RateFunctionalProps: Partial<IRateProps> = {
   value: null,
   defaultValue: null,
   gutter: 4,

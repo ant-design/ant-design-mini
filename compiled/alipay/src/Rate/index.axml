@@ -16,7 +16,7 @@
         data-rate="{{ index }}"
         style="margin-right: {{ index === count - 1 ? 0 : gutter + 'px' }}">
         <view
-          a:if="{{ allowHalf && mixin.value === index + 0.5 }}"
+          a:if="{{ allowHalf && (displayValue !== null ? displayValue : mixin.value) === index + 0.5 }}"
           class="ant-rate-star-icon-active {{ characterClassName || '' }} {{ characterActiveClassName || '' }} ant-rate-star-icon-half-active">
           <slot
             name="character"
@@ -26,7 +26,7 @@
           </slot>
         </view>
         <view
-          class="ant-rate-star-icon {{ mixin.value >= index + 1 ? 'ant-rate-star-icon-active' + ' ' + (characterClassName || '') + ' ' + (characterActiveClassName || '') : characterClassName }}">
+          class="ant-rate-star-icon {{ (displayValue !== null ? displayValue : mixin.value) >= index + 1 ? 'ant-rate-star-icon-active' + ' ' + (characterClassName || '') + ' ' + (characterActiveClassName || '') : characterClassName }}">
           <slot
             name="character"
             index="{{ index }}">
