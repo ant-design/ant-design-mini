@@ -4,7 +4,7 @@ import mixinValue from '../mixins/value';
 Component(RadioDefaultProps, {
     handleTap: function (e) {
         // 只能从 false -> true
-        if (this.data.mixin.value) {
+        if (this.getValue()) {
             return;
         }
         if (!this.isControlled()) {
