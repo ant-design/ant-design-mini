@@ -1,19 +1,31 @@
 {
-  "data": {
-    "mixin": {
-      "value": false,
-    },
-  },
-  "deriveDataFromProps": [Function],
-  "didUnmount": [Function],
-  "lifetimes": {},
+  "data": null,
   "methods": {
     "onChange": [Function],
   },
-  "onInit": [Function],
-  "options": {
-    "lifetimes": true,
-  },
+  "mixins": [
+    {
+      "data": {
+        "mixin": {
+          "controlled": false,
+          "updated": false,
+          "value": undefined,
+        },
+      },
+      "deriveDataFromProps": [Function],
+      "didMount": [Function],
+      "didUpdate": [Function],
+      "methods": {
+        "getValue": [Function],
+        "init": [Function],
+        "isControlled": [Function],
+        "isEqualValue": [Function],
+        "update": [Function],
+        "updateControlled": [Function],
+      },
+      "onInit": [Function],
+    },
+  ],
   "props": {
     "checkedText": "",
     "color": "",
@@ -23,5 +35,4 @@
     "size": "medium",
     "uncheckedText": "",
   },
-  "rootEvents": {},
 }
