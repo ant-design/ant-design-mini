@@ -1,5 +1,5 @@
 import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
-import { ISwitchProps, SwitchFunctionalProps } from '../../Switch/props';
+import { ISwitchProps, SwitchDefaultProps } from '../../Switch/props';
 
 export interface FormSwitchProps
   extends Omit<ISwitchProps, 'checked' | 'defaultChecked'>,
@@ -9,7 +9,7 @@ export interface FormSwitchProps
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { checked, defaultChecked, ...rest } = SwitchFunctionalProps;
+const { checked, defaultChecked, ...rest } = SwitchDefaultProps;
 export const FormSwitchDefaultProps: Partial<FormSwitchProps> = {
   ...FormItemFunctionalProps,
   ...rest,
