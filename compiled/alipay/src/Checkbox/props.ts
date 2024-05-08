@@ -12,4 +12,10 @@ export interface ICheckboxProps extends IBaseProps {
   onChange?: (checked: boolean, e: any) => void;
 }
 
-export const CheckboxDefaultProps: Partial<ICheckboxProps> = {};
+export const CheckboxDefaultProps: Partial<ICheckboxProps> = {
+  value: null,
+  checked: null,
+  defaultChecked: null,
+  disabled: false,
+  color: '',
+};
