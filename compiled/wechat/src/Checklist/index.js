@@ -7,56 +7,51 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useHandleCustomEvent } from '../_util/hooks/useHandleCustomEvent';
-import { useMixState } from '../_util/hooks/useMixState';
-import { ChecklistFunctionalProps, } from './props';
-var Checkbox = function (props) {
-    var _a = useMixState(props.defaultValue, {
-        value: props.value,
-        postState: function (val) {
-            var value = val || [];
-            return {
-                valid: true,
-                value: value,
-            };
-        },
-    }), state = _a[0], _b = _a[1], isControlled = _b.isControlled, update = _b.update;
-    var triggerEventValues = useComponentEvent(props).triggerEventValues;
-    useHandleCustomEvent('onChange', function (item) {
-        var multiple = props.multiple, options = props.options;
-        var value = item.value;
+import { Component, triggerEventValues, getValueFromProps, } from '../_util/simply';
+import { ChecklistDefaultProps } from './props';
+import mixinValue from '../mixins/value';
+Component(ChecklistDefaultProps, {
+    onChange: function (item) {
+        var _a = getValueFromProps(this, [
+            'multiple',
+            'options',
+        ]), multiple = _a[0], options = _a[1];
+        var value;
+        value = item.detail.value;
         if (multiple) {
-            var currentValue_1 = state;
+            var currentValue_1 = this.getValue();
             if (currentValue_1.indexOf(value) > -1) {
                 currentValue_1 = currentValue_1.filter(function (v) { return v !== value; });
             }
             else {
                 currentValue_1 = __spreadArray(__spreadArray([], currentValue_1, true), [value], false);
             }
-            if (!isControlled) {
-                update(currentValue_1);
+            if (!this.isControlled()) {
+                this.update(currentValue_1);
             }
-            triggerEventValues('change', [
+            triggerEventValues(this, 'change', [
                 currentValue_1,
                 options.filter(function (v) { return currentValue_1.indexOf(v.value) > -1; }),
             ]);
         }
         else {
-            if (!isControlled) {
-                update(value);
+            if (!this.isControlled()) {
+                this.update(value);
             }
-            triggerEventValues('change', [
+            triggerEventValues(this, 'change', [
                 value,
                 options.find(function (v) { return v.value === value; }),
             ]);
         }
-    });
-    return {
-        mixin: {
-            value: state,
+    },
+}, null, [
+    mixinValue({
+        transformValue: function (val) {
+            var value = val || [];
+            return {
+                needUpdate: true,
+                value: value,
+            };
         },
-    };
-};
-mountComponent(Checkbox, ChecklistFunctionalProps);
+    }),
+]);

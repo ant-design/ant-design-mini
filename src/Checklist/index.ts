@@ -1,61 +1,61 @@
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useHandleCustomEvent } from '../_util/hooks/useHandleCustomEvent';
-import { useMixState } from '../_util/hooks/useMixState';
 import {
-  ChecklistFunctionalProps,
-  ChecklistItem,
-  IChecklistProps,
-} from './props';
+  Component,
+  triggerEventValues,
+  getValueFromProps,
+} from '../_util/simply';
+import { ChecklistDefaultProps } from './props';
+import mixinValue from '../mixins/value';
 
-const Checkbox = (props: IChecklistProps) => {
-  const [state, { isControlled, update }] = useMixState<
-    Array<string | number> | string | number
-  >(props.defaultValue, {
-    value: props.value,
-    postState(val) {
-      const value = val || [];
-      return {
-        valid: true,
-        value,
-      };
-    },
-  });
-
-  const { triggerEventValues } = useComponentEvent(props);
-  useHandleCustomEvent<ChecklistItem>('onChange', (item) => {
-    const { multiple, options } = props;
-    const value = item.value;
-    if (multiple) {
-      let currentValue = state as Array<string | number>;
-      if (currentValue.indexOf(value) > -1) {
-        currentValue = currentValue.filter((v) => v !== value);
+Component(
+  ChecklistDefaultProps,
+  {
+    onChange(item) {
+      const [multiple, options] = getValueFromProps(this, [
+        'multiple',
+        'options',
+      ]);
+      let value;
+      /// #if ALIPAY
+      value = item.value;
+      /// #endif
+      /// #if WECHAT
+      value = item.detail.value;
+      /// #endif
+      if (multiple) {
+        let currentValue = this.getValue();
+        if (currentValue.indexOf(value) > -1) {
+          currentValue = currentValue.filter((v) => v !== value);
+        } else {
+          currentValue = [...currentValue, value];
+        }
+        if (!this.isControlled()) {
+          this.update(currentValue);
+        }
+        triggerEventValues(this, 'change', [
+          currentValue,
+          options.filter((v) => currentValue.indexOf(v.value) > -1),
+        ]);
       } else {
-        currentValue = [...currentValue, value];
+        if (!this.isControlled()) {
+          this.update(value);
+        }
+        triggerEventValues(this, 'change', [
+          value,
+          options.find((v) => v.value === value),
+        ]);
       }
-      if (!isControlled) {
-        update(currentValue);
-      }
-      triggerEventValues('change', [
-        currentValue,
-        options.filter((v) => currentValue.indexOf(v.value) > -1),
-      ]);
-    } else {
-      if (!isControlled) {
-        update(value);
-      }
-      triggerEventValues('change', [
-        value,
-        options.find((v) => v.value === value),
-      ]);
-    }
-  });
-
-  return {
-    mixin: {
-      value: state,
     },
-  };
-};
-
-mountComponent(Checkbox, ChecklistFunctionalProps);
+  },
+  null,
+  [
+    mixinValue({
+      transformValue(val) {
+        const value = val || [];
+        return {
+          needUpdate: true,
+          value,
+        };
+      },
+    }),
+  ]
+);
