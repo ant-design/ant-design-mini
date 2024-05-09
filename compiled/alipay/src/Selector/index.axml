@@ -31,6 +31,7 @@
           <view
             a:if="{{ util.getChecked(item.value, mixin.value, multiple) }}"
             class="ant-selector-item-badge-active" />
+          <slot item="{{ item }}" />
         </view>
       </view>
     </block>
