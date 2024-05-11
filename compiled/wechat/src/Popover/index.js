@@ -86,7 +86,9 @@ Component(PopoverDefaultProps, {
     },
     onVisibleChange: function (e) {
         var value = !this.getValue();
-        this.update(value);
+        if (!this.isControlled()) {
+            this.update(value);
+        }
         triggerEvent(this, 'visibleChange', value, e);
     },
 }, {
