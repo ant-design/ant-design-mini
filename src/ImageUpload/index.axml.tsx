@@ -5,11 +5,11 @@ import { IUploaderProps } from './props';
 
 export default (
   { className,
-    style, 
-    imageMode, 
-    maxCount,    
+    style,
+    imageMode,
+    maxCount,
     uploadingText,
-    uploadfailedText 
+    uploadfailedText
   }: TSXMLProps<IUploaderProps>,
   { mixin }: InternalData
 ) => (
