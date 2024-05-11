@@ -121,7 +121,7 @@ describe('popover', () => {
       expect(instance.getData().adjustedPlacement).toBe('');
       instance.callMethod('onVisibleChange', { target: {} });
       await sleep(20);
-      expect(instance.getData().mixin.value).toEqual(true);
+      expect(instance.getData().mixin.value).toEqual(false);
       expect(mock.mock.calls.length).toBe(1);
       expect(mock.mock.calls[0][0]).toBe(true);
       instance.setProps({ visible: true });

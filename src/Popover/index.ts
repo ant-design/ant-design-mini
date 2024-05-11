@@ -68,7 +68,9 @@ Component(
       }
       /// #endif
       const value = !this.getValue();
-      this.update(value);
+      if (!this.isControlled()) {
+        this.update(value);
+      }
       triggerEvent(this, 'visibleChange', value, e);
     },
   },

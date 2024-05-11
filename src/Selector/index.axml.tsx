@@ -1,4 +1,4 @@
-import { View, InternalData, TSXMLProps } from 'tsxml';
+import { View, InternalData, TSXMLProps, Slot } from 'tsxml';
 import { ISelectorProps } from './props';
 import util from './index.sjs';
 
@@ -53,6 +53,7 @@ export default (
             {util.getChecked(item.value, mixin.value, multiple) && (
               <View class="ant-selector-item-badge-active"></View>
             )}
+            <Slot item={item} />
           </View>
         </View>
       ))}
