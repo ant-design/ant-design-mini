@@ -45,7 +45,7 @@
   </block>
   <view bind:tap="chooseImage">
     <view
-      wx:if="{{ !maxCount || mixin.value.length < maxCount }}"
+      wx:if="{{ showUploadButton }}"
       class="ant-image-upload-add-image-wrapper">
       <icon
         type="AddOutline"

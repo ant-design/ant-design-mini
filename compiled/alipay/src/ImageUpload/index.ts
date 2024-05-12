@@ -156,6 +156,12 @@ Component(
       const file = fileList.find((item) => item.uid === uid);
       triggerEvent(this, 'preview', file);
     },
+    updateShowUploadButton() {
+      const maxCount = getValueFromProps(this, 'maxCount');
+      this.setData({
+        showUploadButton: !maxCount || this.getValue().length < maxCount,
+      });
+    },
   },
   null,
   [
@@ -184,4 +190,14 @@ Component(
       },
     }),
   ],
+  {
+    didMount() {
+      this.updateShowUploadButton();
+    },
+    didUpdate(prevProps, prevData) {
+      if (!this.isEqualValue(prevData)) {
+        this.updateShowUploadButton();
+      }
+    },
+  }
 );

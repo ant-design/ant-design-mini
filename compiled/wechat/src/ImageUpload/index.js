@@ -237,6 +237,12 @@ Component(UploaderDefaultProps, {
         var file = fileList.find(function (item) { return item.uid === uid; });
         triggerEvent(this, 'preview', file);
     },
+    updateShowUploadButton: function () {
+        var maxCount = getValueFromProps(this, 'maxCount');
+        this.setData({
+            showUploadButton: !maxCount || this.getValue().length < maxCount,
+        });
+    },
 }, null, [
     createValue({
         defaultValueKey: 'defaultFileList',
@@ -264,5 +270,16 @@ Component(UploaderDefaultProps, {
 ], {
     attached: function () {
         this.triggerEvent('ref', this);
+        this.updateShowUploadButton();
+        this._prevData = this.data;
+    },
+    observers: {
+        '**': function (data) {
+            var prevData = this._prevData || this.data;
+            this._prevData = __assign({}, data);
+            if (!this.isEqualValue(prevData)) {
+                this.updateShowUploadButton();
+            }
+        },
     },
 });

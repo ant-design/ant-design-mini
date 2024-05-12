@@ -156,6 +156,12 @@ Component(
       const file = fileList.find((item) => item.uid === uid);
       triggerEvent(this, 'preview', file);
     },
+    updateShowUploadButton() {
+      const maxCount = getValueFromProps(this, 'maxCount');
+      this.setData({
+        showUploadButton: !maxCount || this.getValue().length < maxCount,
+      });
+    },
   },
   null,
   [
@@ -184,11 +190,32 @@ Component(
       },
     }),
   ],
-  /// #if WECHAT
   {
+    /// #if ALIPAY
+    didMount() {
+      this.updateShowUploadButton();
+    },
+    didUpdate(prevProps, prevData) {
+      if (!this.isEqualValue(prevData)) {
+        this.updateShowUploadButton();
+      }
+    },
+    /// #endif
+    /// #if WECHAT
     attached() {
       this.triggerEvent('ref', this);
+      this.updateShowUploadButton();
+      this._prevData = this.data;
     },
+    observers: {
+      '**': function (data) {
+        const prevData = this._prevData || this.data;
+        this._prevData = { ...data };
+        if (!this.isEqualValue(prevData)) {
+          this.updateShowUploadButton();
+        }
+      },
+    },
+    /// #endif
   }
-  /// #endif
 );
