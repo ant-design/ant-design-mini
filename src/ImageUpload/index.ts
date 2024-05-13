@@ -76,7 +76,7 @@ Component(
     async uploadFile(localFile: LocalFile) {
       const onUpload = getValueFromProps(this, 'onUpload');
 
-      const uid = String(Math.random());
+      const uid = this.getCount();
       const tempFileList = [
         ...this.getValue(),
         {
@@ -162,6 +162,15 @@ Component(
         showUploadButton: !maxCount || this.getValue().length < maxCount,
       });
     },
+    count: 0,
+
+    getCount() {
+      // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
+      this.count = (this.count || 0) + 1;
+      // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
+      const prefix = Math.random() + '-' + Date.now();
+      return `${prefix}-${this.count}`;
+    },
   },
   null,
   [
@@ -179,7 +188,7 @@ Component(
               file.url = '';
             }
             if (typeof item.uid === 'undefined') {
-              file.uid = String(Math.random());
+              file.uid = this.getCount();
             }
             if (typeof item.status === 'undefined') {
               file.status = 'done';

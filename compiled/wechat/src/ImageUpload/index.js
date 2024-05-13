@@ -148,7 +148,7 @@ Component(UploaderDefaultProps, {
                 switch (_a.label) {
                     case 0:
                         onUpload = getValueFromProps(this, 'onUpload');
-                        uid = String(Math.random());
+                        uid = this.getCount();
                         tempFileList = __spreadArray(__spreadArray([], this.getValue(), true), [
                             {
                                 path: localFile.path,
@@ -243,11 +243,20 @@ Component(UploaderDefaultProps, {
             showUploadButton: !maxCount || this.getValue().length < maxCount,
         });
     },
+    count: 0,
+    getCount: function () {
+        // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
+        this.count = (this.count || 0) + 1;
+        // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
+        var prefix = Math.random() + '-' + Date.now();
+        return "".concat(prefix, "-").concat(this.count);
+    },
 }, null, [
     createValue({
         defaultValueKey: 'defaultFileList',
         valueKey: 'fileList',
         transformValue: function (fileList) {
+            var _this = this;
             if (fileList === void 0) { fileList = []; }
             return {
                 needUpdate: true,
@@ -257,7 +266,7 @@ Component(UploaderDefaultProps, {
                         file.url = '';
                     }
                     if (typeof item.uid === 'undefined') {
-                        file.uid = String(Math.random());
+                        file.uid = _this.getCount();
                     }
                     if (typeof item.status === 'undefined') {
                         file.status = 'done';
