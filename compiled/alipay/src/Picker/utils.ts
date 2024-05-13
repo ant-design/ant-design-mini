@@ -136,7 +136,7 @@ export function getterFormatText(columns, realValue, onFormat, singleRef) {
 
 export function getterSelectedIndex(columns, realValue, sinefileRef) {
   const selectedIndex = [];
-  let value = realValue;
+  let value = realValue || [];
   if (sinefileRef.current) {
     value = [realValue];
   }
