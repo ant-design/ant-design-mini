@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -43,55 +54,58 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { useRef, useState } from 'functional-mini/compat';
-import { useEffect, useEvent } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
-import { useComponentUpdateEffect } from '../_util/hooks/useLayoutEffect';
-import { useMixState } from '../_util/hooks/useMixState';
-import { CollapseFunctionalProps } from './props';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
-var Collapse = function (props) {
-    var _a = useState([]), contentHeight = _a[0], setContentHeight = _a[1];
-    var _b = useState(false), hasChange = _b[0], setHasChange = _b[1];
-    var taskQueueRef = useRef();
-    var previousValueRef = useRef([]);
-    var _c = useMixState(props.defaultCurrent, {
-        value: props.current,
-        postState: function (val) {
-            var current = __spreadArray([], (val || []), true);
-            var items = props.items;
-            current = current.filter(function (item) {
-                if (!items[item] || items[item].disabled) {
-                    return false;
+import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import { CollapseDefaultProps } from './props';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import createValue from '../mixins/value';
+Component(CollapseDefaultProps, {
+    getInstance: function () {
+        if (this.$id) {
+            return my;
+        }
+        return this;
+    },
+    getBoundingClientRectWithBuilder: function (builder) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, getInstanceBoundingClientRect(this.getInstance(), builder(this.$id ? "-".concat(this.$id) : ''))];
+                    case 1: return [2 /*return*/, _a.sent()];
                 }
-                return true;
             });
-            if (props.accordion) {
-                current = current.length > 0 ? [current[0]] : [];
+        });
+    },
+    formatCurrent: function (val, props) {
+        var current = __spreadArray([], (val || []), true);
+        var items = props.items;
+        current = current.filter(function (item) {
+            if (!items[item] || items[item].disabled) {
+                return false;
             }
-            return {
-                valid: true,
-                value: __spreadArray([], current, true),
-            };
-        },
-    }), value = _c[0], _d = _c[1], isControlled = _d.isControlled, update = _d.update;
-    var triggerEvent = useComponentEvent(props).triggerEvent;
-    useEvent('onChange', function (e) {
+            return true;
+        });
+        if (props.accordion) {
+            current = current.length > 0 ? [current[0]] : [];
+        }
+        return __spreadArray([], current, true);
+    },
+    onChange: function (e) {
         var itemIndex = parseInt(e.currentTarget.dataset.index, 10);
-        if (props.items[itemIndex] && props.items[itemIndex].disabled) {
+        var _a = getValueFromProps(this, [
+            'items',
+            'accordion',
+        ]), items = _a[0], accordion = _a[1];
+        if (items[itemIndex] && items[itemIndex].disabled) {
             return;
         }
-        var arr = value;
+        var arr = this.getValue();
         var current = __spreadArray([], arr, true);
         var index = current.indexOf(itemIndex);
         if (index >= 0) {
             current.splice(index, 1);
         }
         else {
-            if (props.accordion) {
+            if (accordion) {
                 current = [itemIndex];
             }
             else {
@@ -99,113 +113,124 @@ var Collapse = function (props) {
                 current.sort();
             }
         }
-        if (!isControlled) {
-            update(current);
+        if (!this.isControlled()) {
+            this.update(current);
         }
-        triggerEvent('change', current);
-    });
-    var getBoundingClientRectWithBuilder = useInstanceBoundingClientRect().getBoundingClientRectWithBuilder;
-    var updateContentHeight = useStableCallback(function (prevCurrent, nextCurrent) { return __awaiter(void 0, void 0, void 0, function () {
-        var prevCurrentArray, nextCurrentArray, expandArray, closeArray, newContentHeight;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    prevCurrentArray = prevCurrent;
-                    nextCurrentArray = nextCurrent;
-                    expandArray = [];
-                    closeArray = [];
-                    nextCurrentArray.forEach(function (item) {
-                        if (prevCurrentArray.indexOf(item) < 0) {
-                            expandArray.push(item);
-                        }
-                    });
-                    prevCurrentArray.forEach(function (item) {
-                        if (nextCurrentArray.indexOf(item) < 0) {
-                            closeArray.push(item);
-                        }
-                    });
-                    return [4 /*yield*/, Promise.all(props.items.map(function (item, index) { return __awaiter(void 0, void 0, void 0, function () {
-                            var height;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0:
-                                        if (!(expandArray.indexOf(index) >= 0 ||
-                                            closeArray.indexOf(index) >= 0)) return [3 /*break*/, 2];
-                                        return [4 /*yield*/, getBoundingClientRectWithBuilder(function (id) { return ".ant-collapse-item-content".concat(id, "-").concat(index); })];
-                                    case 1:
-                                        height = (_a.sent()).height;
-                                        return [2 /*return*/, "".concat(height, "px")];
-                                    case 2: return [2 /*return*/, contentHeight[index]];
-                                }
+        triggerEvent(this, 'change', current, e);
+    },
+    updateContentHeight: function (prevCurrent, nextCurrent) {
+        return __awaiter(this, void 0, void 0, function () {
+            var prevCurrentArray, nextCurrentArray, expandArray, closeArray, items, contentHeight;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        prevCurrentArray = prevCurrent;
+                        nextCurrentArray = nextCurrent;
+                        expandArray = [];
+                        closeArray = [];
+                        nextCurrentArray.forEach(function (item) {
+                            if (prevCurrentArray.indexOf(item) < 0) {
+                                expandArray.push(item);
+                            }
+                        });
+                        prevCurrentArray.forEach(function (item) {
+                            if (nextCurrentArray.indexOf(item) < 0) {
+                                closeArray.push(item);
+                            }
+                        });
+                        items = getValueFromProps(this, 'items');
+                        return [4 /*yield*/, Promise.all(items.map(function (item, index) { return __awaiter(_this, void 0, void 0, function () {
+                                var height;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0:
+                                            if (!(expandArray.indexOf(index) >= 0 ||
+                                                closeArray.indexOf(index) >= 0)) return [3 /*break*/, 2];
+                                            return [4 /*yield*/, this.getBoundingClientRectWithBuilder(function (id) { return ".ant-collapse-item-content".concat(id, "-").concat(index); })];
+                                        case 1:
+                                            height = (_a.sent()).height;
+                                            return [2 /*return*/, "".concat(height, "px")];
+                                        case 2: return [2 /*return*/, this.data.contentHeight[index]];
+                                    }
+                                });
+                            }); }))];
+                    case 1:
+                        contentHeight = _a.sent();
+                        if (closeArray.length === 0) {
+                            this.setData({
+                                contentHeight: contentHeight,
                             });
-                        }); }))];
-                case 1:
-                    newContentHeight = _a.sent();
-                    if (closeArray.length === 0) {
-                        setContentHeight(newContentHeight);
-                    }
-                    else {
-                        setContentHeight(newContentHeight);
-                        taskQueueRef.current = function () {
+                        }
+                        else {
+                            this.setData({
+                                contentHeight: contentHeight,
+                            });
                             setTimeout(function () {
-                                setContentHeight(function (contentHeight) {
-                                    return contentHeight.map(function (item, index) {
-                                        if (closeArray.indexOf(index) >= 0) {
-                                            return '0px';
-                                        }
-                                        return item;
-                                    });
+                                contentHeight = contentHeight.map(function (item, index) {
+                                    if (closeArray.indexOf(index) >= 0) {
+                                        return '0px';
+                                    }
+                                    return item;
+                                });
+                                _this.setData({
+                                    contentHeight: contentHeight,
                                 });
                             }, 10);
-                        };
-                    }
-                    return [2 /*return*/];
-            }
+                        }
+                        return [2 /*return*/];
+                }
+            });
         });
-    }); });
-    useEffect(function () {
-        if (taskQueueRef.current) {
-            var task = taskQueueRef.current;
-            taskQueueRef.current = null;
-            if (typeof task === 'function') {
-                task();
-            }
+    },
+    resetContentHeight: function (e) {
+        var index = parseInt(e.currentTarget.dataset.index, 10);
+        if (this.getValue().indexOf(index) < 0) {
+            return;
         }
-    });
-    useEffect(function () {
-        var current = value;
-        var contentHeight = props.items.map(function (item, index) {
+        var contentHeight = __spreadArray([], this.data.contentHeight, true);
+        contentHeight[index] = '';
+        this.setData({
+            contentHeight: contentHeight,
+        });
+    },
+}, {
+    contentHeight: [],
+    hasChange: false,
+}, [
+    createValue({
+        valueKey: 'current',
+        defaultValueKey: 'defaultCurrent',
+        transformValue: function (current, extra) {
+            var value = this.formatCurrent(current, extra ? extra.nextProps : getValueFromProps(this));
+            return {
+                needUpdate: true,
+                value: value,
+            };
+        },
+    }),
+], {
+    observers: {
+        '**': function (data) {
+            var prevData = this._prevData || this.data;
+            this._prevData = __assign({}, data);
+            if (prevData.items !== data.items || !this.isEqualValue(prevData)) {
+                this.updateContentHeight(this.getValue(prevData), this.getValue());
+            }
+        },
+    },
+    attached: function () {
+        var current = this.getValue();
+        var contentHeight = this.properties.items.map(function (item, index) {
             if (current.indexOf(index) >= 0) {
                 return '';
             }
             return '0px';
         });
-        setContentHeight(contentHeight);
-        setHasChange(true);
-        previousValueRef.current = value;
-    }, []);
-    useComponentUpdateEffect(function () {
-        var previous = previousValueRef.current;
-        previousValueRef.current = value;
-        updateContentHeight(previous, value);
-    }, [props.items, JSON.stringify(value)]);
-    useEvent('resetContentHeight', function (e) {
-        var index = parseInt(e.currentTarget.dataset.index, 10);
-        if (value.indexOf(index) < 0) {
-            return;
-        }
-        setContentHeight(function (oldContentHeight) {
-            var newContentHeight = __spreadArray([], oldContentHeight, true);
-            newContentHeight[index] = '';
-            return newContentHeight;
+        this.setData({
+            hasChange: true,
+            contentHeight: contentHeight,
         });
-    });
-    return {
-        contentHeight: contentHeight,
-        hasChange: hasChange,
-        mixin: {
-            value: value,
-        },
-    };
-};
-mountComponent(Collapse, CollapseFunctionalProps);
+        this._prevData = this.data;
+    },
+});

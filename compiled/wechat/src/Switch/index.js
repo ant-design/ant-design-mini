@@ -1,22 +1,17 @@
-import { mountComponent } from '../_util/component';
-import { useMergedState, hasValue } from '../_util/hooks/useMergedState';
-import { SwitchFunctionalProps } from './props';
-import { useEvent } from 'functional-mini/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-var Switch = function (props) {
-    var _a = useMergedState(props.defaultChecked, {
-        value: props.checked,
-    }), value = _a[0], updateValue = _a[1];
-    var triggerEvent = useComponentEvent(props).triggerEvent;
-    useEvent('onChange', function (e) {
-        var newValue = !value;
-        if (!hasValue(props.checked)) {
-            updateValue(newValue);
+import { Component, triggerEvent } from '../_util/simply';
+import { SwitchDefaultProps } from './props';
+import mixinValue from '../mixins/value';
+Component(SwitchDefaultProps, {
+    onChange: function (e) {
+        var value = !this.getValue();
+        if (!this.isControlled()) {
+            this.update(value);
         }
-        triggerEvent('change', newValue, e);
-    });
-    return {
-        mixin: { value: value },
-    };
-};
-mountComponent(Switch, SwitchFunctionalProps);
+        triggerEvent(this, 'change', value, e);
+    },
+}, null, [
+    mixinValue({
+        valueKey: 'checked',
+        defaultValueKey: 'defaultChecked',
+    }),
+]);

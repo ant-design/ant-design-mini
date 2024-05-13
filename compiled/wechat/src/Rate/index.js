@@ -45,149 +45,149 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useComponent, useEvent, useRef, useState, } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useMixState } from '../_util/hooks/useMixState';
+import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import { RateDefaultProps } from './props';
+import createValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
-import { RateFunctionalProps } from './props';
-var Rate = function (props) {
-    var _a = useMixState(props.defaultValue, {
-        value: props.value,
-        postState: function (value) {
-            if (props.allowHalf) {
-                return {
-                    valid: true,
-                    value: value % 0.5 !== 0 ? Math.round(value) : value,
-                };
-            }
-            return {
-                valid: true,
-                value: Math.ceil(value),
-            };
-        },
-    }), rateValue = _a[0], _b = _a[1], isControlled = _b.isControlled, update = _b.update;
-    var triggerEvent = useComponentEvent(props).triggerEvent;
-    var _c = useState(null), displayValue = _c[0], setDisplayValue = _c[1];
-    var ref = useRef(null);
-    var instance = useComponent();
-    function getInstance() {
-        if (instance.$id) {
+Component(RateDefaultProps, {
+    getInstance: function () {
+        if (this.$id) {
             return my;
         }
-        return instance;
-    }
-    function getRate(clientX) {
+        return this;
+    },
+    getRate: function (clientX) {
         return __awaiter(this, void 0, void 0, function () {
-            var gutter, count, _a, left, width, halfRateWidth, num, halfRateCount, val, rate;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var _a, gutter, count, allowHalf, _b, left, width, halfRateWidth, num, halfRateCount, val, rate;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
                     case 0:
-                        gutter = props.gutter, count = props.count;
-                        return [4 /*yield*/, getInstanceBoundingClientRect(getInstance(), "#ant-rate-container".concat(instance.$id ? "-".concat(instance.$id) : ''))];
+                        _a = getValueFromProps(this, [
+                            'gutter',
+                            'count',
+                            'allowHalf',
+                        ]), gutter = _a[0], count = _a[1], allowHalf = _a[2];
+                        return [4 /*yield*/, getInstanceBoundingClientRect(this.getInstance(), "#ant-rate-container".concat(this.$id ? "-".concat(this.$id) : ''))];
                     case 1:
-                        _a = _b.sent(), left = _a.left, width = _a.width;
+                        _b = _c.sent(), left = _b.left, width = _b.width;
                         halfRateWidth = (width - (count - 1) * gutter) / count / 2;
                         num = clientX - left;
                         halfRateCount = 0;
                         /* eslint-disable no-constant-condition */
                         while (true) {
-                            val = halfRateWidth * halfRateCount + gutter * Math.floor(halfRateCount / 2);
+                            val = halfRateWidth * halfRateCount +
+                                gutter * Math.floor(halfRateCount / 2);
                             if (halfRateCount >= count * 2 || num <= val) {
                                 break;
                             }
                             halfRateCount++;
                         }
-                        rate = props.allowHalf
+                        rate = allowHalf
                             ? halfRateCount * 0.5
                             : Math.ceil(halfRateCount * 0.5);
                         return [2 /*return*/, rate];
                 }
             });
         });
-    }
-    useEvent('handleStarTap', function (e) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, clientX, x, clickX, rate;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    if (props.readonly) {
-                        return [2 /*return*/];
-                    }
-                    _a = e.detail, clientX = _a.clientX, x = _a.x;
-                    clickX = typeof x === 'number' ? x : clientX;
-                    return [4 /*yield*/, getRate(clickX)];
-                case 1:
-                    rate = _b.sent();
-                    if (rateValue === rate && props.allowClear) {
-                        rate = 0;
-                    }
-                    if (!isControlled) {
-                        update(rate);
-                    }
-                    if (rateValue !== rate) {
-                        triggerEvent('change', rate);
-                    }
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    useEvent('handleStarMove', function (e) { return __awaiter(void 0, void 0, void 0, function () {
-        var touches, clientX, rate;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    if (props.readonly) {
-                        return [2 /*return*/];
-                    }
-                    touches = e.touches;
-                    clientX = touches[0].clientX;
-                    if (!ref.current) {
-                        ref.current = {
-                            originalRate: rateValue,
-                        };
-                    }
-                    return [4 /*yield*/, getRate(clientX)];
-                case 1:
-                    rate = _a.sent();
-                    if (ref.current) {
-                        ref.current = __assign(__assign({}, ref.current), { currentRate: rate });
-                        if (isControlled) {
-                            setDisplayValue(rate);
+    },
+    handleStarTap: function (e) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, readonly, allowClear, _b, clientX, x, clickX, rateValue, rate;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        _a = getValueFromProps(this, [
+                            'readonly',
+                            'allowClear',
+                        ]), readonly = _a[0], allowClear = _a[1];
+                        if (readonly) {
+                            return [2 /*return*/];
                         }
-                        else {
-                            update(rate);
+                        _b = e.detail, clientX = _b.clientX, x = _b.x;
+                        clickX = typeof x === 'number' ? x : clientX;
+                        rateValue = this.getValue();
+                        return [4 /*yield*/, this.getRate(clickX)];
+                    case 1:
+                        rate = _c.sent();
+                        if (rateValue === rate && allowClear) {
+                            rate = 0;
                         }
-                    }
-                    return [2 /*return*/];
-            }
+                        if (!this.isControlled()) {
+                            this.update(rate);
+                        }
+                        if (rateValue !== rate) {
+                            triggerEvent(this, 'change', rate);
+                        }
+                        return [2 /*return*/];
+                }
+            });
         });
-    }); });
-    useEvent('handleStarMoveEnd', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, currentRate, originalRate;
-        return __generator(this, function (_b) {
-            if (props.readonly) {
-                return [2 /*return*/];
-            }
-            if (!ref.current) {
-                return [2 /*return*/];
-            }
-            _a = ref.current, currentRate = _a.currentRate, originalRate = _a.originalRate;
-            ref.current = null;
-            if (isControlled) {
-                setDisplayValue(null);
-            }
-            if (currentRate !== originalRate) {
-                triggerEvent('change', currentRate);
-            }
-            return [2 /*return*/];
+    },
+    handleStarMove: function (e) {
+        return __awaiter(this, void 0, void 0, function () {
+            var readonly, touches, clientX, rate;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        readonly = getValueFromProps(this, ['readonly'])[0];
+                        if (readonly) {
+                            return [2 /*return*/];
+                        }
+                        touches = e.touches;
+                        clientX = touches[0].clientX;
+                        if (!this.moveRate) {
+                            this.moveRate = {
+                                originalRate: this.getValue(),
+                            };
+                        }
+                        return [4 /*yield*/, this.getRate(clientX)];
+                    case 1:
+                        rate = _a.sent();
+                        if (this.moveRate) {
+                            this.moveRate = __assign(__assign({}, this.moveRate), { currentRate: rate });
+                            if (this.isControlled()) {
+                                this.setData({ displayValue: rate });
+                            }
+                            else {
+                                this.update(rate);
+                            }
+                        }
+                        return [2 /*return*/];
+                }
+            });
         });
-    }); });
-    return {
-        mixin: {
-            value: displayValue !== null ? displayValue : rateValue,
+    },
+    handleStarMoveEnd: function () {
+        var readonly = getValueFromProps(this, 'readonly');
+        if (readonly) {
+            return;
+        }
+        if (!this.moveRate) {
+            return;
+        }
+        var _a = this.moveRate, currentRate = _a.currentRate, originalRate = _a.originalRate;
+        this.moveRate = null;
+        if (this.isControlled()) {
+            this.setData({ displayValue: null });
+        }
+        if (currentRate !== originalRate) {
+            triggerEvent(this, 'change', currentRate);
+        }
+    },
+}, { displayValue: null }, [
+    createValue({
+        transformValue: function (value) {
+            var allowHalf = getValueFromProps(this, 'allowHalf');
+            if (allowHalf) {
+                return {
+                    needUpdate: true,
+                    value: value % 0.5 !== 0 ? Math.round(value) : value,
+                };
+            }
+            return {
+                needUpdate: true,
+                value: Math.ceil(value),
+            };
         },
-    };
-};
-mountComponent(Rate, RateFunctionalProps);
+    }),
+]);

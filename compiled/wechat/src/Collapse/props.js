@@ -1,5 +1,4 @@
-export var CollapseDefaultProps = {};
-export var CollapseFunctionalProps = {
+export var CollapseDefaultProps = {
     current: null,
     defaultCurrent: [],
     accordion: false,

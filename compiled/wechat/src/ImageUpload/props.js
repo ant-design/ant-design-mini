@@ -1,10 +1,5 @@
 export var UploaderDefaultProps = {
     defaultFileList: [],
-    imageMode: 'scaleToFill',
-    sourceType: ['camera', 'album'],
-};
-export var UploaderFunctionalProps = {
-    defaultFileList: [],
     fileList: null,
     maxCount: null,
     imageMode: 'scaleToFill',
@@ -13,5 +8,5 @@ export var UploaderFunctionalProps = {
     onBeforeUpload: null,
     onRemove: null,
     uploadingText: '上传中',
-    uploadfailedText: '上传失败'
+    uploadfailedText: '上传失败',
 };

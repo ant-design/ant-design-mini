@@ -1,8 +1,4 @@
 export var SelectorDefaultProps = {
-    multiple: false,
-    disabled: false,
-};
-export var SelectorFunctionalProps = {
     value: null,
     defaultValue: null,
     options: null,

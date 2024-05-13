@@ -1,5 +1,5 @@
 import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
-import { IRateProps, RateFunctionalProps } from '../../Rate/props';
+import { IRateProps, RateDefaultProps } from '../../Rate/props';
 
 export interface FormRateProps
   extends Omit<IRateProps, 'defaultValue'>,
@@ -9,7 +9,7 @@ export interface FormRateProps
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { defaultValue, ...rest } = RateFunctionalProps;
+const { defaultValue, ...rest } = RateDefaultProps;
 
 export const FormRateDefaultProps: Partial<FormRateProps> = {
   ...FormItemFunctionalProps,

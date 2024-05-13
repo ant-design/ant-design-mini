@@ -4,14 +4,14 @@ import { View, Slot, InternalData, TSXMLProps, Image } from 'tsxml';
 import { IUploaderProps } from './props';
 
 export default (
-  { className,
-    style, 
-    imageMode, 
-    maxCount,    
+  {
+    className,
+    style,
+    imageMode,
     uploadingText,
-    uploadfailedText 
+    uploadfailedText,
   }: TSXMLProps<IUploaderProps>,
-  { mixin }: InternalData
+  { mixin, showUploadButton }: InternalData
 ) => (
   <View class={`ant-image-upload ${className || ''}`} style={style || ''}>
     {/* #if ALIPAY */}
@@ -71,7 +71,7 @@ export default (
         {/* #if ALIPAY */}
         <Slot name="uploadButton">
           {/* #endif */}
-          {(!maxCount || mixin.value.length < maxCount) && (
+          {showUploadButton && (
             <View class="ant-image-upload-add-image-wrapper">
               <Icon
                 type="AddOutline"

@@ -102,7 +102,7 @@ export interface IUploaderProps extends IBaseProps {
    * @default "上传中……"
    */
   uploadingText?: string;
-   /**
+  /**
    * @description 上传失败文案
    * @default "上传失败"
    */
@@ -110,12 +110,6 @@ export interface IUploaderProps extends IBaseProps {
 }
 
 export const UploaderDefaultProps: Partial<IUploaderProps> = {
-  defaultFileList: [],
-  imageMode: 'scaleToFill',
-  sourceType: ['camera', 'album'],
-};
-
-export const UploaderFunctionalProps: Partial<IUploaderProps> = {
   defaultFileList: [],
   fileList: null,
   maxCount: null,
@@ -125,5 +119,5 @@ export const UploaderFunctionalProps: Partial<IUploaderProps> = {
   onBeforeUpload: null,
   onRemove: null,
   uploadingText: '上传中',
-  uploadfailedText: '上传失败'
+  uploadfailedText: '上传失败',
 };

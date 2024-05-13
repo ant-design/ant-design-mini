@@ -21,7 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { FormItemFunctionalProps } from '../FormItem/props';
-import { SwitchFunctionalProps } from '../../Switch/props';
+import { SwitchDefaultProps } from '../../Switch/props';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-var checked = SwitchFunctionalProps.checked, defaultChecked = SwitchFunctionalProps.defaultChecked, rest = __rest(SwitchFunctionalProps, ["checked", "defaultChecked"]);
+var checked = SwitchDefaultProps.checked, defaultChecked = SwitchDefaultProps.defaultChecked, rest = __rest(SwitchDefaultProps, ["checked", "defaultChecked"]);
 export var FormSwitchDefaultProps = __assign(__assign(__assign({}, FormItemFunctionalProps), rest), { switchClassName: '', switchStyle: '' });

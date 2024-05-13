@@ -21,7 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { FormItemFunctionalProps } from '../FormItem/props';
-import { RateFunctionalProps } from '../../Rate/props';
+import { RateDefaultProps } from '../../Rate/props';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-var defaultValue = RateFunctionalProps.defaultValue, rest = __rest(RateFunctionalProps, ["defaultValue"]);
+var defaultValue = RateDefaultProps.defaultValue, rest = __rest(RateDefaultProps, ["defaultValue"]);
 export var FormRateDefaultProps = __assign(__assign(__assign({}, FormItemFunctionalProps), rest), { rateClassName: '', rateStyle: '' });

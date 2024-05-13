@@ -1,29 +1,26 @@
-import { useEvent } from 'functional-mini/component';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useMixState } from '../_util/hooks/useMixState';
-import { TabBarFunctionalProps, ITabBarProps } from './props';
+import { TabBarDefaultProps } from './props';
+import { Component, triggerEvent } from '../_util/simply';
+import mixinValue from '../mixins/value';
 
-const TabBar = (props: ITabBarProps) => {
-  const [value, { isControlled, update }] = useMixState(props.defaultCurrent, {
-    value: props.current,
-  });
-  const { triggerEvent } = useComponentEvent(props);
-  useEvent('onChange', (e) => {
-    const { index } = e.currentTarget.dataset;
-    if (index === value) {
-      return;
-    }
-    if (!isControlled) {
-      update(index);
-    }
-    triggerEvent('change', index, e);
-  });
-  return {
-    mixin: {
-      value,
+Component(
+  TabBarDefaultProps,
+  {
+    onChange(e) {
+      const { index } = e.currentTarget.dataset;
+      if (index === this.getValue()) {
+        return;
+      }
+      if (!this.isControlled()) {
+        this.update(index);
+      }
+      triggerEvent(this, 'change', index, e);
     },
-  };
-};
-
-mountComponent(TabBar, TabBarFunctionalProps);
+  },
+  null,
+  [
+    mixinValue({
+      valueKey: 'current',
+      defaultValueKey: 'defaultCurrent',
+    }),
+  ]
+);

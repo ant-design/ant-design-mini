@@ -54,44 +54,220 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { useEvent, useRef } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useMixState } from '../_util/hooks/useMixState';
-import { triggerRefEvent } from '../_util/hooks/useReportRef';
+import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import { UploaderDefaultProps } from './props';
 import { chooseImage } from '../_util/jsapi/choose-image';
-import { UploaderFunctionalProps, } from './props';
-import { useId } from 'functional-mini/compat';
-/**
- * 获取一个内部使用的 uid
- * 每次获取时自增
- */
-var useCounter = function () {
-    var counterRef = useRef(0);
-    // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
-    var prefix = useId() + '-' + Date.now();
-    return {
-        getCount: function () {
-            counterRef.current = counterRef.current + 1;
-            return "".concat(prefix, "-").concat(counterRef.current);
-        },
-    };
-};
-var ImageUpload = function (props) {
-    var getCount = useCounter().getCount;
-    var _a = useMixState(props.defaultFileList, {
-        value: props.fileList,
-        postState: function (fileList) {
+import createValue from '../mixins/value';
+Component(UploaderDefaultProps, {
+    chooseImage: function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, onBeforeUpload, onUpload, fileList, _b, maxCount, sourceType, localFileList, chooseImageRes, err_1, beforeUploadRes, err_2, tasks;
+            var _this = this;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        _a = getValueFromProps(this, [
+                            'onBeforeUpload',
+                            'onUpload',
+                        ]), onBeforeUpload = _a[0], onUpload = _a[1];
+                        if (!onUpload) {
+                            throw new Error('need props onUpload');
+                        }
+                        fileList = this.getValue();
+                        _b = getValueFromProps(this, [
+                            'maxCount',
+                            'sourceType',
+                        ]), maxCount = _b[0], sourceType = _b[1];
+                        _c.label = 1;
+                    case 1:
+                        _c.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, chooseImage({
+                                count: typeof maxCount === 'undefined'
+                                    ? Infinity
+                                    : maxCount - fileList.length,
+                                sourceType: sourceType,
+                            })];
+                    case 2:
+                        chooseImageRes = _c.sent();
+                        localFileList = (chooseImageRes.tempFiles ||
+                            chooseImageRes.tempFilePaths ||
+                            chooseImageRes.apFilePaths ||
+                            chooseImageRes.filePaths ||
+                            [])
+                            .map(function (item) {
+                            if (typeof item === 'string') {
+                                return {
+                                    path: item,
+                                };
+                            }
+                            if (item.path) {
+                                return {
+                                    path: item.path,
+                                    size: item.size,
+                                };
+                            }
+                        })
+                            .filter(function (item) { return !!item; });
+                        return [3 /*break*/, 4];
+                    case 3:
+                        err_1 = _c.sent();
+                        triggerEvent(this, 'chooseImageError', err_1);
+                        return [2 /*return*/];
+                    case 4:
+                        if (!onBeforeUpload) return [3 /*break*/, 8];
+                        _c.label = 5;
+                    case 5:
+                        _c.trys.push([5, 7, , 8]);
+                        return [4 /*yield*/, onBeforeUpload(localFileList)];
+                    case 6:
+                        beforeUploadRes = _c.sent();
+                        if (beforeUploadRes === false) {
+                            return [2 /*return*/];
+                        }
+                        if (Array.isArray(beforeUploadRes)) {
+                            localFileList = beforeUploadRes;
+                        }
+                        return [3 /*break*/, 8];
+                    case 7:
+                        err_2 = _c.sent();
+                        return [2 /*return*/];
+                    case 8:
+                        tasks = localFileList.map(function (file) { return _this.uploadFile(file); });
+                        return [4 /*yield*/, Promise.all(tasks)];
+                    case 9:
+                        _c.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    },
+    uploadFile: function (localFile) {
+        return __awaiter(this, void 0, void 0, function () {
+            var onUpload, uid, tempFileList, url, err_3;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        onUpload = getValueFromProps(this, 'onUpload');
+                        uid = this.getCount();
+                        tempFileList = __spreadArray(__spreadArray([], this.getValue(), true), [
+                            {
+                                path: localFile.path,
+                                size: localFile.size,
+                                uid: uid,
+                                status: 'uploading',
+                            },
+                        ], false);
+                        if (!this.isControlled()) {
+                            this.update(tempFileList);
+                        }
+                        triggerEvent(this, 'change', tempFileList);
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, onUpload(localFile)];
+                    case 2:
+                        url = _a.sent();
+                        if (typeof url !== 'string' || !url) {
+                            this.updateFile(uid, {
+                                status: 'error',
+                            });
+                            return [2 /*return*/];
+                        }
+                        this.updateFile(uid, {
+                            status: 'done',
+                            url: url,
+                        });
+                        return [3 /*break*/, 4];
+                    case 3:
+                        err_3 = _a.sent();
+                        this.updateFile(uid, {
+                            status: 'error',
+                        });
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    },
+    updateFile: function (uid, file) {
+        var fileList = this.getValue();
+        var tempFileList = fileList.map(function (item) {
+            if (item.uid === uid) {
+                return __assign(__assign({}, item), file);
+            }
+            return item;
+        });
+        if (!this.isControlled()) {
+            this.update(tempFileList);
+        }
+        triggerEvent(this, 'change', tempFileList);
+    },
+    onRemove: function (e) {
+        return __awaiter(this, void 0, void 0, function () {
+            var fileList, onRemove, uid, file, result, tempFileList;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        fileList = this.getValue();
+                        onRemove = getValueFromProps(this, 'onRemove');
+                        uid = e.currentTarget.dataset.uid;
+                        file = fileList.find(function (item) { return item.uid === uid; });
+                        if (!onRemove) return [3 /*break*/, 2];
+                        return [4 /*yield*/, onRemove(file)];
+                    case 1:
+                        result = _a.sent();
+                        if (result === false) {
+                            return [2 /*return*/];
+                        }
+                        _a.label = 2;
+                    case 2:
+                        tempFileList = fileList.filter(function (item) { return item.uid !== uid; });
+                        if (!this.isControlled()) {
+                            this.update(tempFileList);
+                        }
+                        triggerEvent(this, 'change', tempFileList);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    },
+    onPreview: function (e) {
+        var uid = e.currentTarget.dataset.uid;
+        var fileList = this.getValue();
+        var file = fileList.find(function (item) { return item.uid === uid; });
+        triggerEvent(this, 'preview', file);
+    },
+    updateShowUploadButton: function () {
+        var maxCount = getValueFromProps(this, 'maxCount');
+        this.setData({
+            showUploadButton: !maxCount || this.getValue().length < maxCount,
+        });
+    },
+    count: 0,
+    getCount: function () {
+        // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
+        this.count = (this.count || 0) + 1;
+        // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
+        var id = this.id;
+        var prefix = id + '-' + Date.now();
+        return "".concat(prefix, "-").concat(this.count);
+    },
+}, null, [
+    createValue({
+        defaultValueKey: 'defaultFileList',
+        valueKey: 'fileList',
+        transformValue: function (fileList) {
+            var _this = this;
+            if (fileList === void 0) { fileList = []; }
             return {
-                valid: true,
-                value: (fileList || []).map(function (item) {
+                needUpdate: true,
+                value: fileList.map(function (item) {
                     var file = __assign({}, item);
                     if (typeof item.url === 'undefined') {
                         file.url = '';
                     }
                     if (typeof item.uid === 'undefined') {
-                        file.uid = getCount();
+                        file.uid = _this.getCount();
                     }
                     if (typeof item.status === 'undefined') {
                         file.status = 'done';
@@ -100,187 +276,20 @@ var ImageUpload = function (props) {
                 }),
             };
         },
-    }), fileList = _a[0], _b = _a[1], isControlled = _b.isControlled, update = _b.update, triggerUpdater = _b.triggerUpdater;
-    triggerRefEvent();
-    var triggerEvent = useComponentEvent(props).triggerEvent;
-    function uploadFile(localFile) {
-        return __awaiter(this, void 0, void 0, function () {
-            var onUpload, uid, url, err_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        onUpload = props.onUpload;
-                        uid = getCount();
-                        triggerUpdater(function (oldFiles) {
-                            var tempFileList = __spreadArray(__spreadArray([], oldFiles, true), [
-                                {
-                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                    //@ts-expect-error
-                                    path: localFile.path,
-                                    size: localFile.size,
-                                    uid: uid,
-                                    status: 'uploading',
-                                },
-                            ], false);
-                            triggerEvent('change', tempFileList);
-                            return tempFileList;
-                        });
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, onUpload(localFile)];
-                    case 2:
-                        url = _a.sent();
-                        if (typeof url !== 'string' || !url) {
-                            updateFile(uid, {
-                                status: 'error',
-                            });
-                            return [2 /*return*/];
-                        }
-                        updateFile(uid, {
-                            status: 'done',
-                            url: url,
-                        });
-                        return [3 /*break*/, 4];
-                    case 3:
-                        err_1 = _a.sent();
-                        updateFile(uid, {
-                            status: 'error',
-                        });
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
-                }
-            });
-        });
-    }
-    function updateFile(uid, file) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                triggerUpdater(function (old) {
-                    var tempFileList = old.map(function (item) {
-                        if (item.uid === uid) {
-                            return __assign(__assign({}, item), file);
-                        }
-                        return item;
-                    });
-                    triggerEvent('change', tempFileList);
-                    return tempFileList;
-                });
-                return [2 /*return*/];
-            });
-        });
-    }
-    useEvent('chooseImage', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var onBeforeUpload, onUpload, maxCount, sourceType, localFileList, chooseImageRes, err_2, beforeUploadRes, err_3, tasks;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    onBeforeUpload = props.onBeforeUpload, onUpload = props.onUpload, maxCount = props.maxCount, sourceType = props.sourceType;
-                    if (!onUpload || typeof onUpload !== 'function') {
-                        throw new Error('need props onUpload');
-                    }
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, chooseImage({
-                            count: typeof maxCount === 'undefined'
-                                ? Infinity
-                                : maxCount - fileList.length,
-                            sourceType: sourceType,
-                        })];
-                case 2:
-                    chooseImageRes = _a.sent();
-                    localFileList = (chooseImageRes.tempFiles ||
-                        chooseImageRes.tempFilePaths ||
-                        chooseImageRes.apFilePaths ||
-                        chooseImageRes.filePaths ||
-                        [])
-                        .map(function (item) {
-                        if (typeof item === 'string') {
-                            return {
-                                path: item,
-                            };
-                        }
-                        if (item.path) {
-                            return {
-                                path: item.path,
-                                size: item.size,
-                            };
-                        }
-                    })
-                        .filter(function (item) { return !!item; });
-                    return [3 /*break*/, 4];
-                case 3:
-                    err_2 = _a.sent();
-                    triggerEvent('chooseImageError', err_2);
-                    return [2 /*return*/];
-                case 4:
-                    if (!(onBeforeUpload && typeof onBeforeUpload === 'function')) return [3 /*break*/, 8];
-                    _a.label = 5;
-                case 5:
-                    _a.trys.push([5, 7, , 8]);
-                    return [4 /*yield*/, onBeforeUpload(localFileList)];
-                case 6:
-                    beforeUploadRes = _a.sent();
-                    if (beforeUploadRes === false) {
-                        return [2 /*return*/];
-                    }
-                    if (Array.isArray(beforeUploadRes)) {
-                        localFileList = beforeUploadRes;
-                    }
-                    return [3 /*break*/, 8];
-                case 7:
-                    err_3 = _a.sent();
-                    return [2 /*return*/];
-                case 8:
-                    tasks = localFileList.map(function (file) { return uploadFile(file); });
-                    return [4 /*yield*/, Promise.all(tasks)];
-                case 9:
-                    _a.sent();
-                    return [2 /*return*/];
+    }),
+], {
+    attached: function () {
+        this.triggerEvent('ref', this);
+        this.updateShowUploadButton();
+        this._prevData = this.data;
+    },
+    observers: {
+        '**': function (data) {
+            var prevData = this._prevData || this.data;
+            this._prevData = __assign({}, data);
+            if (!this.isEqualValue(prevData)) {
+                this.updateShowUploadButton();
             }
-        });
-    }); });
-    useEvent('onRemove', function (e) { return __awaiter(void 0, void 0, void 0, function () {
-        var uid, file, result, tempFileList;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    uid = e.currentTarget.dataset.uid;
-                    file = fileList.find(function (item) { return item.uid === uid; });
-                    if (!(props.onRemove && typeof props.onRemove === 'function')) return [3 /*break*/, 2];
-                    return [4 /*yield*/, props.onRemove(file)];
-                case 1:
-                    result = _a.sent();
-                    if (result === false) {
-                        return [2 /*return*/];
-                    }
-                    _a.label = 2;
-                case 2:
-                    tempFileList = fileList.filter(function (item) { return item.uid !== uid; });
-                    if (!isControlled) {
-                        update(tempFileList);
-                    }
-                    triggerEvent('change', tempFileList);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    useEvent('onPreview', function (e) {
-        var uid = e.currentTarget.dataset.uid;
-        var file = fileList.find(function (item) { return item.uid === uid; });
-        triggerEvent('preview', file);
-    });
-    useEvent('update', function (e) {
-        if (isControlled) {
-            return;
-        }
-        update(e);
-    });
-    return {
-        mixin: {
-            value: fileList,
         },
-    };
-};
-mountComponent(ImageUpload, UploaderFunctionalProps);
+    },
+});

@@ -19,9 +19,7 @@ it('受控模式', async () => {
     onChange,
   });
 
-  expect(instance.getData()).toEqual({
-    mixin: { value: false },
-  });
+  expect(instance.getData().mixin.value).toEqual(false);
   instance.callMethod('onChange', {});
   await sleep(20);
   expect(onChange.mock.calls.length).toBe(1);
@@ -43,14 +41,11 @@ it('受控模式', async () => {
       },
     }
   `);
-  expect(instance.getData()).toEqual({
-    mixin: { value: false },
-  });
+  expect(instance.getData().mixin.value).toEqual(false);
   instance.setProps({ checked: true });
   await sleep(20);
-  expect(instance.getData()).toEqual({
-    mixin: { value: true },
-  });
+
+  expect(instance.getData().mixin.value).toEqual(true);
 });
 
 it('非受控模式', async () => {
@@ -59,15 +54,12 @@ it('非受控模式', async () => {
     onChange,
   });
 
-  expect(instance.getData()).toEqual({
-    mixin: { value: false },
-  });
+  expect(instance.getData().mixin.value).toEqual(false);
   instance.callMethod('onChange', {});
   await sleep(20);
   expect(onChange.mock.calls.length).toBe(1);
-  expect(instance.getData()).toEqual({
-    mixin: { value: true },
-  });
+
+  expect(instance.getData().mixin.value).toEqual(true);
 });
 
 it('测试默认值', async () => {
@@ -77,15 +69,12 @@ it('测试默认值', async () => {
     defaultChecked: true,
   });
 
-  expect(instance.getData()).toEqual({
-    mixin: { value: true },
-  });
+  expect(instance.getData().mixin.value).toEqual(true);
   instance.callMethod('onChange', {});
   await sleep(20);
   expect(onChange.mock.calls.length).toBe(1);
-  expect(instance.getData()).toEqual({
-    mixin: { value: false },
-  });
+
+  expect(instance.getData().mixin.value).toEqual(false);
 });
 
 it('测试构造函数', async () => {

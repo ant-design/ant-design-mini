@@ -12,7 +12,7 @@ export default (
     characterClassName,
     characterActiveClassName,
   }: TSXMLProps<IRateProps>,
-  { mixin, $id }: InternalData
+  { mixin, displayValue, $id }: InternalData
 ) => (
   <View class={`ant-rate ${className || ''}`} style={style}>
     <View
@@ -31,24 +31,29 @@ export default (
             data-rate={index}
             style={`margin-right: ${index === count - 1 ? 0 : gutter + 'px'}`}
           >
-            {allowHalf && mixin.value === index + 0.5 && (
-              <View
-                class={`ant-rate-star-icon-active ${characterClassName || ''} ${
-                  characterActiveClassName || ''
-                } ant-rate-star-icon-half-active`}
-              >
-                {/* #if ALIPAY */}
-                <Slot name="character" index={index} isActive={true}>
-                  {/* #endif */}
-                  <AntIcon type="StarFill" />
+            {allowHalf &&
+              (displayValue !== null ? displayValue : mixin.value) ===
+                index + 0.5 && (
+                <View
+                  class={`ant-rate-star-icon-active ${
+                    characterClassName || ''
+                  } ${
+                    characterActiveClassName || ''
+                  } ant-rate-star-icon-half-active`}
+                >
                   {/* #if ALIPAY */}
-                </Slot>
-                {/* #endif */}
-              </View>
-            )}
+                  <Slot name="character" index={index} isActive={true}>
+                    {/* #endif */}
+                    <AntIcon type="StarFill" />
+                    {/* #if ALIPAY */}
+                  </Slot>
+                  {/* #endif */}
+                </View>
+              )}
             <View
               class={`ant-rate-star-icon ${
-                mixin.value >= index + 1
+                (displayValue !== null ? displayValue : mixin.value) >=
+                index + 1
                   ? 'ant-rate-star-icon-active' +
                     ' ' +
                     (characterClassName || '') +

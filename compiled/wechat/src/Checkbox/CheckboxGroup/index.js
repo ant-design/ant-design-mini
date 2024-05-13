@@ -7,44 +7,38 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { useEvent } from 'functional-mini/component';
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { useMixState } from '../../_util/hooks/useMixState';
-import { CheckboxGroupFunctionalProps } from './props';
-var CheckboxGroup = function (props) {
-    var _a = useMixState(props.defaultValue, {
-        value: props.value,
-        postState: function (value) {
-            return {
-                valid: true,
-                value: value || [],
-            };
-        },
-    }), value = _a[0], _b = _a[1], isControlled = _b.isControlled, update = _b.update;
-    var triggerEvent = useComponentEvent(props).triggerEvent;
-    useEvent('onChange', function (args, e) {
-        if (props.disabled) {
+import { Component, triggerEvent, getValueFromProps } from '../../_util/simply';
+import { CheckboxGroupDefaultProps } from './props';
+import mixinValue from '../../mixins/value';
+Component(CheckboxGroupDefaultProps, {
+    onChange: function (args, e) {
+        if (getValueFromProps(this, 'disabled')) {
             return;
         }
         var event;
         event = args;
-        var currentValue = value;
+        var currentValue = this.getValue();
         var index = event.currentTarget.dataset.index;
-        var selectValue = props.options[index].value;
+        var selectValue = getValueFromProps(this, 'options')[index].value;
         if (currentValue.indexOf(selectValue) > -1) {
             currentValue = currentValue.filter(function (v) { return v !== selectValue; });
         }
         else {
             currentValue = __spreadArray(__spreadArray([], currentValue, true), [selectValue], false);
         }
-        if (!isControlled) {
-            update(currentValue);
+        if (!this.isControlled()) {
+            this.update(currentValue);
         }
-        triggerEvent('change', currentValue, e);
-    });
-    return {
-        mixin: { value: value },
-    };
-};
-mountComponent(CheckboxGroup, CheckboxGroupFunctionalProps);
+        triggerEvent(this, 'change', currentValue, e);
+    },
+}, null, [
+    mixinValue({
+        transformValue: function (val) {
+            var value = val || [];
+            return {
+                needUpdate: true,
+                value: value,
+            };
+        },
+    }),
+]);

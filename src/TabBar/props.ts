@@ -62,11 +62,6 @@ export interface ITabBarProps extends IBaseProps {
 
 export const TabBarDefaultProps: Partial<ITabBarProps> = {
   items: [],
-  defaultCurrent: 0,
-};
-
-export const TabBarFunctionalProps: Partial<ITabBarProps> = {
-  items: [],
   current: null,
   defaultCurrent: 0,
   activeClassName: '',

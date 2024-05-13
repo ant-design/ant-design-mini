@@ -21,7 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { FormItemFunctionalProps } from '../FormItem/props';
-import { CheckboxGroupFunctionalProps, } from '../../Checkbox/CheckboxGroup/props';
+import { CheckboxGroupDefaultProps, } from '../../Checkbox/CheckboxGroup/props';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-var position = CheckboxGroupFunctionalProps.position, rest = __rest(CheckboxGroupFunctionalProps, ["position"]);
+var position = CheckboxGroupDefaultProps.position, rest = __rest(CheckboxGroupDefaultProps, ["position"]);
 export var FormCheckboxGroupDefaultProps = __assign(__assign(__assign({}, FormItemFunctionalProps), rest), { checkboxPosition: 'horizontal' });

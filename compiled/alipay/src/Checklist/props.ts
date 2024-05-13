@@ -61,13 +61,8 @@ export interface IChecklistProps extends IBaseProps {
 }
 
 export const ChecklistDefaultProps: Partial<IChecklistProps> = {
-  multiple: false,
-  options: [],
-};
-
-export const ChecklistFunctionalProps: Partial<IChecklistProps> = {
   value: null,
   defaultValue: null,
-  multiple: false,
   options: [],
+  multiple: false,
 };

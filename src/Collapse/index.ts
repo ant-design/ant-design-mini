@@ -1,73 +1,65 @@
-import { useRef, useState } from 'functional-mini/compat';
-import { useEffect, useEvent } from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
-import { useComponentUpdateEffect } from '../_util/hooks/useLayoutEffect';
-import { useMixState } from '../_util/hooks/useMixState';
-import { CollapseFunctionalProps, ICollapseProps } from './props';
-import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
+import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import { CollapseDefaultProps } from './props';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import createValue from '../mixins/value';
 
-const Collapse = (props: ICollapseProps) => {
-  const [contentHeight, setContentHeight] = useState<string[]>([]);
-  const [hasChange, setHasChange] = useState<boolean>(false);
-  const taskQueueRef = useRef<() => void>();
-  const previousValueRef = useRef<number[]>([]);
-  const [value, { isControlled, update }] = useMixState<number[]>(
-    props.defaultCurrent,
-    {
-      value: props.current,
-      postState(val) {
-        let current = [...(val || [])];
-        const items = props.items;
-        current = current.filter((item) => {
-          if (!items[item] || items[item].disabled) {
-            return false;
-          }
-          return true;
-        });
-        if (props.accordion) {
-          current = current.length > 0 ? [current[0]] : [];
-        }
-        return {
-          valid: true,
-          value: [...current],
-        };
-      },
-    }
-  );
-
-  const { triggerEvent } = useComponentEvent(props);
-
-  useEvent('onChange', (e) => {
-    const itemIndex = parseInt(e.currentTarget.dataset.index, 10);
-    if (props.items[itemIndex] && props.items[itemIndex].disabled) {
-      return;
-    }
-    const arr = value;
-    let current = [...arr];
-    const index = current.indexOf(itemIndex);
-    if (index >= 0) {
-      current.splice(index, 1);
-    } else {
-      if (props.accordion) {
-        current = [itemIndex];
-      } else {
-        current.push(itemIndex);
-        current.sort();
+Component(
+  CollapseDefaultProps,
+  {
+    getInstance() {
+      if (this.$id) {
+        return my;
       }
-    }
-    if (!isControlled) {
-      update(current);
-    }
-    triggerEvent('change', current);
-  });
-
-  const { getBoundingClientRectWithBuilder } = useInstanceBoundingClientRect();
-
-  const updateContentHeight = useStableCallback(
-    async (prevCurrent: number[], nextCurrent: number[]) => {
+      return this;
+    },
+    async getBoundingClientRectWithBuilder(builder: (id: string) => string) {
+      return await getInstanceBoundingClientRect(
+        this.getInstance(),
+        builder(this.$id ? `-${this.$id}` : '')
+      );
+    },
+    formatCurrent(val: number[], props) {
+      let current = [...(val || [])];
+      const items = props.items;
+      current = current.filter((item) => {
+        if (!items[item] || items[item].disabled) {
+          return false;
+        }
+        return true;
+      });
+      if (props.accordion) {
+        current = current.length > 0 ? [current[0]] : [];
+      }
+      return [...current];
+    },
+    onChange(e) {
+      const itemIndex = parseInt(e.currentTarget.dataset.index, 10);
+      const [items, accordion] = getValueFromProps(this, [
+        'items',
+        'accordion',
+      ]);
+      if (items[itemIndex] && items[itemIndex].disabled) {
+        return;
+      }
+      const arr = this.getValue();
+      let current = [...arr];
+      const index = current.indexOf(itemIndex);
+      if (index >= 0) {
+        current.splice(index, 1);
+      } else {
+        if (accordion) {
+          current = [itemIndex];
+        } else {
+          current.push(itemIndex);
+          current.sort();
+        }
+      }
+      if (!this.isControlled()) {
+        this.update(current);
+      }
+      triggerEvent(this, 'change', current, e);
+    },
+    async updateContentHeight(prevCurrent: number[], nextCurrent: number[]) {
       const prevCurrentArray = prevCurrent;
       const nextCurrentArray = nextCurrent;
       const expandArray = [];
@@ -82,88 +74,129 @@ const Collapse = (props: ICollapseProps) => {
           closeArray.push(item);
         }
       });
-      const newContentHeight = await Promise.all(
-        props.items.map(async (item, index) => {
+      const items = getValueFromProps(this, 'items');
+      let contentHeight = await Promise.all(
+        items.map(async (item, index) => {
           if (
             expandArray.indexOf(index) >= 0 ||
             closeArray.indexOf(index) >= 0
           ) {
-            const { height } = await getBoundingClientRectWithBuilder(
+            const { height } = await this.getBoundingClientRectWithBuilder(
               (id) => `.ant-collapse-item-content${id}-${index}`
             );
             return `${height}px`;
           }
-          return contentHeight[index];
+          return this.data.contentHeight[index];
         })
       );
       if (closeArray.length === 0) {
-        setContentHeight(newContentHeight);
+        this.setData({
+          contentHeight,
+        });
       } else {
-        setContentHeight(newContentHeight);
-        taskQueueRef.current = () => {
-          setTimeout(() => {
-            setContentHeight((contentHeight) => {
-              return contentHeight.map((item, index) => {
-                if (closeArray.indexOf(index) >= 0) {
-                  return '0px';
-                }
-                return item;
-              });
-            });
-          }, 10);
-        };
+        this.setData({
+          contentHeight,
+        });
+        setTimeout(() => {
+          contentHeight = contentHeight.map((item, index) => {
+            if (closeArray.indexOf(index) >= 0) {
+              return '0px';
+            }
+            return item;
+          });
+          this.setData({
+            contentHeight,
+          });
+        }, 10);
       }
-    }
-  );
-
-  useEffect(() => {
-    if (taskQueueRef.current) {
-      const task = taskQueueRef.current;
-      taskQueueRef.current = null;
-      if (typeof task === 'function') {
-        task();
-      }
-    }
-  });
-
-  useEffect(() => {
-    const current = value;
-    const contentHeight = props.items.map((item, index) => {
-      if (current.indexOf(index) >= 0) {
-        return '';
-      }
-      return '0px';
-    });
-    setContentHeight(contentHeight);
-    setHasChange(true);
-    previousValueRef.current = value;
-  }, []);
-
-  useComponentUpdateEffect(() => {
-    const previous = previousValueRef.current;
-    previousValueRef.current = value;
-    updateContentHeight(previous, value);
-  }, [props.items, JSON.stringify(value)]);
-
-  useEvent('resetContentHeight', (e) => {
-    const index = parseInt(e.currentTarget.dataset.index, 10);
-    if (value.indexOf(index) < 0) {
-      return;
-    }
-    setContentHeight((oldContentHeight) => {
-      const newContentHeight = [...oldContentHeight];
-      newContentHeight[index] = '';
-      return newContentHeight;
-    });
-  });
-
-  return {
-    contentHeight,
-    hasChange,
-    mixin: {
-      value,
     },
-  };
-};
+    resetContentHeight(e) {
+      const index = parseInt(e.currentTarget.dataset.index, 10);
+      if (this.getValue().indexOf(index) < 0) {
+        return;
+      }
+      const contentHeight = [...this.data.contentHeight];
+      contentHeight[index] = '';
+      this.setData({
+        contentHeight,
+      });
+    },
+  },
+  {
+    contentHeight: [],
+    hasChange: false,
+  },
+  [
+    createValue({
+      valueKey: 'current',
+      defaultValueKey: 'defaultCurrent',
+      transformValue(current, extra) {
+        const value = this.formatCurrent(
+          current,
+          extra ? extra.nextProps : getValueFromProps(this)
+        );
+        return {
+          needUpdate: true,
+          value,
+        };
+      },
+    }),
+  ],
+  {
+    /// #if ALIPAY
+    didUpdate(prevProps, prevData) {
+      console.log(
+        prevProps.items !== this.props.items,
+        !this.isEqualValue(prevData)
+      );
+      if (
+        prevProps.items !== this.props.items ||
+        !this.isEqualValue(prevData)
+      ) {
+        this.updateContentHeight(this.getValue(prevData), this.getValue());
+      }
+    },
+    didMount() {
+      const current = this.getValue();
+      const contentHeight = this.props.items.map((item, index) => {
+        if (current.indexOf(index) >= 0) {
+          return '';
+        }
+        return '0px';
+      });
+      this.setData({
+        hasChange: true,
+        contentHeight,
+      });
+    },
+    /// #endif
 
-mountComponent(Collapse, CollapseFunctionalProps);
+    /// #if WECHAT
+    observers: {
+      '**': function (data) {
+        const prevData = this._prevData || this.data;
+        this._prevData = { ...data };
+        if (prevData.items !== data.items || !this.isEqualValue(prevData)) {
+          this.updateContentHeight(this.getValue(prevData), this.getValue());
+        }
+      },
+    },
+
+    attached() {
+      const current = this.getValue();
+      const contentHeight = this.properties.items.map((item, index) => {
+        if (current.indexOf(index) >= 0) {
+          return '';
+        }
+        return '0px';
+      });
+      this.setData({
+        hasChange: true,
+        contentHeight,
+      });
+
+      this._prevData = this.data;
+    },
+    /// #endif
+  }
+);

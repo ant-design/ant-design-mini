@@ -15,12 +15,6 @@ export interface ICheckboxGroupProps extends IBaseProps {
 }
 
 export const CheckboxGroupDefaultProps: Partial<ICheckboxGroupProps> = {
-  options: [],
-  position: 'vertical',
-  defaultValue: [],
-};
-
-export const CheckboxGroupFunctionalProps: Partial<ICheckboxGroupProps> = {
   value: null,
   defaultValue: [],
   disabled: false,
