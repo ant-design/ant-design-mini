@@ -133,5 +133,9 @@ Component(
   },
   null,
   {
+    didMount() {
+      this.loadFont();
+      this.computeMaxDisplayNum();
+    },
   }
 );

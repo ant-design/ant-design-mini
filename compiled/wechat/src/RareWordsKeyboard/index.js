@@ -184,10 +184,6 @@ Component(RareWordsKeyboardProps, {
     maxDisplayNum: 0,
     showErrorPage: false, // 是否展示错误页
 }, null, {
-    didMount: function () {
-        this.loadFont();
-        this.computeMaxDisplayNum();
-    },
     attached: function () {
         this.loadFont();
         this.computeMaxDisplayNum();

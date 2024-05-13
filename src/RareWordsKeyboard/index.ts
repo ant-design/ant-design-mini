@@ -133,7 +133,7 @@ Component(
   },
   null,
   {
-    /// #if WECHAT
+    /// #if ALIPAY
     didMount() {
       this.loadFont();
       this.computeMaxDisplayNum();
