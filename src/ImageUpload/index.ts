@@ -168,7 +168,11 @@ Component(
       // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
       this.count = (this.count || 0) + 1;
       // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
-      const prefix = Math.random() + '-' + Date.now();
+      let id = this.id;
+      /// #if ALIPAY
+      id = this.$id;
+      /// #endif
+      const prefix = id + '-' + Date.now();
       return `${prefix}-${this.count}`;
     },
   },
