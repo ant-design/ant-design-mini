@@ -1,30 +1,26 @@
-import { Component, triggerEvent } from '../../_util/simply';
+import { Component, triggerEvent, getValueFromProps } from '../../_util/simply';
 import { RadioGroupDefaultProps } from './props';
 import mixinValue from '../../mixins/value';
 
 Component(
   RadioGroupDefaultProps,
   {
-    /// #if ALIPAY
     onChange(_, e) {
-      const index = e.currentTarget.dataset.index;
-      const value = this.props.options[index].value;
+      let event;
+      /// #if ALIPAY
+      event = e;
+      /// #endif
+      /// #if WECHAT
+      event = _;
+      /// #endif
+      const index = event.currentTarget.dataset.index;
+      const options = getValueFromProps(this, 'options');
+      const value = options[index].value;
       if (!this.isControlled()) {
         this.update(value);
       }
-      triggerEvent(this, 'change', value, e);
+      triggerEvent(this, 'change', value, event);
     },
-    /// #endif
-    /// #if WECHAT
-    onChange(e) {
-      const index = e.currentTarget.dataset.index;
-      const value = this.properties.options[index].value;
-      if (!this.isControlled()) {
-        this.update(value);
-      }
-      triggerEvent(this, 'change', value, e);
-    },
-    /// #endif
   },
   null,
   [mixinValue()]

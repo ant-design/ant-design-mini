@@ -1,13 +1,16 @@
-import { Component, triggerEvent } from '../../_util/simply';
+import { Component, triggerEvent, getValueFromProps } from '../../_util/simply';
 import { RadioGroupDefaultProps } from './props';
 import mixinValue from '../../mixins/value';
 Component(RadioGroupDefaultProps, {
-    onChange: function (e) {
-        var index = e.currentTarget.dataset.index;
-        var value = this.properties.options[index].value;
+    onChange: function (_, e) {
+        var event;
+        event = _;
+        var index = event.currentTarget.dataset.index;
+        var options = getValueFromProps(this, 'options');
+        var value = options[index].value;
         if (!this.isControlled()) {
             this.update(value);
         }
-        triggerEvent(this, 'change', value, e);
+        triggerEvent(this, 'change', value, event);
     },
 }, null, [mixinValue()]);
