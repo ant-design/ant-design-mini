@@ -1,49 +1,47 @@
-import { useEffect, useRef } from 'functional-mini/component';
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
-import { useFormItem } from '../use-form-item';
-import { FormTextareaDefaultProps, FormTextareaProps } from './props';
+import { Component, triggerEvent } from '../../_util/simply';
+import { resolveEventValue } from '../../_util/platform';
+import { FormTextareaDefaultProps } from './props';
+import { createForm } from '../form';
 
-type TextareaRef = {
-  update(value: string): void;
-};
-
-const FormTextarea = (props: FormTextareaProps) => {
-  const { formData, emit } = useFormItem(props);
-  const { triggerEvent } = useComponentEvent(props);
-  const inputRef = useRef<TextareaRef>();
-
-  useHandleCustomEvent('handleRef', (input: TextareaRef) => {
-    inputRef.current = input;
-  });
-
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.update(formData.value);
-    }
-  }, [formData]);
-
-  useHandleCustomEvent('onChange', (value, e) => {
-    emit('onChange', value);
-    triggerEvent('change', value, e);
-  });
-
-  useHandleCustomEvent('onBlur', (value, e) => {
-    triggerEvent('blur', value, e);
-  });
-
-  useHandleCustomEvent('onFocus', (value, e) => {
-    triggerEvent('focus', value, e);
-  });
-
-  useHandleCustomEvent('onConfirm', (value, e) => {
-    triggerEvent('confirm', value, e);
-  });
-
-  return {
-    formData,
-  };
-};
-
-mountComponent(FormTextarea, FormTextareaDefaultProps as FormTextareaProps);
+Component(
+  FormTextareaDefaultProps,
+  {
+    handleRef(input) {
+      this.input = input;
+    },
+    onChange(value, e) {
+      this.emit('onChange', resolveEventValue(value));
+      triggerEvent(this, 'change', resolveEventValue(value), e);
+    },
+    onBlur(value, e) {
+      triggerEvent(this, 'blur', resolveEventValue(value), e);
+    },
+    onFocus(value, e) {
+      triggerEvent(this, 'focus', resolveEventValue(value), e);
+    },
+    onConfirm(value, e) {
+      triggerEvent(this, 'confirm', resolveEventValue(value), e);
+    },
+    onClear(value, e) {
+      this.emit('onChange', '');
+      triggerEvent(this, 'change', resolveEventValue(value), e);
+    },
+  },
+  null,
+  [
+    createForm({
+      methods: {
+        setFormData(this: any, values) {
+          this.setData({
+            ...this.data,
+            formData: {
+              ...this.data.formData,
+              ...values,
+            },
+          });
+          this.input.update(this.data.formData.value);
+        },
+      },
+    }),
+  ]
+);

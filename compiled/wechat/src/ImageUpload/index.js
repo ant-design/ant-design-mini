@@ -261,7 +261,7 @@ Component(UploaderDefaultProps, {
             if (fileList === void 0) { fileList = []; }
             return {
                 needUpdate: true,
-                value: fileList.map(function (item) {
+                value: (fileList || []).map(function (item) {
                     var file = __assign({}, item);
                     if (typeof item.url === 'undefined') {
                         file.url = '';

@@ -9,6 +9,7 @@ import AsyncValidator, {
   ValidateMessages,
 } from 'async-validator';
 import { IMixin4Legacy } from '@mini-types/alipay';
+import { getValueFromProps } from '../_util/simply';
 
 export { Value, Values };
 export type Validator = (
@@ -858,7 +859,7 @@ export class Form {
 }
 
 export function createForm({ methods = {} } = {}) {
-  return {
+  let mixin = {
     data: {
       formData: {
         value: undefined,
@@ -866,12 +867,28 @@ export function createForm({ methods = {} } = {}) {
         errors: [],
       },
     },
+
+    /// #if ALIPAY
     didUnmount() {
       this.emit('didUnmount');
     },
     deriveDataFromProps(nextProps) {
       this.emit('deriveDataFromProps', nextProps);
     },
+    /// #endif
+    /// #if WECHAT
+    attached() {
+      this.triggerEvent('ref', this);
+    },
+    detached() {
+      this.emit('didUnmount');
+    },
+    observers: {
+      '**': function (nextProps) {
+        this.emit('deriveDataFromProps', nextProps);
+      },
+    },
+    /// #endif
     methods: {
       emit(trigger: EventTrigger, value?: Value) {},
       setFormData(values: Values) {
@@ -890,7 +907,7 @@ export function createForm({ methods = {} } = {}) {
         this.emit = callback;
       },
       getProps() {
-        return this.props;
+        return getValueFromProps(this);
       },
       ...methods,
     },
@@ -911,4 +928,10 @@ export function createForm({ methods = {} } = {}) {
       getProps: Record<string, any>;
     }
   >;
+  /// #if WECHAT
+  // @ts-ignore
+  mixin = Behavior(mixin);
+  /// #endif
+
+  return mixin;
 }

@@ -1,21 +1,16 @@
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
-import { useFormItem } from '../use-form-item';
-import { FormCheckboxGroupDefaultProps, FormCheckboxGroupProps } from './props';
+import { Component, triggerEvent } from '../../_util/simply';
+import { FormCheckboxGroupDefaultProps } from './props';
+import { resolveEventValue } from '../../_util/platform';
+import { createForm } from '../form';
 
-const FormCheckboxGroup = (props: FormCheckboxGroupProps) => {
-  const { formData, emit } = useFormItem(props);
-  const { triggerEvent } = useComponentEvent(props);
-
-  useHandleCustomEvent('onChange', (value, e) => {
-    emit('onChange', value);
-    triggerEvent('change', value, e);
-  });
-
-  return {
-    formData,
-  };
-};
-
-mountComponent(FormCheckboxGroup, FormCheckboxGroupDefaultProps);
+Component(
+  FormCheckboxGroupDefaultProps,
+  {
+    onChange(value, e) {
+      this.emit('onChange', resolveEventValue(value));
+      triggerEvent(this, 'change', resolveEventValue(value), e);
+    },
+  },
+  null,
+  [createForm()]
+);

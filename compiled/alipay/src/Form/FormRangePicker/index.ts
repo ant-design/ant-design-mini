@@ -1,78 +1,52 @@
-import { useEvent } from 'functional-mini/component';
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import {
-  useHandleCustomEvent,
-  useHandleCustomEventOnly,
-  useMultipleValueHandleCustomEvent,
-} from '../../_util/hooks/useHandleCustomEvent';
-import { platform } from '../../_util/platform';
-import { useFormItem } from '../use-form-item';
-import { FormRangePickerDefaultProps, FormRangePickerProps } from './props';
+  Component,
+  triggerEvent,
+  triggerEventValues,
+  triggerEventOnly,
+  getValueFromProps,
+} from '../../_util/simply';
+import { resolveEventValue, resolveEventValues } from '../../_util/platform';
+import { FormRangePickerDefaultProps } from './props';
+import { createForm } from '../form';
 
-const FormDatePicker = (props: FormRangePickerProps) => {
-  const { formData, emit } = useFormItem(props);
-  const { triggerEventValues, triggerEventOnly, triggerEvent } =
-    useComponentEvent(props);
+Component(
+  FormRangePickerDefaultProps,
+  {
+    onOk(date, dateStr, e) {
+      const v = resolveEventValues(date, dateStr);
+      this.emit('onChange', v[0]);
+      triggerEventValues(this, 'ok', v, e);
+    },
+    onPickerChange(type, date, dateStr, e) {
+      triggerEventValues(
+        this,
+        'pickerChange',
+        resolveEventValues(type, date, dateStr),
+        e
+      );
+    },
+    onVisibleChange(visible, e) {
+      triggerEvent(this, 'visibleChange', resolveEventValue(visible), e);
+    },
+    onDismissPicker(e) {
+      triggerEventOnly(this, 'dismissPicker', e);
+    },
 
-  useMultipleValueHandleCustomEvent('onOk', (date, dateStr, e) => {
-    emit(
-      'onChange',
-      date.map((o: Date) => {
-        if (platform() === 'wechat') {
-          return o.getTime();
-        }
-        return o;
-      })
-    );
-    triggerEventValues('ok', [date, dateStr], e);
-  });
-
-  useMultipleValueHandleCustomEvent(
-    'onPickerChange',
-    (type, date, dateStr, e) => {
-      triggerEventValues('pickerChange', [type, date, dateStr], e);
-    }
-  );
-
-  useHandleCustomEvent('onVisibleChange', (visible, e) => {
-    triggerEvent('visibleChange', visible, e);
-  });
-
-  useHandleCustomEventOnly('onDismissPicker', (e) => {
-    triggerEventOnly('dismissPicker', e);
-  });
-
-  useEvent(
-    'handleFormat',
-    (date, dateStr) => {
-      if (props.onFormat) {
-        return props.onFormat(date, dateStr);
+    handleFormat(date, dateStr) {
+      const onFormat = getValueFromProps(this, 'onFormat');
+      if (onFormat) {
+        return onFormat(date, dateStr);
       }
     },
-    {
-      handleResult: true,
-    }
-  );
-
-  useEvent(
-    'handleFormatLabel',
-    (type, value) => {
-      if (props.onFormatLabel) {
-        return props.onFormatLabel(type, value);
+    handleFormatLabel(type, value) {
+      const onFormatLabel = getValueFromProps(this, 'onFormatLabel');
+      if (onFormatLabel) {
+        return onFormatLabel(type, value);
       }
     },
-    {
-      handleResult: true,
-    }
-  );
-
-  return {
-    formData,
-  };
-};
-
-mountComponent(
-  FormDatePicker,
-  FormRangePickerDefaultProps as FormRangePickerProps
+  },
+  {},
+  [createForm()],
+  {
+  }
 );

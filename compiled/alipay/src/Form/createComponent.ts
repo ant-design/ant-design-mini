@@ -1,9 +1,32 @@
-import { FromItemRef, EventTrigger, Value, Values } from './form';
+import { Component, getValueFromProps } from '../_util/simply';
+import { EventTrigger, Value, Values } from './form';
 
 function createComponent({ props = {}, data = {}, methods = {} as any }) {
-  Component({
+  Component(
     props,
-    data: {
+    {
+      ...methods,
+      emit(trigger: EventTrigger, value?: Value) {},
+      setFormData(values: Values) {
+        this.setData({
+          ...this.data,
+          formData: {
+            ...this.data.formData,
+            ...values,
+          },
+        });
+      },
+      getFormData() {
+        return this.data.formData;
+      },
+      on(callback: (trigger: EventTrigger, value?: Value) => void) {
+        this.emit = callback;
+      },
+      getProps() {
+        return getValueFromProps(this);
+      },
+    },
+    {
       ...data,
       formData: {
         value: undefined,
@@ -12,40 +35,16 @@ function createComponent({ props = {}, data = {}, methods = {} as any }) {
         errors: [],
       },
     },
-    ref() {
-      const formItemRef: FromItemRef = {
-        setFormData: (values: Values) => {
-          this.setData({
-            ...this.data,
-            formData: {
-              ...this.data.formData,
-              ...values,
-            },
-          });
-        },
-        getFormData: () => {
-          return this.data.formData;
-        },
-        on: (callback: (trigger: EventTrigger, value?: Value) => void) => {
-          this.emit = callback;
-        },
-        getProps: () => {
-          return this.props;
-        },
-      };
-      return formItemRef;
-    },
-    didUnmount() {
-      this.emit('didUnmount');
-    },
-    deriveDataFromProps(nextProps) {
-      this.emit('deriveDataFromProps', nextProps);
-    },
-    methods: {
-      ...methods,
-      emit(trigger: EventTrigger, value?: Value) {},
-    },
-  });
+    null,
+    {
+      didUnmount() {
+        this.emit('didUnmount');
+      },
+      deriveDataFromProps(nextProps) {
+        this.emit('deriveDataFromProps', nextProps);
+      },
+    }
+  );
 }
 
 export default createComponent;

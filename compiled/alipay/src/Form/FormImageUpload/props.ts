@@ -1,4 +1,4 @@
-import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
+import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
 import {
   IUploaderProps,
   UploaderDefaultProps,
@@ -11,6 +11,6 @@ export interface FormImageUploadProps
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { defaultFileList, ...rest } = UploaderDefaultProps;
 export const FormImageUploadDefaultProps: Partial<FormImageUploadProps> = {
-  ...FormItemFunctionalProps,
+  ...FormItemDefaultProps,
   ...rest,
 };
