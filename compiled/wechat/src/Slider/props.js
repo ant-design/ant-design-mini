@@ -1,9 +1,4 @@
 export var sliderDefaultProps = {
-    min: 0,
-    max: 100,
-    step: 1,
-};
-export var SliderFunctionalProps = {
     value: null,
     defaultValue: null,
     disabled: false,

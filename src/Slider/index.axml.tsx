@@ -69,7 +69,7 @@ export default (
       >
         <View
           class="ant-slider-track-touch-area"
-          id={`ant-slider-id-${$id}`}
+          id={`ant-slider-id-${$id || ''}`}
           onTouchStart="handleTrackTouchStart"
           onTouchEnd="handleTrackTouchEnd"
           onTouchMove="handleTrackTouchMove"
