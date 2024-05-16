@@ -1,133 +1,297 @@
-import {
-  useEvent,
-  useMemo,
-  useRef,
-  useState,
-  useComponent,
-} from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useMixState } from '../_util/hooks/useMixState';
-import { SliderController } from './controller';
-import {
-  ISliderProps,
+import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import equal from 'fast-deep-equal';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { sliderDefaultProps, SliderValue } from './props';
+import createValue from '../mixins/value';
+
+Component(
   sliderDefaultProps,
-  SliderFunctionalProps,
-} from './props';
-
-const useSliderController = (props: ISliderProps) => {
-  const controllerRef = useRef<SliderController>();
-  if (!controllerRef.current) {
-    controllerRef.current = new SliderController(0, props);
-  }
-  return controllerRef.current;
-};
-
-const Slider = (props) => {
-  const component = useComponent();
-  const sliderController: SliderController = useSliderController(props);
-  const [value, { update, isControlled }] = useMixState(props.defaultValue, {
-    value: props.value,
-    postState(value) {
-      return {
-        valid: true,
-        value: sliderController.formatValue(value),
-      };
+  {
+    getInstance() {
+      if (this.$id) {
+        return my;
+      }
+      return this;
     },
-  });
-  const [moveStatus, setMoveStatus] = useState({
+    formatValue(val) {
+      const [min, max, step, range] = getValueFromProps(this, [
+        'min',
+        'max',
+        'step',
+        'range',
+      ]);
+      let value = this.fitSliderValue(val, min, max, step, range);
+      value = this.getRoundedValue(value, step);
+      return value;
+    },
+    getRoundedValue(value: SliderValue, step = 1) {
+      if (value === undefined) {
+        return 0;
+      }
+
+      if (typeof value === 'number') {
+        return Math.round(value / step) * step;
+      }
+
+      return [
+        Math.round(value[0] / step) * step,
+        Math.round(value[1] / step) * step,
+      ] as SliderValue;
+    },
+
+    setSliderStyleByValue(roundedValue: SliderValue) {
+      let leftValue = 0;
+      let rightValue = 0;
+      const [minFromProps, maxFromProps] = getValueFromProps(this, [
+        'min',
+        'max',
+      ]);
+      const max = maxFromProps ?? sliderDefaultProps.max;
+      const min = minFromProps ?? sliderDefaultProps.min;
+
+      if (roundedValue !== undefined) {
+        if (typeof roundedValue === 'number') {
+          leftValue = min;
+          rightValue = roundedValue;
+        } else {
+          leftValue = roundedValue[0];
+          rightValue = roundedValue[1];
+        }
+      }
+
+      // FIX_ME when min and max is equal
+      const width = ((rightValue - leftValue) / (max - min)) * 100;
+      const left = ((leftValue - min) / (max - min)) * 100;
+
+      this.setData({
+        sliderLeft: left,
+        sliderWidth: width,
+      });
+    },
+
+    setTickList() {
+      const [step, min, max, showTicks] = getValueFromProps(this, [
+        'step',
+        'min',
+        'max',
+        'showTicks',
+      ]);
+      if (!showTicks) {
+        return;
+      }
+      const tickList = [];
+      const stepCount = (max - min) / step;
+
+      for (let i = 0; i <= stepCount; i += 1) {
+        tickList.push({
+          left: i * (100 / stepCount),
+          value: i * step + min,
+        });
+      }
+
+      this.setData({
+        tickList,
+      });
+    },
+
+    async onTouchChanged(e, type) {
+      if (getValueFromProps(this, 'disabled')) {
+        return;
+      }
+      const changeMoving = (params) => {
+        const newParams = {};
+        for (const key in params) {
+          if (params[key] !== this.data[key]) {
+            newParams[key] = params[key];
+          }
+        }
+        if (Object.keys(newParams).length > 0) {
+          this.setData(newParams);
+        }
+      };
+
+      const rect = await this.getRect(e);
+      if (!rect) return;
+      const [min, max, range] = getValueFromProps(this, [
+        'min',
+        'max',
+        'range',
+      ]);
+      const touchPosition =
+        (rect.touch.pageX - rect.element.left) / rect.element.width;
+      const value = min + touchPosition * (max - min);
+      if (!range) {
+        this.update(value, {}, !this.isControlled(), true);
+        changeMoving({ changingEnd: true });
+      } else {
+        const currentValue = this.getValue();
+
+        const leftValue = currentValue[0];
+        const rightValue = currentValue[1];
+        const leftDistance = Math.abs(leftValue - value);
+        const rightDistance = Math.abs(rightValue - value);
+        const isFarFromLeft = leftDistance > rightDistance;
+        const farValue = isFarFromLeft ? leftValue : rightValue;
+
+        this.update([value, farValue], {}, !this.isControlled(), 'onChange');
+        if (isFarFromLeft) {
+          changeMoving({ changingEnd: true });
+        } else {
+          changeMoving({ changingStart: true });
+        }
+      }
+
+      if (type === 'end') {
+        changeMoving({ changingEnd: false, changingStart: false });
+        triggerEvent(this, 'afterChange', this.getValue(), e);
+      }
+    },
+
+    async getRect(e: any): Promise<any> {
+      const element = await getInstanceBoundingClientRect(
+        this.getInstance(),
+        `#ant-slider-id-${this.$id || ''}`
+      );
+      const touch = e.changedTouches[0];
+      if (element) {
+        return {
+          touch: {
+            pageX: touch.pageX,
+          },
+          element: {
+            left: element.left,
+            width: element.width,
+          },
+        };
+      }
+    },
+
+    cloneSliderValue(value?: SliderValue) {
+      if (typeof value === 'object') {
+        return [value[0], value[1]];
+      }
+
+      return value;
+    },
+
+    isSliderValueEqual(value1?: SliderValue, value2?: SliderValue) {
+      if (value1 === value2) {
+        return true;
+      }
+
+      if (value1 === undefined || value2 === undefined) {
+        return false;
+      }
+
+      if (typeof value1 === 'number' || typeof value2 == 'number') {
+        return value1 === value2;
+      }
+
+      if (value1[0] === value2[0] && value1[1] === value2[1]) {
+        return true;
+      }
+
+      return false;
+    },
+
+    fitSliderValue(
+      value: SliderValue | undefined,
+      min: number,
+      max: number,
+      step: number,
+      isRange: boolean
+    ) {
+      if (value === undefined || value === null) {
+        if (isRange) {
+          return [min, min] as SliderValue;
+        } else {
+          return min ?? 0;
+        }
+      }
+
+      if (typeof value === 'number') {
+        if (value > max) {
+          return max;
+        }
+
+        if (value < min) {
+          return min;
+        }
+
+        return value;
+      }
+
+      const leftValue = Math.min(value[0], value[1]);
+      const rightValue = Math.max(value[0], value[1]);
+
+      return [
+        Math.max(min, leftValue),
+        Math.min(max, rightValue),
+      ] as SliderValue;
+    },
+
+    handleTrackTouchStart(e) {
+      this.onTouchChanged(e, 'start');
+    },
+
+    handleTrackTouchMove(e) {
+      this.onTouchChanged(e, 'move');
+    },
+
+    handleTrackTouchEnd(e) {
+      this.onTouchChanged(e, 'end');
+    },
+  },
+  {
+    sliderLeft: 0,
+    sliderWidth: 0,
+    tickList: [],
     changingStart: false,
     changingEnd: false,
-  });
-  const { triggerEvent } = useComponentEvent(props);
-  sliderController.updateProps(props);
-  sliderController.updateValue(value);
-  sliderController.updateMoveStatus(moveStatus);
-  sliderController.onChange(
-    (v, moveStatus, { valueChange, moveStatusChange, type, event }) => {
-      if (!isControlled) {
-        update(v);
+  },
+  [
+    createValue({
+      transformValue(val, extra, needUpdate = true, emit) {
+        const value = this.formatValue(val);
+        if (needUpdate) {
+          this.setSliderStyleByValue(value);
+          this.setTickList();
+        }
+        this.onChangeValue =
+          typeof this.onChangeValue === 'undefined'
+            ? this.getValue()
+            : this.onChangeValue;
+        if (
+          emit &&
+          getValueFromProps(this, 'onChange') &&
+          !this.isSliderValueEqual(this.onChangeValue, value)
+        ) {
+          this.onChangeValue = value;
+          triggerEvent(this, 'change', value);
+        }
+        return {
+          value,
+          needUpdate,
+        };
+      },
+    }),
+  ],
+  {
+    onChangeValue: undefined,
+    didUpdate(prevProps) {
+      const [min, max, step, range, showTicks, value] = getValueFromProps(
+        this,
+        ['min', 'max', 'step', 'range', 'showTicks', 'value']
+      );
+      if (
+        !equal(min, prevProps.min) ||
+        !equal(max, prevProps.max) ||
+        !equal(step, prevProps.step) ||
+        !equal(range, prevProps.range) ||
+        !equal(showTicks, prevProps.showTicks)
+      ) {
+        this.update(value);
       }
-      if (valueChange) {
-        triggerEvent('change', v);
-      }
-      if (moveStatusChange) {
-        setMoveStatus((v2) => ({
-          ...v2,
-          ...moveStatus,
-        }));
-      }
-      if (value && type === 'end') {
-        triggerEvent('afterChange', v, event);
-      }
-    }
-  );
-
-  useEvent('handleTrackTouchStart', (e) =>
-    sliderController.handleMove(component, e, 'start')
-  );
-  useEvent('handleTrackTouchMove', (e) =>
-    sliderController.handleMove(component, e, 'move')
-  );
-  useEvent('handleTrackTouchEnd', (e) =>
-    sliderController.handleMove(component, e, 'end')
-  );
-
-  const tickList = useMemo(() => {
-    const { step, min, max, showTicks } = props;
-    if (!showTicks) {
-      return [];
-    }
-    const tickList = [];
-    const stepCount = (max - min) / step;
-
-    for (let i = 0; i <= stepCount; i += 1) {
-      tickList.push({
-        left: i * (100 / stepCount),
-        value: i * step + min,
-      });
-    }
-
-    return tickList;
-  }, [props]);
-
-  const { sliderLeft, sliderWidth } = useMemo(() => {
-    const roundedValue = value;
-    let leftValue = 0;
-    let rightValue = 0;
-    const max = props.max ?? sliderDefaultProps.max;
-    const min = props.min ?? sliderDefaultProps.min;
-
-    if (roundedValue !== undefined) {
-      if (typeof roundedValue === 'number') {
-        leftValue = min;
-        rightValue = roundedValue;
-      } else {
-        leftValue = roundedValue[0];
-        rightValue = roundedValue[1];
-      }
-    }
-
-    // FIX_ME when min and max is equal
-    const width = ((rightValue - leftValue) / (max - min)) * 100;
-    const left = ((leftValue - min) / (max - min)) * 100;
-
-    return {
-      sliderLeft: left,
-      sliderWidth: width,
-    };
-  }, [value]);
-
-  return {
-    mixin: {
-      value,
     },
-    tickList,
-    sliderLeft,
-    sliderWidth,
-    ...moveStatus,
-  };
-};
-
-mountComponent(Slider, SliderFunctionalProps);
+  }
+);

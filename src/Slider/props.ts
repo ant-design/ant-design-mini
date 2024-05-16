@@ -92,12 +92,6 @@ export interface ISliderProps extends IBaseProps {
 }
 
 export const sliderDefaultProps: Partial<ISliderProps> = {
-  min: 0,
-  max: 100,
-  step: 1,
-};
-
-export const SliderFunctionalProps: Partial<ISliderProps> = {
   value: null,
   defaultValue: null,
   disabled: false,
