@@ -39,7 +39,7 @@
     class="ant-slider-track {{ showNumber ? 'ant-slider-track-number' : '' }}">
     <view
       class="ant-slider-track-touch-area"
-      id="ant-slider-id-{{ $id }}"
+      id="ant-slider-id-{{ $id || '' }}"
       onTouchStart="handleTrackTouchStart"
       onTouchEnd="handleTrackTouchEnd"
       onTouchMove="handleTrackTouchMove">

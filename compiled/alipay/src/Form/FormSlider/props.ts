@@ -1,5 +1,5 @@
 import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
-import { ISliderProps, SliderFunctionalProps } from '../../Slider/props';
+import { ISliderProps, sliderDefaultProps } from '../../Slider/props';
 
 export interface FormSliderProps
   extends Omit<ISliderProps, 'value' | 'defaultValue'>,
@@ -9,7 +9,7 @@ export interface FormSliderProps
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { value, defaultValue, ...rest } = SliderFunctionalProps;
+const { value, defaultValue, ...rest } = sliderDefaultProps;
 
 export const FormSliderDefaultProps: Partial<FormSliderProps> = {
   ...FormItemDefaultProps,
