@@ -5,7 +5,7 @@ import { createForm } from '../form';
 Component(FormRangePickerDefaultProps, {
     onOk: function (date, dateStr, e) {
         var v = resolveEventValues(date, dateStr);
-        this.emit('onChange', v[0]);
+        this.emit('onChange', v[1]);
         triggerEventValues(this, 'ok', v, e);
     },
     onPickerChange: function (type, date, dateStr, e) {

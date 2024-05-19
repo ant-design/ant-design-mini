@@ -14,7 +14,12 @@ Component(
   {
     onOk(date, dateStr, e) {
       const v = resolveEventValues(date, dateStr);
+      /// #if ALIPAY
       this.emit('onChange', v[0]);
+      /// #endif
+      /// #if WECHAT
+      this.emit('onChange', v[1]);
+      /// #endif
       triggerEventValues(this, 'ok', v, e);
     },
     onPickerChange(date, dateStr, e) {

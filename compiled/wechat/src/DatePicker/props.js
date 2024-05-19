@@ -25,4 +25,5 @@ export var DatePickerFunctionalProps = {
     popStyle: '',
     disabled: false,
     onFormatLabel: null,
+    onFormat: null,
 };
