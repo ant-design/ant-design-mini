@@ -71,7 +71,7 @@ export default (
           maskClassName={maskClassName}
           indicatorStyle={indicatorStyle}
           indicatorClassName={indicatorClassName}
-          value={formData.value}
+          defaultValue={formData.value}
           onOk="onOk"
           onPickerChange="onPickerChange"
           onCancel="onDismissPicker"

@@ -66,7 +66,7 @@ export default (
           indicatorStyle={indicatorStyle}
           indicatorClassName={indicatorClassName}
           options={options}
-          value={formData.value}
+          defaultValue={formData.value}
           onOk="onOk"
           onChange="onChange"
           onCancel="onDismissPicker"

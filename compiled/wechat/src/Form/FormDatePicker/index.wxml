@@ -34,7 +34,7 @@
       maskClassName="{{ maskClassName }}"
       indicatorStyle="{{ indicatorStyle }}"
       indicatorClassName="{{ indicatorClassName }}"
-      value="{{ formData.value }}"
+      defaultValue="{{ formData.value }}"
       bind:ok="onOk"
       bind:pickerchange="onPickerChange"
       bind:cancel="onDismissPicker"
