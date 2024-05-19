@@ -1,5 +1,5 @@
 import { FormItemProps, FormItemDefaultProps } from '../FormItem/props';
-import { InputProps, InputFunctionalProps } from '../../Input/props';
+import { InputProps, InputDefaultProps } from '../../Input/props';
 
 export interface FormInputProps
   extends Omit<InputProps, 'value' | 'defaultValue' | 'name'>,
@@ -8,11 +8,9 @@ export interface FormInputProps
   inputClassStyle: string;
 }
 
-export const FormInputDefaultProps: Partial<FormInputProps> = {};
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { value, defaultValue, name, ...rest } = InputFunctionalProps;
-export const FormInputFunctionalProps: FormInputProps = {
+const { value, defaultValue, name, ...rest } = InputDefaultProps;
+export const FormInputDefaultProps: FormInputProps = {
   ...FormItemDefaultProps,
   ...rest,
   inputClassName: '',
