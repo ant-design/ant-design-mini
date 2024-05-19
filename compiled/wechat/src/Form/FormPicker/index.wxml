@@ -31,7 +31,7 @@
       indicatorStyle="{{ indicatorStyle }}"
       indicatorClassName="{{ indicatorClassName }}"
       options="{{ options }}"
-      defaultValue="{{ formData.value }}"
+      value="{{ formData.value }}"
       bind:ok="onOk"
       bind:change="onChange"
       bind:cancel="onDismissPicker"
