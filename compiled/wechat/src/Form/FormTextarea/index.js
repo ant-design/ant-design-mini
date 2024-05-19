@@ -39,7 +39,7 @@ Component(FormTextareaDefaultProps, {
         methods: {
             setFormData: function (values) {
                 this.setData(__assign(__assign({}, this.data), { formData: __assign(__assign({}, this.data.formData), values) }));
-                this.input.update(this.data.formData.value);
+                this.input && this.input.update(this.data.formData.value);
             },
         },
     }),

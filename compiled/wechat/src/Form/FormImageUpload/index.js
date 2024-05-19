@@ -51,7 +51,7 @@ Component(FormImageUploadDefaultProps, {
         methods: {
             setFormData: function (values) {
                 this.setData(__assign(__assign({}, this.data), { formData: __assign(__assign({}, this.data.formData), values) }));
-                this.imageUpload.update(this.data.formData.value);
+                this.imageUpload && this.imageUpload.update(this.data.formData.value);
             },
         },
     }),

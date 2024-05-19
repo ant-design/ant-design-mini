@@ -57,7 +57,7 @@ Component(
               ...values,
             },
           });
-          this.imageUpload.update(this.data.formData.value);
+          this.imageUpload && this.imageUpload.update(this.data.formData.value);
         },
       },
     }),
