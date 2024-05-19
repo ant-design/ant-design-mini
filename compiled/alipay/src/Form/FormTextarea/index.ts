@@ -39,7 +39,7 @@ Component(
               ...values,
             },
           });
-          this.input.update(this.data.formData.value);
+          this.input && this.input.update(this.data.formData.value);
         },
       },
     }),
