@@ -1,137 +1,258 @@
 import {
-  useEvent,
-  useRef,
-  useState,
-  useEffect,
-  useMemo,
-} from 'functional-mini/component';
-import '../_util/assert-component2';
-import { mountComponent } from '../_util/component';
-import { useComponentEvent } from '../_util/hooks/useComponentEvent';
-import { useMixState } from '../_util/hooks/useMixState';
-import { IPickerProps, PickerFunctionalProps } from './props';
+  Component,
+  triggerEvent,
+  triggerEventOnly,
+  triggerEventValues,
+  getValueFromProps,
+} from '../_util/simply';
+import equal from 'fast-deep-equal';
+import { PickerDefaultProps } from './props';
 import {
-  getMatchedItemByIndex,
   getMatchedItemByValue,
-  getterColumns,
-  getterFormatText,
-  getterSelectedIndex,
+  getMatchedItemByIndex,
+  getStrictMatchedItemByValue,
 } from './utils';
+import mixinValue from '../mixins/value';
 
-const Picker = (props: IPickerProps) => {
-  const [value, { isControlled: isValueControlled, update: updateValue }] =
-    useMixState(props.defaultValue ?? [], {
-      value: props.value,
-    });
-
-  const { triggerEvent, triggerEventOnly, triggerEventValues } =
-    useComponentEvent(props);
-
-  const [visible, { update: updateVisible }] = useMixState(
-    props.defaultVisible,
-    {
-      value: props.visible,
-    }
-  );
-  const singleRef = useRef(false);
-  const selectIndexRef = useRef(null);
-
-  function triggerPicker(newVisibleValue: boolean) {
-    updateVisible(newVisibleValue);
-    triggerEvent('visibleChange', newVisibleValue);
-  }
-
-  const [selectedIndex, setSelectedIndex] = useState([]);
-
-  const columns = useMemo(() => {
-    return getterColumns(props.options, singleRef);
-  }, [props.options]);
-
-  useEffect(() => {
-    selectIndexRef.current = null;
-    setSelectedIndex(getterSelectedIndex(columns, value, singleRef));
-  }, [columns, value]);
-
-  const formatValue = useMemo(() => {
-    if (typeof props.formattedValueText === 'string') {
-      return props.formattedValueText;
-    }
-    const formatValue = getterFormatText(
-      columns,
-      value,
-      props.onFormat,
-      singleRef
-    );
-    return formatValue;
-  }, [props.formattedValueText, visible, columns, value, props.onFormat]);
-
-  useEvent('onOpen', () => {
-    if (props.disabled) {
-      return;
-    }
-    selectIndexRef.current = null;
-    const selectedIndex = getterSelectedIndex(columns, value, singleRef);
-    setSelectedIndex(selectedIndex);
-    triggerPicker(true);
-  });
-
-  useEvent('onCancel', () => {
-    triggerPicker(false);
-    triggerEventOnly('cancel', { detail: { type: 'cancel' } });
-  });
-
-  useEvent('onMaskDismiss', () => {
-    if (!props.maskClosable) {
-      return;
-    }
-    triggerPicker(false);
-    triggerEventOnly('cancel', { detail: { type: 'mask' } });
-  });
-
-  useEvent('onChange', (e) => {
-    const { value: selectedIndex } = e.detail;
-    const { matchedColumn, matchedValues } = getMatchedItemByIndex(
-      columns,
-      selectedIndex,
-      singleRef
-    );
-    selectIndexRef.current = selectedIndex;
-    setSelectedIndex(selectedIndex);
-    triggerEventValues('change', [matchedValues, matchedColumn], e);
-  });
-
-  useEvent('onOk', () => {
-    let result;
-    if (selectIndexRef.current) {
-      result = getMatchedItemByIndex(
-        columns,
-        selectIndexRef.current,
-        singleRef
+Component(
+  PickerDefaultProps,
+  {
+    // visible受控判断
+    isVisibleControlled() {
+      return 'visible' in getValueFromProps(this);
+    },
+    initData() {
+      const [options, visible, defaultVisible] = getValueFromProps(this, [
+        'options',
+        'visible',
+        'defaultVisible',
+      ]);
+      const columns = this.getterColumns(options);
+      this.setData(
+        {
+          columns,
+        },
+        () => {
+          const formatValue = this.getterFormatText();
+          const selectedIndex = this.getterSelectedIndex();
+          this.setData({
+            formatValue,
+            selectedIndex,
+            visible: this.isVisibleControlled() ? visible : defaultVisible,
+          });
+        }
       );
-    } else {
-      result = getMatchedItemByValue(columns, value, singleRef);
-    }
-
-    const { matchedColumn, matchedValues } = result;
-
-    triggerPicker(false);
-    if (!isValueControlled) {
-      updateValue(matchedValues);
-    }
-    triggerEventValues('ok', [matchedValues, matchedColumn]);
-  });
-
-  return {
-    formatValue,
-    selectedIndex,
-    columns,
-    state: {
-      visible,
     },
-    mixin: {
-      value,
+    getterColumns(options) {
+      let columns = [];
+      if (options.length > 0) {
+        if (options.every((item) => Array.isArray(item))) {
+          this.single = false;
+          columns = options.slice();
+        } else {
+          this.single = true;
+          columns = [options];
+        }
+      }
+      return columns;
     },
-  };
-};
+    defaultFormat(value, column) {
+      if (Array.isArray(column)) {
+        return column
+          .filter((c) => c !== undefined)
+          .map(function (c) {
+            if (typeof c === 'object') {
+              return c.label;
+            }
+            return c;
+          })
+          .join('-');
+      }
+      return (column && column.label) || column || '';
+    },
+    getterFormatText() {
+      const [onFormat, formattedValueText] = getValueFromProps(this, [
+        'onFormat',
+        'formattedValueText',
+      ]);
+      if (typeof formattedValueText === 'string') {
+        return formattedValueText;
+      }
+      const { columns } = this.data;
+      const realValue = this.getValue();
+      const { matchedColumn } = getStrictMatchedItemByValue(
+        columns,
+        realValue,
+        this.single
+      );
+      const formatValueByProps = onFormat && onFormat(realValue, matchedColumn);
+      if (typeof formatValueByProps !== 'undefined') {
+        return formatValueByProps;
+      }
+      return this.defaultFormat(realValue, matchedColumn);
+    },
+    getterSelectedIndex() {
+      const selectedIndex = [];
+      const columns = this.data.columns;
+      const realValue = this.getValue();
+      let value = realValue || [];
+      if (this.single) {
+        value = [realValue];
+      }
+      for (let i = 0; i < columns.length; i++) {
+        const column = columns[i];
+        const compareValue = value[i];
+        if (compareValue === undefined || compareValue === null) {
+          selectedIndex[i] = 0;
+        }
+        let index = column.findIndex((c) => {
+          return c === compareValue || c.value === compareValue;
+        });
+        if (index === -1) {
+          index = 0;
+        }
+        selectedIndex[i] = index;
+      }
+      return selectedIndex;
+    },
 
-mountComponent(Picker, PickerFunctionalProps);
+    onOpen() {
+      const disabled = getValueFromProps(this, 'disabled');
+      if (!disabled) {
+        this.tempSelectedIndex = null;
+        const selectedIndex = this.getterSelectedIndex();
+        this.setData({
+          selectedIndex,
+        });
+        this.triggerPicker(true);
+      }
+    },
+
+    triggerPicker(visible) {
+      this.setData({
+        visible,
+      });
+      triggerEvent(this, 'visibleChange', visible);
+    },
+
+    onMaskDismiss() {
+      const maskClosable = getValueFromProps(this, 'maskClosable');
+      if (!maskClosable) {
+        return;
+      }
+      this.triggerPicker(false);
+      triggerEventOnly(this, 'cancel', { detail: { type: 'mask' } });
+    },
+
+    onCancel() {
+      this.triggerPicker(false);
+      triggerEventOnly(this, 'cancel', { detail: { type: 'cancel' } });
+    },
+
+    onChange(e) {
+      const { value: selectedIndex } = e.detail;
+      this.tempSelectedIndex = selectedIndex;
+      this.isChangingPickerView = true;
+      const { matchedColumn, matchedValues } = getMatchedItemByIndex(
+        this.data.columns,
+        this.tempSelectedIndex,
+        this.single
+      );
+      this.setData({
+        selectedIndex,
+      });
+      triggerEventValues(this, 'change', [matchedValues, matchedColumn], e);
+    },
+
+    async onOk() {
+      let result;
+      if (this.tempSelectedIndex) {
+        result = getMatchedItemByIndex(
+          this.data.columns,
+          this.tempSelectedIndex,
+          this.single
+        );
+      } else {
+        result = getMatchedItemByValue(
+          this.data.columns,
+          this.getValue(),
+          this.single
+        );
+      }
+      const { matchedColumn, matchedValues } = result;
+      this.triggerPicker(false);
+      if (!this.isControlled()) {
+        this.update(matchedValues);
+      }
+      triggerEventValues(this, 'ok', [matchedValues, matchedColumn]);
+    },
+  },
+  {
+    formatValue: '',
+    columns: [],
+    visible: null,
+    selectedIndex: [],
+  },
+  [
+    mixinValue({
+      transformValue(value) {
+        return {
+          needUpdate: true,
+          value: value === undefined ? [] : value,
+        };
+      },
+    }),
+  ],
+  {
+    tempSelectedIndex: null,
+    single: false,
+    isChangingPickerView: false,
+    onInit() {
+      this.initData();
+    },
+    didUpdate(prevProps) {
+      const options = getValueFromProps(this, 'options');
+      if (!equal(options, prevProps.options)) {
+        const newColums = this.getterColumns(options);
+        this.setData(
+          {
+            columns: newColums,
+          },
+          () => {
+            // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
+            if (!this.isChangingPickerView) {
+              this.tempSelectedIndex = null;
+              const selectedIndex = this.getterSelectedIndex();
+              this.setData({
+                selectedIndex,
+              });
+            }
+          }
+        );
+      }
+      const value = getValueFromProps(this, 'value');
+      if (!equal(prevProps.value, value)) {
+        const selectedIndex = this.getterSelectedIndex();
+        this.tempSelectedIndex = null;
+        this.setData({
+          selectedIndex,
+        });
+      }
+      const visible = getValueFromProps(this, 'visible');
+      if (!equal(prevProps.visible, visible)) {
+        this.setData({ visible });
+      }
+      const formatValue = this.getterFormatText();
+      const formattedValueText = getValueFromProps(this, 'formattedValueText');
+      if (
+        formatValue !== this.data.formatValue ||
+        prevProps.formattedValueText !== formattedValueText
+      ) {
+        this.setData({
+          formatValue,
+        });
+      }
+      this.isChangingPickerView = false;
+    },
+  }
+);
