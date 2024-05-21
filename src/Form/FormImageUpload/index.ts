@@ -1,83 +1,76 @@
-import { useEvent, useRef, useEffect } from 'functional-mini/component';
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
-import { useFormItem } from '../use-form-item';
-import { FormImageUploadDefaultProps, FormImageUploadProps } from './props';
+import { Component, triggerEvent, getValueFromProps } from '../../_util/simply';
+import { resolveEventValue } from '../../_util/platform';
+import { FormImageUploadDefaultProps } from './props';
+import { createForm } from '../form';
 
-interface ImageUploadRef {
-  update(value: FormImageUploadProps['fileList']);
-}
+Component(
+  FormImageUploadDefaultProps,
+  {
+    handleRef(imageUpload) {
+      /// #if ALIPAY
+      this.imageUpload = imageUpload;
+      /// #endif
+      /// #if WECHAT
+      this.imageUpload = imageUpload.detail;
+      /// #endif
+    },
+    onChange(value) {
+      this.emit('onChange', resolveEventValue(value));
+      triggerEvent(this, 'change', resolveEventValue(value));
+    },
+    onPreview(file) {
+      triggerEvent(this, 'preview', resolveEventValue(file));
+    },
+    onChooseImageError(err) {
+      triggerEvent(this, 'chooseImageError', resolveEventValue(err));
+    },
 
-const FormImageUpload = (props: FormImageUploadProps) => {
-  const { formData, emit } = useFormItem(props);
-  const { triggerEvent } = useComponentEvent(props);
-
-  const imageUploadRef = useRef<ImageUploadRef>();
-
-  useHandleCustomEvent('handleRef', (imageUpload: ImageUploadRef) => {
-    imageUploadRef.current = imageUpload;
-  });
-
-  useEffect(() => {
-    if (imageUploadRef.current) {
-      imageUploadRef.current.update(formData.value);
-    }
-  }, [formData.value]);
-
-  useHandleCustomEvent('onChange', (value) => {
-    emit('onChange', value);
-    triggerEvent('change', value);
-  });
-
-  useEvent(
-    'handleUpload',
-    (localFile) => {
-      if (!props.onUpload) {
+    handleUpload(localFile) {
+      const onUpload = getValueFromProps(this, 'onUpload');
+      if (!onUpload) {
         throw new Error('need props onUpload');
       }
-      return props.onUpload(localFile);
+      return onUpload(localFile);
     },
-    {
-      handleResult: true,
-    }
-  );
-
-  useEvent(
-    'handleRemove',
-    (file) => {
-      if (props.onRemove) {
-        return props.onRemove(file);
+    handleRemove(file) {
+      const onRemove = getValueFromProps(this, 'onRemove');
+      if (onRemove) {
+        return onRemove(file);
       }
     },
-    {
-      handleResult: true,
-    }
-  );
-
-  useHandleCustomEvent('onPreview', (file, e) => {
-    triggerEvent('preview', file, e);
-  });
-
-  useEvent(
-    'handleBeforeUpload',
-    (localFileList) => {
-      if (props.onBeforeUpload) {
-        return props.onBeforeUpload(localFileList);
+    handleBeforeUpload(localFileList) {
+      const onBeforeUpload = getValueFromProps(this, 'onBeforeUpload');
+      if (onBeforeUpload) {
+        return onBeforeUpload(localFileList);
       }
     },
-    {
-      handleResult: true,
-    }
-  );
-
-  useHandleCustomEvent('onChooseImageError', (err, e) => {
-    triggerEvent('chooseImageError', err, e);
-  });
-
-  return {
-    formData,
-  };
-};
-
-mountComponent(FormImageUpload, FormImageUploadDefaultProps);
+  },
+  {},
+  [
+    createForm({
+      methods: {
+        setFormData(this: any, values) {
+          this.setData({
+            ...this.data,
+            formData: {
+              ...this.data.formData,
+              ...values,
+            },
+          });
+          this.imageUpload && this.imageUpload.update(this.data.formData.value);
+        },
+      },
+    }),
+  ],
+  {
+    /// #if WECHAT
+    attached() {
+      this.setData({
+        handleUpload: this.handleUpload.bind(this),
+        handleRemove: this.handleRemove.bind(this),
+        handleBeforeUpload: this.handleBeforeUpload.bind(this),
+      });
+    },
+    /// #endif
+  }
+);

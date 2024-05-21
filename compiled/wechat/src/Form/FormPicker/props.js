@@ -10,5 +10,5 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { PickerFunctionalProps } from '../../Picker/props';
-import { FormItemFunctionalProps } from '../FormItem/props';
-export var FormPickerDefaultProps = __assign(__assign(__assign({}, FormItemFunctionalProps), PickerFunctionalProps), { arrow: false });
+import { FormItemDefaultProps } from '../FormItem/props';
+export var FormPickerDefaultProps = __assign(__assign(__assign({}, FormItemDefaultProps), PickerFunctionalProps), { arrow: false });

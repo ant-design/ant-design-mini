@@ -279,9 +279,7 @@ Component(sliderDefaultProps, {
                 typeof this.onChangeValue === 'undefined'
                     ? this.getValue()
                     : this.onChangeValue;
-            if (emit &&
-                getValueFromProps(this, 'onChange') &&
-                !this.isSliderValueEqual(this.onChangeValue, value)) {
+            if (emit && !this.isSliderValueEqual(this.onChangeValue, value)) {
                 this.onChangeValue = value;
                 triggerEvent(this, 'change', value);
             }

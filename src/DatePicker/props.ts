@@ -165,4 +165,5 @@ export const DatePickerFunctionalProps: IDatePickerProps = {
   popStyle: '',
   disabled: false,
   onFormatLabel: null,
+  onFormat: null,
 };

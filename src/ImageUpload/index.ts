@@ -184,7 +184,7 @@ Component(
       transformValue(fileList = []) {
         return {
           needUpdate: true,
-          value: fileList.map((item) => {
+          value: (fileList || []).map((item) => {
             const file = {
               ...item,
             };

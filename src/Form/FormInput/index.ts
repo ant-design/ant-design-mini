@@ -1,49 +1,48 @@
-import { useEffect, useRef } from 'functional-mini/component';
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
-import { useFormItem } from '../use-form-item';
-import { FormInputFunctionalProps, FormInputProps } from './props';
+import { Component, triggerEvent } from '../../_util/simply';
+import { resolveEventValue } from '../../_util/platform';
+import { FormInputDefaultProps } from './props';
+import { createForm } from '../form';
 
-interface InputRef {
-  update(value: string);
-}
-
-const FormInput = (props: FormInputProps) => {
-  const { formData, emit } = useFormItem(props);
-  const { triggerEvent } = useComponentEvent(props);
-  const inputRef = useRef<InputRef>();
-
-  useHandleCustomEvent('handleRef', (input: InputRef) => {
-    inputRef.current = input;
-  });
-
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.update(formData.value);
-    }
-  }, [formData]);
-
-  useHandleCustomEvent<string>('onChange', (value, e) => {
-    emit('onChange', value);
-    triggerEvent('change', value, e);
-  });
-
-  useHandleCustomEvent('onBlur', (value, e) => {
-    triggerEvent('blur', value, e);
-  });
-
-  useHandleCustomEvent('onFocus', (value, e) => {
-    triggerEvent('focus', value, e);
-  });
-
-  useHandleCustomEvent('onConfirm', (value, e) => {
-    triggerEvent('confirm', value, e);
-  });
-
-  return {
-    formData,
-  };
-};
-
-mountComponent(FormInput, FormInputFunctionalProps);
+Component(
+  FormInputDefaultProps,
+  {
+    handleRef(input) {
+      /// #if ALIPAY
+      this.input = input;
+      /// #endif
+      /// #if WECHAT
+      this.input = input.detail;
+      /// #endif
+    },
+    onChange(value, e) {
+      this.emit('onChange', resolveEventValue(value));
+      triggerEvent(this, 'change', resolveEventValue(value), e);
+    },
+    onBlur(value, e) {
+      triggerEvent(this, 'blur', resolveEventValue(value), e);
+    },
+    onFocus(value, e) {
+      triggerEvent(this, 'focus', resolveEventValue(value), e);
+    },
+    onConfirm(value, e) {
+      triggerEvent(this, 'confirm', resolveEventValue(value), e);
+    },
+  },
+  null,
+  [
+    createForm({
+      methods: {
+        setFormData(this: any, values) {
+          this.setData({
+            ...this.data,
+            formData: {
+              ...this.data.formData,
+              ...values,
+            },
+          });
+          this.input && this.input.update(this.data.formData.value);
+        },
+      },
+    }),
+  ]
+);

@@ -10,5 +10,5 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { CascaderFunctionalProps, } from '../../Picker/CascaderPicker/props';
-import { FormItemFunctionalProps } from '../FormItem/props';
-export var FormCascaderPickerDefaultProps = __assign(__assign(__assign({}, FormItemFunctionalProps), CascaderFunctionalProps), { arrow: false });
+import { FormItemDefaultProps } from '../FormItem/props';
+export var FormCascaderPickerDefaultProps = __assign(__assign(__assign({}, FormItemDefaultProps), CascaderFunctionalProps), { arrow: false });

@@ -1,4 +1,4 @@
-import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
+import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
 import { IStepperProps, StepperDefaultProps } from '../../Stepper/props';
 
 export interface FormStepperProps
@@ -12,7 +12,7 @@ export interface FormStepperProps
 const { value, defaultValue, ...rest } = StepperDefaultProps;
 
 export const FormStepperDefaultProps: Partial<FormStepperProps> = {
-  ...FormItemFunctionalProps,
+  ...FormItemDefaultProps,
   ...rest,
   stepperClassName: '',
   stepperStyle: '',

@@ -20,8 +20,8 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import { FormItemFunctionalProps } from './../FormItem/props';
+import { FormItemDefaultProps } from './../FormItem/props';
 import { TextareaDefaultProps, } from '../../Input/Textarea/props';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var value = TextareaDefaultProps.value, defaultValue = TextareaDefaultProps.defaultValue, name = TextareaDefaultProps.name, rest = __rest(TextareaDefaultProps, ["value", "defaultValue", "name"]);
-export var FormTextareaDefaultProps = __assign(__assign({}, FormItemFunctionalProps), rest);
+export var FormTextareaDefaultProps = __assign(__assign({}, FormItemDefaultProps), rest);

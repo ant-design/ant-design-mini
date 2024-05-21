@@ -20,8 +20,8 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import { FormItemFunctionalProps } from '../FormItem/props';
+import { FormItemDefaultProps } from '../FormItem/props';
 import { sliderDefaultProps } from '../../Slider/props';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var value = sliderDefaultProps.value, defaultValue = sliderDefaultProps.defaultValue, rest = __rest(sliderDefaultProps, ["value", "defaultValue"]);
-export var FormSliderDefaultProps = __assign(__assign(__assign({}, FormItemFunctionalProps), rest), { sliderClassName: '', sliderStyle: '' });
+export var FormSliderDefaultProps = __assign(__assign(__assign({}, FormItemDefaultProps), rest), { sliderClassName: '', sliderStyle: '' });

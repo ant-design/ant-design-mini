@@ -21,9 +21,9 @@ export function resolveEventValue(value) {
   return value;
 }
 
-export function resolveEventValues(args1: any, args2?: any) {
+export function resolveEventValues(args1: any, args2?: any, ...rest) {
 
-  return [args1, args2];
+  return [args1, args2, ...rest];
 }
 
 export function isOldSDKVersion() {

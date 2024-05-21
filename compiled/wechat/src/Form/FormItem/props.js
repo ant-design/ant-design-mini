@@ -1,8 +1,4 @@
 export var FormItemDefaultProps = {
-    position: 'horizontal',
-    requiredMark: 'asterisk',
-};
-export var FormItemFunctionalProps = {
     name: null,
     label: null,
     labelWidth: null,

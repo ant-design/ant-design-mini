@@ -188,4 +188,5 @@ export const DateRangePickerFunctionalProps: Partial<IDateRangePickerProps> = {
   popStyle: '',
   disabled: false,
   onFormatLabel: null,
+  onFormat: null,
 };
