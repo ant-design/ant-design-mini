@@ -86,7 +86,7 @@ Component(
         this.single
       );
       const formatValueByProps = onFormat && onFormat(realValue, matchedColumn);
-      if (typeof formatValueByProps !== 'undefined') {
+      if (formatValueByProps !== undefined && formatValueByProps !== null) {
         return formatValueByProps;
       }
       return this.defaultFormat(realValue, matchedColumn);

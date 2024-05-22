@@ -103,7 +103,7 @@ Component(PickerDefaultProps, {
         var realValue = this.getValue();
         var matchedColumn = getStrictMatchedItemByValue(columns, realValue, this.single).matchedColumn;
         var formatValueByProps = onFormat && onFormat(realValue, matchedColumn);
-        if (typeof formatValueByProps !== 'undefined') {
+        if (formatValueByProps !== undefined && formatValueByProps !== null) {
             return formatValueByProps;
         }
         return this.defaultFormat(realValue, matchedColumn);
@@ -243,9 +243,11 @@ Component(PickerDefaultProps, {
         },
         'visible': function () {
             var visible = getValueFromProps(this, 'visible');
-            this.setData({
-                visible: visible,
-            });
+            if (this.data.visible !== visible) {
+                this.setData({
+                    visible: visible,
+                });
+            }
         },
         'formattedValueText': function () {
             var formattedValueText = getValueFromProps(this, 'formattedValueText');
