@@ -9,6 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+
 import { PickerDefaultProps } from '../../Picker/props';
 import { FormItemDefaultProps } from '../FormItem/props';
 export var FormPickerDefaultProps = __assign(__assign(__assign({}, FormItemDefaultProps), PickerDefaultProps), { arrow: false });
