@@ -31,7 +31,6 @@ toc: content
 | loop       | 是否循环滚动，`enableMarquee` 为 true 时有效 | boolean | false  |
 | mode       | 通告类型，`link` 表示连接，整行可点；`closeable` 表示点击 x 可以关闭；不填时表示右侧没有图标 | string      | -      |
 | style      | 样式                   | string      | -      |
-| title      | 标题                   | string\|slot | -      |
 | type       | 类型，可选 `default`, `error`, `primary`, `info` | string | default |
 | onTap      | 点击通知栏右侧的图标（箭头或者叉），触发回调 | () => void | -      |
 
