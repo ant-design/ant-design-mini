@@ -2,7 +2,12 @@
   wx:if="{{ show }}"
   class="ant-notice-bar {{ className || '' }} {{ type ? 'ant-notice-bar-' + type : '' }}"
   style="{{ style }}">
-  <view class="ant-notice-bar-icon">
+  <slot
+    wx:if="{{ slotIcon }}"
+    name="icon" />
+  <view
+    wx:else
+    class="ant-notice-bar-icon">
     <image-icon
       wx:if="{{ icon }}"
       image="{{ icon }}"

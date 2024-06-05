@@ -48,10 +48,18 @@ export default ({ typeList }: InternalData) => (
     </AntContainer>
 
     <AntContainer title="自定义通告栏">
+      {/* #if ALIPAY */}
       <AntNotice style="margin-bottom: 8px">
         不展示图标
-        <View slot="icon" />
+        <View slot="icon"></View>
       </AntNotice>
+      {/* #endif */}
+      {/* #if WECHAT */}
+      <AntNotice style="margin-bottom: 8px" slotIcon>
+        不展示图标
+        <View slot="icon"></View>
+      </AntNotice>
+      {/* #endif */}
 
       <AntNotice
         type="primary"
