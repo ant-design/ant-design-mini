@@ -1,5 +1,6 @@
 {
   "component": true,
+  "lazyCodeLoading": "renderedComponents",
   "usingComponents": {
     "form-item": "../FormItem/index",
     "selector": "../../Selector/index"

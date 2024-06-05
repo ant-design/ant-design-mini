@@ -1,5 +1,6 @@
 {
   "component": true,
+  "lazyCodeLoading": "renderedComponents",
   "usingComponents": {
     "loading": "../Loading/index",
     "ant-icon": "../Icon/index"
