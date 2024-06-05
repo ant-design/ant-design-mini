@@ -35,7 +35,7 @@ export interface INoticeBarProps extends IBaseProps {
    * @description 微信版本需要通过此字段启用 icon 位置的插槽
    * @default false
    */
-  slotIcon: boolean;
+  slotIcon?: boolean;
   /**
    * @description 点击图标（箭头或者叉，由mode属性决定）的事件回调
    */
