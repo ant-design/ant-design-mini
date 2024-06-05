@@ -18,6 +18,11 @@ Component({
     closeIcon: '',
   },
   didMount() {
+    if (this.renderer === 'native') {
+      this.setData({
+        supportSjs: false,
+      });
+    }
     const { name, disabled, expandIcon, closeIcon } = this.props;
     const key = `${this.$page.$id}-${this.props.uid}`;
     if (typeof name !== 'string') {

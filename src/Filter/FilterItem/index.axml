@@ -1,6 +1,6 @@
 <view class="amd-filter-item {{className ? className : ''}}"
   id="filterItem-{{$id}}"
-  style="{{show ? 'transform: scaleY(1);' : 'transform: scaleY(0);'}}">
+  style="{{show ? visibleCssText : hiddenCssText}}">
   <view class="amd-filter-item-content {{type === 'multiple' ? 'amd-filter-item-content-multiple' : ''}}">
     <view class="amd-filter-item-content-wrap">
       <selector onChange="onChange"

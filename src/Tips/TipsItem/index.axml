@@ -24,6 +24,7 @@
   a:if="{{showClose}}"
   class="amd-tips-close">
   <icon 
+    className="{{native ? 'amd-tips-close-native-icon' : ''}}"
     type="CloseOutline"
     size="x-small"
     onTap="onHideTips" />

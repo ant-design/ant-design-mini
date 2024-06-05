@@ -4,6 +4,16 @@ import htmlType from '../mixins/htmlType';
 
 Component({
   props: ButtonDefaultProps,
+  data: {
+    native: false,
+  },
+  didMount() {
+    if (this.renderer === 'native') {
+      this.setData({
+        native: true,
+      });
+    }
+  },
   mixins: [htmlType()],
   methods: {
     onTap(e) {

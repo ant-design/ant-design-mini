@@ -44,5 +44,15 @@ Component({
         componentContext.update(key, this.props.value);
       }
     },
+    handleNativeFallback() {
+      if (this.renderer === 'native') {
+        const fakeEvent = {
+          detail: {
+            value: true,
+          }
+        };
+        this.onItemChange(fakeEvent);
+      }
+    },
   },
 });
