@@ -190,7 +190,7 @@ Component(
   {
     formatValue: '',
     columns: [],
-    visible: null,
+    visible: false,
     selectedIndex: [],
   },
   [

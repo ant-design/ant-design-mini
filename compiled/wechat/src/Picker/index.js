@@ -197,7 +197,7 @@ Component(PickerDefaultProps, {
 }, {
     formatValue: '',
     columns: [],
-    visible: null,
+    visible: false,
     selectedIndex: [],
 }, [
     mixinValue({
