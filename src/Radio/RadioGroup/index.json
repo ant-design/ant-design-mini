@@ -1,5 +1,6 @@
 {
   "component": true,
+  "lazyCodeLoading": "renderedComponents",
   "usingComponents": {
     "list": "../../List/index",
     "list-item": "../../List/ListItem/index",

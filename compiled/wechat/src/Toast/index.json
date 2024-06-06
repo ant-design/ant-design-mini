@@ -1,5 +1,6 @@
 {
   "component": true,
+  "lazyCodeLoading": "renderedComponents",
   "usingComponents": {
     "am-icon": "../Icon/index",
     "mask": "../Mask/index",
