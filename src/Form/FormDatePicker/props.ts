@@ -1,5 +1,5 @@
 import {
-  DatePickerFunctionalProps,
+  DatePickerDefaultProps,
   IDatePickerProps,
 } from '../../DatePicker/props';
 import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
@@ -13,6 +13,6 @@ export interface FormDatePickerProps extends IDatePickerProps, FormItemProps {
 
 export const FormDatePickerDefaultProps: Partial<FormDatePickerProps> = {
   ...FormItemDefaultProps,
-  ...DatePickerFunctionalProps,
+  ...DatePickerDefaultProps,
   arrow: false,
 };
