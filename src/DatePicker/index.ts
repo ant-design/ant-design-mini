@@ -208,7 +208,7 @@ Component(
 
     onVisibleChange(visible) {
       this.pickerVisible = visible;
-      if (visible) {
+      if (!this.isVisibleControlled() && visible) {
         this.setCurrentValue(getValueFromProps(this));
       }
       triggerEvent(this, 'visibleChange', resolveEventValue(visible));

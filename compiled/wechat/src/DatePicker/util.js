@@ -140,6 +140,8 @@ export function getValueByDate(date, precision) {
         'getSeconds',
     ];
     var value = [];
+    if (!date)
+        return value;
     for (var i = 0; i < precisionLengthRecord[precision]; i++) {
         value.push(date[fields[i]]());
         if (i === 1) {

@@ -155,6 +155,7 @@ export function getValueByDate(
     'getSeconds',
   ];
   const value = [];
+  if (!date) return value;
   for (let i = 0; i < precisionLengthRecord[precision]; i++) {
     value.push(date[fields[i]]());
     if (i === 1) {

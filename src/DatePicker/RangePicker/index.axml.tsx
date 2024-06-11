@@ -32,7 +32,7 @@ export default (
     precision,
   }: TSXMLProps<IDateRangePickerProps>,
   {
-    state,
+    visible,
     formattedValueText,
     columns,
     currentValue,
@@ -81,7 +81,7 @@ export default (
           ? 'ant-range-picker-confirm-disabled'
           : ''
       } ${popClassName || ''}`}
-      visible={state.visible}
+      visible={visible}
       style={style}
       animationType={animationType}
       options={columns}

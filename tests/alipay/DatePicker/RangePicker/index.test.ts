@@ -227,21 +227,21 @@ describe('visible 受控模式', () => {
       visible: false,
       defaultVisible: true,
     });
-    expect(instance.getData().state.visible).toEqual(false);
+    expect(instance.getData().visible).toEqual(false);
     await callVisibleChange(true);
-    expect(instance.getData().state.visible).toEqual(false);
+    expect(instance.getData().visible).toEqual(false);
     expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
   });
   it('visible 受控', async () => {
     const { instance } = createDateRangePicker({
       visible: false,
     });
-    expect(instance.getData().state.visible).toEqual(false);
+    expect(instance.getData().visible).toEqual(false);
     instance.setProps({
       visible: true,
     });
     await sleep(100);
-    expect(instance.getData().state.visible).toEqual(true);
+    expect(instance.getData().visible).toEqual(true);
   });
 });
 
