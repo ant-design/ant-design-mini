@@ -1,15 +1,5 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 import { Component, triggerEvent, triggerEventOnly, triggerEventValues, getValueFromProps, } from '../_util/simply';
+import { resolveEventValue, resolveEventValues } from '../_util/platform';
 import { DatePickerDefaultProps } from './props';
 import dayjs from 'dayjs';
 import equal from 'fast-deep-equal';
@@ -61,11 +51,6 @@ Component(DatePickerDefaultProps, {
                 });
             });
         }
-        else {
-            this.setData({
-                currentValue: currentValue,
-            });
-        }
     },
     // 生成选项数据，didmound、picker change、打开弹窗触发
     generateData: function (currentValue, currentProps) {
@@ -88,7 +73,7 @@ Component(DatePickerDefaultProps, {
     onFormatLabel: function (type, value) {
         var onFormatLabel = getValueFromProps(this, 'onFormatLabel');
         var formatValueByProps = onFormatLabel && onFormatLabel(type, value);
-        if (typeof formatValueByProps !== 'undefined') {
+        if (formatValueByProps !== undefined && formatValueByProps !== null) {
             return String(formatValueByProps);
         }
         return this.defaultFormatLabel(type, value);
@@ -104,7 +89,7 @@ Component(DatePickerDefaultProps, {
         };
         return "".concat(value).concat(suffixMap[type]);
     },
-    onChange: function (selectedIndex) {
+    onChange: function (selectedIdx) {
         var _this = this;
         var _a = getValueFromProps(this, [
             'min',
@@ -112,7 +97,7 @@ Component(DatePickerDefaultProps, {
             'format',
             'precision',
         ]), pmin = _a[0], pmax = _a[1], format = _a[2], precision = _a[3];
-        selectedIndex = getValidValue(selectedIndex);
+        var selectedIndex = resolveEventValues(getValidValue(selectedIdx))[0];
         var date = getDateByValue(selectedIndex);
         var min = this.getMin(pmin);
         var max = this.getMax(pmax);
@@ -173,7 +158,7 @@ Component(DatePickerDefaultProps, {
         var realValue = this.getValue();
         var formatValueByProps = onFormat &&
             onFormat(realValue, realValue ? dayjs(realValue).format(format) : null);
-        if (typeof formatValueByProps !== 'undefined') {
+        if (formatValueByProps !== undefined && formatValueByProps !== null) {
             return formatValueByProps;
         }
         return this.defaultFormat(realValue, realValue ? dayjs(realValue).format(format) : null);
@@ -183,7 +168,7 @@ Component(DatePickerDefaultProps, {
         if (visible) {
             this.setCurrentValue(getValueFromProps(this));
         }
-        triggerEvent(this, 'visibleChange', visible);
+        triggerEvent(this, 'visibleChange', resolveEventValue(visible));
     },
 }, {
     currentValue: [],
@@ -210,21 +195,18 @@ Component(DatePickerDefaultProps, {
         ]), visible = _a[0], defaultVisible = _a[1];
         this.setData({
             visible: this.isVisibleControlled() ? visible : defaultVisible,
+            formattedValueText: this.onFormat(),
         });
     },
     observers: {
-        '**': function (data) {
-            var prevData = this._prevData || this.data;
-            this._prevData = __assign({}, data);
-            if (!this.isEqualValue(prevData)) {
-                this.setData({
-                    forceUpdate: this.data.forceUpdate + 1,
-                    formattedValueText: this.onFormat(),
-                });
-                // 展开状态才更新picker的数据，否则下次triggerVisible触发
-                if (this.pickerVisible) {
-                    this.setCurrentValue(data);
-                }
+        'mixin.value': function () {
+            this.setData({
+                forceUpdate: this.data.forceUpdate + 1,
+                formattedValueText: this.onFormat(),
+            });
+            // 展开状态才更新picker的数据，否则下次triggerVisible触发
+            if (this.pickerVisible) {
+                this.setCurrentValue(getValueFromProps(this));
             }
         },
         'visible': function () {

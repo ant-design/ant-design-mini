@@ -5,6 +5,7 @@ import {
   triggerEventValues,
   getValueFromProps,
 } from '../_util/simply';
+import { resolveEventValue, resolveEventValues } from '../_util/platform';
 import { DatePickerDefaultProps } from './props';
 import dayjs from 'dayjs';
 import equal from 'fast-deep-equal';
@@ -13,7 +14,6 @@ import {
   getDateByValue,
   getValueByDate,
   getValidValue,
-  isEqualDate,
 } from './util';
 import mixinValue from '../mixins/value';
 
@@ -68,10 +68,6 @@ Component(
             });
           }
         );
-      } else {
-        this.setData({
-          currentValue,
-        });
       }
     },
 
@@ -102,7 +98,7 @@ Component(
     onFormatLabel(type, value) {
       const onFormatLabel = getValueFromProps(this, 'onFormatLabel');
       const formatValueByProps = onFormatLabel && onFormatLabel(type, value);
-      if (typeof formatValueByProps !== 'undefined') {
+      if (formatValueByProps !== undefined && formatValueByProps !== null) {
         return String(formatValueByProps);
       }
       return this.defaultFormatLabel(type, value);
@@ -118,14 +114,14 @@ Component(
       };
       return `${value}${suffixMap[type]}`;
     },
-    onChange(selectedIndex) {
+    onChange(selectedIdx) {
       const [pmin, pmax, format, precision] = getValueFromProps(this, [
         'min',
         'max',
         'format',
         'precision',
       ]);
-      selectedIndex = getValidValue(selectedIndex);
+      let [selectedIndex] = resolveEventValues(getValidValue(selectedIdx));
       let date = getDateByValue(selectedIndex);
       const min = this.getMin(pmin);
       const max = this.getMax(pmax);
@@ -141,6 +137,7 @@ Component(
         selectedIndex,
         getValueFromProps(this)
       );
+
       if (!equal(newColumns, this.data.columns)) {
         this.setData(
           {
@@ -158,6 +155,7 @@ Component(
       } else {
         this.setData({ currentValue: selectedIndex });
         const date = getDateByValue(selectedIndex);
+
         triggerEventValues(this, 'pickerChange', [
           date,
           dayjs(date).format(format),
@@ -194,7 +192,7 @@ Component(
       const formatValueByProps =
         onFormat &&
         onFormat(realValue, realValue ? dayjs(realValue).format(format) : null);
-      if (typeof formatValueByProps !== 'undefined') {
+      if (formatValueByProps !== undefined && formatValueByProps !== null) {
         return formatValueByProps;
       }
       return this.defaultFormat(
@@ -208,7 +206,7 @@ Component(
       if (visible) {
         this.setCurrentValue(getValueFromProps(this));
       }
-      triggerEvent(this, 'visibleChange', visible);
+      triggerEvent(this, 'visibleChange', resolveEventValue(visible));
     },
   },
   {
