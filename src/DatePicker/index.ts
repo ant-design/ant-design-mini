@@ -290,10 +290,12 @@ Component(
           this.setCurrentValue(getValueFromProps(this));
         }
       },
-      'visible': function () {
+      'visible': function (data) {
+        const prevVisible = this._prevVisible;
+        this._prevVisible = data;
         const currentProps = getValueFromProps(this);
         const visible = getValueFromProps(this, 'visible');
-        if (this.isVisibleControlled() && this.data.visible !== visible) {
+        if (this.isVisibleControlled() && prevVisible !== visible) {
           this.pickerVisible = visible;
           this.setData({
             visible,

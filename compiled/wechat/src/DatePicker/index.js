@@ -209,10 +209,12 @@ Component(DatePickerDefaultProps, {
                 this.setCurrentValue(getValueFromProps(this));
             }
         },
-        'visible': function () {
+        'visible': function (data) {
+            var prevVisible = this._prevVisible;
+            this._prevVisible = data;
             var currentProps = getValueFromProps(this);
             var visible = getValueFromProps(this, 'visible');
-            if (this.isVisibleControlled() && this.data.visible !== visible) {
+            if (this.isVisibleControlled() && prevVisible !== visible) {
                 this.pickerVisible = visible;
                 this.setData({
                     visible: visible,
