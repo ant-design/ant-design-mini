@@ -121,14 +121,6 @@ export interface ICascaderProps extends IBaseProps {
 }
 
 export const CascaderDefaultProps: Partial<ICascaderProps> = {
-  placeholder: '请选择',
-  okText: '确定',
-  cancelText: '取消',
-  disabled: false,
-  maskClosable: false,
-};
-
-export const CascaderFunctionalProps: Partial<ICascaderProps> = {
   visible: null,
   defaultVisible: null,
   animationType: 'transform',

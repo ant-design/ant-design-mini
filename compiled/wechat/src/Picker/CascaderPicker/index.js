@@ -1,47 +1,107 @@
-import { useEvent, useMemo, useEffect, useState } from 'functional-mini/component';
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { useComponentUpdateEffect } from '../../_util/hooks/useLayoutEffect';
-import { useMixState } from '../../_util/hooks/useMixState';
-import { resolveEventValues, resolveEventValue } from '../../_util/platform';
-import { CascaderFunctionalProps } from './props';
-import { defaultFormat, getterColumns, getValidValue } from './utils';
-var CascaderPicker = function (props) {
-    var _a = useMixState(props.defaultValue, {
-        value: props.value,
-    }), realValue = _a[0], _b = _a[1], isRealValueControlled = _b.isControlled, updateRealValue = _b.update;
-    var _c = useState(function () {
-        var value = props.value || props.defaultValue || [];
-        var columns = getterColumns(props.value || props.defaultValue, props.options);
-        return { columns: columns, value: value };
-    }), _d = _c[0], value = _d.value, columns = _d.columns, setState = _c[1];
-    var _e = useComponentEvent(props), triggerEventOnly = _e.triggerEventOnly, triggerEventValues = _e.triggerEventValues, triggerEvent = _e.triggerEvent;
-    useComponentUpdateEffect(function () {
-        var newColumns = getterColumns(props.value, props.options);
-        var value = getValidValue(props.value, newColumns);
-        setState({ value: value, columns: newColumns });
-    }, [
-        props.value,
-        props.options,
-        /**
-         * 这里不要删
-         *
-         * 1. picker 触发 onOk
-         * 2. 更新 realValue
-         * 3. picker 触发 onFormat (此时 realValue 未更新)
-         * 4. 依赖里的 realValue 更新
-         * 5. 触发组件再次渲染
-         * 6. 此时 onFormat 读取到最新的realValue
-         */
-        realValue,
-    ]);
-    function getOptionByValue(value, options) {
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+import { Component, getValueFromProps, triggerEvent, triggerEventOnly, triggerEventValues, } from '../../_util/simply';
+import { CascaderDefaultProps } from './props';
+import equal from 'fast-deep-equal';
+import mixinValue from '../../mixins/value';
+Component(CascaderDefaultProps, {
+    // visible受控判断
+    isVisibleControlled: function () {
+        return getValueFromProps(this, 'visible') !== null;
+    },
+    initColumns: function () {
+        var _a = getValueFromProps(this, [
+            'options',
+            'visible',
+            'defaultVisible',
+            'value',
+            'defaultValue',
+        ]), options = _a[0], visible = _a[1], defaultVisible = _a[2], value = _a[3], defaultValue = _a[4];
+        var realValue = value || defaultValue || [];
+        var columns = this.getterColumns(realValue, options);
+        // 首次无需校验value有效性，onOk时会校验
+        this.setData({
+            columns: columns,
+            visible: this.isVisibleControlled() ? visible : defaultVisible,
+            currentValue: realValue,
+            formattedValueText: this.onFormat(),
+        });
+    },
+    getterColumns: function (value, options) {
+        var getColumns = function (options, value, columns) {
+            var _a;
+            if (columns === void 0) { columns = []; }
+            columns.push(options.map(function (v) { return ({ value: v.value, label: v.label }); }));
+            var currentOption = options.find(function (v) { return v.value === (value === null || value === void 0 ? void 0 : value[columns.length - 1]); }) ||
+                options[0];
+            if (((_a = currentOption === null || currentOption === void 0 ? void 0 : currentOption.children) === null || _a === void 0 ? void 0 : _a.length) > 0) {
+                return getColumns(currentOption.children, value, columns);
+            }
+            return columns;
+        };
+        return getColumns(options, value);
+    },
+    // 获取有效value，若从x项开始在columns里找不到，则从此项开始都选第一条
+    getValidValue: function (value, columns) {
+        var result = [];
+        var _loop_1 = function (i) {
+            if (!columns[i].some(function (v) { return v.value === (value === null || value === void 0 ? void 0 : value[i]); })) {
+                result.push.apply(result, columns.slice(i).map(function (v) { return v[0].value; }));
+                return "break";
+            }
+            else {
+                result[i] = value[i];
+            }
+        };
+        for (var i = 0; i < columns.length; i++) {
+            var state_1 = _loop_1(i);
+            if (state_1 === "break")
+                break;
+        }
+        return result;
+    },
+    getOptionByValue: function (value) {
         var _a;
+        var options = getValueFromProps(this, 'options');
         if (!((value === null || value === void 0 ? void 0 : value.length) > 0))
             return null;
         var result = [];
         var item = options.find(function (v) { return v.value === value[0]; });
-        var _loop_1 = function (i) {
+        var _loop_2 = function (i) {
             if (!item) {
                 return { value: null };
             }
@@ -52,77 +112,110 @@ var CascaderPicker = function (props) {
             item = (_a = item.children) === null || _a === void 0 ? void 0 : _a.find(function (v) { return v.value === value[i + 1]; });
         };
         for (var i = 0; i < value.length; i++) {
-            var state_1 = _loop_1(i);
-            if (typeof state_1 === "object")
-                return state_1.value;
+            var state_2 = _loop_2(i);
+            if (typeof state_2 === "object")
+                return state_2.value;
         }
         return result;
-    }
-    useEvent('onCancel', function (e) {
-        triggerEventOnly('cancel', e);
-    });
-    var formattedValueText = useMemo(function () {
-        var onFormat = props.onFormat;
-        if (typeof onFormat === 'function') {
-            var formatValueByProps = onFormat(realValue, getOptionByValue(realValue, props.options));
-            if (typeof formatValueByProps !== 'undefined') {
-                return formatValueByProps;
-            }
+    },
+    onChange: function (selectedValue) {
+        var options = getValueFromProps(this, 'options');
+        var columns = this.data.columns;
+        var newColumns = this.getterColumns(selectedValue, options);
+        // columns没变化说明selectedValue在范围内，无需重置
+        var newData = {};
+        if (!equal(columns, newColumns)) {
+            selectedValue = this.getValidValue(selectedValue, newColumns);
+            newData.columns = newColumns;
         }
-        return defaultFormat(realValue, getOptionByValue(realValue, props.options));
-    }, [realValue]);
-    var _f = useMixState(props.defaultVisible, {
-        value: props.visible,
-    }), visible = _f[0], updateVisible = _f[1].update;
-    useEffect(function () {
-        setTimeout(function () {
-            if (visible) {
-                var newColumns = getterColumns(realValue, props.options);
-                var currentValue = getValidValue(realValue, newColumns);
-                setState({ value: currentValue, columns: newColumns });
-            }
+        newData.currentValue = selectedValue;
+        newData.formattedValueText = this.onFormat();
+        this.setData(newData);
+        triggerEventValues(this, 'change', [
+            selectedValue,
+            this.getOptionByValue(selectedValue),
+        ]);
+    },
+    onOk: function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, currentValue, columns, validValue;
+            return __generator(this, function (_b) {
+                _a = this.data, currentValue = _a.currentValue, columns = _a.columns;
+                validValue = this.getValidValue(currentValue, columns);
+                if (!this.isControlled()) {
+                    this.update(validValue);
+                }
+                triggerEventValues(this, 'ok', [
+                    validValue,
+                    this.getOptionByValue(validValue),
+                ]);
+                return [2 /*return*/];
+            });
         });
-    }, [visible]);
-    useEvent('onVisibleChange', function (event) {
-        var visible = resolveEventValue(event);
+    },
+    onVisibleChange: function (visible) {
+        var options = getValueFromProps(this, 'options');
+        var columns = this.data.columns;
+        var realValue = this.getValue();
         if (visible) {
-            updateVisible(true);
+            var newColumns = this.getterColumns(realValue, options);
+            var currentValue = this.getValidValue(realValue, newColumns);
+            var newData = {
+                currentValue: currentValue,
+                formattedValueText: this.onFormat(),
+            };
+            if (!equal(columns, newColumns)) {
+                newData.columns = newColumns;
+            }
+            this.setData(newData);
         }
-        else {
-            updateVisible(false);
+        triggerEvent(this, 'visibleChange', visible);
+    },
+    defaultFormat: function (value, options) {
+        if (options) {
+            return options.map(function (v) { return v.label; }).join('');
         }
-        triggerEvent('visibleChange', visible);
-    });
-    useEvent('onOk', function () {
-        // 完成时再次校验value，避免visible状态下props无效
-        var validValue = getValidValue(value, columns);
-        if (!isRealValueControlled) {
-            setTimeout(function () {
-                updateRealValue(validValue);
+        return '';
+    },
+    onFormat: function () {
+        var realValue = this.getValue();
+        var onFormat = getValueFromProps(this, 'onFormat');
+        var formatValueByProps = onFormat && onFormat(realValue, this.getOptionByValue(realValue));
+        if (formatValueByProps !== undefined && formatValueByProps !== null) {
+            return formatValueByProps;
+        }
+        return this.defaultFormat(realValue, this.getOptionByValue(realValue));
+    },
+    onCancel: function (e) {
+        triggerEventOnly(this, 'cancel', e);
+    },
+}, {
+    currentValue: [],
+    columns: [],
+    formattedValueText: '',
+    visible: false,
+}, [mixinValue()], {
+    onInit: function () {
+        this.initColumns();
+    },
+    didUpdate: function (prevProps, prevData) {
+        var options = getValueFromProps(this, 'options');
+        if (!equal(options, prevProps.options)) {
+            var currentValue = this.data.currentValue;
+            var newColumns = this.getterColumns(currentValue, options);
+            this.setData({
+                columns: newColumns,
             });
         }
-        triggerEventValues('ok', [
-            validValue,
-            getOptionByValue(validValue, props.options),
-        ]);
-    });
-    useEvent('onChange', function (event) {
-        var selectedValue = resolveEventValues(event)[0];
-        var newColumns = getterColumns(selectedValue, props.options);
-        var value = getValidValue(selectedValue, newColumns);
-        setState({ value: value, columns: newColumns });
-        triggerEventValues('change', [
-            selectedValue,
-            getOptionByValue(selectedValue, props.options),
-        ]);
-    });
-    return {
-        state: {
-            visible: visible
-        },
-        formattedValueText: formattedValueText,
-        currentValue: value,
-        columns: columns,
-    };
-};
-mountComponent(CascaderPicker, CascaderFunctionalProps);
+        if (!this.isEqualValue(prevData)) {
+            var realValue = this.getValue();
+            var newColumns = this.getterColumns(realValue, options);
+            var currentValue = this.getValidValue(realValue, newColumns);
+            this.setData({ currentValue: currentValue, formattedValueText: this.onFormat() });
+        }
+        var visible = getValueFromProps(this, 'visible');
+        if (this.isVisibleControlled() && !equal(prevProps.visible, visible)) {
+            this.setData({ visible: visible });
+        }
+    },
+});

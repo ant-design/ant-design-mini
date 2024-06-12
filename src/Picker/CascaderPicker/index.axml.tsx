@@ -20,7 +20,7 @@ export default (
     indicatorClassName,
     maskClosable,
   }: TSXMLProps<ICascaderProps>,
-  { state, columns, currentValue, formattedValueText }: InternalData
+  { visible, columns, currentValue, formattedValueText }: InternalData
 ) => (
   <Component>
     <AntPicker
@@ -29,7 +29,7 @@ export default (
       animationType={animationType}
       popClassName={`ant-cascader-picker-popup ${popClassName || ''}`}
       popStyle={popStyle}
-      visible={state.visible}
+      visible={visible}
       options={columns}
       value={currentValue}
       disabled={disabled}
