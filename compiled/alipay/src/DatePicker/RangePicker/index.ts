@@ -5,9 +5,9 @@ import {
   triggerEventOnly,
   getValueFromProps,
 } from '../../_util/simply';
+import { resolveEventValue, resolveEventValues } from '../../_util/platform';
 import { DateRangePickerDefaultProps } from './props';
 import dayjs from 'dayjs';
-import computed from '../../mixins/computed';
 import equal from 'fast-deep-equal';
 import {
   getRangeData,
@@ -15,6 +15,7 @@ import {
   getValueByDate,
   getValidValue,
 } from '../util';
+import computed from '../../mixins/computed';
 import mixinValue from '../../mixins/value';
 
 Component(
@@ -26,7 +27,8 @@ Component(
     },
     computed() {
       const { currentStartDate, currentEndDate, pickerType } = this.data;
-      const { format } = this.props;
+      const format = getValueFromProps(this, 'format');
+
       if (pickerType)
         return {
           currentStartValueStr: currentStartDate
@@ -137,12 +139,17 @@ Component(
       return newColumns;
     },
 
-    onChange(selectedIndex) {
-      selectedIndex = getValidValue(selectedIndex);
-      const { format, precision } = this.props;
+    onChange(selectedIdx) {
+      let [selectedIndex] = resolveEventValues(getValidValue(selectedIdx));
+      const [format, precision, pmax, pmin] = getValueFromProps(this, [
+        'format',
+        'precision',
+        'max',
+        'min',
+      ]);
       let date = getDateByValue(selectedIndex);
-      const min = this.getMin(this.props.min);
-      const max = this.getMax(this.props.max);
+      const min = this.getMin(pmin);
+      const max = this.getMax(pmax);
       if (dayjs(date).isBefore(min)) {
         date = min.toDate();
         selectedIndex = getValueByDate(date, precision);
@@ -168,7 +175,10 @@ Component(
           newData.currentStartDate = null;
         }
       }
-      const newColumns = this.generateData(selectedIndex, this.props);
+      const newColumns = this.generateData(
+        selectedIndex,
+        getValueFromProps(this)
+      );
       if (!equal(newColumns, columns)) {
         this.setData(
           {
@@ -198,7 +208,7 @@ Component(
     },
 
     onOk() {
-      const { format } = this.props;
+      const format = getValueFromProps(this, 'format');
       const { currentStartDate, currentEndDate } = this.data;
       const realValue = [currentStartDate, currentEndDate] as any;
       if (!this.isControlled()) {
@@ -210,9 +220,9 @@ Component(
       ]);
     },
     onFormatLabel(type, value) {
-      const { onFormatLabel } = this.props;
+      const onFormatLabel = getValueFromProps(this, 'onFormatLabel');
       const formatValueByProps = onFormatLabel && onFormatLabel(type, value);
-      if (typeof formatValueByProps !== 'undefined') {
+      if (formatValueByProps !== undefined && formatValueByProps !== null) {
         return String(formatValueByProps);
       }
       return this.defaultFormatLabel(type, value);
@@ -229,14 +239,20 @@ Component(
       return `${value}${suffixMap[type]}`;
     },
     defaultFormat(date, valueStrs) {
-      const { format, splitCharacter } = this.props;
+      const [format, splitCharacter] = getValueFromProps(this, [
+        'format',
+        'splitCharacter',
+      ]);
       if (format && valueStrs && valueStrs[0] && valueStrs[1]) {
         return valueStrs.join(`${splitCharacter}`);
       }
       return '';
     },
     onFormat() {
-      const { onFormat, format } = this.props;
+      const [onFormat, format] = getValueFromProps(this, [
+        'onFormat',
+        'format',
+      ]);
       const realValue = this.getValue();
       const formatValueByProps =
         onFormat &&
@@ -246,7 +262,7 @@ Component(
             ? realValue.map((v) => (v ? dayjs(v).format(format) : null))
             : null
         );
-      if (typeof formatValueByProps !== 'undefined') {
+      if (formatValueByProps !== undefined && formatValueByProps !== null) {
         return formatValueByProps;
       }
       return this.defaultFormat(
@@ -263,10 +279,10 @@ Component(
     onVisibleChange(visible) {
       if (!this.isVisibleControlled() && visible) {
         this.setData({ pickerType: 'start' });
-        this.setCurrentValue(this.props);
+        this.setCurrentValue(getValueFromProps(this));
         this.pickerVisible = visible;
       }
-      triggerEvent(this, 'visibleChange', visible);
+      triggerEvent(this, 'visibleChange', resolveEventValue(visible));
     },
     onChangeCurrentPickerType(e) {
       const { type } = e.currentTarget.dataset;
@@ -275,7 +291,7 @@ Component(
         this.setData({
           pickerType: type,
         });
-        this.setCurrentValue(this.props);
+        this.setCurrentValue(getValueFromProps(this));
       }
     },
   },
@@ -300,7 +316,7 @@ Component(
         };
       },
     }),
-    computed,
+    computed(),
   ],
   {
     pickerVisible: false,

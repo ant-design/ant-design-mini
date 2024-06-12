@@ -1,9 +1,10 @@
 import { Component, triggerEvent, triggerEventValues, triggerEventOnly, getValueFromProps, } from '../../_util/simply';
+import { resolveEventValue, resolveEventValues } from '../../_util/platform';
 import { DateRangePickerDefaultProps } from './props';
 import dayjs from 'dayjs';
-import computed from '../../mixins/computed';
 import equal from 'fast-deep-equal';
 import { getRangeData, getDateByValue, getValueByDate, getValidValue, } from '../util';
+import computed from '../../mixins/computed';
 import mixinValue from '../../mixins/value';
 Component(DateRangePickerDefaultProps, {
     // visible受控判断
@@ -12,7 +13,7 @@ Component(DateRangePickerDefaultProps, {
     },
     computed: function () {
         var _a = this.data, currentStartDate = _a.currentStartDate, currentEndDate = _a.currentEndDate, pickerType = _a.pickerType;
-        var format = this.props.format;
+        var format = getValueFromProps(this, 'format');
         if (pickerType)
             return {
                 currentStartValueStr: currentStartDate
@@ -112,13 +113,18 @@ Component(DateRangePickerDefaultProps, {
         var newColumns = getRangeData(precision, min, max, currentPickerDay, this.onFormatLabel.bind(this));
         return newColumns;
     },
-    onChange: function (selectedIndex) {
+    onChange: function (selectedIdx) {
         var _this = this;
-        selectedIndex = getValidValue(selectedIndex);
-        var _a = this.props, format = _a.format, precision = _a.precision;
+        var selectedIndex = resolveEventValues(getValidValue(selectedIdx))[0];
+        var _a = getValueFromProps(this, [
+            'format',
+            'precision',
+            'max',
+            'min',
+        ]), format = _a[0], precision = _a[1], pmax = _a[2], pmin = _a[3];
         var date = getDateByValue(selectedIndex);
-        var min = this.getMin(this.props.min);
-        var max = this.getMax(this.props.max);
+        var min = this.getMin(pmin);
+        var max = this.getMax(pmax);
         if (dayjs(date).isBefore(min)) {
             date = min.toDate();
             selectedIndex = getValueByDate(date, precision);
@@ -144,7 +150,7 @@ Component(DateRangePickerDefaultProps, {
                 newData.currentStartDate = null;
             }
         }
-        var newColumns = this.generateData(selectedIndex, this.props);
+        var newColumns = this.generateData(selectedIndex, getValueFromProps(this));
         if (!equal(newColumns, columns)) {
             this.setData({
                 columns: newColumns,
@@ -170,7 +176,7 @@ Component(DateRangePickerDefaultProps, {
         triggerEventOnly(this, 'cancel', e);
     },
     onOk: function () {
-        var format = this.props.format;
+        var format = getValueFromProps(this, 'format');
         var _a = this.data, currentStartDate = _a.currentStartDate, currentEndDate = _a.currentEndDate;
         var realValue = [currentStartDate, currentEndDate];
         if (!this.isControlled()) {
@@ -182,9 +188,9 @@ Component(DateRangePickerDefaultProps, {
         ]);
     },
     onFormatLabel: function (type, value) {
-        var onFormatLabel = this.props.onFormatLabel;
+        var onFormatLabel = getValueFromProps(this, 'onFormatLabel');
         var formatValueByProps = onFormatLabel && onFormatLabel(type, value);
-        if (typeof formatValueByProps !== 'undefined') {
+        if (formatValueByProps !== undefined && formatValueByProps !== null) {
             return String(formatValueByProps);
         }
         return this.defaultFormatLabel(type, value);
@@ -201,20 +207,26 @@ Component(DateRangePickerDefaultProps, {
         return "".concat(value).concat(suffixMap[type]);
     },
     defaultFormat: function (date, valueStrs) {
-        var _a = this.props, format = _a.format, splitCharacter = _a.splitCharacter;
+        var _a = getValueFromProps(this, [
+            'format',
+            'splitCharacter',
+        ]), format = _a[0], splitCharacter = _a[1];
         if (format && valueStrs && valueStrs[0] && valueStrs[1]) {
             return valueStrs.join("".concat(splitCharacter));
         }
         return '';
     },
     onFormat: function () {
-        var _a = this.props, onFormat = _a.onFormat, format = _a.format;
+        var _a = getValueFromProps(this, [
+            'onFormat',
+            'format',
+        ]), onFormat = _a[0], format = _a[1];
         var realValue = this.getValue();
         var formatValueByProps = onFormat &&
             onFormat(realValue, realValue
                 ? realValue.map(function (v) { return (v ? dayjs(v).format(format) : null); })
                 : null);
-        if (typeof formatValueByProps !== 'undefined') {
+        if (formatValueByProps !== undefined && formatValueByProps !== null) {
             return formatValueByProps;
         }
         return this.defaultFormat(realValue, realValue
@@ -228,10 +240,10 @@ Component(DateRangePickerDefaultProps, {
     onVisibleChange: function (visible) {
         if (!this.isVisibleControlled() && visible) {
             this.setData({ pickerType: 'start' });
-            this.setCurrentValue(this.props);
+            this.setCurrentValue(getValueFromProps(this));
             this.pickerVisible = visible;
         }
-        triggerEvent(this, 'visibleChange', visible);
+        triggerEvent(this, 'visibleChange', resolveEventValue(visible));
     },
     onChangeCurrentPickerType: function (e) {
         var type = e.currentTarget.dataset.type;
@@ -240,7 +252,7 @@ Component(DateRangePickerDefaultProps, {
             this.setData({
                 pickerType: type,
             });
-            this.setCurrentValue(this.props);
+            this.setCurrentValue(getValueFromProps(this));
         }
     },
 }, {
@@ -262,10 +274,10 @@ Component(DateRangePickerDefaultProps, {
             };
         },
     }),
-    computed,
+    computed(),
 ], {
     pickerVisible: false,
-    didMount: function () {
+    created: function () {
         this.pickerVisible = false;
         var _a = getValueFromProps(this, [
             'visible',
@@ -276,15 +288,20 @@ Component(DateRangePickerDefaultProps, {
             formattedValueText: this.onFormat(),
         });
     },
-    didUpdate: function (prevProps, prevData) {
-        var currentProps = getValueFromProps(this);
-        var visible = getValueFromProps(this, 'visible');
-        if (this.isVisibleControlled() && !equal(prevProps.visible, visible)) {
-            this.setData({ visible: visible });
-            this.setCurrentValue(currentProps);
-            this.pickerVisible = visible;
-        }
-        if (!this.isEqualValue(prevData)) {
+    observers: {
+        'visible': function (data) {
+            var prevVisible = this._prevVisible;
+            this._prevVisible = data;
+            var currentProps = getValueFromProps(this);
+            var visible = getValueFromProps(this, 'visible');
+            if (this.isVisibleControlled() && prevVisible !== visible) {
+                this.setData({ visible: visible });
+                this.setCurrentValue(currentProps);
+                this.pickerVisible = visible;
+            }
+        },
+        'mixin.value': function () {
+            var currentProps = getValueFromProps(this);
             this.setData({
                 forceUpdate: this.data.forceUpdate + 1,
                 formattedValueText: this.onFormat(),
@@ -293,6 +310,6 @@ Component(DateRangePickerDefaultProps, {
                 // 展开状态才更新picker的数据，否则下次triggerVisible触发
                 this.setCurrentValue(currentProps);
             }
-        }
+        },
     },
 });
