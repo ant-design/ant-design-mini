@@ -45,7 +45,7 @@ Component({
       }
     },
     handleNativeFallback() {
-      if (this.renderer === 'native') {
+      if (this.renderer === 'native' && !this.data._disabled) {
         const fakeEvent = {
           detail: {
             value: true,
