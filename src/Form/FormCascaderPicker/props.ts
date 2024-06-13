@@ -1,5 +1,5 @@
 import {
-  CascaderFunctionalProps,
+  CascaderDefaultProps,
   ICascaderProps,
 } from '../../Picker/CascaderPicker/props';
 import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
@@ -14,6 +14,6 @@ export interface FormCascaderPickerProps extends ICascaderProps, FormItemProps {
 export const FormCascaderPickerDefaultProps: Partial<FormCascaderPickerProps> =
   {
     ...FormItemDefaultProps,
-    ...CascaderFunctionalProps,
+    ...CascaderDefaultProps,
     arrow: false,
   };

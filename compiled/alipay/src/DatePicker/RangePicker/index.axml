@@ -23,7 +23,7 @@
   formattedValueText="{{ formattedValueText }}"
   className="ant-range-picker {{ className || '' }}"
   popClassName="{{ !currentStartDate || !currentEndDate ? 'ant-range-picker-confirm-disabled' : '' }} {{ popClassName || '' }}"
-  visible="{{ state.visible }}"
+  visible="{{ visible }}"
   style="{{ style }}"
   animationType="{{ animationType }}"
   options="{{ columns }}"

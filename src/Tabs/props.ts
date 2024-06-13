@@ -59,13 +59,6 @@ export interface ITabsProps extends IBaseProps {
 
 export const TabsDefaultProps: Partial<ITabsProps> = {
   type: 'basic',
-  defaultCurrent: 0,
-  items: [],
-  scrollMode: 'edge',
-};
-
-export const TabsFunctionalProps: Partial<ITabsProps> = {
-  type: 'basic',
   direction: 'horizontal',
   current: null,
   defaultCurrent: 0,
