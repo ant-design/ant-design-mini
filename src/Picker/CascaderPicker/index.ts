@@ -5,6 +5,7 @@ import {
   triggerEventOnly,
   triggerEventValues,
 } from '../../_util/simply';
+import { resolveEventValue, resolveEventValues } from '../../_util/platform';
 import { CascaderDefaultProps } from './props';
 import equal from 'fast-deep-equal';
 import mixinValue from '../../mixins/value';
@@ -59,8 +60,8 @@ Component(
     getValidValue(value, columns) {
       const result = [];
       for (let i = 0; i < columns.length; i++) {
-        if (!columns[i].some((v) => v.value === value?.[i])) {
-          result.push(...columns.slice(i).map((v) => v[0].value));
+        if (!columns[i].some((v) => v?.value === value?.[i])) {
+          result.push(...columns.slice(i).map((v) => v?.[0]?.value));
           break;
         } else {
           result[i] = value[i];
@@ -85,7 +86,8 @@ Component(
       }
       return result;
     },
-    onChange(selectedValue) {
+    onChange(selectedVal) {
+      let [selectedValue] = resolveEventValues(selectedVal);
       const options = getValueFromProps(this, 'options');
       const { columns } = this.data;
       const newColumns = this.getterColumns(selectedValue, options);
@@ -96,7 +98,6 @@ Component(
         newData.columns = newColumns;
       }
       newData.currentValue = selectedValue;
-      newData.formattedValueText = this.onFormat();
       this.setData(newData);
       triggerEventValues(this, 'change', [
         selectedValue,
@@ -104,9 +105,10 @@ Component(
       ]);
     },
     async onOk() {
-      const { currentValue, columns } = this.data;
-      // 完成时再次校验value，避免visible状态下props无效
-      const validValue = this.getValidValue(currentValue, columns);
+      const { currentValue } = this.data;
+      const options = getValueFromProps(this, 'options');
+      const newColumns = this.getterColumns(currentValue, options);
+      const validValue = this.getValidValue(currentValue, newColumns);
       if (!this.isControlled()) {
         this.update(validValue);
       }
@@ -119,19 +121,19 @@ Component(
       const options = getValueFromProps(this, 'options');
       const { columns } = this.data;
       const realValue = this.getValue();
-      if (visible) {
+      if (!this.isVisibleControlled() && visible) {
         const newColumns = this.getterColumns(realValue, options);
-        const currentValue = this.getValidValue(realValue, newColumns);
-        const newData: any = {
-          currentValue,
-          formattedValueText: this.onFormat(),
-        };
+
         if (!equal(columns, newColumns)) {
-          newData.columns = newColumns;
+          this.setData({ columns: newColumns }, () => {
+            this.setData({
+              currentValue: this.getValidValue(realValue, newColumns),
+              formattedValueText: this.onFormat(),
+            });
+          });
         }
-        this.setData(newData);
       }
-      triggerEvent(this, 'visibleChange', visible);
+      triggerEvent(this, 'visibleChange', resolveEventValue(visible));
     },
     defaultFormat(value, options) {
       if (options) {
@@ -162,6 +164,7 @@ Component(
   },
   [mixinValue()],
   {
+    /// #if ALIPAY
     onInit() {
       this.initColumns();
     },
@@ -185,5 +188,39 @@ Component(
         this.setData({ visible });
       }
     },
+    /// #endif
+    /// #if WECHAT
+    created() {
+      this.initColumns();
+    },
+    observers: {
+      '**': function (data) {
+        const prevData = this._prevData || this.data;
+        this._prevData = { ...data };
+        const options = getValueFromProps(this, 'options');
+        if (!equal(options, prevData.options)) {
+          const { currentValue } = this.data;
+          const newColumns = this.getterColumns(currentValue, options);
+          this.setData({
+            columns: newColumns,
+          });
+        }
+        if (!this.isEqualValue(prevData)) {
+          const realValue = this.getValue();
+          const newColumns = this.getterColumns(realValue, options);
+          const currentValue = this.getValidValue(realValue, newColumns);
+          this.setData({ currentValue, formattedValueText: this.onFormat() });
+        }
+      },
+      'visible': function (data) {
+        const prevVisible = this._prevVisible;
+        this._prevVisible = data;
+        const visible = getValueFromProps(this, 'visible');
+        if (this.isVisibleControlled() && !equal(prevVisible, visible)) {
+          this.setData({ visible });
+        }
+      },
+    },
+    /// #endif
   }
 );

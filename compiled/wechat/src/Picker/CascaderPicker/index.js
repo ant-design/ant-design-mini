@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,6 +46,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { Component, getValueFromProps, triggerEvent, triggerEventOnly, triggerEventValues, } from '../../_util/simply';
+import { resolveEventValue, resolveEventValues } from '../../_util/platform';
 import { CascaderDefaultProps } from './props';
 import equal from 'fast-deep-equal';
 import mixinValue from '../../mixins/value';
@@ -79,8 +91,8 @@ Component(CascaderDefaultProps, {
     getValidValue: function (value, columns) {
         var result = [];
         var _loop_1 = function (i) {
-            if (!columns[i].some(function (v) { return v.value === (value === null || value === void 0 ? void 0 : value[i]); })) {
-                result.push.apply(result, columns.slice(i).map(function (v) { return v[0].value; }));
+            if (!columns[i].some(function (v) { return (v === null || v === void 0 ? void 0 : v.value) === (value === null || value === void 0 ? void 0 : value[i]); })) {
+                result.push.apply(result, columns.slice(i).map(function (v) { var _a; return (_a = v === null || v === void 0 ? void 0 : v[0]) === null || _a === void 0 ? void 0 : _a.value; }));
                 return "break";
             }
             else {
@@ -118,7 +130,8 @@ Component(CascaderDefaultProps, {
         }
         return result;
     },
-    onChange: function (selectedValue) {
+    onChange: function (selectedVal) {
+        var selectedValue = resolveEventValues(selectedVal)[0];
         var options = getValueFromProps(this, 'options');
         var columns = this.data.columns;
         var newColumns = this.getterColumns(selectedValue, options);
@@ -129,7 +142,6 @@ Component(CascaderDefaultProps, {
             newData.columns = newColumns;
         }
         newData.currentValue = selectedValue;
-        newData.formattedValueText = this.onFormat();
         this.setData(newData);
         triggerEventValues(this, 'change', [
             selectedValue,
@@ -138,10 +150,12 @@ Component(CascaderDefaultProps, {
     },
     onOk: function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, currentValue, columns, validValue;
-            return __generator(this, function (_b) {
-                _a = this.data, currentValue = _a.currentValue, columns = _a.columns;
-                validValue = this.getValidValue(currentValue, columns);
+            var currentValue, options, newColumns, validValue;
+            return __generator(this, function (_a) {
+                currentValue = this.data.currentValue;
+                options = getValueFromProps(this, 'options');
+                newColumns = this.getterColumns(currentValue, options);
+                validValue = this.getValidValue(currentValue, newColumns);
                 if (!this.isControlled()) {
                     this.update(validValue);
                 }
@@ -154,22 +168,22 @@ Component(CascaderDefaultProps, {
         });
     },
     onVisibleChange: function (visible) {
+        var _this = this;
         var options = getValueFromProps(this, 'options');
         var columns = this.data.columns;
         var realValue = this.getValue();
-        if (visible) {
-            var newColumns = this.getterColumns(realValue, options);
-            var currentValue = this.getValidValue(realValue, newColumns);
-            var newData = {
-                currentValue: currentValue,
-                formattedValueText: this.onFormat(),
-            };
-            if (!equal(columns, newColumns)) {
-                newData.columns = newColumns;
+        if (!this.isVisibleControlled() && visible) {
+            var newColumns_1 = this.getterColumns(realValue, options);
+            if (!equal(columns, newColumns_1)) {
+                this.setData({ columns: newColumns_1 }, function () {
+                    _this.setData({
+                        currentValue: _this.getValidValue(realValue, newColumns_1),
+                        formattedValueText: _this.onFormat(),
+                    });
+                });
             }
-            this.setData(newData);
         }
-        triggerEvent(this, 'visibleChange', visible);
+        triggerEvent(this, 'visibleChange', resolveEventValue(visible));
     },
     defaultFormat: function (value, options) {
         if (options) {
@@ -195,27 +209,35 @@ Component(CascaderDefaultProps, {
     formattedValueText: '',
     visible: false,
 }, [mixinValue()], {
-    onInit: function () {
+    created: function () {
         this.initColumns();
     },
-    didUpdate: function (prevProps, prevData) {
-        var options = getValueFromProps(this, 'options');
-        if (!equal(options, prevProps.options)) {
-            var currentValue = this.data.currentValue;
-            var newColumns = this.getterColumns(currentValue, options);
-            this.setData({
-                columns: newColumns,
-            });
-        }
-        if (!this.isEqualValue(prevData)) {
-            var realValue = this.getValue();
-            var newColumns = this.getterColumns(realValue, options);
-            var currentValue = this.getValidValue(realValue, newColumns);
-            this.setData({ currentValue: currentValue, formattedValueText: this.onFormat() });
-        }
-        var visible = getValueFromProps(this, 'visible');
-        if (this.isVisibleControlled() && !equal(prevProps.visible, visible)) {
-            this.setData({ visible: visible });
-        }
+    observers: {
+        '**': function (data) {
+            var prevData = this._prevData || this.data;
+            this._prevData = __assign({}, data);
+            var options = getValueFromProps(this, 'options');
+            if (!equal(options, prevData.options)) {
+                var currentValue = this.data.currentValue;
+                var newColumns = this.getterColumns(currentValue, options);
+                this.setData({
+                    columns: newColumns,
+                });
+            }
+            if (!this.isEqualValue(prevData)) {
+                var realValue = this.getValue();
+                var newColumns = this.getterColumns(realValue, options);
+                var currentValue = this.getValidValue(realValue, newColumns);
+                this.setData({ currentValue: currentValue, formattedValueText: this.onFormat() });
+            }
+        },
+        'visible': function (data) {
+            var prevVisible = this._prevVisible;
+            this._prevVisible = data;
+            var visible = getValueFromProps(this, 'visible');
+            if (this.isVisibleControlled() && !equal(prevVisible, visible)) {
+                this.setData({ visible: visible });
+            }
+        },
     },
 });
