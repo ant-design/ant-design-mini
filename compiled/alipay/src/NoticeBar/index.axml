@@ -16,6 +16,7 @@
         type="SoundOutline" />
     </view>
   </slot>
+
   <view
     class="ant-notice-bar-content ant-notice-bar-content{{ $id ? '-' + $id : '' }}">
     <view

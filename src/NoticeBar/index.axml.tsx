@@ -11,7 +11,7 @@ export default (
     icon,
     mode,
     enableMarquee,
-
+    slotIcon,
     $id,
   }: TSXMLProps<INoticeBarProps>,
 
@@ -27,8 +27,6 @@ export default (
       >
         {/* #if ALIPAY */}
         <Slot name="icon">
-          {/* #endif */}
-
           <View class="ant-notice-bar-icon">
             {icon ? (
               <ImageIcon image={icon} className="ant-notice-bar-icon-image" />
@@ -38,8 +36,23 @@ export default (
               <Icon type="SoundOutline" />
             )}
           </View>
-          {/* #if ALIPAY */}
         </Slot>
+        {/* #endif */}
+
+        {/* #if WECHAT */}
+        {slotIcon ? (
+          <Slot name="icon"></Slot>
+        ) : (
+          <View class="ant-notice-bar-icon">
+            {icon ? (
+              <ImageIcon image={icon} className="ant-notice-bar-icon-image" />
+            ) : type === 'error' ? (
+              <Icon type="InformationCircleOutline" />
+            ) : (
+              <Icon type="SoundOutline" />
+            )}
+          </View>
+        )}
         {/* #endif */}
         <View
           class={`ant-notice-bar-content ant-notice-bar-content${
