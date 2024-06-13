@@ -10,8 +10,12 @@ Component({
             collapse: !collapse,
         });
     },
-}, { collapse: true }, null, {
-    created() {
+}, {
+    collapse: true,
+    internalHide: false,
+    containerTitle: '',
+}, null, {
+    attached() {
         const [defaultCollapse, hide, title] = getValueFromProps(this, [
             'defaultCollapse',
             'hide',

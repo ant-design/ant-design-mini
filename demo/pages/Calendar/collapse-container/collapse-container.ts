@@ -21,7 +21,11 @@ Component(
       });
     },
   },
-  { collapse: true },
+  {
+    collapse: true,
+    internalHide: false,
+    containerTitle: '',
+  },
   null,
   {
     /// #if ALIPAY
@@ -39,7 +43,7 @@ Component(
     },
     /// #endif
     /// #if WECHAT
-    created() {
+    attached() {
       const [defaultCollapse, hide, title] = getValueFromProps(this, [
         'defaultCollapse',
         'hide',

@@ -10,7 +10,11 @@ Component({
             collapse: !collapse,
         });
     },
-}, { collapse: true }, null, {
+}, {
+    collapse: true,
+    internalHide: false,
+    containerTitle: '',
+}, null, {
     onInit() {
         const [defaultCollapse, hide, title] = getValueFromProps(this, [
             'defaultCollapse',
