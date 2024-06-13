@@ -8,11 +8,9 @@ Component({
     native: false,
   },
   didMount() {
-    if (this.renderer === 'native') {
-      this.setData({
-        native: true,
-      });
-    }
+    this.setData({
+      native: this.renderer === 'native',
+    });
   },
   mixins: [htmlType()],
   methods: {
