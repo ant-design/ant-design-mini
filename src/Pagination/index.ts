@@ -7,6 +7,13 @@ Component({
     pageDeg: 0,
     supportSjs: my.canIUse('sjs.event'),
   },
+  didMount() {
+    if (this.renderer === 'native') {
+      this.setData({
+        supportSjs: false,
+      });
+    }
+  },
   wrapWidth: 0,
   methods: {
     async clacWidth() {

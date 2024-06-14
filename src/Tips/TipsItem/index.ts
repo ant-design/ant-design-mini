@@ -1,4 +1,12 @@
 Component({
+  data: {
+    native: false,
+  },
+  didMount() {
+    this.setData({
+      native: this.renderer === 'native',
+    });
+  },
   methods: {
     onButtonTap() {
       const { onButtonTap } = this.props;

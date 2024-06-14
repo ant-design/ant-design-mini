@@ -9,8 +9,16 @@ Component({
     show: false,
     curValue: [],
     prevValue: [],
+    visibleCssText: 'transform: scaleY(1);',
+    hiddenCssText: 'transform: scaleY(0);',
   },
   didMount() {
+    if (this.renderer === 'native') {
+      this.setData({
+        visibleCssText: 'display: block;',
+        hiddenCssText: 'display: none;',
+      });
+    }
     const key = `${this.$page.$id}-${this.props.uid}`;
     const getValue = () => this.props.value;
     const isMult = () => this.props.type === 'multiple';

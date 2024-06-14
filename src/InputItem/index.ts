@@ -10,16 +10,27 @@ Component({
   data: {
     showClear: false,
   },
-  methods: {
-    hideClear() {
-      this.setData({
-        showClear: false,
-      });
-    },
-    showClear() {
+  didMount() {
+    if (this.renderer === 'native') {
       this.setData({
         showClear: true,
       });
+    }
+  },
+  methods: {
+    hideClear() {
+      if (this.renderer !== 'native') {
+        this.setData({
+          showClear: false,
+        });
+      }
+    },
+    showClear() {
+      if (this.renderer !== 'native') {
+        this.setData({
+          showClear: true,
+        });
+      }
     },
 
     // 按钮消失

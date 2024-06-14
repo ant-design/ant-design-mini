@@ -9,7 +9,7 @@ Component({
   didUpdate(prevProps) {
     const { visible, duration, animation } = this.props;
     if (prevProps.visible && !visible) {
-      if (animation && duration > 0) {
+      if (this.renderer !== 'native' && animation && duration > 0) {
         this.setData({ closing: true });
       }
     }
