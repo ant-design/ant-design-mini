@@ -20,8 +20,9 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import { FormItemDefaultProps } from '../FormItem/props';
-import { InputDefaultProps } from '../../Input/props';
+import { FormItemFunctionalProps } from '../FormItem/props';
+import { InputFunctionalProps } from '../../Input/props';
+export var FormInputDefaultProps = {};
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-var value = InputDefaultProps.value, defaultValue = InputDefaultProps.defaultValue, name = InputDefaultProps.name, rest = __rest(InputDefaultProps, ["value", "defaultValue", "name"]);
-export var FormInputDefaultProps = __assign(__assign(__assign({}, FormItemDefaultProps), rest), { inputClassName: '', inputClassStyle: ' ' });
+var value = InputFunctionalProps.value, defaultValue = InputFunctionalProps.defaultValue, name = InputFunctionalProps.name, rest = __rest(InputFunctionalProps, ["value", "defaultValue", "name"]);
+export var FormInputFunctionalProps = __assign(__assign(__assign({}, FormItemFunctionalProps), rest), { inputClassName: '', inputClassStyle: ' ' });

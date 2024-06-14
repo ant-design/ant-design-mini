@@ -1,4 +1,4 @@
-import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
+import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
 import { ISliderProps, sliderDefaultProps } from '../../Slider/props';
 
 export interface FormSliderProps
@@ -12,7 +12,7 @@ export interface FormSliderProps
 const { value, defaultValue, ...rest } = sliderDefaultProps;
 
 export const FormSliderDefaultProps: Partial<FormSliderProps> = {
-  ...FormItemDefaultProps,
+  ...FormItemFunctionalProps,
   ...rest,
   sliderClassName: '',
   sliderStyle: '',

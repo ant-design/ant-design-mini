@@ -9,6 +9,6 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { FormItemDefaultProps } from '../FormItem/props';
+import { FormItemFunctionalProps } from '../FormItem/props';
 import { SelectorDefaultProps } from '../../Selector/props';
-export var FormSelectorDefaultProps = __assign(__assign({}, FormItemDefaultProps), SelectorDefaultProps);
+export var FormSelectorDefaultProps = __assign(__assign({}, FormItemFunctionalProps), SelectorDefaultProps);

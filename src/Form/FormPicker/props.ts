@@ -1,5 +1,5 @@
-import { IPickerProps, PickerDefaultProps } from '../../Picker/props';
-import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
+import { IPickerProps, PickerFunctionalProps } from '../../Picker/props';
+import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
 
 export interface FormPickerProps extends IPickerProps, FormItemProps {
   /**
@@ -9,7 +9,7 @@ export interface FormPickerProps extends IPickerProps, FormItemProps {
 }
 
 export const FormPickerDefaultProps: Partial<FormPickerProps> = {
-  ...FormItemDefaultProps,
-  ...PickerDefaultProps,
+  ...FormItemFunctionalProps,
+  ...PickerFunctionalProps,
   arrow: false,
 };

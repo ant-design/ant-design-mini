@@ -138,6 +138,15 @@ export interface IDatePickerProps extends IBaseProps {
 }
 
 export const DatePickerDefaultProps: IDatePickerProps = {
+  okText: '确定',
+  cancelText: '取消',
+  maskClosable: true,
+  placeholder: '请选择',
+  format: 'YYYY/MM/DD',
+  precision: 'day',
+};
+
+export const DatePickerFunctionalProps: IDatePickerProps = {
   visible: null,
   defaultVisible: null,
   animationType: 'transform',
@@ -156,5 +165,4 @@ export const DatePickerDefaultProps: IDatePickerProps = {
   popStyle: '',
   disabled: false,
   onFormatLabel: null,
-  onFormat: null,
 };

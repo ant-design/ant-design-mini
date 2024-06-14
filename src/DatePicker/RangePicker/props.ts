@@ -155,6 +155,18 @@ export interface IDateRangePickerProps extends IBaseProps {
 }
 
 export const DateRangePickerDefaultProps: Partial<IDateRangePickerProps> = {
+  okText: '确定',
+  cancelText: '取消',
+  maskClosable: true,
+  placeholder: '请选择',
+  format: 'YYYY/MM/DD',
+  splitCharacter: '-',
+  startPlaceholder: '未选择',
+  endPlaceholder: '未选择',
+  precision: 'day',
+};
+
+export const DateRangePickerFunctionalProps: Partial<IDateRangePickerProps> = {
   visible: null,
   defaultVisible: null,
   animationType: 'transform',
@@ -176,5 +188,4 @@ export const DateRangePickerDefaultProps: Partial<IDateRangePickerProps> = {
   popStyle: '',
   disabled: false,
   onFormatLabel: null,
-  onFormat: null,
 };

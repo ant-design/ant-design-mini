@@ -1,4 +1,4 @@
-import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
+import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
 import { ISwitchProps, SwitchDefaultProps } from '../../Switch/props';
 
 export interface FormSwitchProps
@@ -11,7 +11,7 @@ export interface FormSwitchProps
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { checked, defaultChecked, ...rest } = SwitchDefaultProps;
 export const FormSwitchDefaultProps: Partial<FormSwitchProps> = {
-  ...FormItemDefaultProps,
+  ...FormItemFunctionalProps,
   ...rest,
   switchClassName: '',
   switchStyle: '',

@@ -1,7 +1,4 @@
-import { Component } from '../../_util/simply';
-import { FormItemDefaultProps } from './props';
-Component(FormItemDefaultProps, null, null, null, {
-    attached: function () {
-        this.triggerEvent('ref', this);
-    },
-});
+import { mountComponent } from '../../_util/component';
+import { FormItemFunctionalProps } from './props';
+var FormItem = function () { };
+mountComponent(FormItem, FormItemFunctionalProps);

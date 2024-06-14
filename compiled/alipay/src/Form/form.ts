@@ -9,7 +9,6 @@ import AsyncValidator, {
   ValidateMessages,
 } from 'async-validator';
 import { IMixin4Legacy } from '@mini-types/alipay';
-import { getValueFromProps } from '../_util/simply';
 
 export { Value, Values };
 export type Validator = (
@@ -859,7 +858,7 @@ export class Form {
 }
 
 export function createForm({ methods = {} } = {}) {
-  let mixin = {
+  return {
     data: {
       formData: {
         value: undefined,
@@ -867,7 +866,6 @@ export function createForm({ methods = {} } = {}) {
         errors: [],
       },
     },
-
     didUnmount() {
       this.emit('didUnmount');
     },
@@ -892,7 +890,7 @@ export function createForm({ methods = {} } = {}) {
         this.emit = callback;
       },
       getProps() {
-        return getValueFromProps(this);
+        return this.props;
       },
       ...methods,
     },
@@ -913,6 +911,4 @@ export function createForm({ methods = {} } = {}) {
       getProps: Record<string, any>;
     }
   >;
-
-  return mixin;
 }

@@ -1,4 +1,4 @@
-import { FormItemDefaultProps } from './../FormItem/props';
+import { FormItemFunctionalProps } from './../FormItem/props';
 import { FormItemProps } from '../FormItem/props';
 import {
   TextareaDefaultProps,
@@ -12,6 +12,6 @@ export interface FormTextareaProps
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { value, defaultValue, name, ...rest } = TextareaDefaultProps;
 export const FormTextareaDefaultProps: Partial<TextareaProps> = {
-  ...FormItemDefaultProps,
+  ...FormItemFunctionalProps,
   ...rest,
 };

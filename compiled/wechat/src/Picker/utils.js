@@ -12,7 +12,7 @@ export function getStrictMatchedItemByValue(columns, value, single) {
     var index = null;
     var _loop_1 = function (i) {
         var column = columns[i];
-        var compareValue = (value || [])[i];
+        var compareValue = value[i];
         index = column.findIndex(function (c) {
             var columnValue = getColumnValue(c);
             return columnValue === compareValue;
@@ -29,8 +29,8 @@ export function getStrictMatchedItemByValue(columns, value, single) {
     };
 }
 // 如果找不到value对应的item项目，返回第一项
-export function getMatchedItemByValue(columns, value, single) {
-    if (single) {
+export function getMatchedItemByValue(columns, value, singleRef) {
+    if (singleRef.current) {
         value = [value];
     }
     var matchedValues = [];
@@ -38,7 +38,7 @@ export function getMatchedItemByValue(columns, value, single) {
     var index = null;
     var _loop_2 = function (i) {
         var column = columns[i];
-        var compareValue = (value || [])[i];
+        var compareValue = value[i];
         if (compareValue === undefined || compareValue === null) {
             index = 0;
         }
@@ -58,8 +58,8 @@ export function getMatchedItemByValue(columns, value, single) {
         _loop_2(i);
     }
     return {
-        matchedColumn: single ? matchedColumn[0] : matchedColumn,
-        matchedValues: single ? matchedValues[0] : matchedValues,
+        matchedColumn: singleRef.current ? matchedColumn[0] : matchedColumn,
+        matchedValues: singleRef.current ? matchedValues[0] : matchedValues,
     };
 }
 export function getMatchedItemByIndex(columns, selectedIndex, single) {
@@ -88,7 +88,70 @@ export function getMatchedItemByIndex(columns, selectedIndex, single) {
         matchedValues[i] = getColumnValue(column[index]);
     }
     return {
-        matchedColumn: single ? matchedColumn[0] : matchedColumn,
-        matchedValues: single ? matchedValues[0] : matchedValues,
+        matchedColumn: single.current ? matchedColumn[0] : matchedColumn,
+        matchedValues: single.current ? matchedValues[0] : matchedValues,
     };
+}
+export function getterColumns(options, singleRef) {
+    var columns = [];
+    if (options.length > 0) {
+        if (options.every(function (item) { return Array.isArray(item); })) {
+            singleRef.current = false;
+            columns = options.slice();
+        }
+        else {
+            singleRef.current = true;
+            columns = [options];
+        }
+    }
+    return columns;
+}
+export function defaultFormat(value, column) {
+    if (Array.isArray(column)) {
+        return column
+            .filter(function (c) { return c !== undefined; })
+            .map(function (c) {
+            if (typeof c === 'object') {
+                return c.label;
+            }
+            return c;
+        })
+            .join('-');
+    }
+    return (column && column.label) || column || '';
+}
+export function getterFormatText(columns, realValue, onFormat, singleRef) {
+    var matchedColumn = getStrictMatchedItemByValue(columns, realValue, singleRef.current).matchedColumn;
+    if (typeof onFormat === 'function') {
+        var formatValueByProps = onFormat(realValue, matchedColumn);
+        if (formatValueByProps !== undefined) {
+            return formatValueByProps;
+        }
+    }
+    return defaultFormat(realValue, matchedColumn);
+}
+export function getterSelectedIndex(columns, realValue, sinefileRef) {
+    var selectedIndex = [];
+    var value = realValue || [];
+    if (sinefileRef.current) {
+        value = [realValue];
+    }
+    var _loop_3 = function (i) {
+        var column = columns[i];
+        var compareValue = value[i];
+        if (compareValue === undefined || compareValue === null) {
+            selectedIndex[i] = 0;
+        }
+        var index = column.findIndex(function (c) {
+            return c === compareValue || c.value === compareValue;
+        });
+        if (index === -1) {
+            index = 0;
+        }
+        selectedIndex[i] = index;
+    };
+    for (var i = 0; i < columns.length; i++) {
+        _loop_3(i);
+    }
+    return selectedIndex;
 }

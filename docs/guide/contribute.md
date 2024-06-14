@@ -64,6 +64,14 @@ $ npm run dev:doc
 
 ## Ant Design Mini 的工程方案
 
+### 函数式组件
+
+从 v2 版本开始，我们逐步采用“React 函数式组件”开发模式来开发小程序自定义组件，背后依托 [functional-mini](https://github.com/ant-design/functional-mini) 这个 SDK。如日历组件（参见 [Calendar/index.ts](https://github.com/ant-design/ant-design-mini/blob/master/src/Calendar/index.ts)）。
+
+[functional-mini](https://github.com/ant-design/functional-mini) 作为运行时 SDK，接管小程序的逻辑层代码，但并不影响视图层，为我们在项目架构复杂度和编码习惯上带来平衡。借此，函数式组件的基本特性得以运用，提升代码可维护性，如数据加工逻辑组装、hooks 逻辑复用等。
+
+欢迎你一同参与 Ant Design Mini 函数式组件开发，探索更佳的小程序工程形态。
+
 ### 使用 tsx 语法编写视图层
 
 我们使用 tsx 语法编写视图层。编译器解析 tsx 语法后，生成小程序视图层代码。这意味着：

@@ -1,6 +1,5 @@
 {
   "component": true,
-  "lazyCodeLoading": "renderedComponents",
   "usingComponents": {
     "avatar": "./Avatar/index",
     "paragraph": "./Paragraph/index",

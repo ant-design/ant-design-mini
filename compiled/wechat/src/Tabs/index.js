@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,204 +45,177 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { TabsDefaultProps } from './props';
-import createValue from '../mixins/value';
-import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
-Component(TabsDefaultProps, {
-    getInstance: function () {
-        if (this.$id) {
-            return my;
-        }
-        return this;
-    },
-    get$Id: function () {
-        return this.$id ? "-".concat(this.$id) : '';
-    },
-    getBoundingClientRect: function (query) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, getInstanceBoundingClientRect(this.getInstance(), query)];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
+import { useState } from 'functional-mini/compat';
+import { useEvent, useReady, useRef, } from 'functional-mini/component';
+import '../_util/assert-component2';
+import { mountComponent } from '../_util/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
+import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
+import { useComponentUpdateEffect } from '../_util/hooks/useLayoutEffect';
+import { useMixState } from '../_util/hooks/useMixState';
+import { TabsFunctionalProps } from './props';
+var Tabs = function (props) {
+    var _a = useMixState(props.defaultCurrent, {
+        value: props.current,
+    }), currentValue = _a[0], _b = _a[1], isControlled = _b.isControlled, update = _b.update;
+    var _c = useState({
+        scrollLeft: 0,
+        scrollTop: 0,
+        leftFade: false,
+        rightFade: false,
+    }), state = _c[0], updateState = _c[1];
+    var scrollRef = useRef({ scrollLeft: 0, scrollTop: 0 });
+    var triggerEvent = useComponentEvent(props).triggerEvent;
+    var updatePartState = function (part) {
+        updateState(function (old) {
+            return __assign(__assign({}, old), part);
         });
-    },
-    updateFade: function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var items, _a, view, item;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        this.setData({
-                            leftFade: !!this.scrollLeft,
-                        });
-                        items = getValueFromProps(this, 'items');
-                        return [4 /*yield*/, Promise.all([
-                                this.getBoundingClientRect("#ant-tabs-bar-scroll-view".concat(this.get$Id())),
-                                this.getBoundingClientRect("#ant-tabs-bar-item".concat(this.get$Id(), "-").concat(items.length - 1)),
-                            ])];
-                    case 1:
-                        _a = _b.sent(), view = _a[0], item = _a[1];
-                        if (!item || !view) {
-                            return [2 /*return*/];
-                        }
-                        this.setData({
-                            rightFade: item.left + item.width / 2 > view.width,
-                        });
+    };
+    var _d = useInstanceBoundingClientRect(), getBoundingClientRectWithBuilder = _d.getBoundingClientRectWithBuilder, getBoundingClientRect = _d.getBoundingClientRect;
+    var updateFade = useStableCallback(function () { return __awaiter(void 0, void 0, void 0, function () {
+        var _a, view, item;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    updatePartState({
+                        leftFade: !!scrollRef.current.scrollLeft,
+                    });
+                    return [4 /*yield*/, Promise.all([
+                            getBoundingClientRectWithBuilder(function (id) { return "#ant-tabs-bar-scroll-view".concat(id); }),
+                            getBoundingClientRectWithBuilder(function (id) { return "#ant-tabs-bar-item".concat(id, "-").concat(props.items.length - 1); }),
+                        ])];
+                case 1:
+                    _a = _b.sent(), view = _a[0], item = _a[1];
+                    if (!item || !view) {
                         return [2 /*return*/];
-                }
-            });
+                    }
+                    updatePartState({
+                        rightFade: item.left + item.width / 2 > view.width,
+                    });
+                    return [2 /*return*/];
+            }
         });
-    },
-    updateScroll: function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var current, _a, view, item, _b, direction, scrollMode, scrollTop, needScroll_1, distance, scrollLeft, needScroll, distance;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
-                    case 0:
-                        current = this.getValue();
-                        return [4 /*yield*/, Promise.all([
-                                this.getBoundingClientRect("#ant-tabs-bar-scroll-view".concat(this.get$Id())),
-                                this.getBoundingClientRect("#ant-tabs-bar-item".concat(this.get$Id(), "-").concat(current)),
-                            ])];
-                    case 1:
-                        _a = _c.sent(), view = _a[0], item = _a[1];
-                        if (!view || !item) {
-                            return [2 /*return*/];
-                        }
-                        _b = getValueFromProps(this, [
-                            'direction',
-                            'scrollMode',
-                        ]), direction = _b[0], scrollMode = _b[1];
-                        if (direction === 'vertical') {
-                            scrollTop = this.scrollTop || 0;
-                            needScroll_1 = false;
-                            if (scrollMode === 'center') {
-                                needScroll_1 = true;
-                                scrollTop +=
-                                    item.top - view.top - Math.max((view.height - item.height) / 2, 0);
-                            }
-                            else {
-                                distance = item.top - view.top;
-                                if (distance < 0) {
-                                    scrollTop += distance;
-                                    needScroll_1 = true;
-                                }
-                                else if (distance + item.height > view.height) {
-                                    scrollTop += Math.min(distance + item.height - view.height, distance);
-                                    needScroll_1 = true;
-                                }
-                            }
-                            if (needScroll_1) {
-                                if (scrollTop === this.data.scrollTop) {
-                                    scrollTop += Math.random();
-                                }
-                                this.setData({
-                                    scrollTop: scrollTop,
-                                });
-                            }
-                            return [2 /*return*/];
-                        }
-                        scrollLeft = this.scrollLeft || 0;
-                        needScroll = false;
-                        if (scrollMode === 'center') {
-                            needScroll = true;
-                            scrollLeft +=
-                                item.left - view.left - Math.max((view.width - item.width) / 2, 0);
+    }); });
+    var updateScroll = useStableCallback(function () { return __awaiter(void 0, void 0, void 0, function () {
+        var current, _a, view, item, scrollTop, needScroll_1, distance, scrollLeft, needScroll, distance;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    current = currentValue;
+                    return [4 /*yield*/, Promise.all([
+                            getBoundingClientRectWithBuilder(function (id) { return "#ant-tabs-bar-scroll-view".concat(id); }),
+                            getBoundingClientRectWithBuilder(function (id) { return "#ant-tabs-bar-item".concat(id, "-").concat(current); }),
+                        ])];
+                case 1:
+                    _a = _b.sent(), view = _a[0], item = _a[1];
+                    if (!view || !item) {
+                        return [2 /*return*/];
+                    }
+                    if (props.direction === 'vertical') {
+                        scrollTop = scrollRef.current.scrollTop || 0;
+                        needScroll_1 = false;
+                        if (props.scrollMode === 'center') {
+                            needScroll_1 = true;
+                            scrollTop +=
+                                item.top - view.top - Math.max((view.height - item.height) / 2, 0);
                         }
                         else {
-                            distance = item.left - view.left;
+                            distance = item.top - view.top;
                             if (distance < 0) {
-                                scrollLeft += distance;
-                                needScroll = true;
+                                scrollTop += distance;
+                                needScroll_1 = true;
                             }
-                            else if (distance + item.width > view.width) {
-                                scrollLeft += Math.min(distance + item.width - view.width, distance);
-                                needScroll = true;
+                            else if (distance + item.height > view.height) {
+                                scrollTop += Math.min(distance + item.height - view.height, distance);
+                                needScroll_1 = true;
                             }
                         }
-                        if (needScroll) {
-                            if (scrollLeft === this.data.scrollLeft) {
-                                scrollLeft += Math.random();
+                        if (needScroll_1) {
+                            if (scrollTop === state.scrollTop) {
+                                scrollTop += Math.random();
                             }
-                            this.setData({
-                                scrollLeft: scrollLeft,
+                            updatePartState({
+                                scrollTop: scrollTop,
                             });
-                            this.updateFade();
                         }
                         return [2 /*return*/];
-                }
-            });
-        });
-    },
-    onScroll: function (e) {
-        return __awaiter(this, void 0, void 0, function () {
-            var direction;
-            return __generator(this, function (_a) {
-                direction = getValueFromProps(this, 'direction');
-                if (direction === 'vertical') {
-                    this.scrollTop = e.detail.scrollTop;
+                    }
+                    scrollLeft = scrollRef.current.scrollLeft || 0;
+                    needScroll = false;
+                    if (props.scrollMode === 'center') {
+                        needScroll = true;
+                        scrollLeft +=
+                            item.left - view.left - Math.max((view.width - item.width) / 2, 0);
+                    }
+                    else {
+                        distance = item.left - view.left;
+                        if (distance < 0) {
+                            scrollLeft += distance;
+                            needScroll = true;
+                        }
+                        else if (distance + item.width > view.width) {
+                            scrollLeft += Math.min(distance + item.width - view.width, distance);
+                            needScroll = true;
+                        }
+                    }
+                    if (needScroll) {
+                        if (scrollLeft === state.scrollLeft) {
+                            scrollLeft += Math.random();
+                        }
+                        updatePartState({
+                            scrollLeft: scrollLeft,
+                        });
+                        updateFade();
+                    }
                     return [2 /*return*/];
-                }
-                this.scrollLeft = e.detail.scrollLeft;
-                this.updateFade();
+            }
+        });
+    }); });
+    useEvent('onScroll', function (e) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            if (props.direction === 'vertical') {
+                scrollRef.current.scrollTop = e.detail.scrollTop;
                 return [2 /*return*/];
-            });
-        });
-    },
-    onChange: function (e) {
-        var index = parseInt(e.currentTarget.dataset.index, 10);
-        var items = getValueFromProps(this, 'items');
-        if (items[index].disabled) {
-            return;
-        }
-        if (this.getValue() === index) {
-            return;
-        }
-        if (!this.isControlled()) {
-            this.update(index);
-        }
-        triggerEvent(this, 'change', index, e);
-    },
-}, {
-    scrollHeight: 0,
-    scrollLeft: 0,
-    scrollTop: 0,
-    leftFade: false,
-    rightFade: false,
-}, [
-    createValue({
-        valueKey: 'current',
-        defaultValueKey: 'defaultCurrent',
-    }),
-], {
-    scrollLeft: 0,
-    scrollTop: 0,
-    ready: function () {
-        var _this = this;
-        this.updateScroll();
-        this.getBoundingClientRect('.ant-tabs-bar-item').then(function (res) {
-            var direction = getValueFromProps(_this, 'direction');
-            if (res && res.height > 0 && direction !== 'vertical') {
-                _this.setData({
-                    scrollHeight: res.height,
-                });
             }
-            else {
-                _this.setData({
-                    scrollHeight: direction === 'vertical' ? 0 : 40,
-                });
+            scrollRef.current.scrollLeft = e.detail.scrollLeft;
+            updateFade();
+            return [2 /*return*/];
+        });
+    }); });
+    useEvent('onChange', function (e) { return __awaiter(void 0, void 0, void 0, function () {
+        var index;
+        return __generator(this, function (_a) {
+            index = parseInt(e.currentTarget.dataset.index, 10);
+            if (props.items[index].disabled) {
+                return [2 /*return*/];
+            }
+            if (currentValue === index) {
+                return [2 /*return*/];
+            }
+            if (!isControlled) {
+                update(index);
+            }
+            triggerEvent('change', index, e);
+            return [2 /*return*/];
+        });
+    }); });
+    useComponentUpdateEffect(function () {
+        updateScroll();
+    }, [props.items, currentValue]);
+    var _e = useState(
+    // vertical 模式下，不需要设置高度
+    props.direction === 'vertical' ? 0 : 40), scrollHeight = _e[0], setScrollHeight = _e[1];
+    useReady(function () {
+        updateScroll();
+        getBoundingClientRect('.ant-tabs-bar-item').then(function (res) {
+            if (res && res.height > 0 && props.direction !== 'vertical') {
+                setScrollHeight(res.height);
             }
         });
-    },
-    observers: {
-        'items': function () {
-            this.updateScroll();
-        },
-        'mixin.current': function () {
-            this.updateScroll();
-        },
-    },
-});
+    }, []);
+    return __assign({ scrollHeight: scrollHeight, mixin: {
+            value: currentValue,
+        } }, state);
+};
+mountComponent(Tabs, TabsFunctionalProps);

@@ -20,8 +20,8 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import { FormItemDefaultProps } from '../FormItem/props';
+import { FormItemFunctionalProps } from '../FormItem/props';
 import { UploaderDefaultProps, } from '../../ImageUpload/props';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var defaultFileList = UploaderDefaultProps.defaultFileList, rest = __rest(UploaderDefaultProps, ["defaultFileList"]);
-export var FormImageUploadDefaultProps = __assign(__assign({}, FormItemDefaultProps), rest);
+export var FormImageUploadDefaultProps = __assign(__assign({}, FormItemFunctionalProps), rest);

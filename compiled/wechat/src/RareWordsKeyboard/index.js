@@ -54,60 +54,41 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { Component, triggerEvent, triggerEventOnly } from '../_util/simply';
 import { PINYIN_MAP } from './constants';
 import { RareWordsKeyboardProps } from './props';
 import { formatZDatas, loadFontFace, matchWordsRecommend } from './utils';
 import { ZDATAS } from './zdatas';
-import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import '../_util/assert-component2';
+import { useEffect, useEvent, useState } from 'functional-mini/component';
+import { useComponentEvent } from '../_util/hooks/useComponentEvent';
+import { useEvent as useStableCallback } from '../_util/hooks/useEvent';
+import { mountComponent } from '../_util/component';
+import { useInstanceBoundingClientRect } from '../_util/hooks/useInstanceBoundingClientRect';
 var wordsData = formatZDatas(ZDATAS.datas);
-Component(RareWordsKeyboardProps, {
-    getInstance: function () {
-        if (this.$id) {
-            return my;
-        }
-        return this;
-    },
-    getBoundingClientRect: function (query) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, getInstanceBoundingClientRect(this.getInstance(), query)];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    },
-    // 隐藏键盘，失去焦点
-    handleHide: function () {
-        this.setData({
+var RareWordsKeyboard = function (props) {
+    var _a = useState({
+        showErrorPage: false,
+        loading: false,
+    }), fontState = _a[0], setFontState = _a[1];
+    var _b = useState(0), maxDisplayNum = _b[0], setMaxDisplayNum = _b[1];
+    var _c = useState({
+        inputValue: [],
+        displayStr: '',
+        matchWordsList: [],
+        showMoreWords: false, // 是否展示更多候选字
+    }), keyboardState = _c[0], setKeyboardState = _c[1];
+    var _d = useComponentEvent(props), triggerEvent = _d.triggerEvent, triggerEventOnly = _d.triggerEventOnly;
+    var handleHide = useStableCallback(function () {
+        setKeyboardState({
             inputValue: [],
             matchWordsList: [],
             displayStr: '',
             showMoreWords: false,
         });
-        triggerEventOnly(this, 'close');
-    },
-    // 点击键盘key值
-    handleKeyClick: function (e) {
-        if (this.data.loading)
-            return;
-        var _a = e.currentTarget.dataset.value, value = _a === void 0 ? '' : _a;
-        if (!value)
-            return;
-        var inputValue = __spreadArray(__spreadArray([], this.data.inputValue, true), [value], false);
-        this.setData(__assign({ inputValue: __spreadArray([], inputValue, true) }, this.computeMatchWords(inputValue)));
-    },
-    // 点击删除
-    handleDelete: function () {
-        var inputValue = __spreadArray([], this.data.inputValue, true);
-        if (this.data.inputValue.length === 0)
-            return;
-        inputValue.pop();
-        this.setData(__assign({ inputValue: __spreadArray([], inputValue, true) }, this.computeMatchWords(inputValue)));
-    },
+        triggerEventOnly('close');
+    });
     // 计算展示值和候选字列表
-    computeMatchWords: function (inputValue) {
+    function computeMatchWords(inputValue) {
         var displayStr = Array.isArray(inputValue)
             ? inputValue.join('')
             : inputValue;
@@ -116,76 +97,93 @@ Component(RareWordsKeyboardProps, {
             displayStr: displayStr,
             matchWordsList: curMatchWords,
         };
-    },
-    // 点击查看更多
-    hanleLookMore: function () {
-        if (this.data.matchWordsList.length <= this.data.maxDisplayNum) {
-            this.handleHide();
-            return;
-        }
-        this.setData({
-            showMoreWords: !this.data.showMoreWords,
+    }
+    function loadFont() {
+        setFontState(function (pre) {
+            return __assign(__assign({}, pre), { loading: true });
         });
-    },
-    // 计算每行可以展示的最大字数
-    computeMaxDisplayNum: function () {
+        loadFontFace()
+            .then(function () {
+            setFontState({ showErrorPage: false, loading: false });
+        })
+            .catch(function (err) {
+            setFontState({ showErrorPage: true, loading: false });
+            triggerEvent('error', err);
+        });
+    }
+    var getBoundingClientRect = useInstanceBoundingClientRect().getBoundingClientRect;
+    function computeMaxDisplayNum() {
         return __awaiter(this, void 0, void 0, function () {
             var _a, singleWords, wordsWrap, maxDisplayNumInOneLine;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, Promise.all([
-                            this.getBoundingClientRect('.ant-rare-words-keyboard-match_words_hidden'),
-                            this.getBoundingClientRect('.ant-rare-words-keyboard-match_words_inner'),
+                            getBoundingClientRect('.ant-rare-words-keyboard-match_words_hidden'),
+                            getBoundingClientRect('.ant-rare-words-keyboard-match_words_inner'),
                         ])];
                     case 1:
                         _a = _b.sent(), singleWords = _a[0], wordsWrap = _a[1];
                         if (!(wordsWrap === null || wordsWrap === void 0 ? void 0 : wordsWrap.width) || !(singleWords === null || singleWords === void 0 ? void 0 : singleWords.width))
                             return [2 /*return*/];
                         maxDisplayNumInOneLine = parseInt(((wordsWrap === null || wordsWrap === void 0 ? void 0 : wordsWrap.width) / (singleWords === null || singleWords === void 0 ? void 0 : singleWords.width)).toString(), 10);
-                        this.setData({ maxDisplayNum: maxDisplayNumInOneLine });
+                        setMaxDisplayNum(maxDisplayNumInOneLine);
                         return [2 /*return*/];
                 }
             });
         });
-    },
-    // 加载字体
-    loadFont: function () {
-        var _this = this;
-        this.setData({
-            loading: true,
-        });
-        loadFontFace()
-            .then(function () {
-            _this.setData({ showErrorPage: false, loading: false });
-        })
-            .catch(function (err) {
-            _this.setData({ showErrorPage: true, loading: false });
-            triggerEvent(_this, 'error', err);
-        });
-    },
-    // 点击重试
-    handleRetry: function () {
-        this.loadFont();
-    },
-    handleWordClick: function (e) {
+    }
+    useEffect(function () {
+        loadFont();
+        computeMaxDisplayNum();
+    }, []);
+    useEvent('handleRetry', function () {
+        loadFont();
+    });
+    useEvent('handleWordClick', function (e) {
         var _a = e.currentTarget.dataset.value, value = _a === void 0 ? '' : _a;
         if (!value)
             return;
-        triggerEvent(this, 'change', value);
-        this.handleHide();
-    },
-}, {
-    loading: false,
-    inputValue: [],
-    displayStr: '',
-    matchWordsList: [],
-    showMoreWords: false,
-    pinyinMaps: PINYIN_MAP,
-    maxDisplayNum: 0,
-    showErrorPage: false, // 是否展示错误页
-}, null, {
-    attached: function () {
-        this.loadFont();
-        this.computeMaxDisplayNum();
-    },
-});
+        triggerEvent('change', value);
+        handleHide();
+    });
+    useEvent('hanleLookMore', function () {
+        if (keyboardState.matchWordsList.length <= maxDisplayNum) {
+            handleHide();
+            return;
+        }
+        setKeyboardState(function (old) {
+            return __assign(__assign({}, old), { showMoreWords: !old.showMoreWords });
+        });
+    });
+    // 隐藏键盘，失去焦点
+    useEvent('handleHide', function () {
+        handleHide();
+    });
+    // 点击键盘key值
+    useEvent('handleKeyClick', function (e) {
+        if (fontState.loading) {
+            return;
+        }
+        var _a = e.target.dataset.value, value = _a === void 0 ? '' : _a;
+        if (!value) {
+            return;
+        }
+        setKeyboardState(function (old) {
+            var inputValue = __spreadArray(__spreadArray([], old.inputValue, true), [value], false);
+            return __assign(__assign(__assign({}, old), { inputValue: inputValue }), computeMatchWords(inputValue));
+        });
+    });
+    // 点击删除
+    useEvent('handleDelete', function () {
+        if (keyboardState.inputValue.length === 0) {
+            return;
+        }
+        setKeyboardState(function (old) {
+            var inputValue = __spreadArray([], old.inputValue, true);
+            inputValue.pop();
+            return __assign(__assign(__assign({}, old), { inputValue: __spreadArray([], inputValue, true) }), computeMatchWords(inputValue));
+        });
+    });
+    return __assign(__assign(__assign(__assign({}, fontState), { maxDisplayNum: maxDisplayNum }), keyboardState), { pinyinMaps: PINYIN_MAP });
+};
+mountComponent(RareWordsKeyboard, RareWordsKeyboardProps);

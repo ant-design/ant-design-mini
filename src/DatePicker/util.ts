@@ -18,7 +18,7 @@ const precisionLengthRecord = {
 };
 
 function getYears(min: Dayjs, max: Dayjs, format) {
-  return getArray(min.year(), max.year(), format.bind(this, 'year'));
+  return getArray(min.year(), max.year(), format.bind(null, 'year'));
 }
 
 function getMonths(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
@@ -41,7 +41,7 @@ function getMonths(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
     end = max.month() + 1;
   }
 
-  return getArray(start, end, format.bind(this, 'month'));
+  return getArray(start, end, format.bind(null, 'month'));
 }
 
 function getDates(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
@@ -53,10 +53,10 @@ function getDates(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
   if (currentPicker.clone().set('date', end).isAfter(max)) {
     end = max.date();
   }
-  return getArray(start, end, format.bind(this, 'day'));
+  return getArray(start, end, format.bind(null, 'day'));
 }
 
-function getHours(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
+function getHours(min: Dayjs, max: Dayjs, currentPicker: Dayjs,format) {
   let start = 0;
   let end = 23;
   if (currentPicker.clone().set('hour', start).isBefore(min)) {
@@ -65,9 +65,9 @@ function getHours(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
   if (currentPicker.clone().set('hour', end).isAfter(max)) {
     end = max.hour();
   }
-  return getArray(start, end, format.bind(this, 'hour'));
+  return getArray(start, end, format.bind(null, 'hour'));
 }
-function getMinutes(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
+function getMinutes(min: Dayjs, max: Dayjs, currentPicker: Dayjs,format) {
   let start = 0;
   let end = 59;
   if (currentPicker.clone().set('minute', start).isBefore(min)) {
@@ -76,9 +76,9 @@ function getMinutes(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
   if (currentPicker.clone().set('minute', end).isAfter(max)) {
     end = max.minute();
   }
-  return getArray(start, end, format.bind(this, 'minute'));
+  return getArray(start, end, format.bind(null, 'minute'));
 }
-function getSeconds(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
+function getSeconds(min: Dayjs, max: Dayjs, currentPicker: Dayjs,format) {
   let start = 0;
   let end = 59;
   if (currentPicker.clone().set('second', start).isBefore(min)) {
@@ -87,7 +87,7 @@ function getSeconds(min: Dayjs, max: Dayjs, currentPicker: Dayjs, format) {
   if (currentPicker.clone().set('second', end).isAfter(max)) {
     end = max.second();
   }
-  return getArray(start, end, format.bind(this, 'second'));
+  return getArray(start, end, format.bind(null, 'second'));
 }
 export function getRangeData(
   precision: keyof typeof precisionLengthRecord,
@@ -155,7 +155,6 @@ export function getValueByDate(
     'getSeconds',
   ];
   const value = [];
-  if (!date) return value;
   for (let i = 0; i < precisionLengthRecord[precision]; i++) {
     value.push(date[fields[i]]());
     if (i === 1) {

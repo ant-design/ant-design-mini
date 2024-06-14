@@ -1,4 +1,5 @@
-import { Component, getValueFromProps } from '../../../../src/_util/simply';
+import { useEvent, useState } from 'functional-mini/component';
+import { mountComponent } from '../../../../src/_util/component';
 
 export interface Props {
   hide?: boolean;
@@ -7,55 +8,22 @@ export interface Props {
   handleClick?(id: string): void;
 }
 
-Component(
-  {
-    hide: false,
-    defaultCollapse: null,
-    title: '',
-  } as Props,
-  {
-    handleToggle() {
-      const { collapse } = this.data;
-      this.setData({
-        collapse: !collapse,
-      });
-    },
-  },
-  {
-    collapse: true,
-    internalHide: false,
-    containerTitle: '',
-  },
-  null,
-  {
-    /// #if ALIPAY
-    onInit() {
-      const [defaultCollapse, hide, title] = getValueFromProps(this, [
-        'defaultCollapse',
-        'hide',
-        'title',
-      ]);
-      this.setData({
-        collapse: defaultCollapse ?? true,
-        internalHide: hide,
-        containerTitle: title,
-      });
-    },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      const [defaultCollapse, hide, title] = getValueFromProps(this, [
-        'defaultCollapse',
-        'hide',
-        'title',
-      ]);
-      this.setData({
-        collapse: defaultCollapse ?? true,
-        internalHide: hide,
-        containerTitle: title,
-      });
-    },
+const CollapseContainer = (props: Props) => {
+  const [collapse, setCollapse] = useState(props.defaultCollapse ?? true);
 
-    /// #endif
-  }
-);
+  useEvent('handleToggle', () => {
+    setCollapse((v) => !v);
+  });
+
+  return {
+    collapse,
+    internalHide: props.hide,
+    containerTitle: props.title,
+  };
+};
+
+mountComponent<Props>(CollapseContainer, {
+  hide: false,
+  defaultCollapse: null,
+  title: '',
+});

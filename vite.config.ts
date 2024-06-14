@@ -10,6 +10,11 @@ export default defineConfig({
     },
   },
   test: {
+    server: {
+      deps: {
+        inline: [/functional-mini/],
+      },
+    },
     watch: true,
     globals: true,
     setupFiles: ['./tests/setup.ts'],

@@ -1,4 +1,4 @@
-import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
+import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
 import {
   IRadioGroupProps,
   RadioGroupDefaultProps,
@@ -18,7 +18,7 @@ const { value, defaultValue, position, name, ...rest } =
 RadioGroupDefaultProps;
 
 export const FormRadioGroupDefaultProps: Partial<FormRadioGroupProps> = {
-  ...FormItemDefaultProps,
+  ...FormItemFunctionalProps,
   ...rest,
   radioPosition: 'horizontal',
 };

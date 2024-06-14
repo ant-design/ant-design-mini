@@ -61,7 +61,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import AsyncValidator from 'async-validator';
-import { getValueFromProps } from '../_util/simply';
 var EventEmitter = /** @class */ (function () {
     function EventEmitter() {
         this.listenders = {};
@@ -741,7 +740,7 @@ var Form = /** @class */ (function () {
 export { Form };
 export function createForm(_a) {
     var _b = _a === void 0 ? {} : _a, _c = _b.methods, methods = _c === void 0 ? {} : _c;
-    var mixin = {
+    return {
         data: {
             formData: {
                 value: undefined,
@@ -749,16 +748,11 @@ export function createForm(_a) {
                 errors: [],
             },
         },
-        attached: function () {
-            this.triggerEvent('ref', this);
-        },
-        detached: function () {
+        didUnmount: function () {
             this.emit('didUnmount');
         },
-        observers: {
-            '**': function (nextProps) {
-                this.emit('deriveDataFromProps', nextProps);
-            },
+        deriveDataFromProps: function (nextProps) {
+            this.emit('deriveDataFromProps', nextProps);
         },
         methods: __assign({ emit: function (trigger, value) { }, setFormData: function (values) {
                 this.setData(__assign(__assign({}, this.data), { formData: __assign(__assign({}, this.data.formData), values) }));
@@ -767,10 +761,7 @@ export function createForm(_a) {
             }, on: function (callback) {
                 this.emit = callback;
             }, getProps: function () {
-                return getValueFromProps(this);
+                return this.props;
             } }, methods),
     };
-    // @ts-ignore
-    mixin = Behavior(mixin);
-    return mixin;
 }

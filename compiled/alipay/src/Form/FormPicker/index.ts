@@ -1,41 +1,50 @@
+import { useEvent } from 'functional-mini/component';
+import { mountComponent } from '../../_util/component';
+import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
 import {
-  Component,
-  triggerEvent,
-  triggerEventValues,
-  triggerEventOnly,
-  getValueFromProps,
-} from '../../_util/simply';
-import { resolveEventValue, resolveEventValues } from '../../_util/platform';
-import { FormPickerDefaultProps } from './props';
-import { createForm } from '../form';
+  useHandleCustomEvent,
+  useMultipleValueHandleCustomEvent,
+} from '../../_util/hooks/useHandleCustomEvent';
+import { useFormItem } from '../use-form-item';
+import { FormPickerDefaultProps, FormPickerProps } from './props';
 
-Component(
-  FormPickerDefaultProps,
-  {
-    onOk(value, column, e) {
-      const v = resolveEventValues(value, column);
-      this.emit('onChange', v[0]);
-      triggerEventValues(this, 'ok', v, e);
-    },
-    onChange(value, column, e) {
-      triggerEventValues(this, 'change', resolveEventValues(value, column), e);
-    },
-    onVisibleChange(visible, e) {
-      triggerEvent(this, 'visibleChange', resolveEventValue(visible), e);
-    },
-    onDismissPicker(e) {
-      triggerEventOnly(this, 'cancel', e);
-    },
+const FormPicker = (props: FormPickerProps) => {
+  const { formData, emit } = useFormItem(props);
+  const { triggerEventValues, triggerEventOnly, triggerEvent } =
+    useComponentEvent(props);
 
-    handleFormat(value, column) {
-      const onFormat = getValueFromProps(this, 'onFormat');
-      if (onFormat) {
-        return onFormat(value, column);
+  useMultipleValueHandleCustomEvent('onOk', (value, column, e) => {
+    emit('onChange', value);
+    triggerEventValues('ok', [value, column], e);
+  });
+
+  useMultipleValueHandleCustomEvent('onChange', (value, column, e) => {
+    triggerEventValues('change', [value, column], e);
+  });
+
+  useHandleCustomEvent('onVisibleChange', (visible, e) => {
+    triggerEvent('visibleChange', visible, e);
+  });
+
+  useEvent(
+    'handleFormat',
+    (value, column) => {
+      if (props.onFormat) {
+        return props.onFormat(value, column);
       }
     },
-  },
-  {},
-  [createForm()],
-  {
-  }
-);
+    {
+      handleResult: true,
+    }
+  );
+
+  useHandleCustomEvent('onDismissPicker', (e) => {
+    triggerEventOnly('cancel', e);
+  });
+
+  return {
+    formData,
+  };
+};
+
+mountComponent(FormPicker, FormPickerDefaultProps as FormPickerProps);

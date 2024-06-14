@@ -4,5 +4,4 @@ export var NoticeBarDefaultProps = {
     mode: null,
     enableMarquee: false,
     loop: false,
-    slotIcon: false,
 };

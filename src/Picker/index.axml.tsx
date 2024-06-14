@@ -30,9 +30,9 @@ export default (
     indicatorStyle,
     indicatorClassName,
     options,
-    emptyText,
+    emptyText
   }: TSXMLProps<IPickerProps>,
-  { visible, formatValue, selectedIndex, columns }: InternalData
+  { state, formatValue, selectedIndex, columns }: InternalData
 ) => (
   <Page>
     <View
@@ -70,7 +70,7 @@ export default (
       animationType={animationType}
       destroyOnClose
       onClose="onMaskDismiss"
-      visible={visible}
+      visible={state.visible}
     >
       <View class="ant-picker-header">
         <View

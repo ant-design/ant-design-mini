@@ -1,3 +1,5 @@
+import { PickerValue } from './props';
+
 function getColumnValue(columnItem) {
   if (typeof columnItem === 'object') return columnItem.value;
   return columnItem;
@@ -12,7 +14,7 @@ export function getStrictMatchedItemByValue(columns, value, single) {
   let index = null;
   for (let i = 0; i < columns.length; i++) {
     const column = columns[i];
-    const compareValue = (value || [])[i];
+    const compareValue = value[i];
     index = column.findIndex((c) => {
       const columnValue = getColumnValue(c);
       return columnValue === compareValue;
@@ -27,8 +29,8 @@ export function getStrictMatchedItemByValue(columns, value, single) {
 }
 
 // 如果找不到value对应的item项目，返回第一项
-export function getMatchedItemByValue(columns, value, single) {
-  if (single) {
+export function getMatchedItemByValue(columns, value, singleRef) {
+  if (singleRef.current) {
     value = [value];
   }
   const matchedValues = [];
@@ -36,7 +38,7 @@ export function getMatchedItemByValue(columns, value, single) {
   let index = null;
   for (let i = 0; i < columns.length; i++) {
     const column = columns[i];
-    const compareValue = (value || [])[i];
+    const compareValue = value[i];
     if (compareValue === undefined || compareValue === null) {
       index = 0;
     } else {
@@ -52,8 +54,8 @@ export function getMatchedItemByValue(columns, value, single) {
     matchedValues[i] = getColumnValue(column[index]);
   }
   return {
-    matchedColumn: single ? matchedColumn[0] : matchedColumn,
-    matchedValues: single ? matchedValues[0] : matchedValues,
+    matchedColumn: singleRef.current ? matchedColumn[0] : matchedColumn,
+    matchedValues: singleRef.current ? matchedValues[0] : matchedValues,
   };
 }
 
@@ -82,7 +84,75 @@ export function getMatchedItemByIndex(columns, selectedIndex, single) {
   }
 
   return {
-    matchedColumn: single ? matchedColumn[0] : matchedColumn,
-    matchedValues: single ? matchedValues[0] : matchedValues,
+    matchedColumn: single.current ? matchedColumn[0] : matchedColumn,
+    matchedValues: single.current ? matchedValues[0] : matchedValues,
   };
+}
+
+export function getterColumns(options: PickerValue[], singleRef) {
+  let columns = [];
+  if (options.length > 0) {
+    if (options.every((item) => Array.isArray(item))) {
+      singleRef.current = false;
+      columns = options.slice();
+    } else {
+      singleRef.current = true;
+      columns = [options];
+    }
+  }
+  return columns;
+}
+
+export function defaultFormat(value, column) {
+  if (Array.isArray(column)) {
+    return column
+      .filter((c) => c !== undefined)
+      .map(function (c) {
+        if (typeof c === 'object') {
+          return c.label;
+        }
+        return c;
+      })
+      .join('-');
+  }
+  return (column && column.label) || column || '';
+}
+
+export function getterFormatText(columns, realValue, onFormat, singleRef) {
+  const { matchedColumn } = getStrictMatchedItemByValue(
+    columns,
+    realValue,
+    singleRef.current
+  );
+
+  if (typeof onFormat === 'function') {
+    const formatValueByProps = onFormat(realValue, matchedColumn);
+    if (formatValueByProps !== undefined) {
+      return formatValueByProps;
+    }
+  }
+  return defaultFormat(realValue, matchedColumn);
+}
+
+export function getterSelectedIndex(columns, realValue, sinefileRef) {
+  const selectedIndex = [];
+  let value = realValue || [];
+  if (sinefileRef.current) {
+    value = [realValue];
+  }
+  for (let i = 0; i < columns.length; i++) {
+    const column = columns[i];
+    const compareValue = value[i];
+    if (compareValue === undefined || compareValue === null) {
+      selectedIndex[i] = 0;
+    }
+    let index = column.findIndex((c) => {
+      return c === compareValue || c.value === compareValue;
+    });
+    if (index === -1) {
+      index = 0;
+    }
+    selectedIndex[i] = index;
+  }
+  return selectedIndex;
 }

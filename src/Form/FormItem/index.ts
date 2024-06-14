@@ -1,10 +1,6 @@
-import { Component } from '../../_util/simply';
-import { FormItemDefaultProps } from './props';
+import { mountComponent } from '../../_util/component';
+import { FormItemProps, FormItemFunctionalProps } from './props';
 
-Component(FormItemDefaultProps, null, null, null, {
-  /// #if WECHAT
-  attached() {
-    this.triggerEvent('ref', this);
-  },
-  /// #endif
-});
+const FormItem = () => {};
+
+mountComponent<FormItemProps>(FormItem, FormItemFunctionalProps);

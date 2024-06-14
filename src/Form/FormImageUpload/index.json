@@ -1,6 +1,5 @@
 {
   "component": true,
-  "lazyCodeLoading": "renderedComponents",
   "usingComponents": {
     "form-item": "../FormItem/index",
     "image-upload": "../../ImageUpload/index"

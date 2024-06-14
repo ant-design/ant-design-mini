@@ -1,30 +1,19 @@
-import { Component, getValueFromProps } from '../../../../src/_util/simply';
-Component({
+import { useEvent, useState } from 'functional-mini/component';
+import { mountComponent } from '../../../../src/_util/component';
+const CollapseContainer = (props) => {
+    var _a;
+    const [collapse, setCollapse] = useState((_a = props.defaultCollapse) !== null && _a !== void 0 ? _a : true);
+    useEvent('handleToggle', () => {
+        setCollapse((v) => !v);
+    });
+    return {
+        collapse,
+        internalHide: props.hide,
+        containerTitle: props.title,
+    };
+};
+mountComponent(CollapseContainer, {
     hide: false,
     defaultCollapse: null,
     title: '',
-}, {
-    handleToggle() {
-        const { collapse } = this.data;
-        this.setData({
-            collapse: !collapse,
-        });
-    },
-}, {
-    collapse: true,
-    internalHide: false,
-    containerTitle: '',
-}, null, {
-    attached() {
-        const [defaultCollapse, hide, title] = getValueFromProps(this, [
-            'defaultCollapse',
-            'hide',
-            'title',
-        ]);
-        this.setData({
-            collapse: defaultCollapse !== null && defaultCollapse !== void 0 ? defaultCollapse : true,
-            internalHide: hide,
-            containerTitle: title,
-        });
-    },
 });
