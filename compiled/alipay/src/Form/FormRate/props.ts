@@ -1,4 +1,4 @@
-import { FormItemFunctionalProps, FormItemProps } from '../FormItem/props';
+import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
 import { IRateProps, RateDefaultProps } from '../../Rate/props';
 
 export interface FormRateProps
@@ -12,7 +12,7 @@ export interface FormRateProps
 const { defaultValue, ...rest } = RateDefaultProps;
 
 export const FormRateDefaultProps: Partial<FormRateProps> = {
-  ...FormItemFunctionalProps,
+  ...FormItemDefaultProps,
   ...rest,
   rateClassName: '',
   rateStyle: '',

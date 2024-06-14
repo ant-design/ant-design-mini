@@ -1,5 +1,6 @@
 {
   "component": true,
+  "lazyCodeLoading": "renderedComponents",
   "usingComponents": {
     "mask": "../Mask/index",
     "ant-button": "../Button/index",

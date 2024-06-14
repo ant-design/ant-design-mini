@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import deepEqual from 'fast-deep-equal';
+import { getValueFromProps } from '../_util/simply';
 function computedData() {
     var _this = this;
-    var nextData = this.computed(this.props);
+    var nextData = this.computed(getValueFromProps(this));
     // 浅比较就行了
     var changedData = Object.keys(nextData).reduce(function (prev, item) {
         // 移除 _ $ 开头的保留 props
@@ -24,11 +25,18 @@ function computedData() {
     }
     this.setData(changedData);
 }
-export default {
-    didMount: function () {
-        computedData.call(this);
-    },
-    didUpdate: function () {
-        computedData.call(this);
-    },
-};
+export default function () {
+    var mixin = {
+        attached: function () {
+            computedData.call(this);
+        },
+        observers: {
+            '**': function () {
+                computedData.call(this);
+            },
+        },
+    };
+    // @ts-ignore
+    mixin = Behavior(mixin);
+    return mixin;
+}

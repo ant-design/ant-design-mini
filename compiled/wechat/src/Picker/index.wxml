@@ -28,7 +28,7 @@
   animationType="{{ animationType }}"
   destroyOnClose
   bind:close="onMaskDismiss"
-  visible="{{ state.visible }}">
+  visible="{{ visible }}">
   <view class="ant-picker-header">
     <view
       class="ant-picker-header-item ant-picker-header-cancel"

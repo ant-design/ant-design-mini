@@ -1,4 +1,5 @@
 import { IBaseProps } from '../_util/base';
+import { defaultMonthRange } from './utils';
 
 export interface CalendarDate {
   year: number;
@@ -142,3 +143,14 @@ export interface ICalendarProps extends IBaseProps {
     currentValue: CalendarValue
   ) => Pick<CellState, 'disabled' | 'top' | 'bottom'>;
 }
+
+export const CalendarDefaultProps = {
+  defaultValue: null,
+  value: null,
+  selectionMode: 'range',
+  monthRange: defaultMonthRange(),
+  weekStartsOn: 'Sunday',
+  localeText: defaultLocaleText,
+  onFormatter: null,
+  changedScrollIntoView: null,
+};

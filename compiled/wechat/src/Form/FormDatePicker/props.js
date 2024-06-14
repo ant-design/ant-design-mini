@@ -9,6 +9,6 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { DatePickerFunctionalProps, } from '../../DatePicker/props';
-import { FormItemFunctionalProps } from '../FormItem/props';
-export var FormDatePickerDefaultProps = __assign(__assign(__assign({}, FormItemFunctionalProps), DatePickerFunctionalProps), { arrow: false });
+import { DatePickerDefaultProps, } from '../../DatePicker/props';
+import { FormItemDefaultProps } from '../FormItem/props';
+export var FormDatePickerDefaultProps = __assign(__assign(__assign({}, FormItemDefaultProps), DatePickerDefaultProps), { arrow: false });

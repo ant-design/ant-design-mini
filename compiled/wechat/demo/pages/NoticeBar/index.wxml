@@ -53,7 +53,9 @@
 </ant-container>
 
 <ant-container title="自定义通告栏">
-  <ant-notice style="margin-bottom: 8px">
+  <ant-notice
+    style="margin-bottom: 8px"
+    slotIcon>
     不展示图标
     <view slot="icon" />
   </ant-notice>

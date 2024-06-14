@@ -1,26 +1,19 @@
-import { mountComponent } from '../../_util/component';
-import { useComponentEvent } from '../../_util/hooks/useComponentEvent';
-import { useHandleCustomEvent } from '../../_util/hooks/useHandleCustomEvent';
-import { useFormItem } from '../use-form-item';
-import { FormSliderDefaultProps, FormSliderProps } from './props';
+import { Component, triggerEvent } from '../../_util/simply';
+import { resolveEventValue } from '../../_util/platform';
+import { FormSliderDefaultProps } from './props';
+import { createForm } from '../form';
 
-const FormSlider = (props: FormSliderProps) => {
-  const { formData, emit } = useFormItem(props);
-  const { triggerEvent } = useComponentEvent(props);
-
-  useHandleCustomEvent('onChange', (value, e) => {
-    emit('onChange', value);
-    triggerEvent('change', value, e);
-  });
-
-  useHandleCustomEvent('onAfterChange', (value, e) => {
-    emit('onChange', value);
-    triggerEvent('afterChange', value, e);
-  });
-
-  return {
-    formData,
-  };
-};
-
-mountComponent(FormSlider, FormSliderDefaultProps);
+Component(
+  FormSliderDefaultProps,
+  {
+    onChange(value, e) {
+      this.emit('onChange', resolveEventValue(value));
+      triggerEvent(this, 'change', resolveEventValue(value), e);
+    },
+    onAfterChange(value, e) {
+      triggerEvent(this, 'afterChange', resolveEventValue(value), e);
+    },
+  },
+  null,
+  [createForm()]
+);

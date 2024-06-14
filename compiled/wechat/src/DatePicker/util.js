@@ -24,7 +24,7 @@ var precisionLengthRecord = {
     second: 6,
 };
 function getYears(min, max, format) {
-    return getArray(min.year(), max.year(), format.bind(null, 'year'));
+    return getArray(min.year(), max.year(), format.bind(this, 'year'));
 }
 function getMonths(min, max, currentPicker, format) {
     var start = 1;
@@ -41,7 +41,7 @@ function getMonths(min, max, currentPicker, format) {
         .isAfter(max)) {
         end = max.month() + 1;
     }
-    return getArray(start, end, format.bind(null, 'month'));
+    return getArray(start, end, format.bind(this, 'month'));
 }
 function getDates(min, max, currentPicker, format) {
     var start = 1;
@@ -52,7 +52,7 @@ function getDates(min, max, currentPicker, format) {
     if (currentPicker.clone().set('date', end).isAfter(max)) {
         end = max.date();
     }
-    return getArray(start, end, format.bind(null, 'day'));
+    return getArray(start, end, format.bind(this, 'day'));
 }
 function getHours(min, max, currentPicker, format) {
     var start = 0;
@@ -63,7 +63,7 @@ function getHours(min, max, currentPicker, format) {
     if (currentPicker.clone().set('hour', end).isAfter(max)) {
         end = max.hour();
     }
-    return getArray(start, end, format.bind(null, 'hour'));
+    return getArray(start, end, format.bind(this, 'hour'));
 }
 function getMinutes(min, max, currentPicker, format) {
     var start = 0;
@@ -74,7 +74,7 @@ function getMinutes(min, max, currentPicker, format) {
     if (currentPicker.clone().set('minute', end).isAfter(max)) {
         end = max.minute();
     }
-    return getArray(start, end, format.bind(null, 'minute'));
+    return getArray(start, end, format.bind(this, 'minute'));
 }
 function getSeconds(min, max, currentPicker, format) {
     var start = 0;
@@ -85,7 +85,7 @@ function getSeconds(min, max, currentPicker, format) {
     if (currentPicker.clone().set('second', end).isAfter(max)) {
         end = max.second();
     }
-    return getArray(start, end, format.bind(null, 'second'));
+    return getArray(start, end, format.bind(this, 'second'));
 }
 export function getRangeData(precision, min, max, currentPickerDay, format) {
     var data = [];
@@ -140,6 +140,8 @@ export function getValueByDate(date, precision) {
         'getSeconds',
     ];
     var value = [];
+    if (!date)
+        return value;
     for (var i = 0; i < precisionLengthRecord[precision]; i++) {
         value.push(date[fields[i]]());
         if (i === 1) {

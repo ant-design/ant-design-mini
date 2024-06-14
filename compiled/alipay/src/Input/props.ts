@@ -64,7 +64,7 @@ export interface InputProps extends IBaseProps {
   onConfirm?: (value: string, e: any) => void;
 }
 
-export const InputFunctionalProps: InputProps = {
+export const InputDefaultProps: InputProps = {
   type: null,
   value: null,
   defaultValue: null,

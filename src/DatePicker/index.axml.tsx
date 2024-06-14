@@ -19,12 +19,12 @@ export default (
     maskClosable,
     popClassName,
   }: TSXMLProps<IDatePickerProps>,
-  { state, columns, currentValue, formattedValueText }: InternalData
+  { visible, columns, currentValue, formattedValueText }: InternalData
 ) => (
   <AntPicker
     className="ant-date-picker"
     popClassName={`ant-date-picker-popup ${popClassName || ''}`}
-    visible={state.visible}
+    visible={visible}
     style={style}
     popStyle={popStyle}
     animationType={animationType}

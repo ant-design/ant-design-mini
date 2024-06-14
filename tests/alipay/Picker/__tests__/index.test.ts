@@ -19,11 +19,11 @@ describe('picker onVisibleChange', () => {
 
     instance.callMethod('onOpen');
     await sleep(20);
-    expect(instance.getData().state.visible).toBeTruthy();
+    expect(instance.getData().visible).toBeTruthy();
     instance.setProps({ maskClosable: false });
     instance.callMethod('onMaskDismiss');
     await sleep(20);
-    expect(instance.getData().state.visible).toBeTruthy();
+    expect(instance.getData().visible).toBeTruthy();
   });
 
   it('onCancel', () => {
@@ -237,19 +237,19 @@ it('假设在滚动的时候, value 变化', async () => {
 it('多次开启关闭, visible 状态应该正确', async () => {
   const { instance, callMethod } = createPicker();
   await callMethod('onOpen');
-  expect(instance.getData().state.visible).toBe(true);
+  expect(instance.getData().visible).toBe(true);
   await callMethod('onOk');
-  expect(instance.getData().state.visible).toBe(false);
+  expect(instance.getData().visible).toBe(false);
   await callMethod('onOpen');
-  expect(instance.getData().state.visible).toBe(true);
+  expect(instance.getData().visible).toBe(true);
   await callMethod('onOk');
-  expect(instance.getData().state.visible).toBe(false);
+  expect(instance.getData().visible).toBe(false);
 });
 
 it('如果 disabled, 则无法打开', async () => {
   const { instance, callMethod } = createPicker({ disabled: true });
   await callMethod('onOpen');
-  expect(instance.getData().state.visible).toBe(undefined);
+  expect(instance.getData().visible).toBe(undefined);
 });
 
 describe('非受控模式', () => {
@@ -259,12 +259,12 @@ describe('非受控模式', () => {
       options,
     });
     await callMethod('onOpen');
-    expect(instance.getData().state.visible).toBe(true);
+    expect(instance.getData().visible).toBe(true);
     await callMethod('onChange', { detail: { value: [1] } });
     expect(instance.getData().selectedIndex).toStrictEqual([1]);
     expect(instance.getData().mixin.value).toStrictEqual([]);
     await callMethod('onOk');
-    expect(instance.getData().state.visible).toBe(false);
+    expect(instance.getData().visible).toBe(false);
     expect(instance.getData().mixin.value).toStrictEqual(['上海']);
   });
 
@@ -276,10 +276,10 @@ describe('非受控模式', () => {
       defaultVisible: true,
       'data-1': 2,
     });
-    expect(instance.getData().state.visible).toBe(true);
+    expect(instance.getData().visible).toBe(true);
     expect(instance.getData().selectedIndex).toEqual([1]);
     await callMethod('onOk');
-    expect(instance.getData().state.visible).toBe(false);
+    expect(instance.getData().visible).toBe(false);
     expect(onOk).toBeCalledWith(
       ['上海'],
       ['上海'],
@@ -298,9 +298,9 @@ describe('visible 受控模式', () => {
       visible: false,
       defaultVisible: true,
     });
-    expect(instance.getData().state.visible).toEqual(false);
+    expect(instance.getData().visible).toEqual(false);
     await callMethod('onOpen');
-    expect(instance.getData().state.visible).toEqual(false);
+    expect(instance.getData().visible).toEqual(true);
     expect(onVisibleChange).toBeCalledWith(true, fmtEvent({}));
   });
 });

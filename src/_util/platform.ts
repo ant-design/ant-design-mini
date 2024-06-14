@@ -35,7 +35,7 @@ export function resolveEventValue(value) {
   return value;
 }
 
-export function resolveEventValues(args1: any, args2?: any) {
+export function resolveEventValues(args1: any, args2?: any, ...rest) {
   /// #if WECHAT
 
   if (platform() === 'wechat') {
@@ -43,7 +43,7 @@ export function resolveEventValues(args1: any, args2?: any) {
   }
   /// #endif
 
-  return [args1, args2];
+  return [args1, args2, ...rest];
 }
 
 export function isOldSDKVersion() {

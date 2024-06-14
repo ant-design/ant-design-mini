@@ -1,9 +1,9 @@
 import { Component, triggerEvent } from '../_util/simply';
-import { InputFunctionalProps } from './props';
+import { InputDefaultProps } from './props';
 import mixinValue from '../mixins/value';
 
 Component(
-  InputFunctionalProps,
+  InputDefaultProps,
   {
     onChange(e) {
       const value = e.detail.value;
