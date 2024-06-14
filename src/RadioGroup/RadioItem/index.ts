@@ -44,15 +44,5 @@ Component({
         componentContext.update(key, this.props.value);
       }
     },
-    handleNativeFallback() {
-      if (this.renderer === 'native' && !this.data._disabled) {
-        const fakeEvent = {
-          detail: {
-            value: true,
-          }
-        };
-        this.onItemChange(fakeEvent);
-      }
-    },
   },
 });
