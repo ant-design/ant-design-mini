@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "scripts": {
     "dev": "minidev dev --no-source-map",
     "dev:site": "dumi dev",
@@ -97,7 +97,7 @@
     "postcss-less": "^6.0.0",
     "pre-commit": "^1.2.2",
     "prettier": "^2.2.1",
-    "react": "^16.12.0 || ^17.0.0",
+    "react": "^16.12.0 || ^17.0.0 || ^18.0.0",
     "react-lottie": "^1.2.3",
     "request": "^2.88.2",
     "resize-observer-polyfill": "^1.5.1",
