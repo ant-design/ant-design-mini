@@ -1,6 +1,5 @@
 {
   "component": true,
-  "lazyCodeLoading": "renderedComponents",
   "usingComponents": {
     "ant-checklist-item": "./ChecklistItem/index",
     "ant-icon": "../Icon/index"
