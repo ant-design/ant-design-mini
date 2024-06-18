@@ -1,6 +1,5 @@
 {
   "component": true,
-  "lazyCodeLoading": "renderedComponents",
   "usingComponents": {
     "image-icon": "../ImageIcon/index",
     "ant-pagination": "../Pagination/index"

@@ -1,4 +1,3 @@
 {
-  "component": true,
-  "lazyCodeLoading": "renderedComponents"
+  "component": true
 }

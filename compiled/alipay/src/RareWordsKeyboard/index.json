@@ -1,6 +1,5 @@
 {
   "component": true,
-  "lazyCodeLoading": "renderedComponents",
   "usingComponents": {
     "icon": "../Icon/index",
     "result": "../Result/index",
