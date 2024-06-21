@@ -22,6 +22,9 @@
   color: #333333;
   background: #ffffff;
 }
+.ant-textarea-content-clear {
+  padding-right: 17px;
+}
 .ant-textarea-clear {
   position: absolute;
   top: 0;

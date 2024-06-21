@@ -38,7 +38,9 @@ export default (
       <Textarea
         enableNative={enableNative}
         name={name}
-        class="ant-textarea-content"
+        class={`ant-textarea-content ${
+          allowClear ? 'ant-textarea-content-clear' : ''
+        }`}
         disabled={disabled}
         value={state.value || ''}
         placeholder={placeholder}
