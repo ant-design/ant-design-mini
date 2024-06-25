@@ -1,29 +1,29 @@
 <import-sjs name="util" from="./index.sjs" />
 
 <template name="icon">
-  <view class="ant-typography-icon-container {{iconPosition}}" a:if="{{iconPosition === type}}">
+  <view class="ant-typography-icon-container {{iconPosition}} ant-typography-{{type}}" a:if="{{iconPosition === renderType}}">
     <icon
       a:if="{{!util.isUrl(icon)}}"
-      type="{{icon}}"
+      type="{{type ? util.typeConfig[type].icon : icon}}"
       className="ant-typography-icon"
     />
-    <image a:else class="ant-typography-icon-image" style="width: {{fontSize}};height: {{fontSize}};" src="{{icon}}"/>
+    <image a:else class="ant-typography-icon-image" style="width: {{fontSize}};height: {{fontSize}};" src="{{type ? util.typeConfig[type].icon : icon}}"/>
   </view>
 </template>
 
 <view
   a:if="{{!hasCatchTap}}"
   class="ant-typography-container {{className ? className : ''}}"
-  style="{{color ? `color: ${color};` : ''}} {{fontSize ? `font-size: ${fontSize};`: ''}}"
+  style="{{style}}"
   onTap="{{ onTap ? 'onTap' : '' }}"
   catchTap="{{ catchTap ? 'catchTap' : '' }}"
 >
   <!-- 左侧图标 -->
-  <template is="icon" data="{{ type: 'left', icon, iconPosition, fontSize, text, color, className }}"/>
+  <template is="icon" data="{{ renderType: 'left', type, icon, iconPosition, text, className, style }}"/>
   <!-- 左侧文案 -->
   <slot>
     <text class="ant-typography-text">{{text}}</text>
   </slot>
   <!-- 右侧图标 -->
-  <template is="icon" data="{{ type: 'right', icon, iconPosition, fontSize, text, color, className }}"/>
+  <template is="icon" data="{{ renderType: 'right', type, icon, iconPosition, text, className, style }}"/>
 </view>

@@ -1,9 +1,7 @@
-import { LinkDefaultProps } from './props';
+import { TypographyDefaultProps } from './props';
 
 Component({
-  props: LinkDefaultProps,
-  data: {},
-  onInit() {},
+  props: TypographyDefaultProps,
   methods: {
     onTap(e) {
       const { onTap } = this.props;

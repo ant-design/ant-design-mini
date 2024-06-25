@@ -7,14 +7,16 @@ export interface Props {
   className?: string;
   disabled?: boolean;
   lineThrough?: boolean;
+  style?: string;
   onTap?: (e: any, props: Props) => void;
   catchTap?: (e: any, props: Props) => void;
 }
 
-export const LinkDefaultProps: Props = {
-  text: '链接文案',
+export const TypographyDefaultProps: Props = {
+  text: '',
   type: null,
   iconPosition: 'right',
-  icon: 'RightOutline',
+  icon: null,
   className: '',
+  style: '',
 };

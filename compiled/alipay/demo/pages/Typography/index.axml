@@ -2,13 +2,37 @@
 
 <ant-container title="基础使用">
   <ant-typography
-    className="button"
-    inline={true}
-    type="primary"
-    data-index="1"
-    onTap="handleShowToast"
+    className="typography"
   >
     简短文字
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    type="link"
+  >
+    链接
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    type="copy"
+  >
+    复制
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    type="delete"
+  >
+    删除
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    type="edit"
+  >
+    编辑
   </ant-typography>
 </ant-container>
 
