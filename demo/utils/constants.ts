@@ -466,6 +466,16 @@ export const componentList = [
       },
     ],
   },
+  {
+    type: '实验性质的组件',
+    list: [
+      {
+        name: 'Typography',
+        nameZN: '排版',
+        path: '/pages/Typography/index',
+      },
+    ],
+  },
 ];
 
 export const allComponents = componentList.reduce(

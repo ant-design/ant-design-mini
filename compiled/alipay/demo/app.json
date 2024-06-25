@@ -97,7 +97,8 @@
     "pages/Slider/index",
     "pages/TabsElevator/index",
     "pages/IndexBarScrollView/index",
-    "pages/SelectorFilter/index"
+    "pages/SelectorFilter/index",
+    "pages/Typography/index"
   ],
   "window": {
     "enableWK": "YES",

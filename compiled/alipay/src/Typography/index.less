@@ -1,0 +1,26 @@
+@import (reference) '../style/themes/index.less';
+
+@tabsPrefix: ant-typography;
+
+.@{tabsPrefix}-container {
+  font-size: 28 * @rpx;
+  display: flex;
+  align-items: center;
+  .@{tabsPrefix} {
+    &-text {
+      line-height: @default-line-height;
+    }
+    &-icon {
+      &-container {
+        display: flex;
+        align-items: center;
+        &.left {
+          margin-right: @size-8;
+        }
+      }
+      &-image {
+        display: block;
+      }
+    }
+  }
+}

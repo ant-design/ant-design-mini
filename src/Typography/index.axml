@@ -1,0 +1,29 @@
+<import-sjs name="util" from="./index.sjs" />
+
+<template name="icon">
+  <view class="ant-typography-icon-container {{iconPosition}}" a:if="{{iconPosition === type}}">
+    <icon
+      a:if="{{!util.isUrl(icon)}}"
+      type="{{icon}}"
+      className="ant-typography-icon"
+    />
+    <image a:else class="ant-typography-icon-image" style="width: {{fontSize}};height: {{fontSize}};" src="{{icon}}"/>
+  </view>
+</template>
+
+<view
+  a:if="{{!hasCatchTap}}"
+  class="ant-typography-container {{className ? className : ''}}"
+  style="{{color ? `color: ${color};` : ''}} {{fontSize ? `font-size: ${fontSize};`: ''}}"
+  onTap="{{ onTap ? 'onTap' : '' }}"
+  catchTap="{{ catchTap ? 'catchTap' : '' }}"
+>
+  <!-- 左侧图标 -->
+  <template is="icon" data="{{ type: 'left', icon, iconPosition, fontSize, text, color, className }}"/>
+  <!-- 左侧文案 -->
+  <slot>
+    <text class="ant-typography-text">{{text}}</text>
+  </slot>
+  <!-- 右侧图标 -->
+  <template is="icon" data="{{ type: 'right', icon, iconPosition, fontSize, text, color, className }}"/>
+</view>
