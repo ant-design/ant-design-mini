@@ -1,11 +1,11 @@
-export interface Props {
+import { IBaseProps, IconType } from '../_util/base';
+
+export interface ITypographyProps extends IBaseProps {
   text?: string;
   type?: 'copy' | 'delete' | 'edit' | 'link' | 'location' | 'share';
   iconPosition?: 'left' | 'right';
-  icon?: string;
-  className?: string;
+  icon?: IconType | string;
   activeClassName?: string;
-  style?: string;
   disabled?: boolean;
   selectable?: boolean;
   fontWeight?: 'normal' | 'medium' | 'bold' | '';
@@ -17,7 +17,7 @@ export interface Props {
   onDisabledTap?: (event: any) => void;
 }
 
-export const TypographyDefaultProps: Props = {
+export const TypographyDefaultProps: ITypographyProps = {
   text: '',
   type: null,
   iconPosition: 'right',

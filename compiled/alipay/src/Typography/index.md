@@ -32,7 +32,7 @@ toc: content
 | text            | 文本内容                                                            | string                                                             | -        |
 | type            | 类型                                                                | - \|`copy` \| `delete` \| `edit` \| `link` \|`location` \| `share` | -        |
 | iconPosition    | 图标位置                                                            | `left` \| `right`                                                  | `right`  |
-| icon            | 图标，可以支持 Icon 组件的 type 属性，也可以直接传入图标的链接地址  | string                                                             | -        |
+| icon            | 图标，可以支持 Icon 组件的 type 属性，也可以直接传入图标的链接地址  | IconType \| string                                                 | -        |
 | className       | 样式类                                                              | string                                                             | -        |
 | activeClassName | 点击是激活态样式类                                                  | string                                                             | -        |
 | style           | 样式                                                                | string                                                             | -        |
