@@ -3,27 +3,27 @@ function isUrl(string) {
 }
 
 const typeConfig = {
-  copy: {
+  'copy': {
     icon: 'TextOutline',
     text: '复制',
   },
-  delete: {
+  'delete': {
     icon: 'DeleteOutline',
     text: '删除',
   },
-  edit: {
+  'edit': {
     icon: 'EditSOutline',
     text: '编辑',
   },
-  link: {
+  'link': {
     icon: 'RightOutline',
     text: '链接',
   },
-  location: {
+  'location': {
     icon: 'LocationOutline',
     text: '定位',
   },
-  share: {
+  'share': {
     icon: 'SendOutline',
     text: '分享',
   },

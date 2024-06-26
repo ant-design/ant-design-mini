@@ -1,6 +1,6 @@
 export interface Props {
   text?: string;
-  type?: 'copy' | 'delete' | 'edit' | 'link';
+  type?: 'copy' | 'delete' | 'edit' | 'link' | 'location' | 'share';
   iconPosition?: 'left' | 'right';
   icon?: string;
   className?: string;
@@ -25,8 +25,8 @@ export const TypographyDefaultProps: Props = {
   activeClassName: '',
   style: '',
   disabled: false,
-  fontWeight: '',
+  fontWeight: 'normal',
   lineThrough: false,
   underline: false,
-  ellipsisRow: 1,
+  ellipsisRow: null,
 };

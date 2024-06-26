@@ -11,45 +11,38 @@ toc: content
 
 ## 何时使用
 
-- 当需要一列基于文本的基础操作时，如拷贝/省略/可编辑。
--
+- 需要对一段文本进行展示时使用，支持省略，兼容不同平台的加粗等。
+- 当需要带图标的行动点操作按钮时可以使用。
 
 ## 注意事项
 
-- `icon` 属性可以支持 `Antd Icon` 组件的 `type` 属性，也可以直接传入图片链接；
-- 图标在文案左侧时，会有 `8rpx` 的间距
+- `icon` 属性可以支持 `Icon` 组件的 `type` 属性，也可以直接传入图标的链接地址。
+- 禁用模式下，可以传入 `onDisabledTap` 事件，用于监听禁用状态下，用户对文本的点击。
 
 ## 代码示例
 
 ### 基础用法
 
-<code src='pages/InputCustom/index'></code>
+<code src='pages/Typography/index'></code>
 
 ## 属性
 
-| 属性         | 类型                        | 必填 | 默认值         | 说明                              |
-| ------------ | --------------------------- | ---- | -------------- | --------------------------------- |
-| text         | string                      | 否   | `""`           | 链接文案                          |
-| color        | string                      | 否   | `#1677ff`      | 链接字体颜色（十六进制）          |
-| fontSize     | string                      | 否   | `28rpx`        | 链接字体大小                      |
-| icon         | string                      | 否   | `RightOutline` | 图标链接 或 `Antd Icon` 的 `type` |
-| iconPosition | `left` 或 `right`           | 否   | `right`        | 图标位置                          |
-| className    | string                      | 否   | `""`           | 自定义类名                        |
-| traceParams  | [TraceParams](#traceparams) | 否   | `{}`           | 埋点                              |
-
-### TraceParams
-
-| 键名     | 说明     | 类型     |
-| -------- | -------- | -------- |
-| click    | 点击点位 | `string` |
-| extParam | 扩展参数 | `string` |
-
-## 事件
-
-| 事件名   | 说明         | 类型                            |
-| -------- | ------------ | ------------------------------- |
-| onTap    | 数据变化触发 | `(e: Event, props:Props)=>void` |
-| catchTap | 数据变化触发 | `(e: Event, props:Props)=>void` |
+| 属性            | 说明                                                                | 类型                                                               | 默认值  |
+| --------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
+| text            | 文本内容                                                            | string                                                             | -       |
+| type            | 类型                                                                | - \|`copy` \| `delete` \| `edit` \| `link` \|`location` \| `share` | -       |
+| iconPosition    | 图标位置                                                            | `left` \| `right`                                                  | `right` |
+| icon            | 图标，可以支持 Icon 组件的 type 属性，也可以直接传入图标的链接地址  | string                                                             | -       |
+| className       | 样式类                                                              | string                                                             | -       |
+| activeClassName | 点击是激活态样式类                                                  | string                                                             | -       |
+| style           | 样式                                                                | string                                                             | -       |
+| disabled        | 是否禁用                                                            | boolean                                                            | false   |
+| fontWeight      | 字重，兼容 iOS、Android 平台的加粗效果                              | `normal` \| `medium` \| `bold`                                     | -       |
+| lineThrough     | 添加删除线样式                                                      | boolean                                                            | false   |
+| underline       | 添加下划线样式                                                      | boolean                                                            | false   |
+| ellipsisRow     | 多行省略，值须大于等于 1，表现同 css 的 -webkit-line-clamp 属性一致 | number                                                             | -       |
+| onTap           | 点击按钮，触发此回调                                                | (e: Event) => void                                                 | -       |
+| catchTap        | 点击按钮，触发此回调，非冒泡                                        | (e: Event) => void                                                 | -       |
 
 ## 插槽
 
