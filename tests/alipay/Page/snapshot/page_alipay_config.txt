@@ -1,0 +1,8 @@
+ {
+  "props": {
+    "loadingColor": "#ccc",
+    "loadingSize": "medium",
+    "loadingType": "spin",
+    "safeArea": "both",
+  },
+}

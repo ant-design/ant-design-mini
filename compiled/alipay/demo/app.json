@@ -82,6 +82,7 @@
     "pages/Checklist/index",
     "pages/Empty/index",
     "pages/Toast/index",
+    "pages/Page/index",
     "pages/ProgressLine/index",
     "pages/ProgressCircle/index",
     "pages/GuideTour/index",

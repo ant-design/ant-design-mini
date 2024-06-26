@@ -1,8 +1,12 @@
 {
-  "component2": true,
-  "axmlStrictCheck": false,
-  "enableAppxNg": true,
-  "exclude": [
+  "format": 2,
+  "compileOptions": {
+    "component2": true
+  },
+  "uploadExclude": [
     "miniapptools_dist/**/*"
-  ]
+  ],
+  "unknownConfig": {
+    "axmlStrictCheck": false
+  }
 }

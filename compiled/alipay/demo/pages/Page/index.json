@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "Result",
+  "titleBarColor": "#ffffff",
+  "transparentTitle": "auto",
+  "usingComponents": {
+    "ant-button": "../../../src/Button/index",
+    "ant-page": "../../../src/Page/index",
+    "ant-loading": "../../../src/Loading/index"
+  }
+}
