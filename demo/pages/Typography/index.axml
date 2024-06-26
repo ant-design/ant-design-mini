@@ -1,6 +1,6 @@
 
 
-<ant-container title="基础使用">
+<ant-container title="基础排版">
   <ant-typography
     className="typography"
   >
@@ -9,30 +9,114 @@
 
   <ant-typography
     className="typography"
-    type="link"
+    fontWeight="medium"
   >
-    链接
+    简短文字中等加粗
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    fontWeight="bold"
+  >
+    简短文字重度加粗
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    lineThrough
+  >
+    简短文字
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    underline
+  >
+    简短文字
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    ellipsisRow="{{3}}"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+  </ant-typography>
+</ant-container>
+
+
+<ant-container title="带图标的排版">
+  <ant-typography
+    className="typography"
+    disabled
+    type="link"
+    data-type="link"
+    onDisabledTap="handleDisabledTap"
+  >
+    链接禁用
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    type="link"
+    data-type="link"
+    onTap="handleTap"
+  >
   </ant-typography>
 
   <ant-typography
     className="typography"
     type="copy"
+    data-type="copy"
+    onTap="handleTap"
   >
-    复制
   </ant-typography>
 
   <ant-typography
     className="typography"
     type="delete"
+    data-type="delete"
+    onTap="handleTap"
   >
-    删除
   </ant-typography>
 
   <ant-typography
     className="typography"
     type="edit"
+    data-type="edit"
+    onTap="handleTap"
   >
-    编辑
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    type="location"
+    data-type="location"
+    onTap="handleTap"
+  >
+  </ant-typography>
+
+  <ant-typography
+    className="typography"
+    type="share"
+    data-type="share"
+    onTap="handleTap"
+  >
+  </ant-typography>
+
+
+  <ant-typography
+    className="typography"
+    type="share"
+    iconPosition="left"
+    data-type="share"
+    onTap="handleTap"
+  >
+    分享试试
   </ant-typography>
 </ant-container>
-

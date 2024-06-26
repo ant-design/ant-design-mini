@@ -1,7 +1,16 @@
 <import-sjs name="util" from="./index.sjs" />
 
-<template name="icon">
-  <view class="ant-typography-icon-container {{iconPosition}} ant-typography-{{type}}" a:if="{{iconPosition === renderType}}">
+<view
+  class="ant-typography-container ant-typography-{{type}} {{disabled ? 'ant-typography-disabled' : ''}} {{className}}"
+  hover-class="{{onTap || catchTap ? `ant-typography-hover {{activeClassName}}` : ''}}"
+  hover-start-time="{{20}}"
+  hover-stay-time="{{40}}"
+  style="{{style}}"
+  onTap="{{ onTap || onDisabledTap ? 'onTap' : '' }}"
+  catchTap="{{ catchTap ? 'catchTap' : '' }}"
+>
+  <!-- 左侧图标 -->
+  <view class="ant-typography-icon-container {{iconPosition}}" a:if="{{iconPosition === 'left'}}">
     <icon
       a:if="{{!util.isUrl(icon)}}"
       type="{{type ? util.typeConfig[type].icon : icon}}"
@@ -9,21 +18,23 @@
     />
     <image a:else class="ant-typography-icon-image" style="width: {{fontSize}};height: {{fontSize}};" src="{{type ? util.typeConfig[type].icon : icon}}"/>
   </view>
-</template>
 
-<view
-  a:if="{{!hasCatchTap}}"
-  class="ant-typography-container {{className ? className : ''}}"
-  style="{{style}}"
-  onTap="{{ onTap ? 'onTap' : '' }}"
-  catchTap="{{ catchTap ? 'catchTap' : '' }}"
->
-  <!-- 左侧图标 -->
-  <template is="icon" data="{{ renderType: 'left', type, icon, iconPosition, text, className, style }}"/>
-  <!-- 左侧文案 -->
-  <slot>
-    <text class="ant-typography-text">{{text}}</text>
-  </slot>
+  <!-- 文案 -->
+  <text
+    number-of-lines="{{ellipsisRow}}"
+    class="ant-typography-text {{lineThrough ? 'lineThrough' : ''}} {{underline ? 'underline' : ''}} {{util.isiOS(phonemodel) ? `ant-typography-text-${fontWeight || 'normal'}` : ''}}"
+    style="{{!util.isiOS(phonemodel) ? `font-weight: ${util.getFontWeight(fontWeight, phonemodel)};` : ''}}"
+  >
+    <slot>{{type ? util.typeConfig[type].text : text}}</slot>
+  </text>
+
   <!-- 右侧图标 -->
-  <template is="icon" data="{{ renderType: 'right', type, icon, iconPosition, text, className, style }}"/>
+  <view class="ant-typography-icon-container {{iconPosition}}" a:if="{{iconPosition === 'right'}}">
+    <icon
+      a:if="{{!util.isUrl(icon)}}"
+      type="{{type ? util.typeConfig[type].icon : icon}}"
+      className="ant-typography-icon"
+    />
+    <image a:else class="ant-typography-icon-image" style="width: {{fontSize}};height: {{fontSize}};" src="{{type ? util.typeConfig[type].icon : icon}}"/>
+  </view>
 </view>
