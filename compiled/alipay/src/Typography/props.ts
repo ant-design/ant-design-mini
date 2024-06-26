@@ -21,7 +21,7 @@ export const TypographyDefaultProps: ITypographyProps = {
   text: '',
   type: null,
   iconPosition: 'right',
-  icon: null,
+  icon: '',
   className: '',
   activeClassName: '',
   style: '',

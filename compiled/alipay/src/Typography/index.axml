@@ -26,7 +26,7 @@
     class="ant-typography-text {{lineThrough ? 'lineThrough' : ''}} {{underline ? 'underline' : ''}} {{util.isiOS(phonemodel) ? `ant-typography-text-${fontWeight || 'normal'}` : ''}}"
     style="{{!util.isiOS(phonemodel) ? `font-weight: ${util.getFontWeight(fontWeight, phonemodel)};` : ''}}"
   >
-    <slot>{{type ? util.typeConfig[type].text : text}}</slot>
+    <slot>{{type && !text ? util.typeConfig[type].text : text}}</slot>
   </text>
 
   <!-- 右侧图标 -->

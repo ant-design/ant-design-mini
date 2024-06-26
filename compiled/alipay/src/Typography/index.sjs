@@ -1,54 +1,55 @@
 function isUrl(string) {
-  return !!(string.match('http://') || string.match('https://'));
+  return !!(string.startsWith('http://') || string.startsWith('https://'));
 }
-
-const typeConfig = {
-  'copy': {
+var typeConfig = {
+  copy: {
     icon: 'TextOutline',
-    text: '复制',
+    text: '复制'
   },
-  'delete': {
+  "delete": {
     icon: 'DeleteOutline',
-    text: '删除',
+    text: '删除'
   },
-  'edit': {
+  edit: {
     icon: 'EditSOutline',
-    text: '编辑',
+    text: '编辑'
   },
-  'link': {
+  link: {
     icon: 'RightOutline',
-    text: '链接',
+    text: '链接'
   },
-  'location': {
+  location: {
     icon: 'LocationOutline',
-    text: '定位',
+    text: '定位'
   },
-  'share': {
+  share: {
     icon: 'SendOutline',
-    text: '分享',
-  },
+    text: '分享'
+  }
 };
-
 function getFontWeight(fontWeight, phonemodel) {
-  const type2weight = {
+  var type2weight = {
     normal: {
       Android: 'normal',
-      iOS: 'normal',
+      iOS: 'normal'
     },
     medium: {
       Android: 'bold',
-      iOS: '500',
+      iOS: '500'
     },
     bold: {
       Android: 'bold',
-      iOS: 'bold',
-    },
+      iOS: 'bold'
+    }
   };
   return (type2weight[fontWeight] || type2weight['normal'])[phonemodel];
 }
-
 function isiOS(phonemodel) {
   return phonemodel === 'iOS';
 }
-
-export default { isUrl, typeConfig, getFontWeight, isiOS };
+export default {
+  isUrl: isUrl,
+  typeConfig: typeConfig,
+  getFontWeight: getFontWeight,
+  isiOS: isiOS
+};
