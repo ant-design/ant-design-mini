@@ -66,7 +66,9 @@ export default (
             style={`${marqueeStyle} display: ${
               enableMarquee ? 'inline-block' : 'block'
             }`}
+            // #if ALIPAY
             onTransitionEnd="onTransitionEnd"
+            // #endif
           >
             <Slot />
           </View>

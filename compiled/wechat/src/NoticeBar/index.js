@@ -67,12 +67,25 @@ Component(NoticeBarDefaultProps, {
         }
     },
     startMarquee: function (state) {
+        var _this = this;
         var loop = getValueFromProps(this, 'loop');
         var leading = 500;
         var duration = state.duration, overflowWidth = state.overflowWidth, viewWidth = state.viewWidth;
         var marqueeScrollWidth = overflowWidth;
         if (loop) {
             marqueeScrollWidth = overflowWidth + viewWidth;
+            // 微信的view标签不支持onTransitionEnd，需要这里实现循环
+            var trailing = 200;
+            clearTimeout(this.timer);
+            this.timer = setTimeout(function () {
+                _this.measureText(function (state) {
+                    _this.resetMarquee.call(_this, state);
+                    _this.measureText(function (state) {
+                        _this.startMarquee.call(_this, state);
+                    });
+                });
+                clearTimeout(_this.timer);
+            }, trailing + duration * 1000);
         }
         var newMarqueeStyle = "transform: translate3d(".concat(-marqueeScrollWidth, "px, 0, 0); transition: ").concat(duration, "s all linear ").concat(typeof leading === 'number' ? "".concat(leading / 1000, "s") : '0s', ";");
         this.setData({
@@ -128,18 +141,6 @@ Component(NoticeBarDefaultProps, {
         this.setData({
             marqueeStyle: marqueeStyle,
         });
-    },
-    onTransitionEnd: function () {
-        var _this = this;
-        var loop = getValueFromProps(this, 'loop');
-        var trailing = 200;
-        if (loop) {
-            setTimeout(function () {
-                _this.measureText(function (state) {
-                    _this.resetMarquee.call(_this, state);
-                });
-            }, trailing);
-        }
     },
 }, {
     show: true,
