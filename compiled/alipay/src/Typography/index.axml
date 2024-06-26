@@ -21,6 +21,7 @@
 
   <!-- 文案 -->
   <text
+    selectable="{{selectable}}"
     number-of-lines="{{ellipsisRow}}"
     class="ant-typography-text {{lineThrough ? 'lineThrough' : ''}} {{underline ? 'underline' : ''}} {{util.isiOS(phonemodel) ? `ant-typography-text-${fontWeight || 'normal'}` : ''}}"
     style="{{!util.isiOS(phonemodel) ? `font-weight: ${util.getFontWeight(fontWeight, phonemodel)};` : ''}}"

@@ -35,6 +35,7 @@
 
   <ant-typography
     className="typography"
+    selectable
   >
     完整展示：Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </ant-typography>
@@ -42,6 +43,7 @@
   <ant-typography
     className="typography"
     ellipsisRow="{{3}}"
+    selectable
   >
     超出 3 行的内容省略展示：Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </ant-typography>

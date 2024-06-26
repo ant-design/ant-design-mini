@@ -27,25 +27,21 @@ toc: content
 
 ## 属性
 
-| 属性            | 说明                                                                | 类型                                                               | 默认值  |
-| --------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
-| text            | 文本内容                                                            | string                                                             | -       |
-| type            | 类型                                                                | - \|`copy` \| `delete` \| `edit` \| `link` \|`location` \| `share` | -       |
-| iconPosition    | 图标位置                                                            | `left` \| `right`                                                  | `right` |
-| icon            | 图标，可以支持 Icon 组件的 type 属性，也可以直接传入图标的链接地址  | string                                                             | -       |
-| className       | 样式类                                                              | string                                                             | -       |
-| activeClassName | 点击是激活态样式类                                                  | string                                                             | -       |
-| style           | 样式                                                                | string                                                             | -       |
-| disabled        | 是否禁用                                                            | boolean                                                            | false   |
-| fontWeight      | 字重，兼容 iOS、Android 平台的加粗效果                              | `normal` \| `medium` \| `bold`                                     | -       |
-| lineThrough     | 添加删除线样式                                                      | boolean                                                            | false   |
-| underline       | 添加下划线样式                                                      | boolean                                                            | false   |
-| ellipsisRow     | 多行省略，值须大于等于 1，表现同 css 的 -webkit-line-clamp 属性一致 | number                                                             | -       |
-| onTap           | 点击按钮，触发此回调                                                | (e: Event) => void                                                 | -       |
-| catchTap        | 点击按钮，触发此回调，非冒泡                                        | (e: Event) => void                                                 | -       |
-
-## 插槽
-
-| 名称     | 说明         |
-| -------- | ------------ |
-| 默认插槽 | 链接文案插槽 |
+| 属性            | 说明                                                                | 类型                                                               | 默认值   |
+| --------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------ | -------- |
+| text            | 文本内容                                                            | string                                                             | -        |
+| type            | 类型                                                                | - \|`copy` \| `delete` \| `edit` \| `link` \|`location` \| `share` | -        |
+| iconPosition    | 图标位置                                                            | `left` \| `right`                                                  | `right`  |
+| icon            | 图标，可以支持 Icon 组件的 type 属性，也可以直接传入图标的链接地址  | string                                                             | -        |
+| className       | 样式类                                                              | string                                                             | -        |
+| activeClassName | 点击是激活态样式类                                                  | string                                                             | -        |
+| style           | 样式                                                                | string                                                             | -        |
+| disabled        | 是否禁用                                                            | boolean                                                            | false    |
+| selectable      | 是否可被选中                                                        | boolean                                                            | false    |
+| fontWeight      | 字重，兼容 iOS、Android 平台的加粗效果                              | `normal` \| `medium` \| `bold`                                     | `normal` |
+| lineThrough     | 添加删除线样式                                                      | boolean                                                            | false    |
+| underline       | 添加下划线样式                                                      | boolean                                                            | false    |
+| ellipsisRow     | 多行省略，值须大于等于 1，表现同 css 的 -webkit-line-clamp 属性一致 | number                                                             | -        |
+| onTap           | 点击按钮，触发此回调                                                | (e: Event) => void                                                 | -        |
+| catchTap        | 点击按钮，触发此回调，非冒泡                                        | (e: Event) => void                                                 | -        |
+| onDisabledTap   | 禁用状态下，点击按钮，触发此回调                                    | (e: Event) => void                                                 | -        |

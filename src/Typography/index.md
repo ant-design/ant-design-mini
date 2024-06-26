@@ -37,6 +37,7 @@ toc: content
 | activeClassName | 点击是激活态样式类                                                  | string                                                             | -        |
 | style           | 样式                                                                | string                                                             | -        |
 | disabled        | 是否禁用                                                            | boolean                                                            | false    |
+| selectable      | 是否可被选中                                                        | boolean                                                            | false    |
 | fontWeight      | 字重，兼容 iOS、Android 平台的加粗效果                              | `normal` \| `medium` \| `bold`                                     | `normal` |
 | lineThrough     | 添加删除线样式                                                      | boolean                                                            | false    |
 | underline       | 添加下划线样式                                                      | boolean                                                            | false    |

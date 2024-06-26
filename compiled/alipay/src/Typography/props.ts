@@ -7,6 +7,7 @@ export interface Props {
   activeClassName?: string;
   style?: string;
   disabled?: boolean;
+  selectable?: boolean;
   fontWeight?: 'normal' | 'medium' | 'bold' | '';
   lineThrough?: boolean;
   underline?: boolean;
@@ -25,7 +26,8 @@ export const TypographyDefaultProps: Props = {
   activeClassName: '',
   style: '',
   disabled: false,
-  fontWeight: '',
+  selectable: false,
+  fontWeight: 'normal',
   lineThrough: false,
   underline: false,
   ellipsisRow: null,
