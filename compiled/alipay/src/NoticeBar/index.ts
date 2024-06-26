@@ -98,14 +98,16 @@ Component(
         marqueeStyle,
       });
     },
+
     onTransitionEnd() {
       const loop = getValueFromProps(this, 'loop');
       const trailing = 200;
       if (loop) {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
           this.measureText((state) => {
             this.resetMarquee.call(this, state);
           });
+          clearTimeout(timer);
         }, trailing);
       }
     },
@@ -130,7 +132,6 @@ Component(
       const { enableMarquee } = this.props;
       // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
       if (enableMarquee) {
-        console.log(enableMarquee);
         this.measureText((state) => {
           this.startMarquee.call(this, state);
         });

@@ -47,6 +47,20 @@ Component(
       let marqueeScrollWidth = overflowWidth;
       if (loop) {
         marqueeScrollWidth = overflowWidth + viewWidth;
+        /// #if WECHAT
+        // 微信的view标签不支持onTransitionEnd，需要这里实现循环
+        const trailing = 200;
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+          this.measureText((state) => {
+            this.resetMarquee.call(this, state);
+            this.measureText((state) => {
+              this.startMarquee.call(this, state);
+            });
+          });
+          clearTimeout(this.timer);
+        }, trailing + duration * 1000);
+        /// #endif
       }
       const newMarqueeStyle = `transform: translate3d(${-marqueeScrollWidth}px, 0, 0); transition: ${duration}s all linear ${
         typeof leading === 'number' ? `${leading / 1000}s` : '0s'
@@ -100,17 +114,21 @@ Component(
         marqueeStyle,
       });
     },
+
+    /// #if ALIPAY
     onTransitionEnd() {
       const loop = getValueFromProps(this, 'loop');
       const trailing = 200;
       if (loop) {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
           this.measureText((state) => {
             this.resetMarquee.call(this, state);
           });
+          clearTimeout(timer);
         }, trailing);
       }
     },
+    /// #endif
   },
   {
     show: true,
@@ -133,7 +151,6 @@ Component(
       const { enableMarquee } = this.props;
       // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
       if (enableMarquee) {
-        console.log(enableMarquee);
         this.measureText((state) => {
           this.startMarquee.call(this, state);
         });
