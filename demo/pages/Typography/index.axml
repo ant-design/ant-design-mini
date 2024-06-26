@@ -72,6 +72,7 @@
     className="typography"
     type="copy"
     data-type="copy"
+    data-text="想要复制的内容"
     onTap="handleTap"
   >
   </ant-typography>
