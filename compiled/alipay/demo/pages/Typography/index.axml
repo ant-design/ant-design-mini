@@ -52,8 +52,9 @@
 <ant-container title="带图标的排版">
   <ant-typography
     className="typography"
+    icon="RightOutline"
     disabled
-    type="link"
+    style="color: #1677ff"
     data-type="link"
     onDisabledTap="handleDisabledTap"
   >
@@ -62,58 +63,71 @@
 
   <ant-typography
     className="typography"
-    type="link"
+    icon="RightOutline"
+    style="color: #1677ff"
     data-type="link"
     onTap="handleTap"
   >
+    链接
   </ant-typography>
 
   <ant-typography
     className="typography"
-    type="copy"
+    icon="TextOutline"
+    style="color: #1677ff"
     data-type="copy"
     data-text="想要复制的内容"
     onTap="handleTap"
   >
+    复制
   </ant-typography>
 
   <ant-typography
     className="typography"
-    type="delete"
+    icon="DeleteOutline"
+    style="color: #1677ff"
     data-type="delete"
     onTap="handleTap"
   >
+    删除
   </ant-typography>
 
   <ant-typography
     className="typography"
-    type="edit"
+    icon="EditSOutline"
+    style="color: #1677ff"
     data-type="edit"
     onTap="handleTap"
   >
+    编辑
   </ant-typography>
 
   <ant-typography
     className="typography"
-    type="location"
+    icon="LocationOutline"
+    style="color: #1677ff"
     data-type="location"
     onTap="handleTap"
   >
+    定位
   </ant-typography>
 
   <ant-typography
     className="typography"
-    type="share"
+    icon="SendOutline"
+    style="color: #1677ff"
     data-type="share"
     onTap="handleTap"
   >
+    分享
   </ant-typography>
 
 
   <ant-typography
     className="typography"
-    type="share"
+    icon="SendOutline"
     iconPosition="left"
+    style="color: #1677ff"
     data-type="share"
     onTap="handleTap"
   >

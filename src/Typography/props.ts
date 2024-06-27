@@ -2,7 +2,6 @@ import { IBaseProps, IconType } from '../_util/base';
 
 export interface ITypographyProps extends IBaseProps {
   text?: string;
-  type?: 'copy' | 'delete' | 'edit' | 'link' | 'location' | 'share';
   iconPosition?: 'left' | 'right';
   icon?: IconType | string;
   activeClassName?: string;
@@ -19,7 +18,6 @@ export interface ITypographyProps extends IBaseProps {
 
 export const TypographyDefaultProps: ITypographyProps = {
   text: '',
-  type: null,
   iconPosition: 'right',
   icon: '',
   className: '',

@@ -2,33 +2,6 @@ function isUrl(string) {
   return !!(string.startsWith('http://') || string.startsWith('https://'));
 }
 
-var typeConfig = {
-  copy: {
-    icon: 'TextOutline',
-    text: '复制',
-  },
-  delete: {
-    icon: 'DeleteOutline',
-    text: '删除',
-  },
-  edit: {
-    icon: 'EditSOutline',
-    text: '编辑',
-  },
-  link: {
-    icon: 'RightOutline',
-    text: '链接',
-  },
-  location: {
-    icon: 'LocationOutline',
-    text: '定位',
-  },
-  share: {
-    icon: 'SendOutline',
-    text: '分享',
-  },
-};
-
 function getFontWeight(fontWeight, phonemodel) {
   const type2weight = {
     normal: {
@@ -53,7 +26,6 @@ function isiOS(phonemodel) {
 
 export default {
   isUrl,
-  typeConfig,
   getFontWeight,
   isiOS,
 };
