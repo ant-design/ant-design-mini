@@ -1,0 +1,18 @@
+{
+  "data": {
+    "phonemodel": "",
+  },
+  "props": {
+    "activeClassName": "",
+    "className": "",
+    "disabled": false,
+    "fontWeight": "normal",
+    "icon": "",
+    "iconPosition": "right",
+    "lineThrough": false,
+    "selectable": false,
+    "style": "",
+    "text": "",
+    "underline": false,
+  },
+}
