@@ -1,10 +1,10 @@
 import { getInstance, sleep } from 'tests/utils';
 import { describe, it, expect, vi } from 'vitest';
 
-describe('Page', () => {
-  it('Page config', async () => {
+describe('PageContainer', () => {
+  it('PageContainer config', async () => {
     const onActionTap = vi.fn();
-    const instance = getInstance('Page', {
+    const instance = getInstance('PageContainer', {
       onActionTap
     });
     const { props } = instance.getConfig();
