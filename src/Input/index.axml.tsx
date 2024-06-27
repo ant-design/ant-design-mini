@@ -58,9 +58,9 @@ export default (
         cursor-spacing={cursorSpacing}
         always-embed={alwaysEmbed}
         cursor-color={cursorColor}
-        adjust-position={adjustPosition}
         hold-keyboard={holdKeyboard}
         /// #endif
+        adjust-position={adjustPosition}
         password={password}
         placeholder={placeholder}
         placeholder-class={`ant-input-placeholder ${
