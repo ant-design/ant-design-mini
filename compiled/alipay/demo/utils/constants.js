@@ -470,7 +470,7 @@ export const componentList = [
             {
                 name: 'Page',
                 nameZN: '页面',
-                path: '/pages/Page/index',
+                path: '/pages/PageContainer/index',
             },
             {
                 name: 'Typography',

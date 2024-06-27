@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Page 页面
+# PageContainer 页面容器
 
 <code src="../../docs/components/compatibility.tsx" inline="true"></code>
 
@@ -15,7 +15,7 @@ toc: 'content'
 
 ## 代码示例
 
-<code src='pages/Page/index'></code>
+<code src='pages/PageContainer/index'></code>
 
 ## API
 

@@ -17,21 +17,18 @@ Component(
         const updateData = {
           ...nextProps,
           // 自定义内容优先 status
-          image: image || BuiltinStatus[status]?.image,
-          title: title || BuiltinStatus[status]?.title,
-          message: message || BuiltinStatus[status]?.message
+          image: image || BuiltinStatus[status]?.image || '',
+          title: title || BuiltinStatus[status]?.title || '',
+          message: message || BuiltinStatus[status]?.message || ''
         };
 
         this.setData(updateData);
       }
     }
   },
-  {
-    BuiltinStatus
-  },
+  {},
   undefined,
   {
-    /// #if ALIPAY
     didMount() {
       const props = getValueFromProps(this);
       this.updatePageStatus({}, props);
@@ -40,6 +37,5 @@ Component(
       const props = getValueFromProps(this);
       this.updatePageStatus(props, nextProps);
     }
-    /// #endif
   }
 );
