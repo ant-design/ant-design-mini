@@ -470,8 +470,8 @@ export const componentList = [
     type: '实验性',
     list: [
       {
-        name: 'Page',
-        nameZN: '页面',
+        name: 'PageContainer',
+        nameZN: '页面容器',
         path: '/pages/PageContainer/index',
       },
       {

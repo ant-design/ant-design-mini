@@ -1,7 +1,7 @@
 import { IBaseProps } from '../_util/base';
 
 /**
- * @description 页面，提供开箱即用的页面状态展示和基础能力。
+ * @description 页面容器，提供开箱即用的页面状态展示和基础能力。
  */
 
 export interface IPageProps extends IBaseProps {
