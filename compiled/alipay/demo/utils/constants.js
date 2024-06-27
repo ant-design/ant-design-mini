@@ -465,8 +465,13 @@ export const componentList = [
         ],
     },
     {
-        type: '实验性质的组件',
+        type: '实验性',
         list: [
+            {
+                name: 'PageContainer',
+                nameZN: '页面容器',
+                path: '/pages/PageContainer/index',
+            },
             {
                 name: 'Typography',
                 nameZN: '排版',

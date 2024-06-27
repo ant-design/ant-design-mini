@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 实验性质的组件
+  title: 实验性
   order: 15
 toc: content
 ---
