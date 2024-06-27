@@ -1,10 +1,10 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "Result",
+  "navigationBarTitleText": "PageContainer",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "Result",
+  "defaultTitle": "PageContainer",
   /// #endif
 
   "titleBarColor": "#ffffff",
