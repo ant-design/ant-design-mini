@@ -1,7 +1,7 @@
 @import (reference) './variable.less';
 @import '../style/mixins/hairline.less';
 
-@prefix: ant-page;
+@prefix: ant-page-container;
 
 .@{prefix} {
   overflow: auto;
@@ -16,7 +16,7 @@
     padding-bottom: env(safe-area-inset-bottom);
   }
 
-  .ant-page-loading-wrap {
+  &-loading-wrap {
     position: fixed;
     left: 0;
     top: 0;
@@ -26,7 +26,7 @@
     z-index: 3;
   }
 
-  .ant-page-loading {
+  &-loading {
     position: absolute;
     left: 50%;
     top: 50%;

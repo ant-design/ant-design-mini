@@ -1,13 +1,13 @@
 <view
-  class="ant-page {{className || ''}} {{safeArea === 'top' || safeArea === 'both' ? 'ant-page-safe-top' : ''}} {{safeArea === 'bottom' || safeArea === 'both' ? 'ant-page-safe-bottom' : ''}}"
+  class="ant-page-container {{className || ''}} {{safeArea === 'top' || safeArea === 'both' ? 'ant-page-container-safe-top' : ''}} {{safeArea === 'bottom' || safeArea === 'both' ? 'ant-page-container-safe-bottom' : ''}}"
   style="{{style || ''}}"
 >
   <!-- loading -->
   <view
     a:if="{{loading}}"
-    class="ant-page-loading-wrap"
+    class="ant-page-container-loading-wrap"
   >
-    <view class="ant-page-loading">
+    <view class="ant-page-container-loading">
       <slot name="loading">
         <ant-loading
           type="{{loadingType}}"
@@ -19,7 +19,7 @@
   </view>
 
   <!-- 页面异常状态 -->
-  <view class="ant-page-status" a:if="{{image && title && message}}">
+  <view class="ant-page-container-status" a:if="{{image && title && message}}">
     <ant-empty
       image="{{image}}"
       title="{{title}}"
