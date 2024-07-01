@@ -59,7 +59,7 @@ function ComponentImpl<
   Component({
     props: removeNullProps(mergeDefaultProps(defaultProps)),
     methods,
-    mixins,
+    mixins: mixins || [],
     data,
     ...instanceMethods,
   });
