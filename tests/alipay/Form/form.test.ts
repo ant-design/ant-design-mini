@@ -58,4 +58,59 @@ it('测试 updateRules', async () => {
     'errors': ['input最少6个字符'],
     'status': 'error',
   });
+
+  // 测试 getFieldValidatorStatus 找不到字段的情况
+  expect(form.getFieldValidatorStatus('xx')).toEqual(undefined);
+});
+
+it('测试 实例方法', async () => {
+  const form = createForm({
+    validateMessages: {
+      required: '需要输入${label}',
+      string: {
+        min: '${label}最少${min}个字符',
+      },
+    },
+    rules: {
+      test: [
+        {
+          required: true,
+          min: 6,
+        },
+      ],
+    },
+  });
+  const instance = getInstance('Form/FormInput', {
+    name: 'test',
+    label: 'input',
+  });
+  form.addItem(instance.ref());
+
+  let changedValue;
+  let changedAllValues;
+  form.onValueChange('test', (value) => {
+    changedValue = value;
+  });
+
+  form.onValuesChange((allValues) => {
+    changedAllValues = allValues;
+  });
+  instance.callMethod('onChange', '111');
+  await sleep(10);
+  expect(changedValue).toEqual('111');
+  expect(changedAllValues).toEqual({
+    test: '111',
+  });
+
+  // 校验不通过
+  try {
+    await form.submit();
+  } catch (err) {
+    expect(err.errorFields.length > 0).toBeTruthy();
+  }
+
+  // 通过校验
+  instance.callMethod('onChange', '1234567');
+  const values = await form.submit();
+  expect(values.test).toEqual('1234567');
 });

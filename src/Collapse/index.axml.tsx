@@ -12,7 +12,7 @@ export default (
     <View class={`ant-collapse ${className ? className : ''}`} style={style}>
       {items.map((item, index) => (
         <View
-          class={`ant-collapse-item ${
+          class={`ant-collapse-item ${item.className || ''} ${
             utils.isActive(mixin.value, index, item.disabled)
               ? 'ant-collapse-item-active'
               : ''

@@ -62,3 +62,4 @@ toc: 'content'
 | content    | 内容      | string  | -      |
 | disabled   | 是否禁用   | boolean | false  |
 | title      | 标题      | string  | -      |
+| className  | 类名      | string  | -      |
