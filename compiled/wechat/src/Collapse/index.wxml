@@ -10,7 +10,7 @@
     wx:for-index="index"
     wx:for-item="item">
     <view
-      class="ant-collapse-item {{ utils.isActive(mixin.value, index, item.disabled) ? 'ant-collapse-item-active' : '' }} {{ item.disabled ? 'ant-collapse-item-disabled' : '' }}">
+      class="ant-collapse-item {{ item.className || '' }} {{ utils.isActive(mixin.value, index, item.disabled) ? 'ant-collapse-item-active' : '' }} {{ item.disabled ? 'ant-collapse-item-disabled' : '' }}">
       <view
         class="ant-collapse-item-title"
         data-active="{{ utils.isActive(mixin.value, index, item.disabled) }}"

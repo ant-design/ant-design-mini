@@ -30,6 +30,7 @@ export interface ICollapseProps extends IBaseProps {
     title?: string;
     content?: string;
     disabled?: boolean;
+    className?: string;
   }[];
 
   /**
