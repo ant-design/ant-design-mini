@@ -54,6 +54,8 @@ export default (
       scroll-into-view={scrollIntoViewId}
       scroll-with-animation
       scroll-animation-duration={300}
+      disable-lower-scroll="out-of-bounds"
+      disable-upper-scroll="out-of-bounds"
       ref="handleRef"
     >
       {monthList.map((currentMonth) => (
