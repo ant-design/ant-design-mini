@@ -52,7 +52,8 @@
   <view slot="content">
     <ant-calendar
       monthRange="{{ demo8.monthRange }}"
-      onFormatter="{{ demo8Formatter ? demo8Formatter : 'demo8Formatter' }}" />
+      onFormatter="{{ demo8Formatter ? demo8Formatter : 'demo8Formatter' }}"
+      onMonthFormatter="{{ demo8MonthFormatter ? demo8MonthFormatter : 'demo8MonthFormatter' }}" />
   </view>
 </collapse-container>
 

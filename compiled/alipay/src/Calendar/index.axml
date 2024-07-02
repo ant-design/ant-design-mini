@@ -47,7 +47,8 @@
       a:for="{{ monthList }}"
       a:for-index="index"
       a:for-item="currentMonth">
-      <view class="ant-calendar-body-container">
+      <view
+        class="ant-calendar-body-container {{ currentMonth.className || '' }}">
         <view class="ant-calendar-title-container">
           <slot name="calendarTitle">
             <view class="ant-calendar-title">{{ currentMonth.title }}</view>

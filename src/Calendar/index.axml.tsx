@@ -59,7 +59,9 @@ export default (
       ref="handleRef"
     >
       {monthList.map((currentMonth) => (
-        <View class="ant-calendar-body-container">
+        <View
+          class={`ant-calendar-body-container ${currentMonth.className || ''}`}
+        >
           <View class="ant-calendar-title-container">
             {/* #if ALIPAY */}
 

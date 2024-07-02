@@ -28,6 +28,7 @@ function getClassName(value, index) {
     inThisMonth,
     isToday,
     disabled,
+    className,
   } = value;
 
   const classNames = {
@@ -42,7 +43,7 @@ function getClassName(value, index) {
     'row-end': index % 7 === 6,
   };
 
-  let result = 'ant-calendar-cell';
+  let result = `ant-calendar-cell ${className || ''}`;
   keys(classNames).forEach((key) => {
     if (classNames[key]) {
       result += ` ant-calendar-cell-${key}`;

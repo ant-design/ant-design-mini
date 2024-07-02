@@ -46,6 +46,10 @@ export interface LocaleText {
 
 export interface CellState {
   /**
+   * 类名
+   */
+  className?: string;
+  /**
    * 是否被禁止
    */
   disabled: boolean;
@@ -132,6 +136,7 @@ export interface ICalendarProps extends IBaseProps {
   onFormatter?: (
     cell: Pick<
       CellState,
+      | 'className'
       | 'disabled'
       | 'top'
       | 'bottom'
@@ -142,6 +147,12 @@ export interface ICalendarProps extends IBaseProps {
     >,
     currentValue: CalendarValue
   ) => Pick<CellState, 'disabled' | 'top' | 'bottom'>;
+  /**
+   * onMonthFormatter 用于设置月份的自定义数据
+   * @param month 原始数据
+   * @returns 返回新的数据
+   */
+  onMonthFormatter?: (month) => { title?: string; className?: string };
 }
 
 export const CalendarDefaultProps = {
@@ -152,5 +163,6 @@ export const CalendarDefaultProps = {
   weekStartsOn: 'Sunday',
   localeText: defaultLocaleText,
   onFormatter: null,
+  onMonthFormatter: null,
   changedScrollIntoView: null,
 };

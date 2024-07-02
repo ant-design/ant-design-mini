@@ -22,3 +22,11 @@ page {
 .even {
   color: blue;
 }
+.ant-calendar-cell.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.ant-calendar-body-container.shrink {
+  height: 100px;
+  overflow: hidden;
+}

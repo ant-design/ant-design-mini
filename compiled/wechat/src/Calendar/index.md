@@ -30,6 +30,7 @@ toc: 'content'
 | weekStartsOn          | 星期栏，以周几作为第一天显示。默认为 `Sunday`  | `Sunday` \| `Monday`                                        | `Sunday`    |
 | onChange              | 日期变化回调                                   | (date: CalendarValue) => void                               | 无          |
 | onFormatter           | 用于设置单元格的自定义数据                     | (cell: CellState, currentValue: CalendarValue) => CellState | 无          |
+| onMonthFormatter           | 用于设置月份的自定义数据                     | (month: any) => CellState | 无          |
 | localeText            | 国际化文案                                     | Partial`<LocaleText>`                                       | 无          |
 | changedScrollIntoView | 选中值改变后是否滚动视图                       | boolean                                                     | 无          |
 
