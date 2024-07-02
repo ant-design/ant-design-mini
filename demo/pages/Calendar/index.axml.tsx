@@ -17,6 +17,7 @@ export default ({
   demo9,
   prop,
   demo8Formatter,
+  demo8MonthFormatter,
   demoFormatter,
 }: InternalData) => (
   <Page>
@@ -68,6 +69,9 @@ export default ({
           <AntCalendar
             monthRange={demo8.monthRange}
             onFormatter={demo8Formatter ? demo8Formatter : 'demo8Formatter'}
+            onMonthFormatter={
+              demo8MonthFormatter ? demo8MonthFormatter : 'demo8MonthFormatter'
+            }
           />
         </View>
       </CollapseContainer>

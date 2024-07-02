@@ -16,6 +16,9 @@ function demo8Formatter(cell) {
         topClassName = isOdd ? 'odd' : 'even';
     }
     return {
+        className: dayjs(cell.time).isAfter(dayjs().add(1, 'M'), 'd')
+            ? 'hidden'
+            : '',
         top: {
             className: topClassName,
             label: isOdd ? '奇数' : '偶数',
@@ -23,6 +26,11 @@ function demo8Formatter(cell) {
         bottom: {
             label: isWeekend ? '周末' : '',
         },
+    };
+}
+function demo8MonthFormatter(month) {
+    return {
+        className: dayjs(month).isAfter(dayjs()) ? 'shrink' : '',
     };
 }
 function demoFormatter(cell, value) {
@@ -72,10 +80,14 @@ Page({
         },
         demo8: {
             visible: true,
-            monthRange: [new Date().getTime(), new Date().getTime()],
+            monthRange: [
+                dayjs().toDate().getTime(),
+                dayjs().add(1, 'M').toDate().getTime(),
+            ],
         },
         demoFormatter,
         demo8Formatter,
+        demo8MonthFormatter,
         demo9: {
             visible: true,
             value: nowDate,
@@ -99,6 +111,7 @@ Page({
     },
     demoFormatter,
     demo8Formatter,
+    demo8MonthFormatter,
     demo9HandleChange(value) {
         this.setData({
             'demo9.value': value.detail,

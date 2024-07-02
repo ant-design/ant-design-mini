@@ -116,13 +116,19 @@ Component(
       }
     },
     updateData() {
-      const [monthRange, plocaleText, pweekStartsOn, onFormatter] =
-        getValueFromProps(this, [
-          'monthRange',
-          'localeText',
-          'weekStartsOn',
-          'onFormatter',
-        ]);
+      const [
+        monthRange,
+        plocaleText,
+        pweekStartsOn,
+        onFormatter,
+        onMonthFormatter,
+      ] = getValueFromProps(this, [
+        'monthRange',
+        'localeText',
+        'weekStartsOn',
+        'onFormatter',
+        'onMonthFormatter',
+      ]);
       const localeText = Object.assign({}, defaultLocaleText, plocaleText);
       const markItems = [...localeText.weekdayNames];
       const weekStartsOn = pweekStartsOn;
@@ -146,6 +152,7 @@ Component(
               isSelectedBegin,
               isSelectedEnd,
               isSelected,
+              className,
             } = o;
             const newState =
               onFormatter(
@@ -157,13 +164,14 @@ Component(
                   isSelectedBegin,
                   isSelectedEnd,
                   isSelected,
+                  className,
                 },
                 value
               ) ?? {};
             const result = { ...o };
             if (typeof newState === 'object') {
-              // 只允许修改三个字段
-              ['top', 'bottom', 'disabled'].forEach((key) => {
+              // 只允许修改的字段字段
+              ['top', 'bottom', 'disabled', 'className'].forEach((key) => {
                 if (key in newState) {
                   result[key] = newState[key];
                 }
@@ -172,12 +180,16 @@ Component(
             return result;
           });
         }
-        return {
+        let month = {
           title: p.format(localeText.title),
+          className: '',
           cells,
         };
+        if (onMonthFormatter && typeof onMonthFormatter === 'function') {
+          month = { ...month, ...onMonthFormatter(p) };
+        }
+        return month;
       });
-
       this.setData({ markItems, monthList });
     },
   },

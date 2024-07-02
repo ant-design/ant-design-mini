@@ -172,7 +172,8 @@ Component(CalendarDefaultProps, {
             'localeText',
             'weekStartsOn',
             'onFormatter',
-        ]), monthRange = _a[0], plocaleText = _a[1], pweekStartsOn = _a[2], onFormatter = _a[3];
+            'onMonthFormatter',
+        ]), monthRange = _a[0], plocaleText = _a[1], pweekStartsOn = _a[2], onFormatter = _a[3], onMonthFormatter = _a[4];
         var localeText = Object.assign({}, defaultLocaleText, plocaleText);
         var markItems = __spreadArray([], localeText.weekdayNames, true);
         var weekStartsOn = pweekStartsOn;
@@ -187,7 +188,7 @@ Component(CalendarDefaultProps, {
             if (onFormatter && typeof onFormatter === 'function') {
                 cells = cells.map(function (o) {
                     var _a;
-                    var time = o.time, top = o.top, bottom = o.bottom, disabled = o.disabled, isSelectedBegin = o.isSelectedBegin, isSelectedEnd = o.isSelectedEnd, isSelected = o.isSelected;
+                    var time = o.time, top = o.top, bottom = o.bottom, disabled = o.disabled, isSelectedBegin = o.isSelectedBegin, isSelectedEnd = o.isSelectedEnd, isSelected = o.isSelected, className = o.className;
                     var newState = (_a = onFormatter({
                         time: time,
                         top: top ? __assign({}, top) : undefined,
@@ -196,11 +197,12 @@ Component(CalendarDefaultProps, {
                         isSelectedBegin: isSelectedBegin,
                         isSelectedEnd: isSelectedEnd,
                         isSelected: isSelected,
+                        className: className,
                     }, value)) !== null && _a !== void 0 ? _a : {};
                     var result = __assign({}, o);
                     if (typeof newState === 'object') {
-                        // 只允许修改三个字段
-                        ['top', 'bottom', 'disabled'].forEach(function (key) {
+                        // 只允许修改的字段字段
+                        ['top', 'bottom', 'disabled', 'className'].forEach(function (key) {
                             if (key in newState) {
                                 result[key] = newState[key];
                             }
@@ -209,10 +211,15 @@ Component(CalendarDefaultProps, {
                     return result;
                 });
             }
-            return {
+            var month = {
                 title: p.format(localeText.title),
+                className: '',
                 cells: cells,
             };
+            if (onMonthFormatter && typeof onMonthFormatter === 'function') {
+                month = __assign(__assign({}, month), onMonthFormatter(p));
+            }
+            return month;
         });
         this.setData({ markItems: markItems, monthList: monthList });
     },

@@ -11,7 +11,8 @@ function getClassName(value, index) {
     isRowEnd = value.isRowEnd,
     inThisMonth = value.inThisMonth,
     isToday = value.isToday,
-    disabled = value.disabled;
+    disabled = value.disabled,
+    className = value.className;
   var classNames = {
     disabled: disabled,
     today: inThisMonth && isToday,
@@ -23,7 +24,7 @@ function getClassName(value, index) {
     hidden: !inThisMonth,
     'row-end': index % 7 === 6
   };
-  var result = 'ant-calendar-cell';
+  var result = "ant-calendar-cell ".concat(className || '');
   keys(classNames).forEach(function (key) {
     if (classNames[key]) {
       result += " ant-calendar-cell-".concat(key);
