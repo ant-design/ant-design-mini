@@ -163,5 +163,6 @@ export const CalendarDefaultProps = {
   weekStartsOn: 'Sunday',
   localeText: defaultLocaleText,
   onFormatter: null,
+  onMonthFormatter: null,
   changedScrollIntoView: null,
 };
