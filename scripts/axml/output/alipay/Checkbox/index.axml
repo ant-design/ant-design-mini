@@ -1,0 +1,35 @@
+<wxs
+  src="./index.wxs"
+  module="componentUtils"
+></wxs>
+<label
+  class="ant-checkbox-item {{className || ''}}"
+  style="{{style || ''}}"
+>
+  <view class="ant-checkbox-item-container">
+    <view class="ant-checkbox-item-wrap">
+      <checkbox
+        class="ant-checkbox-item-base"
+        value="{{value}}"
+        bind:change="onChange"
+        checked="{{mixin.value}}"
+        disabled="{{disabled}}"
+      ></checkbox>
+      <view class="ant-checkbox-item-fake">
+        <view
+          class="ant-checkbox-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}"
+          style="{{mixin.value && !disabled && color ? 'background:' + color : ''}}"
+        >
+          <ant-icon
+            wx:if="{{mixin.value}}"
+            type="CheckOutline"
+            class-name="ant-checkbox-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon"
+          ></ant-icon>
+        </view>
+      </view>
+    </view>
+    <view class="ant-checkbox-item-content {{disabled ? 'ant-checkbox-item-disabled' : ''}}">
+      <slot></slot>
+    </view>
+  </view>
+</label>

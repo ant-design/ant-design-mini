@@ -1,0 +1,65 @@
+<form-item
+  class-name="{{className}}"
+  style="{{style}}"
+  position="{{position}}"
+  label="{{label}}"
+  label-width="{{labelWidth}}"
+  status="{{formData.status}}"
+  errors="{{formData.errors}}"
+  tooltip="{{tooltip}}"
+  required="{{formData.required}}"
+  required-mark="{{requiredMark}}"
+  validate-status="{{validateStatus}}"
+  help="{{help}}"
+>
+  <view>
+    <slider
+      value="{{formData.value}}"
+      class-name="{{sliderClassName}}"
+      style="{{sliderStyle}}"
+      active-line-class-name="{{activeLineClassName}}"
+      active-line-style="{{activeLineStyle}}"
+      active-dot-class-name="{{activeDotClassName}}"
+      active-dot-style="{{activeDotStyle}}"
+      min="{{min}}"
+      max="{{max}}"
+      range="{{range}}"
+      show-number="{{showNumber}}"
+      step="{{step}}"
+      show-ticks="{{showTicks}}"
+      show-tooltip="{{showTooltip}}"
+      disabled="{{disabled}}"
+      bind:change="onChange"
+      bind:afterchange="onAfterChange"
+    ></slider>
+  </view>
+  <view
+    wx:if="{{!tooltip}}"
+    slot="tooltip"
+  >
+    <slot name="tooltip"></slot>
+  </view>
+  <view slot="extra">
+    <slot name="extra">{{extra}}</slot>
+  </view>
+  <view
+    slot="header"
+    slot-scope="item"
+  >
+    <slot
+      name="header"
+      errors="{{item.errors}}"
+      status="{{item.status}}"
+    ></slot>
+  </view>
+  <view
+    slot="footer"
+    slot-scope="item"
+  >
+    <slot
+      name="footer"
+      errors="{{item.errors}}"
+      status="{{item.status}}"
+    ></slot>
+  </view>
+</form-item>

@@ -1,0 +1,6 @@
+<view
+  wx:if="{{loading}}"
+  class="ant-skeleton-title {{animate ? 'ant-skeleton-title-animate' : ''}} {{className || ''}}"
+  style="{{style}}"
+></view>
+<slot wx:else></slot>

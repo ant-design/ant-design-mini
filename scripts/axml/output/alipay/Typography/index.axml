@@ -1,0 +1,57 @@
+<wxs
+  src="./index.wxs"
+  module="util"
+></wxs>
+<view
+  class="ant-typography-container {{disabled ? 'ant-typography-disabled' : ''}} {{className}}"
+  hover-class="{{onTap || catchTap ? 'ant-typography-hover {{activeClassName}}' : ''}}"
+  hover-start-time="{{20}}"
+  hover-stay-time="{{40}}"
+  style="{{style}}"
+  bind:tap="{{onTap || onDisabledTap ? 'onTap' : ''}}"
+  catch:tap="{{catchTap ? 'catchTap' : ''}}"
+>
+  <!--左侧图标-->
+  <view
+    wx:if="{{iconPosition === 'left'}}"
+    class="ant-typography-icon-container {{iconPosition}}"
+  >
+    <icon
+      wx:if="{{!util.isUrl(icon)}}"
+      type="{{icon}}"
+      class-name="ant-typography-icon"
+    ></icon>
+    <image
+      wx:else
+      class="ant-typography-icon-image"
+      style="width: {{fontSize}};height: {{fontSize}};"
+      src="{{icon}}"
+    ></image>
+  </view>
+  <!--文案-->
+  <text
+    selectable="{{selectable}}"
+    number-of-lines="{{ellipsisRow}}"
+    class="ant-typography-text {{lineThrough ? 'lineThrough' : ''}} {{underline ? 'underline' : ''}} {{util.isiOS(phonemodel) ? 'ant-typography-text-' + (fontWeight || 'normal') + '' : ''}}"
+    style="{{!util.isiOS(phonemodel) ? 'font-weight: ' + (util.getFontWeight(fontWeight, phonemodel)) + ';' : ''}}"
+  >
+    <slot>{{text}}</slot>
+  </text>
+  <!--右侧图标-->
+  <view
+    wx:if="{{iconPosition === 'right'}}"
+    class="ant-typography-icon-container {{iconPosition}}"
+  >
+    <icon
+      wx:if="{{!util.isUrl(icon)}}"
+      type="{{icon}}"
+      class-name="ant-typography-icon"
+    ></icon>
+    <image
+      wx:else
+      class="ant-typography-icon-image"
+      style="width: {{fontSize}};height: {{fontSize}};"
+      src="{{icon}}"
+    ></image>
+  </view>
+</view>

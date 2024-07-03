@@ -1,0 +1,24 @@
+<view
+  class="ant-empty {{ className || '' }}"
+  style="{{ style || '' }}">
+  <view class="ant-empty">
+    <view class="ant-empty-image">
+      <slot name="image">
+        <image
+          class="ant-empty-image-element"
+          src="{{ image || 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ' }}" />
+      </slot>
+    </view>
+    <view class="ant-empty-text">
+      <view class="ant-empty-text-main">
+        <slot name="title">{{ title }}</slot>
+      </view>
+      <view class="ant-empty-text-sub">
+        <slot name="message">{{ message }}</slot>
+      </view>
+    </view>
+    <view class="ant-empty-extra">
+      <slot name="extra" />
+    </view>
+  </view>
+</view>

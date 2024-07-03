@@ -1,0 +1,94 @@
+<wxs
+  src="../../_util/arrow.wxs"
+  module="arrowUtil"
+></wxs>
+<form-item
+  class-name="{{className}}"
+  position="{{position}}"
+  label="{{label}}"
+  label-width="{{labelWidth}}"
+  status="{{formData.status}}"
+  errors="{{formData.errors}}"
+  tooltip="{{tooltip}}"
+  required="{{formData.required}}"
+  required-mark="{{requiredMark}}"
+  validate-status="{{validateStatus}}"
+  help="{{help}}"
+>
+  <view>
+    <ant-range-picker
+      end-placeholder="{{endPlaceholder}}"
+      start-placeholder="{{startPlaceholder}}"
+      split-character="{{splitCharacter}}"
+      min="{{min}}"
+      max="{{max}}"
+      format="{{format}}"
+      precision="{{precision}}"
+      animation-type="{{animationType}}"
+      cancel-text="{{cancelText}}"
+      ok-text="{{okText}}"
+      placeholder="{{placeholder}}"
+      mask-closable="{{maskClosable}}"
+      mask-style="{{maskStyle}}"
+      pop-class-name="{{popClassName}}"
+      style="{{style}}"
+      pop-style="{{popStyle}}"
+      disabled="{{disabled}}"
+      title="{{title}}"
+      mask-class-name="{{maskClassName}}"
+      indicator-style="{{indicatorStyle}}"
+      indicator-class-name="{{indicatorClassName}}"
+      value="{{formData.value}}"
+      bind:ok="onOk"
+      bind:pickerchange="onPickerChange"
+      bind:cancel="onDismissPicker"
+      bind:visiblechange="onVisibleChange"
+      bind:formatlabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
+      bind:format="{{handleFormat ? handleFormat : 'handleFormat'}}"
+    >
+      <slot
+        name="content"
+        slot="content"
+      ></slot>
+      <slot
+        name="title"
+        slot="title"
+      ></slot>
+      <ant-icon
+        wx:if="{{arrowUtil.getArrow(arrow)}}"
+        class-name="ant-form-range-picker-arrow"
+        type="{{arrowUtil.getArrow(arrow)}}"
+        slot="suffix"
+      ></ant-icon>
+    </ant-range-picker>
+  </view>
+  <view
+    wx:if="{{!tooltip}}"
+    slot="tooltip"
+  >
+    <slot name="tooltip"></slot>
+  </view>
+  <view slot="extra">
+    <slot name="extra">{{extra}}</slot>
+  </view>
+  <view
+    slot="header"
+    slot-scope="item"
+  >
+    <slot
+      name="header"
+      errors="{{item.errors}}"
+      status="{{item.status}}"
+    ></slot>
+  </view>
+  <view
+    slot="footer"
+    slot-scope="item"
+  >
+    <slot
+      name="footer"
+      errors="{{item.errors}}"
+      status="{{item.status}}"
+    ></slot>
+  </view>
+</form-item>

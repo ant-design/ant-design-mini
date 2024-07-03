@@ -1,0 +1,51 @@
+<import-sjs
+  from="./index.sjs"
+  name="utils" />
+
+<view
+  class="ant-checklist {{ className || '' }}"
+  style="{{ style || '' }}">
+  <view class="ant-checklist-body">
+    <block
+      a:for="{{ options }}"
+      a:for-index="index"
+      a:for-item="item">
+      <ant-checklist-item
+        checked="{{ utils.getChecked(item.value, mixin.value, multiple) }}"
+        item="{{ item }}"
+        onChange="onChange">
+        <view
+          slot="content"
+          class="ant-checklist-item-content-box-nut">
+          <slot
+            name="content"
+            item="{{ item }}">
+            <image
+              a:if="{{ item.image }}"
+              class="ant-checklist-item-image"
+              src="{{ item.image }}" />
+            <view
+              class="ant-checklist-item-text {{ item.image ? '' : 'ant-checklist-item-text-no-image' }}">
+              <view
+                class="ant-checklist-item-text-title {{ item.disabled ? 'ant-checklist-item-text-disabled' : '' }}">
+                {{ item.title }}
+              </view>
+              <view
+                a:if="{{ item.description }}"
+                class="ant-checklist-item-text-description {{ item.disabled ? 'ant-checklist-item-text-disabled' : '' }}">
+                {{ item.description }}
+              </view>
+            </view>
+          </slot>
+        </view>
+        <view slot="icon">
+          <slot name="icon">
+            <ant-icon
+              type="CheckOutline"
+              className="ant-checklist-item-check-icon" />
+          </slot>
+        </view>
+      </ant-checklist-item>
+    </block>
+  </view>
+</view>

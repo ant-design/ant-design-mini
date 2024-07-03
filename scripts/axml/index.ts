@@ -2,40 +2,42 @@ import * as types from '@ali/oxyde-compiler-generator';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { basicComponetMapping, isBasicComponet } from './basicComponet';
+import { getFilesWithExtension } from './utils';
 
-async function main() {
-  const axmlCode = await fs.readFile(
-    path.resolve(__dirname, `./fixtures/${'index'}.axml`),
-    'utf-8'
-  );
+async function main({ inputDir }) {
+  const inputFilesPath = await getFilesWithExtension(inputDir, '.axml');
 
-  const transCode = transform(axmlCode, {
-    '*': {
-      'a:elif': 'wx:elif',
-      'a:else': 'wx:else',
-      'a:for': 'wx:for',
-      'a:for-index': 'wx:for-index',
-      'a:for-item': 'wx:for-item',
-      'a:if': 'wx:if',
-      'a:key': 'wx:key',
-      role: 'aria-role',
-    },
-    'import-sjs': {
-      '*': 'wxs',
-      from: 'src',
-      name: 'module',
-    },
-    ...basicComponetMapping,
-    // include: string | RegExp | Function => 仅处理匹配文件
-    // exclude: string | RegExp | Function => 不处理匹配文件
-    removeStart(v) {
-      // 注释内容为入参，返回 true 时表示开始剪枝
-      return /#ifdef\s+(?!WECHAT)/.test(v);
-    },
-    removeEnd(v) {
-      // 注释内容为入参，返回 true 时表示停止剪枝
-      return /#endif/.test(v);
-    },
+  const transCodes = inputFilesPath.map(async (filePath) => {
+    const axmlCode = await fs.readFile(filePath, 'utf-8');
+    const transCode = transform(axmlCode, {
+      '*': {
+        'a:elif': 'wx:elif',
+        'a:else': 'wx:else',
+        'a:for': 'wx:for',
+        'a:for-index': 'wx:for-index',
+        'a:for-item': 'wx:for-item',
+        'a:if': 'wx:if',
+        'a:key': 'wx:key',
+        role: 'aria-role',
+      },
+      'import-sjs': {
+        '*': 'wxs',
+        from: 'src',
+        name: 'module',
+      },
+      ...basicComponetMapping,
+      // include: string | RegExp | Function => 仅处理匹配文件
+      // exclude: string | RegExp | Function => 不处理匹配文件
+      removeStart(v) {
+        // 注释内容为入参，返回 true 时表示开始剪枝
+        return /#ifdef\s+(?!WECHAT)/.test(v);
+      },
+      removeEnd(v) {
+        // 注释内容为入参，返回 true 时表示停止剪枝
+        return /#endif/.test(v);
+      },
+    });
+    return { filePath, transCode };
   });
 
   const ouputPath = path.resolve(__dirname, `./output`);
@@ -43,10 +45,18 @@ async function main() {
     await fs.rm(ouputPath, { recursive: true });
   }
   await fs.mkdir(ouputPath);
-  await fs.writeFile(path.resolve(ouputPath, `${'index'}.axml`), transCode);
+  transCodes.forEach(async (i) => {
+    const item = await i;
+    const ouputFilePath = path.resolve(
+      ouputPath,
+      path.relative(inputDir, item.filePath)
+    );
+    await fs.mkdir(path.dirname(ouputFilePath), { recursive: true });
+    fs.writeFile(ouputFilePath, item.transCode);
+  });
 }
 
-main();
+main({ inputDir: path.resolve(__dirname, `./fixtures`) });
 
 function transform(axmlCode, mapping) {
   // 将模板内容解析成 AST
@@ -273,6 +283,18 @@ function transform(axmlCode, mapping) {
             const raw = attribute.name;
             if (raw === 'class') {
               attribute.name = 'className';
+              break;
+            }
+          }
+        }
+        // sjs的引入的文件后缀需要调整
+        if (tagName === 'import-sjs') {
+          for (const attribute of element.node.attributes) {
+            const raw = attribute.name;
+            if (raw === 'from' || raw === 'src') {
+              attribute.value = types.interpolation(
+                (attribute.value.interpolation || '').replace('.sjs', '.wxs')
+              );
               break;
             }
           }

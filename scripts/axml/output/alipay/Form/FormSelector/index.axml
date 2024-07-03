@@ -1,0 +1,58 @@
+<form-item
+  class-name="{{className}}"
+  position="{{position}}"
+  label="{{label}}"
+  label-width="{{labelWidth}}"
+  status="{{formData.status}}"
+  errors="{{formData.errors}}"
+  tooltip="{{tooltip}}"
+  required="{{formData.required}}"
+  required-mark="{{requiredMark}}"
+  validate-status="{{validateStatus}}"
+  help="{{help}}"
+>
+  <view>
+    <selector
+      value="{{formData.value}}"
+      options="{{options}}"
+      multiple="{{multiple}}"
+      disabled="{{disabled}}"
+      min-selected-count="{{minSelectedCount}}"
+      max-selected-count="{{maxSelectedCount}}"
+      active-item-class-name="{{activeItemClassName}}"
+      active-item-style="{{activeItemStyle}}"
+      bind:selectmax="onSelectMax"
+      bind:selectmin="onSelectMin"
+      bind:change="onChange"
+    ></selector>
+  </view>
+  <view
+    wx:if="{{!tooltip}}"
+    slot="tooltip"
+  >
+    <slot name="tooltip"></slot>
+  </view>
+  <view slot="extra">
+    <slot name="extra">{{extra}}</slot>
+  </view>
+  <view
+    slot="header"
+    slot-scope="item"
+  >
+    <slot
+      name="header"
+      errors="{{item.errors}}"
+      status="{{item.status}}"
+    ></slot>
+  </view>
+  <view
+    slot="footer"
+    slot-scope="item"
+  >
+    <slot
+      name="footer"
+      errors="{{item.errors}}"
+      status="{{item.status}}"
+    ></slot>
+  </view>
+</form-item>
