@@ -1,0 +1,15 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Steps",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Steps",
+  /// #endif
+
+  "usingComponents": {
+    "ant-steps": "../../../src/Steps/index",
+    "ant-button": "../../../src/Button/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

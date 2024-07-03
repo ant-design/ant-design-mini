@@ -2,37 +2,36 @@
   <container title="姓名">
     <ant-input
       placeholder="请输入姓名"
-      value="{{ value }}"
-      onChange="onInputChange">
+      value="{{value}}"
+      onChange="onInputChange"
+    >
       <view
         slot="suffix"
         class="tips"
-        onTap="onTap">
+        onTap="onTap"
+      >
         生僻字？
       </view>
     </ant-input>
   </container>
-
   <list-item onTap="onTap">默认键盘</list-item>
-
   <rare-words-keyboard
-    visible="{{ visible }}"
+    visible="{{visible}}"
     onClose="onClose"
-    onChange="onChange" />
-
+    onChange="onChange"
+  ></rare-words-keyboard>
   <list-item onTap="onTap2">不带蒙层</list-item>
-
   <rare-words-keyboard
-    visible="{{ visible2 }}"
-    showMask="{{ false }}"
+    visible="{{visible2}}"
+    show-mask="{{false}}"
     onClose="onClose2"
-    onChange="onChange" />
-
+    onChange="onChange"
+  ></rare-words-keyboard>
   <list-item onTap="onTap3">监听输入完成、出错的回调</list-item>
-
   <rare-words-keyboard
-    visible="{{ visible3 }}"
+    visible="{{visible3}}"
     onClose="onClose3"
     onChange="onChange"
-    onError="onKeyBoardError" />
+    onError="onKeyBoardError"
+  ></rare-words-keyboard>
 </list>

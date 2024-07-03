@@ -1,0 +1,31 @@
+.ant-skeleton-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: #eeeeee;
+  display: inline-block;
+}
+.ant-skeleton-avatar-animate {
+  background: linear-gradient(90deg, #eeeeee 25%, rgba(204, 204, 204, 0.6) 37%, #eeeeee 63%);
+  background-size: 400% 100%;
+  animation: ant-skeleton-loading 1.4s ease infinite;
+}
+.ant-skeleton-avatar-circle {
+  border-radius: 50%;
+}
+.ant-skeleton-avatar-x-small {
+  width: 40px;
+  height: 40px;
+}
+.ant-skeleton-avatar-small {
+  width: 44px;
+  height: 44px;
+}
+.ant-skeleton-avatar-medium {
+  width: 52px;
+  height: 52px;
+}
+.ant-skeleton-avatar-large {
+  width: 60px;
+  height: 60px;
+}

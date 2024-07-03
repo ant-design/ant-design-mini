@@ -41,6 +41,8 @@
     "get-func-name": "2.0.0"
   },
   "devDependencies": {
+    "@ali/oxyde-compiler-generator": "^0.16.15",
+    "@alipay/axml-transverter": "^0.0.9001924493-dev.2",
     "@babel/code-frame": "^7.22.13",
     "@babel/core": "^7.22.20",
     "@babel/generator": "^7.22.15",
@@ -61,6 +63,7 @@
     "clone-deep": "^4.0.1",
     "conventional-changelog-cli": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
+    "deepmerge-ts": "^7.0.3",
     "dumi": "^1.1.35",
     "esbuild": "^0.19.2",
     "eslint": "^8.4.1",

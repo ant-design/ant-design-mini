@@ -1,38 +1,42 @@
 <ant-container
   title="水平分割线"
-  headerInBox="{{ false }}">
-  <ant-divider />
+  header-in-box="{{false}}"
+>
+  <ant-divider></ant-divider>
 </ant-container>
-
 <ant-container
   title="水平分割线-带文字"
-  headerInBox="{{ false }}">
-  <ant-divider text="中间内容" />
+  header-in-box="{{false}}"
+>
+  <ant-divider text="中间内容"></ant-divider>
   <ant-divider
     text="左侧内容"
-    textPosition="left" />
+    text-position="left"
+  ></ant-divider>
   <ant-divider
     text="右侧内容"
-    textPosition="right" />
+    text-position="right"
+  ></ant-divider>
 </ant-container>
-
 <ant-container
   title="水平分割线-自定义"
-  headerInBox="{{ false }}">
+  header-in-box="{{false}}"
+>
   <ant-divider
     text="自定义样式"
-    textStyle="color:#1677ff; fontWeight:600"
-    lineHeight="{{ 2 }}"
-    lineType="dashed"
-    lineColor="#1677ff" />
+    text-style="color:#1677ff; fontWeight:600"
+    line-height="{{2}}"
+    line-type="dashed"
+    line-color="#1677ff"
+  ></ant-divider>
 </ant-container>
-
 <ant-container
   title="垂直分割线"
-  headerInBox="{{ false }}">
+  header-in-box="{{false}}"
+>
   <view class="divider-vertical">
     <view>100m</view>
-    <ant-divider direction="vertical" />
+    <ant-divider direction="vertical"></ant-divider>
     <view>浙江省杭州市西湖区西溪路556号</view>
   </view>
 </ant-container>

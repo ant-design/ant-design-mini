@@ -1,0 +1,101 @@
+<import-sjs
+  from="./helper.sjs"
+  name="helper" />
+
+<import-sjs
+  from="./scroll.sjs"
+  name="scroll" />
+
+<view
+  class="ant-calendar {{ className ? className : '' }}"
+  style="{{ style }}">
+  <view class="ant-calendar-mark">
+    <block
+      a:for="{{ markItems }}"
+      a:for-index="index"
+      a:for-item="item">
+      <view class="{{ helper.getMarkCellClassName(index, markItems) }}">
+        <!-- display: inline -->
+        <text>{{ item }}</text>
+      </view>
+    </block>
+  </view>
+  <view
+    a:if="{{ !!elementSize }}"
+    class="ant-calendar-sticky">
+    <view class="ant-calendar-sticky-title">
+      <slot name="calendarTitle">
+        <view class="ant-calendar-title">
+          {{ monthList[headerState].title }}
+        </view>
+      </slot>
+    </view>
+  </view>
+  <scroll-view
+    scroll-y="{{ true }}"
+    class="ant-calendar-body"
+    data-elementsize="{{ elementSize }}"
+    data-monthlist="{{ monthList }}"
+    onScroll="{{ scroll.handleScroll }}"
+    scroll-into-view="{{ scrollIntoViewId }}"
+    scroll-with-animation
+    scroll-animation-duration="{{ 300 }}"
+    disable-lower-scroll="out-of-bounds"
+    disable-upper-scroll="out-of-bounds"
+    ref="handleRef">
+    <block
+      a:for="{{ monthList }}"
+      a:for-index="index"
+      a:for-item="currentMonth">
+      <view
+        class="ant-calendar-body-container {{ currentMonth.className || '' }}">
+        <view class="ant-calendar-title-container">
+          <slot name="calendarTitle">
+            <view class="ant-calendar-title">{{ currentMonth.title }}</view>
+          </slot>
+        </view>
+        <view class="ant-calendar-cells">
+          <block
+            a:for="{{ currentMonth.cells }}"
+            a:for-index="index"
+            a:for-item="item">
+            <block>
+              <view
+                class="{{ helper.getClassName(item, index) }}"
+                id="id_{{ item.time }}"
+                data-time="{{ item }}"
+                onTap="clickCell">
+                <view class="ant-calendar-cell-container">
+                  <view class="ant-calendar-cell-top">
+                    <!-- display: inline -->
+                    <text
+                      a:if="{{ item.top }}"
+                      class="ant-calendar-cell-top-text {{ item.top.className ? item.top.className : '' }}"
+                      >{{ item.top.label }}</text
+                    >
+                  </view>
+                  <view class="ant-calendar-cell-center">{{ item.date }}</view>
+                  <view class="ant-calendar-cell-bottom">
+                    <slot
+                      name="cell-bottom"
+                      cell="{{ item }}">
+                      <!-- display: inline -->
+                      <text
+                        a:if="{{ item.bottom }}"
+                        class="{{ item.bottom.className }}"
+                        >{{ item.bottom.label }}</text
+                      >
+                    </slot>
+                  </view>
+                </view>
+              </view>
+              <view
+                a:if="{{ index % 7 !== 6 }}"
+                class="{{ helper.getSpaceClassName(index, currentMonth.cells) }}" />
+            </block>
+          </block>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

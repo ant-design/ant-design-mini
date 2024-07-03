@@ -1,38 +1,44 @@
 <block
-  a:for="{{ list }}"
+  a:for="{{list}}"
   a:for-index="index"
   a:for-item="item"
-  a:key="id">
+  key="{{item['id']}}"
+>
   <ant-form-input
-    label="{{ list[index].id }}"
-    name="account{{ list[index].id }}"
+    label="{{list[index].id}}"
+    name="account{{list[index].id}}"
     required
     message="需要输入用户名"
-    ref="handleRef">
+    ref="handleRef"
+  >
     <view
       slot="extra"
       onTap="minus"
-      data-index="{{ index }}">
-      <ant-icon type="MinusCircleOutline" />
+      data-index="{{index}}"
+    >
+      <ant-icon type="MinusCircleOutline"></ant-icon>
     </view>
   </ant-form-input>
 </block>
 <view class="buttons">
   <ant-button
     onTap="add"
-    className="button">
+    class-name="button"
+  >
     添加用户
-    <ant-icon type="AddCircleOutline" />
+    <ant-icon type="AddCircleOutline"></ant-icon>
   </ant-button>
   <ant-button
     type="primary"
     onTap="submit"
-    className="button">
+    class-name="button"
+  >
     提交
   </ant-button>
   <ant-button
     onTap="reset"
-    className="button">
+    class-name="button"
+  >
     重置
   </ant-button>
 </view>

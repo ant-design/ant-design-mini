@@ -1,50 +1,54 @@
 <view
-  class="ant-input {{ disabled ? 'ant-input-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
-  style="{{ style || '' }};{{ focusStyle || '' }}">
+  class="ant-input {{disabled ? 'ant-input-disabled' : ''}} {{className ? className : ''}} {{selfFocus ? focusClassName ? focusClassName : '' : ''}}"
+  style="{{style || ''}};{{focusStyle || ''}}"
+>
   <view class="ant-input-prefix">
-    <slot name="prefix">{{ prefix }}</slot>
+    <slot name="prefix">{{prefix}}</slot>
   </view>
   <view class="ant-input-line">
     <input
-      enableNative="{{ enableNative }}"
-      name="{{ name }}"
+      enable-native="{{enableNative}}"
+      name="{{name}}"
       class="ant-input-content"
-      disabled="{{ disabled }}"
-      value="{{ state.value }}"
-      type="{{ type }}"
-      cursor-spacing="{{ cursorSpacing }}"
-      always-embed="{{ alwaysEmbed }}"
-      cursor-color="{{ cursorColor }}"
-      hold-keyboard="{{ holdKeyboard }}"
-      adjust-position="{{ adjustPosition }}"
-      password="{{ password }}"
-      placeholder="{{ placeholder }}"
-      placeholder-class="ant-input-placeholder {{ placeholderClassName ? placeholderClassName : '' }}"
-      placeholder-style="{{ placeholderStyle ? placeholderStyle : '' }}"
-      maxlength="{{ maxLength }}"
-      focus="{{ focus }}"
-      confirm-type="{{ confirmType }}"
-      confirm-hold="{{ confirmHold }}"
-      always-system="{{ alwaysSystem }}"
-      controlled="{{ state.controlled }}"
-      cursor="{{ cursor }}"
-      selection-start="{{ selectionStart }}"
-      selection-end="{{ selectionEnd }}"
-      random-number="{{ randomNumber }}"
+      disabled="{{disabled}}"
+      value="{{state.value}}"
+      type="{{type}}"
+      cursor-spacing="{{cursorSpacing}}"
+      always-embed="{{alwaysEmbed}}"
+      cursor-color="{{cursorColor}}"
+      hold-keyboard="{{holdKeyboard}}"
+      adjust-position="{{adjustPosition}}"
+      password="{{password}}"
+      placeholder="{{placeholder}}"
+      placeholder-class="ant-input-placeholder {{placeholderClassName ? placeholderClassName : ''}}"
+      placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}"
+      maxlength="{{maxLength}}"
+      focus="{{focus}}"
+      confirm-type="{{confirmType}}"
+      confirm-hold="{{confirmHold}}"
+      always-system="{{alwaysSystem}}"
+      controlled="{{state.controlled}}"
+      cursor="{{cursor}}"
+      selection-start="{{selectionStart}}"
+      selection-end="{{selectionEnd}}"
+      random-number="{{randomNumber}}"
       bindinput="onChange"
       bindconfirm="onConfirm"
       bindfocus="onFocus"
-      bindblur="onBlur" />
+      bindblur="onBlur"
+    ></input>
     <view
-      wx:if="{{ allowClear }}"
-      class="ant-input-clear {{ state.value && state.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden' }}"
-      bind:tap="onClear">
+      wx:if="{{allowClear}}"
+      class="ant-input-clear {{state.value && state.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden'}}"
+      bind:tap="onClear"
+    >
       <icon
-        className="ant-input-clear-icon"
-        type="CloseCircleFill" />
+        class-name="ant-input-clear-icon"
+        type="CloseCircleFill"
+      ></icon>
     </view>
   </view>
   <view class="ant-input-suffix">
-    <slot name="suffix">{{ suffix }}</slot>
+    <slot name="suffix">{{suffix}}</slot>
   </view>
 </view>

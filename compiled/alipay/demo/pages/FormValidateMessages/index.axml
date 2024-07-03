@@ -1,26 +1,31 @@
 <ant-form-input
   label="用户名"
   name="account"
-  ref="handleRef" />
+  ref="handleRef"
+></ant-form-input>
 <ant-form-input
   label="密码"
   name="password"
   password
-  ref="handleRef" />
+  ref="handleRef"
+></ant-form-input>
 <ant-form-input
   label="IP"
   name="ip"
-  ref="handleRef" />
+  ref="handleRef"
+></ant-form-input>
 <view class="buttons">
   <ant-button
     type="primary"
     onTap="submit"
-    style="margin-bottom: 12px">
+    style="margin-bottom: 12px"
+  >
     提交
   </ant-button>
   <ant-button
     onTap="reset"
-    style="margin-bottom: 12px">
+    style="margin-bottom: 12px"
+  >
     重置
   </ant-button>
 </view>

@@ -1,0 +1,35 @@
+<ant-form-input
+  label="用户名"
+  name="account"
+  placeholder="请输入用户名"
+  required
+  ref="handleRef" />
+
+<ant-form-input
+  label="地址"
+  name="address"
+  placeholder="请输入地址"
+  ref="handleRef" />
+
+<view style="margin: 12px">
+  onValuesChange:
+  <view style="margin: 12px">
+    <view>修改：{{ changedValuesText }}</view>
+
+    <view>表单：{{ allValuesText }}</view>
+  </view>
+</view>
+
+<view class="buttons">
+  <ant-button
+    type="primary"
+    onTap="submit"
+    className="button">
+    提交
+  </ant-button>
+  <ant-button
+    onTap="reset"
+    className="button">
+    重置
+  </ant-button>
+</view>

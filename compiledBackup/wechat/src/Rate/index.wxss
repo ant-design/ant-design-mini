@@ -1,0 +1,32 @@
+.ant-rate {
+  display: inline-flex;
+  font-size: 24px;
+  user-select: none;
+}
+.ant-rate-container {
+  display: flex;
+}
+.ant-rate-star {
+  position: relative;
+  margin-right: 4px;
+  line-height: 1;
+}
+.ant-rate-star:last-child {
+  margin-right: 0;
+}
+.ant-rate-star-icon {
+  color: #eee;
+}
+.ant-rate-star-icon-active {
+  color: #ff9f18;
+}
+.ant-rate-star-icon-half-active {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+}
+.ant-rate .ant-icon {
+  font-size: unset;
+}

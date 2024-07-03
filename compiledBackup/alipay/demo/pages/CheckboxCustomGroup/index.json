@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "CheckboxCustomGroup",
+  "usingComponents": {
+    "ant-container": "../../../src/Container/index",
+    "ant-checkbox": "../../../src//Checkbox/index",
+    "ant-list": "../../../src/List/index",
+    "ant-list-item": "../../../src/List/ListItem/index"
+  }
+}

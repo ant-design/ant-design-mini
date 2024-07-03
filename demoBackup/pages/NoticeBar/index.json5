@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Notice",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Notice",
+  /// #endif
+
+  "usingComponents": {
+    "ant-notice": "../../../src/NoticeBar/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

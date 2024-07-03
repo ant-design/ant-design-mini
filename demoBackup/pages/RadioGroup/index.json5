@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "RadioGroup",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "RadioGroup",
+  /// #endif
+
+  "usingComponents": {
+    "ant-radio-group": "../../../src/Radio/RadioGroup/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

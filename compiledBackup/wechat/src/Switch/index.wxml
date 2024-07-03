@@ -1,0 +1,15 @@
+<view
+  class="ant-switch {{ className ? className : '' }} ant-switch-{{ size }} {{ mixin.value ? 'ant-switch-checked' : '' }} {{ disabled ? 'ant-switch-disabled' : '' }} {{ loading ? 'ant-switch-loading' : '' }}"
+  style="{{ mixin.value && color ? 'background:' + color + '; border-color:' + color : '' }};{{ style || '' }}"
+  bind:tap="onChange">
+  <view class="ant-switch-handle">
+    <ant-icon
+      wx:if="{{ loading }}"
+      type="UndoOutline"
+      className="ant-switch-loading-icon" />
+  </view>
+  <view class="ant-switch-inner">
+    <block wx:if="{{ mixin.value }}">{{ checkedText }}</block>
+    <block wx:else>{{ uncheckedText }}</block>
+  </view>
+</view>

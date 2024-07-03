@@ -1,52 +1,59 @@
 <form-item
-  className="{{ className }}"
-  style="{{ style }}"
-  position="{{ position }}"
-  label="{{ label }}"
-  labelWidth="{{ labelWidth }}"
-  status="{{ formData.status }}"
-  errors="{{ formData.errors }}"
-  tooltip="{{ tooltip }}"
-  required="{{ formData.required }}"
-  requiredMark="{{ requiredMark }}"
-  validateStatus="{{ validateStatus }}"
-  help="{{ help }}">
+  class-name="{{className}}"
+  style="{{style}}"
+  position="{{position}}"
+  label="{{label}}"
+  label-width="{{labelWidth}}"
+  status="{{formData.status}}"
+  errors="{{formData.errors}}"
+  tooltip="{{tooltip}}"
+  required="{{formData.required}}"
+  required-mark="{{requiredMark}}"
+  validate-status="{{validateStatus}}"
+  help="{{help}}"
+>
   <rate
-    value="{{ formData.value }}"
-    count="{{ count }}"
-    gutter="{{ gutter }}"
-    readonly="{{ readonly }}"
-    allowHalf="{{ allowHalf }}"
-    allowClear="{{ allowClear }}"
-    className="{{ rateClassName }}"
-    style="{{ rateStyle }}"
-    characterActiveClassName="{{ characterActiveClassName }}"
-    characterClassName="{{ characterClassName }}"
-    bind:change="onChange">
+    value="{{formData.value}}"
+    count="{{count}}"
+    gutter="{{gutter}}"
+    readonly="{{readonly}}"
+    allow-half="{{allowHalf}}"
+    allow-clear="{{allowClear}}"
+    class-name="{{rateClassName}}"
+    style="{{rateStyle}}"
+    character-active-class-name="{{characterActiveClassName}}"
+    character-class-name="{{characterClassName}}"
+    bind:change="onChange"
+  >
     <view slot="character">
-      <icon type="StarFill" />
+      <icon type="StarFill"></icon>
     </view>
   </rate>
   <view
-    wx:if="{{ !tooltip }}"
-    slot="tooltip">
-    <slot name="tooltip" />
+    wx:if="{{!tooltip}}"
+    slot="tooltip"
+  >
+    <slot name="tooltip"></slot>
   </view>
-  <view slot="extra">{{ extra }}</view>
+  <view slot="extra">{{extra}}</view>
   <view
     slot="header"
-    slot-scope="item">
+    slot-scope="item"
+  >
     <slot
       name="header"
-      errors="{{ item.errors }}"
-      status="{{ item.status }}" />
+      errors="{{item.errors}}"
+      status="{{item.status}}"
+    ></slot>
   </view>
   <view
     slot="footer"
-    slot-scope="item">
+    slot-scope="item"
+  >
     <slot
       name="footer"
-      errors="{{ item.errors }}"
-      status="{{ item.status }}" />
+      errors="{{item.errors}}"
+      status="{{item.status}}"
+    ></slot>
   </view>
 </form-item>

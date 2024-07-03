@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Container",
+  "usingComponents": {
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

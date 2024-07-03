@@ -1,0 +1,19 @@
+.buttonwrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 20rpx;
+}
+.line1 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+.line2 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}

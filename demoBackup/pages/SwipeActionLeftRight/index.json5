@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Swipe-Action",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Swipe-Action",
+  /// #endif
+
+  "pullRefresh": "NO",
+  "showProgress": "NO",
+  "allowsBounceVertical": "NO",
+  "usingComponents": {
+    "ant-swipe-action": "../../../src/SwipeAction/index"
+  }
+}

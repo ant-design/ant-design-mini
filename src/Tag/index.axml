@@ -1,0 +1,18 @@
+<view
+  class="ant-tag ant-tag-{{ type }} ant-tag-{{ color }} {{ className || '' }}"
+  style="{{ style || '' }}">
+  <view
+    a:if="{{ icon }}"
+    class="ant-tag-icon-container">
+    <!-- #if ALIPAY -->
+    <slot name="icon">
+    <!-- #endif -->
+      <ant-icon type="{{ icon }}" />
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
+  </view>
+  <view class="ant-tag-content">
+    <slot />
+  </view>
+</view>

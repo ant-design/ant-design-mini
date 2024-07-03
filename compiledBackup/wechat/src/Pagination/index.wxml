@@ -1,0 +1,24 @@
+<wxs
+  src="./index.wxs"
+  module="sjs" />
+
+<view
+  class="ant-page-infinite {{ className || '' }}"
+  style="{{ style || '' }}">
+  <scroll-view
+    scroll-x="{{ true }}"
+    class="ant-page-infinite-content"
+    id="ant-pageInfinite{{ $id ? '-' + $id : '' }}"
+    bind:scroll="{{ supportSjs ? sjs.changeScollDistance : 'onScroll' }}">
+    <slot />
+  </scroll-view>
+  <view class="ant-page-infinite-wrap">
+    <view
+      class="ant-page-infinite-area"
+      style="{{ fillColor ? 'background-color:' + fillColor : '' }}">
+      <view
+        class="ant-page-infinite-move"
+        style="{{ frontColor ? 'background-color:' + frontColor : '' }}; transform: translateX({{ pageDeg }}%);" />
+    </view>
+  </view>
+</view>

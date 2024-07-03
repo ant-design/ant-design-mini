@@ -1,0 +1,17 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "PageContainer",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "PageContainer",
+  /// #endif
+
+  "titleBarColor": "#ffffff",
+  "transparentTitle": "auto",
+  "usingComponents": {
+    "ant-button": "../../../src/Button/index",
+    "ant-page": "../../../src/PageContainer/index",
+    "ant-loading": "../../../src/Loading/index"
+  }
+}

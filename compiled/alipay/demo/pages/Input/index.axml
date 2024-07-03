@@ -1,77 +1,79 @@
 <container title="基础用法">
   <ant-input
     placeholder="请输入内容"
-    onChange="onChange" />
+    onChange="onChange"
+  ></ant-input>
 </container>
-
 <container title="初始值">
   <ant-input
     placeholder="请输入内容"
-    defaultValue="这是antd mini小程序组件"
-    onChange="onChange" />
+    default-value="这是antd mini小程序组件"
+    onChange="onChange"
+  ></ant-input>
 </container>
-
 <container title="带清除按钮">
   <ant-input
     placeholder="请输入内容"
-    allowClear />
+    allow-clear
+  ></ant-input>
 </container>
-
 <container title="带有前缀后缀">
   <ant-input
     placeholder="请输入内容"
     onChange="onChange"
-    allowClear>
+    allow-clear
+  >
     <view slot="prefix">￥</view>
     <view slot="suffix">RMB</view>
   </ant-input>
 </container>
-
 <container title="禁用状态">
   <ant-input
     placeholder="被禁用的输入框"
-    disabled="{{ true }}" />
+    disabled="{{true}}"
+  ></ant-input>
 </container>
-
 <container title="受控模式">
   <ant-input
-    controlled="{{ true }}"
-    value="{{ value }}"
+    controlled="{{true}}"
+    value="{{value}}"
     placeholder="请输入内容"
-    allowClear
-    onChange="handleChange" />
+    allow-clear
+    onChange="handleChange"
+  ></ant-input>
   <ant-button
     onTap="clear"
     inline
-    size="small">
+    size="small"
+  >
     clear
   </ant-button>
 </container>
-
 <container title="受控模式-输入金额">
   <ant-input
     placeholder="请输入金额"
-    value="{{ money }}"
+    value="{{money}}"
     onChange="handleMoney"
     type="digit"
-    className="input money"
-    focusClassName="border"
-    allowClear>
+    class-name="input money"
+    focus-class-name="border"
+    allow-clear
+  >
     <view slot="prefix">￥</view>
     <view slot="suffix">RMB</view>
   </ant-input>
 </container>
-
 <container title="非受控模式通过ref修改input">
   <ant-input
     placeholder="请输入内容"
     onChange="onChange"
-    ref="handleRef" />
-
+    ref="handleRef"
+  ></ant-input>
   <view>
     <ant-button
       inline
-      onTap="clearByInputRef">
+      onTap="clearByInputRef"
+    >
       clear
     </ant-button>
   </view>

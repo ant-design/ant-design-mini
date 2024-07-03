@@ -1,116 +1,136 @@
 <ant-container
   title="按钮类型"
-  className="list">
+  class-name="list"
+>
   <ant-button
     type="primary"
     inline
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     主要按钮
   </ant-button>
   <ant-button
     type="default"
     inline
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     次要按钮
   </ant-button>
   <ant-button
     type="text"
     inline
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     文本按钮
   </ant-button>
 </ant-container>
 <ant-container
   title="按钮尺寸"
-  className="list">
+  class-name="list"
+>
   <ant-button
     type="primary"
     inline
     size="large"
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     主要按钮
   </ant-button>
   <ant-button
     type="primary"
     inline
     size="medium"
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     主要按钮
   </ant-button>
   <ant-button
     type="primary"
     inline
     size="small"
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     主要按钮
   </ant-button>
 </ant-container>
 <ant-container
   title="危险"
-  className="list">
+  class-name="list"
+>
   <ant-button
     type="primary"
     inline
     danger
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     主要按钮
   </ant-button>
   <ant-button
     type="default"
     inline
     danger
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     次要按钮
   </ant-button>
   <ant-button
     type="text"
     inline
     danger
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     文本按钮
   </ant-button>
 </ant-container>
 <ant-container
   title="禁用"
-  className="list">
+  class-name="list"
+>
   <ant-button
     type="primary"
     inline
-    disabled>
+    disabled
+  >
     主要按钮
   </ant-button>
   <ant-button
     type="default"
     inline
-    disabled>
+    disabled
+  >
     次要按钮
   </ant-button>
   <ant-button
     type="text"
     inline
-    disabled>
+    disabled
+  >
     文本按钮
   </ant-button>
 </ant-container>
 <ant-container
   title="加载状态"
-  className="list">
+  class-name="list"
+>
   <ant-button
     type="primary"
     inline
-    loading>
+    loading
+  >
     主要按钮
   </ant-button>
   <ant-button
     type="default"
     inline
-    loading>
+    loading
+  >
     次要按钮
   </ant-button>
   <ant-button
     type="text"
     inline
-    loading>
+    loading
+  >
     文本
   </ant-button>
 </ant-container>

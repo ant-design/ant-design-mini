@@ -1,73 +1,84 @@
 <ant-guide-tour
-  items="{{ [list[0]] }}"
-  visible="{{ baseVisible }}"
-  onCancel="closeTour"
-  onChange="onChange" />
-<ant-guide-tour
-  items="{{ list }}"
-  visible="{{ moreVisible }}"
-  onCancel="closeTour"
-  onChange="onChange" />
-<ant-guide-tour
-  items="{{ list }}"
-  visible="{{ swiperVisible }}"
+  items="{{[list[0]]}}"
+  visible="{{baseVisible}}"
   onCancel="closeTour"
   onChange="onChange"
-  swiperable="{{ true }}" />
+></ant-guide-tour>
 <ant-guide-tour
-  items="{{ list }}"
-  current="{{ current }}"
-  visible="{{ controlledVisible }}"
-  onCancel="closeTour"
-  onChange="onChangeControlled" />
-<ant-guide-tour
-  items="{{ list }}"
-  visible="{{ slotVisible }}"
+  items="{{list}}"
+  visible="{{moreVisible}}"
   onCancel="closeTour"
   onChange="onChange"
-  jumpText="跳过"
-  gotItText="知道了"
-  prevStepText="上一步"
-  nextStepText="下一步">
+></ant-guide-tour>
+<ant-guide-tour
+  items="{{list}}"
+  visible="{{swiperVisible}}"
+  onCancel="closeTour"
+  onChange="onChange"
+  swiperable="{{true}}"
+></ant-guide-tour>
+<ant-guide-tour
+  items="{{list}}"
+  current="{{current}}"
+  visible="{{controlledVisible}}"
+  onCancel="closeTour"
+  onChange="onChangeControlled"
+></ant-guide-tour>
+<ant-guide-tour
+  items="{{list}}"
+  visible="{{slotVisible}}"
+  onCancel="closeTour"
+  onChange="onChange"
+  jump-text="跳过"
+  got-it-text="知道了"
+  prev-step-text="上一步"
+  next-step-text="下一步"
+>
   <view
     class="step-box"
     slot="step"
-    slot-scope="props">
-    step-{{ props.index }}
+    slot-scope="props"
+  >
+    step-{{props.index}}
   </view>
 </ant-guide-tour>
-
 <ant-container
   title="基础用法"
-  className="list">
+  class-name="list"
+>
   <ant-button
     onTap="openTour"
-    data-field="baseVisible">
+    data-field="baseVisible"
+  >
     单图模式
   </ant-button>
   <ant-button
     onTap="openTour"
-    data-field="moreVisible">
+    data-field="moreVisible"
+  >
     多图模式
   </ant-button>
   <ant-button
     onTap="openTour"
-    data-field="swiperVisible">
+    data-field="swiperVisible"
+  >
     滑动模式
   </ant-button>
   <ant-button
     onTap="openTour"
-    data-field="controlledVisible">
+    data-field="controlledVisible"
+  >
     受控模式
   </ant-button>
 </ant-container>
-
 <ant-container
   title="插槽用法"
-  className="list">
+  class-name="list"
+>
   <ant-button
     onTap="openTour"
-    data-field="slotVisible">
+    data-field="slotVisible"
+  >
     开始
   </ant-button>
 </ant-container>

@@ -1,0 +1,16 @@
+<ant-container title="步骤条控制">
+  <ant-steps
+    items="{{ items }}"
+    current="{{ current }}" />
+  <ant-button
+    bind:tap="onNextTap"
+    type="primary">
+    <view wx:if="{{ current < items.length - 1 }}">下一步</view>
+    <view wx:else>完成</view>
+  </ant-button>
+  <ant-button
+    wx:if="{{ current > 0 }}"
+    bind:tap="onPrevTap">
+    上一步
+  </ant-button>
+</ant-container>

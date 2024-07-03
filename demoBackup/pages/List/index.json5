@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "List",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "List",
+  /// #endif
+
+  "usingComponents": {
+    "ant-list": "../../../src/List/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-switch": "../../../src/Switch/index"
+  }
+}

@@ -1,0 +1,107 @@
+<form-input
+  label="用户名"
+  name="account"
+  placeholder="请输入用户名"
+  tooltip="用户名说明"
+  allowClear
+  ref="handleRef" />
+<form-input
+  label="密码"
+  name="password"
+  placeholder="请输入密码"
+  allowClear
+  ref="handleRef">
+  <view slot="tooltip">
+    <ant-icon
+      onTap="showToast"
+      type="QuestionCircleOutline" />
+  </view>
+</form-input>
+<form-input
+  label="地址"
+  name="address"
+  placeholder="请输入地址"
+  allowClear
+  ref="handleRef" />
+<form-switch
+  label="选择"
+  name="needDelivery"
+  ref="handleRef" />
+<form-stepper
+  label="数量"
+  name="quantity"
+  ref="handleRef" />
+<form-picker
+  label="水果"
+  arrow
+  name="fruit"
+  options="{{ fruitList }}"
+  ref="handleRef" />
+<form-date-picker
+  label="出生日期"
+  arrow
+  name="birthday"
+  ref="handleRef" />
+<form-range-picker
+  label="时间范围"
+  arrow
+  name="range"
+  ref="handleRef" />
+<form-cascader-picker
+  label="城市"
+  arrow
+  options="{{ cityList }}"
+  name="city"
+  tooltip="选择城市"
+  placeholder="请输入城市"
+  ref="handleRef" />
+<form-radio-group
+  label="动物单选"
+  name="animalChoose"
+  color="red"
+  options="{{ radioGroupOptions }}"
+  ref="handleRef" />
+<form-checkbox-group
+  label="蔬菜多选"
+  name="fruitChoose"
+  options="{{ checkboxGroupOptions }}"
+  ref="handleRef" />
+<form-selector
+  label="喜好"
+  name="likeChoose"
+  options="{{ selectorOptions }}"
+  ref="handleRef" />
+<form-slider
+  label="选择分数"
+  name="slider"
+  showTooltip
+  ref="handleRef" />
+<form-upload-image
+  label="图片"
+  name="image"
+  onUpload="{{ onUpload ? onUpload : 'onUpload' }}"
+  ref="handleRef" />
+<form-textarea
+  label="说明"
+  name="description"
+  placeholder="请输入说明"
+  allowClear
+  autoHeight
+  ref="handleRef" />
+<form-rate
+  label="评分"
+  name="rate"
+  ref="handleRef" />
+<view class="buttons">
+  <ant-button
+    type="primary"
+    onTap="submit"
+    style="margin-bottom: 12px">
+    提交
+  </ant-button>
+  <ant-button onTap="reset">重置</ant-button>
+</view>
+<ant-toast
+  content="密码的自定义 tooltip"
+  visible="{{ toastShow }}"
+  onClose="handleCloseToast" />

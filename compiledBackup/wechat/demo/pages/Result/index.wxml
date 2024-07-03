@@ -1,0 +1,34 @@
+<container title="成功状态">
+  <result
+    title="操作成功"
+    message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行"
+    type="success" />
+</container>
+
+<container title="等待状态">
+  <result
+    title="等待处理"
+    message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行"
+    type="wait" />
+</container>
+
+<container title="提示状态">
+  <result
+    title="信息提示"
+    message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行"
+    type="info" />
+</container>
+
+<container title="警告状态">
+  <result
+    title="警告提示"
+    message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行"
+    type="warning" />
+</container>
+
+<container title="失败状态">
+  <result
+    title="无法完成操作"
+    message="内容详情可折行，建议不超过两行\n建议不超过两行建议不超过两行"
+    type="error" />
+</container>

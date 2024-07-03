@@ -1,0 +1,32 @@
+<container title="基础用法">
+  <radio bind:change="onChange">Radio</radio>
+</container>
+
+<container title="初始值">
+  <radio defaultChecked="{{ true }}">Radio</radio>
+</container>
+
+<container title="禁用模式">
+  <radio disabled>Radio1</radio>
+  <radio
+    defaultChecked
+    disabled>
+    Radio2
+  </radio>
+</container>
+
+<container title="自定义颜色">
+  <radio
+    color="red"
+    defaultChecked>
+    Radio
+  </radio>
+</container>
+
+<container title="控制模式">
+  <radio
+    checked="{{ checked }}"
+    bind:change="handleChange">
+    Radio
+  </radio>
+</container>

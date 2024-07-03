@@ -1,0 +1,52 @@
+<form-item
+  className="{{ className }}"
+  style="{{ style }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  labelWidth="{{ labelWidth }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
+  <rate
+    value="{{ formData.value }}"
+    count="{{ count }}"
+    gutter="{{ gutter }}"
+    readonly="{{ readonly }}"
+    allowHalf="{{ allowHalf }}"
+    allowClear="{{ allowClear }}"
+    className="{{ rateClassName }}"
+    style="{{ rateStyle }}"
+    characterActiveClassName="{{ characterActiveClassName }}"
+    characterClassName="{{ characterClassName }}"
+    bind:change="onChange">
+    <view slot="character">
+      <icon type="StarFill" />
+    </view>
+  </rate>
+  <view
+    wx:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
+  <view slot="extra">{{ extra }}</view>
+  <view
+    slot="header"
+    slot-scope="item">
+    <slot
+      name="header"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+  <view
+    slot="footer"
+    slot-scope="item">
+    <slot
+      name="footer"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+</form-item>

@@ -1,0 +1,30 @@
+<view
+  class="ant-rate {{ className || '' }}"
+  style="{{ style }}">
+  <view
+    id="ant-rate-container{{ $id ? '-' + $id : '' }}"
+    class="ant-rate-container"
+    bind:touchmove="handleStarMove"
+    bind:touchend="handleStarMoveEnd">
+    <block
+      wx:for="{{ count }}"
+      wx:for-index="index"
+      wx:for-item="item">
+      <view
+        class="ant-rate-star"
+        bind:tap="handleStarTap"
+        data-rate="{{ index }}"
+        style="margin-right: {{ index === count - 1 ? 0 : gutter + 'px' }}">
+        <view
+          wx:if="{{ allowHalf && (displayValue !== null ? displayValue : mixin.value) === index + 0.5 }}"
+          class="ant-rate-star-icon-active {{ characterClassName || '' }} {{ characterActiveClassName || '' }} ant-rate-star-icon-half-active">
+          <ant-icon type="StarFill" />
+        </view>
+        <view
+          class="ant-rate-star-icon {{ (displayValue !== null ? displayValue : mixin.value) >= index + 1 ? 'ant-rate-star-icon-active' + ' ' + (characterClassName || '') + ' ' + (characterActiveClassName || '') : characterClassName }}">
+          <ant-icon type="StarFill" />
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

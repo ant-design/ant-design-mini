@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Form",
+  "usingComponents": {
+    "ant-form-input": "../../../src/Form/FormInput/index",
+    "ant-button": "../../../src/Button/index"
+  }
+}

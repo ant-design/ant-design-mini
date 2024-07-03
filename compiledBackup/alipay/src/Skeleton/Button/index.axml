@@ -1,0 +1,9 @@
+<import-sjs
+  from="./index.sjs"
+  name="utils" />
+
+<view
+  a:if="{{ loading }}"
+  class="ant-skeleton-button {{ animate ? 'ant-skeleton-button-animate' : '' }} {{ utils.getClass(size) }} {{ className || '' }}"
+  style="{{ style }}" />
+<slot a:else />

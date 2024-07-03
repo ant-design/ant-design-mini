@@ -1,95 +1,97 @@
 <container title="基本使用">
   <ant-slider
-    defaultValue="{{ 80 }}"
+    default-value="{{80}}"
     bind:change="onChange"
-    bind:afterchange="onAfterChange" />
+    bind:afterchange="onAfterChange"
+  ></ant-slider>
 </container>
-
 <container title="无节点双滑块">
   <ant-slider
-    defaultValue="{{ [20, 60] }}"
+    default-value="{{[20, 60]}}"
     range
     bind:change="onChange"
-    bind:afterchange="onAfterChange" />
+    bind:afterchange="onAfterChange"
+  ></ant-slider>
 </container>
-
 <container title="节点单滑块">
   <ant-slider
-    defaultValue="{{ 60 }}"
-    step="{{ 20 }}"
-    showTicks
+    default-value="{{60}}"
+    step="{{20}}"
+    show-ticks
     bind:change="onChange"
-    bind:afterchange="onAfterChange" />
+    bind:afterchange="onAfterChange"
+  ></ant-slider>
 </container>
-
 <container title="有数字节点单滑块">
   <ant-slider
-    defaultValue="{{ 80 }}"
-    step="{{ 20 }}"
-    showTicks
-    showNumber
+    default-value="{{80}}"
+    step="{{20}}"
+    show-ticks
+    show-number
     bind:change="onChange"
-    bind:afterchange="onAfterChange" />
+    bind:afterchange="onAfterChange"
+  ></ant-slider>
 </container>
-
 <container title="节点双滑块">
   <ant-slider
-    defaultValue="{{ [10, 50] }}"
-    step="{{ 10 }}"
-    showTicks
+    default-value="{{[10, 50]}}"
+    step="{{10}}"
+    show-ticks
     range
     bind:change="onChange"
-    bind:afterchange="onAfterChange" />
+    bind:afterchange="onAfterChange"
+  ></ant-slider>
 </container>
-
 <container title="有数字节点双滑块">
   <ant-slider
-    defaultValue="{{ [10, 50] }}"
-    step="{{ 10 }}"
-    showTicks
-    showNumber
+    default-value="{{[10, 50]}}"
+    step="{{10}}"
+    show-ticks
+    show-number
     range
     bind:change="onChange"
-    bind:afterchange="onAfterChange" />
+    bind:afterchange="onAfterChange"
+  ></ant-slider>
 </container>
-
 <container title="在拖动时显示悬浮提示">
   <ant-slider
-    defaultValue="{{ 80 }}"
-    showTooltip
+    default-value="{{80}}"
+    show-tooltip
     bind:change="onChange"
-    bind:afterchange="onAfterChange" />
+    bind:afterchange="onAfterChange"
+  ></ant-slider>
 </container>
-
 <container title="受控模式">
   <ant-slider
-    min="{{ 0 }}"
-    max="{{ 100 }}"
-    value="{{ value }}"
-    bind:change="handleChange" />
+    min="{{0}}"
+    max="{{100}}"
+    value="{{value}}"
+    bind:change="handleChange"
+  ></ant-slider>
   <ant-stepper
-    min="{{ 0 }}"
-    max="{{ 100 }}"
-    value="{{ value }}"
-    bind:change="handleChange" />
+    min="{{0}}"
+    max="{{100}}"
+    value="{{value}}"
+    bind:change="handleChange"
+  ></ant-stepper>
 </container>
-
 <container title="自定义">
   <ant-slider
-    defaultValue="{{ 80 }}"
-    step="{{ 20 }}"
-    showTooltip
-    showTicks
-    showNumber
-    activeLineStyle="background-color: #ff8f1f"
-    activeDotStyle="background-color: red"
+    default-value="{{80}}"
+    step="{{20}}"
+    show-tooltip
+    show-ticks
+    show-number
+    active-line-style="background-color: #ff8f1f"
+    active-dot-style="background-color: red"
     bind:change="onChange"
-    bind:afterchange="onAfterChange"></ant-slider>
+    bind:afterchange="onAfterChange"
+  ></ant-slider>
 </container>
-
 <container title="禁用状态">
   <ant-slider
-    defaultValue="{{ 80 }}"
+    default-value="{{80}}"
     disabled
-    bind:change="onChange" />
+    bind:change="onChange"
+  ></ant-slider>
 </container>

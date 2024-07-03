@@ -1,0 +1,48 @@
+<ant-container title="基础用法">
+  <ant-button
+    bind:tap="handleOpenBasic"
+    inline="{{ true }}"
+    size="large"
+    data-index="1">
+    基础用法
+  </ant-button>
+</ant-container>
+<ant-container title="选项状态">
+  <ant-button
+    bind:tap="handleOpenBasic"
+    inline="{{ true }}"
+    size="large"
+    data-index="2">
+    危险状态&禁用状态
+  </ant-button>
+</ant-container>
+<ant-container title="带注释及icon">
+  <ant-button
+    bind:tap="handleOpenBasic"
+    inline="{{ true }}"
+    size="large"
+    data-index="3">
+    带注释及icon
+  </ant-button>
+</ant-container>
+<ant-action-sheet
+  title="请选择你要进行的操作"
+  visible="{{ visible1 }}"
+  actions="{{ actions1 }}"
+  data-index="1"
+  bind:action="handleAction"
+  bind:close="handleCloseBasic" />
+<ant-action-sheet
+  title="请选择你要进行的操作"
+  visible="{{ visible2 }}"
+  actions="{{ actions2 }}"
+  data-index="2"
+  bind:action="handleAction"
+  bind:close="handleCloseBasic" />
+<ant-action-sheet
+  title="请选择你要进行的操作"
+  visible="{{ visible3 }}"
+  actions="{{ actions3 }}"
+  data-index="3"
+  bind:action="handleAction"
+  bind:close="handleCloseBasic" />

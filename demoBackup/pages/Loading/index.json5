@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  navigationBarTitleText: "Loading",
+  /// #endif
+
+  /// #if ALIPAY
+  defaultTitle: "Loading",
+  /// #endif
+
+  usingComponents: {
+    "ant-loading": "../../../src/Loading/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

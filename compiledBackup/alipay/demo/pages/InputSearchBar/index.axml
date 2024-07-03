@@ -1,0 +1,20 @@
+<view class="container">
+  <ant-input
+    placeholder="请输入内容"
+    onChange="onChange"
+    className="search-bar"
+    focusClassName="search-bar-focus"
+    confirm-type="search"
+    allowClear
+    focus
+    onConfirm="onConfirm">
+    <ant-icon
+      slot="prefix"
+      type="SearchOutline" />
+
+    <ant-icon
+      slot="suffix"
+      type="AudioOutline" />
+  </ant-input>
+  <view class="cancel">取消</view>
+</view>

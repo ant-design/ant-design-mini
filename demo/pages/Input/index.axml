@@ -1,0 +1,78 @@
+<container title="基础用法">
+  <ant-input
+    placeholder="请输入内容"
+    onChange="onChange" />
+</container>
+
+<container title="初始值">
+  <ant-input
+    placeholder="请输入内容"
+    defaultValue="这是antd mini小程序组件"
+    onChange="onChange" />
+</container>
+
+<container title="带清除按钮">
+  <ant-input
+    placeholder="请输入内容"
+    allowClear />
+</container>
+
+<container title="带有前缀后缀">
+  <ant-input
+    placeholder="请输入内容"
+    onChange="onChange"
+    allowClear>
+    <view slot="prefix">￥</view>
+    <view slot="suffix">RMB</view>
+  </ant-input>
+</container>
+
+<container title="禁用状态">
+  <ant-input
+    placeholder="被禁用的输入框"
+    disabled="{{ true }}" />
+</container>
+
+<container title="受控模式">
+  <ant-input
+    controlled="{{ true }}"
+    value="{{ value }}"
+    placeholder="请输入内容"
+    allowClear
+    onChange="handleChange" />
+  <ant-button
+    onTap="clear"
+    inline
+    size="small">
+    clear
+  </ant-button>
+</container>
+
+<container title="受控模式-输入金额">
+  <ant-input
+    placeholder="请输入金额"
+    value="{{ money }}"
+    onChange="handleMoney"
+    type="digit"
+    className="input money"
+    focusClassName="border"
+    allowClear>
+    <view slot="prefix">￥</view>
+    <view slot="suffix">RMB</view>
+  </ant-input>
+</container>
+
+<container title="非受控模式通过ref修改input">
+  <ant-input
+    placeholder="请输入内容"
+    onChange="onChange"
+    ref="handleRef" />
+
+  <view>
+    <ant-button
+      inline
+      onTap="clearByInputRef">
+      clear
+    </ant-button>
+  </view>
+</container>

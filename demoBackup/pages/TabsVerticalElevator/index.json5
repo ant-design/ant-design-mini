@@ -1,0 +1,13 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Tabs",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Tabs",
+  /// #endif
+
+  "usingComponents": {
+    "ant-tabs": "../../../src/Tabs/index"
+  }
+}

@@ -1,0 +1,29 @@
+@import (reference) './variable.less';
+@import '../style/mixins/hairline.less';
+
+@dividerPrefix: ant-divider;
+
+.@{dividerPrefix}-horizontal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: @v-spacing-standard 0;
+
+  &-text {
+    font-size: @font-size-subtitle;
+    color: @COLOR_TEXT_PRIMARY;
+    margin: 0 32 * @rpx;
+  }
+
+  &-left,
+  &-right {
+    border-bottom: @border-width-standard solid @COLOR_BORDER;
+  }
+}
+
+.@{dividerPrefix}-vertical {
+  margin: 0 16 * @rpx;
+  height: 32 * @rpx;
+  border-right: @border-width-standard solid @COLOR_BORDER;
+}

@@ -1,0 +1,58 @@
+<wxs
+  src="./index.wxs"
+  module="helper" />
+
+<ant-popup
+  className="ant-actionsheet-popup"
+  visible="{{ visible }}"
+  position="bottom"
+  bind:close="onClose">
+  <view
+    style="{{ style }}"
+    class="ant-actionsheet {{ className ? className : '' }} {{ helper.isIconMode(actions) ? 'ant-actionsheet-icon' : '' }}">
+    <view
+      wx:if="{{ title }}"
+      class="ant-actionsheet-title-wrap">
+      <view class="ant-actionsheet-title-content">{{ title }}</view>
+    </view>
+
+    <view class="ant-actionsheet-list">
+      <block
+        wx:for="{{ actions }}"
+        wx:for-index="index"
+        wx:for-item="item"
+        wx:key="{{ index }}">
+        <view
+          class="ant-actionsheet-list-item {{ item.disabled ? 'ant-actionsheet-list-item-disabled' : '' }}"
+          hover-class="{{ item.disabled ? '' : 'ant-actionsheet-list-item-active' }}"
+          bind:tap="onAction"
+          data-index="{{ index }}"
+          data-item="{{ item }}">
+          <view
+            wx:if="{{ helper.isIconMode(actions) }}"
+            class="ant-actionsheet-list-item-icon"
+            style="background-image: url('{{ item.icon }}')" />
+
+          <view class="ant-actionsheet-list-item-content">
+            <view
+              class="ant-actionsheet-list-item-title {{ item.danger ? 'ant-actionsheet-list-item-title-danger' : '' }}">
+              {{ item.text }}
+            </view>
+            <view
+              wx:if="{{ item.description }}"
+              class="ant-actionsheet-list-item-description">
+              {{ item.description }}
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="ant-actionsheet-cancel-gap" />
+
+    <view
+      class="ant-actionsheet-cancel"
+      bind:tap="onClose">
+      {{ cancelText }}
+    </view>
+  </view>
+</ant-popup>

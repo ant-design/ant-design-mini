@@ -1,0 +1,54 @@
+<form-item
+  className="{{ className }}"
+  style="{{ style }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  labelWidth="{{ labelWidth }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
+  <view>
+    <stepper
+      value="{{ formData.value }}"
+      bind:change="onChange"
+      className="{{ stepperClassName }}"
+      style="{{ stepperStyle }}"
+      min="{{ min }}"
+      max="{{ max }}"
+      type="{{ type }}"
+      disabled="{{ disabled }}"
+      focus="{{ focus }}"
+      inputClassName="{{ inputClassName }}"
+      inputStyle="{{ inputStyle }}"
+      precision="{{ precision }}"
+      onBlur="onBlur"
+      onConfirm="onConfirm"
+      onFocus="onFocus" />
+  </view>
+  <view
+    wx:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
+  <view slot="extra">{{ extra }}</view>
+  <view
+    slot="header"
+    slot-scope="item">
+    <slot
+      name="header"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+  <view
+    slot="footer"
+    slot-scope="item">
+    <slot
+      name="footer"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+</form-item>

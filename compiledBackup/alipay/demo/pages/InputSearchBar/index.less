@@ -1,0 +1,25 @@
+@import "../../../src/style/themes/color.less";
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.search-bar {
+  padding: 4px 0 4px 0;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.4s;
+  flex: 1;
+
+  &-focus {
+    border-color: @COLOR_BRAND1;
+  }
+}
+
+.cancel {
+  color: @COLOR_TEXT_PRIMARY;
+  margin-left: 8px;
+}
+

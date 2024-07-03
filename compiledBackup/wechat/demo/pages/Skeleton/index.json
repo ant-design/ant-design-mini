@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "Skeleton",
+  "usingComponents": {
+    "avatar": "../../../src/Avatar/index",
+    "skeleton": "../../../src/Skeleton/index",
+    "switch": "../../../src/Switch/index",
+    "skeleton-avatar": "../../../src/Skeleton/Avatar/index",
+    "skeleton-title": "../../../src/Skeleton/Title/index",
+    "skeleton-button": "../../../src/Skeleton/Button/index",
+    "skeleton-paragraph": "../../../src/Skeleton/Paragraph/index",
+    "skeleton-input": "../../../src/Skeleton/Input/index",
+    "container": "../../../src/Container/index"
+  }
+}

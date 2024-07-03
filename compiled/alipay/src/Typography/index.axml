@@ -1,41 +1,57 @@
-<import-sjs name="util" from="./index.sjs" />
-
+<import-sjs
+  from="./index.sjs"
+  name="util"
+></import-sjs>
 <view
   class="ant-typography-container {{disabled ? 'ant-typography-disabled' : ''}} {{className}}"
-  hover-class="{{onTap || catchTap ? `ant-typography-hover {{activeClassName}}` : ''}}"
+  hover-class="{{onTap || catchTap ? 'ant-typography-hover {{activeClassName}}' : ''}}"
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}"
   style="{{style}}"
-  onTap="{{ onTap || onDisabledTap ? 'onTap' : '' }}"
-  catchTap="{{ catchTap ? 'catchTap' : '' }}"
+  onTap="{{onTap || onDisabledTap ? 'onTap' : ''}}"
+  catchTap="{{catchTap ? 'catchTap' : ''}}"
 >
-  <!-- 左侧图标 -->
-  <view class="ant-typography-icon-container {{iconPosition}}" a:if="{{iconPosition === 'left'}}">
+  <!--左侧图标-->
+  <view
+    a:if="{{iconPosition === 'left'}}"
+    class="ant-typography-icon-container {{iconPosition}}"
+  >
     <icon
       a:if="{{!util.isUrl(icon)}}"
       type="{{icon}}"
-      className="ant-typography-icon"
-    />
-    <image a:else class="ant-typography-icon-image" style="width: {{fontSize}};height: {{fontSize}};" src="{{icon}}"/>
+      class-name="ant-typography-icon"
+    ></icon>
+    <image
+      a:else
+      class="ant-typography-icon-image"
+      style="width: {{fontSize}};height: {{fontSize}};"
+      src="{{icon}}"
+    ></image>
   </view>
-
-  <!-- 文案 -->
+  <!--文案-->
   <text
     selectable="{{selectable}}"
     number-of-lines="{{ellipsisRow}}"
-    class="ant-typography-text {{lineThrough ? 'lineThrough' : ''}} {{underline ? 'underline' : ''}} {{util.isiOS(phonemodel) ? `ant-typography-text-${fontWeight || 'normal'}` : ''}}"
-    style="{{!util.isiOS(phonemodel) ? `font-weight: ${util.getFontWeight(fontWeight, phonemodel)};` : ''}}"
+    class="ant-typography-text {{lineThrough ? 'lineThrough' : ''}} {{underline ? 'underline' : ''}} {{util.isiOS(phonemodel) ? 'ant-typography-text-' + (fontWeight || 'normal') + '' : ''}}"
+    style="{{!util.isiOS(phonemodel) ? 'font-weight: ' + (util.getFontWeight(fontWeight, phonemodel)) + ';' : ''}}"
   >
     <slot>{{text}}</slot>
   </text>
-
-  <!-- 右侧图标 -->
-  <view class="ant-typography-icon-container {{iconPosition}}" a:if="{{iconPosition === 'right'}}">
+  <!--右侧图标-->
+  <view
+    a:if="{{iconPosition === 'right'}}"
+    class="ant-typography-icon-container {{iconPosition}}"
+  >
     <icon
       a:if="{{!util.isUrl(icon)}}"
       type="{{icon}}"
-      className="ant-typography-icon"
-    />
-    <image a:else class="ant-typography-icon-image" style="width: {{fontSize}};height: {{fontSize}};" src="{{icon}}"/>
+      class-name="ant-typography-icon"
+    ></icon>
+    <image
+      a:else
+      class="ant-typography-icon-image"
+      style="width: {{fontSize}};height: {{fontSize}};"
+      src="{{icon}}"
+    ></image>
   </view>
 </view>

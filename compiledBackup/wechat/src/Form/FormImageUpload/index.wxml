@@ -1,0 +1,47 @@
+<form-item
+  className="{{ className }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  labelWidth="{{ labelWidth }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
+  <image-upload
+    bind:ref="handleRef"
+    defaultFileList="{{ formData.value }}"
+    maxCount="{{ maxCount }}"
+    imageMode="{{ imageMode }}"
+    sourceType="{{ sourceType }}"
+    bind:change="onChange"
+    onUpload="{{ handleUpload ? handleUpload : 'handleUpload' }}"
+    onRemove="{{ handleRemove ? handleRemove : 'handleRemove' }}"
+    onPreview="onPreview"
+    onBeforeUpload="{{ handleBeforeUpload ? handleBeforeUpload : 'handleBeforeUpload' }}"
+    onChooseImageError="onChooseImageError" />
+  <view
+    wx:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
+  <view slot="extra">{{ extra }}</view>
+  <view
+    slot="header"
+    slot-scope="item">
+    <slot
+      name="header"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+  <view
+    slot="footer"
+    slot-scope="item">
+    <slot
+      name="footer"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+</form-item>

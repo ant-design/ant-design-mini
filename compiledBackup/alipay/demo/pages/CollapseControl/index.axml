@@ -1,0 +1,20 @@
+<ant-button
+  onTap="toggle"
+  inline>
+  切换
+</ant-button>
+<ant-button
+  onTap="changeContent"
+  inline>
+  修改content
+</ant-button>
+<ant-button
+  onTap="addItems"
+  inline>
+  添加items
+</ant-button>
+{{ current }}
+<collapse
+  items="{{ items }}"
+  current="{{ current }}"
+  onChange="onChange" />

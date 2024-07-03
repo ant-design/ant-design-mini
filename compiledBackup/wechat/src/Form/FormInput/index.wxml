@@ -1,0 +1,71 @@
+<form-item
+  className="{{ className }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  labelWidth="{{ labelWidth }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
+  <ant-input
+    bind:ref="handleRef"
+    allowClear="{{ allowClear }}"
+    enableNative="{{ enableNative }}"
+    className="{{ inputClassName }}"
+    style="{{ inputStyle }}"
+    disabled="{{ disabled }}"
+    type="{{ type }}"
+    password="{{ password }}"
+    placeholder="{{ placeholder }}"
+    alwaysSystem="{{ alwaysSystem }}"
+    placeholderClassName="{{ placeholderClassName }}"
+    placeholderStyle="{{ placeholderStyle }}"
+    maxLength="{{ maxLength }}"
+    confirmType="{{ confirmType }}"
+    confirmHold="{{ confirmHold }}"
+    cursor="{{ cursor }}"
+    selectionStart="{{ selectionStart }}"
+    selectionEnd="{{ selectionEnd }}"
+    randomNumber="{{ randomNumber }}"
+    bind:change="onChange"
+    bind:blur="onBlur"
+    bind:focus="onFocus"
+    bind:confirm="onConfirm">
+    <slot
+      slot="prefix"
+      name="prefix" />
+    <slot
+      slot="suffix"
+      name="suffix" />
+  </ant-input>
+  <view
+    wx:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
+  <view slot="extra">
+    <block wx:if="{{ extra }}">{{ extra }}</block>
+    <slot
+      wx:else
+      name="extra" />
+  </view>
+  <view
+    slot="header"
+    slot-scope="item">
+    <slot
+      name="header"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+  <view
+    slot="footer"
+    slot-scope="item">
+    <slot
+      name="footer"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+</form-item>

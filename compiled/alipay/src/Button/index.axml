@@ -1,42 +1,46 @@
 <import-sjs
   from="./index.sjs"
-  name="utils" />
-
+  name="utils"
+></import-sjs>
 <button
-  form-type="{{ formType }}"
-  hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"
-  scope="{{ scope }}"
-  onTap="{{ onTap ? 'onTap' : '' }}"
+  form-type="{{formType}}"
+  hover-class="{{utils.getHoverClass(loading, type, activeClassName)}}"
+  scope="{{scope}}"
+  onTap="{{onTap ? 'onTap' : ''}}"
   onGetAuthorize="onGetAuthorize"
   onFollowLifestyle="onFollowLifestyle"
   onError="onError"
   onGetUserInfo="onGetUserInfo"
   onGetPhoneNumber="onGetPhoneNumber"
-  catchTap="{{ catchTap ? 'catchTap' : '' }}"
-  public-id="{{ publicId }}"
-  open-type="{{ openType }}"
-  class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : '') }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
-  style="{{ style }}">
+  catchTap="{{catchTap ? 'catchTap' : ''}}"
+  public-id="{{publicId}}"
+  open-type="{{openType}}"
+  class="ant-button {{inline ? 'ant-button-inline ' + utils.getClass(size) : ''}} {{'ant-button-' + type + (danger ? '-danger' : '')}} {{disabled || loading ? 'ant-button-disabled' : ''}} {{className ? className : ''}}"
+  style="{{style}}"
+>
   <view class="ant-button-wrap">
     <ant-icon
-      a:if="{{ !!icon }}"
-      type="{{ icon }}" />
-    <view
-      class="ant-button-content-text {{ icon ? 'ant-button-content-text-margin' : '' }}">
-      <slot />
+      a:if="{{!!icon}}"
+      type="{{icon}}"
+    ></ant-icon>
+    <view class="ant-button-content-text {{icon ? 'ant-button-content-text-margin' : ''}}">
+      <slot></slot>
       <view
-        a:if="{{ !inline && subText }}"
-        class="ant-button-content-subtext">
-        {{ subText }}
+        a:if="{{!inline && subText}}"
+        class="ant-button-content-subtext"
+      >
+        {{subText}}
       </view>
     </view>
     <view
-      a:if="{{ loading }}"
-      class="ant-button-content-loading-container">
+      a:if="{{loading}}"
+      class="ant-button-content-loading-container"
+    >
       <loading
         type="mini"
         color="currentColor"
-        className="ant-button-content-loading" />
+        class-name="ant-button-content-loading"
+      ></loading>
     </view>
   </view>
 </button>

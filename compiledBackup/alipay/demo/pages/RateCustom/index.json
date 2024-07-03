@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Rate",
+  "usingComponents": {
+    "ant-rate": "../../../src/Rate/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index"
+  },
+  "allowsBounceVertical": "NO"
+}

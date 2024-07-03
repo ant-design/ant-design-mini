@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "GuideTour",
+  "usingComponents": {
+    "ant-button": "../../../src/Button/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-guide-tour": "../../../src/GuideTour/index"
+  }
+}

@@ -1,0 +1,6 @@
+function indexOf(array, value) {
+  return array.indexOf(value);
+}
+module.exports = {
+  indexOf: indexOf
+};

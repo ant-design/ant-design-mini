@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Icon",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Icon",
+  /// #endif
+
+  "usingComponents": {
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

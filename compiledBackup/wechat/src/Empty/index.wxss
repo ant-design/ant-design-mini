@@ -1,0 +1,27 @@
+.ant-empty {
+  text-align: center;
+  margin-top: 20px;
+}
+.ant-empty-image {
+  display: flex;
+  justify-content: center;
+}
+.ant-empty-image-element {
+  width: 100px;
+  height: 85px;
+}
+.ant-empty-text {
+  margin-top: 12px;
+}
+.ant-empty-text-main {
+  color: #333333;
+  font-size: 20px;
+}
+.ant-empty-text-sub {
+  color: #999999;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.ant-empty-extra {
+  padding-top: 20px;
+}

@@ -1,0 +1,96 @@
+@import (reference) './variable.less';
+@import (reference) '../style/mixins/hairline.less';
+
+@actionsheetPrefix: ant-actionsheet;
+.@{actionsheetPrefix} {
+  padding-left: 24 * @rpx;
+  padding-right: 24 * @rpx;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  &-title-wrap {
+    text-align: center;
+    position: relative;
+    margin: 0 -24 * @rpx;
+  }
+  &-title-content {
+    display: inline-block;
+    text-align: left;
+    padding: 36 * @rpx 30 * @rpx;
+    font-size: 30 * @rpx;
+    color: @COLOR_TEXT_ASSIST;
+    .hairline('bottom', @COLOR_BORDER);
+  }
+  &-list {
+    margin: 0 -24 * @rpx;
+  }
+  &-list-item {
+    color: @COLOR_TEXT_PRIMARY;
+    padding: 32 * @rpx 30 * @rpx;
+    text-align: center;
+    position: relative;
+    font-size: 36 * @rpx;
+    .hairline('bottom', @COLOR_BORDER);
+    &-title-danger {
+      color: @actionsheet-danger-color;
+      font-weight: bold;
+    }
+    &-description {
+      color: @COLOR_TEXT_ASSIST;
+      font-size: 28 * @rpx;
+      line-height: 40 * @rpx;
+      margin-top: 8 * @rpx;
+    }
+    &-active {
+      background-color: @COLOR_BORDER;
+    }
+    &:last-child {
+      &&:after {
+        display: none;
+      }
+    }
+  }
+  &-list-item-disabled {
+    .@{actionsheetPrefix}-list-item-icon,
+    .@{actionsheetPrefix}-list-item-content {
+      opacity: @opacity-disabled;
+    }
+  }
+
+  &-cancel-gap {
+    height: 16 * @rpx;
+    background: @COLOR_BACKGROUND;
+    margin: 0 -24 * @rpx;
+  }
+
+  &-cancel {
+    color: @COLOR_TEXT_PRIMARY;
+    padding: 32 * @rpx 30 * @rpx;
+    font-size: 36 * @rpx;
+    text-align: center;
+    margin: 0 -24 * @rpx;
+    &:active {
+      background-color: @COLOR_BORDER;
+    }
+  }
+}
+
+.@{actionsheetPrefix}-icon {
+  .@{actionsheetPrefix}-title-wrap {
+    text-align: left;
+  }
+  .@{actionsheetPrefix}-list-item {
+    display: flex;
+    align-items: center;
+    &-icon {
+      height: @actionsheet-icon-height;
+      flex: 0 0 @actionsheet-icon-width;
+      margin-right: 24 * @rpx;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    &-content {
+      text-align: left;
+    }
+  }
+}

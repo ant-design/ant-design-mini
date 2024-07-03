@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "Calendar",
+  "usingComponents": {
+    "ant-icon": "../../../src/Icon/index",
+    "collapse-container": "./collapse-container/collapse-container",
+    "ant-button": "../../../src/Button/index",
+    "ant-calendar": "../../../src/Calendar/index",
+    "cn-day": "./collapse-container/cn-day/cn-day"
+  }
+}

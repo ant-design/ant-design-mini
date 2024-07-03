@@ -1,115 +1,121 @@
 <ant-container
   title="按钮类型"
-  className="list">
+  class-name="list"
+>
   <ant-button
     type="primary"
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     主要按钮
   </ant-button>
-
   <ant-button
     type="default"
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     次要按钮
   </ant-button>
-
   <ant-button
     type="text"
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     文本按钮
   </ant-button>
 </ant-container>
-
 <ant-container
   title="带辅助文案按钮"
-  className="list">
+  class-name="list"
+>
   <ant-button
     type="primary"
-    subText="副标题"
-    onTap="handleTap">
+    sub-text="副标题"
+    onTap="handleTap"
+  >
     主要按钮
   </ant-button>
-
   <ant-button
     type="default"
-    subText="副标题"
-    onTap="handleTap">
+    sub-text="副标题"
+    onTap="handleTap"
+  >
     次要按钮
   </ant-button>
-
   <ant-button
     type="text"
-    subText="副标题"
-    onTap="handleTap">
+    sub-text="副标题"
+    onTap="handleTap"
+  >
     文本按钮
   </ant-button>
 </ant-container>
-
 <ant-container
   title="禁用"
-  className="list">
+  class-name="list"
+>
   <ant-button
     type="primary"
-    disabled>
+    disabled
+  >
     主要按钮
   </ant-button>
-
   <ant-button
     type="default"
-    disabled>
+    disabled
+  >
     次要按钮
   </ant-button>
-
   <ant-button
     type="text"
-    disabled>
+    disabled
+  >
     文本按钮
   </ant-button>
 </ant-container>
-
 <ant-container
   title="加载状态"
-  className="list">
+  class-name="list"
+>
   <ant-button
     type="primary"
-    loading>
+    loading
+  >
     主要按钮
   </ant-button>
-
   <ant-button
     type="default"
-    loading>
+    loading
+  >
     次要按钮
   </ant-button>
-
   <ant-button
     type="text"
-    loading>
+    loading
+  >
     文本
   </ant-button>
 </ant-container>
-
 <ant-container
   title="危险"
-  className="list">
+  class-name="list"
+>
   <ant-button
     type="primary"
     danger
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     主要按钮
   </ant-button>
-
   <ant-button
     type="default"
     danger
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     次要按钮
   </ant-button>
-
   <ant-button
     type="text"
     danger
-    onTap="handleTap">
+    onTap="handleTap"
+  >
     文本按钮
   </ant-button>
 </ant-container>

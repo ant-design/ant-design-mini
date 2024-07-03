@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "form-item": "../FormItem/index",
+    "ant-radio-group": "../../Radio/RadioGroup/index"
+  }
+}

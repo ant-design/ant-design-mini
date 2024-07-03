@@ -1,0 +1,49 @@
+.filterDemo {
+  position: relative;
+}
+.filterDemo-bar {
+  height: 44px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+.filterDemo-bar-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  font-size: 13px;
+}
+.filterDemo-bar-item-active {
+  color: #1677ff;
+}
+.filterDemo-bar-item-icon {
+  margin-left: 4px;
+  font-size: 9px;
+  transition: transform 200ms linear;
+  color: #cccccc;
+}
+.filterDemo-bar-item-icon-up {
+  transform: rotate(180deg);
+}
+.filterDemo-items {
+  position: relative;
+  overflow: visible;
+  z-index: 9999;
+}
+.filterDemo-items-content {
+  background: #ffffff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transform-origin: top center;
+  transition: transform 100ms linear;
+  transform: scaleY(0);
+}
+.filterDemo-items-content-active {
+  transform: scaleY(1);
+}

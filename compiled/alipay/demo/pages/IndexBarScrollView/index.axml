@@ -1,14 +1,20 @@
 <view class="base">
   <index-bar
-    className="indexbar"
+    class-name="indexbar"
     items="{{items}}"
-    defaultCurrent="A"
-    onChange="onChange">
-    <view slot-scope="props">
+    default-current="A"
+    onChange="onChange"
+  >
+    <view
+      slot="$default"
+      slot-scope="props"
+    >
       <list header="{{props.value.label}}">
         <list-item
           a:for="{{4}}"
-          a:for-item="itemX">
+          a:for-index="index"
+          a:for-item="itemX"
+        >
           {{props.value.label}}-{{itemX}}
         </list-item>
       </list>

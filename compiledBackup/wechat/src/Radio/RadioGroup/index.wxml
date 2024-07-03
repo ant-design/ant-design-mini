@@ -1,0 +1,52 @@
+<wxs
+  src="../index.wxs"
+  module="componentUtils" />
+
+<list
+  className="ant-radio-group {{ className ? className : '' }} ant-radio-group-{{ position }}"
+  style="{{ style }}">
+  <radio-group
+    name="{{ name }}"
+    value="{{ mixin.value }}">
+    <view class="ant-radio-group-body">
+      <block wx:if="{{ position === 'vertical' }}">
+        <block
+          wx:for="{{ options }}"
+          wx:for-index="index"
+          wx:for-item="item">
+          <list-item>
+            <radio
+              checked="{{ componentUtils.getChecked(index, options, mixin.value) }}"
+              data-index="{{ index }}"
+              value="{{ item.value }}"
+              disabled="{{ disabled || item.disabled }}"
+              color="{{ item.color || color }}"
+              bind:change="onChange">
+              <view class="ant-radio-group-item-label-default">
+                {{ item.label }}
+              </view>
+            </radio>
+          </list-item>
+        </block>
+      </block>
+      <block wx:else>
+        <block
+          wx:for="{{ options }}"
+          wx:for-index="index"
+          wx:for-item="item">
+          <radio
+            checked="{{ componentUtils.getChecked(index, options, mixin.value) }}"
+            data-index="{{ index }}"
+            value="{{ item.value }}"
+            disabled="{{ disabled || item.disabled }}"
+            color="{{ item.color || color }}"
+            bind:change="onChange">
+            <view class="ant-radio-group-item-label-default">
+              {{ item.label }}
+            </view>
+          </radio>
+        </block>
+      </block>
+    </view>
+  </radio-group>
+</list>

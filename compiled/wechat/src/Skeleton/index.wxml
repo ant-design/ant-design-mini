@@ -1,24 +1,29 @@
 <view
-  wx:if="{{ loading }}"
-  class="ant-skeleton {{ className || '' }}">
+  wx:if="{{loading}}"
+  class="ant-skeleton {{className || ''}}"
+>
   <view
-    wx:if="{{ avatar }}"
-    class="ant-skeleton-avatar-wrapper">
+    wx:if="{{avatar}}"
+    class="ant-skeleton-avatar-wrapper"
+  >
     <avatar
-      animate="{{ animate }}"
+      animate="{{animate}}"
       loading
-      size="{{ avatar === true ? 'medium' : avatar.size }}" />
+      size="{{avatar === true ? 'medium' : avatar.size}}"
+    ></avatar>
   </view>
   <view class="ant-skeleton-content-wrapper">
     <title
-      wx:if="{{ title }}"
-      animate="{{ animate }}"
-      loading />
+      wx:if="{{title}}"
+      animate="{{animate}}"
+      loading
+    ></title>
     <paragraph
-      wx:if="{{ paragraph }}"
-      animate="{{ animate }}"
-      rows="{{ paragraph === true ? 3 : paragraph.rows }}"
-      loading />
+      wx:if="{{paragraph}}"
+      animate="{{animate}}"
+      rows="{{paragraph === true ? 3 : paragraph.rows}}"
+      loading
+    ></paragraph>
   </view>
 </view>
-<slot wx:else />
+<slot wx:else></slot>

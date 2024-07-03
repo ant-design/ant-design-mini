@@ -1,3 +1,5 @@
-import { compileAntdMini } from './mini-compiler';
+import { compileAntdMini, compileAntdMiniBackup } from './mini-compiler';
 
-compileAntdMini(true);
+// compileAntdMiniBackup(true);
+
+compileAntdMini(true)

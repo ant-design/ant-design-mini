@@ -1,0 +1,48 @@
+<wxs
+  src="./index.wxs"
+  module="_sjs" />
+
+<view
+  class="ant-badge {{ className || '' }}"
+  style="{{ style }}">
+  <view class="ant-badge-body">
+    <slot />
+  </view>
+  <view
+    wx:if="{{ type === 'dot' }}"
+    class="ant-badge-content"
+    style="{{ _sjs.setPositionStyle(position, offsetX, offsetY) }}">
+    <view
+      class="ant-badge-dot {{ stroke ? 'ant-badge-dot-stroke' : '' }}"
+      style="{{ bgColor ? 'background-color: ' + bgColor + ';' : '' }}" />
+  </view>
+  <view
+    wx:else
+    class="ant-badge-content ant-badge-content-not-dot {{ type === 'bubble' ? 'ant-badge-content-' + position + '-bubble' : '' }} {{ stroke ? 'ant-badge-content-stroke' : '' }}"
+    style="{{ bgColor ? 'background-color: ' + bgColor + ';' : '' }} {{ _sjs.setBubbleStyle(type, position) }};{{ _sjs.setPositionStyle(position, offsetX, offsetY) }}">
+    <view class="ant-badge-icon-container" />
+    <view class="ant-badge-content-text">
+      <slot
+        wx:if="{{ !text }}"
+        name="text" />
+      <view
+        wx:if="{{ type === 'number' }}"
+        class="ant-badge-number">
+        <!-- display: inline -->
+        <text wx:if="{{ _sjs.getOverCount(text) }}">99+</text>
+        <!-- display: inline -->
+        <text wx:else>{{ text }}</text>
+      </view>
+      <view
+        wx:if="{{ type === 'text' }}"
+        class="ant-badge-text">
+        {{ text }}
+      </view>
+      <view
+        wx:if="{{ type === 'bubble' }}"
+        class="ant-badge-bubble">
+        {{ text }}
+      </view>
+    </view>
+  </view>
+</view>

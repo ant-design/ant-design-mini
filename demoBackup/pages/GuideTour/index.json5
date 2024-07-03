@@ -1,0 +1,15 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "GuideTour",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "GuideTour",
+  /// #endif
+
+  "usingComponents": {
+    "ant-button": "../../../src/Button/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-guide-tour": "../../../src/GuideTour/index"
+  }
+}

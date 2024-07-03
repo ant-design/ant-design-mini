@@ -1,0 +1,41 @@
+<view
+  class="ant-progress ant-progress-{{ type }} {{ className || '' }}"
+  style="{{ style || '' }};{{ type === 'circle' ? 'width:' + width + 'px;height:' + width + 'px;' : '' }}">
+  <!-- #if ALIPAY  -->
+  <canvas
+    a:if="{{ type === 'circle' }}"
+    class="ant-progress-canvas"
+    id="ant-progress-canvas-{{ $id }}"
+    width="{{ canvasWidth }}"
+    height="{{ canvasWidth }}" />
+  <!-- #endif -->
+  <!-- #if WECHAT -->
+  <canvas
+    wx:if="{{ type === 'circle' }}"
+    class="ant-progress-canvas"
+    canvas-id="ant-progress-canvas" />
+  <!-- #endif -->
+  <view
+    a:if="{{ type === 'line' }}"
+    class="ant-progress-outer"
+    style="{{ strokeWidth ? 'height:' + strokeWidth + 'px;' : '' }}{{ trailColor ? 'background-color:' + trailColor : '' }}">
+    <view
+      class="ant-progress-inner {{ status === 'success' || status === 'exception' ? 'ant-progress-inner-' + status : '' }}"
+      style="width: {{ curProgress }}%; {{ strokeColor ? 'background-color:' + strokeColor : '' }}" />
+  </view>
+  <view class="ant-progress-indicator">
+    <!-- #if ALIPAY  -->
+    <slot
+      name="indicator"
+      percent="{{ percent }}">
+    <!-- #endif -->
+      <ant-icon
+        a:if="{{ status === 'success' || status === 'exception' }}"
+        type="{{ status === 'success' ? 'CheckCircleFill' : 'CloseCircleFill' }}"
+        className="ant-progress-status-icon ant-progress-status-icon-{{ status }}" />
+      <block a:else>{{ percent }}%</block>
+    <!-- #if ALIPAY  -->
+    </slot>
+    <!-- #endif -->
+  </view>
+</view>

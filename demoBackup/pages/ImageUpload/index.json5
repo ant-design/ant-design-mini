@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "ImageUpload",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "ImageUpload",
+  /// #endif
+
+  "usingComponents": {
+    "ant-uploader": "../../../src/ImageUpload/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

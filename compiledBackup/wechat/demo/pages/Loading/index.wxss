@@ -1,0 +1,16 @@
+page {
+  padding: 24px;
+  box-sizing: border-box;
+}
+.container {
+  padding-bottom: 24px;
+}
+.list {
+  display: flex;
+  align-items: center;
+  background: #000;
+}
+.custom-size {
+  width: 20px;
+  height: 20px;
+}

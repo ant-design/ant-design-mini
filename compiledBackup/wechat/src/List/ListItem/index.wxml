@@ -1,0 +1,67 @@
+<wxs
+  src="../../_util/arrow.wxs"
+  module="arrowUtil" />
+
+<view
+  class="ant-list-item  {{ className ? className : '' }}"
+  style="{{ style || '' }}"
+  hover-class="{{ onTap || catchTap ? 'ant-list-item-hover' : '' }}"
+  hover-start-time="{{ 20 }}"
+  hover-stay-time="{{ 40 }}">
+  <view
+    class="ant-list-item-line {{ showDivider ? 'ant-list-item-line-divider' : '' }} {{ disabled ? 'ant-list-item-line-disabled' : '' }}">
+    <view class="ant-list-item-image-container">
+      <image-icon
+        wx:if="{{ image }}"
+        image="{{ image }}"
+        className="ant-list-item-image" />
+      <block wx:else>
+        <slot name="image" />
+      </block>
+    </view>
+    <view class="ant-list-item-content-container">
+      <view class="ant-list-item-content-title-container">
+        <view
+          wx:if="{{ title }}"
+          class="ant-list-item-content-title">
+          {{ title }}
+        </view>
+        <slot
+          wx:else
+          name="title" />
+      </view>
+      <view class="ant-list-item-content-main">
+        <slot />
+      </view>
+      <view class="ant-list-item-content-brief-container">
+        <view
+          wx:if="{{ brief }}"
+          class="ant-list-item-content-brief">
+          {{ brief }}
+        </view>
+        <slot
+          wx:else
+          name="brief" />
+      </view>
+    </view>
+    <view class="ant-list-item-extra-container">
+      <view class="ant-list-item-extra">
+        <block wx:if="{{ extra }}">{{ extra }}</block>
+        <block wx:else>
+          <slot name="extra" />
+        </block>
+      </view>
+      <view class="ant-list-item-extra-brief">
+        <block wx:if="{{ extraBrief }}">{{ extraBrief }}</block>
+        <block wx:else>
+          <slot name="extraBrief" />
+        </block>
+      </view>
+    </view>
+    <view class="ant-list-item-arrow">
+      <icon
+        wx:if="{{ arrowUtil.getArrow(arrow) }}"
+        type="{{ arrowUtil.getArrow(arrow) }}" />
+    </view>
+  </view>
+</view>

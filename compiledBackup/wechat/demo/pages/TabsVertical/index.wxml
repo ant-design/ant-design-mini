@@ -1,0 +1,18 @@
+<ant-tabs
+  items="{{ items }}"
+  current="{{ current }}"
+  bind:change="onChange"
+  className="tabs"
+  direction="vertical">
+  <scroll-view
+    scroll-top="{{ scrollTop }}"
+    scroll-y="{{ true }}"
+    bind:scroll="onScroll"
+    scroll-with-animation="{{ true }}"
+    scroll-animation-duration="{{ 300 }}"
+    class="content">
+    {{ items[current].content }}
+  </scroll-view>
+</ant-tabs>
+
+<view class="footer" />

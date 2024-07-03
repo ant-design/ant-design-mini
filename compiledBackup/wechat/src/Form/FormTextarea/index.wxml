@@ -1,0 +1,50 @@
+<form-item
+  className="{{ className }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  labelWidth="{{ labelWidth }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
+  <ant-textarea
+    bind:ref="handleRef"
+    allowClear="{{ allowClear }}"
+    enableNative="{{ enableNative }}"
+    disabled="{{ disabled }}"
+    placeholder="{{ placeholder }}"
+    placeholderClassName="{{ placeholderClassName }}"
+    placeholderStyle="{{ placeholderStyle }}"
+    maxLength="{{ maxLength }}"
+    autoHeight="{{ autoHeight }}"
+    showCount="{{ showCount }}"
+    bind:change="onChange"
+    onBlur="onBlur"
+    onFocus="onFocus"
+    onConfirm="onConfirm" />
+  <view
+    wx:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
+  <view slot="extra">{{ extra }}</view>
+  <view
+    slot="header"
+    slot-scope="item">
+    <slot
+      name="header"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+  <view
+    slot="footer"
+    slot-scope="item">
+    <slot
+      name="footer"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+</form-item>

@@ -1,0 +1,74 @@
+@import (reference) '../style/themes/index.less';
+
+.ant-indexbar-side {
+  z-index: 9;
+  &-mask {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 9;
+  }
+  &-content {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  &-item {
+    position: relative;
+    padding-left: 20 * @rpx;
+    &-default {
+      font-size: 22 * @rpx;
+      font-weight: bold;
+      color: @COLOR_TEXT_ASSIST;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &-tip {
+      position: absolute;
+      left: -210 * @rpx;
+      bottom: -36 * @rpx;
+      width: 100 * @rpx;
+      height: 100 * @rpx;
+      border-radius: 100 * @rpx;
+      line-height: 100 * @rpx;
+      text-align: center;
+      background: @COLOR_TEXT_WEAK;
+      color: @COLOR_WHITE;
+      font-size: 56 * @rpx;
+      &::after {
+        content: '';
+        position: absolute;
+        top: -30 * @rpx;
+        right: -60 * @rpx;
+        display: block;
+        margin: 40 * @rpx auto;
+        width: 0;
+        height: 0;
+        border: 40 * @rpx solid transparent;
+        border-left-color: @COLOR_TEXT_WEAK;
+      }
+    }
+  }
+  &-active {
+    border-radius: 16 * @rpx;
+    background-color: @COLOR_BRAND1;
+    color: @COLOR_WHITE;
+  }
+  &-scroll {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+  &-notSee {
+    position: fixed;
+    left: -200%;
+    top: 0;
+    z-index: -1;
+  }
+}

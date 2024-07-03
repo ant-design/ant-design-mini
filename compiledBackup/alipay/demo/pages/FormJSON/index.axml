@@ -1,0 +1,25 @@
+<form-json
+  config="{{config}}"
+  onSuccess="onSuccess"
+  ref="handleFormJSONRef">
+  <view
+    slot="custom-input"
+    slot-scope="item">
+    <form-input
+      label="{{item.value.label}}"
+      name="{{item.value.name}}"
+      required="{{item.value.required}}"
+      placeholder="{{item.value.placeholder}}"
+      message="{{item.value.message}}"
+      ref="handleRef" />
+  </view>
+  <view
+    slot="custom-switch"
+    slot-scope="item">
+    <form-switch
+      label="{{item.value.label}}"
+      name="{{item.value.name}}"
+      message="{{item.value.message}}"
+      ref="handleRef" />
+  </view>
+</form-json>

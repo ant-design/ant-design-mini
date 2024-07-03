@@ -1,0 +1,21 @@
+<view
+  class="ant-checklist-item"
+  bind:tap="{{ item.disabled || item.readonly ? '' : 'onChecklistItemClick' }}"
+  hover-class="{{ item.disabled || item.readonly ? '' : 'ant-checklist-item-hover' }}"
+  hover-start-time="{{ 20 }}"
+  hover-stay-time="{{ 40 }}">
+  <view
+    class="ant-checklist-item-content {{ item.disabled ? 'ant-checklist-item-content-disabled' : '' }}">
+    <view class="ant-checklist-item-content-box">
+      <slot
+        name="content"
+        item="{{ item }}" />
+    </view>
+    <view
+      wx:if="{{ checked }}"
+      class="ant-checklist-item-content-icon">
+      <slot name="icon" />
+    </view>
+  </view>
+  <view class="ant-checklist-item-line" />
+</view>
