@@ -92,10 +92,11 @@ function transform(axmlCode, options) {
       const index = leadingComments.findIndex((actual) =>
         conditionMatches(condition, actual)
       );
+      path.node.leadingComments = []; // 注释全部删掉
       if (index >= 0) {
-        const clone = leadingComments.slice();
-        clone.splice(index, 1);
-        path.node.leadingComments = clone;
+        // const clone = leadingComments.slice();
+        // clone.splice(index, 1);
+        // path.node.leadingComments = clone;
         return true;
       }
     }

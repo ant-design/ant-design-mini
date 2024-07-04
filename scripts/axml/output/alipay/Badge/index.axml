@@ -31,9 +31,7 @@
           wx:if="{{type === 'number'}}"
           class="ant-badge-number"
         >
-          <!--display: inline-->
           <text wx:if="{{_sjs.getOverCount(text)}}">99+</text>
-          <!--display: inline-->
           <text wx:else>{{text}}</text>
         </view>
         <view

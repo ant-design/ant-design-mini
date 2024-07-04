@@ -86,7 +86,6 @@
     <block wx:else>
       <picker-view class="ant-picker-picker-view">
         <picker-view-column class="ant-picker-picker-view-column">
-          <!--display: inline-->
           <text style="color: #ccc">{{emptyText}}</text>
         </picker-view-column>
       </picker-view>

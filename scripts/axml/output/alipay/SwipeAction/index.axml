@@ -66,7 +66,6 @@
             style="{{util.getMovableContentRightStyle(item, tapTypeR, idx, rightWidth, inTouch, inertiaWidth, myStyle)}}"
           >
             <slot name="{{util.getRightSlotName(tapTypeR, idx, item)}}">
-              <!--display: inline-->
               <text class="right-text {{util.getLeft(tapTypeR, idx, _rightButtons, true)}}">{{util.getRightText(tapTypeR, idx, item)}}</text>
             </slot>
           </view>
@@ -97,12 +96,10 @@
             style="{{util.getMovableContentLeftStyle(itemL, tapTypeL, idx, leftWidth, inTouch, inertiaWidth, myStyle)}}"
           >
             <slot name="{{util.getLeftSlotName(tapTypeL, idx, itemL)}}">
-              <!--display: inline-->
               <text
                 class="right-text"
                 style="width: 100%"
               >
-                <!--display: inline-->
                 <text class="right-text {{util.getLeft(tapTypeL, idx, _leftButtons, false)}}">{{util.getLeftText(tapTypeL, idx, itemL)}}</text>
               </text>
             </slot>

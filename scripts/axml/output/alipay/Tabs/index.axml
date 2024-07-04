@@ -123,7 +123,6 @@
             bind:tap="onChange"
             data-index="{{index}}"
           >
-            <!--display: inline-->
             <text class="ant-vtabs-bar-item-title">
               <slot
                 name="title"

@@ -17,7 +17,6 @@
       wx:for-item="item"
     >
       <view class="{{helper.getMarkCellClassName(index, markItems)}}">
-        <!--display: inline-->
         <text>{{item}}</text>
       </view>
     </block>
@@ -71,7 +70,6 @@
               >
                 <view class="ant-calendar-cell-container">
                   <view class="ant-calendar-cell-top">
-                    <!--display: inline-->
                     <text
                       wx:if="{{item.top}}"
                       class="ant-calendar-cell-top-text {{item.top.className ? item.top.className : ''}}"
@@ -83,7 +81,6 @@
                       name="cell-bottom"
                       cell="{{item}}"
                     >
-                      <!--display: inline-->
                       <text
                         wx:if="{{item.bottom}}"
                         class="{{item.bottom.className}}"

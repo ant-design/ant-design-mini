@@ -11,7 +11,6 @@
   bind:tap="{{onTap || onDisabledTap ? 'onTap' : ''}}"
   catch:tap="{{catchTap ? 'catchTap' : ''}}"
 >
-  <!--左侧图标-->
   <view
     wx:if="{{iconPosition === 'left'}}"
     class="ant-typography-icon-container {{iconPosition}}"
@@ -28,7 +27,6 @@
       src="{{icon}}"
     ></image>
   </view>
-  <!--文案-->
   <text
     selectable="{{selectable}}"
     number-of-lines="{{ellipsisRow}}"
@@ -37,7 +35,6 @@
   >
     <slot>{{text}}</slot>
   </text>
-  <!--右侧图标-->
   <view
     wx:if="{{iconPosition === 'right'}}"
     class="ant-typography-icon-container {{iconPosition}}"

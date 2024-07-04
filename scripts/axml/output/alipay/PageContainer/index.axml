@@ -2,7 +2,6 @@
   class="ant-page-container {{className || ''}} {{safeArea === 'top' || safeArea === 'both' ? 'ant-page-container-safe-top' : ''}} {{safeArea === 'bottom' || safeArea === 'both' ? 'ant-page-container-safe-bottom' : ''}}"
   style="{{style || ''}}"
 >
-  <!--loading-->
   <view
     wx:if="{{loading}}"
     class="ant-page-container-loading-wrap"
@@ -17,7 +16,6 @@
       </slot>
     </view>
   </view>
-  <!--页面异常状态-->
   <view
     wx:if="{{image && title && message}}"
     class="ant-page-container-status"
@@ -46,6 +44,5 @@
       </view>
     </ant-empty>
   </view>
-  <!--正常页面内容-->
   <slot wx:else></slot>
 </view>
