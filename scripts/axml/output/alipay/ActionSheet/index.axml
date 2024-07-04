@@ -2,10 +2,13 @@
   src="./index.wxs"
   module="helper"
 ></wxs>
+<!--#if WECHAT-->
+<view>微信需要编译出来</view>
 <ant-popup
   class-name="ant-actionsheet-popup"
   visible="{{visible}}"
   position="bottom"
+  bind:tap="bind:tap"
   bind:close="onClose"
 >
   <view

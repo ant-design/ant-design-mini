@@ -10,31 +10,35 @@ async function main({ inputDir }) {
   const transCodes = inputFilesPath.map(async (filePath) => {
     const axmlCode = await fs.readFile(filePath, 'utf-8');
     const transCode = transform(axmlCode, {
-      '*': {
-        'a:elif': 'wx:elif',
-        'a:else': 'wx:else',
-        'a:for': 'wx:for',
-        'a:for-index': 'wx:for-index',
-        'a:for-item': 'wx:for-item',
-        'a:if': 'wx:if',
-        'a:key': 'wx:key',
-        role: 'aria-role',
+      mapping: {
+        '*': {
+          'a:elif': 'wx:elif',
+          'a:else': 'wx:else',
+          'a:for': 'wx:for',
+          'a:for-index': 'wx:for-index',
+          'a:for-item': 'wx:for-item',
+          'a:if': 'wx:if',
+          'a:key': 'wx:key',
+          role: 'aria-role',
+        },
+        'import-sjs': {
+          '*': 'wxs',
+          from: 'src',
+          name: 'module',
+        },
+        ...basicComponetMapping,
       },
-      'import-sjs': {
-        '*': 'wxs',
-        from: 'src',
-        name: 'module',
-      },
-      ...basicComponetMapping,
-      // include: string | RegExp | Function => 仅处理匹配文件
-      // exclude: string | RegExp | Function => 不处理匹配文件
-      removeStart(v) {
-        // 注释内容为入参，返回 true 时表示开始剪枝
-        return /#ifdef\s+(?!WECHAT)/.test(v);
-      },
-      removeEnd(v) {
-        // 注释内容为入参，返回 true 时表示停止剪枝
-        return /#endif/.test(v);
+      conditionComment: {
+        // include: string | RegExp | Function => 仅处理匹配文件
+        // exclude: string | RegExp | Function => 不处理匹配文件
+        removeStart(v) {
+          // 注释内容为入参，返回 true 时表示开始剪枝
+          return /#if\s+(?!WECHAT)/.test(v);
+        },
+        removeEnd(v) {
+          // 注释内容为入参，返回 true 时表示停止剪枝
+          return /#endif/.test(v);
+        },
       },
     });
     return { filePath, transCode };
@@ -58,7 +62,58 @@ async function main({ inputDir }) {
 
 main({ inputDir: path.resolve(__dirname, `./fixtures`) });
 
-function transform(axmlCode, mapping) {
+interface IRegExp {
+  test(str: string): boolean;
+}
+type IFunction = (filename: string) => boolean;
+
+function transform(axmlCode, options) {
+  const { mapping, conditionComment } = options || {};
+  function conditionMatches(
+    condition: string | IRegExp | IFunction,
+    input: string
+  ) {
+    switch (typeof condition) {
+      case 'string':
+        return input.includes(condition);
+      case 'function':
+        return condition(input);
+      case 'object':
+        return condition.test && condition.test(input);
+    }
+    return false;
+  }
+  function commentMatches(
+    path: types.ElementPath | types.TextPath,
+    condition: string | IRegExp | IFunction
+  ) {
+    const { leadingComments } = path.node;
+    if (leadingComments) {
+      const index = leadingComments.findIndex((actual) =>
+        conditionMatches(condition, actual)
+      );
+      if (index >= 0) {
+        const clone = leadingComments.slice();
+        clone.splice(index, 1);
+        path.node.leadingComments = clone;
+        return true;
+      }
+    }
+  }
+
+  const RemoveElementText = (current: types.ElementPath | types.TextPath) => {
+    if (commentMatches(current, conditionComment.removeStart)) {
+      while (current) {
+        const sibling = current.nextSibling;
+        current.remove();
+        if (sibling && commentMatches(sibling, conditionComment.removeEnd)) {
+          break;
+        }
+        current = sibling;
+      }
+    }
+  };
+
   // 将模板内容解析成 AST
   const {
     /**
@@ -138,6 +193,10 @@ function transform(axmlCode, mapping) {
     },
     Element: {
       enter(element) {
+        // start ----- 对 条件编译 进行处理 -----
+        RemoveElementText(element);
+        // end ----- 对 条件编译 进行处理 -----
+
         // start ----- 对 key属性 进行处理 -----
         // 进入元素的时候处理，其他时机可能让 a:for 被转到 wx:for
         let attribute: void | types.AttributePath;
@@ -327,6 +386,13 @@ function transform(axmlCode, mapping) {
           }
         }
         // end ----- 对 template 进行处理 -----
+      },
+    },
+    Text: {
+      enter(text) {
+        // start ----- 对 条件编译 进行处理 -----
+        RemoveElementText(text);
+        // end ----- 对 条件编译 进行处理 -----
       },
     },
   });

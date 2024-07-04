@@ -2,10 +2,20 @@
   from="./index.sjs"
   name="helper" />
 
+<!-- #if WECHAT -->
+<view>微信需要编译出来</view>
+<!--  #endif  -->
+
+<!-- #if ALIPAY -->
+<view>支付宝需要编译出来</view>
+<!--  #endif  -->
+
+
 <ant-popup
   className="ant-actionsheet-popup"
   visible="{{ visible }}"
   position="bottom"
+  onTap="bind:tap"
   onClose="onClose">
   <view
     style="{{ style }}"
