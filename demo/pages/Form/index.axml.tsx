@@ -29,15 +29,23 @@ export default ({
   <Page>
     <FormInput
       label="用户名"
-      name="account"
+      name="user.account"
       placeholder="请输入用户名"
       tooltip="用户名说明"
       allowClear
       ref="handleRef"
     />
     <FormInput
+      label="手机号"
+      name="user.phone"
+      placeholder="请输入手机号"
+      tooltip="手机号说明"
+      allowClear
+      ref="handleRef"
+    />
+    <FormInput
       label="密码"
-      name="password"
+      name="user.password"
       placeholder="请输入密码"
       allowClear
       ref="handleRef"
@@ -112,7 +120,10 @@ export default ({
       <AntButton type="primary" onTap="submit" style="margin-bottom: 12px">
         提交
       </AntButton>
-      <AntButton onTap="reset">重置</AntButton>
+      <AntButton onTap="reset" style="margin-bottom: 12px">
+        重置
+      </AntButton>
+      <AntButton onTap="update">修改</AntButton>
     </View>
     <AntToast
       content="密码的自定义 tooltip"

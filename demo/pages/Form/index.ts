@@ -34,7 +34,15 @@ Page({
     toastShow: false,
   },
   onLoad() {
-    this.form = new Form();
+    this.form = new Form({
+      initialValues: { user: { account: 'andy', phone: '10000' } },
+    });
+    this.form.onValueChange('user.account', (value, allValues) => {
+      console.log('onValueChange:', value, allValues);
+    });
+    this.form.onValuesChange((value, allValues) => {
+      console.log('onValuesChange:', value, allValues);
+    });
     /// #if WECHAT
     if (this.formRefList) {
       this.formRefList.forEach((ref) => {
@@ -56,7 +64,34 @@ Page({
     /// #endif
   },
   reset() {
-    this.form.reset();
+    this.form.reset({ user: { phone: '10000' } });
+  },
+  update() {
+    this.form.setFieldsValue({
+      user: { account: 'pony', phone: '10086', password: '123456' },
+      address: '312312',
+      needDelivery: true,
+      quantity: 20,
+      fruit: '西瓜',
+      birthday: Date.now(),
+      range: [Date.now(), Date.now() + 86400000],
+      city: ['36', '360'],
+      animalChoose: 'fox',
+      fruitChoose: ['potato', 'eggplant'],
+      likeChoose: 'badminton',
+      slider: 44,
+      image: [
+        {
+          path: 'https://resource/apml3bc4f816b58586ab65e1b54980a10c87.jpg',
+          size: 2352941,
+          status: 'done',
+          uid: '201-1720155950249-1',
+          url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
+        },
+      ],
+      description: '说明一下情况',
+      rate: 4,
+    });
   },
   async submit() {
     const values = await this.form.submit();

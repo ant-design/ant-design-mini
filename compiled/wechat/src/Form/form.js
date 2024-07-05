@@ -61,6 +61,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import AsyncValidator from 'async-validator';
+import set from 'lodash-es/set';
+import get from 'lodash-es/get';
 import { getValueFromProps } from '../_util/simply';
 var EventEmitter = /** @class */ (function () {
     function EventEmitter() {
@@ -94,7 +96,7 @@ var Field = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.ref = ref;
         _this.formRules = rules;
-        _this.create(name, initialValues[name], rules[name], validateMessages, required, label, message, validateTrigger);
+        _this.create(name, get(initialValues, name), rules[name], validateMessages, required, label, message, validateTrigger);
         _this.ref.on(function (trigger, value, extraInfo) {
             if (trigger === 'onChange') {
                 _this.setValue(value);
@@ -111,7 +113,7 @@ var Field = /** @class */ (function (_super) {
                     value.label !== props.label ||
                     value.message !== props.message ||
                     value.validateTrigger !== props.validateTrigger) {
-                    _this.create(value.name, initialValues[value.name], _this.formRules[value.name], validateMessages, value.required, value.message, value.label, value.validateTrigger, true);
+                    _this.create(value.name, get(initialValues, value.name), _this.formRules[value.name], validateMessages, value.required, value.message, value.label, value.validateTrigger, true);
                 }
                 if (value.name !== props.name) {
                     _this.emit('replaceName', value.name);
@@ -498,10 +500,7 @@ var Form = /** @class */ (function () {
                     });
                 }
                 _this.changeListeners.forEach(function (item) {
-                    var _a;
-                    return item((_a = {},
-                        _a[name] = value,
-                        _a), _this.getFieldsValue());
+                    return item(set({}, name, value), _this.getFieldsValue());
                 });
             }
         })
@@ -546,8 +545,8 @@ var Form = /** @class */ (function () {
      */
     Form.prototype.setFieldsValue = function (values) {
         var _this = this;
-        Object.keys(values).forEach(function (name) {
-            _this.setFieldValue(name, values[name]);
+        Object.keys(this.fields).forEach(function (name) {
+            _this.setFieldValue(name, get(values, name));
         });
     };
     /**
@@ -585,7 +584,7 @@ var Form = /** @class */ (function () {
         var fieldsValue = {};
         nameList = nameList || Object.keys(this.fields);
         nameList.forEach(function (name) {
-            fieldsValue[name] = _this.getFieldValue(name);
+            set(fieldsValue, name, _this.getFieldValue(name));
         });
         return fieldsValue;
     };
@@ -658,8 +657,8 @@ var Form = /** @class */ (function () {
      */
     Form.prototype.onValueChange = function (name, callback) {
         this.changeListeners.push(function (changedValues, allValues) {
-            if (name in changedValues) {
-                callback(changedValues[name], allValues);
+            if (get(changedValues, name)) {
+                callback(get(changedValues, name), allValues);
             }
         });
     };
@@ -713,7 +712,7 @@ var Form = /** @class */ (function () {
                                     errors: validatorStatus.errors,
                                 });
                             }
-                            values[name] = value;
+                            set(values, name, value);
                         });
                         if (errorFields.length > 0) {
                             throw {
@@ -732,7 +731,7 @@ var Form = /** @class */ (function () {
     Form.prototype.reset = function () {
         var _this = this;
         this.eachField(function (field, name) {
-            var initialValue = _this.initialValues[name];
+            var initialValue = get(_this.initialValues, name);
             field.reset(initialValue);
         });
     };
