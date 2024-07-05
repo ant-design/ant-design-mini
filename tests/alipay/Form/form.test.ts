@@ -114,3 +114,118 @@ it('测试 实例方法', async () => {
   const values = await form.submit();
   expect(values.test).toEqual('1234567');
 });
+
+it('测试 字段嵌套', async () => {
+  const initName = '123123';
+  const initPhone = '10086';
+  const form = createForm({
+    rules: {
+      'user.name': [
+        {
+          required: true,
+          min: 6,
+        },
+      ],
+    },
+    initialValues: {
+      user: {
+        name: initName,
+        phone: initPhone,
+      },
+    },
+  });
+  const nameInstance = getInstance('Form/FormInput', {
+    name: 'user.name',
+    label: 'input',
+  });
+  const phoneInstance = getInstance('Form/FormInput', {
+    name: 'user.phone',
+    label: 'input',
+  });
+  form.addItem(nameInstance.ref());
+  form.addItem(phoneInstance.ref());
+  expect(nameInstance.getData().formData.value).toEqual(initName);
+  expect(form.getFieldValue('user.name')).toEqual(initName);
+  expect(form.getFieldValue('user.phone')).toEqual(initPhone);
+  expect(form.getFieldsValue()).toEqual({
+    user: {
+      name: initName,
+      phone: initPhone,
+    },
+  });
+
+  const changeName = 'andy';
+  // onChange 触发之后回调
+  form.onValueChange('user.name', (value, allValues) => {
+    expect(value).toEqual(changeName);
+    expect(allValues).toEqual({ user: { name: changeName, phone: initPhone } });
+  });
+  form.onValuesChange((value, allValues) => {
+    expect(value).toEqual({ user: { name: changeName } });
+    expect(allValues).toEqual({ user: { name: changeName, phone: initPhone } });
+  });
+  nameInstance.callMethod('onChange', changeName);
+  expect(nameInstance.getData().formData.value).toEqual(changeName);
+  expect(form.getFieldValue('user.name')).toEqual(changeName);
+  expect(form.getFieldsValue()).toEqual({
+    user: {
+      name: changeName,
+      phone: initPhone,
+    },
+  });
+
+  await sleep(10);
+  expect(form.getFieldValidatorStatus('user.name')).toEqual({
+    'errors': ['user.name must be at least 6 characters'],
+    'status': 'error',
+  });
+
+  form.reset();
+  expect(form.getFieldsValue()).toEqual({
+    user: {
+      name: initName,
+      phone: initPhone,
+    },
+  });
+
+  // setInitialValues需要配合reset一起用，才可生效
+  form.setInitialValues({
+    user: { name: 'tony', phone: '10000' },
+  });
+  form.reset();
+
+  expect(form.getFieldsValue()).toEqual({
+    user: {
+      name: 'tony',
+      phone: '10000',
+    },
+  });
+
+  expect(form.getFieldValue('user.name')).toEqual('tony');
+
+  form.setFieldValue('user.phone', '808080');
+
+  expect(form.getFieldValue('user.phone')).toEqual('808080');
+
+  form.setFieldsValue({ user: { name: 'william', phone: '110110' } });
+  expect(form.getFieldsValue()).toEqual({
+    user: { name: 'william', phone: '110110' },
+  });
+  expect(form.getFieldsValue(['user.name'])).toEqual({
+    user: {
+      name: 'william',
+    },
+  });
+  expect(form.getFieldsValue(['user.phone'])).toEqual({
+    user: {
+      phone: '110110',
+    },
+  });
+
+  expect(await form.submit()).toEqual({
+    user: {
+      name: 'william',
+      phone: '110110',
+    },
+  });
+});
