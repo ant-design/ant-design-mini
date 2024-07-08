@@ -3,44 +3,47 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import { basicComponetMapping, isBasicComponet } from './basicComponet';
 import { getFilesWithExtension } from './utils';
+import { TransformCompiler } from './compiler';
 
 async function main({ inputDir }) {
   const inputFilesPath = await getFilesWithExtension(inputDir, '.axml');
 
   const transCodes = inputFilesPath.map(async (filePath) => {
     const axmlCode = await fs.readFile(filePath, 'utf-8');
-    const transCode = transform(axmlCode, {
-      mapping: {
-        '*': {
-          'a:elif': 'wx:elif',
-          'a:else': 'wx:else',
-          'a:for': 'wx:for',
-          'a:for-index': 'wx:for-index',
-          'a:for-item': 'wx:for-item',
-          'a:if': 'wx:if',
-          'a:key': 'wx:key',
-          role: 'aria-role',
-        },
-        'import-sjs': {
-          '*': 'wxs',
-          from: 'src',
-          name: 'module',
-        },
-        ...basicComponetMapping,
-      },
-      conditionComment: {
-        // include: string | RegExp | Function => 仅处理匹配文件
-        // exclude: string | RegExp | Function => 不处理匹配文件
-        removeStart(v) {
-          // 注释内容为入参，返回 true 时表示开始剪枝
-          return /#if\s+(?!WECHAT)/.test(v);
-        },
-        removeEnd(v) {
-          // 注释内容为入参，返回 true 时表示停止剪枝
-          return /#endif/.test(v);
-        },
-      },
-    });
+    // const transCode = transform(axmlCode, {
+    //   mapping: {
+    //     '*': {
+    //       'a:elif': 'wx:elif',
+    //       'a:else': 'wx:else',
+    //       'a:for': 'wx:for',
+    //       'a:for-index': 'wx:for-index',
+    //       'a:for-item': 'wx:for-item',
+    //       'a:if': 'wx:if',
+    //       'a:key': 'wx:key',
+    //       role: 'aria-role',
+    //     },
+    //     'import-sjs': {
+    //       '*': 'wxs',
+    //       from: 'src',
+    //       name: 'module',
+    //     },
+    //     ...basicComponetMapping,
+    //   },
+    //   conditionComment: {
+    //     // include: string | RegExp | Function => 仅处理匹配文件
+    //     // exclude: string | RegExp | Function => 不处理匹配文件
+    //     removeStart(v) {
+    //       // 注释内容为入参，返回 true 时表示开始剪枝
+    //       return /#if\s+(?!WECHAT)/.test(v);
+    //     },
+    //     removeEnd(v) {
+    //       // 注释内容为入参，返回 true 时表示停止剪枝
+    //       return /#endif/.test(v);
+    //     },
+    //   },
+    // });
+    const Compiler = new TransformCompiler(axmlCode);
+    const transCode = Compiler.compile();
     return { filePath, transCode };
   });
 
