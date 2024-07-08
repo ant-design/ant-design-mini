@@ -121,10 +121,8 @@ export class TransformCompiler {
           return;
         }
         const receptor = this.pluginVisitors[visitor];
-        console.log(realPlugin[visitor]);
         if (typeof realPlugin[visitor] === 'function') {
           receptor.enter.push(realPlugin[visitor]);
-          return;
         }
         if (
           realPlugin[visitor].enter &&
@@ -171,13 +169,13 @@ export class TransformCompiler {
       const _this = this;
       acc[name] = {
         enter(...args) {
-          _this.pluginVisitors[name].enter.forEach(({ enter }) => {
-            typeof enter === 'function' && enter(...args);
+          _this.pluginVisitors[name].enter.forEach((caller) => {
+            typeof caller === 'function' && caller(...args);
           });
         },
         exit(...args) {
-          _this.pluginVisitors[name].exit.forEach(({ exit }) => {
-            typeof exit === 'function' && exit(...args);
+          _this.pluginVisitors[name].exit.forEach((caller) => {
+            typeof caller === 'function' && caller(...args);
           });
         },
       };

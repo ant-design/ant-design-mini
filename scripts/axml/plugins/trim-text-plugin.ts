@@ -4,7 +4,6 @@ const __TRIM_VISITED__ = Symbol('trimVisited');
 
 export default {
   Interpolation(interpolation, state) {
-    console.log(123);
     if (interpolation.parent && interpolation.parent.isText()) {
       let node = interpolation.node;
       if (!node[__TRIM_VISITED__]) {
