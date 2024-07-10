@@ -1,6 +1,6 @@
-const path = require('path');
-const cloneDeep = require('clone-deep');
-const shallowequal = require('shallowequal');
+const path = require('path') as any;
+const cloneDeep = require('clone-deep') as any;
+const shallowequal = require('shallowequal') as any;
 
 const map = {};
 let currentName;
