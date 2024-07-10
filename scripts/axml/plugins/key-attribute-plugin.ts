@@ -171,7 +171,7 @@ export default function ({ mapping }) {
         const raw = node.name;
         // 通用属性转换，比如指令
         // 对自定义组件和基础组件都生效
-        if (mapping['*'][raw]) {
+        if (mapping['*'] && mapping['*'][raw]) {
           node.name = mapping['*'][raw];
         }
         // 基础组件的事件名转换

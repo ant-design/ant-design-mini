@@ -1,3 +1,3 @@
-import { compileAntdMini } from './mini-compiler';
+import { compileAntdMini, compileAntdMiniAxml } from './mini-compiler';
 
-compileAntdMini(true);
+compileAntdMiniAxml(true);

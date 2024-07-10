@@ -28,8 +28,10 @@ export class TransformCompiler {
   private options: {
     mapping: Record<string, any>;
     conditionComment: TransformCompilerOption;
+    platform?: 'WECHAT' | 'ALIPAY' | string;
     plugins?: any;
   };
+  private platform: 'WECHAT' | 'ALIPAY' | string;
   private pluginVisitors: PluginVisitors = {
     Program: {
       enter: [],
@@ -53,28 +55,33 @@ export class TransformCompiler {
     },
   };
 
-  constructor(code, options = {}) {
+  constructor(code, options = { platform: 'ALIPAY' }) {
     this.code = code;
+    this.platform = options.platform;
+
     this.options = deepmerge(
       {
-        mapping: {
-          '*': {
-            'a:elif': 'wx:elif',
-            'a:else': 'wx:else',
-            'a:for': 'wx:for',
-            'a:for-index': 'wx:for-index',
-            'a:for-item': 'wx:for-item',
-            'a:if': 'wx:if',
-            'a:key': 'wx:key',
-            role: 'aria-role',
-          },
-          'import-sjs': {
-            '*': 'wxs',
-            from: 'src',
-            name: 'module',
-          },
-          ...basicComponetMapping,
-        },
+        mapping:
+          this.platform === 'WECHAT'
+            ? {
+                '*': {
+                  'a:elif': 'wx:elif',
+                  'a:else': 'wx:else',
+                  'a:for': 'wx:for',
+                  'a:for-index': 'wx:for-index',
+                  'a:for-item': 'wx:for-item',
+                  'a:if': 'wx:if',
+                  'a:key': 'wx:key',
+                  role: 'aria-role',
+                },
+                'import-sjs': {
+                  '*': 'wxs',
+                  from: 'src',
+                  name: 'module',
+                },
+                ...basicComponetMapping,
+              }
+            : {},
         conditionComment: {
           // include: string | RegExp | Function => 仅处理匹配文件
           // exclude: string | RegExp | Function => 不处理匹配文件
@@ -87,13 +94,16 @@ export class TransformCompiler {
             return /#endif/.test(v);
           },
         },
-        plugins: [
-          trimTextPlugin,
-          templateDataPlugin,
-          elementDatasetPlugin,
-          keyAttributePlugin,
-          conditionCommentPlugin,
-        ],
+        plugins:
+          this.platform === 'WECHAT'
+            ? [
+                trimTextPlugin,
+                templateDataPlugin,
+                elementDatasetPlugin,
+                keyAttributePlugin,
+                conditionCommentPlugin,
+              ]
+            : [],
       },
       options
     );

@@ -9,7 +9,7 @@
   "uploadExclude": [
     "dist/**/*"
   ],
-  "miniprogramRoot": "compiled/alipay/demo",
+  "miniprogramRoot": "nextCompiled/alipay/demo",
   "developOptions": {
     "skipTranspile": false,
     "minify": false,
