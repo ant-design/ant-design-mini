@@ -25,6 +25,7 @@ describe('Popup', () => {
     instance.setProps({
       visible: false,
     });
+    await sleep(10);
     expect(instance.getData().closing).toBe(true);
     instance.callMethod('onAnimationEnd');
     await sleep(20);
@@ -42,6 +43,7 @@ describe('Popup', () => {
     instance.setProps({
       visible: false,
     });
+    await sleep(10);
     expect(instance.getData().closing).toBe(true);
     instance.callMethod('onTapMask');
     expect(onClose.mock.calls.length).toBe(1);
