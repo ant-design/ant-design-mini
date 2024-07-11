@@ -49,7 +49,10 @@ Component(
       const enableAnimation = animation && duration > 0;
       if (prevProps.visible !== visible) {
         if (enableAnimation && !visible) {
-          this.setData({ closing: true });
+          setTimeout(() => {
+            // 这里需要用setTimeout包一下，解决支付宝小程序Picker中导致 targetId not match
+            this.setData({ closing: true });
+          });
         }
         if (!enableAnimation) {
           triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
