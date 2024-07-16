@@ -25,11 +25,4 @@
   onTap="onTap"
 >
   提交
-</ant-button></view>
-</ant-collapse>
-
-<ant-button
-  type="primary"
-  bind:tap="onTap">
-  提交
 </ant-button>

@@ -31,4 +31,4 @@
     </ant-checkbox>
   </view>
   <ant-button onTap="toggleChange">切换</ant-button>
-</ant-container>iner>
+</ant-container>

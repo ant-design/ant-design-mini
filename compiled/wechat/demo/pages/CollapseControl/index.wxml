@@ -21,4 +21,4 @@
   items="{{items}}"
   current="{{current}}"
   onChange="onChange"
-></collapse>e" />
+></collapse>
