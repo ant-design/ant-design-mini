@@ -2,7 +2,7 @@
   class="ant-page-container {{className || ''}} {{safeArea === 'top' || safeArea === 'both' ? 'ant-page-container-safe-top' : ''}} {{safeArea === 'bottom' || safeArea === 'both' ? 'ant-page-container-safe-bottom' : ''}}"
   style="{{style || ''}}"
 >
-  <!-- loading -->
+  <!--loading-->
   <view
     a:if="{{loading}}"
     class="ant-page-container-loading-wrap"
@@ -13,13 +13,15 @@
           type="{{loadingType}}"
           size="{{loadingSize}}"
           color="{{loadingColor}}"
-        />
+        ></ant-loading>
       </slot>
     </view>
   </view>
-
-  <!-- 页面异常状态 -->
-  <view class="ant-page-container-status" a:if="{{image && title && message}}">
+  <!--页面异常状态-->
+  <view
+    a:if="{{image && title && message}}"
+    class="ant-page-container-status"
+  >
     <ant-empty
       image="{{image}}"
       title="{{title}}"
@@ -44,11 +46,10 @@
         >
           {{secondaryActionText}}
         </ant-button>
-        <slot name="extra" />
+        <slot name="extra"></slot>
       </view>
     </ant-empty>
   </view>
-
-  <!-- 正常页面内容 -->
-  <slot a:else />
+  <!--正常页面内容-->
+  <slot a:else></slot>
 </view>

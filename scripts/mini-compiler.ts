@@ -14,7 +14,6 @@ import { resolve } from 'path';
 import * as fs from 'fs/promises';
 import * as ofs from 'fs';
 import { TransformCompiler as axmlParser } from './axml';
-import * as types from '@ali/oxyde-compiler-generator';
 
 interface MiniProgramSourceCompileOption {
   source: string;
@@ -224,30 +223,11 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
       return stream
         .pipe(
           factory(async (content: string) => {
-            // const ast = tsxml.parseCode(content);
-            // const res = await tsxml.tsxmlToAxml(
-            //   tsxml.TransformContext.create(
-            //     ast,
-            //     option.buildOption.platform,
-            //     content
-            //   )
-            // );
-
-            // try {
-            //   const Compiler = new axmlParser({
-            //     platform: option.buildOption.platformId,
-            //   });
-            //   const transCode = Compiler.compile(content);
-            //   return transCode;
-            // } catch (err) {
-            //   throw err;
-            // }
             try {
-              const { ast } = types.parse(content);
-              types.traverse(ast, {});
-              // 然后将内容字符串化
-              const transCode = types.stringify(ast);
-
+              const Compiler = new axmlParser({
+                platform: option.buildOption.platformId,
+              });
+              const transCode = Compiler.compile(content);
               return transCode;
             } catch (err) {
               throw err;
@@ -307,18 +287,18 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
     }
   );
 
-  option.assets.forEach((ext) => {
-    task(
-      {
-        name: `copy-${ext}`,
-        glob: ['**/*.' + ext],
-        destExtension: '.' + ext,
-      },
-      function (stream: NodeJS.ReadWriteStream) {
-        return stream.pipe(gulp.dest(option.dest));
-      }
-    );
-  });
+  // option.assets.forEach((ext) => {
+  //   task(
+  //     {
+  //       name: `copy-${ext}`,
+  //       glob: ['**/*.' + ext],
+  //       destExtension: '.' + ext,
+  //     },
+  //     function (stream: NodeJS.ReadWriteStream) {
+  //       return stream.pipe(gulp.dest(option.dest));
+  //     }
+  //   );
+  // });
 
   task(
     {
@@ -500,19 +480,19 @@ export async function compileAntdMiniAxml(watch: boolean) {
     xmlScriptOption: {},
   };
 
-  // miniCompiler({
-  //   tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
-  //   source: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
-  //   dest: resolve(__dirname, '..', 'nextCompiled', 'alipay', 'src'),
-  //   watch,
-  //   assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
-  //   buildOption: alipayBuildOption,
-  // });
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
+    dest: resolve(__dirname, '..', 'nextCompiled', 'alipay', 'src'),
+    watch,
+    assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
+    buildOption: alipayBuildOption,
+  });
 
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
-    source: resolve(__dirname, '..', 'compiled', 'alipay', 'demo', 'pages'),
-    dest: resolve(__dirname, '..', 'nextCompiled', 'alipay', 'demo', 'pages'),
+    source: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
+    dest: resolve(__dirname, '..', 'nextCompiled', 'alipay', 'demo'),
     watch,
     assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
     buildOption: {

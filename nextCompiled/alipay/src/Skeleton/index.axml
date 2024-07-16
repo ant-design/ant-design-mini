@@ -1,24 +1,29 @@
 <view
-  a:if="{{ loading }}"
-  class="ant-skeleton {{ className || '' }}">
+  a:if="{{loading}}"
+  class="ant-skeleton {{className || ''}}"
+>
   <view
-    a:if="{{ avatar }}"
-    class="ant-skeleton-avatar-wrapper">
+    a:if="{{avatar}}"
+    class="ant-skeleton-avatar-wrapper"
+  >
     <avatar
-      animate="{{ animate }}"
+      animate="{{animate}}"
       loading
-      size="{{ avatar === true ? 'medium' : avatar.size }}" />
+      size="{{avatar === true ? 'medium' : avatar.size}}"
+    ></avatar>
   </view>
   <view class="ant-skeleton-content-wrapper">
     <title
-      a:if="{{ title }}"
-      animate="{{ animate }}"
-      loading />
+      a:if="{{title}}"
+      animate="{{animate}}"
+      loading
+    ></title>
     <paragraph
-      a:if="{{ paragraph }}"
-      animate="{{ animate }}"
-      rows="{{ paragraph === true ? 3 : paragraph.rows }}"
-      loading />
+      a:if="{{paragraph}}"
+      animate="{{animate}}"
+      rows="{{paragraph === true ? 3 : paragraph.rows}}"
+      loading
+    ></paragraph>
   </view>
 </view>
-<slot a:else />
+<slot a:else></slot>

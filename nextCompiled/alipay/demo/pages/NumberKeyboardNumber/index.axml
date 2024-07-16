@@ -1,27 +1,29 @@
 <list header="数字输入框示例">
   <list-item>
     <view
-      class="number-content {{ value ? '' : 'number-placeholder' }}"
-      catchTap="onNumberFocus">
-      <!-- display: inline -->
-      <text a:if="{{ value }}">{{ value }}</text>
-      <!-- display: inline -->
+      class="number-content {{value ? '' : 'number-placeholder'}}"
+      catchTap="onNumberFocus"
+    >
+      <!--display: inline-->
+      <text a:if="{{value}}">{{value}}</text>
+      <!--display: inline-->
       <text
         a:else
         class="number-content-tip"
-        >0.00</text
-      >
+      >0.00</text>
       <view
-        a:if="{{ visible }}"
+        a:if="{{visible}}"
         class="number-light"
-        style="{{ value ? 'position: static;' : 'position: absolute;' }}" />
+        style="{{value ? 'position: static;' : 'position: absolute;'}}"
+      ></view>
     </view>
   </list-item>
   <number-keyboard
-    visible="{{ visible }}"
-    point="{{ false }}"
-    closeable="{{ true }}"
-    value="{{ value }}"
+    visible="{{visible}}"
+    point="{{false}}"
+    closeable="{{true}}"
+    value="{{value}}"
     onChange="onChange"
-    onClose="onClose" />
+    onClose="onClose"
+  ></number-keyboard>
 </list>

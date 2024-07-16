@@ -4,12 +4,12 @@
   title="{{title}}"
   message="{{message}}"
   image="{{image}}"
-  safeArea="{{safeArea}}"
-  loadingColor="#ccc"
-  loadingSize="medium"
-  loadingType="spin"
-  actionText="刷新"
-  secondaryActionText="网络异常"
+  safe-area="{{safeArea}}"
+  loading-color="#ccc"
+  loading-size="medium"
+  loading-type="spin"
+  action-text="刷新"
+  secondary-action-text="网络异常"
   onActionTap="handleRefresh"
   onSecondaryActionTap="handleSwitchToDisconnected"
 >
@@ -108,5 +108,8 @@
   >
     正常
   </ant-button>
-  <ant-loading slot="loading" color="#999" />
+  <ant-loading
+    slot="loading"
+    color="#999"
+  ></ant-loading>
 </ant-page>

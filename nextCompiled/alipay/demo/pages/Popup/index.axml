@@ -1,38 +1,43 @@
 <ant-popup
-  visible="{{ basicVisible }}"
-  height="{{ 250 }}"
-  width="{{ 250 }}"
-  position="{{ position }}"
-  animation="{{ animation }}"
-  onClose="handlePopupClose">
+  visible="{{basicVisible}}"
+  height="{{250}}"
+  width="{{250}}"
+  position="{{position}}"
+  animation="{{animation}}"
+  onClose="handlePopupClose"
+>
   <view style="padding: 12px">
     从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
   </view>
 </ant-popup>
 <ant-popup
-  visible="{{ closeVisible }}"
-  height="{{ 250 }}"
+  visible="{{closeVisible}}"
+  height="{{250}}"
   position="bottom"
-  animation="{{ animation }}"
-  onClose="handlePopupClose">
+  animation="{{animation}}"
+  onClose="handlePopupClose"
+>
   <view style="padding: 12px">
     从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
   </view>
   <ant-icon
     style="position: absolute; right: 12px; top: 12px"
     type="CloseOutline"
-    onTap="handlePopupClose" />
+    onTap="handlePopupClose"
+  ></ant-icon>
 </ant-popup>
 <ant-popup
-  visible="{{ scrollVisible }}"
+  visible="{{scrollVisible}}"
   position="bottom"
-  animation="{{ animation }}"
-  onClose="handlePopupClose">
+  animation="{{animation}}"
+  onClose="handlePopupClose"
+>
   <scroll-view
     scroll-y
     style="padding: 12px; height: 300px"
     disable-lower-scroll="out-of-bounds"
-    disable-upper-scroll="out-of-bounds">
+    disable-upper-scroll="out-of-bounds"
+  >
     Ea consectetur ipsum consequat exercitation laboris excepteur pariatur
     excepteur labore dolor cillum tempor esse. Ad adipisicing nostrud fugiat eu
     mollit. Proident nisi voluptate sunt ea laboris Lorem ullamco deserunt aute
@@ -96,25 +101,30 @@
 </ant-popup>
 <container
   title="弹出位置"
-  className="list">
+  class="list"
+>
   <ant-button
     data-position="top"
-    onTap="handleShowBasic">
+    onTap="handleShowBasic"
+  >
     顶部弹出
   </ant-button>
   <ant-button
     data-position="bottom"
-    onTap="handleShowBasic">
+    onTap="handleShowBasic"
+  >
     底部弹出
   </ant-button>
   <ant-button
     data-position="left"
-    onTap="handleShowBasic">
+    onTap="handleShowBasic"
+  >
     左侧弹出
   </ant-button>
   <ant-button
     data-position="right"
-    onTap="handleShowBasic">
+    onTap="handleShowBasic"
+  >
     右侧弹出
   </ant-button>
   <ant-button onTap="handleShowClose">自定义弹窗内关闭</ant-button>
@@ -125,7 +135,8 @@
     开启过渡动画
     <switch
       slot="extra"
-      checked="{{ animation }}"
-      onChange="handleChangeAnimation" />
+      checked="{{animation}}"
+      onChange="handleChangeAnimation"
+    ></switch>
   </list-item>
 </list>
