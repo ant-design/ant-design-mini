@@ -1,5 +1,5 @@
 <view
-  a:if="{{direction !== 'vertical'}}"
+  wx:if="{{direction !== 'vertical'}}"
   class="ant-tabs {{className ? className : ''}}"
   style="{{style}}"
 >
@@ -18,7 +18,7 @@
     <scroll-view
       class="ant-tabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{$id ? '-' + $id : ''}}"
-      onScroll="onScroll"
+      bind:scroll="onScroll"
       scroll-left="{{scrollLeft}}"
       scroll-x="{{true}}"
       scroll-with-animation="{{true}}"
@@ -26,18 +26,18 @@
     >
       <view></view>
       <block
-        a:for="{{items}}"
-        a:for-index="index"
-        a:for-item="item"
+        wx:for="{{items}}"
+        wx:for-index="index"
+        wx:for-item="item"
       >
         <view
           id="ant-tabs-bar-item{{$id ? '-' + $id : ''}}-{{index}}"
           class="ant-tabs-bar-wrap ant-tabs-bar-wrap-{{type}} {{tabsBarClassName ? tabsBarClassName : ''}}"
         >
           <view
-            a:if="{{type === 'basic'}}"
+            wx:if="{{type === 'basic'}}"
             class="ant-tabs-bar-item ant-tabs-bar-basic {{tabClassName ? tabClassName : ''}} {{mixin.value === index && !item.disabled ? 'ant-tabs-bar-active' : ''}} {{item.disabled ? 'ant-tabs-bar-disabled' : ''}} {{mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : ''}}"
-            onTap="onChange"
+            bind:tap="onChange"
             data-index="{{index}}"
           >
             <view class="ant-tabs-bar-basic-title">
@@ -45,15 +45,13 @@
                 name="title"
                 value="{{item}}"
                 index="{{index}}"
-              >
-                {{item.title}}
-              </slot>
+              >{{item.title}}</slot>
             </view>
           </view>
           <view
-            a:elif="{{type === 'capsule'}}"
+            wx:elif="{{type === 'capsule'}}"
             class="ant-tabs-bar-item ant-tabs-bar-capsule {{tabClassName ? tabClassName : ''}} {{mixin.value === index && !item.disabled ? 'ant-tabs-bar-active' : ''}} {{item.disabled ? 'ant-tabs-bar-disabled' : ''}} {{mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : ''}}"
-            onTap="onChange"
+            bind:tap="onChange"
             data-index="{{index}}"
           >
             <view class="ant-tabs-bar-capsule-title">
@@ -61,15 +59,13 @@
                 name="title"
                 value="{{item}}"
                 index="{{index}}"
-              >
-                {{item.title}}
-              </slot>
+              >{{item.title}}</slot>
             </view>
           </view>
           <view
-            a:else
+            wx:else
             class="ant-tabs-bar-item ant-tabs-bar-mixin {{tabClassName ? tabClassName : ''}} {{mixin.value === index && !item.disabled ? 'ant-tabs-bar-active' : ''}} {{item.disabled ? 'ant-tabs-bar-disabled' : ''}} {{mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : ''}}"
-            onTap="onChange"
+            bind:tap="onChange"
             data-index="{{index}}"
           >
             <view class="ant-tabs-bar-mixin-title">
@@ -77,18 +73,14 @@
                 name="title"
                 value="{{item}}"
                 index="{{index}}"
-              >
-                {{item.title}}
-              </slot>
+              >{{item.title}}</slot>
             </view>
             <view class="ant-tabs-bar-mixin-subtitle">
               <slot
                 name="subTitle"
                 value="{{item}}"
                 index="{{index}}"
-              >
-                {{item.subTitle}}
-              </slot>
+              >{{item.subTitle}}</slot>
             </view>
           </view>
         </view>
@@ -104,7 +96,7 @@
   </view>
 </view>
 <view
-  a:else
+  wx:else
   class="ant-vtabs {{className ? className : ''}}"
   style="{{style}}"
 >
@@ -112,7 +104,7 @@
     <scroll-view
       class="ant-vtabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{$id ? '-' + $id : ''}}"
-      onScroll="onScroll"
+      bind:scroll="onScroll"
       scroll-top="{{scrollTop}}"
       scroll-y="{{true}}"
       scroll-with-animation="{{true}}"
@@ -120,26 +112,23 @@
     >
       <view class="ant-vtabs-bar-item-wrap">
         <block
-          a:for="{{items}}"
-          a:for-index="index"
-          a:for-item="item"
+          wx:for="{{items}}"
+          wx:for-index="index"
+          wx:for-item="item"
         >
           <view
             id="ant-tabs-bar-item{{$id ? '-' + $id : ''}}-{{index}}"
             class="ant-vtabs-bar-item {{tabClassName ? tabClassName : ''}} {{mixin.value === index && !item.disabled ? 'ant-vtabs-bar-item-active' : ''}} {{item.disabled ? 'ant-vtabs-bar-item-disabled' : ''}} {{mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : ''}}"
             style="{{mixin.value + 1 === index ? 'border-radius: 0 16rpx 0 0' : ''}};{{mixin.value - 1 === index ? 'border-radius: 0 0 16rpx 0' : ''}}"
-            onTap="onChange"
+            bind:tap="onChange"
             data-index="{{index}}"
           >
-            <!--display: inline-->
             <text class="ant-vtabs-bar-item-title">
               <slot
                 name="title"
                 value="{{item}}"
                 index="{{index}}"
-              >
-                {{item.title}}
-              </slot>
+              >{{item.title}}</slot>
             </text>
           </view>
         </block>
@@ -150,8 +139,6 @@
     <slot
       value="{{items[mixin.value]}}"
       index="{{mixin.value}}"
-    >
-      {{items[mixin.value].content}}
-    </slot>
+    >{{items[mixin.value].content}}</slot>
   </view>
 </view>

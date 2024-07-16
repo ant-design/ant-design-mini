@@ -1,7 +1,7 @@
-<import-sjs
-  from="./index.sjs"
-  name="_sjs"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="_sjs"
+></wxs>
 <view
   class="ant-badge {{className || ''}}"
   style="{{style}}"
@@ -10,7 +10,7 @@
     <slot></slot>
   </view>
   <view
-    a:if="{{type === 'dot'}}"
+    wx:if="{{type === 'dot'}}"
     class="ant-badge-content"
     style="{{_sjs.setPositionStyle(position, offsetX, offsetY)}}"
   >
@@ -20,7 +20,7 @@
     ></view>
   </view>
   <view
-    a:else
+    wx:else
     class="ant-badge-content ant-badge-content-not-dot {{type === 'bubble' ? 'ant-badge-content-' + position + '-bubble' : ''}} {{stroke ? 'ant-badge-content-stroke' : ''}}"
     style="{{bgColor ? 'background-color: ' + bgColor + ';' : ''}} {{_sjs.setBubbleStyle(type, position)}};{{_sjs.setPositionStyle(position, offsetX, offsetY)}}"
   >
@@ -28,26 +28,20 @@
     <view class="ant-badge-content-text">
       <slot name="text">
         <view
-          a:if="{{type === 'number'}}"
+          wx:if="{{type === 'number'}}"
           class="ant-badge-number"
         >
-          <!--display: inline-->
-          <text a:if="{{_sjs.getOverCount(text)}}">99+</text>
-          <!--display: inline-->
-          <text a:else>{{text}}</text>
+          <text wx:if="{{_sjs.getOverCount(text)}}">99+</text>
+          <text wx:else>{{text}}</text>
         </view>
         <view
-          a:if="{{type === 'text'}}"
+          wx:if="{{type === 'text'}}"
           class="ant-badge-text"
-        >
-          {{text}}
-        </view>
+        >{{text}}</view>
         <view
-          a:if="{{type === 'bubble'}}"
+          wx:if="{{type === 'bubble'}}"
           class="ant-badge-bubble"
-        >
-          {{text}}
-        </view>
+        >{{text}}</view>
       </slot>
     </view>
   </view>

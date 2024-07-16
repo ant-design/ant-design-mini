@@ -1,12 +1,10 @@
 <view class="ant-list {{className ? className : ''}} {{radius ? 'ant-list-radius' : ''}}">
   <view
-    a:if="{{header}}"
+    wx:if="{{header}}"
     class="ant-list-header"
-  >
-    {{header}}
-  </view>
+  >{{header}}</view>
   <view
-    a:else
+    wx:else
     class="ant-list-header"
   >
     <slot name="header"></slot>
@@ -15,13 +13,11 @@
     <slot></slot>
   </view>
   <view
-    a:if="{{footer}}"
+    wx:if="{{footer}}"
     class="ant-list-footer"
-  >
-    {{footer}}
-  </view>
+  >{{footer}}</view>
   <view
-    a:else
+    wx:else
     class="ant-list-footer"
   >
     <slot name="footer"></slot>

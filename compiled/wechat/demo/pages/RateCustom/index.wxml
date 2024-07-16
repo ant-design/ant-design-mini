@@ -13,7 +13,7 @@
 <ant-container title="自定义大小">
   <ant-rate
     default-value="{{3}}"
-    class="rate"
+    class-name="rate"
   ></ant-rate>
   <view class="description">30px</view>
   <ant-rate
@@ -79,9 +79,7 @@
     <view
       slot="character"
       slot-scope="rate"
-    >
-      {{rate.index}}
-    </view>
+    >{{rate.index}}</view>
   </ant-rate>
   <view class="description">自定义为索引</view>
 </ant-container>

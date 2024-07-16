@@ -9,16 +9,16 @@
 </container>
 <container title="自定义组合">
   <view class="list">
-    <skeleton-avatar class="custom"></skeleton-avatar>
+    <skeleton-avatar className="custom"></skeleton-avatar>
     <skeleton-paragraph
-      class="custom"
+      class-name="custom"
       rows="{{1}}"
     ></skeleton-paragraph>
-    <skeleton-input class="custom"></skeleton-input>
-    <skeleton-input class="custom"></skeleton-input>
-    <skeleton-input class="custom"></skeleton-input>
+    <skeleton-input className="custom"></skeleton-input>
+    <skeleton-input className="custom"></skeleton-input>
+    <skeleton-input className="custom"></skeleton-input>
     <skeleton-button
-      class="custom"
+      class-name="custom"
       size="small"
     ></skeleton-button>
   </view>
@@ -32,19 +32,15 @@
   >
     <view class="container">
       <avatar src="https://images.unsplash.com/photo-1546967191-fdfb13ed6b1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"></avatar>
-      <view class="content">
-        We supply a series of design principles, practical patterns and high
+      <view class="content">We supply a series of design principles, practical patterns and high
         quality design resources, to help people create their product prototypes
-        beautifully and efficiently.
-      </view>
+        beautifully and efficiently.</view>
     </view>
   </skeleton>
-  <view slot="headerRight">
-    显示骨架
-    <switch
+  <view slot="headerRight">显示骨架<switch
       style="margin-left: 8px"
       checked="{{showLoading}}"
-      onChange="handleToggleShowLoading"
+      bind:change="handleToggleShowLoading"
     ></switch>
   </view>
 </container>

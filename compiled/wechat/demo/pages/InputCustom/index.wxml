@@ -1,13 +1,13 @@
 <container title="带有border">
   <ant-input
-    class="custom"
+    class-name="custom"
     placeholder="请输入内容"
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-input>
   <ant-input
-    class="custom"
+    class-name="custom"
     placeholder="请输入内容"
-    onChange="onChange"
+    bind:change="onChange"
   >
     <ant-icon
       type="SearchOutline"
@@ -19,34 +19,34 @@
     ></ant-icon>
   </ant-input>
   <ant-textarea
-    class="custom"
+    class-name="custom"
     placeholder="请输入内容"
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-textarea>
 </container>
 <container title="自定义背景颜色">
   <ant-input
-    class="custom-color"
+    class-name="custom-color"
     placeholder="请输入内容"
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-input>
   <ant-textarea
-    class="custom-color"
+    class-name="custom-color"
     placeholder="请输入内容"
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-textarea>
 </container>
 <container title="自定义 placeholderClassName">
   <ant-input
     placeholder-class-name="placeholder"
     placeholder="请输入内容"
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-input>
 </container>
 <container title="自定义 placeholderStyle">
   <ant-input
     placeholder-style="color: red;"
     placeholder="请输入内容"
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-input>
 </container>

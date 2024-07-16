@@ -1,9 +1,9 @@
-<import-sjs
-  from="./index.sjs"
-  name="utils"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="utils"
+></wxs>
 <ant-popup
-  class="ant-modal {{className || ''}}"
+  class-name="ant-modal {{className || ''}}"
   style="{{style || ''}}"
   mask-class-name="{{maskClassName}}"
   mask-style="{{maskStyle}}"
@@ -13,7 +13,7 @@
   animation="{{animation}}"
   z-index="{{zIndex}}"
   destroy-on-close="{{destroyOnClose}}"
-  onClose="onMaskClose"
+  bind:close="onMaskClose"
 >
   <slot slot="content">
     <view
@@ -23,115 +23,93 @@
       <slot name="header"></slot>
       <slot name="title">
         <view
-          a:if="{{title}}"
+          wx:if="{{title}}"
           class="ant-modal-body-title"
-        >
-          {{title}}
-        </view>
+        >{{title}}</view>
       </slot>
       <slot name="content">
         <view
-          a:if="{{content}}"
+          wx:if="{{content}}"
           class="ant-modal-body-content"
-        >
-          {{content}}
-        </view>
+        >{{content}}</view>
       </slot>
       <slot name="footer">
         <view
-          a:if="{{type === 'focus'}}"
+          wx:if="{{type === 'focus'}}"
           class="ant-modal-body-footer-focus"
         >
           <ant-button
             type="primary"
-            class="ant-modal-body-footer-focus-primary"
+            class-name="ant-modal-body-footer-focus-primary"
             style="{{primaryButtonStyle || ''}}"
-            onTap="onPrimaryButtonTap"
-          >
-            {{primaryButtonText}}
-          </ant-button>
+            bind:tap="onPrimaryButtonTap"
+          >{{primaryButtonText}}</ant-button>
           <view
-            a:if="{{secondaryButtonText}}"
+            wx:if="{{secondaryButtonText}}"
             class="ant-modal-body-footer-focus-secondary"
             style="{{secondaryButtonStyle || ''}}"
-            onTap="onSecondaryButtonTap"
-          >
-            {{secondaryButtonText}}
-          </view>
+            bind:tap="onSecondaryButtonTap"
+          >{{secondaryButtonText}}</view>
           <view
-            a:if="{{cancelButtonText}}"
+            wx:if="{{cancelButtonText}}"
             class="ant-modal-body-footer-focus-cancel"
             style="{{cancelButtonStyle || ''}}"
-            onTap="onCancelButtonTap"
-          >
-            {{cancelButtonText}}
-          </view>
+            bind:tap="onCancelButtonTap"
+          >{{cancelButtonText}}</view>
         </view>
         <view
-          a:elif="{{utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'horizontal'}}"
+          wx:elif="{{utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'horizontal'}}"
           class="ant-modal-body-footer-horizontal"
         >
           <view
-            a:if="{{cancelButtonText}}"
+            wx:if="{{cancelButtonText}}"
             class="ant-modal-body-footer-horizontal-cancel"
             style="{{cancelButtonStyle || ''}}"
-            onTap="onCancelButtonTap"
-          >
-            {{cancelButtonText}}
-          </view>
+            bind:tap="onCancelButtonTap"
+          >{{cancelButtonText}}</view>
           <view
-            a:if="{{secondaryButtonText}}"
+            wx:if="{{secondaryButtonText}}"
             class="ant-modal-body-footer-horizontal-secondary"
             style="{{secondaryButtonStyle || ''}}"
-            onTap="onSecondaryButtonTap"
-          >
-            {{secondaryButtonText}}
-          </view>
+            bind:tap="onSecondaryButtonTap"
+          >{{secondaryButtonText}}</view>
           <view
-            a:if="{{primaryButtonText}}"
+            wx:if="{{primaryButtonText}}"
             class="ant-modal-body-footer-horizontal-primary"
             style="{{primaryButtonStyle || ''}}"
-            onTap="onPrimaryButtonTap"
-          >
-            {{primaryButtonText}}
-          </view>
+            bind:tap="onPrimaryButtonTap"
+          >{{primaryButtonText}}</view>
         </view>
         <view
-          a:elif="{{utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'vertical'}}"
+          wx:elif="{{utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'vertical'}}"
           class="ant-modal-body-footer-vertical"
         >
           <view
-            a:if="{{primaryButtonText}}"
+            wx:if="{{primaryButtonText}}"
             class="ant-modal-body-footer-vertical-primary"
             style="{{primaryButtonStyle || ''}}"
-            onTap="onPrimaryButtonTap"
-          >
-            {{primaryButtonText}}
-          </view>
+            bind:tap="onPrimaryButtonTap"
+          >{{primaryButtonText}}</view>
           <view
-            a:if="{{secondaryButtonText}}"
+            wx:if="{{secondaryButtonText}}"
             class="ant-modal-body-footer-vertical-secondary"
             style="{{secondaryButtonStyle || ''}}"
-            onTap="onSecondaryButtonTap"
-          >
-            {{secondaryButtonText}}
-          </view>
+            bind:tap="onSecondaryButtonTap"
+          >{{secondaryButtonText}}</view>
           <view
-            a:if="{{cancelButtonText}}"
+            wx:if="{{cancelButtonText}}"
             class="ant-modal-body-footer-vertical-cancel"
             style="{{cancelButtonStyle || ''}}"
-            onTap="onCancelButtonTap"
-          >
-            {{cancelButtonText}}
-          </view>
+            bind:tap="onCancelButtonTap"
+          >{{cancelButtonText}}</view>
         </view>
       </slot>
     </view>
   </slot>
   <ant-icon
-    a:if="{{type === 'focus' && closable}}"
+    wx:if="{{type === 'focus' && closable}}"
     type="CloseOutline"
-    onTap="onClose"
-    class="ant-modal-close"
+    bind:tap="onClose"
+    class-name="ant-modal-close"
   ></ant-icon>
 </ant-popup>

@@ -1,28 +1,28 @@
-<import-sjs
-  from="./index.sjs"
-  name="utils"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="utils"
+></wxs>
 <view
-  a:if="{{!destroyOnClose || visible || closing}}"
+  wx:if="{{!destroyOnClose || visible || closing}}"
   class="ant-popup {{className || ''}}"
   style="{{zIndex ? 'z-index:' + zIndex : ''}};{{style || ''}}"
   hidden="{{!destroyOnClose && !visible && !closing}}"
 >
   <view
-    a:if="{{showMask}}"
+    wx:if="{{showMask}}"
     class="ant-popup-mask {{maskClassName || ''}} {{closing && !visible ? 'ant-popup-mask-closing' : ''}}"
-    onTap="onTapMask"
+    bind:tap="onTapMask"
     style="{{animation ? '-webkit-animation-duration:' + duration + 'ms; animation-duration:' + duration + 'ms;' : ''}} {{maskStyle || ''}}"
   ></view>
   <view
     class="ant-popup-content ant-popup-{{animationType}}-{{position}} {{closing ? 'ant-popup-' + animationType + '-' + position + '-close' : ''}}"
     style="{{utils.getContentStyle(position, animation, duration, width, height)}}"
-    onAnimationEnd="onAnimationEnd"
+    bind:animationend="onAnimationEnd"
   >
     <slot></slot>
     <slot
       name="content"
-      a:if="{{isOldVersion}}"
+      wx:if="{{isOldVersion}}"
     ></slot>
   </view>
 </view>

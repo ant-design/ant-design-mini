@@ -1,9 +1,7 @@
 <view class="container">
   <tabs items="{{items}}"></tabs>
 </view>
-<view class="container">
-  选择后居中滚动
-  <tabs
+<view class="container">选择后居中滚动<tabs
     items="{{items}}"
     scroll-mode="center"
   ></tabs>

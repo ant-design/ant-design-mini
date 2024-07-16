@@ -43,9 +43,7 @@
         type="primary"
         inline
         style="margin-left: 12px"
-      >
-        主要操作
-      </button>
+      >主要操作</button>
     </view>
   </result>
 </container>

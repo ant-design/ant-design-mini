@@ -1,5 +1,5 @@
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   position="{{position}}"
   label="{{label}}"
   label-width="{{labelWidth}}"
@@ -12,10 +12,10 @@
   help="{{help}}"
 >
   <ant-input
-    ref="handleRef"
+    bind:ref="handleRef"
     allow-clear="{{allowClear}}"
     enable-native="{{enableNative}}"
-    class="{{inputClassName}}"
+    class-name="{{inputClassName}}"
     style="{{inputStyle}}"
     disabled="{{disabled}}"
     type="{{type}}"
@@ -31,10 +31,10 @@
     selection-start="{{selectionStart}}"
     selection-end="{{selectionEnd}}"
     random-number="{{randomNumber}}"
-    onChange="onChange"
-    onBlur="onBlur"
-    onFocus="onFocus"
-    onConfirm="onConfirm"
+    bind:change="onChange"
+    bind:blur="onBlur"
+    bind:focus="onFocus"
+    bind:confirm="onConfirm"
   >
     <slot
       name="prefix"
@@ -46,7 +46,7 @@
     ></slot>
   </ant-input>
   <view
-    a:if="{{!tooltip}}"
+    wx:if="{{!tooltip}}"
     slot="tooltip"
   >
     <slot name="tooltip"></slot>

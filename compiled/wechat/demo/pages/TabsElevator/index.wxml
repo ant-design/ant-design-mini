@@ -1,13 +1,13 @@
 <tabs
   items="{{items}}"
   current="{{current}}"
-  onChange="onChange"
-  class="tabs"
+  bind:change="onChange"
+  class-name="tabs"
 >
   <scroll-view
     id="scroll-view"
-    onScroll="onScroll"
-    onTouchStart="onTouchStart"
+    bind:scroll="onScroll"
+    bind:touchstart="onTouchStart"
     scroll-top="{{scrollTop}}"
     scroll-y="{{true}}"
     scroll-with-animation="{{true}}"
@@ -15,26 +15,20 @@
     class="content"
   >
     <block
-      a:for="{{items}}"
-      a:for-index="index"
-      a:for-item="item"
+      wx:for="{{items}}"
+      wx:for-index="index"
+      wx:for-item="item"
     >
       <view class="item">
         <view
           class="title"
           id="tab-item-{{index}}"
-        >
-          {{item.title}}
-        </view>
-        {{item.content}}
-      </view>
+        >{{item.title}}</view>{{item.content}}</view>
     </block>
   </scroll-view>
   <view
-    onTap="onTap"
+    bind:tap="onTap"
     slot="title"
     slot-scope="item"
-  >
-    {{item.value.title}}
-  </view>
+  >{{item.value.title}}</view>
 </tabs>

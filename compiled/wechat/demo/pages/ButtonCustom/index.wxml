@@ -1,88 +1,74 @@
 <ant-container
   title="自定义大小"
-  class="list"
+  class-name="list"
 >
   <ant-button
     type="primary"
     icon="SmileOutline"
-    onTap="handleTap"
-    class="btn"
-  >
-    主要按钮
-  </ant-button>
+    bind:tap="handleTap"
+    class-name="btn"
+  >主要按钮</ant-button>
   <ant-button
     type="primary"
-    onTap="handleTap"
+    bind:tap="handleTap"
     icon="SmileOutline"
-    class="btn"
+    class-name="btn"
     inline
-  >
-    主要按钮
-  </ant-button>
+  >主要按钮</ant-button>
   <ant-button
     type="primary"
-    onTap="handleTap"
+    bind:tap="handleTap"
     icon="ForbidFill"
-    class="btn"
+    class-name="btn"
     inline
     danger
-  >
-    主要按钮
-  </ant-button>
+  >主要按钮</ant-button>
 </ant-container>
 <ant-container
   title="round"
-  class="list"
+  class-name="list"
 >
   <ant-button
     type="primary"
     icon="SearchOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
-    class="round"
-  >
-    主要按钮
-  </ant-button>
+    class-name="round"
+  >主要按钮</ant-button>
   <ant-button
     type="primary"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
     danger
-    class="round"
-  >
-    主要按钮
-  </ant-button>
+    class-name="round"
+  >主要按钮</ant-button>
 </ant-container>
 <ant-container
   title="circle"
-  class="list"
+  class-name="list"
 >
   <ant-button
     type="primary"
     icon="SearchOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
-    class="circle"
+    class-name="circle"
   ></ant-button>
   <ant-button
     icon="SearchOutline"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
-    class="circle"
+    class-name="circle"
   ></ant-button>
   <ant-button
     type="primary"
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
-    class="circle"
-  >
-    A
-  </ant-button>
+    class-name="circle"
+  >A</ant-button>
   <ant-button
-    onTap="handleTap"
+    bind:tap="handleTap"
     inline
-    class="circle"
-  >
-    A
-  </ant-button>
+    class-name="circle"
+  >A</ant-button>
 </ant-container>

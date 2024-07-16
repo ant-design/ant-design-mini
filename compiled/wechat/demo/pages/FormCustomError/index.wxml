@@ -5,22 +5,20 @@
   placeholder="请输入用户名"
   message="需要输入用户名"
   validate-status="success"
-  ref="handleRef"
+  bind:ref="handleRef"
 >
   <view
     slot="footer"
     slot-scope="item"
   >
     <view
-      a:if="{{item.status === 'error'}}"
+      wx:if="{{item.status === 'error'}}"
       class="errors"
     >
       <ant-icon
         type="CloseCircleOutline"
         style="margin-right: 4px"
-      ></ant-icon>
-      {{item.errors}}
-    </view>
+      ></ant-icon>{{item.errors}}</view>
   </view>
 </ant-form-input>
 <ant-form-input
@@ -30,36 +28,30 @@
   placeholder="请输入地址"
   message="需要输入地址"
   validate-status="success"
-  ref="handleRef"
+  bind:ref="handleRef"
 >
   <view
     slot="footer"
     slot-scope="item"
   >
     <view
-      a:if="{{item.status === 'error'}}"
+      wx:if="{{item.status === 'error'}}"
       class="errors"
     >
       <ant-icon
         type="CloseCircleOutline"
         style="margin-right: 4px"
-      ></ant-icon>
-      {{item.errors}}
-    </view>
+      ></ant-icon>{{item.errors}}</view>
   </view>
 </ant-form-input>
 <view class="buttons">
   <ant-button
     type="primary"
-    onTap="submit"
+    bind:tap="submit"
     style="margin-bottom: 12px"
-  >
-    提交
-  </ant-button>
+  >提交</ant-button>
   <ant-button
-    onTap="reset"
+    bind:tap="reset"
     style="margin-bottom: 12px"
-  >
-    重置
-  </ant-button>
+  >重置</ant-button>
 </view>

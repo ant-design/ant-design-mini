@@ -1,12 +1,12 @@
-<import-sjs
-  from="../../_util/arrow.sjs"
-  name="arrowUtil"
-></import-sjs>
+<wxs
+  src="../../_util/arrow.wxs"
+  module="arrowUtil"
+></wxs>
 <view
   class="ant-list-item  {{className ? className : ''}}"
   style="{{style || ''}}"
-  onTap="{{onTap ? 'onTap' : ''}}"
-  catchTap="{{catchTap ? 'catchTap' : ''}}"
+  bind:tap="{{onTap ? 'onTap' : ''}}"
+  catch:tap="{{catchTap ? 'catchTap' : ''}}"
   hover-class="{{onTap || catchTap ? 'ant-list-item-hover' : ''}}"
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}"
@@ -15,9 +15,9 @@
     <view class="ant-list-item-image-container">
       <slot name="image">
         <image-icon
-          a:if="{{image}}"
+          wx:if="{{image}}"
           image="{{image}}"
-          class="ant-list-item-image"
+          class-name="ant-list-item-image"
         ></image-icon>
       </slot>
     </view>
@@ -25,11 +25,9 @@
       <view class="ant-list-item-content-title-container">
         <slot name="title">
           <view
-            a:if="{{title}}"
+            wx:if="{{title}}"
             class="ant-list-item-content-title"
-          >
-            {{title}}
-          </view>
+          >{{title}}</view>
         </slot>
       </view>
       <view class="ant-list-item-content-main">
@@ -38,11 +36,9 @@
       <view class="ant-list-item-content-brief-container">
         <slot name="brief">
           <view
-            a:if="{{brief}}"
+            wx:if="{{brief}}"
             class="ant-list-item-content-brief"
-          >
-            {{brief}}
-          </view>
+          >{{brief}}</view>
         </slot>
       </view>
     </view>
@@ -56,7 +52,7 @@
     </view>
     <view class="ant-list-item-arrow">
       <icon
-        a:if="{{arrowUtil.getArrow(arrow)}}"
+        wx:if="{{arrowUtil.getArrow(arrow)}}"
         type="{{arrowUtil.getArrow(arrow)}}"
       ></icon>
     </view>

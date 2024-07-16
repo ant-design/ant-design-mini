@@ -2,7 +2,7 @@
   <ant-textarea
     placeholder="请输入内容"
     auto-height
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-textarea>
 </ant-container>
 <ant-container title="初始值">
@@ -10,7 +10,7 @@
     placeholder="请输入内容"
     default-value="这是antd mini小程序组件"
     auto-height
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-textarea>
 </ant-container>
 <ant-container title="带清除按钮">
@@ -31,29 +31,25 @@
     value="{{value}}"
     placeholder="请输入内容"
     allow-clear
-    onChange="handleChange"
+    bind:change="handleChange"
   ></ant-textarea>
   <ant-button
-    onTap="clear"
+    bind:tap="clear"
     inline
     size="small"
-  >
-    clear
-  </ant-button>
+  >clear</ant-button>
 </ant-container>
 <ant-container title="非受控模式通过ref修改input">
   <ant-textarea
     placeholder="请输入内容"
     allow-clear
-    onChange="onChange"
-    ref="handleRef"
+    bind:change="onChange"
+    bind:ref="handleRef"
   ></ant-textarea>
   <view>
     <ant-button
       inline
-      onTap="clearByInputRef"
-    >
-      clear
-    </ant-button>
+      bind:tap="clearByInputRef"
+    >clear</ant-button>
   </view>
 </ant-container>

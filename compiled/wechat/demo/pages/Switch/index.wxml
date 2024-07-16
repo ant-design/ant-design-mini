@@ -5,14 +5,14 @@
   <container title="有默认值">
     <switch
       default-checked="{{true}}"
-      onChange="onChange"
+      bind:change="onChange"
     ></switch>
   </container>
   <container title="文字和图标">
     <switch
       checked-text="开"
       unchecked-text="关"
-      onChange="onChange"
+      bind:change="onChange"
     ></switch>
     <switch>
       <ant-icon
@@ -58,14 +58,12 @@
   <container title="受控模式">
     <switch
       checked="{{checked}}"
-      onChange="handleChange"
+      bind:change="handleChange"
       default-checked="{{true}}"
     ></switch>
     <button
       style="margin-top: 10px"
-      onTap="handleChangeByButton"
-    >
-      切换
-    </button>
+      bind:tap="handleChangeByButton"
+    >切换</button>
   </container>
 </view>

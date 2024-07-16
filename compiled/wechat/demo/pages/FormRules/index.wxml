@@ -3,34 +3,30 @@
   name="account"
   required
   message="需要输入用户名"
-  ref="handleRef"
+  bind:ref="handleRef"
 ></ant-form-input>
 <ant-form-input
   label="密码"
   name="password"
   password
-  ref="handleRef"
+  bind:ref="handleRef"
 ></ant-form-input>
 <ant-form-input
   label="重复密码"
   name="confirm"
   password
   dependencies="{{['password']}}"
-  ref="handleRef"
+  bind:ref="handleRef"
 ></ant-form-input>
 <view class="buttons">
   <ant-button
     type="primary"
-    onTap="submit"
+    bind:tap="submit"
     style="margin-bottom: 12px"
-  >
-    提交
-  </ant-button>
+  >提交</ant-button>
   <ant-button
-    onTap="reset"
+    bind:tap="reset"
     style="margin-bottom: 12px"
-  >
-    重置
-  </ant-button>
-  <ant-button onTap="fill">Fill表单</ant-button>
+  >重置</ant-button>
+  <ant-button bind:tap="fill">Fill表单</ant-button>
 </view>

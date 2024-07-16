@@ -1,12 +1,12 @@
 <ant-container title="基础用法-四种尺寸">
   <block
-    a:for="{{images}}"
-    a:for-index="index"
-    a:for-item="item"
+    wx:for="{{images}}"
+    wx:for-index="index"
+    wx:for-item="item"
   >
     <ant-avatar
       src="{{item}}"
-      class="avatar"
+      class-name="avatar"
     ></ant-avatar>
   </block>
 </ant-container>
@@ -15,24 +15,22 @@
 </ant-container>
 <ant-container title="不同大小">
   <block
-    a:for="{{sizes}}"
-    a:for-index="index"
-    a:for-item="item"
+    wx:for="{{sizes}}"
+    wx:for-index="index"
+    wx:for-item="item"
   >
     <ant-avatar
       size="{{item}}"
       src="{{images[0]}}"
-      class="avatar"
+      class-name="avatar"
     ></ant-avatar>
   </block>
 </ant-container>
 <ant-container
   title="配合列表使用"
-  class="container"
+  class-name="container"
 >
-  <ant-list-item brief="Deserunt dolor ea eaque eos">
-    Novalee Spicer
-    <ant-avatar
+  <ant-list-item brief="Deserunt dolor ea eaque eos">Novalee Spicer<ant-avatar
       slot="image"
       src="{{images[0]}}"
     ></ant-avatar>
@@ -42,6 +40,6 @@
   <ant-avatar
     size="{{item}}"
     src="{{images[0]}}"
-    class="avatar-custom"
+    class-name="avatar-custom"
   ></ant-avatar>
 </ant-container>

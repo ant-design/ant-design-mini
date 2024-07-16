@@ -2,17 +2,15 @@
   <list-item>
     <view
       class="number-content {{value ? '' : 'number-placeholder'}}"
-      catchTap="onAmountFocus"
+      catch:tap="onAmountFocus"
     >
-      <!--display: inline-->
-      <text a:if="{{value}}">{{value}}</text>
-      <!--display: inline-->
+      <text wx:if="{{value}}">{{value}}</text>
       <text
-        a:else
+        wx:else
         class="number-content-tip"
       >0.00</text>
       <view
-        a:if="{{visible}}"
+        wx:if="{{visible}}"
         class="number-light"
         style="position: {{value ? 'static' : 'absolute'}}"
       ></view>
@@ -22,7 +20,7 @@
     visible="{{visible}}"
     closeable="{{true}}"
     value="{{value}}"
-    onChange="onChange"
-    onClose="onClose"
+    bind:change="onChange"
+    bind:close="onClose"
   ></number-keyboard>
 </list>

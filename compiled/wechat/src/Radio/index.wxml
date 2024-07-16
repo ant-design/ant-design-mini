@@ -1,7 +1,7 @@
-<import-sjs
-  from="./index.sjs"
-  name="componentUtils"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="componentUtils"
+></wxs>
 <label
   class="ant-radio-item {{className || ''}}"
   style="{{style}}"
@@ -11,7 +11,7 @@
       <radio
         value="{{value}}"
         class="ant-radio-item-base"
-        onChange="onChange"
+        bind:change="onChange"
         checked="{{mixin.value}}"
         disabled="{{disabled}}"
       ></radio>
@@ -21,9 +21,9 @@
           style="{{mixin.value && !disabled && color ? 'background:' + color : ''}}"
         >
           <ant-icon
-            a:if="{{mixin.value}}"
+            wx:if="{{mixin.value}}"
             type="CheckOutline"
-            class="ant-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon"
+            class-name="ant-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon"
           ></ant-icon>
         </view>
       </view>

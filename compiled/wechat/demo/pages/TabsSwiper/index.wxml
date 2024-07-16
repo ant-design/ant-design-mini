@@ -1,19 +1,19 @@
 <ant-tabs
   items="{{items}}"
   current="{{current}}"
-  onChange="onChange"
+  bind:change="onChange"
 >
   <swiper
     current="{{current}}"
     autoplay="{{false}}"
     vertical="{{false}}"
     circular="{{false}}"
-    onChange="onSwipeChange"
+    bind:change="onSwipeChange"
   >
     <block
-      a:for="{{items}}"
-      a:for-index="index"
-      a:for-item="item"
+      wx:for="{{items}}"
+      wx:for-index="index"
+      wx:for-item="item"
     >
       <swiper-item>
         <view class="content">{{item.content}}</view>

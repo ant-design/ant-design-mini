@@ -1,34 +1,26 @@
 <tabs
   items="{{items}}"
   current="{{current}}"
-  onChange="onChange"
+  bind:change="onChange"
 >
   <view class="content">{{items[current].content}}</view>
 </tabs>
-<view class="container">current: {{current}} length: {{items.length}}</view>
+<view class="container">current:{{current}}length:{{items.length}}</view>
 <view class="buttons">
   <ant-button
     inline
-    onTap="onPrevTap"
-  >
-    上一个
-  </ant-button>
+    bind:tap="onPrevTap"
+  >上一个</ant-button>
   <ant-button
     inline
-    onTap="onNextTap"
-  >
-    下一个
-  </ant-button>
+    bind:tap="onNextTap"
+  >下一个</ant-button>
   <ant-button
     inline
-    onTap="onAddTap"
-  >
-    添加
-  </ant-button>
+    bind:tap="onAddTap"
+  >添加</ant-button>
   <ant-button
     inline
-    onTap="onMinusTap"
-  >
-    减少
-  </ant-button>
+    bind:tap="onMinusTap"
+  >减少</ant-button>
 </view>

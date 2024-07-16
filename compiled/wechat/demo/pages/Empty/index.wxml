@@ -13,17 +13,13 @@
       <ant-button
         size="small"
         inline
-      >
-        操作1
-      </ant-button>
+      >操作1</ant-button>
       <ant-button
         type="primary"
         size="small"
         inline
         style="margin-left: 12px"
-      >
-        操作2
-      </ant-button>
+      >操作2</ant-button>
     </view>
   </ant-empty>
 </ant-container>

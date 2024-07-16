@@ -1,5 +1,5 @@
 <collapse-container
-  a:if="{{demo1.visible}}"
+  wx:if="{{demo1.visible}}"
   title="默认多选，范围 3 个月"
 >
   <view
@@ -10,7 +10,7 @@
   </view>
 </collapse-container>
 <collapse-container
-  a:if="{{demo2.visible}}"
+  wx:if="{{demo2.visible}}"
   title="单选"
 >
   <view
@@ -25,25 +25,21 @@
   </view>
 </collapse-container>
 <collapse-container
-  a:if="{{demo3.visible}}"
+  wx:if="{{demo3.visible}}"
   title="自定义日历顶部"
 >
   <view slot="content">
     <view class="custom-header">
       <view
-        onTap="demo3PreviousMonth"
+        bind:tap="demo3PreviousMonth"
         class="custom-header-left"
       >
-        <ant-icon type="LeftOutline"></ant-icon>
-        上个月
-      </view>
+        <ant-icon type="LeftOutline"></ant-icon>上个月</view>
       <view>{{demo3.title}}</view>
       <view
-        onTap="demo3NextMonth"
+        bind:tap="demo3NextMonth"
         class="custom-header-right"
-      >
-        下个月
-        <ant-icon type="RightOutline"></ant-icon>
+      >下个月<ant-icon type="RightOutline"></ant-icon>
       </view>
     </view>
     <ant-calendar monthRange="{{demo3.monthRange}}">
@@ -52,30 +48,30 @@
   </view>
 </collapse-container>
 <collapse-container
-  a:if="{{demo8.visible}}"
+  wx:if="{{demo8.visible}}"
   title="自定义日期单元格"
 >
   <view slot="content">
     <ant-calendar
       month-range="{{demo8.monthRange}}"
-      onFormatter="{{demo8Formatter ? demo8Formatter : 'demo8Formatter'}}"
-      onMonthFormatter="{{demo8MonthFormatter ? demo8MonthFormatter : 'demo8MonthFormatter'}}"
+      bind:formatter="{{demo8Formatter ? demo8Formatter : 'demo8Formatter'}}"
+      bind:monthformatter="{{demo8MonthFormatter ? demo8MonthFormatter : 'demo8MonthFormatter'}}"
     ></ant-calendar>
   </view>
 </collapse-container>
 <collapse-container
-  a:if="{{demo4.visible}}"
+  wx:if="{{demo4.visible}}"
   title="动态控制，只允许选择前后三天"
 >
   <view slot="content">
     <ant-calendar
       month-range="{{demo4.monthRange}}"
-      onFormatter="{{demoFormatter ? demoFormatter : 'demoFormatter'}}"
+      bind:formatter="{{demoFormatter ? demoFormatter : 'demoFormatter'}}"
     ></ant-calendar>
   </view>
 </collapse-container>
 <collapse-container
-  a:if="{{demo5.visible}}"
+  wx:if="{{demo5.visible}}"
   title="从周一开始"
 >
   <view
@@ -86,7 +82,7 @@
   </view>
 </collapse-container>
 <collapse-container
-  a:if="{{demo6.visible}}"
+  wx:if="{{demo6.visible}}"
   title="通过 slot 实现农历"
 >
   <view slot="content">
@@ -101,7 +97,7 @@
   </view>
 </collapse-container>
 <collapse-container
-  a:if="{{demo7.visible}}"
+  wx:if="{{demo7.visible}}"
   title="国际化"
 >
   <view slot="content">
@@ -112,7 +108,7 @@
   </view>
 </collapse-container>
 <collapse-container
-  a:if="{{demo9.visible}}"
+  wx:if="{{demo9.visible}}"
   title="受控模式"
 >
   <view
@@ -120,31 +116,25 @@
     style="height: 1000rpx"
   >
     <ant-calendar
-      ref="handleRef"
+      bind:ref="handleRef"
       value="{{demo9.value}}"
-      onChange="demo9HandleChange"
+      bind:change="demo9HandleChange"
       selection-mode="single"
       changed-scroll-into-view
     ></ant-calendar>
     <ant-button
       type="primary"
-      onTap="demo9HandlePreviousDay"
-    >
-      上一天
-    </ant-button>
+      bind:tap="demo9HandlePreviousDay"
+    >上一天</ant-button>
     <ant-button
       style="margin-top: 8rpx"
       type="primary"
-      onTap="demo9HandleNextDay"
-    >
-      下一天
-    </ant-button>
+      bind:tap="demo9HandleNextDay"
+    >下一天</ant-button>
     <ant-button
       style="margin-top: 8rpx"
       type="primary"
-      onTap="demo9HandleScrollIntoView"
-    >
-      滚动到指定日期
-    </ant-button>
+      bind:tap="demo9HandleScrollIntoView"
+    >滚动到指定日期</ant-button>
   </view>
 </collapse-container>

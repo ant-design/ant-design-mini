@@ -4,12 +4,12 @@
 >
   <view
     id="ant-popover-children{{$id ? '-' + $id : ''}}"
-    onTap="onVisibleChange"
+    bind:tap="onVisibleChange"
   >
     <slot></slot>
   </view>
   <view
-    a:if="{{!destroyOnClose || mixin.value}}"
+    wx:if="{{!destroyOnClose || mixin.value}}"
     hidden="{{!mixin.value}}"
     id="ant-popover-content{{$id ? '-' + $id : ''}}"
     class="ant-popover-content ant-popover-{{adjustedPlacement}}"
@@ -30,7 +30,7 @@
 <mask
   show="{{showMask && mixin.value}}"
   id="ant-popover-mask{{$id ? '-' + $id : ''}}"
-  class="ant-popover-mask {{maskClassName || ''}}"
+  class-name="ant-popover-mask {{maskClassName || ''}}"
   style="{{maskStyle}}"
-  onMaskTap="onVisibleChange"
+  bind:masktap="onVisibleChange"
 ></mask>

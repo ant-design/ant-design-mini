@@ -1,5 +1,5 @@
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   style="{{style}}"
   position="{{position}}"
   label="{{label}}"
@@ -19,11 +19,11 @@
     readonly="{{readonly}}"
     allow-half="{{allowHalf}}"
     allow-clear="{{allowClear}}"
-    class="{{rateClassName}}"
+    class-name="{{rateClassName}}"
     style="{{rateStyle}}"
     character-active-class-name="{{characterActiveClassName}}"
     character-class-name="{{characterClassName}}"
-    onChange="onChange"
+    bind:change="onChange"
   >
     <view slot="character">
       <slot name="character">
@@ -32,7 +32,7 @@
     </view>
   </rate>
   <view
-    a:if="{{!tooltip}}"
+    wx:if="{{!tooltip}}"
     slot="tooltip"
   >
     <slot name="tooltip"></slot>

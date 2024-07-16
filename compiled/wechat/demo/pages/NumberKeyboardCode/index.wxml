@@ -2,17 +2,15 @@
   <list-item>
     <view
       class="number-code"
-      catchTap="onCodeFocus"
+      catch:tap="onCodeFocus"
     >
       <block
-        a:for="{{4}}"
-        a:for-index="index"
-        a:for-item="item"
+        wx:for="{{4}}"
+        wx:for-index="index"
+        wx:for-item="item"
       >
-        <view class="number-code-view {{visible && value.length === index ? 'number-code-border' : ''}}">
-          {{value[index] || ''}}
-          <view
-            a:if="{{visible && value.length === index}}"
+        <view class="number-code-view {{visible && value.length === index ? 'number-code-border' : ''}}">{{value[index] || ''}}<view
+            wx:if="{{visible && value.length === index}}"
             class="number-code-tip"
           ></view>
         </view>
@@ -24,7 +22,7 @@
     point="{{false}}"
     closeable="{{true}}"
     value="{{value}}"
-    onChange="onChange"
-    onClose="onClose"
+    bind:change="onChange"
+    bind:close="onClose"
   ></number-keyboard>
 </list>

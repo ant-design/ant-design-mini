@@ -1,6 +1,6 @@
 <view
   class="ant-checklist-item"
-  onTap="{{item.disabled || item.readonly ? '' : 'onChecklistItemClick'}}"
+  bind:tap="{{item.disabled || item.readonly ? '' : 'onChecklistItemClick'}}"
   hover-class="{{item.disabled || item.readonly ? '' : 'ant-checklist-item-hover'}}"
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}"
@@ -13,7 +13,7 @@
       ></slot>
     </view>
     <view
-      a:if="{{checked}}"
+      wx:if="{{checked}}"
       class="ant-checklist-item-content-icon"
     >
       <slot name="icon"></slot>

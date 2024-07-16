@@ -1,8 +1,11 @@
-<import-sjs
-  from="./index.sjs"
-  name="sliderSjs"
-></import-sjs>
-<template name="slider-handler">
+<wxs
+  src="./index.wxs"
+  module="sliderSjs"
+></wxs>
+<template
+  name="slider-handler"
+  data="{{$id}}"
+>
   <view
     class="ant-slider-handler"
     style="left: {{position}}%"
@@ -28,9 +31,7 @@
         <slot
           name="tooltip"
           value="{{value}}"
-        >
-          {{value}}
-        </slot>
+        >{{value}}</slot>
       </view>
     </popover>
   </view>
@@ -43,9 +44,9 @@
     <view
       class="ant-slider-track-touch-area"
       id="ant-slider-id-{{$id || ''}}"
-      onTouchStart="handleTrackTouchStart"
-      onTouchEnd="handleTrackTouchEnd"
-      onTouchMove="handleTrackTouchMove"
+      bind:touchstart="handleTrackTouchStart"
+      bind:touchend="handleTrackTouchEnd"
+      bind:touchmove="handleTrackTouchMove"
     >
       <view class="ant-slider-track-fill">
         <view class="ant-slider-track-fill-background"></view>
@@ -55,35 +56,33 @@
         ></view>
         <view class="ant-slider-showTicks">
           <block
-            a:for="{{tickList}}"
-            a:for-index="index"
-            a:for-item="item"
+            wx:for="{{tickList}}"
+            wx:for-index="index"
+            wx:for-item="item"
           >
             <view
               class="ant-slider-tick ant-slider-tick-{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? 'front' : 'back'}} {{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotClassName ? activeDotClassName : ''}}"
               style="left: {{item.left}}%;{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotStyle ? activeDotStyle : ''}}"
             >
               <view
-                a:if="{{showNumber}}"
+                wx:if="{{showNumber}}"
                 class="ant-slider-tick-number"
               >
                 <slot
                   name="tick"
                   value="{{item.value}}"
-                >
-                  {{item.value}}
-                </slot>
+                >{{item.value}}</slot>
               </view>
             </view>
           </block>
         </view>
         <template
           is="slider-handler"
-          data="{{ position: sliderLeft, icon: icon, value: mixin.value[0], showTooltip: changingStart && showTooltip }}"
+          data="{{ position: sliderLeft, icon: icon, value: mixin.value[0], showTooltip: changingStart && showTooltip, $id }}"
         ></template>
         <template
           is="slider-handler"
-          data="{{ position: sliderLeft + sliderWidth, icon: icon, value: range ? mixin.value[1] : mixin.value, showTooltip: changingEnd && showTooltip }}"
+          data="{{ position: sliderLeft + sliderWidth, icon: icon, value: range ? mixin.value[1] : mixin.value, showTooltip: changingEnd && showTooltip, $id }}"
         ></template>
       </view>
     </view>

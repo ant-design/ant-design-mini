@@ -3,14 +3,14 @@
   style="{{style || ''}};{{type === 'circle' ? 'width:' + width + 'px;height:' + width + 'px;' : ''}}"
 >
   <canvas
-    a:if="{{type === 'circle'}}"
+    wx:if="{{type === 'circle'}}"
     class="ant-progress-canvas"
     id="ant-progress-canvas-{{$id}}"
     width="{{canvasWidth}}"
     height="{{canvasWidth}}"
   ></canvas>
   <view
-    a:elif="{{type === 'line'}}"
+    wx:elif="{{type === 'line'}}"
     class="ant-progress-outer"
     style="{{strokeWidth ? 'height:' + strokeWidth + 'px;' : ''}}{{trailColor ? 'background-color:' + trailColor : ''}}"
   >
@@ -25,11 +25,11 @@
       percent="{{percent}}"
     >
       <ant-icon
-        a:if="{{status === 'success' || status === 'exception'}}"
+        wx:if="{{status === 'success' || status === 'exception'}}"
         type="{{status === 'success' ? 'CheckCircleFill' : 'CloseCircleFill'}}"
-        class="ant-progress-status-icon ant-progress-status-icon-{{status}}"
+        class-name="ant-progress-status-icon ant-progress-status-icon-{{status}}"
       ></ant-icon>
-      <block a:else>{{percent}}%</block>
+      <block wx:else>{{percent}}%</block>
     </slot>
   </view>
 </view>

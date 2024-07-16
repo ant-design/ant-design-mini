@@ -1,24 +1,16 @@
 <ant-button
-  onTap="toggle"
+  bind:tap="toggle"
   inline
->
-  切换
-</ant-button>
+>切换</ant-button>
 <ant-button
-  onTap="changeContent"
+  bind:tap="changeContent"
   inline
->
-  修改content
-</ant-button>
+>修改content</ant-button>
 <ant-button
-  onTap="addItems"
+  bind:tap="addItems"
   inline
->
-  添加items
-</ant-button>
-{{current}}
-<collapse
+>添加items</ant-button>{{current}}<collapse
   items="{{items}}"
   current="{{current}}"
-  onChange="onChange"
+  bind:change="onChange"
 ></collapse>

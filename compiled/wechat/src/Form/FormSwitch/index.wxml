@@ -1,5 +1,5 @@
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   position="{{position}}"
   label="{{label}}"
   label-width="{{labelWidth}}"
@@ -13,7 +13,7 @@
 >
   <view>
     <switch
-      class="{{switchClassName}}"
+      class-name="{{switchClassName}}"
       checked="{{formData.value}}"
       checked-text="{{checkedText}}"
       color="{{color}}"
@@ -21,11 +21,11 @@
       unchecked-text="{{uncheckedText}}"
       size="{{size}}"
       style="{{switchStyle}}"
-      onChange="onChange"
+      bind:change="onChange"
     ></switch>
   </view>
   <view
-    a:if="{{!tooltip}}"
+    wx:if="{{!tooltip}}"
     slot="tooltip"
   >
     <slot name="tooltip"></slot>

@@ -1,24 +1,18 @@
-<import-sjs
-  from="./index.sjs"
-  name="_sjs"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="_sjs"
+></wxs>
 <collapse items="{{items}}">
   <view
     slot="title"
     slot-scope="item"
-  >
-    {{item.value.title}} {{_sjs.itemContent(item.current, item)}}
-  </view>
+  >{{item.value.title}}{{_sjs.itemContent(item.current, item)}}</view>
   <view
     slot="brief"
     slot-scope="item"
-  >
-    {{item.value.brief}}
-  </view>
+  >{{item.value.brief}}</view>
   <view
     slot="icon"
     slot-scope="item"
-  >
-    {{_sjs.extraText(item.current, item)}}
-  </view>
+  >{{_sjs.extraText(item.current, item)}}</view>
 </collapse>

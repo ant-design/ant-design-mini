@@ -1,64 +1,56 @@
-<import-sjs
-  from="./index.sjs"
-  name="utils"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="utils"
+></wxs>
 <view
-  a:if="{{visible}}"
+  wx:if="{{visible}}"
   class="ant-guide-tour {{className || ''}}"
   style="{{style || ''}}"
 >
   <mask
     show
-    class="{{maskClassName}}"
+    class-name="{{maskClassName}}"
     style="z-index:9999;{{maskStyle || ''}}"
   ></mask>
   <ant-icon
     type="CloseOutline"
-    class="ant-guide-tour-clear"
-    onTap="onCancel"
+    class-name="ant-guide-tour-clear"
+    bind:tap="onCancel"
   ></ant-icon>
   <view class="ant-guide-tour-button">
     <ant-button
-      a:if="{{utils.checkShowJump(mixin.value, items)}}"
+      wx:if="{{utils.checkShowJump(mixin.value, items)}}"
       inline
       size="small"
-      onTap="onCancel"
-    >
-      {{jumpText}}
-    </ant-button>
+      bind:tap="onCancel"
+    >{{jumpText}}</ant-button>
     <ant-button
-      a:if="{{utils.checkShowPrev(mixin.value, items)}}"
+      wx:if="{{utils.checkShowPrev(mixin.value, items)}}"
       inline
       size="small"
-      onTap="onPrev"
-      data-currentValue="{{mixin.value}}"
-    >
-      {{prevStepText}}
-    </ant-button>
+      bind:tap="onPrev"
+      data-current-value="{{mixin.value}}"
+    >{{prevStepText}}</ant-button>
     <ant-button
-      a:if="{{utils.checkShowNext(mixin.value, items)}}"
+      wx:if="{{utils.checkShowNext(mixin.value, items)}}"
       inline
       size="small"
-      onTap="onNext"
-      data-currentValue="{{mixin.value}}"
-    >
-      {{nextStepText}}
-    </ant-button>
+      bind:tap="onNext"
+      data-current-value="{{mixin.value}}"
+    >{{nextStepText}}</ant-button>
     <ant-button
-      a:if="{{utils.checkShowKnow(mixin.value, items)}}"
+      wx:if="{{utils.checkShowKnow(mixin.value, items)}}"
       inline
       size="small"
-      onTap="onCancel"
-    >
-      {{gotItText}}
-    </ant-button>
+      bind:tap="onCancel"
+    >{{gotItText}}</ant-button>
   </view>
-  <block a:if="{{swiperable}}">
+  <block wx:if="{{swiperable}}">
     <view class="ant-guide-tour-indicator">
       <block
-        a:for="{{items}}"
-        a:for-index="index"
-        a:for-item="item"
+        wx:for="{{items}}"
+        wx:for-index="index"
+        wx:for-item="item"
       >
         <view class="ant-guide-tour-indicator-dot {{index === mixin.value ? 'ant-guide-tour-indicator-dot-active' : ''}}"></view>
       </block>
@@ -68,12 +60,12 @@
       current="{{mixin.value}}"
       adjust-height="none"
       style="height: 100vh"
-      onChange="onSwiperChange"
+      bind:change="onSwiperChange"
     >
       <block
-        a:for="{{items}}"
-        a:for-index="index"
-        a:for-item="item"
+        wx:for="{{items}}"
+        wx:for-index="index"
+        wx:for-item="item"
       >
         <swiper-item>
           <view
@@ -85,7 +77,7 @@
               index="{{mixin.current}}"
             >
               <image
-                a:if="{{item.imageUrl}}"
+                wx:if="{{item.imageUrl}}"
                 class="ant-guide-tour-item-img"
                 src="{{item.imageUrl}}"
                 style="{{item.imageStyle}}"
@@ -97,14 +89,14 @@
       </block>
     </swiper>
   </block>
-  <block a:else>
+  <block wx:else>
     <block
-      a:for="{{items}}"
-      a:for-index="index"
-      a:for-item="item"
+      wx:for="{{items}}"
+      wx:for-index="index"
+      wx:for-item="item"
     >
       <view
-        a:if="{{mixin.value === index}}"
+        wx:if="{{mixin.value === index}}"
         class="ant-guide-tour-item {{item.className || ''}}"
         style="top:{{item.top}}px; left:{{item.left}}px"
       >
@@ -113,7 +105,7 @@
           index="{{index}}"
         >
           <image
-            a:if="{{item.imageUrl}}"
+            wx:if="{{item.imageUrl}}"
             class="ant-guide-tour-item-img"
             src="{{item.imageUrl}}"
             style="{{item.imageStyle}}"

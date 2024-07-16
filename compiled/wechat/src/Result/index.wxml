@@ -1,7 +1,7 @@
-<import-sjs
-  from="./index.sjs"
-  name="result"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="result"
+></wxs>
 <view
   class="ant-result {{className ? className : ''}}"
   style="{{style || ''}}"
@@ -9,28 +9,27 @@
   <view class="ant-result-main">
     <slot name="image">
       <view
-        a:if="{{type}}"
+        wx:if="{{type}}"
         class="ant-result-image"
       >
         <icon
           type="{{result.iconType(type)}}"
-          class="ant-result-image-{{type}}"
+          class-name="ant-result-image-{{type}}"
           style="font-size: 64px"
         ></icon>
       </view>
       <image-icon
-        a:elif="{{image}}"
-        class="ant-result-image"
+        wx:elif="{{image}}"
+        class-name="ant-result-image"
         image="{{image}}"
       ></image-icon>
-      <block a:else></block>
+      <block wx:else></block>
     </slot>
     <view class="ant-result-title">
       <slot name="title">{{title}}</slot>
     </view>
     <view class="ant-result-message">
       <slot name="message">
-        <!--display: inline-->
         <text>{{message}}</text>
       </slot>
     </view>

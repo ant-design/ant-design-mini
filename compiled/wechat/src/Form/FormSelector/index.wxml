@@ -1,5 +1,5 @@
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   position="{{position}}"
   label="{{label}}"
   label-width="{{labelWidth}}"
@@ -21,13 +21,13 @@
       max-selected-count="{{maxSelectedCount}}"
       active-item-class-name="{{activeItemClassName}}"
       active-item-style="{{activeItemStyle}}"
-      onSelectMax="onSelectMax"
-      onSelectMin="onSelectMin"
-      onChange="onChange"
+      bind:selectmax="onSelectMax"
+      bind:selectmin="onSelectMin"
+      bind:change="onChange"
     ></selector>
   </view>
   <view
-    a:if="{{!tooltip}}"
+    wx:if="{{!tooltip}}"
     slot="tooltip"
   >
     <slot name="tooltip"></slot>

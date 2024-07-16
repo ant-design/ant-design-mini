@@ -352,6 +352,7 @@ export async function compileAntdMini(watch: boolean) {
     );
   }
   const wechatBuildOption = {
+    platformId: 'WECHAT',
     compileTs: true,
     compileLess: true,
     platform: tsxml.wechat,
@@ -388,6 +389,7 @@ export async function compileAntdMini(watch: boolean) {
   });
 
   const alipayBuildOption = {
+    platformId: 'ALIPAY',
     defVar: {
       WECHAT: false,
       ALIPAY: true,
@@ -440,7 +442,6 @@ export async function compileAntdMiniBackup(watch: boolean) {
     );
   }
   const wechatBuildOption = {
-    platformId: 'WECHAT',
     compileTs: true,
     compileLess: true,
     platform: tsxml.wechat,
@@ -477,7 +478,6 @@ export async function compileAntdMiniBackup(watch: boolean) {
   });
 
   const alipayBuildOption = {
-    platformId: 'ALIPAY',
     defVar: {
       WECHAT: false,
       ALIPAY: true,

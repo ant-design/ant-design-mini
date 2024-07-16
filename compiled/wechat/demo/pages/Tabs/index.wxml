@@ -7,9 +7,7 @@
       class="content"
       slot="$default"
       slot-scope="item"
-    >
-      {{item.value.content}}
-    </view>
+    >{{item.value.content}}</view>
   </tabs>
 </container>
 <container title="胶囊">
@@ -31,10 +29,10 @@
       slot="title"
       slot-scope="item"
     >
-      <view a:if="{{item.value.badge}}">
+      <view wx:if="{{item.value.badge}}">
         <badge>{{item.value.title}}</badge>
       </view>
-      <view a:else>{{item.value.title}}</view>
+      <view wx:else>{{item.value.title}}</view>
     </view>
   </tabs>
 </container>
@@ -44,7 +42,7 @@
 <container title="onChange">
   <tabs
     items="{{items}}"
-    onChange="onChange"
+    bind:change="onChange"
   ></tabs>
 </container>
 <container title="plus按钮">
@@ -52,7 +50,7 @@
     <view slot="plus">
       <icon
         type="AddOutline"
-        onTap="onPlus"
+        bind:tap="onPlus"
       ></icon>
     </view>
   </tabs>
@@ -61,14 +59,14 @@
   <tabs
     items="{{items}}"
     current="{{current}}"
-    onChange="handleChange"
+    bind:change="handleChange"
   ></tabs>
 </container>
 <container title="content在外层自定义">
   <tabs
     items="{{items}}"
     current="{{current}}"
-    onChange="handleChange"
+    bind:change="handleChange"
   ></tabs>
   <view class="content">{{items[current].content}}</view>
 </container>

@@ -3,7 +3,7 @@
     default-value="{{[1]}}"
     options="{{options_1}}"
     data-options="{{options_1}}"
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-checklist>
 </ant-container>
 <ant-container title="复杂布局-多选">
@@ -11,7 +11,7 @@
     default-value="{{[1, 2]}}"
     options="{{options_2}}"
     multiple
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-checklist>
 </ant-container>
 <ant-container title="受控模式">
@@ -19,7 +19,7 @@
     value="{{value}}"
     options="{{options_2}}"
     multiple
-    onChange="onChangeControlled"
+    bind:change="onChangeControlled"
   ></ant-checklist>
 </ant-container>
 <ant-container title="禁用状态">
@@ -27,7 +27,7 @@
     default-value="{{[2]}}"
     options="{{options_3}}"
     multiple
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-checklist>
 </ant-container>
 <ant-container title="只读状态">
@@ -35,7 +35,7 @@
     default-value="{{[2]}}"
     options="{{options_4}}"
     multiple
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-checklist>
 </ant-container>
 <ant-container title="自定义勾选图标&&组件内容">
@@ -43,20 +43,18 @@
     default-value="{{[2]}}"
     options="{{options_3}}"
     multiple
-    onChange="onChange"
+    bind:change="onChange"
   >
     <view slot="icon">
       <ant-icon
         style="color: red"
         type="LikeOutline"
-        class="demo-checklist-checked-icon"
+        class-name="demo-checklist-checked-icon"
       ></ant-icon>
     </view>
     <view
       slot="content"
       slot-scope="props"
-    >
-      title: {{props.item.title}}
-    </view>
+    >title:{{props.item.title}}</view>
   </ant-checklist>
 </ant-container>

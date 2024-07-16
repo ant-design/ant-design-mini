@@ -1,18 +1,18 @@
-<import-sjs
-  from="./index.sjs"
-  name="utils"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="utils"
+></wxs>
 <button
   form-type="{{formType}}"
   hover-class="{{utils.getHoverClass(loading, type, activeClassName)}}"
   scope="{{scope}}"
-  onTap="{{onTap ? 'onTap' : ''}}"
-  onGetAuthorize="onGetAuthorize"
-  onFollowLifestyle="onFollowLifestyle"
-  onError="onError"
-  onGetUserInfo="onGetUserInfo"
-  onGetPhoneNumber="onGetPhoneNumber"
-  catchTap="{{catchTap ? 'catchTap' : ''}}"
+  bind:tap="{{onTap ? 'onTap' : ''}}"
+  bind:getauthorize="onGetAuthorize"
+  bind:followlifestyle="onFollowLifestyle"
+  bind:error="onError"
+  bind:getuserinfo="onGetUserInfo"
+  bind:getphonenumber="onGetPhoneNumber"
+  catch:tap="{{catchTap ? 'catchTap' : ''}}"
   public-id="{{publicId}}"
   open-type="{{openType}}"
   class="ant-button {{inline ? 'ant-button-inline ' + utils.getClass(size) : ''}} {{'ant-button-' + type + (danger ? '-danger' : '')}} {{disabled || loading ? 'ant-button-disabled' : ''}} {{className ? className : ''}}"
@@ -20,26 +20,24 @@
 >
   <view class="ant-button-wrap">
     <ant-icon
-      a:if="{{!!icon}}"
+      wx:if="{{!!icon}}"
       type="{{icon}}"
     ></ant-icon>
     <view class="ant-button-content-text {{icon ? 'ant-button-content-text-margin' : ''}}">
       <slot></slot>
       <view
-        a:if="{{!inline && subText}}"
+        wx:if="{{!inline && subText}}"
         class="ant-button-content-subtext"
-      >
-        {{subText}}
-      </view>
+      >{{subText}}</view>
     </view>
     <view
-      a:if="{{loading}}"
+      wx:if="{{loading}}"
       class="ant-button-content-loading-container"
     >
       <loading
         type="mini"
         color="currentColor"
-        class="ant-button-content-loading"
+        class-name="ant-button-content-loading"
       ></loading>
     </view>
   </view>

@@ -1,5 +1,5 @@
 <ant-picker
-  class="ant-cascader-picker {{className || ''}}"
+  class-name="ant-cascader-picker {{className || ''}}"
   style="{{style}}"
   animation-type="{{animationType}}"
   pop-class-name="ant-cascader-picker-popup {{popClassName || ''}}"
@@ -16,11 +16,11 @@
   mask-class-name="{{maskClassName}}"
   indicator-style="{{indicatorStyle}}"
   indicator-class-name="{{indicatorClassName}}"
-  onChange="onChange"
-  onCancel="onCancel"
-  onOk="onOk"
+  bind:change="onChange"
+  bind:cancel="onCancel"
+  bind:ok="onOk"
   formatted-value-text="{{formattedValueText}}"
-  onVisibleChange="onVisibleChange"
+  bind:visiblechange="onVisibleChange"
   mask-closable="{{maskClosable}}"
 >
   <slot

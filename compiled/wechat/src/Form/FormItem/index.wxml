@@ -7,29 +7,27 @@
   <view class="ant-form-item-line ant-form-item-line-{{position}} {{errorInfo ? 'noLine' : ''}}">
     <view class="ant-form-item-content ant-form-item-content-{{position}}">
       <view
-        a:if="{{label}}"
+        wx:if="{{label}}"
         style="{{labelWidth ? 'width: ' + labelWidth : ''}}"
         class="ant-form-item-label {{disabled ? 'ant-form-item-label-disabled' : ''}} ant-form-item-label-{{position}} {{required ? 'ant-form-item-label-required' : ''}}"
       >
         <view class="ant-form-item-label-text">{{label}}</view>
-        <popover a:if="{{tooltip}}">
+        <popover wx:if="{{tooltip}}">
           <view
             slot="content"
             class="ant-form-item-label-help-content"
-          >
-            {{tooltip}}
-          </view>
+          >{{tooltip}}</view>
           <ant-icon type="QuestionCircleOutline"></ant-icon>
         </popover>
         <slot
           name="tooltip"
-          a:else
+          wx:else
         ></slot>
       </view>
       <view class="ant-form-item-field ant-form-item-field-{{position}}">
         <slot></slot>
         <view
-          a:if="{{help || (validateStatus === 'error' || !validateStatus) && status === 'error'}}"
+          wx:if="{{help || (validateStatus === 'error' || !validateStatus) && status === 'error'}}"
           class="{{validateStatus === 'error' || !validateStatus && status === 'error' ? 'ant-form-item-error-info' : 'ant-form-item-help-info'}} ant-form-item-error-info-{{position}}"
         >
           <view>{{help || errors[0]}}</view>

@@ -1,16 +1,16 @@
-<import-sjs
-  from="./index.sjs"
-  name="helper"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="helper"
+></wxs>
 <view class="ant-imageIcon {{className ? className : ''}}">
   <icon
-    a:if="{{helper.isIcon(image)}}"
+    wx:if="{{helper.isIcon(image)}}"
     type="{{image}}"
-    class="{{className ? className + '-icon' : ''}}"
+    class-name="{{className ? className + '-icon' : ''}}"
     style="{{style}}"
   ></icon>
   <image
-    a:else
+    wx:else
     src="{{image}}"
     class="{{className ? className + '-image' : ''}}"
     style="{{style || ''}}"

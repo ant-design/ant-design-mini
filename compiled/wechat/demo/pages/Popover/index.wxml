@@ -6,16 +6,14 @@
     <ant-button
       size="small"
       inline
-    >
-      点我
-    </ant-button>
+    >点我</ant-button>
   </popover>
 </container>
 <container title="基础用法-回调函数">
   <popover
     content="prompt"
     placement="top"
-    onVisibleChange="onVisibleChange"
+    bind:visiblechange="onVisibleChange"
   >
     <ant-button>点我</ant-button>
   </popover>
@@ -26,21 +24,17 @@
       content="红色"
       color="red"
     >
-      <!--display: inline-->
       <text>点我红色</text>
     </popover>
     <popover
       content="蓝色"
       color="blue"
     >
-      <!--display: inline-->
       <text>点我蓝色</text>
     </popover>
   </view>
 </container>
-<container title="点击icon查看">
-  查看说明
-  <popover
+<container title="点击icon查看">查看说明<popover
     content="说明"
     style="display: inline-block"
   >
@@ -50,25 +44,21 @@
 <container title="自定义位置">
   <view class="custom">
     <block
-      a:for="{{placements}}"
-      a:for-index="index"
-      a:for-item="item"
+      wx:for="{{placements}}"
+      wx:for-index="index"
+      wx:for-item="item"
     >
       <popover placement="{{item}}">
         <ant-button
           size="small"
           inline
-          class="custom-child"
+          class-name="custom-child"
         >
-          <view>点我</view>
-          {{item}}
-        </ant-button>
+          <view>点我</view>{{item}}</ant-button>
         <view
           slot="content"
           class="content"
-        >
-          {{item}}
-        </view>
+        >{{item}}</view>
       </popover>
     </block>
   </view>
@@ -82,9 +72,7 @@
     <ant-button
       size="small"
       inline
-    >
-      点我
-    </ant-button>
+    >点我</ant-button>
   </popover>
 </container>
 <container title="受控">
@@ -96,16 +84,13 @@
       visible="{{visible}}"
       style="display: inline-block"
     >
-      <!--display: inline-->
       <text>点击按钮修改visible</text>
     </popover>
   </view>
   <ant-button
     size="small"
     inline
-    onTap="handleVisibleChange"
+    bind:tap="handleVisibleChange"
     style="margin-top: 8px"
-  >
-    change visible
-  </ant-button>
+  >change visible</ant-button>
 </container>

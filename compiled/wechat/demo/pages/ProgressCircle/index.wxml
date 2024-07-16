@@ -14,16 +14,12 @@
     <ant-button
       inline
       style="margin-right: 16rpx"
-      onTap="handleDelete"
-    >
-      减少
-    </ant-button>
+      bind:tap="handleDelete"
+    >减少</ant-button>
     <ant-button
       inline
-      onTap="handleAdd"
-    >
-      增加
-    </ant-button>
+      bind:tap="handleAdd"
+    >增加</ant-button>
   </view>
 </container>
 <container title="自定义进度条宽度">

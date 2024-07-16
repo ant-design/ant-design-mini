@@ -6,7 +6,7 @@
     <textarea
       enable-native="{{enableNative}}"
       name="{{name}}"
-      class="ant-textarea-content {{allowClear ? 'ant-textarea-content-clear' : ''}}"
+      class-name="ant-textarea-content {{allowClear ? 'ant-textarea-content-clear' : ''}}"
       disabled="{{disabled}}"
       value="{{state.value || ''}}"
       placeholder="{{placeholder}}"
@@ -19,18 +19,18 @@
       auto-height="{{autoHeight}}"
       show-count="{{showCount}}"
       controlled="{{state.controlled}}"
-      onInput="onChange"
-      onConfirm="onConfirm"
-      onFocus="onFocus"
-      onBlur="onBlur"
+      bind:input="onChange"
+      bind:confirm="onConfirm"
+      bind:focus="onFocus"
+      bind:blur="onBlur"
     ></textarea>
     <view
-      a:if="{{allowClear}}"
+      wx:if="{{allowClear}}"
       class="ant-textarea-clear {{state.value && state.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden'}}"
-      onTap="onClear"
+      bind:tap="onClear"
     >
       <icon
-        class="ant-textarea-clear-icon"
+        class-name="ant-textarea-clear-icon"
         type="CloseCircleFill"
       ></icon>
     </view>

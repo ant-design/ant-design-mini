@@ -1,9 +1,9 @@
-<import-sjs
-  from="../index.sjs"
-  name="componentUtils"
-></import-sjs>
+<wxs
+  src="../index.wxs"
+  module="componentUtils"
+></wxs>
 <list
-  class="ant-checkbox-group {{className ? className : ''}} ant-checkbox-group-{{position}}"
+  class-name="ant-checkbox-group {{className ? className : ''}} ant-checkbox-group-{{position}}"
   style="{{style}}"
 >
   <checkbox-group
@@ -11,11 +11,11 @@
     value="{{mixin.value}}"
   >
     <view class="ant-checkbox-group-body">
-      <block a:if="{{position === 'vertical'}}">
+      <block wx:if="{{position === 'vertical'}}">
         <block
-          a:for="{{options}}"
-          a:for-index="index"
-          a:for-item="item"
+          wx:for="{{options}}"
+          wx:for-index="index"
+          wx:for-item="item"
         >
           <list-item>
             <ant-checkbox
@@ -24,26 +24,24 @@
               data-index="{{index}}"
               value="{{item.value}}"
               disabled="{{disabled || item.disabled}}"
-              onChange="onChange"
+              bind:change="onChange"
             >
               <slot
                 name="label"
                 value="{{item}}"
                 index="{{index}}"
               >
-                <view class="ant-checkbox-group-item-label-default">
-                  {{item.label}}
-                </view>
+                <view class="ant-checkbox-group-item-label-default">{{item.label}}</view>
               </slot>
             </ant-checkbox>
           </list-item>
         </block>
       </block>
-      <block a:else>
+      <block wx:else>
         <block
-          a:for="{{options}}"
-          a:for-index="index"
-          a:for-item="item"
+          wx:for="{{options}}"
+          wx:for-index="index"
+          wx:for-item="item"
         >
           <ant-checkbox
             color="{{color}}"
@@ -51,16 +49,14 @@
             data-index="{{index}}"
             value="{{item.value}}"
             disabled="{{disabled || item.disabled}}"
-            onChange="onChange"
+            bind:change="onChange"
           >
             <slot
               name="label"
               value="{{item}}"
               index="{{index}}"
             >
-              <view class="ant-checkbox-group-item-label-default">
-                {{item.label}}
-              </view>
+              <view class="ant-checkbox-group-item-label-default">{{item.label}}</view>
             </slot>
           </ant-checkbox>
         </block>

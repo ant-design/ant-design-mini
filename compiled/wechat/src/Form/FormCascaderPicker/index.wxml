@@ -1,9 +1,9 @@
-<import-sjs
-  from="../../_util/arrow.sjs"
-  name="arrowUtil"
-></import-sjs>
+<wxs
+  src="../../_util/arrow.wxs"
+  module="arrowUtil"
+></wxs>
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   position="{{position}}"
   label="{{label}}"
   label-width="{{labelWidth}}"
@@ -33,11 +33,11 @@
       indicator-style="{{indicatorStyle}}"
       indicator-class-name="{{indicatorClassName}}"
       value="{{formData.value}}"
-      onOk="onOk"
-      onChange="onChange"
-      onCancel="onDismissPicker"
-      onVisibleChange="onVisibleChange"
-      onFormat="{{handleFormat ? handleFormat : 'handleFormat'}}"
+      bind:ok="onOk"
+      bind:change="onChange"
+      bind:cancel="onDismissPicker"
+      bind:visiblechange="onVisibleChange"
+      bind:format="{{handleFormat ? handleFormat : 'handleFormat'}}"
     >
       <slot
         name="content"
@@ -48,15 +48,15 @@
         slot="title"
       ></slot>
       <ant-icon
-        a:if="{{arrowUtil.getArrow(arrow)}}"
-        class="ant-form-cascader-picker-arrow"
+        wx:if="{{arrowUtil.getArrow(arrow)}}"
+        class-name="ant-form-cascader-picker-arrow"
         type="{{arrowUtil.getArrow(arrow)}}"
         slot="suffix"
       ></ant-icon>
     </ant-cascader-picker>
   </view>
   <view
-    a:if="{{!tooltip}}"
+    wx:if="{{!tooltip}}"
     slot="tooltip"
   >
     <slot name="tooltip"></slot>

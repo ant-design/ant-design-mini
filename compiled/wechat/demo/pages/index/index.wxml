@@ -1,11 +1,9 @@
 <view class="demo-header">
   <view>
     <view class="demo-header-title">
-      <!--display: inline-->
       <text>Ant Design Mini</text>
     </view>
     <view>
-      <!--display: inline-->
       <text>探索移动端小程序的极致体验</text>
     </view>
   </view>
@@ -17,9 +15,9 @@
   <view class="input-container">
     <ant-input
       placeholder="输入组件名称"
-      onChange="onSearch"
+      bind:change="onSearch"
       focus-class-name="border"
-      class="input"
+      class-name="input"
       allow-clear
     >
       <ant-icon
@@ -29,55 +27,51 @@
     </ant-input>
   </view>
 </view>
-<block a:if="{{finding}}">
+<block wx:if="{{finding}}">
   <ant-list
-    class="list"
+    class-name="list"
     header="搜索结果列表"
     radius
   >
     <block
-      a:for="{{searchResult}}"
-      a:for-index="index"
-      a:for-item="item"
+      wx:for="{{searchResult}}"
+      wx:for-index="index"
+      wx:for-item="item"
     >
       <ant-list-item
         arrow="right"
-        onTap="listPress"
+        bind:tap="listPress"
         data-url="{{item.path}}"
-      >
-        {{item.name}}
-        <view slot="brief">{{item.nameZN}}</view>
+      >{{item.name}}<view slot="brief">{{item.nameZN}}</view>
       </ant-list-item>
     </block>
   </ant-list>
 </block>
-<block a:else>
+<block wx:else>
   <block
-    a:for="{{componentList}}"
-    a:for-index="index"
-    a:for-item="item"
-    key="{{item}}"
+    wx:for="{{componentList}}"
+    wx:for-index="index"
+    wx:for-item="item"
+    wx:key="*this"
   >
     <block>
       <ant-list
-        class="list"
+        class-name="list"
         radius
       >
         <view slot="header">{{item.type}}</view>
         <block
-          a:for="{{item.list}}"
-          a:for-index="index"
-          a:for-item="itemList"
+          wx:for="{{item.list}}"
+          wx:for-index="index"
+          wx:for-item="itemList"
         >
           <ant-list-item
             arrow="right"
-            onTap="listPress"
+            bind:tap="listPress"
             data-url="{{itemList.path}}"
           >
-            <view class="content-title">
-              {{itemList.name}}
-              <view
-                a:if="{{itemList.update}}"
+            <view class="content-title">{{itemList.name}}<view
+                wx:if="{{itemList.update}}"
                 style="margin-left: 16rpx"
               >
                 <ant-tag>Update</ant-tag>

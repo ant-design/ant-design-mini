@@ -1,23 +1,21 @@
 <ant-form-input
   label="用户名"
   name="username"
-  ref="handleRef"
+  bind:ref="handleRef"
 ></ant-form-input>
 <ant-form-image-upload
   label="图片上传"
   name="imageList"
-  onUpload="{{onUpload ? onUpload : 'onUpload'}}"
+  bind:upload="{{onUpload ? onUpload : 'onUpload'}}"
   max-count="{{3}}"
   tooltip="需要上传3张图片"
-  ref="handleRef"
+  bind:ref="handleRef"
 ></ant-form-image-upload>
 <view class="buttons">
   <ant-button
     type="primary"
-    onTap="submit"
+    bind:tap="submit"
     style="margin-bottom: 12px"
-  >
-    提交
-  </ant-button>
-  <ant-button onTap="reset">重置</ant-button>
+  >提交</ant-button>
+  <ant-button bind:tap="reset">重置</ant-button>
 </view>

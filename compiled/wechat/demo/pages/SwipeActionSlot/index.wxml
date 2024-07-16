@@ -2,9 +2,9 @@
   <view class="t-swipe-item">
     <view class="t-swipe-item-title">自定义按钮</view>
     <block
-      a:for="{{10}}"
-      a:for-index="index"
-      a:for-item="_"
+      wx:for="{{10}}"
+      wx:for-index="index"
+      wx:for-item="_"
     >
       <view class="t-swipe-item-con">
         <ant-swipe-action
@@ -13,9 +13,9 @@
           left-buttons="{{leftBtns}}"
           elasticity="{{true}}"
           swiped="{{swipeIndex === index}}"
-          onSwipeEnd="onSwipeEnd"
-          onSwipeStart="onSwipeStart"
-          onButtonTap="onButtonTap"
+          bind:swipeend="onSwipeEnd"
+          bind:swipestart="onSwipeStart"
+          bind:buttontap="onButtonTap"
         >
           <view class="t-swipe-item-con-view">左右自定义按钮</view>
           <view
@@ -24,9 +24,8 @@
           >
             <ant-icon
               type="DeleteOutline"
-              class="t-swipe-item-con-btn-icon"
+              class-name="t-swipe-item-con-btn-icon"
             ></ant-icon>
-            <!--display: inline-->
             <text class="t-swipe-item-con-btn-del">删除</text>
           </view>
           <view
@@ -35,7 +34,7 @@
           >
             <ant-icon
               type="DeleteOutline"
-              class="t-swipe-item-con-btn-icon"
+              class-name="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <view class="t-swipe-item-con-btn-del">确认删除吗？</view>
           </view>
@@ -45,7 +44,7 @@
           >
             <ant-icon
               type="EditFill"
-              class="t-swipe-item-con-btn-icon"
+              class-name="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <view class="t-swipe-item-con-btn-del">重命名</view>
           </view>
@@ -55,7 +54,7 @@
           >
             <ant-icon
               type="EditFill"
-              class="t-swipe-item-con-btn-icon"
+              class-name="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <view class="t-swipe-item-con-btn-del">确认修改吗?</view>
           </view>
@@ -65,7 +64,7 @@
           >
             <ant-icon
               type="EditFill"
-              class="t-swipe-item-con-btn-icon"
+              class-name="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <view class="t-swipe-item-con-btn-del">重命名</view>
           </view>
@@ -75,7 +74,7 @@
           >
             <ant-icon
               type="EditFill"
-              class="t-swipe-item-con-btn-icon"
+              class-name="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <view class="t-swipe-item-con-btn-del">确认修改吗?</view>
           </view>

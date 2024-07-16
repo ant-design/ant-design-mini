@@ -5,22 +5,22 @@
   <view
     id="ant-rate-container{{$id ? '-' + $id : ''}}"
     class="ant-rate-container"
-    onTouchMove="handleStarMove"
-    onTouchEnd="handleStarMoveEnd"
+    bind:touchmove="handleStarMove"
+    bind:touchend="handleStarMoveEnd"
   >
     <block
-      a:for="{{count}}"
-      a:for-index="index"
-      a:for-item="item"
+      wx:for="{{count}}"
+      wx:for-index="index"
+      wx:for-item="item"
     >
       <view
         class="ant-rate-star"
-        onTap="handleStarTap"
+        bind:tap="handleStarTap"
         data-rate="{{index}}"
         style="margin-right: {{index === count - 1 ? 0 : gutter + 'px'}}"
       >
         <view
-          a:if="{{allowHalf && (displayValue !== null ? displayValue : mixin.value) === index + 0.5}}"
+          wx:if="{{allowHalf && (displayValue !== null ? displayValue : mixin.value) === index + 0.5}}"
           class="ant-rate-star-icon-active {{characterClassName || ''}} {{characterActiveClassName || ''}} ant-rate-star-icon-half-active"
         >
           <slot

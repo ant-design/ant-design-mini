@@ -1,9 +1,9 @@
-<import-sjs
-  from="./index.sjs"
-  name="divider"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="divider"
+></wxs>
 <view
-  a:if="{{direction === 'horizontal'}}"
+  wx:if="{{direction === 'horizontal'}}"
   class="ant-divider ant-divider-horizontal {{className || ''}}"
   style="{{style || ''}}"
 >
@@ -13,12 +13,10 @@
   ></view>
   <slot name="text">
     <view
-      a:if="{{text}}"
+      wx:if="{{text}}"
       class="ant-divider-horizontal-text {{textClassName || ''}}"
       style="{{textStyle || ''}}"
-    >
-      {{text}}
-    </view>
+    >{{text}}</view>
   </slot>
   <view
     class="ant-divider-horizontal-right"
@@ -26,7 +24,7 @@
   ></view>
 </view>
 <view
-  a:if="{{direction === 'vertical'}}"
+  wx:if="{{direction === 'vertical'}}"
   class="ant-divider ant-divider-vertical {{className || ''}}"
   style="{{style || ''}};{{lineWidth ? 'border-right-width:' + lineWidth + 'px;' : ''}}{{lineType ? 'border-right-style:' + lineType + ';' : ''}}{{lineColor ? 'border-right-color:' + lineColor + ';' : ''}}"
 ></view>

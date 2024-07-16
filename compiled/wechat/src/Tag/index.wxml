@@ -3,7 +3,7 @@
   style="{{style || ''}}"
 >
   <view
-    a:if="{{icon}}"
+    wx:if="{{icon}}"
     class="ant-tag-icon-container"
   >
     <slot name="icon">

@@ -3,26 +3,24 @@
   name="account"
   validate-status="error"
   help="需要填写用户名"
-  ref="handleRef"
+  bind:ref="handleRef"
 ></ant-form-input>
 <ant-form-input
   label="地址"
   name="address"
   help="需要填写地址"
-  ref="handleRef"
+  bind:ref="handleRef"
 ></ant-form-input>
 <ant-form-input
   label="水果"
   name="fruit"
-  ref="handleRef"
+  bind:ref="handleRef"
 ></ant-form-input>
 <view class="buttons">
   <ant-button
     type="primary"
-    onTap="submit"
+    bind:tap="submit"
     style="margin-bottom: 12px"
-  >
-    提交
-  </ant-button>
-  <ant-button onTap="reset">重置</ant-button>
+  >提交</ant-button>
+  <ant-button bind:tap="reset">重置</ant-button>
 </view>

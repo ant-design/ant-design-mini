@@ -1,7 +1,7 @@
 <input
   enable-native="{{enableNative}}"
   name="{{name}}"
-  class="{{className}}"
+  class-name="{{className}}"
   style="{{style}}"
   disabled="{{disabled}}"
   value="{{state.value}}"
@@ -19,8 +19,8 @@
   selection-start="{{selectionStart}}"
   selection-end="{{selectionEnd}}"
   random-number="{{randomNumber}}"
-  onInput="onChange"
-  onConfirm="onConfirm"
-  onFocus="onFocus"
-  onBlur="onBlur"
+  bind:input="onChange"
+  bind:confirm="onConfirm"
+  bind:focus="onFocus"
+  bind:blur="onBlur"
 ></input>

@@ -7,9 +7,7 @@
       <ant-icon
         type="SmileOutline"
         style="margin-right: 8px"
-      ></ant-icon>
-      标题
-    </view>
+      ></ant-icon>标题</view>
   </view>
   <view slot="headerRight">右侧内容</view>
   <view class="content"></view>

@@ -1,14 +1,14 @@
 <ant-container title="基础用法">
   <ant-checkbox-group
     options="{{options}}"
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-checkbox-group>
 </ant-container>
 <ant-container title="初始值">
   <ant-checkbox-group
     default-value="{{['banana']}}"
     options="{{options}}"
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-checkbox-group>
 </ant-container>
 <ant-container title="横向布局">
@@ -27,7 +27,7 @@
   <ant-checkbox-group
     value="{{value}}"
     options="{{options}}"
-    onChange="handleChange"
+    bind:change="handleChange"
   ></ant-checkbox-group>
 </ant-container>
 <ant-container title="自定义颜色">
@@ -42,8 +42,6 @@
     <view
       slot="label"
       slot-scope="item"
-    >
-      {{item.index + 1}} {{item.value.label}}
-    </view>
+    >{{item.index + 1}}{{item.value.label}}</view>
   </ant-checkbox-group>
 </ant-container>

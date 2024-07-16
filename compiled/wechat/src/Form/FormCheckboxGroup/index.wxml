@@ -1,5 +1,5 @@
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   position="{{position}}"
   label="{{label}}"
   label-width="{{labelWidth}}"
@@ -15,7 +15,7 @@
     <checkbox-group
       options="{{options}}"
       value="{{formData.value}}"
-      onChange="onChange"
+      bind:change="onChange"
       color="{{color}}"
       disabled="{{disabled}}"
       position="{{checkboxPosition}}"
@@ -30,7 +30,7 @@
     </checkbox-group>
   </view>
   <view
-    a:if="{{!tooltip}}"
+    wx:if="{{!tooltip}}"
     slot="tooltip"
   >
     <slot name="tooltip"></slot>

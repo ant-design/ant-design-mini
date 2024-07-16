@@ -1,16 +1,16 @@
 <container title="基本使用">
   <ant-slider
     default-value="{{80}}"
-    onChange="onChange"
-    onAfterChange="onAfterChange"
+    bind:change="onChange"
+    bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
 <container title="无节点双滑块">
   <ant-slider
     default-value="{{[20, 60]}}"
     range
-    onChange="onChange"
-    onAfterChange="onAfterChange"
+    bind:change="onChange"
+    bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
 <container title="节点单滑块">
@@ -18,8 +18,8 @@
     default-value="{{60}}"
     step="{{20}}"
     show-ticks
-    onChange="onChange"
-    onAfterChange="onAfterChange"
+    bind:change="onChange"
+    bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
 <container title="有数字节点单滑块">
@@ -28,8 +28,8 @@
     step="{{20}}"
     show-ticks
     show-number
-    onChange="onChange"
-    onAfterChange="onAfterChange"
+    bind:change="onChange"
+    bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
 <container title="节点双滑块">
@@ -38,8 +38,8 @@
     step="{{10}}"
     show-ticks
     range
-    onChange="onChange"
-    onAfterChange="onAfterChange"
+    bind:change="onChange"
+    bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
 <container title="有数字节点双滑块">
@@ -49,16 +49,16 @@
     show-ticks
     show-number
     range
-    onChange="onChange"
-    onAfterChange="onAfterChange"
+    bind:change="onChange"
+    bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
 <container title="在拖动时显示悬浮提示">
   <ant-slider
     default-value="{{80}}"
     show-tooltip
-    onChange="onChange"
-    onAfterChange="onAfterChange"
+    bind:change="onChange"
+    bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
 <container title="受控模式">
@@ -66,13 +66,13 @@
     min="{{0}}"
     max="{{100}}"
     value="{{value}}"
-    onChange="handleChange"
+    bind:change="handleChange"
   ></ant-slider>
   <ant-stepper
     min="{{0}}"
     max="{{100}}"
     value="{{value}}"
-    onChange="handleChange"
+    bind:change="handleChange"
   ></ant-stepper>
 </container>
 <container title="自定义">
@@ -84,8 +84,8 @@
     show-number
     active-line-style="background-color: #ff8f1f"
     active-dot-style="background-color: red"
-    onChange="onChange"
-    onAfterChange="onAfterChange"
+    bind:change="onChange"
+    bind:afterchange="onAfterChange"
   >
     <view slot="slider">
       <view class="custom-slider-handler">
@@ -95,12 +95,10 @@
         ></ant-icon>
       </view>
     </view>
-    <!--display: inline-->
     <text
       slot="tick"
       slot-scope="props"
     >{{props.value}}°C</text>
-    <!--display: inline-->
     <text
       slot="tooltip"
       slot-scope="props"
@@ -111,6 +109,6 @@
   <ant-slider
     default-value="{{80}}"
     disabled
-    onChange="onChange"
+    bind:change="onChange"
   ></ant-slider>
 </container>

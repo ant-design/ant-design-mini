@@ -40,16 +40,14 @@
       slot-scope="item"
     >
       <icon
-        a:if="{{iconList[item.index]}}"
+        wx:if="{{iconList[item.index]}}"
         type="{{iconList[item.index]}}"
       ></icon>
     </block>
     <view
       slot="title"
       slot-scope="item"
-    >
-      {{item.index + 1}}
-    </view>
+    >{{item.index + 1}}</view>
     <view
       slot="description"
       slot-scope="item"

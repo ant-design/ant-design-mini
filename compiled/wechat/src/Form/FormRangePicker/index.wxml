@@ -1,9 +1,9 @@
-<import-sjs
-  from="../../_util/arrow.sjs"
-  name="arrowUtil"
-></import-sjs>
+<wxs
+  src="../../_util/arrow.wxs"
+  module="arrowUtil"
+></wxs>
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   position="{{position}}"
   label="{{label}}"
   label-width="{{labelWidth}}"
@@ -39,12 +39,12 @@
       indicator-style="{{indicatorStyle}}"
       indicator-class-name="{{indicatorClassName}}"
       value="{{formData.value}}"
-      onOk="onOk"
-      onPickerChange="onPickerChange"
-      onCancel="onDismissPicker"
-      onVisibleChange="onVisibleChange"
-      onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
-      onFormat="{{handleFormat ? handleFormat : 'handleFormat'}}"
+      bind:ok="onOk"
+      bind:pickerchange="onPickerChange"
+      bind:cancel="onDismissPicker"
+      bind:visiblechange="onVisibleChange"
+      bind:formatlabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
+      bind:format="{{handleFormat ? handleFormat : 'handleFormat'}}"
     >
       <slot
         name="content"
@@ -55,15 +55,15 @@
         slot="title"
       ></slot>
       <ant-icon
-        a:if="{{arrowUtil.getArrow(arrow)}}"
-        class="ant-form-range-picker-arrow"
+        wx:if="{{arrowUtil.getArrow(arrow)}}"
+        class-name="ant-form-range-picker-arrow"
         type="{{arrowUtil.getArrow(arrow)}}"
         slot="suffix"
       ></ant-icon>
     </ant-range-picker>
   </view>
   <view
-    a:if="{{!tooltip}}"
+    wx:if="{{!tooltip}}"
     slot="tooltip"
   >
     <slot name="tooltip"></slot>

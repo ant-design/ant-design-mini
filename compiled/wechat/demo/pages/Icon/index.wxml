@@ -14,7 +14,7 @@
   ></ant-icon>
   <ant-icon
     type="SmileOutline"
-    class="custom-size"
+    class-name="custom-size"
   ></ant-icon>
 </ant-container>
 <ant-container title="自定义颜色">
@@ -24,7 +24,7 @@
   ></ant-icon>
   <ant-icon
     type="SmileOutline"
-    class="custom-color"
+    class-name="custom-color"
   ></ant-icon>
 </ant-container>
 <ant-container title="更多自定义">
@@ -35,7 +35,7 @@
 <ant-container title="点击事件">
   <view style="display: flex">
     <ant-icon
-      onTap="handleTap"
+      bind:tap="handleTap"
       data-id="icon"
       type="SmileOutline"
       style="font-size: 50px"

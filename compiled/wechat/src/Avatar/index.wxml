@@ -1,7 +1,7 @@
-<import-sjs
-  from="./index.sjs"
-  name="utils"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="utils"
+></wxs>
 <view
   class="ant-avatar {{className ? className : ''}}"
   style="{{style}}"

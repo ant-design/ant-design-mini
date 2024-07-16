@@ -1,86 +1,77 @@
 <view
-  a:key="ant-rare-words-input-{{$id}}"
+  wx:key="ant-rare-words-input-{{$id}}"
   style="{{style}}"
   class="ant-rare-words-keyboard {{className || ''}}"
 >
   <view
-    a:if="{{visible}}"
+    wx:if="{{visible}}"
     class="ant-rare-words-keyboard-modal {{showMask ? '' : 'hide'}}"
-    onTap="handleHide"
-    onAppear="catchAppearModal"
+    bind:tap="handleHide"
+    bind:appear="catchAppearModal"
   ></view>
   <view class="ant-rare-words-keyboard-kb {{visible ? '' : 'hide'}}">
     <view class="ant-rare-words-keyboard-header">
       <view
-        a:if="{{type !== 'handwriting'}}"
+        wx:if="{{type !== 'handwriting'}}"
         class="ant-rare-words-keyboard-input_value {{displayStr.length > 0 && visible ? '' : 'hide'}}"
-      >
-        {{displayStr}}
-      </view>
+      >{{displayStr}}</view>
       <view class="ant-rare-words-keyboard-match_words_wrap">
         <view class="ant-rare-words-keyboard-match_words {{showMoreWords ? 'absolute' : ''}}">
           <view class="ant-rare-words-keyboard-match_words_inner {{showMoreWords ? 'all' : ''}}">
             <view
-              a:if="{{matchWordsList.length === 0}}"
+              wx:if="{{matchWordsList.length === 0}}"
               class="ant-rare-words-keyboard-match_words_hidden"
-            >
-              哈
-            </view>
+            >哈</view>
             <block
-              a:for="{{matchWordsList}}"
-              a:for-index="index"
-              a:for-item="item"
+              wx:for="{{matchWordsList}}"
+              wx:for-index="index"
+              wx:for-item="item"
             >
               <view
                 class="ant-rare-words-keyboard-match_words_item {{showMoreWords ? 'all' : ''}}"
                 data-value="{{item.unicodeChar}}"
-                onTap="handleWordClick"
+                bind:tap="handleWordClick"
               >
-                <view class="ant-rare-words-keyboard-match_words_item_text">
-                  {{item.unicodeChar}}
-                </view>
+                <view class="ant-rare-words-keyboard-match_words_item_text">{{item.unicodeChar}}</view>
               </view>
             </block>
             <view
-              a:if="{{loading}}"
+              wx:if="{{loading}}"
               class="ant-rare-words-keyboard-match_words_item_tips loading"
             >
               <loading
-                class="ant-rare-words-keyboard-loading"
+                class-name="ant-rare-words-keyboard-loading"
                 type="mini"
                 size="small"
                 color="#666666"
               ></loading>
-              <!--display: inline-->
               <text>加载中</text>
             </view>
             <view
-              a:else
+              wx:else
               class="ant-rare-words-keyboard-match_words_item_tips"
             >
-              <!--display: inline-->
-              <text a:if="{{!!(displayStr === '' && matchWordsList.length === 0)}}">请输入生僻字对应的拼音</text>
-              <!--display: inline-->
-              <text a:if="{{!!(displayStr !== '' && matchWordsList.length === 0)}}">更多生僻字完善中，敬请期待</text>
+              <text wx:if="{{!!(displayStr === '' && matchWordsList.length === 0)}}">请输入生僻字对应的拼音</text>
+              <text wx:if="{{!!(displayStr !== '' && matchWordsList.length === 0)}}">更多生僻字完善中，敬请期待</text>
             </view>
           </view>
           <view
             class="ant-rare-words-keyboard-match_words_right {{showMoreWords ? 'sticky' : ''}} {{matchWordsList.length > maxDisplayNum && !showMoreWords ? 'overflow' : ''}}"
-            onTap="hanleLookMore"
+            bind:tap="hanleLookMore"
           >
             <icon
-              class="ant-rare-words-keyboard_down"
+              class-name="ant-rare-words-keyboard_down"
               type="DownOutline"
             ></icon>
           </view>
         </view>
       </view>
       <view class="ant-rare-words-keyboard_main">
-        <view a:if="{{showErrorPage}}">
+        <view wx:if="{{showErrorPage}}">
           <slot name="resultError">
             <view class="ant-rare-words-keyboard_error">
               <result
-                class="ant-rare-words-keyboard_error-result"
+                class-name="ant-rare-words-keyboard_error-result"
                 image="https://mdn.alipayobjects.com/huamei_2fq7mt/afts/img/A*VtvFS4EJl0cAAAAAAAAAAAAADh58AQ/original"
                 message="页面遇到一些小问题"
               >
@@ -92,48 +83,44 @@
                     type="primary"
                     size="small"
                     inline
-                    onTap="handleRetry"
-                  >
-                    重试
-                  </button>
+                    bind:tap="handleRetry"
+                  >重试</button>
                 </view>
               </result>
             </view>
           </slot>
         </view>
         <view
-          a:else
+          wx:else
           class="ant-rare-words-keyboard_pinyin"
         >
           <block
-            a:for="{{pinyinMaps}}"
-            a:for-index="mapIndex"
-            a:for-item="mapItem"
+            wx:for="{{pinyinMaps}}"
+            wx:for-index="mapIndex"
+            wx:for-item="mapItem"
           >
             <view class="ant-rare-words-keyboard_pinyin_row">
               <block
-                a:for="{{mapItem}}"
-                a:for-index="index"
-                a:for-item="item"
+                wx:for="{{mapItem}}"
+                wx:for-index="index"
+                wx:for-item="item"
               >
                 <view
                   data-value="{{item.value}}"
                   class="ant-rare-words-keyboard_pinyin_key {{showMoreWords ? 'all' : ''}}"
-                  onTap="handleKeyClick"
+                  bind:tap="handleKeyClick"
                 >
-                  <view class="ant-rare-words-keyboard_pinyin_key_text">
-                    {{item.label}}
-                  </view>
+                  <view class="ant-rare-words-keyboard_pinyin_key_text">{{item.label}}</view>
                 </view>
               </block>
               <view
-                a:if="{{mapIndex === pinyinMaps.length - 1}}"
+                wx:if="{{mapIndex === pinyinMaps.length - 1}}"
                 class="ant-rare-words-keyboard_pinyin_key delete"
-                onTap="handleDelete"
+                bind:tap="handleDelete"
               >
                 <view class="ant-rare-words-keyboard_pinyin_key_text">
                   <icon
-                    class="ant-rare-words-keyboard_delete"
+                    class-name="ant-rare-words-keyboard_delete"
                     type="TextDeletionOutline"
                   ></icon>
                 </view>
@@ -144,7 +131,7 @@
       </view>
     </view>
     <view
-      a:if="{{safeArea}}"
+      wx:if="{{safeArea}}"
       class="ant-rare-words-keyboard-kb_iphonex-safe"
     ></view>
   </view>

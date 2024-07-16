@@ -4,18 +4,18 @@
 >
   <view class="ant-tab-bar-wrap">
     <block
-      a:for="{{items}}"
-      a:for-index="index"
-      a:for-item="item"
+      wx:for="{{items}}"
+      wx:for-index="index"
+      wx:for-item="item"
     >
       <view
         class="ant-tab-bar-item {{index === mixin.value ? 'ant-tab-bar-item-active ' + (activeClassName || '') : ''}}"
         style="{{index === mixin.value ? activeStyle || '' : ''}}"
-        onTap="onChange"
+        bind:tap="onChange"
         data-index="{{index}}"
       >
         <ant-badge
-          a:if="{{item.badge}}"
+          wx:if="{{item.badge}}"
           type="{{item.badge.type || 'dot'}}"
           text="{{item.badge.text}}"
           stroke="{{item.badge.stroke}}"
@@ -31,12 +31,12 @@
             index="{{index}}"
           >
             <image-icon
-              class="ant-tab-bar"
+              class-name="ant-tab-bar"
               image="{{mixin.value === index ? item.activeIcon : item.icon}}"
             ></image-icon>
           </slot>
         </ant-badge>
-        <block a:else>
+        <block wx:else>
           <slot
             name="icon"
             active="{{mixin.value == index}}"
@@ -44,7 +44,7 @@
             index="{{index}}"
           >
             <image-icon
-              class="ant-tab-bar"
+              class-name="ant-tab-bar"
               image="{{mixin.value === index ? item.activeIcon : item.icon}}"
             ></image-icon>
           </slot>
@@ -56,7 +56,6 @@
             item="{{item}}"
             index="{{index}}"
           >
-            <!--display: inline-->
             <text class="ant-tab-bar-text">{{item.text}}</text>
           </slot>
         </view>

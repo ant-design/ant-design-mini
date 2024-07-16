@@ -4,14 +4,14 @@
 >
   <slot fileList="{{mixin.value}}">
     <block
-      a:for="{{mixin.value}}"
-      a:for-index="index"
-      a:for-item="item"
+      wx:for="{{mixin.value}}"
+      wx:for-index="index"
+      wx:for-item="item"
     >
       <view class="ant-image-upload-show">
         <view
           data-uid="{{item.uid}}"
-          onTap="onRemove"
+          bind:tap="onRemove"
         >
           <slot name="removeButton">
             <view class="ant-image-upload-close"></view>
@@ -22,29 +22,25 @@
           value="{{item}}"
         >
           <view
-            a:if="{{item.status === 'uploading' || item.status === 'error'}}"
+            wx:if="{{item.status === 'uploading' || item.status === 'error'}}"
             class="ant-image-upload-cover"
           >
             <view
-              a:if="{{item.status === 'uploading'}}"
+              wx:if="{{item.status === 'uploading'}}"
               class="ant-image-upload-cover-loading"
             >
-              <loading class="ant-image-upload-cover-loading-icon"></loading>
-              <view class="ant-image-upload-cover-loading-text">
-                {{uploadingText}}
-              </view>
+              <loading className="ant-image-upload-cover-loading-icon"></loading>
+              <view class="ant-image-upload-cover-loading-text">{{uploadingText}}</view>
             </view>
             <view
-              a:if="{{item.status === 'error'}}"
+              wx:if="{{item.status === 'error'}}"
               class="ant-image-upload-cover-error"
             >
               <icon
-                class="ant-image-upload-cover-error-icon"
+                class-name="ant-image-upload-cover-error-icon"
                 type="CloseCircleOutline"
               ></icon>
-              <view class="ant-image-upload-cover-error-text">
-                {{uploadfailedText}}
-              </view>
+              <view class="ant-image-upload-cover-error-text">{{uploadfailedText}}</view>
             </view>
           </view>
           <image
@@ -52,20 +48,20 @@
             mode="{{imageMode}}"
             src="{{item.url || item.path}}"
             data-uid="{{item.uid}}"
-            onTap="onPreview"
+            bind:tap="onPreview"
           ></image>
         </slot>
       </view>
     </block>
-    <view onTap="chooseImage">
+    <view bind:tap="chooseImage">
       <slot name="uploadButton">
         <view
-          a:if="{{showUploadButton}}"
+          wx:if="{{showUploadButton}}"
           class="ant-image-upload-add-image-wrapper"
         >
           <icon
             type="AddOutline"
-            class="ant-image-upload-add-image-icon"
+            class-name="ant-image-upload-add-image-icon"
           ></icon>
         </view>
       </slot>

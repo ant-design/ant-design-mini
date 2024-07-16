@@ -1,5 +1,5 @@
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   position="{{position}}"
   label="{{label}}"
   label-width="{{labelWidth}}"
@@ -12,20 +12,20 @@
   help="{{help}}"
 >
   <image-upload
-    ref="handleRef"
+    bind:ref="handleRef"
     default-file-list="{{formData.value}}"
     max-count="{{maxCount}}"
     image-mode="{{imageMode}}"
     source-type="{{sourceType}}"
-    onChange="onChange"
-    onUpload="{{handleUpload ? handleUpload : 'handleUpload'}}"
-    onRemove="{{handleRemove ? handleRemove : 'handleRemove'}}"
-    onPreview="onPreview"
-    onBeforeUpload="{{handleBeforeUpload ? handleBeforeUpload : 'handleBeforeUpload'}}"
-    onChooseImageError="onChooseImageError"
+    bind:change="onChange"
+    bind:upload="{{handleUpload ? handleUpload : 'handleUpload'}}"
+    bind:remove="{{handleRemove ? handleRemove : 'handleRemove'}}"
+    bind:preview="onPreview"
+    bind:beforeupload="{{handleBeforeUpload ? handleBeforeUpload : 'handleBeforeUpload'}}"
+    bind:chooseimageerror="onChooseImageError"
   ></image-upload>
   <view
-    a:if="{{!tooltip}}"
+    wx:if="{{!tooltip}}"
     slot="tooltip"
   >
     <slot name="tooltip"></slot>

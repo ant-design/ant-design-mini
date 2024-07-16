@@ -1,7 +1,7 @@
-<import-sjs
-  from="./index.sjs"
-  name="sjs"
-></import-sjs>
+<wxs
+  src="./index.wxs"
+  module="sjs"
+></wxs>
 <view
   class="ant-page-infinite {{className || ''}}"
   style="{{style || ''}}"
@@ -10,7 +10,7 @@
     scroll-x="{{true}}"
     class="ant-page-infinite-content"
     id="ant-pageInfinite{{$id ? '-' + $id : ''}}"
-    onScroll="{{supportSjs ? sjs.changeScollDistance : 'onScroll'}}"
+    bind:scroll="{{supportSjs ? sjs.changeScollDistance : 'onScroll'}}"
   >
     <slot></slot>
   </scroll-view>

@@ -1,16 +1,16 @@
 <ant-tabs
   items="{{items}}"
   current="{{current}}"
-  onChange="onChange"
+  bind:change="onChange"
   direction="vertical"
-  class="tabs"
+  class-name="tabs"
   tabs-bar-class-name="tabs-bar"
   tab-active-class-name="tab-active"
 >
   <scroll-view
     id="scroll-view"
-    onScroll="onScroll"
-    onTouchStart="onTouchStart"
+    bind:scroll="onScroll"
+    bind:touchstart="onTouchStart"
     scroll-top="{{scrollTop}}"
     scroll-y="{{true}}"
     scroll-with-animation="{{true}}"
@@ -18,17 +18,15 @@
     class="content"
   >
     <block
-      a:for="{{items}}"
-      a:for-index="index"
-      a:for-item="item"
+      wx:for="{{items}}"
+      wx:for-index="index"
+      wx:for-item="item"
     >
       <view class="item">
         <view
           class="title"
           id="tab-item-{{index}}"
-        >
-          {{item.title}}
-        </view>
+        >{{item.title}}</view>
         <view>{{item.content}}</view>
       </view>
     </block>

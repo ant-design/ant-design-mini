@@ -3,17 +3,15 @@
   name="account"
   placeholder="请输入用户名"
   required
-  ref="handleRef"
+  bind:ref="handleRef"
 ></ant-form-input>
 <ant-form-input
   label="地址"
   name="address"
   placeholder="请输入地址"
-  ref="handleRef"
+  bind:ref="handleRef"
 ></ant-form-input>
-<view style="margin: 12px">
-  onValuesChange:
-  <view style="margin: 12px">
+<view style="margin: 12px">onValuesChange:<view style="margin: 12px">
     <view>修改：{{changedValuesText}}</view>
     <view>表单：{{allValuesText}}</view>
   </view>
@@ -21,15 +19,11 @@
 <view class="buttons">
   <ant-button
     type="primary"
-    onTap="submit"
-    class="button"
-  >
-    提交
-  </ant-button>
+    bind:tap="submit"
+    class-name="button"
+  >提交</ant-button>
   <ant-button
-    onTap="reset"
-    class="button"
-  >
-    重置
-  </ant-button>
+    bind:tap="reset"
+    class-name="button"
+  >重置</ant-button>
 </view>
