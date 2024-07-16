@@ -1,0 +1,15 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Form",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Form",
+  /// #endif
+
+  "usingComponents": {
+    "ant-form-input": "../../../src/Form/FormInput/index",
+    "ant-form-image-upload": "../../../src/Form/FormImageUpload/index",
+    "ant-button": "../../../src/Button/index"
+  }
+}

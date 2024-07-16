@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Input",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Input",
+  /// #endif
+
+  "usingComponents": {
+    "ant-input": "../../../src/Input/index",
+    "ant-textarea": "../../../src/Input/Textarea/index",
+    "ant-icon": "../../../src/Icon/index",
+    "container": "../../../src/Container/index"
+  }
+}

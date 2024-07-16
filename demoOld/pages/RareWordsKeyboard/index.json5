@@ -1,0 +1,18 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "RareWordsKeyboard",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "RareWordsKeyboard",
+  /// #endif
+
+  "usingComponents": {
+    "rare-words-keyboard": "../../../src/RareWordsKeyboard/index",
+    "list": "../../../src/List/index",
+    "list-item": "../../../src/List/ListItem/index",
+    "icon": "../../../src/Icon/index",
+    "ant-input": "../../../src/Input/index",
+    "container": "../../../src/Container/index"
+  }
+}

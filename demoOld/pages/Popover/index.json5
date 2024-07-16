@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "PopoverBase",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "PopoverBase",
+  /// #endif
+
+  "usingComponents": {
+    "popover": "../../../src/Popover/index",
+    "container": "../../../src/Container/index",
+    "icon": "../../../src/Icon/index",
+    "ant-button": "../../../src/Button/index"
+  }
+}

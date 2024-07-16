@@ -1,0 +1,15 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Badge",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Badge",
+  /// #endif
+
+  "usingComponents": {
+    "ant-badge": "../../../src/Badge/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index"
+  }
+}

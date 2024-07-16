@@ -1,0 +1,15 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Stepper",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Stepper",
+  /// #endif
+
+  "usingComponents": {
+    "stepper": "../../../src/Stepper/index",
+    "container": "../../../src/Container/index",
+    "ant-button": "../../../src/Button/index"
+  }
+}

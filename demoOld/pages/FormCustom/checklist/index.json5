@@ -1,0 +1,18 @@
+{
+  "component": true,
+
+  /// #if WECHAT
+  "navigationBarTitleText": "Form",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Form",
+  /// #endif
+
+  "usingComponents": {
+    "form-item": "../../../../src/Form/FormItem/index",
+    "checklist": "../../../../src/Checklist/index",
+    "icon": "../../../../src/Icon/index",
+    "popup": "../../../../src/Popup/index"
+  }
+}

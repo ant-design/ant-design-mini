@@ -1,0 +1,15 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Checklist",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Checklist",
+  /// #endif
+
+  "usingComponents": {
+    "ant-checklist": "../../../src/Checklist/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

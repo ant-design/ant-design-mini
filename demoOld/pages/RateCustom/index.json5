@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Rate",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Rate",
+  /// #endif
+
+  "usingComponents": {
+    "ant-rate": "../../../src/Rate/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index"
+  },
+  "allowsBounceVertical": "NO"
+}
