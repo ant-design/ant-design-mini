@@ -1,0 +1,41 @@
+@import (reference) './variable.less';
+
+@tabsPrefix: ant-tab-bar;
+@tabSize: 48 * @rpx;
+@textSize: 20 * @rpx;
+
+.@{tabsPrefix} {
+  &-wrap {
+    display: flex;
+    align-items: center;
+    background-color: @COLOR_CARD;
+  }
+  &-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8 * @rpx 0;
+    color: @COLOR_TEXT_SECONDARY;
+    &-active {
+      color: @COLOR_BRAND1;
+    }
+  }
+
+  &-icon {
+    max-width: @tabSize;
+    max-height: @tabSize;
+    font-size: @tabSize;
+  }
+
+  &-image {
+    font-size: @tabSize;
+    max-width: @tabSize;
+    max-height: @tabSize;
+  }
+
+  &-text {
+    font-size: @textSize;
+  }
+}

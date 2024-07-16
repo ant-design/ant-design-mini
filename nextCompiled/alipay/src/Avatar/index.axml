@@ -1,0 +1,11 @@
+<import-sjs
+  from="./index.sjs"
+  name="utils" />
+
+<view
+  class="ant-avatar {{ className ? className : '' }}"
+  style="{{ style }}">
+  <image
+    class="ant-avatar-image {{ utils.getClass(size) }}"
+    src="{{ src || utils.defaultSrc }}" />
+</view>

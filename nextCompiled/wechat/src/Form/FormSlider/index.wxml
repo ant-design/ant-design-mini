@@ -1,0 +1,56 @@
+<form-item
+  className="{{ className }}"
+  style="{{ style }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  labelWidth="{{ labelWidth }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
+  <view>
+    <slider
+      value="{{ formData.value }}"
+      className="{{ sliderClassName }}"
+      style="{{ sliderStyle }}"
+      activeLineClassName="{{ activeLineClassName }}"
+      activeLineStyle="{{ activeLineStyle }}"
+      activeDotClassName="{{ activeDotClassName }}"
+      activeDotStyle="{{ activeDotStyle }}"
+      min="{{ min }}"
+      max="{{ max }}"
+      range="{{ range }}"
+      showNumber="{{ showNumber }}"
+      step="{{ step }}"
+      showTicks="{{ showTicks }}"
+      showTooltip="{{ showTooltip }}"
+      disabled="{{ disabled }}"
+      bind:change="onChange"
+      onAfterChange="onAfterChange" />
+  </view>
+  <view
+    wx:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
+  <view slot="extra">{{ extra }}</view>
+  <view
+    slot="header"
+    slot-scope="item">
+    <slot
+      name="header"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+  <view
+    slot="footer"
+    slot-scope="item">
+    <slot
+      name="footer"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+</form-item>

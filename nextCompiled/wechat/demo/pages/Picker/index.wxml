@@ -1,0 +1,109 @@
+<ant-list header="基础用法">
+  <ant-list-item>
+    选择城市
+    <ant-picker
+      slot="extra"
+      bind:cancel="handleDismissPicker"
+      bind:visiblechange="handleTriggerPicker"
+      bind:ok="handleOk"
+      defaultValue="{{ defaultValue }}"
+      placeholder="请选择"
+      title="请选择"
+      bind:change="handleChange"
+      options="{{ list }}"
+      emptyText="暂无数据" />
+  </ant-list-item>
+  <ant-list-item>
+    选择城市（点击蒙层不关闭）
+    <ant-picker
+      slot="extra"
+      bind:cancel="handleDismissPicker"
+      bind:visiblechange="handleTriggerPicker"
+      bind:ok="handleOk"
+      defaultValue="{{ defaultValue }}"
+      placeholder="请选择"
+      title="请选择"
+      bind:change="handleChange"
+      maskClosable="{{ false }}"
+      options="{{ list }}" />
+  </ant-list-item>
+</ant-list>
+<ant-list header="受控模式">
+  <ant-list-item>
+    选择城市
+    <ant-picker
+      slot="extra"
+      bind:ok="handleControlledOk"
+      value="{{ value }}"
+      placeholder="请选择"
+      title="请选择"
+      options="{{ list }}" />
+  </ant-list-item>
+  <view class="btn-wrapper">
+    <ant-button
+      inline
+      bind:tap="handleChangeControlled"
+      style="margin-right: 8px">
+      选择深圳
+    </ant-button>
+    <ant-button
+      inline
+      bind:tap="handleClearControlled">
+      清空
+    </ant-button>
+  </view>
+</ant-list>
+<ant-list header="对象用法">
+  <ant-list-item>
+    选择日期
+    <ant-picker
+      slot="extra"
+      bind:cancel="handleDismissPicker"
+      bind:visiblechange="handleTriggerPicker"
+      bind:ok="handleOk"
+      placeholder="请选择"
+      title="请选择"
+      bind:change="handleChange"
+      options="{{ weekList }}" />
+  </ant-list-item>
+</ant-list>
+
+<ant-list header="多列复杂类型数据">
+  <ant-list-item>
+    请选择时间
+    <ant-picker
+      slot="extra"
+      placeholder="请选择"
+      bind:visiblechange="handleTriggerPicker"
+      defaultValue="{{['Tues', 'pm']}}"
+      title="请选择"
+      bind:ok="handleOk"
+      onFormat="{{ formatTime ? formatTime : 'formatTime' }}"
+      options="{{ columns }}" />
+  </ant-list-item>
+</ant-list>
+
+<ant-container style="margin-top: 20rpx">
+  <ant-list header="多列复杂类型数据">
+    <ant-list-item>
+      请选择时间
+      <ant-picker
+        slot="extra"
+        visible="{{ pickerVisible }}"
+        placeholder="请选择"
+        bind:visiblechange="handleTriggerControlledPicker"
+        defaultValue="{{['Tues', 'pm']}}"
+        title="请选择"
+        bind:ok="handleOk"
+        onFormat="{{ formatTime ? formatTime : 'formatTime' }}"
+        options="{{ columns }}" />
+    </ant-list-item>
+  </ant-list>
+
+  <ant-button
+    size="medium"
+    type="primary"
+    bind:tap="handleOpenPicker">
+    打开 Picker
+  </ant-button>
+</ant-container>

@@ -1,0 +1,25 @@
+<view class="t-swipe">
+  <view class="t-swipe-item">
+    <view class="t-swipe-item-title">滑动速度变慢</view>
+
+    <block
+      a:for="{{ 10 }}"
+      a:for-index="index"
+      a:for-item="_"
+      a:key="{{ index }}">
+      <view class="t-swipe-item-con">
+        <ant-swipe-action
+          data-item="{{ index }}"
+          rightButtons="{{ rightBtns }}"
+          elasticity="{{ false }}"
+          damping="25"
+          swiped="{{ swipeIndex === index }}"
+          onSwipeEnd="onSwipeEnd"
+          onSwipeStart="onSwipeStart"
+          onButtonTap="onButtonTap">
+          <view class="t-swipe-item-con-view">右侧-三个按钮</view>
+        </ant-swipe-action>
+      </view>
+    </block>
+  </view>
+</view>

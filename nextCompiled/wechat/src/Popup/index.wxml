@@ -1,0 +1,24 @@
+<wxs
+  src="./index.wxs"
+  module="utils" />
+
+<view
+  wx:if="{{ !destroyOnClose || visible || closing }}"
+  class="ant-popup {{ className || '' }}"
+  style="{{ zIndex ? 'z-index:' + zIndex : '' }};{{ style || '' }}"
+  hidden="{{ !destroyOnClose && !visible && !closing }}">
+  <view
+    wx:if="{{ showMask }}"
+    class="ant-popup-mask {{ maskClassName || '' }} {{ closing && !visible ? 'ant-popup-mask-closing' : '' }}"
+    bind:tap="onTapMask"
+    style="{{ animation ? '-webkit-animation-duration:' + duration + 'ms; animation-duration:' + duration + 'ms;' : '' }} {{ maskStyle || '' }}" />
+  <view
+    class="ant-popup-content ant-popup-{{ animationType }}-{{ position }} {{ closing ? 'ant-popup-' + animationType + '-' + position + '-close' : '' }}"
+    style="{{ utils.getContentStyle(position, animation, duration, width, height) }}"
+    bindanimationend="onAnimationEnd">
+    <slot />
+    <slot
+      wx:if="{{ isOldVersion }}"
+      name="content" />
+  </view>
+</view>

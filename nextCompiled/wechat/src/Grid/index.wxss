@@ -1,0 +1,107 @@
+.ant-grid {
+  padding: 12px;
+  box-sizing: border-box;
+}
+.ant-grid-columns-3 {
+  padding: 12px 0;
+}
+.ant-grid-default {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.ant-grid-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+.ant-grid-item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.ant-grid-item-line::after {
+  content: '';
+  position: absolute;
+  background-color: #eeeeee;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  width: 1px;
+  transform: scaleX(0.5);
+}
+.ant-grid-item-vertical-space {
+  margin-bottom: 20px;
+}
+.ant-grid-item-columns-5 {
+  width: 20%;
+}
+.ant-grid-item-columns-4 {
+  width: 25%;
+}
+.ant-grid-item-columns-3 {
+  width: 33.3%;
+}
+.ant-grid-item-columns-2 {
+  width: 50%;
+}
+.ant-grid-item-horizontal {
+  justify-content: center;
+  text-align: left;
+  position: relative;
+  min-height: 28px;
+  padding-left: 40px;
+}
+.ant-grid-item-horizontal .ant-grid-item-img,
+.ant-grid-item-horizontal .ant-grid-item-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.ant-grid-item-horizontal .ant-grid-item-title {
+  margin-top: 0;
+}
+.ant-grid-item-columns-scroll {
+  width: 65px;
+}
+.ant-grid-item-icon-circle {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.ant-grid-item-icon-icon {
+  font-size: 28px;
+}
+.ant-grid-item-icon-image {
+  width: 28px;
+  height: 28px;
+}
+.ant-grid-item-title {
+  font-size: 13px;
+  color: #333333;
+  line-height: 18.5px;
+  width: 100%;
+  margin-top: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ant-grid-item-description {
+  font-size: 12px;
+  color: #999999;
+  line-height: 16.5px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ant-grid-item-description:empty {
+  display: none;
+}

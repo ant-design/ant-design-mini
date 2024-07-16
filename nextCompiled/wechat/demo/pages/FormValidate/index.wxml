@@ -1,0 +1,27 @@
+<ant-form-input
+  label="用户名"
+  name="account"
+  validateStatus="error"
+  help="需要填写用户名"
+  bind:ref="handleRef" />
+
+<ant-form-input
+  label="地址"
+  name="address"
+  help="需要填写地址"
+  bind:ref="handleRef" />
+
+<ant-form-input
+  label="水果"
+  name="fruit"
+  bind:ref="handleRef" />
+
+<view class="buttons">
+  <ant-button
+    type="primary"
+    bind:tap="submit"
+    style="margin-bottom: 12px">
+    提交
+  </ant-button>
+  <ant-button bind:tap="reset">重置</ant-button>
+</view>

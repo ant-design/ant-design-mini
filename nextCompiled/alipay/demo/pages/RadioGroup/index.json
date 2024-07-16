@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "RadioGroup",
+  "usingComponents": {
+    "ant-radio-group": "../../../src/Radio/RadioGroup/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

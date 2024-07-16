@@ -1,0 +1,152 @@
+@keyframes number-input-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.ant-number-keyboard {
+  color: #333333;
+  width: 0;
+  height: 0;
+  position: relative;
+  overflow: hidden;
+}
+.ant-number-keyboard-modal {
+  z-index: 998;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+}
+.ant-number-keyboard-kb {
+  background: #f5f5f5;
+  max-height: 600px;
+  min-width: 100vw;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transition: all 200ms linear;
+  z-index: 999;
+}
+.ant-number-keyboard-kb_hide {
+  transform: translateY(100%);
+  max-height: 0;
+}
+.ant-number-keyboard-kb_bd {
+  display: flex;
+}
+.ant-number-keyboard-kb_row {
+  display: flex;
+}
+.ant-number-keyboard-kb_keys {
+  flex: 3;
+}
+.ant-number-keyboard-kb_function {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.ant-number-keyboard-kb_none {
+  height: 40px;
+  width: calc(100% - 96 * 0.5px);
+  padding: 0 24px;
+  font-size: 14px;
+  background-color: #ffffff;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f5f5f5;
+  color: #999999;
+}
+.ant-number-keyboard-kb_number {
+  flex: 1;
+  height: calc(100vh / 14);
+  text-align: center;
+  font-size: 25px;
+  color: #333333;
+  background: #ffffff;
+  border-right: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+.ant-number-keyboard-kb_number:active {
+  background-color: #d3d3d3;
+  opacity: 0.5;
+  color: #333333;
+}
+.ant-number-keyboard-kb_disable:active {
+  opacity: 1;
+}
+.ant-number-keyboard-kb_zero {
+  flex: 2;
+}
+.ant-number-keyboard-kb_point {
+  flex: 1;
+}
+.ant-number-keyboard-kb_transfer {
+  background-color: #1677ff;
+  color: white;
+  flex: 1;
+  height: calc(100vh / 14);
+  text-align: center;
+  font-size: 17px;
+  border-right: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+.ant-number-keyboard-kb_transfer-btn {
+  font-size: 16px;
+  font-weight: bold;
+}
+.ant-number-keyboard-kb_transfer:active {
+  opacity: 0.9;
+}
+.ant-number-keyboard-kb_del {
+  position: relative;
+  flex: none;
+  border-right: none;
+}
+.ant-number-keyboard-kb_del::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+}
+.ant-number-keyboard-kb_iphonex-safe {
+  height: 24px;
+  width: 100%;
+  background-color: #ffffff;
+}
+.ant-number-keyboard-kb_flex {
+  flex: 1;
+}
+.ant-number-keyboard-kb-e {
+  background-color: #eeeeee;
+}
+.ant-number-keyboard-down {
+  font-size: 20px;
+}
+.ant-number-keyboard-del {
+  font-size: 25px;
+}

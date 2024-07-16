@@ -1,0 +1,43 @@
+<ant-form-input
+  label="用户名"
+  name="account"
+  required
+  position="{{ position }}"
+  bind:ref="handleRef" />
+
+<ant-form-input
+  label="地址"
+  name="address"
+  position="{{ position }}"
+  bind:ref="handleRef" />
+
+<ant-form-switch
+  label="选择"
+  name="needDelivery"
+  position="{{ position }}"
+  bind:ref="handleRef" />
+
+<ant-form-stepper
+  label="数量"
+  name="quantity"
+  position="{{ position }}"
+  bind:ref="handleRef" />
+
+<view class="buttons">
+  <ant-button
+    type="primary"
+    bind:tap="submit"
+    className="button">
+    提交
+  </ant-button>
+  <ant-button
+    bind:tap="reset"
+    className="button">
+    重置
+  </ant-button>
+  <ant-button
+    bind:tap="toggle"
+    className="button">
+    切换表单布局
+  </ant-button>
+</view>

@@ -1,0 +1,61 @@
+<ant-container title="单选">
+  <ant-selector options="{{ items1 }}" />
+</ant-container>
+
+<ant-container title="单选-选项带有副标题">
+  <ant-selector
+    defaultValue="2"
+    options="{{ items2 }}" />
+</ant-container>
+
+<ant-container title="多选">
+  <ant-selector
+    defaultValue="{{ ['1', '2'] }}"
+    options="{{ items1 }}"
+    multiple />
+</ant-container>
+
+<ant-container title="多选 (最少选 2 个 最多选 4 个)">
+  <ant-selector
+    defaultValue="{{ ['1'] }}"
+    options="{{ items1 }}"
+    multiple
+    maxSelectedCount="{{ 4 }}"
+    minSelectedCount="{{ 2 }}"
+    bind:selectmax="onSelectMax" />
+</ant-container>
+
+<ant-container title="全禁用">
+  <ant-selector
+    value="{{ ['1', '2'] }}"
+    options="{{ items1 }}"
+    disabled
+    multiple />
+</ant-container>
+
+<ant-container title="部分禁用">
+  <ant-selector
+    defaultValue="{{ ['1', '2'] }}"
+    options="{{ items3 }}"
+    multiple />
+</ant-container>
+
+<ant-container title="受控模式">
+  <ant-selector
+    value="{{ value }}"
+    options="{{ items1 }}"
+    bind:change="handleChange" />
+  <ant-button
+    size="large"
+    bind:tap="handleChangeValue">
+    改变选中值为选项三
+  </ant-button>
+</ant-container>
+
+<ant-container title="单选-不允许清空">
+  <ant-selector
+    defaultValue="1"
+    minSelectedCount="{{ 1 }}"
+    bind:selectmin="onSelectMin"
+    options="{{ items1 }}" />
+</ant-container>

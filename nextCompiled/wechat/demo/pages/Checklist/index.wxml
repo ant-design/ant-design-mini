@@ -1,0 +1,39 @@
+<ant-container title="简单布局-单选">
+  <ant-checklist
+    defaultValue="{{ [1] }}"
+    options="{{ options_1 }}"
+    data-options="{{ options_1 }}"
+    bind:change="onChange" />
+</ant-container>
+
+<ant-container title="复杂布局-多选">
+  <ant-checklist
+    defaultValue="{{ [1, 2] }}"
+    options="{{ options_2 }}"
+    multiple
+    bind:change="onChange" />
+</ant-container>
+
+<ant-container title="受控模式">
+  <ant-checklist
+    value="{{ value }}"
+    options="{{ options_2 }}"
+    multiple
+    bind:change="onChangeControlled" />
+</ant-container>
+
+<ant-container title="禁用状态">
+  <ant-checklist
+    defaultValue="{{ [2] }}"
+    options="{{ options_3 }}"
+    multiple
+    bind:change="onChange" />
+</ant-container>
+
+<ant-container title="只读状态">
+  <ant-checklist
+    defaultValue="{{ [2] }}"
+    options="{{ options_4 }}"
+    multiple
+    bind:change="onChange" />
+</ant-container>

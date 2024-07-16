@@ -1,0 +1,35 @@
+<ant-container title="基本用法">
+  <ant-uploader
+    bind:change="onChange"
+    onUpload="{{ onUpload ? onUpload : 'onUpload' }}"
+    uploadingText="上传中……"
+    uploadfailedText="上传失败" />
+</ant-container>
+<ant-container title="初始值">
+  <ant-uploader
+    defaultFileList="{{ defaultFileList }}"
+    bind:change="onChange"
+    onUpload="{{ onUpload ? onUpload : 'onUpload' }}"
+    onPreview="onPreview" />
+</ant-container>
+<ant-container title="上传最大限制">
+  限制只能上传1个
+  <ant-uploader
+    maxCount="{{ 1 }}"
+    bind:change="onChange"
+    onUpload="{{ onUpload ? onUpload : 'onUpload' }}" />
+</ant-container>
+<ant-container title="自定义移除">
+  <ant-uploader
+    defaultFileList="{{ defaultFileList }}"
+    onRemove="{{ onRemove ? onRemove : 'onRemove' }}"
+    bind:change="onChange"
+    onUpload="{{ onUpload ? onUpload : 'onUpload' }}" />
+</ant-container>
+<ant-container title="自定义上传前">
+  <ant-uploader
+    defaultFileList="{{ defaultFileList }}"
+    onBeforeUpload="{{ onBeforeUpload ? onBeforeUpload : 'onBeforeUpload' }}"
+    bind:change="onChange"
+    onUpload="{{ onUpload ? onUpload : 'onUpload' }}" />
+</ant-container>

@@ -1,0 +1,9 @@
+.cn-day {
+  color: #999999;
+}
+.festival {
+  color: red;
+}
+.unset {
+  color: unset;
+}

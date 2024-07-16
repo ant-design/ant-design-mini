@@ -1,0 +1,61 @@
+@import (reference) './variable.less';
+
+.ant-progress {
+  &-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .ant-progress-outer {
+      background-color: @trail-color;
+      border-radius: @corner-radius-circle;
+      height: 16 * @rpx;
+      overflow: hidden;
+      flex: 1;
+    }
+    .ant-progress-inner {
+      border-radius: @corner-radius-circle;
+      transition: width 0.3s;
+      height: 100%;
+      position: relative;
+      background-color: @stroke-color;
+      &-success {
+        background-color: @COLOR_GREEN;
+      }
+      &-exception {
+        background-color: @COLOR_RED;
+      }
+    }
+    .ant-progress-indicator {
+      margin-left: 16 * @rpx;
+      color: @COLOR_TEXT_ASSIST;
+      font-size: 26 * @rpx;
+      height: 37 * @rpx;
+      display: flex;
+      align-items: center;
+    }
+    .ant-progress-status-icon {
+      &-success {
+        color: @COLOR_GREEN;
+      }
+      &-exception {
+        color: @COLOR_RED;
+      }
+    }
+  }
+  &-circle {
+    position: relative;
+    > canvas {
+      width: 100%;
+      height: 100%;
+    }
+    .ant-progress-indicator {
+      font-size: 40 * @rpx;
+      color: @COLOR_TEXT_PRIMARY;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      z-index: 10;
+    }
+  }
+}

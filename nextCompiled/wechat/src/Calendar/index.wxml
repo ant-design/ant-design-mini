@@ -1,0 +1,91 @@
+<wxs
+  src="./helper.wxs"
+  module="helper" />
+
+<wxs
+  src="./scroll.wxs"
+  module="scroll" />
+
+<view
+  class="ant-calendar {{ className ? className : '' }}"
+  style="{{ style }}">
+  <view class="ant-calendar-mark">
+    <block
+      wx:for="{{ markItems }}"
+      wx:for-index="index"
+      wx:for-item="item">
+      <view class="{{ helper.getMarkCellClassName(index, markItems) }}">
+        <!-- display: inline -->
+        <text>{{ item }}</text>
+      </view>
+    </block>
+  </view>
+  <view
+    wx:if="{{ !!elementSize }}"
+    class="ant-calendar-sticky">
+    <view class="ant-calendar-sticky-title">
+      <view class="ant-calendar-title">{{ monthList[headerState].title }}</view>
+    </view>
+  </view>
+  <scroll-view
+    scroll-y="{{ true }}"
+    class="ant-calendar-body"
+    data-elementsize="{{ elementSize }}"
+    data-monthlist="{{ monthList }}"
+    bind:scroll="{{ scroll.handleScroll }}"
+    scroll-into-view="{{ scrollIntoViewId }}"
+    scroll-with-animation
+    scroll-animation-duration="{{ 300 }}"
+    disable-lower-scroll="out-of-bounds"
+    disable-upper-scroll="out-of-bounds"
+    bind:ref="handleRef">
+    <block
+      wx:for="{{ monthList }}"
+      wx:for-index="index"
+      wx:for-item="currentMonth">
+      <view
+        class="ant-calendar-body-container {{ currentMonth.className || '' }}">
+        <view class="ant-calendar-title-container">
+          <view class="ant-calendar-title">{{ currentMonth.title }}</view>
+        </view>
+        <view class="ant-calendar-cells">
+          <block
+            wx:for="{{ currentMonth.cells }}"
+            wx:for-index="index"
+            wx:for-item="item">
+            <block>
+              <view
+                class="{{ helper.getClassName(item, index) }}"
+                id="id_{{ item.time }}"
+                data-time="{{ item }}"
+                bind:tap="clickCell">
+                <view class="ant-calendar-cell-container">
+                  <view class="ant-calendar-cell-top">
+                    <!-- display: inline -->
+                    <text
+                      wx:if="{{ item.top }}"
+                      class="ant-calendar-cell-top-text {{ item.top.className ? item.top.className : '' }}"
+                      >{{ item.top.label }}</text
+                    >
+                  </view>
+                  <view class="ant-calendar-cell-center">{{ item.date }}</view>
+                  <view class="ant-calendar-cell-bottom">
+                    <!-- display: inline -->
+                    <text
+                      wx:if="{{ item.bottom }}"
+                      class="{{ item.bottom.className }}"
+                      >{{ item.bottom.label }}</text
+                    >
+                  </view>
+                </view>
+              </view>
+              <view
+                wx:if="{{ index % 7 !== 6 }}"
+                class="{{ helper.getSpaceClassName(index, currentMonth.cells) }}" />
+            </block>
+          </block>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

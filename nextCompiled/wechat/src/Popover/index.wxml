@@ -1,0 +1,35 @@
+<view
+  class="ant-popover {{ showMask && mixin.value ? 'ant-popover-children' : '' }} {{ className ? className : '' }}"
+  style="{{ style || '' }}">
+  <view
+    id="ant-popover-children{{ $id ? '-' + $id : '' }}"
+    bind:tap="onVisibleChange">
+    <view id="ant-popover-children-container">
+      <slot />
+    </view>
+  </view>
+  <view
+    wx:if="{{ !destroyOnClose || mixin.value }}"
+    hidden="{{ !mixin.value }}"
+    id="ant-popover-content{{ $id ? '-' + $id : '' }}"
+    class="ant-popover-content ant-popover-{{ adjustedPlacement }}"
+    style="{{ popoverContentStyle }}; {{ adjustedPlacement ? '' : 'opacity: 0' }}">
+    <view
+      class="ant-popover-arrow ant-popover-{{ adjustedPlacement }}-arrow"
+      style="{{ color ? 'border-bottom-color:' + color : '' }}" />
+    <view
+      class="ant-popover-inner {{ contentClassName || '' }}"
+      style="{{ color ? 'background:' + color : '' }};{{ contentStyle || '' }}">
+      <slot
+        wx:if="{{ !content }}"
+        name="content" />
+      {{ content }}
+    </view>
+  </view>
+</view>
+<mask
+  show="{{ showMask && mixin.value }}"
+  id="ant-popover-mask{{ $id ? '-' + $id : '' }}"
+  className="ant-popover-mask {{ maskClassName || '' }}"
+  style="{{ maskStyle }}"
+  bind:masktap="onVisibleChange" />

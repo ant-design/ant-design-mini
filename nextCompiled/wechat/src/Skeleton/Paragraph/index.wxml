@@ -1,0 +1,12 @@
+<view
+  wx:if="{{ loading && rows > 0 }}"
+  class="ant-skeleton-paragraph {{ animate ? 'ant-skeleton-paragraph-animate' : '' }} {{ className || '' }}"
+  style="{{ style }}">
+  <block
+    wx:for="{{ rows }}"
+    wx:for-index="index"
+    wx:for-item="item">
+    <view class="ant-skeleton-paragraph-row" />
+  </block>
+</view>
+<slot wx:else />

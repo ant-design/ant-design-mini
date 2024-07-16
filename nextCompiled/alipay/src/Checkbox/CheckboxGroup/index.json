@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "list": "../../List/index",
+    "list-item": "../../List/ListItem/index",
+    "ant-checkbox": "../index"
+  }
+}

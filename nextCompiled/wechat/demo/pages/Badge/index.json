@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "Badge",
+  "usingComponents": {
+    "ant-badge": "../../../src/Badge/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index"
+  }
+}

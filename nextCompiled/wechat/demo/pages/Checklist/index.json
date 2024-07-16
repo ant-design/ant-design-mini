@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "Checklist",
+  "usingComponents": {
+    "ant-checklist": "../../../src/Checklist/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

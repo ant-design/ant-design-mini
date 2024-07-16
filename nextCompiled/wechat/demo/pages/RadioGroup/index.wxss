@@ -1,0 +1,18 @@
+.icon {
+  border: 1px solid #CCCCCC;
+  border-radius: 50vh;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checked {
+  background-color: red;
+  color: #fff;
+  font-size: 14px;
+}
+.disabled {
+  opacity: 0.4;
+}

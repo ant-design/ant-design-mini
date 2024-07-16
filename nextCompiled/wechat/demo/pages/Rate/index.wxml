@@ -1,0 +1,58 @@
+<ant-container title="基础用法">
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    bind:change="onChange" />
+</ant-container>
+
+<ant-container title="半星">
+  <ant-rate
+    defaultValue="{{ 3.5 }}"
+    allowHalf
+    bind:change="onChange" />
+</ant-container>
+
+<ant-container title="清除">
+  <ant-rate
+    defaultValue="{{ 4 }}"
+    bind:change="onChange" />
+  <view class="description">allowClear: true</view>
+  <ant-rate
+    defaultValue="{{ 4 }}"
+    allowClear="{{ false }}"
+    bind:change="onChange" />
+  <view class="description">allowClear: false</view>
+</ant-container>
+
+<ant-container title="只读">
+  <ant-rate
+    defaultValue="{{ 3.5 }}"
+    readonly />
+</ant-container>
+
+<ant-container title="多个count">
+  <ant-rate
+    defaultValue="{{ 5 }}"
+    count="{{ 8 }}" />
+</ant-container>
+
+<ant-container title="受控模式">
+  <view style="display: flex; justify-content: space-around">
+    <view>
+      <ant-rate
+        value="{{ value }}"
+        bind:change="handleChange" />
+
+      <view style="margin-top: 8px">
+        <ant-stepper
+          value="{{ value }}"
+          min="{{ 0 }}"
+          max="{{ 5 }}"
+          bind:change="handleChange" />
+      </view>
+    </view>
+    <view>
+      <ant-rate value="{{ value }}" />
+      <view class="description">无 onChange 函数</view>
+    </view>
+  </view>
+</ant-container>

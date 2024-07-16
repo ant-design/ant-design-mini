@@ -1,0 +1,19 @@
+<view
+  class="ant-container {{ headerInBox ? 'ant-container-headerInBox' : 'ant-container-headerNotInBox' }} {{ className ? className : '' }}"
+  style="{{ style }}">
+  <view class="ant-container-header">
+    <view class="ant-container-header-title">
+      <!-- display: inline -->
+      <text wx:if="{{ title }}">{{ title }}</text>
+      <slot
+        wx:else
+        name="title" />
+    </view>
+    <view class="ant-container-header-right">
+      <slot name="headerRight" />
+    </view>
+  </view>
+  <view class="ant-container-content">
+    <slot />
+  </view>
+</view>

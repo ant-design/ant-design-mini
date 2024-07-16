@@ -1,0 +1,11 @@
+<wxs
+  src="./index.wxs"
+  module="utils" />
+
+<view
+  class="ant-avatar {{ className ? className : '' }}"
+  style="{{ style }}">
+  <image
+    class="ant-avatar-image {{ utils.getClass(size) }}"
+    src="{{ src || utils.defaultSrc }}" />
+</view>

@@ -1,0 +1,26 @@
+<list header="数字键盘示例: 金额输入">
+  <list-item>
+    <view
+      class="number-content {{ value ? '' : 'number-placeholder' }}"
+      catch:tap="onAmountFocus">
+      <!-- display: inline -->
+      <text wx:if="{{ value }}">{{ value }}</text>
+      <!-- display: inline -->
+      <text
+        wx:else
+        class="number-content-tip"
+        >0.00</text
+      >
+      <view
+        wx:if="{{ visible }}"
+        class="number-light"
+        style="position: {{ value ? 'static' : 'absolute' }}" />
+    </view>
+  </list-item>
+  <number-keyboard
+    visible="{{ visible }}"
+    closeable="{{ true }}"
+    value="{{ value }}"
+    bind:change="onChange"
+    bind:close="onClose" />
+</list>

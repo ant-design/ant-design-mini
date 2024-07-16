@@ -1,0 +1,39 @@
+<wxs
+  src="./index.wxs"
+  module="util" />
+
+<view
+  class="ant-selector {{ className ? className : '' }} {{ disabled ? 'ant-selector-disabled' : '' }}"
+  style="{{ style }}">
+  <view class="ant-selector-content-container">
+    <block
+      wx:for="{{ options }}"
+      wx:for-index="index"
+      wx:for-item="item">
+      <view
+        class="ant-selector-content {{ options.length <= 2 ? 'ant-selector-content-item2' : '' }}">
+        <view
+          class="ant-selector-item {{ item.disabled ? 'ant-selector-item-disabled' : '' }} {{ util.getChecked(item.value, mixin.value, multiple) ? 'ant-selector-item-active ' + (activeItemClassName || '') : '' }}"
+          style="{{ util.getChecked(item.value, mixin.value, multiple) ? activeItemStyle || '' : '' }}"
+          data-value="{{ item.value }}"
+          data-disabled="{{ item.disabled }}"
+          bind:tap="onChange">
+          <view
+            wx:if="{{ item.text }}"
+            class="ant-selector-item-text">
+            {{ item.text }}
+          </view>
+          <view
+            wx:if="{{ item.subText }}"
+            class="ant-selector-item-subtext">
+            {{ item.subText }}
+          </view>
+          <view
+            wx:if="{{ util.getChecked(item.value, mixin.value, multiple) }}"
+            class="ant-selector-item-badge-active" />
+          <slot item="{{ item }}" />
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

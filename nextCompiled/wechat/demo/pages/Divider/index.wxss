@@ -1,0 +1,10 @@
+page {
+  padding: 24px;
+  box-sizing: border-box;
+}
+.divider-vertical {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #cccccc;
+}

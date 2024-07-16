@@ -1,0 +1,72 @@
+.ant-image-upload {
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffffff;
+}
+.ant-image-upload-show {
+  position: relative;
+}
+.ant-image-upload-image {
+  width: 80px;
+  height: 80px;
+  margin: 2px 4px;
+  border-radius: 4px;
+}
+.ant-image-upload-close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  z-index: 99;
+  top: -2px;
+  right: 0;
+  background: url('https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*_Az1QavR4OsAAAAAAAAAAAAAARQnAQ') no-repeat;
+  background-size: cover;
+}
+.ant-image-upload-add-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 2px 4px 6px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.ant-image-upload-add-image-icon {
+  color: #999999;
+}
+.ant-image-upload-cover {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  margin: 2px 4px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ant-image-upload-cover-loading {
+  text-align: center;
+}
+.ant-image-upload-cover-loading-icon {
+  width: 24px;
+  height: 24px;
+}
+.ant-image-upload-cover-loading-text {
+  color: #ffffff;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.ant-image-upload-cover-error {
+  text-align: center;
+}
+.ant-image-upload-cover-error-icon {
+  font-size: 48rpx;
+  color: #ffffff;
+}
+.ant-image-upload-cover-error-text {
+  color: #ffffff;
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}

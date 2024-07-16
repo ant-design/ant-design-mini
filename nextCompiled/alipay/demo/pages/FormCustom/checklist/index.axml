@@ -1,0 +1,51 @@
+<import-sjs
+  from="./index.sjs"
+  name="utils" />
+
+<form-item
+  className="{{ className }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
+  <view
+    class="input"
+    onTap="showPopup">
+    <view class="input-items">
+      <block
+        a:for="{{ formData.value }}"
+        a:for-index="index"
+        a:for-item="item">
+        <view class="input-item">{{ utils.getTitle(options, item) }}</view>
+      </block>
+    </view>
+
+    <view class="choose">
+      请选择
+      <icon type="RightOutline" />
+    </view>
+  </view>
+  <view slot="extra">
+    <slot name="extra">{{ extra }}</slot>
+  </view>
+</form-item>
+
+<popup
+  visible="{{ visible }}"
+  height="{{ 250 }}"
+  width="{{ 250 }}"
+  position="right"
+  onClose="handlePopupClose">
+  <view style="padding: 12px">
+    <checklist
+      options="{{ options }}"
+      multiple
+      value="{{ formData.value }}"
+      onChange="onChange" />
+  </view>
+</popup>

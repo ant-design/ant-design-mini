@@ -1,0 +1,37 @@
+<ant-container title="自定义间距">
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    gutter="{{ 8 }}" />
+  <view class="description">8px</view>
+
+  <ant-rate
+    defaultValue="{{ 4 }}"
+    gutter="{{ 16 }}" />
+  <view class="description">16px</view>
+</ant-container>
+
+<ant-container title="自定义大小">
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    className="rate" />
+  <view class="description">30px</view>
+
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    style="font-size: 40px" />
+  <view class="description">40px</view>
+</ant-container>
+
+<ant-container title="自定义颜色">
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    characterClassName="star"
+    characterActiveClassName="star-active" />
+  <view class="description">基础</view>
+
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    characterClassName="star-gradient"
+    characterActiveClassName="star-active-gradient" />
+  <view class="description">渐变</view>
+</ant-container>
