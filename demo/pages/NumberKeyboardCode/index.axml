@@ -1,0 +1,27 @@
+<list header="数字键盘示例：验证码">
+  <list-item>
+    <view
+      class="number-code"
+      catchTap="onCodeFocus">
+      <block
+        a:for="{{ 4 }}"
+        a:for-index="index"
+        a:for-item="item">
+        <view
+          class="number-code-view {{ visible && value.length === index ? 'number-code-border' : '' }}">
+          {{ value[index] || '' }}
+          <view
+            a:if="{{ visible && value.length === index }}"
+            class="number-code-tip" />
+        </view>
+      </block>
+    </view>
+  </list-item>
+  <number-keyboard
+    visible="{{ visible }}"
+    point="{{ false }}"
+    closeable="{{ true }}"
+    value="{{ value }}"
+    onChange="onChange"
+    onClose="onClose" />
+</list>

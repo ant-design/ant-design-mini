@@ -1,0 +1,54 @@
+<ant-list header="基础使用">
+  <ant-list-item onTap="onTap">默认键盘</ant-list-item>
+  <ant-number-keyboard
+    visible="{{ visible }}"
+    onClose="onTap" />
+
+  <ant-list-item onTap="onTap1">没有小数点</ant-list-item>
+  <ant-number-keyboard
+    point="{{ false }}"
+    visible="{{ visible1 }}"
+    onClose="onTap1" />
+
+  <ant-list-item onTap="onTap2">带确认按钮</ant-list-item>
+  <ant-number-keyboard
+    confirmText="确认"
+    visible="{{ visible2 }}"
+    onClose="onTap2" />
+
+  <ant-list-item onTap="onTap3">带关闭箭头</ant-list-item>
+  <ant-number-keyboard
+    closeable="{{ true }}"
+    visible="{{ visible3 }}"
+    onClose="onTap3" />
+
+  <ant-list-item onTap="onTap4">乱序键盘</ant-list-item>
+  <ant-number-keyboard
+    random="{{ true }}"
+    visible="{{ visible4 }}"
+    onClose="onTap4" />
+</ant-list>
+<ant-list header="自定义按钮">
+  <ant-list-item onTap="onTap6">自定义标题</ant-list-item>
+  <ant-number-keyboard
+    visible="{{ visible6 }}"
+    onClose="onTap6">
+    <view
+      slot="header"
+      class="number-keyboard-header">
+      支付宝安全键盘
+    </view>
+  </ant-number-keyboard>
+
+  <ant-list-item onTap="onTap7">自定义确认按钮</ant-list-item>
+  <ant-number-keyboard
+    confirmText="确认"
+    visible="{{ visible7 }}"
+    onClose="onTap7">
+    <view
+      slot="confirm"
+      class="number-keyboard-confirm">
+      <ant-icon type="DownOutline" />
+    </view>
+  </ant-number-keyboard>
+</ant-list>

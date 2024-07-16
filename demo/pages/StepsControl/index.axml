@@ -1,0 +1,16 @@
+<ant-container title="步骤条控制">
+  <ant-steps
+    items="{{ items }}"
+    current="{{ current }}" />
+  <ant-button
+    onTap="onNextTap"
+    type="primary">
+    <view a:if="{{ current < items.length - 1 }}">下一步</view>
+    <view a:else>完成</view>
+  </ant-button>
+  <ant-button
+    a:if="{{ current > 0 }}"
+    onTap="onPrevTap">
+    上一步
+  </ant-button>
+</ant-container>

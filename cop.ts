@@ -42,8 +42,8 @@ function copyAxmlFiles(srcDir, destDir) {
 }
 
 // 定义源目录和目标目录
-const sourceDirectory = path.join(__dirname, 'compiled', 'alipay', 'src');
-const destinationDirectory = path.join(__dirname, 'src');
+const sourceDirectory = path.join(__dirname, 'compiled', 'alipay', 'demo');
+const destinationDirectory = path.join(__dirname, 'demo');
 
 // 调用函数开始复制文件
 copyAxmlFiles(sourceDirectory, destinationDirectory);

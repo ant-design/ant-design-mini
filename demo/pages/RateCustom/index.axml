@@ -1,0 +1,84 @@
+<ant-container title="自定义间距">
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    gutter="{{ 8 }}" />
+  <view class="description">8px</view>
+
+  <ant-rate
+    defaultValue="{{ 4 }}"
+    gutter="{{ 16 }}" />
+  <view class="description">16px</view>
+</ant-container>
+
+<ant-container title="自定义大小">
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    className="rate" />
+  <view class="description">30px</view>
+
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    style="font-size: 40px" />
+  <view class="description">40px</view>
+</ant-container>
+
+<ant-container title="自定义颜色">
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    characterClassName="star"
+    characterActiveClassName="star-active" />
+  <view class="description">基础</view>
+
+  <ant-rate
+    defaultValue="{{ 3 }}"
+    characterClassName="star-gradient"
+    characterActiveClassName="star-active-gradient" />
+  <view class="description">渐变</view>
+</ant-container>
+
+<ant-container title="自定义图标">
+  <ant-rate defaultValue="{{ 3 }}">
+    <ant-icon
+      slot="character"
+      type="HeartFill" />
+  </ant-rate>
+  <view class="description">自定义为HeartFill</view>
+
+  <ant-rate
+    defaultValue="{{ 3.5 }}"
+    allowHalf>
+    <ant-icon
+      slot="character"
+      type="StarOutline" />
+  </ant-rate>
+  <view class="description">自定义为StarOutline</view>
+
+  <ant-rate
+    defaultValue="{{ 3.5 }}"
+    allowHalf
+    characterClassName="character">
+    <view slot="character">正</view>
+  </ant-rate>
+  <view class="description">自定义为正</view>
+
+  <ant-rate
+    defaultValue="{{ 2.5 }}"
+    allowHalf
+    characterClassName="character">
+    <view slot="character">A</view>
+  </ant-rate>
+  <view class="description">自定义为A</view>
+
+  <ant-rate
+    defaultValue="{{ 2.5 }}"
+    allowHalf
+    gutter="{{ 20 }}"
+    characterClassName="character">
+    <view
+      slot="character"
+      slot-scope="rate">
+      {{ rate.index }}
+    </view>
+  </ant-rate>
+  <view class="description">自定义为索引</view>
+</ant-container>

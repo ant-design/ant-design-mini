@@ -1,0 +1,57 @@
+<ant-form-input
+  label="用户名"
+  name="account"
+  required
+  placeholder="请输入用户名"
+  message="需要输入用户名"
+  validateStatus="success"
+  ref="handleRef">
+  <view
+    slot="footer"
+    slot-scope="item">
+    <view
+      a:if="{{ item.status === 'error' }}"
+      class="errors">
+      <ant-icon
+        type="CloseCircleOutline"
+        style="margin-right: 4px" />
+      {{ item.errors }}
+    </view>
+  </view>
+</ant-form-input>
+
+<ant-form-input
+  label="地址"
+  name="address"
+  required
+  placeholder="请输入地址"
+  message="需要输入地址"
+  validateStatus="success"
+  ref="handleRef">
+  <view
+    slot="footer"
+    slot-scope="item">
+    <view
+      a:if="{{ item.status === 'error' }}"
+      class="errors">
+      <ant-icon
+        type="CloseCircleOutline"
+        style="margin-right: 4px" />
+      {{ item.errors }}
+    </view>
+  </view>
+</ant-form-input>
+
+<view class="buttons">
+  <ant-button
+    type="primary"
+    onTap="submit"
+    style="margin-bottom: 12px">
+    提交
+  </ant-button>
+  <ant-button
+    onTap="reset"
+    style="margin-bottom: 12px">
+    重置
+  </ant-button>
+</view>
