@@ -55,8 +55,7 @@ export class TransformCompiler {
     },
   };
 
-  constructor(code, options = { platform: 'ALIPAY' }) {
-    this.code = code;
+  constructor(options = { platform: 'ALIPAY' }) {
     this.platform = options.platform;
 
     this.options = deepmerge(
@@ -150,7 +149,7 @@ export class TransformCompiler {
     });
   }
 
-  compile() {
+  compile(code) {
     // 将模板内容解析成 AST
     const {
       /**
@@ -164,7 +163,7 @@ export class TransformCompiler {
        * 建议修复
        */
       warnings,
-    } = types.parse(this.code);
+    } = types.parse(code);
     if (warnings.length > 0) console.warn(JSON.stringify(warnings));
 
     const visitorsName = [
@@ -192,7 +191,7 @@ export class TransformCompiler {
       return acc;
     }, {});
 
-    types.traverse(ast, visitor);
+    types.traverse(ast, {});
     // 然后将内容字符串化
     const transCode = types.stringify(ast);
 

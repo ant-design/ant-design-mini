@@ -232,10 +232,10 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
             //   )
             // );
             try {
-              const Compiler = new axmlParser(content, {
+              const Compiler = new axmlParser({
                 platform: option.buildOption.platformId,
               });
-              const transCode = Compiler.compile();
+              const transCode = Compiler.compile(content);
               return transCode;
             } catch (err) {
               throw err;
@@ -488,14 +488,14 @@ export async function compileAntdMiniAxml(watch: boolean) {
     xmlScriptOption: {},
   };
 
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
-    source: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
-    dest: resolve(__dirname, '..', 'nextCompiled', 'alipay', 'src'),
-    watch,
-    assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
-    buildOption: alipayBuildOption,
-  });
+  // miniCompiler({
+  //   tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+  //   source: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
+  //   dest: resolve(__dirname, '..', 'nextCompiled', 'alipay', 'src'),
+  //   watch,
+  //   assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
+  //   buildOption: alipayBuildOption,
+  // });
 
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
