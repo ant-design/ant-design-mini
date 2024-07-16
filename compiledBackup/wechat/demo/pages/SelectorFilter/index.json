@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "SelectorFilter",
+  "usingComponents": {
+    "ant-selector": "../../../src/Selector/index",
+    "ant-icon": "../../../src/Icon/index"
+  }
+}

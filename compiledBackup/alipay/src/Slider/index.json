@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "popover": "../Popover/index"
+  }
+}

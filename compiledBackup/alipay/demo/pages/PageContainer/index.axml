@@ -1,0 +1,112 @@
+<ant-page
+  loading="{{loading}}"
+  status="{{status}}"
+  title="{{title}}"
+  message="{{message}}"
+  image="{{image}}"
+  safeArea="{{safeArea}}"
+  loadingColor="#ccc"
+  loadingSize="medium"
+  loadingType="spin"
+  actionText="刷新"
+  secondaryActionText="网络异常"
+  onActionTap="handleRefresh"
+  onSecondaryActionTap="handleSwitchToDisconnected"
+>
+  <view class="content">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <view style="margin-top: 12px; text-align: center;">
+      <ant-button
+        slot="extra"
+        inline
+        size="small"
+        type="primary"
+        onTap="handleSwitchToBusy"
+      >
+        后台繁忙
+      </ant-button>
+      <ant-button
+        slot="extra"
+        inline
+        size="small"
+        data-position="top"
+        onTap="handleToggleSafeArea"
+        style="margin-left: 12px;"
+      >
+        顶部安全区
+      </ant-button>
+      <ant-button
+        slot="extra"
+        inline
+        size="small"
+        data-position="bottom"
+        onTap="handleToggleSafeArea"
+        style="margin-left: 12px;"
+      >
+        底部安全区
+      </ant-button>
+      <ant-button
+        slot="extra"
+        inline
+        size="small"
+        data-position="both"
+        onTap="handleToggleSafeArea"
+        style="margin-left: 12px;"
+      >
+        全局安全区
+      </ant-button>
+    </view>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </view>
+  <ant-button
+    slot="extra"
+    inline
+    size="small"
+    style="margin-left: 12px;"
+    onTap="handleSwitchToEmpty"
+  >
+    空内容
+  </ant-button>
+  <ant-button
+    slot="extra"
+    inline
+    size="small"
+    style="margin-left: 12px;"
+    onTap="handleSwitchToBusy"
+  >
+    后台繁忙
+  </ant-button>
+  <ant-button
+    slot="extra"
+    inline
+    size="small"
+    style="margin-left: 12px;"
+    onTap="handleSwitchToCustom"
+  >
+    自定义
+  </ant-button>
+  <ant-button
+    slot="extra"
+    inline
+    size="small"
+    style="margin-left: 12px;"
+    onTap="handleSwitchToNormal"
+  >
+    正常
+  </ant-button>
+  <ant-loading slot="loading" color="#999" />
+</ant-page>

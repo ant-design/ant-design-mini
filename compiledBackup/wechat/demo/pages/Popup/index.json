@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "Popup",
+  "usingComponents": {
+    "ant-popup": "../../../src/Popup/index",
+    "container": "../../../src/Container/index",
+    "ant-button": "../../../src/Button/index",
+    "list": "../../../src/List/index",
+    "list-item": "../../../src/List/ListItem/index",
+    "switch": "../../../src/Switch/index",
+    "ant-icon": "../../../src//Icon/index"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "Toast",
+  "usingComponents": {
+    "ant-toast": "../../../src/Toast/index",
+    "ant-button": "../../../src/Button/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

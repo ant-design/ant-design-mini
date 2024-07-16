@@ -1,0 +1,109 @@
+<view
+  wx:key="ant-number-input-{{ $id }}"
+  style="{{ style }}"
+  class="ant-number-keyboard {{ className || '' }}">
+  <view
+    wx:if="{{ visible }}"
+    class="ant-number-keyboard-modal"
+    bind:tap="handleHide"
+    onAppear="catchAppearModal" />
+
+  <view
+    class="ant-number-keyboard-kb {{ visible ? '' : 'ant-number-keyboard-kb_hide' }}">
+    <view
+      wx:if="{{ closeable }}"
+      bind:tap="handleHide"
+      class="ant-number-keyboard-kb_none">
+      <ant-icon
+        type="DownOutline"
+        className="ant-number-keyboard-down" />
+    </view>
+    <view class="ant-number-keyboard-kb_bd">
+      <view class="ant-number-keyboard-kb_keys">
+        <block
+          wx:for="{{ random ? randomArr : numArr }}"
+          wx:for-index="index"
+          wx:for-item="item">
+          <view class="ant-number-keyboard-kb_row">
+            <block
+              wx:for="{{ item }}"
+              wx:for-index="index"
+              wx:for-item="itemKey">
+              <view
+                data-key="{{ itemKey }}"
+                class="ant-number-keyboard-kb_number"
+                bind:tap="tapButton">
+                {{ itemKey }}
+              </view>
+            </block>
+          </view>
+        </block>
+        <view
+          wx:if="{{ !confirmText }}"
+          class="ant-number-keyboard-kb_row">
+          <view
+            wx:if="{{ !point }}"
+            class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point ant-number-keyboard-kb_flex ant-number-keyboard-kb_e" />
+          <view
+            wx:if="{{ point }}"
+            class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point ant-number-keyboard-kb_flex"
+            data-key="."
+            bind:tap="tapButton">
+            .
+          </view>
+          <view
+            class="ant-number-keyboard-kb_number ant-number-keyboard-kb_zero ant-number-keyboard-kb_flex"
+            data-key="0"
+            bind:tap="tapButton">
+            0
+          </view>
+          <view
+            class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point ant-number-keyboard-kb_flex {{ point ? '' : 'ant-number-keyboard-kb_e' }}"
+            data-key="del"
+            bind:tap="tapButton">
+            <ant-icon
+              type="TextDeletionOutline"
+              className="ant-number-keyboard-del" />
+          </view>
+        </view>
+        <view
+          wx:if="{{ confirmText }}"
+          class="ant-number-keyboard-kb_row">
+          <view
+            class="ant-number-keyboard-kb_number ant-number-keyboard-kb_zero"
+            data-key="0"
+            bind:tap="tapButton">
+            0
+          </view>
+          <view
+            wx:if="{{ point }}"
+            class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point"
+            data-key="."
+            bind:tap="tapButton">
+            .
+          </view>
+        </view>
+      </view>
+      <view
+        wx:if="{{ confirmText }}"
+        class="ant-number-keyboard-kb_function">
+        <view
+          class="ant-number-keyboard-kb_number ant-number-keyboard-kb_del"
+          data-key="del"
+          bind:tap="tapButton">
+          <ant-icon
+            type="TextDeletionOutline"
+            className="ant-number-keyboard-del" />
+        </view>
+        <view
+          style="opacity: {{ confirmDisabled ? '0.5' : '1' }}"
+          bind:tap="tapButton"
+          class="ant-number-keyboard-kb_transfer"
+          data-key="enter">
+          <view class="amount-input-kb_transfer-btn">{{ confirmText }}</view>
+        </view>
+      </view>
+    </view>
+    <view class="ant-number-keyboard-kb_iphonex-safe" />
+  </view>
+</view>

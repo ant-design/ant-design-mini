@@ -1,0 +1,59 @@
+<ant-container title="简单布局-单选">
+  <ant-checklist
+    defaultValue="{{ [1] }}"
+    options="{{ options_1 }}"
+    data-options="{{ options_1 }}"
+    onChange="onChange" />
+</ant-container>
+
+<ant-container title="复杂布局-多选">
+  <ant-checklist
+    defaultValue="{{ [1, 2] }}"
+    options="{{ options_2 }}"
+    multiple
+    onChange="onChange" />
+</ant-container>
+
+<ant-container title="受控模式">
+  <ant-checklist
+    value="{{ value }}"
+    options="{{ options_2 }}"
+    multiple
+    onChange="onChangeControlled" />
+</ant-container>
+
+<ant-container title="禁用状态">
+  <ant-checklist
+    defaultValue="{{ [2] }}"
+    options="{{ options_3 }}"
+    multiple
+    onChange="onChange" />
+</ant-container>
+
+<ant-container title="只读状态">
+  <ant-checklist
+    defaultValue="{{ [2] }}"
+    options="{{ options_4 }}"
+    multiple
+    onChange="onChange" />
+</ant-container>
+
+<ant-container title="自定义勾选图标&&组件内容">
+  <ant-checklist
+    defaultValue="{{ [2] }}"
+    options="{{ options_3 }}"
+    multiple
+    onChange="onChange">
+    <view slot="icon">
+      <ant-icon
+        style="color: red"
+        type="LikeOutline"
+        className="demo-checklist-checked-icon" />
+    </view>
+    <view
+      slot="content"
+      slot-scope="props">
+      title: {{ props.item.title }}
+    </view>
+  </ant-checklist>
+</ant-container>

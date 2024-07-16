@@ -1,0 +1,53 @@
+.ant-badge {
+  display: inline-block;
+  position: relative;
+}
+.ant-badge-content {
+  position: absolute;
+  display: flex;
+  height: 14px;
+  align-self: center;
+  align-items: center;
+  font-size: 9px;
+  padding: 2px 4px;
+  box-sizing: border-box;
+  word-break: keep-all;
+  justify-content: center;
+  top: 0;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+.ant-badge-content-stroke {
+  border: 1px solid #ffffff;
+}
+.ant-badge-content-text {
+  padding-left: 2px;
+}
+.ant-badge-content-text:empty {
+  display: none;
+}
+.ant-badge-content .ant-icon {
+  font-size: 9px;
+  color: #ffffff;
+}
+.ant-badge-content-not-dot {
+  min-width: 14px;
+  height: 14px;
+  border-radius: 14px;
+  display: flex;
+  background-color: #ff3141;
+}
+.ant-badge-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff3141;
+}
+.ant-badge-dot-stroke {
+  border: 1px solid #ffffff;
+}
+.ant-badge-number,
+.ant-badge-text,
+.ant-badge-bubble {
+  color: #ffffff;
+}

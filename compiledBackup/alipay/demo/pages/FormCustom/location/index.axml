@@ -1,0 +1,28 @@
+<form-item
+  className="{{ className }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
+  <view
+    class="input"
+    onTap="showPopup">
+    <view class="input-location">
+      <view a:if="{{ formData.value }}">{{ formData.value.name }}</view>
+      <view a:if="{{ formData.value }}">{{ formData.value.address }}</view>
+    </view>
+
+    <view class="choose">
+      请选择
+      <icon type="RightOutline" />
+    </view>
+  </view>
+  <view slot="extra">
+    <slot name="extra">{{ extra }}</slot>
+  </view>
+</form-item>

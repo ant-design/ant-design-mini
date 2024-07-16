@@ -1,0 +1,75 @@
+.ant-picker {
+  display: inline-flex;
+  align-items: center;
+  color: #333333;
+}
+.ant-picker-disabled {
+  color: #cccccc;
+}
+.ant-picker-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 12px 12px;
+  box-sizing: border-box;
+}
+.ant-picker-header::after {
+  content: '';
+  position: absolute;
+  background-color: #eeeeee;
+  display: block;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  transform: scaleY(0.5);
+}
+.ant-picker-header-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+  font-size: 15px;
+  color: #1677ff;
+  box-sizing: border-box;
+}
+.ant-picker-header-title {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  box-orient: vertical;
+  white-space: normal;
+  color: #333333;
+  width: 259px;
+}
+.ant-picker-picker-view {
+  width: 100%;
+  height: 230px;
+}
+.ant-picker-picker-view-column {
+  text-align: center;
+}
+.ant-picker-content {
+  background: #ffffff;
+}
+.ant-picker-content .a-picker-view-picker-item {
+  color: #333333;
+}
+.ant-picker-content .a-picker-view-picker-indicator::before,
+.ant-picker-content .a-picker-view-picker-indicator::after {
+  border-color: #eeeeee;
+}
+.ant-picker-content .a-picker-view-picker-mask {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+  will-change: transform;
+}
+.ant-picker-value-placeholder:not(:nth-child(1)),
+.ant-picker-value-text:not(:nth-child(1)) {
+  display: none;
+}
+.ant-picker-value-placeholder {
+  color: #cccccc;
+}

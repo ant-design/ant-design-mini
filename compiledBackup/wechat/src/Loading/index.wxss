@@ -1,0 +1,77 @@
+.ant-loading-small {
+  width: 17.5px;
+  height: 17.5px;
+}
+.ant-loading-medium {
+  width: 35px;
+  height: 35px;
+}
+.ant-loading-large {
+  width: 52.5px;
+  height: 52.5px;
+}
+.ant-loading-x-large {
+  width: 70px;
+  height: 70px;
+}
+.ant-loading-spin {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.ant-loading-spin-icon {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.ant-loading-mini {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 33px;
+  min-height: 33px;
+}
+.ant-loading-mini-item {
+  flex: 0 0 4px;
+  min-width: 4px;
+  min-height: 4px;
+  max-width: 4px;
+  max-height: 4px;
+  overflow: hidden;
+  margin-right: 8px;
+  font-size: 0;
+  border-radius: 2px / 2;
+  background-color: #999999;
+  animation: ant-loading-animation 1s 0s infinite linear;
+}
+.ant-loading-mini-item__1 {
+  animation-delay: 0s;
+}
+.ant-loading-mini-item__2 {
+  animation-delay: 150ms;
+}
+.ant-loading-mini-item__3 {
+  margin-right: 0;
+  animation-delay: 300ms;
+}
+@keyframes ant-loading-animation {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  12% {
+    transform: translate3d(0, -150%, 0);
+  }
+  40% {
+    transform: translate3d(0, 110%, 0);
+  }
+  55% {
+    transform: translate3d(0, -10%, 0);
+  }
+  60% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}

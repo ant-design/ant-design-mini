@@ -1,0 +1,24 @@
+<container title="横向步骤条">
+  <steps items="{{ items }}" />
+</container>
+
+<container title="横向步骤条失败">
+  <steps
+    items="{{ items }}"
+    status="error"
+    current="{{ 1 }}" />
+</container>
+
+<container title="纵向步骤条">
+  <steps
+    items="{{ items }}"
+    direction="vertical" />
+</container>
+
+<container title="纵向步骤条失败">
+  <steps
+    items="{{ items }}"
+    status="error"
+    current="{{ 1 }}"
+    direction="vertical" />
+</container>

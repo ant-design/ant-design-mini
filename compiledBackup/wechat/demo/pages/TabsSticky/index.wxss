@@ -1,0 +1,15 @@
+.tabs {
+  position: sticky;
+  top: -1px;
+  z-index: 999;
+}
+.content {
+  padding: 12px;
+  color: #999999;
+  background-color: #ffffff;
+}
+.intro {
+  color: #333333;
+  padding: 20px;
+  height: 100px;
+}

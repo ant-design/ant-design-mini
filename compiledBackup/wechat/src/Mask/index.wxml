@@ -1,0 +1,4 @@
+<view
+  class="ant-mask {{ className || '' }}"
+  style="{{ show ? '' : 'display: none;' }} {{ style || '' }}"
+  bind:tap="onMaskClick" />

@@ -1,0 +1,35 @@
+<ant-container title="基础用法">
+  <ant-radio-group
+    options="{{ options }}"
+    bind:change="onChange" />
+</ant-container>
+
+<ant-container title="初始值">
+  <ant-radio-group
+    defaultValue="banana"
+    options="{{ options }}"
+    bind:change="onChange" />
+</ant-container>
+
+<ant-container title="横向布局">
+  <ant-radio-group
+    options="{{ options }}"
+    position="horizontal" />
+</ant-container>
+
+<ant-container title="禁用模式-所有禁用">
+  <ant-radio-group
+    options="{{ options }}"
+    disabled />
+</ant-container>
+
+<ant-container title="禁用模式-其中有的禁用">
+  <ant-radio-group options="{{ optionsWithDisabled }}" />
+</ant-container>
+
+<ant-container title="控制模式">
+  <ant-radio-group
+    value="{{ value }}"
+    options="{{ options }}"
+    bind:change="handleChange" />
+</ant-container>

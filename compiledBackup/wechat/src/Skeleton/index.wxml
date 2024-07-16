@@ -1,0 +1,24 @@
+<view
+  wx:if="{{ loading }}"
+  class="ant-skeleton {{ className || '' }}">
+  <view
+    wx:if="{{ avatar }}"
+    class="ant-skeleton-avatar-wrapper">
+    <avatar
+      animate="{{ animate }}"
+      loading
+      size="{{ avatar === true ? 'medium' : avatar.size }}" />
+  </view>
+  <view class="ant-skeleton-content-wrapper">
+    <title
+      wx:if="{{ title }}"
+      animate="{{ animate }}"
+      loading />
+    <paragraph
+      wx:if="{{ paragraph }}"
+      animate="{{ animate }}"
+      rows="{{ paragraph === true ? 3 : paragraph.rows }}"
+      loading />
+  </view>
+</view>
+<slot wx:else />

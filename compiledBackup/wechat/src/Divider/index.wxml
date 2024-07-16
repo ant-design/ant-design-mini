@@ -1,0 +1,30 @@
+<wxs
+  src="./index.wxs"
+  module="divider" />
+
+<view
+  wx:if="{{ direction === 'horizontal' }}"
+  class="ant-divider ant-divider-horizontal {{ className || '' }}"
+  style="{{ style || '' }}">
+  <view
+    class="ant-divider-horizontal-left"
+    style="flex: {{ divider.getLineWidthFlex(textPosition, text)[0] }};{{ lineHeight ? 'border-bottom-width:' + lineHeight + 'px;' : '' }}{{ lineType ? 'border-bottom-style:' + lineType + ';' : '' }}{{ lineColor ? 'border-bottom-color:' + lineColor + ';' : '' }}" />
+
+  <view
+    wx:if="{{ text }}"
+    class="ant-divider-horizontal-text {{ textClassName || '' }}"
+    style="{{ textStyle || '' }}">
+    {{ text }}
+  </view>
+  <slot
+    wx:else
+    name="text" />
+  <view
+    class="ant-divider-horizontal-right"
+    style="flex: {{ divider.getLineWidthFlex(textPosition, text)[1] }};{{ lineHeight ? 'border-bottom-width:' + lineHeight + 'px;' : '' }}{{ lineType ? 'border-bottom-style:' + lineType + ';' : '' }}{{ lineColor ? 'border-bottom-color:' + lineColor + ';' : '' }}" />
+</view>
+
+<view
+  wx:if="{{ direction === 'vertical' }}"
+  class="ant-divider ant-divider-vertical {{ className || '' }}"
+  style="{{ style || '' }};{{ lineWidth ? 'border-right-width:' + lineWidth + 'px;' : '' }}{{ lineType ? 'border-right-style:' + lineType + ';' : '' }}{{ lineColor ? 'border-right-color:' + lineColor + ';' : '' }}" />

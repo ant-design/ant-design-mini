@@ -1,0 +1,33 @@
+<view class="filterDemo">
+  <view class="filterDemo-bar">
+    <block
+      wx:for="{{ items }}"
+      wx:for-index="index"
+      wx:for-item="item">
+      <view
+        class="filterDemo-bar-item {{ currentOpen === index ? 'filterDemo-bar-item-active' : '' }}"
+        bind:tap="onTapItem"
+        data-index="{{ index }}">
+        {{ item.title }}
+        <ant-icon
+          type="DownFill"
+          className="filterDemo-bar-item-icon  {{ currentOpen === index ? 'filterDemo-bar-item-icon-up' : '' }}" />
+      </view>
+    </block>
+  </view>
+  <view class="filterDemo-items">
+    <block
+      wx:for="{{ items }}"
+      wx:for-index="index"
+      wx:for-item="item">
+      <view
+        class="filterDemo-items-content {{ currentOpen === index ? 'filterDemo-items-content-active' : '' }} {{ contentClassName || '' }}"
+        style="{{ contentStyle || '' }}">
+        <ant-selector
+          options="{{ item.options }}"
+          bind:change="handleChange"
+          data-index="{{ index }}" />
+      </view>
+    </block>
+  </view>
+</view>

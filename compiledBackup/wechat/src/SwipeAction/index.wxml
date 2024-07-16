@@ -1,0 +1,114 @@
+<wxs
+  src="./index.wxs"
+  module="util" />
+
+<view class="ant-swipe">
+  <view
+    class="ant-swipe-action"
+    style="width: {{ util.getWidth(rightWidth, leftWidth, inertiaWidth) }};">
+    <movable-area
+      wx:if="{{ ready }}"
+      class="ant-swipe-action-movable"
+      style="margin-left: {{ util.getMarginLeft(rightWidth, leftWidth, inertiaWidth) }}">
+      <movable-view
+        class="ant-swipe-action-movable-content"
+        style="width:{{ util.getWidth2(rightWidth, leftWidth, inertiaWidth) }}; margin-left: {{ util.getMarginLeft2(rightWidth, leftWidth, inertiaWidth) }};"
+        x="{{ swipeX }}"
+        data-type="content"
+        animation="{{ animation }}"
+        damping="{{ damping }}"
+        direction="horizontal"
+        out-of-bounds="{{ false }}"
+        disabled="{{ disabled }}"
+        bind:tap="onSwipeTap"
+        bindchange="onChange"
+        bindchangeend="onChangeEnd"
+        catch:touchend="onTouchEnd"
+        bind:touchcancel="onTouchCancel"
+        catch:touchstart="onTouchStart">
+        <view
+          class="ant-swipe-action-movable-content-view"
+          style="{{ util.getSlotWidthStyle(rightWidth, leftWidth, _leftButtons, _rightButtons, inertiaWidth) }}"
+          bind:tap="onClick">
+          <view
+            wx:if="{{ swipedR || swipedL }}"
+            class="ant-swipe-action-movable-content-view-modal" />
+          <slot />
+        </view>
+      </movable-view>
+      <movable-view
+        class="ant-swipe-action-movable-content ant-swipe-action-movable-right{{ $id ? '-' + $id : '' }}"
+        wx:for="{{ _rightButtons }}"
+        wx:for-item="item"
+        wx:for-index="idx"
+        damping="{{ damping }}"
+        wx:key="{{ idx }}"
+        style="{{ util.getRightMovableContentStyle(tapTypeR, idx, rightWidth, leftWidth, inertiaWidth) }}"
+        data-type="content"
+        animation="{{ false }}"
+        disabled="{{ true }}"
+        direction="horizontal"
+        x="{{ moveX * (util.getMoveX(_rightButtons, idx) / rightWidth) }}">
+        <view
+          class="ant-swipe-action-movable-content-right"
+          style="background: {{ item.bgColor }};width: {{ (item.width + inertiaWidth + 1) / 2 }}px;">
+          <view
+            class="ant-swipe-action-movable-content-right-text"
+            bind:tap="onItemTap"
+            data-item="{{ util.axmlObj({ item, idx }) }}"
+            aria-hidden="{{ !swipedR }}"
+            style="{{ util.getMovableContentRightStyle(item, tapTypeR, idx, rightWidth, inTouch, inertiaWidth, myStyle) }}">
+            <slot
+              wx:if="{{ util.getRightSlotName(tapTypeR, idx, item) }}"
+              name="{{ util.getRightSlotName(tapTypeR, idx, item) }}" />
+            <!-- display: inline -->
+            <text
+              wx:else
+              class="right-text {{ util.getLeft(tapTypeR, idx, _rightButtons, true) }}"
+              >{{ util.getRightText(tapTypeR, idx, item) }}</text
+            >
+          </view>
+        </view>
+      </movable-view>
+      <movable-view
+        class="ant-swipe-action-movable-content ant-swipe-action-is-right-swipe ant-swipe-action-movable-left{{ $id ? '-' + $id : '' }}"
+        wx:for="{{ _leftButtons }}"
+        wx:for-item="itemL"
+        wx:for-index="idx"
+        wx:key="left-{{ idx }}"
+        damping="{{ damping }}"
+        style="{{ util.getLeftMovableContentStyle(tapTypeL, idx, leftWidth, inertiaWidth) }}"
+        data-type="content"
+        animation="{{ false }}"
+        disabled="{{ true }}"
+        direction="horizontal"
+        x="{{ moveX * (util.getMoveX(_leftButtons, idx) / leftWidth) }}">
+        <view
+          class="ant-swipe-action-movable-content-left"
+          style="background: {{ tapTypeL && tapTypeL === 'L-' + idx && _leftButtons.length === 3 && idx === 1 ? 'none' : itemL.bgColor }};width: {{ (leftWidth + inertiaWidth) / 2 }}px">
+          <view
+            class="ant-swipe-action-movable-content-left-text1 ant-swipe-action-left"
+            bind:tap="onItemTap"
+            data-item="{{ util.axmlObj({ itemL, idx }) }}"
+            aria-hidden="{{ !swipedL }}"
+            style="{{ util.getMovableContentLeftStyle(itemL, tapTypeL, idx, leftWidth, inTouch, inertiaWidth, myStyle) }}">
+            <slot
+              wx:if="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}"
+              name="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}" />
+            <!-- display: inline -->
+            <text
+              wx:else
+              class="right-text"
+              style="width: 100%"
+              ><!-- display: inline -->
+              <text
+                class="right-text {{ util.getLeft(tapTypeL, idx, _leftButtons, false) }}"
+                >{{ util.getLeftText(tapTypeL, idx, itemL) }}</text
+              ></text
+            >
+          </view>
+        </view>
+      </movable-view>
+    </movable-area>
+  </view>
+</view>

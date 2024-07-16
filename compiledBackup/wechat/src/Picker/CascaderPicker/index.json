@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ant-picker": "../index"
+  }
+}

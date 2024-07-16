@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "Stepper",
+  "usingComponents": {
+    "stepper": "../../../src/Stepper/index",
+    "container": "../../../src/Container/index",
+    "ant-button": "../../../src/Button/index"
+  }
+}

@@ -1,0 +1,44 @@
+<view
+  wx:if="{{ show }}"
+  class="ant-toast {{ className || '' }} {{ icon || image || type ? 'ant-toast-icon-wrapper' : '' }}"
+  style="{{ style || '' }}">
+  <view
+    wx:if="{{ type }}"
+    class="ant-toast-normal">
+    <loading
+      wx:if="{{ type === 'loading' }}"
+      type="mini" />
+    <am-icon
+      wx:elif="{{ type === 'warning' }}"
+      type="ExclamationOutline"
+      className="ant-toast-icon" />
+    <am-icon
+      wx:elif="{{ type === 'error' }}"
+      type="CloseOutline"
+      className="ant-toast-icon" />
+    <am-icon
+      wx:elif="{{ type === 'success' }}"
+      type="CheckOutline"
+      className="ant-toast-icon" />
+  </view>
+  <am-icon
+    wx:elif="{{ icon }}"
+    type="{{ icon }}"
+    className="ant-toast-icon" />
+  <view
+    wx:elif="{{ image }}"
+    style="background-image: url({{ image }})"
+    class="ant-toast-image" />
+  <view class="ant-toast-text-body">
+    <view class="ant-toast-text-box">
+      <view class="ant-toast-text-content">{{ displayContent }}</view>
+    </view>
+  </view>
+</view>
+
+<mask
+  wx:if="{{ show && showMask }}"
+  className="ant-toast-mask"
+  show="{{ true }}"
+  bind:masktap="handleClickMask"
+  style="{{ maskStyle }}" />

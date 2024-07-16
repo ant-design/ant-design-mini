@@ -1,0 +1,29 @@
+<wxs
+  src="./index.wxs"
+  module="result" />
+
+<view
+  class="ant-result {{ className ? className : '' }}"
+  style="{{ style || '' }}">
+  <view class="ant-result-main">
+    <view
+      wx:if="{{ type }}"
+      class="ant-result-image">
+      <icon
+        type="{{ result.iconType(type) }}"
+        className="ant-result-image-{{ type }}"
+        style="font-size: 64px" />
+    </view>
+    <image-icon
+      wx:elif="{{ image }}"
+      className="ant-result-image"
+      image="{{ image }}" />
+    <block wx:else />
+    <view class="ant-result-title">{{ title }}</view>
+    <view class="ant-result-message">
+      <!-- display: inline -->
+      <text>{{ message }}</text>
+    </view>
+  </view>
+  <slot name="extra" />
+</view>

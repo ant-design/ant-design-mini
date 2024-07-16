@@ -1,0 +1,12 @@
+<view
+  class="ant-tag ant-tag-{{ type }} ant-tag-{{ color }} {{ className || '' }}"
+  style="{{ style || '' }}">
+  <view
+    wx:if="{{ icon }}"
+    class="ant-tag-icon-container">
+    <ant-icon type="{{ icon }}" />
+  </view>
+  <view class="ant-tag-content">
+    <slot />
+  </view>
+</view>

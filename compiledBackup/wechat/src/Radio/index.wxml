@@ -1,0 +1,32 @@
+<wxs
+  src="./index.wxs"
+  module="componentUtils" />
+
+<label
+  class="ant-radio-item {{ className || '' }}"
+  style="{{ style }}"
+  bind:tap="handleTap">
+  <view class="ant-radio-item-container">
+    <view class="ant-radio-item-wrap">
+      <radio
+        value="{{ value }}"
+        class="ant-radio-item-base"
+        checked="{{ mixin.value }}"
+        disabled="{{ disabled }}" />
+      <view class="ant-radio-item-fake">
+        <view
+          class="ant-radio-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}"
+          style="{{ mixin.value && !disabled && color ? 'background:' + color : '' }}">
+          <ant-icon
+            wx:if="{{ mixin.value }}"
+            type="CheckOutline"
+            className="ant-radio-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}-icon" />
+        </view>
+      </view>
+    </view>
+    <view
+      class="ant-radio-item-content {{ disabled ? 'ant-radio-item-disabled' : '' }}">
+      <slot />
+    </view>
+  </view>
+</label>

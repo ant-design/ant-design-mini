@@ -1,0 +1,75 @@
+<wxs
+  src="../../_util/arrow.wxs"
+  module="arrowUtil" />
+
+<form-item
+  className="{{ className }}"
+  position="{{ position }}"
+  label="{{ label }}"
+  labelWidth="{{ labelWidth }}"
+  status="{{ formData.status }}"
+  errors="{{ formData.errors }}"
+  tooltip="{{ tooltip }}"
+  required="{{ formData.required }}"
+  requiredMark="{{ requiredMark }}"
+  validateStatus="{{ validateStatus }}"
+  help="{{ help }}">
+  <view>
+    <ant-picker
+      cancelText="{{ cancelText }}"
+      okText="{{ okText }}"
+      placeholder="{{ placeholder }}"
+      maskClosable="{{ maskClosable }}"
+      maskStyle="{{ maskStyle }}"
+      popClassName="{{ popClassName }}"
+      style="{{ style }}"
+      popStyle="{{ popStyle }}"
+      animationType="{{ animationType }}"
+      disabled="{{ disabled }}"
+      title="{{ title }}"
+      maskClassName="{{ maskClassName }}"
+      indicatorStyle="{{ indicatorStyle }}"
+      indicatorClassName="{{ indicatorClassName }}"
+      options="{{ options }}"
+      value="{{ formData.value }}"
+      bind:ok="onOk"
+      bind:change="onChange"
+      bind:cancel="onDismissPicker"
+      bind:visiblechange="onVisibleChange"
+      onFormat="{{ handleFormat ? handleFormat : 'handleFormat' }}">
+      <slot
+        name="title"
+        slot="title" />
+      <slot
+        name="content"
+        slot="content" />
+      <ant-icon
+        wx:if="{{ arrowUtil.getArrow(arrow) }}"
+        className="ant-form-picker-arrow"
+        type="{{ arrowUtil.getArrow(arrow) }}"
+        slot="suffix" />
+    </ant-picker>
+  </view>
+  <view
+    wx:if="{{ !tooltip }}"
+    slot="tooltip">
+    <slot name="tooltip" />
+  </view>
+  <view slot="extra">{{ extra }}</view>
+  <view
+    slot="header"
+    slot-scope="item">
+    <slot
+      name="header"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+  <view
+    slot="footer"
+    slot-scope="item">
+    <slot
+      name="footer"
+      errors="{{ item.errors }}"
+      status="{{ item.status }}" />
+  </view>
+</form-item>

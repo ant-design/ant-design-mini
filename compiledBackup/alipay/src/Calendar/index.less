@@ -1,0 +1,174 @@
+@import (reference) './variable.less';
+
+@checkboxItemPrefix: ant-calendar;
+
+.@{checkboxItemPrefix} {
+  color: @COLOR_TEXT_PRIMARY;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &-body {
+    flex: 1;
+  }
+
+  &-sticky {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    max-height: @calendar-month-title-height;
+    width: 100%;
+    overflow: hidden;
+    top: @calendar-weekday-names-height;
+    z-index: @calendar-sticky-title-z-index;
+  }
+
+  &-mark {
+    height: @calendar-weekday-names-height;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: @calendar-weekday-names-font-size;
+    padding: 0 @calendar-cells-padding;
+
+    & &-cell {
+      flex: 1;
+      text-align: center;
+      width: calc((100% - 6 * @calendar-cell-space-size) / 7);
+      margin-right: @calendar-cell-space-size;
+    }
+    & &-cell-last {
+      margin-right: 0;
+    }
+  }
+
+  &-title {
+    color: @COLOR_TEXT_PRIMARY_DEFAULT;
+    font-size: @font-size-title;
+    height: @calendar-month-title-height;
+    line-height: @calendar-month-title-height;
+    padding-left: @calendar-weekday-names-left-padding;
+    margin-bottom: @calendar-weekday-names-bottom-margin;
+    background: @calendar-weekday-names-background-color;
+  }
+
+  &-cells {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0 @calendar-cells-padding;
+  }
+
+  &-cell-space {
+    width: @calendar-cell-space-size;
+    height: @calendar-cell-height;
+  }
+  &-cell-space-active {
+    background: fade(@COLOR_BRAND1, 10%);
+  }
+
+  &-cell {
+    box-sizing: border-box;
+    width: calc((100% - 6 * @calendar-cell-space-size) / 7);
+    height: @calendar-cell-height;
+    margin-bottom: @calendar-cell-bottom-margin;
+    position: relative;
+
+    &-container {
+      box-sizing: border-box;
+      padding-top: @calendar-cell-top-padding;
+      height: 100%;
+    }
+
+    &-top {
+      color: @COLOR_TEXT_ASSIST_DEFAULT;
+      text-align: center;
+      font-size: @calendar-cell-top-font-size;
+      height: @calendar-cell-top-height;
+
+      &-text {
+        white-space: nowrap;
+      }
+    }
+
+    &-center {
+      text-align: center;
+      height: @calendar-cell-center-height;
+      font-size: @calendar-cell-center-font-size;
+    }
+
+    &-bottom {
+      color: @COLOR_TEXT_ASSIST_DEFAULT;
+      text-align: center;
+      font-size: @calendar-cell-bottom-font-size;
+      height: @calendar-cell-bottom-height;
+    }
+
+    &-selected {
+      background: fade(@COLOR_BRAND1, 10%);
+    }
+
+    &-selected-begin {
+      border-top-left-radius: @corner-radius-md;
+      border-bottom-left-radius: @corner-radius-md;
+      background: fade(@COLOR_BRAND1, 10%);
+    }
+
+    &-selected-end {
+      border-top-right-radius: @corner-radius-md;
+      border-bottom-right-radius: @corner-radius-md;
+      color: @COLOR_WHITE_DEFAULT;
+    }
+
+    &-selected-row-end {
+      border-top-right-radius: @corner-radius-md;
+      border-bottom-right-radius: @corner-radius-md;
+    }
+
+    &-selected-row-begin {
+      border-top-left-radius: @corner-radius-md;
+      border-bottom-left-radius: @corner-radius-md;
+    }
+
+    &-selected-begin &-container {
+      background: @COLOR_BRAND1_DEFAULT;
+      border-radius: @corner-radius-md;
+      color: @COLOR_WHITE_DEFAULT;
+    }
+
+    &-selected-end &-container {
+      background: @COLOR_BRAND1_DEFAULT;
+      border-radius: @corner-radius-md;
+      color: @COLOR_WHITE_DEFAULT;
+    }
+
+    &-selected-end &-top {
+      color: @COLOR_WHITE_DEFAULT;
+    }
+
+    &-selected-begin &-top {
+      color: @COLOR_WHITE_DEFAULT;
+    }
+
+    &-selected-end &-bottom {
+      color: @COLOR_WHITE_DEFAULT;
+    }
+
+    &-selected-begin &-bottom {
+      color: @COLOR_WHITE_DEFAULT;
+    }
+  }
+
+  &-cell-disabled {
+    opacity: @calendar-cell-disabled-opacity;
+  }
+
+  &-cell-hidden {
+    opacity: 0;
+  }
+}

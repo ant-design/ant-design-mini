@@ -1,0 +1,87 @@
+<view>
+  <ant-list
+    header="基础用法"
+    radius="{{ radius }}">
+    <ant-list-item>1</ant-list-item>
+    <ant-list-item>2</ant-list-item>
+    <ant-list-item>3</ant-list-item>
+  </ant-list>
+  <ant-list
+    header="可点击列表"
+    radius="{{ radius }}">
+    <ant-list-item
+      image="PayCircleOutline"
+      arrow="right"
+      onTap="handleTap"
+      data-info="总资产">
+      总资产
+    </ant-list-item>
+    <ant-list-item
+      image="SetOutline"
+      arrow="right"
+      catchTap="catchTap"
+      data-info="设置">
+      设置
+    </ant-list-item>
+    <ant-list-item
+      image="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
+      arrow="right"
+      onTap="handleTap"
+      data-info="图片">
+      图片
+    </ant-list-item>
+  </ant-list>
+  <ant-list
+    radius="{{ radius }}"
+    header="复杂布局">
+    <ant-list-item>
+      圆角
+      <ant-switch
+        slot="extra"
+        checked="{{ radius }}"
+        onChange="handleSetRadius" />
+    </ant-list-item>
+    <ant-list-item
+      extraBrief="未开启"
+      arrow="right">
+      大字号模式
+    </ant-list-item>
+    <ant-list-item
+      brief="管理已授权的产品和设备"
+      arrow="{{ item.arrow }}">
+      授权管理
+    </ant-list-item>
+    <ant-list-item
+      title="标题"
+      brief="描述信息"
+      extra="次要信息"
+      extraBrief="次要辅助信息"
+      onTap="handleTap"
+      data-info="三行列表"
+      arrow="right">
+      三行列表
+      <ant-icon
+        slot="image"
+        type="AlipaySquareFill"
+        style="font-size: 64px" />
+    </ant-list-item>
+  </ant-list>
+  <ant-list
+    radius="{{ radius }}"
+    header="禁用状态">
+    <ant-list-item
+      disabled
+      image="UnorderedListOutline"
+      arrow="right"
+      data-info="账单">
+      账单
+    </ant-list-item>
+    <ant-list-item
+      disabled
+      image="PayCircleOutline"
+      arrow="right"
+      data-info="总资产">
+      总资产
+    </ant-list-item>
+  </ant-list>
+</view>

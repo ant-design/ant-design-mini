@@ -1,0 +1,12 @@
+@import '../variable.less';
+
+.@{skeletonPrefix}-title {
+  &-animate {
+    .skeleton-animation();
+  }
+  height: 40 * @rpx;
+  width: 45%;
+  margin-bottom: 40 * @rpx;
+  border-radius: @default-radius;
+  background: @skeleton-fill;
+}

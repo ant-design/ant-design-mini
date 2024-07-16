@@ -1,0 +1,39 @@
+<view
+  class="ant-rate {{ className || '' }}"
+  style="{{ style }}">
+  <view
+    id="ant-rate-container{{ $id ? '-' + $id : '' }}"
+    class="ant-rate-container"
+    onTouchMove="handleStarMove"
+    onTouchEnd="handleStarMoveEnd">
+    <block
+      a:for="{{ count }}"
+      a:for-index="index"
+      a:for-item="item">
+      <view
+        class="ant-rate-star"
+        onTap="handleStarTap"
+        data-rate="{{ index }}"
+        style="margin-right: {{ index === count - 1 ? 0 : gutter + 'px' }}">
+        <view
+          a:if="{{ allowHalf && (displayValue !== null ? displayValue : mixin.value) === index + 0.5 }}"
+          class="ant-rate-star-icon-active {{ characterClassName || '' }} {{ characterActiveClassName || '' }} ant-rate-star-icon-half-active">
+          <slot
+            name="character"
+            index="{{ index }}"
+            isActive="{{ true }}">
+            <ant-icon type="StarFill" />
+          </slot>
+        </view>
+        <view
+          class="ant-rate-star-icon {{ (displayValue !== null ? displayValue : mixin.value) >= index + 1 ? 'ant-rate-star-icon-active' + ' ' + (characterClassName || '') + ' ' + (characterActiveClassName || '') : characterClassName }}">
+          <slot
+            name="character"
+            index="{{ index }}">
+            <ant-icon type="StarFill" />
+          </slot>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

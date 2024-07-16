@@ -1,0 +1,15 @@
+.input {
+  padding: 4px 0 4px 0;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 1s;
+}
+.money {
+  width: 180px;
+}
+.border {
+  border-color: #1677ff;
+}
+button {
+  margin-top: 8px;
+}

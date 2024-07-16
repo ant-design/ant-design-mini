@@ -1,0 +1,24 @@
+@import (reference) '../style/themes/index.less';
+
+// 基础类型的颜色 文本和下划线同一个颜色、未选中的文本颜色，无背景色
+// 胶囊类型的颜色，文本和背景色，选中状态的文本和背景色
+// 混合型的颜色，主标题的文本在选中与未选中的颜色，描述的未选中颜色以及选中后的文本和背景色
+
+// 选中后的颜色：
+// 基础：文本和下划线为蓝色
+// 胶囊：文本白色，背景蓝色
+// 混合：主标题文本蓝色，描述背景色蓝色，文本白色
+
+// 未选中的颜色
+// 基础：文本黑色
+// 胶囊：文本黑色，背景色灰色
+// 混合：主标题文本黑色，文本灰色无背景
+
+// 黑色、灰色、白色、蓝色
+@tabs-basic-color: @COLOR_TEXT_PRIMARY;
+@tabs-weaken-color: @COLOR_TEXT_ASSIST;
+@tabs-inverse-color: @COLOR_CARD;
+@tabs-active-color: @COLOR_BRAND1;
+@tabs-active-decorate-color: @COLOR_BRAND1;
+
+@tabs-badge-size:28 * @rpx;

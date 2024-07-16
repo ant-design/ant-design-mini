@@ -1,0 +1,281 @@
+@import (reference) './variable.less';
+
+@tabsPrefix: ant-tabs;
+
+.@{tabsPrefix} {
+  width: 100%;
+  &-bar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-content: stretch;
+    background-color: @tabs-inverse-color;
+    box-sizing: border-box;
+    &-underline {
+      border-bottom: @border-width-standard solid @COLOR_BORDER;
+    }
+    &-fade {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 9;
+      width: 36 * @rpx;
+      background-color: @tabs-inverse-color;
+      pointer-events: none;
+      &-left {
+        left: 0;
+        background: linear-gradient(
+          90deg,
+          @COLOR_WHITE_CHANGE,
+          hsla(0, 0%, 100%, 0)
+        );
+      }
+      &-right {
+        right: 84 * @rpx;
+        background: linear-gradient(
+          270deg,
+          @COLOR_WHITE_CHANGE,
+          hsla(0, 0%, 100%, 0)
+        );
+      }
+      transition: all 0.2s;
+    }
+    &-plus {
+      display: flex;
+      width: 72 * @rpx;
+      height: 72 * @rpx;
+      color: @COLOR_BLACK_CHANGE;
+      align-self: center;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-right: @h-spacing-large;
+      order: 1;
+      &:empty {
+        display: none;
+        ~ .@{tabsPrefix}-bar-fade-right {
+          right: 0;
+        }
+      }
+    }
+    &-scroll-view {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      will-change: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    // 选项卡最后两项间距控制
+    &-wrap {
+      display: flex;
+      flex-shrink: 0;
+
+      &-capsule {
+        flex: 1;
+      }
+
+      &:nth-of-type(2) .@{tabsPrefix}-bar-capsule,
+      &:nth-of-type(2) .@{tabsPrefix}-bar-mixin {
+        margin-left: @h-spacing-large;
+      }
+      &:nth-last-of-type(2) .@{tabsPrefix}-bar-capsule,
+      &:nth-last-of-type(2) .@{tabsPrefix}-bar-mixin {
+        margin-right: @h-spacing-large;
+      }
+    }
+    // 选项卡的通用样式
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1 0 auto;
+      font-size: @font-size-list;
+      white-space: nowrap;
+      color: @tabs-basic-color;
+      .ant-badge {
+        width: 100%;
+      }
+    }
+    // 基础类型 tab 选项卡样式
+    &-basic {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: @v-spacing-standard @h-spacing-large;
+      box-sizing: border-box;
+    }
+
+    &-basic&-active {
+      color: @tabs-active-color;
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - @h-spacing-large * 2);
+        height: 4 * @rpx;
+        overflow: hidden;
+        font-size: 0;
+        border-radius: @corner-radius-circle;
+        box-sizing: border-box;
+        background-color: @tabs-active-decorate-color;
+      }
+    }
+
+    // 胶囊类型选项卡样式
+    &-capsule {
+      padding: @v-spacing-large 0;
+      margin: 0 @h-spacing-large / 2;
+      box-sizing: border-box;
+      position: relative;
+      &-title {
+        flex: 1;
+        justify-content: center;
+        margin-right: 0;
+        padding: @v-spacing-standard 30 * @rpx;
+        font-size: 30 * @rpx;
+        text-align: center;
+        line-height: @line-height-base;
+        border-radius: 10vh;
+        background-color: @COLOR_GREY_CARD;
+        border-bottom: 0 none;
+      }
+    }
+    &-capsule&-active &-capsule-title {
+      color: @COLOR_WHITE;
+      background-color: @tabs-active-decorate-color;
+    }
+
+    // 混合类型的选项卡样式
+    &-mixin {
+      flex-direction: column;
+      margin: 0 @h-spacing-standard;
+      padding: @v-spacing-large 0;
+      text-align: center;
+      &-title {
+        margin: 2 * @rpx 0;
+        position: relative;
+      }
+
+      &-subtitle {
+        padding: 0 @h-spacing-standard;
+        font-size: @font-size-content;
+        line-height: @line-height-paragraph;
+        color: @tabs-weaken-color;
+        border-radius: 50vh;
+        background-color: @COLOR_GREY_CARD;
+        margin: 2 * @rpx 0;
+      }
+    }
+    &-mixin&-active &-mixin-title {
+      color: @tabs-active-color;
+    }
+    &-mixin&-active &-mixin-subtitle {
+      color: @COLOR_WHITE;
+      background-color: @tabs-active-decorate-color;
+    }
+    // 禁用态选项卡样式
+    &-disabled {
+      opacity: @opacity-disabled;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+  &-content {
+    overflow: hidden;
+    background-color: @COLOR_WHITE_CHANGE;
+    color: @COLOR_TEXT_PRIMARY;
+  }
+}
+
+@vtabsPrefix: ant-vtabs;
+
+.@{vtabsPrefix} {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  &-bar {
+    width: 210 * @rpx;
+    overflow: hidden;
+    &-scroll-view {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      background-color: @COLOR_GREY_CARD;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    &-item {
+      position: relative;
+      width: 100%;
+      padding: @size-4 @h-spacing-large;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      font-size: @font-size-content;
+      line-height: 37 * @rpx;
+      color: @COLOR_TEXT_PRIMARY;
+      background-color: @COLOR_GREY_CARD;
+      box-sizing: border-box;
+      transition: background-color 100ms linear, color 300ms linear;
+      &-wrap {
+        background-color: @COLOR_CARD;
+      }
+      &-active {
+        color: @COLOR_BRAND1;
+        background-color: @COLOR_CARD;
+        &::after {
+          position: absolute;
+          content: '';
+          top: @size-4;
+          bottom: @size-4;
+          left: 0;
+          width: @border-width-thick;
+          border-radius: @corner-radius-sm;
+          background-color: @COLOR_BRAND1;
+        }
+      }
+      &-disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        .@{vtabsPrefix}-bar-item-title,
+        .@{vtabsPrefix}-bar-item-count {
+          opacity: @opacity-disabled;
+        }
+      }
+      &-count {
+        color: @COLOR_TEXT_WEAK;
+        margin-left: @size-1;
+      }
+      &-icon {
+        padding-left: 8 * @rpx;
+        width: 28 * @rpx;
+        height: 28 * @rpx;
+        font-size: 26 * @rpx;
+        overflow: hidden;
+        position: relative;
+        top: -4 * @rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:empty {
+          display: none;
+        }
+      }
+    }
+  }
+  &-content {
+    overflow: hidden;
+    flex: 1;
+    background-color: @COLOR_CARD;
+    color: @COLOR_TEXT_PRIMARY;
+  }
+}

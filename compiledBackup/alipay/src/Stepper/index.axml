@@ -1,0 +1,43 @@
+<view
+  class="ant-stepper {{ className ? className : '' }}"
+  style="{{ style }}">
+  <ant-button
+    className="ant-stepper-button ant-stepper-button-down {{ disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value <= min ? 'ant-stepper-button-disabled' : '' }}"
+    activeClassName="ant-stepper-button-hover"
+    icon="MinusOutline"
+    type="text"
+    data-mode="minus"
+    disabled="{{ disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value <= min }}"
+    onTap="onTap" />
+  <view class="ant-stepper-input-wrap">
+    <view
+      a:if="{{ inputReadOnly }}"
+      class="ant-stepper-input ant-stepper-input-readonly">
+      {{ mixin.value }}
+    </view>
+    <ant-input
+      a:else
+      className="ant-stepper-input {{ disabled ? 'ant-stepper-input-disabled' : '' }} {{ inputClassName ? inputClassName : '' }}"
+      style="{{ inputStyle }}"
+      type="{{ type }}"
+      enableNative="{{ enableNative }}"
+      alwaysSystem="{{ alwaysSystem }}"
+      confirm-type="{{ confirmType }}"
+      confirm-hold="{{ confirmHold }}"
+      disabled="{{ disabled }}"
+      focus="{{ focus }}"
+      onChange="onChange"
+      onFocus="onFocus"
+      onBlur="onBlur"
+      onConfirm="onConfirm"
+      value="{{ mixin.value }}" />
+  </view>
+  <ant-button
+    className="ant-stepper-button ant-stepper-button-up {{ disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value >= max ? 'ant-stepper-button-disabled' : '' }}"
+    activeClassName="ant-stepper-button-hover"
+    icon="AddOutline"
+    type="text"
+    data-mode="add"
+    disabled="{{ disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value >= max }}"
+    onTap="onTap" />
+</view>

@@ -1,0 +1,34 @@
+<ant-form-input
+  label="用户名"
+  name="account"
+  tooltip="用户账户对应名称"
+  allowClear
+  required
+  message="需要填写用户名"
+  bind:ref="handleRef" />
+
+<ant-form-input
+  label="地址"
+  name="address"
+  allowClear
+  bind:ref="handleRef" />
+
+<ant-form-switch
+  label="选择"
+  name="needDelivery"
+  bind:ref="handleRef" />
+
+<ant-form-stepper
+  label="数量"
+  name="quantity"
+  bind:ref="handleRef" />
+
+<view class="buttons">
+  <ant-button
+    type="primary"
+    bind:tap="submit"
+    style="margin-bottom: 12px">
+    提交
+  </ant-button>
+  <ant-button bind:tap="reset">重置</ant-button>
+</view>

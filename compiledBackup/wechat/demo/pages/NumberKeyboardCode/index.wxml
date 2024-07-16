@@ -1,0 +1,27 @@
+<list header="数字键盘示例：验证码">
+  <list-item>
+    <view
+      class="number-code"
+      catch:tap="onCodeFocus">
+      <block
+        wx:for="{{ 4 }}"
+        wx:for-index="index"
+        wx:for-item="item">
+        <view
+          class="number-code-view {{ visible && value.length === index ? 'number-code-border' : '' }}">
+          {{ value[index] || '' }}
+          <view
+            wx:if="{{ visible && value.length === index }}"
+            class="number-code-tip" />
+        </view>
+      </block>
+    </view>
+  </list-item>
+  <number-keyboard
+    visible="{{ visible }}"
+    point="{{ false }}"
+    closeable="{{ true }}"
+    value="{{ value }}"
+    bind:change="onChange"
+    bind:close="onClose" />
+</list>

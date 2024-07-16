@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "form-item": "../FormItem/index",
+    "ant-picker": "../../Picker/index",
+    "ant-icon": "../../Icon/index"
+  }
+}
