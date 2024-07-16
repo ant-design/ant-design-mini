@@ -423,14 +423,14 @@ export async function compileAntdMini(watch: boolean) {
   });
 }
 
-export async function compileAntdMiniAxml(watch: boolean) {
+export async function compileAntdMiniBackup(watch: boolean) {
   if (!watch) {
     await Promise.all(
       [
-        'nextCompiled/alipay/demo/pages',
-        'nextCompiled/alipay/src',
-        'nextCompiled/wechat/demo',
-        'nextCompiled/wechat/src',
+        'compiledBackup/alipay/demo/pages',
+        'compiledBackup/alipay/src',
+        'compiledBackup/wechat/demo',
+        'compiledBackup/wechat/src',
       ].map((dir) => {
         return fs.rm(resolve(__dirname, '..', dir), {
           recursive: true,
@@ -458,8 +458,8 @@ export async function compileAntdMiniAxml(watch: boolean) {
 
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
-    source: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
-    dest: resolve(__dirname, '..', 'nextCompiled', 'wechat', 'src'),
+    source: resolve(__dirname, '..', 'srcBackup'),
+    dest: resolve(__dirname, '..', 'compiledBackup', 'wechat', 'src'),
     watch,
     allowList,
     assets: ['md', 'js', 'json'],
@@ -468,8 +468,8 @@ export async function compileAntdMiniAxml(watch: boolean) {
 
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.demo.json'),
-    source: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
-    dest: resolve(__dirname, '..', 'nextCompiled', 'wechat', 'demo'),
+    source: resolve(__dirname, '..', 'demoBackup'),
+    dest: resolve(__dirname, '..', 'compiledBackup', 'wechat', 'demo'),
     watch,
     allowList: demoAllowList,
     assets: ['md', 'js', 'json'],
@@ -493,8 +493,8 @@ export async function compileAntdMiniAxml(watch: boolean) {
 
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
-    source: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
-    dest: resolve(__dirname, '..', 'nextCompiled', 'alipay', 'src'),
+    source: resolve(__dirname, '..', 'srcBackup'),
+    dest: resolve(__dirname, '..', 'compiledBackup', 'alipay', 'src'),
     watch,
     assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
     buildOption: alipayBuildOption,
@@ -502,8 +502,8 @@ export async function compileAntdMiniAxml(watch: boolean) {
 
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
-    source: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
-    dest: resolve(__dirname, '..', 'nextCompiled', 'alipay', 'demo'),
+    source: resolve(__dirname, '..', 'demoBackup'),
+    dest: resolve(__dirname, '..', 'compiledBackup', 'alipay', 'demo'),
     watch,
     assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
     buildOption: {
