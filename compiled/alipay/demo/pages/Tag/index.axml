@@ -3,20 +3,23 @@
 </ant-container>
 <ant-container title="语义标签">
   <view class="tag-list">
-    <ant-tag className="myTag">default</ant-tag>
+    <ant-tag class="myTag">default</ant-tag>
     <ant-tag
-      className="myTag"
-      color="success">
+      class="myTag"
+      color="success"
+    >
       success
     </ant-tag>
     <ant-tag
-      className="myTag"
-      color="warning">
+      class="myTag"
+      color="warning"
+    >
       warning
     </ant-tag>
     <ant-tag
-      className="myTag"
-      color="danger">
+      class="myTag"
+      color="danger"
+    >
       danger
     </ant-tag>
   </view>
@@ -24,18 +27,21 @@
 <ant-container title="填充模式">
   <view class="tag-list">
     <ant-tag
-      className="myTag"
-      type="fill">
+      class="myTag"
+      type="fill"
+    >
       fill
     </ant-tag>
     <ant-tag
-      className="myTag"
-      type="outline">
+      class="myTag"
+      type="outline"
+    >
       outline
     </ant-tag>
     <ant-tag
-      className="myTag"
-      type="fill-light">
+      class="myTag"
+      type="fill-light"
+    >
       fill-light
     </ant-tag>
   </view>
@@ -43,26 +49,30 @@
 <ant-container title="自定义图标">
   <view class="tag-list">
     <ant-tag
-      className="myTag"
-      icon="AlipayCircleFill">
+      class="myTag"
+      icon="AlipayCircleFill"
+    >
       标签
     </ant-tag>
     <ant-tag
-      className="myTag"
+      class="myTag"
       color="success"
-      icon="AlipayCircleFill">
+      icon="AlipayCircleFill"
+    >
       标签
     </ant-tag>
     <ant-tag
-      className="myTag"
+      class="myTag"
       color="warning"
-      icon="AlipayCircleFill">
+      icon="AlipayCircleFill"
+    >
       标签
     </ant-tag>
     <ant-tag
-      className="myTag"
+      class="myTag"
       color="danger"
-      icon="AlipayCircleFill">
+      icon="AlipayCircleFill"
+    >
       标签
     </ant-tag>
   </view>

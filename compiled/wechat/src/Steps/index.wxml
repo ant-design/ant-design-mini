@@ -1,30 +1,49 @@
-<wxs
-  src="./index.wxs"
-  module="utils" />
-
+<import-sjs
+  from="./index.sjs"
+  name="utils"
+></import-sjs>
 <view
-  class="ant-steps ant-steps-{{ direction }} {{ className || '' }}"
-  style="{{ style }}">
+  class="ant-steps ant-steps-{{direction}} {{className || ''}}"
+  style="{{style}}"
+>
   <block
-    wx:for="{{ items }}"
-    wx:for-index="index"
-    wx:for-item="item">
-    <view
-      class="ant-steps-item ant-steps-item-{{ direction }} {{ index < current ? 'ant-steps-item-finish' : '' }} {{ index === current ? 'ant-steps-item-active' : '' }} {{ index > current ? 'ant-steps-item-non-active' : '' }}">
-      <view
-        class="ant-steps-item-indicator ant-steps-item-indicator-{{ direction }}">
-        <view
-          class="ant-steps-item-indicator-icon ant-steps-item-{{ utils.getClassName(current, index, status) }}-icon">
-          <view
-            class="ant-steps-item-{{ utils.getClassName(current, index, status) }}-icon-default" />
+    a:for="{{items}}"
+    a:for-index="index"
+    a:for-item="item"
+  >
+    <view class="ant-steps-item ant-steps-item-{{direction}} {{index < current ? 'ant-steps-item-finish' : ''}} {{index === current ? 'ant-steps-item-active' : ''}} {{index > current ? 'ant-steps-item-non-active' : ''}}">
+      <view class="ant-steps-item-indicator ant-steps-item-indicator-{{direction}}">
+        <view class="ant-steps-item-indicator-icon ant-steps-item-{{utils.getClassName(current, index, status)}}-icon">
+          <slot
+            name="icon"
+            value="{{item}}"
+            index="{{index}}"
+            current="{{current}}"
+            status="{{status}}"
+          >
+            <view class="ant-steps-item-{{utils.getClassName(current, index, status)}}-icon-default"></view>
+          </slot>
         </view>
       </view>
       <view class="ant-steps-item-text">
-        <view
-          class="ant-steps-item-title ant-steps-item-title-{{ utils.getClassName(current, index, status) }}">
-          {{ item.title }}
+        <view class="ant-steps-item-title ant-steps-item-title-{{utils.getClassName(current, index, status)}}">
+          <slot
+            name="title"
+            value="{{item}}"
+            index="{{index}}"
+          >
+            {{item.title}}
+          </slot>
         </view>
-        <view class="ant-steps-item-desc">{{ item.description }}</view>
+        <view class="ant-steps-item-desc">
+          <slot
+            name="description"
+            value="{{item}}"
+            index="{{index}}"
+          >
+            {{item.description}}
+          </slot>
+        </view>
       </view>
     </view>
   </block>

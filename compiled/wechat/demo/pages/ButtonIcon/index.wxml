@@ -1,35 +1,41 @@
 <ant-container title="icon">
   <ant-button
     type="primary"
-    icon="SmileOutline">
+    icon="SmileOutline"
+  >
     Icon
   </ant-button>
   <ant-button
     type="default"
-    icon="SmileOutline">
+    icon="SmileOutline"
+  >
     Icon
   </ant-button>
   <ant-button
     type="text"
-    icon="SmileOutline">
+    icon="SmileOutline"
+  >
     Icon
   </ant-button>
   <ant-button
     type="primary"
     danger
-    icon="ForbidFill">
+    icon="ForbidFill"
+  >
     Icon
   </ant-button>
   <ant-button
     type="default"
     danger
-    icon="ForbidFill">
+    icon="ForbidFill"
+  >
     Icon
   </ant-button>
   <ant-button
     type="text"
     danger
-    icon="ForbidFill">
+    icon="ForbidFill"
+  >
     Icon
   </ant-button>
 </ant-container>
@@ -38,21 +44,24 @@
     type="primary"
     icon="SmileOutline"
     inline
-    size="large">
+    size="large"
+  >
     Icon
   </ant-button>
   <ant-button
     type="primary"
     icon="SmileOutline"
     inline
-    size="medium">
+    size="medium"
+  >
     Icon
   </ant-button>
   <ant-button
     type="primary"
     icon="SmileOutline"
     inline
-    size="small">
+    size="small"
+  >
     Icon
   </ant-button>
 </ant-container>
@@ -62,7 +71,8 @@
     icon="ForbidFill"
     inline
     danger
-    size="large">
+    size="large"
+  >
     Icon
   </ant-button>
   <ant-button
@@ -70,7 +80,8 @@
     icon="ForbidFill"
     inline
     danger
-    size="medium">
+    size="medium"
+  >
     Icon
   </ant-button>
   <ant-button
@@ -78,7 +89,8 @@
     icon="ForbidFill"
     inline
     danger
-    size="small">
+    size="small"
+  >
     Icon
   </ant-button>
 </ant-container>
@@ -86,25 +98,28 @@
   <ant-button
     type="primary"
     icon="SmileOutline"
-    bind:tap="handleTap"
+    onTap="handleTap"
     inline
-    loading>
+    loading
+  >
     loading
   </ant-button>
   <ant-button
     type="primary"
     icon="ForbidFill"
-    bind:tap="handleTap"
+    onTap="handleTap"
     inline
     danger
-    loading>
+    loading
+  >
     loading
   </ant-button>
   <ant-button
     type="primary"
     icon="SmileOutline"
-    bind:tap="handleTap"
-    loading>
+    onTap="handleTap"
+    loading
+  >
     loading
   </ant-button>
 </ant-container>
@@ -112,25 +127,28 @@
   <ant-button
     type="primary"
     icon="SmileOutline"
-    bind:tap="handleTap"
+    onTap="handleTap"
     inline
-    disabled>
+    disabled
+  >
     disabled
   </ant-button>
   <ant-button
     type="primary"
     icon="ForbidFill"
-    bind:tap="handleTap"
+    onTap="handleTap"
     inline
     danger
-    disabled>
+    disabled
+  >
     disabled
   </ant-button>
   <ant-button
     type="primary"
     icon="SmileOutline"
-    bind:tap="handleTap"
-    disabled>
+    onTap="handleTap"
+    disabled
+  >
     disabled
   </ant-button>
 </ant-container>

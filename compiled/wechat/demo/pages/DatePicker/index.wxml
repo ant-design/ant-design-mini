@@ -2,28 +2,30 @@
   <ant-list-item>
     请选择日期
     <ant-date-picker
-      min="{{ min }}"
-      max="{{ max }}"
+      min="{{min}}"
+      max="{{max}}"
       slot="extra"
-      defaultValue="{{ defaultDate }}"
+      default-value="{{defaultDate}}"
       placeholder="请选择"
-      bind:pickerchange="handlePickerChange"
-      bind:visiblechange="handleTriggerPicker"
-      bind:cancel="handleDismiss"
-      bind:ok="handleOk" />
+      onPickerChange="handlePickerChange"
+      onVisibleChange="handleTriggerPicker"
+      onCancel="handleDismiss"
+      onOk="handleOk"
+    ></ant-date-picker>
   </ant-list-item>
   <ant-list-item>
     请选择日期（点击蒙层不关闭）
     <ant-date-picker
-      min="{{ min }}"
-      max="{{ max }}"
+      min="{{min}}"
+      max="{{max}}"
       slot="extra"
-      defaultValue="{{ defaultDate }}"
+      default-value="{{defaultDate}}"
       placeholder="请选择"
-      bind:pickerchange="handlePickerChange"
-      bind:visiblechange="handleTriggerPicker"
-      maskClosable="{{ false }}"
-      bind:ok="handleOk" />
+      onPickerChange="handlePickerChange"
+      onVisibleChange="handleTriggerPicker"
+      mask-closable="{{false}}"
+      onOk="handleOk"
+    ></ant-date-picker>
   </ant-list-item>
 </ant-list>
 <ant-list header="选择精度">
@@ -34,7 +36,8 @@
       precision="year"
       format="YYYY"
       placeholder="选择"
-      bind:ok="handleOk" />
+      onOk="handleOk"
+    ></ant-date-picker>
   </ant-list-item>
   <ant-list-item>
     请选择月份
@@ -43,8 +46,9 @@
       precision="month"
       format="YYYY-MM"
       placeholder="选择"
-      bind:visiblechange="handleTriggerPicker"
-      bind:ok="handleOk" />
+      onVisibleChange="handleTriggerPicker"
+      onOk="handleOk"
+    ></ant-date-picker>
   </ant-list-item>
   <ant-list-item>
     请选择时间
@@ -53,8 +57,9 @@
       precision="minute"
       format="YYYY-MM-DD HH:mm"
       placeholder="选择"
-      bind:visiblechange="handleTriggerPicker"
-      bind:ok="handleOk" />
+      onVisibleChange="handleTriggerPicker"
+      onOk="handleOk"
+    ></ant-date-picker>
   </ant-list-item>
 </ant-list>
 <ant-list header="禁用状态">
@@ -62,24 +67,26 @@
     请选择日期
     <ant-date-picker
       slot="extra"
-      defaultValue="{{ defaultDate }}"
-      disabled />
+      default-value="{{defaultDate}}"
+      disabled
+    ></ant-date-picker>
   </ant-list-item>
 </ant-list>
 <ant-list header="自定义每列的渲染内容">
   <ant-list-item>
     每列不显示单位
     <ant-date-picker
-      min="{{ min }}"
-      max="{{ max }}"
+      min="{{min}}"
+      max="{{max}}"
       slot="extra"
-      defaultValue="{{ defaultDate }}"
+      default-value="{{defaultDate}}"
       placeholder="请选择"
-      bind:pickerchange="handlePickerChange"
-      bind:visiblechange="handleTriggerPicker"
-      bind:cancel="handleDismiss"
-      bind:ok="handleOk"
-      onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
+      onPickerChange="handlePickerChange"
+      onVisibleChange="handleTriggerPicker"
+      onCancel="handleDismiss"
+      onOk="handleOk"
+      onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
+    ></ant-date-picker>
   </ant-list-item>
 </ant-list>
 <ant-list header="时间范围选择">
@@ -88,29 +95,32 @@
     <ant-range-picker
       slot="extra"
       placeholder="请选择"
-      defaultValue="{{ defaultDateRange }}"
+      default-value="{{defaultDateRange}}"
       onPickerChange="handlePickerRangeChange"
-      bind:visiblechange="handleTriggerPicker"
-      bind:ok="handleRangeOk" />
+      onVisibleChange="handleTriggerPicker"
+      onOk="handleRangeOk"
+    ></ant-range-picker>
   </ant-list-item>
   <ant-list-item>
     受控模式
     <ant-range-picker
       slot="extra"
       placeholder="请选择"
-      value="{{ controlledDateRange }}"
-      bind:ok="handleControlledRangeOk" />
+      value="{{controlledDateRange}}"
+      onOk="handleControlledRangeOk"
+    ></ant-range-picker>
   </ant-list-item>
   <ant-list-item>
     每列不显示单位
     <ant-range-picker
       slot="extra"
       placeholder="请选择"
-      defaultValue="{{ defaultDateRange }}"
+      default-value="{{defaultDateRange}}"
       onPickerChange="handlePickerRangeChange"
-      bind:visiblechange="handleTriggerPicker"
-      bind:ok="handleRangeOk"
-      onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
+      onVisibleChange="handleTriggerPicker"
+      onOk="handleRangeOk"
+      onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
+    ></ant-range-picker>
   </ant-list-item>
 </ant-list>
 <ant-container style="margin-top: 20rpx">
@@ -118,23 +128,24 @@
     <ant-list-item>
       请选择时间
       <ant-date-picker
-        min="{{ min }}"
-        max="{{ max }}"
+        min="{{min}}"
+        max="{{max}}"
         slot="extra"
-        visible="{{ pickerVisible }}"
-        defaultValue="{{ defaultDate }}"
+        visible="{{pickerVisible}}"
+        default-value="{{defaultDate}}"
         placeholder="请选择"
-        bind:pickerchange="handlePickerChange"
-        bind:visiblechange="handleTriggerControlledPicker"
-        bind:cancel="handleDismiss"
-        bind:ok="handleOk" />
+        onPickerChange="handlePickerChange"
+        onVisibleChange="handleTriggerControlledPicker"
+        onCancel="handleDismiss"
+        onOk="handleOk"
+      ></ant-date-picker>
     </ant-list-item>
   </ant-list>
-
   <ant-button
     size="medium"
     type="primary"
-    bind:tap="handleOpenPicker">
+    onTap="handleOpenPicker"
+  >
     打开 DatePicker
   </ant-button>
 </ant-container>
@@ -144,19 +155,20 @@
       请选择日期范围
       <ant-range-picker
         slot="extra"
-        visible="{{ dateRangePickerVisible }}"
+        visible="{{dateRangePickerVisible}}"
         placeholder="请选择"
-        defaultValue="{{ defaultDateRange }}"
+        default-value="{{defaultDateRange}}"
         onPickerChange="handlePickerRangeChange"
-        bind:visiblechange="handleTriggerControlledDateRangePicker"
-        bind:ok="handleRangeOk" />
+        onVisibleChange="handleTriggerControlledDateRangePicker"
+        onOk="handleRangeOk"
+      ></ant-range-picker>
     </ant-list-item>
   </ant-list>
-
   <ant-button
     size="medium"
     type="primary"
-    bind:tap="handleOpenDateRangePicker">
+    onTap="handleOpenDateRangePicker"
+  >
     打开 DateRangePicker
   </ant-button>
 </ant-container>

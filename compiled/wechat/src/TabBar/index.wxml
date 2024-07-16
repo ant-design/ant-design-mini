@@ -1,37 +1,64 @@
 <view
-  class="ant-tab-bar {{ className || '' }}"
-  style="{{ style || '' }}">
+  class="ant-tab-bar {{className || ''}}"
+  style="{{style || ''}}"
+>
   <view class="ant-tab-bar-wrap">
     <block
-      wx:for="{{ items }}"
-      wx:for-index="index"
-      wx:for-item="item">
+      a:for="{{items}}"
+      a:for-index="index"
+      a:for-item="item"
+    >
       <view
-        class="ant-tab-bar-item {{ index === mixin.value ? 'ant-tab-bar-item-active ' + (activeClassName || '') : '' }}"
-        style="{{ index === mixin.value ? activeStyle || '' : '' }}"
-        bind:tap="onChange"
-        data-index="{{ index }}">
+        class="ant-tab-bar-item {{index === mixin.value ? 'ant-tab-bar-item-active ' + (activeClassName || '') : ''}}"
+        style="{{index === mixin.value ? activeStyle || '' : ''}}"
+        onTap="onChange"
+        data-index="{{index}}"
+      >
         <ant-badge
-          wx:if="{{ item.badge }}"
-          type="{{ item.badge.type || 'dot' }}"
-          text="{{ item.badge.text }}"
-          stroke="{{ item.badge.stroke }}"
-          bgColor="{{ item.badge.bgColor }}"
-          position="{{ item.badge.position || 'top-right' }}"
-          offsetX="{{ item.badge.offsetX || '-9px' }}"
-          offsetY="{{ item.badge.offsetY || '0px' }}">
-          <image-icon
-            className="ant-tab-bar"
-            image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
+          a:if="{{item.badge}}"
+          type="{{item.badge.type || 'dot'}}"
+          text="{{item.badge.text}}"
+          stroke="{{item.badge.stroke}}"
+          bg-color="{{item.badge.bgColor}}"
+          position="{{item.badge.position || 'top-right'}}"
+          offset-x="{{item.badge.offsetX || '-9px'}}"
+          offset-y="{{item.badge.offsetY || '0px'}}"
+        >
+          <slot
+            name="icon"
+            active="{{mixin.value == index}}"
+            item="{{item}}"
+            index="{{index}}"
+          >
+            <image-icon
+              class="ant-tab-bar"
+              image="{{mixin.value === index ? item.activeIcon : item.icon}}"
+            ></image-icon>
+          </slot>
         </ant-badge>
-        <block wx:else>
-          <image-icon
-            className="ant-tab-bar"
-            image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
+        <block a:else>
+          <slot
+            name="icon"
+            active="{{mixin.value == index}}"
+            item="{{item}}"
+            index="{{index}}"
+          >
+            <image-icon
+              class="ant-tab-bar"
+              image="{{mixin.value === index ? item.activeIcon : item.icon}}"
+            ></image-icon>
+          </slot>
         </block>
         <view class="ant-tab-bar-text-wrap">
-          <!-- display: inline -->
-          <text class="ant-tab-bar-text">{{ item.text }}</text>
+          <slot
+            name="text"
+            active="{{mixin.value === index}}"
+            item="{{item}}"
+            index="{{index}}"
+          >
+            <!--display: inline-->
+            <text class="ant-tab-bar-text">{{item.text}}</text>
+          </slot>
         </view>
       </view>
     </block>

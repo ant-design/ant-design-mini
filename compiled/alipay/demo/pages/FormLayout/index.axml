@@ -2,42 +2,45 @@
   label="用户名"
   name="account"
   required
-  position="{{ position }}"
-  ref="handleRef" />
-
+  position="{{position}}"
+  ref="handleRef"
+></ant-form-input>
 <ant-form-input
   label="地址"
   name="address"
-  position="{{ position }}"
-  ref="handleRef" />
-
+  position="{{position}}"
+  ref="handleRef"
+></ant-form-input>
 <ant-form-switch
   label="选择"
   name="needDelivery"
-  position="{{ position }}"
-  ref="handleRef" />
-
+  position="{{position}}"
+  ref="handleRef"
+></ant-form-switch>
 <ant-form-stepper
   label="数量"
   name="quantity"
-  position="{{ position }}"
-  ref="handleRef" />
-
+  position="{{position}}"
+  ref="handleRef"
+></ant-form-stepper>
 <view class="buttons">
   <ant-button
     type="primary"
     onTap="submit"
-    className="button">
+    class="button"
+  >
     提交
   </ant-button>
   <ant-button
     onTap="reset"
-    className="button">
+    class="button"
+  >
     重置
   </ant-button>
   <ant-button
     onTap="toggle"
-    className="button">
+    class="button"
+  >
     切换表单布局
   </ant-button>
 </view>

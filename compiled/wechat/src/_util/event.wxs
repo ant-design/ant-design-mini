@@ -4,7 +4,7 @@ function disableScrollEvent(event) {
 function enableScrollEvent(event) {
   event.stopPropagation();
 }
-export default {
+module.exports = {
   disableScrollEvent: disableScrollEvent,
   enableScrollEvent: enableScrollEvent
 };

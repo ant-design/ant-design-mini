@@ -1,9 +1,10 @@
-<wxs
-  src="./index.wxs"
-  module="utils" />
-
+<import-sjs
+  from="./index.sjs"
+  name="utils"
+></import-sjs>
 <view
-  wx:if="{{ loading }}"
-  style="{{ style }}"
-  class="ant-skeleton-avatar ant-skeleton-avatar-{{ shape }} {{ animate ? 'ant-skeleton-avatar-animate' : '' }} {{ utils.getClass(size) }} {{ className || '' }}" />
-<slot wx:else />
+  a:if="{{loading}}"
+  style="{{style}}"
+  class="ant-skeleton-avatar ant-skeleton-avatar-{{shape}} {{animate ? 'ant-skeleton-avatar-animate' : ''}} {{utils.getClass(size)}} {{className || ''}}"
+></view>
+<slot a:else></slot>

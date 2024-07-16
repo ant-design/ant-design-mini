@@ -1,23 +1,26 @@
-<wxs
-  src="./index.wxs"
-  module="utils" />
-
+<import-sjs
+  from="./index.sjs"
+  name="utils"
+></import-sjs>
 <ant-container title="自定义分组">
   <block
-    wx:for="{{ options }}"
-    wx:for-index="index"
-    wx:for-item="option">
-    <ant-list header="{{ option.title }}">
+    a:for="{{options}}"
+    a:for-index="index"
+    a:for-item="option"
+  >
+    <ant-list header="{{option.title}}">
       <block
-        wx:for="{{ option.list }}"
-        wx:for-index="index"
-        wx:for-item="item">
+        a:for="{{option.list}}"
+        a:for-index="index"
+        a:for-item="item"
+      >
         <ant-list-item>
           <ant-checkbox
-            data-value="{{ item.value }}"
-            checked="{{ utils.indexOf(value, item.value) > -1 }}"
-            bind:change="onChange">
-            {{ item.title }}
+            data-value="{{item.value}}"
+            checked="{{utils.indexOf(value, item.value) > -1}}"
+            onChange="onChange"
+          >
+            {{item.title}}
           </ant-checkbox>
         </ant-list-item>
       </block>

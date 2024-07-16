@@ -3,63 +3,73 @@
     onChange="onChange"
     onBlur="onBlur"
     onConfirm="onConfirm"
-    onFocus="onFocus" />
+    onFocus="onFocus"
+  ></stepper>
 </container>
 <container title="初始值">
-  <stepper defaultValue="{{ 0 }}" />
+  <stepper defaultValue="{{0}}"></stepper>
 </container>
 <container title="step 0.01">
   <stepper
-    defaultValue="{{ 0 }}"
-    step="{{ 0.01 }}"
-    inputStyle="width: 60px" />
+    default-value="{{0}}"
+    step="{{0.01}}"
+    input-style="width: 60px"
+  ></stepper>
 </container>
 <container title="precision 1">
   <stepper
-    defaultValue="{{ 0 }}"
-    precision="{{ 1 }}"
-    inputStyle="width: 60px" />
+    default-value="{{0}}"
+    precision="{{1}}"
+    input-style="width: 60px"
+  ></stepper>
 </container>
 <container title="限制输入范围 [0, 10]">
   <stepper
-    defaultValue="{{ 0 }}"
-    min="{{ 0 }}"
-    max="{{ 10 }}"
-    step="{{ 1 }}" />
+    default-value="{{0}}"
+    min="{{0}}"
+    max="{{10}}"
+    step="{{1}}"
+  ></stepper>
 </container>
 <container title="禁用状态">
   <stepper
-    defaultValue="{{ 0 }}"
-    disabled />
+    default-value="{{0}}"
+    disabled
+  ></stepper>
 </container>
 <container title="输入框只读">
   <stepper
-    defaultValue="{{ 0 }}"
-    inputReadOnly />
+    default-value="{{0}}"
+    input-read-only
+  ></stepper>
 </container>
 <container title="受控组件">
   <stepper
-    value="{{ value }}"
+    value="{{value}}"
     onChange="handleChange"
     style="margin: 8px 0"
     onBlur="onBlur"
     onConfirm="onConfirm"
-    onFocus="onFocus" />
-  value: {{ value }}
+    onFocus="onFocus"
+  ></stepper>
+  value: {{value}}
   <view class="list">
     <ant-button
       inline
-      onTap="add">
+      onTap="add"
+    >
       add
     </ant-button>
     <ant-button
       inline
-      onTap="minus">
+      onTap="minus"
+    >
       minus
     </ant-button>
     <ant-button
       inline
-      onTap="clear">
+      onTap="clear"
+    >
       clear
     </ant-button>
   </view>

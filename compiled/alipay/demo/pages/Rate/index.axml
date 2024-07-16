@@ -1,57 +1,59 @@
 <ant-container title="基础用法">
   <ant-rate
-    defaultValue="{{ 3 }}"
-    onChange="onChange" />
+    default-value="{{3}}"
+    onChange="onChange"
+  ></ant-rate>
 </ant-container>
-
 <ant-container title="半星">
   <ant-rate
-    defaultValue="{{ 3.5 }}"
-    allowHalf
-    onChange="onChange" />
+    default-value="{{3.5}}"
+    allow-half
+    onChange="onChange"
+  ></ant-rate>
 </ant-container>
-
 <ant-container title="清除">
   <ant-rate
-    defaultValue="{{ 4 }}"
-    onChange="onChange" />
+    default-value="{{4}}"
+    onChange="onChange"
+  ></ant-rate>
   <view class="description">allowClear: true</view>
   <ant-rate
-    defaultValue="{{ 4 }}"
-    allowClear="{{ false }}"
-    onChange="onChange" />
+    default-value="{{4}}"
+    allow-clear="{{false}}"
+    onChange="onChange"
+  ></ant-rate>
   <view class="description">allowClear: false</view>
 </ant-container>
-
 <ant-container title="只读">
   <ant-rate
-    defaultValue="{{ 3.5 }}"
-    readonly />
+    default-value="{{3.5}}"
+    readonly
+  ></ant-rate>
 </ant-container>
-
 <ant-container title="多个count">
   <ant-rate
-    defaultValue="{{ 5 }}"
-    count="{{ 8 }}" />
+    default-value="{{5}}"
+    count="{{8}}"
+  ></ant-rate>
 </ant-container>
-
 <ant-container title="受控模式">
   <view style="display: flex; justify-content: space-around">
     <view>
       <ant-rate
-        value="{{ value }}"
-        onChange="handleChange" />
-
+        value="{{value}}"
+        onChange="handleChange"
+      ></ant-rate>
       <view style="margin-top: 8px">
         <ant-stepper
-          value="{{ value }}"
-          min="{{ 0 }}"
-          max="{{ 5 }}"
-          onChange="handleChange" />
+          value="{{value}}"
+          min="{{0}}"
+          max="{{5}}"
+          onChange="handleChange"
+        ></ant-stepper>
       </view>
     </view>
     <view>
-      <ant-rate value="{{ value }}" />
+      <ant-rate value="{{value}}"></ant-rate>
       <view class="description">无 onChange 函数</view>
     </view>
   </view>

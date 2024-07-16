@@ -3,105 +3,124 @@
   name="account"
   placeholder="请输入用户名"
   tooltip="用户名说明"
-  allowClear
-  ref="handleRef" />
+  allow-clear
+  ref="handleRef"
+></form-input>
 <form-input
   label="密码"
   name="password"
   placeholder="请输入密码"
-  allowClear
-  ref="handleRef">
+  allow-clear
+  ref="handleRef"
+>
   <view slot="tooltip">
     <ant-icon
       onTap="showToast"
-      type="QuestionCircleOutline" />
+      type="QuestionCircleOutline"
+    ></ant-icon>
   </view>
 </form-input>
 <form-input
   label="地址"
   name="address"
   placeholder="请输入地址"
-  allowClear
-  ref="handleRef" />
+  allow-clear
+  ref="handleRef"
+></form-input>
 <form-switch
   label="选择"
   name="needDelivery"
-  ref="handleRef" />
+  ref="handleRef"
+></form-switch>
 <form-stepper
   label="数量"
   name="quantity"
-  ref="handleRef" />
+  ref="handleRef"
+></form-stepper>
 <form-picker
   label="水果"
   arrow
   name="fruit"
-  options="{{ fruitList }}"
-  ref="handleRef" />
+  options="{{fruitList}}"
+  ref="handleRef"
+></form-picker>
 <form-date-picker
   label="出生日期"
   arrow
   name="birthday"
-  ref="handleRef" />
+  ref="handleRef"
+></form-date-picker>
 <form-range-picker
   label="时间范围"
   arrow
   name="range"
-  ref="handleRef" />
+  ref="handleRef"
+></form-range-picker>
 <form-cascader-picker
   label="城市"
   arrow
-  options="{{ cityList }}"
+  options="{{cityList}}"
   name="city"
   tooltip="选择城市"
   placeholder="请输入城市"
-  ref="handleRef" />
+  ref="handleRef"
+></form-cascader-picker>
 <form-radio-group
   label="动物单选"
   name="animalChoose"
   color="red"
-  options="{{ radioGroupOptions }}"
-  ref="handleRef" />
+  options="{{radioGroupOptions}}"
+  ref="handleRef"
+></form-radio-group>
 <form-checkbox-group
   label="蔬菜多选"
   name="fruitChoose"
-  options="{{ checkboxGroupOptions }}"
-  ref="handleRef" />
+  options="{{checkboxGroupOptions}}"
+  ref="handleRef"
+></form-checkbox-group>
 <form-selector
   label="喜好"
   name="likeChoose"
-  options="{{ selectorOptions }}"
-  ref="handleRef" />
+  options="{{selectorOptions}}"
+  ref="handleRef"
+></form-selector>
 <form-slider
   label="选择分数"
   name="slider"
-  showTooltip
-  ref="handleRef" />
+  show-tooltip
+  ref="handleRef"
+></form-slider>
 <form-upload-image
   label="图片"
   name="image"
-  onUpload="{{ onUpload ? onUpload : 'onUpload' }}"
-  ref="handleRef" />
+  onUpload="{{onUpload ? onUpload : 'onUpload'}}"
+  ref="handleRef"
+></form-upload-image>
 <form-textarea
   label="说明"
   name="description"
   placeholder="请输入说明"
-  allowClear
-  autoHeight
-  ref="handleRef" />
+  allow-clear
+  auto-height
+  ref="handleRef"
+></form-textarea>
 <form-rate
   label="评分"
   name="rate"
-  ref="handleRef" />
+  ref="handleRef"
+></form-rate>
 <view class="buttons">
   <ant-button
     type="primary"
     onTap="submit"
-    style="margin-bottom: 12px">
+    style="margin-bottom: 12px"
+  >
     提交
   </ant-button>
   <ant-button onTap="reset">重置</ant-button>
 </view>
 <ant-toast
   content="密码的自定义 tooltip"
-  visible="{{ toastShow }}"
-  onClose="handleCloseToast" />
+  visible="{{toastShow}}"
+  onClose="handleCloseToast"
+></ant-toast>

@@ -1,37 +1,42 @@
 <ant-picker
-  className="ant-date-picker"
-  popClassName="ant-date-picker-popup {{ popClassName || '' }}"
-  visible="{{ visible }}"
-  style="{{ style }}"
-  popStyle="{{ popStyle }}"
-  animationType="{{ animationType }}"
-  options="{{ columns }}"
-  value="{{ currentValue }}"
-  disabled="{{ disabled }}"
-  title="{{ title }}"
-  placeholder="{{ placeholder }}"
-  okText="{{ okText }}"
-  cancelText="{{ cancelText }}"
-  maskStyle="{{ maskStyle }}"
-  maskClassName="{{ maskClassName }}"
-  indicatorStyle="{{ indicatorStyle }}"
-  indicatorClassName="{{ indicatorClassName }}"
-  bind:change="onChange"
-  bind:cancel="onCancel"
-  bind:ok="onOk"
-  formattedValueText="{{ formattedValueText }}"
-  bind:visiblechange="onVisibleChange"
-  maskClosable="{{ maskClosable }}">
+  class="ant-date-picker"
+  pop-class-name="ant-date-picker-popup {{popClassName || ''}}"
+  visible="{{visible}}"
+  style="{{style}}"
+  pop-style="{{popStyle}}"
+  animation-type="{{animationType}}"
+  options="{{columns}}"
+  value="{{currentValue}}"
+  disabled="{{disabled}}"
+  title="{{title}}"
+  placeholder="{{placeholder}}"
+  ok-text="{{okText}}"
+  cancel-text="{{cancelText}}"
+  mask-style="{{maskStyle}}"
+  mask-class-name="{{maskClassName}}"
+  indicator-style="{{indicatorStyle}}"
+  indicator-class-name="{{indicatorClassName}}"
+  onChange="onChange"
+  onCancel="onCancel"
+  onOk="onOk"
+  formatted-value-text="{{formattedValueText}}"
+  onVisibleChange="onVisibleChange"
+  mask-closable="{{maskClosable}}"
+>
   <slot
     name="content"
-    slot="content" />
+    slot="content"
+  ></slot>
   <slot
     name="title"
-    slot="title" />
+    slot="title"
+  ></slot>
   <slot
     name="prefix"
-    slot="prefix" />
+    slot="prefix"
+  ></slot>
   <slot
     name="suffix"
-    slot="suffix" />
+    slot="suffix"
+  ></slot>
 </ant-picker>

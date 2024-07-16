@@ -1,33 +1,49 @@
 <ant-container title="基础用法">
   <ant-checkbox-group
-    options="{{ options }}"
-    bind:change="onChange" />
+    options="{{options}}"
+    onChange="onChange"
+  ></ant-checkbox-group>
 </ant-container>
 <ant-container title="初始值">
   <ant-checkbox-group
-    defaultValue="{{ ['banana'] }}"
-    options="{{ options }}"
-    bind:change="onChange" />
+    default-value="{{['banana']}}"
+    options="{{options}}"
+    onChange="onChange"
+  ></ant-checkbox-group>
 </ant-container>
 <ant-container title="横向布局">
   <ant-checkbox-group
-    options="{{ options }}"
-    position="horizontal" />
+    options="{{options}}"
+    position="horizontal"
+  ></ant-checkbox-group>
 </ant-container>
 <ant-container title="禁用模式">
   <ant-checkbox-group
-    options="{{ options }}"
-    disabled />
+    options="{{options}}"
+    disabled
+  ></ant-checkbox-group>
 </ant-container>
 <ant-container title="受控模式">
   <ant-checkbox-group
-    value="{{ value }}"
-    options="{{ options }}"
-    bind:change="handleChange" />
+    value="{{value}}"
+    options="{{options}}"
+    onChange="handleChange"
+  ></ant-checkbox-group>
 </ant-container>
 <ant-container title="自定义颜色">
   <ant-checkbox-group
-    options="{{ options }}"
-    defaultValue="{{ ['apple', 'banana'] }}"
-    color="red" />
+    options="{{options}}"
+    default-value="{{['apple', 'banana']}}"
+    color="red"
+  ></ant-checkbox-group>
+</ant-container>
+<ant-container title="自定义 Label">
+  <ant-checkbox-group options="{{options}}">
+    <view
+      slot="label"
+      slot-scope="item"
+    >
+      {{item.index + 1}} {{item.value.label}}
+    </view>
+  </ant-checkbox-group>
 </ant-container>

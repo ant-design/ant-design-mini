@@ -1,20 +1,22 @@
 <ant-tabs
-  items="{{ items }}"
-  current="{{ current }}"
-  onChange="onChange">
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+>
   <swiper
-    current="{{ current }}"
-    autoplay="{{ false }}"
-    vertical="{{ false }}"
-    circular="{{ false }}"
-    onChange="onSwipeChange">
+    current="{{current}}"
+    autoplay="{{false}}"
+    vertical="{{false}}"
+    circular="{{false}}"
+    onChange="onSwipeChange"
+  >
     <block
-      a:for="{{ items }}"
+      a:for="{{items}}"
       a:for-index="index"
       a:for-item="item"
-      a:key="{{ index }}">
+    >
       <swiper-item>
-        <view class="content">{{ item.content }}</view>
+        <view class="content">{{item.content}}</view>
       </swiper-item>
     </block>
   </swiper>

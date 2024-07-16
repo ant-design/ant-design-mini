@@ -1,58 +1,65 @@
 <form-item
-  className="{{ className }}"
-  style="{{ style }}"
-  position="{{ position }}"
-  label="{{ label }}"
-  labelWidth="{{ labelWidth }}"
-  status="{{ formData.status }}"
-  errors="{{ formData.errors }}"
-  tooltip="{{ tooltip }}"
-  required="{{ formData.required }}"
-  requiredMark="{{ requiredMark }}"
-  validateStatus="{{ validateStatus }}"
-  help="{{ help }}">
+  class="{{className}}"
+  style="{{style}}"
+  position="{{position}}"
+  label="{{label}}"
+  label-width="{{labelWidth}}"
+  status="{{formData.status}}"
+  errors="{{formData.errors}}"
+  tooltip="{{tooltip}}"
+  required="{{formData.required}}"
+  required-mark="{{requiredMark}}"
+  validate-status="{{validateStatus}}"
+  help="{{help}}"
+>
   <view>
     <slider
-      value="{{ formData.value }}"
-      className="{{ sliderClassName }}"
-      style="{{ sliderStyle }}"
-      activeLineClassName="{{ activeLineClassName }}"
-      activeLineStyle="{{ activeLineStyle }}"
-      activeDotClassName="{{ activeDotClassName }}"
-      activeDotStyle="{{ activeDotStyle }}"
-      min="{{ min }}"
-      max="{{ max }}"
-      range="{{ range }}"
-      showNumber="{{ showNumber }}"
-      step="{{ step }}"
-      showTicks="{{ showTicks }}"
-      showTooltip="{{ showTooltip }}"
-      disabled="{{ disabled }}"
+      value="{{formData.value}}"
+      class="{{sliderClassName}}"
+      style="{{sliderStyle}}"
+      active-line-class-name="{{activeLineClassName}}"
+      active-line-style="{{activeLineStyle}}"
+      active-dot-class-name="{{activeDotClassName}}"
+      active-dot-style="{{activeDotStyle}}"
+      min="{{min}}"
+      max="{{max}}"
+      range="{{range}}"
+      show-number="{{showNumber}}"
+      step="{{step}}"
+      show-ticks="{{showTicks}}"
+      show-tooltip="{{showTooltip}}"
+      disabled="{{disabled}}"
       onChange="onChange"
-      onAfterChange="onAfterChange" />
+      onAfterChange="onAfterChange"
+    ></slider>
   </view>
   <view
-    a:if="{{ !tooltip }}"
-    slot="tooltip">
-    <slot name="tooltip" />
+    a:if="{{!tooltip}}"
+    slot="tooltip"
+  >
+    <slot name="tooltip"></slot>
   </view>
   <view slot="extra">
-    <slot name="extra">{{ extra }}</slot>
+    <slot name="extra">{{extra}}</slot>
   </view>
   <view
     slot="header"
-    slot-scope="item">
+    slot-scope="item"
+  >
     <slot
       name="header"
-      errors="{{ item.errors }}"
-      status="{{ item.status }}" />
+      errors="{{item.errors}}"
+      status="{{item.status}}"
+    ></slot>
   </view>
   <view
     slot="footer"
-    slot-scope="item">
+    slot-scope="item"
+  >
     <slot
       name="footer"
-      errors="{{ item.errors }}"
-      status="{{ item.status }}" />
+      errors="{{item.errors}}"
+      status="{{item.status}}"
+    ></slot>
   </view>
 </form-item>

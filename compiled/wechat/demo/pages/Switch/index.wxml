@@ -1,55 +1,70 @@
 <view>
   <container title="基础用法">
-    <switch />
+    <switch></switch>
   </container>
   <container title="有默认值">
     <switch
-      defaultChecked="{{ true }}"
-      bind:change="onChange" />
+      default-checked="{{true}}"
+      onChange="onChange"
+    ></switch>
   </container>
   <container title="文字和图标">
     <switch
-      checkedText="开"
-      uncheckedText="关"
-      bind:change="onChange" />
+      checked-text="开"
+      unchecked-text="关"
+      onChange="onChange"
+    ></switch>
+    <switch>
+      <ant-icon
+        type="CheckOutline"
+        slot="checkedText"
+      ></ant-icon>
+      <ant-icon
+        type="CloseOutline"
+        slot="uncheckedText"
+      ></ant-icon>
+    </switch>
   </container>
   <container title="自定义颜色">
     <switch
-      defaultChecked="{{ true }}"
-      color="#00b578" />
+      default-checked="{{true}}"
+      color="#00b578"
+    ></switch>
   </container>
   <container title="禁用状态">
     <switch
-      defaultChecked="{{ true }}"
-      disabled="{{ true }}" />
-    <switch disabled="{{ true }}" />
+      default-checked="{{true}}"
+      disabled="{{true}}"
+    ></switch>
+    <switch disabled="{{true}}"></switch>
   </container>
   <container title="加载状态">
-    <switch loading />
+    <switch loading></switch>
   </container>
   <container title="不同尺寸">
     <view class="line">
       <view>medium：</view>
-      <switch size="medium" />
+      <switch size="medium"></switch>
     </view>
     <view class="line">
       <view>small：</view>
-      <switch size="small" />
+      <switch size="small"></switch>
     </view>
     <view class="line">
       <view>x-small：</view>
-      <switch size="x-small" />
+      <switch size="x-small"></switch>
     </view>
   </container>
   <container title="受控模式">
     <switch
-      checked="{{ checked }}"
-      bind:change="handleChange"
-      defaultChecked="{{ true }}" />
-
+      checked="{{checked}}"
+      onChange="handleChange"
+      default-checked="{{true}}"
+    ></switch>
     <button
       style="margin-top: 10px"
-      bind:tap="handleChangeByButton">
+      onTap="handleChangeByButton"
+    >
       切换
     </button>
   </container>

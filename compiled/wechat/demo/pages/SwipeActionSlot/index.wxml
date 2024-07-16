@@ -2,68 +2,81 @@
   <view class="t-swipe-item">
     <view class="t-swipe-item-title">自定义按钮</view>
     <block
-      wx:for="{{ 10 }}"
-      wx:for-index="index"
-      wx:for-item="_"
-      wx:key="{{ index }}">
+      a:for="{{10}}"
+      a:for-index="index"
+      a:for-item="_"
+    >
       <view class="t-swipe-item-con">
         <ant-swipe-action
-          data-item="{{ index }}"
-          rightButtons="{{ rightBtns }}"
-          leftButtons="{{ leftBtns }}"
-          elasticity="{{ true }}"
-          swiped="{{ swipeIndex === index }}"
-          bind:swipeend="onSwipeEnd"
-          bind:swipestart="onSwipeStart"
-          bind:buttontap="onButtonTap">
+          data-item="{{index}}"
+          right-buttons="{{rightBtns}}"
+          left-buttons="{{leftBtns}}"
+          elasticity="{{true}}"
+          swiped="{{swipeIndex === index}}"
+          onSwipeEnd="onSwipeEnd"
+          onSwipeStart="onSwipeStart"
+          onButtonTap="onButtonTap"
+        >
           <view class="t-swipe-item-con-view">左右自定义按钮</view>
           <view
             slot="delete"
-            class="t-swipe-item-con-btn">
+            class="t-swipe-item-con-btn"
+          >
             <ant-icon
               type="DeleteOutline"
-              className="t-swipe-item-con-btn-icon" />
-            <!-- display: inline -->
+              class="t-swipe-item-con-btn-icon"
+            ></ant-icon>
+            <!--display: inline-->
             <text class="t-swipe-item-con-btn-del">删除</text>
           </view>
           <view
             slot="delete-confirm"
-            class="t-swipe-item-con-btn">
+            class="t-swipe-item-con-btn"
+          >
             <ant-icon
               type="DeleteOutline"
-              className="t-swipe-item-con-btn-icon" />
+              class="t-swipe-item-con-btn-icon"
+            ></ant-icon>
             <view class="t-swipe-item-con-btn-del">确认删除吗？</view>
           </view>
           <view
             slot="reName"
-            class="t-swipe-item-con-btn">
+            class="t-swipe-item-con-btn"
+          >
             <ant-icon
               type="EditFill"
-              className="t-swipe-item-con-btn-icon" />
+              class="t-swipe-item-con-btn-icon"
+            ></ant-icon>
             <view class="t-swipe-item-con-btn-del">重命名</view>
           </view>
           <view
             slot="reName-confirm"
-            class="t-swipe-item-con-btn">
+            class="t-swipe-item-con-btn"
+          >
             <ant-icon
               type="EditFill"
-              className="t-swipe-item-con-btn-icon" />
+              class="t-swipe-item-con-btn-icon"
+            ></ant-icon>
             <view class="t-swipe-item-con-btn-del">确认修改吗?</view>
           </view>
           <view
             slot="reName-left"
-            class="t-swipe-item-con-btn left-slot">
+            class="t-swipe-item-con-btn left-slot"
+          >
             <ant-icon
               type="EditFill"
-              className="t-swipe-item-con-btn-icon" />
+              class="t-swipe-item-con-btn-icon"
+            ></ant-icon>
             <view class="t-swipe-item-con-btn-del">重命名</view>
           </view>
           <view
             slot="reName-left-confirm"
-            class="t-swipe-item-con-btn left-slot">
+            class="t-swipe-item-con-btn left-slot"
+          >
             <ant-icon
               type="EditFill"
-              className="t-swipe-item-con-btn-icon" />
+              class="t-swipe-item-con-btn-icon"
+            ></ant-icon>
             <view class="t-swipe-item-con-btn-del">确认修改吗?</view>
           </view>
         </ant-swipe-action>

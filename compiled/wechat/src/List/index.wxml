@@ -1,26 +1,29 @@
-<view
-  class="ant-list {{ className ? className : '' }} {{ radius ? 'ant-list-radius' : '' }}">
+<view class="ant-list {{className ? className : ''}} {{radius ? 'ant-list-radius' : ''}}">
   <view
-    wx:if="{{ header }}"
-    class="ant-list-header">
-    {{ header }}
+    a:if="{{header}}"
+    class="ant-list-header"
+  >
+    {{header}}
   </view>
   <view
-    wx:else
-    class="ant-list-header">
-    <slot name="header" />
+    a:else
+    class="ant-list-header"
+  >
+    <slot name="header"></slot>
   </view>
   <view class="ant-list-body">
-    <slot />
+    <slot></slot>
   </view>
   <view
-    wx:if="{{ footer }}"
-    class="ant-list-footer">
-    {{ footer }}
+    a:if="{{footer}}"
+    class="ant-list-footer"
+  >
+    {{footer}}
   </view>
   <view
-    wx:else
-    class="ant-list-footer">
-    <slot name="footer" />
+    a:else
+    class="ant-list-footer"
+  >
+    <slot name="footer"></slot>
   </view>
 </view>

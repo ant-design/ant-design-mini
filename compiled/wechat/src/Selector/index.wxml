@@ -1,37 +1,42 @@
-<wxs
-  src="./index.wxs"
-  module="util" />
-
+<import-sjs
+  from="./index.sjs"
+  name="util"
+></import-sjs>
 <view
-  class="ant-selector {{ className ? className : '' }} {{ disabled ? 'ant-selector-disabled' : '' }}"
-  style="{{ style }}">
+  class="ant-selector {{className ? className : ''}} {{disabled ? 'ant-selector-disabled' : ''}}"
+  style="{{style}}"
+>
   <view class="ant-selector-content-container">
     <block
-      wx:for="{{ options }}"
-      wx:for-index="index"
-      wx:for-item="item">
-      <view
-        class="ant-selector-content {{ options.length <= 2 ? 'ant-selector-content-item2' : '' }}">
+      a:for="{{options}}"
+      a:for-index="index"
+      a:for-item="item"
+    >
+      <view class="ant-selector-content {{options.length <= 2 ? 'ant-selector-content-item2' : ''}}">
         <view
-          class="ant-selector-item {{ item.disabled ? 'ant-selector-item-disabled' : '' }} {{ util.getChecked(item.value, mixin.value, multiple) ? 'ant-selector-item-active ' + (activeItemClassName || '') : '' }}"
-          style="{{ util.getChecked(item.value, mixin.value, multiple) ? activeItemStyle || '' : '' }}"
-          data-value="{{ item.value }}"
-          data-disabled="{{ item.disabled }}"
-          bind:tap="onChange">
+          class="ant-selector-item {{item.disabled ? 'ant-selector-item-disabled' : ''}} {{util.getChecked(item.value, mixin.value, multiple) ? 'ant-selector-item-active ' + (activeItemClassName || '') : ''}}"
+          style="{{util.getChecked(item.value, mixin.value, multiple) ? activeItemStyle || '' : ''}}"
+          data-value="{{item.value}}"
+          data-disabled="{{item.disabled}}"
+          onTap="onChange"
+        >
           <view
-            wx:if="{{ item.text }}"
-            class="ant-selector-item-text">
-            {{ item.text }}
+            a:if="{{item.text}}"
+            class="ant-selector-item-text"
+          >
+            {{item.text}}
           </view>
           <view
-            wx:if="{{ item.subText }}"
-            class="ant-selector-item-subtext">
-            {{ item.subText }}
+            a:if="{{item.subText}}"
+            class="ant-selector-item-subtext"
+          >
+            {{item.subText}}
           </view>
           <view
-            wx:if="{{ util.getChecked(item.value, mixin.value, multiple) }}"
-            class="ant-selector-item-badge-active" />
-          <slot item="{{ item }}" />
+            a:if="{{util.getChecked(item.value, mixin.value, multiple)}}"
+            class="ant-selector-item-badge-active"
+          ></view>
+          <slot item="{{item}}"></slot>
         </view>
       </view>
     </block>

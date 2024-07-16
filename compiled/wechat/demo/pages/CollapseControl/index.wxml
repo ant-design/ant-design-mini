@@ -1,20 +1,24 @@
 <ant-button
-  bind:tap="toggle"
-  inline>
+  onTap="toggle"
+  inline
+>
   切换
 </ant-button>
 <ant-button
-  bind:tap="changeContent"
-  inline>
+  onTap="changeContent"
+  inline
+>
   修改content
 </ant-button>
 <ant-button
-  bind:tap="addItems"
-  inline>
+  onTap="addItems"
+  inline
+>
   添加items
 </ant-button>
-{{ current }}
+{{current}}
 <collapse
-  items="{{ items }}"
-  current="{{ current }}"
-  bind:change="onChange" />
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+></collapse>e" />

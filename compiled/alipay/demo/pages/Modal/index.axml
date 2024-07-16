@@ -1,146 +1,168 @@
 <ant-modal
   content="人在天边月上明"
-  visible="{{ basicVisible }}"
+  visible="{{basicVisible}}"
   onClose="handleClose"
-  primaryButtonText="我知道了"
-  onPrimaryButtonTap="handlePrimaryButtonTap" />
+  primary-button-text="我知道了"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+></ant-modal>
 <ant-modal
   title="带标题的弹窗"
   content="人在天边月上明"
-  visible="{{ withTitleVisible }}"
+  visible="{{withTitleVisible}}"
   onClose="handleClose"
-  primaryButtonText="我知道了"
-  onPrimaryButtonTap="handlePrimaryButtonTap" />
+  primary-button-text="我知道了"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+></ant-modal>
 <ant-modal
   title="确定删除吗？"
   content="删除后无法恢复"
-  visible="{{ basicTwoVisible }}"
+  visible="{{basicTwoVisible}}"
   onClose="handleClose"
-  primaryButtonText="确定"
-  secondaryButtonText="取消"
+  primary-button-text="确定"
+  secondary-button-text="取消"
   onPrimaryButtonTap="handlePrimaryButtonTap"
-  onSecondaryButtonTap="handleSecondaryButtonTap" />
+  onSecondaryButtonTap="handleSecondaryButtonTap"
+></ant-modal>
 <ant-modal
   title="标题"
   content="人在天边月上明"
-  visible="{{ basicThreeVisible }}"
+  visible="{{basicThreeVisible}}"
   onClose="handleClose"
-  primaryButtonText="主按钮"
-  secondaryButtonText="更多"
-  cancelButtonText="取消"
+  primary-button-text="主按钮"
+  secondary-button-text="更多"
+  cancel-button-text="取消"
   onPrimaryButtonTap="handlePrimaryButtonTap"
   onSecondaryButtonTap="handleSecondaryButtonTap"
-  onCancelButtonTap="handleCancelButtonTap" />
+  onCancelButtonTap="handleCancelButtonTap"
+></ant-modal>
 <ant-modal
   title="强调模式"
   content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
   type="focus"
-  visible="{{ focusOneVisible }}"
+  visible="{{focusOneVisible}}"
   onClose="handleClose"
-  primaryButtonText="我知道了"
-  onPrimaryButtonTap="handlePrimaryButtonTap" />
-<ant-modal
-  title="强调模式"
-  content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
-  type="focus"
-  visible="{{ focusTwoVisible }}"
-  onClose="handleClose"
-  primaryButtonText="我知道了"
-  secondaryButtonText="辅助操作"
+  primary-button-text="我知道了"
   onPrimaryButtonTap="handlePrimaryButtonTap"
-  onSecondaryButtonTap="handleSecondaryButtonTap" />
+></ant-modal>
 <ant-modal
   title="强调模式"
   content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
   type="focus"
-  visible="{{ focusThreeVisible }}"
+  visible="{{focusTwoVisible}}"
   onClose="handleClose"
-  primaryButtonText="我知道了"
-  secondaryButtonText="辅助操作"
-  cancelButtonText="取消"
+  primary-button-text="我知道了"
+  secondary-button-text="辅助操作"
   onPrimaryButtonTap="handlePrimaryButtonTap"
   onSecondaryButtonTap="handleSecondaryButtonTap"
-  onCancelButtonTap="handleCancelButtonTap" />
+></ant-modal>
+<ant-modal
+  title="强调模式"
+  content="主操作按钮是Button，右上角可有关闭按钮，是用来强调让用户去注意到主操作"
+  type="focus"
+  visible="{{focusThreeVisible}}"
+  onClose="handleClose"
+  primary-button-text="我知道了"
+  secondary-button-text="辅助操作"
+  cancel-button-text="取消"
+  onPrimaryButtonTap="handlePrimaryButtonTap"
+  onSecondaryButtonTap="handleSecondaryButtonTap"
+  onCancelButtonTap="handleCancelButtonTap"
+></ant-modal>
 <ant-modal
   title="确定删除吗？"
   content="删除后无法恢复"
-  visible="{{ customVisible }}"
+  visible="{{customVisible}}"
   onClose="handleClose"
-  primaryButtonText="删除"
-  primaryButtonStyle="color:red;"
-  secondaryButtonText="取消"
+  primary-button-text="删除"
+  primary-button-style="color:red;"
+  secondary-button-text="取消"
   onPrimaryButtonTap="handlePrimaryButtonTap"
-  onSecondaryButtonTap="handleSecondaryButtonTap" />
+  onSecondaryButtonTap="handleSecondaryButtonTap"
+></ant-modal>
 <ant-modal
-  visible="{{ customBodyVisible }}"
-  onClose="handleClose">
+  visible="{{customBodyVisible}}"
+  onClose="handleClose"
+>
   <view class="body">
     <image
       mode="scaleToFill"
       src="https://mdn.alipayobjects.com/huamei_yujk1o/afts/img/A*xYjqRJiKsvoAAAAAAAAAAAAADuaJAQ/original"
-      class="bodyImg" />
+      class="bodyImg"
+    ></image>
     <view class="bodyAction">
       <ant-icon
         type="CloseCircleOutline"
-        onTap="handleClose" />
+        onTap="handleClose"
+      ></ant-icon>
     </view>
   </view>
 </ant-modal>
-
 <ant-container
   title="基础用法"
-  className="list">
+  class="list"
+>
   <ant-button
     data-field="basicVisible"
-    onTap="handleOpen">
+    onTap="handleOpen"
+  >
     最简单的弹框
   </ant-button>
   <ant-button
     data-field="withTitleVisible"
-    onTap="handleOpen">
+    onTap="handleOpen"
+  >
     带有标题
   </ant-button>
   <ant-button
     data-field="basicTwoVisible"
-    onTap="handleOpen">
+    onTap="handleOpen"
+  >
     带辅助按钮
   </ant-button>
   <ant-button
     data-field="basicThreeVisible"
-    onTap="handleOpen">
+    onTap="handleOpen"
+  >
     带辅助和取消按钮
   </ant-button>
 </ant-container>
 <ant-container
   title="强调模式"
-  className="list">
+  class="list"
+>
   <ant-button
     data-field="focusOneVisible"
-    onTap="handleOpen">
+    onTap="handleOpen"
+  >
     只有主按钮
   </ant-button>
   <ant-button
     data-field="focusTwoVisible"
-    onTap="handleOpen">
+    onTap="handleOpen"
+  >
     带辅助按钮
   </ant-button>
   <ant-button
     data-field="focusThreeVisible"
-    onTap="handleOpen">
+    onTap="handleOpen"
+  >
     带辅助和取消按钮
   </ant-button>
 </ant-container>
 <ant-container
   title="自定义"
-  className="list">
+  class="list"
+>
   <ant-button
     data-field="customVisible"
-    onTap="handleOpen">
+    onTap="handleOpen"
+  >
     自定义按钮样式
   </ant-button>
   <ant-button
     data-field="customBodyVisible"
-    onTap="handleOpen">
+    onTap="handleOpen"
+  >
     完全自定义内容区
   </ant-button>
 </ant-container>
