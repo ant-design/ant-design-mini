@@ -99,7 +99,18 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
         srcStream = srcStream.pipe(
           ifdef(option.buildOption.defVar, {
             insertBlanks: false,
-            extname: ['axml', 'ts', 'less', 'tsx', 'json5'],
+            extname: [
+              'axml',
+              'ts',
+              'js',
+              'sjs',
+              'acss',
+              'less',
+              'tsx',
+              'json',
+              'json5',
+              'md',
+            ],
           })
         );
         const transformFileFactory = (task: FilePrecess) => {
@@ -445,25 +456,25 @@ export async function compileAntdMiniAxml(watch: boolean) {
     },
   };
 
-  // miniCompiler({
-  //   tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
-  //   source: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
-  //   dest: resolve(__dirname, '..', 'nextCompiled', 'wechat', 'src'),
-  //   watch,
-  //   allowList,
-  //   assets: ['md', 'js', 'json'],
-  //   buildOption: wechatBuildOption,
-  // });
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
+    source: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
+    dest: resolve(__dirname, '..', 'nextCompiled', 'wechat', 'src'),
+    watch,
+    allowList,
+    assets: ['md', 'js', 'json'],
+    buildOption: wechatBuildOption,
+  });
 
-  // miniCompiler({
-  //   tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.demo.json'),
-  //   source: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
-  //   dest: resolve(__dirname, '..', 'nextCompiled', 'wechat', 'demo'),
-  //   watch,
-  //   allowList: demoAllowList,
-  //   assets: ['md', 'js', 'json'],
-  //   buildOption: wechatBuildOption,
-  // });
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.demo.json'),
+    source: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
+    dest: resolve(__dirname, '..', 'nextCompiled', 'wechat', 'demo'),
+    watch,
+    allowList: demoAllowList,
+    assets: ['md', 'js', 'json'],
+    buildOption: wechatBuildOption,
+  });
 
   const alipayBuildOption = {
     platformId: 'ALIPAY',

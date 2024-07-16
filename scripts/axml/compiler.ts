@@ -191,7 +191,7 @@ export class TransformCompiler {
       return acc;
     }, {});
 
-    types.traverse(ast, {});
+    types.traverse(ast, visitor);
     // 然后将内容字符串化
     const transCode = types.stringify(ast);
 
