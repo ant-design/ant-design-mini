@@ -14,6 +14,7 @@ import { resolve } from 'path';
 import * as fs from 'fs/promises';
 import * as ofs from 'fs';
 import { TransformCompiler as axmlParser } from './axml';
+import * as types from '@ali/oxyde-compiler-generator';
 
 interface MiniProgramSourceCompileOption {
   source: string;
@@ -231,11 +232,22 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
             //     content
             //   )
             // );
+
+            // try {
+            //   const Compiler = new axmlParser({
+            //     platform: option.buildOption.platformId,
+            //   });
+            //   const transCode = Compiler.compile(content);
+            //   return transCode;
+            // } catch (err) {
+            //   throw err;
+            // }
             try {
-              const Compiler = new axmlParser({
-                platform: option.buildOption.platformId,
-              });
-              const transCode = Compiler.compile(content);
+              const { ast } = types.parse(content);
+              types.traverse(ast, {});
+              // 然后将内容字符串化
+              const transCode = types.stringify(ast);
+
               return transCode;
             } catch (err) {
               throw err;
@@ -499,8 +511,8 @@ export async function compileAntdMiniAxml(watch: boolean) {
 
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
-    source: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
-    dest: resolve(__dirname, '..', 'nextCompiled', 'alipay', 'demo'),
+    source: resolve(__dirname, '..', 'compiled', 'alipay', 'demo', 'pages'),
+    dest: resolve(__dirname, '..', 'nextCompiled', 'alipay', 'demo', 'pages'),
     watch,
     assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
     buildOption: {
