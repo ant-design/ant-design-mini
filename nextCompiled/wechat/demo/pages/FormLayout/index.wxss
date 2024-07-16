@@ -1,7 +1,0 @@
-.buttons {
-  background: #ffffff;
-  padding: 12px;
-}
-.button {
-  margin-bottom: 12px;
-}

@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "Notice",
-  "usingComponents": {
-    "ant-notice": "../../../src/NoticeBar/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

@@ -1,0 +1,27 @@
+function getDirection(
+  primaryButtonText,
+  secondaryButtonText,
+  cancelButtonText,
+  type
+) {
+  // 不显示按钮区域
+  if (!primaryButtonText && !secondaryButtonText && !cancelButtonText) {
+    return '';
+  }
+  // 1个按钮，当纵向处理
+  if (
+    [primaryButtonText, secondaryButtonText, cancelButtonText].filter(
+      (v) => !!v
+    ).length === 1
+  ) {
+    return 'vertical';
+  }
+  // 三个按钮，必是纵向
+  if (primaryButtonText && secondaryButtonText && cancelButtonText) {
+    return 'vertical';
+  }
+  // 两个按钮，在 “标准模式” 是横向；在“强调模式”是纵向
+  return type === 'focus' ? 'vertical' : 'horizontal';
+}
+
+export default { getDirection };

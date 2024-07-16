@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "Tag",
-  "usingComponents": {
-    "ant-tag": "../../../src/Tag/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}
