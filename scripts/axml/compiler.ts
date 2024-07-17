@@ -164,7 +164,7 @@ export class TransformCompiler {
        */
       warnings,
     } = types.parse(code);
-    if (warnings.length > 0) console.warn(JSON.stringify(warnings));
+    if (warnings.length > 0) console.warn(JSON.stringify(warnings, null, 2));
 
     const visitorsName = [
       'Program',

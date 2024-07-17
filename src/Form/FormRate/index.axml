@@ -24,9 +24,13 @@
     characterClassName="{{ characterClassName }}"
     onChange="onChange">
     <view slot="character">
+      <!-- #if ALIPAY -->
       <slot name="character">
+      <!-- #endif -->
         <icon type="StarFill" />
+      <!-- #if ALIPAY -->
       </slot>
+      <!-- #endif -->
     </view>
   </rate>
   <view
@@ -35,7 +39,13 @@
     <slot name="tooltip" />
   </view>
   <view slot="extra">
-    <slot name="extra">{{ extra }}</slot>
+    <!-- #if ALIPAY -->
+    <slot name="extra">
+    <!-- #endif -->
+      {{ extra }}
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
   </view>
   <view
     slot="header"

@@ -4,19 +4,23 @@
 >
   <view class="ant-empty">
     <view class="ant-empty-image">
-      <slot name="image">
-        <image
-          class="ant-empty-image-element"
-          src="{{image || 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ'}}"
-        ></image>
-      </slot>
+      <image
+        class="ant-empty-image-element"
+        src="{{image || 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ'}}"
+      ></image>
     </view>
     <view class="ant-empty-text">
       <view class="ant-empty-text-main">
-        <slot name="title">{{title}}</slot>
+        <block wx:if="{{title}}">{{title}}</block>
+        <block wx:else>
+          <slot name="title">{{title}}</slot>
+        </block>
       </view>
       <view class="ant-empty-text-sub">
-        <slot name="message">{{message}}</slot>
+        <block wx:if="{{message}}">{{message}}</block>
+        <block wx:else>
+          <slot name="message">{{message}}</slot>
+        </block>
       </view>
     </view>
     <view class="ant-empty-extra">

@@ -26,9 +26,7 @@
     bind:change="onChange"
   >
     <view slot="character">
-      <slot name="character">
-        <icon type="StarFill"></icon>
-      </slot>
+      <icon type="StarFill"></icon>
     </view>
   </rate>
   <view
@@ -37,9 +35,7 @@
   >
     <slot name="tooltip"></slot>
   </view>
-  <view slot="extra">
-    <slot name="extra">{{extra}}</slot>
-  </view>
+  <view slot="extra">{{extra}}</view>
   <view
     slot="header"
     slot-scope="item"

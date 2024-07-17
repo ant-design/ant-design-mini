@@ -52,7 +52,11 @@
     <slot name="tooltip"></slot>
   </view>
   <view slot="extra">
-    <slot name="extra">{{extra}}</slot>
+    <block wx:if="{{extra}}">{{extra}}</block>
+    <slot
+      name="extra"
+      wx:else
+    ></slot>
   </view>
   <view
     slot="header"

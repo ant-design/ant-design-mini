@@ -11,13 +11,15 @@
     class="ant-divider-horizontal-left"
     style="flex: {{divider.getLineWidthFlex(textPosition, text)[0]}};{{lineHeight ? 'border-bottom-width:' + lineHeight + 'px;' : ''}}{{lineType ? 'border-bottom-style:' + lineType + ';' : ''}}{{lineColor ? 'border-bottom-color:' + lineColor + ';' : ''}}"
   ></view>
-  <slot name="text">
-    <view
-      wx:if="{{text}}"
-      class="ant-divider-horizontal-text {{textClassName || ''}}"
-      style="{{textStyle || ''}}"
-    >{{text}}</view>
-  </slot>
+  <view
+    wx:if="{{text}}"
+    class="ant-divider-horizontal-text {{textClassName || ''}}"
+    style="{{textStyle || ''}}"
+  >{{text}}</view>
+  <slot
+    name="text"
+    wx:else
+  ></slot>
   <view
     class="ant-divider-horizontal-right"
     style="flex: {{divider.getLineWidthFlex(textPosition, text)[1]}};{{lineHeight ? 'border-bottom-width:' + lineHeight + 'px;' : ''}}{{lineType ? 'border-bottom-style:' + lineType + ';' : ''}}{{lineColor ? 'border-bottom-color:' + lineColor + ';' : ''}}"

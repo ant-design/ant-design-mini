@@ -47,7 +47,15 @@
     <slot name="tooltip" />
   </view>
   <view slot="extra">
+    <!-- #if WECHAT -->
+    <block wx:if="{{ extra }}">{{ extra }}</block>
+    <slot
+      wx:else
+      name="extra" />
+    <!-- #endif -->
+    <!-- #if ALIPAY -->
     <slot name="extra">{{ extra }}</slot>
+    <!-- #endif -->
   </view>
   <view
     slot="header"

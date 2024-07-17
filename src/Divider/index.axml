@@ -9,7 +9,18 @@
   <view
     class="ant-divider-horizontal-left"
     style="flex: {{ divider.getLineWidthFlex(textPosition, text)[0] }};{{ lineHeight ? 'border-bottom-width:' + lineHeight + 'px;' : '' }}{{ lineType ? 'border-bottom-style:' + lineType + ';' : '' }}{{ lineColor ? 'border-bottom-color:' + lineColor + ';' : '' }}" />
-
+  <!-- #if WECHAT -->
+  <view
+    wx:if="{{ text }}"
+    class="ant-divider-horizontal-text {{ textClassName || '' }}"
+    style="{{ textStyle || '' }}">
+    {{ text }}
+  </view>
+  <slot
+    wx:else
+    name="text" />
+  <!-- #endif -->
+  <!-- #if ALIPAY -->
   <slot name="text">
     <view
       a:if="{{ text }}"
@@ -18,6 +29,7 @@
       {{ text }}
     </view>
   </slot>
+  <!-- #endif -->
   <view
     class="ant-divider-horizontal-right"
     style="flex: {{ divider.getLineWidthFlex(textPosition, text)[1] }};{{ lineHeight ? 'border-bottom-width:' + lineHeight + 'px;' : '' }}{{ lineType ? 'border-bottom-style:' + lineType + ';' : '' }}{{ lineColor ? 'border-bottom-color:' + lineColor + ';' : '' }}" />

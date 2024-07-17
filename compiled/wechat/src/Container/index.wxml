@@ -4,7 +4,12 @@
 >
   <view class="ant-container-header">
     <view class="ant-container-header-title">
-      <slot name="title">{{title}}</slot>
+      <!--display: inline-->
+      <text wx:if="{{title}}">{{title}}</text>
+      <slot
+        name="title"
+        wx:else
+      ></slot>
     </view>
     <view class="ant-container-header-right">
       <slot name="headerRight"></slot>

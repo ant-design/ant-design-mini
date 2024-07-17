@@ -39,9 +39,7 @@
   >
     <slot name="tooltip"></slot>
   </view>
-  <view slot="extra">
-    <slot name="extra">{{extra}}</slot>
-  </view>
+  <view slot="extra">{{extra}}</view>
   <view
     slot="header"
     slot-scope="item"
