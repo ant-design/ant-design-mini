@@ -24,6 +24,8 @@ export const basicComponetMapping = {
   'checkbox-group': {},
   radio: {},
   'radio-group': {},
+  textarea: {},
+  input: {},
 };
 
 export function isBasicComponet(tag: string): boolean {

@@ -9,7 +9,7 @@
     <input
       enable-native="{{enableNative}}"
       name="{{name}}"
-      class-name="ant-input-content"
+      class="ant-input-content"
       disabled="{{disabled}}"
       value="{{state.value}}"
       type="{{type}}"

@@ -1,7 +1,7 @@
 <input
   enable-native="{{enableNative}}"
   name="{{name}}"
-  class-name="{{className}}"
+  class="{{className}}"
   style="{{style}}"
   disabled="{{disabled}}"
   value="{{state.value}}"

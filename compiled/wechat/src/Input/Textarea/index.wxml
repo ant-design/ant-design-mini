@@ -6,7 +6,7 @@
     <textarea
       enable-native="{{enableNative}}"
       name="{{name}}"
-      class-name="ant-textarea-content {{allowClear ? 'ant-textarea-content-clear' : ''}}"
+      class="ant-textarea-content {{allowClear ? 'ant-textarea-content-clear' : ''}}"
       disabled="{{disabled}}"
       value="{{state.value || ''}}"
       placeholder="{{placeholder}}"
