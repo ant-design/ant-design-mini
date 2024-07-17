@@ -24,11 +24,15 @@
     a:if="{{ !!elementSize }}"
     class="ant-calendar-sticky">
     <view class="ant-calendar-sticky-title">
+      <!-- #if ALIPAY -->
       <slot name="calendarTitle">
+      <!-- #endif -->
         <view class="ant-calendar-title">
           {{ monthList[headerState].title }}
         </view>
+      <!-- #if ALIPAY -->
       </slot>
+      <!-- #endif -->
     </view>
   </view>
   <scroll-view
@@ -50,9 +54,13 @@
       <view
         class="ant-calendar-body-container {{ currentMonth.className || '' }}">
         <view class="ant-calendar-title-container">
+          <!-- #if ALIPAY -->
           <slot name="calendarTitle">
+          <!-- #endif -->
             <view class="ant-calendar-title">{{ currentMonth.title }}</view>
+          <!-- #if ALIPAY -->
           </slot>
+          <!-- #endif -->
         </view>
         <view class="ant-calendar-cells">
           <block
@@ -76,16 +84,20 @@
                   </view>
                   <view class="ant-calendar-cell-center">{{ item.date }}</view>
                   <view class="ant-calendar-cell-bottom">
+                    <!-- #if ALIPAY -->
                     <slot
                       name="cell-bottom"
                       cell="{{ item }}">
+                    <!-- #endif -->
                       <!-- display: inline -->
                       <text
                         a:if="{{ item.bottom }}"
                         class="{{ item.bottom.className }}"
                         >{{ item.bottom.label }}</text
                       >
+                    <!-- #if ALIPAY -->
                     </slot>
+                    <!-- #endif -->
                   </view>
                 </view>
               </view>

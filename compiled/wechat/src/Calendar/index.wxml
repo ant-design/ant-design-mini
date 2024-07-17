@@ -27,9 +27,7 @@
     class="ant-calendar-sticky"
   >
     <view class="ant-calendar-sticky-title">
-      <slot name="calendarTitle">
-        <view class="ant-calendar-title">{{monthList[headerState].title}}</view>
-      </slot>
+      <view class="ant-calendar-title">{{monthList[headerState].title}}</view>
     </view>
   </view>
   <scroll-view
@@ -52,9 +50,7 @@
     >
       <view class="ant-calendar-body-container {{currentMonth.className || ''}}">
         <view class="ant-calendar-title-container">
-          <slot name="calendarTitle">
-            <view class="ant-calendar-title">{{currentMonth.title}}</view>
-          </slot>
+          <view class="ant-calendar-title">{{currentMonth.title}}</view>
         </view>
         <view class="ant-calendar-cells">
           <block
@@ -79,16 +75,11 @@
                   </view>
                   <view class="ant-calendar-cell-center">{{item.date}}</view>
                   <view class="ant-calendar-cell-bottom">
-                    <slot
-                      name="cell-bottom"
-                      cell="{{item}}"
-                    >
-                      <!--display: inline-->
-                      <text
-                        wx:if="{{item.bottom}}"
-                        class="{{item.bottom.className}}"
-                      >{{item.bottom.label}}</text>
-                    </slot>
+                    <!--display: inline-->
+                    <text
+                      wx:if="{{item.bottom}}"
+                      class="{{item.bottom.className}}"
+                    >{{item.bottom.label}}</text>
                   </view>
                 </view>
               </view>
