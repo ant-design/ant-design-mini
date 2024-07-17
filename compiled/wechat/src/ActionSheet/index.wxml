@@ -12,14 +12,12 @@
     style="{{style}}"
     class="ant-actionsheet {{className ? className : ''}} {{helper.isIconMode(actions) ? 'ant-actionsheet-icon' : ''}}"
   >
-    <slot name="title">
-      <view
-        wx:if="{{title}}"
-        class="ant-actionsheet-title-wrap"
-      >
-        <view class="ant-actionsheet-title-content">{{title}}</view>
-      </view>
-    </slot>
+    <view
+      wx:if="{{title}}"
+      class="ant-actionsheet-title-wrap"
+    >
+      <view class="ant-actionsheet-title-content">{{title}}</view>
+    </view>
     <view class="ant-actionsheet-list">
       <block
         wx:for="{{actions}}"
@@ -49,11 +47,9 @@
       </block>
     </view>
     <view class="ant-actionsheet-cancel-gap"></view>
-    <slot name="cancelText">
-      <view
-        class="ant-actionsheet-cancel"
-        bind:tap="onClose"
-      >{{cancelText}}</view>
-    </slot>
+    <view
+      class="ant-actionsheet-cancel"
+      bind:tap="onClose"
+    >{{cancelText}}</view>
   </view>
 </ant-popup>

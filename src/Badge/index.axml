@@ -22,7 +22,12 @@
     style="{{ bgColor ? 'background-color: ' + bgColor + ';' : '' }} {{ _sjs.setBubbleStyle(type, position) }};{{ _sjs.setPositionStyle(position, offsetX, offsetY) }}">
     <view class="ant-badge-icon-container" />
     <view class="ant-badge-content-text">
+      <!-- #if WECHAT -->
+      <slot a:if="{{!text}}" name="text"></slot>
+      <!-- #endif  -->
+      <!-- #if ALIPAY -->
       <slot name="text">
+      <!-- #endif -->
         <view
           a:if="{{ type === 'number' }}"
           class="ant-badge-number">
@@ -41,7 +46,9 @@
           class="ant-badge-bubble">
           {{ text }}
         </view>
+      <!-- #if ALIPAY -->
       </slot>
+      <!-- #endif -->
     </view>
   </view>
 </view>
