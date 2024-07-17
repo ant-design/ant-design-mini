@@ -33,7 +33,7 @@
     options="{{ options }}"
     onChange="handleChange" />
 </ant-container>
-
+<!-- #if ALIPAY -->
 <ant-container title="自定义">
   <ant-radio-group
     options="{{ options }}"
@@ -46,3 +46,4 @@
     </view>
   </ant-radio-group>
 </ant-container>
+<!-- #endif -->

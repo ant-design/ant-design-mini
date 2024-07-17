@@ -33,15 +33,3 @@
     bind:change="handleChange"
   ></ant-radio-group>
 </ant-container>
-<ant-container title="自定义">
-  <ant-radio-group
-    options="{{options}}"
-    color="red"
-    default-value="banana"
-  >
-    <view
-      slot="label"
-      slot-scope="item"
-    >{{item.index + 1}}{{item.value.label}}</view>
-  </ant-radio-group>
-</ant-container>

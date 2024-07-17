@@ -33,13 +33,15 @@
     placeholder="请输入内容"
     onChange="onChange" />
 </container>
-
+<!-- #if ALIPAY -->
+<!-- 微信不支持  placeholderClassName -->
 <container title="自定义 placeholderClassName">
   <ant-input
     placeholderClassName="placeholder"
     placeholder="请输入内容"
     onChange="onChange" />
 </container>
+<!-- #endif -->
 
 <container title="自定义 placeholderStyle">
   <ant-input

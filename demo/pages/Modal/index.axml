@@ -71,6 +71,7 @@
   secondaryButtonText="取消"
   onPrimaryButtonTap="handlePrimaryButtonTap"
   onSecondaryButtonTap="handleSecondaryButtonTap" />
+<!-- #if ALIPAY -->
 <ant-modal
   visible="{{ customBodyVisible }}"
   onClose="handleClose">
@@ -86,6 +87,7 @@
     </view>
   </view>
 </ant-modal>
+<!-- #endif -->
 
 <ant-container
   title="基础用法"
@@ -138,9 +140,11 @@
     onTap="handleOpen">
     自定义按钮样式
   </ant-button>
+  <!-- #if ALIPAY -->
   <ant-button
     data-field="customBodyVisible"
     onTap="handleOpen">
     完全自定义内容区
   </ant-button>
+  <!-- #endif -->
 </ant-container>

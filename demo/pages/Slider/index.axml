@@ -85,6 +85,8 @@
     activeDotStyle="background-color: red"
     onChange="onChange"
     onAfterChange="onAfterChange">
+    <!-- #if ALIPAY -->
+    <!-- 微信暂时不支持 slot -->
     <!-- display: inline -->
     <text
       slot="tick"
@@ -105,6 +107,7 @@
           style="color: #ff8f1f" />
       </view>
     </view>
+    <!-- #endif -->
   </ant-slider>
 </container>
 

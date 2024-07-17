@@ -68,6 +68,7 @@
     columns="{{ 5 }}"
     iconSize="{{ 44 }}" />
 </ant-container>
+<!-- #if ALIPAY -->
 <ant-container title="自定义">
   <ant-grid
     items="{{ itemsCustom }}"
@@ -102,3 +103,4 @@
     </view>
   </ant-grid>
 </ant-container>
+<!-- #endif -->

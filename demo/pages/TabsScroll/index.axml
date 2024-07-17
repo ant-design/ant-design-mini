@@ -11,9 +11,11 @@
 
 <view class="container">
   <tabs items="{{ items }}">
+    <!-- #if ALIPAY -->
     <icon
       slot="plus"
       type="AddOutline" />
+    <!-- #endif -->
   </tabs>
 </view>
 

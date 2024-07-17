@@ -36,6 +36,7 @@
     onChange="onChange"
   ></ant-textarea>
 </container>
+<!--微信不支持  placeholderClassName-->
 <container title="自定义 placeholderClassName">
   <ant-input
     placeholder-class-name="placeholder"

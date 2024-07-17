@@ -24,22 +24,6 @@
   bind:cancel="closeTour"
   bind:change="onChangeControlled"
 ></ant-guide-tour>
-<ant-guide-tour
-  items="{{list}}"
-  visible="{{slotVisible}}"
-  bind:cancel="closeTour"
-  bind:change="onChange"
-  jump-text="跳过"
-  got-it-text="知道了"
-  prev-step-text="上一步"
-  next-step-text="下一步"
->
-  <view
-    class="step-box"
-    slot="step"
-    slot-scope="props"
-  >step-{{props.index}}</view>
-</ant-guide-tour>
 <ant-container
   title="基础用法"
   class-name="list"
@@ -60,13 +44,4 @@
     bind:tap="openTour"
     data-field="controlledVisible"
   >受控模式</ant-button>
-</ant-container>
-<ant-container
-  title="插槽用法"
-  class-name="list"
->
-  <ant-button
-    bind:tap="openTour"
-    data-field="slotVisible"
-  >开始</ant-button>
 </ant-container>

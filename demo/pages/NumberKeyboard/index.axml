@@ -28,6 +28,7 @@
     visible="{{ visible4 }}"
     onClose="onTap4" />
 </ant-list>
+<!-- #if ALIPAY -->
 <ant-list header="自定义按钮">
   <ant-list-item onTap="onTap6">自定义标题</ant-list-item>
   <ant-number-keyboard
@@ -39,7 +40,6 @@
       支付宝安全键盘
     </view>
   </ant-number-keyboard>
-
   <ant-list-item onTap="onTap7">自定义确认按钮</ant-list-item>
   <ant-number-keyboard
     confirmText="确认"
@@ -52,3 +52,4 @@
     </view>
   </ant-number-keyboard>
 </ant-list>
+<!-- #endif -->

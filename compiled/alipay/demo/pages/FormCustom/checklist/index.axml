@@ -33,7 +33,9 @@
     </view>
   </view>
   <view slot="extra">
-    <slot name="extra">{{extra}}</slot>
+    <slot name="extra">
+      {{extra}}
+    </slot>
   </view>
 </form-item>
 <popup

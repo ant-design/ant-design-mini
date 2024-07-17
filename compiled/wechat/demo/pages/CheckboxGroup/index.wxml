@@ -37,11 +37,3 @@
     color="red"
   ></ant-checkbox-group>
 </ant-container>
-<ant-container title="自定义 Label">
-  <ant-checkbox-group options="{{options}}">
-    <view
-      slot="label"
-      slot-scope="item"
-    >{{item.index + 1}}{{item.value.label}}</view>
-  </ant-checkbox-group>
-</ant-container>

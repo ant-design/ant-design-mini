@@ -31,7 +31,13 @@
     </view>
   </view>
   <view slot="extra">
-    <slot name="extra">{{ extra }}</slot>
+    <!-- #if ALIPAY -->
+    <slot name="extra">
+    <!-- #endif -->
+      {{ extra }}
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
   </view>
 </form-item>
 

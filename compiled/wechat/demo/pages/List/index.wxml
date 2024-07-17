@@ -34,12 +34,6 @@
     radius="{{radius}}"
     header="复杂布局"
   >
-    <ant-list-item>圆角<ant-switch
-        slot="extra"
-        checked="{{radius}}"
-        bind:change="handleSetRadius"
-      ></ant-switch>
-    </ant-list-item>
     <ant-list-item
       extra-brief="未开启"
       arrow="right"
@@ -48,20 +42,6 @@
       brief="管理已授权的产品和设备"
       arrow="{{item.arrow}}"
     >授权管理</ant-list-item>
-    <ant-list-item
-      title="标题"
-      brief="描述信息"
-      extra="次要信息"
-      extra-brief="次要辅助信息"
-      bind:tap="handleTap"
-      data-info="三行列表"
-      arrow="right"
-    >三行列表<ant-icon
-        slot="image"
-        type="AlipaySquareFill"
-        style="font-size: 64px"
-      ></ant-icon>
-    </ant-list-item>
   </ant-list>
   <ant-list
     radius="{{radius}}"

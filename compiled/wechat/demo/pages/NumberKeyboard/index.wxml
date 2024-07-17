@@ -29,28 +29,3 @@
     bind:close="onTap4"
   ></ant-number-keyboard>
 </ant-list>
-<ant-list header="自定义按钮">
-  <ant-list-item bind:tap="onTap6">自定义标题</ant-list-item>
-  <ant-number-keyboard
-    visible="{{visible6}}"
-    bind:close="onTap6"
-  >
-    <view
-      slot="header"
-      class="number-keyboard-header"
-    >支付宝安全键盘</view>
-  </ant-number-keyboard>
-  <ant-list-item bind:tap="onTap7">自定义确认按钮</ant-list-item>
-  <ant-number-keyboard
-    confirm-text="确认"
-    visible="{{visible7}}"
-    bind:close="onTap7"
-  >
-    <view
-      slot="confirm"
-      class="number-keyboard-confirm"
-    >
-      <ant-icon type="DownOutline"></ant-icon>
-    </view>
-  </ant-number-keyboard>
-</ant-list>

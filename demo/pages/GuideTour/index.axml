@@ -20,6 +20,7 @@
   visible="{{ controlledVisible }}"
   onCancel="closeTour"
   onChange="onChangeControlled" />
+<!-- #if ALIPAY -->
 <ant-guide-tour
   items="{{ list }}"
   visible="{{ slotVisible }}"
@@ -36,6 +37,7 @@
     step-{{ props.index }}
   </view>
 </ant-guide-tour>
+<!-- #endif -->
 
 <ant-container
   title="基础用法"
@@ -62,6 +64,7 @@
   </ant-button>
 </ant-container>
 
+<!-- #if ALIPAY -->
 <ant-container
   title="插槽用法"
   className="list">
@@ -71,3 +74,4 @@
     开始
   </ant-button>
 </ant-container>
+<!-- #endif -->

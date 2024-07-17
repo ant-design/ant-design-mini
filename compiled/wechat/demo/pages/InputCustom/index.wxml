@@ -36,13 +36,6 @@
     bind:change="onChange"
   ></ant-textarea>
 </container>
-<container title="自定义 placeholderClassName">
-  <ant-input
-    placeholder-class-name="placeholder"
-    placeholder="请输入内容"
-    bind:change="onChange"
-  ></ant-input>
-</container>
 <container title="自定义 placeholderStyle">
   <ant-input
     placeholder-style="color: red;"

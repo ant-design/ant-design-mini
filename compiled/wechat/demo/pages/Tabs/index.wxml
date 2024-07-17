@@ -1,15 +1,6 @@
 <container title="基础用法">
   <tabs items="{{items}}"></tabs>
 </container>
-<container title="带有content">
-  <tabs items="{{items}}">
-    <view
-      class="content"
-      slot="$default"
-      slot-scope="item"
-    >{{item.value.content}}</view>
-  </tabs>
-</container>
 <container title="胶囊">
   <tabs
     type="capsule"
@@ -22,19 +13,6 @@
     type="mixin"
     items="{{items}}"
   ></tabs>
-</container>
-<container title="带徽标">
-  <tabs items="{{items}}">
-    <view
-      slot="title"
-      slot-scope="item"
-    >
-      <view wx:if="{{item.value.badge}}">
-        <badge>{{item.value.title}}</badge>
-      </view>
-      <view wx:else>{{item.value.title}}</view>
-    </view>
-  </tabs>
 </container>
 <container title="禁用状态">
   <tabs items="{{items2}}"></tabs>

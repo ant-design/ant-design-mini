@@ -22,7 +22,7 @@
     current="{{ 1 }}"
     direction="vertical" />
 </container>
-
+<!-- #if ALIPAY -->
 <container title="自定义图标">
   <steps items="{{ items }}">
     <icon
@@ -57,3 +57,4 @@
     </view>
   </steps>
 </container>
+<!-- #endif -->

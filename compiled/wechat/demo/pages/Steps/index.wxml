@@ -22,38 +22,3 @@
     direction="vertical"
   ></steps>
 </container>
-<container title="自定义图标">
-  <steps items="{{items}}">
-    <icon
-      slot="icon"
-      type="SmileFill"
-    ></icon>
-  </steps>
-</container>
-<container title="更多自定义">
-  <steps
-    items="{{items}}"
-    current="{{2}}"
-  >
-    <block
-      slot="icon"
-      slot-scope="item"
-    >
-      <icon
-        wx:if="{{iconList[item.index]}}"
-        type="{{iconList[item.index]}}"
-      ></icon>
-    </block>
-    <view
-      slot="title"
-      slot-scope="item"
-    >{{item.index + 1}}</view>
-    <view
-      slot="description"
-      slot-scope="item"
-    >
-      <view>{{item.value.title}}</view>
-      <view>{{item.value.description}}</view>
-    </view>
-  </steps>
-</container>

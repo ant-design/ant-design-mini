@@ -79,24 +79,6 @@
   bind:primarybuttontap="handlePrimaryButtonTap"
   bind:secondarybuttontap="handleSecondaryButtonTap"
 ></ant-modal>
-<ant-modal
-  visible="{{customBodyVisible}}"
-  bind:close="handleClose"
->
-  <view class="body">
-    <image
-      mode="scaleToFill"
-      src="https://mdn.alipayobjects.com/huamei_yujk1o/afts/img/A*xYjqRJiKsvoAAAAAAAAAAAAADuaJAQ/original"
-      class="bodyImg"
-    ></image>
-    <view class="bodyAction">
-      <ant-icon
-        type="CloseCircleOutline"
-        bind:tap="handleClose"
-      ></ant-icon>
-    </view>
-  </view>
-</ant-modal>
 <ant-container
   title="基础用法"
   class-name="list"
@@ -143,8 +125,4 @@
     data-field="customVisible"
     bind:tap="handleOpen"
   >自定义按钮样式</ant-button>
-  <ant-button
-    data-field="customBodyVisible"
-    bind:tap="handleOpen"
-  >完全自定义内容区</ant-button>
 </ant-container>

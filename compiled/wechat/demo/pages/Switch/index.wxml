@@ -14,16 +14,6 @@
       unchecked-text="关"
       bind:change="onChange"
     ></switch>
-    <switch>
-      <ant-icon
-        type="CheckOutline"
-        slot="checkedText"
-      ></ant-icon>
-      <ant-icon
-        type="CloseOutline"
-        slot="uncheckedText"
-      ></ant-icon>
-    </switch>
   </container>
   <container title="自定义颜色">
     <switch

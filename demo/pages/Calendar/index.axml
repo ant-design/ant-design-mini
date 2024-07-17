@@ -77,6 +77,7 @@
   </view>
 </collapse-container>
 
+<!-- #if ALIPAY -->
 <collapse-container
   a:if="{{ demo6.visible }}"
   title="通过 slot 实现农历">
@@ -90,6 +91,7 @@
     </ant-calendar>
   </view>
 </collapse-container>
+<!-- #endif -->
 
 <collapse-container
   a:if="{{ demo7.visible }}"

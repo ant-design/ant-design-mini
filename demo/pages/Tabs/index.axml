@@ -1,6 +1,7 @@
 <container title="基础用法">
   <tabs items="{{ items }}" />
 </container>
+<!-- #if ALIPAY -->
 <container title="带有content">
   <tabs items="{{ items }}">
     <view
@@ -10,6 +11,7 @@
     </view>
   </tabs>
 </container>
+<!-- #endif -->
 <container title="胶囊">
   <tabs
     type="capsule"
@@ -21,6 +23,7 @@
     type="mixin"
     items="{{ items }}" />
 </container>
+<!-- #if ALIPAY -->
 <container title="带徽标">
   <tabs items="{{ items }}">
     <view
@@ -33,6 +36,7 @@
     </view>
   </tabs>
 </container>
+<!-- #endif -->
 <container title="禁用状态">
   <tabs items="{{ items2 }}" />
 </container>

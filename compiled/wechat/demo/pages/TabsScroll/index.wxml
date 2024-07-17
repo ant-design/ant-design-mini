@@ -7,12 +7,7 @@
   ></tabs>
 </view>
 <view class="container">
-  <tabs items="{{items}}">
-    <icon
-      slot="plus"
-      type="AddOutline"
-    ></icon>
-  </tabs>
+  <tabs items="{{items}}"></tabs>
 </view>
 <view class="container">
   <tabs

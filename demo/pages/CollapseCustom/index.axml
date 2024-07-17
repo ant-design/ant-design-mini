@@ -2,6 +2,10 @@
   from="./index.sjs"
   name="_sjs" />
 
+<!-- #if WECHAT -->
+<text>由于微信小程序平台的限制, Collapse 暂时不支持 Slot</text>
+<!-- #endif -->
+
 <collapse items="{{ items }}">
   <view
     slot="title"

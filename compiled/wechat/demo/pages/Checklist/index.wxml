@@ -38,23 +38,3 @@
     bind:change="onChange"
   ></ant-checklist>
 </ant-container>
-<ant-container title="自定义勾选图标&&组件内容">
-  <ant-checklist
-    default-value="{{[2]}}"
-    options="{{options_3}}"
-    multiple
-    bind:change="onChange"
-  >
-    <view slot="icon">
-      <ant-icon
-        style="color: red"
-        type="LikeOutline"
-        class-name="demo-checklist-checked-icon"
-      ></ant-icon>
-    </view>
-    <view
-      slot="content"
-      slot-scope="props"
-    >title:{{props.item.title}}</view>
-  </ant-checklist>
-</ant-container>

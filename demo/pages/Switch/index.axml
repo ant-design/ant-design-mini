@@ -12,6 +12,7 @@
       checkedText="开"
       uncheckedText="关"
       onChange="onChange" />
+    <!-- #if ALIPAY -->
     <switch>
       <ant-icon
         type="CheckOutline"
@@ -20,6 +21,7 @@
         type="CloseOutline"
         slot="uncheckedText" />
     </switch>
+    <!-- #endif -->
   </container>
   <container title="自定义颜色">
     <switch

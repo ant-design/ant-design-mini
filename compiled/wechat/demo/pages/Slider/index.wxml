@@ -86,26 +86,7 @@
     active-dot-style="background-color: red"
     bind:change="onChange"
     bind:afterchange="onAfterChange"
-  >
-    <view slot="slider">
-      <view class="custom-slider-handler">
-        <ant-icon
-          type="SmileOutline"
-          style="color: #ff8f1f"
-        ></ant-icon>
-      </view>
-    </view>
-    <!--display: inline-->
-    <text
-      slot="tick"
-      slot-scope="props"
-    >{{props.value}}°C</text>
-    <!--display: inline-->
-    <text
-      slot="tooltip"
-      slot-scope="props"
-    >{{props.value}}°C</text>
-  </ant-slider>
+  ></ant-slider>
 </container>
 <container title="禁用状态">
   <ant-slider

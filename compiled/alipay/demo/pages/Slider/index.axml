@@ -95,6 +95,7 @@
         ></ant-icon>
       </view>
     </view>
+    <!--微信暂时不支持 slot-->
     <!--display: inline-->
     <text
       slot="tick"

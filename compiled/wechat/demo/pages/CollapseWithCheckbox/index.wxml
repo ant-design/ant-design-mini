@@ -1,3 +1,4 @@
+<text>由于微信小程序平台的限制, Collapse 暂时不支持 Slot</text>
 <ant-collapse items="{{items}}">
   <view
     class="title"
