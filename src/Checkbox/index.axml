@@ -7,12 +7,23 @@
   style="{{ style || '' }}">
   <view class="ant-checkbox-item-container">
     <view class="ant-checkbox-item-wrap">
+      <!-- #if WECHAT -->
+      <checkbox-group bindchange="onChange">
+        <checkbox
+          class="ant-checkbox-item-base"
+          value="{{ value }}"
+          checked="{{ mixin.value }}"
+          disabled="{{ disabled }}" />
+      </checkbox-group>
+      <!-- #endif -->
+      <!-- #if ALIPAY -->
       <checkbox
         class="ant-checkbox-item-base"
         value="{{ value }}"
         onChange="onChange"
         checked="{{ mixin.value }}"
         disabled="{{ disabled }}" />
+      <!-- #endif -->
       <view class="ant-checkbox-item-fake">
         <view
           class="ant-checkbox-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}"

@@ -22,14 +22,18 @@
               value="{{ item.value }}"
               disabled="{{ disabled || item.disabled }}"
               onChange="onChange">
+              <!-- #if ALIPAY -->
               <slot
                 name="label"
                 value="{{ item }}"
                 index="{{ index }}">
+              <!-- #endif -->
                 <view class="ant-checkbox-group-item-label-default">
                   {{ item.label }}
                 </view>
+              <!-- #if ALIPAY -->
               </slot>
+              <!-- #endif -->
             </ant-checkbox>
           </list-item>
         </block>
@@ -46,14 +50,18 @@
             value="{{ item.value }}"
             disabled="{{ disabled || item.disabled }}"
             onChange="onChange">
+            <!-- #if ALIPAY -->
             <slot
               name="label"
               value="{{ item }}"
               index="{{ index }}">
+            <!-- #endif -->
               <view class="ant-checkbox-group-item-label-default">
                 {{ item.label }}
               </view>
+            <!-- #if ALIPAY -->
             </slot>
+            <!-- #endif -->
           </ant-checkbox>
         </block>
       </block>
