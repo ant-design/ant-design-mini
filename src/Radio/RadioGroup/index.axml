@@ -22,14 +22,18 @@
               disabled="{{ disabled || item.disabled }}"
               color="{{ item.color || color }}"
               onChange="onChange">
+              <!-- #if ALIPAY -->
               <slot
                 name="label"
                 value="{{ item }}"
                 index="{{ index }}">
+              <!-- #endif -->
                 <view class="ant-radio-group-item-label-default">
                   {{ item.label }}
                 </view>
+              <!-- #if ALIPAY -->
               </slot>
+              <!-- #endif -->
             </radio>
           </list-item>
         </block>
@@ -46,14 +50,18 @@
             disabled="{{ disabled || item.disabled }}"
             color="{{ item.color || color }}"
             onChange="onChange">
+            <!-- #if ALIPAY -->
             <slot
               name="label"
               value="{{ item }}"
               index="{{ index }}">
+            <!-- #endif -->
               <view class="ant-radio-group-item-label-default">
                 {{ item.label }}
               </view>
+            <!-- #if ALIPAY -->
             </slot>
+            <!-- #endif -->
           </radio>
         </block>
       </block>

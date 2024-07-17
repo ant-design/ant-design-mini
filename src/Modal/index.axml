@@ -14,11 +14,24 @@
   zIndex="{{ zIndex }}"
   destroyOnClose="{{ destroyOnClose }}"
   onClose="onMaskClose">
+  <!-- #if ALIPAY -->
   <slot slot="content">
+  <!-- #endif -->
     <view
       class="ant-modal-body {{ bodyClassName || '' }}"
       style="{{ bodyStyle || '' }}">
       <slot name="header" />
+      <!-- #if WECHAT -->
+      <view
+        wx:if="{{ title }}"
+        class="ant-modal-body-title">
+        {{ title }}
+      </view>
+      <slot
+        wx:else
+        name="title" />
+      <!-- #endif -->
+      <!-- #if ALIPAY -->
       <slot name="title">
         <view
           a:if="{{ title }}"
@@ -26,7 +39,19 @@
           {{ title }}
         </view>
       </slot>
+      <!-- #endif -->
 
+      <!-- #if WECHAT -->
+      <view
+        wx:if="{{ content }}"
+        class="ant-modal-body-content">
+        {{ content }}
+      </view>
+      <slot
+        wx:else
+        name="content" />
+      <!-- #endif -->
+      <!-- #if ALIPAY -->
       <slot name="content">
         <view
           a:if="{{ content }}"
@@ -34,7 +59,10 @@
           {{ content }}
         </view>
       </slot>
+      <!-- #endif -->
+      <!-- #if ALIPAY -->
       <slot name="footer">
+      <!-- #endif -->
         <view
           a:if="{{ type === 'focus' }}"
           class="ant-modal-body-footer-focus">
@@ -110,9 +138,13 @@
             {{ cancelButtonText }}
           </view>
         </view>
+      <!-- #if ALIPAY -->
       </slot>
+      <!-- #endif -->
     </view>
+  <!-- #if ALIPAY -->
   </slot>
+  <!-- #endif -->
 
   <ant-icon
     a:if="{{ type === 'focus' && closable }}"

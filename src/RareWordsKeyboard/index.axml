@@ -78,7 +78,9 @@
 
       <view class="ant-rare-words-keyboard_main">
         <view a:if="{{ showErrorPage }}">
+          <!-- #if ALIPAY -->
           <slot name="resultError">
+          <!-- #endif -->
             <view class="ant-rare-words-keyboard_error">
               <result
                 className="ant-rare-words-keyboard_error-result"
@@ -97,7 +99,9 @@
                 </view>
               </result>
             </view>
+          <!-- #if ALIPAY -->
           </slot>
+          <!-- #endif -->
         </view>
         <view
           a:else

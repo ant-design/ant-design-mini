@@ -26,7 +26,9 @@
       <block a:else></block>
     </slot>
     <view class="ant-result-title">
-      <slot name="title">{{title}}</slot>
+      <slot name="title">
+        {{title}}
+      </slot>
     </view>
     <view class="ant-result-message">
       <slot name="message">

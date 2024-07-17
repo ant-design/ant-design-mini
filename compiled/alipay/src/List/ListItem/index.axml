@@ -48,7 +48,9 @@
     </view>
     <view class="ant-list-item-extra-container">
       <view class="ant-list-item-extra">
-        <slot name="extra">{{extra}}</slot>
+        <slot name="extra">
+          {{extra}}
+        </slot>
       </view>
       <view class="ant-list-item-extra-brief">
         <slot name="extraBrief">{{extraBrief}}</slot>

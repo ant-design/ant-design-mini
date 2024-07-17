@@ -6,7 +6,9 @@
   class="ant-result {{ className ? className : '' }}"
   style="{{ style || '' }}">
   <view class="ant-result-main">
+    <!-- #if ALIPAY -->
     <slot name="image">
+    <!-- #endif -->
       <view
         a:if="{{ type }}"
         class="ant-result-image">
@@ -20,15 +22,27 @@
         className="ant-result-image"
         image="{{ image }}" />
       <block a:else />
+    <!-- #if ALIPAY -->
     </slot>
+    <!-- #endif -->
     <view class="ant-result-title">
-      <slot name="title">{{ title }}</slot>
+      <!-- #if ALIPAY -->
+      <slot name="title">
+      <!-- #endif -->
+        {{ title }}
+      <!-- #if ALIPAY -->
+      </slot>
+      <!-- #endif -->
     </view>
     <view class="ant-result-message">
+      <!-- #if ALIPAY -->
       <slot name="message">
+      <!-- #endif -->
         <!-- display: inline -->
         <text>{{ message }}</text>
+      <!-- #if ALIPAY -->
       </slot>
+      <!-- #endif -->
     </view>
   </view>
   <slot name="extra" />

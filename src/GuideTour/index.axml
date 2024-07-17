@@ -70,6 +70,19 @@
           <view
             class="ant-guide-tour-item {{ item.className || '' }}"
             style="top:{{ item.top }}px; left:{{ item.left }}px">
+            <!-- #if WECHAT -->
+            <image
+              wx:if="{{ item.imageUrl }}"
+              class="ant-guide-tour-item-img"
+              src="{{ item.imageUrl }}"
+              style="{{ item.imageStyle }}"
+              mode="{{ item.imageMode }}" />
+            <slot
+              wx:else
+              name="step"
+              index="{{ mixin.current }}" />
+            <!-- #endif -->
+            <!-- #if ALIPAY -->
             <slot
               name="step"
               index="{{ mixin.current }}">
@@ -80,6 +93,7 @@
                 style="{{ item.imageStyle }}"
                 mode="{{ item.imageMode }}" />
             </slot>
+            <!-- #endif -->
           </view>
         </swiper-item>
       </block>
@@ -94,6 +108,19 @@
         a:if="{{ mixin.value === index }}"
         class="ant-guide-tour-item {{ item.className || '' }}"
         style="top:{{ item.top }}px; left:{{ item.left }}px">
+        <!-- #if WECHAT -->
+        <image
+          wx:if="{{ item.imageUrl }}"
+          class="ant-guide-tour-item-img"
+          src="{{ item.imageUrl }}"
+          style="{{ item.imageStyle }}"
+          mode="{{ item.imageMode }}" />
+        <slot
+          wx:else
+          name="step"
+          index="{{ index }}" />
+        <!-- #endif -->
+        <!-- #if ALIPAY -->
         <slot
           name="step"
           index="{{ index }}">
@@ -104,6 +131,7 @@
             style="{{ item.imageStyle }}"
             mode="{{ item.imageMode }}" />
         </slot>
+        <!-- #endif -->
       </view>
     </block>
   </block>

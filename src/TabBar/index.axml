@@ -20,36 +20,48 @@
           position="{{ item.badge.position || 'top-right' }}"
           offsetX="{{ item.badge.offsetX || '-9px' }}"
           offsetY="{{ item.badge.offsetY || '0px' }}">
+          <!-- #if ALIPAY -->
           <slot
             name="icon"
             active="{{ mixin.value == index }}"
             item="{{ item }}"
             index="{{ index }}">
+          <!-- #endif -->
             <image-icon
               className="ant-tab-bar"
               image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
+          <!-- #if ALIPAY -->
           </slot>
+          <!-- #endif -->
         </ant-badge>
         <block a:else>
+          <!-- #if ALIPAY -->
           <slot
             name="icon"
             active="{{ mixin.value == index }}"
             item="{{ item }}"
             index="{{ index }}">
+          <!-- #endif -->
             <image-icon
               className="ant-tab-bar"
               image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
+          <!-- #if ALIPAY -->
           </slot>
+          <!-- #endif -->
         </block>
         <view class="ant-tab-bar-text-wrap">
+          <!-- #if ALIPAY -->
           <slot
             name="text"
             active="{{ mixin.value === index }}"
             item="{{ item }}"
             index="{{ index }}">
+          <!-- #endif -->
             <!-- display: inline -->
             <text class="ant-tab-bar-text">{{ item.text }}</text>
+          <!-- #if ALIPAY -->
           </slot>
+          <!-- #endif -->
         </view>
       </view>
     </block>

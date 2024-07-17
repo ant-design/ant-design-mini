@@ -58,6 +58,7 @@
             data-item="{{ util.axmlObj({ item, idx }) }}"
             aria-hidden="{{ !swipedR }}"
             style="{{ util.getMovableContentRightStyle(item, tapTypeR, idx, rightWidth, inTouch, inertiaWidth, myStyle) }}">
+            <!-- #if ALIPAY -->
             <slot name="{{ util.getRightSlotName(tapTypeR, idx, item) }}">
               <!-- display: inline -->
               <text
@@ -65,6 +66,17 @@
                 >{{ util.getRightText(tapTypeR, idx, item) }}</text
               >
             </slot>
+            <!-- #endif -->
+            <!-- #if WECHAT -->
+            <slot
+              wx:if="{{ util.getRightSlotName(tapTypeR, idx, item) }}"
+              name="{{ util.getRightSlotName(tapTypeR, idx, item) }}" />
+            <!-- display: inline -->
+            <text
+              wx:else
+              class="right-text {{ util.getLeft(tapTypeR, idx, _rightButtons, true) }}"
+              >{{ util.getRightText(tapTypeR, idx, item) }}</text>
+            <!-- #endif -->
           </view>
         </view>
       </movable-view>
@@ -90,18 +102,40 @@
             data-item="{{ util.axmlObj({ itemL, idx }) }}"
             aria-hidden="{{ !swipedL }}"
             style="{{ util.getMovableContentLeftStyle(itemL, tapTypeL, idx, leftWidth, inTouch, inertiaWidth, myStyle) }}">
+            <!-- #if ALIPAY -->
             <slot name="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}">
               <!-- display: inline -->
               <text
                 class="right-text"
                 style="width: 100%"
-                ><!-- display: inline -->
+              >
+                <!-- display: inline -->
                 <text
                   class="right-text {{ util.getLeft(tapTypeL, idx, _leftButtons, false) }}"
-                  >{{ util.getLeftText(tapTypeL, idx, itemL) }}</text
-                ></text
-              >
+                >
+                  {{ util.getLeftText(tapTypeL, idx, itemL) }}
+                </text>
+              </text>
             </slot>
+            <!-- #endif -->
+            <!-- #if WECHAT -->
+            <slot
+              wx:if="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}"
+              name="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}" />
+            <!-- display: inline -->
+            <text
+              wx:else
+              class="right-text"
+              style="width: 100%"
+            >
+              <!-- display: inline -->
+              <text
+                class="right-text {{ util.getLeft(tapTypeL, idx, _leftButtons, false) }}"
+              >
+                {{ util.getLeftText(tapTypeL, idx, itemL) }}
+              </text>
+            </text>
+            <!-- #endif -->
           </view>
         </view>
       </movable-view>

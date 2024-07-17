@@ -1,6 +1,4 @@
 <text
   class="ant-icon ant-icon-{{type}} {{className ? className : ''}}"
   style="{{style}}"
-  bind:tap="{{onTap ? 'onTap' : ''}}"
-  catch:tap="{{catchTap ? 'catchTap' : ''}}"
 ></text>

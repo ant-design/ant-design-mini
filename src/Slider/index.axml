@@ -10,7 +10,9 @@
       placement="top"
       visible="{{ showTooltip }}"
       showMask="{{ false }}">
+      <!-- #if ALIPAY -->
       <slot name="slider">
+      <!-- #endif -->
         <view class="ant-slider-handler-block">
           <view class="ant-slider-handler-icon-default">
             <view class="ant-slider-handler-icon-default-line1" />
@@ -18,15 +20,21 @@
             <view class="ant-slider-handler-icon-default-line3" />
           </view>
         </view>
+      <!-- #if ALIPAY -->
       </slot>
+      <!-- #endif -->
       <view
         slot="content"
         class="ant-slider-tooltip-content">
+        <!-- #if ALIPAY -->
         <slot
           name="tooltip"
           value="{{ value }}">
+        <!-- #endif -->
           {{ value }}
+        <!-- #if ALIPAY -->
         </slot>
+        <!-- #endif -->
       </view>
     </popover>
   </view>
@@ -59,11 +67,15 @@
               <view
                 a:if="{{ showNumber }}"
                 class="ant-slider-tick-number">
+                <!-- #if ALIPAY -->
                 <slot
                   name="tick"
                   value="{{ item.value }}">
+                <!-- #endif -->
                   {{ item.value }}
+                <!-- #if ALIPAY -->
                 </slot>
+                <!-- #endif -->
               </view>
             </view>
           </block>

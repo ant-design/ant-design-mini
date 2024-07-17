@@ -72,18 +72,18 @@
             class="ant-guide-tour-item {{item.className || ''}}"
             style="top:{{item.top}}px; left:{{item.left}}px"
           >
+            <image
+              wx:if="{{item.imageUrl}}"
+              class="ant-guide-tour-item-img"
+              src="{{item.imageUrl}}"
+              style="{{item.imageStyle}}"
+              mode="{{item.imageMode}}"
+            ></image>
             <slot
               name="step"
+              wx:else
               index="{{mixin.current}}"
-            >
-              <image
-                wx:if="{{item.imageUrl}}"
-                class="ant-guide-tour-item-img"
-                src="{{item.imageUrl}}"
-                style="{{item.imageStyle}}"
-                mode="{{item.imageMode}}"
-              ></image>
-            </slot>
+            ></slot>
           </view>
         </swiper-item>
       </block>
@@ -100,18 +100,18 @@
         class="ant-guide-tour-item {{item.className || ''}}"
         style="top:{{item.top}}px; left:{{item.left}}px"
       >
+        <image
+          wx:if="{{item.imageUrl}}"
+          class="ant-guide-tour-item-img"
+          src="{{item.imageUrl}}"
+          style="{{item.imageStyle}}"
+          mode="{{item.imageMode}}"
+        ></image>
         <slot
           name="step"
+          wx:else
           index="{{index}}"
-        >
-          <image
-            wx:if="{{item.imageUrl}}"
-            class="ant-guide-tour-item-img"
-            src="{{item.imageUrl}}"
-            style="{{item.imageStyle}}"
-            mode="{{item.imageMode}}"
-          ></image>
-        </slot>
+        ></slot>
       </view>
     </block>
   </block>

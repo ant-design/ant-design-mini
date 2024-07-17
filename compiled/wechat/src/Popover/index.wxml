@@ -6,7 +6,9 @@
     id="ant-popover-children{{$id ? '-' + $id : ''}}"
     bind:tap="onVisibleChange"
   >
-    <slot></slot>
+    <view id="ant-popover-children-container">
+      <slot></slot>
+    </view>
   </view>
   <view
     wx:if="{{!destroyOnClose || mixin.value}}"
@@ -23,8 +25,10 @@
       class="ant-popover-inner {{contentClassName || ''}}"
       style="{{color ? 'background:' + color : ''}};{{contentStyle || ''}}"
     >
-      <slot name="content">{{content}}</slot>
-    </view>
+      <slot
+        name="content"
+        wx:if="{{!content}}"
+      ></slot>{{content}}</view>
   </view>
 </view>
 <mask

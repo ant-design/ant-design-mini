@@ -10,10 +10,20 @@
   </view>
   <view class="ant-switch-inner">
     <block a:if="{{ mixin.value }}">
+      <!-- #if ALIPAY -->
       <slot name="checkedText">{{ checkedText }}</slot>
+      <!-- #endif -->
+      <!-- #if WECHAT -->
+      {{ checkedText }}
+      <!-- #endif -->
     </block>
     <block a:else>
+      <!-- #if ALIPAY -->
       <slot name="uncheckedText">{{ uncheckedText }}</slot>
+      <!-- #endif -->
+      <!-- #if WECHAT -->
+      {{ uncheckedText }}
+      <!-- #endif -->
     </block>
   </view>
 </view>

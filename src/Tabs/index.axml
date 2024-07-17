@@ -13,6 +13,8 @@
     <view
       class="ant-tabs-bar-fade ant-tabs-bar-fade-right"
       style="opacity: {{ rightFade ? '1' : '0' }}" />
+
+    <!-- #if ALIPAY  -->
     <scroll-view
       class="ant-tabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{ $id ? '-' + $id : '' }}"
@@ -21,6 +23,19 @@
       scroll-x="{{ true }}"
       scroll-with-animation="{{ true }}"
       scroll-animation-duration="{{ 300 }}">
+    <!-- #endif -->
+    <!-- #if WECHAT -->
+    <scroll-view
+      class="ant-tabs-bar-scroll-view"
+      id="ant-tabs-bar-scroll-view{{ $id ? '-' + $id : '' }}"
+      bind:scroll="onScroll"
+      scroll-left="{{ scrollLeft }}"
+      scroll-x="{{ true }}"
+      scroll-with-animation="{{ true }}"
+      scroll-animation-duration="{{ 300 }}"
+      enable-flex="true"
+      style="{{ scrollHeight > 0 ? 'height: ' + scrollHeight + 'px;' : '' }}">
+    <!-- #endif -->
       <view />
       <block
         a:for="{{ items }}"
@@ -35,12 +50,16 @@
             onTap="onChange"
             data-index="{{ index }}">
             <view class="ant-tabs-bar-basic-title">
+              <!-- #if ALIPAY  -->
               <slot
                 name="title"
                 value="{{ item }}"
                 index="{{ index }}">
+              <!-- #endif -->
                 {{ item.title }}
+              <!-- #if ALIPAY  -->
               </slot>
+              <!-- #endif -->
             </view>
           </view>
           <view
@@ -49,12 +68,16 @@
             onTap="onChange"
             data-index="{{ index }}">
             <view class="ant-tabs-bar-capsule-title">
+              <!-- #if ALIPAY  -->
               <slot
                 name="title"
                 value="{{ item }}"
                 index="{{ index }}">
+              <!-- #endif -->
                 {{ item.title }}
+              <!-- #if ALIPAY  -->
               </slot>
+              <!-- #endif -->
             </view>
           </view>
           <view
@@ -63,20 +86,28 @@
             onTap="onChange"
             data-index="{{ index }}">
             <view class="ant-tabs-bar-mixin-title">
+              <!-- #if ALIPAY  -->
               <slot
                 name="title"
                 value="{{ item }}"
                 index="{{ index }}">
+              <!-- #endif -->
                 {{ item.title }}
+              <!-- #if ALIPAY  -->
               </slot>
+              <!-- #endif -->
             </view>
             <view class="ant-tabs-bar-mixin-subtitle">
+              <!-- #if ALIPAY  -->
               <slot
                 name="subTitle"
                 value="{{ item }}"
                 index="{{ index }}">
+              <!-- #endif -->
                 {{ item.subTitle }}
+              <!-- #if ALIPAY  -->
               </slot>
+              <!-- #endif -->
             </view>
           </view>
         </view>
@@ -96,6 +127,7 @@
   class="ant-vtabs {{ className ? className : '' }}"
   style="{{ style }}">
   <view class="ant-vtabs-bar {{ tabsBarClassName ? tabsBarClassName : '' }}">
+    <!-- #if ALIPAY -->
     <scroll-view
       class="ant-vtabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{ $id ? '-' + $id : '' }}"
@@ -104,6 +136,18 @@
       scroll-y="{{ true }}"
       scroll-with-animation="{{ true }}"
       scroll-animation-duration="{{ 300 }}">
+    <!-- #endif -->
+    <!-- #if WECHAT -->
+    <scroll-view
+      class="ant-vtabs-bar-scroll-view"
+      id="ant-tabs-bar-scroll-view{{ $id ? '-' + $id : '' }}"
+      bind:scroll="onScroll"
+      scroll-top="{{ scrollTop }}"
+      scroll-y="{{ true }}"
+      scroll-with-animation="{{ true }}"
+      scroll-animation-duration="{{ 300 }}"
+      enable-flex="true">
+    <!-- #endif -->
       <view class="ant-vtabs-bar-item-wrap">
         <block
           a:for="{{ items }}"
@@ -116,14 +160,18 @@
             onTap="onChange"
             data-index="{{ index }}">
             <!-- display: inline -->
-            <text class="ant-vtabs-bar-item-title"
-              ><slot
+            <text class="ant-vtabs-bar-item-title">
+              <!-- #if ALIPAY  -->
+              <slot
                 name="title"
                 value="{{ item }}"
                 index="{{ index }}">
+              <!-- #endif -->
                 {{ item.title }}
-              </slot></text
-            >
+              <!-- #if ALIPAY  -->
+              </slot>
+              <!-- #endif -->
+            </text>
           </view>
         </block>
       </view>

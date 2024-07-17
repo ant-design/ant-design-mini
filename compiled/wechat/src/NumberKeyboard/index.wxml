@@ -10,18 +10,16 @@
     bind:appear="catchAppearModal"
   ></view>
   <view class="ant-number-keyboard-kb {{visible ? '' : 'ant-number-keyboard-kb_hide'}}">
-    <slot name="header">
-      <view
-        wx:if="{{closeable}}"
-        bind:tap="handleHide"
-        class="ant-number-keyboard-kb_none"
-      >
-        <ant-icon
-          type="DownOutline"
-          class-name="ant-number-keyboard-down"
-        ></ant-icon>
-      </view>
-    </slot>
+    <view
+      wx:if="{{closeable}}"
+      bind:tap="handleHide"
+      class="ant-number-keyboard-kb_none"
+    >
+      <ant-icon
+        type="DownOutline"
+        class-name="ant-number-keyboard-down"
+      ></ant-icon>
+    </view>
     <view class="ant-number-keyboard-kb_bd">
       <view class="ant-number-keyboard-kb_keys">
         <block
@@ -110,9 +108,7 @@
           class="ant-number-keyboard-kb_transfer"
           data-key="enter"
         >
-          <slot name="confirm">
-            <view class="amount-input-kb_transfer-btn">{{confirmText}}</view>
-          </slot>
+          <view class="amount-input-kb_transfer-btn">{{confirmText}}</view>
         </view>
       </view>
     </view>

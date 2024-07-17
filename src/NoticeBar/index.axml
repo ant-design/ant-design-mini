@@ -2,6 +2,7 @@
   a:if="{{ show }}"
   class="ant-notice-bar {{ className || '' }} {{ type ? 'ant-notice-bar-' + type : '' }}"
   style="{{ style }}">
+  <!-- #if ALIPAY -->
   <slot name="icon">
     <view class="ant-notice-bar-icon">
       <image-icon
@@ -16,7 +17,26 @@
         type="SoundOutline" />
     </view>
   </slot>
-
+  <!-- #endif -->
+  <!-- #if WECHAT -->
+  <slot
+    wx:if="{{ slotIcon }}"
+    name="icon" />
+  <view
+    wx:else
+    class="ant-notice-bar-icon">
+    <image-icon
+      wx:if="{{ icon }}"
+      image="{{ icon }}"
+      className="ant-notice-bar-icon-image" />
+    <icon
+      wx:elif="{{ type === 'error' }}"
+      type="InformationCircleOutline" />
+    <icon
+      wx:else
+      type="SoundOutline" />
+  </view>
+  <!-- #endif -->
   <view
     class="ant-notice-bar-content ant-notice-bar-content{{ $id ? '-' + $id : '' }}">
     <view

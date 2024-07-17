@@ -19,32 +19,14 @@
       bind:firstappear="onFirstAppear"
     >
       <view class="ant-grid-item-icon ant-grid-item-icon-{{item.iconStyle || iconStyle}}">
-        <slot
-          name="icon"
-          value="{{item}}"
-          index="{{index}}"
-        >
-          <image-icon
-            image="{{item.icon}}"
-            class-name="ant-grid-item-icon"
-            style="{{iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : ''}}"
-          ></image-icon>
-        </slot>
+        <image-icon
+          image="{{item.icon}}"
+          class-name="ant-grid-item-icon"
+          style="{{iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : ''}}"
+        ></image-icon>
       </view>
-      <view class="ant-grid-item-title">
-        <slot
-          name="title"
-          value="{{item}}"
-          index="{{index}}"
-        >{{item.title}}</slot>
-      </view>
-      <view class="ant-grid-item-description">
-        <slot
-          name="description"
-          value="{{item}}"
-          index="{{index}}"
-        >{{item.description}}</slot>
-      </view>
+      <view class="ant-grid-item-title">{{item.title}}</view>
+      <view class="ant-grid-item-description">{{item.description}}</view>
     </view>
   </block>
 </view>
@@ -68,32 +50,14 @@
         bind:firstappear="onFirstAppear"
       >
         <view class="ant-grid-item-icon ant-grid-item-icon-{{item.iconStyle || iconStyle}}">
-          <slot
-            name="icon"
-            value="{{item}}"
-            index="{{index}}"
-          >
-            <image-icon
-              image="{{item.icon}}"
-              class-name="ant-grid-item-icon"
-              style="{{iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : ''}}"
-            ></image-icon>
-          </slot>
+          <image-icon
+            image="{{item.icon}}"
+            class-name="ant-grid-item-icon"
+            style="{{iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : ''}}"
+          ></image-icon>
         </view>
-        <view class="ant-grid-item-title">
-          <slot
-            name="title"
-            value="{{item}}"
-            index="{{index}}"
-          >{{item.title}}</slot>
-        </view>
-        <view class="ant-grid-item-description">
-          <slot
-            name="description"
-            value="{{item}}"
-            index="{{index}}"
-          >{{item.description}}</slot>
-        </view>
+        <view class="ant-grid-item-title">{{item.title}}</view>
+        <view class="ant-grid-item-description">{{item.description}}</view>
       </view>
     </block>
   </view>

@@ -3,23 +3,28 @@
   class="ant-notice-bar {{className || ''}} {{type ? 'ant-notice-bar-' + type : ''}}"
   style="{{style}}"
 >
-  <slot name="icon">
-    <view class="ant-notice-bar-icon">
-      <image-icon
-        wx:if="{{icon}}"
-        image="{{icon}}"
-        class-name="ant-notice-bar-icon-image"
-      ></image-icon>
-      <icon
-        wx:elif="{{type === 'error'}}"
-        type="InformationCircleOutline"
-      ></icon>
-      <icon
-        wx:else
-        type="SoundOutline"
-      ></icon>
-    </view>
-  </slot>
+  <slot
+    name="icon"
+    wx:if="{{slotIcon}}"
+  ></slot>
+  <view
+    wx:else
+    class="ant-notice-bar-icon"
+  >
+    <image-icon
+      wx:if="{{icon}}"
+      image="{{icon}}"
+      class-name="ant-notice-bar-icon-image"
+    ></image-icon>
+    <icon
+      wx:elif="{{type === 'error'}}"
+      type="InformationCircleOutline"
+    ></icon>
+    <icon
+      wx:else
+      type="SoundOutline"
+    ></icon>
+  </view>
   <view class="ant-notice-bar-content ant-notice-bar-content{{$id ? '-' + $id : ''}}">
     <view
       class="ant-notice-bar-marquee ant-notice-bar-marquee{{$id ? '-' + $id : ''}}"
