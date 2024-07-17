@@ -26,13 +26,7 @@
               color="{{item.color || color}}"
               bind:change="onChange"
             >
-              <slot
-                name="label"
-                value="{{item}}"
-                index="{{index}}"
-              >
-                <view class="ant-radio-group-item-label-default">{{item.label}}</view>
-              </slot>
+              <view class="ant-radio-group-item-label-default">{{item.label}}</view>
             </radio>
           </list-item>
         </block>
@@ -51,13 +45,7 @@
             color="{{item.color || color}}"
             bind:change="onChange"
           >
-            <slot
-              name="label"
-              value="{{item}}"
-              index="{{index}}"
-            >
-              <view class="ant-radio-group-item-label-default">{{item.label}}</view>
-            </slot>
+            <view class="ant-radio-group-item-label-default">{{item.label}}</view>
           </radio>
         </block>
       </block>

@@ -65,10 +65,15 @@
             aria-hidden="{{!swipedR}}"
             style="{{util.getMovableContentRightStyle(item, tapTypeR, idx, rightWidth, inTouch, inertiaWidth, myStyle)}}"
           >
-            <slot name="{{util.getRightSlotName(tapTypeR, idx, item)}}">
-              <!--display: inline-->
-              <text class="right-text {{util.getLeft(tapTypeR, idx, _rightButtons, true)}}">{{util.getRightText(tapTypeR, idx, item)}}</text>
-            </slot>
+            <slot
+              name="{{util.getRightSlotName(tapTypeR, idx, item)}}"
+              wx:if="{{util.getRightSlotName(tapTypeR, idx, item)}}"
+            ></slot>
+            <!--display: inline-->
+            <text
+              wx:else
+              class="right-text {{util.getLeft(tapTypeR, idx, _rightButtons, true)}}"
+            >{{util.getRightText(tapTypeR, idx, item)}}</text>
           </view>
         </view>
       </movable-view>
@@ -96,16 +101,19 @@
             aria-hidden="{{!swipedL}}"
             style="{{util.getMovableContentLeftStyle(itemL, tapTypeL, idx, leftWidth, inTouch, inertiaWidth, myStyle)}}"
           >
-            <slot name="{{util.getLeftSlotName(tapTypeL, idx, itemL)}}">
+            <slot
+              name="{{util.getLeftSlotName(tapTypeL, idx, itemL)}}"
+              wx:if="{{util.getLeftSlotName(tapTypeL, idx, itemL)}}"
+            ></slot>
+            <!--display: inline-->
+            <text
+              wx:else
+              class="right-text"
+              style="width: 100%"
+            >
               <!--display: inline-->
-              <text
-                class="right-text"
-                style="width: 100%"
-              >
-                <!--display: inline-->
-                <text class="right-text {{util.getLeft(tapTypeL, idx, _leftButtons, false)}}">{{util.getLeftText(tapTypeL, idx, itemL)}}</text>
-              </text>
-            </slot>
+              <text class="right-text {{util.getLeft(tapTypeL, idx, _leftButtons, false)}}">{{util.getLeftText(tapTypeL, idx, itemL)}}</text>
+            </text>
           </view>
         </view>
       </movable-view>

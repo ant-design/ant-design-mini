@@ -23,21 +23,10 @@
           wx:if="{{allowHalf && (displayValue !== null ? displayValue : mixin.value) === index + 0.5}}"
           class="ant-rate-star-icon-active {{characterClassName || ''}} {{characterActiveClassName || ''}} ant-rate-star-icon-half-active"
         >
-          <slot
-            name="character"
-            index="{{index}}"
-            is-active="{{true}}"
-          >
-            <ant-icon type="StarFill"></ant-icon>
-          </slot>
+          <ant-icon type="StarFill"></ant-icon>
         </view>
         <view class="ant-rate-star-icon {{(displayValue !== null ? displayValue : mixin.value) >= index + 1 ? 'ant-rate-star-icon-active' + ' ' + (characterClassName || '') + ' ' + (characterActiveClassName || '') : characterClassName}}">
-          <slot
-            name="character"
-            index="{{index}}"
-          >
-            <ant-icon type="StarFill"></ant-icon>
-          </slot>
+          <ant-icon type="StarFill"></ant-icon>
         </view>
       </view>
     </block>

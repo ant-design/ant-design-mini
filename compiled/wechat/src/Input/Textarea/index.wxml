@@ -19,10 +19,14 @@
       auto-height="{{autoHeight}}"
       show-count="{{showCount}}"
       controlled="{{state.controlled}}"
-      bind:input="onChange"
-      bind:confirm="onConfirm"
-      bind:focus="onFocus"
-      bind:blur="onBlur"
+      show-confirm-bar="{{showConfirmBar}}"
+      hold-keyboard="{{holdKeyboard}}"
+      disable-default-padding="{{disableDefaultPadding}}"
+      adjust-keyboard-to="{{adjustKeyboardTo}}"
+      bindinput="onChange"
+      bindconfirm="onConfirm"
+      bindfocus="onFocus"
+      bindblur="onBlur"
     ></textarea>
     <view
       wx:if="{{allowClear}}"

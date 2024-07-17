@@ -23,6 +23,8 @@
       scroll-x="{{true}}"
       scroll-with-animation="{{true}}"
       scroll-animation-duration="{{300}}"
+      enable-flex="true"
+      style="{{scrollHeight > 0 ? 'height: ' + scrollHeight + 'px;' : ''}}"
     >
       <view></view>
       <block
@@ -40,13 +42,7 @@
             bind:tap="onChange"
             data-index="{{index}}"
           >
-            <view class="ant-tabs-bar-basic-title">
-              <slot
-                name="title"
-                value="{{item}}"
-                index="{{index}}"
-              >{{item.title}}</slot>
-            </view>
+            <view class="ant-tabs-bar-basic-title">{{item.title}}</view>
           </view>
           <view
             wx:elif="{{type === 'capsule'}}"
@@ -54,13 +50,7 @@
             bind:tap="onChange"
             data-index="{{index}}"
           >
-            <view class="ant-tabs-bar-capsule-title">
-              <slot
-                name="title"
-                value="{{item}}"
-                index="{{index}}"
-              >{{item.title}}</slot>
-            </view>
+            <view class="ant-tabs-bar-capsule-title">{{item.title}}</view>
           </view>
           <view
             wx:else
@@ -68,20 +58,8 @@
             bind:tap="onChange"
             data-index="{{index}}"
           >
-            <view class="ant-tabs-bar-mixin-title">
-              <slot
-                name="title"
-                value="{{item}}"
-                index="{{index}}"
-              >{{item.title}}</slot>
-            </view>
-            <view class="ant-tabs-bar-mixin-subtitle">
-              <slot
-                name="subTitle"
-                value="{{item}}"
-                index="{{index}}"
-              >{{item.subTitle}}</slot>
-            </view>
+            <view class="ant-tabs-bar-mixin-title">{{item.title}}</view>
+            <view class="ant-tabs-bar-mixin-subtitle">{{item.subTitle}}</view>
           </view>
         </view>
       </block>
@@ -109,6 +87,7 @@
       scroll-y="{{true}}"
       scroll-with-animation="{{true}}"
       scroll-animation-duration="{{300}}"
+      enable-flex="true"
     >
       <view class="ant-vtabs-bar-item-wrap">
         <block
@@ -124,13 +103,7 @@
             data-index="{{index}}"
           >
             <!--display: inline-->
-            <text class="ant-vtabs-bar-item-title">
-              <slot
-                name="title"
-                value="{{item}}"
-                index="{{index}}"
-              >{{item.title}}</slot>
-            </text>
+            <text class="ant-vtabs-bar-item-title">{{item.title}}</text>
           </view>
         </block>
       </view>

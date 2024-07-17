@@ -71,27 +71,25 @@
       </view>
       <view class="ant-rare-words-keyboard_main">
         <view wx:if="{{showErrorPage}}">
-          <slot name="resultError">
-            <view class="ant-rare-words-keyboard_error">
-              <result
-                class-name="ant-rare-words-keyboard_error-result"
-                image="https://mdn.alipayobjects.com/huamei_2fq7mt/afts/img/A*VtvFS4EJl0cAAAAAAAAAAAAADh58AQ/original"
-                message="页面遇到一些小问题"
+          <view class="ant-rare-words-keyboard_error">
+            <result
+              class-name="ant-rare-words-keyboard_error-result"
+              image="https://mdn.alipayobjects.com/huamei_2fq7mt/afts/img/A*VtvFS4EJl0cAAAAAAAAAAAAADh58AQ/original"
+              message="页面遇到一些小问题"
+            >
+              <view
+                slot="extra"
+                class="ant-rare-words-keyboard_error-btns"
               >
-                <view
-                  slot="extra"
-                  class="ant-rare-words-keyboard_error-btns"
-                >
-                  <button
-                    type="primary"
-                    size="small"
-                    inline
-                    bind:tap="handleRetry"
-                  >重试</button>
-                </view>
-              </result>
-            </view>
-          </slot>
+                <button
+                  type="primary"
+                  size="small"
+                  inline
+                  bind:tap="handleRetry"
+                >重试</button>
+              </view>
+            </result>
+          </view>
         </view>
         <view
           wx:else

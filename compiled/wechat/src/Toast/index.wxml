@@ -39,7 +39,7 @@
   ></view>
   <view class="ant-toast-text-body">
     <view class="ant-toast-text-box">
-      <view class="ant-toast-text-content">{{content.substring(0, 24)}}</view>
+      <view class="ant-toast-text-content">{{displayContent}}</view>
     </view>
   </view>
 </view>

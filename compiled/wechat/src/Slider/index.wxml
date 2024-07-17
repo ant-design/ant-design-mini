@@ -15,24 +15,17 @@
       visible="{{showTooltip}}"
       show-mask="{{false}}"
     >
-      <slot name="slider">
-        <view class="ant-slider-handler-block">
-          <view class="ant-slider-handler-icon-default">
-            <view class="ant-slider-handler-icon-default-line1"></view>
-            <view class="ant-slider-handler-icon-default-line2"></view>
-            <view class="ant-slider-handler-icon-default-line3"></view>
-          </view>
+      <view class="ant-slider-handler-block">
+        <view class="ant-slider-handler-icon-default">
+          <view class="ant-slider-handler-icon-default-line1"></view>
+          <view class="ant-slider-handler-icon-default-line2"></view>
+          <view class="ant-slider-handler-icon-default-line3"></view>
         </view>
-      </slot>
+      </view>
       <view
         slot="content"
         class="ant-slider-tooltip-content"
-      >
-        <slot
-          name="tooltip"
-          value="{{value}}"
-        >{{value}}</slot>
-      </view>
+      >{{value}}</view>
     </popover>
   </view>
 </template>
@@ -67,12 +60,7 @@
               <view
                 wx:if="{{showNumber}}"
                 class="ant-slider-tick-number"
-              >
-                <slot
-                  name="tick"
-                  value="{{item.value}}"
-                >{{item.value}}</slot>
-              </view>
+              >{{item.value}}</view>
             </view>
           </block>
         </view>

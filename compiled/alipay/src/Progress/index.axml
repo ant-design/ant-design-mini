@@ -10,7 +10,7 @@
     height="{{canvasWidth}}"
   ></canvas>
   <view
-    a:elif="{{type === 'line'}}"
+    a:if="{{type === 'line'}}"
     class="ant-progress-outer"
     style="{{strokeWidth ? 'height:' + strokeWidth + 'px;' : ''}}{{trailColor ? 'background-color:' + trailColor : ''}}"
   >

@@ -11,11 +11,7 @@
     ></ant-icon>
   </view>
   <view class="ant-switch-inner">
-    <block wx:if="{{mixin.value}}">
-      <slot name="checkedText">{{checkedText}}</slot>
-    </block>
-    <block wx:else>
-      <slot name="uncheckedText">{{uncheckedText}}</slot>
-    </block>
+    <block wx:if="{{mixin.value}}">{{checkedText}}</block>
+    <block wx:else>{{uncheckedText}}</block>
   </view>
 </view>

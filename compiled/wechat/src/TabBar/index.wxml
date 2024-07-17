@@ -24,41 +24,20 @@
           offset-x="{{item.badge.offsetX || '-9px'}}"
           offset-y="{{item.badge.offsetY || '0px'}}"
         >
-          <slot
-            name="icon"
-            active="{{mixin.value == index}}"
-            item="{{item}}"
-            index="{{index}}"
-          >
-            <image-icon
-              class-name="ant-tab-bar"
-              image="{{mixin.value === index ? item.activeIcon : item.icon}}"
-            ></image-icon>
-          </slot>
+          <image-icon
+            class-name="ant-tab-bar"
+            image="{{mixin.value === index ? item.activeIcon : item.icon}}"
+          ></image-icon>
         </ant-badge>
         <block wx:else>
-          <slot
-            name="icon"
-            active="{{mixin.value == index}}"
-            item="{{item}}"
-            index="{{index}}"
-          >
-            <image-icon
-              class-name="ant-tab-bar"
-              image="{{mixin.value === index ? item.activeIcon : item.icon}}"
-            ></image-icon>
-          </slot>
+          <image-icon
+            class-name="ant-tab-bar"
+            image="{{mixin.value === index ? item.activeIcon : item.icon}}"
+          ></image-icon>
         </block>
         <view class="ant-tab-bar-text-wrap">
-          <slot
-            name="text"
-            active="{{mixin.value === index}}"
-            item="{{item}}"
-            index="{{index}}"
-          >
-            <!--display: inline-->
-            <text class="ant-tab-bar-text">{{item.text}}</text>
-          </slot>
+          <!--display: inline-->
+          <text class="ant-tab-bar-text">{{item.text}}</text>
         </view>
       </view>
     </block>
