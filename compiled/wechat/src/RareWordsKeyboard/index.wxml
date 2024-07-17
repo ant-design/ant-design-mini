@@ -45,13 +45,16 @@
                 size="small"
                 color="#666666"
               ></loading>
+              <!--display: inline-->
               <text>加载中</text>
             </view>
             <view
               wx:else
               class="ant-rare-words-keyboard-match_words_item_tips"
             >
+              <!--display: inline-->
               <text wx:if="{{!!(displayStr === '' && matchWordsList.length === 0)}}">请输入生僻字对应的拼音</text>
+              <!--display: inline-->
               <text wx:if="{{!!(displayStr !== '' && matchWordsList.length === 0)}}">更多生僻字完善中，敬请期待</text>
             </view>
           </view>

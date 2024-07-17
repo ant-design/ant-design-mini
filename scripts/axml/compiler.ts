@@ -100,7 +100,7 @@ export class TransformCompiler {
                 templateDataPlugin,
                 elementDatasetPlugin,
                 keyAttributePlugin,
-                conditionCommentPlugin,
+                // conditionCommentPlugin,
               ]
             : [],
       },

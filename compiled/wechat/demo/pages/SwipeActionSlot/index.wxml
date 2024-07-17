@@ -26,6 +26,7 @@
               type="DeleteOutline"
               class-name="t-swipe-item-con-btn-icon"
             ></ant-icon>
+            <!--display: inline-->
             <text class="t-swipe-item-con-btn-del">删除</text>
           </view>
           <view

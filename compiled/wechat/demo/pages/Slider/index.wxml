@@ -95,10 +95,12 @@
         ></ant-icon>
       </view>
     </view>
+    <!--display: inline-->
     <text
       slot="tick"
       slot-scope="props"
     >{{props.value}}°C</text>
+    <!--display: inline-->
     <text
       slot="tooltip"
       slot-scope="props"

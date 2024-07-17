@@ -24,12 +24,14 @@
       content="红色"
       color="red"
     >
+      <!--display: inline-->
       <text>点我红色</text>
     </popover>
     <popover
       content="蓝色"
       color="blue"
     >
+      <!--display: inline-->
       <text>点我蓝色</text>
     </popover>
   </view>
@@ -84,6 +86,7 @@
       visible="{{visible}}"
       style="display: inline-block"
     >
+      <!--display: inline-->
       <text>点击按钮修改visible</text>
     </popover>
   </view>

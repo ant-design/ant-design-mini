@@ -30,6 +30,7 @@
     </view>
     <view class="ant-result-message">
       <slot name="message">
+        <!--display: inline-->
         <text>{{message}}</text>
       </slot>
     </view>

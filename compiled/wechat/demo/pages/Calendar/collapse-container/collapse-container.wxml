@@ -4,7 +4,9 @@
     bind:tap="handleToggle"
     data-id="demo1"
   >
+    <!--display: inline-->
     <text wx:if="{{!collapse}}">收起</text>
+    <!--display: inline-->
     <text wx:else>展示</text>
   </view>
   <view wx:if="{{!collapse}}">

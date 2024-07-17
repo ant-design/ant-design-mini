@@ -1,9 +1,11 @@
 <view class="demo-header">
   <view>
     <view class="demo-header-title">
+      <!--display: inline-->
       <text>Ant Design Mini</text>
     </view>
     <view>
+      <!--display: inline-->
       <text>探索移动端小程序的极致体验</text>
     </view>
   </view>
