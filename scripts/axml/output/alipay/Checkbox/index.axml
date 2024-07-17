@@ -1,7 +1,7 @@
-<wxs
-  src="./index.wxs"
-  module="componentUtils"
-></wxs>
+<import-sjs
+  from="./index.sjs"
+  name="componentUtils"
+></import-sjs>
 <label
   class="ant-checkbox-item {{className || ''}}"
   style="{{style || ''}}"
@@ -11,7 +11,7 @@
       <checkbox
         class="ant-checkbox-item-base"
         value="{{value}}"
-        bind:change="onChange"
+        onChange="onChange"
         checked="{{mixin.value}}"
         disabled="{{disabled}}"
       ></checkbox>
@@ -21,9 +21,9 @@
           style="{{mixin.value && !disabled && color ? 'background:' + color : ''}}"
         >
           <ant-icon
-            wx:if="{{mixin.value}}"
+            a:if="{{mixin.value}}"
             type="CheckOutline"
-            class-name="ant-checkbox-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon"
+            class="ant-checkbox-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon"
           ></ant-icon>
         </view>
       </view>

@@ -3,22 +3,24 @@
   style="{{style}}"
 >
   <ant-button
-    class-name="ant-stepper-button ant-stepper-button-down {{disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value <= min ? 'ant-stepper-button-disabled' : ''}}"
+    class="ant-stepper-button ant-stepper-button-down {{disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value <= min ? 'ant-stepper-button-disabled' : ''}}"
     active-class-name="ant-stepper-button-hover"
     icon="MinusOutline"
     type="text"
     data-mode="minus"
     disabled="{{disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value <= min}}"
-    bind:tap="onTap"
+    onTap="onTap"
   ></ant-button>
   <view class="ant-stepper-input-wrap">
     <view
-      wx:if="{{inputReadOnly}}"
+      a:if="{{inputReadOnly}}"
       class="ant-stepper-input ant-stepper-input-readonly"
-    >{{mixin.value}}</view>
+    >
+      {{mixin.value}}
+    </view>
     <ant-input
-      wx:else
-      class-name="ant-stepper-input {{disabled ? 'ant-stepper-input-disabled' : ''}} {{inputClassName ? inputClassName : ''}}"
+      a:else
+      class="ant-stepper-input {{disabled ? 'ant-stepper-input-disabled' : ''}} {{inputClassName ? inputClassName : ''}}"
       style="{{inputStyle}}"
       type="{{type}}"
       enable-native="{{enableNative}}"
@@ -27,20 +29,20 @@
       confirm-hold="{{confirmHold}}"
       disabled="{{disabled}}"
       focus="{{focus}}"
-      bind:change="onChange"
-      bind:focus="onFocus"
-      bind:blur="onBlur"
-      bind:confirm="onConfirm"
+      onChange="onChange"
+      onFocus="onFocus"
+      onBlur="onBlur"
+      onConfirm="onConfirm"
       value="{{mixin.value}}"
     ></ant-input>
   </view>
   <ant-button
-    class-name="ant-stepper-button ant-stepper-button-up {{disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value >= max ? 'ant-stepper-button-disabled' : ''}}"
+    class="ant-stepper-button ant-stepper-button-up {{disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value >= max ? 'ant-stepper-button-disabled' : ''}}"
     active-class-name="ant-stepper-button-hover"
     icon="AddOutline"
     type="text"
     data-mode="add"
     disabled="{{disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value >= max}}"
-    bind:tap="onTap"
+    onTap="onTap"
   ></ant-button>
 </view>

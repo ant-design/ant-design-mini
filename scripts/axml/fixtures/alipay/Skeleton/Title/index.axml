@@ -1,5 +1,0 @@
-<view
-  a:if="{{ loading }}"
-  class="ant-skeleton-title {{ animate ? 'ant-skeleton-title-animate' : '' }} {{ className || '' }}"
-  style="{{ style }}" />
-<slot a:else />

@@ -1,15 +1,15 @@
-<wxs
-  src="./index.wxs"
-  module="utils"
-></wxs>
+<import-sjs
+  from="./index.sjs"
+  name="utils"
+></import-sjs>
 <view
   class="ant-collapse {{className ? className : ''}}"
   style="{{style}}"
 >
   <block
-    wx:for="{{items}}"
-    wx:for-index="index"
-    wx:for-item="item"
+    a:for="{{items}}"
+    a:for-index="index"
+    a:for-item="item"
   >
     <view class="ant-collapse-item {{item.className || ''}} {{utils.isActive(mixin.value, index, item.disabled) ? 'ant-collapse-item-active' : ''}} {{item.disabled ? 'ant-collapse-item-disabled' : ''}}">
       <view
@@ -17,7 +17,7 @@
         data-active="{{utils.isActive(mixin.value, index, item.disabled)}}"
         data-index="{{index}}"
         data-id="{{$id}}"
-        bind:tap="onChange"
+        onTap="onChange"
       >
         <view class="ant-collapse-item-line">
           <view class="ant-collapse-item-title-node">
@@ -26,7 +26,9 @@
               value="{{item}}"
               index="{{index}}"
               current="{{mixin.value}}"
-            >{{item.title}}</slot>
+            >
+              {{item.title}}
+            </slot>
           </view>
           <view class="ant-collapse-item-brief-container">
             <view class="ant-collapse-item-brief-node">
@@ -35,7 +37,9 @@
                 value="{{item}}"
                 index="{{index}}"
                 current="{{mixin.value}}"
-              >{{brief}}</slot>
+              >
+                {{brief}}
+              </slot>
             </view>
             <view class="ant-collapse-item-title-arrow">
               <slot
@@ -52,7 +56,7 @@
       </view>
       <view
         class="ant-collapse-item-content-wrap {{hasChange ? 'ant-collapse-item-content-wrap-transition' : ''}} ant-collapse-item-content-wrap{{$id ? '-' + $id : ''}}-{{index}}"
-        bind:transitionend="resetContentHeight"
+        onTransitionEnd="resetContentHeight"
         style="{{utils.getStyleHeight(index, contentHeight, item.disabled)}}"
         data-index="{{index}}"
       >
@@ -63,7 +67,9 @@
               value="{{item}}"
               index="{{index}}"
               current="{{mixin.value}}"
-            >{{item.content}}</slot>
+            >
+              {{item.content}}
+            </slot>
           </view>
         </view>
       </view>

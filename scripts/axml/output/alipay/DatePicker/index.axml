@@ -1,5 +1,5 @@
 <ant-picker
-  class-name="ant-date-picker"
+  class="ant-date-picker"
   pop-class-name="ant-date-picker-popup {{popClassName || ''}}"
   visible="{{visible}}"
   style="{{style}}"
@@ -16,11 +16,11 @@
   mask-class-name="{{maskClassName}}"
   indicator-style="{{indicatorStyle}}"
   indicator-class-name="{{indicatorClassName}}"
-  bind:change="onChange"
-  bind:cancel="onCancel"
-  bind:ok="onOk"
+  onChange="onChange"
+  onCancel="onCancel"
+  onOk="onOk"
   formatted-value-text="{{formattedValueText}}"
-  bind:visiblechange="onVisibleChange"
+  onVisibleChange="onVisibleChange"
   mask-closable="{{maskClosable}}"
 >
   <slot

@@ -1,30 +1,31 @@
-<template
-  name="selector"
-  data="{{$id}}"
->
+<template name="selector">
   <view
     class="ant-range-picker-selector-item {{active ? 'ant-range-picker-selector-item-active' : ''}}"
-    bind:tap="onChangeCurrentPickerType"
+    onTap="onChangeCurrentPickerType"
     data-type="{{type}}"
   >
     <view
-      wx:if="{{value}}"
+      a:if="{{value}}"
       class="ant-range-picker-selector-item-value"
-    >{{value}}</view>
+    >
+      {{value}}
+    </view>
     <view
-      wx:else
+      a:else
       class="ant-range-picker-selector-item-placeholder"
-    >{{placeholder}}</view>
+    >
+      {{placeholder}}
+    </view>
     <icon
-      wx:if="{{precision === 'year' || precision === 'month' || precision === 'day' || precision === 'hour'}}"
+      a:if="{{precision === 'year' || precision === 'month' || precision === 'day' || precision === 'hour'}}"
       type="CalendarOutline"
-      class-name="ant-range-picker-selector-item-icon"
+      class="ant-range-picker-selector-item-icon"
     ></icon>
   </view>
 </template>
 <ant-picker
   formatted-value-text="{{formattedValueText}}"
-  class-name="ant-range-picker {{className || ''}}"
+  class="ant-range-picker {{className || ''}}"
   pop-class-name="{{!currentStartDate || !currentEndDate ? 'ant-range-picker-confirm-disabled' : ''}} {{popClassName || ''}}"
   visible="{{visible}}"
   style="{{style}}"
@@ -40,10 +41,10 @@
   mask-class-name="{{maskClassName}}"
   indicator-style="{{indicatorStyle}}"
   indicator-class-name="{{indicatorClassName}}"
-  bind:change="onChange"
-  bind:cancel="onCancel"
-  bind:ok="onOk"
-  bind:visiblechange="onVisibleChange"
+  onChange="onChange"
+  onCancel="onCancel"
+  onOk="onOk"
+  onVisibleChange="onVisibleChange"
   mask-closable="{{maskClosable}}"
 >
   <view
@@ -52,12 +53,12 @@
   >
     <template
       is="selector"
-      data="{{ placeholder: startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision, $id }}"
+      data="{{ placeholder: startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision }}"
     ></template>
     <view class="ant-range-picker-selector-split">{{splitCharacter}}</view>
     <template
       is="selector"
-      data="{{ placeholder: endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision, $id }}"
+      data="{{ placeholder: endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision }}"
     ></template>
   </view>
   <slot

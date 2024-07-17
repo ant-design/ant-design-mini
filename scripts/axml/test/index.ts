@@ -1,7 +1,7 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { getFilesWithExtension } from './utils';
-import { TransformCompiler } from './compiler';
+import { TransformCompiler } from '../compiler';
 
 async function main({ inputDir }) {
   const inputFilesPath = await getFilesWithExtension(inputDir, '.axml');
@@ -9,12 +9,12 @@ async function main({ inputDir }) {
   const transCodes = inputFilesPath.map(async (filePath) => {
     const axmlCode = await fs.readFile(filePath, 'utf-8');
 
-    const Compiler = new TransformCompiler(axmlCode);
-    const transCode = Compiler.compile();
+    const Compiler = new TransformCompiler();
+    const transCode = Compiler.compile(axmlCode);
     return { filePath, transCode };
   });
 
-  const ouputPath = path.resolve(__dirname, `./output`);
+  const ouputPath = path.resolve(__dirname, `../output`);
   if ((await fs.stat(ouputPath)).isDirectory()) {
     await fs.rm(ouputPath, { recursive: true });
   }
@@ -30,4 +30,4 @@ async function main({ inputDir }) {
   });
 }
 
-main({ inputDir: path.resolve(__dirname, `./fixtures`) });
+main({ inputDir: path.resolve(__dirname, `../fixtures`) });

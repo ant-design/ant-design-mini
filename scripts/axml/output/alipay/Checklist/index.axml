@@ -1,21 +1,21 @@
-<wxs
-  src="./index.wxs"
-  module="utils"
-></wxs>
+<import-sjs
+  from="./index.sjs"
+  name="utils"
+></import-sjs>
 <view
   class="ant-checklist {{className || ''}}"
   style="{{style || ''}}"
 >
   <view class="ant-checklist-body">
     <block
-      wx:for="{{options}}"
-      wx:for-index="index"
-      wx:for-item="item"
+      a:for="{{options}}"
+      a:for-index="index"
+      a:for-item="item"
     >
       <ant-checklist-item
         checked="{{utils.getChecked(item.value, mixin.value, multiple)}}"
         item="{{item}}"
-        bind:change="onChange"
+        onChange="onChange"
       >
         <view
           slot="content"
@@ -26,16 +26,20 @@
             item="{{item}}"
           >
             <image
-              wx:if="{{item.image}}"
+              a:if="{{item.image}}"
               class="ant-checklist-item-image"
               src="{{item.image}}"
             ></image>
             <view class="ant-checklist-item-text {{item.image ? '' : 'ant-checklist-item-text-no-image'}}">
-              <view class="ant-checklist-item-text-title {{item.disabled ? 'ant-checklist-item-text-disabled' : ''}}">{{item.title}}</view>
+              <view class="ant-checklist-item-text-title {{item.disabled ? 'ant-checklist-item-text-disabled' : ''}}">
+                {{item.title}}
+              </view>
               <view
-                wx:if="{{item.description}}"
+                a:if="{{item.description}}"
                 class="ant-checklist-item-text-description {{item.disabled ? 'ant-checklist-item-text-disabled' : ''}}"
-              >{{item.description}}</view>
+              >
+                {{item.description}}
+              </view>
             </view>
           </slot>
         </view>
@@ -43,7 +47,7 @@
           <slot name="icon">
             <ant-icon
               type="CheckOutline"
-              class-name="ant-checklist-item-check-icon"
+              class="ant-checklist-item-check-icon"
             ></ant-icon>
           </slot>
         </view>

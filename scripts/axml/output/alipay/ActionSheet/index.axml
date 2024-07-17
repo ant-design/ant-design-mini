@@ -1,14 +1,19 @@
-<wxs
-  src="./index.wxs"
-  module="helper"
-></wxs>
+<import-sjs
+  from="./index.sjs"
+  name="helper"
+></import-sjs>
+<!--#if WECHAT-->
 <view>微信需要编译出来</view>
+<!--#endif-->
+<!--#if ALIPAY-->
+<view>支付宝需要编译出来</view>
+<!--#endif-->
 <ant-popup
-  class-name="ant-actionsheet-popup"
+  class="ant-actionsheet-popup"
   visible="{{visible}}"
   position="bottom"
-  bind:tap="bind:tap"
-  bind:close="onClose"
+  onTap="bind:tap"
+  onClose="onClose"
 >
   <view
     style="{{style}}"
@@ -16,7 +21,7 @@
   >
     <slot name="title">
       <view
-        wx:if="{{title}}"
+        a:if="{{title}}"
         class="ant-actionsheet-title-wrap"
       >
         <view class="ant-actionsheet-title-content">{{title}}</view>
@@ -24,28 +29,32 @@
     </slot>
     <view class="ant-actionsheet-list">
       <block
-        wx:for="{{actions}}"
-        wx:for-index="index"
-        wx:for-item="item"
+        a:for="{{actions}}"
+        a:for-index="index"
+        a:for-item="item"
       >
         <view
           class="ant-actionsheet-list-item {{item.disabled ? 'ant-actionsheet-list-item-disabled' : ''}}"
           hover-class="{{item.disabled ? '' : 'ant-actionsheet-list-item-active'}}"
-          bind:tap="onAction"
+          onTap="onAction"
           data-index="{{index}}"
           data-item="{{item}}"
         >
           <view
-            wx:if="{{helper.isIconMode(actions)}}"
+            a:if="{{helper.isIconMode(actions)}}"
             class="ant-actionsheet-list-item-icon"
             style="background-image: url('{{item.icon}}')"
           ></view>
           <view class="ant-actionsheet-list-item-content">
-            <view class="ant-actionsheet-list-item-title {{item.danger ? 'ant-actionsheet-list-item-title-danger' : ''}}">{{item.text}}</view>
+            <view class="ant-actionsheet-list-item-title {{item.danger ? 'ant-actionsheet-list-item-title-danger' : ''}}">
+              {{item.text}}
+            </view>
             <view
-              wx:if="{{item.description}}"
+              a:if="{{item.description}}"
               class="ant-actionsheet-list-item-description"
-            >{{item.description}}</view>
+            >
+              {{item.description}}
+            </view>
           </view>
         </view>
       </block>
@@ -54,8 +63,10 @@
     <slot name="cancelText">
       <view
         class="ant-actionsheet-cancel"
-        bind:tap="onClose"
-      >{{cancelText}}</view>
+        onTap="onClose"
+      >
+        {{cancelText}}
+      </view>
     </slot>
   </view>
 </ant-popup>

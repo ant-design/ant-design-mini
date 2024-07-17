@@ -1,32 +1,34 @@
-<wxs
-  src="./index.wxs"
-  module="util"
-></wxs>
+<import-sjs
+  from="./index.sjs"
+  name="util"
+></import-sjs>
 <view
   class="ant-typography-container {{disabled ? 'ant-typography-disabled' : ''}} {{className}}"
   hover-class="{{onTap || catchTap ? 'ant-typography-hover {{activeClassName}}' : ''}}"
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}"
   style="{{style}}"
-  bind:tap="{{onTap || onDisabledTap ? 'onTap' : ''}}"
-  catch:tap="{{catchTap ? 'catchTap' : ''}}"
+  onTap="{{onTap || onDisabledTap ? 'onTap' : ''}}"
+  catchTap="{{catchTap ? 'catchTap' : ''}}"
 >
+  <!--左侧图标-->
   <view
-    wx:if="{{iconPosition === 'left'}}"
+    a:if="{{iconPosition === 'left'}}"
     class="ant-typography-icon-container {{iconPosition}}"
   >
     <icon
-      wx:if="{{!util.isUrl(icon)}}"
+      a:if="{{!util.isUrl(icon)}}"
       type="{{icon}}"
-      class-name="ant-typography-icon"
+      class="ant-typography-icon"
     ></icon>
     <image
-      wx:else
+      a:else
       class="ant-typography-icon-image"
       style="width: {{fontSize}};height: {{fontSize}};"
       src="{{icon}}"
     ></image>
   </view>
+  <!--文案-->
   <text
     selectable="{{selectable}}"
     number-of-lines="{{ellipsisRow}}"
@@ -35,17 +37,18 @@
   >
     <slot>{{text}}</slot>
   </text>
+  <!--右侧图标-->
   <view
-    wx:if="{{iconPosition === 'right'}}"
+    a:if="{{iconPosition === 'right'}}"
     class="ant-typography-icon-container {{iconPosition}}"
   >
     <icon
-      wx:if="{{!util.isUrl(icon)}}"
+      a:if="{{!util.isUrl(icon)}}"
       type="{{icon}}"
-      class-name="ant-typography-icon"
+      class="ant-typography-icon"
     ></icon>
     <image
-      wx:else
+      a:else
       class="ant-typography-icon-image"
       style="width: {{fontSize}};height: {{fontSize}};"
       src="{{icon}}"
