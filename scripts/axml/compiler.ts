@@ -6,7 +6,6 @@ import {
   templateDataPlugin,
   elementDatasetPlugin,
   keyAttributePlugin,
-  classnamePlugin,
 } from './plugins';
 import { TransformCompilerOption } from './plugins/condition-comment-plugin';
 
@@ -100,9 +99,8 @@ export class TransformCompiler {
                 templateDataPlugin,
                 elementDatasetPlugin,
                 keyAttributePlugin,
-                classnamePlugin,
               ]
-            : [classnamePlugin],
+            : [],
       },
       options
     );
@@ -163,7 +161,9 @@ export class TransformCompiler {
        * 建议修复
        */
       // warnings,
-    } = types.parse(code);
+    } = types.parse(code, {
+      reserveClassName: true,
+    });
     // if (warnings.length > 0) console.warn(JSON.stringify(warnings, null, 2));
 
     const visitorsName = [
