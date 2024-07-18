@@ -7,7 +7,6 @@ import {
   elementDatasetPlugin,
   keyAttributePlugin,
   classnamePlugin,
-  conditionCommentPlugin,
 } from './plugins';
 import { TransformCompilerOption } from './plugins/condition-comment-plugin';
 
@@ -102,7 +101,6 @@ export class TransformCompiler {
                 elementDatasetPlugin,
                 keyAttributePlugin,
                 classnamePlugin,
-                // conditionCommentPlugin,
               ]
             : [classnamePlugin],
       },
@@ -164,9 +162,9 @@ export class TransformCompiler {
        * 编译过程中发生的告警。
        * 建议修复
        */
-      warnings,
+      // warnings,
     } = types.parse(code);
-    if (warnings.length > 0) console.warn(JSON.stringify(warnings, null, 2));
+    // if (warnings.length > 0) console.warn(JSON.stringify(warnings, null, 2));
 
     const visitorsName = [
       'Program',
