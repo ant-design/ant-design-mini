@@ -3,7 +3,7 @@
   name="helper"
 ></import-sjs>
 <ant-popup
-  class="ant-actionsheet-popup"
+  class-name="ant-actionsheet-popup"
   visible="{{visible}}"
   position="bottom"
   onClose="onClose"

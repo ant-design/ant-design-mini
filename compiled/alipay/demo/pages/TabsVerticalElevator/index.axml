@@ -3,7 +3,7 @@
   current="{{current}}"
   onChange="onChange"
   direction="vertical"
-  class="tabs"
+  class-name="tabs"
   tabs-bar-class-name="tabs-bar"
   tab-active-class-name="tab-active"
 >

@@ -7,7 +7,7 @@
     <ant-icon
       a:if="{{loading}}"
       type="UndoOutline"
-      class="ant-switch-loading-icon"
+      class-name="ant-switch-loading-icon"
     ></ant-icon>
   </view>
   <view class="ant-switch-inner">

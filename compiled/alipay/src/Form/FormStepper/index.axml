@@ -1,5 +1,5 @@
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   style="{{style}}"
   position="{{position}}"
   label="{{label}}"
@@ -16,7 +16,7 @@
     <stepper
       value="{{formData.value}}"
       onChange="onChange"
-      class="{{stepperClassName}}"
+      class-name="{{stepperClassName}}"
       style="{{stepperStyle}}"
       min="{{min}}"
       max="{{max}}"

@@ -28,7 +28,7 @@
   <slot name="suffix"></slot>
 </view>
 <ant-popup
-  class="ant-picker-popup {{popClassName || ''}}"
+  class-name="ant-picker-popup {{popClassName || ''}}"
   style="{{popStyle || ''}}"
   position="bottom"
   animation-type="{{animationType}}"

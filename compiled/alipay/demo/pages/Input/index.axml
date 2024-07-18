@@ -55,7 +55,7 @@
     value="{{money}}"
     onChange="handleMoney"
     type="digit"
-    class="input money"
+    class-name="input money"
     focus-class-name="border"
     allow-clear
   >

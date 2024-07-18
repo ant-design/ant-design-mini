@@ -31,7 +31,7 @@
             index="{{index}}"
           >
             <image-icon
-              class="ant-tab-bar"
+              class-name="ant-tab-bar"
               image="{{mixin.value === index ? item.activeIcon : item.icon}}"
             ></image-icon>
           </slot>
@@ -44,7 +44,7 @@
             index="{{index}}"
           >
             <image-icon
-              class="ant-tab-bar"
+              class-name="ant-tab-bar"
               image="{{mixin.value === index ? item.activeIcon : item.icon}}"
             ></image-icon>
           </slot>

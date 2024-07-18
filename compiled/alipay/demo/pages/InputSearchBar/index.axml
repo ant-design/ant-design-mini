@@ -2,7 +2,7 @@
   <ant-input
     placeholder="请输入内容"
     onChange="onChange"
-    class="search-bar"
+    class-name="search-bar"
     focus-class-name="search-bar-focus"
     confirm-type="search"
     allow-clear

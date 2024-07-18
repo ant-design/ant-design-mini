@@ -9,16 +9,16 @@
 </container>
 <container title="自定义组合">
   <view class="list">
-    <skeleton-avatar class="custom"></skeleton-avatar>
+    <skeleton-avatar className="custom"></skeleton-avatar>
     <skeleton-paragraph
-      class="custom"
+      class-name="custom"
       rows="{{1}}"
     ></skeleton-paragraph>
-    <skeleton-input class="custom"></skeleton-input>
-    <skeleton-input class="custom"></skeleton-input>
-    <skeleton-input class="custom"></skeleton-input>
+    <skeleton-input className="custom"></skeleton-input>
+    <skeleton-input className="custom"></skeleton-input>
+    <skeleton-input className="custom"></skeleton-input>
     <skeleton-button
-      class="custom"
+      class-name="custom"
       size="small"
     ></skeleton-button>
   </view>

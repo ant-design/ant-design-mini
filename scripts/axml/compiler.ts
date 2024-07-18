@@ -6,6 +6,7 @@ import {
   templateDataPlugin,
   elementDatasetPlugin,
   keyAttributePlugin,
+  classnamePlugin,
   conditionCommentPlugin,
 } from './plugins';
 import { TransformCompilerOption } from './plugins/condition-comment-plugin';
@@ -100,9 +101,10 @@ export class TransformCompiler {
                 templateDataPlugin,
                 elementDatasetPlugin,
                 keyAttributePlugin,
+                classnamePlugin,
                 // conditionCommentPlugin,
               ]
-            : [],
+            : [classnamePlugin],
       },
       options
     );

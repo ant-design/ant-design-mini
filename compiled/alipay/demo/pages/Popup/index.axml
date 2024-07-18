@@ -101,7 +101,7 @@
 </ant-popup>
 <container
   title="弹出位置"
-  class="list"
+  class-name="list"
 >
   <ant-button
     data-position="top"

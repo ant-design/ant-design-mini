@@ -9,12 +9,12 @@
 >
   <mask
     show
-    class="{{maskClassName}}"
+    class-name="{{maskClassName}}"
     style="z-index:9999;{{maskStyle || ''}}"
   ></mask>
   <ant-icon
     type="CloseOutline"
-    class="ant-guide-tour-clear"
+    class-name="ant-guide-tour-clear"
     onTap="onCancel"
   ></ant-icon>
   <view class="ant-guide-tour-button">

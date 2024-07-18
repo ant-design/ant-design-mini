@@ -27,19 +27,19 @@
   <ant-button
     type="primary"
     onTap="submit"
-    class="button"
+    class-name="button"
   >
     提交
   </ant-button>
   <ant-button
     onTap="reset"
-    class="button"
+    class-name="button"
   >
     重置
   </ant-button>
   <ant-button
     onTap="toggle"
-    class="button"
+    class-name="button"
   >
     切换表单布局
   </ant-button>

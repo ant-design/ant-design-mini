@@ -30,7 +30,7 @@
       onTap="onClear"
     >
       <icon
-        class="ant-textarea-clear-icon"
+        class-name="ant-textarea-clear-icon"
         type="CloseCircleFill"
       ></icon>
     </view>

@@ -19,13 +19,13 @@
     <icon
       a:if="{{precision === 'year' || precision === 'month' || precision === 'day' || precision === 'hour'}}"
       type="CalendarOutline"
-      class="ant-range-picker-selector-item-icon"
+      class-name="ant-range-picker-selector-item-icon"
     ></icon>
   </view>
 </template>
 <ant-picker
   formatted-value-text="{{formattedValueText}}"
-  class="ant-range-picker {{className || ''}}"
+  class-name="ant-range-picker {{className || ''}}"
   pop-class-name="{{!currentStartDate || !currentEndDate ? 'ant-range-picker-confirm-disabled' : ''}} {{popClassName || ''}}"
   visible="{{visible}}"
   style="{{style}}"

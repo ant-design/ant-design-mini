@@ -17,7 +17,7 @@
         <image-icon
           a:if="{{image}}"
           image="{{image}}"
-          class="ant-list-item-image"
+          class-name="ant-list-item-image"
         ></image-icon>
       </slot>
     </view>

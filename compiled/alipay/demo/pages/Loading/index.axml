@@ -1,6 +1,6 @@
 <ant-container
   title="基础用法-spin"
-  class="container"
+  class-name="container"
 >
   <view class="list">
     <ant-loading type="spin"></ant-loading>
@@ -8,7 +8,7 @@
 </ant-container>
 <ant-container
   title="基础用法-mini"
-  class="container"
+  class-name="container"
 >
   <view class="list">
     <ant-loading type="mini"></ant-loading>
@@ -16,7 +16,7 @@
 </ant-container>
 <ant-container
   title="spin大小"
-  class="container"
+  class-name="container"
 >
   <view class="list">
     <ant-loading
@@ -39,7 +39,7 @@
 </ant-container>
 <ant-container
   title="自定义颜色"
-  class="container"
+  class-name="container"
 >
   <view class="list">
     <ant-loading
@@ -54,11 +54,11 @@
 </ant-container>
 <ant-container
   title="自定义大小"
-  class="container"
+  class-name="container"
 >
   <view class="list">
     <ant-loading style="width: 40px; height: 40px"></ant-loading>
     <ant-loading style="width: 30px; height: 30px"></ant-loading>
-    <ant-loading class="custom-size"></ant-loading>
+    <ant-loading className="custom-size"></ant-loading>
   </view>
 </ant-container>

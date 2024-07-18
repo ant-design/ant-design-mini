@@ -3,7 +3,7 @@
   name="arrowUtil"
 ></import-sjs>
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   position="{{position}}"
   label="{{label}}"
   label-width="{{labelWidth}}"
@@ -53,7 +53,7 @@
       ></slot>
       <ant-icon
         a:if="{{arrowUtil.getArrow(arrow)}}"
-        class="ant-form-date-picker-arrow"
+        class-name="ant-form-date-picker-arrow"
         type="{{arrowUtil.getArrow(arrow)}}"
         slot="suffix"
       ></ant-icon>

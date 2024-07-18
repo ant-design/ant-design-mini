@@ -13,7 +13,7 @@
 <ant-container title="自定义大小">
   <ant-rate
     default-value="{{3}}"
-    class="rate"
+    class-name="rate"
   ></ant-rate>
   <view class="description">30px</view>
   <ant-rate

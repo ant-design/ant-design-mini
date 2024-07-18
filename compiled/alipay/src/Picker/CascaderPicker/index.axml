@@ -1,5 +1,5 @@
 <ant-picker
-  class="ant-cascader-picker {{className || ''}}"
+  class-name="ant-cascader-picker {{className || ''}}"
   style="{{style}}"
   animation-type="{{animationType}}"
   pop-class-name="ant-cascader-picker-popup {{popClassName || ''}}"

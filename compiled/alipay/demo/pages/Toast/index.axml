@@ -1,6 +1,6 @@
 <ant-container title="基础使用">
   <ant-button
-    class="button"
+    class-name="button"
     inline="{{true}}"
     type="primary"
     data-index="1"
@@ -9,7 +9,7 @@
     简短文字
   </ant-button>
   <ant-button
-    class="button"
+    class-name="button"
     inline="{{true}}"
     data-index="4"
     onTap="handleShowToast"
@@ -19,7 +19,7 @@
 </ant-container>
 <ant-container title="带有图标">
   <ant-button
-    class="button"
+    class-name="button"
     inline="{{true}}"
     type="primary"
     data-index="7"
@@ -28,7 +28,7 @@
     成功提示
   </ant-button>
   <ant-button
-    class="button"
+    class-name="button"
     inline="{{true}}"
     data-index="8"
     onTap="handleShowToast"
@@ -36,7 +36,7 @@
     失败提示
   </ant-button>
   <ant-button
-    class="button"
+    class-name="button"
     inline="{{true}}"
     data-index="9"
     onTap="handleShowToast"
@@ -44,7 +44,7 @@
     警告提示
   </ant-button>
   <ant-button
-    class="button"
+    class-name="button"
     inline="{{true}}"
     data-index="2"
     onTap="handleShowToast"
@@ -52,7 +52,7 @@
     自定义图标
   </ant-button>
   <ant-button
-    class="button"
+    class-name="button"
     inline="{{true}}"
     data-index="5"
     onTap="handleShowToast"
@@ -60,7 +60,7 @@
     自定义图片
   </ant-button>
   <ant-button
-    class="button"
+    class-name="button"
     inline="{{true}}"
     data-index="6"
     onTap="handleShowToast"
@@ -70,7 +70,7 @@
 </ant-container>
 <ant-container title="延迟关闭">
   <ant-button
-    class="button"
+    class-name="button"
     inline="{{true}}"
     type="primary"
     data-index="3"
@@ -106,7 +106,7 @@
   mask-closeable="{{true}}"
   onClose="handleCloseToast"
   data-index="2"
-  class="toastWrapper"
+  class-name="toastWrapper"
 ></ant-toast>
 <ant-toast
   content="自定义图片"

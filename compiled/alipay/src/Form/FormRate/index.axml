@@ -1,5 +1,5 @@
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   style="{{style}}"
   position="{{position}}"
   label="{{label}}"
@@ -19,7 +19,7 @@
     readonly="{{readonly}}"
     allow-half="{{allowHalf}}"
     allow-clear="{{allowClear}}"
-    class="{{rateClassName}}"
+    class-name="{{rateClassName}}"
     style="{{rateStyle}}"
     character-active-class-name="{{characterActiveClassName}}"
     character-class-name="{{characterClassName}}"

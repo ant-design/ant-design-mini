@@ -1,5 +1,5 @@
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   position="{{position}}"
   label="{{label}}"
   label-width="{{labelWidth}}"

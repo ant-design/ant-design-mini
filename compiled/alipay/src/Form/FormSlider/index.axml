@@ -1,5 +1,5 @@
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   style="{{style}}"
   position="{{position}}"
   label="{{label}}"
@@ -15,7 +15,7 @@
   <view>
     <slider
       value="{{formData.value}}"
-      class="{{sliderClassName}}"
+      class-name="{{sliderClassName}}"
       style="{{sliderStyle}}"
       active-line-class-name="{{activeLineClassName}}"
       active-line-style="{{activeLineStyle}}"

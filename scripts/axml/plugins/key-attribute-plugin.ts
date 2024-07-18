@@ -1,5 +1,4 @@
 import * as types from '@ali/oxyde-compiler-generator';
-import { isBasicComponet } from '../basicComponet';
 
 export default function ({ mapping }) {
   return {
@@ -141,16 +140,6 @@ export default function ({ mapping }) {
           }
         }
 
-        // compiler 默认转换组件 className 就会换成 class，针对非基础组件需要不处理
-        if (!isBasicComponet(tagName)) {
-          for (const attribute of element.node.attributes) {
-            const raw = attribute.name;
-            if (raw === 'class') {
-              attribute.name = 'className';
-              break;
-            }
-          }
-        }
         // sjs的引入的文件后缀需要调整
         if (tagName === 'import-sjs') {
           for (const attribute of element.node.attributes) {

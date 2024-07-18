@@ -1,5 +1,5 @@
 <ant-picker
-  class="ant-date-picker"
+  class-name="ant-date-picker"
   pop-class-name="ant-date-picker-popup {{popClassName || ''}}"
   visible="{{visible}}"
   style="{{style}}"

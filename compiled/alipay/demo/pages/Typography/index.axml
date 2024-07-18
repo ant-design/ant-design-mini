@@ -1,39 +1,39 @@
 <ant-container title="基础排版">
-  <ant-typography class="typography">
+  <ant-typography className="typography">
     简短文字
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     font-weight="medium"
   >
     简短文字中等加粗
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     font-weight="bold"
   >
     简短文字重度加粗
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     line-through
   >
     简短文字
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     underline
   >
     简短文字
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     selectable
   >
     完整展示：Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     ellipsis-row="{{3}}"
     selectable
   >
@@ -42,7 +42,7 @@
 </ant-container>
 <ant-container title="带图标的排版">
   <ant-typography
-    class="typography"
+    class-name="typography"
     icon="RightOutline"
     disabled
     style="color: #1677ff"
@@ -52,7 +52,7 @@
     链接禁用
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     icon="RightOutline"
     style="color: #1677ff"
     data-type="link"
@@ -61,7 +61,7 @@
     链接
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     icon="TextOutline"
     style="color: #1677ff"
     data-type="copy"
@@ -71,7 +71,7 @@
     复制
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     icon="DeleteOutline"
     style="color: #1677ff"
     data-type="delete"
@@ -80,7 +80,7 @@
     删除
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     icon="EditSOutline"
     style="color: #1677ff"
     data-type="edit"
@@ -89,7 +89,7 @@
     编辑
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     icon="LocationOutline"
     style="color: #1677ff"
     data-type="location"
@@ -98,7 +98,7 @@
     定位
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     icon="SendOutline"
     style="color: #1677ff"
     data-type="share"
@@ -107,7 +107,7 @@
     分享
   </ant-typography>
   <ant-typography
-    class="typography"
+    class-name="typography"
     icon="SendOutline"
     icon-position="left"
     style="color: #1677ff"

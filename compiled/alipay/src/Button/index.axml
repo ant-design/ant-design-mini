@@ -39,7 +39,7 @@
       <loading
         type="mini"
         color="currentColor"
-        class="ant-button-content-loading"
+        class-name="ant-button-content-loading"
       ></loading>
     </view>
   </view>

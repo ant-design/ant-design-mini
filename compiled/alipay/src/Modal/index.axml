@@ -3,7 +3,7 @@
   name="utils"
 ></import-sjs>
 <ant-popup
-  class="ant-modal {{className || ''}}"
+  class-name="ant-modal {{className || ''}}"
   style="{{style || ''}}"
   mask-class-name="{{maskClassName}}"
   mask-style="{{maskStyle}}"
@@ -44,7 +44,7 @@
         >
           <ant-button
             type="primary"
-            class="ant-modal-body-footer-focus-primary"
+            class-name="ant-modal-body-footer-focus-primary"
             style="{{primaryButtonStyle || ''}}"
             onTap="onPrimaryButtonTap"
           >
@@ -132,6 +132,6 @@
     a:if="{{type === 'focus' && closable}}"
     type="CloseOutline"
     onTap="onClose"
-    class="ant-modal-close"
+    class-name="ant-modal-close"
   ></ant-icon>
 </ant-popup>

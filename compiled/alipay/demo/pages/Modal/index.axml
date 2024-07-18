@@ -99,7 +99,7 @@
 </ant-modal>
 <ant-container
   title="基础用法"
-  class="list"
+  class-name="list"
 >
   <ant-button
     data-field="basicVisible"
@@ -128,7 +128,7 @@
 </ant-container>
 <ant-container
   title="强调模式"
-  class="list"
+  class-name="list"
 >
   <ant-button
     data-field="focusOneVisible"
@@ -151,7 +151,7 @@
 </ant-container>
 <ant-container
   title="自定义"
-  class="list"
+  class-name="list"
 >
   <ant-button
     data-field="customVisible"

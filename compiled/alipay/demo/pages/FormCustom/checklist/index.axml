@@ -3,7 +3,7 @@
   name="utils"
 ></import-sjs>
 <form-item
-  class="{{className}}"
+  class-name="{{className}}"
   position="{{position}}"
   label="{{label}}"
   status="{{formData.status}}"

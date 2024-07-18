@@ -2,7 +2,7 @@
   items="{{items}}"
   current="{{current}}"
   onChange="onChange"
-  class="tabs"
+  class-name="tabs"
 >
   <scroll-view
     id="scroll-view"

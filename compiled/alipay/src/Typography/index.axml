@@ -19,7 +19,7 @@
     <icon
       a:if="{{!util.isUrl(icon)}}"
       type="{{icon}}"
-      class="ant-typography-icon"
+      class-name="ant-typography-icon"
     ></icon>
     <image
       a:else
@@ -45,7 +45,7 @@
     <icon
       a:if="{{!util.isUrl(icon)}}"
       type="{{icon}}"
-      class="ant-typography-icon"
+      class-name="ant-typography-icon"
     ></icon>
     <image
       a:else

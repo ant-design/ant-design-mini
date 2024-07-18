@@ -19,7 +19,7 @@
       placeholder="输入组件名称"
       onChange="onSearch"
       focus-class-name="border"
-      class="input"
+      class-name="input"
       allow-clear
     >
       <ant-icon
@@ -31,7 +31,7 @@
 </view>
 <block a:if="{{finding}}">
   <ant-list
-    class="list"
+    class-name="list"
     header="搜索结果列表"
     radius
   >
@@ -60,7 +60,7 @@
   >
     <block>
       <ant-list
-        class="list"
+        class-name="list"
         radius
       >
         <view slot="header">{{item.type}}</view>

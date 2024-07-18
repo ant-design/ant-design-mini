@@ -58,7 +58,7 @@
         <ant-button
           size="small"
           inline
-          class="custom-child"
+          class-name="custom-child"
         >
           <view>点我</view>
           {{item}}

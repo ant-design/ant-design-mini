@@ -49,7 +49,7 @@
       <ant-icon
         style="color: red"
         type="LikeOutline"
-        class="demo-checklist-checked-icon"
+        class-name="demo-checklist-checked-icon"
       ></ant-icon>
     </view>
     <view

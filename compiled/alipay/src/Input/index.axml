@@ -39,7 +39,7 @@
       onTap="onClear"
     >
       <icon
-        class="ant-input-clear-icon"
+        class-name="ant-input-clear-icon"
         type="CloseCircleFill"
       ></icon>
     </view>
