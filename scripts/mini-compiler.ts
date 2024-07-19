@@ -13,7 +13,7 @@ import json5 from 'json5';
 import { resolve } from 'path';
 import * as fs from 'fs/promises';
 import * as ofs from 'fs';
-import { TransformCompiler as axmlParser } from './axml';
+import { TransformCompiler as axmlParser } from '@alipay/axml-transverter';
 
 interface MiniProgramSourceCompileOption {
   source: string;
