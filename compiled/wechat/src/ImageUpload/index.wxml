@@ -6,6 +6,7 @@
     wx:for="{{mixin.value}}"
     wx:for-index="index"
     wx:for-item="item"
+    wx:key="uid"
   >
     <view class="ant-image-upload-show">
       <view

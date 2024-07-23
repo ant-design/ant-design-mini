@@ -53,6 +53,7 @@
         wx:for="{{_rightButtons}}"
         wx:for-index="idx"
         wx:for-item="item"
+        key="{{idx}}"
       >
         <view
           class="ant-swipe-action-movable-content-right"
@@ -89,6 +90,7 @@
         wx:for="{{_leftButtons}}"
         wx:for-index="idx"
         wx:for-item="itemL"
+        key="{{'left-' + idx}}"
       >
         <view
           class="ant-swipe-action-movable-content-left"

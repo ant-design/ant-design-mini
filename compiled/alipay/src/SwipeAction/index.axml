@@ -53,6 +53,7 @@
         a:for="{{_rightButtons}}"
         a:for-index="idx"
         a:for-item="item"
+        key="{{idx}}"
       >
         <view
           class="ant-swipe-action-movable-content-right"
@@ -84,6 +85,7 @@
         a:for="{{_leftButtons}}"
         a:for-index="idx"
         a:for-item="itemL"
+        key="{{'left-' + idx}}"
       >
         <view
           class="ant-swipe-action-movable-content-left"

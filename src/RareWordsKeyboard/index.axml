@@ -1,5 +1,5 @@
 <view
-  a:key="ant-rare-words-input-{{ $id }}"
+  key="ant-rare-words-input-{{ $id }}"
   style="{{ style }}"
   class="ant-rare-words-keyboard {{ className || '' }}">
   <view
@@ -110,13 +110,13 @@
             a:for="{{ pinyinMaps }}"
             a:for-index="mapIndex"
             a:for-item="mapItem"
-            a:key="{{ mapIndex }}">
+            key="{{ mapIndex }}">
             <view class="ant-rare-words-keyboard_pinyin_row">
               <block
                 a:for="{{ mapItem }}"
                 a:for-index="index"
                 a:for-item="item"
-                a:key="{{ item.value }}">
+                key="{{ item.value }}">
                 <view
                   data-value="{{ item.value }}"
                   class="ant-rare-words-keyboard_pinyin_key {{ showMoreWords ? 'all' : '' }}"

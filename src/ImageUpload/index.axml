@@ -8,7 +8,7 @@
       a:for="{{ mixin.value }}"
       a:for-index="index"
       a:for-item="item"
-      a:key="{{ item.uid }}">
+      key="{{ item.uid }}">
       <view class="ant-image-upload-show">
         <view
           data-uid="{{ item.uid }}"

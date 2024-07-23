@@ -27,7 +27,7 @@
         a:for="{{ actions }}"
         a:for-index="index"
         a:for-item="item"
-        a:key="{{ index }}">
+        key="{{ index }}">
         <view
           class="ant-actionsheet-list-item {{ item.disabled ? 'ant-actionsheet-list-item-disabled' : '' }}"
           hover-class="{{ item.disabled ? '' : 'ant-actionsheet-list-item-active' }}"

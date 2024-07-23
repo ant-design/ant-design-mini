@@ -25,6 +25,7 @@
         a:for="{{actions}}"
         a:for-index="index"
         a:for-item="item"
+        key="{{index}}"
       >
         <view
           class="ant-actionsheet-list-item {{item.disabled ? 'ant-actionsheet-list-item-disabled' : ''}}"
