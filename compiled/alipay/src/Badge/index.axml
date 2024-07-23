@@ -27,27 +27,29 @@
     <view class="ant-badge-icon-container"></view>
     <view class="ant-badge-content-text">
       <slot name="text">
-        <view
-          a:if="{{type === 'number'}}"
-          class="ant-badge-number"
-        >
-          <!--display: inline-->
-          <text a:if="{{_sjs.getOverCount(text)}}">99+</text>
-          <!--display: inline-->
-          <text a:else>{{text}}</text>
-        </view>
-        <view
-          a:if="{{type === 'text'}}"
-          class="ant-badge-text"
-        >
-          {{text}}
-        </view>
-        <view
-          a:if="{{type === 'bubble'}}"
-          class="ant-badge-bubble"
-        >
-          {{text}}
-        </view>
+        <block a:if="{{text}}">
+          <view
+            a:if="{{type === 'number'}}"
+            class="ant-badge-number"
+          >
+            <!--display: inline-->
+            <text a:if="{{_sjs.getOverCount(text)}}">99+</text>
+            <!--display: inline-->
+            <text a:else>{{text}}</text>
+          </view>
+          <view
+            a:if="{{type === 'text'}}"
+            class="ant-badge-text"
+          >
+            {{text}}
+          </view>
+          <view
+            a:if="{{type === 'bubble'}}"
+            class="ant-badge-bubble"
+          >
+            {{text}}
+          </view>
+        </block>
       </slot>
     </view>
   </view>

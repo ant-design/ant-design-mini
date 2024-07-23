@@ -30,23 +30,25 @@
         name="text"
         wx:if="{{!text}}"
       ></slot>
-      <view
-        wx:if="{{type === 'number'}}"
-        class="ant-badge-number"
-      >
-        <!--display: inline-->
-        <text wx:if="{{_sjs.getOverCount(text)}}">99+</text>
-        <!--display: inline-->
-        <text wx:else>{{text}}</text>
-      </view>
-      <view
-        wx:if="{{type === 'text'}}"
-        class="ant-badge-text"
-      >{{text}}</view>
-      <view
-        wx:if="{{type === 'bubble'}}"
-        class="ant-badge-bubble"
-      >{{text}}</view>
+      <block wx:if="{{text}}">
+        <view
+          wx:if="{{type === 'number'}}"
+          class="ant-badge-number"
+        >
+          <!--display: inline-->
+          <text wx:if="{{_sjs.getOverCount(text)}}">99+</text>
+          <!--display: inline-->
+          <text wx:else>{{text}}</text>
+        </view>
+        <view
+          wx:if="{{type === 'text'}}"
+          class="ant-badge-text"
+        >{{text}}</view>
+        <view
+          wx:if="{{type === 'bubble'}}"
+          class="ant-badge-bubble"
+        >{{text}}</view>
+      </block>
     </view>
   </view>
 </view>
