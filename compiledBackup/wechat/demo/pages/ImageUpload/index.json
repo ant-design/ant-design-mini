@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "ImageUpload",
-  "usingComponents": {
-    "ant-uploader": "../../../src/ImageUpload/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "Selector",
-  "usingComponents": {
-    "ant-selector": "../../../src/Selector/index",
-    "ant-button": "../../../src/Button/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

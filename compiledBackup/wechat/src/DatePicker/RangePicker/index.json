@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "icon": "../../Icon/index",
-    "ant-picker": "../../Picker/index"
-  }
-}

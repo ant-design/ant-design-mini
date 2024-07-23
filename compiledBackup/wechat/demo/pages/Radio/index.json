@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "Radio",
-  "usingComponents": {
-    "radio": "../../../src/Radio/index",
-    "container": "../../../src/Container/index",
-    "icon": "../../../src/Icon/index"
-  }
-}

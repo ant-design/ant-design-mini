@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "Typography",
-  "usingComponents": {
-    "ant-typography": "../../../src/Typography/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}
