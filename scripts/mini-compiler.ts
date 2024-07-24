@@ -13,7 +13,7 @@ import json5 from 'json5';
 import { resolve } from 'path';
 import * as fs from 'fs/promises';
 import * as ofs from 'fs';
-import { TransformCompiler as axmlParser } from '@alipay/axml-transverter';
+import axmlParser, { wechatCustomMapping } from './axml';
 
 interface MiniProgramSourceCompileOption {
   source: string;
@@ -237,6 +237,10 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
             try {
               const Compiler = new axmlParser({
                 platform: option.buildOption.platformId,
+                customMapping:
+                  option.buildOption.platformId === 'WECHAT'
+                    ? wechatCustomMapping
+                    : {},
               });
               const transCode = Compiler.compile(content);
               return transCode;
