@@ -77,10 +77,12 @@
             </view>
           </block>
         </view>
-        <template
-          is="slider-handler"
-          data="{{ position: sliderLeft, icon: icon, value: mixin.value[0], showTooltip: changingStart && showTooltip }}"
-        ></template>
+        <block a:if="{{range}}">
+          <template
+            is="slider-handler"
+            data="{{ position: sliderLeft, icon: icon, value: mixin.value[0], showTooltip: changingStart && showTooltip }}"
+          ></template>
+        </block>
         <template
           is="slider-handler"
           data="{{ position: sliderLeft + sliderWidth, icon: icon, value: range ? mixin.value[1] : mixin.value, showTooltip: changingEnd && showTooltip }}"
