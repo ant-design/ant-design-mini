@@ -86,9 +86,16 @@ Page({
     });
   },
   handleControlledOk(value) {
+    /// #if ALIPAY
     this.setData({
       value,
     });
+    /// #endif
+    /// #if WECHAT
+    this.setData({
+      value: value.detail[0],
+    });
+    /// #endif
   },
   handleOk(value, column, e) {
     console.log('onOk value', value, 'onOk  column', column, e);

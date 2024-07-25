@@ -78,7 +78,7 @@ Page({
     },
     handleControlledOk(value) {
         this.setData({
-            value,
+            value: value.detail[0],
         });
     },
     handleOk(value, column, e) {
