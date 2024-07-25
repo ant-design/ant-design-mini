@@ -61,8 +61,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import AsyncValidator from 'async-validator';
-import set from 'lodash-es/set';
-import get from 'lodash-es/get';
+// @ts-ignore
+import { set, get } from 'lodash-es';
 import { getValueFromProps } from '../_util/simply';
 var EventEmitter = /** @class */ (function () {
     function EventEmitter() {
