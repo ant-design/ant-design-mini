@@ -8,6 +8,11 @@ import AsyncValidator, {
   ValidateError,
   ValidateMessages,
 } from 'async-validator';
+
+// @ts-ignore
+import set from 'lodash-es/set';
+// @ts-ignore
+import get from 'lodash-es/get';
 import { IMixin4Legacy } from '@mini-types/alipay';
 import { getValueFromProps } from '../_util/simply';
 
@@ -115,7 +120,7 @@ class Field extends EventEmitter {
     this.formRules = rules;
     this.create(
       name,
-      initialValues[name],
+      get(initialValues, name),
       rules[name],
       validateMessages,
       required,
@@ -141,7 +146,7 @@ class Field extends EventEmitter {
         ) {
           this.create(
             value.name,
-            initialValues[value.name],
+            get(initialValues, value.name),
             this.formRules[value.name],
             validateMessages,
             value.required,
@@ -609,12 +614,7 @@ export class Form {
             });
           }
           this.changeListeners.forEach((item) =>
-            item(
-              {
-                [name]: value,
-              },
-              this.getFieldsValue()
-            )
+            item(set({}, name, value), this.getFieldsValue())
           );
         }
       })
@@ -660,8 +660,8 @@ export class Form {
    * @param value 表单初始值
    */
   setFieldsValue(values: Values) {
-    Object.keys(values).forEach((name) => {
-      this.setFieldValue(name, values[name]);
+    Object.keys(this.fields).forEach((name) => {
+      this.setFieldValue(name, get(values, name));
     });
   }
 
@@ -701,7 +701,7 @@ export class Form {
     const fieldsValue: Values = {};
     nameList = nameList || Object.keys(this.fields);
     nameList.forEach((name) => {
-      fieldsValue[name] = this.getFieldValue(name);
+      set(fieldsValue, name, this.getFieldValue(name));
     });
     return fieldsValue;
   }
@@ -783,8 +783,8 @@ export class Form {
     callback: (value: Value, allValues: Values) => void
   ) {
     this.changeListeners.push((changedValues: Values, allValues: Values) => {
-      if (name in changedValues) {
-        callback(changedValues[name], allValues);
+      if (get(changedValues, name)) {
+        callback(get(changedValues, name), allValues);
       }
     });
   }
@@ -836,7 +836,7 @@ export class Form {
           errors: validatorStatus.errors,
         });
       }
-      values[name] = value;
+      set(values, name, value);
     });
     if (errorFields.length > 0) {
       throw {
@@ -852,7 +852,7 @@ export class Form {
    */
   reset() {
     this.eachField((field, name) => {
-      const initialValue = this.initialValues[name];
+      const initialValue = get(this.initialValues, name);
       field.reset(initialValue);
     });
   }
