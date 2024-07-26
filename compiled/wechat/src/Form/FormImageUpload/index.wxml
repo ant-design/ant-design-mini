@@ -18,11 +18,11 @@
     image-mode="{{imageMode}}"
     source-type="{{sourceType}}"
     bind:change="onChange"
-    bind:upload="{{handleUpload ? handleUpload : 'handleUpload'}}"
-    bind:remove="{{handleRemove ? handleRemove : 'handleRemove'}}"
-    bind:preview="onPreview"
-    bind:beforeupload="{{handleBeforeUpload ? handleBeforeUpload : 'handleBeforeUpload'}}"
-    bind:chooseimageerror="onChooseImageError"
+    onUpload="{{handleUpload ? handleUpload : 'handleUpload'}}"
+    onRemove="{{handleRemove ? handleRemove : 'handleRemove'}}"
+    onPreview="onPreview"
+    onBeforeUpload="{{handleBeforeUpload ? handleBeforeUpload : 'handleBeforeUpload'}}"
+    onChooseImageError="onChooseImageError"
   ></image-upload>
   <view
     wx:if="{{!tooltip}}"

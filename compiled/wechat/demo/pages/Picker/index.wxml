@@ -69,7 +69,7 @@
       default-value="{{['Tues', 'pm']}}"
       title="请选择"
       bind:ok="handleOk"
-      bind:format="{{formatTime ? formatTime : 'formatTime'}}"
+      onFormat="{{formatTime ? formatTime : 'formatTime'}}"
       options="{{columns}}"
     ></ant-picker>
   </ant-list-item>
@@ -84,7 +84,7 @@
         default-value="{{['Tues', 'pm']}}"
         title="请选择"
         bind:ok="handleOk"
-        bind:format="{{formatTime ? formatTime : 'formatTime'}}"
+        onFormat="{{formatTime ? formatTime : 'formatTime'}}"
         options="{{columns}}"
       ></ant-picker>
     </ant-list-item>

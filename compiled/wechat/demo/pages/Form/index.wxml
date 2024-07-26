@@ -93,7 +93,7 @@
 <form-upload-image
   label="图片"
   name="image"
-  bind:upload="{{onUpload ? onUpload : 'onUpload'}}"
+  onUpload="{{onUpload ? onUpload : 'onUpload'}}"
   bind:ref="handleRef"
 ></form-upload-image>
 <form-textarea
@@ -120,5 +120,5 @@
 <ant-toast
   content="密码的自定义 tooltip"
   visible="{{toastShow}}"
-  bind:close="handleCloseToast"
+  onClose="handleCloseToast"
 ></ant-toast>

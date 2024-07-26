@@ -7,7 +7,7 @@
     wx:if="{{visible}}"
     class="ant-number-keyboard-modal"
     bind:tap="handleHide"
-    bind:appear="catchAppearModal"
+    onAppear="catchAppearModal"
   ></view>
   <view class="ant-number-keyboard-kb {{visible ? '' : 'ant-number-keyboard-kb_hide'}}">
     <view

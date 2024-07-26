@@ -15,7 +15,7 @@
     <checkbox-group
       options="{{options}}"
       value="{{formData.value}}"
-      bind:change="onChange"
+      bindchange="onChange"
       color="{{color}}"
       disabled="{{disabled}}"
       position="{{checkboxPosition}}"

@@ -23,9 +23,9 @@
     auto-height="{{autoHeight}}"
     show-count="{{showCount}}"
     bind:change="onChange"
-    bind:blur="onBlur"
-    bind:focus="onFocus"
-    bind:confirm="onConfirm"
+    onBlur="onBlur"
+    onFocus="onFocus"
+    onConfirm="onConfirm"
   ></ant-textarea>
   <view
     wx:if="{{!tooltip}}"

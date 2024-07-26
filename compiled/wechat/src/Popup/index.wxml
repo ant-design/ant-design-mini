@@ -17,7 +17,7 @@
   <view
     class="ant-popup-content ant-popup-{{animationType}}-{{position}} {{closing ? 'ant-popup-' + animationType + '-' + position + '-close' : ''}}"
     style="{{utils.getContentStyle(position, animation, duration, width, height)}}"
-    bind:animationend="onAnimationEnd"
+    bindanimationend="onAnimationEnd"
   >
     <slot></slot>
     <slot

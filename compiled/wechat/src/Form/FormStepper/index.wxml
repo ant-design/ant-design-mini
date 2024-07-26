@@ -26,9 +26,9 @@
       input-class-name="{{inputClassName}}"
       input-style="{{inputStyle}}"
       precision="{{precision}}"
-      bind:blur="onBlur"
-      bind:confirm="onConfirm"
-      bind:focus="onFocus"
+      onBlur="onBlur"
+      onConfirm="onConfirm"
+      onFocus="onFocus"
     ></stepper>
   </view>
   <view

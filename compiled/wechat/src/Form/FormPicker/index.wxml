@@ -37,7 +37,7 @@
       bind:change="onChange"
       bind:cancel="onDismissPicker"
       bind:visiblechange="onVisibleChange"
-      bind:format="{{handleFormat ? handleFormat : 'handleFormat'}}"
+      onFormat="{{handleFormat ? handleFormat : 'handleFormat'}}"
     >
       <slot
         name="title"

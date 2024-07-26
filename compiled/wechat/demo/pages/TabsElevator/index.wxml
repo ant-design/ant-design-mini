@@ -7,7 +7,7 @@
   <scroll-view
     id="scroll-view"
     bind:scroll="onScroll"
-    bind:touchstart="onTouchStart"
+    onTouchStart="onTouchStart"
     scroll-top="{{scrollTop}}"
     scroll-y="{{true}}"
     scroll-with-animation="{{true}}"

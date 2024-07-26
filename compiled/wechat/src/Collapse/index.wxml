@@ -31,7 +31,7 @@
       </view>
       <view
         class="ant-collapse-item-content-wrap {{hasChange ? 'ant-collapse-item-content-wrap-transition' : ''}} ant-collapse-item-content-wrap{{$id ? '-' + $id : ''}}-{{index}}"
-        bind:transitionend="resetContentHeight"
+        onTransitionEnd="resetContentHeight"
         style="{{utils.getStyleHeight(index, contentHeight, item.disabled)}}"
         data-index="{{index}}"
       >

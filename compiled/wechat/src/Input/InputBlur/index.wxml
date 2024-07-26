@@ -19,8 +19,8 @@
   selection-start="{{selectionStart}}"
   selection-end="{{selectionEnd}}"
   random-number="{{randomNumber}}"
-  bind:input="onChange"
-  bind:confirm="onConfirm"
-  bind:focus="onFocus"
-  bind:blur="onBlur"
+  bindinput="onChange"
+  bindconfirm="onConfirm"
+  bindfocus="onFocus"
+  bindblur="onBlur"
 ></input>

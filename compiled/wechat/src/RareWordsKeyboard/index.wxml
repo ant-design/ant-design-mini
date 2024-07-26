@@ -7,7 +7,7 @@
     wx:if="{{visible}}"
     class="ant-rare-words-keyboard-modal {{showMask ? '' : 'hide'}}"
     bind:tap="handleHide"
-    bind:appear="catchAppearModal"
+    onAppear="catchAppearModal"
   ></view>
   <view class="ant-rare-words-keyboard-kb {{visible ? '' : 'hide'}}">
     <view class="ant-rare-words-keyboard-header">

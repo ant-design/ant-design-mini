@@ -29,7 +29,7 @@
     <view
       class="ant-notice-bar-marquee ant-notice-bar-marquee{{$id ? '-' + $id : ''}}"
       style="{{marqueeStyle}} display: {{enableMarquee ? 'inline-block' : 'block'}}"
-      bind:transitionend="onTransitionEnd"
+      onTransitionEnd="onTransitionEnd"
     >
       <slot></slot>
     </view>

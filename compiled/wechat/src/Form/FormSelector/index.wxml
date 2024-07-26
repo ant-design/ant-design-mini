@@ -21,8 +21,8 @@
       max-selected-count="{{maxSelectedCount}}"
       active-item-class-name="{{activeItemClassName}}"
       active-item-style="{{activeItemStyle}}"
-      bind:selectmax="onSelectMax"
-      bind:selectmin="onSelectMin"
+      onSelectMax="onSelectMax"
+      onSelectMin="onSelectMin"
       bind:change="onChange"
     ></selector>
   </view>

@@ -40,8 +40,8 @@
       bind:pickerchange="onPickerChange"
       bind:cancel="onDismissPicker"
       bind:visiblechange="onVisibleChange"
-      bind:formatlabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
-      bind:format="{{handleFormat ? handleFormat : 'handleFormat'}}"
+      onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
+      onFormat="{{handleFormat ? handleFormat : 'handleFormat'}}"
     >
       <slot
         name="content"

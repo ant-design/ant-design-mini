@@ -54,8 +54,8 @@
   <view slot="content">
     <ant-calendar
       month-range="{{demo8.monthRange}}"
-      bind:formatter="{{demo8Formatter ? demo8Formatter : 'demo8Formatter'}}"
-      bind:monthformatter="{{demo8MonthFormatter ? demo8MonthFormatter : 'demo8MonthFormatter'}}"
+      onFormatter="{{demo8Formatter ? demo8Formatter : 'demo8Formatter'}}"
+      onMonthFormatter="{{demo8MonthFormatter ? demo8MonthFormatter : 'demo8MonthFormatter'}}"
     ></ant-calendar>
   </view>
 </collapse-container>
@@ -66,7 +66,7 @@
   <view slot="content">
     <ant-calendar
       month-range="{{demo4.monthRange}}"
-      bind:formatter="{{demoFormatter ? demoFormatter : 'demoFormatter'}}"
+      onFormatter="{{demoFormatter ? demoFormatter : 'demoFormatter'}}"
     ></ant-calendar>
   </view>
 </collapse-container>

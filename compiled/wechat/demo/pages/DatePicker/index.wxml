@@ -71,7 +71,7 @@
       bind:visiblechange="handleTriggerPicker"
       bind:cancel="handleDismiss"
       bind:ok="handleOk"
-      bind:formatlabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
+      onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
     ></ant-date-picker>
   </ant-list-item>
 </ant-list>
@@ -80,7 +80,7 @@
       slot="extra"
       placeholder="请选择"
       default-value="{{defaultDateRange}}"
-      bind:pickerchange="handlePickerRangeChange"
+      onPickerChange="handlePickerRangeChange"
       bind:visiblechange="handleTriggerPicker"
       bind:ok="handleRangeOk"
     ></ant-range-picker>
@@ -96,10 +96,10 @@
       slot="extra"
       placeholder="请选择"
       default-value="{{defaultDateRange}}"
-      bind:pickerchange="handlePickerRangeChange"
+      onPickerChange="handlePickerRangeChange"
       bind:visiblechange="handleTriggerPicker"
       bind:ok="handleRangeOk"
-      bind:formatlabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
+      onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
     ></ant-range-picker>
   </ant-list-item>
 </ant-list>
@@ -132,7 +132,7 @@
         visible="{{dateRangePickerVisible}}"
         placeholder="请选择"
         default-value="{{defaultDateRange}}"
-        bind:pickerchange="handlePickerRangeChange"
+        onPickerChange="handlePickerRangeChange"
         bind:visiblechange="handleTriggerControlledDateRangePicker"
         bind:ok="handleRangeOk"
       ></ant-range-picker>
