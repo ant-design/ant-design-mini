@@ -9,16 +9,8 @@ import AsyncValidator, {
   ValidateMessages,
 } from 'async-validator';
 
-/// #if ALIPAY
-// @ts-ignore
-import set from 'lodash-es/set';
-// @ts-ignore
-import get from 'lodash-es/get';
-/// #endif
-/// #if WECHAT
-// @ts-ignore
-import { set, get } from 'lodash-es';
-/// #endif
+import set from '../_util/set';
+import get from '../_util/get';
 import { IMixin4Legacy } from '@mini-types/alipay';
 import { getValueFromProps } from '../_util/simply';
 
