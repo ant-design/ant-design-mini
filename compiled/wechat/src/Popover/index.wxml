@@ -28,7 +28,9 @@
       <slot
         name="content"
         wx:if="{{!content}}"
-      ></slot>{{content}}</view>
+      ></slot>
+      <block wx:else>{{content}}</block>
+    </view>
   </view>
 </view>
 <mask

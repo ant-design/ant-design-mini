@@ -32,7 +32,7 @@
       <slot
         wx:if="{{ !content }}"
         name="content" />
-      {{ content }}
+      <block wx:else>{{ content }}</block>
       <!-- #endif -->
     </view>
   </view>
