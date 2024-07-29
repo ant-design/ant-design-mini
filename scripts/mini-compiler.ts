@@ -204,7 +204,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'sjs',
-      glob: ['**/*.sjs'],
+      glob: ['**/*.sjs','**/*.sjs.ts'],
       destExtension: '.ts',
     },
     function (stream: NodeJS.ReadWriteStream, factory) {
@@ -302,18 +302,18 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
     }
   );
 
-  // option.assets.forEach((ext) => {
-  //   task(
-  //     {
-  //       name: `copy-${ext}`,
-  //       glob: ['**/*.' + ext],
-  //       destExtension: '.' + ext,
-  //     },
-  //     function (stream: NodeJS.ReadWriteStream) {
-  //       return stream.pipe(gulp.dest(option.dest));
-  //     }
-  //   );
-  // });
+  option.assets.forEach((ext) => {
+    task(
+      {
+        name: `copy-${ext}`,
+        glob: ['**/*.' + ext],
+        destExtension: '.' + ext,
+      },
+      function (stream: NodeJS.ReadWriteStream) {
+        return stream.pipe(gulp.dest(option.dest));
+      }
+    );
+  });
 
   task(
     {
@@ -412,7 +412,7 @@ export async function compileAntdMini(watch: boolean) {
     source: resolve(__dirname, '..', 'src'),
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
     watch,
-    assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
+    assets: ['md', 'acss', 'js', 'sjs', 'json'],
     buildOption: alipayBuildOption,
   });
 
@@ -421,7 +421,7 @@ export async function compileAntdMini(watch: boolean) {
     source: resolve(__dirname, '..', 'demo'),
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
     watch,
-    assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
+    assets: ['md', 'acss', 'js', 'sjs', 'json'],
     buildOption: {
       ...alipayBuildOption,
       compileTs: true,

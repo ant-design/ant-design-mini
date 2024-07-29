@@ -5,11 +5,11 @@
   "miniprogram": "compiled/wechat/src",
   "scripts": {
     "dev": "tsx ./scripts/dev.ts",
-    "build:tsxml": "tsx ./scripts/compile-tsxml.ts",
+    "build:axml": "tsx ./scripts/compile-axml.ts",
     "transform": "tsx ./scripts/transform.ts",
     "generate": "tsx ./scripts/generate.ts",
     "dev:doc": "node ./scripts/dev-doc.js",
-    "build": "npm run build:tsxml && node ./scripts/build.js",
+    "build": "npm run build:axml && node ./scripts/build.js",
     "deploy:docs": "npm run build && echo 'mini.ant.design' > ./docs-dist/CNAME && gh-pages -d docs-dist",
     "changelog": "auto-changelog -p --ignore-commit-pattern \"chore\\(release\\)\"",
     "prepublishOnly": "npm run build",
