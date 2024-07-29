@@ -1,4 +1,4 @@
-import { TransformCompiler as axmlParser } from '@alipay/axml-transverter';
+import { TransformCompiler as axmlParser } from 'axml-transverter';
 
 export { wechatCustomMapping } from './mapping';
 
