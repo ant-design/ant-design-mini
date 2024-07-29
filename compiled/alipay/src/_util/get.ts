@@ -1,4 +1,4 @@
-export function get(obj, path, defaultValue) {
+export function get(obj, path, defaultValue?) {
   // If path is not an array, convert it to an array
   if (!Array.isArray(path)) {
     path = path.split('.').map((key) => key.replace(/\[(\d+)]/g, '$1'));
