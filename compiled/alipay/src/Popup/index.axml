@@ -13,7 +13,9 @@
     class="ant-popup-mask {{maskClassName || ''}} {{closing && !visible ? 'ant-popup-mask-closing' : ''}}"
     onTap="onTapMask"
     style="{{animation ? '-webkit-animation-duration:' + duration + 'ms; animation-duration:' + duration + 'ms;' : ''}} {{maskStyle || ''}}"
-  ></view>
+  >
+    <slot name="mask"></slot>
+  </view>
   <view
     class="ant-popup-content ant-popup-{{animationType}}-{{position}} {{closing ? 'ant-popup-' + animationType + '-' + position + '-close' : ''}}"
     style="{{utils.getContentStyle(position, animation, duration, width, height)}}"
