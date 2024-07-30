@@ -1,9 +1,10 @@
 <wxs
   src="./index.wxs"
-  module="utils" />
-
+  module="utils"
+></wxs>
 <view
-  wx:if="{{ loading }}"
-  class="ant-skeleton-button {{ animate ? 'ant-skeleton-button-animate' : '' }} {{ utils.getClass(size) }} {{ className || '' }}"
-  style="{{ style }}" />
-<slot wx:else />
+  wx:if="{{loading}}"
+  class="ant-skeleton-button {{animate ? 'ant-skeleton-button-animate' : ''}} {{utils.getClass(size)}} {{className || ''}}"
+  style="{{style}}"
+></view>
+<slot wx:else></slot>

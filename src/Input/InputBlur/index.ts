@@ -35,7 +35,7 @@ Component(
     mixinValue({
       scopeKey: 'state',
       transformValue(value, extra, updateWithoutFocusCheck) {
-        if (!updateWithoutFocusCheck && this.focus) {
+        if (value === null || (!updateWithoutFocusCheck && this.focus)) {
           return {
             needUpdate: false,
           };

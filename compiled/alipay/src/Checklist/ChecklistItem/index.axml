@@ -1,21 +1,23 @@
 <view
   class="ant-checklist-item"
-  onTap="{{ item.disabled || item.readonly ? '' : 'onChecklistItemClick' }}"
-  hover-class="{{ item.disabled || item.readonly ? '' : 'ant-checklist-item-hover' }}"
-  hover-start-time="{{ 20 }}"
-  hover-stay-time="{{ 40 }}">
-  <view
-    class="ant-checklist-item-content {{ item.disabled ? 'ant-checklist-item-content-disabled' : '' }}">
+  onTap="{{item.disabled || item.readonly ? '' : 'onChecklistItemClick'}}"
+  hoverClass="{{item.disabled || item.readonly ? '' : 'ant-checklist-item-hover'}}"
+  hoverStartTime="{{20}}"
+  hoverStayTime="{{40}}"
+>
+  <view class="ant-checklist-item-content {{item.disabled ? 'ant-checklist-item-content-disabled' : ''}}">
     <view class="ant-checklist-item-content-box">
       <slot
         name="content"
-        item="{{ item }}" />
+        item="{{item}}"
+      ></slot>
     </view>
     <view
-      a:if="{{ checked }}"
-      class="ant-checklist-item-content-icon">
-      <slot name="icon" />
+      a:if="{{checked}}"
+      class="ant-checklist-item-content-icon"
+    >
+      <slot name="icon"></slot>
     </view>
   </view>
-  <view class="ant-checklist-item-line" />
+  <view class="ant-checklist-item-line"></view>
 </view>

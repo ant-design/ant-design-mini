@@ -1,43 +1,44 @@
 <wxs
   src="./index.wxs"
-  module="utils" />
-
+  module="utils"
+></wxs>
 <view
-  class="ant-checklist {{ className || '' }}"
-  style="{{ style || '' }}">
+  class="ant-checklist {{className || ''}}"
+  style="{{style || ''}}"
+>
   <view class="ant-checklist-body">
     <block
-      wx:for="{{ options }}"
+      wx:for="{{options}}"
       wx:for-index="index"
-      wx:for-item="item">
+      wx:for-item="item"
+    >
       <ant-checklist-item
-        checked="{{ utils.getChecked(item.value, mixin.value, multiple) }}"
-        item="{{ item }}"
-        bind:change="onChange">
+        checked="{{utils.getChecked(item.value, mixin.value, multiple)}}"
+        item="{{item}}"
+        bind:change="onChange"
+      >
         <view
           slot="content"
-          class="ant-checklist-item-content-box-nut">
+          class="ant-checklist-item-content-box-nut"
+        >
           <image
-            wx:if="{{ item.image }}"
+            wx:if="{{item.image}}"
             class="ant-checklist-item-image"
-            src="{{ item.image }}" />
-          <view
-            class="ant-checklist-item-text {{ item.image ? '' : 'ant-checklist-item-text-no-image' }}">
+            src="{{item.image}}"
+          ></image>
+          <view class="ant-checklist-item-text {{item.image ? '' : 'ant-checklist-item-text-no-image'}}">
+            <view class="ant-checklist-item-text-title {{item.disabled ? 'ant-checklist-item-text-disabled' : ''}}">{{item.title}}</view>
             <view
-              class="ant-checklist-item-text-title {{ item.disabled ? 'ant-checklist-item-text-disabled' : '' }}">
-              {{ item.title }}
-            </view>
-            <view
-              wx:if="{{ item.description }}"
-              class="ant-checklist-item-text-description {{ item.disabled ? 'ant-checklist-item-text-disabled' : '' }}">
-              {{ item.description }}
-            </view>
+              wx:if="{{item.description}}"
+              class="ant-checklist-item-text-description {{item.disabled ? 'ant-checklist-item-text-disabled' : ''}}"
+            >{{item.description}}</view>
           </view>
         </view>
         <view slot="icon">
           <ant-icon
             type="CheckOutline"
-            className="ant-checklist-item-check-icon" />
+            className="ant-checklist-item-check-icon"
+          ></ant-icon>
         </view>
       </ant-checklist-item>
     </block>

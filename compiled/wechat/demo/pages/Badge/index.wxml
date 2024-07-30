@@ -2,150 +2,166 @@
   <view class="badge-list">
     <ant-badge
       type="dot"
-      position="top-right">
-      <view class="box" />
+      position="top-right"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="text"
       text="新"
-      position="top-right">
-      <view class="box" />
+      position="top-right"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="number"
-      text="{{ 2 }}"
-      position="top-right">
-      <view class="box" />
+      text="{{2}}"
+      position="top-right"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="number"
-      text="{{ 100 }}"
-      position="top-right">
-      <view class="box" />
+      text="{{100}}"
+      position="top-right"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="bubble"
       text="new"
-      position="top-right">
-      <view class="box" />
+      position="top-right"
+    >
+      <view class="box"></view>
     </ant-badge>
   </view>
 </ant-container>
-
 <ant-container title="带边框">
   <view class="badge-list">
     <ant-badge
       type="dot"
       stroke
-      position="top-right">
-      <view class="box" />
+      position="top-right"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="text"
       text="新"
       stroke
-      position="top-right">
-      <view class="box" />
+      position="top-right"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="number"
-      text="{{ 1 }}"
+      text="{{1}}"
       stroke
-      position="top-right">
-      <view class="box" />
+      position="top-right"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="number"
-      text="{{ 100 }}"
+      text="{{100}}"
       stroke
-      position="top-right">
-      <view class="box" />
+      position="top-right"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="bubble"
       text="new"
       stroke
-      position="top-right">
-      <view class="box" />
+      position="top-right"
+    >
+      <view class="box"></view>
     </ant-badge>
   </view>
 </ant-container>
-
 <ant-container title="自定义背景和位置">
   <view class="badge-list">
     <ant-badge
       type="number"
-      text="{{ 1 }}"
-      position="top-left">
-      <view class="box" />
+      text="{{1}}"
+      position="top-left"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="bubble"
       text="1"
-      position="bottom-right">
-      <view class="box" />
+      position="bottom-right"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="number"
-      text="{{ 100 }}"
+      text="{{100}}"
       stroke
-      bgColor="#1677FF">
-      <view class="box" />
+      bgColor="#1677FF"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="text"
       text="new"
       bgColor="#FF9F18"
-      position="top-center">
-      <view class="box" />
+      position="top-center"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="bubble"
       text="new"
       stroke
-      bgColor="#34B368">
-      <view class="box" />
+      bgColor="#34B368"
+    >
+      <view class="box"></view>
     </ant-badge>
   </view>
 </ant-container>
-
 <ant-container title="设置偏移">
   <view class="badge-list">
     <ant-badge
       type="text"
       text="1"
       offsetX="-20px"
-      offsetY="0px">
-      <view class="box" />
+      offsetY="0px"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="text"
       text="1"
       position="bottom-right"
       offsetX="-20px"
-      offsetY="-14px">
-      <view class="box" />
+      offsetY="-14px"
+    >
+      <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="bubble"
       text="new"
       position="top-right"
       offsetX="2px"
-      offsetY="-8px">
-      <view class="box" />
+      offsetY="-8px"
+    >
+      <view class="box"></view>
     </ant-badge>
   </view>
 </ant-container>
-
 <ant-container title="自定义内容">
   <view class="badge-list">
     <ant-badge
       type="text"
-      position="top-right">
+      position="top-right"
+    >
       <ant-icon
         type="GlobalOutline"
-        slot="text" />
-      <view class="box" />
+        slot="text"
+      ></ant-icon>
+      <view class="box"></view>
     </ant-badge>
   </view>
 </ant-container>

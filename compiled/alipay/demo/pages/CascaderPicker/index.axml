@@ -4,72 +4,75 @@
     <ant-cascader-picker
       slot="extra"
       placeholder="请选择归属地"
-      options="{{ cityList }}"
+      options="{{cityList}}"
       onChange="handleCityPickerChange"
       onOk="handleCityOnOk"
-      onCancel="handleDismiss" />
+      onCancel="handleDismiss"
+    ></ant-cascader-picker>
   </ant-list-item>
 </ant-list>
-
 <ant-list header="默认值">
   <ant-list-item>
     请选择城市
     <ant-cascader-picker
       slot="extra"
-      defaultValue="{{ ['34', '330'] }}"
+      defaultValue="{{['34', '330']}}"
       placeholder="请选择城市"
-      options="{{ cityList }}"
+      options="{{cityList}}"
       onChange="handleCityPickerChange"
-      onOk="handleCityOnOk" />
+      onOk="handleCityOnOk"
+    ></ant-cascader-picker>
   </ant-list-item>
 </ant-list>
-
 <ant-list header="受控模式">
   <ant-list-item>
     请选择城市
     <ant-cascader-picker
       slot="extra"
-      value="{{ value }}"
+      value="{{value}}"
       placeholder="请选择城市"
-      options="{{ cityList }}"
+      options="{{cityList}}"
       onChange="handleCityPickerChange"
-      onOk="handleOk" />
+      onOk="handleOk"
+    ></ant-cascader-picker>
   </ant-list-item>
   <view class="btn-wrapper">
     <ant-button
       inline
       onTap="handleChangeControlled"
-      style="margin-right: 8px">
+      style="margin-right: 8px"
+    >
       选择上海
     </ant-button>
     <ant-button
       inline
-      onTap="handleClearControlled">
+      onTap="handleClearControlled"
+    >
       清空
     </ant-button>
   </view>
 </ant-list>
-
 <ant-container style="margin-top: 20rpx">
   <ant-list header="外部控制选择器是否显示">
     <ant-list-item>
       请选择省市
       <ant-cascader-picker
         slot="extra"
-        visible="{{ pickerVisible }}"
+        visible="{{pickerVisible}}"
         placeholder="请选择归属地"
-        options="{{ cityList }}"
+        options="{{cityList}}"
         onChange="handleCityPickerChange"
         onVisibleChange="handleTriggerControlledPicker"
         onOk="handleCityOnOk"
-        onCancel="handleDismiss" />
+        onCancel="handleDismiss"
+      ></ant-cascader-picker>
     </ant-list-item>
   </ant-list>
-
   <ant-button
     size="medium"
     type="primary"
-    onTap="handleOpenPicker">
+    onTap="handleOpenPicker"
+  >
     打开 CascaderPicker
   </ant-button>
 </ant-container>

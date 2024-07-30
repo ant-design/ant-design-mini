@@ -1,5 +1,6 @@
 <view
-  wx:if="{{ loading }}"
-  class="ant-skeleton-input {{ animate ? 'ant-skeleton-input-animate' : '' }} {{ className || '' }}"
-  style="{{ style }}" />
-<slot wx:else />
+  wx:if="{{loading}}"
+  class="ant-skeleton-input {{animate ? 'ant-skeleton-input-animate' : ''}} {{className || ''}}"
+  style="{{style}}"
+></view>
+<slot wx:else></slot>

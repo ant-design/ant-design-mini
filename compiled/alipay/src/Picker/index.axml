@@ -1,82 +1,92 @@
 <import-sjs
   from="./index.sjs"
-  name="_sjs" />
-
+  name="_sjs"
+></import-sjs>
 <view
-  class="ant-picker {{ disabled ? 'ant-picker-disabled' : '' }} {{ className || '' }}"
-  style="{{ style || '' }}"
-  onTap="onOpen">
-  <slot name="prefix" />
+  class="ant-picker {{disabled ? 'ant-picker-disabled' : ''}} {{className || ''}}"
+  style="{{style || ''}}"
+  onTap="onOpen"
+>
+  <slot name="prefix"></slot>
   <view class="ant-picker-value">
-    <slot name="content" />
+    <slot name="content"></slot>
     <view
-      a:if="{{ formatValue }}"
-      class="ant-picker-value-text">
-      {{ formatValue }}
+      a:if="{{formatValue}}"
+      class="ant-picker-value-text"
+    >
+      {{formatValue}}
     </view>
     <block a:else>
       <view
-        a:if="{{ placeholder }}"
-        class="ant-picker-value-placeholder">
-        {{ placeholder }}
+        a:if="{{placeholder}}"
+        class="ant-picker-value-placeholder"
+      >
+        {{placeholder}}
       </view>
     </block>
   </view>
-  <slot name="suffix" />
+  <slot name="suffix"></slot>
 </view>
 <ant-popup
-  className="ant-picker-popup {{ popClassName || '' }}"
-  style="{{ popStyle || '' }}"
+  className="ant-picker-popup {{popClassName || ''}}"
+  style="{{popStyle || ''}}"
   position="bottom"
-  animationType="{{ animationType }}"
+  animationType="{{animationType}}"
   destroyOnClose
   onClose="onMaskDismiss"
-  visible="{{ visible }}">
+  visible="{{visible}}"
+>
   <view class="ant-picker-header">
     <view
       class="ant-picker-header-item ant-picker-header-cancel"
-      hover-class="ant-picker-header-item-hover"
-      hover-start-time="20"
-      hover-stay-time="50"
-      onTap="onCancel">
-      {{ cancelText }}
+      hoverClass="ant-picker-header-item-hover"
+      hoverStartTime="20"
+      hoverStayTime="50"
+      onTap="onCancel"
+    >
+      {{cancelText}}
     </view>
     <view class="ant-picker-header-item ant-picker-header-title">
-      <slot name="title">{{ title }}</slot>
+      <slot name="title">{{title}}</slot>
     </view>
     <view
       class="ant-picker-header-item ant-picker-header-confirm"
-      hover-class="ant-picker-header-item-hover"
-      hover-start-time="20"
-      hover-stay-time="50"
-      onTap="onOk">
-      {{ okText }}
+      hoverClass="ant-picker-header-item-hover"
+      hoverStartTime="20"
+      hoverStayTime="50"
+      onTap="onOk"
+    >
+      {{okText}}
     </view>
   </view>
   <view class="ant-picker-content">
-    <slot name="content-header" />
-    <block a:if="{{ columns.length > 0 }}">
+    <slot name="content-header"></slot>
+    <block a:if="{{columns.length > 0}}">
       <picker-view
         class="ant-picker-picker-view"
-        mask-style="{{ maskStyle || '' }}"
-        mask-class="{{ maskClassName || '' }}"
-        indicator-style="{{ indicatorStyle || '' }}"
-        indicator-class="{{ indicatorClassName || '' }}"
-        value="{{ selectedIndex }}"
-        onChange="onChange">
+        maskStyle="{{maskStyle || ''}}"
+        maskClass="{{maskClassName || ''}}"
+        indicatorStyle="{{indicatorStyle || ''}}"
+        indicatorClass="{{indicatorClassName || ''}}"
+        value="{{selectedIndex}}"
+        onChange="onChange"
+      >
         <block
-          a:for="{{ columns }}"
+          a:for="{{columns}}"
           a:for-index="dataIndex"
-          a:for-item="dataRoot">
+          a:for-item="dataRoot"
+        >
           <picker-view-column
-            a:if="{{ dataIndex < options.length }}"
-            class="ant-picker-picker-view-column">
+            a:if="{{dataIndex < options.length}}"
+            class="ant-picker-picker-view-column"
+          >
             <block
-              a:for="{{ dataRoot }}"
+              a:for="{{dataRoot}}"
               a:for-index="index"
-              a:for-item="item">
+              a:for-item="item"
+            >
               <view class="ant-picker-content-item">
-                {{ _sjs.getPickerViewLabel(item) }}
+                {{_sjs.getPickerViewLabel(item)}}
               </view>
             </block>
           </picker-view-column>
@@ -86,8 +96,8 @@
     <block a:else>
       <picker-view class="ant-picker-picker-view">
         <picker-view-column class="ant-picker-picker-view-column">
-          <!-- display: inline -->
-          <text style="color: #ccc">{{ emptyText }}</text>
+          <!--display: inline-->
+          <text style="color: #ccc">{{emptyText}}</text>
         </picker-view-column>
       </picker-view>
     </block>

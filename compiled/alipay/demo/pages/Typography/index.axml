@@ -1,45 +1,37 @@
 <ant-container title="基础排版">
-  <ant-typography
-    className="typography"
-  >
+  <ant-typography className="typography">
     简短文字
   </ant-typography>
-
   <ant-typography
     className="typography"
     fontWeight="medium"
   >
     简短文字中等加粗
   </ant-typography>
-
   <ant-typography
     className="typography"
     fontWeight="bold"
   >
     简短文字重度加粗
   </ant-typography>
-
   <ant-typography
     className="typography"
     lineThrough
   >
     简短文字
   </ant-typography>
-
   <ant-typography
     className="typography"
     underline
   >
     简短文字
   </ant-typography>
-
   <ant-typography
     className="typography"
     selectable
   >
     完整展示：Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </ant-typography>
-
   <ant-typography
     className="typography"
     ellipsisRow="{{3}}"
@@ -48,7 +40,6 @@
     超出 3 行的内容省略展示：Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </ant-typography>
 </ant-container>
-
 <ant-container title="带图标的排版">
   <ant-typography
     className="typography"
@@ -60,7 +51,6 @@
   >
     链接禁用
   </ant-typography>
-
   <ant-typography
     className="typography"
     icon="RightOutline"
@@ -70,7 +60,6 @@
   >
     链接
   </ant-typography>
-
   <ant-typography
     className="typography"
     icon="TextOutline"
@@ -81,7 +70,6 @@
   >
     复制
   </ant-typography>
-
   <ant-typography
     className="typography"
     icon="DeleteOutline"
@@ -91,7 +79,6 @@
   >
     删除
   </ant-typography>
-
   <ant-typography
     className="typography"
     icon="EditSOutline"
@@ -101,7 +88,6 @@
   >
     编辑
   </ant-typography>
-
   <ant-typography
     className="typography"
     icon="LocationOutline"
@@ -111,7 +97,6 @@
   >
     定位
   </ant-typography>
-
   <ant-typography
     className="typography"
     icon="SendOutline"
@@ -121,8 +106,6 @@
   >
     分享
   </ant-typography>
-
-
   <ant-typography
     className="typography"
     icon="SendOutline"

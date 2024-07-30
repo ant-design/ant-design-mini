@@ -1,0 +1,56 @@
+<ant-container title="基础用法">
+  <ant-textarea
+    placeholder="请输入内容"
+    autoHeight
+    onChange="onChange" />
+</ant-container>
+
+<ant-container title="初始值">
+  <ant-textarea
+    placeholder="请输入内容"
+    defaultValue="这是antd mini小程序组件"
+    autoHeight
+    onChange="onChange" />
+</ant-container>
+
+<ant-container title="带清除按钮">
+  <ant-textarea
+    placeholder="请输入内容"
+    autoHeight
+    allowClear />
+</ant-container>
+
+<ant-container title="禁用状态">
+  <ant-textarea
+    placeholder="被禁用的输入框"
+    disabled />
+</ant-container>
+
+<ant-container title="受控模式">
+  <ant-textarea
+    value="{{ value }}"
+    placeholder="请输入内容"
+    allowClear
+    onChange="handleChange" />
+  <ant-button
+    onTap="clear"
+    inline
+    size="small">
+    clear
+  </ant-button>
+</ant-container>
+
+<ant-container title="非受控模式通过ref修改input">
+  <ant-textarea
+    placeholder="请输入内容"
+    allowClear
+    onChange="onChange"
+    ref="handleRef" />
+  <view>
+    <ant-button
+      inline
+      onTap="clearByInputRef">
+      clear
+    </ant-button>
+  </view>
+</ant-container>

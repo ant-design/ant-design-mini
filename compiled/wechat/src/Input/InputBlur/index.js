@@ -30,7 +30,7 @@ Component(InputBlurDefaultProps, {
     mixinValue({
         scopeKey: 'state',
         transformValue: function (value, extra, updateWithoutFocusCheck) {
-            if (!updateWithoutFocusCheck && this.focus) {
+            if (value === null || (!updateWithoutFocusCheck && this.focus)) {
                 return {
                     needUpdate: false,
                 };

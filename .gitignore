@@ -37,4 +37,7 @@ project.private.config.json
 compiled/wechat/miniprogram_npm
 compiled/wechat/node_modules
 compiled/wechat/yarn.lock
+compiledBackup/wechat/miniprogram_npm
+compiledBackup/wechat/node_modules
+compiledBackup/wechat/yarn.lock
 knowledge.json

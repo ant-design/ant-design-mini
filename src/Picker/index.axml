@@ -1,0 +1,103 @@
+<import-sjs
+  from="./index.sjs"
+  name="_sjs" />
+
+<view
+  class="ant-picker {{ disabled ? 'ant-picker-disabled' : '' }} {{ className || '' }}"
+  style="{{ style || '' }}"
+  onTap="onOpen">
+  <!-- #if ALIPAY -->
+  <slot name="prefix" />
+  <!-- #endif -->
+  <view class="ant-picker-value">
+    <!-- #if ALIPAY -->
+    <slot name="content" />
+    <!-- #endif -->
+    <view
+      a:if="{{ formatValue }}"
+      class="ant-picker-value-text">
+      {{ formatValue }}
+    </view>
+    <block a:else>
+      <view
+        a:if="{{ placeholder }}"
+        class="ant-picker-value-placeholder">
+        {{ placeholder }}
+      </view>
+    </block>
+  </view>
+  <!-- #if ALIPAY -->
+  <slot name="suffix" />
+  <!-- #endif -->
+</view>
+<ant-popup
+  className="ant-picker-popup {{ popClassName || '' }}"
+  style="{{ popStyle || '' }}"
+  position="bottom"
+  animationType="{{ animationType }}"
+  destroyOnClose
+  onClose="onMaskDismiss"
+  visible="{{ visible }}">
+  <view class="ant-picker-header">
+    <view
+      class="ant-picker-header-item ant-picker-header-cancel"
+      hover-class="ant-picker-header-item-hover"
+      hover-start-time="20"
+      hover-stay-time="50"
+      onTap="onCancel">
+      {{ cancelText }}
+    </view>
+    <view class="ant-picker-header-item ant-picker-header-title">
+      <!-- #if ALIPAY -->
+      <slot name="title">{{ title }}</slot>
+      <!-- #endif -->
+    </view>
+    <view
+      class="ant-picker-header-item ant-picker-header-confirm"
+      hover-class="ant-picker-header-item-hover"
+      hover-start-time="20"
+      hover-stay-time="50"
+      onTap="onOk">
+      {{ okText }}
+    </view>
+  </view>
+  <view class="ant-picker-content">
+    <slot name="content-header" />
+    <block a:if="{{ columns.length > 0 }}">
+      <picker-view
+        class="ant-picker-picker-view"
+        mask-style="{{ maskStyle || '' }}"
+        mask-class="{{ maskClassName || '' }}"
+        indicator-style="{{ indicatorStyle || '' }}"
+        indicator-class="{{ indicatorClassName || '' }}"
+        value="{{ selectedIndex }}"
+        onChange="onChange">
+        <block
+          a:for="{{ columns }}"
+          a:for-index="dataIndex"
+          a:for-item="dataRoot">
+          <picker-view-column
+            a:if="{{ dataIndex < options.length }}"
+            class="ant-picker-picker-view-column">
+            <block
+              a:for="{{ dataRoot }}"
+              a:for-index="index"
+              a:for-item="item">
+              <view class="ant-picker-content-item">
+                {{ _sjs.getPickerViewLabel(item) }}
+              </view>
+            </block>
+          </picker-view-column>
+        </block>
+      </picker-view>
+    </block>
+    <block a:else>
+      <picker-view class="ant-picker-picker-view">
+        <picker-view-column class="ant-picker-picker-view-column">
+          <!-- display: inline -->
+          <text style="color: #ccc">{{ emptyText }}</text>
+        </picker-view-column>
+      </picker-view>
+    </block>
+  </view>
+</ant-popup>

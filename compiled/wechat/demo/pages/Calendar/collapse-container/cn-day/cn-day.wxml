@@ -1,4 +1,1 @@
-<view
-  class="cn-day {{ festival ? 'festival' : '' }} {{ unset ? 'unset' : '' }}">
-  {{ cnday }}
-</view>
+<view class="cn-day {{festival ? 'festival' : ''}} {{unset ? 'unset' : ''}}">{{cnday}}</view>

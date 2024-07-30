@@ -13,6 +13,7 @@ import json5 from 'json5';
 import { resolve } from 'path';
 import * as fs from 'fs/promises';
 import * as ofs from 'fs';
+import axmlParser, { wechatCustomMapping } from './axml';
 
 interface MiniProgramSourceCompileOption {
   source: string;
@@ -23,6 +24,7 @@ interface MiniProgramSourceCompileOption {
   tsconfig: string;
   assets: string[];
   buildOption: {
+    platformId?: 'WECHAT' | 'ALIPAY' | string;
     defVar: any;
     compileTs: boolean;
     compileLess: boolean;
@@ -97,7 +99,18 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
         srcStream = srcStream.pipe(
           ifdef(option.buildOption.defVar, {
             insertBlanks: false,
-            extname: ['ts', 'less', 'tsx', 'json5'],
+            extname: [
+              'axml',
+              'ts',
+              'js',
+              'sjs',
+              'acss',
+              'less',
+              'tsx',
+              'json',
+              'json5',
+              'md',
+            ],
           })
         );
         const transformFileFactory = (task: FilePrecess) => {
@@ -191,7 +204,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'sjs',
-      glob: ['**/*.sjs.ts'],
+      glob: ['**/*.sjs', '**/*.sjs.ts'],
       destExtension: '.ts',
     },
     function (stream: NodeJS.ReadWriteStream, factory) {
@@ -205,6 +218,44 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
         .pipe(
           factory((tsxml: string) => {
             return transformTsxJS(tsxml, option.buildOption.xmlScriptOption);
+          })
+        )
+        .pipe(gulp.dest(option.dest));
+    }
+  );
+
+  task(
+    {
+      name: 'axml',
+      glob: ['**/*.axml'],
+      destExtension: option.buildOption.xmlExt,
+    },
+    function (stream: NodeJS.ReadWriteStream, factory) {
+      return stream
+        .pipe(
+          factory(async (content: string) => {
+            const Compiler = new axmlParser({
+              platform: option.buildOption.platformId,
+              customMapping:
+                option.buildOption.platformId === 'WECHAT'
+                  ? wechatCustomMapping
+                  : {},
+              camelCaseProperty: true,
+            });
+            const transCode = Compiler.compile(content);
+            return transCode;
+          })
+        )
+        .on('error', (e) => {
+          console.error(e);
+          if (!option.watch) {
+            process.exit(1);
+          }
+        })
+        .pipe(
+          rename(function (file) {
+            file.basename = path.basename(file.basename, '.axml');
+            file.extname = option.buildOption.xmlExt;
           })
         )
         .pipe(gulp.dest(option.dest));
@@ -302,6 +353,7 @@ export async function compileAntdMini(watch: boolean) {
     );
   }
   const wechatBuildOption = {
+    platformId: 'WECHAT',
     compileTs: true,
     compileLess: true,
     platform: tsxml.wechat,
@@ -338,6 +390,7 @@ export async function compileAntdMini(watch: boolean) {
   });
 
   const alipayBuildOption = {
+    platformId: 'ALIPAY',
     defVar: {
       WECHAT: false,
       ALIPAY: true,
@@ -356,7 +409,7 @@ export async function compileAntdMini(watch: boolean) {
     source: resolve(__dirname, '..', 'src'),
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
     watch,
-    assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
+    assets: ['md', 'acss', 'js', 'sjs', 'json'],
     buildOption: alipayBuildOption,
   });
 
@@ -364,6 +417,94 @@ export async function compileAntdMini(watch: boolean) {
     tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
     source: resolve(__dirname, '..', 'demo'),
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
+    watch,
+    assets: ['md', 'acss', 'js', 'sjs', 'json'],
+    buildOption: {
+      ...alipayBuildOption,
+      compileTs: true,
+    },
+  });
+}
+
+export async function compileAntdMiniBackup(watch: boolean) {
+  if (!watch) {
+    await Promise.all(
+      [
+        'compiledBackup/alipay/demo/pages',
+        'compiledBackup/alipay/src',
+        'compiledBackup/wechat/demo',
+        'compiledBackup/wechat/src',
+      ].map((dir) => {
+        return fs.rm(resolve(__dirname, '..', dir), {
+          recursive: true,
+          force: true,
+        });
+      })
+    );
+  }
+  const wechatBuildOption = {
+    compileTs: true,
+    compileLess: true,
+    platform: tsxml.wechat,
+    styleExt: '.wxss',
+    xmlExt: '.wxml',
+    xmlScriptExt: '.wxs',
+    defVar: {
+      WECHAT: true,
+      ALIPAY: false,
+    },
+    xmlScriptOption: {
+      forceCommonjs: true,
+    },
+  };
+
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
+    source: resolve(__dirname, '..', 'srcBackup'),
+    dest: resolve(__dirname, '..', 'compiledBackup', 'wechat', 'src'),
+    watch,
+    allowList,
+    assets: ['md', 'js', 'json'],
+    buildOption: wechatBuildOption,
+  });
+
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.demo.json'),
+    source: resolve(__dirname, '..', 'demoBackup'),
+    dest: resolve(__dirname, '..', 'compiledBackup', 'wechat', 'demo'),
+    watch,
+    allowList: demoAllowList,
+    assets: ['md', 'js', 'json'],
+    buildOption: wechatBuildOption,
+  });
+
+  const alipayBuildOption = {
+    defVar: {
+      WECHAT: false,
+      ALIPAY: true,
+    },
+    compileTs: false,
+    compileLess: false,
+    platform: tsxml.alipay,
+    xmlExt: '.axml',
+    styleExt: '.acss',
+    xmlScriptExt: '.sjs',
+    xmlScriptOption: {},
+  };
+
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'srcBackup'),
+    dest: resolve(__dirname, '..', 'compiledBackup', 'alipay', 'src'),
+    watch,
+    assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
+    buildOption: alipayBuildOption,
+  });
+
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
+    source: resolve(__dirname, '..', 'demoBackup'),
+    dest: resolve(__dirname, '..', 'compiledBackup', 'alipay', 'demo'),
     watch,
     assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
     buildOption: {

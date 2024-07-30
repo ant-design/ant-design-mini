@@ -1,32 +1,35 @@
 <import-sjs
   from="./index.sjs"
-  name="componentUtils" />
-
+  name="componentUtils"
+></import-sjs>
 <label
-  class="ant-radio-item {{ className || '' }}"
-  style="{{ style }}">
+  class="ant-radio-item {{className || ''}}"
+  style="{{style}}"
+>
   <view class="ant-radio-item-container">
     <view class="ant-radio-item-wrap">
       <radio
-        value="{{ value }}"
+        value="{{value}}"
         class="ant-radio-item-base"
         onChange="onChange"
-        checked="{{ mixin.value }}"
-        disabled="{{ disabled }}" />
+        checked="{{mixin.value}}"
+        disabled="{{disabled}}"
+      ></radio>
       <view class="ant-radio-item-fake">
         <view
-          class="ant-radio-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}"
-          style="{{ mixin.value && !disabled && color ? 'background:' + color : '' }}">
+          class="ant-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}"
+          style="{{mixin.value && !disabled && color ? 'background:' + color : ''}}"
+        >
           <ant-icon
-            a:if="{{ mixin.value }}"
+            a:if="{{mixin.value}}"
             type="CheckOutline"
-            className="ant-radio-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}-icon" />
+            className="ant-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon"
+          ></ant-icon>
         </view>
       </view>
     </view>
-    <view
-      class="ant-radio-item-content {{ disabled ? 'ant-radio-item-disabled' : '' }}">
-      <slot />
+    <view class="ant-radio-item-content {{disabled ? 'ant-radio-item-disabled' : ''}}">
+      <slot></slot>
     </view>
   </view>
 </label>

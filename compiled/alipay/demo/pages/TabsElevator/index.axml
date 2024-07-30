@@ -1,37 +1,40 @@
 <tabs
-  items="{{ items }}"
-  current="{{ current }}"
+  items="{{items}}"
+  current="{{current}}"
   onChange="onChange"
-  className="tabs">
-  <view
-    slot="title"
-    onTap="onTap"
-    slot-scope="item">
-    {{ item.value.title }}
-  </view>
-
+  className="tabs"
+>
   <scroll-view
     id="scroll-view"
     onScroll="onScroll"
     onTouchStart="onTouchStart"
-    scroll-top="{{ scrollTop }}"
-    scroll-y="{{ true }}"
-    scroll-with-animation="{{ true }}"
-    scroll-animation-duration="{{ 300 }}"
-    class="content">
+    scrollTop="{{scrollTop}}"
+    scrollY="{{true}}"
+    scrollWithAnimation="{{true}}"
+    scrollAnimationDuration="{{300}}"
+    class="content"
+  >
     <block
-      a:for="{{ items }}"
+      a:for="{{items}}"
       a:for-index="index"
       a:for-item="item"
-      a:key="{{ index }}">
+    >
       <view class="item">
         <view
           class="title"
-          id="tab-item-{{ index }}">
-          {{ item.title }}
+          id="tab-item-{{index}}"
+        >
+          {{item.title}}
         </view>
-        {{ item.content }}
+        {{item.content}}
       </view>
     </block>
   </scroll-view>
+  <view
+    onTap="onTap"
+    slot="title"
+    slot-scope="item"
+  >
+    {{item.value.title}}
+  </view>
 </tabs>

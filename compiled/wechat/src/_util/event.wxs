@@ -1,0 +1,10 @@
+function disableScrollEvent(event) {
+  event.preventDefault();
+}
+function enableScrollEvent(event) {
+  event.stopPropagation();
+}
+module.exports = {
+  disableScrollEvent: disableScrollEvent,
+  enableScrollEvent: enableScrollEvent
+};

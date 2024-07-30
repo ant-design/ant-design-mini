@@ -1,0 +1,116 @@
+<ant-container
+  title="按钮类型"
+  className="list">
+  <ant-button
+    type="primary"
+    inline
+    onTap="handleTap">
+    主要按钮
+  </ant-button>
+  <ant-button
+    type="default"
+    inline
+    onTap="handleTap">
+    次要按钮
+  </ant-button>
+  <ant-button
+    type="text"
+    inline
+    onTap="handleTap">
+    文本按钮
+  </ant-button>
+</ant-container>
+<ant-container
+  title="按钮尺寸"
+  className="list">
+  <ant-button
+    type="primary"
+    inline
+    size="large"
+    onTap="handleTap">
+    主要按钮
+  </ant-button>
+  <ant-button
+    type="primary"
+    inline
+    size="medium"
+    onTap="handleTap">
+    主要按钮
+  </ant-button>
+  <ant-button
+    type="primary"
+    inline
+    size="small"
+    onTap="handleTap">
+    主要按钮
+  </ant-button>
+</ant-container>
+<ant-container
+  title="危险"
+  className="list">
+  <ant-button
+    type="primary"
+    inline
+    danger
+    onTap="handleTap">
+    主要按钮
+  </ant-button>
+  <ant-button
+    type="default"
+    inline
+    danger
+    onTap="handleTap">
+    次要按钮
+  </ant-button>
+  <ant-button
+    type="text"
+    inline
+    danger
+    onTap="handleTap">
+    文本按钮
+  </ant-button>
+</ant-container>
+<ant-container
+  title="禁用"
+  className="list">
+  <ant-button
+    type="primary"
+    inline
+    disabled>
+    主要按钮
+  </ant-button>
+  <ant-button
+    type="default"
+    inline
+    disabled>
+    次要按钮
+  </ant-button>
+  <ant-button
+    type="text"
+    inline
+    disabled>
+    文本按钮
+  </ant-button>
+</ant-container>
+<ant-container
+  title="加载状态"
+  className="list">
+  <ant-button
+    type="primary"
+    inline
+    loading>
+    主要按钮
+  </ant-button>
+  <ant-button
+    type="default"
+    inline
+    loading>
+    次要按钮
+  </ant-button>
+  <ant-button
+    type="text"
+    inline
+    loading>
+    文本
+  </ant-button>
+</ant-container>

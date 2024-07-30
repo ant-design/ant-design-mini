@@ -1,0 +1,12 @@
+<!-- #if ALIPAY -->
+<text
+  class="ant-icon ant-icon-{{ type }} {{ className ? className : '' }}"
+  style="{{ style }}"
+  onTap="{{ onTap ? 'onTap' : '' }}"
+  catchTap="{{ catchTap ? 'catchTap' : '' }}" />
+<!-- #endif -->
+<!-- #if WECHAT -->
+<text
+  class="ant-icon ant-icon-{{ type }} {{ className ? className : '' }}"
+  style="{{ style }}" />
+  <!-- #endif -->

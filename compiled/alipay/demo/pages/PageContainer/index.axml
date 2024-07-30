@@ -108,5 +108,8 @@
   >
     正常
   </ant-button>
-  <ant-loading slot="loading" color="#999" />
+  <ant-loading
+    slot="loading"
+    color="#999"
+  ></ant-loading>
 </ant-page>

@@ -1,133 +1,149 @@
 <collapse-container
-  a:if="{{ demo1.visible }}"
-  title="默认多选，范围 3 个月">
+  a:if="{{demo1.visible}}"
+  title="默认多选，范围 3 个月"
+>
   <view
     slot="content"
-    style="height: 1000rpx">
-    <ant-calendar defaultValue="{{ demo1.defaultValue }}" />
+    style="height: 1000rpx"
+  >
+    <ant-calendar defaultValue="{{demo1.defaultValue}}"></ant-calendar>
   </view>
 </collapse-container>
-
 <collapse-container
-  a:if="{{ demo2.visible }}"
-  title="单选">
+  a:if="{{demo2.visible}}"
+  title="单选"
+>
   <view
     slot="content"
-    style="height: 1000rpx">
+    style="height: 1000rpx"
+  >
     <ant-calendar
       selectionMode="single"
-      defaultValue="{{ demo2.defaultValue }}"
-      changedScrollIntoView />
+      defaultValue="{{demo2.defaultValue}}"
+      changedScrollIntoView
+    ></ant-calendar>
   </view>
 </collapse-container>
-
 <collapse-container
-  a:if="{{ demo3.visible }}"
-  title="自定义日历顶部">
+  a:if="{{demo3.visible}}"
+  title="自定义日历顶部"
+>
   <view slot="content">
     <view class="custom-header">
       <view
         onTap="demo3PreviousMonth"
-        class="custom-header-left">
-        <ant-icon type="LeftOutline" />
+        class="custom-header-left"
+      >
+        <ant-icon type="LeftOutline"></ant-icon>
         上个月
       </view>
-      <view>{{ demo3.title }}</view>
+      <view>{{demo3.title}}</view>
       <view
         onTap="demo3NextMonth"
-        class="custom-header-right">
+        class="custom-header-right"
+      >
         下个月
-        <ant-icon type="RightOutline" />
+        <ant-icon type="RightOutline"></ant-icon>
       </view>
     </view>
-    <ant-calendar monthRange="{{ demo3.monthRange }}">
-      <view slot="calendarTitle" />
+    <ant-calendar monthRange="{{demo3.monthRange}}">
+      <view slot="calendarTitle"></view>
     </ant-calendar>
   </view>
 </collapse-container>
-
 <collapse-container
-  a:if="{{ demo8.visible }}"
-  title="自定义日期单元格">
+  a:if="{{demo8.visible}}"
+  title="自定义日期单元格"
+>
   <view slot="content">
     <ant-calendar
-      monthRange="{{ demo8.monthRange }}"
-      onFormatter="{{ demo8Formatter ? demo8Formatter : 'demo8Formatter' }}"
-      onMonthFormatter="{{ demo8MonthFormatter ? demo8MonthFormatter : 'demo8MonthFormatter' }}" />
+      monthRange="{{demo8.monthRange}}"
+      onFormatter="{{demo8Formatter ? demo8Formatter : 'demo8Formatter'}}"
+      onMonthFormatter="{{demo8MonthFormatter ? demo8MonthFormatter : 'demo8MonthFormatter'}}"
+    ></ant-calendar>
   </view>
 </collapse-container>
-
 <collapse-container
-  a:if="{{ demo4.visible }}"
-  title="动态控制，只允许选择前后三天">
+  a:if="{{demo4.visible}}"
+  title="动态控制，只允许选择前后三天"
+>
   <view slot="content">
     <ant-calendar
-      monthRange="{{ demo4.monthRange }}"
-      onFormatter="{{ demoFormatter ? demoFormatter : 'demoFormatter' }}" />
+      monthRange="{{demo4.monthRange}}"
+      onFormatter="{{demoFormatter ? demoFormatter : 'demoFormatter'}}"
+    ></ant-calendar>
   </view>
 </collapse-container>
-
 <collapse-container
-  a:if="{{ demo5.visible }}"
-  title="从周一开始">
+  a:if="{{demo5.visible}}"
+  title="从周一开始"
+>
   <view
     slot="content"
-    style="height: 1000rpx">
-    <ant-calendar weekStartsOn="Monday" />
+    style="height: 1000rpx"
+  >
+    <ant-calendar weekStartsOn="Monday"></ant-calendar>
   </view>
 </collapse-container>
-
 <collapse-container
-  a:if="{{ demo6.visible }}"
-  title="通过 slot 实现农历">
+  a:if="{{demo6.visible}}"
+  title="通过 slot 实现农历"
+>
   <view slot="content">
-    <ant-calendar monthRange="{{ demo6.monthRange }}">
+    <ant-calendar monthRange="{{demo6.monthRange}}">
       <view
         slot="cell-bottom"
-        slot-scope="prop">
-        <cn-day cell="{{ prop.cell }}" />
+        slot-scope="prop"
+      >
+        <cn-day cell="{{prop.cell}}"></cn-day>
       </view>
     </ant-calendar>
   </view>
 </collapse-container>
-
 <collapse-container
-  a:if="{{ demo7.visible }}"
-  title="国际化">
+  a:if="{{demo7.visible}}"
+  title="国际化"
+>
   <view slot="content">
     <ant-calendar
-      monthRange="{{ demo7.monthRange }}"
-      localeText="{{ demo7.localeText }}" />
+      monthRange="{{demo7.monthRange}}"
+      localeText="{{demo7.localeText}}"
+    ></ant-calendar>
   </view>
 </collapse-container>
-
 <collapse-container
-  a:if="{{ demo9.visible }}"
-  title="受控模式">
+  a:if="{{demo9.visible}}"
+  title="受控模式"
+>
   <view
     slot="content"
-    style="height: 1000rpx">
+    style="height: 1000rpx"
+  >
     <ant-calendar
       ref="handleRef"
-      value="{{ demo9.value }}"
+      value="{{demo9.value}}"
       onChange="demo9HandleChange"
       selectionMode="single"
-      changedScrollIntoView />
+      changedScrollIntoView
+    ></ant-calendar>
     <ant-button
       type="primary"
-      onTap="demo9HandlePreviousDay">
+      onTap="demo9HandlePreviousDay"
+    >
       上一天
     </ant-button>
     <ant-button
       style="margin-top: 8rpx"
       type="primary"
-      onTap="demo9HandleNextDay">
+      onTap="demo9HandleNextDay"
+    >
       下一天
     </ant-button>
     <ant-button
       style="margin-top: 8rpx"
       type="primary"
-      onTap="demo9HandleScrollIntoView">
+      onTap="demo9HandleScrollIntoView"
+    >
       滚动到指定日期
     </ant-button>
   </view>

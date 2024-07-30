@@ -1,4 +1,5 @@
 <ant-collapse
-  defaultCurrent="{{ [0] }}"
-  items="{{ items }}"
-  bind:change="onChange" />
+  defaultCurrent="{{[0]}}"
+  items="{{items}}"
+  bind:change="onChange"
+></ant-collapse>

@@ -1,24 +1,28 @@
 <import-sjs
   from="./index.sjs"
-  name="sjs" />
-
+  name="sjs"
+></import-sjs>
 <view
-  class="ant-page-infinite {{ className || '' }}"
-  style="{{ style || '' }}">
+  class="ant-page-infinite {{className || ''}}"
+  style="{{style || ''}}"
+>
   <scroll-view
-    scroll-x="{{ true }}"
+    scrollX="{{true}}"
     class="ant-page-infinite-content"
-    id="ant-pageInfinite{{ $id ? '-' + $id : '' }}"
-    onScroll="{{ supportSjs ? sjs.changeScollDistance : 'onScroll' }}">
-    <slot />
+    id="ant-pageInfinite{{$id ? '-' + $id : ''}}"
+    onScroll="{{supportSjs ? sjs.changeScollDistance : 'onScroll'}}"
+  >
+    <slot></slot>
   </scroll-view>
   <view class="ant-page-infinite-wrap">
     <view
       class="ant-page-infinite-area"
-      style="{{ fillColor ? 'background-color:' + fillColor : '' }}">
+      style="{{fillColor ? 'background-color:' + fillColor : ''}}"
+    >
       <view
         class="ant-page-infinite-move"
-        style="{{ frontColor ? 'background-color:' + frontColor : '' }}; transform: translateX({{ pageDeg }}%);" />
+        style="{{frontColor ? 'background-color:' + frontColor : ''}}; transform: translateX({{pageDeg}}%);"
+      ></view>
     </view>
   </view>
 </view>

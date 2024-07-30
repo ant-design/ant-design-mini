@@ -1,0 +1,90 @@
+<import-sjs
+  from="./index.sjs"
+  name="utils" />
+
+<view
+  class="ant-collapse {{ className ? className : '' }}"
+  style="{{ style }}">
+  <block
+    a:for="{{ items }}"
+    a:for-index="index"
+    a:for-item="item">
+    <view
+      class="ant-collapse-item {{ item.className || '' }} {{ utils.isActive(mixin.value, index, item.disabled) ? 'ant-collapse-item-active' : '' }} {{ item.disabled ? 'ant-collapse-item-disabled' : '' }}">
+      <view
+        class="ant-collapse-item-title"
+        data-active="{{ utils.isActive(mixin.value, index, item.disabled) }}"
+        data-index="{{ index }}"
+        data-id="{{ $id }}"
+        onTap="onChange">
+        <view class="ant-collapse-item-line">
+          <view class="ant-collapse-item-title-node">
+            <!-- #if ALIPAY -->
+            <slot
+              name="title"
+              value="{{ item }}"
+              index="{{ index }}"
+              current="{{ mixin.value }}">
+            <!-- #endif -->
+              {{ item.title }}
+            <!-- #if ALIPAY -->
+            </slot>
+            <!-- #endif -->
+          </view>
+          <view class="ant-collapse-item-brief-container">
+            <view class="ant-collapse-item-brief-node">
+              <!-- #if ALIPAY -->
+              <slot
+                name="brief"
+                value="{{ item }}"
+                index="{{ index }}"
+                current="{{ mixin.value }}">
+              <!-- #endif -->
+                {{ brief }}
+              <!-- #if ALIPAY -->
+              </slot>
+              <!-- #endif -->
+            </view>
+
+            <view class="ant-collapse-item-title-arrow">
+              <!-- #if ALIPAY -->
+              <slot
+                name="icon"
+                value="{{ item }}"
+                index="{{ index }}"
+                current="{{ mixin.value }}">
+              <!-- #endif -->
+                <ant-icon
+                  type="{{ utils.isActive(mixin.value, index, item.disabled) ? 'UpOutline' : 'DownOutline' }}" />
+              <!-- #if ALIPAY -->
+              </slot>
+              <!-- #endif -->
+            </view>
+          </view>
+        </view>
+      </view>
+      <view
+        class="ant-collapse-item-content-wrap {{ hasChange ? 'ant-collapse-item-content-wrap-transition' : '' }} ant-collapse-item-content-wrap{{ $id ? '-' + $id : '' }}-{{ index }}"
+        onTransitionEnd="resetContentHeight"
+        style="{{ utils.getStyleHeight(index, contentHeight, item.disabled) }}"
+        data-index="{{ index }}">
+        <view class="ant-collapse-item-content-container">
+          <view
+            class="ant-collapse-item-content ant-collapse-item-content{{ $id ? '-' + $id : '' }}-{{ index }}">
+            <!-- #if ALIPAY -->
+            <slot
+              name="content"
+              value="{{ item }}"
+              index="{{ index }}"
+              current="{{ mixin.value }}">
+            <!-- #endif -->
+              {{ item.content }}
+            <!-- #if ALIPAY -->
+            </slot>
+            <!-- #endif -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

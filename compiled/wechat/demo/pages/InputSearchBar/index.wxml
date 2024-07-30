@@ -4,17 +4,19 @@
     bind:change="onChange"
     className="search-bar"
     focusClassName="search-bar-focus"
-    confirm-type="search"
+    confirmType="search"
     allowClear
     focus
-    bind:confirm="onConfirm">
+    bind:confirm="onConfirm"
+  >
     <ant-icon
       slot="prefix"
-      type="SearchOutline" />
-
+      type="SearchOutline"
+    ></ant-icon>
     <ant-icon
       slot="suffix"
-      type="AudioOutline" />
+      type="AudioOutline"
+    ></ant-icon>
   </ant-input>
   <view class="cancel">取消</view>
 </view>
