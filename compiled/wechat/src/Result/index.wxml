@@ -13,13 +13,13 @@
     >
       <icon
         type="{{result.iconType(type)}}"
-        class-name="ant-result-image-{{type}}"
+        className="ant-result-image-{{type}}"
         style="font-size: 64px"
       ></icon>
     </view>
     <image-icon
       wx:elif="{{image}}"
-      class-name="ant-result-image"
+      className="ant-result-image"
       image="{{image}}"
     ></image-icon>
     <block wx:else></block>

@@ -2,10 +2,10 @@
   <ant-input
     placeholder="请输入内容"
     bind:change="onChange"
-    class-name="search-bar"
-    focus-class-name="search-bar-focus"
-    confirm-type="search"
-    allow-clear
+    className="search-bar"
+    focusClassName="search-bar-focus"
+    confirmType="search"
+    allowClear
     focus
     bind:confirm="onConfirm"
   >

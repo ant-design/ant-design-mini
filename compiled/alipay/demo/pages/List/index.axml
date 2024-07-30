@@ -49,7 +49,7 @@
       ></ant-switch>
     </ant-list-item>
     <ant-list-item
-      extra-brief="未开启"
+      extraBrief="未开启"
       arrow="right"
     >
       大字号模式
@@ -64,7 +64,7 @@
       title="标题"
       brief="描述信息"
       extra="次要信息"
-      extra-brief="次要辅助信息"
+      extraBrief="次要辅助信息"
       onTap="handleTap"
       data-info="三行列表"
       arrow="right"

@@ -2,7 +2,7 @@
   label="用户名"
   name="account"
   tooltip="用户账户对应名称"
-  allow-clear
+  allowClear
   required
   message="需要填写用户名"
   bind:ref="handleRef"
@@ -10,7 +10,7 @@
 <ant-form-input
   label="地址"
   name="address"
-  allow-clear
+  allowClear
   bind:ref="handleRef"
 ></ant-form-input>
 <ant-form-switch

@@ -36,7 +36,7 @@
 <mask
   show="{{showMask && mixin.value}}"
   id="ant-popover-mask{{$id ? '-' + $id : ''}}"
-  class-name="ant-popover-mask {{maskClassName || ''}}"
+  className="ant-popover-mask {{maskClassName || ''}}"
   style="{{maskStyle}}"
   bind:masktap="onVisibleChange"
 ></mask>

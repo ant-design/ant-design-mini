@@ -35,7 +35,7 @@
     header="复杂布局"
   >
     <ant-list-item
-      extra-brief="未开启"
+      extraBrief="未开启"
       arrow="right"
     >大字号模式</ant-list-item>
     <ant-list-item

@@ -28,20 +28,20 @@
   <slot name="suffix"></slot>
 </view>
 <ant-popup
-  class-name="ant-picker-popup {{popClassName || ''}}"
+  className="ant-picker-popup {{popClassName || ''}}"
   style="{{popStyle || ''}}"
   position="bottom"
-  animation-type="{{animationType}}"
-  destroy-on-close
+  animationType="{{animationType}}"
+  destroyOnClose
   onClose="onMaskDismiss"
   visible="{{visible}}"
 >
   <view class="ant-picker-header">
     <view
       class="ant-picker-header-item ant-picker-header-cancel"
-      hover-class="ant-picker-header-item-hover"
-      hover-start-time="20"
-      hover-stay-time="50"
+      hoverClass="ant-picker-header-item-hover"
+      hoverStartTime="20"
+      hoverStayTime="50"
       onTap="onCancel"
     >
       {{cancelText}}
@@ -51,9 +51,9 @@
     </view>
     <view
       class="ant-picker-header-item ant-picker-header-confirm"
-      hover-class="ant-picker-header-item-hover"
-      hover-start-time="20"
-      hover-stay-time="50"
+      hoverClass="ant-picker-header-item-hover"
+      hoverStartTime="20"
+      hoverStayTime="50"
       onTap="onOk"
     >
       {{okText}}
@@ -64,10 +64,10 @@
     <block a:if="{{columns.length > 0}}">
       <picker-view
         class="ant-picker-picker-view"
-        mask-style="{{maskStyle || ''}}"
-        mask-class="{{maskClassName || ''}}"
-        indicator-style="{{indicatorStyle || ''}}"
-        indicator-class="{{indicatorClassName || ''}}"
+        maskStyle="{{maskStyle || ''}}"
+        maskClass="{{maskClassName || ''}}"
+        indicatorStyle="{{indicatorStyle || ''}}"
+        indicatorClass="{{indicatorClassName || ''}}"
         value="{{selectedIndex}}"
         onChange="onChange"
       >

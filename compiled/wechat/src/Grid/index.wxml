@@ -21,7 +21,7 @@
       <view class="ant-grid-item-icon ant-grid-item-icon-{{item.iconStyle || iconStyle}}">
         <image-icon
           image="{{item.icon}}"
-          class-name="ant-grid-item-icon"
+          className="ant-grid-item-icon"
           style="{{iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : ''}}"
         ></image-icon>
       </view>
@@ -32,9 +32,9 @@
 </view>
 <ant-pagination
   wx:elif="{{mode === 'scroll'}}"
-  fill-color="{{paginationFillColor}}"
-  front-color="{{paginationFrontColor}}"
-  class-name="{{className || ''}}"
+  fillColor="{{paginationFillColor}}"
+  frontColor="{{paginationFrontColor}}"
+  className="{{className || ''}}"
   style="{{style || ''}}"
 >
   <view class="ant-grid ant-grid-{{mode}}">
@@ -52,7 +52,7 @@
         <view class="ant-grid-item-icon ant-grid-item-icon-{{item.iconStyle || iconStyle}}">
           <image-icon
             image="{{item.icon}}"
-            class-name="ant-grid-item-icon"
+            className="ant-grid-item-icon"
             style="{{iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : ''}}"
           ></image-icon>
         </view>

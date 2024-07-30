@@ -6,7 +6,7 @@
 </ant-container>
 <ant-container title="初始值">
   <ant-checkbox-group
-    default-value="{{['banana']}}"
+    defaultValue="{{['banana']}}"
     options="{{options}}"
     onChange="onChange"
   ></ant-checkbox-group>
@@ -33,7 +33,7 @@
 <ant-container title="自定义颜色">
   <ant-checkbox-group
     options="{{options}}"
-    default-value="{{['apple', 'banana']}}"
+    defaultValue="{{['apple', 'banana']}}"
     color="red"
   ></ant-checkbox-group>
 </ant-container>

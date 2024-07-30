@@ -33,10 +33,10 @@
   onClose="handlePopupClose"
 >
   <scroll-view
-    scroll-y
+    scrollY
     style="padding: 12px; height: 300px"
-    disable-lower-scroll="out-of-bounds"
-    disable-upper-scroll="out-of-bounds"
+    disableLowerScroll="out-of-bounds"
+    disableUpperScroll="out-of-bounds"
   >
     Ea consectetur ipsum consequat exercitation laboris excepteur pariatur
     excepteur labore dolor cillum tempor esse. Ad adipisicing nostrud fugiat eu
@@ -101,7 +101,7 @@
 </ant-popup>
 <container
   title="弹出位置"
-  class-name="list"
+  className="list"
 >
   <ant-button
     data-position="top"

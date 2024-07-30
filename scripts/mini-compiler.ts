@@ -204,7 +204,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'sjs',
-      glob: ['**/*.sjs','**/*.sjs.ts'],
+      glob: ['**/*.sjs', '**/*.sjs.ts'],
       destExtension: '.ts',
     },
     function (stream: NodeJS.ReadWriteStream, factory) {
@@ -234,19 +234,16 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
       return stream
         .pipe(
           factory(async (content: string) => {
-            try {
-              const Compiler = new axmlParser({
-                platform: option.buildOption.platformId,
-                customMapping:
-                  option.buildOption.platformId === 'WECHAT'
-                    ? wechatCustomMapping
-                    : {},
-              });
-              const transCode = Compiler.compile(content);
-              return transCode;
-            } catch (err) {
-              throw err;
-            }
+            const Compiler = new axmlParser({
+              platform: option.buildOption.platformId,
+              customMapping:
+                option.buildOption.platformId === 'WECHAT'
+                  ? wechatCustomMapping
+                  : {},
+              camelCaseProperty: true,
+            });
+            const transCode = Compiler.compile(content);
+            return transCode;
           })
         )
         .on('error', (e) => {

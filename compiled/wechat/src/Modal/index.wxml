@@ -3,16 +3,16 @@
   module="utils"
 ></wxs>
 <ant-popup
-  class-name="ant-modal {{className || ''}}"
+  className="ant-modal {{className || ''}}"
   style="{{style || ''}}"
-  mask-class-name="{{maskClassName}}"
-  mask-style="{{maskStyle}}"
+  maskClassName="{{maskClassName}}"
+  maskStyle="{{maskStyle}}"
   visible="{{visible}}"
   duration="{{duration}}"
   position="center"
   animation="{{animation}}"
-  z-index="{{zIndex}}"
-  destroy-on-close="{{destroyOnClose}}"
+  zIndex="{{zIndex}}"
+  destroyOnClose="{{destroyOnClose}}"
   bind:close="onMaskClose"
 >
   <view
@@ -42,7 +42,7 @@
     >
       <ant-button
         type="primary"
-        class-name="ant-modal-body-footer-focus-primary"
+        className="ant-modal-body-footer-focus-primary"
         style="{{primaryButtonStyle || ''}}"
         bind:tap="onPrimaryButtonTap"
       >{{primaryButtonText}}</ant-button>
@@ -110,6 +110,6 @@
     wx:if="{{type === 'focus' && closable}}"
     type="CloseOutline"
     bind:tap="onClose"
-    class-name="ant-modal-close"
+    className="ant-modal-close"
   ></ant-icon>
 </ant-popup>

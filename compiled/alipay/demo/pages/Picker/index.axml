@@ -6,12 +6,12 @@
       onCancel="handleDismissPicker"
       onVisibleChange="handleTriggerPicker"
       onOk="handleOk"
-      default-value="{{defaultValue}}"
+      defaultValue="{{defaultValue}}"
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
       options="{{list}}"
-      empty-text="暂无数据"
+      emptyText="暂无数据"
     ></ant-picker>
   </ant-list-item>
   <ant-list-item>
@@ -21,11 +21,11 @@
       onCancel="handleDismissPicker"
       onVisibleChange="handleTriggerPicker"
       onOk="handleOk"
-      default-value="{{defaultValue}}"
+      defaultValue="{{defaultValue}}"
       placeholder="请选择"
       title="请选择"
       onChange="handleChange"
-      mask-closable="{{false}}"
+      maskClosable="{{false}}"
       options="{{list}}"
     ></ant-picker>
   </ant-list-item>
@@ -80,7 +80,7 @@
       slot="extra"
       placeholder="请选择"
       onVisibleChange="handleTriggerPicker"
-      default-value="{{['Tues', 'pm']}}"
+      defaultValue="{{['Tues', 'pm']}}"
       title="请选择"
       onOk="handleOk"
       onFormat="{{formatTime ? formatTime : 'formatTime'}}"
@@ -97,7 +97,7 @@
         visible="{{pickerVisible}}"
         placeholder="请选择"
         onVisibleChange="handleTriggerControlledPicker"
-        default-value="{{['Tues', 'pm']}}"
+        defaultValue="{{['Tues', 'pm']}}"
         title="请选择"
         onOk="handleOk"
         onFormat="{{formatTime ? formatTime : 'formatTime'}}"

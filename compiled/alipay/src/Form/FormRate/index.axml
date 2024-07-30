@@ -1,15 +1,15 @@
 <form-item
-  class-name="{{className}}"
+  className="{{className}}"
   style="{{style}}"
   position="{{position}}"
   label="{{label}}"
-  label-width="{{labelWidth}}"
+  labelWidth="{{labelWidth}}"
   status="{{formData.status}}"
   errors="{{formData.errors}}"
   tooltip="{{tooltip}}"
   required="{{formData.required}}"
-  required-mark="{{requiredMark}}"
-  validate-status="{{validateStatus}}"
+  requiredMark="{{requiredMark}}"
+  validateStatus="{{validateStatus}}"
   help="{{help}}"
 >
   <rate
@@ -17,12 +17,12 @@
     count="{{count}}"
     gutter="{{gutter}}"
     readonly="{{readonly}}"
-    allow-half="{{allowHalf}}"
-    allow-clear="{{allowClear}}"
-    class-name="{{rateClassName}}"
+    allowHalf="{{allowHalf}}"
+    allowClear="{{allowClear}}"
+    className="{{rateClassName}}"
     style="{{rateStyle}}"
-    character-active-class-name="{{characterActiveClassName}}"
-    character-class-name="{{characterClassName}}"
+    characterActiveClassName="{{characterActiveClassName}}"
+    characterClassName="{{characterClassName}}"
     onChange="onChange"
   >
     <view slot="character">

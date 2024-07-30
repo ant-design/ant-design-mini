@@ -40,7 +40,7 @@
               class="ant-image-upload-cover-error"
             >
               <icon
-                class-name="ant-image-upload-cover-error-icon"
+                className="ant-image-upload-cover-error-icon"
                 type="CloseCircleOutline"
               ></icon>
               <view class="ant-image-upload-cover-error-text">
@@ -66,7 +66,7 @@
         >
           <icon
             type="AddOutline"
-            class-name="ant-image-upload-add-image-icon"
+            className="ant-image-upload-add-image-icon"
           ></icon>
         </view>
       </slot>

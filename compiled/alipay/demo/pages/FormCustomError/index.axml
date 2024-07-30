@@ -4,7 +4,7 @@
   required
   placeholder="请输入用户名"
   message="需要输入用户名"
-  validate-status="success"
+  validateStatus="success"
   ref="handleRef"
 >
   <view
@@ -29,7 +29,7 @@
   required
   placeholder="请输入地址"
   message="需要输入地址"
-  validate-status="success"
+  validateStatus="success"
   ref="handleRef"
 >
   <view

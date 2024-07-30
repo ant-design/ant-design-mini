@@ -2,7 +2,7 @@
   content="人在天边月上明"
   visible="{{basicVisible}}"
   onClose="handleClose"
-  primary-button-text="我知道了"
+  primaryButtonText="我知道了"
   onPrimaryButtonTap="handlePrimaryButtonTap"
 ></ant-modal>
 <ant-modal
@@ -10,7 +10,7 @@
   content="人在天边月上明"
   visible="{{withTitleVisible}}"
   onClose="handleClose"
-  primary-button-text="我知道了"
+  primaryButtonText="我知道了"
   onPrimaryButtonTap="handlePrimaryButtonTap"
 ></ant-modal>
 <ant-modal
@@ -18,8 +18,8 @@
   content="删除后无法恢复"
   visible="{{basicTwoVisible}}"
   onClose="handleClose"
-  primary-button-text="确定"
-  secondary-button-text="取消"
+  primaryButtonText="确定"
+  secondaryButtonText="取消"
   onPrimaryButtonTap="handlePrimaryButtonTap"
   onSecondaryButtonTap="handleSecondaryButtonTap"
 ></ant-modal>
@@ -28,9 +28,9 @@
   content="人在天边月上明"
   visible="{{basicThreeVisible}}"
   onClose="handleClose"
-  primary-button-text="主按钮"
-  secondary-button-text="更多"
-  cancel-button-text="取消"
+  primaryButtonText="主按钮"
+  secondaryButtonText="更多"
+  cancelButtonText="取消"
   onPrimaryButtonTap="handlePrimaryButtonTap"
   onSecondaryButtonTap="handleSecondaryButtonTap"
   onCancelButtonTap="handleCancelButtonTap"
@@ -41,7 +41,7 @@
   type="focus"
   visible="{{focusOneVisible}}"
   onClose="handleClose"
-  primary-button-text="我知道了"
+  primaryButtonText="我知道了"
   onPrimaryButtonTap="handlePrimaryButtonTap"
 ></ant-modal>
 <ant-modal
@@ -50,8 +50,8 @@
   type="focus"
   visible="{{focusTwoVisible}}"
   onClose="handleClose"
-  primary-button-text="我知道了"
-  secondary-button-text="辅助操作"
+  primaryButtonText="我知道了"
+  secondaryButtonText="辅助操作"
   onPrimaryButtonTap="handlePrimaryButtonTap"
   onSecondaryButtonTap="handleSecondaryButtonTap"
 ></ant-modal>
@@ -61,9 +61,9 @@
   type="focus"
   visible="{{focusThreeVisible}}"
   onClose="handleClose"
-  primary-button-text="我知道了"
-  secondary-button-text="辅助操作"
-  cancel-button-text="取消"
+  primaryButtonText="我知道了"
+  secondaryButtonText="辅助操作"
+  cancelButtonText="取消"
   onPrimaryButtonTap="handlePrimaryButtonTap"
   onSecondaryButtonTap="handleSecondaryButtonTap"
   onCancelButtonTap="handleCancelButtonTap"
@@ -73,9 +73,9 @@
   content="删除后无法恢复"
   visible="{{customVisible}}"
   onClose="handleClose"
-  primary-button-text="删除"
-  primary-button-style="color:red;"
-  secondary-button-text="取消"
+  primaryButtonText="删除"
+  primaryButtonStyle="color:red;"
+  secondaryButtonText="取消"
   onPrimaryButtonTap="handlePrimaryButtonTap"
   onSecondaryButtonTap="handleSecondaryButtonTap"
 ></ant-modal>
@@ -99,7 +99,7 @@
 </ant-modal>
 <ant-container
   title="基础用法"
-  class-name="list"
+  className="list"
 >
   <ant-button
     data-field="basicVisible"
@@ -128,7 +128,7 @@
 </ant-container>
 <ant-container
   title="强调模式"
-  class-name="list"
+  className="list"
 >
   <ant-button
     data-field="focusOneVisible"
@@ -151,7 +151,7 @@
 </ant-container>
 <ant-container
   title="自定义"
-  class-name="list"
+  className="list"
 >
   <ant-button
     data-field="customVisible"

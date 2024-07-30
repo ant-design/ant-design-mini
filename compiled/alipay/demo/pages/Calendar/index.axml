@@ -18,9 +18,9 @@
     style="height: 1000rpx"
   >
     <ant-calendar
-      selection-mode="single"
-      default-value="{{demo2.defaultValue}}"
-      changed-scroll-into-view
+      selectionMode="single"
+      defaultValue="{{demo2.defaultValue}}"
+      changedScrollIntoView
     ></ant-calendar>
   </view>
 </collapse-container>
@@ -57,7 +57,7 @@
 >
   <view slot="content">
     <ant-calendar
-      month-range="{{demo8.monthRange}}"
+      monthRange="{{demo8.monthRange}}"
       onFormatter="{{demo8Formatter ? demo8Formatter : 'demo8Formatter'}}"
       onMonthFormatter="{{demo8MonthFormatter ? demo8MonthFormatter : 'demo8MonthFormatter'}}"
     ></ant-calendar>
@@ -69,7 +69,7 @@
 >
   <view slot="content">
     <ant-calendar
-      month-range="{{demo4.monthRange}}"
+      monthRange="{{demo4.monthRange}}"
       onFormatter="{{demoFormatter ? demoFormatter : 'demoFormatter'}}"
     ></ant-calendar>
   </view>
@@ -106,8 +106,8 @@
 >
   <view slot="content">
     <ant-calendar
-      month-range="{{demo7.monthRange}}"
-      locale-text="{{demo7.localeText}}"
+      monthRange="{{demo7.monthRange}}"
+      localeText="{{demo7.localeText}}"
     ></ant-calendar>
   </view>
 </collapse-container>
@@ -123,8 +123,8 @@
       ref="handleRef"
       value="{{demo9.value}}"
       onChange="demo9HandleChange"
-      selection-mode="single"
-      changed-scroll-into-view
+      selectionMode="single"
+      changedScrollIntoView
     ></ant-calendar>
     <ant-button
       type="primary"
