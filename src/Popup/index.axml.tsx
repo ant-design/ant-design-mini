@@ -43,7 +43,9 @@ export default (
                   'ms;'
                 : ''
             } ${maskStyle || ''}`}
-          />
+          >
+            <Slot name="mask" />
+          </View>
         )}
         <View
           class={`ant-popup-content ant-popup-${animationType}-${position} ${
