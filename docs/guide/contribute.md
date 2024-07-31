@@ -64,42 +64,20 @@ $ npm run dev:doc
 
 ## Ant Design Mini 的工程方案
 
-### 使用 tsx 语法编写视图层
+### 使用支付宝 axml 语法编写视图层，并能支持编译成微信版本
 
-我们使用 tsx 语法编写视图层。编译器解析 tsx 语法后，生成小程序视图层代码。这意味着：
+- 编写一份代码（支持条件编译），同时生成支付宝与微信小程序视图层代码：
 
-- 可以用 import 语法引入其他组件，享有自定义组件类型提示：
-
-```tsx | pure
-import AntButton from '../../../src/Button/index.axml';
-
-<AntButton type="primary" onTap="handleTap">
-  主要按钮
-</AntButton>;
-```
-
-- 编写一份代码，同时生成支付宝与微信小程序视图层代码：
-
-```tsx | pure
-export default ({ a, b }: TSXMLProps<Props>) => (
-  <View>
-    {a && <Text>a</Text>}
-    {a && b && <Text>a & b</Text>}
-    {a ? <Text>a</Text> : <Text>!a</Text>}
-    {<Text class={a ? '1' : '2'}></Text>}
-    <Text class={`1 ${a ? '1' + '2' : '2'} 2`}></Text>
-  </View>
-);
-```
-
-微信小程序：
+源代码：
 
 ```xml
 <view>
-  <text wx:if="{{a}}">a</text>
-  <text wx:if="{{a && b}}">a & b</text>
-  <text wx:if="{{a}}">a</text>
-  <text wx:else>!a</text>
+  <!-- #if ALIPAY -->
+  <text a:if="{{a}}">a</text>
+  <text a:if="{{a && b}}">a & b</text>
+  <!-- #endif -->
+  <text a:if="{{a}}">a</text>
+  <text a:else>!a</text>
   <text class="{{a ? '1' : '2'}}"></text>
   <text class="1 {{a ? '1' + '2' : '2'}} 2"></text>
 </view>
@@ -113,6 +91,17 @@ export default ({ a, b }: TSXMLProps<Props>) => (
   <text a:if="{{a && b}}">a & b</text>
   <text a:if="{{a}}">a</text>
   <text a:else>!a</text>
+  <text class="{{a ? '1' : '2'}}"></text>
+  <text class="1 {{a ? '1' + '2' : '2'}} 2"></text>
+</view>
+```
+
+微信小程序：
+
+```xml
+<view>
+  <text wx:if="{{a}}">a</text>
+  <text wx:else>!a</text>
   <text class="{{a ? '1' : '2'}}"></text>
   <text class="1 {{a ? '1' + '2' : '2'}} 2"></text>
 </view>
