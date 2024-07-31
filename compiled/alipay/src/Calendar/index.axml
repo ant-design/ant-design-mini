@@ -69,7 +69,7 @@
           >
             <block a:if="{{helper.isDisplay(index, currentMonth.cells)}}">
               <view
-                class="{{helper.getClassName(item, index)}}"
+                class="{{helper.getClassName(item, index, showSelectableDatesOnly)}}"
                 id="id_{{item.time}}"
                 data-time="{{item}}"
                 onTap="clickCell"

@@ -18,7 +18,7 @@ function keys(obj) {
   /// #endif
 }
 
-function getClassName(value, index) {
+function getClassName(value, index, showSelectableDatesOnly) {
   const {
     isSelected,
     isSelectedBegin,
@@ -29,6 +29,7 @@ function getClassName(value, index) {
     isToday,
     disabled,
     className,
+    isRange,
   } = value;
 
   const classNames = {
@@ -39,7 +40,7 @@ function getClassName(value, index) {
     'selected-end': inThisMonth && isSelectedEnd,
     'selected-row-begin': inThisMonth && isRowBegin && isSelected,
     'selected-row-end': inThisMonth && isRowEnd && isSelected,
-    hidden: !inThisMonth,
+    hidden: !inThisMonth || (showSelectableDatesOnly && !isRange),
     'row-end': index % 7 === 6,
   };
 

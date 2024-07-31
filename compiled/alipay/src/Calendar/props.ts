@@ -129,6 +129,10 @@ export interface ICalendarProps extends IBaseProps {
    */
   changedScrollIntoView?: boolean;
   /**
+   * 只展示在可选范围内的日期
+   */
+  showSelectableDatesOnly?: boolean;
+  /**
    * 日期变化回调
    */
   onChange?: (date: CalendarValue) => void;
@@ -170,4 +174,5 @@ export const CalendarDefaultProps = {
   onFormatter: null,
   onMonthFormatter: null,
   changedScrollIntoView: null,
+  showSelectableDatesOnly: false,
 };

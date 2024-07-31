@@ -3,7 +3,7 @@ function keys(obj) {
     return Object.keys(obj);
   }
 }
-function getClassName(value, index) {
+function getClassName(value, index, showSelectableDatesOnly) {
   var isSelected = value.isSelected,
     isSelectedBegin = value.isSelectedBegin,
     isSelectedEnd = value.isSelectedEnd,
@@ -12,7 +12,8 @@ function getClassName(value, index) {
     inThisMonth = value.inThisMonth,
     isToday = value.isToday,
     disabled = value.disabled,
-    className = value.className;
+    className = value.className,
+    isRange = value.isRange;
   var classNames = {
     disabled: disabled,
     today: inThisMonth && isToday,
@@ -21,7 +22,7 @@ function getClassName(value, index) {
     'selected-end': inThisMonth && isSelectedEnd,
     'selected-row-begin': inThisMonth && isRowBegin && isSelected,
     'selected-row-end': inThisMonth && isRowEnd && isSelected,
-    hidden: !inThisMonth,
+    hidden: !inThisMonth || showSelectableDatesOnly && !isRange,
     'row-end': index % 7 === 6
   };
   var result = "ant-calendar-cell ".concat(className || '');
