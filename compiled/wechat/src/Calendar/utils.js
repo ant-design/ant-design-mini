@@ -43,8 +43,9 @@ export function getDate(month, weekStartsOn) {
     }
     return cells;
 }
-export function renderCells(cellsMonth, weekStartsOn, value, localeText) {
+export function renderCells(cellsMonth, weekStartsOn, value, localeText, monthRangeList) {
     var _a;
+    var rangeStartDate = monthRangeList[0], rangeEndDate = monthRangeList[1];
     var rowBeginDay = 0;
     var rowEndDay = 6;
     if (weekStartsOn === 'Monday') {
@@ -53,7 +54,7 @@ export function renderCells(cellsMonth, weekStartsOn, value, localeText) {
     }
     var dates = getDate(cellsMonth, weekStartsOn);
     if (!value) {
-        return dates.map(function (d) {
+        return dates.map(function (d, index) {
             var isToday = dayjs().isSame(d, 'day');
             var isRowBegin = d.isSame(cellsMonth.startOf('month'), 'date') ||
                 d.day() === rowBeginDay;
@@ -65,6 +66,7 @@ export function renderCells(cellsMonth, weekStartsOn, value, localeText) {
                 };
             }
             return {
+                index: index,
                 disabled: false,
                 time: d.toDate().getTime(),
                 date: d.get('date'),
@@ -75,6 +77,8 @@ export function renderCells(cellsMonth, weekStartsOn, value, localeText) {
                 inThisMonth: d.month() === cellsMonth.month(),
                 isRowBegin: isRowBegin,
                 isRowEnd: isRowEnd,
+                isRange: (d.isSame(rangeStartDate) || d.isAfter(rangeStartDate)) &&
+                    (d.isSame(rangeEndDate) || d.isBefore(rangeEndDate)),
             };
         });
     }
@@ -88,7 +92,7 @@ export function renderCells(cellsMonth, weekStartsOn, value, localeText) {
         selectBegin = dayjs(value);
         selectEnd = dayjs(value);
     }
-    return dates.map(function (d) {
+    return dates.map(function (d, index) {
         var isToday = dayjs().isSame(d, 'day');
         var isRowBegin = d.isSame(cellsMonth.startOf('month'), 'date') || d.day() === rowBeginDay;
         var isRowEnd = d.isSame(cellsMonth.endOf('month'), 'date') || d.day() === rowEndDay;
@@ -116,6 +120,7 @@ export function renderCells(cellsMonth, weekStartsOn, value, localeText) {
             }
         }
         return {
+            index: index,
             disabled: false,
             time: time,
             date: d.get('date'),
@@ -126,6 +131,8 @@ export function renderCells(cellsMonth, weekStartsOn, value, localeText) {
             inThisMonth: inThisMonth,
             isRowBegin: isRowBegin,
             isRowEnd: isRowEnd,
+            isRange: (d.isSame(rangeStartDate) || d.isAfter(rangeStartDate)) &&
+                (d.isSame(rangeEndDate) || d.isBefore(rangeEndDate)),
         };
     });
 }

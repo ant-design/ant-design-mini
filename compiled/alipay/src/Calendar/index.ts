@@ -137,11 +137,20 @@ Component(
         if (item) markItems.unshift(item);
       }
       const value = this.getValue();
-      const monthList = getMonthListFromRange(
-        dayjs(monthRange?.[0]),
-        dayjs(monthRange?.[1])
-      ).map((p) => {
-        let cells = renderCells(p, weekStartsOn, value, localeText);
+      const start = dayjs(monthRange?.[0]).startOf('d');
+      const end = dayjs(monthRange?.[1]).startOf('d');
+      const monthRangeList = getMonthListFromRange(start, end);
+      const monthList = monthRangeList.map((p) => {
+        let cells = renderCells(
+          p,
+          weekStartsOn,
+          value,
+          localeText,
+          // 如果monthRange传入异常，用内置的时间范围
+          start.isAfter(end) || start.isSame(end)
+            ? [monthRangeList[0], dayjs(monthRangeList[1]).endOf('month')]
+            : [start, end]
+        );
         if (onFormatter && typeof onFormatter === 'function') {
           cells = cells.map((o): CellState => {
             const {
@@ -153,6 +162,7 @@ Component(
               isSelectedEnd,
               isSelected,
               className,
+              isRange,
             } = o;
             const newState =
               onFormatter(
@@ -165,6 +175,7 @@ Component(
                   isSelectedEnd,
                   isSelected,
                   className,
+                  isRange,
                 },
                 value
               ) ?? {};

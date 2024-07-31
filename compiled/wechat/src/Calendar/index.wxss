@@ -142,4 +142,5 @@
 }
 .ant-calendar-cell-hidden {
   opacity: 0;
+  pointer-events: none;
 }

@@ -48,7 +48,10 @@
       wx:for-index="index"
       wx:for-item="currentMonth"
     >
-      <view class="ant-calendar-body-container {{currentMonth.className || ''}}">
+      <view
+        class="ant-calendar-body-container {{currentMonth.className || ''}}"
+        style="{{currentMonth.style || ''}}"
+      >
         <view class="ant-calendar-title-container">
           <view class="ant-calendar-title">{{currentMonth.title}}</view>
         </view>
@@ -58,7 +61,7 @@
             wx:for-index="index"
             wx:for-item="item"
           >
-            <block>
+            <block wx:if="{{helper.isDisplay(index, currentMonth.cells)}}">
               <view
                 class="{{helper.getClassName(item, index)}}"
                 id="id_{{item.time}}"

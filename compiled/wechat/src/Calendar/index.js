@@ -183,12 +183,19 @@ Component(CalendarDefaultProps, {
                 markItems.unshift(item);
         }
         var value = this.getValue();
-        var monthList = getMonthListFromRange(dayjs(monthRange === null || monthRange === void 0 ? void 0 : monthRange[0]), dayjs(monthRange === null || monthRange === void 0 ? void 0 : monthRange[1])).map(function (p) {
-            var cells = renderCells(p, weekStartsOn, value, localeText);
+        var start = dayjs(monthRange === null || monthRange === void 0 ? void 0 : monthRange[0]).startOf('d');
+        var end = dayjs(monthRange === null || monthRange === void 0 ? void 0 : monthRange[1]).startOf('d');
+        var monthRangeList = getMonthListFromRange(start, end);
+        var monthList = monthRangeList.map(function (p) {
+            var cells = renderCells(p, weekStartsOn, value, localeText, 
+            // 如果monthRange传入异常，用内置的时间范围
+            start.isAfter(end) || start.isSame(end)
+                ? [monthRangeList[0], dayjs(monthRangeList[1]).endOf('month')]
+                : [start, end]);
             if (onFormatter && typeof onFormatter === 'function') {
                 cells = cells.map(function (o) {
                     var _a;
-                    var time = o.time, top = o.top, bottom = o.bottom, disabled = o.disabled, isSelectedBegin = o.isSelectedBegin, isSelectedEnd = o.isSelectedEnd, isSelected = o.isSelected, className = o.className;
+                    var time = o.time, top = o.top, bottom = o.bottom, disabled = o.disabled, isSelectedBegin = o.isSelectedBegin, isSelectedEnd = o.isSelectedEnd, isSelected = o.isSelected, className = o.className, isRange = o.isRange;
                     var newState = (_a = onFormatter({
                         time: time,
                         top: top ? __assign({}, top) : undefined,
@@ -198,6 +205,7 @@ Component(CalendarDefaultProps, {
                         isSelectedEnd: isSelectedEnd,
                         isSelected: isSelected,
                         className: className,
+                        isRange: isRange,
                     }, value)) !== null && _a !== void 0 ? _a : {};
                     var result = __assign({}, o);
                     if (typeof newState === 'object') {
