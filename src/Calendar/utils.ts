@@ -54,8 +54,11 @@ export function renderCells(
   cellsMonth: Dayjs,
   weekStartsOn: string,
   value: CalendarValue,
-  localeText: LocaleText
+  localeText: LocaleText,
+  monthRangeList: Dayjs[]
 ): CellState[] {
+  const [rangeStartDate, rangeEndDate] = monthRangeList;
+
   let rowBeginDay = 0;
   let rowEndDay = 6;
   if (weekStartsOn === 'Monday') {
@@ -64,7 +67,7 @@ export function renderCells(
   }
   const dates = getDate(cellsMonth, weekStartsOn);
   if (!value) {
-    return dates.map((d): CellState => {
+    return dates.map((d, index): CellState => {
       const isToday = dayjs().isSame(d, 'day');
       const isRowBegin =
         d.isSame(cellsMonth.startOf('month'), 'date') ||
@@ -80,6 +83,7 @@ export function renderCells(
       }
 
       return {
+        index,
         disabled: false,
         time: d.toDate().getTime(),
         date: d.get('date'),
@@ -90,6 +94,9 @@ export function renderCells(
         inThisMonth: d.month() === cellsMonth.month(),
         isRowBegin,
         isRowEnd,
+        isRange:
+          (d.isSame(rangeStartDate) || d.isAfter(rangeStartDate)) &&
+          (d.isSame(rangeEndDate) || d.isBefore(rangeEndDate)),
       };
     });
   }
@@ -105,7 +112,7 @@ export function renderCells(
     selectEnd = dayjs(value);
   }
 
-  return dates.map((d): CellState => {
+  return dates.map((d, index): CellState => {
     const isToday = dayjs().isSame(d, 'day');
     const isRowBegin =
       d.isSame(cellsMonth.startOf('month'), 'date') || d.day() === rowBeginDay;
@@ -136,6 +143,7 @@ export function renderCells(
     }
 
     return {
+      index,
       disabled: false,
       time,
       date: d.get('date'),
@@ -146,6 +154,9 @@ export function renderCells(
       inThisMonth,
       isRowBegin,
       isRowEnd,
+      isRange:
+        (d.isSame(rangeStartDate) || d.isAfter(rangeStartDate)) &&
+        (d.isSame(rangeEndDate) || d.isBefore(rangeEndDate)),
     };
   });
 }

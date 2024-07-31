@@ -87,6 +87,11 @@ export interface CellState {
   isRowBegin: boolean;
   isRowEnd: boolean;
   inThisMonth: boolean;
+  /**
+   * 是否在传入范围内
+   */
+  isRange: boolean;
+  index: number;
 }
 
 export type CalendarValue = number | number[];

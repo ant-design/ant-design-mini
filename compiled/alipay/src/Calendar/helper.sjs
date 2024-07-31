@@ -54,8 +54,32 @@ function getMarkCellClassName(index, items) {
   }
   return 'ant-calendar-mark-cell';
 }
+function isDisplay(index, items) {
+  // 找到需要当前月需要展示的日期最大最小索引
+  var _items$reduce = items.reduce(function (res, item) {
+      // !item.inThisMonth 被隐藏掉的日期
+      // !item.isRange 不在传入范围内的日期
+      if (!(!item.inThisMonth || !item.isRange)) {
+        if (res.minIndex === null || res.maxIndex === null) {
+          res.minIndex = item.index;
+          res.maxIndex = item.index;
+        }
+        res.minIndex = Math.min(res.minIndex, item.index);
+        res.maxIndex = Math.max(res.maxIndex, item.index);
+      }
+      return res;
+    }, {
+      minIndex: null,
+      maxIndex: null
+    }),
+    minIndex = _items$reduce.minIndex,
+    maxIndex = _items$reduce.maxIndex;
+  if (maxIndex === null || maxIndex === null) return true;
+  return index >= Math.floor(minIndex / 7) * 7 && index < Math.ceil(maxIndex / 7) * 7;
+}
 export default {
   getSpaceClassName: getSpaceClassName,
   getClassName: getClassName,
-  getMarkCellClassName: getMarkCellClassName
+  getMarkCellClassName: getMarkCellClassName,
+  isDisplay: isDisplay
 };
