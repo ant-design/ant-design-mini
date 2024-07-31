@@ -15,7 +15,7 @@
   destroyOnClose="{{destroyOnClose}}"
   onClose="onMaskClose"
 >
-  <slot slot="content">
+  <slot>
     <view
       class="ant-modal-body {{bodyClassName || ''}}"
       style="{{bodyStyle || ''}}"

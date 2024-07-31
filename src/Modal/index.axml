@@ -15,7 +15,7 @@
   destroyOnClose="{{ destroyOnClose }}"
   onClose="onMaskClose">
   <!-- #if ALIPAY -->
-  <slot slot="content">
+  <slot>
   <!-- #endif -->
     <view
       class="ant-modal-body {{ bodyClassName || '' }}"
