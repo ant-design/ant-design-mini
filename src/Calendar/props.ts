@@ -87,6 +87,11 @@ export interface CellState {
   isRowBegin: boolean;
   isRowEnd: boolean;
   inThisMonth: boolean;
+  /**
+   * 是否在传入范围内
+   */
+  isRange: boolean;
+  index: number;
 }
 
 export type CalendarValue = number | number[];
@@ -123,6 +128,10 @@ export interface ICalendarProps extends IBaseProps {
    * 选中值改变后滚动视图
    */
   changedScrollIntoView?: boolean;
+  /**
+   * 只展示在可选范围内的日期
+   */
+  showSelectableDatesOnly?: boolean;
   /**
    * 日期变化回调
    */
@@ -165,4 +174,5 @@ export const CalendarDefaultProps = {
   onFormatter: null,
   onMonthFormatter: null,
   changedScrollIntoView: null,
+  showSelectableDatesOnly: false,
 };

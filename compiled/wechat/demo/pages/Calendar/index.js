@@ -16,9 +16,6 @@ function demo8Formatter(cell) {
         topClassName = isOdd ? 'odd' : 'even';
     }
     return {
-        className: dayjs(cell.time).isAfter(dayjs().add(1, 'M'), 'd')
-            ? 'hidden'
-            : '',
         top: {
             className: topClassName,
             label: isOdd ? '奇数' : '偶数',
@@ -30,7 +27,7 @@ function demo8Formatter(cell) {
 }
 function demo8MonthFormatter(month) {
     return {
-        className: dayjs(month).isAfter(dayjs()) ? 'shrink' : '',
+        ...month,
     };
 }
 function demoFormatter(cell, value) {

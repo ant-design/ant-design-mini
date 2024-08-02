@@ -52,7 +52,7 @@
       a:for-index="index"
       a:for-item="currentMonth">
       <view
-        class="ant-calendar-body-container {{ currentMonth.className || '' }}">
+        class="ant-calendar-body-container {{ currentMonth.className || '' }}" style="{{ currentMonth.style || '' }}">
         <view class="ant-calendar-title-container">
           <!-- #if ALIPAY -->
           <slot name="calendarTitle">
@@ -67,9 +67,9 @@
             a:for="{{ currentMonth.cells }}"
             a:for-index="index"
             a:for-item="item">
-            <block>
+            <block a:if="{{helper.isDisplay(index, currentMonth.cells)}}">
               <view
-                class="{{ helper.getClassName(item, index) }}"
+                class="{{ helper.getClassName(item, index, showSelectableDatesOnly) }}"
                 id="id_{{ item.time }}"
                 data-time="{{ item }}"
                 onTap="clickCell">

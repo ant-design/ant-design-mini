@@ -74,6 +74,7 @@ describe('Calendar', () => {
     ).toMatchInlineSnapshot(
       `
       "{
+        "index": 0,
         "disabled": true,
         "time": null,
         "date": 26,
@@ -87,6 +88,7 @@ describe('Calendar', () => {
         "inThisMonth": false,
         "isRowBegin": true,
         "isRowEnd": false,
+        "isRange": false,
         "bottom": {
           "label": "bottom",
           "className": "bottom"
