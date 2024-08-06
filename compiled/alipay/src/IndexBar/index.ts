@@ -32,6 +32,12 @@ Component({
       this.setData({
         currentKey: _index,
       });
+      if (!this.isControlled()) {
+        this.setData({
+          touchKeyIndex: _index,
+          touchKey: current,
+        });
+      }
     }
   },
   methods: {

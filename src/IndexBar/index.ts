@@ -19,11 +19,6 @@ Component({
     this.initTopRange();
     const initCurrent = this.isControlled() ? current : defaultCurrent;
     const _index = items.findIndex((u) => initCurrent === u.label);
-    console.log({
-      currentKey: _index,
-      touchKeyIndex: _index,
-      touchKey: initCurrent,
-    });
     this.setData({
       currentKey: _index,
       touchKeyIndex: _index,
