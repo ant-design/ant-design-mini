@@ -40,7 +40,6 @@ export const IndexBarDefaultProps: Partial<IndexBarProps> = {
   className: '',
   activeClassName: '',
   defaultCurrent: null,
-  current: null,
   vibrate: true,
   items: [],
   size: 16,

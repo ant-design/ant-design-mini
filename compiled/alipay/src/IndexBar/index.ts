@@ -32,12 +32,6 @@ Component({
       this.setData({
         currentKey: _index,
       });
-      if (!this.isControlled()) {
-        this.setData({
-          touchKeyIndex: _index,
-          touchKey: current,
-        });
-      }
     }
   },
   methods: {
@@ -130,13 +124,9 @@ Component({
       if (currentKey !== newIndex - 1 && newIndex - 1 >= 0 && !moving) {
         this.setData({
           currentKey: newIndex - 1,
+          touchKeyIndex: newIndex - 1,
+          touchKey: items[newIndex - 1].label,
         });
-        if (this.isControlled()) {
-          this.setData({
-            touchKeyIndex: newIndex - 1,
-            touchKey: items[newIndex - 1].label,
-          });
-        }
         this.onAlphabetClick(items[newIndex - 1], newIndex - 1);
       }
     },
