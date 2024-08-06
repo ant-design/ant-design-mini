@@ -93,6 +93,11 @@ export const componentList = [
                 path: '/pages/IndexBarScrollView/index',
             },
             {
+                name: 'IndexBarControl',
+                nameZN: '索引-控制',
+                path: '/pages/IndexBarControl/index',
+            },
+            {
                 name: 'Collapse',
                 nameZN: '折叠面板',
                 path: '/pages/Collapse/index',

@@ -2,7 +2,7 @@
   <index-bar
     className="indexbar"
     items="{{items}}"
-    defaultCurrent="H"
+    current="{{current}}"
     onChange="onChange"
   >
     <view
@@ -11,11 +11,11 @@
     >
       <list header="{{props.value.label}}">
         <list-item
-          a:for="{{4}}"
+          a:for="{{nameMap[props.value.label]}}"
           a:for-index="index"
           a:for-item="itemX"
         >
-          {{props.value.label}}-{{itemX}}
+          {{itemX}}
         </list-item>
       </list>
     </view>

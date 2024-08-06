@@ -99,7 +99,8 @@
     "pages/TabsElevator/index",
     "pages/IndexBarScrollView/index",
     "pages/SelectorFilter/index",
-    "pages/Typography/index"
+    "pages/Typography/index",
+    "pages/IndexBarControl/index"
   ],
   "window": {
     "enableWK": "YES",
