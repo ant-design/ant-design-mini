@@ -21,6 +21,10 @@ const config: IConfig = {
       content:
         'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover',
     },
+    {
+      name: 'google-site-verification',
+      content: 'kzh4AXx63f3ZC1w2W_k4DWX4L2p_4hRcP5SsRmmMk8k',
+    },
   ],
   headScripts: [
     {

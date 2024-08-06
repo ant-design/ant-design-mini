@@ -24,7 +24,7 @@
       </view>
       <view
         class="ant-indexbar-side-item-tip"
-        a:if="{{item.label === touchKey && !item.disablePreview}}">
+        a:if="{{item.label === touchKey && !item.disablePreview && moving}}">
         {{item.label}}
         <slot
           value="{{item}}"

@@ -29,7 +29,7 @@
         {{item.label}}
       </view>
       <view
-        a:if="{{item.label === touchKey && !item.disablePreview}}"
+        a:if="{{item.label === touchKey && !item.disablePreview && moving}}"
         class="ant-indexbar-side-item-tip"
       >
         {{item.label}}

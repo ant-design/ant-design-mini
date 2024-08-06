@@ -1,49 +1,48 @@
 import { IBaseProps } from '../_util/base';
 
 interface ItemObj {
-  label: string,
-  disablePreview?: boolean
+  label: string;
+  disablePreview?: boolean;
 }
 
 export interface IndexBarProps extends IBaseProps {
   /**
    * @description 触发的索引样式
    */
-  activeClassName: string,
+  activeClassName: string;
   /**
    * @description 默认触发的索引
    */
-  defaultCurrent: string,
+  defaultCurrent: string;
   /**
    * @description 触发的索引
    */
-  current: string,
+  current: string;
   /**
    * @description 索引触发时是否震动
    */
-  vibrate: boolean,
+  vibrate: boolean;
   /**
    * @description 索引列表
    */
-  items: ItemObj[],
+  items: ItemObj[];
   /**
    * @description 索引的尺寸
    */
-  size: number,
+  size: number;
   /**
    * @description 触发索引时的回调
    */
-  onChange: (value: ItemObj, index: number) => void,
+  onChange: (value: ItemObj, index: number) => void;
 }
 
 export const IndexBarDefaultProps: Partial<IndexBarProps> = {
   className: '',
   activeClassName: '',
-  defaultCurrent: '',
-  current: '',
+  defaultCurrent: null,
   vibrate: true,
   items: [],
   size: 16,
   style: '',
   onChange: (value, index) => {},
-}
+};
