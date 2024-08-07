@@ -31,14 +31,19 @@ Page({
   data: {
     nameMap,
     items: [],
-    current: 'S',
+    current: '',
   },
   onLoad() {
-    this.setData({
-      items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((u) => {
-        return { label: u, disablePreview: true };
-      }),
-    });
+    // 异步获取数据
+    setTimeout(() => {
+      this.setData({
+        nameMap,
+        items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((u) => {
+          return { label: u, disablePreview: true };
+        }),
+        current: 'S',
+      });
+    }, 1000);
   },
   onChange(item, index) {
     console.log(item, index);

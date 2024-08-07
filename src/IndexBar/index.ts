@@ -1,3 +1,4 @@
+import equal from 'fast-deep-equal';
 import { IndexBarDefaultProps } from './props';
 
 Component({
@@ -14,19 +15,13 @@ Component({
     hasDefaultSlot: true,
   },
   didMount() {
-    const { defaultCurrent, current, items } = this.props;
-    this.initItemHeight();
-    this.initTopRange();
-    const initCurrent = this.isControlled() ? current : defaultCurrent;
-    const _index = items.findIndex((u) => initCurrent === u.label);
-    this.setData({
-      currentKey: _index,
-      touchKeyIndex: _index,
-      touchKey: initCurrent,
-    });
+    this.init();
   },
   didUpdate(_prop) {
     const { current, items } = this.props;
+    if (!equal(_prop.items, this.props.items)) {
+      this.init();
+    }
     if (_prop.current !== current) {
       const _index = items.findIndex((u) => current === u.label);
       this.setData({
@@ -41,6 +36,18 @@ Component({
     }
   },
   methods: {
+    init() {
+      const { defaultCurrent, current, items } = this.props;
+      this.initItemHeight();
+      this.initTopRange();
+      const initCurrent = this.isControlled() ? current : defaultCurrent;
+      const _index = items.findIndex((u) => initCurrent === u.label);
+      this.setData({
+        currentKey: _index,
+        touchKeyIndex: _index,
+        touchKey: initCurrent,
+      });
+    },
     isControlled(valueKey = 'current') {
       if ('controlled' in this.props) {
         return this.props.controlled;
