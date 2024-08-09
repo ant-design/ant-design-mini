@@ -1,5 +1,6 @@
 import esbuild from 'esbuild';
 import fs from 'fs';
+// @ts-ignore
 import { createInstrumenter } from 'istanbul-lib-instrument';
 import os from 'os';
 import path from 'path';
