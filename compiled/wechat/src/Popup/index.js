@@ -33,7 +33,7 @@ Component(PopupDefaultProps, {
         'visible': function (nextProps) {
             var visible = nextProps.visible, duration = nextProps.duration, animation = nextProps.animation;
             var enableAnimation = animation && duration > 0;
-            if (enableAnimation && !visible) {
+            if (enableAnimation && !visible && !this.data.closing) {
                 this.setData({ closing: true });
             }
             if (!enableAnimation) {
