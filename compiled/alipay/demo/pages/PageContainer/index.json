@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "PageContainer",
+  "defaultTitle": "",
   "titleBarColor": "#ffffff",
   "transparentTitle": "auto",
   "usingComponents": {
