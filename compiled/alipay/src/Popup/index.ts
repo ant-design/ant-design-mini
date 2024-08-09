@@ -47,13 +47,25 @@ Component(
         'animation',
       ]);
       const enableAnimation = animation && duration > 0;
-      if (nextProps.visible !== visible) {
-        if (enableAnimation && !nextProps.visible && !this.data.closing) {
-          this.setData({ closing: true });
-        }
-        if (!enableAnimation) {
-          triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
-        }
+
+      if (
+        nextProps.visible !== visible &&
+        enableAnimation &&
+        !nextProps.visible &&
+        !this.data.closing
+      ) {
+        this.setData({ closing: true });
+      }
+    },
+    didUpdate(prevProps) {
+      const [visible, duration, animation] = getValueFromProps(this, [
+        'visible',
+        'duration',
+        'animation',
+      ]);
+      const enableAnimation = animation && duration > 0;
+      if (prevProps.visible !== visible && !enableAnimation) {
+        triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
       }
     },
   }
