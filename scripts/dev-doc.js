@@ -1,7 +1,9 @@
-const { fork } = require('child_process');
+const { fork,execFile } = require('child_process');
 const { minidev } = require('minidev');
 
 (async () => {
+  execFile('tsx', [`${process.cwd()}/scripts/dev.ts`]);
+
   const path = require('path');
 
   const { devServer } = await minidev.dev({
@@ -22,6 +24,7 @@ const { minidev } = require('minidev');
         SERVER: devServer.server,
       },
     });
+
   });
 
   devServer.on('error', (err) => {
