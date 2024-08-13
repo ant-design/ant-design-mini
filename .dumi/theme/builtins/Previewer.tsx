@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Tooltip, Popover, Segmented } from 'antd';
 import {
   QrcodeOutlined,
@@ -83,6 +83,8 @@ const Previewer: React.FC<IProps> = (props) => {
   const [theme, setTheme] = useLocalState('theme', 'light');
   const [platform, setPlatform] = useLocalState('platform', DefaultPlatform);
   const [loaded, setLoaded] = useState(false);
+  const elementRef = useRef(null);
+  const [appear, setAppear] = useState(false);
 
   const basicUrl =
     window.location.protocol + '//' + window.location.host + props.herboxUrl;
@@ -95,8 +97,32 @@ const Previewer: React.FC<IProps> = (props) => {
       });
     }, [basicUrl, theme, platform]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // 当元素进入视口时触发回调
+          console.log(entry);
+          setAppear(true);
+          // 触发一次后停止观察
+          observer.disconnect();
+        }
+      });
+    });
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+
   return (
-    <div className="previewer">
+    <div className="previewer" ref={elementRef}>
       {!loaded && <div className="previewer-loading" />}
       <div className="left-btns">
         <div className="btn">
@@ -162,11 +188,13 @@ const Previewer: React.FC<IProps> = (props) => {
           </Tooltip>
         )}
       </div>
-      <iframe
-        src={url}
-        onLoad={() => setLoaded(true)}
-        allow="clipboard-read; clipboard-write"
-      />
+      {appear && (
+        <iframe
+          src={url}
+          onLoad={() => setLoaded(true)}
+          allow="clipboard-read; clipboard-write"
+        />
+      )}
     </div>
   );
 };
