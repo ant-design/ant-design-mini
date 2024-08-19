@@ -6,6 +6,7 @@
   className="ant-actionsheet-popup"
   visible="{{visible}}"
   position="bottom"
+  zIndex="{{zIndex}}"
   onClose="onClose"
 >
   <view

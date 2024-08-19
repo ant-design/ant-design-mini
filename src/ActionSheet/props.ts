@@ -35,6 +35,8 @@ export interface IActionSheetProps extends IBaseProps {
    */
   visible: boolean;
 
+  zIndex: number;
+
   /**
    * @description 点击选项时触发，禁用或加载状态下不会触发
    */
