@@ -80,7 +80,7 @@ function getMarkCellClassName(index, items) {
 
 function isDisplay(index, items) {
   // 找到需要当前月需要展示的日期最大最小索引
-  const { minIndex, maxIndex } = items.reduce(
+  const _items_reduce = items.reduce(
     (res, item) => {
       // !item.inThisMonth 被隐藏掉的日期
       // !item.isRange 不在传入范围内的日期
@@ -96,9 +96,12 @@ function isDisplay(index, items) {
     },
     { minIndex: null, maxIndex: null }
   );
-  if (maxIndex === null || maxIndex === null) return true;
+
+  if (_items_reduce.maxIndex === null || _items_reduce.maxIndex === null)
+    return true;
   return (
-    index >= Math.floor(minIndex / 7) * 7 && index < Math.ceil(maxIndex / 7) * 7
+    index >= Math.floor(_items_reduce.minIndex / 7) * 7 &&
+    index < Math.ceil(_items_reduce.maxIndex / 7) * 7
   );
 }
 
