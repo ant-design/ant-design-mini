@@ -1,6 +1,6 @@
 <view
   a:if="{{show}}"
-  class="ant-toast {{className || ''}} {{icon || image || type ? 'ant-toast-icon-wrapper' : ''}}"
+  class="ant-toast {{className || ''}} {{icon || image || type ? 'ant-toast-icon-wrapper' : 'ant-toast-text-' + textType + ''}}"
   style="{{style || ''}}"
 >
   <view
@@ -24,6 +24,11 @@
     <am-icon
       a:elif="{{type === 'success'}}"
       type="CheckOutline"
+      className="ant-toast-icon"
+    ></am-icon>
+    <am-icon
+      a:elif="{{type === 'alipay'}}"
+      type="AlipayCircleFill"
       className="ant-toast-icon"
     ></am-icon>
   </view>
