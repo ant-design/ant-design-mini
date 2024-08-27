@@ -44,6 +44,18 @@
     box-shadow: inset 0 0 0 @button-border-size @COLOR_BRAND1;
   }
 
+  &-capsule {
+    color: @button-primary-color;;
+    background-color: @COLOR_CARD;
+    box-shadow: none;
+  }
+
+  &-aide {
+    color: @COLOR_GREY_2;
+    background-color: @COLOR_CARD;
+    box-shadow: inset 0 0 0 @button-border-size @COLOR_GREY_2;
+  }
+
   &-text {
     color: @COLOR_BRAND1;
     background-color: transparent;
@@ -53,6 +65,12 @@
   &-primary-danger {
     color: @button-danger-color;
     background-color: @COLOR_RED;
+    box-shadow: inset 0 0 0 @button-border-size @COLOR_RED;
+  }
+
+  &-aide-danger {
+    color: @COLOR_RED;
+    background-color: @COLOR_CARD;
     box-shadow: inset 0 0 0 @button-border-size @COLOR_RED;
   }
 
@@ -121,7 +139,7 @@
 
   &-inline {
     display: inline-block;
-    border-radius: @button-inline-corner;
+    border-radius: @button-corner-radius;
 
     .@{buttonPrefix}-content-loading-container {
       width: 16px;
