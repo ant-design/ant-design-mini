@@ -42,17 +42,13 @@
   <ant-button
     type="primary"
     disabled
-    bind:tap="handleTap"
-    onDisabledTap="handleDisabledTap"
   >主要按钮</ant-button>
   <ant-button
     type="default"
-    bind:tap="handleTap"
     disabled
   >次要按钮</ant-button>
   <ant-button
     type="text"
-    bind:tap="handleTap"
     disabled
   >文本按钮</ant-button>
 </ant-container>
