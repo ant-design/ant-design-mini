@@ -43,11 +43,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  margin-left: 4px;
 }
 .ant-input-clear-icon {
   color: #cccccc;
   font-size: 17px;
+  padding: 4px 0 4px 8px;
 }
 .ant-input-clear-show {
   opacity: 1;
