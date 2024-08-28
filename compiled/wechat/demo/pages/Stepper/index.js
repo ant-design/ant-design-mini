@@ -39,4 +39,7 @@ Page({
     handleMinusValue() {
         this.setData({ value: this.data.value - 1 });
     },
+    handleDisabledTap() {
+        my.showToast({ content: '禁用点击' });
+    },
 });

@@ -1,4 +1,4 @@
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import { Component, triggerEvent, getValueFromProps, triggerEventOnly, } from '../_util/simply';
 import { StepperDefaultProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
 import mixinValue from '../mixins/value';
@@ -23,6 +23,9 @@ Component(StepperDefaultProps, {
         }
         var value = this.getValue();
         triggerEvent(this, 'blur', value === '' ? null : Number(value), e);
+    },
+    onDisabledTap: function (e) {
+        triggerEventOnly(this, 'disabledTap', e);
     },
     onTap: function (e) {
         var _a = getValueFromProps(this, [

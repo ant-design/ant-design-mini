@@ -85,6 +85,10 @@ export interface IStepperProps extends IBaseProps {
    * @description onBlur
    */
   onBlur?: (value: number, e: any) => void;
+  /**
+   * @description onDisabledTap
+   */
+  onDisabledTap?: (e: any) => void;
 }
 
 export const StepperDefaultProps: Partial<IStepperProps> = {

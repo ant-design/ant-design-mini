@@ -35,6 +35,7 @@
   <stepper
     defaultValue="{{0}}"
     disabled
+    onDisabledTap="handleDisabledTap"
   ></stepper>
 </container>
 <container title="输入框只读">

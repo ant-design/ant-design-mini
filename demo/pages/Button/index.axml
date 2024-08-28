@@ -50,18 +50,23 @@
   className="list">
   <ant-button
     type="primary"
-    disabled>
+    disabled
+    onTap="handleTap"
+    onDisabledTap="handleDisabledTap"
+  >
     主要按钮
   </ant-button>
 
   <ant-button
     type="default"
+    onTap="handleTap"
     disabled>
     次要按钮
   </ant-button>
 
   <ant-button
     type="text"
+    onTap="handleTap"
     disabled>
     文本按钮
   </ant-button>

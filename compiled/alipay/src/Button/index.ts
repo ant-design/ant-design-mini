@@ -6,14 +6,22 @@ Component({
   props: ButtonDefaultProps,
   methods: {
     onTap(e) {
-      const { onTap, disabled, loading } = this.props;
+      const { onTap, disabled, loading, onDisabledTap } = this.props;
+      if (disabled && onDisabledTap) {
+        const event = fmtEvent(this.props, e);
+        onDisabledTap(event);
+      }
       if (onTap && !disabled && !loading) {
         const event = fmtEvent(this.props, e);
         return onTap(event);
       }
     },
     catchTap(e) {
-      const { catchTap, disabled, loading } = this.props;
+      const { catchTap, disabled, loading, onDisabledTap } = this.props;
+      if (disabled && onDisabledTap) {
+        const event = fmtEvent(this.props, e);
+        onDisabledTap(event);
+      }
       if (catchTap && !disabled && !loading) {
         const event = fmtEvent(this.props, e);
         return catchTap(event);
