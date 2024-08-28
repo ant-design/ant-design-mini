@@ -36,74 +36,26 @@
       name="content"
       wx:else
     ></slot>
-    <view
-      wx:if="{{type === 'focus'}}"
-      class="ant-modal-body-footer-focus"
-    >
-      <ant-button
-        type="primary"
-        className="ant-modal-body-footer-focus-primary"
-        style="{{primaryButtonStyle || ''}}"
-        bind:tap="onPrimaryButtonTap"
-      >{{primaryButtonText}}</ant-button>
+    <view class="ant-modal-body-footer ant-modal-body-footer-{{footer.layout}}">
       <view
-        wx:if="{{secondaryButtonText}}"
-        class="ant-modal-body-footer-focus-secondary"
-        style="{{secondaryButtonStyle || ''}}"
-        bind:tap="onSecondaryButtonTap"
-      >{{secondaryButtonText}}</view>
-      <view
-        wx:if="{{cancelButtonText}}"
-        class="ant-modal-body-footer-focus-cancel"
-        style="{{cancelButtonStyle || ''}}"
-        bind:tap="onCancelButtonTap"
-      >{{cancelButtonText}}</view>
-    </view>
-    <view
-      wx:elif="{{utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'horizontal'}}"
-      class="ant-modal-body-footer-horizontal"
-    >
-      <view
-        wx:if="{{cancelButtonText}}"
-        class="ant-modal-body-footer-horizontal-cancel"
-        style="{{cancelButtonStyle || ''}}"
-        bind:tap="onCancelButtonTap"
-      >{{cancelButtonText}}</view>
-      <view
-        wx:if="{{secondaryButtonText}}"
-        class="ant-modal-body-footer-horizontal-secondary"
-        style="{{secondaryButtonStyle || ''}}"
-        bind:tap="onSecondaryButtonTap"
-      >{{secondaryButtonText}}</view>
-      <view
-        wx:if="{{primaryButtonText}}"
-        class="ant-modal-body-footer-horizontal-primary"
-        style="{{primaryButtonStyle || ''}}"
-        bind:tap="onPrimaryButtonTap"
-      >{{primaryButtonText}}</view>
-    </view>
-    <view
-      wx:elif="{{utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'vertical'}}"
-      class="ant-modal-body-footer-vertical"
-    >
-      <view
-        wx:if="{{primaryButtonText}}"
-        class="ant-modal-body-footer-vertical-primary"
-        style="{{primaryButtonStyle || ''}}"
-        bind:tap="onPrimaryButtonTap"
-      >{{primaryButtonText}}</view>
-      <view
-        wx:if="{{secondaryButtonText}}"
-        class="ant-modal-body-footer-vertical-secondary"
-        style="{{secondaryButtonStyle || ''}}"
-        bind:tap="onSecondaryButtonTap"
-      >{{secondaryButtonText}}</view>
-      <view
-        wx:if="{{cancelButtonText}}"
-        class="ant-modal-body-footer-vertical-cancel"
-        style="{{cancelButtonStyle || ''}}"
-        bind:tap="onCancelButtonTap"
-      >{{cancelButtonText}}</view>
+        data-item="{{item}}"
+        bind:tap="onButtonTap"
+        style="flex: 1;"
+        wx:for="{{footer.buttons}}"
+        wx:for-index="index"
+        wx:for-item="item"
+      >
+        <ant-button
+          disabled="{{item.disabled}}"
+          danger="{{item.danger}}"
+          icon="{{item.icon}}"
+          size="{{item.size}}"
+          style="{{item.style}}"
+          activeClassName="{{item.activeClassName}}"
+          className="{{item.className}}"
+          type="{{item.type || 'primary'}}"
+        >{{item.text}}</ant-button>
+      </view>
     </view>
   </view>
   <ant-icon

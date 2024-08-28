@@ -59,83 +59,30 @@
           {{ content }}
         </view>
       </slot>
+      <slot name="extra" />
       <!-- #endif -->
       <!-- #if ALIPAY -->
       <slot name="footer">
       <!-- #endif -->
-        <view
-          a:if="{{ type === 'focus' }}"
-          class="ant-modal-body-footer-focus">
-          <ant-button
-            type="primary"
-            className="ant-modal-body-footer-focus-primary"
-            style="{{ primaryButtonStyle || '' }}"
-            onTap="onPrimaryButtonTap">
-            {{ primaryButtonText }}
-          </ant-button>
-          <view
-            a:if="{{ secondaryButtonText }}"
-            class="ant-modal-body-footer-focus-secondary"
-            style="{{ secondaryButtonStyle || '' }}"
-            onTap="onSecondaryButtonTap">
-            {{ secondaryButtonText }}
-          </view>
-          <view
-            a:if="{{ cancelButtonText }}"
-            class="ant-modal-body-footer-focus-cancel"
-            style="{{ cancelButtonStyle || '' }}"
-            onTap="onCancelButtonTap">
-            {{ cancelButtonText }}
-          </view>
-        </view>
-        <view
-          a:elif="{{ utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'horizontal' }}"
-          class="ant-modal-body-footer-horizontal">
-          <view
-            a:if="{{ cancelButtonText }}"
-            class="ant-modal-body-footer-horizontal-cancel"
-            style="{{ cancelButtonStyle || '' }}"
-            onTap="onCancelButtonTap">
-            {{ cancelButtonText }}
-          </view>
-          <view
-            a:if="{{ secondaryButtonText }}"
-            class="ant-modal-body-footer-horizontal-secondary"
-            style="{{ secondaryButtonStyle || '' }}"
-            onTap="onSecondaryButtonTap">
-            {{ secondaryButtonText }}
-          </view>
-          <view
-            a:if="{{ primaryButtonText }}"
-            class="ant-modal-body-footer-horizontal-primary"
-            style="{{ primaryButtonStyle || '' }}"
-            onTap="onPrimaryButtonTap">
-            {{ primaryButtonText }}
-          </view>
-        </view>
-        <view
-          a:elif="{{ utils.getDirection(primaryButtonText, secondaryButtonText, cancelButtonText, type) === 'vertical' }}"
-          class="ant-modal-body-footer-vertical">
-          <view
-            a:if="{{ primaryButtonText }}"
-            class="ant-modal-body-footer-vertical-primary"
-            style="{{ primaryButtonStyle || '' }}"
-            onTap="onPrimaryButtonTap">
-            {{ primaryButtonText }}
-          </view>
-          <view
-            a:if="{{ secondaryButtonText }}"
-            class="ant-modal-body-footer-vertical-secondary"
-            style="{{ secondaryButtonStyle || '' }}"
-            onTap="onSecondaryButtonTap">
-            {{ secondaryButtonText }}
-          </view>
-          <view
-            a:if="{{ cancelButtonText }}"
-            class="ant-modal-body-footer-vertical-cancel"
-            style="{{ cancelButtonStyle || '' }}"
-            onTap="onCancelButtonTap">
-            {{ cancelButtonText }}
+        <view class="ant-modal-body-footer ant-modal-body-footer-{{ footer.layout }}">
+          <view 
+            a:for="{{ footer.buttons }}" 
+            data-item="{{ item }}"
+            onTap="onButtonTap" 
+            style="flex: 1;"
+          >
+            <ant-button
+              disabled="{{ item.disabled }}"
+              danger="{{ item.danger }}"
+              icon="{{ item.icon }}"
+              size="{{ item.size }}"
+              style="{{ item.style }}"
+              activeClassName="{{ item.activeClassName }}"
+              className="{{ item.className }}"
+              type="{{ item.type || 'primary' }}"
+            >
+              {{ item.text }}
+            </ant-button>
           </view>
         </view>
       <!-- #if ALIPAY -->

@@ -28,4 +28,8 @@ export var ModalFunctionalProps = {
     primaryButtonStyle: '',
     secondaryButtonStyle: '',
     cancelButtonStyle: '',
+    footer: {
+        buttons: [],
+        layout: 'vertical',
+    },
 };

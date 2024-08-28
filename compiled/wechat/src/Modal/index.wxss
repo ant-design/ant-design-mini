@@ -1,103 +1,42 @@
 .ant-modal-body {
   width: 280px;
   background-color: #ffffff;
-  border-radius: 8px;
-  padding-top: 20px;
+  padding: 24px 22px;
   display: flex;
   flex-direction: column;
+  border-radius: 24px;
 }
 .ant-modal-body-title {
-  font-size: 18px;
-  line-height: 25px;
+  line-height: 28px;
   text-align: center;
   color: #333333;
-  margin: 0 12px 8px;
+  padding-bottom: 16px;
+  font-weight: 500;
+  font-size: 20px;
 }
 .ant-modal-body-content {
   line-height: 21px;
-  font-size: 15px;
+  padding-bottom: 12px;
+  font-size: 16px;
   color: #333333;
   text-align: center;
-  margin: 0 12px 20px;
 }
-.ant-modal-body-footer-focus {
-  padding: 0 12px 12px;
-}
-.ant-modal-body-footer-focus-secondary,
-.ant-modal-body-footer-focus-cancel {
-  color: #1677ff;
-  text-align: center;
-  font-size: 18px;
-  margin-top: 8px;
-  padding-top: 12px;
+.ant-modal-body-footer {
+  padding: 24px 2px 0 2px;
 }
 .ant-modal-body-footer-vertical {
-  padding: 0 0 12px;
-}
-.ant-modal-body-footer-vertical-primary,
-.ant-modal-body-footer-vertical-secondary,
-.ant-modal-body-footer-vertical-cancel {
-  color: #1677ff;
-  text-align: center;
-  font-size: 18px;
-  margin-top: 8px;
-  padding-top: 12px;
-  position: relative;
-}
-.ant-modal-body-footer-vertical-primary::before,
-.ant-modal-body-footer-vertical-secondary::before,
-.ant-modal-body-footer-vertical-cancel::before {
-  content: '';
-  position: absolute;
-  background-color: #eeeeee;
-  display: block;
-  top: 0;
-  right: 0;
-  bottom: auto;
-  left: 0;
-  height: 1px;
-  transform: scaleY(0.5);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
 }
 .ant-modal-body-footer-horizontal {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
   flex-direction: row;
-  position: relative;
-}
-.ant-modal-body-footer-horizontal::before {
-  content: '';
-  position: absolute;
-  background-color: #eeeeee;
-  display: block;
-  top: 0;
-  right: 0;
-  bottom: auto;
-  left: 0;
-  height: 1px;
-  transform: scaleY(0.5);
-}
-.ant-modal-body-footer-horizontal-primary,
-.ant-modal-body-footer-horizontal-secondary,
-.ant-modal-body-footer-horizontal-cancel {
-  position: relative;
-  flex: 1;
-  color: #1677ff;
-  text-align: center;
-  font-size: 18px;
-  padding: 12px 0;
-}
-.ant-modal-body-footer-horizontal-primary:nth-child(1)::after,
-.ant-modal-body-footer-horizontal-secondary:nth-child(1)::after,
-.ant-modal-body-footer-horizontal-cancel:nth-child(1)::after {
-  content: '';
-  position: absolute;
-  background-color: #eeeeee;
-  display: block;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: auto;
-  width: 1px;
-  transform: scaleX(0.5);
 }
 .ant-modal-close {
   position: absolute;

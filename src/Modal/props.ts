@@ -1,8 +1,39 @@
 import { IBaseProps } from '../_util/base';
+
 /**
  * @description 对话框，当应用中需要比较明显的对用户当前的操作行为进行警示或提醒时，可以使用对话框。用户需要针对对话框进行操作后方可结束。
  */
 
+export interface Button {
+  /**
+   * @description 按钮名称
+   */
+  text: string;
+  /**
+   * @description 按钮样式
+   * @default primary
+   */
+  type: string;
+  /**
+   * @description 按钮置灰
+   * @default false
+   */
+  disabled: boolean;
+  /**
+   * @description 按钮唯一标识
+   */
+  id: string;
+}
+export interface Footer {
+  /**
+   * @description 按钮列表
+   */
+  buttons: Button[];
+  /**
+   * @description 按钮布局方式
+   */
+  layout: 'vertical' | 'horizontal';
+}
 export interface IModalProps extends IBaseProps {
   /**
    * @description Modal body类名
@@ -88,21 +119,17 @@ export interface IModalProps extends IBaseProps {
    */
   cancelButtonStyle: string;
   /**
+   * @description 底部按钮列表
+   */
+  footer: Footer;
+  /**
    * @description 触发关闭时回调
    */
   onClose: () => void;
   /**
-   * @description 主按钮点击事件
+   * @description 按钮点击事件
    */
-  onPrimaryButtonTap: () => void;
-  /**
-   * @description 次要按钮点击事件
-   */
-  onSecondaryButtonTap: () => void;
-  /**
-   * @description 取消按钮点击事件
-   */
-  onCancelButtonTap: () => void;
+  onButtonTap?: (buttonItem) => void;
 }
 
 export const ModalDefaultProps: Partial<IModalProps> = {
@@ -136,4 +163,8 @@ export const ModalFunctionalProps: Partial<IModalProps> = {
   primaryButtonStyle: '',
   secondaryButtonStyle: '',
   cancelButtonStyle: '',
+  footer: {
+    buttons: [],
+    layout: 'vertical',
+  },
 };
