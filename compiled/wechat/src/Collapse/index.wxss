@@ -30,9 +30,6 @@
   display: flex;
   flex: 1;
   max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 17px;
   color: #333333;
 }
