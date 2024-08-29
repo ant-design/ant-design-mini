@@ -21,6 +21,12 @@
       style="{{bodyStyle || ''}}"
     >
       <slot name="header"></slot>
+      <image
+        a:if="{{headerImage}}"
+        class="ant-modal-body-header"
+        mode="widthFix"
+        src="{{headerImage}}"
+      ></image>
       <slot name="title">
         <view
           a:if="{{title}}"
@@ -37,12 +43,13 @@
           {{content}}
         </view>
       </slot>
-      <slot name="extra"></slot>
+      <slot name="content-extra"></slot>
       <slot name="footer">
-        <view class="ant-modal-body-footer ant-modal-body-footer-{{footer.layout}}">
+        <view class="ant-modal-body-footer ant-modal-body-footer-{{footer.layout || 'vertical'}}">
           <view
             data-item="{{item}}"
             onTap="onButtonTap"
+            class="ant-modal-body-footer-button"
             style="flex: 1;"
             a:for="{{footer.buttons}}"
             a:for-index="index"
@@ -66,8 +73,8 @@
     </view>
   </slot>
   <ant-icon
-    a:if="{{type === 'focus' && closable}}"
-    type="CloseOutline"
+    a:if="{{closable}}"
+    type="CloseCircleOutline"
     onTap="onClose"
     className="ant-modal-close"
   ></ant-icon>

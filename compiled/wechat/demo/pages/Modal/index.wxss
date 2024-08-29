@@ -12,3 +12,56 @@
 .list button {
   margin-bottom: 8px;
 }
+.activity-modal .ant-modal-body {
+  background-image: linear-gradient(0deg, #FFFFFF 75%, rgba(255, 255, 255, 0.95) 91%, rgba(255, 242, 218, 0.93) 100%);
+  box-shadow: 0 2px 56px 0 rgba(0, 0, 0, 0.18);
+}
+.activity-modal .ant-modal-body-title {
+  padding-bottom: 10rpx;
+}
+.activity-modal .ant-modal-body-content {
+  color: #999999;
+  padding-bottom: 0rpx;
+}
+.activity-modal-header-image {
+  width: 250rpx;
+  height: 250rpx;
+  position: relative;
+  margin-top: -220rpx;
+  margin-left: 50%;
+  margin-bottom: 21rpx;
+  transform: translateX(-50%);
+}
+.activity-modal-content-image {
+  width: 516rpx;
+  margin: 64rpx auto 0 auto;
+}
+.activity-modal-footer {
+  padding-top: 64rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.activity-modal-footer-button {
+  background: #FF4000;
+  border-radius: 55rpx;
+  font-weight: 500;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #FFFFFF;
+  text-align: center;
+  width: 360rpx;
+  height: 96rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.activity-modal-footer-extra {
+  font-size: 24rpx;
+  color: #999999;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 36rpx;
+  padding-top: 20rpx;
+}

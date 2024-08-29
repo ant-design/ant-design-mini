@@ -11,6 +11,12 @@
     display: flex;
     flex-direction: column;
     border-radius: 48 * @rpx;
+    &-header {
+      width: calc(100% + 88 * @rpx);
+      border-top-left-radius: 48 * @rpx;
+      border-top-right-radius: 48 * @rpx;
+      margin: -48 * @rpx -44 * @rpx 36 *@rpx -44 * @rpx;
+    }
     &-title {
       line-height: 56 * @rpx;
       text-align: center;
@@ -36,6 +42,9 @@
         align-items: center;
         flex-direction: column;
         gap: 24 * @rpx;
+        .ant-modal-body-footer-button {
+          width: 100%;
+        }
       }
       &-horizontal {
         display: flex;
@@ -43,21 +52,22 @@
         align-items: center;
         gap: 24 * @rpx;
         flex-direction: row;
+        .ant-modal-body-footer-button {
+          flex: 1;
+        }
       }
     }
   }
   &-close {
-    position: absolute;
-    right: 16 * @rpx;
-    top: 13 * @rpx;
+    top: 72rpx;
+    position: relative;
+    left: 50%;
+    margin-left: -30 * @rpx;;
     z-index: 3;
-    width: 52 * @rpx;
-    height: 58 * @rpx;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 36 * @rpx;
-    color: @COLOR_TEXT_ASSIST;
+    width: 60 * @rpx;
+    height: 60 * @rpx;
+    font-size: 72 * @rpx;
+    color: #999999;
   }
   .ant-popup-content.ant-popup-center {
     min-height: 0;

@@ -21,6 +21,7 @@
       class="ant-modal-body {{ bodyClassName || '' }}"
       style="{{ bodyStyle || '' }}">
       <slot name="header" />
+      <image a:if="{{ headerImage }}" class="ant-modal-body-header" mode="widthFix" src="{{ headerImage }}" />
       <!-- #if WECHAT -->
       <view
         wx:if="{{ title }}"
@@ -59,16 +60,17 @@
           {{ content }}
         </view>
       </slot>
-      <slot name="extra" />
+      <slot name="content-extra" />
       <!-- #endif -->
       <!-- #if ALIPAY -->
       <slot name="footer">
       <!-- #endif -->
-        <view class="ant-modal-body-footer ant-modal-body-footer-{{ footer.layout }}">
+        <view class="ant-modal-body-footer ant-modal-body-footer-{{ footer.layout || 'vertical' }}">
           <view 
             a:for="{{ footer.buttons }}" 
             data-item="{{ item }}"
             onTap="onButtonTap" 
+            class="ant-modal-body-footer-button"
             style="flex: 1;"
           >
             <ant-button
@@ -94,8 +96,8 @@
   <!-- #endif -->
 
   <ant-icon
-    a:if="{{ type === 'focus' && closable }}"
-    type="CloseOutline"
+    a:if="{{ closable }}"
+    type="CloseCircleOutline"
     onTap="onClose"
     className="ant-modal-close" />
 </ant-popup>

@@ -6,8 +6,10 @@ Page({
     basicThreeVisible: false,
     focusOneVisible: false,
     focusTwoVisible: false,
-    focusThreeVisible: false,
     customBodyVisible: false,
+    withImageVisible: false,
+    slotWeakVisible: false,
+    slotStrongVisible: false,
     footer1: {
       buttons: [{ text: '我知道了' }],
     },
@@ -18,6 +20,10 @@ Page({
     footer3: {
       buttons: [{ text: '主按钮', type: 'primary' }, { text: '更多', type: 'default' }, { text: '取消', type: 'text' }],
     },
+  },
+  onClickActivityModalButton() {
+    this.showToast(`点击了活动弹框「开心收下」`);
+    this.handleClose();
   },
   onButtonTap(buttonItem) {
     console.log('点击的按钮: ', buttonItem);
@@ -36,8 +42,10 @@ Page({
       basicThreeVisible: false,
       focusOneVisible: false,
       focusTwoVisible: false,
-      focusThreeVisible: false,
       customBodyVisible: false,
+      withImageVisible: false,
+      slotWeakVisible: false,
+      slotStrongVisible: false,
     });
   },
 

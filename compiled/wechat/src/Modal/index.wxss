@@ -6,6 +6,12 @@
   flex-direction: column;
   border-radius: 24px;
 }
+.ant-modal-body-header {
+  width: calc(100% + 88 * 0.5px);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin: -24px -22px 18px -22px;
+}
 .ant-modal-body-title {
   line-height: 28px;
   text-align: center;
@@ -31,6 +37,9 @@
   flex-direction: column;
   gap: 12px;
 }
+.ant-modal-body-footer-vertical .ant-modal-body-footer-button {
+  width: 100%;
+}
 .ant-modal-body-footer-horizontal {
   display: flex;
   justify-content: flex-start;
@@ -38,17 +47,18 @@
   gap: 12px;
   flex-direction: row;
 }
+.ant-modal-body-footer-horizontal .ant-modal-body-footer-button {
+  flex: 1;
+}
 .ant-modal-close {
-  position: absolute;
-  right: 8px;
-  top: 6.5px;
+  top: 72rpx;
+  position: relative;
+  left: 50%;
+  margin-left: -15px;
   z-index: 3;
-  width: 26px;
-  height: 29px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  font-size: 36px;
   color: #999999;
 }
 .ant-modal .ant-popup-content.ant-popup-center {

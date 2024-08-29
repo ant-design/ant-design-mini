@@ -20,6 +20,12 @@
     style="{{bodyStyle || ''}}"
   >
     <slot name="header"></slot>
+    <image
+      wx:if="{{headerImage}}"
+      class="ant-modal-body-header"
+      mode="widthFix"
+      src="{{headerImage}}"
+    ></image>
     <view
       wx:if="{{title}}"
       class="ant-modal-body-title"
@@ -36,10 +42,11 @@
       name="content"
       wx:else
     ></slot>
-    <view class="ant-modal-body-footer ant-modal-body-footer-{{footer.layout}}">
+    <view class="ant-modal-body-footer ant-modal-body-footer-{{footer.layout || 'vertical'}}">
       <view
         data-item="{{item}}"
         bind:tap="onButtonTap"
+        class="ant-modal-body-footer-button"
         style="flex: 1;"
         wx:for="{{footer.buttons}}"
         wx:for-index="index"
@@ -59,8 +66,8 @@
     </view>
   </view>
   <ant-icon
-    wx:if="{{type === 'focus' && closable}}"
-    type="CloseOutline"
+    wx:if="{{closable}}"
+    type="CloseCircleOutline"
     bind:tap="onClose"
     className="ant-modal-close"
   ></ant-icon>

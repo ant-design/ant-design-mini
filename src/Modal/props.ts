@@ -57,10 +57,6 @@ export interface IModalProps extends IBaseProps {
    */
   maskClosable: boolean;
   /**
-   * @description 类型
-   */
-  type: 'default' | 'focus';
-  /**
    * @description 是否显示右上角的关闭按钮。只有在 type 为 focus 生效
    */
   closable: boolean;
@@ -123,6 +119,10 @@ export interface IModalProps extends IBaseProps {
    */
   footer: Footer;
   /**
+   * @description 正常模式下 弹框头图, 氛围弹框场景下此图片不展示
+   */
+  headerImage: string;
+  /**
    * @description 触发关闭时回调
    */
   onClose: () => void;
@@ -136,7 +136,6 @@ export const ModalDefaultProps: Partial<IModalProps> = {
   visible: false,
   maskClosable: true,
   closable: true,
-  type: 'default',
   duration: 200,
   animation: true,
   zIndex: 998,
@@ -148,7 +147,6 @@ export const ModalFunctionalProps: Partial<IModalProps> = {
   maskClassName: '',
   maskStyle: '',
   maskClosable: true,
-  type: 'default',
   closable: true,
   duration: 200,
   animation: true,
