@@ -3,5 +3,27 @@
 @avatarPrefix: ant-feedback;
 
 .@{avatarPrefix} {
-  
+  .ant-popover-inner {
+    color: #333333;
+  }
+  &-mask {
+    z-index: 2;
+  }
+  &-trigger {
+    position: relative;
+  }
+  &-guide {
+    position: absolute;
+    background: #FFFFFF;
+    border-radius: 18 * @rpx;
+    width: 24 * @rpx;
+    height: 24 * @rpx;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &-circle {
+
+  }
 }

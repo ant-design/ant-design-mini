@@ -1,15 +1,31 @@
 <popover
-  placement="bottom-right"
   visible="{{visible}}"
-  className="ant-feedback"
+  className="ant-feedback ant-feedback-{{ type }}"
   mode="light"
+  placement="{{ placement || '' }}"
+  maskStyle="background: rgba(0, 0, 0, 0.25);"
+  showMask="{{ false }}"
   autoAdjustOverflow="{{ true }}"
   style="display: inline-block; margin: 20px"
   onVisibleChange="handleVisibleChange"
-  color="#fff"
+  color="#FFFFFF"
 >
-  <slot></slot>
+  <view 
+    onTap="onTriggerFirstAppear" 
+    class="ant-feedback-trigger" 
+    id="ant-feedback-trigger{{ $id }}" 
+    onFirstAppear="onTriggerFirstAppear">
+    <slot></slot>
+    <view 
+      a:if="{{ visible && type === 'circle' }}" 
+      class="ant-feedback-guide">
+    </view>
+    <mask
+      className="ant-feedback-mask"
+      show="{{ visible && type === 'circle' }}"
+      onMaskTap="handleVisibleChange" />
+  </view>
   <view slot="content">
-    345678987654
+    <slot name="content"></slot>
   </view>
 </popover>

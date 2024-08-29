@@ -4,6 +4,8 @@
     "ant-container": "../../../src/Container/index",
     "ant-popover": "../../../src/Popover/index",
     "ant-feedback": "../../../src/Feedback/index",
+    "list": "../../../src/List/index",
+    "list-item": "../../../src/List/ListItem/index",
     "ant-button": "../../../src/Button/index"
   }
 }
