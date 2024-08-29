@@ -15,10 +15,9 @@
   onClose="handleClose"
   footer="{{ footer1 }}"
   />
-  <!-- TODO：图片替换 --> 
 <ant-modal
   title="带头图"
-  headerImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*TNzGR7QtN0MAAAAAAAAAAAAADiWwAQ/original"
+  headerImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Q5ekTJUJW8IAAAAAAAAAAAAADiWwAQ/original"
   content="人在天边月上明"
   onButtonTap="onButtonTap"
   visible="{{ withImageVisible }}"
@@ -59,9 +58,37 @@
     mode="widthFix" 
     class="activity-modal-content-image"
     src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*DNXISIKmwBUAAAAAAAAAAAAADiWwAQ/original" />
-  <view slot="footer"  class="activity-modal-footer">
+  <view slot="footer" class="activity-modal-footer">
     <view class="activity-modal-footer-button" onTap="onClickActivityModalButton">
       开心收下
+    </view>
+    <view class="activity-modal-footer-extra">
+      奖品可在我的奖品中查看
+    </view>
+  </view>
+</ant-modal>
+
+<ant-modal
+  title="恭喜获得出行红包"
+  content="出行打车小程序专用"
+  visible="{{ slotStrongVisible }}"
+  onClose="handleClose"
+  className="activity-modal activity-modal-strong"
+  onButtonTap="onButtonTap"
+>
+  <image 
+    slot="modal-top"
+    mode="widthFix" 
+    class="activity-modal-strong-header-image"
+    src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Sp52SL4mObQAAAAAAAAAAAAADiWwAQ/original" />
+  <image 
+    slot="content-extra" 
+    mode="widthFix" 
+    class="activity-modal-content-image"
+    src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Oju8Q4diuA0AAAAAAAAAAAAADiWwAQ/original" />
+  <view slot="footer" class="activity-modal-footer">
+    <view class="activity-modal-footer-button" onTap="onClickActivityModalButton">
+      去使用
     </view>
     <view class="activity-modal-footer-extra">
       奖品可在我的奖品中查看
@@ -121,9 +148,14 @@
   className="list">
   <!-- #if ALIPAY -->
   <ant-button
-    data-field="slot"
+    data-field="slotWeakVisible"
     onTap="handleOpen">
     弱活动氛围弹框
+  </ant-button>
+  <ant-button
+    data-field="slotStrongVisible"
+    onTap="handleOpen">
+    强活动氛围弹框
   </ant-button>
   <!-- #endif -->
 </ant-container>
