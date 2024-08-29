@@ -1,3 +1,30 @@
 .list button {
   margin-bottom: 8px;
 }
+.customize-top-image-popup .ant-popup-content {
+  background: none;
+}
+.customize-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 140rpx 24rpx 100rpx 24rpx;
+}
+.customize-content-image {
+  width: 666rpx;
+}
+.customize-content-image1 {
+  width: 702rpx;
+  margin-top: 100rpx;
+}
+.customize-content-text {
+  font-weight: 400;
+  font-size: 24rpx;
+  color: #999999;
+  text-align: center;
+  padding-top: 30rpx;
+}
+.customize-content .ant-button {
+  width: 100%;
+}

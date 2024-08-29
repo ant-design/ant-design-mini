@@ -11,6 +11,12 @@ const isOldVersion = isOldSDKVersion();
 Component(
   PopupDefaultProps,
   {
+    onClickCloseIcon() {
+      this.props.onClickCloseIcon();
+    },
+    onClickBackIcon() {
+      this.props.onClickBackIcon();
+    },
     onTapMask() {
       const { closing } = this.data;
       if (closing) {

@@ -3,6 +3,12 @@ import { PopupDefaultProps } from './props';
 import { isOldSDKVersion } from '../_util/platform';
 var isOldVersion = isOldSDKVersion();
 Component(PopupDefaultProps, {
+    onClickCloseIcon: function () {
+        this.props.onClickCloseIcon();
+    },
+    onClickBackIcon: function () {
+        this.props.onClickBackIcon();
+    },
     onTapMask: function () {
         var closing = this.data.closing;
         if (closing) {

@@ -21,6 +21,32 @@
     style="{{utils.getContentStyle(position, animation, duration, width, height)}}"
     onAnimationEnd="onAnimationEnd"
   >
+    <image
+      a:if="{{backgroundImage}}"
+      src="{{backgroundImage}}"
+      mode="widthFix"
+      class="ant-popup-content-bg"
+    ></image>
+    <view
+      a:if="{{title || showClose || showBack}}"
+      class="ant-popup-content-header"
+    >
+      <ant-icon
+        a:if="{{showBack}}"
+        className="ant-popup-content-header-icon ant-popup-content-header-icon-back"
+        type="LeftOutline"
+        onTap="onClickBackIcon"
+      ></ant-icon>
+      <view class="ant-popup-content-header-title">
+        {{title}}
+      </view>
+      <ant-icon
+        a:if="{{showClose}}"
+        className="ant-popup-content-header-icon ant-popup-content-header-icon-close"
+        type="CloseOutline"
+        onTap="onClickCloseIcon"
+      ></ant-icon>
+    </view>
     <slot></slot>
     <slot
       name="content"
