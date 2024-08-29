@@ -1,4 +1,4 @@
-import { Component, triggerEvent, getValueFromProps, } from '../_util/simply';
+import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
 import { StepperDefaultProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
 import mixinValue from '../mixins/value';
