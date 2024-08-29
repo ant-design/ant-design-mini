@@ -94,6 +94,8 @@
       bottom: 0;
       animation-name: ant-popup-transform-bottom;
       border-radius: @popup-radius @popup-radius 0 0;
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
       &-close {
         animation-name: ant-popup-transform-bottom-close;
       }
