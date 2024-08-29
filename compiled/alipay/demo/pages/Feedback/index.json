@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Avatar",
+  "usingComponents": {
+    "ant-container": "../../../src/Container/index",
+    "ant-popover": "../../../src/Popover/index",
+    "ant-feedback": "../../../src/Feedback/index",
+    "ant-button": "../../../src/Button/index"
+  }
+}

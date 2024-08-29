@@ -1,0 +1,9 @@
+<ant-container title="基础用法">
+  <ant-feedback>
+    <ant-button
+      size="small"
+      inline>
+      点我
+    </ant-button>
+  </ant-feedback>
+</ant-container>

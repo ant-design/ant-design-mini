@@ -1,0 +1,15 @@
+<popover
+  placement="bottom-right"
+  visible="{{visible}}"
+  className="ant-feedback"
+  mode="light"
+  autoAdjustOverflow="{{ true }}"
+  style="display: inline-block; margin: 20px"
+  onVisibleChange="handleVisibleChange"
+  color="#fff"
+>
+  <slot></slot>
+  <view slot="content">
+    345678987654
+  </view>
+</popover>

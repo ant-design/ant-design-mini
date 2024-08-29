@@ -1,0 +1,33 @@
+@import (reference) './variable.less';
+
+@avatarPrefix: ant-avatar;
+
+.@{avatarPrefix} {
+  display: inline-flex;
+  align-items: center;
+  &-image {
+    width: @avatar-size-medium;
+    height: @avatar-size-medium;
+    border-radius: @avatar-img-radius;
+    // 头像大小设置
+    &-x-small {
+      width: @avatar-size-x-small;
+      height: @avatar-size-x-small;
+    }
+    &-small {
+      width: @avatar-size-small;
+      height: @avatar-size-small;
+    }
+    &-medium {
+      width: @avatar-size-medium;
+      height: @avatar-size-medium;
+    }
+    &-large {
+      width: @avatar-size-large;
+      height: @avatar-size-large;
+    }
+  }
+  &-circle {
+    border-radius: 100vh;
+  }
+}

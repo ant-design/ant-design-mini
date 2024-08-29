@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Avatar",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Avatar",
+  /// #endif
+
+  "usingComponents": {
+    "ant-container": "../../../src/Container/index",
+    "ant-popover": "../../../src/Popover/index",
+    "ant-feedback": "../../../src/Feedback/index",
+    "ant-button": "../../../src/Button/index"
+  }
+}
