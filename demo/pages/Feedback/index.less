@@ -1,12 +1,36 @@
-.avatar {
-  margin: 8px;
+.feedback-content {
+  &-selector {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 }
-
-.avatar-custom {
-  margin: 8px;
+.feedback-demo {
+  .ant-selector-content-container {
+    margin-left: -6px;
+    margin-right: -6px;
+  }
+  .ant-popover-inner {
+    padding: 0;
+  }
+  .ant-popover-arrow {
+    left: 36rpx !important;
+  }
 }
-
-.avatar-custom image {
-  width: 40px;
-  height: 40px;
+.feedback-demo2 {
+  .ant-popover-arrow {
+    left: 86rpx !important;
+  }
+  .ant-popover-inner {
+    padding: 0;
+  }
+}
+.feedback-gray-container {
+  .ant-container-content {
+    background: #f5f5f5;
+  }
+  .ant-feedback-content-card {
+    width: 375rpx;
+  }
 }

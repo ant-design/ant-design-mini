@@ -1,11 +1,12 @@
 <popover
-  visible="{{visible}}"
-  className="ant-feedback ant-feedback-{{ type }}"
+  a:if="{{ type === 'popover' }}"
+  visible="{{ visible }}"
+  className="ant-feedback {{ className || '' }} {{ visible ? 'ant-feedback-show' : '' }}"
   mode="light"
-  placement="{{ placement || '' }}"
+  placement="{{ placement }}"
   maskStyle="background: rgba(0, 0, 0, 0.25);"
   showMask="{{ false }}"
-  autoAdjustOverflow="{{ true }}"
+  autoAdjustOverflow="{{ autoAdjustOverflow }}"
   style="display: inline-block; margin: 20px"
   onVisibleChange="handleVisibleChange"
   color="#FFFFFF"
@@ -14,18 +15,70 @@
     onTap="onTriggerFirstAppear" 
     class="ant-feedback-trigger" 
     id="ant-feedback-trigger{{ $id }}" 
-    onFirstAppear="onTriggerFirstAppear">
-    <slot></slot>
+  >
+    <view style="{{ !visible || popoverType === 'circle' ? 'z-index: 0;' : 'z-index: 3; position: relative;' }}">
+      <slot></slot>
+    </view>
     <view 
-      a:if="{{ visible && type === 'circle' }}" 
+      a:if="{{ !!visible && popoverType === 'circle' }}" 
       class="ant-feedback-guide">
     </view>
     <mask
       className="ant-feedback-mask"
-      show="{{ visible && type === 'circle' }}"
+      show="{{ !!visible }}"
+      style="z-index: 2;"
       onMaskTap="handleVisibleChange" />
   </view>
-  <view slot="content">
-    <slot name="content"></slot>
+  <view 
+    class="ant-feedback-content ant-feedback-content-{{ type }}" 
+    slot="content"
+    a:if="{{ list.length > 0 }}">
+    <view a:if="{{ title }}" class="ant-feedback-content-title">
+      {{ title }}
+    </view>
+    <view class="ant-feedback-content-list">
+      <view 
+        class="ant-feedback-content-list-item" 
+        a:for="{{ list }}"
+        data-item="{{ item }}"
+        onTap="onFeedClick"
+      >
+        <ant-icon a:if="{{ item.icon }}" type="{{ item.icon }}" />
+        <image 
+          a:elif="{{ item.image }}" 
+          class="ant-feedback-content-list-item-image" 
+          mode="widthFix" 
+          src="{{ item.image }}" />
+        <view class="ant-feedback-content-list-item-text">{{ item.text }}</view>
+      </view>
+    </view>
   </view>
+  <slot slot="content" name="popover-content"></slot>
 </popover>
+
+<view a:else class="ant-feedback">
+  <view 
+    class="ant-feedback-content ant-feedback-content-{{ type }}" 
+    slot="content" 
+    a:if="{{ list.length > 0 }}">
+    <view a:if="{{ title }}" class="ant-feedback-content-title">
+      {{ title }}
+    </view>
+    <view class="ant-feedback-content-list">
+      <view 
+        onTap="onFeedClick" 
+        class="ant-feedback-content-list-item" 
+        a:for="{{ list }}"
+        data-item="{{ item }}">
+        <ant-icon a:if="{{ item.icon }}" type="{{ item.icon }}" />
+        <image 
+          a:elif="{{ item.image }}" 
+          class="ant-feedback-content-list-item-image" 
+          mode="widthFix" 
+          src="{{ item.image }}" />
+        <view class="ant-feedback-content-list-item-text">{{ item.text }}</view>
+      </view>
+    </view>
+  </view>
+  <slot a:else name="content"></slot>
+</view>

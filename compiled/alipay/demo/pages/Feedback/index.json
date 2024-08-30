@@ -1,11 +1,12 @@
 {
-  "defaultTitle": "Avatar",
+  "defaultTitle": "Feedback",
   "usingComponents": {
     "ant-container": "../../../src/Container/index",
     "ant-popover": "../../../src/Popover/index",
+    "ant-selector": "../../../src/Selector/index",
+    "ant-list": "../../../src/List/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
     "ant-feedback": "../../../src/Feedback/index",
-    "list": "../../../src/List/index",
-    "list-item": "../../../src/List/ListItem/index",
     "ant-button": "../../../src/Button/index"
   }
 }

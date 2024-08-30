@@ -1,15 +1,18 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "Avatar",
+  "navigationBarTitleText": "Feedback",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "Avatar",
+  "defaultTitle": "Feedback",
   /// #endif
 
   "usingComponents": {
     "ant-container": "../../../src/Container/index",
     "ant-popover": "../../../src/Popover/index",
+    "ant-selector": "../../../src/Selector/index",
+    "ant-list": "../../../src/List/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
     "ant-feedback": "../../../src/Feedback/index",
     "ant-button": "../../../src/Button/index"
   }
