@@ -8,7 +8,9 @@
     type="text"
     data-mode="minus"
     disabled="{{ disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value <= min }}"
-    onTap="onTap" />
+    onTap="onTap"
+    onDisabledTap="onDisabledTap"
+  />
   <view class="ant-stepper-input-wrap">
     <view
       a:if="{{ inputReadOnly }}"
@@ -30,7 +32,8 @@
       onFocus="onFocus"
       onBlur="onBlur"
       onConfirm="onConfirm"
-      value="{{ mixin.value }}" />
+      value="{{ mixin.value }}"
+    />
   </view>
   <ant-button
     className="ant-stepper-button ant-stepper-button-up {{ disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value >= max ? 'ant-stepper-button-disabled' : '' }}"
@@ -39,5 +42,7 @@
     type="text"
     data-mode="add"
     disabled="{{ disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value >= max }}"
-    onTap="onTap" />
+    onTap="onTap"
+    onDisabledTap="onDisabledTap"
+  />
 </view>

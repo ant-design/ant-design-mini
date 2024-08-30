@@ -24,6 +24,10 @@ Component(StepperDefaultProps, {
         var value = this.getValue();
         triggerEvent(this, 'blur', value === '' ? null : Number(value), e);
     },
+    onDisabledTap: function (e) {
+        var onDisabledTap = getValueFromProps(this, 'onDisabledTap');
+        onDisabledTap && onDisabledTap(e);
+    },
     onTap: function (e) {
         var _a = getValueFromProps(this, [
             'step',
