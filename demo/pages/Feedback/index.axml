@@ -55,7 +55,7 @@
     placement="bottom-right"
     className="feedback-demo2">
     <ant-button onTap="onShowFeedback2" size="small" inline>
-      点击 点引导
+      点引导
     </ant-button>
   </ant-feedback>
 </ant-container>
@@ -71,6 +71,6 @@
     onVisibleChange="onVisibleChange3">
   </ant-feedback>
   <ant-button data-filed="visible3" onTap="onShowFeedback" a:else size="small" inline>
-    点击 点引导
+    反馈卡片
   </ant-button>
 </ant-container>

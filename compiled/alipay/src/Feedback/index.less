@@ -25,14 +25,24 @@
   }
   &-guide {
     position: absolute;
-    background: #FFFFFF;
-    border-radius: 18 * @rpx;
-    width: 24 * @rpx;
-    height: 24 * @rpx;
+    background: rgba(216, 216, 216, 0.42);
+    border-radius: 50vh;
+    width: 48 * @rpx;
+    height: 48 * @rpx;
     z-index: 999;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-content {
+      background: #FFFFFF;
+      border-radius: 50vh;
+      width: 24 * @rpx;
+      height: 24 * @rpx;
+    }
   }
   &-content {
     background: #FFFFFF;

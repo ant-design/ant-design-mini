@@ -22,6 +22,7 @@
     <view 
       a:if="{{ !!visible && popoverType === 'circle' }}" 
       class="ant-feedback-guide">
+      <view class="ant-feedback-guide-content" />
     </view>
     <mask
       className="ant-feedback-mask"
