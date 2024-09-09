@@ -7,9 +7,6 @@ Component(
   FeedbackDefaultProps,
   {
     handleVisibleChange(visible) {
-      if (typeof this.props.visible !== 'boolean') {
-        this.setData({ visible });
-      }
       this.props.onVisibleChange(visible);
     },
     onFeedClick(e) {
