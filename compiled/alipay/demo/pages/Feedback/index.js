@@ -1,6 +1,6 @@
 Page({
     data: {
-        visible3: true,
+        visible3: false,
         visible2: true,
         visible1: false,
         selectorOption: [
