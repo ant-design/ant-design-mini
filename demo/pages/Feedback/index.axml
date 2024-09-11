@@ -1,72 +1,80 @@
-<ant-container title="气泡类型">
-  <ant-feedback 
-    type="popover" 
-    visible="{{ visible1 }}" 
-    popoverType="default" 
-    onVisibleChange="onVisibleChange1"
-    className="feedback-demo">
-    <ant-button
-      size="small"
-      inline
-    >
-      高亮引导
-    </ant-button>
-    <view slot="popover-content" class="feedback-content">
-      <ant-list
-        slot="content"
-        className="popover"
-      >
-        <ant-list-item
-          onTap="handleTapItem"
+<ant-container title="高量引导反馈">
+  <view slot="headerRight">
+    <ant-feedback 
+      type="popover" 
+      visible="{{ visible1 }}" 
+      popoverType="default" 
+      placement="bottom-right"
+      onVisibleChange="onVisibleChange1"
+      className="feedback-demo">
+      <view class="feedback-demo-target">
+        <ant-icon style="font-size: 30px" type="MoreOutline" />
+      </view>
+      <view slot="popover-content" class="feedback-content">
+        <ant-list
+          slot="content"
+          className="popover"
         >
-        <view class="feedback-content-selector">
-          内容反馈
-          <ant-selector options="{{ selectorOption }}" />
-          </view>
-        </ant-list-item>
-        <ant-list-item
-          onTap="handleTapItem"
-          arrow="right"
-        >
-          管理「 推荐卡片」
-        </ant-list-item>
-        <ant-list-item
-          onTap="handleTapItem"
-          arrow="right"
-        >
-          反馈与投诉
-        </ant-list-item>
-        <ant-list-item
-          arrow="right"
-          onTap="handleTapItem"
-        >
-          图片
-        </ant-list-item>
-      </ant-list>
-    </view>
-  </ant-feedback>
+          <ant-list-item
+            onTap="handleTapItem"
+          >
+          <view class="feedback-content-selector">
+            内容反馈
+            <ant-selector options="{{ selectorOption }}" />
+            </view>
+          </ant-list-item>
+          <ant-list-item
+            onTap="handleTapItem"
+            arrow="right"
+          >
+            管理「 推荐卡片」
+          </ant-list-item>
+          <ant-list-item
+            onTap="handleTapItem"
+            arrow="right"
+          >
+            反馈与投诉
+          </ant-list-item>
+          <ant-list-item
+            arrow="right"
+            onTap="handleTapItem"
+          >
+            图片
+          </ant-list-item>
+        </ant-list>
+      </view>
+    </ant-feedback>
+  </view>
+  点击右上角的icon 展示反馈内容
+</ant-container>
+
+<ant-container title="点引导反馈" className="feedback-gray-container">
+  点击下面的内容 展示点引导反馈
   <ant-feedback 
     type="popover" 
     list="{{ feedList }}" 
     visible="{{ visible2 }}" 
     popoverType="circle" 
     title="点引导反馈"
-    onFeedClick="onFeedClick"
-    placement="bottom-right"
+    onFeedClick="onFeedClick2"
+    placement="bottom"
+    onVisibleChange="onVisibleChange2"
     className="feedback-demo2">
-    <ant-button onTap="onShowFeedback2" size="small" inline>
-      点引导
-    </ant-button>
+    <image 
+      mode="widthFix" 
+      style="width: 351rpx;" 
+      src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original"
+    />
   </ant-feedback>
 </ant-container>
 
-<ant-container title="卡片类型" className="feedback-gray-container">
+<ant-container title="反馈卡片" className="feedback-gray-container">
   <ant-feedback 
     a:if="{{ visible3 }}"
     list="{{ feedList }}" 
     type="card" 
     title="喜欢推荐的内容吗？"
-    onFeedClick="onFeedClick"
+    onFeedClick="onFeedClick3"
     className="feedback-demo" 
     onVisibleChange="onVisibleChange3">
   </ant-feedback>

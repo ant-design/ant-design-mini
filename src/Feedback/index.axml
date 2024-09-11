@@ -1,7 +1,7 @@
 <popover
   a:if="{{ type === 'popover' }}"
   visible="{{ visible }}"
-  className="ant-feedback {{ className || '' }} {{ visible ? 'ant-feedback-show' : '' }}"
+  className="ant-feedback {{ className || '' }} {{ visible ? 'ant-feedback-show' : '' }} ant-feedback-popoverType-{{ popoverType }}"
   mode="light"
   placement="{{ placement }}"
   maskStyle="background: rgba(0, 0, 0, 0.25);"
@@ -13,7 +13,7 @@
 >
   <view 
     onTap="onTriggerFirstAppear" 
-    class="ant-feedback-trigger" 
+    class="ant-feedback-trigger " 
     id="ant-feedback-trigger{{ $id }}" 
   >
     <view style="{{ !visible || popoverType === 'circle' ? 'z-index: 0;' : 'z-index: 3; position: relative;' }}">
@@ -27,8 +27,7 @@
     <mask
       className="ant-feedback-mask"
       show="{{ !!visible }}"
-      style="z-index: 2;"
-      onMaskTap="handleVisibleChange" />
+      style="z-index: 2;" />
   </view>
   <view 
     class="ant-feedback-content ant-feedback-content-{{ type }}" 

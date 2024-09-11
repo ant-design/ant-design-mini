@@ -6,11 +6,21 @@
   .ant-popover-inner {
     color: #333333;
   }
-  .ant-popover-content {
-    width: 568 * @rpx;
-  }
   .ant-popover-inner {
     max-width: 100%;
+  }
+  &-popoverType-default {
+    .ant-popover-content {
+      width: 568 * @rpx;
+    }
+  }
+  &-popoverType-circle {
+    .ant-popover-content {
+      width: max-content;
+      transform: translate(-50%, 60 * @rpx);
+      left: 50% !important;
+      top: 50% !important;
+    }
   }
   &-show {
     z-index: 9;

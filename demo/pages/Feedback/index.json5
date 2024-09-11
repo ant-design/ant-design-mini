@@ -9,6 +9,7 @@
 
   "usingComponents": {
     "ant-container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index",
     "ant-popover": "../../../src/Popover/index",
     "ant-selector": "../../../src/Selector/index",
     "ant-list": "../../../src/List/index",

@@ -1,7 +1,7 @@
 Page({
   data: {
-      visible3: false,
-      visible2: true,
+      visible3: true,
+      visible2: false,
       visible1: false,
       selectorOption: [
           { text: '选项一', value: '1' },
@@ -37,8 +37,8 @@ Page({
   onVisibleChange1(visible) {
     this.updateVisible('visible1', visible);
   },
-  onShowFeedback2() {
-    this.updateVisible('visible2', !this.data.visible2);
+  onVisibleChange3(visible) {
+    this.updateVisible('visible3', visible);
   },
   onVisibleChange2(visible) {
     this.updateVisible('visible2', visible);
@@ -54,20 +54,22 @@ Page({
       [filed]: true,
     })
   },
-  closeFeedback() {
-    this.setData({
-      visible1: false,
-      visible2: false,
-      visible3: false,
+  onFeedClick2(feedItem) {
+    my.showToast({
+      content: `点击了反馈项${feedItem.text}`,
     });
+    this.updateVisible('visible2', false);
   },
-  onFeedClick(feedItem) {
+  onFeedClick3(feedItem) {
       my.showToast({
           content: `点击了反馈项${feedItem.text}`,
       });
-      this.closeFeedback();
+      this.updateVisible('visible3', false);
   },
   handleTapItem() {
-    this.closeFeedback();
+    my.showToast({
+      content: `已反馈`,
+  });
+    this.updateVisible('visible1', false);
   }
 });
