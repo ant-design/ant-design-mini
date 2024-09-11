@@ -3,6 +3,7 @@ Page({
         visible3: true,
         visible2: false,
         visible1: false,
+        visible4: false,
         selectorOption: [
             { text: '选项一', value: '1' },
             { text: '选项二', value: '2' },
@@ -43,6 +44,9 @@ Page({
     onVisibleChange2(visible) {
         this.updateVisible('visible2', visible);
     },
+    onVisibleChange4(visible) {
+        this.updateVisible('visible4', visible);
+    },
     updateVisible(field, visible) {
         this.setData({
             [field]: visible,
@@ -59,6 +63,12 @@ Page({
             content: `点击了反馈项${feedItem.text}`,
         });
         this.updateVisible('visible2', false);
+    },
+    onFeedClick4(feedItem) {
+        my.showToast({
+            content: `点击了反馈项${feedItem.text}`,
+        });
+        this.updateVisible('visible4', false);
     },
     onFeedClick3(feedItem) {
         my.showToast({

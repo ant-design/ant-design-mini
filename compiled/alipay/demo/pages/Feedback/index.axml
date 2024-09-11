@@ -57,23 +57,42 @@
   className="feedback-gray-container"
 >
   点击下面的内容 展示点引导反馈
-  <ant-feedback
-    type="popover"
-    list="{{feedList}}"
-    visible="{{visible2}}"
-    popoverType="circle"
-    title="点引导反馈"
-    onFeedClick="onFeedClick2"
-    placement="bottom"
-    onVisibleChange="onVisibleChange2"
-    className="feedback-demo2"
-  >
-    <image
-      mode="widthFix"
-      style="width: 351rpx;"
-      src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original"
-    ></image>
-  </ant-feedback>
+  <view class="feedback-container-flex">
+    <ant-feedback
+      type="popover"
+      list="{{feedList}}"
+      visible="{{visible2}}"
+      popoverType="circle"
+      title="点引导反馈"
+      onFeedClick="onFeedClick2"
+      placement="bottom"
+      onVisibleChange="onVisibleChange2"
+      className="feedback-demo2"
+    >
+      <image
+        mode="widthFix"
+        style="width: 345rpx;"
+        src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original"
+      ></image>
+    </ant-feedback>
+    <ant-feedback
+      type="popover"
+      list="{{feedList}}"
+      visible="{{visible4}}"
+      popoverType="circle"
+      title="点引导反馈"
+      onFeedClick="onFeedClick4"
+      placement="bottom"
+      onVisibleChange="onVisibleChange4"
+      className="feedback-demo4"
+    >
+      <image
+        mode="widthFix"
+        style="width: 345rpx;"
+        src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original"
+      ></image>
+    </ant-feedback>
+  </view>
 </ant-container>
 <ant-container
   title="反馈卡片"
@@ -95,6 +114,6 @@
     size="small"
     inline
   >
-    反馈卡片
+    点击 展示反馈卡片
   </ant-button>
 </ant-container>
