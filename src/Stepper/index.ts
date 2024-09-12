@@ -28,6 +28,10 @@ Component(
       const value = this.getValue();
       triggerEvent(this, 'blur', value === '' ? null : Number(value), e);
     },
+    onDisabledTap(e) {
+      const onDisabledTap = getValueFromProps(this, 'onDisabledTap');
+      onDisabledTap && onDisabledTap(e);
+    },
     onTap(e) {
       const [
         step,

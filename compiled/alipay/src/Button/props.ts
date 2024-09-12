@@ -50,7 +50,6 @@ export interface IButtonProps extends IBaseProps {
    * @default false
    */
   loading?: boolean;
-
   /**
    * @description 是否为危险按钮，危险按钮的颜色会变成红色
    * @default false
@@ -65,11 +64,14 @@ export interface IButtonProps extends IBaseProps {
    * @description 点击回调
    */
   onTap?: (event: any) => void;
-
   /**
    * @description 点击回调
    */
   catchTap?: (event: any) => void;
+  /**
+   * @description 禁用时点击回调
+   */
+  onDisabledTap?: (event: any) => void;
   /**
    * @description 生活号 id，必须是当前小程序同主体且已关联的生活号，open-type="lifestyle" 时有效。
    */

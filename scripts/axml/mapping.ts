@@ -22,6 +22,9 @@ export const wechatCustomMapping = {
   'checkbox-group': {
     onChange: 'bindchange',
   },
+  'ant-button': {
+    onDisabledTap: 'bind:disabledtap',
+  },
   'ant-textarea': {
     onChange: 'bind:change',
   },

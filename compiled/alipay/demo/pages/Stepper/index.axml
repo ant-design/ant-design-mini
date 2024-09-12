@@ -29,12 +29,14 @@
     min="{{0}}"
     max="{{10}}"
     step="{{1}}"
+    onDisabledTap="handleDisabledTap"
   ></stepper>
 </container>
 <container title="禁用状态">
   <stepper
     defaultValue="{{0}}"
     disabled
+    onDisabledTap="handleDisabledTap"
   ></stepper>
 </container>
 <container title="输入框只读">
