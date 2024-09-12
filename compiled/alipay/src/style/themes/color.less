@@ -119,7 +119,7 @@
 @COLOR_BORDER_GREYCARD: if(
   isColor(@colorBorderGreyCard),
   @colorBorderGreyCard,
-  if((@theme=dark), @COLOR_BORDER_GREYCARD_DEFAULT, @COLOR_BORDER_GREYCARD_DARK)
+  if((@theme=dark), @COLOR_BORDER_GREYCARD_DARK, @COLOR_BORDER_GREYCARD_DEFAULT)
 );
 
 @COLOR_BACKGROUND_DEFAULT: #f5f5f5;
