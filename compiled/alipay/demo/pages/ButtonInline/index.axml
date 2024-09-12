@@ -17,13 +17,6 @@
     次要按钮
   </ant-button>
   <ant-button
-    type="aide"
-    inline
-    onTap="handleTap"
-  >
-    辅助按钮
-  </ant-button>
-  <ant-button
     type="text"
     inline
     onTap="handleTap"
@@ -81,14 +74,6 @@
     次要按钮
   </ant-button>
   <ant-button
-    type="aide"
-    inline
-    danger
-    onTap="handleTap"
-  >
-    辅助按钮
-  </ant-button>
-  <ant-button
     type="text"
     inline
     danger
@@ -116,13 +101,6 @@
     次要按钮
   </ant-button>
   <ant-button
-    type="aide"
-    inline
-    disabled
-  >
-    辅助按钮
-  </ant-button>
-  <ant-button
     type="text"
     inline
     disabled
@@ -147,13 +125,6 @@
     loading
   >
     次要按钮
-  </ant-button>
-  <ant-button
-    type="aide"
-    inline
-    loading
-  >
-    辅助按钮
   </ant-button>
   <ant-button
     type="text"

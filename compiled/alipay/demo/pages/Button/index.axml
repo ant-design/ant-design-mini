@@ -12,25 +12,48 @@
     type="default"
     onTap="handleTap"
   >
-    次要按钮
-  </ant-button>
-  <ant-button
-    type="capsule"
-    onTap="handleTap"
-  >
-    胶囊按钮
-  </ant-button>
-  <ant-button
-    type="aide"
-    onTap="handleTap"
-  >
-    辅助按钮
+    操作线框按钮
   </ant-button>
   <ant-button
     type="text"
     onTap="handleTap"
   >
     文本按钮
+  </ant-button>
+</ant-container>
+<ant-container
+  title="辅助按钮 只有default和primary类型有"
+  className="list"
+>
+  <ant-button
+    type="primary"
+    aide
+    onTap="handleTap"
+  >
+    辅助按钮
+  </ant-button>
+  <ant-button
+    type="primary"
+    aide
+    disabled
+    onTap="handleTap"
+  >
+    辅助按钮
+  </ant-button>
+  <ant-button
+    type="default"
+    aide
+    onTap="handleTap"
+  >
+    操作线框辅助按钮
+  </ant-button>
+  <ant-button
+    type="default"
+    aide
+    disabled
+    onTap="handleTap"
+  >
+    操作线框辅助按钮
   </ant-button>
 </ant-container>
 <ant-container
@@ -50,13 +73,6 @@
     onTap="handleTap"
   >
     次要按钮
-  </ant-button>
-  <ant-button
-    type="aide"
-    subText="副标题"
-    onTap="handleTap"
-  >
-    辅助按钮
   </ant-button>
   <ant-button
     type="text"
@@ -83,12 +99,6 @@
     次要按钮
   </ant-button>
   <ant-button
-    type="aide"
-    disabled
-  >
-    辅助按钮
-  </ant-button>
-  <ant-button
     type="text"
     disabled
   >
@@ -110,12 +120,6 @@
     loading
   >
     次要按钮
-  </ant-button>
-  <ant-button
-    type="aide"
-    loading
-  >
-    辅助按钮
   </ant-button>
   <ant-button
     type="text"
@@ -141,13 +145,6 @@
     onTap="handleTap"
   >
     次要按钮
-  </ant-button>
-  <ant-button
-    type="aide"
-    danger
-    onTap="handleTap"
-  >
-    辅助按钮
   </ant-button>
   <ant-button
     type="text"

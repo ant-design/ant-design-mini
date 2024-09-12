@@ -49,11 +49,26 @@
     background-color: @COLOR_CARD;
     box-shadow: none;
   }
+  &-primary-aide {
+    background-color: @button-primary-background-color;
+    box-shadow: inset 0 0 0 @button-border-size #E7F1FF;
+    color: #1677FF;
+    background: #E7F1FF;
+  }
+
+  &-default-aide {
+    color: @COLOR_TEXT_PRIMARY_DEFAULT;
+    background-color: @COLOR_CARD;
+    background: #FFFFFF;
+    box-shadow: inset 0 0 0 @button-border-size @COLOR_GREY_2;
+  }
 
   &-aide {
-    color: @COLOR_GREY_2;
+    color: @COLOR_TEXT_PRIMARY_DEFAULT;
     background-color: @COLOR_CARD;
-    box-shadow: inset 0 0 0 @button-border-size @COLOR_GREY_2;
+    background: #FFFFFF;
+    border: 2 * @rpx solid @COLOR_GREY_2;
+    font-family: PingFangSC-Regular;
   }
 
   &-text {
@@ -65,7 +80,7 @@
   &-primary-danger {
     color: @button-danger-color;
     background-color: @COLOR_RED;
-    box-shadow: inset 0 0 0 @button-border-size @COLOR_RED;
+    box-shadow: inset 0 0 0 @button-border-size #FFFFFF;
   }
 
   &-aide-danger {
