@@ -72,4 +72,7 @@ export const SwipeActionDefaultProps: Partial<ISwipeActionProps> = {
   defaultSwiped: '',
   damping: 70,
   disabled: false,
+  onSwipeEnd() {},
+  onSwipeStart() {},
+  onButtonTap() {},
 };
