@@ -6,4 +6,7 @@ export var SwipeActionDefaultProps = {
     defaultSwiped: '',
     damping: 70,
     disabled: false,
+    onSwipeEnd: function () { },
+    onSwipeStart: function () { },
+    onButtonTap: function () { },
 };
