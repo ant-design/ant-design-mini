@@ -15,7 +15,7 @@
   catchTap="{{catchTap ? 'catchTap' : ''}}"
   publicId="{{publicId}}"
   openType="{{openType}}"
-  class="ant-button {{inline ? 'ant-button-inline ' + utils.getClass(size) : ''}} {{'ant-button-' + type + (danger ? '-danger' : '')}} {{disabled || loading ? 'ant-button-disabled' : ''}} {{className ? className : ''}}"
+  class="ant-button {{inline ? 'ant-button-inline ' + utils.getClass(size) : ''}} {{'ant-button-' + type + (danger ? '-danger' : aide && ['default', 'primary'].indexOf(type) > -1 ? '-aide' : '')}} {{disabled || loading ? 'ant-button-disabled' : ''}} {{className ? className : ''}}"
   style="{{style}}"
 >
   <view class="ant-button-wrap">
