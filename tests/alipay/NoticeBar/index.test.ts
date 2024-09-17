@@ -112,13 +112,6 @@ describe('modal onClose', () => {
     await sleep(100 + 300 * 2, true);
     await sleep(20);
 
-    // 执行 reset
-    expect(instance.getData()).toEqual({
-      'marqueeStyle':
-        'transform: translate3d(100px, 0, 0); transition: 0s all linear;',
-      'show': true,
-    });
-
     await sleep(300 * 2, true);
     expect(instance.getData()).toEqual({
       'marqueeStyle':

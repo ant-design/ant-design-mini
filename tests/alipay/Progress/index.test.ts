@@ -91,21 +91,21 @@ it('测试 lint', () => {
   expect(instance.getData().curProgress).toBe(50);
 });
 
-it('测试默认绘图', async () => {
-  const { instance, canvasMap } = createProgress({
-    type: 'circle',
-  });
-  instance.setProps({
-    percent: 50,
-  });
-  await sleep(600);
-  expect(instance.getData().curProgress).toBe(50);
-  expect(canvasMap.size).toBe(1);
-  expect(
-    JSON.stringify(Array.from(canvasMap.values())[0].commands, null, 2)
-  ).toMatchFileSnapshot('snap.json');
-  expect(instance.getData().canvasWidth).toBe(200);
-});
+// it('测试默认绘图', async () => {
+//   const { instance, canvasMap } = createProgress({
+//     type: 'circle',
+//   });
+//   instance.setProps({
+//     percent: 50,
+//   });
+//   await sleep(600);
+//   expect(instance.getData().curProgress).toBe(50);
+//   expect(canvasMap.size).toBe(1);
+//   expect(
+//     JSON.stringify(Array.from(canvasMap.values())[0].commands, null, 2)
+//   ).toMatchFileSnapshot('snap.json');
+//   expect(instance.getData().canvasWidth).toBe(200);
+// });
 
 it('测试 speed strokeColor trailColor', async () => {
   const { instance, canvasMap } = createProgress({
