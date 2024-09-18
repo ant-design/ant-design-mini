@@ -1,4 +1,4 @@
-<view>
+<view style="padding-bottom: 100rpx;">
   <ant-list
     header="基础用法"
     radius="{{ radius }}">
@@ -11,8 +11,9 @@
     radius="{{ radius }}">
     <ant-list-item
       image="PayCircleOutline"
-      arrow="right"
       onTap="handleTap"
+      brief="总资产数量"
+      extra="22.8"
       data-info="总资产">
       总资产
     </ant-list-item>
@@ -25,10 +26,11 @@
     </ant-list-item>
     <ant-list-item
       image="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
-      arrow="right"
       onTap="handleTap"
+      brief="图片描述"
       data-info="图片">
       图片
+      <ant-button slot="extra" size="small" inline>胶囊按钮</ant-button>
     </ant-list-item>
   </ant-list>
   <ant-list
@@ -66,7 +68,7 @@
       <ant-icon
         slot="image"
         type="AlipaySquareFill"
-        style="font-size: 64px" />
+        style="font-size: 80rpx;" />
     </ant-list-item>
     <!-- #endif -->
   </ant-list>
