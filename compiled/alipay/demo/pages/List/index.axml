@@ -15,7 +15,7 @@
       image="PayCircleOutline"
       onTap="handleTap"
       brief="总资产数量"
-      extra="22.8"
+      extra="详细信息"
       data-info="总资产"
     >
       总资产
@@ -23,6 +23,7 @@
     <ant-list-item
       image="SetOutline"
       arrow="right"
+      extraBrief="详细信息"
       catchTap="catchTap"
       data-info="设置"
     >
