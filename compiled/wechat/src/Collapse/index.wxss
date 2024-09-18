@@ -10,7 +10,7 @@
   display: flex;
   flex: 1;
   border-bottom: 1px solid #eeeeee;
-  padding: 0 12px 12px 0;
+  padding: 12px;
 }
 .ant-collapse-item-title {
   position: relative;
@@ -19,7 +19,6 @@
   align-items: center;
   justify-content: space-between;
   line-height: 24px;
-  padding: 12px 0 0 12px;
   font-size: 17px;
   color: #333333;
   background-color: #ffffff;
@@ -69,11 +68,10 @@
 .ant-collapse-item-content {
   color: #333333;
   border-bottom: 1px solid #eeeeee;
-  padding: 12px 12px 12px 0;
   box-sizing: border-box;
+  padding: 12px;
 }
 .ant-collapse-item-content-container {
-  padding-left: 12px;
   background: #ffffff;
 }
 .ant-collapse-item-content-wrap {
