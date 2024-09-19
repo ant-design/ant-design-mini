@@ -73,6 +73,10 @@ Component(
       }
       triggerEvent(this, 'visibleChange', value, e);
     },
+    onTapAction() {
+      this.onVisibleChange();
+      this.props.onTapAction();
+    }
   },
   {
     adjustedPlacement: '',

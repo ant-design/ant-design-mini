@@ -4,6 +4,31 @@
 .ant-popover-children {
   z-index: 999;
 }
+.ant-popover-close {
+  margin-left: 12px;
+  width: 19px;
+  height: 19px;
+}
+.ant-popover-close .ant-popover-close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+}
+.ant-popover-image {
+  padding-right: 12px;
+  border-radius: 8px;
+}
+.ant-popover-action {
+  background: #ffffff;
+  font-weight: 400;
+  font-size: 12px;
+  color: #000000;
+  padding: 5px 10px;
+  line-height: 16.5px;
+  border-radius: 50vh;
+  margin-left: 12px;
+}
 .ant-popover-mask {
   z-index: 998;
   background: none;
@@ -18,11 +43,29 @@
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  font-size: 15px;
+  font-size: 14px;
   background-color: #404040;
   color: #ffffff;
-  padding: 8px 12px;
+  padding: 10px;
   width: max-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.ant-popover-inner-text {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* 这里是超出几行省略 */
+  overflow: hidden;
+  max-width: 210px;
+  line-height: 20px;
+}
+.ant-popover-inner .ant-popover-image-content-image {
+  width: 40px;
+  height: 40px;
 }
 .ant-popover-arrow {
   position: absolute;

@@ -7,8 +7,10 @@
   align-items: center;
   justify-content: center;
   min-width: 30px;
-  min-height: 50px;
 }
 .custom-child {
   margin: 8px;
+}
+.ant-popover-white .ant-popover-inner {
+  color: #000000;
 }
