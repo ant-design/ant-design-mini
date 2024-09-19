@@ -4,21 +4,13 @@
   line-height: normal;
   box-sizing: border-box;
 }
-.ant-result::after {
-  content: '';
-  position: absolute;
-  background-color: #eeeeee;
-  display: block;
-  top: auto;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  transform: scaleY(0.5);
+.ant-result-icon {
+  font-size: 55px;
 }
 .ant-result-main {
-  padding: 32px 12px;
+  padding: 35px 12px;
   margin-bottom: 20px;
+  line-height: 1.4;
   background-color: #ffffff;
 }
 .ant-result-image {
@@ -31,10 +23,6 @@
   overflow: hidden;
   text-align: center;
   line-height: 64px;
-}
-.ant-result-image + .ant-result-title,
-.ant-result-image + .ant-result-message {
-  padding-top: 20px;
 }
 .ant-result-image-success {
   color: #1677ff;
@@ -52,16 +40,18 @@
   color: #00b578;
 }
 .ant-result-title {
-  font-size: 18px;
-  color: #333333;
+  padding-top: 20px;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 500;
 }
 .ant-result-title:empty {
   display: none;
 }
 .ant-result-message {
   padding-top: 8px;
-  font-size: 13px;
-  color: #999999;
+  font-size: 16px;
+  color: #333333;
 }
 .ant-result-message:empty {
   display: none;
