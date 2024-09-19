@@ -31,23 +31,25 @@
           ></image-icon>
         </slot>
       </view>
-      <view class="ant-grid-item-title">
-        <slot
-          name="title"
-          value="{{item}}"
-          index="{{index}}"
-        >
-          {{item.title}}
-        </slot>
-      </view>
-      <view class="ant-grid-item-description">
-        <slot
-          name="description"
-          value="{{item}}"
-          index="{{index}}"
-        >
-          {{item.description}}
-        </slot>
+      <view class="ant-grid-item-info">
+        <view class="ant-grid-item-title">
+          <slot
+            name="title"
+            value="{{item}}"
+            index="{{index}}"
+          >
+            {{item.title}}
+          </slot>
+        </view>
+        <view class="ant-grid-item-description">
+          <slot
+            name="description"
+            value="{{item}}"
+            index="{{index}}"
+          >
+            {{item.description}}
+          </slot>
+        </view>
       </view>
     </view>
   </block>
@@ -84,23 +86,25 @@
             ></image-icon>
           </slot>
         </view>
-        <view class="ant-grid-item-title">
-          <slot
-            name="title"
-            value="{{item}}"
-            index="{{index}}"
-          >
-            {{item.title}}
-          </slot>
-        </view>
-        <view class="ant-grid-item-description">
-          <slot
-            name="description"
-            value="{{item}}"
-            index="{{index}}"
-          >
-            {{item.description}}
-          </slot>
+        <view class="ant-grid-item-info">
+          <view class="ant-grid-item-title">
+            <slot
+              name="title"
+              value="{{item}}"
+              index="{{index}}"
+            >
+              {{item.title}}
+            </slot>
+          </view>
+          <view class="ant-grid-item-description">
+            <slot
+              name="description"
+              value="{{item}}"
+              index="{{index}}"
+            >
+              {{item.description}}
+            </slot>
+          </view>
         </view>
       </view>
     </block>

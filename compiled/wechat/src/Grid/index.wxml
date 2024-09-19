@@ -25,8 +25,10 @@
           style="{{iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : ''}}"
         ></image-icon>
       </view>
-      <view class="ant-grid-item-title">{{item.title}}</view>
-      <view class="ant-grid-item-description">{{item.description}}</view>
+      <view class="ant-grid-item-info">
+        <view class="ant-grid-item-title">{{item.title}}</view>
+        <view class="ant-grid-item-description">{{item.description}}</view>
+      </view>
     </view>
   </block>
 </view>
@@ -56,8 +58,10 @@
             style="{{iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : ''}}"
           ></image-icon>
         </view>
-        <view class="ant-grid-item-title">{{item.title}}</view>
-        <view class="ant-grid-item-description">{{item.description}}</view>
+        <view class="ant-grid-item-info">
+          <view class="ant-grid-item-title">{{item.title}}</view>
+          <view class="ant-grid-item-description">{{item.description}}</view>
+        </view>
       </view>
     </block>
   </view>
