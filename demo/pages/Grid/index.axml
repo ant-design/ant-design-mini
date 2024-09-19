@@ -1,13 +1,8 @@
-<ant-container title="2列">
-  <ant-grid
-    items="{{ items2 }}"
-    onTap="handleTapItem"
-    columns="{{ 2 }}" />
-</ant-container>
 <ant-container title="3列">
   <ant-grid
     items="{{ items3 }}"
     onTap="handleTapItem"
+    iconSize="{{ 36 }}"
     columns="{{ 3 }}" />
 </ant-container>
 <ant-container title="4列">
@@ -22,6 +17,12 @@
     onTap="handleTapItem"
     columns="{{ 5 }}" />
 </ant-container>
+<ant-container title="换行">
+  <ant-grid
+    items="{{ [...items5, ...items5] }}"
+    onTap="handleTapItem"
+    columns="{{ 5 }}" />
+</ant-container>
 <ant-container title="5列-展示分割线">
   <ant-grid
     items="{{ items5 }}"
@@ -33,11 +34,13 @@
   <ant-grid
     items="{{ items2withDesc }}"
     onTap="handleTapItem"
+    iconSize="{{ 36 }}"
     columns="{{ 2 }}" />
 </ant-container>
 <ant-container title="3列-带描述">
   <ant-grid
     items="{{ items3withDesc }}"
+    iconSize="{{ 36 }}"
     onTap="handleTapItem"
     columns="{{ 3 }}" />
 </ant-container>
@@ -48,6 +51,13 @@
     columns="{{ 2 }}"
     gridItemLayout="horizontal" />
 </ant-container>
+<ant-container title="2行-元素横向布局">
+  <ant-grid
+    items="{{ items4 }}"
+    gridItemLayout="horizontal"
+    onTap="handleTapItem"
+    columns="{{ 2 }}" />
+</ant-container>
 <ant-container title="3列-元素横向布局">
   <ant-grid
     items="{{ items3 }}"
@@ -55,11 +65,37 @@
     columns="{{ 3 }}"
     gridItemLayout="horizontal" />
 </ant-container>
+<ant-container title="2列-带描述">
+  <ant-grid
+    items="{{ items2withDesc }}"
+    onTap="handleTapItem"
+    iconSize="{{ 36 }}"
+    gridItemLayout="horizontal"
+    columns="{{ 2 }}" />
+</ant-container>
 <ant-container title="可滑动">
   <ant-grid
     items="{{ scrollItems }}"
     onTap="handleTapItem"
     mode="scroll" />
+</ant-container>
+<ant-container title="滑块可滑动">
+  <swiper
+    indicator-dots="{{ true }}"
+    autoplay="{{ true }}"
+    vertical="{{ false }}"
+    interval="{{ 1000 }}"
+    circular="{{ false }}"
+    duration="{{ 1500 }}"
+>
+  <swiper-item key="swiper-item-{{index}}" a:for="{{[1,2,3,4]}}">
+    <ant-grid
+      items="{{ [...items5, ...items5] }}"
+      onTap="handleTapItem"
+      columns="{{ 5 }}"
+     />
+    </swiper-item>
+</swiper>
 </ant-container>
 <ant-container title="自定义图标大小">
   <ant-grid

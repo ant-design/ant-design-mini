@@ -65,6 +65,9 @@
   top: 0;
   bottom: 0;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .ant-grid-item-horizontal .ant-grid-item-title {
   margin-top: 0;
