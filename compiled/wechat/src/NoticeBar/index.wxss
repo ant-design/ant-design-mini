@@ -6,29 +6,29 @@
   overflow: hidden;
   padding: 8px 12px;
   font-size: 15px;
-  color: #ff6010;
-  background-color: #fff9ed;
+  color: #FF6010;
+  background-color: #FFF9ED;
   box-sizing: border-box;
 }
 .ant-notice-bar-error {
   color: #ffffff;
-  background-color: #ff3141;
+  background-color: #FF3B30;
 }
 .ant-notice-bar-error-scroll-left,
 .ant-notice-bar-error-scroll-right {
-  background: #ff3141;
+  background: #FF3B30;
 }
 .ant-notice-bar-primary {
-  color: #1677ff;
-  background-color: #d0e4ff;
+  color: #1677FF;
+  background-color: #D0E4FF;
 }
 .ant-notice-bar-primary-scroll-left,
 .ant-notice-bar-primary-scroll-right {
-  background: #d0e4ff;
+  background: #D0E4FF;
 }
 .ant-notice-bar-info {
   color: #ffffff;
-  background: #666666;
+  background: #B2B2B2;
 }
 .ant-notice-bar-info-scroll-left,
 .ant-notice-bar-info-scroll-right {
@@ -49,6 +49,45 @@
   overflow: hidden;
   vertical-align: middle;
   line-height: 1.4;
+}
+.ant-notice-bar-content-enableMarquee {
+  position: relative;
+  z-index: 1;
+}
+.ant-notice-bar-content-enableMarquee::before {
+  content: ' ';
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 100%;
+  transform: scaleX(-1);
+}
+.ant-notice-bar-content-enableMarquee::after {
+  content: ' ';
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 22px;
+  height: 100%;
+}
+.ant-notice-bar-content-enableMarquee-default::before,
+.ant-notice-bar-content-enableMarquee-default::after {
+  background-image: linear-gradient(270deg, #FFF9ED 39%, rgba(255, 249, 237, 0) 100%);
+}
+.ant-notice-bar-content-enableMarquee-error::before,
+.ant-notice-bar-content-enableMarquee-error::after {
+  background-image: linear-gradient(270deg, #FF3B30 39%, rgba(255, 249, 237, 0) 100%);
+}
+.ant-notice-bar-content-enableMarquee-primary::before,
+.ant-notice-bar-content-enableMarquee-primary::after {
+  background-image: linear-gradient(270deg, #D0E4FF 39%, rgba(255, 249, 237, 0) 100%);
+}
+.ant-notice-bar-content-enableMarquee-info::before,
+.ant-notice-bar-content-enableMarquee-info::after {
+  background-image: linear-gradient(270deg, #B2B2B2 39%, rgba(255, 249, 237, 0) 100%);
 }
 .ant-notice-bar-marquee {
   overflow: hidden;

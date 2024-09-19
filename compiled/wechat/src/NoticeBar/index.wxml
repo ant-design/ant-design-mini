@@ -25,7 +25,7 @@
       type="SoundOutline"
     ></icon>
   </view>
-  <view class="ant-notice-bar-content ant-notice-bar-content{{$id ? '-' + $id : ''}}">
+  <view class="ant-notice-bar-content {{enableMarquee ? 'ant-notice-bar-content-enableMarquee ant-notice-bar-content-enableMarquee-' + type + '' : ''}} ant-notice-bar-content{{$id ? '-' + $id : ''}}">
     <view
       class="ant-notice-bar-marquee ant-notice-bar-marquee{{$id ? '-' + $id : ''}}"
       style="{{marqueeStyle}} display: {{enableMarquee ? 'inline-block' : 'block'}}"
