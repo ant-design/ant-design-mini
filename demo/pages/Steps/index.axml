@@ -11,23 +11,35 @@
 
 <container title="纵向步骤条">
   <steps
-    items="{{ items }}"
+    items="{{ items2 }}"
     direction="vertical" />
 </container>
 
 <container title="纵向步骤条失败">
   <steps
-    items="{{ items }}"
+    items="{{ items2 }}"
     status="error"
     current="{{ 1 }}"
     direction="vertical" />
 </container>
 <!-- #if ALIPAY -->
 <container title="自定义图标">
-  <steps items="{{ items }}">
-    <icon
+  <steps 
+    items="{{ items }}" 
+    status="error"
+    current="{{ 1 }}">
+    <block
       slot="icon"
-      type="SmileFill" />
+      slot-scope="item">
+      <icon
+        slot="icon"
+        a:if="{{ item.status == 'error' && item.current === item.index }}"
+        type="CloseCircleFill" />
+      <icon
+        slot="icon"
+        a:else
+        type="SmileFill" />
+    </block>
   </steps>
 </container>
 
