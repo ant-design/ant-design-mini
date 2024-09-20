@@ -2,19 +2,22 @@ Page({
     data: {
         rightBtns: [
             {
-                text: '设为常用',
+                text: '取消关注',
+                bgColor: '#CCCCCC',
+                color: '#fff',
+                width: 200,
+            },
+            {
+                text: '免打扰',
                 bgColor: '#1677FF',
                 color: '#fff',
+                width: 170,
             },
             {
                 text: '删除',
                 bgColor: '#FF2B00',
                 color: '#fff',
-            },
-            {
-                text: '往来记录',
-                bgColor: '#FFA91B',
-                color: '#fff',
+                width: 140,
             },
         ],
         swipeIndex: -1,
