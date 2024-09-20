@@ -37,6 +37,29 @@ Page({
                 content: '蚂蚁',
             },
         ],
+        items3: [
+            {
+                title: '选项一',
+            },
+            {
+                title: '选项二',
+            },
+            {
+                title: '选项三',
+            },
+            {
+                title: '选项四',
+            },
+            {
+                title: '选项五',
+            },
+            {
+                title: '选项六',
+            },
+            {
+                title: '选项七',
+            },
+        ],
     },
     onChange(current) {
         this.alert('current ' + current);

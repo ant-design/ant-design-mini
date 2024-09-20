@@ -4,6 +4,7 @@
 
 .@{tabsPrefix} {
   width: 100%;
+  line-height: 1.4;
   &-bar {
     position: relative;
     width: 100%;
@@ -11,9 +12,9 @@
     align-content: stretch;
     background-color: @tabs-inverse-color;
     box-sizing: border-box;
-    &-underline {
-      border-bottom: @border-width-standard solid @COLOR_BORDER;
-    }
+    // &-underline {
+    //   // border-bottom: @border-width-standard solid @COLOR_BORDER;
+    // }
     &-fade {
       position: absolute;
       top: 0;
@@ -107,13 +108,16 @@
       position: relative;
       display: flex;
       align-items: center;
-      padding: @v-spacing-standard @h-spacing-large;
+      padding: 20 * @rpx;
       box-sizing: border-box;
     }
 
     &-basic&-active {
       color: @tabs-active-color;
       position: relative;
+      .ant-tabs-bar-basic-title {
+        font-weight: 500;
+      }
       &:after {
         content: '';
         position: absolute;
@@ -139,9 +143,8 @@
         justify-content: center;
         margin-right: 0;
         padding: @v-spacing-standard 30 * @rpx;
-        font-size: 30 * @rpx;
+        font-size: 16 * @rpx 30 * @rpx;
         text-align: center;
-        line-height: @line-height-base;
         border-radius: 10vh;
         background-color: @COLOR_GREY_CARD;
         border-bottom: 0 none;
@@ -159,22 +162,21 @@
       padding: @v-spacing-large 0;
       text-align: center;
       &-title {
-        margin: 2 * @rpx 0;
         position: relative;
       }
 
       &-subtitle {
         padding: 0 @h-spacing-standard;
         font-size: @font-size-content;
-        line-height: @line-height-paragraph;
+        line-height: 37 * @rpx;
         color: @tabs-weaken-color;
         border-radius: 50vh;
         background-color: @COLOR_GREY_CARD;
-        margin: 2 * @rpx 0;
       }
     }
     &-mixin&-active &-mixin-title {
       color: @tabs-active-color;
+      font-weight: 500;
     }
     &-mixin&-active &-mixin-subtitle {
       color: @COLOR_WHITE;
@@ -199,6 +201,7 @@
 .@{vtabsPrefix} {
   width: 100%;
   display: flex;
+  line-height: 1.4;
   flex-direction: row;
   &-bar {
     width: 210 * @rpx;
@@ -216,7 +219,7 @@
     &-item {
       position: relative;
       width: 100%;
-      padding: @size-4 @h-spacing-large;
+      padding: 30 * @rpx 60 * @rpx;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -232,15 +235,8 @@
       &-active {
         color: @COLOR_BRAND1;
         background-color: @COLOR_CARD;
-        &::after {
-          position: absolute;
-          content: '';
-          top: @size-4;
-          bottom: @size-4;
-          left: 0;
-          width: @border-width-thick;
-          border-radius: @corner-radius-sm;
-          background-color: @COLOR_BRAND1;
+        .ant-vtabs-bar-item-title {
+          font-weight: 500;
         }
       }
       &-disabled {

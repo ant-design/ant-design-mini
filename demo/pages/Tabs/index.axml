@@ -12,11 +12,21 @@
   </tabs>
 </container>
 <!-- #endif -->
-<container title="胶囊">
+<container title="胶囊-自定义标题">
   <tabs
     type="capsule"
-    items="{{ items }}"
-    defaultCurrent="{{ 1 }}" />
+    items="{{ items3 }}"
+    defaultCurrent="{{ 1 }}">
+    <block slot="title" slot-scope="item">
+      <block a:if="{{ item.index > 3 }}">
+        {{ item.value.title }}
+      </block>
+      <block a:else>
+        {{ item.value.title }}
+        <text class="extra-title">({{ item.index }})</text>
+      </block>
+    </block>
+  </tabs>
 </container>
 <container title="带副标题">
   <tabs
@@ -46,7 +56,7 @@
     onChange="onChange" />
 </container>
 <container title="plus按钮">
-  <tabs items="{{ items }}">
+  <tabs items="{{ items3 }}">
     <view slot="plus">
       <icon
         type="AddOutline"

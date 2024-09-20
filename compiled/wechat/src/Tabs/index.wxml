@@ -98,7 +98,7 @@
           <view
             id="ant-tabs-bar-item{{$id ? '-' + $id : ''}}-{{index}}"
             class="ant-vtabs-bar-item {{tabClassName ? tabClassName : ''}} {{mixin.value === index && !item.disabled ? 'ant-vtabs-bar-item-active' : ''}} {{item.disabled ? 'ant-vtabs-bar-item-disabled' : ''}} {{mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : ''}}"
-            style="{{mixin.value + 1 === index ? 'border-radius: 0 16rpx 0 0' : ''}};{{mixin.value - 1 === index ? 'border-radius: 0 0 16rpx 0' : ''}}"
+            style="{{mixin.value + 1 === index ? 'border-radius: 0 24rpx 0 0' : ''}};{{mixin.value - 1 === index ? 'border-radius: 0 0 16rpx 0' : ''}}"
             bind:tap="onChange"
             data-index="{{index}}"
           >
