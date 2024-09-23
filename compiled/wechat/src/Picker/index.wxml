@@ -7,6 +7,7 @@
   style="{{style || ''}}"
   bind:tap="onOpen"
 >
+  <slot name="prefix"></slot>
   <view class="ant-picker-value">
     <view
       wx:if="{{formatValue}}"
@@ -19,6 +20,7 @@
       >{{placeholder}}</view>
     </block>
   </view>
+  <slot name="suffix"></slot>
 </view>
 <ant-popup
   className="ant-picker-popup {{popClassName || ''}}"
@@ -37,7 +39,9 @@
       hoverStayTime="50"
       bind:tap="onCancel"
     >{{cancelText}}</view>
-    <view class="ant-picker-header-item ant-picker-header-title"></view>
+    <view class="ant-picker-header-item ant-picker-header-title">
+      <view>{{title}}</view>
+    </view>
     <view
       class="ant-picker-header-item ant-picker-header-confirm"
       hoverClass="ant-picker-header-item-hover"
