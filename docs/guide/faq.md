@@ -19,7 +19,7 @@ $ npm install antd-mini-v0 antd-mini
 {
   "dependencies": {
     "antd-mini": "^2.25.0",
-    "antd-mini-v0": "^0.0.26"
+    "antd-mini-v0": "npm:antd-mini@^0.0.26"
   }
 }
 ```
