@@ -7,25 +7,35 @@
   style="{{style || ''}}"
   onTap="onOpen"
 >
-  <slot name="prefix"></slot>
+  <slot
+    name="prefix"
+    value="{{formatValue}}"
+  ></slot>
   <view class="ant-picker-value">
-    <slot name="content"></slot>
-    <view
-      a:if="{{formatValue}}"
-      class="ant-picker-value-text"
+    <slot
+      name="content"
+      value="{{formatValue}}"
     >
-      {{formatValue}}
-    </view>
-    <block a:else>
       <view
-        a:if="{{placeholder}}"
-        class="ant-picker-value-placeholder"
+        a:if="{{formatValue}}"
+        class="ant-picker-value-text"
       >
-        {{placeholder}}
+        {{formatValue}}
       </view>
-    </block>
+      <block a:else>
+        <view
+          a:if="{{placeholder}}"
+          class="ant-picker-value-placeholder"
+        >
+          {{placeholder}}
+        </view>
+      </block>
+    </slot>
   </view>
-  <slot name="suffix"></slot>
+  <slot
+    name="suffix"
+    value="{{formatValue}}"
+  ></slot>
 </view>
 <ant-popup
   className="ant-picker-popup {{popClassName || ''}}"
