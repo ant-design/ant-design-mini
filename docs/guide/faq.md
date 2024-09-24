@@ -7,11 +7,7 @@ toc: false
 ### 2.x 能否和 1.x, 0.x 一起使用
 
 因为 1.x 升级到 2.x 没有迁移成本，所以你可以直接从 1.x 升级到 2.x
-对于 0.x, 你可以使用 antd-mini-v0 这个 npm 包, 产物内容和 antd-mini@0.0.26 一模一样。
-
-```
-$ npm install antd-mini-v0 antd-mini
-```
+对于 0.x, 你可以使用 npm 别名来安装。
 
 在 `package.json` 文件中是这样定义的：
 
@@ -19,9 +15,13 @@ $ npm install antd-mini-v0 antd-mini
 {
   "dependencies": {
     "antd-mini": "^2.25.0",
-    "antd-mini-v0": "^0.0.26"
+    "antd-mini-v0": "npm:antd-mini@^0.0.26"
   }
 }
+```
+
+```
+$ npm install
 ```
 
 使用：
