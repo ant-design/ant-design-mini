@@ -6,25 +6,28 @@
   class="ant-picker {{ disabled ? 'ant-picker-disabled' : '' }} {{ className || '' }}"
   style="{{ style || '' }}"
   onTap="onOpen">
-  <slot name="prefix" />
+  <slot name="prefix" value="{{formatValue}}" />
   <view class="ant-picker-value">
     <!-- #if ALIPAY -->
-    <slot name="content" />
+    <slot name="content" value="{{formatValue}}" >
     <!-- #endif -->
-    <view
-      a:if="{{ formatValue }}"
-      class="ant-picker-value-text">
-      {{ formatValue }}
-    </view>
-    <block a:else>
       <view
-        a:if="{{ placeholder }}"
-        class="ant-picker-value-placeholder">
-        {{ placeholder }}
+        a:if="{{ formatValue }}"
+        class="ant-picker-value-text">
+        {{ formatValue }}
       </view>
-    </block>
+      <block a:else>
+        <view
+          a:if="{{ placeholder }}"
+          class="ant-picker-value-placeholder">
+          {{ placeholder }}
+        </view>
+      </block>
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
   </view>
-  <slot name="suffix" />
+  <slot name="suffix" value="{{formatValue}}" />
 </view>
 <ant-popup
   className="ant-picker-popup {{ popClassName || '' }}"

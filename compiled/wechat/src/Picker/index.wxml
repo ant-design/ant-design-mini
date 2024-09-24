@@ -7,7 +7,10 @@
   style="{{style || ''}}"
   bind:tap="onOpen"
 >
-  <slot name="prefix"></slot>
+  <slot
+    name="prefix"
+    value="{{formatValue}}"
+  ></slot>
   <view class="ant-picker-value">
     <view
       wx:if="{{formatValue}}"
@@ -20,7 +23,10 @@
       >{{placeholder}}</view>
     </block>
   </view>
-  <slot name="suffix"></slot>
+  <slot
+    name="suffix"
+    value="{{formatValue}}"
+  ></slot>
 </view>
 <ant-popup
   className="ant-picker-popup {{popClassName || ''}}"

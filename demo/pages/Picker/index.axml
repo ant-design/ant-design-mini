@@ -37,7 +37,10 @@
       value="{{ value }}"
       placeholder="请选择"
       title="请选择"
-      options="{{ list }}" />
+      options="{{ list }}"
+    >
+      <view slot="content" slot-scope="prop" >已选择：{{prop.value}}</view>
+    </ant-picker>
   </ant-list-item>
   <view class="btn-wrapper">
     <ant-button
