@@ -2,7 +2,11 @@
   class="ant-input {{ disabled ? 'ant-input-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{ style || '' }};{{ focusStyle || '' }}">
   <view class="ant-input-prefix">
-    <slot name="prefix">{{ prefix }}</slot>
+    <slot name="prefix">
+      <!-- #if ALIPAY -->
+      {{ prefix }}
+      <!-- #endif -->
+    </slot>
   </view>
   <view class="ant-input-line">
     <!-- #if ALIPAY -->
@@ -75,6 +79,10 @@
     </view>
   </view>
   <view class="ant-input-suffix">
-    <slot name="suffix">{{ suffix }}</slot>
+    <slot name="suffix">
+      <!-- #if ALIPAY -->
+      {{ suffix }}
+      <!-- #endif -->
+    </slot>
   </view>
 </view>
