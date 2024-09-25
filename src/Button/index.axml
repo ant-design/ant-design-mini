@@ -21,6 +21,7 @@
 <!-- #endif -->
 <!-- #if WECHAT -->
 <button
+  disabled="{{ disabled }}"
   form-type="{{ formType }}"
   hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"
   scope="{{ scope }}"
