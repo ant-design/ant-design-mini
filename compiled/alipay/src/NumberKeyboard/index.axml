@@ -38,7 +38,7 @@
               <view
                 data-key="{{itemKey}}"
                 class="ant-number-keyboard-kb_number"
-                onTap="tapButton"
+                onTouchStart="tapButton"
               >
                 {{itemKey}}
               </view>
@@ -57,21 +57,21 @@
             a:if="{{point}}"
             class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point ant-number-keyboard-kb_flex"
             data-key="."
-            onTap="tapButton"
+            onTouchStart="tapButton"
           >
             .
           </view>
           <view
             class="ant-number-keyboard-kb_number ant-number-keyboard-kb_zero ant-number-keyboard-kb_flex"
             data-key="0"
-            onTap="tapButton"
+            onTouchStart="tapButton"
           >
             0
           </view>
           <view
             class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point ant-number-keyboard-kb_flex {{point ? '' : 'ant-number-keyboard-kb_e'}}"
             data-key="del"
-            onTap="tapButton"
+            onTouchStart="tapButton"
           >
             <ant-icon
               type="TextDeletionOutline"
@@ -86,7 +86,7 @@
           <view
             class="ant-number-keyboard-kb_number ant-number-keyboard-kb_zero"
             data-key="0"
-            onTap="tapButton"
+            onTouchStart="tapButton"
           >
             0
           </view>
@@ -94,7 +94,7 @@
             a:if="{{point}}"
             class="ant-number-keyboard-kb_number ant-number-keyboard-kb_point"
             data-key="."
-            onTap="tapButton"
+            onTouchStart="tapButton"
           >
             .
           </view>
@@ -107,7 +107,7 @@
         <view
           class="ant-number-keyboard-kb_number ant-number-keyboard-kb_del"
           data-key="del"
-          onTap="tapButton"
+          onTouchStart="tapButton"
         >
           <ant-icon
             type="TextDeletionOutline"
@@ -116,7 +116,7 @@
         </view>
         <view
           style="opacity: {{confirmDisabled ? '0.5' : '1'}}"
-          onTap="tapButton"
+          onTouchStart="tapButton"
           class="ant-number-keyboard-kb_transfer"
           data-key="enter"
         >
