@@ -1,10 +1,8 @@
 ---
-
-toc: false
-
+order: 7
 ---
 
-## 参与 antd-mini 建设
+# 参与 antd-mini 建设
 
 antd-mini 的发展离不开社区的每一位用户。为了帮助你参与共建，这里列出了一些必要的信息。
 
