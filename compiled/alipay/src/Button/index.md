@@ -9,7 +9,7 @@ toc: 'content'
 
 # Button 按钮
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 用于开始一个即时操作。
 
@@ -21,19 +21,19 @@ toc: 'content'
 
 ### 基本使用
 
-<code src='pages/Button/index'></code>
+<!-- <code src='pages/Button/index'></code> -->
 
 ### Inline
 
-<code src='pages/ButtonInline/index'></code>
+<!-- <code src='pages/ButtonInline/index'></code> -->
 
 ### Icon
 
-<code src='pages/ButtonIcon/index'></code>
+<!-- <code src='pages/ButtonIcon/index'></code> -->
 
 ### 更多自定义
 
-<code src='pages/ButtonCustom/index'></code>
+<!-- <code src='pages/ButtonCustom/index'></code> -->
 
 ## API
 

@@ -9,7 +9,7 @@ toc: 'content'
 
 # NumberKeyboard 数字键盘
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 ## 何时使用
 
@@ -23,19 +23,19 @@ toc: 'content'
 
 ### 基本使用
 
-<code src='pages/NumberKeyboard/index'></code>
+<!-- <code src='pages/NumberKeyboard/index'></code> -->
 
 ### 数字输入框
 
-<code src='pages/NumberKeyboardNumber/index'></code>
+<!-- <code src='pages/NumberKeyboardNumber/index'></code> -->
 
 ### 金额输入框
 
-<code src='pages/NumberKeyboardAmount/index'></code>
+<!-- <code src='pages/NumberKeyboardAmount/index'></code> -->
 
 ### 验证码输入框
 
-<code src='pages/NumberKeyboardCode/index'></code>
+<!-- <code src='pages/NumberKeyboardCode/index'></code> -->
 
 ## API
 

@@ -8,7 +8,7 @@ toc: 'content'
 ---
 # Picker 选择器
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 Picker 选择器显示一个或多个选项集合的可滚动列表，相比于原生 picker，实现了 iOS 与 Android 端体验的一致性。
 
@@ -19,10 +19,10 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
 
 ## 代码示例
 ### 基本使用
-<code src='pages/Picker/index'></code>
+<!-- <code src='pages/Picker/index'></code> -->
 
 ### 级联Picker
-<code src='pages/CascaderPicker/index'></code>
+<!-- <code src='pages/CascaderPicker/index'></code> -->
 
 ## API
 ### Picker

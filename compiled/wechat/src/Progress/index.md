@@ -9,7 +9,7 @@ toc: 'content'
 
 # Progress 进度条
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 用于展示用户操作、任务的进度。
 
@@ -17,11 +17,11 @@ toc: 'content'
 
 ### line
 
-<code src='pages/ProgressLine/index'></code>
+<!-- <code src='pages/ProgressLine/index'></code> -->
 
 ### circle
 
-<code src='pages/ProgressCircle/index'></code>
+<!-- <code src='pages/ProgressCircle/index'></code> -->
 
 ## API
 

@@ -23,7 +23,7 @@ toc: content
 
 ### 基础用法
 
-<code src='pages/Typography/index'></code>
+<!-- <code src='pages/Typography/index'></code> -->
 
 ## 属性
 

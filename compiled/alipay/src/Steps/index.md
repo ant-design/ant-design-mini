@@ -9,7 +9,7 @@ toc: 'content'
 
 # Steps 步骤条
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 引导用户按照流程完成任务的导航条。
 
@@ -21,11 +21,11 @@ toc: 'content'
 
 ### 基本使用
 
-<code src='pages/Steps/index'></code>
+<!-- <code src='pages/Steps/index'></code> -->
 
 ### 受控模式
 
-<code src='pages/StepsControl/index'></code>
+<!-- <code src='pages/StepsControl/index'></code> -->
 
 ## API
 

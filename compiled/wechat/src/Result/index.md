@@ -9,7 +9,7 @@ toc: 'content'
 
 # Result 操作结果
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 对前一步操作的结果进行反馈。
 
@@ -19,7 +19,7 @@ toc: 'content'
 
 ## 代码示例
 
-<code src='pages/Result/index'></code>
+<!-- <code src='pages/Result/index'></code> -->
 
 ## API
 

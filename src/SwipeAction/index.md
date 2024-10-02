@@ -9,7 +9,7 @@ toc: 'content'
 
 # SwipeAction 滑动组件
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 列表的功能扩展。
 
@@ -29,43 +29,43 @@ toc: 'content'
 
 ### 基础用法
 
-<code src='pages/SwipeAction/index'></code>
+<!-- <code src='pages/SwipeAction/index'></code> -->
 
 ### 按钮在左侧
 
-<code src='pages/SwipeActionLeft/index'></code>
+<!-- <code src='pages/SwipeActionLeft/index'></code> -->
 
 ### 改变按钮数量
 
-<code src='pages/SwipeActionNumber/index'></code>
+<!-- <code src='pages/SwipeActionNumber/index'></code> -->
 
 ### 禁用滑动回弹
 
-<code src='pages/SwipeActionAnimation/index'></code>
+<!-- <code src='pages/SwipeActionAnimation/index'></code> -->
 
 ### 设置按钮宽度
 
-<code src='pages/SwipeActionWidth/index'></code>
+<!-- <code src='pages/SwipeActionWidth/index'></code> -->
 
 ### 设置滑动速度
 
-<code src='pages/SwipeActionSpeed/index'></code>
+<!-- <code src='pages/SwipeActionSpeed/index'></code> -->
 
 ### 按钮点击二次确认
 
-<code src='pages/SwipeActionTap/index'></code>
+<!-- <code src='pages/SwipeActionTap/index'></code> -->
 
 ### 按钮滑出最大距离二次确认
 
-<code src='pages/SwipeActionMove/index'></code>
+<!-- <code src='pages/SwipeActionMove/index'></code> -->
 
 ### 左右两侧都有按钮
 
-<code src='pages/SwipeActionLeftRight/index'></code>
+<!-- <code src='pages/SwipeActionLeftRight/index'></code> -->
 
 ### 自定义按钮
 
-<code src='pages/SwipeActionSlot/index'></code>
+<!-- <code src='pages/SwipeActionSlot/index'></code> -->
 
 ## API
 

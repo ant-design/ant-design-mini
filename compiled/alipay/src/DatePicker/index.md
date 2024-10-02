@@ -11,13 +11,13 @@ toc: 'content'
 
 # DatePicker 时间选择器
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 相比于原生 `my.datePicker`，实现了 iOS 与 Android 端体验一致。
 
 ## 代码示例
 
-<code src='pages/DatePicker/index'></code>
+<!-- <code src='pages/DatePicker/index'></code> -->
 
 ## API
 

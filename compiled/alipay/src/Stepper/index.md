@@ -9,7 +9,7 @@ toc: 'content'
 
 # Stepper 步进器
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 一种两段式控制，用于增加、减少或修改数值。
 
@@ -19,7 +19,7 @@ toc: 'content'
 
 ## 代码示例
 
-<code src='pages/Stepper/index'></code>
+<!-- <code src='pages/Stepper/index'></code> -->
 
 ## API
 

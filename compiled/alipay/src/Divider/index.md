@@ -8,7 +8,7 @@ toc: 'content'
 
 # Divider 分割线
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 区隔内容的分割线。
 
@@ -18,7 +18,7 @@ toc: 'content'
 - 对行内文字/链接进行分割，例如表格的操作列。
 
 ## 代码示例
-<code src='pages/Divider/index'></code>
+<!-- <code src='pages/Divider/index'></code> -->
 
 ## API
 

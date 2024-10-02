@@ -9,7 +9,7 @@ toc: 'content'
 
 # Icon 图标
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 语义化的矢量图形。
 
@@ -25,7 +25,7 @@ toc: 'content'
 
 ## 代码示例
 
-<code src='pages/Icon/index' noChangeButton></code>
+<!-- <code src='pages/Icon/index' noChangeButton></code> -->
 
 
 ## API

@@ -9,7 +9,7 @@ toc: 'content'
 
 # Container 容器
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 通用卡片容器。
 
@@ -19,7 +19,7 @@ toc: 'content'
 
 ## 代码示例
 
-<code src='pages/Container/index'></code>
+<!-- <code src='pages/Container/index'></code> -->
 
 ## API
 

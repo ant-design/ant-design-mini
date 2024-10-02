@@ -9,7 +9,7 @@ toc: 'content'
 
 # Empty 空状态
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 使用场景插画来作为空状态场景的反馈提示。
 
@@ -19,7 +19,7 @@ toc: 'content'
 
 ## 代码示例
 
-<code src='pages/Empty/index'></code>
+<!-- <code src='pages/Empty/index'></code> -->
 
 ## API
 

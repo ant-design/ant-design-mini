@@ -9,7 +9,7 @@ toc: content
 
 # Input 输入框
 
-<code src="../../docs/components/compatibility.tsx" inline></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline></code> -->
 
 通过键盘输入内容，是最基础的表单域包装。
 
@@ -21,19 +21,19 @@ toc: content
 
 ### Input 基本使用
 
-<code src='pages/Input/index'></code>
+<!-- <code src='pages/Input/index'></code> -->
 
 ### SearchBar 搜索框
 
-<code src='pages/InputSearchBar/index'></code>
+<!-- <code src='pages/InputSearchBar/index'></code> -->
 
 ### Textarea
 
-<code src='pages/InputTextarea/index'></code>
+<!-- <code src='pages/InputTextarea/index'></code> -->
 
 ### 自定义
 
-<code src='pages/InputCustom/index'></code>
+<!-- <code src='pages/InputCustom/index'></code> -->
 
 ## API
 

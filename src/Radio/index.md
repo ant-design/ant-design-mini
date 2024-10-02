@@ -9,7 +9,7 @@ toc: 'content'
 
 # Radio 单选框
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 在一组可选项中进行单选。
 
@@ -21,11 +21,11 @@ toc: 'content'
 
 ### Radio
 
-<code src='pages/Radio/index'></code>
+<!-- <code src='pages/Radio/index'></code> -->
 
 ### RadioGroup
 
-<code src='pages/RadioGroup/index'></code>
+<!-- <code src='pages/RadioGroup/index'></code> -->
 
 ## API
 

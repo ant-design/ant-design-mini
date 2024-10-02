@@ -9,7 +9,7 @@ toc: 'content'
 
 # GuideTour 新手引导
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 蒙层与自定义卡片的引导组件。
 
@@ -19,7 +19,7 @@ toc: 'content'
 
 ## 代码示例
 
-<code src='pages/GuideTour/index'></code>
+<!-- <code src='pages/GuideTour/index'></code> -->
 
 ## API
 

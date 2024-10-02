@@ -59,7 +59,7 @@ Page({
 
 以下是 antd-mini 中已经适配微信小程序的组件列表，您可以直接在项目中使用这些组件。
 
-<code src="../components/wechat-component.tsx" inline="true"></code>
+<!-- <code src="../components/wechat-component.tsx" inline="true"></code> -->
 
 ## 参考文档
 

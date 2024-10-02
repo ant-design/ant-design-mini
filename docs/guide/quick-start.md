@@ -38,4 +38,4 @@ $ npm i antd-mini --save
 
 ## 查看示例
 
-<code src='pages/Button/index'></code>
+<!-- <code src='pages/Button/index'></code> -->

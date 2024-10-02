@@ -9,17 +9,17 @@ toc: 'content'
 
 # Rate 评分
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 用于展示事物评级以及快速打分的组件。
 
 ## 代码示例
 
-<code src='pages/Rate/index'></code>
+<!-- <code src='pages/Rate/index'></code> -->
 
 ### 自定义
 
-<code src='pages/RateCustom/index'></code>
+<!-- <code src='pages/RateCustom/index'></code> -->
 
 ## 属性
 

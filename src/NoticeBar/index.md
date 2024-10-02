@@ -9,7 +9,7 @@ toc: content
 
 # NoticeBar 通告栏
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 展示一组消息通知。
 
@@ -19,7 +19,7 @@ toc: content
 
 ## 代码示例
 
-<code src='pages/NoticeBar/index'></code>
+<!-- <code src='pages/NoticeBar/index'></code> -->
 
 ## API
 

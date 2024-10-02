@@ -9,7 +9,7 @@ toc: 'content'
 
 # Popover 气泡菜单
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 点击元素，弹出气泡式的菜单
 
 ## 何时使用
@@ -20,11 +20,11 @@ toc: 'content'
 
 ### 基本使用
 
-<code src='pages/Popover/index' noChangeButton></code>
+<!-- <code src='pages/Popover/index' noChangeButton></code> -->
 
 ### 结合 List 组件使用
 
-<code src='pages/PopoverList/index' noChangeButton></code>
+<!-- <code src='pages/PopoverList/index' noChangeButton></code> -->
 
 ## API
 

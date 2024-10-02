@@ -10,7 +10,7 @@ toc: 'content'
 
 # Selector 选择器组件
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 在一组选项中选择一个或多个。
 ## 何时使用
@@ -18,10 +18,10 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src="pages/Selector/index"></code>
+<!-- <code src="pages/Selector/index"></code> -->
 
 ### 使用 Selector 自定义 Filter
-<code src="pages/SelectorFilter/index"></code>
+<!-- <code src="pages/SelectorFilter/index"></code> -->
 
 ## API
 | 属性                 | 说明                  | 类型                   | 默认值 |

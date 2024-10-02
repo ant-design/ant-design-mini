@@ -9,7 +9,7 @@ toc: 'content'
 
 # Checkbox 复选框
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 在一组可选项中进行多选。
 
@@ -22,15 +22,15 @@ toc: 'content'
 
 ### 基本使用
 
-<code src='pages/Checkbox/index'></code>
+<!-- <code src='pages/Checkbox/index'></code> -->
 
 ### CheckboxGroup
 
-<code src='pages/CheckboxGroup/index'></code>
+<!-- <code src='pages/CheckboxGroup/index'></code> -->
 
 ### Checkbox 自定义分组
 
-<code src='pages/CheckboxCustomGroup/index'></code>
+<!-- <code src='pages/CheckboxCustomGroup/index'></code> -->
 
 ## API
 

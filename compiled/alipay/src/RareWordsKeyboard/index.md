@@ -9,7 +9,7 @@ toc: 'content'
 
 # RareWordsKeyboard 生僻字键盘
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 ## 何时使用
 
@@ -24,7 +24,7 @@ toc: 'content'
 
 ### 基本使用
 
-<code src='pages/RareWordsKeyboard/index'></code>
+<!-- <code src='pages/RareWordsKeyboard/index'></code> -->
 
 ## API
 

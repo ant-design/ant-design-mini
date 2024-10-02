@@ -9,7 +9,7 @@ toc: 'content'
 
 # IndexBar 索引
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 侧边索引组件
 
@@ -21,15 +21,15 @@ toc: 'content'
 
 ### 基本使用
 
-<code src='pages/IndexBar/index'></code>
+<!-- <code src='pages/IndexBar/index'></code> -->
 
 ### 结合列表使用
 
-<code src='pages/IndexBarScrollView/index'></code>
+<!-- <code src='pages/IndexBarScrollView/index'></code> -->
 
 ### 控制选中状态
 
-<code src='pages/IndexBarControl/index'></code>
+<!-- <code src='pages/IndexBarControl/index'></code> -->
 
 ## API
 

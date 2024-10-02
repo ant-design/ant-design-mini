@@ -8,7 +8,7 @@ toc: 'content'
 
 # ImageUpload 图片上传
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 用于将图片上传到服务器，并简略展示上传文件的信息及提供预览功能。
 
@@ -20,11 +20,11 @@ toc: 'content'
 
 ### 基本使用
 
-<code src='pages/ImageUpload/index'></code>
+<!-- <code src='pages/ImageUpload/index'></code> -->
 
 ### 受控模式
 
-<code src='pages/ImageUploadControl/index'></code>
+<!-- <code src='pages/ImageUploadControl/index'></code> -->
 
 ## API
 

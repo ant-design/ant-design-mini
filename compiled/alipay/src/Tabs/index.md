@@ -9,7 +9,7 @@ toc: 'content'
 
 # Tabs 标签页
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 内容组之间进行导航切换。
 ## 何时使用
@@ -18,35 +18,35 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<code src='pages/Tabs/index'></code>
+<!-- <code src='pages/Tabs/index'></code> -->
 
 ### 受控
-<code src='pages/TabsControl/index'></code>
+<!-- <code src='pages/TabsControl/index'></code> -->
 
 ### 滑动
-<code src='pages/TabsScroll/index'></code>
+<!-- <code src='pages/TabsScroll/index'></code> -->
 
 ### Swiper
-<code src='pages/TabsSwiper/index'></code>
+<!-- <code src='pages/TabsSwiper/index'></code> -->
 
 ### 电梯模式
 - 滚动会对应到 tab。
 - 点击 tab 可滚动到对应 tab title。
 - onChange 只会在 tab 切换触发，示例里自定义 title onTap 可滚动 current tab。
 
-<code src='pages/TabsElevator/index'></code>
+<!-- <code src='pages/TabsElevator/index'></code> -->
 
 ### 吸顶
 - 滑动到最顶部会吸顶。
 - 切换 tab content 会滚动到最顶部。
 
-<code src='pages/TabsSticky/index'></code>
+<!-- <code src='pages/TabsSticky/index'></code> -->
 
 ### 纵向模式
-<code src='pages/TabsVertical/index'></code>
+<!-- <code src='pages/TabsVertical/index'></code> -->
 
 ### 纵向电梯模式
-<code src='pages/TabsVerticalElevator/index'></code>
+<!-- <code src='pages/TabsVerticalElevator/index'></code> -->
 
 ## API
 | 属性 | 说明 | 类型 | 默认值 |

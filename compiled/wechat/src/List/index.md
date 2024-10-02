@@ -9,7 +9,7 @@ toc: 'content'
 
 # List 列表
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 通用列表可以干净高效地承载文字、列表、图片、段落等元素。
 
@@ -17,7 +17,7 @@ toc: 'content'
 当需要以列表的形式展示信息时使用。
 
 ## 代码示例
-<code src='pages/List/index'></code>
+<!-- <code src='pages/List/index'></code> -->
 
 ## API
 

@@ -9,7 +9,7 @@ toc: content
 
 # Avatar 头像
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 用来代表用户或事物。
 
@@ -19,7 +19,7 @@ toc: content
 
 ## 代码示例
 
-<code src='pages/Avatar/index'></code>
+<!-- <code src='pages/Avatar/index'></code> -->
 
 ## API
 

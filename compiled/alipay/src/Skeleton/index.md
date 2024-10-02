@@ -9,7 +9,7 @@ toc: 'content'
 
 # Skeleton 骨架屏
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 在需要等待加载内容的位置提供一个占位图形组合
 ## 何时使用
 - 网络较慢，需要长时间等待加载，并且只在第一次加载的时候使用。
@@ -18,7 +18,7 @@ toc: 'content'
 
 ## 代码示例
 
-<code src='pages/Skeleton/index'></code>
+<!-- <code src='pages/Skeleton/index'></code> -->
 
 ## API
 

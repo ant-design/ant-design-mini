@@ -9,13 +9,13 @@ toc: 'content'
 
 # PageContainer 页面容器
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 页面级容器组件，提供加载状态、页面异常处理、顶部/底部安全边距等常用能力，开箱即用。
 
 ## 代码示例
 
-<code src='pages/PageContainer/index'></code>
+<!-- <code src='pages/PageContainer/index'></code> -->
 
 ## API
 

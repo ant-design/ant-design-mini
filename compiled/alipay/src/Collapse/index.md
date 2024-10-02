@@ -9,7 +9,7 @@ toc: 'content'
 
 # Collapse 折叠面板
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 可以折叠/展开的内容区域。
 
@@ -22,23 +22,23 @@ toc: 'content'
 
 ### 基本使用
 
-<code src='pages/Collapse/index'></code>
+<!-- <code src='pages/Collapse/index'></code> -->
 
 ### 手风琴
 
-<code src='pages/CollapseAccordion/index'></code>
+<!-- <code src='pages/CollapseAccordion/index'></code> -->
 
 ### 控制
 
-<code src='pages/CollapseControl/index'></code>
+<!-- <code src='pages/CollapseControl/index'></code> -->
 
 ### 带 Checkbox
 
-<code src="pages/CollapseWithCheckbox/index"></code>
+<!-- <code src="pages/CollapseWithCheckbox/index"></code> -->
 
 ### 更多自定义
 
-<code src='pages/CollapseCustom/index'></code>
+<!-- <code src='pages/CollapseCustom/index'></code> -->
 
 
 ## API

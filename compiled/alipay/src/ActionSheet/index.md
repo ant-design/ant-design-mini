@@ -9,7 +9,7 @@ toc: 'content'
 
 # ActionSheet 动作面板
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 从底部弹出的动作菜单面板。
 
@@ -19,7 +19,7 @@ toc: 'content'
 
 ## 代码示例
 
-<code src='pages/ActionSheet/index'></code>
+<!-- <code src='pages/ActionSheet/index'></code> -->
 
 ## API
 

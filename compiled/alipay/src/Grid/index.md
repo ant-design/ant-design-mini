@@ -9,13 +9,13 @@ toc: 'content'
 
 # Grid 宫格
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 宫格用于业务中多个子功能的导航，相比于列表的形式，具有更高的屏效。
 
 ## 代码示例
 
-<code src='pages/Grid/index'></code>
+<!-- <code src='pages/Grid/index'></code> -->
 
 ## API
 

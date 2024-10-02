@@ -9,7 +9,7 @@ toc: 'content'
 
 # Switch 开关
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 Switch 开关选择器，比起原生 Switch，它实现了在 iOS 和 Android 端一致的体验。
 
@@ -20,7 +20,7 @@ Switch 开关选择器，比起原生 Switch，它实现了在 iOS 和 Android �
 
 ## 代码示例
 
-<code src='pages/Switch/index'></code>
+<!-- <code src='pages/Switch/index'></code> -->
 
 ## API
 

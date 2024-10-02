@@ -10,7 +10,7 @@ toc: 'content'
 
 # Tag 标签
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 用于标记和分类的小标签。
 
@@ -19,7 +19,7 @@ toc: 'content'
 - 进行分类。
 
 ## 代码示例
-<code src='pages/Tag/index'></code>
+<!-- <code src='pages/Tag/index'></code> -->
 
 
 
