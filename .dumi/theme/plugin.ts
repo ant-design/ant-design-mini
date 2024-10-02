@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-param-reassign */
+import { cache } from '@emotion/css';
+import createEmotionServer from '@emotion/server/create-instance';
+import { createHash } from 'crypto';
+import type { IApi } from 'dumi';
+import { defineTechStack } from 'dumi/tech-stack-utils';
 import fs from 'fs';
 import path from 'path';
-import { createHash } from 'crypto';
-import createEmotionServer from '@emotion/server/create-instance';
-import { cache } from '@emotion/css';
-import type { IApi } from 'dumi';
 
 function extractEmotionStyle(html: string) {
   if (html === undefined) {
@@ -22,8 +23,8 @@ function extractEmotionStyle(html: string) {
       key: cache.key,
       ids,
       css,
-      tag: `<style data-emotion="${cache.key} ${ids.join(' ')}">${css}</style>`
-    }
+      tag: `<style data-emotion="${cache.key} ${ids.join(' ')}">${css}</style>`,
+    },
   ];
 }
 
@@ -43,14 +44,37 @@ const dumiThemeUmiPlugin = (api: IApi) => {
     return fileName;
   };
 
+  // const CustomTechStack = () =>
+  //   defineTechStack({
+  //     name: 'mini-program',
+  //     runtimeOpts: {
+  //       compilePath: '...',
+  //       rendererPath: '...',
+  //       pluginPath: '...',
+  //     },
+  //     isSupported(node, lang) {
+  //       return true;
+  //     },
+  //     onBlockLoad(args) {
+  //       console.log('onBlockLoad', args);
+  //       // ...
+  //     },
+  //   });
+
   const addLinkStyle = (html: string, cssFile: string, prepend = false) => {
     const prefix = api.userConfig.publicPath || api.config.publicPath;
 
     if (prepend) {
-      return html.replace('<head>', `<head><link rel="stylesheet" href="${prefix + cssFile}">`);
+      return html.replace(
+        '<head>',
+        `<head><link rel="stylesheet" href="${prefix + cssFile}">`
+      );
     }
 
-    return html.replace('</head>', `<link rel="stylesheet" href="${prefix + cssFile}"></head>`);
+    return html.replace(
+      '</head>',
+      `<link rel="stylesheet" href="${prefix + cssFile}"></head>`
+    );
   };
 
   // add ssr css file to html
@@ -85,14 +109,21 @@ const dumiThemeUmiPlugin = (api: IApi) => {
           );
 
           // insert emotion style tags to head
-          file.content = file.content.replace('</head>', `${globalStyles}</head>`);
+          file.content = file.content.replace(
+            '</head>',
+            `${globalStyles}</head>`
+          );
 
           // 1. 提取 emotion 样式
           const styles = extractEmotionStyle(file.content);
 
           // 2. 提取每个样式到独立 css 文件
           styles.forEach((result) => {
-            const cssFile = writeCSSFile(result.key, result.ids.join(''), result.css);
+            const cssFile = writeCSSFile(
+              result.key,
+              result.ids.join(''),
+              result.css
+            );
             file.content = addLinkStyle(file.content, cssFile);
           });
 
@@ -111,7 +142,8 @@ const dumiThemeUmiPlugin = (api: IApi) => {
           file.content = addLinkStyle(file.content, cssFile, true);
 
           // Insert antd cssVar to head
-          const cssVarMatchRegex = /<style data-type="antd-css-var"[\S\s]+?<\/style>/;
+          const cssVarMatchRegex =
+            /<style data-type="antd-css-var"[\S\s]+?<\/style>/;
           const cssVarMatchList = file.content.match(cssVarMatchRegex) || [];
 
           cssVarMatchList.forEach((text) => {
@@ -126,6 +158,59 @@ const dumiThemeUmiPlugin = (api: IApi) => {
     }
     return files;
   });
+
+  // api.registerTechStack(CustomTechStack);
 };
 
 export default dumiThemeUmiPlugin;
+
+// api.register({
+//   key: 'dumi.registerCompiletime',
+//   fn: () => ({
+//     name: 'CustomDemoPreviewer',
+//     component: path.join(__dirname, './render'),
+//     transformer(opts) {
+//       console.log(opts);
+//       if (opts.attrs.src.startsWith('pages')) {
+//         const pageElem = opts.attrs.src.split('/');
+//         pageElem.pop();
+//         const folder = pageElem.join('/') + '/';
+//         return {
+//           previewerProps: {
+//             herboxUrl: `/preview.html?page=${
+//               opts.attrs.src
+//             }&folder=${folder}&theme=light&compilerServer=${
+//               process.env.SERVER || ''
+//             }&noChangeButton=${opts.attrs.nochangebutton || ''}`,
+//           },
+//         };
+//       }
+//     },
+//   }),
+// });
+
+// api.addBeforeMiddlewares(() => [
+//   (req, res, next) => {
+//     console.log(req.path);
+//     if (req.path === '/preview.html') {
+//       fs.createReadStream(
+//         path.join(__dirname, '../.dumi/theme/builtins/iframe.html')
+//       ).pipe(res);
+//       return;
+//     }
+//     if (req.path.startsWith('/sourceCode/')) {
+//       const page = req.path.replace('/sourceCode/', '');
+//       getSourceCode({
+//         page,
+//         theme: req.query.theme,
+//         platform: req.query.platform,
+//       }).then((json) => res.json(json));
+//       return;
+//     }
+//     if (req.url === '/mini/packageInfo.json') {
+//       res.json({});
+//       return;
+//     }
+//     next();
+//   },
+// ]);

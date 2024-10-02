@@ -1,18 +1,35 @@
 {
   "compilerOptions": {
-    "strict": true,
+    "strictNullChecks": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "declaration": true,
-    "skipLibCheck": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "jsx": "react",
+    "experimentalDecorators": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": false,
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es2021"
+    ],
+    "skipLibCheck": true,
+    "stripInternal": true,
     "baseUrl": "./",
     "paths": {
       "@@/*": [
         ".dumi/tmp/*"
       ],
+      "dumi/theme/*": [
+        ".dumi/theme/*"
+      ],
     }
   },
-  "include": [
-    ".dumirc.ts",
+  "exclude": [
+    "node_modules"
   ]
 }

@@ -5,15 +5,15 @@ import classNames from 'classnames';
 import DayJS from 'dayjs';
 import { useRouteMeta } from 'dumi';
 import type { FC, ReactNode } from 'react';
-import { useMemo, useContext } from 'react';
-import PrevAndNext from '../../common/PrevAndNext';
-import LastUpdated from '../../common/LastUpdated';
+import { useContext, useMemo } from 'react';
 import EditLink from '../../common/EditLink';
+import LastUpdated from '../../common/LastUpdated';
+import PrevAndNext from '../../common/PrevAndNext';
 import useSiteToken from '../../hooks/useSiteToken';
 import Footer from '../Footer';
 import SiteContext from '../SiteContext';
+// import DocAnchor from './DocAnchor';
 import InViewSuspense from './InViewSuspense';
-import DocAnchor from './DocAnchor';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -77,7 +77,7 @@ const useStyle = () => {
       }
     `,
     articleWrapper: css`
-      padding: 0 170px 32px 64px;
+      padding: 0 412px 32px 64px;
       flex: 1;
 
       &.rtl {
@@ -102,7 +102,7 @@ const useStyle = () => {
     colContent: css`
       display: flex;
       flex-direction: column;
-    `
+    `,
   };
 };
 
@@ -111,10 +111,11 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
   const styles = useStyle();
   const { direction } = useContext(SiteContext);
 
-  const debugDemos = useMemo(
-    () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
-    [meta]
-  );
+  // const debugDemos = useMemo(
+  //   () =>
+  //     meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
+  //   [meta]
+  // );
 
   const isShowTitle = useMemo(() => {
     const title = meta.frontmatter?.title || meta.frontmatter.subtitle;
@@ -130,25 +131,37 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
   const isRTL = direction === 'rtl';
 
   return (
-    <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24} css={styles.colContent}>
+    <Col
+      xxl={20}
+      xl={19}
+      lg={18}
+      md={18}
+      sm={24}
+      xs={24}
+      css={styles.colContent}
+    >
       {!!meta.frontmatter.toc && (
         <InViewSuspense fallback={null}>
-          <DocAnchor debugDemos={debugDemos} />
+          {/* 锚点链接区域全局被替换成 模拟器 */}
+          {/* <DocAnchor debugDemos={debugDemos} /> */}
         </InViewSuspense>
       )}
 
-      <article css={styles.articleWrapper} className={classNames({ rtl: isRTL })}>
+      <article
+        css={styles.articleWrapper}
+        className={classNames({ rtl: isRTL })}
+      >
         {isShowTitle ? (
           <Typography.Title
             style={{
-              fontSize: 30
+              fontSize: 30,
             }}
           >
             {meta.frontmatter?.title}
             {meta.frontmatter.subtitle && (
               <span
                 style={{
-                  marginLeft: 12
+                  marginLeft: 12,
                 }}
               >
                 {meta.frontmatter.subtitle}
@@ -161,7 +174,7 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
         {meta.frontmatter.date || meta.frontmatter.author ? (
           <Typography.Paragraph
             style={{
-              opacity: 0.65
+              opacity: 0.65,
             }}
           >
             <Space>
@@ -172,15 +185,17 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
                 </span>
               )}
               {meta.frontmatter.author &&
-                (meta.frontmatter.author as string)?.split(',')?.map((author) => (
-                  <Typography.Link
-                    href={`https://github.com/${author}`}
-                    key={author}
-                    target="_blank"
-                  >
-                    {`@${author}`}
-                  </Typography.Link>
-                ))}
+                (meta.frontmatter.author as string)
+                  ?.split(',')
+                  ?.map((author) => (
+                    <Typography.Link
+                      href={`https://github.com/${author}`}
+                      key={author}
+                      target="_blank"
+                    >
+                      {`@${author}`}
+                    </Typography.Link>
+                  ))}
             </Space>
           </Typography.Paragraph>
         ) : null}

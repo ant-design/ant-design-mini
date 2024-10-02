@@ -1,0 +1,170 @@
+
+<!doctype html>
+<html>
+<head>
+  <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/wNkELvnLHXPAlmqutRPI.png" type="image/x-icon">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.1.3/web/preview.css" />
+  <link rel="preload" href="/preview.json" as="fetch" crossorigin>
+  <link rel="preload" href="/preview-theme-dark.json" as="fetch" crossorigin>
+  <style>
+    body {
+      margin: 0;
+    }
+    #root {
+      width: 100vw;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+  </div>
+  <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react/18.0.0/umd/react.production.min.js"></script>
+  <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react-dom/18.0.0/umd/react-dom.production.min.js"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/alipay/openbox-preview/1.1.3/web/preview.js"></script>
+  <script>
+    const searchParams = new URL(location.href).searchParams;
+    const theme = searchParams.get('less-theme');
+    const page = searchParams.get('page');
+    const platform = searchParams.get('platform');
+
+
+    function getDist() {
+      const server = searchParams.get('compilerServer');
+      const list = ['appConfig.json', 'index.js', 'index.worker.js', 'index.html'];
+      return Promise.all(list.map(item => fetch(`${server}/${item}`).then(res => res.text()))).then(arr => {
+        const dist = {};
+        list.forEach((item, index) => {
+          dist[item] = arr[index];
+        });
+        return dist;
+      });
+    }
+
+    function getSourceCode() {
+      return fetch(`/sourceCode/${page}?theme=${theme}&platform=${platform}`).then(res => res.json());
+    }
+
+    function getExtName(name) {
+      const arr = name.split('.');
+      return `.${arr[arr.length - 1]}`;
+    }
+
+    function sortMiniPageFile(files) {
+      const map = {
+        '.axml': 0,
+        '.wxml': 0,
+        '.js': 1,
+        '.acss': 2,
+        '.wxss': 2,
+        '.sjs': 3,
+        '.wxs': 3,
+        '.json': 4,
+      };
+      files.sort((a, b) => {
+        const arrA = a.split('/');
+        const arrB = b.split('/');
+        const lenA = arrA.length;
+        const lenB = arrB.length;
+        if (lenA === lenB) {
+          const nameA = arrA.slice(0, -1).join('/');
+          const nameB = arrB.slice(0, -1).join('/');
+          if (nameA === nameB) {
+            const result = map[getExtName(a)] - map[getExtName(b)];
+            if (result === 0) {
+              if (arrA[arrA.length - 1].startsWith('index')) {
+                return -1;
+              }
+              if (arrB[arrB.length - 1].startsWith('index')) {
+                return 1;
+              }
+              if (arrA[arrA.length - 1] < arrB[arrB.length - 1]) {
+                return -1;
+              }
+              return 1;
+            }
+            return result;
+          }
+          return nameA < nameB ? -1 : 1;
+        }
+        if (lenA < lenB) {
+          return -1;
+        }
+        return 1;
+      });
+      return files;
+    }
+
+    async function startWebOpenBoxPreviewApp() {
+      let dist;
+      let sourceCode;
+      if (location.port) {
+        const arr = await Promise.all([
+          getDist(),
+          getSourceCode(),
+        ]);
+        dist = arr[0];
+        sourceCode = arr[1];
+      } else {
+        const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());
+        dist = obj.dist;
+        sourceCode = {};
+        const str = page.replace('index', '');
+        Object.keys(obj.sourceCode[platform]).forEach(item => {
+          if (item.startsWith(str)) {
+            sourceCode[item] = obj.sourceCode[platform][item];
+          }
+        });
+      }
+      sourceCode['mini.project.json'] = JSON.stringify({
+        enableAppxNg: true,
+        component2: true,
+      }, null, 2);
+      sourceCode['app.json'] = JSON.stringify({
+        "pages": [
+          `${searchParams.get('folder')}index`
+        ],
+        "window": {
+          "enableWK": "YES",
+          "enableDSL": "YES",
+          "enableJSC": "YES",
+          "defaultTitle": "小程序版 antd-mini 库",
+          "titleBarColor": "#FFFFFF",
+          "pullRefresh": false,
+          "allowsBounceVertical": false,
+          "enableInPageRenderInput": "YES"
+        },
+      }, null, 2);
+      window.OpenBoxPreview.StartWebOpenBoxPreviewApp({
+        containerStyle: {
+          width: '100%',
+          height: '100%',
+        },
+        sourceCode,
+        dist,
+        isShowToolbar: true,
+        toolbarOptions: {
+          isShowQrcode: false,
+          isShowDownload: true,
+          isShowEditMode: false,
+          isShowLyraRefresh: true,
+          isShowSwitchLyra: false
+        },
+        isShowHeaderLogo: false,
+        sortMiniPageFile
+      });
+      sourceCode['package.json'] = JSON.stringify({
+        "private": true,
+        "dependencies": {
+          "antd-mini": "latest"
+        },
+      }, null, 2);
+      sourceCode['app.js'] = `App({})`;
+      sourceCode['README.md'] = '需要先npm i';
+    }
+    startWebOpenBoxPreviewApp();
+  </script>
+</body>
+</html>
