@@ -65,58 +65,46 @@ export default defineConfig({
         },
       ],
     },
-    footer:
-      'Made with<span style="color: rgb(255, 255, 255);">❤</span>by <span>Rayhomie | Copyright © 2024-present</span>',
+    footer: `© 2024 Made with ❤ by
+        <a className={styles.copyrightLink} href='https://xtech.antfin.com' target='_blank'>
+          XTech
+        </a>`,
     github: 'https://github.com/ant-design/ant-design-mini',
     localesEnhance: [{ id: 'zh-CN', switchPrefix: '中' }],
     title: 'Ant Design Mini',
     description: {
-      'zh-CN': 'Ant Design 5.0 官网风格类似的 dumi2 主题插件',
+      'zh-CN': '探索移动端小程序的极致体验',
     },
     actions: {
       'zh-CN': [
         {
           type: 'primary',
-          text: '开始使用',
-          link: '/guide/introduce',
+          text: '快速上手',
+          link: '/guide/quick-start',
         },
         {
-          text: '配置',
-          link: '/config/base',
+          text: '在线体验',
+          link: '/components/button',
         },
       ],
     },
     features: {
       'zh-CN': [
         {
-          title: '内置全文搜索',
-          details:
-            '不需要接入任何三方服务，标题、正文、demo 等内容均可被搜索，支持多关键词搜索，且不会带来产物体积的增加。',
+          title: '高性能',
+          details: '无需配置，即可拥有最佳的包体积大小和极致的性能',
         },
         {
-          title: '更好的编译性能',
-          details:
-            '通过结合使用 Umi 4 MFSU、esbuild、SWC、持久缓存等方案，带来比 dumi 1.x 更快的编译速度。',
+          title: '可定制',
+          details: '可以高效地对组件外观进行调整或创造自己的主题',
         },
         {
-          title: 'SSR',
-          details:
-            '全面支持 SSR，让文档具有更好的首屏加载速度、更好的SEO效果、更快的内容到达率。',
+          title: '原子化',
+          details: '每个组件的功能不多也不少，恰好就是你所需',
         },
         {
-          title: '样式风格统一',
-          details:
-            '基于 antd 5.0 CSS-in-JS 样式加持，全面统一 dumi 内置样式，同时支持自定义主题加载。',
-        },
-        {
-          title: '功能增强',
-          details:
-            '在 dumi 内置 markdown 增强基础上新增特有 FrontMatter 配置，并且内置多种组件，使文档展示效果得以提升。',
-        },
-        {
-          title: '开箱即用',
-          details:
-            '接入简单，安装即使用，全面融入 Ant Design 风格，内置主题切换，紧凑模式等功能。',
+          title: '流畅感',
+          details: '拥有流畅的手势和细腻的动画，助力产品打造出极致体验',
         },
       ],
     },
@@ -133,20 +121,64 @@ export default defineConfig({
         title: '相关资源',
         items: [
           {
-            title: 'dumi',
-            description: '组件/文档研发工具',
-            url: 'https://d.umijs.org',
-            openExternal: true,
-          },
-          {
             title: 'Ant Design',
             url: 'https://ant.design',
             openExternal: true,
           },
           {
+            title: 'Ant Design Charts',
+            url: 'https://charts.ant.design',
+            openExternal: true,
+          },
+          {
+            title: 'Ant Design Pro',
+            url: 'https://pro.ant.design',
+            openExternal: true,
+          },
+          {
+            title: 'Ant Design Pro Components',
+            url: 'https://procomponents.ant.design',
+            openExternal: true,
+          },
+          {
+            title: 'Ant Design Mobile',
+            url: 'https://mobile.ant.design',
+            openExternal: true,
+          },
+          {
+            title: 'Ant Design Landing',
+            description: '首页模板集',
+            url: 'https://landing.ant.design',
+            openExternal: true,
+          },
+          {
+            title: 'Scaffolds',
+            description: '脚手架市场',
+            url: 'https://scaffold.ant.design',
+            openExternal: true,
+          },
+          {
             title: 'Umi',
-            description: 'React 应用开发框架',
+            description: 'react 应用开发框架',
             url: 'https://umijs.org',
+            openExternal: true,
+          },
+          {
+            title: 'Dumi',
+            description: '组件/文档研发工具',
+            url: 'https://d.umijs.org',
+            openExternal: true,
+          },
+          {
+            title: 'qiankun',
+            description: '微前端框架',
+            url: 'https://qiankun.umijs.org',
+            openExternal: true,
+          },
+          {
+            title: 'ahooks',
+            description: 'React Hooks 库',
+            url: 'https://github.com/alibaba/hooks',
             openExternal: true,
           },
           {
@@ -158,34 +190,49 @@ export default defineConfig({
         ],
       },
       {
+        title: '社区',
+        items: [
+          {
+            title: 'Awesome Ant Design',
+            url: 'https://github.com/websemantics/awesome-ant-design',
+            openExternal: true,
+          },
+          {
+            title: 'Medium',
+            url: 'http://medium.com/ant-design/',
+            openExternal: true,
+          },
+          {
+            title: 'Twitter',
+            url: 'http://twitter.com/antdesignui',
+            openExternal: true,
+          },
+          {
+            title: '体验科技专栏',
+            url: 'http://zhuanlan.zhihu.com/xtech',
+            openExternal: true,
+          },
+        ],
+      },
+      {
         title: '帮助',
         items: [
           {
             icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181695-b05fa72a-4ab5-479d-bb74-3d723755de47.png',
             title: 'GitHub',
-            url: 'https://github.com/KuangPF/dumi-theme-antd',
+            url: 'https://github.com/ant-design/ant-design-mini',
             openExternal: true,
-          },
-          {
-            icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181710-8e63ee99-ed71-4ee6-8507-d5ffac02ca51.png',
-            title: '更新日志',
-            url: '/dumi-theme-antd/guide/changelog',
-          },
-          {
-            icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181704-d443821a-38a2-490a-9aba-4955ceb8d89b.png',
-            title: '常见问题',
-            url: '/dumi-theme-antd/config/faq',
           },
           {
             icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181680-3b031d0f-1c51-48d2-a676-b2f82aa23e09.png',
             title: '报告 Bug',
-            url: 'https://github.com/KuangPF/dumi-theme-antd/issues/new',
+            url: 'https://github.com/ant-design/ant-design-mini/issues',
             openExternal: true,
           },
           {
             icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181701-b51d6a6f-3190-4525-80d0-43ac194437c9.png',
-            title: '议题',
-            url: 'https://github.com/KuangPF/dumi-theme-antd/issues',
+            title: '讨论列表',
+            url: 'https://github.com/ant-design/ant-design-mini/issues',
             openExternal: true,
           },
         ],
