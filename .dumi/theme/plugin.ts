@@ -4,7 +4,6 @@ import { cache } from '@emotion/css';
 import createEmotionServer from '@emotion/server/create-instance';
 import { createHash } from 'crypto';
 import type { IApi } from 'dumi';
-import { defineTechStack } from 'dumi/tech-stack-utils';
 import fs from 'fs';
 import path from 'path';
 
@@ -43,23 +42,6 @@ const dumiThemeUmiPlugin = (api: IApi) => {
 
     return fileName;
   };
-
-  // const CustomTechStack = () =>
-  //   defineTechStack({
-  //     name: 'mini-program',
-  //     runtimeOpts: {
-  //       compilePath: '...',
-  //       rendererPath: '...',
-  //       pluginPath: '...',
-  //     },
-  //     isSupported(node, lang) {
-  //       return true;
-  //     },
-  //     onBlockLoad(args) {
-  //       console.log('onBlockLoad', args);
-  //       // ...
-  //     },
-  //   });
 
   const addLinkStyle = (html: string, cssFile: string, prepend = false) => {
     const prefix = api.userConfig.publicPath || api.config.publicPath;
@@ -158,8 +140,6 @@ const dumiThemeUmiPlugin = (api: IApi) => {
     }
     return files;
   });
-
-  // api.registerTechStack(CustomTechStack);
 };
 
 export default dumiThemeUmiPlugin;
