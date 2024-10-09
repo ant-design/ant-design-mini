@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/wNkELvnLHXPAlmqutRPI.png"
+    type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <link rel="preload" href="/preview.json" as="fetch" crossorigin>
+  <link rel="preload" href="/preview-theme-dark.json" as="fetch" crossorigin>
+</head>
+
+<style>
+  body {
+    margin: 0;
+  }
+</style>
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/javascript"
+    src="https://renderdev.alipay.com/p/yuyan_npm/@alipay_antd-mini-lyra/dev-s09001975971/bundle/lyra.js"></script>
+
+  <script type="text/babel">
+    const searchParams = new URL(location.href).searchParams;
+    const theme = searchParams.get('less-theme');
+    const page = searchParams.get('page');
+    const platform = searchParams.get('platform');
+
+    function getDist() {
+      const server = searchParams.get('compilerServer');
+      const list = ['appConfig.json', 'index.js', 'index.worker.js', 'index.html'];
+      console.log(searchParams, server);
+      return Promise.all(list.map(item => fetch(`${server}/${item}`).then(res => res.text()))).then(arr => {
+        const dist = {};
+        list.forEach((item, index) => {
+          dist[item] = arr[index];
+        });
+        return dist;
+      });
+    }
+    (async () => {
+      const Ele = () => {
+
+        const [distS, setDistS] = React.useState();
+
+        React.useEffect(async () => {
+          if (location.port) {
+            const dist = await getDist();
+            console.log(dist);
+            setDistS(dist)
+          } else {
+            const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());
+            const dist = obj.dist;
+            setDistS(dist);
+          }
+        }, [location.port]);
+
+        if (!distS) return null;
+
+        const OpenBoxLyra = window.OpenBoxLyra.default;
+        return (
+          <OpenBoxLyra
+            dist={distS}
+            enableAppxNg
+            maskThemeColor='#f9fafb'
+            lyraKey='-441015578'
+            simulatorStyle={{
+              width: 360,
+              height: 700,
+            }}
+            lyraConfig={{
+              layoutHeight: 'match_parent',
+              layoutWidth: 'match_parent',
+              defaultDeviceName: 'iPhone 13',
+              initWithAutoZoom: false,
+              transparentBackground: true,
+              hideTopBar: true,
+              hideBottomBar: true,
+              enableDeviceSkin: false,
+              hideTitleBar: true,
+              liteMode: false,
+              launchParams: { page: decodeURIComponent(page) }
+            }}
+          />
+        );
+      };
+
+      // 渲染组件
+      ReactDOM.render(<Ele />, document.getElementById('root'));
+    })();
+  </script>
+</body>
+
+</html>

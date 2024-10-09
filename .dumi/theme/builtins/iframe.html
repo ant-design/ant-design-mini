@@ -6,6 +6,8 @@
     type="image/x-icon">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <link rel="stylesheet" type="text/css"
+    href="https://renderdev.alipay.com/p/yuyan_npm/@alipay_antd-mini-lyra/dev-s09001975971/web/lyra.css" />
   <link rel="preload" href="/preview.json" as="fetch" crossorigin>
   <link rel="preload" href="/preview-theme-dark.json" as="fetch" crossorigin>
 </head>
@@ -18,13 +20,12 @@
 
 <body>
   <div id="root"></div>
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/javascript"
-    src="https://renderdev.alipay.com/p/yuyan_npm/@alipay_antd-mini-lyra/dev-s09001975971/bundle/lyra.js"></script>
-
-  <script type="text/babel">
+    src="https://gw.alipayobjects.com/os/lib/react/18.0.0/umd/react.production.min.js"></script>
+  <script type="text/javascript"
+    src="https://gw.alipayobjects.com/os/lib/react-dom/18.0.0/umd/react-dom.production.min.js"></script>
+  <script src="https://renderdev.alipay.com/p/yuyan_npm/@alipay_antd-mini-lyra/dev-s09001975971/web/lyra.js"></script>
+  <script>
     const searchParams = new URL(location.href).searchParams;
     const theme = searchParams.get('less-theme');
     const page = searchParams.get('page');
@@ -42,57 +43,47 @@
         return dist;
       });
     }
-    (async () => {
-      const Ele = () => {
 
-        const [distS, setDistS] = React.useState();
+    async function startWebOpenBoxPreviewApp() {
+      let dist;
 
-        React.useEffect(async () => {
-          if (location.port) {
-            const dist = await getDist();
-            console.log(dist);
-            setDistS(dist)
-          } else {
-            const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());
-            const dist = obj.dist;
-            setDistS(dist);
+      if (location.port) {
+        dist = await getDist()
+        console.log(dist);
+      } else {
+        const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());
+        dist = obj.dist;
+
+      }
+
+      window.OpenBoxLyra.StartWebOpenBoxLyraApp(
+        {
+          dist,
+          enableAppxNg: true,
+          maskThemeColor: '#f9fafb',
+          lyraKey: '-441015578',
+          simulatorStyle: {
+            width: 360,
+            height: 700,
+          },
+          lyraConfig: {
+            layoutHeight: 'match_parent',
+            layoutWidth: 'match_parent',
+            defaultDeviceName: 'iPhone 13',
+            initWithAutoZoom: false,
+            transparentBackground: true,
+            hideTopBar: true,
+            hideBottomBar: true,
+            enableDeviceSkin: false,
+            hideTitleBar: true,
+            liteMode: false,
+            launchParams: { page: decodeURIComponent(page) }
           }
-        }, [location.port]);
+        }
+      )
 
-        if (!distS) return null;
-
-        const OpenBoxLyra = window.OpenBoxLyra.default;
-        return (
-          <OpenBoxLyra
-            dist={distS}
-            enableAppxNg
-            maskThemeColor='#f9fafb'
-            lyraKey='-441015578'
-            simulatorStyle={{
-              width: 360,
-              height: 805,
-            }}
-            lyraConfig={{
-              zoom: 0.8,
-              layoutHeight: 'match_parent',
-              layoutWidth: 'match_parent',
-              defaultDeviceName: 'iPhone 13',
-              initWithAutoZoom: false,
-              transparentBackground: true,
-              hideTopBar: true,
-              hideBottomBar: true,
-              enableDeviceSkin: false,
-              hideTitleBar: true,
-              liteMode: false,
-              launchParams: { page: decodeURIComponent(page) }
-            }}
-          />
-        );
-      };
-
-      // 渲染组件
-      ReactDOM.render(<Ele />, document.getElementById('root'));
-    })();
+    }
+    startWebOpenBoxPreviewApp();
   </script>
 </body>
 
