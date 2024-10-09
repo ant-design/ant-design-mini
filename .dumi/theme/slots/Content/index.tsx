@@ -212,7 +212,7 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
         <EditLink />
       </div>
       <PrevAndNext rtl={isRTL} />
-      <Footer />
+      {/* <Footer /> */}
     </Col>
   );
 };

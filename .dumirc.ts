@@ -38,6 +38,10 @@ export default defineConfig({
     },
   ],
   themeConfig: defineThemeConfig({
+    prefersColor: {
+      default: 'auto',
+      switch: true,
+    },
     rtl: false,
     logo: 'https://gw.alipayobjects.com/zos/bmw-prod/d1971355-ffff-44ef-9e20-1bc9a237d463.svg',
     lastUpdated: true,
