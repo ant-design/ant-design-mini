@@ -1,23 +1,19 @@
 import type { IApi } from 'dumi';
-import { logger, winPath } from 'dumi/plugin-utils';
+import { winPath } from 'dumi/plugin-utils';
 import type { IDumiTechStack } from 'dumi/tech-stack-utils';
 import fs from 'fs';
 import path from 'path';
+import getSourceCode from '../../../scripts/getSourceCode';
 
 class AntdTechStack implements IDumiTechStack {
   name = 'antd';
 
-  constructor(opts: {}) {
-    console.log(1232132321);
-  }
+  constructor(opts: {}) {}
 
   /**
    * 仅将指向 demo/pages 目录的 code 标签当做 Antd demo
    */
   isSupported(...[node]: Parameters<IDumiTechStack['isSupported']>) {
-    console.log(node);
-
-    console.log(33333);
     return (
       typeof node.properties?.src === 'string' &&
       node.properties.src.includes('demo/pages')
@@ -41,22 +37,25 @@ export default () => React.createElement(React.Fragment, null, 'Antd demo 暂不
     // @ts-ignore
     ...[props, opts]: Parameters<IDumiTechStack['generatePreviewerProps']>
   ) {
-    return {
-      previewerProps: {
-        herboxUrl: `123`,
-      },
-    };
-    // logger.info(opts.fileAbsPath);
-    // const env = process.env.NODE_ENV;
-    // // 实例文件的绝对路径
-    // props.fileAbsPath = opts.fileAbsPath;
-    // // 环境变量信息
-    // props.env = env;
+    console.log('generatePreviewerProps', props, opts);
 
-    // props.herboxUrl = '123123213';
+    const env = process.env.NODE_ENV;
+    // 实例文件的绝对路径
+    props.fileAbsPath = opts.fileAbsPath;
+    // 环境变量信息
+    props.env = env;
+    if (props.filename.includes('demo/pages')) {
+      // demo/pages/Button/index.ts
+      const pageElem = props.filename.split('/');
+      pageElem.shift();
 
-    // props.zzzz = '33323';
-    // return props;
+      const folder = pageElem.slice(0, -1).join('/') + '/';
+      const page = pageElem.join('/').replace(/\.ts$/, '');
+      props.herboxUrl = `/preview.html?page=${page}&folder=${folder}&theme=light&compilerServer=${
+        process.env.SERVER || ''
+      }`;
+    }
+    return props;
   }
 
   /**
@@ -68,7 +67,7 @@ export default () => React.createElement(React.Fragment, null, 'Antd demo 暂不
     ...[asset, opts]: Parameters<IDumiTechStack['generateMetadata']>
   ) {
     const deps: typeof asset.dependencies = {};
-    logger.info('generateMetadata:', opts);
+
     // 生成源码元数据
     // Object.entries(
     //   // @ts-ignore
@@ -109,16 +108,18 @@ export default async (api: IApi) => {
   api.addBeforeMiddlewares(() => [
     (req, res, next) => {
       if (req.path === '/preview.html') {
-        fs.createReadStream(path.join(__dirname, '../builtins/iframe.html')).pipe(res);
+        fs.createReadStream(
+          path.join(__dirname, '../builtins/iframe.html')
+        ).pipe(res);
         return;
       }
       if (req.path.startsWith('/sourceCode/')) {
-        // const page = req.path.replace('/sourceCode/', '');
-        // getSourceCode({
-        //   page,
-        //   theme: req.query.theme,
-        //   platform: req.query.platform,
-        // }).then((json) => res.json(json));
+        const page = req.path.replace('/sourceCode/', '');
+        getSourceCode({
+          page,
+          theme: req.query.theme,
+          platform: req.query.platform,
+        }).then((json) => res.json(json));
         return;
       }
       if (req.url === '/mini/packageInfo.json') {

@@ -21,7 +21,7 @@ toc: 'content'
 
 ### 基本使用
 
-<!-- <code src='pages/Button/index'></code> -->
+<code src='../../demo/pages/Button/index'></code>
 
 ### Inline
 

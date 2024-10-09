@@ -76,16 +76,15 @@ const Previewer: React.FC<IProps> = (props) => {
   const [theme, setTheme] = useLocalState('theme', 'light');
   const [platform, setPlatform] = useLocalState('platform', DefaultPlatform);
   const [loaded, setLoaded] = useState(false);
-console.log(props);
+  console.log(props);
   const basicUrl =
-    window.location.protocol + '//' + window.location.host + (props.herboxUrl||'/preview.html');
-  const { url, noChangeButton, page, disablePlatformSwitch, supportPlatform } =
-    useMemo(() => {
-      return buildUrl(basicUrl, {
-        theme,
-        platform,
-      });
-    }, [basicUrl, theme, platform]);
+    window.location.protocol + '//' + window.location.host + props.herboxUrl;
+  const { url } = useMemo(() => {
+    return buildUrl(basicUrl, {
+      theme,
+      platform,
+    });
+  }, [basicUrl, theme, platform]);
 
   return (
     <div className="previewer">

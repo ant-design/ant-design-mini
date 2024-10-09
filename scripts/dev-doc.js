@@ -2,7 +2,7 @@ const { fork, execFile } = require('child_process');
 const { minidev } = require('minidev');
 
 (async () => {
-  execFile('tsx', [`${process.cwd()}/scripts/dev.ts`]);
+  // execFile('tsx', [`${process.cwd()}/scripts/dev.ts`]);
 
   const path = require('path');
 
@@ -22,6 +22,7 @@ const { minidev } = require('minidev');
         NODE_OPTIONS: '--openssl-legacy-provider',
         FORCE_COLOR: 1,
         SERVER: devServer.server,
+        DUMI_CACHE: 'none',
       },
     });
   });

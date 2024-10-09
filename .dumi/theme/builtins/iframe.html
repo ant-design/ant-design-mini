@@ -1,72 +1,99 @@
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Openbox Lyra Debug</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
 
-  <style>
-    body {
-      margin: 0;
+<head>
+  <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/wNkELvnLHXPAlmqutRPI.png"
+    type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <link rel="preload" href="/preview.json" as="fetch" crossorigin>
+  <link rel="preload" href="/preview-theme-dark.json" as="fetch" crossorigin>
+</head>
+
+<style>
+  body {
+    margin: 0;
+  }
+</style>
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/javascript"
+    src="https://renderdev.alipay.com/p/yuyan_npm/@alipay_antd-mini-lyra/dev-s09001975971/bundle/lyra.js"></script>
+
+  <script type="text/babel">
+    const searchParams = new URL(location.href).searchParams;
+    const theme = searchParams.get('less-theme');
+    const page = searchParams.get('page');
+    const platform = searchParams.get('platform');
+
+    function getDist() {
+      const server = searchParams.get('compilerServer');
+      const list = ['appConfig.json', 'index.js', 'index.worker.js', 'index.html'];
+      console.log(searchParams, server);
+      return Promise.all(list.map(item => fetch(`${server}/${item}`).then(res => res.text()))).then(arr => {
+        const dist = {};
+        list.forEach((item, index) => {
+          dist[item] = arr[index];
+        });
+        return dist;
+      });
     }
-  </style>
-  <body>
-    <div id="root"></div>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/javascript" src="https://gw.alipayobjects.com/render/p/yuyan_npm/@alipay_antd-mini-lyra/1.0.0/bundle/lyra.js"></script>
+    (async () => {
+      const Ele = () => {
 
-    <script type="text/babel">
-      (async () => {
-        const Ele = () => {
-          const [dist, setDist] = React.useState();
+        const [distS, setDistS] = React.useState();
 
-          async function getServerData() {
-            const dist = await fetch(
-              'https://opendocs.alipay.com/api/openbox/dist/publicdes-30330e65-1e2c-41e8-a573-b0b91995c92b-dist'
-            );
-            const distJSON = await dist.json();
-
-            return distJSON;
+        React.useEffect(async () => {
+          if (location.port) {
+            const dist = await getDist();
+            console.log(dist);
+            setDistS(dist)
+          } else {
+            const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());
+            const dist = obj.dist;
+            setDistS(dist);
           }
+        }, [location.port]);
 
-          React.useEffect(async () => {
-            setDist(await getServerData());
-          }, []);
+        if (!distS) return null;
 
-          if (!dist) return null;
+        const OpenBoxLyra = window.OpenBoxLyra.default;
+        return (
+          <OpenBoxLyra
+            dist={distS}
+            enableAppxNg
+            maskThemeColor='#f9fafb'
+            lyraKey='-441015578'
+            simulatorStyle={{
+              width: 360,
+              height: 805,
+            }}
+            lyraConfig={{
+              zoom: 0.8,
+              layoutHeight: 'match_parent',
+              layoutWidth: 'match_parent',
+              defaultDeviceName: 'iPhone 13',
+              initWithAutoZoom: false,
+              transparentBackground: true,
+              hideTopBar: true,
+              hideBottomBar: true,
+              enableDeviceSkin: false,
+              hideTitleBar: true,
+              liteMode: false,
+              launchParams: { page: decodeURIComponent(page) }
+            }}
+          />
+        );
+      };
 
-          const OpenBoxLyra = window.OpenBoxLyra.default;
-          return (
-            <OpenBoxLyra
-              dist={dist}
-              enableAppxNg
-              maskThemeColor='#f9fafb'
-              lyraKey='-441015578'
-              lyraConfig={{
-                zoom: 0.8,
-                layoutHeight: 'match_parent',
-                layoutWidth: 'match_parent',
-                defaultDeviceName: 'iPhone 13',
-                initWithAutoZoom: false,
-                transparentBackground: true,
-                // fullScreen: true,
+      // 渲染组件
+      ReactDOM.render(<Ele />, document.getElementById('root'));
+    })();
+  </script>
+</body>
 
-                hideTopBar: true,
-                hideBottomBar: true,
-
-                enableDeviceSkin: false,
-                hideTitleBar: true,
-                liteMode: false,
-              }}
-            />
-          );
-        };
-
-        // 渲染组件
-        ReactDOM.render(<Ele />, document.getElementById('root'));
-      })();
-    </script>
-  </body>
 </html>
