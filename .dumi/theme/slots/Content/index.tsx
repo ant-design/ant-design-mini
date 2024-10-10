@@ -10,7 +10,7 @@ import EditLink from '../../common/EditLink';
 import LastUpdated from '../../common/LastUpdated';
 import PrevAndNext from '../../common/PrevAndNext';
 import useSiteToken from '../../hooks/useSiteToken';
-import Footer from '../Footer';
+// import Footer from '../Footer';
 import SiteContext from '../SiteContext';
 // import DocAnchor from './DocAnchor';
 import InViewSuspense from './InViewSuspense';

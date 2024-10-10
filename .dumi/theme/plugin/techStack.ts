@@ -99,7 +99,7 @@ export default async (api: IApi) => {
   // @ts-ignore
   api.modifyTheme((memo) => {
     memo.builtins.Previewer.source = winPath(
-      require.resolve('../Previewer.tsx')
+      require.resolve('../builtins/Previewer/index.tsx')
     );
 
     return memo;

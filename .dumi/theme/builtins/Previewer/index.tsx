@@ -1,6 +1,8 @@
+import { css } from '@emotion/react';
 import React, { useEffect, useMemo, useState } from 'react';
-import wechatConfig from '../../config/wechat.json';
-import './Previewer.less';
+import wechatConfig from '../../../../config/wechat.json';
+import useSiteToken from '../../hooks/useSiteToken';
+import './index.less';
 
 interface IProps {
   herboxUrl: string;
@@ -71,8 +73,19 @@ function getSupportPlatform(platform: string, page: string | null) {
     disablePlatformSwitch: false,
   };
 }
+const useStyle = () => {
+  const { token } = useSiteToken();
+  return {
+    previewerWrapper: css`
+      @media only screen and (max-width: ${token.screenLG}px) {
+        display: none;
+      }
+    `,
+  };
+};
 
 const Previewer: React.FC<IProps> = (props) => {
+  const styles = useStyle();
   const [theme, setTheme] = useLocalState('theme', 'light');
   const [platform, setPlatform] = useLocalState('platform', DefaultPlatform);
   const [loaded, setLoaded] = useState(false);
@@ -87,7 +100,12 @@ const Previewer: React.FC<IProps> = (props) => {
   }, [basicUrl, theme, platform]);
 
   return (
-    <div className="previewer">
+    <div
+      className="previewer"
+      css={css`
+        ${styles.previewerWrapper}
+      `}
+    >
       {!loaded && <div className="previewer-loading" />}
 
       <iframe

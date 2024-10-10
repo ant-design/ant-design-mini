@@ -16,13 +16,24 @@ const useStyle = () => {
 
   return {
     prevNextNav: css`
-      width: calc(100% - 234px);
-      margin-inline-end: 170px;
-      margin-inline-start: 64px;
       overflow: hidden;
       font-size: 14px;
       border-top: 1px solid ${colorSplit};
       display: flex;
+
+      padding: 0 412px 32px 64px;
+
+      &.rtl {
+        padding: 0 64px 144px 170px;
+      }
+
+      @media only screen and (max-width: ${token.screenLG}px) {
+        &,
+        &.rtl {
+          padding-right: 24px;
+          padding-left: 24px;
+        }
+      }
     `,
     pageNav: `
       flex: 1;
