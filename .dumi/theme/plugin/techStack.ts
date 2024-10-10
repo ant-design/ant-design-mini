@@ -113,6 +113,12 @@ export default async (api: IApi) => {
         ).pipe(res);
         return;
       }
+      if (req.path === '/code.html') {
+        fs.createReadStream(path.join(__dirname, '../builtins/code.html')).pipe(
+          res
+        );
+        return;
+      }
       if (req.path.startsWith('/sourceCode/')) {
         const page = req.path.replace('/sourceCode/', '');
         getSourceCode({

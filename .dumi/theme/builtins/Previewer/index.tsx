@@ -91,8 +91,10 @@ const Previewer: React.FC<IProps> = (props) => {
   const { theme } = useContext<SiteContextProps>(SiteContext);
   // const [theme, setTheme] = useLocalState('theme', 'light');
   const [platform, setPlatform] = useLocalState('platform', DefaultPlatform);
-  const [loaded, setLoaded] = useState(false);
+  const [previewerLoaded, setPreviewerLoaded] = useState(false);
+  const [sourceCodeLoaded, setSourceCodeLoaded] = useState(false);
   const previewerRef = useRef<any>(null);
+  const sourceCodeRef = useRef<any>(null);
 
   console.log(props);
   const basicUrl =
@@ -130,21 +132,31 @@ const Previewer: React.FC<IProps> = (props) => {
   }, [theme]);
 
   return (
-    <div
-      className="previewer"
-      css={css`
-        ${styles.previewerWrapper}
-      `}
-    >
-      {!loaded && <div className="previewer-loading" />}
-
-      <iframe
-        ref={previewerRef}
-        src={url}
-        onLoad={() => setLoaded(true)}
-        allow="clipboard-read; clipboard-write"
-      />
-    </div>
+    <>
+      <div
+        className="previewer"
+        css={css`
+          ${styles.previewerWrapper}
+        `}
+      >
+        {!previewerLoaded && <div className="previewer-loading" />}
+        <iframe
+          ref={previewerRef}
+          src={url}
+          onLoad={() => setPreviewerLoaded(true)}
+          allow="clipboard-read; clipboard-write"
+        />
+      </div>
+      <div className="sourceCode">
+        {!sourceCodeLoaded && <div className="previewer-loading" />}
+        <iframe
+          ref={sourceCodeRef}
+          src={url.replace('preview.html', 'code.html')}
+          onLoad={() => setSourceCodeLoaded(true)}
+          allow="clipboard-read; clipboard-write"
+        />
+      </div>
+    </>
   );
 };
 
