@@ -1,7 +1,9 @@
 import { css } from '@emotion/react';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import wechatConfig from '../../../../config/wechat.json';
 import useSiteToken from '../../hooks/useSiteToken';
+import type { SiteContextProps } from '../../slots/SiteContext';
+import SiteContext from '../../slots/SiteContext';
 import './index.less';
 
 interface IProps {
@@ -86,18 +88,46 @@ const useStyle = () => {
 
 const Previewer: React.FC<IProps> = (props) => {
   const styles = useStyle();
-  const [theme, setTheme] = useLocalState('theme', 'light');
+  const { theme } = useContext<SiteContextProps>(SiteContext);
+  // const [theme, setTheme] = useLocalState('theme', 'light');
   const [platform, setPlatform] = useLocalState('platform', DefaultPlatform);
   const [loaded, setLoaded] = useState(false);
+  const previewerRef = useRef<any>(null);
+
   console.log(props);
   const basicUrl =
     window.location.protocol + '//' + window.location.host + props.herboxUrl;
   const { url } = useMemo(() => {
     return buildUrl(basicUrl, {
-      theme,
+      theme: 'light',
       platform,
     });
   }, [basicUrl, theme, platform]);
+
+  useEffect(() => {
+    console.log(theme);
+    const iframe = previewerRef.current;
+    if (!iframe) return;
+
+    const setThemeColor = function () {
+      const iframeDocument =
+        iframe?.contentDocument || iframe?.contentWindow?.document;
+
+      // 找到需要修改的元素
+      const element = iframeDocument.getElementsByTagName('html')?.[0];
+      // 修改样式
+      if (element) {
+        if (theme.includes('dark')) {
+          element.style.background = '#141414';
+        }
+        if (theme.includes('light')) {
+          element.style.background = '#fff';
+        }
+      }
+    };
+    iframe.onload = setThemeColor;
+    setThemeColor();
+  }, [theme]);
 
   return (
     <div
@@ -109,6 +139,7 @@ const Previewer: React.FC<IProps> = (props) => {
       {!loaded && <div className="previewer-loading" />}
 
       <iframe
+        ref={previewerRef}
         src={url}
         onLoad={() => setLoaded(true)}
         allow="clipboard-read; clipboard-write"
