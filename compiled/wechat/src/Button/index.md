@@ -35,6 +35,11 @@ toc: 'content'
 
 <!-- <code src='pages/ButtonCustom/index'></code> -->
 
+
+```js
+示例代码
+```
+
 ## API
 
 ### Button
