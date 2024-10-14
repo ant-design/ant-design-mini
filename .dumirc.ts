@@ -38,12 +38,13 @@ export default defineConfig({
     },
   ],
   themeConfig: defineThemeConfig({
+    name:'Ant Design Mini',
     prefersColor: {
       default: 'auto',
       switch: true,
     },
     rtl: false,
-    logo: 'https://gw.alipayobjects.com/zos/bmw-prod/d1971355-ffff-44ef-9e20-1bc9a237d463.svg',
+    logo: 'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*IyURRrQB3kAAAAAAAAAAAAAADtF8AQ/original',
     lastUpdated: true,
     nav: {
       'zh-CN': [

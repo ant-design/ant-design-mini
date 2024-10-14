@@ -106,29 +106,44 @@ const Previewer: React.FC<IProps> = (props) => {
     });
   }, [basicUrl, theme, platform]);
 
+  function sendMsgToPreviewer(theme) {
+    const previeweriframe = previewerRef.current;
+    if (!previeweriframe) return;
+    const setThemeColor = function () {
+      previeweriframe?.contentWindow.postMessage({
+        type: 'setIsDarkMode',
+        data: theme.includes('dark'),
+      });
+      previeweriframe?.contentWindow.postMessage({
+        type: 'evaluateJavaScriptInWorkerCode',
+        data: `
+         my.setNavigationBar({
+          backgroundColor: '${theme.includes('dark') ? '#000' : '#fff'}',
+        });
+      `,
+      });
+    };
+    previeweriframe.onload = setThemeColor;
+    setThemeColor();
+  }
+
+  function sendMsgToSourceCode(theme) {
+    const sourceCodeiframe = sourceCodeRef.current;
+    if (!sourceCodeiframe) return;
+    const setThemeColor = function () {
+      sourceCodeiframe?.contentWindow.postMessage({
+        type: 'setIsDarkMode',
+        data: theme.includes('dark'),
+      });
+    };
+    sourceCodeiframe.onload = setThemeColor;
+    setThemeColor();
+  }
+
   useEffect(() => {
     console.log(theme);
-    const iframe = previewerRef.current;
-    if (!iframe) return;
-
-    const setThemeColor = function () {
-      const iframeDocument =
-        iframe?.contentDocument || iframe?.contentWindow?.document;
-
-      // 找到需要修改的元素
-      const element = iframeDocument.getElementsByTagName('html')?.[0];
-      // 修改样式
-      if (element) {
-        if (theme.includes('dark')) {
-          element.style.background = '#141414';
-        }
-        if (theme.includes('light')) {
-          element.style.background = '#fff';
-        }
-      }
-    };
-    iframe.onload = setThemeColor;
-    setThemeColor();
+    sendMsgToPreviewer(theme);
+    sendMsgToSourceCode(theme);
   }, [theme]);
 
   return (
