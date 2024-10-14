@@ -73,7 +73,6 @@ const useStyle = () => {
 const Previewer: React.FC<IProps> = (props) => {
   const styles = useStyle();
   const { theme, platform } = useContext<SiteContextProps>(SiteContext);
-  console.log('platform', platform);
   const [previewerLoaded, setPreviewerLoaded] = useState(false);
   const [sourceCodeLoaded, setSourceCodeLoaded] = useState(false);
   const previewerRef = useRef<any>(null);

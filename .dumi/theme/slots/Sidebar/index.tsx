@@ -18,6 +18,9 @@ const SWITCH_HEIGHT = 33;
 const useStyle = () => {
   const { token } = useSiteToken();
 
+  const { theme } = useContext(SiteContext);
+  const isDark = theme.includes('dark');
+
   const { antCls, fontFamily, colorSplit } = token;
 
   return {
@@ -143,40 +146,44 @@ const useStyle = () => {
       cursor: pointer;
     `,
     swichPlatform: css`
-      margin: 0 30px 30px 30px;
       position: sticky;
       top: ${64 + SWITCH_HEIGHT / 2}px;
-      height: ${SWITCH_HEIGHT}px;
       z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #e9e9e9;
-      border-radius: 3px;
-      padding: 3px;
-      .item {
+      padding: 0 30px 30px 30px;
+      background: ${isDark ? '#141414' : '#fff'};
+      .swich {
+        height: ${SWITCH_HEIGHT}px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 3px 0;
-        width: 100%;
-        cursor: pointer;
-        transition: all 0.5s;
-        margin-right: 3px;
-        &:last-of-type {
-          margin-right: 0;
-        }
-        & > span {
-          font-size: 14px;
-          line-height: 20px;
-          color: #999999;
-        }
-        &.active {
-          background: #ffffff;
-          border-radius: 1px;
+        background-color: ${isDark ? 'rgba(255, 255, 255, 0.04)' : '#e9e9e9'};
+        border-radius: 3px;
+        padding: 3px;
+        .item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 3px 0;
+          margin-right: 3px;
+          width: 100%;
+          transition: all 0.5s;
+          cursor: pointer;
+          user-select: none;
+          &:last-of-type {
+            margin-right: 0;
+          }
           & > span {
-            font-weight: 500;
-            color: #1877ff;
+            font-size: 14px;
+            line-height: 20px;
+            color: #999999;
+          }
+          &.active {
+            background: ${isDark ? '#141414' : '#fff'};
+            border-radius: 1px;
+            & > span {
+              font-weight: 500;
+              color: ${isDark ? '#fff' : '#1677ff'};
+            }
           }
         }
       }
@@ -275,11 +282,19 @@ const Sidebar: FC = () => {
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
       <div css={styles.swichPlatform}>
-        <div className={`item ${platform === 'alipay' && 'active'}`}>
-          <span onClick={() => switchPlatform('alipay')}>支付宝</span>
-        </div>
-        <div className={`item ${platform === 'wechat' && 'active'}`}>
-          <span onClick={() => switchPlatform('wechat')}>微信</span>
+        <div className="swich">
+          <div
+            className={`item ${platform === 'alipay' && 'active'}`}
+            onClick={() => switchPlatform('alipay')}
+          >
+            <span>支付宝</span>
+          </div>
+          <div
+            className={`item ${platform === 'wechat' && 'active'}`}
+            onClick={() => switchPlatform('wechat')}
+          >
+            <span>微信</span>
+          </div>
         </div>
       </div>
       <section className="main-menu-inner">{menuChild}</section>
