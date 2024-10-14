@@ -44,7 +44,7 @@ export default defineConfig({
       switch: true,
     },
     rtl: false,
-    logo: 'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*IyURRrQB3kAAAAAAAAAAAAAADtF8AQ/original',
+    logo: 'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*xfx9Q4kg62MAAAAAAAAAAAAADtF8AQ/original',
     lastUpdated: true,
     nav: {
       'zh-CN': [

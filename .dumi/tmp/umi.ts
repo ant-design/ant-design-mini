@@ -103,7 +103,7 @@ render();
 
     if (typeof window !== 'undefined') {
       window.g_umi = {
-        version: '4.3.24',
+        version: '4.3.26',
       };
     }
     

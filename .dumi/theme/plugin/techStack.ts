@@ -37,7 +37,7 @@ export default () => React.createElement(React.Fragment, null, 'Antd demo 暂不
     // @ts-ignore
     ...[props, opts]: Parameters<IDumiTechStack['generatePreviewerProps']>
   ) {
-    console.log('generatePreviewerProps', props, opts);
+    // console.log('generatePreviewerProps', props, opts);
 
     const env = process.env.NODE_ENV;
     // 实例文件的绝对路径
