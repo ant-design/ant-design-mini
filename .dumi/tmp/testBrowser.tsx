@@ -3,7 +3,7 @@
 // DO NOT CHANGE IT MANUALLY!
 import React, { useEffect, useState } from 'react';
 import { ApplyPluginsType } from 'umi';
-import { renderClient, RenderClientOpts } from '/Users/houmi/Desktop/work-project/ant-design-mini/node_modules/@umijs/renderer-react';
+import { renderClient, RenderClientOpts } from '/Users/jiajia/Ali/Task/ant-design-mini/node_modules/@umijs/renderer-react';
 import { createHistory } from './core/history';
 import { createPluginManager } from './core/plugin';
 import { getRoutes } from './core/route';
@@ -11,7 +11,7 @@ import type { Location } from 'history';
 
 
 import { getPluginManager as getDumiPluginManager } from './core/plugin';
-import { setPluginManager as setDumiPluginManager } from '/Users/houmi/Desktop/work-project/ant-design-mini/node_modules/dumi/dist/client/theme-api/utils.js';
+import { setPluginManager as setDumiPluginManager } from '/Users/jiajia/Ali/Task/ant-design-mini/node_modules/dumi/dist/client/theme-api/utils.js';
 const publicPath = '/';
 const runtimePublicPath = false;
 

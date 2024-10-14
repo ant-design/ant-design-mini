@@ -3,8 +3,8 @@
 // DO NOT CHANGE IT MANUALLY!
 import './core/polyfill';
 import { getPluginManager as getDumiPluginManager } from './core/plugin';
-import { setPluginManager as setDumiPluginManager } from '/Users/houmi/Desktop/work-project/ant-design-mini/node_modules/dumi/dist/client/theme-api/utils.js';
-import { renderClient } from '/Users/houmi/Desktop/work-project/ant-design-mini/node_modules/@umijs/renderer-react';
+import { setPluginManager as setDumiPluginManager } from '/Users/jiajia/Ali/Task/ant-design-mini/node_modules/dumi/dist/client/theme-api/utils.js';
+import { renderClient } from '/Users/jiajia/Ali/Task/ant-design-mini/node_modules/@umijs/renderer-react';
 import { getRoutes } from './core/route';
 import { createPluginManager } from './core/plugin';
 import { createHistory } from './core/history';
@@ -103,7 +103,7 @@ render();
 
     if (typeof window !== 'undefined') {
       window.g_umi = {
-        version: '4.3.24',
+        version: '4.3.25',
       };
     }
     
