@@ -25,6 +25,8 @@ function buildUrl(
   const { platform: supportPlatform, disablePlatformSwitch } =
     getSupportPlatform(options.platform, page);
   searchParams.set('platform', supportPlatform);
+  searchParams.set('theme', options.theme);
+
   return {
     url: urlObj.toString(),
     page,
@@ -111,20 +113,6 @@ const Previewer: React.FC<IProps> = (props) => {
     const previeweriframe = previewerRef.current;
     if (!previeweriframe) return;
     const setThemeColor = function () {
-      const iframeDocument =
-        previeweriframe?.contentDocument ||
-        previeweriframe?.contentWindow?.document;
-
-      const element = iframeDocument.getElementsByTagName('body')?.[0];
-      console.log('element', element);
-      // 修改样式
-      if (element) {
-        element.style.setProperty(
-          'background-color',
-          theme.includes('dark') ? '#141414' : '#f9fafb'
-        );
-      }
-
       previeweriframe?.contentWindow.postMessage({
         type: 'setIsDarkMode',
         data: theme.includes('dark'),
@@ -168,7 +156,6 @@ const Previewer: React.FC<IProps> = (props) => {
   }
 
   useEffect(() => {
-    console.log(theme);
     sendMsgToPreviewer(theme);
     sendMsgToSourceCode(theme);
   }, [theme]);
