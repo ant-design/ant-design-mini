@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { Collapse, ConfigProvider } from 'antd';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import wechatConfig from '../../../../config/wechat.json';
 import useSiteToken from '../../hooks/useSiteToken';
@@ -114,16 +115,25 @@ const Previewer: React.FC<IProps> = (props) => {
         type: 'setIsDarkMode',
         data: theme.includes('dark'),
       });
+
+      const color = theme.includes('dark') ? '#000' : '#fff';
       previeweriframe?.contentWindow.postMessage({
         type: 'evaluateJavaScriptInWorkerCode',
         data: `
          my.setNavigationBar({
-          backgroundColor: '${theme.includes('dark') ? '#000' : '#fff'}',
+          backgroundColor: '${color}',
+          borderBottomColor: '${color}',
+        });
+        my.setBackgroundColor({
+          backgroundColor: '${color}',
         });
       `,
       });
     };
-    previeweriframe.onload = setThemeColor;
+    previeweriframe.onload = () => {
+      setThemeColor();
+      setTimeout(setThemeColor, 500);
+    };
     setThemeColor();
   }
 
@@ -136,7 +146,10 @@ const Previewer: React.FC<IProps> = (props) => {
         data: theme.includes('dark'),
       });
     };
-    sourceCodeiframe.onload = setThemeColor;
+    sourceCodeiframe.onload = () => {
+      setThemeColor();
+      setTimeout(setThemeColor, 500);
+    };
     setThemeColor();
   }
 
@@ -162,15 +175,39 @@ const Previewer: React.FC<IProps> = (props) => {
           allow="clipboard-read; clipboard-write"
         />
       </div>
-      <div className="sourceCode">
-        {!sourceCodeLoaded && <div className="previewer-loading" />}
-        <iframe
-          ref={sourceCodeRef}
-          src={url.replace('preview.html', 'code.html')}
-          onLoad={() => setSourceCodeLoaded(true)}
-          allow="clipboard-read; clipboard-write"
+      {/* @ts-ignore */}
+      <ConfigProvider
+        theme={{
+          components: {
+            Collapse: {
+              contentPadding: '0 !important',
+            },
+          },
+        }}
+      >
+        {/* @ts-ignore */}
+        <Collapse
+          size="large"
+          items={[
+            {
+              key: '1',
+              label: 'DEMO 示例代码',
+              forceRender: true,
+              children: (
+                <div className="sourceCode">
+                  {!sourceCodeLoaded && <div className="previewer-loading" />}
+                  <iframe
+                    ref={sourceCodeRef}
+                    src={url.replace('preview.html', 'code.html')}
+                    onLoad={() => setSourceCodeLoaded(true)}
+                    allow="clipboard-read; clipboard-write"
+                  />
+                </div>
+              ),
+            },
+          ]}
         />
-      </div>
+      </ConfigProvider>
     </>
   );
 };
