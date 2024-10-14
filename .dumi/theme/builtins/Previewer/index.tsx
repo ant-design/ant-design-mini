@@ -20,19 +20,13 @@ function buildUrl(
 ) {
   const urlObj = new URL(basic);
   const searchParams = urlObj.searchParams;
-  const noChangeButton = !!searchParams.get('noChangeButton');
-  if (noChangeButton) {
-    searchParams.set('less-theme', 'light');
-  } else {
-    searchParams.set('less-theme', options.theme);
-  }
+
   const page = searchParams.get('page');
   const { platform: supportPlatform, disablePlatformSwitch } =
     getSupportPlatform(options.platform, page);
   searchParams.set('platform', supportPlatform);
   return {
     url: urlObj.toString(),
-    noChangeButton,
     page,
     supportPlatform,
     disablePlatformSwitch,
@@ -79,10 +73,17 @@ function getSupportPlatform(platform: string, page: string | null) {
 const useStyle = () => {
   const { token } = useSiteToken();
   return {
+    // not show simulator
     previewerWrapper: css`
       @media only screen and (max-width: ${token.screenLG}px) {
         display: none;
       }
+    `,
+    dark: css`
+      background-color: #141414;
+    `,
+    light: css`
+      background-color: #f9fafb;
     `,
   };
 };
@@ -90,7 +91,6 @@ const useStyle = () => {
 const Previewer: React.FC<IProps> = (props) => {
   const styles = useStyle();
   const { theme } = useContext<SiteContextProps>(SiteContext);
-  // const [theme, setTheme] = useLocalState('theme', 'light');
   const [platform, setPlatform] = useLocalState('platform', DefaultPlatform);
   const [previewerLoaded, setPreviewerLoaded] = useState(false);
   const [sourceCodeLoaded, setSourceCodeLoaded] = useState(false);
@@ -102,7 +102,7 @@ const Previewer: React.FC<IProps> = (props) => {
     window.location.protocol + '//' + window.location.host + props.herboxUrl;
   const { url } = useMemo(() => {
     return buildUrl(basicUrl, {
-      theme: 'light',
+      theme: theme?.find((t) => ['dark', 'light'].includes(t)) || 'light',
       platform,
     });
   }, [basicUrl, theme, platform]);
@@ -111,6 +111,20 @@ const Previewer: React.FC<IProps> = (props) => {
     const previeweriframe = previewerRef.current;
     if (!previeweriframe) return;
     const setThemeColor = function () {
+      const iframeDocument =
+        previeweriframe?.contentDocument ||
+        previeweriframe?.contentWindow?.document;
+
+      const element = iframeDocument.getElementsByTagName('body')?.[0];
+      console.log('element', element);
+      // 修改样式
+      if (element) {
+        element.style.setProperty(
+          'background-color',
+          theme.includes('dark') ? '#141414' : '#f9fafb'
+        );
+      }
+
       previeweriframe?.contentWindow.postMessage({
         type: 'setIsDarkMode',
         data: theme.includes('dark'),
@@ -165,6 +179,7 @@ const Previewer: React.FC<IProps> = (props) => {
         className="previewer"
         css={css`
           ${styles.previewerWrapper}
+          ${theme.includes('dark') ? styles.dark : styles.light}
         `}
       >
         {!previewerLoaded && <div className="previewer-loading" />}
