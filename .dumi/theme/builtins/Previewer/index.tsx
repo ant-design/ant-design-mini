@@ -35,26 +35,6 @@ function buildUrl(
   };
 }
 
-const useLocalState = (key, defaultValue) => {
-  const [state, setState] = useState(() => {
-    const local = localStorage.getItem(key);
-    if (local) {
-      try {
-        return JSON.parse(local);
-      } catch (error) {
-        return defaultValue;
-      }
-    }
-    return defaultValue;
-  });
-
-  useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
-
-  return [state, setState];
-};
-
 const DefaultPlatform = 'alipay';
 
 function getSupportPlatform(platform: string, page: string | null) {
@@ -92,8 +72,8 @@ const useStyle = () => {
 
 const Previewer: React.FC<IProps> = (props) => {
   const styles = useStyle();
-  const { theme } = useContext<SiteContextProps>(SiteContext);
-  const [platform, setPlatform] = useLocalState('platform', DefaultPlatform);
+  const { theme, platform } = useContext<SiteContextProps>(SiteContext);
+  console.log('platform', platform);
   const [previewerLoaded, setPreviewerLoaded] = useState(false);
   const [sourceCodeLoaded, setSourceCodeLoaded] = useState(false);
   const previewerRef = useRef<any>(null);

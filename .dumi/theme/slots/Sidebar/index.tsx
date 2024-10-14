@@ -149,20 +149,35 @@ const useStyle = () => {
       height: ${SWITCH_HEIGHT}px;
       z-index: 1;
       display: flex;
-      align-item: center;
+      align-items: center;
       justify-content: center;
       background-color: #e9e9e9;
       border-radius: 3px;
+      padding: 3px;
       .item {
         display: flex;
-        align-item: center;
+        align-items: center;
         justify-content: center;
-        padding: 3px;
+        padding: 3px 0;
         width: 100%;
+        cursor: pointer;
+        transition: all 0.5s;
+        margin-right: 3px;
+        &:last-of-type {
+          margin-right: 0;
+        }
         & > span {
           font-size: 14px;
           line-height: 20px;
           color: #999999;
+        }
+        &.active {
+          background: #ffffff;
+          border-radius: 1px;
+          & > span {
+            font-weight: 500;
+            color: #1877ff;
+          }
         }
       }
     `,
@@ -178,7 +193,8 @@ const Sidebar: FC = () => {
   const {
     token: { colorBgContainer },
   } = useSiteToken();
-  const { theme, isMobile } = useContext(SiteContext);
+  const { theme, isMobile, platform, updateSiteConfig } =
+    useContext(SiteContext);
   const [menuItems, selectedKey] = useMenu();
 
   const isDark = theme.includes('dark');
@@ -229,6 +245,15 @@ const Sidebar: FC = () => {
     </ConfigProvider>
   );
 
+  const switchPlatform = useCallback(
+    (platform) => {
+      updateSiteConfig({
+        platform,
+      });
+    },
+    [platform, updateSiteConfig]
+  );
+
   return isMobile ? (
     <React.Fragment>
       <MobileMenu
@@ -250,11 +275,11 @@ const Sidebar: FC = () => {
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
       <div css={styles.swichPlatform}>
-        <div className="item">
-          <span>支付宝</span>
+        <div className={`item ${platform === 'alipay' && 'active'}`}>
+          <span onClick={() => switchPlatform('alipay')}>支付宝</span>
         </div>
-        <div className="item">
-          <span>微信</span>
+        <div className={`item ${platform === 'wechat' && 'active'}`}>
+          <span onClick={() => switchPlatform('wechat')}>微信</span>
         </div>
       </div>
       <section className="main-menu-inner">{menuChild}</section>
