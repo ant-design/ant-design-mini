@@ -18,15 +18,15 @@ const SWITCH_HEIGHT = 33;
 const PLATFORM_ICON = {
   alipay: {
     default:
-      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*AtZ4S6i-Q8cAAAAAAAAAAAAADtF8AQ/original',
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*Dk3bQ5d5hmkAAAAAAAAAAAAADtF8AQ/original',
     active:
-      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*GM4sSopzVeYAAAAAAAAAAAAADtF8AQ/original',
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*9j5oQbJwkTwAAAAAAAAAAAAADtF8AQ/original',
   },
   wechat: {
     default:
-      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*pBchQq1yeREAAAAAAAAAAAAADtF8AQ/original',
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*HD4MSp4J_0sAAAAAAAAAAAAADtF8AQ/original',
     active:
-      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*G_J_TrZSZbkAAAAAAAAAAAAADtF8AQ/original',
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*7x3RQKnnTs4AAAAAAAAAAAAADtF8AQ/original',
   },
 };
 
@@ -189,7 +189,7 @@ const useStyle = () => {
           }
           .icon {
             width: 18px;
-            height: 16px;
+            height: 18px;
             margin-right: 8px;
             flex-shrink: 0;
           }
