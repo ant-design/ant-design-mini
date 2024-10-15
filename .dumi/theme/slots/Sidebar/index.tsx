@@ -15,6 +15,21 @@ interface SidebarState {
 
 const SWITCH_HEIGHT = 33;
 
+const PLATFORM_ICON = {
+  alipay: {
+    default:
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*AtZ4S6i-Q8cAAAAAAAAAAAAADtF8AQ/original',
+    active:
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*GM4sSopzVeYAAAAAAAAAAAAADtF8AQ/original',
+  },
+  wechat: {
+    default:
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*pBchQq1yeREAAAAAAAAAAAAADtF8AQ/original',
+    active:
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*G_J_TrZSZbkAAAAAAAAAAAAADtF8AQ/original',
+  },
+};
+
 const useStyle = () => {
   const { token } = useSiteToken();
 
@@ -172,10 +187,17 @@ const useStyle = () => {
           &:last-of-type {
             margin-right: 0;
           }
+          .icon {
+            width: 18px;
+            height: 16px;
+            margin-right: 8px;
+            flex-shrink: 0;
+          }
           & > span {
             font-size: 14px;
             line-height: 20px;
             color: #999999;
+            flex-shrink: 0;
           }
           &.active {
             background: ${isDark ? '#141414' : '#fff'};
@@ -287,12 +309,28 @@ const Sidebar: FC = () => {
             className={`item ${platform === 'alipay' && 'active'}`}
             onClick={() => switchPlatform('alipay')}
           >
+            <img
+              className="icon"
+              src={
+                PLATFORM_ICON['alipay'][
+                  platform === 'alipay' ? 'active' : 'default'
+                ]
+              }
+            />
             <span>支付宝</span>
           </div>
           <div
             className={`item ${platform === 'wechat' && 'active'}`}
             onClick={() => switchPlatform('wechat')}
           >
+            <img
+              className="icon"
+              src={
+                PLATFORM_ICON['wechat'][
+                  platform === 'wechat' ? 'active' : 'default'
+                ]
+              }
+            />
             <span>微信</span>
           </div>
         </div>
