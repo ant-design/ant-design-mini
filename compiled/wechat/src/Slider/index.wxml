@@ -1,0 +1,81 @@
+<wxs
+  src="./index.wxs"
+  module="sliderSjs"
+></wxs>
+<template
+  name="slider-handler"
+  data="{{$id}}"
+>
+  <view
+    class="ant-slider-handler"
+    style="left: {{position}}%"
+  >
+    <popover
+      placement="top"
+      visible="{{showTooltip}}"
+      showMask="{{false}}"
+    >
+      <view class="ant-slider-handler-block">
+        <view class="ant-slider-handler-icon-default">
+          <view class="ant-slider-handler-icon-default-line1"></view>
+          <view class="ant-slider-handler-icon-default-line2"></view>
+          <view class="ant-slider-handler-icon-default-line3"></view>
+        </view>
+      </view>
+      <view
+        slot="content"
+        class="ant-slider-tooltip-content"
+      >{{value}}</view>
+    </popover>
+  </view>
+</template>
+<view
+  class="ant-slider {{className ? className : ''}}"
+  style="opacity: {{disabled ? '0.4' : '1'}};"
+>
+  <view class="ant-slider-track {{showNumber ? 'ant-slider-track-number' : ''}}">
+    <view
+      class="ant-slider-track-touch-area"
+      id="ant-slider-id-{{$id || ''}}"
+      bind:touchstart="handleTrackTouchStart"
+      bind:touchend="handleTrackTouchEnd"
+      bind:touchmove="handleTrackTouchMove"
+    >
+      <view class="ant-slider-track-fill">
+        <view class="ant-slider-track-fill-background"></view>
+        <view
+          class="ant-slider-track-fill-front {{activeLineClassName || ''}}"
+          style="width: {{sliderWidth}}%; left: {{sliderLeft}}%; {{activeLineStyle || ''}}"
+        ></view>
+        <view class="ant-slider-showTicks">
+          <block
+            wx:for="{{tickList}}"
+            wx:for-index="index"
+            wx:for-item="item"
+          >
+            <view
+              class="ant-slider-tick ant-slider-tick-{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) ? 'front' : 'back'}} {{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotClassName ? activeDotClassName : ''}}"
+              style="left: {{item.left}}%;{{sliderSjs.isFrontTick(item, sliderLeft, sliderWidth) && activeDotStyle ? activeDotStyle : ''}}"
+            >
+              <view
+                wx:if="{{showNumber}}"
+                class="ant-slider-tick-number"
+              >{{item.value}}</view>
+            </view>
+          </block>
+        </view>
+        <block wx:if="{{range}}">
+          <template
+            is="slider-handler"
+            data="{{ position: sliderLeft, icon: icon, value: mixin.value[0], showTooltip: changingStart && showTooltip, $id }}"
+          ></template>
+        </block>
+        <template
+          is="slider-handler"
+          data="{{ position: sliderLeft + sliderWidth, icon: icon, value: range ? mixin.value[1] : mixin.value, showTooltip: changingEnd && showTooltip, $id }}"
+        ></template>
+      </view>
+    </view>
+  </view>
+  <view></view>
+</view>

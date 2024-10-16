@@ -1,0 +1,23 @@
+<view class="base">
+  <index-bar
+    className="indexbar"
+    items="{{items}}"
+    defaultCurrent="H"
+    onChange="onChange"
+  >
+    <view
+      slot="$default"
+      slot-scope="props"
+    >
+      <list header="{{props.value.label}}">
+        <list-item
+          a:for="{{4}}"
+          a:for-index="index"
+          a:for-item="itemX"
+        >
+          {{props.value.label}}-{{itemX}}
+        </list-item>
+      </list>
+    </view>
+  </index-bar>
+</view>

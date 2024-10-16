@@ -1,0 +1,44 @@
+<ant-container title="基本使用">
+  <ant-icon type="SmileOutline"></ant-icon>
+  <ant-icon type="PayCircleOutline"></ant-icon>
+  <ant-icon type="LocationFill"></ant-icon>
+</ant-container>
+<ant-container title="自定义大小">
+  <ant-icon
+    type="SmileOutline"
+    style="font-size: 20px"
+  ></ant-icon>
+  <ant-icon
+    type="SmileOutline"
+    style="font-size: 30px"
+  ></ant-icon>
+  <ant-icon
+    type="SmileOutline"
+    className="custom-size"
+  ></ant-icon>
+</ant-container>
+<ant-container title="自定义颜色">
+  <ant-icon
+    type="SmileOutline"
+    style="color: red"
+  ></ant-icon>
+  <ant-icon
+    type="SmileOutline"
+    className="custom-color"
+  ></ant-icon>
+</ant-container>
+<ant-container title="更多自定义">
+  <view class="custom">
+    <ant-icon type="SmileOutline"></ant-icon>
+  </view>
+</ant-container>
+<ant-container title="点击事件">
+  <view style="display: flex">
+    <ant-icon
+      onTap="handleTap"
+      data-id="icon"
+      type="SmileOutline"
+      style="font-size: 50px"
+    ></ant-icon>
+  </view>
+</ant-container>

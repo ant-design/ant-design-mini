@@ -1,0 +1,118 @@
+<wxs
+  src="./index.wxs"
+  module="utils"
+></wxs>
+<view
+  wx:if="{{visible}}"
+  class="ant-guide-tour {{className || ''}}"
+  style="{{style || ''}}"
+>
+  <mask
+    show
+    className="{{maskClassName}}"
+    style="z-index:9999;{{maskStyle || ''}}"
+  ></mask>
+  <ant-icon
+    type="CloseOutline"
+    className="ant-guide-tour-clear"
+    bind:tap="onCancel"
+  ></ant-icon>
+  <view class="ant-guide-tour-button">
+    <ant-button
+      wx:if="{{utils.checkShowJump(mixin.value, items)}}"
+      inline
+      size="small"
+      bind:tap="onCancel"
+    >{{jumpText}}</ant-button>
+    <ant-button
+      wx:if="{{utils.checkShowPrev(mixin.value, items)}}"
+      inline
+      size="small"
+      bind:tap="onPrev"
+      data-current-value="{{mixin.value}}"
+    >{{prevStepText}}</ant-button>
+    <ant-button
+      wx:if="{{utils.checkShowNext(mixin.value, items)}}"
+      inline
+      size="small"
+      bind:tap="onNext"
+      data-current-value="{{mixin.value}}"
+    >{{nextStepText}}</ant-button>
+    <ant-button
+      wx:if="{{utils.checkShowKnow(mixin.value, items)}}"
+      inline
+      size="small"
+      bind:tap="onCancel"
+    >{{gotItText}}</ant-button>
+  </view>
+  <block wx:if="{{swiperable}}">
+    <view class="ant-guide-tour-indicator">
+      <block
+        wx:for="{{items}}"
+        wx:for-index="index"
+        wx:for-item="item"
+      >
+        <view class="ant-guide-tour-indicator-dot {{index === mixin.value ? 'ant-guide-tour-indicator-dot-active' : ''}}"></view>
+      </block>
+    </view>
+    <swiper
+      class="ant-guide-tour-swiper"
+      current="{{mixin.value}}"
+      adjustHeight="none"
+      style="height: 100vh"
+      bind:change="onSwiperChange"
+    >
+      <block
+        wx:for="{{items}}"
+        wx:for-index="index"
+        wx:for-item="item"
+      >
+        <swiper-item>
+          <view
+            class="ant-guide-tour-item {{item.className || ''}}"
+            style="top:{{item.top}}px; left:{{item.left}}px"
+          >
+            <image
+              wx:if="{{item.imageUrl}}"
+              class="ant-guide-tour-item-img"
+              src="{{item.imageUrl}}"
+              style="{{item.imageStyle}}"
+              mode="{{item.imageMode}}"
+            ></image>
+            <slot
+              name="step"
+              wx:else
+              index="{{mixin.current}}"
+            ></slot>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </block>
+  <block wx:else>
+    <block
+      wx:for="{{items}}"
+      wx:for-index="index"
+      wx:for-item="item"
+    >
+      <view
+        wx:if="{{mixin.value === index}}"
+        class="ant-guide-tour-item {{item.className || ''}}"
+        style="top:{{item.top}}px; left:{{item.left}}px"
+      >
+        <image
+          wx:if="{{item.imageUrl}}"
+          class="ant-guide-tour-item-img"
+          src="{{item.imageUrl}}"
+          style="{{item.imageStyle}}"
+          mode="{{item.imageMode}}"
+        ></image>
+        <slot
+          name="step"
+          wx:else
+          index="{{index}}"
+        ></slot>
+      </view>
+    </block>
+  </block>
+</view>

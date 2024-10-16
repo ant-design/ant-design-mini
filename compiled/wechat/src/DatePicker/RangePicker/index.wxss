@@ -1,0 +1,59 @@
+.ant-range-picker-confirm-disabled .ant-picker-header-confirm {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.ant-range-picker-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 12px 12px 0;
+  box-sizing: border-box;
+}
+.ant-range-picker-selector-item {
+  width: 155px;
+  height: 32px;
+  padding: 0 8px 0 12px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: inset 0 0.5px 3px 0 rgba(0, 0, 0, 0.1);
+  color: #333333;
+}
+.ant-range-picker-selector-item-active {
+  position: relative;
+  color: #1677ff;
+}
+.ant-range-picker-selector-item-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform-origin: 0 0;
+  pointer-events: none;
+  border: 1px solid #1677ff;
+  border-radius: 8px;
+  transform: scale(0.5);
+  box-sizing: border-box;
+}
+.ant-range-picker-selector-item-active .ant-range-picker-selector-item-icon {
+  color: #1677ff;
+}
+.ant-range-picker-selector-item-value {
+  font-size: 14px;
+}
+.ant-range-picker-selector-item-placeholder {
+  font-size: 14px;
+  color: #cccccc;
+}
+.ant-range-picker-selector-item-icon {
+  color: #cccccc;
+  font-size: 16px;
+}
+.ant-range-picker-selector-split {
+  color: #cccccc;
+}

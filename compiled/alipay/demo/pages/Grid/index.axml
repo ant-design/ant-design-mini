@@ -1,0 +1,122 @@
+<ant-container title="2列">
+  <ant-grid
+    items="{{items2}}"
+    onTap="handleTapItem"
+    columns="{{2}}"
+  ></ant-grid>
+</ant-container>
+<ant-container title="3列">
+  <ant-grid
+    items="{{items3}}"
+    onTap="handleTapItem"
+    columns="{{3}}"
+  ></ant-grid>
+</ant-container>
+<ant-container title="4列">
+  <ant-grid
+    items="{{items4}}"
+    onTap="handleTapItem"
+    columns="{{4}}"
+  ></ant-grid>
+</ant-container>
+<ant-container title="5列">
+  <ant-grid
+    items="{{items5}}"
+    onTap="handleTapItem"
+    columns="{{5}}"
+  ></ant-grid>
+</ant-container>
+<ant-container title="5列-展示分割线">
+  <ant-grid
+    items="{{items5}}"
+    onTap="handleTapItem"
+    columns="{{5}}"
+    showDivider
+  ></ant-grid>
+</ant-container>
+<ant-container title="2列-带描述">
+  <ant-grid
+    items="{{items2withDesc}}"
+    onTap="handleTapItem"
+    columns="{{2}}"
+  ></ant-grid>
+</ant-container>
+<ant-container title="3列-带描述">
+  <ant-grid
+    items="{{items3withDesc}}"
+    onTap="handleTapItem"
+    columns="{{3}}"
+  ></ant-grid>
+</ant-container>
+<ant-container title="2列-元素横向布局">
+  <ant-grid
+    items="{{items2}}"
+    onTap="handleTapItem"
+    columns="{{2}}"
+    gridItemLayout="horizontal"
+  ></ant-grid>
+</ant-container>
+<ant-container title="3列-元素横向布局">
+  <ant-grid
+    items="{{items3}}"
+    onTap="handleTapItem"
+    columns="{{3}}"
+    gridItemLayout="horizontal"
+  ></ant-grid>
+</ant-container>
+<ant-container title="可滑动">
+  <ant-grid
+    items="{{scrollItems}}"
+    onTap="handleTapItem"
+    mode="scroll"
+  ></ant-grid>
+</ant-container>
+<ant-container title="自定义图标大小">
+  <ant-grid
+    items="{{itemsCustom}}"
+    onTap="handleTapItem"
+    columns="{{5}}"
+    iconSize="{{44}}"
+  ></ant-grid>
+</ant-container>
+<ant-container title="自定义">
+  <ant-grid
+    items="{{itemsCustom}}"
+    onTap="handleTapItem"
+    columns="{{5}}"
+  >
+    <view
+      slot="icon"
+      slot-scope="props"
+    >
+      <ant-badge
+        a:if="{{props.value.tag}}"
+        offsetX="-10px"
+        type="text"
+        text="{{props.value.tag}}"
+      >
+        <image
+          src="{{props.value.icon}}"
+          style="width: 44px; height: 44px"
+        ></image>
+      </ant-badge>
+      <image
+        a:else
+        src="{{props.value.icon}}"
+        style="width: 44px; height: 44px"
+      ></image>
+    </view>
+    <view
+      slot="title"
+      slot-scope="props"
+    >
+      第{{props.index + 1}}项
+    </view>
+    <view
+      slot="description"
+      slot-scope="props"
+    >
+      描述{{props.index + 1}}
+    </view>
+  </ant-grid>
+</ant-container>

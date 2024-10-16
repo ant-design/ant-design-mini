@@ -1,0 +1,15 @@
+<view class="intro">tabs 吸顶模式， 滑动到最顶部会吸顶， 切换tab content会滚动到最顶部</view>
+<tabs
+  items="{{items}}"
+  current="{{current}}"
+  bind:change="onChange"
+  className="tabs"
+></tabs>
+<scroll-view
+  id="scroll-view"
+  scrollTop="{{scrollTop}}"
+  scrollY="{{true}}"
+  scrollWithAnimation="{{true}}"
+  scrollAnimationDuration="{{300}}"
+  class="content"
+>{{items[current].content}}</scroll-view>

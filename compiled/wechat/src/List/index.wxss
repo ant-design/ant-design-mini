@@ -1,0 +1,30 @@
+.ant-list-radius {
+  margin: 0 12px;
+}
+.ant-list-radius .ant-list-body {
+  border-radius: 8px;
+}
+.ant-list-radius .ant-list-header,
+.ant-list-radius .ant-list-footer {
+  padding: 8px 0;
+}
+.ant-list-header,
+.ant-list-footer {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  line-height: 1.4;
+  font-size: 15px;
+  color: #999999;
+}
+.ant-list-header:empty,
+.ant-list-footer:empty {
+  display: none;
+}
+.ant-list-body {
+  position: relative;
+  overflow: hidden;
+}
+.ant-list-body > .ant-list-item:last-child .ant-list-item-line::after {
+  display: none;
+}

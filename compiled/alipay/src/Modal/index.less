@@ -1,0 +1,93 @@
+@import (reference) './variable.less';
+@import (reference) '../style/mixins/hairline.less';
+
+@modalPrefix: ant-modal;
+
+.@{modalPrefix} {
+  &-body {
+    width: 560 * @rpx;
+    background-color: @modal-background-color;
+    border-radius: @modal-radius;
+    padding-top: 40 * @rpx;
+    display: flex;
+    flex-direction: column;
+    &-title {
+      font-size: @font-size-title;
+      line-height: 50 * @rpx;
+      text-align: center;
+      color: @modal-title-color;
+      margin: 0 24 * @rpx 16 * @rpx;
+    }
+
+    &-content {
+      line-height: 42 * @rpx;
+      font-size: @modal-content-size;
+      color: @modal-content-color;
+      text-align: center;
+      margin: 0 24 * @rpx 40 * @rpx;
+    }
+    &-footer {
+      &-focus {
+        padding: 0 24 * @rpx 24 * @rpx;
+        &-secondary,
+        &-cancel {
+          color: @COLOR_BRAND1;
+          text-align: center;
+          font-size: 36 * @rpx;
+          margin-top: 16 * @rpx;
+          padding-top: 24 * @rpx;
+        }
+      }
+      &-vertical {
+        padding: 0 0 24 * @rpx;
+        &-primary,
+        &-secondary,
+        &-cancel {
+          color: @COLOR_BRAND1;
+          text-align: center;
+          font-size: 36 * @rpx;
+          margin-top: 16 * @rpx;
+          padding-top: 24 * @rpx;
+          position: relative;
+          .hairline('top');
+        }
+      }
+      &-horizontal {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        .hairline('top');
+        &-primary,
+        &-secondary,
+        &-cancel {
+          position: relative;
+          flex: 1;
+          color: @COLOR_BRAND1;
+          text-align: center;
+          font-size: 36 * @rpx;
+          padding: 24 * @rpx 0;
+          &:nth-child(1) {
+            .hairline('right');
+          }
+        }
+      }
+    }
+  }
+  &-close {
+    position: absolute;
+    right: 16 * @rpx;
+    top: 13 * @rpx;
+    z-index: 3;
+    width: 52 * @rpx;
+    height: 58 * @rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36 * @rpx;
+    color: @COLOR_TEXT_ASSIST;
+  }
+  .ant-popup-content.ant-popup-center {
+    min-height: 0;
+    padding: 0;
+  }
+}

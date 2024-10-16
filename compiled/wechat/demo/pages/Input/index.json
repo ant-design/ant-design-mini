@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "Input",
+  "usingComponents": {
+    "ant-input": "../../../src/Input/index",
+    "ant-button": "../../../src/Button/index",
+    "container": "../../../src/Container/index"
+  }
+}

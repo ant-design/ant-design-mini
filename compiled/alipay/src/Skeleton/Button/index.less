@@ -1,0 +1,28 @@
+@import (reference) '../variable.less';
+
+.@{skeletonPrefix}-button {
+  &-animate {
+    .skeleton-animation();
+  }
+
+  &-large {
+    font-size: 36 * @rpx;
+    padding: 24 * @rpx 24 * @rpx 24 * @rpx 24 * @rpx;
+  }
+
+  &-medium {
+    font-size: 34 * @rpx;
+    padding: 16 * @rpx 24 * @rpx 16 * @rpx 24 * @rpx;
+  }
+
+  &-small {
+    font-size: 30 * @rpx;
+    padding: 8 * @rpx 24 * @rpx 8 * @rpx 24 * @rpx;
+  }
+
+  width: @button-width;
+  height: @button-height;
+  border-radius: @default-radius;
+  background: @skeleton-fill;
+  display: inline-block;
+}

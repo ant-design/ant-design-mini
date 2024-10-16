@@ -1,0 +1,14 @@
+.custom {
+  display: flex;
+  flex-wrap: wrap;
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  min-height: 50px;
+}
+.custom-child {
+  margin: 8px;
+}

@@ -1,0 +1,12 @@
+.ant-skeleton-input {
+  width: 200px;
+  height: 20px;
+  border-radius: 4px;
+  background: #eeeeee;
+  display: inline-block;
+}
+.ant-skeleton-input-animate {
+  background: linear-gradient(90deg, #eeeeee 25%, rgba(204, 204, 204, 0.6) 37%, #eeeeee 63%);
+  background-size: 400% 100%;
+  animation: ant-skeleton-loading 1.4s ease infinite;
+}

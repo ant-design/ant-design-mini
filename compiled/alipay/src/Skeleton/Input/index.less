@@ -1,0 +1,12 @@
+@import (reference) '../variable.less';
+
+.@{skeletonPrefix}-input {
+  &-animate {
+    .skeleton-animation();
+  }
+  width: @input-width;
+  height: @input-height;
+  border-radius: @default-radius;
+  background: @skeleton-fill;
+  display: inline-block;
+}

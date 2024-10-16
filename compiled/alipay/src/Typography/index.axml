@@ -1,0 +1,57 @@
+<import-sjs
+  from="./index.sjs"
+  name="util"
+></import-sjs>
+<view
+  class="ant-typography-container {{disabled ? 'ant-typography-disabled' : ''}} {{className}}"
+  hoverClass="{{onTap || catchTap ? 'ant-typography-hover {{activeClassName}}' : ''}}"
+  hoverStartTime="{{20}}"
+  hoverStayTime="{{40}}"
+  style="{{style}}"
+  onTap="{{onTap || onDisabledTap ? 'onTap' : ''}}"
+  catchTap="{{catchTap ? 'catchTap' : ''}}"
+>
+  <!--左侧图标-->
+  <view
+    a:if="{{iconPosition === 'left'}}"
+    class="ant-typography-icon-container {{iconPosition}}"
+  >
+    <icon
+      a:if="{{!util.isUrl(icon)}}"
+      type="{{icon}}"
+      className="ant-typography-icon"
+    ></icon>
+    <image
+      a:else
+      class="ant-typography-icon-image"
+      style="width: {{fontSize}};height: {{fontSize}};"
+      src="{{icon}}"
+    ></image>
+  </view>
+  <!--文案-->
+  <text
+    selectable="{{selectable}}"
+    numberOfLines="{{ellipsisRow}}"
+    class="ant-typography-text {{lineThrough ? 'lineThrough' : ''}} {{underline ? 'underline' : ''}} {{util.isiOS(phonemodel) ? 'ant-typography-text-' + (fontWeight || 'normal') + '' : ''}}"
+    style="{{!util.isiOS(phonemodel) ? 'font-weight: ' + (util.getFontWeight(fontWeight, phonemodel)) + ';' : ''}}"
+  >
+    <slot>{{text}}</slot>
+  </text>
+  <!--右侧图标-->
+  <view
+    a:if="{{iconPosition === 'right'}}"
+    class="ant-typography-icon-container {{iconPosition}}"
+  >
+    <icon
+      a:if="{{!util.isUrl(icon)}}"
+      type="{{icon}}"
+      className="ant-typography-icon"
+    ></icon>
+    <image
+      a:else
+      class="ant-typography-icon-image"
+      style="width: {{fontSize}};height: {{fontSize}};"
+      src="{{icon}}"
+    ></image>
+  </view>
+</view>

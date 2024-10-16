@@ -1,0 +1,84 @@
+<ant-guide-tour
+  items="{{[list[0]]}}"
+  visible="{{baseVisible}}"
+  onCancel="closeTour"
+  onChange="onChange"
+></ant-guide-tour>
+<ant-guide-tour
+  items="{{list}}"
+  visible="{{moreVisible}}"
+  onCancel="closeTour"
+  onChange="onChange"
+></ant-guide-tour>
+<ant-guide-tour
+  items="{{list}}"
+  visible="{{swiperVisible}}"
+  onCancel="closeTour"
+  onChange="onChange"
+  swiperable="{{true}}"
+></ant-guide-tour>
+<ant-guide-tour
+  items="{{list}}"
+  current="{{current}}"
+  visible="{{controlledVisible}}"
+  onCancel="closeTour"
+  onChange="onChangeControlled"
+></ant-guide-tour>
+<ant-guide-tour
+  items="{{list}}"
+  visible="{{slotVisible}}"
+  onCancel="closeTour"
+  onChange="onChange"
+  jumpText="跳过"
+  gotItText="知道了"
+  prevStepText="上一步"
+  nextStepText="下一步"
+>
+  <view
+    class="step-box"
+    slot="step"
+    slot-scope="props"
+  >
+    step-{{props.index}}
+  </view>
+</ant-guide-tour>
+<ant-container
+  title="基础用法"
+  className="list"
+>
+  <ant-button
+    onTap="openTour"
+    data-field="baseVisible"
+  >
+    单图模式
+  </ant-button>
+  <ant-button
+    onTap="openTour"
+    data-field="moreVisible"
+  >
+    多图模式
+  </ant-button>
+  <ant-button
+    onTap="openTour"
+    data-field="swiperVisible"
+  >
+    滑动模式
+  </ant-button>
+  <ant-button
+    onTap="openTour"
+    data-field="controlledVisible"
+  >
+    受控模式
+  </ant-button>
+</ant-container>
+<ant-container
+  title="插槽用法"
+  className="list"
+>
+  <ant-button
+    onTap="openTour"
+    data-field="slotVisible"
+  >
+    开始
+  </ant-button>
+</ant-container>

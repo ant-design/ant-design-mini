@@ -1,0 +1,5 @@
+<ant-collapse
+  items="{{items}}"
+  bind:change="onChange"
+  accordion
+></ant-collapse>

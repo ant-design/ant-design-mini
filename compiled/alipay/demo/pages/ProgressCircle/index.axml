@@ -1,0 +1,91 @@
+<container title="默认进度条（有/无动画）">
+  <view class="line2">
+    <progress
+      type="circle"
+      percent="{{percent1}}"
+    ></progress>
+    <progress
+      type="circle"
+      percent="{{percent1}}"
+      animation="{{false}}"
+    ></progress>
+  </view>
+  <view class="buttonwrapper">
+    <ant-button
+      inline
+      style="margin-right: 16rpx"
+      onTap="handleDelete"
+    >
+      减少
+    </ant-button>
+    <ant-button
+      inline
+      onTap="handleAdd"
+    >
+      增加
+    </ant-button>
+  </view>
+</container>
+<container title="自定义进度条宽度">
+  <view class="line2">
+    <progress
+      type="circle"
+      percent="{{percent2}}"
+      strokeWidth="{{12}}"
+    ></progress>
+    <progress
+      type="circle"
+      percent="{{percent2}}"
+      strokeWidth="{{2}}"
+    ></progress>
+  </view>
+</container>
+<container title="自定义颜色">
+  <view class="line2">
+    <progress
+      type="circle"
+      percent="{{percent3}}"
+      strokeColor="#00B578"
+    ></progress>
+    <progress
+      type="circle"
+      percent="{{percent3}}"
+      strokeColor="#FF8F1F"
+    ></progress>
+  </view>
+</container>
+<container title="自定义提示文案">
+  <view class="line2">
+    <progress
+      type="circle"
+      percent="{{percent5}}"
+    >
+      <view slot="indicator">{{percent5}}GB</view>
+    </progress>
+    <progress
+      type="circle"
+      percent="{{percent5}}"
+    >
+      <view slot="indicator">{{percent5}}步</view>
+    </progress>
+  </view>
+</container>
+<container title="自定义大小">
+  <view class="line2">
+    <progress
+      type="circle"
+      percent="{{percent5}}"
+      width="{{80}}"
+    ></progress>
+    <progress
+      type="circle"
+      percent="{{percent5}}"
+      width="{{100}}"
+    ></progress>
+    <progress
+      type="circle"
+      percent="{{percent5}}"
+      width="{{120}}"
+    ></progress>
+  </view>
+</container>

@@ -1,0 +1,4 @@
+.description {
+  margin: 4px 0 8px 0;
+  color: #333333;
+}

@@ -1,0 +1,54 @@
+.ant-stepper {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  height: 28px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.ant-stepper .ant-stepper-button {
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  padding: 0;
+  color: #1677ff;
+  background-color: #f5f5f5;
+}
+.ant-stepper .ant-stepper-button-hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.ant-stepper .ant-stepper-button-up {
+  border-top-left-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 2px;
+}
+.ant-stepper .ant-stepper-button-down {
+  border-top-right-radius: 0;
+  border-top-left-radius: 2px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+}
+.ant-stepper .ant-stepper-button-disabled {
+  color: #999999;
+}
+.ant-stepper-input {
+  width: 44px;
+  height: 28px;
+  margin-left: 2px;
+  margin-right: 2px;
+  text-align: center;
+  line-height: normal;
+  font-size: 15px;
+  color: #333333;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  caret-color: #1677ff;
+}
+.ant-stepper-input-disabled {
+  opacity: 0.4;
+}
+.ant-stepper-input-readonly {
+  line-height: 28px;
+  padding: 0;
+}

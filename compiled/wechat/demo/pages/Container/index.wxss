@@ -1,0 +1,17 @@
+page {
+  padding: 12px;
+  color: #333333;
+  box-sizing: border-box;
+}
+.content {
+  height: 70px;
+  display: flex;
+}
+.content .box {
+  background-color: #eeeeee;
+  flex: 1;
+  border-radius: 4px;
+}
+.content .box:not(:first-of-type) {
+  margin-left: 8px;
+}

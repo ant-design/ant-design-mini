@@ -1,0 +1,30 @@
+@import (reference) '../style/themes/index.less';
+
+@guideTourPrefix: ant-guide-tour;
+
+// 层级-1
+@guide-tour-z-index-1: 9999;
+// 层级-2
+@guide-tour-z-index-2: 10000;
+// 层级-3
+@guide-tour-z-index-3: 10001;
+// 主要文字颜色
+@guide-tour-text-color: @COLOR_WHITE_DEFAULT;
+// 关闭按钮颜色
+@guide-tour-clear-color: @COLOR_TEXT_ASSIST_DEFAULT;
+// 按钮距离底部
+@guide-tour-button-bottom: calc(100 * @rpx + env(safe-area-inset-bottom));
+// 按钮高度
+@guide-tour-button-height:52 * @rpx;
+// 步骤条点的长宽
+@guide-tour-dot-size: 6 * @rpx;
+// 步骤条点的颜色
+@guide-tour-dot-color: @COLOR_TEXT_ASSIST_DEFAULT;
+// 激活步骤条点的长度
+@guide-tour-dot-active-width:26 * @rpx;
+// 步骤条点的弧度
+@guide-tour-dot-border-radius:2 * @rpx;
+// 步骤条距离底部
+@guide-tour-dot-bottom: calc(
+  @guide-tour-button-bottom + 40 * @rpx + @guide-tour-button-height
+);

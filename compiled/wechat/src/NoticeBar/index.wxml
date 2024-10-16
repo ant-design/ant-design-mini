@@ -1,0 +1,52 @@
+<view
+  wx:if="{{show}}"
+  class="ant-notice-bar {{className || ''}} {{type ? 'ant-notice-bar-' + type : ''}}"
+  style="{{style}}"
+>
+  <slot
+    name="icon"
+    wx:if="{{slotIcon}}"
+  ></slot>
+  <view
+    wx:else
+    class="ant-notice-bar-icon"
+  >
+    <image-icon
+      wx:if="{{icon}}"
+      image="{{icon}}"
+      className="ant-notice-bar-icon-image"
+    ></image-icon>
+    <icon
+      wx:elif="{{type === 'error'}}"
+      type="InformationCircleOutline"
+    ></icon>
+    <icon
+      wx:else
+      type="SoundOutline"
+    ></icon>
+  </view>
+  <view class="ant-notice-bar-content ant-notice-bar-content{{$id ? '-' + $id : ''}}">
+    <view
+      class="ant-notice-bar-marquee ant-notice-bar-marquee{{$id ? '-' + $id : ''}}"
+      style="{{marqueeStyle}} display: {{enableMarquee ? 'inline-block' : 'block'}}"
+      onTransitionEnd="onTransitionEnd"
+    >
+      <slot></slot>
+    </view>
+  </view>
+  <view class="ant-notice-bar-operation">
+    <slot name="extra"></slot>
+    <icon
+      wx:if="{{mode === 'link'}}"
+      className="ant-notice-bar-operation-icon"
+      type="RightOutline"
+      bind:tap="onTap"
+    ></icon>
+    <icon
+      wx:if="{{mode === 'closeable'}}"
+      className="ant-notice-bar-operation-icon"
+      type="CloseOutline"
+      bind:tap="onTap"
+    ></icon>
+  </view>
+</view>

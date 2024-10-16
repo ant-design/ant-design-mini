@@ -1,0 +1,37 @@
+<ant-tabs
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+  direction="vertical"
+  className="tabs"
+  tabsBarClassName="tabs-bar"
+  tabActiveClassName="tab-active"
+>
+  <scroll-view
+    id="scroll-view"
+    onScroll="onScroll"
+    onTouchStart="onTouchStart"
+    scrollTop="{{scrollTop}}"
+    scrollY="{{true}}"
+    scrollWithAnimation="{{true}}"
+    scrollAnimationDuration="{{300}}"
+    class="content"
+  >
+    <block
+      a:for="{{items}}"
+      a:for-index="index"
+      a:for-item="item"
+    >
+      <view class="item">
+        <view
+          class="title"
+          id="tab-item-{{index}}"
+        >
+          {{item.title}}
+        </view>
+        <view>{{item.content}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</ant-tabs>
+<view class="footer"></view>

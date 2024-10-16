@@ -1,0 +1,42 @@
+<view
+  class="ant-textarea {{disabled ? 'ant-textarea-disabled' : ''}} {{className ? className : ''}} {{selfFocus ? focusClassName ? focusClassName : '' : ''}}"
+  style="{{style || ''}};{{focusStyle || ''}}"
+>
+  <view class="ant-textarea-line">
+    <textarea
+      enableNative="{{enableNative}}"
+      name="{{name}}"
+      class="ant-textarea-content {{allowClear ? 'ant-textarea-content-clear' : ''}}"
+      disabled="{{disabled}}"
+      value="{{state.value || ''}}"
+      placeholder="{{placeholder}}"
+      placeholderClass="ant-textarea-placeholder {{placeholderClassName ? placeholderClassName : ''}}"
+      placeholderStyle="{{placeholderStyle ? placeholderStyle : ''}}"
+      maxlength="{{maxLength}}"
+      focus="{{focus}}"
+      confirmType="{{confirmType}}"
+      confirmHold="{{confirmHold}}"
+      autoHeight="{{autoHeight}}"
+      showCount="{{showCount}}"
+      controlled="{{state.controlled}}"
+      showConfirmBar="{{showConfirmBar}}"
+      holdKeyboard="{{holdKeyboard}}"
+      disableDefaultPadding="{{disableDefaultPadding}}"
+      adjustKeyboardTo="{{adjustKeyboardTo}}"
+      bindinput="onChange"
+      bindconfirm="onConfirm"
+      bindfocus="onFocus"
+      bindblur="onBlur"
+    ></textarea>
+    <view
+      wx:if="{{allowClear}}"
+      class="ant-textarea-clear {{state.value && state.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden'}}"
+      bind:tap="onClear"
+    >
+      <icon
+        className="ant-textarea-clear-icon"
+        type="CloseCircleFill"
+      ></icon>
+    </view>
+  </view>
+</view>

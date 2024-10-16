@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Tabs",
+  "usingComponents": {
+    "tabs": "../../../src/Tabs/index",
+    "ant-button": "../../../src/Button/index"
+  }
+}

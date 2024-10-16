@@ -1,0 +1,98 @@
+@import (reference) './variable.less';
+
+@radioItemPrefix: ant-radio-item;
+
+.@{radioItemPrefix} {
+  color: @COLOR_TEXT_PRIMARY;
+  margin-right: 16 * @rpx;
+
+
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &-content {
+    padding-left: 10 * @rpx;
+    text-align: left;
+  }
+  &-wrap {
+    position: relative;
+    width: @radio-size;
+    height: @radio-size;
+    flex: 0 0 @radio-size;
+  }
+  &-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+  }
+  &-fake {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-icon {
+      background-color: @COLOR_CARD;
+      border: @radio-border-width solid @radio-border-color;
+      border-radius: @radio-corner-radius;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    &-checkedIcon {
+      border-radius: @radio-corner-radius;
+      background-color: @radio-background-color;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &-icon {
+        color: @COLOR_WHITE;
+        font-size: 28 * @rpx;
+      }
+    }
+    &-disbaledIcon {
+      box-sizing: border-box;
+      border: @radio-border-width solid @radio-border-color;
+      border-radius: @radio-corner-radius;
+      width: 100%;
+      height: 100%;
+      background-color: @radio-disabled-background;
+    }
+    &-disabledCheckedIcon {
+      box-sizing: border-box;
+      border: @radio-border-width solid @radio-border-color;
+      background-color: @radio-disabled-background;
+      border-radius: @radio-corner-radius;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &-icon {
+        color: @radio-border-color;
+        font-size: 28 * @rpx;
+      }
+    }
+  }
+  &-disabled {
+    opacity: @opacity-disabled;
+  }
+  // .ant-list-item-image-container {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+}

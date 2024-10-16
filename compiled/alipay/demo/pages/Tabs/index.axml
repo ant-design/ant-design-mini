@@ -1,0 +1,74 @@
+<container title="基础用法">
+  <tabs items="{{items}}"></tabs>
+</container>
+<container title="带有content">
+  <tabs items="{{items}}">
+    <view
+      class="content"
+      slot="$default"
+      slot-scope="item"
+    >
+      {{item.value.content}}
+    </view>
+  </tabs>
+</container>
+<container title="胶囊">
+  <tabs
+    type="capsule"
+    items="{{items}}"
+    defaultCurrent="{{1}}"
+  ></tabs>
+</container>
+<container title="带副标题">
+  <tabs
+    type="mixin"
+    items="{{items}}"
+  ></tabs>
+</container>
+<container title="带徽标">
+  <tabs items="{{items}}">
+    <view
+      slot="title"
+      slot-scope="item"
+    >
+      <view a:if="{{item.value.badge}}">
+        <badge>{{item.value.title}}</badge>
+      </view>
+      <view a:else>{{item.value.title}}</view>
+    </view>
+  </tabs>
+</container>
+<container title="禁用状态">
+  <tabs items="{{items2}}"></tabs>
+</container>
+<container title="onChange">
+  <tabs
+    items="{{items}}"
+    onChange="onChange"
+  ></tabs>
+</container>
+<container title="plus按钮">
+  <tabs items="{{items}}">
+    <view slot="plus">
+      <icon
+        type="AddOutline"
+        onTap="onPlus"
+      ></icon>
+    </view>
+  </tabs>
+</container>
+<container title="控制模式">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="handleChange"
+  ></tabs>
+</container>
+<container title="content在外层自定义">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    onChange="handleChange"
+  ></tabs>
+  <view class="content">{{items[current].content}}</view>
+</container>

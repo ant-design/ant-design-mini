@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mask": "../Mask/index",
+    "ant-button": "../Button/index",
+    "ant-icon": "../Icon/index"
+  }
+}

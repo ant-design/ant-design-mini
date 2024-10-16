@@ -1,0 +1,20 @@
+@keyframes ant-skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.ant-skeleton-title {
+  height: 20px;
+  width: 45%;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background: #eeeeee;
+}
+.ant-skeleton-title-animate {
+  background: linear-gradient(90deg, #eeeeee 25%, rgba(204, 204, 204, 0.6) 37%, #eeeeee 63%);
+  background-size: 400% 100%;
+  animation: ant-skeleton-loading 1.4s ease infinite;
+}

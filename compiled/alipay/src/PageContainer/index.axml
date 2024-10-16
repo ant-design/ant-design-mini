@@ -1,0 +1,55 @@
+<view
+  class="ant-page-container {{className || ''}} {{safeArea === 'top' || safeArea === 'both' ? 'ant-page-container-safe-top' : ''}} {{safeArea === 'bottom' || safeArea === 'both' ? 'ant-page-container-safe-bottom' : ''}}"
+  style="{{style || ''}}"
+>
+  <!--loading-->
+  <view
+    a:if="{{loading}}"
+    class="ant-page-container-loading-wrap"
+  >
+    <view class="ant-page-container-loading">
+      <slot name="loading">
+        <ant-loading
+          type="{{loadingType}}"
+          size="{{loadingSize}}"
+          color="{{loadingColor}}"
+        ></ant-loading>
+      </slot>
+    </view>
+  </view>
+  <!--页面异常状态-->
+  <view
+    a:if="{{image && title && message}}"
+    class="ant-page-container-status"
+  >
+    <ant-empty
+      image="{{image}}"
+      title="{{title}}"
+      message="{{message}}"
+    >
+      <view slot="extra">
+        <ant-button
+          a:if="{{actionText}}"
+          onTap="handleActionTap"
+          type="primary"
+          size="small"
+          inline
+        >
+          {{actionText}}
+        </ant-button>
+        <ant-button
+          a:if="{{secondaryActionText}}"
+          onTap="handleSecondaryActionTap"
+          size="small"
+          inline
+          style="margin-left: 12px"
+        >
+          {{secondaryActionText}}
+        </ant-button>
+        <slot name="extra"></slot>
+      </view>
+    </ant-empty>
+  </view>
+  <!--正常页面内容-->
+  <slot a:else></slot>
+</view>

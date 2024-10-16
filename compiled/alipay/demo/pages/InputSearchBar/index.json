@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Input",
+  "usingComponents": {
+    "ant-input": "../../../src/Input/index",
+    "ant-icon": "../../../src/Icon/index"
+  }
+}

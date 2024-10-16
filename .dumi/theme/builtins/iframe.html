@@ -44,10 +44,10 @@
     const theme = searchParams.get('theme');
     const page = searchParams.get('page');
     const platform = searchParams.get('platform');
-    const server = searchParams.get('compilerServer');
 
 
     function getDist() {
+      const server = searchParams.get('compilerServer');
       const list = ['appConfig.json', 'index.js', 'index.worker.js', 'index.html'];
       return Promise.all(list.map(item => fetch(`${server}/${item}`).then(res => res.text()))).then(arr => {
         const dist = {};
@@ -61,7 +61,7 @@
     async function startWebOpenBoxLyraApp() {
       let dist;
 
-      if (server) {
+      if (location.port) {
         dist = await getDist()
       } else {
         const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());

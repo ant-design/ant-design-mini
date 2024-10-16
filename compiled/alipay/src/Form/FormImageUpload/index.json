@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "form-item": "../FormItem/index",
+    "image-upload": "../../ImageUpload/index"
+  }
+}

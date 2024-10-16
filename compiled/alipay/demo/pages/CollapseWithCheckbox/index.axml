@@ -1,0 +1,28 @@
+<ant-collapse items="{{items}}">
+  <view
+    class="title"
+    slot="title"
+    slot-scope="item"
+  >
+    <view catchTap="true">
+      <ant-checkbox
+        data-index="{{item.index}}"
+        onChange="onChange"
+      ></ant-checkbox>
+    </view>
+    <view>{{item.value.title}}</view>
+  </view>
+  <view
+    class="content"
+    slot="content"
+    slot-scope="item"
+  >
+    {{item.value.content}}
+  </view>
+</ant-collapse>
+<ant-button
+  type="primary"
+  onTap="onTap"
+>
+  提交
+</ant-button>

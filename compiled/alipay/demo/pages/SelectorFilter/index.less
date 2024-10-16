@@ -1,0 +1,51 @@
+@import (reference) '../../../src/style/themes/index.less';
+
+.filterDemo {
+  position: relative;
+  &-bar {
+    height: 88 * @rpx;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background-color: @COLOR_CARD;
+    box-sizing: border-box;
+    &-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: @COLOR_TEXT_PRIMARY;
+      font-size: 26 * @rpx;
+      &-active {
+        color: @COLOR_BRAND1;
+      }
+      &-icon {
+        margin-left: @size-1;
+        font-size: 18 * @rpx;
+        transition: transform 200ms linear;
+        color: @COLOR_TEXT_WEAK;
+        &-up {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &-items {
+    position: relative;
+    overflow: visible;
+    z-index: 9999;
+    &-content {
+      background: @COLOR_CARD;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      transform-origin: top center;
+      transition: transform 100ms linear;
+      transform: scaleY(0);
+      &-active {
+        transform: scaleY(1);
+      }
+    }
+  }
+}

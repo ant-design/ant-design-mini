@@ -1,0 +1,50 @@
+@import (reference) '../variable.less';
+
+@checkGroupPrefix: ant-checkbox-group;
+
+.@{checkGroupPrefix} {
+  &-horizontal {
+    .@{checkGroupPrefix}-body {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      .ant-list-item-line {
+        padding-right: 0;
+      }
+
+      .ant-checkbox-item {
+        flex-flow: 0;
+      }
+
+      .ant-list-item-line::after {
+        display: none;
+      }
+    }
+  }
+
+  &-header:empty,
+  &-footer:empty {
+    display: none;
+  }
+
+  &-header,
+  &-footer {
+    display: flex;
+    align-items: center;
+    padding: @v-spacing-standard @v-spacing-large;
+    line-height: 1.4;
+    font-size: 30 * @rpx;
+    color: @checkbox-header-color;
+  }
+
+  &-body {
+    position: relative;
+    overflow: hidden;
+    .ant-checkbox-item-content {
+      .ant-checkbox-group-item-label-default:not(:nth-child(1)) {
+        display: none;
+      }
+    }
+  }
+}

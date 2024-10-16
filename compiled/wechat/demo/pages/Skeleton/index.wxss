@@ -1,0 +1,19 @@
+page {
+  padding: 24px;
+  box-sizing: border-box;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+}
+.custom {
+  margin-bottom: 16px;
+}
+.container {
+  display: flex;
+  color: #333333;
+  align-items: flex-start;
+}
+.content {
+  padding: 12px 16px 0 16px;
+}

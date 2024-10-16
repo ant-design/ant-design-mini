@@ -1,0 +1,67 @@
+<container title="控制进度">
+  <progress percent="{{progress1}}"></progress>
+  <view class="buttonwrapper">
+    <ant-button
+      size="small"
+      inline
+      style="margin-right: 16rpx"
+      onTap="handleDelete"
+    >
+      减少
+    </ant-button>
+    <ant-button
+      size="small"
+      inline
+      onTap="handleAdd"
+    >
+      增加
+    </ant-button>
+  </view>
+</container>
+<container title="语义进度条">
+  <progress
+    status="success"
+    percent="100"
+  ></progress>
+  <progress
+    status="exception"
+    percent="50"
+  ></progress>
+</container>
+<container title="自定义进度条高度">
+  <progress
+    percent="{{progress2}}"
+    strokeWidth="15"
+  ></progress>
+</container>
+<container title="自定义颜色样式">
+  <progress
+    percent="{{progress4}}"
+    trailColor="#FFCF9F"
+  ></progress>
+  <progress
+    percent="{{progress4}}"
+    strokeColor="#FFCF9F"
+  ></progress>
+  <progress percent="{{progress4}}"></progress>
+</container>
+<container title="自定义长度">
+  <progress
+    percent="{{progress4}}"
+    style="width: 100%"
+  ></progress>
+  <progress
+    percent="{{progress4}}"
+    style="width: 70%"
+  ></progress>
+  <progress
+    percent="{{progress4}}"
+    style="width: 50%"
+  ></progress>
+</container>
+<container title="自定义进度条指示器">
+  <progress percent="{{progress3}}">
+    <!--display: inline-->
+    <text slot="indicator">{{progress3 / 100 * 200}}步</text>
+  </progress>
+</container>

@@ -1,0 +1,9 @@
+.custom-slider-handler {
+  width: 56rpx;
+  height: 56rpx;
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 10rpx 0 rgba(0, 0, 0, 0.12);
+  border-radius: 56rpx;
+  text-align: center;
+  line-height: 56rpx;
+}

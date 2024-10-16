@@ -1,0 +1,77 @@
+@import (reference) '../variable.less';
+@import (reference) '../../style/mixins/hairline.less';
+
+@checklistItemPrefix: ant-checklist-item;
+
+.@{checklistItemPrefix} {
+  background-color: @COLOR_CARD;
+
+  &-hover {
+    background-color: @COLOR_BORDER;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    padding: @v-spacing-large @h-spacing-large;
+    color: @COLOR_TEXT_PRIMARY;
+    &-disabled {
+      opacity: @opacity-disabled;
+    }
+  }
+
+  &-content-box {
+    flex: 1;
+  }
+
+  &-content-box-nut {
+    display: flex;
+    align-items: center;
+  }
+
+  &-image {
+    width: @size-9;
+    height: @size-9;
+    border-radius: @corner-radius-md;
+  }
+
+  &-text {
+    flex: 1;
+    margin-left: @h-spacing-large;
+
+    &-no-image {
+      margin-left: 0;
+    }
+
+    &-title {
+      color: @COLOR_TEXT_PRIMARY;
+      font-size: @font-size-list;
+      line-height: 48 * @rpx;
+    }
+
+    &-description {
+      font-size: @font-size-content;
+      color: @COLOR_TEXT_ASSIST;
+      margin-top: 2 * @rpx;
+      line-height: 36 * @rpx;
+    }
+  }
+
+  &-checked {
+    &-disabled {
+      opacity: @opacity-disabled;
+    }
+  }
+
+  &:last-child {
+    .ant-checklist-item-line {
+      display: none;
+    }
+  }
+
+  &-line {
+    margin-left: @h-spacing-large;
+    position: relative;
+    .hairline('bottom',  @COLOR_BORDER);
+  }
+}

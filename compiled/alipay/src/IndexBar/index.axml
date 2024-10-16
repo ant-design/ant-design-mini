@@ -1,0 +1,64 @@
+<view
+  class="ant-indexbar-side {{className}}"
+  disableScroll="{{true}}"
+  style="{{({ width: '' + size + 'px;' })}} {{style}}"
+  hoverStopPropagation
+>
+  <view
+    a:if="{{showMask}}"
+    class="ant-indexbar-side-mask"
+  ></view>
+  <view class="ant-indexbar-side-content">
+    <view
+      class="ant-indexbar-side-item"
+      catchTouchStart="onTouchStart"
+      catchTouchMove="onTouchMove"
+      catchTouchEnd="onTouchEnd"
+      data-item="{{({ item, index })}}"
+      id="{{'ant-alphabet-' + index}}"
+      style="{{({ width: '' + size + 'px', height: '' + size + 'px' })}}"
+      a:for="{{items}}"
+      a:for-index="index"
+      a:for-item="item"
+    >
+      <view
+        style="{{({ width: '' + size + 'px', height: '' + size + 'px' })}}"
+        class="ant-indexbar-side-item-default {{activeClassName}}
+        {{touchKey ? touchKey === item.label ? 'ant-indexbar-side-active' : '' : index === currentKey ? 'ant-indexbar-side-active' : ''}}"
+      >
+        {{item.label}}
+      </view>
+      <view
+        a:if="{{item.label === touchKey && !item.disablePreview && moving}}"
+        class="ant-indexbar-side-item-tip"
+      >
+        {{item.label}}
+        <slot
+          name="labelPreview"
+          value="{{item}}"
+          index="{{index}}"
+        ></slot>
+      </view>
+    </view>
+  </view>
+</view>
+<scroll-view
+  a:if="{{hasDefaultSlot}}"
+  scrollY
+  class="ant-indexbar-side-scroll {{hasDefaultSlot && topRange.length === 0 ? 'ant-indexbar-side-notSee' : ''}}"
+  scrollIntoView="{{'ant-indexbar-' + touchKey + ''}}"
+  onScroll="onScroll"
+>
+  <view
+    class="ant-indexbar-side-list"
+    id="{{'ant-indexbar-' + (item.label) + ''}}"
+    a:for="{{items}}"
+    a:for-index="index"
+    a:for-item="item"
+  >
+    <slot
+      value="{{item}}"
+      index="{{index}}"
+    ></slot>
+  </view>
+</scroll-view>

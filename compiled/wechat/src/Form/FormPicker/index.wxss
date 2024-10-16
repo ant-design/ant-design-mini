@@ -1,0 +1,5 @@
+.ant-form-picker-arrow {
+  margin-left: 4px;
+  color: #cccccc;
+  font-size: 18px;
+}

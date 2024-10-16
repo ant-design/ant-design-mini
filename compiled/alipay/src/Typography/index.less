@@ -1,0 +1,61 @@
+@import (reference) '../style/themes/index.less';
+
+@tabsPrefix: ant-typography;
+
+.@{tabsPrefix} {
+  &-container {
+    font-size: 28 * @rpx;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    color: @COLOR_TEXT_PRIMARY;
+    .@{tabsPrefix} {
+      &-text {
+        line-height: @default-line-height;
+
+        &.lineThrough {
+          text-decoration: line-through;
+        }
+        &.underline {
+          text-decoration: underline;
+          text-decoration-skip-ink: auto;
+        }
+
+        &-normal {
+          font-family: PingFangSC-Regular;
+        }
+
+        &-medium {
+          font-family: PingFangSC-Medium;
+        }
+
+        &-bold {
+          font-family: PingFangSC-SemiBold;
+        }
+      }
+      &-icon {
+        &-container {
+          display: flex;
+          align-items: center;
+          &.left {
+            margin-right: @size-1;
+          }
+          &.right {
+            margin-left: @size-1;
+          }
+        }
+        &-image {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &-disabled {
+    opacity: @opacity-disabled;
+  }
+
+  &-hover {
+    opacity: @opacity-disabled;
+  }
+}

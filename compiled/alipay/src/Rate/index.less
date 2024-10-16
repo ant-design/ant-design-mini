@@ -1,0 +1,39 @@
+@import (reference) './variable.less';
+@import '../style/mixins/hairline.less';
+
+.ant-rate {
+  display: inline-flex;
+  font-size: 48 * @rpx;
+  user-select: none;
+
+  &-container {
+    display: flex;
+  }
+
+  &-star {
+    position: relative;
+    margin-right: 8 * @rpx;
+    line-height: 1;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &-icon {
+      color: #eee;
+    }
+
+    &-icon-active {
+      color: @COLOR_YELLOW;
+    }
+
+    &-icon-half-active {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      overflow: hidden;
+    }
+  }
+
+}
