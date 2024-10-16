@@ -9,16 +9,15 @@ import React, {
 } from 'react';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import './index.less';
 
 interface IProps {
   children: ReactNode;
 }
 
 const MARKUP_REGEX = {
-  all: /#ALIPAY#|#WECHAT#/, // 支持的所有平台
-  alipay: /#WECHAT#/, // 支付宝平台时，需要去掉微信标记表格项
-  wechat: /#ALIPAY#/, // 微信平台时，需要去掉支付宝标记表格项
+  all: /#if ALIPAY|#if WECHAT/, // 支持的所有平台
+  alipay: /#if WECHAT/, // 支付宝平台时，需要去掉微信标记表格项
+  wechat: /#if ALIPAY/, // 微信平台时，需要去掉支付宝标记表格项
 };
 
 const Table: React.FC<IProps> = ({ children, ...props }) => {
@@ -54,7 +53,7 @@ const Table: React.FC<IProps> = ({ children, ...props }) => {
       if (Array.isArray(node)) {
         let containsAlipay = false;
 
-        // 遍历节点数组，检测是否包含 '#ALIPAY#'
+        // 遍历节点数组，检测是否包含 #if ALIPAY
         node.forEach((child) => {
           if (typeof child === 'string' && MARKUP_REGEX[platform].test(child)) {
             containsAlipay = true;
@@ -67,7 +66,7 @@ const Table: React.FC<IProps> = ({ children, ...props }) => {
           }
         });
 
-        // 如果包含 '#ALIPAY#'，返回空数组以舍弃整个节点和其兄弟
+        // 如果包含 #if ALIPAY，返回空数组以舍弃整个节点和其兄弟
         return containsAlipay
           ? []
           : node.map(processReactNode).filter((child) => child !== null);

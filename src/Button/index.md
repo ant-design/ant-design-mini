@@ -36,7 +36,13 @@ toc: 'content'
 <!-- <code src='pages/ButtonCustom/index'></code> -->
 
 ```js
-示例代码;
+通用代码
+#if ALIPAY
+支付宝示例代码;
+#endif
+#if WECHAT
+微信示例代码;
+#endif
 ```
 
 ## API
@@ -58,9 +64,9 @@ toc: 'content'
 | loading                | 是否加载中，加载中时不可点击                                    | boolean                                                                       | -         |
 | size                   | 按钮大小。仅在 `inline` 下生效，可选 `small`、`medium`、`large` | string                                                                        | `medium`  |
 | subText                | 辅助文字，显示在第二行。`inline` 下不生效                       | string                                                                        | -         |
-| #ALIPAY# catchTap      | 点击按钮，触发此回调，非冒泡                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| #ALIPAY# onTap         | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| #ALIPAY# onDisabledTap | 禁用时点击出发回调（微信不支持）                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if ALIPAY catchTap      | 点击按钮，触发此回调，非冒泡                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if ALIPAY onTap         | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if ALIPAY onDisabledTap | 禁用时点击出发回调（微信不支持）                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 
 ### 更多属性
 
