@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "",
+  /// #endif
+
+  "titleBarColor": "#ffffff",
+  "transparentTitle": "auto",
+  "usingComponents": {
+    "ant-picker": "../../../src/Picker/index",
+    "ant-locale-provider": "../../../src/LocaleProvider/index"
+  }
+}

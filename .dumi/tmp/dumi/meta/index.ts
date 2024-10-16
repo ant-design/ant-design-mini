@@ -65,54 +65,56 @@ import { frontmatter as fm30, toc as t30 } from '/Users/jiajia/Ali/Task/ant-desi
 import { demoIndex as dmi30 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/List/index.md?type=demo-index';
 import { frontmatter as fm31, toc as t31 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Loading/index.md?type=frontmatter';
 import { demoIndex as dmi31 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Loading/index.md?type=demo-index';
-import { frontmatter as fm32, toc as t32 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Modal/index.md?type=frontmatter';
-import { demoIndex as dmi32 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Modal/index.md?type=demo-index';
-import { frontmatter as fm33, toc as t33 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/NoticeBar/index.md?type=frontmatter';
-import { demoIndex as dmi33 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/NoticeBar/index.md?type=demo-index';
-import { frontmatter as fm34, toc as t34 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/NumberKeyboard/index.md?type=frontmatter';
-import { demoIndex as dmi34 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/NumberKeyboard/index.md?type=demo-index';
-import { frontmatter as fm35, toc as t35 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/PageContainer/index.md?type=frontmatter';
-import { demoIndex as dmi35 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/PageContainer/index.md?type=demo-index';
-import { frontmatter as fm36, toc as t36 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Picker/index.md?type=frontmatter';
-import { demoIndex as dmi36 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Picker/index.md?type=demo-index';
-import { frontmatter as fm37, toc as t37 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Popover/index.md?type=frontmatter';
-import { demoIndex as dmi37 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Popover/index.md?type=demo-index';
-import { frontmatter as fm38, toc as t38 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Popup/index.md?type=frontmatter';
-import { demoIndex as dmi38 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Popup/index.md?type=demo-index';
-import { frontmatter as fm39, toc as t39 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Progress/index.md?type=frontmatter';
-import { demoIndex as dmi39 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Progress/index.md?type=demo-index';
-import { frontmatter as fm40, toc as t40 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Radio/index.md?type=frontmatter';
-import { demoIndex as dmi40 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Radio/index.md?type=demo-index';
-import { frontmatter as fm41, toc as t41 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/RareWordsKeyboard/index.md?type=frontmatter';
-import { demoIndex as dmi41 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/RareWordsKeyboard/index.md?type=demo-index';
-import { frontmatter as fm42, toc as t42 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Rate/index.md?type=frontmatter';
-import { demoIndex as dmi42 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Rate/index.md?type=demo-index';
-import { frontmatter as fm43, toc as t43 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Result/index.md?type=frontmatter';
-import { demoIndex as dmi43 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Result/index.md?type=demo-index';
-import { frontmatter as fm44, toc as t44 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Selector/index.md?type=frontmatter';
-import { demoIndex as dmi44 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Selector/index.md?type=demo-index';
-import { frontmatter as fm45, toc as t45 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Skeleton/index.md?type=frontmatter';
-import { demoIndex as dmi45 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Skeleton/index.md?type=demo-index';
-import { frontmatter as fm46, toc as t46 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Slider/index.md?type=frontmatter';
-import { demoIndex as dmi46 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Slider/index.md?type=demo-index';
-import { frontmatter as fm47, toc as t47 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Stepper/index.md?type=frontmatter';
-import { demoIndex as dmi47 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Stepper/index.md?type=demo-index';
-import { frontmatter as fm48, toc as t48 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Steps/index.md?type=frontmatter';
-import { demoIndex as dmi48 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Steps/index.md?type=demo-index';
-import { frontmatter as fm49, toc as t49 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/SwipeAction/index.md?type=frontmatter';
-import { demoIndex as dmi49 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/SwipeAction/index.md?type=demo-index';
-import { frontmatter as fm50, toc as t50 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Switch/index.md?type=frontmatter';
-import { demoIndex as dmi50 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Switch/index.md?type=demo-index';
-import { frontmatter as fm51, toc as t51 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/TabBar/index.md?type=frontmatter';
-import { demoIndex as dmi51 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/TabBar/index.md?type=demo-index';
-import { frontmatter as fm52, toc as t52 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Tabs/index.md?type=frontmatter';
-import { demoIndex as dmi52 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Tabs/index.md?type=demo-index';
-import { frontmatter as fm53, toc as t53 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Tag/index.md?type=frontmatter';
-import { demoIndex as dmi53 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Tag/index.md?type=demo-index';
-import { frontmatter as fm54, toc as t54 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Toast/index.md?type=frontmatter';
-import { demoIndex as dmi54 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Toast/index.md?type=demo-index';
-import { frontmatter as fm55, toc as t55 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Typography/index.md?type=frontmatter';
-import { demoIndex as dmi55 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Typography/index.md?type=demo-index';
+import { frontmatter as fm32, toc as t32 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/LocaleProvider/index.md?type=frontmatter';
+import { demoIndex as dmi32 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/LocaleProvider/index.md?type=demo-index';
+import { frontmatter as fm33, toc as t33 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Modal/index.md?type=frontmatter';
+import { demoIndex as dmi33 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Modal/index.md?type=demo-index';
+import { frontmatter as fm34, toc as t34 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/NoticeBar/index.md?type=frontmatter';
+import { demoIndex as dmi34 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/NoticeBar/index.md?type=demo-index';
+import { frontmatter as fm35, toc as t35 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/NumberKeyboard/index.md?type=frontmatter';
+import { demoIndex as dmi35 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/NumberKeyboard/index.md?type=demo-index';
+import { frontmatter as fm36, toc as t36 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/PageContainer/index.md?type=frontmatter';
+import { demoIndex as dmi36 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/PageContainer/index.md?type=demo-index';
+import { frontmatter as fm37, toc as t37 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Picker/index.md?type=frontmatter';
+import { demoIndex as dmi37 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Picker/index.md?type=demo-index';
+import { frontmatter as fm38, toc as t38 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Popover/index.md?type=frontmatter';
+import { demoIndex as dmi38 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Popover/index.md?type=demo-index';
+import { frontmatter as fm39, toc as t39 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Popup/index.md?type=frontmatter';
+import { demoIndex as dmi39 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Popup/index.md?type=demo-index';
+import { frontmatter as fm40, toc as t40 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Progress/index.md?type=frontmatter';
+import { demoIndex as dmi40 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Progress/index.md?type=demo-index';
+import { frontmatter as fm41, toc as t41 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Radio/index.md?type=frontmatter';
+import { demoIndex as dmi41 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Radio/index.md?type=demo-index';
+import { frontmatter as fm42, toc as t42 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/RareWordsKeyboard/index.md?type=frontmatter';
+import { demoIndex as dmi42 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/RareWordsKeyboard/index.md?type=demo-index';
+import { frontmatter as fm43, toc as t43 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Rate/index.md?type=frontmatter';
+import { demoIndex as dmi43 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Rate/index.md?type=demo-index';
+import { frontmatter as fm44, toc as t44 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Result/index.md?type=frontmatter';
+import { demoIndex as dmi44 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Result/index.md?type=demo-index';
+import { frontmatter as fm45, toc as t45 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Selector/index.md?type=frontmatter';
+import { demoIndex as dmi45 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Selector/index.md?type=demo-index';
+import { frontmatter as fm46, toc as t46 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Skeleton/index.md?type=frontmatter';
+import { demoIndex as dmi46 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Skeleton/index.md?type=demo-index';
+import { frontmatter as fm47, toc as t47 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Slider/index.md?type=frontmatter';
+import { demoIndex as dmi47 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Slider/index.md?type=demo-index';
+import { frontmatter as fm48, toc as t48 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Stepper/index.md?type=frontmatter';
+import { demoIndex as dmi48 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Stepper/index.md?type=demo-index';
+import { frontmatter as fm49, toc as t49 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Steps/index.md?type=frontmatter';
+import { demoIndex as dmi49 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Steps/index.md?type=demo-index';
+import { frontmatter as fm50, toc as t50 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/SwipeAction/index.md?type=frontmatter';
+import { demoIndex as dmi50 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/SwipeAction/index.md?type=demo-index';
+import { frontmatter as fm51, toc as t51 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Switch/index.md?type=frontmatter';
+import { demoIndex as dmi51 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Switch/index.md?type=demo-index';
+import { frontmatter as fm52, toc as t52 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/TabBar/index.md?type=frontmatter';
+import { demoIndex as dmi52 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/TabBar/index.md?type=demo-index';
+import { frontmatter as fm53, toc as t53 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Tabs/index.md?type=frontmatter';
+import { demoIndex as dmi53 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Tabs/index.md?type=demo-index';
+import { frontmatter as fm54, toc as t54 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Tag/index.md?type=frontmatter';
+import { demoIndex as dmi54 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Tag/index.md?type=demo-index';
+import { frontmatter as fm55, toc as t55 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Toast/index.md?type=frontmatter';
+import { demoIndex as dmi55 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Toast/index.md?type=demo-index';
+import { frontmatter as fm56, toc as t56 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Typography/index.md?type=frontmatter';
+import { demoIndex as dmi56 } from '/Users/jiajia/Ali/Task/ant-design-mini/src/Typography/index.md?type=demo-index';
 
 export const filesMeta = {
   'docs/guide/customize-theme': {
@@ -307,148 +309,154 @@ export const filesMeta = {
     demoIndex: dmi31,
     textGetter: () => import(/* webpackChunkName: "meta__Loading" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Loading/index.md?type=text'),
   },
-  'components/Modal/index': {
+  'components/LocaleProvider/index': {
     frontmatter: fm32,
     toc: t32,
     demoIndex: dmi32,
-    textGetter: () => import(/* webpackChunkName: "meta__Modal" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Modal/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__LocaleProvider" */'/Users/jiajia/Ali/Task/ant-design-mini/src/LocaleProvider/index.md?type=text'),
   },
-  'components/NoticeBar/index': {
+  'components/Modal/index': {
     frontmatter: fm33,
     toc: t33,
     demoIndex: dmi33,
-    textGetter: () => import(/* webpackChunkName: "meta__NoticeBar" */'/Users/jiajia/Ali/Task/ant-design-mini/src/NoticeBar/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Modal" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Modal/index.md?type=text'),
   },
-  'components/NumberKeyboard/index': {
+  'components/NoticeBar/index': {
     frontmatter: fm34,
     toc: t34,
     demoIndex: dmi34,
-    textGetter: () => import(/* webpackChunkName: "meta__NumberKeyboard" */'/Users/jiajia/Ali/Task/ant-design-mini/src/NumberKeyboard/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__NoticeBar" */'/Users/jiajia/Ali/Task/ant-design-mini/src/NoticeBar/index.md?type=text'),
   },
-  'components/PageContainer/index': {
+  'components/NumberKeyboard/index': {
     frontmatter: fm35,
     toc: t35,
     demoIndex: dmi35,
-    textGetter: () => import(/* webpackChunkName: "meta__PageContainer" */'/Users/jiajia/Ali/Task/ant-design-mini/src/PageContainer/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__NumberKeyboard" */'/Users/jiajia/Ali/Task/ant-design-mini/src/NumberKeyboard/index.md?type=text'),
   },
-  'components/Picker/index': {
+  'components/PageContainer/index': {
     frontmatter: fm36,
     toc: t36,
     demoIndex: dmi36,
-    textGetter: () => import(/* webpackChunkName: "meta__Picker" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Picker/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__PageContainer" */'/Users/jiajia/Ali/Task/ant-design-mini/src/PageContainer/index.md?type=text'),
   },
-  'components/Popover/index': {
+  'components/Picker/index': {
     frontmatter: fm37,
     toc: t37,
     demoIndex: dmi37,
-    textGetter: () => import(/* webpackChunkName: "meta__Popover" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Popover/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Picker" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Picker/index.md?type=text'),
   },
-  'components/Popup/index': {
+  'components/Popover/index': {
     frontmatter: fm38,
     toc: t38,
     demoIndex: dmi38,
-    textGetter: () => import(/* webpackChunkName: "meta__Popup" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Popup/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Popover" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Popover/index.md?type=text'),
   },
-  'components/Progress/index': {
+  'components/Popup/index': {
     frontmatter: fm39,
     toc: t39,
     demoIndex: dmi39,
-    textGetter: () => import(/* webpackChunkName: "meta__Progress" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Progress/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Popup" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Popup/index.md?type=text'),
   },
-  'components/Radio/index': {
+  'components/Progress/index': {
     frontmatter: fm40,
     toc: t40,
     demoIndex: dmi40,
-    textGetter: () => import(/* webpackChunkName: "meta__Radio" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Radio/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Progress" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Progress/index.md?type=text'),
   },
-  'components/RareWordsKeyboard/index': {
+  'components/Radio/index': {
     frontmatter: fm41,
     toc: t41,
     demoIndex: dmi41,
-    textGetter: () => import(/* webpackChunkName: "meta__RareWordsKeyboard" */'/Users/jiajia/Ali/Task/ant-design-mini/src/RareWordsKeyboard/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Radio" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Radio/index.md?type=text'),
   },
-  'components/Rate/index': {
+  'components/RareWordsKeyboard/index': {
     frontmatter: fm42,
     toc: t42,
     demoIndex: dmi42,
-    textGetter: () => import(/* webpackChunkName: "meta__Rate" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Rate/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__RareWordsKeyboard" */'/Users/jiajia/Ali/Task/ant-design-mini/src/RareWordsKeyboard/index.md?type=text'),
   },
-  'components/Result/index': {
+  'components/Rate/index': {
     frontmatter: fm43,
     toc: t43,
     demoIndex: dmi43,
-    textGetter: () => import(/* webpackChunkName: "meta__Result" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Result/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Rate" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Rate/index.md?type=text'),
   },
-  'components/Selector/index': {
+  'components/Result/index': {
     frontmatter: fm44,
     toc: t44,
     demoIndex: dmi44,
-    textGetter: () => import(/* webpackChunkName: "meta__Selector" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Selector/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Result" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Result/index.md?type=text'),
   },
-  'components/Skeleton/index': {
+  'components/Selector/index': {
     frontmatter: fm45,
     toc: t45,
     demoIndex: dmi45,
-    textGetter: () => import(/* webpackChunkName: "meta__Skeleton" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Skeleton/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Selector" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Selector/index.md?type=text'),
   },
-  'components/Slider/index': {
+  'components/Skeleton/index': {
     frontmatter: fm46,
     toc: t46,
     demoIndex: dmi46,
-    textGetter: () => import(/* webpackChunkName: "meta__Slider" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Slider/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Skeleton" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Skeleton/index.md?type=text'),
   },
-  'components/Stepper/index': {
+  'components/Slider/index': {
     frontmatter: fm47,
     toc: t47,
     demoIndex: dmi47,
-    textGetter: () => import(/* webpackChunkName: "meta__Stepper" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Stepper/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Slider" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Slider/index.md?type=text'),
   },
-  'components/Steps/index': {
+  'components/Stepper/index': {
     frontmatter: fm48,
     toc: t48,
     demoIndex: dmi48,
-    textGetter: () => import(/* webpackChunkName: "meta__Steps" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Steps/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Stepper" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Stepper/index.md?type=text'),
   },
-  'components/SwipeAction/index': {
+  'components/Steps/index': {
     frontmatter: fm49,
     toc: t49,
     demoIndex: dmi49,
-    textGetter: () => import(/* webpackChunkName: "meta__SwipeAction" */'/Users/jiajia/Ali/Task/ant-design-mini/src/SwipeAction/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Steps" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Steps/index.md?type=text'),
   },
-  'components/Switch/index': {
+  'components/SwipeAction/index': {
     frontmatter: fm50,
     toc: t50,
     demoIndex: dmi50,
-    textGetter: () => import(/* webpackChunkName: "meta__Switch" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Switch/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__SwipeAction" */'/Users/jiajia/Ali/Task/ant-design-mini/src/SwipeAction/index.md?type=text'),
   },
-  'components/TabBar/index': {
+  'components/Switch/index': {
     frontmatter: fm51,
     toc: t51,
     demoIndex: dmi51,
-    textGetter: () => import(/* webpackChunkName: "meta__TabBar" */'/Users/jiajia/Ali/Task/ant-design-mini/src/TabBar/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Switch" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Switch/index.md?type=text'),
   },
-  'components/Tabs/index': {
+  'components/TabBar/index': {
     frontmatter: fm52,
     toc: t52,
     demoIndex: dmi52,
-    textGetter: () => import(/* webpackChunkName: "meta__Tabs" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Tabs/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__TabBar" */'/Users/jiajia/Ali/Task/ant-design-mini/src/TabBar/index.md?type=text'),
   },
-  'components/Tag/index': {
+  'components/Tabs/index': {
     frontmatter: fm53,
     toc: t53,
     demoIndex: dmi53,
-    textGetter: () => import(/* webpackChunkName: "meta__Tag" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Tag/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Tabs" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Tabs/index.md?type=text'),
   },
-  'components/Toast/index': {
+  'components/Tag/index': {
     frontmatter: fm54,
     toc: t54,
     demoIndex: dmi54,
-    textGetter: () => import(/* webpackChunkName: "meta__Toast" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Toast/index.md?type=text'),
+    textGetter: () => import(/* webpackChunkName: "meta__Tag" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Tag/index.md?type=text'),
   },
-  'components/Typography/index': {
+  'components/Toast/index': {
     frontmatter: fm55,
     toc: t55,
     demoIndex: dmi55,
+    textGetter: () => import(/* webpackChunkName: "meta__Toast" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Toast/index.md?type=text'),
+  },
+  'components/Typography/index': {
+    frontmatter: fm56,
+    toc: t56,
+    demoIndex: dmi56,
     textGetter: () => import(/* webpackChunkName: "meta__Typography" */'/Users/jiajia/Ali/Task/ant-design-mini/src/Typography/index.md?type=text'),
   },
 }

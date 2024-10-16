@@ -1,20 +1,30 @@
+import { effect } from '@preact/signals-core';
+import equal from 'fast-deep-equal';
+import mixinValue from '../mixins/value';
 import {
   Component,
+  getValueFromProps,
   triggerEvent,
   triggerEventOnly,
   triggerEventValues,
-  getValueFromProps,
-} from '../_util/simply';
-import equal from 'fast-deep-equal';
+} from '../_util/newSimply';
+import i18nController from '../_util/store';
 import { PickerDefaultProps } from './props';
 import {
-  getMatchedItemByValue,
   getMatchedItemByIndex,
+  getMatchedItemByValue,
   getStrictMatchedItemByValue,
 } from './utils';
-import mixinValue from '../mixins/value';
 
 Component(
+  {
+    store: () => i18nController,
+    updateHook: effect,
+    mapState: {
+      locale: ({ store }) =>
+        store.currentLang.value === 'en_US' ? 'English Card' : '中文卡片',
+    },
+  },
   PickerDefaultProps,
   {
     // visible受控判断
