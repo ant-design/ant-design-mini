@@ -29,7 +29,7 @@ toc: 'content'
 
 ### 基础用法
 
-<!-- <code src='pages/SwipeAction/index'></code> -->
+<code src='../../demo/pages/SwipeAction/index'></code>
 
 ### 按钮在左侧
 

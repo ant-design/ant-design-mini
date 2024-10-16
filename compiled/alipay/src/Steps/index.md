@@ -21,7 +21,7 @@ toc: 'content'
 
 ### 基本使用
 
-<!-- <code src='pages/Steps/index'></code> -->
+<code src='../../demo/pages/Steps/index'></code>
 
 ### 受控模式
 

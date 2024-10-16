@@ -18,7 +18,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<!-- <code src='pages/Tabs/index'></code> -->
+<code src='../../demo/pages/Tabs/index'></code>
 
 ### 受控
 <!-- <code src='pages/TabsControl/index'></code> -->

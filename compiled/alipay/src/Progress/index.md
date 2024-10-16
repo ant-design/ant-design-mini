@@ -17,7 +17,7 @@ toc: 'content'
 
 ### line
 
-<!-- <code src='pages/ProgressLine/index'></code> -->
+<code src='../../demo/pages/ProgressLine/index'></code>
 
 ### circle
 

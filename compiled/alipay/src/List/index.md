@@ -17,7 +17,7 @@ toc: 'content'
 当需要以列表的形式展示信息时使用。
 
 ## 代码示例
-<!-- <code src='pages/List/index'></code> -->
+<code src='../../demo/pages/List/index'></code>
 
 ## API
 

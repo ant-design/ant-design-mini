@@ -17,7 +17,7 @@ toc: 'content'
 当需要在右上角展示数字、文字或小红点时使用。适合于提示产品化的新消息、功能或服务等内容，通过显眼的视觉形式吸引用户注意，并促使其进行相关操作。
 
 ## 代码示例
-<!-- <code src="pages/Badge/index"></code> -->
+<code src="../../demo/pages/Badge/index"></code>
 
 ## API
 

@@ -17,7 +17,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/Popup/index'></code> -->
+<code src='../../demo/pages/Popup/index'></code>
 
 ## API
 

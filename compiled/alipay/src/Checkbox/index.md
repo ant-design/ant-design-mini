@@ -22,7 +22,7 @@ toc: 'content'
 
 ### 基本使用
 
-<!-- <code src='pages/Checkbox/index'></code> -->
+<code src='../../demo/pages/Checkbox/index'></code>
 
 ### CheckboxGroup
 

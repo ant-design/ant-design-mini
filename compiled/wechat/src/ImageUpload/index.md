@@ -20,7 +20,7 @@ toc: 'content'
 
 ### 基本使用
 
-<!-- <code src='pages/ImageUpload/index'></code> -->
+<code src='../../demo/pages/ImageUpload/index'></code>
 
 ### 受控模式
 

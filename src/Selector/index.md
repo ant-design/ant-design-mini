@@ -18,7 +18,7 @@ toc: 'content'
 
 ## 代码示例
 ### 基本使用
-<!-- <code src="pages/Selector/index"></code> -->
+<code src="../../demo/pages/Selector/index"></code>
 
 ### 使用 Selector 自定义 Filter
 <!-- <code src="pages/SelectorFilter/index"></code> -->

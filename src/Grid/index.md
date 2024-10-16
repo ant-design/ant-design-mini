@@ -15,7 +15,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/Grid/index'></code> -->
+<code src='../../demo/pages/Grid/index'></code>
 
 ## API
 

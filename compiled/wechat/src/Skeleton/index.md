@@ -18,7 +18,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/Skeleton/index'></code> -->
+<code src='../../demo/pages/Skeleton/index'></code>
 
 ## API
 

@@ -15,7 +15,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/TabBar/index'></code> -->
+<code src='../../demo/pages/TabBar/index'></code>
 
 ## API
 

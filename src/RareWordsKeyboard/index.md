@@ -24,7 +24,7 @@ toc: 'content'
 
 ### 基本使用
 
-<!-- <code src='pages/RareWordsKeyboard/index'></code> -->
+<code src='../../demo/pages/RareWordsKeyboard/index'></code>
 
 ## API
 
