@@ -92,13 +92,13 @@ const Previewer: React.FC<IProps> = (props) => {
     const previeweriframe = previewerRef.current;
     if (!previeweriframe) return;
     const setThemeColor = function () {
-      previeweriframe?.contentWindow.postMessage({
+      previeweriframe?.contentWindow?.postMessage({
         type: 'setIsDarkMode',
         data: theme.includes('dark'),
       });
 
       const color = theme.includes('dark') ? '#000' : '#fff';
-      previeweriframe?.contentWindow.postMessage({
+      previeweriframe?.contentWindow?.postMessage({
         type: 'evaluateJavaScriptInWorkerCode',
         data: `
          my.setNavigationBar({
@@ -122,7 +122,7 @@ const Previewer: React.FC<IProps> = (props) => {
     const sourceCodeiframe = sourceCodeRef.current;
     if (!sourceCodeiframe) return;
     const setThemeColor = function () {
-      sourceCodeiframe?.contentWindow.postMessage({
+      sourceCodeiframe?.contentWindow?.postMessage({
         type: 'setIsDarkMode',
         data: theme.includes('dark'),
       });

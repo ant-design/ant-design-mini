@@ -78,7 +78,8 @@ const Table: React.FC<IProps> = ({ children, ...props }) => {
           children: processedChildren,
         });
       } else {
-        node = node.replace(MARKUP_REGEX.all, '');
+        node =
+          typeof node === 'string' ? node.replace(MARKUP_REGEX.all, '') : node;
         return node;
       }
     },
