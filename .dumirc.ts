@@ -5,7 +5,7 @@ export default defineConfig({
   mfsu: false,
   hash: true,
   outputPath: 'docs-dist',
-  ssr: process.env.NODE_ENV === 'development' ? false : {},
+  ssr: false,
   sitemap: { hostname: 'https://mini.ant.design' },
   favicons: [
     'https://gw.alipayobjects.com/zos/bmw-prod/35bd3910-2382-4f5d-903f-ac4c31b76199.svg',
@@ -38,12 +38,13 @@ export default defineConfig({
     },
   ],
   themeConfig: defineThemeConfig({
+    name:'Ant Design Mini',
     prefersColor: {
       default: 'auto',
       switch: true,
     },
     rtl: false,
-    logo: 'https://gw.alipayobjects.com/zos/bmw-prod/d1971355-ffff-44ef-9e20-1bc9a237d463.svg',
+    logo: 'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*xfx9Q4kg62MAAAAAAAAAAAAADtF8AQ/original',
     lastUpdated: true,
     nav: {
       'zh-CN': [

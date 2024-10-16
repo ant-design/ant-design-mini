@@ -15,7 +15,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/Calendar/index' ></code> -->
+<code src='../../demo/pages/Calendar/index' ></code>
 
 ## API
 

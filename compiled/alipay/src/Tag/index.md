@@ -19,7 +19,7 @@ toc: 'content'
 - 进行分类。
 
 ## 代码示例
-<!-- <code src='pages/Tag/index'></code> -->
+<code src='../../demo/pages/Tag/index'></code>
 
 
 

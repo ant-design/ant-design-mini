@@ -15,7 +15,7 @@ toc: 'content'
 对操作结果的轻量级反馈，无需用户操作即可自行消失。最长文案不超过 2 行，最多可以显示 24 个字符，文案过长会被截断。
 
 ## 代码示例
-<!-- <code src='pages/Toast/index'></code> -->
+<code src='../../demo/pages/Toast/index'></code>
 
 ## API
 | 属性   | 说明                   | 类型    | 默认值 |

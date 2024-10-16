@@ -22,7 +22,7 @@ Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 
 
 ### 基本使用
 
-<!-- <code src='pages/Form/index'></code> -->
+<code src='../../demo/pages/Form/index'></code>
 
 ### 布局
 

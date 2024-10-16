@@ -20,7 +20,7 @@ toc: 'content'
 
 ### 基本使用
 
-<!-- <code src='pages/Popover/index' noChangeButton></code> -->
+<code src='../../demo/pages/Popover/index' noChangeButton></code>
 
 ### 结合 List 组件使用
 

@@ -21,7 +21,7 @@ toc: content
 
 ### Input 基本使用
 
-<!-- <code src='pages/Input/index'></code> -->
+<code src='../../demo/pages/Input/index'></code>
 
 ### SearchBar 搜索框
 

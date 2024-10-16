@@ -22,7 +22,7 @@ toc: 'content'
 
 ### 基本使用
 
-<!-- <code src='pages/Collapse/index'></code> -->
+<code src='../../demo/pages/Collapse/index'></code>
 
 ### 手风琴
 
@@ -34,7 +34,7 @@ toc: 'content'
 
 ### 带 Checkbox
 
-<!-- <code src="pages/CollapseWithCheckbox/index"></code> -->
+<code src="../../demo/pages/CollapseWithCheckbox/index"></code>
 
 ### 更多自定义
 

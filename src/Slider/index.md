@@ -18,7 +18,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/Slider/index'></code> -->
+<code src='../../demo/pages/Slider/index'></code>
 
 ## API
 

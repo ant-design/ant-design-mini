@@ -20,7 +20,7 @@ Switch 开关选择器，比起原生 Switch，它实现了在 iOS 和 Android �
 
 ## 代码示例
 
-<!-- <code src='pages/Switch/index'></code> -->
+<code src='../../demo/pages/Switch/index'></code>
 
 ## API
 

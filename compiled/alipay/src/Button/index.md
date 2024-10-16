@@ -35,28 +35,38 @@ toc: 'content'
 
 <!-- <code src='pages/ButtonCustom/index'></code> -->
 
+```js
+通用代码
+#if ALIPAY
+支付宝示例代码;
+#endif
+#if WECHAT
+微信示例代码;
+#endif
+```
+
 ## API
 
 ### Button
 
 以下表格介绍了 Button 组件的 API 属性：
 
-| 属性            | 说明                                                            | 类型                                                                          | 默认值    |
-| --------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------- |
-| type            | 按钮类型，可选 `primary`、`default`、`text`                     | string                                                                        | `default` |
-| danger          | 是否为危险按钮                                                  | boolean                                                                       | false     |
-| disabled        | 是否为失效按钮                                                  | boolean                                                                       | false     |
-| activeClassName | 按下时的类名                                                    | string                                                                        | -         |
-| className       | 类名                                                            | string                                                                        | -         |
-| style           | 样式                                                            | string                                                                        | -         |
-| inline          | 是否为内联按钮                                                  | boolean                                                                       | false     |
-| icon            | 按钮左侧图标                                                    | string                                                                        | -         |
-| loading         | 是否加载中，加载中时不可点击                                    | boolean                                                                       | -         |
-| size            | 按钮大小。仅在 `inline` 下生效，可选 `small`、`medium`、`large` | string                                                                        | `medium`  |
-| subText         | 辅助文字，显示在第二行。`inline` 下不生效                       | string                                                                        | -         |
-| catchTap        | 点击按钮，触发此回调，非冒泡                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| onTap           | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| onDisabledTap   | 禁用时点击出发回调（微信不支持）                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| 属性                   | 说明                                                            | 类型                                                                          | 默认值    |
+| ---------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------- |
+| type                   | 按钮类型，可选 `primary`、`default`、`text`                     | string                                                                        | `default` |
+| danger                 | 是否为危险按钮                                                  | boolean                                                                       | false     |
+| disabled               | 是否为失效按钮                                                  | boolean                                                                       | false     |
+| activeClassName        | 按下时的类名                                                    | string                                                                        | -         |
+| className              | 类名                                                            | string                                                                        | -         |
+| style                  | 样式                                                            | string                                                                        | -         |
+| inline                 | 是否为内联按钮                                                  | boolean                                                                       | false     |
+| icon                   | 按钮左侧图标                                                    | string                                                                        | -         |
+| loading                | 是否加载中，加载中时不可点击                                    | boolean                                                                       | -         |
+| size                   | 按钮大小。仅在 `inline` 下生效，可选 `small`、`medium`、`large` | string                                                                        | `medium`  |
+| subText                | 辅助文字，显示在第二行。`inline` 下不生效                       | string                                                                        | -         |
+| #if ALIPAY catchTap      | 点击按钮，触发此回调，非冒泡                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if ALIPAY onTap         | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if ALIPAY onDisabledTap | 禁用时点击出发回调（微信不支持）                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 
 ### 更多属性
 

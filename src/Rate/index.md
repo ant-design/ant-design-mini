@@ -15,7 +15,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/Rate/index'></code> -->
+<code src='../../demo/pages/Rate/index'></code>
 
 ### 自定义
 

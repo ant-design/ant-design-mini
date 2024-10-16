@@ -21,7 +21,7 @@ toc: 'content'
 
 ### 基本使用
 
-<!-- <code src='pages/IndexBar/index'></code> -->
+<code src='../../demo/pages/IndexBar/index'></code>
 
 ### 结合列表使用
 

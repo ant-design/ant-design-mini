@@ -19,7 +19,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/Stepper/index'></code> -->
+<code src='../../demo/pages/Stepper/index'></code>
 
 ## API
 

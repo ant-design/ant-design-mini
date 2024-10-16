@@ -13,8 +13,28 @@ interface SidebarState {
   mobileMenuVisible: boolean;
 }
 
+const SWITCH_HEIGHT = 33;
+
+const PLATFORM_ICON = {
+  alipay: {
+    default:
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*Dk3bQ5d5hmkAAAAAAAAAAAAADtF8AQ/original',
+    active:
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*9j5oQbJwkTwAAAAAAAAAAAAADtF8AQ/original',
+  },
+  wechat: {
+    default:
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*HD4MSp4J_0sAAAAAAAAAAAAADtF8AQ/original',
+    active:
+      'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*7x3RQKnnTs4AAAAAAAAAAAAADtF8AQ/original',
+  },
+};
+
 const useStyle = () => {
   const { token } = useSiteToken();
+
+  const { theme } = useContext(SiteContext);
+  const isDark = theme.includes('dark');
 
   const { antCls, fontFamily, colorSplit } = token;
 
@@ -23,7 +43,9 @@ const useStyle = () => {
       min-height: 100%;
       padding-bottom: 48px;
       font-family: Avenir, ${fontFamily}, sans-serif;
-
+      &.ant-menu-inline.ant-menu-inline {
+        border-inline-end: none;
+      }
       &${antCls}-menu-inline {
         user-select: none;
         ${antCls}-menu-submenu-title h4,
@@ -112,13 +134,16 @@ const useStyle = () => {
     `,
     mainMenu: css`
       z-index: 1;
+      border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
 
       .main-menu-inner {
         position: sticky;
-        top: ${token.headerHeight + token.contentMarginTop}px;
+        top: ${token.headerHeight + token.contentMarginTop + SWITCH_HEIGHT}px;
         width: 100%;
         height: 100%;
-        max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
+        max-height: calc(
+          100vh - ${token.headerHeight + token.contentMarginTop}px
+        );
         overflow: hidden;
         scrollbar-width: thin;
         scrollbar-color: unset;
@@ -134,18 +159,71 @@ const useStyle = () => {
       bottom: 100px;
       right: 20px;
       cursor: pointer;
-    `
+    `,
+    swichPlatform: css`
+      position: sticky;
+      top: ${64 + SWITCH_HEIGHT / 2}px;
+      z-index: 1;
+      padding: 0 30px 30px 30px;
+      background: ${isDark ? '#141414' : '#fff'};
+      .swich {
+        height: ${SWITCH_HEIGHT}px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: ${isDark ? 'rgba(255, 255, 255, 0.04)' : '#e9e9e9'};
+        border-radius: 3px;
+        padding: 3px;
+        .item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 3px 0;
+          margin-right: 3px;
+          width: 100%;
+          transition: all 0.5s;
+          cursor: pointer;
+          user-select: none;
+          &:last-of-type {
+            margin-right: 0;
+          }
+          .icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            flex-shrink: 0;
+          }
+          & > span {
+            font-size: 14px;
+            line-height: 20px;
+            color: #999999;
+            flex-shrink: 0;
+          }
+          &.active {
+            background: ${isDark ? '#141414' : '#fff'};
+            border-radius: 1px;
+            & > span {
+              font-weight: 500;
+              color: ${isDark ? '#fff' : '#1677ff'};
+            }
+          }
+        }
+      }
+    `,
   };
 };
 
 const Sidebar: FC = () => {
-  const [sidebarState, setSidebarState] = useState<SidebarState>({ mobileMenuVisible: false });
+  const [sidebarState, setSidebarState] = useState<SidebarState>({
+    mobileMenuVisible: false,
+  });
   const sidebarData = useSidebarData();
   const styles = useStyle();
   const {
-    token: { colorBgContainer }
+    token: { colorBgContainer },
   } = useSiteToken();
-  const { theme, isMobile } = useContext(SiteContext);
+  const { theme, isMobile, platform, updateSiteConfig } =
+    useContext(SiteContext);
   const [menuItems, selectedKey] = useMenu();
 
   const isDark = theme.includes('dark');
@@ -153,14 +231,14 @@ const Sidebar: FC = () => {
   const handleShowMobileMenu = useCallback(() => {
     setSidebarState((prev) => ({
       ...prev,
-      mobileMenuVisible: true
+      mobileMenuVisible: true,
     }));
   }, []);
 
   const handleCloseMobileMenu = useCallback(() => {
     setSidebarState((prev) => ({
       ...prev,
-      mobileMenuVisible: false
+      mobileMenuVisible: false,
     }));
   }, []);
 
@@ -174,7 +252,11 @@ const Sidebar: FC = () => {
 
   const menuChild = (
     <ConfigProvider
-      theme={{ components: { Menu: { itemBg: colorBgContainer, darkItemBg: colorBgContainer } } }}
+      theme={{
+        components: {
+          Menu: { itemBg: colorBgContainer, darkItemBg: colorBgContainer },
+        },
+      }}
     >
       <Menu
         items={menuItems}
@@ -183,9 +265,22 @@ const Sidebar: FC = () => {
         mode="inline"
         theme={isDark ? 'dark' : 'light'}
         selectedKeys={[selectedKey]}
-        defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
+        defaultOpenKeys={
+          sidebarData
+            ?.map(({ title }) => title)
+            .filter((item) => item) as string[]
+        }
       />
     </ConfigProvider>
+  );
+
+  const switchPlatform = useCallback(
+    (platform) => {
+      updateSiteConfig({
+        platform,
+      });
+    },
+    [platform, updateSiteConfig]
   );
 
   return isMobile ? (
@@ -193,7 +288,7 @@ const Sidebar: FC = () => {
       <MobileMenu
         key="mobile-menu"
         contentWrapperStyle={{
-          width: '300px'
+          width: '300px',
         }}
         open={mobileMenuVisible}
         onClose={handleCloseMobileMenu}
@@ -208,6 +303,38 @@ const Sidebar: FC = () => {
     </React.Fragment>
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
+      <div css={styles.swichPlatform}>
+        <div className="swich">
+          <div
+            className={`item ${platform === 'alipay' && 'active'}`}
+            onClick={() => switchPlatform('alipay')}
+          >
+            <img
+              className="icon"
+              src={
+                PLATFORM_ICON['alipay'][
+                  platform === 'alipay' ? 'active' : 'default'
+                ]
+              }
+            />
+            <span>支付宝</span>
+          </div>
+          <div
+            className={`item ${platform === 'wechat' && 'active'}`}
+            onClick={() => switchPlatform('wechat')}
+          >
+            <img
+              className="icon"
+              src={
+                PLATFORM_ICON['wechat'][
+                  platform === 'wechat' ? 'active' : 'default'
+                ]
+              }
+            />
+            <span>微信</span>
+          </div>
+        </div>
+      </div>
       <section className="main-menu-inner">{menuChild}</section>
     </Col>
   );

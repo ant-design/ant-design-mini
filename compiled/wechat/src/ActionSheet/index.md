@@ -19,7 +19,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/ActionSheet/index'></code> -->
+<code src='../../demo/pages/ActionSheet/index'></code>
 
 ## API
 

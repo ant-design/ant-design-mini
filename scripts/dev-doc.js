@@ -1,9 +1,8 @@
-const { fork, execFile } = require('child_process');
+const { fork, spawn } = require('child_process');
 const { minidev } = require('minidev');
+const chalk = require('chalk');
 
 (async () => {
-  // execFile('tsx', [`${process.cwd()}/scripts/dev.ts`]);
-
   const path = require('path');
 
   const { devServer } = await minidev.dev({
@@ -25,6 +24,22 @@ const { minidev } = require('minidev');
         DUMI_CACHE: 'none',
       },
     });
+
+    // console.log(
+    //   chalk.blue.bold('\nStarting Compiler src path code to compiled path...')
+    // );
+    // const child = spawn('tsx', [`${process.cwd()}/scripts/dev.ts`]);
+    // child.stdout.on('data', (data) => {
+    //   console.log(`\nCompiler src path code to compiled: ${data}`);
+    // });
+
+    // child.stderr.on('data', (data) => {
+    //   console.error(`\nCompiler src path code to compiled error: ${data}`);
+    // });
+
+    // child.on('close', (code) => {
+    //   console.error(`\nCompiler src path code to compiled exit: ${code}`);
+    // });
   });
 
   devServer.on('error', (err) => {

@@ -18,7 +18,7 @@ toc: 'content'
 - 可勾选列表的使用需要默认至少勾选一项，方便用户了解列表是可以勾选的。
 
 ## 代码示例
-<!-- <code src='pages/Checklist/index'></code> -->
+<code src='../../demo/pages/Checklist/index'></code>
 
 ## API
 | 属性       | 说明                                                             | 类型                        | 默认值 |

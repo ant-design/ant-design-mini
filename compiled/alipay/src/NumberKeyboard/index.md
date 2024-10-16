@@ -23,7 +23,7 @@ toc: 'content'
 
 ### 基本使用
 
-<!-- <code src='pages/NumberKeyboard/index'></code> -->
+<code src='../../demo/pages/NumberKeyboard/index'></code>
 
 ### 数字输入框
 

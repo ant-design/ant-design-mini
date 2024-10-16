@@ -21,7 +21,7 @@ toc: 'content'
 
 ### Radio
 
-<!-- <code src='pages/Radio/index'></code> -->
+<code src='../../demo/pages/Radio/index'></code>
 
 ### RadioGroup
 

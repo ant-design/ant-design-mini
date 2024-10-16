@@ -18,7 +18,7 @@ toc: 'content'
 - 对行内文字/链接进行分割，例如表格的操作列。
 
 ## 代码示例
-<!-- <code src='pages/Divider/index'></code> -->
+<code src='../../demo/pages/Divider/index'></code>
 
 ## API
 

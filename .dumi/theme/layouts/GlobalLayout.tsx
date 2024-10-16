@@ -1,10 +1,10 @@
 import {
-  StyleProvider,
   createCache,
   extractStyle,
   legacyNotSelectorLinter,
   logicalPropertiesLinter,
   parentSelectorLinter,
+  StyleProvider,
 } from '@ant-design/cssinjs';
 import { ConfigProvider, theme as antdTheme } from 'antd';
 import { Outlet, usePrefersColor, useServerInsertedHTML } from 'dumi';
@@ -24,6 +24,7 @@ const defaultSiteState: SiteState = {
   theme: ['light'],
   isMobile: false,
   direction: 'ltr',
+  platform: 'alipay',
 };
 const getAlgorithm = (themes: ThemeName[] = []) =>
   themes.map((theme) => {
@@ -54,19 +55,19 @@ const getSiteState = (siteState) => {
 const GlobalLayout: FC = () => {
   const [, , setPrefersColor] = usePrefersColor();
   const { theme: configTheme, ssr, prefersColor } = useAdditionalThemeConfig();
-  const [{ theme, isMobile, direction }, setSiteState] =
+  const [{ theme, isMobile, direction, platform }, setSiteState] =
     useState<SiteState>(defaultSiteState);
 
   // 基于 localStorage 实现
   const updateSiteConfig = useCallback((props: SiteState) => {
     try {
       const localSiteState = JSON.parse(
-        window.localStorage.getItem(SITE_STATE_LOCALSTORAGE_KEY) || '{}',
+        window.localStorage.getItem(SITE_STATE_LOCALSTORAGE_KEY) || '{}'
       );
       const nextLocalSiteState = Object.assign(localSiteState, props);
       window.localStorage.setItem(
         SITE_STATE_LOCALSTORAGE_KEY,
-        JSON.stringify(nextLocalSiteState),
+        JSON.stringify(nextLocalSiteState)
       );
       setSiteState((prev) => ({
         ...prev,
@@ -87,7 +88,7 @@ const GlobalLayout: FC = () => {
   useEffect(() => {
     try {
       const localSiteState = JSON.parse(
-        window.localStorage.getItem(SITE_STATE_LOCALSTORAGE_KEY) || '{}',
+        window.localStorage.getItem(SITE_STATE_LOCALSTORAGE_KEY) || '{}'
       );
       // 首次设置主题样式
       if (!localSiteState?.theme) {
@@ -116,9 +117,10 @@ const GlobalLayout: FC = () => {
       direction,
       isMobile: isMobile!,
       theme: theme!,
+      platform: platform!,
       updateSiteConfig,
     }),
-    [isMobile, theme, direction, updateSiteConfig],
+    [isMobile, theme, direction, platform, updateSiteConfig]
   );
 
   const [styleCache] = React.useState(() => createCache());

@@ -19,7 +19,7 @@ toc: content
 
 ## 代码示例
 
-<!-- <code src='pages/Avatar/index'></code> -->
+<code src='../../demo/pages/Avatar/index'></code>
 
 ## API
 

@@ -19,7 +19,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/Container/index'></code> -->
+<code src='../../demo/pages/Container/index'></code>
 
 ## API
 

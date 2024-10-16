@@ -18,7 +18,21 @@
     }
   </style>
 </head>
+
 <body>
+
+  <script>
+    // When the iframe is just created, you need to set the background color according to the dark mode.
+    window.LyraIsDefalutDarkMode =new URL(location.href).searchParams.get('theme') === 'dark';
+    const element = document.getElementsByTagName('body')?.[0];
+    if (element) {
+      element.style.setProperty(
+        'background-color',
+        window.LyraIsDefalutDarkMode ? '#141414' : '#f9fafb'
+      );
+    }
+  </script>
+
   <div id="root">
   </div>
   <script type="text/javascript" src="https://gw.alipayobjects.com/os/lib/react/18.0.0/umd/react.production.min.js"></script>
@@ -29,6 +43,8 @@
     const theme = searchParams.get('less-theme');
     const page = searchParams.get('page');
     const platform = searchParams.get('platform');
+    const server = searchParams.get('compilerServer');
+
 
     function getSourceCode() {
       return fetch(`/sourceCode/${page}?theme=${theme}&platform=${platform}`).then(res => res.json());
@@ -86,7 +102,7 @@
 
     async function startWebOpenBoxPreviewApp() {
       let sourceCode;
-      if (location.port) {
+      if (server) {
         sourceCode = await getSourceCode();
       } else {
         const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());

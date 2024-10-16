@@ -13,7 +13,7 @@ toc: 'content'
 用于提示局部或页面在加载中。
 
 ## 代码示例
-<!-- <code src='pages/Loading/index' noChangeButton></code> -->
+<code src='../../demo/pages/Loading/index' noChangeButton></code>
 
 ## API
 

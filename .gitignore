@@ -41,3 +41,6 @@ compiledBackup/wechat/miniprogram_npm
 compiledBackup/wechat/node_modules
 compiledBackup/wechat/yarn.lock
 knowledge.json
+server
+.dumi/tmp
+.dumi/tmp-production

@@ -25,7 +25,7 @@ toc: 'content'
 
 ## 代码示例
 
-<!-- <code src='pages/Icon/index' noChangeButton></code> -->
+<code src='../../demo/pages/Icon/index' noChangeButton></code>
 
 
 ## API
