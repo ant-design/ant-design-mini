@@ -118,6 +118,10 @@ async function buildPreview(theme = 'default') {
     path.join(__dirname, '../.dumi/theme/builtins/iframe.html'),
     'utf-8'
   );
+  const codeIframeContent = fs.readFileSync(
+    path.join(__dirname, '../.dumi/theme/builtins/code.html'),
+    'utf-8'
+  );
   fs.writeFileSync(
     path.join(
       __dirname,
@@ -134,6 +138,10 @@ async function buildPreview(theme = 'default') {
   if (theme === 'dark') {
     return;
   }
+  fs.writeFileSync(
+    path.join(__dirname, '../docs-dist/code.html'),
+    codeIframeContent
+  );
   fs.writeFileSync(
     path.join(__dirname, '../docs-dist/preview.html'),
     iframeContent
