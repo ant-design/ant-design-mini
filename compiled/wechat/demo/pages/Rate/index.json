@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "Rate",
-  "usingComponents": {
-    "ant-rate": "../../../src/Rate/index",
-    "ant-stepper": "../../../src/Stepper/index",
-    "ant-container": "../../../src/Container/index"
-  },
-  "allowsBounceVertical": "NO"
-}

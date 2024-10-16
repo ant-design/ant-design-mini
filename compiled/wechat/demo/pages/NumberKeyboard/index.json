@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "NumberKeyboard",
-  "usingComponents": {
-    "ant-number-keyboard": "../../../src/NumberKeyboard/index",
-    "ant-list": "../../../src/List/index",
-    "ant-list-item": "../../../src/List/ListItem/index",
-    "ant-icon": "../../../src/Icon/index"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "Form",
-  "usingComponents": {
-    "form-input": "../../../src/Form/FormInput/index",
-    "form-switch": "../../../src/Form/FormSwitch/index",
-    "form-stepper": "../../../src/Form/FormStepper/index",
-    "ant-button": "../../../src/Button/index"
-  }
-}

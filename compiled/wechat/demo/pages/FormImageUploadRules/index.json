@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "Form",
-  "usingComponents": {
-    "ant-form-input": "../../../src/Form/FormInput/index",
-    "ant-form-image-upload": "../../../src/Form/FormImageUpload/index",
-    "ant-button": "../../../src/Button/index"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "defaultTitle": "Grid",
-  "usingComponents": {
-    "ant-container": "../../../src/Container/index",
-    "ant-grid": "../../../src/Grid/index",
-    "ant-badge": "../../../src/Badge/index"
-  }
-}
