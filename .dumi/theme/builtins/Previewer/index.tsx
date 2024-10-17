@@ -23,7 +23,7 @@ function buildUrl(
   const { platform: supportPlatform, disablePlatformSwitch } =
     getSupportPlatform(options.platform, page);
   searchParams.set('platform', supportPlatform);
-  searchParams.set('theme', options.theme);
+  // searchParams.set('theme', options.theme);
 
   return {
     url: urlObj.toString(),
