@@ -25,8 +25,17 @@ function buildUrl(
   searchParams.set('platform', supportPlatform);
   searchParams.set('theme', options.theme);
 
+  // http://localhost:8000/preview.html
+  // 为了不让iframe的url变化，导致重新渲染iframe，这里去掉url中的变量参数，通过iframe通信的方式，让小程序实现去跳转页面
+  const originPathUrl = new URL(urlObj.origin + urlObj.pathname);
+  originPathUrl.searchParams.set(
+    'compilerServer',
+    searchParams.get('compilerServer') || ''
+  );
+  originPathUrl.searchParams.set('page', '');
   return {
     url: urlObj.toString(),
+    originPath: originPathUrl.toString(),
     page,
     supportPlatform,
     disablePlatformSwitch,
@@ -83,14 +92,14 @@ const Previewer: React.FC<IProps> = () => {
 
   const basicUrl =
     window.location.protocol + '//' + window.location.host + herboxUrl;
-  const { url } = useMemo(() => {
+  const { originPath, page } = useMemo(() => {
     return buildUrl(basicUrl, {
       theme: theme?.find((t) => ['dark', 'light'].includes(t)) || 'light',
       platform,
     });
   }, [basicUrl, theme, platform]);
 
-  function sendMsgToPreviewer(theme) {
+  function sendMsgToPreviewer({ theme, page }) {
     const previeweriframe = previewerRef.current;
     if (!previeweriframe) return;
     const setThemeColor = function () {
@@ -110,6 +119,9 @@ const Previewer: React.FC<IProps> = () => {
         my.setBackgroundColor({
           backgroundColor: '${color}',
         });
+        my.redirectTo({
+          url: '/${page}',
+        });
       `,
       });
     };
@@ -121,14 +133,12 @@ const Previewer: React.FC<IProps> = () => {
   }
 
   useEffect(() => {
-    sendMsgToPreviewer(theme);
-  }, [theme]);
-
-  if (!herboxUrl || !isShowSim) return null;
+    sendMsgToPreviewer({ theme, page });
+  }, [theme, page]);
 
   return (
     <div
-      className="previewer"
+      className={`previewer ${!herboxUrl || !isShowSim ? 'hide' : ''}`}
       css={css`
         ${styles.previewerWrapper}
         ${theme.includes('dark') ? styles.dark : styles.light}
@@ -137,7 +147,7 @@ const Previewer: React.FC<IProps> = () => {
       {!previewerLoaded && <div className="previewer-loading" />}
       <iframe
         ref={previewerRef}
-        src={url}
+        src={originPath}
         onLoad={() => setPreviewerLoaded(true)}
         allow="clipboard-read; clipboard-write"
       />
