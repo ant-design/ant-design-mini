@@ -10,6 +10,7 @@ import { ConfigProvider, theme as antdTheme } from 'antd';
 import { Outlet, usePrefersColor, useServerInsertedHTML } from 'dumi';
 import type { FC } from 'react';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import Sim from '../common/Sim';
 import type { ThemeName } from '../common/ThemeSwitch';
 import ThemeSwitch from '../common/ThemeSwitch';
 import useAdditionalThemeConfig from '../hooks/useAdditionalThemeConfig';
@@ -25,6 +26,7 @@ const defaultSiteState: SiteState = {
   isMobile: false,
   direction: 'ltr',
   platform: 'alipay',
+  herboxUrl: '',
 };
 const getAlgorithm = (themes: ThemeName[] = []) =>
   themes.map((theme) => {
@@ -55,7 +57,7 @@ const getSiteState = (siteState) => {
 const GlobalLayout: FC = () => {
   const [, , setPrefersColor] = usePrefersColor();
   const { theme: configTheme, ssr, prefersColor } = useAdditionalThemeConfig();
-  const [{ theme, isMobile, direction, platform }, setSiteState] =
+  const [{ theme, isMobile, direction, platform, herboxUrl }, setSiteState] =
     useState<SiteState>(defaultSiteState);
 
   // 基于 localStorage 实现
@@ -118,9 +120,10 @@ const GlobalLayout: FC = () => {
       isMobile: isMobile!,
       theme: theme!,
       platform: platform!,
+      herboxUrl: herboxUrl!,
       updateSiteConfig,
     }),
-    [isMobile, theme, direction, platform, updateSiteConfig]
+    [isMobile, theme, direction, platform, herboxUrl, updateSiteConfig]
   );
 
   const [styleCache] = React.useState(() => createCache());
@@ -168,6 +171,8 @@ const GlobalLayout: FC = () => {
             onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
           />
         )}
+
+        <Sim />
       </ConfigProvider>
     </SiteContext.Provider>
   );

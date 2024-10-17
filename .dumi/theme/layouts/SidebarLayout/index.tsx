@@ -10,7 +10,7 @@ const useStyle = () => {
       display: flex;
       flex: 1;
       margin-top: 40px;
-    `
+    `,
   };
 };
 

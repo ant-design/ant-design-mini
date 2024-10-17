@@ -1,8 +1,6 @@
-import { css } from '@emotion/react';
 import { Collapse, ConfigProvider } from 'antd';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import wechatConfig from '../../../../config/wechat.json';
-import useSiteToken from '../../hooks/useSiteToken';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import './index.less';
@@ -52,30 +50,20 @@ function getSupportPlatform(platform: string, page: string | null) {
     disablePlatformSwitch: false,
   };
 }
-const useStyle = () => {
-  const { token } = useSiteToken();
-  return {
-    // not show simulator
-    previewerWrapper: css`
-      @media only screen and (max-width: ${token.screenLG}px) {
-        display: none;
-      }
-    `,
-    dark: css`
-      background-color: #141414;
-    `,
-    light: css`
-      background-color: #f9fafb;
-    `,
-  };
-};
 
 const Previewer: React.FC<IProps> = (props) => {
-  const styles = useStyle();
-  const { theme, platform } = useContext<SiteContextProps>(SiteContext);
-  const [previewerLoaded, setPreviewerLoaded] = useState(false);
+  const { theme, platform, updateSiteConfig } =
+    useContext<SiteContextProps>(SiteContext);
+
+  useEffect(() => {
+    updateSiteConfig({
+      herboxUrl: props.herboxUrl,
+    });
+    console.log('123123', props.herboxUrl);
+  }, [props.herboxUrl]);
+
   const [sourceCodeLoaded, setSourceCodeLoaded] = useState(false);
-  const previewerRef = useRef<any>(null);
+
   const sourceCodeRef = useRef<any>(null);
 
   console.log(props);
@@ -87,36 +75,6 @@ const Previewer: React.FC<IProps> = (props) => {
       platform,
     });
   }, [basicUrl, theme, platform]);
-
-  function sendMsgToPreviewer(theme) {
-    const previeweriframe = previewerRef.current;
-    if (!previeweriframe) return;
-    const setThemeColor = function () {
-      previeweriframe?.contentWindow?.postMessage({
-        type: 'setIsDarkMode',
-        data: theme.includes('dark'),
-      });
-
-      const color = theme.includes('dark') ? '#000' : '#fff';
-      previeweriframe?.contentWindow?.postMessage({
-        type: 'evaluateJavaScriptInWorkerCode',
-        data: `
-         my.setNavigationBar({
-          backgroundColor: '${color}',
-          borderBottomColor: '${color}',
-        });
-        my.setBackgroundColor({
-          backgroundColor: '${color}',
-        });
-      `,
-      });
-    };
-    previeweriframe.onload = () => {
-      setThemeColor();
-      setTimeout(setThemeColor, 500);
-    };
-    setThemeColor();
-  }
 
   function sendMsgToSourceCode(theme) {
     const sourceCodeiframe = sourceCodeRef.current;
@@ -135,61 +93,43 @@ const Previewer: React.FC<IProps> = (props) => {
   }
 
   useEffect(() => {
-    sendMsgToPreviewer(theme);
     sendMsgToSourceCode(theme);
   }, [theme]);
 
   return (
-    <>
-      <div
-        className="previewer"
-        css={css`
-          ${styles.previewerWrapper}
-          ${theme.includes('dark') ? styles.dark : styles.light}
-        `}
-      >
-        {!previewerLoaded && <div className="previewer-loading" />}
-        <iframe
-          ref={previewerRef}
-          src={url}
-          onLoad={() => setPreviewerLoaded(true)}
-          allow="clipboard-read; clipboard-write"
-        />
-      </div>
-      {/* @ts-ignore */}
-      <ConfigProvider
-        theme={{
-          components: {
-            Collapse: {
-              contentPadding: '0 !important',
-            },
+    // @ts-ignore
+    <ConfigProvider
+      theme={{
+        components: {
+          Collapse: {
+            contentPadding: '0 !important',
           },
-        }}
-      >
-        {/* @ts-ignore */}
-        <Collapse
-          size="large"
-          items={[
-            {
-              key: '1',
-              label: 'DEMO 示例代码',
-              forceRender: true,
-              children: (
-                <div className="sourceCode">
-                  {!sourceCodeLoaded && <div className="previewer-loading" />}
-                  <iframe
-                    ref={sourceCodeRef}
-                    src={url.replace('preview.html', 'code.html')}
-                    onLoad={() => setSourceCodeLoaded(true)}
-                    allow="clipboard-read; clipboard-write"
-                  />
-                </div>
-              ),
-            },
-          ]}
-        />
-      </ConfigProvider>
-    </>
+        },
+      }}
+    >
+      {/* @ts-ignore */}
+      <Collapse
+        size="large"
+        items={[
+          {
+            key: '1',
+            label: 'DEMO 示例代码',
+            forceRender: true,
+            children: (
+              <div className="sourceCode">
+                {!sourceCodeLoaded && <div className="previewer-loading" />}
+                <iframe
+                  ref={sourceCodeRef}
+                  src={url.replace('preview.html', 'code.html')}
+                  onLoad={() => setSourceCodeLoaded(true)}
+                  allow="clipboard-read; clipboard-write"
+                />
+              </div>
+            ),
+          },
+        ]}
+      />
+    </ConfigProvider>
   );
 };
 

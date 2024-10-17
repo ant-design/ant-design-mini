@@ -1,10 +1,18 @@
 import { UnorderedListOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { Col, ConfigProvider, Menu } from 'antd';
-import { useSidebarData } from 'dumi';
+import { useMatchedRoute, useSidebarData } from 'dumi';
+
 import MobileMenu from 'rc-drawer';
 import 'rc-drawer/assets/index.css';
-import React, { FC, useCallback, useContext, useEffect, useState } from 'react';
+import React, {
+  FC,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import useMenu from '../../hooks/useMenu';
 import useSiteToken from '../../hooks/useSiteToken';
 import SiteContext from '../SiteContext';
@@ -30,7 +38,7 @@ const PLATFORM_ICON = {
   },
 };
 
-const useStyle = () => {
+const useStyle = (isShowPlatfromSwitch) => {
   const { token } = useSiteToken();
 
   const { theme } = useContext(SiteContext);
@@ -138,7 +146,11 @@ const useStyle = () => {
 
       .main-menu-inner {
         position: sticky;
-        top: ${token.headerHeight + token.contentMarginTop + SWITCH_HEIGHT}px;
+        top: ${token.headerHeight +
+        token.contentMarginTop +
+        isShowPlatfromSwitch
+          ? SWITCH_HEIGHT
+          : 0}px;
         width: 100%;
         height: 100%;
         max-height: calc(
@@ -218,7 +230,14 @@ const Sidebar: FC = () => {
     mobileMenuVisible: false,
   });
   const sidebarData = useSidebarData();
-  const styles = useStyle();
+
+  const matchedRoute = useMatchedRoute();
+
+  const isShowPlatfromSwitch = useMemo(() => {
+    return matchedRoute?.meta?.frontmatter?.nav?.path === '/components';
+  }, [matchedRoute]);
+
+  const styles = useStyle(isShowPlatfromSwitch);
   const {
     token: { colorBgContainer },
   } = useSiteToken();
@@ -303,38 +322,40 @@ const Sidebar: FC = () => {
     </React.Fragment>
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
-      <div css={styles.swichPlatform}>
-        <div className="swich">
-          <div
-            className={`item ${platform === 'alipay' && 'active'}`}
-            onClick={() => switchPlatform('alipay')}
-          >
-            <img
-              className="icon"
-              src={
-                PLATFORM_ICON['alipay'][
-                  platform === 'alipay' ? 'active' : 'default'
-                ]
-              }
-            />
-            <span>支付宝</span>
-          </div>
-          <div
-            className={`item ${platform === 'wechat' && 'active'}`}
-            onClick={() => switchPlatform('wechat')}
-          >
-            <img
-              className="icon"
-              src={
-                PLATFORM_ICON['wechat'][
-                  platform === 'wechat' ? 'active' : 'default'
-                ]
-              }
-            />
-            <span>微信</span>
+      {isShowPlatfromSwitch && (
+        <div css={styles.swichPlatform}>
+          <div className="swich">
+            <div
+              className={`item ${platform === 'alipay' && 'active'}`}
+              onClick={() => switchPlatform('alipay')}
+            >
+              <img
+                className="icon"
+                src={
+                  PLATFORM_ICON['alipay'][
+                    platform === 'alipay' ? 'active' : 'default'
+                  ]
+                }
+              />
+              <span>支付宝</span>
+            </div>
+            <div
+              className={`item ${platform === 'wechat' && 'active'}`}
+              onClick={() => switchPlatform('wechat')}
+            >
+              <img
+                className="icon"
+                src={
+                  PLATFORM_ICON['wechat'][
+                    platform === 'wechat' ? 'active' : 'default'
+                  ]
+                }
+              />
+              <span>微信</span>
+            </div>
           </div>
         </div>
-      </div>
+      )}
       <section className="main-menu-inner">{menuChild}</section>
     </Col>
   );
