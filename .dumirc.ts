@@ -38,7 +38,7 @@ export default defineConfig({
     },
   ],
   themeConfig: defineThemeConfig({
-    name:'Ant Design Mini',
+    name: 'Ant Design Mini',
     prefersColor: {
       default: 'auto',
       switch: true,
@@ -69,13 +69,38 @@ export default defineConfig({
           link: 'https://github.com/ant-design/ant-design-mini/releases',
         },
       ],
+      'en': [
+        {
+          title: 'Guide',
+          link: '/guide/quick-start-en',
+        },
+        {
+          title: 'Components',
+          link: '/components/button-en',
+        },
+        {
+          title: 'Resources',
+          link: '/resources-en',
+        },
+        {
+          title: 'Domestic Mirror',
+          link: 'https://ant-design-mini.antgroup.com',
+        },
+        {
+          title: 'Releases',
+          link: 'https://github.com/ant-design/ant-design-mini/releases',
+        },
+      ],
     },
     footer: `© 2024 Made with ❤ by
         <a className={styles.copyrightLink} href='https://xtech.antfin.com' target='_blank'>
           XTech
         </a>`,
     github: 'https://github.com/ant-design/ant-design-mini',
-    localesEnhance: [{ id: 'zh-CN', switchPrefix: '中' }],
+    localesEnhance: [
+      { id: 'zh-CN', switchPrefix: '中' },
+      { id: 'en', switchPrefix: 'EN' },
+    ],
     title: 'Ant Design Mini',
     description: {
       'zh-CN': '探索移动端小程序的极致体验',
@@ -114,7 +139,7 @@ export default defineConfig({
       ],
     },
     loading: {
-      skeleton: ['/guide', '/components'],
+      skeleton: ['/guide', '/components', '/guide', '/components'],
     },
     docVersions: {
       'v2': '',
@@ -284,4 +309,8 @@ export default defineConfig({
       },
     ],
   }),
+  locales: [
+    { id: 'zh-CN', name: '中文', suffix: '' },
+    { id: 'en', name: 'English', suffix: '-en' },
+  ],
 });

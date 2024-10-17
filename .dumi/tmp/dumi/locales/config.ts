@@ -5,7 +5,12 @@ export const locales = [
   {
     "id": "zh-CN",
     "name": "中文",
-    "base": "/"
+    "suffix": ""
+  },
+  {
+    "id": "en",
+    "name": "English",
+    "suffix": "-en"
   }
 ];
 export const messages = {
@@ -121,5 +126,14 @@ export const messages = {
     "app.header.menu.more": "更多",
     "app.footer.last.updated": "最后更新时间：",
     "app.footer.actions.edit": "帮助改进此文档"
+  },
+  "en": {
+    "app.not-found.back-home": "Back to home page",
+    "app.not-found.subTitle": "Sorry, the page you visited does not exist.",
+    "app.theme.switch.dark": "Dark theme",
+    "app.theme.switch.compact": "Compact theme",
+    "app.header.menu.more": "More",
+    "app.footer.last.updated": "Last updated: ",
+    "app.footer.actions.edit": "Improve this documentation"
   }
 };
