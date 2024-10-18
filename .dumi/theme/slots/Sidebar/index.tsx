@@ -175,7 +175,8 @@ const useStyle = (isShowPlatfromSwitch) => {
     `,
     swichPlatform: css`
       position: sticky;
-      top: ${64 + swichHeight / 2}px;
+      // top: ${64 + swichHeight / 2}px;
+      top: 104px;
       z-index: 1;
       padding: 0 30px 30px 30px;
       background: ${isDark ? '#141414' : '#fff'};
