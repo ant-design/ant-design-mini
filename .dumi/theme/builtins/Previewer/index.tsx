@@ -23,7 +23,7 @@ function buildUrl(
   const { platform: supportPlatform, disablePlatformSwitch } =
     getSupportPlatform(options.platform, page);
   searchParams.set('platform', supportPlatform);
-  // searchParams.set('theme', options.theme);
+  searchParams.set('theme', options.theme);
 
   return {
     url: urlObj.toString(),
@@ -67,7 +67,7 @@ const Previewer: React.FC<IProps> = (props) => {
 
   const basicUrl =
     window.location.protocol + '//' + window.location.host + props.herboxUrl;
-  const { url } = useMemo(() => {
+  const { url, page } = useMemo(() => {
     return buildUrl(basicUrl, {
       theme: theme?.find((t) => ['dark', 'light'].includes(t)) || 'light',
       platform,
@@ -92,7 +92,7 @@ const Previewer: React.FC<IProps> = (props) => {
 
   useEffect(() => {
     sendMsgToSourceCode(theme);
-  }, [theme]);
+  }, [theme, page, platform]);
 
   return (
     // @ts-ignore

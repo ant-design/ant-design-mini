@@ -6,7 +6,6 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
   <link rel="stylesheet" type="text/css" href="https://renderdev.alipay.com/p/yuyan_npm/@alipay_antd-mini-code/dev-s09001993251/web/preview.css" />
   <link rel="preload" href="/preview.json" as="fetch" crossorigin>
-  <link rel="preload" href="/preview-theme-dark.json" as="fetch" crossorigin>
   <style>
     body {
       margin: 0;
@@ -40,7 +39,7 @@
   <script src="https://renderdev.alipay.com/p/yuyan_npm/@alipay_antd-mini-code/dev-s09001993251/web/preview.js"></script>
   <script>
     const searchParams = new URL(location.href).searchParams;
-    const theme = searchParams.get('less-theme');
+    const theme = searchParams.get('theme');
     const page = searchParams.get('page');
     const platform = searchParams.get('platform');
     const server = searchParams.get('compilerServer');
@@ -105,7 +104,7 @@
       if (server) {
         sourceCode = await getSourceCode();
       } else {
-        const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());
+        const obj = await fetch('/preview.json').then(res => res.json());
         sourceCode = {};
         const str = page.replace('index', '');
         Object.keys(obj.sourceCode[platform]).forEach(item => {
