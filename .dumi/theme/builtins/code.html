@@ -159,14 +159,7 @@
       sourceCode['app.js'] = `App({})`;
       sourceCode['README.md'] = '需要先npm i';
     }
-
-    let rendered;
-    window.addEventListener('message', (event)=>{
-      if (event.data.type === 'setIsDarkMode' && !rendered) {
-        startWebOpenBoxPreviewApp();
-        rendered = true;
-      }
-    })
+    startWebOpenBoxPreviewApp();
   </script>
 </body>
 </html>
