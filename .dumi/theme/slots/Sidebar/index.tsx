@@ -46,6 +46,11 @@ const useStyle = (isShowPlatfromSwitch) => {
 
   const { antCls, fontFamily, colorSplit } = token;
 
+  const swichHeight = useMemo(
+    () => (isShowPlatfromSwitch ? SWITCH_HEIGHT : 0),
+    [isShowPlatfromSwitch]
+  );
+
   return {
     asideContainer: css`
       min-height: 100%;
@@ -146,11 +151,7 @@ const useStyle = (isShowPlatfromSwitch) => {
 
       .main-menu-inner {
         position: sticky;
-        top: ${token.headerHeight +
-        token.contentMarginTop +
-        isShowPlatfromSwitch
-          ? SWITCH_HEIGHT
-          : 0}px;
+        top: ${token.headerHeight + token.contentMarginTop + swichHeight}px;
         width: 100%;
         height: 100%;
         max-height: calc(
@@ -174,12 +175,12 @@ const useStyle = (isShowPlatfromSwitch) => {
     `,
     swichPlatform: css`
       position: sticky;
-      top: ${64 + SWITCH_HEIGHT / 2}px;
+      top: ${64 + swichHeight / 2}px;
       z-index: 1;
       padding: 0 30px 30px 30px;
       background: ${isDark ? '#141414' : '#fff'};
       .swich {
-        height: ${SWITCH_HEIGHT}px;
+        height: ${swichHeight}px;
         display: flex;
         align-items: center;
         justify-content: center;

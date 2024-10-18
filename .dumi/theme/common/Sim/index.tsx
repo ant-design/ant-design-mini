@@ -99,7 +99,8 @@ const Previewer: React.FC<IProps> = () => {
     });
   }, [basicUrl, theme, platform]);
 
-  function sendMsgToPreviewer({ theme, page }) {
+  // 改主题
+  function sendThemeToPreviewer() {
     const previeweriframe = previewerRef.current;
     if (!previeweriframe) return;
     const setThemeColor = function () {
@@ -107,21 +108,17 @@ const Previewer: React.FC<IProps> = () => {
         type: 'setIsDarkMode',
         data: theme.includes('dark'),
       });
-
       const color = theme.includes('dark') ? '#000' : '#fff';
       previeweriframe?.contentWindow?.postMessage({
         type: 'evaluateJavaScriptInWorkerCode',
         data: `
-         my.setNavigationBar({
-          backgroundColor: '${color}',
-          borderBottomColor: '${color}',
-        });
-        my.setBackgroundColor({
-          backgroundColor: '${color}',
-        });
-        my.redirectTo({
-          url: '/${page}',
-        });
+          my.setNavigationBar({
+            backgroundColor: '${color}',
+            borderBottomColor: '${color}',
+          });
+          my.setBackgroundColor({
+            backgroundColor: '${color}',
+          });
       `,
       });
     };
@@ -132,9 +129,48 @@ const Previewer: React.FC<IProps> = () => {
     setThemeColor();
   }
 
+  // 跳转页面
+  function sendPageToPreviewer() {
+    const previeweriframe = previewerRef.current;
+    if (!previeweriframe) return;
+
+    const color = theme.includes('dark') ? '#000' : '#fff';
+    function redirect() {
+      previeweriframe?.contentWindow?.postMessage({
+        type: 'evaluateJavaScriptInWorkerCode',
+        data: `
+         my.redirectTo({
+          url: '/${page}',
+          success: () => {
+            setTimeout(()=>{
+              my.setNavigationBar({
+                backgroundColor: '${color}',
+                borderBottomColor: '${color}',
+              });
+              my.setBackgroundColor({
+                backgroundColor: '${color}',
+              });
+            }, 500);
+          },
+      });
+      `,
+      });
+    }
+    previeweriframe.onload = () => {
+      redirect();
+      setTimeout(redirect, 500);
+    };
+    redirect();
+  }
+
   useEffect(() => {
-    sendMsgToPreviewer({ theme, page });
-  }, [theme, page]);
+    sendThemeToPreviewer();
+  }, [theme]);
+
+  useEffect(() => {
+    console.log(page);
+    sendPageToPreviewer();
+  }, [page]);
 
   return (
     <div
