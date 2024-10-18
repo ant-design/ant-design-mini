@@ -83,7 +83,6 @@ const Previewer: React.FC<IProps> = () => {
     useContext<SiteContextProps>(SiteContext);
   const [previewerLoaded, setPreviewerLoaded] = useState(false);
   const previewerRef = useRef<any>(null);
-  const previeweriframeOnloadQueue = useRef<any>([]);
   const matchedRoute = useMatchedRoute();
 
   const isShowSim = useMemo(() => {
@@ -119,10 +118,7 @@ const Previewer: React.FC<IProps> = () => {
       `,
       });
     };
-    previeweriframeOnloadQueue.current.push(() => {
-      setThemeColor();
-      setTimeout(setThemeColor, 500);
-    });
+
     setThemeColor();
   }
 
@@ -136,7 +132,8 @@ const Previewer: React.FC<IProps> = () => {
       previeweriframe?.contentWindow?.postMessage({
         type: 'evaluateJavaScriptInWorkerCode',
         data: `
-         my.redirectTo({
+        console.log('跳转页面','/${page}');
+        my.redirectTo({
           url: '/${page}',
           success: () => {
             setTimeout(()=>{
@@ -150,10 +147,6 @@ const Previewer: React.FC<IProps> = () => {
       `,
       });
     }
-    previeweriframeOnloadQueue.current.push(() => {
-      redirect();
-      setTimeout(redirect, 500);
-    });
     redirect();
   }
 
@@ -173,12 +166,26 @@ const Previewer: React.FC<IProps> = () => {
     const previeweriframe = previewerRef.current;
     if (!previeweriframe) return;
     previeweriframe.onload = () => {
-      while (previeweriframeOnloadQueue.current.length > 0) {
-        const event = previeweriframeOnloadQueue.current.pop();
-        event();
-      }
+      sendThemeToPreviewer();
     };
   }, [previewerRef.current]);
+
+  function handleIframeMessage(event) {
+    if (event.data.type === 'onAppReady') {
+      const value = event.data.data;
+      if (value) {
+        sendThemeToPreviewer();
+        sendPageToPreviewer();
+      }
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('message', handleIframeMessage);
+    return () => {
+      window.removeEventListener('message', handleIframeMessage);
+    };
+  }, [page]);
 
   return (
     <div

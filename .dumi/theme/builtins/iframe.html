@@ -99,6 +99,13 @@
             liteMode: false,
             launchParams: { page: decodeURIComponent(page) }
           },
+          onPageReady:() => {
+            console.log('onPageReady,123');
+            window.parent && window.parent.postMessage({ type:'onPageReady', data: true })
+          },
+          onAppReady:() => {
+            window.parent && window.parent.postMessage({ type:'onAppReady', data: true })
+          }
         },
       )
 

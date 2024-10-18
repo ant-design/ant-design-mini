@@ -23,7 +23,7 @@ function buildUrl(
   const { platform: supportPlatform, disablePlatformSwitch } =
     getSupportPlatform(options.platform, page);
   searchParams.set('platform', supportPlatform);
-  searchParams.set('theme', options.theme);
+  // searchParams.set('theme', options.theme);
 
   return {
     url: urlObj.toString(),
@@ -86,6 +86,7 @@ const Previewer: React.FC<IProps> = (props) => {
     sourceCodeiframe.onload = () => {
       setThemeColor();
       setTimeout(setThemeColor, 500);
+      setTimeout(setThemeColor, 1000);
     };
     setThemeColor();
   }

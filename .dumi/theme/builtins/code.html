@@ -21,15 +21,19 @@
 <body>
 
   <script>
-    // When the iframe is just created, you need to set the background color according to the dark mode.
-    window.LyraIsDefalutDarkMode =new URL(location.href).searchParams.get('theme') === 'dark';
-    const element = document.getElementsByTagName('body')?.[0];
-    if (element) {
-      element.style.setProperty(
-        'background-color',
-        window.LyraIsDefalutDarkMode ? '#141414' : '#f9fafb'
-      );
-    }
+     // When the iframe is just created, you need to set the background color according to the dark mode.
+     window.addEventListener('message', (event)=>{
+      if (event.data.type === 'setIsDarkMode') {
+        window.LyraIsDefalutDarkMode = event.data.data;
+        const element = document.getElementsByTagName('body')?.[0];
+        if (element) {
+          element.style.setProperty(
+            'background-color',
+            window.LyraIsDefalutDarkMode ? '#141414' : '#f9fafb'
+          );
+        }
+      }
+    })
   </script>
 
   <div id="root">
@@ -143,6 +147,7 @@
           isShowDownload: true,
         },
         isShowHeaderLogo: false,
+        theme: window.LyraIsDefalutDarkMode,
         sortMiniPageFile
       });
       sourceCode['package.json'] = JSON.stringify({
