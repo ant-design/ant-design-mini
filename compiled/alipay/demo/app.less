@@ -1,5 +1,13 @@
-@import "../src/style/themes/color.less";
+@import '../src/style/themes/color.less';
 
-page {
-  background-color: @COLOR_BACKGROUND;
+@media (prefers-color-scheme: light) {
+  page {
+    background-color: @COLOR_BACKGROUND_DEFAULT;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: @COLOR_BACKGROUND_DARK;
+  }
 }

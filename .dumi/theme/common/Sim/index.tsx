@@ -116,9 +116,6 @@ const Previewer: React.FC<IProps> = () => {
             backgroundColor: '${color}',
             borderBottomColor: '${color}',
           });
-          my.setBackgroundColor({
-            backgroundColor: '${color}',
-          });
       `,
       });
     };
@@ -146,9 +143,6 @@ const Previewer: React.FC<IProps> = () => {
               my.setNavigationBar({
                 backgroundColor: '${color}',
                 borderBottomColor: '${color}',
-              });
-              my.setBackgroundColor({
-                backgroundColor: '${color}',
               });
             }, 500);
           },
