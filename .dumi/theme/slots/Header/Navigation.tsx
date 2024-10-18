@@ -2,12 +2,21 @@ import { MenuFoldOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import { Link, useLocale, useLocation, useNavData, useSiteData } from 'dumi';
+import {
+  FormattedMessage,
+  Link,
+  useLocale,
+  useLocation,
+  useNavData,
+  useSiteData,
+} from 'dumi';
 import { INavItem } from 'dumi/dist/client/theme-api/types';
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
 import useLocaleValue from '../../hooks/useLocaleValue';
 import useSiteToken from '../../hooks/useSiteToken';
+import type { SiteContextProps } from '../../slots/SiteContext';
+import SiteContext from '../../slots/SiteContext';
 import { getTargetLocalePath, isExternalLinks } from '../../utils';
 import { type IResponsive } from './index';
 import { getMoreLinksGroup } from './More';
@@ -20,7 +29,14 @@ export interface NavigationProps {
 const useStyle = () => {
   const { token } = useSiteToken();
 
-  const { antCls, iconCls, fontFamily, headerHeight, menuItemBorder, colorPrimary } = token;
+  const {
+    antCls,
+    iconCls,
+    fontFamily,
+    headerHeight,
+    menuItemBorder,
+    colorPrimary,
+  } = token;
 
   return {
     nav: css`
@@ -81,14 +97,15 @@ const useStyle = () => {
       a {
         color: #333;
       }
-    `
+    `,
   };
 };
 
 export default function Navigation({ isMobile, responsive }: NavigationProps) {
   const { pathname, search } = useLocation();
   const { locales } = useSiteData();
-  const { github, socialLinks } = useAdditionalThemeConfig();
+  const { github, socialLinks, prefersColor } = useAdditionalThemeConfig();
+  const { theme, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
 
   // 统一使用 themeConfig.nav，使用 useNavData，当存在自定义 pages 时，会导致 nav 混乱
   const navList = useNavData();
@@ -98,7 +115,10 @@ export default function Navigation({ isMobile, responsive }: NavigationProps) {
 
   const createMenuItems = (navs: INavItem[]) => {
     return navs.map((navItem: INavItem) => {
-      const linkKeyValue = (navItem.link ?? '').split('/').slice(0, 2).join('/');
+      const linkKeyValue = (navItem.link ?? '')
+        .split('/')
+        .slice(0, 2)
+        .join('/');
       return {
         // eslint-disable-next-line no-nested-ternary
         label: navItem.children ? (
@@ -111,7 +131,7 @@ export default function Navigation({ isMobile, responsive }: NavigationProps) {
           <Link to={`${navItem.link}${search}`}>{navItem.title}</Link>
         ),
         key: isExternalLinks(navItem.link) ? navItem.link : linkKeyValue,
-        children: navItem.children ? createMenuItems(navItem.children) : null
+        children: navItem.children ? createMenuItems(navItem.children) : null,
       };
     });
   };
@@ -126,7 +146,7 @@ export default function Navigation({ isMobile, responsive }: NavigationProps) {
       const nextLang = locales.filter((item) => item.id !== locale.id)[0];
       const nextPath = getTargetLocalePath({
         current: locale,
-        target: nextLang
+        target: nextLang,
       });
       return {
         label: (
@@ -134,7 +154,7 @@ export default function Navigation({ isMobile, responsive }: NavigationProps) {
             {nextLang.name}
           </a>
         ),
-        key: nextLang.id
+        key: nextLang.id,
       };
     }
     return {
@@ -145,7 +165,7 @@ export default function Navigation({ isMobile, responsive }: NavigationProps) {
         .map((item) => {
           const nextPath = getTargetLocalePath({
             current: locale,
-            target: item
+            target: item,
           });
           return {
             label: (
@@ -153,26 +173,45 @@ export default function Navigation({ isMobile, responsive }: NavigationProps) {
                 {item.name}
               </a>
             ),
-            key: item.id
+            key: item.id,
           };
-        })
+        }),
     };
   }, [locale, locales]);
 
   let additional: MenuProps['items'];
   const additionalItems: MenuProps['items'] = [
+    prefersColor.switch
+      ? {
+          label: (
+            <div
+              onClick={() => {
+                const themeValue = theme.includes('dark') ? 'light' : 'dark';
+                updateSiteConfig({ theme: [themeValue] });
+              }}
+            >
+              <FormattedMessage id="app.theme.switch" />
+            </div>
+          ),
+          key: 'theme',
+        }
+      : null,
     github || socialLinks?.github
       ? {
           label: (
-            <a rel="noopener noreferrer" href={github || socialLinks?.github} target="_blank">
+            <a
+              rel="noopener noreferrer"
+              href={github || socialLinks?.github}
+              target="_blank"
+            >
               GitHub
             </a>
           ),
-          key: 'github'
+          key: 'github',
         }
       : null,
     getLangNode(),
-    ...(getMoreLinksGroup(moreLinks) || [])
+    ...(getMoreLinksGroup(moreLinks) || []),
   ];
 
   if (isMobile) {
@@ -182,11 +221,14 @@ export default function Navigation({ isMobile, responsive }: NavigationProps) {
       {
         label: <MenuFoldOutlined />,
         key: 'additional',
-        children: [...additionalItems]
-      }
+        children: [...additionalItems],
+      },
     ];
   }
-  const items: MenuProps['items'] = [...(menuItems ?? []), ...(additional ?? [])];
+  const items: MenuProps['items'] = [
+    ...(menuItems ?? []),
+    ...(additional ?? []),
+  ];
   const menuMode = isMobile ? 'inline' : 'horizontal';
   const style = useStyle();
   return (

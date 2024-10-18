@@ -12,7 +12,6 @@ import type { FC } from 'react';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Sim from '../common/Sim';
 import type { ThemeName } from '../common/ThemeSwitch';
-import ThemeSwitch from '../common/ThemeSwitch';
 import useAdditionalThemeConfig from '../hooks/useAdditionalThemeConfig';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
@@ -165,12 +164,12 @@ const GlobalLayout: FC = () => {
         }}
       >
         <Outlet />
-        {prefersColor.switch && (
+        {/* {prefersColor.switch && (
           <ThemeSwitch
             value={theme}
             onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
           />
-        )}
+        )} */}
 
         <Sim />
       </ConfigProvider>
