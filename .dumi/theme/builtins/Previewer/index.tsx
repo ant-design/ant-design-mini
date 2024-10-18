@@ -23,7 +23,7 @@ function buildUrl(
   const { platform: supportPlatform, disablePlatformSwitch } =
     getSupportPlatform(options.platform, page);
   searchParams.set('platform', supportPlatform);
-  searchParams.set('theme', options.theme);
+  // searchParams.set('theme', options.theme);
 
   return {
     url: urlObj.toString(),
@@ -59,14 +59,12 @@ const Previewer: React.FC<IProps> = (props) => {
     updateSiteConfig({
       herboxUrl: props.herboxUrl,
     });
-    console.log('123123', props.herboxUrl);
   }, [props.herboxUrl]);
 
   const [sourceCodeLoaded, setSourceCodeLoaded] = useState(false);
 
   const sourceCodeRef = useRef<any>(null);
 
-  console.log(props);
   const basicUrl =
     window.location.protocol + '//' + window.location.host + props.herboxUrl;
   const { url } = useMemo(() => {
