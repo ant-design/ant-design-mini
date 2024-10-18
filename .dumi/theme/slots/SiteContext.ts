@@ -16,7 +16,7 @@ export interface SiteContextProps {
 const SiteContext = createContext<SiteContextProps>({
   isMobile: false,
   direction: 'ltr',
-  theme: ['light'],
+  theme: [],
   platform: 'alipay',
   herboxUrl: '',
   updateSiteConfig: () => {},

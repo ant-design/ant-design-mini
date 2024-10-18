@@ -22,7 +22,7 @@ const RESPONSIVE_MOBILE = 768;
 const SITE_STATE_LOCALSTORAGE_KEY = 'dumi-theme-antd-site-state';
 
 const defaultSiteState: SiteState = {
-  theme: ['light'],
+  theme: [],
   isMobile: false,
   direction: 'ltr',
   platform: 'alipay',

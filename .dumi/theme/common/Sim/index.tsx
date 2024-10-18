@@ -83,7 +83,7 @@ const Previewer: React.FC<IProps> = () => {
     useContext<SiteContextProps>(SiteContext);
   const [previewerLoaded, setPreviewerLoaded] = useState(false);
   const previewerRef = useRef<any>(null);
-
+  const previeweriframeOnloadQueue = useRef<any>([]);
   const matchedRoute = useMatchedRoute();
 
   const isShowSim = useMemo(() => {
@@ -119,10 +119,10 @@ const Previewer: React.FC<IProps> = () => {
       `,
       });
     };
-    previeweriframe.onload = () => {
+    previeweriframeOnloadQueue.current.push(() => {
       setThemeColor();
       setTimeout(setThemeColor, 500);
-    };
+    });
     setThemeColor();
   }
 
@@ -150,21 +150,35 @@ const Previewer: React.FC<IProps> = () => {
       `,
       });
     }
-    previeweriframe.onload = () => {
+    previeweriframeOnloadQueue.current.push(() => {
       redirect();
       setTimeout(redirect, 500);
-    };
+    });
     redirect();
   }
 
   useEffect(() => {
-    sendThemeToPreviewer();
+    if (theme.length > 0) {
+      sendThemeToPreviewer();
+    }
   }, [theme]);
 
   useEffect(() => {
-    console.log(page);
-    sendPageToPreviewer();
+    if (page) {
+      sendPageToPreviewer();
+    }
   }, [page]);
+
+  useEffect(() => {
+    const previeweriframe = previewerRef.current;
+    if (!previeweriframe) return;
+    previeweriframe.onload = () => {
+      while (previeweriframeOnloadQueue.current.length > 0) {
+        const event = previeweriframeOnloadQueue.current.pop();
+        event();
+      }
+    };
+  }, [previewerRef.current]);
 
   return (
     <div
