@@ -189,7 +189,9 @@ const Previewer: React.FC<IProps> = () => {
 
   return (
     <div
-      className={`previewer ${!herboxUrl || !isShowSim ? 'hide' : ''}`}
+      className={`previewer ${!herboxUrl || !isShowSim ? 'hide' : ''} ${
+        theme.includes('dark') ? 'theme-dark' : 'theme-light'
+      }`}
       css={css`
         ${styles.previewerWrapper}
         ${theme.includes('dark') ? styles.dark : styles.light}

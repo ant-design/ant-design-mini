@@ -1,24 +1,75 @@
 .previewer {
   position: fixed;
-  top: calc((100% - 675px + 60px) / 2);
+  top: calc((100% - 633px + 60px) / 2);
   right: 0;
-  width: 312px;
-  height: 675px;
+  width: 292px;
+  height: 633px;
   z-index: 1;
   margin-right: 20px;
-  border-radius: 20px;
-  outline: 1px solid #e6e6e6;
+  border-radius: 40px;
 
   &.hide {
     right: -9999;
     opacity: 0;
   }
 
+  &::before {
+    display: block;
+    content: '';
+    background: url(https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*wj7MSJioE34AAAAAAAAAAAAADtF8AQ/original)
+      no-repeat;
+    background-size: 100% 100%;
+    width: calc(100% + 30px);
+    height: calc(100% + 10px);
+    z-index: 1;
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    pointer-events: none;
+  }
+  &::after {
+    display: block;
+    content: '';
+    background-color: #fff;
+    width: 500px;
+    height: calc(100vh + 100px);
+    z-index: -1;
+    position: absolute;
+    top: -100px;
+    left: -36px;
+    border-left: 1px solid rgba(149, 149, 149, 0.2);
+  }
+
+  &.theme-dark {
+    &::after {
+      background-color: #141414;
+    }
+  }
+  &.theme-light {
+    &::after {
+      background-color: #fff;
+    }
+  }
+
   iframe {
     height: 100%;
     border: none;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 40px;
+    position: relative;
+
+    &::after {
+      display: block;
+      content: '';
+      background-color: #000;
+      width: 500px;
+      height: calc(100vh + 100px);
+      z-index: 1;
+      position: absolute;
+      top: -100px;
+      left: -36px;
+      border-left: 1px solid rgba(149, 149, 149, 0.2);
+    }
   }
   &-loading {
     width: 40px;
