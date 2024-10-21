@@ -15,7 +15,7 @@ export const locales = [
 ];
 export const messages = {
   "en-US": {
-    "header.search.placeholder": "Type keywords...",
+    "header.search.placeholder": "Input to search",
     "header.color.mode.light": "Light Mode",
     "header.color.mode.dark": "Dark Mode",
     "header.color.mode.auto": "Follow System",
@@ -134,6 +134,7 @@ export const messages = {
     "app.theme.switch.compact": "Compact theme",
     "app.header.menu.more": "More",
     "app.footer.last.updated": "Last updated: ",
-    "app.footer.actions.edit": "Improve this documentation"
+    "app.footer.actions.edit": "Improve this documentation",
+    "header.search.placeholder": "Input to search"
   }
 };

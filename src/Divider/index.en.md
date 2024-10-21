@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: Information Display
 toc: 'content'
 ---
 
@@ -17,7 +17,7 @@ The dividing line that separates the content.
 - Segmentation of text paragraphs in different sections.
 - Split inline text/links, such as the action column of a table.
 
-## Code Sample
+## Code example
 <code src='../../demo/pages/Divider/index'></code>
 
 ## API
@@ -27,9 +27,9 @@ The dividing line that separates the content.
 | className  | Root node class name              | string       | -             |
 | direction  | Split line direction, optional `horizontal` `vertical` | string | `horizontal` |
 | lineColor  | Split line color              | string       | -             |
-| lineHeight | 分割线高度，仅当 `direction` 为 `horizontal` 时生效，单位为 `px` | number  | - |
+| lineHeight | Split line height, only if `direction` For `horizontal` Effective at the time, in units `px` | number  | - |
 | lineType   | Split line type, optional `solid` `dashed` `dotted`   | string | - |
-| lineWidth  | 分割线宽度，仅当 `direction` 为 `vertical` 时生效，单位为 `px`  | number | - |
+| lineWidth  | Split line width, only if `direction` For `vertical` Effective at the time, in units `px`  | number | - |
 | style      | Style                    | string       | -             |
 | textClassName | Split Line Text Class Name      | string       | -             |
 | textPosition | Split line text position, optional `left` `center` `right` | string | `center` |

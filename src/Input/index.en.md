@@ -17,7 +17,7 @@ Enter content through the keyboard, is the most basic form field packaging.
 
 Generally used in the form page for information collection.
 
-## Code Sample
+## Code example
 
 ### Input basic usage
 
@@ -86,11 +86,11 @@ Generally used in the form page for information collection.
 
 ### Input focus
 
-使用 focus Property需要在 app.json window 里加上 `"enableInPageRenderInput": "YES"`，否则无法在 iOS 里打开键盘。
+To use the focus attribute, you need to add it to the app.json window. `"enableInPageRenderInput": "YES"`Otherwise, the keyboard cannot be opened in iOS.
 
 ### Input, Textarea instance methods
 
-实例方法需要小程序 `component2` 可使用。
+Instance methods require small programs `component2` Can be used.
 
 | Property | Description | Type |
 | --- | --- | --- |
@@ -101,11 +101,11 @@ Generally used in the form page for information collection.
 
 ### Input focus does not open the keyboard
 
-需要在 app.json window 里加上 `"enableInPageRenderInput": "YES"`。
+You need to add it to the app.json window. `"enableInPageRenderInput": "YES"`。
 
 ### Cursor problem with Input
 
-Can be viewed [This document](https://opendocs.alipay.com/mini/component/input#FAQ) 使用 `enableNative` Property解决。
+Can be viewed [This document](https://opendocs.alipay.com/mini/component/input#FAQ) Use `enableNative` property to resolve.
 
 ### Keyboard problems using value controlled mode
 
@@ -133,4 +133,4 @@ Starting with v2.15.0, updating values via the update method is not supported in
 
 ### Instance method not available
 
-需要使用 `component2`，详情参见[ref Get Component Instance](https://opendocs.alipay.com/mini/framework/component-ref)。
+need to use `component2`, for details see[ref Get Component Instance](https://opendocs.alipay.com/mini/framework/component-ref)。

@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 导航
+  title: Navigation
   order: 6
 toc: 'content'
 ---
@@ -16,7 +16,7 @@ Navigate between content groups.
 - Navigate between content groups.
 - The current content needs to be divided into groups of the same hierarchical structure for content switching and display, which is used at the top of the form or standard list interface.
 
-## Code Sample
+## Code example
 ### Basic use
 <code src='../../demo/pages/Tabs/index'></code>
 
@@ -54,16 +54,16 @@ Navigate between content groups.
 | className | Class Name | string | - |
 | current | Selected Index | number | - |
 | defaultCurrent | Selected index initial value | number | 0 |
-| direction | tabs 方向，`horizontal`(水平) `vertical`(垂直) | string | horizontal |
+| direction | tabs direction,`horizontal`(Horizontal) `vertical`(Vertical) | string | horizontal |
 | items | option, quantity must be greater than 0 | `Item[]` | - |
-| plus | Operation button slot in upper right corner;<br /> `slot-scope` 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | slot | - |
+| plus | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(Corresponding `Item`) `index`(Corresponding `Item` index of) | slot | - |
 | scrollMode | Scrolling mode, optional 'edge', 'center' | string | edge |
 | style | Style | string | - |
 | tabsBarClassName | tabs bar class name | string | - |
 | tabClassName | tab class name | string | - |
 | tabActiveClassName | tab active class name | string | - |
-| title | 自定义 `Items` Title；<br /> `slot-scope` 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | slot | - |
-| type | Type，`basic`(基础)，`capsule`(胶囊)，`mixin`(混合) | string | `basic` |
+| title | Custom `Items` Title;<br /> `slot-scope` Include `value`(Corresponding `Item`) `index`(Corresponding `Item` index of) | slot | - |
+| type | Type,`basic`(basis),`capsule`(capsule),`mixin`(Mixed) | string | `basic` |
 | onChange | When the panel is switched, the callback is triggered. | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 
 ### Item
@@ -71,7 +71,7 @@ Navigate between content groups.
 | ---- | ---- | ---- | ---- |
 | title | Title | string | - |
 
-在 Item 里除了可以有 `title`，还可以加上自定义的Property，比如 `content`, `badge` 等，这些Property可使用 `slot-scope` 访问：
+In addition to item can have `title`, you can also add custom attributes, such `content`, `badge` and so on, these properties can be used. `slot-scope` Visit:
 
 ```js
 Page({
@@ -104,7 +104,7 @@ Page({
 
 ## FAQ
 ### onChange can only be triggered by modification. What do you need to do if you want to click on the trigger current label?
-可以使用 `slot` 来自定义。
+can be used `slot` From the definition.
 ```html
 <tabs items="{{items}}" onChange="onChange">
   <view slot="title" slot-scope="tab" data-index="{{tab.index}}" onTap="onTap">

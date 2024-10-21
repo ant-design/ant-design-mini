@@ -13,9 +13,9 @@ toc: 'content'
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
-相比于原生 `my.datePicker`，实现了 iOS 与 Android 端体验一致。
+Compared to native `my.datePicker`, to achieve the same iOS and Android experience.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/DatePicker/index'></code>
 
@@ -25,7 +25,7 @@ toc: 'content'
 
 | Property            | Description                                                                                                                                                                      | Type                | Default Value       |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------ |
-| animationType   | 动画Type，可选 `transform` `position`，默认使用 `transform` 动画性能更好。由于小程序基础库 bug，弹窗内 `picker-view` 阴影Style在 iOS 下可能存在Style问题，可暂切换为 `position` 解决。 | string              | `transform`  |
+| animationType   | Animation type, optional `transform` `position`, the default is used `transform` Animation performance is better. Due to bug in the basic library of small programs, the pop-up window `picker-view` Shadow style may have style problems under iOS and can be temporarily switched `position` Resolve. | string              | `transform`  |
 | className       | Class Name                                                                                                                                                                      | string              | -            |
 | defaultValue    | Time selected by default                                                                                                                                                            | Date                | -            |
 | disabled        | Disable                                                                                                                                                                  | boolean             | false        |
@@ -63,7 +63,7 @@ Add year, month, day, hour, minute and second units | (type: `year` \| `month` \
 
 | Property            | Description                                                                                                                                                                      | Type                | Default Value       |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------ |
-| animationType   | 动画Type，可选 `transform` `position`，默认使用 `transform` 动画性能更好。由于小程序基础库 bug，弹窗内 `picker-view` 阴影Style在 iOS 下可能存在Style问题，可暂切换为 `position` 解决。 | string              | `transform`  |
+| animationType   | Animation type, optional `transform` `position`, the default is used `transform` Animation performance is better. Due to bug in the basic library of small programs, the pop-up window `picker-view` Shadow style may have style problems under iOS and can be temporarily switched `position` Resolve. | string              | `transform`  |
 | className       | Class Name                                                                                                                                                                      | string              | -            |
 | defaultValue    | Time range selected by default                                                                                                                                                        | [Date, Date]        | -            |
 | disabled        | Disable                                                                                                                                                                  | boolean             | false        |
@@ -99,9 +99,9 @@ Add year, month, day, hour, minute and second units | (type: `year` \| `month` \
 | onFormatLabel | Customize the content displayed in each column, and add the year, month, day, hour, minute, and second units by default. | (type: `year` \| `month` \| `day` \| `hour` \| `minute`, value: number) => string | - |
 | onVisibleChange | Pop-up display/hide status change trigger | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 
-## 如何获取 `YYYY-MM-DD` 格式的时间
+## How to obtain `YYYY-MM-DD` Time in format
 
-DatePicker 组件返回的时间格式为 `Date` Type，如果需要转换为 `YYYY-MM-DD` 格式，可以使用 [dayjs](https://day.js.org/docs/zh-CN/display/format) make the conversion.
+The time returned by the DatePicker component is in the format `Date` type, if you need to convert `YYYY-MM-DD` format, you can use [dayjs](https://day.js.org/docs/zh-CN/display/format) make the conversion.
 
 ```xml
 <date-picker onOk="handleOk" />

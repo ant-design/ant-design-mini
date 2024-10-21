@@ -104,6 +104,7 @@ export default defineConfig({
     title: 'Ant Design Mini',
     description: {
       'zh-CN': '探索移动端小程序的极致体验',
+      'en': 'Explore the ultimate experience of mobile applets'
     },
     actions: {
       'zh-CN': [
@@ -115,6 +116,17 @@ export default defineConfig({
         {
           text: '在线体验',
           link: '/components/button',
+        },
+      ],
+      'en': [
+        {
+          type: 'primary',
+          text: 'Get started quickly',
+          link: '/guide/quick-start-en',
+        },
+        {
+          text: 'Online Experience',
+          link: '/components/button-en',
         },
       ],
     },
@@ -135,6 +147,24 @@ export default defineConfig({
         {
           title: '流畅感',
           details: '拥有流畅的手势和细腻的动画，助力产品打造出极致体验',
+        },
+      ],
+      'en': [
+        {
+          title: 'high performance',
+          details: 'No configuration required, you can have the best package size and extreme performance',
+        },
+        {
+          title: 'Customizable',
+          details: 'You can efficiently adjust the appearance of components or create your own themes',
+        },
+        {
+          title: 'Atomization',
+          details: 'Each component has just what you need, no more, no less',
+        },
+        {
+          title: 'Sense of Fluency',
+          details: 'With smooth gestures and delicate animations, it helps the product create the ultimate experience',
         },
       ],
     },

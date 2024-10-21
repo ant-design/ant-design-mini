@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: Information Display
   order: 8
 toc: 'content'
 ---
@@ -87,9 +87,9 @@ Show hidden function menus by sliding.
 | Property        | Type                        | Default Value | Description                                                                                |
 | ----------- | --------------------------- | ------ | ----------------------------------------------------------------------------------- |
 | text        | string                      | -      | Button Text                                                                            |
-| slotName    | string                      | -      | slot 名称,可以自定义对应按钮的内容。`${slotName}-confirm`可以自定义确认时的按钮内容 |
+| slotName    | string                      | -      | The name of the slot. You can customize the content of the corresponding button.`${slotName}-confirm`You can customize the content of the button at the time of confirmation |
 | bgColor     | string                      | -      | Button background color                                                                        |
 | color       | string                      | `#fff` | Button Font Color                                                                        |
 | width       | number                      | 150    | Button width                                                                            |
-| confirmType | `''` \| `'move'` \| `'tap'` | -      | 二次确认Type：不触发二次确认 \| 滑动超出最大距离触发二次确认 \| 点击触发二次确认    |
+| confirmType | `''` \| `'move'` \| `'tap'` | -      | Secondary confirmation type: do not trigger secondary confirmation | slide beyond the maximum distance to trigger secondary confirmation | click to trigger secondary confirmation    |
 | confirmText | string                      | -      | Copy description of the second confirmation; if empty, text is displayed                                             |

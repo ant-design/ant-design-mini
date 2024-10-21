@@ -16,7 +16,7 @@ It is used to upload pictures to the server, and briefly display the information
 
 Use when you need to upload local pictures or photos to the server.
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -33,7 +33,7 @@ Use when you need to upload local pictures or photos to the server.
 | className | Class Name | string | - | 
 | maxCount | Maximum number of uploaded images. See details in [maxCount](#maxcount) | number | - | 
 | defaultFileList | File List Initial Value | [File](#file)[] | [] | 
-| sourceType | 上传选择的来源。可选 `['album']`、`['camera']` 或 `['album', 'camera']` | string[] | ['album', 'camera'] | 
+| sourceType | Upload the selected source. Optional `['album']`、`['camera']` or `['album', 'camera']` | string[] | ['album', 'camera'] | 
 | style | Style | string | - | 
 | uploadingText | Prompt copy in upload | string | 'Uploading......' |  
 | uploadfailedText | Prompt copy for upload failure | string | 'Upload failed' |  
@@ -51,7 +51,7 @@ Use when you need to upload local pictures or photos to the server.
 | Parameters | Description | Type | Default Value |
 | ------ | ------- | ------ | ------- |
 | url | image url | string | - | 
-| status | 上传状态。可选 `uploading`（上传中）、`done`（上传完成）或 `error`（上传失败） | string | - | 
+| status | Upload status. Optional `uploading`(Uploading),`done`(upload complete) or `error`(Upload failed) | string | - | 
 | uid | The unique identifier. Automatically generated when not set | string | - | 
 | path | Local Image Path | string | - | 
 | size | Local image size. Some models may not return this attribute | number | - | 
@@ -65,7 +65,7 @@ Use when you need to upload local pictures or photos to the server.
 
 ### onUpload
 
-`onUpload` 方法接收 `LocalFile`，在 Promise 里返回 `File`。以下是调用 [my.uploadFile](https://opendocs.alipay.com/mini/api/kmq4hc) Sample code for uploading:
+`onUpload` Method Receive `LocalFile`Return in the Promise. `File`. The following is the call [my.uploadFile](https://opendocs.alipay.com/mini/api/kmq4hc) Sample code for uploading:
 
 ```js
 onUpload(localFile) {
@@ -91,7 +91,7 @@ onUpload(localFile) {
 
 ### onChooseImageError
 
-选择图片可能会失败，`onChooseImageError` 可获取错误，可以查看 [my.chooseImage Error Code](https://opendocs.alipay.com/mini/api/media/image/my.chooseimage#%E9%94%99%E8%AF%AF%E7%A0%81)。
+Selecting a picture may fail,`onChooseImageError` can get errors, you can view [my.chooseImage Error Code](https://opendocs.alipay.com/mini/api/media/image/my.chooseimage#%E9%94%99%E8%AF%AF%E7%A0%81)。
 
 ```js
 onChooseImageError(err) {
@@ -101,5 +101,5 @@ onChooseImageError(err) {
 
 ### maxCount
 
-1. `maxCount` 表示最多可以上传的图片数量，不传表示无限制。由于小程序选择图片界面有一次性选择图片的上限，如果 `maxCount` 大于此上限，则需要多次上传。例如，`maxCount="{{10}}"`，允许上传 10 张图片，用户需先上传 9 张，之后再上传 1 张。
-2. `maxCount` 不限制 `defaultFileList` 和 `fileList`。例如，`maxCount` 为 1，而 `defaultFileList` 包含 2 张图片，不会减少 `defaultFileList` 里的图片。上传按钮则会隐藏。
+1. `maxCount` Indicates the maximum number of pictures that can be uploaded, and does not transmit means unlimited. Since the small program selection picture interface has an upper limit of one-time selection of pictures, if `maxCount` More than this limit, multiple uploads are required. For example,`maxCount="{{10}}"`, 10 pictures are allowed to be uploaded. Users need to upload 9 pictures first and then 1 picture.
+2. `maxCount` No restrictions `defaultFileList` and `fileList`. For example,`maxCount` for 1, and `defaultFileList` Contains 2 images, will not reduce `defaultFileList` in the picture. The upload button is hidden.

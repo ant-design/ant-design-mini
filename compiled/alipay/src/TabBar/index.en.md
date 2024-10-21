@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 导航
+  title: Navigation
   order: 6
 toc: 'content'
 ---

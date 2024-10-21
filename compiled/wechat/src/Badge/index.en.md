@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 引导提示
+  title: Guide & Hint
   order: 14
 toc: 'content'
 ---
@@ -27,8 +27,8 @@ Use when you need to display numbers, text, or little red dots in the upper righ
 | className | Class name of the component root node                     | string               | -            |
 | offsetX   | Horizontal offset      | string               | '-50%'       |
 | offsetY   | Offset in vertical direction    | string               | '-50%'       |
-| position  | 徽标相对于容器的位置，选项包括：`top-left`、`top-right`、`top-center`、`left`、`right`、`bottom-left`、`bottom-center` 和 `bottom-right` | string | `top-right` |
+| position  | Position of the logo relative to the container, options include:`top-left`、`top-right`、`top-center`、`left`、`right`、`bottom-left`、`bottom-center` and `bottom-right` | string | `top-right` |
 | stroke    | Does the logo have a stroke                    | boolean              | false        |
 | style     | Custom Style                           | object               | -            |
 | text      | Logo content. Empty means that only red dots are displayed. It can be numbers or text. If the number exceeds 99, it will be displayed `...` | string \| number \| slot     | -            |
-| type      | 徽标Type，选项包括：`dot`（红点）、`number`（数字Type，超过 99 会自动转换）、`text`（文字气泡）和 `bubble`（气泡形态，带有箭头） | string | `dot`       |
+| type      | Logo type, options include:`dot`(red dot),`number`(Number type, more than 99 will be automatically converted),`text`(text bubbles) and `bubble`(Bubble form, with arrow) | string | `dot`       |

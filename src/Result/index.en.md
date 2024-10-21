@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 反馈
+  title: Feedback
   order: 12
 toc: 'content'
 ---
@@ -17,7 +17,7 @@ Feedback the results of the previous step.
 
 The Result component should be used when important operations need to inform the user of the processing results and the feedback content is complex.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Result/index'></code>
 
@@ -31,4 +31,4 @@ The Result component should be used when important operations need to inform the
 | message   | Deputy Copywriter       | string \| slot    | -      |
 | style     | Style         | string            | -      |
 | title     | Main Copy       | string \| slot    | -      |
-| type      | 内置Type `success`（成功）、`error`（错误/危险）、`info`（信息提示）、`wait`（等待处理） | string | -      |
+| type      | Built-in type `success`(successful),`error`(error/danger),`info`(information prompt),`wait`(Waiting for processing) | string | -      |

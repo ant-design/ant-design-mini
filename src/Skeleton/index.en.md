@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 反馈
+  title: Feedback
   order: 12
 toc: 'content'
 ---
@@ -16,7 +16,7 @@ Provide a placeholder graphic combination where you need to wait for content to 
 - On the premise of ensuring the performance of the mobile phone, try to use preloading, preferably without skeleton screen.
 - It is suitable for home pages, lists and cards with more graphic information and important information. Do not use small module class components (such as pop-up windows).
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Skeleton/index'></code>
 
@@ -41,8 +41,8 @@ Provide a placeholder graphic combination where you need to wait for content to 
 | animate  | Show animation effect                 | boolean      | false    |
 | className| Class Name                             | string       | -        |
 | loading  | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean    | true     |
-| shape    | 头像形状 `circle` 或 `square`   | string       | `square` |
-| size     | 头像大小 `x-small`、`small`、`medium` 或 `large` | string  | `medium` |
+| shape    | Avatar Shape `circle` or `square`   | string       | `square` |
+| size     | Avatar size `x-small`、`small`、`medium` or `large` | string  | `medium` |
 | style    | Style                             | CSSProperties| -        |
 
 #### Paragraph paragraph
@@ -71,7 +71,7 @@ Provide a placeholder graphic combination where you need to wait for content to 
 | animate  | Show animation effect                | boolean      | false    |
 | className| Class Name                            | string       | -       |
 | loading  | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean  | true    |
-| size     | 大小，`small`、`medium` 或 `large` | string       | `medium`|
+| size     | size,`small`、`medium` or `large` | string       | `medium`|
 | style    | Style                            | CSSProperties| -       |
 
 #### Input input box

@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: Information Display
   order: 8
 toc: 'content'
 ---
@@ -13,7 +13,7 @@ toc: 'content'
 
 The palace is used for navigation of multiple sub-functions in the business and has a higher screen effect than the form of a list.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Grid/index'></code>
 
@@ -22,16 +22,16 @@ The palace is used for navigation of multiple sub-functions in the business and 
 | Property               | Description            | Type                       | Default Value      |
 | ------------------|----------------|----------------------------|------------|
 | className         | Class Name           | string                     | -          |
-| columns           | 每行展示的元素个数，`default` 模式生效 | number | 5          |
+| columns           | The number of elements shown in each row,`default` Mode effective | number | 5          |
 | description       | Description slot, receiving value, index | slot                     | -          |
-| gridItemLayout    | item 布局，可选 `vertical`（垂直）`horizontal`（水平） | string | `vertical` |
+| gridItemLayout    | item layout, optional `vertical`(Vertical)`horizontal`(Horizontal) | string | `vertical` |
 | icon              | Icon slot, receiving value, index | slot                     | -          |
 | iconSize          | Icon size in px | number                   | -          |
 | iconStyle         | Icon style type, optional `normal` `circle` | string | `normal`   |
 | items             | Content Text       | [GridItem](#griditem)[]    | -          |
-| mode              | StyleType，可选 `default`（平铺）`scroll`（滑动）| string | `default`  |
-| paginationFillColor | 分页符背景色，`scroll` 模式生效 | string               | -          |
-| paginationFrontColor | 分页符颜色，`scroll` 模式生效 | string               | -          |
+| mode              | Style type, optional `default`(Tile)`scroll`(Sliding)| string | `default`  |
+| paginationFillColor | Page break background color,`scroll` Mode effective | string               | -          |
+| paginationFrontColor | Page break color,`scroll` Mode effective | string               | -          |
 | showDivider       | Show split line | boolean                    | -          |
 | style             | Style           | string                     | -          |
 | title             | Header slot, receiving value, index | slot                     | -          |

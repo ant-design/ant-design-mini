@@ -18,7 +18,7 @@ Make multiple selections in a set of options.
 - When making multiple selections in a set of options.
 - When used alone, it can represent a switch between two states, similar to switch. The difference is that switching switches will directly trigger state changes, while checkbox are generally used for state markers and need to be combined with commit operations.
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -56,7 +56,7 @@ Make multiple selections in a set of options.
 | disabled     | Disable                                                     | boolean                                                                                         | false       |
 | label        | Label area slot, receiving value (current item optional item), index (index) | slot                                                                                            | -           |
 | options      | Specify options                                                   | `{label: string; value: string; disabled: boolean}[]`                                           | -           |
-| position     | 布局，可选 `horizontal`、`vertical`                          | string                                                                                          | `vertical`  |
+| position     | layout, optional `horizontal`、`vertical`                          | string                                                                                          | `vertical`  |
 | style        | Style                                                         | string                                                                                          | -           |
 | value        | The value of the CheckboxGroup to determine whether the child element is checked.                       | `string[]`                                                                                      | -           |
 | onChange     | Check to trigger this function when status changes                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |

@@ -18,7 +18,7 @@ Switch selector, compared to the native Switch, it achieves a consistent experie
 - Used when it is necessary to indicate the state of a switch or to switch between two states.
 - The difference with Checkbox is that switching Switch will directly trigger a state change, while Checkbox is usually used for state markers and needs to be used in conjunction with commit operations.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Switch/index'></code>
 
@@ -34,6 +34,6 @@ Switch selector, compared to the native Switch, it achieves a consistent experie
 | disabled       | Disable                                  | boolean                                                                                             | `false`  |
 | loading        | Load status                              | boolean                                                                                             | `false`  |
 | uncheckedText  | Content when not selected                            | string \| slot                                                                                      | -        |
-| size           | 组件尺寸，可选值为 `medium`、`small`、`x-small` | string                                                                                              | `medium` |
+| size           | Component size, optional value is `medium`、`small`、`x-small` | string                                                                                              | `medium` |
 | style          | Style                                      | string                                                                                              | -        |
 | onChange       | Callback triggered when Switch is clicked                   | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |

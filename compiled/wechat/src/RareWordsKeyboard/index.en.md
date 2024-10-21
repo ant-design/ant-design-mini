@@ -20,7 +20,7 @@ The problem of rare characters has always been a difficult point in the society.
 1. Developers can decide for themselves when to evoke a rare word keyboard.
 2. After entering a rare word, the input of the rare word will be returned through the callback parameter, and the keyboard will be closed.
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -31,7 +31,7 @@ The problem of rare characters has always been a difficult point in the society.
 | Property      | Description                                                           | Type                     | Default Value |
 | --------- | -------------------------------------------------------------- | ------------------------ | ------ |
 | visible   | Whether visible                                                       | boolean                  | false  |
-| type      | 键盘Type，目前只支持 `pinyin`（拼音）                         | string                   | pinyin |
+| type      | Keyboard type, currently only supported `pinyin`(Pinyin)                         | string                   | pinyin |
 | showMask  | Whether to show background layer                                               | boolean                  | true   |
 | safeArea  | Whether to keep safe distance                                               | boolean                  | true   |
 | onClose   | Callback triggered when keyboard is closed                                           | `() => void`             | -      |

@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 通用
+  title: General
   order: 2
 toc: 'content'
 ---
@@ -53,7 +53,7 @@ The following table describes the API properties for the Button component:
 
 | Property                   | Description                                                            | Type                                                                          | Default Value    |
 | ---------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------- |
-| type                   | 按钮Type，可选 `primary`、`default`、`text`                     | string                                                                        | `default` |
+| type                   | Button type, optional `primary`、`default`、`text`                     | string                                                                        | `default` |
 | danger                 | Whether it is a danger button                                                  | boolean                                                                       | false     |
 | disabled               | Whether it is an invalid button                                                  | boolean                                                                       | false     |
 | activeClassName        | Class name when pressed                                                    | string                                                                        | -         |
@@ -62,8 +62,8 @@ The following table describes the API properties for the Button component:
 | inline                 | Inline button                                                  | boolean                                                                       | false     |
 | icon                   | Icon on the left side of the button                                                    | string                                                                        | -         |
 | loading                | Whether it is loading or not, it cannot be clicked during loading.                                    | boolean                                                                       | -         |
-| size                   | 按钮大小。仅在 `inline` 下生效，可选 `small`、`medium`、`large` | string                                                                        | `medium`  |
-| subText                | 辅助文字，显示在第二行。`inline` 下不生效                       | string                                                                        | -         |
+| size                   | Button size. Only in `inline` Effective under, optional `small`、`medium`、`large` | string                                                                        | `medium`  |
+| subText                | Secondary text, displayed on the second line.`inline` DOWN NOT EFFECTIVE                       | string                                                                        | -         |
 | #if ALIPAY catchTap      | Click the button to trigger this callback, non-bubbling                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onTap         | Click the button to trigger this callback                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onDisabledTap | Click Departure Callback when disabled (not supported by WeChat)                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |

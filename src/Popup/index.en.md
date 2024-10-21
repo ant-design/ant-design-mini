@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 反馈
+  title: Feedback
   order: 12
 toc: 'content'
 ---
@@ -15,7 +15,7 @@ Slides or pops up a custom content area from the screen.
 
 It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Popup/index'></code>
 
@@ -24,18 +24,18 @@ It is used to display pop-up windows, information prompts, selection input, swit
 | Property           | Description                                                                                                                                                              | Type       | Default Value      |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------- |
 | animation      | Whether to turn on transition animation                                                                                                                                                  | boolean    | true        |
-| animationType  | 动画Type，可选`transform` `position`，默认使用`transform`动画性能更好。但当弹窗内部存在 fixed 定位或者 picker-view 元素时可能存在Style问题，可切换为`position`解决 | string     | `transform` |
+| animationType  | Animation type, optional`transform` `position`, the default is used`transform`Animation performance is better. However, when there is a fixed positioning or picker-view element inside the pop-up window, there may be a style problem, which can be switched`position`Solve | string     | `transform` |
 | className      | Class Name                                                                                                                                                              | string     | -           |
 | destroyOnClose | Unload content when invisible                                                                                                                                                  | boolean    | false       |
 | duration       | Transition animation duration, in milliseconds                                                                                                                                            | number     | 300         |
-| height         | 高度，在 position 为 `top` 或 `bottom` 时使用，单位 px。可选，不传时根据内容区高度自适应。                                                                        | number     | -           |
+| height         | The height, in position, is `top` or `bottom` When used, the unit is px. Optional, when not transmitted, it is highly adaptive according to the content area.                                                                        | number     | -           |
 | maskClassName  | Class name of the layer                                                                                                                                                        | string     | -           |
 | maskStyle      | The style of the layer                                                                                                                                                        | string     | -           |
 | position       | Pop-up window layout, optional`top` `bottom` `left` `right`                                                                                                                       | string     | `bottom`    |
-| showMask       | Show Mask                                                                                                                                                      | boolean    | true        |
+| showMask       | Whether to show the layer                                                                                                                                                      | boolean    | true        |
 | style          | Style                                                                                                                                                              | string     | -           |
 | visible        | Whether to display                                                                                                                                                          | boolean    | false       |
-| width          | 宽度, 在 position 为 `left` 或 `right` 时使用，单位 px                                                                                                            | number     | -           |
+| width          | The width, in position, is `left` or `right` unit px                                                                                                            | number     | -           |
 | zIndex         | Pop-up Level                                                                                                                                                          | number     | 998         |
 | onClose        | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
 | onAfterShow    | Trigger after full display                                                                                                                                                    | () => void | -           |
@@ -49,7 +49,7 @@ Preventing page scrolling after the layer is currently not effective in IDE and 
 
 ### Popup internal elements need to support scrolling how to deal?
 
-If you need to scroll in the pop-up window, use the scroll-view component and add the following attributes:
+If scrolling is required in the pop-up window, use the scroll-view component and add the following attributes:
 
 ```html
 <popup height="{{ 250 }}" visible="{{ visible }}">
@@ -65,7 +65,7 @@ If you need to scroll in the pop-up window, use the scroll-view component and ad
 
 ### How to solve the abnormal display of picker-view inside Popup?
 
-Popup 默认是通过 `display:none` 隐藏的，而 picker-view 不能放到 `display:none` 的组件里。有以下两种解决方式：
+Popup is passed by default. `display:none` Hidden, and picker-view cannot be placed in `display:none` in the components. There are two solutions:
 
-1. 在 picker-view 上添加Property `a:if="{{popupVisible}}"`，在 Popup 显示时再显示 picker-view。
-2. 在 Popup 上设置 `destroyOnClose="{{true}}"`，在 Popup Unload content when invisible。
+1. Add attribute on picker-view `a:if="{{popupVisible}}"`, the picker-view is displayed when the Popup is displayed.
+2. Set on Popup `destroyOnClose="{{true}}"`to unload content when the Popup is not visible.

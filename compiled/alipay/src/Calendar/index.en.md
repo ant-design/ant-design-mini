@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: Information Display
   order: 8
 toc: 'content'
 ---
@@ -37,7 +37,7 @@ The following are the properties and descriptions of the Calendar component:
 
 ### Type
 
-**CalendarValue** : 日历的值Type，为数字或数字元组 `number | [number,number]`，表示单选或连续日期区间。单位为毫秒的时间戳。
+**CalendarValue** The value type of the calendar, which is a number or a tuple of numbers `number | [number,number]`, which represents a single selection or continuous date interval. The timestamp in milliseconds.
 
 **CellState** Defines the various states of the calendar cell.
 
@@ -106,19 +106,19 @@ interface LocaleText {
 
 ### How do I set the default start and end times?
 
-通过 `defaultValue` 可以设置默认的时间。`defaultValue` 的Type是 `CalendarValue`。
+By `defaultValue` You can set a default time.`defaultValue` The type of is `CalendarValue`。
 
-`CalendarValue` 的Type是 `number | [number, number]`，代表单选或者连续区间的日期。它是一个时间戳，单位是毫秒。
+`CalendarValue` The type of is `number | [number, number]`, representing the date of a single choice or continuous interval. It is a timestamp in milliseconds.
 
-例如，如果我们想设置默认的开始时间为今天，结束时间为七天后，我们可以在 `defaultValue` 中传入以下代码：
+For example, if we want to set the default start time to today and end time to seven days later, we can `defaultValue` Pass in the following code:
 
 ```ts
 [dayjs().startOf('date'), dayjs().add(7, 'days').startOf('date')];
 ```
 
-### 通过 `onFormatter` 设置单元格的自定义数据
+### By `onFormatter` Set custom data for cells
 
-我们可以通过 `onFormatter` 方法设置单元格的自定义数据，`onFormatter` 的格式是 `(cell: CellState, currentValue: CalendarValue) => CellState`。
+We can pass `onFormatter` method to set the custom data for the cell,`onFormatter` The format of is `(cell: CellState, currentValue: CalendarValue) => CellState`。
 
 This function gets the state of each cell and the current value. By returning new cell data, we can customize the state of the cell.
 

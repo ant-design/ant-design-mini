@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 实验性
+  title: Other
   order: 15
 toc: 'content'
 ---
@@ -13,7 +13,7 @@ toc: 'content'
 
 The page-level container component provides common capabilities such as loading status, page exception handling, top/bottom safe margins, and so on, out of the box.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/PageContainer/index'></code>
 
@@ -23,12 +23,12 @@ The page-level container component provides common capabilities such as loading 
 |----------------------|-----------------------------------------------|------------------|----------|
 | className            | Class Name                                            | string           | -        |
 | style                | Style                                            | string           | -        |
-| safeArea             | 安全区内边距位置，`top`、`bottom`、`both`                | string           | `both`   |
+| safeArea             | Location of margin inside the safety zone,`top`、`bottom`、`both`                | string           | `both`   |
 | loading              | Loading                                           | boolean \| slot  | false    |
-| loadingType          | 加载StyleType，`spin`、`mini`                          | string           | `spin`   |
-| loadingSize          | 加载Style大小，`small`、`medium`、`large`、`x-large`     | string           | `medium` |
+| loadingType          | Load style type,`spin`、`mini`                          | string           | `spin`   |
+| loadingSize          | Load Style Size,`small`、`medium`、`large`、`x-large`     | string           | `medium` |
 | loadingColor         | Load Style Color                                        | string           | '#ccc'   |
-| status               | 页面异常状态，`failed`、`busy`、`disconnected`、`empty` | string \| slot   | -        |
+| status               | Page exception status,`failed`、`busy`、`disconnected`、`empty` | string \| slot   | -        |
 | image                | Page Exception Status Custom Image                                   | string           | -        |
 | title                | Page Exception Status Custom Title                                   | string           | -        |
 | message              | Page Exception Status Custom Description                                   | string           | -        |

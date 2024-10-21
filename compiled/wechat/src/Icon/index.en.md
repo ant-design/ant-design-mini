@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 通用
+  title: General
   order: 2
 toc: 'content'
 ---

@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: Information Display
   order: 8
 toc: content
 ---
@@ -26,6 +26,6 @@ When you need to show the characteristics of people or things more intuitively.
 | Property      | Description       | Type   | Default Value       |
 |---------|----------|------|-----------|
 | className | Class Name      | string | -         |
-| size     | 大小，可选 `x-small`、`small`、`medium`、`large` | string | `medium` |
+| size     | size, optional `x-small`、`small`、`medium`、`large` | string | `medium` |
 | src      | avatar address    | string | Gray built-in picture |
 | style    | Style      | string | -         |

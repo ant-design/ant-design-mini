@@ -14,10 +14,10 @@ The Picker selector displays a scrollable list of one or more collections of opt
 
 ## When to use
 
-- One or more sets of association options are provided for selection by the user.
+- One or more sets of association options are provided for the user to select.
 - When there are less than 5 options, it is recommended to tile the options directly. Using Radio is a better choice.
 
-## Code Sample
+## Code example
 ### Basic use
 <code src='../../demo/pages/Picker/index'></code>
 
@@ -28,7 +28,7 @@ The Picker selector displays a scrollable list of one or more collections of opt
 ### Picker
 | Property | Description | Type | Default Value |
 | -----|-----|-----|-----|
-| animationType | 动画Type，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影Style在 iOS 下可能存在Style问题，可暂切换为`position`解决 | string | `transform` |  
+| animationType | Animation type, optional`transform` `position`, the default is used`transform`Animation performance is better. Due to a bug in the basic library of small programs, the picker-view shadow style in the pop-up window may have style problems under iOS and can be temporarily switched`position`Solve | string | `transform` |  
 | className | Class Name| string | - |
 | defaultValue | Default Value | string \| number \| Array\<string \| number\> | - | 
 | disabled | Disable  | boolean | false | 
@@ -61,7 +61,7 @@ The Picker selector displays a scrollable list of one or more collections of opt
 ### CascaderPicker
 | Property | Description | Type | Default Value |
 | -----|-----|-----|-----|
-| animationType | 动画Type，可选`transform` `position`，默认使用`transform`动画性能更好。由于小程序基础库bug，弹窗内picker-view阴影Style在iOS下可能存在Style问题，可暂切换为`position`解决 | string | `transform` |  
+| animationType | Animation type, optional`transform` `position`, the default is used`transform`Animation performance is better. Due to a bug in the basic library of small programs, the picker-view shadow style in the pop-up window may have style problems under iOS and can be temporarily switched`position`Solve | string | `transform` |  
 | className | Class Name| string | - |
 | defaultValue | Default selected value | string[] | - | 
 | disabled | Disable  | boolean | false | 

@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: Information Display
   order: 8
 toc: 'content'
 ---
@@ -17,13 +17,13 @@ Universal card container.
 
 When you need to host text, lists, pictures, paragraphs and other content, use Container containers to facilitate users to browse.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Container/index'></code>
 
 ## API
 
-以下是 `Container` 组件的参数列表：
+The following is `Container` Parameter list for the component:
 
 | Property        | Description             | Type         | Default Value |
 | ----------- | ---------------- | ------------ | ------ |

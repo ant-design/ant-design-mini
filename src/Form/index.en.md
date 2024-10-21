@@ -18,7 +18,7 @@ The Form form contains data entry, validation, and corresponding styles. The For
 - Used to create entities or collect information.
 - When the input data type needs to be verified.
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -74,12 +74,12 @@ The Form form contains data entry, validation, and corresponding styles. The For
 
 ### Custom Error Styles
 
-使用 `validateStatus: success` 及 `footer slot` 来Custom Error Styles。
+Use `validateStatus: success` and `footer slot` Customize the error style.
 <!-- <code src='pages/FormCustomError/index'></code> -->
 
 ### Custom Form Item
 
-by using [FormItem](#formitem)、[createForm](#createform) 可Custom Form Item。Example里 `form-checklist`、`form-location` 为Custom Form Item组件。
+by using [FormItem](#formitem)、[createForm](#createform) Customizable form items. In the example `form-checklist`、`form-location` For custom form item components.
 <!-- <code src='pages/FormCustom/index'></code> -->
 
 ## API
@@ -122,7 +122,7 @@ Properties Included in All Form Components
 | getFieldValue            | Get the value of a form item                                                       | (name: string) => any                                                                  |
 | getFieldsValue           | Gets the value for a set of field names. If no nameList is passed, all fields pairs are returned.           | (nameList?: string[]) => Record<string, any>                                           |
 | getFieldValidatorStatus  | Get form check status                                                     | (name: string) => [ValidatorStatus](#validatorstatus)                                  |
-| getFieldsValidatorStatus | Get a set of form validation statuses. If no nameList is passed, all fields pairs are returned.             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
+| getFieldsValidatorStatus | Get a set of form validation states. If no nameList is passed, all fields pairs are returned.             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
 | reset                    | Reset form to initial value                                                     | () => void                                                                             |
 | isFieldTouched           | Determine whether a form item has been modified                                               | () => boolean                                                                          |
 | onValueChange            | Listen for the value modification of the specified form item, view[Detailed Description](#onvaluechangeonvalueschange) | (name: string, (changedValue: any, allValues: Record<string, any>) => void) => void    |
@@ -136,7 +136,7 @@ Properties Included in All Form Components
 
 ### dependencies
 
-当字段间存在依赖关系时使用。例如注册用户表单的“密码”与“确认密码”字段，其中“确认密码”Calibration依赖于“密码”字段。设置 `dependencies` 后，“密码”字段更新将自动触发“确认密码”的Calibration。
+Used when there is a dependency between fields. For example, the "Password" and "Confirm Password" fields of the registered user form, where the "Confirm Password" verification depends on the "Password" field. Setup `dependencies` After that, the "Password" field update will automatically trigger the "Confirm Password" verification.
 
 ### rules
 
@@ -172,7 +172,7 @@ Example:
 }
 ```
 
-`rules` 可以在 `new Form` 中设置，也可以在 `FormItem` 通过 `required` 或 `message` Property设置。
+`rules` can be in `new Form` can also be set in `FormItem` By `required` or `message` Property settings.
 
 ```html
 <form-input
@@ -186,7 +186,7 @@ Example:
 
 ### validateMessages
 
-can refer [Asynchronous validator](https://github.com/yiminghe/async-validator/blob/master/src/messages.ts#L4-L55) 的 message，antd-mini 在此基础上加了 `${label}`,`${len}`,`${min}`,`${max}`,`${pattern}`。
+can refer [Asynchronous validator](https://github.com/yiminghe/async-validator/blob/master/src/messages.ts#L4-L55) message,antd-mini added on this basis. `${label}`,`${len}`,`${min}`,`${max}`,`${pattern}`。
 
 Example:
 
@@ -204,7 +204,7 @@ Example:
 
 ### onValueChange and onValuesChange
 
-`setFieldValue` 和 `setFieldsValue` 不会触发 `onValueChange` 和 `onValuesChange`。`onValueChange` 和 `onValuesChange` 只有在用户操作时才会被触发。如果在 `setFieldValue` 或 `setFieldsValue` 之后想要触发 `onValueChange` 或 `onValuesChange`，你需要手动调用这些方法。
+`setFieldValue` and `setFieldsValue` Will not trigger `onValueChange` and `onValuesChange`。`onValueChange` and `onValuesChange` It is only triggered by user action. If in `setFieldValue` or `setFieldsValue` then want to trigger `onValueChange` or `onValuesChange`you need to call these methods manually.
 
 **Example**：
 
@@ -242,90 +242,90 @@ type ValidatorStatus = {
 
 ### FormInput
 
-与 `Input` 相同。
+with `Input` Same.
 
 ### FormTextarea
 
-与 `Textarea` 相同。
+with `Textarea` Same.
 
 ### FormSwitch
 
-与 `Switch` 相同。
+with `Switch` Same.
 
 ### FormStepper
 
-与 `Stepper` 相同，但添加了如下Property：
+with `Stepper` Same, but with the following added attributes:
 
 | Property             | Description                              | Type   | Default Value |
 | ---------------- | --------------------------------- | ------ | ------ |
-| stepperClassName | 对应 `Stepper` 组件的 `className` | string | -      |
-| stepperStyle     | 对应 `Stepper` 组件的 `style`     | string | -      |
+| stepperClassName | Corresponding `Stepper` Components `className` | string | -      |
+| stepperStyle     | Corresponding `Stepper` Components `style`     | string | -      |
 
 ### FormCheckGroup
 
-与 `CheckGroup` 相同，但添加了如下Property：
+with `CheckGroup` Same, but with the following added attributes:
 
 | Property             | Description                                | Type   | Default Value |
 | ---------------- | ----------------------------------- | ------ | ------ |
-| checkboxLabel    | 对应 `CheckGroup` 组件的 `label`    | slot   | -      |
-| checkboxPosition | 对应 `CheckGroup` 组件的 `position` | string | -      |
+| checkboxLabel    | Corresponding `CheckGroup` Components `label`    | slot   | -      |
+| checkboxPosition | Corresponding `CheckGroup` Components `position` | string | -      |
 
 ### FormRadioGroup
 
-与 `RadioGroup` 相同，但添加了如下Property：
+with `RadioGroup` Same, but with the following added attributes:
 
 | Property          | Description                                | Type   | Default Value |
 | ------------- | ----------------------------------- | ------ | ------ |
-| radioLabel    | 对应 `RadioGroup` 组件的 `label`    | slot   | -      |
-| radioPosition | 对应 `RadioGroup` 组件的 `position` | string | -      |
+| radioLabel    | Corresponding `RadioGroup` Components `label`    | slot   | -      |
+| radioPosition | Corresponding `RadioGroup` Components `position` | string | -      |
 
 ### FormPicker
 
-与 `Picker` 相同，但添加了如下Property：
+with `Picker` Same, but with the following added attributes:
 
 | Property  | Description                                                     | Type              | Default Value |
 | ----- | -------------------------------------------------------- | ----------------- | ------ |
-| arrow | 右侧箭头，可选 `right`、`up`、`down`，传 true 为 `right` | string \| boolean | -      |
+| arrow | right arrow, optional `right`、`up`、`down`, pass true `right` | string \| boolean | -      |
 
 ### FormDatePicker
 
-与 `DatePicker` 相同，但添加了如下Property：
+with `DatePicker` Same, but with the following added attributes:
 
 | Property  | Description                                                     | Type              | Default Value |
 | ----- | -------------------------------------------------------- | ----------------- | ------ |
-| arrow | 右侧箭头，可选 `right`、`up`、`down`，传 true 为 `right` | string \| boolean | -      |
+| arrow | right arrow, optional `right`、`up`、`down`, pass true `right` | string \| boolean | -      |
 
 ### FormRangePicker
 
-与 `RangePicker` 相同，但添加了如下Property：
+with `RangePicker` Same, but with the following added attributes:
 
 | Property  | Description                                                     | Type              | Default Value |
 | ----- | -------------------------------------------------------- | ----------------- | ------ |
-| arrow | 右侧箭头，可选 `right`、`up`、`down`，传 true 为 `right` | string \| boolean | -      |
+| arrow | right arrow, optional `right`、`up`、`down`, pass true `right` | string \| boolean | -      |
 
 ### FormCascaderPicker
 
-与 `CascaderPicker` 相同，但添加了如下Property：
+with `CascaderPicker` Same, but with the following added attributes:
 
 | Property  | Description                                                     | Type              | Default Value |
 | ----- | -------------------------------------------------------- | ----------------- | ------ |
-| arrow | 右侧箭头，可选 `right`、`up`、`down`，传 true 为 `right` | string \| boolean | -      |
+| arrow | right arrow, optional `right`、`up`、`down`, pass true `right` | string \| boolean | -      |
 
 ### FormSlider
 
-与 `Slider` 相同。
+with `Slider` Same.
 
 ### FormSelector
 
-与 `Selector` 相同。
+with `Selector` Same.
 
 ### FormImageUpload
 
-与 `ImageUpload` 相同。
+with `ImageUpload` Same.
 
 ### createForm
 
-`createForm` 是一个 `mixin`，用于Custom Form Item。
+`createForm` is a `mixin`for custom form items.
 
 ```js
 import { createForm } from 'antd-mini/es/Form/form';
@@ -361,4 +361,4 @@ Component({
 function emit(trigger: 'onChange' | 'onBlur' | 'onFocus', value: any): void;
 ```
 
-想要了解更多方法，请参考 `createForm` 方法相关文档。使用 `formData` 和 `emit` 即可完成Custom Form Item的实现。
+For more methods, please refer `createForm` Method-related documentation. Use `formData` and `emit` The implementation of the custom form item is complete.

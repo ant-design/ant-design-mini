@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 反馈
+  title: Feedback
   order: 12
 toc: 'content'
 ---
@@ -16,7 +16,7 @@ Click on the element to pop up the bubble menu
 
 The bubble menu for navigation functions is evoked, usually used to accommodate functions used at low frequencies. This function can only be activated via the icon on the navigation bar.
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -40,7 +40,7 @@ The bubble menu for navigation functions is evoked, usually used to accommodate 
 | destroyOnClose     | Whether to unload content when invisible                                        | boolean                                                           | false|
 | maskClassName      | Class name of the layer                                            | string                                                            | -    |
 | maskStyle          | The style of the layer                                            | string                                                            | -    |
-| placement          | 气泡框位置，可选 `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` 或 `right-bottom` | string                                                            | top  |
+| placement          | Bubble box position, optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` or `right-bottom` | string                                                            | top  |
 | showMask           | Whether to show the layer, if true, click the blank to close the Popover.                  | boolean                                                           | true |
 | style              | Style                                               | string                                                            | -    |
 | visible            | Whether to display                                             | boolean                                                           | -    |

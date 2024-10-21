@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: Information Display
   order: 8
 toc: 'content'
 ---
@@ -16,7 +16,7 @@ Generic lists can be clean and efficient to carry text, lists, pictures, paragra
 ## When to use
 Used when information needs to be presented in the form of a list.
 
-## Code Sample
+## Code example
 <code src='../../demo/pages/List/index'></code>
 
 ## API
@@ -33,7 +33,7 @@ Used when information needs to be presented in the form of a list.
 ### ListItem
 | Property | Description | Type | Default Value |
 | ----- | ----- | ----- | ----- |
-| arrow | 右侧箭头，可选 `right`、`up`、`down`，传 true 为 `right` | string \| boolean | - |
+| arrow | right arrow, optional `right`、`up`、`down`, pass true `right` | string \| boolean | - |
 | brief | Second line of information | string \| slot | - | 
 | className | Class Name | string | - | 
 | disabled | Disable | boolean | false | 

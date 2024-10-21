@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 反馈
+  title: Feedback
   order: 12
 toc: 'content'
 ---
@@ -14,7 +14,7 @@ toc: 'content'
 ## When to use
 When the application needs to alert or remind the current operation behavior of the user, the dialog box may be used. The user needs to operate on the dialog box before ending.
 
-## Code Sample
+## Code example
 <code src='../../demo/pages/Modal/index'></code>
 
 ## API
@@ -38,7 +38,7 @@ When the application needs to alert or remind the current operation behavior of 
 | secondaryButtonText| Secondary Button Text                | string       | -       |
 | style             | Style                          | string       | -       |
 | title             | Title                          | string\|slot | -       |
-| type              | Type，可选 `default`(默认)、`focus`(强调模式) | string | `default` |
+| type              | type, optional `default`(default),`focus`(emphasis mode) | string | `default` |
 | visible           | Whether to display                      | boolean      | false   |
 | onCancelButtonTap | Cancel button click event              | ()=>void     | -       |
 | onClose           | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback | ()=>void | - |

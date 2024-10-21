@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 实验性
+  title: Other
   order: 15
 toc: content
 ---
@@ -16,10 +16,10 @@ toc: content
 
 ## Precautions
 
-- `icon` Property可以支持 `Icon` 组件的 `type` Property，也可以直接传入图标的链接地址。
-- 禁用模式下，可以传入 `onDisabledTap` 事件，用于监听禁用状态下，用户对文本的点击。
+- `icon` properties can support `Icon` Components `type` property, you can also pass in the link address of the icon directly.
+- In disabled mode, you can pass in `onDisabledTap` Event, used to listen for the user's click on the text in the disabled state.
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 
