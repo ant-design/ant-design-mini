@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息输入
+  title: Information Entry
 toc: 'content'
 ---
 

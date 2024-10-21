@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Icon Icon
+# Icon
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
