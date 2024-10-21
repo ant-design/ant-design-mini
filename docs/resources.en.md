@@ -1,5 +1,6 @@
 ---
-sidebar: false
+sidebar: true
+toc: false
 ---
 
 # Resources
