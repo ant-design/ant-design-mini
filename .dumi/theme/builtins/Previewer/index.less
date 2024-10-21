@@ -1,38 +1,6 @@
-.previewer {
-  position: fixed;
-  top: calc((100% - 675px + 60px) / 2);
-  right: 0;
-  width: 312px;
-  height: 675px;
-  z-index: 1;
-  margin-right: 20px;
-  border-radius: 20px;
-  outline: 1px solid #e6e6e6;
-
-  iframe {
-    height: 100%;
-    border: none;
-    width: 100%;
-    border-radius: 20px;
-  }
-  &-loading {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    background-color: rgba(22, 119, 255, 0.8);
-    border-radius: 100%;
-    animation: sk-scaleout 1s infinite ease-in-out;
-  }
-}
-
 .sourceCode {
   position: relative;
-  height: 720px;
+  height: calc(100vh - 200px);
   overflow: hidden;
   border-radius: 0 0 8px 8px;
   iframe {
@@ -41,8 +9,8 @@
     width: 100%;
   }
   &-loading {
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     left: 0;
     right: 0;

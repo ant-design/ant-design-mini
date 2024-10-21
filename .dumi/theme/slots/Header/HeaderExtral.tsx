@@ -1,9 +1,13 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { Tooltip } from 'antd';
-import { type FC } from 'react';
+import { DarkTheme } from 'antd-token-previewer/lib/icons';
+import { FormattedMessage } from 'dumi';
+import { useContext, type FC } from 'react';
 import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
 import useSiteToken from '../../hooks/useSiteToken';
+import type { SiteContextProps } from '../../slots/SiteContext';
+import SiteContext from '../../slots/SiteContext';
 
 const BASE_SIZE = '1.2em';
 
@@ -43,18 +47,45 @@ const useStyle = () => {
       .anticon {
         font-size: ${BASE_SIZE};
       }
-    `
+    `,
+    theme: css`
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    `,
   };
 };
 
 const HeaderExtra: FC = () => {
-  const { github, socialLinks } = useAdditionalThemeConfig();
+  const { github, socialLinks, prefersColor } = useAdditionalThemeConfig();
   const style = useStyle();
+  const { theme, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
   return (
     <div>
+      {prefersColor.switch && (
+        <Tooltip title={<FormattedMessage id="app.theme.switch" />}>
+          <button
+            css={[style.btn, style.theme]}
+            type="button"
+            onClick={() => {
+              const themeValue = theme.includes('dark') ? 'light' : 'dark';
+              updateSiteConfig({ theme: [themeValue] });
+            }}
+          >
+            <DarkTheme />
+          </button>
+        </Tooltip>
+      )}
+
       {github || socialLinks?.github ? (
         <Tooltip title="Github">
-          <a key="github" href={github || socialLinks?.github} target="_blank" rel="noreferrer">
+          <a
+            key="github"
+            href={github || socialLinks?.github}
+            target="_blank"
+            rel="noreferrer"
+          >
             <button css={[style.btn]} type="button">
               <GithubOutlined />
             </button>

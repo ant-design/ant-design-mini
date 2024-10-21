@@ -9,7 +9,6 @@
   <link rel="stylesheet" type="text/css"
     href="https://renderdev.alipay.com/p/yuyan_npm/@alipay_antd-mini-lyra/dev-s09001975971/web/lyra.css" />
   <link rel="preload" href="/preview.json" as="fetch" crossorigin>
-  <link rel="preload" href="/preview-theme-dark.json" as="fetch" crossorigin>
 </head>
 
 <style>
@@ -23,14 +22,19 @@
 
   <script>
     // When the iframe is just created, you need to set the background color according to the dark mode.
-    window.LyraIsDefalutDarkMode =new URL(location.href).searchParams.get('theme') === 'dark';
-    const element = document.getElementsByTagName('body')?.[0];
-    if (element) {
-      element.style.setProperty(
-        'background-color',
-        window.LyraIsDefalutDarkMode ? '#141414' : '#f9fafb'
-      );
-    }
+    window.addEventListener('message', (event)=>{
+      if (event.data.type === 'setIsDarkMode') {
+        window.LyraIsDefalutDarkMode = event.data.data;
+        const element = document.getElementsByTagName('body')?.[0];
+        if (element) {
+          element.style.setProperty(
+            'background-color',
+            window.LyraIsDefalutDarkMode ? '#141414' : '#f9fafb'
+          );
+        }
+      }
+    })
+
   </script>
 
   <div id="root"></div>
@@ -41,7 +45,6 @@
   <script src="https://renderdev.alipay.com/p/yuyan_npm/@alipay_antd-mini-lyra/dev-s09001975971/web/lyra.js"></script>
   <script>
     const searchParams = new URL(location.href).searchParams;
-    const theme = searchParams.get('theme');
     const page = searchParams.get('page');
     const platform = searchParams.get('platform');
     const server = searchParams.get('compilerServer');
@@ -64,7 +67,7 @@
       if (server) {
         dist = await getDist()
       } else {
-        const obj = await fetch(theme === 'dark' ? '/preview-theme-dark.json' : '/preview.json').then(res => res.json());
+        const obj = await fetch('/preview.json').then(res => res.json());
         dist = obj.dist;
 
       }
@@ -79,11 +82,11 @@
           defalutDarkMode: window.LyraIsDefalutDarkMode,
           lyraKey: 'unique-identifier-key',
           simulatorStyle: {
-            width: 312,
-            height: 675,
+            width: 292,
+            height: 633,
           },
           lyraConfig: {
-            zoom: 0.8,
+            zoom: 0.75,
             layoutHeight: 'match_parent',
             layoutWidth: 'match_parent',
             defaultDeviceName: 'iPhone 13',
@@ -95,8 +98,15 @@
             hideTitleBar: true,
             liteMode: false,
             launchParams: { page: decodeURIComponent(page) }
+          },
+          onPageReady:() => {
+            console.log('onPageReady,123');
+            window.parent && window.parent.postMessage({ type:'onPageReady', data: true })
+          },
+          onAppReady:() => {
+            window.parent && window.parent.postMessage({ type:'onAppReady', data: true })
           }
-        }
+        },
       )
 
     }

@@ -10,8 +10,8 @@ import { ConfigProvider, theme as antdTheme } from 'antd';
 import { Outlet, usePrefersColor, useServerInsertedHTML } from 'dumi';
 import type { FC } from 'react';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import Sim from '../common/Sim';
 import type { ThemeName } from '../common/ThemeSwitch';
-import ThemeSwitch from '../common/ThemeSwitch';
 import useAdditionalThemeConfig from '../hooks/useAdditionalThemeConfig';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
@@ -21,10 +21,11 @@ const RESPONSIVE_MOBILE = 768;
 const SITE_STATE_LOCALSTORAGE_KEY = 'dumi-theme-antd-site-state';
 
 const defaultSiteState: SiteState = {
-  theme: ['light'],
+  theme: [],
   isMobile: false,
   direction: 'ltr',
   platform: 'alipay',
+  herboxUrl: '',
 };
 const getAlgorithm = (themes: ThemeName[] = []) =>
   themes.map((theme) => {
@@ -55,7 +56,7 @@ const getSiteState = (siteState) => {
 const GlobalLayout: FC = () => {
   const [, , setPrefersColor] = usePrefersColor();
   const { theme: configTheme, ssr, prefersColor } = useAdditionalThemeConfig();
-  const [{ theme, isMobile, direction, platform }, setSiteState] =
+  const [{ theme, isMobile, direction, platform, herboxUrl }, setSiteState] =
     useState<SiteState>(defaultSiteState);
 
   // 基于 localStorage 实现
@@ -118,9 +119,10 @@ const GlobalLayout: FC = () => {
       isMobile: isMobile!,
       theme: theme!,
       platform: platform!,
+      herboxUrl: herboxUrl!,
       updateSiteConfig,
     }),
-    [isMobile, theme, direction, platform, updateSiteConfig]
+    [isMobile, theme, direction, platform, herboxUrl, updateSiteConfig]
   );
 
   const [styleCache] = React.useState(() => createCache());
@@ -162,12 +164,14 @@ const GlobalLayout: FC = () => {
         }}
       >
         <Outlet />
-        {prefersColor.switch && (
+        {/* {prefersColor.switch && (
           <ThemeSwitch
             value={theme}
             onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
           />
-        )}
+        )} */}
+
+        <Sim />
       </ConfigProvider>
     </SiteContext.Provider>
   );

@@ -9,8 +9,8 @@ const useStyle = () => {
     mainWrap: css`
       display: flex;
       flex: 1;
-      margin-top: 40px;
-    `
+      margin-top: 104px;
+    `,
   };
 };
 

@@ -38,7 +38,7 @@ export default defineConfig({
     },
   ],
   themeConfig: defineThemeConfig({
-    name:'Ant Design Mini',
+    name: 'Ant Design Mini',
     prefersColor: {
       default: 'auto',
       switch: true,
@@ -69,16 +69,42 @@ export default defineConfig({
           link: 'https://github.com/ant-design/ant-design-mini/releases',
         },
       ],
+      'en': [
+        {
+          title: 'Guide',
+          link: '/guide/quick-start-en',
+        },
+        {
+          title: 'Components',
+          link: '/components/button-en',
+        },
+        {
+          title: 'Resources',
+          link: '/resources-en',
+        },
+        {
+          title: 'Domestic Mirror',
+          link: 'https://ant-design-mini.antgroup.com',
+        },
+        {
+          title: 'Releases',
+          link: 'https://github.com/ant-design/ant-design-mini/releases',
+        },
+      ],
     },
     footer: `© 2024 Made with ❤ by
         <a className={styles.copyrightLink} href='https://xtech.antfin.com' target='_blank'>
           XTech
         </a>`,
     github: 'https://github.com/ant-design/ant-design-mini',
-    localesEnhance: [{ id: 'zh-CN', switchPrefix: '中' }],
+    localesEnhance: [
+      { id: 'zh-CN', switchPrefix: '中' },
+      { id: 'en', switchPrefix: 'EN' },
+    ],
     title: 'Ant Design Mini',
     description: {
       'zh-CN': '探索移动端小程序的极致体验',
+      'en': 'Explore the ultimate experience of mobile applets',
     },
     actions: {
       'zh-CN': [
@@ -90,6 +116,17 @@ export default defineConfig({
         {
           text: '在线体验',
           link: '/components/button',
+        },
+      ],
+      'en': [
+        {
+          type: 'primary',
+          text: 'Get started quickly',
+          link: '/guide/quick-start-en',
+        },
+        {
+          text: 'Online Experience',
+          link: '/components/button-en',
         },
       ],
     },
@@ -112,176 +149,365 @@ export default defineConfig({
           details: '拥有流畅的手势和细腻的动画，助力产品打造出极致体验',
         },
       ],
+      'en': [
+        {
+          title: 'high performance',
+          details:
+            'No configuration required, you can have the best package size and extreme performance',
+        },
+        {
+          title: 'Customizable',
+          details:
+            'You can efficiently adjust the appearance of components or create your own themes',
+        },
+        {
+          title: 'Atomization',
+          details: 'Each component has just what you need, no more, no less',
+        },
+        {
+          title: 'Sense of Fluency',
+          details:
+            'With smooth gestures and delicate animations, it helps the product create the ultimate experience',
+        },
+      ],
     },
     loading: {
-      skeleton: ['/guide', '/components'],
+      skeleton: ['/guide', '/components', '/guide', '/components'],
     },
     docVersions: {
       'v2': '',
       'v1': 'https://1x-mini.ant.design',
       'v0': 'https://0x-mini.ant.design',
     },
-    footerLinks: [
-      {
-        title: '相关资源',
-        items: [
-          {
-            title: 'Ant Design',
-            url: 'https://ant.design',
-            openExternal: true,
-          },
-          {
-            title: 'Ant Design Charts',
-            url: 'https://charts.ant.design',
-            openExternal: true,
-          },
-          {
-            title: 'Ant Design Pro',
-            url: 'https://pro.ant.design',
-            openExternal: true,
-          },
-          {
-            title: 'Ant Design Pro Components',
-            url: 'https://procomponents.ant.design',
-            openExternal: true,
-          },
-          {
-            title: 'Ant Design Mobile',
-            url: 'https://mobile.ant.design',
-            openExternal: true,
-          },
-          {
-            title: 'Ant Design Landing',
-            description: '首页模板集',
-            url: 'https://landing.ant.design',
-            openExternal: true,
-          },
-          {
-            title: 'Scaffolds',
-            description: '脚手架市场',
-            url: 'https://scaffold.ant.design',
-            openExternal: true,
-          },
-          {
-            title: 'Umi',
-            description: 'react 应用开发框架',
-            url: 'https://umijs.org',
-            openExternal: true,
-          },
-          {
-            title: 'Dumi',
-            description: '组件/文档研发工具',
-            url: 'https://d.umijs.org',
-            openExternal: true,
-          },
-          {
-            title: 'qiankun',
-            description: '微前端框架',
-            url: 'https://qiankun.umijs.org',
-            openExternal: true,
-          },
-          {
-            title: 'ahooks',
-            description: 'React Hooks 库',
-            url: 'https://github.com/alibaba/hooks',
-            openExternal: true,
-          },
-          {
-            title: 'Ant Motion',
-            description: '设计动效',
-            url: 'https://motion.ant.design',
-            openExternal: true,
-          },
-        ],
-      },
-      {
-        title: '社区',
-        items: [
-          {
-            title: 'Awesome Ant Design',
-            url: 'https://github.com/websemantics/awesome-ant-design',
-            openExternal: true,
-          },
-          {
-            title: 'Medium',
-            url: 'http://medium.com/ant-design/',
-            openExternal: true,
-          },
-          {
-            title: 'Twitter',
-            url: 'http://twitter.com/antdesignui',
-            openExternal: true,
-          },
-          {
-            title: '体验科技专栏',
-            url: 'http://zhuanlan.zhihu.com/xtech',
-            openExternal: true,
-          },
-        ],
-      },
-      {
-        title: '帮助',
-        items: [
-          {
-            icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181695-b05fa72a-4ab5-479d-bb74-3d723755de47.png',
-            title: 'GitHub',
-            url: 'https://github.com/ant-design/ant-design-mini',
-            openExternal: true,
-          },
-          {
-            icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181680-3b031d0f-1c51-48d2-a676-b2f82aa23e09.png',
-            title: '报告 Bug',
-            url: 'https://github.com/ant-design/ant-design-mini/issues',
-            openExternal: true,
-          },
-          {
-            icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181701-b51d6a6f-3190-4525-80d0-43ac194437c9.png',
-            title: '讨论列表',
-            url: 'https://github.com/ant-design/ant-design-mini/issues',
-            openExternal: true,
-          },
-        ],
-      },
-      {
-        title: '更多产品',
-        icon: 'https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg',
-        items: [
-          {
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
-            title: '语雀',
-            url: 'https://yuque.com',
-            description: '构建你的数字花园',
-            openExternal: true,
-          },
-          {
-            icon: 'https://gw.alipayobjects.com/zos/antfincdn/nc7Fc0XBg5/8a6844f5-a6ed-4630-9177-4fa5d0b7dd47.png',
-            title: 'AntV',
-            url: 'https://antv.vision',
-            description: '数据可视化解决方案',
-            openExternal: true,
-          },
-          {
-            icon: 'https://www.eggjs.org/logo.svg',
-            title: 'Egg',
-            url: 'https://eggjs.org',
-            description: '企业级 Node.js 框架',
-            openExternal: true,
-          },
-          {
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/DMDOlAUhmktLyEODCMBR.ico',
-            title: 'Kitchen',
-            description: 'Sketch 工具集',
-            url: 'https://kitchen.alipay.com',
-            openExternal: true,
-          },
-          {
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg',
-            title: '蚂蚁体验科技',
-            url: 'https://xtech.antfin.com/',
-            openExternal: true,
-          },
-        ],
-      },
-    ],
+    footerLinks: {
+      'zh-CN': [
+        {
+          title: '相关资源',
+          items: [
+            {
+              title: 'Ant Design',
+              url: 'https://ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Design Charts',
+              url: 'https://charts.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Design Pro',
+              url: 'https://pro.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Design Pro Components',
+              url: 'https://procomponents.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Design Mobile',
+              url: 'https://mobile.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Design Landing',
+              description: '首页模板集',
+              url: 'https://landing.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Scaffolds',
+              description: '脚手架市场',
+              url: 'https://scaffold.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Umi',
+              description: 'react 应用开发框架',
+              url: 'https://umijs.org',
+              openExternal: true,
+            },
+            {
+              title: 'Dumi',
+              description: '组件/文档研发工具',
+              url: 'https://d.umijs.org',
+              openExternal: true,
+            },
+            {
+              title: 'qiankun',
+              description: '微前端框架',
+              url: 'https://qiankun.umijs.org',
+              openExternal: true,
+            },
+            {
+              title: 'ahooks',
+              description: 'React Hooks 库',
+              url: 'https://github.com/alibaba/hooks',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Motion',
+              description: '设计动效',
+              url: 'https://motion.ant.design',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: '社区',
+          items: [
+            {
+              title: 'Awesome Ant Design',
+              url: 'https://github.com/websemantics/awesome-ant-design',
+              openExternal: true,
+            },
+            {
+              title: 'Medium',
+              url: 'http://medium.com/ant-design/',
+              openExternal: true,
+            },
+            {
+              title: 'Twitter',
+              url: 'http://twitter.com/antdesignui',
+              openExternal: true,
+            },
+            {
+              title: '体验科技专栏',
+              url: 'http://zhuanlan.zhihu.com/xtech',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: '帮助',
+          items: [
+            {
+              icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181695-b05fa72a-4ab5-479d-bb74-3d723755de47.png',
+              title: 'GitHub',
+              url: 'https://github.com/ant-design/ant-design-mini',
+              openExternal: true,
+            },
+            {
+              icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181680-3b031d0f-1c51-48d2-a676-b2f82aa23e09.png',
+              title: '报告 Bug',
+              url: 'https://github.com/ant-design/ant-design-mini/issues',
+              openExternal: true,
+            },
+            {
+              icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181701-b51d6a6f-3190-4525-80d0-43ac194437c9.png',
+              title: '讨论列表',
+              url: 'https://github.com/ant-design/ant-design-mini/issues',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: '更多产品',
+          icon: 'https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg',
+          items: [
+            {
+              icon: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
+              title: '语雀',
+              url: 'https://yuque.com',
+              description: '构建你的数字花园',
+              openExternal: true,
+            },
+            {
+              icon: 'https://gw.alipayobjects.com/zos/antfincdn/nc7Fc0XBg5/8a6844f5-a6ed-4630-9177-4fa5d0b7dd47.png',
+              title: 'AntV',
+              url: 'https://antv.vision',
+              description: '数据可视化解决方案',
+              openExternal: true,
+            },
+            {
+              icon: 'https://www.eggjs.org/logo.svg',
+              title: 'Egg',
+              url: 'https://eggjs.org',
+              description: '企业级 Node.js 框架',
+              openExternal: true,
+            },
+            {
+              icon: 'https://gw.alipayobjects.com/zos/rmsportal/DMDOlAUhmktLyEODCMBR.ico',
+              title: 'Kitchen',
+              description: 'Sketch 工具集',
+              url: 'https://kitchen.alipay.com',
+              openExternal: true,
+            },
+            {
+              icon: 'https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg',
+              title: '蚂蚁体验科技',
+              url: 'https://xtech.antfin.com/',
+              openExternal: true,
+            },
+          ],
+        },
+      ],
+      'en': [
+        {
+          title: 'Related resources',
+          items: [
+            {
+              title: 'Ant Design',
+              url: 'https://ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Design Charts',
+              url: 'https://charts.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Design Pro',
+              url: 'https://pro.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Design Pro Components',
+              url: 'https://procomponents.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Design Mobile',
+              url: 'https://mobile.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Design Landing',
+              description: 'Home page template set',
+              url: 'https://landing.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Scaffolds',
+              description: 'scaffolding market',
+              url: 'https://scaffold.ant.design',
+              openExternal: true,
+            },
+            {
+              title: 'Umi',
+              description: 'react development framework',
+              url: 'https://umijs.org',
+              openExternal: true,
+            },
+            {
+              title: 'Dumi',
+              description: 'component/doc development toolkit',
+              url: 'https://d.umijs.org',
+              openExternal: true,
+            },
+            {
+              title: 'qiankun',
+              description: 'Micro front-end framework',
+              url: 'https://qiankun.umijs.org',
+              openExternal: true,
+            },
+            {
+              title: 'ahooks',
+              description: 'React Hooks Library',
+              url: 'https://github.com/alibaba/hooks',
+              openExternal: true,
+            },
+            {
+              title: 'Ant Motion',
+              description: 'Design animation',
+              url: 'https://motion.ant.design',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              title: 'Awesome Ant Design',
+              url: 'https://github.com/websemantics/awesome-ant-design',
+              openExternal: true,
+            },
+            {
+              title: 'Medium',
+              url: 'http://medium.com/ant-design/',
+              openExternal: true,
+            },
+            {
+              title: 'Twitter',
+              url: 'http://twitter.com/antdesignui',
+              openExternal: true,
+            },
+            {
+              title: 'Experience Technology Column',
+              url: 'http://zhuanlan.zhihu.com/xtech',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: 'Help',
+          items: [
+            {
+              icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181695-b05fa72a-4ab5-479d-bb74-3d723755de47.png',
+              title: 'GitHub',
+              url: 'https://github.com/ant-design/ant-design-mini',
+              openExternal: true,
+            },
+            {
+              icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181680-3b031d0f-1c51-48d2-a676-b2f82aa23e09.png',
+              title: 'Report Bug',
+              url: 'https://github.com/ant-design/ant-design-mini/issues',
+              openExternal: true,
+            },
+            {
+              icon: 'https://github-production-user-asset-6210df.s3.amazonaws.com/20694238/256181701-b51d6a6f-3190-4525-80d0-43ac194437c9.png',
+              title: 'Discussion List',
+              url: 'https://github.com/ant-design/ant-design-mini/issues',
+              openExternal: true,
+            },
+          ],
+        },
+        {
+          title: 'More Production',
+          icon: 'https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg',
+          items: [
+            {
+              icon: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
+              title: 'Yuque',
+              url: 'https://yuque.com',
+              description: 'Build your digital garden',
+              openExternal: true,
+            },
+            {
+              icon: 'https://gw.alipayobjects.com/zos/antfincdn/nc7Fc0XBg5/8a6844f5-a6ed-4630-9177-4fa5d0b7dd47.png',
+              title: 'AntV',
+              url: 'https://antv.vision',
+              description: 'Data visualization solutions',
+              openExternal: true,
+            },
+            {
+              icon: 'https://www.eggjs.org/logo.svg',
+              title: 'Egg',
+              url: 'https://eggjs.org',
+              description: 'Enterprise-grade Node.js framework',
+              openExternal: true,
+            },
+            {
+              icon: 'https://gw.alipayobjects.com/zos/rmsportal/DMDOlAUhmktLyEODCMBR.ico',
+              title: 'Kitchen',
+              description: 'Sketch Toolkit',
+              url: 'https://kitchen.alipay.com',
+              openExternal: true,
+            },
+            {
+              icon: 'https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg',
+              title: 'Ant Experience Technology',
+              url: 'https://xtech.antfin.com/',
+              openExternal: true,
+            },
+          ],
+        },
+      ],
+    },
   }),
+  locales: [
+    { id: 'zh-CN', name: '中文', suffix: '' },
+    { id: 'en', name: 'English', suffix: '-en' },
+  ],
 });

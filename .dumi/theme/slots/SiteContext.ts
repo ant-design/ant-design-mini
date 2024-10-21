@@ -9,14 +9,16 @@ export interface SiteContextProps {
   direction: DirectionType;
   theme: ThemeName[];
   platform: PlatformName;
+  herboxUrl: string; //  demo 预览模拟器iframe地址
   updateSiteConfig: (props: Partial<SiteContextProps>) => void;
 }
 
 const SiteContext = createContext<SiteContextProps>({
   isMobile: false,
   direction: 'ltr',
-  theme: ['light'],
+  theme: [],
   platform: 'alipay',
+  herboxUrl: '',
   updateSiteConfig: () => {},
 });
 
