@@ -38,7 +38,7 @@ export default defineConfig({
     },
   ],
   themeConfig: defineThemeConfig({
-    name:'Ant Design Mini',
+    name: 'Ant Design Mini',
     prefersColor: {
       default: 'auto',
       switch: true,
@@ -69,16 +69,42 @@ export default defineConfig({
           link: 'https://github.com/ant-design/ant-design-mini/releases',
         },
       ],
+      'en': [
+        {
+          title: 'Guide',
+          link: '/guide/quick-start-en',
+        },
+        {
+          title: 'Components',
+          link: '/components/button-en',
+        },
+        {
+          title: 'Resources',
+          link: '/resources-en',
+        },
+        {
+          title: 'Domestic Mirror',
+          link: 'https://ant-design-mini.antgroup.com',
+        },
+        {
+          title: 'Releases',
+          link: 'https://github.com/ant-design/ant-design-mini/releases',
+        },
+      ],
     },
     footer: `© 2024 Made with ❤ by
         <a className={styles.copyrightLink} href='https://xtech.antfin.com' target='_blank'>
           XTech
         </a>`,
     github: 'https://github.com/ant-design/ant-design-mini',
-    localesEnhance: [{ id: 'zh-CN', switchPrefix: '中' }],
+    localesEnhance: [
+      { id: 'zh-CN', switchPrefix: '中' },
+      { id: 'en', switchPrefix: 'EN' },
+    ],
     title: 'Ant Design Mini',
     description: {
       'zh-CN': '探索移动端小程序的极致体验',
+      'en': 'Explore the ultimate experience of mobile applets'
     },
     actions: {
       'zh-CN': [
@@ -90,6 +116,17 @@ export default defineConfig({
         {
           text: '在线体验',
           link: '/components/button',
+        },
+      ],
+      'en': [
+        {
+          type: 'primary',
+          text: 'Get started quickly',
+          link: '/guide/quick-start-en',
+        },
+        {
+          text: 'Online Experience',
+          link: '/components/button-en',
         },
       ],
     },
@@ -112,9 +149,27 @@ export default defineConfig({
           details: '拥有流畅的手势和细腻的动画，助力产品打造出极致体验',
         },
       ],
+      'en': [
+        {
+          title: 'high performance',
+          details: 'No configuration required, you can have the best package size and extreme performance',
+        },
+        {
+          title: 'Customizable',
+          details: 'You can efficiently adjust the appearance of components or create your own themes',
+        },
+        {
+          title: 'Atomization',
+          details: 'Each component has just what you need, no more, no less',
+        },
+        {
+          title: 'Sense of Fluency',
+          details: 'With smooth gestures and delicate animations, it helps the product create the ultimate experience',
+        },
+      ],
     },
     loading: {
-      skeleton: ['/guide', '/components'],
+      skeleton: ['/guide', '/components', '/guide', '/components'],
     },
     docVersions: {
       'v2': '',
@@ -284,4 +339,8 @@ export default defineConfig({
       },
     ],
   }),
+  locales: [
+    { id: 'zh-CN', name: '中文', suffix: '' },
+    { id: 'en', name: 'English', suffix: '-en' },
+  ],
 });

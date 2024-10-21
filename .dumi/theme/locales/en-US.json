@@ -6,5 +6,6 @@
   "app.theme.switch.compact": "Compact theme",
   "app.header.menu.more": "More",
   "app.footer.last.updated": "Last updated: ",
-  "app.footer.actions.edit": "Improve this documentation"
+  "app.footer.actions.edit": "Improve this documentation",
+  "header.search.placeholder": "Input to search"
 }

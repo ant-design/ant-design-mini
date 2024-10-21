@@ -108,11 +108,8 @@ export async function getFullDemos() {
         // expand context for omit ext
         expandDemoContext(demo.context);
       });
-
-      return {
-        ...total,
-        ...demos,
-      };
+      Object.assign(total, demos);
+      return total;
     }, {}),
   );
 }
@@ -187,10 +184,10 @@ export async function getFullRoutesMeta(): Promise<Record<string, IRouteMeta>> {
     })),
   ).then((ret) =>
     ret.reduce(
-      (total, { id, meta }) => ({
-        ...total,
-        [id]: meta,
-      }),
+      (total, { id, meta }) => {
+        total[id] = meta;
+        return total;
+      },
       {},
     ),
   );

@@ -3,8 +3,8 @@
 // DO NOT CHANGE IT MANUALLY!
 import { history } from 'dumi';
 import React, { useState, useLayoutEffect, useCallback, type ReactNode } from 'react';
-import { RawIntlProvider, createIntl, createIntlCache } from '/Users/houmi/Desktop/work-project/ant-design-mini/node_modules/react-intl';
-import { useIsomorphicLayoutEffect } from '/Users/houmi/Desktop/work-project/ant-design-mini/node_modules/dumi/dist/client/theme-api/utils.js'
+import { RawIntlProvider, createIntl, createIntlCache } from '/Users/dennis.zhang/Desktop/服务商/ant-design-mini/node_modules/react-intl';
+import { useIsomorphicLayoutEffect } from '/Users/dennis.zhang/Desktop/服务商/ant-design-mini/node_modules/dumi/dist/client/theme-api/utils.js'
 import { locales, messages } from './config';
 
 const cache = createIntlCache();
@@ -32,9 +32,9 @@ const LocalesContainer: FC<{ children: ReactNode }> = (props) => {
     const localeMessages = messages[locale] || {};
 
     // append internal message, for use intl as string template util
-    localeMessages['$internal.edit.link'] = "https://github.com/ant-design/ant-design-mini/edit/docs-site-dev/{filename}";
+    localeMessages['$internal.edit.link'] = "https://github.com/ant-design/ant-design-mini/edit/docs-site-dev-dennis/{filename}";
 
-    localeMessages['$internal.api.sourceLink'] = "https://github.com/ant-design/ant-design-mini/tree/docs-site-dev/{fileName}#L{line}";
+    localeMessages['$internal.api.sourceLink'] = "https://github.com/ant-design/ant-design-mini/tree/docs-site-dev-dennis/{fileName}#L{line}";
 
     return createIntl({ locale, messages: localeMessages }, cache);
   }, []);
