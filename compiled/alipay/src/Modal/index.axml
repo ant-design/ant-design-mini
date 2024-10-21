@@ -3,16 +3,16 @@
   name="utils"
 ></import-sjs>
 <ant-popup
-  className="ant-modal {{className || ''}}"
+  class-name="ant-modal {{className || ''}}"
   style="{{style || ''}}"
-  maskClassName="{{maskClassName}}"
-  maskStyle="{{maskStyle}}"
+  mask-class-name="{{maskClassName}}"
+  mask-style="{{maskStyle}}"
   visible="{{visible}}"
   duration="{{duration}}"
   position="center"
   animation="{{animation}}"
-  zIndex="{{zIndex}}"
-  destroyOnClose="{{destroyOnClose}}"
+  z-index="{{zIndex}}"
+  destroy-on-close="{{destroyOnClose}}"
   onClose="onMaskClose"
 >
   <slot>
@@ -44,7 +44,7 @@
         >
           <ant-button
             type="primary"
-            className="ant-modal-body-footer-focus-primary"
+            class-name="ant-modal-body-footer-focus-primary"
             style="{{primaryButtonStyle || ''}}"
             onTap="onPrimaryButtonTap"
           >
@@ -132,6 +132,6 @@
     a:if="{{type === 'focus' && closable}}"
     type="CloseOutline"
     onTap="onClose"
-    className="ant-modal-close"
+    class-name="ant-modal-close"
   ></ant-icon>
 </ant-popup>

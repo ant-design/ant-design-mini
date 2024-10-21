@@ -26,7 +26,7 @@
           <slot
             name="character"
             index="{{index}}"
-            isActive="{{true}}"
+            is-active="{{true}}"
           >
             <ant-icon type="StarFill"></ant-icon>
           </slot>

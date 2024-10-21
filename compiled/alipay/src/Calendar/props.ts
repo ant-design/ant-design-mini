@@ -7,6 +7,7 @@ export interface CalendarDate {
   date: number;
 }
 
+// TODO 这里需要改掉，默认值从locale来引入
 export const defaultLocaleText = {
   weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
   title: 'YYYY年MM月',

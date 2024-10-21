@@ -54,7 +54,7 @@
         <ant-button
           size="small"
           inline
-          className="custom-child"
+          class-name="custom-child"
         >
           <view>点我</view>{{item}}</ant-button>
         <view
@@ -68,7 +68,7 @@
 <container title="自定义mask">
   <popover
     content="prompt"
-    maskStyle="background: rgba(0, 0, 0, 0.6);"
+    mask-style="background: rgba(0, 0, 0, 0.6);"
     style="display: inline-block"
   >
     <ant-button
@@ -82,7 +82,7 @@
     <popover
       content="prompt"
       placement="right"
-      showMask="{{false}}"
+      show-mask="{{false}}"
       visible="{{visible}}"
       style="display: inline-block"
     >

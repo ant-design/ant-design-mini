@@ -8,7 +8,7 @@
   <ant-button inline>点我</ant-button>
   <list
     slot="content"
-    className="popover"
+    class-name="popover"
   >
     <list-item
       bind:tap="handleTapItem"

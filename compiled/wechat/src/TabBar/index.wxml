@@ -19,19 +19,19 @@
           type="{{item.badge.type || 'dot'}}"
           text="{{item.badge.text}}"
           stroke="{{item.badge.stroke}}"
-          bgColor="{{item.badge.bgColor}}"
+          bg-color="{{item.badge.bgColor}}"
           position="{{item.badge.position || 'top-right'}}"
-          offsetX="{{item.badge.offsetX || '-9px'}}"
-          offsetY="{{item.badge.offsetY || '0px'}}"
+          offset-x="{{item.badge.offsetX || '-9px'}}"
+          offset-y="{{item.badge.offsetY || '0px'}}"
         >
           <image-icon
-            className="ant-tab-bar"
+            class-name="ant-tab-bar"
             image="{{mixin.value === index ? item.activeIcon : item.icon}}"
           ></image-icon>
         </ant-badge>
         <block wx:else>
           <image-icon
-            className="ant-tab-bar"
+            class-name="ant-tab-bar"
             image="{{mixin.value === index ? item.activeIcon : item.icon}}"
           ></image-icon>
         </block>

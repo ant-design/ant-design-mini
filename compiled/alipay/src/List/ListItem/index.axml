@@ -7,9 +7,9 @@
   style="{{style || ''}}"
   onTap="{{onTap ? 'onTap' : ''}}"
   catchTap="{{catchTap ? 'catchTap' : ''}}"
-  hoverClass="{{onTap || catchTap ? 'ant-list-item-hover' : ''}}"
-  hoverStartTime="{{20}}"
-  hoverStayTime="{{40}}"
+  hover-class="{{onTap || catchTap ? 'ant-list-item-hover' : ''}}"
+  hover-start-time="{{20}}"
+  hover-stay-time="{{40}}"
 >
   <view class="ant-list-item-line {{showDivider ? 'ant-list-item-line-divider' : ''}} {{disabled ? 'ant-list-item-line-disabled' : ''}}">
     <view class="ant-list-item-image-container">
@@ -17,7 +17,7 @@
         <image-icon
           a:if="{{image}}"
           image="{{image}}"
-          className="ant-list-item-image"
+          class-name="ant-list-item-image"
         ></image-icon>
       </slot>
     </view>

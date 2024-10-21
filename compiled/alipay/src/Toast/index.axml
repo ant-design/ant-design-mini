@@ -14,23 +14,23 @@
     <am-icon
       a:elif="{{type === 'warning'}}"
       type="ExclamationOutline"
-      className="ant-toast-icon"
+      class-name="ant-toast-icon"
     ></am-icon>
     <am-icon
       a:elif="{{type === 'error'}}"
       type="CloseOutline"
-      className="ant-toast-icon"
+      class-name="ant-toast-icon"
     ></am-icon>
     <am-icon
       a:elif="{{type === 'success'}}"
       type="CheckOutline"
-      className="ant-toast-icon"
+      class-name="ant-toast-icon"
     ></am-icon>
   </view>
   <am-icon
     a:elif="{{icon}}"
     type="{{icon}}"
-    className="ant-toast-icon"
+    class-name="ant-toast-icon"
   ></am-icon>
   <view
     a:elif="{{image}}"
@@ -45,7 +45,7 @@
 </view>
 <mask
   a:if="{{show && showMask}}"
-  className="ant-toast-mask"
+  class-name="ant-toast-mask"
   show="{{true}}"
   onMaskTap="handleClickMask"
   style="{{maskStyle}}"

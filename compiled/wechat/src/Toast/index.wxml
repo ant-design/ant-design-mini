@@ -14,23 +14,23 @@
     <am-icon
       wx:elif="{{type === 'warning'}}"
       type="ExclamationOutline"
-      className="ant-toast-icon"
+      class-name="ant-toast-icon"
     ></am-icon>
     <am-icon
       wx:elif="{{type === 'error'}}"
       type="CloseOutline"
-      className="ant-toast-icon"
+      class-name="ant-toast-icon"
     ></am-icon>
     <am-icon
       wx:elif="{{type === 'success'}}"
       type="CheckOutline"
-      className="ant-toast-icon"
+      class-name="ant-toast-icon"
     ></am-icon>
   </view>
   <am-icon
     wx:elif="{{icon}}"
     type="{{icon}}"
-    className="ant-toast-icon"
+    class-name="ant-toast-icon"
   ></am-icon>
   <view
     wx:elif="{{image}}"
@@ -45,7 +45,7 @@
 </view>
 <mask
   wx:if="{{show && showMask}}"
-  className="ant-toast-mask"
+  class-name="ant-toast-mask"
   show="{{true}}"
   bind:masktap="handleClickMask"
   style="{{maskStyle}}"

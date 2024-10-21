@@ -1,3 +1,0 @@
-<view class="ant-config-provider {{className || ''}}" style="{{style || ''}}">
-  <slot />
-</view>

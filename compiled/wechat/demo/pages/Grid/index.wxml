@@ -31,7 +31,7 @@
     items="{{items5}}"
     bind:tap="handleTapItem"
     columns="{{5}}"
-    showDivider
+    show-divider
   ></ant-grid>
 </ant-container>
 <ant-container title="2列-带描述">
@@ -53,7 +53,7 @@
     items="{{items2}}"
     bind:tap="handleTapItem"
     columns="{{2}}"
-    gridItemLayout="horizontal"
+    grid-item-layout="horizontal"
   ></ant-grid>
 </ant-container>
 <ant-container title="3列-元素横向布局">
@@ -61,7 +61,7 @@
     items="{{items3}}"
     bind:tap="handleTapItem"
     columns="{{3}}"
-    gridItemLayout="horizontal"
+    grid-item-layout="horizontal"
   ></ant-grid>
 </ant-container>
 <ant-container title="可滑动">
@@ -76,6 +76,6 @@
     items="{{itemsCustom}}"
     bind:tap="handleTapItem"
     columns="{{5}}"
-    iconSize="{{44}}"
+    icon-size="{{44}}"
   ></ant-grid>
 </ant-container>
