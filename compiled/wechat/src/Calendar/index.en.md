@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Calendar Calendar
+# Calendar
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 

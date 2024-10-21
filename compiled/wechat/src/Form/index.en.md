@@ -2,12 +2,12 @@
 nav:
   path: /components
 group:
-  title: 信息输入
+  title: Information Entry
   order: 12
 toc: 'content'
 ---
 
-# Form Form
+# Form
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 

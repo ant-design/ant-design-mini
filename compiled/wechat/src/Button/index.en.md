@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Button Button
+# Button
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 

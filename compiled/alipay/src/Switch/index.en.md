@@ -2,12 +2,12 @@
 nav:
   path: /components
 group:
-  title: 信息输入
+  title: Information Entry
   order: 10
 toc: 'content'
 ---
 
-# Switch Switch
+# Switch
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 

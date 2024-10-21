@@ -8,7 +8,7 @@ group:
 toc: 'content'
 ---
 
-# Tag Tag
+# Tag
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 

@@ -1,7 +1,7 @@
 import { UnorderedListOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { Col, ConfigProvider, Menu } from 'antd';
-import { useMatchedRoute, useSidebarData } from 'dumi';
+import { useMatchedRoute, useSidebarData, FormattedMessage } from 'dumi';
 
 import MobileMenu from 'rc-drawer';
 import 'rc-drawer/assets/index.css';
@@ -339,7 +339,7 @@ const Sidebar: FC = () => {
                   ]
                 }
               />
-              <span>支付宝</span>
+              <span>{<FormattedMessage id="app.theme.sidebar.alipay" />}</span>
             </div>
             <div
               className={`item ${platform === 'wechat' && 'active'}`}
@@ -353,7 +353,7 @@ const Sidebar: FC = () => {
                   ]
                 }
               />
-              <span>微信</span>
+              <span>{<FormattedMessage id="app.theme.sidebar.wechat" />}</span>
             </div>
           </div>
         </div>

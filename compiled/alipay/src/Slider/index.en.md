@@ -2,11 +2,11 @@
 nav:
   path: /components
 group:
-  title: 信息输入
+  title: Information Entry
 toc: 'content'
 ---
 
-# Slider Slider
+# Slider
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 

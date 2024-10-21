@@ -6,5 +6,7 @@
   "app.header.menu.more": "More",
   "app.footer.last.updated": "Last updated: ",
   "app.footer.actions.edit": "Improve this documentation",
-  "header.search.placeholder": "Input to search"
+  "header.search.placeholder": "Input to search",
+  "app.theme.sidebar.alipay": "Alipay",
+  "app.theme.sidebar.wechat": "Wechat"
 }

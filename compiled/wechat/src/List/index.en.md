@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# List List
+# List
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
