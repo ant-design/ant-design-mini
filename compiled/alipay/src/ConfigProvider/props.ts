@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import zhCN from '../_locale/zh_CN';
 import { IBaseProps } from '../_util/base';
 /**
  * @description 全局配置
@@ -27,4 +28,10 @@ export interface IConfigProviderProps extends IBaseProps {
   locale?: Record<string, string | number>;
 }
 
-export const ConfigProviderProps: IConfigProviderProps = {};
+export const ConfigProviderDefaultProps: IConfigProviderProps = {
+  className: '',
+  style: '',
+  theme: 'light',
+  themeVars: {},
+  locale: zhCN,
+};

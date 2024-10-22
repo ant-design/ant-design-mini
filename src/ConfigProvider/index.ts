@@ -1,8 +1,8 @@
 import kebabCase from 'lodash.kebabcase';
 import { Component } from '../_util/simply';
-import { ConfigProviderProps } from './props';
+import { ConfigProviderDefaultProps } from './props';
 
-Component(ConfigProviderProps, {
+Component(ConfigProviderDefaultProps, {
   /**
    * 主题生成 css vars
    * TODO 这里需要增加一个临时data来管理cssVarStyle,需要第一优先级是传入的themeVars生成的cssstyle，然后再拼接style
@@ -15,5 +15,12 @@ Component(ConfigProviderProps, {
       cssVars[`--${kebabCase(key)}`] = themeVars[key];
     });
     return cssVars;
+  },
+  /**
+   * 这里需要把locale的语言数据放进store里，让子组件可以获取到
+   * @returns
+   */
+  setLocales() {
+    return true;
   },
 });
