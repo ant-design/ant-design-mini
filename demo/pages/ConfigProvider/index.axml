@@ -1,5 +1,19 @@
-<ant-list header="基础用法">
-  <ant-list-item>1</ant-list-item>
-  <ant-list-item>2</ant-list-item>
-  <ant-list-item>3</ant-list-item>
-</ant-list>
+<ant-config-provider>
+  <ant-list header="基础用法">
+    <ant-list-item>
+      选择城市
+      <ant-picker
+        slot="extra"
+        onCancel="handleDismissPicker"
+        onVisibleChange="handleTriggerPicker"
+        onOk="handleOk"
+        defaultValue="{{ defaultValue }}"
+        placeholder="请选择"
+        title="请选择"
+        onChange="handleChange"
+        options="{{ list }}"
+        emptyText="暂无数据"
+      />
+    </ant-list-item>
+  </ant-list>
+</ant-config-provider>

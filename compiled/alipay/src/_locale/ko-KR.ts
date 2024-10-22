@@ -1,6 +1,6 @@
 import type { Locale } from '.';
 
-const localeValues: Locale = {
+const koKR: Locale = {
   // locales for all components
   global: {
     placeholder: '请选择韩语',
@@ -56,4 +56,4 @@ const localeValues: Locale = {
   },
 };
 
-export default localeValues;
+export default koKR;

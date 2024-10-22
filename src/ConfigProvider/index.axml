@@ -1,3 +1,3 @@
-<view class="ant-config-provider {{className || ''}}" style="{{style || ''}}">
+<view class="ant-config-provider {{className || ''}}" style="{{cssVarStyle || ''}}">
   <slot />
 </view>

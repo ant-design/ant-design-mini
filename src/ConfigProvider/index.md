@@ -54,7 +54,7 @@ Antd-Mini 提供了 ConfigProvider 组件用于全局配置国际化文案。目
 
 ### 代码示例
 
-<code src='../../demo/pages/List/index'></code>
+<code src='../../demo/pages/ConfigProvider/index'></code>
 
 ### 增加语言包
 

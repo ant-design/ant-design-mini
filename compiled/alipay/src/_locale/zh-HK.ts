@@ -1,7 +1,7 @@
 //zh_HK 繁体中文（中国香港）
 import type { Locale } from '.';
 
-const localeValues: Locale = {
+const zhHK: Locale = {
   // locales for all components
   global: {
     placeholder: '请选择香港',
@@ -57,4 +57,4 @@ const localeValues: Locale = {
   },
 };
 
-export default localeValues;
+export default zhHK;

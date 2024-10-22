@@ -103,6 +103,7 @@
     "lodash.clonedeep": "4.5.0",
     "lodash.set": "^4.3.2",
     "lodash.throttle": "^4.1.1",
+    "lodash.kebabcase": "^4.1.1",
     "merge2": "^1.4.1",
     "minidev": "^1.0.7",
     "postcss-less": "^6.0.0",

@@ -1,7 +1,7 @@
 //zh_TW 繁体中文（中国台湾）
 import type { Locale } from '.';
 
-const localeValues: Locale = {
+const zhTW: Locale = {
   // locales for all components
   global: {
     placeholder: '请选择台湾',
@@ -57,4 +57,4 @@ const localeValues: Locale = {
   },
 };
 
-export default localeValues;
+export default zhTW;

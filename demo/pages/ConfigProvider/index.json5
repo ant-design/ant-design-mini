@@ -11,6 +11,8 @@
   "transparentTitle": "auto",
   "usingComponents": {
     "ant-list": "../../../src/List/index",
-    "ant-list-item": "../../../src/List/ListItem/index"
+    "ant-list-item": "../../../src/List/ListItem/index",
+    "ant-config-provider": "../../../src/ConfigProvider/index",
+    "ant-picker": "../../../src/Picker/index"
   }
 }
