@@ -10,7 +10,7 @@
 .ant-list-item-line {
   flex: 1;
   display: flex;
-  padding: 12px;
+  padding: 0 12px;
   align-items: center;
   position: relative;
 }
@@ -29,38 +29,56 @@
 .ant-list-item-line-disabled {
   opacity: 0.4;
 }
+.ant-list-item-image {
+  border-radius: 50vh;
+}
+.ant-list-item-image-large-icon {
+  font-size: 40px;
+}
+.ant-list-item-image-large-image {
+  width: 40px;
+  height: 40px;
+}
+.ant-list-item-image-normal-icon {
+  font-size: 28px;
+}
+.ant-list-item-image-normal-image {
+  width: 28px;
+  height: 28px;
+}
 .ant-list-item-image-container {
   margin-right: 12px;
 }
 .ant-list-item-image-container:empty {
   display: none;
 }
-.ant-list-item-image-icon {
-  font-size: 26px;
-}
-.ant-list-item-image-image {
-  width: 26px;
-  height: 26px;
-  overflow: hidden;
-}
 .ant-list-item-content-container {
   display: flex;
   flex: 1;
   flex-direction: column;
+  padding: 12px 0;
+}
+.ant-list-item-content-container-small-text {
+  font-size: 12px;
+  line-height: 16.5px;
+}
+.ant-list-item-content-container-normal-text {
+  font-size: 14px;
+  line-height: 20px;
 }
 .ant-list-item-content-main {
-  font-size: 17px;
+  font-size: 16px;
+  line-height: 22.5px;
 }
 .ant-list-item-content-title-container {
-  font-size: 13px;
   color: #999999;
 }
 .ant-list-item-content-brief-container {
-  font-size: 13px;
   color: #999999;
 }
 .ant-list-item-extra {
-  font-size: 17px;
+  font-size: 16px;
+  line-height: 22.5px;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -74,7 +92,8 @@
 .ant-list-item-extra-brief {
   display: flex;
   flex-direction: row-reverse;
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 20px;
   color: #999999;
 }
 .ant-list-item-arrow {
@@ -85,6 +104,9 @@
 }
 .ant-list-item-arrow .ant-icon {
   font-size: 18px;
+}
+.ant-list-item-arrow-large-margin {
+  margin-left: 12px;
 }
 .ant-list-item .line {
   height: 0.5px;

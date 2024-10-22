@@ -17,12 +17,12 @@
         <image-icon
           a:if="{{image}}"
           image="{{image}}"
-          className="ant-list-item-image"
+          className="{{brief ? 'ant-list-item-image ant-list-item-image-large' : 'ant-list-item-image ant-list-item-image-normal'}}"
         ></image-icon>
       </slot>
     </view>
     <view class="ant-list-item-content-container">
-      <view class="ant-list-item-content-title-container">
+      <view class="ant-list-item-content-title-container {{title && brief ? 'ant-list-item-content-container-small-text' : 'ant-list-item-content-container-normal-text'}}">
         <slot name="title">
           <view
             a:if="{{title}}"
@@ -35,7 +35,7 @@
       <view class="ant-list-item-content-main">
         <slot></slot>
       </view>
-      <view class="ant-list-item-content-brief-container">
+      <view class="ant-list-item-content-brief-container {{title && brief ? 'ant-list-item-content-container-small-text' : 'ant-list-item-content-container-normal-text'}}">
         <slot name="brief">
           <view
             a:if="{{brief}}"
@@ -56,7 +56,7 @@
         <slot name="extraBrief">{{extraBrief}}</slot>
       </view>
     </view>
-    <view class="ant-list-item-arrow">
+    <view class="ant-list-item-arrow {{extraBrief && extra ? 'ant-list-item-arrow-large-margin' : ''}}">
       <icon
         a:if="{{arrowUtil.getArrow(arrow)}}"
         type="{{arrowUtil.getArrow(arrow)}}"

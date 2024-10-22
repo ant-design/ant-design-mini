@@ -2,7 +2,7 @@
   margin: 0 12px;
 }
 .ant-list-radius .ant-list-body {
-  border-radius: 8px;
+  border-radius: 12px;
 }
 .ant-list-radius .ant-list-header,
 .ant-list-radius .ant-list-footer {
