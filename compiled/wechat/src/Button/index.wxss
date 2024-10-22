@@ -7,7 +7,7 @@
   height: auto;
   line-height: normal;
   padding: 12px;
-  border-radius: 4px;
+  border-radius: 50vh;
   border: 0 none;
   box-sizing: border-box;
   font-size: 18px;

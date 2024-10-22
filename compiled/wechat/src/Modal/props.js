@@ -2,7 +2,6 @@ export var ModalDefaultProps = {
     visible: false,
     maskClosable: true,
     closable: true,
-    type: 'default',
     duration: 200,
     animation: true,
     zIndex: 998,
@@ -13,7 +12,6 @@ export var ModalFunctionalProps = {
     maskClassName: '',
     maskStyle: '',
     maskClosable: true,
-    type: 'default',
     closable: true,
     duration: 200,
     animation: true,
@@ -28,4 +26,8 @@ export var ModalFunctionalProps = {
     primaryButtonStyle: '',
     secondaryButtonStyle: '',
     cancelButtonStyle: '',
+    footer: {
+        buttons: [],
+        layout: 'vertical',
+    },
 };
