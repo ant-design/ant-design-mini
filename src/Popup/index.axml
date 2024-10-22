@@ -18,6 +18,22 @@
     class="ant-popup-content ant-popup-{{ animationType }}-{{ position }} {{ closing ? 'ant-popup-' + animationType + '-' + position + '-close' : '' }}"
     style="{{ utils.getContentStyle(position, animation, duration, width, height) }}"
     onAnimationEnd="onAnimationEnd">
+    <image a:if="{{ backgroundImage }}" src="{{ backgroundImage }}" mode="widthFix" class="ant-popup-content-bg" />
+    <view a:if="{{ title || showClose || showBack }}" class="ant-popup-content-header">
+      <ant-icon
+        className="ant-popup-content-header-icon ant-popup-content-header-icon-back"
+        type="LeftOutline"
+        a:if="{{ showBack }}"
+        onTap="onClickBackIcon" />
+      <view class="ant-popup-content-header-title">
+        {{ title }}
+      </view>
+      <ant-icon
+        className="ant-popup-content-header-icon ant-popup-content-header-icon-close"
+        type="CloseOutline"
+        a:if="{{ showClose }}"
+        onTap="onClickCloseIcon" />
+    </view>
     <slot />
     <slot
       a:if="{{ isOldVersion }}"

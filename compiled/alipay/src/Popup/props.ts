@@ -55,6 +55,21 @@ export interface IPopupProps extends IBaseProps {
   maskStyle: string;
 
   zIndex: number;
+
+  /**
+   * @description 展示弹框关闭的icon
+   * @default false
+   */
+  showClose: boolean;
+  /**
+   * @description 展示弹框返回的icon
+   * @default false
+   */
+  showBack: boolean;
+  /**
+   * @description 弹框的背景图
+   */
+  backgroundImage: string;
   /**
    * @description 关闭时回调
    */
@@ -67,12 +82,23 @@ export interface IPopupProps extends IBaseProps {
    * @description 完全关闭时回调
    */
   onAfterClose?: () => void;
+  /**
+   * @description 点击关闭icon时回调
+   */
+  onClickBackIcon?: () => void;
+  /**
+   * @description 点击返回箭头icon时回调
+   */
+  onClickCloseIcon?: () => void;
 }
 
 export const PopupDefaultProps: Partial<IPopupProps> = {
   visible: false,
   destroyOnClose: false,
+  backgroundImage: '',
   showMask: true,
+  showClose: false,
+  showBack: false,
   position: 'bottom',
   // 是否开启动画
   animation: true,
@@ -85,4 +111,6 @@ export const PopupDefaultProps: Partial<IPopupProps> = {
   maskStyle: '',
   // 弹窗层级
   zIndex: 998,
+  onClickBackIcon: () => {},
+  onClickCloseIcon: () => {},
 };
