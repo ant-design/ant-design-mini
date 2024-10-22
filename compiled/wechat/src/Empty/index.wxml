@@ -2,11 +2,11 @@
   class="ant-empty {{className || ''}}"
   style="{{style || ''}}"
 >
-  <view class="ant-empty">
+  <view class="ant-empty-{{size}}">
     <view class="ant-empty-image">
       <image
         class="ant-empty-image-element"
-        src="{{image || 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ'}}"
+        src="{{image || 'https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*J9z7RqVm1soAAAAAAAAAAAAADkqGAQ/original'}}"
       ></image>
     </view>
     <view class="ant-empty-text">
@@ -22,6 +22,21 @@
           <slot name="message">{{message}}</slot>
         </block>
       </view>
+    </view>
+    <view
+      wx:if="{{buttonInfo.list.length > 0}}"
+      class="ant-empty-button ant-empty-button-layout-{{buttonInfo.layout}}"
+    >
+      <ant-button
+        type="{{item.type}}"
+        data-item="{{item}}"
+        bind:tap="onClickButton"
+        size="{{buttonInfo.layout === 'horizontal' ? 'small' : ''}}"
+        inline="{{buttonInfo.layout === 'horizontal'}}"
+        wx:for="{{buttonInfo.list}}"
+        wx:for-index="index"
+        wx:for-item="item"
+      >{{item.text}}</ant-button>
     </view>
     <view class="ant-empty-extra">
       <slot name="extra"></slot>
