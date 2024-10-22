@@ -9,6 +9,7 @@ Page({
     toast7Show: false,
     toast8Show: false,
     toast9Show: false,
+    toast10Show: false,
   },
 
   handleShowToast(e) {
@@ -20,7 +21,8 @@ Page({
       toast4Show: false,
       toast5Show: false,
       toast6Show: false,
-      toast7Show: false
+      toast7Show: false,
+      toast10Show: false,
     })
 
     this.setData({
