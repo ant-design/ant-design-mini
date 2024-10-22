@@ -91,6 +91,10 @@ Component(PopoverDefaultProps, {
         }
         triggerEvent(this, 'visibleChange', value, e);
     },
+    onTapAction: function () {
+        this.onVisibleChange();
+        this.props.onTapAction();
+    }
 }, {
     adjustedPlacement: '',
     popoverContentStyle: '',

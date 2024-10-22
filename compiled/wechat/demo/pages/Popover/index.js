@@ -24,4 +24,7 @@ Page({
             visible: !this.data.visible,
         });
     },
+    onTapAction() {
+        my.showToast({ content: '点击了行动点按钮' });
+    },
 });

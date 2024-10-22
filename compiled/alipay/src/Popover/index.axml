@@ -23,7 +23,45 @@
       class="ant-popover-inner {{contentClassName || ''}}"
       style="{{color ? 'background:' + color : ''}};{{contentStyle || ''}}"
     >
-      <slot name="content">{{content}}</slot>
+      <view
+        a:if="{{imageUrl}}"
+        class="ant-popover-image"
+      >
+        <image-icon
+          className="ant-popover-image-content"
+          image="{{imageUrl}}"
+        ></image-icon>
+      </view>
+      <slot
+        name="leftContent"
+        a:else
+      ></slot>
+      <slot name="content">
+        <view class="ant-popover-inner-text">
+          {{content}}
+        </view>
+      </slot>
+      <view
+        a:if="{{actionText}}"
+        onTap="onTapAction"
+        class="ant-popover-action"
+      >
+        {{actionText}}
+      </view>
+      <slot
+        name="rightContent"
+        a:else
+      ></slot>
+      <view
+        a:if="{{showCloseIcon}}"
+        onTap="onVisibleChange"
+        className="ant-popover-close"
+      >
+        <image-icon
+          className="ant-popover-close-icon"
+          image="CloseOutline"
+        ></image-icon>
+      </view>
     </view>
   </view>
 </view>

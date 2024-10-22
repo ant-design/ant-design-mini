@@ -1,8 +1,11 @@
 export var PopoverDefaultProps = {
     visible: null,
+    imageUrl: '',
     defaultVisible: false,
     destroyOnClose: false,
+    showCloseIcon: false,
     contentClassName: '',
+    actionText: '',
     color: '',
     contentStyle: '',
     showMask: true,
@@ -12,4 +15,5 @@ export var PopoverDefaultProps = {
     maskStyle: '',
     content: '',
     onVisibleChange: function () { },
+    onTapAction: function () { },
 };
