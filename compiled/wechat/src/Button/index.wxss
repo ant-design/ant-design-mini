@@ -40,6 +40,18 @@
   background-color: #ffffff;
   box-shadow: none;
 }
+.ant-button-primary-aide {
+  background-color: #1677ff;
+  box-shadow: inset 0 0 0 1px #E7F1FF;
+  color: #1677FF;
+  background: #E7F1FF;
+}
+.ant-button-default-aide {
+  color: #333333;
+  background-color: #ffffff;
+  background: #FFFFFF;
+  box-shadow: inset 0 0 0 1px #e5e5e5;
+}
 .ant-button-aide {
   color: #333333;
   background-color: #ffffff;
@@ -55,8 +67,7 @@
 .ant-button-primary-danger {
   color: #ffffff;
   background-color: #ff3141;
-  box-shadow: inset 0 0 0 1px #ff3141;
-  border: 1px solid #FFFFFF;
+  box-shadow: inset 0 0 0 1px #FFFFFF;
 }
 .ant-button-aide-danger {
   color: #ff3141;
