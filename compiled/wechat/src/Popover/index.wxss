@@ -16,7 +16,7 @@
 }
 .ant-popover-inner {
   position: relative;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   font-size: 15px;
   background-color: #404040;
