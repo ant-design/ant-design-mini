@@ -1,7 +1,7 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { Tooltip } from 'antd';
-import { DarkTheme } from 'antd-token-previewer/lib/icons';
+import { DarkTheme, Light } from 'antd-token-previewer/lib/icons';
 import { FormattedMessage } from 'dumi';
 import { useContext, type FC } from 'react';
 import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
@@ -64,7 +64,9 @@ const HeaderExtra: FC = () => {
   return (
     <div>
       {prefersColor.switch && (
-        <Tooltip title={<FormattedMessage id="app.theme.switch" />}>
+        <Tooltip
+          title={<FormattedMessage id="app.theme.switch" />}
+        >
           <button
             css={[style.btn, style.theme]}
             type="button"
@@ -73,7 +75,11 @@ const HeaderExtra: FC = () => {
               updateSiteConfig({ theme: [themeValue] });
             }}
           >
-            <DarkTheme />
+            {
+              theme.includes('dark') ?
+                <DarkTheme /> :
+                <Light/>
+            }
           </button>
         </Tooltip>
       )}
