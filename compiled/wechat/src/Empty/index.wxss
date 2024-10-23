@@ -1,27 +1,71 @@
 .ant-empty {
   text-align: center;
-  margin-top: 20px;
+}
+.ant-empty-normal .ant-empty-image-element {
+  width: 255px;
+  height: 141px;
+}
+.ant-empty-normal .ant-empty-text-main {
+  color: #333333;
+  font-size: 18px;
+  margin-top: 12px;
+}
+.ant-empty-normal .ant-empty-text-sub {
+  margin-top: 6px;
+  color: #999999;
+}
+.ant-empty-normal .ant-empty-button {
+  padding-top: 40px;
+}
+.ant-empty-small .ant-empty-image-element {
+  width: 208px;
+  height: 115px;
+}
+.ant-empty-small .ant-empty-text-main {
+  color: #999999;
+  font-size: 16px;
+  margin-top: 12px;
+}
+.ant-empty-small .ant-empty-text-sub {
+  color: #cccccc;
+  margin-top: 4px;
+}
+.ant-empty-small .ant-empty-button {
+  padding-top: 16px;
 }
 .ant-empty-image {
   display: flex;
   justify-content: center;
 }
-.ant-empty-image-element {
-  width: 100px;
-  height: 85px;
-}
 .ant-empty-text {
   margin-top: 12px;
+  line-height: 25px;
 }
 .ant-empty-text-main {
   color: #333333;
-  font-size: 20px;
+  font-size: 18px;
 }
 .ant-empty-text-sub {
-  color: #999999;
-  font-size: 13px;
-  margin-top: 8px;
+  font-size: 12px;
+  margin-top: 16px;
+  line-height: 18.5px;
+}
+.ant-empty-button-layout-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.ant-empty-button-layout-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+.ant-empty-button-layout-vertical .ant-button {
+  min-width: 184px;
 }
 .ant-empty-extra {
-  padding-top: 20px;
+  padding-top: 16px;
 }

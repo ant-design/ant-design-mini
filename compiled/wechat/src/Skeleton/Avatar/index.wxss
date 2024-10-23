@@ -14,18 +14,18 @@
   border-radius: 50%;
 }
 .ant-skeleton-avatar-x-small {
-  width: 40px;
-  height: 40px;
+  width: 18px;
+  height: 18px;
 }
 .ant-skeleton-avatar-small {
-  width: 44px;
-  height: 44px;
+  width: 30px;
+  height: 30px;
 }
 .ant-skeleton-avatar-medium {
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
 }
 .ant-skeleton-avatar-large {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
 }

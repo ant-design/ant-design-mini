@@ -92,7 +92,7 @@ export default defineConfig({
         },
       ],
     },
-    footer: `© 2024 Made with ❤ by
+    footer: `© ${new Date().getFullYear()} Made with ❤ by
         <a className={styles.copyrightLink} href='https://xtech.antfin.com' target='_blank'>
           XTech
         </a>`,
@@ -131,45 +131,7 @@ export default defineConfig({
       ],
     },
     features: {
-      'zh-CN': [
-        {
-          title: '高性能',
-          details: '无需配置，即可拥有最佳的包体积大小和极致的性能',
-        },
-        {
-          title: '可定制',
-          details: '可以高效地对组件外观进行调整或创造自己的主题',
-        },
-        {
-          title: '原子化',
-          details: '每个组件的功能不多也不少，恰好就是你所需',
-        },
-        {
-          title: '流畅感',
-          details: '拥有流畅的手势和细腻的动画，助力产品打造出极致体验',
-        },
-      ],
-      'en': [
-        {
-          title: 'high performance',
-          details:
-            'No configuration required, you can have the best package size and extreme performance',
-        },
-        {
-          title: 'Customizable',
-          details:
-            'You can efficiently adjust the appearance of components or create your own themes',
-        },
-        {
-          title: 'Atomization',
-          details: 'Each component has just what you need, no more, no less',
-        },
-        {
-          title: 'Sense of Fluency',
-          details:
-            'With smooth gestures and delicate animations, it helps the product create the ultimate experience',
-        },
-      ],
+
     },
     loading: {
       skeleton: ['/guide', '/components', '/guide', '/components'],
@@ -505,6 +467,60 @@ export default defineConfig({
         },
       ],
     },
+    // Banner 配置
+    bannerLocales: {
+      'zh-CN': {
+        button: '中文-测试'
+      },
+      'en': {
+        button: 'english-test'
+      }
+    },
+    // 相关框架
+    frameLocales: {
+      'zh-CN': {
+        button: '中文-测试'
+      },
+      'en': {
+        button: 'english-test'
+      }
+    },
+    // 组件模块
+    galleryLocales: {
+      'zh-CN': {
+        button: '中文-测试'
+      },
+      'en': {
+        button: 'english-test'
+      }
+    },
+    // 公告
+    noticeLocales: {
+      'zh-CN': {
+        button: '中文-测试'
+      },
+      'en': {
+        button: 'english-test'
+      }
+    },
+    // 主题
+    themeLocales: {
+      'zh-CN': {
+        button: '中文-测试'
+      },
+      'en': {
+        button: 'english-test'
+      }
+    },
+    // 谁在使用
+    userLocales: {
+      'zh-CN': {
+        button: '中文-测试'
+      },
+      'en': {
+        button: 'english-test'
+      }
+    }
   }),
   locales: [
     { id: 'zh-CN', name: '中文', suffix: '' },

@@ -17,7 +17,7 @@ TODO
 
 ## 代码示例
 
-<code src='pages/Feedback/index'></code>
+<!-- <code src='pages/Feedback/index'></code> -->
 
 ## API
 
