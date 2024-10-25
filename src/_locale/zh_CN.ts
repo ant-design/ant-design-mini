@@ -3,7 +3,7 @@ import type { Locale } from '.';
 const zhCN: Locale = {
   // locales for all components
   global: {
-    placeholder: '请选择',
+    placeholder: '请选择中文',
     emptyText: '暂无数据',
     okText: '确定',
     cancelText: '取消',

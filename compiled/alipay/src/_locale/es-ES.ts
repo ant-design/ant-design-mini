@@ -4,9 +4,9 @@ const esES: Locale = {
   // locales for all components
   global: {
     placeholder: '请选择西班牙语',
-    emptyText: '暂无数据',
-    okText: '确定',
-    cancelText: '取消',
+    emptyText: '暂无数据西班牙语',
+    okText: '确定西班牙语',
+    cancelText: '取消西班牙语',
   },
   Calendar: {
     weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],

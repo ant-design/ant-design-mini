@@ -36,17 +36,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import { effect } from '@preact/signals-core';
 import mixinValue from '../mixins/value';
-import { Component, getValueFromProps, triggerEvent, triggerEventOnly, triggerEventValues, } from '../_util/newSimply';
+import { ComponentWithAnyStoreImpl, getValueFromProps, triggerEvent, triggerEventOnly, triggerEventValues, } from '../_util/newSimply';
 import i18nController from '../_util/store';
 import { PickerDefaultProps } from './props';
 import { getMatchedItemByIndex, getMatchedItemByValue, getStrictMatchedItemByValue, } from './utils';
-Component({
+ComponentWithAnyStoreImpl({
     store: function () { return i18nController; },
     updateHook: effect,
     mapState: {
         locale: function (_a) {
             var store = _a.store;
-            return store.currentLang.value === 'en_US' ? 'English Card' : '中文卡片';
+            return store.currentLocale.value;
         },
     },
 }, PickerDefaultProps, {

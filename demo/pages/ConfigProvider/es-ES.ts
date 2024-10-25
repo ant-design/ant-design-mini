@@ -1,6 +1,4 @@
-import type { Locale } from '.';
-
-const esES: Locale = {
+const esES = {
   // locales for all components
   global: {
     placeholder: '请选择西班牙语',

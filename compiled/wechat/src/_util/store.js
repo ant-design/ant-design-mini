@@ -1,31 +1,12 @@
 import { signal } from '@preact/signals-core';
+import zhCN from '../_locale/zh_CN';
 var SharedStore = /** @class */ (function () {
     function SharedStore() {
-        this.currentLang = signal('zh_CN');
+        this.currentLocale = signal(zhCN);
     }
-    Object.defineProperty(SharedStore.prototype, "exclamation", {
-        get: function () {
-            return this.currentLang.value === 'zh_CN' ? '！' : '!';
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(SharedStore.prototype, "toastContent", {
-        get: function () {
-            return ((this.currentLang.value === 'zh_CN'
-                ? '已切换到中文'
-                : 'Switched to English') + this.exclamation);
-        },
-        enumerable: false,
-        configurable: true
-    });
-    SharedStore.prototype.switchLang = function () {
-        if (this.currentLang.value === 'zh_CN') {
-            this.currentLang.value = 'en_US';
-        }
-        else {
-            this.currentLang.value = 'zh_CN';
-        }
+    // 切换语言
+    SharedStore.prototype.switchLocale = function (locale) {
+        this.currentLocale.value = locale;
     };
     return SharedStore;
 }());

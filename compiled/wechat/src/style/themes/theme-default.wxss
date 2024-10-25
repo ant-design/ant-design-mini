@@ -1,0 +1,4 @@
+:root,
+page {
+  --COLOR_BRAND1: #1677ff;
+}

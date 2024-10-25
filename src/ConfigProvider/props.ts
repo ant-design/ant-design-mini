@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Locale } from '../_locale/index';
 import zhCN from '../_locale/zh_CN';
 import { IBaseProps } from '../_util/base';
 /**
@@ -25,7 +26,7 @@ export interface IConfigProviderProps extends IBaseProps {
   /**
    * @description 国际化文案
    */
-  locale?: Record<string, string | number>;
+  locale?: Locale;
 }
 
 export const ConfigProviderDefaultProps: IConfigProviderProps = {

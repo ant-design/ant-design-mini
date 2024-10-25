@@ -1,25 +1,12 @@
 import { signal } from '@preact/signals-core';
+import { Locale } from '../_locale/index';
+import zhCN from '../_locale/zh_CN';
 
 class SharedStore {
-  currentLang = signal<'zh_CN' | 'en_US'>('zh_CN');
-
-  get exclamation() {
-    return this.currentLang.value === 'zh_CN' ? '！' : '!';
-  }
-
-  get toastContent() {
-    return (
-      (this.currentLang.value === 'zh_CN'
-        ? '已切换到中文'
-        : 'Switched to English') + this.exclamation
-    );
-  }
-  switchLang() {
-    if (this.currentLang.value === 'zh_CN') {
-      this.currentLang.value = 'en_US';
-    } else {
-      this.currentLang.value = 'zh_CN';
-    }
+  currentLocale = signal<Locale>(zhCN);
+  // 切换语言
+  switchLocale(locale: Locale) {
+    this.currentLocale.value = locale;
   }
 }
 

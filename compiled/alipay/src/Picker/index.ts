@@ -2,7 +2,7 @@ import { effect } from '@preact/signals-core';
 import equal from 'fast-deep-equal';
 import mixinValue from '../mixins/value';
 import {
-  Component,
+  ComponentWithAnyStoreImpl,
   getValueFromProps,
   triggerEvent,
   triggerEventOnly,
@@ -16,13 +16,12 @@ import {
   getStrictMatchedItemByValue,
 } from './utils';
 
-Component(
+ComponentWithAnyStoreImpl(
   {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
-      locale: ({ store }) =>
-        store.currentLang.value === 'en_US' ? 'English Card' : '中文卡片',
+      locale: ({ store }) => store.currentLocale.value,
     },
   },
   PickerDefaultProps,
