@@ -470,55 +470,81 @@ export default defineConfig({
     // Banner 配置
     bannerLocales: {
       'zh-CN': {
-        button: '中文-测试'
+        key: 'zh-CN',
+        desc: '# 探索移动端小程序的极致体验',
+        integration: '快速接入',
+        try: '在线体验',
       },
       'en': {
-        button: 'english-test'
+        key: 'en',
+        desc: '# Explore the Ultimate Experience of Mobile Mini Programs',
+        integration: 'Quick Start',
+        try: 'Try It Online',
       }
     },
     // 相关框架
     frameLocales: {
       'zh-CN': {
-        button: '中文-测试'
+        key: 'zh-CN',
+        title: '设计语言与研发框架',
+        subTitle: '配套生态，让你快速搭建小程序应用'
       },
       'en': {
-        button: 'english-test'
+        key: 'en',
+        title: 'Design Language and Development Framework',
+        subTitle: 'Comprehensive Ecosystem for Rapid Application Development'
       }
     },
     // 组件模块
     galleryLocales: {
       'zh-CN': {
-        button: '中文-测试'
+        key: 'zh-CN',
+        title: '组件丰富，选用自如',
+        subTitle: '大量实用组件满足你的需求，灵活定制与拓展',
       },
       'en': {
-        button: 'english-test'
+        key: 'en',
+        title: 'Rich Component Library, Easy to Choose and Use',
+        subTitle: 'A Wide Range of Practical Components to Meet Your Needs, with Flexible Customization and Expansion',
       }
     },
     // 公告
     noticeLocales: {
       'zh-CN': {
-        button: '中文-测试'
+        key: 'zh-CN'
       },
       'en': {
-        button: 'english-test'
+        key: 'en'
       }
     },
     // 主题
     themeLocales: {
       'zh-CN': {
-        button: '中文-测试'
+        key: 'zh-CN',
+        title: '定制主题，国际语言',
+        subTitle: 'Ant Design Mini 开放更多主题样式，国际语言随意切换组件文案',
+        dark: '暗黑模式',
+        light: '明亮模式',
+        langDesc: '简体中文',
       },
       'en': {
-        button: 'english-test'
+        key: 'en',
+        title: 'Customizable Themes, International Languages',
+        subTitle: 'Ant Design Mini Offers More Theme Styles and Seamless Switching of Component Text in Multiple Languages',
+        dark: 'Dark Mode',
+        light: 'Light Mode',
+        langDesc: 'English',
       }
     },
     // 谁在使用
     userLocales: {
       'zh-CN': {
-        button: '中文-测试'
+        key: 'zh-CN',
+        title: 'Ant Design Mini 正在为 100+ 客户带来效能提升'
       },
       'en': {
-        button: 'english-test'
+        key: 'en',
+        title: 'Ant Design Mini is Bringing Efficiency Gains to Over 100 Customers'
       }
     }
   }),
