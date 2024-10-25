@@ -30,7 +30,6 @@ const useStyle = ({
     `,
     mainContent: css`
       width: 100%;
-      max-width: 1200px;
       height: 602px;
       position: relative;
 
@@ -44,6 +43,10 @@ const useStyle = ({
       position: relative;
 
       & .atropos-shadow {
+        display: none;
+      }
+
+      @media (max-width: 900px) {
         display: none;
       }
     `,
@@ -65,8 +68,13 @@ const useStyle = ({
       position: absolute;
       text-align: left;
       top: 192px;
-      left: 0;
+      left: 24px;
       z-index: 80;
+
+      @media (max-width: 900px) {
+        right: 24px;
+        text-align: center;
+      }
     `,
     actionTitle: css`
       font-size: 52px;

@@ -82,7 +82,7 @@ const useStyle = ({
   return {
     container: css`
       width: 100%;
-      height: 693px;
+      min-height: 693px;
       font-family: PuHuiTi, ${fontFamily}, sans-serif;
       padding-top: 80px;
       padding-bottom: 100px;
@@ -94,10 +94,10 @@ const useStyle = ({
     `,
     contentWrap: css`
       width: 100%;
-      max-width: 1200px;
       padding-top: 50px;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
 
       @media (min-width: 1600px) {
         max-width: 1600px;

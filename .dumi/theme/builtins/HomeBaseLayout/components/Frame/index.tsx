@@ -69,10 +69,12 @@ const useStyle = ({
   return {
     container: css`
       width: 100%;
-      height: 476px;
+      min-height: 476px;
       font-family: PuHuiTi, ${fontFamily}, sans-serif;
       padding-top: 80px;
       padding-bottom: 100px;
+      padding-left: 24px;
+      padding-right: 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -84,10 +86,12 @@ const useStyle = ({
       padding-top: 50px;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
     `,
     itemWrap: css`
       all: initial;
-      width: 271px;
+      margin-bottom: 24px;
+      min-width: 271px;
       height: 163px;
       border-radius: 12px;
       box-shadow: ${
@@ -101,9 +105,22 @@ const useStyle = ({
       text-align: left;
       margin-right: 24px;
       cursor: pointer;
+
       &:last-of-type {
         margin-right: 0;
       }
+
+      @media (max-width: 1220px) {
+        width: 48%;
+        margin-right:0;
+      }
+
+      @media (max-width: 600px) {
+        width: 100%;
+        margin-right:0;
+      }
+
+      cursor: pointer;
     `,
     itemImg: css`
       height: 50px;
@@ -142,7 +159,7 @@ export default ({
         title={lang.title}
         subTitle={lang.subTitle}
       />
-      <a css={style.contentWrap}>
+      <div css={style.contentWrap}>
         {
           (frameList[lang.key] || []).map((item) => {
             return (
@@ -165,7 +182,7 @@ export default ({
             )
           })
         }
-      </a>
+      </div>
     </div>
   )
 }

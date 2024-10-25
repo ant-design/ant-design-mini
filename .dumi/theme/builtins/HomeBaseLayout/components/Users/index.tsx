@@ -35,30 +35,60 @@ const useStyle = ({
   return {
     mainContainer: css`
       width: 100%;
-      height: 195px;
+      min-height: 195px;
       font-family: PuHuiTi, ${fontFamily}, sans-serif;
       display: flex;
-      align-items: center;
       background-color: ${isDark ? '#161616' : '#fff'};
       flex-direction: column;
       justify-content: center;
+      align-items: center;
     `,
     title: css`
       font-size: 20px;
       margin-bottom: 35px;
+      margin-top: 35px;
     `,
     logoWrap: css`
+      padding-left: 24px;
+      padding-right: 24px;
+      box-sizing: border-box;
       width: 100%;
-      max-width: 1200px;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
 
       @media (min-width: 1600px) {
         max-width: 1600px;
       }
+
+      @media (max-width: 1440px) {
+        justify-content: center;
+      }
+    `,
+    logoItemWrap: css`
+      margin-right: 62px;
+      margin-bottom: 24px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      @media (max-width: 900px) {
+        width: 25%;
+        text-align: center;
+        margin-right: 0;
+        min-width: 184px;
+      }
+
+      @media (max-width: 780px) {
+        width: 30%;
+        text-align: center;
+        margin-right: 0;
+        min-width: 184px;
+      }
     `,
     logo: css`
       height: 38px;
+      pointer-events: none;
     `
   };
 };
@@ -80,11 +110,13 @@ export default ({
         {
           (isDark ? darkLogos : lightLogos).map((item) => {
             return (
-              <img
-                src={item}
-                key={item}
-                css={style.logo}
-              />
+              <div css={style.logoItemWrap}>
+                <img
+                  src={item}
+                  key={item}
+                  css={style.logo}
+                />
+              </div>
             )
           })
         }

@@ -23,13 +23,33 @@ const useStyle = ({
       height: 380px;
       padding: 24px;
       margin-right: 24px;
+      margin-bottom: 24px;
+      padding-left: 24px;
+      padding-right: 24px;
       position: relative;
       display: flex;
       flex-direction: column;
       box-sizing: border-box;
       flex-wrap: wrap-all;
+
       &:last-of-type {
         margin-right: 0;
+      }
+
+      @media (max-width: 1400px) {
+        width: 46%;
+        &:nth-of-type(2n) {
+          margin-right: 0;
+        }
+      }
+
+      @media (max-width: 600px) {
+        width: 100%;
+        margin-right: 24px;
+        margin-left: 24px;
+        &:nth-of-type(2n) {
+          margin-right: 24px;
+        }
       }
     `,
     titleWrap: css`
@@ -45,6 +65,7 @@ const useStyle = ({
       flex: 1;
       display: flex;
       align-items: center;
+      justify-content: center;
     `,
     img: css`
       pointer-events: none;
