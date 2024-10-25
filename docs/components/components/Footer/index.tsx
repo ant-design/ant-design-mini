@@ -214,7 +214,7 @@ export default () => {
         }
       </div>
       <div className={styles.copyright}>
-        © 2024 Made with ❤ by
+        © {new Date().getFullYear()} Made with ❤ by
         <a className={styles.copyrightLink} href='https://xtech.antfin.com' target='_blank'>
           XTech
         </a>
