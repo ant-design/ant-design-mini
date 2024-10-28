@@ -31,11 +31,14 @@ ComponentWithAnyStoreImpl(
       return 'visible' in getValueFromProps(this);
     },
     initData() {
-      const [options, visible, defaultVisible] = getValueFromProps(this, [
-        'options',
-        'visible',
-        'defaultVisible',
-      ]);
+      const [options, visible, defaultVisible, locale, props] =
+        getValueFromProps(this, [
+          'options',
+          'visible',
+          'defaultVisible',
+          'locale',
+          'props',
+        ]);
       const columns = this.getterColumns(options);
       this.setData(
         {
@@ -217,6 +220,7 @@ ComponentWithAnyStoreImpl(
     single: false,
     isChangingPickerView: false,
     onInit() {
+      console.log('========对对对对对111111111');
       this.initData();
     },
     didUpdate(prevProps) {

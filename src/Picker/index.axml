@@ -15,7 +15,7 @@
       </view>
       <block a:else>
         <view a:if="{{ placeholder }}" class="ant-picker-value-placeholder">
-          {{ placeholder }}
+          1222{{value.global.placeholder}}
         </view>
       </block>
       <!-- #if ALIPAY -->
@@ -58,7 +58,7 @@
       hover-stay-time="50"
       onTap="onOk"
     >
-      {{ locale }}
+      {{ locale.global.placeholder }}
     </view>
   </view>
   <view class="ant-picker-content">

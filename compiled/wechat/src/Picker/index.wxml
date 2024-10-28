@@ -20,7 +20,7 @@
       <view
         wx:if="{{placeholder}}"
         class="ant-picker-value-placeholder"
-      >{{placeholder}}</view>
+      >1222{{value.global.placeholder}}</view>
     </block>
   </view>
   <slot
@@ -54,7 +54,7 @@
       hover-start-time="20"
       hover-stay-time="50"
       bind:tap="onOk"
-    >{{locale}}</view>
+    >{{locale.global.placeholder}}</view>
   </view>
   <view class="ant-picker-content">
     <slot name="content-header"></slot>

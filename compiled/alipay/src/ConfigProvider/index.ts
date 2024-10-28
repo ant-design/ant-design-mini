@@ -15,13 +15,7 @@ ComponentWithAnyStoreImpl(
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  {
-    // 初始化读取locale并更新store数据
-    onInit() {
-      const [locale] = getValueFromProps(this, ['locale']);
-      i18nController.switchLocale(locale);
-    },
-  },
+  {},
   ConfigProviderDefaultProps,
   {
     /**
@@ -36,6 +30,17 @@ ComponentWithAnyStoreImpl(
         cssVars[`--${kebabCase(key)}`] = themeVars[key];
       });
       return cssVars;
+    },
+  },
+  {},
+  {
+    // 初始化读取locale并更新store数据
+    onInit() {
+      const [locale] = getValueFromProps(this, ['locale']);
+      i18nController.switchLocale(locale);
+      this.setData({
+        locale,
+      });
     },
   }
 );

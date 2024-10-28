@@ -36,11 +36,14 @@ ComponentWithAnyStoreImpl(
       /// #endif
     },
     initData() {
-      const [options, visible, defaultVisible] = getValueFromProps(this, [
-        'options',
-        'visible',
-        'defaultVisible',
-      ]);
+      const [options, visible, defaultVisible, locale, props] =
+        getValueFromProps(this, [
+          'options',
+          'visible',
+          'defaultVisible',
+          'locale',
+          'props',
+        ]);
       const columns = this.getterColumns(options);
       this.setData(
         {
@@ -223,6 +226,7 @@ ComponentWithAnyStoreImpl(
     isChangingPickerView: false,
     /// #if ALIPAY
     onInit() {
+      console.log('========对对对对对111111111');
       this.initData();
     },
     didUpdate(prevProps) {

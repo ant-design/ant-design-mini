@@ -60,7 +60,9 @@ ComponentWithAnyStoreImpl({
             'options',
             'visible',
             'defaultVisible',
-        ]), options = _a[0], visible = _a[1], defaultVisible = _a[2];
+            'locale',
+            'props',
+        ]), options = _a[0], visible = _a[1], defaultVisible = _a[2], locale = _a[3], props = _a[4];
         var columns = this.getterColumns(options);
         this.setData({
             columns: columns,

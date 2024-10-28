@@ -1,4 +1,4 @@
-<ant-config-provider>
+<ant-config-provider locale="{{locale}}">
   <ant-list header="基础用法">
     <ant-list-item>
       选择城市
@@ -13,7 +13,11 @@
         onChange="handleChange"
         options="{{list}}"
         empty-text="暂无数据"
-      ></ant-picker>
+      >
+      </ant-picker>
     </ant-list-item>
   </ant-list>
+  <ant-button type="primary" onTap="handleTap">
+    主要按钮
+  </ant-button>
 </ant-config-provider>
