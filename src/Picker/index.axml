@@ -15,7 +15,7 @@
       </view>
       <block a:else>
         <view a:if="{{ placeholder }}" class="ant-picker-value-placeholder">
-          {{locale.global.placeholder}}
+          {{locale.global.placeholder}}222
         </view>
       </block>
       <!-- #if ALIPAY -->
