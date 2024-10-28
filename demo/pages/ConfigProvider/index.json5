@@ -1,18 +1,20 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "ConfigProvider",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "",
+  "defaultTitle": "ConfigProvider",
   /// #endif
 
   "titleBarColor": "#ffffff",
   "transparentTitle": "auto",
   "usingComponents": {
+    "ant-button": "../../../src/Button/index",
     "ant-list": "../../../src/List/index",
     "ant-list-item": "../../../src/List/ListItem/index",
     "ant-config-provider": "../../../src/ConfigProvider/index",
-    "ant-picker": "../../../src/Picker/index"
+    "ant-picker": "../../../src/Picker/index",
+    "ant-container": "../../../src/Container/index"
   }
 }

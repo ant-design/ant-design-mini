@@ -1,19 +1,51 @@
-<ant-config-provider locale="{{locale}}">
-  <ant-list header="基础用法">
-    <ant-list-item>
-      选择城市
-      <ant-picker
-        slot="extra"
-        onCancel="handleDismissPicker"
-        onVisibleChange="handleTriggerPicker"
-        onOk="handleOk"
-        default-value="{{defaultValue}}"
-        placeholder="请选择"
-        title="请选择"
-        onChange="handleChange"
-        options="{{list}}"
-        empty-text="暂无数据"
-      ></ant-picker>
-    </ant-list-item>
-  </ant-list>
-</ant-config-provider>
+<ant-container>
+  <ant-config-provider locale="{{locale}}">
+    <ant-list>
+      <ant-list-item>
+        选择城市
+        <ant-picker
+          slot="extra"
+          onCancel="handleDismissPicker"
+          onVisibleChange="handleTriggerPicker"
+          onOk="handleOk"
+          default-value="{{defaultValue}}"
+          placeholder="请选择"
+          title="请选择"
+          onChange="handleChange"
+          options="{{list}}"
+          empty-text="暂无数据"
+        ></ant-picker>
+      </ant-list-item>
+    </ant-list>
+  </ant-config-provider>
+</ant-container>
+<ant-container title="深色模式">
+  <ant-config-provider theme="dark">
+    <ant-button
+      type="primary"
+      onTap="handleTap"
+    >
+      主要按钮
+    </ant-button>
+  </ant-config-provider>
+</ant-container>
+<ant-container title="浅色模式">
+  <ant-config-provider theme="light">
+    <ant-button
+      type="primary"
+      onTap="handleTap"
+    >
+      主要按钮
+    </ant-button>
+  </ant-config-provider>
+</ant-container>
+<ant-container title="主题定制">
+  <ant-config-provider themeVars="{{themeVars}}">
+    <ant-button
+      type="primary"
+      onTap="handleTap"
+    >
+      主要按钮
+    </ant-button>
+  </ant-config-provider>
+</ant-container>

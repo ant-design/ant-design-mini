@@ -20,7 +20,6 @@ ComponentWithAnyStoreImpl(
   {
     /**
      * 主题生成 css vars
-     * TODO 这里需要增加一个临时data来管理cssVarStyle,需要第一优先级是传入的themeVars生成的cssstyle，然后再拼接style
      * @param themeVars
      * @returns
      */
@@ -29,15 +28,24 @@ ComponentWithAnyStoreImpl(
       Object.keys(themeVars).forEach((key) => {
         cssVars[`--${kebabCase(key)}`] = themeVars[key];
       });
-      return cssVars;
+      this.setData({
+        cssVarStyle: cssVars,
+      });
     },
   },
-  {},
   {
-    // 初始化读取locale并更新store数据
+    cssVarStyle: '',
+  },
+  [],
+  {
+    // 初始化读取locale并更新store数据,如果有主题则处理主题数据
     onInit() {
-      const [locale] = getValueFromProps(this, ['locale']);
+      const [locale, themeVars] = getValueFromProps(this, [
+        'locale',
+        'themeVars',
+      ]);
       i18nController.switchLocale(locale);
+      this.convertThemeVarsToCSSVars(themeVars);
     },
   }
 );
