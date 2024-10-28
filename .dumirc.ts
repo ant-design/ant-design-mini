@@ -467,6 +467,17 @@ export default defineConfig({
         },
       ],
     },
+    // Header 配置
+    headerLocales: {
+      'zh-CN': {
+        key: 'zh-CN',
+        theme: '切换主题',
+      },
+      'en': {
+        key: 'en',
+        theme: 'Theme Switch'
+      }
+    },
     // Banner 配置
     bannerLocales: {
       'zh-CN': {

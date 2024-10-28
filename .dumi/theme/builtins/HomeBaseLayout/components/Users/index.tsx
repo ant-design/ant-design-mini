@@ -49,8 +49,8 @@ const useStyle = ({
       margin-top: 35px;
     `,
     logoWrap: css`
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: 100px;
+      padding-right: 100px;
       box-sizing: border-box;
       width: 100%;
       display: flex;
@@ -66,23 +66,21 @@ const useStyle = ({
       }
     `,
     logoItemWrap: css`
-      margin-right: 62px;
       margin-bottom: 24px;
+
       &:last-of-type {
         margin-right: 0;
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 1500px) {
         width: 25%;
         text-align: center;
-        margin-right: 0;
         min-width: 184px;
       }
 
       @media (max-width: 780px) {
         width: 30%;
         text-align: center;
-        margin-right: 0;
         min-width: 184px;
       }
     `,

@@ -8,6 +8,7 @@ import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
 import useSiteToken from '../../hooks/useSiteToken';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
+import useLocaleValue from "../../../theme/hooks/useLocaleValue";
 
 const BASE_SIZE = '1.2em';
 
@@ -61,22 +62,24 @@ const HeaderExtra: FC = () => {
   const { github, socialLinks, prefersColor } = useAdditionalThemeConfig();
   const style = useStyle();
   const { theme, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
+  const lang = useLocaleValue('headerLocales');
+  const isDark = theme.includes('dark');
   return (
     <div>
       {prefersColor.switch && (
         <Tooltip
-          title={<FormattedMessage id="app.theme.switch" />}
+          title={lang.theme}
         >
           <button
             css={[style.btn, style.theme]}
             type="button"
             onClick={() => {
-              const themeValue = theme.includes('dark') ? 'light' : 'dark';
+              const themeValue = isDark ? 'light' : 'dark';
               updateSiteConfig({ theme: [themeValue] });
             }}
           >
             {
-              theme.includes('dark') ?
+              isDark ?
                 <DarkTheme /> :
                 <Light/>
             }

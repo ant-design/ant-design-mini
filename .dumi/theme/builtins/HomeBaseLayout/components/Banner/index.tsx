@@ -51,24 +51,26 @@ const useStyle = ({
       }
     `,
     featureWrap: css`
-      width: 695px;
+      width: 100%;
       height: 602px;
       position: absolute;
       right: 0;
       top: 0;
     `,
     featureContent: css`
-      width: 695px;
+      width: 100%;
       height: 583px;
-      background: url(${isDark ? contentDark : contentLight}) no-repeat center center;
-      background-size: contain;
-      object-fit: contain;
+      text-align: right;
+      padding-right: 50px;
+    `,
+    featureContentMainImg: css`
+      height: 583px;
     `,
     actionWrap: css`
       position: absolute;
       text-align: left;
       top: 192px;
-      left: 24px;
+      left: 100px;
       z-index: 80;
 
       @media (max-width: 900px) {
@@ -126,6 +128,17 @@ const useStyle = ({
   };
 };
 
+const actionHref = {
+  'zh-CN': {
+    quickStart: '/guide/quick-start',
+    tryComponent: '/components/button',
+  },
+  'en': {
+    quickStart: '/guide/quick-start-en',
+    tryComponent: '/components/button-en',
+  }
+}
+
 export default ({
   isDark,
   isMobile,
@@ -144,10 +157,18 @@ export default ({
             css={style.featureWrap}
             highlight={false}
             activeOffset={0}
-            rotateXMax={5}
-            rotateYMax={5}
+            rotateXMax={1}
+            rotateYMax={1}
           >
-            <div css={style.featureContent}></div>
+            <div
+              css={style.featureContent}
+              data-atropos-offset={0.5}
+            >
+              <img
+                css={style.featureContentMainImg}
+                src={isDark ? contentDark : contentLight}
+              />
+            </div>
           </Atropos>
         </div>
         <div css={style.actionWrap}>
@@ -158,7 +179,7 @@ export default ({
           <div>
             <a
               css={style.actionMainBtn}
-              href='/guide/quick-start'
+              href={actionHref[lang.key].quickStart}
             >
               <span>
                 {lang.integration}
@@ -170,7 +191,7 @@ export default ({
             </a>
             <a
               css={style.actionSubBtn}
-              href="/components/button"
+              href={actionHref[lang.key].tryComponent}
             >
               {lang.try}
             </a>
