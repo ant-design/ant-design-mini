@@ -76,6 +76,7 @@ const useStyle = ({
       @media (max-width: 900px) {
         right: 24px;
         text-align: center;
+        left: 24px;
       }
     `,
     actionTitle: css`
