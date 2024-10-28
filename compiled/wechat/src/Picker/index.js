@@ -49,7 +49,7 @@ ComponentWithAnyStoreImpl({
             return store.currentLocale.value;
         },
     },
-}, PickerDefaultProps, {
+}, {}, PickerDefaultProps, {
     // visible受控判断
     isVisibleControlled: function () {
         return getValueFromProps(this, 'visible') !== null;
@@ -60,9 +60,10 @@ ComponentWithAnyStoreImpl({
             'options',
             'visible',
             'defaultVisible',
-            'locale',
             'props',
-        ]), options = _a[0], visible = _a[1], defaultVisible = _a[2], locale = _a[3], props = _a[4];
+            'locale',
+        ]), options = _a[0], visible = _a[1], defaultVisible = _a[2], props = _a[3], locale = _a[4];
+        console.log(props, '=========888888888', locale, '=======999999');
         var columns = this.getterColumns(options);
         this.setData({
             columns: columns,

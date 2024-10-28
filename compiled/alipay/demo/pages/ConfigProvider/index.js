@@ -3,8 +3,8 @@ Page({
     data: {
         locale: esES,
         theme: 'dark',
-        defaultValue: '上海',
-        value: '上海',
+        defaultValue: '',
+        value: '',
         list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
     },
     handleOk(value, column, e) {

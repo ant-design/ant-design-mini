@@ -24,6 +24,7 @@ ComponentWithAnyStoreImpl(
       locale: ({ store }) => store.currentLocale.value,
     },
   },
+  {},
   PickerDefaultProps,
   {
     // visible受控判断
@@ -31,14 +32,15 @@ ComponentWithAnyStoreImpl(
       return 'visible' in getValueFromProps(this);
     },
     initData() {
-      const [options, visible, defaultVisible, locale, props] =
+      const [options, visible, defaultVisible, props, locale] =
         getValueFromProps(this, [
           'options',
           'visible',
           'defaultVisible',
-          'locale',
           'props',
+          'locale',
         ]);
+      console.log(props, '=========888888888', locale, '=======999999');
       const columns = this.getterColumns(options);
       this.setData(
         {
@@ -220,7 +222,6 @@ ComponentWithAnyStoreImpl(
     single: false,
     isChangingPickerView: false,
     onInit() {
-      console.log('========对对对对对111111111');
       this.initData();
     },
     didUpdate(prevProps) {

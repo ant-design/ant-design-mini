@@ -32,7 +32,9 @@ ComponentWithAnyStoreImpl(
       return cssVars;
     },
   },
-  {},
+  {
+    locale: {},
+  },
   {
     // 初始化读取locale并更新store数据
     onInit() {

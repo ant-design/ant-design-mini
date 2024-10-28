@@ -6,7 +6,6 @@
     "ant-list": "../../../src/List/index",
     "ant-list-item": "../../../src/List/ListItem/index",
     "ant-config-provider": "../../../src/ConfigProvider/index",
-    "ant-picker": "../../../src/Picker/index",
-    "ant-button": "../../../src/Button/index"
+    "ant-picker": "../../../src/Picker/index"
   }
 }

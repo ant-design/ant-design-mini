@@ -1,4 +1,6 @@
-:root,
-page {
-  --COLOR_BRAND1: #1677ff;
+@media (prefers-color-scheme: light) {
+  :root,
+  page {
+    --COLOR_BRAND1: #1677ff;
+  }
 }

@@ -1,23 +1,24 @@
 <ant-config-provider locale="{{locale}}">
-  <ant-list header="基础用法">
-    <ant-list-item>
-      选择城市
-      <ant-picker
-        slot="extra"
-        onCancel="handleDismissPicker"
-        onVisibleChange="handleTriggerPicker"
-        onOk="handleOk"
-        default-value="{{defaultValue}}"
-        placeholder="请选择"
-        title="请选择"
-        onChange="handleChange"
-        options="{{list}}"
-        empty-text="暂无数据"
-      >
-      </ant-picker>
-    </ant-list-item>
-  </ant-list>
-  <ant-button type="primary" onTap="handleTap">
-    主要按钮
-  </ant-button>
+  <view
+    slot="$default"
+    slot-scope="props"
+  >
+    <ant-list header="基础用法">
+      <ant-list-item>
+        选择城市
+        <ant-picker
+          slot="extra"
+          onCancel="handleDismissPicker"
+          onVisibleChange="handleTriggerPicker"
+          onOk="handleOk"
+          default-value="{{defaultValue}}"
+          placeholder="请选择"
+          title="请选择"
+          onChange="handleChange"
+          options="{{list}}"
+          empty-text="暂无数据"
+        ></ant-picker>
+      </ant-list-item>
+    </ant-list>
+  </view>
 </ant-config-provider>

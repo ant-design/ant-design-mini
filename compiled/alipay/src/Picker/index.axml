@@ -27,7 +27,7 @@
           a:if="{{placeholder}}"
           class="ant-picker-value-placeholder"
         >
-          1222{{value.global.placeholder}}
+          {{locale.global.placeholder}}
         </view>
       </block>
     </slot>

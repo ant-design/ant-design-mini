@@ -20,7 +20,7 @@
       <view
         wx:if="{{placeholder}}"
         class="ant-picker-value-placeholder"
-      >1222{{value.global.placeholder}}</view>
+      >{{locale.global.placeholder}}</view>
     </block>
   </view>
   <slot
