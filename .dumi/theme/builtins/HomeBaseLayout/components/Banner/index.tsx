@@ -114,6 +114,14 @@ const useStyle = ({
       width: 715px;
       pointer-events: none;
     `,
+    featureIcon4Light: css`
+      position: absolute;
+      z-index: 90;
+      right: 10px;
+      top: 150px;
+      width: 690px;
+      pointer-events: none;
+    `,
     featureIcon5: css`
       position: absolute;
       z-index: 100;
@@ -247,7 +255,7 @@ export default ({
               data-atropos-offset={5}
             />
             <img
-              css={style.featureIcon4}
+              css={isDark ? style.featureIcon4 : style.featureIcon4Light}
               src={isDark ? icon4Dark : icon4Light}
               data-atropos-offset={0.5}
             />
