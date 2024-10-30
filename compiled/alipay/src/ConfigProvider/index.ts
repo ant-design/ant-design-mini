@@ -15,7 +15,13 @@ ComponentWithAnyStoreImpl(
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  {},
+  {
+    onInit() {
+      const [locale] = getValueFromProps(this, ['locale']);
+      // 初始化读取locale并更新store数据
+      i18nController.switchLocale(locale);
+    },
+  },
   ConfigProviderDefaultProps,
   {
     /**
@@ -38,13 +44,8 @@ ComponentWithAnyStoreImpl(
   },
   [],
   {
-    // 初始化读取locale并更新store数据,如果有主题则处理主题数据
-    onInit() {
-      const [locale, themeVars] = getValueFromProps(this, [
-        'locale',
-        'themeVars',
-      ]);
-      i18nController.switchLocale(locale);
+    didMount() {
+      const [themeVars] = getValueFromProps(this, ['themeVars']);
       this.convertThemeVarsToCSSVars(themeVars);
     },
   }

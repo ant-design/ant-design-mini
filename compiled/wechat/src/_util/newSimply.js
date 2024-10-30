@@ -48,10 +48,10 @@ export var ComponentWithAnyStoreImpl = function (storeOptions, componentOptions,
     // 为了让代码好看点，把 store 的 dispose 存到一个 class 里
     var storeBinder = new StoreBinder(storeOptions);
     var onInitBackup = componentOptions.onInit || (function () { });
-    componentOptions.onInit = function () {
+    instanceMethods.onInit = function () {
         // 先绑定 store 再执行用户的 onInit hooks
         storeBinder.init(this);
-        onInitBackup();
+        onInitBackup.call(this);
     };
     var onDidUnmountBackup = componentOptions.didUnmount || (function () { });
     componentOptions.didUnmount = function () {

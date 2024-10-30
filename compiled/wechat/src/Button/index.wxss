@@ -26,8 +26,8 @@
   padding: 4px 12px 4px 12px;
 }
 .ant-button-primary {
-  color: #ffffff;
-  background-color: #1677ff;
+  color: var(--button-primary-color, #ffffff);
+  background-color: var(--button-primary-background-color, #1677ff);
   box-shadow: inset 0 0 0 1px #1677ff;
 }
 .ant-button-default {

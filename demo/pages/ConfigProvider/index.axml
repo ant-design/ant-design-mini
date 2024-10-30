@@ -20,21 +20,14 @@
   </ant-config-provider>
 </ant-container>
 <ant-container title="深色模式">
-  <ant-config-provider theme="dark">
-    <ant-button type="primary" onTap="handleTap">
-      主要按钮
-    </ant-button>
-  </ant-config-provider>
-</ant-container>
-<ant-container title="浅色模式">
-  <ant-config-provider theme="light">
+  <ant-config-provider theme="dark" locale={{locale}}>
     <ant-button type="primary" onTap="handleTap">
       主要按钮
     </ant-button>
   </ant-config-provider>
 </ant-container>
 <ant-container title="主题定制">
-  <ant-config-provider themeVars={{themeVars}}>
+  <ant-config-provider themeVars={{themeVars}} locale={{locale}}>
     <ant-button type="primary" onTap="handleTap">
       主要按钮
     </ant-button>

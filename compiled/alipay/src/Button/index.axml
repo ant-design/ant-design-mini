@@ -29,8 +29,8 @@
         a:if="{{!inline && subText}}"
         class="ant-button-content-subtext"
       >
-        {{subText}}
-      </view>
+          {{subText}}
+        </view>
     </view>
     <view
       a:if="{{loading}}"

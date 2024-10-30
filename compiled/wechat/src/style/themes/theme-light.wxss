@@ -1,0 +1,8 @@
+/* 浅色模式的css变量 */
+@media (prefers-color-scheme: light) {
+  :root,
+  page {
+    --button-primary-color: #333333;
+    --button-primary-background-color: #1677ff;
+  }
+}

@@ -1,41 +1,21 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { ButtonDefaultProps } from './props';
+import { effect } from '@preact/signals-core';
 import fmtEvent from '../_util/fmtEvent';
+import { ComponentWithAnyStoreImpl } from '../_util/newSimply';
+import i18nController from '../_util/store';
+import { ButtonDefaultProps } from './props';
 
-Component({
-  /// #if WECHAT
-  properties: {
-    className: String,
-    style: String,
-    disabled: Boolean,
-    activeClassName: String,
-    subText: String,
-    inline: Boolean,
-    size: {
-      type: String,
-      value: 'medium',
-    },
-    icon: String,
-    loading: Boolean,
-    danger: Boolean,
-    formType: {
-      type: String,
-      value: 'button',
-    },
-    publicId: String,
-    openType: String,
-    scope: String,
-    type: {
-      type: String,
-      value: 'default',
+ComponentWithAnyStoreImpl(
+  {
+    store: () => i18nController,
+    updateHook: effect,
+    mapState: {
+      locale: ({ store }) => store.currentLocale.value,
     },
   },
-  options: {
-    styleIsolation: 'shared',
-  } as unknown,
-  /// #endif
-  props: ButtonDefaultProps,
-  methods: {
+  {},
+  ButtonDefaultProps,
+  {
     /// #if ALIPAY
     onTap(e) {
       const { onTap, disabled, loading, onDisabledTap } = this.props;
@@ -117,4 +97,9 @@ Component({
     },
     /// #endif
   },
-});
+  {},
+  [],
+  {
+    // 初始化读取locale并更新store数据,如果有主题则处理主题数据
+  }
+);

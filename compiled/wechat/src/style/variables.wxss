@@ -1,0 +1,5 @@
+:root,
+page {
+  --button-primary-color: #000;
+  --button-primary-background-color: green;
+}

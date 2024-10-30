@@ -63,7 +63,10 @@ export const ComponentWithAnyStoreImpl = <
     ThisType<
       Omit<ComponentOptions, keyof IComponentOptions> & {
         $store: S;
-      }
+        props: Props;
+      } & ThisType<
+          ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods>
+        >
     >,
   defaultProps: Props,
   methods?: Methods &
@@ -76,10 +79,10 @@ export const ComponentWithAnyStoreImpl = <
   const storeBinder = new StoreBinder(storeOptions);
 
   const onInitBackup = componentOptions.onInit || (() => {});
-  componentOptions.onInit = function () {
+  instanceMethods.onInit = function () {
     // 先绑定 store 再执行用户的 onInit hooks
     storeBinder.init(this as unknown as TStoreInitOptions<S>);
-    onInitBackup();
+    onInitBackup.call(this as unknown as TStoreInitOptions<S>);
   };
 
   const onDidUnmountBackup = componentOptions.didUnmount || (() => {});
@@ -141,7 +144,6 @@ export class StoreBinder<S, M extends TMapState<S>> {
         });
       });
     });
-
     theThis.$store = store;
 
     this.disposeStore = () => disposes.forEach((d) => d());

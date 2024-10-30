@@ -60,10 +60,7 @@ ComponentWithAnyStoreImpl({
             'options',
             'visible',
             'defaultVisible',
-            'props',
-            'locale',
-        ]), options = _a[0], visible = _a[1], defaultVisible = _a[2], props = _a[3], locale = _a[4];
-        console.log(props, '=========888888888', locale, '=======999999');
+        ]), options = _a[0], visible = _a[1], defaultVisible = _a[2];
         var columns = this.getterColumns(options);
         this.setData({
             columns: columns,
@@ -213,6 +210,7 @@ ComponentWithAnyStoreImpl({
     columns: [],
     visible: false,
     selectedIndex: [],
+    locale: {},
 }, [
     mixinValue({
         transformValue: function (value) {

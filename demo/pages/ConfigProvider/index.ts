@@ -3,7 +3,6 @@ import esES from './es-ES';
 Page({
   data: {
     locale: esES,
-    theme: 'dark',
     defaultValue: '',
     value: '',
     list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],

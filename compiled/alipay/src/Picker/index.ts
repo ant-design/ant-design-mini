@@ -32,15 +32,11 @@ ComponentWithAnyStoreImpl(
       return 'visible' in getValueFromProps(this);
     },
     initData() {
-      const [options, visible, defaultVisible, props, locale] =
-        getValueFromProps(this, [
-          'options',
-          'visible',
-          'defaultVisible',
-          'props',
-          'locale',
-        ]);
-      console.log(props, '=========888888888', locale, '=======999999');
+      const [options, visible, defaultVisible] = getValueFromProps(this, [
+        'options',
+        'visible',
+        'defaultVisible',
+      ]);
       const columns = this.getterColumns(options);
       this.setData(
         {
@@ -206,6 +202,7 @@ ComponentWithAnyStoreImpl(
     columns: [],
     visible: false,
     selectedIndex: [],
+    locale: {},
   },
   [
     mixinValue({

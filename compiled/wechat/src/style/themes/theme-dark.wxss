@@ -2,6 +2,7 @@
 @media (prefers-color-scheme: dark) {
   :root,
   page {
-    --COLOR_BRAND1: #3086ff;
+    --button-primary-color: #e6e6e6;
+    --button-primary-background-color: #3086ff;
   }
 }
