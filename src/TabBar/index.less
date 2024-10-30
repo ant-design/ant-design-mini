@@ -1,7 +1,8 @@
 @import (reference) './variable.less';
 
 @tabsPrefix: ant-tab-bar;
-@tabSize: 48 * @rpx;
+@tabSize: 44 * @rpx;
+@tabLargeSize: 72 * @rpx;
 @textSize: 20 * @rpx;
 
 .@{tabsPrefix} {
@@ -24,9 +25,10 @@
   }
 
   &-icon {
-    max-width: @tabSize;
-    max-height: @tabSize;
     font-size: @tabSize;
+  }
+  &-large-icon {
+    font-size: @tabLargeSize;
   }
 
   &-image {

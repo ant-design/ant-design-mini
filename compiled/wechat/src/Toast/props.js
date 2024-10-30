@@ -8,4 +8,5 @@ export var ToastDefaultProps = {
     maskCloseable: false,
     maskStyle: '',
     type: null,
+    textType: 'long',
 };

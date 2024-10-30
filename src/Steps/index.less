@@ -5,6 +5,7 @@
 .@{stepsPrefix} {
   display: flex;
   overflow: hidden;
+  line-height: 1.4;
 
   &-horizontal {
     flex-direction: row;
@@ -14,6 +15,22 @@
   &-vertical {
     display: block;
     padding: 64 * @rpx;
+    .ant-steps-item-active {
+      &::after {
+        background: linear-gradient(
+          to top,
+          @COLOR_GREY_2 0%,
+          @COLOR_GREY_2 50%,
+          @COLOR_BRAND1 50%,
+          @COLOR_BRAND1 100%
+        );
+      }
+    }
+    .ant-steps-item-non-active {
+      &::after {
+        background: @COLOR_GREY_2;
+      }
+    }
   }
 
   &-item:last-child &-item-indicator-vertical::after {
@@ -34,18 +51,17 @@
   margin: 16 * @rpx 0 16 * @rpx 0;
 
   &-vertical {
-    padding-bottom: 48 * @rpx;
+    padding-bottom: 24 * @rpx;
     margin: 0;
-
     .ant-steps-item-title {
-      margin-bottom: 8 * @rpx;
-      font-size: 26 * @rpx;
+      font-size: 34 * @rpx;
       color: @COLOR_TEXT_PRIMARY;
     }
 
     .ant-steps-item-desc {
-      font-size: 24 * @rpx;
+      font-size: 30 * @rpx;
       color: @COLOR_TEXT_ASSIST;
+      padding-top: 4 * @rpx;
     }
 
     &::after {
@@ -125,8 +141,7 @@
     display: flex;
 
     .ant-steps-item-title {
-      margin-bottom: 4 * @rpx;
-      font-size: 26 * @rpx;
+      font-size: 24 * @rpx;
 
       &:empty {
         display: none;
@@ -134,7 +149,7 @@
     }
 
     .ant-steps-item-desc {
-      margin: 4 * @rpx 0 4 * @rpx 0;
+      padding-top: 4 * @rpx;
       color: @COLOR_TEXT_ASSIST;
       font-size: 24 * @rpx;
 
@@ -201,10 +216,6 @@
         border-radius: 50%;
         background-color: @COLOR_GREY_2;
       }
-    }
-
-    & .@{stepItemPrefix}-title {
-      color: @COLOR_TEXT_ASSIST;
     }
   }
 

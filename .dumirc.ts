@@ -92,7 +92,7 @@ export default defineConfig({
         },
       ],
     },
-    footer: `© 2024 Made with ❤ by
+    footer: `© ${new Date().getFullYear()} Made with ❤ by
         <a className={styles.copyrightLink} href='https://xtech.antfin.com' target='_blank'>
           XTech
         </a>`,
@@ -131,45 +131,7 @@ export default defineConfig({
       ],
     },
     features: {
-      'zh-CN': [
-        {
-          title: '高性能',
-          details: '无需配置，即可拥有最佳的包体积大小和极致的性能',
-        },
-        {
-          title: '可定制',
-          details: '可以高效地对组件外观进行调整或创造自己的主题',
-        },
-        {
-          title: '原子化',
-          details: '每个组件的功能不多也不少，恰好就是你所需',
-        },
-        {
-          title: '流畅感',
-          details: '拥有流畅的手势和细腻的动画，助力产品打造出极致体验',
-        },
-      ],
-      'en': [
-        {
-          title: 'high performance',
-          details:
-            'No configuration required, you can have the best package size and extreme performance',
-        },
-        {
-          title: 'Customizable',
-          details:
-            'You can efficiently adjust the appearance of components or create your own themes',
-        },
-        {
-          title: 'Atomization',
-          details: 'Each component has just what you need, no more, no less',
-        },
-        {
-          title: 'Sense of Fluency',
-          details:
-            'With smooth gestures and delicate animations, it helps the product create the ultimate experience',
-        },
-      ],
+
     },
     loading: {
       skeleton: ['/guide', '/components', '/guide', '/components'],
@@ -505,6 +467,97 @@ export default defineConfig({
         },
       ],
     },
+    // Header 配置
+    headerLocales: {
+      'zh-CN': {
+        key: 'zh-CN',
+        theme: '切换主题',
+      },
+      'en': {
+        key: 'en',
+        theme: 'Theme Switch'
+      }
+    },
+    // Banner 配置
+    bannerLocales: {
+      'zh-CN': {
+        key: 'zh-CN',
+        desc: '# 探索移动端小程序的极致体验',
+        integration: '快速接入',
+        try: '在线体验',
+      },
+      'en': {
+        key: 'en',
+        desc: '# Explore the Ultimate Experience of Mobile Mini Programs',
+        integration: 'Quick Start',
+        try: 'Try It Online',
+      }
+    },
+    // 相关框架
+    frameLocales: {
+      'zh-CN': {
+        key: 'zh-CN',
+        title: '设计语言与研发框架',
+        subTitle: '配套生态，让你快速搭建小程序应用'
+      },
+      'en': {
+        key: 'en',
+        title: 'Design Language and Development Framework',
+        subTitle: 'Comprehensive Ecosystem for Rapid Application Development'
+      }
+    },
+    // 组件模块
+    galleryLocales: {
+      'zh-CN': {
+        key: 'zh-CN',
+        title: '组件丰富，选用自如',
+        subTitle: '大量实用组件满足你的需求，灵活定制与拓展',
+      },
+      'en': {
+        key: 'en',
+        title: 'Rich Component Library, Easy to Choose and Use',
+        subTitle: 'A Wide Range of Practical Components to Meet Your Needs, with Flexible Customization and Expansion',
+      }
+    },
+    // 公告
+    noticeLocales: {
+      'zh-CN': {
+        key: 'zh-CN'
+      },
+      'en': {
+        key: 'en'
+      }
+    },
+    // 主题
+    themeLocales: {
+      'zh-CN': {
+        key: 'zh-CN',
+        title: '定制主题，国际语言',
+        subTitle: 'Ant Design Mini 开放更多主题样式，国际语言随意切换组件文案',
+        dark: '暗黑模式',
+        light: '明亮模式',
+        langDesc: '简体中文',
+      },
+      'en': {
+        key: 'en',
+        title: 'Customizable Themes, International Languages',
+        subTitle: 'Ant Design Mini Offers More Theme Styles and Seamless Switching of Component Text in Multiple Languages',
+        dark: 'Dark Mode',
+        light: 'Light Mode',
+        langDesc: 'English',
+      }
+    },
+    // 谁在使用
+    userLocales: {
+      'zh-CN': {
+        key: 'zh-CN',
+        title: 'Ant Design Mini 正在为 100+ 客户带来效能提升'
+      },
+      'en': {
+        key: 'en',
+        title: 'Ant Design Mini is Bringing Efficiency Gains to Over 100 Customers'
+      }
+    }
   }),
   locales: [
     { id: 'zh-CN', name: '中文', suffix: '' },

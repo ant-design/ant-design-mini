@@ -31,7 +31,7 @@
         </ant-badge>
         <block wx:else>
           <image-icon
-            class-name="ant-tab-bar"
+            className="{{!item.text ? 'ant-tab-bar  ant-tab-bar-large-icon' : 'ant-tab-bar'}}"
             image="{{mixin.value === index ? item.activeIcon : item.icon}}"
           ></image-icon>
         </block>

@@ -1,6 +1,8 @@
 <container title="基础用法">
   <popover
-    content="prompt"
+    content="简单的tips"
+    placement="top-left"
+    showCloseIcon="{{true}}"
     style="display: inline-block"
   >
     <ant-button
@@ -11,28 +13,78 @@
 </container>
 <container title="基础用法-回调函数">
   <popover
-    content="prompt"
+    content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
     placement="top"
+    showCloseIcon="{{true}}"
     bind:visiblechange="onVisibleChange"
   >
     <ant-button>点我</ant-button>
   </popover>
 </container>
-<container title="自定义颜色">
+<container title="基础用法-图片和行动点按钮">
+  <popover
+    content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
+    placement="top"
+    actionText="操作按钮"
+    onTapAction="onTapAction"
+    imageUrl="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*tLCBTqxataIAAAAAAAAAAAAADkqGAQ/original"
+    bind:visiblechange="onVisibleChange"
+  >
+    <ant-button>点我</ant-button>
+  </popover>
+</container>
+<container title="自定义">
   <view class="custom">
     <popover
       content="红色"
       color="red"
     >
       <!--display: inline-->
-      <text>点我红色</text>
+      <ant-button
+        style="margin-right: 24rpx;"
+        inline
+        type="primary"
+      >自定义颜色</ant-button>
+    </popover>
+    <popover content="左侧插槽">
+      <!--display: inline-->
+      <ant-button
+        inline
+        style="margin-right: 24rpx;"
+      >左侧插槽</ant-button>
+      <icon
+        slot="leftContent"
+        style="font-size: 48rpx; margin-right: 24rpx;"
+        type="FaceRecognitionOutline"
+      ></icon>
+    </popover>
+    <popover content="右侧插槽">
+      <!--display: inline-->
+      <ant-button
+        inline
+        style="margin-right: 24rpx;"
+      >右侧插槽</ant-button>
+      <icon
+        slot="rightContent"
+        style="font-size: 48rpx; margin-left: 24rpx;"
+        type="FaceRecognitionOutline"
+      ></icon>
     </popover>
     <popover
-      content="蓝色"
-      color="blue"
+      className="ant-popover-white"
+      color="white"
+      content="白色背景"
     >
       <!--display: inline-->
-      <text>点我蓝色</text>
+      <ant-button
+        inline
+        style="margin-right: 24rpx;"
+      >白色背景</ant-button>
+      <icon
+        slot="rightContent"
+        style="font-size: 48rpx; margin-left: 24rpx;"
+        type="FaceRecognitionOutline"
+      ></icon>
     </popover>
   </view>
 </container>

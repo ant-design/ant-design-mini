@@ -30,28 +30,17 @@
     }
     &-tip {
       position: absolute;
-      left: -210 * @rpx;
-      bottom: -36 * @rpx;
-      width: 100 * @rpx;
-      height: 100 * @rpx;
-      border-radius: 100 * @rpx;
-      line-height: 100 * @rpx;
+      left: -158 * @rpx;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 94 * @rpx;
+      height: 94 * @rpx;
+      border-radius: 94 * @rpx;
+      line-height: 94 * @rpx;
       text-align: center;
       background: @COLOR_TEXT_WEAK;
       color: @COLOR_WHITE;
-      font-size: 56 * @rpx;
-      &::after {
-        content: '';
-        position: absolute;
-        top: -30 * @rpx;
-        right: -60 * @rpx;
-        display: block;
-        margin: 40 * @rpx auto;
-        width: 0;
-        height: 0;
-        border: 40 * @rpx solid transparent;
-        border-left-color: @COLOR_TEXT_WEAK;
-      }
+      font-size: 50 * @rpx;
     }
   }
   &-active {

@@ -16,14 +16,15 @@
   color: #1677ff;
 }
 .ant-tab-bar-icon {
-  max-width: 24px;
-  max-height: 24px;
-  font-size: 24px;
+  font-size: 22px;
+}
+.ant-tab-bar-large-icon {
+  font-size: 36px;
 }
 .ant-tab-bar-image {
-  font-size: 24px;
-  max-width: 24px;
-  max-height: 24px;
+  font-size: 22px;
+  max-width: 22px;
+  max-height: 22px;
 }
 .ant-tab-bar-text {
   font-size: 10px;

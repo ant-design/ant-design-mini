@@ -14,8 +14,8 @@
         class="ant-result-image">
         <icon
           type="{{ result.iconType(type) }}"
-          className="ant-result-image-{{ type }}"
-          style="font-size: 64px" />
+          className="ant-result-icon ant-result-image-{{ type }}"
+        />
       </view>
       <image-icon
         a:elif="{{ image }}"

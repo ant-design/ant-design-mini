@@ -1,7 +1,12 @@
 <ant-popup
   visible="{{ basicVisible }}"
+  showClose="{{ true }}"
+  showBack="{{ true }}"
+  title="标题"
   height="{{ 250 }}"
   width="{{ 250 }}"
+  onClickCloseIcon="onClickCloseIcon"
+  onClickBackIcon="onClickBackIcon"
   position="{{ position }}"
   animation="{{ animation }}"
   onClose="handlePopupClose">
@@ -10,22 +15,46 @@
   </view>
 </ant-popup>
 <ant-popup
-  visible="{{ closeVisible }}"
-  height="{{ 250 }}"
+  visible="{{ customizeVisible }}"
+  height="{{ 350 }}"
+  onClickCloseIcon="onClickCloseIcon"
+  onClickBackIcon="onClickBackIcon"
+  backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*1zlbRZpwRXYAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
+  showClose="{{ true }}"
   animation="{{ animation }}"
   onClose="handlePopupClose">
-  <view style="padding: 12px">
-    从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
+  <view class="customize-content">
+    <image mode="widthFix" class="customize-content-image" src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*SD-BTaA-k_wAAAAAAAAAAAAADiWwAQ/original" />
+    <ant-button onTap="handlePopupClose" style="margin-top: 60rpx;" type="primary">去开通</ant-button>
+    <ant-button onTap="handlePopupClose" style="margin-top: 24rpx;">暂不开通</ant-button>
   </view>
-  <ant-icon
-    style="position: absolute; right: 12px; top: 12px"
-    type="CloseOutline"
-    onTap="handlePopupClose" />
+</ant-popup>
+<ant-popup
+  visible="{{ topImageVisible }}"
+  height="{{ 450 }}"
+  className="customize-top-image-popup"
+  onClickCloseIcon="onClickCloseIcon"
+  onClickBackIcon="onClickBackIcon"
+  backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
+  position="bottom"
+  showClose="{{ false }}"
+  animation="{{ animation }}"
+  onClose="handlePopupClose">
+  <view class="customize-content">
+    <image mode="widthFix" class="customize-content-image1" src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Jly2R5hYEm8AAAAAAAAAAAAADiWwAQ/original" />
+    <ant-button onTap="handlePopupClose" style="margin-top: 60rpx;" type="primary">去开通</ant-button>
+    <ant-button onTap="handlePopupClose" style="margin-top: 24rpx;">暂不开通</ant-button>
+    <view  class="customize-content-text">可在其他地方查看</view>
+  </view>
 </ant-popup>
 <ant-popup
   visible="{{ scrollVisible }}"
   position="bottom"
+  title="超长内容滚动"
+  onClickCloseIcon="onClickCloseIcon"
+  onClickBackIcon="onClickBackIcon"
+  showClose="{{ true }}"
   animation="{{ animation }}"
   onClose="handlePopupClose">
   <scroll-view
@@ -117,7 +146,8 @@
     onTap="handleShowBasic">
     右侧弹出
   </ant-button>
-  <ant-button onTap="handleShowClose">自定义弹窗内关闭</ant-button>
+  <ant-button onTap="handleShowCustomize">自定义弹框内容 并支持背景图</ant-button>
+  <ant-button onTap="handleShowTopImage">顶部图片</ant-button>
   <ant-button onTap="handleShowScroll">超长内容滚动</ant-button>
 </container>
 <list>

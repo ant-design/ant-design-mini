@@ -14,6 +14,11 @@ export interface IButtonProps extends IBaseProps {
    */
   type?: 'default' | 'primary' | 'text';
   /**
+   * @description 按钮是否是辅助按钮 只有 default 和 primary 按钮才消费该参数
+   * @default false
+   */
+  aide?: boolean;
+  /**
    * @description 是否禁用
    * @default false
    */
@@ -91,4 +96,5 @@ export const ButtonDefaultProps: Partial<IButtonProps> = {
   type: 'default',
   formType: 'button',
   size: 'medium',
+  aide: false,
 };

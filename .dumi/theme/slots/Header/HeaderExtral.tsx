@@ -1,13 +1,14 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { Tooltip } from 'antd';
-import { DarkTheme } from 'antd-token-previewer/lib/icons';
+import { DarkTheme, Light } from 'antd-token-previewer/lib/icons';
 import { FormattedMessage } from 'dumi';
 import { useContext, type FC } from 'react';
 import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
 import useSiteToken from '../../hooks/useSiteToken';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
+import useLocaleValue from "../../../theme/hooks/useLocaleValue";
 
 const BASE_SIZE = '1.2em';
 
@@ -61,19 +62,27 @@ const HeaderExtra: FC = () => {
   const { github, socialLinks, prefersColor } = useAdditionalThemeConfig();
   const style = useStyle();
   const { theme, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
+  const lang = useLocaleValue('headerLocales');
+  const isDark = theme.includes('dark');
   return (
     <div>
       {prefersColor.switch && (
-        <Tooltip title={<FormattedMessage id="app.theme.switch" />}>
+        <Tooltip
+          title={lang.theme}
+        >
           <button
             css={[style.btn, style.theme]}
             type="button"
             onClick={() => {
-              const themeValue = theme.includes('dark') ? 'light' : 'dark';
+              const themeValue = isDark ? 'light' : 'dark';
               updateSiteConfig({ theme: [themeValue] });
             }}
           >
-            <DarkTheme />
+            {
+              isDark ?
+                <DarkTheme /> :
+                <Light/>
+            }
           </button>
         </Tooltip>
       )}

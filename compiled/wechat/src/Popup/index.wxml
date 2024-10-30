@@ -21,6 +21,30 @@
     style="{{utils.getContentStyle(position, animation, duration, width, height)}}"
     bindanimationend="onAnimationEnd"
   >
+    <image
+      wx:if="{{backgroundImage}}"
+      src="{{backgroundImage}}"
+      mode="widthFix"
+      class="ant-popup-content-bg"
+    ></image>
+    <view
+      wx:if="{{title || showClose || showBack}}"
+      class="ant-popup-content-header"
+    >
+      <ant-icon
+        wx:if="{{showBack}}"
+        className="ant-popup-content-header-icon ant-popup-content-header-icon-back"
+        type="LeftOutline"
+        bind:tap="onClickBackIcon"
+      ></ant-icon>
+      <view class="ant-popup-content-header-title">{{title}}</view>
+      <ant-icon
+        wx:if="{{showClose}}"
+        className="ant-popup-content-header-icon ant-popup-content-header-icon-close"
+        type="CloseOutline"
+        bind:tap="onClickCloseIcon"
+      ></ant-icon>
+    </view>
     <slot></slot>
     <slot
       name="content"

@@ -43,7 +43,7 @@
             index="{{ index }}">
           <!-- #endif -->
             <image-icon
-              className="ant-tab-bar"
+              className="{{ !item.text ? 'ant-tab-bar  ant-tab-bar-large-icon' : 'ant-tab-bar' }}"
               image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
           <!-- #if ALIPAY -->
           </slot>

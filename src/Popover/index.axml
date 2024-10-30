@@ -25,8 +25,17 @@
     <view
       class="ant-popover-inner {{ contentClassName || '' }}"
       style="{{ color ? 'background:' + color : '' }};{{ contentStyle || '' }}">
+      <view a:if="{{ imageUrl }}" class="ant-popover-image">
+        <image-icon className="ant-popover-image-content" image="{{ imageUrl }}" />
+      </view>
+      <slot a:else name="leftContent">
+      </slot>
       <!-- #if ALIPAY -->
-      <slot name="content">{{ content }}</slot>
+      <slot name="content">
+        <view class="ant-popover-inner-text">
+          {{ content }}
+        </view>
+      </slot>
       <!-- #endif -->
       <!-- #if WECHAT -->
       <slot
@@ -34,6 +43,13 @@
         name="content" />
       <block wx:else>{{ content }}</block>
       <!-- #endif -->
+      <view a:if="{{ actionText }}" onTap="onTapAction" class="ant-popover-action">
+        {{ actionText }}
+      </view>
+      <slot a:else name="rightContent"/>
+      <view onTap="onVisibleChange" className="ant-popover-close" a:if="{{ showCloseIcon }}">
+        <image-icon className="ant-popover-close-icon" image="CloseOutline" />
+      </view>
     </view>
   </view>
 </view>

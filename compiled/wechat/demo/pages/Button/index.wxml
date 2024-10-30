@@ -9,11 +9,38 @@
   <ant-button
     type="default"
     bind:tap="handleTap"
-  >次要按钮</ant-button>
+  >操作线框按钮</ant-button>
   <ant-button
     type="text"
     bind:tap="handleTap"
   >文本按钮</ant-button>
+</ant-container>
+<ant-container
+  title="辅助按钮 只有default和primary类型有"
+  className="list"
+>
+  <ant-button
+    type="primary"
+    aide
+    bind:tap="handleTap"
+  >辅助按钮</ant-button>
+  <ant-button
+    type="primary"
+    aide
+    disabled
+    bind:tap="handleTap"
+  >辅助按钮</ant-button>
+  <ant-button
+    type="default"
+    aide
+    bind:tap="handleTap"
+  >操作线框辅助按钮</ant-button>
+  <ant-button
+    type="default"
+    aide
+    disabled
+    bind:tap="handleTap"
+  >操作线框辅助按钮</ant-button>
 </ant-container>
 <ant-container
   title="带辅助文案按钮"
