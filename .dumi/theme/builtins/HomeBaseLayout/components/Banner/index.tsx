@@ -236,38 +236,38 @@ export default ({
             <img
               css={style.featureContentMainImg}
               src={isDark ? contentDark : contentLight}
-              data-atropos-offset={0}
+              data-atropos-offset={0.5}
             />
 
             <img
               css={style.featureIcon1}
               src={isDark ? icon1Dark : icon1Light}
-              data-atropos-offset={7}
+              data-atropos-offset={20}
             />
             <img
               css={style.featureIcon2}
               src={isDark ? icon2Dark : icon2Light}
-              data-atropos-offset={6}
+              data-atropos-offset={18}
             />
             <img
               css={style.featureIcon3}
               src={isDark ? icon3Dark : icon3Light}
-              data-atropos-offset={5}
+              data-atropos-offset={16}
             />
             <img
               css={isDark ? style.featureIcon4 : style.featureIcon4Light}
               src={isDark ? icon4Dark : icon4Light}
-              data-atropos-offset={0.5}
+              data-atropos-offset={2}
             />
             <img
               css={style.featureIcon5}
               src={isDark ? icon5Dark : icon5Light}
-              data-atropos-offset={4}
+              data-atropos-offset={14}
             />
             <img
               css={style.featureIcon6}
               src={isDark ? icon6Dark : icon6Light}
-              data-atropos-offset={3}
+              data-atropos-offset={12}
             />
           </Atropos>
         </div>
