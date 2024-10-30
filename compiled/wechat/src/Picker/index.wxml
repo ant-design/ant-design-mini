@@ -17,10 +17,7 @@
       class="ant-picker-value-text"
     >{{formatValue}}</view>
     <block wx:else>
-      <view
-        wx:if="{{placeholder}}"
-        class="ant-picker-value-placeholder"
-      >{{locale.global.placeholder}}222</view>
+      <view class="ant-picker-value-placeholder">{{placeholder === undefined ? global.placeholder : placeholder}}</view>
     </block>
   </view>
   <slot
@@ -44,7 +41,7 @@
       hover-start-time="20"
       hover-stay-time="50"
       bind:tap="onCancel"
-    >{{cancelText}}</view>
+    >{{cancelText === undefined ? cancelText : global.cancelText}}</view>
     <view class="ant-picker-header-item ant-picker-header-title">
       <view>{{title}}</view>
     </view>
@@ -54,7 +51,7 @@
       hover-start-time="20"
       hover-stay-time="50"
       bind:tap="onOk"
-    >{{locale.global.placeholder}}</view>
+    >{{placeholder === undefined ? global.placeholder : placeholder}}</view>
   </view>
   <view class="ant-picker-content">
     <slot name="content-header"></slot>
@@ -92,7 +89,7 @@
       <picker-view class="ant-picker-picker-view">
         <picker-view-column class="ant-picker-picker-view-column">
           <!--display: inline-->
-          <text style="color: #ccc">{{emptyText}}</text>
+          <text style="color: #ccc">{{emptyText === undefined ? emptyText : global.emptyText}}</text>
         </picker-view-column>
       </picker-view>
     </block>

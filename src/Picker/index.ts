@@ -21,7 +21,7 @@ ComponentWithAnyStoreImpl(
     store: () => i18nController,
     updateHook: effect,
     mapState: {
-      locale: ({ store }) => store.currentLocale.value,
+      global: ({ store }) => store.currentLocale.value.global,
     },
   },
   {},

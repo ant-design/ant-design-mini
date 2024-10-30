@@ -44,9 +44,9 @@ ComponentWithAnyStoreImpl({
     store: function () { return i18nController; },
     updateHook: effect,
     mapState: {
-        locale: function (_a) {
+        global: function (_a) {
             var store = _a.store;
-            return store.currentLocale.value;
+            return store.currentLocale.value.global;
         },
     },
 }, {}, PickerDefaultProps, {

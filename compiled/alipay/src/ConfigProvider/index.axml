@@ -2,5 +2,5 @@
   class="ant-config-provider {{className || ''}}"
   style="{{cssVarStyle || ''}}"
 >
-  <slot locale="{{props}}"></slot>
+  <slot></slot>
 </view>

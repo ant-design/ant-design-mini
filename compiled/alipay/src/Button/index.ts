@@ -1,21 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { effect } from '@preact/signals-core';
 import fmtEvent from '../_util/fmtEvent';
-import { ComponentWithAnyStoreImpl } from '../_util/newSimply';
-import i18nController from '../_util/store';
 import { ButtonDefaultProps } from './props';
 
-ComponentWithAnyStoreImpl(
-  {
-    store: () => i18nController,
-    updateHook: effect,
-    mapState: {
-      locale: ({ store }) => store.currentLocale.value,
-    },
-  },
-  {},
-  ButtonDefaultProps,
-  {
+Component({
+  props: ButtonDefaultProps,
+  methods: {
     onTap(e) {
       const { onTap, disabled, loading, onDisabledTap } = this.props;
       if (disabled && onDisabledTap) {
@@ -64,9 +53,4 @@ ComponentWithAnyStoreImpl(
       }
     },
   },
-  {},
-  [],
-  {
-    // 初始化读取locale并更新store数据,如果有主题则处理主题数据
-  }
-);
+});

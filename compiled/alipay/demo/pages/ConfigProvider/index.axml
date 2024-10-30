@@ -9,7 +9,6 @@
           onVisibleChange="handleTriggerPicker"
           onOk="handleOk"
           default-value="{{defaultValue}}"
-          placeholder="请选择"
           title="请选择"
           onChange="handleChange"
           options="{{list}}"
