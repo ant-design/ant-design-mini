@@ -6,8 +6,26 @@ import 'atropos/css'
 
 const bgLight = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/X8TvQKnc1MQAAAAAAAAAAAAADoEQAQFr/fmt.webp'
 const bgDark = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/3o3ASIN3QeEAAAAAAAAAAAAADoEQAQFr/fmt.webp'
-const contentLight = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/QSZ6QZwzwQgAAAAAAAAAAAAADoEQAQFr/fmt.webp'
-const contentDark = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/Y04ZTJBscLsAAAAAAAAAAAAADoEQAQFr/original'
+const contentLight = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/Q47ITaa7OkIAAAAAAAAAAAAADoEQAQFr/fmt.webp'
+const contentDark = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/CtzWRYHofh0AAAAAAAAAAAAADoEQAQFr/fmt.webp'
+
+const icon1Light = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/wF0aRYXHJYQAAAAAAAAAAAAADoEQAQFr/original';
+const icon1Dark = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/y0d7RaMUp3MAAAAAAAAAAAAADoEQAQFr/original';
+
+const icon2Light = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/GFR1QKB9oLEAAAAAAAAAAAAADoEQAQFr/original';
+const icon2Dark = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/MUY2SKAUDN8AAAAAAAAAAAAADoEQAQFr/original';
+
+const icon3Light = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/ublASKWCoCsAAAAAAAAAAAAADoEQAQFr/original';
+const icon3Dark = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/SpnxRLyYUI8AAAAAAAAAAAAADoEQAQFr/original';
+
+const icon4Light = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/2ccdRLZwLdAAAAAAAAAAAAAADoEQAQFr/fmt.webp';
+const icon4Dark = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/kMErRLYmniEAAAAAAAAAAAAADoEQAQFr/fmt.webp';
+
+const icon5Light = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/gdJFRppwDWQAAAAAAAAAAAAADoEQAQFr/original';
+const icon5Dark = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/Oy5tSKE-DYwAAAAAAAAAAAAADoEQAQFr/original';
+
+const icon6Light = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/v2FXQ5zpGfkAAAAAAAAAAAAADoEQAQFr/original';
+const icon6Dark = 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/iFYgR7GDoksAAAAAAAAAAAAADoEQAQFr/original';
 
 const useStyle = ({
   isDark,
@@ -20,7 +38,7 @@ const useStyle = ({
   return {
     mainContainer: css`
       width: 100%;
-      height: 602px;
+      height: 662px;
       background: url(${isDark ? bgDark : bgLight}) no-repeat center center;
       background-size: cover;
       position: relative;
@@ -32,6 +50,7 @@ const useStyle = ({
       width: 100%;
       height: 602px;
       position: relative;
+      padding-top: 60px;
 
       @media (min-width: 1600px) {
         max-width: 1600px;
@@ -53,18 +72,63 @@ const useStyle = ({
     featureWrap: css`
       width: 100%;
       height: 602px;
+      position: relative;
+    `,
+    featureContentMainImg: css`
+      height: 602px;
+      z-index: 90;
       position: absolute;
       right: 0;
       top: 0;
+      pointer-events: none;
     `,
-    featureContent: css`
-      width: 100%;
-      height: 583px;
-      text-align: right;
-      padding-right: 50px;
+    featureIcon1: css`
+      position: absolute;
+      z-index: 100;
+      right: 610px;
+      bottom: 170px;
+      width: 84px;
+      pointer-events: none;
     `,
-    featureContentMainImg: css`
-      height: 583px;
+    featureIcon2: css`
+      position: absolute;
+      z-index: 100;
+      top: 200px;
+      right: 0px;
+      width: 166px;
+      pointer-events: none;
+    `,
+    featureIcon3: css`
+      position: absolute;
+      z-index: 100;
+      right: 700px;
+      top: 246px;
+      width: 44px;
+      pointer-events: none;
+    `,
+    featureIcon4: css`
+      position: absolute;
+      z-index: 90;
+      right: 0px;
+      top: 150px;
+      width: 715px;
+      pointer-events: none;
+    `,
+    featureIcon5: css`
+      position: absolute;
+      z-index: 100;
+      right: 150px;
+      top: 0px;
+      width: 90px;
+      pointer-events: none;
+    `,
+    featureIcon6: css`
+      position: absolute;
+      z-index: 80;
+      right: 520px;
+      top: -10px;
+      width: 106px;
+      pointer-events: none;
     `,
     actionWrap: css`
       position: absolute;
@@ -158,18 +222,45 @@ export default ({
             css={style.featureWrap}
             highlight={false}
             activeOffset={0}
-            rotateXMax={1}
-            rotateYMax={1}
+            rotateXMax={0.5}
+            rotateYMax={0.5}
           >
-            <div
-              css={style.featureContent}
+            <img
+              css={style.featureContentMainImg}
+              src={isDark ? contentDark : contentLight}
+              data-atropos-offset={0}
+            />
+
+            <img
+              css={style.featureIcon1}
+              src={isDark ? icon1Dark : icon1Light}
+              data-atropos-offset={7}
+            />
+            <img
+              css={style.featureIcon2}
+              src={isDark ? icon2Dark : icon2Light}
+              data-atropos-offset={6}
+            />
+            <img
+              css={style.featureIcon3}
+              src={isDark ? icon3Dark : icon3Light}
+              data-atropos-offset={5}
+            />
+            <img
+              css={style.featureIcon4}
+              src={isDark ? icon4Dark : icon4Light}
               data-atropos-offset={0.5}
-            >
-              <img
-                css={style.featureContentMainImg}
-                src={isDark ? contentDark : contentLight}
-              />
-            </div>
+            />
+            <img
+              css={style.featureIcon5}
+              src={isDark ? icon5Dark : icon5Light}
+              data-atropos-offset={4}
+            />
+            <img
+              css={style.featureIcon6}
+              src={isDark ? icon6Dark : icon6Light}
+              data-atropos-offset={3}
+            />
           </Atropos>
         </div>
         <div css={style.actionWrap}>
