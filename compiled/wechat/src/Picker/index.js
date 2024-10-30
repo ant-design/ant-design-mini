@@ -36,11 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import { effect } from '@preact/signals-core';
 import mixinValue from '../mixins/value';
-import { ComponentWithAnyStoreImpl, getValueFromProps, triggerEvent, triggerEventOnly, triggerEventValues, } from '../_util/simply';
+import { ComponentWithSignalStoreImpl, getValueFromProps, triggerEvent, triggerEventOnly, triggerEventValues, } from '../_util/simply';
 import i18nController from '../_util/store';
 import { PickerDefaultProps } from './props';
 import { getMatchedItemByIndex, getMatchedItemByValue, getStrictMatchedItemByValue, } from './utils';
-ComponentWithAnyStoreImpl({
+ComponentWithSignalStoreImpl({
     store: function () { return i18nController; },
     updateHook: effect,
     mapState: {

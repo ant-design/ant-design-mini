@@ -1,10 +1,13 @@
 import { effect } from '@preact/signals-core';
 import kebabCase from 'lodash.kebabcase';
-import { ComponentWithAnyStoreImpl, getValueFromProps } from '../_util/simply';
+import {
+  ComponentWithSignalStoreImpl,
+  getValueFromProps,
+} from '../_util/simply';
 import i18nController from '../_util/store';
 import { ConfigProviderDefaultProps } from './props';
 
-ComponentWithAnyStoreImpl(
+ComponentWithSignalStoreImpl(
   {
     store: () => i18nController,
     updateHook: effect,

@@ -44,7 +44,7 @@ function mergeDefaultProps(defaultProps) {
     if (defaultProps === void 0) { defaultProps = {}; }
     return __assign({ className: '', style: '' }, defaultProps);
 }
-export var ComponentWithAnyStoreImpl = function (storeOptions, defaultProps, methods, data, mixins, instanceMethods) {
+export var ComponentWithSignalStoreImpl = function (storeOptions, defaultProps, methods, data, mixins, instanceMethods) {
     var storeBinder = new StoreBinder(storeOptions);
     var onInitBackup = (instanceMethods === null || instanceMethods === void 0 ? void 0 : instanceMethods.onInit) || (function () { });
     if (instanceMethods) {
@@ -135,4 +135,4 @@ export function getValueFromProps(instance, propName) {
     }
     return value;
 }
-export { ComponentWithAnyStoreImpl as ComponentWithAnyStore, ComponentImpl as Component, };
+export { ComponentWithSignalStoreImpl as ComponentWithSignalStore, ComponentImpl as Component, };

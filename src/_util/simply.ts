@@ -52,7 +52,7 @@ interface IComponentOptions {
   didUnmount?: () => void;
 }
 type ExtendedInstanceMethods = Partial<IComponentOptions> & Record<string, any>;
-export const ComponentWithAnyStoreImpl = <
+export const ComponentWithSignalStoreImpl = <
   S,
   M extends Record<string, (o: { store: S }) => unknown>,
   Props,
@@ -330,6 +330,6 @@ export function getValueFromProps(instance: any, propName?: string | string[]) {
 }
 
 export {
-  ComponentWithAnyStoreImpl as ComponentWithAnyStore,
+  ComponentWithSignalStoreImpl as ComponentWithSignalStore,
   ComponentImpl as Component,
 };

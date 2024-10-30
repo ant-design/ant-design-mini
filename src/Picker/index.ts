@@ -2,7 +2,7 @@ import { effect } from '@preact/signals-core';
 import equal from 'fast-deep-equal';
 import mixinValue from '../mixins/value';
 import {
-  ComponentWithAnyStoreImpl,
+  ComponentWithSignalStoreImpl,
   getValueFromProps,
   triggerEvent,
   triggerEventOnly,
@@ -16,7 +16,7 @@ import {
   getStrictMatchedItemByValue,
 } from './utils';
 
-ComponentWithAnyStoreImpl(
+ComponentWithSignalStoreImpl(
   {
     store: () => i18nController,
     updateHook: effect,
