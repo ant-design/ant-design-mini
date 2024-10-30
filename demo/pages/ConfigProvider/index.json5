@@ -15,6 +15,7 @@
     "ant-list-item": "../../../src/List/ListItem/index",
     "ant-config-provider": "../../../src/ConfigProvider/index",
     "ant-picker": "../../../src/Picker/index",
-    "ant-container": "../../../src/Container/index"
+    "ant-container": "../../../src/Container/index",
+    "ant-range-picker": "../../../src/DatePicker/RangePicker/index"
   }
 }

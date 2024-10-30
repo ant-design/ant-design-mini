@@ -15,6 +15,16 @@
           emptyText="暂无数据"
         />
       </ant-list-item>
+      <ant-list-item>
+        日期范围
+        <ant-range-picker
+          slot="extra"
+          defaultValue="{{ defaultDateRange }}"
+          onPickerChange="handlePickerRangeChange"
+          onVisibleChange="handleTriggerPicker"
+          onOk="handleRangeOk"
+        />
+      </ant-list-item>
     </ant-list>
   </ant-config-provider>
 </ant-container>

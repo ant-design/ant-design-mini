@@ -9,6 +9,11 @@ Page({
             'button-primary-color': 'yellow',
             'button-primary-background-color': 'green',
         },
+        defaultDate: new Date('2019/02/02').getTime(),
+        defaultDateRange: [
+            new Date('2022/03/21').getTime(),
+            new Date('2022/05/20').getTime(),
+        ],
     },
     handleTap() {
         my.alert({
@@ -23,5 +28,8 @@ Page({
     },
     handleTriggerPicker(visible, e) {
         console.log('onVisibleChange', visible, e);
+    },
+    handlePickerRangeChange(type, date, dateStr, e) {
+        console.log('onPickerRangeChange', type, date, dateStr, e);
     },
 });

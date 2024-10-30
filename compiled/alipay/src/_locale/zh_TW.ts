@@ -17,13 +17,7 @@ const zhTW: Locale = {
     end: '结束',
     startAndEnd: '开始/结束',
   },
-  // TODO 部分可以优化成global数据
   RangePicker: {
-    // okText: '确定',
-    // cancelText: '取消',
-    // placeholder: '请选择',
-    precision: 'day',
-    splitCharacter: '-',
     startPlaceholder: '未选择',
     endPlaceholder: '未选择',
   },
