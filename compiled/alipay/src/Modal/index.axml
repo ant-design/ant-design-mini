@@ -1,5 +1,7 @@
-<import-sjs from="./index.sjs" name="utils">
-</import-sjs>
+<import-sjs
+  from="./index.sjs"
+  name="utils"
+></import-sjs>
 <ant-popup
   class-name="ant-modal {{className || ''}}"
   style="{{style || ''}}"
@@ -15,22 +17,30 @@
 >
   <slot name="modal-top"></slot>
   <slot>
-    <view class="ant-modal-body {{bodyClassName || ''}}" style="{{bodyStyle || ''}}">
+    <view
+      class="ant-modal-body {{bodyClassName || ''}}"
+      style="{{bodyStyle || ''}}"
+    >
       <slot name="header"></slot>
       <image
         a:if="{{headerImage}}"
         class="ant-modal-body-header"
         mode="widthFix"
         src="{{headerImage}}"
-      >
-      </image>
+      ></image>
       <slot name="title">
-        <view a:if="{{title}}" class="ant-modal-body-title">
+        <view
+          a:if="{{title}}"
+          class="ant-modal-body-title"
+        >
           {{title}}
         </view>
       </slot>
       <slot name="content">
-        <view a:if="{{content}}" class="ant-modal-body-content">
+        <view
+          a:if="{{content}}"
+          class="ant-modal-body-content"
+        >
           {{content}}
         </view>
       </slot>
@@ -38,13 +48,13 @@
       <slot name="footer">
         <view class="ant-modal-body-footer ant-modal-body-footer-{{footer.layout || 'vertical'}}">
           <view
-            a:for="{{footer.buttons}}"
-            a:for-index="index"
-            a:for-item="item"
             data-item="{{item}}"
             onTap="onButtonTap"
             class="ant-modal-body-footer-button"
             style="flex: 1;"
+            a:for="{{footer.buttons}}"
+            a:for-index="index"
+            a:for-item="item"
           >
             <ant-button
               disabled="{{item.disabled}}"
@@ -52,8 +62,8 @@
               icon="{{item.icon}}"
               size="{{item.size}}"
               style="{{item.style}}"
-              activeClassName="{{item.activeClassName}}"
-              className="{{item.className}}"
+              active-class-name="{{item.activeClassName}}"
+              class-name="{{item.className}}"
               type="{{item.type || 'primary'}}"
             >
               {{item.text}}
@@ -63,6 +73,10 @@
       </slot>
     </view>
   </slot>
-  <ant-icon a:if="{{closable}}" type="CloseCircleOutline" onTap="onClose" class-name="ant-modal-close">
-  </ant-icon>
+  <ant-icon
+    a:if="{{closable}}"
+    type="CloseCircleOutline"
+    onTap="onClose"
+    class-name="ant-modal-close"
+  ></ant-icon>
 </ant-popup>

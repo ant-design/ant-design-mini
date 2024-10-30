@@ -30,7 +30,7 @@
         class="ant-popover-image"
       >
         <image-icon
-          className="ant-popover-image-content"
+          class-name="ant-popover-image-content"
           image="{{imageUrl}}"
         ></image-icon>
       </view>
@@ -55,10 +55,10 @@
       <view
         wx:if="{{showCloseIcon}}"
         bind:tap="onVisibleChange"
-        className="ant-popover-close"
+        class-name="ant-popover-close"
       >
         <image-icon
-          className="ant-popover-close-icon"
+          class-name="ant-popover-close-icon"
           image="CloseOutline"
         ></image-icon>
       </view>

@@ -7,7 +7,7 @@ import {
   triggerEvent,
   triggerEventOnly,
   triggerEventValues,
-} from '../_util/newSimply';
+} from '../_util/simply';
 import i18nController from '../_util/store';
 import { PickerDefaultProps } from './props';
 import {
@@ -21,10 +21,9 @@ ComponentWithAnyStoreImpl(
     store: () => i18nController,
     updateHook: effect,
     mapState: {
-      global: ({ store }) => store.currentLocale.value.global,
+      locale: ({ store }) => store.currentLocale.value,
     },
   },
-  {},
   PickerDefaultProps,
   {
     // visible受控判断

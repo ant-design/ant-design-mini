@@ -1,7 +1,7 @@
 <ant-popup
   visible="{{basicVisible}}"
-  showClose="{{true}}"
-  showBack="{{true}}"
+  show-close="{{true}}"
+  show-back="{{true}}"
   title="标题"
   height="{{250}}"
   width="{{250}}"
@@ -18,9 +18,9 @@
   height="{{350}}"
   onClickCloseIcon="onClickCloseIcon"
   onClickBackIcon="onClickBackIcon"
-  backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*1zlbRZpwRXYAAAAAAAAAAAAADiWwAQ/original"
+  background-image="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*1zlbRZpwRXYAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
-  showClose="{{true}}"
+  show-close="{{true}}"
   animation="{{animation}}"
   bind:close="handlePopupClose"
 >
@@ -44,12 +44,12 @@
 <ant-popup
   visible="{{topImageVisible}}"
   height="{{450}}"
-  className="customize-top-image-popup"
+  class-name="customize-top-image-popup"
   onClickCloseIcon="onClickCloseIcon"
   onClickBackIcon="onClickBackIcon"
-  backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
+  background-image="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
-  showClose="{{false}}"
+  show-close="{{false}}"
   animation="{{animation}}"
   bind:close="handlePopupClose"
 >
@@ -77,7 +77,7 @@
   title="超长内容滚动"
   onClickCloseIcon="onClickCloseIcon"
   onClickBackIcon="onClickBackIcon"
-  showClose="{{true}}"
+  show-close="{{true}}"
   animation="{{animation}}"
   bind:close="handlePopupClose"
 >

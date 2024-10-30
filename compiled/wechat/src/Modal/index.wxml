@@ -59,8 +59,8 @@
           icon="{{item.icon}}"
           size="{{item.size}}"
           style="{{item.style}}"
-          activeClassName="{{item.activeClassName}}"
-          className="{{item.className}}"
+          active-class-name="{{item.activeClassName}}"
+          class-name="{{item.className}}"
           type="{{item.type || 'primary'}}"
         >{{item.text}}</ant-button>
       </view>

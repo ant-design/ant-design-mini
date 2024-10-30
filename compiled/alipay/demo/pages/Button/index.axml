@@ -23,7 +23,7 @@
 </ant-container>
 <ant-container
   title="辅助按钮 只有default和primary类型有"
-  className="list"
+  class-name="list"
 >
   <ant-button
     type="primary"

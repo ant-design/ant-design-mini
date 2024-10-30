@@ -1,9 +1,6 @@
 import { effect } from '@preact/signals-core';
 import kebabCase from 'lodash.kebabcase';
-import {
-  ComponentWithAnyStoreImpl,
-  getValueFromProps,
-} from '../_util/newSimply';
+import { ComponentWithAnyStoreImpl, getValueFromProps } from '../_util/simply';
 import i18nController from '../_util/store';
 import { ConfigProviderDefaultProps } from './props';
 
@@ -13,13 +10,6 @@ ComponentWithAnyStoreImpl(
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
-    },
-  },
-  {
-    onInit() {
-      const [locale] = getValueFromProps(this, ['locale']);
-      // 初始化读取locale并更新store数据
-      i18nController.switchLocale(locale);
     },
   },
   ConfigProviderDefaultProps,
@@ -44,8 +34,13 @@ ComponentWithAnyStoreImpl(
   },
   [],
   {
-    didMount() {
-      const [themeVars] = getValueFromProps(this, ['themeVars']);
+    onInit() {
+      const [themeVars, locale] = getValueFromProps(this, [
+        'themeVars',
+        'locale',
+      ]);
+      // 初始化读取locale并更新store数据
+      i18nController.switchLocale(locale);
       this.convertThemeVarsToCSSVars(themeVars);
     },
   }

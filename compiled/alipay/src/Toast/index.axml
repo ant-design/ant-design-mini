@@ -29,7 +29,7 @@
     <am-icon
       a:elif="{{type === 'alipay'}}"
       type="AlipayCircleFill"
-      className="ant-toast-icon"
+      class-name="ant-toast-icon"
     ></am-icon>
   </view>
   <am-icon

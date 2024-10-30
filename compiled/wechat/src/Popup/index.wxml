@@ -33,14 +33,14 @@
     >
       <ant-icon
         wx:if="{{showBack}}"
-        className="ant-popup-content-header-icon ant-popup-content-header-icon-back"
+        class-name="ant-popup-content-header-icon ant-popup-content-header-icon-back"
         type="LeftOutline"
         bind:tap="onClickBackIcon"
       ></ant-icon>
       <view class="ant-popup-content-header-title">{{title}}</view>
       <ant-icon
         wx:if="{{showClose}}"
-        className="ant-popup-content-header-icon ant-popup-content-header-icon-close"
+        class-name="ant-popup-content-header-icon ant-popup-content-header-icon-close"
         type="CloseOutline"
         bind:tap="onClickCloseIcon"
       ></ant-icon>

@@ -13,7 +13,7 @@
     >
       <icon
         type="{{result.iconType(type)}}"
-        className="ant-result-icon ant-result-image-{{type}}"
+        class-name="ant-result-icon ant-result-image-{{type}}"
       ></icon>
     </view>
     <image-icon

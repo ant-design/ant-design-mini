@@ -32,15 +32,5 @@
         class="ant-button-content-subtext"
       >{{subText}}</view>
     </view>
-    <view
-      wx:if="{{loading}}"
-      class="ant-button-content-loading-container"
-    >
-      <loading
-        type="mini"
-        color="currentColor"
-        class-name="ant-button-content-loading"
-      ></loading>
-    </view>
   </view>
 </button>

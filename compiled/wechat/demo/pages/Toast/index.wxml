@@ -52,7 +52,7 @@
     bind:tap="handleShowToast"
   >加载态</ant-button>
   <ant-button
-    className="button"
+    class-name="button"
     inline="{{true}}"
     data-index="10"
     bind:tap="handleShowToast"
@@ -71,9 +71,9 @@
   content="最少字符"
   visible="{{toast1Show}}"
   duration="{{0}}"
-  showMask="{{true}}"
-  textType="short"
-  maskCloseable="{{true}}"
+  show-mask="{{true}}"
+  text-type="short"
+  mask-closeable="{{true}}"
   onClose="handleCloseToast"
   data-index="1"
 ></ant-toast>
@@ -82,9 +82,9 @@
   visible="{{toast4Show}}"
   data-index="4"
   duration="{{0}}"
-  textType="long"
-  showMask="{{true}}"
-  maskCloseable="{{true}}"
+  text-type="long"
+  show-mask="{{true}}"
+  mask-closeable="{{true}}"
   onClose="handleCloseToast"
 ></ant-toast>
 <ant-toast
@@ -155,7 +155,7 @@
   onClose="handleCloseToast"
   show-mask="{{true}}"
   duration="{{0}}"
-  maskCloseable="{{true}}"
+  mask-closeable="{{true}}"
 ></ant-toast>
 <ant-toast
   content="支付宝"
@@ -163,7 +163,7 @@
   data-index="10"
   type="alipay"
   onClose="handleCloseToast"
-  showMask="{{true}}"
+  show-mask="{{true}}"
   duration="{{0}}"
-  maskCloseable="{{true}}"
+  mask-closeable="{{true}}"
 ></ant-toast>

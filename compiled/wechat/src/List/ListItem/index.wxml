@@ -14,7 +14,7 @@
       <image-icon
         wx:if="{{image}}"
         image="{{image}}"
-        className="{{brief ? 'ant-list-item-image ant-list-item-image-large' : 'ant-list-item-image ant-list-item-image-normal'}}"
+        class-name="{{brief ? 'ant-list-item-image ant-list-item-image-large' : 'ant-list-item-image ant-list-item-image-normal'}}"
       ></image-icon>
       <block wx:else>
         <slot name="image"></slot>

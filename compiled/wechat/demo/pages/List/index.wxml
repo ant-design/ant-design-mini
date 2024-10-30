@@ -21,7 +21,7 @@
     <ant-list-item
       image="SetOutline"
       arrow="right"
-      extraBrief="详细信息"
+      extra-brief="详细信息"
       catch:tap="catchTap"
       data-info="设置"
     >设置</ant-list-item>

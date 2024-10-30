@@ -28,7 +28,7 @@
   list="{{list}}"
   mode="dark"
   onTapItem="handleTapItem"
-  autoAdjustOverflow="{{true}}"
+  auto-adjust-overflow="{{true}}"
   style="display: inline-block; margin: 20px"
   bind:visiblechange="handleVisibleChange2"
   color="#fff"

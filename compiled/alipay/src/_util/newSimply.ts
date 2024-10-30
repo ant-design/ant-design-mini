@@ -47,51 +47,47 @@ interface IComponentOptions {
   onInit?: () => void;
   didUnmount?: () => void;
 }
-
+type ExtendedInstanceMethods = Partial<IComponentOptions> & Record<string, any>;
 export const ComponentWithAnyStoreImpl = <
-  ComponentOptions extends IComponentOptions,
   S,
   M extends Record<string, (o: { store: S }) => unknown>,
   Props,
   Methods = unknown,
   Data = unknown,
   Mixins = unknown,
-  InstanceMethods = unknown
+  InstanceMethods extends ExtendedInstanceMethods = ExtendedInstanceMethods
 >(
   storeOptions: TStoreOptions<S, M>,
-  componentOptions: ComponentOptions &
-    ThisType<
-      Omit<ComponentOptions, keyof IComponentOptions> & {
-        $store: S;
-        props: Props;
-      } & ThisType<
-          ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods>
-        >
-    >,
   defaultProps: Props,
   methods?: Methods &
     ThisType<ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods>>,
   data?: Data & any,
   mixins?: Mixins & any,
-  instanceMethods?: InstanceMethods & any
+  instanceMethods?: InstanceMethods &
+    ThisType<
+      ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods> & {
+        $store: S;
+        props: Props;
+      }
+    >
 ) => {
-  // 为了让代码好看点，把 store 的 dispose 存到一个 class 里
   const storeBinder = new StoreBinder(storeOptions);
 
-  const onInitBackup = componentOptions.onInit || (() => {});
-  instanceMethods.onInit = function () {
-    // 先绑定 store 再执行用户的 onInit hooks
-    storeBinder.init(this as unknown as TStoreInitOptions<S>);
-    onInitBackup.call(this as unknown as TStoreInitOptions<S>);
-  };
+  const onInitBackup = instanceMethods?.onInit || (() => {});
+  if (instanceMethods) {
+    instanceMethods.onInit = function () {
+      storeBinder.init(this as unknown as TStoreInitOptions<S>);
+      onInitBackup.call(this as unknown as TStoreInitOptions<S>);
+    };
+  }
 
-  const onDidUnmountBackup = componentOptions.didUnmount || (() => {});
-  componentOptions.didUnmount = function () {
-    // 先执行用户的 didUnmount hooks 再解绑 store
-    onDidUnmountBackup();
-    // store dispose
-    storeBinder.dispose();
-  };
+  const onDidUnmountBackup = instanceMethods?.didUnmount || (() => {});
+  if (instanceMethods) {
+    instanceMethods.didUnmount = function () {
+      onDidUnmountBackup.call(this as unknown as TStoreInitOptions<S>);
+      storeBinder.dispose();
+    };
+  }
 
 
   Component({
@@ -99,7 +95,7 @@ export const ComponentWithAnyStoreImpl = <
     methods,
     mixins: mixins || [],
     data,
-    ...instanceMethods,
+    ...(instanceMethods || {}),
   });
 };
 
@@ -157,6 +153,30 @@ export class StoreBinder<S, M extends TMapState<S>> {
       this.disposeStore();
     }
   }
+}
+
+function ComponentImpl<
+  Props,
+  Methods = unknown,
+  Data = unknown,
+  Mixins = unknown,
+  InstanceMethods = unknown
+>(
+  defaultProps: Props,
+  methods?: Methods &
+    ThisType<ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods>>,
+  data?: Data & any,
+  mixins?: Mixins & any,
+  instanceMethods?: InstanceMethods & any
+) {
+
+  Component({
+    props: removeNullProps(mergeDefaultProps(defaultProps)),
+    methods,
+    mixins: mixins || [],
+    data,
+    ...instanceMethods,
+  });
 }
 
 export interface IPlatformEvent {
@@ -239,4 +259,7 @@ export function getValueFromProps(instance: any, propName?: string | string[]) {
   return value;
 }
 
-export { ComponentWithAnyStoreImpl as Component };
+export {
+  ComponentWithAnyStoreImpl as ComponentWithAnyStore,
+  ComponentImpl as Component,
+};

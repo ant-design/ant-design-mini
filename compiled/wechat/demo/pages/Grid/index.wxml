@@ -2,7 +2,7 @@
   <ant-grid
     items="{{items3}}"
     bind:tap="handleTapItem"
-    iconSize="{{36}}"
+    icon-size="{{36}}"
     columns="{{3}}"
   ></ant-grid>
 </ant-container>
@@ -39,14 +39,14 @@
   <ant-grid
     items="{{items2withDesc}}"
     bind:tap="handleTapItem"
-    iconSize="{{36}}"
+    icon-size="{{36}}"
     columns="{{2}}"
   ></ant-grid>
 </ant-container>
 <ant-container title="3列-带描述">
   <ant-grid
     items="{{items3withDesc}}"
-    iconSize="{{36}}"
+    icon-size="{{36}}"
     bind:tap="handleTapItem"
     columns="{{3}}"
   ></ant-grid>
@@ -62,7 +62,7 @@
 <ant-container title="2行-元素横向布局">
   <ant-grid
     items="{{items4}}"
-    gridItemLayout="horizontal"
+    grid-item-layout="horizontal"
     bind:tap="handleTapItem"
     columns="{{2}}"
   ></ant-grid>
@@ -79,8 +79,8 @@
   <ant-grid
     items="{{items2withDesc}}"
     bind:tap="handleTapItem"
-    iconSize="{{36}}"
-    gridItemLayout="horizontal"
+    icon-size="{{36}}"
+    grid-item-layout="horizontal"
     columns="{{2}}"
   ></ant-grid>
 </ant-container>
@@ -93,7 +93,7 @@
 </ant-container>
 <ant-container title="滑块可滑动">
   <swiper
-    indicatorDots="{{true}}"
+    indicator-dots="{{true}}"
     autoplay="{{true}}"
     vertical="{{false}}"
     interval="{{1000}}"

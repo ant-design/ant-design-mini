@@ -44,27 +44,27 @@ function mergeDefaultProps(defaultProps) {
     if (defaultProps === void 0) { defaultProps = {}; }
     return __assign({ className: '', style: '' }, defaultProps);
 }
-export var ComponentWithAnyStoreImpl = function (storeOptions, componentOptions, defaultProps, methods, data, mixins, instanceMethods) {
-    // 为了让代码好看点，把 store 的 dispose 存到一个 class 里
+export var ComponentWithAnyStoreImpl = function (storeOptions, defaultProps, methods, data, mixins, instanceMethods) {
     var storeBinder = new StoreBinder(storeOptions);
-    var onInitBackup = componentOptions.onInit || (function () { });
-    instanceMethods.onInit = function () {
-        // 先绑定 store 再执行用户的 onInit hooks
-        storeBinder.init(this);
-        onInitBackup.call(this);
-    };
-    var onDidUnmountBackup = componentOptions.didUnmount || (function () { });
-    componentOptions.didUnmount = function () {
-        // 先执行用户的 didUnmount hooks 再解绑 store
-        onDidUnmountBackup();
-        // store dispose
-        storeBinder.dispose();
-    };
+    var onInitBackup = (instanceMethods === null || instanceMethods === void 0 ? void 0 : instanceMethods.onInit) || (function () { });
+    if (instanceMethods) {
+        instanceMethods.onInit = function () {
+            storeBinder.init(this);
+            onInitBackup.call(this);
+        };
+    }
+    var onDidUnmountBackup = (instanceMethods === null || instanceMethods === void 0 ? void 0 : instanceMethods.didUnmount) || (function () { });
+    if (instanceMethods) {
+        instanceMethods.didUnmount = function () {
+            onDidUnmountBackup.call(this);
+            storeBinder.dispose();
+        };
+    }
     Component(__assign({ properties: buildProperties(mergeDefaultProps(defaultProps)), options: {
             styleIsolation: 'shared',
             multipleSlots: true,
             virtualHost: true,
-        }, methods: methods, behaviors: mixins, data: data }, instanceMethods));
+        }, methods: methods, behaviors: mixins, data: data }, (instanceMethods || {})));
 };
 var StoreBinder = /** @class */ (function () {
     function StoreBinder(storeOptions) {
@@ -99,6 +99,13 @@ var StoreBinder = /** @class */ (function () {
     return StoreBinder;
 }());
 export { StoreBinder };
+function ComponentImpl(defaultProps, methods, data, mixins, instanceMethods) {
+    Component(__assign({ properties: buildProperties(mergeDefaultProps(defaultProps)), options: {
+            styleIsolation: 'shared',
+            multipleSlots: true,
+            virtualHost: true,
+        }, methods: methods, behaviors: mixins, data: data }, instanceMethods));
+}
 export function triggerEvent(instance, eventName, value, e) {
     // 首字母大写，然后加上 on
     instance.triggerEvent(eventName.toLocaleLowerCase(), value);
@@ -128,4 +135,4 @@ export function getValueFromProps(instance, propName) {
     }
     return value;
 }
-export { ComponentWithAnyStoreImpl as Component };
+export { ComponentWithAnyStoreImpl as ComponentWithAnyStore, ComponentImpl as Component, };

@@ -2,7 +2,7 @@
   <popover
     content="简单的tips"
     placement="top-left"
-    showCloseIcon="{{true}}"
+    show-close-icon="{{true}}"
     style="display: inline-block"
   >
     <ant-button
@@ -17,7 +17,7 @@
   <popover
     content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
     placement="top"
-    showCloseIcon="{{true}}"
+    show-close-icon="{{true}}"
     onVisibleChange="onVisibleChange"
   >
     <ant-button>点我</ant-button>
@@ -27,9 +27,9 @@
   <popover
     content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
     placement="top"
-    actionText="操作按钮"
+    action-text="操作按钮"
     onTapAction="onTapAction"
-    imageUrl="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*tLCBTqxataIAAAAAAAAAAAAADkqGAQ/original"
+    image-url="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*tLCBTqxataIAAAAAAAAAAAAADkqGAQ/original"
     onVisibleChange="onVisibleChange"
   >
     <ant-button>点我</ant-button>
@@ -73,7 +73,7 @@
       ></icon>
     </popover>
     <popover
-      className="ant-popover-white"
+      class-name="ant-popover-white"
       color="white"
       content="白色背景"
     >

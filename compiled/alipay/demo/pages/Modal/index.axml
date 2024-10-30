@@ -5,9 +5,8 @@
   closable="{{false}}"
   footer="{{footer1}}"
   onButtonTap="onButtonTap"
-  primaryButtonText="我知道了"
->
-</ant-modal>
+  primary-button-text="我知道了"
+></ant-modal>
 <ant-modal
   title="带标题的弹窗"
   content="人在天边月上明"
@@ -15,18 +14,16 @@
   visible="{{withTitleVisible}}"
   onClose="handleClose"
   footer="{{footer1}}"
->
-</ant-modal>
+></ant-modal>
 <ant-modal
   title="带头图"
-  headerImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Q5ekTJUJW8IAAAAAAAAAAAAADiWwAQ/original"
+  header-image="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Q5ekTJUJW8IAAAAAAAAAAAAADiWwAQ/original"
   content="人在天边月上明"
   onButtonTap="onButtonTap"
   visible="{{withImageVisible}}"
   onClose="handleClose"
   footer="{{footer1}}"
->
-</ant-modal>
+></ant-modal>
 <ant-modal
   title="确定删除吗？"
   content="删除后无法恢复"
@@ -34,8 +31,7 @@
   onClose="handleClose"
   onButtonTap="onButtonTap"
   footer="{{footer2}}"
->
-</ant-modal>
+></ant-modal>
 <ant-modal
   title="标题"
   content="人在天边月上明"
@@ -43,27 +39,35 @@
   onClose="handleClose"
   onButtonTap="onButtonTap"
   footer="{{footer3}}"
->
-</ant-modal>
+></ant-modal>
 <ant-modal
   title="签到成功!获得积分奖励"
   content="积分可用于好礼兑换"
   visible="{{slotWeakVisible}}"
   onClose="handleClose"
-  className="activity-modal"
+  class-name="activity-modal"
   onButtonTap="onButtonTap"
 >
-  <image slot="header" mode="widthFix" class="activity-modal-header-image" src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*HTNoQoZlIfAAAAAAAAAAAAAADiWwAQ/original">
-  </image>
+  <image
+    slot="header"
+    mode="widthFix"
+    class="activity-modal-header-image"
+    src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*HTNoQoZlIfAAAAAAAAAAAAAADiWwAQ/original"
+  ></image>
   <image
     slot="content-extra"
     mode="widthFix"
     class="activity-modal-content-image"
     src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*DNXISIKmwBUAAAAAAAAAAAAADiWwAQ/original"
+  ></image>
+  <view
+    slot="footer"
+    class="activity-modal-footer"
   >
-  </image>
-  <view slot="footer" class="activity-modal-footer">
-    <view class="activity-modal-footer-button" onTap="onClickActivityModalButton">
+    <view
+      class="activity-modal-footer-button"
+      onTap="onClickActivityModalButton"
+    >
       开心收下
     </view>
     <view class="activity-modal-footer-extra">
@@ -76,7 +80,7 @@
   content="出行打车小程序专用"
   visible="{{slotStrongVisible}}"
   onClose="handleClose"
-  className="activity-modal activity-modal-strong"
+  class-name="activity-modal activity-modal-strong"
   onButtonTap="onButtonTap"
 >
   <image
@@ -84,17 +88,21 @@
     mode="widthFix"
     class="activity-modal-strong-header-image"
     src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Sp52SL4mObQAAAAAAAAAAAAADiWwAQ/original"
-  >
-  </image>
+  ></image>
   <image
     slot="content-extra"
     mode="widthFix"
     class="activity-modal-content-image"
     src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Oju8Q4diuA0AAAAAAAAAAAAADiWwAQ/original"
+  ></image>
+  <view
+    slot="footer"
+    class="activity-modal-footer"
   >
-  </image>
-  <view slot="footer" class="activity-modal-footer">
-    <view class="activity-modal-footer-button" onTap="onClickActivityModalButton">
+    <view
+      class="activity-modal-footer-button"
+      onTap="onClickActivityModalButton"
+    >
       去使用
     </view>
     <view class="activity-modal-footer-extra">
@@ -102,47 +110,85 @@
     </view>
   </view>
 </ant-modal>
-<ant-modal visible="{{customBodyVisible}}" closable="{{false}}" onClose="handleClose">
+<ant-modal
+  visible="{{customBodyVisible}}"
+  closable="{{false}}"
+  onClose="handleClose"
+>
   <view class="body">
     <image
       mode="scaleToFill"
       src="https://mdn.alipayobjects.com/huamei_yujk1o/afts/img/A*xYjqRJiKsvoAAAAAAAAAAAAADuaJAQ/original"
       class="bodyImg"
-    >
-    </image>
+    ></image>
     <view class="bodyAction">
-      <ant-icon type="CloseCircleOutline" onTap="handleClose">
-      </ant-icon>
+      <ant-icon
+        type="CloseCircleOutline"
+        onTap="handleClose"
+      ></ant-icon>
     </view>
   </view>
 </ant-modal>
-<ant-container title="基础用法" class-name="list">
-  <ant-button data-field="basicVisible" onTap="handleOpen">
+<ant-container
+  title="基础用法"
+  class-name="list"
+>
+  <ant-button
+    data-field="basicVisible"
+    onTap="handleOpen"
+  >
     最简单的弹框
   </ant-button>
-  <ant-button data-field="withTitleVisible" onTap="handleOpen">
+  <ant-button
+    data-field="withTitleVisible"
+    onTap="handleOpen"
+  >
     带有标题
   </ant-button>
-  <ant-button data-field="withImageVisible" onTap="handleOpen">
+  <ant-button
+    data-field="withImageVisible"
+    onTap="handleOpen"
+  >
     带头图
   </ant-button>
-  <ant-button data-field="basicTwoVisible" onTap="handleOpen">
+  <ant-button
+    data-field="basicTwoVisible"
+    onTap="handleOpen"
+  >
     两个按钮 横排
   </ant-button>
-  <ant-button data-field="basicThreeVisible" onTap="handleOpen">
+  <ant-button
+    data-field="basicThreeVisible"
+    onTap="handleOpen"
+  >
     三个按钮 竖排
   </ant-button>
 </ant-container>
-<ant-container title="局部插槽" className="list">
-  <ant-button data-field="slotWeakVisible" onTap="handleOpen">
+<ant-container
+  title="局部插槽"
+  class-name="list"
+>
+  <ant-button
+    data-field="slotWeakVisible"
+    onTap="handleOpen"
+  >
     弱活动氛围弹框
   </ant-button>
-  <ant-button data-field="slotStrongVisible" onTap="handleOpen">
+  <ant-button
+    data-field="slotStrongVisible"
+    onTap="handleOpen"
+  >
     强活动氛围弹框
   </ant-button>
 </ant-container>
-<ant-container title="自定义" class-name="list">
-  <ant-button data-field="customBodyVisible" onTap="handleOpen">
+<ant-container
+  title="自定义"
+  class-name="list"
+>
+  <ant-button
+    data-field="customBodyVisible"
+    onTap="handleOpen"
+  >
     完全自定义内容区
   </ant-button>
 </ant-container>
