@@ -7,7 +7,7 @@
     <ant-icon
       wx:if="{{loading}}"
       type="UndoOutline"
-      className="ant-switch-loading-icon"
+      class-name="ant-switch-loading-icon"
     ></ant-icon>
   </view>
   <view class="ant-switch-inner">

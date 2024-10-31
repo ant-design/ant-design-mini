@@ -18,7 +18,7 @@
       >
         <ant-icon
           type="DownOutline"
-          className="ant-number-keyboard-down"
+          class-name="ant-number-keyboard-down"
         ></ant-icon>
       </view>
     </slot>
@@ -75,7 +75,7 @@
           >
             <ant-icon
               type="TextDeletionOutline"
-              className="ant-number-keyboard-del"
+              class-name="ant-number-keyboard-del"
             ></ant-icon>
           </view>
         </view>
@@ -111,7 +111,7 @@
         >
           <ant-icon
             type="TextDeletionOutline"
-            className="ant-number-keyboard-del"
+            class-name="ant-number-keyboard-del"
           ></ant-icon>
         </view>
         <view

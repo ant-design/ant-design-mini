@@ -23,7 +23,7 @@
           <ant-icon
             a:if="{{mixin.value}}"
             type="CheckOutline"
-            className="ant-checkbox-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon"
+            class-name="ant-checkbox-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon"
           ></ant-icon>
         </view>
       </view>

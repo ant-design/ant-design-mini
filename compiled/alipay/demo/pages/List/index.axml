@@ -23,7 +23,7 @@
     <ant-list-item
       image="SetOutline"
       arrow="right"
-      extraBrief="详细信息"
+      extra-brief="详细信息"
       catchTap="catchTap"
       data-info="设置"
     >
@@ -56,7 +56,7 @@
       ></ant-switch>
     </ant-list-item>
     <ant-list-item
-      extraBrief="未开启"
+      extra-brief="未开启"
       arrow="right"
     >
       大字号模式
@@ -71,7 +71,7 @@
       title="标题"
       brief="描述信息"
       extra="次要信息"
-      extraBrief="次要辅助信息"
+      extra-brief="次要辅助信息"
       onTap="handleTap"
       data-info="三行列表"
       arrow="right"

@@ -1,12 +1,23 @@
-import { Component, triggerEvent, triggerEventValues, triggerEventOnly, getValueFromProps, } from '../../_util/simply';
-import { resolveEventValue, resolveEventValues } from '../../_util/platform';
-import { DateRangePickerDefaultProps } from './props';
+import { effect } from '@preact/signals-core';
 import dayjs from 'dayjs';
 import equal from 'fast-deep-equal';
-import { getRangeData, getDateByValue, getValueByDate, getValidValue, } from '../util';
 import computed from '../../mixins/computed';
 import mixinValue from '../../mixins/value';
-Component(DateRangePickerDefaultProps, {
+import { resolveEventValue, resolveEventValues } from '../../_util/platform';
+import { ComponentWithSignalStoreImpl, getValueFromProps, triggerEvent, triggerEventOnly, triggerEventValues, } from '../../_util/simply';
+import i18nController from '../../_util/store';
+import { getDateByValue, getRangeData, getValidValue, getValueByDate, } from '../util';
+import { DateRangePickerDefaultProps } from './props';
+ComponentWithSignalStoreImpl({
+    store: function () { return i18nController; },
+    updateHook: effect,
+    mapState: {
+        locale: function (_a) {
+            var store = _a.store;
+            return store.currentLocale.value;
+        },
+    },
+}, DateRangePickerDefaultProps, {
     // visible受控判断
     isVisibleControlled: function () {
         return getValueFromProps(this, 'visible') !== null;

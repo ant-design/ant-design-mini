@@ -3,10 +3,10 @@
   name="helper"
 ></import-sjs>
 <ant-popup
-  className="ant-actionsheet-popup"
+  class-name="ant-actionsheet-popup"
   visible="{{visible}}"
   position="bottom"
-  zIndex="{{zIndex}}"
+  z-index="{{zIndex}}"
   onClose="onClose"
 >
   <view
@@ -30,7 +30,7 @@
       >
         <view
           class="ant-actionsheet-list-item {{item.disabled ? 'ant-actionsheet-list-item-disabled' : ''}}"
-          hoverClass="{{item.disabled ? '' : 'ant-actionsheet-list-item-active'}}"
+          hover-class="{{item.disabled ? '' : 'ant-actionsheet-list-item-active'}}"
           onTap="onAction"
           data-index="{{index}}"
           data-item="{{item}}"

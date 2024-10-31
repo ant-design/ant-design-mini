@@ -6,7 +6,7 @@
   <icon
     wx:if="{{helper.isIcon(image)}}"
     type="{{image}}"
-    className="{{className ? className + '-icon' : ''}}"
+    class-name="{{className ? className + '-icon' : ''}}"
     style="{{style}}"
   ></icon>
   <image

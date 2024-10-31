@@ -25,7 +25,7 @@
     <ant-notice
       type="{{item}}"
       style="margin-bottom: 8px"
-      enableMarquee="{{true}}"
+      enable-marquee="{{true}}"
       loop="{{true}}"
       bind:tap="handleTapLink"
       mode="link"
@@ -41,7 +41,7 @@
     <ant-notice
       type="{{item}}"
       style="margin-bottom: 8px"
-      enableMarquee="{{true}}"
+      enable-marquee="{{true}}"
       bind:tap="handleTapLink"
       mode="link"
     >文本溢出时，开启循环滚动。文字不够继续添加文字凑数。</ant-notice>
@@ -50,7 +50,7 @@
 <ant-container title="自定义通告栏">
   <ant-notice
     style="margin-bottom: 8px"
-    slotIcon
+    slot-icon
   >不展示图标<view slot="icon"></view>
   </ant-notice>
   <ant-notice

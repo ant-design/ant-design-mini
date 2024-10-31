@@ -21,7 +21,7 @@
     <ant-list-item
       image="SetOutline"
       arrow="right"
-      extraBrief="详细信息"
+      extra-brief="详细信息"
       catch:tap="catchTap"
       data-info="设置"
     >设置</ant-list-item>
@@ -42,7 +42,7 @@
     header="复杂布局"
   >
     <ant-list-item
-      extraBrief="未开启"
+      extra-brief="未开启"
       arrow="right"
     >大字号模式</ant-list-item>
     <ant-list-item

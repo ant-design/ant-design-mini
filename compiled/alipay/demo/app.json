@@ -101,7 +101,8 @@
     "pages/SelectorFilter/index",
     "pages/Typography/index",
     "pages/Feedback/index",
-    "pages/IndexBarControl/index"
+    "pages/IndexBarControl/index",
+    "pages/ConfigProvider/index"
   ],
   "window": {
     "enableWK": "YES",
