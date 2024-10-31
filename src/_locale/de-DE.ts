@@ -3,49 +3,57 @@ import type { Locale } from '.';
 const deDE: Locale = {
   // locales for all components
   global: {
-    placeholder: '请选择德语',
-    emptyText: '暂无数据',
-    okText: '确定',
-    cancelText: '取消',
+    placeholder: 'Bitte wählen Sie',
+    emptyText: 'Keine Daten verfügbar',
+    okText: 'Bestimmt',
+    cancelText: 'Abbrechen',
   },
-  Calendar: {
-    weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
-    title: 'YYYY年MM月',
-    today: '今日',
-    start: '开始',
-    end: '结束',
-    startAndEnd: '开始/结束',
+  calendar: {
+    weekdayNames: [
+      'Montag',
+      'Dienstag',
+      'Mittwoch',
+      'Donnerstag',
+      'Freitag',
+      'Samstag',
+      'Sonntag',
+    ],
+    title: 'YYYY Jahr MM Monat',
+    today: 'Heute',
+    start: 'Start',
+    end: 'Ende',
+    startAndEnd: 'Anfang/Ende',
   },
-  RangePicker: {
-    startPlaceholder: '未选择',
-    endPlaceholder: '未选择',
+  rangePicker: {
+    startPlaceholder: 'Die Auswahl hat noch nicht begonnen',
+    endPlaceholder: 'Unvollständige Auswahl',
   },
-  GuideTour: {
-    gotItText: '知道了',
-    nextStepText: '下一步',
-    prevStepText: '上一步',
-    jumpText: '跳过',
+  guideTour: {
+    gotItText: 'Ich habe es verstanden',
+    nextStepText: 'Nächster Schritt',
+    prevStepText: 'Vorheriger Schritt',
+    jumpText: 'Überspringen',
   },
-  ImageUpload: {
-    uploadingText: '上传中',
-    uploadfailedText: '上传失败',
+  imageUpload: {
+    uploadingText: 'Hochladen',
+    uploadfailedText: 'Der Upload ist fehlgeschlagen',
   },
-  PageContainer: {
+  pageContainer: {
     failed: {
-      title: '页面遇到一些小问题',
-      message: '待会来试试',
+      title: 'Auf der Seite treten einige kleinere Probleme auf',
+      message: 'Ich werde es später ausprobieren',
     },
     disconnected: {
-      title: '网络有点忙',
-      message: '动动手指帮忙修复',
+      title: 'Das Netzwerk ist etwas beschäftigt',
+      message: 'Bewegen Sie bitte Ihre Finger, um zu helfen, es zu reparieren.',
     },
     empty: {
-      title: '这里什么也没有',
-      message: '看看其它吧',
+      title: 'Hier gibt es nichts.',
+      message: 'Schauen Sie sich auch die anderen an.',
     },
     busy: {
-      title: '前方拥堵',
-      message: '刷新试试',
+      title: 'Stau voraus',
+      message: 'Versuchen Sie es erneut.',
     },
   },
 };

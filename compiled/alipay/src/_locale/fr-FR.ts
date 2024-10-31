@@ -3,49 +3,57 @@ import type { Locale } from '.';
 const frFR: Locale = {
   // locales for all components
   global: {
-    placeholder: '请选择法语',
-    emptyText: '暂无数据',
-    okText: '确定',
-    cancelText: '取消',
+    placeholder: 'Veuillez sélectionner',
+    emptyText: 'Aucune donnée disponible',
+    okText: 'Déterminer',
+    cancelText: 'Annuler',
   },
-  Calendar: {
-    weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
-    title: 'YYYY年MM月',
-    today: '今日',
-    start: '开始',
-    end: '结束',
-    startAndEnd: '开始/结束',
+  calendar: {
+    weekdayNames: [
+      'Lundi',
+      'Mardi',
+      'Mercredi',
+      'Jeudi',
+      'Vendredi',
+      'Samedi',
+      'Dimanche',
+    ],
+    title: 'YYYY an MM mois',
+    today: "Aujourd'hui",
+    start: 'Commencer',
+    end: 'Fin',
+    startAndEnd: 'Début/Fin',
   },
-  RangePicker: {
-    startPlaceholder: '未选择',
-    endPlaceholder: '未选择',
+  rangePicker: {
+    startPlaceholder: "La sélection n'a pas commencé",
+    endPlaceholder: 'Sélection incomplète',
   },
-  GuideTour: {
-    gotItText: '知道了',
-    nextStepText: '下一步',
-    prevStepText: '上一步',
-    jumpText: '跳过',
+  guideTour: {
+    gotItText: "J'ai compris",
+    nextStepText: 'Prochaine étape',
+    prevStepText: 'Étape précédente',
+    jumpText: 'Sauter',
   },
-  ImageUpload: {
-    uploadingText: '上传中',
-    uploadfailedText: '上传失败',
+  imageUpload: {
+    uploadingText: 'Téléchargement en cours',
+    uploadfailedText: 'Échec du téléchargement',
   },
-  PageContainer: {
+  pageContainer: {
     failed: {
-      title: '页面遇到一些小问题',
-      message: '待会来试试',
+      title: 'La page rencontre quelques problèmes mineurs',
+      message: 'Je l’essaierai plus tard',
     },
     disconnected: {
-      title: '网络有点忙',
-      message: '动动手指帮忙修复',
+      title: 'Le réseau est un peu occupé.',
+      message: 'Bougez vos doigts pour aider à le réparer',
     },
     empty: {
-      title: '这里什么也没有',
-      message: '看看其它吧',
+      title: "Il n'y a rien ici.",
+      message: 'Regardez les autres.',
     },
     busy: {
-      title: '前方拥堵',
-      message: '刷新试试',
+      title: "La congestion à l'avant",
+      message: 'Essayez de rafraîchir.',
     },
   },
 };

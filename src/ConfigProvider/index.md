@@ -46,7 +46,7 @@ Antd-Mini 提供了 ConfigProvider 组件用于全局配置国际化文案。目
 - 西班牙语（西班牙）| es-ES
 - 意大利语（意大利）| it-IT
 - 马来语（马来西亚）| ms-MY
-- 印尼语 ｜ id-ID
+- 印尼语 ｜ in-ID
 - 泰语（泰国）| th-TH
 - 葡萄牙语（巴西）| pt-BR
 - 日语（日本）| ja-JP

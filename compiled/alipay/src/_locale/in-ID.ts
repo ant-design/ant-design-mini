@@ -1,9 +1,9 @@
 import type { Locale } from '.';
 
-const itIT: Locale = {
+const idID: Locale = {
   // locales for all components
   global: {
-    placeholder: '请选择意大利语',
+    placeholder: '请选择印尼',
     emptyText: '暂无数据',
     okText: '确定',
     cancelText: '取消',
@@ -50,4 +50,4 @@ const itIT: Locale = {
   },
 };
 
-export default itIT;
+export default idID;

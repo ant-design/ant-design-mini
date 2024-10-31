@@ -9,7 +9,7 @@ const zhTW: Locale = {
     okText: '确定',
     cancelText: '取消',
   },
-  Calendar: {
+  calendar: {
     weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
     title: 'YYYY年MM月',
     today: '今日',
@@ -17,21 +17,21 @@ const zhTW: Locale = {
     end: '结束',
     startAndEnd: '开始/结束',
   },
-  RangePicker: {
+  rangePicker: {
     startPlaceholder: '未选择',
     endPlaceholder: '未选择',
   },
-  GuideTour: {
+  guideTour: {
     gotItText: '知道了',
     nextStepText: '下一步',
     prevStepText: '上一步',
     jumpText: '跳过',
   },
-  ImageUpload: {
+  imageUpload: {
     uploadingText: '上传中',
     uploadfailedText: '上传失败',
   },
-  PageContainer: {
+  pageContainer: {
     failed: {
       title: '页面遇到一些小问题',
       message: '待会来试试',

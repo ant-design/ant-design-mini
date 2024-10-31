@@ -3,49 +3,57 @@ import type { Locale } from '.';
 const enUS: Locale = {
   // locales for all components
   global: {
-    placeholder: '请选择英语',
-    emptyText: '暂无数据',
-    okText: '确定',
-    cancelText: '取消',
+    placeholder: 'Please select',
+    emptyText: 'No data available',
+    okText: 'Ok',
+    cancelText: 'Cancel',
   },
-  Calendar: {
-    weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
-    title: 'YYYY年MM月',
-    today: '今日',
-    start: '开始',
-    end: '结束',
-    startAndEnd: '开始/结束',
+  calendar: {
+    weekdayNames: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ],
+    title: 'YYYY year MM month',
+    today: 'Today',
+    start: 'Start',
+    end: 'End',
+    startAndEnd: 'Start/End',
   },
-  RangePicker: {
-    startPlaceholder: '未选择',
-    endPlaceholder: '未选择',
+  rangePicker: {
+    startPlaceholder: 'No selection started',
+    endPlaceholder: 'Incomplete selection',
   },
-  GuideTour: {
-    gotItText: '知道了',
-    nextStepText: '下一步',
-    prevStepText: '上一步',
-    jumpText: '跳过',
+  guideTour: {
+    gotItText: 'Got it',
+    nextStepText: 'Next step',
+    prevStepText: 'Previous step',
+    jumpText: 'Skip',
   },
-  ImageUpload: {
-    uploadingText: '上传中',
-    uploadfailedText: '上传失败',
+  imageUpload: {
+    uploadingText: 'Uploading',
+    uploadfailedText: 'Upload failed',
   },
-  PageContainer: {
+  pageContainer: {
     failed: {
-      title: '页面遇到一些小问题',
-      message: '待会来试试',
+      title: 'The page is experiencing some minor issues',
+      message: "I'll try it later",
     },
     disconnected: {
-      title: '网络有点忙',
-      message: '动动手指帮忙修复',
+      title: 'The network is a bit busy',
+      message: 'Move your fingers to help repair',
     },
     empty: {
-      title: '这里什么也没有',
-      message: '看看其它吧',
+      title: "There's nothing here",
+      message: 'Check out the others',
     },
     busy: {
-      title: '前方拥堵',
-      message: '刷新试试',
+      title: 'Congestion ahead',
+      message: 'Try refreshing',
     },
   },
 };

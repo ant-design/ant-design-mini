@@ -5,49 +5,57 @@ import type { Locale } from '.';
 const arSA: Locale = {
   // locales for all components
   global: {
-    placeholder: '请选择阿拉伯语',
-    emptyText: '暂无数据',
-    okText: '确定',
-    cancelText: '取消',
+    placeholder: 'يرجى الاختيار',
+    emptyText: 'لا توجد بيانات حتى الآن',
+    okText: 'تأكيد',
+    cancelText: 'إلغاء',
   },
-  Calendar: {
-    weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
-    title: 'YYYY年MM月',
-    today: '今日',
-    start: '开始',
-    end: '结束',
-    startAndEnd: '开始/结束',
+  calendar: {
+    weekdayNames: [
+      'الإثنين',
+      'الثلاثاء',
+      'الأربعاء',
+      'الخميس',
+      'الجمعة',
+      'السبت',
+      'الأحد',
+    ],
+    title: 'YYYY سنة  MM شهر',
+    today: 'اليوم',
+    start: 'ابدأ',
+    end: 'النهاية',
+    startAndEnd: 'البداية/النهاية',
   },
-  RangePicker: {
-    startPlaceholder: '未选择',
-    endPlaceholder: '未选择',
+  rangePicker: {
+    startPlaceholder: 'لم يبدأ الاختيار',
+    endPlaceholder: 'لم يكتمل الاختيار',
   },
-  GuideTour: {
-    gotItText: '知道了',
-    nextStepText: '下一步',
-    prevStepText: '上一步',
-    jumpText: '跳过',
+  guideTour: {
+    gotItText: 'فهمت ذلك',
+    nextStepText: 'الخطوة التالية',
+    prevStepText: 'الخطوة السابقة',
+    jumpText: 'تخطي',
   },
-  ImageUpload: {
-    uploadingText: '上传中',
-    uploadfailedText: '上传失败',
+  imageUpload: {
+    uploadingText: 'جارٍ التحميل',
+    uploadfailedText: 'فشل في التحميل',
   },
-  PageContainer: {
+  pageContainer: {
     failed: {
-      title: '页面遇到一些小问题',
-      message: '待会来试试',
+      title: 'تواجه الصفحة بعض المشكلات البسيطة',
+      message: 'سأحاول ذلك لاحقًا',
     },
     disconnected: {
-      title: '网络有点忙',
-      message: '动动手指帮忙修复',
+      title: 'الشبكة مشغولة بعض الشيء',
+      message: 'حرّك إصبعك للمساعدة في الإصلاح',
     },
     empty: {
-      title: '这里什么也没有',
-      message: '看看其它吧',
+      title: 'لا يوجد شيء هنا',
+      message: 'انظر إلى أشياء أخرى',
     },
     busy: {
-      title: '前方拥堵',
-      message: '刷新试试',
+      title: 'الازدحام الأمامي',
+      message: 'جرّب الانتعاش.',
     },
   },
 };

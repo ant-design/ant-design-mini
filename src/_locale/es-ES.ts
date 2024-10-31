@@ -3,49 +3,57 @@ import type { Locale } from '.';
 const esES: Locale = {
   // locales for all components
   global: {
-    placeholder: '请选择西班牙语',
-    emptyText: '暂无数据西班牙语',
-    okText: '确定西班牙语',
-    cancelText: '取消西班牙语',
+    placeholder: 'Por favor, seleccione',
+    emptyText: 'No hay datos disponibles',
+    okText: 'Confirmar',
+    cancelText: 'Cancelar',
   },
-  Calendar: {
-    weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
-    title: 'YYYY年MM月',
-    today: '今日',
-    start: '开始',
-    end: '结束',
-    startAndEnd: '开始/结束',
+  calendar: {
+    weekdayNames: [
+      'Lunes',
+      'Martes',
+      'Miércoles',
+      'Jueves',
+      'Viernes',
+      'Sábado',
+      'Domingo',
+    ],
+    title: 'YYYY año MM mes',
+    today: 'Hoy',
+    start: 'Empezar',
+    end: 'Fin',
+    startAndEnd: 'Inicio/Fin',
   },
-  RangePicker: {
-    startPlaceholder: '未选择',
-    endPlaceholder: '未选择',
+  rangePicker: {
+    startPlaceholder: 'No ha comenzado la selección',
+    endPlaceholder: 'Selección no completada',
   },
-  GuideTour: {
-    gotItText: '知道了',
-    nextStepText: '下一步',
-    prevStepText: '上一步',
-    jumpText: '跳过',
+  guideTour: {
+    gotItText: 'Entendido',
+    nextStepText: 'Siguiente paso',
+    prevStepText: 'Paso anterior',
+    jumpText: 'Saltar',
   },
-  ImageUpload: {
-    uploadingText: '上传中',
-    uploadfailedText: '上传失败',
+  imageUpload: {
+    uploadingText: 'Subiendo',
+    uploadfailedText: 'Error al subir',
   },
-  PageContainer: {
+  pageContainer: {
     failed: {
-      title: '页面遇到一些小问题',
-      message: '待会来试试',
+      title: 'La página ha encontrado algunos pequeños problemas',
+      message: 'Lo probaré más tarde',
     },
     disconnected: {
-      title: '网络有点忙',
-      message: '动动手指帮忙修复',
+      title: 'La red está un poco ocupada',
+      message: 'Mueve tus dedos para ayudar a arreglarlo',
     },
     empty: {
-      title: '这里什么也没有',
-      message: '看看其它吧',
+      title: 'Aquí no hay nada',
+      message: 'Echa un vistazo a los demás',
     },
     busy: {
-      title: '前方拥堵',
-      message: '刷新试试',
+      title: 'Congestión por delante',
+      message: 'Intente refrescar',
     },
   },
 };
