@@ -54,7 +54,7 @@ export default defineConfig({
         },
         {
           title: '组件',
-          link: '/components/button',
+          link: '/components/overview',
         },
         {
           title: '资源',
@@ -76,7 +76,7 @@ export default defineConfig({
         },
         {
           title: 'Components',
-          link: '/components/button-en',
+          link: '/components/overview-en',
         },
         {
           title: 'Resources',

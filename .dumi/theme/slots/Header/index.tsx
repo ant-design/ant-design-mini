@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import { useLocale, useLocation } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import LangSwitch from 'dumi/theme/slots/LangSwitch';
-import RtlSwitch from 'dumi/theme/slots/RtlSwitch';
 import React, {
   useCallback,
   useContext,
@@ -239,7 +238,6 @@ const Header: FC = () => {
     ) : null,
     <More key="more" />,
     <LangSwitch key={new Date().getTime()} />,
-    <RtlSwitch key="direction" />,
     <HeaderExtra key="header-Extra" />,
   ];
   if (windowWidth < RESPONSIVE_XS) {

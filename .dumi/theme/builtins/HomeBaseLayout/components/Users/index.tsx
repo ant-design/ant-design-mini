@@ -9,7 +9,7 @@ const lightLogos = [
   'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/X1KRTbLoQMsAAAAAAAAAAAAADoEQAQFr/original',
   'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/wSHKRoozEE4AAAAAAAAAAAAADoEQAQFr/fmt.webp',
   'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/LwlER4SjL_AAAAAAAAAAAAAADoEQAQFr/original',
-  'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/RSccQpHEwQoAAAAAAAAAAAAADoEQAQFr/fmt.webp',
+  'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/zSMkRp7RNfMAAAAAAAAAAAAADoEQAQFr/original',
   'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/E2jUT5GhF30AAAAAAAAAAAAADoEQAQFr/fmt.webp'
 ]
 
@@ -20,7 +20,7 @@ const darkLogos = [
   'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/zpgEQJKFV-kAAAAAAAAAAAAADoEQAQFr/original',
   'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/vHcDSa-L-a8AAAAAAAAAAAAADoEQAQFr/original',
   'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/mfSjRr_6ti8AAAAAAAAAAAAADoEQAQFr/original',
-  'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/BkeLTI8rKdoAAAAAAAAAAAAADoEQAQFr/original',
+  'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/PMj4S4ve5tAAAAAAAAAAAAAADoEQAQFr/original',
   'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/RUL4SZC87fAAAAAAAAAAAAAADoEQAQFr/original'
 ]
 

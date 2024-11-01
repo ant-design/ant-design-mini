@@ -5,19 +5,17 @@ import classNames from 'classnames';
 import DayJS from 'dayjs';
 import { useRouteMeta } from 'dumi';
 import type { FC, ReactNode } from 'react';
-import { useContext, useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import EditLink from '../../common/EditLink';
 import LastUpdated from '../../common/LastUpdated';
 import PrevAndNext from '../../common/PrevAndNext';
 import useSiteToken from '../../hooks/useSiteToken';
-// import Footer from '../Footer';
 import SiteContext from '../SiteContext';
-// import DocAnchor from './DocAnchor';
-import InViewSuspense from './InViewSuspense';
 
-const useStyle = () => {
+const useStyle = ({
+  isOverview
+}) => {
   const { token } = useSiteToken();
-
   const { antCls } = token;
 
   return {
@@ -77,7 +75,11 @@ const useStyle = () => {
       }
     `,
     articleWrapper: css`
-      padding: 0 412px 32px 64px;
+      padding: ${
+        isOverview ?
+          '0 64px 32px 64px' :
+          '0 412px 32px 64px'
+      };
       flex: 1;
 
       &.rtl {
@@ -107,8 +109,12 @@ const useStyle = () => {
 };
 
 const Content: FC<{ children: ReactNode }> = ({ children }) => {
+  const isOverview =
+    window.location.pathname === '/components/overview' ||
+    window.location.pathname === '/components/overview-en'
+
   const meta = useRouteMeta();
-  const styles = useStyle();
+  const styles = useStyle({ isOverview });
   const { direction } = useContext(SiteContext);
 
   // const debugDemos = useMemo(
@@ -140,13 +146,6 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
       xs={24}
       css={styles.colContent}
     >
-      {!!meta.frontmatter.toc && (
-        <InViewSuspense fallback={null}>
-          {/* 锚点链接区域全局被替换成 模拟器 */}
-          {/* <DocAnchor debugDemos={debugDemos} /> */}
-        </InViewSuspense>
-      )}
-
       <article
         css={styles.articleWrapper}
         className={classNames({ rtl: isRTL })}
@@ -202,17 +201,22 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
 
         {children}
       </article>
-      <div
-        css={css`
-          ${styles.articleWrapper}
-          ${styles.bottomEditContent}
-        `}
-      >
-        <LastUpdated time={meta.frontmatter?.lastUpdated} />
-        <EditLink />
-      </div>
-      <PrevAndNext rtl={isRTL} />
-      {/* <Footer /> */}
+      {
+        !isOverview ? (
+          <>
+            <div
+              css={css`
+                ${styles.articleWrapper}
+                ${styles.bottomEditContent}
+              `}
+            >
+              <LastUpdated time={meta.frontmatter?.lastUpdated} />
+              <EditLink />
+            </div>
+            <PrevAndNext rtl={isRTL} />
+          </>
+        ) : null
+      }
     </Col>
   );
 };

@@ -236,7 +236,8 @@ const Sidebar: FC = () => {
   const matchedRoute = useMatchedRoute();
 
   const isShowPlatfromSwitch = useMemo(() => {
-    return matchedRoute?.meta?.frontmatter?.nav?.path === '/components';
+    const { pathname } = window.location;
+    return pathname.startsWith('/components/') || matchedRoute?.meta?.frontmatter?.nav?.path === '/components';
   }, [matchedRoute]);
 
   const styles = useStyle(isShowPlatfromSwitch);

@@ -8,7 +8,7 @@ import Users from './components/Users';
 import Gallery from './components/Gallery';
 import Theme from './components/Theme';
 import Frame from './components/Frame';
-import Notice from './components/Notice';
+// import Notice from './components/Notice';
 
 const useStyle = () => {
   return {

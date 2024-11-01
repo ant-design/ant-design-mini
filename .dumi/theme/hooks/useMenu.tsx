@@ -1,6 +1,5 @@
 import type { MenuProps } from 'antd';
 import { Tag } from 'antd';
-import { ItemType } from 'antd/lib/menu/hooks/useItems';
 import {
   Link,
   useFullSidebarData,
@@ -13,11 +12,6 @@ import { useMemo } from 'react';
 import pkgJSON from '../../../package.json';
 import type {
   ISidebarGroupModePathItem,
-  SidebarEnhanceGroupType,
-  SidebarEnhanceItems,
-  SidebarEnhanceItemType,
-  SidebarEnhanceSubType,
-  SidebarEnhanceType,
 } from '../types';
 import { handleFullSidebarData, removeTitleCode } from '../utils';
 import useAdditionalThemeConfig from './useAdditionalThemeConfig';
@@ -31,7 +25,7 @@ const useMenu = (
   options: UseMenuOptions = {},
 ): [MenuProps['items'], string] => {
   const { pathname, search } = useLocation();
-  const { sidebarGroupModePath, sidebarEnhance = {} } =
+  const { sidebarGroupModePath } =
     useAdditionalThemeConfig();
   const { before, after } = options;
 
@@ -42,85 +36,6 @@ const useMenu = (
   // 提取一级导航下侧边栏数据
   const currentNavKey = `/${pathname.split('/')?.[1]}`;
   const sidebarData = navSecondSidebarData[currentNavKey];
-  const linkTitleMap = useMemo(() => {
-    return Object.values(fullSidebarData).reduce<Record<string, string>>(
-      (res, sidebar) => {
-        const sidebarItems = sidebar.map((item) => item.children).flat();
-        sidebarItems.forEach((item) => {
-          res[item.link] = item.title;
-        });
-        return res;
-      },
-      {},
-    );
-  }, [fullSidebarData]);
-
-  const currentSidebarEnhanceData = useMemo<
-    SidebarEnhanceItems | undefined
-  >(() => {
-    const currentLink = Object.keys(sidebarEnhance).find((link) =>
-      pathname.startsWith(link),
-    );
-    if (!currentLink) return undefined;
-    return sidebarEnhance[currentLink];
-  }, [pathname, sidebarEnhance]);
-  const sidebarEnhanceMenuItems = useMemo<MenuProps['items']>(() => {
-    const isItemMenu = (v: any): v is SidebarEnhanceItemType => {
-      return v && typeof v === 'object' && 'link' in v && 'title' in v;
-    };
-    const isGroupMenu = (v: any): v is SidebarEnhanceGroupType => {
-      return v && typeof v === 'object' && v.type === 'group';
-    };
-    const isSubMenu = (v: any): v is SidebarEnhanceSubType => {
-      return v && typeof v === 'object' && 'children' in v;
-    };
-    function processMenu(menu: SidebarEnhanceType): ItemType {
-      if (typeof menu === 'string') {
-        // menu: '/introduction'
-        return {
-          key: menu,
-          label: (
-            <Link to={`${menu}${search}`}>
-              {before}
-              {linkTitleMap[menu]}
-              {after}
-            </Link>
-          ),
-        };
-      }
-      if (isGroupMenu(menu)) {
-        // menu: { type: 'group', title: '组件', children: ['/components/button', { title: 'Installation', children: ['/aaa'] }] }
-        return {
-          type: 'group',
-          label: menu.title,
-          key: menu.title,
-          children: menu.children.map(processMenu),
-        };
-      }
-      if (isSubMenu(menu)) {
-        return {
-          key: menu.title,
-          label: <span style={{ paddingLeft: 10 }}>{menu.title}</span>,
-          children: menu.children.map(processMenu),
-        };
-      }
-      if (isItemMenu(menu)) {
-        // { title: 'aaa', link: '/xxx' }
-        return {
-          label: (
-            <Link target={menu.target} to={menu.link}>
-              {menu.title}
-            </Link>
-          ),
-          key: menu.link,
-        };
-      }
-      return null;
-    }
-
-    if (!currentSidebarEnhanceData) return undefined;
-    return currentSidebarEnhanceData.map(processMenu);
-  }, [after, before, currentSidebarEnhanceData, linkTitleMap, search]);
 
   const menuItems = useMemo<MenuProps['items']>(() => {
     const suffixRegExp = new RegExp(`${(locale as any)?.suffix ?? ''}$`, 'g');
@@ -330,7 +245,8 @@ const useMenu = (
     new RegExp(`${(locale as any)?.suffix ?? ''}$`, 'g'),
     '',
   );
-  return [sidebarEnhanceMenuItems || menuItems, selectedKey];
+
+  return [menuItems, selectedKey];
 };
 
 export default useMenu;
