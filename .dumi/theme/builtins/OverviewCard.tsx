@@ -4,10 +4,9 @@ import {
   Card,
   ConfigProvider,
   theme,
-  Row,
-  Col
+  Tag,
 } from 'antd';
-import { history, useLocale } from 'dumi';
+import { useLocale } from 'dumi';
 import useMenu from '../hooks/useMenu';
 import useSiteToken from "../hooks/useSiteToken";
 import SiteContext from '../slots/SiteContext';
@@ -32,6 +31,8 @@ const useStyle = ({
     groupTitle: css`
       font-size: 24px;
       font-weight: 500;
+      display: inline-flex;
+      align-items: center;
     `,
     cardWrap: css`
       padding-top: 24px;
@@ -41,6 +42,7 @@ const useStyle = ({
       flex-wrap: wrap;
     `,
     card: css`
+      display: block;
       width: 25%;
       min-width: 300px;
       padding-right: 24px;
@@ -100,6 +102,11 @@ export default ({
                   css={style.groupTitle}
                 >
                   {parent.label}
+                  <Tag style={{
+                    marginLeft: 8,
+                  }}>
+                    {(parent.children || []).length}
+                  </Tag>
                 </span>
 
                 <div
@@ -108,14 +115,10 @@ export default ({
                   {
                     (parent.children || []).map((item) => {
                       return (
-                        <div
+                        <a
                           key={item.key}
                           css={style.card}
-                          onClick={() => {
-                            history.push({
-                              pathname: isEn ? item.key + '-en' : item.key
-                            });
-                          }}
+                          href={isEn ? item.key + '-en' : item.key}
                         >
                           <Card
                             title={item.label}
@@ -125,7 +128,7 @@ export default ({
                             />
                             {item.label}
                           </Card>
-                        </div>
+                        </a>
                       )
                     })
                   }
