@@ -3,24 +3,24 @@
 </ant-container>
 <ant-container title="单选-选项带有副标题">
   <ant-selector
-    defaultValue="2"
+    default-value="2"
     options="{{items2}}"
   ></ant-selector>
 </ant-container>
 <ant-container title="多选">
   <ant-selector
-    defaultValue="{{['1', '2']}}"
+    default-value="{{['1', '2']}}"
     options="{{items1}}"
     multiple
   ></ant-selector>
 </ant-container>
 <ant-container title="多选 (最少选 2 个 最多选 4 个)">
   <ant-selector
-    defaultValue="{{['1']}}"
+    default-value="{{['1']}}"
     options="{{items1}}"
     multiple
-    maxSelectedCount="{{4}}"
-    minSelectedCount="{{2}}"
+    max-selected-count="{{4}}"
+    min-selected-count="{{2}}"
     bind:selectmax="onSelectMax"
   ></ant-selector>
 </ant-container>
@@ -34,7 +34,7 @@
 </ant-container>
 <ant-container title="部分禁用">
   <ant-selector
-    defaultValue="{{['1', '2']}}"
+    default-value="{{['1', '2']}}"
     options="{{items3}}"
     multiple
   ></ant-selector>
@@ -52,8 +52,8 @@
 </ant-container>
 <ant-container title="单选-不允许清空">
   <ant-selector
-    defaultValue="1"
-    minSelectedCount="{{1}}"
+    default-value="1"
+    min-selected-count="{{1}}"
     bind:selectmin="onSelectMin"
     options="{{items1}}"
   ></ant-selector>

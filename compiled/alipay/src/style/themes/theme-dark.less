@@ -1,0 +1,11 @@
+@import (reference) './color.less';
+// 深色主题
+/* 深色模式的css变量 */
+@media (prefers-color-scheme: dark) {
+  :root,
+  page {
+    // button
+    --button-primary-color: @COLOR_TEXT_PRIMARY_DARK;
+    --button-primary-background-color: @COLOR_BRAND1_DARK;
+  }
+}

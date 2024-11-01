@@ -16,7 +16,7 @@
     请选择城市
     <ant-cascader-picker
       slot="extra"
-      defaultValue="{{['34', '330']}}"
+      default-value="{{['34', '330']}}"
       placeholder="请选择城市"
       options="{{cityList}}"
       onChange="handleCityPickerChange"

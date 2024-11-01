@@ -7,7 +7,7 @@
   style="{{style || ''}}"
 >
   <scroll-view
-    scrollX="{{true}}"
+    scroll-x="{{true}}"
     class="ant-page-infinite-content"
     id="ant-pageInfinite{{$id ? '-' + $id : ''}}"
     bind:scroll="{{supportSjs ? sjs.changeScollDistance : 'onScroll'}}"

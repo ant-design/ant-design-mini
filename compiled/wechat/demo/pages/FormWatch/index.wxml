@@ -20,10 +20,10 @@
   <ant-button
     type="primary"
     bind:tap="submit"
-    className="button"
+    class-name="button"
   >提交</ant-button>
   <ant-button
     bind:tap="reset"
-    className="button"
+    class-name="button"
   >重置</ant-button>
 </view>

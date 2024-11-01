@@ -40,7 +40,7 @@
               class="ant-rare-words-keyboard-match_words_item_tips loading"
             >
               <loading
-                className="ant-rare-words-keyboard-loading"
+                class-name="ant-rare-words-keyboard-loading"
                 type="mini"
                 size="small"
                 color="#666666"
@@ -63,7 +63,7 @@
             bind:tap="hanleLookMore"
           >
             <icon
-              className="ant-rare-words-keyboard_down"
+              class-name="ant-rare-words-keyboard_down"
               type="DownOutline"
             ></icon>
           </view>
@@ -73,7 +73,7 @@
         <view wx:if="{{showErrorPage}}">
           <view class="ant-rare-words-keyboard_error">
             <result
-              className="ant-rare-words-keyboard_error-result"
+              class-name="ant-rare-words-keyboard_error-result"
               image="https://mdn.alipayobjects.com/huamei_2fq7mt/afts/img/A*VtvFS4EJl0cAAAAAAAAAAAAADh58AQ/original"
               message="页面遇到一些小问题"
             >
@@ -123,7 +123,7 @@
               >
                 <view class="ant-rare-words-keyboard_pinyin_key_text">
                   <icon
-                    className="ant-rare-words-keyboard_delete"
+                    class-name="ant-rare-words-keyboard_delete"
                     type="TextDeletionOutline"
                   ></icon>
                 </view>

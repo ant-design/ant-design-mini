@@ -1,4 +1,4 @@
-import { Component, triggerEventOnly, triggerEventValues } from '../_util/simply';
+import { Component, triggerEventOnly, triggerEventValues, } from '../_util/simply';
 import { ActionSheetDefaultProps } from './props';
 Component(ActionSheetDefaultProps, {
     onAction: function (e) {
@@ -10,5 +10,5 @@ Component(ActionSheetDefaultProps, {
     },
     onClose: function (e) {
         triggerEventOnly(this, 'close', e);
-    }
+    },
 });
