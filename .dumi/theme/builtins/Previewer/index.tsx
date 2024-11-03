@@ -102,12 +102,14 @@ const Previewer: React.FC<IProps> = (props) => {
         components: {
           Collapse: {
             contentPadding: '0 !important',
+            headerPadding: '8px !important',
           },
         },
       }}
     >
       {/* @ts-ignore */}
       <Collapse
+        bordered={false}
         size="large"
         items={[
           {
