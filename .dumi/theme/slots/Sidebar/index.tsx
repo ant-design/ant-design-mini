@@ -1,7 +1,7 @@
 import { UnorderedListOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { Col, ConfigProvider, Menu } from 'antd';
-import { useMatchedRoute, useSidebarData, FormattedMessage } from 'dumi';
+import { FormattedMessage, useMatchedRoute, useSidebarData } from 'dumi';
 
 import MobileMenu from 'rc-drawer';
 import 'rc-drawer/assets/index.css';
@@ -148,6 +148,7 @@ const useStyle = (isShowPlatfromSwitch) => {
     mainMenu: css`
       z-index: 1;
       border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
+      margin-top: ${isShowPlatfromSwitch ? -40 : 0}px;
 
       .main-menu-inner {
         position: sticky;
@@ -175,10 +176,10 @@ const useStyle = (isShowPlatfromSwitch) => {
     `,
     swichPlatform: css`
       position: sticky;
-      // top: ${64 + swichHeight / 2}px;
-      top: 104px;
+      top: ${64 + swichHeight / 2}px;
+      // top: 104px;
       z-index: 1;
-      padding: 0 30px 30px 30px;
+      padding: 0 30px 20px 30px;
       background: ${isDark ? '#141414' : '#fff'};
       .swich {
         height: ${swichHeight}px;
@@ -237,7 +238,10 @@ const Sidebar: FC = () => {
 
   const isShowPlatfromSwitch = useMemo(() => {
     const { pathname } = window.location;
-    return pathname.startsWith('/components/') || matchedRoute?.meta?.frontmatter?.nav?.path === '/components';
+    return (
+      pathname.startsWith('/components/') ||
+      matchedRoute?.meta?.frontmatter?.nav?.path === '/components'
+    );
   }, [matchedRoute]);
 
   const styles = useStyle(isShowPlatfromSwitch);
