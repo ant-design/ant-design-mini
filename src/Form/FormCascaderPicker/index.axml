@@ -1,6 +1,4 @@
-<import-sjs
-  from="../../_util/arrow.sjs"
-  name="arrowUtil" />
+<import-sjs from="../../_util/arrow.sjs" name="arrowUtil" />
 
 <form-item
   className="{{ className }}"
@@ -13,13 +11,14 @@
   required="{{ formData.required }}"
   requiredMark="{{ requiredMark }}"
   validateStatus="{{ validateStatus }}"
-  help="{{ help }}">
+  help="{{ help }}"
+>
   <view>
     <ant-cascader-picker
       options="{{ options }}"
-      cancelText="{{ cancelText }}"
-      okText="{{ okText }}"
-      placeholder="{{ placeholder }}"
+      cancelText="{{ cancelText === null ? locale.global.cancelText : cancelText }}"
+      okText="{{ okText === null ? locale.global.okText : okText }}"
+      placeholder="{{ placeholder === null ? locale.global.placeholder : placeholder  }}"
       animationType="{{ animationType }}"
       maskClosable="{{ maskClosable }}"
       maskStyle="{{ maskStyle }}"
@@ -36,25 +35,21 @@
       onChange="onChange"
       onCancel="onDismissPicker"
       onVisibleChange="onVisibleChange"
-      onFormat="{{ handleFormat ? handleFormat : 'handleFormat' }}">
-      <slot
-        name="content"
-        slot="content" />
-      <slot
-        name="title"
-        slot="title" />
+      onFormat="{{ handleFormat ? handleFormat : 'handleFormat' }}"
+    >
+      <slot name="content" slot="content" />
+      <slot name="title" slot="title" />
 
       <ant-icon
         a:if="{{ arrowUtil.getArrow(arrow) }}"
         className="ant-form-cascader-picker-arrow"
         type="{{ arrowUtil.getArrow(arrow) }}"
-        slot="suffix" />
+        slot="suffix"
+      />
     </ant-cascader-picker>
   </view>
 
-  <view
-    a:if="{{ !tooltip }}"
-    slot="tooltip">
+  <view a:if="{{ !tooltip }}" slot="tooltip">
     <slot name="tooltip" />
   </view>
 
@@ -62,21 +57,11 @@
     <slot name="extra">{{ extra }}</slot>
   </view>
 
-  <view
-    slot="header"
-    slot-scope="item">
-    <slot
-      name="header"
-      errors="{{ item.errors }}"
-      status="{{ item.status }}" />
+  <view slot="header" slot-scope="item">
+    <slot name="header" errors="{{ item.errors }}" status="{{ item.status }}" />
   </view>
 
-  <view
-    slot="footer"
-    slot-scope="item">
-    <slot
-      name="footer"
-      errors="{{ item.errors }}"
-      status="{{ item.status }}" />
+  <view slot="footer" slot-scope="item">
+    <slot name="footer" errors="{{ item.errors }}" status="{{ item.status }}" />
   </view>
 </form-item>

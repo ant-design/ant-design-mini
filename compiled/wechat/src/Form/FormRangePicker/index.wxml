@@ -17,17 +17,17 @@
 >
   <view>
     <ant-range-picker
-      end-placeholder="{{endPlaceholder}}"
-      start-placeholder="{{startPlaceholder}}"
+      end-placeholder="{{cancelText === null ? locale.rangePicker.endPlaceholder : cancelText}}"
+      start-placeholder="{{cancelText === null ? locale.rangePicker.startPlaceholder : cancelText}}"
       split-character="{{splitCharacter}}"
       min="{{min}}"
       max="{{max}}"
       format="{{format}}"
       precision="{{precision}}"
       animation-type="{{animationType}}"
-      cancel-text="{{cancelText}}"
-      ok-text="{{okText}}"
-      placeholder="{{placeholder}}"
+      cancel-text="{{cancelText === null ? locale.global.cancelText : cancelText}}"
+      ok-text="{{okText === null ? locale.global.okText : okText}}"
+      placeholder="{{placeholder === null ? locale.global.placeholder : placeholder}}"
       mask-closable="{{maskClosable}}"
       mask-style="{{maskStyle}}"
       pop-class-name="{{popClassName}}"

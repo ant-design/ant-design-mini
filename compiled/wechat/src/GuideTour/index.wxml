@@ -23,27 +23,27 @@
       inline
       size="small"
       bind:tap="onCancel"
-    >{{jumpText}}</ant-button>
+    >{{jumpText === undefined ? locale.guideTour.jumpText : jumpText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowPrev(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onPrev"
       data-current-value="{{mixin.value}}"
-    >{{prevStepText}}</ant-button>
+    >{{prevStepText === undefined ? locale.guideTour.prevStepText : prevStepText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowNext(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onNext"
       data-current-value="{{mixin.value}}"
-    >{{nextStepText}}</ant-button>
+    >{{nextStepText === undefined ? locale.guideTour.nextStepText : nextStepText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowKnow(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onCancel"
-    >{{gotItText}}</ant-button>
+    >{{gotItText === undefined ? locale.guideTour.gotItText : gotItText}}</ant-button>
   </view>
   <block wx:if="{{swiperable}}">
     <view class="ant-guide-tour-indicator">

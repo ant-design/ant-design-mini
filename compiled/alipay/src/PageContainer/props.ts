@@ -76,23 +76,27 @@ export const PageDefaultProps: IPageProps = {
 // 内置异常配置
 export const BuiltinStatus = {
   'failed': {
-    image: 'https://gw.alipayobjects.com/mdn/rms_7cc883/afts/img/A*PG7NQoXbN38AAAAAAAAAAAAAARQnAQ',
-    title: '页面遇到一些小问题',
-    message: '待会来试试'
+    image:
+      'https://gw.alipayobjects.com/mdn/rms_7cc883/afts/img/A*PG7NQoXbN38AAAAAAAAAAAAAARQnAQ',
+    title: undefined,
+    message: undefined,
   },
   'disconnected': {
-    image: 'https://mdn.alipayobjects.com/huamei_yqdpol/afts/img/A*uqB5TY4urA4AAAAAAAAAAAAADj16AQ/original',
-    title: '网络有点忙',
-    message: '动动手指帮忙修复'
+    image:
+      'https://mdn.alipayobjects.com/huamei_yqdpol/afts/img/A*uqB5TY4urA4AAAAAAAAAAAAADj16AQ/original',
+    title: undefined,
+    message: undefined,
   },
   'empty': {
-    title: '这里什么也没有',
-    message: '看看其它吧',
-    image: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ'
+    title: undefined,
+    message: undefined,
+    image:
+      'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ',
   },
   'busy': {
-    image: 'https://mdn.alipayobjects.com/huamei_yqdpol/afts/img/A*avTGQIyeHk0AAAAAAAAAAAAADj16AQ/original',
-    title: '前方拥堵',
-    message: '刷新试试'
-  }
+    image:
+      'https://mdn.alipayobjects.com/huamei_yqdpol/afts/img/A*avTGQIyeHk0AAAAAAAAAAAAADj16AQ/original',
+    title: undefined,
+    message: undefined,
+  },
 };

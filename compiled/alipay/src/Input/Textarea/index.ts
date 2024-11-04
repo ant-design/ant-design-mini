@@ -1,8 +1,17 @@
-import { Component, triggerEvent } from '../../_util/simply';
-import { TextareaDefaultProps } from './props';
+import { effect } from '@preact/signals-core';
 import mixinValue from '../../mixins/value';
+import { ComponentWithSignalStoreImpl, triggerEvent } from '../../_util/simply';
+import i18nController from '../../_util/store';
+import { TextareaDefaultProps } from './props';
 
-Component(
+ComponentWithSignalStoreImpl(
+  {
+    store: () => i18nController,
+    updateHook: effect,
+    mapState: {
+      locale: ({ store }) => store.currentLocale.value,
+    },
+  },
   TextareaDefaultProps,
   {
     onChange(e) {

@@ -16,7 +16,7 @@
     allow-clear="{{allowClear}}"
     enable-native="{{enableNative}}"
     disabled="{{disabled}}"
-    placeholder="{{placeholder}}"
+    placeholder="{{placeholder === null ? locale.global.placeholder : placeholder}}"
     placeholder-class-name="{{placeholderClassName}}"
     placeholder-style="{{placeholderStyle}}"
     max-length="{{maxLength}}"

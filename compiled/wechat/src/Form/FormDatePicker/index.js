@@ -1,8 +1,19 @@
-import { Component, triggerEvent, triggerEventValues, triggerEventOnly, getValueFromProps, } from '../../_util/simply';
+import { effect } from '@preact/signals-core';
 import { resolveEventValue, resolveEventValues } from '../../_util/platform';
-import { FormDatePickerDefaultProps } from './props';
+import { ComponentWithSignalStoreImpl, getValueFromProps, triggerEvent, triggerEventOnly, triggerEventValues, } from '../../_util/simply';
+import i18nController from '../../_util/store';
 import { createForm } from '../form';
-Component(FormDatePickerDefaultProps, {
+import { FormDatePickerDefaultProps } from './props';
+ComponentWithSignalStoreImpl({
+    store: function () { return i18nController; },
+    updateHook: effect,
+    mapState: {
+        locale: function (_a) {
+            var store = _a.store;
+            return store.currentLocale.value;
+        },
+    },
+}, FormDatePickerDefaultProps, {
     onOk: function (date, dateStr, e) {
         var v = resolveEventValues(date, dateStr);
         this.emit('onChange', v[1]);

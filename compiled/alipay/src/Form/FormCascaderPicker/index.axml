@@ -18,9 +18,9 @@
   <view>
     <ant-cascader-picker
       options="{{options}}"
-      cancel-text="{{cancelText}}"
-      ok-text="{{okText}}"
-      placeholder="{{placeholder}}"
+      cancel-text="{{cancelText === null ? locale.global.cancelText : cancelText}}"
+      ok-text="{{okText === null ? locale.global.okText : okText}}"
+      placeholder="{{placeholder === null ? locale.global.placeholder : placeholder}}"
       animation-type="{{animationType}}"
       mask-closable="{{maskClosable}}"
       mask-style="{{maskStyle}}"

@@ -24,7 +24,7 @@
           class="ant-image-upload-cover-loading"
         >
           <loading className="ant-image-upload-cover-loading-icon"></loading>
-          <view class="ant-image-upload-cover-loading-text">{{uploadingText}}</view>
+          <view class="ant-image-upload-cover-loading-text">{{uploadingText === undefined ? locale.imageUpload.uploadingText : uploadingText}}</view>
         </view>
         <view
           wx:if="{{item.status === 'error'}}"
@@ -34,7 +34,7 @@
             class-name="ant-image-upload-cover-error-icon"
             type="CloseCircleOutline"
           ></icon>
-          <view class="ant-image-upload-cover-error-text">{{uploadfailedText}}</view>
+          <view class="ant-image-upload-cover-error-text">{{uploadfailedText === undefined ? locale.imageUpload.uploadfailedText : uploadfailedText}}</view>
         </view>
       </view>
       <image

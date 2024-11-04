@@ -17,9 +17,9 @@
 >
   <view>
     <ant-picker
-      cancel-text="{{cancelText}}"
-      ok-text="{{okText}}"
-      placeholder="{{placeholder}}"
+      cancel-text="{{cancelText === null ? locale.global.cancelText : cancelText}}"
+      ok-text="{{okText === null ? locale.global.okText : okText}}"
+      placeholder="{{placeholder === null ? locale.global.placeholder : placeholder}}"
       mask-closable="{{maskClosable}}"
       mask-style="{{maskStyle}}"
       pop-class-name="{{popClassName}}"

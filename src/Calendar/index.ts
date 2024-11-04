@@ -1,22 +1,35 @@
+import { effect } from '@preact/signals-core';
 import dayjs from 'dayjs';
 import equal from 'fast-deep-equal';
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import mixinValue from '../mixins/value';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import {
+  ComponentWithSignalStoreImpl,
+  getValueFromProps,
+  triggerEvent,
+} from '../_util/simply';
+import i18nController from '../_util/store';
+import {
+  CalendarDefaultProps,
   CalendarValue,
   CellState,
   defaultLocaleText,
-  CalendarDefaultProps,
 } from './props';
 import {
   getMonthListFromRange,
+  getScrollIntoViewId,
   getSelectionModeFromValue,
   renderCells,
-  getScrollIntoViewId,
 } from './utils';
-import mixinValue from '../mixins/value';
-import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 
-Component(
+ComponentWithSignalStoreImpl(
+  {
+    store: () => i18nController,
+    updateHook: effect,
+    mapState: {
+      locale: ({ store }) => store.currentLocale.value,
+    },
+  },
   CalendarDefaultProps,
   {
     getInstance() {
