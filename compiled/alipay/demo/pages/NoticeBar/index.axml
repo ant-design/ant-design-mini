@@ -29,7 +29,7 @@
     <ant-notice
       type="{{item}}"
       style="margin-bottom: 8px"
-      enable-marquee="{{true}}"
+      enableMarquee="{{true}}"
       loop="{{true}}"
       onTap="handleTapLink"
       mode="link"
@@ -47,7 +47,7 @@
     <ant-notice
       type="{{item}}"
       style="margin-bottom: 8px"
-      enable-marquee="{{true}}"
+      enableMarquee="{{true}}"
       onTap="handleTapLink"
       mode="link"
     >

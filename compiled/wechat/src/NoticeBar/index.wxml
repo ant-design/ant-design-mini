@@ -14,7 +14,7 @@
     <image-icon
       wx:if="{{icon}}"
       image="{{icon}}"
-      class-name="ant-notice-bar-icon-image"
+      className="ant-notice-bar-icon-image"
     ></image-icon>
     <icon
       wx:elif="{{type === 'error'}}"
@@ -38,13 +38,13 @@
     <slot name="extra"></slot>
     <icon
       wx:if="{{mode === 'link'}}"
-      class-name="ant-notice-bar-operation-icon"
+      className="ant-notice-bar-operation-icon"
       type="RightOutline"
       bind:tap="onTap"
     ></icon>
     <icon
       wx:if="{{mode === 'closeable'}}"
-      class-name="ant-notice-bar-operation-icon"
+      className="ant-notice-bar-operation-icon"
       type="CloseOutline"
       bind:tap="onTap"
     ></icon>

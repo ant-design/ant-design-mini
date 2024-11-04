@@ -12,7 +12,7 @@
   ></ant-number-keyboard>
   <ant-list-item onTap="onTap2">带确认按钮</ant-list-item>
   <ant-number-keyboard
-    confirm-text="确认"
+    confirmText="确认"
     visible="{{visible2}}"
     onClose="onTap2"
   ></ant-number-keyboard>
@@ -44,7 +44,7 @@
   </ant-number-keyboard>
   <ant-list-item onTap="onTap7">自定义确认按钮</ant-list-item>
   <ant-number-keyboard
-    confirm-text="确认"
+    confirmText="确认"
     visible="{{visible7}}"
     onClose="onTap7"
   >

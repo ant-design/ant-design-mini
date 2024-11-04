@@ -4,14 +4,14 @@
   </container>
   <container title="有默认值">
     <switch
-      default-checked="{{true}}"
+      defaultChecked="{{true}}"
       onChange="onChange"
     ></switch>
   </container>
   <container title="文字和图标">
     <switch
-      checked-text="开"
-      unchecked-text="关"
+      checkedText="开"
+      uncheckedText="关"
       onChange="onChange"
     ></switch>
     <switch>
@@ -27,13 +27,13 @@
   </container>
   <container title="自定义颜色">
     <switch
-      default-checked="{{true}}"
+      defaultChecked="{{true}}"
       color="#00b578"
     ></switch>
   </container>
   <container title="禁用状态">
     <switch
-      default-checked="{{true}}"
+      defaultChecked="{{true}}"
       disabled="{{true}}"
     ></switch>
     <switch disabled="{{true}}"></switch>
@@ -59,7 +59,7 @@
     <switch
       checked="{{checked}}"
       onChange="handleChange"
-      default-checked="{{true}}"
+      defaultChecked="{{true}}"
     ></switch>
     <button
       style="margin-top: 10px"

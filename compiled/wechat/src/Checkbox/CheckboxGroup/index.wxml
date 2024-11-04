@@ -3,7 +3,7 @@
   module="componentUtils"
 ></wxs>
 <list
-  class-name="ant-checkbox-group {{className ? className : ''}} ant-checkbox-group-{{position}}"
+  className="ant-checkbox-group {{className ? className : ''}} ant-checkbox-group-{{position}}"
   style="{{style}}"
 >
   <checkbox-group

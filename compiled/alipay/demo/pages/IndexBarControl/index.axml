@@ -1,6 +1,6 @@
 <view class="base">
   <index-bar
-    class-name="indexbar"
+    className="indexbar"
     items="{{items}}"
     current="{{current}}"
     onChange="onChange"

@@ -6,7 +6,7 @@
   <icon
     a:if="{{helper.isIcon(image)}}"
     type="{{image}}"
-    class-name="{{className ? className + '-icon' : ''}}"
+    className="{{className ? className + '-icon' : ''}}"
     style="{{style}}"
   ></icon>
   <image
