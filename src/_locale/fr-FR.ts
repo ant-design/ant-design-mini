@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const frFR: Locale = {
   // locales for all components
+  locale: 'fr-FR',
   global: {
     placeholder: 'Veuillez sélectionner',
     emptyText: 'Aucune donnée disponible',
@@ -18,7 +19,7 @@ const frFR: Locale = {
       'Samedi',
       'Dimanche',
     ],
-    title: 'YYYY an MM mois',
+    format: 'MM/YYYY',
     today: "Aujourd'hui",
     start: 'Commencer',
     end: 'Fin',

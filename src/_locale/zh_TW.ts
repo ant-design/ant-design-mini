@@ -3,6 +3,7 @@ import type { Locale } from '.';
 
 const zhTW: Locale = {
   // locales for all components
+  locale: 'zh_TW',
   global: {
     placeholder: '請選擇',
     emptyText: '暫無數據',
@@ -11,11 +12,11 @@ const zhTW: Locale = {
   },
   calendar: {
     weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
-    title: 'YYYY年MM月',
     today: '今日',
     start: '開始',
     end: '結束',
     startAndEnd: '開始/結束',
+    format: 'YYYY年MM月',
   },
   rangePicker: {
     startPlaceholder: '未選擇',

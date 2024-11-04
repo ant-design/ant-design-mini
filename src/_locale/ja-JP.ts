@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const jaJP: Locale = {
   // locales for all components
+  locale: 'ja-JP',
   global: {
     placeholder: '選択してください',
     emptyText: 'データはありません。',
@@ -18,7 +19,7 @@ const jaJP: Locale = {
       '土曜日',
       '日曜日',
     ],
-    title: 'YYYY年MM月',
+    format: 'MM/YYYY',
     today: '今日です',
     start: '開始',
     end: '終了',

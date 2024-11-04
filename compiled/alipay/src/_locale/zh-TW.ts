@@ -1,8 +1,9 @@
-//zh_HK 繁体中文（中国香港）
+//zh_TW 繁体中文（中国台湾）
 import type { Locale } from '.';
 
-const zhHK: Locale = {
+const zhTW: Locale = {
   // locales for all components
+  locale: 'zh_TW',
   global: {
     placeholder: '請選擇',
     emptyText: '暫無數據',
@@ -37,7 +38,7 @@ const zhHK: Locale = {
       message: '待會來試試',
     },
     disconnected: {
-      title: '網絡有點忙',
+      title: '網路有點忙',
       message: '動動手指幫忙修復',
     },
     empty: {
@@ -51,4 +52,4 @@ const zhHK: Locale = {
   },
 };
 
-export default zhHK;
+export default zhTW;

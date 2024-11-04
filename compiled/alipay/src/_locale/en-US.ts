@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const enUS: Locale = {
   // locales for all components
+  locale: 'en-US',
   global: {
     placeholder: 'Please select',
     emptyText: 'No data available',
@@ -9,20 +10,12 @@ const enUS: Locale = {
     cancelText: 'Cancel',
   },
   calendar: {
-    weekdayNames: [
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-      'Sunday',
-    ],
-    title: 'YYYY year MM month',
+    weekdayNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     today: 'Today',
     start: 'Start',
     end: 'End',
     startAndEnd: 'Start/End',
+    format: 'MMM D, YYYY',
   },
   rangePicker: {
     startPlaceholder: 'No selection started',

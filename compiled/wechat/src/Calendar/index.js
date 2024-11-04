@@ -61,7 +61,7 @@ import mixinValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { ComponentWithSignalStoreImpl, getValueFromProps, triggerEvent, } from '../_util/simply';
 import i18nController from '../_util/store';
-import { CalendarDefaultProps, defaultLocaleText, } from './props';
+import { CalendarDefaultProps } from './props';
 import { getMonthListFromRange, getScrollIntoViewId, getSelectionModeFromValue, renderCells, } from './utils';
 ComponentWithSignalStoreImpl({
     store: function () { return i18nController; },
@@ -185,7 +185,8 @@ ComponentWithSignalStoreImpl({
             'onFormatter',
             'onMonthFormatter',
         ]), monthRange = _a[0], plocaleText = _a[1], pweekStartsOn = _a[2], onFormatter = _a[3], onMonthFormatter = _a[4];
-        var localeText = Object.assign({}, defaultLocaleText, plocaleText);
+        var localeText = Object.assign({}, this.data.locale.calendar, plocaleText);
+        console.log(this.data.locale.calendar, '超越自己333', localeText);
         var markItems = __spreadArray([], localeText.weekdayNames, true);
         var weekStartsOn = pweekStartsOn;
         if (weekStartsOn === 'Sunday') {
@@ -231,7 +232,7 @@ ComponentWithSignalStoreImpl({
                 });
             }
             var month = {
-                title: p.format(localeText.title),
+                title: p.format(localeText.format),
                 className: '',
                 cells: cells,
             };

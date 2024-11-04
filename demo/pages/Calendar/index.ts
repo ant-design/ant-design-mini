@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 const localeText = {
   weekdayNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  title: 'YYYY/MM',
+  format: 'YYYY/MM',
   today: 'Today',
   start: 'Start',
   end: 'End',

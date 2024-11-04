@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const thTH: Locale = {
   // locales for all components
+  locale: 'th-TH',
   global: {
     placeholder: 'กรุณาเลือก',
     emptyText: 'ยังไม่มีข้อมูล',
@@ -18,7 +19,7 @@ const thTH: Locale = {
       'วันเสาร์',
       'วันอาทิตย์',
     ],
-    title: 'YYYY ปี MM เดือน',
+    format: 'MM/YYYY',
     today: 'วันนี้',
     start: 'เริ่มต้น',
     end: 'สิ้นสุด',

@@ -7,15 +7,14 @@ export interface CalendarDate {
   date: number;
 }
 
-// TODO 这里需要改掉，默认值从locale来引入
-export const defaultLocaleText = {
-  weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
-  title: 'YYYY年MM月',
-  today: '今日',
-  start: '开始',
-  end: '结束',
-  startAndEnd: '开始/结束',
-};
+// export const defaultLocaleText = {
+//   weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
+//   title: 'YYYY年MM月',
+//   today: '今日',
+//   start: '开始',
+//   end: '结束',
+//   startAndEnd: '开始/结束',
+// };
 
 export interface LocaleText {
   /**
@@ -24,9 +23,9 @@ export interface LocaleText {
    */
   weekdayNames: string[];
   /**
-   * 月份标题的格式。 默认为 'YYYY年MM月'
+   * 月份标题的格式。 除中文/英文外默认为'MM/YYYY',
    */
-  title: string;
+  format: string;
   /**
    * 今日的文案。 默认为 '今日'
    */
@@ -171,7 +170,7 @@ export const CalendarDefaultProps = {
   selectionMode: 'range',
   monthRange: defaultMonthRange(),
   weekStartsOn: 'Sunday',
-  localeText: defaultLocaleText,
+  localeText: undefined,
   onFormatter: null,
   onMonthFormatter: null,
   changedScrollIntoView: null,

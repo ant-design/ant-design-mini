@@ -9,12 +9,7 @@ import {
   triggerEvent,
 } from '../_util/simply';
 import i18nController from '../_util/store';
-import {
-  CalendarDefaultProps,
-  CalendarValue,
-  CellState,
-  defaultLocaleText,
-} from './props';
+import { CalendarDefaultProps, CalendarValue, CellState } from './props';
 import {
   getMonthListFromRange,
   getScrollIntoViewId,
@@ -142,7 +137,12 @@ ComponentWithSignalStoreImpl(
         'onFormatter',
         'onMonthFormatter',
       ]);
-      const localeText = Object.assign({}, defaultLocaleText, plocaleText);
+      const localeText = Object.assign(
+        {},
+        this.data.locale.calendar,
+        plocaleText
+      );
+      console.log(this.data.locale.calendar, '超越自己333', localeText);
       const markItems = [...localeText.weekdayNames];
       const weekStartsOn = pweekStartsOn;
       if (weekStartsOn === 'Sunday') {
@@ -205,7 +205,7 @@ ComponentWithSignalStoreImpl(
           });
         }
         let month = {
-          title: p.format(localeText.title),
+          title: p.format(localeText.format),
           className: '',
           cells,
         };

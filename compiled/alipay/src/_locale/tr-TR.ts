@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const trTR: Locale = {
   // locales for all components
+  locale: 'tr-TR',
   global: {
     placeholder: 'Lütfen seçin',
     emptyText: 'Henüz veri yok.',
@@ -18,7 +19,7 @@ const trTR: Locale = {
       'Cumartesi',
       'Pazar',
     ],
-    title: 'YYYY yıl MM ay',
+    format: 'MM/YYYY',
     today: 'Bugün',
     start: 'Başla',
     end: 'Bitiyor',

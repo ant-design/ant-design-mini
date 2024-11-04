@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const ptBR: Locale = {
   // locales for all components
+  locale: 'pt-BR',
   global: {
     placeholder: 'Por favor, selecione',
     emptyText: 'Não há dados disponíveis',
@@ -18,7 +19,7 @@ const ptBR: Locale = {
       'Sábado',
       'Domingo',
     ],
-    title: 'YYYY ano MM mês',
+    format: 'MM/YYYY',
     today: 'Hoje',
     start: 'Início',
     end: 'Fim',

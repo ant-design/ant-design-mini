@@ -1,8 +1,8 @@
 import { signal } from '@preact/signals-core';
-import zhCN from '../_locale/zh_CN';
+import enUS from '../_locale/en-US';
 var SharedStore = /** @class */ (function () {
     function SharedStore() {
-        this.currentLocale = signal(zhCN);
+        this.currentLocale = signal(enUS);
     }
     // 切换语言
     SharedStore.prototype.switchLocale = function (locale) {

@@ -4,6 +4,7 @@ import type { Locale } from '.';
 
 const arSA: Locale = {
   // locales for all components
+  locale: 'ar-SA',
   global: {
     placeholder: 'يرجى الاختيار',
     emptyText: 'لا توجد بيانات حتى الآن',
@@ -20,11 +21,11 @@ const arSA: Locale = {
       'السبت',
       'الأحد',
     ],
-    title: 'YYYY سنة  MM شهر',
     today: 'اليوم',
     start: 'ابدأ',
     end: 'النهاية',
     startAndEnd: 'البداية/النهاية',
+    format: 'MM/YYYY',
   },
   rangePicker: {
     startPlaceholder: 'لم يبدأ الاختيار',

@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const msMY: Locale = {
   // locales for all components
+  locale: 'ms-MY',
   global: {
     placeholder: 'Sila pilih',
     emptyText: 'Tiada data',
@@ -18,7 +19,7 @@ const msMY: Locale = {
       'Sabtu',
       'Ahad',
     ],
-    title: 'YYYY tahun MM bulan',
+    format: 'MM/YYYY',
     today: 'Hari ini',
     start: 'Mula',
     end: 'Tamat',
