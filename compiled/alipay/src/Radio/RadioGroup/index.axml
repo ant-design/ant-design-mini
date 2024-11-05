@@ -3,7 +3,7 @@
   name="componentUtils"
 ></import-sjs>
 <list
-  className="ant-radio-group {{className ? className : ''}} ant-radio-group-{{position}}"
+  class-name="ant-radio-group {{className ? className : ''}} ant-radio-group-{{position}}"
   style="{{style}}"
 >
   <radio-group

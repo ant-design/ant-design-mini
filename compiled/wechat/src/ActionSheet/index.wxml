@@ -3,10 +3,10 @@
   module="helper"
 ></wxs>
 <ant-popup
-  className="ant-actionsheet-popup"
+  class-name="ant-actionsheet-popup"
   visible="{{visible}}"
   position="bottom"
-  zIndex="{{zIndex}}"
+  z-index="{{zIndex}}"
   bind:close="onClose"
 >
   <view
@@ -28,7 +28,7 @@
       >
         <view
           class="ant-actionsheet-list-item {{item.disabled ? 'ant-actionsheet-list-item-disabled' : ''}}"
-          hoverClass="{{item.disabled ? '' : 'ant-actionsheet-list-item-active'}}"
+          hover-class="{{item.disabled ? '' : 'ant-actionsheet-list-item-active'}}"
           bind:tap="onAction"
           data-index="{{index}}"
           data-item="{{item}}"

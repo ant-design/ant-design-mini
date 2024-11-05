@@ -9,12 +9,12 @@
 >
   <mask
     show
-    className="{{maskClassName}}"
+    class-name="{{maskClassName}}"
     style="z-index:9999;{{maskStyle || ''}}"
   ></mask>
   <ant-icon
     type="CloseOutline"
-    className="ant-guide-tour-clear"
+    class-name="ant-guide-tour-clear"
     bind:tap="onCancel"
   ></ant-icon>
   <view class="ant-guide-tour-button">
@@ -58,7 +58,7 @@
     <swiper
       class="ant-guide-tour-swiper"
       current="{{mixin.value}}"
-      adjustHeight="none"
+      adjust-height="none"
       style="height: 100vh"
       bind:change="onSwiperChange"
     >

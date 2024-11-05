@@ -1,38 +1,38 @@
 <ant-container title="基础用法">
   <ant-rate
-    defaultValue="{{3}}"
+    default-value="{{3}}"
     bind:change="onChange"
   ></ant-rate>
 </ant-container>
 <ant-container title="半星">
   <ant-rate
-    defaultValue="{{3.5}}"
-    allowHalf
+    default-value="{{3.5}}"
+    allow-half
     bind:change="onChange"
   ></ant-rate>
 </ant-container>
 <ant-container title="清除">
   <ant-rate
-    defaultValue="{{4}}"
+    default-value="{{4}}"
     bind:change="onChange"
   ></ant-rate>
   <view class="description">allowClear: true</view>
   <ant-rate
-    defaultValue="{{4}}"
-    allowClear="{{false}}"
+    default-value="{{4}}"
+    allow-clear="{{false}}"
     bind:change="onChange"
   ></ant-rate>
   <view class="description">allowClear: false</view>
 </ant-container>
 <ant-container title="只读">
   <ant-rate
-    defaultValue="{{3.5}}"
+    default-value="{{3.5}}"
     readonly
   ></ant-rate>
 </ant-container>
 <ant-container title="多个count">
   <ant-rate
-    defaultValue="{{5}}"
+    default-value="{{5}}"
     count="{{8}}"
   ></ant-rate>
 </ant-container>
