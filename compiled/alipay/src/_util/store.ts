@@ -1,5 +1,4 @@
 import { signal } from '@preact/signals-core';
-import enUS from '../_locale/en-US';
 import { Locale } from '../_locale/index';
 
 class SharedStore {
