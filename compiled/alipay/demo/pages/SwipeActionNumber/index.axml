@@ -13,7 +13,7 @@
       <view class="t-swipe-item-con">
         <ant-swipe-action
           data-item="{{index}}"
-          right-buttons="{{utils.sliceButton(rightBtns, index)}}"
+          rightButtons="{{utils.sliceButton(rightBtns, index)}}"
           elasticity="{{index !== 0}}"
           swiped="{{swipeIndex === index}}"
           onSwipeEnd="onSwipeEnd"

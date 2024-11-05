@@ -9,8 +9,8 @@
       <view class="t-swipe-item-con">
         <ant-swipe-action
           data-item="{{index}}"
-          right-buttons="{{rightBtns}}"
-          left-buttons="{{leftBtns}}"
+          rightButtons="{{rightBtns}}"
+          leftButtons="{{leftBtns}}"
           elasticity="{{true}}"
           swiped="{{swipeIndex === index}}"
           bind:swipeend="onSwipeEnd"
@@ -24,7 +24,7 @@
           >
             <ant-icon
               type="DeleteOutline"
-              class-name="t-swipe-item-con-btn-icon"
+              className="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <!--display: inline-->
             <text class="t-swipe-item-con-btn-del">删除</text>
@@ -35,7 +35,7 @@
           >
             <ant-icon
               type="DeleteOutline"
-              class-name="t-swipe-item-con-btn-icon"
+              className="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <view class="t-swipe-item-con-btn-del">确认删除吗？</view>
           </view>
@@ -45,7 +45,7 @@
           >
             <ant-icon
               type="EditFill"
-              class-name="t-swipe-item-con-btn-icon"
+              className="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <view class="t-swipe-item-con-btn-del">重命名</view>
           </view>
@@ -55,7 +55,7 @@
           >
             <ant-icon
               type="EditFill"
-              class-name="t-swipe-item-con-btn-icon"
+              className="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <view class="t-swipe-item-con-btn-del">确认修改吗?</view>
           </view>
@@ -65,7 +65,7 @@
           >
             <ant-icon
               type="EditFill"
-              class-name="t-swipe-item-con-btn-icon"
+              className="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <view class="t-swipe-item-con-btn-del">重命名</view>
           </view>
@@ -75,7 +75,7 @@
           >
             <ant-icon
               type="EditFill"
-              class-name="t-swipe-item-con-btn-icon"
+              className="t-swipe-item-con-btn-icon"
             ></ant-icon>
             <view class="t-swipe-item-con-btn-del">确认修改吗?</view>
           </view>

@@ -19,10 +19,10 @@
       class="ant-tabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{$id ? '-' + $id : ''}}"
       onScroll="onScroll"
-      scroll-left="{{scrollLeft}}"
-      scroll-x="{{true}}"
-      scroll-with-animation="{{true}}"
-      scroll-animation-duration="{{300}}"
+      scrollLeft="{{scrollLeft}}"
+      scrollX="{{true}}"
+      scrollWithAnimation="{{true}}"
+      scrollAnimationDuration="{{300}}"
     >
       <view></view>
       <block
@@ -113,10 +113,10 @@
       class="ant-vtabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{$id ? '-' + $id : ''}}"
       onScroll="onScroll"
-      scroll-top="{{scrollTop}}"
-      scroll-y="{{true}}"
-      scroll-with-animation="{{true}}"
-      scroll-animation-duration="{{300}}"
+      scrollTop="{{scrollTop}}"
+      scrollY="{{true}}"
+      scrollWithAnimation="{{true}}"
+      scrollAnimationDuration="{{300}}"
     >
       <view class="ant-vtabs-bar-item-wrap">
         <block

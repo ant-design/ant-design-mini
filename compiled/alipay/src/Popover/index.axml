@@ -28,7 +28,7 @@
         class="ant-popover-image"
       >
         <image-icon
-          class-name="ant-popover-image-content"
+          className="ant-popover-image-content"
           image="{{imageUrl}}"
         ></image-icon>
       </view>
@@ -55,10 +55,10 @@
       <view
         a:if="{{showCloseIcon}}"
         onTap="onVisibleChange"
-        class-name="ant-popover-close"
+        className="ant-popover-close"
       >
         <image-icon
-          class-name="ant-popover-close-icon"
+          className="ant-popover-close-icon"
           image="CloseOutline"
         ></image-icon>
       </view>
@@ -68,7 +68,7 @@
 <mask
   show="{{showMask && mixin.value}}"
   id="ant-popover-mask{{$id ? '-' + $id : ''}}"
-  class-name="ant-popover-mask {{maskClassName || ''}}"
+  className="ant-popover-mask {{maskClassName || ''}}"
   style="{{maskStyle}}"
   onMaskTap="onVisibleChange"
 ></mask>

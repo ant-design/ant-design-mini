@@ -1,6 +1,6 @@
 <ant-container
   title="按钮类型"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -17,7 +17,7 @@
 </ant-container>
 <ant-container
   title="辅助按钮 只有default和primary类型有"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -44,27 +44,27 @@
 </ant-container>
 <ant-container
   title="带辅助文案按钮"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
-    sub-text="副标题"
+    subText="副标题"
     bind:tap="handleTap"
   >主要按钮</ant-button>
   <ant-button
     type="default"
-    sub-text="副标题"
+    subText="副标题"
     bind:tap="handleTap"
   >次要按钮</ant-button>
   <ant-button
     type="text"
-    sub-text="副标题"
+    subText="副标题"
     bind:tap="handleTap"
   >文本按钮</ant-button>
 </ant-container>
 <ant-container
   title="禁用"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -81,7 +81,7 @@
 </ant-container>
 <ant-container
   title="加载状态"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -98,7 +98,7 @@
 </ant-container>
 <ant-container
   title="危险"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
