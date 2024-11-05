@@ -9,41 +9,71 @@ toc: 'content'
 
 # Button 按钮
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 用于开始一个即时操作。
 
 ## 何时使用
 
 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
 
+## 引入
+在index.json中引入组件
+```json
+"usingComponents": {
+  "ant-button": "antd-mini/es/Button/index"
+}
+
+```
+
 ## 代码示例
 
 ### 基本使用
-
-<code src='../../demo/pages/Button/index'></code>
-
-### Inline
-
-<!-- <code src='pages/ButtonInline/index'></code> -->
-
-### Icon
-
-<!-- <code src='pages/ButtonIcon/index'></code> -->
-
-### 更多自定义
-
-<!-- <code src='pages/ButtonCustom/index'></code> -->
-
-```js
-通用代码
+```xml
 #if ALIPAY
-支付宝示例代码;
+<ant-button type="primary">支付宝</ant-button>
 #endif
 #if WECHAT
-微信示例代码;
+<ant-button type="primary">微信</ant-button>
 #endif
+<ant-button type="primary">主要按钮</ant-button>
+<ant-button type="default">次要按钮</ant-button>
+<ant-button type="text">文本按钮</ant-button>
+<ant-button  title="副标题" type="primary">带辅助文案按钮</ant-button>
+<ant-button disabled type="primary" onTap="handleTap" onDisabledTap="handleDisabledTap"> 禁用 </ant-button>
+<ant-button type="primary" loading>加载状态</ant-button>
+<ant-button type="primary" danger>危险</ant-button>
 ```
+
+
+### 行内按钮
+```xml
+<ant-button type="primary" inline>行内按钮</ant-button>
+<ant-button type="primary" inline size="large">按钮尺寸-大</ant-button>
+<ant-button type="primary" inline size="medium">按钮尺寸-中</ant-button>
+<ant-button type="primary" inline size="small">按钮尺寸-小</ant-button>
+<ant-button type="primary" inline danger size="large">危险</ant-button>
+```
+
+### 带图标按钮
+```xml
+<ant-button type="primary" icon="SmileOutline">带图标按钮</ant-button>
+<ant-button type="default" icon="SmileOutline">带图标按钮</ant-button>
+<ant-button type="default" danger icon="ForbidFill">带图标按钮</ant-button>
+<ant-button type="default" loading icon="ForbidFill">带图标按钮</ant-button>
+<ant-button type="default" inline danger size="large" icon="ForbidFill">带图标按钮</ant-button>
+```
+
+### 更多自定义
+```xml
+<ant-button type="primary" icon="SmileOutline" className="custom-size">自定义大小</ant-button>
+<ant-button type="primary" icon="SmileOutline" className="round">自定义圆角</ant-button>
+```
+```css
+.custom-size { font-size: 22rpx; }
+.round { border-radius: 50rpx; }
+```
+
+### Demo代码
+<code src='../../demo/pages/Button/index'></code>
 
 ## API
 
@@ -51,19 +81,19 @@ toc: 'content'
 
 以下表格介绍了 Button 组件的 API 属性：
 
-| 属性                   | 说明                                                            | 类型                                                                          | 默认值    |
-| ---------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------- |
-| type                   | 按钮类型，可选 `primary`、`default`、`text`                     | string                                                                        | `default` |
-| danger                 | 是否为危险按钮                                                  | boolean                                                                       | false     |
-| disabled               | 是否为失效按钮                                                  | boolean                                                                       | false     |
-| activeClassName        | 按下时的类名                                                    | string                                                                        | -         |
-| className              | 类名                                                            | string                                                                        | -         |
-| style                  | 样式                                                            | string                                                                        | -         |
-| inline                 | 是否为内联按钮                                                  | boolean                                                                       | false     |
-| icon                   | 按钮左侧图标                                                    | string                                                                        | -         |
-| loading                | 是否加载中，加载中时不可点击                                    | boolean                                                                       | -         |
-| size                   | 按钮大小。仅在 `inline` 下生效，可选 `small`、`medium`、`large` | string                                                                        | `medium`  |
-| subText                | 辅助文字，显示在第二行。`inline` 下不生效                       | string                                                                        | -         |
+| 属性                     | 说明                                                            | 类型                                                                          | 默认值    |
+| ------------------------ | --------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------- |
+| type                     | 按钮类型，可选 `primary`、`default`、`text`                     | string                                                                        | `default` |
+| danger                   | 是否为危险按钮                                                  | boolean                                                                       | false     |
+| disabled                 | 是否为失效按钮                                                  | boolean                                                                       | false     |
+| activeClassName          | 按下时的类名                                                    | string                                                                        | -         |
+| className                | 类名                                                            | string                                                                        | -         |
+| style                    | 样式                                                            | string                                                                        | -         |
+| inline                   | 是否为内联按钮                                                  | boolean                                                                       | false     |
+| icon                     | 按钮左侧图标                                                    | string                                                                        | -         |
+| loading                  | 是否加载中，加载中时不可点击                                    | boolean                                                                       | -         |
+| size                     | 按钮大小。仅在 `inline` 下生效，可选 `small`、`medium`、`large` | string                                                                        | `medium`  |
+| subText                  | 辅助文字，显示在第二行。`inline` 下不生效                       | string                                                                        | -         |
 | #if ALIPAY catchTap      | 点击按钮，触发此回调，非冒泡                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onTap         | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onDisabledTap | 禁用时点击出发回调（微信不支持）                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |

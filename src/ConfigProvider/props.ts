@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Locale } from '../_locale/index';
-import zhCN from '../_locale/zh_CN';
+import zhCN from '../_locale/zh-CN';
 import { IBaseProps } from '../_util/base';
 /**
  * @description 全局配置

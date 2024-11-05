@@ -3,13 +3,15 @@ order: 4
 toc: false
 ---
 
-# 定制主题
+# 定制主题 WIP
 
 antd-mini 支持使用 less 来自定义主题。antd-mini 内置了两套主题：基础主题和深色主题。通过自定义 less 变量，可以使用不同的主题或修改主题颜色。
 
 ## 使用方式
 
-> 小程序开发者工具 IDE 版本需不低于 3.0.0，命令行工具 CLI 版本需不低于 1.4.0。
+> 全局设置主题，通过[CSS 变量](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties) 来组织样式，通过覆盖这些 CSS 变量，可以实现定制主题、动态切换主题等效果；
+
+### 通过 CSS 覆盖
 
 1. 使用 `antd-mini/less/组件`：
 
@@ -35,6 +37,8 @@ antd-mini 支持使用 less 来自定义主题。antd-mini 内置了两套主题
   }
 }
 ```
+
+### 通过 ConfigProvider 覆盖
 
 ## less 变量
 
