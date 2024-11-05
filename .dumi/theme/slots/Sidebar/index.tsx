@@ -188,7 +188,7 @@ const useStyle = (isShowPlatfromSwitch) => {
         justify-content: center;
         background-color: ${isDark ? 'rgba(255, 255, 255, 0.04)' : '#e9e9e9'};
         border-radius: 3px;
-        padding: 3px;
+        padding: 3px 6px;
         .item {
           display: flex;
           align-items: center;
