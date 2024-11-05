@@ -13,7 +13,7 @@ toc: 'content'
 
 ## 何时使用
 
-可以通过通过 `ConfigProvider` 组件来全局配置 Antd-Mini 组件，包括：
+可以通过 `ConfigProvider` 组件来全局配置 Antd-Mini 组件，包括：
 
 - 全局设置主题，通过[CSS 变量](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties) 来组织样式，通过覆盖这些 CSS 变量，可以实现定制主题、动态切换主题等效果；
 - 全局设置国际化，通过设置 Locales 来实现多语言支持；
