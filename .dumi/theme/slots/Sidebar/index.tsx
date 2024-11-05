@@ -222,6 +222,14 @@ const useStyle = (isShowPlatfromSwitch) => {
               color: ${isDark ? '#fff' : '#1677ff'};
             }
           }
+          &.activeWx {
+            background: ${isDark ? '#141414' : '#fff'};
+            border-radius: 1px;
+            & > span {
+              font-weight: 500;
+              color: ${isDark ? '#fff' : 'rgba(0, 0, 0, 0.88)'};
+            }
+          }
         }
       }
     `,
@@ -347,7 +355,7 @@ const Sidebar: FC = () => {
               <span>{<FormattedMessage id="app.theme.sidebar.alipay" />}</span>
             </div>
             <div
-              className={`item ${platform === 'wechat' && 'active'}`}
+              className={`item ${platform === 'wechat' && 'activeWx'}`}
               onClick={() => switchPlatform('wechat')}
             >
               <img
