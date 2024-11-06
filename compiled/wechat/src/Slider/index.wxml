@@ -13,7 +13,7 @@
     <popover
       placement="top"
       visible="{{showTooltip}}"
-      show-mask="{{false}}"
+      showMask="{{false}}"
     >
       <view class="ant-slider-handler-block">
         <view class="ant-slider-handler-icon-default">

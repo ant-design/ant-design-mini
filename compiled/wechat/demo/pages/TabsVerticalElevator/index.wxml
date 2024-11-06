@@ -3,18 +3,18 @@
   current="{{current}}"
   bind:change="onChange"
   direction="vertical"
-  class-name="tabs"
-  tabs-bar-class-name="tabs-bar"
-  tab-active-class-name="tab-active"
+  className="tabs"
+  tabsBarClassName="tabs-bar"
+  tabActiveClassName="tab-active"
 >
   <scroll-view
     id="scroll-view"
     bind:scroll="onScroll"
     onTouchStart="onTouchStart"
-    scroll-top="{{scrollTop}}"
-    scroll-y="{{true}}"
-    scroll-with-animation="{{true}}"
-    scroll-animation-duration="{{300}}"
+    scrollTop="{{scrollTop}}"
+    scrollY="{{true}}"
+    scrollWithAnimation="{{true}}"
+    scrollAnimationDuration="{{300}}"
     class="content"
   >
     <block

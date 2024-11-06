@@ -51,7 +51,7 @@
   transform: scaleY(0.5);
 }
 .ant-actionsheet-list-item-title-danger {
-  color: #ff3141;
+  color: var(--color-red, #ff3141);
   font-weight: bold;
 }
 .ant-actionsheet-list-item-description {

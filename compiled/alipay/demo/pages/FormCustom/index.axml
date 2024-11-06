@@ -5,7 +5,7 @@
   message="需要输入用户名"
   placeholder="请输入用户名"
   position="vertical"
-  input-class-name="input"
+  inputClassName="input"
   ref="handleRef"
 ></form-input>
 <form-checklist
@@ -29,13 +29,13 @@
   <ant-button
     type="primary"
     onTap="submit"
-    class-name="button"
+    className="button"
   >
     提交
   </ant-button>
   <ant-button
     onTap="reset"
-    class-name="button"
+    className="button"
   >
     重置
   </ant-button>

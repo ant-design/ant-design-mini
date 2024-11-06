@@ -23,16 +23,16 @@
 <view class="buttons">
   <ant-button
     bind:tap="add"
-    class-name="button"
+    className="button"
   >添加用户<ant-icon type="AddCircleOutline"></ant-icon>
   </ant-button>
   <ant-button
     type="primary"
     bind:tap="submit"
-    class-name="button"
+    className="button"
   >提交</ant-button>
   <ant-button
     bind:tap="reset"
-    class-name="button"
+    className="button"
   >重置</ant-button>
 </view>

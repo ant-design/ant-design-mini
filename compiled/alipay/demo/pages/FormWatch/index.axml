@@ -22,13 +22,13 @@
   <ant-button
     type="primary"
     onTap="submit"
-    class-name="button"
+    className="button"
   >
     提交
   </ant-button>
   <ant-button
     onTap="reset"
-    class-name="button"
+    className="button"
   >
     重置
   </ant-button>

@@ -4,12 +4,12 @@
       bind:cancel="handleDismissPicker"
       bind:visiblechange="handleTriggerPicker"
       bind:ok="handleOk"
-      default-value="{{defaultValue}}"
+      defaultValue="{{defaultValue}}"
       placeholder="请选择"
       title="请选择"
       bind:change="handleChange"
       options="{{list}}"
-      empty-text="暂无数据"
+      emptyText="暂无数据"
     ></ant-picker>
   </ant-list-item>
   <ant-list-item>选择城市（点击蒙层不关闭）<ant-picker
@@ -17,11 +17,11 @@
       bind:cancel="handleDismissPicker"
       bind:visiblechange="handleTriggerPicker"
       bind:ok="handleOk"
-      default-value="{{defaultValue}}"
+      defaultValue="{{defaultValue}}"
       placeholder="请选择"
       title="请选择"
       bind:change="handleChange"
-      mask-closable="{{false}}"
+      maskClosable="{{false}}"
       options="{{list}}"
     ></ant-picker>
   </ant-list-item>
@@ -71,7 +71,7 @@
       slot="extra"
       placeholder="请选择"
       bind:visiblechange="handleTriggerPicker"
-      default-value="{{['Tues', 'pm']}}"
+      defaultValue="{{['Tues', 'pm']}}"
       title="请选择"
       bind:ok="handleOk"
       onFormat="{{formatTime ? formatTime : 'formatTime'}}"
@@ -86,7 +86,7 @@
         visible="{{pickerVisible}}"
         placeholder="请选择"
         bind:visiblechange="handleTriggerControlledPicker"
-        default-value="{{['Tues', 'pm']}}"
+        defaultValue="{{['Tues', 'pm']}}"
         title="请选择"
         bind:ok="handleOk"
         onFormat="{{formatTime ? formatTime : 'formatTime'}}"

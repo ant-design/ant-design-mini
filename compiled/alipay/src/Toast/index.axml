@@ -14,28 +14,28 @@
     <am-icon
       a:elif="{{type === 'warning'}}"
       type="ExclamationOutline"
-      class-name="ant-toast-icon"
+      className="ant-toast-icon"
     ></am-icon>
     <am-icon
       a:elif="{{type === 'error'}}"
       type="CloseOutline"
-      class-name="ant-toast-icon"
+      className="ant-toast-icon"
     ></am-icon>
     <am-icon
       a:elif="{{type === 'success'}}"
       type="CheckOutline"
-      class-name="ant-toast-icon"
+      className="ant-toast-icon"
     ></am-icon>
     <am-icon
       a:elif="{{type === 'alipay'}}"
       type="AlipayCircleFill"
-      class-name="ant-toast-icon"
+      className="ant-toast-icon"
     ></am-icon>
   </view>
   <am-icon
     a:elif="{{icon}}"
     type="{{icon}}"
-    class-name="ant-toast-icon"
+    className="ant-toast-icon"
   ></am-icon>
   <view
     a:elif="{{image}}"
@@ -50,7 +50,7 @@
 </view>
 <mask
   a:if="{{show && showMask}}"
-  class-name="ant-toast-mask"
+  className="ant-toast-mask"
   show="{{true}}"
   onMaskTap="handleClickMask"
   style="{{maskStyle}}"

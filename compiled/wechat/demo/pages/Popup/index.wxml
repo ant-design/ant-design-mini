@@ -1,7 +1,7 @@
 <ant-popup
   visible="{{basicVisible}}"
-  show-close="{{true}}"
-  show-back="{{true}}"
+  showClose="{{true}}"
+  showBack="{{true}}"
   title="标题"
   height="{{250}}"
   width="{{250}}"
@@ -18,9 +18,9 @@
   height="{{350}}"
   onClickCloseIcon="onClickCloseIcon"
   onClickBackIcon="onClickBackIcon"
-  background-image="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*1zlbRZpwRXYAAAAAAAAAAAAADiWwAQ/original"
+  backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*1zlbRZpwRXYAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
-  show-close="{{true}}"
+  showClose="{{true}}"
   animation="{{animation}}"
   bind:close="handlePopupClose"
 >
@@ -44,12 +44,12 @@
 <ant-popup
   visible="{{topImageVisible}}"
   height="{{450}}"
-  class-name="customize-top-image-popup"
+  className="customize-top-image-popup"
   onClickCloseIcon="onClickCloseIcon"
   onClickBackIcon="onClickBackIcon"
-  background-image="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
+  backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
-  show-close="{{false}}"
+  showClose="{{false}}"
   animation="{{animation}}"
   bind:close="handlePopupClose"
 >
@@ -77,15 +77,15 @@
   title="超长内容滚动"
   onClickCloseIcon="onClickCloseIcon"
   onClickBackIcon="onClickBackIcon"
-  show-close="{{true}}"
+  showClose="{{true}}"
   animation="{{animation}}"
   bind:close="handlePopupClose"
 >
   <scroll-view
-    scroll-y
+    scrollY
     style="padding: 12px; height: 300px"
-    disable-lower-scroll="out-of-bounds"
-    disable-upper-scroll="out-of-bounds"
+    disableLowerScroll="out-of-bounds"
+    disableUpperScroll="out-of-bounds"
   >Ea consectetur ipsum consequat exercitation laboris excepteur pariatur
     excepteur labore dolor cillum tempor esse. Ad adipisicing nostrud fugiat eu
     mollit. Proident nisi voluptate sunt ea laboris Lorem ullamco deserunt aute
@@ -148,7 +148,7 @@
 </ant-popup>
 <container
   title="弹出位置"
-  class-name="list"
+  className="list"
 >
   <ant-button
     data-position="top"

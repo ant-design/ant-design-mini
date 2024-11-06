@@ -21,7 +21,7 @@
   <list-item bind:tap="onTap2">不带蒙层</list-item>
   <rare-words-keyboard
     visible="{{visible2}}"
-    show-mask="{{false}}"
+    showMask="{{false}}"
     bind:close="onClose2"
     bind:change="onChange"
   ></rare-words-keyboard>

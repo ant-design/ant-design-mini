@@ -2,7 +2,7 @@
   <popover
     content="简单的tips"
     placement="top-left"
-    show-close-icon="{{true}}"
+    showCloseIcon="{{true}}"
     style="display: inline-block"
   >
     <ant-button
@@ -17,7 +17,7 @@
   <popover
     content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
     placement="top"
-    show-close-icon="{{true}}"
+    showCloseIcon="{{true}}"
     onVisibleChange="onVisibleChange"
   >
     <ant-button>点我</ant-button>
@@ -27,9 +27,9 @@
   <popover
     content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
     placement="top"
-    action-text="操作按钮"
+    actionText="操作按钮"
     onTapAction="onTapAction"
-    image-url="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*tLCBTqxataIAAAAAAAAAAAAADkqGAQ/original"
+    imageUrl="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*tLCBTqxataIAAAAAAAAAAAAADkqGAQ/original"
     onVisibleChange="onVisibleChange"
   >
     <ant-button>点我</ant-button>
@@ -73,7 +73,7 @@
       ></icon>
     </popover>
     <popover
-      class-name="ant-popover-white"
+      className="ant-popover-white"
       color="white"
       content="白色背景"
     >
@@ -110,7 +110,7 @@
         <ant-button
           size="small"
           inline
-          class-name="custom-child"
+          className="custom-child"
         >
           <view>点我</view>
           {{item}}
@@ -128,7 +128,7 @@
 <container title="自定义mask">
   <popover
     content="prompt"
-    mask-style="background: rgba(0, 0, 0, 0.6);"
+    maskStyle="background: rgba(0, 0, 0, 0.6);"
     style="display: inline-block"
   >
     <ant-button
@@ -144,7 +144,7 @@
     <popover
       content="prompt"
       placement="right"
-      show-mask="{{false}}"
+      showMask="{{false}}"
       visible="{{visible}}"
       style="display: inline-block"
     >

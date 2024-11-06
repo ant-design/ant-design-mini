@@ -9,7 +9,7 @@
       <view class="t-swipe-item-con">
         <ant-swipe-action
           data-item="{{index}}"
-          right-buttons="{{rightBtns}}"
+          rightButtons="{{rightBtns}}"
           elasticity="{{true}}"
           swiped="{{swipeIndex === index}}"
           bind:swipeend="onSwipeEnd"
