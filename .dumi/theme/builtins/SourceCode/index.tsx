@@ -44,7 +44,9 @@ export interface ISourceCodeProps {
 
 const SourceCode: FC<ISourceCodeProps> = (props) => {
   const { children: pChildren = '', lang, highlightLines = [] } = props;
-  const { platform } = useContext<SiteContextProps>(SiteContext);
+  const { platform, theme } = useContext<SiteContextProps>(SiteContext);
+
+  const isDarkTheme = useMemo(() => theme.includes('dark'), [theme]);
 
   const children = useMemo(() => {
     // 支付宝平台时： 去掉 #if WECHAT 和 #endif 之间的文本
@@ -111,7 +113,11 @@ const SourceCode: FC<ISourceCodeProps> = (props) => {
   );
 
   return (
-    <div className="dumi-theme-antd-source-code">
+    <div
+      className={`dumi-theme-antd-source-code ${
+        isDarkTheme ? 'dark' : 'light'
+      }`}
+    >
       <CopyToClipboard
         text={text}
         onCopy={() => {
