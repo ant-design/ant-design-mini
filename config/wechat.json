@@ -116,6 +116,7 @@
     "ImageIcon",
     "Result",
     "Popover",
+    "popoverList",
     "Mask",
     "Stepper",
     "Popup",

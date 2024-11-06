@@ -7,10 +7,10 @@
   }
 }
 .ant-skeleton-title {
-  height: 20px;
+  height: 40rpx;
   width: 45%;
-  margin-bottom: 20px;
-  border-radius: 4px;
+  margin-bottom: 40rpx;
+  border-radius: 8rpx;
   background: #eeeeee;
 }
 .ant-skeleton-title-animate {

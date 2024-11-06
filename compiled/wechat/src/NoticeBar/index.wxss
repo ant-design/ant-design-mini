@@ -1,11 +1,11 @@
 .ant-notice-bar {
   position: relative;
   display: flex;
-  height: 37.5px;
+  height: 75rpx;
   align-items: center;
   overflow: hidden;
-  padding: 8px 12px;
-  font-size: 15px;
+  padding: 16rpx 24rpx;
+  font-size: 30rpx;
   color: #ff6010;
   background-color: #fff9ed;
   box-sizing: border-box;
@@ -35,12 +35,12 @@
   background: #666666;
 }
 .ant-notice-bar-icon {
-  margin-right: 8px;
-  font-size: 18px;
+  margin-right: 16rpx;
+  font-size: 36rpx;
 }
 .ant-notice-bar-icon-image-image {
-  width: 18px;
-  height: 18px;
+  width: 36rpx;
+  height: 36rpx;
 }
 .ant-notice-bar-content {
   position: relative;
@@ -61,7 +61,7 @@
   align-items: center;
 }
 .ant-notice-bar-operation-icon {
-  margin-left: 12px;
+  margin-left: 24rpx;
 }
 .ant-icon-size-x-small {
   font-size: 18px;

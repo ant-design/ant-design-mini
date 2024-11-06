@@ -3,25 +3,25 @@
   align-items: center;
 }
 .ant-avatar-image {
-  width: 46px;
-  height: 46px;
+  width: 92rpx;
+  height: 92rpx;
   border-radius: 50vh;
 }
 .ant-avatar-image-x-small {
-  width: 18px;
-  height: 18px;
+  width: 36rpx;
+  height: 36rpx;
 }
 .ant-avatar-image-small {
-  width: 30px;
-  height: 30px;
+  width: 60rpx;
+  height: 60rpx;
 }
 .ant-avatar-image-medium {
-  width: 46px;
-  height: 46px;
+  width: 92rpx;
+  height: 92rpx;
 }
 .ant-avatar-image-large {
-  width: 70px;
-  height: 70px;
+  width: 140rpx;
+  height: 140rpx;
 }
 .ant-avatar-circle {
   border-radius: 100vh;

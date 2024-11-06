@@ -2,7 +2,7 @@
   position: relative;
 }
 .filterDemo-bar {
-  height: 44px;
+  height: 88rpx;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -15,14 +15,14 @@
   align-items: center;
   justify-content: center;
   color: #333333;
-  font-size: 13px;
+  font-size: 26rpx;
 }
 .filterDemo-bar-item-active {
   color: #1677ff;
 }
 .filterDemo-bar-item-icon {
-  margin-left: 4px;
-  font-size: 9px;
+  margin-left: 8rpx;
+  font-size: 18rpx;
   transition: transform 200ms linear;
   color: #cccccc;
 }

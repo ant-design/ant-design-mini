@@ -6,34 +6,34 @@
   align-items: center;
   height: auto;
   line-height: normal;
-  padding: var(--size-font3, 12px);
+  padding: var(--size-font3, 24rpx);
   border-radius: 50vh;
   border: 0 none;
   box-sizing: border-box;
-  font-size: var(--size-font8, 18px);
+  font-size: var(--size-font8, 36rpx);
   z-index: 2;
 }
 .ant-button-large {
-  font-size: var(--size-font8, 18px);
-  padding: var(--size-font3, 12px);
+  font-size: var(--size-font8, 36rpx);
+  padding: var(--size-font3, 24rpx);
 }
 .ant-button-medium {
-  font-size: var(--size-font7, 17px);
-  padding: var(--size-font2, 8px) var(--size-font3, 12px);
+  font-size: var(--size-font7, 34rpx);
+  padding: var(--size-font2, 16rpx) var(--size-font3, 24rpx);
 }
 .ant-button-small {
-  font-size: var(--size-font5, 15px);
-  padding: var(--size-font1, 4px) var(--size-font3, 12px);
+  font-size: var(--size-font5, 30rpx);
+  padding: var(--size-font1, 8rpx) var(--size-font3, 24rpx);
 }
 .ant-button-primary {
   color: var(--color-white, #ffffff);
   background-color: var(--color-brand1, #1677ff);
-  box-shadow: inset 0 0 0 1px var(--color-brand1, #1677ff);
+  box-shadow: inset 0 0 0 2rpx var(--color-brand1, #1677ff);
 }
 .ant-button-default {
   color: var(--color-brand1, #1677ff);
   background-color: var(--color-white-change, #ffffff);
-  box-shadow: inset 0 0 0 1px var(--color-brand2, #1677ff);
+  box-shadow: inset 0 0 0 2rpx var(--color-brand2, #1677ff);
 }
 .ant-button-capsule {
   color: var(--color-white, #ffffff);
@@ -42,13 +42,13 @@
 }
 .ant-button-primary-aide {
   background-color: var(--color-wathet, #e7f1ff);
-  box-shadow: inset 0 0 0 1px var(--color-wathet, #e7f1ff);
+  box-shadow: inset 0 0 0 2rpx var(--color-wathet, #e7f1ff);
   color: var(--color-brand1, #1677ff);
 }
 .ant-button-default-aide {
   color: var(--color-text-primary, #333333);
   background-color: var(--color-white-change, #ffffff);
-  box-shadow: inset 0 0 0 1px var(--color-border-greycard, #e5e5e5);
+  box-shadow: inset 0 0 0 2rpx var(--color-border-greycard, #e5e5e5);
 }
 .ant-button-text {
   color: #1677ff;
@@ -58,12 +58,12 @@
 .ant-button-primary-danger {
   color: var(--color-white, #ffffff);
   background-color: var(--color-red, #ff3141);
-  box-shadow: inset 0 0 0 1px var(--color-red, #ff3141);
+  box-shadow: inset 0 0 0 2rpx var(--color-red, #ff3141);
 }
 .ant-button-default-danger {
   color: var(--color-red, #ff3141);
   background-color: var(--color-white, #ffffff);
-  box-shadow: inset 0 0 0 1px var(--color-red, #ff3141);
+  box-shadow: inset 0 0 0 2rpx var(--color-red, #ff3141);
 }
 .ant-button-text-danger {
   color: var(--color-red, #ff3141);
@@ -86,7 +86,7 @@
   justify-content: center;
 }
 .ant-button-content-text-margin {
-  margin-left: 8px;
+  margin-left: 16rpx;
 }
 .ant-button-content-text:empty {
   margin-left: 0;
@@ -97,7 +97,7 @@
   content: '\00a0';
 }
 .ant-button-content-subtext {
-  font-size: var(--size-font2, 12px);
+  font-size: var(--size-font2, 24rpx);
   opacity: 0.6;
 }
 .ant-button-content-loading-container {
@@ -116,8 +116,8 @@
   border-radius: 50vh;
 }
 .ant-button-inline .ant-button-content-loading-container {
-  width: 22px;
-  height: 22px;
+  width: 44rpx;
+  height: 44rpx;
 }
 .ant-button-inline .ant-button-content-loading {
   transform: scale(0.5);

@@ -1,18 +1,18 @@
 .ant-loading-small {
-  width: 17.5px;
-  height: 17.5px;
+  width: 35rpx;
+  height: 35rpx;
 }
 .ant-loading-medium {
-  width: 35px;
-  height: 35px;
+  width: 70rpx;
+  height: 70rpx;
 }
 .ant-loading-large {
-  width: 52.5px;
-  height: 52.5px;
+  width: 105rpx;
+  height: 105rpx;
 }
 .ant-loading-x-large {
-  width: 70px;
-  height: 70px;
+  width: 140rpx;
+  height: 140rpx;
 }
 .ant-loading-spin {
   display: inline-flex;
@@ -29,19 +29,19 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  min-width: 33px;
-  min-height: 33px;
+  min-width: 66rpx;
+  min-height: 66rpx;
 }
 .ant-loading-mini-item {
-  flex: 0 0 4px;
-  min-width: 4px;
-  min-height: 4px;
-  max-width: 4px;
-  max-height: 4px;
+  flex: 0 0 8rpx;
+  min-width: 8rpx;
+  min-height: 8rpx;
+  max-width: 8rpx;
+  max-height: 8rpx;
   overflow: hidden;
-  margin-right: 8px;
+  margin-right: 16rpx;
   font-size: 0;
-  border-radius: 2px / 2;
+  border-radius: 4rpx / 2;
   background-color: #999999;
   animation: ant-loading-animation 1s 0s infinite linear;
 }

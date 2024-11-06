@@ -1,7 +1,7 @@
 .ant-skeleton-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 4px;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 8rpx;
   background: #eeeeee;
   display: inline-block;
 }
@@ -14,18 +14,18 @@
   border-radius: 50%;
 }
 .ant-skeleton-avatar-x-small {
-  width: 18px;
-  height: 18px;
+  width: 36rpx;
+  height: 36rpx;
 }
 .ant-skeleton-avatar-small {
-  width: 30px;
-  height: 30px;
+  width: 60rpx;
+  height: 60rpx;
 }
 .ant-skeleton-avatar-medium {
-  width: 46px;
-  height: 46px;
+  width: 92rpx;
+  height: 92rpx;
 }
 .ant-skeleton-avatar-large {
-  width: 70px;
-  height: 70px;
+  width: 140rpx;
+  height: 140rpx;
 }

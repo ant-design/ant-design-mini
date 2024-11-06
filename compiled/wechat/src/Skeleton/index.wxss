@@ -7,10 +7,10 @@
 }
 .ant-skeleton-avatar-wrapper {
   flex-shrink: 0;
-  padding-right: 16px;
+  padding-right: 32rpx;
 }
 .ant-skeleton-avatar-wrapper + .ant-skeleton-content-wrapper {
-  padding-top: 12px;
+  padding-top: 24rpx;
 }
 .ant-skeleton-content-wrapper {
   flex: 1;

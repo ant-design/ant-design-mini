@@ -1,41 +1,41 @@
 .ant-modal-body {
-  width: 280px;
+  width: 560rpx;
   background-color: #ffffff;
-  padding: 24px 22px;
+  padding: 48rpx 44rpx;
   display: flex;
   flex-direction: column;
-  border-radius: 24px;
+  border-radius: 48rpx;
 }
 .ant-modal-body-header {
-  width: calc(100% + 88 * 0.5px);
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  margin: -24px -22px 18px -22px;
+  width: calc(100% + 88 * 1rpx);
+  border-top-left-radius: 48rpx;
+  border-top-right-radius: 48rpx;
+  margin: -48rpx -44rpx 36rpx -44rpx;
 }
 .ant-modal-body-title {
-  line-height: 28px;
+  line-height: 56rpx;
   text-align: center;
   color: #333333;
-  padding-bottom: 16px;
+  padding-bottom: 32rpx;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 40rpx;
 }
 .ant-modal-body-content {
-  line-height: 21px;
-  padding-bottom: 12px;
-  font-size: 16px;
+  line-height: 42rpx;
+  padding-bottom: 24rpx;
+  font-size: 32rpx;
   color: #333333;
   text-align: center;
 }
 .ant-modal-body-footer {
-  padding: 24px 2px 0 2px;
+  padding: 48rpx 4rpx 0 4rpx;
 }
 .ant-modal-body-footer-vertical {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  gap: 12px;
+  gap: 24rpx;
 }
 .ant-modal-body-footer-vertical .ant-modal-body-footer-button {
   width: 100%;
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 12px;
+  gap: 24rpx;
   flex-direction: row;
 }
 .ant-modal-body-footer-horizontal .ant-modal-body-footer-button {
@@ -54,11 +54,11 @@
   top: 72rpx;
   position: relative;
   left: 50%;
-  margin-left: -15px;
+  margin-left: -30rpx;
   z-index: 3;
-  width: 30px;
-  height: 30px;
-  font-size: 36px;
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 72rpx;
   color: #999999;
 }
 .ant-modal .ant-popup-content.ant-popup-center {
