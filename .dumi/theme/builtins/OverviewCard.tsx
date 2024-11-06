@@ -10,8 +10,7 @@ import { useLocale } from 'dumi';
 import useMenu from '../hooks/useMenu';
 import useSiteToken from "../hooks/useSiteToken";
 import SiteContext from '../slots/SiteContext';
-
-const ComponentsName = {};
+import { ComponentSampleImages } from '../common/config/overview';
 
 const useStyle = ({
   isDark,
