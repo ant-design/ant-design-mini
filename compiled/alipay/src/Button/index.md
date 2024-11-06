@@ -16,7 +16,9 @@ toc: 'content'
 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
 
 ## 引入
-在index.json中引入组件
+
+在 index.json 中引入组件
+
 ```json
 "usingComponents": {
   "ant-button": "antd-mini/es/Button/index"
@@ -27,6 +29,7 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
+
 ```xml
 #if ALIPAY
 <ant-button type="primary">支付宝</ant-button>
@@ -43,8 +46,8 @@ toc: 'content'
 <ant-button type="primary" danger>危险</ant-button>
 ```
 
-
 ### 行内按钮
+
 ```xml
 <ant-button type="primary" inline>行内按钮</ant-button>
 <ant-button type="primary" inline size="large">按钮尺寸-大</ant-button>
@@ -54,6 +57,7 @@ toc: 'content'
 ```
 
 ### 带图标按钮
+
 ```xml
 <ant-button type="primary" icon="SmileOutline">带图标按钮</ant-button>
 <ant-button type="default" icon="SmileOutline">带图标按钮</ant-button>
@@ -63,16 +67,23 @@ toc: 'content'
 ```
 
 ### 更多自定义
+
 ```xml
 <ant-button type="primary" icon="SmileOutline" className="custom-size">自定义大小</ant-button>
 <ant-button type="primary" icon="SmileOutline" className="round">自定义圆角</ant-button>
 ```
+
 ```css
-.custom-size { font-size: 22rpx; }
-.round { border-radius: 50rpx; }
+.custom-size {
+  font-size: 22rpx;
+}
+.round {
+  border-radius: 50rpx;
+}
 ```
 
-### Demo代码
+### Demo 代码
+
 <code src='../../demo/pages/Button/index'></code>
 
 ## API
@@ -97,6 +108,31 @@ toc: 'content'
 | #if ALIPAY catchTap      | 点击按钮，触发此回调，非冒泡                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onTap         | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onDisabledTap | 禁用时点击出发回调（微信不支持）                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+
+### WIP 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                                    | 默认值  | 备注 |
+| ----------------------------------------- | ------- | ---- |
+| --button-primary-background-color         | #1677FF | -    |
+| --button-primary-color                    | #FFFFFF | -    |
+| --button-default-background-color         | #FFFFFF | -    |
+| --button-default-color                    | #333333 | -    |
+| --button-default-border-color             | #D8D8D8 | -    |
+| --button-danger-background-color          | #FF3B30 | -    |
+| --button-danger-color                     | #FFFFFF | -    |
+| --button-danger-border-color              | #FF3B30 | -    |
+| --button-disabled-background-color        | #F5F5F5 | -    |
+| --button-disabled-color                   | #CCCCCC | -    |
+| --button-disabled-border-color            | #E5E5E5 | -    |
+| --button-inline-background-color          | #FFFFFF | -    |
+| --button-inline-color                     | #333333 | -    |
+| --button-inline-border-color              | #D8D8D8 | -    |
+| --button-inline-disabled-background-color | #F5F5F5 | -    |
+| --button-inline-disabled-color            | #CCCCCC | -    |
 
 ### 更多属性
 

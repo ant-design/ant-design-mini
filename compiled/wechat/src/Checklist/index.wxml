@@ -37,7 +37,7 @@
         <view slot="icon">
           <ant-icon
             type="CheckOutline"
-            className="ant-checklist-item-check-icon"
+            class-name="ant-checklist-item-check-icon"
           ></ant-icon>
         </view>
       </ant-checklist-item>

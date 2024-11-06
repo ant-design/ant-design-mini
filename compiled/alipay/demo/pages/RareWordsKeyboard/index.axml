@@ -23,7 +23,7 @@
   <list-item onTap="onTap2">不带蒙层</list-item>
   <rare-words-keyboard
     visible="{{visible2}}"
-    showMask="{{false}}"
+    show-mask="{{false}}"
     onClose="onClose2"
     onChange="onChange"
   ></rare-words-keyboard>

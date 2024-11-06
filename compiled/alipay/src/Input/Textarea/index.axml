@@ -4,20 +4,20 @@
 >
   <view class="ant-textarea-line">
     <textarea
-      enableNative="{{enableNative}}"
+      enable-native="{{enableNative}}"
       name="{{name}}"
       class="ant-textarea-content {{allowClear ? 'ant-textarea-content-clear' : ''}}"
       disabled="{{disabled}}"
       value="{{state.value || ''}}"
       placeholder="{{placeholder === null ? locale.global.placeholder : placeholder}}"
-      placeholderClass="ant-textarea-placeholder {{placeholderClassName ? placeholderClassName : ''}}"
-      placeholderStyle="{{placeholderStyle ? placeholderStyle : ''}}"
+      placeholder-class="ant-textarea-placeholder {{placeholderClassName ? placeholderClassName : ''}}"
+      placeholder-style="{{placeholderStyle ? placeholderStyle : ''}}"
       maxlength="{{maxLength}}"
       focus="{{focus}}"
-      confirmType="{{confirmType}}"
-      confirmHold="{{confirmHold}}"
-      autoHeight="{{autoHeight}}"
-      showCount="{{showCount}}"
+      confirm-type="{{confirmType}}"
+      confirm-hold="{{confirmHold}}"
+      auto-height="{{autoHeight}}"
+      show-count="{{showCount}}"
       controlled="{{state.controlled}}"
       onInput="onChange"
       onConfirm="onConfirm"
@@ -30,7 +30,7 @@
       onTap="onClear"
     >
       <icon
-        className="ant-textarea-clear-icon"
+        class-name="ant-textarea-clear-icon"
         type="CloseCircleFill"
       ></icon>
     </view>

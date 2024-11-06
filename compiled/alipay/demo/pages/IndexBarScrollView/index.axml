@@ -1,8 +1,8 @@
 <view class="base">
   <index-bar
-    className="indexbar"
+    class-name="indexbar"
     items="{{items}}"
-    defaultCurrent="H"
+    default-current="H"
     onChange="onChange"
   >
     <view

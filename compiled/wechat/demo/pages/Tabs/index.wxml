@@ -5,7 +5,7 @@
   <tabs
     type="capsule"
     items="{{items}}"
-    defaultCurrent="{{1}}"
+    default-current="{{1}}"
   ></tabs>
 </container>
 <container title="带副标题">

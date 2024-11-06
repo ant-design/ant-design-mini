@@ -33,7 +33,7 @@
     >
       <ant-icon
         a:if="{{showBack}}"
-        className="ant-popup-content-header-icon ant-popup-content-header-icon-back"
+        class-name="ant-popup-content-header-icon ant-popup-content-header-icon-back"
         type="LeftOutline"
         onTap="onClickBackIcon"
       ></ant-icon>
@@ -42,7 +42,7 @@
       </view>
       <ant-icon
         a:if="{{showClose}}"
-        className="ant-popup-content-header-icon ant-popup-content-header-icon-close"
+        class-name="ant-popup-content-header-icon ant-popup-content-header-icon-close"
         type="CloseOutline"
         onTap="onClickCloseIcon"
       ></ant-icon>

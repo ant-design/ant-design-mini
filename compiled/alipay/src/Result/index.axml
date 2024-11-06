@@ -14,12 +14,12 @@
       >
         <icon
           type="{{result.iconType(type)}}"
-          className="ant-result-icon ant-result-image-{{type}}"
+          class-name="ant-result-icon ant-result-image-{{type}}"
         ></icon>
       </view>
       <image-icon
         a:elif="{{image}}"
-        className="ant-result-image"
+        class-name="ant-result-image"
         image="{{image}}"
       ></image-icon>
       <block a:else></block>
