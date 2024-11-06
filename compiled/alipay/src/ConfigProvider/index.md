@@ -32,7 +32,7 @@ ConfigProvider 组件提供了覆盖 CSS 变量的能力，你需要在根节点
 
 ### 国际化
 
-Antd-Mini 提供了 ConfigProvider 组件用于全局配置国际化文案。目前支持以下 17 种语言，暂不支持 RTL 能力；
+Antd-Mini 提供了 ConfigProvider 组件用于全局配置国际化文案。目前支持以下 18 种语言，暂不支持 RTL 能力；
 
 - 简体中文 | zh-CN
 - 繁体中文（中国台湾） | zh-TW
@@ -51,6 +51,7 @@ Antd-Mini 提供了 ConfigProvider 组件用于全局配置国际化文案。目
 - 葡萄牙语（巴西）| pt-BR
 - 日语（日本）| ja-JP
 - 土耳其语（土耳其）｜ tr-TR
+- 越南语｜ vi-VN
 
 ### 代码示例
 

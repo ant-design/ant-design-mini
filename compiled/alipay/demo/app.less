@@ -1,13 +1,13 @@
-@import '../src/style/themes/color.less';
+@import '../src/style/variables.less';
 
 @media (prefers-color-scheme: light) {
   page {
-    background-color: @COLOR_BACKGROUND_DEFAULT;
+    background-color: var(--color-text-secondary);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   page {
-    background-color: @COLOR_BACKGROUND_DARK;
+    background-color: var(--color-text-secondary);
   }
 }
