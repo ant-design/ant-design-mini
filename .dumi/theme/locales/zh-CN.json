@@ -8,5 +8,6 @@
   "app.footer.last.updated": "最后更新时间：",
   "app.footer.actions.edit": "帮助改进此文档",
   "app.theme.sidebar.alipay": "支付宝",
-  "app.theme.sidebar.wechat": "微信"
+  "app.theme.sidebar.wechat": "微信",
+  "app.previewer.collapse.label": "示例代码"
 }

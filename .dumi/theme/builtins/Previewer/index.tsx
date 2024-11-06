@@ -1,4 +1,5 @@
 import { Collapse, ConfigProvider } from 'antd';
+import { FormattedMessage } from 'dumi';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import wechatConfig from '../../../../config/wechat.json';
 import type { SiteContextProps } from '../../slots/SiteContext';
@@ -103,18 +104,18 @@ const Previewer: React.FC<IProps> = (props) => {
           Collapse: {
             contentPadding: '0 !important',
             headerPadding: '8px !important',
+            headerBg: theme.includes('dark') ? 'transparent' : '#f7f7f7',
           },
         },
       }}
     >
       {/* @ts-ignore */}
       <Collapse
-        bordered={false}
         size="large"
         items={[
           {
             key: '1',
-            label: 'DEMO 示例代码',
+            label: <FormattedMessage id="app.previewer.collapse.label" />,
             forceRender: true,
             children: (
               <div className="sourceCode">
