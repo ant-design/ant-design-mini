@@ -1,6 +1,6 @@
 ---
 order: 3
-toc: false
+toc: true
 ---
 
 # 在 uni-app 中使用

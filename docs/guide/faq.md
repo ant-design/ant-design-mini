@@ -1,6 +1,6 @@
 ---
 order: 10
-toc: false
+toc: true
 ---
 
 # 常见问题

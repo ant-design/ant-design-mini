@@ -1,6 +1,6 @@
 ---
 order: 2
-toc: false
+toc: true
 ---
 
 # 在微信小程序中使用（beta）

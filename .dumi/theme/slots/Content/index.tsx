@@ -3,18 +3,17 @@ import { css } from '@emotion/react';
 import { Col, Space, Typography } from 'antd';
 import classNames from 'classnames';
 import DayJS from 'dayjs';
-import { useRouteMeta } from 'dumi';
-import type { FC, ReactNode } from 'react';
+import { useMatchedRoute, useRouteMeta } from 'dumi';
 import React, { useContext, useMemo } from 'react';
 import EditLink from '../../common/EditLink';
 import LastUpdated from '../../common/LastUpdated';
 import PrevAndNext from '../../common/PrevAndNext';
 import useSiteToken from '../../hooks/useSiteToken';
 import SiteContext from '../SiteContext';
+import DocAnchor from './DocAnchor';
+import InViewSuspense from './InViewSuspense';
 
-const useStyle = ({
-  isOverview
-}) => {
+const useStyle = ({ isOverview, isShowSim }) => {
   const { token } = useSiteToken();
   const { antCls } = token;
 
@@ -75,11 +74,11 @@ const useStyle = ({
       }
     `,
     articleWrapper: css`
-      padding: ${
-        isOverview ?
-          '0 64px 32px 64px' :
-          '0 412px 32px 64px'
-      };
+      padding: ${isOverview
+        ? '0 64px 32px 64px'
+        : isShowSim
+        ? '0 412px 32px 64px'
+        : '0 164px 32px 64px'};
       flex: 1;
 
       &.rtl {
@@ -108,20 +107,26 @@ const useStyle = ({
   };
 };
 
-const Content: FC<{ children: ReactNode }> = ({ children }) => {
+const Content: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const isOverview =
     window.location.pathname === '/components/overview' ||
-    window.location.pathname === '/components/overview-en'
+    window.location.pathname === '/components/overview-en';
+
+  const matchedRoute = useMatchedRoute();
+
+  const isShowSim = useMemo(() => {
+    return matchedRoute?.meta?.frontmatter?.nav?.path === '/components';
+  }, [matchedRoute]);
 
   const meta = useRouteMeta();
-  const styles = useStyle({ isOverview });
+  const styles = useStyle({ isOverview, isShowSim });
   const { direction } = useContext(SiteContext);
 
-  // const debugDemos = useMemo(
-  //   () =>
-  //     meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
-  //   [meta]
-  // );
+  const debugDemos = useMemo(
+    () =>
+      meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
+    [meta]
+  );
 
   const isShowTitle = useMemo(() => {
     const title = meta.frontmatter?.title || meta.frontmatter.subtitle;
@@ -146,6 +151,11 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
       xs={24}
       css={styles.colContent}
     >
+      {!!meta.frontmatter.toc && !isShowSim && !isOverview && (
+        <InViewSuspense fallback={null}>
+          <DocAnchor debugDemos={debugDemos} />
+        </InViewSuspense>
+      )}
       <article
         css={styles.articleWrapper}
         className={classNames({ rtl: isRTL })}
@@ -201,22 +211,20 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
 
         {children}
       </article>
-      {
-        !isOverview ? (
-          <>
-            <div
-              css={css`
-                ${styles.articleWrapper}
-                ${styles.bottomEditContent}
-              `}
-            >
-              <LastUpdated time={meta.frontmatter?.lastUpdated} />
-              <EditLink />
-            </div>
-            <PrevAndNext rtl={isRTL} />
-          </>
-        ) : null
-      }
+      {!isOverview ? (
+        <>
+          <div
+            css={css`
+              ${styles.articleWrapper}
+              ${styles.bottomEditContent}
+            `}
+          >
+            <LastUpdated time={meta.frontmatter?.lastUpdated} />
+            <EditLink />
+          </div>
+          <PrevAndNext rtl={isRTL} isShowSim={isShowSim} />
+        </>
+      ) : null}
     </Col>
   );
 };

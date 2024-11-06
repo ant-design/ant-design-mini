@@ -3,13 +3,13 @@ import { ClassNames, css } from '@emotion/react';
 import type { MenuProps } from 'antd';
 import type { MenuItemType } from 'antd/lib/menu/hooks/useItems';
 import type { ReactElement } from 'react';
-import React, { useMemo, useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import useMenu from '../hooks/useMenu';
 import useSiteToken from '../hooks/useSiteToken';
-import SiteContext from '../slots/SiteContext';
 import type { SiteContextProps } from '../slots/SiteContext';
+import SiteContext from '../slots/SiteContext';
 
-const useStyle = () => {
+const useStyle = ({ isShowSim }) => {
   const { token } = useSiteToken();
 
   const { colorSplit, iconCls, fontSizeIcon } = token;
@@ -21,7 +21,7 @@ const useStyle = () => {
       border-top: 1px solid ${colorSplit};
       display: flex;
 
-      padding: 0 412px 32px 64px;
+      padding: ${isShowSim ? '0 412px 32px 64px' : '0 164px 32px 64px'};
 
       &.rtl {
         padding: 0 64px 144px 170px;
@@ -97,33 +97,49 @@ const useStyle = () => {
       &:hover .footer-nav-icon-after {
         inset-inline-start: 0.2em;
       }
-    `
+    `,
   };
 };
 
-const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null => {
+const flattenMenu = (
+  menuItems: MenuProps['items']
+): MenuProps['items'] | null => {
   if (Array.isArray(menuItems)) {
-    return menuItems.reduce<Exclude<MenuProps['items'], undefined>>((acc, item) => {
-      if (!item) {
-        return acc;
-      }
-      if ('children' in item && item.children) {
-        return acc.concat(flattenMenu(item.children) ?? []);
-      }
-      return acc.concat(item);
-    }, []);
+    return menuItems.reduce<Exclude<MenuProps['items'], undefined>>(
+      (acc, item) => {
+        if (!item) {
+          return acc;
+        }
+        if ('children' in item && item.children) {
+          return acc.concat(flattenMenu(item.children) ?? []);
+        }
+        return acc.concat(item);
+      },
+      []
+    );
   }
   return null;
 };
 
-const PrevAndNext: React.FC<{ rtl: boolean }> = ({ rtl }) => {
-  const styles = useStyle();
+const PrevAndNext: React.FC<{ rtl: boolean; isShowSim?: boolean }> = ({
+  rtl,
+  isShowSim,
+}) => {
+  const styles = useStyle({ isShowSim });
 
   const beforeProps = { className: 'footer-nav-icon-before' };
   const afterProps = { className: 'footer-nav-icon-after' };
 
-  const before = rtl ? <RightOutlined {...beforeProps} /> : <LeftOutlined {...beforeProps} />;
-  const after = rtl ? <LeftOutlined {...afterProps} /> : <RightOutlined {...afterProps} />;
+  const before = rtl ? (
+    <RightOutlined {...beforeProps} />
+  ) : (
+    <LeftOutlined {...beforeProps} />
+  );
+  const after = rtl ? (
+    <LeftOutlined {...afterProps} />
+  ) : (
+    <RightOutlined {...afterProps} />
+  );
 
   const [menuItems, selectedKey] = useMenu({ before, after });
 
@@ -142,7 +158,7 @@ const PrevAndNext: React.FC<{ rtl: boolean }> = ({ rtl }) => {
     });
     return [
       flatMenu[activeMenuItemIndex - 1] as MenuItemType,
-      flatMenu[activeMenuItemIndex + 1] as MenuItemType
+      flatMenu[activeMenuItemIndex + 1] as MenuItemType,
     ];
   }, [menuItems, selectedKey]);
 
@@ -157,11 +173,17 @@ const PrevAndNext: React.FC<{ rtl: boolean }> = ({ rtl }) => {
           <>
             {prev &&
               React.cloneElement(prev.label as ReactElement, {
-                className: cx(classCss(styles.pageNav), classCss(styles.prevNav))
+                className: cx(
+                  classCss(styles.pageNav),
+                  classCss(styles.prevNav)
+                ),
               })}
             {next &&
               React.cloneElement(next.label as ReactElement, {
-                className: cx(classCss(styles.pageNav), classCss(styles.nextNav))
+                className: cx(
+                  classCss(styles.pageNav),
+                  classCss(styles.nextNav)
+                ),
               })}
           </>
         )}

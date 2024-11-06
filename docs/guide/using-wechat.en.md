@@ -1,6 +1,6 @@
 ---
 order: 2
-toc: false
+toc: true
 ---
 
 # Use in WeChat applet (beta)

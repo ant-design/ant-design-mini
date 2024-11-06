@@ -1,6 +1,6 @@
 ---
 sidebar: true
-toc: false
+toc: true
 ---
 
 # 资源

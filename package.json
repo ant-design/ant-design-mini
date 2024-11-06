@@ -118,7 +118,7 @@
     "react": "^18.0.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.0.0",
-    "react-intersection-observer": "^9.8.2",
+    "react-intersection-observer": "^9.13.1",
     "resize-observer-polyfill": "^1.5.1",
     "shallowequal": "^1.1.0",
     "stylelint": "^14.1.0",

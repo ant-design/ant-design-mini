@@ -1,6 +1,6 @@
 ---
 order: 4
-toc: false
+toc: true
 ---
 
 # 定制主题 WIP

@@ -1,6 +1,6 @@
 ---
 order: 9
-toc: false
+toc: true
 ---
 
 # Contribution Guide

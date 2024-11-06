@@ -1,6 +1,6 @@
 ---
 order: 4
-toc: false
+toc: true
 ---
 
 # Custom Theme

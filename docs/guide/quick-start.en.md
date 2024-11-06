@@ -1,6 +1,6 @@
 ---
 order: 1
-toc: false
+toc: true
 ---
 
 # Used in Alipay applet

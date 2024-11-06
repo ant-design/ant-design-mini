@@ -1,6 +1,6 @@
 ---
 order: 7
-toc: false
+toc: true
 ---
 
 # Upgrade to v1

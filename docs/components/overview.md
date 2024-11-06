@@ -1,6 +1,6 @@
 ---
 sidebar: true
-toc: 'content'
+toc: false
 ---
 
 # 组件总览

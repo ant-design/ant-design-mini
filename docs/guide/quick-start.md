@@ -1,6 +1,6 @@
 ---
 order: 1
-toc: false
+toc: true
 ---
 
 # 在支付宝小程序中使用
