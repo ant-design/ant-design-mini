@@ -11,7 +11,7 @@
         data-index="{{index}}"
       >{{item.title}}<ant-icon
           type="DownFill"
-          className="filterDemo-bar-item-icon  {{currentOpen === index ? 'filterDemo-bar-item-icon-up' : ''}}"
+          class-name="filterDemo-bar-item-icon  {{currentOpen === index ? 'filterDemo-bar-item-icon-up' : ''}}"
         ></ant-icon>
       </view>
     </block>

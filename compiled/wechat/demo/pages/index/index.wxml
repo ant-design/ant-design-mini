@@ -18,9 +18,9 @@
     <ant-input
       placeholder="输入组件名称"
       bind:change="onSearch"
-      focusClassName="border"
-      className="input"
-      allowClear
+      focus-class-name="border"
+      class-name="input"
+      allow-clear
     >
       <ant-icon
         slot="prefix"
@@ -31,7 +31,7 @@
 </view>
 <block wx:if="{{finding}}">
   <ant-list
-    className="list"
+    class-name="list"
     header="搜索结果列表"
     radius
   >
@@ -58,7 +58,7 @@
   >
     <block>
       <ant-list
-        className="list"
+        class-name="list"
         radius
       >
         <view slot="header">{{item.type}}</view>

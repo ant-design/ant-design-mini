@@ -3,7 +3,7 @@
       min="{{min}}"
       max="{{max}}"
       slot="extra"
-      defaultValue="{{defaultDate}}"
+      default-value="{{defaultDate}}"
       placeholder="请选择"
       bind:pickerchange="handlePickerChange"
       bind:visiblechange="handleTriggerPicker"
@@ -15,11 +15,11 @@
       min="{{min}}"
       max="{{max}}"
       slot="extra"
-      defaultValue="{{defaultDate}}"
+      default-value="{{defaultDate}}"
       placeholder="请选择"
       bind:pickerchange="handlePickerChange"
       bind:visiblechange="handleTriggerPicker"
-      maskClosable="{{false}}"
+      mask-closable="{{false}}"
       bind:ok="handleOk"
     ></ant-date-picker>
   </ant-list-item>
@@ -55,7 +55,7 @@
 <ant-list header="禁用状态">
   <ant-list-item>请选择日期<ant-date-picker
       slot="extra"
-      defaultValue="{{defaultDate}}"
+      default-value="{{defaultDate}}"
       disabled
     ></ant-date-picker>
   </ant-list-item>
@@ -65,7 +65,7 @@
       min="{{min}}"
       max="{{max}}"
       slot="extra"
-      defaultValue="{{defaultDate}}"
+      default-value="{{defaultDate}}"
       placeholder="请选择"
       bind:pickerchange="handlePickerChange"
       bind:visiblechange="handleTriggerPicker"
@@ -79,7 +79,7 @@
   <ant-list-item>日期范围<ant-range-picker
       slot="extra"
       placeholder="请选择"
-      defaultValue="{{defaultDateRange}}"
+      default-value="{{defaultDateRange}}"
       onPickerChange="handlePickerRangeChange"
       bind:visiblechange="handleTriggerPicker"
       bind:ok="handleRangeOk"
@@ -95,7 +95,7 @@
   <ant-list-item>每列不显示单位<ant-range-picker
       slot="extra"
       placeholder="请选择"
-      defaultValue="{{defaultDateRange}}"
+      default-value="{{defaultDateRange}}"
       onPickerChange="handlePickerRangeChange"
       bind:visiblechange="handleTriggerPicker"
       bind:ok="handleRangeOk"
@@ -110,7 +110,7 @@
         max="{{max}}"
         slot="extra"
         visible="{{pickerVisible}}"
-        defaultValue="{{defaultDate}}"
+        default-value="{{defaultDate}}"
         placeholder="请选择"
         bind:pickerchange="handlePickerChange"
         bind:visiblechange="handleTriggerControlledPicker"
@@ -131,7 +131,7 @@
         slot="extra"
         visible="{{dateRangePickerVisible}}"
         placeholder="请选择"
-        defaultValue="{{defaultDateRange}}"
+        default-value="{{defaultDateRange}}"
         onPickerChange="handlePickerRangeChange"
         bind:visiblechange="handleTriggerControlledDateRangePicker"
         bind:ok="handleRangeOk"
