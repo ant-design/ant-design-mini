@@ -40,7 +40,7 @@ toc: 'content'
 <ant-button type="primary">主要按钮</ant-button>
 <ant-button type="default">次要按钮</ant-button>
 <ant-button type="text">文本按钮</ant-button>
-<ant-button  title="副标题" type="primary">带辅助文案按钮</ant-button>
+<ant-button title="副标题" type="primary">带辅助文案按钮</ant-button>
 <ant-button disabled type="primary" onTap="handleTap" onDisabledTap="handleDisabledTap"> 禁用 </ant-button>
 <ant-button type="primary" loading>加载状态</ant-button>
 <ant-button type="primary" danger>危险</ant-button>

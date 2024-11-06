@@ -20,9 +20,9 @@ import SiteContext from '../../slots/SiteContext';
 import './index.less';
 
 const MARKUP_REGEX = {
-  all: /#if ALIPAY|#if WECHAT|#endif/g, // 支持的所有平台
-  alipay: /#if WECHAT[\s\S?]*?#endif/g, // 支付宝平台时，需要去掉微信标记的内容
-  wechat: /#if ALIPAY[\s\S]*?#endif/g, // 微信平台时，需要去掉支付宝标记的内容
+  all: /[\n]*?#if ALIPAY[\n]*?|[\n]*?#if WECHAT[\n]*?|[\n]*?#endif[\n]*?/g, // 支持的所有平台
+  alipay: /[\n]*?#if WECHAT[\s\S?]*?#endif[\n]*?/g, // 支付宝平台时，需要去掉微信标记的内容
+  wechat: /[\n]*?#if ALIPAY[\s\S]*?#endif[\n]*?/g, // 微信平台时，需要去掉支付宝标记的内容
 };
 
 /**
