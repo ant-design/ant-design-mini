@@ -1,6 +1,6 @@
 <ant-container
   title="按钮类型"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -26,7 +26,7 @@
 </ant-container>
 <ant-container
   title="按钮尺寸"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -55,7 +55,7 @@
 </ant-container>
 <ant-container
   title="危险"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -84,7 +84,7 @@
 </ant-container>
 <ant-container
   title="禁用"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -110,7 +110,7 @@
 </ant-container>
 <ant-container
   title="加载状态"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"

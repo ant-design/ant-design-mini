@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const koKR: Locale = {
   // locales for all components
+  locale: 'ko-KR',
   global: {
     placeholder: '선택해 주세요',
     emptyText: '데이터가 없습니다',
@@ -18,7 +19,7 @@ const koKR: Locale = {
       '토요일',
       '일요일',
     ],
-    title: 'YYYY년MM월',
+    format: 'MM/YYYY',
     today: '오늘',
     start: '시작',
     end: '끝',

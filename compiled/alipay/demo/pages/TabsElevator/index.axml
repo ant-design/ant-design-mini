@@ -2,16 +2,16 @@
   items="{{items}}"
   current="{{current}}"
   onChange="onChange"
-  class-name="tabs"
+  className="tabs"
 >
   <scroll-view
     id="scroll-view"
     onScroll="onScroll"
     onTouchStart="onTouchStart"
-    scroll-top="{{scrollTop}}"
-    scroll-y="{{true}}"
-    scroll-with-animation="{{true}}"
-    scroll-animation-duration="{{300}}"
+    scrollTop="{{scrollTop}}"
+    scrollY="{{true}}"
+    scrollWithAnimation="{{true}}"
+    scrollAnimationDuration="{{300}}"
     class="content"
   >
     <block

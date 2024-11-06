@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const esES: Locale = {
   // locales for all components
+  locale: 'es-ES',
   global: {
     placeholder: 'Por favor, seleccione',
     emptyText: 'No hay datos disponibles',
@@ -18,7 +19,7 @@ const esES: Locale = {
       'Sábado',
       'Domingo',
     ],
-    title: 'YYYY año MM mes',
+    format: 'MM/YYYY',
     today: 'Hoy',
     start: 'Empezar',
     end: 'Fin',

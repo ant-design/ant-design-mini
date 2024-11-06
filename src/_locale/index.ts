@@ -1,5 +1,9 @@
 export interface Locale {
   /**
+   * 默认的语种标识
+   */
+  locale: string;
+  /**
    * 全局通用多语言文案
    */
   global?: Record<string, any>;

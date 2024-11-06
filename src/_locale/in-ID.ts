@@ -1,7 +1,8 @@
 import type { Locale } from '.';
 
-const idID: Locale = {
+const inID: Locale = {
   // locales for all components
+  locale: 'in-ID',
   global: {
     placeholder: 'Silakan pilih',
     emptyText: 'Tidak ada data',
@@ -18,7 +19,7 @@ const idID: Locale = {
       'Sabtu',
       'Minggu',
     ],
-    title: 'YYYY tahun MM bulan',
+    format: 'MM/YYYY',
     today: 'Hari ini',
     start: 'Mulai',
     end: 'Akhir',
@@ -58,4 +59,4 @@ const idID: Locale = {
   },
 };
 
-export default idID;
+export default inID;

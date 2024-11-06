@@ -1,22 +1,30 @@
+import { effect } from '@preact/signals-core';
 import dayjs from 'dayjs';
 import equal from 'fast-deep-equal';
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import {
-  CalendarValue,
-  CellState,
-  defaultLocaleText,
-  CalendarDefaultProps,
-} from './props';
-import {
-  getMonthListFromRange,
-  getSelectionModeFromValue,
-  renderCells,
-  getScrollIntoViewId,
-} from './utils';
 import mixinValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import {
+  ComponentWithSignalStoreImpl,
+  getValueFromProps,
+  triggerEvent,
+} from '../_util/simply';
+import i18nController from '../_util/store';
+import { CalendarDefaultProps, CalendarValue, CellState } from './props';
+import {
+  getMonthListFromRange,
+  getScrollIntoViewId,
+  getSelectionModeFromValue,
+  renderCells,
+} from './utils';
 
-Component(
+ComponentWithSignalStoreImpl(
+  {
+    store: () => i18nController,
+    updateHook: effect,
+    mapState: {
+      locale: ({ store }) => store.currentLocale.value,
+    },
+  },
   CalendarDefaultProps,
   {
     getInstance() {
@@ -129,7 +137,12 @@ Component(
         'onFormatter',
         'onMonthFormatter',
       ]);
-      const localeText = Object.assign({}, defaultLocaleText, plocaleText);
+      const localeText = Object.assign(
+        {},
+        this.data.locale.calendar,
+        plocaleText
+      );
+      console.log(this.data.locale.calendar, '超越自己333', localeText);
       const markItems = [...localeText.weekdayNames];
       const weekStartsOn = pweekStartsOn;
       if (weekStartsOn === 'Sunday') {
@@ -192,7 +205,7 @@ Component(
           });
         }
         let month = {
-          title: p.format(localeText.title),
+          title: p.format(localeText.format),
           className: '',
           cells,
         };

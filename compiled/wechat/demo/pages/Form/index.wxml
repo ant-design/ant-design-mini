@@ -3,14 +3,14 @@
   name="account"
   placeholder="请输入用户名"
   tooltip="用户名说明"
-  allow-clear
+  allowClear
   bind:ref="handleRef"
 ></form-input>
 <form-input
   label="密码"
   name="password"
   placeholder="请输入密码"
-  allow-clear
+  allowClear
   bind:ref="handleRef"
 >
   <view slot="tooltip">
@@ -24,7 +24,7 @@
   label="地址"
   name="address"
   placeholder="请输入地址"
-  allow-clear
+  allowClear
   bind:ref="handleRef"
 ></form-input>
 <form-switch
@@ -87,7 +87,7 @@
 <form-slider
   label="选择分数"
   name="slider"
-  show-tooltip
+  showTooltip
   bind:ref="handleRef"
 ></form-slider>
 <form-upload-image
@@ -100,8 +100,8 @@
   label="说明"
   name="description"
   placeholder="请输入说明"
-  allow-clear
-  auto-height
+  allowClear
+  autoHeight
   bind:ref="handleRef"
 ></form-textarea>
 <form-rate

@@ -7,7 +7,7 @@ Page({
     onLoad() {
         setTimeout(() => {
             this.setData({
-                loading: false
+                loading: false,
             });
         }, 1000);
     },
@@ -16,31 +16,31 @@ Page({
             url: 'index',
             fail(e) {
                 console.log(e);
-            }
+            },
         });
     },
     handleSwitchToDisconnected() {
         this.setData({
             status: 'disconnected',
-            title: '',
-            message: '',
-            image: ''
+            title: undefined,
+            message: undefined,
+            image: '',
         });
     },
     handleSwitchToEmpty() {
         this.setData({
             status: 'empty',
-            title: '',
-            message: '',
-            image: ''
+            title: undefined,
+            message: undefined,
+            image: '',
         });
     },
     handleSwitchToBusy() {
         this.setData({
             status: 'busy',
-            title: '',
-            message: '',
-            image: ''
+            title: undefined,
+            message: undefined,
+            image: '',
         });
     },
     handleSwitchToCustom() {
@@ -49,7 +49,7 @@ Page({
             status: '',
             title: '自定义标题',
             message: '自定义详情',
-            image: 'https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'
+            image: 'https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg',
         });
     },
     handleSwitchToNormal() {
@@ -57,13 +57,13 @@ Page({
             status: '',
             title: '',
             message: '',
-            image: ''
+            image: '',
         });
     },
     handleToggleSafeArea(e) {
         const { position = '' } = e.target.dataset;
         this.setData({
-            safeArea: position
+            safeArea: position,
         });
-    }
+    },
 });

@@ -13,7 +13,7 @@ toc: 'content'
 
 ## 何时使用
 
-可以通过通过 `ConfigProvider` 组件来全局配置 Antd-Mini 组件，包括：
+可以通过 `ConfigProvider` 组件来全局配置 Antd-Mini 组件，包括：
 
 - 全局设置主题，通过[CSS 变量](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties) 来组织样式，通过覆盖这些 CSS 变量，可以实现定制主题、动态切换主题等效果；
 - 全局设置国际化，通过设置 Locales 来实现多语言支持；
@@ -32,7 +32,7 @@ ConfigProvider 组件提供了覆盖 CSS 变量的能力，你需要在根节点
 
 ### 国际化
 
-Antd-Mini 提供了 ConfigProvider 组件用于全局配置国际化文案。目前支持以下 17 种语言，暂不支持 RTL 能力；
+Antd-Mini 提供了 ConfigProvider 组件用于全局配置国际化文案。目前支持以下 18 种语言，暂不支持 RTL 能力；
 
 - 简体中文 | zh-CN
 - 繁体中文（中国台湾） | zh-TW
@@ -51,6 +51,7 @@ Antd-Mini 提供了 ConfigProvider 组件用于全局配置国际化文案。目
 - 葡萄牙语（巴西）| pt-BR
 - 日语（日本）| ja-JP
 - 土耳其语（土耳其）｜ tr-TR
+- 越南语｜ vi-VN
 
 ### 代码示例
 

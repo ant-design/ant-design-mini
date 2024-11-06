@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const itIT: Locale = {
   // locales for all components
+  locale: 'it-IT',
   global: {
     placeholder: 'Seleziona',
     emptyText: 'Nessun dato disponibile',
@@ -18,7 +19,7 @@ const itIT: Locale = {
       'Sabato',
       'Domenica',
     ],
-    title: 'YYYY anno MM mese',
+    format: 'MM/YYYY',
     today: 'Oggi',
     start: 'Inizia',
     end: 'Fine',

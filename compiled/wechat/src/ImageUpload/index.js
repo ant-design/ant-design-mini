@@ -54,11 +54,22 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { UploaderDefaultProps } from './props';
-import { chooseImage } from '../_util/jsapi/choose-image';
+import { effect } from '@preact/signals-core';
 import createValue from '../mixins/value';
-Component(UploaderDefaultProps, {
+import { chooseImage } from '../_util/jsapi/choose-image';
+import { ComponentWithSignalStoreImpl, getValueFromProps, triggerEvent, } from '../_util/simply';
+import i18nController from '../_util/store';
+import { UploaderDefaultProps } from './props';
+ComponentWithSignalStoreImpl({
+    store: function () { return i18nController; },
+    updateHook: effect,
+    mapState: {
+        locale: function (_a) {
+            var store = _a.store;
+            return store.currentLocale.value;
+        },
+    },
+}, UploaderDefaultProps, {
     chooseImage: function () {
         return __awaiter(this, void 0, void 0, function () {
             var _a, onBeforeUpload, onUpload, fileList, _b, maxCount, sourceType, localFileList, chooseImageRes, err_1, beforeUploadRes, err_2, tasks;

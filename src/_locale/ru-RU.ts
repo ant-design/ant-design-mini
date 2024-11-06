@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const ruRU: Locale = {
   // locales for all components
+  locale: 'ru-RU',
   global: {
     placeholder: 'Пожалуйста, выберите',
     emptyText: 'Нет данных',
@@ -18,7 +19,7 @@ const ruRU: Locale = {
       'Суббота',
       'Воскресенье',
     ],
-    title: 'YYYY Год MM Месяц',
+    format: 'MM/YYYY',
     today: 'Сегодня',
     start: 'Начать',
     end: 'Конец',

@@ -9,6 +9,7 @@ import React, {
 } from 'react';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
+import './index.less';
 
 interface IProps {
   children: ReactNode;

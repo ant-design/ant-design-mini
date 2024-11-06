@@ -17,14 +17,36 @@ toc: 'content'
 
 当需要使用图形来对基础操作功能进行隐喻呈现，并给予用户正确、友好且清晰的操作指引时，可以使用 Icon 图标。
 
+## 引入
+在index.json中引入组件
+```json
+"usingComponents": {
+  "ant-icon": "antd-mini/es/Icon/index"
+}
+```
+
 ## 图标列表
 
 搜索并查看图标，点击图标可进行复制。
 
-<!-- <Icon></Icon> -->
+<Icon></Icon>
 
 ## 代码示例
 
+### 基本使用
+```xml
+<ant-icon type="SmileOutline" />
+```
+
+### 自定义大小及颜色
+```xml
+<ant-icon type="SmileOutline" style="font-size: 20px" />
+<ant-icon type="SmileOutline" style="color: red" />
+```
+
+
+
+### Demo代码
 <code src='../../demo/pages/Icon/index' noChangeButton></code>
 
 

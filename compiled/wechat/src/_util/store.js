@@ -1,5 +1,5 @@
 import { signal } from '@preact/signals-core';
-import zhCN from '../_locale/zh_CN';
+import zhCN from '../_locale/zh-CN';
 var SharedStore = /** @class */ (function () {
     function SharedStore() {
         this.currentLocale = signal(zhCN);

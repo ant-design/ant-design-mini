@@ -1,240 +1,84 @@
-@theme: default;
-@colorPrimary: default;
-@colorLink: default;
-@colorWathet: default;
-@colorRed: default;
-@colorYellow: default;
-@colorGreen: default;
-@colorTextPrimary: default;
-@colorWhite: default;
-@colorTextAssist: default;
-@colorBorder: default;
-@colorBackground: default;
-@colorTextWeak: default;
-@colorCard: default;
-@colorTextSecondary: default;
-@colorGreyCard: default;
-@colorBlackCard: default;
-@colorOrange: default;
-@colorBlack: default;
-@colorBorderGreyCard: default;
-@colorBackground2: default;
-@colorCard2: default;
-@colorWhiteCard: default;
-@colorWhiteDynamic: default;
+/* 给css变量的默认底色，用来兜底使用 */
 
-@COLOR_Link_DEFAULT: #4B6B99;
-@COLOR_Link_DARK: #3F5980;
+@COLOR_Link_DEFAULT: #4b6b99;
 
-@COLOR_BORDER_GREYCARD_DEFAULT: #E5E5E5;
-@COLOR_BORDER_GREYCARD_DARK: #444444;
+@COLOR_BORDER_GREYCARD_DEFAULT: #e5e5e5;
 
 @COLOR_BRAND1_DEFAULT: #1677ff;
 @COLOR_BRAND2_DEFAULT: #1677ff;
-@COLOR_BRAND1_DARK: #3086ff;
-@COLOR_BRAND2_DARK: #0A0A0A;
-@COLOR_BRAND1: if(
-  iscolor(@colorPrimary),
-  @colorPrimary,
-  if((@theme=dark), @COLOR_BRAND1_DARK, @COLOR_BRAND1_DEFAULT)
-);
 
-@COLOR_BRAND2: if(
-  iscolor(@colorPrimary),
-  @colorPrimary,
-  if((@theme=dark), @COLOR_BRAND2_DARK, @COLOR_BRAND2_DEFAULT)
-);
+@COLOR_BRAND1: @COLOR_BRAND1_DEFAULT;
 
-@COLOR_LINK: if(
-  iscolor(@colorLink),
-  @colorLink,
-  if((@theme=dark), @COLOR_Link_DARK, @COLOR_Link_DEFAULT)
-);
+@COLOR_BRAND2: @COLOR_BRAND2_DEFAULT;
 
-
+@COLOR_LINK: @COLOR_Link_DEFAULT;
 
 @COLOR_WATHET_DEFAULT: #e7f1ff;
-@COLOR_WATHET_DARK: #0d2543;
-@COLOR_WATHET: if(
-  iscolor(@colorWathet),
-  @colorWathet,
-  if((@theme=dark), @COLOR_WATHET_DARK, @COLOR_WATHET_DEFAULT)
-);
+@COLOR_WATHET: @COLOR_WATHET_DEFAULT;
 
 @COLOR_RED_DEFAULT: #ff3141;
-@COLOR_RED_DARK: #ff4a58;
-@COLOR_RED: if(
-  iscolor(@colorRed),
-  @colorRed,
-  if((@theme=dark), @COLOR_RED_DARK, @COLOR_RED_DEFAULT)
-);
+@COLOR_RED: @COLOR_RED_DEFAULT;
 
 @COLOR_YELLOW_DEFAULT: #ff9f18;
-@COLOR_YELLOW_DARK: #ffa930;
-@COLOR_YELLOW: if(
-  iscolor(@colorYellow),
-  @colorYellow,
-  if((@theme=dark), @COLOR_YELLOW_DARK, @COLOR_YELLOW_DEFAULT)
-);
+@COLOR_YELLOW: @COLOR_YELLOW_DEFAULT;
 
 @COLOR_GREEN_DEFAULT: #22b35e;
-@COLOR_GREEN_DARK: #34b368;
-@COLOR_GREEN: if(
-  isColor(@colorGreen),
-  @colorGreen,
-  if((@theme=dark), @COLOR_GREEN_DARK, @COLOR_GREEN_DEFAULT)
-);
+@COLOR_GREEN: @COLOR_GREEN_DEFAULT;
 
 @COLOR_TEXT_PRIMARY_DEFAULT: #333333;
-@COLOR_TEXT_PRIMARY_DARK: #e6e6e6;
-@COLOR_TEXT_PRIMARY: if(
-  isColor(@colorTextPrimary),
-  @colorTextPrimary,
-  if((@theme=dark), @COLOR_TEXT_PRIMARY_DARK, @COLOR_TEXT_PRIMARY_DEFAULT)
-);
+@COLOR_TEXT_PRIMARY: @COLOR_TEXT_PRIMARY_DEFAULT;
 
 @COLOR_WHITE_DEFAULT: #ffffff;
-@COLOR_WHITE_DARK: #ffffff;
-@COLOR_WHITE: if(
-  isColor(@colorWhite),
-  @colorWhite,
-  if((@theme=dark), @COLOR_WHITE_DARK, @COLOR_WHITE_DEFAULT)
-);
+@COLOR_WHITE: @COLOR_WHITE_DEFAULT;
 
 @COLOR_TEXT_ASSIST_DEFAULT: #999999;
-@COLOR_TEXT_ASSIST_DARK: #808080;
-@COLOR_TEXT_ASSIST: if(
-  isColor(@colorTextAssist),
-  @colorTextAssist,
-  if((@theme=dark), @COLOR_TEXT_ASSIST_DARK, @COLOR_TEXT_ASSIST_DEFAULT)
-);
+@COLOR_TEXT_ASSIST: @COLOR_TEXT_ASSIST_DEFAULT;
 
 @COLOR_BORDER_DEFAULT: #eeeeee;
-@COLOR_BORDER_DARK: #2b2b2b;
-@COLOR_BORDER: if(
-  isColor(@colorBorder),
-  @colorBorder,
-  if((@theme=dark), @COLOR_BORDER_DARK, @COLOR_BORDER_DEFAULT)
-);
-@COLOR_BORDER_GREYCARD: if(
-  isColor(@colorBorderGreyCard),
-  @colorBorderGreyCard,
-  if((@theme=dark), @COLOR_BORDER_GREYCARD_DARK, @COLOR_BORDER_GREYCARD_DEFAULT)
-);
+@COLOR_BORDER: @COLOR_BORDER_DEFAULT;
+@COLOR_BORDER_GREYCARD: @COLOR_BORDER_GREYCARD_DEFAULT;
 
 @COLOR_BACKGROUND_DEFAULT: #f5f5f5;
-@COLOR_BACKGROUND_DARK: #121212;
-@COLOR_BACKGROUND: if(
-  isColor(@colorBackground),
-  @colorBackground,
-  if((@theme=dark), @COLOR_BACKGROUND_DARK, @COLOR_BACKGROUND_DEFAULT)
-);
+@COLOR_BACKGROUND: @COLOR_BACKGROUND_DEFAULT;
 
-@COLOR_BACKGROUND2_DEFAULT: #F0F3F7;
-@COLOR_BACKGROUND2_DARK: #121212;
-@COLOR_BACKGROUND2: if(
-  isColor(@colorBackground2),
-  @colorBackground2,
-  if((@theme=dark), @COLOR_BACKGROUND2_DARK, @COLOR_BACKGROUND2_DEFAULT)
-);
+@COLOR_BACKGROUND2_DEFAULT: #f0f3f7;
+@COLOR_BACKGROUND2: @COLOR_BACKGROUND2_DEFAULT;
 
 @COLOR_TEXT_WEAK_DEFAULT: #cccccc;
-@COLOR_TEXT_WEAK_DARK: #4d4d4d;
-@COLOR_TEXT_WEAK: if(
-  isColor(@colorTextWeak),
-  @colorTextWeak,
-  if((@theme=dark), @COLOR_TEXT_WEAK_DARK, @COLOR_TEXT_WEAK_DEFAULT)
-);
+@COLOR_TEXT_WEAK: @COLOR_TEXT_WEAK_DEFAULT;
 
 @COLOR_CARD_DEFAULT: #ffffff;
-@COLOR_CARD_DARK: #1a1a1a;
-@COLOR_CARD: if(
-  isColor(@colorCard),
-  @colorCard,
-  if((@theme=dark), @COLOR_CARD_DARK, @COLOR_CARD_DEFAULT)
-);
+@COLOR_CARD: @COLOR_CARD_DEFAULT;
 
 @COLOR_CARD2_DEFAULT: #ffffff;
-@COLOR_CARD2_DARK: #222222;
-@COLOR_CARD2: if(
-  isColor(@colorCard2),
-  @colorCard2,
-  if((@theme=dark), @COLOR_CARD2_DARK, @COLOR_CARD2_DEFAULT)
-);
+@COLOR_CARD2: @COLOR_CARD2_DEFAULT;
 
 @COLOR_WHITE_CARD_DEFAULT: #ffffff;
-@COLOR_WHITE_CARD_DARK: #2B2B2B;
-@COLOR_WHITE_CARD: if(
-  isColor(@colorWhiteCard),
-  @colorWhiteCard,
-  if((@theme=dark), @COLOR_WHITE_CARD_DARK, @COLOR_WHITE_CARD_DEFAULT)
-);
-
-
+@COLOR_WHITE_CARD: @COLOR_WHITE_CARD_DEFAULT;
 
 @COLOR_TEXT_SECONDARY_DEFAULT: #666666;
-@COLOR_TEXT_SECONDARY_DARK: #b3b3b3;
-@COLOR_TEXT_SECONDARY: if(
-  isColor(@colorTextSecondary),
-  @colorTextSecondary,
-  if((@theme=dark), @COLOR_TEXT_SECONDARY_DARK, @COLOR_TEXT_SECONDARY_DEFAULT)
-);
+@COLOR_TEXT_SECONDARY: @COLOR_TEXT_SECONDARY_DEFAULT;
 
 @COLOR_GREY_CARD_DEFAULT: #f5f5f5;
-@COLOR_GREY_CARD_DARK: #2b2b2b;
-@COLOR_GREY_CARD: if(
-  isColor(@colorGreyCard),
-  @colorGreyCard,
-  if((@theme=dark), @COLOR_GREY_CARD_DARK, @COLOR_GREY_CARD_DEFAULT)
-);
+@COLOR_GREY_CARD: @COLOR_GREY_CARD_DEFAULT;
 
 @COLOR_BLACK_CARD_DEFAULT: #000000;
-@COLOR_BLACK_CARD_DARK: #000000;
-@COLOR_BLACK_CARD: if(
-  isColor(@colorBlackCard),
-  @colorBlackCard,
-  if((@theme=dark), @COLOR_BLACK_CARD_DARK, @COLOR_BLACK_CARD_DEFAULT)
-);
+@COLOR_BLACK_CARD: @COLOR_BLACK_CARD_DEFAULT;
 
 @COLOR_ORANGE_DEFAULT: #ff6430;
-@COLOR_ORANGE_DARK: #e65a2b;
-@COLOR_ORANGE: if(
-  isColor(@colorOrange),
-  @colorOrange,
-  if((@theme=dark), @COLOR_ORANGE_DARK, @COLOR_ORANGE_DEFAULT)
-);
+@COLOR_ORANGE: @COLOR_ORANGE_DEFAULT;
 
 @COLOR_BLACK_DEFAULT: #000000;
-@COLOR_BLACK_DARK: #000000;
-@COLOR_BLACK: if(
-  isColor(@colorBlack),
-  @colorBlack,
-  if((@theme=dark), @COLOR_BLACK_DARK, @COLOR_BLACK_DEFAULT)
-);
+@COLOR_BLACK: @COLOR_BLACK_DEFAULT;
 
-@COLOR_WHITE_DYNAMIC_DEFAULT: #FFFFFF;
-@COLOR_WHITE_DYNAMIC_DARK: #C5CAD1;
-@COLOR_WHITE_DYNAMIC: if(
-  isColor(@colorWhiteDynamic),
-  @colorWhiteDynamic,
-  if((@theme=dark), @COLOR_WHITE_DYNAMIC_DARK, @COLOR_WHITE_DYNAMIC_DEFAULT)
-);
+@COLOR_WHITE_DYNAMIC_DEFAULT: #ffffff;
+@COLOR_WHITE_DYNAMIC: @COLOR_WHITE_DYNAMIC_DEFAULT;
 
 @COLOR_WHITE_CHANGE_DEFAULT: @COLOR_WHITE;
-@COLOR_WHITE_CHANGE_DARK: @COLOR_BLACK;
-@COLOR_WHITE_CHANGE: if(
-  (@theme=dark),
-  @COLOR_WHITE_CHANGE_DARK,
-  @COLOR_WHITE_CHANGE_DEFAULT
-);
+@COLOR_WHITE_CHANGE: @COLOR_WHITE_CHANGE_DEFAULT;
 
 @COLOR_BLACK_CHANGE_DEFAULT: @COLOR_BLACK;
-@COLOR_BLACK_CHANGE_DARK: @COLOR_WHITE;
-@COLOR_BLACK_CHANGE: if(
-  (@theme=dark),
-  @COLOR_BLACK_CHANGE_DARK,
-  @COLOR_BLACK_CHANGE_DEFAULT
-);
+@COLOR_BLACK_CHANGE: @COLOR_BLACK_CHANGE_DEFAULT;
 
 // 以下是没有是颜色系统里面的
 @COLOR_GOLDEN_2: #fff3d9;

@@ -23,7 +23,7 @@
           <ant-icon
             wx:if="{{mixin.value}}"
             type="CheckOutline"
-            class-name="ant-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon"
+            className="ant-radio-item-fake-{{componentUtils.getClassName(mixin.value, disabled)}}-icon"
           ></ant-icon>
         </view>
       </view>

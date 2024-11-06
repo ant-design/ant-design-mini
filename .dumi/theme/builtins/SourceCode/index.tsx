@@ -16,6 +16,7 @@ import {
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
+import './index.less';
 
 const MARKUP_REGEX = {
   all: /#if ALIPAY|#if WECHAT|#endif/g, // 支持的所有平台
@@ -110,7 +111,7 @@ const SourceCode: FC<ISourceCodeProps> = (props) => {
   );
 
   return (
-    <div className="dumi-default-source-code">
+    <div className="dumi-theme-antd-source-code">
       <CopyToClipboard
         text={text}
         onCopy={() => {
@@ -121,15 +122,15 @@ const SourceCode: FC<ISourceCodeProps> = (props) => {
       >
         <button
           type="button"
-          className="dumi-default-source-code-copy"
+          className="dumi-theme-antd-source-code-copy"
           data-copied={isCopied || undefined}
         >
           {isCopied ? <IconCheck /> : <IconCopy />}
         </button>
       </CopyToClipboard>
       {props.textarea ? (
-        <div className="dumi-default-source-code-scroll-container">
-          <div className="dumi-default-source-code-scroll-content">
+        <div className="dumi-theme-antd-source-code-scroll-container">
+          <div className="dumi-theme-antd-source-code-scroll-content">
             {code}
             {props.textarea}
           </div>

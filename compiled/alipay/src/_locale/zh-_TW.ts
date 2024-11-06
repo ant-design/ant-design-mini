@@ -3,6 +3,7 @@ import type { Locale } from '.';
 
 const zhTW: Locale = {
   // locales for all components
+  locale: 'zh_TW',
   global: {
     placeholder: '請選擇',
     emptyText: '暫無數據',

@@ -1,9 +1,18 @@
-import { Component, triggerEvent } from '../../_util/simply';
+import { effect } from '@preact/signals-core';
 import { resolveEventValue } from '../../_util/platform';
-import { FormTextareaDefaultProps } from './props';
+import { ComponentWithSignalStoreImpl, triggerEvent } from '../../_util/simply';
+import i18nController from '../../_util/store';
 import { createForm } from '../form';
+import { FormTextareaDefaultProps } from './props';
 
-Component(
+ComponentWithSignalStoreImpl(
+  {
+    store: () => i18nController,
+    updateHook: effect,
+    mapState: {
+      locale: ({ store }) => store.currentLocale.value,
+    },
+  },
   FormTextareaDefaultProps,
   {
     handleRef(input) {

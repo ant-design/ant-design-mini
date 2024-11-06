@@ -1,5 +1,4 @@
 @import (reference) './variable.less';
-@import (reference) '../style/variables.less';
 
 @buttonPrefix: ant-button;
 
@@ -34,11 +33,8 @@
   }
 
   &-primary {
-    color: var(--button-primary-color, @button-primary-color);
-    background-color: var(
-      --button-primary-background-color,
-      @button-primary-background-color
-    );
+    color: @button-primary-color;
+    background-color: @button-primary-background-color;
     box-shadow: inset 0 0 0 @button-border-size @button-primary-background-color;
   }
 

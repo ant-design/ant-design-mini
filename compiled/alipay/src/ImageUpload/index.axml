@@ -32,7 +32,8 @@
             >
               <loading className="ant-image-upload-cover-loading-icon"></loading>
               <view class="ant-image-upload-cover-loading-text">
-                {{uploadingText}}
+
+                {{uploadingText === undefined ? locale.imageUpload.uploadingText : uploadingText}}
               </view>
             </view>
             <view
@@ -40,11 +41,11 @@
               class="ant-image-upload-cover-error"
             >
               <icon
-                class-name="ant-image-upload-cover-error-icon"
+                className="ant-image-upload-cover-error-icon"
                 type="CloseCircleOutline"
               ></icon>
               <view class="ant-image-upload-cover-error-text">
-                {{uploadfailedText}}
+                {{uploadfailedText === undefined ? locale.imageUpload.uploadfailedText : uploadfailedText}}
               </view>
             </view>
           </view>
@@ -66,7 +67,7 @@
         >
           <icon
             type="AddOutline"
-            class-name="ant-image-upload-add-image-icon"
+            className="ant-image-upload-add-image-icon"
           ></icon>
         </view>
       </slot>

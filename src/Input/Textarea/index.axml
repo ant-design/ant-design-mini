@@ -1,6 +1,7 @@
 <view
   class="ant-textarea {{ disabled ? 'ant-textarea-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
-  style="{{ style || '' }};{{ focusStyle || '' }}">
+  style="{{ style || '' }};{{ focusStyle || '' }}"
+>
   <view class="ant-textarea-line">
     <!-- #if ALIPAY -->
     <textarea
@@ -9,7 +10,7 @@
       class="ant-textarea-content {{ allowClear ? 'ant-textarea-content-clear' : '' }}"
       disabled="{{ disabled }}"
       value="{{ state.value || '' }}"
-      placeholder="{{ placeholder }}"
+      placeholder="{{placeholder === null ? locale.global.placeholder : placeholder  }}"
       placeholder-class="ant-textarea-placeholder {{ placeholderClassName ? placeholderClassName : '' }}"
       placeholder-style="{{ placeholderStyle ? placeholderStyle : '' }}"
       maxlength="{{ maxLength }}"
@@ -22,7 +23,8 @@
       onInput="onChange"
       onConfirm="onConfirm"
       onFocus="onFocus"
-      onBlur="onBlur" />
+      onBlur="onBlur"
+    />
     <!-- #endif -->
     <!-- #if WECHAT -->
     <textarea
@@ -31,7 +33,7 @@
       class="ant-textarea-content {{ allowClear ? 'ant-textarea-content-clear' : '' }}"
       disabled="{{ disabled }}"
       value="{{ state.value || '' }}"
-      placeholder="{{ placeholder }}"
+      placeholder="{{ placeholder === null ? locale.global.placeholder : placeholder  }}"
       placeholder-class="ant-textarea-placeholder {{ placeholderClassName ? placeholderClassName : '' }}"
       placeholder-style="{{ placeholderStyle ? placeholderStyle : '' }}"
       maxlength="{{ maxLength }}"
@@ -48,15 +50,15 @@
       bindinput="onChange"
       bindconfirm="onConfirm"
       bindfocus="onFocus"
-      bindblur="onBlur" />
+      bindblur="onBlur"
+    />
     <!-- #endif -->
     <view
       a:if="{{ allowClear }}"
       class="ant-textarea-clear {{ state.value && state.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden' }}"
-      onTap="onClear">
-      <icon
-        className="ant-textarea-clear-icon"
-        type="CloseCircleFill" />
+      onTap="onClear"
+    >
+      <icon className="ant-textarea-clear-icon" type="CloseCircleFill" />
     </view>
   </view>
 </view>

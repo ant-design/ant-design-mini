@@ -1,3 +1,4 @@
+/* 给css变量的默认底色，用来兜底使用 */
 .errors {
   background: #FFF3F4;
   border: 1px solid rgba(255, 49, 65, 0.2);

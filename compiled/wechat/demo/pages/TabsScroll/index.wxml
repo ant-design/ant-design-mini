@@ -3,7 +3,7 @@
 </view>
 <view class="container">选择后居中滚动<tabs
     items="{{items}}"
-    scroll-mode="center"
+    scrollMode="center"
   ></tabs>
 </view>
 <view class="container">

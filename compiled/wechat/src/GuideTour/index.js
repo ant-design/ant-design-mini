@@ -34,10 +34,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { Component, triggerEvent, triggerEventOnly } from '../_util/simply';
-import { GuideTourDefaultProps } from './props';
+import { effect } from '@preact/signals-core';
 import mixinValue from '../mixins/value';
-Component(GuideTourDefaultProps, {
+import { ComponentWithSignalStoreImpl, triggerEvent, triggerEventOnly, } from '../_util/simply';
+import i18nController from '../_util/store';
+import { GuideTourDefaultProps } from './props';
+ComponentWithSignalStoreImpl({
+    store: function () { return i18nController; },
+    updateHook: effect,
+    mapState: {
+        locale: function (_a) {
+            var store = _a.store;
+            return store.currentLocale.value;
+        },
+    },
+}, GuideTourDefaultProps, {
     onNext: function () {
         return __awaiter(this, void 0, void 0, function () {
             var currentValue, newCurrent;

@@ -7,7 +7,7 @@
   label="图片上传"
   name="imageList"
   onUpload="{{onUpload ? onUpload : 'onUpload'}}"
-  max-count="{{3}}"
+  maxCount="{{3}}"
   tooltip="需要上传3张图片"
   bind:ref="handleRef"
 ></ant-form-image-upload>

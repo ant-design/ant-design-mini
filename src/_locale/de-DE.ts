@@ -2,6 +2,7 @@ import type { Locale } from '.';
 
 const deDE: Locale = {
   // locales for all components
+  locale: 'de-DE',
   global: {
     placeholder: 'Bitte wählen Sie',
     emptyText: 'Keine Daten verfügbar',
@@ -18,11 +19,11 @@ const deDE: Locale = {
       'Samstag',
       'Sonntag',
     ],
-    title: 'YYYY Jahr MM Monat',
     today: 'Heute',
     start: 'Start',
     end: 'Ende',
     startAndEnd: 'Anfang/Ende',
+    format: 'MM/YYYY',
   },
   rangePicker: {
     startPlaceholder: 'Die Auswahl hat noch nicht begonnen',

@@ -7,7 +7,7 @@
 <ant-container title="禁用模式">
   <ant-checkbox disabled>Checkbox1</ant-checkbox>
   <ant-checkbox
-    default-checked
+    defaultChecked
     disabled
   >
     Checkbox2
@@ -16,7 +16,7 @@
 <ant-container title="自定义颜色">
   <ant-checkbox
     color="red"
-    default-checked
+    defaultChecked
   >
     Checkbox
   </ant-checkbox>

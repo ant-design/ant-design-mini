@@ -118,6 +118,6 @@ export const UploaderDefaultProps: Partial<IUploaderProps> = {
   onUpload: null,
   onBeforeUpload: null,
   onRemove: null,
-  uploadingText: '上传中',
-  uploadfailedText: '上传失败',
+  uploadingText: undefined,
+  uploadfailedText: undefined,
 };

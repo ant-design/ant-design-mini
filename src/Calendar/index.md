@@ -80,9 +80,9 @@ interface LocaleText {
    */
   weekdayNames: string[];
   /**
-   * 月份标题的格式，默认为 'YYYY年MM月'
+   * 月份标题的格式。 除中文/英文外默认为'MM/YYYY',
    */
-  title: string;
+  format: string;
   /**
    * 今天的文案，默认为 '今日'
    */

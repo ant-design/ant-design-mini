@@ -5,7 +5,7 @@
   <canvas
     wx:if="{{type === 'circle'}}"
     class="ant-progress-canvas"
-    canvas-id="ant-progress-canvas"
+    canvasId="ant-progress-canvas"
   ></canvas>
   <view
     wx:if="{{type === 'line'}}"
@@ -21,7 +21,7 @@
     <ant-icon
       wx:if="{{status === 'success' || status === 'exception'}}"
       type="{{status === 'success' ? 'CheckCircleFill' : 'CloseCircleFill'}}"
-      class-name="ant-progress-status-icon ant-progress-status-icon-{{status}}"
+      className="ant-progress-status-icon ant-progress-status-icon-{{status}}"
     ></ant-icon>
     <block wx:else>{{percent}}%</block>
   </view>
