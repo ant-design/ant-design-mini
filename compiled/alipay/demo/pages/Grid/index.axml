@@ -2,7 +2,7 @@
   <ant-grid
     items="{{items3}}"
     onTap="handleTapItem"
-    iconSize="{{36}}"
+    icon-size="{{36}}"
     columns="{{3}}"
   ></ant-grid>
 </ant-container>
@@ -32,21 +32,21 @@
     items="{{items5}}"
     onTap="handleTapItem"
     columns="{{5}}"
-    showDivider
+    show-divider
   ></ant-grid>
 </ant-container>
 <ant-container title="2列-带描述">
   <ant-grid
     items="{{items2withDesc}}"
     onTap="handleTapItem"
-    iconSize="{{36}}"
+    icon-size="{{36}}"
     columns="{{2}}"
   ></ant-grid>
 </ant-container>
 <ant-container title="3列-带描述">
   <ant-grid
     items="{{items3withDesc}}"
-    iconSize="{{36}}"
+    icon-size="{{36}}"
     onTap="handleTapItem"
     columns="{{3}}"
   ></ant-grid>
@@ -56,13 +56,13 @@
     items="{{items2}}"
     onTap="handleTapItem"
     columns="{{2}}"
-    gridItemLayout="horizontal"
+    grid-item-layout="horizontal"
   ></ant-grid>
 </ant-container>
 <ant-container title="2行-元素横向布局">
   <ant-grid
     items="{{items4}}"
-    gridItemLayout="horizontal"
+    grid-item-layout="horizontal"
     onTap="handleTapItem"
     columns="{{2}}"
   ></ant-grid>
@@ -72,15 +72,15 @@
     items="{{items3}}"
     onTap="handleTapItem"
     columns="{{3}}"
-    gridItemLayout="horizontal"
+    grid-item-layout="horizontal"
   ></ant-grid>
 </ant-container>
 <ant-container title="2列-带描述">
   <ant-grid
     items="{{items2withDesc}}"
     onTap="handleTapItem"
-    iconSize="{{36}}"
-    gridItemLayout="horizontal"
+    icon-size="{{36}}"
+    grid-item-layout="horizontal"
     columns="{{2}}"
   ></ant-grid>
 </ant-container>
@@ -93,7 +93,7 @@
 </ant-container>
 <ant-container title="滑块可滑动">
   <swiper
-    indicatorDots="{{true}}"
+    indicator-dots="{{true}}"
     autoplay="{{true}}"
     vertical="{{false}}"
     interval="{{1000}}"
@@ -119,7 +119,7 @@
     items="{{itemsCustom}}"
     onTap="handleTapItem"
     columns="{{5}}"
-    iconSize="{{44}}"
+    icon-size="{{44}}"
   ></ant-grid>
 </ant-container>
 <ant-container title="自定义">
@@ -134,7 +134,7 @@
     >
       <ant-badge
         a:if="{{props.value.tag}}"
-        offsetX="-10px"
+        offset-x="-10px"
         type="text"
         text="{{props.value.tag}}"
       >

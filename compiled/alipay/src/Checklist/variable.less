@@ -1,1 +1,21 @@
 @import (reference) '../style/themes/index.less';
+@import (reference) '../style/variables.less';
+
+/* check-list */
+/* background-color | 背景色 */
+@checklist-background-color: var(--color-brand1, @COLOR_BRAND1);
+
+/* check-list-item */
+/* background-color | 背景色 */
+@check-list-item-background-color: var(--color-card, @COLOR_CARD);
+
+@check-list-item-hover-background-color: var(--color-border, @COLOR_BORDER);
+
+/* text-color | 字体颜色  */
+@check-list-item-content-color: var(--color-text-primary, @COLOR_TEXT_PRIMARY);
+
+/* text-color | 字体颜色  */
+@check-list-item-description-color: var(
+  --color-text-assist,
+  @COLOR_TEXT_ASSIST
+);

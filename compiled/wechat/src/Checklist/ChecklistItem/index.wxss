@@ -1,14 +1,14 @@
 .ant-checklist-item {
-  background-color: #ffffff;
+  background-color: var(--color-card, #ffffff);
 }
 .ant-checklist-item-hover {
-  background-color: #eeeeee;
+  background-color: var(--color-border, #eeeeee);
 }
 .ant-checklist-item-content {
   display: flex;
   align-items: center;
   padding: 24rpx 24rpx;
-  color: #333333;
+  color: var(--color-text-primary, #333333);
 }
 .ant-checklist-item-content-disabled {
   opacity: 0.4;
@@ -39,7 +39,7 @@
 }
 .ant-checklist-item-text-description {
   font-size: 26rpx;
-  color: #999999;
+  color: var(--color-text-assist, #999999);
   margin-top: 2rpx;
   line-height: 36rpx;
 }
@@ -56,7 +56,7 @@
 .ant-checklist-item-line::after {
   content: '';
   position: absolute;
-  background-color: #eeeeee;
+  background-color: var(--color-border, #eeeeee);
   display: block;
   top: auto;
   right: 0;

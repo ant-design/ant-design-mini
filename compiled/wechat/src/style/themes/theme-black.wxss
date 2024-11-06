@@ -36,7 +36,7 @@ page {
   --size-space-page-margin: 16rpx;
   --size-space1: 4rpx;
   --opacity-press: 0.08;
-  --opacity-disable: 0.4;
+  --opacity-disabled: 0.4;
   --opacity-mask: 0.55;
   --opacity-module: 0.9;
   --size-font1: 22rpx;
