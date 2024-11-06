@@ -11,14 +11,14 @@
   <view class="list">
     <skeleton-avatar className="custom"></skeleton-avatar>
     <skeleton-paragraph
-      className="custom"
+      class-name="custom"
       rows="{{1}}"
     ></skeleton-paragraph>
     <skeleton-input className="custom"></skeleton-input>
     <skeleton-input className="custom"></skeleton-input>
     <skeleton-input className="custom"></skeleton-input>
     <skeleton-button
-      className="custom"
+      class-name="custom"
       size="small"
     ></skeleton-button>
   </view>

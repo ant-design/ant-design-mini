@@ -1,5 +1,0 @@
-.ant-form-cascader-picker-arrow {
-  margin-left: 8rpx;
-  color: #cccccc;
-  font-size: 36rpx;
-}

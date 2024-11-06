@@ -4,5 +4,5 @@
 }
 .ant-checklist-item-check-icon {
   font-size: 36rpx;
-  color: #1677ff;
+  color: var(--color-brand1, #1677ff);
 }

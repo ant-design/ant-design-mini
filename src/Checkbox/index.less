@@ -3,7 +3,7 @@
 @checkboxItemPrefix: ant-checkbox-item;
 
 .@{checkboxItemPrefix} {
-  color: @COLOR_TEXT_PRIMARY;
+  color: @checkbox-text-color;
   margin-right: 16 * @rpx;
 
   /// #if WECHAT
@@ -49,7 +49,7 @@
     justify-content: center;
     align-items: center;
     &-icon {
-      background-color: @COLOR_CARD;
+      background-color: @checkbox-fake-icon-background-color;
       border: @checkbox-border-width solid @checkbox-border-color;
       border-radius: @checkbox-corner-radius;
       width: 100%;

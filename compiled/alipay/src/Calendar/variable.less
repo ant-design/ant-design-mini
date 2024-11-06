@@ -1,3 +1,4 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 /* size | 按钮内间距 */
@@ -11,7 +12,7 @@
 @calendar-cell-space-size: 10 * @rpx;
 @calendar-cell-bottom-margin: 8 * @rpx;
 @calendar-cell-height: (25 + 25 + 45 + 7 + 8) * @rpx;
-@calendar-cell-disabled-opacity: @opacity-disabled;
+@calendar-cell-disabled-opacity: var(--opacity-disabled, @opacity-disabled);
 @calendar-cells-padding: 16 * @rpx;
 
 @calendar-sticky-title-z-index: 1000;

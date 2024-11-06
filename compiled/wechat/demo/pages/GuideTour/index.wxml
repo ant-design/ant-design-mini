@@ -26,7 +26,7 @@
 ></ant-guide-tour>
 <ant-container
   title="基础用法"
-  className="list"
+  class-name="list"
 >
   <ant-button
     bind:tap="openTour"

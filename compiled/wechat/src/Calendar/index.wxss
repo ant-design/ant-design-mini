@@ -138,7 +138,7 @@
   color: #ffffff;
 }
 .ant-calendar-cell-disabled {
-  opacity: 0.4;
+  opacity: var(--opacity-disabled, 0.4);
 }
 .ant-calendar-cell-hidden {
   opacity: 0;

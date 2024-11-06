@@ -3,7 +3,7 @@
   margin-bottom: 24rpx;
 }
 .ant-container-headerInBox {
-  background-color: #ffffff;
+  background-color: var(--color-card, #ffffff);
 }
 .ant-container-headerInBox .ant-container-header {
   padding: 0 24rpx;
@@ -27,7 +27,7 @@
 }
 .ant-container-content {
   padding: 24rpx;
-  background-color: #ffffff;
+  background-color: var(--color-card, #ffffff);
   border-radius: 16rpx;
 }
 .ant-container-header {
@@ -36,7 +36,7 @@
 .ant-container-header-title {
   font-size: 32rpx;
   font-weight: bold;
-  color: #333333;
+  color: var(--color-text-primary, #333333);
   display: flex;
   align-items: center;
   height: 96rpx;
@@ -46,7 +46,7 @@
   display: none;
 }
 .ant-container-header-right {
-  color: #999999;
+  color: var(--color-text-assist, #999999);
   display: flex;
   align-items: center;
   height: 96rpx;
