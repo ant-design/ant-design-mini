@@ -3,6 +3,7 @@ import { ReactComponent as IconCopy } from '@ant-design/icons-svg/inline-svg/out
 import classNames from 'classnames';
 import { useSiteData } from 'dumi';
 import Highlight, { defaultProps, type Language } from 'prism-react-renderer';
+import prismTheme from 'prism-react-renderer/themes/oceanicNext';
 import 'prism-themes/themes/prism-one-light.css';
 import {
   useContext,
@@ -75,7 +76,7 @@ const SourceCode: FC<ISourceCodeProps> = (props) => {
       {...defaultProps}
       code={props.textarea ? children : children.trim()}
       language={SIMILAR_DSL[lang] || lang}
-      theme={undefined}
+      theme={isDarkTheme ? prismTheme : undefined}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>

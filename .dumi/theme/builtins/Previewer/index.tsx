@@ -111,6 +111,9 @@ const Previewer: React.FC<IProps> = (props) => {
     >
       {/* @ts-ignore */}
       <Collapse
+        className={`previewer-collapse ${
+          theme.includes('dark') ? 'dark' : 'light'
+        }`}
         size="large"
         items={[
           {
