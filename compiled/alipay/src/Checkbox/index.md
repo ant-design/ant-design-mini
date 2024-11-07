@@ -91,6 +91,11 @@ Page({
 Page({
   data:{
     value: ['banana'],
+     options: [
+      { value: 'apple', label: 'Apple' },
+      { value: 'orange', label: 'Orange' },
+      { value: 'banana', label: 'Banana' },
+    ],
   },
   handleValueChange(value) {
 #if WECHAT
@@ -167,19 +172,19 @@ Page({
   data: {
     customOptions: [
       {
-        title: '分组一',
+        title: 'Group one',
         list: [
           {
-            title: '选项一',
+            title: 'Option one',
             value: '1',
           },
         ],
       },
       {
-        title: '分组二',
+        title: 'Group two',
         list: [
           {
-            title: '选项二',
+            title: 'Option two',
             value: '2',
           },
         ],

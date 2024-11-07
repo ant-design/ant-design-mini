@@ -3,41 +3,41 @@ Page({
     checked: false,
     value: ['banana'],
     options: [
-      { value: 'apple', label: '苹果' },
-      { value: 'orange', label: '橘子' },
-      { value: 'banana', label: '香蕉' },
+      { value: 'apple', label: 'Apple' },
+      { value: 'orange', label: 'Orange' },
+      { value: 'banana', label: 'Banana' },
     ],
     customOptions: [
       {
-        title: '分组一',
+        title: 'Group one',
         list: [
           {
-            title: '选项一',
+            title: 'Option one',
             value: '1',
           },
           {
-            title: '选项二',
+            title: 'Option two',
             value: '2',
           },
           {
-            title: '选项三',
+            title: 'Option three',
             value: '3',
           },
         ],
       },
       {
-        title: '分组二',
+        title: 'Group two',
         list: [
           {
-            title: '选项四',
+            title: 'Option four',
             value: '4',
           },
           {
-            title: '选项五',
+            title: 'Option five',
             value: '5',
           },
           {
-            title: '选项六',
+            title: 'Option six',
             value: '6',
           },
         ],
