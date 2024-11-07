@@ -37,7 +37,7 @@
 }
 .ant-button-capsule {
   color: var(--color-white, #ffffff);
-  background-color: #ffffff;
+  background-color: var(--color-border-greycard, #e5e5e5);
   box-shadow: none;
 }
 .ant-button-primary-aide {
