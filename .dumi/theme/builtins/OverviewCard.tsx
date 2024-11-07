@@ -48,6 +48,7 @@ const useStyle = ({
       padding-bottom: 24px;
       box-sizing: border-box;
       cursor: pointer;
+      text-align: center;
 
       @media only screen and (max-width: 1600px) {
         width: 33.333%;
@@ -71,6 +72,9 @@ const useStyle = ({
       .ant-card-head-title a {
         font-weight: 500;
       }
+    `,
+    image: css`
+      height: 100px;
     `
   }
 }
@@ -85,6 +89,8 @@ export default ({
   const style = useStyle({ isDark, isMobile });
   const locale = useLocale();
   const isEn = locale.id === 'en';
+
+  const imageConfig = isDark ? ComponentSampleImages.dark : ComponentSampleImages.light;
 
   return (
     <ConfigProvider
@@ -123,9 +129,9 @@ export default ({
                             title={item.label}
                           >
                             <img
-                              src=""
+                              src={(imageConfig[item.key.replace('/components/', '')] || imageConfig.default || {}).imageUrl}
+                              css={style.image}
                             />
-                            {item.label}
                           </Card>
                         </a>
                       )
