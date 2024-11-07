@@ -89,8 +89,6 @@
     "pages/InputTextarea",
     "pages/Popup",
     "pages/Checkbox",
-    "pages/CheckboxCustomGroup",
-    "pages/CheckboxGroup",
     "pages/CascaderPicker",
     "pages/Picker",
     "pages/DatePicker"
