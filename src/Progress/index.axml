@@ -21,7 +21,7 @@
     style="{{ strokeWidth ? 'height:' + strokeWidth + 'px;' : '' }}{{ trailColor ? 'background-color:' + trailColor : '' }}">
     <view
       class="ant-progress-inner {{ status === 'success' || status === 'exception' ? 'ant-progress-inner-' + status : '' }}"
-      style="width: {{ curProgress }}%; {{ strokeColor ? 'background-color:' + strokeColor : '' }}" />
+      style="width: {{ curProgress }}%; {{ strokeColor ? 'background-color:' + strokeColor : '' }};{{animation ? '' : 'transition: none;'}}" />
   </view>
   <view class="ant-progress-indicator">
     <!-- #if ALIPAY  -->

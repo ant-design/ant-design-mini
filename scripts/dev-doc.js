@@ -25,21 +25,21 @@ const chalk = require('chalk');
       },
     });
 
-    console.log(
-      chalk.blue.bold('\nStarting Compiler src path code to compiled path...')
-    );
-    const child = spawn('tsx', [`${process.cwd()}/scripts/dev.ts`]);
-    child.stdout.on('data', (data) => {
-      console.log(`\nCompiler src path code to compiled: ${data}`);
-    });
+    // console.log(
+    //   chalk.blue.bold('\nStarting Compiler src path code to compiled path...')
+    // );
+    // const child = spawn('tsx', [`${process.cwd()}/scripts/dev.ts`]);
+    // child.stdout.on('data', (data) => {
+    //   console.log(`\nCompiler src path code to compiled: ${data}`);
+    // });
 
-    child.stderr.on('data', (data) => {
-      console.error(`\nCompiler src path code to compiled error: ${data}`);
-    });
+    // child.stderr.on('data', (data) => {
+    //   console.error(`\nCompiler src path code to compiled error: ${data}`);
+    // });
 
-    child.on('close', (code) => {
-      console.error(`\nCompiler src path code to compiled exit: ${code}`);
-    });
+    // child.on('close', (code) => {
+    //   console.error(`\nCompiler src path code to compiled exit: ${code}`);
+    // });
   });
 
   devServer.on('error', (err) => {

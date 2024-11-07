@@ -16,7 +16,7 @@
   >
     <view
       class="ant-progress-inner {{status === 'success' || status === 'exception' ? 'ant-progress-inner-' + status : ''}}"
-      style="width: {{curProgress}}%; {{strokeColor ? 'background-color:' + strokeColor : ''}}"
+      style="width: {{curProgress}}%; {{strokeColor ? 'background-color:' + strokeColor : ''}};{{animation ? '' : 'transition: none;'}}"
     ></view>
   </view>
   <view class="ant-progress-indicator">
