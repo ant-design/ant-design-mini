@@ -73,8 +73,10 @@ const useStyle = ({
         font-weight: 500;
       }
     `,
+    antCardWrap: css`
+    `,
     image: css`
-      height: 100px;
+      height: 150px;
     `
   }
 }
@@ -126,7 +128,9 @@ export default ({
                           href={isEn ? item.key + '-en' : item.key}
                         >
                           <Card
+                            hoverable
                             title={item.label}
+                            css={style.antCardWrap}
                           >
                             <img
                               src={(imageConfig[item.key.replace('/components/', '')] || imageConfig.default || {}).imageUrl}
