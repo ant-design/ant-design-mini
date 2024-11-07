@@ -13,7 +13,7 @@ toc: 'content'
 
 ## 引入
 
-在 index.json 中引入组件
+在 `index.json` 中引入组件
 
 ```json
 "usingComponents": {
