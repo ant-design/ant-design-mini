@@ -1,28 +1,104 @@
-<ant-container title="基础用法">
-  <ant-checkbox bind:change="onChange">Checkbox</ant-checkbox>
-</ant-container>
-<ant-container title="初始值">
-  <ant-checkbox defaultChecked="{{true}}">Checkbox</ant-checkbox>
-</ant-container>
-<ant-container title="禁用模式">
-  <ant-checkbox disabled>Checkbox1</ant-checkbox>
-  <ant-checkbox
-    defaultChecked
-    disabled
-  >Checkbox2</ant-checkbox>
-</ant-container>
-<ant-container title="自定义颜色">
-  <ant-checkbox
-    color="red"
-    defaultChecked
-  >Checkbox</ant-checkbox>
-</ant-container>
-<ant-container title="控制模式">
+<wxs
+  src="./index.wxs"
+  module="utils"
+></wxs>
+<ant-container title="Checkbox usage">
   <view>
-    <ant-checkbox
-      checked="{{checked}}"
-      bind:change="handleChange"
-    >Checkbox</ant-checkbox>
+    <ant-checkbox bind:change="onChange">Basic usage</ant-checkbox>
   </view>
-  <ant-button bind:tap="toggleChange">切换</ant-button>
+  <view class="line">
+    <ant-checkbox defaultChecked="{{true}}">Set default value</ant-checkbox>
+  </view>
+  <view class="line">
+    <ant-checkbox disabled>disabledMode1</ant-checkbox>
+    <ant-checkbox
+      defaultChecked
+      disabled
+    >disabledMode2</ant-checkbox>
+  </view>
+  <view class="line">
+    <ant-checkbox
+      color="red"
+      defaultChecked
+    >Custom color</ant-checkbox>
+  </view>
+  <view class="line">
+    <view style="margin-bottom: 20rpx;">
+      <ant-checkbox
+        checked="{{checked}}"
+        bind:change="handleCheckedChange"
+      >Control mode</ant-checkbox>
+    </view>
+    <ant-button bind:tap="toggleChange">Switch</ant-button>
+  </view>
+</ant-container>
+<ant-container title="CheckboxGroup usage">
+  <view>
+    <view class="title">Basic usage</view>
+    <ant-checkbox-group
+      options="{{options}}"
+      bind:change="onChange"
+    ></ant-checkbox-group>
+  </view>
+  <view class="line">
+    <view class="title">Set default value</view>
+    <ant-checkbox-group
+      defaultValue="{{['banana']}}"
+      options="{{options}}"
+      bind:change="onChange"
+    ></ant-checkbox-group>
+  </view>
+  <view class="line">
+    <view class="title">Horizontal layout</view>
+    <ant-checkbox-group
+      options="{{options}}"
+      position="horizontal"
+    ></ant-checkbox-group>
+  </view>
+  <view class="line">
+    <view class="title">Disabled mode</view>
+    <ant-checkbox-group
+      options="{{options}}"
+      disabled
+    ></ant-checkbox-group>
+  </view>
+  <view class="line">
+    <view class="title">Controlled mode</view>
+    <ant-checkbox-group
+      value="{{value}}"
+      options="{{options}}"
+      bind:change="handleValueChange"
+    ></ant-checkbox-group>
+  </view>
+  <view class="line">
+    <view class="title">Custom color</view>
+    <ant-checkbox-group
+      options="{{options}}"
+      defaultValue="{{['apple', 'banana']}}"
+      color="red"
+    ></ant-checkbox-group>
+  </view>
+</ant-container>
+<ant-container title="CheckboxCustomGroup usage">
+  <block
+    wx:for="{{customOptions}}"
+    wx:for-index="index"
+    wx:for-item="option"
+  >
+    <ant-list header="{{option.title}}">
+      <block
+        wx:for="{{option.list}}"
+        wx:for-index="index"
+        wx:for-item="item"
+      >
+        <ant-list-item>
+          <ant-checkbox
+            data-value="{{item.value}}"
+            checked="{{utils.indexOf(customValue, item.value) > -1}}"
+            bind:change="handleCustomChange"
+          >{{item.title}}</ant-checkbox>
+        </ant-list-item>
+      </block>
+    </ant-list>
+  </block>
 </ant-container>
