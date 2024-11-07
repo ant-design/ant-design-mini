@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Popover 气泡菜单
+# Popover 气泡
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 点击元素，弹出气泡式的菜单
