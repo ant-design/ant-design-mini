@@ -23,7 +23,6 @@ toc: 'content'
 "usingComponents": {
   "ant-button": "antd-mini/es/Button/index"
 }
-
 ```
 
 ## 代码示例
