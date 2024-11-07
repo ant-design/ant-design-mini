@@ -14,6 +14,6 @@
 <container title="自定义高亮颜色">
   <tab-bar
     items="{{tabs}}"
-    active-style="color:red;"
+    activeStyle="color:red;"
   ></tab-bar>
 </container>

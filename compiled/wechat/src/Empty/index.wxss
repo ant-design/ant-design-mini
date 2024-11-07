@@ -6,13 +6,13 @@
   height: 282rpx;
 }
 .ant-empty-normal .ant-empty-text-main {
-  color: #333333;
+  color: var(--color-text-primary, #333333);
   font-size: 36rpx;
   margin-top: 24rpx;
 }
 .ant-empty-normal .ant-empty-text-sub {
   margin-top: 12rpx;
-  color: #999999;
+  color: var(--color-text-assist, #999999);
 }
 .ant-empty-normal .ant-empty-button {
   padding-top: 80rpx;
@@ -22,7 +22,7 @@
   height: 230rpx;
 }
 .ant-empty-small .ant-empty-text-main {
-  color: #999999;
+  color: var(--color-text-assist, #999999);
   font-size: 32rpx;
   margin-top: 24rpx;
 }

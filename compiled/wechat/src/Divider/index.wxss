@@ -7,15 +7,15 @@
 }
 .ant-divider-horizontal-text {
   font-size: 30rpx;
-  color: #333333;
+  color: var(--color-text-primary, #333333);
   margin: 0 32rpx;
 }
 .ant-divider-horizontal-left,
 .ant-divider-horizontal-right {
-  border-bottom: 2rpx solid #eeeeee;
+  border-bottom: 2rpx solid var(--color-border-greycard, #e5e5e5);
 }
 .ant-divider-vertical {
   margin: 0 16rpx;
   height: 32rpx;
-  border-right: 2rpx solid #eeeeee;
+  border-right: 2rpx solid var(--color-border-greycard, #e5e5e5);
 }

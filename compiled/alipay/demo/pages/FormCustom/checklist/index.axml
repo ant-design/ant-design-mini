@@ -3,15 +3,15 @@
   name="utils"
 ></import-sjs>
 <form-item
-  class-name="{{className}}"
+  className="{{className}}"
   position="{{position}}"
   label="{{label}}"
   status="{{formData.status}}"
   errors="{{formData.errors}}"
   tooltip="{{tooltip}}"
   required="{{formData.required}}"
-  required-mark="{{requiredMark}}"
-  validate-status="{{validateStatus}}"
+  requiredMark="{{requiredMark}}"
+  validateStatus="{{validateStatus}}"
   help="{{help}}"
 >
   <view

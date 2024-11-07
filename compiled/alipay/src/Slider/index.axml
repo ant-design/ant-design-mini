@@ -10,7 +10,7 @@
     <popover
       placement="top"
       visible="{{showTooltip}}"
-      show-mask="{{false}}"
+      showMask="{{false}}"
     >
       <slot name="slider">
         <view class="ant-slider-handler-block">

@@ -1,12 +1,12 @@
 <popover
   a:if="{{type === 'popover'}}"
   visible="{{visible}}"
-  class-name="ant-feedback {{className || ''}} {{visible ? 'ant-feedback-show' : ''}} ant-feedback-popoverType-{{popoverType}}"
+  className="ant-feedback {{className || ''}} {{visible ? 'ant-feedback-show' : ''}} ant-feedback-popoverType-{{popoverType}}"
   mode="light"
   placement="{{placement}}"
-  mask-style="background: rgba(0, 0, 0, 0.25);"
-  show-mask="{{false}}"
-  auto-adjust-overflow="{{autoAdjustOverflow}}"
+  maskStyle="background: rgba(0, 0, 0, 0.25);"
+  showMask="{{false}}"
+  autoAdjustOverflow="{{autoAdjustOverflow}}"
   style="display: inline-block; margin: 20px"
   onVisibleChange="handleVisibleChange"
   color="#FFFFFF"
@@ -26,7 +26,7 @@
       <view class="ant-feedback-guide-content"></view>
     </view>
     <mask
-      class-name="ant-feedback-mask"
+      className="ant-feedback-mask"
       show="{{!!visible}}"
       style="z-index: 2;"
     ></mask>

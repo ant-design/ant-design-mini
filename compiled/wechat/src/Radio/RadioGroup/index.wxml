@@ -3,7 +3,7 @@
   module="componentUtils"
 ></wxs>
 <list
-  class-name="ant-radio-group {{className ? className : ''}} ant-radio-group-{{position}}"
+  className="ant-radio-group {{className ? className : ''}} ant-radio-group-{{position}}"
   style="{{style}}"
 >
   <radio-group

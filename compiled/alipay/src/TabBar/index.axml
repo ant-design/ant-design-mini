@@ -19,10 +19,10 @@
           type="{{item.badge.type || 'dot'}}"
           text="{{item.badge.text}}"
           stroke="{{item.badge.stroke}}"
-          bg-color="{{item.badge.bgColor}}"
+          bgColor="{{item.badge.bgColor}}"
           position="{{item.badge.position || 'top-right'}}"
-          offset-x="{{item.badge.offsetX || '-9px'}}"
-          offset-y="{{item.badge.offsetY || '0px'}}"
+          offsetX="{{item.badge.offsetX || '-9px'}}"
+          offsetY="{{item.badge.offsetY || '0px'}}"
         >
           <slot
             name="icon"
@@ -31,7 +31,7 @@
             index="{{index}}"
           >
             <image-icon
-              class-name="ant-tab-bar"
+              className="ant-tab-bar"
               image="{{mixin.value === index ? item.activeIcon : item.icon}}"
             ></image-icon>
           </slot>
@@ -44,7 +44,7 @@
             index="{{index}}"
           >
             <image-icon
-              class-name="{{!item.text ? 'ant-tab-bar  ant-tab-bar-large-icon' : 'ant-tab-bar'}}"
+              className="{{!item.text ? 'ant-tab-bar  ant-tab-bar-large-icon' : 'ant-tab-bar'}}"
               image="{{mixin.value === index ? item.activeIcon : item.icon}}"
             ></image-icon>
           </slot>

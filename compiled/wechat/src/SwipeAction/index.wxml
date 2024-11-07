@@ -20,7 +20,7 @@
         animation="{{animation}}"
         damping="{{damping}}"
         direction="horizontal"
-        out-of-bounds="{{false}}"
+        outOfBounds="{{false}}"
         disabled="{{disabled}}"
         bind:tap="onSwipeTap"
         bindchange="onChange"

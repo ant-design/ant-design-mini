@@ -7,21 +7,21 @@
 <container title="初始值">
   <ant-input
     placeholder="请输入内容"
-    default-value="这是antd mini小程序组件"
+    defaultValue="这是antd mini小程序组件"
     onChange="onChange"
   ></ant-input>
 </container>
 <container title="带清除按钮">
   <ant-input
     placeholder="请输入内容"
-    allow-clear
+    allowClear
   ></ant-input>
 </container>
 <container title="带有前缀后缀">
   <ant-input
     placeholder="请输入内容"
     onChange="onChange"
-    allow-clear
+    allowClear
   >
     <view slot="prefix">￥</view>
     <view slot="suffix">RMB</view>
@@ -38,7 +38,7 @@
     controlled="{{true}}"
     value="{{value}}"
     placeholder="请输入内容"
-    allow-clear
+    allowClear
     onChange="handleChange"
   ></ant-input>
   <ant-button
@@ -55,9 +55,9 @@
     value="{{money}}"
     onChange="handleMoney"
     type="digit"
-    class-name="input money"
-    focus-class-name="border"
-    allow-clear
+    className="input money"
+    focusClassName="border"
+    allowClear
   >
     <view slot="prefix">￥</view>
     <view slot="suffix">RMB</view>
