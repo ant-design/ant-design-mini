@@ -90,7 +90,10 @@
   }
 
   &-text-active {
-    background-color: fade(@button-default-aide-background-color, 92);
+    background-color: var(
+      @button-default-aide-background-color,
+      fade(@COLOR_BORDER_GREYCARD, 92)
+    );
   }
 
   &-active {
