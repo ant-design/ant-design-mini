@@ -1,4 +1,4 @@
-@import (reference) '../style/themes/index.less';
+@import (reference) './variable.less';
 
 @pageInfinite: ant-page-infinite;
 
@@ -30,7 +30,7 @@
     overflow: hidden;
     border-radius: @corner-radius-sm / 2;
     transform: translateX(-50%);
-    background-color: @COLOR_GREY_CARD;
+    background-color: @pagination-area-background-color;
   }
   &-move {
     position: absolute;
@@ -40,6 +40,6 @@
     height: 100%;
     transition: all 100ms linear;
     border-radius: @corner-radius-sm / 2;
-    background-color: @COLOR_BRAND1;
+    background-color: @pagination-move-background-color;
   }
 }

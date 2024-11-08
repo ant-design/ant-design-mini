@@ -6,9 +6,9 @@
 .@{pickerPrefix} {
   display: inline-flex;
   align-items: center;
-  color: @COLOR_TEXT_PRIMARY;
+  color: @picker-item-color;
   &-disabled {
-    color: @COLOR_TEXT_WEAK;
+    color: @picker-placeholder-color;
   }
   &-header {
     position: relative;
@@ -53,15 +53,15 @@
   /// #endif
 
   &-content {
-    background: @COLOR_CARD;
+    background: @picker-content-background-color;
 
     .a-picker-view-picker-item {
-      color: @COLOR_TEXT_PRIMARY;
+      color: @picker-item-color;
     }
     .a-picker-view-picker-indicator {
       &::before,
       &::after {
-        border-color: @COLOR_BORDER;
+        border-color: @picker-header-color;
       }
     }
     .a-picker-view-picker-mask {
