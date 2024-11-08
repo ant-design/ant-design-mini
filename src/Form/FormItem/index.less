@@ -1,10 +1,10 @@
-@import (reference) '../../style/themes/index.less';
+@import (reference) '../variable.less';
 @import '../../style/mixins/hairline.less';
 
 .formItemLabelHorizontal() {
   width: 170 * @rpx;
   margin-right: 24 * @rpx;
-  color: @COLOR_TEXT_SECONDARY;
+  color: @form-item-color;
   font-size: 34 * @rpx;
   line-height: 48 * @rpx;
 }
@@ -12,7 +12,7 @@
 .formItemLabelVertical() {
   font-size: 34 * @rpx;
   line-height: 42 * @rpx;
-  color: @COLOR_TEXT_SECONDARY;
+  color: @form-item-color;
   margin-bottom: 8 * @rpx;
 }
 
@@ -28,7 +28,7 @@
 @formItemPrefix: ant-form-item;
 
 .@{formItemPrefix} {
-  background-color: @COLOR_CARD;
+  background-color: @form-item-bg;
   padding: 24 * @rpx 24 * @rpx 24 * @rpx 32 * @rpx;
   position: relative;
   .hairline('bottom');
@@ -52,7 +52,7 @@
 
   &-error-info {
     font-size: 13px;
-    color: @COLOR_RED;
+    color: @form-error-color;
     line-height: 37 * @rpx;
     text-align: left;
     margin-top: 8 * @rpx;
@@ -60,7 +60,7 @@
 
   &-help-info {
     font-size: 13px;
-    color: @COLOR_TEXT_SECONDARY;
+    color: @form-item-color;
     line-height: 37 * @rpx;
     text-align: left;
     margin-top: 8 * @rpx;
@@ -112,7 +112,7 @@
     display: flex;
     align-items: center;
     font-size: 32 * @rpx;
-    color: @COLOR_TEXT_ASSIST;
+    color: @form-extra-color;
   }
 
   &-asterisk {
@@ -122,7 +122,7 @@
         position: absolute;
         left: -18 * @rpx;
         font-size: 30 * @rpx;
-        color: @COLOR_TEXT_WARNING;
+        color: @form-asterisk-color;
       }
     }
   }
@@ -135,7 +135,7 @@
         display: block;
         left: -18 * @rpx;
         font-size: 30 * @rpx;
-        color: @COLOR_TEXT_WEAK;
+        color: @form-text-color;
       }
     }
   }
@@ -148,7 +148,7 @@
         display: block;
         left: -18 * @rpx;
         font-size: 30 * @rpx;
-        color: @COLOR_TEXT_WEAK;
+        color: @form-text-color;
       }
     }
 
