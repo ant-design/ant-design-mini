@@ -138,7 +138,7 @@ const useStyle = ({
     `,
     contentWrap: css`
       width: 100%;
-      height: 782px;
+      height: 400px;
       max-width: 1600px;
       margin-top: 50px;
       display: flex;
