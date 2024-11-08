@@ -1,4 +1,4 @@
-@import (reference) '../style/themes/index.less';
+@import (reference) './variable.less';
 
 .ant-indexbar-side {
   z-index: 9;
@@ -23,7 +23,7 @@
     &-default {
       font-size: 22 * @rpx;
       font-weight: bold;
-      color: @COLOR_TEXT_ASSIST;
+      color: @index-bar-assist--color;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -38,15 +38,15 @@
       border-radius: 94 * @rpx;
       line-height: 94 * @rpx;
       text-align: center;
-      background: @COLOR_TEXT_WEAK;
-      color: @COLOR_WHITE;
+      background: @index-bar-tip-background-color;
+      color: @index-bar-text-color;
       font-size: 50 * @rpx;
     }
   }
   &-active {
     border-radius: 16 * @rpx;
-    background-color: @COLOR_BRAND1;
-    color: @COLOR_WHITE;
+    background-color: @index-bar-active-color;
+    color: @index-bar-text-color;
   }
   &-scroll {
     width: 100%;
