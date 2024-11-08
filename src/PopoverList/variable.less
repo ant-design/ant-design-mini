@@ -1,6 +1,12 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 // 蒙层
 @popover-mask: @color-product-mask;
 // 圆角
 @popover-radius: @corner-radius-md;
+
+//content
+@popover-content-bg: var(--popover-content-bg, rgba(0, 0, 0, 0.93));
+@popover-content-color: var(--popover-content-color, #ffffff);
+@popover-list-item-bg: var(--color-border, @COLOR_BORDER);
