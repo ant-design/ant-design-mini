@@ -1,17 +1,18 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 // header 颜色
-@list-header-color: @COLOR_TEXT_ASSIST;
+@list-header-color: var(--color-text-assist, @COLOR_TEXT_ASSIST);
 // header 字体大小
 @list-header-size: 28 * @rpx;
 // footer 颜色
-@list-footer-color: @COLOR_TEXT_ASSIST;
+@list-footer-color: var(--color-text-assist, @COLOR_TEXT_ASSIST);
 // footer 字体大小
 @list-footer-size: 28 * @rpx;
 // 圆角
 @list-radius: 24 * @rpx;
 // 背景
-@list-background-color: @COLOR_CARD;
+@list-background-color: var(--color-card, @COLOR_CARD);
 // 主要文字大小
 @list-content-size: @font-size-list;
 // 额外文字大小
@@ -19,9 +20,9 @@
 // 第二行文字大小
 @list-brief-size: 26 * @rpx;
 // 主要文字颜色
-@list-content-color: @COLOR_TEXT_PRIMARY;
+@list-content-color: var(--color-text-primary, @COLOR_TEXT_PRIMARY);
 // 辅助文字颜色
-@list-extra-brief-color: @COLOR_TEXT_ASSIST;
+@list-extra-brief-color: var(--color-text-assist, @COLOR_TEXT_ASSIST);
 // 图片尺寸
 @list-icon-size: 52 * @rpx;
 // 多行，图片尺寸
@@ -31,3 +32,7 @@
 @list-item-image-normal-size: 56 * @rpx;
 // 图片和icon的大小
 @list-item-image-large-size: 80 * @rpx;
+
+@list-item-border-color: var(--color-border, @COLOR_BORDER);
+
+@list-item-text-color: var(--color-text-weak, @COLOR_TEXT_WEAK);

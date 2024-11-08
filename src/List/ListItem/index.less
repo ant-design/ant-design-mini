@@ -6,10 +6,10 @@
 .@{listItemPrefix} {
   align-items: center;
   background-color: @list-background-color;
-  color: @COLOR_TEXT_PRIMARY;
+  color: @list-content-color;
   line-height: 1.4;
   &-hover {
-    background-color: @COLOR_BORDER;
+    background-color: @list-item-border-color;
   }
 
   &-line {
@@ -28,7 +28,7 @@
 
   &-image {
     border-radius: 50vh;
-    &-large-icon{
+    &-large-icon {
       font-size: @list-item-image-large-size;
     }
     &-large-image {
@@ -58,7 +58,7 @@
       padding: 24 * @rpx 0;
       &-small-text {
         font-size: 24 * @rpx;
-        line-height:  33 * @rpx;
+        line-height: 33 * @rpx;
       }
       &-normal-text {
         font-size: 28 * @rpx;
@@ -72,12 +72,12 @@
     }
     &-title {
       &-container {
-        color: @COLOR_TEXT_ASSIST;
+        color: @list-extra-brief-color;
       }
     }
     &-brief {
       &-container {
-        color: @COLOR_TEXT_ASSIST;
+        color: @list-extra-brief-color;
       }
     }
   }
@@ -100,13 +100,13 @@
       flex-direction: row-reverse;
       font-size: 28 * @rpx;
       line-height: 40 * @rpx;
-      color: @COLOR_TEXT_ASSIST;
+      color: @list-extra-brief-color;
     }
   }
 
   &-arrow {
     margin-left: 8 * @rpx;
-    color: @COLOR_TEXT_WEAK;
+    color: @list-item-text-color;
     display: flex;
     align-items: center;
     .ant-icon {
@@ -119,7 +119,7 @@
 
   .line {
     height: 1 * @rpx;
-    background-color: @COLOR_BORDER;
+    background-color: @list-item-border-color;
     width: calc(100% - 24 * @rpx);
     position: absolute;
     right: 0;
