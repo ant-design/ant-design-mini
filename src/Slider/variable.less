@@ -1,3 +1,10 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
-@default-primary-color: @COLOR_BRAND1;
+@default-primary-color: var(--color-brand1, @COLOR_BRAND1);
+@slider-track-bg: var(--color-card, @COLOR_CARD);
+@slider-fill-bg: var(--color-grey-card, @COLOR_GREY_CARD);
+@slider-number-color: var(--color-text-primary, @COLOR_TEXT_PRIMARY);
+@slide-block-bg: var(--color-white, @COLOR_WHITE);
+@slide-block-shadow: var(--slide-block-shadow, rgba(0, 0, 0, 0.12));
+@slide-back-bg: var(--color-grey-card, @COLOR_GREY_CARD);
