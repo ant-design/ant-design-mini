@@ -144,10 +144,6 @@ const useStyle = ({
       display: flex;
       position: relative;
 
-      @media (min-width: 1600px) {
-        max-width: 1600px;
-      }
-
       & .atropos-shadow {
         display: none;
       }
