@@ -115,7 +115,7 @@ export default defineConfig({
         },
         {
           text: '在线体验',
-          link: '/components/button',
+          link: '/components/overview',
         },
       ],
       'en': [
@@ -126,13 +126,11 @@ export default defineConfig({
         },
         {
           text: 'Online Experience',
-          link: '/components/button-en',
+          link: '/components/overview-en',
         },
       ],
     },
-    features: {
-
-    },
+    features: {},
     loading: {
       skeleton: ['/guide', '/components', '/guide', '/components'],
     },
@@ -475,8 +473,8 @@ export default defineConfig({
       },
       'en': {
         key: 'en',
-        theme: 'Theme Switch'
-      }
+        theme: 'Theme Switch',
+      },
     },
     // Banner 配置
     bannerLocales: {
@@ -491,20 +489,20 @@ export default defineConfig({
         desc: '# Explore the Ultimate Experience of Mobile Mini Programs',
         integration: 'Quick Start',
         try: 'Try It Online',
-      }
+      },
     },
     // 相关框架
     frameLocales: {
       'zh-CN': {
         key: 'zh-CN',
         title: '设计语言与研发框架',
-        subTitle: '配套生态，让你快速搭建小程序应用'
+        subTitle: '配套生态，让你快速搭建小程序应用',
       },
       'en': {
         key: 'en',
         title: 'Design Language and Development Framework',
-        subTitle: 'Comprehensive Ecosystem for Rapid Application Development'
-      }
+        subTitle: 'Comprehensive Ecosystem for Rapid Application Development',
+      },
     },
     // 组件模块
     galleryLocales: {
@@ -516,17 +514,18 @@ export default defineConfig({
       'en': {
         key: 'en',
         title: 'Rich Component Library, Easy to Choose and Use',
-        subTitle: 'A Wide Range of Practical Components to Meet Your Needs, with Flexible Customization and Expansion',
-      }
+        subTitle:
+          'A Wide Range of Practical Components to Meet Your Needs, with Flexible Customization and Expansion',
+      },
     },
     // 公告
     noticeLocales: {
       'zh-CN': {
-        key: 'zh-CN'
+        key: 'zh-CN',
       },
       'en': {
-        key: 'en'
-      }
+        key: 'en',
+      },
     },
     // 主题
     themeLocales: {
@@ -541,23 +540,25 @@ export default defineConfig({
       'en': {
         key: 'en',
         title: 'Customizable Themes, International Languages',
-        subTitle: 'Ant Design Mini Offers More Theme Styles and Seamless Switching of Component Text in Multiple Languages',
+        subTitle:
+          'Ant Design Mini Offers More Theme Styles and Seamless Switching of Component Text in Multiple Languages',
         dark: 'Dark Mode',
         light: 'Light Mode',
         langDesc: 'English',
-      }
+      },
     },
     // 谁在使用
     userLocales: {
       'zh-CN': {
         key: 'zh-CN',
-        title: 'Ant Design Mini 正在为 100+ 客户带来效能提升'
+        title: 'Ant Design Mini 正在为 100+ 客户带来效能提升',
       },
       'en': {
         key: 'en',
-        title: 'Ant Design Mini is Bringing Efficiency Gains to Over 100 Customers'
-      }
-    }
+        title:
+          'Ant Design Mini is Bringing Efficiency Gains to Over 100 Customers',
+      },
+    },
   }),
   locales: [
     { id: 'zh-CN', name: '中文', suffix: '' },
