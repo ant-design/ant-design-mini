@@ -60,7 +60,6 @@
     "pages/Rate",
     "pages/SelectorFilter",
     "pages/Selector",
-    "pages/ImageUploadControl",
     "pages/ImageUpload",
     "pages/Slider",
     "pages/Container",

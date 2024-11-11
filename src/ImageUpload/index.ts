@@ -20,10 +20,10 @@ ComponentWithSignalStoreImpl(
   UploaderDefaultProps,
   {
     async chooseImage() {
-      const [onBeforeUpload, onUpload] = getValueFromProps(this, [
-        'onBeforeUpload',
-        'onUpload',
-      ]);
+      const [onBeforeUpload, onUpload, onChooseImageError] = getValueFromProps(
+        this,
+        ['onBeforeUpload', 'onUpload', 'onChooseImageError']
+      );
       if (!onUpload) {
         throw new Error('need props onUpload');
       }
@@ -64,7 +64,7 @@ ComponentWithSignalStoreImpl(
           })
           .filter((item) => !!item);
       } catch (err) {
-        triggerEvent(this, 'chooseImageError', err);
+        onChooseImageError(err);
         return;
       }
 

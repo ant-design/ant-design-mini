@@ -85,7 +85,6 @@
     "pages/GuideTour/index",
     "pages/TabBar/index",
     "pages/ImageUpload/index",
-    "pages/ImageUploadControl/index",
     "pages/Skeleton/index",
     "pages/Divider/index",
     "pages/Grid/index",

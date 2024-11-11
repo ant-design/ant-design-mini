@@ -60,7 +60,7 @@ export const wechatCustomMapping = {
   'ant-guide-tour': {
     onCancel: 'bind:cancel',
   },
-  uploader: {
+  'ant-uploader': {
     onPreview: 'bind:preview',
   },
   'ant-range-picker': {
