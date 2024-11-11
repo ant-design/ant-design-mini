@@ -76,5 +76,5 @@ page {
   --rare-words-bg: rgba(0, 0, 0, 0.45);
   --slide-block-shadow: rgba(0, 0, 0, 0.12);
   --stepper-handler-tap-bg: #ddd;
-  --toast-default-bg: rgba(0, 0, 0, 0.75):;
+  --toast-default-bg: rgba(0, 0, 0, 0.75);
 }
