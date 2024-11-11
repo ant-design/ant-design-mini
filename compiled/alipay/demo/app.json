@@ -74,7 +74,6 @@
     "pages/Loading/index",
     "pages/Checkbox/index",
     "pages/Radio/index",
-    "pages/RadioGroup/index",
     "pages/Selector/index",
     "pages/Container/index",
     "pages/Checklist/index",
