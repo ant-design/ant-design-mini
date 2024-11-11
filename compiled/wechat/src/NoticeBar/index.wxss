@@ -6,33 +6,33 @@
   overflow: hidden;
   padding: 16rpx 24rpx;
   font-size: 30rpx;
-  color: #ff6010;
-  background-color: #fff9ed;
+  color: var(--color-tangerine-1, #ff6010);
+  background-color: var(--color-golden-3, #fff9ed);
   box-sizing: border-box;
 }
 .ant-notice-bar-error {
-  color: #ffffff;
-  background-color: #ff3141;
+  color: var(--color-white, #ffffff);
+  background-color: var(--color-red, #ff3141);
 }
 .ant-notice-bar-error-scroll-left,
 .ant-notice-bar-error-scroll-right {
-  background: #ff3141;
+  background: var(--color-red, #ff3141);
 }
 .ant-notice-bar-primary {
-  color: #1677ff;
-  background-color: #d0e4ff;
+  color: var(--color-brand1, #1677ff);
+  background-color: var(--color-brand1, #d0e4ff);
 }
 .ant-notice-bar-primary-scroll-left,
 .ant-notice-bar-primary-scroll-right {
-  background: #d0e4ff;
+  background: var(--color-brand1, #d0e4ff);
 }
 .ant-notice-bar-info {
-  color: #ffffff;
-  background: #666666;
+  color: var(--color-white, #ffffff);
+  background: var(--color_text_secondary, #666666);
 }
 .ant-notice-bar-info-scroll-left,
 .ant-notice-bar-info-scroll-right {
-  background: #666666;
+  background: var(--color_text_secondary, #666666);
 }
 .ant-notice-bar-icon {
   margin-right: 16rpx;

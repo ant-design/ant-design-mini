@@ -13,10 +13,10 @@
     a:if="{{!destroyOnClose || mixin.value}}"
     hidden="{{!mixin.value}}"
     id="ant-popover-list-content{{$id ? '-' + $id : ''}}"
-    class="ant-popover-list-content ant-popover-list-{{adjustedPlacement}} ant-popover-list-content-{{mode}}"
+    class="ant-popover-list-content ant-popover-list-{{adjustedPlacement}} ant-popover-list-content"
     style="{{popoverContentStyle}}; {{adjustedPlacement ? '' : 'opacity: 0'}}"
   >
-    <view class="ant-popover-list-content-{{mode}}-arrow ant-popover-list-{{adjustedPlacement}}-arrow"></view>
+    <view class="ant-popover-list-content-arrow ant-popover-list-{{adjustedPlacement}}-arrow"></view>
     <view
       onTap="onTapItem"
       data-item="{{item}}"

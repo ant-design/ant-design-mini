@@ -12,7 +12,7 @@ export interface PopoverListItem {
   iconImage: string;
   /**
    *  @description 菜单项的文案，如果没有则不展示该菜单
-   *  @default '' 
+   *  @default ''
    */
   text: string;
   /**
@@ -22,7 +22,7 @@ export interface PopoverListItem {
   showBadge: boolean;
   /**
    *  @description 菜单项的唯一标识
-   *  @default '' 
+   *  @default ''
    */
   id: string;
 }
@@ -47,11 +47,6 @@ export interface IPopoverProps extends IBaseProps {
    */
   destroyOnClose: boolean;
   /**
-   * @description 气泡模式 暗黑或者明亮
-   * @default dark
-   */
-  mode: 'dark' | 'light';
-  /**
    * @description content区样式
    */
   contentStyle: string;
@@ -75,7 +70,7 @@ export interface IPopoverProps extends IBaseProps {
    * @description visible 变更时回调
    */
   onVisibleChange?: (visible: boolean, e: Record<string, any>) => void;
-  onTapItem?: (e: Record<string, any>, item: PopoverListItem ) => void;
+  onTapItem?: (e: Record<string, any>, item: PopoverListItem) => void;
   /**
    * @description 气泡框位置
    */
@@ -124,7 +119,6 @@ export const PopoverDefaultProps: Partial<IPopoverProps> = {
   maskStyle: '',
   content: '',
   list: [],
-  mode: 'dark',
   onVisibleChange() {},
   onTapItem() {},
 };

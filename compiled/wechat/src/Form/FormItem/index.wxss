@@ -1,5 +1,5 @@
 .ant-form-item {
-  background-color: #ffffff;
+  background-color: var(--color-card, #ffffff);
   padding: 24rpx 24rpx 24rpx 32rpx;
   position: relative;
 }
@@ -32,14 +32,14 @@
 }
 .ant-form-item-error-info {
   font-size: 13px;
-  color: #ff3141;
+  color: var(--color-red, #ff3141);
   line-height: 37rpx;
   text-align: left;
   margin-top: 8rpx;
 }
 .ant-form-item-help-info {
   font-size: 13px;
-  color: #666666;
+  color: var(--color_text_secondary, #666666);
   line-height: 37rpx;
   text-align: left;
   margin-top: 8rpx;
@@ -65,14 +65,14 @@
 .ant-form-item-label-horizontal {
   width: 170rpx;
   margin-right: 24rpx;
-  color: #666666;
+  color: var(--color_text_secondary, #666666);
   font-size: 34rpx;
   line-height: 48rpx;
 }
 .ant-form-item-label-vertical {
   font-size: 34rpx;
   line-height: 42rpx;
-  color: #666666;
+  color: var(--color_text_secondary, #666666);
   margin-bottom: 8rpx;
 }
 .ant-form-item-field {
@@ -85,14 +85,14 @@
   display: flex;
   align-items: center;
   font-size: 32rpx;
-  color: #999999;
+  color: var(--color-text-assist, #999999);
 }
 .ant-form-item-asterisk .ant-form-item-label-required .ant-form-item-label-text::before {
   content: '*';
   position: absolute;
   left: -18rpx;
   font-size: 30rpx;
-  color: #ff3b30;
+  color: var(--color-text-warning, #ff3b30);
 }
 .ant-form-item-text-required .ant-form-item-label-required .ant-form-item-label-text::after {
   padding-left: 4rpx;
@@ -100,7 +100,7 @@
   display: block;
   left: -18rpx;
   font-size: 30rpx;
-  color: #cccccc;
+  color: var(--color-text-weak, #cccccc);
 }
 .ant-form-item-text-optional .ant-form-item-label .ant-form-item-label-text::after {
   padding-left: 4rpx;
@@ -108,7 +108,7 @@
   display: block;
   left: -18rpx;
   font-size: 30rpx;
-  color: #cccccc;
+  color: var(--color-text-weak, #cccccc);
 }
 .ant-form-item-text-optional .ant-form-item-label-required .ant-form-item-label-text::after {
   content: none;

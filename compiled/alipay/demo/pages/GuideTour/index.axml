@@ -40,7 +40,7 @@
 </ant-guide-tour>
 <ant-container
   title="基础用法"
-  class-name="list"
+  className="list"
 >
   <ant-button
     onTap="openTour"
@@ -69,7 +69,7 @@
 </ant-container>
 <ant-container
   title="插槽用法"
-  class-name="list"
+  className="list"
 >
   <ant-button
     onTap="openTour"

@@ -4,7 +4,7 @@
 .@{inputItemPrefix} {
   display: flex;
   align-items: center;
-  background: @COLOR_CARD;
+  background: @input-background-color;
   &-disabled {
     opacity: 0.4;
   }
@@ -16,7 +16,7 @@
     overflow: hidden;
   }
   &-prefix {
-    color: @COLOR_TEXT_WEAK;
+    color: @input-item-placeholder-color;
     font-size: 34 * @rpx;
     margin: 0 8 * @rpx 0 8 * @rpx;
     &:empty {
@@ -24,7 +24,7 @@
     }
   }
   &-suffix {
-    color: @COLOR_TEXT_WEAK;
+    color: @input-item-placeholder-color;
     font-size: 34 * @rpx;
     margin: 0 8 * @rpx 0 8 * @rpx;
     &:empty {
@@ -38,7 +38,7 @@
     font-size: 34 * @rpx;
     text-align: left;
     color: @input-item-color;
-    background: @COLOR_CARD;
+    background: @input-background-color;
   }
 
   &-clear {
@@ -47,7 +47,7 @@
     align-items: center;
     border-radius: 16 * @rpx;
     &-icon {
-      color: @COLOR_TEXT_WEAK;
+      color: @input-item-placeholder-color;
       font-size: 34 * @rpx;
       padding: 8 * @rpx 0 8 * @rpx 16 * @rpx;
     }

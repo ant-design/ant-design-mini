@@ -2,7 +2,7 @@
   width: 88rpx;
   height: 88rpx;
   border-radius: 8rpx;
-  background: #eeeeee;
+  background: var(--color-border, #eeeeee);
   display: inline-block;
 }
 .ant-skeleton-avatar-animate {

@@ -16,7 +16,7 @@
   align-self: center;
   min-width: @switch-width;
   height: @switch-height;
-  border: @switch-border solid @COLOR_BORDER;
+  border: @switch-border solid @switch-border-color;
   border-radius: @switch-height * 0.5;
   background: @COLOR_WHITE;
   overflow: hidden;
@@ -43,7 +43,7 @@
   &-loading-icon {
     font-size: 20 * @rpx;
     animation: loading-rotate 1s linear infinite;
-    color: @COLOR_BRAND1;
+    color: @switch-loading-color;
   }
   &-handle {
     display: flex;
@@ -52,7 +52,7 @@
     width: @switch-height - 2 * @switch-border;
     height: @switch-height - 2 * @switch-border;
     border-radius: 50%;
-    background: @COLOR_WHITE;
+    background: @switch-handle-bg;
     position: absolute;
     top: 0;
     left: 0;
@@ -67,7 +67,7 @@
     justify-content: flex-end;
     align-items: center;
     height: 100%;
-    color: @COLOR_TEXT_ASSIST;
+    color: @switch-inner-color;
     transition: margin 200ms;
     font-size: 30 * @rpx;
     padding: 0 14 * @rpx;

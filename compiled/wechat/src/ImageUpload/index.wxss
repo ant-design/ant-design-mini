@@ -1,7 +1,7 @@
 .ant-image-upload {
   display: flex;
   flex-wrap: wrap;
-  background: #ffffff;
+  background: var(--color-card, #ffffff);
 }
 .ant-image-upload-show {
   position: relative;
@@ -29,7 +29,7 @@
   width: 160rpx;
   height: 160rpx;
   margin: 4rpx 8rpx 12rpx;
-  background-color: #f5f5f5;
+  background-color: var(--color-grey-card, #f5f5f5);
   border-radius: 8rpx;
 }
 .ant-image-upload-add-image-icon {
@@ -41,7 +41,7 @@
   height: 160rpx;
   margin: 4rpx 8rpx;
   border-radius: 8rpx;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--image-upload-cover-background, rgba(0, 0, 0, 0.4));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +54,7 @@
   height: 48rpx;
 }
 .ant-image-upload-cover-loading-text {
-  color: #ffffff;
+  color: var(--color-white, #ffffff);
   font-size: 24rpx;
   margin-top: 8rpx;
 }
@@ -63,10 +63,10 @@
 }
 .ant-image-upload-cover-error-icon {
   font-size: 48rpx;
-  color: #ffffff;
+  color: var(--color-white, #ffffff);
 }
 .ant-image-upload-cover-error-text {
-  color: #ffffff;
+  color: var(--color-white, #ffffff);
   font-size: 24rpx;
   margin-top: 8rpx;
 }

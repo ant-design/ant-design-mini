@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: var(--color-card, #ffffff);
   line-height: 1.4;
 }
 .ant-selector-disabled .ant-selector-content {
@@ -39,25 +39,25 @@
   overflow: hidden;
   padding: calc(24rpx / 2) calc(24rpx / 4);
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: var(--color-grey-card, #f5f5f5);
   border-radius: 8rpx;
 }
 .ant-selector-item-active {
-  background-color: #e7f1ff;
+  background-color: var(--color-wathet, #e7f1ff);
 }
 .ant-selector-item-active .ant-selector-item-text {
-  color: #1677ff;
+  color: var(--color-brand1, #1677ff);
 }
 .ant-selector-item-disabled {
   opacity: 0.6;
 }
 .ant-selector-item-text {
   font-size: 30rpx;
-  color: #333333;
+  color: var(--color-brand1, #1677ff);
 }
 .ant-selector-item-subtext {
   font-size: 26rpx;
-  color: #999999;
+  color: var(--color-text-assist, #999999);
 }
 .ant-selector-item-badge-active {
   position: absolute;

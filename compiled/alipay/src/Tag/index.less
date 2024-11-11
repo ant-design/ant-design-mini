@@ -32,7 +32,7 @@
     }
     &.@{tagPrefix}-outline {
       color: @tag-primary-color;
-      border-color: fade(@tag-primary-color, 30%);
+      border-color: var(@tag-primary-color, fade(@COLOR_BRAND1, 30%));
     }
   }
   &-warning {
@@ -43,7 +43,7 @@
     }
     &.@{tagPrefix}-outline {
       color: @tag-warning-color;
-      border-color: fade(@tag-warning-color, 30%);
+      border-color: var(@tag-warning-color, fade(@COLOR_ORANGE, 30%));
     }
   }
   &-danger {
@@ -54,7 +54,7 @@
     }
     &.@{tagPrefix}-outline {
       color: @tag-danger-color;
-      border-color: fade(@tag-danger-color, 30%);
+      border-color: var(@tag-danger-color, fade(@COLOR_RED, 30%));
     }
   }
   &-success {
@@ -65,7 +65,7 @@
     }
     &.@{tagPrefix}-outline {
       color: @tag-success-color;
-      border-color: fade(@tag-success-color, 30%);
+      border-color: var(@tag-success-color, fade(@COLOR_GREEN, 30%));
     }
   }
   &-image {

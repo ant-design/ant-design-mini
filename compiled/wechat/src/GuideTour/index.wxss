@@ -8,13 +8,13 @@
   justify-content: center;
 }
 .ant-guide-tour-button .ant-button:nth-of-type(1) {
-  color: #ffffff;
+  color: var(--color-white, #ffffff);
   background-color: transparent;
-  box-shadow: inset 0 0 0 2rpx #eeeeee;
+  box-shadow: inset 0 0 0 2rpx var(--color-border, #eeeeee);
 }
 .ant-guide-tour-button .ant-button:nth-of-type(2) {
-  color: #333333;
-  background-color: #ffffff;
+  color: var(--color-text-primary, #333333);
+  background-color: var(--color-white, #ffffff);
   box-shadow: none;
 }
 .ant-guide-tour-button .ant-button {
@@ -33,14 +33,14 @@
 }
 .ant-guide-tour-indicator-dot {
   margin: 0 3rpx;
-  background-color: #999999;
+  background-color: var(--color-text-assist, #999999);
   width: 6rpx;
   height: 6rpx;
   border-radius: 2rpx;
 }
 .ant-guide-tour-indicator-dot-active {
   width: 26rpx;
-  background-color: #ffffff;
+  background-color: var(--color-white, #ffffff);
 }
 .ant-guide-tour-clear {
   position: fixed;
@@ -48,7 +48,7 @@
   right: 40rpx;
   z-index: 10001;
   font-size: 56rpx;
-  color: #999999;
+  color: var(--color-text-assist, #999999);
 }
 .ant-guide-tour-item {
   z-index: 10000;
