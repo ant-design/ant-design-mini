@@ -3,8 +3,8 @@
   name="utils"
 ></import-sjs>
 <button
-  formType="{{formType}}"
-  hoverClass="{{utils.getHoverClass(loading, type, activeClassName)}}"
+  form-type="{{formType}}"
+  hover-class="{{utils.getHoverClass(loading, type, activeClassName)}}"
   scope="{{scope}}"
   onTap="{{onTap ? 'onTap' : ''}}"
   onGetAuthorize="onGetAuthorize"
@@ -13,8 +13,8 @@
   onGetUserInfo="onGetUserInfo"
   onGetPhoneNumber="onGetPhoneNumber"
   catchTap="{{catchTap ? 'catchTap' : ''}}"
-  publicId="{{publicId}}"
-  openType="{{openType}}"
+  public-id="{{publicId}}"
+  open-type="{{openType}}"
   class="ant-button {{inline ? 'ant-button-inline ' + utils.getClass(size) : ''}} {{'ant-button-' + type + (danger ? '-danger' : aide && ['default', 'primary'].indexOf(type) > -1 ? '-aide' : '')}} {{disabled || loading ? 'ant-button-disabled' : ''}} {{className ? className : ''}}"
   style="{{style}}"
 >

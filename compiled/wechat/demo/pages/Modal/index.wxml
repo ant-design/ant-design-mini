@@ -5,7 +5,7 @@
   closable="{{false}}"
   footer="{{footer1}}"
   onButtonTap="onButtonTap"
-  primaryButtonText="我知道了"
+  primary-button-text="我知道了"
 ></ant-modal>
 <ant-modal
   title="带标题的弹窗"
@@ -17,7 +17,7 @@
 ></ant-modal>
 <ant-modal
   title="带头图"
-  headerImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Q5ekTJUJW8IAAAAAAAAAAAAADiWwAQ/original"
+  header-image="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Q5ekTJUJW8IAAAAAAAAAAAAADiWwAQ/original"
   content="人在天边月上明"
   onButtonTap="onButtonTap"
   visible="{{withImageVisible}}"
@@ -45,7 +45,7 @@
   content="积分可用于好礼兑换"
   visible="{{slotWeakVisible}}"
   bind:close="handleClose"
-  className="activity-modal"
+  class-name="activity-modal"
   onButtonTap="onButtonTap"
 >
   <image
@@ -76,7 +76,7 @@
   content="出行打车小程序专用"
   visible="{{slotStrongVisible}}"
   bind:close="handleClose"
-  className="activity-modal activity-modal-strong"
+  class-name="activity-modal activity-modal-strong"
   onButtonTap="onButtonTap"
 >
   <image
@@ -104,7 +104,7 @@
 </ant-modal>
 <ant-container
   title="基础用法"
-  className="list"
+  class-name="list"
 >
   <ant-button
     data-field="basicVisible"
@@ -129,9 +129,9 @@
 </ant-container>
 <ant-container
   title="局部插槽"
-  className="list"
+  class-name="list"
 ></ant-container>
 <ant-container
   title="自定义"
-  className="list"
+  class-name="list"
 ></ant-container>

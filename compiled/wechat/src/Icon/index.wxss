@@ -8,6 +8,7 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   line-height: 1;
+  color: var(--color-text-primary, #333333);
   font-size: 32rpx;
 }
 .ant-icon-MinusOutline:before {

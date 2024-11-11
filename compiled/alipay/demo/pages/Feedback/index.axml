@@ -3,10 +3,10 @@
     <ant-feedback
       type="popover"
       visible="{{visible1}}"
-      popoverType="default"
+      popover-type="default"
       placement="bottom-right"
       onVisibleChange="onVisibleChange1"
-      className="feedback-demo"
+      class-name="feedback-demo"
     >
       <view class="feedback-demo-target">
         <ant-icon
@@ -20,7 +20,7 @@
       >
         <ant-list
           slot="content"
-          className="popover"
+          class-name="popover"
         >
           <ant-list-item onTap="handleTapItem">
             <view class="feedback-content-selector">
@@ -54,7 +54,7 @@
 </ant-container>
 <ant-container
   title="点引导反馈"
-  className="feedback-gray-container"
+  class-name="feedback-gray-container"
 >
   点击下面的内容 展示点引导反馈
   <view class="feedback-container-flex">
@@ -62,12 +62,12 @@
       type="popover"
       list="{{feedList}}"
       visible="{{visible2}}"
-      popoverType="circle"
+      popover-type="circle"
       title="点引导反馈"
       onFeedClick="onFeedClick2"
       placement="bottom"
       onVisibleChange="onVisibleChange2"
-      className="feedback-demo2"
+      class-name="feedback-demo2"
     >
       <image
         mode="widthFix"
@@ -79,12 +79,12 @@
       type="popover"
       list="{{feedList}}"
       visible="{{visible4}}"
-      popoverType="circle"
+      popover-type="circle"
       title="点引导反馈"
       onFeedClick="onFeedClick4"
       placement="bottom"
       onVisibleChange="onVisibleChange4"
-      className="feedback-demo4"
+      class-name="feedback-demo4"
     >
       <image
         mode="widthFix"
@@ -96,7 +96,7 @@
 </ant-container>
 <ant-container
   title="反馈卡片"
-  className="feedback-gray-container"
+  class-name="feedback-gray-container"
 >
   <ant-feedback
     a:if="{{visible3}}"
@@ -104,7 +104,7 @@
     type="card"
     title="喜欢推荐的内容吗？"
     onFeedClick="onFeedClick3"
-    className="feedback-demo"
+    class-name="feedback-demo"
     onVisibleChange="onVisibleChange3"
   ></ant-feedback>
   <ant-button

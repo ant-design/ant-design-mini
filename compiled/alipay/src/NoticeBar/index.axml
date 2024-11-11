@@ -8,7 +8,7 @@
       <image-icon
         a:if="{{icon}}"
         image="{{icon}}"
-        className="ant-notice-bar-icon-image"
+        class-name="ant-notice-bar-icon-image"
       ></image-icon>
       <icon
         a:elif="{{type === 'error'}}"
@@ -33,13 +33,13 @@
     <slot name="extra"></slot>
     <icon
       a:if="{{mode === 'link'}}"
-      className="ant-notice-bar-operation-icon"
+      class-name="ant-notice-bar-operation-icon"
       type="RightOutline"
       onTap="onTap"
     ></icon>
     <icon
       a:if="{{mode === 'closeable'}}"
-      className="ant-notice-bar-operation-icon"
+      class-name="ant-notice-bar-operation-icon"
       type="CloseOutline"
       onTap="onTap"
     ></icon>
