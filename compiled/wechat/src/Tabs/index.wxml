@@ -19,11 +19,11 @@
       class="ant-tabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{$id ? '-' + $id : ''}}"
       bind:scroll="onScroll"
-      scrollLeft="{{scrollLeft}}"
-      scrollX="{{true}}"
-      scrollWithAnimation="{{true}}"
-      scrollAnimationDuration="{{300}}"
-      enableFlex="true"
+      scroll-left="{{scrollLeft}}"
+      scroll-x="{{true}}"
+      scroll-with-animation="{{true}}"
+      scroll-animation-duration="{{300}}"
+      enable-flex="true"
       style="{{scrollHeight > 0 ? 'height: ' + scrollHeight + 'px;' : ''}}"
     >
       <view></view>
@@ -83,11 +83,11 @@
       class="ant-vtabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{$id ? '-' + $id : ''}}"
       bind:scroll="onScroll"
-      scrollTop="{{scrollTop}}"
-      scrollY="{{true}}"
-      scrollWithAnimation="{{true}}"
-      scrollAnimationDuration="{{300}}"
-      enableFlex="true"
+      scroll-top="{{scrollTop}}"
+      scroll-y="{{true}}"
+      scroll-with-animation="{{true}}"
+      scroll-animation-duration="{{300}}"
+      enable-flex="true"
     >
       <view class="ant-vtabs-bar-item-wrap">
         <block

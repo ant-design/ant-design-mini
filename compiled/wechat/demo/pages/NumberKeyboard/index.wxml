@@ -12,7 +12,7 @@
   ></ant-number-keyboard>
   <ant-list-item bind:tap="onTap2">带确认按钮</ant-list-item>
   <ant-number-keyboard
-    confirmText="确认"
+    confirm-text="确认"
     visible="{{visible2}}"
     bind:close="onTap2"
   ></ant-number-keyboard>

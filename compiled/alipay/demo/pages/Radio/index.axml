@@ -7,7 +7,7 @@
 <container title="禁用模式">
   <radio disabled>Radio1</radio>
   <radio
-    defaultChecked
+    default-checked
     disabled
   >
     Radio2
@@ -16,7 +16,7 @@
 <container title="自定义颜色">
   <radio
     color="red"
-    defaultChecked
+    default-checked
   >
     Radio
   </radio>

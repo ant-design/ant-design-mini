@@ -46,25 +46,33 @@ function mergeDefaultProps(defaultProps) {
 }
 export var ComponentWithSignalStoreImpl = function (storeOptions, defaultProps, methods, data, mixins, instanceMethods) {
     var storeBinder = new StoreBinder(storeOptions);
-    var onInitBackup = (instanceMethods === null || instanceMethods === void 0 ? void 0 : instanceMethods.onInit) || (function () { });
-    if (instanceMethods) {
-        instanceMethods.onInit = function () {
-            storeBinder.init(this);
+    // 确保 instanceMethods 存在
+    var instanceMethodsCopy = __assign({}, instanceMethods);
+    // 备份原有的 onInit 和 didUnmount 方法
+    var onInitBackup = instanceMethodsCopy.onInit || (function () { });
+    var onDidUnmountBackup = instanceMethodsCopy.didUnmount || (function () { });
+    var defaultOnInit = function () {
+        storeBinder.init(this);
+    };
+    instanceMethodsCopy.onInit = function () {
+        defaultOnInit.call(this);
+        if (onInitBackup) {
             onInitBackup.call(this);
-        };
-    }
-    var onDidUnmountBackup = (instanceMethods === null || instanceMethods === void 0 ? void 0 : instanceMethods.didUnmount) || (function () { });
-    if (instanceMethods) {
-        instanceMethods.didUnmount = function () {
-            onDidUnmountBackup.call(this);
-            storeBinder.dispose();
-        };
+        }
+    };
+    instanceMethodsCopy.didUnmount = function () {
+        onDidUnmountBackup.call(this);
+        storeBinder.dispose();
+    };
+    // 这里确保 instanceMethodsCopy.onInit 被正确执行
+    if (!instanceMethodsCopy.onInit) {
+        instanceMethodsCopy.onInit = defaultOnInit;
     }
     Component(__assign({ properties: buildProperties(mergeDefaultProps(defaultProps)), options: {
             styleIsolation: 'shared',
             multipleSlots: true,
             virtualHost: true,
-        }, methods: methods, behaviors: mixins, data: data }, (instanceMethods || {})));
+        }, methods: methods, behaviors: mixins, data: data }, (instanceMethodsCopy || {})));
 };
 var StoreBinder = /** @class */ (function () {
     function StoreBinder(storeOptions) {

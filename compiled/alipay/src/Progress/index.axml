@@ -27,7 +27,7 @@
       <ant-icon
         a:if="{{status === 'success' || status === 'exception'}}"
         type="{{status === 'success' ? 'CheckCircleFill' : 'CloseCircleFill'}}"
-        className="ant-progress-status-icon ant-progress-status-icon-{{status}}"
+        class-name="ant-progress-status-icon ant-progress-status-icon-{{status}}"
       ></ant-icon>
       <block a:else>{{percent}}%</block>
     </slot>

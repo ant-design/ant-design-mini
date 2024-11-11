@@ -99,14 +99,14 @@
       type="number"
       text="{{100}}"
       stroke
-      bgColor="#1677FF"
+      bg-color="#1677FF"
     >
       <view class="box"></view>
     </ant-badge>
     <ant-badge
       type="text"
       text="new"
-      bgColor="#FF9F18"
+      bg-color="#FF9F18"
       position="top-center"
     >
       <view class="box"></view>
@@ -115,7 +115,7 @@
       type="bubble"
       text="new"
       stroke
-      bgColor="#34B368"
+      bg-color="#34B368"
     >
       <view class="box"></view>
     </ant-badge>
@@ -126,8 +126,8 @@
     <ant-badge
       type="text"
       text="1"
-      offsetX="-20px"
-      offsetY="0px"
+      offset-x="-20px"
+      offset-y="0px"
     >
       <view class="box"></view>
     </ant-badge>
@@ -135,8 +135,8 @@
       type="text"
       text="1"
       position="bottom-right"
-      offsetX="-20px"
-      offsetY="-14px"
+      offset-x="-20px"
+      offset-y="-14px"
     >
       <view class="box"></view>
     </ant-badge>
@@ -144,8 +144,8 @@
       type="bubble"
       text="new"
       position="top-right"
-      offsetX="2px"
-      offsetY="-8px"
+      offset-x="2px"
+      offset-y="-8px"
     >
       <view class="box"></view>
     </ant-badge>

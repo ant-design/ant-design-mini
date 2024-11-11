@@ -6,7 +6,7 @@
   >
     <ant-avatar
       src="{{item}}"
-      className="avatar"
+      class-name="avatar"
     ></ant-avatar>
   </block>
 </ant-container>
@@ -22,13 +22,13 @@
     <ant-avatar
       size="{{item}}"
       src="{{images[0]}}"
-      className="avatar"
+      class-name="avatar"
     ></ant-avatar>
   </block>
 </ant-container>
 <ant-container
   title="配合列表使用"
-  className="container"
+  class-name="container"
 >
   <ant-list-item brief="Deserunt dolor ea eaque eos">
     Novalee Spicer
@@ -42,6 +42,6 @@
   <ant-avatar
     size="{{item}}"
     src="{{images[0]}}"
-    className="avatar-custom"
+    class-name="avatar-custom"
   ></ant-avatar>
 </ant-container>

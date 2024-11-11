@@ -9,12 +9,12 @@
 >
   <mask
     show
-    className="{{maskClassName}}"
+    class-name="{{maskClassName}}"
     style="z-index:9999;{{maskStyle || ''}}"
   ></mask>
   <ant-icon
     type="CloseOutline"
-    className="ant-guide-tour-clear"
+    class-name="ant-guide-tour-clear"
     bind:tap="onCancel"
   ></ant-icon>
   <view class="ant-guide-tour-button">
@@ -23,27 +23,27 @@
       inline
       size="small"
       bind:tap="onCancel"
-    >{{jumpText === null ? locale.guideTour.jumpText : jumpText}}</ant-button>
+    >{{jumpText === undefined ? locale.guideTour.jumpText : jumpText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowPrev(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onPrev"
       data-current-value="{{mixin.value}}"
-    >{{prevStepText === null ? locale.guideTour.prevStepText : prevStepText}}</ant-button>
+    >{{prevStepText === undefined ? locale.guideTour.prevStepText : prevStepText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowNext(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onNext"
       data-current-value="{{mixin.value}}"
-    >{{nextStepText === null ? locale.guideTour.nextStepText : nextStepText}}</ant-button>
+    >{{nextStepText === undefined ? locale.guideTour.nextStepText : nextStepText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowKnow(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onCancel"
-    >{{gotItText === null ? locale.guideTour.gotItText : gotItText}}</ant-button>
+    >{{gotItText === undefined ? locale.guideTour.gotItText : gotItText}}</ant-button>
   </view>
   <block wx:if="{{swiperable}}">
     <view class="ant-guide-tour-indicator">
@@ -58,7 +58,7 @@
     <swiper
       class="ant-guide-tour-swiper"
       current="{{mixin.value}}"
-      adjustHeight="none"
+      adjust-height="none"
       style="height: 100vh"
       bind:change="onSwiperChange"
     >
