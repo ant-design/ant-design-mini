@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "AmountInput",
+  "usingComponents": {
+    "ant-amount-input": "../../../src/AmountInput/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

@@ -1,0 +1,37 @@
+<import-sjs from="./index.sjs" name="utils" />
+
+<view class="ant-amount-card {{ className ? className : '' }}">
+  <view class="ant-amount-card-top">
+    <text class="ant-amount-card-top-title">{{ title }}</text>
+    <slot name="extra-title">
+      <text 
+        a:if="{{ extraTitle }}" 
+        class="ant-amount-card-top-extra-title"
+        onTap="onClickExtraTitle"
+      >{{ extraTitle }}</text>
+    </slot>
+  </view>
+  <slot name="unit">
+    <view class="ant-amount-card-unit">
+      <text a:if="{{ unit }}">{{ unit }}</text>
+    </view>
+  </slot>
+  <view class="ant-amount-card-input">
+    <image 
+      mode="widthFix" 
+      class="ant-amount-card-input-unit"
+      src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/JLhpRrqfRsEAAAAAAAAAAAAADoEQAQFr/original" />
+    <ant-input
+      placeholder="请输入内容"
+      type="digit"
+      allowClear="{{ true }}"
+    ></ant-input>
+  </view>
+  <slot name="amount-list">
+    <view a:if="{{ amountList.length > 0 }}" class="ant-amount-card-amount-list">
+      <view class="ant-amount-card-amount-list-item">
+        
+      </view>
+    </view>
+  </slot>
+</view>

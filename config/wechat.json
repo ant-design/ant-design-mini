@@ -94,7 +94,8 @@
     "pages/CheckboxGroup",
     "pages/CascaderPicker",
     "pages/Picker",
-    "pages/DatePicker"
+    "pages/DatePicker",
+    "pages/AmountInput",
   ],
   "src": [
     "Empty",
@@ -144,6 +145,7 @@
     "NoticeBar",
     "NumberKeyboard",
     "Tabs",
-    "SwipeAction"
+    "SwipeAction",
+    "AmountInput"
   ]
 }

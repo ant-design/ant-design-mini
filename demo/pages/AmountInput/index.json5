@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "AmountInput",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "AmountInput",
+  /// #endif
+
+  "usingComponents": {
+    "ant-amount-input": "../../../src/AmountInput/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

@@ -1,0 +1,70 @@
+@import (reference) '../style/themes/index.less';
+@import (reference) './variable.less';
+
+
+@avatarPrefix: ant-amount-card;
+
+.@{avatarPrefix} {
+  background: #FFFFFF;
+  border-radius: 24 * @rpx;
+  padding: 24 * @rpx;
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-title {
+      font-weight: 400;
+      font-size: 30 * @rpx;
+      line-height: 1.2;
+      color: #333333;
+    }
+    &-extra-title {
+      font-weight: 400;
+      font-size: 30 * @rpx;
+      color: #4B6B99;
+      line-height: 1.2;
+      text-align: right;
+    }
+  }
+  &-unit {
+    padding-top: 48 * @rpx;
+    margin-left: 52 * @rpx;
+    position: relative;
+    font-weight: 400;
+    padding-left: 8 * @rpx;
+    font-size: 30 * @rpx;
+    color: #999999;
+    letter-spacing: 0;
+    text-align: left;
+    line-height: 28 * @rpx;
+    &::before {
+      content: ' ';
+      background: #999999;
+      height: 28 * @rpx;
+      width: 1 * @rpx;
+      top: 0;
+      left: 0;
+    }
+  }
+  &-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 32 * @rpx;
+    border: 1rpx solid #EEEEEE;
+    
+    &-unit {
+      width: 36 * @rpx;
+      height: 46 * @rpx;
+    }
+  }
+  &-amount-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &-item {
+      border: 1px solid #1677FF;
+      border-radius: 50vh;
+    }
+  }
+}
