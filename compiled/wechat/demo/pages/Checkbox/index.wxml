@@ -12,14 +12,14 @@
   <view class="line">
     <ant-checkbox disabled>disabledMode1</ant-checkbox>
     <ant-checkbox
-      default-checked
+      defaultChecked
       disabled
     >disabledMode2</ant-checkbox>
   </view>
   <view class="line">
     <ant-checkbox
       color="red"
-      default-checked
+      defaultChecked
     >Custom color</ant-checkbox>
   </view>
   <view class="line">
@@ -43,7 +43,7 @@
   <view class="line">
     <view class="title">Set default value</view>
     <ant-checkbox-group
-      default-value="{{['banana']}}"
+      defaultValue="{{['banana']}}"
       options="{{options}}"
       bind:change="onChange"
     ></ant-checkbox-group>
@@ -74,7 +74,7 @@
     <view class="title">Custom color</view>
     <ant-checkbox-group
       options="{{options}}"
-      default-value="{{['apple', 'banana']}}"
+      defaultValue="{{['apple', 'banana']}}"
       color="red"
     ></ant-checkbox-group>
   </view>

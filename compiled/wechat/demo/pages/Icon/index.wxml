@@ -14,7 +14,7 @@
   ></ant-icon>
   <ant-icon
     type="SmileOutline"
-    class-name="custom-size"
+    className="custom-size"
   ></ant-icon>
 </ant-container>
 <ant-container title="自定义颜色">
@@ -24,7 +24,7 @@
   ></ant-icon>
   <ant-icon
     type="SmileOutline"
-    class-name="custom-color"
+    className="custom-color"
   ></ant-icon>
 </ant-container>
 <ant-container title="更多自定义">

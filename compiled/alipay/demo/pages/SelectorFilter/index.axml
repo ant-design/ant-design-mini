@@ -13,7 +13,7 @@
         {{item.title}}
         <ant-icon
           type="DownFill"
-          class-name="filterDemo-bar-item-icon  {{currentOpen === index ? 'filterDemo-bar-item-icon-up' : ''}}"
+          className="filterDemo-bar-item-icon  {{currentOpen === index ? 'filterDemo-bar-item-icon-up' : ''}}"
         ></ant-icon>
       </view>
     </block>

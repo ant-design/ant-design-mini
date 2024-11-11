@@ -1,8 +1,8 @@
 <view
   class="ant-indexbar-side {{className}}"
-  disable-scroll="{{true}}"
+  disableScroll="{{true}}"
   style="{{({ width: '' + size + 'px;' })}} {{style}}"
-  hover-stop-propagation
+  hoverStopPropagation
 >
   <view
     a:if="{{showMask}}"
@@ -44,9 +44,9 @@
 </view>
 <scroll-view
   a:if="{{hasDefaultSlot}}"
-  scroll-y
+  scrollY
   class="ant-indexbar-side-scroll {{hasDefaultSlot && topRange.length === 0 ? 'ant-indexbar-side-notSee' : ''}}"
-  scroll-into-view="{{'ant-indexbar-' + touchKey + ''}}"
+  scrollIntoView="{{'ant-indexbar-' + touchKey + ''}}"
   onScroll="onScroll"
 >
   <view

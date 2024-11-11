@@ -1,6 +1,6 @@
 <ant-container
   title="按钮类型"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -23,7 +23,7 @@
 </ant-container>
 <ant-container
   title="辅助按钮 只有default和primary类型有"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -58,25 +58,25 @@
 </ant-container>
 <ant-container
   title="带辅助文案按钮"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
-    sub-text="副标题"
+    subText="副标题"
     onTap="handleTap"
   >
     主要按钮
   </ant-button>
   <ant-button
     type="default"
-    sub-text="副标题"
+    subText="副标题"
     onTap="handleTap"
   >
     次要按钮
   </ant-button>
   <ant-button
     type="text"
-    sub-text="副标题"
+    subText="副标题"
     onTap="handleTap"
   >
     文本按钮
@@ -84,7 +84,7 @@
 </ant-container>
 <ant-container
   title="禁用"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -111,7 +111,7 @@
 </ant-container>
 <ant-container
   title="加载状态"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -134,7 +134,7 @@
 </ant-container>
 <ant-container
   title="危险"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -160,13 +160,13 @@
 </ant-container>
 <ant-container
   title="自定义大小"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
     icon="SmileOutline"
     onTap="handleTap"
-    class-name="btn"
+    className="btn"
   >
     主要按钮
   </ant-button>
@@ -174,7 +174,7 @@
     type="primary"
     onTap="handleTap"
     icon="SmileOutline"
-    class-name="btn"
+    className="btn"
     inline
   >
     主要按钮
@@ -183,7 +183,7 @@
     type="primary"
     onTap="handleTap"
     icon="ForbidFill"
-    class-name="btn"
+    className="btn"
     inline
     danger
   >
@@ -192,14 +192,14 @@
 </ant-container>
 <ant-container
   title="round"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
     icon="SearchOutline"
     onTap="handleTap"
     inline
-    class-name="round"
+    className="round"
   >
     主要按钮
   </ant-button>
@@ -208,40 +208,40 @@
     onTap="handleTap"
     inline
     danger
-    class-name="round"
+    className="round"
   >
     主要按钮
   </ant-button>
 </ant-container>
 <ant-container
   title="circle"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
     icon="SearchOutline"
     onTap="handleTap"
     inline
-    class-name="circle"
+    className="circle"
   ></ant-button>
   <ant-button
     icon="SearchOutline"
     onTap="handleTap"
     inline
-    class-name="circle"
+    className="circle"
   ></ant-button>
   <ant-button
     type="primary"
     onTap="handleTap"
     inline
-    class-name="circle"
+    className="circle"
   >
     A
   </ant-button>
   <ant-button
     onTap="handleTap"
     inline
-    class-name="circle"
+    className="circle"
   >
     A
   </ant-button>
@@ -402,7 +402,7 @@
 </ant-container>
 <ant-container
   title="按钮类型"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -428,7 +428,7 @@
 </ant-container>
 <ant-container
   title="按钮尺寸"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -457,7 +457,7 @@
 </ant-container>
 <ant-container
   title="危险"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -486,7 +486,7 @@
 </ant-container>
 <ant-container
   title="禁用"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"
@@ -512,7 +512,7 @@
 </ant-container>
 <ant-container
   title="加载状态"
-  class-name="list"
+  className="list"
 >
   <ant-button
     type="primary"

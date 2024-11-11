@@ -3,8 +3,8 @@
   module="utils"
 ></wxs>
 <button
-  form-type="{{formType}}"
-  hover-class="{{utils.getHoverClass(loading, type, activeClassName)}}"
+  formType="{{formType}}"
+  hoverClass="{{utils.getHoverClass(loading, type, activeClassName)}}"
   scope="{{scope}}"
   bindgetuserinfo="onGetUserInfo"
   bindcontact="onContact"
@@ -15,8 +15,8 @@
   bindopensetting="onOpenSetting"
   bindagreeprivacyauthorization="onAgreePrivacyAuthorization"
   bindchooseavatar="onChooseAvatar"
-  public-id="{{publicId}}"
-  open-type="{{openType}}"
+  publicId="{{publicId}}"
+  openType="{{openType}}"
   class="ant-button {{inline ? 'ant-button-inline ' + utils.getClass(size) : ''}} {{'ant-button-' + type + (danger ? '-danger' : '')}} {{disabled || loading ? 'ant-button-disabled' : ''}} {{className ? className : ''}}"
   style="{{style}}"
 >

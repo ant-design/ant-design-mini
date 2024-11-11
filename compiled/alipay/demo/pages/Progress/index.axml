@@ -40,17 +40,17 @@
     <progress
       type="circle"
       percent="{{percent2}}"
-      stroke-width="{{12}}"
+      strokeWidth="{{12}}"
     ></progress>
     <progress
       type="circle"
       percent="{{percent2}}"
-      stroke-width="{{2}}"
+      strokeWidth="{{2}}"
     ></progress>
   </view>
   <progress
     percent="{{percent2}}"
-    stroke-width="15"
+    strokeWidth="15"
     style="margin-top: 40rpx;"
   ></progress>
 </container>
@@ -69,22 +69,22 @@
     <progress
       type="circle"
       percent="{{percent3}}"
-      stroke-color="#00B578"
+      strokeColor="#00B578"
     ></progress>
     <progress
       type="circle"
       percent="{{percent3}}"
-      stroke-color="#FF8F1F"
+      strokeColor="#FF8F1F"
     ></progress>
   </view>
   <progress
     percent="{{percent3}}"
-    trail-color="#FFCF9F"
+    trailColor="#FFCF9F"
     style="margin-top: 40rpx;"
   ></progress>
   <progress
     percent="{{percent3}}"
-    stroke-color="#FFCF9F"
+    strokeColor="#FFCF9F"
     style="margin-top: 40rpx;"
   ></progress>
   <progress

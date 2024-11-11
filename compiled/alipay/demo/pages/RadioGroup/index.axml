@@ -6,7 +6,7 @@
 </ant-container>
 <ant-container title="初始值">
   <ant-radio-group
-    default-value="banana"
+    defaultValue="banana"
     options="{{options}}"
     onChange="onChange"
   ></ant-radio-group>
@@ -37,7 +37,7 @@
   <ant-radio-group
     options="{{options}}"
     color="red"
-    default-value="banana"
+    defaultValue="banana"
   >
     <view
       slot="label"
