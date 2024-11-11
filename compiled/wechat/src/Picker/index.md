@@ -6,9 +6,8 @@ group:
   order: 10
 toc: 'content'
 ---
-# Picker 选择器
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
+# Picker 选择器
 
 Picker 选择器显示一个或多个选项集合的可滚动列表，相比于原生 picker，实现了 iOS 与 Android 端体验的一致性。
 
@@ -17,14 +16,269 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
 - 提供一组或多组关联选项供用户选择。
 - 当少于 5 个选项时，建议直接将选项平铺，使用 Radio 是更好的选择。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-picker": "antd-mini/es/Picker/index",
+  "ant-cascader-picker": "antd-mini/es/CascaderPicker/index"
+#endif
+#if WECHAT
+  "ant-picker": "antd-mini/Picker/index",
+  "ant-cascader-picker": "antd-mini/CascaderPicker/index"
+#endif
+}
+```
+
 ## 代码示例
+
 ### 基本使用
+```xml
+<ant-picker
+  placeholder="请选择"
+  title="请选择"
+  emptyText="暂无数据"
+  defaultValue="{{ defaultValue }}"
+  options="{{ list }}"
+#if ALIPAY
+  onCancel="handleDismiss"
+  onVisibleChange="handleTriggerPicker"
+  onOk="handleOk"
+  onChange="handleChange"
+#endif
+#if WECHAT
+  bind:cancel="handleDismiss"
+  bind:visibleChange="handleTriggerPicker"
+  bind:ok="handleOk"
+  bind:change="handleChange"
+#endif
+/>
+```
+
+```js
+Page({
+  data: {
+    defaultValue: '上海',
+    list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
+  },
+  handleDismiss(e) {
+      console.log('onCancel', e);
+  },
+  handleTriggerPicker(visible, e) {
+      console.log('onVisibleChange', visible, e);
+  },
+  handleOk(value, column, e) {
+      console.log('onOk value', value, 'onOk  column', column, e);
+  },
+  handleChange(value, column, e) {
+      console.log('onChange value', value, 'onChange  column', column, e);
+  }
+});
+```
+### 格式化已选文本
+
+> `onFormat` 函数返回值则是已选区域需要渲染的值。
+
+```xml
+<ant-picker 
+#if ALIPAY
+  onFormat="onFormat"
+#endif
+#if WECHAT
+  onFormat="{{onFormat}}"
+#endif
+  />
+```
+
+```js
+Page({
+  data: {
+#if WECHAT
+    onFormat: (value) => {
+      return `已选择：${value}`;
+    },
+#endif
+  },
+#if ALIPAY
+  onFormat: (value) => {
+    return `已选择：${value}`;
+  },
+#endif
+})
+```
+
+### 多列选择
+
+> 当出现复杂选项时，但又不需要选项之间联动，可以通过一下方式实现多列选择：
+
+```xml
+<ant-picker
+  defaultValue="{{['Tues', 'pm']}}"
+  options="{{ columns }}"
+#if ALIPAY
+  onFormat="formatTime"
+#endif
+#if WECHAT
+  onFormat="{{formatTime}}"
+  bind:ok="handleOk"
+#endif
+/>
+```
+
+```js
+Page({
+  data: {
+    columns: [
+      [
+        {
+          label: '周一',
+          value: 'Mon',
+        },
+        {
+          label: '周二',
+          value: 'Tues',
+        },
+        {
+          label: '周三',
+          value: 'Wed',
+        },
+        {
+          label: '周四',
+          value: 'Thur',
+        },
+        {
+          label: '周五',
+          value: 'Fri',
+        },
+      ],
+      [
+        {
+          label: '上午',
+          value: 'am',
+        },
+        {
+          label: '下午',
+          value: 'pm',
+        },
+      ],
+    ],
+#if WECHAT
+    formatTime: (value) => {
+      return column.map((c) => c && c.label).join('，');
+    },
+#endif
+  },
+#if ALIPAY
+  formatTime: (value) => {
+    return column.map((c) => c && c.label).join('，');
+  }
+#endif
+})
+```
+
+### 受控模式
+
+> `value` 属性和 `ok` 事件，配合实现受控模式。
+
+```xml
+ <ant-picker
+  value="{{ value }}"
+  options="{{ list }}"
+#if ALIPAY
+  onOk="handleControlledOk"
+#endif
+#if WECHAT
+  bind:ok="handleControlledOk"
+#endif
+/>
+<ant-button onTap="handleChangeControlled">选择深圳</ant-button>
+<ant-button onTap="handleClearControlled">清空</ant-button>
+```
+
+```js
+Page({
+  data:{
+    value: '上海',
+    list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
+  },
+  handleControlledOk(value) {
+#if ALIPAY
+    this.setData({
+      value,
+    });
+#endif
+#if WECHAT
+    this.setData({
+      value: value.detail[0],
+    });
+#endif
+  },
+  handleClearControlled() {
+    this.setData({
+      value: '',
+    });
+  },
+  handleChangeControlled() {
+    this.setData({
+      value: '深圳',
+    });
+  },
+})
+```
+
+### 级联 Picker
+
+> 当出现更复杂选项时，需要选项之间联动，就需要引入 `ant-cascader-picker` 级联选择组件来实现。该组件通过传入以下的树状结构来实现级联功能：
+
+```xml
+<ant-cascader-picker
+  options="{{ cityList }}"
+/>
+```
+
+```js
+Page({
+  data: {
+    cityList:[
+      {
+        label: '北京',
+        value: '11',
+        children: [
+          {
+            label: '北京',
+            value: '110',
+          },
+        ],
+      },
+      {
+        label: '河北',
+        value: '18',
+        children: [
+          {
+            label: '石家庄',
+            value: '188',
+          },
+          {
+            label: '唐山',
+            value: '181',
+          },
+        ],
+      }
+    ]
+  }
+})
+
+```
+
+## Demo 代码
+
 <code src='../../demo/pages/Picker/index'></code>
 
-### 级联Picker
-<!-- <code src='pages/CascaderPicker/index'></code> -->
-
 ## API
+
 ### Picker
 | 属性 | 说明 | 类型 | 默认值 |
 | -----|-----|-----|-----|
@@ -52,11 +306,15 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
 | value | 选中的值 | string \| number \| Array\<string \| number\> | - | 
 | visible | 是否显示 | boolean | false |
 | defaultVisible | 默认是否显示 | boolean | false |
-| onOk | 点击确定按钮，触发回调 | (value: [PickerColumnItem](#pickercolumnitem),  column: [PickerColumnItem](#pickercolumnitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
-| onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
-| onChange | 选中项发生变化，触发回调 | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 | onFormat | 选中值的文本显示格式 | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem)) => string | - | 
-| onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if ALIPAY onOk | 点击确定按钮，触发回调 | (value: [PickerColumnItem](#pickercolumnitem),  column: [PickerColumnItem](#pickercolumnitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if ALIPAY onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if ALIPAY onChange | 选中项发生变化，触发回调 | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if ALIPAY onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if WECHAT bind:ok | 点击确定按钮，触发回调 | (value: [PickerColumnItem](#pickercolumnitem),  column: [PickerColumnItem](#pickercolumnitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if WECHAT bind:cancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if WECHAT bind:change | 选中项发生变化，触发回调 | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if WECHAT bind:visibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 
 ### CascaderPicker
 | 属性 | 说明 | 类型 | 默认值 |
@@ -85,11 +343,15 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
 | value | 选中的值 | string[] | - | 
 | visible | 是否显示 | boolean | false |
 | defaultVisible | 默认是否显示 | boolean | false |
-| onOk | 点击确定按钮，触发回调 | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
-| onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onChange | 选中项发生变化，触发回调 | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 | onFormat | 选中值的文本显示格式，默认展示labels.join('') | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[]) => string | - | 
-| onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if ALIPAY onOk | 点击确定按钮，触发回调 | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if ALIPAY onCancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if ALIPAY onChange | 选中项发生变化，触发回调 | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if ALIPAY onVisibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if WECHAT bind:ok | 点击确定按钮，触发回调 | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if WECHAT bind:cancel | 点击取消按钮/蒙层，触发回调 | (event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bind:change | 选中项发生变化，触发回调 | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
+| #if WECHAT bind:visibleChange | 弹出框显示/隐藏状态变化触发 | (visible: boolean, event:  [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - | 
 
 ### PickerColumnItem 
 | 参数 | 说明 | 类型 | 默认值 |

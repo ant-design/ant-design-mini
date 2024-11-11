@@ -51,7 +51,7 @@
       hoverStartTime="20"
       hoverStayTime="50"
       bind:tap="onOk"
-    >{{placeholder === undefined ? locale.global.placeholder : placeholder}}</view>
+    >{{okText === undefined ? locale.global.okText : okText}}</view>
   </view>
   <view class="ant-picker-content">
     <slot name="content-header"></slot>

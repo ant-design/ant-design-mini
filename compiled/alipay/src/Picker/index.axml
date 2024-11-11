@@ -63,7 +63,7 @@
       hoverStayTime="50"
       onTap="onOk"
     >
-      {{placeholder === undefined ? locale.global.placeholder : placeholder}}
+      {{okText === undefined ? locale.global.okText : okText}}
     </view>
   </view>
   <view class="ant-picker-content">
