@@ -8,7 +8,7 @@
   <view class="line">
     <ant-radio disabled>禁用按钮1</ant-radio>
     <ant-radio
-      defaultChecked
+      default-checked
       disabled
     >
       禁用按钮2
@@ -17,7 +17,7 @@
   <view class="line">
     <ant-radio
       color="red"
-      defaultChecked
+      default-checked
     >
       自定义颜色
     </ant-radio>
@@ -42,7 +42,7 @@
   <view class="line">
     <view class="title">初始值</view>
     <ant-radio-group
-      defaultValue="banana"
+      default-value="banana"
       options="{{options}}"
       onChange="onRadioGroupChange"
     ></ant-radio-group>
@@ -78,7 +78,7 @@
     <ant-radio-group
       options="{{options}}"
       color="red"
-      defaultValue="banana"
+      default-value="banana"
     >
       <view
         slot="label"

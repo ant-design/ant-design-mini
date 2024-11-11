@@ -3,7 +3,7 @@
 @checkboxItemPrefix: ant-calendar;
 
 .@{checkboxItemPrefix} {
-  color: @COLOR_TEXT_PRIMARY;
+  color: @calendar-default-color;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@
     height: @calendar-cell-height;
   }
   &-cell-space-active {
-    background: fade(@COLOR_BRAND1, 10%);
+    background: @calendar-selected-color;
   }
 
   &-cell {
@@ -110,13 +110,13 @@
     }
 
     &-selected {
-      background: fade(@COLOR_BRAND1, 10%);
+      background: @calendar-selected-color;
     }
 
     &-selected-begin {
       border-top-left-radius: @corner-radius-md;
       border-bottom-left-radius: @corner-radius-md;
-      background: fade(@COLOR_BRAND1, 10%);
+      background: @calendar-selected-color;
     }
 
     &-selected-end {

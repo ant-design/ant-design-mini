@@ -20,6 +20,13 @@
 
 @calendar-weekday-names-height: 88 * @rpx;
 @calendar-weekday-names-font-size: 28 * @rpx;
-@calendar-weekday-names-background-color: #f8f8f8;
+@calendar-weekday-names-background-color: var(
+  --calendar-weekday-names-bg,
+  #f8f8f8
+);
 @calendar-weekday-names-bottom-margin: 8 * @rpx;
 @calendar-weekday-names-left-padding: @size-5;
+
+@calendar-default-color: var(--color-text-primary, @COLOR_TEXT_PRIMARY);
+
+@calendar-selected-color: var(--color-border-faded, @COLOR_BRAND1_FADED);

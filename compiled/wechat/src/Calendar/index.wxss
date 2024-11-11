@@ -1,5 +1,5 @@
 .ant-calendar {
-  color: #333333;
+  color: var(--color-text-primary, #333333);
   position: relative;
   display: flex;
   flex-direction: column;

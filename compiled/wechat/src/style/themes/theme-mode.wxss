@@ -57,6 +57,7 @@
     --loading-icon-light-color: rgba(255, 255, 255, 0.6);
     --popover-content-bg: rgba(255, 255, 255, 0.93);
     --popover-content-color: #333333;
+    --calendar-weekday-names-bg: #f8f8f8;
   }
 }
 /* 深色模式的css变量 */
@@ -129,5 +130,6 @@
     --loading-icon-light-color: #999;
     --popover-content-bg: rgba(255, 255, 255, 0.93);
     --popover-content-color: #333333;
+    --calendar-weekday-names-bg: #303030;
   }
 }
