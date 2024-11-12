@@ -5,6 +5,13 @@
     bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
+<container title="禁用状态">
+  <ant-slider
+    defaultValue="{{80}}"
+    disabled
+    bind:change="onChange"
+  ></ant-slider>
+</container>
 <container title="无节点双滑块">
   <ant-slider
     defaultValue="{{[20, 60]}}"
@@ -86,12 +93,5 @@
     activeDotStyle="background-color: red"
     bind:change="onChange"
     bind:afterchange="onAfterChange"
-  ></ant-slider>
-</container>
-<container title="禁用状态">
-  <ant-slider
-    defaultValue="{{80}}"
-    disabled
-    bind:change="onChange"
   ></ant-slider>
 </container>
