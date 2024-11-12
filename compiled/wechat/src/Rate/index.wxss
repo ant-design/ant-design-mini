@@ -15,7 +15,7 @@
   margin-right: 0;
 }
 .ant-rate-star-icon {
-  color: var(--color-border, #eeeeee);
+  color: var(--color-border, #e5e5e5);
 }
 .ant-rate-star-icon-active {
   color: var(--color-yellow, #ff9f18);

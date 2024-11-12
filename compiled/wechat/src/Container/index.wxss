@@ -16,7 +16,7 @@
 .ant-container-headerInBox .ant-container-header .ant-container-header-right::after {
   content: '';
   position: absolute;
-  background-color: #eeeeee;
+  background-color: #e5e5e5;
   display: block;
   top: auto;
   right: 0;

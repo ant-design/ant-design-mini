@@ -5,7 +5,7 @@
   line-height: 1.4;
 }
 .ant-list-item-hover {
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--color-border, #e5e5e5);
 }
 .ant-list-item-line {
   flex: 1;
@@ -17,7 +17,7 @@
 .ant-list-item-line-divider::after {
   content: '';
   position: absolute;
-  background-color: #eeeeee;
+  background-color: #e5e5e5;
   display: block;
   top: auto;
   right: 0;
@@ -110,7 +110,7 @@
 }
 .ant-list-item .line {
   height: 1rpx;
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--color-border, #e5e5e5);
   width: calc(100% - 24 * 1rpx);
   position: absolute;
   right: 0;

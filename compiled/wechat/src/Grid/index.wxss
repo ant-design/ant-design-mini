@@ -27,7 +27,7 @@
 .ant-grid-item-line::after {
   content: '';
   position: absolute;
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--color-border, #e5e5e5);
   display: block;
   top: 0;
   right: 0;

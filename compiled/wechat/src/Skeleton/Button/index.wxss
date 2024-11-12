@@ -2,11 +2,11 @@
   width: 120rpx;
   height: 48rpx;
   border-radius: 8rpx;
-  background: var(--color-border, #eeeeee);
+  background: var(--color-border, #e5e5e5);
   display: inline-block;
 }
 .ant-skeleton-button-animate {
-  background: linear-gradient(90deg, var(--color-border, #eeeeee) 25%, var(--color-text-weak-faded, rgba(204, 204, 204, 0.6)) 37%, var(--color-border, #eeeeee) 63%);
+  background: linear-gradient(90deg, var(--color-border, #e5e5e5) 25%, var(--color-text-weak-faded, rgba(204, 204, 204, 0.6)) 37%, var(--color-border, #e5e5e5) 63%);
   background-size: 400% 100%;
   animation: ant-skeleton-loading 1.4s ease infinite;
 }

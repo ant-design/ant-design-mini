@@ -2,7 +2,7 @@
   background-color: var(--color-card, #ffffff);
 }
 .ant-checklist-item-hover {
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--color-border, #e5e5e5);
 }
 .ant-checklist-item-content {
   display: flex;
@@ -56,7 +56,7 @@
 .ant-checklist-item-line::after {
   content: '';
   position: absolute;
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--color-border, #e5e5e5);
   display: block;
   top: auto;
   right: 0;

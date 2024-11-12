@@ -19,7 +19,7 @@
 .ant-actionsheet-title-content::after {
   content: '';
   position: absolute;
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--color-border, #e5e5e5);
   display: block;
   top: auto;
   right: 0;
@@ -41,7 +41,7 @@
 .ant-actionsheet-list-item::after {
   content: '';
   position: absolute;
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--color-border, #e5e5e5);
   display: block;
   top: auto;
   right: 0;
@@ -61,7 +61,7 @@
   margin-top: 8rpx;
 }
 .ant-actionsheet-list-item-active {
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--color-border, #e5e5e5);
 }
 .ant-actionsheet-list-item:last-child.ant-actionsheet-list-item:last-child:after {
   display: none;
@@ -83,7 +83,7 @@
   margin: 0 -24rpx;
 }
 .ant-actionsheet-cancel:active {
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--color-border, #e5e5e5);
 }
 .ant-actionsheet-icon .ant-actionsheet-title-wrap {
   text-align: left;

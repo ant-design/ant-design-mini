@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 .ant-tabs-bar-underline {
-  border-bottom: 2rpx solid var(--color-border, #eeeeee);
+  border-bottom: 2rpx solid var(--color-border, #e5e5e5);
 }
 .ant-tabs-bar-fade {
   display: none;

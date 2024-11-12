@@ -142,7 +142,7 @@
   flex: 1;
 }
 .ant-number-keyboard-kb-e {
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--color-border, #e5e5e5);
 }
 .ant-number-keyboard-down {
   font-size: 40rpx;
