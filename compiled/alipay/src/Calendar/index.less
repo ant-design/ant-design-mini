@@ -46,7 +46,7 @@
   }
 
   &-title {
-    color: @COLOR_TEXT_PRIMARY_DEFAULT;
+    color: @calendar-default-color;
     font-size: @font-size-title;
     height: @calendar-month-title-height;
     line-height: @calendar-month-title-height;
@@ -86,7 +86,7 @@
     }
 
     &-top {
-      color: @COLOR_TEXT_ASSIST_DEFAULT;
+      color: @calendar-assist-color;
       text-align: center;
       font-size: @calendar-cell-top-font-size;
       height: @calendar-cell-top-height;
@@ -103,7 +103,7 @@
     }
 
     &-bottom {
-      color: @COLOR_TEXT_ASSIST_DEFAULT;
+      color: @calendar-assist-color;
       text-align: center;
       font-size: @calendar-cell-bottom-font-size;
       height: @calendar-cell-bottom-height;
@@ -122,7 +122,7 @@
     &-selected-end {
       border-top-right-radius: @corner-radius-md;
       border-bottom-right-radius: @corner-radius-md;
-      color: @COLOR_WHITE_DEFAULT;
+      color: @calendar-selected-end-color;
     }
 
     &-selected-row-end {
@@ -136,31 +136,31 @@
     }
 
     &-selected-begin &-container {
-      background: @COLOR_BRAND1_DEFAULT;
+      background: @calendar-selected-color;
       border-radius: @corner-radius-md;
-      color: @COLOR_WHITE_DEFAULT;
+      color: @calendar-selected-end-color;
     }
 
     &-selected-end &-container {
-      background: @COLOR_BRAND1_DEFAULT;
+      background: @calendar-selected-color;
       border-radius: @corner-radius-md;
-      color: @COLOR_WHITE_DEFAULT;
+      color: @calendar-selected-end-color;
     }
 
     &-selected-end &-top {
-      color: @COLOR_WHITE_DEFAULT;
+      color: @calendar-selected-end-color;
     }
 
     &-selected-begin &-top {
-      color: @COLOR_WHITE_DEFAULT;
+      color: @calendar-selected-end-color;
     }
 
     &-selected-end &-bottom {
-      color: @COLOR_WHITE_DEFAULT;
+      color: @calendar-selected-end-color;
     }
 
     &-selected-begin &-bottom {
-      color: @COLOR_WHITE_DEFAULT;
+      color: @calendar-selected-end-color;
     }
   }
 

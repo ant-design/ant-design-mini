@@ -103,7 +103,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #cccccc;
+  background: var(--color-text-weak, #cccccc);
   width: 100%;
   height: 2rpx;
   transform: scaleY(0.5);
@@ -112,7 +112,7 @@
 .ant-rare-words-keyboard-match_words_item_tips {
   padding-left: 8rpx;
   font-size: 28rpx;
-  color: #666666;
+  color: var(#666666, --color-text-secondary);
   line-height: 34rpx;
 }
 .ant-rare-words-keyboard-match_words_item_tips.loading {
@@ -219,7 +219,7 @@
   display: block;
   width: 10rpx;
   height: 100%;
-  background: linear-gradient(to right, transparent, #d8d8d8);
+  background: linear-gradient(to right, transparent, var(--rare-keyboard-bg, #4a4a4a));
   position: absolute;
   left: -32rpx;
 }

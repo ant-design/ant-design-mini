@@ -31,7 +31,7 @@
 }
 .ant-tag-primary.ant-tag-outline {
   color: var(--color-brand1, #1677ff);
-  border-color: var(var(--color-brand1, #1677ff), rgba(22, 119, 255, 0.3));
+  border-color: var(--color-brand1-faded-3, rgba(22, 119, 255, 0.3));
 }
 .ant-tag-warning {
   background-color: var(--color-orange, #ff6430);
@@ -42,7 +42,7 @@
 }
 .ant-tag-warning.ant-tag-outline {
   color: var(--color-orange, #ff6430);
-  border-color: var(var(--color-orange, #ff6430), rgba(255, 100, 48, 0.3));
+  border-color: var(--color-orange_faded, rgba(255, 100, 48, 0.3));
 }
 .ant-tag-danger {
   background-color: var(--color-red, #ff3141);
@@ -53,7 +53,7 @@
 }
 .ant-tag-danger.ant-tag-outline {
   color: var(--color-red, #ff3141);
-  border-color: var(var(--color-red, #ff3141), rgba(255, 49, 65, 0.3));
+  border-color: var(--color-red-faded, rgba(255, 49, 65, 0.3));
 }
 .ant-tag-success {
   background-color: var(--color-green, #22b35e);
@@ -64,7 +64,7 @@
 }
 .ant-tag-success.ant-tag-outline {
   color: var(--color-green, #22b35e);
-  border-color: var(var(--color-green, #22b35e), rgba(34, 179, 94, 0.3));
+  border-color: var(--color-green-faded, rgba(34, 179, 94, 0.3));
 }
 .ant-tag-image {
   background-color: rgba(0, 0, 0, 0.5);

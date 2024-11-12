@@ -25,11 +25,11 @@
 }
 .ant-tabs-bar-fade-left {
   left: 0;
-  background: linear-gradient(90deg, #ffffff, hsla(0, 0%, 100%, 0));
+  background: linear-gradient(90deg, var(--color-white, #ffffff), hsla(0, 0%, 100%, 0));
 }
 .ant-tabs-bar-fade-right {
   right: 84rpx;
-  background: linear-gradient(270deg, #ffffff, hsla(0, 0%, 100%, 0));
+  background: linear-gradient(270deg, var(--color-white, #ffffff), hsla(0, 0%, 100%, 0));
 }
 .ant-tabs-bar-plus {
   display: flex;

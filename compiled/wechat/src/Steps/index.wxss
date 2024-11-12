@@ -12,7 +12,7 @@
   padding: 64rpx;
 }
 .ant-steps-vertical .ant-steps-item-active::after {
-  background: linear-gradient(to top, #e5e5e5 0%, #e5e5e5 50%, #1677ff 50%, #1677ff 100%);
+  background: linear-gradient(to top, var(--color-grey-2, #e5e5e5) 0%, var(--color-grey-2, #e5e5e5) 50%, var(--color-brand1, #1677ff) 50%, var(--color-brand1, #1677ff) 100%);
 }
 .ant-steps-vertical .ant-steps-item-non-active::after {
   background: var(--color-grey-2, #e5e5e5);

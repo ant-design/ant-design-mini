@@ -3,6 +3,7 @@
   :root,
   page {
     --color-brand1: #1677ff;
+    --color-brand1-faded: rgba(22, 119, 255, 0.1);
     --color-brand2: #1677ff;
     --color-link: #4b6b99;
     --color-wathet: #e7f1ff;
@@ -24,11 +25,23 @@
     --color-white-card: #ffffff;
     --color-grey-card: #f5f5f5;
     --color-black-card: #000000e6;
+    --color_text_secondary: #666666;
     --color-white: #ffffff;
     --color-black: #000000;
+    --color-black-fade: #000000;
     --color-white-dynamic: #ffffff;
     --color-white-change: #ffffff;
     --color-black-change: #000000;
+    --color-golden-2: #fff3d9;
+    --color-golden-3: #fff9ed;
+    --color-tangerine-1: #ff6010;
+    --color-tangerine-2: #ffece3;
+    --color-grey-2: #e5e5e5;
+    --color-text-warning: #ff3b30;
+    --color-orange-1: #ff8f1f;
+    --color-orange-2: #ffefdf;
+    --color-pomonagreen-1: #00b578;
+    --color-pomonagree-2: #d4fff1;
     --size-radius-xs: 8rpx;
     --size-radius-s: 16rpx;
     --size-radius-m: 24rpx;
@@ -38,7 +51,7 @@
     --size-space-page-margin: 16rpx;
     --size-space1: 4rpx;
     --opacity-press: 0.08;
-    --opacity-disable: 0.4;
+    --opacity-disabled: 0.4;
     --opacity-mask: 0.55;
     --opacity-module: 0.9;
     --size-font1: 22rpx;
@@ -53,10 +66,22 @@
     --size-font10: 48rpx;
     --size-font11: 56rpx;
     --size-font12: 64rpx;
+    --feedback-background-color: rgba(216, 216, 216, 0.42);
+    --feedback-mask-color: rgba(0, 0, 0, 0.25);
+    --image-upload-cover-background: rgba(0, 0, 0, 0.4);
     --color-ironblack-1: #454955;
     --loading-icon-light-color: rgba(255, 255, 255, 0.6);
-    --popover-content-bg: rgba(255, 255, 255, 0.93);
-    --popover-content-color: #333333;
+    --mask-background-color: rgba(0, 0, 0, 0.55);
+    --number-key-board-active-background-color: #d3d3d3;
+    --color-background-popover: #404040;
+    --popover-content-bg: rgba(0, 0, 0, 0.93);
+    --popover-content-color: #ffffff;
+    --popover-badge-color: #ff411c;
+    --rare-words-bg: rgba(0, 0, 0, 0.45);
+    --rare-keyboard-bg: #d8d8d8;
+    --slide-block-shadow: rgba(0, 0, 0, 0.12);
+    --stepper-handler-tap-bg: #ddd;
+    --toast-default-bg: rgba(0, 0, 0, 0.75);
     --calendar-weekday-names-bg: #f8f8f8;
   }
 }
@@ -65,6 +90,7 @@
   :root,
   page {
     --color-brand1: #3086ff;
+    --color-border-faded: rgba(48, 134, 255, 0.9);
     --color-brand2: #0a0a0a;
     --color-link: #3f5980;
     --color-wathet: #0d2543;
@@ -89,6 +115,7 @@
     --color_text_secondary: #666666;
     --color-white: #ffffff;
     --color-black: #000000;
+    --color-black-fade: #000000;
     --color-white-dynamic: #c5cad1;
     --color-white-change: #000000;
     --color-black-change: #ffffff;
@@ -126,9 +153,11 @@
     --size-font10: 48rpx;
     --size-font11: 56rpx;
     --size-font12: 64rpx;
+    --rare-words-bg: rgba(0, 0, 0, 0.45);
+    --rare-keyboard-bg: #4a4a4a;
     --color-ironblack-1: #454955;
     --loading-icon-light-color: #999;
-    --popover-content-bg: rgba(255, 255, 255, 0.93);
+    --popover-content-bg: rgba(255, 255, 255, 0.45);
     --popover-content-color: #333333;
     --calendar-weekday-names-bg: #303030;
   }

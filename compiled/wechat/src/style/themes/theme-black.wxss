@@ -25,6 +25,7 @@ page {
   --color-black-card: #525252;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-black-fade: #000000;
   --color-white-dynamic: #c5cad1;
   --color-white-change: #000000;
   --color-black-change: #ffffff;
