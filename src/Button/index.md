@@ -122,35 +122,43 @@ toc: 'content'
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                                   | 默认值                                                                                                                | 备注 |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ---- |
-| --button-disabled-opacity                | 0.4                                                                                                                   | -    |
-| --button-color                           | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | -    |
-| --button-background-color                | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | -    |
-| --button-border-color                    | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | -    |
-| --button-primary-border-color            | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | -    |
-| --button-primary-background-color        | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | -    |
-| --button-primary-color                   | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | -    |
-| --button-primary-aide-border-color       | <div style="width: 150px; height: 30px; background-color: #E7F1FF; color: #333333;">#E7F1FF</div>                     | -    |
-| --button-primary-aide-color              | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | -    |
-| --button-default-aide-border-color       | <div style="width: 150px; height: 30px; background-color: #F5F5F5; color: #333333;">#F5F5F5</div>                     | -    |
-| --button-default-aide-background-color   | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | -    |
-| --button-default-aide-color              | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div>                     | -    |
-| --button-primary-danger-background-color | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
-| --button-primary-danger-border-color     | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
-| --button-primary-danger-color            | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | -    |
-| --button-default-danger-background-color | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | -    |
-| --button-default-danger-border-color     | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
-| --button-default-danger-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
-| --button-text-danger-color               | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
-| --button-danger-default-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
-| --button-active-bg                       | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.08);">rgba(255, 255, 255, 0.08)</div> | -    |
-| --button-inline-size                     | 30rpx                                                                                                                 | -    |
-| --button-font-size                       | 38rpx                                                                                                                 | -    |
-| --button-large-font-size                 | 38rpx                                                                                                                 | -    |
-| --button-medium-font-size                | 34rpx                                                                                                                 | -    |
-| --button-small-font-size                 | 30rpx                                                                                                                 | -    |
-| --button-icon-size                       | 44rpx                                                                                                                 | -    |
+| 变量名                                   | 默认值                                                                                                                | 备注                 |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| --button-disabled-opacity                | 0.4                                                                                                                   | 按钮禁用透明度       |
+| --button-color                           | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | 按钮颜色             |
+| --button-background-color                | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | 按钮背景颜色         |
+| --button-border-color                    | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | 按钮边框颜色         |
+| --button-primary-border-color            | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | 主要按钮边框颜色     |
+| --button-primary-background-color        | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | 主要按钮背景颜色     |
+| --button-primary-color                   | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | 主要按钮颜色         |
+| --button-primary-aide-border-color       | <div style="width: 150px; height: 30px; background-color: #E7F1FF; color: #333333;">#E7F1FF</div>                     | 主要辅助按钮边框颜色 |
+| --button-primary-aide-color              | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | 主要辅助按钮颜色     |
+| --button-default-aide-border-color       | <div style="width: 150px; height: 30px; background-color: #F5F5F5; color: #333333;">#F5F5F5</div>                     | 默认辅助按钮边框颜色 |
+| --button-default-aide-background-color   | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | 默认辅助按钮背景颜色 |
+| --button-default-aide-color              | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div>                     | 默认辅助按钮颜色     |
+| --button-primary-danger-background-color | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | 主要危险按钮背景颜色 |
+| --button-primary-danger-border-color     | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | 主要危险按钮边框颜色 |
+| --button-primary-danger-color            | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | 主要危险按钮颜色     |
+| --button-default-danger-background-color | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | 默认危险按钮背景颜色 |
+| --button-default-danger-border-color     | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | 默认危险按钮边框颜色 |
+| --button-default-danger-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | 默认危险按钮颜色     |
+| --button-text-danger-color               | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | 危险按钮文字颜色     |
+| --button-danger-default-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | 危险按钮默认颜色     |
+| --button-active-bg                       | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.08);">rgba(255, 255, 255, 0.08)</div> | 按钮激活背景颜色     |
+| --button-inline-size                     | 30rpx                                                                                                                 | 按钮内联尺寸         |
+| --button-font-size                       | 38rpx                                                                                                                 | 按钮字体尺寸         |
+| --button-large-font-size                 | 38rpx                                                                                                                 | 大按钮字体尺寸       |
+| --button-medium-font-size                | 34rpx                                                                                                                 | 中按钮字体尺寸       |
+| --button-small-font-size                 | 30rpx                                                                                                                 | 小按钮字体尺寸       |
+| --button-icon-size                       | 44rpx                                                                                                                 | 按钮图标尺寸         |
+| --button-padding                         | 24rpx                                                                                                                 | 按钮内边距           |
+| --button-large-padding                   | 24rpx                                                                                                                 | 大按钮内边距         |
+| --button-medium-padding-top              | 16rpx                                                                                                                 | 中按钮上内边距       |
+| --button-medium-padding-left             | 24rpx                                                                                                                 | 中按钮左内边距       |
+| --button-small-padding-top               | 8rpx                                                                                                                  | 小按钮上内边距       |
+| --button-small-padding-left              | 24rpx                                                                                                                 | 小按钮左内边距       |
+| --button-subtext-size                    | 24rpx                                                                                                                 | 按钮副文本尺寸       |
+| --button-border-size                     | 2rpx                                                                                                                  | 按钮边框尺寸         |
 
 ### 更多属性
 
