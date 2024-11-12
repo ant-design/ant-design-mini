@@ -17,7 +17,7 @@
 .ant-picker-header::after {
   content: '';
   position: absolute;
-  background-color: #eeeeee;
+  background-color: #e5e5e5;
   display: block;
   top: auto;
   right: 0;
@@ -60,10 +60,10 @@
 }
 .ant-picker-content .a-picker-view-picker-indicator::before,
 .ant-picker-content .a-picker-view-picker-indicator::after {
-  border-color: var(--color-border, #eeeeee);
+  border-color: var(--color-border, #e5e5e5);
 }
 .ant-picker-content .a-picker-view-picker-mask {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+  background-image: linear-gradient(to bottom, var(--color-card-faded-95, rgba(255, 255, 255, 0.95)), var(--color-card-faded-60, rgba(255, 255, 255, 0.6))), linear-gradient(to top, var(--color-card-faded-95, rgba(255, 255, 255, 0.95)), var(--color-card-faded-60, rgba(255, 255, 255, 0.6)));
   will-change: transform;
 }
 .ant-picker-value-placeholder:not(:nth-child(1)),

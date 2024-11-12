@@ -20,7 +20,7 @@
   font-size: 24rpx;
 }
 .ant-stepper .ant-stepper-button-hover {
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: var(--color-black-fade-8, rgba(0, 0, 0, 0.08));
 }
 .ant-stepper .ant-stepper-button-up {
   border-top-left-radius: 0;

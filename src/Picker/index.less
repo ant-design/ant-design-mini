@@ -67,10 +67,14 @@
     .a-picker-view-picker-mask {
       background-image: linear-gradient(
           to bottom,
-          fade(@COLOR_CARD, 95),
-          fade(@COLOR_CARD, 60)
+          @picker-mask-bg-faded-95,
+          @picker-mask-bg-faded-60
         ),
-        linear-gradient(to top, fade(@COLOR_CARD, 95), fade(@COLOR_CARD, 60));
+        linear-gradient(
+          to top,
+          @picker-mask-bg-faded-95,
+          @picker-mask-bg-faded-60
+        );
       will-change: transform;
     }
   }

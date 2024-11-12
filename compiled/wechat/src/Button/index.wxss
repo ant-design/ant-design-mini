@@ -71,7 +71,7 @@
   box-shadow: none;
 }
 .ant-button-text-active {
-  background-color: var(var(--color-white-change, #ffffff), rgba(229, 229, 229, 0.92));
+  background-color: var(--color-border-greycard-faded, rgba(255, 255, 255, 0.92));
 }
 .ant-button-active {
   filter: brightness(0.92);
