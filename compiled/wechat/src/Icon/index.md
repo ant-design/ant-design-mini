@@ -18,7 +18,9 @@ toc: 'content'
 当需要使用图形来对基础操作功能进行隐喻呈现，并给予用户正确、友好且清晰的操作指引时，可以使用 Icon 图标。
 
 ## 引入
-在index.json中引入组件
+
+在 index.json 中引入组件
+
 ```json
 "usingComponents": {
   "ant-icon": "antd-mini/es/Icon/index"
@@ -34,28 +36,38 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
+
 ```xml
 <ant-icon type="SmileOutline" />
 ```
 
 ### 自定义大小及颜色
+
 ```xml
 <ant-icon type="SmileOutline" style="font-size: 20px" />
 <ant-icon type="SmileOutline" style="color: red" />
 ```
 
+### Demo 代码
 
-
-### Demo代码
 <code src='../../demo/pages/Icon/index' noChangeButton></code>
-
 
 ## API
 
-| 属性       | 说明                       | 类型                       | 默认值 |
-| :--------- | :------------------------- | :------------------------- | :----- |
-| className  | 类名                       | string                     | -      |
-| style      | 样式                       | string                     | -      |
-| type       | 图标的类型                 | string                     | -      |
-| catchTap   | 点击图标时触发的回调函数   | (e: Event) => void         | -      |
-| onTap      | 点击图标时触发的回调函数   | (e: Event) => void         | -      |
+| 属性      | 说明                     | 类型               | 默认值 |
+| :-------- | :----------------------- | :----------------- | :----- |
+| className | 类名                     | string             | -      |
+| style     | 样式                     | string             | -      |
+| type      | 图标的类型               | string             | -      |
+| catchTap  | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+| onTap     | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名       | 默认值                                                                                           | 备注     |
+| ------------ | ------------------------------------------------------------------------------------------------ | -------- |
+| --icon-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff">#333333</div> | 图标颜色 |

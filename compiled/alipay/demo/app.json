@@ -88,7 +88,6 @@
     "pages/Divider/index",
     "pages/Grid/index",
     "pages/Rate/index",
-    "pages/RateCustom/index",
     "pages/Slider/index",
     "pages/TabsElevator/index",
     "pages/IndexBarScrollView/index",
