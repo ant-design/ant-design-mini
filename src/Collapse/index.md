@@ -40,26 +40,40 @@ toc: 'content'
 
 <!-- <code src='pages/CollapseCustom/index'></code> -->
 
-
 ## API
 
-| 属性       | 说明                         | 类型        | 默认值 |
-| ---------- | ---------------------------- | ----------- | ------ |
-| accordion  | 是否是手风琴模式，仅一个内容被展开 | boolean     | false  |
-| className  | 类名                          | string      | -      | 
-| content    | 内容区插槽，接收 value、index | slot        | -      | 
-| current    | 当前展开的索引                 | number[]    | -      | 
-| defaultCurrent | 当前展开的默认索引         | number[]    | []     |  
-| items      | 折叠面板列表                   | [CollapseItem](#collapseitem)[] | [] |  
-| style      | 样式                          | string      | -      | 
-| title      | 标题插槽，接收 value、index   | slot        | -      | 
-| onChange   | 切换面板的回调                 | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| 属性           | 说明                               | 类型                                                                                             | 默认值 |
+| -------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------ | ------ |
+| accordion      | 是否是手风琴模式，仅一个内容被展开 | boolean                                                                                          | false  |
+| className      | 类名                               | string                                                                                           | -      |
+| content        | 内容区插槽，接收 value、index      | slot                                                                                             | -      |
+| current        | 当前展开的索引                     | number[]                                                                                         | -      |
+| defaultCurrent | 当前展开的默认索引                 | number[]                                                                                         | []     |
+| items          | 折叠面板列表                       | [CollapseItem](#collapseitem)[]                                                                  | []     |
+| style          | 样式                               | string                                                                                           | -      |
+| title          | 标题插槽，接收 value、index        | slot                                                                                             | -      |
+| onChange       | 切换面板的回调                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### CollapseItem
 
-| 属性       | 说明      | 类型    | 默认值 |
-| ---------- | --------- | ------- | ------ |
-| content    | 内容      | string  | -      |
-| disabled   | 是否禁用   | boolean | false  |
-| title      | 标题      | string  | -      |
-| className  | 类名      | string  | -      |
+| 属性      | 说明     | 类型    | 默认值 |
+| --------- | -------- | ------- | ------ |
+| content   | 内容     | string  | -      |
+| disabled  | 是否禁用 | boolean | false  |
+| title     | 标题     | string  | -      |
+| className | 类名     | string  | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+| 变量名 | 默认值 | 备注 |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| --collapse-title-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 折叠面板标题背景颜色 |
+| --collapse-title-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 折叠面板标题颜色 |
+| --collapse-title-icon-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #ffffff;">#cccccc</div> | 折叠面板标题图标颜色 |
+| --collapse-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 折叠面板内容背景颜色 |
+| --collapse-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | 折叠面板边框颜色 |
+| --collapse-node-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 折叠面板节点文本颜色 |
+| --collapse-container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 折叠面板容器背景颜色 |
