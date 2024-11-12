@@ -92,7 +92,6 @@
     "pages/Slider/index",
     "pages/TabsElevator/index",
     "pages/IndexBarScrollView/index",
-    "pages/SelectorFilter/index",
     "pages/Typography/index",
     "pages/Feedback/index",
     "pages/IndexBarControl/index",
