@@ -76,15 +76,15 @@ interface CellState {
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                           | 默认值                                                                                                                            | 备注                 |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| --calendar-cell-disabled-opacity | 0.4                                                                                                                               | 日历单元格禁用透明度 |
-| --calendar-weekday-names-bg      | <div style="width: 150px; height: 30px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                 | 日历星期名称背景颜色 |
-| --calendar-default-color         | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div>                                 | 日历默认颜色         |
-| --calendar-selected-color        | <div style="width: 150px; height: 30px; background-color: rgba(22, 119, 255, 0.1); color: #333333;">rgba(22, 119, 255, 0.1)</div> | 日历选中颜色         |
-| --calendar-assist-color          | <div style="width: 150px; height: 30px; background-color: #999999; color: #FFFFFF;">#999999</div>                                 | 日历辅助颜色         |
-| --calendar-selected-end-color    | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                                 | 日历选中结束颜色     |
-| --calendar-selected-color        | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div>                                 | 日历选中颜色         |
+| 变量名                           | 默认值                                                                                                                           | 备注                 |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| --calendar-cell-disabled-opacity | 0.4                                                                                                                              | 日历单元格禁用透明度 |
+| --calendar-weekday-names-bg      | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                | 日历星期名称背景颜色 |
+| --calendar-default-color         | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                | 日历默认颜色         |
+| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #666666">rgba(22, 119, 255, 0.1)</div> | 日历选中颜色         |
+| --calendar-assist-color          | <div style="width: 150px; height: 40px; background-color: #999999; color: #FFFFFF;">#999999</div>                                | 日历辅助颜色         |
+| --calendar-selected-end-color    | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                | 日历选中结束颜色     |
+| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div>                                | 日历选中颜色         |
 
 ## FAQ
 
