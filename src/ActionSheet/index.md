@@ -43,3 +43,17 @@ toc: 'content'
 | danger      | 是否危险模式 | boolean | false  |
 | description | 描述         | string  | -      |
 | disabled    | 是否禁用     | boolean | false  |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                       | 默认值                                                                                           | 备注           |
+| ---------------------------- | ------------------------------------------------------------------------------------------------ | -------------- |
+| --actionsheet-danger-color   | <div style="width: 150px; height: 30px; background-color: #ff3141;">#ff3141</div>                | 危险颜色       |
+| --actionsheet-title-color    | <div style="width: 150px; height: 30px; background-color: #999999;">#999999</div>                | 标题颜色       |
+| --actionsheet-item-color     | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff">#333333</div> | 条目颜色       |
+| --actionsheet-item-active-bg | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333">#eeeeee</div> | 条目激活背景色 |
+| --activesheet-item-cancel-bg | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333">#f5f5f5</div> | 条目取消背景色 |
