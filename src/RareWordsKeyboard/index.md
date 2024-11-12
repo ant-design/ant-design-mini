@@ -28,12 +28,18 @@ toc: 'content'
 
 ## API
 
-| 属性      | 说明                                                           | 类型                     | 默认值 |
-| --------- | -------------------------------------------------------------- | ------------------------ | ------ |
-| visible   | 是否可见                                                       | boolean                  | false  |
-| type      | 键盘类型，目前只支持 `pinyin`（拼音）                         | string                   | pinyin |
-| showMask  | 是否展示背景蒙层                                               | boolean                  | true   |
-| safeArea  | 是否保留安全距离                                               | boolean                  | true   |
-| onClose   | 关闭键盘时触发的回调                                           | `() => void`             | -      |
-| onChange  | 输入完成时触发的回调                                           | `(value: string) => void`| -      |
-| onError   | 打开键盘出错时触发的回调                                       | `(err: Error) => void`   | -      |
+| 属性     | 说明                                  | 类型                      | 默认值 |
+| -------- | ------------------------------------- | ------------------------- | ------ |
+| visible  | 是否可见                              | boolean                   | false  |
+| type     | 键盘类型，目前只支持 `pinyin`（拼音） | string                    | pinyin |
+| showMask | 是否展示背景蒙层                      | boolean                   | true   |
+| safeArea | 是否保留安全距离                      | boolean                   | true   |
+| onClose  | 关闭键盘时触发的回调                  | `() => void`              | -      |
+| onChange | 输入完成时触发的回调                  | `(value: string) => void` | -      |
+| onError  | 打开键盘出错时触发的回调              | `(err: Error) => void`    | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。

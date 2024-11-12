@@ -46,3 +46,9 @@ toc: 'content'
 | style              | 样式                                                                                                                                                                | string                                                                                              | -      |
 | visible            | 是否显示                                                                                                                                                            | boolean                                                                                             | -      |
 | onVisibleChange    | visible 变更时的回调                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
