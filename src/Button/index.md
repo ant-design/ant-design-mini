@@ -116,30 +116,41 @@ toc: 'content'
 | #if WECHAT bind:tap         | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if WECHAT bind:disabledtap | 禁用时点击出发回调（微信不支持）                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 
-### WIP 主题定制
+### 主题定制
 
 #### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                                    | 默认值  | 备注 |
-| ----------------------------------------- | ------- | ---- |
-| --button-primary-background-color         | #1677FF | -    |
-| --button-primary-color                    | #FFFFFF | -    |
-| --button-default-background-color         | #FFFFFF | -    |
-| --button-default-color                    | #333333 | -    |
-| --button-default-border-color             | #D8D8D8 | -    |
-| --button-danger-background-color          | #FF3B30 | -    |
-| --button-danger-color                     | #FFFFFF | -    |
-| --button-danger-border-color              | #FF3B30 | -    |
-| --button-disabled-background-color        | #F5F5F5 | -    |
-| --button-disabled-color                   | #CCCCCC | -    |
-| --button-disabled-border-color            | #E5E5E5 | -    |
-| --button-inline-background-color          | #FFFFFF | -    |
-| --button-inline-color                     | #333333 | -    |
-| --button-inline-border-color              | #D8D8D8 | -    |
-| --button-inline-disabled-background-color | #F5F5F5 | -    |
-| --button-inline-disabled-color            | #CCCCCC | -    |
+| 变量名                                   | 默认值                                                                                                                | 备注 |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ---- |
+| --button-disabled-opacity                | 0.4                                                                                                                   | -    |
+| --button-color                           | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | -    |
+| --button-background-color                | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | -    |
+| --button-border-color                    | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | -    |
+| --button-primary-border-color            | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | -    |
+| --button-primary-background-color        | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | -    |
+| --button-primary-color                   | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | -    |
+| --button-primary-aide-border-color       | <div style="width: 150px; height: 30px; background-color: #E7F1FF; color: #333333;">#E7F1FF</div>                     | -    |
+| --button-primary-aide-color              | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | -    |
+| --button-default-aide-border-color       | <div style="width: 150px; height: 30px; background-color: #F5F5F5; color: #333333;">#F5F5F5</div>                     | -    |
+| --button-default-aide-background-color   | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | -    |
+| --button-default-aide-color              | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div>                     | -    |
+| --button-primary-danger-background-color | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
+| --button-primary-danger-border-color     | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
+| --button-primary-danger-color            | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | -    |
+| --button-default-danger-background-color | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | -    |
+| --button-default-danger-border-color     | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
+| --button-default-danger-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
+| --button-text-danger-color               | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
+| --button-danger-default-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | -    |
+| --button-active-bg                       | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.08);">rgba(255, 255, 255, 0.08)</div> | -    |
+| --button-inline-size                     | 30rpx                                                                                                                 | -    |
+| --button-font-size                       | 38rpx                                                                                                                 | -    |
+| --button-large-font-size                 | 38rpx                                                                                                                 | -    |
+| --button-medium-font-size                | 34rpx                                                                                                                 | -    |
+| --button-small-font-size                 | 30rpx                                                                                                                 | -    |
+| --button-icon-size                       | 44rpx                                                                                                                 | -    |
 
 ### 更多属性
 
