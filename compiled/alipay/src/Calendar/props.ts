@@ -7,15 +7,6 @@ export interface CalendarDate {
   date: number;
 }
 
-// export const defaultLocaleText = {
-//   weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
-//   title: 'YYYY年MM月',
-//   today: '今日',
-//   start: '开始',
-//   end: '结束',
-//   startAndEnd: '开始/结束',
-// };
-
 export interface LocaleText {
   /**
    * 星期的名称。从周一到周日
@@ -121,10 +112,6 @@ export interface ICalendarProps extends IBaseProps {
    */
   weekStartsOn?: 'Sunday' | 'Monday';
   /**
-   * 国际化文案
-   */
-  localeText?: Partial<LocaleText>;
-  /**
    * 选中值改变后滚动视图
    */
   changedScrollIntoView?: boolean;
@@ -170,7 +157,6 @@ export const CalendarDefaultProps = {
   selectionMode: 'range',
   monthRange: defaultMonthRange(),
   weekStartsOn: 'Sunday',
-  localeText: undefined,
   onFormatter: null,
   onMonthFormatter: null,
   changedScrollIntoView: null,
