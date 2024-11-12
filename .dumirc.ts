@@ -135,9 +135,10 @@ export default defineConfig({
       skeleton: ['/guide', '/components', '/guide', '/components'],
     },
     docVersions: {
-      'v2': '',
+      'v3': '',
+      'v2': 'https://2x-mini.ant.design',
       'v1': 'https://1x-mini.ant.design',
-      // 'v0': 'https://0x-mini.ant.design',
+      'v0': 'https://0x-mini.ant.design',
     },
     footerLinks: {
       'zh-CN': [
