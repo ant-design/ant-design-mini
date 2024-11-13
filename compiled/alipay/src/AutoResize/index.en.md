@@ -2,12 +2,12 @@
 nav:
   path: /components
 group:
-  title: 实验性
+  title: Other
   order: 15
 toc: 'content'
 ---
 
-# Badge Logo
+# AutoResize
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -15,7 +15,7 @@ A logo that displays a red dot, number, or text. Used to remind the user of pend
 
 ## When to use
 
-Use when you need to display numbers, text, or little red dots in the upper right corner. It is suitable for prompting new messages, functions or services for productization, attracting users' attention through conspicuous visual forms and prompting them to perform related operations.
+When multi-language adaptation of existing components is required, this component can be used in the original layout to complete the adaptation of different lengths of text in the component;
 
 ## Code Sample
 
@@ -23,14 +23,10 @@ Use when you need to display numbers, text, or little red dots in the upper righ
 
 ## API
 
-| Property  | Description                                                                                                                                                               | Type                     | Default Value |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------- |
-| bgColor   | Custom background color, CSS color values                                                                                                                                 | string                   | -             |
-| className | Class name of the component root node                                                                                                                                     | string                   | -             |
-| offsetX   | Horizontal offset                                                                                                                                                         | string                   | '-50%'        |
-| offsetY   | Offset in vertical direction                                                                                                                                              | string                   | '-50%'        |
-| position  | Position of the logo relative to the container, options include:`top-left`、`top-right`、`top-center`、`left`、`right`、`bottom-left`、`bottom-center` and `bottom-right` | string                   | `top-right`   |
-| stroke    | Does the logo have a stroke                                                                                                                                               | boolean                  | false         |
-| style     | Custom Style                                                                                                                                                              | object                   | -             |
-| text      | Logo content. Empty means that only red dots are displayed. It can be numbers or text. If the number exceeds 99, it will be displayed `...`                               | string \| number \| slot | -             |
-| type      | Logo type, options include:`dot`(red dot),`number`(Number type, more than 99 will be automatically converted),`text`(text bubbles) and `bubble`(Bubble form, with arrow)  | string                   | `dot`         |
+| Property        | Description                                                                                                                    | Type    | Default Value |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------- | ------- | ------ |
+| text        | Text to be passed in, used to calculate the width                                                                                              | string  | -      |
+| minFontSize | The minimum font size limit can be set according to the business.                                                                                      | number  | 30     |
+| maxFontSize | The original design font size of this area, which cannot exceed this font size at most.                                                                                  | number  | 36     |
+| wrap        | Whether to support line feed                                                                                                            | boolean | false  |
+| ratio       | Copy width ratio, calculated `maxFontSize / ratio * Copy length`, there are scenes where the English characters are long but the container width is enough to display, but the font is reduced, which can be increased at this time. |

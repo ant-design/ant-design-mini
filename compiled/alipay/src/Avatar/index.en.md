@@ -9,15 +9,33 @@ toc: content
 
 # Avatar
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
-Used to represent a user or thing.
-
-## When to use
-
 When you need to show the characteristics of people or things more intuitively.
 
-## Code example
+## Introduction
+
+In `index.json` Introducing Components in
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-progress": "antd-mini/es/Avatar/index"
+#endif
+#if WECHAT
+  "ant-progress": "antd-mini/Avatar/index"
+#endif
+}
+```
+
+## Code Sample
+
+### Basic use
+```xml
+<ant-avatar src="{{imagesUrl}}" className="avatar" />
+<ant-avatar size="large" src="{{imagesUrl}}" className="avatar" />
+<ant-avatar size="x-small" src="{{imagesUrl}}" style="width: 100rpx" />
+```
+
+### Demo Code
 
 <code src='../../demo/pages/Avatar/index'></code>
 

@@ -9,40 +9,147 @@ toc: 'content'
 
 # List
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 Generic lists can be clean and efficient to carry text, lists, pictures, paragraphs and other elements.
 
-## When to use
-Used when information needs to be presented in the form of a list.
+## Introduction
 
-## Code example
+In `index.json` Introducing Components in
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-progress": "antd-mini/es/List/index"
+#endif
+#if WECHAT
+  "ant-progress": "antd-mini/List/index"
+#endif
+}
+```
+
+## Code Sample
+
+### Basic use
+```xml
+<ant-list
+  header="基础用法"
+  radius="{{true}}"
+>
+  <ant-list-item>1</ant-list-item>
+  <ant-list-item>2</ant-list-item>
+  <ant-list-item>3</ant-list-item>
+</ant-list>
+```
+
+### List Item Configuration
+```xml
+<ant-list header="List Item Configuration">
+  <ant-list-item
+    className="ant-list-item"
+    disabled="{{true}}"
+    image="PayCircleOutline"
+    brief="Total assets数量"
+    extra="详细信息"
+    showDivider="{{true}}"
+  >
+    Total assets
+  </ant-list-item>
+  <ant-list-item
+    style=""
+    image="SetOutline"
+    arrow="right"
+    extraBrief="详细信息"
+  >
+    Setup
+  </ant-list-item>
+</ant-list>
+```
+
+### List item clickable
+```xml
+<ant-list
+  header="可点击列表"
+  radius="{{radius}}"
+>
+  <ant-list-item
+    image="PayCircleOutline"
+#if ALIPAY
+    onTap="handleTap"
+#endif
+#if WECHAT
+    bind:tap="handleTap"
+#endif
+    brief="Total assets数量"
+    extra="详细信息"
+    data-info="Total assets"
+  >
+    Total assets
+  </ant-list-item>
+  <ant-list-item
+    image="SetOutline"
+    arrow="right"
+    extraBrief="详细信息"
+#if ALIPAY
+    catchTap="handleTap"
+#endif
+#if WECHAT
+    bind:catchTap="handleTap"
+#endif
+    data-info="Setup"
+  >
+    Setup
+  </ant-list-item>
+</ant-list>
+```
+
+### Demo Code
+
 <code src='../../demo/pages/List/index'></code>
 
 ## API
 
 ### List
-| Property | Description | Type | Default Value |
-| ----- | ----- | ----- | ----- |
-| className | Class Name | string | - | 
-| footer | Bottom Description | string \| slot | - |
-| header | Head Description | string \| slot | - |
-| radius | Whether with rounded corners | boolean | false | 
-| style | Style | string | - |
+
+| Property      | Description       | Type           | Default Value |
+| --------- | ---------- | -------------- | ------ |
+| className | Class Name       | string         | -      |
+| footer    | Bottom Description   | string \| slot | -      |
+| header    | Head Description   | string \| slot | -      |
+| radius    | Whether with rounded corners | boolean        | false  |
+| style     | Style       | string         | -      |
 
 ### ListItem
-| Property | Description | Type | Default Value |
-| ----- | ----- | ----- | ----- |
-| arrow | right arrow, optional `right`、`up`、`down`, pass true `right` | string \| boolean | - |
-| brief | Second line of information | string \| slot | - | 
-| className | Class Name | string | - | 
-| disabled | Disable | boolean | false | 
-| extra | Extra right | string \| slot | - | 
-| extraBrief | Auxiliary information on the right side | string \| slot | - | 
-| image | Picture on the left | string | - |  
-| radius | Whether with rounded corners | boolean | false | 
-| showDivider | Show underline or not | boolean | true | 
-| style | Style | string | - |
-| title | Header Information | string \| slot | - |
-| catchTap | Callback triggered when clicked | (e: Event) => void |
-| onTap | Callback triggered when clicked | (e: Event) => void |
+
+| Property        | Description                                                     | Type               | Default Value |
+| ----------- | -------------------------------------------------------- | ------------------ | ------ |
+| arrow       | right arrow, optional `right`、`up`、`down`, pass true `right` | string \| boolean  | -      |
+| brief       | Second line of information                                               | string \| slot     | -      |
+| className   | Class Name                                                     | string             | -      |
+| disabled    | Disable                                                 | boolean            | false  |
+| extra       | Extra right                                             | string \| slot     | -      |
+| extraBrief  | Auxiliary information on the right side                                             | string \| slot     | -      |
+| image       | Picture on the left                                                 | string             | -      |
+| radius      | Whether with rounded corners                                               | boolean            | false  |
+| showDivider | Show underline or not                                           | boolean            | true   |
+| style       | Style                                                     | string             | -      |
+| title       | Header Information                                                 | string \| slot     | -      |
+| #if ALIPAY catchTap    | Callback triggered when clicked                                         | (e: Event) => void |
+| #if ALIPAY onTap       | Callback triggered when clicked                                         | (e: Event) => void |
+| #if WECHAT bind:catchTap    | Callback triggered when clicked                                         | (e: Event) => void |
+| #if WECHAT bind:tap       | Callback triggered when clicked                                         | (e: Event) => void |
+
+
+### Theme customization
+
+#### Style Variables
+
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                   | Default Value                                                                                            | Remarks             |
+| ------------------------ | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --list-header-color      | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | List head color     |
+| --list-footer-color      | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | List bottom color     |
+| --list-background-color  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | List background color     |
+| --list-content-color     | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | List Content Text Color |
+| --list-extra-brief-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | List Extra Brief Color |
+| --list-item-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | List Item Border Color   |
+| --list-item-text-color   | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | List Item Text Color   |

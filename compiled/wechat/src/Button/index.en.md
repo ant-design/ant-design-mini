@@ -30,7 +30,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -39,25 +39,25 @@ In `index.json` Introducing Components in
 <ant-button type="primary">Alipay</ant-button>
 #endif
 #if WECHAT
-<ant-button type="primary">Wechat</ant-button>
+<ant-button type="primary">WeChat</ant-button>
 #endif
-<ant-button type="primary">Primary Button</ant-button>
-<ant-button type="default">Default Button</ant-button>
+<ant-button type="primary">Main button</ant-button>
+<ant-button type="default">Secondary button</ant-button>
 <ant-button type="text">Text Button</ant-button>
-<ant-button title="subtitle" type="primary">Button with subtitle</ant-button>
-<ant-button disabled type="primary" onTap="handleTap" onDisabledTap="handleDisabledTap"> disabled </ant-button>
-<ant-button type="primary" loading>loading status</ant-button>
-<ant-button type="primary" danger>danger</ant-button>
+<ant-button title="副标题" type="primary">With auxiliary copy button</ant-button>
+<ant-button disabled type="primary" onTap="handleTap" onDisabledTap="handleDisabledTap"> Disable </ant-button>
+<ant-button type="primary" loading>Loading Status</ant-button>
+<ant-button type="primary" danger>Danger</ant-button>
 ```
 
 ### Inline Button
 
 ```xml
 <ant-button type="primary" inline>Inline Button</ant-button>
-<ant-button type="primary" inline size="large">按钮尺寸-大</ant-button>
-<ant-button type="primary" inline size="medium">按钮尺寸-中</ant-button>
-<ant-button type="primary" inline size="small">按钮尺寸-小</ant-button>
-<ant-button type="primary" inline danger size="large">危险</ant-button>
+<ant-button type="primary" inline size="large">Button Size-Large</ant-button>
+<ant-button type="primary" inline size="medium">Button Size-Medium</ant-button>
+<ant-button type="primary" inline size="small">Button Size-Small</ant-button>
+<ant-button type="primary" inline danger size="large">Danger</ant-button>
 ```
 
 ### Button with icon
@@ -73,8 +73,8 @@ In `index.json` Introducing Components in
 ### More Customizations
 
 ```xml
-<ant-button type="primary" icon="SmileOutline" className="custom-size">自定义大小</ant-button>
-<ant-button type="primary" icon="SmileOutline" className="round">自定义圆角</ant-button>
+<ant-button type="primary" icon="SmileOutline" className="custom-size">Custom Size</ant-button>
+<ant-button type="primary" icon="SmileOutline" className="round">Custom Fillet</ant-button>
 ```
 
 ```css
@@ -108,7 +108,7 @@ The following table describes the API properties for the Button component:
 | icon                        | Icon on the left side of the button                                                    | string                                                                        | -         |
 | loading                     | Whether it is loading or not, it cannot be clicked during loading.                                    | boolean                                                                       | -         |
 | size                        | Button size. Only in `inline` Effective under, optional `small`、`medium`、`large` | string                                                                        | `medium`  |
-| subText                     | Secondary text, displayed on the second line.`inline` DOWN NOT EFFECTIVE                       | string                                                                        | -         |
+| subText                     | Secondary text, displayed on the second line.`inline` Not effective                       | string                                                                        | -         |
 | #if ALIPAY catchTap         | Click the button to trigger this callback, non-bubbling                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onTap            | Click the button to trigger this callback                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onDisabledTap    | Click Departure Callback when disabled (not supported by WeChat)                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
@@ -116,30 +116,49 @@ The following table describes the API properties for the Button component:
 | #if WECHAT bind:tap         | Click the button to trigger this callback                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if WECHAT bind:disabledtap | Click Departure Callback when disabled (not supported by WeChat)                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 
-### WIP Theme Customization
+### Theme customization
 
 #### Style Variables
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                                    | Default Value  | Remarks |
-| ----------------------------------------- | ------- | ---- |
-| --button-primary-background-color         | #1677FF | -    |
-| --button-primary-color                    | #FFFFFF | -    |
-| --button-default-background-color         | #FFFFFF | -    |
-| --button-default-color                    | #333333 | -    |
-| --button-default-border-color             | #D8D8D8 | -    |
-| --button-danger-background-color          | #FF3B30 | -    |
-| --button-danger-color                     | #FFFFFF | -    |
-| --button-danger-border-color              | #FF3B30 | -    |
-| --button-disabled-background-color        | #F5F5F5 | -    |
-| --button-disabled-color                   | #CCCCCC | -    |
-| --button-disabled-border-color            | #E5E5E5 | -    |
-| --button-inline-background-color          | #FFFFFF | -    |
-| --button-inline-color                     | #333333 | -    |
-| --button-inline-border-color              | #D8D8D8 | -    |
-| --button-inline-disabled-background-color | #F5F5F5 | -    |
-| --button-inline-disabled-color            | #CCCCCC | -    |
+| Variable name                                   | Default Value                                                                                                                | Remarks                 |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| --button-disabled-opacity                | 0.4                                                                                                                   | Button Disable Transparency       |
+| --button-color                           | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | Button Color             |
+| --button-background-color                | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | Button background color         |
+| --button-border-color                    | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | Button border color         |
+| --button-primary-border-color            | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | Main button border color     |
+| --button-primary-background-color        | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | Main button background color     |
+| --button-primary-color                   | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | Main button color         |
+| --button-primary-aide-border-color       | <div style="width: 150px; height: 30px; background-color: #E7F1FF; color: #333333;">#E7F1FF</div>                     | Primary Secondary Button Border Color |
+| --button-primary-aide-color              | <div style="width: 150px; height: 30px; background-color: #1677FF;">#1677FF</div>                                     | Primary Auxiliary Button Color     |
+| --button-default-aide-border-color       | <div style="width: 150px; height: 30px; background-color: #F5F5F5; color: #333333;">#F5F5F5</div>                     | Default Secondary Button Border Color |
+| --button-default-aide-background-color   | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | Default Auxiliary Button Background Color |
+| --button-default-aide-color              | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div>                     | Default Auxiliary Button Color     |
+| --button-primary-danger-background-color | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | Primary Danger Button Background Color |
+| --button-primary-danger-border-color     | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | Primary Hazard Button Border Color |
+| --button-primary-danger-color            | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | Primary Hazard Button Color     |
+| --button-default-danger-background-color | <div style="width: 150px; height: 30px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | Default Hazard Button Background Color |
+| --button-default-danger-border-color     | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | Default Hazard Button Border Color |
+| --button-default-danger-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | Default Hazard Button Color     |
+| --button-text-danger-color               | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | Hazard button text color     |
+| --button-danger-default-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | Danger Button Default Color     |
+| --button-active-bg                       | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.08);">rgba(255, 255, 255, 0.08)</div> | Button to activate background color     |
+| --button-inline-size                     | 30rpx                                                                                                                 | Button Inline Size         |
+| --button-font-size                       | 38rpx                                                                                                                 | Button Font Size         |
+| --button-large-font-size                 | 38rpx                                                                                                                 | Large Button Font Size       |
+| --button-medium-font-size                | 34rpx                                                                                                                 | Medium Button Font Size       |
+| --button-small-font-size                 | 30rpx                                                                                                                 | Small Button Font Size       |
+| --button-icon-size                       | 44rpx                                                                                                                 | Button Icon Size         |
+| --button-padding                         | 24rpx                                                                                                                 | Button interior margin           |
+| --button-large-padding                   | 24rpx                                                                                                                 | Large Button Inner Margin         |
+| --button-medium-padding-top              | 16rpx                                                                                                                 | Middle Button Upper Padding       |
+| --button-medium-padding-left             | 24rpx                                                                                                                 | Middle Button Left Inner Margin       |
+| --button-small-padding-top               | 8rpx                                                                                                                  | Small Button Upper Inner Margin       |
+| --button-small-padding-left              | 24rpx                                                                                                                 | Small Button Left Inner Margin       |
+| --button-subtext-size                    | 24rpx                                                                                                                 | Button secondary text size       |
+| --button-border-size                     | 2rpx                                                                                                                  | Button border size         |
 
 ### More Properties
 
