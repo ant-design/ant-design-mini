@@ -1,6 +1,6 @@
 .ant-form-item {
   background-color: var(--form-item-bg, #ffffff);
-  padding: 24rpx 24rpx 24rpx 32rpx;
+  padding: 0.24rem 0.24rem 0.24rem 0.32rem;
   position: relative;
 }
 .ant-form-item::after {
@@ -33,22 +33,22 @@
 .ant-form-item-error-info {
   font-size: 13px;
   color: var(--color-red, #ff3141);
-  line-height: 37rpx;
+  line-height: 0.37rem;
   text-align: left;
-  margin-top: 8rpx;
+  margin-top: 0.08rem;
 }
 .ant-form-item-help-info {
   font-size: 13px;
   color: var(--form-item-color, #666666);
-  line-height: 37rpx;
+  line-height: 0.37rem;
   text-align: left;
-  margin-top: 8rpx;
+  margin-top: 0.08rem;
 }
 .ant-form-item-label {
   display: flex;
   align-items: center;
-  font-size: 34rpx;
-  line-height: 48rpx;
+  font-size: 0.34rem;
+  line-height: 0.48rem;
   overflow: visible;
   position: relative;
 }
@@ -58,22 +58,22 @@
   position: relative;
 }
 .ant-form-item-label-help-content {
-  font-size: 30rpx;
+  font-size: 0.3rem;
   text-align: center;
   white-space: nowrap;
 }
 .ant-form-item-label-horizontal {
-  width: 170rpx;
-  margin-right: 24rpx;
+  width: 1.7rem;
+  margin-right: 0.24rem;
   color: var(--form-item-color, #666666);
-  font-size: 34rpx;
-  line-height: 48rpx;
+  font-size: 0.34rem;
+  line-height: 0.48rem;
 }
 .ant-form-item-label-vertical {
-  font-size: 34rpx;
-  line-height: 42rpx;
+  font-size: 0.34rem;
+  line-height: 0.42rem;
   color: var(--form-item-color, #666666);
-  margin-bottom: 8rpx;
+  margin-bottom: 0.08rem;
 }
 .ant-form-item-field {
   flex: 1;
@@ -84,30 +84,30 @@
 .ant-form-item-extra {
   display: flex;
   align-items: center;
-  font-size: 32rpx;
+  font-size: 0.32rem;
   color: var(--form-extra-color, #999999);
 }
 .ant-form-item-asterisk .ant-form-item-label-required .ant-form-item-label-text::before {
   content: '*';
   position: absolute;
-  left: -18rpx;
-  font-size: 30rpx;
+  left: -0.18rem;
+  font-size: 0.3rem;
   color: var(--form-asterisk-color, #ff3b30);
 }
 .ant-form-item-text-required .ant-form-item-label-required .ant-form-item-label-text::after {
-  padding-left: 4rpx;
+  padding-left: 0.04rem;
   content: '(必填)';
   display: block;
-  left: -18rpx;
-  font-size: 30rpx;
+  left: -0.18rem;
+  font-size: 0.3rem;
   color: var(--form-text-color, #cccccc);
 }
 .ant-form-item-text-optional .ant-form-item-label .ant-form-item-label-text::after {
-  padding-left: 4rpx;
+  padding-left: 0.04rem;
   content: '(选填)';
   display: block;
-  left: -18rpx;
-  font-size: 30rpx;
+  left: -0.18rem;
+  font-size: 0.3rem;
   color: var(--form-text-color, #cccccc);
 }
 .ant-form-item-text-optional .ant-form-item-label-required .ant-form-item-label-text::after {

@@ -1,31 +1,31 @@
 @keyframes text-animate-right {
   33% {
-    margin-left: -10rpx;
+    margin-left: -0.1rem;
   }
   66% {
-    margin-left: 10rpx;
+    margin-left: 0.1rem;
   }
   100% {
-    margin-left: 0rpx;
+    margin-left: 0rem;
   }
 }
 @keyframes text-animate-midd {
   0% {
-    margin-left: 44rpx;
+    margin-left: 0.44rem;
   }
   100% {
-    margin-left: 0rpx;
+    margin-left: 0rem;
   }
 }
 @keyframes text-animate-left {
   33% {
-    margin-left: 10rpx;
+    margin-left: 0.1rem;
   }
   66% {
-    margin-left: -10rpx;
+    margin-left: -0.1rem;
   }
   100% {
-    margin-left: 0rpx;
+    margin-left: 0rem;
   }
 }
 .text-move-right {

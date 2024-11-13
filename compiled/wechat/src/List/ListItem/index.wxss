@@ -10,7 +10,7 @@
 .ant-list-item-line {
   flex: 1;
   display: flex;
-  padding: 0 24rpx;
+  padding: 0 0.24rem;
   align-items: center;
   position: relative;
 }
@@ -33,21 +33,21 @@
   border-radius: 50vh;
 }
 .ant-list-item-image-large-icon {
-  font-size: 80rpx;
+  font-size: 0.8rem;
 }
 .ant-list-item-image-large-image {
-  width: 80rpx;
-  height: 80rpx;
+  width: 0.8rem;
+  height: 0.8rem;
 }
 .ant-list-item-image-normal-icon {
-  font-size: 56rpx;
+  font-size: 0.56rem;
 }
 .ant-list-item-image-normal-image {
-  width: 56rpx;
-  height: 56rpx;
+  width: 0.56rem;
+  height: 0.56rem;
 }
 .ant-list-item-image-container {
-  margin-right: 24rpx;
+  margin-right: 0.24rem;
 }
 .ant-list-item-image-container:empty {
   display: none;
@@ -56,19 +56,19 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 24rpx 0;
+  padding: 0.24rem 0;
 }
 .ant-list-item-content-container-small-text {
-  font-size: 24rpx;
-  line-height: 33rpx;
+  font-size: 0.24rem;
+  line-height: 0.33rem;
 }
 .ant-list-item-content-container-normal-text {
-  font-size: 28rpx;
-  line-height: 40rpx;
+  font-size: 0.28rem;
+  line-height: 0.4rem;
 }
 .ant-list-item-content-main {
-  font-size: 32rpx;
-  line-height: 45rpx;
+  font-size: 0.32rem;
+  line-height: 0.45rem;
 }
 .ant-list-item-content-title-container {
   color: var(--list-extra-brief-color, #999999);
@@ -77,8 +77,8 @@
   color: var(--list-extra-brief-color, #999999);
 }
 .ant-list-item-extra {
-  font-size: 32rpx;
-  line-height: 45rpx;
+  font-size: 0.32rem;
+  line-height: 0.45rem;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -92,26 +92,26 @@
 .ant-list-item-extra-brief {
   display: flex;
   flex-direction: row-reverse;
-  font-size: 28rpx;
-  line-height: 40rpx;
+  font-size: 0.28rem;
+  line-height: 0.4rem;
   color: var(--list-extra-brief-color, #999999);
 }
 .ant-list-item-arrow {
-  margin-left: 8rpx;
+  margin-left: 0.08rem;
   color: var(--list-item-text-color, #cccccc);
   display: flex;
   align-items: center;
 }
 .ant-list-item-arrow .ant-icon {
-  font-size: 36rpx;
+  font-size: 0.36rem;
 }
 .ant-list-item-arrow-large-margin {
-  margin-left: 24rpx;
+  margin-left: 0.24rem;
 }
 .ant-list-item .line {
-  height: 1rpx;
+  height: 0.01rem;
   background-color: var(--list-item-border-color, #e5e5e5);
-  width: calc(100% - 24 * 1rpx);
+  width: calc(100% - 24 * 0.01rem);
   position: absolute;
   right: 0;
 }

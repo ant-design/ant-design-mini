@@ -1,11 +1,11 @@
 .ant-notice-bar {
   position: relative;
   display: flex;
-  height: 75rpx;
+  height: 0.75rem;
   align-items: center;
   overflow: hidden;
-  padding: 16rpx 24rpx;
-  font-size: 30rpx;
+  padding: 0.16rem 0.24rem;
+  font-size: 0.3rem;
   color: var(--notice-color, #ff6010);
   background-color: var(--notice-background-color, #fff9ed);
   box-sizing: border-box;
@@ -35,12 +35,12 @@
   background: var(--notice-info-background-color, #666666);
 }
 .ant-notice-bar-icon {
-  margin-right: 16rpx;
-  font-size: 36rpx;
+  margin-right: 0.16rem;
+  font-size: 0.36rem;
 }
 .ant-notice-bar-icon-image-image {
-  width: 36rpx;
-  height: 36rpx;
+  width: 0.36rem;
+  height: 0.36rem;
 }
 .ant-notice-bar-content {
   position: relative;
@@ -61,7 +61,7 @@
   align-items: center;
 }
 .ant-notice-bar-operation-icon {
-  margin-left: 24rpx;
+  margin-left: 0.24rem;
 }
 .ant-icon-size-x-small {
   font-size: 18px;

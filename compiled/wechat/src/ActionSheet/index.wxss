@@ -1,19 +1,19 @@
 .ant-actionsheet {
-  padding-left: 24rpx;
-  padding-right: 24rpx;
+  padding-left: 0.24rem;
+  padding-right: 0.24rem;
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
 .ant-actionsheet-title-wrap {
   text-align: center;
   position: relative;
-  margin: 0 -24rpx;
+  margin: 0 -0.24rem;
 }
 .ant-actionsheet-title-content {
   display: inline-block;
   text-align: left;
-  padding: 36rpx 30rpx;
-  font-size: 30rpx;
+  padding: 0.36rem 0.3rem;
+  font-size: 0.3rem;
   color: var(--actionsheet-title-color, #999999);
 }
 .ant-actionsheet-title-content::after {
@@ -29,14 +29,14 @@
   transform: scaleY(0.5);
 }
 .ant-actionsheet-list {
-  margin: 0 -24rpx;
+  margin: 0 -0.24rem;
 }
 .ant-actionsheet-list-item {
   color: var(--actionsheet-item-color, #333333);
-  padding: 32rpx 30rpx;
+  padding: 0.32rem 0.3rem;
   text-align: center;
   position: relative;
-  font-size: 36rpx;
+  font-size: 0.36rem;
 }
 .ant-actionsheet-list-item::after {
   content: '';
@@ -56,9 +56,9 @@
 }
 .ant-actionsheet-list-item-description {
   color: var(--actionsheet-title-color, #999999);
-  font-size: 28rpx;
-  line-height: 40rpx;
-  margin-top: 8rpx;
+  font-size: 0.28rem;
+  line-height: 0.4rem;
+  margin-top: 0.08rem;
 }
 .ant-actionsheet-list-item-active {
   background-color: var(--actionsheet-item-active-bg, #e5e5e5);
@@ -71,16 +71,16 @@
   opacity: 0.4;
 }
 .ant-actionsheet-cancel-gap {
-  height: 16rpx;
+  height: 0.16rem;
   background: var(--activesheet-item-cancel-bg, #f5f5f5);
-  margin: 0 -24rpx;
+  margin: 0 -0.24rem;
 }
 .ant-actionsheet-cancel {
   color: var(--actionsheet-item-color, #333333);
-  padding: 32rpx 30rpx;
-  font-size: 36rpx;
+  padding: 0.32rem 0.3rem;
+  font-size: 0.36rem;
   text-align: center;
-  margin: 0 -24rpx;
+  margin: 0 -0.24rem;
 }
 .ant-actionsheet-cancel:active {
   background-color: var(--actionsheet-item-active-bg, #e5e5e5);
@@ -93,9 +93,9 @@
   align-items: center;
 }
 .ant-actionsheet-icon .ant-actionsheet-list-item-icon {
-  height: 48rpx;
-  flex: 0 0 48rpx;
-  margin-right: 24rpx;
+  height: 0.48rem;
+  flex: 0 0 0.48rem;
+  margin-right: 0.24rem;
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;

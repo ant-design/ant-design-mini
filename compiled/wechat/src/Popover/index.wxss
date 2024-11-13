@@ -5,29 +5,29 @@
   z-index: 999;
 }
 .ant-popover-close {
-  margin-left: 24rpx;
-  width: 38rpx;
-  height: 38rpx;
+  margin-left: 0.24rem;
+  width: 0.38rem;
+  height: 0.38rem;
 }
 .ant-popover-close .ant-popover-close-icon {
   position: absolute;
-  top: 20rpx;
-  right: 20rpx;
-  font-size: 36rpx;
+  top: 0.2rem;
+  right: 0.2rem;
+  font-size: 0.36rem;
 }
 .ant-popover-image {
-  padding-right: 24rpx;
-  border-radius: 16rpx;
+  padding-right: 0.24rem;
+  border-radius: 0.16rem;
 }
 .ant-popover-action {
   background: var(--popover-bg, #ffffff);
   font-weight: 400;
-  font-size: 24rpx;
+  font-size: 0.24rem;
   color: var(--popover-text-color, #000000);
-  padding: 10rpx 20rpx;
-  line-height: 33rpx;
+  padding: 0.1rem 0.2rem;
+  line-height: 0.33rem;
   border-radius: 50vh;
-  margin-left: 24rpx;
+  margin-left: 0.24rem;
 }
 .ant-popover-mask {
   z-index: 998;
@@ -35,18 +35,18 @@
 }
 .ant-popover-content {
   position: absolute;
-  min-width: 64rpx;
-  max-width: calc(100vw - 48 * 1rpx);
+  min-width: 0.64rem;
+  max-width: calc(100vw - 48 * 0.01rem);
   z-index: 999;
 }
 .ant-popover-inner {
   position: relative;
-  border-radius: 24rpx;
+  border-radius: 0.24rem;
   overflow: hidden;
-  font-size: 28rpx;
+  font-size: 0.28rem;
   background-color: var(--color-background-popover, #404040);
   color: var(--popover-inner-color, #ff3141);
-  padding: 20rpx;
+  padding: 0.2rem;
   width: max-content;
   display: flex;
   justify-content: flex-start;
@@ -60,26 +60,26 @@
   -webkit-line-clamp: 2;
   /* 这里是超出几行省略 */
   overflow: hidden;
-  max-width: 420rpx;
-  line-height: 40rpx;
+  max-width: 4.2rem;
+  line-height: 0.4rem;
 }
 .ant-popover-inner .ant-popover-image-content-image {
-  width: 80rpx;
-  height: 80rpx;
+  width: 0.8rem;
+  height: 0.8rem;
 }
 .ant-popover-arrow {
   position: absolute;
   width: 0;
   height: 0;
-  border-left: 18rpx solid transparent;
-  border-right: 18rpx solid transparent;
-  border-bottom: 18rpx solid var(--color-background-popover, #404040);
+  border-left: 0.18rem solid transparent;
+  border-right: 0.18rem solid transparent;
+  border-bottom: 0.18rem solid var(--color-background-popover, #404040);
 }
 .ant-popover-top {
   transform: translate(-50%, -100%);
 }
 .ant-popover-top-arrow {
-  bottom: 2rpx;
+  bottom: 0.02rem;
   transform: translate(-50%, 100%) rotate(180deg);
   left: 50%;
 }
@@ -87,7 +87,7 @@
   transform: translate(-50%, 100%);
 }
 .ant-popover-bottom-arrow {
-  top: 2rpx;
+  top: 0.02rem;
   transform: translate(-50%, -100%) rotate(0deg);
   left: 50%;
 }
@@ -95,7 +95,7 @@
   transform: translate(-100%, -50%);
 }
 .ant-popover-left-arrow {
-  right: 2rpx;
+  right: 0.02rem;
   transform: translate(75%, -50%) rotate(90deg);
   top: 50%;
 }
@@ -103,7 +103,7 @@
   transform: translate(100%, -50%);
 }
 .ant-popover-right-arrow {
-  left: 2rpx;
+  left: 0.02rem;
   transform: translate(-75%, -50%) rotate(-90deg);
   top: 50%;
 }
@@ -111,63 +111,63 @@
   transform: translate(0, -100%);
 }
 .ant-popover-top-left-arrow {
-  bottom: 2rpx;
+  bottom: 0.02rem;
   transform: translate(0, 100%) rotate(180deg);
-  left: 24rpx;
+  left: 0.24rem;
 }
 .ant-popover-top-right {
   transform: translate(0, -100%);
 }
 .ant-popover-top-right-arrow {
-  bottom: 2rpx;
+  bottom: 0.02rem;
   transform: translate(0, 100%) rotate(180deg);
-  right: 24rpx;
+  right: 0.24rem;
 }
 .ant-popover-bottom-left {
   transform: translate(0, 100%);
 }
 .ant-popover-bottom-left-arrow {
-  top: 2rpx;
+  top: 0.02rem;
   transform: translate(0, -100%) rotate(0deg);
-  left: 24rpx;
+  left: 0.24rem;
 }
 .ant-popover-bottom-right {
   transform: translate(0, 100%);
 }
 .ant-popover-bottom-right-arrow {
-  top: 2rpx;
+  top: 0.02rem;
   transform: translate(0, -100%) rotate(0deg);
-  right: 24rpx;
+  right: 0.24rem;
 }
 .ant-popover-left-top {
   transform: translate(-100%, 0);
 }
 .ant-popover-left-top-arrow {
-  right: 2rpx;
+  right: 0.02rem;
   transform: translate(75%, 0) rotate(90deg);
-  top: 24rpx;
+  top: 0.24rem;
 }
 .ant-popover-left-bottom {
   transform: translate(-100%, 0);
 }
 .ant-popover-left-bottom-arrow {
-  right: 2rpx;
+  right: 0.02rem;
   transform: translate(75%, 0) rotate(90deg);
-  bottom: 24rpx;
+  bottom: 0.24rem;
 }
 .ant-popover-right-top {
   transform: translate(100%, 0);
 }
 .ant-popover-right-top-arrow {
-  left: 2rpx;
+  left: 0.02rem;
   transform: translate(-75%, 0) rotate(-90deg);
-  top: 24rpx;
+  top: 0.24rem;
 }
 .ant-popover-right-bottom {
   transform: translate(100%, 0);
 }
 .ant-popover-right-bottom-arrow {
-  left: 2rpx;
+  left: 0.02rem;
   transform: translate(-75%, 0) rotate(-90deg);
-  bottom: 24rpx;
+  bottom: 0.24rem;
 }

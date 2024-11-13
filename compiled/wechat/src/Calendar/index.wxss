@@ -13,38 +13,38 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  max-height: 82rpx;
+  max-height: 0.82rem;
   width: 100%;
   overflow: hidden;
-  top: 88rpx;
+  top: 0.88rem;
   z-index: 1000;
 }
 .ant-calendar-mark {
-  height: 88rpx;
+  height: 0.88rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
-  font-size: 28rpx;
-  padding: 0 16rpx;
+  font-size: 0.28rem;
+  padding: 0 0.16rem;
 }
 .ant-calendar-mark .ant-calendar-mark-cell {
   flex: 1;
   text-align: center;
-  width: calc((100% - 6 * 10rpx) / 7);
-  margin-right: 10rpx;
+  width: calc((100% - 6 * 0.1rem) / 7);
+  margin-right: 0.1rem;
 }
 .ant-calendar-mark .ant-calendar-mark-cell-last {
   margin-right: 0;
 }
 .ant-calendar-title {
   color: var(--calendar-default-color, #333333);
-  font-size: 36rpx;
-  height: 82rpx;
-  line-height: 82rpx;
-  padding-left: 40rpx;
-  margin-bottom: 8rpx;
+  font-size: 0.36rem;
+  height: 0.82rem;
+  line-height: 0.82rem;
+  padding-left: 0.4rem;
+  margin-bottom: 0.08rem;
   background: var(--calendar-weekday-names-bg, #f8f8f8);
 }
 .ant-calendar-cells {
@@ -53,76 +53,76 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: stretch;
-  padding: 0 16rpx;
+  padding: 0 0.16rem;
 }
 .ant-calendar-cell-space {
-  width: 10rpx;
-  height: 110rpx;
+  width: 0.1rem;
+  height: 1.1rem;
 }
 .ant-calendar-cell-space-active {
   background: var(--calendar-selected-color, #1677ff);
 }
 .ant-calendar-cell {
   box-sizing: border-box;
-  width: calc((100% - 6 * 10rpx) / 7);
-  height: 110rpx;
-  margin-bottom: 8rpx;
+  width: calc((100% - 6 * 0.1rem) / 7);
+  height: 1.1rem;
+  margin-bottom: 0.08rem;
   position: relative;
 }
 .ant-calendar-cell-container {
   box-sizing: border-box;
-  padding-top: 7rpx;
+  padding-top: 0.07rem;
   height: 100%;
 }
 .ant-calendar-cell-top {
   color: var(--calendar-assist-color, #999999);
   text-align: center;
-  font-size: 18rpx;
-  height: 25rpx;
+  font-size: 0.18rem;
+  height: 0.25rem;
 }
 .ant-calendar-cell-top-text {
   white-space: nowrap;
 }
 .ant-calendar-cell-center {
   text-align: center;
-  height: 45rpx;
-  font-size: 32rpx;
+  height: 0.45rem;
+  font-size: 0.32rem;
 }
 .ant-calendar-cell-bottom {
   color: var(--calendar-assist-color, #999999);
   text-align: center;
-  font-size: 18rpx;
-  height: 25rpx;
+  font-size: 0.18rem;
+  height: 0.25rem;
 }
 .ant-calendar-cell-selected {
   background: var(--calendar-selected-color, #1677ff);
 }
 .ant-calendar-cell-selected-begin {
-  border-top-left-radius: 8rpx;
-  border-bottom-left-radius: 8rpx;
+  border-top-left-radius: 0.08rem;
+  border-bottom-left-radius: 0.08rem;
   background: var(--calendar-selected-color, #1677ff);
 }
 .ant-calendar-cell-selected-end {
-  border-top-right-radius: 8rpx;
-  border-bottom-right-radius: 8rpx;
+  border-top-right-radius: 0.08rem;
+  border-bottom-right-radius: 0.08rem;
   color: var(--calendar-selected-end-color, #ffffff);
 }
 .ant-calendar-cell-selected-row-end {
-  border-top-right-radius: 8rpx;
-  border-bottom-right-radius: 8rpx;
+  border-top-right-radius: 0.08rem;
+  border-bottom-right-radius: 0.08rem;
 }
 .ant-calendar-cell-selected-row-begin {
-  border-top-left-radius: 8rpx;
-  border-bottom-left-radius: 8rpx;
+  border-top-left-radius: 0.08rem;
+  border-bottom-left-radius: 0.08rem;
 }
 .ant-calendar-cell-selected-begin .ant-calendar-cell-container {
   background: var(--calendar-selected-color, #1677ff);
-  border-radius: 8rpx;
+  border-radius: 0.08rem;
   color: var(--calendar-selected-end-color, #ffffff);
 }
 .ant-calendar-cell-selected-end .ant-calendar-cell-container {
   background: var(--calendar-selected-color, #1677ff);
-  border-radius: 8rpx;
+  border-radius: 0.08rem;
   color: var(--calendar-selected-end-color, #ffffff);
 }
 .ant-calendar-cell-selected-end .ant-calendar-cell-top {

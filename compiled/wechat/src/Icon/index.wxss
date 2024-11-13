@@ -9,7 +9,7 @@
   -webkit-font-smoothing: antialiased;
   line-height: 1;
   color: var(--icon-color, #333333);
-  font-size: 32rpx;
+  font-size: 0.32rem;
 }
 .ant-icon-MinusOutline:before {
   content: '\e66f';

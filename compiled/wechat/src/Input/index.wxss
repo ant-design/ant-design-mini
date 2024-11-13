@@ -15,16 +15,16 @@
 }
 .ant-input-prefix {
   color: var(--input-item-placeholder-color, #cccccc);
-  font-size: 34rpx;
-  margin: 0 8rpx 0 8rpx;
+  font-size: 0.34rem;
+  margin: 0 0.08rem 0 0.08rem;
 }
 .ant-input-prefix:empty {
   display: none;
 }
 .ant-input-suffix {
   color: var(--input-item-placeholder-color, #cccccc);
-  font-size: 34rpx;
-  margin: 0 8rpx 0 8rpx;
+  font-size: 0.34rem;
+  margin: 0 0.08rem 0 0.08rem;
 }
 .ant-input-suffix:empty {
   display: none;
@@ -33,7 +33,7 @@
   width: 100%;
   align-self: center;
   padding: 0;
-  font-size: 34rpx;
+  font-size: 0.34rem;
   text-align: left;
   color: var(--input-item-color, #333333);
   background: var(--input-background-color, #ffffff);
@@ -42,12 +42,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 16rpx;
+  border-radius: 0.16rem;
 }
 .ant-input-clear-icon {
   color: var(--input-item-placeholder-color, #cccccc);
-  font-size: 34rpx;
-  padding: 8rpx 0 8rpx 16rpx;
+  font-size: 0.34rem;
+  padding: 0.08rem 0 0.08rem 0.16rem;
 }
 .ant-input-clear-show {
   opacity: 1;
@@ -57,7 +57,7 @@
   pointer-events: none;
 }
 .ant-input-placeholder {
-  font-size: 34rpx;
+  font-size: 0.34rem;
   color: var(--input-item-placeholder-color, #cccccc);
-  margin-left: -6rpx;
+  margin-left: -0.06rem;
 }

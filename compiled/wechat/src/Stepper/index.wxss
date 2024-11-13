@@ -2,48 +2,48 @@
   position: relative;
   display: inline-flex;
   flex-wrap: nowrap;
-  height: 44rpx;
+  height: 0.44rem;
   border-radius: 50vh;
-  border: 2rpx solid var(--stepper-border-color, #e5e5e5);
+  border: 0.02rem solid var(--stepper-border-color, #e5e5e5);
   overflow: hidden;
   box-sizing: border-box;
 }
 .ant-stepper .ant-stepper-button {
-  width: 44rpx;
-  height: 44rpx;
-  line-height: 44rpx;
+  width: 0.44rem;
+  height: 0.44rem;
+  line-height: 0.44rem;
   padding: 0;
   color: #1677ff;
   background-color: var(--stepper-background-color, #ffffff);
 }
 .ant-stepper .ant-stepper-button .ant-icon {
-  font-size: 24rpx;
+  font-size: 0.24rem;
 }
 .ant-stepper .ant-stepper-button-hover {
   background-color: var(--stepper-hover-bg, rgba(0, 0, 0, 0.08));
 }
 .ant-stepper .ant-stepper-button-up {
   border-top-left-radius: 0;
-  border-top-right-radius: 4rpx;
+  border-top-right-radius: 0.04rem;
   border-bottom-left-radius: 0;
-  border-bottom-right-radius: 4rpx;
+  border-bottom-right-radius: 0.04rem;
 }
 .ant-stepper .ant-stepper-button-down {
   border-top-right-radius: 0;
-  border-top-left-radius: 4rpx;
+  border-top-left-radius: 0.04rem;
   border-bottom-right-radius: 0;
-  border-bottom-left-radius: 4rpx;
+  border-bottom-left-radius: 0.04rem;
 }
 .ant-stepper .ant-stepper-button-disabled {
   color: #999999;
 }
 .ant-stepper-input {
-  width: 64rpx;
-  height: 44rpx;
-  margin: 0 2rpx;
+  width: 0.64rem;
+  height: 0.44rem;
+  margin: 0 0.02rem;
   text-align: center;
   line-height: normal;
-  font-size: 30rpx;
+  font-size: 0.3rem;
   color: #333333;
   box-sizing: border-box;
   background-color: var(--stepper-background-color, #ffffff);

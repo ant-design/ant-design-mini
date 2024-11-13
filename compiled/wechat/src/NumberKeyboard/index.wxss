@@ -55,28 +55,28 @@
   flex-direction: column;
 }
 .ant-number-keyboard-kb_none {
-  height: 80rpx;
-  width: calc(100% - 96 * 1rpx);
-  padding: 0 48rpx;
-  font-size: 28rpx;
+  height: 0.8rem;
+  width: calc(100% - 96 * 0.01rem);
+  padding: 0 0.48rem;
+  font-size: 0.28rem;
   background-color: var(--number-key-board-iphonex-safe-background-color, #ffffff);
   display: flex;
   position: relative;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-bottom: 2rpx solid var(--number-key-board-background-color, #f5f5f5);
+  border-bottom: 0.02rem solid var(--number-key-board-background-color, #f5f5f5);
   color: var(--number-key-board-none-text-color, #999999);
 }
 .ant-number-keyboard-kb_number {
   flex: 1;
   height: calc(100vh / 14);
   text-align: center;
-  font-size: 50rpx;
+  font-size: 0.5rem;
   color: var(--number-key-board-text-color, #333333);
   background: var(--number-key-board-iphonex-safe-background-color, #ffffff);
-  border-right: 2rpx solid var(--number-key-board-background-color, #f5f5f5);
-  border-bottom: 2rpx solid var(--number-key-board-background-color, #f5f5f5);
+  border-right: 0.02rem solid var(--number-key-board-background-color, #f5f5f5);
+  border-bottom: 0.02rem solid var(--number-key-board-background-color, #f5f5f5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,9 +102,9 @@
   flex: 1;
   height: calc(100vh / 14);
   text-align: center;
-  font-size: 34rpx;
-  border-right: 2rpx solid var(--number-key-board-background-color, #f5f5f5);
-  border-bottom: 2rpx solid var(--number-key-board-background-color, #f5f5f5);
+  font-size: 0.34rem;
+  border-right: 0.02rem solid var(--number-key-board-background-color, #f5f5f5);
+  border-bottom: 0.02rem solid var(--number-key-board-background-color, #f5f5f5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +113,7 @@
   overflow: hidden;
 }
 .ant-number-keyboard-kb_transfer-btn {
-  font-size: 32rpx;
+  font-size: 0.32rem;
   font-weight: bold;
 }
 .ant-number-keyboard-kb_transfer:active {
@@ -134,7 +134,7 @@
   content: '';
 }
 .ant-number-keyboard-kb_iphonex-safe {
-  height: 48rpx;
+  height: 0.48rem;
   width: 100%;
   background-color: var(--number-key-board-iphonex-safe-background-color, #ffffff);
 }
@@ -145,8 +145,8 @@
   background-color: var(--number-key-board-border-color, #e5e5e5);
 }
 .ant-number-keyboard-down {
-  font-size: 40rpx;
+  font-size: 0.4rem;
 }
 .ant-number-keyboard-del {
-  font-size: 50rpx;
+  font-size: 0.5rem;
 }

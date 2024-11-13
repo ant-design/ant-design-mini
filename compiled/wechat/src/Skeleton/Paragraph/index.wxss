@@ -13,9 +13,9 @@
 }
 .ant-skeleton-paragraph-row {
   width: 100%;
-  height: 30rpx;
-  margin-bottom: 24rpx;
-  border-radius: 8rpx;
+  height: 0.3rem;
+  margin-bottom: 0.24rem;
+  border-radius: 0.08rem;
   background: var(--color-border, #e5e5e5);
 }
 .ant-skeleton-paragraph-row:nth-last-of-type(1) {

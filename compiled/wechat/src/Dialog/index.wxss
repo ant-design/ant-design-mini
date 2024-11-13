@@ -1,41 +1,41 @@
 .ant-dialog-body {
-  width: 560rpx;
+  width: 5.6rem;
   background-color: var(--dialog-background-color, #ffffff);
-  padding: 48rpx 44rpx;
+  padding: 0.48rem 0.44rem;
   display: flex;
   flex-direction: column;
-  border-radius: 48rpx;
+  border-radius: 0.48rem;
 }
 .ant-dialog-body-header {
-  width: calc(100% + 88 * 1rpx);
-  border-top-left-radius: 48rpx;
-  border-top-right-radius: 48rpx;
-  margin: -48rpx -44rpx 36rpx -44rpx;
+  width: calc(100% + 88 * 0.01rem);
+  border-top-left-radius: 0.48rem;
+  border-top-right-radius: 0.48rem;
+  margin: -0.48rem -0.44rem 0.36rem -0.44rem;
 }
 .ant-dialog-body-title {
-  line-height: 56rpx;
+  line-height: 0.56rem;
   text-align: center;
   color: var(--dialog-title-color, #333333);
-  padding-bottom: 32rpx;
+  padding-bottom: 0.32rem;
   font-weight: 500;
-  font-size: 40rpx;
+  font-size: 0.4rem;
 }
 .ant-dialog-body-content {
-  line-height: 42rpx;
-  padding-bottom: 24rpx;
-  font-size: 32rpx;
+  line-height: 0.42rem;
+  padding-bottom: 0.24rem;
+  font-size: 0.32rem;
   color: var(--dialog-content-color, #333333);
   text-align: center;
 }
 .ant-dialog-body-footer {
-  padding: 48rpx 4rpx 0 4rpx;
+  padding: 0.48rem 0.04rem 0 0.04rem;
 }
 .ant-dialog-body-footer-vertical {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  gap: 24rpx;
+  gap: 0.24rem;
 }
 .ant-dialog-body-footer-vertical .ant-dialog-body-footer-button {
   width: 100%;
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 24rpx;
+  gap: 0.24rem;
   flex-direction: row;
 }
 .ant-dialog-body-footer-horizontal .ant-dialog-body-footer-button {
@@ -54,11 +54,11 @@
   top: 72rpx;
   position: relative;
   left: 50%;
-  margin-left: -30rpx;
+  margin-left: -0.3rem;
   z-index: 3;
-  width: 60rpx;
-  height: 60rpx;
-  font-size: 72rpx;
+  width: 0.6rem;
+  height: 0.6rem;
+  font-size: 0.72rem;
   color: var(--dialog-close-text-color, #999999);
 }
 .ant-dialog .ant-popup-content.ant-popup-center {

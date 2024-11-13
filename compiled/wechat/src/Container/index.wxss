@@ -1,12 +1,12 @@
 .ant-container {
-  border-radius: 16rpx;
-  margin-bottom: 24rpx;
+  border-radius: 0.16rem;
+  margin-bottom: 0.24rem;
 }
 .ant-container-headerInBox {
   background-color: var(--container-background-color, #ffffff);
 }
 .ant-container-headerInBox .ant-container-header {
-  padding: 0 24rpx;
+  padding: 0 0.24rem;
 }
 .ant-container-headerInBox .ant-container-header .ant-container-header-title,
 .ant-container-headerInBox .ant-container-header .ant-container-header-right {
@@ -26,20 +26,20 @@
   transform: scaleY(0.5);
 }
 .ant-container-content {
-  padding: 24rpx;
+  padding: 0.24rem;
   background-color: var(--container-background-color, #ffffff);
-  border-radius: 16rpx;
+  border-radius: 0.16rem;
 }
 .ant-container-header {
   display: flex;
 }
 .ant-container-header-title {
-  font-size: 32rpx;
+  font-size: 0.32rem;
   font-weight: bold;
   color: var(--container-header-color, #333333);
   display: flex;
   align-items: center;
-  height: 96rpx;
+  height: 0.96rem;
   flex: 1;
 }
 .ant-container-header-title:empty {
@@ -49,7 +49,7 @@
   color: var(--color-text-assist, #999999);
   display: flex;
   align-items: center;
-  height: 96rpx;
+  height: 0.96rem;
   justify-content: flex-end;
 }
 .ant-container-header-right:empty {

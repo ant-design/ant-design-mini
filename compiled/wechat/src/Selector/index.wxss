@@ -14,7 +14,7 @@
 .ant-selector-content {
   display: flex;
   flex: 0 33.3333%;
-  padding: calc(24rpx / 2);
+  padding: calc(0.24rem / 2);
   box-sizing: border-box;
 }
 .ant-selector-content-item2 {
@@ -26,9 +26,9 @@
   justify-content: flex-start;
 }
 .ant-selector-content .ant-tap-modal-mask {
-  width: calc(100% - 24 * 1rpx);
-  height: calc(100% - 24 * 1rpx);
-  margin: 12rpx 0 0 12rpx;
+  width: calc(100% - 24 * 0.01rem);
+  height: calc(100% - 24 * 0.01rem);
+  margin: 0.12rem 0 0 0.12rem;
 }
 .ant-selector-item {
   position: relative;
@@ -37,10 +37,10 @@
   flex-direction: column;
   justify-content: flex-start;
   overflow: hidden;
-  padding: calc(24rpx / 2) calc(24rpx / 4);
+  padding: calc(0.24rem / 2) calc(0.24rem / 4);
   text-align: center;
   background-color: var(--selector-item-background, #f5f5f5);
-  border-radius: 8rpx;
+  border-radius: 0.08rem;
 }
 .ant-selector-item-active {
   background-color: var(--selector-item-active-background, #e7f1ff);
@@ -52,11 +52,11 @@
   opacity: 0.6;
 }
 .ant-selector-item-text {
-  font-size: 30rpx;
+  font-size: 0.3rem;
   color: var(--selector-item-color, #1677ff);
 }
 .ant-selector-item-subtext {
-  font-size: 26rpx;
+  font-size: 0.26rem;
   color: var(--selector-item-sub-color, #999999);
 }
 .ant-selector-item-badge-active {

@@ -1,6 +1,6 @@
 .ant-rate {
   display: inline-flex;
-  font-size: 48rpx;
+  font-size: 0.48rem;
   user-select: none;
 }
 .ant-rate-container {
@@ -8,7 +8,7 @@
 }
 .ant-rate-star {
   position: relative;
-  margin-right: 8rpx;
+  margin-right: 0.08rem;
   line-height: 1;
 }
 .ant-rate-star:last-child {

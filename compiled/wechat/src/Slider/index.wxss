@@ -5,37 +5,37 @@
 .ant-slider-track {
   position: relative;
   width: 100%;
-  height: 56rpx;
+  height: 0.56rem;
   background-color: var(--slider-track-bg, #ffffff);
 }
 .ant-slider-track-number {
-  height: 97rpx;
+  height: 0.97rem;
 }
 .ant-slider-track-touch-area {
   position: absolute;
-  left: 28rpx;
-  top: 0rpx;
-  right: 25rpx;
+  left: 0.28rem;
+  top: 0rem;
+  right: 0.25rem;
   height: 100%;
 }
 .ant-slider-track-fill {
   position: absolute;
-  left: 0rpx;
-  top: 25rpx;
-  right: 0rpx;
-  height: 6rpx;
+  left: 0rem;
+  top: 0.25rem;
+  right: 0rem;
+  height: 0.06rem;
 }
 .ant-slider-track-fill-background {
   position: absolute;
   background-color: var(--slider-fill-bg, #f5f5f5);
   width: 100%;
   height: 100%;
-  border-radius: 3rpx;
+  border-radius: 0.03rem;
 }
 .ant-slider-track-fill-front {
   position: absolute;
   height: 100%;
-  border-radius: 3rpx;
+  border-radius: 0.03rem;
   background-color: var(--slider-default-primary-color, #1677ff);
 }
 .ant-slider-handler {
@@ -43,16 +43,16 @@
   touch-action: none;
   left: 0;
   transform: translate(-50%, -50%);
-  top: 3rpx;
+  top: 0.03rem;
 }
 .ant-slider-handler-block {
-  width: 56rpx;
-  height: 56rpx;
+  width: 0.56rem;
+  height: 0.56rem;
   background: var(--slide-block-bg, #ffffff);
-  box-shadow: 0 4rpx 10rpx 0 var(--slide-block-shadow, rgba(0, 0, 0, 0.12));
-  border-radius: 56rpx;
+  box-shadow: 0 0.04rem 0.1rem 0 var(--slide-block-shadow, rgba(0, 0, 0, 0.12));
+  border-radius: 0.56rem;
   text-align: center;
-  line-height: 56rpx;
+  line-height: 0.56rem;
   color: var(--slider-default-primary-color, #1677ff);
 }
 .ant-slider-handler-icon-default {
@@ -64,30 +64,30 @@
 }
 .ant-slider-handler-icon-default-line1 {
   position: absolute;
-  width: 4rpx;
-  height: 16rpx;
+  width: 0.04rem;
+  height: 0.16rem;
   background-color: var(--slider-default-primary-color, #1677ff);
-  border-radius: 2rpx;
-  top: 20rpx;
-  left: 16rpx;
+  border-radius: 0.02rem;
+  top: 0.2rem;
+  left: 0.16rem;
 }
 .ant-slider-handler-icon-default-line2 {
   position: absolute;
-  width: 4rpx;
-  height: 24rpx;
+  width: 0.04rem;
+  height: 0.24rem;
   background-color: var(--slider-default-primary-color, #1677ff);
-  border-radius: 2rpx;
-  top: 16rpx;
-  right: 26rpx;
+  border-radius: 0.02rem;
+  top: 0.16rem;
+  right: 0.26rem;
 }
 .ant-slider-handler-icon-default-line3 {
   position: absolute;
-  width: 4rpx;
-  height: 16rpx;
+  width: 0.04rem;
+  height: 0.16rem;
   background-color: var(--slider-default-primary-color, #1677ff);
-  border-radius: 2rpx;
-  top: 20rpx;
-  right: 16rpx;
+  border-radius: 0.02rem;
+  top: 0.2rem;
+  right: 0.16rem;
 }
 .ant-slider-handler-icon-from-props {
   position: absolute;
@@ -106,10 +106,10 @@
 }
 .ant-slider-tick {
   position: absolute;
-  width: 16rpx;
-  height: 16rpx;
-  border-radius: 16rpx;
-  top: 3rpx;
+  width: 0.16rem;
+  height: 0.16rem;
+  border-radius: 0.16rem;
+  top: 0.03rem;
   transform: translate(-50%, -50%);
 }
 .ant-slider-tick-front {
@@ -121,11 +121,11 @@
 .ant-slider-tick-number {
   position: absolute;
   color: var(--slider-number-color, #333333);
-  font-size: 24rpx;
+  font-size: 0.24rem;
   transform: translateX(-50%);
-  top: 44rpx;
-  left: 8rpx;
+  top: 0.44rem;
+  left: 0.08rem;
   text-align: center;
-  line-height: 33rpx;
-  height: 33rpx;
+  line-height: 0.33rem;
+  height: 0.33rem;
 }
