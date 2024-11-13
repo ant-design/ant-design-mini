@@ -14,12 +14,12 @@
   text-align: left;
   padding: 36rpx 30rpx;
   font-size: 30rpx;
-  color: var(--color-text-assist, #999999);
+  color: var(--actionsheet-title-color, #999999);
 }
 .ant-actionsheet-title-content::after {
   content: '';
   position: absolute;
-  background-color: var(--color-border, #e5e5e5);
+  background-color: var(--actionsheet-item-active-bg, #e5e5e5);
   display: block;
   top: auto;
   right: 0;
@@ -32,7 +32,7 @@
   margin: 0 -24rpx;
 }
 .ant-actionsheet-list-item {
-  color: var(--color-text-primary, #333333);
+  color: var(--actionsheet-item-color, #333333);
   padding: 32rpx 30rpx;
   text-align: center;
   position: relative;
@@ -41,7 +41,7 @@
 .ant-actionsheet-list-item::after {
   content: '';
   position: absolute;
-  background-color: var(--color-border, #e5e5e5);
+  background-color: var(--actionsheet-item-active-bg, #e5e5e5);
   display: block;
   top: auto;
   right: 0;
@@ -51,17 +51,17 @@
   transform: scaleY(0.5);
 }
 .ant-actionsheet-list-item-title-danger {
-  color: var(--color-red, #ff3141);
+  color: var(--actionsheet-danger-color, #ff3141);
   font-weight: bold;
 }
 .ant-actionsheet-list-item-description {
-  color: var(--color-text-assist, #999999);
+  color: var(--actionsheet-title-color, #999999);
   font-size: 28rpx;
   line-height: 40rpx;
   margin-top: 8rpx;
 }
 .ant-actionsheet-list-item-active {
-  background-color: var(--color-border, #e5e5e5);
+  background-color: var(--actionsheet-item-active-bg, #e5e5e5);
 }
 .ant-actionsheet-list-item:last-child.ant-actionsheet-list-item:last-child:after {
   display: none;
@@ -72,18 +72,18 @@
 }
 .ant-actionsheet-cancel-gap {
   height: 16rpx;
-  background: var(--color-background, #f5f5f5);
+  background: var(--activesheet-item-cancel-bg, #f5f5f5);
   margin: 0 -24rpx;
 }
 .ant-actionsheet-cancel {
-  color: var(--color-text-primary, #333333);
+  color: var(--actionsheet-item-color, #333333);
   padding: 32rpx 30rpx;
   font-size: 36rpx;
   text-align: center;
   margin: 0 -24rpx;
 }
 .ant-actionsheet-cancel:active {
-  background-color: var(--color-border, #e5e5e5);
+  background-color: var(--actionsheet-item-active-bg, #e5e5e5);
 }
 .ant-actionsheet-icon .ant-actionsheet-title-wrap {
   text-align: left;

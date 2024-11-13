@@ -165,35 +165,6 @@
     className="round"
   >主要按钮</ant-button>
 </ant-container>
-<ant-container
-  title="circle"
-  className="list"
->
-  <ant-button
-    type="primary"
-    icon="SearchOutline"
-    bind:tap="handleTap"
-    inline
-    className="circle"
-  ></ant-button>
-  <ant-button
-    icon="SearchOutline"
-    bind:tap="handleTap"
-    inline
-    className="circle"
-  ></ant-button>
-  <ant-button
-    type="primary"
-    bind:tap="handleTap"
-    inline
-    className="circle"
-  >A</ant-button>
-  <ant-button
-    bind:tap="handleTap"
-    inline
-    className="circle"
-  >A</ant-button>
-</ant-container>
 <ant-container title="icon">
   <ant-button
     type="primary"

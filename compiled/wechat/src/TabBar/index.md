@@ -9,11 +9,65 @@ toc: 'content'
 
 # TabBar 底部导航栏
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 用于在不同页面之间进行切换。
 
+## 引入
+
+在 `index.json` 中引入组件
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-progress": "antd-mini/es/TabBar/index"
+#endif
+#if WECHAT
+  "ant-progress": "antd-mini/TabBar/index"
+#endif
+}
+```
+
 ## 代码示例
+
+### 基本使用
+```xml
+<tab-bar items="{{tabs}}" />
+<tab-bar items="{{tabs}}" activeStyle="color:red;" />
+#if ALIPAY
+<tab-bar items="{{tabs}}" current="{{current}}" onChange="handleChange" />
+#endif
+#if WECHAT
+<tab-bar items="{{tabs}}" current="{{current}}" bind:change="handleChange" />
+#endif
+```
+
+```js
+Page({
+  data: {
+    tabs: [
+      {
+        icon: 'AlipayCircleFill',
+        activeIcon: 'AlipayCircleFill',
+        text: '首页',
+      },
+      {
+        icon: 'StarOutline',
+        activeIcon: 'StarFill',
+        text: '收藏',
+      },
+      {
+        icon: 'HeartOutline',
+        activeIcon: 'HeartFill',
+        text: '喜欢',
+      },
+    ],
+    current: 0,
+  },
+  handleChange(index) {
+    console.log(index);
+  },
+});
+```
+
+### Demo 代码
 
 <code src='../../demo/pages/TabBar/index'></code>
 
@@ -30,7 +84,9 @@ toc: 'content'
 | items           | 底部图标配置                                            | [TabItem](#tabitem)[] | []     |
 | style           | 样式                                                    | string                  | -      |
 | text            | 选项卡底部文字作用域插槽，接收 item、index、active 参数 | slot                    | -      |
-| onChange        | Tab 切换时触发回调                                      | `(index: number) => void` | -      |
+| #if ALIPAY onChange    | Tab 切换时触发回调 | `(index: number) => void` | -      |
+| #if WECHAT bind:change  | Tab 切换时触发回调 | `(index: number) => void` | -     |
+
 
 ### TabItem
 
