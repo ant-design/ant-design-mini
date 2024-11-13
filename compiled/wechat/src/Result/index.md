@@ -23,12 +23,18 @@ toc: 'content'
 
 ## API
 
-| 属性      | 说明         | 类型              | 默认值 |
-| --------- | ------------ | ----------------- | ------ |
-| className | 类名         | string            | -      |
-| extra     | 底部自定义渲染 | slot             | -      |
-| image     | 自定义图片   | string \| slot    | -      |
-| message   | 副文案       | string \| slot    | -      |
-| style     | 样式         | string            | -      |
-| title     | 主文案       | string \| slot    | -      |
-| type      | 内置类型 `success`（成功）、`error`（错误/危险）、`info`（信息提示）、`wait`（等待处理） | string | -      |
+| 属性      | 说明                                                                                     | 类型           | 默认值 |
+| --------- | ---------------------------------------------------------------------------------------- | -------------- | ------ |
+| className | 类名                                                                                     | string         | -      |
+| extra     | 底部自定义渲染                                                                           | slot           | -      |
+| image     | 自定义图片                                                                               | string \| slot | -      |
+| message   | 副文案                                                                                   | string \| slot | -      |
+| style     | 样式                                                                                     | string         | -      |
+| title     | 主文案                                                                                   | string \| slot | -      |
+| type      | 内置类型 `success`（成功）、`error`（错误/危险）、`info`（信息提示）、`wait`（等待处理） | string         | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。

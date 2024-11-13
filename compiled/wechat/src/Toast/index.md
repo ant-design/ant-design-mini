@@ -95,3 +95,9 @@ Page({
 | visible               | 是否隐藏                                                 | boolean     | false  |
 | #if ALIPAY onClose    | Toast 关闭后的回调                                       | (e) => void | -      |
 | #if WECHAT bind:close | Toast 关闭后的回调                                       | (e) => void | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。

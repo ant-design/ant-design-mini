@@ -1,11 +1,11 @@
 .ant-list-item {
   align-items: center;
-  background-color: var(--color-card, #ffffff);
-  color: var(--color-text-primary, #333333);
+  background-color: var(--list-background-color, #ffffff);
+  color: var(--list-content-color, #333333);
   line-height: 1.4;
 }
 .ant-list-item-hover {
-  background-color: var(--color-border, #e5e5e5);
+  background-color: var(--list-item-border-color, #e5e5e5);
 }
 .ant-list-item-line {
   flex: 1;
@@ -71,10 +71,10 @@
   line-height: 45rpx;
 }
 .ant-list-item-content-title-container {
-  color: var(--color-text-assist, #999999);
+  color: var(--list-extra-brief-color, #999999);
 }
 .ant-list-item-content-brief-container {
-  color: var(--color-text-assist, #999999);
+  color: var(--list-extra-brief-color, #999999);
 }
 .ant-list-item-extra {
   font-size: 32rpx;
@@ -94,11 +94,11 @@
   flex-direction: row-reverse;
   font-size: 28rpx;
   line-height: 40rpx;
-  color: var(--color-text-assist, #999999);
+  color: var(--list-extra-brief-color, #999999);
 }
 .ant-list-item-arrow {
   margin-left: 8rpx;
-  color: var(--color-text-weak, #cccccc);
+  color: var(--list-item-text-color, #cccccc);
   display: flex;
   align-items: center;
 }
@@ -110,7 +110,7 @@
 }
 .ant-list-item .line {
   height: 1rpx;
-  background-color: var(--color-border, #e5e5e5);
+  background-color: var(--list-item-border-color, #e5e5e5);
   width: calc(100% - 24 * 1rpx);
   position: absolute;
   right: 0;

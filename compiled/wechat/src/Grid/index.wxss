@@ -27,7 +27,7 @@
 .ant-grid-item-line::after {
   content: '';
   position: absolute;
-  background-color: var(--color-border, #e5e5e5);
+  background-color: var(--ant-grid-border-color, #e5e5e5);
   display: block;
   top: 0;
   right: 0;
@@ -96,7 +96,7 @@
 }
 .ant-grid-item-title {
   font-size: 30rpx;
-  color: var(--color-text-primary, #333333);
+  color: var(--ant-grid-title-color, #333333);
   line-height: 42rpx;
   width: 100%;
   margin-top: 16rpx;
@@ -106,7 +106,7 @@
 }
 .ant-grid-item-description {
   font-size: 24rpx;
-  color: var(--color-text-assist, #999999);
+  color: var(--ant-grid-description-color, #999999);
   line-height: 33rpx;
   width: 100%;
   padding-top: 4rpx;

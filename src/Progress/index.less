@@ -6,7 +6,7 @@
     flex-direction: row;
     align-items: center;
     .ant-progress-outer {
-      background-color: @trail-color;
+      background-color: @progress-trail-color;
       border-radius: @corner-radius-circle;
       height: 16 * @rpx;
       overflow: hidden;
@@ -17,9 +17,9 @@
       transition: width 0.3s;
       height: 100%;
       position: relative;
-      background-color: @stroke-color;
+      background-color: @progress-stroke-color;
       &-success {
-        background-color: @success-color;
+        background-color: @progress-success-color;
       }
       &-exception {
         background-color: @progress-exception-color;
@@ -35,7 +35,7 @@
     }
     .ant-progress-status-icon {
       &-success {
-        color: @success-color;
+        color: @progress-success-color;
       }
       &-exception {
         color: @progress-exception-color;

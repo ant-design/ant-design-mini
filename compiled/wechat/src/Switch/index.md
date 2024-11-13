@@ -164,3 +164,9 @@ Page({
 | style                  | 样式                                            | string                                                                                              | -        |
 | #if ALIPAY onChange    | 点击 Switch 时触发的回调                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
 | #if WECHAT bind:change | 点击 Switch 时触发的回调                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。

@@ -32,3 +32,15 @@ toc: 'content'
 | headerInBox | 标题是否在容器中 | boolean      | true   |
 | style       | 样式             | string       | -      |
 | title       | 标题             | string\|slot | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                       | 默认值                                                                                            | 备注         |
+| ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
+| --container-header-color     | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 容器头部颜色 |
+| --color-text-assist          | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 辅助文本颜色 |
+| --container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 容器背景颜色 |

@@ -71,7 +71,7 @@
 }
 .ant-swipe-action-movable-content-right {
   height: 100%;
-  color: var(--color-white, #ffffff);
+  color: var(--swipe-action-color, #ffffff);
 }
 .ant-swipe-action-movable-content-right-text {
   height: 100%;
@@ -88,7 +88,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  color: var(--color-white, #ffffff);
+  color: var(--swipe-action-color, #ffffff);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

@@ -12,10 +12,10 @@
   padding: 64rpx;
 }
 .ant-steps-vertical .ant-steps-item-active::after {
-  background: linear-gradient(to top, var(--color-grey-2, #e5e5e5) 0%, var(--color-grey-2, #e5e5e5) 50%, var(--color-brand1, #1677ff) 50%, var(--color-brand1, #1677ff) 100%);
+  background: linear-gradient(to top, var(--steps-non-active-bg, #e5e5e5) 0%, var(--steps-non-active-bg, #e5e5e5) 50%, var(--steps-default-bg, #1677ff) 50%, var(--steps-default-bg, #1677ff) 100%);
 }
 .ant-steps-vertical .ant-steps-item-non-active::after {
-  background: var(--color-grey-2, #e5e5e5);
+  background: var(--steps-non-active-bg, #e5e5e5);
 }
 .ant-steps-item:last-child .ant-steps-item-indicator-vertical::after {
   display: none;
@@ -35,11 +35,11 @@
 }
 .ant-steps-item-vertical .ant-steps-item-title {
   font-size: 34rpx;
-  color: var(--color-text-primary, #333333);
+  color: var(--steps-title-color, #333333);
 }
 .ant-steps-item-vertical .ant-steps-item-desc {
   font-size: 30rpx;
-  color: var(--color-text-assist, #999999);
+  color: var(--steps-desc-color, #999999);
   padding-top: 4rpx;
 }
 .ant-steps-item-vertical::after {
@@ -109,21 +109,21 @@
 }
 .ant-steps-item-horizontal .ant-steps-item-desc {
   padding-top: 4rpx;
-  color: var(--color-text-assist, #999999);
+  color: var(--steps-desc-color, #999999);
   font-size: 24rpx;
 }
 .ant-steps-item-horizontal .ant-steps-item-desc:empty {
   display: none;
 }
 .ant-steps-item-active::after {
-  background-color: var(--color-grey-2, #e5e5e5);
+  background-color: var(--steps-non-active-bg, #e5e5e5);
 }
 .ant-steps-item-active-icon {
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
-  color: var(--color-brand1, #1677ff);
+  color: var(--steps-default-bg, #1677ff);
 }
 .ant-steps-item-active-icon,
 .ant-steps-item-active-icon .a-image {
@@ -134,20 +134,20 @@
   height: 20rpx;
   width: 20rpx;
   border-radius: 50%;
-  background-color: var(--color-brand1, #1677ff);
+  background-color: var(--steps-default-bg, #1677ff);
 }
 .ant-steps-item-active .ant-steps-item-title {
-  color: var(--color-brand1, #1677ff);
+  color: var(--steps-default-bg, #1677ff);
 }
 .ant-steps-item-non-active::after {
-  background-color: var(--color-grey-2, #e5e5e5);
+  background-color: var(--steps-non-active-bg, #e5e5e5);
 }
 .ant-steps-item-non-active-icon {
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
-  color: var(--color-grey-2, #e5e5e5);
+  color: var(--steps-non-active-bg, #e5e5e5);
 }
 .ant-steps-item-non-active-icon,
 .ant-steps-item-non-active-icon .a-image {
@@ -158,17 +158,17 @@
   height: 16rpx;
   width: 16rpx;
   border-radius: 50%;
-  background-color: var(--color-grey-2, #e5e5e5);
+  background-color: var(--steps-non-active-bg, #e5e5e5);
 }
 .ant-steps-item-finish::after {
-  background-color: var(--color-brand1, #1677ff);
+  background-color: var(--steps-default-bg, #1677ff);
 }
 .ant-steps-item-finish-icon {
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
-  color: var(--color-brand1, #1677ff);
+  color: var(--steps-default-bg, #1677ff);
 }
 .ant-steps-item-finish-icon,
 .ant-steps-item-finish-icon .a-image {
@@ -179,17 +179,17 @@
   height: 16rpx;
   width: 16rpx;
   border-radius: 50%;
-  background-color: var(--color-brand1, #1677ff);
+  background-color: var(--steps-default-bg, #1677ff);
 }
 .ant-steps-item-finish .ant-steps-item-title {
-  color: var(--color-text-primary, #333333);
+  color: var(--steps-title-color, #333333);
 }
 .ant-steps-item-error-icon {
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
-  color: var(--color-red, #ff3141);
+  color: var(--steps-finish-bg, #ff3141);
 }
 .ant-steps-item-error-icon,
 .ant-steps-item-error-icon .a-image {
@@ -200,8 +200,8 @@
   height: 20rpx;
   width: 20rpx;
   border-radius: 50%;
-  background-color: var(--color-red, #ff3141);
+  background-color: var(--steps-finish-bg, #ff3141);
 }
 .ant-steps-item .ant-steps-item-title-error {
-  color: var(--color-red, #ff3141);
+  color: var(--steps-finish-bg, #ff3141);
 }

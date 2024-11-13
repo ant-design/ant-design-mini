@@ -105,3 +105,9 @@ Page({
 | extra                | 页面异常状态自定义按钮                                  | slot             | -        |
 | onActionTap          | 页面异常状态按钮点击事件                                | (e: any) => void | -        |
 | onSecondaryActionTap | 页面异常状态次要按钮点击事件                            | (e: any) => void | -        |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。

@@ -75,11 +75,13 @@ Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 
 ### 自定义错误样式
 
 使用 `validateStatus: success` 及 `footer slot` 来自定义错误样式。
+
 <!-- <code src='pages/FormCustomError/index'></code> -->
 
 ### 自定义表单项
 
 通过使用 [FormItem](#formitem)、[createForm](#createform) 可自定义表单项。示例里 `form-checklist`、`form-location` 为自定义表单项组件。
+
 <!-- <code src='pages/FormCustom/index'></code> -->
 
 ## API
@@ -102,8 +104,6 @@ Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |
 | message | 校验错误信息。如不设置，则会根据校验规则自动生成 | string | false |
 | requiredMark | 必填选填的标记样式，可选 `asterisk` `text-required` `text-optional` | string | asterisk |
-
-
 
 ### Form
 
@@ -362,3 +362,18 @@ function emit(trigger: 'onChange' | 'onBlur' | 'onFocus', value: any): void;
 ```
 
 想要了解更多方法，请参考 `createForm` 方法相关文档。使用 `formData` 和 `emit` 即可完成自定义表单项的实现。
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                | 默认值                                                                                            | 备注             |
+| --------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --form-text-color     | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | 表单文本颜色     |
+| --form-item-color     | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div> | 表单项颜色       |
+| --form-item-bg        | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 表单项背景颜色   |
+| --form-error-color    | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | 表单错误颜色     |
+| --form-extra-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 表单额外信息颜色 |
+| --form-asterisk-color | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | 表单星号颜色     |

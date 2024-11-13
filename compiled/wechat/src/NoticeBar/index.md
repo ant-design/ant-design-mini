@@ -36,3 +36,9 @@ toc: content
 | type          | 类型，可选 `default`, `error`, `primary`, `info`                                               | string       | default |
 | slotIcon      | 微信版本需要通过此字段启用 icon 位置的插槽                                                     | boolean      | -       |
 | onTap         | 点击通知栏右侧的图标（箭头或者叉），触发回调                                                   | () => void   | -       |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
