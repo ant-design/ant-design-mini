@@ -50,3 +50,11 @@ toc: 'content'
 #### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                         | 默认值                                                                                                                    | 备注                     |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| --stepper-handler-tap-bg       | <div style="width: 150px; height: 30px; background-color: #ddd; color: #333333;">#ddd</div>                               | 步进器处理器点击背景颜色 |
+| --stepper-handler-border-color | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div>                         | 步进器处理器边框颜色     |
+| --stepper-border-color         | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div>                         | 步进器边框颜色           |
+| --stepper-background-color     | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | 步进器背景颜色           |
+| --stepper-hover-bg             | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.92); color: #ffffff;">rgba(0, 0, 0, 0.92)</div> | 步进器悬停背景颜色       |
