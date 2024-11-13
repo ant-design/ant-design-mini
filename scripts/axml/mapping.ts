@@ -39,6 +39,9 @@ export const wechatCustomMapping = {
   },
   'ant-popup': {
     onClose: 'bind:close',
+    onAfterShow: 'bind:aftershow',
+    onAfterClose: 'bind:afterclose',
+    onClickBack: 'bind:clickback',
   },
   'ant-picker': {
     onOk: 'bind:ok',
