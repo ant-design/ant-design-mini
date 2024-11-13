@@ -43,3 +43,17 @@ toc: 'content'
 #### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                        | 默认值                                                                                                                    | 备注                         |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| --rare-words-bg               | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.45); color: #ffffff;">rgba(0, 0, 0, 0.45)</div> | 稀有词背景颜色               |
+| --rare-keyboard-bg            | <div style="width: 150px; height: 30px; background-color: #d8d8d8; color: #333333;">#d8d8d8</div>                         | 稀有词键盘背景颜色           |
+| --rare-words-keyboard-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                         | 稀有词键盘颜色               |
+| --rare-words-border-color     | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div>                         | 稀有词边框颜色               |
+| --rare-words-kb-bg            | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                         | 稀有词键盘背景颜色           |
+| --rare-words-pinyin-key-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | 稀有词拼音键颜色             |
+| --rare-words-inner-bg         | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div>                         | 稀有词内部背景颜色           |
+| --rare-words-active-color     | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>                         | 稀有词激活颜色               |
+| --rare-words-pinyin-color     | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                         | 稀有词拼音颜色               |
+| --rare-words-keyboard-bg      | <div style="width: 150px; height: 30px; background-color: #4a4a4a; color: #ffffff;">#4a4a4a</div>                         | 稀有词键盘背景颜色（重复项） |
+| --rare-words-item-tips-color  | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div>                         | 稀有词项提示颜色             |
