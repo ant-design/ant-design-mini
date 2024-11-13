@@ -48,6 +48,7 @@
     "pages/ButtonIcon/index",
     "pages/ButtonCustom/index",
     "pages/Modal/index",
+    "pages/Dialog/index",
     "pages/Tabs/index",
     "pages/TabsScroll/index",
     "pages/TabsSticky/index",
