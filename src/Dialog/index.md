@@ -76,6 +76,42 @@ Page({
 });
 ```
 
+### 多行动点
+
+> `footer` 属性支持传入多个行动点，并且可以指定 `layout` 为 `vertical`或`horizontal`，即行动点横向、纵向布局。
+
+```xml
+<ant-dialog
+  title="确定删除吗？"
+  content="删除后无法恢复"
+  visible="{{ true }}"
+  footer="{{ horizontalFooter }}"
+/>
+```
+
+```js
+Page({
+  data: {
+    // 横向布局
+    horizontalFooter: {
+      buttons: [
+        { text: '取消', type: 'default' },
+        { text: '确定', type: 'primary' },
+      ],
+      layout: 'horizontal',
+    },
+    // 纵向布局
+    verticalFooter: {
+      buttons: [
+        { text: '主按钮', type: 'primary' },
+        { text: '更多', type: 'default' },
+        { text: '取消', type: 'text' },
+      ],
+    },
+  },
+});
+```
+
 ### Demo 代码
 
 <code src='../../demo/pages/Dialog/index'></code>
