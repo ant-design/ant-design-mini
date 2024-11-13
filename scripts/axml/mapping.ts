@@ -70,6 +70,9 @@ export const wechatCustomMapping = {
     onAction: 'bind:action',
     onClose: 'bind:close',
   },
+  'ant-toast': {
+    onClose: 'bind:close',
+  },
   'rare-words-keyboard': {
     onClose: 'bind:close',
     onError: 'bind:error',

@@ -120,5 +120,5 @@
 <ant-toast
   content="密码的自定义 tooltip"
   visible="{{toastShow}}"
-  onClose="handleCloseToast"
+  bind:close="handleCloseToast"
 ></ant-toast>

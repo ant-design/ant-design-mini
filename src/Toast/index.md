@@ -9,26 +9,89 @@ toc: 'content'
 
 # Toast 轻提示
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 ## 何时使用
+
 对操作结果的轻量级反馈，无需用户操作即可自行消失。最长文案不超过 2 行，最多可以显示 24 个字符，文案过长会被截断。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-toast": "antd-mini/es/Toast/index"
+#endif
+#if WECHAT
+  "ant-toast": "antd-mini/Toast/index"
+#endif
+}
+```
+
 ## 代码示例
+
+### 基本使用
+
+```xml
+<ant-toast
+  content="这是一段提示文案"
+  visible="{{ toastShow }}"
+  duration="{{ 0 }}"
+  showMask="{{ true }}"
+  maskCloseable="{{ true }}"
+#if ALIPAY
+  onClose="handleCloseToast"
+#endif
+#if WECHAT
+  bind:close="handleCloseToast"
+#endif
+/>
+```
+
+```js
+Page({
+  data: {
+    toastShow: true,
+  },
+  handleCloseToast(e) {
+    this.setData({
+      toastShow: false,
+    });
+  },
+});
+```
+
+### 图标类型
+
+> 传入 `type` 属性，可以使用内置图标，可选 `success`、`error`、`warning`、`loading`。支持 `icon` 属性指定 [ant-icon](/components/icon) 类型，还支持 `image` 属性自定义图片。
+
+```xml
+<ant-toast content="操作成功" type="success" visible="{{ true }}" />
+<ant-toast content="操作失败" type="error" visible="{{ true }}" />
+<ant-toast content="警告" type="warning" visible="{{ true }}" />
+<ant-toast content="加载中" type="loading" visible="{{ true }}" />
+<ant-toast content="icon" icon="LikeOutline" visible="{{ true }}" />
+<ant-toast content="自定义图片" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{ true }}" />
+```
+
+## Demo 代码
+
 <code src='../../demo/pages/Toast/index'></code>
 
 ## API
-| 属性   | 说明                   | 类型    | 默认值 |
-| ------ | ---------------------- | ------- | ------ |
-| className | 组件根节点类名             | string  | -      |
-| content   | 文本内容                 | string  | -      |
-| duration  | 持续时间，为 0 时不会自动关闭 | number  | 2000   |
-| maskCloseable | 点击蒙层是否关闭        | boolean | false  |
-| icon      | 图标，支持 Icon 组件所有 type | string  | -      |
-| image     | 图片链接                 | string  | -      |
-| maskStyle | 蒙层样式                 | string  | -      |
-| showMask  | 是否展示蒙层             | boolean | false  |
-| style     | 样式                    | string  | -      |
-| type      | 内置图标类型，可选 `success` `error` `warning` `loading` | string  | -      |
-| visible   | 是否隐藏                 | boolean | false  |
-| onClose   | Toast 关闭后的回调        | (e) => void | -      |
+
+| 属性                  | 说明                                                     | 类型        | 默认值 |
+| --------------------- | -------------------------------------------------------- | ----------- | ------ |
+| className             | 组件根节点类名                                           | string      | -      |
+| content               | 文本内容                                                 | string      | -      |
+| duration              | 持续时间，为 0 时不会自动关闭                            | number      | 2000   |
+| maskCloseable         | 点击蒙层是否关闭                                         | boolean     | false  |
+| icon                  | 图标，支持 Icon 组件所有 type                            | string      | -      |
+| image                 | 图片链接                                                 | string      | -      |
+| maskStyle             | 蒙层样式                                                 | string      | -      |
+| showMask              | 是否展示蒙层                                             | boolean     | false  |
+| style                 | 样式                                                     | string      | -      |
+| type                  | 内置图标类型，可选 `success` `error` `warning` `loading` | string      | -      |
+| visible               | 是否隐藏                                                 | boolean     | false  |
+| #if ALIPAY onClose    | Toast 关闭后的回调                                       | (e) => void | -      |
+| #if WECHAT bind:close | Toast 关闭后的回调                                       | (e) => void | -      |
