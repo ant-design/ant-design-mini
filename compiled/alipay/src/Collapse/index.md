@@ -9,36 +9,170 @@ toc: 'content'
 
 # Collapse 折叠面板
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 可以折叠/展开的内容区域。
-
-## 何时使用
 
 - 对复杂区域进行分组和隐藏，保持页面的整洁。
 - 手风琴是一种特殊的折叠面板，只允许单个内容区域展开。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-progress": "antd-mini/es/Collapse/index"
+#endif
+#if WECHAT
+  "ant-progress": "antd-mini/Collapse/index"
+#endif
+}
+```
+
 ## 代码示例
 
-### 基本使用
+### Demo 代码
 
-<code src='../../demo/pages/Collapse/index'></code>
+```xml
+<ant-collapse
+  items="{{items}}"
+#if ALIPAY
+  onChange="onChange" 
+#endif
+#if WECHAT
+  bind:change="onChange" 
+#endif
+/>
+```
 
-### 手风琴
+```js
+Page({
+  data: {
+    items: [
+      {
+        title: '第一项标题',
+        content: '第一项内容'
+      },
+      {
+        title: '第二项标题',
+        content: '第二项内容'
+      },
+      {
+        title: '第三项标题',
+        content: '第三项内容'
+      },
+    ]
+  },
+  onChange(current) {
+    console.log(current);
+  }
+});
 
-<!-- <code src='pages/CollapseAccordion/index'></code> -->
+```
 
-### 控制
+### 手风琴模式
+```xml
+<ant-collapse
+  accordion="{{true}}"
+  items="{{items}}"
+#if ALIPAY
+  onChange="onChange" 
+#endif
+#if WECHAT
+  bind:change="onChange" 
+#endif
+/>
+```
 
-<!-- <code src='pages/CollapseControl/index'></code> -->
+### 列表项控制
+```xml
+<ant-button
+  inline="{{true}}"
+#if ALIPAY
+  onTap="addItems" 
+#endif
+#if WECHAT
+  bind:tap="addItems" 
+#endif
+>
+  添加items
+</ant-button>
+
+<ant-collapse
+  items="{{items}}"
+/>
+```
+```js
+Page({
+  data: {
+    items: [
+      {
+        title: '第一项标题',
+        content: '第一项内容'
+      },
+      {
+        title: '第二项标题',
+        content: '第二项内容'
+      },
+      {
+        title: '第三项标题',
+        content: '第三项内容'
+      },
+    ]
+  },
+  addItems() {
+    const items = [
+      ...this.data.items,
+      {
+        title: this.data.items.length,
+        content:
+          '动态添加的内容',
+      },
+    ];
+    this.setData({
+      items,
+      current: [this.data.items.length],
+    });
+  },
+});
+```
 
 ### 带 Checkbox
 
-<code src="../../demo/pages/CollapseWithCheckbox/index"></code>
+```xml
+#if ALIPAY
+<ant-collapse items="{{items}}">
+  <view
+    slot="title"
+    slot-scope="item"
+    class="title"
+  >
+    <view>
+      <ant-checkbox
+        data-index="{{item.index}}"
+        onChange="onChange" 
+      />
+    </view>
+    <view>{{item.value.title}}</view>
+  </view>
 
-### 更多自定义
+  <view
+    slot="content"
+    slot-scope="item"
+    class="content">
+    {{item.value.content}}
+  </view>
+</ant-collapse>
 
-<!-- <code src='pages/CollapseCustom/index'></code> -->
+#endif
+#if WECHAT
+由于微信小程序平台的限制, Collapse 在微信暂时不支持 Slot
+#endif
+```
+
+### Demo 代码
+
+<code src='../../demo/pages/Collapse/index'></code>
 
 ## API
 

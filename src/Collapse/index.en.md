@@ -34,7 +34,7 @@ A content area that can be collapsed/expanded.
 
 ### With Checkbox
 
-<code src="../../demo/pages/CollapseWithCheckbox/index"></code>
+<!-- <code src="../../demo/pages/CollapseWithCheckbox/index"></code> -->
 
 ### More Customizations
 

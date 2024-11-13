@@ -9,15 +9,99 @@ toc: 'content'
 
 # List 列表
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 通用列表可以干净高效地承载文字、列表、图片、段落等元素。
 
-## 何时使用
+## 引入
 
-当需要以列表的形式展示信息时使用。
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-progress": "antd-mini/es/List/index"
+#endif
+#if WECHAT
+  "ant-progress": "antd-mini/List/index"
+#endif
+}
+```
 
 ## 代码示例
+
+### 基本使用
+```xml
+<ant-list
+  header="基础用法"
+  radius="{{true}}"
+>
+  <ant-list-item>1</ant-list-item>
+  <ant-list-item>2</ant-list-item>
+  <ant-list-item>3</ant-list-item>
+</ant-list>
+```
+
+### 列表项配置
+```xml
+<ant-list header="列表项配置">
+  <ant-list-item
+    className="ant-list-item"
+    disabled="{{true}}"
+    image="PayCircleOutline"
+    brief="总资产数量"
+    extra="详细信息"
+    showDivider="{{true}}"
+  >
+    总资产
+  </ant-list-item>
+  <ant-list-item
+    style=""
+    image="SetOutline"
+    arrow="right"
+    extraBrief="详细信息"
+  >
+    设置
+  </ant-list-item>
+</ant-list>
+```
+
+### 列表项可点击
+```xml
+<ant-list
+  header="可点击列表"
+  radius="{{radius}}"
+>
+  <ant-list-item
+    image="PayCircleOutline"
+#if ALIPAY
+    onTap="handleTap"
+#endif
+#if WECHAT
+    bind:tap="handleTap"
+#endif
+    brief="总资产数量"
+    extra="详细信息"
+    data-info="总资产"
+  >
+    总资产
+  </ant-list-item>
+  <ant-list-item
+    image="SetOutline"
+    arrow="right"
+    extraBrief="详细信息"
+#if ALIPAY
+    catchTap="handleTap"
+#endif
+#if WECHAT
+    bind:catchTap="handleTap"
+#endif
+    data-info="设置"
+  >
+    设置
+  </ant-list-item>
+</ant-list>
+```
+
+### Demo 代码
 
 <code src='../../demo/pages/List/index'></code>
 
@@ -48,8 +132,11 @@ toc: 'content'
 | showDivider | 是否显示下划线                                           | boolean            | true   |
 | style       | 样式                                                     | string             | -      |
 | title       | 标题信息                                                 | string \| slot     | -      |
-| catchTap    | 点击时触发的回调                                         | (e: Event) => void |
-| onTap       | 点击时触发的回调                                         | (e: Event) => void |
+| #if ALIPAY catchTap    | 点击时触发的回调                                         | (e: Event) => void |
+| #if ALIPAY onTap       | 点击时触发的回调                                         | (e: Event) => void |
+| #if WECHAT bind:catchTap    | 点击时触发的回调                                         | (e: Event) => void |
+| #if WECHAT bind:tap       | 点击时触发的回调                                         | (e: Event) => void |
+
 
 ### 主题定制
 

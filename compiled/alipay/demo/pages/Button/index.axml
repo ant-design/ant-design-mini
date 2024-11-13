@@ -213,39 +213,6 @@
     主要按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="circle"
-  className="list"
->
-  <ant-button
-    type="primary"
-    icon="SearchOutline"
-    onTap="handleTap"
-    inline
-    className="circle"
-  ></ant-button>
-  <ant-button
-    icon="SearchOutline"
-    onTap="handleTap"
-    inline
-    className="circle"
-  ></ant-button>
-  <ant-button
-    type="primary"
-    onTap="handleTap"
-    inline
-    className="circle"
-  >
-    A
-  </ant-button>
-  <ant-button
-    onTap="handleTap"
-    inline
-    className="circle"
-  >
-    A
-  </ant-button>
-</ant-container>
 <ant-container title="icon">
   <ant-button
     type="primary"
