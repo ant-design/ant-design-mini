@@ -17,31 +17,31 @@
     text-align: left;
     padding: 36 * @rpx 30 * @rpx;
     font-size: 30 * @rpx;
-    color: @COLOR_TEXT_ASSIST;
-    .hairline('bottom', @COLOR_BORDER);
+    color: @actionsheet-title-color;
+    .hairline('bottom', @actionsheet-item-active-bg);
   }
   &-list {
     margin: 0 -24 * @rpx;
   }
   &-list-item {
-    color: @COLOR_TEXT_PRIMARY;
+    color: @actionsheet-item-color;
     padding: 32 * @rpx 30 * @rpx;
     text-align: center;
     position: relative;
     font-size: 36 * @rpx;
-    .hairline('bottom', @COLOR_BORDER);
+    .hairline('bottom', @actionsheet-item-active-bg);
     &-title-danger {
       color: @actionsheet-danger-color;
       font-weight: bold;
     }
     &-description {
-      color: @COLOR_TEXT_ASSIST;
+      color: @actionsheet-title-color;
       font-size: 28 * @rpx;
       line-height: 40 * @rpx;
       margin-top: 8 * @rpx;
     }
     &-active {
-      background-color: @COLOR_BORDER;
+      background-color: @actionsheet-item-active-bg;
     }
     &:last-child {
       &&:after {
@@ -58,18 +58,18 @@
 
   &-cancel-gap {
     height: 16 * @rpx;
-    background: @COLOR_BACKGROUND;
+    background: @activesheet-item-cancel-bg;
     margin: 0 -24 * @rpx;
   }
 
   &-cancel {
-    color: @COLOR_TEXT_PRIMARY;
+    color: @actionsheet-item-color;
     padding: 32 * @rpx 30 * @rpx;
     font-size: 36 * @rpx;
     text-align: center;
     margin: 0 -24 * @rpx;
     &:active {
-      background-color: @COLOR_BORDER;
+      background-color: @actionsheet-item-active-bg;
     }
   }
 }

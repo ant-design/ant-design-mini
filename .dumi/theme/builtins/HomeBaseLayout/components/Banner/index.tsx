@@ -204,11 +204,11 @@ const useStyle = ({
 const actionHref = {
   'zh-CN': {
     quickStart: '/guide/quick-start',
-    tryComponent: '/components/button',
+    tryComponent: '/components/overview',
   },
   'en': {
     quickStart: '/guide/quick-start-en',
-    tryComponent: '/components/button-en',
+    tryComponent: '/components/overview-en',
   }
 }
 

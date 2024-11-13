@@ -72,15 +72,12 @@ ComponentWithSignalStoreImpl({
 }, UploaderDefaultProps, {
     chooseImage: function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, onBeforeUpload, onUpload, fileList, _b, maxCount, sourceType, localFileList, chooseImageRes, err_1, beforeUploadRes, err_2, tasks;
+            var _a, onBeforeUpload, onUpload, onChooseImageError, fileList, _b, maxCount, sourceType, localFileList, chooseImageRes, err_1, beforeUploadRes, err_2, tasks;
             var _this = this;
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
-                        _a = getValueFromProps(this, [
-                            'onBeforeUpload',
-                            'onUpload',
-                        ]), onBeforeUpload = _a[0], onUpload = _a[1];
+                        _a = getValueFromProps(this, ['onBeforeUpload', 'onUpload', 'onChooseImageError']), onBeforeUpload = _a[0], onUpload = _a[1], onChooseImageError = _a[2];
                         if (!onUpload) {
                             throw new Error('need props onUpload');
                         }
@@ -122,7 +119,7 @@ ComponentWithSignalStoreImpl({
                         return [3 /*break*/, 4];
                     case 3:
                         err_1 = _c.sent();
-                        triggerEvent(this, 'chooseImageError', err_1);
+                        onChooseImageError(err_1);
                         return [2 /*return*/];
                     case 4:
                         if (!onBeforeUpload) return [3 /*break*/, 8];

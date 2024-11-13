@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "Collapse",
-  "usingComponents": {
-    "collapse": "../../../src/Collapse/index",
-    "ant-button": "../../../src/Button/index"
-  }
-}

@@ -13,6 +13,7 @@ page {
   --color-text-secondary: #808080;
   --color-text-assist: #616161;
   --color-text-weak: #474747;
+  --color-text-weak-faded: rgba(71, 71, 71, 0.6);
   --color-border: #2b2b2b;
   --color-border-greycard: #444444;
   --color-background2: #121212;
@@ -24,6 +25,7 @@ page {
   --color-black-card: #525252;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-black-fade: #000000;
   --color-white-dynamic: #c5cad1;
   --color-white-change: #000000;
   --color-black-change: #ffffff;
@@ -61,4 +63,9 @@ page {
   --size-font10: 48rpx;
   --size-font11: 56rpx;
   --size-font12: 64rpx;
+  --color-ironblack-1: #454955;
+  --loading-icon-light-color: #999;
+  --popover-content-bg: rgba(255, 255, 255, 0.93);
+  --popover-content-color: #333333;
+  --calendar-weekday-names-bg: #303030;
 }

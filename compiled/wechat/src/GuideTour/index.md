@@ -23,30 +23,44 @@ toc: 'content'
 
 ## API
 
-| 属性          | 说明           | 类型                         | 默认值 |
-| ------------- | -------------- | ---------------------------- | ------ |
-| `className`   | 类名           | `string`                     | -      |
-| `current`     | 当前步骤       | `number`                     | -      |
-| `defaultCurrent` | 默认当前步骤 | `number`                     | 0      |
-| `items`       | 步骤信息       | [`GuideTourItem`](#guidetourttem)[] | -      |
-| `maskClassName` | 蒙层的类名   | `string`                     | -      |
-| `maskStyle`   | 蒙层的样式     | `string`                     | -      |
-| `style`       | 样式           | `string`                     | -      |
-| `swiperable`  | 是否开启滑动模式 | `boolean`                   | `false`|
-| `visible`     | 是否显示       | `boolean`                     | `false`|
-| `onCancel`    | 关闭回调       | `() => void`                 | -      |
-| `onChange`    | 步骤改变回调   | `(index: number) => void`    | -      |
-| `jumpText`    | 跳过按钮的文案     | `string`                     | '跳过' |
-| `prevStepText`| 上一步按钮的文案     | `string`                     | '上一步' |
-| `nextStepText`| 下一步按钮的文案     | `string`                     | '下一步' |
-| `gotItText`| 知道了按钮的文案     | `string`                     | '知道了' |
+| 属性             | 说明             | 类型                                | 默认值   |
+| ---------------- | ---------------- | ----------------------------------- | -------- |
+| `className`      | 类名             | `string`                            | -        |
+| `current`        | 当前步骤         | `number`                            | -        |
+| `defaultCurrent` | 默认当前步骤     | `number`                            | 0        |
+| `items`          | 步骤信息         | [`GuideTourItem`](#guidetourttem)[] | -        |
+| `maskClassName`  | 蒙层的类名       | `string`                            | -        |
+| `maskStyle`      | 蒙层的样式       | `string`                            | -        |
+| `style`          | 样式             | `string`                            | -        |
+| `swiperable`     | 是否开启滑动模式 | `boolean`                           | `false`  |
+| `visible`        | 是否显示         | `boolean`                           | `false`  |
+| `onCancel`       | 关闭回调         | `() => void`                        | -        |
+| `onChange`       | 步骤改变回调     | `(index: number) => void`           | -        |
+| `jumpText`       | 跳过按钮的文案   | `string`                            | '跳过'   |
+| `prevStepText`   | 上一步按钮的文案 | `string`                            | '上一步' |
+| `nextStepText`   | 下一步按钮的文案 | `string`                            | '下一步' |
+| `gotItText`      | 知道了按钮的文案 | `string`                            | '知道了' |
 
-### GuideTourItem 
+### GuideTourItem
 
-| 参数       | 说明                       | 类型     | 默认值 |
-| ---------- | -------------------------- | -------- | ------ |
-| `left`     | 距离左边距离，单位 `px`    | `number` | -      |
-| `imageMode` | 图片模式，同 image 的 mode | `string` | -      |
-| `imageStyle` | 图片内联样式              | `string` | -      |
-| `imageUrl` | 图片地址                  | `string` | -      |
-| `top`      | 距离顶部距离，单位 `px`    | `number` | -      |
+| 参数         | 说明                       | 类型     | 默认值 |
+| ------------ | -------------------------- | -------- | ------ |
+| `left`       | 距离左边距离，单位 `px`    | `number` | -      |
+| `imageMode`  | 图片模式，同 image 的 mode | `string` | -      |
+| `imageStyle` | 图片内联样式               | `string` | -      |
+| `imageUrl`   | 图片地址                   | `string` | -      |
+| `top`        | 距离顶部距离，单位 `px`    | `number` | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                    | 默认值                                                                                            | 备注                 |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
+| --guide-tour-text-color   | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 引导教程文本颜色     |
+| --guide-tour-clear-color  | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 引导教程清除按钮颜色 |
+| --guide-tour-dot-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 引导教程步骤点颜色   |
+| --guide-tour-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | 引导教程边框颜色     |
+| --guide-tour-btn-color    | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 引导教程按钮颜色     |

@@ -73,20 +73,32 @@ export const ComponentWithSignalStoreImpl = <
 ) => {
   const storeBinder = new StoreBinder(storeOptions);
 
-  const onInitBackup = instanceMethods?.onInit || (() => {});
-  if (instanceMethods) {
-    instanceMethods.onInit = function () {
-      storeBinder.init(this as unknown as TStoreInitOptions<S>);
-      onInitBackup.call(this as unknown as TStoreInitOptions<S>);
-    };
-  }
+  // 确保 instanceMethods 存在
+  const instanceMethodsCopy: ExtendedInstanceMethods = { ...instanceMethods };
 
-  const onDidUnmountBackup = instanceMethods?.didUnmount || (() => {});
-  if (instanceMethods) {
-    instanceMethods.didUnmount = function () {
-      onDidUnmountBackup.call(this as unknown as TStoreInitOptions<S>);
-      storeBinder.dispose();
-    };
+  // 备份原有的 onInit 和 didUnmount 方法
+  const onInitBackup = instanceMethodsCopy.onInit || (() => {});
+  const onDidUnmountBackup = instanceMethodsCopy.didUnmount || (() => {});
+
+  const defaultOnInit = function () {
+    storeBinder.init(this as unknown as TStoreInitOptions<S>);
+  };
+
+  instanceMethodsCopy.onInit = function () {
+    defaultOnInit.call(this);
+    if (onInitBackup) {
+      onInitBackup.call(this);
+    }
+  };
+
+  instanceMethodsCopy.didUnmount = function () {
+    onDidUnmountBackup.call(this);
+    storeBinder.dispose();
+  };
+
+  // 这里确保 instanceMethodsCopy.onInit 被正确执行
+  if (!instanceMethodsCopy.onInit) {
+    instanceMethodsCopy.onInit = defaultOnInit;
   }
 
 
@@ -95,7 +107,7 @@ export const ComponentWithSignalStoreImpl = <
     methods,
     mixins: mixins || [],
     data,
-    ...(instanceMethods || {}),
+    ...(instanceMethodsCopy || {}),
   });
 };
 

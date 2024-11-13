@@ -1,3 +1,4 @@
+import cityList from './city';
 Page({
     data: {
         pickerVisible: false,
@@ -63,8 +64,11 @@ Page({
                 },
             ],
         ],
+        cityList,
+        cascaderValue: ['34', '330'],
+        cascaderVisible: false,
     },
-    handleDismissPicker(e) {
+    handleDismiss(e) {
     },
     handleClearControlled() {
         this.setData({
@@ -102,6 +106,34 @@ Page({
     handleOpenPicker() {
         this.setData({
             pickerVisible: true,
+        });
+    },
+    // 以下是级联选择的方法
+    handleCascaderPickerChange(cascaderValue, selectedOption, e) {
+        console.log('cityChange', cascaderValue, selectedOption, e);
+    },
+    handleCascaderOnOk(cascaderValue, selectedOption, e) {
+        console.log('cityOk', cascaderValue, selectedOption, e);
+    },
+    handleCascaderControlledOk(cascaderValue, selectedOption, e) {
+        this.setData({ cascaderValue: cascaderValue.detail[0] });
+        console.log('cityOk', cascaderValue, selectedOption, e);
+    },
+    handleCascaderChangeControlled() {
+        this.setData({ cascaderValue: ['31', '310'] });
+    },
+    handleCascaderClearControlled() {
+        this.setData({ cascaderValue: [] });
+    },
+    handleCascaderTriggerControlledPicker(visible, e) {
+        console.log('handleTriggerControlledPicker', visible);
+        this.setData({
+            cascaderVisible: visible.detail,
+        });
+    },
+    handleCascaderOpenPicker() {
+        this.setData({
+            cascaderVisible: true,
         });
     },
 });

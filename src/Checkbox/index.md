@@ -252,3 +252,18 @@ Page({
 | value                  | CheckboxGroup 的值，决定子元素是否勾选                       | `string[]`                                                                                           | -          |
 | #if ALIPAY onChange    | 勾选状态变化时触发此函数                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 | #if WECHAT bind:change | 勾选状态变化时触发此函数                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                                | 默认值                                                                                            | 备注                 |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
+| --checkbox-header-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 复选框标题颜色       |
+| --checkbox-border-color               | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | 复选框边框颜色       |
+| --checkbox-background-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 复选框背景颜色       |
+| --checkbox-disabled-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | 复选框禁用背景颜色   |
+| --checkbox-text-color                 | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 复选框文本颜色       |
+| --checkbox-fake-icon-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 复选框假图标背景颜色 |

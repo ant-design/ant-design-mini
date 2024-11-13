@@ -3,19 +3,28 @@
 
 /* check-list */
 /* background-color | 背景色 */
-@checklist-background-color: var(--color-brand1, @COLOR_BRAND1);
+@checklist-background-color: var(--checklist-background-color, @COLOR_BRAND1);
 
 /* check-list-item */
 /* background-color | 背景色 */
-@check-list-item-background-color: var(--color-card, @COLOR_CARD);
+@check-list-item-background-color: var(
+  --check-list-item-background-color,
+  @COLOR_CARD
+);
 
-@check-list-item-hover-background-color: var(--color-border, @COLOR_BORDER);
+@check-list-item-hover-background-color: var(
+  --check-list-item-hover-background-color,
+  @COLOR_BORDER
+);
 
 /* text-color | 字体颜色  */
-@check-list-item-content-color: var(--color-text-primary, @COLOR_TEXT_PRIMARY);
+@check-list-item-content-color: var(
+  --check-list-item-content-color,
+  @COLOR_TEXT_PRIMARY
+);
 
 /* text-color | 字体颜色  */
 @check-list-item-description-color: var(
-  --color-text-assist,
+  --check-list-item-description-color,
   @COLOR_TEXT_ASSIST
 );

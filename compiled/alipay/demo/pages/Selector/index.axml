@@ -60,3 +60,44 @@
     options="{{items1}}"
   ></ant-selector>
 </ant-container>
+<ant-container title="SelectorFilter">
+  <view class="filterDemo">
+    <view class="filterDemo-bar">
+      <block
+        a:for="{{items}}"
+        a:for-index="index"
+        a:for-item="item"
+      >
+        <view
+          class="filterDemo-bar-item {{currentOpen === index ? 'filterDemo-bar-item-active' : ''}}"
+          onTap="onTapItem"
+          data-index="{{index}}"
+        >
+          {{item.title}}
+          <ant-icon
+            type="DownFill"
+            className="filterDemo-bar-item-icon  {{currentOpen === index ? 'filterDemo-bar-item-icon-up' : ''}}"
+          ></ant-icon>
+        </view>
+      </block>
+    </view>
+    <view class="filterDemo-items">
+      <block
+        a:for="{{items}}"
+        a:for-index="index"
+        a:for-item="item"
+      >
+        <view
+          class="filterDemo-items-content {{currentOpen === index ? 'filterDemo-items-content-active' : ''}} {{contentClassName || ''}}"
+          style="{{contentStyle || ''}}"
+        >
+          <ant-selector
+            options="{{item.options}}"
+            onChange="handleSelectorFilterChange"
+            data-index="{{index}}"
+          ></ant-selector>
+        </view>
+      </block>
+    </view>
+  </view>
+</ant-container>

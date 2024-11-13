@@ -39,5 +39,5 @@
   max-height: 1px;
   min-height: 1px;
   transform: scaleY(0.5);
-  background-color: #eeeeee;
+  background-color: #e5e5e5;
 }

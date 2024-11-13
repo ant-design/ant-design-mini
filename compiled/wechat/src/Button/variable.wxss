@@ -26,7 +26,7 @@
 /* color |default danger按钮文字色 */
 /* color |text danger按钮文字色 */
 /* color |danger-ghost按钮文字色 */
-/* font-size | 胶囊按钮大字号 */
+/* color |active按钮文字色 */
 /* 图标尺寸 */
 /* font-size | 默认按钮字号 */
 /* font-size | 大按钮字号 */

@@ -2,10 +2,21 @@
 @import (reference) '../style/themes/index.less';
 
 // range-picker| shadow color
-@range-picker-shadow-color: var(--color-black-change, @COLOR_BLACK_CHANGE);
+@range-picker-shadow-color: var(
+  --range-picker-shadow-color,
+  @COLOR_BLACK_CHANGE
+);
 // item的字体颜色
-@range-picker-item-color: var(--color-text-primary, @COLOR_TEXT_PRIMARY);
+@range-picker-item-color: var(--range-picker-item-color, @COLOR_TEXT_PRIMARY);
 // active 的字体颜色
-@range-picker-active-color: var(--color-brand1, @COLOR_BRAND1);
+@range-picker-active-color: var(--range-picker-active-color, @COLOR_BRAND1);
 // placeholder 的字体颜色
-@range-picker-placeholder-color: var(--color-text-weak, @COLOR_TEXT_WEAK);
+@range-picker-placeholder-color: var(
+  --range-picker-placeholder-color,
+  @COLOR_TEXT_WEAK
+);
+
+@range-picker-shadow-color-faded: var(
+  --range-picker-shadow-color-faded,
+  @COLOR_BLACK_FADED_10
+);

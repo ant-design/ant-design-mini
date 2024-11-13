@@ -17,7 +17,7 @@ Side Index Component
 
 Used to quickly locate a list index.
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -52,3 +52,16 @@ Used to quickly locate a list index.
 | -------------- | ------------------------ | ------- | ------ |
 | label          | Index ID                 | string  | -      |
 | disablePreview | Disable preview effect when index is triggered | boolean | -      |
+
+### Theme customization
+
+#### Style Variables
+
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                           | Default Value                                                                                            | Remarks               |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
+| --index-bar-tip-background-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | Index bar prompt background color |
+| --index-bar-text-color           | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Index column text color     |
+| --index-bar-assist-color         | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Index Bar Secondary Text Color |
+| --index-bar-active-color         | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | Index Bar Activation Color     |

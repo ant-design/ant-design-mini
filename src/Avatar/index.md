@@ -9,15 +9,33 @@ toc: content
 
 # Avatar 头像
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
-用来代表用户或事物。
-
-## 何时使用
-
 需要更加直观地展现人物或事物特征时。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-progress": "antd-mini/es/Avatar/index"
+#endif
+#if WECHAT
+  "ant-progress": "antd-mini/Avatar/index"
+#endif
+}
+```
+
 ## 代码示例
+
+### 基本使用
+```xml
+<ant-avatar src="{{imagesUrl}}" className="avatar" />
+<ant-avatar size="large" src="{{imagesUrl}}" className="avatar" />
+<ant-avatar size="x-small" src="{{imagesUrl}}" style="width: 100rpx" />
+```
+
+### Demo 代码
 
 <code src='../../demo/pages/Avatar/index'></code>
 
@@ -27,5 +45,5 @@ toc: content
 |---------|----------|------|-----------|
 | className | 类名      | string | -         |
 | size     | 大小，可选 `x-small`、`small`、`medium`、`large` | string | `medium` |
-| src      | 头像地址    | string | 灰色的内置图片 |
+| src      | 头像地址    | string | 灰色内置图片 |
 | style    | 样式      | string | -         |

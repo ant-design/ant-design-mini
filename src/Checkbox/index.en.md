@@ -33,7 +33,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -252,3 +252,18 @@ Page({
 | value                  | The value of the CheckboxGroup to determine whether the child element is checked.                       | `string[]`                                                                                           | -          |
 | #if ALIPAY onChange    | Check to trigger this function when status changes                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 | #if WECHAT bind:change | Check to trigger this function when status changes                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
+
+### Theme customization
+
+#### Style Variables
+
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                                | Default Value                                                                                            | Remarks                 |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
+| --checkbox-header-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Check Box Title Color       |
+| --checkbox-border-color               | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | Check Box Border Color       |
+| --checkbox-background-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | Checkbox Background Color       |
+| --checkbox-disabled-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | Check box Disable background color   |
+| --checkbox-text-color                 | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | Check Box Text Color       |
+| --checkbox-fake-icon-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Check Box Fake Icon Background Color |

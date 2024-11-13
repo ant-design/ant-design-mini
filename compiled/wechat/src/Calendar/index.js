@@ -180,13 +180,11 @@ ComponentWithSignalStoreImpl({
     updateData: function () {
         var _a = getValueFromProps(this, [
             'monthRange',
-            'localeText',
             'weekStartsOn',
             'onFormatter',
             'onMonthFormatter',
-        ]), monthRange = _a[0], plocaleText = _a[1], pweekStartsOn = _a[2], onFormatter = _a[3], onMonthFormatter = _a[4];
-        var localeText = Object.assign({}, this.data.locale.calendar, plocaleText);
-        console.log(this.data.locale.calendar, '超越自己333', localeText);
+        ]), monthRange = _a[0], pweekStartsOn = _a[1], onFormatter = _a[2], onMonthFormatter = _a[3];
+        var localeText = Object.assign({}, this.data.locale.calendar);
         var markItems = __spreadArray([], localeText.weekdayNames, true);
         var weekStartsOn = pweekStartsOn;
         if (weekStartsOn === 'Sunday') {

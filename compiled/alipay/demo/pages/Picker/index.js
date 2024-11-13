@@ -1,3 +1,4 @@
+import cityList from './city';
 Page({
     data: {
         pickerVisible: false,
@@ -60,8 +61,11 @@ Page({
                 },
             ],
         ],
+        cityList,
+        cascaderValue: ['34', '330'],
+        cascaderVisible: false,
     },
-    handleDismissPicker(e) {
+    handleDismiss(e) {
         my.showToast({
             content: '取消操作，关闭 picker',
         });
@@ -106,6 +110,34 @@ Page({
     handleOpenPicker() {
         this.setData({
             pickerVisible: true,
+        });
+    },
+    // 以下是级联选择的方法
+    handleCascaderPickerChange(cascaderValue, selectedOption, e) {
+        console.log('cityChange', cascaderValue, selectedOption, e);
+    },
+    handleCascaderOnOk(cascaderValue, selectedOption, e) {
+        console.log('cityOk', cascaderValue, selectedOption, e);
+    },
+    handleCascaderControlledOk(cascaderValue, selectedOption, e) {
+        this.setData({ cascaderValue: cascaderValue });
+        console.log('cityOk', cascaderValue, selectedOption, e);
+    },
+    handleCascaderChangeControlled() {
+        this.setData({ cascaderValue: ['31', '310'] });
+    },
+    handleCascaderClearControlled() {
+        this.setData({ cascaderValue: [] });
+    },
+    handleCascaderTriggerControlledPicker(visible, e) {
+        console.log('handleTriggerControlledPicker', visible, e);
+        this.setData({
+            cascaderVisible: visible,
+        });
+    },
+    handleCascaderOpenPicker() {
+        this.setData({
+            cascaderVisible: true,
         });
     },
 });

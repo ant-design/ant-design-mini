@@ -10,7 +10,7 @@
   }
 }
 .ant-number-keyboard {
-  color: var(--color-text-primary, #333333);
+  color: var(--number-key-board-text-color, #333333);
   width: 0;
   height: 0;
   position: relative;
@@ -26,7 +26,7 @@
   background-color: transparent;
 }
 .ant-number-keyboard-kb {
-  background: var(--color-background, #f5f5f5);
+  background: var(--number-key-board-background-color, #f5f5f5);
   max-height: 600px;
   min-width: 100vw;
   overflow: hidden;
@@ -59,24 +59,24 @@
   width: calc(100% - 96 * 1rpx);
   padding: 0 48rpx;
   font-size: 28rpx;
-  background-color: var(--color-card, #ffffff);
+  background-color: var(--number-key-board-iphonex-safe-background-color, #ffffff);
   display: flex;
   position: relative;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-bottom: 2rpx solid var(--color-background, #f5f5f5);
-  color: var(--color-text-assist, #999999);
+  border-bottom: 2rpx solid var(--number-key-board-background-color, #f5f5f5);
+  color: var(--number-key-board-none-text-color, #999999);
 }
 .ant-number-keyboard-kb_number {
   flex: 1;
   height: calc(100vh / 14);
   text-align: center;
   font-size: 50rpx;
-  color: var(--color-text-primary, #333333);
-  background: var(--color-card, #ffffff);
-  border-right: 2rpx solid var(--color-background, #f5f5f5);
-  border-bottom: 2rpx solid var(--color-background, #f5f5f5);
+  color: var(--number-key-board-text-color, #333333);
+  background: var(--number-key-board-iphonex-safe-background-color, #ffffff);
+  border-right: 2rpx solid var(--number-key-board-background-color, #f5f5f5);
+  border-bottom: 2rpx solid var(--number-key-board-background-color, #f5f5f5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,7 +85,7 @@
 .ant-number-keyboard-kb_number:active {
   background-color: var(--number-key-board-active-background-color, #d3d3d3);
   opacity: 0.5;
-  color: var(--color-text-primary, #333333);
+  color: var(--number-key-board-text-color, #333333);
 }
 .ant-number-keyboard-kb_disable:active {
   opacity: 1;
@@ -97,14 +97,14 @@
   flex: 1;
 }
 .ant-number-keyboard-kb_transfer {
-  background-color: var(--color-white, #ffffff);
-  color: var(--color-white, #ffffff);
+  background-color: var(--number-key-board-transfer-color, #ffffff);
+  color: var(--number-key-board-transfer-color, #ffffff);
   flex: 1;
   height: calc(100vh / 14);
   text-align: center;
   font-size: 34rpx;
-  border-right: 2rpx solid var(--color-background, #f5f5f5);
-  border-bottom: 2rpx solid var(--color-background, #f5f5f5);
+  border-right: 2rpx solid var(--number-key-board-background-color, #f5f5f5);
+  border-bottom: 2rpx solid var(--number-key-board-background-color, #f5f5f5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,13 +136,13 @@
 .ant-number-keyboard-kb_iphonex-safe {
   height: 48rpx;
   width: 100%;
-  background-color: var(--color-card, #ffffff);
+  background-color: var(--number-key-board-iphonex-safe-background-color, #ffffff);
 }
 .ant-number-keyboard-kb_flex {
   flex: 1;
 }
 .ant-number-keyboard-kb-e {
-  background-color: var(--color-border, #eeeeee);
+  background-color: var(--number-key-board-border-color, #e5e5e5);
 }
 .ant-number-keyboard-down {
   font-size: 40rpx;

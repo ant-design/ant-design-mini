@@ -24,7 +24,7 @@
         className="ant-popup-content-header-icon ant-popup-content-header-icon-back"
         type="LeftOutline"
         a:if="{{ showBack }}"
-        onTap="onClickBackIcon" />
+        onTap="onClickBack" />
       <view class="ant-popup-content-header-title">
         {{ title }}
       </view>

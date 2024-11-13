@@ -5,7 +5,6 @@ export var CalendarDefaultProps = {
     selectionMode: 'range',
     monthRange: defaultMonthRange(),
     weekStartsOn: 'Sunday',
-    localeText: undefined,
     onFormatter: null,
     onMonthFormatter: null,
     changedScrollIntoView: null,

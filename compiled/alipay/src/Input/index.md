@@ -154,39 +154,39 @@ toc: content
 
 ### Input、Textarea 相同的属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| className | 类名 | string | - |
-| controlled | 有键盘输入问题，可使用 `controlled="{{false}}"` | boolean | - |
-| defaultValue | 初始值 | string | - |
-| disabled | 是否禁用 | boolean | false |
-| maxLength | 最大长度 | number | 140 |
-| placeholder | 占位符 | string | - |
-| style | 样式 | string | - |
-| value | 输入框的值。受控模式。 | string | - |
-| onConfirm | 点击键盘完成时触发此回调 | (value: string, event: Event) => void | - |
-| onFocus | 聚焦时触发此回调 | (value: string, event: Event) => void | - |
-| onBlur | 失焦时触发此回调 | (value: string, event: Event) => void | - |
-| onChange | 输入时触发此回调 | (value: string, event: Event) => void | - |
+| 属性         | 说明                                            | 类型                                  | 默认值 |
+| ------------ | ----------------------------------------------- | ------------------------------------- | ------ |
+| className    | 类名                                            | string                                | -      |
+| controlled   | 有键盘输入问题，可使用 `controlled="{{false}}"` | boolean                               | -      |
+| defaultValue | 初始值                                          | string                                | -      |
+| disabled     | 是否禁用                                        | boolean                               | false  |
+| maxLength    | 最大长度                                        | number                                | 140    |
+| placeholder  | 占位符                                          | string                                | -      |
+| style        | 样式                                            | string                                | -      |
+| value        | 输入框的值。受控模式。                          | string                                | -      |
+| onConfirm    | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
+| onFocus      | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| onBlur       | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| onChange     | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
 
 ### Input 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| allowClear | 可以点击清除图标删除内容 | boolean | false |
-| enableNative | 是否使用 native | boolean | - |
-| focus | 聚焦，查看[详细说明](#input-focus) | boolean | - |
-| password | 是否是密码类型 | boolean | false |
-| prefix | input 前缀 | slot | - |
-| suffix | input 后缀 | slot | - |
+| 属性         | 说明                               | 类型    | 默认值 |
+| ------------ | ---------------------------------- | ------- | ------ |
+| allowClear   | 可以点击清除图标删除内容           | boolean | false  |
+| enableNative | 是否使用 native                    | boolean | -      |
+| focus        | 聚焦，查看[详细说明](#input-focus) | boolean | -      |
+| password     | 是否是密码类型                     | boolean | false  |
+| prefix       | input 前缀                         | slot    | -      |
+| suffix       | input 后缀                         | slot    | -      |
 
 ### Textarea 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| autoHeight | 是否自动增高。 | boolean | false |
-| enableNative | 是否使用 native | boolean | - |
-| showCount | 是否显示字数统计 | boolean | true |
+| 属性         | 说明             | 类型    | 默认值 |
+| ------------ | ---------------- | ------- | ------ |
+| autoHeight   | 是否自动增高。   | boolean | false  |
+| enableNative | 是否使用 native  | boolean | -      |
+| showCount    | 是否显示字数统计 | boolean | true   |
 
 ### Input、Textarea 更多相同属性
 
@@ -207,10 +207,23 @@ toc: content
 
 实例方法需要小程序 `component2` 可使用。
 
-| 属性 | 说明 | 类型 |
-| --- | --- | --- |
-| update | 更新值 | (value: string) => void |
-| getValue | 得到值 | () => string |
+| 属性     | 说明   | 类型                    |
+| -------- | ------ | ----------------------- |
+| update   | 更新值 | (value: string) => void |
+| getValue | 得到值 | () => string            |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                         | 默认值                                                                                            | 备注               |
+| ------------------------------ | ------------------------------------------------------------------------------------------------- | ------------------ |
+| --input-item-color             | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 输入项文本颜色     |
+| --input-item-placeholder-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | 输入项占位符颜色   |
+| --input-item-clear-color       | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 输入项清除按钮颜色 |
+| --input-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 输入项背景颜色     |
 
 ## FAQ
 

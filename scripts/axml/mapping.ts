@@ -39,6 +39,9 @@ export const wechatCustomMapping = {
   },
   'ant-popup': {
     onClose: 'bind:close',
+    onAfterShow: 'bind:aftershow',
+    onAfterClose: 'bind:afterclose',
+    onClickBack: 'bind:clickback',
   },
   'ant-picker': {
     onOk: 'bind:ok',
@@ -60,7 +63,7 @@ export const wechatCustomMapping = {
   'ant-guide-tour': {
     onCancel: 'bind:cancel',
   },
-  uploader: {
+  'ant-uploader': {
     onPreview: 'bind:preview',
   },
   'ant-range-picker': {
@@ -68,6 +71,9 @@ export const wechatCustomMapping = {
   },
   'ant-action-sheet': {
     onAction: 'bind:action',
+    onClose: 'bind:close',
+  },
+  'ant-toast': {
     onClose: 'bind:close',
   },
   'rare-words-keyboard': {

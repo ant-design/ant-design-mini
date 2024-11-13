@@ -1,5 +1,5 @@
 .ant-toast {
-  color: #fff;
+  color: var(--toast-default-color, #ffffff);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.75);
+  background: var(--toast-default-bg, rgba(0, 0, 0, 0.75));
   border-radius: 24rpx;
 }
 .ant-toast-icon,

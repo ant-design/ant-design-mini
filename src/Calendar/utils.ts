@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 import { isoWeekday } from '../_util/dayjs/iso-weekday';
-import { CellState, LocaleText, SelectionMode, CalendarValue } from './props';
+import { CalendarValue, CellState, LocaleText, SelectionMode } from './props';
 
 export function getMonthListFromRange(start: Dayjs, end: Dayjs): Dayjs[] {
   if (start.isAfter(end))

@@ -1,10 +1,10 @@
 import { CalendarOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
-import { Col, Space, Typography } from 'antd';
+import { Col, message, Space, Typography } from 'antd';
 import classNames from 'classnames';
 import DayJS from 'dayjs';
-import { useMatchedRoute, useRouteMeta } from 'dumi';
-import React, { useContext, useMemo } from 'react';
+import { useIntl, useMatchedRoute, useRouteMeta } from 'dumi';
+import React, { useContext, useEffect, useMemo } from 'react';
 import EditLink from '../../common/EditLink';
 import LastUpdated from '../../common/LastUpdated';
 import PrevAndNext from '../../common/PrevAndNext';
@@ -120,7 +120,7 @@ const Content: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const meta = useRouteMeta();
   const styles = useStyle({ isOverview, isShowSim });
-  const { direction } = useContext(SiteContext);
+  const { direction, platform, updateSiteConfig } = useContext(SiteContext);
 
   const debugDemos = useMemo(
     () =>
@@ -140,6 +140,31 @@ const Content: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   }, [meta.frontmatter?.title, meta.frontmatter.subtitle, meta.toc]);
 
   const isRTL = direction === 'rtl';
+
+  const intl = useIntl();
+
+  // 不支持平台提示
+  useEffect(() => {
+    if (
+      Array.isArray(meta.frontmatter.supportPlatform) &&
+      !meta.frontmatter.supportPlatform.includes(platform)
+    ) {
+      const warningText = intl.formatMessage({
+        id: 'app.platform.support.warning',
+      });
+      const platformText = intl.formatMessage({
+        id: `app.theme.sidebar.${platform}`,
+      });
+      message.open({
+        type: 'warning',
+        content: warningText.replaceAll('${platform}', platformText),
+      });
+
+      updateSiteConfig({
+        platform: meta.frontmatter.supportPlatform[0],
+      });
+    }
+  }, [meta.frontmatter.supportPlatform, platform, updateSiteConfig, intl]);
 
   return (
     <Col
@@ -208,7 +233,6 @@ const Content: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Space>
           </Typography.Paragraph>
         ) : null}
-
         {children}
       </article>
       {!isOverview ? (

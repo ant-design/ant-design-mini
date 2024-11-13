@@ -25,7 +25,7 @@ Show hidden function menus by sliding.
 4. The second confirmation of the sliding on each side will only trigger the first one, the others will not trigger.
 5. It is recommended to use it in applets of the basic library 2.0.1.0 versions (such as DingTalk applets) have defects in sliding experience (lack of sliding transition effect after touchend).
 
-## Code example
+## Code Sample
 
 ### Basic Usage
 
@@ -93,3 +93,13 @@ Show hidden function menus by sliding.
 | width       | number                      | 150    | Button width                                                                            |
 | confirmType | `''` \| `'move'` \| `'tap'` | -      | Secondary confirmation type: do not trigger secondary confirmation | slide beyond the maximum distance to trigger secondary confirmation | click to trigger secondary confirmation    |
 | confirmText | string                      | -      | Copy description of the second confirmation; if empty, text is displayed                                             |
+
+### Theme customization
+
+#### Style Variables
+
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name               | Default Value                                                                                            | Remarks         |
+| -------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
+| --swipe-action-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Slide operation color |

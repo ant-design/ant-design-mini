@@ -35,7 +35,7 @@
         wx:if="{{showBack}}"
         className="ant-popup-content-header-icon ant-popup-content-header-icon-back"
         type="LeftOutline"
-        bind:tap="onClickBackIcon"
+        bind:tap="onClickBack"
       ></ant-icon>
       <view class="ant-popup-content-header-title">{{title}}</view>
       <ant-icon

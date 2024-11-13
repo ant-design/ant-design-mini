@@ -5,10 +5,9 @@
   title="标题"
   height="{{250}}"
   width="{{250}}"
-  onClickCloseIcon="onClickCloseIcon"
-  onClickBackIcon="onClickBackIcon"
   position="{{position}}"
   animation="{{animation}}"
+  onClickBack="onClickBack"
   onClose="handlePopupClose"
 >
   <view style="padding: 12px">
@@ -18,12 +17,11 @@
 <ant-popup
   visible="{{customizeVisible}}"
   height="{{350}}"
-  onClickCloseIcon="onClickCloseIcon"
-  onClickBackIcon="onClickBackIcon"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*1zlbRZpwRXYAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
   showClose="{{true}}"
   animation="{{animation}}"
+  onClickBack="onClickBack"
   onClose="handlePopupClose"
 >
   <view class="customize-content">
@@ -47,12 +45,11 @@
   visible="{{topImageVisible}}"
   height="{{450}}"
   className="customize-top-image-popup"
-  onClickCloseIcon="onClickCloseIcon"
-  onClickBackIcon="onClickBackIcon"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
   showClose="{{false}}"
   animation="{{animation}}"
+  onClickBack="onClickBack"
   onClose="handlePopupClose"
 >
   <view class="customize-content">
@@ -77,10 +74,9 @@
   visible="{{scrollVisible}}"
   position="bottom"
   title="超长内容滚动"
-  onClickCloseIcon="onClickCloseIcon"
-  onClickBackIcon="onClickBackIcon"
   showClose="{{true}}"
   animation="{{animation}}"
+  onClickBack="onClickBack"
   onClose="handlePopupClose"
 >
   <scroll-view

@@ -11,15 +11,15 @@
   align-self: center;
   min-width: 102rpx;
   height: 62rpx;
-  border: 4rpx solid var(--color-border, #eeeeee);
+  border: 4rpx solid var(--switch-border-color, #e5e5e5);
   border-radius: 31rpx;
   background: #ffffff;
   overflow: hidden;
   line-height: 62rpx;
 }
 .ant-switch-checked {
-  background: var(--color-brand1, #1677ff);
-  border-color: var(--color-brand1, #1677ff);
+  background: var(--switch-fill, #1677ff);
+  border-color: var(--switch-fill, #1677ff);
 }
 .ant-switch-checked .ant-switch-handle {
   left: calc(100% - (62rpx - 2 * 4rpx));
@@ -42,7 +42,7 @@
 }
 .ant-switch-loading-icon {
   font-size: 20rpx;
-  color: var(--color-brand1, #1677ff);
+  color: var(--switch-loading-color, #1677ff);
 }
 .ant-switch-handle {
   display: flex;
@@ -51,7 +51,7 @@
   width: 54rpx;
   height: 54rpx;
   border-radius: 50%;
-  background: var(--color-white, #ffffff);
+  background: var(--switch-handle-bg, #ffffff);
   position: absolute;
   top: 0;
   left: 0;
@@ -63,7 +63,7 @@
   justify-content: flex-end;
   align-items: center;
   height: 100%;
-  color: var(--color-text-assist, #999999);
+  color: var(--switch-inner-color, #999999);
   transition: margin 200ms;
   font-size: 30rpx;
   padding: 0 14rpx;
