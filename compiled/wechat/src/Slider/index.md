@@ -223,3 +223,19 @@ Page({
 | #if ALIPAY onAfterChange    | 与 touchend 触发时机一致，把当前值作为参数传入     | (value: number &verbar; [number, number]) => void | -      |
 | #if WECHAT bind:change      | slider 值改变时触发                                | (value: number &verbar; [number, number]) => void | -      |
 | #if WECHAT bind:afterchange | 与 touchend 触发时机一致，把当前值作为参数传入     | (value: number &verbar; [number, number]) => void | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                         | 默认值                                                                                                                    | 备注             |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| --slide-block-shadow           | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.12); color: #ffffff;">rgba(0, 0, 0, 0.12)</div> | 滑块块阴影       |
+| --slider-default-primary-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>                         | 滑块默认主色     |
+| --slider-track-bg              | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | 滑块轨道背景颜色 |
+| --slider-fill-bg               | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                         | 滑块填充背景颜色 |
+| --slider-number-color          | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                         | 滑块数字颜色     |
+| --slide-block-bg               | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | 滑块块背景颜色   |
+| --slide-back-bg                | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                         | 滑块背景颜色     |

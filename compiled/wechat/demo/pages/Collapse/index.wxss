@@ -1,0 +1,8 @@
+.container {
+  background: transparent;
+  padding: 0;
+}
+.collapse-item {
+  display: flex;
+  align-items: center;
+}

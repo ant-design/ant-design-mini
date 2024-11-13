@@ -80,4 +80,3 @@
   </ant-button>
   <ant-loading slot="loading" color="#999" />
 </ant-page>
-</ant-config-provider>

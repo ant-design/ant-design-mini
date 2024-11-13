@@ -269,3 +269,15 @@ onChooseImageError(err) {
 
 1. `maxCount` 表示最多可以上传的图片数量，不传表示无限制。由于小程序选择图片界面有一次性选择图片的上限，如果 `maxCount` 大于此上限，则需要多次上传。例如，`maxCount="{{10}}"`，允许上传 10 张图片，用户需先上传 9 张，之后再上传 1 张。
 2. `maxCount` 不限制 `defaultFileList` 和 `fileList`。例如，`maxCount` 为 1，而 `defaultFileList` 包含 2 张图片，不会减少 `defaultFileList` 里的图片。上传按钮则会隐藏。
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                            | 默认值                                                                                                                  | 备注                         |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| --image-upload-cover-background   | <div style="width: 150px; height: 40px; background-color: rgba(0, 0, 0, 0.4); color: #ffffff;">rgba(0, 0, 0, 0.4)</div> | 图片上传封面背景颜色（覆盖） |
+| --image-upload-wrapper-background | <div style="width: 150px; height: 40px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                       | 图片上传包裹背景颜色         |
+| --image-upload-text-color         | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                       | 图片上传文本颜色             |

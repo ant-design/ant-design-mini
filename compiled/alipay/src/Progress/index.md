@@ -76,3 +76,18 @@ toc: 'content'
 | type        | 类型，可选 `line` `circle`                           | string  | `line` |
 | width       | 圆形进度条画布宽度，单位 px                          | number  | 100    |
 | animation   | 是否开启过渡动画                                     | boolean | true   |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                     | 默认值                                                                                            | 备注             |
+| -------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --progress-stroke-color    | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 进度条主颜色     |
+| --progress-trail-color     | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | 进度条轨道颜色   |
+| --progress-success-color   | <div style="width: 150px; height: 30px; background-color: #22b35e; color: #ffffff;">#22b35e</div> | 进度条成功颜色   |
+| --progress-indicator-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 进度条指示器颜色 |
+| --progress-exception-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | 进度条异常颜色   |
+| --progress-assist-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 进度条辅助颜色   |

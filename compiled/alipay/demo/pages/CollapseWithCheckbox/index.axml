@@ -4,7 +4,7 @@
     slot="title"
     slot-scope="item"
   >
-    <view catchTap="true">
+    <view>
       <ant-checkbox
         data-index="{{item.index}}"
         onChange="onChange"

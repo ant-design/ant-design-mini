@@ -122,7 +122,7 @@ Page({
 | size       | 空状态尺寸，可选 `normal` `small`  | string         | `normal`      |
 | buttonInfo | 自定义按钮  | [ButtonInfo](#buttoninfo)         | `normal`      |
 | #if ALIPAY onClickButton | 点击按钮回调  | (item: [ButtonInfoItem](#buttoninfoitem)) => void       | -      |
-| #if WECHAT bind:clickButton | 点击按钮回调  | (item: [ButtonInfoItem](#buttoninfoitem)) => void       | -      |
+| #if WECHAT bind:ClickButton | 点击按钮回调  | (item: [ButtonInfoItem](#buttoninfoitem)) => void       | -      |
 
 ### ButtonInfo
 | 属性       | 说明              | 类型           | 默认值 |
@@ -130,9 +130,13 @@ Page({
 | layout     | 布局方式，可选 `horizontal` `vertical`| string    | `horizontal`      |
 | list       | 布局按钮配置  | [ButtonInfoItem](#buttoninfoitem)[] | - | 
 
-### ButtonInfoItem
-| 属性       | 说明              | 类型           | 默认值 |
-| ---------- | ----------------- | -------------- | ------ |
-| type       | 按钮类型  | string    | `horizontal`      |
-| text       | 按钮文本  | [ButtonType](/components/button#button) | `default` |
+### 主题定制
 
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                    | 默认值                                                                                            | 备注               |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
+| --empty-text-color        | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 空状态文本颜色     |
+| --empty-asisst-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 空状态辅助文本颜色 |

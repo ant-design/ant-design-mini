@@ -1,7 +1,6 @@
 <container title="基础用法">
   <tab-bar items="{{tabs}}"></tab-bar>
 </container>
-
 <container title="受控模式">
   <tab-bar
     items="{{tabs}}"
@@ -9,11 +8,9 @@
     onChange="handleChange"
   ></tab-bar>
 </container>
-
 <container title="红点用法">
   <tab-bar items="{{tabsBadge}}"></tab-bar>
 </container>
-
 <container title="自定义高亮颜色">
   <tab-bar
     items="{{tabs}}"

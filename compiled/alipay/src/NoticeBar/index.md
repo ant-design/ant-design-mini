@@ -36,3 +36,23 @@ toc: content
 | type          | 类型，可选 `default`, `error`, `primary`, `info`                                               | string       | default |
 | slotIcon      | 微信版本需要通过此字段启用 icon 位置的插槽                                                     | boolean      | -       |
 | onTap         | 点击通知栏右侧的图标（箭头或者叉），触发回调                                                   | () => void   | -       |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                            | 默认值                                                                                                              | 备注             |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| --notice-background-color         | <div style="width: 150px; height: 40px; background-color: #fff9ed;">#fff9ed</div>                                   | 通知背景颜色     |
+| --notice-border-color             | <div style="width: 150px; height: 40px; background-color: #fff3d9;">#fff3d9</div>                                   | 通知边框颜色     |
+| --notice-color                    | <div style="width: 150px; height: 40px; background-color: #ff6010;">#ff6010</div>                                   | 通知颜色         |
+| --notice-error-border-color       | <div style="width: 150px; height: 40px; background-color: #fff3d9;">#fff3d9</div>                                   | 错误通知边框颜色 |
+| --notice-error-color              | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                   | 错误通知颜色     |
+| --notice-error-background-color   | <div style="width: 150px; height: 40px; background-color: #ff3141;">#ff3141</div>                                   | 错误通知背景颜色 |
+| --notice-primary-border-color     | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.72);">rgba(22, 119, 255, 0.72)</div> | 主要通知边框颜色 |
+| --notice-primary-color            | <div style="width: 150px; height: 40px; background-color: #1677ff;">#1677ff</div>                                   | 主要通知颜色     |
+| --notice-primary-background-color | <div style="width: 150px; height: 40px; background-color: rgba(208, 228, 255, 1);">rgba(208, 228, 255, 1)</div>     | 主要通知背景颜色 |
+| --notice-info-text-color          | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                   | 信息通知文字颜色 |
+| --notice-info-background-color    | <div style="width: 150px; height: 40px; background-color: #666666;">#666666</div>                                   | 信息通知背景颜色 |

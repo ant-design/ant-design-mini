@@ -1,5 +1,5 @@
 .ant-toast {
-  color: var(--color-white, #ffffff);
+  color: var(--toast-default-color, #ffffff);
   position: fixed;
   top: 50%;
   left: 50%;

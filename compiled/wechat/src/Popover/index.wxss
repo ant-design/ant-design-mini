@@ -20,10 +20,10 @@
   border-radius: 16rpx;
 }
 .ant-popover-action {
-  background: var(--color-card, #ffffff);
+  background: var(--popover-bg, #ffffff);
   font-weight: 400;
   font-size: 24rpx;
-  color: var(--color-black, #000000);
+  color: var(--popover-text-color, #000000);
   padding: 10rpx 20rpx;
   line-height: 33rpx;
   border-radius: 50vh;
@@ -45,7 +45,7 @@
   overflow: hidden;
   font-size: 28rpx;
   background-color: var(--color-background-popover, #404040);
-  color: var(--color-red, #ff3141);
+  color: var(--popover-inner-color, #ff3141);
   padding: 20rpx;
   width: max-content;
   display: flex;

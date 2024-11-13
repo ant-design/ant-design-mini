@@ -11,7 +11,7 @@
   padding: 70rpx 24rpx;
   margin-bottom: 40rpx;
   line-height: 1.4;
-  background-color: var(--color-card, #ffffff);
+  background-color: var(--result-main-background, #ffffff);
 }
 .ant-result-image {
   display: flex;
@@ -25,24 +25,24 @@
   line-height: 128rpx;
 }
 .ant-result-image-success {
-  color: var(--color-brand1, #1677ff);
+  color: var(--result-success-color, #1677ff);
 }
 .ant-result-image-error {
-  color: var(--color-text-warning, #ff3b30);
+  color: var(--result-error-color, #ff3b30);
 }
 .ant-result-image-info {
-  color: var(--color-brand1, #1677ff);
+  color: var(--result-success-color, #1677ff);
 }
 .ant-result-image-warning {
-  color: var(--color-orange-1, #ff8f1f);
+  color: var(--result-warning-color, #ff8f1f);
 }
 .ant-result-image-wait {
-  color: var(--color-pomonagreen-1, #00b578);
+  color: var(--result-wait-color, #00b578);
 }
 .ant-result-title {
   padding-top: 40rpx;
   font-size: 40rpx;
-  color: var(--color-black, #000000);
+  color: var(--result-title-color, #000000);
   font-weight: 500;
 }
 .ant-result-title:empty {
@@ -51,7 +51,7 @@
 .ant-result-message {
   padding-top: 16rpx;
   font-size: 32rpx;
-  color: var(--color-text-primary, #333333);
+  color: var(--result-desc-color, #333333);
 }
 .ant-result-message:empty {
   display: none;

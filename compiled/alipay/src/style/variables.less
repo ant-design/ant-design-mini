@@ -11,7 +11,7 @@ page {
   --color-link: #4b6b99;
   --color-wathet: #e7f1ff;
   --color-orange: #ff6430;
-  --color-orange_faded: rgba(255, 100, 48, 0.7);
+  --color-orange-faded: rgba(255, 100, 48, 0.7);
   --color-yellow: #ff9f18;
   --color-green: #22b35e;
   --color-green-faded: rgba(34, 179, 94, 0.7);
@@ -36,7 +36,7 @@ page {
   --color-white-card: #ffffff;
   --color-grey-card: #f5f5f5;
   --color-black-card: #000000e6;
-  --color_text_secondary: #666666;
+  --color-text-secondary: #666666;
 
   // reverse
   --color-white: #ffffff;
@@ -141,15 +141,167 @@ page {
   // icon
   --icon-color: #333333;
 
+  // tabbar
+  --tabbar-bg: #ffffff;
+  --tabbar-item-color: #666666;
+  --tabbar-active-color: #1677ff;
+
+  // tabs
+  --tabs-basic-color: #333333;
+  --tabs-weaken-color: #999999;
+  --tabs-inverse-color: #ffffff;
+  --tabs-active-color: #1677ff;
+  --tabs-active-decorate-color: #1677ff;
+  --tabs-underline-border-color: #eeeeee;
+  --tabs-plus-color: #000000;
+  --tabs-capsule-title-bg: #f5f5f5;
+  --tabs-subtitle-color: #ffffff;
+  --tabs-count-color: #cccccc;
+  --tabs-badge-size: 28rpx;
+
   // feedBack
+  --feedback-text-color: #333333;
   --feedback-background-color: rgba(216, 216, 216, 0.42);
   --feedback-mask-color: rgba(0, 0, 0, 0.25);
+  --feedback-content-background-color: #ffffff;
+  --feedback-list-background-color: #f5f5f5;
+  --feedback-list-text-color: #333333;
+
+  // calendar
+  --calendar-cell-disabled-opacity: 0.4;
+  --calendar-weekday-names-bg: #f8f8f8;
+  --calendar-default-color: #333333;
+  --calendar-selected-color: rgba(22, 119, 255, 0.1);
+  --calendar-assist-color: #999999;
+  --calendar-selected-end-color: #ffffff;
+  --calendar-selected-color: #1677ff;
+
+  // collapse
+  --collapse-title-background-color: #ffffff;
+  --collapse-title-color: #333333;
+  --collapse-title-icon-color: #cccccc;
+  --collapse-content-background-color: #ffffff;
+  --collapse-border-color: #eeeeee;
+  --collapse-node-text-color: #999999;
+  --collapse-container-background-color: #ffffff;
+
+  // container
+  --container-header-color: #333333;
+  --color-text-assist: #999999;
+  --container-background-color: #ffffff;
+
+  // divider
+  --divider-text-color: #333333;
+  --divider-border-color: #e5e5e5;
+
+  // empty
+  --empty-text-color: #333333;
+  --empty-asisst-text-color: #999999;
+
+  // grid
+  --ant-grid-title-color: #333333;
+  --ant-grid-description-color: #999999;
+  --ant-grid-border-color: #eeeeee;
+
+  // guide-tour
+  --guide-tour-text-color: #ffffff;
+  --guide-tour-clear-color: #999999;
+  --guide-tour-dot-color: #999999;
+  --guide-tour-border-color: #eeeeee;
+  --guide-tour-btn-color: #333333;
+
+  // indexbar
+  --index-bar-tip-background-color: #cccccc;
+  --index-bar-text-color: #ffffff;
+  --index-bar-assist-color: #999999;
+  --index-bar-active-color: #1677ff;
+
+  // input
+  --input-item-color: #333333;
+  --input-item-placeholder-color: #cccccc;
+  --input-item-clear-color: #999999;
+  --input-background-color: #ffffff;
+
+  // list
+  --list-header-color: #999999;
+  --list-footer-color: #999999;
+  --list-background-color: #ffffff;
+  --list-content-color: #333333;
+  --list-extra-brief-color: #999999;
+  --list-item-border-color: #eeeeee;
+  --list-item-text-color: #cccccc;
+
+  // progress
+  --progress-stroke-color: #1677ff;
+  --progress-trail-color: #f5f5f5;
+  --progress-success-color: #22b35e;
+  --progress-indicator-color: #333333;
+  --progress-exception-color: #ff3141;
+  --progress-assist-color: #999999;
+
+  // stepsf
+  --steps-non-active-bg: #e5e5e5;
+  --steps-title-color: #333333;
+  --steps-desc-color: #999999;
+  --steps-default-bg: #1677ff;
+  --steps-finish-bg: #ff3141;
+
+  // swipe-action
+  --swipe-action-color: #ffffff;
+
+  // tag
+  --tag-primary-color: #1677ff;
+  --tag-warning-color: #ff6430;
+  --tag-danger-color: #ff3141;
+  --tag-success-color: #22b35e;
+  --tag-primary-light-color: #e7f1ff;
+  --tag-warning-light-color: #ffefdf;
+  --tag-danger-light-color: #ffece3;
+  --tag-success-light-color: #d4fff1;
+  --tag-base-color: #ffffff;
+  --tag-primary-color-faded: rgba(22, 119, 255, 0.3);
+  --tag-warning-color-faded: rgba(255, 100, 48, 0.7);
+  --tag-danger-color-faded: rgba(255, 49, 65, 0.7);
+  --tag-success-color-faded: rgba(34, 179, 94, 0.7);
+
+  // checkbox
+  --checkbox-header-color: #999999;
+  --checkbox-border-color: #cccccc;
+  --checkbox-background-color: #1677ff;
+  --checkbox-disabled-background: #f5f5f5;
+  --checkbox-text-color: #333333;
+  --checkbox-fake-icon-background-color: #ffffff;
+
+  // checkboxList
+  --checklist-background-color: #1677ff;
+  --check-list-item-background-color: #ffffff;
+  --check-list-item-hover-background-color: #eeeeee;
+  --check-list-item-content-color: #333333;
+  --check-list-item-description-color: #999999;
+
+  // data-picker
+  --range-picker-shadow-color: #000000;
+  --range-picker-item-color: #333333;
+  --range-picker-active-color: #1677ff;
+  --range-picker-placeholder-color: #cccccc;
+  --range-picker-shadow-color-faded: rgba(0, 0, 0, 0.9);
+
+  // form
+  --form-text-color: #cccccc;
+  --form-item-color: #666666;
+  --form-item-bg: #ffffff;
+  --form-error-color: #ff3141;
+  --form-extra-color: #999999;
+  --form-asterisk-color: #ff3b30;
 
   // imageUpload
+  --image-upload-cover-background: #ffffff;
+  --image-upload-wrapper-background: #f5f5f5;
   --image-upload-cover-background: rgba(0, 0, 0, 0.4);
+  --image-upload-text-color: #ffffff;
 
   // loading
-  --color-ironblack-1: #454955; //铁黑
+  --loading-text-color: #454955; //铁黑
   --loading-icon-light-color: rgba(255, 255, 255, 0.6);
 
   // mask
@@ -157,28 +309,140 @@ page {
 
   // numberKeyboard
   --number-key-board-active-background-color: #d3d3d3;
+  --number-key-board-text-color: #333333;
+  --number-key-board-none-text-color: #999999;
+  --number-key-board-iphonex-safe-background-color: #ffffff;
+  --number-key-board-background-color: #f5f5f5;
+  --number-key-board-border-color: #eeeeee;
+  --number-key-board-transfer-color: #1677ff;
+  --number-key-board-transfer-color: #ffffff;
 
-  // popover
-  --color-background-popover: #404040; //popover默认底色
+  // picker
+  --picker-item-color: #333333;
+  --picker-header-action-color: #1677ff;
+  --picker-placeholder-color: #cccccc;
+  --picker-header-color: #eeeeee;
+  --picker-content-background-color: #ffffff;
+  --picker-mask-bg-faded-95: rgba(255, 255, 255, 0.05);
+  --picker-mask-bg-faded-60: rgba(255, 255, 255, 0.4);
+
+  // radio
+  --radio-header-color: #999999;
+  --radio-border-color: #cccccc;
+  --radio-background-color: #1677ff;
+  --radio-disabled-background: #f5f5f5;
+  --radio-text-color: #333333;
+  --radio-fake-icon-background-color: #ff3141;
+  --radio-icon-colo: #ffffff;
 
   // popoverList
-  --popover-content-bg: rgba(0, 0, 0, 0.93);
-  --popover-content-color: #ffffff;
-  --popover-badge-color: #ff411c;
+  --popover-list-content-bg: rgba(0, 0, 0, 0.93);
+  --popover-list-content-color: #ffffff;
+  --popover-list-badge-color: #ff411c;
+  --popover-list-content-color: #333333;
 
   // rare-words
   --rare-words-bg: rgba(0, 0, 0, 0.45);
   --rare-keyboard-bg: #d8d8d8;
+  --rare-words-keyboard-color: #333333;
+  --rare-words-border-color: #eeeeee;
+  --rare-words-kb-bg: #f5f5f5;
+  --rare-words-pinyin-key-color: #ffffff;
+  --rare-words-inner-bg: #cccccc;
+  --rare-words-active-color: #1677ff;
+  --rare-words-pinyin-color: #f5f5f5;
+  --rare-words-keyboard-bg: #4a4a4a;
+  --rare-words-item-tips-color: #666666;
+
+  // selector
+  --selector-background-color: #ffffff;
+  --selector-item-background: #f5f5f5;
+  --selector-item-active-background: #e7f1ff;
+  --selector-item-color: #333333;
+  --selector-item-sub-color: #999999;
+  --selector-item-color: #1677ff;
 
   //slide
   --slide-block-shadow: rgba(0, 0, 0, 0.12);
+  --slider-default-primary-color: #1677ff;
+  --slider-track-bg: #ffffff;
+  --slider-fill-bg: #f5f5f5;
+  --slider-number-color: #333333;
+  --slide-block-bg: #ffffff;
+  --slide-block-shadow: rgba(0, 0, 0, 0.12);
+  --slide-back-bg: #f5f5f5;
 
   // stepper
   --stepper-handler-tap-bg: #ddd;
+  --stepper-handler-border-color: #e5e5e5;
+  --stepper-border-color: #e5e5e5;
+  --stepper-background-color: #ffffff;
+  --stepper-hover-bg: rgba(0, 0, 0, 0.92);
 
+  // switch
+  --switch-fill: #1677ff;
+  --switch-border-color: #eeeeee;
+  --switch-loading-color: #1677ff;
+  --switch-handle-bg: #ffffff;
+  --switch-inner-color: #999999;
+
+  // modal
+  --modal-background-color: #ffffff;
+  --modal-title-color: #333333;
+  --modal-content-color: #333333;
+  --modal-close-text-color: #999999;
+
+  // popover
+  --color-background-popover: #404040; //popover默认底色
+  --popover-bg: #ffffff;
+  --popover-text-color: #000000;
+  --popover-inner-color: #ff3141;
+
+  // popup
+  --popup-background: #ffffff;
+  --popup-color: #333333;
+  --popup-assit-color: #999999;
+  --popup-mask-close-bg: rgba(0, 0, 0, 1);
+
+  // rate
+  --rate-active-icon: #ff9f18;
+  --rate-icon-color: #eeeeee;
+
+  // result
+  --result-main-background: #ffffff;
+  --result-title-color: #000000;
+  --result-desc-color: #333333;
+  --result-success-color: #1677ff;
+  --result-error-color: #ff3b30;
+  --result-warning-color: #ff8f1f;
+  --result-wait-color: #00b578;
+
+  // skeleton
+  --skeleton-animation-25: #eeeeee;
+  --skeleton-animation-37: rgba(204, 204, 204, 0.6);
+  --skeleton-animation-63: #eeeeee;
   // toast
   --toast-default-bg: rgba(0, 0, 0, 0.75);
+  --toast-default-color: #ffffff;
 
-  // calender
-  --calendar-weekday-names-bg: #f8f8f8;
+  // badge
+  --badge-text-color: #ffffff;
+  --badge-background-color: #ff3141;
+
+  // notice-bar
+  --notice-background-color: #fff9ed;
+  --notice-border-color: #fff3d9;
+  --notice-color: #ff6010;
+  --notice-error-border-color: #fff3d9;
+  --notice-error-color: #ffffff;
+  --notice-error-background-color: #ff3141;
+  --notice-primary-border-color: rgba(22, 119, 255, 0.72);
+  --notice-primary-color: #1677ff;
+  --notice-primary-background-color: rgba(208, 228, 255, 1);
+  --notice-info-text-color: #ffffff;
+  --notice-info-background-color: #666666;
+  // page-container
+  --page-container-background-color: #f5f5f5;
+  // typography
+  --typography-container-color: #333333;
 }

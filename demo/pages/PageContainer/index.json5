@@ -12,7 +12,6 @@
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "ant-page": "../../../src/PageContainer/index",
-    "ant-loading": "../../../src/Loading/index",
-    "ant-config-provider": "../../../src/ConfigProvider/index"
+    "ant-loading": "../../../src/Loading/index"
   }
 }

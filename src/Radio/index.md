@@ -170,3 +170,19 @@ Page({
 | value                  | 选中的值           | string                                                                                             | -          |
 | #if ALIPAY onChange    | 状态改变时的回调   | `(value: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -          |
 | #if WECHAT bind:change | 状态改变时的回调   | `(value: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -          |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                             | 默认值                                                                                            | 备注                     |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------ |
+| --radio-header-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 单选按钮头部颜色         |
+| --radio-border-color               | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | 单选按钮边框颜色         |
+| --radio-background-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 单选按钮背景颜色         |
+| --radio-disabled-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | 单选按钮禁用状态背景颜色 |
+| --radio-text-color                 | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 单选按钮文本颜色         |
+| --radio-fake-icon-background-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | 单选按钮假图标背景颜色   |
+| --radio-icon-colo                  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 单选按钮图标颜色         |

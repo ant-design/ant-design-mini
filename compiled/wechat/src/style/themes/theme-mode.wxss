@@ -12,7 +12,6 @@
     --color-green: #22b35e;
     --color-red: #ff3141;
     --color-text-primary: #333333;
-    --color-text-secondary: #666666;
     --color-text-assist: #999999;
     --color-text-weak: #cccccc;
     --color-text-weak-faded: rgba(204, 204, 204, 0.6);
@@ -25,7 +24,7 @@
     --color-white-card: #ffffff;
     --color-grey-card: #f5f5f5;
     --color-black-card: #000000e6;
-    --color_text_secondary: #666666;
+    --color-text-secondary: #666666;
     --color-white: #ffffff;
     --color-black: #000000;
     --color-black-fade: #000000;

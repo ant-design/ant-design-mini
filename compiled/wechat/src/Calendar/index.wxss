@@ -1,5 +1,5 @@
 .ant-calendar {
-  color: var(--color-text-primary, #333333);
+  color: var(--calendar-default-color, #333333);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -39,7 +39,7 @@
   margin-right: 0;
 }
 .ant-calendar-title {
-  color: var(--color-text-primary, #333333);
+  color: var(--calendar-default-color, #333333);
   font-size: 36rpx;
   height: 82rpx;
   line-height: 82rpx;
@@ -60,7 +60,7 @@
   height: 110rpx;
 }
 .ant-calendar-cell-space-active {
-  background: var(--color-brand, #1677ff);
+  background: var(--calendar-selected-color, #1677ff);
 }
 .ant-calendar-cell {
   box-sizing: border-box;
@@ -75,7 +75,7 @@
   height: 100%;
 }
 .ant-calendar-cell-top {
-  color: var(--color-text-assist, #999999);
+  color: var(--calendar-assist-color, #999999);
   text-align: center;
   font-size: 18rpx;
   height: 25rpx;
@@ -89,23 +89,23 @@
   font-size: 32rpx;
 }
 .ant-calendar-cell-bottom {
-  color: var(--color-text-assist, #999999);
+  color: var(--calendar-assist-color, #999999);
   text-align: center;
   font-size: 18rpx;
   height: 25rpx;
 }
 .ant-calendar-cell-selected {
-  background: var(--color-brand, #1677ff);
+  background: var(--calendar-selected-color, #1677ff);
 }
 .ant-calendar-cell-selected-begin {
   border-top-left-radius: 8rpx;
   border-bottom-left-radius: 8rpx;
-  background: var(--color-brand, #1677ff);
+  background: var(--calendar-selected-color, #1677ff);
 }
 .ant-calendar-cell-selected-end {
   border-top-right-radius: 8rpx;
   border-bottom-right-radius: 8rpx;
-  color: var(--color-white, #ffffff);
+  color: var(--calendar-selected-end-color, #ffffff);
 }
 .ant-calendar-cell-selected-row-end {
   border-top-right-radius: 8rpx;
@@ -116,29 +116,29 @@
   border-bottom-left-radius: 8rpx;
 }
 .ant-calendar-cell-selected-begin .ant-calendar-cell-container {
-  background: var(--color-brand, #1677ff);
+  background: var(--calendar-selected-color, #1677ff);
   border-radius: 8rpx;
-  color: var(--color-white, #ffffff);
+  color: var(--calendar-selected-end-color, #ffffff);
 }
 .ant-calendar-cell-selected-end .ant-calendar-cell-container {
-  background: var(--color-brand, #1677ff);
+  background: var(--calendar-selected-color, #1677ff);
   border-radius: 8rpx;
-  color: var(--color-white, #ffffff);
+  color: var(--calendar-selected-end-color, #ffffff);
 }
 .ant-calendar-cell-selected-end .ant-calendar-cell-top {
-  color: var(--color-white, #ffffff);
+  color: var(--calendar-selected-end-color, #ffffff);
 }
 .ant-calendar-cell-selected-begin .ant-calendar-cell-top {
-  color: var(--color-white, #ffffff);
+  color: var(--calendar-selected-end-color, #ffffff);
 }
 .ant-calendar-cell-selected-end .ant-calendar-cell-bottom {
-  color: var(--color-white, #ffffff);
+  color: var(--calendar-selected-end-color, #ffffff);
 }
 .ant-calendar-cell-selected-begin .ant-calendar-cell-bottom {
-  color: var(--color-white, #ffffff);
+  color: var(--calendar-selected-end-color, #ffffff);
 }
 .ant-calendar-cell-disabled {
-  opacity: var(--opacity-disabled, 0.4);
+  opacity: var(--calendar-cell-disabled-opacity, 0.4);
 }
 .ant-calendar-cell-hidden {
   opacity: 0;

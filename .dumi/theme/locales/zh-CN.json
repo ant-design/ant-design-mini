@@ -9,5 +9,6 @@
   "app.footer.actions.edit": "帮助改进此文档",
   "app.theme.sidebar.alipay": "支付宝",
   "app.theme.sidebar.wechat": "微信",
-  "app.previewer.collapse.label": "示例代码"
+  "app.previewer.collapse.label": "示例代码",
+  "app.platform.support.warning": "该组件不支持${platform}平台"
 }
