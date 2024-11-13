@@ -1,65 +1,136 @@
 <ant-container title="基本用法">
-  <ant-container title="中文" style="width:200rpx;">
-    <ant-auto-resize text="提现" min-font-size="24" max-font-size="48">
+  <ant-container
+    title="中文"
+    style="width:200rpx;"
+  >
+    <ant-auto-resize
+      text="提现"
+      min-font-size="24"
+      max-font-size="48"
+    >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">提现</view>
     </ant-auto-resize>
   </ant-container>
-  <ant-container title="英文" style="width: 200rpx;">
-    <ant-auto-resize text="Withdraw" min-font-size="24" max-font-size="32">
+  <ant-container
+    title="英文"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Withdraw"
+      min-font-size="24"
+      max-font-size="32"
+    >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">
         Withdraw
       </view>
     </ant-auto-resize>
   </ant-container>
-  <ant-container title="英文-ratio" style="width: 200rpx;">
-    <ant-auto-resize text="Withdraw" ratio="{{4}}" min-font-size="24" max-font-size="32">
+  <ant-container
+    title="英文-ratio"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Withdraw"
+      ratio="{{4}}"
+      min-font-size="24"
+      max-font-size="32"
+    >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">
         Withdraw
       </view>
     </ant-auto-resize>
   </ant-container>
-  <ant-container title="日文" style="width: 200rpx;">
-    <ant-auto-resize text="現金引き出し" min-font-size="24" max-font-size="48">
+  <ant-container
+    title="日文"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="現金引き出し"
+      min-font-size="24"
+      max-font-size="48"
+    >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">
         現金引き出し
       </view>
     </ant-auto-resize>
   </ant-container>
-  <ant-container title="韩文" style="width: 200rpx;">
-    <ant-auto-resize text="현금인출" min-font-size="24" max-font-size="48">
+  <ant-container
+    title="韩文"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="현금인출"
+      min-font-size="24"
+      max-font-size="48"
+    >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">현금인출</view>
     </ant-auto-resize>
   </ant-container>
-  <ant-container title="阿拉伯" style="width: 200rpx;">
-    <ant-auto-resize text="سحب الرصي" min-font-size="24" max-font-size="48">
+  <ant-container
+    title="阿拉伯"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="سحب الرصي"
+      min-font-size="24"
+      max-font-size="48"
+    >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">
         سحب الرصي
       </view>
     </ant-auto-resize>
   </ant-container>
-  <ant-container title="西班牙" style="width: 200rpx;">
-    <ant-auto-resize text="Retirar" min-font-size="24" max-font-size="48">
+  <ant-container
+    title="西班牙"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Retirar"
+      min-font-size="24"
+      max-font-size="48"
+    >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">
         Retirar
       </view>
     </ant-auto-resize>
   </ant-container>
-  <ant-container title="俄语" style="width: 200rpx;">
-    <ant-auto-resize text="Вывод средств" min-font-size="24" max-font-size="48">
+  <ant-container
+    title="俄语"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Вывод средств"
+      min-font-size="24"
+      max-font-size="48"
+    >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">
         Вывод средств
       </view>
     </ant-auto-resize>
   </ant-container>
-  <ant-container title="法语" style="width: 200rpx;">
-    <ant-auto-resize text="Retrait" min-font-size="24" max-font-size="48">
+  <ant-container
+    title="法语"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Retrait"
+      min-font-size="24"
+      max-font-size="48"
+    >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">
         Retrait
       </view>
     </ant-auto-resize>
   </ant-container>
-  <ant-container title="德语" style="width: 200rpx;">
-    <ant-auto-resize text="Abheben" min-font-size="24" max-font-size="48">
+  <ant-container
+    title="德语"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Abheben"
+      min-font-size="24"
+      max-font-size="48"
+    >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">
         Abheben
       </view>
