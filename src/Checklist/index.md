@@ -162,3 +162,17 @@ Page({
 | readonly    | 是否只读 | boolean | false  |
 | title       | 标题     | string  | -      |
 | value       | 值       | string  | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                                   | 默认值                                                                                            | 备注               |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
+| --checklist-background-color             | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 清单背景颜色       |
+| --check-list-item-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 清单项背景颜色     |
+| --check-list-item-hover-background-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | 清单项悬停背景颜色 |
+| --check-list-item-content-color          | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 清单项内容颜色     |
+| --check-list-item-description-color      | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 清单项描述颜色     |

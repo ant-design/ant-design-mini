@@ -126,7 +126,7 @@
     &_item_tips {
       padding-left: 8 * @rpx;
       font-size: 28 * @rpx;
-      color: @rare-item-tips-color;
+      color: @rare-words-item-tips-color;
       line-height: 34 * @rpx;
 
       &.loading {
@@ -247,7 +247,11 @@
           display: block;
           width: 10 * @rpx;
           height: 100%;
-          background: linear-gradient(to right, transparent, @rare-keyboard-bg);
+          background: linear-gradient(
+            to right,
+            transparent,
+            @rare-words-keyboard-bg
+          );
           position: absolute;
           left: -32 * @rpx;
         }

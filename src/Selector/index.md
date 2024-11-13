@@ -202,3 +202,17 @@ Page({
 | subText  | 副文案       | string           | -      |
 | text     | 文案         | string           | -      |
 | value    | 当前项 value | string \| number | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                            | 默认值                                                                                            | 备注                 |
+| --------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
+| --selector-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 选择器背景颜色       |
+| --selector-item-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | 选择器项背景颜色     |
+| --selector-item-active-background | <div style="width: 150px; height: 30px; background-color: #e7f1ff; color: #333333;">#e7f1ff</div> | 选择器激活项背景颜色 |
+| --selector-item-color             | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 选择器项颜色         |
+| --selector-item-sub-color         | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 选择器项子颜色       |

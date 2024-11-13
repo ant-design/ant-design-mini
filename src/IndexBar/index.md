@@ -52,3 +52,16 @@ toc: 'content'
 | -------------- | ------------------------ | ------- | ------ |
 | label          | 索引标识                 | string  | -      |
 | disablePreview | 禁用索引触发时的预览效果 | boolean | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                           | 默认值                                                                                            | 备注               |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
+| --index-bar-tip-background-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | 索引栏提示背景颜色 |
+| --index-bar-text-color           | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 索引栏文本颜色     |
+| --index-bar-assist-color         | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 索引栏辅助文本颜色 |
+| --index-bar-active-color         | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 索引栏激活颜色     |
