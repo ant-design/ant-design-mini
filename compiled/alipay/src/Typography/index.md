@@ -5,6 +5,7 @@ group:
   title: 实验性
   order: 15
 toc: content
+supportPlatform: ['alipay']
 ---
 
 # Typography 排版

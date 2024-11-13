@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: 信息反馈
-  order: 8
+  title: 反馈
+  order: 15
 toc: content
 ---
 
