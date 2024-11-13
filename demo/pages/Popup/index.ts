@@ -7,13 +7,8 @@ Page({
     customizeVisible: false,
     topImageVisible: false,
   },
-  onClickCloseIcon() {
-    this.showToast('点击了关闭icon');
-    this.handlePopupClose();
-  },
-  onClickBackIcon() {
+  onClickBack() {
     this.showToast('点击了返回icon');
-    this.handlePopupClose();
   },
   handlePopupClose() {
     this.setData({
@@ -49,6 +44,13 @@ Page({
     this.setData({ topImageVisible: true });
   },
   showToast(content) {
+    /// #if ALIPAY
     my.showToast({ content, duration: 1000 });
-},
+    /// #endif
+
+    /// #if WECHAT
+    // @ts-ignore
+    wx.showToast({ content, duration: 1000 });
+    /// #endif
+  },
 });

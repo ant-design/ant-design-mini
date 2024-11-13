@@ -5,10 +5,9 @@
   title="标题"
   height="{{250}}"
   width="{{250}}"
-  onClickCloseIcon="onClickCloseIcon"
-  onClickBackIcon="onClickBackIcon"
   position="{{position}}"
   animation="{{animation}}"
+  bind:clickback="onClickBack"
   bind:close="handlePopupClose"
 >
   <view style="padding: 12px">从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。</view>
@@ -16,12 +15,11 @@
 <ant-popup
   visible="{{customizeVisible}}"
   height="{{350}}"
-  onClickCloseIcon="onClickCloseIcon"
-  onClickBackIcon="onClickBackIcon"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*1zlbRZpwRXYAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
   showClose="{{true}}"
   animation="{{animation}}"
+  bind:clickback="onClickBack"
   bind:close="handlePopupClose"
 >
   <view class="customize-content">
@@ -45,12 +43,11 @@
   visible="{{topImageVisible}}"
   height="{{450}}"
   className="customize-top-image-popup"
-  onClickCloseIcon="onClickCloseIcon"
-  onClickBackIcon="onClickBackIcon"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
   showClose="{{false}}"
   animation="{{animation}}"
+  bind:clickback="onClickBack"
   bind:close="handlePopupClose"
 >
   <view class="customize-content">
@@ -75,10 +72,9 @@
   visible="{{scrollVisible}}"
   position="bottom"
   title="超长内容滚动"
-  onClickCloseIcon="onClickCloseIcon"
-  onClickBackIcon="onClickBackIcon"
   showClose="{{true}}"
   animation="{{animation}}"
+  bind:clickback="onClickBack"
   bind:close="handlePopupClose"
 >
   <scroll-view

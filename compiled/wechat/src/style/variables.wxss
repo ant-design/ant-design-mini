@@ -228,7 +228,7 @@ page {
   --image-upload-wrapper-background: #f5f5f5;
   --image-upload-cover-background: rgba(0, 0, 0, 0.4);
   --image-upload-text-color: #ffffff;
-  --color-ironblack-1: #454955;
+  --loading-text-color: #454955;
   --loading-icon-light-color: rgba(255, 255, 255, 0.6);
   --mask-background-color: rgba(0, 0, 0, 0.55);
   --number-key-board-active-background-color: #d3d3d3;
@@ -286,5 +286,14 @@ page {
   --stepper-border-color: #e5e5e5;
   --stepper-background-color: #ffffff;
   --stepper-hover-bg: rgba(0, 0, 0, 0.92);
+  --switch-fill: #1677ff;
+  --switch-border-color: #eeeeee;
+  --switch-loading-color: #1677ff;
+  --switch-handle-bg: #ffffff;
+  --switch-inner-color: #999999;
+  --modal-background-color: #ffffff;
+  --modal-title-color: #333333;
+  --modal-content-color: #333333;
+  --modal-close-text-color: #999999;
   --toast-default-bg: rgba(0, 0, 0, 0.75);
 }

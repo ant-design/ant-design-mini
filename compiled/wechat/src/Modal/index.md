@@ -53,3 +53,10 @@ toc: 'content'
 #### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                   | 默认值                                                                                            | 备注                   |
+| ------------------------ | ------------------------------------------------------------------------------------------------- | ---------------------- |
+| --modal-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 模态框背景颜色         |
+| --modal-title-color      | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 模态框标题颜色         |
+| --modal-content-color    | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 模态框内容颜色         |
+| --modal-close-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 模态框关闭按钮文字颜色 |
