@@ -90,7 +90,8 @@
     "pages/Typography/index",
     "pages/Feedback/index",
     "pages/IndexBarControl/index",
-    "pages/ConfigProvider/index"
+    "pages/ConfigProvider/index",
+    "pages/AutoResize/index"
   ],
   "window": {
     "enableWK": "YES",

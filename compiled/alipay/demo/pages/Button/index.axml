@@ -1,173 +1,74 @@
-<ant-container
-  title="按钮类型"
-  className="list"
->
-  <ant-button
-    type="primary"
-    onTap="handleTap"
-  >
+<ant-container title="按钮类型" className="list">
+  <ant-button type="primary" onTap="handleTap">
     主要按钮
   </ant-button>
-  <ant-button
-    type="default"
-    onTap="handleTap"
-  >
+  <ant-button type="default" onTap="handleTap">
     操作线框按钮
   </ant-button>
-  <ant-button
-    type="text"
-    onTap="handleTap"
-  >
+  <ant-button type="text" onTap="handleTap">
     文本按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="辅助按钮 只有default和primary类型有"
-  className="list"
->
-  <ant-button
-    type="primary"
-    aide
-    onTap="handleTap"
-  >
+<ant-container title="辅助按钮 只有default和primary类型有" className="list">
+  <ant-button type="primary" aide onTap="handleTap">
     辅助按钮
   </ant-button>
-  <ant-button
-    type="primary"
-    aide
-    disabled
-    onTap="handleTap"
-  >
+  <ant-button type="primary" aide disabled onTap="handleTap">
     辅助按钮
   </ant-button>
-  <ant-button
-    type="default"
-    aide
-    onTap="handleTap"
-  >
+  <ant-button type="default" aide onTap="handleTap">
     操作线框辅助按钮
   </ant-button>
-  <ant-button
-    type="default"
-    aide
-    disabled
-    onTap="handleTap"
-  >
+  <ant-button type="default" aide disabled onTap="handleTap">
     操作线框辅助按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="带辅助文案按钮"
-  className="list"
->
-  <ant-button
-    type="primary"
-    subText="副标题"
-    onTap="handleTap"
-  >
+<ant-container title="带辅助文案按钮" className="list">
+  <ant-button type="primary" subText="副标题" onTap="handleTap">
     主要按钮
   </ant-button>
-  <ant-button
-    type="default"
-    subText="副标题"
-    onTap="handleTap"
-  >
+  <ant-button type="default" subText="副标题" onTap="handleTap">
     次要按钮
   </ant-button>
-  <ant-button
-    type="text"
-    subText="副标题"
-    onTap="handleTap"
-  >
+  <ant-button type="text" subText="副标题" onTap="handleTap">
     文本按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="禁用"
-  className="list"
->
-  <ant-button
-    type="primary"
-    disabled
-    onTap="handleTap"
-    onDisabledTap="handleDisabledTap"
-  >
+<ant-container title="禁用" className="list">
+  <ant-button type="primary" disabled onTap="handleTap" onDisabledTap="handleDisabledTap">
     主要按钮
   </ant-button>
-  <ant-button
-    type="default"
-    onTap="handleTap"
-    disabled
-  >
+  <ant-button type="default" onTap="handleTap" disabled>
     次要按钮
   </ant-button>
-  <ant-button
-    type="text"
-    onTap="handleTap"
-    disabled
-  >
+  <ant-button type="text" onTap="handleTap" disabled>
     文本按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="加载状态"
-  className="list"
->
-  <ant-button
-    type="primary"
-    loading
-  >
+<ant-container title="加载状态" className="list">
+  <ant-button type="primary" loading>
     主要按钮
   </ant-button>
-  <ant-button
-    type="default"
-    loading
-  >
+  <ant-button type="default" loading>
     次要按钮
   </ant-button>
-  <ant-button
-    type="text"
-    loading
-  >
+  <ant-button type="text" loading>
     文本
   </ant-button>
 </ant-container>
-<ant-container
-  title="危险"
-  className="list"
->
-  <ant-button
-    type="primary"
-    danger
-    onTap="handleTap"
-  >
+<ant-container title="危险" className="list">
+  <ant-button type="primary" danger onTap="handleTap">
     主要按钮
   </ant-button>
-  <ant-button
-    type="default"
-    danger
-    onTap="handleTap"
-  >
+  <ant-button type="default" danger onTap="handleTap">
     次要按钮
   </ant-button>
-  <ant-button
-    type="text"
-    danger
-    onTap="handleTap"
-  >
+  <ant-button type="text" danger onTap="handleTap">
     文本按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="自定义大小"
-  className="list"
->
-  <ant-button
-    type="primary"
-    icon="SmileOutline"
-    onTap="handleTap"
-    className="btn"
-  >
+<ant-container title="自定义大小" className="list">
+  <ant-button type="primary" icon="SmileOutline" onTap="handleTap" className="btn">
     主要按钮
   </ant-button>
   <ant-button
@@ -190,133 +91,70 @@
     主要按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="round"
-  className="list"
->
-  <ant-button
-    type="primary"
-    icon="SearchOutline"
-    onTap="handleTap"
-    inline
-    className="round"
-  >
+<ant-container title="round" className="list">
+  <ant-button type="primary" icon="SearchOutline" onTap="handleTap" inline className="round">
     主要按钮
   </ant-button>
-  <ant-button
-    type="primary"
-    onTap="handleTap"
-    inline
-    danger
-    className="round"
-  >
+  <ant-button type="primary" onTap="handleTap" inline danger className="round">
     主要按钮
+  </ant-button>
+</ant-container>
+<ant-container title="circle" className="list">
+  <ant-button type="primary" icon="SearchOutline" onTap="handleTap" inline className="circle">
+  </ant-button>
+  <ant-button icon="SearchOutline" onTap="handleTap" inline className="circle">
+  </ant-button>
+  <ant-button type="primary" onTap="handleTap" inline className="circle">
+    A
+  </ant-button>
+  <ant-button onTap="handleTap" inline className="circle">
+    A
   </ant-button>
 </ant-container>
 <ant-container title="icon">
-  <ant-button
-    type="primary"
-    icon="SmileOutline"
-  >
+  <ant-button type="primary" icon="SmileOutline">
     Icon
   </ant-button>
-  <ant-button
-    type="default"
-    icon="SmileOutline"
-  >
+  <ant-button type="default" icon="SmileOutline">
     Icon
   </ant-button>
-  <ant-button
-    type="text"
-    icon="SmileOutline"
-  >
+  <ant-button type="text" icon="SmileOutline">
     Icon
   </ant-button>
-  <ant-button
-    type="primary"
-    danger
-    icon="ForbidFill"
-  >
+  <ant-button type="primary" danger icon="ForbidFill">
     Icon
   </ant-button>
-  <ant-button
-    type="default"
-    danger
-    icon="ForbidFill"
-  >
+  <ant-button type="default" danger icon="ForbidFill">
     Icon
   </ant-button>
-  <ant-button
-    type="text"
-    danger
-    icon="ForbidFill"
-  >
+  <ant-button type="text" danger icon="ForbidFill">
     Icon
   </ant-button>
 </ant-container>
 <ant-container title="inline button">
-  <ant-button
-    type="primary"
-    icon="SmileOutline"
-    inline
-    size="large"
-  >
+  <ant-button type="primary" icon="SmileOutline" inline size="large">
     Icon
   </ant-button>
-  <ant-button
-    type="primary"
-    icon="SmileOutline"
-    inline
-    size="medium"
-  >
+  <ant-button type="primary" icon="SmileOutline" inline size="medium">
     Icon
   </ant-button>
-  <ant-button
-    type="primary"
-    icon="SmileOutline"
-    inline
-    size="small"
-  >
+  <ant-button type="primary" icon="SmileOutline" inline size="small">
     Icon
   </ant-button>
 </ant-container>
 <ant-container title="inline danger icon">
-  <ant-button
-    type="primary"
-    icon="ForbidFill"
-    inline
-    danger
-    size="large"
-  >
+  <ant-button type="primary" icon="ForbidFill" inline danger size="large">
     Icon
   </ant-button>
-  <ant-button
-    type="primary"
-    icon="ForbidFill"
-    inline
-    danger
-    size="medium"
-  >
+  <ant-button type="primary" icon="ForbidFill" inline danger size="medium">
     Icon
   </ant-button>
-  <ant-button
-    type="primary"
-    icon="ForbidFill"
-    inline
-    danger
-    size="small"
-  >
+  <ant-button type="primary" icon="ForbidFill" inline danger size="small">
     Icon
   </ant-button>
 </ant-container>
 <ant-container title="loading icon">
-  <ant-button
-    type="primary"
-    icon="SmileOutline"
-    onTap="handleTap"
-    inline
-    loading
-  >
+  <ant-button type="primary" icon="SmileOutline" onTap="handleTap" inline loading>
     loading
   </ant-button>
   <ant-button
@@ -329,23 +167,12 @@
   >
     loading
   </ant-button>
-  <ant-button
-    type="primary"
-    icon="SmileOutline"
-    onTap="handleTap"
-    loading
-  >
+  <ant-button type="primary" icon="SmileOutline" onTap="handleTap" loading>
     loading
   </ant-button>
 </ant-container>
 <ant-container title="disabled icon">
-  <ant-button
-    type="primary"
-    icon="SmileOutline"
-    onTap="handleTap"
-    inline
-    disabled
-  >
+  <ant-button type="primary" icon="SmileOutline" onTap="handleTap" inline disabled>
     disabled
   </ant-button>
   <ant-button
@@ -358,148 +185,62 @@
   >
     disabled
   </ant-button>
-  <ant-button
-    type="primary"
-    icon="SmileOutline"
-    onTap="handleTap"
-    disabled
-  >
+  <ant-button type="primary" icon="SmileOutline" onTap="handleTap" disabled>
     disabled
   </ant-button>
 </ant-container>
-<ant-container
-  title="按钮类型"
-  className="list"
->
-  <ant-button
-    type="primary"
-    inline
-    onTap="handleTap"
-  >
+<ant-container title="按钮类型" className="list">
+  <ant-button type="primary" inline onTap="handleTap">
     主要按钮
   </ant-button>
-  <ant-button
-    type="default"
-    inline
-    onTap="handleTap"
-  >
+  <ant-button type="default" inline onTap="handleTap">
     次要按钮
   </ant-button>
-  <ant-button
-    type="text"
-    inline
-    onTap="handleTap"
-  >
+  <ant-button type="text" inline onTap="handleTap">
     文本按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="按钮尺寸"
-  className="list"
->
-  <ant-button
-    type="primary"
-    inline
-    size="large"
-    onTap="handleTap"
-  >
+<ant-container title="按钮尺寸" className="list">
+  <ant-button type="primary" inline size="large" onTap="handleTap">
     主要按钮
   </ant-button>
-  <ant-button
-    type="primary"
-    inline
-    size="medium"
-    onTap="handleTap"
-  >
+  <ant-button type="primary" inline size="medium" onTap="handleTap">
     主要按钮
   </ant-button>
-  <ant-button
-    type="primary"
-    inline
-    size="small"
-    onTap="handleTap"
-  >
+  <ant-button type="primary" inline size="small" onTap="handleTap">
     主要按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="危险"
-  className="list"
->
-  <ant-button
-    type="primary"
-    inline
-    danger
-    onTap="handleTap"
-  >
+<ant-container title="危险" className="list">
+  <ant-button type="primary" inline danger onTap="handleTap">
     主要按钮
   </ant-button>
-  <ant-button
-    type="default"
-    inline
-    danger
-    onTap="handleTap"
-  >
+  <ant-button type="default" inline danger onTap="handleTap">
     次要按钮
   </ant-button>
-  <ant-button
-    type="text"
-    inline
-    danger
-    onTap="handleTap"
-  >
+  <ant-button type="text" inline danger onTap="handleTap">
     文本按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="禁用"
-  className="list"
->
-  <ant-button
-    type="primary"
-    inline
-    disabled
-  >
+<ant-container title="禁用" className="list">
+  <ant-button type="primary" inline disabled>
     主要按钮
   </ant-button>
-  <ant-button
-    type="default"
-    inline
-    disabled
-  >
+  <ant-button type="default" inline disabled>
     次要按钮
   </ant-button>
-  <ant-button
-    type="text"
-    inline
-    disabled
-  >
+  <ant-button type="text" inline disabled>
     文本按钮
   </ant-button>
 </ant-container>
-<ant-container
-  title="加载状态"
-  className="list"
->
-  <ant-button
-    type="primary"
-    inline
-    loading
-  >
+<ant-container title="加载状态" className="list">
+  <ant-button type="primary" inline loading>
     主要按钮
   </ant-button>
-  <ant-button
-    type="default"
-    inline
-    loading
-  >
+  <ant-button type="default" inline loading>
     次要按钮
   </ant-button>
-  <ant-button
-    type="text"
-    inline
-    loading
-  >
+  <ant-button type="text" inline loading>
     文本
   </ant-button>
 </ant-container>
