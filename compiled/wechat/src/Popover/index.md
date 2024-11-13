@@ -52,3 +52,10 @@ toc: 'content'
 #### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                     | 默认值                                                                                            | 备注             |
+| -------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --color-background-popover | <div style="width: 150px; height: 30px; background-color: #404040; color: #ffffff;">#404040</div> | Popover 默认底色 |
+| --popover-bg               | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Popover 背景颜色 |
+| --popover-text-color       | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | Popover 文字颜色 |
+| --popover-inner-color      | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | Popover 内部颜色 |

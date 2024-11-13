@@ -165,6 +165,13 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
+| 变量名                | 默认值                                                                                                              | 备注                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| --popup-background    | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                   | Popup 背景颜色         |
+| --popup-color         | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                   | Popup 文字颜色         |
+| --popup-assit-color   | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div>                   | Popup 辅助文字颜色     |
+| --popup-mask-close-bg | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 1); color: #ffffff;">rgba(0, 0, 0, 1)</div> | Popup 遮罩关闭背景颜色 |
+
 ## FAQ
 
 ### Popup 打开后，蒙层后面的页面能滚动怎么办？
