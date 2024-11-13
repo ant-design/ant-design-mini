@@ -1,7 +1,7 @@
 .ant-skeleton-input {
-  width: 4rem;
-  height: 0.4rem;
-  border-radius: 0.08rem;
+  width: 400rpx;
+  height: 40rpx;
+  border-radius: 8rpx;
   background: var(--color-border, #e5e5e5);
   display: inline-block;
 }

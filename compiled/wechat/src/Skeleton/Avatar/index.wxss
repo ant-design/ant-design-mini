@@ -1,7 +1,7 @@
 .ant-skeleton-avatar {
-  width: 0.88rem;
-  height: 0.88rem;
-  border-radius: 0.08rem;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 8rpx;
   background: var(--color-border, #e5e5e5);
   display: inline-block;
 }
@@ -14,18 +14,18 @@
   border-radius: 50%;
 }
 .ant-skeleton-avatar-x-small {
-  width: 0.36rem;
-  height: 0.36rem;
+  width: 36rpx;
+  height: 36rpx;
 }
 .ant-skeleton-avatar-small {
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 60rpx;
+  height: 60rpx;
 }
 .ant-skeleton-avatar-medium {
-  width: 0.92rem;
-  height: 0.92rem;
+  width: 92rpx;
+  height: 92rpx;
 }
 .ant-skeleton-avatar-large {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 140rpx;
+  height: 140rpx;
 }

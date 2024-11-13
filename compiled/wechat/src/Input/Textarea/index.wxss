@@ -17,13 +17,13 @@
   width: 100%;
   align-self: center;
   padding: 0;
-  font-size: 0.34rem;
+  font-size: 34rpx;
   text-align: left;
   color: var(--input-item-color, #333333);
   background: var(--input-background-color, #ffffff);
 }
 .ant-textarea-content-clear {
-  padding-right: 0.34rem;
+  padding-right: 34rpx;
 }
 .ant-textarea-clear {
   position: absolute;
@@ -33,12 +33,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.16rem;
-  margin-left: 0.08rem;
+  border-radius: 16rpx;
+  margin-left: 8rpx;
 }
 .ant-textarea-clear-icon {
   color: var(--input-item-placeholder-color, #cccccc);
-  font-size: 0.34rem;
+  font-size: 34rpx;
 }
 .ant-textarea-clear-show {
   display: flex;
@@ -48,7 +48,7 @@
   pointer-events: none;
 }
 .ant-textarea-placeholder {
-  font-size: 0.34rem;
+  font-size: 34rpx;
   color: var(--input-item-placeholder-color, #cccccc);
-  margin-left: -0.06rem;
+  margin-left: -6rpx;
 }

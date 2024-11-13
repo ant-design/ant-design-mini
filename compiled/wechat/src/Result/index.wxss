@@ -5,11 +5,11 @@
   box-sizing: border-box;
 }
 .ant-result-icon {
-  font-size: 1.1rem;
+  font-size: 110rpx;
 }
 .ant-result-main {
-  padding: 0.7rem 0.24rem;
-  margin-bottom: 0.4rem;
+  padding: 70rpx 24rpx;
+  margin-bottom: 40rpx;
   line-height: 1.4;
   background-color: var(--result-main-background, #ffffff);
 }
@@ -17,12 +17,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1.28rem;
-  height: 1.28rem;
+  width: 128rpx;
+  height: 128rpx;
   margin: 0 auto;
   overflow: hidden;
   text-align: center;
-  line-height: 1.28rem;
+  line-height: 128rpx;
 }
 .ant-result-image-success {
   color: var(--result-success-color, #1677ff);
@@ -40,8 +40,8 @@
   color: var(--result-wait-color, #00b578);
 }
 .ant-result-title {
-  padding-top: 0.4rem;
-  font-size: 0.4rem;
+  padding-top: 40rpx;
+  font-size: 40rpx;
   color: var(--result-title-color, #000000);
   font-weight: 500;
 }
@@ -49,8 +49,8 @@
   display: none;
 }
 .ant-result-message {
-  padding-top: 0.16rem;
-  font-size: 0.32rem;
+  padding-top: 16rpx;
+  font-size: 32rpx;
   color: var(--result-desc-color, #333333);
 }
 .ant-result-message:empty {

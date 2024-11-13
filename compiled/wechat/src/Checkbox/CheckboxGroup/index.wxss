@@ -20,9 +20,9 @@
 .ant-checkbox-group-footer {
   display: flex;
   align-items: center;
-  padding: 0.16rem 0.24rem;
+  padding: 16rpx 24rpx;
   line-height: 1.4;
-  font-size: 0.3rem;
+  font-size: 30rpx;
   color: var(--checkbox-header-color, #999999);
 }
 .ant-checkbox-group-body {

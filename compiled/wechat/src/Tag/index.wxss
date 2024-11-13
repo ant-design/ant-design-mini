@@ -2,25 +2,25 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 0.02rem 0.08rem;
-  font-size: 0.22rem;
-  line-height: 0.3rem;
+  padding: 2rpx 8rpx;
+  font-size: 22rpx;
+  line-height: 30rpx;
   box-sizing: border-box;
-  border-radius: 0.04rem;
+  border-radius: 4rpx;
   color: var(--tag-base-color, #ffffff);
 }
 .ant-tag-icon-container {
-  margin-right: 0.06rem;
+  margin-right: 6rpx;
   display: flex;
   justify-content: center;
   align-self: center;
   align-items: center;
 }
 .ant-tag-icon-container .ant-icon {
-  font-size: 0.24rem;
+  font-size: 24rpx;
 }
 .ant-tag-icon-container ant-icon {
-  font-size: 0.24rem;
+  font-size: 24rpx;
 }
 .ant-tag-primary {
   background-color: var(--tag-primary-color, #1677ff);

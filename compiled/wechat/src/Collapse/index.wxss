@@ -10,7 +10,7 @@
   display: flex;
   flex: 1;
   border-bottom: 1px solid var(--collapse-border-color, #e5e5e5);
-  padding: 0.24rem;
+  padding: 24rpx;
 }
 .ant-collapse-item-title {
   position: relative;
@@ -18,8 +18,8 @@
   text-align: justify;
   align-items: center;
   justify-content: space-between;
-  line-height: 0.48rem;
-  font-size: 0.34rem;
+  line-height: 48rpx;
+  font-size: 34rpx;
   color: var(--collapse-title-color, #333333);
   background-color: var(--collapse-title-background-color, #ffffff);
   transition: all 300ms linear;
@@ -29,24 +29,24 @@
   display: flex;
   flex: 1;
   max-width: 100%;
-  font-size: 0.34rem;
+  font-size: 34rpx;
   color: var(--collapse-title-color, #333333);
 }
 .ant-collapse-item-title-arrow {
   color: var(--collapse-title-icon-color, #cccccc);
 }
 .ant-collapse-item-title-icon {
-  width: 0.44rem;
-  height: 0.44rem;
+  width: 44rpx;
+  height: 44rpx;
   overflow: hidden;
-  margin-right: 0.24rem;
+  margin-right: 24rpx;
 }
 .ant-collapse-item-title-icon .ant-icon {
-  font-size: 0.4rem;
+  font-size: 40rpx;
 }
 .ant-collapse-item-title-icon image {
-  width: 0.44rem;
-  height: 0.44rem;
+  width: 44rpx;
+  height: 44rpx;
 }
 .ant-collapse-item-title:active {
   background-color: var(--collapse-border-color, #e5e5e5);
@@ -56,20 +56,20 @@
   display: flex;
 }
 .ant-collapse-item-brief-container .ant-icon {
-  font-size: 0.4rem;
+  font-size: 40rpx;
 }
 .ant-collapse-item-brief-node {
   display: flex;
   flex: 1;
-  font-size: 0.3rem;
+  font-size: 30rpx;
   color: var(--collapse-node-text-color, #999999);
-  margin-right: 0.08rem;
+  margin-right: 8rpx;
 }
 .ant-collapse-item-content {
   color: var(--collapse-title-color, #333333);
   border-bottom: 1px solid var(--collapse-border-color, #e5e5e5);
   box-sizing: border-box;
-  padding: 0.24rem;
+  padding: 24rpx;
 }
 .ant-collapse-item-content-container {
   background: var(--collapse-container-background-color, #ffffff);

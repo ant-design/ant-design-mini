@@ -3,6 +3,6 @@
   overflow: hidden;
 }
 .ant-checklist-item-check-icon {
-  font-size: 0.36rem;
+  font-size: 36rpx;
   color: var(--checklist-background-color, #1677ff);
 }

@@ -7,17 +7,17 @@
   position: relative;
 }
 .ant-image-upload-image {
-  width: 1.6rem;
-  height: 1.6rem;
-  margin: 0.04rem 0.08rem;
-  border-radius: 0.08rem;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 4rpx 8rpx;
+  border-radius: 8rpx;
 }
 .ant-image-upload-close {
-  width: 0.4rem;
-  height: 0.4rem;
+  width: 40rpx;
+  height: 40rpx;
   position: absolute;
   z-index: 99;
-  top: -0.04rem;
+  top: -4rpx;
   right: 0;
   background: url('https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*_Az1QavR4OsAAAAAAAAAAAAAARQnAQ') no-repeat;
   background-size: cover;
@@ -26,21 +26,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  margin: 0.04rem 0.08rem 0.12rem;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 4rpx 8rpx 12rpx;
   background-color: var(--image-upload-wrapper-background, #f5f5f5);
-  border-radius: 0.08rem;
+  border-radius: 8rpx;
 }
 .ant-image-upload-add-image-icon {
   color: #999999;
 }
 .ant-image-upload-cover {
   position: absolute;
-  width: 1.6rem;
-  height: 1.6rem;
-  margin: 0.04rem 0.08rem;
-  border-radius: 0.08rem;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 4rpx 8rpx;
+  border-radius: 8rpx;
   background-color: var(--image-upload-cover-background, rgba(0, 0, 0, 0.4));
   display: flex;
   justify-content: center;
@@ -50,13 +50,13 @@
   text-align: center;
 }
 .ant-image-upload-cover-loading-icon {
-  width: 0.48rem;
-  height: 0.48rem;
+  width: 48rpx;
+  height: 48rpx;
 }
 .ant-image-upload-cover-loading-text {
   color: var(--image-upload-text-color, #ffffff);
-  font-size: 0.24rem;
-  margin-top: 0.08rem;
+  font-size: 24rpx;
+  margin-top: 8rpx;
 }
 .ant-image-upload-cover-error {
   text-align: center;

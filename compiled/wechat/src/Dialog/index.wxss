@@ -1,41 +1,41 @@
 .ant-dialog-body {
-  width: 5.6rem;
+  width: 560rpx;
   background-color: var(--dialog-background-color, #ffffff);
-  padding: 0.48rem 0.44rem;
+  padding: 48rpx 44rpx;
   display: flex;
   flex-direction: column;
-  border-radius: 0.48rem;
+  border-radius: 48rpx;
 }
 .ant-dialog-body-header {
-  width: calc(100% + 88 * 0.01rem);
-  border-top-left-radius: 0.48rem;
-  border-top-right-radius: 0.48rem;
-  margin: -0.48rem -0.44rem 0.36rem -0.44rem;
+  width: calc(100% + 88rpx);
+  border-top-left-radius: 48rpx;
+  border-top-right-radius: 48rpx;
+  margin: -48rpx -44rpx 36rpx -44rpx;
 }
 .ant-dialog-body-title {
-  line-height: 0.56rem;
+  line-height: 56rpx;
   text-align: center;
   color: var(--dialog-title-color, #333333);
-  padding-bottom: 0.32rem;
+  padding-bottom: 32rpx;
   font-weight: 500;
-  font-size: 0.4rem;
+  font-size: 40rpx;
 }
 .ant-dialog-body-content {
-  line-height: 0.42rem;
-  padding-bottom: 0.24rem;
-  font-size: 0.32rem;
+  line-height: 42rpx;
+  padding-bottom: 24rpx;
+  font-size: 32rpx;
   color: var(--dialog-content-color, #333333);
   text-align: center;
 }
 .ant-dialog-body-footer {
-  padding: 0.48rem 0.04rem 0 0.04rem;
+  padding: 48rpx 4rpx 0 4rpx;
 }
 .ant-dialog-body-footer-vertical {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  gap: 0.24rem;
+  gap: 24rpx;
 }
 .ant-dialog-body-footer-vertical .ant-dialog-body-footer-button {
   width: 100%;
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.24rem;
+  gap: 24rpx;
   flex-direction: row;
 }
 .ant-dialog-body-footer-horizontal .ant-dialog-body-footer-button {
@@ -54,11 +54,11 @@
   top: 72rpx;
   position: relative;
   left: 50%;
-  margin-left: -0.3rem;
+  margin-left: -30rpx;
   z-index: 3;
-  width: 0.6rem;
-  height: 0.6rem;
-  font-size: 0.72rem;
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 72rpx;
   color: var(--dialog-close-text-color, #999999);
 }
 .ant-dialog .ant-popup-content.ant-popup-center {

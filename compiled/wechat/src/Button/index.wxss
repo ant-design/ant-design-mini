@@ -6,34 +6,34 @@
   align-items: center;
   height: auto;
   line-height: normal;
-  padding: var(--button-padding, 0.24rem);
+  padding: var(--button-padding, 24rpx);
   border-radius: 50vh;
   border: 0 none;
   box-sizing: border-box;
-  font-size: var(--button-font-size, 0.36rem);
+  font-size: var(--button-font-size, 36rpx);
   z-index: 2;
 }
 .ant-button-large {
-  font-size: var(--button-large-font-size, 0.36rem);
-  padding: var(--button-padding, 0.24rem);
+  font-size: var(--button-large-font-size, 36rpx);
+  padding: var(--button-padding, 24rpx);
 }
 .ant-button-medium {
-  font-size: var(--button-medium-font-size, 0.34rem);
-  padding: var(--button-medium-padding-top, 0.16rem) var(--button-medium-padding-left, 0.24rem);
+  font-size: var(--button-medium-font-size, 34rpx);
+  padding: var(--button-medium-padding-top, 16rpx) var(--button-medium-padding-left, 24rpx);
 }
 .ant-button-small {
-  font-size: var(--button-small-font-size, 0.3rem);
-  padding: var(--button-small-padding-top, 0.08rem) var(--button-small-padding-left, 0.24rem);
+  font-size: var(--button-small-font-size, 30rpx);
+  padding: var(--button-small-padding-top, 8rpx) var(--button-small-padding-left, 24rpx);
 }
 .ant-button-primary {
   color: var(--button-primary-color, #ffffff);
   background-color: var(--button-primary-background-color, #1677ff);
-  box-shadow: inset 0 0 0 var(--button-border-size, 0.02rem) var(--button-primary-background-color, #1677ff);
+  box-shadow: inset 0 0 0 var(--button-border-size, 2rpx) var(--button-primary-background-color, #1677ff);
 }
 .ant-button-default {
   color: var(--button-color, #1677ff);
   background-color: var(--button-background-color, #ffffff);
-  box-shadow: inset 0 0 0 var(--button-border-size, 0.02rem) var(--button-border-color, #1677ff);
+  box-shadow: inset 0 0 0 var(--button-border-size, 2rpx) var(--button-border-color, #1677ff);
 }
 .ant-button-capsule {
   color: var(--button-primary-color, #ffffff);
@@ -42,13 +42,13 @@
 }
 .ant-button-primary-aide {
   background-color: var(--color-wathet, #e7f1ff);
-  box-shadow: inset 0 0 0 var(--button-border-size, 0.02rem) var(--button-primary-aide-border-color, #e7f1ff);
+  box-shadow: inset 0 0 0 var(--button-border-size, 2rpx) var(--button-primary-aide-border-color, #e7f1ff);
   color: var(--button-color, #1677ff);
 }
 .ant-button-default-aide {
   color: var(--button-default-aide-color, #333333);
   background-color: var(--button-default-aide-background-color, #ffffff);
-  box-shadow: inset 0 0 0 var(--button-border-size, 0.02rem) var(--button-default-aide-border-color, #e5e5e5);
+  box-shadow: inset 0 0 0 var(--button-border-size, 2rpx) var(--button-default-aide-border-color, #e5e5e5);
 }
 .ant-button-text {
   color: var(--button-color, #1677ff);
@@ -58,12 +58,12 @@
 .ant-button-primary-danger {
   color: var(--button-primary-danger-color, #ffffff);
   background-color: var(--button-primary-danger-background-color, #ff3141);
-  box-shadow: inset 0 0 0 var(--button-border-size, 0.02rem) var(--button-primary-danger-border-color, #ff3141);
+  box-shadow: inset 0 0 0 var(--button-border-size, 2rpx) var(--button-primary-danger-border-color, #ff3141);
 }
 .ant-button-default-danger {
   color: var(--button-default-danger-color, #ff3141);
   background-color: var(--button-default-danger-background-color, #ffffff);
-  box-shadow: inset 0 0 0 var(--button-border-size, 0.02rem) var(--button-default-danger-border-color, #ff3141);
+  box-shadow: inset 0 0 0 var(--button-border-size, 2rpx) var(--button-default-danger-border-color, #ff3141);
 }
 .ant-button-text-danger {
   color: var(--button-text-danger-color, #ff3141);
@@ -86,7 +86,7 @@
   justify-content: center;
 }
 .ant-button-content-text-margin {
-  margin-left: 0.16rem;
+  margin-left: 16rpx;
 }
 .ant-button-content-text:empty {
   margin-left: 0;
@@ -97,7 +97,7 @@
   content: '\00a0';
 }
 .ant-button-content-subtext {
-  font-size: var(--button-subtext-size, 0.24rem);
+  font-size: var(--button-subtext-size, 24rpx);
   opacity: 0.6;
 }
 .ant-button-content-loading-container {
@@ -116,8 +116,8 @@
   border-radius: 50vh;
 }
 .ant-button-inline .ant-button-content-loading-container {
-  width: var(--button-icon-size, 0.44rem);
-  height: var(--button-icon-size, 0.44rem);
+  width: var(--button-icon-size, 44rpx);
+  height: var(--button-icon-size, 44rpx);
 }
 .ant-button-inline .ant-button-content-loading {
   transform: scale(0.5);

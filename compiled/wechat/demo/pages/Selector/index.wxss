@@ -5,7 +5,7 @@ page {
   position: relative;
 }
 .filterDemo-bar {
-  height: 0.88rem;
+  height: 88rpx;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -18,14 +18,14 @@ page {
   align-items: center;
   justify-content: center;
   color: var(--color-text-primary);
-  font-size: 0.26rem;
+  font-size: 26rpx;
 }
 .filterDemo-bar-item-active {
   color: var(--color-brand1);
 }
 .filterDemo-bar-item-icon {
-  margin-left: 0.08rem;
-  font-size: 0.18rem;
+  margin-left: 8rpx;
+  font-size: 18rpx;
   transition: transform 200ms linear;
   color: var(--color-text-weak);
 }

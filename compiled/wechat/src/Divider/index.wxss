@@ -3,19 +3,19 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  padding: 0.16rem 0;
+  padding: 16rpx 0;
 }
 .ant-divider-horizontal-text {
-  font-size: 0.3rem;
+  font-size: 30rpx;
   color: var(--divider-text-color, #333333);
-  margin: 0 0.32rem;
+  margin: 0 32rpx;
 }
 .ant-divider-horizontal-left,
 .ant-divider-horizontal-right {
-  border-bottom: 0.02rem solid var(--divider-border-color, #e5e5e5);
+  border-bottom: 2rpx solid var(--divider-border-color, #e5e5e5);
 }
 .ant-divider-vertical {
-  margin: 0 0.16rem;
-  height: 0.32rem;
-  border-right: 0.02rem solid var(--divider-border-color, #e5e5e5);
+  margin: 0 16rpx;
+  height: 32rpx;
+  border-right: 2rpx solid var(--divider-border-color, #e5e5e5);
 }
