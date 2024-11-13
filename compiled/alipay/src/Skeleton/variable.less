@@ -1,8 +1,9 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 @skeletonPrefix: ant-skeleton;
 
-@skeleton-fill: @COLOR_BORDER;
+@skeleton-fill: var(--color-border, @COLOR_BORDER);
 
 @avatar-size: 88 * @rpx;
 

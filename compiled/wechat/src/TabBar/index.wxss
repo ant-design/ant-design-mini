@@ -1,7 +1,7 @@
 .ant-tab-bar-wrap {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--color-card, #ffffff);
 }
 .ant-tab-bar-item {
   flex: 1;
@@ -10,10 +10,10 @@
   align-items: center;
   justify-content: center;
   padding: 8rpx 0;
-  color: #666666;
+  color: var(--color-text-secondary, #666666);
 }
 .ant-tab-bar-item-active {
-  color: #1677ff;
+  color: var(--color-brand1, #1677ff);
 }
 .ant-tab-bar-icon {
   font-size: 44rpx;

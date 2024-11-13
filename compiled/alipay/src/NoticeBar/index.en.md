@@ -7,7 +7,7 @@ group:
 toc: content
 ---
 
-# NoticeBar notice board
+# NoticeBar
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -30,7 +30,7 @@ For the notification of information in the current page, it is a more eye-catchi
 | extra         | Customize right content                                                                                 | slot         | -       |
 | icon          | The icon on the left supports all built-in iconType and custom links, as well as custom slots (WeChat version requires slotIcon settings) | string       | -       |
 | loop          | Whether to cycle scrolling,`enableMarquee` Valid when true                                                   | boolean      | false   |
-| mode          | the type of announcement,`link` Indicates connection, the whole line can be dotted;`closeable` Indicates that clicking x can be closed; If you do not fill in, there is no icon on the right.   | string       | -       |
+| mode          | the type of announcement,`link` Indicates connection, the whole line can be clicked;`closeable` Indicates that clicking x can be closed; If you do not fill in, there is no icon on the right.   | string       | -       |
 | style         | Style                                                                                           | string       | -       |
 | title         | Title                                                                                           | string\|slot | -       |
 | type          | type, optional `default`, `error`, `primary`, `info`                                               | string       | default |

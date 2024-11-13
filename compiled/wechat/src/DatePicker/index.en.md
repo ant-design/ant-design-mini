@@ -9,7 +9,7 @@ toc: 'content'
 
 ---
 
-# DatePicker time selector
+# DatePicker
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -33,10 +33,10 @@ Compared to native `my.datePicker`, to achieve the same iOS and Android experien
 | content         | Custom Content Slots                                                                                                                                                            | slot                | -            |
 | format          | Time format display, the format is the same [dayjs](https://day.js.org/docs/zh-CN/display/format)                                                                                               | string              | 'YYYY/MM/DD' |
 | indicatorStyle  | Check Box Style                                                                                                                                                                | string              | -            |
-| indicatorClassName | Class name of the check box | string | - |
+| indicatorClassName | Class name of the checked box | string | - |
 | maskClassName | Class name of the layer | string | - |
 | maskClosable | Click whether the layer can be closed | boolean | true |
-| maskStyle | Masked Style | string | - |
+| maskStyle | Mat Style | string | - |
 | max | Maximum | Date | Ten years later |
 | min | Minimum | Date | Ten years ago |
 | okText | Confirm Button Copy | string | "OK" |
@@ -48,11 +48,11 @@ Compared to native `my.datePicker`, to achieve the same iOS and Android experien
 | style | Style | string | - |
 | suffix | Suffix | slot | - |
 | title | Pop-up Title | string \| slot | - |
-| value | selected time | Date | - |
-| visible | Whether to display | boolean | false |
+| value | Selected time | Date | - |
+| visible | Display | boolean | false |
 | defaultVisible | Display by default | boolean | false |
 | onOk | Click the OK button to trigger the callback | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
-| onCancel | Click the cancel button/mask to trigger the callback | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
+| onCancel | Click the cancel button/layer to trigger the callback | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 | onPickerChange | The selected item changes, triggering a callback | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 | onFormat | Text display format of the selected value | (date: Date, dateStr: string) => string | - |
 | onFormatLabel | Customize the content displayed in each column, silently
@@ -72,10 +72,10 @@ Add year, month, day, hour, minute and second units | (type: `year` \| `month` \
 | endPlaceholder  | End Time Prompt Copy                                                                                                                                                          | string              | "Not selected"     |
 | format          | Time format display, the format is the same [dayjs](https://day.js.org/docs/zh-CN/display/format)                                                                                               | string              | 'YYYY/MM/DD' |
 | indicatorStyle  | Check Box Style                                                                                                                                                                | string              | -            |
-| indicatorClassName | Class name of the check box | string | - |
+| indicatorClassName | Class name of the checked box | string | - |
 | maskClassName | Class name of the layer | string | - |
 | maskClosable | Click whether the layer can be closed | boolean | true |
-| maskStyle | Masked Style | string | - |
+| maskStyle | Mat Style | string | - |
 | max | Maximum | Date | Ten years later |
 | min | Minimum | Date | Ten years ago |
 | okText | Confirm Button Copy | string | "OK" |
@@ -90,10 +90,10 @@ Add year, month, day, hour, minute and second units | (type: `year` \| `month` \
 | suffix | Suffix | slot | - |
 | title | Pop-up Title | string \| slot | - |
 | value | Selected time range | [Date, Date] | - |
-| visible | Whether to display | boolean | false |
+| visible | Display | boolean | false |
 | defaultVisible | Display by default | boolean | false |
 | onOk | Click the OK button to trigger the callback | (date: [Date, Date], dateStr: [string, string], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
-| onCancel | Click the cancel button/mask to trigger the callback | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
+| onCancel | Click the cancel button/layer to trigger the callback | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 | onPickerChange | The selected item changes, triggering a callback | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | - |
 | onFormat | Text display format of the selected value | (date: [Date, Date], dateStr: [string, string]) => string | - |
 | onFormatLabel | Customize the content displayed in each column, and add the year, month, day, hour, minute, and second units by default. | (type: `year` \| `month` \| `day` \| `hour` \| `minute`, value: number) => string | - |

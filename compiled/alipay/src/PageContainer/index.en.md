@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# PageContainer page container
+# PageContainer
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 

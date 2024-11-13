@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Modal pop-up window
+# Modal
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -25,13 +25,13 @@ When the application needs to alert or remind the current operation behavior of 
 | cancelButtonStyle | Cancel Button Style                  | string       | -       |
 | cancelButtonText  | Cancel Button Text                  | string       | -       |
 | className         | Class Name                          | string       | -       |
-| closable          | Whether to display the close button in the upper right corner. Only valid when type is focus | boolean      | -       |
+| closable          | Whether to display the close button in the upper right corner. Valid only when type is focus | boolean      | -       |
 | content           | Content                          | string\|slot | -       |
 | destroyOnClose    | Whether to unload content when invisible          | boolean      | false   |
 | footer            | Custom Button Area                  | slot         | -       |
 | maskClosable      | Click whether the layer triggers the onClose.     | boolean      | true    |
 | maskClassName     | Class name of the layer                    | string       | -       |
-| maskStyle         | The style of the layer                    | string       | -       |
+| maskStyle         | Layer Style                    | string       | -       |
 | primaryButtonStyle| Main Button Style                    | string       | -       |
 | primaryButtonText | Main button text                    | string       | -       |
 | secondaryButtonStyle| Auxiliary Button Style                | string       | -       |
@@ -39,7 +39,7 @@ When the application needs to alert or remind the current operation behavior of 
 | style             | Style                          | string       | -       |
 | title             | Title                          | string\|slot | -       |
 | type              | type, optional `default`(default),`focus`(emphasis mode) | string | `default` |
-| visible           | Whether to display                      | boolean      | false   |
+| visible           | Display                      | boolean      | false   |
 | onCancelButtonTap | Cancel button click event              | ()=>void     | -       |
 | onClose           | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback | ()=>void | - |
 | onPrimaryButtonTap| Main button click event                | ()=>void     | -       |

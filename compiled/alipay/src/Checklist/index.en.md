@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Checklist checkable list
+# Checklist
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -17,7 +17,7 @@ The check operation of the list.
 - Select one or more in a group of list items.
 - To use a checkable list, you need to check at least one item by default to make it easier for users to understand that the list can be checked.
 
-## Code Sample
+## Code example
 <code src='../../demo/pages/Checklist/index'></code>
 
 ## API

@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Tabs tab
+# Tabs
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 

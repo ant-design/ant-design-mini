@@ -52,6 +52,10 @@
     --size-font10: 48rpx;
     --size-font11: 56rpx;
     --size-font12: 64rpx;
+    --color-ironblack-1: #454955;
+    --loading-icon-light-color: rgba(255, 255, 255, 0.6);
+    --popover-content-bg: rgba(255, 255, 255, 0.93);
+    --popover-content-color: #333333;
   }
 }
 /* 深色模式的css变量 */
@@ -79,11 +83,22 @@
     --color-white-card: #2b2b2b;
     --color-grey-card: #2b2b2b;
     --color-black-card: #525252;
+    --color_text_secondary: #666666;
     --color-white: #ffffff;
     --color-black: #000000;
     --color-white-dynamic: #c5cad1;
     --color-white-change: #000000;
     --color-black-change: #ffffff;
+    --color-golden-2: #fff3d9;
+    --color-golden-3: #fff9ed;
+    --color-tangerine-1: #ff6010;
+    --color-tangerine-2: #ffece3;
+    --color-grey-2: #e5e5e5;
+    --color-text-warning: #ff3b30;
+    --color-orange-1: #ff8f1f;
+    --color-orange-2: #ffefdf;
+    --color-pomonagreen-1: #00b578;
+    --color-pomonagree-2: #d4fff1;
     --size-radius-xs: 8rpx;
     --size-radius-s: 16rpx;
     --size-radius-m: 24rpx;
@@ -108,5 +123,9 @@
     --size-font10: 48rpx;
     --size-font11: 56rpx;
     --size-font12: 64rpx;
+    --color-ironblack-1: #454955;
+    --loading-icon-light-color: #999;
+    --popover-content-bg: rgba(255, 255, 255, 0.93);
+    --popover-content-color: #333333;
   }
 }

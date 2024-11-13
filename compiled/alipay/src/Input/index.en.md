@@ -7,7 +7,7 @@ group:
 toc: content
 ---
 
-# Input input box
+# Input
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline></code> -->
 

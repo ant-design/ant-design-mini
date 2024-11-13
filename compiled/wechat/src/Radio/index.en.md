@@ -7,17 +7,17 @@ group:
 toc: 'content'
 ---
 
-# Radio radio box
+# Radio
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
-Make a single selection from a set of options.
+Single selection from a set of options.
 
 ## When to use
 
 - When making a single selection in a group of selectable items.
 
-## Code Sample
+## Code example
 
 ### Radio
 

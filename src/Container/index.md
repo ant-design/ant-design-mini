@@ -9,16 +9,55 @@ toc: 'content'
 
 # Container 容器
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 通用卡片容器。
 
 ## 何时使用
 
 当需要承载文字、列表、图片、段落等内容时，使用 Container 容器以方便用户浏览。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-container": "antd-mini/es/Container/index"
+#endif
+#if WECHAT
+  "ant-container": "antd-mini/Container/index"
+#endif
+}
+```
+
 ## 代码示例
 
+### 基本使用
+```xml
+<ant-container title="标题">
+  <view class="content" />
+</ant-container>
+```
+
+### 自定义标题
+```xml
+<ant-container headerInBox="{{ false }}">
+  <view slot="title">
+    <view class="icon">
+      <ant-icon
+        type="SmileOutline"
+        style="margin-right: 8px" />
+      标题
+    </view>
+  </view>
+  <view slot="headerRight">右侧内容</view>
+  <view class="content" />
+</ant-container>
+```
+### 
+
+
+### Demo代码
 <code src='../../demo/pages/Container/index'></code>
 
 ## API

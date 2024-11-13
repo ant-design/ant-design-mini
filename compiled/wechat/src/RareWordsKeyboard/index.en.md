@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# RareWordsKeyboard uncommon character keyboard
+# RareWordsKeyboard
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 

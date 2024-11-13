@@ -9,8 +9,6 @@ toc: 'content'
 
 # NumberKeyboard 数字键盘
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 ## 何时使用
 
 需要自定义数字键盘时。
@@ -19,23 +17,80 @@ toc: 'content'
 
 1. 数字键盘暂未解决键盘遮挡输入框的问题，需要开发者自行设置屏幕滚动来解决此类问题。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-number-keyboard": "antd-mini/es/NumberKeyboard/index"
+#endif
+#if WECHAT
+  "ant-number-keyboard": "antd-mini/NumberKeyboard/index"
+#endif
+}
+```
+
 ## 代码示例
 
 ### 基本使用
+#### 默认键盘
+```xml
+<ant-number-keyboard visible="{{ visible }}" onClose="onTap" />
+```
 
-<code src='../../demo/pages/NumberKeyboard/index'></code>
+#### 没有小数点
+```xml
+<ant-number-keyboard point="{{ false }}" visible="{{ visible }}" onClose="onTap" />
+```
+
+#### 带确认按钮
+```xml
+<ant-number-keyboard confirmText="确认" visible="{{ visible }}" onClose="onTap" />
+```
+
+#### 带关闭箭头
+```xml
+<ant-number-keyboard closeable="{{ true }}" visible="{{ visible }}" onClose="onTap" />
+```
+
+#### 乱序键盘
+```xml
+<ant-number-keyboard random="{{ true }}" visible="{{ visible }}" onClose="onTap" />
+```
+#### 自定义按钮
+```xml
+<ant-number-keyboard visible="{{ visible }}" onClose="onTap" >
+  <view
+      slot="header"
+      class="number-keyboard-header"
+    >
+      自定义标题
+    </view>
+</ant-number-keyboard>
+
+<ant-number-keyboard visible="{{ visible }}" onClose="onTap" >
+  <view
+    slot="confirm"
+    class="number-keyboard-confirm"
+  >
+    <!-- 自定义确认按钮 -->
+    <ant-icon type="DownOutline"></ant-icon>
+  </view>
+</ant-number-keyboard>
+```
+
 
 ### 数字输入框
+<code src='../../demo/pages/NumberKeyboardNumber/index'></code>
 
-<!-- <code src='pages/NumberKeyboardNumber/index'></code> -->
-
-### 金额输入框
-
-<!-- <code src='pages/NumberKeyboardAmount/index'></code> -->
 
 ### 验证码输入框
+<code src='../../demo/pages/NumberKeyboardCode/index'></code>
 
-<!-- <code src='pages/NumberKeyboardCode/index'></code> -->
+### Demo代码
+<code src='../../demo/pages/NumberKeyboard/index'></code>
 
 ## API
 

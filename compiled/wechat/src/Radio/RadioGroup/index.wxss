@@ -23,7 +23,7 @@
   padding: 16rpx 24rpx;
   line-height: 1.4;
   font-size: 30rpx;
-  color: #999999;
+  color: var(--color-text-assist, #999999);
 }
 .ant-radio-group-body {
   position: relative;

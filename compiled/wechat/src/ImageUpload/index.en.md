@@ -6,7 +6,7 @@ group:
 toc: 'content'
 ---
 
-# ImageUpload image upload
+# ImageUpload
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -39,7 +39,7 @@ Use when you need to upload local pictures or photos to the server.
 | uploadfailedText | Prompt copy for upload failure | string | 'Upload failed' |  
 | fileList | File List (Controlled) | [File](#file)[] | - | 
 | imageMode | Picture zoom mode and crop mode. See details in [Image Mode Description](https://opendocs.alipay.com/mini/component/image#mode) | string | scaleToFill | 
-| onBeforeUpload | The hook before uploading the file. The parameter is the list of files to be uploaded. If false is returned, the upload is stopped. You can return a Promise object. When you Promise an object to reject, the upload is stopped and the upload is started when it is resolve (resolve the modified localFileList is passed in). | (localFileList: [localFile](#localfile)[]) => boolean \| Promise<[localFile](#localfile)[]> | - | 
+| onBeforeUpload | The hook before uploading the file. The parameter is the list of uploaded files. If false is returned, the upload is stopped. You can return a Promise object. When you Promise a reject object, the upload is stopped and the upload is started when it is resolve (resolve the modified localFileList is passed in). | (localFileList: [localFile](#localfile)[]) => boolean \| Promise<[localFile](#localfile)[]> | - | 
 | onChooseImageError | Select picture failure callback. See details in [onChooseImageError](###onChooseImageError) | (err) => void | - | 
 | onUpload | Image upload method. See details in [onUpload](#onupload) | (localFile: [LocalFile](#localfile)) => Promise\<string\> | - | 
 | onChange | Triggered when the list of uploaded files changes | (fileList: [File](#file)[]) => void | - | 
@@ -102,4 +102,4 @@ onChooseImageError(err) {
 ### maxCount
 
 1. `maxCount` Indicates the maximum number of pictures that can be uploaded, and does not transmit means unlimited. Since the small program selection picture interface has an upper limit of one-time selection of pictures, if `maxCount` More than this limit, multiple uploads are required. For example,`maxCount="{{10}}"`, 10 pictures are allowed to be uploaded. Users need to upload 9 pictures first and then 1 picture.
-2. `maxCount` No restrictions `defaultFileList` and `fileList`. For example,`maxCount` for 1, and `defaultFileList` Contains 2 images, will not reduce `defaultFileList` in the picture. The upload button is hidden.
+2. `maxCount` No restrictions `defaultFileList` and `fileList`. For example,`maxCount` 1, and `defaultFileList` Contains 2 images, will not reduce `defaultFileList` in the picture. The upload button is hidden.

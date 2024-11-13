@@ -8,15 +8,15 @@ toc: 'content'
 ---
 
 
-# Selector Assembly
+# Selector
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 Select one or more in a set of options.
 ## When to use
-Provides multiple options for users to select, typically used in filters and forms.
+Provides multiple options for users to choose from and is typically used in filters and forms.
 
-## Code Sample
+## Code example
 ### Basic use
 <code src="../../demo/pages/Selector/index"></code>
 

@@ -27,7 +27,7 @@
   overflow: hidden;
   border-radius: 4rpx / 2;
   transform: translateX(-50%);
-  background-color: #f5f5f5;
+  background-color: var(--color-grey-card, #f5f5f5);
 }
 .ant-page-infinite-move {
   position: absolute;
@@ -37,5 +37,5 @@
   height: 100%;
   transition: all 100ms linear;
   border-radius: 4rpx / 2;
-  background-color: #1677ff;
+  background-color: var(--color-brand1, #1677ff);
 }

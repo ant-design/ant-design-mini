@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Badge Logo
+# Badge
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -16,14 +16,14 @@ A logo that displays a red dot, number, or text. Used to remind the user of pend
 ## When to use
 Use when you need to display numbers, text, or little red dots in the upper right corner. It is suitable for prompting new messages, functions or services for productization, attracting users' attention through conspicuous visual forms and prompting them to perform related operations.
 
-## Code Sample
+## Code example
 <code src="../../demo/pages/Badge/index"></code>
 
 ## API
 
 | Property      | Description                                 | Type                 | Default Value       |
 | --------- | ------------------------------------ | -------------------- | ------------ |
-| bgColor   | Custom background color, CSS color values              | string               | -            |
+| bgColor   | Custom background color, CSS color value              | string               | -            |
 | className | Class name of the component root node                     | string               | -            |
 | offsetX   | Horizontal offset      | string               | '-50%'       |
 | offsetY   | Offset in vertical direction    | string               | '-50%'       |

@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# SwipeAction Sliding Assembly
+# SwipeAction
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -25,7 +25,7 @@ Show hidden function menus by sliding.
 4. The second confirmation of the sliding on each side will only trigger the first one, the others will not trigger.
 5. It is recommended to use it in applets of the basic library 2.0.1.0 versions (such as DingTalk applets) have defects in sliding experience (lack of sliding transition effect after touchend).
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 

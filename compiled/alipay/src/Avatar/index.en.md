@@ -17,7 +17,7 @@ Used to represent a user or thing.
 
 When you need to show the characteristics of people or things more intuitively.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Avatar/index'></code>
 

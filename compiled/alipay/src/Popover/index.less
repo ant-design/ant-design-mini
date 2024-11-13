@@ -27,10 +27,10 @@
     border-radius: 16 * @rpx;
   }
   &-action {
-    background: #ffffff;
+    background: @popover-bg;
     font-weight: 400;
     font-size: 24 * @rpx;
-    color: #000000;
+    color: @popover-text-color;
     padding: 10 * @rpx 20 * @rpx;
     line-height: 33 * @rpx;
     border-radius: 50vh;
@@ -46,15 +46,14 @@
     min-width: 64 * @rpx;
     max-width: calc(100vw - 48 * @rpx);
     z-index: 999;
-
   }
   &-inner {
     position: relative;
     border-radius: 24 * @rpx;
     overflow: hidden;
     font-size: 28 * @rpx;
-    background-color: @COLOR_BACKGROUND_POPOVER;
-    color: @COLOR_WHITE_DEFAULT;
+    background-color: @popover-inner-bg;
+    color: @popover-innder-color;
     padding: 20 * @rpx;
     width: max-content;
 
@@ -82,7 +81,7 @@
     height: 0;
     border-left: 18 * @rpx solid transparent;
     border-right: 18 * @rpx solid transparent;
-    border-bottom: 18 * @rpx solid @COLOR_BACKGROUND_POPOVER;
+    border-bottom: 18 * @rpx solid @popover-inner-bg;
   }
 
   &-top {

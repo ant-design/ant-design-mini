@@ -2,7 +2,7 @@
   width: 400rpx;
   height: 40rpx;
   border-radius: 8rpx;
-  background: #eeeeee;
+  background: var(--color-border, #eeeeee);
   display: inline-block;
 }
 .ant-skeleton-input-animate {

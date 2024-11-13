@@ -7,13 +7,13 @@ group:
 toc: 'content'
 ---
 
-# Rate Score
+# Rate
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 A component for showing things ratings and quick scoring.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Rate/index'></code>
 
@@ -37,5 +37,5 @@ A component for showing things ratings and quick scoring.
 | gutter | Spacing, unit `px` | `number` | `4` |
 | readonly | Read-only, unable to interact | `boolean` | `false` |
 | style | Style | `string` | - |
-| value | Star (controlled) | `number` | - |
+| value | Star rating (controlled) | `number` | - |
 | onChange | scoring callback function | `(rate: number) => void` | - |

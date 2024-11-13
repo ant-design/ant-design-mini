@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Stepper stepper
+# Stepper
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -17,7 +17,7 @@ A two-stage control used to increase, decrease, or modify values.
 
 Used to enter and adjust the current value within a certain range.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Stepper/index'></code>
 
@@ -41,6 +41,6 @@ Used to enter and adjust the current value within a certain range.
 | value          | The value of the input box is valid when the form is submitted.                                                      | number                                                                            | -                                                                                      |
 | onBlur         | Trigger this callback when the input box loses focus                                                        | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onChange       | Trigger this callback after data changes                                                              | ( value: number                                                                   | null, [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void        |
-| onConfirm      | This callback is triggered when the keyboard is clicked                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| onFocus        | Trigger this callback when the input box is focused                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onConfirm      | This callback is triggered when the keyboard is clicked to complete                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| onFocus        | This callback is triggered when the input box is focused                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | onDisabledTap  | Click departure callback when disabled                                                                  | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |

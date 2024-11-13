@@ -9,12 +9,159 @@ toc: 'content'
 
 # Calendar 日历
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 日历组件
 
-## 代码示例
+## 引入
 
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-calendar": "antd-mini/es/Calendar/index"
+#endif
+#if WECHAT
+  "ant-calendar": "antd-mini/Calendar/index"
+#endif
+}
+```
+
+## 代码示例
+### 基本使用
+```xml
+<!-- 默认多选 -->
+<ant-calendar defaultValue="{{defaultValue}}"></ant-calendar>
+<!-- 单选 -->
+<ant-calendar selectionMode="single" defaultValue="{{defaultValue}}" changedScrollIntoView />
+```
+### 自定义顶部
+```xml
+<ant-calendar monthRange="{{demo3.monthRange}}">
+  <view slot="calendarTitle">自定义顶部</view>
+</ant-calendar>
+```
+
+### 自定义日期单元格
+```xml
+<ant-calendar 
+  monthRange="{{monthRange}}" 
+  showSelectableDatesOnly
+  onFormatter="{{demoFormatter ? demoFormatter : 'demoFormatter'}}"
+  onMonthFormatter="{{demoMonthFormatter ? demoMonthFormatter : 'demoMonthFormatter'}}"
+></ant-calendar>
+```
+```js
+import dayjs from 'dayjs';
+function demoFormatter(cell) {
+    const isOdd = dayjs(cell.time).date() % 2 === 1;
+    const isNotBeginEnd = !cell.isSelectedBegin && !cell.isSelectedEnd;
+    const isWeekend = dayjs(cell.time).day() > 4;
+    let topClassName;
+    if (isNotBeginEnd) {
+        topClassName = isOdd ? 'odd' : 'even';
+    }
+    return {
+        top: {
+            className: topClassName,
+            label: isOdd ? '奇数' : '偶数',
+        },
+        bottom: {
+            label: isWeekend ? '周末' : '',
+        },
+    };
+}
+function demoMonthFormatter(month) {
+    return {
+        ...month,
+    };
+}
+```
+
+### 动态控制，只允许选择前后三天
+
+```xml
+<ant-calendar
+  monthRange="{{monthRange}}"
+  onFormatter="{{demoFormatter ? demoFormatter : 'demoFormatter'}}"
+></ant-calendar>
+```
+```js
+import dayjs from 'dayjs';
+function demoFormatter(cell, value) {
+    if (Array.isArray(value) && value.length == 1) {
+        const current = value[0];
+        return {
+            disabled: dayjs(cell.time).diff(dayjs(current), 'days') > 3,
+            bottom: dayjs(cell.time).diff(dayjs(current), 'days') > 3
+                ? {
+                    label: '不可选',
+                }
+                : undefined,
+        };
+    }
+    return {};
+}
+```
+
+### 受控模式
+```xml
+<ant-calendar
+  ref="handleRef"
+  value="{{demo9.value}}"
+  onChange="demo9HandleChange"
+  selectionMode="single"
+  changedScrollIntoView
+></ant-calendar>
+ <ant-button
+      type="primary"
+      onTap="demo9HandlePreviousDay"
+    >
+      上一天
+    </ant-button>
+    <ant-button
+      type="primary"
+      onTap="demo9HandleNextDay"
+    >
+      下一天
+    </ant-button>
+    <ant-button
+      type="primary"
+      onTap="demo9HandleScrollIntoView"
+    >
+      滚动到指定日期
+    </ant-button>
+```
+```js
+Page({
+  data: {
+     demo9: {
+            visible: true,
+            value: nowDate,
+    },
+    demo9HandleChange(value) {
+        this.setData({
+            'demo9.value': value,
+        });
+    },
+    demo9HandlePreviousDay() {
+        this.setData({
+            'demo9.value': this.data.demo9.value - 1000 * 24 * 3600,
+        });
+    },
+    demo9HandleNextDay() {
+        this.setData({
+            'demo9.value': this.data.demo9.value + 1000 * 24 * 3600,
+        });
+    },
+    demo9HandleScrollIntoView() {
+        this.ref.scrollIntoView(nowDate);
+    },
+  },
+
+})
+```
+
+### Demo代码
 <code src='../../demo/pages/Calendar/index' ></code>
 
 ## API

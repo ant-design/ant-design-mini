@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Result Operation Result
+# Result
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -28,7 +28,7 @@ The Result component should be used when important operations need to inform the
 | className | Class Name         | string            | -      |
 | extra     | Bottom Custom Rendering | slot             | -      |
 | image     | Custom Picture   | string \| slot    | -      |
-| message   | Deputy Copywriter       | string \| slot    | -      |
+| message   | Deputy copywriter       | string \| slot    | -      |
 | style     | Style         | string            | -      |
 | title     | Main Copy       | string \| slot    | -      |
-| type      | Built-in type `success`(successful),`error`(error/danger),`info`(information prompt),`wait`(Waiting for processing) | string | -      |
+| type      | Built-in type `success`(success),`error`(error/danger),`info`(information prompt),`wait`(Waiting for processing) | string | -      |

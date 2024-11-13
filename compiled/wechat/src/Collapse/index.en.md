@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Collapse Folding Panel
+# Collapse
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -18,7 +18,7 @@ A content area that can be collapsed/expanded.
 - Group and hide complex areas to keep the page tidy.
 - An accordion is a special type of folding panel that allows only a single content area to expand.
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -48,7 +48,7 @@ A content area that can be collapsed/expanded.
 | accordion  | Accordion mode, only one content is expanded | boolean     | false  |
 | className  | Class Name                          | string      | -      | 
 | content    | Content area slot, receiving value, index | slot        | -      | 
-| current    | Currently Expanded Index                 | number[]    | -      | 
+| current    | Current expanded index                 | number[]    | -      | 
 | defaultCurrent | Default index for current expansion         | number[]    | []     |  
 | items      | Collapse Panel List                   | [CollapseItem](#collapseitem)[] | [] |  
 | style      | Style                          | string      | -      | 

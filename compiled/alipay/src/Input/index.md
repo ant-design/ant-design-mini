@@ -9,31 +9,146 @@ toc: content
 
 # Input 输入框
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline></code> -->
-
 通过键盘输入内容，是最基础的表单域包装。
 
 ## 何时使用
 
 一般用在表单页进行信息的收集。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-input": "antd-mini/es/Input/index",
+  "ant-textarea": "antd-mini/es/Input/Textarea/index"
+#endif
+#if WECHAT
+  "ant-input": "antd-mini/Input/index",
+  "ant-textarea": "antd-mini/Input/Textarea/index"
+#endif
+}
+```
+
 ## 代码示例
 
 ### Input 基本使用
+```xml
+<ant-input placeholder="请输入内容" onChange="onChange" />
+<ant-input placeholder="请输入内容" defaultValue="initial value" onChange="onChange" />
+<ant-input placeholder="请输入内容，带清除按钮" allowClear />
+<ant-input placeholder="被禁用的输入框" disabled="{{ true }}" />
+```
 
-<code src='../../demo/pages/Input/index'></code>
+### 带前缀后缀
+```xml
+<ant-input placeholder="请输入内容" onChange="onChange" allowClear>
+  <view slot="prefix">￥</view>
+  <view slot="suffix">RMB</view>
+</ant-input>
+```
+
+### 受控模式
+```xml
+<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="请输入内容" allowClear onChange="handleChange" />
+```
+
+### 输入金额
+```xml
+<ant-input placeholder="请输入金额" type="digit" focusClassName="border" allowClear>
+  <view slot="prefix">￥</view>
+  <view slot="suffix">RMB</view>
+</ant-input>
+```
 
 ### SearchBar 搜索框
+```xml
+ <view class="search-line">
+    <ant-input
+      placeholder="请输入内容"
+      onChange="onChange"
+      className="search-bar"
+      focusClassName="search-bar-focus"
+      confirm-type="search"
+      allowClear
+      focus
+      onConfirm="onConfirm"
+    >
+      <ant-icon slot="prefix" type="SearchOutline" />
+      <ant-icon slot="suffix" type="AudioOutline" />
+    </ant-input>
+    <view class="cancel">取消</view>
+  </view>
+```
+```css
+.search-line {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+.search-bar {
+  padding: 4px 0 4px 0;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.4s;
+  flex: 1;
 
-<!-- <code src='pages/InputSearchBar/index'></code> -->
+  &-focus {
+    border-color: @COLOR_BRAND1;
+  }
+}
+.cancel {
+  color: @COLOR_TEXT_PRIMARY;
+  margin-left: 8px;
+}
+```
 
 ### Textarea
 
-<!-- <code src='pages/InputTextarea/index'></code> -->
+#### 基础用法
+```xml
+ <ant-textarea placeholder="请输入内容" autoHeight onChange="onChange" />
+ <ant-textarea placeholder="请输入内容" defaultValue="initial value" autoHeight onChange="onChange" />
+```
+
+#### 受控模式
+```xml
+ <ant-textarea value="{{ value }}" placeholder="请输入内容" allowClear onChange="handleChange" />
+```
 
 ### 自定义
+#### 带有边框
+```xml
+<ant-input className="custom" placeholder="请输入内容" onChange="onChange" />
+```
+```css
+.custom {
+  border: 1px solid @COLOR_BORDER;
+  padding: 4px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+```
+#### 自定义背景色
+```xml
+ <ant-input className="custom-color" placeholder="请输入内容" onChange="onChange" />
+```
+```css
+.custom-color {
+  margin-bottom: 12px;
+  input, textarea {
+    padding: 4px;
+    background: #f5f5f5;
+    border-radius: 4px;
+  }
+}
+```
 
-<!-- <code src='pages/InputCustom/index'></code> -->
+
+### Demo代码
+<code src='../../demo/pages/Input/index'></code>
 
 ## API
 

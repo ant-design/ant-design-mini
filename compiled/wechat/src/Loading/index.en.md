@@ -6,7 +6,7 @@ group:
 toc: 'content'
 ---
 
-# Loading loading
+# Loading
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 

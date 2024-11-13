@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# IndexBar Index
+# IndexBar
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -17,7 +17,7 @@ Side Index Component
 
 Used to quickly locate a list index.
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -27,7 +27,7 @@ Used to quickly locate a list index.
 
 <!-- <code src='pages/IndexBarScrollView/index'></code> -->
 
-### Control Checked State
+### Control Selected State
 
 <!-- <code src='pages/IndexBarControl/index'></code> -->
 

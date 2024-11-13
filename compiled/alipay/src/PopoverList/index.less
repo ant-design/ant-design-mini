@@ -19,39 +19,24 @@
     // min-width: 64 * @rpx;
     max-width: calc(100vw - 48 * @rpx);
     z-index: 999;
-    border-radius: 24* @rpx;
-    &-dark {
-      background: rgba(0, 0, 0, 0.93);
-      box-shadow: 0 4*@rpx 10*@rpx 0 rgba(0, 0, 0, 0.93);
-      color: #ffffff;
-      &-arrow {
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-left: 18 * @rpx solid transparent;
-        border-right: 18 * @rpx solid transparent;
-        border-bottom: 18 * @rpx solid rgba(0, 0, 0, 0.93);
-      }
+    border-radius: 24 * @rpx;
+    background: @popover-content-bg;
+    box-shadow: 0 4 * @rpx 10 * @rpx 0 @popover-content-bg;
+    color: @popover-content-color;
+    &-arrow {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 18 * @rpx solid transparent;
+      border-right: 18 * @rpx solid transparent;
+      border-bottom: 18 * @rpx solid @popover-content-bg;
     }
-    &-light {
-      background: rgba(255, 255, 255, 0.93);;
-      box-shadow: 0 4*@rpx 10*@rpx 0 rgba(255, 255, 255, 0.93);
-      color: #333333;
-      &-arrow {
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-left: 18 * @rpx solid transparent;
-        border-right: 18 * @rpx solid transparent;
-        border-bottom: 18 * @rpx solid rgba(255, 255, 255, 0.93);
-      }
-      .ant-popover-list-item::before {
-        background: #eeeeee;
-      }
+    .ant-popover-list-item::before {
+      background: @popover-list-item-bg;
     }
   }
   &-item {
-    padding: 26* @rpx 24* @rpx 26* @rpx 32* @rpx;
+    padding: 26 * @rpx 24 * @rpx 26 * @rpx 32 * @rpx;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -71,7 +56,7 @@
       width: calc(200% - 192 * @rpx);
       height: 2 * @rpx;
       transform: scale(0.5);
-      background: #333333;
+      background: @popover-content-color;
       z-index: 2;
     }
     &-left {
@@ -100,7 +85,7 @@
       align-items: center;
       flex-direction: row;
       &-badge {
-        background: #FF411C;
+        background: @popover-badge-color;
         width: 20 * @rpx;
         border-radius: 50vh;
         height: 20 * @rpx;

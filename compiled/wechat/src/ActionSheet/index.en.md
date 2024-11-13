@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# ActionSheet Action Panel
+# ActionSheet
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -17,7 +17,7 @@ Actions menu panel that pops up from the bottom.
 
 Triggered by a user action, providing a set of two or more options related to the action, allowing the user to complete the action without leaving the field. Compared with the dialog box, the position of the action panel is more suitable for the scene of one-handed operation in the era of large screen.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/ActionSheet/index'></code>
 

@@ -7,21 +7,60 @@ group:
 toc: 'content'
 ---
 
-# Progress progress bar
-
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
+# Progress
 
 Displays the progress of user operations and tasks.
 
-## Code Sample
+## Introduction
 
-### line
+In `index.json` Introducing Components in
 
-<code src='../../demo/pages/ProgressLine/index'></code>
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-progress": "antd-mini/es/Progress/index"
+#endif
+#if WECHAT
+  "ant-progress": "antd-mini/Progress/index"
+#endif
+}
+```
 
-### circle
+## Code example
 
-<!-- <code src='pages/ProgressCircle/index'></code> -->
+### Basic use
+
+> The progress bar defaults to a blue bar,`percent` Property to set the current progress. Use `type`Property to set the shape, currently supports bar and ring two forms.
+
+```xml
+<ant-progress percent="{{ 50 }}" />
+<ant-progress type="line" percent="{{ 50 }}" />
+<ant-progress type="circle" percent="{{ 50 }}" />
+```
+
+### Semantic progress bar
+
+> In line mode, semantic status bars for success and failure states are supported by setting `status`Property implementation.
+
+```xml
+<ant-progress status="success" percent="100" />
+<ant-progress status="exception" percent="50" />
+```
+
+### Style Customization
+
+> `strokeWidth` You can set the thickness of the progress bar,`strokeColor` You can set the color of the progress bar,`trailColor` You can set the track color,`style` The style can be highly customized.
+
+```xml
+<ant-progress percent="{{ 50 }}" strokeWidth="{{12}}" />
+<ant-progress percent="{{ 50 }}" strokeColor="#00B578" />
+<ant-progress percent="{{ 50 }}" trailColor="#FFCF9F" />
+<ant-progress percent="{{ 50 }}" style="width: 70%" />
+```
+
+### Demo Code
+
+<code src='../../demo/pages/Progress/index'></code>
 
 ## API
 

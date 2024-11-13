@@ -10,7 +10,7 @@
   }
 }
 .ant-rare-words-keyboard {
-  color: #333333;
+  color: var(--color-text-primary, #333333);
   width: 0;
   height: 0;
   position: relative;
@@ -23,13 +23,13 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: var(--rare-words-bg, rgba(0, 0, 0, 0.45));
 }
 .ant-rare-words-keyboard-modal.hide {
   visibility: hidden;
 }
 .ant-rare-words-keyboard-kb {
-  background: #f5f5f5;
+  background: var(--color-background, #f5f5f5);
   max-height: 1200rpx;
   min-width: 100vw;
   position: fixed;
@@ -46,10 +46,10 @@
   height: calc(constant(safe-area-inset-bottom) - 20 * 1rpx);
   height: calc(env(safe-area-inset-bottom) - 20 * 1rpx);
   width: 100%;
-  background-color: #f5f5f5;
+  background-color: var(--color-background, #f5f5f5);
 }
 .ant-rare-words-keyboard_header {
-  background-color: #f5f5f5;
+  background-color: var(--color-background, #f5f5f5);
 }
 .ant-rare-words-keyboard-input_value {
   position: absolute;
@@ -60,15 +60,15 @@
   line-height: 64rpx;
   border-top-left-radius: 8rpx;
   border-top-right-radius: 8rpx;
-  background-color: #f5f5f5;
+  background-color: var(--color-background, #f5f5f5);
   padding-left: 20rpx;
   padding-right: 20rpx;
-  border: 1rpx solid #eee;
+  border: 1rpx solid var(--color-border, #eeeeee);
   border-bottom: 0;
   letter-spacing: 2rpx;
   box-sizing: border-box;
   font-size: 24rpx;
-  color: #333;
+  color: var(--color-text-primary, #333333);
 }
 .ant-rare-words-keyboard-input_value.hide {
   display: none;
@@ -79,7 +79,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 20rpx 24rpx 20rpx 8rpx;
-  background: #f5f5f5;
+  background: var(--color-background, #f5f5f5);
   overflow: hidden;
   font-family: 'rare-words-font';
 }
@@ -146,14 +146,14 @@
   position: absolute;
   left: -64rpx;
   bottom: 0;
-  background: #cccccc;
+  background: var(--color-text-weak, #cccccc);
   width: 100%;
   height: 2rpx;
   transform: scaleY(0.5);
   transform-origin: 0 0;
 }
 .ant-rare-words-keyboard-match_words_item {
-  color: #333333;
+  color: var(--color-text-weak, #cccccc);
   width: 73rpx;
   padding-left: 16rpx;
   padding-right: 16rpx;
@@ -170,7 +170,7 @@
   position: absolute;
   left: -20rpx;
   bottom: 0;
-  background: #cccccc;
+  background: var(--color-text-weak, #cccccc);
   width: 100%;
   height: 2rpx;
   transform: scaleY(0.5);
@@ -180,13 +180,13 @@
   font-size: 42rpx;
   line-height: 57rpx;
   user-select: none;
-  color: #333333;
+  color: var(--color-text-primary, #333333);
 }
 .ant-rare-words-keyboard-match_words_item_text:active {
-  color: #1677ff;
+  color: var(--color-brand1, #1677ff);
 }
 .ant-rare-words-keyboard-match_words_item_text:hover {
-  color: #1677ff;
+  color: var(--color-brand1, #1677ff);
 }
 .ant-rare-words-keyboard-match_words_hidden {
   visibility: hidden;
@@ -207,7 +207,7 @@
   justify-content: center;
   position: relative;
   margin-top: 4rpx;
-  color: #333333;
+  color: var(--color-text-primary, #333333);
 }
 .ant-rare-words-keyboard-match_words_right.sticky {
   position: sticky !important;
@@ -234,7 +234,7 @@
   font-size: 48rpx;
 }
 .ant-rare-words-keyboard_pinyin {
-  background: #f5f5f5;
+  background: var(--color-background, #f5f5f5);
   padding-top: 16rpx;
   padding-bottom: 16rpx;
 }
@@ -242,7 +242,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  background: #f5f5f5;
+  background: var(--color-background, #f5f5f5);
   margin-bottom: 16rpx;
 }
 .ant-rare-words-keyboard_pinyin_row:last-child {
@@ -255,17 +255,17 @@
   justify-content: center;
   height: 88rpx;
   width: 63rpx;
-  background: #ffffff;
+  background: var(--color-white, #ffffff);
   font-size: 36rpx;
-  color: #333333;
+  color: var(--color-text-primary, #333333);
   box-sizing: border-box;
   border-radius: 8rpx;
   margin-right: 12rpx;
   user-select: none;
 }
 .ant-rare-words-keyboard_pinyin_key:active {
-  background: #1677ff;
-  color: #ffffff;
+  background: var(--color-brand1, #1677ff);
+  color: var(--color-white, #ffffff);
 }
 .ant-rare-words-keyboard_pinyin_key:last-child {
   margin-right: 0;
@@ -274,7 +274,7 @@
   width: 80rpx;
 }
 .ant-rare-words-keyboard_error {
-  background: #f5f5f5;
+  background: var(--color-background, #f5f5f5);
   padding-top: 30rpx;
   padding-bottom: 30rpx;
 }

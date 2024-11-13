@@ -9,15 +9,79 @@ toc: 'content'
 
 # Skeleton 骨架屏
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
+
 在需要等待加载内容的位置提供一个占位图形组合
 ## 何时使用
 - 网络较慢，需要长时间等待加载，并且只在第一次加载的时候使用。
 - 在确保手机性能的前提下，尽量使用预加载，最好不用骨架屏。
 - 适用于图文信息较多且重要的首页、列表、卡片中。小的模块类组件（例如弹窗）不要使用。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-skeleton": "antd-mini/es/Skeleton/index",
+  "skeleton-avatar": "antd-mini/es/Skeleton/Avatar/index",
+  "skeleton-title": "antd-mini/es/Skeleton/Title/index",
+  "skeleton-button": "antd-mini/es/Skeleton/Button/index",
+  "skeleton-paragraph": "antd-mini/es/Skeleton/Paragraph/index",
+  "skeleton-input": "antd-mini/es/Skeleton/Input/index",
+#endif
+#if WECHAT
+  "ant-skeleton": "antd-mini/Skeleton/index",
+  "skeleton-avatar": "antd-mini/Skeleton/Avatar/index",
+  "skeleton-title": "antd-mini/Skeleton/Title/index",
+  "skeleton-button": "antd-mini/Skeleton/Button/index",
+  "skeleton-paragraph": "antd-mini/Skeleton/Paragraph/index",
+  "skeleton-input": "antd-mini/Skeleton/Input/index",
+#endif
+}
+```
+
 ## 代码示例
 
+### 基本使用
+```xml
+<skeleton animate="{{ true }}" />
+```
+
+### 带头像
+```xml
+<skeleton avatar="{{ true }}" />
+```
+
+### 自定义组合
+```xml
+<skeleton-avatar />
+<skeleton-paragraph rows="{{ 1 }}" />
+<skeleton-input />
+<skeleton-input />
+<skeleton-input />
+<skeleton-button size="small" />
+```
+### 复杂组合
+```xml
+<skeleton
+  loading="{{ showLoading }}"
+  title="{{ false }}"
+  avatar="{{ true }}"
+  paragraph="{{ paragraph }}">
+  <view class="container">
+    <avatar
+      src="https://images.unsplash.com/photo-1546967191-fdfb13ed6b1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" />
+    <view class="content">
+        We supply a series of design principles, practical patterns and high
+        quality design resources, to help people create their product prototypes
+        beautifully and efficiently.
+    </view>
+  </view>
+</skeleton>
+```
+
+### Demo代码
 <code src='../../demo/pages/Skeleton/index'></code>
 
 ## API

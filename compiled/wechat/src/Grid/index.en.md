@@ -22,7 +22,7 @@ The palace is used for navigation of multiple sub-functions in the business and 
 | Property               | Description            | Type                       | Default Value      |
 | ------------------|----------------|----------------------------|------------|
 | className         | Class Name           | string                     | -          |
-| columns           | The number of elements shown in each row,`default` Mode effective | number | 5          |
+| columns           | The number of elements displayed per row,`default` Mode effective | number | 5          |
 | description       | Description slot, receiving value, index | slot                     | -          |
 | gridItemLayout    | item layout, optional `vertical`(Vertical)`horizontal`(Horizontal) | string | `vertical` |
 | icon              | Icon slot, receiving value, index | slot                     | -          |

@@ -7,7 +7,7 @@ group:
 toc: content
 ---
 
-# Typography typesetting
+# Typography
 
 ## When to use
 
@@ -37,7 +37,7 @@ toc: content
 | style           | Style                                                                | string                                                             | -        |
 | disabled        | Disable                                                            | boolean                                                            | false    |
 | selectable      | Whether it can be selected                                                        | boolean                                                            | false    |
-| fontWeight      | Word weight, compatible with iOS, Android platform bold effect                              | `normal` \| `medium` \| `bold`                                     | `normal` |
+| fontWeight      | Heavy characters, compatible with iOS and Android platforms                              | `normal` \| `medium` \| `bold`                                     | `normal` |
 | lineThrough     | Add Strikethrough Style                                                      | boolean                                                            | false    |
 | underline       | Add Underline Style                                                      | boolean                                                            | false    |
 | ellipsisRow     | Multiple lines are omitted, and the value must be greater than or equal to 1, which is consistent with the-webkit-line-clamp attribute of css. | number                                                             | -        |

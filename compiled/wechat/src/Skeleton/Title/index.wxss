@@ -11,7 +11,7 @@
   width: 45%;
   margin-bottom: 40rpx;
   border-radius: 8rpx;
-  background: #eeeeee;
+  background: var(--color-border, #eeeeee);
 }
 .ant-skeleton-title-animate {
   background: linear-gradient(90deg, #eeeeee 25%, rgba(204, 204, 204, 0.6) 37%, #eeeeee 63%);

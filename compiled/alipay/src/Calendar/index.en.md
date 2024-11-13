@@ -13,7 +13,7 @@ toc: 'content'
 
 Calendar Component
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Calendar/index' ></code>
 
@@ -32,7 +32,7 @@ The following are the properties and descriptions of the Calendar component:
 | onFormatter             | Use to set custom data for cells                     | (cell: CellState, currentValue: CalendarValue) => CellState | None          |
 | onMonthFormatter        | Custom data for setting the month                       | (month: any) => CellState                                   | None          |
 | localeText              | International copywriting                                     | Partial`<LocaleText>`                                       | None          |
-| changedScrollIntoView   | Whether to scroll view after selected value changes                       | boolean                                                     | None          |
+| changedScrollIntoView   | Whether to scroll the view after the selected value is changed                       | boolean                                                     | None          |
 | showSelectableDatesOnly | Show only dates in the selectable range                       | boolean                                                     | false       |
 
 ### Type
@@ -80,9 +80,9 @@ interface LocaleText {
    */
   weekdayNames: string[];
   /**
-   * 月份标题的格式，默认为 'YYYY年MM月'
+   * 月份标题的格式。 除中文/英文外默认为'MM/YYYY',
    */
-  title: string;
+  format: string;
   /**
    * 今天的文案，默认为 '今日'
    */

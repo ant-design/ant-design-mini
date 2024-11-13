@@ -16,7 +16,7 @@ You can take values within a range by moving the slider.
 
 Used to move the slider within a certain range to obtain a single or interval value.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Slider/index'></code>
 

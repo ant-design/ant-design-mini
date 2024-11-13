@@ -7,17 +7,17 @@ group:
 toc: 'content'
 ---
 
-# GuideTour novice guide
+# GuideTour
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
-Layer and custom card boot components.
+Mask layers with custom card boot components.
 
 ## When to use
 
-Applies to an introduction to key features on the page.
+Applies to the introduction of key features on the page.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/GuideTour/index'></code>
 
@@ -30,16 +30,16 @@ Applies to an introduction to key features on the page.
 | `defaultCurrent` | Default Current Step | `number`                     | 0      |
 | `items`       | Step Information       | [`GuideTourItem`](#guidetourttem)[] | -      |
 | `maskClassName` | Class name of the layer   | `string`                     | -      |
-| `maskStyle`   | The style of the layer     | `string`                     | -      |
+| `maskStyle`   | Layer Style     | `string`                     | -      |
 | `style`       | Style           | `string`                     | -      |
 | `swiperable`  | Whether sliding mode is on | `boolean`                   | `false`|
-| `visible`     | Whether to display       | `boolean`                     | `false`|
+| `visible`     | Display       | `boolean`                     | `false`|
 | `onCancel`    | Close Callback       | `() => void`                 | -      |
 | `onChange`    | Step Change Callback   | `(index: number) => void`    | -      |
-| `jumpText`    | Copy of skip button     | `string`                     | 'Skip' |
+| `jumpText`    | Copy of the skip button     | `string`                     | 'Skip' |
 | `prevStepText`| Copy of the previous button     | `string`                     | 'One step' |
 | `nextStepText`| Copy of the next button     | `string`                     | 'Next step' |
-| `gotItText`| Know the copy of the button     | `string`                     | "I know' |
+| `gotItText`| Know the copy of the button     | `string`                     | 'Got it' |
 
 ### GuideTourItem 
 

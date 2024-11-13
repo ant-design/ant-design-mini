@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# NumberKeyboard numeric keypad
+# NumberKeyboard
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -19,7 +19,7 @@ When a custom numeric keypad is required.
 
 1. The numeric keyboard has not yet solved the problem that the keyboard blocks the input box. Developers need to set up screen scrolling to solve such problems.
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -43,7 +43,7 @@ When a custom numeric keypad is required.
 |-----------------|-------------------|------------------------|-------|
 | className       | Class Name              | string                | -     |
 | style           | Style              | string                | -     |
-| value           | Input value            | string               | -     |
+| value           | Enter value            | string               | -     |
 | visible         | Show              | boolean              | false |
 | vibrate         | Vibration              | boolean              | true  |
 | closeable       | Close Arrow          | boolean              | false |
@@ -55,5 +55,5 @@ When a custom numeric keypad is required.
 | header          | Override the title bar of the keyboard  | slot                  | -     |
 | confirm         | Override keyboard confirmation button  | slot                  | -     |
 | onChange        | Callback when number changes  | (val: string) => void | -     |
-| onClose         | Callback when keyboard is hidden  | () => void            | -     |
+| onClose         | Callback when hiding keyboard  | () => void            | -     |
 | onConfirm       | Callback when clicking confirmation  | () => void            | -     |

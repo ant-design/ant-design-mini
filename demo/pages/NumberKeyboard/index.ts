@@ -8,6 +8,7 @@ Page({
     visible5: false,
     visible6: false,
     visible7: false,
+    value8: '',
   },
   // 默认键盘
   onTap() {
@@ -40,5 +41,32 @@ Page({
   // 自定义确认按钮
   onTap7() {
     this.setData({ visible7: !this.data.visible7 });
+  },
+  onNumberFocus() {
+    this.setData({ visible8: true });
+  },
+  onChange8(e) {
+    /// #if WECHAT
+    e = e.detail;
+    /// #endif
+    
+    this.setData({ value8: e ? parseFloat(e) : '' });
+  },
+  onClose8() {
+    this.setData({ visible8: false });
+  },
+
+  onCodeFocus9() {
+    this.setData({ visible9: true });
+  },
+  onChange9(e) {
+    /// #if WECHAT
+    e = e.detail;
+    /// #endif
+    this.setData({ value9: e });
+    e.length === 4 && this.onClose9();
+  },
+  onClose9() {
+    this.setData({ visible9: false });
   },
 });

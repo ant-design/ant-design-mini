@@ -7,9 +7,9 @@ group:
 toc: 'content'
 ---
 
-# Popup popup layer
+# Popup
 
-Slides or pops up a custom content area from the screen.
+Slide or pop-up a custom content area from the screen.
 
 ## When to use
 
@@ -30,14 +30,14 @@ It is used to display pop-up windows, information prompts, selection input, swit
 | duration       | Transition animation duration, in milliseconds                                                                                                                                            | number     | 300         |
 | height         | The height, in position, is `top` or `bottom` When used, the unit is px. Optional, when not transmitted, it is highly adaptive according to the content area.                                                                        | number     | -           |
 | maskClassName  | Class name of the layer                                                                                                                                                        | string     | -           |
-| maskStyle      | The style of the layer                                                                                                                                                        | string     | -           |
+| maskStyle      | Mask Style                                                                                                                                                        | string     | -           |
 | position       | Pop-up window layout, optional`top` `bottom` `left` `right`                                                                                                                       | string     | `bottom`    |
-| showMask       | Whether to show the layer                                                                                                                                                      | boolean    | true        |
+| showMask       | Show Mask                                                                                                                                                      | boolean    | true        |
 | style          | Style                                                                                                                                                              | string     | -           |
-| visible        | Whether to display                                                                                                                                                          | boolean    | false       |
+| visible        | Display                                                                                                                                                          | boolean    | false       |
 | width          | The width, in position, is `left` or `right` unit px                                                                                                            | number     | -           |
 | zIndex         | Pop-up Level                                                                                                                                                          | number     | 998         |
-| onClose        | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
+| onClose        | Click the mask to close and trigger the callback.                                                                                                                                            | () => void | -           |
 | onAfterShow    | Trigger after full display                                                                                                                                                    | () => void | -           |
 | onAfterClose   | Trigger after full shutdown                                                                                                                                                    | () => void | -           |
 
@@ -49,7 +49,7 @@ Preventing page scrolling after the layer is currently not effective in IDE and 
 
 ### Popup internal elements need to support scrolling how to deal?
 
-If scrolling is required in the pop-up window, use the scroll-view component and add the following attributes:
+If you need to scroll in the pop-up window, use the scroll-view component and add the following attributes:
 
 ```html
 <popup height="{{ 250 }}" visible="{{ visible }}">
@@ -65,7 +65,7 @@ If scrolling is required in the pop-up window, use the scroll-view component and
 
 ### How to solve the abnormal display of picker-view inside Popup?
 
-Popup is passed by default. `display:none` Hidden, and picker-view cannot be placed in `display:none` in the components. There are two solutions:
+By default, Popup is `display:none` Hidden, and picker-view cannot be placed in `display:none` in the components. There are two solutions:
 
 1. Add attribute on picker-view `a:if="{{popupVisible}}"`, the picker-view is displayed when the Popup is displayed.
 2. Set on Popup `destroyOnClose="{{true}}"`to unload content when the Popup is not visible.

@@ -7,13 +7,13 @@ group:
 toc: 'content'
 ---
 
-# TabBar bottom navigation bar
+# TabBar
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 Used to switch between different pages.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/TabBar/index'></code>
 
@@ -38,5 +38,5 @@ Used to switch between different pages.
 | ---------- | -------------------------------------------------- | ------ | ------ |
 | icon       | bottom icon, support [Icon](./Icon) or picture address           | string | -      |
 | activeIcon | bottom icon for active state, support [Icon](./Icon) or picture address | string | -      |
-| text       | Bottom text                                           | string | -      |
-| badge      | Logo type, see [Badge](./Badge) Components               | object | -      |
+| text       | Bottom Text                                           | string | -      |
+| badge      | Type of logo, see [Badge](./Badge) Components               | object | -      |

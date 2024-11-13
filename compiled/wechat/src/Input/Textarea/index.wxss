@@ -1,7 +1,7 @@
 .ant-textarea {
   display: flex;
   align-items: center;
-  background: #ffffff;
+  background: var(--color-card, #ffffff);
 }
 .ant-textarea-disabled {
   opacity: 0.4;
@@ -19,8 +19,8 @@
   padding: 0;
   font-size: 34rpx;
   text-align: left;
-  color: #333333;
-  background: #ffffff;
+  color: var(--color-text-primary, #333333);
+  background: var(--color-card, #ffffff);
 }
 .ant-textarea-content-clear {
   padding-right: 34rpx;
@@ -37,7 +37,7 @@
   margin-left: 8rpx;
 }
 .ant-textarea-clear-icon {
-  color: #cccccc;
+  color: var(--color-text-weak, #cccccc);
   font-size: 34rpx;
 }
 .ant-textarea-clear-show {
@@ -49,6 +49,6 @@
 }
 .ant-textarea-placeholder {
   font-size: 34rpx;
-  color: #cccccc;
+  color: var(--color-text-weak, #cccccc);
   margin-left: -6rpx;
 }

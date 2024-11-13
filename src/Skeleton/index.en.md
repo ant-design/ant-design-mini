@@ -7,12 +7,12 @@ group:
 toc: 'content'
 ---
 
-# Skeleton skeleton screen
+# Skeleton
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 Provide a placeholder graphic combination where you need to wait for content to load
 ## When to use
-- The network is slow, requires a long wait to load, and is only used when loading for the first time.
+- The network is slow, requires a long wait to load, and is only used when it is loaded for the first time.
 - On the premise of ensuring the performance of the mobile phone, try to use preloading, preferably without skeleton screen.
 - It is suitable for home pages, lists and cards with more graphic information and important information. Do not use small module class components (such as pop-up windows).
 

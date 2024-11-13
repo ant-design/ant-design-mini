@@ -1,6 +1,7 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 // header 颜色
-@radio-header-color: @COLOR_TEXT_ASSIST;
+@radio-header-color: var(--color-text-assist, @COLOR_TEXT_ASSIST);
 
 /* size | 大小 */
 @radio-size: @icon-size-sm;
@@ -12,10 +13,16 @@
 @radio-border-width: @border-width-standard;
 
 /* color | 边框颜色 */
-@radio-border-color: @COLOR_TEXT_WEAK;
+@radio-border-color: var(--color-text-weak, @COLOR_TEXT_WEAK);
 
 /* color | check状态背景色 */
-@radio-background-color: @COLOR_BRAND1;
+@radio-background-color: var(--color-brand1, @COLOR_BRAND1);
 
 /* color | disabled状态背景色 */
-@radio-disabled-background: @COLOR_GREY_CARD;
+@radio-disabled-background: var(--color-grey-card, @COLOR_GREY_CARD);
+
+@radio-text-color: var(--color-text-primary, @COLOR_TEXT_PRIMARY);
+
+@radio-fake-icon-background-color: var(--color-card, @COLOR_CARD);
+
+@radio-icon-color: var(--color-white, @COLOR_WHITE);

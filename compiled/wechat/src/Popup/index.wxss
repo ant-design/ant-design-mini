@@ -22,10 +22,10 @@
 .ant-popup-content {
   overflow: hidden;
   position: fixed;
-  background: #ffffff;
+  background: var(--color-card, #ffffff);
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
-  color: #333333;
+  color: var(--color-text-primary, #333333);
 }
 .ant-popup-content-bg {
   position: absolute;
@@ -45,7 +45,7 @@
   font-family: 500;
   line-height: 50rpx;
   font-size: 36rpx;
-  color: #333333;
+  color: var(--color-text-primary, #333333);
   text-align: center;
 }
 .ant-popup-content-header-icon {
@@ -54,7 +54,7 @@
   font-size: 42rpx;
   position: absolute;
   top: 33rpx;
-  color: #999999;
+  color: var(--color-text-assist, #999999);
   display: flex;
   justify-content: center;
   align-items: center;

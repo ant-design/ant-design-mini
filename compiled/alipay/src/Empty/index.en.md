@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Empty empty state
+# Empty
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -17,7 +17,7 @@ Use the scene illustration as a feedback prompt for the empty state scene.
 
 Used when an empty status page or partial empty status block needs to be displayed.
 
-## Code Sample
+## Code example
 
 <code src='../../demo/pages/Empty/index'></code>
 
