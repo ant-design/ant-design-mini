@@ -40,3 +40,8 @@ toc: 'content'
 #### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                   | 默认值                                                                                            | 备注           |
+| ------------------------ | ------------------------------------------------------------------------------------------------- | -------------- |
+| --badge-text-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | Badge 文字颜色 |
+| --badge-background-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | Badge 背景颜色 |
