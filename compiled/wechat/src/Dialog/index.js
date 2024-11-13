@@ -1,21 +1,23 @@
-import get from '../_util/get';
-import { Component, triggerEventOnly } from '../_util/simply';
+import { Component, getValueFromProps, triggerEvent, triggerEventOnly, } from '../_util/simply';
 import { ModalFunctionalProps } from './props';
 Component(ModalFunctionalProps, {
     onClose: function () {
         triggerEventOnly(this, 'close');
     },
     onMaskClose: function () {
-        if (this.properties.maskClosable) {
+        var maskClosable = getValueFromProps(this, 'maskClosable');
+        if (maskClosable) {
             triggerEventOnly(this, 'close');
         }
     },
     onButtonTap: function (e) {
+        var onButtonTap = getValueFromProps(this, 'onButtonTap');
         // 按钮点击没有回调的场景直接关闭弹框
-        if (!this.props.onButtonTap) {
+        if (!onButtonTap) {
             return this.onClose();
         }
-        this.props.onButtonTap(get(e, 'currentTarget.dataset.item'));
+        var item = e.currentTarget.dataset.item;
+        triggerEvent(this, 'buttonTap', item, e);
     },
     onPrimaryButtonTap: function () {
         triggerEventOnly(this, 'primaryButtonTap');

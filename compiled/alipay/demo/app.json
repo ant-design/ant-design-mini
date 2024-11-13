@@ -99,7 +99,7 @@
     "enableDSL": "YES",
     "enableJSC": "YES",
     "defaultTitle": "小程序版 antd-mini 库",
-    "titleBarColor": "#000000",
+    "titleBarColor": "#ffffff",
     "pullRefresh": false,
     "allowsBounceVertical": false,
     "enableInPageRenderInput": "YES"

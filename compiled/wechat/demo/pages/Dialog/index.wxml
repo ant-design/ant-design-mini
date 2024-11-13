@@ -1,52 +1,52 @@
 <ant-dialog
   content="人在天边月上明"
   visible="{{basicVisible}}"
-  onClose="handleClose"
+  bind:close="handleClose"
   closable="{{false}}"
   footer="{{footer1}}"
-  onButtonTap="onButtonTap"
+  bind:buttontap="onButtonTap"
   primaryButtonText="我知道了"
 ></ant-dialog>
 <ant-dialog
   title="带标题的弹窗"
   content="人在天边月上明"
-  onButtonTap="onButtonTap"
+  bind:buttontap="onButtonTap"
   visible="{{withTitleVisible}}"
-  onClose="handleClose"
+  bind:close="handleClose"
   footer="{{footer1}}"
 ></ant-dialog>
 <ant-dialog
   title="带头图"
   headerImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Q5ekTJUJW8IAAAAAAAAAAAAADiWwAQ/original"
   content="人在天边月上明"
-  onButtonTap="onButtonTap"
+  bind:buttontap="onButtonTap"
   visible="{{withImageVisible}}"
-  onClose="handleClose"
+  bind:close="handleClose"
   footer="{{footer1}}"
 ></ant-dialog>
 <ant-dialog
   title="确定删除吗？"
   content="删除后无法恢复"
   visible="{{basicTwoVisible}}"
-  onClose="handleClose"
-  onButtonTap="onButtonTap"
+  bind:close="handleClose"
+  bind:buttontap="onButtonTap"
   footer="{{footer2}}"
 ></ant-dialog>
 <ant-dialog
   title="标题"
   content="人在天边月上明"
   visible="{{basicThreeVisible}}"
-  onClose="handleClose"
-  onButtonTap="onButtonTap"
+  bind:close="handleClose"
+  bind:buttontap="onButtonTap"
   footer="{{footer3}}"
 ></ant-dialog>
 <ant-dialog
   title="签到成功!获得积分奖励"
   content="积分可用于好礼兑换"
   visible="{{slotWeakVisible}}"
-  onClose="handleClose"
+  bind:close="handleClose"
   className="activity-dialog"
-  onButtonTap="onButtonTap"
+  bind:buttontap="onButtonTap"
 >
   <image
     slot="header"
@@ -75,9 +75,9 @@
   title="恭喜获得出行红包"
   content="出行打车小程序专用"
   visible="{{slotStrongVisible}}"
-  onClose="handleClose"
+  bind:close="handleClose"
   className="activity-dialog activity-dialog-strong"
-  onButtonTap="onButtonTap"
+  bind:buttontap="onButtonTap"
 >
   <image
     slot="dialog-top"

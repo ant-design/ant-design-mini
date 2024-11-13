@@ -1,6 +1,6 @@
 .ant-modal-body {
   width: 560rpx;
-  background-color: #ffffff;
+  background-color: var(--modal-background-color, #ffffff);
   border-radius: 16rpx;
   padding-top: 40rpx;
   display: flex;
@@ -10,13 +10,13 @@
   font-size: 36rpx;
   line-height: 50rpx;
   text-align: center;
-  color: #333333;
+  color: var(--modal-title-color, #333333);
   margin: 0 24rpx 16rpx;
 }
 .ant-modal-body-content {
   line-height: 42rpx;
   font-size: 30rpx;
-  color: #333333;
+  color: var(--modal-content-color, #333333);
   text-align: center;
   margin: 0 24rpx 40rpx;
 }
@@ -110,7 +110,7 @@
   justify-content: center;
   align-items: center;
   font-size: 36rpx;
-  color: #999999;
+  color: var(--modal-close-text-color, #999999);
 }
 .ant-modal .ant-popup-content.ant-popup-center {
   min-height: 0;

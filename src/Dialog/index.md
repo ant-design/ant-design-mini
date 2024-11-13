@@ -60,12 +60,12 @@ Page({
   },
   onButtonTap(buttonItem) {
     console.log('点击的按钮: ', buttonItem);
-    /// #if ALIPAY
+#if ALIPAY
     my.showToast({ content: `点击了${buttonItem.text}`, duration: 1000 });
-    /// #endif
-    /// #if WECHAT
+#endif
+#if WECHAT
     wx.showToast({ title: `点击了${buttonItem.text}` });
-    /// #endif
+#endif
     this.handleClose();
   },
   handleClose() {
