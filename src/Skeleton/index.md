@@ -91,3 +91,9 @@ toc: 'content'
 #### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                  | 默认值                                                                                                                              | 备注                      |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| --skeleton-animation-25 | <div style="width: 150px; height: 40px; background-color: #eeeeee; color: #333333;">#eeeeee</div>                                   | Skeleton 动画 25%渐变颜色 |
+| --skeleton-animation-37 | <div style="width: 150px; height: 40px; background-color: rgba(204, 204, 204, 0.6); color: #333333;">rgba(204, 204, 204, 0.6)</div> | Skeleton 动画 37%渐变颜色 |
+| --skeleton-animation-63 | <div style="width: 150px; height: 40px; background-color: #eeeeee; color: #333333;">#eeeeee</div>                                   | Skeleton 动画 63%渐变颜色 |
