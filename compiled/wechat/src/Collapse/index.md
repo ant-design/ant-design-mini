@@ -35,7 +35,7 @@ toc: 'content'
 
 ```xml
 <ant-collapse
-  items="{{ items }}"
+  items="{{items}}"
 #if ALIPAY
   onChange="onChange" 
 #endif
@@ -73,8 +73,8 @@ Page({
 ### 手风琴模式
 ```xml
 <ant-collapse
-  accordion="{{accordion}}"
-  items="{{ items }}"
+  accordion="{{true}}"
+  items="{{items}}"
 #if ALIPAY
   onChange="onChange" 
 #endif
@@ -99,7 +99,7 @@ Page({
 </ant-button>
 
 <ant-collapse
-  items="{{ items }}"
+  items="{{items}}"
 />
 ```
 ```js
@@ -141,7 +141,7 @@ Page({
 
 ```xml
 #if ALIPAY
-<ant-collapse items="{{ items }}">
+<ant-collapse items="{{items}}">
   <view
     slot="title"
     slot-scope="item"
@@ -149,18 +149,18 @@ Page({
   >
     <view>
       <ant-checkbox
-        data-index="{{ item.index }}"
+        data-index="{{item.index}}"
         onChange="onChange" 
       />
     </view>
-    <view>{{ item.value.title }}</view>
+    <view>{{item.value.title}}</view>
   </view>
 
   <view
     slot="content"
     slot-scope="item"
     class="content">
-    {{ item.value.content }}
+    {{item.value.content}}
   </view>
 </ant-collapse>
 
