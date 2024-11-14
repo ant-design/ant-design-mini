@@ -91,7 +91,8 @@
     "pages/Feedback/index",
     "pages/IndexBarControl/index",
     "pages/ConfigProvider/index",
-    "pages/AutoResize/index"
+    "pages/AutoResize/index",
+    "pages/SelectContact/index"
   ],
   "window": {
     "enableWK": "YES",
