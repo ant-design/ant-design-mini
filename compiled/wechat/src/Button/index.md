@@ -145,20 +145,6 @@ toc: 'content'
 | --button-text-danger-color               | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | 危险按钮文字颜色     |
 | --button-danger-default-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | 危险按钮默认颜色     |
 | --button-active-bg                       | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.08);">rgba(255, 255, 255, 0.08)</div> | 按钮激活背景颜色     |
-| --button-inline-size                     | 30rpx                                                                                                                 | 按钮内联尺寸         |
-| --button-font-size                       | 38rpx                                                                                                                 | 按钮字体尺寸         |
-| --button-large-font-size                 | 38rpx                                                                                                                 | 大按钮字体尺寸       |
-| --button-medium-font-size                | 34rpx                                                                                                                 | 中按钮字体尺寸       |
-| --button-small-font-size                 | 30rpx                                                                                                                 | 小按钮字体尺寸       |
-| --button-icon-size                       | 44rpx                                                                                                                 | 按钮图标尺寸         |
-| --button-padding                         | 24rpx                                                                                                                 | 按钮内边距           |
-| --button-large-padding                   | 24rpx                                                                                                                 | 大按钮内边距         |
-| --button-medium-padding-top              | 16rpx                                                                                                                 | 中按钮上内边距       |
-| --button-medium-padding-left             | 24rpx                                                                                                                 | 中按钮左内边距       |
-| --button-small-padding-top               | 8rpx                                                                                                                  | 小按钮上内边距       |
-| --button-small-padding-left              | 24rpx                                                                                                                 | 小按钮左内边距       |
-| --button-subtext-size                    | 24rpx                                                                                                                 | 按钮副文本尺寸       |
-| --button-border-size                     | 2rpx                                                                                                                  | 按钮边框尺寸         |
 
 ### 更多属性
 
