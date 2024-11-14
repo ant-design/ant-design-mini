@@ -119,4 +119,11 @@ export const wechatCustomMapping = {
     onVisibleChange: 'bind:visiblechange',
     onTapItem: 'bind:tapitem',
   },
+  'ant-feedback': {
+    onVisibleChange: 'bind:visiblechange',
+    onTapFeedItem: 'bind:tapfeeditem',
+  },
+  'ant-mask': {
+    onMaskTap: 'bind:masktap',
+  },
 };

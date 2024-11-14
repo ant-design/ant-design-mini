@@ -4,10 +4,12 @@
 
 .@{avatarPrefix} {
   .ant-popover-inner {
-    color: @feedback-text-color;
-  }
-  .ant-popover-inner {
     max-width: 100%;
+    color: @feedback-text-color;
+    background: @feedback-content-background-color;
+  }
+  .ant-popover-arrow {
+    border-bottom-color: @feedback-content-background-color;
   }
   &-popoverType-default {
     .ant-popover-content {

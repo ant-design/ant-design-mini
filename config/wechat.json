@@ -82,7 +82,8 @@
     "pages/Popup",
     "pages/Checkbox",
     "pages/Picker",
-    "pages/DatePicker"
+    "pages/DatePicker",
+    "pages/Feedback"
   ],
   "src": [
     "_locale",
@@ -135,6 +136,7 @@
     "NoticeBar",
     "NumberKeyboard",
     "Tabs",
-    "SwipeAction"
+    "SwipeAction",
+    "Feedback"
   ]
 }

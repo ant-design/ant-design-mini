@@ -79,6 +79,7 @@
     "demo/pages/Icon/index",
     "demo/pages/Loading/index",
     "demo/pages/Tag/index",
-    "demo/pages/ButtonCustom/index"
+    "demo/pages/ButtonCustom/index",
+    "demo/pages/Feedback/index"
   ]
 }

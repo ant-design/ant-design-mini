@@ -449,8 +449,8 @@
     --feedback-text-color: #c5cad1;
     --feedback-background-color: rgba(216, 216, 216, 0.42);
     --feedback-mask-color: rgba(0, 0, 0, 0.25);
-    --feedback-content-background-color: #ffffff;
-    --feedback-list-background-color: #121212;
+    --feedback-content-background-color: #1a1a1a;
+    --feedback-list-background-color: #1a1a1a;
     --feedback-list-text-color: #c5cad1;
     --calendar-cell-disabled-opacity: 0.4;
     --calendar-weekday-names-bg: #f8f8f8;

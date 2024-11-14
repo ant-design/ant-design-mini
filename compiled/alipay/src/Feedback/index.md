@@ -17,14 +17,32 @@ TODO
 
 ## 代码示例
 
-<!-- <code src='pages/Feedback/index'></code> -->
+<code src='../../demo/pages/Feedback/index'></code>
 
 ## API
 
-| 属性      | 说明 | 类型   | 默认值 |
-| --------- | ---- | ------ | ------ |
-| className | 类名 | string | -      |
-| style     | 样式 | string | -      |
+| 属性               | 说明                                                                                                                                                                | 类型                           | 默认值       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------ |
+| visible            | 是否可见                                                                                                                                                            | boolean                        | false        |
+| type               | 反馈类型                                                                                                                                                            | 'popover' \| 'card' \| 'float' | card         |
+| title              | 反馈的标题                                                                                                                                                          | string                         | -            |
+| placement          | 气泡框位置，可选 `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` 或 `right-bottom` | string                         | bottom-right |
+| list               | 反馈的列表                                                                                                                                                          | [FeedItem](#feeditem)[]        | -            |
+| className          | 最外层的样式名                                                                                                                                                      | string                         | -            |
+| style              | 最外层的样式字符串                                                                                                                                                  | string                         | -            |
+| popoverType        | 气泡反馈的引导样式                                                                                                                                                  | 'circle' \| 'default'          | -            |
+| autoAdjustOverflow | 气泡位置是否自适应                                                                                                                                                  | boolean                        | true         |
+| onVisibleChange    | 展示状态改变的勾子                                                                                                                                                  | (visible: boolean) => void     | -            |
+| onTapFeedItem      | 反馈项点击回调                                                                                                                                                      | (item: any) => void            | -            |
+
+### FeedItem
+
+| 属性  | 说明                                     | 类型   | 默认值 |
+| ----- | ---------------------------------------- | ------ | ------ |
+| icon  | 反馈项的图标                             | string | -      |
+| text  | 反馈项的文案                             | string | -      |
+| image | 反馈项的图片 和 icon 互斥，优先展示 icon | string | -      |
+| id    | 反馈项的唯一标识                         | string | -      |
 
 ### 主题定制
 

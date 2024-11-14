@@ -49,7 +49,7 @@ Page({
     },
     updateVisible(field, visible) {
         this.setData({
-            [field]: visible,
+            [field]: visible.detail,
         });
     },
     onShowFeedback(e) {
@@ -59,27 +59,31 @@ Page({
         });
     },
     onTapFeedItem2(feedItem) {
-        my.showToast({
-            content: `点击了反馈项${feedItem.text}`,
+        // @ts-ignore
+        wx.showToast({
+            title: `点击了反馈项${feedItem.text}`,
         });
-        this.updateVisible('visible2', false);
+        this.updateVisible('visible2', { detail: false });
     },
     onTapFeedItem4(feedItem) {
-        my.showToast({
-            content: `点击了反馈项${feedItem.text}`,
+        // @ts-ignore
+        wx.showToast({
+            title: `点击了反馈项${feedItem.text}`,
         });
-        this.updateVisible('visible4', false);
+        this.updateVisible('visible4', { detail: false });
     },
     onTapFeedItem3(feedItem) {
-        my.showToast({
-            content: `点击了反馈项${feedItem.text}`,
+        // @ts-ignore
+        wx.showToast({
+            title: `点击了反馈项${feedItem.text}`,
         });
-        this.updateVisible('visible3', false);
+        this.updateVisible('visible3', { detail: false });
     },
     handleTapItem() {
-        my.showToast({
-            content: `已反馈`,
+        // @ts-ignore
+        wx.showToast({
+            title: `已反馈`,
         });
-        this.updateVisible('visible1', false);
+        this.updateVisible('visible1', { detail: false });
     },
 });

@@ -28,7 +28,7 @@ export interface IFeedbackProps extends IBaseProps {
    * @default false
    */
   visible: boolean;
-   /**
+  /**
    * @description 反馈类型
    * @default card
    */
@@ -62,7 +62,7 @@ export interface IFeedbackProps extends IBaseProps {
    * @description 气泡位置是否自适应
    * @default true
    */
-  autoAdjustOverflow
+  autoAdjustOverflow;
   /**
    * 展示状态改变的勾子
    * @param visible 反馈内容展示状态
@@ -72,7 +72,7 @@ export interface IFeedbackProps extends IBaseProps {
    * 反馈项点击回调
    * @param item 点击的反馈项内容
    */
-  onFeedClick: (item) => void;
+  onTapFeedItem: (item) => void;
 }
 
 export const FeedbackDefaultProps: Partial<IFeedbackProps> = {
@@ -85,6 +85,6 @@ export const FeedbackDefaultProps: Partial<IFeedbackProps> = {
   style: '',
   popoverType: 'default',
   autoAdjustOverflow: true,
-  onVisibleChange: (visible) => {},
-  onFeedClick: (item) => {},
+  onVisibleChange: () => {},
+  onTapFeedItem: () => {},
 };

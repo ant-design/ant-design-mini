@@ -1,5 +1,5 @@
 <popover
-  a:if="{{type === 'popover'}}"
+  wx:if="{{type === 'popover'}}"
   visible="{{visible}}"
   className="ant-feedback {{className || ''}} {{visible ? 'ant-feedback-show' : ''}} ant-feedback-popoverType-{{popoverType}}"
   mode="light"
@@ -7,7 +7,7 @@
   showMask="{{false}}"
   autoAdjustOverflow="{{autoAdjustOverflow}}"
   style="display: inline-block; margin: 20px"
-  onVisibleChange="handleVisibleChange"
+  bind:visiblechange="handleVisibleChange"
 >
   <view
     class="ant-feedback-trigger "
@@ -17,7 +17,7 @@
       <slot></slot>
     </view>
     <view
-      a:if="{{!!visible && popoverType === 'circle'}}"
+      wx:if="{{!!visible && popoverType === 'circle'}}"
       class="ant-feedback-guide"
     >
       <view class="ant-feedback-guide-content"></view>
@@ -26,35 +26,33 @@
       className="ant-feedback-mask"
       show="{{!!visible}}"
       style="z-index: 2;"
-      onMaskTap="maskClick"
+      bind:masktap="maskClick"
     ></ant-mask>
   </view>
   <view
-    a:if="{{list.length > 0}}"
+    wx:if="{{list.length > 0}}"
     class="ant-feedback-content ant-feedback-content-{{type}}"
     slot="content"
   >
     <view
-      a:if="{{title}}"
+      wx:if="{{title}}"
       class="ant-feedback-content-title"
-    >
-      {{title}}
-    </view>
+    >{{title}}</view>
     <view class="ant-feedback-content-list">
       <view
         class="ant-feedback-content-list-item"
         data-item="{{item}}"
-        onTap="onTapFeedItem"
-        a:for="{{list}}"
-        a:for-index="index"
-        a:for-item="item"
+        bind:tap="onTapFeedItem"
+        wx:for="{{list}}"
+        wx:for-index="index"
+        wx:for-item="item"
       >
         <ant-icon
-          a:if="{{item.icon}}"
+          wx:if="{{item.icon}}"
           type="{{item.icon}}"
         ></ant-icon>
         <image
-          a:elif="{{item.image}}"
+          wx:elif="{{item.image}}"
           class="ant-feedback-content-list-item-image"
           mode="widthFix"
           src="{{item.image}}"
@@ -69,35 +67,33 @@
   ></slot>
 </popover>
 <view
-  a:else
+  wx:else
   class="ant-feedback"
 >
   <view
-    a:if="{{list.length > 0}}"
+    wx:if="{{list.length > 0}}"
     class="ant-feedback-content ant-feedback-content-{{type}}"
     slot="content"
   >
     <view
-      a:if="{{title}}"
+      wx:if="{{title}}"
       class="ant-feedback-content-title"
-    >
-      {{title}}
-    </view>
+    >{{title}}</view>
     <view class="ant-feedback-content-list">
       <view
-        onTap="onTapFeedItem"
+        bind:tap="onTapFeedItem"
         class="ant-feedback-content-list-item"
         data-item="{{item}}"
-        a:for="{{list}}"
-        a:for-index="index"
-        a:for-item="item"
+        wx:for="{{list}}"
+        wx:for-index="index"
+        wx:for-item="item"
       >
         <ant-icon
-          a:if="{{item.icon}}"
+          wx:if="{{item.icon}}"
           type="{{item.icon}}"
         ></ant-icon>
         <image
-          a:elif="{{item.image}}"
+          wx:elif="{{item.image}}"
           class="ant-feedback-content-list-item-image"
           mode="widthFix"
           src="{{item.image}}"
@@ -108,6 +104,6 @@
   </view>
   <slot
     name="content"
-    a:else
+    wx:else
   ></slot>
 </view>

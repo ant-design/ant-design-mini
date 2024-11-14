@@ -1,7 +1,7 @@
 <import-sjs from="./index.sjs" name="utils" />
 
 <view a:if="{{ visible }}" class="ant-guide-tour {{ className || '' }}" style="{{ style || '' }}">
-  <mask show className="{{ maskClassName }}" style="z-index:9999;{{ maskStyle || '' }}" />
+  <ant-mask show className="{{ maskClassName }}" style="z-index:9999;{{ maskStyle || '' }}" />
   <ant-icon type="CloseOutline" className="ant-guide-tour-clear" onTap="onCancel" />
   <view class="ant-guide-tour-button">
     <ant-button
