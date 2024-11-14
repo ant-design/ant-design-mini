@@ -58,7 +58,6 @@
     "pages/TabsVerticalElevator/index",
     "pages/Stepper/index",
     "pages/Steps/index",
-    "pages/StepsControl/index",
     "pages/Popover/index",
     "pages/PopoverList/index",
     "pages/NoticeBar/index",

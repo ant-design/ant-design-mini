@@ -37,7 +37,6 @@
     "pages/GuideTour",
     "pages/ActionSheet",
     "pages/Steps",
-    "pages/StepsControl",
     "pages/Divider",
     "pages/Skeleton",
     "pages/TabBar",

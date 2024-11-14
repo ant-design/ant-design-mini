@@ -1,5 +1,6 @@
 Page({
   data: {
+    current: 0,
     items: [
       {
         title: '步骤一',
@@ -12,8 +13,9 @@ Page({
       {
         title: '步骤三',
         description: '描述信息',
-      }
+      },
     ],
+    iconList: ['SmileFill', '', 'StarFill'],
     items2: [
       {
         title: '步骤一',
@@ -30,12 +32,26 @@ Page({
       {
         title: '步骤四',
         description: '内容详情，根据实际文案安排',
-      }
+      },
     ],
-    iconList: [
-      'SmileFill',
-      '',
-      'StarFill'
-    ],
+  },
+  onNextTap() {
+    if (this.data.current === this.data.items.length - 1) {
+      my.alert({
+        content: '完成',
+      });
+      return;
+    }
+    this.setData({
+      current: this.data.current + 1,
+    });
+  },
+  onPrevTap() {
+    if (this.data.current === 0) {
+      return;
+    }
+    this.setData({
+      current: this.data.current - 1,
+    });
   },
 });
