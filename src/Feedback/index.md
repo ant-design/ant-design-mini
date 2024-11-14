@@ -9,31 +9,204 @@ toc: content
 
 # Feedback 信息反馈
 
-TODO
+反馈多作用于分发场景。
 
-## 何时使用
+## 引入
 
-TODO
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-feedback": "antd-mini/es/Feedback/index"
+#endif
+#if WECHAT
+  "ant-feedback": "antd-mini/Feedback/index"
+#endif
+}
+```
 
 ## 代码示例
+
+### 基本使用
+
+```xml
+<ant-feedback
+  visible="{{ visible }}"
+  type="popover"
+  popoverType="default"
+  placement="bottom-right"
+#if ALIPAY
+  onVisibleChange="onVisibleChange"
+#endif
+#if WECHAT
+  bind:visiblechange="onVisibleChange"
+#endif
+>
+  <view class="feedback-demo-target">
+    <ant-icon style="font-size: 30px" type="MoreOutline" />
+  </view>
+  <view slot="popover-content" class="feedback-content">
+    这里是 popover 内容
+  </view>
+</ant-feedback>
+```
+
+```js
+Page({
+  data: {
+    visible: true,
+  },
+  onVisibleChange(value) {
+#if ALIPAY
+    this.setData({ visible: value });
+#endif
+#if WECHAT
+    this.setData({ visible: value.detail });
+#endif
+  },
+});
+```
+
+### 点状引导反馈
+
+```xml
+<ant-feedback
+  type="popover"
+  list="{{ feedList }}"
+  visible="{{ visible }}"
+  popoverType="circle"
+  title="点引导反馈"
+  placement="bottom"
+#if ALIPAY
+  onVisibleChange="onVisibleChange"
+  onTapFeedItem="onTapFeedItem"
+#endif
+#if WECHAT
+  bind:visiblechange="onVisibleChange"
+  bind:tapfeeditem="onTapFeedItem"
+#endif
+>
+  <image mode="widthFix" style="width: 345rpx;" src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original" />
+</ant-feedback>
+```
+
+```js
+Page({
+  data: {
+    visible: true,
+    feedList: [
+      { icon: 'HeartOutline', text: '喜欢推荐内容', id: '1', },
+      { icon: 'FrownOutline', text: '我不感兴趣', id: '2', },
+      { image: 'https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ', text: '看过类似内容', id: '3', },
+    ],
+  },
+  onVisibleChange(value) {
+#if ALIPAY
+    this.setData({ visible: value });
+#endif
+#if WECHAT
+    this.setData({ visible: value.detail });
+#endif
+  },
+  onTapFeedItem(feedItem) {
+#if ALIPAY
+    my.showToast({ content: `点击了反馈项${feedItem.text}`, });
+#endif
+#if WECHAT
+    wx.showToast({ title: `点击了反馈项${feedItem.text}`, });
+#endif
+  },
+});
+```
+
+### 反馈卡片
+
+```xml
+<ant-feedback
+  a:if="{{ visible }}"
+  list="{{ feedList }}"
+  type="card"
+  title="喜欢推荐的内容吗？"
+#if ALIPAY
+  onVisibleChange="onVisibleChange"
+  onTapFeedItem="onTapFeedItem"
+#endif
+#if WECHAT
+  bind:visiblechange="onVisibleChange"
+  bind:tapfeeditem="onTapFeedItem"
+#endif
+/>
+<ant-button
+  a:else
+  size="small"
+  inline
+#if ALIPAY
+  onTap="onShowFeedback"
+#endif
+#if WECHAT
+  bind:tap="onShowFeedback"
+#endif
+>
+  点击 展示反馈卡片
+</ant-button>
+```
+
+```js
+Page({
+  data: {
+    visible: true,
+    feedList: [
+      { icon: 'HeartOutline', text: '喜欢推荐内容', id: '1', },
+      { icon: 'FrownOutline', text: '我不感兴趣', id: '2', },
+      { image: 'https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ', text: '看过类似内容', id: '3', },
+    ],
+  },
+  onVisibleChange(value) {
+#if ALIPAY
+    this.setData({ visible: value });
+#endif
+#if WECHAT
+    this.setData({ visible: value.detail });
+#endif
+  },
+  onTapFeedItem(feedItem) {
+#if ALIPAY
+    my.showToast({ content: `点击了反馈项${feedItem.text}`, });
+#endif
+#if WECHAT
+    wx.showToast({ title: `点击了反馈项${feedItem.text}`, });
+#endif
+  },
+  onShowFeedback() {
+    this.setData({
+      visible: true,
+    });
+  },
+});
+```
+
+### Demo 代码
 
 <code src='../../demo/pages/Feedback/index'></code>
 
 ## API
 
-| 属性               | 说明                                                                                                                                                                | 类型                           | 默认值       |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------ |
-| visible            | 是否可见                                                                                                                                                            | boolean                        | false        |
-| type               | 反馈类型                                                                                                                                                            | 'popover' \| 'card' \| 'float' | card         |
-| title              | 反馈的标题                                                                                                                                                          | string                         | -            |
-| placement          | 气泡框位置，可选 `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` 或 `right-bottom` | string                         | bottom-right |
-| list               | 反馈的列表                                                                                                                                                          | [FeedItem](#feeditem)[]        | -            |
-| className          | 最外层的样式名                                                                                                                                                      | string                         | -            |
-| style              | 最外层的样式字符串                                                                                                                                                  | string                         | -            |
-| popoverType        | 气泡反馈的引导样式                                                                                                                                                  | 'circle' \| 'default'          | -            |
-| autoAdjustOverflow | 气泡位置是否自适应                                                                                                                                                  | boolean                        | true         |
-| onVisibleChange    | 展示状态改变的勾子                                                                                                                                                  | (visible: boolean) => void     | -            |
-| onTapFeedItem      | 反馈项点击回调                                                                                                                                                      | (item: any) => void            | -            |
+| 属性                          | 说明                                                                                                                                                                | 类型                                 | 默认值       |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ------------ |
+| visible                       | 是否可见                                                                                                                                                            | boolean                              | false        |
+| type                          | 反馈类型                                                                                                                                                            | 'popover' \| 'card' \| 'float'       | card         |
+| title                         | 反馈的标题                                                                                                                                                          | string                               | -            |
+| placement                     | 气泡框位置，可选 `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` 或 `right-bottom` | string                               | bottom-right |
+| list                          | 反馈的列表                                                                                                                                                          | [FeedItem](#feeditem)[]              | -            |
+| className                     | 最外层的样式名                                                                                                                                                      | string                               | -            |
+| style                         | 最外层的样式字符串                                                                                                                                                  | string                               | -            |
+| popoverType                   | 气泡反馈的引导样式                                                                                                                                                  | 'circle' \| 'default'                | -            |
+| autoAdjustOverflow            | 气泡位置是否自适应                                                                                                                                                  | boolean                              | true         |
+| #if ALIPAY onVisibleChange    | 展示状态改变的勾子                                                                                                                                                  | (visible: boolean) => void           | -            |
+| #if ALIPAY onTapFeedItem      | 反馈项点击回调                                                                                                                                                      | (item: any) => void                  | -            |
+| #if WECHAT bind:visiblechange | 展示状态改变的勾子                                                                                                                                                  | (visible: boolean) => void           | -            |
+| #if WECHAT bind:tapfeeditem   | 反馈项点击回调                                                                                                                                                      | ([FeedItem](#feeditem): any) => void | -            |
 
 ### FeedItem
 
