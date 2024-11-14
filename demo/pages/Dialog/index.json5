@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Dialog",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Dialog",
+  /// #endif
+
+  "usingComponents": {
+    "ant-dialog": "../../../src/Dialog/index",
+    "ant-button": "../../../src/Button/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

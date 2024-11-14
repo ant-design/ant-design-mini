@@ -18,7 +18,7 @@ The Form form contains data entry, validation, and corresponding styles. The For
 - Used to create entities or collect information.
 - When the input data type needs to be verified.
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -75,11 +75,13 @@ The Form form contains data entry, validation, and corresponding styles. The For
 ### Custom Error Styles
 
 Use `validateStatus: success` and `footer slot` Customize the error style.
+
 <!-- <code src='pages/FormCustomError/index'></code> -->
 
 ### Custom Form Item
 
-by using [FormItem](#formitem)、[createForm](#createform) Customizable form items. In the example `form-checklist`、`form-location` For custom form item components.
+by using [FormItem](#formitem)、[createForm](#createform) Customizable form items. In the example `form-checklist`、`form-location` Is a custom form item component.
+
 <!-- <code src='pages/FormCustom/index'></code> -->
 
 ## API
@@ -103,8 +105,6 @@ Properties Included in All Form Components
 | message | Verify the error message. If it is not set, it will be automatically generated according to the verification rules. | string | false |
 | requiredMark | Required optional tag style, optional `asterisk` `text-required` `text-optional` | string | asterisk |
 
-
-
 ### Form
 
 | Property             | Description           | Type                                      |
@@ -122,7 +122,7 @@ Properties Included in All Form Components
 | getFieldValue            | Get the value of a form item                                                       | (name: string) => any                                                                  |
 | getFieldsValue           | Gets the value for a set of field names. If no nameList is passed, all fields pairs are returned.           | (nameList?: string[]) => Record<string, any>                                           |
 | getFieldValidatorStatus  | Get form check status                                                     | (name: string) => [ValidatorStatus](#validatorstatus)                                  |
-| getFieldsValidatorStatus | Get a set of form validation states. If no nameList is passed, all fields pairs are returned.             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
+| getFieldsValidatorStatus | Get a set of form validation statuses. If no nameList is passed, all fields pairs are returned.             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
 | reset                    | Reset form to initial value                                                     | () => void                                                                             |
 | isFieldTouched           | Determine whether a form item has been modified                                               | () => boolean                                                                          |
 | onValueChange            | Listen for the value modification of the specified form item, view[Detailed Description](#onvaluechangeonvalueschange) | (name: string, (changedValue: any, allValues: Record<string, any>) => void) => void    |
@@ -362,3 +362,18 @@ function emit(trigger: 'onChange' | 'onBlur' | 'onFocus', value: any): void;
 ```
 
 For more methods, please refer `createForm` Method-related documentation. Use `formData` and `emit` The implementation of the custom form item is complete.
+
+### Theme customization
+
+#### Style Variables
+
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                | Default Value                                                                                            | Remarks             |
+| --------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --form-text-color     | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | Form text color     |
+| --form-item-color     | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div> | Form Item Color       |
+| --form-item-bg        | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Form Item Background Color   |
+| --form-error-color    | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | Form Error Color     |
+| --form-extra-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Form extra information color |
+| --form-asterisk-color | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | Form asterisk color     |

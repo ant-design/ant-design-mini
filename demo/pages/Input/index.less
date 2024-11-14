@@ -18,3 +18,50 @@
 button {
   margin-top: 8px;
 }
+.search-line {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.search-bar {
+  padding: 4px 0 4px 0;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.4s;
+  flex: 1;
+
+  &-focus {
+    border-color: @COLOR_BRAND1;
+  }
+}
+
+.cancel {
+  color: @COLOR_TEXT_PRIMARY;
+  margin-left: 8px;
+}
+
+.custom {
+  border: 1px solid @COLOR_BORDER;
+  padding: 4px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+
+.placeholder {
+  color: @COLOR_TEXT_PRIMARY;
+  opacity: 0.7;
+  font-size: 16px;
+}
+
+.custom-color {
+  margin-bottom: 12px;
+
+  input, textarea {
+    padding: 4px;
+    background: @COLOR_GREY_CARD;
+    border-radius: 4px;
+  }
+  
+}

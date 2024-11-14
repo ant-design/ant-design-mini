@@ -90,6 +90,10 @@ export const wechatCustomMapping = {
     onCancelButtonTap: 'bind:cancelbuttontap',
     onClose: 'bind:close',
   },
+  'ant-dialog': {
+    onClose: 'bind:close',
+    onButtonTap: 'bind:buttontap',
+  },
   'number-keyboard': {
     onClose: 'bind:close',
   },

@@ -9,8 +9,6 @@ toc: 'content'
 
 # Tabs 标签页
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 内容组之间进行导航切换。
 
 ## 何时使用
@@ -18,23 +16,153 @@ toc: 'content'
 - 内容组之间进行导航切换。
 - 当前内容需要分成同层级结构的组，进行内容切换展示，用在表单或者标准列表界面的顶部。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-tabs": "antd-mini/es/Tabs/index"
+#endif
+#if WECHAT
+  "ant-tabs": "antd-mini/Tabs/index"
+#endif
+}
+```
+
 ## 代码示例
 
 ### 基本使用
+```xml
+<tabs items="{{ items }}" />
+```
+```js
+Page({
+  data: {
+    current: 0,
+    items: [
+      {
+        title: '水果',
+        subTitle: '描述文案',
+        content: '西瓜',
+      },
+      {
+        title: '蔬菜',
+        subTitle: '描述文案',
+        badge: true,
+        content: '西红柿',
+      },
+      {
+        title: '动物',
+        subTitle: '描述文案',
+        content: '蚂蚁',
+      },
+    ],
+  }
+})
+```
 
-<code src='../../demo/pages/Tabs/index'></code>
+### 带有content
+```xml
+<tabs items="{{ items }}">
+  <view class="content" slot-scope="item">
+    {{ item.value.content }}
+  </view>
+</tabs>
+```
 
-### 受控
+### 胶囊
+```xml
+<tabs type="capsule" items="{{ items }}" defaultCurrent="{{ 1 }}"></tabs>
+```
 
-<!-- <code src='pages/TabsControl/index'></code> -->
+### 带副标题
+```xml
+<tabs type="mixin" items="{{ items }}"></tabs>
+```
 
-### 滑动
+### 带徽标
+```xml
+<tabs items="{{ items }}">
+ <view
+    slot="title"
+    slot-scope="item">
+    <view a:if="{{ item.value.badge }}">
+      <badge>{{ item.value.title }}</badge>
+    </view>
+    <view a:else>{{ item.value.title }}</view>
+  </view>
+</tabs>
+```
 
-<!-- <code src='pages/TabsScroll/index'></code> -->
+### 禁用状态
+```xml
+<tabs items="{{ items }}" />
+```
+
+```js
+Page({
+  data: {
+    current: 0,
+    items: [
+      {
+        title: '水果',
+        subTitle: '描述文案',
+        content: '西瓜',
+      },
+      {
+        title: '蔬菜',
+        subTitle: '描述文案',
+        disabled: true,
+        content: '西红柿',
+      },
+      {
+        title: '动物',
+        subTitle: '描述文案',
+        content: '蚂蚁',
+      },
+    ],
+  }
+})
+```
+
+### plus按钮
+```xml
+<tabs items="{{ items }}">
+  <view slot="plus">
+    <icon type="AddOutline" onTap="onPlus" />
+  </view>
+</tabs>
+```
+
+### 控制模式
+```xml
+<tabs items="{{ items }}" current="{{ current }}" onChange="handleChange" />
+```
+### 选择后居中滚动
+```xml
+<tabs items="{{ items }}" scrollMode="center" />
+```
 
 ### Swiper
-
-<!-- <code src='pages/TabsSwiper/index'></code> -->
+```xml
+<ant-tabs items="{{ items }}" current="{{ current }}" onChange="onChange">
+    <swiper
+      current="{{ current }}"
+      autoplay="{{ false }}"
+      vertical="{{ false }}"
+      circular="{{ false }}"
+      onChange="onSwipeChange"
+    >
+      <block a:for="{{ items }}" a:for-index="index" a:for-item="item" a:key="{{ index }}">
+        <swiper-item>
+          <view class="content">{{ item.content }}</view>
+        </swiper-item>
+      </block>
+    </swiper>
+</ant-tabs>
+```
 
 ### 电梯模式
 
@@ -42,22 +170,51 @@ toc: 'content'
 - 点击 tab 可滚动到对应 tab title。
 - onChange 只会在 tab 切换触发，示例里自定义 title onTap 可滚动 current tab。
 
-<!-- <code src='pages/TabsElevator/index'></code> -->
+<code src='../../demo/pages/TabsElevator/index'></code>
 
 ### 吸顶
 
 - 滑动到最顶部会吸顶。
 - 切换 tab content 会滚动到最顶部。
 
-<!-- <code src='pages/TabsSticky/index'></code> -->
+```xml
+ <tabs items="{{ items }}" current="{{ current }}" onChange="onChange" className="sticky-tabs" />
+```
+```css
+.sticky-tabs {
+  position: sticky;
+  top: -1px;
+  z-index: 999;
+}
+```
 
 ### 纵向模式
-
-<!-- <code src='pages/TabsVertical/index'></code> -->
+```xml
+ <tabs
+    items="{{ items }}"
+    current="{{ current }}"
+    onChange="onChange"
+    className="tabs"
+    direction="vertical"
+  >
+    <scroll-view
+      scroll-top="{{ scrollTop }}"
+      scroll-y="{{ true }}"
+      onScroll="onScroll"
+      scroll-with-animation="{{ true }}"
+      scroll-animation-duration="{{ 300 }}"
+      class="content"
+    >
+      {{ items[current].content }}
+    </scroll-view>
+  </tabs>
+```
 
 ### 纵向电梯模式
+<code src='../../demo/pages/TabsVerticalElevator/index'></code>
 
-<!-- <code src='pages/TabsVerticalElevator/index'></code> -->
+### Demo代码
+<code src='../../demo/pages/Tabs/index'></code>
 
 ## API
 

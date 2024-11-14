@@ -4,6 +4,7 @@
     "container": "../../../src/Container/index",
     "tabs": "../../../src/Tabs/index",
     "badge": "../../../src/Badge/index",
-    "icon": "../../../src/Icon/index"
+    "icon": "../../../src/Icon/index",
+    "ant-button": "../../../src/Button/index"
   }
 }

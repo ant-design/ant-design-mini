@@ -4,31 +4,23 @@
 <!-- #if ALIPAY -->
 <container title="带有content">
   <tabs items="{{ items }}">
-    <view
-      class="content"
-      slot-scope="item">
+    <view class="content" slot-scope="item">
       {{ item.value.content }}
     </view>
   </tabs>
 </container>
 <!-- #endif -->
 <container title="胶囊">
-  <tabs
-    type="capsule"
-    items="{{ items }}"
-    defaultCurrent="{{ 1 }}" />
+  <tabs type="capsule" items="{{ items }}" defaultCurrent="{{ 1 }}" />
 </container>
+
 <container title="带副标题">
-  <tabs
-    type="mixin"
-    items="{{ items }}" />
+  <tabs type="mixin" items="{{ items }}" />
 </container>
 <!-- #if ALIPAY -->
 <container title="带徽标">
   <tabs items="{{ items }}">
-    <view
-      slot="title"
-      slot-scope="item">
+    <view slot="title" slot-scope="item">
       <view a:if="{{ item.value.badge }}">
         <badge>{{ item.value.title }}</badge>
       </view>
@@ -41,29 +33,88 @@
   <tabs items="{{ items2 }}" />
 </container>
 <container title="onChange">
-  <tabs
-    items="{{ items }}"
-    onChange="onChange" />
+  <tabs items="{{ items }}" onChange="onChange" />
 </container>
 <container title="plus按钮">
   <tabs items="{{ items }}">
     <view slot="plus">
-      <icon
-        type="AddOutline"
-        onTap="onPlus" />
+      <icon type="AddOutline" onTap="onPlus" />
     </view>
   </tabs>
 </container>
 <container title="控制模式">
-  <tabs
-    items="{{ items }}"
-    current="{{ current }}"
-    onChange="handleChange" />
+  <tabs items="{{ items }}" current="{{ current }}" onChange="handleChange" />
 </container>
-<container title="content在外层自定义">
+<container title="content在外层自定义123">
+  <tabs items="{{ items }}" current="{{ current }}" onChange="handleChange" />
+  <view class="content">{{ items[current].content }}</view>
+</container>
+
+<container title="受控模式">
+  <tabs items="{{ items3 }}" current="{{ current }}" onChange="onChange">
+    <view class="content">{{ items3[current].content }}</view>
+  </tabs>
+
+  <view class="container">
+    current: {{ current }} length: {{ items3.length }}
+  </view>
+
+  <view class="buttons">
+    <ant-button inline onTap="onPrevTap">
+      上一个
+    </ant-button>
+    <ant-button inline onTap="onNextTap">
+      下一个
+    </ant-button>
+    <ant-button inline onTap="onAddTap">
+      添加
+    </ant-button>
+    <ant-button inline onTap="onMinusTap">
+      减少
+    </ant-button>
+  </view>
+
+</container>
+<container title="选择后居中滚动">
+  <tabs items="{{ items3 }}" scrollMode="center" />
+</container>
+
+<container title="Swiper">
+  <tabs items="{{ items }}" current="{{ current }}" onChange="onChange">
+    <swiper
+      current="{{ current }}"
+      autoplay="{{ false }}"
+      vertical="{{ false }}"
+      circular="{{ false }}"
+      onChange="onSwipeChange"
+    >
+      <block a:for="{{ items }}" a:for-index="index" a:for-item="item" a:key="{{ index }}">
+        <swiper-item>
+          <view class="content">{{ item.content }}</view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </tabs>
+
+</container>
+
+<container title="纵向模式">
   <tabs
     items="{{ items }}"
     current="{{ current }}"
-    onChange="handleChange" />
-  <view class="content">{{ items[current].content }}</view>
+    onChange="onChange"
+    className="tabs"
+    direction="vertical"
+  >
+    <scroll-view
+      scroll-top="{{ scrollTop }}"
+      scroll-y="{{ true }}"
+      onScroll="onScroll"
+      scroll-with-animation="{{ true }}"
+      scroll-animation-duration="{{ 300 }}"
+      class="content"
+    >
+      {{ items[current].longContent }}
+    </scroll-view>
+  </tabs>
 </container>

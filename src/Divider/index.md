@@ -8,8 +8,6 @@ toc: 'content'
 
 # Divider 分割线
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 区隔内容的分割线。
 
 ## 何时使用
@@ -17,8 +15,55 @@ toc: 'content'
 - 对不同章节的文本段落进行分割。
 - 对行内文字/链接进行分割，例如表格的操作列。
 
-## 代码示例
+## 引入
 
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-divider": "antd-mini/es/Divider/index"
+#endif
+#if WECHAT
+  "ant-divider": "antd-mini/Divider/index"
+#endif
+}
+```
+
+## 代码示例
+### 基本使用
+```xml
+<ant-divider />
+```
+
+### 分割线带文字
+```xml
+<ant-divider text="中间内容" />
+<ant-divider text="左侧内容" textPosition="left" />
+<ant-divider text="右侧内容" textPosition="right" />
+```
+
+### 自定义样式
+```xml
+ <ant-divider
+    text="自定义样式"
+    textStyle="color:#1677ff; fontWeight:600"
+    lineHeight="{{ 2 }}"
+    lineType="dashed"
+    lineColor="#1677ff" />
+```
+
+### 垂直分割线
+```xml
+ <view class="divider-vertical">
+    <view>100m</view>
+    <ant-divider direction="vertical" />
+    <view>浙江省杭州市西湖区西溪路556号</view>
+  </view>
+```
+
+
+### Demo代码
 <code src='../../demo/pages/Divider/index'></code>
 
 ## API

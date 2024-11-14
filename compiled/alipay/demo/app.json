@@ -48,6 +48,7 @@
     "pages/ButtonIcon/index",
     "pages/ButtonCustom/index",
     "pages/Modal/index",
+    "pages/Dialog/index",
     "pages/Tabs/index",
     "pages/TabsScroll/index",
     "pages/TabsSticky/index",
@@ -57,7 +58,6 @@
     "pages/TabsVerticalElevator/index",
     "pages/Stepper/index",
     "pages/Steps/index",
-    "pages/StepsControl/index",
     "pages/Popover/index",
     "pages/PopoverList/index",
     "pages/NoticeBar/index",
@@ -90,14 +90,15 @@
     "pages/Typography/index",
     "pages/Feedback/index",
     "pages/IndexBarControl/index",
-    "pages/ConfigProvider/index"
+    "pages/ConfigProvider/index",
+    "pages/AutoResize/index"
   ],
   "window": {
     "enableWK": "YES",
     "enableDSL": "YES",
     "enableJSC": "YES",
     "defaultTitle": "小程序版 antd-mini 库",
-    "titleBarColor": "#FFFFFF",
+    "titleBarColor": "#ffffff",
     "pullRefresh": false,
     "allowsBounceVertical": false,
     "enableInPageRenderInput": "YES"

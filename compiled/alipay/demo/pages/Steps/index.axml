@@ -1,29 +1,29 @@
-<container title="横向步骤条">
-  <steps items="{{items}}"></steps>
-</container>
-<container title="横向步骤条失败">
-  <steps
+<ant-container title="横向步骤条">
+  <ant-steps items="{{items}}"></ant-steps>
+</ant-container>
+<ant-container title="横向步骤条失败">
+  <ant-steps
     items="{{items}}"
     status="error"
     current="{{1}}"
-  ></steps>
-</container>
-<container title="纵向步骤条">
-  <steps
+  ></ant-steps>
+</ant-container>
+<ant-container title="纵向步骤条">
+  <ant-steps
     items="{{items2}}"
     direction="vertical"
-  ></steps>
-</container>
-<container title="纵向步骤条失败">
-  <steps
+  ></ant-steps>
+</ant-container>
+<ant-container title="纵向步骤条失败">
+  <ant-steps
     items="{{items2}}"
     status="error"
     current="{{1}}"
     direction="vertical"
-  ></steps>
-</container>
-<container title="自定义图标">
-  <steps
+  ></ant-steps>
+</ant-container>
+<ant-container title="自定义图标">
+  <ant-steps
     items="{{items}}"
     status="error"
     current="{{1}}"
@@ -32,21 +32,21 @@
       slot="icon"
       slot-scope="item"
     >
-      <icon
+      <ant-icon
         a:if="{{item.status == 'error' && item.current === item.index}}"
         slot="icon"
         type="CloseCircleFill"
-      ></icon>
-      <icon
+      ></ant-icon>
+      <ant-icon
         a:else
         slot="icon"
         type="SmileFill"
-      ></icon>
+      ></ant-icon>
     </block>
-  </steps>
-</container>
-<container title="更多自定义">
-  <steps
+  </ant-steps>
+</ant-container>
+<ant-container title="更多自定义">
+  <ant-steps
     items="{{items}}"
     current="{{2}}"
   >
@@ -54,10 +54,10 @@
       slot="icon"
       slot-scope="item"
     >
-      <icon
+      <ant-icon
         a:if="{{iconList[item.index]}}"
         type="{{iconList[item.index]}}"
-      ></icon>
+      ></ant-icon>
     </block>
     <view
       slot="title"
@@ -72,5 +72,24 @@
       <view>{{item.value.title}}</view>
       <view>{{item.value.description}}</view>
     </view>
-  </steps>
-</container>
+  </ant-steps>
+</ant-container>
+<ant-container title="步骤条控制">
+  <ant-steps
+    items="{{items}}"
+    current="{{current}}"
+  ></ant-steps>
+  <ant-button
+    onTap="onNextTap"
+    type="primary"
+  >
+    <view a:if="{{current < items.length - 1}}">下一步</view>
+    <view a:else>完成</view>
+  </ant-button>
+  <ant-button
+    a:if="{{current > 0}}"
+    onTap="onPrevTap"
+  >
+    上一步
+  </ant-button>
+</ant-container>

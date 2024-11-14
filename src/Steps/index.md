@@ -9,23 +9,150 @@ toc: 'content'
 
 # Steps 步骤条
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 引导用户按照流程完成任务的导航条。
 
 ## 何时使用
 
 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-steps": "antd-mini/es/Steps/index"
+#endif
+#if WECHAT
+  "ant-steps": "antd-mini/Steps/index"
+#endif
+}
+```
+
 ## 代码示例
 
 ### 基本使用
 
-<code src='../../demo/pages/Steps/index'></code>
+> [items](#item) 数据驱动步骤条渲染。`current` 指定当前步骤，`status` 指定当前步骤的状态，可选 `finish` 或 `error`。
+
+```xml
+<ant-steps
+  items="{{ items }}"
+  current="{{ 1 }}"
+  status="error"
+/>
+```
+
+```js
+Page({
+  data: {
+    items: [
+      {
+        title: '步骤一',
+        description: '描述信息',
+      },
+      {
+        title: '步骤二',
+        description: '描述信息',
+      },
+      {
+        title: '步骤三',
+        description: '描述信息',
+      },
+    ],
+  },
+});
+```
+
+### 纵向步骤条
+
+```xml
+<ant-steps
+  items="{{ items }}"
+  direction="vertical"
+/>
+```
 
 ### 受控模式
 
-<!-- <code src='pages/StepsControl/index'></code> -->
+```xml
+<ant-steps
+  items="{{ items }}"
+  current="{{ current }}"
+/>
+<ant-button
+  type="primary"
+#if ALIPAY
+  onTap="onNextTap"
+#endif
+#if WECHAT
+  bind:tap="onNextTap"
+#endif
+>
+  <view a:if="{{ current < items.length - 1 }}">下一步</view>
+  <view a:else>完成</view>
+</ant-button>
+<ant-button
+  a:if="{{ current > 0 }}"
+#if ALIPAY
+  onTap="onPrevTap"
+#endif
+#if WECHAT
+  bind:tap="onPrevTap"
+#endif
+  >
+  上一步
+</ant-button>
+```
+
+```js
+Page({
+  data: {
+    current: 0,
+    items: [
+      {
+        title: '步骤一',
+        description: '描述信息',
+      },
+      {
+        title: '步骤二',
+        description: '描述信息',
+      },
+      {
+        title: '步骤三',
+        description: '描述信息',
+      },
+    ],
+  },
+  onNextTap() {
+    if (this.data.current === this.data.items.length - 1) {
+#if ALIPAY
+      my.showToast({ content: '完成' })
+#endif
+#if WECHAT
+      wx.showToast({ title: '完成' })
+#endif
+      return;
+    }
+    this.setData({
+      current: this.data.current + 1,
+    });
+  },
+  onPrevTap() {
+    if (this.data.current === 0) {
+      return;
+    }
+    this.setData({
+      current: this.data.current - 1,
+    });
+  },
+});
+```
+
+### Demo 代码
+
+<code src='../../demo/pages/Steps/index'></code>
 
 ## API
 

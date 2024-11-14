@@ -8,12 +8,51 @@ toc: 'content'
 
 # Loading 加载
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 用于提示局部或页面在加载中。
+
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-loading": "antd-mini/es/Loading/index"
+#endif
+#if WECHAT
+  "ant-loading": "antd-mini/Loading/index"
+#endif
+}
+```
 
 ## 代码示例
 
+### 基本使用
+```xml
+<ant-loading type="mini" />
+```
+
+### Spin大小
+```xml
+<ant-loading type="spin" size="x-large" />
+<ant-loading type="spin" size="large" />
+<ant-loading type="spin" size="medium" />
+<ant-loading type="spin" size="small" />
+```
+
+### 自定义颜色
+```xml
+<ant-loading type="mini" color="#1677ff" />
+<ant-loading color="#34B368" />
+```
+
+### 自定义大小
+```xml
+<ant-loading style="width: 40px; height: 40px" />
+<ant-loading className="custom-size" />
+```
+
+### Demo代码
 <code src='../../demo/pages/Loading/index' noChangeButton></code>
 
 ## API

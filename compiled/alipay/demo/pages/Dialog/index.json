@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Dialog",
+  "usingComponents": {
+    "ant-dialog": "../../../src/Dialog/index",
+    "ant-button": "../../../src/Button/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

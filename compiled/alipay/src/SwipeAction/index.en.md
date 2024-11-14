@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# SwipeAction Sliding Assembly
+# SwipeAction
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
@@ -93,3 +93,13 @@ Show hidden function menus by sliding.
 | width       | number                      | 150    | Button width                                                                            |
 | confirmType | `''` \| `'move'` \| `'tap'` | -      | Secondary confirmation type: do not trigger secondary confirmation | slide beyond the maximum distance to trigger secondary confirmation | click to trigger secondary confirmation    |
 | confirmText | string                      | -      | Copy description of the second confirmation; if empty, text is displayed                                             |
+
+### Theme customization
+
+#### Style Variables
+
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name               | Default Value                                                                                            | Remarks         |
+| -------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
+| --swipe-action-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Slide operation color |
