@@ -18,10 +18,10 @@ In `index.json` Introducing Components in
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/Avatar/index"
+  "ant-avatar": "antd-mini/es/Avatar/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/Avatar/index"
+  "ant-avatar": "antd-mini/Avatar/index"
 #endif
 }
 ```

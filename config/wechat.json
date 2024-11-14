@@ -82,7 +82,9 @@
     "pages/Popup",
     "pages/Checkbox",
     "pages/Picker",
-    "pages/DatePicker"
+    "pages/DatePicker",
+    "pages/Voucher",
+    "pages/Card"
   ],
   "src": [
     "_locale",
@@ -135,6 +137,8 @@
     "NoticeBar",
     "NumberKeyboard",
     "Tabs",
-    "SwipeAction"
+    "SwipeAction",
+    "Voucher",
+    "Card"
   ]
 }

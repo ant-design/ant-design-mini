@@ -27,6 +27,11 @@ export const componentList = [
                 nameZN: '图标',
                 path: '/pages/Icon/index',
             },
+            // {
+            //   name: 'Sticky',
+            //   nameZN: '黏性吸附',
+            //   path: '/pages/Sticky/index',
+            // },
         ],
     },
     {
@@ -446,6 +451,21 @@ export const componentList = [
                 name: 'NoticeBar',
                 nameZN: '通告栏',
                 path: '/pages/NoticeBar/index',
+            },
+        ],
+    },
+    {
+        type: '业务组件',
+        list: [
+            {
+                name: 'Voucher',
+                nameZN: '优惠券',
+                path: '/pages/Voucher/index',
+            },
+            {
+                name: 'Card',
+                nameZN: '基础卡片',
+                path: '/pages/Card/index',
             },
         ],
     },

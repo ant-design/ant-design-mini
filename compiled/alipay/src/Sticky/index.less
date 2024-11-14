@@ -1,0 +1,15 @@
+@stickyPrefix: ant-sticky;
+
+.@{stickyPrefix} {
+  position: sticky;
+  top: 0;
+
+  &-check {
+    position: fixed;
+    height: 2px;
+    background: rgba(238, 238, 238, 0);
+    top: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+}

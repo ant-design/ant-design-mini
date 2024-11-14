@@ -18,10 +18,10 @@ toc: 'content'
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/Stepper/index"
+  "ant-stepper": "antd-mini/es/Stepper/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/Stepper/index"
+  "ant-stepper": "antd-mini/Stepper/index"
 #endif
 }
 ```
@@ -30,8 +30,8 @@ toc: 'content'
 
 ### 基本使用
 ```xml
-<stepper
-  className="stepper"
+<ant-stepper
+  className="ant-stepper"
   value="{{0}}"
   min="{{0}}"
   max="{{10}}"
@@ -56,18 +56,18 @@ Page({
 
 ### 定制样式
 ```xml
-<stepper
+<ant-stepper
   style=""
-  className="stepper"
+  className="ant-stepper"
   inputStyle=""	
-  inputClassName="stepper-input"
+  inputClassName="ant-stepper-input"
 />
 ```
 
 ### 输入框只读
 ```xml
-<stepper
-  className="stepper"
+<ant-stepper
+  className="ant-stepper"
   defaultValue="{{0}}"
   inputReadOnly="{{true}}"
 />
@@ -75,8 +75,8 @@ Page({
 
 ### 输入框自动聚焦
 ```xml
-<stepper
-  className="stepper"
+<ant-stepper
+  className="ant-stepper"
   defaultValue="{{0}}"
   focus="{{true}}"
 />
@@ -84,7 +84,7 @@ Page({
 
 ### 事件绑定
 ```xml
-<stepper
+<ant-stepper
   value="{{value}}"
 #if ALIPAY
   onChange="handleChange"

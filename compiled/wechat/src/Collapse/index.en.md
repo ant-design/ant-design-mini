@@ -21,10 +21,10 @@ In `index.json` Introducing Components in
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/Collapse/index"
+  "ant-collapse": "antd-mini/es/Collapse/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/Collapse/index"
+  "ant-collapse": "antd-mini/Collapse/index"
 #endif
 }
 ```
