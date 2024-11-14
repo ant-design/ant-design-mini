@@ -125,8 +125,7 @@ Page({
       ...this.data.items,
       {
         title: this.data.items.length,
-        content:
-          '动态添加的内容',
+        content: '动态添加的内容',
       },
     ];
     this.setData({
