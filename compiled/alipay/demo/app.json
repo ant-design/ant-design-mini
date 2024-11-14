@@ -94,7 +94,8 @@
     "pages/AutoResize/index",
     "pages/Voucher/index",
     "pages/Card/index",
-    "pages/Sticky/index"
+    "pages/Sticky/index",
+    "pages/SelectContact/index"
   ],
   "window": {
     "enableWK": "YES",
