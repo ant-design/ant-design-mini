@@ -21,20 +21,20 @@
     </view>
   </ant-card>
 </ant-container>
-<!--<ant-container title="标题区域吸顶">-->
-<ant-card
-  title="标题"
-  className="card-title-radius {{titleSticky ? 'card-demo-sticky' : ''}}"
-  headSticky="{{true}}"
-  stickyTop="{{0}}"
-  stickyTransparentTitle="{{false}}"
-  onTitleSticky="handleTitleSticky"
->
-  <view style="height: 400px">
+<ant-container title="标题区域吸顶">
+  <ant-card
+    title="标题"
+    className="card-title-radius {{titleSticky ? 'card-demo-sticky' : ''}}"
+    headSticky="{{true}}"
+    stickyTop="{{0}}"
+    stickyTransparentTitle="{{false}}"
+    onTitleSticky="handleTitleSticky"
+  >
+    <view style="height: 400px">
       模拟一个长卡片内容
     </view>
-</ant-card>
-<!--</ant-container>-->
+  </ant-card>
+</ant-container>
 <ant-container title="可折叠">
   <ant-card
     title="标题"

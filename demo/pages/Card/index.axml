@@ -14,7 +14,7 @@
   </ant-card>
 </ant-container>
 
-<!-- <ant-container title="标题区域吸顶"> -->
+<ant-container title="标题区域吸顶">
   <ant-card
     title="标题"
     className="card-title-radius {{ titleSticky ? 'card-demo-sticky' : '' }}"
@@ -27,7 +27,7 @@
       模拟一个长卡片内容
     </view>
   </ant-card>
-<!-- </ant-container> -->
+</ant-container>
 
 <ant-container title="可折叠">
   <ant-card

@@ -1,3 +1,6 @@
+#__react-content {
+  overflow: unset !important;
+}
 .ant-container {
   background: transparent;
 }

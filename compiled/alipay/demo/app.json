@@ -93,7 +93,8 @@
     "pages/ConfigProvider/index",
     "pages/AutoResize/index",
     "pages/Voucher/index",
-    "pages/Card/index"
+    "pages/Card/index",
+    "pages/Sticky/index"
   ],
   "window": {
     "enableWK": "YES",

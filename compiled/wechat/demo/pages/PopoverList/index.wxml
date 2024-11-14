@@ -2,7 +2,7 @@
   placement="bottom-right"
   visible="{{visible}}"
   list="{{list}}"
-  onTapItem="handleTapItem"
+  bind:tapitem="handleTapItem"
   style="padding-top: 20px;margin-left: 20px;"
   bind:visiblechange="handleVisibleChange"
 >
@@ -11,7 +11,7 @@
 <ant-popover-list
   visible="{{visible2}}"
   list="{{list}}"
-  onTapItem="handleTapItem"
+  bind:tapitem="handleTapItem"
   autoAdjustOverflow="{{true}}"
   style="margin: 20px"
   bind:visiblechange="handleVisibleChange2"

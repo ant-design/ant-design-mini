@@ -27,11 +27,11 @@ export const componentList = [
                 nameZN: '图标',
                 path: '/pages/Icon/index',
             },
-            // {
-            //   name: 'Sticky',
-            //   nameZN: '黏性吸附',
-            //   path: '/pages/Sticky/index',
-            // },
+            {
+                name: 'Sticky',
+                nameZN: '黏性吸附',
+                path: '/pages/Sticky/index',
+            },
         ],
     },
     {
