@@ -50,7 +50,7 @@ export default () => React.createElement(React.Fragment, null, 'Antd demo 暂不
       pageElem.shift();
 
       const folder = pageElem.slice(0, -1).join('/') + '/';
-      const page = pageElem.join('/').replace(/\.ts$/, '');
+      const page = pageElem.join('/').replace(/\.(ts|js)$/, '');
       props.herboxUrl = `/preview.html?page=${page}&folder=${folder}&theme=light&compilerServer=${
         process.env.SERVER || ''
       }`;
