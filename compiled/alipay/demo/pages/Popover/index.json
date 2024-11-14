@@ -1,9 +1,9 @@
 {
-  "defaultTitle": "PopoverBase",
+  "defaultTitle": "Popover",
   "usingComponents": {
-    "popover": "../../../src/Popover/index",
-    "container": "../../../src/Container/index",
-    "icon": "../../../src/Icon/index",
+    "ant-popover": "../../../src/Popover/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index",
     "ant-button": "../../../src/Button/index"
   }
 }

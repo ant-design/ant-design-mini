@@ -37,7 +37,7 @@
     <view class="title">Basic usage</view>
     <ant-checkbox-group
       options="{{options}}"
-      bind:change="onChange"
+      bindchange="onChange"
     ></ant-checkbox-group>
   </view>
   <view class="line">
@@ -45,7 +45,7 @@
     <ant-checkbox-group
       defaultValue="{{['banana']}}"
       options="{{options}}"
-      bind:change="onChange"
+      bindchange="onChange"
     ></ant-checkbox-group>
   </view>
   <view class="line">
@@ -67,7 +67,7 @@
     <ant-checkbox-group
       value="{{value}}"
       options="{{options}}"
-      bind:change="handleValueChange"
+      bindchange="handleValueChange"
     ></ant-checkbox-group>
   </view>
   <view class="line">
