@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "Sticky",
+  "navigationBarTitleText": "Sticky",
   "usingComponents": {
     "sticky": "../../../src/Sticky/index",
     "ant-container": "../../../src/Container/index"

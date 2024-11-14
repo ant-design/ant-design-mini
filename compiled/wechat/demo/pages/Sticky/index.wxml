@@ -1,15 +1,11 @@
 <ant-container title="基础用法">
   <sticky>
-    <view>
-      我会吸顶
-    </view>
+    <view>我会吸顶</view>
   </sticky>
 </ant-container>
 <ant-container title="指定吸顶高度">
   <sticky top="100px">
-    <view>
-      我会吸顶在距离顶部 100px 的地方
-    </view>
+    <view>我会吸顶在距离顶部 100px 的地方</view>
   </sticky>
 </ant-container>
 <view style="height: 200px;"></view>
@@ -21,7 +17,7 @@
   >
     <view>
       <view>我会吸顶在距离顶部 180px 的地方</view>
-      <view>是否吸上了 {{stickyStatus}}</view>
+      <view>是否吸上了{{stickyStatus}}</view>
     </view>
   </sticky>
 </ant-container>
@@ -33,7 +29,7 @@
   >
     <view>
       <view>我会吸顶</view>
-      <view>是否吸上了 {{stickyStatus1}}</view>
+      <view>是否吸上了{{stickyStatus1}}</view>
     </view>
   </sticky>
 </ant-container>

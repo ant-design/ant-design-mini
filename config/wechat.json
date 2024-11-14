@@ -85,7 +85,8 @@
     "pages/DatePicker",
     "pages/Voucher",
     "pages/Card",
-    "pages/Feedback"
+    "pages/Feedback",
+    "pages/Sticky"
   ],
   "src": [
     "_locale",
@@ -141,6 +142,7 @@
     "SwipeAction",
     "Voucher",
     "Card",
-    "Feedback"
+    "Feedback",
+    "Sticky"
   ]
 }

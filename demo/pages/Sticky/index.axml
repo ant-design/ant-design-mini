@@ -11,7 +11,7 @@
     top="100px"
   >
     <view>
-      我会吸顶在距离顶部100px的地方
+      我会吸顶在距离顶部 100px 的地方
     </view>
   </sticky>
 </ant-container>
@@ -25,7 +25,7 @@
     onStickyChange="handleStickyChange"
   >
     <view>
-      <view>我会吸顶在距离顶部180px的地方</view>
+      <view>我会吸顶在距离顶部 180px 的地方</view>
       <view>是否吸上了 {{ stickyStatus }}</view>
     </view>
   </sticky>
@@ -38,7 +38,7 @@
     onStickyChange="handleStickyChange1"
   >
     <view>
-      <view>我会吸顶在距离titlebar下面</view>
+      <view>我会吸顶</view>
       <view>是否吸上了 {{ stickyStatus1 }}</view>
     </view>
   </sticky>

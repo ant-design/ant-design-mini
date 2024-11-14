@@ -1,0 +1,15 @@
+<block wx:if="{{sticky}}">
+  <view
+    class="ant-sticky-check"
+    style="{{transparentTitle ? 'top: ' + headerHeight + 'px;' : ''}} {{top ? 'top: ' + top + ';' : ''}}"
+  ></view>
+  <view
+    class="ant-sticky"
+    style="{{transparentTitle ? 'top: ' + headerHeight + 'px;' : ''}} {{top ? 'top: ' + top + ';' : ''}}"
+  >
+    <slot></slot>
+  </view>
+</block>
+<block wx:else>
+  <slot></slot>
+</block>
