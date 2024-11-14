@@ -33,7 +33,6 @@
     "demo/pages/Grid/index",
     "demo/pages/Toast/index",
     "demo/pages/ActionSheet/index",
-    "demo/pages/StepsControl/index",
     "demo/pages/Checklist/index",
     "demo/pages/Modal/index",
     "demo/pages/GuideTour/index",
@@ -53,16 +52,11 @@
     "demo/pages/FormValidateMessages/index",
     "demo/pages/FormWatch/index",
     "demo/pages/Avatar/index",
-    "demo/pages/RateCustom/index",
-    "demo/pages/RadioGroup/index",
     "demo/pages/Radio/index",
     "demo/pages/Rate/index",
-    "demo/pages/SelectorFilter/index",
     "demo/pages/Selector/index",
-    "demo/pages/ImageUploadControl/index",
     "demo/pages/ImageUpload/index",
     "demo/pages/DatePicker/index",
-    "demo/pages/CascaderPicker/index",
     "demo/pages/Picker/index",
     "demo/pages/Checkbox/index",
     "demo/pages/Popup/index",
@@ -85,7 +79,6 @@
     "demo/pages/Icon/index",
     "demo/pages/Loading/index",
     "demo/pages/Tag/index",
-    "demo/pages/Feedback/index",
     "demo/pages/ButtonCustom/index"
   ]
 }

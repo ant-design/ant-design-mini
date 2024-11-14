@@ -85,6 +85,7 @@
     "pages/DatePicker"
   ],
   "src": [
+    "_locale",
     "Empty",
     "_util",
     "Button",
@@ -104,7 +105,7 @@
     "ImageIcon",
     "Result",
     "Popover",
-    "popoverList",
+    "PopoverList",
     "Mask",
     "Stepper",
     "Popup",

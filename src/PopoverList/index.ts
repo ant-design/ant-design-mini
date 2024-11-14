@@ -1,10 +1,9 @@
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { PopoverDefaultProps } from './props';
 import mixinValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
+import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { PopoverDefaultProps } from './props';
 import { getPopoverStyle } from './utils';
-import get from '../_util/get';
 
 Component(
   PopoverDefaultProps,
@@ -16,7 +15,8 @@ Component(
       return this;
     },
     onTapItem(e) {
-      this.props.onTapItem(e, get(e, 'currentTarget.dataset.item', {}));
+      const { item } = e.currentTarget.dataset;
+      triggerEvent(this, 'tapItem', item, e);
     },
     async updatePopover() {
       const [placement, autoAdjustOverflow] = getValueFromProps(this, [
