@@ -427,6 +427,11 @@ export const componentList = [
                 nameZN: '轻提示',
                 path: '/pages/Toast/index',
             },
+            {
+                name: 'Feedback',
+                nameZN: '信息反馈',
+                path: '/pages/Feedback/index',
+            },
         ],
     },
     {

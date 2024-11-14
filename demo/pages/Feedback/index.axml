@@ -1,9 +1,9 @@
 <ant-container title="高量引导反馈">
   <view slot="headerRight">
-    <ant-feedback 
-      type="popover" 
-      visible="{{ visible1 }}" 
-      popoverType="default" 
+    <ant-feedback
+      type="popover"
+      visible="{{ visible1 }}"
+      popoverType="default"
       placement="bottom-right"
       onVisibleChange="onVisibleChange1"
       className="feedback-demo">
@@ -48,52 +48,52 @@
   点击右上角的icon 展示反馈内容
 </ant-container>
 
-<ant-container title="点引导反馈" className="feedback-gray-container">
+<ant-container title="点引导反馈">
   点击下面的内容 展示点引导反馈
   <view class="feedback-container-flex">
-    <ant-feedback 
-      type="popover" 
-      list="{{ feedList }}" 
-      visible="{{ visible2 }}" 
-      popoverType="circle" 
+    <ant-feedback
+      type="popover"
+      list="{{ feedList }}"
+      visible="{{ visible2 }}"
+      popoverType="circle"
       title="点引导反馈"
-      onFeedClick="onFeedClick2"
+      onTapFeedItem="onTapFeedItem2"
       placement="bottom"
       onVisibleChange="onVisibleChange2"
       className="feedback-demo2">
-      <image 
-        mode="widthFix" 
-        style="width: 345rpx;" 
+      <image
+        mode="widthFix"
+        style="width: 345rpx;"
         src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original"
       />
     </ant-feedback>
-    <ant-feedback 
-      type="popover" 
-      list="{{ feedList }}" 
-      visible="{{ visible4 }}" 
-      popoverType="circle" 
+    <ant-feedback
+      type="popover"
+      list="{{ feedList }}"
+      visible="{{ visible4 }}"
+      popoverType="circle"
       title="点引导反馈"
-      onFeedClick="onFeedClick4"
+      onTapFeedItem="onTapFeedItem4"
       placement="bottom"
       onVisibleChange="onVisibleChange4"
       className="feedback-demo4">
-      <image 
-        mode="widthFix" 
-        style="width: 345rpx;" 
+      <image
+        mode="widthFix"
+        style="width: 345rpx;"
         src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original"
       />
     </ant-feedback>
   </view>
 </ant-container>
 
-<ant-container title="反馈卡片" className="feedback-gray-container">
-  <ant-feedback 
+<ant-container title="反馈卡片">
+  <ant-feedback
     a:if="{{ visible3 }}"
-    list="{{ feedList }}" 
-    type="card" 
+    list="{{ feedList }}"
+    type="card"
     title="喜欢推荐的内容吗？"
-    onFeedClick="onFeedClick3"
-    className="feedback-demo" 
+    onTapFeedItem="onTapFeedItem3"
+    className="feedback-demo"
     onVisibleChange="onVisibleChange3">
   </ant-feedback>
   <ant-button data-filed="visible3" onTap="onShowFeedback" a:else size="small" inline>

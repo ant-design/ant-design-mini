@@ -81,6 +81,7 @@
     "demo/pages/Tag/index",
     "demo/pages/ButtonCustom/index",
     "demo/pages/Voucher/index",
-    "demo/pages/Card/index"
+    "demo/pages/Card/index",
+    "demo/pages/Feedback/index"
   ]
 }

@@ -1,40 +1,23 @@
-<popover-list
+<ant-popover-list
   placement="bottom-right"
   visible="{{visible}}"
   list="{{list}}"
-  mode="dark"
   onTapItem="handleTapItem"
-  style="display: inline-block; margin: 20px"
+  style="padding-top: 20px;margin-left: 20px;"
   bind:visiblechange="handleVisibleChange"
-  color="#fff"
 >
   <ant-button inline>点我</ant-button>
-</popover-list>
-<popover-list
-  placement="bottom-right"
-  visible="{{visible1}}"
-  list="{{list}}"
-  mode="light"
-  onTapItem="handleTapItem"
-  style="display: inline-block; margin: 20px 20px 20px 100px;"
-  bind:visiblechange="handleVisibleChange1"
-  color="#fff"
->
-  <ant-button inline>明亮模式</ant-button>
-</popover-list>
-<popover-list
-  placement="bottom-right"
+</ant-popover-list>
+<ant-popover-list
   visible="{{visible2}}"
   list="{{list}}"
-  mode="dark"
   onTapItem="handleTapItem"
   autoAdjustOverflow="{{true}}"
-  style="display: inline-block; margin: 20px"
+  style="margin: 20px"
   bind:visiblechange="handleVisibleChange2"
-  color="#fff"
 >
   <ant-button
     inline
-    style="position: relative; top: 400px;"
+    style="margin-top: 500px;"
   >气泡位置自适应</ant-button>
-</popover-list>
+</ant-popover-list>
