@@ -1,0 +1,13 @@
+@safeareaPrefix: ant-safe-area;
+
+.@{safeareaPrefix} {
+  &-top {
+    height: constant(safe-area-inset-top);
+    height: env(safe-area-inset-top);
+  }
+
+  &-bottom {
+    height: constant(safe-area-inset-bottom);
+    height: env(safe-area-inset-bottom);
+  }
+}

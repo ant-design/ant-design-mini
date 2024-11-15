@@ -97,7 +97,8 @@
     "pages/Sticky/index",
     "pages/Countdown/index",
     "pages/SelectContact/index",
-    "pages/Table/index"
+    "pages/Table/index",
+    "pages/SafeArea/index"
   ],
   "window": {
     "enableWK": "YES",
