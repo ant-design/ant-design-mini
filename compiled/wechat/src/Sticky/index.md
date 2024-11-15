@@ -13,6 +13,10 @@ toc: 'content'
 
 需要在滚动中吸附在某些地方的情况。
 
+## 注意事项
+
+Sticky 组件实现依赖了 `position: sticky` 特性，该特性受父元素的影响可能会失效，若遇到 Sticky 组件不生效的情况可根据[这篇文档](https://developer.mozilla.org/en-US/docs/Web/CSS/position)检查页面的元素布局。
+
 ## 引入
 
 在 `index.json` 中引入组件

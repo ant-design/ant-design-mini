@@ -85,6 +85,7 @@
     "demo/pages/Feedback/index",
     "demo/pages/Sticky/index",
     "demo/pages/Countdown/index",
-    "demo/pages/Table/index"
+    "demo/pages/Table/index",
+    "demo/pages/SafeArea/index"
   ]
 }
