@@ -1,0 +1,71 @@
+<import-sjs name="util" from="./index.sjs" />
+<view class="ant-select-contact-component {{className ? className : ''}}" style="height:{{height}}">
+  <!-- 搜索栏 -->
+  <view class="search-line">
+    <input
+      placeholder="请输入内容"
+      onChange="onChange"
+      className="search-bar"
+      focusClassName="search-bar-focus"
+      confirm-type="search"
+      allowClear
+      focus
+      onConfirm="onConfirm"
+    >
+      <icon slot="prefix" type="SearchOutline" />
+    </input>
+    <view class="cancel">取消</view>
+  </view>
+  <view class="scc-blank" />
+
+  <!-- 展示推荐联系人 && 全部联系人 -->
+  <view class="scc-contact-wrap" hidden="{{showSearch}}">
+    <!-- 数据加载中 -->
+    <view a:if="{{ loading }}" class="contact-loading">
+      <skeleton animate paragraph="{{ {rows:10} }}" />
+    </view>
+
+    <block a:else>
+      <scroll-view
+        a:if="{{ !contactListEmpty }}"
+        scroll-y
+        class="contact-scroll"
+        trap-scroll="{{false}}"
+        scroll-into-view="{{toView}}"
+      >
+        <list>
+          <list-item>1</list-item>
+          <list-item>2</list-item>
+          <list-item>3</list-item>
+        </list>
+      </scroll-view>
+      <slot a:else name="contactListEmpty"></slot>
+    </block>
+
+    <!-- 索引表 -->
+    <alphabet alphabet="{{alphabet}}" onScrollIntoView="onScrollIntoView" />
+  </view>
+
+  <!-- 搜索状态 -->
+  <view class="scc-search-wrap" hidden="{{!showSearch}}">
+    <scroll-view scroll-y class="normal {{ searchStatus !== 'normal' ? 'hidden' : '' }}">
+      这里有个列表
+    </scroll-view>
+
+    <view class="loading" hidden="{{ searchStatus !== 'loading' }}">
+      <view class="loading-text">搜索中</view>
+      <loading type="mini" miniSize="10rpx" />
+    </view>
+
+    <view class="empty" hidden="{{ searchStatus !== 'empty' }}">
+      <image
+        class="empty-img"
+        src="https://gw.alipayobjects.com/zos/bmw-prod/e8b05b36-d2bf-425b-9bb8-6c7ac6c00013.svg"
+        mode="aspectFit"
+      />
+      <view class="empty-text">
+        <view>{{'没有找到你的好友，请确认信息是否正确'}}</view>
+      </view>
+    </view>
+  </view>
+</view>

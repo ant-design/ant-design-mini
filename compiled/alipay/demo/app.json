@@ -95,7 +95,8 @@
     "pages/Voucher/index",
     "pages/Card/index",
     "pages/Sticky/index",
-    "pages/Countdown/index"
+    "pages/Countdown/index",
+    "pages/SelectContact/index"
   ],
   "window": {
     "enableWK": "YES",

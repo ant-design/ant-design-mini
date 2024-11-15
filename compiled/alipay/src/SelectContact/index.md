@@ -2,9 +2,9 @@
 nav:
   path: /components
 group:
-  title: 信息输入
-  order: 10
-toc: 'content'
+  title: 业务组件
+  order: 15
+toc: content
 ---
 
 # SelectContact 选人能力
@@ -51,7 +51,7 @@ Page({
 
 ### Demo 代码
 
-<!-- <code src='../../demo/pages/SelectContact/index'></code> -->
+<code src='../../demo/pages/SelectContact/index'></code>
 
 ## API
 
