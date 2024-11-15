@@ -462,6 +462,11 @@ export const componentList = [
                 nameZN: '基础卡片',
                 path: '/pages/Card/index',
             },
+            {
+                name: 'Countdown',
+                nameZN: '倒计时',
+                path: '/pages/Countdown/index',
+            },
         ],
     },
     {

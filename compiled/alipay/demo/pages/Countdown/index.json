@@ -1,7 +1,7 @@
 {
-  "defaultTitle": "Sticky",
+  "defaultTitle": "Countdown",
   "usingComponents": {
-    "ant-sticky": "../../../src/Sticky/index",
+    "countdown": "../../../src/Countdown/index",
     "ant-container": "../../../src/Container/index"
   }
 }

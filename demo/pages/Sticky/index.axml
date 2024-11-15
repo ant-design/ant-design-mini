@@ -1,25 +1,25 @@
 <ant-container title="基础用法">
-  <sticky>
+  <ant-sticky>
     <view>
       我会吸顶
     </view>
-  </sticky>
+  </ant-sticky>
 </ant-container>
 
 <ant-container title="指定吸顶高度">
-  <sticky
+  <ant-sticky
     top="100px"
   >
     <view>
       我会吸顶在距离顶部 100px 的地方
     </view>
-  </sticky>
+  </ant-sticky>
 </ant-container>
 
 <view style="height: 200px;"></view>
 
 <ant-container title="感知是否吸顶">
-  <sticky
+  <ant-sticky
     top="180px"
     check
     onStickyChange="handleStickyChange"
@@ -28,11 +28,11 @@
       <view>我会吸顶在距离顶部 180px 的地方</view>
       <view>是否吸上了 {{ stickyStatus }}</view>
     </view>
-  </sticky>
+  </ant-sticky>
 </ant-container>
 
 <ant-container title="透明头模式">
-  <sticky
+  <ant-sticky
     transparentTitle
     check
     onStickyChange="handleStickyChange1"
@@ -41,7 +41,7 @@
       <view>我会吸顶</view>
       <view>是否吸上了 {{ stickyStatus1 }}</view>
     </view>
-  </sticky>
+  </ant-sticky>
 </ant-container>
 
 <view style="height: 1400px"></view>

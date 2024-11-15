@@ -83,6 +83,7 @@
     "demo/pages/Voucher/index",
     "demo/pages/Card/index",
     "demo/pages/Feedback/index",
-    "demo/pages/Sticky/index"
+    "demo/pages/Sticky/index",
+    "demo/pages/Countdown/index"
   ]
 }

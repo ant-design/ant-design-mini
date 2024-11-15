@@ -86,7 +86,8 @@
     "pages/Voucher",
     "pages/Card",
     "pages/Feedback",
-    "pages/Sticky"
+    "pages/Sticky",
+    "pages/Countdown"
   ],
   "src": [
     "_locale",
@@ -143,6 +144,7 @@
     "Voucher",
     "Card",
     "Feedback",
-    "Sticky"
+    "Sticky",
+    "Countdown"
   ]
 }
