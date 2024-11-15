@@ -73,13 +73,10 @@
     "demo/pages/List/index",
     "demo/pages/Calendar/index",
     "demo/pages/Switch/index",
-    "demo/pages/ButtonInline/index",
-    "demo/pages/ButtonIcon/index",
     "demo/pages/Button/index",
     "demo/pages/Icon/index",
     "demo/pages/Loading/index",
     "demo/pages/Tag/index",
-    "demo/pages/ButtonCustom/index",
     "demo/pages/Feedback/index"
   ]
 }

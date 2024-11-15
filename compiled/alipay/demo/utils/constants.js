@@ -8,21 +8,6 @@ export const componentList = [
                 path: '/pages/Button/index',
             },
             {
-                name: 'ButtonInline',
-                nameZN: '按钮-Inline',
-                path: '/pages/ButtonInline/index',
-            },
-            {
-                name: 'ButtonIcon',
-                nameZN: '按钮-Icon',
-                path: '/pages/ButtonIcon/index',
-            },
-            {
-                name: 'ButtonCustom',
-                nameZN: '按钮-Custom',
-                path: '/pages/ButtonCustom/index',
-            },
-            {
                 name: 'Icon',
                 nameZN: '图标',
                 path: '/pages/Icon/index',
@@ -91,11 +76,6 @@ export const componentList = [
                 name: 'Avatar',
                 nameZN: '头像',
                 path: '/pages/Avatar/index',
-            },
-            {
-                name: 'IndexBar',
-                nameZN: '索引',
-                path: '/pages/IndexBarScrollView/index',
             },
             {
                 name: 'IndexBarControl',
@@ -176,16 +156,6 @@ export const componentList = [
                 name: 'Checkbox',
                 nameZN: '复选框',
                 path: '/pages/Checkbox/index',
-            },
-            {
-                name: 'CheckboxGroup',
-                nameZN: '复选框组',
-                path: '/pages/CheckboxGroup/index',
-            },
-            {
-                name: 'CheckboxCustomGroup',
-                nameZN: '自定义分组',
-                path: '/pages/CheckboxCustomGroup/index',
             },
             {
                 name: 'Checklist',
@@ -288,11 +258,6 @@ export const componentList = [
                 path: '/pages/Picker/index',
             },
             {
-                name: 'CascaderPicker',
-                nameZN: '级联选择器',
-                path: '/pages/CascaderPicker/index',
-            },
-            {
                 name: 'DatePicker',
                 nameZN: '时间选择器',
                 path: '/pages/DatePicker/index',
@@ -303,19 +268,9 @@ export const componentList = [
                 path: '/pages/Radio/index',
             },
             {
-                name: 'RadioGroup',
-                nameZN: '单选框组合',
-                path: '/pages/RadioGroup/index',
-            },
-            {
                 name: 'Selector',
                 nameZN: '选择组',
                 path: '/pages/Selector/index',
-            },
-            {
-                name: 'SelectorFilter',
-                nameZN: '选择组下拉筛选',
-                path: '/pages/SelectorFilter/index',
             },
             {
                 name: 'Slider',
@@ -338,19 +293,9 @@ export const componentList = [
                 path: '/pages/ImageUpload/index',
             },
             {
-                name: 'ImageUploadControl',
-                nameZN: '图片上传-控制',
-                path: '/pages/ImageUploadControl/index',
-            },
-            {
                 name: 'Rate',
                 nameZN: '星级',
                 path: '/pages/Rate/index',
-            },
-            {
-                name: 'RateCustom',
-                nameZN: '星级-自定义',
-                path: '/pages/RateCustom/index',
             },
             {
                 name: 'RareWordsKeyboard',
@@ -408,8 +353,13 @@ export const componentList = [
                 path: '/pages/Skeleton/index',
             },
             {
-                name: 'Modal',
+                name: 'Dialog',
                 nameZN: '弹窗',
+                path: '/pages/Dialog/index',
+            },
+            {
+                name: 'Modal',
+                nameZN: '对话框',
                 path: '/pages/Modal/index',
             },
             {
