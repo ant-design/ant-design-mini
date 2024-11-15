@@ -96,7 +96,8 @@
     "pages/Card/index",
     "pages/Sticky/index",
     "pages/Countdown/index",
-    "pages/SelectContact/index"
+    "pages/SelectContact/index",
+    "pages/Table/index"
   ],
   "window": {
     "enableWK": "YES",

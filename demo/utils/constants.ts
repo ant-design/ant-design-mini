@@ -164,6 +164,11 @@ export const componentList = [
         nameZN: '分割线',
         path: '/pages/Divider/index',
       },
+      {
+        name: 'Table',
+        nameZN: '表格',
+        path: '/pages/Table/index',
+      },
     ],
   },
   {
