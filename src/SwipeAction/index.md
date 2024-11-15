@@ -9,8 +9,6 @@ toc: 'content'
 
 # SwipeAction 滑动组件
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 列表的功能扩展。
 
 ## 何时使用
@@ -25,47 +23,98 @@ toc: 'content'
 4. 每一侧的滑动二次确认只会触发第一个，其他不会触发。
 5. 建议在基础库 2.0 的小程序中使用，1.0 版本（如钉钉小程序）中存在滑动体验缺陷（缺少 touchend 之后的滑动过渡效果）。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-swipe-action": "antd-mini/es/SwipeAction/index"
+#endif
+
+#if WECHAT
+  "ant-swipe-action": "antd-mini/SwipeAction/index"
+#endif
+}
+```
+
 ## 代码示例
 
 ### 基础用法
 
-<code src='../../demo/pages/SwipeAction/index'></code>
+```xml
+<ant-swipe-action
+  rightButtons="{{[[
+      {
+        text: '取消关注',
+        bgColor: '#CCCCCC',
+        color: '#fff',
+        width: 200,
+      },
+      {
+        text: '免打扰',
+        bgColor: '#1677FF',
+        color: '#fff',
+        width: 170,
+      },
+      {
+        text: '删除',
+        bgColor: '#FF2B00',
+        color: '#fff',
+        width: 140,
+      },
+    ]]}}"
+    elasticity="{{ true }}"
+    swiped="{{ swipeIndex === index }}"
+    onSwipeEnd="onSwipeEnd"
+    onSwipeStart="onSwipeStart"
+    onButtonTap="onButtonTap">
+  <view>右侧-三个按钮</view>
+</ant-swipe-action>
+```
+
+
 
 ### 按钮在左侧
-
-<!-- <code src='pages/SwipeActionLeft/index'></code> -->
+设置`leftButtons`属性
+<code src='../../demo/pages/SwipeActionLeft/index'></code>
 
 ### 改变按钮数量
 
-<!-- <code src='pages/SwipeActionNumber/index'></code> -->
+<code src='../../demo/pages/SwipeActionNumber/index'></code>
 
 ### 禁用滑动回弹
-
-<!-- <code src='pages/SwipeActionAnimation/index'></code> -->
+设置`elasticity`属性为`false`
+<code src='../../demo/pages/SwipeActionAnimation/index'></code>
 
 ### 设置按钮宽度
-
-<!-- <code src='pages/SwipeActionWidth/index'></code> -->
+设置buttons的`width`属性
+<code src='../../demo/pages/SwipeActionWidth/index'></code>
 
 ### 设置滑动速度
-
-<!-- <code src='pages/SwipeActionSpeed/index'></code> -->
+设置`damping`属性
+<code src='../../demo/pages/SwipeActionSpeed/index'></code>
 
 ### 按钮点击二次确认
+设置buttons属性`confirmType`为`tap`
 
-<!-- <code src='pages/SwipeActionTap/index'></code> -->
+<code src='../../demo/pages/SwipeActionTap/index'></code>
 
 ### 按钮滑出最大距离二次确认
-
-<!-- <code src='pages/SwipeActionMove/index'></code> -->
+设置buttons属性`confirmType`为`move`
+<code src='../../demo/pages/SwipeActionMove/index'></code>
 
 ### 左右两侧都有按钮
-
-<!-- <code src='pages/SwipeActionLeftRight/index'></code> -->
+可同时设置`leftButtons`和`rightButtons`
+<code src='../../demo/pages/SwipeActionLeftRight/index'></code>
 
 ### 自定义按钮
 
-<!-- <code src='pages/SwipeActionSlot/index'></code> -->
+<code src='../../demo/pages/SwipeActionSlot/index'></code>
+
+### Demo代码
+<code src='../../demo/pages/SwipeAction/index'></code>
 
 ## API
 

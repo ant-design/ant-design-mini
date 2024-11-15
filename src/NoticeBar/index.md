@@ -9,16 +9,74 @@ toc: content
 
 # NoticeBar 通告栏
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 展示一组消息通知。
 
 ## 何时使用
 
 用于当前页面内信息的通知，是一种较醒目的页面内通知方式。
 
-## 代码示例
+## 引入
 
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-notice": "antd-mini/es/NoticeBar/index"
+#endif
+#if WECHAT
+  "ant-notice": "antd-mini/NoticeBar/index"
+#endif
+}
+```
+
+## 代码示例
+### 基本使用
+```xml
+ <ant-notice type="default">default</ant-notice>
+ <ant-notice type="info">info</ant-notice>
+ <ant-notice type="error">error</ant-notice>
+```
+
+### 可关闭通告栏
+```xml
+<ant-notice mode="closeable">
+  这条通知可以关闭
+</ant-notice>
+```
+
+### 可滚动通告栏
+```xml
+<ant-notice
+  type="default"
+  enableMarquee="{{ true }}"
+  loop="{{ true }}"
+  onTap="handleTapLink"
+  mode="link">
+  文本溢出时，开启循环滚动。文字不够继续添加文字凑数。
+</ant-notice>
+```
+
+### 自定义
+```xml
+<ant-notice type="primary" icon="GlobalOutline" mode="link">
+  自定义左侧图标
+</ant-notice>
+
+<ant-notice type="primary" mode="link"
+  icon="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
+>自定义左侧图标图片</ant-notice>
+
+<ant-notice mode="link" onTap="handleTapLink">
+  自定义右侧按钮
+  <view slot="extra" class="extra">
+    <view onTap="handleTapAction">不再提示</view>
+    <view onTap="handleTapAction">查看详情</view>
+  </view>
+</ant-notice>
+```
+
+### Demo代码
 <code src='../../demo/pages/NoticeBar/index'></code>
 
 ## API

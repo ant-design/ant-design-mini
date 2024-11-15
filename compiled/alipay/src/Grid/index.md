@@ -9,12 +9,135 @@ toc: 'content'
 
 # Grid 宫格
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 宫格用于业务中多个子功能的导航，相比于列表的形式，具有更高的屏效。
+
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-grid": "antd-mini/es/Grid/index"
+#endif
+#if WECHAT
+  "ant-grid": "antd-mini/Grid/index"
+#endif
+}
+```
 
 ## 代码示例
 
+### 基本使用
+```js
+Page({
+  data: {
+    items: [
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+    ],
+  }
+})
+```
+```xml
+<ant-grid
+  items="{{ items }}"
+  onTap="handleTapItem"
+  iconSize="{{ 36 }}"
+  columns="{{ 3 }}" 
+/>
+```
+
+### 3列-带描述
+```js
+Page({
+  data: {
+    items: [
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        description: '描述信息',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        description: '描述信息',
+      },
+      {
+        title: '标题文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        description: '描述信息',
+      },
+    ],
+  }
+})
+```
+```xml
+<ant-grid
+  items="{{ items3withDesc }}"
+  iconSize="{{ 36 }}"    
+  onTap="handleTapItem"
+  columns="{{ 3 }}" />
+```
+### 元素横向布局
+```xml
+<ant-grid
+  items="{{ items }}"
+  onTap="handleTapItem"
+  columns="{{ 3 }}"
+  gridItemLayout="horizontal" 
+/>
+```
+
+### 自定义
+```js
+```
+```xml
+<ant-grid
+  items="{{ items }}"
+  onTap="handleTapItem"
+  columns="{{ 5 }}">
+  <view
+    slot="icon"
+    slot-scope="props">
+    <ant-badge
+      a:if="{{ props.value.tag }}"
+      offsetX="-10px"
+      type="text"
+      text="{{ props.value.tag }}">
+      <image
+        src="{{ props.value.icon }}"
+        style="width: 44px; height: 44px" />
+    </ant-badge>
+    <image
+      a:else
+      src="{{ props.value.icon }}"
+      style="width: 44px; height: 44px" />
+  </view>
+  <view
+    slot="title"
+    slot-scope="props">
+    第{{ props.index + 1 }}项
+  </view>
+  <view
+    slot="description"
+    slot-scope="props">
+    描述{{ props.index + 1 }}
+  </view>
+</ant-grid>
+```
+
+### Demo代码
 <code src='../../demo/pages/Grid/index'></code>
 
 ## API

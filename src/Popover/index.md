@@ -9,23 +9,117 @@ toc: 'content'
 
 # Popover 气泡
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 点击元素，弹出气泡式的菜单
 
 ## 何时使用
 
 用于导航功能的气泡菜单唤起，通常用于收纳低频使用的功能。该功能只能通过导航栏上的图标激活。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-popover": "antd-mini/es/Popover/index"
+#endif
+#if WECHAT
+  "ant-popover": "antd-mini/Popover/index"
+#endif
+}
+```
+
 ## 代码示例
 
 ### 基本使用
+```xml
+<popover
+  content="简单的tips"
+  placement="top-left"
+  showCloseIcon="{{ true }}"
+  style="display: inline-block">
+  <ant-button
+    size="small"
+    inline>
+    点我
+  </ant-button>
+</popover>
+```
 
+### 支持图片和行动点按钮
+```xml
+<popover
+  content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
+  placement="top"
+  actionText="操作按钮"
+  onTapAction="onTapAction"
+  imageUrl="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*tLCBTqxataIAAAAAAAAAAAAADkqGAQ/original"
+  onVisibleChange="onVisibleChange">
+  <ant-button>点我</ant-button>
+</popover>
+```
+
+### 自定义
+#### 颜色
+```xml
+<popover
+  content="红色"
+  color="red">
+  <ant-button style="margin-right: 24rpx;" inline type="primary">自定义颜色</ant-button>
+</popover>
+```
+#### 插槽
+```xml
+<popover content="左右插槽">
+  <ant-button inline style="margin-right: 24rpx;">插槽</ant-button>
+  <icon slot="leftContent" style="font-size: 48rpx; margin-right: 24rpx;" type="FaceRecognitionOutline" />
+  <icon slot="rightContent" style="font-size: 48rpx; margin-left: 24rpx;" type="FaceRecognitionOutline" />
+</popover>
+```
+#### 位置
+可选 top、top-right、top-left、bottom、bottom-left、bottom-right、left、left-top、left-bottom、right、right-top 或 right-bottom
+```xml
+<popover placement="top-right">
+  <ant-button size="small" inline>点我</ant-button>
+  <view slot="content" />
+</popover>
+```
+
+### 受控
+```xml
+<view>
+  <popover
+    content="prompt"
+    placement="right"
+    showMask="{{ false }}"
+    visible="{{ visible }}"
+    style="display: inline-block">
+    <text>点击按钮修改visible</text>
+  </popover>
+</view>
+<ant-button
+    size="small"
+    inline
+    onTap="handleVisibleChange"
+    style="margin-top: 8px">
+    更改visible
+</ant-button>
+```
+```js
+Page({
+  data: { visible: false },
+  handleVisibleChange() {
+    this.setData({
+      visible: !this.data.visible,
+    });
+  },
+})
+```
+
+
+### Demo代码
 <code src='../../demo/pages/Popover/index' noChangeButton></code>
-
-### 结合 List 组件使用
-
-<!-- <code src='pages/PopoverList/index' noChangeButton></code> -->
 
 ## API
 

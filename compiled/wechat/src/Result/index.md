@@ -9,16 +9,57 @@ toc: 'content'
 
 # Result 操作结果
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 对前一步操作的结果进行反馈。
 
 ## 何时使用
 
 当有重要操作需告知用户处理结果，且反馈内容较为复杂时，应使用 Result 组件。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-result": "antd-mini/es/Result/index"
+#endif
+#if WECHAT
+  "ant-result": "antd-mini/Result/index"
+#endif
+}
+```
+
 ## 代码示例
 
+### 基本使用
+```xml
+<result type="success" title="操作成功" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
+
+<result type="wait" title="等待处理" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
+
+<result type="info" title="信息提示" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
+
+<result type="warning" title="警告提示" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
+
+<result type="error" title="失败提示" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
+```
+
+### 插槽
+```xml
+<result
+  image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
+  <view slot="title">标题插槽</view>
+  <view slot="message">描述插槽</view>
+  <view slot="extra" class="extra">
+    其他模块
+  </view>
+</result>
+```
+
+
+
+### Demo代码
 <code src='../../demo/pages/Result/index'></code>
 
 ## API
