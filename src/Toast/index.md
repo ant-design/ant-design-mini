@@ -80,21 +80,22 @@ Page({
 
 ## API
 
-| 属性                  | 说明                                                     | 类型        | 默认值 |
-| --------------------- | -------------------------------------------------------- | ----------- | ------ |
-| className             | 组件根节点类名                                           | string      | -      |
-| content               | 文本内容                                                 | string      | -      |
-| duration              | 持续时间，为 0 时不会自动关闭                            | number      | 2000   |
-| maskCloseable         | 点击蒙层是否关闭                                         | boolean     | false  |
-| icon                  | 图标，支持 Icon 组件所有 type                            | string      | -      |
-| image                 | 图片链接                                                 | string      | -      |
-| maskStyle             | 蒙层样式                                                 | string      | -      |
-| showMask              | 是否展示蒙层                                             | boolean     | false  |
-| style                 | 样式                                                     | string      | -      |
-| type                  | 内置图标类型，可选 `success` `error` `warning` `loading` | string      | -      |
-| visible               | 是否隐藏                                                 | boolean     | false  |
-| #if ALIPAY onClose    | Toast 关闭后的回调                                       | (e) => void | -      |
-| #if WECHAT bind:close | Toast 关闭后的回调                                       | (e) => void | -      |
+| 属性                  | 说明                                                              | 类型        | 默认值 |
+| --------------------- | ----------------------------------------------------------------- | ----------- | ------ |
+| className             | 组件根节点类名                                                    | string      | -      |
+| content               | 文本内容                                                          | string      | -      |
+| duration              | 持续时间，为 0 时不会自动关闭                                     | number      | 2000   |
+| maskCloseable         | 点击蒙层是否关闭                                                  | boolean     | false  |
+| icon                  | 图标，支持 Icon 组件所有 type                                     | string      | -      |
+| image                 | 图片链接                                                          | string      | -      |
+| maskStyle             | 蒙层样式                                                          | string      | -      |
+| showMask              | 是否展示蒙层                                                      | boolean     | false  |
+| style                 | 样式                                                              | string      | -      |
+| type                  | 内置图标类型，可选 `success` `error` `warning` `loading` `alipay` | string      | -      |
+| textType              | 文字类型，可选 `short` `long`，short 类型的圆角更大               | string      | `long` |
+| visible               | 是否隐藏                                                          | boolean     | false  |
+| #if ALIPAY onClose    | Toast 关闭后的回调                                                | (e) => void | -      |
+| #if WECHAT bind:close | Toast 关闭后的回调                                                | (e) => void | -      |
 
 ### 主题定制
 

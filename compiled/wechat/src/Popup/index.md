@@ -150,6 +150,9 @@ Page({
 | visible                       | 是否显示                                                                                                                                                          | boolean    | false       |
 | width                         | 宽度, 在 position 为 `left` 或 `right` 时使用，单位 px                                                                                                            | number     | -           |
 | zIndex                        | 弹窗层级                                                                                                                                                          | number     | 998         |
+| backgroundImage               | 弹框的背景图                                                                                                                                                      | string     | -           |
+| showClose                     | 展示弹框关闭的 icon                                                                                                                                               | boolean    | false       |
+| showBack                      | 展示弹框返回的 icon                                                                                                                                               | boolean    | false       |
 | #if ALIPAY onClose            | 点击蒙层关闭，触发回调                                                                                                                                            | () => void | -           |
 | #if ALIPAY onClickBack        | 点击返回按钮，触发回调                                                                                                                                            | () => void | -           |
 | #if ALIPAY onAfterShow        | 完全展示后触发                                                                                                                                                    | () => void | -           |
