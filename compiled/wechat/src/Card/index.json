@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "sticky": "../Sticky/index",
-    "icon": "../Icon/index"
-  }
-}

@@ -83,12 +83,7 @@
     "pages/Checkbox",
     "pages/Picker",
     "pages/DatePicker",
-    "pages/Voucher",
-    "pages/Card",
-    "pages/Feedback",
-    "pages/Sticky",
-    "pages/Countdown",
-    "pages/Table"
+    "pages/Feedback"
   ],
   "src": [
     "_locale",
@@ -142,11 +137,6 @@
     "NumberKeyboard",
     "Tabs",
     "SwipeAction",
-    "Voucher",
-    "Card",
-    "Feedback",
-    "Sticky",
-    "Countdown",
-    "Table"
+    "Feedback"
   ]
 }
