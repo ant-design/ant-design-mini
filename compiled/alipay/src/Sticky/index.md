@@ -5,6 +5,7 @@ group:
   title: 通用
   order: 2
 toc: 'content'
+supportPlatform: ['alipay']
 ---
 
 # Sticky 粘性吸附

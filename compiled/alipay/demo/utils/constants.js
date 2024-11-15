@@ -438,6 +438,11 @@ export const componentList = [
         type: '实验性',
         list: [
             {
+                name: 'ConfigProvider',
+                nameZN: '全局容器',
+                path: '/pages/ConfigProvider/index',
+            },
+            {
                 name: 'PageContainer',
                 nameZN: '页面容器',
                 path: '/pages/PageContainer/index',

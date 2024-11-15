@@ -22,7 +22,7 @@ Used to quickly locate a list index.
 
 ### Basic use
 
-<code src='../../demo/pages/IndexBar/index'></code>
+<code src='../../demo/pages/IndexBarControl/index'></code>
 
 ### Use in conjunction with a list
 

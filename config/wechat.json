@@ -80,7 +80,8 @@
     "pages/Checkbox",
     "pages/Picker",
     "pages/DatePicker",
-    "pages/Feedback"
+    "pages/Feedback",
+    "pages/ConfigProvider"
   ],
   "src": [
     "_locale",
@@ -134,6 +135,7 @@
     "NumberKeyboard",
     "Tabs",
     "SwipeAction",
-    "Feedback"
+    "Feedback",
+    "ConfigProvider"
   ]
 }

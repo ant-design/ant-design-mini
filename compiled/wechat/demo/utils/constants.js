@@ -137,11 +137,6 @@ export const componentList = [
                 nameZN: '分割线',
                 path: '/pages/Divider/index',
             },
-            {
-                name: 'Table',
-                nameZN: '表格',
-                path: '/pages/Table/index',
-            },
         ],
     },
     {
@@ -411,41 +406,15 @@ export const componentList = [
     },
     {
         type: '业务组件',
-        list: [
-            {
-                name: 'Voucher',
-                nameZN: '优惠券',
-                path: '/pages/Voucher/index',
-            },
-            {
-                name: 'Card',
-                nameZN: '基础卡片',
-                path: '/pages/Card/index',
-            },
-            {
-                name: 'Countdown',
-                nameZN: '倒计时',
-                path: '/pages/Countdown/index',
-            },
-        ],
+        list: [],
     },
     {
         type: '实验性',
         list: [
             {
-                name: 'PageContainer',
-                nameZN: '页面容器',
-                path: '/pages/PageContainer/index',
-            },
-            {
-                name: 'Typography',
-                nameZN: '排版',
-                path: '/pages/Typography/index',
-            },
-            {
-                name: 'SafeArea',
-                nameZN: '安全区',
-                path: '/pages/SafeArea/index',
+                name: 'ConfigProvider',
+                nameZN: '全局容器',
+                path: '/pages/ConfigProvider/index',
             },
         ],
     },

@@ -1,0 +1,48 @@
+<ant-container>
+  <ant-config-provider locale="{{locale}}">
+    <ant-list>
+      <ant-list-item>选择城市<ant-picker
+          slot="extra"
+          bind:cancel="handleDismissPicker"
+          bind:visiblechange="handleTriggerPicker"
+          bind:ok="handleOk"
+          defaultValue="{{defaultValue}}"
+          title="请选择"
+          bind:change="handleChange"
+          options="{{list}}"
+          emptyText="暂无数据"
+        ></ant-picker>
+      </ant-list-item>
+      <ant-list-item>日期范围<ant-range-picker
+          slot="extra"
+          defaultValue="{{defaultDateRange}}"
+          onPickerChange="handlePickerRangeChange"
+          bind:visiblechange="handleTriggerPicker"
+          bind:ok="handleRangeOk"
+        ></ant-range-picker>
+      </ant-list-item>
+    </ant-list>
+  </ant-config-provider>
+</ant-container>
+<ant-container title="深色模式">
+  <ant-config-provider
+    theme="dark"
+    locale="{{locale}}"
+  >
+    <ant-button
+      type="primary"
+      bind:tap="handleTap"
+    >主要按钮</ant-button>
+  </ant-config-provider>
+</ant-container>
+<ant-container title="主题定制">
+  <ant-config-provider
+    themeVars="{{themeVars}}"
+    locale="{{locale}}"
+  >
+    <ant-button
+      type="primary"
+      bind:tap="handleTap"
+    >主要按钮</ant-button>
+  </ant-config-provider>
+</ant-container>

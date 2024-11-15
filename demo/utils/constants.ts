@@ -12,11 +12,13 @@ export const componentList = [
         nameZN: '图标',
         path: '/pages/Icon/index',
       },
+      /// #if ALIPAY
       {
         name: 'Sticky',
         nameZN: '黏性吸附',
         path: '/pages/Sticky/index',
       },
+      /// #endif
     ],
   },
   {
@@ -144,11 +146,13 @@ export const componentList = [
         nameZN: '分割线',
         path: '/pages/Divider/index',
       },
+      /// #if ALIPAY
       {
         name: 'Table',
         nameZN: '表格',
         path: '/pages/Table/index',
       },
+      /// #endif
     ],
   },
   {
@@ -419,6 +423,7 @@ export const componentList = [
   {
     type: '业务组件',
     list: [
+      /// #if ALIPAY
       {
         name: 'Voucher',
         nameZN: '优惠券',
@@ -434,11 +439,18 @@ export const componentList = [
         nameZN: '倒计时',
         path: '/pages/Countdown/index',
       },
+      /// #endif
     ],
   },
   {
     type: '实验性',
     list: [
+      {
+        name: 'ConfigProvider',
+        nameZN: '全局容器',
+        path: '/pages/ConfigProvider/index',
+      },
+      /// #if ALIPAY
       {
         name: 'PageContainer',
         nameZN: '页面容器',
@@ -454,6 +466,7 @@ export const componentList = [
         nameZN: '安全区',
         path: '/pages/SafeArea/index',
       },
+      /// #endif
     ],
   },
 ];

@@ -5,6 +5,7 @@ group:
   title: 实验性
   order: 16
 toc: 'content'
+supportPlatform: ['alipay']
 ---
 
 # AutoResize 文本自适应

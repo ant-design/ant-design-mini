@@ -5,6 +5,7 @@ group:
   title: 实验性
   order: 16
 toc: 'content'
+supportPlatform: ['alipay']
 ---
 
 # SafeArea 安全区
