@@ -19,7 +19,7 @@ export const wechatCustomMapping = {
     onFocus: 'bindfocus',
     onBlur: 'bindblur',
   },
-  'checkbox-group': {
+  'ant-checkbox-group': {
     onChange: 'bindchange',
   },
   'ant-button': {
@@ -90,6 +90,10 @@ export const wechatCustomMapping = {
     onCancelButtonTap: 'bind:cancelbuttontap',
     onClose: 'bind:close',
   },
+  'ant-dialog': {
+    onClose: 'bind:close',
+    onButtonTap: 'bind:buttontap',
+  },
   'number-keyboard': {
     onClose: 'bind:close',
   },
@@ -107,5 +111,19 @@ export const wechatCustomMapping = {
     onSwipeEnd: 'bind:swipeend',
     onSwipeStart: 'bind:swipestart',
     onButtonTap: 'bind:buttontap',
+  },
+  'ant-popover': {
+    onVisibleChange: 'bind:visiblechange',
+  },
+  'ant-popover-list': {
+    onVisibleChange: 'bind:visiblechange',
+    onTapItem: 'bind:tapitem',
+  },
+  'ant-feedback': {
+    onVisibleChange: 'bind:visiblechange',
+    onTapFeedItem: 'bind:tapfeeditem',
+  },
+  'ant-mask': {
+    onMaskTap: 'bind:masktap',
   },
 };

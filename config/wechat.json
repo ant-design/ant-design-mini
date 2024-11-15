@@ -33,10 +33,10 @@
     "pages/Toast",
     "pages/Checklist",
     "pages/Modal",
+    "pages/Dialog",
     "pages/GuideTour",
     "pages/ActionSheet",
     "pages/Steps",
-    "pages/StepsControl",
     "pages/Divider",
     "pages/Skeleton",
     "pages/TabBar",
@@ -62,9 +62,6 @@
     "pages/Container",
     "pages/Stepper",
     "pages/Button",
-    "pages/ButtonIcon",
-    "pages/ButtonCustom",
-    "pages/ButtonInline",
     "pages/Icon",
     "pages/Loading",
     "pages/Switch",
@@ -82,9 +79,12 @@
     "pages/Popup",
     "pages/Checkbox",
     "pages/Picker",
-    "pages/DatePicker"
+    "pages/DatePicker",
+    "pages/Feedback",
+    "pages/ConfigProvider"
   ],
   "src": [
+    "_locale",
     "Empty",
     "_util",
     "Button",
@@ -104,7 +104,7 @@
     "ImageIcon",
     "Result",
     "Popover",
-    "popoverList",
+    "PopoverList",
     "Mask",
     "Stepper",
     "Popup",
@@ -123,6 +123,7 @@
     "Skeleton",
     "GuideTour",
     "Modal",
+    "Dialog",
     "Checklist",
     "Toast",
     "Grid",
@@ -133,6 +134,8 @@
     "NoticeBar",
     "NumberKeyboard",
     "Tabs",
-    "SwipeAction"
+    "SwipeAction",
+    "Feedback",
+    "ConfigProvider"
   ]
 }

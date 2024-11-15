@@ -9,37 +9,143 @@ toc: 'content'
 
 # GuideTour 新手引导
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 蒙层与自定义卡片的引导组件。
 
 ## 何时使用
 
 适用于页面上关键功能的介绍。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-guide-tour": "antd-mini/es/GuideTour/index"
+#endif
+#if WECHAT
+  "ant-guide-tour": "antd-mini/GuideTour/index"
+#endif
+}
+```
+
 ## 代码示例
+
+### 基本使用
+
+```xml
+<ant-guide-tour
+  items="{{ items }}"
+  visible="{{ visible }}"
+#if ALIPAY
+  onCancel="closeTour"
+  onChange="onChange"
+#endif
+#if WECHAT
+  bind:cancel="closeTour"
+  bind:change="onChange"
+#endif
+/>
+```
+
+```js
+Page({
+  data: {
+    visible: true,
+    items: [
+      { left: 20, top: 80, imageUrl: 'https://gw.alipayobjects.com/zos/antfincdn/IV3MGP1qL/bianzu%25252013.png', imageMode: 'widthFix' },
+      { left: 20, top: 160, imageUrl: 'https://gw.alipayobjects.com/zos/antfincdn/%26B6d3lBJn/bianzu%25252020.png' },
+      { left: 20, top: 220, imageUrl: 'https://gw.alipayobjects.com/zos/antfincdn/lwVOkCcwb/bianzu%25252021.png' },
+    ],
+  },
+  onChange(index) {
+#if ALIPAY
+    console.log('index', index);
+#endif
+  },
+  closeTour() {
+    this.setData({
+      visible: false,
+    });
+  },
+});
+```
+
+### 受控模式
+
+```xml
+
+<ant-guide-tour
+  items="{{ items }}"
+  current="{{ current }}"
+  visible="{{ visible }}"
+#if ALIPAY
+  onCancel="closeTour"
+  onChange="onChangeControlled"
+#endif
+#if WECHAT
+  bind:cancel="closeTour"
+  bind:change="onChangeControlled"
+#endif
+/>
+
+```
+
+```js
+Page({
+  data: {
+    visible: false,
+    current: 0,
+    items: [
+      { left: 20, top: 80, imageUrl: 'https://gw.alipayobjects.com/zos/antfincdn/IV3MGP1qL/bianzu%25252013.png', imageMode: 'widthFix' },
+      { left: 20, top: 160, imageUrl: 'https://gw.alipayobjects.com/zos/antfincdn/%26B6d3lBJn/bianzu%25252020.png' },
+      { left: 20, top: 220, imageUrl: 'https://gw.alipayobjects.com/zos/antfincdn/lwVOkCcwb/bianzu%25252021.png' },
+    ],
+  },
+  onChangeControlled(value) {
+#if ALIPAY
+    this.setData({ current: value });
+#endif
+#if WECHAT
+    this.setData({ current: value.detail });
+#endif
+  },
+  closeTour() {
+    this.setData({
+      visible: false
+    });
+  },
+});
+
+
+```
+
+## Demo 代码
 
 <code src='../../demo/pages/GuideTour/index'></code>
 
 ## API
 
-| 属性             | 说明             | 类型                                | 默认值   |
-| ---------------- | ---------------- | ----------------------------------- | -------- |
-| `className`      | 类名             | `string`                            | -        |
-| `current`        | 当前步骤         | `number`                            | -        |
-| `defaultCurrent` | 默认当前步骤     | `number`                            | 0        |
-| `items`          | 步骤信息         | [`GuideTourItem`](#guidetourttem)[] | -        |
-| `maskClassName`  | 蒙层的类名       | `string`                            | -        |
-| `maskStyle`      | 蒙层的样式       | `string`                            | -        |
-| `style`          | 样式             | `string`                            | -        |
-| `swiperable`     | 是否开启滑动模式 | `boolean`                           | `false`  |
-| `visible`        | 是否显示         | `boolean`                           | `false`  |
-| `onCancel`       | 关闭回调         | `() => void`                        | -        |
-| `onChange`       | 步骤改变回调     | `(index: number) => void`           | -        |
-| `jumpText`       | 跳过按钮的文案   | `string`                            | '跳过'   |
-| `prevStepText`   | 上一步按钮的文案 | `string`                            | '上一步' |
-| `nextStepText`   | 下一步按钮的文案 | `string`                            | '下一步' |
-| `gotItText`      | 知道了按钮的文案 | `string`                            | '知道了' |
+| 属性                     | 说明             | 类型                                | 默认值   |
+| ------------------------ | ---------------- | ----------------------------------- | -------- |
+| `className`              | 类名             | `string`                            | -        |
+| `current`                | 当前步骤         | `number`                            | -        |
+| `defaultCurrent`         | 默认当前步骤     | `number`                            | 0        |
+| `items`                  | 步骤信息         | [`GuideTourItem`](#guidetourttem)[] | -        |
+| `maskClassName`          | 蒙层的类名       | `string`                            | -        |
+| `maskStyle`              | 蒙层的样式       | `string`                            | -        |
+| `style`                  | 样式             | `string`                            | -        |
+| `swiperable`             | 是否开启滑动模式 | `boolean`                           | `false`  |
+| `visible`                | 是否显示         | `boolean`                           | `false`  |
+| `jumpText`               | 跳过按钮的文案   | `string`                            | '跳过'   |
+| `prevStepText`           | 上一步按钮的文案 | `string`                            | '上一步' |
+| `nextStepText`           | 下一步按钮的文案 | `string`                            | '下一步' |
+| `gotItText`              | 知道了按钮的文案 | `string`                            | '知道了' |
+| #if ALIPAY `onCancel`    | 关闭回调         | `() => void`                        | -        |
+| #if ALIPAY `onChange`    | 步骤改变回调     | `(index: number) => void`           | -        |
+| #if WECHAT `bind:cancel` | 关闭回调         | `() => void`                        | -        |
+| #if WECHAT `bind:change` | 步骤改变回调     | `(index: number) => void`           | -        |
 
 ### GuideTourItem
 

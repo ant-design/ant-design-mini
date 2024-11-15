@@ -18,10 +18,10 @@ toc: 'content'
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/Empty/index"
+  "ant-empty": "antd-mini/es/Empty/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/Empty/index"
+  "ant-empty": "antd-mini/Empty/index"
 #endif
 }
 ```

@@ -7,11 +7,11 @@
   class="ant-guide-tour {{className || ''}}"
   style="{{style || ''}}"
 >
-  <mask
+  <ant-mask
     show
     className="{{maskClassName}}"
     style="z-index:9999;{{maskStyle || ''}}"
-  ></mask>
+  ></ant-mask>
   <ant-icon
     type="CloseOutline"
     className="ant-guide-tour-clear"

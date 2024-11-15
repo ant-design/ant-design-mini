@@ -1,0 +1,52 @@
+<view class="ant-voucher-wrap {{direction === 'horizontal' && dataSource.length > 1 ? 'ant-voucher-wrap-show-after' : ''}} {{className}}">
+  <view class="ant-voucher-container {{`ant-voucher-container-${direction}`}} {{`${dataSource.length > 1 ? 'multiple' : 'single'}`}}">
+    <block a:for="{{dataSource}}">
+      <view
+        class="ant-voucher-item {{`ant-voucher-item-${item.disabled ? 'disabled' : 'not-disabled'}`}} {{`ant-voucher-item-${size}`}}"
+        data-index="{{index}}"
+        onTap="handleVoucherTap"
+      >
+        <view class="ant-voucher-item-left">
+          <view class="ant-voucher-item-left-money {{direction === 'multipleColumn' ? item.money.length > 3 && 'ant-voucher-item-left-money-small' : item.money.length > 4 && 'ant-voucher-item-left-money-small'}}">
+            {{item.money}}
+            <text
+              a:if="{{item.money}}"
+              class="ant-voucher-item-left-money-unit">
+              {{item.moneyUnit || '元'}}
+            </text>
+          </view>
+          <view a:if="{{item.threshold}}" class="ant-voucher-item-left-threshold">
+            {{item.threshold}}
+          </view>
+        </view>
+
+        <view class="ant-voucher-item-right">
+          <view class="ant-voucher-item-right-content">
+            <view class="ant-voucher-item-right-title">
+              {{item.title}}
+            </view>
+            <view class="ant-voucher-item-right-desc">
+              {{item.desc}}
+            </view>
+          </view>
+
+          <slot name="voucher-action-area" item="{{item}}" index="{{index}}">
+            <view class="voucher-action-area-default">
+              <image a:if="{{item.actionAreaInfo.imageUrl}}" mode="widthFix" src="{{item.actionAreaInfo.imageUrl}}"/>
+              <button
+                a:else
+                disabled="{{item.actionAreaInfo.disabled}}"
+                inline
+                size="small"
+                type="primary"
+                data-index="{{index}}"
+                onTap="handleBtnTap">
+                {{item.actionAreaInfo.text}}
+              </button>
+            </view>
+          </slot>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

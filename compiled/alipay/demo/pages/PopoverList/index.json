@@ -1,7 +1,7 @@
 {
   "defaultTitle": "PopoverList",
   "usingComponents": {
-    "popover-list": "../../../src/PopoverList/index",
+    "ant-popover-list": "../../../src/PopoverList/index",
     "ant-button": "../../../src/Button/index"
   }
 }

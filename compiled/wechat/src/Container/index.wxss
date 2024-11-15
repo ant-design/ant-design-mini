@@ -29,6 +29,7 @@
   padding: 24rpx;
   background-color: var(--container-background-color, #ffffff);
   border-radius: 16rpx;
+  color: var(--container-header-color, #333333);
 }
 .ant-container-header {
   display: flex;

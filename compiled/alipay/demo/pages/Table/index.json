@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Table",
+  "usingComponents": {
+    "ant-table": "../../../src/Table/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

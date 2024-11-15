@@ -2,16 +2,14 @@
 nav:
   path: /components
 group:
-  title: 反馈
-  order: 12
+  title: 待废弃
+  order: 99
 toc: 'content'
 ---
 
 # Modal 弹窗
 
-## 何时使用
-
-当应用中需要比较明显的对用户当前的操作行为进行警示或提醒时，可以使用对话框。用户需要针对对话框进行操作后方可结束。
+不建议使用，此组件即将废弃。推荐使用 [Dialog](/components/dialog) 组件，拥有最新设计规范。
 
 ## 引入
 
@@ -26,49 +24,6 @@ toc: 'content'
   "ant-modal": "antd-mini/Modal/index"
 #endif
 }
-```
-
-## 代码示例
-
-### 基本使用
-
-```xml
-<ant-modal
-  content="人在天边月上明"
-  visible="{{ visible }}"
-  closable="{{ false }}"
-  footer="{{ footer }}"
-  primaryButtonText="我知道了"
-#if ALIPAY
-  onButtonTap="onButtonTap"
-  onClose="handleClose"
-#endif
-#if WECHAT
-  bind:buttontap="onButtonTap"
-  bind:close="handleClose"
-#endif
-  />
-```
-
-```js
-Page({
-  data: {
-    visible: false,
-    footer: {
-      buttons: [{ text: '我知道了' }],
-    },
-  },
-  onButtonTap(buttonItem) {
-    console.log('点击的按钮: ', buttonItem);
-    my.showToast({ content: `点击了${buttonItem.text}`, duration: 1000 });
-    this.handleClose();
-  },
-  handleClose() {
-    this.setData({
-      visible: false,
-    });
-  },
-});
 ```
 
 ### Demo 代码
@@ -107,16 +62,3 @@ Page({
 | #if WECHAT bind:close              | 点击蒙层或强调模式下点击右上角关闭按钮，触发回调  | ()=>void     | -         |
 | #if WECHAT bind:primarybuttontap   | 主按钮点击事件                                    | ()=>void     | -         |
 | #if WECHAT bind:secondarybuttontap | 辅助按钮点击事件                                  | ()=>void     | -         |
-
-### 主题定制
-
-#### 样式变量
-
-组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
-
-| 变量名                   | 默认值                                                                                            | 备注                   |
-| ------------------------ | ------------------------------------------------------------------------------------------------- | ---------------------- |
-| --modal-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 模态框背景颜色         |
-| --modal-title-color      | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 模态框标题颜色         |
-| --modal-content-color    | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 模态框内容颜色         |
-| --modal-close-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 模态框关闭按钮文字颜色 |

@@ -4,15 +4,12 @@
   className="ant-feedback {{className || ''}} {{visible ? 'ant-feedback-show' : ''}} ant-feedback-popoverType-{{popoverType}}"
   mode="light"
   placement="{{placement}}"
-  maskStyle="background: rgba(0, 0, 0, 0.25);"
   showMask="{{false}}"
   autoAdjustOverflow="{{autoAdjustOverflow}}"
   style="display: inline-block; margin: 20px"
   onVisibleChange="handleVisibleChange"
-  color="#FFFFFF"
 >
   <view
-    onTap="onTriggerFirstAppear"
     class="ant-feedback-trigger "
     id="ant-feedback-trigger{{$id}}"
   >
@@ -25,11 +22,12 @@
     >
       <view class="ant-feedback-guide-content"></view>
     </view>
-    <mask
+    <ant-mask
       className="ant-feedback-mask"
       show="{{!!visible}}"
       style="z-index: 2;"
-    ></mask>
+      onMaskTap="maskClick"
+    ></ant-mask>
   </view>
   <view
     a:if="{{list.length > 0}}"
@@ -46,7 +44,7 @@
       <view
         class="ant-feedback-content-list-item"
         data-item="{{item}}"
-        onTap="onFeedClick"
+        onTap="onTapFeedItem"
         a:for="{{list}}"
         a:for-index="index"
         a:for-item="item"
@@ -87,7 +85,7 @@
     </view>
     <view class="ant-feedback-content-list">
       <view
-        onTap="onFeedClick"
+        onTap="onTapFeedItem"
         class="ant-feedback-content-list-item"
         data-item="{{item}}"
         a:for="{{list}}"

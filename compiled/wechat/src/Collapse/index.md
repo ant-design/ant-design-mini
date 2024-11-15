@@ -21,10 +21,10 @@ toc: 'content'
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/Collapse/index"
+  "ant-collapse": "antd-mini/es/Collapse/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/Collapse/index"
+  "ant-collapse": "antd-mini/Collapse/index"
 #endif
 }
 ```
@@ -125,8 +125,7 @@ Page({
       ...this.data.items,
       {
         title: this.data.items.length,
-        content:
-          '动态添加的内容',
+        content: '动态添加的内容',
       },
     ];
     this.setData({

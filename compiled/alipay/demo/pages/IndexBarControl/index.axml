@@ -1,5 +1,5 @@
 <view class="base">
-  <index-bar
+  <ant-index-bar
     className="indexbar"
     items="{{items}}"
     current="{{current}}"
@@ -19,5 +19,5 @@
         </list-item>
       </list>
     </view>
-  </index-bar>
+  </ant-index-bar>
 </view>

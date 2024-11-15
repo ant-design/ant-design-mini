@@ -5,6 +5,7 @@ group:
   title: Other
   order: 15
 toc: 'content'
+supportPlatform: ['alipay']
 ---
 
 # AutoResize

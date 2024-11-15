@@ -70,7 +70,10 @@ export interface IPopoverProps extends IBaseProps {
    * @description visible 变更时回调
    */
   onVisibleChange?: (visible: boolean, e: Record<string, any>) => void;
-  onTapItem?: (e: Record<string, any>, item: PopoverListItem) => void;
+  /**
+   * @description 点击列表项
+   */
+  onTapItem?: (item: PopoverListItem, e: Record<string, any>) => void;
   /**
    * @description 气泡框位置
    */

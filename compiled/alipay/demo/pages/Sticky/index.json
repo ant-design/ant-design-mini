@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Sticky",
+  "usingComponents": {
+    "ant-sticky": "../../../src/Sticky/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

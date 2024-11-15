@@ -22,7 +22,7 @@
 </ant-container>
 <ant-container title="换行">
   <ant-grid
-    items="{{[...items5, ...items5]}}"
+    items="{{items5More}}"
     onTap="handleTapItem"
     columns="{{5}}"
   ></ant-grid>
@@ -107,7 +107,7 @@
       key="{{'swiper-item-' + index}}"
     >
       <ant-grid
-        items="{{[...items5, ...items5]}}"
+        items="{{items5More}}"
         onTap="handleTapItem"
         columns="{{5}}"
       ></ant-grid>

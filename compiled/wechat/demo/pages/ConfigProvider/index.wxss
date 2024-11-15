@@ -1,0 +1,6 @@
+page {
+  padding-top: 60px;
+  box-sizing: border-box;
+  --button-primary-color: #fff;
+  --button-primary-background-color: #ff4040;
+}

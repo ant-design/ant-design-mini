@@ -1,0 +1,109 @@
+<popover
+  wx:if="{{type === 'popover'}}"
+  visible="{{visible}}"
+  className="ant-feedback {{className || ''}} {{visible ? 'ant-feedback-show' : ''}} ant-feedback-popoverType-{{popoverType}}"
+  mode="light"
+  placement="{{placement}}"
+  showMask="{{false}}"
+  autoAdjustOverflow="{{autoAdjustOverflow}}"
+  style="display: inline-block; margin: 20px"
+  bind:visiblechange="handleVisibleChange"
+>
+  <view
+    class="ant-feedback-trigger "
+    id="ant-feedback-trigger{{$id}}"
+  >
+    <view style="{{!visible || popoverType === 'circle' ? 'z-index: 0;' : 'z-index: 3; position: relative;'}}">
+      <slot></slot>
+    </view>
+    <view
+      wx:if="{{!!visible && popoverType === 'circle'}}"
+      class="ant-feedback-guide"
+    >
+      <view class="ant-feedback-guide-content"></view>
+    </view>
+    <ant-mask
+      className="ant-feedback-mask"
+      show="{{!!visible}}"
+      style="z-index: 2;"
+      bind:masktap="maskClick"
+    ></ant-mask>
+  </view>
+  <view
+    wx:if="{{list.length > 0}}"
+    class="ant-feedback-content ant-feedback-content-{{type}}"
+    slot="content"
+  >
+    <view
+      wx:if="{{title}}"
+      class="ant-feedback-content-title"
+    >{{title}}</view>
+    <view class="ant-feedback-content-list">
+      <view
+        class="ant-feedback-content-list-item"
+        data-item="{{item}}"
+        bind:tap="onTapFeedItem"
+        wx:for="{{list}}"
+        wx:for-index="index"
+        wx:for-item="item"
+      >
+        <ant-icon
+          wx:if="{{item.icon}}"
+          type="{{item.icon}}"
+        ></ant-icon>
+        <image
+          wx:elif="{{item.image}}"
+          class="ant-feedback-content-list-item-image"
+          mode="widthFix"
+          src="{{item.image}}"
+        ></image>
+        <view class="ant-feedback-content-list-item-text">{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+  <slot
+    name="popover-content"
+    slot="content"
+  ></slot>
+</popover>
+<view
+  wx:else
+  class="ant-feedback"
+>
+  <view
+    wx:if="{{list.length > 0}}"
+    class="ant-feedback-content ant-feedback-content-{{type}}"
+    slot="content"
+  >
+    <view
+      wx:if="{{title}}"
+      class="ant-feedback-content-title"
+    >{{title}}</view>
+    <view class="ant-feedback-content-list">
+      <view
+        bind:tap="onTapFeedItem"
+        class="ant-feedback-content-list-item"
+        data-item="{{item}}"
+        wx:for="{{list}}"
+        wx:for-index="index"
+        wx:for-item="item"
+      >
+        <ant-icon
+          wx:if="{{item.icon}}"
+          type="{{item.icon}}"
+        ></ant-icon>
+        <image
+          wx:elif="{{item.image}}"
+          class="ant-feedback-content-list-item-image"
+          mode="widthFix"
+          src="{{item.image}}"
+        ></image>
+        <view class="ant-feedback-content-list-item-text">{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+  <slot
+    name="content"
+    wx:else
+  ></slot>
+</view>

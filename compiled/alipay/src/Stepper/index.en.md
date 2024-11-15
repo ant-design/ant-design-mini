@@ -18,10 +18,10 @@ In `index.json` Introducing Components in
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/Stepper/index"
+  "ant-stepper": "antd-mini/es/Stepper/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/Stepper/index"
+  "ant-stepper": "antd-mini/Stepper/index"
 #endif
 }
 ```
@@ -30,8 +30,8 @@ In `index.json` Introducing Components in
 
 ### Basic use
 ```xml
-<stepper
-  className="stepper"
+<ant-stepper
+  className="ant-stepper"
   value="{{0}}"
   min="{{0}}"
   max="{{10}}"
@@ -56,18 +56,18 @@ Page({
 
 ### Custom Styles
 ```xml
-<stepper
+<ant-stepper
   style=""
-  className="stepper"
+  className="ant-stepper"
   inputStyle=""	
-  inputClassName="stepper-input"
+  inputClassName="ant-stepper-input"
 />
 ```
 
 ### Input box read-only
 ```xml
-<stepper
-  className="stepper"
+<ant-stepper
+  className="ant-stepper"
   defaultValue="{{0}}"
   inputReadOnly="{{true}}"
 />
@@ -75,8 +75,8 @@ Page({
 
 ### Input box auto focus
 ```xml
-<stepper
-  className="stepper"
+<ant-stepper
+  className="ant-stepper"
   defaultValue="{{0}}"
   focus="{{true}}"
 />
@@ -84,7 +84,7 @@ Page({
 
 ### Event Binding
 ```xml
-<stepper
+<ant-stepper
   value="{{value}}"
 #if ALIPAY
   onChange="handleChange"

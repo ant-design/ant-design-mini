@@ -17,7 +17,7 @@
           class="ant-rate-star-icon-active {{ characterClassName || '' }} {{ characterActiveClassName || '' }} ant-rate-star-icon-half-active"
         >
           <!-- #if ALIPAY -->
-          <slot name="character" index="{{ index }}">
+          <slot name="character" index="{{ index }}" isActive="{{ true }}">
             <!-- #endif -->
             <ant-icon type="StarFill" />
             <!-- #if ALIPAY -->

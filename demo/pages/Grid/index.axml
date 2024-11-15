@@ -19,7 +19,7 @@
 </ant-container>
 <ant-container title="换行">
   <ant-grid
-    items="{{ [...items5, ...items5] }}"
+    items="{{ items5More }}"
     onTap="handleTapItem"
     columns="{{ 5 }}" />
 </ant-container>
@@ -90,7 +90,7 @@
 >
   <swiper-item key="swiper-item-{{index}}" a:for="{{[1,2,3,4]}}">
     <ant-grid
-      items="{{ [...items5, ...items5] }}"
+      items="{{ items5More }}"
       onTap="handleTapItem"
       columns="{{ 5 }}"
      />

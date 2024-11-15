@@ -52,10 +52,7 @@
   </view>
   点击右上角的icon 展示反馈内容
 </ant-container>
-<ant-container
-  title="点引导反馈"
-  className="feedback-gray-container"
->
+<ant-container title="点引导反馈">
   点击下面的内容 展示点引导反馈
   <view class="feedback-container-flex">
     <ant-feedback
@@ -64,7 +61,7 @@
       visible="{{visible2}}"
       popoverType="circle"
       title="点引导反馈"
-      onFeedClick="onFeedClick2"
+      onTapFeedItem="onTapFeedItem2"
       placement="bottom"
       onVisibleChange="onVisibleChange2"
       className="feedback-demo2"
@@ -81,7 +78,7 @@
       visible="{{visible4}}"
       popoverType="circle"
       title="点引导反馈"
-      onFeedClick="onFeedClick4"
+      onTapFeedItem="onTapFeedItem4"
       placement="bottom"
       onVisibleChange="onVisibleChange4"
       className="feedback-demo4"
@@ -94,16 +91,13 @@
     </ant-feedback>
   </view>
 </ant-container>
-<ant-container
-  title="反馈卡片"
-  className="feedback-gray-container"
->
+<ant-container title="反馈卡片">
   <ant-feedback
     a:if="{{visible3}}"
     list="{{feedList}}"
     type="card"
     title="喜欢推荐的内容吗？"
-    onFeedClick="onFeedClick3"
+    onTapFeedItem="onTapFeedItem3"
     className="feedback-demo"
     onVisibleChange="onVisibleChange3"
   ></ant-feedback>

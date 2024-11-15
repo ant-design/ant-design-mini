@@ -1,0 +1,25 @@
+@import '../../../src/style/themes/index.less';
+
+// 设置第一列的样式
+.full-table-table {
+  .mui-table-list-item-value-first {
+    border-bottom: 2 * @rpx solid #1677ff !important;
+  }
+
+  //  将所有的都去掉了
+  .g-hairline--top::after {
+    border: none;
+  }
+
+  .mui-table-list-item-rows {
+    border-bottom: 2 * @rpx solid #D3D3D3;
+  }
+}
+
+.table-empty-img {
+  position: sticky;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 200 * @rpx;
+  height: 200 * @rpx;
+}

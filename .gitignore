@@ -36,6 +36,7 @@
 project.private.config.json
 compiled/wechat/miniprogram_npm
 compiled/wechat/node_modules
+compiled/wechat/package-lock.json
 compiled/wechat/yarn.lock
 compiledBackup/wechat/miniprogram_npm
 compiledBackup/wechat/node_modules

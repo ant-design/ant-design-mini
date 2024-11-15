@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Countdown",
+  "usingComponents": {
+    "countdown": "../../../src/Countdown/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}
