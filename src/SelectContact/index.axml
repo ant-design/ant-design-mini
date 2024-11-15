@@ -1,20 +1,21 @@
 <import-sjs name="util" from="./index.sjs" />
 <view class="ant-select-contact-component {{className ? className : ''}}" style="height:{{height}}">
   <!-- 搜索栏 -->
-  <search-bar
-    className="{{ showSearch ? '' : 'hidden-cancel-button' }}"
-    value="{{searchValue}}"
-    focus="{{false}}"
-    maxLength="{{ 150 }}"
-    showVoice="{{false}}"
-    placeholder="{{placeholder}}"
-    showCancelButton="{{showSearch}}"
-    borderColor="{{ showSearch ? '#1677ff' : '#ffffff' }}"
-    onInput="onSearchInput"
-    onClear="onSearchClear"
-    onCancel="onSearchCancel"
-    onFocus="onSearchFocus"
-  />
+  <view class="search-line">
+    <input
+      placeholder="请输入内容"
+      onChange="onChange"
+      className="search-bar"
+      focusClassName="search-bar-focus"
+      confirm-type="search"
+      allowClear
+      focus
+      onConfirm="onConfirm"
+    >
+      <icon slot="prefix" type="SearchOutline" />
+    </input>
+    <view class="cancel">取消</view>
+  </view>
   <view class="scc-blank" />
 
   <!-- 展示推荐联系人 && 全部联系人 -->
@@ -32,11 +33,11 @@
         trap-scroll="{{false}}"
         scroll-into-view="{{toView}}"
       >
-       <list>
+        <list>
           <list-item>1</list-item>
           <list-item>2</list-item>
           <list-item>3</list-item>
-      </list>
+        </list>
       </scroll-view>
       <slot a:else name="contactListEmpty"></slot>
     </block>
