@@ -1,9 +1,9 @@
-import reduce from 'lodash/reduce';
-import isEqual from 'lodash/isEqual';
-import filter from 'lodash/filter';
-import get from 'lodash/get';
+import filter from 'lodash.filter';
+import get from 'lodash.get';
+import isEqual from 'lodash.isequal';
+import reduce from 'lodash.reduce';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
-import { TableDefaultProps, RenderRuleProps } from './props';
+import { RenderRuleProps, TableDefaultProps } from './props';
 
 const rpx2px = (rpx, windowWidth = 375) => {
   let numRpx = rpx;
@@ -47,7 +47,7 @@ Component({
         (sum, cur) => {
           return sum + cur.width;
         },
-        0,
+        0
       );
       const columnsData = this.renderColumns(columns, windowWidth);
       const rowsData = this.renderRows(dataSource, windowWidth);

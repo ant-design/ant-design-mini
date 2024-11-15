@@ -25,13 +25,13 @@
 <ant-container title="水平排列">
   <voucher
     onTap="onTap"
-    dataSource="{{[...dataSource, ...dataSource1, ...dataSource2]}}"
+    dataSource="{{[dataSource[0], dataSource1[0], dataSource2[0]]}}"
   />
   <view style="padding: 6px" />
   <voucher
     size="small"
     onTap="onTap"
-    dataSource="{{[...dataSource, ...dataSource1, ...dataSource2]}}"
+    dataSource="{{[dataSource[0], dataSource1[0], dataSource2[0]]}}"
   />
 </ant-container>
 
@@ -39,7 +39,7 @@
   <voucher
     direction="vertical"
     onTap="onTap"
-    dataSource="{{[...dataSource, ...dataSource1, ...dataSource2]}}"
+    dataSource="{{[dataSource[0], dataSource1[0], dataSource2[0]]}}"
   />
   <view style="padding: 6px" />
   <voucher
@@ -47,7 +47,7 @@
     direction="vertical"
     onTap="onTap"
     onVoucherTap="onVoucherTap"
-    dataSource="{{[...dataSource, ...dataSource1, ...dataSource2, ...dataSource2A]}}"
+    dataSource="{{[dataSource[0], dataSource1[0], dataSource2[0], dataSource2A[0]]}}"
   />
 </ant-container>
 
@@ -55,7 +55,7 @@
   <voucher
     direction="multipleColumn"
     size="small"
-    dataSource="{{[...dataSource5, ...dataSource6, ...dataSource6, ...dataSource7]}}"
+    dataSource="{{[dataSource5[0], dataSource6[0], dataSource6[0], dataSource7[0]]}}"
     onVoucherTap="onVoucherTap"
   >
     <view slot="voucher-action-area" class="multiple-column-slot-demo">

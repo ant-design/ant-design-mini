@@ -45,7 +45,7 @@
   background-position: left top, 128rpx top;
   margin-bottom: 16rpx;
 }
-.ant-voucher-container-multipleColumn .ant-voucher-item:nth-child(2n - 1) {
+.ant-voucher-container-multipleColumn .ant-voucher-item:nth-child(odd) {
   margin-right: 16rpx;
 }
 .ant-voucher-container-multipleColumn .ant-voucher-item-small .voucher-action-area-default,

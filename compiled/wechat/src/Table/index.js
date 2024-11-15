@@ -54,10 +54,10 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import reduce from 'lodash/reduce';
-import isEqual from 'lodash/isEqual';
-import filter from 'lodash/filter';
-import get from 'lodash/get';
+import filter from 'lodash.filter';
+import get from 'lodash.get';
+import isEqual from 'lodash.isequal';
+import reduce from 'lodash.reduce';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
 import { TableDefaultProps } from './props';
 var rpx2px = function (rpx, windowWidth) {
