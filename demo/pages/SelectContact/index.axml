@@ -2,8 +2,8 @@
   <ant-select-contact
     height="1000rpx"
     onSelect="onSelect"
-    source="FamilyPay"
-    bizScene="family_card_manage"
+    recommendContactsList="{{recommendContactsList}}"
+    allContactsList="{{allContactsList}}"
     onDeleteRecommendUserError="onDeleteRecommendUserError"
     onDeleteRecommendUser="onDeleteRecommendUser"
   >

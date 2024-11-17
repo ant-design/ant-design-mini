@@ -32,9 +32,11 @@ ComponentWithSignalStoreImpl({
 }, [], {
     onInit: function () {
         var _a = getValueFromProps(this, [
+            'theme',
             'themeVars',
             'locale',
-        ]), themeVars = _a[0], locale = _a[1];
+        ]), theme = _a[0], themeVars = _a[1], locale = _a[2];
+        console.log(theme, '小蒜苗可爱');
         // 初始化读取locale并更新store数据
         i18nController.switchLocale(locale);
         this.convertThemeVarsToCSSVars(themeVars);
