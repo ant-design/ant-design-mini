@@ -35,6 +35,7 @@ toc: content
 ## 代码示例
 
 ### Input 基本使用
+
 ```xml
 <ant-input placeholder="请输入内容" onChange="onChange" />
 <ant-input placeholder="请输入内容" defaultValue="initial value" onChange="onChange" />
@@ -43,6 +44,7 @@ toc: content
 ```
 
 ### 带前缀后缀
+
 ```xml
 <ant-input placeholder="请输入内容" onChange="onChange" allowClear>
   <view slot="prefix">￥</view>
@@ -51,11 +53,13 @@ toc: content
 ```
 
 ### 受控模式
+
 ```xml
 <ant-input controlled="{{ true }}" value="{{ value }}" placeholder="请输入内容" allowClear onChange="handleChange" />
 ```
 
 ### 输入金额
+
 ```xml
 <ant-input placeholder="请输入金额" type="digit" focusClassName="border" allowClear>
   <view slot="prefix">￥</view>
@@ -64,6 +68,7 @@ toc: content
 ```
 
 ### SearchBar 搜索框
+
 ```xml
  <view class="search-line">
     <ant-input
@@ -82,6 +87,7 @@ toc: content
     <view class="cancel">取消</view>
   </view>
 ```
+
 ```css
 .search-line {
   display: flex;
@@ -108,21 +114,26 @@ toc: content
 ### Textarea
 
 #### 基础用法
+
 ```xml
  <ant-textarea placeholder="请输入内容" autoHeight onChange="onChange" />
  <ant-textarea placeholder="请输入内容" defaultValue="initial value" autoHeight onChange="onChange" />
 ```
 
 #### 受控模式
+
 ```xml
  <ant-textarea value="{{ value }}" placeholder="请输入内容" allowClear onChange="handleChange" />
 ```
 
 ### 自定义
+
 #### 带有边框
+
 ```xml
 <ant-input className="custom" placeholder="请输入内容" onChange="onChange" />
 ```
+
 ```css
 .custom {
   border: 1px solid @COLOR_BORDER;
@@ -131,14 +142,18 @@ toc: content
   margin-bottom: 12px;
 }
 ```
+
 #### 自定义背景色
+
 ```xml
  <ant-input className="custom-color" placeholder="请输入内容" onChange="onChange" />
 ```
+
 ```css
 .custom-color {
   margin-bottom: 12px;
-  input, textarea {
+  input,
+  textarea {
     padding: 4px;
     background: #f5f5f5;
     border-radius: 4px;
@@ -146,8 +161,8 @@ toc: content
 }
 ```
 
+### Demo 代码
 
-### Demo代码
 <code src='../../demo/pages/Input/index'></code>
 
 ## API
@@ -218,12 +233,14 @@ toc: content
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                         | 默认值                                                                                            | 备注               |
-| ------------------------------ | ------------------------------------------------------------------------------------------------- | ------------------ |
-| --input-item-color             | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 输入项文本颜色     |
-| --input-item-placeholder-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | 输入项占位符颜色   |
-| --input-item-clear-color       | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 输入项清除按钮颜色 |
-| --input-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 输入项背景颜色     |
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                         | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注               |
+| ------------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
+| --input-item-color             | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 输入项文本颜色     |
+| --input-item-placeholder-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | 输入项占位符颜色   |
+| --input-item-clear-color       | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 输入项清除按钮颜色 |
+| --input-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | 输入项背景颜色     |
 
 ## FAQ
 

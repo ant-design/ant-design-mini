@@ -25,10 +25,16 @@ Page({
             value: '',
         });
     },
-    handleRef(input) {
+    handleRefInput(input) {
         this.input = input;
+    },
+    handleRefTextArea(textArea) {
+        this.textArea = textArea;
     },
     clearByInputRef() {
         this.input.update('');
+    },
+    clearByTextAreaRef() {
+        this.textArea.update('');
     },
 });

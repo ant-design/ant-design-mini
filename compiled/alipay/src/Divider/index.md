@@ -31,12 +31,15 @@ toc: 'content'
 ```
 
 ## 代码示例
+
 ### 基本使用
+
 ```xml
 <ant-divider />
 ```
 
 ### 分割线带文字
+
 ```xml
 <ant-divider text="中间内容" />
 <ant-divider text="左侧内容" textPosition="left" />
@@ -44,6 +47,7 @@ toc: 'content'
 ```
 
 ### 自定义样式
+
 ```xml
  <ant-divider
     text="自定义样式"
@@ -54,6 +58,7 @@ toc: 'content'
 ```
 
 ### 垂直分割线
+
 ```xml
  <view class="divider-vertical">
     <view>100m</view>
@@ -62,8 +67,8 @@ toc: 'content'
   </view>
 ```
 
+### Demo 代码
 
-### Demo代码
 <code src='../../demo/pages/Divider/index'></code>
 
 ## API
@@ -88,7 +93,7 @@ toc: 'content'
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                 | 默认值                                                                                            | 备注           |
-| ---------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
-| --divider-text-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 分割线文本颜色 |
-| --divider-border-color | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div> | 分割线边框颜色 |
+| 变量名                 | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注           |
+| ---------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
+| --divider-text-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 分割线文本颜色 |
+| --divider-border-color | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div> | <div style="width: 150px; height: 30px; background-color: #444444; color: #333333;">#444444</div> | 分割线边框颜色 |

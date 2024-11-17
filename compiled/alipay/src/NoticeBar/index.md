@@ -31,7 +31,9 @@ toc: content
 ```
 
 ## 代码示例
+
 ### 基本使用
+
 ```xml
  <ant-notice type="default">default</ant-notice>
  <ant-notice type="info">info</ant-notice>
@@ -39,6 +41,7 @@ toc: content
 ```
 
 ### 可关闭通告栏
+
 ```xml
 <ant-notice mode="closeable">
   这条通知可以关闭
@@ -46,6 +49,7 @@ toc: content
 ```
 
 ### 可滚动通告栏
+
 ```xml
 <ant-notice
   type="default"
@@ -58,6 +62,7 @@ toc: content
 ```
 
 ### 自定义
+
 ```xml
 <ant-notice type="primary" icon="GlobalOutline" mode="link">
   自定义左侧图标
@@ -76,7 +81,8 @@ toc: content
 </ant-notice>
 ```
 
-### Demo代码
+### Demo 代码
+
 <code src='../../demo/pages/NoticeBar/index'></code>
 
 ## API
@@ -101,16 +107,18 @@ toc: content
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                            | 默认值                                                                                                              | 备注             |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| --notice-background-color         | <div style="width: 150px; height: 40px; background-color: #fff9ed;">#fff9ed</div>                                   | 通知背景颜色     |
-| --notice-border-color             | <div style="width: 150px; height: 40px; background-color: #fff3d9;">#fff3d9</div>                                   | 通知边框颜色     |
-| --notice-color                    | <div style="width: 150px; height: 40px; background-color: #ff6010;">#ff6010</div>                                   | 通知颜色         |
-| --notice-error-border-color       | <div style="width: 150px; height: 40px; background-color: #fff3d9;">#fff3d9</div>                                   | 错误通知边框颜色 |
-| --notice-error-color              | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                   | 错误通知颜色     |
-| --notice-error-background-color   | <div style="width: 150px; height: 40px; background-color: #ff3141;">#ff3141</div>                                   | 错误通知背景颜色 |
-| --notice-primary-border-color     | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.72);">rgba(22, 119, 255, 0.72)</div> | 主要通知边框颜色 |
-| --notice-primary-color            | <div style="width: 150px; height: 40px; background-color: #1677ff;">#1677ff</div>                                   | 主要通知颜色     |
-| --notice-primary-background-color | <div style="width: 150px; height: 40px; background-color: rgba(208, 228, 255, 1);">rgba(208, 228, 255, 1)</div>     | 主要通知背景颜色 |
-| --notice-info-text-color          | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                   | 信息通知文字颜色 |
-| --notice-info-background-color    | <div style="width: 150px; height: 40px; background-color: #666666;">#666666</div>                                   | 信息通知背景颜色 |
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                            | 默认值                                                                                                              | 深色模式默认值                                                                                                                      | 备注             |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| --notice-background-color         | <div style="width: 150px; height: 40px; background-color: #fff9ed;">#fff9ed</div>                                   | <div style="width: 150px; height: 40px; background-color: #fff9ed; color: #000000;">#fff9ed</div>                                   | 通知背景颜色     |
+| --notice-border-color             | <div style="width: 150px; height: 40px; background-color: #fff3d9;">#fff3d9</div>                                   | <div style="width: 150px; height: 40px; background-color: #fff3d9; color: #000000;">#fff3d9</div>                                   | 通知边框颜色     |
+| --notice-color                    | <div style="width: 150px; height: 40px; background-color: #ff6010;">#ff6010</div>                                   | <div style="width: 150px; height: 40px; background-color: #ff6010; color: #ffffff;">#ff6010</div>                                   | 通知颜色         |
+| --notice-error-border-color       | <div style="width: 150px; height: 40px; background-color: #fff3d9;">#fff3d9</div>                                   | <div style="width: 150px; height: 40px; background-color: #fff3d9; color: #000000;">#fff3d9</div>                                   | 错误通知边框颜色 |
+| --notice-error-color              | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                   | 错误通知颜色     |
+| --notice-error-background-color   | <div style="width: 150px; height: 40px; background-color: #ff3141;">#ff3141</div>                                   | <div style="width: 150px; height: 40px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div>                                   | 错误通知背景颜色 |
+| --notice-primary-border-color     | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.72);">rgba(22, 119, 255, 0.72)</div> | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.72); color: #ffffff;">rgba(22, 119, 255, 0.72)</div> | 主要通知边框颜色 |
+| --notice-primary-color            | <div style="width: 150px; height: 40px; background-color: #1677ff;">#1677ff</div>                                   | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #ffffff;">#3086ff</div>                                   | 主要通知颜色     |
+| --notice-primary-background-color | <div style="width: 150px; height: 40px; background-color: rgba(208, 228, 255, 1);">rgba(208, 228, 255, 1)</div>     | <div style="width: 150px; height: 40px; background-color: rgba(208, 228, 255, 1); color: #000000;">rgba(208, 228, 255, 1)</div>     | 主要通知背景颜色 |
+| --notice-info-text-color          | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                   | 信息通知文字颜色 |
+| --notice-info-background-color    | <div style="width: 150px; height: 40px; background-color: #666666;">#666666</div>                                   | <div style="width: 150px; height: 40px; background-color: #808080; color: #ffffff;">#808080</div>                                   | 信息通知背景颜色 |

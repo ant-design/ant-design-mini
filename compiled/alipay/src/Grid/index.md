@@ -29,6 +29,7 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
+
 ```js
 Page({
   data: {
@@ -46,19 +47,21 @@ Page({
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
       },
     ],
-  }
-})
+  },
+});
 ```
+
 ```xml
 <ant-grid
   items="{{ items }}"
   onTap="handleTapItem"
   iconSize="{{ 36 }}"
-  columns="{{ 3 }}" 
+  columns="{{ 3 }}"
 />
 ```
 
-### 3列-带描述
+### 3 列-带描述
+
 ```js
 Page({
   data: {
@@ -79,29 +82,35 @@ Page({
         description: '描述信息',
       },
     ],
-  }
-})
+  },
+});
 ```
+
 ```xml
 <ant-grid
   items="{{ items3withDesc }}"
-  iconSize="{{ 36 }}"    
+  iconSize="{{ 36 }}"
   onTap="handleTapItem"
   columns="{{ 3 }}" />
 ```
+
 ### 元素横向布局
+
 ```xml
 <ant-grid
   items="{{ items }}"
   onTap="handleTapItem"
   columns="{{ 3 }}"
-  gridItemLayout="horizontal" 
+  gridItemLayout="horizontal"
 />
 ```
 
 ### 自定义
+
 ```js
+
 ```
+
 ```xml
 <ant-grid
   items="{{ items }}"
@@ -137,7 +146,8 @@ Page({
 </ant-grid>
 ```
 
-### Demo代码
+### Demo 代码
+
 <code src='../../demo/pages/Grid/index'></code>
 
 ## API
@@ -176,8 +186,10 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                       | 默认值                                                                                            | 备注         |
-| ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
-| --ant-grid-title-color       | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 网格标题颜色 |
-| --ant-grid-description-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 网格描述颜色 |
-| --ant-grid-border-color      | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | 网格边框颜色 |
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                       | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注         |
+| ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
+| --ant-grid-title-color       | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 网格标题颜色 |
+| --ant-grid-description-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 网格描述颜色 |
+| --ant-grid-border-color      | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | 网格边框颜色 |

@@ -292,11 +292,15 @@
     --switch-loading-color: #1677ff;
     --switch-handle-bg: #ffffff;
     --switch-inner-color: #999999;
+    --dialog-background-color: #ffffff;
+    --dialog-title-color: #333333;
+    --dialog-content-color: #333333;
+    --dialog-close-text-color: #999999;
     --modal-background-color: #ffffff;
     --modal-title-color: #333333;
     --modal-content-color: #333333;
     --modal-close-text-color: #999999;
-    --color-background-popover: #404040;
+    --popover-color-background: #404040;
     --popover-bg: #ffffff;
     --popover-text-color: #000000;
     --popover-inner-color: #ff3141;
@@ -333,6 +337,8 @@
     --notice-info-background-color: #666666;
     --page-container-background-color: #f5f5f5;
     --typography-container-color: #333333;
+    --pagination-area-background-color: #121212;
+    --pagination-move-background-color: #3086ff;
   }
 }
 /* 深色模式的css变量 */
@@ -350,6 +356,7 @@
     --color-red: #ff4a58;
     --color-text-primary: #c5cad1;
     --color-text-secondary: #808080;
+    --color-text-assist: #616161;
     --color-text-weak: #474747;
     --color-text-weak-faded: rgba(71, 71, 71, 0.6);
     --color-border: #2b2b2b;
@@ -467,7 +474,7 @@
     --collapse-node-text-color: #616161;
     --collapse-container-background-color: #000000;
     --container-header-color: #c5cad1;
-    --color-text-assist: #616161;
+    --container-color-text-assist: #616161;
     --container-background-color: #1a1a1a;
     --divider-text-color: #c5cad1;
     --divider-border-color: #444444;
@@ -610,11 +617,15 @@
     --switch-loading-color: #3086ff;
     --switch-handle-bg: #ffffff;
     --switch-inner-color: #616161;
+    --dialog-background-color: #1a1a1a;
+    --dialog-title-color: #c5cad1;
+    --dialog-content-color: #c5cad1;
+    --dialog-close-text-color: #616161;
     --modal-background-color: #1a1a1a;
     --modal-title-color: #c5cad1;
     --modal-content-color: #c5cad1;
     --modal-close-text-color: #616161;
-    --color-background-popover: #404040;
+    --popover-color-background: #404040;
     --popover-bg: #1a1a1a;
     --popover-text-color: #000000;
     --popover-inner-color: #ff4a58;
@@ -651,5 +662,7 @@
     --notice-info-background-color: #808080;
     --page-container-background-color: #121212;
     --typography-container-color: #c5cad1;
+    --pagination-area-background-color: #f5f5f5;
+    --pagination-move-background-color: #1677ff;
   }
 }

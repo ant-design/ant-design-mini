@@ -15,6 +15,7 @@ page {
   --color-red: #ff3141;
   --color-red-faded: rgba(255, 49, 65, 0.7);
   --color-text-primary: #333333;
+  --color-text-assist: #999999;
   --color-text-weak: #cccccc;
   --color-text-weak-faded: rgba(204, 204, 204, 0.6);
   --color-border: #eeeeee;
@@ -148,7 +149,7 @@ page {
   --collapse-node-text-color: #999999;
   --collapse-container-background-color: #ffffff;
   --container-header-color: #333333;
-  --color-text-assist: #999999;
+  --container-color-text-assist: #999999;
   --container-background-color: #ffffff;
   --divider-text-color: #333333;
   --divider-border-color: #e5e5e5;
@@ -299,7 +300,7 @@ page {
   --modal-title-color: #333333;
   --modal-content-color: #333333;
   --modal-close-text-color: #999999;
-  --color-background-popover: #404040;
+  --popover-color-background: #404040;
   --popover-bg: #ffffff;
   --popover-text-color: #000000;
   --popover-inner-color: #ff3141;
@@ -336,4 +337,6 @@ page {
   --notice-info-background-color: #666666;
   --page-container-background-color: #f5f5f5;
   --typography-container-color: #333333;
+  --pagination-area-background-color: #f5f5f5;
+  --pagination-move-background-color: #1677ff;
 }

@@ -50,7 +50,7 @@
 </container>
 
 <container title="非受控模式通过ref修改input">
-  <ant-input placeholder="请输入内容" onChange="onChange" ref="handleRef" />
+  <ant-input placeholder="请输入内容" onChange="onChange" ref="handleRefInput" />
 
   <view>
     <ant-button inline onTap="clearByInputRef">
@@ -124,11 +124,11 @@
     placeholder="请输入内容"
     allowClear
     onChange="onChange"
-    ref="handleRef" />
+    ref="handleRefTextArea" />
   <view>
     <ant-button
       inline
-      onTap="clearByInputRef">
+      onTap="clearByTextAreaRef">
       clear
     </ant-button>
   </view>

@@ -47,7 +47,7 @@
   display: none;
 }
 .ant-container-header-right {
-  color: var(--color-text-assist, #999999);
+  color: var(--container-color-text-assist, #999999);
   display: flex;
   align-items: center;
   height: 96rpx;

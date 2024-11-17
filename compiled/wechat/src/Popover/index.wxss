@@ -44,7 +44,7 @@
   border-radius: 24rpx;
   overflow: hidden;
   font-size: 28rpx;
-  background-color: var(--color-background-popover, #404040);
+  background-color: var(--popover-color-background, #404040);
   color: var(--popover-inner-color, #ff3141);
   padding: 20rpx;
   width: max-content;
@@ -73,7 +73,7 @@
   height: 0;
   border-left: 18rpx solid transparent;
   border-right: 18rpx solid transparent;
-  border-bottom: 18rpx solid var(--color-background-popover, #404040);
+  border-bottom: 18rpx solid var(--popover-color-background, #404040);
 }
 .ant-popover-top {
   transform: translate(-50%, -100%);
