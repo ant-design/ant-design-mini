@@ -163,10 +163,12 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                    | 默认值                                                                                            | 备注                 |
-| ------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
-| --guide-tour-text-color   | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 引导教程文本颜色     |
-| --guide-tour-clear-color  | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 引导教程清除按钮颜色 |
-| --guide-tour-dot-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 引导教程步骤点颜色   |
-| --guide-tour-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | 引导教程边框颜色     |
-| --guide-tour-btn-color    | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 引导教程按钮颜色     |
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                    | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注                 |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
+| --guide-tour-text-color   | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 引导教程文本颜色     |
+| --guide-tour-clear-color  | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 引导教程清除按钮颜色 |
+| --guide-tour-dot-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 引导教程步骤点颜色   |
+| --guide-tour-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | 引导教程边框颜色     |
+| --guide-tour-btn-color    | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 引导教程按钮颜色     |

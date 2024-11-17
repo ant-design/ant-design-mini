@@ -32,8 +32,9 @@ supportPlatform: ['alipay']
 ## 代码示例
 
 ### 基本使用
+
 ```xml
-<ant-countdown 
+<ant-countdown
   countdownEndTime="{{countdownDay}}"
   countdownType="day"
 #if ALIPAY
@@ -65,14 +66,15 @@ Page({
 ```
 
 ### 设置主题色
+
 ```xml
-<ant-countdown 
+<ant-countdown
   theme="{{{
     backgroundColor:'#ffffff',
     timeColor:'#ff3141',
     textColor:'#ff3141'
-  }}}" 
-  countdownEndTime="{{countdownDay}}" 
+  }}}"
+  countdownEndTime="{{countdownDay}}"
   countdownType="day"
 >
   <text slot="prefix">剩余</text>
@@ -80,9 +82,10 @@ Page({
 ```
 
 ### 厘秒倒计时
+
 ```xml
-<ant-countdown 
-  countdownEndTime="{{countdownDay}}" 
+<ant-countdown
+  countdownEndTime="{{countdownDay}}"
   themeDisabled="{{true}}"
   decisecond="{{true}}"
 >
@@ -95,23 +98,27 @@ Page({
 
 ## 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| className | 容器 className | string | - |
-| countdownEndTime | 结束时间戳 | string丨number | - |
-| countdownStartTime | 起始时间戳 | string丨number | 当前时间戳 |
-| time | 与 countdownEndTime 二选一，单位为秒 | number | 0 |
-| theme | 主题配置 | [Theme](#theme) | - |
-| themeDisabled | 禁用主题色 | boolean | false |
-| autoShowDay | 小于一天自动不展示天 | boolean | true |
-| countdownType | 超长倒计时需要展示天数 | string | - |
-| decisecond | 支持厘秒倒计时，仅在禁用主题色时生效 | 否boolean| false |
-| #if ALIPAY onCountdownChange | 倒计时变化时的回调 | Function | - |
-| #if ALIPAY onCountdownFinish | 倒计时结束回调 | Function | - |  |
-| #if WECHAT bind:countdownChange | 倒计时变化时的回调 | Function | - |
-| #if WECHAT bind:countdownFinish | 倒计时结束回调 | Function | - |  |
+| 属性                            | 说明                                 | 类型             | 默认值     |
+| ------------------------------- | ------------------------------------ | ---------------- | ---------- | --- |
+| className                       | 容器 className                       | string           | -          |
+| countdownEndTime                | 结束时间戳                           | string 丨 number | -          |
+| countdownStartTime              | 起始时间戳                           | string 丨 number | 当前时间戳 |
+| time                            | 与 countdownEndTime 二选一，单位为秒 | number           | 0          |
+| theme                           | 主题配置                             | [Theme](#theme)  | -          |
+| themeDisabled                   | 禁用主题色                           | boolean          | false      |
+| autoShowDay                     | 小于一天自动不展示天                 | boolean          | true       |
+| countdownType                   | 超长倒计时需要展示天数               | string           | -          |
+| decisecond                      | 支持厘秒倒计时，仅在禁用主题色时生效 | 否 boolean       | false      |
+| #if ALIPAY onCountdownChange    | 倒计时变化时的回调                   | Function         | -          |
+| #if ALIPAY onCountdownFinish    | 倒计时结束回调                       | Function         | -          |     |
+| #if WECHAT bind:countdownChange | 倒计时变化时的回调                   | Function         | -          |
+| #if WECHAT bind:countdownFinish | 倒计时结束回调                       | Function         | -          |     |
 
-### Theme
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
 | 键名            | 说明         | 类型     |
 | --------------- | ------------ | -------- |
@@ -121,8 +128,8 @@ Page({
 
 ## 插槽
 
-| 名称 | 说明 |
-| -------- | -------- |
-| - | 默认插槽 |
+| 名称   | 说明       |
+| ------ | ---------- |
+| -      | 默认插槽   |
 | prefix | 倒计时头部 |
 | suffix | 倒计时尾部 |
