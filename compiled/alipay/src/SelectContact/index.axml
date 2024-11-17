@@ -11,10 +11,10 @@
     <input
       placeholder="请输入内容"
       onChange="onChange"
-      className="search-bar"
-      focusClassName="search-bar-focus"
-      confirmType="search"
-      allowClear
+      class-name="search-bar"
+      focus-class-name="search-bar-focus"
+      confirm-type="search"
+      allow-clear
       focus
       onConfirm="onConfirm"
     >
@@ -44,15 +44,94 @@
     <block a:else>
       <scroll-view
         a:if="{{!contactListEmpty}}"
-        scrollY
+        scroll-y
         class="contact-scroll"
-        trapScroll="{{false}}"
-        scrollIntoView="{{toView}}"
+        trap-scroll="{{false}}"
+        scroll-into-view="{{toView}}"
       >
         <list>
-          <list-item>1</list-item>
-          <list-item>2</list-item>
-          <list-item>3</list-item>
+          <block
+            a:for="{{recommendContactsList}}"
+            a:for-index="index"
+            a:for-item="list"
+            key="{{list}}"
+          >
+            <!--id用于字母表滚动定位-->
+            <view id="{{util.getId(list.name)}}"></view>
+            <view class="{{'title ' + (list.className || '') + (isIOS ? ' title__ios' : '')}}">
+              {{list.name}}
+            </view>
+            <view
+              class="contact-recommend"
+              a:for="{{list.value}}"
+              a:for-index="index"
+              a:for-item="item"
+              key="{{item.userId}}"
+            >
+              <swipe-action
+                right="{{right}}"
+                swiped="{{item.userId === currentSelectedDeleteUID}}"
+                key="{{item.userId}}"
+                callback-data="{{item}}"
+                out-of-bounds="{{false}}"
+                inertia-width="{{0}}"
+                onSwipeEnd="onSwipeEnd"
+                onSwipeStart="onSwipeStart"
+                onRightItemEvent="onRightItemEvent"
+              >
+                <list-item
+                  image="{{item.avatar || 'https://gw.alipayobjects.com/zos/bmw-prod/84a917f8-0279-49c9-82e5-4effc58c4c85.svg'}}"
+                  upper-subtitle="{{item.loginId}}"
+                  arrow="{{true}}"
+                  data-item="{{item}}"
+                  data-personSource="{{list.personSource}}"
+                  onClick="onItemClick"
+                >
+                  {{item.displayName}}
+                  <view
+                    a:if="{{item.tag}}"
+                    class="tag"
+                    slot="afterTitle"
+                  >{{item.tag}}</view>
+                </list-item>
+              </swipe-action>
+            </view>
+            <!--全部联系人列表-->
+            <view
+              a:for="{{allContactsList}}"
+              a:for-index="index"
+              a:for-item="list"
+              key="{{list}}"
+            >
+              <!--id用于字母表滚动定位-->
+              <view id="{{util.getId(list.name)}}"></view>
+              <view class="{{'title ' + (list.className || '') + (isIOS ? ' title__ios' : '')}}">
+                {{list.name}}
+              </view>
+              <view
+                a:for="{{list.value}}"
+                a:for-index="index"
+                a:for-item="item"
+                key="{{item.userId}}"
+              >
+                <list-item
+                  image="{{item.avatar || 'https://gw.alipayobjects.com/zos/bmw-prod/84a917f8-0279-49c9-82e5-4effc58c4c85.svg'}}"
+                  upper-subtitle="{{item.loginId}}"
+                  arrow="{{true}}"
+                  data-item="{{item}}"
+                  data-personSource="{{list.personSource}}"
+                  onClick="onItemClick"
+                >
+                  {{item.displayName}}
+                  <view
+                    a:if="{{item.tag}}"
+                    class="tag"
+                    slot="afterTitle"
+                  >{{item.tag}}</view>
+                </list-item>
+              </view>
+            </view>
+          </block>
         </list>
       </scroll-view>
       <slot
@@ -72,10 +151,36 @@
     hidden="{{!showSearch}}"
   >
     <scroll-view
-      scrollY
+      scroll-y
       class="normal {{searchStatus !== 'normal' ? 'hidden' : ''}}"
     >
-      这里有个列表
+      <list>
+        <list-item
+          image="{{item.avatar || 'https://gw.alipayobjects.com/zos/bmw-prod/84a917f8-0279-49c9-82e5-4effc58c4c85.svg'}}"
+          upper-subtitle="{{item.loginId}}"
+          arrow="{{true}}"
+          data-item="{{item}}"
+          data-personSource="search"
+          onClick="onItemClick"
+          a:for="{{searchList}}"
+          a:for-index="index"
+          a:for-item="item"
+        >
+          <view
+            class="display-name {{node.className}}"
+            a:for="{{item.nodes}}"
+            a:for-index="index"
+            a:for-item="node"
+          >
+            {{node.text}}
+          </view>
+          <view
+            a:if="{{item.tag}}"
+            class="tag"
+            slot="afterTitle"
+          >{{item.tag}}</view>
+        </list-item>
+      </list>
     </scroll-view>
     <view
       class="loading"
@@ -84,7 +189,7 @@
       <view class="loading-text">搜索中</view>
       <loading
         type="mini"
-        miniSize="10rpx"
+        mini-size="10rpx"
       ></loading>
     </view>
     <view

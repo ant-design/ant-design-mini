@@ -1,0 +1,39 @@
+export const recommendUserInfos = [
+  {
+    "avatar": "https://tfs.alipayobjects.com/images/partner/T1ZmlwXkhdXXXXXXXX",
+    "loginId": "138******28",
+    "recommendTypeDesc": "转过账",
+    "userId": "2088522664435537",
+    "displayName": "**兵s",
+    "archiveId": "12239c8131423831947419933e26ed198",
+  },
+  {
+    "avatar": "https://tfs.alipayobjects.com/images/partner/T1KLXBXdFXXXXXXXXX",
+    "loginId": "180******74",
+    "recommendTypeDesc": "好友",
+    "userId": "2088422553945892",
+    "displayName": "消散(**威)",
+    "archiveId": "12239c8131423831947419973e26ed191",
+  },
+  {
+    "avatar": "",
+    "loginId": "152******87",
+    "recommendTypeDesc": "好友",
+    "userId": "2088422747013123",
+    "displayName": "**恒",
+    "archiveId": "12239c8131423831247419973e26ed198",
+  },
+  {
+    "avatar": "",
+    "displayName": "kwxyjh(k*)",
+    "hasPwd": false,
+    "nick": "",
+    "realName": "k*",
+    "certified": false,
+    "recommendType": "my_home#FORWARD",
+    "userId": "2088402857154680",
+    "archiveId": "12239c8131423831947419973e26ed198",
+    "loginId": "132******37",
+    "recommendTypeDesc": "我的家"
+  }
+],

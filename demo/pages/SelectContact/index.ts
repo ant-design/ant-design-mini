@@ -1,5 +1,10 @@
+import { contacts, recommendUserInfos } from './contact';
+
 Page({
-  data: {},
+  data: {
+    recommendContactsList: recommendUserInfos,
+    allContactsList: contacts,
+  },
   onLoad: () => {
     // Android 必须设置 canPullDown 为 false，否则滚动会有问题
     my.setCanPullDown({
