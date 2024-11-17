@@ -1,4 +1,4 @@
-@import (reference) '../style/themes/index.less';
+@import (reference) './variable.less';
 @import (reference) '../style/mixins/hairline.less';
 
 @tablePrefix: ant-table;
@@ -21,7 +21,7 @@
     &-item {
       display: flex;
       position: relative;
-      .hairline('bottom', #e5e5e5);
+      .hairline('bottom', @table-bottom-border-color);
 
       &::after {
         margin-left: 30 * @rpx;
@@ -54,8 +54,8 @@
         align-items: center;
         font-size: @valueSize;
         font-weight: 400;
-        color: #333;
-        background-color: #fff;
+        color: @table-item-color;
+        background-color: @table-item-bg;
         flex-grow: 1;
         padding: 24 * @rpx;
         min-height: 62 * @rpx;
@@ -82,7 +82,7 @@
             bottom: -1px;
             display: block;
             width: 30 * @rpx;
-            box-shadow: inset 5 * @rpx 0 8 * @rpx 0 rgba(5, 5, 5, 0.06);
+            box-shadow: inset 5 * @rpx 0 8 * @rpx 0 @table-shadow-color;
             transform: translateX(100%);
             transition: box-shadow 0.3s;
             pointer-events: none;
@@ -96,7 +96,7 @@
     padding-top: 50 * @rpx;
     height: 300 * @rpx;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: @table-empty-bg;
 
     &-image {
       position: sticky;

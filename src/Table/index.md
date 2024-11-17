@@ -31,16 +31,26 @@ toc: 'content'
 ## 代码示例
 
 ### 基础用法
+
 ```xml
-<ant-table 
+<ant-table
   className='ant-table'
-  dataSource="{{dataSource}}" 
-  columns="{{columns}}" 
+  dataSource="{{dataSource}}"
+  columns="{{columns}}"
 />
 ```
 
 ```js
-const nameArr = ['小明', '小何', '小花', '小美', '小白', '小黑', '小帅', '阿伟'];
+const nameArr = [
+  '小明',
+  '小何',
+  '小花',
+  '小美',
+  '小白',
+  '小黑',
+  '小帅',
+  '阿伟',
+];
 const sexArr = ['男', '女'];
 const ageArr = ['40', '18', '32', '20', '33', '48', '28', '38'];
 const favoriteArr = ['羽毛球', '乒乓球', '篮球', '桌球'];
@@ -98,37 +108,38 @@ Page({
     ],
   },
 });
-
 ```
 
 ### 局部滚动
+
 ```xml
-<ant-table 
-  dataSource="{{dataSource}}" 
-  columns="{{columns}}" 
-  scrollHeight="300rpx" 
+<ant-table
+  dataSource="{{dataSource}}"
+  columns="{{columns}}"
+  scrollHeight="300rpx"
 />
 ```
 
 ### 铺满展示
+
 ```xml
-<ant-table 
-  dataSource="{{dataSource}}" 
-  columns="{{fullColumns}}" 
+<ant-table
+  dataSource="{{dataSource}}"
+  columns="{{fullColumns}}"
   displayType="FULL"
 />
 ```
 
 ### 空数据插槽
+
 ```xml
-<ant-table 
-  dataSource="{{[]}}" 
+<ant-table
+  dataSource="{{[]}}"
   columns="{{columns}}"
 >
   <image src="https://mdn.alipayobjects.com/huamei_9iifqq/afts/img/A*AWeXQYuIODwAAAAAAAAAAAAADjWYAQ/original" />
 </ant-table>
 ```
-
 
 ### Demo 代码
 
@@ -136,28 +147,41 @@ Page({
 
 ## 属性
 
-| 属性           | 说明            | 类型       | 默认值   |
-|--------------|---------------|-----------|-------------------|
-| className    | 容器 className | string | - |
-| dataSource   | 数据源 | any[] | - |
-| columns      | 表格列的配置描述 | [Column](#column)[] | - |
-| displayType  | 表格样式类型，默认样式会根据配置的宽度进行展示，可选 `FULL`、`DEFAULT` | string | DEFAULT |
-| scrollHeight | 指定可滚动区域高度 | string | - |
+| 属性         | 说明                                                                   | 类型                | 默认值  |
+| ------------ | ---------------------------------------------------------------------- | ------------------- | ------- |
+| className    | 容器 className                                                         | string              | -       |
+| dataSource   | 数据源                                                                 | any[]               | -       |
+| columns      | 表格列的配置描述                                                       | [Column](#column)[] | -       |
+| displayType  | 表格样式类型，默认样式会根据配置的宽度进行展示，可选 `FULL`、`DEFAULT` | string              | DEFAULT |
+| scrollHeight | 指定可滚动区域高度                                                     | string              | -       |
 
 ### Column
 
-| 属性           | 说明            | 类型       | 默认值   |
-|--------------|---------------|-----------|-------------------|
-| title    | 列标题 | string | - |
-| dataIndex    | 列取值字段 | string | - |
-| key    | 列唯一标识 | string | - |
-| width    | 列宽度 | number | - |
-| fixed    | 是否固定列 | boolean | - |
-| textAlignRight    | 列文本是否右对齐 | boolean | - |
+| 属性           | 说明             | 类型    | 默认值 |
+| -------------- | ---------------- | ------- | ------ |
+| title          | 列标题           | string  | -      |
+| dataIndex      | 列取值字段       | string  | -      |
+| key            | 列唯一标识       | string  | -      |
+| width          | 列宽度           | number  | -      |
+| fixed          | 是否固定列       | boolean | -      |
+| textAlignRight | 列文本是否右对齐 | boolean | -      |
 
 ## 插槽
 
-| 名称        | 说明                 |
-| ----------- | -------------------- |
-| 默认插槽    | 数据源为空插槽             |
-| #if ALIPAY item | 单元格插槽 |
+| 名称            | 说明           |
+| --------------- | -------------- |
+| 默认插槽        | 数据源为空插槽 |
+| #if ALIPAY item | 单元格插槽     |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名               | 默认值                                                                                                                    | 深色模式默认值                                                                                                            | 备注               |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| --table-item-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                         | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | 表项颜色           |
+| --table-item-bg      | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                         | 表项背景颜色       |
+| --table-shadow-color | <div style="width: 150px; height: 30px; background-color: rgba(5, 5, 5, 0.06); color: #ffffff;">rgba(5, 5, 5, 0.06)</div> | <div style="width: 150px; height: 30px; background-color: rgba(5, 5, 5, 0.06); color: #ffffff;">rgba(5, 5, 5, 0.06)</div> | 表格阴影颜色       |
+| --table-empty-bg     | <div style="width: 150px; height: 30px; background-color: #fff; color: #333333;">#fff</div>                               | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | 表格空状态背景颜色 |
