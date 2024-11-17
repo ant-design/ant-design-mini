@@ -37,10 +37,10 @@ toc: 'content'
 <ant-collapse
   items="{{items}}"
 #if ALIPAY
-  onChange="onChange" 
+  onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange" 
+  bind:change="onChange"
 #endif
 />
 ```
@@ -51,48 +51,49 @@ Page({
     items: [
       {
         title: '第一项标题',
-        content: '第一项内容'
+        content: '第一项内容',
       },
       {
         title: '第二项标题',
-        content: '第二项内容'
+        content: '第二项内容',
       },
       {
         title: '第三项标题',
-        content: '第三项内容'
+        content: '第三项内容',
       },
-    ]
+    ],
   },
   onChange(current) {
     console.log(current);
-  }
+  },
 });
-
 ```
 
 ### 手风琴模式
+
 ```xml
 <ant-collapse
   accordion="{{true}}"
   items="{{items}}"
 #if ALIPAY
-  onChange="onChange" 
+  onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange" 
+  bind:change="onChange"
 #endif
 />
 ```
 
 ### 列表项控制
+
 ```xml
 <ant-button
   inline="{{true}}"
 #if ALIPAY
-  onTap="addItems" 
+  onTap="addItems"
 #endif
 #if WECHAT
-  bind:tap="addItems" 
+  bind:tap="addItems"
 #endif
 >
   添加items
@@ -102,23 +103,24 @@ Page({
   items="{{items}}"
 />
 ```
+
 ```js
 Page({
   data: {
     items: [
       {
         title: '第一项标题',
-        content: '第一项内容'
+        content: '第一项内容',
       },
       {
         title: '第二项标题',
-        content: '第二项内容'
+        content: '第二项内容',
       },
       {
         title: '第三项标题',
-        content: '第三项内容'
+        content: '第三项内容',
       },
-    ]
+    ],
   },
   addItems() {
     const items = [
@@ -149,7 +151,7 @@ Page({
     <view>
       <ant-checkbox
         data-index="{{item.index}}"
-        onChange="onChange" 
+        onChange="onChange"
       />
     </view>
     <view>{{item.value.title}}</view>
@@ -201,12 +203,12 @@ Page({
 #### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
-| 变量名 | 默认值 | 备注 |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| --collapse-title-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 折叠面板标题背景颜色 |
-| --collapse-title-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 折叠面板标题颜色 |
-| --collapse-title-icon-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #ffffff;">#cccccc</div> | 折叠面板标题图标颜色 |
-| --collapse-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 折叠面板内容背景颜色 |
-| --collapse-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | 折叠面板边框颜色 |
-| --collapse-node-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 折叠面板节点文本颜色 |
-| --collapse-container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 折叠面板容器背景颜色 |
+| 变量名 | 默认值 | 深色模式默认值 | 备注 |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------- |
+| --collapse-title-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | 折叠面板标题背景颜色 |
+| --collapse-title-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 折叠面板标题颜色 |
+| --collapse-title-icon-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #ffffff;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | 折叠面板标题图标颜色 |
+| --collapse-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | 折叠面板内容背景颜色 |
+| --collapse-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #333333;">#2b2b2b</div> | 折叠面板边框颜色 |
+| --collapse-node-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 折叠面板节点文本颜色 |
+| --collapse-container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #333333;">#000000</div> | 折叠面板容器背景颜色 |

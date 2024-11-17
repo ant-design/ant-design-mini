@@ -142,7 +142,9 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名             | 默认值                                                                                            | 备注                    |
-| ------------------ | ------------------------------------------------------------------------------------------------- | ----------------------- |
-| --rate-active-icon | <div style="width: 150px; height: 30px; background-color: #ff9f18; color: #ffffff;">#ff9f18</div> | Rate 激活状态的图标颜色 |
-| --rate-icon-color  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | Rate 默认图标颜色       |
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名             | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注                    |
+| ------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------- |
+| --rate-active-icon | <div style="width: 150px; height: 30px; background-color: #ff9f18; color: #ffffff;">#ff9f18</div> | <div style="width: 150px; height: 30px; background-color: #ffa930; color: #ffffff;">#ffa930</div> | Rate 激活状态的图标颜色 |
+| --rate-icon-color  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | Rate 默认图标颜色       |

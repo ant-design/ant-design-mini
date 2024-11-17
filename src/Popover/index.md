@@ -33,6 +33,7 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
+
 ```xml
 <popover
   content="简单的tips"
@@ -48,6 +49,7 @@ toc: 'content'
 ```
 
 ### 支持图片和行动点按钮
+
 ```xml
 <popover
   content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
@@ -61,7 +63,9 @@ toc: 'content'
 ```
 
 ### 自定义
+
 #### 颜色
+
 ```xml
 <popover
   content="红色"
@@ -69,7 +73,9 @@ toc: 'content'
   <ant-button style="margin-right: 24rpx;" inline type="primary">自定义颜色</ant-button>
 </popover>
 ```
+
 #### 插槽
+
 ```xml
 <popover content="左右插槽">
   <ant-button inline style="margin-right: 24rpx;">插槽</ant-button>
@@ -77,8 +83,11 @@ toc: 'content'
   <icon slot="rightContent" style="font-size: 48rpx; margin-left: 24rpx;" type="FaceRecognitionOutline" />
 </popover>
 ```
+
 #### 位置
+
 可选 top、top-right、top-left、bottom、bottom-left、bottom-right、left、left-top、left-bottom、right、right-top 或 right-bottom
+
 ```xml
 <popover placement="top-right">
   <ant-button size="small" inline>点我</ant-button>
@@ -87,6 +96,7 @@ toc: 'content'
 ```
 
 ### 受控
+
 ```xml
 <view>
   <popover
@@ -106,6 +116,7 @@ toc: 'content'
     更改visible
 </ant-button>
 ```
+
 ```js
 Page({
   data: { visible: false },
@@ -114,11 +125,11 @@ Page({
       visible: !this.data.visible,
     });
   },
-})
+});
 ```
 
+### Demo 代码
 
-### Demo代码
 <code src='../../demo/pages/Popover/index' noChangeButton></code>
 
 ## API
@@ -147,9 +158,11 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                     | 默认值                                                                                            | 备注             |
-| -------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
-| --color-background-popover | <div style="width: 150px; height: 30px; background-color: #404040; color: #ffffff;">#404040</div> | Popover 默认底色 |
-| --popover-bg               | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Popover 背景颜色 |
-| --popover-text-color       | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | Popover 文字颜色 |
-| --popover-inner-color      | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | Popover 内部颜色 |
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                     | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注             |
+| -------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --popover-color-background | <div style="width: 150px; height: 30px; background-color: #404040; color: #ffffff;">#404040</div> | <div style="width: 150px; height: 30px; background-color: #404040; color: #ffffff;">#404040</div> | Popover 默认底色 |
+| --popover-bg               | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Popover 背景颜色 |
+| --popover-text-color       | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | Popover 文字颜色 |
+| --popover-inner-color      | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div> | Popover 内部颜色 |

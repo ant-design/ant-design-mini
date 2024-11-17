@@ -33,6 +33,7 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
+
 ```xml
 <result type="success" title="操作成功" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
 
@@ -46,6 +47,7 @@ toc: 'content'
 ```
 
 ### 插槽
+
 ```xml
 <result
   image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
@@ -57,9 +59,8 @@ toc: 'content'
 </result>
 ```
 
+### Demo 代码
 
-
-### Demo代码
 <code src='../../demo/pages/Result/index'></code>
 
 ## API
@@ -80,12 +81,14 @@ toc: 'content'
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                   | 默认值                                                                                            | 备注                |
-| ------------------------ | ------------------------------------------------------------------------------------------------- | ------------------- |
-| --result-main-background | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Result 主背景颜色   |
-| --result-title-color     | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | Result 标题颜色     |
-| --result-desc-color      | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | Result 描述文字颜色 |
-| --result-success-color   | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | Result 成功状态颜色 |
-| --result-error-color     | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | Result 错误状态颜色 |
-| --result-warning-color   | <div style="width: 150px; height: 30px; background-color: #ff8f1f; color: #ffffff;">#ff8f1f</div> | Result 警告状态颜色 |
-| --result-wait-color      | <div style="width: 150px; height: 30px; background-color: #00b578; color: #ffffff;">#00b578</div> | Result 等待状态颜色 |
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                   | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注                |
+| ------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------- |
+| --result-main-background | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Result 主背景颜色   |
+| --result-title-color     | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | Result 标题颜色     |
+| --result-desc-color      | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Result 描述文字颜色 |
+| --result-success-color   | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Result 成功状态颜色 |
+| --result-error-color     | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | Result 错误状态颜色 |
+| --result-warning-color   | <div style="width: 150px; height: 30px; background-color: #ff8f1f; color: #ffffff;">#ff8f1f</div> | <div style="width: 150px; height: 30px; background-color: #ff8f1f; color: #ffffff;">#ff8f1f</div> | Result 警告状态颜色 |
+| --result-wait-color      | <div style="width: 150px; height: 30px; background-color: #00b578; color: #ffffff;">#00b578</div> | <div style="width: 150px; height: 30px; background-color: #00b578; color: #ffffff;">#00b578</div> | Result 等待状态颜色 |
