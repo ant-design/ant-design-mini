@@ -73,16 +73,15 @@ export const ComponentWithSignalStoreImpl = <
 ) => {
   const storeBinder = new StoreBinder(storeOptions);
 
-  // 确保 instanceMethods 存在
-  const instanceMethodsCopy: ExtendedInstanceMethods = { ...instanceMethods };
-
-  // 备份原有的 onInit 和 didUnmount 方法
-  const onInitBackup = instanceMethodsCopy.onInit || (() => {});
-  const onDidUnmountBackup = instanceMethodsCopy.didUnmount || (() => {});
-
   const defaultOnInit = function () {
     storeBinder.init(this as unknown as TStoreInitOptions<S>);
   };
+  const instanceMethodsCopy: ExtendedInstanceMethods = { ...instanceMethods };
+
+  // 确保 instanceMethods 存在
+  // 备份原有的 onInit 和 didUnmount 方法
+  const onInitBackup = instanceMethodsCopy.onInit || (() => {});
+  const onDidUnmountBackup = instanceMethodsCopy.didUnmount || (() => {});
 
   instanceMethodsCopy.onInit = function () {
     defaultOnInit.call(this);
@@ -92,7 +91,9 @@ export const ComponentWithSignalStoreImpl = <
   };
 
   instanceMethodsCopy.didUnmount = function () {
-    onDidUnmountBackup.call(this);
+    if (onDidUnmountBackup) {
+      onDidUnmountBackup.call(this);
+    }
     storeBinder.dispose();
   };
 
@@ -100,6 +101,7 @@ export const ComponentWithSignalStoreImpl = <
   if (!instanceMethodsCopy.onInit) {
     instanceMethodsCopy.onInit = defaultOnInit;
   }
+
 
 
   Component({

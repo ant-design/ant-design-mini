@@ -41,7 +41,7 @@
       hover-stay-time="50"
       onTap="onCancel"
     >
-      {{ cancelText === null ? cancelText : locale.global.cancelText }}
+      {{ cancelText === null ? locale.global.cancelText : cancelText }}
     </view>
     <view class="ant-picker-header-item ant-picker-header-title">
       <!-- #if ALIPAY -->
@@ -89,7 +89,7 @@
         <picker-view-column class="ant-picker-picker-view-column">
           <!-- display: inline -->
           <text style="color: #ccc">
-            {{ emptyText === null ?  emptyText : locale.global.emptyText}}
+            {{ emptyText === null ? locale.global.emptyText : emptyText}}
           </text>
         </picker-view-column>
       </picker-view>

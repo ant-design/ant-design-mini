@@ -53,12 +53,12 @@
   >
     <template
       is="selector"
-      data="{{ placeholder: startPlaceholder === undefined ? locale.RangePicker.startPlaceholder : startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision }}"
+      data="{{ placeholder: startPlaceholder === null ? locale.RangePicker.startPlaceholder : startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision }}"
     ></template>
     <view class="ant-range-picker-selector-split">{{splitCharacter}}</view>
     <template
       is="selector"
-      data="{{ placeholder: endPlaceholder === undefined ? locale.RangePicker.endPlaceholder : endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision }}"
+      data="{{ placeholder: endPlaceholder === null ? locale.RangePicker.endPlaceholder : endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision }}"
     ></template>
   </view>
   <slot

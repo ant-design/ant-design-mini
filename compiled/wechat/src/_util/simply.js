@@ -46,27 +46,26 @@ function mergeDefaultProps(defaultProps) {
 }
 export var ComponentWithSignalStoreImpl = function (storeOptions, defaultProps, methods, data, mixins, instanceMethods) {
     var storeBinder = new StoreBinder(storeOptions);
-    // 确保 instanceMethods 存在
-    var instanceMethodsCopy = __assign({}, instanceMethods);
-    // 备份原有的 onInit 和 didUnmount 方法
-    var onInitBackup = instanceMethodsCopy.onInit || (function () { });
-    var onDidUnmountBackup = instanceMethodsCopy.didUnmount || (function () { });
     var defaultOnInit = function () {
         storeBinder.init(this);
     };
-    instanceMethodsCopy.onInit = function () {
+    var instanceMethodsCopy = __assign({}, instanceMethods);
+    var createdBackup = instanceMethodsCopy.created || (function () { });
+    var detachedBackup = instanceMethodsCopy.detached || (function () { });
+    instanceMethodsCopy.created = function () {
         defaultOnInit.call(this);
-        if (onInitBackup) {
-            onInitBackup.call(this);
+        if (createdBackup) {
+            createdBackup.call(this);
         }
     };
-    instanceMethodsCopy.didUnmount = function () {
-        onDidUnmountBackup.call(this);
+    instanceMethodsCopy.detached = function () {
+        if (detachedBackup) {
+            detachedBackup.call(this);
+        }
         storeBinder.dispose();
     };
-    // 这里确保 instanceMethodsCopy.onInit 被正确执行
-    if (!instanceMethodsCopy.onInit) {
-        instanceMethodsCopy.onInit = defaultOnInit;
+    if (!instanceMethodsCopy.created) {
+        instanceMethodsCopy.created = defaultOnInit;
     }
     Component(__assign({ properties: buildProperties(mergeDefaultProps(defaultProps)), options: {
             styleIsolation: 'shared',

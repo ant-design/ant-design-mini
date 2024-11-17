@@ -21,7 +21,9 @@ ComponentWithSignalStoreImpl(
     store: () => i18nController,
     updateHook: effect,
     mapState: {
-      locale: ({ store }) => store.currentLocale.value,
+      locale: ({ store }) => {
+        return store.currentLocale.value;
+      },
     },
   },
   PickerDefaultProps,
