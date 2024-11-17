@@ -46,7 +46,6 @@ ComponentWithSignalStoreImpl({
     mapState: {
         locale: function (_a) {
             var store = _a.store;
-            console.log('vlocale', store, store.currentLocale.value);
             return store.currentLocale.value;
         },
     },
