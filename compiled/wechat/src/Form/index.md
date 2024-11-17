@@ -9,8 +9,6 @@ toc: 'content'
 
 # Form 表单
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 [component2](https://opendocs.alipay.com/mini/framework/custom-component-overview) 支持。
 
 ## 何时使用
@@ -18,71 +16,89 @@ Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 
 - 用于创建实体或收集信息。
 - 需要对输入的数据类型进行校验时。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-form": "antd-mini/es/Form/index"
+#endif
+#if WECHAT
+  "ant-form": "antd-mini/Form/index"
+#endif
+}
+```
+
 ## 代码示例
 
 ### 基本使用
 
-<code src='../../demo/pages/Form/index'></code>
+<code src='../../demo/pages/Form/FormBasic/index'></code>
 
 ### 布局
 
-<!-- <code src='pages/FormLayout/index'></code> -->
+<code src='../../demo/pages/Form/FormLayout/index'></code>
 
 ### 初始值
 
-<!-- <code src='pages/FormInitialValues/index'></code> -->
+<code src='../../demo/pages/Form/FormInitialValues/index'></code>
 
 ### 初始值异步加载
 
-<!-- <code src='pages/FormInitialValuesAsync/index'></code> -->
+<code src='../../demo/pages/Form/FormInitialValuesAsync/index'></code>
 
 ### 表单侦听
 
-<!-- <code src='pages/FormWatch/index'></code> -->
+<code src='../../demo/pages/Form/FormWatch/index'></code>
 
 ### 校验
 
-<!-- <code src='pages/FormRules/index'></code> -->
+<code src='../../demo/pages/Form/FormRules/index'></code>
 
 ### 增加删除表单项
 
-<!-- <code src='pages/FormDynamic/index'></code> -->
+<code src='../../demo/pages/Form/FormDynamic/index'></code>
 
 ### 表单项联动
 
-<!-- <code src='pages/FormDependency/index'></code> -->
+<code src='../../demo/pages/Form/FormDependency/index'></code>
 
 ### 自定义表单项校验
 
-<!-- <code src='pages/FormValidate/index'></code> -->
+<code src='../../demo/pages/Form/FormValidate/index'></code>
 
 ### 自定义表单校验消息
 
-<!-- <code src='pages/FormValidateMessages/index'></code> -->
+<code src='../../demo/pages/Form/FormValidateMessages/index'></code>
 
 ### 多个表单
 
-<!-- <code src='pages/FormMultiple/index'></code> -->
+<code src='../../demo/pages/Form/FormMultiple/index'></code>
 
 ### 图片校验
 
-<!-- <code src='pages/FormImageUploadRules/index'></code> -->
+<code src='../../demo/pages/Form/FormImageUploadRules/index'></code>
 
 ### JSON 生成表单
 
-<!-- <code src='pages/FormJSON/index'></code> -->
+<code src='../../demo/pages/Form/FormJSON/index'></code>
 
 ### 自定义错误样式
 
 使用 `validateStatus: success` 及 `footer slot` 来自定义错误样式。
 
-<!-- <code src='pages/FormCustomError/index'></code> -->
+<code src='../../demo/pages/Form/FormCustomError/index'></code>
 
 ### 自定义表单项
 
 通过使用 [FormItem](#formitem)、[createForm](#createform) 可自定义表单项。示例里 `form-checklist`、`form-location` 为自定义表单项组件。
 
-<!-- <code src='pages/FormCustom/index'></code> -->
+<code src='../../demo/pages/Form/FormCustom/index'></code>
+
+### Demo代码
+<code src='../../demo/pages/Form/index'></code>
 
 ## API
 
