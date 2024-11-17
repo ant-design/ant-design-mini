@@ -37,9 +37,7 @@ Page({
     },
     onNextTap() {
         if (this.data.current === this.data.items.length - 1) {
-            my.alert({
-                content: '完成',
-            });
+            my.showToast({ content: '完成', duration: 1000 });
             return;
         }
         this.setData({
