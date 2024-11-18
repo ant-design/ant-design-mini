@@ -16,6 +16,7 @@
     --color-red: #ff3141;
     --color-red-faded: rgba(255, 49, 65, 0.7);
     --color-text-primary: #333333;
+    --color-text-assist: #999999;
     --color-text-weak: #cccccc;
     --color-text-weak-faded: rgba(204, 204, 204, 0.6);
     --color-border: #eeeeee;
@@ -150,7 +151,7 @@
     --collapse-node-text-color: #999999;
     --collapse-container-background-color: #ffffff;
     --container-header-color: #333333;
-    --color-text-assist: #999999;
+    --container-color-text-assist: #999999;
     --container-background-color: #ffffff;
     --divider-text-color: #333333;
     --divider-border-color: #e5e5e5;

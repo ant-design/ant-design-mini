@@ -12,6 +12,7 @@ page {
   --color-red: #ff4a58;
   --color-text-primary: #c5cad1;
   --color-text-secondary: #808080;
+  --color-text-assist: #616161;
   --color-text-weak: #474747;
   --color-text-weak-faded: rgba(71, 71, 71, 0.6);
   --color-border: #2b2b2b;
@@ -129,7 +130,7 @@ page {
   --collapse-node-text-color: #616161;
   --collapse-container-background-color: #000000;
   --container-header-color: #c5cad1;
-  --color-text-assist: #616161;
+  --container-color-text-assist: #616161;
   --container-background-color: #1a1a1a;
   --divider-text-color: #c5cad1;
   --divider-border-color: #444444;
