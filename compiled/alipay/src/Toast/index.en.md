@@ -80,29 +80,30 @@ Page({
 
 ## API
 
-| Property                  | Description                                                     | Type        | Default Value |
-| --------------------- | -------------------------------------------------------- | ----------- | ------ |
-| className             | Component root node class name                                           | string      | -      |
-| content               | Text content                                                 | string      | -      |
-| duration              | Duration, does not automatically close when 0                            | number      | 2000   |
-| maskCloseable         | Click whether the layer is closed                                         | boolean     | false  |
-| icon                  | Icon, supports all types of Icon components                            | string      | -      |
-| image                 | Picture Link                                                 | string      | -      |
-| maskStyle             | Masked Style                                                 | string      | -      |
-| showMask              | Whether to show the layer                                             | boolean     | false  |
-| style                 | Style                                                     | string      | -      |
-| type                  | Built-in icon type, optional `success` `error` `warning` `loading` | string      | -      |
-| visible               | Whether to hide                                                 | boolean     | false  |
-| #if ALIPAY onClose    | Callback after Toast is closed                                       | (e) => void | -      |
-| #if WECHAT bind:close | Callback after Toast is closed                                       | (e) => void | -      |
+| Property                  | Description                                                              | Type        | Default Value |
+| --------------------- | ----------------------------------------------------------------- | ----------- | ------ |
+| className             | Component root node class name                                                    | string      | -      |
+| content               | Text content                                                          | string      | -      |
+| duration              | Duration, does not automatically close when 0                                     | number      | 2000   |
+| maskCloseable         | Click whether the layer is closed                                                  | boolean     | false  |
+| icon                  | Icon, supports all types of Icon components                                     | string      | -      |
+| image                 | Picture Link                                                          | string      | -      |
+| maskStyle             | Masked Style                                                          | string      | -      |
+| showMask              | Whether to show the layer                                                      | boolean     | false  |
+| style                 | Style                                                              | string      | -      |
+| type                  | Built-in icon type, optional `success` `error` `warning` `loading` `alipay` | string      | -      |
+| textType              | Text type, optional `short` `long`the short type has a larger fillet               | string      | `long` |
+| visible               | Whether to hide                                                          | boolean     | false  |
+| #if ALIPAY onClose    | Callback after Toast is closed                                                | (e) => void | -      |
+| #if WECHAT bind:close | Callback after Toast is closed                                                | (e) => void | -      |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                | Default Value                                                                                                                    | Remarks               |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | --toast-default-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | Toast Default Background Color |
-| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                         | Toast Default Text Color |
+| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                         | Toast default text color |

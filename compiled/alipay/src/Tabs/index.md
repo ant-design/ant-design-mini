@@ -170,7 +170,7 @@ Page({
 - 点击 tab 可滚动到对应 tab title。
 - onChange 只会在 tab 切换触发，示例里自定义 title onTap 可滚动 current tab。
 
-<code src='../../demo/pages/TabsElevator/index'></code>
+<code src='../../demo/pages/Tabs/TabsElevator/index'></code>
 
 ### 吸顶
 
@@ -211,7 +211,7 @@ Page({
 ```
 
 ### 纵向电梯模式
-<code src='../../demo/pages/TabsVerticalElevator/index'></code>
+<code src='../../demo/pages/Tabs/TabsVerticalElevator/index'></code>
 
 ### Demo代码
 <code src='../../demo/pages/Tabs/index'></code>

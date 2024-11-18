@@ -147,9 +147,12 @@ Page({
 | position                      | Pop-up window layout, optional`top` `bottom` `left` `right`                                                                                                                       | string     | `bottom`    |
 | showMask                      | Whether to show the layer                                                                                                                                                      | boolean    | true        |
 | style                         | Style                                                                                                                                                              | string     | -           |
-| visible                       | Display                                                                                                                                                          | boolean    | false       |
+| visible                       | Whether to display                                                                                                                                                          | boolean    | false       |
 | width                         | The width, in position, is `left` or `right` unit px                                                                                                            | number     | -           |
 | zIndex                        | Pop-up Level                                                                                                                                                          | number     | 998         |
+| backgroundImage               | Background map of the pop-up box                                                                                                                                                      | string     | -           |
+| showClose                     | Show icon with bullet box closed                                                                                                                                               | boolean    | false       |
+| showBack                      | Show the icon returned by the bullet box                                                                                                                                               | boolean    | false       |
 | #if ALIPAY onClose            | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
 | #if ALIPAY onClickBack        | Click the back button to trigger the callback                                                                                                                                            | () => void | -           |
 | #if ALIPAY onAfterShow        | Trigger after full display                                                                                                                                                    | () => void | -           |
@@ -165,12 +168,14 @@ Page({
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                | Default Value                                                                                                              | Remarks                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| --popup-background    | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                   | Popup background color         |
-| --popup-color         | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                   | Popup text color         |
-| --popup-assit-color   | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div>                   | Popup Secondary Text Color     |
-| --popup-mask-close-bg | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 1); color: #ffffff;">rgba(0, 0, 0, 1)</div> | Popup Mask Off Background Color |
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                       | Default Value                                                                                                                    | Dark Mode Default                                                                                                            | Remarks                     |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| --popover-list-content-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.93); color: #ffffff;">rgba(0, 0, 0, 0.93)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.93); color: #ffffff;">rgba(0, 0, 0, 0.93)</div> | Popover List Content Background Color |
+| --popover-list-content-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | Popover List Content Color     |
+| --popover-list-badge-color   | <div style="width: 150px; height: 30px; background-color: #ff411c; color: #ffffff;">#ff411c</div>                         | <div style="width: 150px; height: 30px; background-color: #ff411c; color: #ffffff;">#ff411c</div>                         | Popover List Badge Color     |
+| --popover-list-content-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                         | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | Popover List Content Text Color |
 
 ## FAQ
 

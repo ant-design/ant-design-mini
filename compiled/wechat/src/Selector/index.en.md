@@ -200,7 +200,7 @@ Page({
 | -------- | ------------ | ---------------- | ------ |
 | disabled | Disable     | boolean          | -      |
 | subText  | Deputy Copywriter       | string           | -      |
-| text     | Copywriting         | string           | -      |
+| text     | Copy         | string           | -      |
 | value    | Current item value | string \| number | -      |
 
 ### Theme customization
@@ -209,10 +209,10 @@ Page({
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                            | Default Value                                                                                            | Remarks                 |
-| --------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
-| --selector-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Selector Background Color       |
-| --selector-item-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | Selector item background color     |
-| --selector-item-active-background | <div style="width: 150px; height: 30px; background-color: #e7f1ff; color: #333333;">#e7f1ff</div> | Selector Activate Item Background Color |
-| --selector-item-color             | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | Selector item color         |
-| --selector-item-sub-color         | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Selector item sub-color       |
+| Variable name                            | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                 |
+| --------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
+| --selector-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Selector Background Color       |
+| --selector-item-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Selector item background color     |
+| --selector-item-active-background | <div style="width: 150px; height: 30px; background-color: #e7f1ff; color: #333333;">#e7f1ff</div> | <div style="width: 150px; height: 30px; background-color: #0d2543; color: #ffffff;">#0d2543</div> | Selector Activate Item Background Color |
+| --selector-item-color             | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Selector item color         |
+| --selector-item-sub-color         | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Selector item sub-color       |

@@ -170,7 +170,7 @@ Page({
 - Click tab to scroll to the corresponding tab title.
 - The onChange will only be triggered in tab switching. In the example, the custom title onTap can scroll current tab.
 
-<code src='../../demo/pages/TabsElevator/index'></code>
+<code src='../../demo/pages/Tabs/TabsElevator/index'></code>
 
 ### ceiling
 
@@ -211,7 +211,7 @@ Page({
 ```
 
 ### Longitudinal elevator mode
-<code src='../../demo/pages/TabsVerticalElevator/index'></code>
+<code src='../../demo/pages/Tabs/TabsVerticalElevator/index'></code>
 
 ### Demo Code
 <code src='../../demo/pages/Tabs/index'></code>

@@ -175,14 +175,15 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
-| Variable name                             | Default Value                                                                                            | Remarks                     |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------ |
-| --radio-header-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | radio button head color         |
-| --radio-border-color               | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | radio button border color         |
-| --radio-background-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | Radio Button Background Color         |
-| --radio-disabled-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | radio button disabled state background color |
-| --radio-text-color                 | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | radio button text color         |
-| --radio-fake-icon-background-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | radio button fake icon background color   |
-| --radio-icon-colo                  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | radio button icon color         |
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+
+| Variable name                     | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks             |
+| -------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --progress-stroke-color    | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Progress bar main color     |
+| --progress-trail-color     | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Progress bar track color   |
+| --progress-success-color   | <div style="width: 150px; height: 30px; background-color: #22b35e; color: #ffffff;">#22b35e</div> | <div style="width: 150px; height: 30px; background-color: #34b368; color: #ffffff;">#34b368</div> | Progress bar success color   |
+| --progress-indicator-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Progress bar indicator color |
+| --progress-exception-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div> | Progress bar exception color   |
+| --progress-assist-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Progress bar auxiliary color   |

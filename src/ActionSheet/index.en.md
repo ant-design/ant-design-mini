@@ -193,12 +193,12 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
-| Variable name                       | Default Value                                                                                           | Remarks           |
-| ---------------------------- | ------------------------------------------------------------------------------------------------ | -------------- |
-| --actionsheet-danger-color   | <div style="width: 150px; height: 30px; background-color: #ff3141;">#ff3141</div>                | Hazardous color       |
-| --actionsheet-title-color    | <div style="width: 150px; height: 30px; background-color: #999999;">#999999</div>                | Title Color       |
-| --actionsheet-item-color     | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff">#333333</div> | Item Color       |
-| --actionsheet-item-active-bg | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333">#eeeeee</div> | Entries Activate Background Color |
-| --activesheet-item-cancel-bg | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333">#f5f5f5</div> | Entries cancel background color |
+| Variable name                       | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks           |
+| ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
+| --actionsheet-danger-color   | <div style="width: 150px; height: 30px; background-color: #ff3141;">#ff3141</div>                 | <div style="width: 150px; height: 30px; background-color: #ff4a58;">#ff4a58</div>                 | Hazardous color       |
+| --actionsheet-title-color    | <div style="width: 150px; height: 30px; background-color: #999999;">#999999</div>                 | <div style="width: 150px; height: 30px; background-color: #616161;">#616161</div>                 | Title Color       |
+| --actionsheet-item-color     | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Item Color       |
+| --actionsheet-item-active-bg | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #333333;">#2b2b2b</div> | Entries Activate Background Color |
+| --activesheet-item-cancel-bg | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #333333;">#121212</div> | Entries cancel background color |

@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: Other
-  order: 15
+  order: 16
 toc: content
 supportPlatform: ['alipay']
 ---

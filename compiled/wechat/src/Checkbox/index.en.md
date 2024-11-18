@@ -259,11 +259,11 @@ Page({
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                                | Default Value                                                                                            | Remarks                 |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
-| --checkbox-header-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Check Box Title Color       |
-| --checkbox-border-color               | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | Check Box Border Color       |
-| --checkbox-background-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | Checkbox Background Color       |
-| --checkbox-disabled-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | Check box Disable background color   |
-| --checkbox-text-color                 | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | Check Box Text Color       |
-| --checkbox-fake-icon-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Check Box Fake Icon Background Color |
+| Variable name                                | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                 |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
+| --checkbox-header-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Check Box Title Color       |
+| --checkbox-border-color               | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #333333;">#474747</div> | Check Box Border Color       |
+| --checkbox-background-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Checkbox Background Color       |
+| --checkbox-disabled-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #333333;">#121212</div> | Check box Disable background color   |
+| --checkbox-text-color                 | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Check Box Text Color       |
+| --checkbox-fake-icon-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Check Box Fake Icon Background Color |

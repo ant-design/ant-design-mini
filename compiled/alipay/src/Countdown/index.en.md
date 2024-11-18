@@ -2,9 +2,9 @@
 nav:
   path: /components
 group:
-  title: General
-  order: 2
-toc: 'content'
+  title: 业务组件
+  order: 15
+toc: content
 supportPlatform: ['alipay']
 ---
 
@@ -12,41 +12,124 @@ supportPlatform: ['alipay']
 
 ## When to use
 
-- Scenarios requiring a countdown display
+Need to show the countdown scene.
+
+## Introduction
+
+In `index.json` Introducing Components in
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-countdown": "antd-mini/es/Countdown/index"
+#endif
+#if WECHAT
+  "ant-countdown": "antd-mini/Countdown/index"
+#endif
+}
+```
 
 ## Code Sample
 
-### Basic Usage
+### Basic use
 
-<code src="../../demo/pages/Countdown/index"></code>
+```xml
+<ant-countdown
+  countdownEndTime="{{countdownDay}}"
+  countdownType="day"
+#if ALIPAY
+  onCountdownChange="handleCountdownChange"
+  onCountdownFinish="handleCountdownEnd"
+#endif
+#if WECHAT
+  bind:countdownChange="handleCountdownChange"
+  bind:countdownFinish="handleCountdownEnd"
+#endif
+>
+  <text slot="prefix">Remaining Time</text>
+  <text slot="suffix">I started buying it.</text>
+</ant-countdown>
+```
 
-## API
+```js
+Page({
+  data: {
+    countdownDay: +new Date() + 500000000,
+  },
+  handleCountdownChange(e) {
+    console.log('倒计时变化', JSON.stringify(e));
+  },
+  handleCountdownEnd() {
+    console.log('倒计时结束');
+  },
+});
+```
 
-| Property     | Type        | Required | Default Value     | Description             |
-|--------------|----------------|-------|-------------------|-------------------------|
-| className    | `string`      | false | ``                | Class Name              |
-| countdownEndTime | `string丨number` | 和time二选一必填 | ""                | End timestamp           |
-| countdownStartTime | `string丨number` | false | Current timestamp | Starting timestamp      |
-| time | number | Either countdownEndTime must be filled in | 0                 | The unit is seconds     |
-| theme | [Theme](#theme) | false | -                 | Theme Configuration     |
-| themeDisabled | boolean | false | false             | Disable theme color     |
-| autoShowDay | boolean | false | true              | Automatically do not display days if less than one day |
-| countdownType | string | false | ""                | An ultra-long countdown needs to display the number of days |
-| onCountdownChange | Function | false | ""                | Callback for when the countdown changes, with properties including remaining time in milliseconds, days, hours, minutes, and seconds |
-| onCountdownFinish | Function | false | ""                | The countdown end callback will be triggered when the countdown reaches zero, and it will also be called once if the countdown starts at zero |
-| decisecond | boolean | false | false             | Supports countdown to the millisecond (the digit after seconds), effective only when the theme color is disabled |
+### Set Theme Color
 
+```xml
+<ant-countdown
+  theme="{{{
+    backgroundColor:'#ffffff',
+    timeColor:'#ff3141',
+    textColor:'#ff3141'
+  }}}"
+  countdownEndTime="{{countdownDay}}"
+  countdownType="day"
+>
+  <text slot="prefix">Residual</text>
+</ant-countdown>
+```
 
-### Theme
+### centisecond countdown
 
-| Key name            | Explanation           | Type     |
-| --------------- |-----------------------|----------|
-| backgroundColor | time background color | `string` |
-| timeColor       | time text color       | `string` |
-| textColor       | text color            | `string` |
+```xml
+<ant-countdown
+  countdownEndTime="{{countdownDay}}"
+  themeDisabled="{{true}}"
+  decisecond="{{true}}"
+>
+</ant-countdown>
+```
 
-## SLOT
+### Demo Code
 
-| Name         | Explanation      |
-|--------------| --------- |
-| Default slot | The slot-scope contains references for day, hour, min, and sec, as shown in the demo. Their types are all strings |
+<code src='../../demo/pages/Countdown/index'></code>
+
+## Property
+
+| Property                            | Description                                 | Type             | 默认值     |
+| ------------------------------- | ------------------------------------ | ---------------- | ---------- | --- |
+| className                       | 容器 className                       | string           | -          |
+| countdownEndTime                | 结束时间戳                           | string 丨 number | -          |
+| countdownStartTime              | 起始时间戳                           | string 丨 number | 当前时间戳 |
+| time                            | 与 countdownEndTime 二选一，单位为秒 | number           | 0          |
+| theme                           | 主题配置                             | [Theme](#theme)  | -          |
+| themeDisabled                   | 禁用主题色                           | boolean          | false      |
+| autoShowDay                     | 小于一天自动不展示天                 | boolean          | true       |
+| countdownType                   | 超长倒计时需要展示天数               | string           | -          |
+| decisecond                      | 支持centisecond countdown，仅In禁用主题色时生效 | 否 boolean       | false      |
+| #if ALIPAY onCountdownChange    | 倒计时变化时的回调                   | Function         | -          |
+| #if ALIPAY onCountdownFinish    | 倒计时结束回调                       | Function         | -          |     |
+| #if WECHAT bind:countdownChange | 倒计时变化时的回调                   | Function         | -          |
+| #if WECHAT bind:countdownFinish | 倒计时结束回调                       | Function         | -          |     |
+
+### Theme customization
+
+#### Style Variables
+
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+
+| Key Name            | Description         | Type     |
+| --------------- | ------------ | -------- |
+| backgroundColor | Time background color | `string` |
+| timeColor       | Time Copy Color | `string` |
+| textColor       | Text Color     | `string` |
+
+## Slot
+
+| Name   | Description       |
+| ------ | ---------- |
+| -      | Default Slot   |
+| prefix | Countdown Head |
+| suffix | Countdown Tail |
