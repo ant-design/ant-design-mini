@@ -6,6 +6,3 @@ function getTitle(options, value) {
 }
 
 export default { getTitle };
- default {
-  getTitle: getTitle
-};

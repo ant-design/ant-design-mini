@@ -31,7 +31,7 @@
 <ant-container title="深色模式">
   <ant-config-provider theme="dark" locale={{locale}}>
     <ant-button type="primary" onTap="handleTap">
-      主要按钮
+      主要按钮应该是黑色
     </ant-button>
   </ant-config-provider>
 </ant-container>
