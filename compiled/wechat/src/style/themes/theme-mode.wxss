@@ -459,7 +459,7 @@
     --tabs-underline-border-color: #2b2b2b;
     --tabs-plus-color: #000000;
     --tabs-capsule-title-bg: #121212;
-    --tabs-subtitle-color: #ffffff;
+    --tabs-subtitle-color: #000000;
     --tabs-count-color: #474747;
     --tabs-badge-size: 28rpx;
     --feedback-text-color: #c5cad1;
