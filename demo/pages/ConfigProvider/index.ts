@@ -1,8 +1,8 @@
-import esES from './es-ES';
+import enUS from './es-US';
 
 Page({
   data: {
-    locale: esES,
+    locale: enUS,
     defaultValue: '',
     value: '',
     list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],

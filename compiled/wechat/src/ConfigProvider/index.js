@@ -20,11 +20,11 @@ ComponentWithSignalStoreImpl({
     store: function () { return i18nController; },
     updateHook: effect,
     mapState: {
-        locale: function (_a) {
+        localeState: function (_a) {
             var store = _a.store;
             return store.currentLocale.value;
         },
-        theme: function (_a) {
+        themeState: function (_a) {
             var store = _a.store;
             return store.currentTheme.value;
         },
@@ -53,12 +53,13 @@ ComponentWithSignalStoreImpl({
     convertThemeVarsToCSSVars: function (themeVars) {
         var cssVars = '';
         var copyThemeVars = {};
-        if (this.data.theme === 'dark') {
+        if (this.data.themeState === 'dark') {
             copyThemeVars = __assign(__assign({}, cssVariables), themeVars);
         }
-        if (this.data.theme === 'light') {
+        if (this.data.themeState === 'light') {
             copyThemeVars = __assign({}, themeVars);
         }
+        console.log(copyThemeVars);
         Object.keys(copyThemeVars).forEach(function (key) {
             cssVars = "".concat(cssVars, "--").concat(kebabCase(key), ": ").concat(copyThemeVars[key], ";");
         });

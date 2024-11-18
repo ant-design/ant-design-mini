@@ -9,10 +9,9 @@
           onVisibleChange="handleTriggerPicker"
           onOk="handleOk"
           defaultValue="{{defaultValue}}"
-          title="请选择"
+          title="pelese Select"
           onChange="handleChange"
           options="{{list}}"
-          emptyText="暂无数据"
         ></ant-picker>
       </ant-list-item>
       <ant-list-item>

@@ -14,8 +14,8 @@ ComponentWithSignalStoreImpl(
     store: () => i18nController,
     updateHook: effect,
     mapState: {
-      locale: ({ store }) => store.currentLocale.value,
-      theme: ({ store }) => store.currentTheme.value,
+      localeState: ({ store }) => store.currentLocale.value,
+      themeState: ({ store }) => store.currentTheme.value,
     },
   },
   ConfigProviderDefaultProps,
@@ -43,10 +43,10 @@ ComponentWithSignalStoreImpl(
     convertThemeVarsToCSSVars(themeVars: Record<string, string | number>) {
       let cssVars = '';
       let copyThemeVars = {};
-      if (this.data.theme === 'dark') {
+      if (this.data.themeState === 'dark') {
         copyThemeVars = { ...cssVariables, ...themeVars };
       }
-      if (this.data.theme === 'light') {
+      if (this.data.themeState === 'light') {
         copyThemeVars = { ...themeVars };
       }
       Object.keys(copyThemeVars).forEach((key) => {

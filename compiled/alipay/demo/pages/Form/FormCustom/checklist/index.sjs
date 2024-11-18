@@ -6,5 +6,6 @@ function getTitle(options, value) {
     return obj.title;
   }
 }
-
-export default { getTitle };
+export default {
+  getTitle: getTitle
+};
