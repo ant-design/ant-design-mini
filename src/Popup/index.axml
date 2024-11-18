@@ -18,7 +18,7 @@
     class="ant-popup-content ant-popup-{{ animationType }}-{{ position }} {{ closing ? 'ant-popup-' + animationType + '-' + position + '-close' : '' }}"
     style="{{ utils.getContentStyle(position, animation, duration, width, height) }}"
     onAnimationEnd="onAnimationEnd">
-    <image a:if="{{ backgroundImage }}" src="{{ backgroundImage }}" mode="widthFix" class="ant-popup-content-bg" />
+    <view a:if="{{ backgroundImage }}" class="ant-popup-content-bg" style="background-image: url({{backgroundImage}});"/>
     <view a:if="{{ title || showClose || showBack }}" class="ant-popup-content-header">
       <ant-icon
         className="ant-popup-content-header-icon ant-popup-content-header-icon-back"

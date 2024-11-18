@@ -21,12 +21,11 @@
     style="{{utils.getContentStyle(position, animation, duration, width, height)}}"
     onAnimationEnd="onAnimationEnd"
   >
-    <image
+    <view
       a:if="{{backgroundImage}}"
-      src="{{backgroundImage}}"
-      mode="widthFix"
       class="ant-popup-content-bg"
-    ></image>
+      style="background-image: url({{backgroundImage}});"
+    ></view>
     <view
       a:if="{{title || showClose || showBack}}"
       class="ant-popup-content-header"
