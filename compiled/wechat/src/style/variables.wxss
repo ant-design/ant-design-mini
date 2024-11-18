@@ -307,7 +307,7 @@ page {
   --popup-background: #ffffff;
   --popup-color: #333333;
   --popup-assit-color: #999999;
-  --popup-mask-close-bg: #000000;
+  --popup-mask-close-bg: rgba(0, 0, 0, 0);
   --rate-active-icon: #ff9f18;
   --rate-icon-color: #eeeeee;
   --result-main-background: #ffffff;
