@@ -43,20 +43,20 @@ Page({
     current: 0,
     items: [
       {
-        title: '水果',
-        subTitle: '描述文案',
-        content: '西瓜',
+        title: 'fruits',
+        subTitle: 'desc',
+        content: 'watermelon',
       },
       {
-        title: '蔬菜',
-        subTitle: '描述文案',
+        title: 'vegetables',
+        subTitle: 'desc',
         badge: true,
-        content: '西红柿',
+        content: 'tomato',
       },
       {
-        title: '动物',
-        subTitle: '描述文案',
-        content: '蚂蚁',
+        title: 'animals',
+        subTitle: 'desc',
+        content: 'monkey',
       },
     ],
   }
@@ -107,20 +107,20 @@ Page({
     current: 0,
     items: [
       {
-        title: '水果',
-        subTitle: '描述文案',
-        content: '西瓜',
+        title: 'fruits',
+        subTitle: 'desc',
+        content: 'watermelon',
       },
       {
-        title: '蔬菜',
-        subTitle: '描述文案',
+        title: 'vegetables',
+        subTitle: 'desc',
         disabled: true,
-        content: '西红柿',
+        content: 'tomato',
       },
       {
-        title: '动物',
-        subTitle: '描述文案',
-        content: '蚂蚁',
+        title: 'animals',
+        subTitle: 'desc',
+        content: 'monkey',
       },
     ],
   }

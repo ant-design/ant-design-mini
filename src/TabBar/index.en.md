@@ -46,17 +46,17 @@ Page({
       {
         icon: 'AlipayCircleFill',
         activeIcon: 'AlipayCircleFill',
-        text: '首页',
+        text: 'homr',
       },
       {
         icon: 'StarOutline',
         activeIcon: 'StarFill',
-        text: '收藏',
+        text: 'favor',
       },
       {
         icon: 'HeartOutline',
         activeIcon: 'HeartFill',
-        text: '喜欢',
+        text: 'like',
       },
     ],
     current: 0,

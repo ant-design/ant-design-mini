@@ -49,16 +49,16 @@ Page({
   data: {
     items: [
       {
-        title: '步骤一',
-        description: '描述信息',
+        title: 'Step1',
+        description: 'description',
       },
       {
-        title: '步骤二',
-        description: '描述信息',
+        title: 'Step2',
+        description: 'description',
       },
       {
-        title: '步骤三',
-        description: '描述信息',
+        title: 'Step3',
+        description: 'description',
       },
     ],
   },
@@ -112,26 +112,26 @@ Page({
     current: 0,
     items: [
       {
-        title: '步骤一',
-        description: '描述信息',
+        title: 'Step1',
+        description: 'description',
       },
       {
-        title: '步骤二',
-        description: '描述信息',
+        title: 'Step2',
+        description: 'description',
       },
       {
-        title: '步骤三',
-        description: '描述信息',
+        title: 'Step3',
+        description: 'description',
       },
     ],
   },
   onNextTap() {
     if (this.data.current === this.data.items.length - 1) {
 #if ALIPAY
-      my.showToast({ content: '完成' })
+      my.showToast({ content: 'Finish' })
 #endif
 #if WECHAT
-      wx.showToast({ title: '完成' })
+      wx.showToast({ title: 'Finish' })
 #endif
       return;
     }

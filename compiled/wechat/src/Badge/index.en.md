@@ -36,7 +36,7 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-badge type="dot" position="top-right"><view class="box" /></ant-badge>
-<ant-badge type="text" text="新" position="top-right"><view class="box" /></ant-badge>
+<ant-badge type="text" text="new" position="top-right"><view class="box" /></ant-badge>
 <ant-badge type="number" text="{{2}}" position="top-right"><view class="box" /></ant-badge>
 <ant-badge type="bubble" text="new" position="top-right"><view class="box" /></ant-badge>
 ```

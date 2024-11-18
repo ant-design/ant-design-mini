@@ -37,16 +37,16 @@ In `index.json` Introducing Components in
 ### Input basic usage
 
 ```xml
-<ant-input placeholder="请输入内容" onChange="onChange" />
-<ant-input placeholder="请输入内容" defaultValue="initial value" onChange="onChange" />
-<ant-input placeholder="请输入内容，带清除按钮" allowClear />
-<ant-input placeholder="被禁用的输入框" disabled="{{ true }}" />
+<ant-input placeholder="input here" onChange="onChange" />
+<ant-input placeholder="input here" defaultValue="initial value" onChange="onChange" />
+<ant-input placeholder="input here, with clear button" allowClear />
+<ant-input placeholder="disabled input" disabled="{{ true }}" />
 ```
 
 ### With Prefix and Suffix
 
 ```xml
-<ant-input placeholder="请输入内容" onChange="onChange" allowClear>
+<ant-input placeholder="input here" onChange="onChange" allowClear>
   <view slot="prefix">￥</view>
   <view slot="suffix">RMB</view>
 </ant-input>
@@ -55,13 +55,13 @@ In `index.json` Introducing Components in
 ### Controlled Mode
 
 ```xml
-<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="请输入内容" allowClear onChange="handleChange" />
+<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear onChange="handleChange" />
 ```
 
 ### Enter Amount
 
 ```xml
-<ant-input placeholder="请Enter Amount" type="digit" focusClassName="border" allowClear>
+<ant-input placeholder="input digit here" type="digit" focusClassName="border" allowClear>
   <view slot="prefix">￥</view>
   <view slot="suffix">RMB</view>
 </ant-input>
@@ -72,7 +72,7 @@ In `index.json` Introducing Components in
 ```xml
  <view class="search-line">
     <ant-input
-      placeholder="请输入内容"
+      placeholder="input here"
       onChange="onChange"
       className="search-bar"
       focusClassName="search-bar-focus"
@@ -116,14 +116,14 @@ In `index.json` Introducing Components in
 #### Basic Usage
 
 ```xml
- <ant-textarea placeholder="请输入内容" autoHeight onChange="onChange" />
- <ant-textarea placeholder="请输入内容" defaultValue="initial value" autoHeight onChange="onChange" />
+ <ant-textarea placeholder="input here" autoHeight onChange="onChange" />
+ <ant-textarea placeholder="input here" defaultValue="initial value" autoHeight onChange="onChange" />
 ```
 
 #### Controlled Mode
 
 ```xml
- <ant-textarea value="{{ value }}" placeholder="请输入内容" allowClear onChange="handleChange" />
+ <ant-textarea value="{{ value }}" placeholder="input here" allowClear onChange="handleChange" />
 ```
 
 ### Custom
@@ -131,7 +131,7 @@ In `index.json` Introducing Components in
 #### With border
 
 ```xml
-<ant-input className="custom" placeholder="请输入内容" onChange="onChange" />
+<ant-input className="custom" placeholder="input here" onChange="onChange" />
 ```
 
 ```css
@@ -146,7 +146,7 @@ In `index.json` Introducing Components in
 #### Custom Background Color
 
 ```xml
- <ant-input className="custom-color" placeholder="请输入内容" onChange="onChange" />
+ <ant-input className="custom-color" placeholder="input here" onChange="onChange" />
 ```
 
 ```css

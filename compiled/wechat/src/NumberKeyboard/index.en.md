@@ -51,7 +51,7 @@ In `index.json` Introducing Components in
 #### With confirmation button
 
 ```xml
-<ant-number-keyboard confirmText="确认" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard confirmText="confirm" visible="{{ visible }}" onClose="onTap" />
 ```
 
 #### With closed arrow

@@ -50,16 +50,16 @@ Page({
   data: {
     items: [
       {
-        title: '第一项标题',
-        content: '第一项内容',
+        title: 'item1 title',
+        content: 'item1 content',
       },
       {
-        title: '第二项标题',
-        content: '第二项内容',
+        title: 'item2 title',
+        content: 'item2 content',
       },
       {
-        title: '第三项标题',
-        content: '第三项内容',
+        title: 'item3 title',
+        content: 'item3 content',
       },
     ],
   },
@@ -108,17 +108,17 @@ Page({
 Page({
   data: {
     items: [
-      {
-        title: '第一项标题',
-        content: '第一项内容',
+       {
+        title: 'item1 title',
+        content: 'item1 content',
       },
       {
-        title: '第二项标题',
-        content: '第二项内容',
+        title: 'item2 title',
+        content: 'item2 content',
       },
       {
-        title: '第三项标题',
-        content: '第三项内容',
+        title: 'item3 title',
+        content: 'item3 content',
       },
     ],
   },
@@ -127,7 +127,7 @@ Page({
       ...this.data.items,
       {
         title: this.data.items.length,
-        content: '动态添加的内容',
+        content: 'dynamic item content',
       },
     ];
     this.setData({

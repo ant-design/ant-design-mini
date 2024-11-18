@@ -34,7 +34,7 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-toast
-  content="这是一段提示文案"
+  content="toast content"
   visible="{{ toastShow }}"
   duration="{{ 0 }}"
   showMask="{{ true }}"
@@ -66,12 +66,12 @@ Page({
 > Incoming `type` property, you can use the built-in icon, optional `success`、`error`、`warning`、`loading`. Support `icon` property specifies [ant-icon](/components/icon) type, also supports `image` Property to customize the image.
 
 ```xml
-<ant-toast content="操作成功" type="success" visible="{{ true }}" />
-<ant-toast content="操作失败" type="error" visible="{{ true }}" />
-<ant-toast content="警告" type="warning" visible="{{ true }}" />
-<ant-toast content="加载中" type="loading" visible="{{ true }}" />
+<ant-toast content="success" type="success" visible="{{ true }}" />
+<ant-toast content="error" type="error" visible="{{ true }}" />
+<ant-toast content="warning" type="warning" visible="{{ true }}" />
+<ant-toast content="loading" type="loading" visible="{{ true }}" />
 <ant-toast content="icon" icon="LikeOutline" visible="{{ true }}" />
-<ant-toast content="自定义图片" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{ true }}" />
+<ant-toast content="custom image" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{ true }}" />
 ```
 
 ## Demo Code

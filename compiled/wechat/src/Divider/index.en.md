@@ -41,16 +41,16 @@ In `index.json` Introducing Components in
 ### Split Line with Text
 
 ```xml
-<ant-divider text="中间内容" />
-<ant-divider text="左侧内容" textPosition="left" />
-<ant-divider text="右侧内容" textPosition="right" />
+<ant-divider text="center content" />
+<ant-divider text="left content" textPosition="left" />
+<ant-divider text="right content" textPosition="right" />
 ```
 
 ### Custom Style
 
 ```xml
  <ant-divider
-    text="Custom Style"
+    text="custom styles"
     textStyle="color:#1677ff; fontWeight:600"
     lineHeight="{{ 2 }}"
     lineType="dashed"
@@ -63,7 +63,7 @@ In `index.json` Introducing Components in
  <view class="divider-vertical">
     <view>100m</view>
     <ant-divider direction="vertical" />
-    <view>556 Xixi Road, Xihu District, Hangzhou City, Zhejiang Province</view>
+    <view>detail address</view>
   </view>
 ```
 
@@ -91,7 +91,7 @@ In `index.json` Introducing Components in
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                 | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks           |
 | ---------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |

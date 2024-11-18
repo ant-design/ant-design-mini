@@ -36,7 +36,7 @@ toc: 'content'
 
 ```xml
 <popover
-  content="简单的tips"
+  content="simple tips"
   placement="top-left"
   showCloseIcon="{{ true }}"
   style="display: inline-block">
@@ -54,7 +54,7 @@ toc: 'content'
 <popover
   content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
   placement="top"
-  actionText="操作按钮"
+  actionText="operation"
   onTapAction="onTapAction"
   imageUrl="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*tLCBTqxataIAAAAAAAAAAAAADkqGAQ/original"
   onVisibleChange="onVisibleChange">
@@ -68,7 +68,7 @@ toc: 'content'
 
 ```xml
 <popover
-  content="红色"
+  content="red"
   color="red">
   <ant-button style="margin-right: 24rpx;" inline type="primary">自定义颜色</ant-button>
 </popover>
@@ -77,7 +77,7 @@ toc: 'content'
 #### 插槽
 
 ```xml
-<popover content="左右插槽">
+<popover content="left & right slots">
   <ant-button inline style="margin-right: 24rpx;">插槽</ant-button>
   <icon slot="leftContent" style="font-size: 48rpx; margin-right: 24rpx;" type="FaceRecognitionOutline" />
   <icon slot="rightContent" style="font-size: 48rpx; margin-left: 24rpx;" type="FaceRecognitionOutline" />

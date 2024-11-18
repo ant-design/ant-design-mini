@@ -51,7 +51,7 @@ toc: 'content'
 #### 带确认按钮
 
 ```xml
-<ant-number-keyboard confirmText="确认" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard confirmText="confirm" visible="{{ visible }}" onClose="onTap" />
 ```
 
 #### 带关闭箭头

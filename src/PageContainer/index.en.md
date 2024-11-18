@@ -37,8 +37,8 @@ In `index.json` Introducing Components in
   loadingColor="#ccc"
   loadingSize="medium"
   loadingType="spin"
-  actionText="刷新"
-  secondaryActionText="网络异常"
+  actionText="refresh"
+  secondaryActionText="internet error"
   onActionTap="handleRefresh"
   onSecondaryActionTap="handleSwitchToDisconnected"
 >

@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 待废弃
+  title: To Discard
   order: 99
 toc: 'content'
 ---

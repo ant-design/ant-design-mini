@@ -37,16 +37,16 @@ toc: content
 ### Input 基本使用
 
 ```xml
-<ant-input placeholder="请输入内容" onChange="onChange" />
-<ant-input placeholder="请输入内容" defaultValue="initial value" onChange="onChange" />
-<ant-input placeholder="请输入内容，带清除按钮" allowClear />
-<ant-input placeholder="被禁用的输入框" disabled="{{ true }}" />
+<ant-input placeholder="input here" onChange="onChange" />
+<ant-input placeholder="input here" defaultValue="initial value" onChange="onChange" />
+<ant-input placeholder="input here, with clear button" allowClear />
+<ant-input placeholder="disabled input" disabled="{{ true }}" />
 ```
 
 ### 带前缀后缀
 
 ```xml
-<ant-input placeholder="请输入内容" onChange="onChange" allowClear>
+<ant-input placeholder="input here" onChange="onChange" allowClear>
   <view slot="prefix">￥</view>
   <view slot="suffix">RMB</view>
 </ant-input>
@@ -55,13 +55,13 @@ toc: content
 ### 受控模式
 
 ```xml
-<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="请输入内容" allowClear onChange="handleChange" />
+<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear onChange="handleChange" />
 ```
 
 ### 输入金额
 
 ```xml
-<ant-input placeholder="请输入金额" type="digit" focusClassName="border" allowClear>
+<ant-input placeholder="input digit here" type="digit" focusClassName="border" allowClear>
   <view slot="prefix">￥</view>
   <view slot="suffix">RMB</view>
 </ant-input>
@@ -72,7 +72,7 @@ toc: content
 ```xml
  <view class="search-line">
     <ant-input
-      placeholder="请输入内容"
+      placeholder="input here"
       onChange="onChange"
       className="search-bar"
       focusClassName="search-bar-focus"
@@ -116,14 +116,14 @@ toc: content
 #### 基础用法
 
 ```xml
- <ant-textarea placeholder="请输入内容" autoHeight onChange="onChange" />
- <ant-textarea placeholder="请输入内容" defaultValue="initial value" autoHeight onChange="onChange" />
+ <ant-textarea placeholder="input here" autoHeight onChange="onChange" />
+ <ant-textarea placeholder="input here" defaultValue="initial value" autoHeight onChange="onChange" />
 ```
 
 #### 受控模式
 
 ```xml
- <ant-textarea value="{{ value }}" placeholder="请输入内容" allowClear onChange="handleChange" />
+ <ant-textarea value="{{ value }}" placeholder="input here" allowClear onChange="handleChange" />
 ```
 
 ### 自定义
@@ -131,7 +131,7 @@ toc: content
 #### 带有边框
 
 ```xml
-<ant-input className="custom" placeholder="请输入内容" onChange="onChange" />
+<ant-input className="custom" placeholder="input here" onChange="onChange" />
 ```
 
 ```css
@@ -146,7 +146,7 @@ toc: content
 #### 自定义背景色
 
 ```xml
- <ant-input className="custom-color" placeholder="请输入内容" onChange="onChange" />
+ <ant-input className="custom-color" placeholder="input here" onChange="onChange" />
 ```
 
 ```css

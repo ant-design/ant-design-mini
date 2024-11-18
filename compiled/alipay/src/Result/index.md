@@ -35,15 +35,15 @@ toc: 'content'
 ### 基本使用
 
 ```xml
-<result type="success" title="操作成功" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
+<result type="success" title="success" message="subtitle content" />
 
-<result type="wait" title="等待处理" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
+<result type="wait" title="wait" message="subtitle content" />
 
-<result type="info" title="信息提示" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
+<result type="info" title="info" message="subtitle content" />
 
-<result type="warning" title="警告提示" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
+<result type="warning" title="warning" message="subtitle content" />
 
-<result type="error" title="失败提示" message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行" />
+<result type="error" title="error" message="subtitle content" />
 ```
 
 ### 插槽

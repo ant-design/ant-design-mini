@@ -32,7 +32,7 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-list
-  header="基础用法"
+  header="basic use"
   radius="{{true}}"
 >
   <ant-list-item>1</ant-list-item>
@@ -49,8 +49,8 @@ In `index.json` Introducing Components in
     className="ant-list-item"
     disabled="{{true}}"
     image="PayCircleOutline"
-    brief="Total assets数量"
-    extra="详细信息"
+    brief="Total assets"
+    extra="Detail infos"
     showDivider="{{true}}"
   >
     Total assets
@@ -59,7 +59,7 @@ In `index.json` Introducing Components in
     style=""
     image="SetOutline"
     arrow="right"
-    extraBrief="详细信息"
+    extraBrief="Detail infos"
   >
     Setup
   </ant-list-item>
@@ -70,7 +70,7 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-list
-  header="可点击列表"
+  header="List item clickable"
   radius="{{radius}}"
 >
   <ant-list-item
@@ -81,8 +81,8 @@ In `index.json` Introducing Components in
 #if WECHAT
     bind:tap="handleTap"
 #endif
-    brief="Total assets数量"
-    extra="详细信息"
+     brief="Total assets"
+    extra="Detail infos"
     data-info="Total assets"
   >
     Total assets
@@ -90,14 +90,14 @@ In `index.json` Introducing Components in
   <ant-list-item
     image="SetOutline"
     arrow="right"
-    extraBrief="详细信息"
+    extraBrief="Detail infos"
 #if ALIPAY
     catchTap="handleTap"
 #endif
 #if WECHAT
     bind:catchTap="handleTap"
 #endif
-    data-info="Setup"
+    data-info="config"
   >
     Setup
   </ant-list-item>

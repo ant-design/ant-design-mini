@@ -41,16 +41,16 @@ toc: 'content'
 ### 分割线带文字
 
 ```xml
-<ant-divider text="中间内容" />
-<ant-divider text="左侧内容" textPosition="left" />
-<ant-divider text="右侧内容" textPosition="right" />
+<ant-divider text="center content" />
+<ant-divider text="left content" textPosition="left" />
+<ant-divider text="right content" textPosition="right" />
 ```
 
 ### 自定义样式
 
 ```xml
  <ant-divider
-    text="自定义样式"
+    text="custom styles"
     textStyle="color:#1677ff; fontWeight:600"
     lineHeight="{{ 2 }}"
     lineType="dashed"
@@ -63,7 +63,7 @@ toc: 'content'
  <view class="divider-vertical">
     <view>100m</view>
     <ant-divider direction="vertical" />
-    <view>浙江省杭州市西湖区西溪路556号</view>
+    <view>detail address</view>
   </view>
 ```
 

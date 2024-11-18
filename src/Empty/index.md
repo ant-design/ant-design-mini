@@ -33,8 +33,8 @@ toc: 'content'
 ```xml
 <ant-empty
   size="small"
-  title="这里什么也没有"
-  message="看看其它吧"
+  title="Nothing Here"
+  message="See Others"
 />
 ```
 
@@ -42,8 +42,8 @@ toc: 'content'
 
 ```xml
 <ant-empty
-  title="这里什么也没有"
-  message="看看其它吧"
+  title="Nothing Here"
+  message="See Others"
   image="{{imageUrl}}"
 />
 ```
@@ -52,9 +52,9 @@ toc: 'content'
 
 ```xml
 <ant-empty
-  title="这里什么也没有"
+  title="Nothing Here"
+  message="See Others"
   buttonInfo="{{horizontalButtonInfo}}"
-  message="看看其它吧"
 #if ALIPAY
   onClickButton="onClickButton"
 #endif
@@ -68,11 +68,11 @@ toc: 'content'
 const BUTTON_LIST = [
   {
     type: 'primary',
-    text: '刷新重试',
+    text: 'refresh',
   },
   {
     type: 'default',
-    text: '网络诊断',
+    text: 'checkout internet',
   },
 ];
 
@@ -96,8 +96,8 @@ Page({
 
 ```xml
 <ant-empty
-  title="这里什么也没有"
-  message="看看其它吧"
+  title="Nothing Here"
+  message="See Others"
 >
   <view slot="extra">
     <ant-button

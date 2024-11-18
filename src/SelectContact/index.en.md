@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 业务组件
+  title: Bizness Components
   order: 15
 toc: content
 supportPlatform: ['alipay']
@@ -56,18 +56,18 @@ Page({
 
 ## API
 
-| Property                      | Description                                                                       | Type                      | Default Value |
-| ----------------------------- | --------------------------------------------------------------------------------- | ------------------------- | ------------- |
-| className                     | Class Name                                                                        | string                    | -             |
-| height                        | Component height                                                                  | string                    | -             |
-| source                        | Business sources, distinguishing between scenario monitoring and embedding points | string                    | -             |
-| bizScene                      | Access party scenario, post-verification                                          | number                    | -             |
-| #if ALIPAY onSelect           | Trigger when contact is selected                                                  | (IOnSelectParams) => void | -             |
-| #if ALIPAY onError            | Get data interface error trigger                                                  | (error: any) => void      | -             |
-| #if ALIPAY onContactListEmpty | Triggered when recommend list is empty                                            | () => void                | -             |
+| Property                          | Description                         | Type                      | Default Value |
+| ----------------------------- | ---------------------------- | ------------------------- | ------ |
+| className                     | Class Name                         | string                    | -      |
+| height                        | Component height                     | string                    | -      |
+| source                        | Business sources, distinguishing between scenario monitoring and embedding points | string                    | -      |
+| bizScene                      | Access party scenario, post-verification         | number                    | -      |
+| #if ALIPAY onSelect           | Trigger when contact is selected             | (IOnSelectParams) => void | -      |
+| #if ALIPAY onError            | Get data interface error trigger         | (error: any) => void      | -      |
+| #if ALIPAY onContactListEmpty | Triggered when recommend list is empty           | () => void                | -      |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.

@@ -47,19 +47,19 @@ toc: 'content'
 <ant-swipe-action
   rightButtons="{{[[
       {
-        text: '取消关注',
+        text: 'favor',
         bgColor: '#CCCCCC',
         color: '#fff',
         width: 200,
       },
       {
-        text: '免打扰',
+        text: 'rest',
         bgColor: '#1677FF',
         color: '#fff',
         width: 170,
       },
       {
-        text: '删除',
+        text: 'delete',
         bgColor: '#FF2B00',
         color: '#fff',
         width: 140,

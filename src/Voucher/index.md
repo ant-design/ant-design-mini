@@ -50,13 +50,13 @@ Page({
   data: {
     dataSource: [
       {
-        title: '主标题文案主标题文案',
-        desc: '副标题文案副标题文案',
+        title: 'title',
+        desc: 'subTitle',
         money: '50',
-        threshold: '满500可用',
+        threshold: '500 to use',
         actionAreaInfo: {
           disabled: false,
-          text: '去兑换',
+          text: 'to exchange',
         },
       },
     ],

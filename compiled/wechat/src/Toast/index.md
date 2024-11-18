@@ -34,7 +34,7 @@ toc: 'content'
 
 ```xml
 <ant-toast
-  content="这是一段提示文案"
+  content="toast content"
   visible="{{ toastShow }}"
   duration="{{ 0 }}"
   showMask="{{ true }}"
@@ -66,12 +66,12 @@ Page({
 > 传入 `type` 属性，可以使用内置图标，可选 `success`、`error`、`warning`、`loading`。支持 `icon` 属性指定 [ant-icon](/components/icon) 类型，还支持 `image` 属性自定义图片。
 
 ```xml
-<ant-toast content="操作成功" type="success" visible="{{ true }}" />
-<ant-toast content="操作失败" type="error" visible="{{ true }}" />
-<ant-toast content="警告" type="warning" visible="{{ true }}" />
-<ant-toast content="加载中" type="loading" visible="{{ true }}" />
+<ant-toast content="success" type="success" visible="{{ true }}" />
+<ant-toast content="error" type="error" visible="{{ true }}" />
+<ant-toast content="warning" type="warning" visible="{{ true }}" />
+<ant-toast content="loading" type="loading" visible="{{ true }}" />
 <ant-toast content="icon" icon="LikeOutline" visible="{{ true }}" />
-<ant-toast content="自定义图片" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{ true }}" />
+<ant-toast content="custom image" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{ true }}" />
 ```
 
 ## Demo 代码

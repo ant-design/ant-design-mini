@@ -42,7 +42,7 @@ In `index.json` Introducing Components in
 <ant-popup
   visible="{{ visible }}"
   position="bottom"
-  title="标题"
+  title="title"
   height="{{ 250 }}"
   width="{{ 250 }}"
   showClose="{{ true }}"
@@ -69,10 +69,10 @@ Page({
   },
   onClickBack() {
 #if ALIPAY
-    my.showToast({ content: '点击了返回icon', duration: 1000 });
+    my.showToast({ content: 'clicked icon', duration: 1000 });
 #endif
 #if WECHAT
-    wx.showToast({ content: '点击了返回icon', duration: 1000 });
+    wx.showToast({ content: 'clicked icon', duration: 1000 });
 #endif
   },
   handlePopupClose() {

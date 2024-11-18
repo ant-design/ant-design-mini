@@ -49,16 +49,16 @@ Page({
   data: {
     items: [
       {
-        title: '步骤一',
-        description: '描述信息',
+        title: 'Step1',
+        description: 'description',
       },
       {
-        title: '步骤二',
-        description: '描述信息',
+        title: 'Step2',
+        description: 'description',
       },
       {
-        title: '步骤三',
-        description: '描述信息',
+        title: 'Step3',
+        description: 'description',
       },
     ],
   },
@@ -112,26 +112,26 @@ Page({
     current: 0,
     items: [
       {
-        title: '步骤一',
-        description: '描述信息',
+        title: 'Step1',
+        description: 'description',
       },
       {
-        title: '步骤二',
-        description: '描述信息',
+        title: 'Step2',
+        description: 'description',
       },
       {
-        title: '步骤三',
-        description: '描述信息',
+        title: 'Step3',
+        description: 'description',
       },
     ],
   },
   onNextTap() {
     if (this.data.current === this.data.items.length - 1) {
 #if ALIPAY
-      my.showToast({ content: 'Complete' })
+      my.showToast({ content: 'Finish' })
 #endif
 #if WECHAT
-      wx.showToast({ title: 'Complete' })
+      wx.showToast({ title: 'Finish' })
 #endif
       return;
     }
@@ -179,9 +179,9 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks               |
 | --------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |

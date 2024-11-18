@@ -32,7 +32,7 @@ toc: 'content'
 
 ```xml
 <ant-list
-  header="基础用法"
+  header="basic use"
   radius="{{true}}"
 >
   <ant-list-item>1</ant-list-item>
@@ -44,13 +44,13 @@ toc: 'content'
 ### 列表项配置
 
 ```xml
-<ant-list header="列表项配置">
+<ant-list header="List Item Configuration">
   <ant-list-item
     className="ant-list-item"
     disabled="{{true}}"
     image="PayCircleOutline"
-    brief="总资产数量"
-    extra="详细信息"
+    brief="Total assets"
+    extra="Detail infos"
     showDivider="{{true}}"
   >
     总资产
@@ -59,7 +59,7 @@ toc: 'content'
     style=""
     image="SetOutline"
     arrow="right"
-    extraBrief="详细信息"
+    extraBrief="Detail infos"
   >
     设置
   </ant-list-item>
@@ -70,7 +70,7 @@ toc: 'content'
 
 ```xml
 <ant-list
-  header="可点击列表"
+  header="List item clickable"
   radius="{{radius}}"
 >
   <ant-list-item
@@ -81,23 +81,23 @@ toc: 'content'
 #if WECHAT
     bind:tap="handleTap"
 #endif
-    brief="总资产数量"
-    extra="详细信息"
-    data-info="总资产"
+     brief="Total assets"
+    extra="Detail infos"
+    data-info="Total assets"
   >
     总资产
   </ant-list-item>
   <ant-list-item
     image="SetOutline"
     arrow="right"
-    extraBrief="详细信息"
+    extraBrief="Detail infos"
 #if ALIPAY
     catchTap="handleTap"
 #endif
 #if WECHAT
     bind:catchTap="handleTap"
 #endif
-    data-info="设置"
+    data-info="config"
   >
     设置
   </ant-list-item>

@@ -50,16 +50,16 @@ Page({
   data: {
     items: [
       {
-        title: '第一项Title',
-        content: '第一项Content',
+        title: 'item1 title',
+        content: 'item1 content',
       },
       {
-        title: '第二项Title',
-        content: '第二项Content',
+        title: 'item2 title',
+        content: 'item2 content',
       },
       {
-        title: '第三项Title',
-        content: '第三项Content',
+        title: 'item3 title',
+        content: 'item3 content',
       },
     ],
   },
@@ -108,17 +108,17 @@ Page({
 Page({
   data: {
     items: [
-      {
-        title: '第一项Title',
-        content: '第一项Content',
+       {
+        title: 'item1 title',
+        content: 'item1 content',
       },
       {
-        title: '第二项Title',
-        content: '第二项Content',
+        title: 'item2 title',
+        content: 'item2 content',
       },
       {
-        title: '第三项Title',
-        content: '第三项Content',
+        title: 'item3 title',
+        content: 'item3 content',
       },
     ],
   },
@@ -127,7 +127,7 @@ Page({
       ...this.data.items,
       {
         title: this.data.items.length,
-        content: '动态添加的Content',
+        content: 'dynamic item content',
       },
     ];
     this.setData({
@@ -202,7 +202,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 | Variable name | Default Value | Dark Mode Default | Remarks |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------- |
 | --collapse-title-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Collapse Panel Title Background Color |

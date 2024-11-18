@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 业务组件
+  title: Bizness Components
   order: 15
 toc: content
 supportPlatform: ['alipay']
@@ -118,7 +118,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Key Name            | Description         | Type     |
 | --------------- | ------------ | -------- |

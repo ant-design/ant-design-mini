@@ -38,7 +38,7 @@ toc: 'content'
 
 ```xml
 <ant-action-sheet
-  title="请选择你要进行的操作"
+  title="choose your operation"
   visible="{{ visible }}"
   actions="{{ actions }}"
 #if ALIPAY
@@ -71,11 +71,11 @@ Page({
     visible: true,
     actions: [
       {
-        text: '复制',
+        text: 'copy',
         key: 'copy',
       },
       {
-        text: '修改',
+        text: 'modify',
         key: 'modify',
       },
     ],
@@ -94,15 +94,15 @@ Page({
 #if ALIPAY
     if (item.key === 'delete') {
       my.confirm({
-        content: '你确定要删除吗?',
+        content: 'are you sure?',
       });
       return;
     }
-    my.alert({ content: `你点击了${item.key}` });
+    my.alert({ content: `you clicked ${item.key}` });
 #endif
 #if WECHAT
     const [clickItem, clickIndex] = item.detail;
-    wx.showToast({ title: `你点击了${clickItem.key}(${clickIndex})` });
+    wx.showToast({ title: `you clicked ${clickItem.key}(${clickIndex})` });
 #endif
   },
 });
@@ -124,33 +124,33 @@ Page({
   data: {
     actions: [
       {
-        text: '复制',
+        text: 'copy',
         key: 'copy',
-        description: '请选择复制内容',
+        description: 'select copy content',
       },
       {
-        text: '修改',
+        text: 'modify',
         key: 'modify',
         disabled: true,
       },
       {
-        text: '删除',
+        text: 'delete',
         key: 'delete',
         danger: true,
       },
       {
-        text: '备份',
+        text: 'backup',
         key: 'backup',
-        description: '请选择要备份的内容',
+        description: 'select backup content',
         icon: 'https://gw.alipayobjects.com/mdn/rms_e7937b/afts/img/A*I0oNS4RCQzUAAAAAAAAAAAAAARQnAQ',
       },
       {
-        text: '保存',
+        text: 'save',
         key: 'save',
         icon: 'https://gw.alipayobjects.com/mdn/rms_e7937b/afts/img/A*BNczQ7hmp2gAAAAAAAAAAAAAARQnAQ',
       },
       {
-        text: '同步',
+        text: 'sync',
         key: 'sync',
         icon: 'https://gw.alipayobjects.com/mdn/rms_e7937b/afts/img/A*eRaVSrV56dIAAAAAAAAAAAAAARQnAQ',
       },
