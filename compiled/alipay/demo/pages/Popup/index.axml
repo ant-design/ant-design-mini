@@ -16,7 +16,6 @@
 </ant-popup>
 <ant-popup
   visible="{{customizeVisible}}"
-  height="{{350}}"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*1zlbRZpwRXYAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
   showClose="{{true}}"
@@ -32,18 +31,17 @@
     ></image>
     <ant-button
       onTap="handlePopupClose"
-      style="margin-top: 60rpx;"
+      style="margin-top: 60rpx;width:100%;"
       type="primary"
     >去开通</ant-button>
     <ant-button
       onTap="handlePopupClose"
-      style="margin-top: 24rpx;"
+      style="margin-top: 24rpx;width:100%"
     >暂不开通</ant-button>
   </view>
 </ant-popup>
 <ant-popup
   visible="{{topImageVisible}}"
-  height="{{450}}"
   className="customize-top-image-popup"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
@@ -60,12 +58,12 @@
     ></image>
     <ant-button
       onTap="handlePopupClose"
-      style="margin-top: 60rpx;"
+      style="margin-top: 60rpx;width:100%;"
       type="primary"
     >去开通</ant-button>
     <ant-button
       onTap="handlePopupClose"
-      style="margin-top: 24rpx;"
+      style="margin-top: 24rpx;width:100%;"
     >暂不开通</ant-button>
     <view class="customize-content-text">可在其他地方查看</view>
   </view>

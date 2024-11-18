@@ -30,6 +30,3 @@
   text-align: center;
   padding-top: 30rpx;
 }
-.customize-content .ant-button {
-  width: 100%;
-}
