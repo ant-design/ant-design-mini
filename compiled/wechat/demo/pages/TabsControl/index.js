@@ -1,67 +1,66 @@
+// demo/pages/TabsControl/index.js
 Page({
-    data: {
-        current: 0,
-        items: [],
-    },
-    onLoad() {
-        const items = new Array(3).fill(null).map((_, index) => {
-            return {
-                title: `Tab ${index}`,
-                content: `Content of tab ${index}`,
-            };
-        });
-        this.setData({
-            items,
-        });
-    },
-    onChange(current) {
-        current = current.detail;
-        this.setData({
-            current,
-        });
-    },
-    onPrevTap() {
-        if (this.data.items.length === 0) {
-            return;
-        }
-        const current = this.data.current === 0
-            ? this.data.items.length - 1
-            : this.data.current - 1;
-        this.setData({
-            current,
-        });
-    },
-    onNextTap() {
-        if (this.data.items.length === 0) {
-            return;
-        }
-        const current = this.data.current >= this.data.items.length - 1
-            ? 0
-            : this.data.current + 1;
-        this.setData({
-            current,
-        });
-    },
-    onAddTap() {
-        const items = [...this.data.items];
-        items.push({
-            title: `Tab ${items.length}`,
-            content: `Content of tab ${items.length}`,
-        });
-        this.setData({
-            items,
-            current: items.length - 1,
-        });
-    },
-    onMinusTap() {
-        if (this.data.items.length === 1) {
-            return;
-        }
-        const items = [...this.data.items];
-        items.splice(items.length - 1, 1);
-        this.setData({
-            items,
-            current: Math.min(this.data.current, items.length - 1),
-        });
-    },
-});
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
+  }
+})

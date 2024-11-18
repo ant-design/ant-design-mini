@@ -54,6 +54,9 @@
   justify-content: flex-start;
   align-items: center;
 }
+.ant-popover-inner .ant-icon {
+  color: var(--popover-inner-color, #ffffff);
+}
 .ant-popover-inner-text {
   word-break: break-all;
   text-overflow: ellipsis;
