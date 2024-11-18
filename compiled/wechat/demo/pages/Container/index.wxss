@@ -9,7 +9,7 @@ page {
   display: flex;
 }
 .content .box {
-  background-color: #e5e5e5;
+  background-color: #ffffff;
   flex: 1;
   border-radius: 4px;
 }
