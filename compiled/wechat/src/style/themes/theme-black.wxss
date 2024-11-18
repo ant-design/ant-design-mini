@@ -313,4 +313,9 @@ page {
   --notice-info-background-color: #808080;
   --page-container-background-color: #121212;
   --typography-container-color: #c5cad1;
+  --table-item-color: #c5cad1;
+  --table-item-bg: #1a1a1a;
+  --table-shadow-color: rgba(5, 5, 5, 0.06);
+  --table-empty-bg: #c5cad1;
+  --sticky-check-bg: rgba(238, 238, 238, 0);
 }

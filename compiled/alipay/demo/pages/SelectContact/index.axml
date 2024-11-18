@@ -2,8 +2,8 @@
   <ant-select-contact
     height="1000rpx"
     onSelect="onSelect"
-    recommend-contacts-list="{{recommendContactsList}}"
-    all-contacts-list="{{allContactsList}}"
+    recommendContactsList="{{recommendContactsList}}"
+    allContactsList="{{allContactsList}}"
     onDeleteRecommendUserError="onDeleteRecommendUserError"
     onDeleteRecommendUser="onDeleteRecommendUser"
   >
