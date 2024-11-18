@@ -1,0 +1,12 @@
+.content {
+  padding: 12px;
+  height: 400px;
+  background-color: #ffffff;
+}
+.item {
+  margin-bottom: 40px;
+}
+.title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}

@@ -276,8 +276,11 @@ onChooseImageError(err) {
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                            | Default Value                                                                                                                  | Remarks                         |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| --image-upload-cover-background   | <div style="width: 150px; height: 40px; background-color: rgba(0, 0, 0, 0.4); color: #ffffff;">rgba(0, 0, 0, 0.4)</div> | Image upload cover background color (overlay) |
-| --image-upload-wrapper-background | <div style="width: 150px; height: 40px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                       | Picture upload package background color         |
-| --image-upload-text-color         | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                       | Image upload text color             |
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                            | Default Value                                                                                                                  | Dark Mode Default                                                                                                          | Remarks                         |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| --image-upload-cover-background   | <div style="width: 150px; height: 40px; background-color: rgba(0, 0, 0, 0.4); color: #ffffff;">rgba(0, 0, 0, 0.4)</div> | <div style="width: 150px; height: 40px; background-color: rgba(0, 0, 0, 0.4); color: #ffffff;">rgba(0, 0, 0, 0.4)</div> | Image upload cover background color (overlay) |
+| --image-upload-wrapper-background | <div style="width: 150px; height: 40px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                       | <div style="width: 150px; height: 40px; background-color: #121212; color: #ffffff;">#121212</div>                       | Picture upload package background color         |
+| --image-upload-text-color         | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                       | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                       | Image upload text color             |
+| --image-upload-background-color   | N/A                                                                                                                     | <div style="width: 150px; height: 40px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                       | Image upload background color             |

@@ -44,16 +44,14 @@ The problem of rare characters has always been a difficult point in the society.
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                        | Default Value                                                                                                                    | Remarks                         |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| --rare-words-bg               | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.45); color: #ffffff;">rgba(0, 0, 0, 0.45)</div> | Rare word background color               |
-| --rare-keyboard-bg            | <div style="width: 150px; height: 30px; background-color: #d8d8d8; color: #333333;">#d8d8d8</div>                         | Rare word keyboard background color           |
-| --rare-words-keyboard-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                         | Rare word keyboard color               |
-| --rare-words-border-color     | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div>                         | Rare word border color               |
-| --rare-words-kb-bg            | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                         | Rare word keyboard background color           |
-| --rare-words-pinyin-key-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | Rare word pinyin key color             |
-| --rare-words-inner-bg         | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div>                         | Rare word internal background color           |
-| --rare-words-active-color     | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>                         | Rare words activate color               |
-| --rare-words-pinyin-color     | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                         | Rare Words Pinyin Color               |
-| --rare-words-keyboard-bg      | <div style="width: 150px; height: 30px; background-color: #4a4a4a; color: #ffffff;">#4a4a4a</div>                         | Rare Words Keyboard Background Color (Duplicates) |
-| --rare-words-item-tips-color  | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div>                         | Rare Item Prompt Color             |
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                             | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                     |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------ |
+| --radio-header-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | radio button head color         |
+| --radio-border-color               | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | radio button border color         |
+| --radio-background-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Radio Button Background Color         |
+| --radio-disabled-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | radio button disabled state background color |
+| --radio-text-color                 | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | radio button text color         |
+| --radio-fake-icon-background-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | radio button fake icon background color   |
+| --radio-icon-color                 | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | radio button icon color         |

@@ -140,9 +140,11 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
-| Variable name             | Default Value                                                                                            | Remarks                    |
-| ------------------ | ------------------------------------------------------------------------------------------------- | ----------------------- |
-| --rate-active-icon | <div style="width: 150px; height: 30px; background-color: #ff9f18; color: #ffffff;">#ff9f18</div> | Icon color of Rate activation state |
-| --rate-icon-color  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | Rate Default Icon Color       |
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+
+| Variable name             | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                    |
+| ------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------- |
+| --rate-active-icon | <div style="width: 150px; height: 30px; background-color: #ff9f18; color: #ffffff;">#ff9f18</div> | <div style="width: 150px; height: 30px; background-color: #ffa930; color: #ffffff;">#ffa930</div> | Icon color of Rate activation state |
+| --rate-icon-color  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | Rate Default Icon Color       |

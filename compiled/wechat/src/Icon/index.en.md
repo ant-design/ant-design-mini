@@ -66,8 +66,10 @@ Search and view the icon, click the icon to copy.
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
-| Variable name       | Default Value                                                                                           | Remarks     |
-| ------------ | ------------------------------------------------------------------------------------------------ | -------- |
-| --icon-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff">#333333</div> | Icon Color |
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+
+| Variable name       | Default Value                                                                                           | Dark Mode Default                                                                                   | Remarks     |
+| ------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------- |
+| --icon-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff">#c5cad1</div> | Icon Color |

@@ -1,6 +1,0 @@
-{
-  "defaultTitle": "Tabs",
-  "usingComponents": {
-    "tabs": "../../../src/Tabs/index"
-  }
-}

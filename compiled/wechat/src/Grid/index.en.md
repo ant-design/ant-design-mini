@@ -9,11 +9,144 @@ toc: 'content'
 
 # Grid
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 The palace grid is used for navigation of multiple sub-functions in the business and has a higher screen effect than the form of a list.
 
+## Introduction
+
+In `index.json` Introducing Components in
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-grid": "antd-mini/es/Grid/index"
+#endif
+#if WECHAT
+  "ant-grid": "antd-mini/Grid/index"
+#endif
+}
+```
+
 ## Code Sample
+
+### Basic use
+
+```js
+Page({
+  data: {
+    items: [
+      {
+        title: 'Title文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: 'Title文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: 'Title文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+    ],
+  },
+});
+```
+
+```xml
+<ant-grid
+  items="{{ items }}"
+  onTap="handleTapItem"
+  iconSize="{{ 36 }}"
+  columns="{{ 3 }}"
+/>
+```
+
+### 3 Columns-With Description
+
+```js
+Page({
+  data: {
+    items: [
+      {
+        title: 'Title文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        description: 'Description信息',
+      },
+      {
+        title: 'Title文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        description: 'Description信息',
+      },
+      {
+        title: 'Title文字',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+        description: 'Description信息',
+      },
+    ],
+  },
+});
+```
+
+```xml
+<ant-grid
+  items="{{ items3withDesc }}"
+  iconSize="{{ 36 }}"
+  onTap="handleTapItem"
+  columns="{{ 3 }}" />
+```
+
+### element horizontal layout
+
+```xml
+<ant-grid
+  items="{{ items }}"
+  onTap="handleTapItem"
+  columns="{{ 3 }}"
+  gridItemLayout="horizontal"
+/>
+```
+
+### Custom
+
+```js
+
+```
+
+```xml
+<ant-grid
+  items="{{ items }}"
+  onTap="handleTapItem"
+  columns="{{ 5 }}">
+  <view
+    slot="icon"
+    slot-scope="props">
+    <ant-badge
+      a:if="{{ props.value.tag }}"
+      offsetX="-10px"
+      type="text"
+      text="{{ props.value.tag }}">
+      <image
+        src="{{ props.value.icon }}"
+        style="width: 44px; height: 44px" />
+    </ant-badge>
+    <image
+      a:else
+      src="{{ props.value.icon }}"
+      style="width: 44px; height: 44px" />
+  </view>
+  <view
+    slot="title"
+    slot-scope="props">
+    Item {{props.index 1}}
+  </view>
+  <view
+    slot="description"
+    slot-scope="props">
+    Description {{props.index 1}}
+  </view>
+</ant-grid>
+```
+
+### Demo Code
 
 <code src='../../demo/pages/Grid/index'></code>
 
@@ -53,8 +186,10 @@ The palace grid is used for navigation of multiple sub-functions in the business
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                       | Default Value                                                                                            | Remarks         |
-| ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
-| --ant-grid-title-color       | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | Grid Title Color |
-| --ant-grid-description-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Grid Description Color |
-| --ant-grid-border-color      | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | Grid Border Color |
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                       | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks         |
+| ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
+| --ant-grid-title-color       | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Grid Title Color |
+| --ant-grid-description-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Grid Description Color |
+| --ant-grid-border-color      | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | Grid Border Color |

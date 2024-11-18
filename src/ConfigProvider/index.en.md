@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: Other
-  order: 15
+  order: 16
 toc: 'content'
 ---
 
@@ -16,9 +16,9 @@ For global configuration of Antd-Mini components, provide theme customization, i
 can pass `ConfigProvider` component to globally configure Antd-Mini components, including:
 
 - Setting the theme globally,[CSS Variables](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties) To organize styles, by overwriting these CSS variables, you can customize the theme, dynamically switch the theme and other effects;
-- Global setting internationalization, multi-language support by setting Locales;
+- Global settings internationalization, through the setting of Locales to achieve multi-language support;
 
-## Code example
+## Code Sample
 
 ### Theme customization
 
@@ -53,7 +53,7 @@ Antd-Mini provides ConfigProvider components for global configuration of interna
 - Turkish (Turkey) | tr-TR
 - Vietnamese | vi-VN
 
-### Code example
+### Code Sample
 
 <code src='../../demo/pages/ConfigProvider/index'></code>
 

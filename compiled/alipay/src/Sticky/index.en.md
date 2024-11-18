@@ -12,30 +12,122 @@ supportPlatform: ['alipay']
 
 ## When to use
 
-- There are situations where it needs to stick to certain places while scrolling.
+Need to be adsorbed in some places in the rolling situation.
+
+## Precautions
+
+The Sticky component implementation relies on `position: sticky` attribute, which may become invalid due to the influence of the parent element.[This document](https://developer.mozilla.org/en-US/docs/Web/CSS/position)Check the element layout of the page.
+
+## Introduction
+
+In `index.json` Introducing Components in
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-sticky": "antd-mini/es/Sticky/index"
+#endif
+#if WECHAT
+  "ant-sticky": "antd-mini/Sticky/index"
+#endif
+}
+```
 
 ## Code Sample
 
 ### Basic Usage
 
+```xml
+<ant-sticky>
+  <view>
+    I will ceiling
+  </view>
+</ant-sticky>
+```
+
+### Specified ceiling height
+
+```xml
+<ant-sticky top="100px">
+  <view>
+    I will top the place 100px from the top
+  </view>
+</ant-sticky>
+```
+
+### Perceive whether the ceiling is absorbed
+
+```xml
+<ant-sticky
+  top="180px"
+  check="{{true}}"
+#if ALIPAY
+  onStickyChange="handleStickyChange"
+#endif
+#if WECHAT
+  bind:stickyChange="handleStickyChange"
+#endif
+>
+  <view>
+    <view>I will ceiling at 180px from the top</view>
+    <view>Whether it has sucked {{stickyStatus}}</view>
+  </view>
+</ant-sticky>
+```
+
+```js
+Page({
+  data: {
+    stickyStatus: false,
+  },
+  handleStickyChange(status) {
+    this.setData({ stickyStatus: status });
+  },
+});
+```
+
+### Transparent head mode
+
+```xml
+<ant-sticky transparentTitle="{{true}}">
+  <view>
+    I will ceiling
+  </view>
+</ant-sticky>
+```
+
+### Demo Code
+
 <code src="../../demo/pages/Sticky/index"></code>
 
-## API
+## Property
 
-| Property     | Type    | Default Value | Description       |
-|--------------|---------|------------|--------------------------|
-| className    | `string` | ``         | Class Name           |
-| top               | `string`        | ``          | The ceiling height should be written with units, such as 10px, 24rpx.  |
-| check             | `bool`    | false        | Do we need to detect whether it has reached the ceiling, as there is still a certain cost associated with performing the ceiling check. |
-| sticky            | `bool`    | true         | Whether to use a ceiling-mounted installation depends on the specific scenario, as it may not be necessary in all cases.         |
-| transparentTitle  | `bool`    | false        | Whether it has a transparent header; a transparent header will automatically calculate the title bar height and by default adhere to the bottom of the title bar.|
-| onStickyChange    | Function | (status) => {} | Is it in the ceiling-mounted state? Note that you need to enable the check function to receive this callback.  |
-| onGetHeaderHeight | Function | (height) => {} | Calculated the height of the head, and threw it out as a side note.  |
+| Property                            | Type     | Default Value         | Description                                                                 |
+| ------------------------------- | -------- | -------------- | -------------------------------------------------------------------- |
+| className                       | string   | ""             | Container className                                                       |
+| top                             | string   | ""             | The ceiling height, need to write units, such as 10px,24rpx                                |
+| check                           | bool     | false          | Whether it is necessary to sense whether the ceiling has been absorbed, because the ceiling inspection still has a certain cost.                 |
+| sticky                          | bool     | true           | Whether to ceiling, some scenes do not necessarily need                                       |
+| transparentTitle                | bool     | false          | Whether it is a transparent head, the transparent head will automatically calculate the titleBar height, and the default adsorption is under the titlebar |
+| #if ALIPAY onStickyChange       | Function | (status) => {} | Whether it is in the ceiling state, note that the check function needs to be turned on to have this callback.                  |
+| #if ALIPAY onGetHeaderHeight    | Function | (height) => {} | Calculate the height of the head to complete                                                     |
+| #if WECHAT bind:stickyChange    | Function | (status) => {} | Whether it is in the ceiling state, note that the check function needs to be turned on to have this callback.                  |
+| #if WECHAT bind:getHeaderHeight | Function | (height) => {} | Calculate the height of the head to complete                                                     |
 
-## SLOT
+## Slot
 
-There is only one default slot, used for wrapping the elements or components that you want to stick to the top.
+There is only one default slot for wrapping elements and components that want to be capped.
 
-## OTHER
+## Other
 
-It should be noted that in a transparent page scenario, the automatic calculation of header height is only convenient for cases where the header sticks to the top. If there is any offset, you will still need to calculate it manually.
+It should be noted that the automatic calculation of head height in the transparent page scene is only convenient to suck on the top. If there is an offset, it still needs to be calculated by itself.
+
+### Theme customization
+
+#### Style Variables
+
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name            | Default Value                                                                                                                         | Dark Mode Default                                                                                                                  | Remarks           |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| --sticky-check-bg | <div style="width: 150px; height: 40px; background-color:rgba(238, 238, 238, 0); color: #333333;">rgba(238, 238, 238, 0)</div> | <div style="width: 150px; height: 40px; background-color: rgba(238, 238, 238, 0); color: #ffffff;">rgba(238, 238, 238, 0)</div> | Selector Background Color |

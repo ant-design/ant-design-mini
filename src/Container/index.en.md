@@ -33,6 +33,7 @@ In `index.json` Introducing Components in
 ## Code Sample
 
 ### Basic use
+
 ```xml
 <ant-container title="Title">
   <view class="content" />
@@ -40,6 +41,7 @@ In `index.json` Introducing Components in
 ```
 
 ### Custom Title
+
 ```xml
 <ant-container headerInBox="{{ false }}">
   <view slot="title">
@@ -54,10 +56,11 @@ In `index.json` Introducing Components in
   <view class="content" />
 </ant-container>
 ```
-### 
 
+###
 
 ### Demo Code
+
 <code src='../../demo/pages/Container/index'></code>
 
 ## API
@@ -78,8 +81,8 @@ The following is `Container` Parameter list for the component:
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                       | Default Value                                                                                            | Remarks         |
-| ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
-| --container-header-color     | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | Container head color |
-| --color-text-assist          | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Secondary Text Color |
-| --container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Container background color |
+| Variable name                        | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks         |
+| ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
+| --container-header-color      | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Container head color |
+| --container-color-text-assist | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Secondary Text Color |
+| --container-background-color  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Container background color |
