@@ -1,38 +1,11 @@
+import equal from 'fast-deep-equal';
+import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
 import { StickyProps } from './props';
 
-Component({
-  data: {
-    headerHeight: 91, // 透明头时的头部高度，单位是px
-  },
-  props: StickyProps,
-  onInit() {
-    // 如果是透明头，高度默认设为一个iPhoneX的默认高度，并通过JSAPI获取实际的高度进行替换
-    if (this.props.transparentTitle) {
-      const { headerHeight: propsHeaderHeight } = this.props;
-      this.initHeaderHeight(propsHeaderHeight);
-    }
-    // 考虑到这个还是有点性能开销，用个属性控制
-    if (this.props.check) {
-      this.stickyIO = this.createIntersectionObserver();
-      this.initTabsObserver();
-    }
-  },
-  deriveDataFromProps(nextProps) {
-    if (this.props.sticky !== nextProps.sticky) {
-      // 考虑到这个还是有点性能开销，用个属性控制
-      if (nextProps.check && !this.stickyIO) {
-        this.stickyIO = this.createIntersectionObserver();
-        this.initTabsObserver();
-      }
-    }
-
-    if (this.props.headerHeight !== nextProps.headerHeight) {
-      this.initHeaderHeight(nextProps.headerHeight);
-    }
-  },
-  methods: {
+Component(
+  StickyProps,
+  {
     initTabsObserver() {
-      const { onStickyChange } = this.props;
       this.stickyIO
         .relativeTo('.ant-sticky-check')
         .observe('.ant-sticky', (res) => {
@@ -46,7 +19,7 @@ Component({
           // console.log('参照区域的边界', res.relativeRect);
           // console.log('目标边界', res.boundingClientRect);
           // console.log('时间戳', res.time);
-          onStickyChange(res.intersectionRatio > 0);
+          triggerEvent(this, 'stickyChange', res.intersectionRatio > 0);
         });
     },
 
@@ -55,19 +28,59 @@ Component({
       if (propsHeaderHeight !== undefined) {
         this.setData({ headerHeight: propsHeaderHeight });
         // 拿都拿到了，顺便抛出去
-        this.props.onGetHeaderHeight(propsHeaderHeight);
+        triggerEvent(this, 'getHeaderHeight', propsHeaderHeight);
       } else {
         my.getSystemInfo().then((res) => {
           const headerHeight =
             (res.statusBarHeight || 47) + (res.titleBarHeight || 44);
           this.setData({ headerHeight });
           // 拿都拿到了，顺便抛出去
-          this.props.onGetHeaderHeight(headerHeight);
+          triggerEvent(this, 'getHeaderHeight', propsHeaderHeight);
         });
       }
     },
   },
-  didUnmount() {
-    this.stickyIO && this.stickyIO.disconnect();
+  {
+    headerHeight: 91, // 透明头时的头部高度，单位是px
   },
-});
+  undefined,
+  {
+    onInit() {
+      const [transparentTitle, propsHeaderHeight, check] = getValueFromProps(
+        this,
+        ['transparentTitle', 'headerHeight', 'check']
+      );
+      // 如果是透明头，高度默认设为一个iPhoneX的默认高度，并通过JSAPI获取实际的高度进行替换
+      if (transparentTitle) {
+        this.initHeaderHeight(propsHeaderHeight);
+      }
+      // 考虑到这个还是有点性能开销，用个属性控制
+      if (check) {
+        this.stickyIO = this.createIntersectionObserver();
+        this.initTabsObserver();
+      }
+    },
+    deriveDataFromProps(nextProps) {
+      const [sticky, headerHeight] = getValueFromProps(this, [
+        'sticky',
+        'headerHeight',
+      ]);
+      this.initHeaderHeight(headerHeight);
+      if (sticky !== nextProps.sticky) {
+        // 考虑到这个还是有点性能开销，用个属性控制
+        if (nextProps.check && !this.stickyIO) {
+          this.stickyIO = this.createIntersectionObserver();
+          this.initTabsObserver();
+        }
+      }
+
+      if (headerHeight !== nextProps.headerHeight) {
+        this.initHeaderHeight(nextProps.headerHeight);
+      }
+    },
+
+    didUnmount() {
+      this.stickyIO && this.stickyIO.disconnect();
+    },
+  }
+);

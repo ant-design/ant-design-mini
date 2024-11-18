@@ -1,5 +1,5 @@
 <view class="ant-card {{className ? className : ''}}">
-  <sticky
+  <ant-sticky
     sticky="{{ headSticky }}"
     check="{{ headSticky }}"
     top="{{stickyTop}}"
@@ -41,7 +41,7 @@
         </view>
       </slot>
     </view>
-  </sticky>
+  </ant-sticky>
 
   <view a:if="{{!finalFoldStatus}}" class="ant-card-divider {{divider ? 'ant-card-divider-with-line g-hairline--top' : ''}}"></view>
 

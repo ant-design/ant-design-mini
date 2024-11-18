@@ -77,7 +77,9 @@
     "pages/DatePicker",
     "pages/Feedback",
     "pages/ConfigProvider",
-    "pages/SafeArea"
+    "pages/SafeArea",
+    "pages/Card",
+    "pages/Sticky"
   ],
   "src": [
     "_locale",
@@ -133,6 +135,8 @@
     "SwipeAction",
     "Feedback",
     "ConfigProvider",
-    "SafeArea"
+    "SafeArea",
+    "Card",
+    "Sticky"
   ]
 }

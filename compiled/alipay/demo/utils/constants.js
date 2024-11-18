@@ -318,14 +318,14 @@ export const componentList = [
         type: '业务组件',
         list: [
             {
-                name: 'Voucher',
-                nameZN: '优惠券',
-                path: '/pages/Voucher/index',
-            },
-            {
                 name: 'Card',
                 nameZN: '基础卡片',
                 path: '/pages/Card/index',
+            },
+            {
+                name: 'Voucher',
+                nameZN: '优惠券',
+                path: '/pages/Voucher/index',
             },
             {
                 name: 'Countdown',
