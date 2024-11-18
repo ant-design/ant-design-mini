@@ -1,5 +1,5 @@
 <ant-container>
-  <ant-config-provider locale={{locale}}>
+  <ant-config-provider locale="{{locale}}">
     <ant-list>
       <ant-list-item>
         选择城市
@@ -29,14 +29,14 @@
   </ant-config-provider>
 </ant-container>
 <ant-container title="深色模式">
-  <ant-config-provider theme="dark" locale={{locale}}>
+  <ant-config-provider theme="dark" locale="{{locale}}">
     <ant-button type="primary" onTap="handleTap">
       主要按钮应该是黑色
     </ant-button>
   </ant-config-provider>
 </ant-container>
 <ant-container title="主题定制">
-  <ant-config-provider themeVars={{themeVars}} locale={{locale}}>
+  <ant-config-provider themeVars="{{themeVars}}" locale="{{locale}}">
     <ant-button type="primary" onTap="handleTap">
       主要按钮
     </ant-button>

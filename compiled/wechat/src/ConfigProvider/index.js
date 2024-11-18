@@ -10,6 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { effect } from '@preact/signals-core';
+import equal from 'fast-deep-equal';
 import kebabCase from 'lodash.kebabcase';
 import { ComponentWithSignalStoreImpl, getValueFromProps, } from '../_util/simply';
 import i18nController from '../_util/store';
@@ -29,32 +30,7 @@ ComponentWithSignalStoreImpl({
         },
     },
 }, ConfigProviderDefaultProps, {
-    /**
-     * 主题生成 css vars
-     * 如果写死深色主题，则覆盖掉原来的颜色
-     * @param themeVars
-     * @returns
-     */
-    convertThemeVarsToCSSVars: function (themeVars) {
-        var cssVars = {};
-        var copyThemeVars = {};
-        if (this.data.theme === 'dark') {
-            copyThemeVars = __assign(__assign({}, cssVariables), themeVars);
-        }
-        if (this.data.theme === 'light') {
-            copyThemeVars = __assign({}, themeVars);
-        }
-        Object.keys(copyThemeVars).forEach(function (key) {
-            cssVars["--".concat(kebabCase(key))] = copyThemeVars[key];
-        });
-        this.setData({
-            cssVarStyle: cssVars,
-        });
-    },
-}, {
-    cssVarStyle: '',
-}, [], {
-    onInit: function () {
+    update: function () {
         var _a = getValueFromProps(this, [
             'theme',
             'themeVars',
@@ -67,5 +43,42 @@ ComponentWithSignalStoreImpl({
             i18nController.switchTheme(theme);
         }
         this.convertThemeVarsToCSSVars(themeVars);
+    },
+    /**
+     * 主题生成 css vars
+     * 如果写死深色主题，则覆盖掉原来的颜色
+     * @param themeVars
+     * @returns
+     */
+    convertThemeVarsToCSSVars: function (themeVars) {
+        var cssVars = '';
+        var copyThemeVars = {};
+        if (this.data.theme === 'dark') {
+            copyThemeVars = __assign(__assign({}, cssVariables), themeVars);
+        }
+        if (this.data.theme === 'light') {
+            copyThemeVars = __assign({}, themeVars);
+        }
+        Object.keys(copyThemeVars).forEach(function (key) {
+            cssVars = "".concat(cssVars, "--").concat(kebabCase(key), ": ").concat(copyThemeVars[key], ";");
+        });
+        this.setData({
+            cssVarStyle: cssVars,
+        });
+    },
+}, {
+    cssVarStyle: '',
+}, [], {
+    attached: function () {
+        this.update();
+    },
+    observers: {
+        '**': function (data) {
+            var prevData = this._prevData || this.data;
+            this._prevData = __assign({}, data);
+            if (!equal(prevData, prevData)) {
+                this.update();
+            }
+        },
     },
 });

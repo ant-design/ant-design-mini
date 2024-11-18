@@ -1,5 +1,6 @@
 const esES = {
     // locales for all components
+    locale: 'es-ES',
     global: {
         placeholder: 'Por favor, seleccione',
         emptyText: 'No hay datos disponibles',

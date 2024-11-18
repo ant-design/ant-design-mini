@@ -1,4 +1,5 @@
 import { effect } from '@preact/signals-core';
+import equal from 'fast-deep-equal';
 import kebabCase from 'lodash.kebabcase';
 import {
   ComponentWithSignalStoreImpl,
@@ -19,35 +20,7 @@ ComponentWithSignalStoreImpl(
   },
   ConfigProviderDefaultProps,
   {
-    /**
-     * 主题生成 css vars
-     * 如果写死深色主题，则覆盖掉原来的颜色
-     * @param themeVars
-     * @returns
-     */
-    convertThemeVarsToCSSVars(themeVars: Record<string, string | number>) {
-      const cssVars: Record<string, string | number> = {};
-      let copyThemeVars = {};
-      if (this.data.theme === 'dark') {
-        copyThemeVars = { ...cssVariables, ...themeVars };
-      }
-      if (this.data.theme === 'light') {
-        copyThemeVars = { ...themeVars };
-      }
-      Object.keys(copyThemeVars).forEach((key) => {
-        cssVars[`--${kebabCase(key)}`] = copyThemeVars[key];
-      });
-      this.setData({
-        cssVarStyle: cssVars,
-      });
-    },
-  },
-  {
-    cssVarStyle: '',
-  },
-  [],
-  {
-    onInit() {
+    update() {
       const [theme, themeVars, locale] = getValueFromProps(this, [
         'theme',
         'themeVars',
@@ -61,5 +34,57 @@ ComponentWithSignalStoreImpl(
       }
       this.convertThemeVarsToCSSVars(themeVars);
     },
+    /**
+     * 主题生成 css vars
+     * 如果写死深色主题，则覆盖掉原来的颜色
+     * @param themeVars
+     * @returns
+     */
+    convertThemeVarsToCSSVars(themeVars: Record<string, string | number>) {
+      let cssVars = '';
+      let copyThemeVars = {};
+      if (this.data.theme === 'dark') {
+        copyThemeVars = { ...cssVariables, ...themeVars };
+      }
+      if (this.data.theme === 'light') {
+        copyThemeVars = { ...themeVars };
+      }
+      Object.keys(copyThemeVars).forEach((key) => {
+        cssVars = `${cssVars}--${kebabCase(key)}: ${copyThemeVars[key]};`;
+      });
+      this.setData({
+        cssVarStyle: cssVars,
+      });
+    },
+  },
+  {
+    cssVarStyle: '',
+  },
+  [],
+  {
+    /// #if ALIPAY
+    onInit() {
+      this.update();
+    },
+    didUpdate(prevProps) {
+      if (!equal(prevProps, getValueFromProps(this))) {
+        this.update();
+      }
+    },
+    /// #endif
+    /// #if WECHAT
+    attached() {
+      this.update();
+    },
+    observers: {
+      '**': function (data) {
+        const prevData = this._prevData || this.data;
+        this._prevData = { ...data };
+        if (!equal(prevData, prevData)) {
+          this.update();
+        }
+      },
+    },
+    /// #endif
   }
 );
