@@ -16,34 +16,34 @@
     <view class="ant-empty-text">
       <view class="ant-empty-text-main">
         <!-- #if WECHAT -->
-        <ant-auto-resize text="{{ title }}" minFontSize="24" maxFontSize="30">
+        <ant-auto-resize text="{{ title }}" minFontSize="24" maxFontSize="36">
           <block wx:if="{{ title }}">{{ title }}</block>
         </ant-auto-resize>
-        <ant-auto-resize text="{{ title }}" minFontSize="24" maxFontSize="30">
+        <ant-auto-resize text="{{ title }}" minFontSize="24" maxFontSize="36">
           <block wx:else>
             <slot name="title">{{ title }}</slot>
           </block>
         </ant-auto-resize>
         <!-- #endif -->
         <!-- #if ALIPAY -->
-          <ant-auto-resize text="{{ title }}" minFontSize="24" maxFontSize="30">
+          <ant-auto-resize text="{{ title }}" minFontSize="24" maxFontSize="36">
             <slot name="title">{{ title }}</slot>
           </ant-auto-resize>
         <!-- #endif -->
       </view>
       <view class="ant-empty-text-sub">
         <!-- #if WECHAT -->
-        <ant-auto-resize text="{{ message }}" minFontSize="24" maxFontSize="30">
+        <ant-auto-resize text="{{ message }}" minFontSize="24" maxFontSize="36">
           <block wx:if="{{ message }}">{{ message }}</block>
         </ant-auto-resize>
-        <ant-auto-resize text="{{ message }}" minFontSize="24" maxFontSize="30">
+        <ant-auto-resize text="{{ message }}" minFontSize="24" maxFontSize="36">
           <block wx:else>
             <slot name="message">{{ message }}</slot>
           </block>
         </ant-auto-resize>
         <!-- #endif -->
         <!-- #if ALIPAY -->
-        <ant-auto-resize text="{{ message }}" minFontSize="24" maxFontSize="30">
+        <ant-auto-resize text="{{ message }}" minFontSize="24" maxFontSize="36">
           <slot name="message">{{ message }}</slot>
         </ant-auto-resize>
         <!-- #endif -->
