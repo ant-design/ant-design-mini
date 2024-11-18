@@ -4,6 +4,7 @@ export var CardDefaultProps = {
         foldTapArea: 'btn',
     },
     title: '',
+    operateText: '',
     needFold: false,
     foldStatus: false,
     headSticky: false,

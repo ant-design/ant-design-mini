@@ -4,7 +4,7 @@ Page({
         titleSticky: false,
     },
     handleLinkClick() {
-        my.alert({ content: '被点击了' });
+        my.showToast({ content: '被点击了' });
     },
     handleTapFoldBtn() {
         console.log('收起展开态发生变化');

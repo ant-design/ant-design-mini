@@ -4,7 +4,8 @@ Page({
         titleSticky: false,
     },
     handleLinkClick() {
-        my.alert({ content: '被点击了' });
+        // @ts-ignore
+        wx.showToast({ title: '被点击了' });
     },
     handleTapFoldBtn() {
         console.log('收起展开态发生变化');

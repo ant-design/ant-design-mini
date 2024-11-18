@@ -6,40 +6,29 @@
     transparentTitle="{{stickyTransparentTitle}}"
     bind:stickychange="handleStickyChange"
   >
-    <!--卡片头部-->
     <view
       wx:if="{{title}}"
       class="ant-card-header"
       bind:tap="handleTapCardHeader"
     >
-      <!--卡片头部右侧操作-->
-      <slot name="headerTitle">
-        <!--卡片标题-->
-        <view class="ant-card-header-title">{{title}}</view>
-      </slot>
-      <!--卡片头部右侧操作-->
-      <slot
-        name="headerRight"
-        class="ant-card-header-right"
+      <view class="ant-card-header-title">{{title}}</view>
+      <view
+        wx:if="{{operateText}}"
+        class="ant-card-header-right-link"
+        bind:tap="handleTapLink"
+      >{{operateText}}<ant-icon type="RightOutline"></ant-icon>
+      </view>
+      <view
+        wx:elif="{{needFold}}"
+        class="ant-card-header-right-link"
+        bind:tap="handleTapFoldBtn"
       >
-        <view
-          wx:if="{{operateText}}"
-          class="ant-card-header-right-link"
-          bind:tap="handleTapLink"
-        >{{operateText}}<ant-icon type="RightOutline"></ant-icon>
-        </view>
-        <view
-          wx:elif="{{needFold}}"
-          class="ant-card-header-right-link"
-          bind:tap="handleTapFoldBtn"
-        >
-          <text class="ant-card-header-fold-btn">{{finalFoldStatus ? '展开' : '收起'}}</text>
-          <ant-icon
-            class="ant-card-header-fold-icon"
-            type="{{finalFoldStatus ? 'DownOutline' : 'UpOutline'}}"
-          ></ant-icon>
-        </view>
-      </slot>
+        <text class="ant-card-header-fold-btn">{{finalFoldStatus ? '展开' : '收起'}}</text>
+        <ant-icon
+          class="ant-card-header-fold-icon"
+          type="{{finalFoldStatus ? 'DownOutline' : 'UpOutline'}}"
+        ></ant-icon>
+      </view>
     </view>
   </ant-sticky>
   <view

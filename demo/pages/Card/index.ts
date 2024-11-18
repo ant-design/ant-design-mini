@@ -4,7 +4,13 @@ Page({
     titleSticky: false,
   },
   handleLinkClick() {
-    my.alert({ content: '被点击了' });
+    /// #if ALIPAY
+    my.showToast({ content: '被点击了' });
+    /// #endif
+    /// #if WECHAT
+    // @ts-ignore
+    wx.showToast({ title: '被点击了' });
+    /// #endif
   },
   handleTapFoldBtn() {
     console.log('收起展开态发生变化');
