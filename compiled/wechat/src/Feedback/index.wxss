@@ -14,6 +14,8 @@
   transform: translate(-50%, 60rpx);
   left: 50% !important;
   top: 50% !important;
+  bottom: 50% !important;
+  right: 50% !important;
 }
 .ant-feedback-show {
   z-index: 9;
