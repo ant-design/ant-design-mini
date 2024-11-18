@@ -21,9 +21,7 @@ ComponentWithSignalStoreImpl(
     store: () => i18nController,
     updateHook: effect,
     mapState: {
-      locale: ({ store }) => {
-        return store.currentLocale.value;
-      },
+      locale: ({ store }) => store.currentLocale.value,
     },
   },
   PickerDefaultProps,
@@ -203,7 +201,10 @@ ComponentWithSignalStoreImpl(
     columns: [],
     visible: false,
     selectedIndex: [],
-    locale: {},
+    locale: {
+      locale: '23123',
+      global: {},
+    },
   },
   [
     mixinValue({

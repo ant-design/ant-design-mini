@@ -40,10 +40,10 @@
               a:if="{{item.status === 'error'}}"
               class="ant-image-upload-cover-error"
             >
-              <icon
+              <ant-icon
                 className="ant-image-upload-cover-error-icon"
                 type="CloseCircleOutline"
-              ></icon>
+              ></ant-icon>
               <view class="ant-image-upload-cover-error-text">
                 {{uploadfailedText === null ? locale.imageUpload.uploadfailedText : uploadfailedText}}
               </view>
@@ -65,10 +65,10 @@
           a:if="{{showUploadButton}}"
           class="ant-image-upload-add-image-wrapper"
         >
-          <icon
+          <ant-icon
             type="AddOutline"
             className="ant-image-upload-add-image-icon"
-          ></icon>
+          ></ant-icon>
         </view>
       </slot>
     </view>

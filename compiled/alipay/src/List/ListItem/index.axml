@@ -57,10 +57,10 @@
       </view>
     </view>
     <view class="ant-list-item-arrow {{extraBrief && extra ? 'ant-list-item-arrow-large-margin' : ''}}">
-      <icon
+      <ant-icon
         a:if="{{arrowUtil.getArrow(arrow)}}"
         type="{{arrowUtil.getArrow(arrow)}}"
-      ></icon>
+      ></ant-icon>
     </view>
   </view>
 </view>

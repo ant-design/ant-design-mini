@@ -27,7 +27,7 @@
       <!-- #if ALIPAY -->
       <slot name="character">
       <!-- #endif -->
-        <icon type="StarFill" />
+        <ant-icon type="StarFill" />
       <!-- #if ALIPAY -->
       </slot>
       <!-- #endif -->

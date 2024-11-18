@@ -73,7 +73,7 @@
       class="ant-input-clear {{ state.value && state.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden' }}"
       onTap="onClear"
     >
-      <icon className="ant-input-clear-icon" type="CloseCircleFill" />
+      <ant-icon className="ant-input-clear-icon" type="CloseCircleFill" />
     </view>
   </view>
   <view class="ant-input-suffix">

@@ -33,10 +33,10 @@
       class="ant-textarea-clear {{state.value && state.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden'}}"
       bind:tap="onClear"
     >
-      <icon
+      <ant-icon
         className="ant-textarea-clear-icon"
         type="CloseCircleFill"
-      ></icon>
+      ></ant-icon>
     </view>
   </view>
 </view>

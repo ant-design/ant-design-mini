@@ -62,10 +62,10 @@
             class="ant-rare-words-keyboard-match_words_right {{showMoreWords ? 'sticky' : ''}} {{matchWordsList.length > maxDisplayNum && !showMoreWords ? 'overflow' : ''}}"
             bind:tap="hanleLookMore"
           >
-            <icon
+            <ant-icon
               className="ant-rare-words-keyboard_down"
               type="DownOutline"
-            ></icon>
+            ></ant-icon>
           </view>
         </view>
       </view>
@@ -122,10 +122,10 @@
                 bind:tap="handleDelete"
               >
                 <view class="ant-rare-words-keyboard_pinyin_key_text">
-                  <icon
+                  <ant-icon
                     className="ant-rare-words-keyboard_delete"
                     type="TextDeletionOutline"
-                  ></icon>
+                  ></ant-icon>
                 </view>
               </view>
             </view>

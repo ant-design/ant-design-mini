@@ -28,7 +28,7 @@
               </view>
             </view>
             <view a:if="{{ item.status === 'error' }}" class="ant-image-upload-cover-error">
-              <icon className="ant-image-upload-cover-error-icon" type="CloseCircleOutline" />
+              <ant-icon className="ant-image-upload-cover-error-icon" type="CloseCircleOutline" />
               <view class="ant-image-upload-cover-error-text">
                 {{  uploadfailedText === null ? locale.imageUpload.uploadfailedText :  uploadfailedText }}
               </view>
@@ -52,7 +52,7 @@
       <slot name="uploadButton">
         <!-- #endif -->
         <view a:if="{{ showUploadButton }}" class="ant-image-upload-add-image-wrapper">
-          <icon type="AddOutline" className="ant-image-upload-add-image-icon" />
+          <ant-icon type="AddOutline" className="ant-image-upload-add-image-icon" />
         </view>
         <!-- #if ALIPAY  -->
       </slot>

@@ -15,11 +15,11 @@
       wx:else
       class="ant-range-picker-selector-item-placeholder"
     >{{placeholder}}</view>
-    <icon
+    <ant-icon
       wx:if="{{precision === 'year' || precision === 'month' || precision === 'day' || precision === 'hour'}}"
       type="CalendarOutline"
       className="ant-range-picker-selector-item-icon"
-    ></icon>
+    ></ant-icon>
   </view>
 </template>
 <ant-picker

@@ -16,11 +16,11 @@
     >
       {{placeholder}}
     </view>
-    <icon
+    <ant-icon
       a:if="{{precision === 'year' || precision === 'month' || precision === 'day' || precision === 'hour'}}"
       type="CalendarOutline"
       className="ant-range-picker-selector-item-icon"
-    ></icon>
+    ></ant-icon>
   </view>
 </template>
 <ant-picker
