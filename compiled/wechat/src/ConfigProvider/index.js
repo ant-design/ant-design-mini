@@ -59,7 +59,6 @@ ComponentWithSignalStoreImpl({
         if (this.data.themeState === 'light') {
             copyThemeVars = __assign({}, themeVars);
         }
-        console.log(copyThemeVars);
         Object.keys(copyThemeVars).forEach(function (key) {
             cssVars = "".concat(cssVars, "--").concat(kebabCase(key), ": ").concat(copyThemeVars[key], ";");
         });
