@@ -19,7 +19,7 @@
       holdKeyboard="{{holdKeyboard}}"
       adjustPosition="{{adjustPosition}}"
       password="{{password}}"
-      placeholder="{{placeholder === null ? locale.global.placeholder : placeholder}}"
+      placeholder="{{[undefined, null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder}}"
       placeholderClass="ant-input-placeholder {{placeholderClassName ? placeholderClassName : ''}}"
       placeholderStyle="{{placeholderStyle ? placeholderStyle : ''}}"
       maxlength="{{maxLength}}"

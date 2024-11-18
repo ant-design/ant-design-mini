@@ -16,7 +16,7 @@
     allowClear="{{ allowClear }}"
     enableNative="{{ enableNative }}"
     disabled="{{ disabled }}"
-    placeholder="{{ placeholder === null ? locale.global.placeholder : placeholder  }}"
+    placeholder="{{ [undefined,null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder  }}"
     placeholderClassName="{{ placeholderClassName }}"
     placeholderStyle="{{ placeholderStyle }}"
     maxLength="{{ maxLength }}"
