@@ -8,48 +8,38 @@
           onCancel="handleDismissPicker"
           onVisibleChange="handleTriggerPicker"
           onOk="handleOk"
-          defaultValue="{{defaultValue}}"
+          default-value="{{defaultValue}}"
           title="请选择"
           onChange="handleChange"
           options="{{list}}"
-          emptyText="暂无数据"
-        ></ant-picker>
+          empty-text="暂无数据"
+        >
+        </ant-picker>
       </ant-list-item>
       <ant-list-item>
         日期范围
         <ant-range-picker
           slot="extra"
-          defaultValue="{{defaultDateRange}}"
+          default-value="{{defaultDateRange}}"
           onPickerChange="handlePickerRangeChange"
           onVisibleChange="handleTriggerPicker"
           onOk="handleRangeOk"
-        ></ant-range-picker>
+        >
+        </ant-range-picker>
       </ant-list-item>
     </ant-list>
   </ant-config-provider>
 </ant-container>
 <ant-container title="深色模式">
-  <ant-config-provider
-    theme="dark"
-    locale="{{locale}}"
-  >
-    <ant-button
-      type="primary"
-      onTap="handleTap"
-    >
-      主要按钮
+  <ant-config-provider theme="dark" locale="{{locale}}">
+    <ant-button type="primary" onTap="handleTap">
+      深色主题
     </ant-button>
   </ant-config-provider>
 </ant-container>
 <ant-container title="主题定制">
-  <ant-config-provider
-    themeVars="{{themeVars}}"
-    locale="{{locale}}"
-  >
-    <ant-button
-      type="primary"
-      onTap="handleTap"
-    >
+  <ant-config-provider theme-vars="{{themeVars}}" locale="{{locale}}">
+    <ant-button type="primary" onTap="handleTap">
       主要按钮
     </ant-button>
   </ant-config-provider>
