@@ -5,6 +5,7 @@ group:
   title: 业务组件
   order: 15
 toc: content
+supportPlatform: ['alipay']
 ---
 
 # SelectContact
@@ -55,15 +56,15 @@ Page({
 
 ## API
 
-| Property                          | Description                         | Type                      | Default Value |
-| ----------------------------- | ---------------------------- | ------------------------- | ------ |
-| className                     | Class Name                         | string                    | -      |
-| height                        | Component height                     | string                    | -      |
-| source                        | Business sources, distinguishing between scenario monitoring and embedding points | string                    | -      |
-| bizScene                      | Access party scenario, post-verification         | number                    | -      |
-| #if ALIPAY onSelect           | Trigger when contact is selected             | (IOnSelectParams) => void | -      |
-| #if ALIPAY onError            | Get data interface error trigger         | (error: any) => void      | -      |
-| #if ALIPAY onContactListEmpty | Triggered when recommend list is empty           | () => void                | -      |
+| Property                      | Description                                                                       | Type                      | Default Value |
+| ----------------------------- | --------------------------------------------------------------------------------- | ------------------------- | ------------- |
+| className                     | Class Name                                                                        | string                    | -             |
+| height                        | Component height                                                                  | string                    | -             |
+| source                        | Business sources, distinguishing between scenario monitoring and embedding points | string                    | -             |
+| bizScene                      | Access party scenario, post-verification                                          | number                    | -             |
+| #if ALIPAY onSelect           | Trigger when contact is selected                                                  | (IOnSelectParams) => void | -             |
+| #if ALIPAY onError            | Get data interface error trigger                                                  | (error: any) => void      | -             |
+| #if ALIPAY onContactListEmpty | Triggered when recommend list is empty                                            | () => void                | -             |
 
 ### Theme customization
 

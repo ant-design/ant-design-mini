@@ -5,6 +5,7 @@ group:
   title: 信息展示
   order: 8
 toc: 'content'
+supportPlatform: ['alipay']
 ---
 
 # Table 表格
