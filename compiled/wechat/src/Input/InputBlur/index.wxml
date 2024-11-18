@@ -7,7 +7,7 @@
   value="{{state.value}}"
   type="{{type}}"
   password="{{password}}"
-  placeholder="{{[undefined, null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder}}"
+  placeholder="{{placeholder}}"
   placeholderClass="ant-input-item-placeholder-base {{placeholderClassName ? placeholderClassName : ''}}"
   placeholderStyle="{{placeholderStyle ? placeholderStyle : ''}}"
   maxlength="{{maxLength}}"
