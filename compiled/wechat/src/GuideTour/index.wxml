@@ -9,12 +9,12 @@
 >
   <ant-mask
     show
-    className="{{maskClassName}}"
+    class-name="{{maskClassName}}"
     style="z-index:9999;{{maskStyle || ''}}"
   ></ant-mask>
   <ant-icon
     type="CloseOutline"
-    className="ant-guide-tour-clear"
+    class-name="ant-guide-tour-clear"
     bind:tap="onCancel"
   ></ant-icon>
   <view class="ant-guide-tour-button">
@@ -23,27 +23,51 @@
       inline
       size="small"
       bind:tap="onCancel"
-    >{{[undefined, null].indexOf(jumpText) !== -1 ? locale.guideTour.jumpText : jumpText}}</ant-button>
+    >
+      <ant-auto-resize
+        text="{{[undefined, null].indexOf(jumpText) !== -1 ? locale.guideTour.jumpText : jumpText}}"
+        min-font-size="24"
+        max-font-size="30"
+      >{{[undefined, null].indexOf(jumpText) !== -1 ? locale.guideTour.jumpText : jumpText}}</ant-auto-resize>
+    </ant-button>
     <ant-button
       wx:if="{{utils.checkShowPrev(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onPrev"
       data-current-value="{{mixin.value}}"
-    >{{[undefined, null].indexOf(prevStepText) !== -1 ? locale.guideTour.prevStepText : prevStepText}}</ant-button>
+    >
+      <ant-auto-resize
+        text="{{[undefined, null].indexOf(prevStepText) !== -1 ? locale.guideTour.prevStepText : prevStepText}}"
+        min-font-size="24"
+        max-font-size="30"
+      >{{[undefined, null].indexOf(prevStepText) !== -1 ? locale.guideTour.prevStepText : prevStepText}}</ant-auto-resize>
+    </ant-button>
     <ant-button
       wx:if="{{utils.checkShowNext(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onNext"
       data-current-value="{{mixin.value}}"
-    >{{[undefined, null].indexOf(nextStepText) !== -1 ? locale.guideTour.nextStepText : nextStepText}}</ant-button>
+    >
+      <ant-auto-resize
+        text="{{[undefined, null].indexOf(nextStepText) !== -1 ? locale.guideTour.nextStepText : nextStepText}}"
+        min-font-size="24"
+        max-font-size="30"
+      >{{[undefined, null].indexOf(nextStepText) !== -1 ? locale.guideTour.nextStepText : nextStepText}}</ant-auto-resize>
+    </ant-button>
     <ant-button
       wx:if="{{utils.checkShowKnow(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onCancel"
-    >{{[undefined, null].indexOf(gotItText) !== -1 ? locale.guideTour.gotItText : gotItText}}</ant-button>
+    >
+      <ant-auto-resize
+        text="{{[undefined, null].indexOf(gotItText) !== -1 ? locale.guideTour.gotItText : gotItText}}"
+        min-font-size="24"
+        max-font-size="30"
+      >{{[undefined, null].indexOf(gotItText) !== -1 ? locale.guideTour.gotItText : gotItText}}</ant-auto-resize>
+    </ant-button>
   </view>
   <block wx:if="{{swiperable}}">
     <view class="ant-guide-tour-indicator">
@@ -58,7 +82,7 @@
     <swiper
       class="ant-guide-tour-swiper"
       current="{{mixin.value}}"
-      adjustHeight="none"
+      adjust-height="none"
       style="height: 100vh"
       bind:change="onSwiperChange"
     >

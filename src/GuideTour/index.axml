@@ -10,7 +10,9 @@
       size="small"
       onTap="onCancel"
     >
-      {{ [undefined,null].indexOf(jumpText) !== -1 ? locale.guideTour.jumpText : jumpText}}
+      <ant-auto-resize text="{{ [undefined,null].indexOf(jumpText) !== -1 ? locale.guideTour.jumpText : jumpText}}" minFontSize="24" maxFontSize="30">
+        {{ [undefined,null].indexOf(jumpText) !== -1 ? locale.guideTour.jumpText : jumpText}}
+      </ant-auto-resize>
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowPrev(mixin.value, items) }}"
@@ -19,7 +21,9 @@
       onTap="onPrev"
       data-currentValue="{{ mixin.value }}"
     >
-      {{ [undefined,null].indexOf(prevStepText) !== -1 ? locale.guideTour.prevStepText : prevStepText}}
+      <ant-auto-resize text="{{ [undefined,null].indexOf(prevStepText) !== -1 ? locale.guideTour.prevStepText : prevStepText}}" minFontSize="24" maxFontSize="30">
+        {{ [undefined,null].indexOf(prevStepText) !== -1 ? locale.guideTour.prevStepText : prevStepText}}
+      </ant-auto-resize>
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowNext(mixin.value, items) }}"
@@ -28,7 +32,9 @@
       onTap="onNext"
       data-currentValue="{{ mixin.value }}"
     >
-      {{ [undefined,null].indexOf(nextStepText) !== -1 ? locale.guideTour.nextStepText : nextStepText}}
+      <ant-auto-resize text="{{ [undefined,null].indexOf(nextStepText) !== -1 ? locale.guideTour.nextStepText : nextStepText}}" minFontSize="24" maxFontSize="30">
+        {{ [undefined,null].indexOf(nextStepText) !== -1 ? locale.guideTour.nextStepText : nextStepText}}
+      </ant-auto-resize>
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowKnow(mixin.value, items) }}"
@@ -36,7 +42,9 @@
       size="small"
       onTap="onCancel"
     >
-      {{ [undefined,null].indexOf(gotItText) !== -1 ? locale.guideTour.gotItText : gotItText}}
+      <ant-auto-resize text="{{ [undefined,null].indexOf(gotItText) !== -1 ? locale.guideTour.gotItText : gotItText}}" minFontSize="24" maxFontSize="30">
+        {{ [undefined,null].indexOf(gotItText) !== -1 ? locale.guideTour.gotItText : gotItText}}
+      </ant-auto-resize>
     </ant-button>
   </view>
   <block a:if="{{ swiperable }}">
