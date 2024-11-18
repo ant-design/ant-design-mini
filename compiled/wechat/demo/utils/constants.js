@@ -311,6 +311,11 @@ export const componentList = [
                 nameZN: '全局容器',
                 path: '/pages/ConfigProvider/index',
             },
+            {
+                name: 'SafeArea',
+                nameZN: '安全区',
+                path: '/pages/SafeArea/index',
+            },
         ],
     },
 ];

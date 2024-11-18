@@ -75,6 +75,7 @@
     "demo/pages/Loading/index",
     "demo/pages/Tag/index",
     "demo/pages/Feedback/index",
-    "demo/pages/ConfigProvider/index"
+    "demo/pages/ConfigProvider/index",
+    "demo/pages/SafeArea/index"
   ]
 }

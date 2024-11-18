@@ -361,12 +361,12 @@ export const componentList = [
         nameZN: '排版',
         path: '/pages/Typography/index',
       },
+      /// #endif
       {
         name: 'SafeArea',
         nameZN: '安全区',
         path: '/pages/SafeArea/index',
       },
-      /// #endif
     ],
   },
 ];

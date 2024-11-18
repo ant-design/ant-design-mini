@@ -76,7 +76,8 @@
     "pages/Picker",
     "pages/DatePicker",
     "pages/Feedback",
-    "pages/ConfigProvider"
+    "pages/ConfigProvider",
+    "pages/SafeArea"
   ],
   "src": [
     "_locale",
@@ -131,6 +132,7 @@
     "Tabs",
     "SwipeAction",
     "Feedback",
-    "ConfigProvider"
+    "ConfigProvider",
+    "SafeArea"
   ]
 }
