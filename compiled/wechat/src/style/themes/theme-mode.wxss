@@ -416,7 +416,6 @@
     --size-font12: 64rpx;
     --popover-content-bg: rgba(255, 255, 255, 0.45);
     --popover-content-color: #c5cad1;
-    --calendar-weekday-names-bg: #303030;
     --button-disabled-opacity: 0.4;
     --button-color: #3086ff;
     --button-background-color: #000000;
@@ -465,7 +464,7 @@
     --feedback-list-background-color: #1a1a1a;
     --feedback-list-text-color: #c5cad1;
     --calendar-cell-disabled-opacity: 0.4;
-    --calendar-weekday-names-bg: #f8f8f8;
+    --calendar-weekday-names-bg: #303030;
     --calendar-default-color: #c5cad1;
     --calendar-selected-color: rgba(22, 119, 255, 0.1);
     --calendar-assist-color: #616161;
