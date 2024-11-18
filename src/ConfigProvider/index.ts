@@ -1,5 +1,4 @@
 import { effect } from '@preact/signals-core';
-import equal from 'fast-deep-equal';
 import kebabCase from 'lodash.kebabcase';
 import {
   ComponentWithSignalStoreImpl,
@@ -66,24 +65,10 @@ ComponentWithSignalStoreImpl(
     onInit() {
       this.update();
     },
-    didUpdate(prevProps) {
-      if (!equal(prevProps, getValueFromProps(this))) {
-        this.update();
-      }
-    },
     /// #endif
     /// #if WECHAT
     attached() {
       this.update();
-    },
-    observers: {
-      '**': function (data) {
-        const prevData = this._prevData || this.data;
-        this._prevData = { ...data };
-        if (!equal(prevData, prevData)) {
-          this.update();
-        }
-      },
     },
     /// #endif
   }

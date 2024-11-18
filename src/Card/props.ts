@@ -24,6 +24,7 @@ export const CardDefaultProps: ICardProps = {
     foldTapArea: 'btn',
   },
   title: '',
+  operateText:'',
   needFold: false,
   foldStatus: false,
   headSticky: false,

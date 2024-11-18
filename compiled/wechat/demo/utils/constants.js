@@ -12,6 +12,11 @@ export const componentList = [
                 nameZN: '图标',
                 path: '/pages/Icon/index',
             },
+            {
+                name: 'Sticky',
+                nameZN: '黏性吸附',
+                path: '/pages/Sticky/index',
+            },
         ],
     },
     {
@@ -301,7 +306,13 @@ export const componentList = [
     },
     {
         type: '业务组件',
-        list: [],
+        list: [
+            {
+                name: 'Card',
+                nameZN: '基础卡片',
+                path: '/pages/Card/index',
+            },
+        ],
     },
     {
         type: '实验性',

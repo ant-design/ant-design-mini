@@ -126,4 +126,13 @@ export const wechatCustomMapping = {
   'ant-mask': {
     onMaskTap: 'bind:masktap',
   },
+  'ant-sticky': {
+    onStickyChange: 'bind:stickychange',
+    onGetHeaderHeight: 'bind:getheaderheight',
+  },
+  'ant-card': {
+    onOperateClick: 'bind:operateclick',
+    onFoldChange: 'bind:foldchange',
+    onTitleSticky: 'bind:titlesticky',
+  },
 };

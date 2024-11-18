@@ -5,7 +5,6 @@ group:
   title: 通用
   order: 2
 toc: 'content'
-supportPlatform: ['alipay']
 ---
 
 # Sticky 粘性吸附
@@ -111,8 +110,8 @@ Page({
 | transparentTitle                | bool     | false          | 是否是透明头，透明头会自动计算 titleBar 高度，默认吸附在 titlebar 下 |
 | #if ALIPAY onStickyChange       | Function | (status) => {} | 是否在吸顶状态，注意需要打开 check 功能才有这个回调                  |
 | #if ALIPAY onGetHeaderHeight    | Function | (height) => {} | 计算头的高度完成                                                     |
-| #if WECHAT bind:stickyChange    | Function | (status) => {} | 是否在吸顶状态，注意需要打开 check 功能才有这个回调                  |
-| #if WECHAT bind:getHeaderHeight | Function | (height) => {} | 计算头的高度完成                                                     |
+| #if WECHAT bind:stickychange    | Function | (status) => {} | 是否在吸顶状态，注意需要打开 check 功能才有这个回调                  |
+| #if WECHAT bind:getheaderheight | Function | (height) => {} | 计算头的高度完成                                                     |
 
 ## 插槽
 

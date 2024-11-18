@@ -10,7 +10,6 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { effect } from '@preact/signals-core';
-import equal from 'fast-deep-equal';
 import kebabCase from 'lodash.kebabcase';
 import { ComponentWithSignalStoreImpl, getValueFromProps, } from '../_util/simply';
 import i18nController from '../_util/store';
@@ -71,14 +70,5 @@ ComponentWithSignalStoreImpl({
 }, [], {
     attached: function () {
         this.update();
-    },
-    observers: {
-        '**': function (data) {
-            var prevData = this._prevData || this.data;
-            this._prevData = __assign({}, data);
-            if (!equal(prevData, prevData)) {
-                this.update();
-            }
-        },
     },
 });

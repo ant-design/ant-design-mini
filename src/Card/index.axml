@@ -1,27 +1,29 @@
 <view class="ant-card {{className ? className : ''}}">
-  <sticky
+  <ant-sticky
     sticky="{{ headSticky }}"
     check="{{ headSticky }}"
     top="{{stickyTop}}"
     transparentTitle="{{ stickyTransparentTitle }}"
     onStickyChange="handleStickyChange"
   >
-    <!-- 卡片头部 -->
     <view
       a:if="{{title}}"
       class="ant-card-header"
       onTap="handleTapCardHeader"
     >
-      <!-- 卡片头部右侧操作 -->
+      <!-- #if ALIPAY -->
       <slot name="headerTitle">
-        <!-- 卡片标题 -->
+      <!-- #endif -->
         <view class="ant-card-header-title">
           {{title}}
         </view>
+      <!-- #if ALIPAY -->
       </slot>
+      <!-- #endif -->
 
-      <!-- 卡片头部右侧操作 -->
+      <!-- #if ALIPAY -->
       <slot name="headerRight" class="ant-card-header-right">
+      <!-- #endif -->
         <view
           a:if="{{operateText}}"
           class="ant-card-header-right-link"
@@ -39,9 +41,11 @@
           <text class="ant-card-header-fold-btn">{{finalFoldStatus ? '展开' : '收起'}}</text>
           <ant-icon class="ant-card-header-fold-icon" type="{{ finalFoldStatus ? 'DownOutline' : 'UpOutline'}}"/>
         </view>
+      <!-- #if ALIPAY -->
       </slot>
+      <!-- #endif -->
     </view>
-  </sticky>
+  </ant-sticky>
 
   <view a:if="{{!finalFoldStatus}}" class="ant-card-divider {{divider ? 'ant-card-divider-with-line g-hairline--top' : ''}}"></view>
 

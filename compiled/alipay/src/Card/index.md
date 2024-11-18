@@ -5,7 +5,6 @@ group:
   title: 业务组件
   order: 15
 toc: content
-supportPlatform: ['alipay']
 ---
 
 # Card 基础卡片
@@ -127,9 +126,9 @@ supportPlatform: ['alipay']
 | #if ALIPAY onOperateClick | 默认标题栏右侧操作按钮点击回调 | () => void | - |
 | #if ALIPAY onFoldChange | 默认标题栏右侧折叠展开按钮点击回调 | () => void | - |
 | #if ALIPAY onTitleSticky | title 区域是否吸顶变化时的回调 | (status) => void | - |
-| #if WECHAT bind:operateClick | 默认标题栏右侧操作按钮点击回调 | () => void | - |
-| #if WECHAT bind:foldChange | 默认标题栏右侧折叠展开按钮点击回调 | () => void | - |
-| #if WECHAT bind:titleSticky | title 区域是否吸顶变化时的回调 | (status) => void | - |
+| #if WECHAT bind:operateclick | 默认标题栏右侧操作按钮点击回调 | () => void | - |
+| #if WECHAT bind:foldchange | 默认标题栏右侧折叠展开按钮点击回调 | () => void | - |
+| #if WECHAT bind:titlesticky | title 区域是否吸顶变化时的回调 | (status) => void | - |
 
 ### ICardConfig
 
