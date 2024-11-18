@@ -6,16 +6,16 @@
           bind:cancel="handleDismissPicker"
           bind:visiblechange="handleTriggerPicker"
           bind:ok="handleOk"
-          default-value="{{defaultValue}}"
+          defaultValue="{{defaultValue}}"
           title="请选择"
           bind:change="handleChange"
           options="{{list}}"
-          empty-text="暂无数据"
+          emptyText="暂无数据"
         ></ant-picker>
       </ant-list-item>
       <ant-list-item>日期范围<ant-range-picker
           slot="extra"
-          default-value="{{defaultDateRange}}"
+          defaultValue="{{defaultDateRange}}"
           onPickerChange="handlePickerRangeChange"
           bind:visiblechange="handleTriggerPicker"
           bind:ok="handleRangeOk"
@@ -37,7 +37,7 @@
 </ant-container>
 <ant-container title="主题定制">
   <ant-config-provider
-    theme-vars="{{themeVars}}"
+    themeVars="{{themeVars}}"
     locale="{{locale}}"
   >
     <ant-button
