@@ -344,6 +344,6 @@
     background-color: rgba(0, 0, 0, 0.55);
   }
   100% {
-    background-color: var(--popup-mask-close-bg, rgba(0, 0, 0, 0));
+    background-color: rgba(0, 0, 0, 0);
   }
 }
