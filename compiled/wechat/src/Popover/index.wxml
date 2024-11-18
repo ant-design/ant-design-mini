@@ -42,7 +42,10 @@
         name="content"
         wx:if="{{!content}}"
       ></slot>
-      <block wx:else>{{content}}</block>
+      <view
+        wx:else
+        class="ant-popover-inner-text"
+      >{{content}}</view>
       <view
         wx:if="{{actionText}}"
         bind:tap="onTapAction"
@@ -55,7 +58,7 @@
       <view
         wx:if="{{showCloseIcon}}"
         bind:tap="onVisibleChange"
-        className="ant-popover-close"
+        class="ant-popover-close"
       >
         <image-icon
           className="ant-popover-close-icon"

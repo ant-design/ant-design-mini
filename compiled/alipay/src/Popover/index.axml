@@ -55,7 +55,7 @@
       <view
         a:if="{{showCloseIcon}}"
         onTap="onVisibleChange"
-        className="ant-popover-close"
+        class="ant-popover-close"
       >
         <image-icon
           className="ant-popover-close-icon"

@@ -41,13 +41,13 @@
       <slot
         wx:if="{{ !content }}"
         name="content" />
-      <block wx:else>{{ content }}</block>
+      <view wx:else class="ant-popover-inner-text">{{ content }}</view>
       <!-- #endif -->
       <view a:if="{{ actionText }}" onTap="onTapAction" class="ant-popover-action">
         {{ actionText }}
       </view>
       <slot a:else name="rightContent"/>
-      <view onTap="onVisibleChange" className="ant-popover-close" a:if="{{ showCloseIcon }}">
+      <view onTap="onVisibleChange" class="ant-popover-close" a:if="{{ showCloseIcon }}">
         <image-icon className="ant-popover-close-icon" image="CloseOutline" />
       </view>
     </view>

@@ -304,7 +304,7 @@
     --popover-color-background: #404040;
     --popover-bg: #ffffff;
     --popover-text-color: #000000;
-    --popover-inner-color: #ff3141;
+    --popover-inner-color: #ffffff;
     --popup-background: #ffffff;
     --popup-color: #333333;
     --popup-assit-color: #999999;
@@ -633,8 +633,8 @@
     --modal-close-text-color: #616161;
     --popover-color-background: #404040;
     --popover-bg: #1a1a1a;
-    --popover-text-color: #000000;
-    --popover-inner-color: #ff4a58;
+    --popover-text-color: #ffffff;
+    --popover-inner-color: #ffffff;
     --popup-background: #1a1a1a;
     --popup-color: #c5cad1;
     --popup-assit-color: #616161;

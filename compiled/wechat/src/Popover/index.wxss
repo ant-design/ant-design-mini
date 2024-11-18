@@ -13,7 +13,9 @@
   position: absolute;
   top: 20rpx;
   right: 20rpx;
-  font-size: 36rpx;
+}
+.ant-popover-close .ant-popover-close-icon .ant-icon {
+  color: var(--popover-inner-color, #ffffff);
 }
 .ant-popover-image {
   padding-right: 24rpx;
@@ -45,7 +47,7 @@
   overflow: hidden;
   font-size: 28rpx;
   background-color: var(--popover-color-background, #404040);
-  color: var(--popover-inner-color, #ff3141);
+  color: var(--popover-inner-color, #ffffff);
   padding: 20rpx;
   width: max-content;
   display: flex;
