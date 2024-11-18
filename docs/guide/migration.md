@@ -20,26 +20,26 @@ Ant Design Mini v2 的最后一个版本是 `v2.36.8`，v3 的第一个版本是
 
 ## 升级说明
 
-| 组件名称       | 升级说明                                                                                                                               |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Button         | 新增 `aide` 属性；                                                                                                                     |
-| Calendar       | 去掉 `localeText` 属性；`title` 属性由 `format` 属性替换；                                                                             |
-| Empty          | 新增 `buttonInfo` 属性；新增 `onClickButton` 事件；                                                                                    |
-| Popover        | 新增 `showCloseIcon` 属性； 新增 `imageUrl` 属性； 新增 `actionText` 属性； 新增 `onTapAction` 事件；                                  |
-| Popup          | 新增 `backgroundImage` 属性；新增 `showClose` 属性；新增 `showBack` 属性；新增 `onClickBackIcon` 事件； 新增 `onClickCloseIcon` 事件； |
-| Toast          | 原有的 `type` 属性新增 `alipay` 类型；新增 `textType` 属性；                                                                           |
-| Card           | 🆕 全新组件                                                                                                                            |
-| Dialog         | 🆕 全新组件                                                                                                                            |
-| Alphabet       | 🆕 全新组件                                                                                                                            |
-| AutoResize     | 🆕 全新组件                                                                                                                            |
-| ConfigProvider | 🆕 全新组件                                                                                                                            |
-| Countdown      | 🆕 全新组件                                                                                                                            |
-| Countdown      | 🆕 全新组件                                                                                                                            |
-| Feedback       | 🆕 全新组件                                                                                                                            |
-| PopoverList    | 🆕 全新组件                                                                                                                            |
-| SelectContact  | 🆕 全新组件                                                                                                                            |
-| Sticky         | 🆕 全新组件                                                                                                                            |
-| Voucher        | 🆕 全新组件                                                                                                                            |
+| 组件名称       | 升级说明                                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Button         | 🛠 新增 `aide` 属性；                                                                                                |
+| Calendar       | 🛠 去掉 `localeText` 属性；原有的 `title` 属性由 `format` 属性替换；                                                 |
+| Empty          | 🛠 新增 `buttonInfo` 属性、`onClickButton` 事件；                                                                    |
+| Popover        | 🛠 新增 `showCloseIcon` 属性、`imageUrl` 属性、`actionText` 属性、`onTapAction` 事件；                               |
+| Popup          | 🛠 新增 `backgroundImage` 属性、`showClose` 属性、`showBack` 属性、`onClickBackIcon` 事件、`onClickCloseIcon` 事件； |
+| Toast          | 🛠 新增 `textType` 属性；原有的 `type` 属性新增 `alipay` 类型；                                                      |
+| Card           | 🆕 全新组件                                                                                                         |
+| Dialog         | 🆕 全新组件                                                                                                         |
+| SafeArea       | 🆕 全新组件                                                                                                         |
+| AutoResize     | 🆕 全新组件                                                                                                         |
+| ConfigProvider | 🆕 全新组件                                                                                                         |
+| Countdown      | 🆕 全新组件                                                                                                         |
+| Table          | 🆕 全新组件                                                                                                         |
+| Feedback       | 🆕 全新组件                                                                                                         |
+| PopoverList    | 🆕 全新组件                                                                                                         |
+| SelectContact  | 🆕 全新组件                                                                                                         |
+| Sticky         | 🆕 全新组件                                                                                                         |
+| Voucher        | 🆕 全新组件                                                                                                         |
 
 <style>
     th:nth-of-type(1){
