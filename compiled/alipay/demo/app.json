@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/Tabs/index",
+    "pages/Tabs/TabsElevator/index",
+    "pages/Tabs/TabsVerticalElevator/index",
     "pages/NumberKeyboardCode/index",
     "pages/NumberKeyboardAmount/index",
     "pages/NumberKeyboardNumber/index",
@@ -46,9 +49,6 @@
     "pages/Button/index",
     "pages/Modal/index",
     "pages/Dialog/index",
-    "pages/Tabs/index",
-    "pages/Tabs/TabsElevator/index",
-    "pages/Tabs/TabsVerticalElevator/index",
     "pages/Stepper/index",
     "pages/Steps/index",
     "pages/Popover/index",
