@@ -257,7 +257,6 @@
     --popover-list-content-bg: rgba(0, 0, 0, 0.93);
     --popover-list-content-color: #ffffff;
     --popover-list-badge-color: #ff411c;
-    --popover-list-content-color: #333333;
     --rare-words-bg: rgba(0, 0, 0, 0.45);
     --rare-keyboard-bg: #d8d8d8;
     --rare-words-keyboard-color: #333333;
@@ -585,7 +584,6 @@
     --radio-fake-icon-background-color: #1a1a1a;
     --radio-icon-color: #ffffff;
     --popover-list-content-bg: rgba(0, 0, 0, 0.93);
-    --popover-list-content-color: #ffffff;
     --popover-list-badge-color: #ff411c;
     --popover-list-content-color: #c5cad1;
     --rare-words-bg: rgba(0, 0, 0, 0.45);
