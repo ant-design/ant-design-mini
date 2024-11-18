@@ -286,7 +286,8 @@ page {
   --stepper-handler-border-color: #e5e5e5;
   --stepper-border-color: #e5e5e5;
   --stepper-background-color: #ffffff;
-  --stepper-hover-bg: rgba(0, 0, 0, 0.92);
+  --stepper-hover-bg: rgba(0, 0, 0, 0.08);
+  --stepper-input-font-color: #333333;
   --switch-fill: #1677ff;
   --switch-border-color: #eeeeee;
   --switch-loading-color: #1677ff;

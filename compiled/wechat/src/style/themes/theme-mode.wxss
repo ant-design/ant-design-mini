@@ -286,7 +286,8 @@
     --stepper-handler-border-color: #e5e5e5;
     --stepper-border-color: #e5e5e5;
     --stepper-background-color: #ffffff;
-    --stepper-hover-bg: rgba(0, 0, 0, 0.92);
+    --stepper-hover-bg: rgba(0, 0, 0, 0.08);
+    --stepper-input-font-color: #333333;
     --switch-fill: #1677ff;
     --switch-border-color: #eeeeee;
     --switch-loading-color: #1677ff;
@@ -614,8 +615,9 @@
     --stepper-handler-tap-bg: #ddd;
     --stepper-handler-border-color: #444444;
     --stepper-border-color: #444444;
-    --stepper-background-color: #ffffff;
+    --stepper-background-color: #444444;
     --stepper-hover-bg: rgba(0, 0, 0, 0.92);
+    --stepper-input-font-color: #ffffff;
     --switch-fill: #3086ff;
     --switch-border-color: #2b2b2b;
     --switch-loading-color: #3086ff;
