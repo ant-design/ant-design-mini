@@ -3,9 +3,9 @@ order: 4
 toc: true
 ---
 
-# 定制主题 WIP
+# 定制主题 & 深色模式
 
-antd-mini 支持使用 less 来自定义主题。antd-mini 内置了两套主题：基础主题和深色主题。通过自定义 less 变量，可以使用不同的主题或修改主题颜色。
+antd-mini 支持使用 CSS 变量 来自定义主题。antd-mini 内置了两套主题：基础主题和深色主题。通过自定义 CSS 变量，可以使用不同的主题或修改主题颜色。同时默认支持了深色模式，通过 prefers-color-scheme 的值的变化可以随操作系统自动切换深色/浅色模式。
 
 ## 使用方式
 
@@ -13,34 +13,96 @@ antd-mini 支持使用 less 来自定义主题。antd-mini 内置了两套主题
 
 ### 通过 CSS 覆盖
 
-1. 使用 `antd-mini/less/组件`：
+#### 定制单个组件的主题
 
-```json
-{
-  "usingComponents": {
-    "button": "antd-mini/less/Button/index"
-  }
+```xml
+  <ant-button type="primary" icon="SmileOutline" className="custom-btn">自定义主题</ant-button>
+```
+
+```css
+custom-btn {
+  --button-color: #1677ff;
+  --button-background-color: #ffffff;
+  --button-border-color: #1677ff;
+  --button-primary-border-color: #1677ff;
+  --button-primary-background-color: #1677ff;
+  --button-primary-color: #ffffff;
+  --button-primary-aide-border-color: #e7f1ff;
 }
 ```
 
-2. 在 `mini.project.json` 文件中可通过 `modifyVars` 修改 less 变量，例如修改 `theme`：
+#### 定制多个组件的主题
 
-```json
-{
-  "format": 2,
-  "compileOptions": {
-    "less": {
-      "modifyVars": {
-        "theme": "dark"
-      }
-    }
-  }
+与单个组件的定制方式类似，只需用一个 configProvider 或者一个任意的容器节点（比如 ant-container）包裹住需要定制的组件，并将 CSS 变量 设置在容器节点上。
+
+```xml
+<ant-container class="container" title="标题">
+  <ant-button type="primary" icon="SmileOutline" className="custom-size">自定义主题</ant-button>
+</ant-container>
+```
+
+```css
+container {
+  --button-color: #1677ff;
+  --button-background-color: #ffffff;
+  --button-border-color: #1677ff;
+  --button-primary-border-color: #1677ff;
+  --button-primary-background-color: #1677ff;
+  --button-primary-color: #ffffff;
+  --button-primary-aide-border-color: #e7f1ff;
+}
+```
+
+#### 定制全局的主题
+
+在 app.less 中，写入 CSS 变量，即可对全局生效
+
+```css
+page {
+  --actionsheet-danger-color: #ff3141;
+  --actionsheet-title-color: #999999;
+  --actionsheet-item-color: #333333;
+  --actionsheet-item-active-bg: #eeeeee;
+  --activesheet-item-cancel-bg: #f5f5f5;
 }
 ```
 
 ### 通过 ConfigProvider 覆盖
 
-## CSS 变量 WIP
+除了通过 CSS 变量直接定制主题，也可以通过 ConfigProvider 的 themeVars 来定制主题或指定内置主题。目前默认支持 light 和 dark 主题。
+
+#### 设置主题
+
+```xml
+<ant-config-provider theme="dark">
+  <view>我是深色主题</view>
+</ant-config-provider>
+
+```
+
+#### 设置 themeVars 定制主题
+
+```xml
+  <ant-config-provider themeVars={{themeVars}}>
+    <ant-button type="primary" onTap="handleTap">
+      主要按钮
+    </ant-button>
+  </ant-config-provider>
+
+```
+
+```js
+Page({
+  data: {
+    themeVars: {
+      'button-primary-color': 'yellow',
+      'button-primary-background-color': 'green',
+    },
+  },
+});
+```
+
+## CSS 变量
 
 > 定制使用的 CSS 变量名称可以在每个组件的文档里查看，或者在[配置文件](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties)查看完整版便变量名称 ，下面是以 button 为例的列举的一些变量名称；
 
@@ -67,3 +129,7 @@ antd-mini 支持使用 less 来自定义主题。antd-mini 内置了两套主题
 | --button-text-danger-color               | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | <div style="width: 150px; height: 30px; background-color: #FF4A58;">#FF4A58</div>                                     | 危险按钮文字颜色     |
 | --button-danger-default-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | <div style="width: 150px; height: 30px; background-color: #FF4A58;">#FF4A58</div>                                     | 危险按钮默认颜色     |
 | --button-active-bg                       | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.08);">rgba(255, 255, 255, 0.08)</div> | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.08);">rgba(255, 255, 255, 0.08)</div> | 按钮激活背景颜色     |
+
+```
+
+```
