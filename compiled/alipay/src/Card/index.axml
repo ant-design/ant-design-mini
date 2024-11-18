@@ -30,7 +30,7 @@
           onTap="handleTapLink"
         >
           {{operateText}}
-          <icon type="RightOutline"></icon>
+          <ant-icon type="RightOutline"></ant-icon>
         </view>
         <view
           a:elif="{{needFold}}"
@@ -38,10 +38,10 @@
           onTap="handleTapFoldBtn"
         >
           <text class="ant-card-header-fold-btn">{{finalFoldStatus ? '展开' : '收起'}}</text>
-          <icon
+          <ant-icon
             class="ant-card-header-fold-icon"
             type="{{finalFoldStatus ? 'DownOutline' : 'UpOutline'}}"
-          ></icon>
+          ></ant-icon>
         </view>
       </slot>
     </view>

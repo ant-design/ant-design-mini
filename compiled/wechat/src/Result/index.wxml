@@ -11,10 +11,10 @@
       wx:if="{{type}}"
       class="ant-result-image"
     >
-      <icon
+      <ant-icon
         type="{{result.iconType(type)}}"
         className="ant-result-icon ant-result-image-{{type}}"
-      ></icon>
+      ></ant-icon>
     </view>
     <image-icon
       wx:elif="{{image}}"

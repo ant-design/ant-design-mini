@@ -33,19 +33,19 @@
               <loading className="ant-image-upload-cover-loading-icon"></loading>
               <view class="ant-image-upload-cover-loading-text">
 
-                {{uploadingText === null ? locale.imageUpload.uploadingText : uploadingText}}
+                {{[undefined, null].indexOf(uploadingText) !== -1 ? locale.imageUpload.uploadingText : uploadingText}}
               </view>
             </view>
             <view
               a:if="{{item.status === 'error'}}"
               class="ant-image-upload-cover-error"
             >
-              <icon
+              <ant-icon
                 className="ant-image-upload-cover-error-icon"
                 type="CloseCircleOutline"
-              ></icon>
+              ></ant-icon>
               <view class="ant-image-upload-cover-error-text">
-                {{uploadfailedText === null ? locale.imageUpload.uploadfailedText : uploadfailedText}}
+                {{[undefined, null].indexOf(uploadfailedText) !== -1 ? locale.imageUpload.uploadfailedText : uploadfailedText}}
               </view>
             </view>
           </view>
@@ -65,10 +65,10 @@
           a:if="{{showUploadButton}}"
           class="ant-image-upload-add-image-wrapper"
         >
-          <icon
+          <ant-icon
             type="AddOutline"
             className="ant-image-upload-add-image-icon"
-          ></icon>
+          ></ant-icon>
         </view>
       </slot>
     </view>

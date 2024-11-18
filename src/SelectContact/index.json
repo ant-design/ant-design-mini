@@ -5,7 +5,7 @@
     "list": "../List/index",
     "skeleton": "../Skeleton/index",
     "loading": "../Loading/index",
-    "icon": "../Icon/index",
+    "ant-icon": "../Icon/index",
     "input": "../Input/index",
     "swipe-action": "../SwipeAction/index",
     "alphabet": "../Alphabet/index"

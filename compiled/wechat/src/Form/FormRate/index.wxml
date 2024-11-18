@@ -26,7 +26,7 @@
     bind:change="onChange"
   >
     <view slot="character">
-      <icon type="StarFill"></icon>
+      <ant-icon type="StarFill"></ant-icon>
     </view>
   </rate>
   <view

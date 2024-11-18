@@ -12,7 +12,7 @@
       <view
         a:if="{{ type }}"
         class="ant-result-image">
-        <icon
+        <ant-icon
           type="{{ result.iconType(type) }}"
           className="ant-result-icon ant-result-image-{{ type }}"
         />

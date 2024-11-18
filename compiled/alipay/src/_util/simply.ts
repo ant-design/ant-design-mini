@@ -134,7 +134,7 @@ export type TStoreOptions<S, M extends TMapState<S>> = {
 };
 
 export type TStoreInitOptions<S> = {
-  setData: (o: Record<string, unknown>) => void;
+  setData: (o: Record<string, unknown>, callback?: () => void) => void;
   $store?: S;
 };
 

@@ -1,11 +1,11 @@
 function getTitle(options, value) {
-  var obj = options.find(function (item) {
-    return item.value === value;
-  });
+  const obj = options.find(item => item.value === value);
   if (obj) {
     return obj.title;
   }
 }
-export default {
+
+export default { getTitle };
+ default {
   getTitle: getTitle
 };

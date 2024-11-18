@@ -15,17 +15,17 @@
 >
   <view>
     <ant-range-picker
-      endPlaceholder="{{ cancelText === null ? locale.rangePicker.endPlaceholder : cancelText }}"
-      startPlaceholder="{{ cancelText === null ? locale.rangePicker.startPlaceholder : cancelText }}"
+      endPlaceholder="{{ [undefined,null].indexOf(cancelText) !== -1 ? locale.rangePicker.endPlaceholder : cancelText }}"
+      startPlaceholder="{{ [undefined,null].indexOf(cancelText) !== -1 ? locale.rangePicker.startPlaceholder : cancelText }}"
       splitCharacter="{{ splitCharacter }}"
       min="{{ min }}"
       max="{{ max }}"
       format="{{ format }}"
       precision="{{ precision }}"
       animationType="{{ animationType }}"
-      cancelText="{{ cancelText === null ? locale.global.cancelText : cancelText }}"
-      okText="{{ okText === null ? locale.global.okText : okText }}"
-      placeholder="{{ placeholder === null ? locale.global.placeholder : placeholder  }}"
+      cancelText="{{ [undefined,null].indexOf(cancelText) !== -1 ? locale.global.cancelText : cancelText }}"
+      okText="{{ [undefined,null].indexOf(okText) !== -1 ? locale.global.okText : okText }}"
+      placeholder="{{ [undefined,null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder  }}"
       maskClosable="{{ maskClosable }}"
       maskStyle="{{ maskStyle }}"
       popClassName="{{ popClassName }}"

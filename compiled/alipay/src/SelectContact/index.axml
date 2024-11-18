@@ -18,10 +18,10 @@
       focus
       onConfirm="onConfirm"
     >
-      <icon
+      <ant-icon
         slot="prefix"
         type="SearchOutline"
-      ></icon>
+      ></ant-icon>
     </input>
     <view class="cancel">取消</view>
   </view>

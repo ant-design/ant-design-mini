@@ -10,7 +10,7 @@
       size="small"
       onTap="onCancel"
     >
-      {{jumpText === null ? locale.guideTour.jumpText : jumpText}}
+      {{ [undefined,null].indexOf(jumpText) !== -1 ? locale.guideTour.jumpText : jumpText}}
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowPrev(mixin.value, items) }}"
@@ -19,7 +19,7 @@
       onTap="onPrev"
       data-currentValue="{{ mixin.value }}"
     >
-      {{prevStepText === null ? locale.guideTour.prevStepText : prevStepText}}
+      {{ [undefined,null].indexOf(prevStepText) !== -1 ? locale.guideTour.prevStepText : prevStepText}}
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowNext(mixin.value, items) }}"
@@ -28,7 +28,7 @@
       onTap="onNext"
       data-currentValue="{{ mixin.value }}"
     >
-      {{nextStepText === null ? locale.guideTour.nextStepText : nextStepText}}
+      {{ [undefined,null].indexOf(nextStepText) !== -1 ? locale.guideTour.nextStepText : nextStepText}}
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowKnow(mixin.value, items) }}"
@@ -36,7 +36,7 @@
       size="small"
       onTap="onCancel"
     >
-      {{gotItText === null ? locale.guideTour.gotItText : gotItText}}
+      {{ [undefined,null].indexOf(gotItText) !== -1 ? locale.guideTour.gotItText : gotItText}}
     </ant-button>
   </view>
   <block a:if="{{ swiperable }}">

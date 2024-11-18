@@ -109,13 +109,13 @@ export const ComponentWithSignalStoreImpl = <
   /// #endif
 
   /// #if WECHAT
-  const createdBackup = instanceMethodsCopy.created || (() => {});
+  const attachedBackup = instanceMethodsCopy.attached || (() => {});
   const detachedBackup = instanceMethodsCopy.detached || (() => {});
 
-  instanceMethodsCopy.created = function () {
+  instanceMethodsCopy.attached = function () {
     defaultOnInit.call(this);
-    if (createdBackup) {
-      createdBackup.call(this);
+    if (attachedBackup) {
+      attachedBackup.call(this);
     }
   };
 
@@ -178,7 +178,7 @@ export type TStoreOptions<S, M extends TMapState<S>> = {
 };
 
 export type TStoreInitOptions<S> = {
-  setData: (o: Record<string, unknown>) => void;
+  setData: (o: Record<string, unknown>, callback?: () => void) => void;
   $store?: S;
 };
 

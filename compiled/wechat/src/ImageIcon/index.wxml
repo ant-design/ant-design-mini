@@ -3,12 +3,12 @@
   module="helper"
 ></wxs>
 <view class="ant-imageIcon {{className ? className : ''}}">
-  <icon
+  <ant-icon
     wx:if="{{helper.isIcon(image)}}"
     type="{{image}}"
     className="{{className ? className + '-icon' : ''}}"
     style="{{style}}"
-  ></icon>
+  ></ant-icon>
   <image
     wx:else
     src="{{image}}"

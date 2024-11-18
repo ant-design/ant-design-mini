@@ -11,7 +11,7 @@
 >
   <!-- 左侧图标 -->
   <view class="ant-typography-icon-container {{iconPosition}}" a:if="{{iconPosition === 'left'}}">
-    <icon
+    <ant-icon
       a:if="{{!util.isUrl(icon)}}"
       type="{{icon}}"
       className="ant-typography-icon"
@@ -31,7 +31,7 @@
 
   <!-- 右侧图标 -->
   <view class="ant-typography-icon-container {{iconPosition}}" a:if="{{iconPosition === 'right'}}">
-    <icon
+    <ant-icon
       a:if="{{!util.isUrl(icon)}}"
       type="{{icon}}"
       className="ant-typography-icon"

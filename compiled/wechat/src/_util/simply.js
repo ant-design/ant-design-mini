@@ -50,12 +50,12 @@ export var ComponentWithSignalStoreImpl = function (storeOptions, defaultProps, 
         storeBinder.init(this);
     };
     var instanceMethodsCopy = __assign({}, instanceMethods);
-    var createdBackup = instanceMethodsCopy.created || (function () { });
+    var attachedBackup = instanceMethodsCopy.attached || (function () { });
     var detachedBackup = instanceMethodsCopy.detached || (function () { });
-    instanceMethodsCopy.created = function () {
+    instanceMethodsCopy.attached = function () {
         defaultOnInit.call(this);
-        if (createdBackup) {
-            createdBackup.call(this);
+        if (attachedBackup) {
+            attachedBackup.call(this);
         }
     };
     instanceMethodsCopy.detached = function () {

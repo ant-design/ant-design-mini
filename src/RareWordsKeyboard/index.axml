@@ -69,7 +69,7 @@
           <view
             class="ant-rare-words-keyboard-match_words_right {{ showMoreWords ? 'sticky' : '' }} {{ matchWordsList.length > maxDisplayNum && !showMoreWords ? 'overflow' : '' }}"
             onTap="hanleLookMore">
-            <icon
+            <ant-icon
               className="ant-rare-words-keyboard_down"
               type="DownOutline" />
           </view>
@@ -131,7 +131,7 @@
                 class="ant-rare-words-keyboard_pinyin_key delete"
                 onTap="handleDelete">
                 <view class="ant-rare-words-keyboard_pinyin_key_text">
-                  <icon
+                  <ant-icon
                     className="ant-rare-words-keyboard_delete"
                     type="TextDeletionOutline" />
                 </view>

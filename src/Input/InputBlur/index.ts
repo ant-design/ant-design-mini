@@ -1,16 +1,9 @@
-import { effect } from '@preact/signals-core';
 import mixinValue from '../../mixins/value';
-import { ComponentWithSignalStoreImpl, triggerEvent } from '../../_util/simply';
-import i18nController from '../../_util/store';
+import { Component, triggerEvent } from '../../_util/simply';
+import { InputBlurDefaultProps } from './props';
 
-ComponentWithSignalStoreImpl(
-  {
-    store: () => i18nController,
-    updateHook: effect,
-    mapState: {
-      locale: ({ store }) => store.currentLocale.value,
-    },
-  },
+Component(
+  InputBlurDefaultProps,
   {
     onChange(e) {
       const value = e.detail.value;

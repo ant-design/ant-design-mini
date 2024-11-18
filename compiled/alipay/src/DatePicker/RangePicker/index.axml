@@ -16,11 +16,11 @@
     >
       {{placeholder}}
     </view>
-    <icon
+    <ant-icon
       a:if="{{precision === 'year' || precision === 'month' || precision === 'day' || precision === 'hour'}}"
       type="CalendarOutline"
       className="ant-range-picker-selector-item-icon"
-    ></icon>
+    ></ant-icon>
   </view>
 </template>
 <ant-picker
@@ -53,12 +53,12 @@
   >
     <template
       is="selector"
-      data="{{ placeholder: startPlaceholder === null ? locale.RangePicker.startPlaceholder : startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision }}"
+      data="{{ placeholder: [undefined, null].indexOf(startPlaceholder) !== -1 ? locale.RangePicker.startPlaceholder : startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision }}"
     ></template>
     <view class="ant-range-picker-selector-split">{{splitCharacter}}</view>
     <template
       is="selector"
-      data="{{ placeholder: endPlaceholder === null ? locale.RangePicker.endPlaceholder : endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision }}"
+      data="{{ placeholder: [undefined, null].indexOf(endPlaceholder) !== -1 ? locale.RangePicker.endPlaceholder : endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision }}"
     ></template>
   </view>
   <slot
