@@ -79,7 +79,8 @@
     "pages/ConfigProvider",
     "pages/SafeArea",
     "pages/Card",
-    "pages/Sticky"
+    "pages/Sticky",
+    "pages/AutoResize"
   ],
   "src": [
     "_locale",
@@ -137,6 +138,7 @@
     "ConfigProvider",
     "SafeArea",
     "Card",
-    "Sticky"
+    "Sticky",
+    "AutoResize"
   ]
 }

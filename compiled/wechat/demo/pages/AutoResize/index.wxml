@@ -1,0 +1,123 @@
+<ant-container title="基本用法">
+  <ant-container
+    title="中文"
+    style="width:200rpx;"
+  >
+    <ant-auto-resize
+      text="提现"
+      minFontSize="24"
+      maxFontSize="48"
+    >
+      <view style="background-color: #1677ff; color: #fff; height: 60rpx;">提现</view>
+    </ant-auto-resize>
+  </ant-container>
+  <ant-container
+    title="英文"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Withdraw"
+      minFontSize="24"
+      maxFontSize="32"
+    >
+      <view style="background-color: #1677ff; color: #fff; height: 60rpx;">Withdraw</view>
+    </ant-auto-resize>
+  </ant-container>
+  <ant-container
+    title="英文-ratio"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Withdraw"
+      ratio="{{4}}"
+      minFontSize="24"
+      maxFontSize="32"
+    >
+      <view style="background-color: #1677ff; color: #fff; height: 60rpx;">Withdraw</view>
+    </ant-auto-resize>
+  </ant-container>
+  <ant-container
+    title="日文"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="現金引き出し"
+      minFontSize="24"
+      maxFontSize="48"
+    >
+      <view style="background-color: #1677ff; color: #fff; height: 60rpx;">現金引き出し</view>
+    </ant-auto-resize>
+  </ant-container>
+  <ant-container
+    title="韩文"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="현금인출"
+      minFontSize="24"
+      maxFontSize="48"
+    >
+      <view style="background-color: #1677ff; color: #fff; height: 60rpx;">현금인출</view>
+    </ant-auto-resize>
+  </ant-container>
+  <ant-container
+    title="阿拉伯"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="سحب الرصي"
+      minFontSize="24"
+      maxFontSize="48"
+    >
+      <view style="background-color: #1677ff; color: #fff; height: 60rpx;">سحب الرصي</view>
+    </ant-auto-resize>
+  </ant-container>
+  <ant-container
+    title="西班牙"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Retirar"
+      minFontSize="24"
+      maxFontSize="48"
+    >
+      <view style="background-color: #1677ff; color: #fff; height: 60rpx;">Retirar</view>
+    </ant-auto-resize>
+  </ant-container>
+  <ant-container
+    title="俄语"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Вывод средств"
+      minFontSize="24"
+      maxFontSize="48"
+    >
+      <view style="background-color: #1677ff; color: #fff; height: 60rpx;">Вывод средств</view>
+    </ant-auto-resize>
+  </ant-container>
+  <ant-container
+    title="法语"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Retrait"
+      minFontSize="24"
+      maxFontSize="48"
+    >
+      <view style="background-color: #1677ff; color: #fff; height: 60rpx;">Retrait</view>
+    </ant-auto-resize>
+  </ant-container>
+  <ant-container
+    title="德语"
+    style="width: 200rpx;"
+  >
+    <ant-auto-resize
+      text="Abheben"
+      minFontSize="24"
+      maxFontSize="48"
+    >
+      <view style="background-color: #1677ff; color: #fff; height: 60rpx;">Abheben</view>
+    </ant-auto-resize>
+  </ant-container>
+</ant-container>

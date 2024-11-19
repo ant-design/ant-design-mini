@@ -12,36 +12,40 @@
     <view class="ant-empty-text">
       <view class="ant-empty-text-main">
         <ant-auto-resize
+          wx:if="{{title}}"
           text="{{title}}"
           minFontSize="24"
           maxFontSize="40"
         >
-          <block wx:if="{{title}}">{{title}}</block>
+          <block>{{title}}</block>
         </ant-auto-resize>
         <ant-auto-resize
+          wx:else
           text="{{title}}"
           minFontSize="24"
           maxFontSize="40"
         >
-          <block wx:else>
+          <block>
             <slot name="title">{{title}}</slot>
           </block>
         </ant-auto-resize>
       </view>
       <view class="ant-empty-text-sub">
         <ant-auto-resize
+          wx:if="{{message}}"
           text="{{message}}"
           minFontSize="24"
           maxFontSize="40"
         >
-          <block wx:if="{{message}}">{{message}}</block>
+          <block>{{message}}</block>
         </ant-auto-resize>
         <ant-auto-resize
+          wx:else
           text="{{message}}"
           minFontSize="24"
           maxFontSize="40"
         >
-          <block wx:else>
+          <block>
             <slot name="message">{{message}}</slot>
           </block>
         </ant-auto-resize>

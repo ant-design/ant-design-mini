@@ -78,6 +78,7 @@
     "demo/pages/ConfigProvider/index",
     "demo/pages/SafeArea/index",
     "demo/pages/Card/index",
-    "demo/pages/Sticky/index"
+    "demo/pages/Sticky/index",
+    "demo/pages/AutoResize/index"
   ]
 }

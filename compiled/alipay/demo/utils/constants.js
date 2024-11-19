@@ -238,11 +238,6 @@ export const componentList = [
                 path: '/pages/ActionSheet/index',
             },
             {
-                name: 'Empty',
-                nameZN: '空状态',
-                path: '/pages/Empty/index',
-            },
-            {
                 name: 'Loading',
                 nameZN: '加载中',
                 path: '/pages/Loading/index',
@@ -337,6 +332,11 @@ export const componentList = [
     {
         type: '实验性',
         list: [
+            {
+                name: 'AutoResize',
+                nameZN: '文本自适应',
+                path: '/pages/AutoResize/index',
+            },
             {
                 name: 'ConfigProvider',
                 nameZN: '全局容器',
