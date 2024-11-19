@@ -65,32 +65,6 @@ Page({
 });
 ```
 
-### 设置主题色
-
-```xml
-<ant-countdown
-  theme="{{{
-    backgroundColor:'#ffffff',
-    timeColor:'#ff3141',
-    textColor:'#ff3141'
-  }}}"
-  countdownEndTime="{{countdownDay}}"
-  countdownType="day"
->
-  <text slot="prefix">剩余</text>
-</ant-countdown>
-```
-
-### 厘秒倒计时
-
-```xml
-<ant-countdown
-  countdownEndTime="{{countdownDay}}"
-  themeDisabled="{{true}}"
-  decisecond="{{true}}"
->
-</ant-countdown>
-```
 
 ### Demo 代码
 
@@ -104,11 +78,8 @@ Page({
 | countdownEndTime                | 结束时间戳                           | string 丨 number | -          |
 | countdownStartTime              | 起始时间戳                           | string 丨 number | 当前时间戳 |
 | time                            | 与 countdownEndTime 二选一，单位为秒 | number           | 0          |
-| theme                           | 主题配置                             | [Theme](#theme)  | -          |
-| themeDisabled                   | 禁用主题色                           | boolean          | false      |
 | autoShowDay                     | 小于一天自动不展示天                 | boolean          | true       |
 | countdownType                   | 超长倒计时需要展示天数               | string           | -          |
-| decisecond                      | 支持厘秒倒计时，仅在禁用主题色时生效 | 否 boolean       | false      |
 | #if ALIPAY onCountdownChange    | 倒计时变化时的回调                   | Function         | -          |
 | #if ALIPAY onCountdownFinish    | 倒计时结束回调                       | Function         | -          |     |
 | #if WECHAT bind:countdownChange | 倒计时变化时的回调                   | Function         | -          |
@@ -120,11 +91,11 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 键名            | 说明         | 类型     |
-| --------------- | ------------ | -------- |
-| backgroundColor | 时间背景颜色 | `string` |
-| timeColor       | 时间文案颜色 | `string` |
-| textColor       | 文本颜色     | `string` |
+| 变量名                          | 默认值                                                                                                 | 深色模式默认值                                                                                        | 备注                  |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- | --------------------- |
+| --ant-countdown-color           | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div>         | <div style="width: 150px; height: 30px; background-color: #808080; color: #ffffff;">#808080</div>    | 倒计时颜色            |
+| --ant-countdown-number-color    | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #666666;">#ffffff</div>         | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div>    | 倒计时数字颜色        |
+| --ant-countdown-number-bg       | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>      | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>    | 倒计时数字背景颜色    |
 
 ## 插槽
 
@@ -133,3 +104,4 @@ Page({
 | -      | 默认插槽   |
 | prefix | 倒计时头部 |
 | suffix | 倒计时尾部 |
+
