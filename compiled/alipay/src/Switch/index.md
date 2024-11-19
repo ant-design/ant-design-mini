@@ -11,8 +11,6 @@ toc: 'content'
 
 Switch 开关选择器，比起原生 Switch，它实现了在 iOS 和 Android 端一致的体验。
 
-## 何时使用
-
 - 当需要表示开关状态或两种状态之间切换时使用。
 - 与 Checkbox 的区别在于，切换 Switch 会直接触发状态改变，而 Checkbox 通常用于状态标记，需要与提交操作配合使用。
 
