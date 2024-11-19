@@ -109,13 +109,14 @@
   title="受控模式">
   <view
     slot="content"
-    style="height: 1000rpx">
+    >
     <ant-calendar
       ref="handleRef"
       value="{{ demo9.value }}"
       onChange="demo9HandleChange"
       selectionMode="single"
-      changedScrollIntoView />
+      changedScrollIntoView
+    />
     <ant-button
       type="primary"
       onTap="demo9HandlePreviousDay">

@@ -97,10 +97,7 @@
   wx:if="{{demo9.visible}}"
   title="受控模式"
 >
-  <view
-    slot="content"
-    style="height: 1000rpx"
-  >
+  <view slot="content">
     <ant-calendar
       bind:ref="handleRef"
       value="{{demo9.value}}"
