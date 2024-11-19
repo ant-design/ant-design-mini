@@ -16,10 +16,7 @@
       wx:for-index="index"
       wx:for-item="item"
     >
-      <view class="{{helper.getMarkCellClassName(index, markItems)}}">
-        <!--display: inline-->
-        <text>{{item}}</text>
-      </view>
+      <view class="{{helper.getMarkCellClassName(index, markItems)}}"></view>
     </block>
   </view>
   <view
@@ -31,16 +28,16 @@
     </view>
   </view>
   <scroll-view
-    scrollY="{{true}}"
+    scroll-y="{{true}}"
     class="ant-calendar-body"
     data-elementsize="{{elementSize}}"
     data-monthlist="{{monthList}}"
     bind:scroll="{{scroll.handleScroll}}"
-    scrollIntoView="{{scrollIntoViewId}}"
-    scrollWithAnimation
-    scrollAnimationDuration="{{300}}"
-    disableLowerScroll="out-of-bounds"
-    disableUpperScroll="out-of-bounds"
+    scroll-into-view="{{scrollIntoViewId}}"
+    scroll-with-animation
+    scroll-animation-duration="{{300}}"
+    disable-lower-scroll="out-of-bounds"
+    disable-upper-scroll="out-of-bounds"
     bind:ref="handleRef"
   >
     <block
@@ -69,13 +66,7 @@
                 bind:tap="clickCell"
               >
                 <view class="ant-calendar-cell-container">
-                  <view class="ant-calendar-cell-top">
-                    <!--display: inline-->
-                    <text
-                      wx:if="{{item.top}}"
-                      class="ant-calendar-cell-top-text {{item.top.className ? item.top.className : ''}}"
-                    >{{item.top.label}}</text>
-                  </view>
+                  <view class="ant-calendar-cell-top"></view>
                   <view class="ant-calendar-cell-center">{{item.date}}</view>
                   <view class="ant-calendar-cell-bottom">
                     <!--display: inline-->
