@@ -80,7 +80,8 @@
     "pages/SafeArea",
     "pages/Card",
     "pages/Sticky",
-    "pages/AutoResize"
+    "pages/AutoResize",
+    "pages/Countdown"
   ],
   "src": [
     "_locale",
@@ -139,6 +140,7 @@
     "SafeArea",
     "Card",
     "Sticky",
-    "AutoResize"
+    "AutoResize",
+    "Countdown"
   ]
 }

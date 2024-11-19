@@ -144,4 +144,8 @@ export const wechatCustomMapping = {
     onTap: 'bind:tap',
     onFirstAppear: 'bind:firstappear',
   },
+  'ant-countdown': {
+    onCountdownChange: 'bind:countdownchange',
+    onCountdownFinish: 'bind:countdownfinish',
+  },
 };

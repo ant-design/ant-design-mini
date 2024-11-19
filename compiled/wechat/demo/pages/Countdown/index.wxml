@@ -2,7 +2,7 @@
   <ant-countdown
     countdownEndTime="{{countdownDay}}"
     countdownType="day"
-    onCountdownChange="handleCountdownChange"
+    bind:countdownchange="handleCountdownChange"
   >
     <text slot="prefix">剩余时间</text>
     <text slot="suffix">就开始抢购啦</text>
@@ -11,7 +11,7 @@
     className="marginTop"
     countdownEndTime="{{countdownAutoDay}}"
     countdownType="day"
-    onCountdownChange="handleCountdownChange"
+    bind:countdownchange="handleCountdownChange"
   >
     <text slot="prefix">剩余时间</text>
     <text slot="suffix">就开始抢购啦</text>
@@ -33,7 +33,7 @@
 <ant-container title="终止时间戳">
   <ant-countdown
     countdownEndTime="{{countdownTen}}"
-    onCountdownFinish="handleCountdownEnd"
+    bind:countdownfinish="handleCountdownEnd"
   ></ant-countdown>
 </ant-container>
 <ant-container title="倒计时时间">
@@ -56,13 +56,13 @@
   <ant-countdown
     countdownEndTime="{{countdownDay}}"
     countdownType="day"
-    onCountdownChange="handleCountdownChange"
+    bind:countdownchange="handleCountdownChange"
   ></ant-countdown>
 </ant-container>
 <ant-container title="上来就是0">
   <ant-countdown
     countdownEndTime="{{countdownCurrent}}"
-    onCountdownFinish="handleCountdownEnd"
+    bind:countdownfinish="handleCountdownEnd"
   ></ant-countdown>
 </ant-container>
 <view style="height: 140rpx"></view>

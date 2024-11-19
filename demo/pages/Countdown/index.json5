@@ -8,7 +8,7 @@
   /// #endif
 
   "usingComponents": {
-    "countdown": "../../../src/Countdown/index",
+    "ant-countdown": "../../../src/Countdown/index",
     "ant-container": "../../../src/Container/index"
   }
 }

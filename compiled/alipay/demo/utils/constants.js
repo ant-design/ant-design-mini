@@ -48,6 +48,11 @@ export const componentList = [
         type: '信息展示',
         list: [
             {
+                name: 'Card',
+                nameZN: '基础卡片',
+                path: '/pages/Card/index',
+            },
+            {
                 name: 'Avatar',
                 nameZN: '头像',
                 path: '/pages/Avatar/index',
@@ -303,19 +308,14 @@ export const componentList = [
         type: '业务组件',
         list: [
             {
-                name: 'Card',
-                nameZN: '基础卡片',
-                path: '/pages/Card/index',
+                name: 'Countdown',
+                nameZN: '倒计时',
+                path: '/pages/Countdown/index',
             },
             {
                 name: 'Voucher',
                 nameZN: '优惠券',
                 path: '/pages/Voucher/index',
-            },
-            {
-                name: 'Countdown',
-                nameZN: '倒计时',
-                path: '/pages/Countdown/index',
             },
         ],
     },
