@@ -127,35 +127,35 @@ Page({
 
 ## API
 
-| 属性                     | 说明             | 类型                                | 默认值   |
-| ------------------------ | ---------------- | ----------------------------------- | -------- |
-| `className`              | 类名             | `string`                            | -        |
-| `current`                | 当前步骤         | `number`                            | -        |
-| `defaultCurrent`         | 默认当前步骤     | `number`                            | 0        |
-| `items`                  | 步骤信息         | [`GuideTourItem`](#guidetourttem)[] | -        |
-| `maskClassName`          | 蒙层的类名       | `string`                            | -        |
-| `maskStyle`              | 蒙层的样式       | `string`                            | -        |
-| `style`                  | 样式             | `string`                            | -        |
-| `swiperable`             | 是否开启滑动模式 | `boolean`                           | `false`  |
-| `visible`                | 是否显示         | `boolean`                           | `false`  |
-| `jumpText`               | 跳过按钮的文案   | `string`                            | '跳过'   |
-| `prevStepText`           | 上一步按钮的文案 | `string`                            | '上一步' |
-| `nextStepText`           | 下一步按钮的文案 | `string`                            | '下一步' |
-| `gotItText`              | 知道了按钮的文案 | `string`                            | '知道了' |
-| #if ALIPAY `onCancel`    | 关闭回调         | `() => void`                        | -        |
-| #if ALIPAY `onChange`    | 步骤改变回调     | `(index: number) => void`           | -        |
-| #if WECHAT `bind:cancel` | 关闭回调         | `() => void`                        | -        |
-| #if WECHAT `bind:change` | 步骤改变回调     | `(index: number) => void`           | -        |
+| 属性                   | 说明             | 类型                                | 默认值   |
+| ---------------------- | ---------------- | ----------------------------------- | -------- |
+| className              | 类名             | `string`                            | -        |
+| current                | 当前步骤         | `number`                            | -        |
+| defaultCurrent         | 默认当前步骤     | `number`                            | 0        |
+| items                  | 步骤信息         | [`GuideTourItem`](#guidetourttem)[] | -        |
+| maskClassName          | 蒙层的类名       | `string`                            | -        |
+| maskStyle              | 蒙层的样式       | `string`                            | -        |
+| style                  | 样式             | `string`                            | -        |
+| swiperable             | 是否开启滑动模式 | `boolean`                           | `false`  |
+| visible                | 是否显示         | `boolean`                           | `false`  |
+| jumpText               | 跳过按钮的文案   | `string`                            | '跳过'   |
+| prevStepText           | 上一步按钮的文案 | `string`                            | '上一步' |
+| nextStepText           | 下一步按钮的文案 | `string`                            | '下一步' |
+| gotItText              | 知道了按钮的文案 | `string`                            | '知道了' |
+| #if ALIPAY onCancel    | 关闭回调         | `() => void`                        | -        |
+| #if ALIPAY onChange    | 步骤改变回调     | `(index: number) => void`           | -        |
+| #if WECHAT bind:cancel | 关闭回调         | `() => void`                        | -        |
+| #if WECHAT bind:change | 步骤改变回调     | `(index: number) => void`           | -        |
 
 ### GuideTourItem
 
-| 参数         | 说明                       | 类型     | 默认值 |
-| ------------ | -------------------------- | -------- | ------ |
-| `left`       | 距离左边距离，单位 `px`    | `number` | -      |
-| `imageMode`  | 图片模式，同 image 的 mode | `string` | -      |
-| `imageStyle` | 图片内联样式               | `string` | -      |
-| `imageUrl`   | 图片地址                   | `string` | -      |
-| `top`        | 距离顶部距离，单位 `px`    | `number` | -      |
+| 参数       | 说明                       | 类型     | 默认值 |
+| ---------- | -------------------------- | -------- | ------ |
+| left       | 距离左边距离，单位 `px`    | `number` | -      |
+| imageMode  | 图片模式，同 image 的 mode | `string` | -      |
+| imageStyle | 图片内联样式               | `string` | -      |
+| imageUrl   | 图片地址                   | `string` | -      |
+| top        | 距离顶部距离，单位 `px`    | `number` | -      |
 
 ### 主题定制
 
