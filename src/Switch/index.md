@@ -169,10 +169,10 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                 | 默认值                                                                                            | 备注             |
-| ---------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
-| --switch-fill          | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 开关填充颜色     |
-| --switch-border-color  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | 开关边框颜色     |
-| --switch-loading-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 开关加载颜色     |
-| --switch-handle-bg     | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 开关手柄背景颜色 |
-| --switch-inner-color   | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 开关内部颜色     |
+| 变量名                 | 浅色模式默认值                                                                                           | 深色模式默认值                                                                                           | 备注             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------- |
+| --switch-fill          | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>       | 开关填充颜色     |
+| --switch-border-color  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div>       | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div>       | 开关边框颜色     |
+| --switch-loading-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>       | 开关加载颜色     |
+| --switch-handle-bg     | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | 开关手柄背景颜色 |
+| --switch-inner-color   | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div>       | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div>       | 开关内部颜色     |
