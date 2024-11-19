@@ -108,7 +108,7 @@ Page({
 Page({
   data: {
     items: [
-       {
+      {
         title: 'item1 title',
         content: 'item1 content',
       },
@@ -177,17 +177,18 @@ Page({
 
 ## API
 
-| 属性           | 说明                               | 类型                                                                                             | 默认值 |
-| -------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------ | ------ |
-| accordion      | 是否是手风琴模式，仅一个内容被展开 | boolean                                                                                          | false  |
-| className      | 类名                               | string                                                                                           | -      |
-| content        | 内容区插槽，接收 value、index      | slot                                                                                             | -      |
-| current        | 当前展开的索引                     | number[]                                                                                         | -      |
-| defaultCurrent | 当前展开的默认索引                 | number[]                                                                                         | []     |
-| items          | 折叠面板列表                       | [CollapseItem](#collapseitem)[]                                                                  | []     |
-| style          | 样式                               | string                                                                                           | -      |
-| title          | 标题插槽，接收 value、index        | slot                                                                                             | -      |
-| onChange       | 切换面板的回调                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| 属性                   | 说明                               | 类型                                                                                             | 默认值 |
+| ---------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------ | ------ |
+| accordion              | 是否是手风琴模式，仅一个内容被展开 | boolean                                                                                          | false  |
+| className              | 类名                               | string                                                                                           | -      |
+| content                | 内容区插槽，接收 value、index      | slot                                                                                             | -      |
+| current                | 当前展开的索引                     | number[]                                                                                         | -      |
+| defaultCurrent         | 当前展开的默认索引                 | number[]                                                                                         | []     |
+| items                  | 折叠面板列表                       | [CollapseItem](#collapseitem)[]                                                                  | []     |
+| style                  | 样式                               | string                                                                                           | -      |
+| title                  | 标题插槽，接收 value、index        | slot                                                                                             | -      |
+| #if ALIPAY onChange    | 切换面板的回调                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bind:change | 切换面板的回调                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### CollapseItem
 

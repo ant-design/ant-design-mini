@@ -139,7 +139,7 @@ Page({
 | #if WECHAT bind:change      | 数据变化后，触发此回调                                                              | ( value: number                                                                   | null, [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void        |
 | #if WECHAT bind:confirm     | 点击键盘完成时触发此回调                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | #if WECHAT bind:focus       | 输入框聚焦时，触发此回调                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:disabledTap | 禁用时点击出发回调                                                                  | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bind:disabledtap | 禁用时点击出发回调                                                                  | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### 主题定制
 

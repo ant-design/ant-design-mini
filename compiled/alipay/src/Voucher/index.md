@@ -155,8 +155,8 @@ Page({
 | -------------------------- | -------------------- | --------------------- |
 | #if ALIPAY onBtnTap        | 点击按钮，触发此回调 | `(item, event)=>void` |
 | #if ALIPAY onVoucherTap    | 点击卡片，触发此回调 | `(item, event)=>void` |
-| #if WECHAT bind:btnTap     | 点击按钮，触发此回调 | `(item, event)=>void` |
-| #if WECHAT bind:voucherTap | 点击卡片，触发此回调 | `(item, event)=>void` |
+| #if WECHAT bind:btntap     | 点击按钮，触发此回调 | `(item, event)=>void` |
+| #if WECHAT bind:vouchertap | 点击卡片，触发此回调 | `(item, event)=>void` |
 
 ## 插槽
 

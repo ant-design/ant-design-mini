@@ -139,7 +139,7 @@ Page({
 | #if WECHAT bind:change      | Trigger this callback after data changes                                                              | ( value: number                                                                   | null, [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void        |
 | #if WECHAT bind:confirm     | This callback is triggered when the keyboard is clicked to complete                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | #if WECHAT bind:focus       | This callback is triggered when the input box is focused                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:disabledTap | Click departure callback when disabled                                                                  | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bind:disabledtap | Click departure callback when disabled                                                                  | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### Theme customization
 

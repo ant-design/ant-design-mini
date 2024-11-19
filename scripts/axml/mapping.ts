@@ -139,4 +139,8 @@ export const wechatCustomMapping = {
     catchTap: 'catch:tap',
     onTap: 'bind:tap',
   },
+  'ant-grid': {
+    onTap: 'bind:tap',
+    onFirstAppear: 'bind:firstappear',
+  },
 };
