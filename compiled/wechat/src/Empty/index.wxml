@@ -13,15 +13,15 @@
       <view class="ant-empty-text-main">
         <ant-auto-resize
           text="{{title}}"
-          min-font-size="24"
-          max-font-size="30"
+          minFontSize="24"
+          maxFontSize="40"
         >
           <block wx:if="{{title}}">{{title}}</block>
         </ant-auto-resize>
         <ant-auto-resize
           text="{{title}}"
-          min-font-size="24"
-          max-font-size="30"
+          minFontSize="24"
+          maxFontSize="40"
         >
           <block wx:else>
             <slot name="title">{{title}}</slot>
@@ -31,15 +31,15 @@
       <view class="ant-empty-text-sub">
         <ant-auto-resize
           text="{{message}}"
-          min-font-size="24"
-          max-font-size="30"
+          minFontSize="24"
+          maxFontSize="40"
         >
           <block wx:if="{{message}}">{{message}}</block>
         </ant-auto-resize>
         <ant-auto-resize
           text="{{message}}"
-          min-font-size="24"
-          max-font-size="30"
+          minFontSize="24"
+          maxFontSize="40"
         >
           <block wx:else>
             <slot name="message">{{message}}</slot>

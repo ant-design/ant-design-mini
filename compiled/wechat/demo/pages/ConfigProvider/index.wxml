@@ -23,7 +23,7 @@
     </ant-list>
   </ant-config-provider>
 </ant-container>
-<ant-container title="深色模式">
+<ant-container title="深色主题">
   <ant-config-provider
     theme="dark"
     locale="{{locale}}"
@@ -31,7 +31,7 @@
     <ant-button
       type="primary"
       bind:tap="handleTap"
-    >主要按钮应该是黑色</ant-button>
+    >深色主题</ant-button>
   </ant-config-provider>
 </ant-container>
 <ant-container title="主题定制">

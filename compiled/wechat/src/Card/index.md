@@ -38,8 +38,8 @@ toc: content
 #if WECHAT
   bind:operateClick="handleLinkClick" 
 #endif
-  title="标题" 
-  operateText="操作"
+  title="title" 
+  operateText="operate"
 >
   <view>
     我是卡片内容
@@ -51,8 +51,8 @@ toc: content
 ```xml
 <ant-card 
   divider="{{true}}"
-  title="标题" 
-  operateText="操作"
+  title="title" 
+  operateText="operate"
 >
   <view>
     标题内容间带分割线
@@ -63,7 +63,7 @@ toc: content
 ### 标题吸顶
 ```xml
 <ant-card
-  title="标题"
+  title="title"
   headSticky="{{true}}"
 #if ALIPAY
   onTitleSticky="handleTitleSticky" 
@@ -81,7 +81,7 @@ toc: content
 ### 卡片可折叠
 ```xml
 <ant-card
-  title="标题"
+  title="title"
   needFold="{{true}}"
 >
   <view>
@@ -93,8 +93,8 @@ toc: content
 ### 自定义操作按钮
 ```xml
 <ant-card 
-  title="标题" 
-  operateText="操作"
+  title="title" 
+  operateText="operateText"
 >
   <view slot="headerRight">
     自定义

@@ -90,7 +90,7 @@
     <swiper
       class="ant-guide-tour-swiper"
       current="{{mixin.value}}"
-      adjust-height="none"
+      adjustHeight="none"
       style="height: 100vh"
       onChange="onSwiperChange"
     >

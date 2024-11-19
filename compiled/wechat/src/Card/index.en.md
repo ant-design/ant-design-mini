@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 业务组件
+  title: Bizness Components
   order: 15
 toc: content
 ---
@@ -38,8 +38,8 @@ In `index.json` Introducing Components in
 #if WECHAT
   bind:operateClick="handleLinkClick" 
 #endif
-  title="标题" 
-  operateText="操作"
+  title="title" 
+  operateText="operate"
 >
   <view>
     I am the card content
@@ -51,8 +51,8 @@ In `index.json` Introducing Components in
 ```xml
 <ant-card 
   divider="{{true}}"
-  title="标题" 
-  operateText="操作"
+  title="title" 
+  operateText="operate"
 >
   <view>
     Title Content with Split Line
@@ -63,7 +63,7 @@ In `index.json` Introducing Components in
 ### Title ceiling
 ```xml
 <ant-card
-  title="标题"
+  title="title"
   headSticky="{{true}}"
 #if ALIPAY
   onTitleSticky="handleTitleSticky" 
@@ -81,7 +81,7 @@ In `index.json` Introducing Components in
 ### Card Foldable
 ```xml
 <ant-card
-  title="标题"
+  title="title"
   needFold="{{true}}"
 >
   <view>
@@ -93,8 +93,8 @@ In `index.json` Introducing Components in
 ### Custom Action Buttons
 ```xml
 <ant-card 
-  title="标题" 
-  operateText="操作"
+  title="title" 
+  operateText="operateText"
 >
   <view slot="headerRight">
     Custom
@@ -140,6 +140,6 @@ In `index.json` Introducing Components in
 
 | Name        | Description                 |
 | ----------- | -------------------- |
-| Default slot    | Card Content             |
+| Default Slot    | Card Content             |
 | headerTitle | Custom Title Bar Left Header |
 | headerRight | Customize the right content of the title bar |
