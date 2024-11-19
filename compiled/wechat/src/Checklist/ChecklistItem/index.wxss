@@ -33,7 +33,7 @@
   margin-left: 0;
 }
 .ant-checklist-item-text-title {
-  color: var(--checklist-font-color, #333333);
+  color: var(--check-list-item-title-color, #333333);
   font-size: 34rpx;
   line-height: 48rpx;
 }

@@ -191,7 +191,7 @@ page {
   --checkbox-text-color: #c5cad1;
   --checkbox-fake-icon-background-color: #1a1a1a;
   --checklist-background-color: #3086ff;
-  --checklist-font-color: #c5cad1;
+  --check-list-item-title-color: #c5cad1;
   --check-list-item-background-color: #1a1a1a;
   --check-list-item-hover-background-color: #2b2b2b;
   --check-list-item-content-color: #c5cad1;
