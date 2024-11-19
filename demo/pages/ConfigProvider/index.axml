@@ -2,7 +2,7 @@
   <ant-config-provider locale="{{locale}}">
     <ant-list>
       <ant-list-item>
-        选择城市
+        City
         <ant-picker
           slot="extra"
           onCancel="handleDismissPicker"
@@ -15,7 +15,7 @@
         />
       </ant-list-item>
       <ant-list-item>
-        日期范围
+        Date
         <ant-range-picker
           slot="extra"
           defaultValue="{{ defaultDateRange }}"
@@ -27,17 +27,17 @@
     </ant-list>
   </ant-config-provider>
 </ant-container>
-<ant-container title="深色主题">
-  <ant-config-provider theme="dark" locale="{{locale}}">
+<ant-container title="DarkMode">
+  <ant-config-provider theme='dark' locale="{{locale}}">
     <ant-button type="primary" onTap="handleTap">
-      深色主题
+      Dark
     </ant-button>
   </ant-config-provider>
 </ant-container>
-<ant-container title="主题定制">
+<ant-container title="Theme">
   <ant-config-provider themeVars="{{themeVars}}" locale="{{locale}}">
     <ant-button type="primary" onTap="handleTap">
-      主要按钮
+      Theme
     </ant-button>
   </ant-config-provider>
 </ant-container>
