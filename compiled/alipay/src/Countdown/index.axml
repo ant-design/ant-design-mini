@@ -22,7 +22,6 @@
 <view
   a:else
   class="ant-countdown {{className}}"
-  style="color:{{theme.textColor}};"
 >
   <text class="ant-countdown-time-prefix ant-countdown-time">
     <slot name="prefix"></slot>
@@ -34,32 +33,20 @@
     sec="{{countdownSec}}"
   >
     <block a:if="{{countdownType === 'day' && showDay}}">
-      <text
-        class="ant-countdown-time-num"
-        style="background:{{theme.backgroundColor}};color:{{theme.timeColor}};"
-      >
+      <text class="ant-countdown-time-num">
         <text class="ant-countdown-time">{{countdownDay}}</text>
       </text>
       <text class="ant-countdown-time-day ant-countdown-time">天</text>
     </block>
-    <text
-      class="ant-countdown-time-num"
-      style="background:{{theme.backgroundColor}};color:{{theme.timeColor}};"
-    >
+    <text class="ant-countdown-time-num">
       <text class="ant-countdown-time">{{countdownHour}}</text>
     </text>
     <text class="ant-countdown-time-colon">：</text>
-    <text
-      class="ant-countdown-time-num"
-      style="background:{{theme.backgroundColor}};color:{{theme.timeColor}};"
-    >
+    <text class="ant-countdown-time-num">
       <text class="ant-countdown-time">{{countdownMin}}</text>
     </text>
     <text class="ant-countdown-time-colon">：</text>
-    <text
-      class="ant-countdown-time-num"
-      style="background:{{theme.backgroundColor}};color:{{theme.timeColor}};"
-    >
+    <text class="ant-countdown-time-num">
       <text class="ant-countdown-time">{{countdownSec}}</text>
     </text>
   </slot>
