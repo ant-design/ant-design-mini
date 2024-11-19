@@ -114,4 +114,4 @@ Page({
 
 | 变量名                            | 默认值                                                                            | 深色模式默认值                                                                                    | 备注             |
 | --------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
-| --page-container-background-color | <div style="width: 150px; height: 30px; background-color: #f5f5f5;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | 页面容器背景颜色 |
+| --page-container-background-color | <div style="width: 150px; height: 30px; background-color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | 页面容器背景颜色 |

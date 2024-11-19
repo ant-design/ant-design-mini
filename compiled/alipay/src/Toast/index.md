@@ -101,7 +101,7 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                | 默认值                                                                                                                    | 备注               |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| --toast-default-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | Toast 默认背景颜色 |
-| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                         | Toast 默认文字颜色 |
+| 变量名                | 浅色模式默认值                                                                                                    | 深色模式默认值                                                                                                    | 备注               |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------ |
+| --toast-default-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | Toast 默认背景颜色 |
+| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                  | Toast 默认文字颜色 |
