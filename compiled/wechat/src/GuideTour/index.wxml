@@ -27,51 +27,27 @@
       inline
       size="small"
       bind:tap="onCancel"
-    >
-      <ant-auto-resize
-        text="{{u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}"
-        minFontSize="24"
-        maxFontSize="30"
-      >{{u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}</ant-auto-resize>
-    </ant-button>
+    >{{u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowPrev(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onPrev"
       data-current-value="{{mixin.value}}"
-    >
-      <ant-auto-resize
-        text="{{u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}"
-        minFontSize="24"
-        maxFontSize="30"
-      >{{u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}</ant-auto-resize>
-    </ant-button>
+    >{{u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowNext(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onNext"
       data-current-value="{{mixin.value}}"
-    >
-      <ant-auto-resize
-        text="{{u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}"
-        minFontSize="24"
-        maxFontSize="30"
-      >{{u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}</ant-auto-resize>
-    </ant-button>
+    >{{u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowKnow(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onCancel"
-    >
-      <ant-auto-resize
-        text="{{u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}"
-        minFontSize="24"
-        maxFontSize="30"
-      >{{u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}</ant-auto-resize>
-    </ant-button>
+    >{{u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}</ant-button>
   </view>
   <block wx:if="{{swiperable}}">
     <view class="ant-guide-tour-indicator">
