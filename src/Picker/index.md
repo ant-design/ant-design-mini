@@ -11,8 +11,6 @@ toc: 'content'
 
 Picker 选择器显示一个或多个选项集合的可滚动列表，相比于原生 picker，实现了 iOS 与 Android 端体验的一致性。
 
-## 何时使用
-
 - 提供一组或多组关联选项供用户选择。
 - 当少于 5 个选项时，建议直接将选项平铺，使用 Radio 是更好的选择。
 
@@ -52,7 +50,7 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
 #endif
 #if WECHAT
   bind:cancel="handleDismiss"
-  bind:visibleChange="handleTriggerPicker"
+  bind:visiblechange="handleTriggerPicker"
   bind:ok="handleOk"
   bind:change="handleChange"
 #endif
@@ -316,7 +314,7 @@ Page({
 | #if WECHAT bind:ok            | 点击确定按钮，触发回调                                                                                                                                                      | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
 | #if WECHAT bind:cancel        | 点击取消按钮/蒙层，触发回调                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                              | -           |
 | #if WECHAT bind:change        | 选中项发生变化，触发回调                                                                                                                                                    | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
-| #if WECHAT bind:visibleChange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
+| #if WECHAT bind:visiblechange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
 
 ### CascaderPicker
 
