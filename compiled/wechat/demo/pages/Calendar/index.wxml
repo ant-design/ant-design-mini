@@ -97,7 +97,10 @@
   wx:if="{{demo9.visible}}"
   title="受控模式"
 >
-  <view slot="content">
+  <view
+    slot="content"
+    style="height: 1000rpx;overflow: scroll;"
+  >
     <ant-calendar
       bind:ref="handleRef"
       value="{{demo9.value}}"
@@ -118,6 +121,6 @@
       style="margin-top: 8rpx"
       type="primary"
       bind:tap="demo9HandleScrollIntoView"
-    >滚动到指定日期</ant-button>
+    >滚动到下个月的今天</ant-button>
   </view>
 </collapse-container>

@@ -145,7 +145,7 @@ Page({
     });
   },
   demo9HandleScrollIntoView() {
-    this.ref.scrollIntoView(nowDate);
+    this.ref.scrollIntoView(dayjs().add(1, 'M').toDate().getTime());
   },
   handleRef(ref) {
     /// #if ALIPAY

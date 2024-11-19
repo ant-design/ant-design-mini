@@ -116,7 +116,10 @@
   a:if="{{demo9.visible}}"
   title="受控模式"
 >
-  <view slot="content">
+  <view
+    slot="content"
+    style="height: 1000rpx;overflow: scroll;"
+  >
     <ant-calendar
       ref="handleRef"
       value="{{demo9.value}}"
@@ -142,7 +145,7 @@
       type="primary"
       onTap="demo9HandleScrollIntoView"
     >
-      滚动到指定日期
+      滚动到下个月的今天
     </ant-button>
   </view>
 </collapse-container>
