@@ -1,6 +1,0 @@
-function isEmpty(propsValue) {
-  return [undefined, null].indexOf(propsValue) !== -1;
-}
-module.exports = {
-  isEmpty: isEmpty
-};
