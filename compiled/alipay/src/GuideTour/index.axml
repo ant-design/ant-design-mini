@@ -2,6 +2,10 @@
   from="./index.sjs"
   name="utils"
 ></import-sjs>
+<import-sjs
+  from="../_util/isPropsEmpty.sjs"
+  name="u"
+></import-sjs>
 <view
   a:if="{{visible}}"
   class="ant-guide-tour {{className || ''}}"
@@ -25,11 +29,11 @@
       onTap="onCancel"
     >
       <ant-auto-resize
-        text="{{[undefined, null].indexOf(jumpText) !== -1 ? locale.guideTour.jumpText : jumpText}}"
+        text="{{u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}"
         minFontSize="24"
         maxFontSize="30"
       >
-        {{[undefined, null].indexOf(jumpText) !== -1 ? locale.guideTour.jumpText : jumpText}}
+        {{u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}
       </ant-auto-resize>
     </ant-button>
     <ant-button
@@ -40,11 +44,11 @@
       data-currentValue="{{mixin.value}}"
     >
       <ant-auto-resize
-        text="{{[undefined, null].indexOf(prevStepText) !== -1 ? locale.guideTour.prevStepText : prevStepText}}"
+        text="{{u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}"
         minFontSize="24"
         maxFontSize="30"
       >
-        {{[undefined, null].indexOf(prevStepText) !== -1 ? locale.guideTour.prevStepText : prevStepText}}
+        {{u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}
       </ant-auto-resize>
     </ant-button>
     <ant-button
@@ -55,11 +59,11 @@
       data-currentValue="{{mixin.value}}"
     >
       <ant-auto-resize
-        text="{{[undefined, null].indexOf(nextStepText) !== -1 ? locale.guideTour.nextStepText : nextStepText}}"
+        text="{{u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}"
         minFontSize="24"
         maxFontSize="30"
       >
-        {{[undefined, null].indexOf(nextStepText) !== -1 ? locale.guideTour.nextStepText : nextStepText}}
+        {{u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}
       </ant-auto-resize>
     </ant-button>
     <ant-button
@@ -69,11 +73,11 @@
       onTap="onCancel"
     >
       <ant-auto-resize
-        text="{{[undefined, null].indexOf(gotItText) !== -1 ? locale.guideTour.gotItText : gotItText}}"
+        text="{{u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}"
         minFontSize="24"
         maxFontSize="30"
       >
-        {{[undefined, null].indexOf(gotItText) !== -1 ? locale.guideTour.gotItText : gotItText}}
+        {{u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}
       </ant-auto-resize>
     </ant-button>
   </view>

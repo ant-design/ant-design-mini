@@ -9,6 +9,9 @@ const zhCN: Locale = {
     okText: '确定',
     cancelText: '取消',
   },
+  input: {
+    placeholder: '请输入',
+  },
   calendar: {
     weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
     today: '今日',

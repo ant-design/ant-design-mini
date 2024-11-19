@@ -1,3 +1,7 @@
+<wxs
+  src="../../_util/isPropsEmpty.wxs"
+  module="u"
+></wxs>
 <template
   name="selector"
   data="{{$id}}"
@@ -52,12 +56,12 @@
   >
     <template
       is="selector"
-      data="{{ placeholder: [undefined, null].indexOf(startPlaceholder) !== -1 ? locale.RangePicker.startPlaceholder : startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision, $id }}"
+      data="{{ placeholder: u.isPropsEmpty(startPlaceholder) ? locale.RangePicker.startPlaceholder : startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision, $id }}"
     ></template>
     <view class="ant-range-picker-selector-split">{{splitCharacter}}</view>
     <template
       is="selector"
-      data="{{ placeholder: [undefined, null].indexOf(endPlaceholder) !== -1 ? locale.RangePicker.endPlaceholder : endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision, $id }}"
+      data="{{ placeholder: u.isPropsEmpty(endPlaceholder) ? locale.RangePicker.endPlaceholder : endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision, $id }}"
     ></template>
   </view>
   <slot

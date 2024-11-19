@@ -2,6 +2,10 @@
   from="./index.sjs"
   name="_sjs"
 ></import-sjs>
+<import-sjs
+  from="../_util/isPropsEmpty.sjs"
+  name="u"
+></import-sjs>
 <view
   class="ant-picker {{disabled ? 'ant-picker-disabled' : ''}} {{className || ''}}"
   style="{{style || ''}}"
@@ -24,7 +28,7 @@
       </view>
       <block a:else>
         <view class="ant-picker-value-placeholder">
-          {{[undefined, null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder}}
+          {{u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder}}
         </view>
       </block>
     </slot>
@@ -51,7 +55,7 @@
       hoverStayTime="50"
       onTap="onCancel"
     >
-      {{[undefined, null].indexOf(cancelText) !== -1 ? locale.global.cancelText : cancelText}}
+      {{u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText}}
     </view>
     <view class="ant-picker-header-item ant-picker-header-title">
       <slot name="title">{{title}}</slot>
@@ -63,7 +67,7 @@
       hoverStayTime="50"
       onTap="onOk"
     >
-      {{[undefined, null].indexOf(okText) !== -1 ? locale.global.okText : okText}}
+      {{u.isPropsEmpty(okText) ? locale.global.okText : okText}}
     </view>
   </view>
   <view class="ant-picker-content">
@@ -104,7 +108,7 @@
       <picker-view class="ant-picker-picker-view">
         <picker-view-column class="ant-picker-picker-view-column">
           <!--display: inline-->
-          <text style="color: #ccc">{{[undefined, null].indexOf(emptyText) !== -1 ? locale.global.emptyText : emptyText}}</text>
+          <text style="color: #ccc">{{u.isPropsEmpty(emptyText) ? locale.global.emptyText : emptyText}}</text>
         </picker-view-column>
       </picker-view>
     </block>

@@ -1,4 +1,5 @@
 <import-sjs from="../../_util/arrow.sjs" name="arrowUtil" />
+<import-sjs from="../../_util/isPropsEmpty.sjs" name="u" />
 
 <form-item
   className="{{ className }}"
@@ -19,9 +20,9 @@
       max="{{ max }}"
       format="{{ format }}"
       precision="{{ precision }}"
-      cancelText="{{ [undefined,null].indexOf(cancelText) !== -1 ? locale.global.cancelText : cancelText }}"
-      okText="{{ [undefined,null].indexOf(okText) !== -1 ? locale.global.okText : okText }}"
-      placeholder="{{ [undefined,null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder  }}"
+      cancelText="{{ u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText }}"
+      okText="{{ u.isPropsEmpty(okText) ? locale.global.okText : okText }}"
+      placeholder="{{ u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder  }}"
       animationType="{{ animationType }}"
       maskClosable="{{ maskClosable }}"
       maskStyle="{{ maskStyle }}"

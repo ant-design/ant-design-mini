@@ -9,13 +9,7 @@ toc: 'content'
 
 # Tag 标签
 
-
 用于标记和分类的小标签。
-
-## 何时使用
-
-- 用来标记事物的属性和维度。
-- 进行分类。
 
 ## 引入
 
@@ -35,11 +29,13 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
+
 ```xml
 <ant-tag>标签</ant-tag>
 ```
 
 ### 语义标签
+
 ```xml
 <ant-tag>default</ant-tag>
 <ant-tag color="success">success</ant-tag>
@@ -48,6 +44,7 @@ toc: 'content'
 ```
 
 ### 填充模式
+
 ```xml
 <ant-tag type="fill">fill</ant-tag>
 <ant-tag type="outline">outline</ant-tag>
@@ -55,14 +52,17 @@ toc: 'content'
 ```
 
 ### 自定义图标
+
 ```xml
 <ant-tag icon="AlipayCircleFill">标签</ant-tag>
 ```
 
 ### Demo 代码
+
 <code src='../../demo/pages/Tag/index'></code>
 
 ## API
+
 | 属性      | 说明                                                                                     | 类型         | 默认值    |
 | --------- | ---------------------------------------------------------------------------------------- | ------------ | --------- |
 | className | 类名                                                                                     | string       | -         |

@@ -1,4 +1,5 @@
 <import-sjs from="../../_util/arrow.sjs" name="arrowUtil" />
+<import-sjs from="../../_util/isPropsEmpty.sjs" name="u" />
 
 <form-item
   className="{{ className }}"
@@ -15,17 +16,17 @@
 >
   <view>
     <ant-range-picker
-      endPlaceholder="{{ [undefined,null].indexOf(cancelText) !== -1 ? locale.rangePicker.endPlaceholder : cancelText }}"
-      startPlaceholder="{{ [undefined,null].indexOf(cancelText) !== -1 ? locale.rangePicker.startPlaceholder : cancelText }}"
+      endPlaceholder="{{ u.isPropsEmpty(cancelText) ? locale.rangePicker.endPlaceholder : cancelText }}"
+      startPlaceholder="{{ u.isPropsEmpty(cancelText) ? locale.rangePicker.startPlaceholder : cancelText }}"
       splitCharacter="{{ splitCharacter }}"
       min="{{ min }}"
       max="{{ max }}"
       format="{{ format }}"
       precision="{{ precision }}"
       animationType="{{ animationType }}"
-      cancelText="{{ [undefined,null].indexOf(cancelText) !== -1 ? locale.global.cancelText : cancelText }}"
-      okText="{{ [undefined,null].indexOf(okText) !== -1 ? locale.global.okText : okText }}"
-      placeholder="{{ [undefined,null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder  }}"
+      cancelText="{{ u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText }}"
+      okText="{{ u.isPropsEmpty(okText) ? locale.global.okText : okText }}"
+      placeholder="{{ u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder  }}"
       maskClosable="{{ maskClosable }}"
       maskStyle="{{ maskStyle }}"
       popClassName="{{ popClassName }}"
