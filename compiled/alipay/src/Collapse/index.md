@@ -21,10 +21,10 @@ toc: 'content'
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/Collapse/index"
+  "ant-collapse": "antd-mini/es/Collapse/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/Collapse/index"
+  "ant-collapse": "antd-mini/Collapse/index"
 #endif
 }
 ```
@@ -37,10 +37,10 @@ toc: 'content'
 <ant-collapse
   items="{{items}}"
 #if ALIPAY
-  onChange="onChange" 
+  onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange" 
+  bind:change="onChange"
 #endif
 />
 ```
@@ -50,49 +50,50 @@ Page({
   data: {
     items: [
       {
-        title: '第一项标题',
-        content: '第一项内容'
+        title: 'item1 title',
+        content: 'item1 content',
       },
       {
-        title: '第二项标题',
-        content: '第二项内容'
+        title: 'item2 title',
+        content: 'item2 content',
       },
       {
-        title: '第三项标题',
-        content: '第三项内容'
+        title: 'item3 title',
+        content: 'item3 content',
       },
-    ]
+    ],
   },
   onChange(current) {
     console.log(current);
-  }
+  },
 });
-
 ```
 
 ### 手风琴模式
+
 ```xml
 <ant-collapse
   accordion="{{true}}"
   items="{{items}}"
 #if ALIPAY
-  onChange="onChange" 
+  onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange" 
+  bind:change="onChange"
 #endif
 />
 ```
 
 ### 列表项控制
+
 ```xml
 <ant-button
   inline="{{true}}"
 #if ALIPAY
-  onTap="addItems" 
+  onTap="addItems"
 #endif
 #if WECHAT
-  bind:tap="addItems" 
+  bind:tap="addItems"
 #endif
 >
   添加items
@@ -102,30 +103,31 @@ Page({
   items="{{items}}"
 />
 ```
+
 ```js
 Page({
   data: {
     items: [
       {
-        title: '第一项标题',
-        content: '第一项内容'
+        title: 'item1 title',
+        content: 'item1 content',
       },
       {
-        title: '第二项标题',
-        content: '第二项内容'
+        title: 'item2 title',
+        content: 'item2 content',
       },
       {
-        title: '第三项标题',
-        content: '第三项内容'
+        title: 'item3 title',
+        content: 'item3 content',
       },
-    ]
+    ],
   },
   addItems() {
     const items = [
       ...this.data.items,
       {
         title: this.data.items.length,
-        content: '动态添加的内容',
+        content: 'dynamic item content',
       },
     ];
     this.setData({
@@ -149,7 +151,7 @@ Page({
     <view>
       <ant-checkbox
         data-index="{{item.index}}"
-        onChange="onChange" 
+        onChange="onChange"
       />
     </view>
     <view>{{item.value.title}}</view>
@@ -175,17 +177,18 @@ Page({
 
 ## API
 
-| 属性           | 说明                               | 类型                                                                                             | 默认值 |
-| -------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------ | ------ |
-| accordion      | 是否是手风琴模式，仅一个内容被展开 | boolean                                                                                          | false  |
-| className      | 类名                               | string                                                                                           | -      |
-| content        | 内容区插槽，接收 value、index      | slot                                                                                             | -      |
-| current        | 当前展开的索引                     | number[]                                                                                         | -      |
-| defaultCurrent | 当前展开的默认索引                 | number[]                                                                                         | []     |
-| items          | 折叠面板列表                       | [CollapseItem](#collapseitem)[]                                                                  | []     |
-| style          | 样式                               | string                                                                                           | -      |
-| title          | 标题插槽，接收 value、index        | slot                                                                                             | -      |
-| onChange       | 切换面板的回调                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| 属性                   | 说明                               | 类型                                                                                             | 默认值 |
+| ---------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------ | ------ |
+| accordion              | 是否是手风琴模式，仅一个内容被展开 | boolean                                                                                          | false  |
+| className              | 类名                               | string                                                                                           | -      |
+| content                | 内容区插槽，接收 value、index      | slot                                                                                             | -      |
+| current                | 当前展开的索引                     | number[]                                                                                         | -      |
+| defaultCurrent         | 当前展开的默认索引                 | number[]                                                                                         | []     |
+| items                  | 折叠面板列表                       | [CollapseItem](#collapseitem)[]                                                                  | []     |
+| style                  | 样式                               | string                                                                                           | -      |
+| title                  | 标题插槽，接收 value、index        | slot                                                                                             | -      |
+| #if ALIPAY onChange    | 切换面板的回调                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bind:change | 切换面板的回调                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### CollapseItem
 
@@ -201,12 +204,12 @@ Page({
 #### 样式变量
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
-| 变量名 | 默认值 | 备注 |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| --collapse-title-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 折叠面板标题背景颜色 |
-| --collapse-title-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 折叠面板标题颜色 |
-| --collapse-title-icon-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #ffffff;">#cccccc</div> | 折叠面板标题图标颜色 |
-| --collapse-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 折叠面板内容背景颜色 |
-| --collapse-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | 折叠面板边框颜色 |
-| --collapse-node-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 折叠面板节点文本颜色 |
-| --collapse-container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 折叠面板容器背景颜色 |
+| 变量名 | 默认值 | 深色模式默认值 | 备注 |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------- |
+| --collapse-title-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | 折叠面板标题背景颜色 |
+| --collapse-title-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 折叠面板标题颜色 |
+| --collapse-title-icon-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #ffffff;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | 折叠面板标题图标颜色 |
+| --collapse-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | 折叠面板内容背景颜色 |
+| --collapse-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #fff;">#2b2b2b</div> | 折叠面板边框颜色 |
+| --collapse-node-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 折叠面板节点文本颜色 |
+| --collapse-container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #fff;">#000000</div> | 折叠面板容器背景颜色 |

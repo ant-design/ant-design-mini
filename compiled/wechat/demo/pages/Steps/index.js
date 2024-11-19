@@ -37,9 +37,8 @@ Page({
     },
     onNextTap() {
         if (this.data.current === this.data.items.length - 1) {
-            my.alert({
-                content: '完成',
-            });
+            // @ts-ignore
+            wx.showToast({ title: '完成' });
             return;
         }
         this.setData({

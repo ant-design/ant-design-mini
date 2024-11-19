@@ -1,3 +1,5 @@
+<import-sjs from="../../_util/isPropsEmpty.sjs" name="u" />
+
 <form-item
   className="{{ className }}"
   position="{{ position }}"
@@ -16,7 +18,7 @@
     allowClear="{{ allowClear }}"
     enableNative="{{ enableNative }}"
     disabled="{{ disabled }}"
-    placeholder="{{ placeholder === null ? locale.global.placeholder : placeholder  }}"
+    placeholder="{{ u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder  }}"
     placeholderClassName="{{ placeholderClassName }}"
     placeholderStyle="{{ placeholderStyle }}"
     maxLength="{{ maxLength }}"

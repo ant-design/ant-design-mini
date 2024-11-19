@@ -65,7 +65,7 @@
   <ant-input
     placeholder="请输入内容"
     bind:change="onChange"
-    bind:ref="handleRef"
+    bind:ref="handleRefInput"
   ></ant-input>
   <view>
     <ant-button
@@ -144,12 +144,12 @@
     placeholder="请输入内容"
     allowClear
     bind:change="onChange"
-    bind:ref="handleRef"
+    bind:ref="handleRefTextArea"
   ></ant-textarea>
   <view>
     <ant-button
       inline
-      bind:tap="clearByInputRef"
+      bind:tap="clearByTextAreaRef"
     >clear</ant-button>
   </view>
 </container>

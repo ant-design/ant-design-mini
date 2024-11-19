@@ -8,6 +8,10 @@ export interface Locale {
    */
   global?: Record<string, any>;
   /**
+   * Input组件使用的多语言文案
+   */
+  input?: Record<string, any>;
+  /**
    * Calender组件使用的多语言文案
    */
   calendar?: Record<string, any>;

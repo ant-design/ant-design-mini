@@ -131,8 +131,8 @@ ComponentWithSignalStoreImpl(
           'onFormatter',
           'onMonthFormatter',
         ]);
-      const localeText = Object.assign({}, this.data.locale.calendar);
-      const markItems = [...localeText.weekdayNames];
+      const localeText = Object.assign({}, this.data.locale?.calendar);
+      const markItems = [...(localeText.weekdayNames ?? [])];
       const weekStartsOn = pweekStartsOn;
       if (weekStartsOn === 'Sunday') {
         const item = markItems.pop();

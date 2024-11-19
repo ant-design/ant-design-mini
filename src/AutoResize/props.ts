@@ -34,6 +34,7 @@ export interface IAutoResizeProps extends IBaseProps {
 }
 
 export const AutoResizeDefaultProps: Partial<IAutoResizeProps> = {
+  text: '',
   minFontSize: 30,
   maxFontSize: 36,
   wrap: false,

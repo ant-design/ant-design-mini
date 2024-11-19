@@ -1,4 +1,5 @@
 <import-sjs from="./index.sjs" name="_sjs" />
+<import-sjs from="../_util/isPropsEmpty.sjs" name="u" />
 
 <view
   class="ant-picker {{ disabled ? 'ant-picker-disabled' : '' }} {{ className || '' }}"
@@ -15,7 +16,7 @@
       </view>
       <block a:else>
         <view class="ant-picker-value-placeholder">
-          {{ placeholder === undefined ? locale.global.placeholder : placeholder }}
+          {{ u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder }}
         </view>
       </block>
       <!-- #if ALIPAY -->
@@ -41,7 +42,7 @@
       hover-stay-time="50"
       onTap="onCancel"
     >
-      {{ cancelText === undefined ? cancelText : locale.global.cancelText }}
+      {{ u.isPropsEmpty(cancelText)  ? locale.global.cancelText : cancelText }}
     </view>
     <view class="ant-picker-header-item ant-picker-header-title">
       <!-- #if ALIPAY -->
@@ -58,7 +59,7 @@
       hover-stay-time="50"
       onTap="onOk"
     >
-      {{okText === undefined ? locale.global.okText : okText }}
+      {{u.isPropsEmpty(okText) ? locale.global.okText : okText }}
     </view>
   </view>
   <view class="ant-picker-content">
@@ -89,7 +90,7 @@
         <picker-view-column class="ant-picker-picker-view-column">
           <!-- display: inline -->
           <text style="color: #ccc">
-            {{ emptyText === undefined ?  emptyText : locale.global.emptyText}}
+            {{ u.isPropsEmpty(emptyText) ? locale.global.emptyText : emptyText}}
           </text>
         </picker-view-column>
       </picker-view>

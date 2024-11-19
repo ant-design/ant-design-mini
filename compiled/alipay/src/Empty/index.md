@@ -18,10 +18,10 @@ toc: 'content'
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/Empty/index"
+  "ant-empty": "antd-mini/es/Empty/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/Empty/index"
+  "ant-empty": "antd-mini/Empty/index"
 #endif
 }
 ```
@@ -29,29 +29,32 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
+
 ```xml
-<ant-empty 
+<ant-empty
   size="small"
-  title="这里什么也没有" 
-  message="看看其它吧" 
+  title="Nothing Here"
+  message="See Others"
 />
 ```
 
 ### 自定义图片
+
 ```xml
 <ant-empty
-  title="这里什么也没有"
-  message="看看其它吧"
+  title="Nothing Here"
+  message="See Others"
   image="{{imageUrl}}"
 />
 ```
 
 ### 添加行动点
+
 ```xml
 <ant-empty
-  title="这里什么也没有"
+  title="Nothing Here"
+  message="See Others"
   buttonInfo="{{horizontalButtonInfo}}"
-  message="看看其它吧"
 #if ALIPAY
   onClickButton="onClickButton"
 #endif
@@ -65,11 +68,11 @@ toc: 'content'
 const BUTTON_LIST = [
   {
     type: 'primary',
-    text: '刷新重试'
+    text: 'refresh',
   },
   {
     type: 'default',
-    text: '网络诊断'
+    text: 'checkout internet',
   },
 ];
 
@@ -85,15 +88,16 @@ Page({
       layout: 'vertical',
       list: BUTTON_LIST,
     },
-}
-})
+  },
+});
 ```
 
 ### 使用插槽
+
 ```xml
 <ant-empty
-  title="这里什么也没有"
-  message="看看其它吧"
+  title="Nothing Here"
+  message="See Others"
 >
   <view slot="extra">
     <ant-button
@@ -112,23 +116,24 @@ Page({
 
 ## API
 
-| 属性       | 说明              | 类型           | 默认值 |
-| ---------- | ----------------- | -------------- | ------ |
-| className  | 根节点类名        | string         | -      |
-| title      | 标题文案          | string \| slot | -      |
-| image      | 图片，可传入字符串作为图片地址 | string \| slot |
-| message    | 描述文案          | string \| slot | -      |
-| style      | 样式              | string         | -      |
-| size       | 空状态尺寸，可选 `normal` `small`  | string         | `normal`      |
-| buttonInfo | 自定义按钮  | [ButtonInfo](#buttoninfo)         | `normal`      |
-| #if ALIPAY onClickButton | 点击按钮回调  | (item: [ButtonInfoItem](#buttoninfoitem)) => void       | -      |
-| #if WECHAT bind:ClickButton | 点击按钮回调  | (item: [ButtonInfoItem](#buttoninfoitem)) => void       | -      |
+| 属性                        | 说明                              | 类型                                              | 默认值   |
+| --------------------------- | --------------------------------- | ------------------------------------------------- | -------- |
+| className                   | 根节点类名                        | string                                            | -        |
+| title                       | 标题文案                          | string \| slot                                    | -        |
+| image                       | 图片，可传入字符串作为图片地址    | string \| slot                                    |
+| message                     | 描述文案                          | string \| slot                                    | -        |
+| style                       | 样式                              | string                                            | -        |
+| size                        | 空状态尺寸，可选 `normal` `small` | string                                            | `normal` |
+| buttonInfo                  | 自定义按钮                        | [ButtonInfo](#buttoninfo)                         | `normal` |
+| #if ALIPAY onClickButton    | 点击按钮回调                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
+| #if WECHAT bind:ClickButton | 点击按钮回调                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
 
 ### ButtonInfo
-| 属性       | 说明              | 类型           | 默认值 |
-| ---------- | ----------------- | -------------- | ------ |
-| layout     | 布局方式，可选 `horizontal` `vertical`| string    | `horizontal`      |
-| list       | 布局按钮配置  | [ButtonInfoItem](#buttoninfoitem)[] | - | 
+
+| 属性   | 说明                                   | 类型                                | 默认值       |
+| ------ | -------------------------------------- | ----------------------------------- | ------------ |
+| layout | 布局方式，可选 `horizontal` `vertical` | string                              | `horizontal` |
+| list   | 布局按钮配置                           | [ButtonInfoItem](#buttoninfoitem)[] | -            |
 
 ### 主题定制
 
@@ -136,7 +141,7 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                    | 默认值                                                                                            | 备注               |
-| ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
-| --empty-text-color        | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 空状态文本颜色     |
-| --empty-asisst-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 空状态辅助文本颜色 |
+| 变量名                    | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注               |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
+| --empty-text-color        | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 空状态文本颜色     |
+| --empty-asisst-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 空状态辅助文本颜色 |

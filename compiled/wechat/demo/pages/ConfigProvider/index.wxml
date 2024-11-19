@@ -1,0 +1,47 @@
+<ant-container>
+  <ant-config-provider locale="{{locale}}">
+    <ant-list>
+      <ant-list-item>City<ant-picker
+          slot="extra"
+          bind:cancel="handleDismissPicker"
+          bind:visiblechange="handleTriggerPicker"
+          bind:ok="handleOk"
+          defaultValue="{{defaultValue}}"
+          title="pelese Select"
+          bind:change="handleChange"
+          options="{{list}}"
+        ></ant-picker>
+      </ant-list-item>
+      <ant-list-item>Date<ant-range-picker
+          slot="extra"
+          defaultValue="{{defaultDateRange}}"
+          onPickerChange="handlePickerRangeChange"
+          bind:visiblechange="handleTriggerPicker"
+          bind:ok="handleRangeOk"
+        ></ant-range-picker>
+      </ant-list-item>
+    </ant-list>
+  </ant-config-provider>
+</ant-container>
+<ant-container title="DarkMode">
+  <ant-config-provider
+    theme="dark"
+    locale="{{locale}}"
+  >
+    <ant-button
+      type="primary"
+      bind:tap="handleTap"
+    >Dark</ant-button>
+  </ant-config-provider>
+</ant-container>
+<ant-container title="Theme">
+  <ant-config-provider
+    themeVars="{{themeVars}}"
+    locale="{{locale}}"
+  >
+    <ant-button
+      type="primary"
+      bind:tap="handleTap"
+    >Theme</ant-button>
+  </ant-config-provider>
+</ant-container>

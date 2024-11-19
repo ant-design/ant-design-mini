@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
      "ant-icon": "../Icon/index",
-    "mask": "../Mask/index"
+    "ant-mask": "../Mask/index"
   }
 }

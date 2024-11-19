@@ -43,8 +43,9 @@ page {
   --color-white-faded: rgba(255, 255, 255, 0.08);
   --color-black: #000000;
   --color-black-fade: rgba(0, 0, 0, 1);
-  --color-black-fade-10: rgba(0, 0, 0, 0.9);
-  --color-black-fade-8: rgba(0, 0, 0, 0.92);
+  --color-black-fade-20: rgba(0, 0, 0, 0.2);
+  --color-black-fade-10: rgba(0, 0, 0, 0.1);
+  --color-black-fade-8: rgba(0, 0, 0, 0.08);
   --color-white-dynamic: #ffffff;
   --color-white-change: #ffffff;
   --color-black-change: #000000;
@@ -187,7 +188,7 @@ page {
 
   // container
   --container-header-color: #333333;
-  --color-text-assist: #999999;
+  --container-color-text-assist: #999999;
   --container-background-color: #ffffff;
 
   // divider
@@ -274,6 +275,7 @@ page {
 
   // checkboxList
   --checklist-background-color: #1677ff;
+  --check-list-item-title-color: #333333;
   --check-list-item-background-color: #ffffff;
   --check-list-item-hover-background-color: #eeeeee;
   --check-list-item-content-color: #333333;
@@ -297,7 +299,7 @@ page {
   // imageUpload
   --image-upload-cover-background: #ffffff;
   --image-upload-wrapper-background: #f5f5f5;
-  --image-upload-cover-background: rgba(0, 0, 0, 0.4);
+  --image-upload-background-color: rgba(0, 0, 0, 0.4);
   --image-upload-text-color: #ffffff;
 
   // loading
@@ -339,7 +341,6 @@ page {
   --popover-list-content-bg: rgba(0, 0, 0, 0.93);
   --popover-list-content-color: #ffffff;
   --popover-list-badge-color: #ff411c;
-  --popover-list-content-color: #333333;
 
   // rare-words
   --rare-words-bg: rgba(0, 0, 0, 0.45);
@@ -377,7 +378,8 @@ page {
   --stepper-handler-border-color: #e5e5e5;
   --stepper-border-color: #e5e5e5;
   --stepper-background-color: #ffffff;
-  --stepper-hover-bg: rgba(0, 0, 0, 0.92);
+  --stepper-hover-bg: rgba(0, 0, 0, 0.08);
+  --stepper-input-font-color: #333333;
 
   // switch
   --switch-fill: #1677ff;
@@ -399,16 +401,16 @@ page {
   --modal-close-text-color: #999999;
 
   // popover
-  --color-background-popover: #404040; //popover默认底色
+  --popover-color-background: #404040; //popover默认底色
   --popover-bg: #ffffff;
   --popover-text-color: #000000;
-  --popover-inner-color: #ff3141;
+  --popover-inner-color: #ffffff;
 
   // popup
   --popup-background: #ffffff;
   --popup-color: #333333;
   --popup-assit-color: #999999;
-  --popup-mask-close-bg: rgba(0, 0, 0, 1);
+  --popup-mask-close-bg: rgba(0, 0, 0, 0);
 
   // rate
   --rate-active-icon: #ff9f18;
@@ -451,4 +453,59 @@ page {
   --page-container-background-color: #f5f5f5;
   // typography
   --typography-container-color: #333333;
+  // pagination
+  --pagination-area-background-color: #f5f5f5;
+  --pagination-move-background-color: #1677ff;
+
+  // table
+  --table-item-color: #333333;
+  --table-item-bg: #ffffff;
+  --table-shadow-color: rgba(5, 5, 5, 0.06);
+  --table-empty-bg: #fff;
+
+  // sticky
+  --sticky-check-bg: rgba(238, 238, 238, 0);
+
+  // voucher
+  --voucher-background-image-start: rgba(255, 255, 255, 0);
+  --voucher-background-image-end: #fff;
+  --voucher-multi-money-color: #ff3b30;
+  --voucher-threshold-color: #666;
+  --voucher-action-btn-color: #ff3141;
+  --voucher-action-bg: #fff;
+  --voucher-action-left-bg: #fff;
+  --voucher-action-left-threshold-bg: #fff;
+  --voucher-action-right-color: #fff;
+  --voucher-action-right-title-color: #fff;
+  --voucher-action-right-desc-color: rgba(255, 255, 255, 0.8);
+  --voucher-item-right-title-color: #383939;
+  --voucher-item-right-title-color: #666;
+
+  // card
+  --ant-card-bg: #ffffff;
+  --ant-card-header-title-color: #333333;
+  --ant-card-header-link-color: #999999;
+  --ant-card-fold-btn-color: #1677ff;
+
+  // countDown
+  --ant-countdown-color: #666;
+  --ant-countdown-number-color: #ffffff;
+  --ant-countdown-number-bg: #1677ff;
+
+  // select-contact
+  --select-contact-search-bar-focus-color: #1677ff;
+  --select-contact-search-cancel-color: #333333;
+  --select-contact-loading-bg: #fff;
+  --select-contact-scroll-bg: #fff;
+  --select-contact-list-bg: #fff;
+  --select-contact-list-bg: #fff;
+  --select-contact-list-color: #999;
+  --select-contact-title-first-color: #333;
+  --select-contact-title-first-border: #eee;
+  --select-contact-tag-color: #ff6010;
+  --select-contact-tag-border: #ffcfb7;
+  --select-contact-empty-bg: #fff;
+  --select-contact-empty-color: #999;
+  --select-contact-loading-bg: #999;
+  --select-contact-display-light-color: #fa6300;
 }

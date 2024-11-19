@@ -48,10 +48,10 @@
     </view>
   </view>
 </view>
-<mask
+<ant-mask
   a:if="{{show && showMask}}"
   className="ant-toast-mask"
   show="{{true}}"
   onMaskTap="handleClickMask"
   style="{{maskStyle}}"
-></mask>
+></ant-mask>

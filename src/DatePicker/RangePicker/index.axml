@@ -1,3 +1,5 @@
+<import-sjs from="../../_util/isPropsEmpty.sjs" name="u" />
+
 <template name="selector">
   <view
     class="ant-range-picker-selector-item {{ active ? 'ant-range-picker-selector-item-active' : '' }}"
@@ -10,7 +12,7 @@
     <view a:else class="ant-range-picker-selector-item-placeholder">
       {{ placeholder }}
     </view>
-    <icon
+    <ant-icon
       a:if="{{ precision === 'year' || precision === 'month' || precision === 'day' || precision === 'hour' }}"
       type="CalendarOutline"
       className="ant-range-picker-selector-item-icon"
@@ -42,9 +44,9 @@
   maskClosable="{{ maskClosable }}"
 >
   <view class="ant-range-picker-selector" slot="content-header">
-    <template is="selector" data="{{ placeholder: startPlaceholder === undefined ? locale.RangePicker.startPlaceholder : startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision }}" />
+    <template is="selector" data="{{ placeholder: u.isPropsEmpty(startPlaceholder) ? locale.RangePicker.startPlaceholder : startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision }}" />
     <view class="ant-range-picker-selector-split">{{ splitCharacter }}</view>
-    <template is="selector" data="{{ placeholder: endPlaceholder === undefined ? locale.RangePicker.endPlaceholder : endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision }}" />
+    <template is="selector" data="{{ placeholder: u.isPropsEmpty(endPlaceholder) ? locale.RangePicker.endPlaceholder : endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision }}" />
   </view>
   <slot name="content" slot="content" />
   <slot name="title" slot="title" />

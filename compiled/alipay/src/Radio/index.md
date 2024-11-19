@@ -11,10 +11,6 @@ toc: 'content'
 
 在一组可选项中进行单选。
 
-## 何时使用
-
-- 在一组可选项中进行单选时。
-
 ## 引入
 
 在 `index.json` 中引入组件
@@ -177,12 +173,11 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                             | 默认值                                                                                            | 备注                     |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------ |
-| --radio-header-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 单选按钮头部颜色         |
-| --radio-border-color               | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | 单选按钮边框颜色         |
-| --radio-background-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 单选按钮背景颜色         |
-| --radio-disabled-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | 单选按钮禁用状态背景颜色 |
-| --radio-text-color                 | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 单选按钮文本颜色         |
-| --radio-fake-icon-background-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | 单选按钮假图标背景颜色   |
-| --radio-icon-colo                  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 单选按钮图标颜色         |
+| 变量名                     | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注             |
+| -------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --progress-stroke-color    | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | 进度条主颜色     |
+| --progress-trail-color     | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | 进度条轨道颜色   |
+| --progress-success-color   | <div style="width: 150px; height: 30px; background-color: #22b35e; color: #ffffff;">#22b35e</div> | <div style="width: 150px; height: 30px; background-color: #34b368; color: #ffffff;">#34b368</div> | 进度条成功颜色   |
+| --progress-indicator-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 进度条指示器颜色 |
+| --progress-exception-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div> | 进度条异常颜色   |
+| --progress-assist-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 进度条辅助颜色   |

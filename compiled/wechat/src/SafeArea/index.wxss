@@ -1,0 +1,8 @@
+.ant-safe-area-top {
+  height: constant(safe-area-inset-top);
+  height: env(safe-area-inset-top);
+}
+.ant-safe-area-bottom {
+  height: constant(safe-area-inset-bottom);
+  height: env(safe-area-inset-bottom);
+}

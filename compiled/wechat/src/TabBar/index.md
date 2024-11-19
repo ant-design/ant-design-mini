@@ -17,10 +17,10 @@ toc: 'content'
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/TabBar/index"
+  "ant-tab-bar": "antd-mini/es/TabBar/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/TabBar/index"
+  "ant-tab-bar": "antd-mini/TabBar/index"
 #endif
 }
 ```
@@ -29,13 +29,13 @@ toc: 'content'
 
 ### 基本使用
 ```xml
-<tab-bar items="{{tabs}}" />
-<tab-bar items="{{tabs}}" activeStyle="color:red;" />
+<ant-tab-bar items="{{tabs}}" />
+<ant-tab-bar items="{{tabs}}" activeStyle="color:red;" />
 #if ALIPAY
-<tab-bar items="{{tabs}}" current="{{current}}" onChange="handleChange" />
+<ant-tab-bar items="{{tabs}}" current="{{current}}" onChange="handleChange" />
 #endif
 #if WECHAT
-<tab-bar items="{{tabs}}" current="{{current}}" bind:change="handleChange" />
+<ant-tab-bar items="{{tabs}}" current="{{current}}" bind:change="handleChange" />
 #endif
 ```
 
@@ -46,17 +46,17 @@ Page({
       {
         icon: 'AlipayCircleFill',
         activeIcon: 'AlipayCircleFill',
-        text: '首页',
+        text: 'homr',
       },
       {
         icon: 'StarOutline',
         activeIcon: 'StarFill',
-        text: '收藏',
+        text: 'favor',
       },
       {
         icon: 'HeartOutline',
         activeIcon: 'HeartFill',
-        text: '喜欢',
+        text: 'like',
       },
     ],
     current: 0,
@@ -102,8 +102,8 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                | 默认值                                                                                            | 备注            |
-| --------------------- | ------------------------------------------------------------------------------------------------- | --------------- |
-| --tabbar-bg           | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | TabBar 背景颜色 |
-| --tabbar-item-color   | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div> | TabBar 条目颜色 |
-| --tabbar-active-color | <div style="width: 150px; height: 30px; background-color: #1677ff;">#1677ff</div>                 | TabBar 激活颜色 |
+| 变量名                | 浅色模式默认值                                                                                           | 深色模式默认值                                                                                           | 备注            |
+| --------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------- |
+| --tabbar-bg           | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>       | TabBar 背景颜色 |
+| --tabbar-item-color   | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div>       | <div style="width: 150px; height: 30px; background-color: #808080; color: #ffffff;">#808080</div>       | TabBar 条目颜色 |
+| --tabbar-active-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>       | TabBar 激活颜色 |

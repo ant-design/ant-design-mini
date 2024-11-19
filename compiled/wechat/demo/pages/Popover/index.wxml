@@ -26,7 +26,7 @@
     content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
     placement="top"
     actionText="操作按钮"
-    onTapAction="onTapAction"
+    bind:tapaction="onTapAction"
     imageUrl="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*tLCBTqxataIAAAAAAAAAAAAADkqGAQ/original"
     bind:visiblechange="onVisibleChange"
   >
@@ -54,7 +54,7 @@
       >左侧插槽</ant-button>
       <ant-icon
         slot="leftContent"
-        style="font-size: 48rpx; margin-right: 24rpx;"
+        className="left-icon"
         type="FaceRecognitionOutline"
       ></ant-icon>
     </ant-popover>
@@ -66,12 +66,12 @@
       >右侧插槽</ant-button>
       <ant-icon
         slot="rightContent"
-        style="font-size: 48rpx; margin-left: 24rpx;"
+        className="right-icon"
         type="FaceRecognitionOutline"
       ></ant-icon>
     </ant-popover>
     <ant-popover
-      className="ant-ant-popover-white"
+      className="ant-popover-white"
       color="white"
       content="白色背景"
     >
@@ -82,7 +82,7 @@
       >白色背景</ant-button>
       <ant-icon
         slot="rightContent"
-        style="font-size: 48rpx; margin-left: 24rpx;"
+        className="right-icon"
         type="FaceRecognitionOutline"
       ></ant-icon>
     </ant-popover>

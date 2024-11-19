@@ -9,11 +9,7 @@ toc: 'content'
 
 # Selector 选择器组件
 
-在一组选项中选择一个或多个。
-
-## 何时使用
-
-提供多个选项供用户选择，一般在筛选和表单中使用。
+在一组选项中选择一个或多个。提供多个选项供用户选择，一般在筛选和表单中使用。
 
 ## 引入
 
@@ -209,10 +205,10 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                            | 默认值                                                                                            | 备注                 |
-| --------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
-| --selector-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 选择器背景颜色       |
-| --selector-item-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | 选择器项背景颜色     |
-| --selector-item-active-background | <div style="width: 150px; height: 30px; background-color: #e7f1ff; color: #333333;">#e7f1ff</div> | 选择器激活项背景颜色 |
-| --selector-item-color             | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 选择器项颜色         |
-| --selector-item-sub-color         | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 选择器项子颜色       |
+| 变量名                            | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注                 |
+| --------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
+| --selector-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | 选择器背景颜色       |
+| --selector-item-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | 选择器项背景颜色     |
+| --selector-item-active-background | <div style="width: 150px; height: 30px; background-color: #e7f1ff; color: #333333;">#e7f1ff</div> | <div style="width: 150px; height: 30px; background-color: #0d2543; color: #ffffff;">#0d2543</div> | 选择器激活项背景颜色 |
+| --selector-item-color             | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | 选择器项颜色         |
+| --selector-item-sub-color         | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 选择器项子颜色       |

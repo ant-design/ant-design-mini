@@ -9,8 +9,6 @@ toc: 'content'
 
 # Form
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 The Form form contains data entry, validation, and corresponding styles. The Form component requires [component2](https://opendocs.alipay.com/mini/framework/custom-component-overview) Support.
 
 ## When to use
@@ -18,71 +16,89 @@ The Form form contains data entry, validation, and corresponding styles. The For
 - Used to create entities or collect information.
 - When the input data type needs to be verified.
 
+## Introduction
+
+In `index.json` Introducing Components in
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-form": "antd-mini/es/Form/index"
+#endif
+#if WECHAT
+  "ant-form": "antd-mini/Form/index"
+#endif
+}
+```
+
 ## Code Sample
 
 ### Basic use
 
-<code src='../../demo/pages/Form/index'></code>
+<code src='../../demo/pages/Form/FormBasic/index'></code>
 
 ### Layout
 
-<!-- <code src='pages/FormLayout/index'></code> -->
+<code src='../../demo/pages/Form/FormLayout/index'></code>
 
 ### Initial value
 
-<!-- <code src='pages/FormInitialValues/index'></code> -->
+<code src='../../demo/pages/Form/FormInitialValues/index'></code>
 
 ### Initial value asynchronous loading
 
-<!-- <code src='pages/FormInitialValuesAsync/index'></code> -->
+<code src='../../demo/pages/Form/FormInitialValuesAsync/index'></code>
 
 ### Form listening
 
-<!-- <code src='pages/FormWatch/index'></code> -->
+<code src='../../demo/pages/Form/FormWatch/index'></code>
 
 ### Calibration
 
-<!-- <code src='pages/FormRules/index'></code> -->
+<code src='../../demo/pages/Form/FormRules/index'></code>
 
 ### Add Delete Form Item
 
-<!-- <code src='pages/FormDynamic/index'></code> -->
+<code src='../../demo/pages/Form/FormDynamic/index'></code>
 
 ### Form Item Linkage
 
-<!-- <code src='pages/FormDependency/index'></code> -->
+<code src='../../demo/pages/Form/FormDependency/index'></code>
 
 ### Custom Form Item Validation
 
-<!-- <code src='pages/FormValidate/index'></code> -->
+<code src='../../demo/pages/Form/FormValidate/index'></code>
 
 ### Custom Form Validation Message
 
-<!-- <code src='pages/FormValidateMessages/index'></code> -->
+<code src='../../demo/pages/Form/FormValidateMessages/index'></code>
 
 ### Multiple Forms
 
-<!-- <code src='pages/FormMultiple/index'></code> -->
+<code src='../../demo/pages/Form/FormMultiple/index'></code>
 
 ### Picture verification
 
-<!-- <code src='pages/FormImageUploadRules/index'></code> -->
+<code src='../../demo/pages/Form/FormImageUploadRules/index'></code>
 
 ### JSON Generate Form
 
-<!-- <code src='pages/FormJSON/index'></code> -->
+<code src='../../demo/pages/Form/FormJSON/index'></code>
 
 ### Custom Error Styles
 
 Use `validateStatus: success` and `footer slot` Customize the error style.
 
-<!-- <code src='pages/FormCustomError/index'></code> -->
+<code src='../../demo/pages/Form/FormCustomError/index'></code>
 
 ### Custom Form Item
 
-by using [FormItem](#formitem)、[createForm](#createform) Customizable form items. In the example `form-checklist`、`form-location` Is a custom form item component.
+by using [FormItem](#formitem)、[createForm](#createform) Customizable form items. In the example `form-checklist`、`form-location` For custom form item components.
 
-<!-- <code src='pages/FormCustom/index'></code> -->
+<code src='../../demo/pages/Form/FormCustom/index'></code>
+
+### Demo Code
+<code src='../../demo/pages/Form/index'></code>
 
 ## API
 
@@ -357,7 +373,7 @@ Component({
 - `methods`
 
 ```js
-// 修改表单项时，需调用 `emit` 方法。Custom Form Item组件在值改变时，应该调用此方法。
+// 修改表单项时，需调用 `emit` 方法。Custom Form Item组件In值改变时，应该调用此方法。
 function emit(trigger: 'onChange' | 'onBlur' | 'onFocus', value: any): void;
 ```
 
@@ -369,11 +385,11 @@ For more methods, please refer `createForm` Method-related documentation. Use `f
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                | Default Value                                                                                            | Remarks             |
-| --------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
-| --form-text-color     | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | Form text color     |
-| --form-item-color     | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div> | Form Item Color       |
-| --form-item-bg        | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Form Item Background Color   |
-| --form-error-color    | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | Form Error Color     |
-| --form-extra-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Form extra information color |
-| --form-asterisk-color | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | Form asterisk color     |
+| Variable name                | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks             |
+| --------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --form-text-color     | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | Form text color     |
+| --form-item-color     | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div> | <div style="width: 150px; height: 30px; background-color: #808080; color: #ffffff;">#808080</div> | Form Item Color       |
+| --form-item-bg        | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Form Item Background Color   |
+| --form-error-color    | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div> | Form Error Color     |
+| --form-extra-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Form extra information color |
+| --form-asterisk-color | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | Form asterisk color     |

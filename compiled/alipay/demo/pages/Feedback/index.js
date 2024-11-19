@@ -16,7 +16,7 @@ Page({
             {
                 icon: 'HeartOutline',
                 text: '喜欢推荐内容',
-                id: '1'
+                id: '1',
             },
             {
                 icon: 'FrownOutline',
@@ -58,19 +58,19 @@ Page({
             [filed]: true,
         });
     },
-    onFeedClick2(feedItem) {
+    onTapFeedItem2(feedItem) {
         my.showToast({
             content: `点击了反馈项${feedItem.text}`,
         });
         this.updateVisible('visible2', false);
     },
-    onFeedClick4(feedItem) {
+    onTapFeedItem4(feedItem) {
         my.showToast({
             content: `点击了反馈项${feedItem.text}`,
         });
         this.updateVisible('visible4', false);
     },
-    onFeedClick3(feedItem) {
+    onTapFeedItem3(feedItem) {
         my.showToast({
             content: `点击了反馈项${feedItem.text}`,
         });
@@ -81,5 +81,5 @@ Page({
             content: `已反馈`,
         });
         this.updateVisible('visible1', false);
-    }
+    },
 });

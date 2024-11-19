@@ -9,7 +9,7 @@ toc: content
 
 # Input
 
-Enter the content through the keyboard, is the most basic form field packaging.
+Through the keyboard input content, is the most basic form field packaging.
 
 ## When to use
 
@@ -35,39 +35,44 @@ In `index.json` Introducing Components in
 ## Code Sample
 
 ### Input basic usage
+
 ```xml
-<ant-input placeholder="请输入内容" onChange="onChange" />
-<ant-input placeholder="请输入内容" defaultValue="initial value" onChange="onChange" />
-<ant-input placeholder="请输入内容，带清除按钮" allowClear />
-<ant-input placeholder="被禁用的输入框" disabled="{{ true }}" />
+<ant-input placeholder="input here" onChange="onChange" />
+<ant-input placeholder="input here" defaultValue="initial value" onChange="onChange" />
+<ant-input placeholder="input here, with clear button" allowClear />
+<ant-input placeholder="disabled input" disabled="{{ true }}" />
 ```
 
 ### With Prefix and Suffix
+
 ```xml
-<ant-input placeholder="请输入内容" onChange="onChange" allowClear>
+<ant-input placeholder="input here" onChange="onChange" allowClear>
   <view slot="prefix">￥</view>
   <view slot="suffix">RMB</view>
 </ant-input>
 ```
 
 ### Controlled Mode
+
 ```xml
-<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="请输入内容" allowClear onChange="handleChange" />
+<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear onChange="handleChange" />
 ```
 
 ### Enter Amount
+
 ```xml
-<ant-input placeholder="请Enter Amount" type="digit" focusClassName="border" allowClear>
+<ant-input placeholder="input digit here" type="digit" focusClassName="border" allowClear>
   <view slot="prefix">￥</view>
   <view slot="suffix">RMB</view>
 </ant-input>
 ```
 
 ### SearchBar search box
+
 ```xml
  <view class="search-line">
     <ant-input
-      placeholder="请输入内容"
+      placeholder="input here"
       onChange="onChange"
       className="search-bar"
       focusClassName="search-bar-focus"
@@ -82,6 +87,7 @@ In `index.json` Introducing Components in
     <view class="cancel">Cancel</view>
   </view>
 ```
+
 ```css
 .search-line {
   display: flex;
@@ -108,21 +114,26 @@ In `index.json` Introducing Components in
 ### Textarea
 
 #### Basic Usage
+
 ```xml
- <ant-textarea placeholder="请输入内容" autoHeight onChange="onChange" />
- <ant-textarea placeholder="请输入内容" defaultValue="initial value" autoHeight onChange="onChange" />
+ <ant-textarea placeholder="input here" autoHeight onChange="onChange" />
+ <ant-textarea placeholder="input here" defaultValue="initial value" autoHeight onChange="onChange" />
 ```
 
 #### Controlled Mode
+
 ```xml
- <ant-textarea value="{{ value }}" placeholder="请输入内容" allowClear onChange="handleChange" />
+ <ant-textarea value="{{ value }}" placeholder="input here" allowClear onChange="handleChange" />
 ```
 
 ### Custom
+
 #### With border
+
 ```xml
-<ant-input className="custom" placeholder="请输入内容" onChange="onChange" />
+<ant-input className="custom" placeholder="input here" onChange="onChange" />
 ```
+
 ```css
 .custom {
   border: 1px solid @COLOR_BORDER;
@@ -131,14 +142,18 @@ In `index.json` Introducing Components in
   margin-bottom: 12px;
 }
 ```
+
 #### Custom Background Color
+
 ```xml
- <ant-input className="custom-color" placeholder="请输入内容" onChange="onChange" />
+ <ant-input className="custom-color" placeholder="input here" onChange="onChange" />
 ```
+
 ```css
 .custom-color {
   margin-bottom: 12px;
-  input, textarea {
+  input,
+  textarea {
     padding: 4px;
     background: #f5f5f5;
     border-radius: 4px;
@@ -146,8 +161,8 @@ In `index.json` Introducing Components in
 }
 ```
 
-
 ### Demo Code
+
 <code src='../../demo/pages/Input/index'></code>
 
 ## API
@@ -218,12 +233,14 @@ Instance methods require small programs `component2` Can be used.
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                         | Default Value                                                                                            | Remarks               |
-| ------------------------------ | ------------------------------------------------------------------------------------------------- | ------------------ |
-| --input-item-color             | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | Input Text Color     |
-| --input-item-placeholder-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | Input item placeholder color   |
-| --input-item-clear-color       | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Input Clear Button Color |
-| --input-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Input Background Color     |
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                         | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks               |
+| ------------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
+| --input-item-color             | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Input Text Color     |
+| --input-item-placeholder-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | Input item placeholder color   |
+| --input-item-clear-color       | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Input Clear Button Color |
+| --input-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Input Background Color     |
 
 ## FAQ
 

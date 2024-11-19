@@ -178,14 +178,15 @@ ComponentWithSignalStoreImpl({
         }
     },
     updateData: function () {
-        var _a = getValueFromProps(this, [
+        var _a, _b;
+        var _c = getValueFromProps(this, [
             'monthRange',
             'weekStartsOn',
             'onFormatter',
             'onMonthFormatter',
-        ]), monthRange = _a[0], pweekStartsOn = _a[1], onFormatter = _a[2], onMonthFormatter = _a[3];
-        var localeText = Object.assign({}, this.data.locale.calendar);
-        var markItems = __spreadArray([], localeText.weekdayNames, true);
+        ]), monthRange = _c[0], pweekStartsOn = _c[1], onFormatter = _c[2], onMonthFormatter = _c[3];
+        var localeText = Object.assign({}, (_a = this.data.locale) === null || _a === void 0 ? void 0 : _a.calendar);
+        var markItems = __spreadArray([], ((_b = localeText.weekdayNames) !== null && _b !== void 0 ? _b : []), true);
         var weekStartsOn = pweekStartsOn;
         if (weekStartsOn === 'Sunday') {
             var item = markItems.pop();

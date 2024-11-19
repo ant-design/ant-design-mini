@@ -5,6 +5,7 @@ import {
   getValueFromProps,
 } from '../_util/simply';
 import i18nController from '../_util/store';
+import { cssVariables } from './darkTheme';
 import { ConfigProviderDefaultProps } from './props';
 
 ComponentWithSignalStoreImpl(
@@ -12,20 +13,43 @@ ComponentWithSignalStoreImpl(
     store: () => i18nController,
     updateHook: effect,
     mapState: {
-      locale: ({ store }) => store.currentLocale.value,
+      localeState: ({ store }) => store.currentLocale.value,
+      themeState: ({ store }) => store.currentTheme.value,
     },
   },
   ConfigProviderDefaultProps,
   {
+    update() {
+      const [theme, themeVars, locale] = getValueFromProps(this, [
+        'theme',
+        'themeVars',
+        'locale',
+      ]);
+      // 初始化读取locale并更新store数据
+      i18nController.switchLocale(locale);
+      // 如果设置了主题，则切换主题，覆写themeVars
+      if (theme) {
+        i18nController.switchTheme(theme);
+      }
+      this.convertThemeVarsToCSSVars(themeVars);
+    },
     /**
      * 主题生成 css vars
+     * 如果写死深色主题，则覆盖掉原来的颜色
      * @param themeVars
      * @returns
      */
     convertThemeVarsToCSSVars(themeVars: Record<string, string | number>) {
-      const cssVars: Record<string, string | number> = {};
-      Object.keys(themeVars).forEach((key) => {
-        cssVars[`--${kebabCase(key)}`] = themeVars[key];
+      let cssVars = '';
+      let copyThemeVars = {};
+      if (this.data.themeState === 'dark') {
+        copyThemeVars = { ...cssVariables, ...themeVars };
+      }
+      if (this.data.themeState === 'light') {
+        copyThemeVars = { ...themeVars };
+      }
+      Object.keys(copyThemeVars).forEach((key) => {
+        cssVars = `${cssVars}--${kebabCase(key)}: ${copyThemeVars[key]};`;
       });
       this.setData({
         cssVarStyle: cssVars,
@@ -38,13 +62,7 @@ ComponentWithSignalStoreImpl(
   [],
   {
     onInit() {
-      const [themeVars, locale] = getValueFromProps(this, [
-        'themeVars',
-        'locale',
-      ]);
-      // 初始化读取locale并更新store数据
-      i18nController.switchLocale(locale);
-      this.convertThemeVarsToCSSVars(themeVars);
+      this.update();
     },
   }
 );

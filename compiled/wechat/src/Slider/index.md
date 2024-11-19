@@ -8,11 +8,7 @@ toc: 'content'
 
 # Slider 滑块
 
-可以通过移动滑块在某一范围内取值。
-
-## 何时使用
-
-用于在一定范围内移动滑块获取单个或者区间数值。
+可以通过移动滑块在某一范围内取值。用于在一定范围内移动滑块获取单个或者区间数值。
 
 ## 引入
 
@@ -230,12 +226,12 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                         | 默认值                                                                                                                    | 备注             |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| --slide-block-shadow           | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.12); color: #ffffff;">rgba(0, 0, 0, 0.12)</div> | 滑块块阴影       |
-| --slider-default-primary-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>                         | 滑块默认主色     |
-| --slider-track-bg              | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | 滑块轨道背景颜色 |
-| --slider-fill-bg               | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                         | 滑块填充背景颜色 |
-| --slider-number-color          | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                         | 滑块数字颜色     |
-| --slide-block-bg               | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | 滑块块背景颜色   |
-| --slide-back-bg                | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                         | 滑块背景颜色     |
+| 变量名                         | 默认值                                                                                                                    | 深色模式默认值                                                                                                            | 备注             |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| --slide-block-shadow           | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.12); color: #ffffff;">rgba(0, 0, 0, 0.12)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.12); color: #ffffff;">rgba(0, 0, 0, 0.12)</div> | 滑块块阴影       |
+| --slider-default-primary-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>                         | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>                         | 滑块默认主色     |
+| --slider-track-bg              | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                         | 滑块轨道背景颜色 |
+| --slider-fill-bg               | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                         | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div>                         | 滑块填充背景颜色 |
+| --slider-number-color          | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                         | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | 滑块数字颜色     |
+| --slide-block-bg               | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | 滑块块背景颜色   |
+| --slide-back-bg                | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                         | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div>                         | 滑块背景颜色     |

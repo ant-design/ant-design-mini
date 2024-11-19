@@ -2,21 +2,20 @@
   <ant-config-provider locale="{{locale}}">
     <ant-list>
       <ant-list-item>
-        选择城市
+        City
         <ant-picker
           slot="extra"
           onCancel="handleDismissPicker"
           onVisibleChange="handleTriggerPicker"
           onOk="handleOk"
           defaultValue="{{defaultValue}}"
-          title="请选择"
+          title="pelese Select"
           onChange="handleChange"
           options="{{list}}"
-          emptyText="暂无数据"
         ></ant-picker>
       </ant-list-item>
       <ant-list-item>
-        日期范围
+        Date
         <ant-range-picker
           slot="extra"
           defaultValue="{{defaultDateRange}}"
@@ -28,7 +27,7 @@
     </ant-list>
   </ant-config-provider>
 </ant-container>
-<ant-container title="深色模式">
+<ant-container title="DarkMode">
   <ant-config-provider
     theme="dark"
     locale="{{locale}}"
@@ -37,11 +36,11 @@
       type="primary"
       onTap="handleTap"
     >
-      主要按钮
+      Dark
     </ant-button>
   </ant-config-provider>
 </ant-container>
-<ant-container title="主题定制">
+<ant-container title="Theme">
   <ant-config-provider
     themeVars="{{themeVars}}"
     locale="{{locale}}"
@@ -50,7 +49,7 @@
       type="primary"
       onTap="handleTap"
     >
-      主要按钮
+      Theme
     </ant-button>
   </ant-config-provider>
 </ant-container>

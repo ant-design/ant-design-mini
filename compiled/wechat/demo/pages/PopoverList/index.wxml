@@ -3,10 +3,10 @@
   visible="{{visible}}"
   list="{{list}}"
   bind:tapitem="handleTapItem"
-  style="padding-top: 20px;margin-left: 20px;"
+  style="padding-top: 20px;margin: 0 20px;"
   bind:visiblechange="handleVisibleChange"
 >
-  <ant-button inline>点我</ant-button>
+  <ant-button>点我</ant-button>
 </ant-popover-list>
 <ant-popover-list
   visible="{{visible2}}"
@@ -16,8 +16,5 @@
   style="margin: 20px"
   bind:visiblechange="handleVisibleChange2"
 >
-  <ant-button
-    inline
-    style="margin-top: 500px;"
-  >气泡位置自适应</ant-button>
+  <ant-button style="margin-top: 500px;">气泡位置自适应</ant-button>
 </ant-popover-list>

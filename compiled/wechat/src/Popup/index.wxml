@@ -21,12 +21,11 @@
     style="{{utils.getContentStyle(position, animation, duration, width, height)}}"
     bindanimationend="onAnimationEnd"
   >
-    <image
+    <view
       wx:if="{{backgroundImage}}"
-      src="{{backgroundImage}}"
-      mode="widthFix"
       class="ant-popup-content-bg"
-    ></image>
+      style="background-image: url({{backgroundImage}});"
+    ></view>
     <view
       wx:if="{{title || showClose || showBack}}"
       class="ant-popup-content-header"

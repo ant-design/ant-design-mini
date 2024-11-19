@@ -56,6 +56,7 @@
   top: 0;
   left: 0;
   transition: all 200ms;
+  box-shadow: 0 0 2px 0 var(--color-black-fade-20, rgba(0, 0, 0, 0.2)), 0 2px 11.5px 0 var(--color-black-fade-8, rgba(0, 0, 0, 0.08)), -1px 2px 2px 0 var(--color-black-fade-10, rgba(0, 0, 0, 0.1));
 }
 .ant-switch-inner {
   position: relative;

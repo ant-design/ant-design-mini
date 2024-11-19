@@ -35,31 +35,39 @@ In `index.json` Introducing Components in
 ## Code Sample
 
 ### Basic use
+
 #### Default Keyboard
+
 ```xml
 <ant-number-keyboard visible="{{ visible }}" onClose="onTap" />
 ```
 
 #### No decimal point
+
 ```xml
 <ant-number-keyboard point="{{ false }}" visible="{{ visible }}" onClose="onTap" />
 ```
 
 #### With confirmation button
+
 ```xml
-<ant-number-keyboard confirmText="确认" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard confirmText="confirm" visible="{{ visible }}" onClose="onTap" />
 ```
 
 #### With closed arrow
+
 ```xml
 <ant-number-keyboard closeable="{{ true }}" visible="{{ visible }}" onClose="onTap" />
 ```
 
 #### scrambled keyboard
+
 ```xml
 <ant-number-keyboard random="{{ true }}" visible="{{ visible }}" onClose="onTap" />
 ```
+
 #### Custom Button
+
 ```xml
 <ant-number-keyboard visible="{{ visible }}" onClose="onTap" >
   <view
@@ -81,15 +89,16 @@ In `index.json` Introducing Components in
 </ant-number-keyboard>
 ```
 
-
 ### Digital input box
+
 <code src='../../demo/pages/NumberKeyboardNumber/index'></code>
 
-
 ### Verification code input box
+
 <code src='../../demo/pages/NumberKeyboardCode/index'></code>
 
 ### Demo Code
+
 <code src='../../demo/pages/NumberKeyboard/index'></code>
 
 ## API
@@ -119,12 +128,14 @@ In `index.json` Introducing Components in
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                                           | Default Value                                                                                            | Remarks                               |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| --number-key-board-active-background-color       | <div style="width: 150px; height: 30px; background-color: #d3d3d3; color: #333333;">#d3d3d3</div> | Numeric keypad to activate background color               |
-| --number-key-board-text-color                    | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | Number pad text color                   |
-| --number-key-board-none-text-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | No text color on numeric keypad                 |
-| --number-key-board-iphonex-safe-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Digital Keyboard iPhone X Secure Area Background Color |
-| --number-key-board-background-color              | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | Numeric keypad background color                   |
-| --number-key-board-border-color                  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | Numeric keypad border color                   |
-| --number-key-board-transfer-color                | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Numeric keypad transfer button color               |
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                                           | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                               |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| --number-key-board-active-background-color       | <div style="width: 150px; height: 30px; background-color: #d3d3d3; color: #333333;">#d3d3d3</div> | <div style="width: 150px; height: 30px; background-color: #d3d3d3; color: #333333;">#d3d3d3</div> | Numeric keypad to activate background color               |
+| --number-key-board-text-color                    | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Number pad text color                   |
+| --number-key-board-none-text-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | No text color on numeric keypad                 |
+| --number-key-board-iphonex-safe-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Digital Keyboard iPhone X Secure Area Background Color |
+| --number-key-board-background-color              | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Numeric keypad background color                   |
+| --number-key-board-border-color                  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | Numeric keypad border color                   |
+| --number-key-board-transfer-color                | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Numeric keypad transfer button color               |

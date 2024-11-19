@@ -9,10 +9,10 @@
         a:if="{{ icon }}"
         image="{{ icon }}"
         className="ant-notice-bar-icon-image" />
-      <icon
+      <ant-icon
         a:elif="{{ type === 'error' }}"
         type="InformationCircleOutline" />
-      <icon
+      <ant-icon
         a:else
         type="SoundOutline" />
     </view>
@@ -29,10 +29,10 @@
       wx:if="{{ icon }}"
       image="{{ icon }}"
       className="ant-notice-bar-icon-image" />
-    <icon
+    <ant-icon
       wx:elif="{{ type === 'error' }}"
       type="InformationCircleOutline" />
-    <icon
+    <ant-icon
       wx:else
       type="SoundOutline" />
   </view>
@@ -48,12 +48,12 @@
   </view>
   <view class="ant-notice-bar-operation">
     <slot name="extra" />
-    <icon
+    <ant-icon
       a:if="{{ mode === 'link' }}"
       className="ant-notice-bar-operation-icon"
       type="RightOutline"
       onTap="onTap" />
-    <icon
+    <ant-icon
       a:if="{{ mode === 'closeable' }}"
       className="ant-notice-bar-operation-icon"
       type="CloseOutline"

@@ -55,7 +55,7 @@
       <view
         a:if="{{showCloseIcon}}"
         onTap="onVisibleChange"
-        className="ant-popover-close"
+        class="ant-popover-close"
       >
         <image-icon
           className="ant-popover-close-icon"
@@ -65,10 +65,10 @@
     </view>
   </view>
 </view>
-<mask
+<ant-mask
   show="{{showMask && mixin.value}}"
   id="ant-popover-mask{{$id ? '-' + $id : ''}}"
   className="ant-popover-mask {{maskClassName || ''}}"
   style="{{maskStyle}}"
   onMaskTap="onVisibleChange"
-></mask>
+></ant-mask>

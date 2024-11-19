@@ -114,9 +114,38 @@ export const wechatCustomMapping = {
   },
   'ant-popover': {
     onVisibleChange: 'bind:visiblechange',
+    onTapAction: 'bind:tapaction',
   },
   'ant-popover-list': {
     onVisibleChange: 'bind:visiblechange',
     onTapItem: 'bind:tapitem',
+  },
+  'ant-feedback': {
+    onVisibleChange: 'bind:visiblechange',
+    onTapFeedItem: 'bind:tapfeeditem',
+  },
+  'ant-mask': {
+    onMaskTap: 'bind:masktap',
+  },
+  'ant-sticky': {
+    onStickyChange: 'bind:stickychange',
+    onGetHeaderHeight: 'bind:getheaderheight',
+  },
+  'ant-card': {
+    onOperateClick: 'bind:operateclick',
+    onFoldChange: 'bind:foldchange',
+    onTitleSticky: 'bind:titlesticky',
+  },
+  'ant-icon': {
+    catchTap: 'catch:tap',
+    onTap: 'bind:tap',
+  },
+  'ant-grid': {
+    onTap: 'bind:tap',
+    onFirstAppear: 'bind:firstappear',
+  },
+  'ant-countdown': {
+    onCountdownChange: 'bind:countdownchange',
+    onCountdownFinish: 'bind:countdownfinish',
   },
 };

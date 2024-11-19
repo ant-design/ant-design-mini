@@ -48,10 +48,10 @@
     </view>
   </view>
 </view>
-<mask
+<ant-mask
   wx:if="{{show && showMask}}"
   className="ant-toast-mask"
   show="{{true}}"
   bind:masktap="handleClickMask"
   style="{{maskStyle}}"
-></mask>
+></ant-mask>

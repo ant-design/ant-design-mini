@@ -1,0 +1,12 @@
+.ant-sticky {
+  position: sticky;
+  top: 0;
+}
+.ant-sticky-check {
+  position: fixed;
+  height: 2px;
+  background: var(--sticky-check-bg, rgba(238, 238, 238, 0));
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+}

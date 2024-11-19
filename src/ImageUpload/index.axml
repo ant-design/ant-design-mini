@@ -1,3 +1,5 @@
+<import-sjs from="../_util/isPropsEmpty.sjs" name="u" />
+
 <view class="ant-image-upload {{ className || '' }}" style="{{ style || '' }}">
   <!-- #if ALIPAY -->
   <slot fileList="{{ mixin.value }}">
@@ -24,13 +26,13 @@
               <loading className="ant-image-upload-cover-loading-icon" />
               <view class="ant-image-upload-cover-loading-text">
 
-                {{  uploadingText === undefined ? locale.imageUpload.uploadingText :  uploadingText }}
+                {{ u.isPropsEmpty(uploadingText) ? locale.imageUpload.uploadingText :  uploadingText }}
               </view>
             </view>
             <view a:if="{{ item.status === 'error' }}" class="ant-image-upload-cover-error">
-              <icon className="ant-image-upload-cover-error-icon" type="CloseCircleOutline" />
+              <ant-icon className="ant-image-upload-cover-error-icon" type="CloseCircleOutline" />
               <view class="ant-image-upload-cover-error-text">
-                {{  uploadfailedText === undefined ? locale.imageUpload.uploadfailedText :  uploadfailedText }}
+                {{ u.isPropsEmpty(uploadfailedText) ? locale.imageUpload.uploadfailedText :  uploadfailedText }}
               </view>
             </view>
           </view>
@@ -52,7 +54,7 @@
       <slot name="uploadButton">
         <!-- #endif -->
         <view a:if="{{ showUploadButton }}" class="ant-image-upload-add-image-wrapper">
-          <icon type="AddOutline" className="ant-image-upload-add-image-icon" />
+          <ant-icon type="AddOutline" className="ant-image-upload-add-image-icon" />
         </view>
         <!-- #if ALIPAY  -->
       </slot>

@@ -1,3 +1,7 @@
+<wxs
+  src="../_util/isPropsEmpty.wxs"
+  module="u"
+></wxs>
 <view
   class="ant-input {{disabled ? 'ant-input-disabled' : ''}} {{className ? className : ''}} {{selfFocus ? focusClassName ? focusClassName : '' : ''}}"
   style="{{style || ''}};{{focusStyle || ''}}"
@@ -19,7 +23,7 @@
       holdKeyboard="{{holdKeyboard}}"
       adjustPosition="{{adjustPosition}}"
       password="{{password}}"
-      placeholder="{{placeholder === null ? locale.global.placeholder : placeholder}}"
+      placeholder="{{u.isPropsEmpty(placeholder) ? locale.input.placeholder : placeholder}}"
       placeholderClass="ant-input-placeholder {{placeholderClassName ? placeholderClassName : ''}}"
       placeholderStyle="{{placeholderStyle ? placeholderStyle : ''}}"
       maxlength="{{maxLength}}"
@@ -42,10 +46,10 @@
       class="ant-input-clear {{state.value && state.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden'}}"
       bind:tap="onClear"
     >
-      <icon
+      <ant-icon
         className="ant-input-clear-icon"
         type="CloseCircleFill"
-      ></icon>
+      ></ant-icon>
     </view>
   </view>
   <view class="ant-input-suffix">

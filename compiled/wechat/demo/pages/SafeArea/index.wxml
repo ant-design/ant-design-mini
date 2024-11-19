@@ -1,0 +1,14 @@
+<ant-container
+  title="基础用法"
+  className="list"
+>
+  <safe-area position="top"></safe-area>
+  <block
+    wx:for="{{arr}}"
+    wx:for-index="index"
+    wx:for-item="item"
+  >
+    <view>内容_{{index}}</view>
+  </block>
+  <safe-area position="bottom"></safe-area>
+</ant-container>

@@ -11,8 +11,6 @@ toc: 'content'
 
 内容组之间进行导航切换。
 
-## 何时使用
-
 - 内容组之间进行导航切换。
 - 当前内容需要分成同层级结构的组，进行内容切换展示，用在表单或者标准列表界面的顶部。
 
@@ -34,36 +32,39 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
+
 ```xml
 <tabs items="{{ items }}" />
 ```
+
 ```js
 Page({
   data: {
     current: 0,
     items: [
       {
-        title: '水果',
-        subTitle: '描述文案',
-        content: '西瓜',
+        title: 'fruits',
+        subTitle: 'desc',
+        content: 'watermelon',
       },
       {
-        title: '蔬菜',
-        subTitle: '描述文案',
+        title: 'vegetables',
+        subTitle: 'desc',
         badge: true,
-        content: '西红柿',
+        content: 'tomato',
       },
       {
-        title: '动物',
-        subTitle: '描述文案',
-        content: '蚂蚁',
+        title: 'animals',
+        subTitle: 'desc',
+        content: 'monkey',
       },
     ],
-  }
-})
+  },
+});
 ```
 
-### 带有content
+### 带有 content
+
 ```xml
 <tabs items="{{ items }}">
   <view class="content" slot-scope="item">
@@ -73,16 +74,19 @@ Page({
 ```
 
 ### 胶囊
+
 ```xml
 <tabs type="capsule" items="{{ items }}" defaultCurrent="{{ 1 }}"></tabs>
 ```
 
 ### 带副标题
+
 ```xml
 <tabs type="mixin" items="{{ items }}"></tabs>
 ```
 
 ### 带徽标
+
 ```xml
 <tabs items="{{ items }}">
  <view
@@ -97,6 +101,7 @@ Page({
 ```
 
 ### 禁用状态
+
 ```xml
 <tabs items="{{ items }}" />
 ```
@@ -107,27 +112,28 @@ Page({
     current: 0,
     items: [
       {
-        title: '水果',
-        subTitle: '描述文案',
-        content: '西瓜',
+        title: 'fruits',
+        subTitle: 'desc',
+        content: 'watermelon',
       },
       {
-        title: '蔬菜',
-        subTitle: '描述文案',
+        title: 'vegetables',
+        subTitle: 'desc',
         disabled: true,
-        content: '西红柿',
+        content: 'tomato',
       },
       {
-        title: '动物',
-        subTitle: '描述文案',
-        content: '蚂蚁',
+        title: 'animals',
+        subTitle: 'desc',
+        content: 'monkey',
       },
     ],
-  }
-})
+  },
+});
 ```
 
-### plus按钮
+### plus 按钮
+
 ```xml
 <tabs items="{{ items }}">
   <view slot="plus">
@@ -137,23 +143,50 @@ Page({
 ```
 
 ### 控制模式
+
 ```xml
-<tabs items="{{ items }}" current="{{ current }}" onChange="handleChange" />
+<tabs
+  items="{{ items }}"
+  current="{{ current }}"
+#if ALIPAY
+  onChange="handleChange"
+#endif
+#if WECHAT
+  bind:change="handleChange"
+#endif
+/>
 ```
+
 ### 选择后居中滚动
+
 ```xml
 <tabs items="{{ items }}" scrollMode="center" />
 ```
 
 ### Swiper
+
 ```xml
-<ant-tabs items="{{ items }}" current="{{ current }}" onChange="onChange">
+<ant-tabs
+  items="{{ items }}"
+  current="{{ current }}"
+#if ALIPAY
+  onChange="onChange"
+#endif
+#if WECHAT
+  bind:change="onChange"
+#endif
+>
     <swiper
       current="{{ current }}"
       autoplay="{{ false }}"
       vertical="{{ false }}"
       circular="{{ false }}"
+#if ALIPAY
       onChange="onSwipeChange"
+#endif
+#if WECHAT
+      bind:change="onSwipeChange"
+#endif
     >
       <block a:for="{{ items }}" a:for-index="index" a:for-item="item" a:key="{{ index }}">
         <swiper-item>
@@ -170,7 +203,7 @@ Page({
 - 点击 tab 可滚动到对应 tab title。
 - onChange 只会在 tab 切换触发，示例里自定义 title onTap 可滚动 current tab。
 
-<code src='../../demo/pages/TabsElevator/index'></code>
+<code src='../../demo/pages/Tabs/TabsElevator/index'></code>
 
 ### 吸顶
 
@@ -180,6 +213,7 @@ Page({
 ```xml
  <tabs items="{{ items }}" current="{{ current }}" onChange="onChange" className="sticky-tabs" />
 ```
+
 ```css
 .sticky-tabs {
   position: sticky;
@@ -189,6 +223,7 @@ Page({
 ```
 
 ### 纵向模式
+
 ```xml
  <tabs
     items="{{ items }}"
@@ -211,29 +246,32 @@ Page({
 ```
 
 ### 纵向电梯模式
-<code src='../../demo/pages/TabsVerticalElevator/index'></code>
 
-### Demo代码
+<code src='../../demo/pages/Tabs/TabsVerticalElevator/index'></code>
+
+### Demo 代码
+
 <code src='../../demo/pages/Tabs/index'></code>
 
 ## API
 
-| 属性               | 说明                                                                                           | 类型                                                                                         | 默认值     |
-| ------------------ | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------- |
-| className          | 类名                                                                                           | string                                                                                       | -          |
-| current            | 选中索引                                                                                       | number                                                                                       | -          |
-| defaultCurrent     | 选中索引初始值                                                                                 | number                                                                                       | 0          |
-| direction          | tabs 方向，`horizontal`(水平) `vertical`(垂直)                                                 | string                                                                                       | horizontal |
-| items              | 选项，数量必须大于 0                                                                           | `Item[]`                                                                                     | -          |
-| plus               | 右上角操作按钮插槽；<br /> `slot-scope` 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引)  | slot                                                                                         | -          |
-| scrollMode         | 滚动方式，可选 'edge', 'center'                                                                | string                                                                                       | edge       |
-| style              | 样式                                                                                           | string                                                                                       | -          |
-| tabsBarClassName   | tabs bar 类名                                                                                  | string                                                                                       | -          |
-| tabClassName       | tab 类名                                                                                       | string                                                                                       | -          |
-| tabActiveClassName | tab active 类名                                                                                | string                                                                                       | -          |
-| title              | 自定义 `Items` 标题；<br /> `slot-scope` 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | slot                                                                                         | -          |
-| type               | 类型，`basic`(基础)，`capsule`(胶囊)，`mixin`(混合)                                            | string                                                                                       | `basic`    |
-| onChange           | 面板切换时候，触发回调                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
+| 属性                   | 说明                                                                                           | 类型                                                                                         | 默认值     |
+| ---------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------- |
+| className              | 类名                                                                                           | string                                                                                       | -          |
+| current                | 选中索引                                                                                       | number                                                                                       | -          |
+| defaultCurrent         | 选中索引初始值                                                                                 | number                                                                                       | 0          |
+| direction              | tabs 方向，`horizontal`(水平) `vertical`(垂直)                                                 | string                                                                                       | horizontal |
+| items                  | 选项，数量必须大于 0                                                                           | `Item[]`                                                                                     | -          |
+| plus                   | 右上角操作按钮插槽；<br /> `slot-scope` 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引)  | slot                                                                                         | -          |
+| scrollMode             | 滚动方式，可选 'edge', 'center'                                                                | string                                                                                       | edge       |
+| style                  | 样式                                                                                           | string                                                                                       | -          |
+| tabsBarClassName       | tabs bar 类名                                                                                  | string                                                                                       | -          |
+| tabClassName           | tab 类名                                                                                       | string                                                                                       | -          |
+| tabActiveClassName     | tab active 类名                                                                                | string                                                                                       | -          |
+| title                  | 自定义 `Items` 标题；<br /> `slot-scope` 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | slot                                                                                         | -          |
+| type                   | 类型，`basic`(基础)，`capsule`(胶囊)，`mixin`(混合)                                            | string                                                                                       | `basic`    |
+| #if ALIPAY onChange    | 面板切换时候，触发回调                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
+| #if WECHAT bind:change | 面板切换时候，触发回调                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 
 ### Item
 
@@ -278,19 +316,18 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                        | 默认值                                                                                            | 备注                |
-| ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------- |
-| --tabs-basic-color            | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div> | Tabs 基本颜色       |
-| --tabs-weaken-color           | <div style="width: 150px; height: 30px; background-color: #999999; color: #FFFFFF;">#999999</div> | Tabs 弱化颜色       |
-| --tabs-inverse-color          | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Tabs 反色           |
-| --tabs-active-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div> | Tabs 激活颜色       |
-| --tabs-active-decorate-color  | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div> | Tabs 激活装饰颜色   |
-| --tabs-underline-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | Tabs 下划线边框颜色 |
-| --tabs-plus-color             | <div style="width: 150px; height: 30px; background-color: #000000; color: #FFFFFF;">#000000</div> | Tabs 加号颜色       |
-| --tabs-capsule-title-bg       | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | Tabs 胶囊标题背景色 |
-| --tabs-subtitle-color         | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Tabs 副标题颜色     |
-| --tabs-count-color            | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | Tabs 计数颜色       |
-| --tabs-badge-size             | 28rpx                                                                                             | Tabs 徽章尺寸       |
+| 变量名                        | 浅色模式默认值                                                                                    | 深色模式默认值                                                                                    | 备注                |
+| ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------- |
+| --tabs-basic-color            | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div> | Tabs 基本颜色       |
+| --tabs-weaken-color           | <div style="width: 150px; height: 30px; background-color: #999999; color: #FFFFFF;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #FFFFFF;">#616161</div> | Tabs 弱化颜色       |
+| --tabs-inverse-color          | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Tabs 反转色         |
+| --tabs-active-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div> | Tabs 激活颜色       |
+| --tabs-active-decorate-color  | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div> | Tabs 激活装饰颜色   |
+| --tabs-underline-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | Tabs 下划线边框颜色 |
+| --tabs-plus-color             | <div style="width: 150px; height: 30px; background-color: #000000; color: #FFFFFF;">#000000</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #FFFFFF;">#000000</div> | Tabs 加号颜色       |
+| --tabs-capsule-title-bg       | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Tabs 胶囊标题背景色 |
+| --tabs-subtitle-color         | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | Tabs 副标题颜色     |
+| --tabs-count-color            | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #fff;">#474747</div> | Tabs 计数颜色       |
 
 ## FAQ
 
@@ -298,9 +335,27 @@ Page({
 
 可以使用 `slot` 来自定义。
 
-```html
-<tabs items="{{items}}" onChange="onChange">
-  <view slot="title" slot-scope="tab" data-index="{{tab.index}}" onTap="onTap">
+```xml
+<tabs
+  items="{{items}}"
+#if ALIPAY
+  onChange="onChange"
+#endif
+#if WECHAT
+  bind:change="onChange"
+#endif
+>
+  <view
+    slot="title"
+    slot-scope="tab"
+    data-index="{{tab.index}}"
+#if ALIPAY
+    onTap="onTap"
+#endif
+#if WECHAT
+    bind:tap="onTap"
+#endif
+  >
     {{ tab.value.title }}
   </view>
 </tabs>

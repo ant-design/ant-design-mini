@@ -1,0 +1,1 @@
+<view class="{{'ant-safe-area-' + position + ' ' + className + ''}}"></view>

@@ -9,7 +9,7 @@ import { AlphabetMap, getFirstLetterInMap, getId } from './util';
 Component(
   SelectContactDefaultProps,
   {
-    async init() {
+    init() {
       const { platform } = my.getSystemInfoSync();
 
       this.setData({
@@ -17,18 +17,22 @@ Component(
       });
 
       try {
+        const recommendContactsList = this.handleRecommendContacts(
+          this.props.recommendContactsList
+        );
         /** 全部联系人 */
-        const allContactsList = this.handleAllContacts(this.props.contacts);
+        const allContactsList = this.handleAllContacts(
+          this.props.allContactsList
+        );
 
         /** 展示的联系人列表 */
-        const contactsList =
-          this.props.recommendContactsList.concat(allContactsList);
+        const contactsList = recommendContactsList.concat(allContactsList);
 
         /** 字母表 */
         const alphabet = this.generateAlphabet(contactsList);
 
         this.setData({
-          recommendContactsList: this.props.recommendContactsList,
+          recommendContactsList,
           allContactsList,
           alphabet,
           sessionId: this.props.sessionId,
@@ -45,7 +49,7 @@ Component(
       }
     },
     /** 搜索栏输入 */
-    async onSearchInput(searchValue: string) {
+    onSearchInput(searchValue: string) {
       // 无搜索内容时
       if (!searchValue) {
         this.setData({
@@ -131,6 +135,23 @@ Component(
       });
     },
 
+    /** 处理 推荐联系人 数据 */
+    handleRecommendContacts(recommendUserInfos: IContactInfo[]) {
+      const recommendContactsList: IContactUserInfo[] =
+        recommendUserInfos.length === 0
+          ? []
+          : [
+              {
+                name: '推荐',
+                value: recommendUserInfos,
+                className: 'first-level',
+                personSource: 'recommend',
+              },
+            ];
+
+      return recommendContactsList;
+    },
+
     /** 处理 全部联系人 数据 */
     handleAllContacts(contacts: IContactInfo[]) {
       if (contacts.length === 0) {
@@ -174,7 +195,6 @@ Component(
     /** 根据 展示的联系人列表 生成 字母表 */
     generateAlphabet(contactsList: IContactUserInfo[]) {
       const alphabet: string[] = [];
-
       contactsList.forEach((item) => {
         if (item.name === '推荐') {
           alphabet.push('推');

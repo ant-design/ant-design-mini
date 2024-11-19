@@ -2,16 +2,20 @@
   src="./index.wxs"
   module="utils"
 ></wxs>
+<wxs
+  src="../_util/isPropsEmpty.wxs"
+  module="u"
+></wxs>
 <view
   wx:if="{{visible}}"
   class="ant-guide-tour {{className || ''}}"
   style="{{style || ''}}"
 >
-  <mask
+  <ant-mask
     show
     className="{{maskClassName}}"
     style="z-index:9999;{{maskStyle || ''}}"
-  ></mask>
+  ></ant-mask>
   <ant-icon
     type="CloseOutline"
     className="ant-guide-tour-clear"
@@ -23,27 +27,27 @@
       inline
       size="small"
       bind:tap="onCancel"
-    >{{jumpText === undefined ? locale.guideTour.jumpText : jumpText}}</ant-button>
+    >{{u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowPrev(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onPrev"
       data-current-value="{{mixin.value}}"
-    >{{prevStepText === undefined ? locale.guideTour.prevStepText : prevStepText}}</ant-button>
+    >{{u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowNext(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onNext"
       data-current-value="{{mixin.value}}"
-    >{{nextStepText === undefined ? locale.guideTour.nextStepText : nextStepText}}</ant-button>
+    >{{u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowKnow(mixin.value, items)}}"
       inline
       size="small"
       bind:tap="onCancel"
-    >{{gotItText === undefined ? locale.guideTour.gotItText : gotItText}}</ant-button>
+    >{{u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}</ant-button>
   </view>
   <block wx:if="{{swiperable}}">
     <view class="ant-guide-tour-indicator">

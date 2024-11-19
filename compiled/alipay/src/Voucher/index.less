@@ -1,0 +1,347 @@
+@import (reference) './variable.less';
+
+@voucherPrefix: ant-voucher;
+
+.@{voucherPrefix} {
+  // 外层容器
+  &-wrap {
+    &-show-after {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -1 * @rpx;
+        width: 60 * @rpx;
+        background-image: linear-gradient(
+          90deg,
+          @voucher-background-image-start 0%,
+          @voucher-background-image-end 100%
+        );
+      }
+    }
+  }
+
+  // 列表
+  &-container {
+    position: relative;
+    width: 100%;
+    border-radius: 16 * @rpx 0 0 16 * @rpx;
+    // 水平
+    &-horizontal {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: auto;
+      // 水平且多个
+      &.multiple {
+        .ant-voucher-item {
+          width: 81%;
+          margin-right: 16 * @rpx;
+          .voucher-action-area-default {
+            padding-left: 8 * @rpx;
+          }
+        }
+      }
+    }
+    // 竖直
+    &-vertical {
+      // 竖直且多个
+      &.multiple {
+        .ant-voucher-item {
+          margin-bottom: 16 * @rpx;
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+    // 双列
+    &-multipleColumn {
+      display: flex;
+      flex-wrap: wrap;
+      .ant-voucher-item {
+        width: calc(50% - 8 * @rpx);
+        height: 136 * @rpx;
+        background-image: url('https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*2dJySZuGgc0AAAAAAAAAAAAADtF8AQ/original'),
+          url('https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*Vu1qS7zDGscAAAAAAAAAAAAADtF8AQ/original');
+        background-size: 130 * @rpx 100%, calc(100% - 128 * @rpx) 100%;
+        background-position: left top, 128 * @rpx top;
+        margin-bottom: 16 * @rpx;
+        &:nth-child(odd) {
+          margin-right: 16 * @rpx;
+        }
+
+        // 双列的样式统一
+        &-small,
+        &-large {
+          .voucher-action-area-default {
+            padding: 0 12 * @rpx 0 8 * @rpx;
+          }
+          .ant-voucher-item-left {
+            width: 117 * @rpx;
+            padding: 29 * @rpx 0 0;
+            &-money {
+              font-weight: 500;
+              font-size: 50 * @rpx;
+              line-height: 64 * @rpx;
+              color: @voucher-multi-money-color;
+              &-unit {
+                line-height: 24 * @rpx;
+                transform: translateY(-3 * @rpx);
+              }
+              &-small {
+                font-size: 28 * @rpx;
+                line-height: 36 * @rpx;
+                padding-top: 21 * @rpx;
+                .ant-voucher-item-left-money-unit {
+                  transform: translateY(-1 * @rpx);
+                }
+              }
+            }
+            &-threshold {
+              opacity: 0.8;
+              font-weight: 400;
+              font-size: 22 * @rpx;
+              line-height: 30 * @rpx;
+              color: @voucher-multi-threshold-color;
+              margin-top: 1 * @rpx;
+            }
+          }
+          .ant-voucher-item-right {
+            padding-left: 16 * @rpx;
+          }
+        }
+      }
+    }
+  }
+
+  // 单个券
+  &-item {
+    position: relative;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: flex;
+    background-repeat: no-repeat;
+    border-radius: 16 * @rpx;
+    overflow: hidden;
+    width: 100%;
+    height: 168 * @rpx;
+    background-image: url('https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*WkmYTZUo3aQAAAAAAAAAAAAADtF8AQ/original'),
+      url('https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*_sfDQq-WhIMAAAAAAAAAAAAADtF8AQ/original');
+    background-size: 200 * @rpx 100%, calc(100% - 195 * @rpx) 100%;
+    background-position: left top, 195 * @rpx top;
+    // 券禁用
+    &-disabled {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+      }
+      .ant-voucher-item-left {
+        opacity: 0.5;
+      }
+      .ant-voucher-item-right {
+        opacity: 0.4;
+      }
+    }
+
+    // 默认为 large 的样式，size=small时在&-small中覆盖
+    .voucher-action-area-default {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 20 * @rpx 0 24 * @rpx;
+      .ant-button {
+        box-sizing: border-box;
+        box-shadow: none;
+        height: 56 * @rpx;
+        line-height: 56 * @rpx;
+        color: @voucher-action-btn-color;
+        font-size: 26 * @rpx;
+        font-weight: bold;
+        padding: 0 24 * @rpx;
+        background-color: @voucher-action-bg;
+        border-radius: 50 * @rpx;
+        margin-top: -1 * @rpx;
+        .ant-button-wrap {
+          transform: translateY(1 * @rpx);
+        }
+      }
+      .a-image {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100 * @rpx;
+        height: 100 * @rpx;
+      }
+    }
+    &-left {
+      width: 184 * @rpx;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      padding: 21 * @rpx 0 24 * @rpx;
+      text-align: center;
+      &-money {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        font-weight: 500;
+        font-size: 65 * @rpx;
+        line-height: 83 * @rpx;
+        color: @voucher-action-left-color;
+        overflow: hidden;
+        margin-bottom: -1 * @rpx;
+        &-unit {
+          font-weight: 500;
+          font-size: 24 * @rpx;
+          line-height: 28 * @rpx;
+          display: inline-block;
+          transform: translateY(-3 * @rpx);
+        }
+        &-small {
+          font-size: 50 * @rpx;
+          line-height: 64 * @rpx;
+          padding-top: 22 * @rpx;
+          margin-bottom: 5 * @rpx;
+        }
+      }
+      &-threshold {
+        opacity: 0.8;
+        font-weight: 400;
+        font-size: 24 * @rpx;
+        line-height: 33 * @rpx;
+        color: @voucher-action-left-threshold-bg;
+        letter-spacing: 0;
+      }
+    }
+    &-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 2 * @rpx;
+      padding-left: 25 * @rpx;
+      overflow: hidden;
+      &-content {
+        flex: 1;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      &-title {
+        font-weight: 500;
+        font-size: 32 * @rpx;
+        line-height: 45 * @rpx;
+        color: @voucher-action-right-color;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      &-desc {
+        align-items: center;
+        font-weight: 400;
+        font-size: 26 * @rpx;
+        line-height: 37 * @rpx;
+        color: @voucher-action-right-desc-color;
+        letter-spacing: 0;
+        margin-top: 8 * @rpx;
+        flex: 1;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+    // size = large
+    &-large {
+      height: 168 * @rpx;
+      background-image: url('https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*58psQJf569EAAAAAAAAAAAAADtF8AQ/original'),
+        url('https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*PINMS6DvAVQAAAAAAAAAAAAADtF8AQ/original');
+      background-size: 200 * @rpx 100%, calc(100% - 195 * @rpx) 100%;
+      background-position: left top, 195 * @rpx top;
+      .ant-voucher-item-left {
+        width: 184 * @rpx;
+      }
+    }
+
+    // size = small
+    &-small {
+      height: 136 * @rpx;
+      padding-left: 1 * @rpx;
+      background-image: url('https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*bZfRSaKz1-QAAAAAAAAAAAAADtF8AQ/original'),
+        url('https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*PcgDR6BgE-4AAAAAAAAAAAAADtF8AQ/fmt.webp');
+      background-size: 160 * @rpx 100%, calc(100% - 158 * @rpx) 100%;
+      background-position: left top, 158 * @rpx top;
+      .ant-voucher-item-left {
+        width: 140 * @rpx;
+        padding: 16 * @rpx 0 20 * @rpx;
+        margin-bottom: -1 * @rpx;
+        &-money {
+          font-weight: 500;
+          font-size: 50 * @rpx;
+          line-height: 64 * @rpx;
+          color: @voucher-multi-money-color;
+          margin-bottom: 1 * @rpx;
+          &-unit {
+            line-height: 24 * @rpx;
+            transform: translateY(-3 * @rpx);
+          }
+          &-small {
+            font-size: 36 * @rpx;
+            line-height: 46 * @rpx;
+            padding-top: 22 * @rpx;
+            margin-bottom: 3 * @rpx;
+          }
+        }
+        &-threshold {
+          opacity: 0.8;
+          font-weight: 400;
+          font-size: 22 * @rpx;
+          line-height: 30 * @rpx;
+          color: @voucher-multi-threshold-color;
+          margin-top: 1 * @rpx;
+        }
+      }
+      .ant-voucher-item-right {
+        padding-left: 29 * @rpx;
+        &-title {
+          font-weight: 600;
+          font-size: 24 * @rpx;
+          line-height: 33 * @rpx;
+          color: @voucher-item-right-title-color;
+        }
+        &-desc {
+          font-weight: 400;
+          font-size: 22 * @rpx;
+          line-height: 30 * @rpx;
+          color: @voucher-item-right-desc-color;
+          margin-top: 5 * @rpx;
+        }
+      }
+      .voucher-action-area-default {
+        .ant-button {
+          background-color: transparent;
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            border: 1 * @rpx solid @voucher-action-btn-color;
+            border-radius: 50 * @rpx;
+          }
+        }
+      }
+    }
+  }
+}

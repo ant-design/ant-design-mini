@@ -7,8 +7,6 @@
   "defaultTitle": "ConfigProvider",
   /// #endif
 
-  "titleBarColor": "#ffffff",
-  "transparentTitle": "auto",
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "ant-list": "../../../src/List/index",

@@ -47,23 +47,23 @@
       content="左侧插槽">
       <!-- display: inline -->
       <ant-button inline style="margin-right: 24rpx;">左侧插槽</ant-button>
-      <ant-icon slot="leftContent" style="font-size: 48rpx; margin-right: 24rpx;" type="FaceRecognitionOutline" />
+      <ant-icon slot="leftContent" className="left-icon" type="FaceRecognitionOutline" />
     </ant-popover>
 
     <ant-popover
       content="右侧插槽">
       <!-- display: inline -->
       <ant-button inline style="margin-right: 24rpx;">右侧插槽</ant-button>
-      <ant-icon slot="rightContent" style="font-size: 48rpx; margin-left: 24rpx;" type="FaceRecognitionOutline" />
+      <ant-icon slot="rightContent" className="right-icon" type="FaceRecognitionOutline" />
     </ant-popover>
 
     <ant-popover
-      className="ant-ant-popover-white"
+      className="ant-popover-white"
       color="white"
       content="白色背景">
       <!-- display: inline -->
       <ant-button inline style="margin-right: 24rpx;">白色背景</ant-button>
-      <ant-icon slot="rightContent" style="font-size: 48rpx; margin-left: 24rpx;" type="FaceRecognitionOutline" />
+      <ant-icon slot="rightContent" className="right-icon" type="FaceRecognitionOutline" />
     </ant-popover>
   </view>
 </ant-container>

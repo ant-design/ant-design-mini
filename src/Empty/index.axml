@@ -16,30 +16,42 @@
     <view class="ant-empty-text">
       <view class="ant-empty-text-main">
         <!-- #if WECHAT -->
-        <block wx:if="{{ title }}">{{ title }}</block>
-        <block wx:else>
-          <slot name="title">{{ title }}</slot>
-        </block>
+        <ant-auto-resize wx:if="{{ title }}" text="{{ title }}" minFontSize="24" maxFontSize="40">
+          <block>{{ title }}</block>
+        </ant-auto-resize>
+        <ant-auto-resize wx:else text="{{ title }}" minFontSize="24" maxFontSize="40">
+          <block>
+            <slot name="title">{{ title }}</slot>
+          </block>
+        </ant-auto-resize>
         <!-- #endif -->
         <!-- #if ALIPAY -->
-        <slot name="title">{{ title }}</slot>
+          <ant-auto-resize text="{{ title }}" minFontSize="24" maxFontSize="40">
+            <slot name="title">{{ title }}</slot>
+          </ant-auto-resize>
         <!-- #endif -->
       </view>
       <view class="ant-empty-text-sub">
         <!-- #if WECHAT -->
-        <block wx:if="{{ message }}">{{ message }}</block>
-        <block wx:else>
-          <slot name="message">{{ message }}</slot>
-        </block>
+        <ant-auto-resize wx:if="{{ message }}" text="{{ message }}" minFontSize="24" maxFontSize="40">
+          <block>{{ message }}</block>
+        </ant-auto-resize>
+        <ant-auto-resize wx:else text="{{ message }}" minFontSize="24" maxFontSize="40">
+          <block>
+            <slot name="message">{{ message }}</slot>
+          </block>
+        </ant-auto-resize>
         <!-- #endif -->
         <!-- #if ALIPAY -->
-        <slot name="message">{{ message }}</slot>
+        <ant-auto-resize text="{{ message }}" minFontSize="24" maxFontSize="40">
+          <slot name="message">{{ message }}</slot>
+        </ant-auto-resize>
         <!-- #endif -->
       </view>
     </view>
     <view a:if="{{ buttonInfo.list.length > 0 }}" class="ant-empty-button ant-empty-button-layout-{{ buttonInfo.layout }}">
-      <ant-button 
-        a:for="{{ buttonInfo.list }}" 
+      <ant-button
+        a:for="{{ buttonInfo.list }}"
         type="{{item.type}}"
         data-item="{{ item }}"
         onTap="onClickButton"

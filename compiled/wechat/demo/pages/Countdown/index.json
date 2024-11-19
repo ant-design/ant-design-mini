@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "Countdown",
+  "usingComponents": {
+    "ant-countdown": "../../../src/Countdown/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

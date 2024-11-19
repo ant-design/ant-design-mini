@@ -137,6 +137,24 @@ export const ComponentSampleImages = {
     },
     'page-container': {
       imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/qoFGRYpKfEQAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'voucher': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/ouVBQbV0LxMAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'card': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/qmBSTrwO5PYAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'sticky': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/s0HBSbfB_tUAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'countdown': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/c18aTav7R30AAAAAAAAAAAAADoEQAQFr/original'
+    },
+    'table': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/CpkkTr3EAHsAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'safe-area': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/5-A-TrkpTpkAAAAAAAAAAAAADoEQAQFr/fmt.avif'
     }
   },
   dark: {
@@ -281,6 +299,24 @@ export const ComponentSampleImages = {
     'page-container': {
       imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/V3-KQYdvOS8AAAAAAAAAAAAADoEQAQFr/fmt.avif'
     },
+    'voucher': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/ouVBQbV0LxMAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'card': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/fXO1TbJSX2QAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'sticky': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/s0HBSbfB_tUAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'countdown': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/0qx3TqMT2B4AAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'table': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/tbNfR7MwQMUAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'safe-area': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/5-A-TrkpTpkAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    }
   }
 };
 

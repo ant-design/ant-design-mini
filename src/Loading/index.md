@@ -28,11 +28,13 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
+
 ```xml
 <ant-loading type="mini" />
 ```
 
-### Spin大小
+### Spin 大小
+
 ```xml
 <ant-loading type="spin" size="x-large" />
 <ant-loading type="spin" size="large" />
@@ -41,18 +43,21 @@ toc: 'content'
 ```
 
 ### 自定义颜色
+
 ```xml
 <ant-loading type="mini" color="#1677ff" />
 <ant-loading color="#34B368" />
 ```
 
 ### 自定义大小
+
 ```xml
 <ant-loading style="width: 40px; height: 40px" />
 <ant-loading className="custom-size" />
 ```
 
-### Demo代码
+### Demo 代码
+
 <code src='../../demo/pages/Loading/index' noChangeButton></code>
 
 ## API
@@ -71,7 +76,7 @@ toc: 'content'
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                     | 默认值                                                                                                                              | 备注                 |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| --loading-text-color       | <div style="width: 150px; height: 40px; background-color: #454955; color: #ffffff;">#454955</div>                                   | 加载文本颜色（铁黑） |
-| --loading-icon-light-color | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.6); color: #333333;">rgba(255, 255, 255, 0.6)</div> | 加载图标浅色         |
+| 变量名                     | 默认值                                                                                                                              | 深色模式默认值                                                                                                                      | 备注                 |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| --loading-text-color       | <div style="width: 150px; height: 40px; background-color: #454955; color: #ffffff;">#454955</div>                                   | <div style="width: 150px; height: 40px; background-color: #454955; color: #ffffff;">#454955</div>                                   | 加载文本颜色（铁黑） |
+| --loading-icon-light-color | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.6); color: #333333;">rgba(255, 255, 255, 0.6)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.6); color: #333333;">rgba(255, 255, 255, 0.6)</div> | 加载图标浅色         |

@@ -46,7 +46,7 @@ Page({
       value: '',
     });
   },
-  handleRef(input) {
+  handleRefInput(input) {
     /// #if WECHAT
     this.input = input.detail;
     /// #endif
@@ -55,7 +55,19 @@ Page({
     this.input = input;
     /// #endif
   },
+  handleRefTextArea(textArea) {
+    /// #if WECHAT
+    this.textArea = textArea.detail;
+    /// #endif
+
+    /// #if ALIPAY
+    this.textArea = textArea;
+    /// #endif
+  },
   clearByInputRef() {
     this.input.update('');
+  },
+  clearByTextAreaRef() {
+    this.textArea.update('');
   },
 });

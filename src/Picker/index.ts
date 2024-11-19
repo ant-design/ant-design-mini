@@ -206,7 +206,10 @@ ComponentWithSignalStoreImpl(
     columns: [],
     visible: false,
     selectedIndex: [],
-    locale: {},
+    locale: {
+      locale: '23123',
+      global: {},
+    },
   },
   [
     mixinValue({

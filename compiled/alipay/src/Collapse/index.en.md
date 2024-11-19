@@ -21,10 +21,10 @@ In `index.json` Introducing Components in
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/Collapse/index"
+  "ant-collapse": "antd-mini/es/Collapse/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/Collapse/index"
+  "ant-collapse": "antd-mini/Collapse/index"
 #endif
 }
 ```
@@ -37,10 +37,10 @@ In `index.json` Introducing Components in
 <ant-collapse
   items="{{items}}"
 #if ALIPAY
-  onChange="onChange" 
+  onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange" 
+  bind:change="onChange"
 #endif
 />
 ```
@@ -50,49 +50,50 @@ Page({
   data: {
     items: [
       {
-        title: '第一项Title',
-        content: '第一项Content'
+        title: 'item1 title',
+        content: 'item1 content',
       },
       {
-        title: '第二项Title',
-        content: '第二项Content'
+        title: 'item2 title',
+        content: 'item2 content',
       },
       {
-        title: '第三项Title',
-        content: '第三项Content'
+        title: 'item3 title',
+        content: 'item3 content',
       },
-    ]
+    ],
   },
   onChange(current) {
     console.log(current);
-  }
+  },
 });
-
 ```
 
 ### Accordion mode
+
 ```xml
 <ant-collapse
   accordion="{{true}}"
   items="{{items}}"
 #if ALIPAY
-  onChange="onChange" 
+  onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange" 
+  bind:change="onChange"
 #endif
 />
 ```
 
 ### List Item Control
+
 ```xml
 <ant-button
   inline="{{true}}"
 #if ALIPAY
-  onTap="addItems" 
+  onTap="addItems"
 #endif
 #if WECHAT
-  bind:tap="addItems" 
+  bind:tap="addItems"
 #endif
 >
   Add items
@@ -102,31 +103,31 @@ Page({
   items="{{items}}"
 />
 ```
+
 ```js
 Page({
   data: {
     items: [
-      {
-        title: '第一项Title',
-        content: '第一项Content'
+       {
+        title: 'item1 title',
+        content: 'item1 content',
       },
       {
-        title: '第二项Title',
-        content: '第二项Content'
+        title: 'item2 title',
+        content: 'item2 content',
       },
       {
-        title: '第三项Title',
-        content: '第三项Content'
+        title: 'item3 title',
+        content: 'item3 content',
       },
-    ]
+    ],
   },
   addItems() {
     const items = [
       ...this.data.items,
       {
         title: this.data.items.length,
-        content:
-          '动态添加的Content',
+        content: 'dynamic item content',
       },
     ];
     this.setData({
@@ -150,7 +151,7 @@ Page({
     <view>
       <ant-checkbox
         data-index="{{item.index}}"
-        onChange="onChange" 
+        onChange="onChange"
       />
     </view>
     <view>{{item.value.title}}</view>
@@ -202,12 +203,12 @@ Page({
 #### Style Variables
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
-| Variable name | Default Value | Remarks |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| --collapse-title-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Collapse Panel Title Background Color |
-| --collapse-title-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | Collapse Panel Title Color |
-| --collapse-title-icon-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #ffffff;">#cccccc</div> | Collapse Panel Title Icon Color |
-| --collapse-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Collapse Panel Content Background Color |
-| --collapse-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | Collapse Panel Border Color |
-| --collapse-node-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Collapse Panel Node Text Color |
-| --collapse-container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Folding panel container background color |
+| Variable name | Default Value | Dark Mode Default | Remarks |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------- |
+| --collapse-title-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Collapse Panel Title Background Color |
+| --collapse-title-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Collapse Panel Title Color |
+| --collapse-title-icon-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #ffffff;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | Collapse Panel Title Icon Color |
+| --collapse-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Collapse Panel Content Background Color |
+| --collapse-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #333333;">#2b2b2b</div> | Collapse Panel Border Color |
+| --collapse-node-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Collapse Panel Node Text Color |
+| --collapse-container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #333333;">#000000</div> | Folding panel container background color |

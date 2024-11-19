@@ -44,7 +44,7 @@
   text-align: center;
   line-height: normal;
   font-size: 30rpx;
-  color: #333333;
+  color: var(--stepper-input-font-color, #333333);
   box-sizing: border-box;
   background-color: var(--stepper-background-color, #ffffff);
   caret-color: #1677ff;

@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: Other
-  order: 15
+  order: 16
 toc: 'content'
 supportPlatform: ['alipay']
 ---
@@ -37,8 +37,8 @@ In `index.json` Introducing Components in
   loadingColor="#ccc"
   loadingSize="medium"
   loadingType="spin"
-  actionText="刷新"
-  secondaryActionText="网络异常"
+  actionText="refresh"
+  secondaryActionText="internet error"
   onActionTap="handleRefresh"
   onSecondaryActionTap="handleSwitchToDisconnected"
 >
@@ -97,7 +97,7 @@ Page({
 | loadingSize          | Load Style Size,`small`、`medium`、`large`、`x-large`     | string           | `medium` |
 | loadingColor         | Load Style Color                                            | string           | '#ccc'   |
 | status               | Page exception status,`failed`、`busy`、`disconnected`、`empty` | string \| slot   | -        |
-| image                | Page Exception Status Custom Image                                  | string           | -        |
+| image                | Page Exception State Custom Image                                  | string           | -        |
 | title                | Page Exception Status Custom Title                                  | string           | -        |
 | message              | Page Exception Status Custom Description                                  | string           | -        |
 | actionText           | Page Exception Status Button Copy                                    | string           | -        |
@@ -110,8 +110,10 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
-| Variable name                            | Default Value                                                                            | Remarks             |
-| --------------------------------- | --------------------------------------------------------------------------------- | ---------------- |
-| --page-container-background-color | <div style="width: 150px; height: 30px; background-color: #f5f5f5;">#f5f5f5</div> | Page Container Background Color |
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+
+| Variable name                            | Default Value                                                                            | Dark Mode Default                                                                                    | Remarks             |
+| --------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --page-container-background-color | <div style="width: 150px; height: 30px; background-color: #f5f5f5;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Page Container Background Color |

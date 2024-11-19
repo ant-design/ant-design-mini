@@ -118,6 +118,6 @@ export const UploaderDefaultProps: Partial<IUploaderProps> = {
   onUpload: null,
   onBeforeUpload: null,
   onRemove: null,
-  uploadingText: undefined,
-  uploadfailedText: undefined,
+  uploadingText: null,
+  uploadfailedText: null,
 };

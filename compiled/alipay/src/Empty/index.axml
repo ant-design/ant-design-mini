@@ -13,10 +13,22 @@
     </view>
     <view class="ant-empty-text">
       <view class="ant-empty-text-main">
-        <slot name="title">{{title}}</slot>
+        <ant-auto-resize
+          text="{{title}}"
+          minFontSize="24"
+          maxFontSize="40"
+        >
+          <slot name="title">{{title}}</slot>
+        </ant-auto-resize>
       </view>
       <view class="ant-empty-text-sub">
-        <slot name="message">{{message}}</slot>
+        <ant-auto-resize
+          text="{{message}}"
+          minFontSize="24"
+          maxFontSize="40"
+        >
+          <slot name="message">{{message}}</slot>
+        </ant-auto-resize>
       </view>
     </view>
     <view

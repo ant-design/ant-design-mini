@@ -17,7 +17,13 @@
 .ant-rate-star-icon {
   color: var(--rate-icon-color, #e5e5e5);
 }
+.ant-rate-star-icon .ant-icon {
+  color: var(--rate-icon-color, #e5e5e5);
+}
 .ant-rate-star-icon-active {
+  color: var(--rate-active-icon, #ff9f18);
+}
+.ant-rate-star-icon-active .ant-icon {
   color: var(--rate-active-icon, #ff9f18);
 }
 .ant-rate-star-icon-half-active {

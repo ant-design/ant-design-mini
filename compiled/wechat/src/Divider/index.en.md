@@ -31,22 +31,26 @@ In `index.json` Introducing Components in
 ```
 
 ## Code Sample
+
 ### Basic use
+
 ```xml
 <ant-divider />
 ```
 
 ### Split Line with Text
+
 ```xml
-<ant-divider text="中间内容" />
-<ant-divider text="左侧内容" textPosition="left" />
-<ant-divider text="右侧内容" textPosition="right" />
+<ant-divider text="center content" />
+<ant-divider text="left content" textPosition="left" />
+<ant-divider text="right content" textPosition="right" />
 ```
 
 ### Custom Style
+
 ```xml
  <ant-divider
-    text="Custom Style"
+    text="custom styles"
     textStyle="color:#1677ff; fontWeight:600"
     lineHeight="{{ 2 }}"
     lineType="dashed"
@@ -54,16 +58,17 @@ In `index.json` Introducing Components in
 ```
 
 ### Vertical Split Line
+
 ```xml
  <view class="divider-vertical">
     <view>100m</view>
     <ant-divider direction="vertical" />
-    <view>556 Xixi Road, Xihu District, Hangzhou City, Zhejiang Province</view>
+    <view>detail address</view>
   </view>
 ```
 
-
 ### Demo Code
+
 <code src='../../demo/pages/Divider/index'></code>
 
 ## API
@@ -77,7 +82,7 @@ In `index.json` Introducing Components in
 | lineType      | Split line type, optional `solid` `dashed` `dotted`                       | string         | -            |
 | lineWidth     | Split line width, only if `direction` For `vertical` Effective at the time, in units `px`   | number         | -            |
 | style         | Style                                                             | string         | -            |
-| textClassName | Split Line Text Class Name                                                   | string         | -            |
+| textClassName | Split line text class name                                                   | string         | -            |
 | textPosition  | Split line text position, optional `left` `center` `right`                     | string         | `center`     |
 | textStyle     | Split Line Text Style                                                   | string         | -            |
 | text          | Split Line Text                                                       | string \| slot | -            |
@@ -88,7 +93,7 @@ In `index.json` Introducing Components in
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                 | Default Value                                                                                            | Remarks           |
-| ---------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
-| --divider-text-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | Split line text color |
-| --divider-border-color | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div> | Split Line Border Color |
+| Variable name                 | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks           |
+| ---------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
+| --divider-text-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Split line text color |
+| --divider-border-color | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div> | <div style="width: 150px; height: 30px; background-color: #444444; color: #333333;">#444444</div> | Split Line Border Color |

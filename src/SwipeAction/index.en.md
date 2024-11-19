@@ -9,8 +9,6 @@ toc: 'content'
 
 # SwipeAction
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 List of functional extensions.
 
 ## When to use
@@ -25,47 +23,98 @@ Show hidden function menus by sliding.
 4. The second confirmation of the sliding on each side will only trigger the first one, the others will not trigger.
 5. It is recommended to use it in applets of the basic library 2.0.1.0 versions (such as DingTalk applets) have defects in sliding experience (lack of sliding transition effect after touchend).
 
+## Introduction
+
+In `index.json` Introducing Components in
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-swipe-action": "antd-mini/es/SwipeAction/index"
+#endif
+
+#if WECHAT
+  "ant-swipe-action": "antd-mini/SwipeAction/index"
+#endif
+}
+```
+
 ## Code Sample
 
 ### Basic Usage
 
-<code src='../../demo/pages/SwipeAction/index'></code>
+```xml
+<ant-swipe-action
+  rightButtons="{{[[
+      {
+        text: 'favor',
+        bgColor: '#CCCCCC',
+        color: '#fff',
+        width: 200,
+      },
+      {
+        text: 'rest',
+        bgColor: '#1677FF',
+        color: '#fff',
+        width: 170,
+      },
+      {
+        text: 'delete',
+        bgColor: '#FF2B00',
+        color: '#fff',
+        width: 140,
+      },
+    ]]}}"
+    elasticity="{{ true }}"
+    swiped="{{ swipeIndex === index }}"
+    onSwipeEnd="onSwipeEnd"
+    onSwipeStart="onSwipeStart"
+    onButtonTap="onButtonTap">
+  <view>Right-three buttons</view>
+</ant-swipe-action>
+```
+
+
 
 ### Button on the left
-
-<!-- <code src='pages/SwipeActionLeft/index'></code> -->
+Setup`leftButtons`Property
+<code src='../../demo/pages/SwipeActionLeft/index'></code>
 
 ### Change the number of buttons
 
-<!-- <code src='pages/SwipeActionNumber/index'></code> -->
+<code src='../../demo/pages/SwipeActionNumber/index'></code>
 
 ### Disable sliding rebound
-
-<!-- <code src='pages/SwipeActionAnimation/index'></code> -->
+Setup`elasticity`property is`false`
+<code src='../../demo/pages/SwipeActionAnimation/index'></code>
 
 ### Set button width
-
-<!-- <code src='pages/SwipeActionWidth/index'></code> -->
+Set the buttons`width`Property
+<code src='../../demo/pages/SwipeActionWidth/index'></code>
 
 ### Set sliding speed
-
-<!-- <code src='pages/SwipeActionSpeed/index'></code> -->
+Setup`damping`Property
+<code src='../../demo/pages/SwipeActionSpeed/index'></code>
 
 ### Button click twice to confirm
+Set buttons Properties`confirmType`For`tap`
 
-<!-- <code src='pages/SwipeActionTap/index'></code> -->
+<code src='../../demo/pages/SwipeActionTap/index'></code>
 
 ### Second confirmation of maximum sliding distance of button
-
-<!-- <code src='pages/SwipeActionMove/index'></code> -->
+Set buttons Properties`confirmType`For`move`
+<code src='../../demo/pages/SwipeActionMove/index'></code>
 
 ### There are buttons on the left and right sides
-
-<!-- <code src='pages/SwipeActionLeftRight/index'></code> -->
+Can be set simultaneously`leftButtons`and`rightButtons`
+<code src='../../demo/pages/SwipeActionLeftRight/index'></code>
 
 ### Custom Button
 
-<!-- <code src='pages/SwipeActionSlot/index'></code> -->
+<code src='../../demo/pages/SwipeActionSlot/index'></code>
+
+### Demo Code
+<code src='../../demo/pages/SwipeAction/index'></code>
 
 ## API
 

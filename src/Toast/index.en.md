@@ -34,7 +34,7 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-toast
-  content="这是一段提示文案"
+  content="toast content"
   visible="{{ toastShow }}"
   duration="{{ 0 }}"
   showMask="{{ true }}"
@@ -66,12 +66,12 @@ Page({
 > Incoming `type` property, you can use the built-in icon, optional `success`、`error`、`warning`、`loading`. Support `icon` property specifies [ant-icon](/components/icon) type, also supports `image` Property to customize the image.
 
 ```xml
-<ant-toast content="操作成功" type="success" visible="{{ true }}" />
-<ant-toast content="操作失败" type="error" visible="{{ true }}" />
-<ant-toast content="警告" type="warning" visible="{{ true }}" />
-<ant-toast content="加载中" type="loading" visible="{{ true }}" />
+<ant-toast content="success" type="success" visible="{{ true }}" />
+<ant-toast content="error" type="error" visible="{{ true }}" />
+<ant-toast content="warning" type="warning" visible="{{ true }}" />
+<ant-toast content="loading" type="loading" visible="{{ true }}" />
 <ant-toast content="icon" icon="LikeOutline" visible="{{ true }}" />
-<ant-toast content="自定义图片" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{ true }}" />
+<ant-toast content="custom image" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{ true }}" />
 ```
 
 ## Demo Code
@@ -80,29 +80,30 @@ Page({
 
 ## API
 
-| Property                  | Description                                                     | Type        | Default Value |
-| --------------------- | -------------------------------------------------------- | ----------- | ------ |
-| className             | Component root node class name                                           | string      | -      |
-| content               | Text content                                                 | string      | -      |
-| duration              | Duration, does not automatically close when 0                            | number      | 2000   |
-| maskCloseable         | Click whether the layer is closed                                         | boolean     | false  |
-| icon                  | Icon, supports all types of Icon components                            | string      | -      |
-| image                 | Picture Link                                                 | string      | -      |
-| maskStyle             | Masked Style                                                 | string      | -      |
-| showMask              | Whether to show the layer                                             | boolean     | false  |
-| style                 | Style                                                     | string      | -      |
-| type                  | Built-in icon type, optional `success` `error` `warning` `loading` | string      | -      |
-| visible               | Whether to hide                                                 | boolean     | false  |
-| #if ALIPAY onClose    | Callback after Toast is closed                                       | (e) => void | -      |
-| #if WECHAT bind:close | Callback after Toast is closed                                       | (e) => void | -      |
+| Property                  | Description                                                              | Type        | Default Value |
+| --------------------- | ----------------------------------------------------------------- | ----------- | ------ |
+| className             | Component root node class name                                                    | string      | -      |
+| content               | Text content                                                          | string      | -      |
+| duration              | Duration, does not automatically close when 0                                     | number      | 2000   |
+| maskCloseable         | Click whether the layer is closed                                                  | boolean     | false  |
+| icon                  | Icon, supports all types of Icon components                                     | string      | -      |
+| image                 | Picture Link                                                          | string      | -      |
+| maskStyle             | Masked Style                                                          | string      | -      |
+| showMask              | Whether to show the layer                                                      | boolean     | false  |
+| style                 | Style                                                              | string      | -      |
+| type                  | Built-in icon type, optional `success` `error` `warning` `loading` `alipay` | string      | -      |
+| textType              | Text type, optional `short` `long`the short type has a larger fillet               | string      | `long` |
+| visible               | Whether to hide                                                          | boolean     | false  |
+| #if ALIPAY onClose    | Callback after Toast is closed                                                | (e) => void | -      |
+| #if WECHAT bind:close | Callback after Toast is closed                                                | (e) => void | -      |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                | Default Value                                                                                                                    | Remarks               |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | --toast-default-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | Toast Default Background Color |
-| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                         | Toast Default Text Color |
+| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                         | Toast default text color |

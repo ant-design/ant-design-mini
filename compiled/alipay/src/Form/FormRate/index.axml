@@ -27,7 +27,7 @@
   >
     <view slot="character">
       <slot name="character">
-        <icon type="StarFill"></icon>
+        <ant-icon type="StarFill"></ant-icon>
       </slot>
     </view>
   </rate>

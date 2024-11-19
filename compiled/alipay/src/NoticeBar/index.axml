@@ -10,14 +10,14 @@
         image="{{icon}}"
         className="ant-notice-bar-icon-image"
       ></image-icon>
-      <icon
+      <ant-icon
         a:elif="{{type === 'error'}}"
         type="InformationCircleOutline"
-      ></icon>
-      <icon
+      ></ant-icon>
+      <ant-icon
         a:else
         type="SoundOutline"
-      ></icon>
+      ></ant-icon>
     </view>
   </slot>
   <view class="ant-notice-bar-content ant-notice-bar-content{{$id ? '-' + $id : ''}}">
@@ -31,17 +31,17 @@
   </view>
   <view class="ant-notice-bar-operation">
     <slot name="extra"></slot>
-    <icon
+    <ant-icon
       a:if="{{mode === 'link'}}"
       className="ant-notice-bar-operation-icon"
       type="RightOutline"
       onTap="onTap"
-    ></icon>
-    <icon
+    ></ant-icon>
+    <ant-icon
       a:if="{{mode === 'closeable'}}"
       className="ant-notice-bar-operation-icon"
       type="CloseOutline"
       onTap="onTap"
-    ></icon>
+    ></ant-icon>
   </view>
 </view>

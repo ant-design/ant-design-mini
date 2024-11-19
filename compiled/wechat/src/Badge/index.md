@@ -9,11 +9,7 @@ toc: 'content'
 
 # Badge 徽标
 
-徽标，显示红点、数字或文字。用于提醒用户，有待处理的事项或者新的更新数量。
-
-## 何时使用
-
-当需要在右上角展示数字、文字或小红点时使用。适合于提示产品化的新消息、功能或服务等内容，通过显眼的视觉形式吸引用户注意，并促使其进行相关操作。
+徽标，显示红点、数字或文字。用于提醒用户，有待处理的事项或者新的更新数量。当需要在右上角展示数字、文字或小红点时使用。适合于提示产品化的新消息、功能或服务等内容，通过显眼的视觉形式吸引用户注意，并促使其进行相关操作。
 
 ## 引入
 
@@ -33,17 +29,20 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
+
 ```xml
 <ant-badge type="dot" position="top-right"><view class="box" /></ant-badge>
-<ant-badge type="text" text="新" position="top-right"><view class="box" /></ant-badge>
+<ant-badge type="text" text="new" position="top-right"><view class="box" /></ant-badge>
 <ant-badge type="number" text="{{2}}" position="top-right"><view class="box" /></ant-badge>
 <ant-badge type="bubble" text="new" position="top-right"><view class="box" /></ant-badge>
 ```
 
 ### 带边框
+
 ```xml
 <ant-badge stroke type="dot" position="top-right"><view class="box" /></ant-badge>
 ```
+
 ### 自定义背景和位置
 
 ```xml
@@ -52,6 +51,7 @@ toc: 'content'
 ```
 
 ### 设置偏移
+
 ```xml
 <ant-badge type="dot" position="bottom-right" offsetX="-20px" offsetY="-14px">
   <view class="box" />
@@ -59,6 +59,7 @@ toc: 'content'
 ```
 
 ### 自定义内容
+
 ```xml
 <ant-badge type="text" position="top-right">
   <ant-icon type="GlobalOutline" slot="text" />
@@ -66,8 +67,8 @@ toc: 'content'
 </ant-badge>
 ```
 
-
 ### Demo 代码
+
 <code src="../../demo/pages/Badge/index"></code>
 
 ## API
@@ -90,7 +91,7 @@ toc: 'content'
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                   | 默认值                                                                                            | 备注           |
-| ------------------------ | ------------------------------------------------------------------------------------------------- | -------------- |
-| --badge-text-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | Badge 文字颜色 |
-| --badge-background-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | Badge 背景颜色 |
+| 变量名                   | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注           |
+| ------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
+| --badge-text-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | Badge 文字颜色 |
+| --badge-background-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div> | Badge 背景颜色 |

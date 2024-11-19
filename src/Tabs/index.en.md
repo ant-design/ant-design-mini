@@ -43,20 +43,20 @@ Page({
     current: 0,
     items: [
       {
-        title: '水果',
-        subTitle: '描述文案',
-        content: '西瓜',
+        title: 'fruits',
+        subTitle: 'desc',
+        content: 'watermelon',
       },
       {
-        title: '蔬菜',
-        subTitle: '描述文案',
+        title: 'vegetables',
+        subTitle: 'desc',
         badge: true,
-        content: '西红柿',
+        content: 'tomato',
       },
       {
-        title: '动物',
-        subTitle: '描述文案',
-        content: '蚂蚁',
+        title: 'animals',
+        subTitle: 'desc',
+        content: 'monkey',
       },
     ],
   }
@@ -107,20 +107,20 @@ Page({
     current: 0,
     items: [
       {
-        title: '水果',
-        subTitle: '描述文案',
-        content: '西瓜',
+        title: 'fruits',
+        subTitle: 'desc',
+        content: 'watermelon',
       },
       {
-        title: '蔬菜',
-        subTitle: '描述文案',
+        title: 'vegetables',
+        subTitle: 'desc',
         disabled: true,
-        content: '西红柿',
+        content: 'tomato',
       },
       {
-        title: '动物',
-        subTitle: '描述文案',
-        content: '蚂蚁',
+        title: 'animals',
+        subTitle: 'desc',
+        content: 'monkey',
       },
     ],
   }
@@ -170,7 +170,7 @@ Page({
 - Click tab to scroll to the corresponding tab title.
 - The onChange will only be triggered in tab switching. In the example, the custom title onTap can scroll current tab.
 
-<code src='../../demo/pages/TabsElevator/index'></code>
+<code src='../../demo/pages/Tabs/TabsElevator/index'></code>
 
 ### ceiling
 
@@ -211,7 +211,7 @@ Page({
 ```
 
 ### Longitudinal elevator mode
-<code src='../../demo/pages/TabsVerticalElevator/index'></code>
+<code src='../../demo/pages/Tabs/TabsVerticalElevator/index'></code>
 
 ### Demo Code
 <code src='../../demo/pages/Tabs/index'></code>
@@ -225,13 +225,13 @@ Page({
 | defaultCurrent     | Selected index initial value                                                                                 | number                                                                                       | 0          |
 | direction          | tabs direction,`horizontal`(Horizontal) `vertical`(Vertical)                                                 | string                                                                                       | horizontal |
 | items              | option, quantity must be greater than 0                                                                           | `Item[]`                                                                                     | -          |
-| plus               | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(Corresponding `Item`) `index`(Corresponding `Item` index of)  | slot                                                                                         | -          |
+| plus               | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of)  | slot                                                                                         | -          |
 | scrollMode         | Scrolling mode, optional 'edge', 'center'                                                                | string                                                                                       | edge       |
 | style              | Style                                                                                           | string                                                                                       | -          |
 | tabsBarClassName   | tabs bar class name                                                                                  | string                                                                                       | -          |
 | tabClassName       | tab class name                                                                                       | string                                                                                       | -          |
 | tabActiveClassName | tab active class name                                                                                | string                                                                                       | -          |
-| title              | Custom `Items` Title;<br /> `slot-scope` Include `value`(Corresponding `Item`) `index`(Corresponding `Item` index of) | slot                                                                                         | -          |
+| title              | Custom `Items` Title;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of) | slot                                                                                         | -          |
 | type               | Type,`basic`(basis),`capsule`(capsule),`mixin`(Mixed)                                            | string                                                                                       | `basic`    |
 | onChange           | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 

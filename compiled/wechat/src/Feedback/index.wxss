@@ -1,0 +1,112 @@
+.ant-feedback .ant-popover-inner {
+  max-width: 100%;
+  color: var(--feedback-text-color, #333333);
+  background: var(--feedback-content-background-color, #ffffff);
+}
+.ant-feedback .ant-popover-arrow {
+  border-bottom-color: var(--feedback-content-background-color, #ffffff);
+}
+.ant-feedback-popoverType-default .ant-popover-content {
+  width: 568rpx;
+}
+.ant-feedback-popoverType-circle .ant-popover-content {
+  width: max-content;
+  transform: translate(-50%, 60rpx);
+  left: 50% !important;
+  top: 50% !important;
+  bottom: 50% !important;
+  right: 50% !important;
+}
+.ant-feedback-show {
+  z-index: 9;
+  position: relative;
+}
+.ant-feedback-mask {
+  z-index: 2;
+  background: var(--feedback-mask-color, rgba(0, 0, 0, 0.25));
+}
+.ant-feedback-trigger {
+  position: relative;
+}
+.ant-feedback-guide {
+  position: absolute;
+  background: var(--feedback-background-color, rgba(216, 216, 216, 0.42));
+  border-radius: 50vh;
+  width: 48rpx;
+  height: 48rpx;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ant-feedback-guide-content {
+  background: var(--feedback-content-background-color, #ffffff);
+  border-radius: 50vh;
+  width: 24rpx;
+  height: 24rpx;
+}
+.ant-feedback-content {
+  background: var(--feedback-content-background-color, #ffffff);
+  border-radius: 24rpx;
+}
+.ant-feedback-content-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx;
+  background: var(--feedback-content-background-color, #ffffff);
+}
+.ant-feedback-content-card .ant-feedback-content-list {
+  flex-direction: column;
+  gap: 16rpx;
+}
+.ant-feedback-content-card .ant-feedback-content-list-item {
+  background: var(--feedback-list-background-color, #f5f5f5);
+  border-radius: 50vh;
+  padding: 18rpx 24rpx;
+}
+.ant-feedback-content-popover {
+  padding: 24rpx;
+}
+.ant-feedback-content-popover .ant-feedback-content-list {
+  flex-direction: column;
+  gap: 16rpx;
+}
+.ant-feedback-content-popover .ant-feedback-content-list-item {
+  background: var(--feedback-list-background-color, #f5f5f5);
+  border-radius: 50vh;
+  padding: 18rpx 24rpx;
+}
+.ant-feedback-content-title {
+  font-weight: 500;
+  font-size: 28rpx;
+  color: var(--feedback-list-text-color #333333);
+  letter-spacing: 0;
+  padding-bottom: 20rpx;
+  padding-top: 4rpx;
+}
+.ant-feedback-content-list {
+  display: flex;
+  flex-direction: column;
+}
+.ant-feedback-content-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.ant-feedback-content-list-item .ant-icon,
+.ant-feedback-content-list-item-image {
+  font-size: 36rpx;
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 16rpx;
+}
+.ant-feedback-content-list-item-text {
+  font-weight: 400;
+  font-size: 26rpx;
+  color: var(--feedback-list-text-color #333333);
+  line-height: 37rpx;
+}

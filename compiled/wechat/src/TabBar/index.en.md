@@ -17,10 +17,10 @@ In `index.json` Introducing Components in
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-progress": "antd-mini/es/TabBar/index"
+  "ant-tab-bar": "antd-mini/es/TabBar/index"
 #endif
 #if WECHAT
-  "ant-progress": "antd-mini/TabBar/index"
+  "ant-tab-bar": "antd-mini/TabBar/index"
 #endif
 }
 ```
@@ -29,13 +29,13 @@ In `index.json` Introducing Components in
 
 ### Basic use
 ```xml
-<tab-bar items="{{tabs}}" />
-<tab-bar items="{{tabs}}" activeStyle="color:red;" />
+<ant-tab-bar items="{{tabs}}" />
+<ant-tab-bar items="{{tabs}}" activeStyle="color:red;" />
 #if ALIPAY
-<tab-bar items="{{tabs}}" current="{{current}}" onChange="handleChange" />
+<ant-tab-bar items="{{tabs}}" current="{{current}}" onChange="handleChange" />
 #endif
 #if WECHAT
-<tab-bar items="{{tabs}}" current="{{current}}" bind:change="handleChange" />
+<ant-tab-bar items="{{tabs}}" current="{{current}}" bind:change="handleChange" />
 #endif
 ```
 
@@ -46,17 +46,17 @@ Page({
       {
         icon: 'AlipayCircleFill',
         activeIcon: 'AlipayCircleFill',
-        text: '首页',
+        text: 'homr',
       },
       {
         icon: 'StarOutline',
         activeIcon: 'StarFill',
-        text: '收藏',
+        text: 'favor',
       },
       {
         icon: 'HeartOutline',
         activeIcon: 'HeartFill',
-        text: '喜欢',
+        text: 'like',
       },
     ],
     current: 0,

@@ -15,7 +15,6 @@
 </ant-popup>
 <ant-popup
   visible="{{ customizeVisible }}"
-  height="{{ 350 }}"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*1zlbRZpwRXYAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
   showClose="{{ true }}"
@@ -24,13 +23,12 @@
   onClose="handlePopupClose">
   <view class="customize-content">
     <image mode="widthFix" class="customize-content-image" src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*SD-BTaA-k_wAAAAAAAAAAAAADiWwAQ/original" />
-    <ant-button onTap="handlePopupClose" style="margin-top: 60rpx;" type="primary">去开通</ant-button>
-    <ant-button onTap="handlePopupClose" style="margin-top: 24rpx;">暂不开通</ant-button>
+    <ant-button onTap="handlePopupClose" style="margin-top: 60rpx;width:100%;" type="primary">去开通</ant-button>
+    <ant-button onTap="handlePopupClose" style="margin-top: 24rpx;width:100%">暂不开通</ant-button>
   </view>
 </ant-popup>
 <ant-popup
   visible="{{ topImageVisible }}"
-  height="{{ 450 }}"
   className="customize-top-image-popup"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
@@ -40,8 +38,8 @@
   onClose="handlePopupClose">
   <view class="customize-content">
     <image mode="widthFix" class="customize-content-image1" src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Jly2R5hYEm8AAAAAAAAAAAAADiWwAQ/original" />
-    <ant-button onTap="handlePopupClose" style="margin-top: 60rpx;" type="primary">去开通</ant-button>
-    <ant-button onTap="handlePopupClose" style="margin-top: 24rpx;">暂不开通</ant-button>
+    <ant-button onTap="handlePopupClose" style="margin-top: 60rpx;width:100%;" type="primary">去开通</ant-button>
+    <ant-button onTap="handlePopupClose" style="margin-top: 24rpx;width:100%;">暂不开通</ant-button>
     <view  class="customize-content-text">可在其他地方查看</view>
   </view>
 </ant-popup>

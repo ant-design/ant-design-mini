@@ -9,11 +9,11 @@ toc: 'content'
 
 # Calendar
 
-日历组件
+Calendar Component
 
-## 引入
+## Introduction
 
-在 `index.json` 中引入组件
+In `index.json` Introducing Components in
 
 ```json
 "usingComponents": {
@@ -26,58 +26,64 @@ toc: 'content'
 }
 ```
 
-## 代码示例
-### 基本使用
+## Code Sample
+
+### Basic use
+
 ```xml
 <!-- 默认多选 -->
 <ant-calendar defaultValue="{{defaultValue}}"></ant-calendar>
 <!-- 单选 -->
 <ant-calendar selectionMode="single" defaultValue="{{defaultValue}}" changedScrollIntoView />
 ```
-### 自定义顶部
+
+### Custom Top
+
 ```xml
 <ant-calendar monthRange="{{demo3.monthRange}}">
-  <view slot="calendarTitle">自定义顶部</view>
+  <view slot="calendarTitle">Custom Top</view>
 </ant-calendar>
 ```
 
-### 自定义日期单元格
+### Custom Date Cell
+
 ```xml
-<ant-calendar 
-  monthRange="{{monthRange}}" 
+<ant-calendar
+  monthRange="{{monthRange}}"
   showSelectableDatesOnly
   onFormatter="{{demoFormatter ? demoFormatter : 'demoFormatter'}}"
   onMonthFormatter="{{demoMonthFormatter ? demoMonthFormatter : 'demoMonthFormatter'}}"
 ></ant-calendar>
 ```
+
 ```js
 import dayjs from 'dayjs';
 function demoFormatter(cell) {
-    const isOdd = dayjs(cell.time).date() % 2 === 1;
-    const isNotBeginEnd = !cell.isSelectedBegin && !cell.isSelectedEnd;
-    const isWeekend = dayjs(cell.time).day() > 4;
-    let topClassName;
-    if (isNotBeginEnd) {
-        topClassName = isOdd ? 'odd' : 'even';
-    }
-    return {
-        top: {
-            className: topClassName,
-            label: isOdd ? '奇数' : '偶数',
-        },
-        bottom: {
-            label: isWeekend ? '周末' : '',
-        },
-    };
+  const isOdd = dayjs(cell.time).date() % 2 === 1;
+  const isNotBeginEnd = !cell.isSelectedBegin && !cell.isSelectedEnd;
+  const isWeekend = dayjs(cell.time).day() > 4;
+  let topClassName;
+  if (isNotBeginEnd) {
+    topClassName = isOdd ? 'odd' : 'even';
+  }
+  return {
+    top: {
+      className: topClassName,
+      label: isOdd ? '奇数' : '偶数',
+    },
+    bottom: {
+      label: isWeekend ? '周末' : '',
+    },
+  };
 }
 function demoMonthFormatter(month) {
-    return {
-        ...month,
-    };
+  return {
+    ...month,
+  };
 }
 ```
 
-### 动态控制，只允许选择前后三天
+### Dynamic control, only three days before and after the selection are allowed
 
 ```xml
 <ant-calendar
@@ -85,25 +91,28 @@ function demoMonthFormatter(month) {
   onFormatter="{{demoFormatter ? demoFormatter : 'demoFormatter'}}"
 ></ant-calendar>
 ```
+
 ```js
 import dayjs from 'dayjs';
 function demoFormatter(cell, value) {
-    if (Array.isArray(value) && value.length == 1) {
-        const current = value[0];
-        return {
-            disabled: dayjs(cell.time).diff(dayjs(current), 'days') > 3,
-            bottom: dayjs(cell.time).diff(dayjs(current), 'days') > 3
-                ? {
-                    label: '不可选',
-                }
-                : undefined,
-        };
-    }
-    return {};
+  if (Array.isArray(value) && value.length == 1) {
+    const current = value[0];
+    return {
+      disabled: dayjs(cell.time).diff(dayjs(current), 'days') > 3,
+      bottom:
+        dayjs(cell.time).diff(dayjs(current), 'days') > 3
+          ? {
+              label: '不可选',
+            }
+          : undefined,
+    };
+  }
+  return {};
 }
 ```
 
-### 受控模式
+### Controlled Mode
+
 ```xml
 <ant-calendar
   ref="handleRef"
@@ -116,77 +125,78 @@ function demoFormatter(cell, value) {
       type="primary"
       onTap="demo9HandlePreviousDay"
     >
-      上一天
+      Last day
     </ant-button>
     <ant-button
       type="primary"
       onTap="demo9HandleNextDay"
     >
-      下一天
+      Next day
     </ant-button>
     <ant-button
       type="primary"
       onTap="demo9HandleScrollIntoView"
     >
-      滚动到指定日期
+      Scroll to specified date
     </ant-button>
 ```
+
 ```js
 Page({
   data: {
-     demo9: {
-            visible: true,
-            value: nowDate,
+    demo9: {
+      visible: true,
+      value: nowDate,
     },
     demo9HandleChange(value) {
-        this.setData({
-            'demo9.value': value,
-        });
+      this.setData({
+        'demo9.value': value,
+      });
     },
     demo9HandlePreviousDay() {
-        this.setData({
-            'demo9.value': this.data.demo9.value - 1000 * 24 * 3600,
-        });
+      this.setData({
+        'demo9.value': this.data.demo9.value - 1000 * 24 * 3600,
+      });
     },
     demo9HandleNextDay() {
-        this.setData({
-            'demo9.value': this.data.demo9.value + 1000 * 24 * 3600,
-        });
+      this.setData({
+        'demo9.value': this.data.demo9.value + 1000 * 24 * 3600,
+      });
     },
     demo9HandleScrollIntoView() {
-        this.ref.scrollIntoView(nowDate);
+      this.ref.scrollIntoView(nowDate);
     },
   },
-
-})
+});
 ```
 
-### Demo代码
+### Demo Code
+
 <code src='../../demo/pages/Calendar/index' ></code>
 
 ## API
 
-以下为日历组件的属性及描述：
+The following are the properties and descriptions of the Calendar component:
 
-| 属性                    | 说明                                           | 类型                                                        | 默认值      |
+| Property                    | Description                                           | Type                                                        | Default Value      |
 | ----------------------- | ---------------------------------------------- | ----------------------------------------------------------- | ----------- |
-| defaultValue            | 初始值                                         | CalendarValue                                               | 无          |
-| value                   | 日历选择的日期，传入后即为受控模式             | CalendarValue                                               | 无          |
-| selectionMode           | 设置选择模式，单选或者连续区间，默认为 `range` | `single` \| `range`                                         | `range`     |
-| monthRange              | 月份范围，默认为最近 3 个月                    | `[number, number]`                                          | 最近 3 个月 |
-| weekStartsOn            | 星期栏，以周几作为第一天显示。默认为 `Sunday`  | `Sunday` \| `Monday`                                        | `Sunday`    |
-| onChange                | 日期变化回调                                   | (date: CalendarValue) => void                               | 无          |
-| onFormatter             | 用于Set custom data for cells                     | (cell: CellState, currentValue: CalendarValue) => CellState | 无          |
-| onMonthFormatter        | 用于设置月份的自定义数据                       | (month: any) => CellState                                   | 无          |
-| localeText              | 国际化文案                                     | Partial`<LocaleText>`                                       | 无          |
-| changedScrollIntoView   | 选中值改变后是否滚动视图                       | boolean                                                     | 无          |
-| showSelectableDatesOnly | 只展示在可选范围内的日期                       | boolean                                                     | false       |
+| defaultValue            | Initial value                                         | CalendarValue                                               | None          |
+| value                   | The date selected by the calendar, which is the controlled mode when passed in.             | CalendarValue                                               | None          |
+| selectionMode           | Set the selection mode, single selection or continuous interval, the default is `range` | `single` \| `range`                                         | `range`     |
+| monthRange              | Month range, default to the last 3 months                    | `[number, number]`                                          | Last 3 Months |
+| weekStartsOn            | The week column displays the day of the week as the first day. The default is `Sunday`  | `Sunday` \| `Monday`                                        | `Sunday`    |
+| onChange                | Date Change Callback                                   | (date: CalendarValue) => void                               | None          |
+| onFormatter             | Use to set custom data for cells                     | (cell: CellState, currentValue: CalendarValue) => CellState | None          |
+| onMonthFormatter        | Custom data for setting the month                       | (month: any) => CellState                                   | None          |
+| localeText              | International Copywriting                                     | Partial`<LocaleText>`                                       | None          |
+| changedScrollIntoView   | Whether to scroll the view after the selected value is changed                       | boolean                                                     | None          |
+| showSelectableDatesOnly | Show only dates in the selectable range                       | boolean                                                     | false       |
 
-### 类型
+### Type
 
-**CalendarValue** : 日历的值类型，为数字或数字元组 `number | [number,number]`，表示单选或连续日期区间。单位为毫秒的时间戳。
+**CalendarValue** The value type of the calendar, which is a number or a tuple of numbers `number | [number,number]`, which represents a single selection or continuous date interval. The timestamp in milliseconds.
 
-**CellState** : 定义了日历单元格的各种状态。
+**CellState** Defines the various states of the calendar cell.
 
 ```typescript
 interface CellState {
@@ -217,21 +227,21 @@ interface CellState {
 }
 ```
 
-### 主题定制
+### Theme customization
 
-#### 样式变量
+#### Style Variables
 
-组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| 变量名                           | 默认值                                                                                                                           | 备注                 |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| --calendar-cell-disabled-opacity | 0.4                                                                                                                              | 日历单元格禁用透明度 |
-| --calendar-weekday-names-bg      | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                | 日历星期名称背景颜色 |
-| --calendar-default-color         | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                | 日历默认颜色         |
-| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #666666">rgba(22, 119, 255, 0.1)</div> | 日历选中颜色         |
-| --calendar-assist-color          | <div style="width: 150px; height: 40px; background-color: #999999; color: #FFFFFF;">#999999</div>                                | 日历辅助颜色         |
-| --calendar-selected-end-color    | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                | Calendar selected end color     |
-| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div>                                | 日历选中颜色         |
+| Variable name                           | Default Value                                                                                                                           | Dark Mode Default                                                                                                                   | Remarks                 |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| --calendar-cell-disabled-opacity | 0.4                                                                                                                              | 0.4                                                                                                                              | Calendar cell transparency disabled |
+| --calendar-weekday-names-bg      | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                | Calendar Week Name Background Color |
+| --calendar-default-color         | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div>                                | Calendar default color         |
+| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #666666">rgba(22, 119, 255, 0.1)</div> | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #666666">rgba(22, 119, 255, 0.1)</div> | Calendar selected color         |
+| --calendar-assist-color          | <div style="width: 150px; height: 40px; background-color: #999999; color: #FFFFFF;">#999999</div>                                | <div style="width: 150px; height: 40px; background-color: #616161; color: #FFFFFF;">#616161</div>                                | Calendar Auxiliary Color         |
+| --calendar-selected-end-color    | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                | Calendar selected end color     |
+| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div>                                | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div>                                | Calendar selected color         |
 
 ## FAQ
 

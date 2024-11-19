@@ -9,11 +9,7 @@ toc: 'content'
 
 # Popup 弹出层
 
-从屏幕滑出或弹出一块自定义内容区。
-
-## 何时使用
-
-用于展示弹窗、信息提示、选择输入、切换等内容，支持多个弹出层叠加展示。
+从屏幕滑出或弹出一块自定义内容区。用于展示弹窗、信息提示、选择输入、切换等内容，支持多个弹出层叠加展示。
 
 ## 引入
 
@@ -42,7 +38,7 @@ toc: 'content'
 <ant-popup
   visible="{{ visible }}"
   position="bottom"
-  title="标题"
+  title="title"
   height="{{ 250 }}"
   width="{{ 250 }}"
   showClose="{{ true }}"
@@ -69,10 +65,10 @@ Page({
   },
   onClickBack() {
 #if ALIPAY
-    my.showToast({ content: '点击了返回icon', duration: 1000 });
+    my.showToast({ content: 'clicked icon', duration: 1000 });
 #endif
 #if WECHAT
-    wx.showToast({ content: '点击了返回icon', duration: 1000 });
+    wx.showToast({ content: 'clicked icon', duration: 1000 });
 #endif
   },
   handlePopupClose() {
@@ -150,6 +146,9 @@ Page({
 | visible                       | 是否显示                                                                                                                                                          | boolean    | false       |
 | width                         | 宽度, 在 position 为 `left` 或 `right` 时使用，单位 px                                                                                                            | number     | -           |
 | zIndex                        | 弹窗层级                                                                                                                                                          | number     | 998         |
+| backgroundImage               | 弹框的背景图                                                                                                                                                      | string     | -           |
+| showClose                     | 展示弹框关闭的 icon                                                                                                                                               | boolean    | false       |
+| showBack                      | 展示弹框返回的 icon                                                                                                                                               | boolean    | false       |
 | #if ALIPAY onClose            | 点击蒙层关闭，触发回调                                                                                                                                            | () => void | -           |
 | #if ALIPAY onClickBack        | 点击返回按钮，触发回调                                                                                                                                            | () => void | -           |
 | #if ALIPAY onAfterShow        | 完全展示后触发                                                                                                                                                    | () => void | -           |
@@ -165,12 +164,12 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                | 默认值                                                                                                              | 备注                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| --popup-background    | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                   | Popup 背景颜色         |
-| --popup-color         | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                   | Popup 文字颜色         |
-| --popup-assit-color   | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div>                   | Popup 辅助文字颜色     |
-| --popup-mask-close-bg | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 1); color: #ffffff;">rgba(0, 0, 0, 1)</div> | Popup 遮罩关闭背景颜色 |
+| 变量名                       | 默认值                                                                                                                    | 深色模式默认值                                                                                                            | 备注                     |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| --popover-list-content-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.93); color: #ffffff;">rgba(0, 0, 0, 0.93)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.93); color: #ffffff;">rgba(0, 0, 0, 0.93)</div> | Popover 列表内容背景颜色 |
+| --popover-list-content-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | Popover 列表内容颜色     |
+| --popover-list-badge-color   | <div style="width: 150px; height: 30px; background-color: #ff411c; color: #ffffff;">#ff411c</div>                         | <div style="width: 150px; height: 30px; background-color: #ff411c; color: #ffffff;">#ff411c</div>                         | Popover 列表徽章颜色     |
+| --popover-list-content-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                         | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | Popover 列表内容文字颜色 |
 
 ## FAQ
 

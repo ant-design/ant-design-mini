@@ -1,0 +1,25 @@
+<form-item
+  className="{{className}}"
+  position="{{position}}"
+  label="{{label}}"
+  status="{{formData.status}}"
+  errors="{{formData.errors}}"
+  tooltip="{{tooltip}}"
+  required="{{formData.required}}"
+  requiredMark="{{requiredMark}}"
+  validateStatus="{{validateStatus}}"
+  help="{{help}}"
+>
+  <view
+    class="input"
+    bind:tap="showPopup"
+  >
+    <view class="input-location">
+      <view wx:if="{{formData.value}}">{{formData.value.name}}</view>
+      <view wx:if="{{formData.value}}">{{formData.value.address}}</view>
+    </view>
+    <view class="choose">请选择<icon type="RightOutline"></icon>
+    </view>
+  </view>
+  <view slot="extra">{{extra}}</view>
+</form-item>

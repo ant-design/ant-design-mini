@@ -13,7 +13,9 @@
   position: absolute;
   top: 20rpx;
   right: 20rpx;
-  font-size: 36rpx;
+}
+.ant-popover-close .ant-popover-close-icon .ant-icon {
+  color: var(--popover-inner-color, #ffffff);
 }
 .ant-popover-image {
   padding-right: 24rpx;
@@ -44,13 +46,16 @@
   border-radius: 24rpx;
   overflow: hidden;
   font-size: 28rpx;
-  background-color: var(--color-background-popover, #404040);
-  color: var(--popover-inner-color, #ff3141);
+  background-color: var(--popover-color-background, #404040);
+  color: var(--popover-inner-color, #ffffff);
   padding: 20rpx;
   width: max-content;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+.ant-popover-inner .ant-icon {
+  color: var(--popover-inner-color, #ffffff);
 }
 .ant-popover-inner-text {
   word-break: break-all;
@@ -73,7 +78,7 @@
   height: 0;
   border-left: 18rpx solid transparent;
   border-right: 18rpx solid transparent;
-  border-bottom: 18rpx solid var(--color-background-popover, #404040);
+  border-bottom: 18rpx solid var(--popover-color-background, #404040);
 }
 .ant-popover-top {
   transform: translate(-50%, -100%);

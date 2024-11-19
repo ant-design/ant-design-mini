@@ -2,16 +2,20 @@
   from="./index.sjs"
   name="utils"
 ></import-sjs>
+<import-sjs
+  from="../_util/isPropsEmpty.sjs"
+  name="u"
+></import-sjs>
 <view
   a:if="{{visible}}"
   class="ant-guide-tour {{className || ''}}"
   style="{{style || ''}}"
 >
-  <mask
+  <ant-mask
     show
     className="{{maskClassName}}"
     style="z-index:9999;{{maskStyle || ''}}"
-  ></mask>
+  ></ant-mask>
   <ant-icon
     type="CloseOutline"
     className="ant-guide-tour-clear"
@@ -24,7 +28,13 @@
       size="small"
       onTap="onCancel"
     >
-      {{jumpText === undefined ? locale.guideTour.jumpText : jumpText}}
+      <ant-auto-resize
+        text="{{u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}"
+        minFontSize="24"
+        maxFontSize="30"
+      >
+        {{u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}
+      </ant-auto-resize>
     </ant-button>
     <ant-button
       a:if="{{utils.checkShowPrev(mixin.value, items)}}"
@@ -33,7 +43,13 @@
       onTap="onPrev"
       data-currentValue="{{mixin.value}}"
     >
-      {{prevStepText === undefined ? locale.guideTour.prevStepText : prevStepText}}
+      <ant-auto-resize
+        text="{{u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}"
+        minFontSize="24"
+        maxFontSize="30"
+      >
+        {{u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}
+      </ant-auto-resize>
     </ant-button>
     <ant-button
       a:if="{{utils.checkShowNext(mixin.value, items)}}"
@@ -42,7 +58,13 @@
       onTap="onNext"
       data-currentValue="{{mixin.value}}"
     >
-      {{nextStepText === undefined ? locale.guideTour.nextStepText : nextStepText}}
+      <ant-auto-resize
+        text="{{u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}"
+        minFontSize="24"
+        maxFontSize="30"
+      >
+        {{u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}
+      </ant-auto-resize>
     </ant-button>
     <ant-button
       a:if="{{utils.checkShowKnow(mixin.value, items)}}"
@@ -50,7 +72,13 @@
       size="small"
       onTap="onCancel"
     >
-      {{gotItText === undefined ? locale.guideTour.gotItText : gotItText}}
+      <ant-auto-resize
+        text="{{u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}"
+        minFontSize="24"
+        maxFontSize="30"
+      >
+        {{u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}
+      </ant-auto-resize>
     </ant-button>
   </view>
   <block a:if="{{swiperable}}">

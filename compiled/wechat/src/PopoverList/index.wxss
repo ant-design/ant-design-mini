@@ -45,7 +45,7 @@
   position: absolute;
   top: 0;
   left: 16rpx;
-  width: calc(200% - 192 * 1rpx);
+  width: calc(200% - 192rpx);
   height: 2rpx;
   transform: scale(0.5);
   background: var(--popover-list-content-color, #333333);
@@ -61,6 +61,7 @@
   font-size: 48rpx;
   width: 48rpx;
   height: 48rpx;
+  color: var(--popover-list-content-color, #333333);
 }
 .ant-popover-list-item-image {
   width: 48rpx;

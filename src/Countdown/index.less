@@ -1,0 +1,62 @@
+@import (reference) './variable.less';
+
+@countdownPrefix: ant-countdown;
+
+.@{countdownPrefix} {
+  font-size: 26 * @rpx;
+  line-height: 37 * @rpx;
+  color: @ant-countdown-color;
+  display: inline-flex;
+  align-items: center;
+  &-time {
+    // 对视觉稿完美还原，需要加这个
+    transform: translateY(1 * @rpx);
+    &-prefix {
+      padding-right: 2 * @rpx;
+    }
+    &-day {
+    }
+    &-colon {
+      // 为了还原视觉稿这里使用的是中文冒号，还需要一些微调
+      margin-right: -18 * @rpx;
+      margin-left: -3 * @rpx;
+      transform: translateY(1 * @rpx);
+    }
+    &-num {
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40 * @rpx;
+      padding: 0 4 * @rpx;
+      height: 40 * @rpx;
+      margin: 0 6 * @rpx;
+      border-radius: 6 * @rpx;
+      font-size: 26 * @rpx;
+      line-height: 37 * @rpx;
+      color: @ant-countdown-number-color;
+      letter-spacing: 0;
+      background-color: @ant-countdown-number-bg;
+    }
+  }
+}
+
+@keyframes ds-countdown {
+  0% { content: "9"; }
+  10% { content: "8"; }
+  20% { content: "7"; }
+  30% { content: "6"; }
+  40% { content: "5"; }
+  50% { content: "4"; }
+  60% { content: "3"; }
+  70% { content: "2"; }
+  80% { content: "1"; }
+  90% { content: "0"; }
+  100% { content: "9"; }
+}
+
+.ds-countdown::after {
+  display: inline-block;
+  animation: ds-countdown 1s infinite;
+  content: "9";
+}

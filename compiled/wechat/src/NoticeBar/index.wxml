@@ -16,14 +16,14 @@
       image="{{icon}}"
       className="ant-notice-bar-icon-image"
     ></image-icon>
-    <icon
+    <ant-icon
       wx:elif="{{type === 'error'}}"
       type="InformationCircleOutline"
-    ></icon>
-    <icon
+    ></ant-icon>
+    <ant-icon
       wx:else
       type="SoundOutline"
-    ></icon>
+    ></ant-icon>
   </view>
   <view class="ant-notice-bar-content ant-notice-bar-content{{$id ? '-' + $id : ''}}">
     <view
@@ -36,17 +36,17 @@
   </view>
   <view class="ant-notice-bar-operation">
     <slot name="extra"></slot>
-    <icon
+    <ant-icon
       wx:if="{{mode === 'link'}}"
       className="ant-notice-bar-operation-icon"
       type="RightOutline"
       bind:tap="onTap"
-    ></icon>
-    <icon
+    ></ant-icon>
+    <ant-icon
       wx:if="{{mode === 'closeable'}}"
       className="ant-notice-bar-operation-icon"
       type="CloseOutline"
       bind:tap="onTap"
-    ></icon>
+    ></ant-icon>
   </view>
 </view>

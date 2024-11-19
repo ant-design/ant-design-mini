@@ -9,12 +9,7 @@ toc: 'content'
 
 # Checkbox 复选框
 
-在一组可选项中进行多选。
-
-## 何时使用
-
-- 在一组可选项中进行多项选择时。
-- 单独使用时可以表示两种状态之间的切换，与 `switch` 类似。区别在于，切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要与提交操作配合。
+在一组可选项中进行多选。单独使用时可以表示两种状态之间的切换，与 `switch` 类似。区别在于，切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要与提交操作配合。
 
 ## 引入
 
@@ -259,11 +254,11 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                                | 默认值                                                                                            | 备注                 |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
-| --checkbox-header-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | 复选框标题颜色       |
-| --checkbox-border-color               | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | 复选框边框颜色       |
-| --checkbox-background-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | 复选框背景颜色       |
-| --checkbox-disabled-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | 复选框禁用背景颜色   |
-| --checkbox-text-color                 | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | 复选框文本颜色       |
-| --checkbox-fake-icon-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 复选框假图标背景颜色 |
+| 变量名                                | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注                 |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
+| --checkbox-header-color               | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 复选框标题颜色       |
+| --checkbox-border-color               | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #fff;">#474747</div> | 复选框边框颜色       |
+| --checkbox-background-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | 复选框背景颜色       |
+| --checkbox-disabled-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #fff;">#121212</div> | 复选框禁用背景颜色   |
+| --checkbox-text-color                 | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 复选框文本颜色       |
+| --checkbox-fake-icon-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | 复选框假图标背景颜色 |

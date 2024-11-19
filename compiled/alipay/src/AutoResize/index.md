@@ -3,13 +3,11 @@ nav:
   path: /components
 group:
   title: 实验性
-  order: 15
+  order: 16
 toc: 'content'
 ---
 
 # AutoResize 文本自适应
-
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
 徽标，显示红点、数字或文字。用于提醒用户，有待处理的事项或者新的更新数量。
 

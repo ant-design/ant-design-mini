@@ -37,9 +37,13 @@ Page({
   },
   onNextTap() {
     if (this.data.current === this.data.items.length - 1) {
-      my.alert({
-        content: '完成',
-      });
+      /// #if ALIPAY
+      my.showToast({ content: '完成', duration: 1000 });
+      /// #endif
+      /// #if WECHAT
+      // @ts-ignore
+      wx.showToast({ title: '完成' });
+      /// #endif
       return;
     }
     this.setData({

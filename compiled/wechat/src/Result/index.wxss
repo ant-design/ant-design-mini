@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 .ant-result-icon {
+  display: block;
   font-size: 110rpx;
 }
 .ant-result-main {

@@ -3,7 +3,7 @@ nav:
   path: /components
 group:
   title: 实验性
-  order: 15
+  order: 16
 toc: 'content'
 supportPlatform: ['alipay']
 ---
@@ -37,8 +37,8 @@ supportPlatform: ['alipay']
   loadingColor="#ccc"
   loadingSize="medium"
   loadingType="spin"
-  actionText="刷新"
-  secondaryActionText="网络异常"
+  actionText="refresh"
+  secondaryActionText="internet error"
   onActionTap="handleRefresh"
   onSecondaryActionTap="handleSwitchToDisconnected"
 >
@@ -112,6 +112,6 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                            | 默认值                                                                            | 备注             |
-| --------------------------------- | --------------------------------------------------------------------------------- | ---------------- |
-| --page-container-background-color | <div style="width: 150px; height: 30px; background-color: #f5f5f5;">#f5f5f5</div> | 页面容器背景颜色 |
+| 变量名                            | 默认值                                                                            | 深色模式默认值                                                                                    | 备注             |
+| --------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --page-container-background-color | <div style="width: 150px; height: 30px; background-color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | 页面容器背景颜色 |
