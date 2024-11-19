@@ -1,17 +1,17 @@
-@import (reference) '../style/themes/index.less';
+@import (reference) './variable.less';
 
 @cardPrefix: ant-card;
 
 .@{cardPrefix} {
   border-radius: 24 * @rpx;
-  background-color: #fff;
+  background-color: @ant-card-bg;
 
   &-header {
     display: flex;
     padding: 24 * @rpx;
     justify-content: space-between;
     &-title {
-      color: #333;
+      color: @ant-card-header-title-color;
       line-height: 45 * @rpx;
       font-size: 32 * @rpx;
     }
@@ -20,7 +20,7 @@
         display: flex;
         align-items: center;
         font-size: 28 * @rpx;
-        color: #999;
+        color: @ant-card-link-color;
       }
     }
 
@@ -31,12 +31,12 @@
     &-fold {
       &-btn {
         font-size: 26 * @rpx;
-        color: #1677ff;
+        color: @ant-card-fold-btn-color;
       }
       &-icon {
         font-size: 26 * @rpx;
         margin-left: 8 * @rpx;
-        color: #1677ff;
+        color: @ant-card-fold-btn-color;
       }
     }
   }

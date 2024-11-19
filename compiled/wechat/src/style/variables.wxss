@@ -356,4 +356,8 @@ page {
   --voucher-action-right-desc-color: rgba(255, 255, 255, 0.8);
   --voucher-item-right-title-color: #383939;
   --voucher-item-right-title-color: #666;
+  --ant-card-bg: #ffffff;
+  --ant-card-header-title-color: #333333;
+  --ant-card-header-link-color: #999999;
+  --ant-card-fold-btn-color: #1677ff;
 }
