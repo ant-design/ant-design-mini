@@ -165,7 +165,6 @@ ComponentWithSignalStoreImpl({
     // scroll 触发滚动之后需要重置 scrollIntoViewId
     updateScrollIntoViewId: function (id) {
         var _this = this;
-        console.log(id);
         this.setData({ scrollIntoViewId: id });
         var timer = setTimeout(function () {
             _this.setData({ scrollIntoViewId: '' });
