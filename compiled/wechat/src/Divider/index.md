@@ -8,12 +8,7 @@ toc: 'content'
 
 # Divider 分割线
 
-区隔内容的分割线。
-
-## 何时使用
-
-- 对不同章节的文本段落进行分割。
-- 对行内文字/链接进行分割，例如表格的操作列。
+区隔内容的分割线。对不同章节的文本段落进行分割。对行内文字/链接进行分割，例如表格的操作列。
 
 ## 引入
 
@@ -50,21 +45,22 @@ toc: 'content'
 
 ```xml
  <ant-divider
-    text="custom styles"
-    textStyle="color:#1677ff; fontWeight:600"
-    lineHeight="{{ 2 }}"
-    lineType="dashed"
-    lineColor="#1677ff" />
+  text="custom styles"
+  textStyle="color:#1677ff; fontWeight:600"
+  lineHeight="{{ 2 }}"
+  lineType="dashed"
+  lineColor="#1677ff"
+/>
 ```
 
 ### 垂直分割线
 
 ```xml
- <view class="divider-vertical">
-    <view>100m</view>
-    <ant-divider direction="vertical" />
-    <view>detail address</view>
-  </view>
+<view class="divider-vertical">
+  <view>100m</view>
+  <ant-divider direction="vertical" />
+  <view>detail address</view>
+</view>
 ```
 
 ### Demo 代码

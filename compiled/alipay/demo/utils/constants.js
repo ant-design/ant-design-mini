@@ -68,11 +68,6 @@ export const componentList = [
                 path: '/pages/Grid/index',
             },
             {
-                name: 'Container',
-                nameZN: '容器',
-                path: '/pages/Container/index',
-            },
-            {
                 name: 'List',
                 nameZN: '列表',
                 path: '/pages/List/index',
@@ -253,11 +248,6 @@ export const componentList = [
                 path: '/pages/Dialog/index',
             },
             {
-                name: 'Modal',
-                nameZN: '对话框',
-                path: '/pages/Modal/index',
-            },
-            {
                 name: 'Popover',
                 nameZN: '气泡卡片',
                 path: '/pages/Popover/index',
@@ -356,6 +346,21 @@ export const componentList = [
                 name: 'SafeArea',
                 nameZN: '安全区',
                 path: '/pages/SafeArea/index',
+            },
+        ],
+    },
+    {
+        type: '待废弃',
+        list: [
+            {
+                name: 'Container',
+                nameZN: '容器',
+                path: '/pages/Container/index',
+            },
+            {
+                name: 'Modal',
+                nameZN: '对话框',
+                path: '/pages/Modal/index',
             },
         ],
     },
