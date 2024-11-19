@@ -1,4 +1,4 @@
-<ant-container title="基础用法-主题色蓝色">
+<ant-container title="基础用法">
   <countdown countdownEndTime="{{ countdownDay }}" countdownType="day" onCountdownChange="handleCountdownChange">
     <text slot="prefix">剩余时间</text>
     <text slot="suffix">就开始抢购啦</text>
@@ -7,12 +7,6 @@
   <countdown className="marginTop" countdownEndTime="{{ countdownAutoDay }}" countdownType="day" onCountdownChange="handleCountdownChange">
     <text slot="prefix">剩余时间</text>
     <text slot="suffix">就开始抢购啦</text>
-  </countdown>
-</ant-container>
-
-<ant-container title="基础用法-主题色红色">
-  <countdown theme="{{{backgroundColor:'#ffffff',timeColor:'#ff3141',textColor:'#ff3141'}}}" countdownEndTime="{{ countdownDay }}" countdownType="day" onCountdownChange="handleCountdownChange">
-    <text slot="prefix">剩余</text>
   </countdown>
 </ant-container>
 
@@ -47,11 +41,6 @@
 
 <ant-container title="上来就是0">
   <countdown countdownEndTime="{{ countdownCurrent }}" onCountdownFinish="handleCountdownEnd"></countdown>
-</ant-container>
-
-<ant-container title="支持秒后一位(厘秒)倒计时">
-  <countdown countdownEndTime="{{ countdownDay }}" onCountdownChange="handleCountdownChange" themeDisabled="{{true}}" decisecond="{{true}}">
-  </countdown>
 </ant-container>
 
 <view style="height: 140rpx"></view>

@@ -1,11 +1,11 @@
-@import (reference) '../style/themes/index.less';
+@import (reference) './variable.less';
 
 @countdownPrefix: ant-countdown;
 
 .@{countdownPrefix} {
   font-size: 26 * @rpx;
   line-height: 37 * @rpx;
-  color: #666;
+  color: @ant-countdown-color;
   display: inline-flex;
   align-items: center;
   &-time {
@@ -34,8 +34,9 @@
       border-radius: 6 * @rpx;
       font-size: 26 * @rpx;
       line-height: 37 * @rpx;
-      color: #fff;
+      color: @ant-countdown-number-color;
       letter-spacing: 0;
+      background-color: @ant-countdown-number-bg;
     }
   }
 }
