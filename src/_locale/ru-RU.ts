@@ -9,6 +9,9 @@ const ruRU: Locale = {
     okText: 'Конечно',
     cancelText: 'Отмена',
   },
+  input: {
+    placeholder: 'Пожалуйста, введите',
+  },
   calendar: {
     weekdayNames: [
       'Понедельник',
