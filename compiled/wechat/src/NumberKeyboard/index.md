@@ -39,37 +39,37 @@ toc: 'content'
 #### 默认键盘
 
 ```xml
-<ant-number-keyboard visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard visible="{{ visible }}" />
 ```
 
 #### 没有小数点
 
 ```xml
-<ant-number-keyboard point="{{ false }}" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard point="{{ false }}" visible="{{ visible }}" />
 ```
 
 #### 带确认按钮
 
 ```xml
-<ant-number-keyboard confirmText="confirm" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard confirmText="confirm" visible="{{ visible }}" />
 ```
 
 #### 带关闭箭头
 
 ```xml
-<ant-number-keyboard closeable="{{ true }}" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard closeable="{{ true }}" visible="{{ visible }}" />
 ```
 
 #### 乱序键盘
 
 ```xml
-<ant-number-keyboard random="{{ true }}" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard random="{{ true }}" visible="{{ visible }}" />
 ```
 
 #### 自定义按钮
 
 ```xml
-<ant-number-keyboard visible="{{ visible }}" onClose="onTap" >
+<ant-number-keyboard visible="{{ visible }}" >
   <view
       slot="header"
       class="number-keyboard-header"
@@ -78,7 +78,7 @@ toc: 'content'
     </view>
 </ant-number-keyboard>
 
-<ant-number-keyboard visible="{{ visible }}" onClose="onTap" >
+<ant-number-keyboard visible="{{ visible }}" >
   <view
     slot="confirm"
     class="number-keyboard-confirm"
@@ -103,30 +103,31 @@ toc: 'content'
 
 ## API
 
-| 属性            | 说明             | 类型                  | 默认值 |
-| --------------- | ---------------- | --------------------- | ------ |
-| className       | 类名             | string                | -      |
-| style           | 样式             | string                | -      |
-| value           | 输入值           | string                | -      |
-| visible         | 展示             | boolean               | false  |
-| vibrate         | 震动             | boolean               | true   |
-| closeable       | 关闭箭头         | boolean               | false  |
-| point           | 小数点           | boolean               | true   |
-| random          | 乱序             | boolean               | false  |
-| confirmDisabled | 禁用确认按钮     | boolean               | false  |
-| safeArea        | 安全距离         | boolean               | true   |
-| confirmText     | 确认按钮的文字   | string                | -      |
-| header          | 覆盖键盘的标题栏 | slot                  | -      |
-| confirm         | 覆盖键盘确认按钮 | slot                  | -      |
-| onChange        | 数字变化时的回调 | (val: string) => void | -      |
-| onClose         | 隐藏键盘时的回调 | () => void            | -      |
-| onConfirm       | 点击确认时的回调 | () => void            | -      |
+| 属性                    | 说明             | 类型                  | 默认值 |
+| ----------------------- | ---------------- | --------------------- | ------ |
+| className               | 类名             | string                | -      |
+| style                   | 样式             | string                | -      |
+| value                   | 输入值           | string                | -      |
+| visible                 | 展示             | boolean               | false  |
+| vibrate                 | 震动             | boolean               | true   |
+| closeable               | 关闭箭头         | boolean               | false  |
+| point                   | 小数点           | boolean               | true   |
+| random                  | 乱序             | boolean               | false  |
+| confirmDisabled         | 禁用确认按钮     | boolean               | false  |
+| safeArea                | 安全距离         | boolean               | true   |
+| confirmText             | 确认按钮的文字   | string                | -      |
+| header                  | 覆盖键盘的标题栏 | slot                  | -      |
+| confirm                 | 覆盖键盘确认按钮 | slot                  | -      |
+| #if ALIPAY onChange     | 数字变化时的回调 | (val: string) => void | -      |
+| #if ALIPAY onClose      | 隐藏键盘时的回调 | () => void            | -      |
+| #if ALIPAY onConfirm    | 点击确认时的回调 | () => void            | -      |
+| #if WECHAT bind:change  | 数字变化时的回调 | (val: string) => void | -      |
+| #if WECHAT bind:close   | 隐藏键盘时的回调 | () => void            | -      |
+| #if WECHAT bind:confirm | 点击确认时的回调 | () => void            | -      |
 
 ### 主题定制
 
 #### 样式变量
-
-组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
