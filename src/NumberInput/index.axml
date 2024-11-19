@@ -1,0 +1,43 @@
+<view class="ant-number-input {{className}}" style="{{style}}">
+  <!-- 标题区 -->
+  <view class="ant-number-input-header">
+    <text class="ant-number-input-title">{{title}}</text>
+    <text a:if="{{linkText}}" onTap="handleLinkTap" class="ant-number-input-link">{{linkText}}</text>
+  </view>
+
+  <!-- 单位展示区 -->
+  <view class="ant-number-input-unit">
+    <view class="ant-number-input-unit-text" >{{unit}}</view>
+  </view>
+
+  <!-- 输入区 -->
+  <view class="ant-number-input-content">
+    <text class="ant-number-input-prefix">{{prefix}}</text>
+    <ant-input
+      class="ant-number-input-field"
+      placeholderClassName="ant-number-input-placeholder"
+      value="{{value}}"
+      placeholder="{{placeholder}}"
+      type="digit"
+      allowClear
+      maxLength="10"
+      onChange="handleInput"
+    />
+  </view>
+  <view class="ant-number-input-footer">
+  <!-- 快捷金额区 -->
+    <view class="ant-number-input-quick">
+      <view
+        class="ant-number-input-quick-item"
+        a:for="{{quickAmounts}}"
+        data-value="{{item}}"
+        onTap="handleQuickInput"
+      >
+        {{prefix}}{{item}}
+      </view>
+    </view>
+
+    <!-- 底部slot -->
+    <slot name="footer"></slot>
+  </view>
+</view>

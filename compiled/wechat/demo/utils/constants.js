@@ -362,6 +362,16 @@ export const componentList = [
                 nameZN: '数字键盘-数字输入框',
                 path: '/pages/NumberKeyboardNumber/index',
             },
+            {
+                name: 'Postscript',
+                nameZN: '资金附言',
+                path: '/pages/Postscript/index',
+            },
+            {
+                name: 'NumberInput',
+                nameZN: '金额输入框',
+                path: '/pages/NumberInput/index',
+            },
         ],
     },
     {

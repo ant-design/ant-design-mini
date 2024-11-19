@@ -82,6 +82,8 @@
     "pages/Popup",
     "pages/Checkbox",
     "pages/Picker",
+    "pages/Postscript",
+    "pages/NumberInput",
     "pages/DatePicker"
   ],
   "src": [

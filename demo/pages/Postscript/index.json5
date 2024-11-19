@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Postscript",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Postscript",
+  /// #endif
+
+  "usingComponents": {
+    "ant-postscript": "../../../src/Postscript/index",
+    "container": "../../../src/Container/index"
+  }
+}
