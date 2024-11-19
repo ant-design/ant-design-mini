@@ -289,7 +289,7 @@ page {
   --rate-active-icon: #ffa930;
   --rate-icon-color: #2b2b2b;
   --result-main-background: #1a1a1a;
-  --result-title-color: #000000;
+  --result-title-color: #ffffff;
   --result-desc-color: #c5cad1;
   --result-success-color: #3086ff;
   --result-error-color: #ff3b30;
