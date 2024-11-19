@@ -12,7 +12,7 @@
       onTap="onCancel"
     >
       <!-- #if ALIPAY -->
-      <ant-auto-resize text="{{ u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}" minFontSize="24" maxFontSize="30">
+      <ant-auto-resize text="{{ u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}" ratio="{{ 4 }}" minFontSize="20" maxFontSize="30">
       <!-- #endif -->
         {{ u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}
       <!-- #if ALIPAY -->
@@ -27,7 +27,7 @@
       data-currentValue="{{ mixin.value }}"
     >
       <!-- #if ALIPAY -->
-      <ant-auto-resize text="{{ u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}" minFontSize="24" maxFontSize="30">
+      <ant-auto-resize text="{{ u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}" ratio="{{ 4 }}" minFontSize="20" maxFontSize="30">
       <!-- #endif -->
         {{ u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}
       <!-- #if ALIPAY -->
@@ -42,7 +42,7 @@
       data-currentValue="{{ mixin.value }}"
     >
       <!-- #if ALIPAY -->
-      <ant-auto-resize text="{{ u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}" minFontSize="24" maxFontSize="30">
+      <ant-auto-resize text="{{ u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}" ratio="{{4}}" minFontSize="20" maxFontSize="30">
       <!-- #endif -->
         {{ u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}
       <!-- #if ALIPAY -->
@@ -56,7 +56,7 @@
       onTap="onCancel"
     >
       <!-- #if ALIPAY -->
-      <ant-auto-resize text="{{ u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}" minFontSize="24" maxFontSize="30">
+      <ant-auto-resize text="{{ u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}" ratio="{{ 4 }}" minFontSize="20" maxFontSize="30">
       <!-- #endif -->
         {{ u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}
       <!-- #if ALIPAY -->

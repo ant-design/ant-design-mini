@@ -22,7 +22,7 @@ var enUS = {
     guideTour: {
         gotItText: 'Got it',
         nextStepText: 'Next step',
-        prevStepText: 'Previous step',
+        prevStepText: 'Prev step',
         jumpText: 'Skip',
     },
     imageUpload: {
