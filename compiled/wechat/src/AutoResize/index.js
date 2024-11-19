@@ -58,6 +58,8 @@ Component(AutoResizeDefaultProps, {
         var _this = this;
         // 用createSelectorQuery来获取容器尺寸信息
         this.getBoundingClientRect('.ant-autoresize-fontsize-container').then(function (rect) {
+            if (!rect)
+                return;
             var _a = getValueFromProps(_this, [
                 'text',
                 'maxFontSize',

@@ -20,8 +20,8 @@
         <!--display: inline-->
         <ant-auto-resize
           text="{{item}}"
-          min-font-size="13"
-          max-font-size="28"
+          minFontSize="13"
+          maxFontSize="28"
         >
           <text>{{item}}</text>
         </ant-auto-resize>
@@ -41,16 +41,16 @@
     </view>
   </view>
   <scroll-view
-    scroll-y="{{true}}"
+    scrollY="{{true}}"
     class="ant-calendar-body"
     data-elementsize="{{elementSize}}"
     data-monthlist="{{monthList}}"
     onScroll="{{scroll.handleScroll}}"
-    scroll-into-view="{{scrollIntoViewId}}"
-    scroll-with-animation
-    scroll-animation-duration="{{300}}"
-    disable-lower-scroll="out-of-bounds"
-    disable-upper-scroll="out-of-bounds"
+    scrollIntoView="{{scrollIntoViewId}}"
+    scrollWithAnimation
+    scrollAnimationDuration="{{300}}"
+    disableLowerScroll="out-of-bounds"
+    disableUpperScroll="out-of-bounds"
     ref="handleRef"
   >
     <block
@@ -85,8 +85,8 @@
                     <!--display: inline-->
                     <ant-auto-resize
                       text="{{item.top.label}}"
-                      min-font-size="13"
-                      max-font-size="18"
+                      minFontSize="13"
+                      maxFontSize="18"
                     >
                       <text
                         a:if="{{item.top}}"

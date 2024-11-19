@@ -8,7 +8,7 @@
           onCancel="handleDismissPicker"
           onVisibleChange="handleTriggerPicker"
           onOk="handleOk"
-          default-value="{{defaultValue}}"
+          defaultValue="{{defaultValue}}"
           title="pelese Select"
           onChange="handleChange"
           options="{{list}}"
@@ -18,7 +18,7 @@
         Date
         <ant-range-picker
           slot="extra"
-          default-value="{{defaultDateRange}}"
+          defaultValue="{{defaultDateRange}}"
           onPickerChange="handlePickerRangeChange"
           onVisibleChange="handleTriggerPicker"
           onOk="handleRangeOk"
@@ -42,7 +42,7 @@
 </ant-container>
 <ant-container title="Theme">
   <ant-config-provider
-    theme-vars="{{themeVars}}"
+    themeVars="{{themeVars}}"
     locale="{{locale}}"
   >
     <ant-button

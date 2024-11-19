@@ -9,4 +9,5 @@ export var CalendarDefaultProps = {
     onMonthFormatter: null,
     changedScrollIntoView: null,
     showSelectableDatesOnly: false,
+    onChange: function () { },
 };

@@ -21,6 +21,9 @@
           <text>{{ item }}</text>
         </ant-auto-resize>
         <!-- #endif -->
+        <!-- #if WECHAT -->
+        <text>{{ item }}</text>
+        <!-- #endif -->
       </view>
     </block>
   </view>
