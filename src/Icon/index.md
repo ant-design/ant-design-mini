@@ -9,8 +9,6 @@ toc: 'content'
 
 # Icon 图标
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
 语义化的矢量图形。
 
 ## 何时使用
@@ -23,7 +21,12 @@ toc: 'content'
 
 ```json
 "usingComponents": {
+#if ALIPAY
   "ant-icon": "antd-mini/es/Icon/index"
+#endif
+#if WECHAT
+  "ant-icon": "antd-mini/Icon/index"
+#endif
 }
 ```
 
@@ -50,17 +53,19 @@ toc: 'content'
 
 ### Demo 代码
 
-<code src='../../demo/pages/Icon/index' noChangeButton></code>
+<code src='../../demo/pages/Icon/index'></code>
 
 ## API
 
-| 属性      | 说明                     | 类型               | 默认值 |
-| :-------- | :----------------------- | :----------------- | :----- |
-| className | 类名                     | string             | -      |
-| style     | 样式                     | string             | -      |
-| type      | 图标的类型               | string             | -      |
-| catchTap  | 点击图标时触发的回调函数 | (e: Event) => void | -      |
-| onTap     | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+| 属性                 | 说明                     | 类型               | 默认值 |
+| :------------------- | :----------------------- | :----------------- | :----- |
+| className            | 类名                     | string             | -      |
+| style                | 样式                     | string             | -      |
+| type                 | 图标的类型               | string             | -      |
+| #if ALIPAY catchTap  | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+| #if ALIPAY onTap     | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+| #if WECHAT catch:tap | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+| #if WECHAT bind:tap  | 点击图标时触发的回调函数 | (e: Event) => void | -      |
 
 ### 主题定制
 

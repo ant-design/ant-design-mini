@@ -135,4 +135,8 @@ export const wechatCustomMapping = {
     onFoldChange: 'bind:foldchange',
     onTitleSticky: 'bind:titlesticky',
   },
+  'ant-icon': {
+    catchTap: 'catch:tap',
+    onTap: 'bind:tap',
+  },
 };
