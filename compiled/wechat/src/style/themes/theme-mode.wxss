@@ -212,6 +212,7 @@
     --checkbox-text-color: #333333;
     --checkbox-fake-icon-background-color: #ffffff;
     --checklist-background-color: #1677ff;
+    --checklist-font-color: #333333;
     --check-list-item-background-color: #ffffff;
     --check-list-item-hover-background-color: #eeeeee;
     --check-list-item-content-color: #333333;
@@ -579,6 +580,7 @@
     --checkbox-text-color: #c5cad1;
     --checkbox-fake-icon-background-color: #1a1a1a;
     --checklist-background-color: #3086ff;
+    --checklist-font-color: #c5cad1;
     --check-list-item-background-color: #1a1a1a;
     --check-list-item-hover-background-color: #2b2b2b;
     --check-list-item-content-color: #c5cad1;
