@@ -2,18 +2,14 @@
 nav:
   path: /components
 group:
-  title: 信息展示
-  order: 8
+  title: 待废弃
+  order: 99
 toc: 'content'
 ---
 
 # Container 容器
 
-通用卡片容器。
-
-## 何时使用
-
-当需要承载文字、列表、图片、段落等内容时，使用 Container 容器以方便用户浏览。
+不建议使用，此组件即将废弃。推荐使用 [Card](/components/card) 组件，拥有最新设计规范和更丰富功能。
 
 ## 引入
 

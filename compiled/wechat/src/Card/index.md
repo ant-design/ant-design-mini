@@ -2,16 +2,16 @@
 nav:
   path: /components
 group:
-  title: 业务组件
-  order: 15
-toc: content
+  title: 信息展示
+  order: 8
+toc: 'content'
 ---
 
-# Card 基础卡片
+# Card 卡片
 
 ## 何时使用
 
-基础的卡片容器。
+基础的卡片容器。当需要承载文字、列表、图片、段落等内容时，使用 Card 卡片容器以方便用户浏览。
 
 ## 引入
 
@@ -27,18 +27,20 @@ toc: content
 #endif
 }
 ```
+
 ## 代码示例
 
 ### 基础用法
+
 ```xml
-<ant-card 
+<ant-card
 #if ALIPAY
-  onOperateClick="handleLinkClick" 
+  onOperateClick="handleLinkClick"
 #endif
 #if WECHAT
-  bind:operateClick="handleLinkClick" 
+  bind:operateClick="handleLinkClick"
 #endif
-  title="title" 
+  title="title"
   operateText="operate"
 >
   <view>
@@ -48,10 +50,11 @@ toc: content
 ```
 
 ### 内容分隔线
+
 ```xml
-<ant-card 
+<ant-card
   divider="{{true}}"
-  title="title" 
+  title="title"
   operateText="operate"
 >
   <view>
@@ -61,15 +64,16 @@ toc: content
 ```
 
 ### 标题吸顶
+
 ```xml
 <ant-card
   title="title"
   headSticky="{{true}}"
 #if ALIPAY
-  onTitleSticky="handleTitleSticky" 
+  onTitleSticky="handleTitleSticky"
 #endif
 #if WECHAT
-  bind:titleSticky="handleLinkClick" 
+  bind:titleSticky="handleLinkClick"
 #endif
 >
   <view style="height: 400px">
@@ -79,6 +83,7 @@ toc: content
 ```
 
 ### 卡片可折叠
+
 ```xml
 <ant-card
   title="title"
@@ -91,9 +96,10 @@ toc: content
 ```
 
 ### 自定义操作按钮
+
 ```xml
-<ant-card 
-  title="title" 
+<ant-card
+  title="title"
   operateText="operateText"
 >
   <view slot="headerRight">
@@ -111,30 +117,30 @@ toc: content
 
 ## 属性
 
-| 属性 | 说明  | 类型 | 默认值                                       |
-| --- | ---  | --- |------------------------------------------|
-| className | 容器 className| string   | - |
-| config | 卡片配置   | [ICardConfig](#ICardConfig) | - |
-| title | 卡片标题  | string | - |
-| divider | 是否有分割线  | boolean | false |
-| needFold | 是否需要可折叠卡片，需要 operateText 为空，否则需要手动进行展开收起 | boolean | false |
-| foldStatus | 是否折叠，传 true 会导致收起，不管 needFold 是否为true  | boolean | false |
-| headSticky | 标题是否需要吸顶  | boolean | false |
-| stickyTransparentTitle | 吸顶是否在透明头页面，是的话会自动算透明头高度  | boolean | false |
-| stickyTop | 标题吸顶时要吸在距离顶部多少的位置  | string | - |
-| operateText | 默认标题栏右侧操作按钮文本 | string | - |
-| #if ALIPAY onOperateClick | 默认标题栏右侧操作按钮点击回调 | () => void | - |
-| #if ALIPAY onFoldChange | 默认标题栏右侧折叠展开按钮点击回调 | () => void | - |
-| #if ALIPAY onTitleSticky | title 区域是否吸顶变化时的回调 | (status) => void | - |
-| #if WECHAT bind:operateclick | 默认标题栏右侧操作按钮点击回调 | () => void | - |
-| #if WECHAT bind:foldchange | 默认标题栏右侧折叠展开按钮点击回调 | () => void | - |
-| #if WECHAT bind:titlesticky | title 区域是否吸顶变化时的回调 | (status) => void | - |
+| 属性                         | 说明                                                                | 类型                        | 默认值 |
+| ---------------------------- | ------------------------------------------------------------------- | --------------------------- | ------ |
+| className                    | 容器 className                                                      | string                      | -      |
+| config                       | 卡片配置                                                            | [ICardConfig](#ICardConfig) | -      |
+| title                        | 卡片标题                                                            | string                      | -      |
+| divider                      | 是否有分割线                                                        | boolean                     | false  |
+| needFold                     | 是否需要可折叠卡片，需要 operateText 为空，否则需要手动进行展开收起 | boolean                     | false  |
+| foldStatus                   | 是否折叠，传 true 会导致收起，不管 needFold 是否为 true             | boolean                     | false  |
+| headSticky                   | 标题是否需要吸顶                                                    | boolean                     | false  |
+| stickyTransparentTitle       | 吸顶是否在透明头页面，是的话会自动算透明头高度                      | boolean                     | false  |
+| stickyTop                    | 标题吸顶时要吸在距离顶部多少的位置                                  | string                      | -      |
+| operateText                  | 默认标题栏右侧操作按钮文本                                          | string                      | -      |
+| #if ALIPAY onOperateClick    | 默认标题栏右侧操作按钮点击回调                                      | () => void                  | -      |
+| #if ALIPAY onFoldChange      | 默认标题栏右侧折叠展开按钮点击回调                                  | () => void                  | -      |
+| #if ALIPAY onTitleSticky     | title 区域是否吸顶变化时的回调                                      | (status) => void            | -      |
+| #if WECHAT bind:operateclick | 默认标题栏右侧操作按钮点击回调                                      | () => void                  | -      |
+| #if WECHAT bind:foldchange   | 默认标题栏右侧折叠展开按钮点击回调                                  | () => void                  | -      |
+| #if WECHAT bind:titlesticky  | title 区域是否吸顶变化时的回调                                      | (status) => void            | -      |
 
 ### ICardConfig
 
-| 配置项 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| foldTapArea | 折叠行为触发区域，可选`btn`、`header` | string | 'btn' |
+| 配置项      | 说明                                  | 类型   | 默认值 |
+| ----------- | ------------------------------------- | ------ | ------ |
+| foldTapArea | 折叠行为触发区域，可选`btn`、`header` | string | 'btn'  |
 
 ## 插槽
 
@@ -150,9 +156,9 @@ toc: content
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                          | 浅色模式默认值                                                                                         | 深色模式默认值                                                                                        | 备注                  |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- | --------------------- |
-| --ant-card-bg                   | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div>    | 卡片背景颜色          |
-| --ant-card-header-title-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>       | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #000000;">#c5cad1</div>    | 卡片头部标题颜色      |
-| --ant-card-header-link-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div>       | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div>    | 卡片头部链接颜色      |
-| --ant-card-fold-btn-color       | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>    | 卡片折叠按钮颜色      |
+| 变量名                        | 浅色模式默认值                                                                                    | 深色模式默认值                                                                                    | 备注             |
+| ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --ant-card-bg                 | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | 卡片背景颜色     |
+| --ant-card-header-title-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #000000;">#c5cad1</div> | 卡片头部标题颜色 |
+| --ant-card-header-link-color  | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 卡片头部链接颜色 |
+| --ant-card-fold-btn-color     | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | 卡片折叠按钮颜色 |
