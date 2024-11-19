@@ -26,7 +26,7 @@
     content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
     placement="top"
     actionText="操作按钮"
-    onTapAction="onTapAction"
+    bind:tapaction="onTapAction"
     imageUrl="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*tLCBTqxataIAAAAAAAAAAAAADkqGAQ/original"
     bind:visiblechange="onVisibleChange"
   >

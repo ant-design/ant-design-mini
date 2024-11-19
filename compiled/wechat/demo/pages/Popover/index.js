@@ -25,6 +25,7 @@ Page({
         });
     },
     onTapAction() {
-        my.showToast({ content: '点击了行动点按钮' });
+        // @ts-ignore
+        wx.showToast({ title: '点击了行动点按钮' });
     },
 });

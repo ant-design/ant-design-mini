@@ -114,6 +114,7 @@ export const wechatCustomMapping = {
   },
   'ant-popover': {
     onVisibleChange: 'bind:visiblechange',
+    onTapAction: 'bind:tapaction',
   },
   'ant-popover-list': {
     onVisibleChange: 'bind:visiblechange',
