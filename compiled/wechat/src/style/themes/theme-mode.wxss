@@ -350,12 +350,23 @@
     --ant-card-header-title-color: #333333;
     --ant-card-header-link-color: #999999;
     --ant-card-fold-btn-color: #1677ff;
-<<<<<<< HEAD
-=======
     --ant-countdown-color: #666;
     --ant-countdown-number-color: #fff;
     --ant-countdown-number-bg: #1677ff;
->>>>>>> feat/countdown
+    --search-bar-focus-color: #1677ff;
+    --select-contact-search-cancel-color: #333333;
+    --select-contact-loading-bg: #fff;
+    --select-contact-scroll-bg: #fff;
+    --select-contact-list-bg: #fff;
+    --select-contact-list-color: #999;
+    --select-contact-title-first-color: #333;
+    --select-contact-title-first-border: #eee;
+    --select-contact-tag-color: #ff6010;
+    --select-contact-tag-border: #ffcfb7;
+    --select-contact-empty-bg: #fff;
+    --select-contact-empty-color: #999;
+    --select-contact-loading-bg: #999;
+    --select-contact-display-light-color: #fa6300;
   }
 }
 /* 深色模式的css变量 */
@@ -693,11 +704,22 @@
     --ant-card-header-title-color: #c5cad1;
     --ant-card-header-link-color: #616161;
     --ant-card-fold-btn-color: #3086ff;
-<<<<<<< HEAD
-=======
     --ant-countdown-color: #808080;
     --ant-countdown-number-color: #000000;
     --ant-countdown-number-bg: #3086ff;
->>>>>>> feat/countdown
+    --select-contact-search-bar-focus-color: #3086ff;
+    --select-contact-search-cancel-color: #c5cad1;
+    --select-contact-loading-bg: #000;
+    --select-contact-scroll-bg: #000;
+    --select-contact-list-bg: #000;
+    --select-contact-list-color: #999;
+    --select-contact-title-first-color: #c5cad1;
+    --select-contact-title-first-border: #2b2b2b;
+    --select-contact-tag-color: #ff6010;
+    --select-contact-tag-border: #ffcfb7;
+    --select-contact-empty-bg: #000;
+    --select-contact-empty-color: #616161;
+    --select-contact-loading-bg: #616161;
+    --select-contact-display-light-color: #fa6300;
   }
 }

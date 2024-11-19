@@ -360,10 +360,21 @@ page {
   --ant-card-header-title-color: #333333;
   --ant-card-header-link-color: #999999;
   --ant-card-fold-btn-color: #1677ff;
-<<<<<<< HEAD
-=======
   --ant-countdown-color: #666;
   --ant-countdown-number-color: #ffffff;
   --ant-countdown-number-bg: #1677ff;
->>>>>>> feat/countdown
+  --select-contact-search-bar-focus-color: #1677ff;
+  --select-contact-search-cancel-color: #333333;
+  --select-contact-loading-bg: #fff;
+  --select-contact-scroll-bg: #fff;
+  --select-contact-list-bg: #fff;
+  --select-contact-list-color: #999;
+  --select-contact-title-first-color: #333;
+  --select-contact-title-first-border: #eee;
+  --select-contact-tag-color: #ff6010;
+  --select-contact-tag-border: #ffcfb7;
+  --select-contact-empty-bg: #fff;
+  --select-contact-empty-color: #999;
+  --select-contact-loading-bg: #999;
+  --select-contact-display-light-color: #fa6300;
 }
