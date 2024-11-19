@@ -19,12 +19,12 @@
     flex: 1;
 
     &-focus {
-      border-color: @COLOR_BRAND1;
+      border-color: @select-contact-search-bar-focus-color;
     }
   }
 
   .cancel {
-    color: @COLOR_TEXT_PRIMARY;
+    color:@select-contact-search-cancel-color;
     margin-left: 8px;
   }
 
@@ -51,7 +51,7 @@
 
     .contact-loading {
       height: 100%;
-      background: #fff;
+      background: @select-contact-loading-bg;
       border-radius: 12rpx;
       padding: 24rpx;
       box-sizing: border-box;
@@ -60,7 +60,7 @@
     .contact-scroll {
       position: relative;
       height: 100%;
-      background-color: #fff;
+      background-color: @select-contact-scroll-bg;
       border-radius: 24rpx;
 
       &::-webkit-scrollbar {
@@ -75,14 +75,14 @@
 
     .contact-list {
       padding: 0 24rpx 24rpx;
-      background: #fff;
+      background: @select-contact-list-bg;
       border-radius: 12rpx;
 
       .title {
         font-size: 28rpx;
         line-height: 48rpx;
-        color: #999;
-        background: #fff;
+        color: @select-contact-title-color;
+        background: @select-contact-title-bg;
 
         &__ios {
           position: -webkit-sticky;
@@ -95,16 +95,16 @@
       .title.first-level {
         font-size: 30rpx;
         line-height: 80rpx;
-        color: #333;
-        border-bottom: 2rpx solid #eee;
+        color: @select-contact-title-first-color;
+        border-bottom: 2rpx solid @select-contact-title-first-border;
       }
 
       .tag {
         padding: 0 8rpx;
         margin-left: 8rpx;
         font-size: 20rpx;
-        color: #ff6010;
-        border: 0.5px solid #ffcfb7;
+        color: @select-contact-tag-color;
+        border: 0.5px solid @select-contact-tag-border;
         border-radius: 6rpx;
       }
 
@@ -137,8 +137,8 @@
         padding: 0 8rpx;
         margin-left: 8rpx;
         font-size: 20rpx;
-        color: #ff6010;
-        border: 0.5px solid #ffcfb7;
+        color: @select-contact-tag-color;
+        border: 0.5px solid @select-contact-tag-border;
         border-radius: 6rpx;
       }
 
@@ -157,7 +157,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      background-color: #fff;
+      background-color: @select-contact-empty-bg;
       border-radius: 24rpx;
 
       &-img {
@@ -171,7 +171,7 @@
       &-text {
         margin: 24rpx 0 90rpx;
         font-size: 30rpx;
-        color: #999;
+        color: @select-contact-empty-color;
       }
     }
 
@@ -182,7 +182,7 @@
 
       &-text {
         font-size: 28rpx;
-        color: #999;
+        color: @select-contact-loading-color;
       }
     }
 
@@ -190,7 +190,7 @@
       display: inline-block;
 
       &__light {
-        color: #fa6300;
+        color: @select-contact-display-light-color;
       }
     }
   }
