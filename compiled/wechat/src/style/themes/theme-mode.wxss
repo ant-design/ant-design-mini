@@ -353,6 +353,7 @@
     --ant-countdown-color: #666;
     --ant-countdown-number-color: #fff;
     --ant-countdown-number-bg: #1677ff;
+<<<<<<< HEAD
     --search-bar-focus-color: #1677ff;
     --select-contact-search-cancel-color: #333333;
     --select-contact-loading-bg: #fff;
@@ -367,6 +368,8 @@
     --select-contact-empty-color: #999;
     --select-contact-loading-bg: #999;
     --select-contact-display-light-color: #fa6300;
+=======
+>>>>>>> feat/temp
   }
 }
 /* 深色模式的css变量 */
