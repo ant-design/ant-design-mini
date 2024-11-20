@@ -1,5 +1,5 @@
-<list header="基础使用">
-  <container title="姓名">
+<ant-list header="基础使用">
+  <ant-container title="姓名">
     <ant-input
       placeholder="请输入姓名"
       value="{{value}}"
@@ -13,25 +13,25 @@
         生僻字？
       </view>
     </ant-input>
-  </container>
-  <list-item onTap="onTap">默认键盘</list-item>
-  <rare-words-keyboard
+  </ant-container>
+  <ant-list-item onTap="onTap">默认键盘</ant-list-item>
+  <ant-rare-words-keyboard
     visible="{{visible}}"
     onClose="onClose"
     onChange="onChange"
-  ></rare-words-keyboard>
-  <list-item onTap="onTap2">不带蒙层</list-item>
-  <rare-words-keyboard
+  ></ant-rare-words-keyboard>
+  <ant-list-item onTap="onTap2">不带蒙层</ant-list-item>
+  <ant-rare-words-keyboard
     visible="{{visible2}}"
     showMask="{{false}}"
     onClose="onClose2"
     onChange="onChange"
-  ></rare-words-keyboard>
-  <list-item onTap="onTap3">监听输入完成、出错的回调</list-item>
-  <rare-words-keyboard
+  ></ant-rare-words-keyboard>
+  <ant-list-item onTap="onTap3">监听输入完成、出错的回调</ant-list-item>
+  <ant-rare-words-keyboard
     visible="{{visible3}}"
     onClose="onClose3"
     onChange="onChange"
     onError="onKeyBoardError"
-  ></rare-words-keyboard>
-</list>
+  ></ant-rare-words-keyboard>
+</ant-list>

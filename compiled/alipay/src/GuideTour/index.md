@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: 信息展示
-  order: 9
+  title: 导航
+  order: 6
 toc: 'content'
 ---
 

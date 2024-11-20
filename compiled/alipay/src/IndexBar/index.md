@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: 数据展示
   order: 8
 toc: 'content'
 supportPlatform: ['alipay']
@@ -10,11 +10,7 @@ supportPlatform: ['alipay']
 
 # IndexBar 索引
 
-侧边索引组件
-
-## 何时使用
-
-用于快速定位列表索引。
+侧边索引组件。用于快速定位列表索引。
 
 ## 引入
 

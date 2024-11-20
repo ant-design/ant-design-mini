@@ -2,16 +2,14 @@
 nav:
   path: /components
 group:
-  title: 信息输入
+  title: 数据录入
   order: 10
 toc: 'content'
 ---
 
 # NumberKeyboard 数字键盘
 
-## 何时使用
-
-需要自定义数字键盘时。
+自定义数字键盘。
 
 ## 注意事项
 

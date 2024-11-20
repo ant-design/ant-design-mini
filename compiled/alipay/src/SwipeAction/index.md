@@ -2,20 +2,16 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: 数据展示
   order: 8
 toc: 'content'
 ---
 
 # SwipeAction 滑动组件
 
-列表的功能扩展。
+列表的功能扩展。通过滑动操作来展示隐藏的功能菜单。
 
-## 何时使用
-
-通过滑动操作来展示隐藏的功能菜单。
-
-## Tip
+## 注意事项
 
 1. 该组件的父级容器必须设置 width 和 height。
 2. 两侧滑动按钮的宽度总和需一致。
@@ -74,9 +70,8 @@ toc: 'content'
 </ant-swipe-action>
 ```
 
-
-
 ### 按钮在左侧
+
 设置`leftButtons`属性
 <code src='../../demo/pages/SwipeActionLeft/index'></code>
 
@@ -85,27 +80,33 @@ toc: 'content'
 <code src='../../demo/pages/SwipeActionNumber/index'></code>
 
 ### 禁用滑动回弹
+
 设置`elasticity`属性为`false`
 <code src='../../demo/pages/SwipeActionAnimation/index'></code>
 
 ### 设置按钮宽度
-设置buttons的`width`属性
+
+设置 buttons 的`width`属性
 <code src='../../demo/pages/SwipeActionWidth/index'></code>
 
 ### 设置滑动速度
+
 设置`damping`属性
 <code src='../../demo/pages/SwipeActionSpeed/index'></code>
 
 ### 按钮点击二次确认
-设置buttons属性`confirmType`为`tap`
+
+设置 buttons 属性`confirmType`为`tap`
 
 <code src='../../demo/pages/SwipeActionTap/index'></code>
 
 ### 按钮滑出最大距离二次确认
-设置buttons属性`confirmType`为`move`
+
+设置 buttons 属性`confirmType`为`move`
 <code src='../../demo/pages/SwipeActionMove/index'></code>
 
 ### 左右两侧都有按钮
+
 可同时设置`leftButtons`和`rightButtons`
 <code src='../../demo/pages/SwipeActionLeftRight/index'></code>
 
@@ -113,7 +114,8 @@ toc: 'content'
 
 <code src='../../demo/pages/SwipeActionSlot/index'></code>
 
-### Demo代码
+### Demo 代码
+
 <code src='../../demo/pages/SwipeAction/index'></code>
 
 ## API
@@ -149,6 +151,6 @@ toc: 'content'
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名               | 浅色模式默认值                                                                                           | 深色模式默认值                                                                                           | 备注         |
-| -------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------ |
-| --swipe-action-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | 滑动操作颜色 |
+| 变量名               | 浅色模式默认值                                                                                    | 深色模式默认值                                                                                    | 备注         |
+| -------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
+| --swipe-action-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 滑动操作颜色 |

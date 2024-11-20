@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息输入
+  title: 数据录入
   order: 12
 toc: 'content'
 ---
@@ -10,8 +10,6 @@ toc: 'content'
 # Form 表单
 
 Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 [component2](https://opendocs.alipay.com/mini/framework/custom-component-overview) 支持。
-
-## 何时使用
 
 - 用于创建实体或收集信息。
 - 需要对输入的数据类型进行校验时。
@@ -97,7 +95,8 @@ Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 
 
 <code src='../../demo/pages/Form/FormCustom/index'></code>
 
-### Demo代码
+### Demo 代码
+
 <code src='../../demo/pages/Form/index'></code>
 
 ## API
@@ -389,7 +388,7 @@ function emit(trigger: 'onChange' | 'onBlur' | 'onFocus', value: any): void;
 | --------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
 | --form-text-color     | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | 表单文本颜色     |
 | --form-item-color     | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div> | <div style="width: 150px; height: 30px; background-color: #808080; color: #ffffff;">#808080</div> | 表单项颜色       |
-| --form-item-bg        | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | 表单项背景颜色   |
+| --form-item-bg        | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div>    | 表单项背景颜色   |
 | --form-error-color    | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div> | 表单错误颜色     |
 | --form-extra-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 表单额外信息颜色 |
 | --form-asterisk-color | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | 表单星号颜色     |

@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: 实验性
-  order: 16
+  title: 通用
+  order: 2
 toc: 'content'
 ---
 

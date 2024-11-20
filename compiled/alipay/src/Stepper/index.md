@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 信息输入
+  title: 数据录入
   order: 10
 toc: 'content'
 ---

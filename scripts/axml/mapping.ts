@@ -81,6 +81,7 @@ export const wechatCustomMapping = {
     onError: 'bind:error',
   },
   'ant-rare-words-keyboard': {
+    onChange: 'bind:change',
     onClose: 'bind:close',
     onError: 'bind:error',
   },

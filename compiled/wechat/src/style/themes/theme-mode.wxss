@@ -537,7 +537,7 @@
     --collapse-border-color: #2b2b2b;
     --collapse-node-text-color: #616161;
     --collapse-container-background-color: #1a1a1a;
-    --container-header-color: #2b2b2b;
+    --container-header-color: #c5cad1;
     --container-color-text-assist: #616161;
     --container-background-color: #1a1a1a;
     --divider-text-color: #c5cad1;

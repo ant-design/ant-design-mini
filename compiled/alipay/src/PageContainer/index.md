@@ -2,10 +2,9 @@
 nav:
   path: /components
 group:
-  title: 实验性
-  order: 16
+  title: 数据展示
+  order: 8
 toc: 'content'
-supportPlatform: ['alipay']
 ---
 
 # PageContainer 页面容器
