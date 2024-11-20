@@ -5,7 +5,6 @@ group:
   title: Other
   order: 16
 toc: 'content'
-supportPlatform: ['alipay']
 ---
 
 # PageContainer
