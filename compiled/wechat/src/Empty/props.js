@@ -3,7 +3,7 @@ export var EmptyFunctionalProps = {
     title: '',
     message: '',
     image: '',
-    imageMode: '',
+    imageMode: 'scaleToFill',
     buttonInfo: {
         list: [],
         layout: 'horizontal',

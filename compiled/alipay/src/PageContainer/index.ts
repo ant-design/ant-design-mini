@@ -59,9 +59,9 @@ ComponentWithSignalStoreImpl(
       const props = getValueFromProps(this);
       this.updatePageStatus({}, props);
     },
-    deriveDataFromProps(nextProps) {
+    didUpdate(prevProps) {
       const props = getValueFromProps(this);
-      this.updatePageStatus(props, nextProps);
+      this.updatePageStatus(prevProps, props);
     },
 
   }

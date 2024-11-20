@@ -383,4 +383,12 @@ page {
   --select-contact-display-light-color: #fa6300;
   --number-input-background-color: #ffffff;
   --number-input-title-color: #333333;
+  --number-input-link-color: #4b6b99;
+  --number-input-unit-color: #999999;
+  --number-input-border-color: #eeeeee;
+  --number-input-prefix-color: #999999;
+  --number-input-caret-color: #1677ff;
+  --number-input-quick-text-color: #1677ff;
+  --number-input-quick-border-color: #1677ff;
+  --number-input-remaining-color: #666666;
 }
