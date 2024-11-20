@@ -11,7 +11,7 @@ toc: 'content'
 
 <!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
 
-A logo that displays a red dot, number, or text. Used to remind the user of pending matters or new updated quantities.
+ Used to remind the user of pending matters or new updated quantities.
 
 ## When to use
 
