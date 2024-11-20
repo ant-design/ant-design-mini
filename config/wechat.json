@@ -84,7 +84,6 @@
     "pages/Sticky",
     "pages/AutoResize",
     "pages/Countdown",
-    "pages/Voucher",
     "pages/Typography"
   ],
   "src": [
@@ -146,7 +145,6 @@
     "Sticky",
     "AutoResize",
     "Countdown",
-    "Voucher",
     "Typography"
   ]
 }

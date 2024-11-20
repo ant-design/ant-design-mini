@@ -15,7 +15,6 @@ Page({
     },
     handleDisabledTap(e) {
         const { type } = e.currentTarget.dataset;
-        console.log('text', type);
         my.alert({ content: `禁用状态下点击${type}` });
     },
 });

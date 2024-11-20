@@ -33,7 +33,6 @@ Page({
   },
   handleDisabledTap(e) {
     const { type } = e.currentTarget.dataset;
-    console.log('text', type);
     /// #if ALIPAY
     my.alert({ content: `禁用状态下点击${type}` });
     /// #endif

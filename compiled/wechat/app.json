@@ -81,7 +81,6 @@
     "demo/pages/Sticky/index",
     "demo/pages/AutoResize/index",
     "demo/pages/Countdown/index",
-    "demo/pages/Voucher/index",
     "demo/pages/Typography/index"
   ]
 }

@@ -18,7 +18,6 @@ Page({
     },
     handleDisabledTap(e) {
         const { type } = e.currentTarget.dataset;
-        console.log('text', type);
         // @ts-ignore
         wx.showToast({ title: `禁用状态下点击${type}` });
     },
