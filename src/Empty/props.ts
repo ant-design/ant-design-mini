@@ -31,16 +31,20 @@ export interface IEmptyProps extends IBaseProps {
    */
   image: string;
   /**
+   * @description 图片模式
+   */
+  imageMode: string;
+  /**
    * @description 按钮信息
    */
   buttonInfo: {
-  /**
-   * @description 按钮信息
-   * @default horizontal
-   */
+    /**
+     * @description 按钮信息
+     * @default horizontal
+     */
     layout: 'vertical' | 'horizontal';
     list: Button[];
-  }
+  };
   /**
    * @description 空状态尺寸
    * @default normal
@@ -58,6 +62,7 @@ export const EmptyFunctionalProps: IEmptyProps = {
   title: '',
   message: '',
   image: '',
+  imageMode: '',
   buttonInfo: {
     list: [],
     layout: 'horizontal',

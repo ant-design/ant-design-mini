@@ -12,7 +12,8 @@ Page({
         }, 1000);
     },
     handleRefresh() {
-        my.reLaunch({
+        // @ts-ignore
+        wx.reLaunch({
             url: 'index',
             fail(e) {
                 console.log(e);

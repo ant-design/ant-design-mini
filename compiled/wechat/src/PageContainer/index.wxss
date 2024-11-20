@@ -1,0 +1,32 @@
+.ant-page-container {
+  overflow: auto;
+  color: #333333;
+}
+.ant-page-container-safe-top {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
+.ant-page-container-safe-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.ant-page-container-loading-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--page-container-background-color, #f5f5f5);
+  opacity: 0.4;
+  z-index: 3;
+}
+.ant-page-container-loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.ant-page-container-status {
+  margin-top: 420rpx;
+  text-align: center;
+}

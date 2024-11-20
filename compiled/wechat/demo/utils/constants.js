@@ -312,11 +312,6 @@ export const componentList = [
                 nameZN: '倒计时',
                 path: '/pages/Countdown/index',
             },
-            {
-                name: 'SelectContact',
-                nameZN: '选人组件',
-                path: '/pages/SelectContact/index',
-            },
         ],
     },
     {
@@ -331,6 +326,11 @@ export const componentList = [
                 name: 'ConfigProvider',
                 nameZN: '全局容器',
                 path: '/pages/ConfigProvider/index',
+            },
+            {
+                name: 'PageContainer',
+                nameZN: '页面容器',
+                path: '/pages/PageContainer/index',
             },
             {
                 name: 'Typography',

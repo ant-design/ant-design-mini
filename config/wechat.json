@@ -84,7 +84,8 @@
     "pages/Sticky",
     "pages/AutoResize",
     "pages/Countdown",
-    "pages/Typography"
+    "pages/Typography",
+    "pages/PageContainer"
   ],
   "src": [
     "_locale",
@@ -145,6 +146,7 @@
     "Sticky",
     "AutoResize",
     "Countdown",
-    "Typography"
+    "Typography",
+    "PageContainer"
   ]
 }

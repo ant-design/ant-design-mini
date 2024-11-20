@@ -157,4 +157,8 @@ export const wechatCustomMapping = {
     catchTap: 'catch:tap',
     onDisabledTap: 'bind:disabledtap',
   },
+  'ant-page-container': {
+    onActionTap: 'bind:actiontap',
+    onSecondaryActionTap: 'bind:secondaryactiontap',
+  },
 };

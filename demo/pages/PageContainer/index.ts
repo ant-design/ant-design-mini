@@ -12,34 +12,45 @@ Page({
     }, 1000);
   },
   handleRefresh() {
+    /// #if ALIPAY
     my.reLaunch({
       url: 'index',
       fail(e) {
         console.log(e);
       },
     });
+    /// #endif
+    /// #if WECHAT
+    // @ts-ignore
+    wx.reLaunch({
+      url: 'index',
+      fail(e) {
+        console.log(e);
+      },
+    });
+    /// #endif
   },
   handleSwitchToDisconnected() {
     this.setData({
       status: 'disconnected',
-      title: undefined,
-      message: undefined,
+      title: '',
+      message: '',
       image: '',
     });
   },
   handleSwitchToEmpty() {
     this.setData({
       status: 'empty',
-      title: undefined,
-      message: undefined,
+      title: '',
+      message: '',
       image: '',
     });
   },
   handleSwitchToBusy() {
     this.setData({
       status: 'busy',
-      title: undefined,
-      message: undefined,
+      title: '',
+      message: '',
       image: '',
     });
   },

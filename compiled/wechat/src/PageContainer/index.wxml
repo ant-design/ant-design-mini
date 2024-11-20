@@ -4,22 +4,20 @@
 >
   <!--loading-->
   <view
-    a:if="{{loading}}"
+    wx:if="{{loading}}"
     class="ant-page-container-loading-wrap"
   >
     <view class="ant-page-container-loading">
-      <slot name="loading">
-        <ant-loading
-          type="{{loadingType}}"
-          size="{{loadingSize}}"
-          color="{{loadingColor}}"
-        ></ant-loading>
-      </slot>
+      <ant-loading
+        type="{{loadingType}}"
+        size="{{loadingSize}}"
+        color="{{loadingColor}}"
+      ></ant-loading>
     </view>
   </view>
   <!--页面异常状态-->
   <view
-    a:if="{{image && title && message}}"
+    wx:if="{{image && title && message}}"
     class="ant-page-container-status"
   >
     <ant-empty
@@ -30,27 +28,23 @@
     >
       <view slot="extra">
         <ant-button
-          a:if="{{actionText}}"
-          onTap="handleActionTap"
+          wx:if="{{actionText}}"
+          bind:tap="handleActionTap"
           type="primary"
           size="small"
           inline
-        >
-          {{actionText}}
-        </ant-button>
+        >{{actionText}}</ant-button>
         <ant-button
-          a:if="{{secondaryActionText}}"
-          onTap="handleSecondaryActionTap"
+          wx:if="{{secondaryActionText}}"
+          bind:tap="handleSecondaryActionTap"
           size="small"
           inline
           style="margin-left: 12px"
-        >
-          {{secondaryActionText}}
-        </ant-button>
+        >{{secondaryActionText}}</ant-button>
         <slot name="extra"></slot>
       </view>
     </ant-empty>
   </view>
   <!--正常页面内容-->
-  <slot a:else></slot>
+  <slot wx:else></slot>
 </view>

@@ -332,12 +332,12 @@ export const componentList = [
         nameZN: '优惠券',
         path: '/pages/Voucher/index',
       },
-      /// #endif
       {
         name: 'SelectContact',
         nameZN: '选人组件',
         path: '/pages/SelectContact/index',
       },
+      /// #endif
     ],
   },
   {
@@ -353,13 +353,11 @@ export const componentList = [
         nameZN: '全局容器',
         path: '/pages/ConfigProvider/index',
       },
-      /// #if ALIPAY
       {
         name: 'PageContainer',
         nameZN: '页面容器',
         path: '/pages/PageContainer/index',
       },
-      /// #endif
       {
         name: 'Typography',
         nameZN: '排版',

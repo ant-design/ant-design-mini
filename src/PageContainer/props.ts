@@ -39,7 +39,10 @@ export interface IPageProps extends IBaseProps {
    * @description 页面异常状态-标题
    */
   title?: string;
-
+  /**
+   * @description 页面异常状态-图片
+   */
+  image?: string;
   /**
    * @description 页面异常状态-描述
    */
@@ -67,36 +70,45 @@ export interface IPageProps extends IBaseProps {
 }
 
 export const PageDefaultProps: IPageProps = {
+  loading: false,
   safeArea: 'both',
   loadingColor: '#ccc',
   loadingSize: 'medium',
   loadingType: 'spin',
+  status: null,
+  title: '',
+  image: '',
+  message: '',
+  actionText: '',
+  secondaryActionText: '',
+  onActionTap: null,
+  onSecondaryActionTap: null,
 };
 
 // 内置异常配置
 export const BuiltinStatus = {
-  'failed': {
+  failed: {
     image:
       'https://gw.alipayobjects.com/mdn/rms_7cc883/afts/img/A*PG7NQoXbN38AAAAAAAAAAAAAARQnAQ',
-    title: undefined,
-    message: undefined,
+    title: '',
+    message: '',
   },
-  'disconnected': {
+  disconnected: {
     image:
       'https://mdn.alipayobjects.com/huamei_yqdpol/afts/img/A*uqB5TY4urA4AAAAAAAAAAAAADj16AQ/original',
-    title: undefined,
-    message: undefined,
+    title: '',
+    message: '',
   },
-  'empty': {
-    title: undefined,
-    message: undefined,
+  empty: {
+    title: '',
+    message: '',
     image:
       'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ',
   },
-  'busy': {
+  busy: {
     image:
       'https://mdn.alipayobjects.com/huamei_yqdpol/afts/img/A*avTGQIyeHk0AAAAAAAAAAAAADj16AQ/original',
-    title: undefined,
-    message: undefined,
+    title: '',
+    message: '',
   },
 };

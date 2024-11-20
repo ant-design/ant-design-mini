@@ -8,6 +8,7 @@
       <!-- #endif -->
         <image
           class="ant-empty-image-element"
+          mode="{{imageMode}}"
           src="{{ image || 'https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*J9z7RqVm1soAAAAAAAAAAAAADkqGAQ/original' }}" />
       <!-- #if ALIPAY -->
       </slot>

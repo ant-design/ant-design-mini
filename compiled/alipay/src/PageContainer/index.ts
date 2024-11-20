@@ -26,7 +26,12 @@ ComponentWithSignalStoreImpl(
     },
     updatePageStatus(prevProps: any, nextProps: any) {
       if (!equal(prevProps, nextProps)) {
-        const { status, image, title, message } = nextProps;
+        const [status, image, title, message] = getValueFromProps(this, [
+          'status',
+          'image',
+          'title',
+          'message',
+        ]);
         const updateData = {
           ...nextProps,
           // 自定义内容优先 status
@@ -58,5 +63,6 @@ ComponentWithSignalStoreImpl(
       const props = getValueFromProps(this);
       this.updatePageStatus(props, nextProps);
     },
+
   }
 );

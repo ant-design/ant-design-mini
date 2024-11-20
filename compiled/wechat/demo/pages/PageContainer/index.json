@@ -1,12 +1,5 @@
 {
-  /// #if WECHAT
   "navigationBarTitleText": "",
-  /// #endif
-
-  /// #if ALIPAY
-  "defaultTitle": "",
-  /// #endif
-
   "titleBarColor": "#ffffff",
   "transparentTitle": "auto",
   "usingComponents": {
