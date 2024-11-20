@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import useSiteToken from "../../../../../theme/hooks/useSiteToken";
 
-const useStyle = () => {
+const useStyle = ({ isDark }) => {
   const { token } = useSiteToken();
   const { fontFamily } = token;
   return {
@@ -16,12 +16,12 @@ const useStyle = () => {
     subTitle: css`
       font-family: PuHuiTi, ${fontFamily}, sans-serif;
       font-size: 16px;
-      color: #697A8C;
+      color: ${isDark ? '#808080' : '#697A8C'};
     `,
   };
 };
-export default ({ title, subTitle, children }) => {
-  const style = useStyle();
+export default ({ title, subTitle, isDark , children }) => {
+  const style = useStyle({ isDark });
 
   return (
     <div css={style.container}>

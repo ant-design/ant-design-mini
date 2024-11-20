@@ -2,7 +2,6 @@ import { GithubOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { Tooltip } from 'antd';
 import { DarkTheme, Light } from 'antd-token-previewer/lib/icons';
-import { FormattedMessage } from 'dumi';
 import { useContext, type FC } from 'react';
 import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
 import useSiteToken from '../../hooks/useSiteToken';
@@ -17,6 +16,9 @@ const useStyle = () => {
   const { controlHeight, motionDurationMid } = token;
 
   return {
+    container: css`
+      padding-bottom: 4px;
+    `,
     btn: css`
       color: ${token.colorText};
       border-color: ${token.colorBorder};
@@ -65,7 +67,7 @@ const HeaderExtra: FC = () => {
   const lang = useLocaleValue('headerLocales');
   const isDark = theme.includes('dark');
   return (
-    <div>
+    <div css={style.container}>
       {prefersColor.switch && (
         <Tooltip
           title={lang.theme}

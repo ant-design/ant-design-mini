@@ -121,6 +121,7 @@ export default ({
       <Title
         title={lang.title}
         subTitle={lang.subTitle}
+        isDark={isDark}
       />
       <div css={style.contentWrap}>
         {

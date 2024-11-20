@@ -47,6 +47,7 @@ const useStyle = ({
       font-size: 20px;
       margin-bottom: 35px;
       margin-top: 35px;
+      color: ${isDark ? '#808080' : '#697A8C'};
     `,
     logoWrap: css`
       padding-left: 100px;
