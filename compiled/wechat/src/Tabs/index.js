@@ -34,10 +34,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { TabsDefaultProps } from './props';
 import createValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { TabsDefaultProps } from './props';
 Component(TabsDefaultProps, {
     getInstance: function () {
         if (this.$id) {
@@ -209,7 +209,7 @@ Component(TabsDefaultProps, {
 ], {
     scrollLeft: 0,
     scrollTop: 0,
-    ready: function () {
+    attached: function () {
         var _this = this;
         this.updateScroll();
         this.getBoundingClientRect('.ant-tabs-bar-item').then(function (res) {

@@ -11,8 +11,6 @@ toc: 'content'
 
 列表的勾选操作。
 
-## 何时使用
-
 - 在一组列表项中选择一个或多个。
 - 可勾选列表的使用需要默认至少勾选一项，方便用户了解列表是可以勾选的。
 
@@ -172,7 +170,7 @@ Page({
 | 变量名                                   | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注               |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
 | --checklist-background-color             | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | 清单背景颜色       |
-| --check-list-item-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | 清单项背景颜色     |
-| --check-list-item-hover-background-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #333333;">#2b2b2b</div> | 清单项悬停背景颜色 |
+| --check-list-item-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | 清单项背景颜色     |
+| --check-list-item-hover-background-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #fff;">#2b2b2b</div> | 清单项悬停背景颜色 |
 | --check-list-item-content-color          | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 清单项内容颜色     |
 | --check-list-item-description-color      | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 清单项描述颜色     |

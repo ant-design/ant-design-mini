@@ -7,6 +7,9 @@ var inID = {
         okText: 'Tentu',
         cancelText: 'Pembatalan',
     },
+    input: {
+        placeholder: 'Silakan masukkan',
+    },
     calendar: {
         weekdayNames: [
             'Senin',

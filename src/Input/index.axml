@@ -1,3 +1,5 @@
+<import-sjs from="../_util/isPropsEmpty.sjs" name="u" />
+
 <view
   class="ant-input {{ disabled ? 'ant-input-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{ style || '' }};{{ focusStyle || '' }}"
@@ -16,7 +18,7 @@
       type="{{ type }}"
       adjust-position="{{ adjustPosition }}"
       password="{{ password }}"
-      placeholder="{{ [undefined,null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder  }}"
+      placeholder="{{ u.isPropsEmpty(placeholder) ? locale.input.placeholder : placeholder  }}"
       placeholder-class="ant-input-placeholder {{ placeholderClassName ? placeholderClassName : '' }}"
       placeholder-style="{{ placeholderStyle ? placeholderStyle : '' }}"
       maxlength="{{ maxLength }}"
@@ -49,7 +51,7 @@
       hold-keyboard="{{ holdKeyboard }}"
       adjust-position="{{ adjustPosition }}"
       password="{{ password }}"
-      placeholder="{{ [undefined,null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder  }}"
+      placeholder="{{ u.isPropsEmpty(placeholder) ? locale.input.placeholder : placeholder  }}"
       placeholder-class="ant-input-placeholder {{ placeholderClassName ? placeholderClassName : '' }}"
       placeholder-style="{{ placeholderStyle ? placeholderStyle : '' }}"
       maxlength="{{ maxLength }}"

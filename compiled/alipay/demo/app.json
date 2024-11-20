@@ -83,6 +83,8 @@
     "pages/IndexBarControl/index",
     "pages/ConfigProvider/index",
     "pages/AutoResize/index",
+    "pages/Postscript/index",
+    "pages/NumberInput/index",
     "pages/Voucher/index",
     "pages/Card/index",
     "pages/Sticky/index",

@@ -16,8 +16,8 @@
         width: 60 * @rpx;
         background-image: linear-gradient(
           90deg,
-          rgba(255, 255, 255, 0) 0%,
-          #fff 100%
+          @voucher-background-image-start 0%,
+          @voucher-background-image-end 100%
         );
       }
     }
@@ -85,7 +85,7 @@
               font-weight: 500;
               font-size: 50 * @rpx;
               line-height: 64 * @rpx;
-              color: #ff3b30;
+              color: @voucher-multi-money-color;
               &-unit {
                 line-height: 24 * @rpx;
                 transform: translateY(-3 * @rpx);
@@ -104,7 +104,7 @@
               font-weight: 400;
               font-size: 22 * @rpx;
               line-height: 30 * @rpx;
-              color: #666;
+              color: @voucher-multi-threshold-color;
               margin-top: 1 * @rpx;
             }
           }
@@ -162,11 +162,11 @@
         box-shadow: none;
         height: 56 * @rpx;
         line-height: 56 * @rpx;
-        color: #ff3141;
+        color: @voucher-action-btn-color;
         font-size: 26 * @rpx;
         font-weight: bold;
         padding: 0 24 * @rpx;
-        background-color: #fff;
+        background-color: @voucher-action-bg;
         border-radius: 50 * @rpx;
         margin-top: -1 * @rpx;
         .ant-button-wrap {
@@ -194,7 +194,7 @@
         font-weight: 500;
         font-size: 65 * @rpx;
         line-height: 83 * @rpx;
-        color: #fff;
+        color: @voucher-action-left-color;
         overflow: hidden;
         margin-bottom: -1 * @rpx;
         &-unit {
@@ -216,7 +216,7 @@
         font-weight: 400;
         font-size: 24 * @rpx;
         line-height: 33 * @rpx;
-        color: #fff;
+        color: @voucher-action-left-threshold-bg;
         letter-spacing: 0;
       }
     }
@@ -239,7 +239,7 @@
         font-weight: 500;
         font-size: 32 * @rpx;
         line-height: 45 * @rpx;
-        color: #fff;
+        color: @voucher-action-right-color;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -251,7 +251,7 @@
         font-weight: 400;
         font-size: 26 * @rpx;
         line-height: 37 * @rpx;
-        color: rgba(255, 255, 255, 0.8);
+        color: @voucher-action-right-desc-color;
         letter-spacing: 0;
         margin-top: 8 * @rpx;
         flex: 1;
@@ -289,7 +289,7 @@
           font-weight: 500;
           font-size: 50 * @rpx;
           line-height: 64 * @rpx;
-          color: #ff3b30;
+          color: @voucher-multi-money-color;
           margin-bottom: 1 * @rpx;
           &-unit {
             line-height: 24 * @rpx;
@@ -307,7 +307,7 @@
           font-weight: 400;
           font-size: 22 * @rpx;
           line-height: 30 * @rpx;
-          color: #666;
+          color: @voucher-multi-threshold-color;
           margin-top: 1 * @rpx;
         }
       }
@@ -317,13 +317,13 @@
           font-weight: 600;
           font-size: 24 * @rpx;
           line-height: 33 * @rpx;
-          color: #383939;
+          color: @voucher-item-right-title-color;
         }
         &-desc {
           font-weight: 400;
           font-size: 22 * @rpx;
           line-height: 30 * @rpx;
-          color: #666;
+          color: @voucher-item-right-desc-color;
           margin-top: 5 * @rpx;
         }
       }
@@ -337,7 +337,7 @@
             left: 0;
             bottom: 0;
             right: 0;
-            border: 1 * @rpx solid #ff3141;
+            border: 1 * @rpx solid @voucher-action-btn-color;
             border-radius: 50 * @rpx;
           }
         }

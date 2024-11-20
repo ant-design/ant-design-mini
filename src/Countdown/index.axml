@@ -1,24 +1,19 @@
-<!-- 禁用主题 -->
-<view a:if="{{themeDisabled}}" class="ant-countdown-old {{className}}">
-  <slot day="{{countdownDay}}" hour="{{countdownHour}}" min="{{countdownMin}}" sec="{{countdownSec}}">
-    <text a:if="{{ countdownType === 'day' }}">{{countdownDay}}天</text>
-    <text class="ant-countdown-old-time-num">{{countdownHour}}</text>:<text class="ant-countdown-old-time-num">{{countdownMin}}</text>:<text class="ant-countdown-old-time-num">{{countdownSec}}</text><text a:if="{{decisecond && showDecisecond}}">.</text><text a:if="{{decisecond && showDecisecond}}" class="ds-countdown"></text>
-  </slot>
-</view>
-
-<!-- 有主题色 -->
-<view a:else class="ant-countdown {{className}}" style="color:{{theme.textColor}};">
+<view class="ant-countdown {{className}}">
   <text class="ant-countdown-time-prefix ant-countdown-time"><slot name="prefix"></slot></text>
+  <!-- #if ALIPAY -->
   <slot day="{{countdownDay}}" hour="{{countdownHour}}" min="{{countdownMin}}" sec="{{countdownSec}}">
+  <!-- #endif -->
     <block  a:if="{{ countdownType === 'day' && showDay }}">
-      <text class="ant-countdown-time-num" style="background:{{theme.backgroundColor}};color:{{theme.timeColor}};"><text class="ant-countdown-time">{{countdownDay}}</text></text>
+      <text class="ant-countdown-time-num"><text class="ant-countdown-time">{{countdownDay}}</text></text>
       <text class="ant-countdown-time-day ant-countdown-time">天</text>
     </block>
-    <text class="ant-countdown-time-num" style="background:{{theme.backgroundColor}};color:{{theme.timeColor}};"><text class="ant-countdown-time">{{countdownHour}}</text></text>
+    <text class="ant-countdown-time-num"><text class="ant-countdown-time">{{countdownHour}}</text></text>
     <text class="ant-countdown-time-colon">：</text>
-    <text class="ant-countdown-time-num" style="background:{{theme.backgroundColor}};color:{{theme.timeColor}};"><text class="ant-countdown-time">{{countdownMin}}</text></text>
+    <text class="ant-countdown-time-num"><text class="ant-countdown-time">{{countdownMin}}</text></text>
     <text class="ant-countdown-time-colon">：</text>
-    <text class="ant-countdown-time-num" style="background:{{theme.backgroundColor}};color:{{theme.timeColor}};"><text class="ant-countdown-time">{{countdownSec}}</text></text>
+    <text class="ant-countdown-time-num"><text class="ant-countdown-time">{{countdownSec}}</text></text>
+  <!-- #if ALIPAY -->
   </slot>
+  <!-- #endif -->
   <text class="ant-countdown-time-suffix ant-countdown-time"><slot name="suffix"></slot></text>
 </view>

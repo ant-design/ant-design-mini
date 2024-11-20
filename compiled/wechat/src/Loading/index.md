@@ -76,9 +76,7 @@ toc: 'content'
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
-
 | 变量名                     | 默认值                                                                                                                              | 深色模式默认值                                                                                                                      | 备注                 |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| --loading-text-color       | <div style="width: 150px; height: 40px; background-color: #454955; color: #ffffff;">#454955</div>                                   | <div style="width: 150px; height: 40px; background-color: #454955; color: #ffffff;">#454955</div>                                   | 加载文本颜色（铁黑） |
+| --loading-text-color       | <div style="width: 150px; height: 40px; background-color: #d8d8d8; color: #333333;">#d8d8d8</div>                                   | <div style="width: 150px; height: 40px; background-color: #454955; color: #ffffff;">#454955</div>                                   | 加载文本颜色（铁黑） |
 | --loading-icon-light-color | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.6); color: #333333;">rgba(255, 255, 255, 0.6)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.6); color: #333333;">rgba(255, 255, 255, 0.6)</div> | 加载图标浅色         |

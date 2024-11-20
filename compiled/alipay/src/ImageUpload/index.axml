@@ -1,3 +1,7 @@
+<import-sjs
+  from="../_util/isPropsEmpty.sjs"
+  name="u"
+></import-sjs>
 <view
   class="ant-image-upload {{className || ''}}"
   style="{{style || ''}}"
@@ -33,7 +37,7 @@
               <loading className="ant-image-upload-cover-loading-icon"></loading>
               <view class="ant-image-upload-cover-loading-text">
 
-                {{[undefined, null].indexOf(uploadingText) !== -1 ? locale.imageUpload.uploadingText : uploadingText}}
+                {{u.isPropsEmpty(uploadingText) ? locale.imageUpload.uploadingText : uploadingText}}
               </view>
             </view>
             <view
@@ -45,7 +49,7 @@
                 type="CloseCircleOutline"
               ></ant-icon>
               <view class="ant-image-upload-cover-error-text">
-                {{[undefined, null].indexOf(uploadfailedText) !== -1 ? locale.imageUpload.uploadfailedText : uploadfailedText}}
+                {{u.isPropsEmpty(uploadfailedText) ? locale.imageUpload.uploadfailedText : uploadfailedText}}
               </view>
             </view>
           </view>

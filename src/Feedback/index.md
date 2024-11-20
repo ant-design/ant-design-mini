@@ -44,7 +44,7 @@ toc: content
 #endif
 >
   <view class="feedback-demo-target">
-    <ant-icon style="font-size: 30px" type="MoreOutline" />
+    <ant-icon style="font-size: 40px" type="MoreOutline" />
   </view>
   <view slot="popover-content" class="feedback-content">
     这里是 popover 内容
@@ -225,9 +225,9 @@ Page({
 
 | 变量名                              | 默认值                                                                                                                                | 深色模式默认值                                                                                                                        | 备注             |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| --feedback-text-color               | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div>                                     | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div>                                     | 反馈文本颜色     |
-| --feedback-background-color         | <div style="width: 150px; height: 30px; background-color: rgba(216, 216, 216, 0.42); color: #333333;">rgba(216, 216, 216, 0.42)</div> | <div style="width: 150px; height: 30px; background-color: rgba(216, 216, 216, 0.42); color: #333333;">rgba(216, 216, 216, 0.42)</div> | 反馈背景颜色     |
-| --feedback-mask-color               | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.25); color: #FFFFFF;">rgba(0, 0, 0, 0.25)</div>             | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.25); color: #FFFFFF;">rgba(0, 0, 0, 0.25)</div>             | 反馈遮罩颜色     |
-| --feedback-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                                     | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div>                                     | 反馈内容背景颜色 |
-| --feedback-list-background-color    | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                                     | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div>                                     | 反馈列表背景颜色 |
-| --feedback-list-text-color          | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div>                                     | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div>                                     | 反馈列表文本颜色 |
+| --feedback-text-color               | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                     | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div>                                     | 反馈文本颜色     |
+| --feedback-background-color         | <div style="width: 150px; height: 40px; background-color: rgba(216, 216, 216, 0.42); color: #333333;">rgba(216, 216, 216, 0.42)</div> | <div style="width: 150px; height: 40px; background-color: rgba(216, 216, 216, 0.42); color: #333333;">rgba(216, 216, 216, 0.42)</div> | 反馈背景颜色     |
+| --feedback-mask-color               | <div style="width: 150px; height: 40px; background-color: rgba(0, 0, 0, 0.25); color: #FFFFFF;">rgba(0, 0, 0, 0.25)</div>             | <div style="width: 150px; height: 40px; background-color: rgba(0, 0, 0, 0.25); color: #FFFFFF;">rgba(0, 0, 0, 0.25)</div>             | 反馈遮罩颜色     |
+| --feedback-content-background-color | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                     | <div style="width: 150px; height: 40px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div>                                     | 反馈内容背景颜色 |
+| --feedback-list-background-color    | <div style="width: 150px; height: 40px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                                     | <div style="width: 150px; height: 40px; background-color: #121212; color: #fff;">#121212</div>                                     | 反馈列表背景颜色 |
+| --feedback-list-text-color          | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                     | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div>                                     | 反馈列表文本颜色 |

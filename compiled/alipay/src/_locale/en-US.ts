@@ -9,6 +9,9 @@ const enUS: Locale = {
     okText: 'Ok',
     cancelText: 'Cancel',
   },
+  input: {
+    placeholder: 'Please enter',
+  },
   calendar: {
     weekdayNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     today: 'Today',
@@ -24,7 +27,7 @@ const enUS: Locale = {
   guideTour: {
     gotItText: 'Got it',
     nextStepText: 'Next step',
-    prevStepText: 'Previous step',
+    prevStepText: 'Prev step',
     jumpText: 'Skip',
   },
   imageUpload: {

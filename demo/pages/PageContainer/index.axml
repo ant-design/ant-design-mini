@@ -1,4 +1,4 @@
-<ant-page
+<ant-page-container
   loading="{{loading}}"
   status="{{status}}"
   title="{{title}}"
@@ -79,4 +79,4 @@
     正常
   </ant-button>
   <ant-loading slot="loading" color="#999" />
-</ant-page>
+</ant-page-container>

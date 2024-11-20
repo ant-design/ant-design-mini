@@ -1,3 +1,5 @@
+<import-sjs from="../../_util/isPropsEmpty.sjs" name="u" />
+
 <view
   class="ant-textarea {{ disabled ? 'ant-textarea-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
   style="{{ style || '' }};{{ focusStyle || '' }}"
@@ -10,7 +12,7 @@
       class="ant-textarea-content {{ allowClear ? 'ant-textarea-content-clear' : '' }}"
       disabled="{{ disabled }}"
       value="{{ state.value || '' }}"
-      placeholder="{{ [undefined,null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder }}"
+      placeholder="{{ u.isPropsEmpty(placeholder) ? locale.input.placeholder : placeholder }}"
       placeholder-class="ant-textarea-placeholder {{ placeholderClassName ? placeholderClassName : '' }}"
       placeholder-style="{{ placeholderStyle ? placeholderStyle : '' }}"
       maxlength="{{ maxLength }}"
@@ -33,7 +35,7 @@
       class="ant-textarea-content {{ allowClear ? 'ant-textarea-content-clear' : '' }}"
       disabled="{{ disabled }}"
       value="{{ state.value || '' }}"
-      placeholder="{{ [undefined,null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder  }}"
+      placeholder="{{ u.isPropsEmpty(placeholder) ? locale.input.placeholder : placeholder  }}"
       placeholder-class="ant-textarea-placeholder {{ placeholderClassName ? placeholderClassName : '' }}"
       placeholder-style="{{ placeholderStyle ? placeholderStyle : '' }}"
       maxlength="{{ maxLength }}"

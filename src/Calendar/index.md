@@ -117,28 +117,48 @@ function demoFormatter(cell, value) {
 <ant-calendar
   ref="handleRef"
   value="{{demo9.value}}"
-  onChange="demo9HandleChange"
   selectionMode="single"
   changedScrollIntoView
+#if ALIPAY
+  onChange="demo9HandleChange"
+#endif
+#if WECHAT
+  bind:change="demo9HandleChange"
+#endif
 ></ant-calendar>
- <ant-button
-      type="primary"
-      onTap="demo9HandlePreviousDay"
-    >
-      上一天
-    </ant-button>
-    <ant-button
-      type="primary"
-      onTap="demo9HandleNextDay"
-    >
-      下一天
-    </ant-button>
-    <ant-button
-      type="primary"
-      onTap="demo9HandleScrollIntoView"
-    >
-      滚动到指定日期
-    </ant-button>
+<ant-button
+  type="primary"
+#if ALIPAY
+  onTap="demo9HandlePreviousDay"
+#endif
+#if WECHAT
+  bind:tap="demo9HandlePreviousDay"
+#endif
+>
+  上一天
+</ant-button>
+<ant-button
+  type="primary"
+#if ALIPAY
+  onTap="demo9HandleNextDay"
+#endif
+#if WECHAT
+  bind:tap="demo9HandleNextDay"
+#endif
+>
+  下一天
+</ant-button>
+<ant-button
+  type="primary"
+#if ALIPAY
+  onTap="demo9HandleScrollIntoView"
+#endif
+#if WECHAT
+  bind:tap="demo9HandleScrollIntoView"
+#endif
+>
+  滚动到指定日期
+</ant-button>
 ```
 
 ```js
@@ -185,12 +205,13 @@ Page({
 | selectionMode           | 设置选择模式，单选或者连续区间，默认为 `range` | `single` \| `range`                                         | `range`     |
 | monthRange              | 月份范围，默认为最近 3 个月                    | `[number, number]`                                          | 最近 3 个月 |
 | weekStartsOn            | 星期栏，以周几作为第一天显示。默认为 `Sunday`  | `Sunday` \| `Monday`                                        | `Sunday`    |
-| onChange                | 日期变化回调                                   | (date: CalendarValue) => void                               | 无          |
 | onFormatter             | 用于设置单元格的自定义数据                     | (cell: CellState, currentValue: CalendarValue) => CellState | 无          |
 | onMonthFormatter        | 用于设置月份的自定义数据                       | (month: any) => CellState                                   | 无          |
 | localeText              | 国际化文案                                     | Partial`<LocaleText>`                                       | 无          |
 | changedScrollIntoView   | 选中值改变后是否滚动视图                       | boolean                                                     | 无          |
 | showSelectableDatesOnly | 只展示在可选范围内的日期                       | boolean                                                     | false       |
+| #if ALIPAY onChange     | 日期变化回调                                   | (date: CalendarValue) => void                               | 无          |
+| #if WECHAT bind:change  | 日期变化回调                                   | (date: CalendarValue) => void                               | 无          |
 
 ### 类型
 
@@ -233,15 +254,15 @@ interface CellState {
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                           | 默认值                                                                                                                           | 深色模式默认值                                                                                                                   | 备注                 |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| --calendar-cell-disabled-opacity | 0.4                                                                                                                              | 0.4                                                                                                                              | 日历单元格禁用透明度 |
-| --calendar-weekday-names-bg      | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                | 日历星期名称背景颜色 |
-| --calendar-default-color         | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #000000;">#c5cad1</div>                                | 日历默认颜色         |
+| 变量名                           | 默认值                                                                                                                            | 深色模式默认值                                                                                                                    | 备注                 |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| --calendar-cell-disabled-opacity | 0.4                                                                                                                               | 0.4                                                                                                                               | 日历单元格禁用透明度 |
+| --calendar-weekday-names-bg      | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                 | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                 | 日历星期名称背景颜色 |
+| --calendar-default-color         | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                 | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #000000;">#c5cad1</div>                                 | 日历默认颜色         |
 | --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #ffffff;">rgba(22, 119, 255, 0.1)</div> | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #ffffff;">rgba(22, 119, 255, 0.1)</div> | 日历选中颜色         |
-| --calendar-assist-color          | <div style="width: 150px; height: 40px; background-color: #999999; color: #FFFFFF;">#999999</div>                                | <div style="width: 150px; height: 40px; background-color: #616161; color: #FFFFFF;">#616161</div>                                | 日历辅助颜色         |
-| --calendar-selected-end-color    | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                | 日历选中结束颜色     |
-| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div>                                | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div>                                | 日历选中颜色         |
+| --calendar-assist-color          | <div style="width: 150px; height: 40px; background-color: #999999; color: #FFFFFF;">#999999</div>                                 | <div style="width: 150px; height: 40px; background-color: #616161; color: #FFFFFF;">#616161</div>                                 | 日历辅助颜色         |
+| --calendar-selected-end-color    | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                 | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                 | 日历选中结束颜色     |
+| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div>                                 | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div>                                 | 日历选中颜色         |
 
 ## FAQ
 

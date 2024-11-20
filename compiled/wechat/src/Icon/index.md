@@ -9,13 +9,7 @@ toc: 'content'
 
 # Icon 图标
 
-<!-- <code src="../../docs/components/compatibility.tsx" inline="true"></code> -->
-
-语义化的矢量图形。
-
-## 何时使用
-
-当需要使用图形来对基础操作功能进行隐喻呈现，并给予用户正确、友好且清晰的操作指引时，可以使用 Icon 图标。
+语义化的矢量图形。当需要使用图形来对基础操作功能进行隐喻呈现，并给予用户正确、友好且清晰的操作指引时，可以使用 Icon 图标。
 
 ## 引入
 
@@ -23,7 +17,12 @@ toc: 'content'
 
 ```json
 "usingComponents": {
+#if ALIPAY
   "ant-icon": "antd-mini/es/Icon/index"
+#endif
+#if WECHAT
+  "ant-icon": "antd-mini/Icon/index"
+#endif
 }
 ```
 
@@ -50,23 +49,23 @@ toc: 'content'
 
 ### Demo 代码
 
-<code src='../../demo/pages/Icon/index' noChangeButton></code>
+<code src='../../demo/pages/Icon/index'></code>
 
 ## API
 
-| 属性      | 说明                     | 类型               | 默认值 |
-| :-------- | :----------------------- | :----------------- | :----- |
-| className | 类名                     | string             | -      |
-| style     | 样式                     | string             | -      |
-| type      | 图标的类型               | string             | -      |
-| catchTap  | 点击图标时触发的回调函数 | (e: Event) => void | -      |
-| onTap     | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+| 属性                 | 说明                     | 类型               | 默认值 |
+| :------------------- | :----------------------- | :----------------- | :----- |
+| className            | 类名                     | string             | -      |
+| style                | 样式                     | string             | -      |
+| type                 | 图标的类型               | string             | -      |
+| #if ALIPAY catchTap  | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+| #if ALIPAY onTap     | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+| #if WECHAT catch:tap | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+| #if WECHAT bind:tap  | 点击图标时触发的回调函数 | (e: Event) => void | -      |
 
 ### 主题定制
 
 #### 样式变量
-
-组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 

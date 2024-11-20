@@ -1,10 +1,11 @@
 import enUS from './es-US';
+// import arSA from './ar-SA';
 Page({
     data: {
         locale: enUS,
         defaultValue: '',
         value: '',
-        list: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
+        list: ['BeiJing', 'ShangHai', 'GuangZhou', 'ShenZhen', 'HangZhou', 'ChengDu', 'ChangSha'],
         themeVars: {
             'button-primary-color': 'yellow',
             'button-primary-background-color': 'green',

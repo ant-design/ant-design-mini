@@ -18,6 +18,7 @@ Component(
       // 用createSelectorQuery来获取容器尺寸信息
       this.getBoundingClientRect('.ant-autoresize-fontsize-container').then(
         (rect) => {
+          if (!rect) return;
           const [text, maxFontSize, ratio] = getValueFromProps(this, [
             'text',
             'maxFontSize',
@@ -58,7 +59,7 @@ Component(
             newStyle = `font-size: ${minFontSize}rpx; overflow: visible; white-space: pre-wrap; word-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;`;
           } else {
             // 如果不支持换行，则直接出现省略号；
-            newStyle = `font-size: ${minFontSize}rpx; max-width: ${textRect.width}; width: ${textRect.width}; overflow: hidden; display: inline-block; text-overflow: ellipsis; white-space: nowrap; -webkit-box-orient: vertical;`;
+            newStyle = `font-size: ${minFontSize}rpx; max-width: ${textRect.width}px; width: ${textRect.width}px; overflow: hidden; display: inline-block; text-overflow: ellipsis; white-space: nowrap; -webkit-box-orient: vertical;`;
           }
           // 设置样式...
           this.setData({

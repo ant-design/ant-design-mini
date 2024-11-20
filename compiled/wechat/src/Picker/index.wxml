@@ -2,6 +2,10 @@
   src="./index.wxs"
   module="_sjs"
 ></wxs>
+<wxs
+  src="../_util/isPropsEmpty.wxs"
+  module="u"
+></wxs>
 <view
   class="ant-picker {{disabled ? 'ant-picker-disabled' : ''}} {{className || ''}}"
   style="{{style || ''}}"
@@ -17,7 +21,7 @@
       class="ant-picker-value-text"
     >{{formatValue}}</view>
     <block wx:else>
-      <view class="ant-picker-value-placeholder">{{[undefined, null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder}}</view>
+      <view class="ant-picker-value-placeholder">{{u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder}}</view>
     </block>
   </view>
   <slot
@@ -41,7 +45,7 @@
       hoverStartTime="20"
       hoverStayTime="50"
       bind:tap="onCancel"
-    >{{[undefined, null].indexOf(cancelText) !== -1 ? locale.global.cancelText : cancelText}}</view>
+    >{{u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText}}</view>
     <view class="ant-picker-header-item ant-picker-header-title">
       <view>{{title}}</view>
     </view>
@@ -51,7 +55,7 @@
       hoverStartTime="20"
       hoverStayTime="50"
       bind:tap="onOk"
-    >{{[undefined, null].indexOf(okText) !== -1 ? locale.global.okText : okText}}</view>
+    >{{u.isPropsEmpty(okText) ? locale.global.okText : okText}}</view>
   </view>
   <view class="ant-picker-content">
     <slot name="content-header"></slot>
@@ -89,7 +93,7 @@
       <picker-view class="ant-picker-picker-view">
         <picker-view-column class="ant-picker-picker-view-column">
           <!--display: inline-->
-          <text style="color: #ccc">{{[undefined, null].indexOf(emptyText) !== -1 ? locale.global.emptyText : emptyText}}</text>
+          <text style="color: #ccc">{{u.isPropsEmpty(emptyText) ? locale.global.emptyText : emptyText}}</text>
         </picker-view-column>
       </picker-view>
     </block>

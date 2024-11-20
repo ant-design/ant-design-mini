@@ -1,5 +1,11 @@
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
+import {
+  Component,
+  getValueFromProps,
+  triggerEvent,
+  triggerEventOnly,
+} from '../_util/simply';
 import { CountdownDefaultProps } from './props';
 
 dayjs.extend(duration);
@@ -7,7 +13,7 @@ dayjs.extend(duration);
 function countdown(
   startTimestamp: number,
   endTimestamp: number,
-  callback: (remainingTime: number) => void,
+  callback: (remainingTime: number) => void
 ) {
   // if (isNaN(startTimestamp) || isNaN(endTimestamp)) {
   //   return;
@@ -76,81 +82,103 @@ function countdown(
   }
 }
 
-Component({
-  data: {
+Component(
+  CountdownDefaultProps,
+  {
+    init() {
+      const [
+        countdownStartTime,
+        countdownEndTime,
+        countdownType,
+        time,
+        autoShowDay,
+      ] = getValueFromProps(this, [
+        'countdownStartTime',
+        'countdownEndTime',
+        'countdownType',
+        'time',
+        'autoShowDay',
+      ]);
+      const timeNum = isNaN(Number(time)) ? 0 : Number(time);
+
+      const defaultEndTime = +new Date() + timeNum * 1000;
+      const currentTimeStr = `${countdownStartTime || +new Date()}`;
+      const endTimeStr = `${countdownEndTime || defaultEndTime}`;
+
+      // 如果服务端给的是秒级别的时间戳，自动补3个0转成毫秒的
+      const finalCurrentTimeStr = `${currentTimeStr}${
+        currentTimeStr.length === 10 ? '000' : ''
+      }`;
+      const finalEndTimeStr = `${endTimeStr}${
+        endTimeStr.length === 10 ? '000' : ''
+      }`;
+      const finalStartTime = parseInt(finalCurrentTimeStr, 10);
+      const finalEndTime = parseInt(finalEndTimeStr, 10);
+
+      this.setData({
+        showDay: autoShowDay ? this.data.countdownDay !== '0' : true,
+      });
+
+      countdown(finalStartTime, finalEndTime, (remainTime) => {
+        if (remainTime < 1) {
+          // 小于1s了，说明倒计时该结束了
+          triggerEventOnly(this, 'countdownFinish');
+          this.setData({
+            showDecisecond: false,
+          });
+        }
+
+        const durationTime = dayjs.duration(remainTime);
+
+        const day = Math.floor(durationTime.asDays()).toString();
+
+        let hour = '';
+        if (countdownType === 'day') {
+          hour = durationTime.format('HH');
+        } else {
+          const hoursNum = Math.floor(durationTime.asHours());
+          hour = `${hoursNum < 10 ? '0' : ''}${hoursNum > 0 ? hoursNum : '0'}`;
+        }
+
+        const min = durationTime.format('mm');
+        const sec = durationTime.format('ss');
+
+        this.setData({
+          countdownDay: day,
+          countdownHour: hour,
+          countdownMin: min,
+          countdownSec: sec,
+        });
+
+        triggerEvent(this, 'countdownChange', {
+          remainTime,
+          day,
+          hour,
+          min,
+          sec,
+        });
+      });
+    },
+  },
+  {
     countdownDay: null, // 注意这些倒计时相关的都应该是字符串
     countdownHour: null, // 倒计时小时 注意都用字符串，避免0被判false的问题
     countdownMin: null, // 倒计时分钟
     countdownSec: null, // 倒计时秒
     showDecisecond: true, // 倒计时结束时不展示秒后一位(厘秒)
   },
-  props: CountdownDefaultProps,
-  onInit() {
-    const { countdownStartTime, countdownEndTime, countdownType, time } =
-      this.props;
-    const timeNum = isNaN(Number(time)) ? 0 : Number(time);
-
-    const defaultEndTime = +new Date() + timeNum * 1000;
-    const currentTimeStr = `${countdownStartTime || +new Date()}`;
-    const endTimeStr = `${countdownEndTime || defaultEndTime}`;
-
-    // 如果服务端给的是秒级别的时间戳，自动补3个0转成毫秒的
-    const finalCurrentTimeStr = `${currentTimeStr}${
-      currentTimeStr.length === 10 ? '000' : ''
-    }`;
-    const finalEndTimeStr = `${endTimeStr}${
-      endTimeStr.length === 10 ? '000' : ''
-    }`;
-    const finalStartTime = parseInt(finalCurrentTimeStr, 10);
-    const finalEndTime = parseInt(finalEndTimeStr, 10);
-
-    const { autoShowDay } = this.props;
-    this.setData({
-      showDay: autoShowDay ? this.data.countdownDay !== '0' : true,
-    });
-
-    countdown(finalStartTime, finalEndTime, (remainTime) => {
-      if (remainTime < 1) {
-        // 小于1s了，说明倒计时该结束了
-        this.props.onCountdownFinish();
+  undefined,
+  {
+    onInit() {
+      this.init();
+    },
+    didUpdate(prevProps) {
+      const autoShowDay = getValueFromProps(this, 'autoShowDay');
+      if (prevProps.autoShowDay !== autoShowDay) {
         this.setData({
-          showDecisecond: false,
+          showDay: autoShowDay ? this.data.countdownDay !== '0' : true,
         });
       }
-
-      const durationTime = dayjs.duration(remainTime);
-
-      const day = Math.floor(durationTime.asDays()).toString();
-
-      let hour = '';
-      if (countdownType === 'day') {
-        hour = durationTime.format('HH');
-      } else {
-        const hoursNum = Math.floor(durationTime.asHours());
-        hour = `${hoursNum < 10 ? '0' : ''}${hoursNum}`;
-      }
-
-      const min = durationTime.format('mm');
-      const sec = durationTime.format('ss');
-
-      this.setData({
-        countdownDay: day,
-        countdownHour: hour,
-        countdownMin: min,
-        countdownSec: sec,
-      });
-
-      if (this.props.onCountdownChange) {
-        this.props.onCountdownChange({ remainTime, day, hour, min, sec });
-      }
-    });
-  },
-  didUpdate(prevProps) {
-    const { autoShowDay } = this.props;
-    if (prevProps.autoShowDay !== autoShowDay) {
-      this.setData({
-        showDay: autoShowDay ? this.data.countdownDay !== '0' : true,
-      });
-    }
-  },
-});
+    },
+  }
+);

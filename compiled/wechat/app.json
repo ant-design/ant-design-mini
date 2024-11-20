@@ -79,6 +79,9 @@
     "demo/pages/SafeArea/index",
     "demo/pages/Card/index",
     "demo/pages/Sticky/index",
-    "demo/pages/AutoResize/index"
+    "demo/pages/AutoResize/index",
+    "demo/pages/Countdown/index",
+    "demo/pages/Typography/index",
+    "demo/pages/PageContainer/index"
   ]
 }

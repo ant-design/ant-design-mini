@@ -1,0 +1,50 @@
+@import (reference) './variable.less';
+@import (reference) '../style/mixins/hairline.less';
+
+@prefixCls: ant-postscript;
+
+.@{prefixCls} {
+  background: @postscript-background-color;
+  padding: @v-spacing-standard;
+
+  &-title {
+    font-size: @font-size-subtitle;
+    color: @postscript-title-color;
+    margin-bottom: @v-spacing-standard;
+  }
+
+  &-input {
+    position: relative;
+    margin-bottom: @v-spacing-standard;
+    padding: @v-spacing-standard 0;
+    .hairline('bottom', @postscript-quick-border-color);
+    .ant-input-content {
+      font-size: @font-size-subtitle;
+      color: @postscript-input-color;
+      caret-color: @postscript-caret-color;
+    }
+    &-placeholder {
+      font-size: @font-size-content;
+      color: @postscript-placeholder-color;
+    }
+  }
+
+  &-quick {
+    display: flex;
+    gap: @h-spacing-mini;
+
+    &-item {
+      flex-shrink: 0;
+      padding: @h-spacing-small @h-spacing-standard;
+      border-radius: @corner-radius-circle;
+      font-size: @font-size-content;
+      color: @postscript-quick-text-color;
+      .hairline-radius(@postscript-quick-border-color, @corner-radius-circle);
+
+      &:active {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+

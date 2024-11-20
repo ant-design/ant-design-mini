@@ -1,3 +1,6 @@
+page {
+  padding-bottom: 500px;
+}
 .number-keyboard-header {
   border-top: 1px solid #f5f5f5;
   border-bottom: 1px solid #f5f5f5;

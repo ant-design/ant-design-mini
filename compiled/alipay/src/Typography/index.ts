@@ -1,8 +1,8 @@
 import {
   Component,
-  triggerEventOnly,
-  triggerCatchEvent,
   getValueFromProps,
+  triggerCatchEvent,
+  triggerEventOnly,
 } from '../_util/simply';
 import { TypographyDefaultProps } from './props';
 

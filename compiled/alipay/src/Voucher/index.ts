@@ -1,32 +1,31 @@
 import isFunction from 'lodash.isfunction';
+import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
 import { componentsProps } from './props';
 
-Component({
-  data: {},
-  props: componentsProps,
-  methods: {
+Component(
+  componentsProps,
+  {
     getCurTapVoucher(event) {
-      const { index } = event.target.dataset;
-      const { dataSource } = this.props;
+      const { index } = event.currentTarget.dataset;
+      const dataSource = getValueFromProps(this, 'dataSource');
 
       return dataSource[index];
     },
 
-    handleVoucherTap(event) {
-      const { onVoucherTap } = this.props;
-
-      onVoucherTap?.(this.getCurTapVoucher(event), event);
+    handleVoucherTap(e) {
+      triggerEvent(this, 'voucherTap', this.getCurTapVoucher(e), e);
     },
-
-    handleBtnTap(event) {
-      const { onBtnTap, onTap } = this.props;
-      const voucher = this.getCurTapVoucher(event);
-
+    handleBtnTap(e) {
+      const voucher = this.getCurTapVoucher(e);
+      const [onBtnTap, onTap] = getValueFromProps(this, ['onBtnTap', 'onTap']);
       if (isFunction(onBtnTap)) {
-        onBtnTap(voucher, event);
+        triggerEvent(this, 'btnTap', voucher, e);
       } else if (isFunction(onTap)) {
-        onTap(voucher, event);
+        triggerEvent(this, 'tap', voucher, e);
       }
     },
   },
-});
+  undefined,
+  undefined,
+  undefined
+);

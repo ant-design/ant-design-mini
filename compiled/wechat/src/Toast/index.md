@@ -9,8 +9,6 @@ toc: 'content'
 
 # Toast 轻提示
 
-## 何时使用
-
 对操作结果的轻量级反馈，无需用户操作即可自行消失。最长文案不超过 2 行，最多可以显示 24 个字符，文案过长会被截断。
 
 ## 引入
@@ -103,7 +101,7 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                | 默认值                                                                                                                    | 备注               |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| --toast-default-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | Toast 默认背景颜色 |
-| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                         | Toast 默认文字颜色 |
+| 变量名                | 浅色模式默认值                                                                                                    | 深色模式默认值                                                                                                    | 备注               |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------ |
+| --toast-default-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | Toast 默认背景颜色 |
+| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                  | Toast 默认文字颜色 |

@@ -18,7 +18,13 @@
     >
       <view class="{{helper.getMarkCellClassName(index, markItems)}}">
         <!--display: inline-->
-        <text>{{item}}</text>
+        <ant-auto-resize
+          text="{{item}}"
+          minFontSize="13"
+          maxFontSize="28"
+        >
+          <text>{{item}}</text>
+        </ant-auto-resize>
       </view>
     </block>
   </view>
@@ -77,10 +83,16 @@
                 <view class="ant-calendar-cell-container">
                   <view class="ant-calendar-cell-top">
                     <!--display: inline-->
-                    <text
-                      a:if="{{item.top}}"
-                      class="ant-calendar-cell-top-text {{item.top.className ? item.top.className : ''}}"
-                    >{{item.top.label}}</text>
+                    <ant-auto-resize
+                      text="{{item.top.label}}"
+                      minFontSize="13"
+                      maxFontSize="18"
+                    >
+                      <text
+                        a:if="{{item.top}}"
+                        class="ant-calendar-cell-top-text {{item.top.className ? item.top.className : ''}}"
+                      >{{item.top.label}}</text>
+                    </ant-auto-resize>
                   </view>
                   <view class="ant-calendar-cell-center">{{item.date}}</view>
                   <view class="ant-calendar-cell-bottom">

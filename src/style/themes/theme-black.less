@@ -93,20 +93,20 @@ page {
   // button
   --button-disabled-opacity: 0.4;
   --button-color: #3086ff;
-  --button-background-color: #000000;
-  --button-border-color: #0a0a0a;
+  --button-background-color: #1a1a1a;
+  --button-border-color: #3086ff;;
   --button-primary-border-color: #3086ff;
   --button-primary-background-color: #3086ff;
   --button-primary-color: #ffffff;
   --button-primary-aide-border-color: #0d2543;
   --button-primary-aide-color: #3086ff;
   --button-default-aide-border-color: #121212;
-  --button-default-aide-background-color: #000000;
+  --button-default-aide-background-color: #1a1a1a;
   --button-default-aide-color: #c5cad1;
   --button-primary-danger-background-color: #ff4a58;
   --button-primary-danger-border-color: #ff4a58;
   --button-primary-danger-color: #ffffff;
-  --button-default-danger-background-color: #ffffff;
+  --button-default-danger-background-color: #1a1a1a;
   --button-default-danger-border-color: #ff4a58;
   --button-default-danger-color: #ff4a58;
   --button-text-danger-color: #ff4a58;
@@ -137,7 +137,7 @@ page {
   --tabs-underline-border-color: #2b2b2b;
   --tabs-plus-color: #000000;
   --tabs-capsule-title-bg: #121212;
-  --tabs-subtitle-color: #000000;
+  --tabs-subtitle-color: #1a1a1a;
   --tabs-count-color: #474747;
   --tabs-badge-size: 28rpx;
 
@@ -165,16 +165,16 @@ page {
   --collapse-content-background-color: #1a1a1a;
   --collapse-border-color: #2b2b2b;
   --collapse-node-text-color: #616161;
-  --collapse-container-background-color: #000000;
+  --collapse-container-background-color: #1a1a1a;
 
   // container
-  --container-header-color: #c5cad1;
+  --container-header-color: #2b2b2b;
   --container-color-text-assist: #616161;
   --container-background-color: #1a1a1a;
 
   // divider
   --divider-text-color: #c5cad1;
-  --divider-border-color: #444444;
+  --divider-border-color: #2b2b2b;
 
   // empty
   --empty-text-color: #c5cad1;
@@ -256,6 +256,7 @@ page {
 
   // checkboxList
   --checklist-background-color: #3086ff;
+  --check-list-item-title-color: #c5cad1;
   --check-list-item-background-color: #1a1a1a;
   --check-list-item-hover-background-color: #2b2b2b;
   --check-list-item-content-color: #c5cad1;
@@ -305,8 +306,8 @@ page {
   --picker-placeholder-color: #474747;
   --picker-header-color: #2b2b2b;
   --picker-content-background-color: #1a1a1a;
-  --picker-mask-bg-faded-95: rgba(255, 255, 255, 0.05);
-  --picker-mask-bg-faded-60: rgba(255, 255, 255, 0.4);
+  --picker-mask-bg-faded-95: rgba(255, 255, 255, 0.02);
+  --picker-mask-bg-faded-60: rgba(255, 255, 255, 0.01);
 
   // radio
   --radio-header-color: #616161;
@@ -319,9 +320,9 @@ page {
 
   // popoverList
   --popover-list-content-bg: rgba(0, 0, 0, 0.93);
-  --popover-list-content-color: #ffffff;
+  --popover-list-content-color: #1a1a1a;
   --popover-list-badge-color: #ff411c;
-  --popover-list-content-color: #c5cad1;
+  --popover-list-item-bg:  #444444;
 
   // rare-words
   --rare-words-bg: rgba(0, 0, 0, 0.45);
@@ -329,7 +330,7 @@ page {
   --rare-words-keyboard-color: #c5cad1;
   --rare-words-border-color: #2b2b2b;
   --rare-words-kb-bg: #121212;
-  --rare-words-pinyin-key-color: #ffffff;
+  --rare-words-pinyin-key-color: #1a1a1a;
   --rare-words-inner-bg: #474747;
   --rare-words-active-color: #3086ff;
   --rare-words-pinyin-color: #121212;
@@ -358,7 +359,7 @@ page {
   --stepper-handler-tap-bg: #ddd;
   --stepper-handler-border-color: #444444;
   --stepper-border-color: #444444;
-  --stepper-background-color: #ffffff;
+  --stepper-background-color: #1a1a1a;
   --stepper-hover-bg: rgba(0, 0, 0, 0.92);
 
   // switch
@@ -392,12 +393,12 @@ page {
 
   // result
   --result-main-background: #1a1a1a;
-  --result-title-color: #000000;
+  --result-title-color: #ffffff;
   --result-desc-color: #c5cad1;
   --result-success-color: #3086ff;
-  --result-error-color: #ff3b30;
-  --result-warning-color: #ff8f1f;
-  --result-wait-color: #00b578;
+  --result-error-color: #ff544a;
+  --result-warning-color: #ff9c38;
+  --result-wait-color: #12b57e;
 
   // skeleton
   --skeleton-animation-25: #2b2b2b;
@@ -423,10 +424,17 @@ page {
   --notice-primary-background-color: rgba(208, 228, 255, 1);
   --notice-info-text-color: #ffffff;
   --notice-info-background-color: #808080;
+
   // page-container
   --page-container-background-color: #121212;
+
   // typography
   --typography-container-color: #c5cad1;
+
+  // pagination
+  --pagination-area-background-color: #f5f5f5;
+  --pagination-move-background-color: #3086ff;
+
   // table
   --table-item-color: #c5cad1;
   --table-item-bg: #1a1a1a;
@@ -434,9 +442,63 @@ page {
   --table-empty-bg: #c5cad1;
   // sticky
   --sticky-check-bg: rgba(238, 238, 238, 0);
+  // voucher
+  --voucher-background-image-start: rgba(255, 255, 255, 0);
+  --voucher-background-image-end: #fff;
+  --voucher-multi-money-color: #ff3b30;
+  --voucher-threshold-color: #808080;
+  --voucher-action-btn-color: #ff4a58;
+  --voucher-action-bg: #ffffff;
+  --voucher-action-left-bg:  #c5cad1;
+  --voucher-action-left-threshold-bg:  #c5cad1;
+  --voucher-action-right-color:  #c5cad1;
+  --voucher-action-right-title-color:  #c5cad1;
+  --voucher-action-right-desc-color: rgba(255, 255, 255, 0.8);
+  --voucher-item-right-title-color: #383939;
+  --voucher-item-right-title-color: #808080;
   // card
-  --ant-card-bg: #000000;
+  --ant-card-bg: #1a1a1a;
   --ant-card-header-title-color: #c5cad1;
   --ant-card-header-link-color: #616161;
   --ant-card-fold-btn-color: #3086ff;
+  // countdown
+  --ant-countdown-color: #808080;
+  --ant-countdown-number-color: #000000;
+  --ant-countdown-number-bg: #3086ff;
+  // select-contact
+  --select-contact-search-bar-focus-color: #3086ff;
+  --select-contact-search-cancel-color: #c5cad1;
+  --select-contact-wrap-loading-bg: #1a1a1a;
+  --select-contact-scroll-bg: #1a1a1a;
+  --select-contact-list-bg: #1a1a1a;
+  --select-contact-title-bg: #1a1a1a;
+  --select-contact-title-color: #999;
+  --select-contact-title-first-color: #c5cad1;
+  --select-contact-title-first-border: #2b2b2b;
+  --select-contact-tag-color: #ff6010;
+  --select-contact-tag-border: #ffcfb7;
+  --select-contact-empty-bg: #1a1a1a;
+  --select-contact-empty-color: #616161;
+  --select-contact-loading-bg: #616161;
+  --select-contact-display-light-color: #fa6300;
+
+  // number-input
+  --number-input-background-color: #1a1a1a;
+  --number-input-title-color: #c5cad1;
+  --number-input-link-color:  #3f5980;
+  --number-input-unit-color: #616161;
+  --number-input-border-color: #2b2b2b;
+  --number-input-prefix-color: #c5cad1;
+  --number-input-caret-color: #3086ff;
+  --number-input-quick-text-color: #3086ff;
+  --number-input-quick-border-color:  #3086ff;
+  --number-input-remaining-color: #808080;
+  // postScript
+  --postscript-background-color: #1a1a1a;
+  --postscript-title-color: #c5cad1;
+  --postscript-input-color: #c5cad1;
+  --postscript-caret-color: #3086ff;
+  --postscript-placeholder-color:#474747;
+  --postscript-quick-text-color:  #808080;
+  --postscript-quick-border-color: #2b2b2b;
 }

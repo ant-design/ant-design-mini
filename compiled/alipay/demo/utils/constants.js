@@ -48,6 +48,11 @@ export const componentList = [
         type: '信息展示',
         list: [
             {
+                name: 'Card',
+                nameZN: '基础卡片',
+                path: '/pages/Card/index',
+            },
+            {
                 name: 'Avatar',
                 nameZN: '头像',
                 path: '/pages/Avatar/index',
@@ -66,11 +71,6 @@ export const componentList = [
                 name: 'Grid',
                 nameZN: '宫格',
                 path: '/pages/Grid/index',
-            },
-            {
-                name: 'Container',
-                nameZN: '容器',
-                path: '/pages/Container/index',
             },
             {
                 name: 'List',
@@ -227,6 +227,16 @@ export const componentList = [
                 nameZN: '数字键盘-数字输入框',
                 path: '/pages/NumberKeyboardNumber/index',
             },
+            {
+                name: 'Postscript',
+                nameZN: '资金附言',
+                path: '/pages/Postscript/index',
+            },
+            {
+                name: 'NumberInput',
+                nameZN: '金额输入框',
+                path: '/pages/NumberInput/index',
+            },
         ],
     },
     {
@@ -251,11 +261,6 @@ export const componentList = [
                 name: 'Dialog',
                 nameZN: '弹窗',
                 path: '/pages/Dialog/index',
-            },
-            {
-                name: 'Modal',
-                nameZN: '对话框',
-                path: '/pages/Modal/index',
             },
             {
                 name: 'Popover',
@@ -313,9 +318,9 @@ export const componentList = [
         type: '业务组件',
         list: [
             {
-                name: 'Card',
-                nameZN: '基础卡片',
-                path: '/pages/Card/index',
+                name: 'Countdown',
+                nameZN: '倒计时',
+                path: '/pages/Countdown/index',
             },
             {
                 name: 'Voucher',
@@ -323,9 +328,9 @@ export const componentList = [
                 path: '/pages/Voucher/index',
             },
             {
-                name: 'Countdown',
-                nameZN: '倒计时',
-                path: '/pages/Countdown/index',
+                name: 'SelectContact',
+                nameZN: '选人组件',
+                path: '/pages/SelectContact/index',
             },
         ],
     },
@@ -356,6 +361,21 @@ export const componentList = [
                 name: 'SafeArea',
                 nameZN: '安全区',
                 path: '/pages/SafeArea/index',
+            },
+        ],
+    },
+    {
+        type: '待废弃',
+        list: [
+            {
+                name: 'Container',
+                nameZN: '容器',
+                path: '/pages/Container/index',
+            },
+            {
+                name: 'Modal',
+                nameZN: '对话框',
+                path: '/pages/Modal/index',
             },
         ],
     },

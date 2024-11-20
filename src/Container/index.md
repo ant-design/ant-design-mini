@@ -2,18 +2,14 @@
 nav:
   path: /components
 group:
-  title: 信息展示
-  order: 8
+  title: 待废弃
+  order: 99
 toc: 'content'
 ---
 
 # Container 容器
 
-通用卡片容器。
-
-## 何时使用
-
-当需要承载文字、列表、图片、段落等内容时，使用 Container 容器以方便用户浏览。
+不建议使用，此组件即将废弃。推荐使用 [Card](/components/card) 组件，拥有最新设计规范和更丰富功能。
 
 ## 引入
 
@@ -85,4 +81,4 @@ toc: 'content'
 | ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
 | --container-header-color      | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 容器头部颜色 |
 | --container-color-text-assist | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 辅助文本颜色 |
-| --container-background-color  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | 容器背景颜色 |
+| --container-background-color  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | 容器背景颜色 |

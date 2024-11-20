@@ -7,6 +7,9 @@ var deDE = {
         okText: 'Bestimmt',
         cancelText: 'Abbrechen',
     },
+    input: {
+        placeholder: 'Bitte geben Sie ein',
+    },
     calendar: {
         weekdayNames: [
             'Montag',

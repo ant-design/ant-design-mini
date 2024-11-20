@@ -1,3 +1,7 @@
+<wxs
+  src="../../_util/isPropsEmpty.wxs"
+  module="u"
+></wxs>
 <view
   class="ant-textarea {{disabled ? 'ant-textarea-disabled' : ''}} {{className ? className : ''}} {{selfFocus ? focusClassName ? focusClassName : '' : ''}}"
   style="{{style || ''}};{{focusStyle || ''}}"
@@ -9,7 +13,7 @@
       class="ant-textarea-content {{allowClear ? 'ant-textarea-content-clear' : ''}}"
       disabled="{{disabled}}"
       value="{{state.value || ''}}"
-      placeholder="{{[undefined, null].indexOf(placeholder) !== -1 ? locale.global.placeholder : placeholder}}"
+      placeholder="{{u.isPropsEmpty(placeholder) ? locale.input.placeholder : placeholder}}"
       placeholderClass="ant-textarea-placeholder {{placeholderClassName ? placeholderClassName : ''}}"
       placeholderStyle="{{placeholderStyle ? placeholderStyle : ''}}"
       maxlength="{{maxLength}}"

@@ -1,0 +1,74 @@
+.ant-countdown {
+  font-size: 26rpx;
+  line-height: 37rpx;
+  color: var(--ant-countdown-color, #666666);
+  display: inline-flex;
+  align-items: center;
+}
+.ant-countdown-time {
+  transform: translateY(1rpx);
+}
+.ant-countdown-time-prefix {
+  padding-right: 2rpx;
+}
+.ant-countdown-time-colon {
+  margin-right: -18rpx;
+  margin-left: -3rpx;
+  transform: translateY(1rpx);
+}
+.ant-countdown-time-num {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40rpx;
+  padding: 0 4rpx;
+  height: 40rpx;
+  margin: 0 6rpx;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  line-height: 37rpx;
+  color: var(--ant-countdown-number-color, #ffffff);
+  letter-spacing: 0;
+  background-color: var(--ant-countdown-number-bg, #1677ff);
+}
+@keyframes ds-countdown {
+  0% {
+    content: "9";
+  }
+  10% {
+    content: "8";
+  }
+  20% {
+    content: "7";
+  }
+  30% {
+    content: "6";
+  }
+  40% {
+    content: "5";
+  }
+  50% {
+    content: "4";
+  }
+  60% {
+    content: "3";
+  }
+  70% {
+    content: "2";
+  }
+  80% {
+    content: "1";
+  }
+  90% {
+    content: "0";
+  }
+  100% {
+    content: "9";
+  }
+}
+.ds-countdown::after {
+  display: inline-block;
+  animation: ds-countdown 1s infinite;
+  content: "9";
+}

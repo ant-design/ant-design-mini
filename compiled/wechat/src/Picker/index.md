@@ -11,8 +11,6 @@ toc: 'content'
 
 Picker 选择器显示一个或多个选项集合的可滚动列表，相比于原生 picker，实现了 iOS 与 Android 端体验的一致性。
 
-## 何时使用
-
 - 提供一组或多组关联选项供用户选择。
 - 当少于 5 个选项时，建议直接将选项平铺，使用 Radio 是更好的选择。
 
@@ -52,7 +50,7 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
 #endif
 #if WECHAT
   bind:cancel="handleDismiss"
-  bind:visibleChange="handleTriggerPicker"
+  bind:visiblechange="handleTriggerPicker"
   bind:ok="handleOk"
   bind:change="handleChange"
 #endif
@@ -316,7 +314,7 @@ Page({
 | #if WECHAT bind:ok            | 点击确定按钮，触发回调                                                                                                                                                      | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
 | #if WECHAT bind:cancel        | 点击取消按钮/蒙层，触发回调                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                              | -           |
 | #if WECHAT bind:change        | 选中项发生变化，触发回调                                                                                                                                                    | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
-| #if WECHAT bind:visibleChange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
+| #if WECHAT bind:visiblechange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
 
 ### CascaderPicker
 
@@ -377,15 +375,15 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名                            | 默认值                                                                                                                                | 备注                          |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| --picker-item-color               | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                                     | 选择器项颜色                  |
-| --picker-header-action-color      | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>                                     | 选择器头部操作颜色            |
-| --picker-placeholder-color        | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div>                                     | 选择器占位符颜色              |
-| --picker-header-color             | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div>                                     | 选择器头部颜色                |
-| --picker-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                                     | 选择器内容背景颜色            |
-| --picker-mask-bg-faded-95         | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.05); color: #000000;">rgba(255, 255, 255, 0.05)</div> | 选择器遮罩背景色（95%透明度） |
-| --picker-mask-bg-faded-60         | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.4); color: #000000;">rgba(255, 255, 255, 0.4)</div>   | 选择器遮罩背景色（60%透明度） |
+| 变量名                            | 浅色模式默认值                                                                                           | 深色模式默认值                                                                                           | 备注                          |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| --picker-item-color               | <div style="width: 150px; height: 40px; background-color: #333333; color: #ffffff;">#333333</div>       | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>       | 选择器项颜色                  |
+| --picker-header-action-color      | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #ffffff;">#3086ff</div>       | 选择器头部操作颜色            |
+| --picker-placeholder-color        | <div style="width: 150px; height: 40px; background-color: #cccccc; color: #333333;">#cccccc</div>       | <div style="width: 150px; height: 40px; background-color: #474747; color: #ffffff;">#474747</div>       | 选择器占位符颜色              |
+| --picker-header-color             | <div style="width: 150px; height: 40px; background-color: #eeeeee; color: #333333;">#eeeeee</div>       | <div style="width: 150px; height: 40px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div>       | 选择器头部颜色                |
+| --picker-content-background-color | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>       | <div style="width: 150px; height: 40px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>       | 选择器内容背景颜色            |
+| --picker-mask-bg-faded-95         | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.05); color: #000000;">rgba(255, 255, 255, 0.05)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.05); color: #000000;">rgba(255, 255, 255, 0.02)</div> | 选择器遮罩背景色（95%透明度） |
+| --picker-mask-bg-faded-60         | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.4); color: #000000;">rgba(255, 255, 255, 0.4)</div>   | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.4); color: #000000;">rgba(255, 255, 255, 0.01)</div>   | 选择器遮罩背景色（60%透明度） |
 
 ## FAQ
 

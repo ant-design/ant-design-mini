@@ -74,13 +74,18 @@
     "pages/Popup",
     "pages/Checkbox",
     "pages/Picker",
+    "pages/Postscript",
+    "pages/NumberInput",
     "pages/DatePicker",
     "pages/Feedback",
     "pages/ConfigProvider",
     "pages/SafeArea",
     "pages/Card",
     "pages/Sticky",
-    "pages/AutoResize"
+    "pages/AutoResize",
+    "pages/Countdown",
+    "pages/Typography",
+    "pages/PageContainer"
   ],
   "src": [
     "_locale",
@@ -139,6 +144,9 @@
     "SafeArea",
     "Card",
     "Sticky",
-    "AutoResize"
+    "AutoResize",
+    "Countdown",
+    "Typography",
+    "PageContainer"
   ]
 }

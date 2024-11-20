@@ -30,37 +30,43 @@ toc: 'content'
 
 ### 基本使用
 
-```js
-Page({
-  data: {
-    items: [
-      {
-        title: 'title text',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-      },
-      {
-        title: 'title text',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-      },
-      {
-        title: 'title text',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-      },
-    ],
-  },
-});
-```
-
 ```xml
 <ant-grid
   items="{{ items }}"
-  onTap="handleTapItem"
   iconSize="{{ 36 }}"
   columns="{{ 3 }}"
 />
 ```
 
+```js
+Page({
+  data: {
+    items: [
+      {
+        title: 'title text',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: 'title text',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: 'title text',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+    ],
+  },
+});
+```
+
 ### 3 列-带描述
+
+```xml
+<ant-grid
+  items="{{ items3withDesc }}"
+  iconSize="{{ 36 }}"
+  columns="{{ 3 }}" />
+```
 
 ```js
 Page({
@@ -84,14 +90,6 @@ Page({
     ],
   },
 });
-```
-
-```xml
-<ant-grid
-  items="{{ items3withDesc }}"
-  iconSize="{{ 36 }}"
-  onTap="handleTapItem"
-  columns="{{ 3 }}" />
 ```
 
 ### 元素横向布局
@@ -99,7 +97,6 @@ Page({
 ```xml
 <ant-grid
   items="{{ items }}"
-  onTap="handleTapItem"
   columns="{{ 3 }}"
   gridItemLayout="horizontal"
 />
@@ -107,14 +104,10 @@ Page({
 
 ### 自定义
 
-```js
-
-```
-
 ```xml
+#if ALIPAY
 <ant-grid
   items="{{ items }}"
-  onTap="handleTapItem"
   columns="{{ 5 }}">
   <view
     slot="icon"
@@ -144,6 +137,11 @@ Page({
     描述{{ props.index + 1 }}
   </view>
 </ant-grid>
+
+#endif
+#if WECHAT
+由于微信小程序平台的限制, Grid 在微信暂时不支持 Slot
+#endif
 ```
 
 ### Demo 代码
@@ -152,24 +150,26 @@ Page({
 
 ## API
 
-| 属性                 | 说明                                                   | 类型                                  | 默认值     |
-| -------------------- | ------------------------------------------------------ | ------------------------------------- | ---------- |
-| className            | 类名                                                   | string                                | -          |
-| columns              | 每行展示的元素个数，`default` 模式生效                 | number                                | 5          |
-| description          | 描述插槽，接收 value、index                            | slot                                  | -          |
-| gridItemLayout       | item 布局，可选 `vertical`（垂直）`horizontal`（水平） | string                                | `vertical` |
-| icon                 | 图标插槽，接收 value、index                            | slot                                  | -          |
-| iconSize             | 图标尺寸，单位 px                                      | number                                | -          |
-| iconStyle            | 图标样式类型，可选 `normal` `circle`                   | string                                | `normal`   |
-| items                | 内容文字                                               | [GridItem](#griditem)[]               | -          |
-| mode                 | 样式类型，可选 `default`（平铺）`scroll`（滑动）       | string                                | `default`  |
-| paginationFillColor  | 分页符背景色，`scroll` 模式生效                        | string                                | -          |
-| paginationFrontColor | 分页符颜色，`scroll` 模式生效                          | string                                | -          |
-| showDivider          | 是否展示分割线                                         | boolean                               | -          |
-| style                | 样式                                                   | string                                | -          |
-| title                | 标题插槽，接收 value、index                            | slot                                  | -          |
-| onTap                | 点击每个元素触发                                       | (item: [GridItem](#griditem)) => void |            |
-| onFirstAppear        | 当前元素首次可见面积达到 50% 时触发                    | (item: [GridItem](#griditem)) => void |            |
+| 属性                        | 说明                                                   | 类型                                  | 默认值     |
+| --------------------------- | ------------------------------------------------------ | ------------------------------------- | ---------- |
+| className                   | 类名                                                   | string                                | -          |
+| columns                     | 每行展示的元素个数，`default` 模式生效                 | number                                | 5          |
+| description                 | 描述插槽，接收 value、index                            | slot                                  | -          |
+| gridItemLayout              | item 布局，可选 `vertical`（垂直）`horizontal`（水平） | string                                | `vertical` |
+| icon                        | 图标插槽，接收 value、index                            | slot                                  | -          |
+| iconSize                    | 图标尺寸，单位 px                                      | number                                | -          |
+| iconStyle                   | 图标样式类型，可选 `normal` `circle`                   | string                                | `normal`   |
+| items                       | 内容文字                                               | [GridItem](#griditem)[]               | -          |
+| mode                        | 样式类型，可选 `default`（平铺）`scroll`（滑动）       | string                                | `default`  |
+| paginationFillColor         | 分页符背景色，`scroll` 模式生效                        | string                                | -          |
+| paginationFrontColor        | 分页符颜色，`scroll` 模式生效                          | string                                | -          |
+| showDivider                 | 是否展示分割线                                         | boolean                               | -          |
+| style                       | 样式                                                   | string                                | -          |
+| title                       | 标题插槽，接收 value、index                            | slot                                  | -          |
+| #if ALIPAY onTap            | 点击每个元素触发                                       | (item: [GridItem](#griditem)) => void |            |
+| #if ALIPAY onFirstAppear    | 当前元素首次可见面积达到 50% 时触发                    | (item: [GridItem](#griditem)) => void |            |
+| #if WECHAT bind:tap         | 点击每个元素触发                                       | (item: [GridItem](#griditem)) => void | -          |
+| #if WECHAT bind:firstappear | 当前元素首次可见面积达到 50% 时触发                    | (item: [GridItem](#griditem)) => void | -          |
 
 #### GridItem
 
@@ -183,8 +183,6 @@ Page({
 ### 主题定制
 
 #### 样式变量
-
-组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 

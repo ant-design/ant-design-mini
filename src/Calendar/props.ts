@@ -161,4 +161,5 @@ export const CalendarDefaultProps = {
   onMonthFormatter: null,
   changedScrollIntoView: null,
   showSelectableDatesOnly: false,
+  onChange() {},
 };

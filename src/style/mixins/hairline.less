@@ -35,6 +35,14 @@
   }
 }
 
+.hairline(@direction, @color: @COLOR_BORDER) when (@direction = 'left') {
+  &::after {
+    .scale-hairline-common(@color, 0, auto, 0, 0);
+    width: 1px;
+    transform: scaleX(0.5);
+  }
+}
+
 .hairline-popover(@direction, @color: @COLOR_BORDER)
   when
   (@direction = 'bottom') {

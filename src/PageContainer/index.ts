@@ -26,7 +26,12 @@ ComponentWithSignalStoreImpl(
     },
     updatePageStatus(prevProps: any, nextProps: any) {
       if (!equal(prevProps, nextProps)) {
-        const { status, image, title, message } = nextProps;
+        const [status, image, title, message] = getValueFromProps(this, [
+          'status',
+          'image',
+          'title',
+          'message',
+        ]);
         const updateData = {
           ...nextProps,
           // 自定义内容优先 status
@@ -55,9 +60,23 @@ ComponentWithSignalStoreImpl(
       const props = getValueFromProps(this);
       this.updatePageStatus({}, props);
     },
-    deriveDataFromProps(nextProps) {
+    didUpdate(prevProps) {
       const props = getValueFromProps(this);
-      this.updatePageStatus(props, nextProps);
+      this.updatePageStatus(prevProps, props);
+    },
+    /// #endif
+
+    /// #if WECHAT
+    attached() {
+      const props = getValueFromProps(this);
+      this.updatePageStatus({}, props);
+    },
+    observers: {
+      '**': function (data) {
+        const prevData = this._prevData || this.data;
+        this._prevData = { ...data };
+        this.updatePageStatus(prevData, data);
+      },
     },
     /// #endif
   }

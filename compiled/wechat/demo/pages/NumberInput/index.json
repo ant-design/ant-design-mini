@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "NumberInput",
+  "usingComponents": {
+    "ant-number-input": "../../../src/NumberInput/index",
+    "container": "../../../src/Container/index"
+  }
+}

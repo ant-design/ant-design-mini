@@ -9,6 +9,9 @@ const frFR: Locale = {
     okText: 'Déterminer',
     cancelText: 'Annuler',
   },
+  input: {
+    placeholder: 'Veuillez entrer',
+  },
   calendar: {
     weekdayNames: [
       'Lundi',

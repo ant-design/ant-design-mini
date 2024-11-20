@@ -139,7 +139,7 @@ Page({
 | #if WECHAT bind:change      | 数据变化后，触发此回调                                                              | ( value: number                                                                   | null, [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void        |
 | #if WECHAT bind:confirm     | 点击键盘完成时触发此回调                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | #if WECHAT bind:focus       | 输入框聚焦时，触发此回调                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:disabledTap | 禁用时点击出发回调                                                                  | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bind:disabledtap | 禁用时点击出发回调                                                                  | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### 主题定制
 
@@ -152,5 +152,5 @@ Page({
 | --stepper-handler-tap-bg       | <div style="width: 150px; height: 30px; background-color: #ddd; color: #333333;">#ddd</div>                               | <div style="width: 150px; height: 30px; background-color: #ddd; color: #333333;">#ddd</div>                               | 步进器处理器点击背景颜色 |
 | --stepper-handler-border-color | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div>                         | <div style="width: 150px; height: 30px; background-color: #444444; color: #ffffff;">#444444</div>                         | 步进器处理器边框颜色     |
 | --stepper-border-color         | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div>                         | <div style="width: 150px; height: 30px; background-color: #444444; color: #ffffff;">#444444</div>                         | 步进器边框颜色           |
-| --stepper-background-color     | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | 步进器背景颜色           |
+| --stepper-background-color     | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                         | 步进器背景颜色           |
 | --stepper-hover-bg             | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.92); color: #ffffff;">rgba(0, 0, 0, 0.92)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.92); color: #ffffff;">rgba(0, 0, 0, 0.92)</div> | 步进器悬停背景颜色       |

@@ -9,6 +9,9 @@ const inID: Locale = {
     okText: 'Tentu',
     cancelText: 'Pembatalan',
   },
+  input: {
+    placeholder: 'Silakan masukkan',
+  },
   calendar: {
     weekdayNames: [
       'Senin',

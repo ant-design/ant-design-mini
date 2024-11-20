@@ -8,12 +8,7 @@ toc: 'content'
 
 # Divider 分割线
 
-区隔内容的分割线。
-
-## 何时使用
-
-- 对不同章节的文本段落进行分割。
-- 对行内文字/链接进行分割，例如表格的操作列。
+区隔内容的分割线。对不同章节的文本段落进行分割。对行内文字/链接进行分割，例如表格的操作列。
 
 ## 引入
 
@@ -50,21 +45,22 @@ toc: 'content'
 
 ```xml
  <ant-divider
-    text="custom styles"
-    textStyle="color:#1677ff; fontWeight:600"
-    lineHeight="{{ 2 }}"
-    lineType="dashed"
-    lineColor="#1677ff" />
+  text="custom styles"
+  textStyle="color:#1677ff; fontWeight:600"
+  lineHeight="{{ 2 }}"
+  lineType="dashed"
+  lineColor="#1677ff"
+/>
 ```
 
 ### 垂直分割线
 
 ```xml
- <view class="divider-vertical">
-    <view>100m</view>
-    <ant-divider direction="vertical" />
-    <view>detail address</view>
-  </view>
+<view class="divider-vertical">
+  <view>100m</view>
+  <ant-divider direction="vertical" />
+  <view>detail address</view>
+</view>
 ```
 
 ### Demo 代码
@@ -96,4 +92,4 @@ toc: 'content'
 | 变量名                 | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注           |
 | ---------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
 | --divider-text-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 分割线文本颜色 |
-| --divider-border-color | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div> | <div style="width: 150px; height: 30px; background-color: #444444; color: #333333;">#444444</div> | 分割线边框颜色 |
+| --divider-border-color | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #fff;">#2b2b2b2</div> | 分割线边框颜色 |

@@ -10,8 +10,6 @@ supportPlatform: ['alipay']
 
 # Table 表格
 
-## 何时使用
-
 展示行列数据。
 
 ## 引入

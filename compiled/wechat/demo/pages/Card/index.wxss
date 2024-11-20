@@ -8,7 +8,7 @@
   border-radius: 32rpx;
 }
 .card-title-radius .ant-card-header {
-  background: #fff;
+  background: var(--color-grey-card);
   border-radius: 32rpx 32rpx 0 0;
 }
 .card-demo-sticky .ant-card-header {

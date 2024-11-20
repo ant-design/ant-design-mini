@@ -9,6 +9,9 @@ const msMY: Locale = {
     okText: 'Tentu',
     cancelText: 'Batal',
   },
+  input: {
+    placeholder: 'Sila masukkan',
+  },
   calendar: {
     weekdayNames: [
       'Isnin',

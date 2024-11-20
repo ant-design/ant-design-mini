@@ -9,6 +9,9 @@ const trTR: Locale = {
     okText: 'Kesinlikle',
     cancelText: 'İptal',
   },
+  input: {
+    placeholder: 'Lütfen girin',
+  },
   calendar: {
     weekdayNames: [
       'Pazartesi',

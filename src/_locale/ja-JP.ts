@@ -9,6 +9,9 @@ const jaJP: Locale = {
     okText: '確定',
     cancelText: 'キャンセル',
   },
+  input: {
+    placeholder: '入力してください',
+  },
   calendar: {
     weekdayNames: [
       '月曜日',

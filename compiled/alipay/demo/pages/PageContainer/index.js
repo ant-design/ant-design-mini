@@ -22,24 +22,24 @@ Page({
     handleSwitchToDisconnected() {
         this.setData({
             status: 'disconnected',
-            title: undefined,
-            message: undefined,
+            title: '',
+            message: '',
             image: '',
         });
     },
     handleSwitchToEmpty() {
         this.setData({
             status: 'empty',
-            title: undefined,
-            message: undefined,
+            title: '',
+            message: '',
             image: '',
         });
     },
     handleSwitchToBusy() {
         this.setData({
             status: 'busy',
-            title: undefined,
-            message: undefined,
+            title: '',
+            message: '',
             image: '',
         });
     },

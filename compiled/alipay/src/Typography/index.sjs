@@ -1,5 +1,5 @@
 function isUrl(string) {
-  return !!(string.startsWith('http://') || string.startsWith('https://'));
+  return !!(string.indexOf('http://') === 0 || string.indexOf('https://') === 0);
 }
 function getFontWeight(fontWeight, phonemodel) {
   var type2weight = {

@@ -9,6 +9,9 @@ const thTH: Locale = {
     okText: 'แน่นอน',
     cancelText: 'ยกเลิก',
   },
+  input: {
+    placeholder: 'กรุณากรอก',
+  },
   calendar: {
     weekdayNames: [
       'วันจันทร์',

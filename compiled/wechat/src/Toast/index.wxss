@@ -33,6 +33,9 @@
   align-items: center;
   font-size: 100rpx;
 }
+.ant-toast-icon.ant-icon {
+  color: var(--toast-default-color, #ffffff);
+}
 .ant-toast-image,
 .ant-toast-icon {
   width: 80rpx;

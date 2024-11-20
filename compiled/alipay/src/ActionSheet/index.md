@@ -9,11 +9,7 @@ toc: 'content'
 
 # ActionSheet 动作面板
 
-从底部弹出的动作菜单面板。
-
-## 何时使用
-
-由用户操作触发，提供一组与操作相关的两个或多个选项，让用户在不离场的情况下完成操作。相比于对话框，动作面板的位置更适合于在大屏幕时代单手操作的场景。
+从底部弹出的动作菜单面板。由用户操作触发，提供一组与操作相关的两个或多个选项，让用户在不离场的情况下完成操作。相比于对话框，动作面板的位置更适合于在大屏幕时代单手操作的场景。
 
 ## 引入
 
@@ -200,5 +196,5 @@ Page({
 | --actionsheet-danger-color   | <div style="width: 150px; height: 30px; background-color: #ff3141;">#ff3141</div>                 | <div style="width: 150px; height: 30px; background-color: #ff4a58;">#ff4a58</div>                 | 危险颜色       |
 | --actionsheet-title-color    | <div style="width: 150px; height: 30px; background-color: #999999;">#999999</div>                 | <div style="width: 150px; height: 30px; background-color: #616161;">#616161</div>                 | 标题颜色       |
 | --actionsheet-item-color     | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 条目颜色       |
-| --actionsheet-item-active-bg | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #333333;">#2b2b2b</div> | 条目激活背景色 |
-| --activesheet-item-cancel-bg | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #333333;">#121212</div> | 条目取消背景色 |
+| --actionsheet-item-active-bg | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #fff;">#2b2b2b</div> | 条目激活背景色 |
+| --activesheet-item-cancel-bg | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #fff;">#121212</div> | 条目取消背景色 |

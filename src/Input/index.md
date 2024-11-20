@@ -9,11 +9,7 @@ toc: content
 
 # Input 输入框
 
-通过键盘输入内容，是最基础的表单域包装。
-
-## 何时使用
-
-一般用在表单页进行信息的收集。
+通过键盘输入内容，是最基础的表单域包装。一般用在表单页进行信息的收集。
 
 ## 引入
 
@@ -37,8 +33,8 @@ toc: content
 ### Input 基本使用
 
 ```xml
-<ant-input placeholder="input here" onChange="onChange" />
-<ant-input placeholder="input here" defaultValue="initial value" onChange="onChange" />
+<ant-input placeholder="input here" />
+<ant-input placeholder="input here" defaultValue="initial value" />
 <ant-input placeholder="input here, with clear button" allowClear />
 <ant-input placeholder="disabled input" disabled="{{ true }}" />
 ```
@@ -46,7 +42,7 @@ toc: content
 ### 带前缀后缀
 
 ```xml
-<ant-input placeholder="input here" onChange="onChange" allowClear>
+<ant-input placeholder="input here" allowClear>
   <view slot="prefix">￥</view>
   <view slot="suffix">RMB</view>
 </ant-input>
@@ -55,7 +51,7 @@ toc: content
 ### 受控模式
 
 ```xml
-<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear onChange="handleChange" />
+<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear />
 ```
 
 ### 输入金额
@@ -79,7 +75,6 @@ toc: content
       confirm-type="search"
       allowClear
       focus
-      onConfirm="onConfirm"
     >
       <ant-icon slot="prefix" type="SearchOutline" />
       <ant-icon slot="suffix" type="AudioOutline" />
@@ -102,11 +97,11 @@ toc: content
   flex: 1;
 
   &-focus {
-    border-color: @COLOR_BRAND1;
+    border-color: #1677ff;
   }
 }
 .cancel {
-  color: @COLOR_TEXT_PRIMARY;
+  color: #fff;
   margin-left: 8px;
 }
 ```
@@ -116,14 +111,14 @@ toc: content
 #### 基础用法
 
 ```xml
- <ant-textarea placeholder="input here" autoHeight onChange="onChange" />
- <ant-textarea placeholder="input here" defaultValue="initial value" autoHeight onChange="onChange" />
+ <ant-textarea placeholder="input here" autoHeight />
+ <ant-textarea placeholder="input here" defaultValue="initial value" autoHeight />
 ```
 
 #### 受控模式
 
 ```xml
- <ant-textarea value="{{ value }}" placeholder="input here" allowClear onChange="handleChange" />
+ <ant-textarea value="{{ value }}" placeholder="input here" allowClear />
 ```
 
 ### 自定义
@@ -131,12 +126,12 @@ toc: content
 #### 带有边框
 
 ```xml
-<ant-input className="custom" placeholder="input here" onChange="onChange" />
+<ant-input className="custom" placeholder="input here" />
 ```
 
 ```css
 .custom {
-  border: 1px solid @COLOR_BORDER;
+  border: 1px solid #ccc;
   padding: 4px;
   border-radius: 4px;
   margin-bottom: 12px;
@@ -146,7 +141,7 @@ toc: content
 #### 自定义背景色
 
 ```xml
- <ant-input className="custom-color" placeholder="input here" onChange="onChange" />
+ <ant-input className="custom-color" placeholder="input here" />
 ```
 
 ```css
@@ -169,20 +164,24 @@ toc: content
 
 ### Input、Textarea 相同的属性
 
-| 属性         | 说明                                            | 类型                                  | 默认值 |
-| ------------ | ----------------------------------------------- | ------------------------------------- | ------ |
-| className    | 类名                                            | string                                | -      |
-| controlled   | 有键盘输入问题，可使用 `controlled="{{false}}"` | boolean                               | -      |
-| defaultValue | 初始值                                          | string                                | -      |
-| disabled     | 是否禁用                                        | boolean                               | false  |
-| maxLength    | 最大长度                                        | number                                | 140    |
-| placeholder  | 占位符                                          | string                                | -      |
-| style        | 样式                                            | string                                | -      |
-| value        | 输入框的值。受控模式。                          | string                                | -      |
-| onConfirm    | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
-| onFocus      | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
-| onBlur       | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
-| onChange     | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
+| 属性                    | 说明                                            | 类型                                  | 默认值 |
+| ----------------------- | ----------------------------------------------- | ------------------------------------- | ------ |
+| className               | 类名                                            | string                                | -      |
+| controlled              | 有键盘输入问题，可使用 `controlled="{{false}}"` | boolean                               | -      |
+| defaultValue            | 初始值                                          | string                                | -      |
+| disabled                | 是否禁用                                        | boolean                               | false  |
+| maxLength               | 最大长度                                        | number                                | 140    |
+| placeholder             | 占位符                                          | string                                | -      |
+| style                   | 样式                                            | string                                | -      |
+| value                   | 输入框的值。受控模式。                          | string                                | -      |
+| #if ALIPAY onConfirm    | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
+| #if ALIPAY onFocus      | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if ALIPAY onBlur       | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if ALIPAY onChange     | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bind:confirm | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
+| #if WECHAT bind:focus   | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bind:blur    | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bind:change  | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
 
 ### Input 属性
 
@@ -233,8 +232,6 @@ toc: content
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
-
 | 变量名                         | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注               |
 | ------------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
 | --input-item-color             | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 输入项文本颜色     |
@@ -258,15 +255,27 @@ toc: content
 
 解决方式为：不使用 value 受控模式，采用 ref 方式调用 input 更新方法。
 
-```html
+```xml
 <input defaultValue="{{defaultValue}}" ref="handleRef" />
-<button onTap="clear">clear</button>
+<button
+#if ALIPAY
+  onTap="clear"
+#endif
+#if WECHAT
+  bind:tap="clear"
+#endif
+>clear</button>
 ```
 
 ```js
 Page({
   handleRef(input) {
+#if ALIPAY
     this.input = input;
+#endif
+#if WECHAT
+    this.input = input.detail;
+#endif
   },
   clear() {
     this.input.update('');
