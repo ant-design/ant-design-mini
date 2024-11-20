@@ -9,11 +9,22 @@ toc: 'content'
 
 # AutoResize 文本自适应
 
-徽标，显示红点、数字或文字。用于提醒用户，有待处理的事项或者新的更新数量。
+徽标，显示红点、数字或文字。用于提醒用户，有待处理的事项或者新的更新数量。当需要对现有组件做多语言适配时，可以在原布局中使用本组件，以完成不同长度的文本在组件中的适配；
 
-## 何时使用
+## 引入
 
-当需要对现有组件做多语言适配时，可以在原布局中使用本组件，以完成不同长度的文本在组件中的适配；
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-auto-resize": "antd-mini/es/AutoResize/index"
+#endif
+#if WECHAT
+  "ant-auto-resize": "antd-mini/AutoResize/index"
+#endif
+}
+```
 
 ## 代码示例
 
