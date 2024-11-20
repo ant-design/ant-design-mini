@@ -381,4 +381,6 @@ page {
   --select-contact-empty-color: #999;
   --select-contact-loading-bg: #999;
   --select-contact-display-light-color: #fa6300;
+  --number-input-background-color: #ffffff;
+  --number-input-title-color: #333333;
 }
