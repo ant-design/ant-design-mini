@@ -129,7 +129,3 @@ Page({
 | --button-text-danger-color               | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | <div style="width: 150px; height: 30px; background-color: #FF4A58;">#FF4A58</div>                                     | 危险按钮文字颜色     |
 | --button-danger-default-color            | <div style="width: 150px; height: 30px; background-color: #FF3141;">#FF3141</div>                                     | <div style="width: 150px; height: 30px; background-color: #FF4A58;">#FF4A58</div>                                     | 危险按钮默认颜色     |
 | --button-active-bg                       | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.08);">rgba(255, 255, 255, 0.08)</div> | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.08);">rgba(255, 255, 255, 0.08)</div> | 按钮激活背景颜色     |
-
-```
-
-```

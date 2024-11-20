@@ -3,9 +3,7 @@ order: 2
 toc: true
 ---
 
-# 在微信小程序中使用（beta）
-
-从 Ant Design Mini v2.12 版本开始，我们改造了部分组件的工程实现，以适配微信小程序。目前，这套能力处于 Beta 测试阶段，相关的 API 和组件列表可能会发生变动。
+# 在微信小程序中使用
 
 以下以 Button（按钮组件）为例，讲解如何在微信小程序中使用 antd-mini。
 
@@ -60,7 +58,7 @@ Page({
 
 以下是 antd-mini 中已经适配微信小程序的组件列表，您可以直接在项目中使用这些组件。
 
-<!-- <code src="../components/wechat-component.tsx" inline="true"></code> -->
+<code src="../components/wechat-component.tsx" inline="true"></code>
 
 ## 参考文档
 

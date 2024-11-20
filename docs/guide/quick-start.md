@@ -36,7 +36,3 @@ $ npm i antd-mini --save
 ```xml
 <ant-button>我是一个按钮</ant-button>
 ```
-
-## 查看示例
-
-<!-- <code src='pages/Button/index'></code> -->
