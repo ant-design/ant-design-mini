@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: 数据录入
-  order: 10
+  title: 业务组件
+  order: 15
 toc: 'content'
 supportPlatform: ['alipay']
 ---
