@@ -42,6 +42,9 @@
   width: 36rpx;
   height: 36rpx;
 }
+.ant-notice-bar-icon .ant-icon {
+  color: var(--notice-info-icon-color, #333333);
+}
 .ant-notice-bar-content {
   position: relative;
   z-index: 2;
