@@ -1,22 +1,13 @@
-import { useContext } from 'react';
 import { css } from '@emotion/react';
-import {
-  Card,
-  ConfigProvider,
-  theme,
-  Tag,
-} from 'antd';
-import { useLocale } from 'dumi';
-import useMenu from '../hooks/useMenu';
-import useSiteToken from "../hooks/useSiteToken";
-import SiteContext from '../slots/SiteContext';
+import { Card, ConfigProvider, Tag, theme } from 'antd';
+import { history, useLocale } from 'dumi';
+import { useContext } from 'react';
 import { ComponentSampleImages } from '../common/config/overview';
+import useMenu from '../hooks/useMenu';
+import useSiteToken from '../hooks/useSiteToken';
+import SiteContext from '../slots/SiteContext';
 
-const useStyle = ({
-  isDark,
-  isMobile,
- }) => {
-
+const useStyle = ({ isDark, isMobile }) => {
   const { token } = useSiteToken();
   const { fontFamily } = token;
 
@@ -24,9 +15,7 @@ const useStyle = ({
     mainContainer: css`
       font-family: ${fontFamily};
     `,
-    groupContainer: css`
-
-    `,
+    groupContainer: css``,
     groupTitle: css`
       font-size: 24px;
       font-weight: 500;
@@ -66,24 +55,21 @@ const useStyle = ({
       a {
         all: initial;
         cursor: pointer;
-        color: ${isDark ? '#fff' : '#333'}
+        color: ${isDark ? '#fff' : '#333'};
       }
 
       .ant-card-head-title a {
         font-weight: 500;
       }
     `,
-    antCardWrap: css`
-    `,
+    antCardWrap: css``,
     image: css`
       height: 100px;
-    `
-  }
-}
+    `,
+  };
+};
 
-export default ({
-  lang
-}) => {
+export default ({ lang }) => {
   const [menuItems] = useMenu();
   const siteConfig = useContext(SiteContext);
   const isDark = siteConfig.theme.includes('dark');
@@ -92,7 +78,9 @@ export default ({
   const locale = useLocale();
   const isEn = locale.id === 'en';
 
-  const imageConfig = isDark ? ComponentSampleImages.dark : ComponentSampleImages.light;
+  const imageConfig = isDark
+    ? ComponentSampleImages.dark
+    : ComponentSampleImages.light;
 
   return (
     <ConfigProvider
@@ -101,52 +89,58 @@ export default ({
       }}
     >
       <div css={style.mainContainer}>
-        {
-          menuItems?.slice(1)?.map((parent) => {
-            return (
-              <div key={parent.key}>
-                <span
-                  css={style.groupTitle}
-                >
-                  {parent.label}
-                  <Tag style={{
+        {menuItems?.slice(1)?.map((parent) => {
+          return (
+            <div key={parent.key}>
+              <span css={style.groupTitle}>
+                {parent.label}
+                <Tag
+                  style={{
                     marginLeft: 8,
-                  }}>
-                    {(parent.children || []).length}
-                  </Tag>
-                </span>
-
-                <div
-                  css={style.cardWrap}
+                  }}
                 >
-                  {
-                    (parent.children || []).map((item) => {
-                      return (
-                        <a
-                          key={item.key}
-                          css={style.card}
-                          href={isEn ? item.key + '-en' : item.key}
-                        >
-                          <Card
-                            hoverable
-                            title={item.label}
-                            css={style.antCardWrap}
-                          >
-                            <img
-                              src={(imageConfig[item.key.replace('/components/', '')] || imageConfig.default || {}).imageUrl}
-                              css={style.image}
-                            />
-                          </Card>
-                        </a>
-                      )
-                    })
-                  }
-                </div>
+                  {(parent.children || []).length}
+                </Tag>
+              </span>
+
+              <div css={style.cardWrap}>
+                {(parent.children || []).map((item) => {
+                  return (
+                    <a
+                      key={item.key}
+                      css={style.card}
+                      onClick={() => {
+                        history.push({
+                          pathname: isEn ? item.key + '-en' : item.key,
+                        });
+                      }}
+                    >
+                      <Card
+                        hoverable
+                        title={item.label}
+                        css={style.antCardWrap}
+                      >
+                        <img
+                          src={
+                            (
+                              imageConfig[
+                                item.key.replace('/components/', '')
+                              ] ||
+                              imageConfig.default ||
+                              {}
+                            ).imageUrl
+                          }
+                          css={style.image}
+                        />
+                      </Card>
+                    </a>
+                  );
+                })}
               </div>
-            )
-          })
-        }
+            </div>
+          );
+        })}
       </div>
     </ConfigProvider>
-  )
-}
+  );
+};
