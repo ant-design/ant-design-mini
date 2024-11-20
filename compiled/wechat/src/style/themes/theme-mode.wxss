@@ -388,11 +388,10 @@
     --number-input-link-color: #4b6b99;
     --number-input-unit-color: #999999;
     --number-input-border-color: #eeeeee;
-    --number-input-prefix-color: #999999;
+    --number-input-prefix-color: #333333;
     --number-input-caret-color: #1677ff;
     --number-input-quick-text-color: #1677ff;
     --number-input-quick-border-color: #1677ff;
-    --number-input-remaining-color: #666666;
     --postscript-background-color: #ffffff;
     --postscript-title-color: #333;
     --postscript-input-color: #333;
@@ -779,7 +778,6 @@
     --number-input-caret-color: #3086ff;
     --number-input-quick-text-color: #3086ff;
     --number-input-quick-border-color: #3086ff;
-    --number-input-remaining-color: #808080;
     --postscript-background-color: #1a1a1a;
     --postscript-title-color: #c5cad1;
     --postscript-input-color: #c5cad1;

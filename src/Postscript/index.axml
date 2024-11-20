@@ -7,7 +7,8 @@
   <!-- 手动输入区 -->
   <view class="ant-postscript-input">
     <ant-input
-      value="{{value}}"
+      value="{{content}}"
+      maxLength="{{maxLength}}"
       allowClear
       placeholder="{{placeholder}}"
       placeholderClassName="ant-postscript-input-placeholder {{placeholderClassName}}"

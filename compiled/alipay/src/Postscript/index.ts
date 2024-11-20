@@ -5,29 +5,28 @@ Component(
   PostscriptProps,
   {
     checkMaxLength(value) {
-      const maxLength = getValueFromProps(this, 'maxLength');
+      const maxLength = Number(getValueFromProps(this, 'maxLength'));
       if (value.length > maxLength) {
         return value.slice(0, maxLength);
       }
       return value;
     },
     handleInput(value) {
-      const result = this.checkMaxLength(value);
-      this.setData({ value: result });
-      triggerEvent(this, 'change', result);
+      this.setData({ content: value });
+      triggerEvent(this, 'change', value);
     },
 
     handleQuickInput(e) {
       const { value } = e.currentTarget.dataset;
       const combineSymbol = getValueFromProps(this, 'combineSymbol');
       const result = this.checkMaxLength(combineSymbol
-        ? `${this.data.value? `${this.data.value}${combineSymbol}` : ''}${value}`
+        ? `${this.data.content? `${this.data.content}${combineSymbol}` : ''}${value}`
         : value);
-      this.setData({ value: result });
+      this.setData({ content: result });
       triggerEvent(this, 'change', result);
     }
   },
   {
-    value: ''
+    content: ''
   }
 );
