@@ -1,4 +1,4 @@
-<container title="Basic use (with/without animation)">
+<container title="基础使用 (有/无动效)">
   <view class="line">
     <progress
       type="circle"
@@ -35,7 +35,7 @@
     </ant-button>
   </view>
 </container>
-<container title="Custom stroke width">
+<container title="自定义宽度">
   <view class="line">
     <progress
       type="circle"
@@ -54,7 +54,7 @@
     style="margin-top: 40rpx;"
   ></progress>
 </container>
-<container title="Semantic progress bar">
+<container title="语义化进度条">
   <progress
     status="success"
     percent="100"
@@ -64,7 +64,7 @@
     percent="50"
   ></progress>
 </container>
-<container title="Custom color">
+<container title="自定义颜色">
   <view class="line">
     <progress
       type="circle"
@@ -92,7 +92,7 @@
     style="margin-top: 40rpx;"
   ></progress>
 </container>
-<container title="Various customizations">
+<container title="各种自定义">
   <view class="line">
     <progress
       type="circle"

@@ -9,35 +9,35 @@ Page({
     ],
     customOptions: [
       {
-        title: 'Group one',
+        title: '分组一',
         list: [
           {
-            title: 'Option one',
+            title: '选项一',
             value: '1',
           },
           {
-            title: 'Option two',
+            title: '选项二',
             value: '2',
           },
           {
-            title: 'Option three',
+            title: '选项三',
             value: '3',
           },
         ],
       },
       {
-        title: 'Group two',
+        title: '分组二',
         list: [
           {
-            title: 'Option four',
+            title: '选项四',
             value: '4',
           },
           {
-            title: 'Option five',
+            title: '选项五',
             value: '5',
           },
           {
-            title: 'Option six',
+            title: '选项六',
             value: '6',
           },
         ],

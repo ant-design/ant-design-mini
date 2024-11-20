@@ -2,46 +2,46 @@
   src="./index.wxs"
   module="utils"
 ></wxs>
-<ant-container title="Checkbox usage">
+<ant-container title="Checkbox 用法">
   <view>
-    <ant-checkbox bind:change="onChange">Basic usage</ant-checkbox>
+    <ant-checkbox bind:change="onChange">基础使用</ant-checkbox>
   </view>
   <view class="line">
-    <ant-checkbox defaultChecked="{{true}}">Set default value</ant-checkbox>
+    <ant-checkbox defaultChecked="{{true}}">设置默认值</ant-checkbox>
   </view>
   <view class="line">
-    <ant-checkbox disabled>disabledMode1</ant-checkbox>
+    <ant-checkbox disabled>禁用模式未选中</ant-checkbox>
     <ant-checkbox
       defaultChecked
       disabled
-    >disabledMode2</ant-checkbox>
+    >禁用模式已选中</ant-checkbox>
   </view>
   <view class="line">
     <ant-checkbox
       color="red"
       defaultChecked
-    >Custom color</ant-checkbox>
+    >自定义颜色</ant-checkbox>
   </view>
   <view class="line">
     <view style="margin-bottom: 20rpx;">
       <ant-checkbox
         checked="{{checked}}"
         bind:change="handleCheckedChange"
-      >Control mode</ant-checkbox>
+      >受控模式</ant-checkbox>
     </view>
-    <ant-button bind:tap="toggleChange">Switch</ant-button>
+    <ant-button bind:tap="toggleChange">切换</ant-button>
   </view>
 </ant-container>
-<ant-container title="CheckboxGroup usage">
+<ant-container title="CheckboxGroup 用法">
   <view>
-    <view class="title">Basic usage</view>
+    <view class="title">基础使用</view>
     <ant-checkbox-group
       options="{{options}}"
       bindchange="onChange"
     ></ant-checkbox-group>
   </view>
   <view class="line">
-    <view class="title">Set default value</view>
+    <view class="title">设置默认值</view>
     <ant-checkbox-group
       defaultValue="{{['banana']}}"
       options="{{options}}"
@@ -49,21 +49,21 @@
     ></ant-checkbox-group>
   </view>
   <view class="line">
-    <view class="title">Horizontal layout</view>
+    <view class="title">横向布局</view>
     <ant-checkbox-group
       options="{{options}}"
       position="horizontal"
     ></ant-checkbox-group>
   </view>
   <view class="line">
-    <view class="title">Disabled mode</view>
+    <view class="title">禁用模式</view>
     <ant-checkbox-group
       options="{{options}}"
       disabled
     ></ant-checkbox-group>
   </view>
   <view class="line">
-    <view class="title">Controlled mode</view>
+    <view class="title">受控模式</view>
     <ant-checkbox-group
       value="{{value}}"
       options="{{options}}"
@@ -71,7 +71,7 @@
     ></ant-checkbox-group>
   </view>
   <view class="line">
-    <view class="title">Custom color</view>
+    <view class="title">自定义颜色</view>
     <ant-checkbox-group
       options="{{options}}"
       defaultValue="{{['apple', 'banana']}}"
@@ -79,7 +79,7 @@
     ></ant-checkbox-group>
   </view>
 </ant-container>
-<ant-container title="CheckboxCustomGroup usage">
+<ant-container title="CheckboxCustomGroup 用法">
   <block
     wx:for="{{customOptions}}"
     wx:for-index="index"
