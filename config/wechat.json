@@ -83,7 +83,9 @@
     "pages/Card",
     "pages/Sticky",
     "pages/AutoResize",
-    "pages/Countdown"
+    "pages/Countdown",
+    "pages/Voucher",
+    "pages/Typography"
   ],
   "src": [
     "_locale",
@@ -143,6 +145,8 @@
     "Card",
     "Sticky",
     "AutoResize",
-    "Countdown"
+    "Countdown",
+    "Voucher",
+    "Typography"
   ]
 }

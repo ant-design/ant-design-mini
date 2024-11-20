@@ -1,0 +1,45 @@
+.ant-typography-container {
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  color: var(--typography-container-color, #333333);
+}
+.ant-typography-container .ant-typography-text {
+  line-height: 1.4;
+}
+.ant-typography-container .ant-typography-text.lineThrough {
+  text-decoration: line-through;
+}
+.ant-typography-container .ant-typography-text.underline {
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+}
+.ant-typography-container .ant-typography-text-normal {
+  font-family: PingFangSC-Regular;
+}
+.ant-typography-container .ant-typography-text-medium {
+  font-family: PingFangSC-Medium;
+}
+.ant-typography-container .ant-typography-text-bold {
+  font-family: PingFangSC-SemiBold;
+}
+.ant-typography-container .ant-typography-icon-container {
+  display: flex;
+  align-items: center;
+}
+.ant-typography-container .ant-typography-icon-container.left {
+  margin-right: 8rpx;
+}
+.ant-typography-container .ant-typography-icon-container.right {
+  margin-left: 8rpx;
+}
+.ant-typography-container .ant-typography-icon-image {
+  display: block;
+}
+.ant-typography-disabled {
+  opacity: 0.4;
+}
+.ant-typography-hover {
+  opacity: 0.4;
+}

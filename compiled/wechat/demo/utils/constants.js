@@ -312,6 +312,16 @@ export const componentList = [
                 nameZN: '倒计时',
                 path: '/pages/Countdown/index',
             },
+            {
+                name: 'Voucher',
+                nameZN: '优惠券',
+                path: '/pages/Voucher/index',
+            },
+            {
+                name: 'SelectContact',
+                nameZN: '选人组件',
+                path: '/pages/SelectContact/index',
+            },
         ],
     },
     {
@@ -326,6 +336,11 @@ export const componentList = [
                 name: 'ConfigProvider',
                 nameZN: '全局容器',
                 path: '/pages/ConfigProvider/index',
+            },
+            {
+                name: 'Typography',
+                nameZN: '排版',
+                path: '/pages/Typography/index',
             },
             {
                 name: 'SafeArea',

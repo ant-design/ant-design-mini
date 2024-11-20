@@ -3,19 +3,23 @@ Page({
     handleTap(e) {
         const { type, text } = e.currentTarget.dataset;
         if (type === 'copy') {
-            my.setClipboard({
-                text,
+            // @ts-ignore
+            wx.setClipboardData({
+                data: text,
                 success() {
-                    my.showToast({ type: 'success', content: `复制成功` });
+                    // @ts-ignore
+                    wx.showToast({ title: `复制成功` });
                 },
             });
             return;
         }
-        my.alert({ content: `点击${type}` });
+        // @ts-ignore
+        wx.showToast({ title: `点击${type}` });
     },
     handleDisabledTap(e) {
         const { type } = e.currentTarget.dataset;
         console.log('text', type);
-        my.alert({ content: `禁用状态下点击${type}` });
+        // @ts-ignore
+        wx.showToast({ title: `禁用状态下点击${type}` });
     },
 });

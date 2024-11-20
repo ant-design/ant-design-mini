@@ -327,6 +327,11 @@ export const componentList = [
                 nameZN: '优惠券',
                 path: '/pages/Voucher/index',
             },
+            {
+                name: 'SelectContact',
+                nameZN: '选人组件',
+                path: '/pages/SelectContact/index',
+            },
         ],
     },
     {

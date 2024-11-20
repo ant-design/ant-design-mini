@@ -5,12 +5,9 @@ group:
   title: 业务组件
   order: 15
 toc: content
-supportPlatform: ['alipay']
 ---
 
 # Voucher 优惠券
-
-## 何时使用
 
 通用优惠券组件。
 
@@ -170,19 +167,18 @@ Page({
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-
-| 变量名                                 | 浅色模式默认值                                                                                               | 深色模式默认值                                                                                               | 备注                     |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------ |
-| --voucher-background-image-start       | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0); color: #000;">rgba(255, 255, 255, 0)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0); color: #000;">rgba(255, 255, 255, 0)</div> | 券背景图开始颜色         |
-| --voucher-background-image-end         | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                | 券背景图结束颜色         |
-| --voucher-multi-money-color            | <div style="width: 150px; height: 40px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div>             | <div style="width: 150px; height: 40px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div>             | 多个金额颜色             |
-| --voucher-threshold-color              | <div style="width: 150px; height: 40px; background-color: #666666; color: #ffffff;">#666</div>                | <div style="width: 150px; height: 40px; background-color: #808080; color: #ffffff;">#808080</div>             | 阈值颜色                 |
-| --voucher-action-btn-color             | <div style="width: 150px; height: 40px; background-color: #ff3141; color: #ffffff;">#ff3141</div>             | <div style="width: 150px; height: 40px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div>             | 操作按钮颜色             |
-| --voucher-action-bg                    | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #fff;">#c5cad1</div>                | 操作背景颜色             |
-| --voucher-action-left-bg               | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #fff;">#c5cad1</div>                | 操作左侧背景颜色         |
-| --voucher-action-left-threshold-bg     | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #fff;">#c5cad1</div>                | 操作左侧阈值背景颜色     |
-| --voucher-action-right-color           | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #000;">#c5cad1</div>                | 操作右侧颜色             |
-| --voucher-action-right-title-color     | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #000;">#c5cad1</div>                | 操作右侧标题颜色         |
-| --voucher-action-right-desc-color      | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.8); color: #000;">rgba(255, 255, 255, 0.8)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.8); color: #000;">rgba(255, 255, 255, 0.8)</div> | 操作右侧描述颜色         |
-| --voucher-item-right-title-color       | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>             | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>             | 券右侧标题颜色1          |
-| --voucher-item-right-title-color       | <div style="width: 150px; height: 40px; background-color: #666666; color: #ffffff;">#666</div>                | <div style="width: 150px; height: 40px; background-color: #808080; color: #ffffff;">#808080</div>             | 券右侧标题颜色2          |
+| 变量名                             | 浅色模式默认值                                                                                                                   | 深色模式默认值                                                                                                                   | 备注                 |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| --voucher-background-image-start   | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0); color: #000;">rgba(255, 255, 255, 0)</div>     | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0); color: #000;">rgba(255, 255, 255, 0)</div>     | 券背景图开始颜色     |
+| --voucher-background-image-end     | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | 券背景图结束颜色     |
+| --voucher-multi-money-color        | <div style="width: 150px; height: 40px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div>                                | <div style="width: 150px; height: 40px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div>                                | 多个金额颜色         |
+| --voucher-threshold-color          | <div style="width: 150px; height: 40px; background-color: #666666; color: #ffffff;">#666</div>                                   | <div style="width: 150px; height: 40px; background-color: #808080; color: #ffffff;">#808080</div>                                | 阈值颜色             |
+| --voucher-action-btn-color         | <div style="width: 150px; height: 40px; background-color: #ff3141; color: #ffffff;">#ff3141</div>                                | <div style="width: 150px; height: 40px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div>                                | 操作按钮颜色         |
+| --voucher-action-bg                | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #fff;">#c5cad1</div>                                   | 操作背景颜色         |
+| --voucher-action-left-bg           | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #fff;">#c5cad1</div>                                   | 操作左侧背景颜色     |
+| --voucher-action-left-threshold-bg | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #fff;">#c5cad1</div>                                   | 操作左侧阈值背景颜色 |
+| --voucher-action-right-color       | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #000;">#c5cad1</div>                                   | 操作右侧颜色         |
+| --voucher-action-right-title-color | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #000;">#c5cad1</div>                                   | 操作右侧标题颜色     |
+| --voucher-action-right-desc-color  | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.8); color: #000;">rgba(255, 255, 255, 0.8)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.8); color: #000;">rgba(255, 255, 255, 0.8)</div> | 操作右侧描述颜色     |
+| --voucher-item-right-title-color   | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>                                | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>                                | 券右侧标题颜色 1     |
+| --voucher-item-right-title-color   | <div style="width: 150px; height: 40px; background-color: #666666; color: #ffffff;">#666</div>                                   | <div style="width: 150px; height: 40px; background-color: #808080; color: #ffffff;">#808080</div>                                | 券右侧标题颜色 2     |

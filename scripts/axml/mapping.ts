@@ -148,4 +148,13 @@ export const wechatCustomMapping = {
     onCountdownChange: 'bind:countdownchange',
     onCountdownFinish: 'bind:countdownfinish',
   },
+  'ant-voucher': {
+    onBtnTap: 'bind:btntap',
+    onVoucherTap: 'bind:vouchertap',
+  },
+  'ant-typography': {
+    onTap: 'bind:tap',
+    catchTap: 'catch:tap',
+    onDisabledTap: 'bind:disabledtap',
+  },
 };
