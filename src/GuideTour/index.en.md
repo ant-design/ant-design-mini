@@ -2,18 +2,14 @@
 nav:
   path: /components
 group:
-  title: Information Display
-  order: 9
+  title: Navigation
+  order: 6
 toc: 'content'
 ---
 
 # GuideTour
 
-Masked with the boot component of the custom card.
-
-## When to use
-
-Applies to an introduction to key features on the page.
+Masked with the boot component of the custom card. Applies to an introduction to key features on the page.
 
 ## Introduction
 
@@ -30,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -127,41 +123,39 @@ Page({
 
 ## API
 
-| Property                     | Description             | Type                                | Default Value   |
-| ------------------------ | ---------------- | ----------------------------------- | -------- |
-| `className`              | Class Name             | `string`                            | -        |
-| `current`                | Current step         | `number`                            | -        |
-| `defaultCurrent`         | Default Current Step     | `number`                            | 0        |
-| `items`                  | Step Information         | [`GuideTourItem`](#guidetourttem)[] | -        |
-| `maskClassName`          | Class name of the layer       | `string`                            | -        |
-| `maskStyle`              | Mask Style       | `string`                            | -        |
-| `style`                  | Style             | `string`                            | -        |
-| `swiperable`             | Whether sliding mode is on | `boolean`                           | `false`  |
-| `visible`                | Whether to display         | `boolean`                           | `false`  |
-| `jumpText`               | Copy of the skip button   | `string`                            | 'Skip'   |
-| `prevStepText`           | Copy of the previous button | `string`                            | 'One step' |
-| `nextStepText`           | Copy of the next button | `string`                            | 'Next step' |
-| `gotItText`              | Know the copy of the button | `string`                            | "I know' |
-| #if ALIPAY `onCancel`    | Close Callback         | `() => void`                        | -        |
-| #if ALIPAY `onChange`    | Step Change Callback     | `(index: number) => void`           | -        |
-| #if WECHAT `bind:cancel` | Close Callback         | `() => void`                        | -        |
-| #if WECHAT `bind:change` | Step Change Callback     | `(index: number) => void`           | -        |
+| Property                   | Description             | Type                                | Default Value   |
+| ---------------------- | ---------------- | ----------------------------------- | -------- |
+| className              | Class Name             | `string`                            | -        |
+| current                | Current step         | `number`                            | -        |
+| defaultCurrent         | Default Current Step     | `number`                            | 0        |
+| items                  | Step Information         | [`GuideTourItem`](#guidetourttem)[] | -        |
+| maskClassName          | Class name of the layer       | `string`                            | -        |
+| maskStyle              | Mask Style       | `string`                            | -        |
+| style                  | Style             | `string`                            | -        |
+| swiperable             | Whether sliding mode is on | `boolean`                           | `false`  |
+| visible                | Whether to display         | `boolean`                           | `false`  |
+| jumpText               | Copy of the skip button   | `string`                            | 'Skip'   |
+| prevStepText           | Copy of the previous button | `string`                            | 'One step' |
+| nextStepText           | Copy of the next button | `string`                            | 'Next step' |
+| gotItText              | Know the copy of the button | `string`                            | "I know' |
+| #if ALIPAY onCancel    | Close Callback         | `() => void`                        | -        |
+| #if ALIPAY onChange    | Step Change Callback     | `(index: number) => void`           | -        |
+| #if WECHAT bind:cancel | Close Callback         | `() => void`                        | -        |
+| #if WECHAT bind:change | Step Change Callback     | `(index: number) => void`           | -        |
 
 ### GuideTourItem
 
-| Parameters         | Description                       | Type     | Default Value |
-| ------------ | -------------------------- | -------- | ------ |
-| `left`       | Distance from left, unit `px`    | `number` | -      |
-| `imageMode`  | Image mode, same as image mode | `string` | -      |
-| `imageStyle` | Picture Inline Style               | `string` | -      |
-| `imageUrl`   | Picture Address                   | `string` | -      |
-| `top`        | Distance from top, in units `px`    | `number` | -      |
+| Parameters       | Description                       | Type     | Default Value |
+| ---------- | -------------------------- | -------- | ------ |
+| left       | Distance from left, unit `px`    | `number` | -      |
+| imageMode  | Image mode, same as image mode | `string` | -      |
+| imageStyle | Picture Inline Style               | `string` | -      |
+| imageUrl   | Picture Address                   | `string` | -      |
+| top        | Distance from top, in units `px`    | `number` | -      |
 
 ### Theme customization
 
 #### Style Variables
-
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 

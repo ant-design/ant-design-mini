@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Information Entry
+  title: 数据录入
   order: 10
 toc: 'content'
 ---
@@ -10,8 +10,6 @@ toc: 'content'
 # Picker
 
 The Picker selector displays a scrollable list of one or more collections of options, providing consistency between the iOS and Android-side experiences compared to native pickers.
-
-## When to use
 
 - One or more sets of association options are provided for selection by the user.
 - When there are less than 5 options, it is recommended to tile the options directly. Using Radio is a better choice.
@@ -33,7 +31,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -52,7 +50,7 @@ In `index.json` Introducing Components in
 #endif
 #if WECHAT
   bind:cancel="handleDismiss"
-  bind:visibleChange="handleTriggerPicker"
+  bind:visiblechange="handleTriggerPicker"
   bind:ok="handleOk"
   bind:change="handleChange"
 #endif
@@ -316,7 +314,7 @@ Page({
 | #if WECHAT bind:ok            | 点击确定按钮，触发回调                                                                                                                                                      | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
 | #if WECHAT bind:cancel        | 点击取消按钮/蒙层，触发回调                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                              | -           |
 | #if WECHAT bind:change        | 选中项发生变化，触发回调                                                                                                                                                    | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
-| #if WECHAT bind:visibleChange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
+| #if WECHAT bind:visiblechange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
 
 ### CascaderPicker
 
@@ -354,7 +352,7 @@ Page({
 | #if WECHAT bind:ok            | 点击确定按钮，触发回调                                                                                                                                                      | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | #if WECHAT bind:cancel        | 点击取消按钮/蒙层，触发回调                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                        |
 | #if WECHAT bind:change        | 选中项发生变化，触发回调                                                                                                                                                    | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:visiblechange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
+| #if WECHAT bind:visibleChange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
 
 ### PickerColumnItem
 
@@ -369,7 +367,7 @@ Page({
 | -------- | ---- | ---------------- | ------ |
 | label    | Text | string           | -      |
 | value    | Value   | string \| number | -      |
-| children | Children | CascaderOption[] | -      |
+| children | Sub Level | CascaderOption[] | -      |
 
 ### Theme customization
 
@@ -377,15 +375,15 @@ Page({
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                            | Default Value                                                                                                                                | Remarks                          |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| --picker-item-color               | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                                     | Selector item color                  |
-| --picker-header-action-color      | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>                                     | Selector Head Operation Color            |
-| --picker-placeholder-color        | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div>                                     | Selector Placeholder Color              |
-| --picker-header-color             | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div>                                     | Selector head color                |
-| --picker-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                                     | Selector Content Background Color            |
-| --picker-mask-bg-faded-95         | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.05); color: #000000;">rgba(255, 255, 255, 0.05)</div> | Selector mask background color (95% transparency) |
-| --picker-mask-bg-faded-60         | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.4); color: #000000;">rgba(255, 255, 255, 0.4)</div>   | Selector mask background color (60% transparency) |
+| Variable name                            | Light Mode Default                                                                                           | Dark Mode Default                                                                                           | Remarks                          |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| --picker-item-color               | <div style="width: 150px; height: 40px; background-color: #333333; color: #ffffff;">#333333</div>       | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>       | Selector item color                  |
+| --picker-header-action-color      | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #ffffff;">#3086ff</div>       | Selector Head Operation Color            |
+| --picker-placeholder-color        | <div style="width: 150px; height: 40px; background-color: #cccccc; color: #333333;">#cccccc</div>       | <div style="width: 150px; height: 40px; background-color: #474747; color: #ffffff;">#474747</div>       | Selector Placeholder Color              |
+| --picker-header-color             | <div style="width: 150px; height: 40px; background-color: #eeeeee; color: #333333;">#eeeeee</div>       | <div style="width: 150px; height: 40px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div>       | Selector head color                |
+| --picker-content-background-color | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>       | <div style="width: 150px; height: 40px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>       | Selector Content Background Color            |
+| --picker-mask-bg-faded-95         | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.05); color: #000000;">rgba(255, 255, 255, 0.05)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.05); color: #000000;">rgba(255, 255, 255, 0.02)</div> | Selector mask background color (95% transparency) |
+| --picker-mask-bg-faded-60         | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.4); color: #000000;">rgba(255, 255, 255, 0.4)</div>   | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.4); color: #000000;">rgba(255, 255, 255, 0.01)</div>   | Selector mask background color (60% transparency) |
 
 ## FAQ
 

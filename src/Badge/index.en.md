@@ -2,18 +2,14 @@
 nav:
   path: /components
 group:
-  title: Guide & Hint
-  order: 14
+  title: Feedback引导
+  order: 12
 toc: 'content'
 ---
 
 # Badge
 
-A logo that displays a red dot, number, or text. Used to remind the user of pending matters or new updated quantities.
-
-## When to use
-
-Use when you need to display numbers, text, or little red dots in the upper right corner. It is suitable for prompting new messages, functions or services for productization, attracting users' attention through conspicuous visual forms and prompting them to perform related operations.
+A logo that displays a red dot, number, or text. Used to remind the user of pending matters or new updated quantities. Use when you need to display numbers, text, or little red dots in the upper right corner. It is suitable for prompting new messages, functions or services for productization, attracting users' attention through conspicuous visual forms and prompting them to perform related operations.
 
 ## Introduction
 
@@ -93,7 +89,7 @@ In `index.json` Introducing Components in
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                   | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks           |
 | ------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |

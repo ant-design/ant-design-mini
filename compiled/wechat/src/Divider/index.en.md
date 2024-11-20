@@ -2,18 +2,13 @@
 nav:
   path: /components
 group:
-  title: Information Display
+  title: 数据展示
 toc: 'content'
 ---
 
 # Divider
 
-The dividing line that separates the content.
-
-## When to use
-
-- Segmentation of text paragraphs in different sections.
-- Split inline text/links, such as the action column of a table.
+The dividing line that separates the content. Segmentation of text paragraphs in different sections. Split inline text/links, such as the action column of a table.
 
 ## Introduction
 
@@ -30,7 +25,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -50,21 +45,22 @@ In `index.json` Introducing Components in
 
 ```xml
  <ant-divider
-    text="custom styles"
-    textStyle="color:#1677ff; fontWeight:600"
-    lineHeight="{{ 2 }}"
-    lineType="dashed"
-    lineColor="#1677ff" />
+  text="custom styles"
+  textStyle="color:#1677ff; fontWeight:600"
+  lineHeight="{{ 2 }}"
+  lineType="dashed"
+  lineColor="#1677ff"
+/>
 ```
 
 ### Vertical Split Line
 
 ```xml
- <view class="divider-vertical">
-    <view>100m</view>
-    <ant-divider direction="vertical" />
-    <view>detail address</view>
-  </view>
+<view class="divider-vertical">
+  <view>100m</view>
+  <ant-divider direction="vertical" />
+  <view>detail address</view>
+</view>
 ```
 
 ### Demo Code
@@ -96,4 +92,4 @@ Component provides the following CSS variables, which can be used to customize s
 | Variable name                 | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks           |
 | ---------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
 | --divider-text-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Split line text color |
-| --divider-border-color | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div> | <div style="width: 150px; height: 30px; background-color: #444444; color: #333333;">#444444</div> | Split Line Border Color |
+| --divider-border-color | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #fff;">#2b2b2b2</div> | Split Line Border Color |

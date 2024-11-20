@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Feedback
+  title: Feedback引导
   order: 12
 toc: 'content'
 ---
@@ -28,7 +28,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -149,7 +149,7 @@ Component provides the following CSS variables, which can be used to customize s
 
 | Variable name                    | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                   |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |
-| --dialog-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Modal Box Background Color         |
+| --dialog-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Modal Box Background Color         |
 | --dialog-title-color      | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Modal Box Title Color         |
 | --dialog-content-color    | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Modal Box Content Color         |
 | --dialog-close-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Modal Box Close Button Text Color |

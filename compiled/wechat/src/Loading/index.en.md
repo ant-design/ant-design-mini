@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Feedback
+  title: Feedback引导
 toc: 'content'
 ---
 
@@ -25,7 +25,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -74,11 +74,9 @@ In `index.json` Introducing Components in
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
-
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                     | Default Value                                                                                                                              | Dark Mode Default                                                                                                                      | Remarks                 |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| --loading-text-color       | <div style="width: 150px; height: 40px; background-color: #454955; color: #ffffff;">#454955</div>                                   | <div style="width: 150px; height: 40px; background-color: #454955; color: #ffffff;">#454955</div>                                   | Load Text Color (Iron Black) |
+| --loading-text-color       | <div style="width: 150px; height: 40px; background-color: #d8d8d8; color: #333333;">#d8d8d8</div>                                   | <div style="width: 150px; height: 40px; background-color: #454955; color: #ffffff;">#454955</div>                                   | Load Text Color (Iron Black) |
 | --loading-icon-light-color | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.6); color: #333333;">rgba(255, 255, 255, 0.6)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.6); color: #333333;">rgba(255, 255, 255, 0.6)</div> | Load icon light         |

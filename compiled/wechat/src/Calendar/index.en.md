@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Information Display
+  title: 数据展示
   order: 8
 toc: 'content'
 ---
@@ -117,28 +117,48 @@ function demoFormatter(cell, value) {
 <ant-calendar
   ref="handleRef"
   value="{{demo9.value}}"
-  onChange="demo9HandleChange"
   selectionMode="single"
   changedScrollIntoView
+#if ALIPAY
+  onChange="demo9HandleChange"
+#endif
+#if WECHAT
+  bind:change="demo9HandleChange"
+#endif
 ></ant-calendar>
- <ant-button
-      type="primary"
-      onTap="demo9HandlePreviousDay"
-    >
-      Last day
-    </ant-button>
-    <ant-button
-      type="primary"
-      onTap="demo9HandleNextDay"
-    >
-      Next day
-    </ant-button>
-    <ant-button
-      type="primary"
-      onTap="demo9HandleScrollIntoView"
-    >
-      Scroll to specified date
-    </ant-button>
+<ant-button
+  type="primary"
+#if ALIPAY
+  onTap="demo9HandlePreviousDay"
+#endif
+#if WECHAT
+  bind:tap="demo9HandlePreviousDay"
+#endif
+>
+  Last day
+</ant-button>
+<ant-button
+  type="primary"
+#if ALIPAY
+  onTap="demo9HandleNextDay"
+#endif
+#if WECHAT
+  bind:tap="demo9HandleNextDay"
+#endif
+>
+  Next day
+</ant-button>
+<ant-button
+  type="primary"
+#if ALIPAY
+  onTap="demo9HandleScrollIntoView"
+#endif
+#if WECHAT
+  bind:tap="demo9HandleScrollIntoView"
+#endif
+>
+  Scroll to specified date
+</ant-button>
 ```
 
 ```js
@@ -185,12 +205,13 @@ The following are the properties and descriptions of the Calendar component:
 | selectionMode           | Set the selection mode, single selection or continuous interval, the default is `range` | `single` \| `range`                                         | `range`     |
 | monthRange              | Month range, default to the last 3 months                    | `[number, number]`                                          | Last 3 Months |
 | weekStartsOn            | The week column displays the day of the week as the first day. The default is `Sunday`  | `Sunday` \| `Monday`                                        | `Sunday`    |
-| onChange                | Date Change Callback                                   | (date: CalendarValue) => void                               | None          |
 | onFormatter             | Use to set custom data for cells                     | (cell: CellState, currentValue: CalendarValue) => CellState | None          |
 | onMonthFormatter        | Custom data for setting the month                       | (month: any) => CellState                                   | None          |
 | localeText              | International Copywriting                                     | Partial`<LocaleText>`                                       | None          |
 | changedScrollIntoView   | Whether to scroll the view after the selected value is changed                       | boolean                                                     | None          |
 | showSelectableDatesOnly | Show only dates in the selectable range                       | boolean                                                     | false       |
+| #if ALIPAY onChange     | Date Change Callback                                   | (date: CalendarValue) => void                               | None          |
+| #if WECHAT bind:change  | Date Change Callback                                   | (date: CalendarValue) => void                               | None          |
 
 ### Type
 
@@ -233,15 +254,15 @@ interface CellState {
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                           | Default Value                                                                                                                           | Dark Mode Default                                                                                                                   | Remarks                 |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| --calendar-cell-disabled-opacity | 0.4                                                                                                                              | 0.4                                                                                                                              | Calendar cell transparency disabled |
-| --calendar-weekday-names-bg      | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                | Calendar Week Name Background Color |
-| --calendar-default-color         | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div>                                | Calendar default color         |
-| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #666666">rgba(22, 119, 255, 0.1)</div> | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #666666">rgba(22, 119, 255, 0.1)</div> | Calendar selected color         |
-| --calendar-assist-color          | <div style="width: 150px; height: 40px; background-color: #999999; color: #FFFFFF;">#999999</div>                                | <div style="width: 150px; height: 40px; background-color: #616161; color: #FFFFFF;">#616161</div>                                | Calendar Auxiliary Color         |
-| --calendar-selected-end-color    | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                | Calendar selected end color     |
-| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div>                                | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div>                                | Calendar selected color         |
+| Variable name                           | Default Value                                                                                                                            | Dark Mode Default                                                                                                                    | Remarks                 |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| --calendar-cell-disabled-opacity | 0.4                                                                                                                               | 0.4                                                                                                                               | Calendar cell transparency disabled |
+| --calendar-weekday-names-bg      | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                 | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                 | Calendar Week Name Background Color |
+| --calendar-default-color         | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                 | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #000000;">#c5cad1</div>                                 | Calendar default color         |
+| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #ffffff;">rgba(22, 119, 255, 0.1)</div> | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #ffffff;">rgba(22, 119, 255, 0.1)</div> | Calendar selected color         |
+| --calendar-assist-color          | <div style="width: 150px; height: 40px; background-color: #999999; color: #FFFFFF;">#999999</div>                                 | <div style="width: 150px; height: 40px; background-color: #616161; color: #FFFFFF;">#616161</div>                                 | Calendar Auxiliary Color         |
+| --calendar-selected-end-color    | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                 | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                 | Calendar selected end color     |
+| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div>                                 | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div>                                 | Calendar selected color         |
 
 ## FAQ
 

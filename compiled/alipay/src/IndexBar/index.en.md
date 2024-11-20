@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Information Display
+  title: 数据展示
   order: 8
 toc: 'content'
 supportPlatform: ['alipay']
@@ -10,11 +10,7 @@ supportPlatform: ['alipay']
 
 # IndexBar
 
-Side Index Component
-
-## When to use
-
-Used to quickly locate a list index.
+Side index component. Used to quickly locate a list index.
 
 ## Introduction
 
@@ -26,7 +22,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -147,8 +143,6 @@ Page({
 ### Theme customization
 
 #### Style Variables
-
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 

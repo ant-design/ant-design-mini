@@ -2,16 +2,14 @@
 nav:
   path: /components
 group:
-  title: Feedback
+  title: Feedback引导
   order: 12
 toc: 'content'
 ---
 
 # Skeleton
 
-Provide a placeholder graphic combination where you need to wait for content to load
-
-## When to use
+Provide a placeholder graphic combination where you need to wait for content to load.
 
 - The network is slow, requires a long wait to load, and is only used when loading for the first time.
 - On the premise of ensuring the performance of the mobile phone, try to use preloading, preferably without skeleton screen.
@@ -42,7 +40,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -158,7 +156,7 @@ In `index.json` Introducing Components in
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                            | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                 |
 | --------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |

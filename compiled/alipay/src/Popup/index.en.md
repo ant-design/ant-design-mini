@@ -2,18 +2,14 @@
 nav:
   path: /components
 group:
-  title: Feedback
+  title: Feedback引导
   order: 12
 toc: 'content'
 ---
 
 # Popup
 
-Slide or pop-up a custom content area from the screen.
-
-## When to use
-
-It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
+Slide or pop-up a custom content area from the screen. It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
 
 ## Introduction
 
@@ -30,13 +26,13 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
 > - `ant-popup` Components must pass `visible` Property controls the show/hide state.`position` Specifies the direction of occurrence, optional `top` `bottom` `left` `right`. The contents of the pop-up window are filled in the form of slots.
 > - `close` The event will be triggered when the icon is closed by clicking the upper right corner or when the layer is closed by clicking the layer.
-> - `clickBack` event is triggered when the back button in the upper left corner is clicked.
+> - `clickBack` event is triggered when the top left back button is clicked.
 
 ```xml
 <ant-popup
@@ -165,8 +161,6 @@ Page({
 ### Theme customization
 
 #### Style Variables
-
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 

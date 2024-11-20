@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: Information Display
-  order: 8
+  title: Navigation
+  order: 6
 toc: 'content'
 ---
 
@@ -26,41 +26,47 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
-
-```js
-Page({
-  data: {
-    items: [
-      {
-        title: 'title text',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-      },
-      {
-        title: 'title text',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-      },
-      {
-        title: 'title text',
-        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
-      },
-    ],
-  },
-});
-```
 
 ```xml
 <ant-grid
   items="{{ items }}"
-  onTap="handleTapItem"
   iconSize="{{ 36 }}"
   columns="{{ 3 }}"
 />
 ```
 
+```js
+Page({
+  data: {
+    items: [
+      {
+        title: 'title text',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: 'title text',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+        title: 'title text',
+        icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*L8FjQ7lSdq4AAAAAAAAAAAAAARQnAQ',
+      },
+    ],
+  },
+});
+```
+
 ### 3 Columns-With Description
+
+```xml
+<ant-grid
+  items="{{ items3withDesc }}"
+  iconSize="{{ 36 }}"
+  columns="{{ 3 }}" />
+```
 
 ```js
 Page({
@@ -84,14 +90,6 @@ Page({
     ],
   },
 });
-```
-
-```xml
-<ant-grid
-  items="{{ items3withDesc }}"
-  iconSize="{{ 36 }}"
-  onTap="handleTapItem"
-  columns="{{ 3 }}" />
 ```
 
 ### element horizontal layout
@@ -99,7 +97,6 @@ Page({
 ```xml
 <ant-grid
   items="{{ items }}"
-  onTap="handleTapItem"
   columns="{{ 3 }}"
   gridItemLayout="horizontal"
 />
@@ -107,14 +104,10 @@ Page({
 
 ### Custom
 
-```js
-
-```
-
 ```xml
+#if ALIPAY
 <ant-grid
   items="{{ items }}"
-  onTap="handleTapItem"
   columns="{{ 5 }}">
   <view
     slot="icon"
@@ -144,6 +137,11 @@ Page({
     Description {{props.index 1}}
   </view>
 </ant-grid>
+
+#endif
+#if WECHAT
+由于微信小程序平台的限制, Grid In微信暂时不支持 Slot
+#endif
 ```
 
 ### Demo Code
@@ -152,24 +150,26 @@ Page({
 
 ## API
 
-| Property                 | Description                                                   | Type                                  | Default Value     |
-| -------------------- | ------------------------------------------------------ | ------------------------------------- | ---------- |
-| className            | Class Name                                                   | string                                | -          |
-| columns              | The number of elements displayed per row,`default` Mode effective                 | number                                | 5          |
-| description          | Description slot, receiving value, index                            | slot                                  | -          |
-| gridItemLayout       | item layout, optional `vertical`(Vertical)`horizontal`(Horizontal) | string                                | `vertical` |
-| icon                 | Icon slot, receiving value, index                            | slot                                  | -          |
-| iconSize             | Icon size in px                                      | number                                | -          |
-| iconStyle            | Icon style type, optional `normal` `circle`                   | string                                | `normal`   |
-| items                | Content Text                                               | [GridItem](#griditem)[]               | -          |
-| mode                 | Style type, optional `default`(Tile)`scroll`(Sliding)       | string                                | `default`  |
-| paginationFillColor  | Page break background color,`scroll` Mode effective                        | string                                | -          |
-| paginationFrontColor | Page break color,`scroll` Mode effective                          | string                                | -          |
-| showDivider          | Show split line                                         | boolean                               | -          |
-| style                | Style                                                   | string                                | -          |
-| title                | Header slot, receiving value, index                            | slot                                  | -          |
-| onTap                | Click on each element to trigger                                       | (item: [GridItem](#griditem)) => void |            |
-| onFirstAppear        | Triggered when the first visible area of the current element reaches 50%                    | (item: [GridItem](#griditem)) => void |            |
+| Property                        | Description                                                   | Type                                  | Default Value     |
+| --------------------------- | ------------------------------------------------------ | ------------------------------------- | ---------- |
+| className                   | Class Name                                                   | string                                | -          |
+| columns                     | The number of elements displayed per row,`default` Mode effective                 | number                                | 5          |
+| description                 | Description slot, receiving value, index                            | slot                                  | -          |
+| gridItemLayout              | item layout, optional `vertical`(Vertical)`horizontal`(Horizontal) | string                                | `vertical` |
+| icon                        | Icon slot, receiving value, index                            | slot                                  | -          |
+| iconSize                    | Icon size in px                                      | number                                | -          |
+| iconStyle                   | Icon style type, optional `normal` `circle`                   | string                                | `normal`   |
+| items                       | Content Text                                               | [GridItem](#griditem)[]               | -          |
+| mode                        | Style type, optional `default`(Tile)`scroll`(Sliding)       | string                                | `default`  |
+| paginationFillColor         | Page break background color,`scroll` Mode effective                        | string                                | -          |
+| paginationFrontColor        | Page break color,`scroll` Mode effective                          | string                                | -          |
+| showDivider                 | Show split line                                         | boolean                               | -          |
+| style                       | Style                                                   | string                                | -          |
+| title                       | Header slot, receiving value, index                            | slot                                  | -          |
+| #if ALIPAY onTap            | Click on each element to trigger                                       | (item: [GridItem](#griditem)) => void |            |
+| #if ALIPAY onFirstAppear    | Triggered when the first visible area of the current element reaches 50%                    | (item: [GridItem](#griditem)) => void |            |
+| #if WECHAT bind:tap         | Click on each element to trigger                                       | (item: [GridItem](#griditem)) => void | -          |
+| #if WECHAT bind:firstappear | Triggered when the first visible area of the current element reaches 50%                    | (item: [GridItem](#griditem)) => void | -          |
 
 #### GridItem
 
@@ -183,8 +183,6 @@ Page({
 ### Theme customization
 
 #### Style Variables
-
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 

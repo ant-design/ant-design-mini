@@ -9,11 +9,7 @@ toc: 'content'
 
 # Button
 
-Used to start an immediate operation.
-
-## When to use
-
-Marks a (or encapsulates a set of) operation commands that trigger the corresponding business logic in response to user click behavior.
+Used to start an immediate operation. Marks a (or encapsulates a set of) operation commands that trigger the corresponding business logic in response to user click behavior.
 
 ## Introduction
 
@@ -30,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -126,20 +122,20 @@ Component provides the following CSS variables, which can be used to customize s
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- |
 | --button-disabled-opacity                | 0.4                                                                                                                   | 0.4                                                                                                                   | Button Disable Transparency       |
 | --button-color                           | <div style="width: 150px; height: 40px; background-color: #1677FF;">#1677FF</div>                                     | <div style="width: 150px; height: 40px; background-color: #3086FF;">#3086FF</div>                                     | Button Color             |
-| --button-background-color                | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | <div style="width: 150px; height: 40px; background-color: #000000; color: #FFFFFF;">#000000</div>                     | Button background color         |
-| --button-border-color                    | <div style="width: 150px; height: 40px; background-color: #1677FF;">#1677FF</div>                                     | <div style="width: 150px; height: 40px; background-color: #0A0A0A; color: #FFFFFF;">#0A0A0A</div>                     | Button border color         |
+| --button-background-color                | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | <div style="width: 150px; height: 40px; background-color: #1a1a1a; color: #FFFFFF;">#1a1a1a</div>                     | Button background color         |
+| --button-border-color                    | <div style="width: 150px; height: 40px; background-color: #1677FF;">#1677FF</div>                                     | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div>                     | Button border color         |
 | --button-primary-border-color            | <div style="width: 150px; height: 40px; background-color: #1677FF;">#1677FF</div>                                     | <div style="width: 150px; height: 40px; background-color: #3086FF;">#3086FF</div>                                     | Main button border color     |
 | --button-primary-background-color        | <div style="width: 150px; height: 40px; background-color: #1677FF;">#1677FF</div>                                     | <div style="width: 150px; height: 40px; background-color: #3086FF;">#3086FF</div>                                     | Main button background color     |
 | --button-primary-color                   | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #000000;">#FFFFFF</div>                     | Main button color         |
 | --button-primary-aide-border-color       | <div style="width: 150px; height: 40px; background-color: #E7F1FF; color: #333333;">#E7F1FF</div>                     | <div style="width: 150px; height: 40px; background-color: #0D2543; color: #FFFFFF;">#0D2543</div>                     | Primary Secondary Button Border Color |
 | --button-primary-aide-color              | <div style="width: 150px; height: 40px; background-color: #1677FF;">#1677FF</div>                                     | <div style="width: 150px; height: 40px; background-color: #3086FF;">#3086FF</div>                                     | Primary Auxiliary Button Color     |
 | --button-default-aide-border-color       | <div style="width: 150px; height: 40px; background-color: #F5F5F5; color: #333333;">#F5F5F5</div>                     | <div style="width: 150px; height: 40px; background-color: #121212; color: #FFFFFF;">#121212</div>                     | Default Secondary Button Border Color |
-| --button-default-aide-background-color   | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | <div style="width: 150px; height: 40px; background-color: #000000; color: #FFFFFF;">#000000</div>                     | Default Auxiliary Button Background Color |
+| --button-default-aide-background-color   | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | <div style="width: 150px; height: 40px; background-color: #1a1a1a; color: #FFFFFF;">#1a1a1a</div>                     | Default Auxiliary Button Background Color |
 | --button-default-aide-color              | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                     | <div style="width: 150px; height: 40px; background-color: #C5CAD1; color: #FFFFFF;">#C5CAD1</div>                     | Default Auxiliary Button Color     |
 | --button-primary-danger-background-color | <div style="width: 150px; height: 40px; background-color: #FF3141;">#FF3141</div>                                     | <div style="width: 150px; height: 40px; background-color: #FF4A58;">#FF4A58</div>                                     | Primary Danger Button Background Color |
 | --button-primary-danger-border-color     | <div style="width: 150px; height: 40px; background-color: #FF3141;">#FF3141</div>                                     | <div style="width: 150px; height: 40px; background-color: #FF4A58;">#FF4A58</div>                                     | Primary Hazard Button Border Color |
 | --button-primary-danger-color            | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | Primary Hazard Button Color     |
-| --button-default-danger-background-color | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | Default Hazard Button Background Color |
+| --button-default-danger-background-color | <div style="width: 150px; height: 40px; background-color: #FFFFFF; color: #333333;">#FFFFFF</div>                     | <div style="width: 150px; height: 40px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                     | Default Hazard Button Background Color |
 | --button-default-danger-border-color     | <div style="width: 150px; height: 40px; background-color: #FF3141;">#FF3141</div>                                     | <div style="width: 150px; height: 40px; background-color: #FF4A58;">#FF4A58</div>                                     | Default Hazard Button Border Color |
 | --button-default-danger-color            | <div style="width: 150px; height: 40px; background-color: #FF3141;">#FF3141</div>                                     | <div style="width: 150px; height: 40px; background-color: #FF4A58;">#FF4A58</div>                                     | Default Hazard Button Color     |
 | --button-text-danger-color               | <div style="width: 150px; height: 40px; background-color: #FF3141;">#FF3141</div>                                     | <div style="width: 150px; height: 40px; background-color: #FF4A58;">#FF4A58</div>                                     | Hazard button text color     |

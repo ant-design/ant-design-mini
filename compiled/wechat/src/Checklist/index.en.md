@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Information Entry
+  title: 数据录入
   order: 10
 toc: 'content'
 ---
@@ -10,8 +10,6 @@ toc: 'content'
 # Checklist
 
 The check operation of the list.
-
-## When to use
 
 - Select one or more in a group of list items.
 - To use a checkable list, you need to check at least one item by default to make it easier for users to understand that the list can be checked.
@@ -172,7 +170,7 @@ Component provides the following CSS variables, which can be used to customize s
 | Variable name                                   | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks               |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
 | --checklist-background-color             | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | List background color       |
-| --check-list-item-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | List Item Background Color     |
-| --check-list-item-hover-background-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #333333;">#2b2b2b</div> | List item hover background color |
+| --check-list-item-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | List Item Background Color     |
+| --check-list-item-hover-background-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #fff;">#2b2b2b</div> | List item hover background color |
 | --check-list-item-content-color          | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | List Item Content Color     |
 | --check-list-item-description-color      | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | List Item Description Color     |

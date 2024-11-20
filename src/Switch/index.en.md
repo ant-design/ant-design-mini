@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Information Entry
+  title: 数据录入
   order: 10
 toc: 'content'
 ---
@@ -10,8 +10,6 @@ toc: 'content'
 # Switch
 
 Switch selector, compared to the native Switch, it achieves a consistent experience on iOS and Android.
-
-## When to use
 
 - Used when it is necessary to indicate the state of a switch or to switch between two states.
 - The difference with Checkbox is that switching Switch will directly trigger a state change, while Checkbox is usually used for state markers and needs to be used in conjunction with commit operations.
@@ -31,7 +29,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -171,10 +169,10 @@ Page({
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                 | Default Value                                                                                            | Remarks             |
-| ---------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
-| --switch-fill          | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | Switch Fill Color     |
-| --switch-border-color  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | Switch border color     |
-| --switch-loading-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | Switch loading color     |
-| --switch-handle-bg     | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Switch handle background color |
-| --switch-inner-color   | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | Switch internal color     |
+| Variable name                 | Light Mode Default                                                                                           | Dark Mode Default                                                                                           | Remarks             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------- |
+| --switch-fill          | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>       | Switch Fill Color     |
+| --switch-border-color  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div>       | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div>       | Switch border color     |
+| --switch-loading-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>       | Switch loading color     |
+| --switch-handle-bg     | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | Switch handle background color |
+| --switch-inner-color   | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div>       | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div>       | Switch internal color     |

@@ -2,14 +2,12 @@
 nav:
   path: /components
 group:
-  title: Feedback
+  title: Feedback引导
   order: 14
 toc: 'content'
 ---
 
 # Toast
-
-## When to use
 
 Lightweight feedback on the results of the operation, without user action can disappear. The longest copy can be no more than 2 lines and can display up to 24 characters. If the copy is too long, it will be truncated.
 
@@ -28,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -85,7 +83,7 @@ Page({
 | className             | Component root node class name                                                    | string      | -      |
 | content               | Text content                                                          | string      | -      |
 | duration              | Duration, does not automatically close when 0                                     | number      | 2000   |
-| maskCloseable         | Click whether the layer is closed                                                  | boolean     | false  |
+| maskCloseable         | Click whether the mask is closed                                                  | boolean     | false  |
 | icon                  | Icon, supports all types of Icon components                                     | string      | -      |
 | image                 | Picture Link                                                          | string      | -      |
 | maskStyle             | Masked Style                                                          | string      | -      |
@@ -101,9 +99,9 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                | Default Value                                                                                                                    | Remarks               |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| --toast-default-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | Toast Default Background Color |
-| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                         | Toast default text color |
+| Variable name                | Light Mode Default                                                                                                    | Dark Mode Default                                                                                                    | Remarks               |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------ |
+| --toast-default-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | Toast Default Background Color |
+| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                  | Toast default text color |

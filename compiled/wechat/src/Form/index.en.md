@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Information Entry
+  title: 数据录入
   order: 12
 toc: 'content'
 ---
@@ -10,8 +10,6 @@ toc: 'content'
 # Form
 
 The Form form contains data entry, validation, and corresponding styles. The Form component requires [component2](https://opendocs.alipay.com/mini/framework/custom-component-overview) Support.
-
-## When to use
 
 - Used to create entities or collect information.
 - When the input data type needs to be verified.
@@ -31,7 +29,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -98,6 +96,7 @@ by using [FormItem](#formitem)、[createForm](#createform) Customizable form ite
 <code src='../../demo/pages/Form/FormCustom/index'></code>
 
 ### Demo Code
+
 <code src='../../demo/pages/Form/index'></code>
 
 ## API
@@ -389,7 +388,7 @@ Component provides the following CSS variables, which can be used to customize s
 | --------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
 | --form-text-color     | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | Form text color     |
 | --form-item-color     | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div> | <div style="width: 150px; height: 30px; background-color: #808080; color: #ffffff;">#808080</div> | Form Item Color       |
-| --form-item-bg        | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Form Item Background Color   |
+| --form-item-bg        | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div>    | Form Item Background Color   |
 | --form-error-color    | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div> | Form Error Color     |
 | --form-extra-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Form extra information color |
 | --form-asterisk-color | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div> | Form asterisk color     |

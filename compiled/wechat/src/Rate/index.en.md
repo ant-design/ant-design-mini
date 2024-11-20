@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Feedback
+  title: Feedback引导
   order: 12
 toc: 'content'
 ---
@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -140,9 +140,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
-
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name             | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                    |
 | ------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------- |

@@ -2,18 +2,14 @@
 nav:
   path: /components
 group:
-  title: Information Entry
+  title: 数据录入
   order: 10
 toc: 'content'
 ---
 
 # Selector
 
-Select one or more in a set of options.
-
-## When to use
-
-Provides multiple options for users to select, typically used in filters and forms.
+Select one or more in a set of options. Provides multiple options for users to select, typically used in filters and forms.
 
 ## Introduction
 
@@ -30,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 

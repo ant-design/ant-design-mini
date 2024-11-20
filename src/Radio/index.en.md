@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Information Entry
+  title: 数据录入
   order: 10
 toc: 'content'
 ---
@@ -10,10 +10,6 @@ toc: 'content'
 # Radio
 
 Make a single selection from a set of options.
-
-## When to use
-
-- When making a single selection in a group of selectable items.
 
 ## Introduction
 
@@ -32,14 +28,14 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
 ```xml
 <ant-radio defaultChecked>Initial value</ant-radio>
 <ant-radio disabled>Disable button 1</ant-radio>
-<ant-radio color="red" defaultChecked>Custom Colors</ant-radio>
+<ant-radio color="red" defaultChecked>Custom Color</ant-radio>
 <ant-radio
 #if ALIPAY
   onChange="onChange"
@@ -174,8 +170,6 @@ Page({
 ### Theme customization
 
 #### Style Variables
-
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 

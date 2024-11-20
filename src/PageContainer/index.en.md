@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: Other
-  order: 16
+  title: 数据展示
+  order: 8
 toc: 'content'
 ---
 
@@ -21,7 +21,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -109,10 +109,8 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
-
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                            | Default Value                                                                            | Dark Mode Default                                                                                    | Remarks             |
 | --------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
-| --page-container-background-color | <div style="width: 150px; height: 30px; background-color: #f5f5f5;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Page Container Background Color |
+| --page-container-background-color | <div style="width: 150px; height: 30px; background-color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Page Container Background Color |

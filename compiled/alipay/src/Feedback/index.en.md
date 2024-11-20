@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Feedback
+  title: Feedback引导
   order: 15
 toc: content
 ---
@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -44,7 +44,7 @@ In `index.json` Introducing Components in
 #endif
 >
   <view class="feedback-demo-target">
-    <ant-icon style="font-size: 30px" type="MoreOutline" />
+    <ant-icon style="font-size: 40px" type="MoreOutline" />
   </view>
   <view slot="popover-content" class="feedback-content">
     Here is the popover content
@@ -225,9 +225,9 @@ Component provides the following CSS variables, which can be used to customize s
 
 | Variable name                              | Default Value                                                                                                                                | Dark Mode Default                                                                                                                        | Remarks             |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| --feedback-text-color               | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div>                                     | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div>                                     | Feedback Text Color     |
-| --feedback-background-color         | <div style="width: 150px; height: 30px; background-color: rgba(216, 216, 216, 0.42); color: #333333;">rgba(216, 216, 216, 0.42)</div> | <div style="width: 150px; height: 30px; background-color: rgba(216, 216, 216, 0.42); color: #333333;">rgba(216, 216, 216, 0.42)</div> | Feedback Background Color     |
-| --feedback-mask-color               | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.25); color: #FFFFFF;">rgba(0, 0, 0, 0.25)</div>             | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.25); color: #FFFFFF;">rgba(0, 0, 0, 0.25)</div>             | Feedback Mask Color     |
-| --feedback-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                                     | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div>                                     | Feedback Content Background Color |
-| --feedback-list-background-color    | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                                     | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div>                                     | Feedback List Background Color |
-| --feedback-list-text-color          | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div>                                     | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div>                                     | Feedback List Text Color |
+| --feedback-text-color               | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                     | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div>                                     | Feedback Text Color     |
+| --feedback-background-color         | <div style="width: 150px; height: 40px; background-color: rgba(216, 216, 216, 0.42); color: #333333;">rgba(216, 216, 216, 0.42)</div> | <div style="width: 150px; height: 40px; background-color: rgba(216, 216, 216, 0.42); color: #333333;">rgba(216, 216, 216, 0.42)</div> | Feedback Background Color     |
+| --feedback-mask-color               | <div style="width: 150px; height: 40px; background-color: rgba(0, 0, 0, 0.25); color: #FFFFFF;">rgba(0, 0, 0, 0.25)</div>             | <div style="width: 150px; height: 40px; background-color: rgba(0, 0, 0, 0.25); color: #FFFFFF;">rgba(0, 0, 0, 0.25)</div>             | Feedback Mask Color     |
+| --feedback-content-background-color | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                     | <div style="width: 150px; height: 40px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div>                                     | Feedback Content Background Color |
+| --feedback-list-background-color    | <div style="width: 150px; height: 40px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div>                                     | <div style="width: 150px; height: 40px; background-color: #121212; color: #fff;">#121212</div>                                     | Feedback List Background Color |
+| --feedback-list-text-color          | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                     | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div>                                     | Feedback List Text Color |

@@ -2,17 +2,13 @@
 nav:
   path: /components
 group:
-  title: Information Entry
+  title: 数据录入
 toc: 'content'
 ---
 
 # Slider
 
-You can take values within a range by moving the slider.
-
-## When to use
-
-Used to move the slider within a certain range to obtain a single or interval value.
+You can take values within a range by moving the slider. Used to move the slider within a certain range to obtain a single or interval value.
 
 ## Introduction
 
@@ -29,7 +25,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 

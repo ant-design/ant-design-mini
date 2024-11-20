@@ -2,18 +2,14 @@
 nav:
   path: /components
 group:
-  title: Information Display
-  order: 8
+  title: Navigation
+  order: 6
 toc: 'content'
 ---
 
 # Steps
 
-A navigation bar that guides the user through the process.
-
-## When to use
-
-When the task is complex or there is a sequential relationship, it is broken down into a series of steps to simplify the task.
+A navigation bar that guides the user through the process. When the task is complex or there is a sequential relationship, it is broken down into a series of steps to simplify the task.
 
 ## Introduction
 
@@ -178,8 +174,6 @@ Page({
 ### Theme customization
 
 #### Style Variables
-
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 

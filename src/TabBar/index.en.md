@@ -102,8 +102,8 @@ Page({
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                | Default Value                                                                                            | Remarks            |
-| --------------------- | ------------------------------------------------------------------------------------------------- | --------------- |
-| --tabbar-bg           | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | TabBar Background Color |
-| --tabbar-item-color   | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div> | TabBar Entry Color |
-| --tabbar-active-color | <div style="width: 150px; height: 30px; background-color: #1677ff;">#1677ff</div>                 | TabBar Activate Color |
+| Variable name                | Light Mode Default                                                                                           | Dark Mode Default                                                                                           | Remarks            |
+| --------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------- |
+| --tabbar-bg           | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>       | TabBar Background Color |
+| --tabbar-item-color   | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div>       | <div style="width: 150px; height: 30px; background-color: #808080; color: #ffffff;">#808080</div>       | TabBar Entry Color |
+| --tabbar-active-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>       | TabBar Activate Color |

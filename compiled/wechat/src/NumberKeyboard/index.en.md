@@ -2,18 +2,16 @@
 nav:
   path: /components
 group:
-  title: Information Entry
+  title: 数据录入
   order: 10
 toc: 'content'
 ---
 
 # NumberKeyboard
 
-## When to use
+Customize the numeric keypad.
 
-When a custom numeric keypad is required.
-
-## Tip
+## Precautions
 
 1. The numeric keyboard has not yet solved the problem that the keyboard blocks the input box. Developers need to set up screen scrolling to solve such problems.
 
@@ -32,44 +30,44 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
 #### Default Keyboard
 
 ```xml
-<ant-number-keyboard visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard visible="{{ visible }}" />
 ```
 
 #### No decimal point
 
 ```xml
-<ant-number-keyboard point="{{ false }}" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard point="{{ false }}" visible="{{ visible }}" />
 ```
 
 #### With confirmation button
 
 ```xml
-<ant-number-keyboard confirmText="confirm" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard confirmText="confirm" visible="{{ visible }}" />
 ```
 
 #### With closed arrow
 
 ```xml
-<ant-number-keyboard closeable="{{ true }}" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard closeable="{{ true }}" visible="{{ visible }}" />
 ```
 
 #### scrambled keyboard
 
 ```xml
-<ant-number-keyboard random="{{ true }}" visible="{{ visible }}" onClose="onTap" />
+<ant-number-keyboard random="{{ true }}" visible="{{ visible }}" />
 ```
 
 #### Custom Button
 
 ```xml
-<ant-number-keyboard visible="{{ visible }}" onClose="onTap" >
+<ant-number-keyboard visible="{{ visible }}" >
   <view
       slot="header"
       class="number-keyboard-header"
@@ -78,7 +76,7 @@ In `index.json` Introducing Components in
     </view>
 </ant-number-keyboard>
 
-<ant-number-keyboard visible="{{ visible }}" onClose="onTap" >
+<ant-number-keyboard visible="{{ visible }}" >
   <view
     slot="confirm"
     class="number-keyboard-confirm"
@@ -103,30 +101,31 @@ In `index.json` Introducing Components in
 
 ## API
 
-| Property            | Description             | Type                  | Default Value |
-| --------------- | ---------------- | --------------------- | ------ |
-| className       | Class Name             | string                | -      |
-| style           | Style             | string                | -      |
-| value           | Enter value           | string                | -      |
-| visible         | Show             | boolean               | false  |
-| vibrate         | Vibration             | boolean               | true   |
-| closeable       | Close Arrow         | boolean               | false  |
-| point           | decimal point           | boolean               | true   |
-| random          | out of order             | boolean               | false  |
-| confirmDisabled | Disable confirmation button     | boolean               | false  |
-| safeArea        | Safety distance         | boolean               | true   |
-| confirmText     | Confirm the text of the button   | string                | -      |
-| header          | Override the title bar of the keyboard | slot                  | -      |
-| confirm         | Override keyboard confirmation button | slot                  | -      |
-| onChange        | Callback when number changes | (val: string) => void | -      |
-| onClose         | Callback when hiding keyboard | () => void            | -      |
-| onConfirm       | Callback when clicking confirmation | () => void            | -      |
+| Property                    | Description             | Type                  | Default Value |
+| ----------------------- | ---------------- | --------------------- | ------ |
+| className               | Class Name             | string                | -      |
+| style                   | Style             | string                | -      |
+| value                   | Enter value           | string                | -      |
+| visible                 | Show             | boolean               | false  |
+| vibrate                 | Vibration             | boolean               | true   |
+| closeable               | Close Arrow         | boolean               | false  |
+| point                   | decimal point           | boolean               | true   |
+| random                  | out of order             | boolean               | false  |
+| confirmDisabled         | Disable confirmation button     | boolean               | false  |
+| safeArea                | Safety distance         | boolean               | true   |
+| confirmText             | Confirm the text of the button   | string                | -      |
+| header                  | Override the title bar of the keyboard | slot                  | -      |
+| confirm                 | Override keyboard confirmation button | slot                  | -      |
+| #if ALIPAY onChange     | Callback when number changes | (val: string) => void | -      |
+| #if ALIPAY onClose      | Callback when hiding keyboard | () => void            | -      |
+| #if ALIPAY onConfirm    | Callback when clicking confirmation | () => void            | -      |
+| #if WECHAT bind:change  | Callback when number changes | (val: string) => void | -      |
+| #if WECHAT bind:close   | Callback when hiding keyboard | () => void            | -      |
+| #if WECHAT bind:confirm | Callback when clicking confirmation | () => void            | -      |
 
 ### Theme customization
 
 #### Style Variables
-
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 

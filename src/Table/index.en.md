@@ -2,15 +2,13 @@
 nav:
   path: /components
 group:
-  title: Information Display
+  title: 数据展示
   order: 8
 toc: 'content'
 supportPlatform: ['alipay']
 ---
 
 # Table
-
-## When to use
 
 Displays row and column data.
 
@@ -29,7 +27,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 

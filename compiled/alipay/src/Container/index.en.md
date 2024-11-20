@@ -2,18 +2,14 @@
 nav:
   path: /components
 group:
-  title: Information Display
-  order: 8
+  title: To Discard
+  order: 99
 toc: 'content'
 ---
 
 # Container
 
-Universal card container.
-
-## When to use
-
-When you need to host text, lists, pictures, paragraphs and other content, use Container containers to facilitate users to browse.
+Not recommended, this component will be obsolete. recommend use [Card](/components/card) Components with the latest design specifications and richer functionality.
 
 ## Introduction
 
@@ -30,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -85,4 +81,4 @@ Component provides the following CSS variables, which can be used to customize s
 | ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
 | --container-header-color      | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Container head color |
 | --container-color-text-assist | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Secondary Text Color |
-| --container-background-color  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Container background color |
+| --container-background-color  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | Container background color |

@@ -15,7 +15,7 @@ Need to be adsorbed in some places in the rolling situation.
 
 ## Precautions
 
-The Sticky component implementation relies on `position: sticky` attribute, which may become invalid due to the influence of the parent element.[This document](https://developer.mozilla.org/en-US/docs/Web/CSS/position)Check the element layout of the page.
+The Sticky component implementation relies on `position: sticky` attribute, which may become invalid due to the influence of the parent element. [This document](https://developer.mozilla.org/en-US/docs/Web/CSS/position) Check the element layout of the page.
 
 ## Introduction
 
@@ -32,7 +32,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 
@@ -127,6 +127,6 @@ It should be noted that the automatic calculation of head height in the transpar
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name            | Default Value                                                                                                                         | Dark Mode Default                                                                                                                  | Remarks           |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| --sticky-check-bg | <div style="width: 150px; height: 40px; background-color:rgba(238, 238, 238, 0); color: #333333;">rgba(238, 238, 238, 0)</div> | <div style="width: 150px; height: 40px; background-color: rgba(238, 238, 238, 0); color: #ffffff;">rgba(238, 238, 238, 0)</div> | Selector Background Color |
+| Variable name            | Default Value                                                                                                                      | Dark Mode Default                                                                                                               | Remarks           |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| --sticky-check-bg | <div style="width: 150px; height: 40px; background-color:rgba(238, 238, 238, 0); color: #fff;">rgba(238, 238, 238, 0)</div> | <div style="width: 150px; height: 40px; background-color: rgba(238, 238, 238, 0); color: #fff;">rgba(238, 238, 238, 0)</div> | Selector Background Color |

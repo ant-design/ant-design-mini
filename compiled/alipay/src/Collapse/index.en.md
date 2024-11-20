@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Information Display
+  title: 数据展示
   order: 8
 toc: 'content'
 ---
@@ -108,7 +108,7 @@ Page({
 Page({
   data: {
     items: [
-       {
+      {
         title: 'item1 title',
         content: 'item1 content',
       },
@@ -177,17 +177,18 @@ Page({
 
 ## API
 
-| Property           | Description                               | Type                                                                                             | Default Value |
-| -------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------ | ------ |
-| accordion      | Accordion mode, only one content is expanded | boolean                                                                                          | false  |
-| className      | Class Name                               | string                                                                                           | -      |
-| content        | Content area slot, receiving value, index      | slot                                                                                             | -      |
-| current        | Current expanded index                     | number[]                                                                                         | -      |
-| defaultCurrent | Default index for current expansion                 | number[]                                                                                         | []     |
-| items          | Collapse Panel List                       | [CollapseItem](#collapseitem)[]                                                                  | []     |
-| style          | Style                               | string                                                                                           | -      |
-| title          | Header slot, receiving value, index        | slot                                                                                             | -      |
-| onChange       | Toggle Panel Callback                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| Property                   | Description                               | Type                                                                                             | Default Value |
+| ---------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------ | ------ |
+| accordion              | Accordion mode, only one content is expanded | boolean                                                                                          | false  |
+| className              | Class Name                               | string                                                                                           | -      |
+| content                | Content area slot, receiving value, index      | slot                                                                                             | -      |
+| current                | Current expanded index                     | number[]                                                                                         | -      |
+| defaultCurrent         | Default index for current expansion                 | number[]                                                                                         | []     |
+| items                  | Collapse Panel List                       | [CollapseItem](#collapseitem)[]                                                                  | []     |
+| style                  | Style                               | string                                                                                           | -      |
+| title                  | Header slot, receiving value, index        | slot                                                                                             | -      |
+| #if ALIPAY onChange    | Toggle Panel Callback                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bind:change | Toggle Panel Callback                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### CollapseItem
 
@@ -205,10 +206,10 @@ Page({
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 | Variable name | Default Value | Dark Mode Default | Remarks |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------- |
-| --collapse-title-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Collapse Panel Title Background Color |
+| --collapse-title-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | Collapse Panel Title Background Color |
 | --collapse-title-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Collapse Panel Title Color |
 | --collapse-title-icon-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #ffffff;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | Collapse Panel Title Icon Color |
-| --collapse-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #333333;">#1a1a1a</div> | Collapse Panel Content Background Color |
-| --collapse-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #333333;">#2b2b2b</div> | Collapse Panel Border Color |
+| --collapse-content-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | Collapse Panel Content Background Color |
+| --collapse-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #fff;">#2b2b2b</div> | Collapse Panel Border Color |
 | --collapse-node-text-color | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Collapse Panel Node Text Color |
-| --collapse-container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #333333;">#000000</div> | Folding panel container background color |
+| --collapse-container-background-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #fff;">#1a1a1a</div> | Folding panel container background color |

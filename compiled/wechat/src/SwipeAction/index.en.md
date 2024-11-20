@@ -2,20 +2,16 @@
 nav:
   path: /components
 group:
-  title: Information Display
+  title: 数据展示
   order: 8
 toc: 'content'
 ---
 
 # SwipeAction
 
-List of functional extensions.
+List of functional extensions. Show hidden function menus by sliding.
 
-## When to use
-
-Show hidden function menus by sliding.
-
-## Tip
+## Precautions
 
 1. The component's parent container must have width and height set.
 2. The sum of the widths of the sliding buttons on both sides must be the same.
@@ -39,7 +35,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 
@@ -74,9 +70,8 @@ In `index.json` Introducing Components in
 </ant-swipe-action>
 ```
 
-
-
 ### Button on the left
+
 Setup`leftButtons`Property
 <code src='../../demo/pages/SwipeActionLeft/index'></code>
 
@@ -85,27 +80,33 @@ Setup`leftButtons`Property
 <code src='../../demo/pages/SwipeActionNumber/index'></code>
 
 ### Disable sliding rebound
+
 Setup`elasticity`property is`false`
 <code src='../../demo/pages/SwipeActionAnimation/index'></code>
 
 ### Set button width
+
 Set the buttons`width`Property
 <code src='../../demo/pages/SwipeActionWidth/index'></code>
 
 ### Set sliding speed
+
 Setup`damping`Property
 <code src='../../demo/pages/SwipeActionSpeed/index'></code>
 
 ### Button click twice to confirm
+
 Set buttons Properties`confirmType`For`tap`
 
 <code src='../../demo/pages/SwipeActionTap/index'></code>
 
 ### Second confirmation of maximum sliding distance of button
+
 Set buttons Properties`confirmType`For`move`
 <code src='../../demo/pages/SwipeActionMove/index'></code>
 
 ### There are buttons on the left and right sides
+
 Can be set simultaneously`leftButtons`and`rightButtons`
 <code src='../../demo/pages/SwipeActionLeftRight/index'></code>
 
@@ -114,6 +115,7 @@ Can be set simultaneously`leftButtons`and`rightButtons`
 <code src='../../demo/pages/SwipeActionSlot/index'></code>
 
 ### Demo Code
+
 <code src='../../demo/pages/SwipeAction/index'></code>
 
 ## API
@@ -149,6 +151,6 @@ Can be set simultaneously`leftButtons`and`rightButtons`
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name               | Default Value                                                                                            | Remarks         |
-| -------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
-| --swipe-action-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Slide operation color |
+| Variable name               | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks         |
+| -------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
+| --swipe-action-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Slide operation color |

@@ -11,14 +11,27 @@ toc: 'content'
 
 For global configuration of Antd-Mini components, provide theme customization, internationalization support.
 
-## When to use
-
 can pass `ConfigProvider` component to globally configure Antd-Mini components, including:
 
 - Setting the theme globally,[CSS Variables](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties) To organize styles, by overwriting these CSS variables, you can customize the theme, dynamically switch the theme and other effects;
 - Global settings internationalization, through the setting of Locales to achieve multi-language support;
 
-## Code Sample
+## Introduction
+
+In `index.json` Introducing Components in
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-config-provider": "antd-mini/es/ConfigProvider/index"
+#endif
+#if WECHAT
+  "ant-config-provider": "antd-mini/ConfigProvider/index"
+#endif
+}
+```
+
+## Code example
 
 ### Theme customization
 
@@ -53,7 +66,7 @@ Antd-Mini provides ConfigProvider components for global configuration of interna
 - Turkish (Turkey) | tr-TR
 - Vietnamese | vi-VN
 
-### Code Sample
+### Code example
 
 <code src='../../demo/pages/ConfigProvider/index'></code>
 

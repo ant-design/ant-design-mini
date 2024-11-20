@@ -9,8 +9,6 @@ toc: content
 
 # Countdown
 
-## When to use
-
 Need to show the countdown scene.
 
 ## Introduction
@@ -28,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -41,8 +39,8 @@ In `index.json` Introducing Components in
   onCountdownFinish="handleCountdownEnd"
 #endif
 #if WECHAT
-  bind:countdownChange="handleCountdownChange"
-  bind:countdownFinish="handleCountdownEnd"
+  bind:countdownchange="handleCountdownChange"
+  bind:countdownfinish="handleCountdownEnd"
 #endif
 >
   <text slot="prefix">Remaining Time</text>
@@ -64,54 +62,24 @@ Page({
 });
 ```
 
-### Set Theme Color
-
-```xml
-<ant-countdown
-  theme="{{{
-    backgroundColor:'#ffffff',
-    timeColor:'#ff3141',
-    textColor:'#ff3141'
-  }}}"
-  countdownEndTime="{{countdownDay}}"
-  countdownType="day"
->
-  <text slot="prefix">Residual</text>
-</ant-countdown>
-```
-
-### centisecond countdown
-
-```xml
-<ant-countdown
-  countdownEndTime="{{countdownDay}}"
-  themeDisabled="{{true}}"
-  decisecond="{{true}}"
->
-</ant-countdown>
-```
-
 ### Demo Code
 
 <code src='../../demo/pages/Countdown/index'></code>
 
 ## Property
 
-| Property                        | Description                                        | Type             | 默认值     |
-| ------------------------------- | -------------------------------------------------- | ---------------- | ---------- | --- |
-| className                       | 容器 className                                     | string           | -          |
-| countdownEndTime                | 结束时间戳                                         | string 丨 number | -          |
-| countdownStartTime              | 起始时间戳                                         | string 丨 number | 当前时间戳 |
-| time                            | 与 countdownEndTime 二选一，单位为秒               | number           | 0          |
-| theme                           | 主题配置                                           | [Theme](#theme)  | -          |
-| themeDisabled                   | 禁用主题色                                         | boolean          | false      |
-| autoShowDay                     | 小于一天自动不展示天                               | boolean          | true       |
-| countdownType                   | 超长倒计时需要展示天数                             | string           | -          |
-| decisecond                      | 支持 centisecond countdown，仅 In 禁用主题色时生效 | 否 boolean       | false      |
-| #if ALIPAY onCountdownChange    | 倒计时变化时的回调                                 | Function         | -          |
-| #if ALIPAY onCountdownFinish    | 倒计时结束回调                                     | Function         | -          |     |
-| #if WECHAT bind:countdownChange | 倒计时变化时的回调                                 | Function         | -          |
-| #if WECHAT bind:countdownFinish | 倒计时结束回调                                     | Function         | -          |     |
+| Property                            | Description                                 | Type                | Default Value     |
+| ------------------------------- | ------------------------------------ | ------------------- | ---------- |
+| className                       | Container className                       | `string`            | -          |
+| countdownEndTime                | End timestamp                           | `string`\| `number` | -          |
+| countdownStartTime              | Start timestamp                           | `string`\| `number` | Current timestamp |
+| time                            | Choose one from the countdownEndTime, in seconds | `number`            | 0          |
+| autoShowDay                     | Less than one day automatically does not show days                 | `boolean`           | true       |
+| countdownType                   | Extra-long countdown requires display days               | `string`            | -          |
+| #if ALIPAY onCountdownChange    | Callback when the countdown changes                   | `Function`          | -          |
+| #if ALIPAY onCountdownFinish    | Countdown End Callback                       | `Function`          | -          |
+| #if WECHAT bind:countdownchange | Callback when the countdown changes                   | `Function`          | -          |
+| #if WECHAT bind:countdownfinish | Countdown End Callback                       | `Function`          | -          |
 
 ### Theme customization
 
@@ -119,16 +87,16 @@ Page({
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Key Name        | Description           | Type     |
-| --------------- | --------------------- | -------- |
-| backgroundColor | Time background color | `string` |
-| timeColor       | Time Copy Color       | `string` |
-| textColor       | Text Color            | `string` |
+| Variable name                       | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks               |
+| ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
+| --ant-countdown-color        | <div style="width: 150px; height: 30px; background-color: #666666; color: #ffffff;">#666666</div> | <div style="width: 150px; height: 30px; background-color: #808080; color: #ffffff;">#808080</div> | Countdown Color         |
+| --ant-countdown-number-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #666666;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | Countdown Digital Color     |
+| --ant-countdown-number-bg    | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Countdown digital background color |
 
 ## Slot
 
-| Name   | Description    |
-| ------ | -------------- |
+| Name   | Description       |
+| ------ | ---------- |
 | -      | Default Slot   |
 | prefix | Countdown Head |
 | suffix | Countdown Tail |

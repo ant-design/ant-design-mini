@@ -11,8 +11,6 @@ toc: 'content'
 
 Navigate between content groups.
 
-## When to use
-
 - Navigate between content groups.
 - The current content needs to be divided into groups of the same hierarchical structure for content switching and display, which is used at the top of the form or standard list interface.
 
@@ -31,12 +29,14 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
+
 ```xml
 <tabs items="{{ items }}" />
 ```
+
 ```js
 Page({
   data: {
@@ -59,11 +59,12 @@ Page({
         content: 'monkey',
       },
     ],
-  }
-})
+  },
+});
 ```
 
 ### With content
+
 ```xml
 <tabs items="{{ items }}">
   <view class="content" slot-scope="item">
@@ -73,16 +74,19 @@ Page({
 ```
 
 ### Capsule
+
 ```xml
 <tabs type="capsule" items="{{ items }}" defaultCurrent="{{ 1 }}"></tabs>
 ```
 
 ### With subtitle
+
 ```xml
 <tabs type="mixin" items="{{ items }}"></tabs>
 ```
 
 ### With logo
+
 ```xml
 <tabs items="{{ items }}">
  <view
@@ -97,6 +101,7 @@ Page({
 ```
 
 ### Disable state
+
 ```xml
 <tabs items="{{ items }}" />
 ```
@@ -123,11 +128,12 @@ Page({
         content: 'monkey',
       },
     ],
-  }
-})
+  },
+});
 ```
 
 ### plus button
+
 ```xml
 <tabs items="{{ items }}">
   <view slot="plus">
@@ -137,23 +143,50 @@ Page({
 ```
 
 ### Control mode
+
 ```xml
-<tabs items="{{ items }}" current="{{ current }}" onChange="handleChange" />
+<tabs
+  items="{{ items }}"
+  current="{{ current }}"
+#if ALIPAY
+  onChange="handleChange"
+#endif
+#if WECHAT
+  bind:change="handleChange"
+#endif
+/>
 ```
+
 ### Center scroll after selection
+
 ```xml
 <tabs items="{{ items }}" scrollMode="center" />
 ```
 
 ### Swiper
+
 ```xml
-<ant-tabs items="{{ items }}" current="{{ current }}" onChange="onChange">
+<ant-tabs
+  items="{{ items }}"
+  current="{{ current }}"
+#if ALIPAY
+  onChange="onChange"
+#endif
+#if WECHAT
+  bind:change="onChange"
+#endif
+>
     <swiper
       current="{{ current }}"
       autoplay="{{ false }}"
       vertical="{{ false }}"
       circular="{{ false }}"
+#if ALIPAY
       onChange="onSwipeChange"
+#endif
+#if WECHAT
+      bind:change="onSwipeChange"
+#endif
     >
       <block a:for="{{ items }}" a:for-index="index" a:for-item="item" a:key="{{ index }}">
         <swiper-item>
@@ -180,6 +213,7 @@ Page({
 ```xml
  <tabs items="{{ items }}" current="{{ current }}" onChange="onChange" className="sticky-tabs" />
 ```
+
 ```css
 .sticky-tabs {
   position: sticky;
@@ -189,6 +223,7 @@ Page({
 ```
 
 ### Portrait mode
+
 ```xml
  <tabs
     items="{{ items }}"
@@ -211,29 +246,32 @@ Page({
 ```
 
 ### Longitudinal elevator mode
+
 <code src='../../demo/pages/Tabs/TabsVerticalElevator/index'></code>
 
 ### Demo Code
+
 <code src='../../demo/pages/Tabs/index'></code>
 
 ## API
 
-| Property               | Description                                                                                           | Type                                                                                         | Default Value     |
-| ------------------ | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------- |
-| className          | Class Name                                                                                           | string                                                                                       | -          |
-| current            | Selected Index                                                                                       | number                                                                                       | -          |
-| defaultCurrent     | Selected index initial value                                                                                 | number                                                                                       | 0          |
-| direction          | tabs direction,`horizontal`(Horizontal) `vertical`(Vertical)                                                 | string                                                                                       | horizontal |
-| items              | option, quantity must be greater than 0                                                                           | `Item[]`                                                                                     | -          |
-| plus               | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of)  | slot                                                                                         | -          |
-| scrollMode         | Scrolling mode, optional 'edge', 'center'                                                                | string                                                                                       | edge       |
-| style              | Style                                                                                           | string                                                                                       | -          |
-| tabsBarClassName   | tabs bar class name                                                                                  | string                                                                                       | -          |
-| tabClassName       | tab class name                                                                                       | string                                                                                       | -          |
-| tabActiveClassName | tab active class name                                                                                | string                                                                                       | -          |
-| title              | Custom `Items` Title;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of) | slot                                                                                         | -          |
-| type               | Type,`basic`(basis),`capsule`(capsule),`mixin`(Mixed)                                            | string                                                                                       | `basic`    |
-| onChange           | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
+| Property                   | Description                                                                                           | Type                                                                                         | Default Value     |
+| ---------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------- |
+| className              | Class Name                                                                                           | string                                                                                       | -          |
+| current                | Selected Index                                                                                       | number                                                                                       | -          |
+| defaultCurrent         | Selected index initial value                                                                                 | number                                                                                       | 0          |
+| direction              | tabs direction,`horizontal`(Horizontal) `vertical`(Vertical)                                                 | string                                                                                       | horizontal |
+| items                  | option, quantity must be greater than 0                                                                           | `Item[]`                                                                                     | -          |
+| plus                   | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of)  | slot                                                                                         | -          |
+| scrollMode             | Scrolling mode, optional 'edge', 'center'                                                                | string                                                                                       | edge       |
+| style                  | Style                                                                                           | string                                                                                       | -          |
+| tabsBarClassName       | tabs bar class name                                                                                  | string                                                                                       | -          |
+| tabClassName           | tab class name                                                                                       | string                                                                                       | -          |
+| tabActiveClassName     | tab active class name                                                                                | string                                                                                       | -          |
+| title                  | Custom `Items` Title;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of) | slot                                                                                         | -          |
+| type                   | Type,`basic`(basis),`capsule`(capsule),`mixin`(Mixed)                                            | string                                                                                       | `basic`    |
+| #if ALIPAY onChange    | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
+| #if WECHAT bind:change | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 
 ### Item
 
@@ -278,19 +316,18 @@ Page({
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                        | Default Value                                                                                            | Remarks                |
-| ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------- |
-| --tabs-basic-color            | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div> | Tabs Basic Colors       |
-| --tabs-weaken-color           | <div style="width: 150px; height: 30px; background-color: #999999; color: #FFFFFF;">#999999</div> | Tabs Weaken Color       |
-| --tabs-inverse-color          | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Tabs Inverse           |
-| --tabs-active-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div> | Tabs Activate Colors       |
-| --tabs-active-decorate-color  | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div> | Tabs Activate Decorative Colors   |
-| --tabs-underline-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | Tabs Underline Border Color |
-| --tabs-plus-color             | <div style="width: 150px; height: 30px; background-color: #000000; color: #FFFFFF;">#000000</div> | Tabs Plus Color       |
-| --tabs-capsule-title-bg       | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | Tabs Capsule Title Background Color |
-| --tabs-subtitle-color         | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Tabs Subtitle Color     |
-| --tabs-count-color            | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | Tabs Count Color       |
-| --tabs-badge-size             | 28rpx                                                                                             | Tabs badge size       |
+| Variable name                        | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks                |
+| ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------- |
+| --tabs-basic-color            | <div style="width: 150px; height: 30px; background-color: #333333; color: #FFFFFF;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #FFFFFF;">#c5cad1</div> | Tabs Basic Colors       |
+| --tabs-weaken-color           | <div style="width: 150px; height: 30px; background-color: #999999; color: #FFFFFF;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #FFFFFF;">#616161</div> | Tabs Weaken Color       |
+| --tabs-inverse-color          | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Tabs Invert Color         |
+| --tabs-active-color           | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div> | Tabs Activate Colors       |
+| --tabs-active-decorate-color  | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div> | Tabs Activate Decorative Colors   |
+| --tabs-underline-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | Tabs Underline Border Color |
+| --tabs-plus-color             | <div style="width: 150px; height: 30px; background-color: #000000; color: #FFFFFF;">#000000</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #FFFFFF;">#000000</div> | Tabs Plus Color       |
+| --tabs-capsule-title-bg       | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Tabs Capsule Title Background Color |
+| --tabs-subtitle-color         | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Tabs Subtitle Color     |
+| --tabs-count-color            | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #fff;">#474747</div> | Tabs Count Color       |
 
 ## FAQ
 
@@ -298,9 +335,27 @@ Component provides the following CSS variables, which can be used to customize s
 
 can be used `slot` From the definition.
 
-```html
-<tabs items="{{items}}" onChange="onChange">
-  <view slot="title" slot-scope="tab" data-index="{{tab.index}}" onTap="onTap">
+```xml
+<tabs
+  items="{{items}}"
+#if ALIPAY
+  onChange="onChange"
+#endif
+#if WECHAT
+  bind:change="onChange"
+#endif
+>
+  <view
+    slot="title"
+    slot-scope="tab"
+    data-index="{{tab.index}}"
+#if ALIPAY
+    onTap="onTap"
+#endif
+#if WECHAT
+    bind:tap="onTap"
+#endif
+  >
     {{ tab.value.title }}
   </view>
 </tabs>

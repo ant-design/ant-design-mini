@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: Other
-  order: 16
+  title: General
+  order: 2
 toc: 'content'
 ---
 
@@ -28,7 +28,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Top Safety Area
 ```xml

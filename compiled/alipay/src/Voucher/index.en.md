@@ -10,8 +10,6 @@ supportPlatform: ['alipay']
 
 # Voucher
 
-## When to use
-
 Generic Coupon Component.
 
 ## Introduction
@@ -29,7 +27,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 
@@ -122,46 +120,46 @@ Page({
 
 ## Property
 
-| Property   | Type                                                   | Required | Default Value | Description                     |
-| ---------- | ------------------------------------------------------ | -------- | ------------- | ------------------------------- |
-| className  | string                                                 | No       | ""            | Container className             |
-| size       | `small` &#124; `large`                                 | No       | `large`       | Voucher Style                   |
-| direction  | `horizontal` &#124; `vertical` &#124; `multipleColumn` | No       | `horizontal`  | Arrangement of multiple coupons |
-| dataSource | [Item](#item)[]                                        | Yes      | []            | Data Source                     |
+| Property       | Type                                                   | Required | Default Value       | Description                 |
+| ---------- | ------------------------------------------------------ | ---- | ------------ | -------------------- |
+| className  | string                                                 | No   | ""           | Container className       |
+| size       | `small` &#124; `large`                                 | No   | `large`      | Voucher Style               |
+| direction  | `horizontal` &#124; `vertical` &#124; `multipleColumn` | No   | `horizontal` | Arrangement of multiple coupons |
+| dataSource | [Item](#item)[]                                        | Yes   | []           | Data Source               |
 
 ### Item
 
-| Property       | Type             | Default Value | Description                                                     |
-| -------------- | ---------------- | ------------- | --------------------------------------------------------------- |
-| title          | string           | None          | Title of the coupon                                             |
-| desc           | string           | None          | Description of Voucher                                          |
-| money          | string           | None          | Copy of the amount of the coupon                                |
-| moneyUnit      | string           | 'Yuan'        | The unit copy of the voucher, for example: xx yuan, xx discount |
-| threshold      | string           | None          | Restricted copy of coupons                                      |
-| disabled       | bool             | `false`       | Disable                                                         |
-| actionAreaInfo | [ActionAreaInfo] | None          | Area of action                                                  |
+| Property           | Type             | Default Value  | Description                             |
+| -------------- | ---------------- | ------- | -------------------------------- |
+| title          | string           | None      | Title of the coupon                         |
+| desc           | string           | None      | Description of Voucher                         |
+| money          | string           | None      | Copy of the amount of the coupon                     |
+| moneyUnit      | string           | 'Yuan'    | The unit copy of the voucher, for example: xx yuan, xx discount |
+| threshold      | string           | None      | Restricted copy of coupons                     |
+| disabled       | bool             | `false` | Disable                         |
+| actionAreaInfo | [ActionAreaInfo] | None      | Area of action                         |
 
 ### ActionAreaInfo
 
-| Property | Type   | Default Value | Description                                                                          |
-| -------- | ------ | ------------- | ------------------------------------------------------------------------------------ |
-| disabled | bool   | `false`       | Disable                                                                              |
-| text     | string | None          | Button Copy                                                                          |
-| imageUrl | string | None          | The picture in the completed state does not show the button when there is a picture. |
+| Property     | Type   | Default Value  | Description                             |
+| -------- | ------ | ------- | -------------------------------- |
+| disabled | bool   | `false` | Disable                         |
+| text     | string | None      | Button Copy                         |
+| imageUrl | string | None      | The picture in the completed state does not show the button when there is a picture. |
 
 ## Event
 
-| Event Name                 | Description                               | Type                  |
-| -------------------------- | ----------------------------------------- | --------------------- |
+| Event Name                     | Description                 | Type                  |
+| -------------------------- | -------------------- | --------------------- |
 | #if ALIPAY onBtnTap        | Click the button to trigger this callback | `(item, event)=>void` |
-| #if ALIPAY onVoucherTap    | Click the card to trigger this callback   | `(item, event)=>void` |
+| #if ALIPAY onVoucherTap    | Click the card to trigger this callback | `(item, event)=>void` |
 | #if WECHAT bind:btntap     | Click the button to trigger this callback | `(item, event)=>void` |
-| #if WECHAT bind:vouchertap | Click the card to trigger this callback   | `(item, event)=>void` |
+| #if WECHAT bind:vouchertap | Click the card to trigger this callback | `(item, event)=>void` |
 
 ## Slot
 
-| Name                | Description    |
-| ------------------- | -------------- |
+| Name                | Description     |
+| ------------------- | -------- |
 | voucher-action-area | Area of action |
 
 ### Theme customization
@@ -170,15 +168,18 @@ Page({
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-| Variable name                      | Default Value                                                                                                                       | Dark Mode Default                                                                                                                   | Remarks                                   |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| --voucher-multi-money-color        | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div>                                   | <div style="width: 150px; height: 30px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div>                                   | Multi-amount coupon color                 |
-| --voucher-threshold-color          | <div style="width: 150px; height: 30px; background-color: #666; color: #ffffff;">#666</div>                                         | <div style="width: 150px; height: 30px; background-color: #666; color: #ffffff;">#666</div>                                         | Threshold Color                           |
-| --voucher-action-btn-color         | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div>                                   | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div>                                   | Operation button color                    |
-| --voucher-action-bg                | <div style="width: 150px; height: 30px; background-color: #fff; color: #333333;">#fff</div>                                         | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                                   | Operation background color                |
-| --voucher-action-left-bg           | <div style="width: 150px; height: 30px; background-color: #fff; color: #333333;">#fff</div>                                         | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                                   | Operation left background color           |
-| --voucher-action-left-threshold-bg | <div style="width: 150px; height: 30px; background-color: #fff; color: #333333;">#fff</div>                                         | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                                   | Operation Left Threshold Background Color |
-| --voucher-action-right-color       | <div style="width: 150px; height: 30px; background-color: #fff; color: #333333;">#fff</div>                                         | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                                   | Operation right color                     |
-| --voucher-action-right-title-color | <div style="width: 150px; height: 30px; background-color: #fff; color: #333333;">#fff</div>                                         | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                                   | Manipulation Right Title Color            |
-| --voucher-action-right-desc-color  | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.8); color: #ffffff;">rgba(255, 255, 255, 0.8)</div> | <div style="width: 150px; height: 30px; background-color: rgba(255, 255, 255, 0.8); color: #ffffff;">rgba(255, 255, 255, 0.8)</div> | Operation right description color         |
-| --voucher-item-right-title-color   | <div style="width: 150px; height: 30px; background-color: #666; color: #ffffff;">#666</div>                                         | <div style="width: 150px; height: 30px; background-color: #666; color: #ffffff;">#666</div>                                         | Item right title color (duplicate)        |
+| Variable name                             | Light Mode Default                                                                                                                   | Dark Mode Default                                                                                                                   | Remarks                 |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| --voucher-background-image-start   | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0); color: #000;">rgba(255, 255, 255, 0)</div>     | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0); color: #000;">rgba(255, 255, 255, 0)</div>     | Voucher background map start color     |
+| --voucher-background-image-end     | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | Voucher background map end color     |
+| --voucher-multi-money-color        | <div style="width: 150px; height: 40px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div>                                | <div style="width: 150px; height: 40px; background-color: #ff3b30; color: #ffffff;">#ff3b30</div>                                | Multiple Amount Colors         |
+| --voucher-threshold-color          | <div style="width: 150px; height: 40px; background-color: #666666; color: #ffffff;">#666</div>                                   | <div style="width: 150px; height: 40px; background-color: #808080; color: #ffffff;">#808080</div>                                | Threshold Color             |
+| --voucher-action-btn-color         | <div style="width: 150px; height: 40px; background-color: #ff3141; color: #ffffff;">#ff3141</div>                                | <div style="width: 150px; height: 40px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div>                                | Operation button color         |
+| --voucher-action-bg                | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | Operation background color         |
+| --voucher-action-left-bg           | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | Operation left background color     |
+| --voucher-action-left-threshold-bg | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | Operation Left Threshold Background Color |
+| --voucher-action-right-color       | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#fffffff</div>                                   | Operation right color         |
+| --voucher-action-right-title-color | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | Manipulation Right Title Color     |
+| --voucher-action-right-desc-color  | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.8); color: #000;">rgba(255, 255, 255, 0.8)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.8); color: #000;">rgba(255, 255, 255, 0.8)</div> | Operation right description color     |
+| --voucher-item-right-title-color   | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>                                | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>                                | Right side title color 1     |
+| --voucher-item-right-title-color   | <div style="width: 150px; height: 40px; background-color: #666666; color: #ffffff;">#666</div>                                   | <div style="width: 150px; height: 40px; background-color: #808080; color: #ffffff;">#808080</div>                                | Title color on right side of coupon 2     |

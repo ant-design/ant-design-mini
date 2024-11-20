@@ -2,18 +2,14 @@
 nav:
   path: /components
 group:
-  title: Information Entry
+  title: 数据录入
   order: 10
 toc: content
 ---
 
 # Input
 
-Through the keyboard input content, is the most basic form field packaging.
-
-## When to use
-
-Generally used in the form page for information collection.
+Through the keyboard input content, is the most basic form field packaging. Generally used in the form page for information collection.
 
 ## Introduction
 
@@ -32,13 +28,13 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Input basic usage
 
 ```xml
-<ant-input placeholder="input here" onChange="onChange" />
-<ant-input placeholder="input here" defaultValue="initial value" onChange="onChange" />
+<ant-input placeholder="input here" />
+<ant-input placeholder="input here" defaultValue="initial value" />
 <ant-input placeholder="input here, with clear button" allowClear />
 <ant-input placeholder="disabled input" disabled="{{ true }}" />
 ```
@@ -46,7 +42,7 @@ In `index.json` Introducing Components in
 ### With Prefix and Suffix
 
 ```xml
-<ant-input placeholder="input here" onChange="onChange" allowClear>
+<ant-input placeholder="input here" allowClear>
   <view slot="prefix">￥</view>
   <view slot="suffix">RMB</view>
 </ant-input>
@@ -55,7 +51,7 @@ In `index.json` Introducing Components in
 ### Controlled Mode
 
 ```xml
-<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear onChange="handleChange" />
+<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear />
 ```
 
 ### Enter Amount
@@ -79,7 +75,6 @@ In `index.json` Introducing Components in
       confirm-type="search"
       allowClear
       focus
-      onConfirm="onConfirm"
     >
       <ant-icon slot="prefix" type="SearchOutline" />
       <ant-icon slot="suffix" type="AudioOutline" />
@@ -102,11 +97,11 @@ In `index.json` Introducing Components in
   flex: 1;
 
   &-focus {
-    border-color: @COLOR_BRAND1;
+    border-color: #1677ff;
   }
 }
 .cancel {
-  color: @COLOR_TEXT_PRIMARY;
+  color: #fff;
   margin-left: 8px;
 }
 ```
@@ -116,14 +111,14 @@ In `index.json` Introducing Components in
 #### Basic Usage
 
 ```xml
- <ant-textarea placeholder="input here" autoHeight onChange="onChange" />
- <ant-textarea placeholder="input here" defaultValue="initial value" autoHeight onChange="onChange" />
+ <ant-textarea placeholder="input here" autoHeight />
+ <ant-textarea placeholder="input here" defaultValue="initial value" autoHeight />
 ```
 
 #### Controlled Mode
 
 ```xml
- <ant-textarea value="{{ value }}" placeholder="input here" allowClear onChange="handleChange" />
+ <ant-textarea value="{{ value }}" placeholder="input here" allowClear />
 ```
 
 ### Custom
@@ -131,12 +126,12 @@ In `index.json` Introducing Components in
 #### With border
 
 ```xml
-<ant-input className="custom" placeholder="input here" onChange="onChange" />
+<ant-input className="custom" placeholder="input here" />
 ```
 
 ```css
 .custom {
-  border: 1px solid @COLOR_BORDER;
+  border: 1px solid #ccc;
   padding: 4px;
   border-radius: 4px;
   margin-bottom: 12px;
@@ -146,7 +141,7 @@ In `index.json` Introducing Components in
 #### Custom Background Color
 
 ```xml
- <ant-input className="custom-color" placeholder="input here" onChange="onChange" />
+ <ant-input className="custom-color" placeholder="input here" />
 ```
 
 ```css
@@ -169,20 +164,24 @@ In `index.json` Introducing Components in
 
 ### Input, Textarea the same property
 
-| Property         | Description                                            | Type                                  | Default Value |
-| ------------ | ----------------------------------------------- | ------------------------------------- | ------ |
-| className    | Class Name                                            | string                                | -      |
-| controlled   | There are keyboard input problems, you can use `controlled="{{false}}"` | boolean                               | -      |
-| defaultValue | Initial value                                          | string                                | -      |
-| disabled     | Disable                                        | boolean                               | false  |
-| maxLength    | Maximum length                                        | number                                | 140    |
-| placeholder  | Placeholder                                          | string                                | -      |
-| style        | Style                                            | string                                | -      |
-| value        | The value of the input box. Controlled mode.                          | string                                | -      |
-| onConfirm    | This callback is triggered when the keyboard is clicked to complete                        | (value: string, event: Event) => void | -      |
-| onFocus      | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
-| onBlur       | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
-| onChange     | This callback is triggered when input                                | (value: string, event: Event) => void | -      |
+| Property                    | Description                                            | Type                                  | Default Value |
+| ----------------------- | ----------------------------------------------- | ------------------------------------- | ------ |
+| className               | Class Name                                            | string                                | -      |
+| controlled              | There are keyboard input problems, you can use `controlled="{{false}}"` | boolean                               | -      |
+| defaultValue            | Initial value                                          | string                                | -      |
+| disabled                | Disable                                        | boolean                               | false  |
+| maxLength               | Maximum length                                        | number                                | 140    |
+| placeholder             | Placeholder                                          | string                                | -      |
+| style                   | Style                                            | string                                | -      |
+| value                   | The value of the input box. Controlled mode.                          | string                                | -      |
+| #if ALIPAY onConfirm    | This callback is triggered when the keyboard is clicked to complete                        | (value: string, event: Event) => void | -      |
+| #if ALIPAY onFocus      | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
+| #if ALIPAY onBlur       | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
+| #if ALIPAY onChange     | This callback is triggered when input                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bind:confirm | This callback is triggered when the keyboard is clicked to complete                        | (value: string, event: Event) => void | -      |
+| #if WECHAT bind:focus   | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bind:blur    | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bind:change  | This callback is triggered when input                                | (value: string, event: Event) => void | -      |
 
 ### Input property
 
@@ -233,8 +232,6 @@ Instance methods require small programs `component2` Can be used.
 
 Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
-
 | Variable name                         | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks               |
 | ------------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
 | --input-item-color             | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Input Text Color     |
@@ -258,15 +255,27 @@ This is due [A known issue with input boxes](https://opendocs.alipay.com/mini/co
 
 The solution is to call the input update method in ref mode without using value controlled mode.
 
-```html
+```xml
 <input defaultValue="{{defaultValue}}" ref="handleRef" />
-<button onTap="clear">clear</button>
+<button
+#if ALIPAY
+  onTap="clear"
+#endif
+#if WECHAT
+  bind:tap="clear"
+#endif
+>clear</button>
 ```
 
 ```js
 Page({
   handleRef(input) {
+#if ALIPAY
     this.input = input;
+#endif
+#if WECHAT
+    this.input = input.detail;
+#endif
   },
   clear() {
     this.input.update('');

@@ -2,16 +2,14 @@
 nav:
   path: /components
 group:
-  title: Bizness Components
-  order: 15
-toc: content
+  title: 数据展示
+  order: 8
+toc: 'content'
 ---
 
 # Card
 
-## When to use
-
-Base card container.
+Base card container. When you need to carry text, lists, pictures, paragraphs and other content, use Card card containers to facilitate users to browse.
 
 ## Introduction
 
@@ -27,18 +25,20 @@ In `index.json` Introducing Components in
 #endif
 }
 ```
+
 ## Code Sample
 
 ### Basic Usage
+
 ```xml
-<ant-card 
+<ant-card
 #if ALIPAY
-  onOperateClick="handleLinkClick" 
+  onOperateClick="handleLinkClick"
 #endif
 #if WECHAT
-  bind:operateClick="handleLinkClick" 
+  bind:operateClick="handleLinkClick"
 #endif
-  title="title" 
+  title="title"
   operateText="operate"
 >
   <view>
@@ -48,10 +48,11 @@ In `index.json` Introducing Components in
 ```
 
 ### Content Separator
+
 ```xml
-<ant-card 
+<ant-card
   divider="{{true}}"
-  title="title" 
+  title="title"
   operateText="operate"
 >
   <view>
@@ -61,15 +62,16 @@ In `index.json` Introducing Components in
 ```
 
 ### Title ceiling
+
 ```xml
 <ant-card
   title="title"
   headSticky="{{true}}"
 #if ALIPAY
-  onTitleSticky="handleTitleSticky" 
+  onTitleSticky="handleTitleSticky"
 #endif
 #if WECHAT
-  bind:titleSticky="handleLinkClick" 
+  bind:titleSticky="handleLinkClick"
 #endif
 >
   <view style="height: 400px">
@@ -79,6 +81,7 @@ In `index.json` Introducing Components in
 ```
 
 ### Card Foldable
+
 ```xml
 <ant-card
   title="title"
@@ -91,9 +94,10 @@ In `index.json` Introducing Components in
 ```
 
 ### Custom Action Buttons
+
 ```xml
-<ant-card 
-  title="title" 
+<ant-card
+  title="title"
   operateText="operateText"
 >
   <view slot="headerRight">
@@ -111,30 +115,30 @@ In `index.json` Introducing Components in
 
 ## Property
 
-| Property | Description  | Type | Default Value                                       |
-| --- | ---  | --- |------------------------------------------|
-| className | Container className| string   | - |
-| config | Card Configuration   | [ICardConfig](#ICardConfig) | - |
-| title | Card Title  | string | - |
-| divider | Whether there is a dividing line  | boolean | false |
-| needFold | Whether a foldable card is required, the operateText needs to be empty, otherwise it needs to be manually unfolded and stowed. | boolean | false |
-| foldStatus | Whether it is collapsed or not, passing true will cause it to be collapsed, regardless of whether the needFold is true or not.  | boolean | false |
-| headSticky | Does the title need ceiling  | boolean | false |
-| stickyTransparentTitle | Whether the ceiling is on the transparent head page, if so, the height of the transparent head will be calculated automatically.  | boolean | false |
-| stickyTop | How much distance should the title be from the top when it is sucked  | string | - |
-| operateText | Default title bar right action button text | string | - |
-| #if ALIPAY onOperateClick | Default title bar right operation button click callback | () => void | - |
-| #if ALIPAY onFoldChange | Default title bar right collapse expand button click callback | () => void | - |
-| #if ALIPAY onTitleSticky | Whether the title area is the callback when the ceiling changes. | (status) => void | - |
-| #if WECHAT bind:operateClick | Default title bar right operation button click callback | () => void | - |
-| #if WECHAT bind:foldChange | Default title bar right collapse expand button click callback | () => void | - |
-| #if WECHAT bind:titleSticky | Whether the title area is the callback when the ceiling changes. | (status) => void | - |
+| Property                         | Description                                                                | Type                        | Default Value |
+| ---------------------------- | ------------------------------------------------------------------- | --------------------------- | ------ |
+| className                    | Container className                                                      | string                      | -      |
+| config                       | Card Configuration                                                            | [ICardConfig](#ICardConfig) | -      |
+| title                        | Card Title                                                            | string                      | -      |
+| divider                      | Whether there is a dividing line                                                        | boolean                     | false  |
+| needFold                     | Whether a foldable card is required, the operateText needs to be empty, otherwise it needs to be manually unfolded and stowed. | boolean                     | false  |
+| foldStatus                   | Whether it is collapsed or not, passing true will cause it to be collapsed, regardless of whether the needFold is true or not.             | boolean                     | false  |
+| headSticky                   | Does the title need ceiling                                                    | boolean                     | false  |
+| stickyTransparentTitle       | Whether the ceiling is on the transparent head page, if so, the height of the transparent head will be calculated automatically.                      | boolean                     | false  |
+| stickyTop                    | How much distance should the title be from the top when it is sucked                                  | string                      | -      |
+| operateText                  | Default title bar right action button text                                          | string                      | -      |
+| #if ALIPAY onOperateClick    | Default title bar right operation button click callback                                      | () => void                  | -      |
+| #if ALIPAY onFoldChange      | Default title bar right collapse expand button click callback                                  | () => void                  | -      |
+| #if ALIPAY onTitleSticky     | Whether the title area is the callback when the ceiling changes.                                      | (status) => void            | -      |
+| #if WECHAT bind:operateclick | Default title bar right operation button click callback                                      | () => void                  | -      |
+| #if WECHAT bind:foldchange   | Default title bar right collapse expand button click callback                                  | () => void                  | -      |
+| #if WECHAT bind:titlesticky  | Whether the title area is the callback when the ceiling changes.                                      | (status) => void            | -      |
 
 ### ICardConfig
 
-| Configuration Item | Description | Type | Default Value |
-| --- | --- | --- | --- |
-| foldTapArea | Collapse behavior trigger area, optional`btn`、`header` | string | 'btn' |
+| Configuration Item      | Description                                  | Type   | Default Value |
+| ----------- | ------------------------------------- | ------ | ------ |
+| foldTapArea | Collapse behavior trigger area, optional`btn`、`header` | string | 'btn'  |
 
 ## Slot
 
@@ -143,3 +147,16 @@ In `index.json` Introducing Components in
 | Default Slot    | Card Content             |
 | headerTitle | Custom Title Bar Left Header |
 | headerRight | Customize the right content of the title bar |
+
+### Theme customization
+
+#### Style Variables
+
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+
+| Variable name                        | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks             |
+| ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --ant-card-bg                 | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Card background color     |
+| --ant-card-header-title-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #000000;">#c5cad1</div> | Card head title color |
+| --ant-card-header-link-color  | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Card Head Link Color |
+| --ant-card-fold-btn-color     | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Card Fold Button Color |
