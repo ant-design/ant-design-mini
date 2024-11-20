@@ -7,6 +7,9 @@ var esES = {
         okText: 'Confirmar',
         cancelText: 'Cancelar',
     },
+    input: {
+        placeholder: 'Por favor, introduzca',
+    },
     calendar: {
         weekdayNames: [
             'Lunes',

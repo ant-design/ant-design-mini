@@ -13,12 +13,12 @@
 >
   <ant-mask
     show
-    class-name="{{maskClassName}}"
+    className="{{maskClassName}}"
     style="z-index:9999;{{maskStyle || ''}}"
   ></ant-mask>
   <ant-icon
     type="CloseOutline"
-    class-name="ant-guide-tour-clear"
+    className="ant-guide-tour-clear"
     onTap="onCancel"
   ></ant-icon>
   <view class="ant-guide-tour-button">
@@ -31,8 +31,8 @@
       <ant-auto-resize
         text="{{u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}"
         ratio="{{4}}"
-        min-font-size="20"
-        max-font-size="30"
+        minFontSize="20"
+        maxFontSize="30"
       >
         {{u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}
       </ant-auto-resize>
@@ -47,8 +47,8 @@
       <ant-auto-resize
         text="{{u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}"
         ratio="{{4}}"
-        min-font-size="20"
-        max-font-size="30"
+        minFontSize="20"
+        maxFontSize="30"
       >
         {{u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}
       </ant-auto-resize>
@@ -63,8 +63,8 @@
       <ant-auto-resize
         text="{{u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}"
         ratio="{{4}}"
-        min-font-size="20"
-        max-font-size="30"
+        minFontSize="20"
+        maxFontSize="30"
       >
         {{u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}
       </ant-auto-resize>
@@ -78,8 +78,8 @@
       <ant-auto-resize
         text="{{u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}"
         ratio="{{4}}"
-        min-font-size="20"
-        max-font-size="30"
+        minFontSize="20"
+        maxFontSize="30"
       >
         {{u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}
       </ant-auto-resize>
@@ -98,7 +98,7 @@
     <swiper
       class="ant-guide-tour-swiper"
       current="{{mixin.value}}"
-      adjust-height="none"
+      adjustHeight="none"
       style="height: 100vh"
       onChange="onSwiperChange"
     >

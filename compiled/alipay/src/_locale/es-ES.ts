@@ -9,6 +9,9 @@ const esES: Locale = {
     okText: 'Confirmar',
     cancelText: 'Cancelar',
   },
+  input: {
+    placeholder: 'Por favor, introduzca',
+  },
   calendar: {
     weekdayNames: [
       'Lunes',

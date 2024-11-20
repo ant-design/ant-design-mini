@@ -7,6 +7,9 @@ var ptBR = {
         okText: 'Confirmar',
         cancelText: 'Cancelar',
     },
+    input: {
+        placeholder: 'Por favor, insira.',
+    },
     calendar: {
         weekdayNames: [
             'Segunda-feira',

@@ -7,6 +7,9 @@ var enUS = {
         okText: 'Ok',
         cancelText: 'Cancel',
     },
+    input: {
+        placeholder: 'Please enter',
+    },
     calendar: {
         weekdayNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         today: 'Today',

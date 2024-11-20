@@ -7,6 +7,9 @@ var ruRU = {
         okText: 'Конечно',
         cancelText: 'Отмена',
     },
+    input: {
+        placeholder: 'Пожалуйста, введите',
+    },
     calendar: {
         weekdayNames: [
             'Понедельник',

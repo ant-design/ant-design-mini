@@ -7,6 +7,9 @@ var trTR = {
         okText: 'Kesinlikle',
         cancelText: 'İptal',
     },
+    input: {
+        placeholder: 'Lütfen girin',
+    },
     calendar: {
         weekdayNames: [
             'Pazartesi',

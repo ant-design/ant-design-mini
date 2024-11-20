@@ -9,6 +9,9 @@ const koKR: Locale = {
     okText: '확실합니다',
     cancelText: '취소',
   },
+  input: {
+    placeholder: '입력해 주세요',
+  },
   calendar: {
     weekdayNames: [
       '월요일',

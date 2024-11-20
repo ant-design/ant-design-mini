@@ -8,6 +8,9 @@ var arSA = {
         okText: 'تأكيد',
         cancelText: 'إلغاء',
     },
+    input: {
+        placeholder: 'الرجاء إدخال',
+    },
     calendar: {
         weekdayNames: [
             'الإثنين',
