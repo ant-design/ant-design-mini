@@ -393,6 +393,13 @@
     --number-input-quick-text-color: #1677ff;
     --number-input-quick-border-color: #1677ff;
     --number-input-remaining-color: #666666;
+    --postscript-background-color: #ffffff;
+    --postscript-title-color: #333;
+    --postscript-input-color: #333;
+    --postscript-caret-color: #1677ff;
+    --postscript-placeholder-color: #cccccc;
+    --postscript-quick-text-color: #666;
+    --postscript-quick-border-color: #eeeeee;
   }
 }
 /* 深色模式的css变量 */
@@ -530,7 +537,7 @@
     --collapse-border-color: #2b2b2b;
     --collapse-node-text-color: #616161;
     --collapse-container-background-color: #1a1a1a;
-    --container-header-color: #c5cad1;
+    --container-header-color: #2b2b2b;
     --container-color-text-assist: #616161;
     --container-background-color: #1a1a1a;
     --divider-text-color: #c5cad1;
@@ -773,5 +780,12 @@
     --number-input-quick-text-color: #3086ff;
     --number-input-quick-border-color: #3086ff;
     --number-input-remaining-color: #808080;
+    --postscript-background-color: #1a1a1a;
+    --postscript-title-color: #c5cad1;
+    --postscript-input-color: #c5cad1;
+    --postscript-caret-color: #3086ff;
+    --postscript-placeholder-color: #474747;
+    --postscript-quick-text-color: #808080;
+    --postscript-quick-border-color: #2b2b2b;
   }
 }

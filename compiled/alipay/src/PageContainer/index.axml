@@ -25,7 +25,7 @@
     <ant-empty
       image="{{image}}"
       title="{{title}}"
-      image-mode="heightFix"
+      imageMode="heightFix"
       message="{{message}}"
     >
       <view slot="extra">

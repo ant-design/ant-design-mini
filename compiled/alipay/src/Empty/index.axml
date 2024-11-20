@@ -16,8 +16,8 @@
       <view class="ant-empty-text-main">
         <ant-auto-resize
           text="{{title}}"
-          min-font-size="24"
-          max-font-size="40"
+          minFontSize="24"
+          maxFontSize="40"
         >
           <slot name="title">{{title}}</slot>
         </ant-auto-resize>
@@ -25,8 +25,8 @@
       <view class="ant-empty-text-sub">
         <ant-auto-resize
           text="{{message}}"
-          min-font-size="24"
-          max-font-size="40"
+          minFontSize="24"
+          maxFontSize="40"
         >
           <slot name="message">{{message}}</slot>
         </ant-auto-resize>

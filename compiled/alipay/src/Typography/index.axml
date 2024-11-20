@@ -4,9 +4,9 @@
 ></import-sjs>
 <view
   class="ant-typography-container {{disabled ? 'ant-typography-disabled' : ''}} {{className}}"
-  hover-class="{{onTap || catchTap ? 'ant-typography-hover {{activeClassName}}' : ''}}"
-  hover-start-time="{{20}}"
-  hover-stay-time="{{40}}"
+  hoverClass="{{onTap || catchTap ? 'ant-typography-hover {{activeClassName}}' : ''}}"
+  hoverStartTime="{{20}}"
+  hoverStayTime="{{40}}"
   style="{{style}}"
   onTap="{{onTap || onDisabledTap ? 'onTap' : ''}}"
   catchTap="{{catchTap ? 'catchTap' : ''}}"
@@ -19,7 +19,7 @@
     <ant-icon
       a:if="{{!util.isUrl(icon)}}"
       type="{{icon}}"
-      class-name="ant-typography-icon"
+      className="ant-typography-icon"
     ></ant-icon>
     <image
       a:else
@@ -31,7 +31,7 @@
   <!--文案-->
   <text
     selectable="{{selectable}}"
-    number-of-lines="{{ellipsisRow}}"
+    numberOfLines="{{ellipsisRow}}"
     class="ant-typography-text {{lineThrough ? 'lineThrough' : ''}} {{underline ? 'underline' : ''}} {{util.isiOS(phonemodel) ? 'ant-typography-text-' + (fontWeight || 'normal') + '' : ''}}"
     style="{{!util.isiOS(phonemodel) ? 'font-weight: ' + (util.getFontWeight(fontWeight, phonemodel)) + ';' : ''}}"
   >
@@ -45,7 +45,7 @@
     <ant-icon
       a:if="{{!util.isUrl(icon)}}"
       type="{{icon}}"
-      class-name="ant-typography-icon"
+      className="ant-typography-icon"
     ></ant-icon>
     <image
       a:else

@@ -129,7 +129,7 @@ page {
   --collapse-border-color: #2b2b2b;
   --collapse-node-text-color: #616161;
   --collapse-container-background-color: #1a1a1a;
-  --container-header-color: #c5cad1;
+  --container-header-color: #2b2b2b;
   --container-color-text-assist: #616161;
   --container-background-color: #1a1a1a;
   --divider-text-color: #c5cad1;
@@ -367,4 +367,11 @@ page {
   --number-input-quick-text-color: #3086ff;
   --number-input-quick-border-color: #3086ff;
   --number-input-remaining-color: #808080;
+  --postscript-background-color: #1a1a1a;
+  --postscript-title-color: #c5cad1;
+  --postscript-input-color: #c5cad1;
+  --postscript-caret-color: #3086ff;
+  --postscript-placeholder-color: #474747;
+  --postscript-quick-text-color: #808080;
+  --postscript-quick-border-color: #2b2b2b;
 }
