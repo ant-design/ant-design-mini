@@ -11,4 +11,7 @@ export var TypographyDefaultProps = {
     lineThrough: false,
     underline: false,
     ellipsisRow: null,
+    onTap: null,
+    catchTap: null,
+    onDisabledTap: null,
 };

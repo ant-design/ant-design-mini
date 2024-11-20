@@ -11,10 +11,7 @@ Component(
   {
     onTap(e) {
       const disabled = getValueFromProps(this, 'disabled');
-
-      console.log(123123);
       if (disabled) {
-        console.log(123123);
         triggerEventOnly(this, 'disabledTap', e);
         return;
       }
@@ -22,9 +19,7 @@ Component(
     },
     catchTap(e) {
       const disabled = getValueFromProps(this, 'disabled');
-      console.log(33344);
       if (disabled) {
-        console.log(3456);
         triggerEventOnly(this, 'disabledTap', e);
         return;
       }

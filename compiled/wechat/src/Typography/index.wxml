@@ -4,12 +4,11 @@
 ></wxs>
 <view
   class="ant-typography-container {{disabled ? 'ant-typography-disabled' : ''}} {{className}}"
-  hoverClass="{{onTap || catchTap ? 'ant-typography-hover {{activeClassName}}' : ''}}"
+  hoverClass="ant-typography-hover {{activeClassName}}"
   hoverStartTime="{{20}}"
   hoverStayTime="{{40}}"
   style="{{style}}"
-  bind:tap="{{onTap || onDisabledTap ? 'onTap' : ''}}"
-  catch:tap="{{catchTap ? 'catchTap' : ''}}"
+  bind:tap="onTap"
 >
   <!--左侧图标-->
   <view
