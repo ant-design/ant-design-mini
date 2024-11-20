@@ -9,6 +9,9 @@ const itIT: Locale = {
     okText: 'Certamente',
     cancelText: 'Annulla',
   },
+  input: {
+    placeholder: 'Inserisci',
+  },
   calendar: {
     weekdayNames: [
       'Lunedì',

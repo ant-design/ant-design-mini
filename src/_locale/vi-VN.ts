@@ -9,6 +9,9 @@ const viVN: Locale = {
     okText: 'Xác định',
     cancelText: 'Hủy bỏ',
   },
+  input: {
+    placeholder: 'Vui lòng nhậper',
+  },
   calendar: {
     weekdayNames: [
       'Thứ Hai',

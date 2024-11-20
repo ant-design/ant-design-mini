@@ -10,6 +10,9 @@ const zhTW: Locale = {
     okText: '確定',
     cancelText: '取消',
   },
+  input: {
+    placeholder: '請輸入',
+  },
   calendar: {
     weekdayNames: ['一', '二', '三', '四', '五', '六', '日'],
     today: '今日',
