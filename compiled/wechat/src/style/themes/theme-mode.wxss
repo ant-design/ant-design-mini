@@ -241,7 +241,7 @@
     --number-key-board-iphonex-safe-background-color: #ffffff;
     --number-key-board-background-color: #f5f5f5;
     --number-key-board-border-color: #eeeeee;
-    --number-key-board-transfer-color: #1677ff;
+    --number-key-board-transfer-bg: #1677ff;
     --number-key-board-transfer-color: #ffffff;
     --picker-item-color: #333333;
     --picker-header-action-color: #1677ff;
@@ -627,7 +627,7 @@
     --number-key-board-iphonex-safe-background-color: #1a1a1a;
     --number-key-board-background-color: #121212;
     --number-key-board-border-color: #2b2b2b;
-    --number-key-board-transfer-color: #3086ff;
+    --number-key-board-transfer-bg: #3086ff;
     --number-key-board-transfer-color: #ffffff;
     --picker-item-color: #c5cad1;
     --picker-header-action-color: #3086ff;
