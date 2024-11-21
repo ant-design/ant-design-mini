@@ -3,18 +3,19 @@
   <!-- 搜索栏 -->
   <view class="search-line">
     <input
-      placeholder="请输入内容"
+      placeholder="请输入"
       onChange="onChange"
       className="search-bar"
       focusClassName="search-bar-focus"
       confirm-type="search"
       allowClear
       focus
+      onFocus="handleSearch"
       onConfirm="onConfirm"
     >
       <ant-icon slot="prefix" type="SearchOutline" />
     </input>
-    <view class="cancel">取消</view>
+    <view a:if="{{ searchable }}" onTap="handleCancelSearch" class="cancel">取消</view>
   </view>
   <view class="scc-blank" />
 

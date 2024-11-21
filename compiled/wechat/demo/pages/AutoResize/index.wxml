@@ -2,8 +2,8 @@
   <ant-container title="中文">
     <ant-auto-resize
       text="页面遇到一些小问题"
-      minFontSize="24"
-      maxFontSize="60"
+      min-font-size="24"
+      max-font-size="60"
     >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">页面遇到一些小问题</view>
     </ant-auto-resize>
@@ -11,8 +11,8 @@
   <ant-container title="英文">
     <ant-auto-resize
       text="The page is experiencing some minor issues"
-      minFontSize="24"
-      maxFontSize="60"
+      min-font-size="24"
+      max-font-size="60"
     >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">The page is experiencing some minor issues</view>
     </ant-auto-resize>
@@ -21,8 +21,8 @@
     <ant-auto-resize
       text="The page is experiencing some minor issues"
       ratio="{{4}}"
-      minFontSize="24"
-      maxFontSize="60"
+      min-font-size="24"
+      max-font-size="60"
     >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">The page is experiencing some minor issues</view>
     </ant-auto-resize>
@@ -30,8 +30,8 @@
   <ant-container title="日文">
     <ant-auto-resize
       text="ページにいくつかの小さな問題が発生しています"
-      minFontSize="24"
-      maxFontSize="60"
+      min-font-size="24"
+      max-font-size="60"
     >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">ページにいくつかの小さな問題が発生しています</view>
     </ant-auto-resize>
@@ -39,8 +39,8 @@
   <ant-container title="韩文">
     <ant-auto-resize
       text="페이지에 작은 문제가 발생했습니다"
-      minFontSize="24"
-      maxFontSize="60"
+      min-font-size="24"
+      max-font-size="60"
     >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">페이지에 작은 문제가 발생했습니다</view>
     </ant-auto-resize>
@@ -48,8 +48,8 @@
   <ant-container title="阿拉伯">
     <ant-auto-resize
       text="تواجه الصفحة بعض المشكلات البسيطة"
-      minFontSize="24"
-      maxFontSize="60"
+      min-font-size="24"
+      max-font-size="60"
     >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">تواجه الصفحة بعض المشكلات البسيطة</view>
     </ant-auto-resize>
@@ -57,8 +57,8 @@
   <ant-container title="西班牙">
     <ant-auto-resize
       text="La página ha encontrado algunos pequeños problemas"
-      minFontSize="24"
-      maxFontSize="60"
+      min-font-size="24"
+      max-font-size="60"
     >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">La página ha encontrado algunos pequeños problemas</view>
     </ant-auto-resize>
@@ -66,8 +66,8 @@
   <ant-container title="俄语">
     <ant-auto-resize
       text="На странице возникли небольшие проблемы"
-      minFontSize="24"
-      maxFontSize="60"
+      min-font-size="24"
+      max-font-size="60"
     >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">На странице возникли небольшие проблемы</view>
     </ant-auto-resize>
@@ -75,8 +75,8 @@
   <ant-container title="法语">
     <ant-auto-resize
       text="La page rencontre quelques problèmes mineurs"
-      minFontSize="24"
-      maxFontSize="60"
+      min-font-size="24"
+      max-font-size="60"
     >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">La page rencontre quelques problèmes mineurs</view>
     </ant-auto-resize>
@@ -84,8 +84,8 @@
   <ant-container title="德语">
     <ant-auto-resize
       text="Auf der Seite treten einige kleinere Probleme auf"
-      minFontSize="24"
-      maxFontSize="60"
+      min-font-size="24"
+      max-font-size="60"
     >
       <view style="background-color: #1677ff; color: #fff; height: 60rpx;">Auf der Seite treten einige kleinere Probleme auf</view>
     </ant-auto-resize>
